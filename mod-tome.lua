@@ -4096,7 +4096,7 @@ YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HEL
 这是你那份药剂，另外还有个东西给你。这个纹身可稀有了，千万别浪费了。]], "_t")
 t("WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?", "你选择哪一个任务？你是来做任务的吧？我想你该不是那些来找春药的蠢货吧？", "_t")
 t("TAKE THIS LIST OF INGREDIENTS, AND HURRY THE HELL UP.", "拿好配料清单，动作快点。", "_t")
-t("TOO SLOW, HAMBRAIN. ELIXIR'S MADE ALREADY, AND SOMEBODY ELSE WALKED OFF WITH THE REWARD. IF YOU'RE FEELING SORRY FOR YOURSELF, ASK WHETHER THIS IS MORE OR LESS PLEASANT THAN GETTING APPRECIABLE CHUNKS OF YOUR ANATOMY BLASTED CLEAN OFF YOUR BODY THIS MORNING. THAT'S RIGHT. BYE.", "太慢了，蠢蛋，药剂我已经做好了。已经有人来拿走了奖励。如果你觉得失望，告诉自己这是否比一早上被从你身上炸烂一大块要好。就是这样，再见。", "_t")
+t("TOO SLOW, HAMBRAIN. ELIXIR'S MADE ALREADY, AND SOMEBODY ELSE WALKED OFF WITH THE REWARD. IF YOU'RE FEELING SORRY FOR YOURSELF, ASK WHETHER THIS IS MORE OR LESS PLEASANT THAN GETTING APPRECIABLE CHUNKS OF YOUR ANATOMY BLASTED CLEAN OFF YOUR BODY THIS MORNING. THAT'S RIGHT. BYE.", "太慢了，蠢蛋，药剂我已经做好了。已经有人来拿走了奖励。如果你觉得委屈，就问问自己：这比今天早上被从身上整块整块地炸飞，是更愉快还是更不愉快。没错。再见。", "_t")
 t("Hrmph.", "哼。", "_t")
 
 ------------------------------------------------
@@ -13247,7 +13247,7 @@ t("Yaldan Baoth", "雅尔丹宝石", "entity name")
 t("obscuring helm", "昏暗的头盔", "_t")
 t("The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, \"Fear no evil\", the crown was passed onto his successor.", "这顶金色的颅盔王冠与雅尔丹的维卢卡息息相关。他是传说之城雅尔丹的国王，那座城因子民的傲慢而被从埃亚尔大陆上抹去。作为亲族中唯一的幸存者，他在生命最后的岁月里游历早期的世界，教导人类反抗黑暗。临终之际，王冠连同他的遗言——勿惧邪恶——一同传给了他的继任者。", "_t")
 t("lower the helmet's visor, blinding yourself (and protecting from other blinds) for 6 turns. If the helmet is taken off, the effect will end early.", "放下头盔的面甲，使你致盲6回合（同时免疫其他致盲效果）。如果脱下这件装备，效果会提前结束。", "tformat")
-t("%s forgoes their vision!", "%s 挡住了视野！", "logSeen")
+t("%s forgoes their vision!", "%s 放弃了自己的视觉！", "logSeen")
 t("Champion's Will", "冠军意志", "entity name")
 t("blindingly bright sword", "一把发出炫目光芒的剑", "_t")
 t("This impressive looking sword features a golden engraving of a sun in its hilt. Etched into its blade are a series of runes claiming that only one who has mastered both their body and mind may wield this sword effectively.", "初看这把外形令人印象深刻的长剑，最先吸引你目光的是雕刻在剑柄之中的金色太阳。而蚀刻在剑刃之上的复杂的符文仿佛在告诉你，只有真正掌握自己肉体和精神力量之人才能发挥出这把武器的最大威力。", "_t")
@@ -23917,7 +23917,7 @@ t([[When you kill an enemy, their death forms a cursed magical pattern on the gr
 							The duration of the circle can be increased by a critical hit.
 							The blind chance increases with your Spellpower.
 							You can activate this talent to draw the pattern in your own blood, creating it underneath you at the cost of %d%% of your maximum life.
-]], [[当你杀死敌人时，死亡会在地面上形成一个魔法咒印。产生一个半径 %d 的法阵，每轮会致盲敌人并造成 %0.2f 光系伤害，同时给予你 %d 正能量。法阵持续 %d 回合。
+]], [[当你杀死敌人时，死亡会在地面上形成一个魔法咒印。产生一个半径 %d 的法阵，会致盲敌人并造成 %0.2f 光系伤害，同时每回合给予你 %d 正能量。法阵持续 %d 回合。
 							伤害受法术强度加成。
 							持续时间可以暴击。
 							致盲概率受法术强度加成。

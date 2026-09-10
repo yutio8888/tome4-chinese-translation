@@ -1,0 +1,227 @@
+{
+ "schema_version": 1,
+ "kind": "known_dead_key_registry_v1",
+ "recorded_at": "2026-09-10",
+ "recorded_by": "WP2L-5 EXECUTOR",
+ "ruling": "维护者裁定：保留条目，登记为失效，不再投入审核与修复。",
+ "criterion": "英文原文在 pinned 游戏树（commit 624a67329fe2ad440c5b344785a9c73fcf22ae63）中已不存在。判据只看 source 能否匹配，不看 tag 或 section——engine/I18N.lua 的 set() 会把译文同时写进 table[tag][key] 与 table[\"nil\"][key]，get() 先试带 tag 的桶再回落 nil 桶，故 tag 对不上或归属文件过期都不影响运行时可达性；只有原文本身不同（key 不同）才真正失效。",
+ "scanner": "tools/orchestration/scan_dead_keys.py",
+ "scanned_entries": 29828,
+ "dead_count": 26,
+ "excluded_as_reachable": {
+  "always_merge": 86,
+  "runtime_concat": 50,
+  "host_generated": 24
+ },
+ "handling": "流水线没有把指定条目移出审核轮转的受支持机制：exclusions.jsonl 的 reason_code 是硬编码三值且改动会变更 entry_count；队列的 blocked 状态只能由 pending 裁决产生，而这些条目没有 ISSUE 观察。因此本表的作用是：这些 revision 若在后续批次中出现，一律不作修复，裁决时引用本表判 advisory；审核员对其译文的意见不具备可执行性，因为该译文永不显示。",
+ "entries": [
+  {
+   "entry_revision_identity": "0a4a28f410641411aff968957c4ff2d6a3d3e28b69859e9880244e56e3405b0c",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source_tag": "_t",
+   "source": "#GOLD#Vim#LAST#\nVim represents the amount of life energy you control. Each corruption talent requires some.\nIt does not regenerate naturally; you need to drain it from yourself or your victims.\nEach time you kill a creature you gain 30% of your Willpower + 1 as Vim.  This value is multiplied by half the rank of the creature.\nIf you can't pay for the Vim cost of a talent you may instead pay with life at a rate of 200% of the Vim cost.\n",
+   "target": "#GOLD#活力#LAST#\n活力是你控制的生命能量。施放堕落系法术需要消耗活力值。\n活力值不会自动回复，你需要从你自身和你的目标身上吸取。\n每杀死一个生物可以吸收意志属性30%+1的活力值。该数值乘以生物分级的一半。\n如果你无法支付使用一个技能的活力值，你可以改为支付活力值消耗200%的生命值。\n"
+  },
+  {
+   "entry_revision_identity": "109e4ae4fbb965437cc9bd2a4112c4a199c833d1224ab7d841267c7d5bf7a3b6",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source_tag": "tformat",
+   "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.",
+   "target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。\n\t\t（目前 %d 生命值，%d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。"
+  },
+  {
+   "entry_revision_identity": "140d3fb7e5a20776a2660d1da68d2584326062d187131d3132889f6a40e5aabf",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/Player.lua",
+   "source_tag": "logPlayer",
+   "source": "#LIGHT_RED#Quest '%s' is failed!#WHITE#(Press 'j' to see the quest log)",
+   "target": "#LIGHT_RED#任务“%s”失败！#WHITE#（按 J 键查看任务日志）"
+  },
+  {
+   "entry_revision_identity": "25215c5705c1f43b10c12bbde93d98bf797506629838201f8c5fa59f888c478f",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/load.lua",
+   "source_tag": "_t",
+   "source": "Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.\n\n Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]\n\n According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.",
+   "target": "奎科加是时间和可能性之神，它的传说唯一的特点就是变化万千，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。\n\n 奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]\n\n 根据安格利文的记载，奎科加在弑神之战之中被杀死了，它的尸体后来被法师莱娜尼尔发现。她成功通过一个危险的仪式吸收了此神的一小部分力量，而就是这微小的力量也使她成为了无可匹敌的大法师。这也证实了诸神的力量是多么的强大。"
+  },
+  {
+   "entry_revision_identity": "2b7185f14af18e784900bffc5719e1da1e67791428a11a039126b934130dd48d",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/spells/master-necromancer.lua",
+   "source_tag": "tformat",
+   "source": "Your mastery of necromancy becomes so total that an aura of undeath radiates around you in radius %d.\n\t\tAny undead minion standing inside of it is protected, increasing all their resistances by %d%%.\n\t\tIn addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists and damage increases (applied to all elements).\n\t\t",
+   "target": "你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。\n\t\t所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。\n\t\t另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和伤害加成效果（附加于所有伤害加成）。\n\t\t"
+  },
+  {
+   "entry_revision_identity": "325b414a67bd86f3753bd6b5d9c786221941d5213e7ba24784707942bc697ddc",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/load.lua",
+   "source_tag": "_t",
+   "source": "You have accomplished great deeds, but if you enter the infinite dungeon there will be no way back. You will go on and on until you meet your glorious death.",
+   "target": "你已经完成了你的伟大使命，不过当你进入无尽地下城之后就永远不能再回来，你只有不断地前进直到你光荣地死去。"
+  },
+  {
+   "entry_revision_identity": "463ead50e5caa0486e80189856b7da9892fd5c19e1bf185e0f91670f9dec7110",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "source_tag": "tformat",
+   "source": "Open a hole in space, summoning an animated blade for 10 turns.",
+   "target": "在空间中打开一个孔洞，召唤一把活化之剑 10 回合。"
+  },
+  {
+   "entry_revision_identity": "5a00e64263df87d81a31c49061f1fab3c0537c98d6f91ae36db91fd70434acb6",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/load.lua",
+   "source_tag": "_t",
+   "source": "The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.\n\n Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.\n\n Dwarves are known especially for their smithwork and artificing, which is unrivalled amongst all the other races. They also make cunning merchants, known to drive a hard bargain. Their society consists of a fairly strict caste system, with families belonging to guilds of miners, smelters, craftsmen, and so on, and deviance into work outside of one's guild of birth is almost unheard of. However there is no perceived inequality between guilds, with each having equal representation on their ruling Committee of Guilds. Who actually acts as figurehead is unknown to outsiders though, and no amount of bribing will encourage any dwarf to speak on the subject. When it is mentioned in passing their allusions to a leader are normally marked by an almost religious reverence.\n\n Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.\n\n As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being \"smithed upon the anvil of the world\". In private though some senior dwarves admit that this activity is promoted to help with their \"market research strategy\".",
+   "target": "矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，之后他们会对外界积极开放，我甚至很荣幸的得到了去他们的首都——钢铁王座游玩的资格，并有幸与他们的主要领导人对话。\n\n 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，对他胡子的贬低就是最大的侮辱，并且对于他们来说，撕扯他们的胡子也是最痛苦的刑罚。\n\n 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，每一只协会都有公正委员会来控制。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。\n\n 他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。\n\n 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们有冒险经费的支持，同时在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。因为这是他们作为“世界之锤”的荣耀。从个人来讲，一些成年矮人则认为这是一种“市场调查策略”。"
+  },
+  {
+   "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/celestial/combat.lua",
+   "source_tag": "tformat",
+   "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+   "target": "使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。\n\t\t如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度。\n\t\t伤害和护盾加成受法术强度加成。"
+  },
+  {
+   "entry_revision_identity": "6545b123b78bf1e47d66ac730ae8ff11ea22ba8f1472c7bf6e5b3a7b091bc512",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source_tag": "_t",
+   "source": "#GOLD#Shield Block Value#LAST#\nThe amount of damage a shield will block when actively used in defense.\nUsually this is only effective against Physical damage, but some special shields (and talents) allow the wearer to block other types.\n",
+   "target": "#GOLD#盾牌格挡值#LAST#\n盾牌在激活时所能阻挡的伤害量。\n通常只对物理伤害有效，但一些特殊的盾牌（和技能）可以让装备者格挡其他类型的伤害。\n"
+  },
+  {
+   "entry_revision_identity": "76d66293a3641f309a7230ad3143d3681046316bce7efb6546d146d16b7129f8",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/Player.lua",
+   "source_tag": "logPlayer",
+   "source": "#LIGHT_GREEN#Accepted quest '%s'!#WHITE#(Press 'j' to see the quest log)",
+   "target": "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按 J 键查看任务日志）"
+  },
+  {
+   "entry_revision_identity": "841ea786287e5fddf4c765d3122dcaac357c415e164df8cc74239d695680c845",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/Player.lua",
+   "source_tag": "logPlayer",
+   "source": "#LIGHT_GREEN#Quest '%s' completed!#WHITE#(Press 'j' to see the quest log)",
+   "target": "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）"
+  },
+  {
+   "entry_revision_identity": "86226273ef5b06b93d7ca74e165ef6a39b28eae797ebd7484e2d3bde521e3861",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/load.lua",
+   "source_tag": "_t",
+   "source": "No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.\n\n Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.\n\n Giants live mostly around the mountainous peaks surrounding the Daikara Pass. They vary greatly in size, but are normally at least 10' tall. They look somewhat like large, deformed humans, with swollen or distended facial features and much longer, swinging limbs. They live in nomadic tribes, moving from peak to peak with the seasons, feeding on wild deer and goats. They are usually peaceful creatures, only turning violent when their territory is encroached or their young are threatened. There are sometimes reports of giants coming to lowlands and stealing farm animals or attacking communities, but these are rare and normally isolated to particularly harsh winters. Giants seem to have no developed culture or language worth mentioning, but have been noted to show interactions of limited intelligence and to commune well in groups.\n\n Nagas were once believed to be mere myth, but reliable reports and even the capturing of dead physical samples has shown them to be real creatures. The upper half of their body is humanoid in form, with blonde hair and an extremely thin build, but the lower half is like that of a giant snake's tail. They stand around 6' tall on land, though their tails extend several feet further. They have been encountered off the eastern and south-eastern coasts of Maj'Eyal, which seems to indicate some exotic civilisation beneath the waves. Records of them exist only from the last few hundred years, and only more recently have they been interpreted as more than just the wild fantasies of inebriated sailors. They can breathe in air and underwater, possessing both lungs and gills, and have been reported to move with surprising speed on the ground. One might think them simply odd monsters, but they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail formed from layers of thick shark-hide. This would suggest an advanced culture, but communication with them so far has proved impossible. It is not known if they are capable of complex speech, but to date their only response to those who encounter them has been extreme violence, and fishermen in the east are always wary of coming across these vicious creatures.\n\n The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.",
+   "target": "没有任何文字可以诠释那些影响我们世界的野蛮种族。他们没有任何文化遗留，也没有任何先进的智慧或文化，但是他们仍能激起大家研究原始种族的兴趣。\n\n 巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。\n\n 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。\n\n 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。有关他们的记载只有近一百年的，并且越来越多的证据表明他们并不是喝醉水手们的幻觉。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。\n\n 恶魔的起源已经不为人所知，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常与恶魔巫师们为伍。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个由纯净的奥术能量链接的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属化的血肉，可以表现出超乎我们想象的形态——有些绽放在火焰中，有的藏在酸雾里或是可怕的黑暗中。这一切看起来都是建立在精通魔法的某种基础上，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。"
+  },
+  {
+   "entry_revision_identity": "8c73d3455a3b453cbf396354f13a4aabc410469a3da17d3f5493eae45178c052",
+   "normalized_path": "engine.lua",
+   "section": "engine/engine/Chat.lua",
+   "source_tag": "log",
+   "source": "following chain...",
+   "target": "追踪链接…"
+  },
+  {
+   "entry_revision_identity": "c2b9f022cbef4934da3b8d617245278281289db0a70f214e1d757d35e7a4ae1c",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/cunning/traps.lua",
+   "source_tag": "tformat",
+   "source": "Creates a radius 5 gravitic anomaly lasting up to %d turns.  Hostile creatures are dealt %d temporal damgae and pulled in.  Triggers out to range 1.",
+   "target": "制造范围 5 的重力异常，持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。触发距离最小为1。"
+  },
+  {
+   "entry_revision_identity": "c9de2ea990d226d3721e77ffe30198403eab476500a2dfdcfaba86cc156f0aba",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/general/objects/gem.lua",
+   "source_tag": "gem name",
+   "source": "lapis lazuli",
+   "target": "天青石"
+  },
+  {
+   "entry_revision_identity": "ca6fb762a01f167098ebae582a42cdef7c9f0ad26124d2bb732d8f4d963ab141",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/load.lua",
+   "source_tag": "_t",
+   "source": "I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.\n\n Cornacs are normally around 5'9\", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.\n\n Sholtar are generally 5'11\", with dark skin, hair and eyes. They originate from the south-east of Maj'Eyal, and are few in number since the Cataclysm tore much of their land into the sea. Their affinity with nature is renowned, and they are often found employed as healers, infusion crafters or wyrmic huntsmen.\n\n Mardrop humans are all but extinct, after the Spellhunt and the plagues during the Age of Dusk. They were known to be powerful spellcasters, and as such were prime targets by the spellhunters. However some trace of them can still be found, as their fiery hair and freckled skin oft can appear in those of distant descent. A few are rumoured to still possess citadels and towers in remote locations.\n\n Highers are on average 6'0\", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.\n\n All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.",
+   "target": "我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。迄今为止，最强的人类王国是科纳克王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。\n\n 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。\n\n 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。\n\n 马卓普人在黄昏纪和魔法大爆炸后基本已经灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍能在某些偏远的地方找到。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。\n\n 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。\n\n 在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。"
+  },
+  {
+   "entry_revision_identity": "cd0d64d330bc52a71bc7457e20a523172df32eb4392f790b3d4cdc7b739dcddb",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/talents/spells/master-of-flesh.lua",
+   "source_tag": "tformat",
+   "source": "You control dead matter around you, lyring in the ground, decaying.\n\t\tWhen you enter combat and every %d turns thereafter a ghoul of level %d automatically raises to fight for you.\n\t\tAt level 3 you can forcefully activate this spell to summon up to %d ghasts around you.\n\t\tAt level 5 every 4 summoned ghouls or ghasts a ghoulking is summoned for free.\n\t\tGhouls, ghasts and ghoulkings last for %d turns.\n\t\t%s\n\t\t#GREY##{italic}#Ghoul minions come in larger numbers than skeleton minions but are generally more frail and disposable.#{normal}#\n\t\t",
+   "target": "你操控大地上的死亡血肉，让其腐烂。\n\t\t你进入战斗时，以及之后每隔 %d 个回合，将会自动召唤一个等级 %d 的食尸鬼来为你而战。\n\t\t技能等级 3 时，你可以主动激活该技能，在身边召唤最多 %d 个妖鬼。\n\t\t技能等级 5 时，你每召唤 4 个食尸鬼或妖鬼，将会额外召唤一个食尸鬼王。\n\t\t食尸鬼，妖鬼和食尸鬼王持续 %d 个回合。\n\t\t%s\n\t\t#GREY##{italic}#食尸鬼通常数量比骷髅更多，但是它们是相对更加脆弱，容易被击倒的消耗品。#{normal}#\n\t\t"
+  },
+  {
+   "entry_revision_identity": "d1ecfbdc0830608a0347747ca31a549989e428125e68849d0cb0800397ec1f04",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/Player.lua",
+   "source_tag": "logPlayer",
+   "source": "#LIGHT_GREEN#Quest '%s' status updated!#WHITE#(Press 'j' to see the quest log)",
+   "target": "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按 J 键查看任务日志）"
+  },
+  {
+   "entry_revision_identity": "d310afa6b8cca0d3cc2a420d9c65a5b7fad70084a670bc231d9af344dd4db4d9",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source_tag": "_t",
+   "source": "#GOLD#Global Speed#LAST#\nGlobal speed represents how fast you are and affects everything you do.\nHigher is faster, so at 200% global speed you can performa twice as many actions as you would at 100% speed.\nNote that the amount of time to performa various actions like moving, casting spells, and attacking is also affected by their respective speeds.\n",
+   "target": "#GOLD#全局速度#LAST#\n全局速度表示你的速度有多快，并影响你所做的一切。\n越高越快，所以在200%的全局速度下，您可以执行的操作数是在100%速度下的两倍。\n注意，移动、施法和攻击等各种动作的执行时间也会受到它们各自速度的影响。\n"
+  },
+  {
+   "entry_revision_identity": "dc519faa341d74a568145f9deda5112e12d5e136cee15801218c69691ee02f09",
+   "normalized_path": "tome-cults.lua",
+   "section": "tome-cults/data/timed_effects.lua",
+   "source_tag": "tformat",
+   "source": "Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.",
+   "target": "进入禁忌之书中：\"家，可怕的家 \" %d 回合。"
+  },
+  {
+   "entry_revision_identity": "e3dd184ad08da8c7a0f7b0f0b309c09fcba594bfc647123de3d345ecb2af2f30",
+   "normalized_path": "tome-orcs.lua",
+   "section": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+   "source_tag": "_t",
+   "source": "We recognize that times are changing.  Within a year, the Allied Kingdoms have gone from begrudgingly tolerating magic to openly embracing it, due to the influence of our rediscovered allies in the East.  Furthermore, if the reports are to be believed, the ecosystem of Var'Eyal remains healthy and intact, despite millennia of continuous magic-use.  Therefore, our views and approach must change with the times; we are not ignorant to new knowledge.\n\nAt this point, it should go without saying that reckless use of magic is a dire threat to...  everything, more or less.  Eyal has yet to fully recover from even the rampant necromancy of the Age of Dusk, let alone the Spellblaze itself.  Eliminating all use of magic is the only way to be safe from this situation repeating...  but it is possible that lesser uses of arcane magic do not have any inherent corrupting or harmful effect, judging from the Sun Paladins and Anorithil.  They have, contrary to our long-held beliefs, managed to use magic responsibly and safely.  We are not so blind as to deny that this is an incredible reassurance.  That said, this proves nothing about the most terrible potential of magic.  Maybe no Sun Paladin or Anorithil has yet sunk to the depths of depravity of the Age of Dusk sorcerers, or the tragically reckless mages responsible for the Spellblaze, but that is no indication that their magic does not have the potential for abuse.\n\nFortunately, there is an alternative available!  With the proper respect, care, and concentration given to Nature, one can be rewarded with powers rivaling or besting the popular uses of magic.  On the civilian level, summoned fireflies can replace magical lighting, regeneration salves can replace healing spells, and accelerated crop growth makes for a far more nutritious diet than conjured foodstuffs.  For martial purposes, there's very little that can stand up to the powers of Nature.  An experienced disciple of Eyal can summon loyal beasts faster than any mage can blast them, crush spellswords of all types with draconic might, or dissolve a necromancer's army in a tide of corrosive ooze.  And if the disciple in question is familiar with the practices of the Ziguranth...  We do not condone their approach to defending nature, but their techniques speak for themselves when facing a hostile mage.  The best part about these abilities, though, is that they are self-limiting!  There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal.  The planet willingly gives us its power, and is conscious enough to take it away if we start abusing its gifts.  Even the most powerful of Wilders cannot abuse their power to the perverse degree that a necromancer can.\n\nThus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.\n",
+   "target": "我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管在那里的人们长期使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。\n\n说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。\n\n幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法剑，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识的从我们的身边拿走。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。\n\n因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做的更好。我们继续伊格兰斯把食人魔的符文替换成纯天然产品的努力（现在，使用我们的新技术，预计只会减少40%的寿命），发展新的肥料技术，让它们远远超出使用奥术力量生产食物的方法，还有在沙漠地区创造水井，让那些地方不再只能依靠水魔法。我们创造了各种各样其他使用自然力量的技术与应用，让过去那些使用魔法的方法看上去既落后又危险。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，他们中的许多人，都可以给他们身边人的生活带来好处！符文魔法就是某种意义上有自我限制能力的魔法，我们也在和那个活化石组织合作，希望能够开发出一种新的魔法，一种和自然联结，受自然约束的魔法。那些岩石守卫就是这样的例子，他们经常使用奥术力量，却仍然和自然之间保持着完美的和谐。如果这就是我们前进的道路，我们将张开双臂欢迎它。"
+  },
+  {
+   "entry_revision_identity": "e3eec8e65c7d1e8c3ec94fc15338cc2aac9c972ccfbb820a172d34764ba528d4",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/class/Player.lua",
+   "source_tag": "logPlayer",
+   "source": "#LIGHT_GREEN#Quest '%s' is done!#WHITE#(Press 'j' to see the quest log)",
+   "target": "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）"
+  },
+  {
+   "entry_revision_identity": "f2334aac33c0505c5b066fdc8759186074847bc4ea1732dbe5956c4af7edfad9",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/general/objects/gem.lua",
+   "source_tag": "entity name",
+   "source": "lapis lazuli",
+   "target": "天青石"
+  },
+  {
+   "entry_revision_identity": "f4bd71c207d7ad8f6f0f0031f0511730e85ba534217ce50e0df5edaa1d90af6c",
+   "normalized_path": "tome-orcs.lua",
+   "section": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+   "source_tag": "_t",
+   "source": "The Steam Council has been called to order, with Chief Councilor Tantalos presiding.\n\nTANTALOS: \"Greetings, my fellow- heh, now [i]lesser[/i] Councilors!  It is my pleasure to finally lead the proceedings.  The agenda for today...\" Ruffles through papers. \"Is irrelevant, for I have a solution to every malady mentioned therein.  The first order--\"\n\nKASYROS: \"With all due respect, Chief Councilor, the agenda--\"\n\nTANTALOS: \"Is.  [i]Irrelevant.[/i]  Tormak?  You've been scrying on potential sources of geothermal energy, would you care to inform the others where you see the most potential?\"\n\nTORMAK: Sighs. \"Right under the Kruk orcs, unfortunately.  It's a promising source for sure, the magma powering it hasn't drained out like it has under us, but digging there would...  well, we all know how quickly they turned construction tools into weapons to rival our own.  If we went in there with the state-of-the-art mining equipment necessary to--\"\n\nTANTALOS: Laughter. \"Mining equipment!  What manner of fool do you take me for?  Palaquie, tell me what's going through the minds of those silly little waist-height warriors, rummaging through the mainland for Orcish rebels.\" Holds up hand to silence Councilor Emeritus Kasyros. \"This IS relevant, I assure you.\"\n\nPALAQUIE: \"Discontent...  revolving around hidden, long-fermented resentment. Some want the Kruk exterminated, others imprisoned.  Neither can afford direct intervention, but some form of support will assuredly be available.\"\n\nTANTALOS: \"So, with the right negotiation, we can get these tinies, who have [i]endless[/i] experience fighting Orcs, to assist us and make any sort of action in Kruk territory more manageable.  At a bare minimum, we can obtain weaponry that has long proved sufficient for slashing Orcish throats...  although we'll need it custom-fit for our size, naturally.\"\n\nPALAQUIE: \"They have a race whose armor would work.  A tight fit, but sufficient.\"\n\nTANTALOS: \"Even better!  And...  Kasyros, I'm going to let [i]you[/i] tell me what the people care about most.  I'm sure your bruises are adequate reminders of the citizens' will?\"\n\nKASYROS: [Statement was deemed excessively profane and stricken from the record by 4-2 vote.]\n\nTANTALOS: \"Such undignified conduct!  All because you can't accept that the public wants their steam back.  More than they want those filthy little greenskins around, more than they fear getting their hands dirty, more than they want [i]your[/i] way of doing things.  So!  It's resolved that we have much to gain from this, it's resolved that we have or can obtain the means to carry it out, and it's resolved that it is what the voting public desires.  I see no need for further debate.  Nashal, I'd like to speak to you after this about a wand.  Meeting adjourned.\"\n\n[At this time, Councilor Kasyros gave a lengthy speech before officially resigning from the Council.  It has been recorded in a separate document.] ",
+   "target": "在坦塔洛斯议长的主持下，蒸汽议会正式开会。\n\n坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！这是我的荣幸，能够终于主事。今日的议程……”翻动手中的文件。“无关紧要，因为我已经为所有要解决的问题有了一个对应的方案。首先————”\n\n卡西罗斯：“尊敬的议长，议程————”\n\n坦塔洛斯：“这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”\n\n托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆可不像我们地盘底下的都枯竭了，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”\n\n坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我保证，真的无关紧要。”\n\n帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。不论是哪种，我们都没法直接介入，不过确实可以提供某种支持。”\n\n坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”\n\n帕拉奎：“他们有个种族，护甲可以给我们用。穿起来有点紧，但是足够了。”\n\n坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”\n\n卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]\n\n坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些狡猾的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”\n\n[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] "
+  },
+  {
+   "entry_revision_identity": "f64b64ae559528204ca66d38a45a8bbb583d47013f77dbb167574ad50f085f9a",
+   "normalized_path": "mod-tome.lua",
+   "section": "mod-tome/data/chats/last-hope-lost-merchant.lua",
+   "source_tag": "log",
+   "source": "#LIGHT_BLUE#The merchant carefully hands you: %s",
+   "target": "#LIGHT_BLUE#商人小心地交给了你：%s"
+  }
+ ]
+}
