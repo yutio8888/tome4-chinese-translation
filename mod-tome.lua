@@ -2717,7 +2717,7 @@ t("Got a character to level 40.", "角色达到40级。", "_t")
 t("Level 50", "50级", "achievement name")
 t("Got a character to level 50.", "角色达到50级。", "_t")
 t("Unstoppable", "势不可挡", "achievement name")
-t("Returned from the dead.", "使用生命之血复活。", "_t")
+t("Returned from the dead.", "死而复生。", "_t")
 t("Utterly Destroyed", "完全毁灭", "achievement name")
 t("Died on the Eidolon Plane.", "在死神幻象位面死亡。", "_t")
 t("Fool of a Took!", "蠢货！", "achievement name")
@@ -3455,7 +3455,7 @@ t("Redhead Hair 4", "红发4", "_t")
 t("Redhead Hair 5", "红发5", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Shalore", "永恒精灵", "birth descriptor name")
-t("Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.", "永恒精灵与魔法世界有着很强的联系，曾一度出现过许多伟大的魔法师。", "_t")
+t("Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.", "永恒精灵与这个世界的魔法有着很强的联系，曾一度出现过许多伟大的魔法师。", "_t")
 t("Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.", "尽管如此，他们仍试图保持避世并隐藏他们的魔法能力。因为他们深深记得那一段血腥的历史——魔法大爆炸还有紧随其后的猎魔行动。", "_t")
 t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握 #GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -18218,10 +18218,10 @@ Running man, running man
 Your honour or your shoes!]], [[逃跑者，逃跑者
 你的时间不多了
 逃跑者，逃跑者
-日月也无法挽救你
+你救不下日与月
 
 逃跑者，逃跑者
-为了生存日益消瘦
+生机越来越渺茫
 逃跑者，逃跑者
 你已获悉残酷命运
 
