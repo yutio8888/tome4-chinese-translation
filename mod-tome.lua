@@ -25508,7 +25508,7 @@ t([[While Master Summoner is active, when a creature you summon appears in the w
 		- Spider: Pins all foes in the radius
 		Radius for effects is %d, and the duration of each lasting effect is %d turns.
 		The effects improve with your mindpower.]], [[当召唤精通激活时，每个召唤兽出现在世界上时，它会触发 1 个野性效果：
-		- 火焰里奇：减少范围内所有敌人的火焰抗性 %d%%
+		- 喷火里奇：减少范围内所有敌人的火焰抗性 %d%%
 		- 三头蛇：生成一片持续的毒雾，范围内所有敌人每回合受到 %0.1f 自然伤害（可叠加）
 		- 雾凇：减少范围内所有敌人的寒冷抗性 %d%%
 		- 火龙：出现 %d 只小火龙
@@ -25542,7 +25542,7 @@ t([[For %d turn(s), you have 100%% chance that your summons appear as a wild ver
 		Effects scale with levels in summon talents.]], [[你在 %d 回合内 100%% 召唤出一只野性模式的召唤兽。
 		此概率每回合递减。
 		野性召唤兽增加 1 个新的天赋：
-		- 火焰里奇：可以在空中飞行，吐火不会被路径上的生物所阻挡。
+		- 喷火里奇：可以在空中飞行，吐火不会被路径上的生物所阻挡。
 		- 三头蛇：如果发现友军会被击中，则将吐息改为单体攻击。
 		- 雾凇：可以抓取敌人，将它们拉进自己的冰风暴范围。
 		- 火龙：可以用怒吼来沉默敌人
@@ -25577,7 +25577,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		In addition, a random summon will come off cooldown.
 		Hostile effects will not hit you or your other summons.
 		The effects improve with your mindpower, and some can crit.]], [[献祭一只召唤兽，使它在 %d 码范围内爆炸。
-		-火焰里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。
+		-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。
 		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害吸收，并获得每回合 %d 生命回复，持续 7 回合。
 		-雾凇：形成一个冰球，造成 %d 伤害，可能冰冻敌人。
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
@@ -25649,19 +25649,19 @@ t([[Grab a target and pull it next to you, covering it with frost while reducing
 		The damage and chance to slow will increase with your Mindpower.]], [[将目标抓取到自己的身边，用寒霜覆盖它，使其移动速度减少 50%%，持续 %d 回合。
 		寒冰还会对其造成 %0.2f 寒冷伤害。
 		伤害和减速几率受精神强度加成。]], "tformat")
-t("Ritch Flamespitter", "契约：火焰里奇", "talent name")
-t("@Source@ summons a Ritch Flamespitter!", "@Source@召唤了一只火焰里奇！", "_t")
+t("Ritch Flamespitter", "召唤：喷火里奇", "talent name")
+t("@Source@ summons a Ritch Flamespitter!", "@Source@召唤了一只喷火里奇！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s (wild summon)", "%s（野性召唤）", "tformat")
 t([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamespitters are weak in melee and die easily, but they can burn your foes from afar.
 		It will get %d Willpower, %d Cunning and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤一只火焰里奇来燃烧敌人，持续 %d 回合。火焰里奇很脆弱，但是它们可以远远地燃烧敌人。
+		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤一只喷火里奇来燃烧敌人，持续 %d 回合。喷火里奇很脆弱，但是它们可以远远地燃烧敌人。
 		它拥有 %d 点意志，%d 点灵巧和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
-		火焰里奇的意志和灵巧受精神强度加成。]], "tformat")
-t("Hydra", "契约：三头蛇", "talent name")
+		喷火里奇的意志和灵巧受精神强度加成。]], "tformat")
+t("Hydra", "召唤：三头蛇", "talent name")
 t("@Source@ summons a 3-headed hydra!", "@Source@召唤了一只三头蛇！", "_t")
 t("A strange reptilian creature with three smouldering heads.", "拥有三个头的奇怪爬行动物。", "_t")
 t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras are able to breathe poison, acid and lightning.
@@ -25672,7 +25672,7 @@ t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras a
 		它拥有 %d 点意志，%d 点体质和 18 点力量。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		三头蛇的意志受精神强度加成。]], "tformat")
-t("Rimebark", "契约：雾凇", "talent name")
+t("Rimebark", "召唤：雾凇", "talent name")
 t("@Source@ summons a Rimebark!", "@Source@召唤了一只雾凇！", "_t")
 t("This huge treant-like being is embedded with the fury of winter itself.", "这个巨大的树精样生物被寒冬之怒覆盖。", "_t")
 t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
@@ -25683,7 +25683,7 @@ t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, b
 		它拥有 %d 点意志，%d 点灵巧和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		雾凇的意志和灵巧受精神强度加成。]], "tformat")
-t("Fire Drake", "契约：火龙", "talent name")
+t("Fire Drake", "召唤：火龙", "talent name")
 t("@Source@ summons a Fire Drake!", "@Source@召唤了一只火龙！", "_t")
 t("A mighty fire drake.", "一只强力火龙。", "_t")
 t([[Summon a Fire Drake for %d turns to burn and crush your foes to death. Fire Drakes are behemoths that can burn foes from afar with their fiery breath.
@@ -25708,7 +25708,7 @@ t("@source@ oozes over the ground!!", "@source@在地上散布！！", "_t")
 t("Ooze over the floor, spreading caustic jelly in a radius of 1 lasting %d turns and dealing %d nature damage per turn to hostile creatures caught within.", "在 1 码范围内的地板上散布腐蚀性的粘液，持续 %d 回合，每回合对范围内所有敌对生物造成 %d 自然伤害。", "tformat")
 t("Mitotic Split", "有丝分裂", "talent name")
 t("%d%% chance to split upon taking a single hit dealing at least %d%% of your maximum life.", "有 %d%% 的几率在受到至少相当于最大生命值 %d%% 的单次伤害时分裂。", "tformat")
-t("War Hound", "契约：战争猎犬", "talent name")
+t("War Hound", "召唤：战争猎犬", "talent name")
 t("@Source@ summons a War Hound!", "@Source@召唤了一只战争猎犬！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -25721,7 +25721,7 @@ t([[Summon a War Hound for %d turns to attack your foes. War hounds are good bas
 		它拥有 %d 点力量，%d 点敏捷和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		猎犬的力量和敏捷受精神强度加成。]], "tformat")
-t("Jelly", "契约：果冻怪", "talent name")
+t("Jelly", "召唤：果冻怪", "talent name")
 t("@Source@ summons a Jelly!", "@Source@召唤了一只果冻怪！", "_t")
 t("A strange blob on the dungeon floor.", "地板上的一团奇怪胶状物体。", "_t")
 t("#GREEN##Target# absorbs some damage. #Source# is closer to nature.", "#GREEN##Target#吸收了伤害，#Source#更贴近自然了。", "delayedLogMessage")
@@ -25734,7 +25734,7 @@ t([[Summon a Jelly for %d turns to attack your foes. Jellies do not move, but yo
 		每当果冻怪受到伤害时，你的失衡值会降低其所受伤害的 10%%。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		果冻怪的体质受精神强度加成。]], "tformat")
-t("Minotaur", "契约：米诺陶", "talent name")
+t("Minotaur", "召唤：米诺陶", "talent name")
 t("@Source@ summons a Minotaur!", "@Source@召唤了一只米诺陶！", "_t")
 t("It is a cross between a human and a bull.", "它拥有人类和牛的特征。", "_t")
 t([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay summoned for long, but they deal high damage.
@@ -25744,7 +25744,7 @@ t([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay su
 		它拥有 %d 点力量，%d 点体质和 %d 点敏捷。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		米诺陶的力量和敏捷受精神强度加成。]], "tformat")
-t("Stone Golem", "契约：岩石傀儡", "talent name")
+t("Stone Golem", "召唤：岩石傀儡", "talent name")
 t("@Source@ summons a Stone Golem!", "@Source@召唤了一只岩石傀儡！", "_t")
 t("It is a massive animated statue.", "一座巨型的活化雕像。", "_t")
 t([[Summon a Stone Golem for %d turns to attack your foes. Stone golems are formidable foes that can become unstoppable.
@@ -25769,7 +25769,7 @@ t("Shell Shield", "甲壳护盾", "talent name")
 t("Under the cover of your shell, gain %d%% all resistance for %d turns", "隐藏在你的甲壳下，增加 %d%% 全体伤害抗性，持续 %d 回合。", "tformat")
 t("Web", "蜘蛛之网", "talent name")
 t("Spread a web and throw it toward your target. If caught, it won't be able to move for %d turns.", "朝你的目标投掷一个网，若目标被击中则被困在原地 %d 回合。", "tformat")
-t("Turtle", "契约：乌龟", "talent name")
+t("Turtle", "召唤：乌龟", "talent name")
 t("@Source@ summons a Turtle!", "@Source@召唤了一只乌龟！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -25783,7 +25783,7 @@ t([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, b
 		它拥有 %d 点体质，%d 点敏捷和 18 点意志。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		乌龟的体质受精神强度加成。]], "tformat")
-t("Spider", "契约：蜘蛛", "talent name")
+t("Spider", "召唤：蜘蛛", "talent name")
 t("@Source@ summons a Spider!", "@Source@召唤了一只蜘蛛！", "_t")
 t([[Summon a Spider for %d turns to harass your foes. Spiders can poison your foes and throw webs to pin them to the ground.
 		It will get %d Dexterity, %d Strength, 18 Willpower and %d Constitution.
@@ -31546,7 +31546,7 @@ t([[You infuse blighted energies into all of your summons, granting them Bone Sh
 		- 果冻怪：无防备诅咒
 		- 米诺陶：毁伤
 		- 岩石傀儡：酸性血液
-		- 火焰里奇：生命分流
+		- 喷火里奇：生命分流
 		- 九头蛇：鲜血喷射
 		- 雾凇：剧毒风暴
 		- 火龙：乌鲁洛克之焰
@@ -39535,7 +39535,7 @@ t([[Ritches are giant insects native to the arid wastes of the southern parts of
 Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型土著昆虫。
 他们是凶残的猎食者，用锋利的爪子刺穿大部分的盔甲，将腐败的疾病注入敌人的体内。]], "_t")
 t(", who incubated her eggs in the corpse,", "，她在这具尸体中孵化了她的卵，", "_t")
-t("ritch flamespitter", "火焰里奇", "entity name")
+t("ritch flamespitter", "喷火里奇", "entity name")
 t("ritch impaler", "锋刺里奇", "entity name")
 t("chitinous ritch", "厚甲里奇", "entity name")
 t("Ritch Great Hive Mother", "里奇女皇", "entity name")
