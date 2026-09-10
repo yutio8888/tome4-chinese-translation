@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-10 · HEAD `10c9df6` · 分支 `develop`
+最后更新：2026-09-10（第 77–79 批后）· HEAD `b7f85ef` · 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -18,8 +18,11 @@
 - 「一并修改发现的同类问题」是常驻指令
 - 全库清扫另开**有界维护窗口**，不混进正常批次的修复
 
-> **当前状态：已暂停。** 维护者 2026-09-10 指示「跑完这轮后暂停」，
-> 第 76 批完成后停止，未起第 77 批。恢复需要维护者明确发话。
+> **当前状态：运行中。** 维护者 2026-09-10 指示「从 77 批开始接手主持」，
+> 连续主持授权恢复；第 77–79 批已完成并推送，随时可开第 80 批。
+>
+> 维护者本轮新增指令：**交叉复核后仍无法从源码判定如何处置的条目，记 `pending`
+> 交回维护者人工裁决**（`pending` 会把队列状态置 `blocked`，保证日后重新浮出）。
 
 ---
 
@@ -27,10 +30,10 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 76 批 `batch-03a4ea1f4f83a8afc32b`（已 push） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 114 个 |
-| 当前 catalog | `7410bac8…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `45d2f18e…`（revision_changed 3） |
+| 最后完成批次 | 第 79 批 `batch-bd59b69afb97e21dd4c1`（已 push） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 117 个 |
+| 当前 catalog | `67b5b973…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `fdc71d7a…`（revision_changed 2） |
 | 活动批次 | **无**（可以安全提交、可以开新批） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
@@ -39,13 +42,13 @@
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 已过表层筛查 | 7726（其中 111 条另经交叉复核） |
-| 尚未覆盖 | 22102 |
-| `done` 显式置位 | 7725 |
+| 已过表层筛查 | 7954（其中条目另有交叉复核） |
+| 尚未覆盖 | 21873 |
+| `done` 显式置位 | 7954 |
 | `blocked`（pending 裁决占位） | 1 |
 | `historical_revision_invalidated` | 618 |
 
-按 80 条一批算，剩余约 **276 批**。
+按 80 条一批算，剩余约 **273 批**。
 
 **恢复工作的第一步**永远是 `queue rebuild` + `queue check`，确认没有漂移。
 
@@ -322,3 +325,36 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
   遇到时**单独成一条提交**，不要混进批次提交。
 - 维护者纠正过我一次：Robert Zemeckis 的通用译名是「罗伯特·泽米吉斯」而非「泽梅基斯」；
   但游戏里的 `Zemekkys` 拼写不同，最终裁定仍取「泽梅基斯」。
+
+---
+
+## 9. 第 77–79 批完成记录（2026-09-10，接手后第一轮）
+
+每批 80 条、4 lane 表层筛查（`codex/gpt-6-astra` xhigh `auto-review`）＋ 1 个交叉复核
+child（`claude/claude-opus-5` xhigh `bypassPermissions`）、源码工作集 80/80、
+17 项门禁两次全绿、evidence commit + finalize + 单条修复提交 + `queue rebuild` + push。
+15 个 child 全部有效并已确认归档。
+
+| 批次 | 来源 | evidence | 裁决 | 修复（migration） |
+| --- | --- | --- | --- | --- |
+| 77 `batch-e4b82b57…` | tome 80 | `33e7fbf` | confirmed 4、advisory 2、refuted 1 | 2 条（`e787a4ac`） |
+| 78 `batch-cbe7e6c7…` | tome 80 | `4ab9bf0` | confirmed 10、advisory 1 | 11 条（`ad66c2c6`） |
+| 79 `batch-bd59b69a…` | tome 78 + engine 1 + boot 1 | `de9a385` | confirmed 4 | 2 条（`fdc71d7a`） |
+
+修复内容：77 批删掉 Misdirection 里源文不存在的增写句并把「周围」改回「相邻」、
+改正毒物系说明；78 批巨魔 hide 归属与 warty、沉眠 suddenly、维网灵晶感知动词、
+巫妖面具漏译 lichdom、兽人 harsh tongue 共 11 条（含 boot/engine 跨组件同步）；
+79 批 Repulsion 技能名改「盾牌排斥」（原「盾牌猛击」与 Shield Pummel 的抗性日志撞字）、
+Epoch 外观描述。
+
+本段新增判例：
+
+- **跨组件同 runtime key 在修复阶段才会暴露**：巨魔 desc 同时存在于 `mod-tome.lua`／
+  `engine.lua`／`mod-boot.lua`，只改一处会被 `06-runtime-collision-scan` 拦下——
+  这说明「先全仓库 grep」必须在改之前真的执行。
+- **同型条目的同步**：`mumbles in a harsh tongue` 在本库 6 处，其中 2 处已作
+  「刺耳的语言」；修复时把剩下 4 处（同一缺陷）一并同步，属「同类问题一并修改」，
+  不视为全库清扫。
+- **两轮一致但不与源码相符仍可 refute**：77 批 `#CADET_BLUE#Equipping %s with %s` 被
+  表层报「语义颠倒」，但源码 `artifice.lua:49` 为 `player.artifice_tools[chat_tid] = tid`
+  （工具被装入 artifice 槽），译文「将 [工具] 装备至 [artifice]」方向正确 → `refuted`。
