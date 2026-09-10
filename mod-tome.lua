@@ -9324,10 +9324,10 @@ t("crimson waraxe", "深红色的战斧", "_t")
 t("A small but sharp axe, with a handle made of polished bone.  The blade has chopped through the skulls of many, and has been stained a deep crimson.", "一把小巧而锋利的斧头，斧柄由打磨过的骨头制成。这把斧头打破了许多头骨，并被染成了鲜红色。", "_t")
 t("Tooth of the Mouth", "深渊之牙", "entity name")
 t("a tooth", "一颗牙齿", "_t")
-t("A huge tooth taken from the Mouth, in the Deep Bellow.", "一颗取自深渊地腹中巨口的巨大牙齿。", "_t")
+t("A huge tooth taken from the Mouth, in the Deep Bellow.", "一颗取自深渊咆哮中巨口的巨大牙齿。", "_t")
 t("The Warped Boots", "扭曲之靴", "entity name")
 t("pair of painful-looking boots", "有着难看痕迹的靴子", "_t")
-t("These blackened boots have lost all vestiges of any former glory they might have had. Now, they are a testament to the corruption of the Deep Bellow, and its power.", "这些被玷污的靴子已经丧失了它们以前的荣耀，现在，它们只能作为深渊的存在以及腐蚀力量的证明。", "_t")
+t("These blackened boots have lost all vestiges of any former glory they might have had. Now, they are a testament to the corruption of the Deep Bellow, and its power.", "这些被玷污的靴子已经丧失了它们以前的荣耀，现在，它们只能作为深渊咆哮的存在以及腐蚀力量的证明。", "_t")
 t("Withering Orbs", "枯萎眼球", "entity name")
 t("shadow-strung orbs", "阴影缠绕的眼球", "_t")
 t([[These opalescent orbs stare at you with deathly knowledge, undeceived by your vanities and pretences.  They have lived and died through horrors you could never imagine, and now they lie strung in black chords watching every twitch of the shadows.
@@ -16326,7 +16326,7 @@ yes to diamonds. arm our merchants in the caravan, no extra guards. profits are 
 t("Iron Throne Reknor expedition, last words", "钢铁王座瑞库纳远征军的遗言", "_t")
 t("...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.", [[……我们完了。兽人大军势不可当。无论我们小队杀死多少，都会有更多兽人从深处涌来。这些该死的生物究竟从哪里来的？！
 我们已经窥见他们的首领，却根本没有希望杀死他；他是一头野兽，一个毁灭者，身燃炼狱烈火与残酷刺骨的寒冰。这些兽人如今掌握的力量令我恐惧……或许他们找到了新的强大盟友？这消息必须送到统治者手中。战友们……对不起。我会在机会出现时逃走，但要知道，你们的牺牲绝不会白费。愿帝国长存。]], "_t")
-t("Deep Bellow excavation report 1", "无尽深渊挖掘报告 1", "_t")
+t("Deep Bellow excavation report 1", "深渊咆哮挖掘报告 1", "_t")
 t([[10 days into initial site survey, hmm! Recent tremors have opened deep new chasms, but we must work cautiously to ensure they're stable before conducting major operations, oh yes! Proceeding well at start, with supports being put in place and no flammable gases detected, hmm hmm.
 
 Some Sher'Tul relics have been found. Perhaps great profit to be had here! High margins on Shaloren market, yes yes.
@@ -16340,7 +16340,7 @@ Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorgi
 有些矿工说身体不适，嗯嗯。这些德瑞姆傻瓜多半只是喝了太多蜂蜜酒。要从他们的工资里扣掉酒钱，是的是的！
 
 ——工头 塔马斯]], "_t")
-t("Deep Bellow excavation report 2", "无尽深渊挖掘报告 2", "_t")
+t("Deep Bellow excavation report 2", "深渊咆哮挖掘报告 2", "_t")
 t([[Chasms go deep, yes yes. More relics found, oh yes. Will be mighty profitable! But ah, my secret treasure is even better, indeed! Gold! Beautiful lovely gold, buried deep, so deep... Have kept it hidden, sealed, yes. Looks like the remains of a giant throne. I touched it, yes, I even put my lips to it - ahhh, the taste!
 
 But must stay focussed, much work to be done. Miners are rowdy, hrm! One of the drem fools went mad and killed himself with a pickaxe - messy business. Must restore order, yes yes! More Sher'Tul artifacts found, possibly even remains of weapons. Imagine the profit! Will keep them hidden yes, the dreams say yes, in the darkness, secret, waiting waiting, for the right time...
@@ -16354,7 +16354,7 @@ Hmm, that fellow's blood was so red, spilling on the cavernous floor. I wonder w
 嗯，那家伙的血真红，洒在洞穴地面上。他们把他埋到哪儿了？我的嘴……它想尝尝，是的是的……
 
 ——工头 塔马斯]], "_t")
-t("Deep Bellow excavation report 3", "无尽深渊挖掘报告 3", "_t")
+t("Deep Bellow excavation report 3", "深渊咆哮挖掘报告 3", "_t")
 t([[Hah, my mouth, it tastes, it feels, hmm hmm. It grows, yes yes! The others are changing, flying, screaming, squelching, warping. Bad for profit, hmm hmm. My teeth, they grow, they hunger, yes. They want to escape!
 
 I can feel in my dreams, the dark depths. Bound, buried, forgotten. My mouth wants to open, to scream, to destroy! Hmm hmm, deep below, yes... Want to get out!
@@ -20190,7 +20190,7 @@ section "mod-tome/data/quests/deep-bellow.lua"
 
 t("From bellow, it devours", "地下吞噬者", "_t")
 t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～。", "_t")
-t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个无尽深渊地下城。", "_t")
+t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个叫深渊咆哮的地下城。", "_t")
 t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。", "_t")
 t("None that you know of has come back yet, but you did survive Reknor. You are great.", "据你所知没有一个人能活着回来，不过你从瑞库纳幸存了下来，你比较牛 X。", "_t")
 
@@ -38260,7 +38260,7 @@ t("The Mouth", "大嘴怪", "entity name")
 t("\"From bellow, it devours.\"", "“来自深渊，吞噬四方。”", "_t")
 t("and revived as a screeching drem bat", "并复活成为一只尖啸着的德瑞姆蝙蝠", "_t")
 t("#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", "#CRIMSON#%s 似乎无懈可击，一定有什么其他方法可以杀死它！", "logSeen")
-t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论着关于在无尽深渊出现的憎恶。", "_t")
+t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论着关于在深渊咆哮出现的憎恶。", "_t")
 t("slimy crawler", "泥泞爬行怪", "entity name")
 t([[This disgusting... thing crawls on the floor toward you with great speed.
 It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速的向你爬来。
@@ -38274,7 +38274,7 @@ t("A parchment falls to the floor near The Abomination.", "一张羊皮纸掉落
 ------------------------------------------------
 section "mod-tome/data/zones/deep-bellow/objects.lua"
 
-t("Deep Bellow excavation report %d", "无尽深渊挖掘报告 %d", "tformat")
+t("Deep Bellow excavation report %d", "深渊咆哮挖掘报告 %d", "tformat")
 t("A paper scrap.", "一张碎纸片。", "_t")
 t("letter to Rolf (3)", "写给罗尔夫的信 (3)", "entity name")
 t("letter to Weisman (4)", "写给威斯曼的信 (4)", "entity name")
@@ -38283,7 +38283,7 @@ t("Last Will of Rolf", "罗尔夫的遗嘱", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/deep-bellow/zone.lua"
 
-t("The Deep Bellow", "无尽深渊", "_t")
+t("The Deep Bellow", "深渊咆哮", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/demon-plane/grids.lua"
@@ -40432,7 +40432,7 @@ t("wall", "墙壁", "entity type")
 t("underground", "地下", "entity subtype")
 t("crystals", "水晶", "entity name")
 t("Escape route from Reknor", "瑞库纳逃生之路", "entity name")
-t("The Deep Bellow", "无尽深渊", "entity name")
+t("The Deep Bellow", "深渊咆哮", "entity name")
 t("The Dwarven Empire Incarnate", "矮人帝国的化身", "entity name")
 t("Mystic of the Empire", "帝国秘法师", "entity name")
 t("Warrior of the Empire", "帝国的战士", "entity name")
