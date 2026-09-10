@@ -1526,8 +1526,8 @@ This represents how effective healing is for you.
 All healing values are multiplied by this value (including life regeneration).
 It is increased by Constitution.
 ]], [[#GOLD#治疗系数#LAST#
-代表你回血技能的效果。
-该系数表明治疗对你的生效程度。所有治疗的基础值需要乘上这个系数（包括生命自然恢复）。
+该系数表明治疗对你的生效程度。
+所有治疗的基础值需要乘上这个系数（包括生命自然恢复）。
 体质会增加该项属性。
 ]], "_t")
 t([[#GOLD#Air#LAST#
@@ -7020,7 +7020,7 @@ t("hindering blight", "枯萎阻碍", "damage type")
 t("life leech", "吸血", "damage type")
 t("physical stun", "物理震慑", "damage type")
 t("warp", "翘曲", "damage type")
-t("temporal darkness", "幽暗虚空", "damage type")
+t("temporal darkness", "时空暗影", "damage type")
 t("gravity", "重力", "damage type")
 t("gravity pin", "重力定身", "damage type")
 t("grow", "生长", "damage type")
@@ -9177,7 +9177,7 @@ t("Storm Fury", "风暴之怒", "entity name")
 t("crackling longbow", "电弧缠绕的长弓", "_t")
 t("This dragonbone longbow is enhanced with bands of steel, which arc with intense lightning. Bolts travel up and down the string, ignorant of you.", "这把龙骨长弓由精钢镶制而成，一道道电弧缠绕在其身上，闪电球在其弓弦上徘徊，但是却绕过了你的手臂。", "_t")
 t("Automatically fires lightning bolts every game turn at nearby enemies dealing %d to %d lightning damage based on Magic with a chance to inflict Daze.", "每回合自动向附近敌人发射闪电，造成%d到%d基于魔法的闪电伤害，并有几率使其眩晕。", "tformat")
-t("#GOLD#A bolt of lightning fires from #Source#'s bow, striking #Target#!", "#GOLD# 一道闪电从#Source#的弓中射出，击中了#Target#！", "logCombat")
+t("#GOLD#A bolt of lightning fires from #Source#'s bow, striking #Target#!", "#GOLD#一道闪电从#Source#的弓中射出，击中了#Target#！", "logCombat")
 t("Frozen Shroud", "冰霜斗篷", "entity name")
 t("chilling cloak", "冰冷的斗篷", "_t")
 t("All that remains of the Glacial Legion. This cloak seems to exude an icy cold vapor that freezes all it touches.", "冰川军团仅存的遗物。这件斗篷仿佛散发着冰冷的寒气，冻结一切触及之物。", "_t")
@@ -9485,7 +9485,7 @@ t("Elixir of Serendipity", "幸运药剂", "entity name")
 t("vial of yellow fluid", "一瓶黄色液体。", "_t")
 t("A vial of lively yellow fluid.", "一瓶流动的黄色液体。", "_t")
 t("permanently increase your luck by 5", "永久提升你5点运气", "_t")
-t("#00FF00#The elixir seems to have subtly repositioned your entire being within the fabric of reality!", "#00FF00#这瓶炼金药剂似乎完全改变了你的整个人生！", "logPlayer")
+t("#00FF00#The elixir seems to have subtly repositioned your entire being within the fabric of reality!", "#00FF00#这瓶炼金药剂似乎将你的整个存在在现实结构中微妙地重新定位了！", "logPlayer")
 t("Elixir of Focus", "专注药剂", "entity name")
 t("vial of clear fluid", "一瓶透明液体。", "_t")
 t("A vial of clear, steaming fluid.", "一瓶清澈、冒着蒸汽的液体。", "_t")
@@ -23216,7 +23216,7 @@ t("Rogue's Brew Mastery", "佳酿强化", "talent name")
 t("Your Rogue's Brew fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "你的盗贼佳酿会强化你 8 回合，使你在生命值降至 -%d 之前不会死亡。", "tformat")
 t("Adjust your Rogue's Brew formulation so that it fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "调整盗贼佳酿的配方，使其强化你 8 回合；在此期间，你的生命值降至 -%d 之前不会死亡。", "tformat")
 t("Smokescreen", "烟雾弹", "talent name")
-t("Throw a smokebomb creating a radius 2 cloud of smoke, lasting %d turns, that blocks sight and reduces enemies' vision by %d. 15 turn cooldown.", "范围 2 的烟雾弹，持续 %d 回合，视野下降 %d。15 回合冷却。", "tformat")
+t("Throw a smokebomb creating a radius 2 cloud of smoke, lasting %d turns, that blocks sight and reduces enemies' vision by %d. 15 turn cooldown.", "投掷一枚烟雾弹，生成半径 2 的烟云，持续 %d 回合，阻挡视线并使敌人视野降低 %d。15 回合冷却。", "tformat")
 t([[Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke lasting %d turns.  The smoke blocks line of sight, and enemies within will have their vision range reduced by %d.
 		Use of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.
 		#YELLOW#Prepared with: %s#LAST#]], [[扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d。
@@ -26539,7 +26539,7 @@ t([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
 
 		Reloading does not break stealth.]], [[立刻装填 %d 弹药。之后缴械 2 回合。
 		装填弹药不会打破潜行。]], "tformat")
-t("Sweep", "拔刀斩", "talent name")
+t("Sweep", "横扫", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
 t("You cannot use Sweep without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t([[Attack your foes in a frontal arc, doing %d%% weapon damage and making your targets bleed for %d each turn for %d turns.
@@ -27285,8 +27285,8 @@ t([[Your Forge Shield talent now increases your Armour by %d, your Defense by %d
 		The bonuses will scale with your Mindpower.]], [[你的熔炉屏障技能现在可以增加你 %d 点护甲，%d 点闪避，并且当你被近战或远程攻击击中时给予你 %0.2f 灵能值。
 		受精神强度影响，增益按比例加成。]], "tformat")
 t("Dreamforge", "梦之熔炉", "talent name")
-t("#GOLD#%s strikes the dreamforge!", "#GOLD# %s锤击着梦境熔炉！", "logSeen")
-t("#GOLD#%s begins breaking dreams!", "#GOLD# %s开始破碎梦境！", "logSeen")
+t("#GOLD#%s strikes the dreamforge!", "#GOLD#%s锤击着梦境熔炉！", "logSeen")
+t("#GOLD#%s begins breaking dreams!", "#GOLD#%s开始破碎梦境！", "logSeen")
 t([[The pounding forge of thought in your mind is released upon your surroundings.  Each turn that you remain stationary, you'll strike the dreamforge, inflicting mind and burning damage on enemies around you.
 		The effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f.
 		At this point you'll begin breaking the dreams of enemies who hear the forge, reducing their Mental Save by %d and giving them a %d%% chance of spell failure due to the tremendous echo in their minds for %d turns.
@@ -40226,13 +40226,13 @@ t("Catch @himher@!", "抓住@himher@！", "_t")
 t("apprentice mage", "法师学徒", "entity name")
 t("An apprentice, learning the ways of the arcane arts.", "一位学徒，正在学习法术的奥秘。", "_t")
 t("pyromancer", "烈焰术士", "entity name")
-t("An archmage specializing in fire magic.", "一位精通火焰法术的法师。", "_t")
+t("An archmage specializing in fire magic.", "一位精通火焰法术的大法师。", "_t")
 t("cryomancer", "冰霜术士", "entity name")
-t("An archmage specializing in ice magic.", "一位精通冰系法术的法师。", "_t")
+t("An archmage specializing in ice magic.", "一位精通冰系法术的大法师。", "_t")
 t("geomancer", "地卜师", "entity name")
-t("An archmage specializing in earth magic.", "一位精通土系法术的法师。", "_t")
+t("An archmage specializing in earth magic.", "一位精通土系法术的大法师。", "_t")
 t("tempest", "风暴术士", "entity name")
-t("An archmage specializing in lightning magic.", "一位精通闪电法术的法师。", "_t")
+t("An archmage specializing in lightning magic.", "一位精通闪电法术的大法师。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-angolwen/objects.lua"
