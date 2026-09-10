@@ -22217,7 +22217,7 @@ t([[You bend space around you, displacing %d%% of any damage you receive onto a 
 t("Repulsion Field", "排斥之环", "talent name")
 t([[You surround yourself with a radius %d distortion of gravity, knocking back and dealing %0.2f physical damage to all creatures inside it.  The effect lasts %d turns.  Deals 50%% extra damage to pinned targets, in addition to the knockback.
 		The blast wave may hit targets more then once, depending on the radius and the knockback effect.
-		The damage will scale with your Spellpower.]], [[你用 %d 码半径范围的重力吸收光环围绕自己，击退所有单位并造成 %0.2f 物理伤害。此效果持续 %d 回合。对定身状态目标额外造成 50%% 伤害。
+		The damage will scale with your Spellpower.]], [[你用 %d 码半径范围的重力扭曲场围绕自己，击退所有单位并造成 %0.2f 物理伤害。此效果持续 %d 回合。除击退效果外，还对定身状态的目标额外造成 50%% 伤害。
 		这股爆炸性冲击波可能会对目标造成多次伤害，这取决于攻击半径和击退效果。
 		伤害受法术强度加成。]], "tformat")
 t("Temporal Clone", "时空复制", "talent name")
