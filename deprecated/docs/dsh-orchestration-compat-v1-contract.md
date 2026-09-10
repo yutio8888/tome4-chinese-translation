@@ -4,8 +4,8 @@
 >
 > 状态：提议，未启用；仅交付兼容设计，不授权 DSH child 派发或正式生产批次。
 >
-> 上位规则：[AGENTS.md](../AGENTS.md)。对照基线：
-> [Paseo 编排契约](paseo-orchestration-v2-contract.md) `paseo-orchestration/2.25-draft`。
+> 上位规则：[AGENTS.md](../../AGENTS.md)。对照基线：
+> [Paseo 编排契约](../../docs/paseo-orchestration-v2-contract.md) `paseo-orchestration/2.25-draft`。
 
 ## 1. 目标与启用边界
 
@@ -64,13 +64,13 @@ DSH 工具允许的续跑和后台能力不改变项目范围，也不自动授�
 6. 实现前记录工作树基线、允许路径、验收标准、验证命令和轮次上限；派发前冻结 SPEC、
    有界 diff（含任务新建 untracked 文件）及允许读取的引用。候选改变则重新冻结、重新审核。
 7. 源码版本、DLC 未固定来源标注、术语授权和外发边界保持现有上位规则；不附送整个父会话。
-8. 任务按[验证矩阵](agent-workflow.md#验证矩阵)验收。连续运行、有界批数、暂停、
+8. 任务按[验证矩阵](../../docs/agent-workflow.md#验证矩阵)验收。连续运行、有界批数、暂停、
    收敛规则和用户决策边界不因 DSH 改变。
 9. 翻译流程／基础设施的 code review 仍由 REVIEWER 与 SENIOR_REVIEWER 对同一候选独立
    交叉审核；第二轮后的普通 finding 仍先做范围校准。SENIOR_REVIEWER 不承担译文审核。
    experimental 无法核验精确模型差异时必须标为未证明，不得声称满足正式双模型要求。
 
-现有 [.ai/roles/](../.ai/roles/reviewer.md) 含 Paseo 专属身份及稳定条款引用，不得直接当作
+现有 [.ai/roles/](../../.ai/roles/reviewer.md) 含 Paseo 专属身份及稳定条款引用，不得直接当作
 已经适配的 DSH prompt。启用前需新建专用模板，逐项保留内容权限并显式替换运行时条款。
 
 ## 4. 派发与冻结
@@ -103,9 +103,9 @@ tracked/untracked 状态与必要 diff；若两者相同则不是隔离试验。
 核验锚点写入受跟踪的 `evidence/`，可再生成产物留在 `.artifacts/`。
 
 正式译文接口只作为未来适配目标：
-[contextual v1](paseo-translation-context-review-v1-contract.md)、
-[contextual v2](paseo-translation-context-review-v2-contract.md)、
-[surface v1](paseo-translation-surface-screen-v1-contract.md)。
+[contextual v1](../../docs/paseo-translation-context-review-v1-contract.md)、
+[contextual v2](../../docs/paseo-translation-context-review-v2-contract.md)、
+[surface v1](../../docs/paseo-translation-surface-screen-v1-contract.md)。
 其 candidate identity、envelope、lane 顺序、严格 raw bytes/schema、full/closure 和收敛要求均不改动；
 不能把普通自然语言 DSH 回答包装成有效 review JSON。未通过相应 preflight／消费者验证的输出
 仅作试验材料，不写入正式 review 完成记录。

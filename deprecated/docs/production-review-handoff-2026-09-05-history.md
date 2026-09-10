@@ -16,7 +16,7 @@ Git 中 `evidence/production-review-v2-lite/batches/` 和当前队列重放为�
 ## 当前基线
 
 恢复起点为 `4bcdd257c9dee7ec54158ce5f57163c8faa08187`，工作树干净。六项工具优化已全部
-按批准范围完成，详见[完成记录](review-pipeline-and-tooling-optimization-plan.md)。
+按批准范围完成，详见[完成记录](../../deprecated/docs/review-pipeline-and-tooling-optimization-plan.md)。
 初始恢复修复派生队列与进度文档；后续派发兼容修复与审核续跑见文末。译文、术语及旧审核证据未改。
 
 正式 catalog ID 为 `113687afa1f6fe8f9d890979a6ef08c342e5e3256a58b0eddc5282615022adc5`。
@@ -63,7 +63,7 @@ python3 -B tools/i18n production queue check
 python3 -B tools/i18n production batch start --limit 80
 ```
 
-若有活动批次，先按[正式审核方案](translation-production-review-v2-lite-plan.md)的恢复
+若有活动批次，先按[正式审核方案](../../docs/translation-production-review-v2-lite-plan.md)的恢复
 分支处理，不删除 checkpoint、不另开 writer。
 
 ## 继续审核与保留边界
@@ -76,15 +76,15 @@ policy 的稳定排序领取最多 80 条；每批先表层筛查，ISSUE 进入
 
 本次授权不改变术语库／全局重命名的停下规则，也不启用表层 OK 抽样比例或高风险
 直接深审策略；push、PR、发布和 P3 外部操作仍需另行指示。重复实质分歧、无法归因的
-门禁失败、生命周期无法确认等条件按 [AGENTS.md](../AGENTS.md) 停下交回维护者。
+门禁失败、生命周期无法确认等条件按 [AGENTS.md](../../AGENTS.md) 停下交回维护者。
 
 三个官方 DLC 的公开性已确认，但源码仓库／commit 未固定；固定提取快照不是源码
 pin，也不证明源码版本为 1.7.4。机制核验必须记录实际公开源码与来源未固定的事实。
 
 ## 历史记录的使用
 
-- [项目路线图](project-roadmap.md)：P0–P6 的历史阶段；与工具优化 P1–P6 编号不同。
-- [旧 P2 交接](p2-tome-texts-handoff-2026-08-25.md)：截至 b43 的文本批次证据及旧 b44
+- [项目路线图](../../docs/project-roadmap.md)：P0–P6 的历史阶段；与工具优化 P1–P6 编号不同。
+- [旧 P2 交接](../../deprecated/docs/p2-tome-texts-handoff-2026-08-25.md)：截至 b43 的文本批次证据及旧 b44
   边界；不能仅据 workset 存在认定 b44 已完成。
 - 旧交接披露的五个 chats section 缺受跟踪锚点，以及 quests 的旧范围问题，仍是
   历史审计边界。本次不补造审核证据；现行六组件正式 policy 的逐项覆盖由队列计算。
@@ -98,7 +98,7 @@ pin，也不证明源码版本为 1.7.4。机制核验必须记录实际公开�
 `lane_index`，未创建任何 child、未得到任何审核结果；标准 `batch abandon` 已撤销预约。
 
 接口兼容修复 `51ad055` 已完成独立普通／交叉及最终复审、17 项完整门禁和
-`DONE_VERIFIED`，详见[完成记录](paseo-lane-label-compat-20260905.md)。仅创建 label 兼容
+`DONE_VERIFIED`，详见[完成记录](../../deprecated/docs/paseo-lane-label-compat-20260905.md)。仅创建 label 兼容
 精确 `"1"`..`"4"`；历史整数 labels 保留，结构性 lane index 仍为数值，审核身份与策略未变。
 之后从新 HEAD 重建并重新预约同一工作集，工具按工作集生成的 batch ID 保持不变；
 原未派发 STATE 单独保留诊断，新的审核绑定新基线，不复用任何 child 或完成记录。

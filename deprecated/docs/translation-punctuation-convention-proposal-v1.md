@@ -100,7 +100,7 @@ P1–P4 合计约 950 条需要修复（存在少量重叠），其中 **56 条�
 
 ### 4.1 缺陷分档
 
-AGENTS.md 的[复审收敛下限](../AGENTS.md)把缺陷分为两档：一级（fidelity、completeness、
+AGENTS.md 的[复审收敛下限](../../AGENTS.md)把缺陷分为两档：一级（fidelity、completeness、
 terminology、runtime，以及 placeholder／markup／newline 不变量）任何 cycle 均可 reopen；
 二级（grammar、conspicuous translationese）只在 `cycle <= 2` 可 reopen。
 

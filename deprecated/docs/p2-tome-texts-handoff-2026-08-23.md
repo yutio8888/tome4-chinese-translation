@@ -1,9 +1,9 @@
 # P2 核心文本复核交接（2026-08-23）
 
 > 类型：收尾记录，非契约、非门禁。
-> 权威路线仍见 [`project-roadmap.md`](project-roadmap.md)；Paseo 编排与语境审核契约见
-> [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)（2.18-draft）与
-> [`paseo-translation-context-review-v1-contract.md`](paseo-translation-context-review-v1-contract.md)。
+> 权威路线仍见 [`project-roadmap.md`](../../docs/project-roadmap.md)；Paseo 编排与语境审核契约见
+> [`paseo-orchestration-v2-contract.md`](../../docs/paseo-orchestration-v2-contract.md)（2.18-draft）与
+> [`paseo-translation-context-review-v1-contract.md`](../../docs/paseo-translation-context-review-v1-contract.md)。
 
 ## 交接更新（2026-08-24）
 

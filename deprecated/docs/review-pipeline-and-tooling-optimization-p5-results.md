@@ -142,7 +142,7 @@ rg -n '\bMODULE\b' tools tests docs archive
   原来后文两个单独标题对应的 ID 已加入声明表，专属正文仍保留。历史提及不能补足 live 声明。
   CLI 继续以 0 表示通过、1 表示契约检查失败，并保留 PASS/FAIL 输出；缺文件／坏 UTF-8
   也以 1 报错，不发生 traceback。未更改 ai_state_check、bounded runner 或任何专属 validator 行为。
-- [条款覆盖表](paseo-clause-test-coverage.md) 列出 11 条 executable/partial 条款的真实正反
+- [条款覆盖表](../../docs/paseo-clause-test-coverage.md) 列出 11 条 executable/partial 条款的真实正反
   selector、实际断言与人工余项，明确 5 条宿主流程缺口。28 项选定的真实测试已运行通过；
   mapping 不是“测试存在”的替代证明，已读取函数断言并保存执行日志。
 - Part A 的 53 类／468 方法原始清单仍作为基线。B 显式替换 contracts 中 36 项正文镜像／
@@ -180,7 +180,7 @@ rg -n '\bMODULE\b' tools tests docs archive
 | D19 `docs/agent-workflow.md`：传输状态面可能过期，单一 status 不足以判定终态。create_agent 的 | docs/paseo-orchestration-v2-contract.md §七 | 原四步顺序与两轮预算全部移入 canonical 生命周期段。 |
 | D20 `docs/agent-workflow.md`：若待检文件是 untracked，先以 git add -N -- <path> 让其以 intent-to-add 形式进入工作树 diff，再运行 git diff --check | docs/agent-workflow.md §审核、修复与停止 | 保留 untracked whitespace 覆盖，避免 reviewer 更改 index。 |
 | D21 `docs/agent-workflow.md`：仅当 schema_version >= 4、mode=implement 且含 translation_contextual_v1 时启用：首轮 | v1 §三 full/closure；orchestration §一.4；AGENTS 收敛下限 | 保留操作顺序；完整依赖词表、parent、不完整回退、final失败后修复和最新terminal由v1及编排契约承载。 |
-| D22 `docs/agent-workflow.md`：并行只在 [paseo-orchestration-v2-contract.md](paseo-orchestration-v2-contract.md) 的受管 wave | docs/paseo-orchestration-v2-contract.md §五 受管 Phase 1 wave | 四组真实命令、workspace-root 参数和执行时序留在 workflow；初次去重遗漏 verify/apply 的 INTEGRATING 与首次 apply 固定干净基线前置条件，修复轮 1 已补回契约，并保留运行时路径与合法 ignored 产物例外。 |
+| D22 `docs/agent-workflow.md`：并行只在 [paseo-orchestration-v2-contract.md](../../docs/paseo-orchestration-v2-contract.md) 的受管 wave | docs/paseo-orchestration-v2-contract.md §五 受管 Phase 1 wave | 四组真实命令、workspace-root 参数和执行时序留在 workflow；初次去重遗漏 verify/apply 的 INTEGRATING 与首次 apply 固定干净基线前置条件，修复轮 1 已补回契约，并保留运行时路径与合法 ignored 产物例外。 |
 | D23 `docs/paseo-orchestration-v2-contract.md`：规范门禁命令为： | docs/agent-workflow.md §受管 Phase 1 wave | 命令完整保留在操作手册，schema/参数语义仍在契约。 |
 | D24 `i18n/README.md`：tools/i18n review 与 tools/review_diff.py 只生成离线 bundle／index／diff | i18n/README.md review / pi-review 条目；orchestration §十一 | 保留实际 tombstone 副作用与 exit 行为，下方原说明不变；doctor P6 前语义不变。 |
 | D25 `docs/paseo-translation-context-review-v2-contract.md`：全部 reviewer 只读；输出由 ORCHESTRATOR 原样持久化、验证、裁决并在 child 终态后归档。 | docs/paseo-orchestration-v2-contract.md §七/八/十一；v2 §五 | 保留精确输入白名单、源码不足标记、raw bytes 与 v2 identity。 |

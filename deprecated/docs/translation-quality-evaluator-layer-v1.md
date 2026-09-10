@@ -528,10 +528,10 @@ Evaluator Layer 的成功标准不是“模型给出的评分更高”，而是�
 
 ## 参考
 
-- [`paseo-translation-context-review-v1-contract.md`](paseo-translation-context-review-v1-contract.md)
-- [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)
+- [`paseo-translation-context-review-v1-contract.md`](../../docs/paseo-translation-context-review-v1-contract.md)
+- [`paseo-orchestration-v2-contract.md`](../../docs/paseo-orchestration-v2-contract.md)
 - [`translation-quality-evaluator-v2.md`](translation-quality-evaluator-v2.md)
 - [`translation-quality-evaluator-selection-lite-v1.md`](translation-quality-evaluator-selection-lite-v1.md)
-- [`translation-quality-system.md`](translation-quality-system.md)
-- [`project-roadmap.md`](project-roadmap.md)
-- [`../i18n/quality/README.md`](../i18n/quality/README.md)
+- [`translation-quality-system.md`](../../docs/translation-quality-system.md)
+- [`project-roadmap.md`](../../docs/project-roadmap.md)
+- [`../i18n/quality/README.md`](../../README.md)

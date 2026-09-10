@@ -87,3 +87,36 @@ git push origin develop
 5. **派发记录即时落盘**。`dispatch_*.py` 在调 paseo 之前先写 `status=dispatching`，
    拿到 id 后立刻改写为 `dispatched`。重跑会跳过已派发的 lane；若看到 `dispatching` 残留，
    说明上次正好中断在建 agent 的瞬间，**先按 `dispatch_id` 标签核对再处理，不要盲目重跑**。
+
+## 派发方式：CLI 直派 与 MCP 两段式
+
+`paseo run` CLI 不暴露 provider 的功能开关，claude 的 **fast mode** 只能经 MCP
+`create_agent` 的 `settings.features.fast_mode` 传入。为此 `dispatch_surface.py` 与
+`dispatch_contextual.py` 都支持两种派发方式，提示词始终由脚本唯一生成
+（合约的 800 字节上限只在脚本里把关），崩溃安全语义两种方式一致。
+
+**CLI 直派（默认）**
+
+```
+python3 -B tools/orchestration/dispatch_surface.py <plan.json> <children.json>
+```
+
+**MCP 两段式**
+
+```
+# 1) 写 dispatching 意图，并导出待创建项（含提示词与标签）
+python3 -B tools/orchestration/dispatch_surface.py <plan.json> <children.json> --emit <emit.json>
+
+# 2) 编排者据 emit.json 逐条调用 paseo MCP create_agent，
+#    settings 传 { features: { fast_mode: true }, thinkingOptionId, modeId }
+
+# 3) 回填 agent_id（ids.json 的键为 "task_id|dispatch_id"）
+python3 -B tools/orchestration/dispatch_surface.py <plan.json> <children.json> --record <ids.json>
+```
+
+`--record` 会拒绝重复的 `agent_id`，也会在仍有未回填的意图记录时报错退出——
+即「可能已经建了 agent 却没记下 id」的状态不允许留在盘上。
+
+注意：fast mode 只有 Opus 系模型支持（`claude-opus-5`、`claude-opus-4-8/4-7/4-6` 及其 1M 变体）；
+`claude-fable-5-1`、`claude-sonnet-5`、`claude-haiku-4-5` 均不支持。官方说明为
+「以更高 token 成本换取更低延迟」，不改变模型能力，因此不影响两轮审核的裁决门槛。

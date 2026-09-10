@@ -4,9 +4,9 @@
 >
 > 适用阶段：翻译质量系统第一阶段 M4–M6。
 >
-> 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)。
+> 上位设计：[`translation-quality-system.md`](../../docs/translation-quality-system.md)。
 >
-> 现行试点：[`translation-quality-phase-1.md`](./translation-quality-phase-1.md)。
+> 现行试点：[`translation-quality-phase-1.md`](../../docs/translation-quality-phase-1.md)。
 >
 > 设计背景：现有 12 条双模型盲测证明两个模型能够完整输出 assessment，也能较好地
 > 发现翻译问题；但 finding 拆分方式和 severity 标尺不稳定。本文定义下一版可执行协议，

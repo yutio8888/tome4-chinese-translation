@@ -114,7 +114,7 @@ Nothing is currently awaiting a maintainer decision except the `data/quests/` sc
 
 ## 4. Per-batch workflow
 
-Unchanged from [`agent-workflow.md`](agent-workflow.md); summarised here so a batch can be started
+Unchanged from [`agent-workflow.md`](../../docs/agent-workflow.md); summarised here so a batch can be started
 cold.
 
 1. **Freeze** the workset to tracked `evidence/quality/p2-batches/`. Build from

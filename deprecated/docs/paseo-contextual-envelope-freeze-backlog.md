@@ -44,8 +44,8 @@ Lua 与 `SCOPE.json` 快照绑定、失败原子性、既有手工 envelope 路�
 
 ## 依据
 
-- [`AGENTS.md`](../AGENTS.md)：translation contextual preflight 上位规则。
-- [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)：当前
+- [`AGENTS.md`](../../AGENTS.md)：translation contextual preflight 上位规则。
+- [`paseo-orchestration-v2-contract.md`](../../docs/paseo-orchestration-v2-contract.md)：当前
   contextual payload／envelope 边界与 preflight 契约。
 - [`contextual_anchor_preflight.py`](../tools/contextual_anchor_preflight.py)：当前离线
   fail-closed preflight 工具；工具本身不是冻结入口。

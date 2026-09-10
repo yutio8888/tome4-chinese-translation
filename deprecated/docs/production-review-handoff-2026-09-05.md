@@ -13,7 +13,7 @@ child；S／done 2,226（surface_only 2,179；deep_reviewed 47），待修复 0�
 `python3 -B tools/i18n production batch show`；仅在无活动 checkpoint 时运行
 `python3 -B tools/i18n production queue rebuild` 与
 `python3 -B tools/i18n production queue check`。有活动批次则按
-[正式方案](translation-production-review-v2-lite-plan.md)恢复，不删除 checkpoint 或另开 writer。
+[正式方案](../../docs/translation-production-review-v2-lite-plan.md)恢复，不删除 checkpoint 或另开 writer。
 
 每批按既定 policy 稳定排序选满最多 **80 个 entry revision**，使用
 `python3 -B tools/i18n production batch start --limit 80`；余量不足时记录实际 selected 数。
@@ -25,9 +25,9 @@ batch 可以混合来源，不得因 `fixed_source_identity` 变化截短 select
 实际并发数记录为操作配置（当前 3），不是契约硬上限。
 
 逐条源码核验、冻结／preflight、角色分离、独立审核、宿主裁决、适用门禁、
-`DONE_VERIFIED`、提交和 child 归档继续遵循 [工作流](agent-workflow.md) 与
-[AGENTS.md](../AGENTS.md)。DLC 公开源码未固定 repository／commit；提取快照不作源码 pin。
+`DONE_VERIFIED`、提交和 child 归档继续遵循 [工作流](../../docs/agent-workflow.md) 与
+[AGENTS.md](../../AGENTS.md)。DLC 公开源码未固定 repository／commit；提取快照不作源码 pin。
 
-原交接已按原始字节保存为[历史归档](archive/production-review-handoff-2026-09-05-history.md)。
+原交接已按原始字节保存为[历史归档](production-review-handoff-2026-09-05-history.md)。
 归档所有相对链接以原目录 `docs/` 解析，原文中的暂停、继续、push 和下一批命令仅为历史，
 不构成当前指令。当前入口仅采用本文及执行说明的有界推进安排。

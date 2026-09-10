@@ -1,15 +1,18 @@
 # ToME4 汉化项目 Roadmap
 
-> 状态：阶段路线图；当前执行入口于 2026-09-05 更新，后文保留早期阶段记录。
+> 状态：**历史阶段路线图**。当前操作入口已移至
+> [`基线批次 runbook`](baseline-batch-runbook-2026-09-06.md)，本文只保留早期阶段记录。
 > 本文规定近期工作的优先级和阶段依赖，不替代质量 contract、审核契约、门禁或发布流程。
 > 事实或用户裁决变化时更新本文；不因长期阶段存在而默认启动 provider、Paseo task、push 或发布。
 
 ## 一、当前判断
 
-当前按正式 WP2-Lite 队列继续有界审核。2026-09-05 已完成六项审核工具优化，维护者
-随后授权重建队列、修复交接并继续主持审核；不再以本文早期“下一候选”作为领取依据。
-最新可核验进度、恢复操作和仍保留的边界见
-[`当前审核交接`](production-review-handoff-2026-09-05.md)。
+当前按正式 WP2-Lite 队列以每批 80 条连续审核，已 finalize 至第 67 批；维护者已授权
+连续主持、逐批自动推进，不再以本文早期“下一候选”作为领取依据。
+每批的操作入口、命令顺序与生效裁决表见
+[`基线批次 runbook`](baseline-batch-runbook-2026-09-06.md)。
+2026-09-05 的那份审核交接（其中“未恢复无界连续审核”的边界已被上述授权取代）
+已移入 [`deprecated/`](../deprecated/README.md)，仅供历史查证。
 
 以下 P0–P6 为历史项目阶段；与本次工具优化方案的 P1–P6 是两套编号。早期已完成
 P1 核心有界优化、三个官方 DLC 的 P2 第 1–3 层及获授权的 P3 累计门禁、构建和发布
@@ -224,7 +227,7 @@ provider 槽位估计的模型指标；但该重分类不改变“两 evaluator 
 - Gold/Silver TM 投产与模糊检索；
 - entity ledger、Pilot B、Precedent/Exception 完整治理生命周期；
 - Facts study 新迭代或新 provider campaign；
-- [`contextual envelope 原子冻结入口`](paseo-contextual-envelope-freeze-backlog.md)：
+- [`contextual envelope 原子冻结入口`](../deprecated/docs/paseo-contextual-envelope-freeze-backlog.md)：
   仅登记集成缺口，未获设计或实施授权；
 - 为了完善研究设施而新增与当前译文批次无直接产出的基础设施。
 
@@ -235,4 +238,4 @@ provider 槽位估计的模型指标；但该重分类不改变“两 evaluator 
 - [`../i18n/quality/README.md`](../i18n/quality/README.md)：权威质量规则与 v3 deferred 状态；
 - [`paseo-translation-context-review-v1-contract.md`](paseo-translation-context-review-v1-contract.md)：
   现行译文语境审核契约；
-- [`release-plan.md`](release-plan.md)：发布操作与历史决策。
+- [`release-plan.md`](../deprecated/docs/release-plan.md)：发布操作与历史决策。

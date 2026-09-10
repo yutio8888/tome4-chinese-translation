@@ -455,11 +455,11 @@ print('与已审配对相同', sum(1 for o in unrev if (o['source'], o['target']
 
 ## 附录 B：相关文档
 
-- [正式审核方案](translation-production-review-v2-lite-plan.md)——§5 优先键、§266 run 分组、
+- [正式审核方案](../../docs/translation-production-review-v2-lite-plan.md)——§5 优先键、§266 run 分组、
   §14.2 升级触发、§15 待定参数。
 - [当前交接](production-review-handoff-2026-09-05.md)——恢复基线与逐批记录（见观察四）。
-- [代理操作与门禁手册](agent-workflow.md)——连续批次循环与门禁。
-- [AGENTS.md](../AGENTS.md)——停下条件、跨批次策略决定、校对判定依据。
+- [代理操作与门禁手册](../../docs/agent-workflow.md)——连续批次循环与门禁。
+- [AGENTS.md](../../AGENTS.md)——停下条件、跨批次策略决定、校对判定依据。
 - [中文标点判据提案 v1](translation-punctuation-convention-proposal-v1.md)——本文 §9 与
   §11 第 3、4 项的落地草案（待批准）。
 - [批量上限升级提案 v1](production-review-batch-limit-upgrade-proposal-v1.md)——本文 §11

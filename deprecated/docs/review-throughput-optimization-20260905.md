@@ -4,7 +4,7 @@
 `MAX_BATCH=80`、`stable_selection`、`partition_surface_entries` 已有对应行为，无需改动。
 [当前交接](production-review-handoff-2026-09-05.md)明确允许 batch 混来源，由 adapter 拆同质
 run；来源变更不能截短 selected。单 screen 仍 ≤80，selected 按 revision 而非文本 group 计数。
-[原文归档](archive/production-review-handoff-2026-09-05-history.md)完整保留历史字节；归档相对
+[原文归档](production-review-handoff-2026-09-05-history.md)完整保留历史字节；归档相对
 链接以原目录 `docs/` 解析。归档命令不再指挥当前工作。
 
 尚未执行：5 批最多 80 的有界基线、独立质量诊断、候选机械扫描与校准、3 批 160 试点。
@@ -13,7 +13,7 @@ run；来源变更不能截短 selected。单 screen 仍 ≤80，selected 按 re
 终态约束；已最小适配新导出的多 run task ID 为 `<batch-id>-surface-000` 等，单 run 保留
 历史 batch task ID，已导出的 checkpoint／group 不迁移。逐 run 独立 Paseo task 完成
 `DONE_VERIFIED` 后才由宿主聚合 exact-union 导入；不靠 cycle／attempt 区分 screen。
-详见[正式方案](translation-production-review-v2-lite-plan.md)。
+详见[正式方案](../../docs/translation-production-review-v2-lite-plan.md)。
 独立普通／交叉／最终复审及 DONE 验证由 ORCHESTRATOR 后续完成，工具计时结束不代表审核完成。
 三份现有未跟踪分析／提案仅作输入，保留原样；其相关性和估算不能证明因果或已节省工时。
 
@@ -77,7 +77,7 @@ summary 输出 batch identity、base commit、selected、各阶段已记录秒�
 
 退出／暂缓扩容条件：发现确定性一级漏检，先解决原因并重新验证；身份／守恒／门禁任一异常，
 或质量未知、计时不完整、无效输出／重试及人工负担无法解释时，不进入扩容。
-生命周期、重复实质分歧、无法归因的门禁失败等按 [AGENTS.md](../AGENTS.md)停下；有界基线
+生命周期、重复实质分歧、无法归因的门禁失败等按 [AGENTS.md](../../AGENTS.md)停下；有界基线
 结束即汇报，不默认为无界连续审核。不得把本工具日志当作正式质量证据或 DONE 认证。
 
 ## 本次实现验证

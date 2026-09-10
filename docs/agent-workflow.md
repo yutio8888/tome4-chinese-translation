@@ -25,7 +25,7 @@ git diff --name-status
 | 采用 Paseo 的实现或独立复审 | 读取编排契约及实际使用的角色；按任务建立记录 |
 | contextual v1／schema 4 implement | 使用下文旧 P2 实现步骤与三阶段收敛；历史任务不迁移 |
 | contextual v2 implement | 按 [v2 契约](paseo-translation-context-review-v2-contract.md) 准备与收束，不照搬 v1 的 lane 数和轮次升级规则 |
-| WP2-Lite 正式审核 | 按[当前交接](production-review-handoff-2026-09-05.md)和[正式方案](translation-production-review-v2-lite-plan.md)处理 checkpoint、队列、surface／deep、裁决及 evidence；active batch 内不修改译文 |
+| WP2-Lite 正式审核 | 按[当前交接](../deprecated/docs/production-review-handoff-2026-09-05.md)和[正式方案](translation-production-review-v2-lite-plan.md)处理 checkpoint、队列、surface／deep、裁决及 evidence；active batch 内不修改译文 |
 | WP2-Lite repair | 审核证据已提交且 checkpoint 已移除后运行 `repair preflight`，另建唯一 EXECUTOR 的实现任务；提交译文、repair evidence、catalog 和 migration 后 rebuild queue，successor 等待重新审核 |
 
 有活动 checkpoint 时先按所属流程恢复；不能删除 checkpoint 或新开 writer 来套用另一条流程。
@@ -64,7 +64,7 @@ python3 -B tools/i18n claims check \
 ```
 
 exact schema、directional anchor、结构化 decomposition、完整句重渲染和来源固定规则见
-[`semantic-claim-runtime-composition-v1.md`](semantic-claim-runtime-composition-v1.md)。关键词扫描
+[`semantic-claim-runtime-composition-v1.md`](../deprecated/docs/semantic-claim-runtime-composition-v1.md)。关键词扫描
 只生成候选，不直接决定 finding 或阻断批次。
 
 `tools/ci-gates.sh` 委托 `tools/ci_gates.py`，统一使用
@@ -210,7 +210,7 @@ python3 -B tools/wave_review.py done .ai/waves/<wave-id>/WAVE.json <workspace-ro
 
 ### Production-review shadow 校准
 
-WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产批次。统一用 `python3 -B tools/i18n production` 的 locator/catalog/shadow-policy/shadow-journal/replay/batch-draft/reconciliation 子命令；完整链与参数见 [`translation-production-catalog-queue-v1-plan.md`](translation-production-catalog-queue-v1-plan.md)。shadow marker 必须始终为非权威／不可派发／不可提升；不得 append、取得 ownership、建立 formal epoch 或写译文。受跟踪 immutable snapshot 在 `evidence/production-review/`，schema/policy 在 `i18n/quality/production-review/`，drift/reconciliation report 只在 `.artifacts/i18n/production-review/`。
+WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产批次。统一用 `python3 -B tools/i18n production` 的 locator/catalog/shadow-policy/shadow-journal/replay/batch-draft/reconciliation 子命令；完整链与参数见 [`translation-production-catalog-queue-v1-plan.md`](../deprecated/docs/translation-production-catalog-queue-v1-plan.md)。shadow marker 必须始终为非权威／不可派发／不可提升；不得 append、取得 ownership、建立 formal epoch 或写译文。受跟踪 immutable snapshot 在 `evidence/production-review/`，schema/policy 在 `i18n/quality/production-review/`，drift/reconciliation report 只在 `.artifacts/i18n/production-review/`。
 
 收束至少运行 production、surface manifest、surface result、translation ledger 四套 focused tests，逐件运行 check/replay/reconciliation，并执行 Paseo contract check 与 `git diff --check`。WP2 必须重新 harvest、完成正式 source locator migration 并建立全新正式 ID 链；不能把 WP1 baseline 改 marker 后复用，也不能引用它作为 parent。正式 ledger CLI 默认以工具仓库 ROOT 和所选 `--root` 的 forbidden set 并集机械拒绝 tracked WP1 shadow provenance；generic library replay 仅保留 legacy 状态机结构验证，`--catalog-manifest` 在 WP2 exact authoritative validator 完成前拒绝所有 catalog，未来 validator 仍须同时应用该 forbidden set。WP2 publication 当前完全不可用；启用前必须实现新的单锁 generation transaction，在同一锁内精确验证并完成 WP1 retirement、父目录 fsync、各 family 与 128 MiB 总预算预检，以及五 family 全部 publication 或恢复。不得用布尔值表示 retirement，也不得把 WP1 per-family publisher 当作该 transaction。
 

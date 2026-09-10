@@ -2,8 +2,17 @@
 # -*- coding: utf-8 -*-
 """派发 surface reviewer，派发前后各落一次盘（不靠事后翻日志反推 agent）。
 
-用法：python3 -B tools/orchestration/dispatch_surface.py <plan.json> <children.json>
+用法：
+  CLI 直派（默认）：python3 -B .../dispatch_surface.py <plan.json> <children.json>
+  MCP 两段式：      python3 -B .../dispatch_surface.py <plan.json> <children.json> --emit <emit.json>
+                    （编排者据 emit.json 逐条调用 paseo MCP create_agent，可带 fast_mode）
+                    python3 -B .../dispatch_surface.py <plan.json> <children.json> --record <ids.json>
 环境：TOME_ORCH_PARENT_AGENT_ID、TOME_PASEO_WORKSPACE
+
+为什么要两段式：paseo CLI 的 `run` 不暴露 provider 功能开关，claude 的 fast_mode
+只能经 MCP create_agent 的 settings.features 传入。两段式让提示词仍由本脚本唯一生成
+（合约 800 字节上限只在这里把关），同时保留「先落 dispatching 意图、拿到 id 再落 dispatched」
+的崩溃安全语义——emit 阶段写意图，record 阶段回填 id。
 
 崩溃安全（runbook §35.1）：原实现把 kids 攒在内存里、循环结束才写文件，
 中途任何一次失败都会让「已经建出来的 agent」失去记录，只能事后翻日志反推。
@@ -36,8 +45,42 @@ def build_prompt(ci, ip):
     return prompt
 
 
+def _arg(flag):
+    return sys.argv[sys.argv.index(flag) + 1] if flag in sys.argv else None
+
+
+def record(kids_path, ids_path):
+    """回填 MCP 创建出来的 agent id：只认 dispatching 记录，且 id 不得重复。"""
+    kids = json.load(open(kids_path))
+    ids = json.load(open(ids_path))
+    seen = {k['agent_id'] for k in kids if k.get('agent_id')}
+    done = 0
+    for k in kids:
+        if k.get('status') != 'dispatching':
+            continue
+        key = f"{k['task_id']}|{k['dispatch_id']}"
+        aid = ids.get(key)
+        if not aid:
+            raise SystemExit(f'ids.json 缺 {key} 的 agent_id；未回填的意图记录不能留在盘上')
+        if aid in seen:
+            raise SystemExit(f'{key} 的 agent_id {aid} 与其他 lane 重复，拒绝回填')
+        seen.add(aid)
+        k['agent_id'] = aid
+        k['status'] = 'dispatched'
+        done += 1
+    _orch.write_json_atomic(kids_path, kids)
+    leftover = [f"{k['task_id']}|{k['dispatch_id']}" for k in kids if k.get('status') != 'dispatched']
+    if leftover:
+        raise SystemExit(f'仍有未完成的记录：{leftover}')
+    print(f'回填 {done} 条，children.json 共 {len(kids)} 条，全部 dispatched')
+
+
 def main():
     plan_path, kids_path = sys.argv[1], sys.argv[2]
+    if '--record' in sys.argv:
+        return record(kids_path, _arg('--record'))
+    emit_path = _arg('--emit')
+    emit = []
     plan = json.load(open(plan_path))
     parent, ws = _orch.parent_agent_id(), _orch.workspace_id()
 
@@ -69,6 +112,20 @@ def main():
             kids.append(rec)
             _orch.write_json_atomic(kids_path, kids)      # 意图先落盘
 
+            labels = {'task_id': task, 'role': 'reviewer', 'purpose': CONTRACT,
+                      'candidate_identity': ci, 'dispatch_id': did,
+                      'paseo.parent-agent-id': parent}
+            if emit_path:
+                emit.append({'task_id': task, 'dispatch_id': did,
+                             'key': f'{task}|{did}',
+                             'provider': 'claude/claude-opus-5',
+                             'workspaceId': ws, 'cwd': str(_orch.ROOT),
+                             'thinkingOptionId': 'medium', 'modeId': 'bypassPermissions',
+                             'labels': labels, 'prompt': build_prompt(ci, ip)})
+                made += 1
+                print(f'{task} {did} 待 MCP 创建')
+                continue
+
             o = _orch.paseo_json([
                 'run', '--background', '--provider', 'claude/claude-opus-5',
                 '--thinking', 'medium', '--mode', 'bypassPermissions',
@@ -88,6 +145,11 @@ def main():
             made += 1
             print(f'{task} {did} {aid}')
 
+    if emit_path:
+        _orch.write_json_atomic(emit_path, emit)
+        print(f'已写出 {len(emit)} 条待创建项到 {emit_path}；'
+              f'创建完成后用 --record <ids.json> 回填（键为 "task_id|dispatch_id"）')
+        return
     print(f'本次新派发 {made} 个，children.json 共 {len(kids)} 条')
 
 

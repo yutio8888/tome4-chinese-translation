@@ -20,9 +20,9 @@
 > 本文件不调用 provider／候选
 > evaluator，不抽样真实 revision，不激活 `evaluator_selection_v1`，也不授予发布或外部传输授权。
 >
-> 上位规则：[`AGENTS.md`](../AGENTS.md)；编排契约：
-> [`paseo-orchestration-v2-contract.md`](./paseo-orchestration-v2-contract.md)；活跃译文
-> 语境审核契约：[`paseo-translation-context-review-v1-contract.md`](./paseo-translation-context-review-v1-contract.md)。
+> 上位规则：[`AGENTS.md`](../../AGENTS.md)；编排契约：
+> [`paseo-orchestration-v2-contract.md`](../../docs/paseo-orchestration-v2-contract.md)；活跃译文
+> 语境审核契约：[`paseo-translation-context-review-v1-contract.md`](../../docs/paseo-translation-context-review-v1-contract.md)。
 >
 > 本文档**不修改、不重解释** `translation_contextual_v1` 契约、Paseo 编排契约、
 > Evaluator v1/v2/v3 文档、Facts 研究 artifact、`dataset-registry-v1` 或任何历史

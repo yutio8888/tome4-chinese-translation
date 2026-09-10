@@ -9,7 +9,7 @@
 ## 实施范围
 
 - manifest schema 1 为两个 repository、三个官方 DLC 分别增加 `visibility`、`extraction_mode`、
-  `source_pinning`、`scan_allowlist`；四项语义及兼容默认见 [工具说明](../i18n/README.md#来源属性与-doctor-扫描)。
+  `source_pinning`、`scan_allowlist`；四项语义及兼容默认见 [工具说明](../../README.md#来源属性与-doctor-扫描)。
 - `config.py` 校验枚举、类型及扫描路径；broker 保留原路由，拒绝不支持的固定源码声明、
   full-tree 声明与非空扫描列表。官方 DLC 公开性不再从 broker 名称推断。
 - `git_source.py` 为 validate 增加可选 allowlist：省略保持全树；空列表完全不调用 status；

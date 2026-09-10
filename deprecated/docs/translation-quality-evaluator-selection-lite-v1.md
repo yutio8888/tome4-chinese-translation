@@ -39,7 +39,7 @@ Lite 的首要目标是让选择成本服从译文主线，而不是为了选择
   → 未来另行授权的 Selection-Lite 冻结样本
 ```
 
-因此 Lite 明确与[当前项目路线图](./project-roadmap.md)耦合；延期完整协议仍只作为升级时的
+因此 Lite 明确与[当前项目路线图](../../docs/project-roadmap.md)耦合；延期完整协议仍只作为升级时的
 设计参考。
 
 ### 1.2 append-only evidence pool
@@ -681,16 +681,16 @@ artifact。
 
 本规范的边界与以下当前文档一致：
 
-- [`AGENTS.md`](../AGENTS.md)：Paseo、外发和基础设施审核总规则；
+- [`AGENTS.md`](../../AGENTS.md)：Paseo、外发和基础设施审核总规则；
 - [`evaluator-selection-full-impl-discard-manifest.md`](./evaluator-selection-full-impl-discard-manifest.md)：
   pre-Lite 全量实现资产的最终处置记录；
 - [`translation-quality-evaluator-selection-v1.md`](./translation-quality-evaluator-selection-v1.md)：
   `design-reference / full protocol deferred`；
-- [`project-roadmap.md`](./project-roadmap.md)：Lite 渐进证据所挂接的日常译文主线；
-- [`paseo-orchestration-v2-contract.md`](./paseo-orchestration-v2-contract.md) 与
-  [`paseo-translation-context-review-v1-contract.md`](./paseo-translation-context-review-v1-contract.md)：
+- [`project-roadmap.md`](../../docs/project-roadmap.md)：Lite 渐进证据所挂接的日常译文主线；
+- [`paseo-orchestration-v2-contract.md`](../../docs/paseo-orchestration-v2-contract.md) 与
+  [`paseo-translation-context-review-v1-contract.md`](../../docs/paseo-translation-context-review-v1-contract.md)：
   当前 Paseo／语境审核边界；
-- [`i18n/quality/README.md`](../i18n/quality/README.md)：现有质量资产及 deferred 状态。
+- [`i18n/quality/README.md`](../../README.md)：现有质量资产及 deferred 状态。
 
 本文不修改或重解释上述契约，不声称解决 v3 calibration、official-120、M5／M6、
 Gold／Silver／TM 或 production mapping。所有未来实例都必须以冻结 protocol 为准，保留失败，

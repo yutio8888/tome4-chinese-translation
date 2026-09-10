@@ -7,11 +7,11 @@
 > 33-slot 外部 Facts campaign：Luna 未满足推广判据，DeepSeek 仅有方向性正信号；
 > 正式决策为 `do-not-promote-facts-channel`，`holdout_clearance=false`。Facts 不进入
 > v4 draft.3，后续 verifier 研究必须另建协议并重新授权。完整结果见
-> [`translation-quality-facts-study-report-v1.md`](./translation-quality-facts-study-report-v1.md)。
+> [`translation-quality-facts-study-report-v1.md`](../deprecated/docs/translation-quality-facts-study-report-v1.md)。
 > 适用范围：本仓库中的规范中文译文、术语库以及由它们生成的翻译记忆和联想索引。
 > 第一阶段实施方案见 [`translation-quality-phase-1.md`](./translation-quality-phase-1.md)；
 > AI evaluator 的事实判定、问题匹配、规则定级和匿名裁决 v2 方案见
-> [`translation-quality-evaluator-v2.md`](./translation-quality-evaluator-v2.md)。
+> [`translation-quality-evaluator-v2.md`](../deprecated/docs/translation-quality-evaluator-v2.md)。
 
 ## 一、背景与目标
 
@@ -561,7 +561,7 @@ i18n/quality/
 
 详见 [`translation-quality-phase-1.md`](./translation-quality-phase-1.md)。
 当前 Evaluator v3/Facts curation 的离线收口实施细节见
-[`translation-quality-offline-closure-plan.md`](./translation-quality-offline-closure-plan.md)。
+[`translation-quality-offline-closure-plan.md`](../deprecated/docs/translation-quality-offline-closure-plan.md)。
 
 ### 阶段 2：精确高质量译文库
 

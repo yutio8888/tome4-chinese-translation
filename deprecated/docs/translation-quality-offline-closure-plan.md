@@ -12,7 +12,7 @@
 >
 > 更新时间：2026-08-08。
 >
-> 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)；
+> 上位设计：[`translation-quality-system.md`](../../docs/translation-quality-system.md)；
 > 当前状态与实验结论：
 > [`translation-quality-facts-study-report-v1.md`](./translation-quality-facts-study-report-v1.md)。
 

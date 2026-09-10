@@ -218,7 +218,7 @@ SPEC／diff 交叉审核。**该 code 审核与译文批次分开提交**。
 - 不为提高覆盖率而放弃逐条源码核验；
 - 不把 `status.changed`（tome 3,335）或 `canonical_only` 当作缺陷队列；
 - 不因首批结果启动 evaluator 选型 campaign——Selection-Lite 的成本闸门独立生效，
-  见 [`translation-quality-evaluator-selection-lite-v1.md`](translation-quality-evaluator-selection-lite-v1.md) §9；
+  见 [`translation-quality-evaluator-selection-lite-v1.md`](../deprecated/docs/translation-quality-evaluator-selection-lite-v1.md) §9；
 - 不在译文批次中夹带基础设施重构；
 - 不 push、不同步发布仓库、不创建 release。
 

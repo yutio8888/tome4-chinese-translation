@@ -1,7 +1,7 @@
 # 批量上限升级提案 v1（待批准草案）
 
 **状态：待维护者批准。** 本文按
-[正式审核方案](translation-production-review-v2-lite-plan.md) §14.2 提出升级申请，
+[正式审核方案](../../docs/translation-production-review-v2-lite-plan.md) §14.2 提出升级申请，
 不修改任何代码、契约或策略文件。
 
 **§14.2 要求：** 升级必须另建提案，且至少满足一条可核验证据；即使触发，也只批准解决该

@@ -15,13 +15,14 @@
 - 发布 addon：`tome-chn-mod` 0.2.7，发布提交 `9cdbd30`；主 locale 共 8,949 条，
   其中核心覆盖 3,488 条、DLC 覆盖 5,461 条（Nullpack 464 条由独立文件加载）。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
-  准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](docs/translation-quality-facts-study-report-v1.md)。
-- 当前执行路线（2026-09-05）：正式 WP2-Lite 审核已提交 18 批；本轮六项工具优化
-  已完成。维护者已授权重建队列、修复交接后继续主持有界审核。当前版本表层覆盖
-  1,339／29,828，深审覆盖 47／29,828，二者重叠；早期 P1／P2 成果不直接折算为
-  正式队列覆盖。最新恢复基线、操作顺序和发布边界见
-  [`当前审核交接`](docs/production-review-handoff-2026-09-05.md)；历史阶段见
-  [`项目路线图`](docs/project-roadmap.md)。
+  准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](deprecated/docs/translation-quality-facts-study-report-v1.md)。
+- 当前执行路线（2026-09-10）：正式 WP2-Lite 审核以每批 80 条持续推进，已完成并
+  finalize 至第 67 批；维护者授权连续主持，逐批自动推进。广泛的全库清扫作为独立的
+  有界维护窗口执行，不混入正常批次。当前操作入口、每步命令与生效裁决表见
+  [`基线批次 runbook`](docs/baseline-batch-runbook-2026-09-06.md)；编排脚本用法见
+  [`tools/orchestration/README.md`](tools/orchestration/README.md)；历史阶段见
+  [`项目路线图`](docs/project-roadmap.md)。已被取代的设计稿、阶段计划与一次性交接
+  统一收在 [`deprecated/`](deprecated/README.md)，不作为任何操作依据。
 
 ## 仓库结构
 
@@ -33,7 +34,9 @@
 | `i18n/quality/` | 翻译质量规则、schema 和版本化协议 |
 | `tools/i18nlib/` | 提取、校验、构建、审核与质量工具实现 |
 | `tests/i18n/` | 工具链和质量系统回归测试 |
-| `docs/` | 设计、发布、审核和研究文档 |
+| `docs/` | 现行设计、审核契约与操作文档 |
+| `deprecated/` | 已被取代、仅供历史查证的文档，勿作操作依据 |
+| `archive/` | pi CLI 时代的路由层资产（Skill、subagent、旧契约） |
 
 ## 快速开始
 

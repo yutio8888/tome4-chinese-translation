@@ -41,7 +41,7 @@
   对 live routing、author provenance、model diversity、recovery、read-only 五项宿主流程
   明确披露自动化缺口，保留人工核验，不新增编排引擎；不再要求每条宿主流程都有虚构的
   自动化行为测试。36 项正文镜像测试的替换均已列明，规范正文修改仍由独立复审判断。
-  具体 selector、断言及人工余项见[条款覆盖表](paseo-clause-test-coverage.md)。
+  具体 selector、断言及人工余项见[条款覆盖表](../../docs/paseo-clause-test-coverage.md)。
   旧模块均有实际消费者，归档集合为空；不是遗漏归档。复审发现的 wave 前置条件文档
   遗漏已补回契约并通过最终复审。
 - **P6 来源与一致性边界**：三个官方 DLC 为 public，但仍经现有 Lua broker 提取，源码

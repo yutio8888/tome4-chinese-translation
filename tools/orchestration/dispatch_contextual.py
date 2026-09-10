@@ -5,7 +5,12 @@
 契约文件名是 paseo-translation-context-review-v2-contract.md
 （不是 paseo-translation-contextual-v2-contract.md——后者不存在）。
 
-用法：python3 -B tools/orchestration/dispatch_contextual.py <ctx.json> <children.json>
+用法：
+  CLI 直派（默认）：python3 -B .../dispatch_contextual.py <ctx.json> <children.json>
+  MCP 两段式：      python3 -B .../dispatch_contextual.py <ctx.json> <children.json> --emit <emit.json>
+                    python3 -B .../dispatch_contextual.py <ctx.json> <children.json> --record <ids.json>
+两段式的理由与语义同 dispatch_surface.py：CLI 不暴露 provider 功能开关，
+提示词仍由本脚本唯一生成，崩溃安全的「意图先落盘」语义不变。
 
 崩溃安全与幂等：与 dispatch_surface.py 同一套（runbook §35.1）——
 派发前先落 status=dispatching 的意图，派发后立刻落 agent_id；
@@ -34,9 +39,42 @@ def build_prompt(ci, ip):
     return prompt, n
 
 
+def _arg(flag):
+    return sys.argv[sys.argv.index(flag) + 1] if flag in sys.argv else None
+
+
+def record(kids_path, ids_path):
+    kids = json.load(open(kids_path))
+    ids = json.load(open(ids_path))
+    seen = {k['agent_id'] for k in kids if k.get('agent_id')}
+    done = 0
+    for k in kids:
+        if k.get('status') != 'dispatching':
+            continue
+        key = f"{k['task_id']}|{k['dispatch_id']}"
+        aid = ids.get(key)
+        if not aid:
+            raise SystemExit(f'ids.json 缺 {key} 的 agent_id')
+        if aid in seen:
+            raise SystemExit(f'{key} 的 agent_id {aid} 与其他记录重复，拒绝回填')
+        seen.add(aid)
+        k['agent_id'] = aid
+        k['status'] = 'dispatched'
+        done += 1
+    _orch.write_json_atomic(kids_path, kids)
+    leftover = [f"{k['task_id']}|{k['dispatch_id']}" for k in kids if k.get('status') != 'dispatched']
+    if leftover:
+        raise SystemExit(f'仍有未完成的记录：{leftover}')
+    print(f'回填 {done} 条，children.json 共 {len(kids)} 条，全部 dispatched')
+
+
 def main():
     rows = json.load(open(sys.argv[1]))
     kids_path = sys.argv[2]
+    if '--record' in sys.argv:
+        return record(kids_path, _arg('--record'))
+    emit_path = _arg('--emit')
+    emit = []
     parent, ws = _orch.parent_agent_id(), _orch.workspace_id()
 
     kids = json.load(open(kids_path)) if pathlib.Path(kids_path).is_file() else []
@@ -67,6 +105,20 @@ def main():
         kids.append(rec)
         _orch.write_json_atomic(kids_path, kids)      # 意图先落盘
 
+        labels = {'task_id': task, 'role': 'reviewer',
+                  'purpose': 'translation_contextual_v2',
+                  'candidate_identity': ci, 'dispatch_id': did,
+                  'paseo.parent-agent-id': parent}
+        if emit_path:
+            emit.append({'task_id': task, 'dispatch_id': did, 'key': f'{task}|{did}',
+                         'provider': 'codex/gpt-5.6-sol',
+                         'workspaceId': ws, 'cwd': str(_orch.ROOT),
+                         'thinkingOptionId': 'medium', 'modeId': 'full-access',
+                         'labels': labels, 'prompt': prompt})
+            made += 1
+            print(f'{task} {did} 待 MCP 创建 ({n} bytes)')
+            continue
+
         o = _orch.paseo_json([
             'run', '--background', '--provider', 'codex/gpt-5.6-sol',
             '--thinking', 'medium', '--mode', 'full-access',
@@ -86,6 +138,11 @@ def main():
         made += 1
         print(task, did, aid, f'({n} bytes)')
 
+    if emit_path:
+        _orch.write_json_atomic(emit_path, emit)
+        print(f'已写出 {len(emit)} 条待创建项到 {emit_path}；'
+              f'创建完成后用 --record <ids.json> 回填')
+        return
     print(f'本次新派发 {made} 个，children.json 共 {len(kids)} 条')
 
 
