@@ -24,31 +24,29 @@ import _orch
 
 DOC = 'docs/paseo-translation-context-review-v2-contract.md'
 
-# 派发模式。默认 auto（维护者裁定，2026-09-10 起）。
-# 原默认 full-access 的问题：codex 对该模式的说明含「访问网络」，
+# 交叉复核 reviewer 的模型、推理档与派发模式。维护者裁定，2026-09-10：
+#   codex/gpt-5.6-sol + medium + auto → claude/claude-opus-5 + xhigh + bypassPermissions
+# 表层轮同日改为 codex/gpt-6-astra + xhigh，两轮因此重新跨模型，
+# 契约第 23 条「两轮各自独立复现同一主张才算 confirmed」的独立性得以保持
+# （中途曾短暂两轮同用 gpt-6-astra，未派发过任何批次即改回）。
+#
+# 换 provider 必须同时换 mode：auto 是 codex 侧模式名（Paseo 归一为 auto-review），
+# claude 侧对应 bypassPermissions。claude 默认的 default（Always Ask）会让 child
+# 首次用工具时弹权限框并无限挂起，编排者只看到 status 长期不变。
+#
+# 保留一段仍然有效的历史教训：codex 的 full-access 模式说明含「访问网络」，
 # batch-4fec420d 的 reviewer 据此 curl 了 raw.githubusercontent.com 上的
-# tome-base master 分支取源码，而非钉住的 1.7.6；契约第 94 行的固定 prompt
-# 已写明「仅读该文件、其明确引用内容及第六节」，属 reviewer 违约，该次输出作废。
-# auto 是 workspace-write、无网络。Paseo 会把 auto 归一为 codex 的 auto-review
-# ——权限与 auto 相同，差别是符合条件的 on-request 审批交由 auto-reviewer
-# 子 agent 处理而非弹给编排者，故不会卡权限弹窗。
-# batch-1ac9fcc3 实测：100 秒完成，PendingPermissions 全程为空，
-# 且 reviewer 主动 `git cat-file -t 624a6732` 核验钉住提交后读本地树。
-# 仍保留 --mode 以便回退；但注意 CLI 直派拿不到 Paseo 的权限通知，
-# 若改回会弹窗的模式，等待器必须轮询 PendingPermissions，
-# 否则 `paseo agent wait` 会静默阻塞到超时。
-MODE = (sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'auto')
-
-# 交叉复核 reviewer 的模型与推理档。维护者裁定，2026-09-10 起由
-# codex/gpt-5.6-sol + medium 改为 codex/gpt-6-astra + xhigh。
-# 代价须记明：两轮至此使用同一模型，契约第 23 条「两轮各自独立复现同一主张
-# 才算 confirmed」的独立性由跨模型退化为跨契约——表层轮只看冻结条目、
-# 不读源码，交叉轮读钉住的游戏源码，任务与证据仍不同，但相关性盲区会上升。
-# 若要恢复跨模型，加 --provider codex/gpt-5.6-sol 即可。
+# tome-base master 分支取源码，而非钉住的 1.7.6，属违约、该次输出作废。
+# 若日后再切回 codex，用 auto（workspace-write、无网络）而不是 full-access。
+#
+# 另注：CLI 直派拿不到 Paseo 的权限通知，凡是可能弹窗的模式，
+# 等待器必须轮询 PendingPermissions，否则 `paseo agent wait` 会静默阻塞到超时。
 PROVIDER = (sys.argv[sys.argv.index('--provider') + 1]
-            if '--provider' in sys.argv else 'codex/gpt-6-astra')
+            if '--provider' in sys.argv else 'claude/claude-opus-5')
 THINKING = (sys.argv[sys.argv.index('--thinking') + 1]
             if '--thinking' in sys.argv else 'xhigh')
+MODE = (sys.argv[sys.argv.index('--mode') + 1]
+        if '--mode' in sys.argv else 'bypassPermissions')
 assert (_orch.ROOT / DOC).is_file(), f'契约文档不存在：{DOC}'
 
 
