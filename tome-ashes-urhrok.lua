@@ -714,7 +714,7 @@ t("Ominous Shadow", "不祥黑影", "talent name")
 t([[By gorging yourself on up to %d stacks of Bleak Outcome from a creature, you turn into an Ominous Shadow for one turn per stack.
 		While transformed you are invisible (power %d), convert 100%% of all damage done to darkness and gain darkness resistance penetration and damage increase equal to your highest.
 		While transformed you can not apply new Bleak Outcome stacks.]], [[你吞噬一个生物身上最多 %d 层悲惨结局效果，使自己化为不祥黑影，每层持续 1 回合。
-		不祥黑影状态下你处于隐形（强度 %d ）造成的所有伤害转化为暗影伤害，并获得相当于你最高伤害加成和抗性穿透的暗影伤害加成和抗性穿透。
+		不祥黑影状态下你处于隐形（强度 %d）造成的所有伤害转化为暗影伤害，并获得相当于你最高伤害加成和抗性穿透的暗影伤害加成和抗性穿透。
 		在变身状态下，无法施加新的悲惨结局效果。]], "tformat")
 
 ------------------------------------------------
@@ -1074,7 +1074,7 @@ t([[Use your stored vim to supercharge your body, recovering %d stamina and %d l
 t("Demonic Blood", "恶魔之血", "talent name")
 t([[Demonic Blood flows through your veins, increasing your spellpower by %d and your maximum vim by %d.
 		Additionally, you will recieve a bonus to all damage equal to %d%% of your current vim (Currently %d%%).]], [[你体内涌动着恶魔之血，增加 %d 点法术强度和 %d 点活力上限。
-	同时获得相当于当前活力 %d%% 的全伤害加成（当前 %d%% ）。]], "tformat")
+	同时获得相当于当前活力 %d%% 的全伤害加成（当前 %d%%）。]], "tformat")
 t("Abyssal Shield", "深渊护盾", "talent name")
 t([[Surround yourself with a defensive aura, increasing armor by %d, and inflicting %0.2f fire and %0.2f blight damage to all attacking foes.
 Additionally, your vim will enhance your defences, reducing all damage by %d%% of your current vim (currently %d), but never reducing by more than half of the original damage. This will cost vim equal to 5%% of the damage blocked.
@@ -1244,7 +1244,7 @@ t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d
 		The healing power increases with your spellpower.]], [[你的盾牌上长出临时的恶魔之角。
 		你盾击敌人造成 %d%% 伤害。
 		如果攻击命中，目标将被恶魔角刺穿，流血 5 回合，合计受到额外 50%% 黑暗伤害。
-		每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命（每回合至多 1 次 ）。
+		每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命（每回合至多 1 次）。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1430,7 +1430,7 @@ t([[Your original invisibility talent was corrupted and twisted.
 		]], [[你原本的隐身技能被腐化扭曲了。
 		当你受到一次至少为你总生命值 10%% 的伤害时，有 %d%% 几率转变成多瑟顿形态 5 回合。
 		在多瑟顿形态下：
-		- 你获得永久潜行 (强度 %d )
+		- 你获得永久潜行 (强度 %d)
 		- 你的暗影伤害增加 %d%%
 		- 每当你造成超过 %d 点的非物理非精神伤害时，在半径 1 的范围内产生一次暗影爆炸，造成额外 50%% 伤害（每回合至多 1 次）。
 		- 变形时重置种族技能“末日加速”与种族技能“无情”

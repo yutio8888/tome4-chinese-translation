@@ -2672,7 +2672,7 @@ The decaying horrors cannot move and will attack all hostile creatures around th
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。
 		腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
-		它们的所有主属性将设为 %d（基于你的魔法属性 ），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
@@ -2683,7 +2683,7 @@ All its primary stats will be set to %d (based on your Magic stat), life rating 
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
 		腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-		它们的所有主属性将设为 %d（基于你的魔法属性 ），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
@@ -2766,7 +2766,7 @@ t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{no
 t("Dissolved Face", "溶解之脸", "talent name")
 t([[Your face melts, exploding in a targeted gush of blood and gore dealing %0.2f darkness damage (%0.2f total) in a cone over 5 turns.
 		Each turn the target will be dealt an additional %0.2f blight damage per disease.
-		Damage will increase with your Spellpower.]], [[你的脸融化，爆炸喷射出一团血肉，对锥形范围内敌人造成 %0.2f 暗影伤害，持续 5 回合（总伤害 %0.2f ）。
+		Damage will increase with your Spellpower.]], [[你的脸融化，爆炸喷射出一团血肉，对锥形范围内敌人造成 %0.2f 暗影伤害，持续 5 回合（总伤害 %0.2f）。
 		每回合目标身上的每种疾病将使其受到额外 %0.2f 枯萎伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Writhing Hairs", "蜿蜒之发", "talent name")
@@ -2823,7 +2823,7 @@ t("You speak a chosen prophecy to the masses. When applying this prophecy, it wi
 
 		当前预言 : %s]], "tformat")
 t("Twofold Curse", "双重诅咒", "talent name")
-t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[对你的听众施加双重诅咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d )。
+t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[对你的听众施加双重诅咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d)。
 		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
 		当前预言 : %s]], "tformat")
 t("Revelation", "天启", "talent name")
@@ -2857,7 +2857,7 @@ t([[Your knowledge of entropy allows you to defy the laws of physics, allowing y
 t("Black Hole", "黑洞", "talent name")
 t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d.
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合的一格小型黑洞，每回合半径增加 1 直到 %d。
-		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d ）。]], "tformat")
+		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
 t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 黑暗和时空伤害与 %d%% 抗性穿透。
 			作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
@@ -2911,7 +2911,7 @@ t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
 		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[你和蠕虫合体建立强大的精神链接。
 		只要你和它的距离不超过 3 格，你们均获得持续 5 回合的 %d%% 全体抗性。
-		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前：%d ）。]], "tformat")
+		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前：%d）。]], "tformat")
 t("Terrible Sight", "恐怖景象", "talent name")
 t("You require your worm that walk to be alive and closeby.", "你需要有一个存活的蠕虫合体伙伴在周围。", "logPlayer")
 t([[While within range 3 of your Worm that Walks you can project an aura of terror.
@@ -3017,7 +3017,7 @@ section "tome-cults/data/talents/demented/oblivion.lua"
 
 t("Nihil", "空无", "talent name")
 t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", [[将你身体上的熵能向周围辐射。每当你受到熵能反冲时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。
-		增加（ 减少 ）它们受到的新的负面（ 正面 ）效果 %d%% 的持续时间。]], "tformat")
+		增加（减少）它们受到的新的负面（正面）效果 %d%% 的持续时间。]], "tformat")
 t("Unravel Existence", "解构存在", "talent name")
 t("herald of oblivion", "破灭之兆", "_t")
 t("Space warps and blurs around this titanic being, as if reality itself was struggling against it.", "时空在这个巨大的生物的周围扭曲模糊，仿佛现实本身正在和它斗争。", "_t")
@@ -3046,7 +3046,7 @@ t([[Summon a radius 4 storm of all-consuming oblivion at the targeted location f
 		每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的投射物都将被扯碎。
 		伤害受到法术强度加成。]], "tformat")
 t("Void Crash", "虚空撞击", "talent name")
-t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 虚空武器伤害（暗影时空各 50%% ）。", "tformat")
+t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 虚空武器伤害（暗影时空各 50%%）。", "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/path-of-horror.lua"
@@ -3174,7 +3174,7 @@ t([[The pain you inflict to the victim you are digesting is so intense something
 		You may not steal a talent which you already know.
 		The stolen talent will not use any resources to activate.
 		]], [[正在被你消化的目标承受着极大的痛苦，内部器官不断破损，让你能趁机侵入它的思维。
-		你可以窃取并使用它的一个随机技能（技能等级 %d ）。
+		你可以窃取并使用它的一个随机技能（技能等级 %d）。
 		技能等级 5 时，你可以指定窃取的技能。
 		你不能窃取你已知的技能。
 		窃取的技能使用时不消耗资源。
@@ -3298,7 +3298,7 @@ t("void monolith", "虚无巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合（ 基于本体法术强度 ）。
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合（基于本体法术强度）。
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
@@ -3471,7 +3471,7 @@ t([[You unleash the wrath of the wilds for 5 turns.
 		When you deal damage to a creature while wrath is active you have %d%% chance (100%% for the first creature hit each turn) to stun them for 3 turns.
 		This effect can only stun a creature once per turn.
 		Chance scales with your Constitution and apply power is the highest or your physical or mind power.]], [[你释放持续 5 回合的自然的愤怒。
-		愤怒状态下，每当你造成伤害时有 %d%% （每回合攻击的第一个生物 100%% ）几率震慑 3 回合。
+		愤怒状态下，每当你造成伤害时有 %d%% （每回合攻击的第一个生物 100%%）几率震慑 3 回合。
 		每个敌人每回合只能被该技能震慑一次。
 		震慑几率受体质影响，强度由物理或精神强度中较高一项决定。]], "tformat")
 t("Drake-Infused Blood", "灌输龙血", "talent name")
@@ -3499,7 +3499,7 @@ t([[Since ziguranth removed those filthy magic runes from your body you have nee
 		你可以主动开启该技能来改变龙血类型，进而改变相应元素。
 		抗性和附加伤害受意志值加成。
 
-		改变龙血类型需要战斗经验，你必须杀死 100 个敌人后才能使用（当前 %d ）。
+		改变龙血类型需要战斗经验，你必须杀死 100 个敌人后才能使用（当前 %d）。
 
 		当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。]], "tformat", {1,3,2,4,5,6})
 t("Fuel Pain", "升华痛苦", "talent name")

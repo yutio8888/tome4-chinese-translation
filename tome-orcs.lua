@@ -3991,7 +3991,7 @@ section "tome-orcs/data/talents/celestial/sol.lua"
 
 t("Solar Orb", "日光球", "talent name")
 t("Solar Orb", "日光球", "_t")
-t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光伤害然后折返，再次造成相同的伤害并且当回到你身上的时候减少一半 ( %d ) 的冷却时间。伤害受法术强度加成。球体最多飞行 %d 然后折回你。", "tformat")
+t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光伤害然后折返，再次造成相同的伤害并且当回到你身上的时候减少一半 (%d) 的冷却时间。伤害受法术强度加成。球体最多飞行 %d 然后折回你。", "tformat")
 t("Solar Wind", "太阳风", "talent name")
 t("While sustained, this ability speeds up outgoing projectiles by %d%% while slowing incoming projectiles by %d%%. The increase and decrease improve with your spellpower", "开启时，增加发射出去的抛射物 %d%% 速度，减少射向你的抛射物 %d%% 速度。增加和减少随着你的法术强度提高。", "tformat")
 t("Lucent Wrath", "光之愤怒", "talent name")
@@ -4572,7 +4572,7 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（ %d 层级或以下）的冷却时间，直接恢复 %d%% 蒸汽值。
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，直接恢复 %d%% 蒸汽值。
 		在 6 回合内，蒸汽值最大值翻倍，但是恢复值减半。
 		#{italic}#科技至尊、死亡之主！！#{normal}#]], "tformat")
 
@@ -4688,7 +4688,7 @@ t([[Firmly plant your steamsaws in the ground, using them to propel yourself ver
 		Any foes on either side of your movement get wrecked by the saws, knocking them 3 tiles away from you.
 		Attacking or using any talent will break this effect.
 		When this effect is broken or cancelled the sudden change in motion deals %d%% weapon damage to all foes around you. To do full damage you need to have moved at least 5 times, otherwise damage is lower (or null for no movement).
-		#{italic}#The wheels of death! Amazing!#{normal}#]], [[把链锯深深插入地面，作为履带，增强自己的行动能力（移动速度增加 %d%% ）。
+		#{italic}#The wheels of death! Amazing!#{normal}#]], [[把链锯深深插入地面，作为履带，增强自己的行动能力（移动速度增加 %d%%）。
 		在你移动路线两侧的敌人被链锯割断，被击退 3 码。
 		攻击或者使用其他技能的动作都会中断效果，同时冲击力对周围的敌人造成 %d%% 武器伤害。你需要至少移动五次来达到最高伤害，否则伤害会降低。若不移动则没有伤害。
 		#{italic}#冲锋！死亡之轮！！#{normal}#]], "tformat")
@@ -4929,7 +4929,7 @@ t([[Using small steam motors to enhance your movements, you are able to slip pas
 t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
 		Current bonus: %d%%.]], [[被猎杀的危险令你激动不已。
-		半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%% ）。
+		半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
 		当前加成：%d%%。]], "tformat")
 t("Awesome Toss", "致命翻转", "talent name")
 t("You require two steamguns for this talent.", "你需要两把蒸汽枪才能使用这一技能。", "logPlayer")
@@ -4988,7 +4988,7 @@ t([[While Furnace is on your armour is so hot from the furnace it dissipates par
 		Molten points are removed upon running or resting.
 		#{italic}#Hot liquid metal, the fun!#{normal}#
 		]], [[你的护甲温度极高，能驱散部分能量攻击。
-		所有非物理、非精神伤害降低 %d 点（当前 %d ）。
+		所有非物理、非精神伤害降低 %d 点（当前 %d）。
 		每回合该效果触发时，你获得 1 点融化点数（最多 10 点），使减伤效率降低 25%%。
 		奔跑或休息时会清除融化点数。
 		#{italic}#火热的液态金属，乐趣无穷！#{normal}#
@@ -5090,7 +5090,7 @@ t([[You have learned to fire while moving.
 		In one motion, you fire your double steamguns (100%% weapon damage, 1 tile range penalty) and may then move to an adjacent tile (unless pinned to the ground or immobilized).
 		This talent can be activated for up to %d consecutive turns before it goes on cooldown, and takes time according to your steamtech speed or movement speed (if you move), whichever is slower.
 		When Strafe ends you may instantly reload between %d and %d ammo (based on the number of strafes you performed and your ammo capacity).]], [[你学会如何在移动中射击。
-		在射击（100%% 武器伤害，射程 -1 ）的同时你能移动到相邻的一格。
+		在射击（100%% 武器伤害，射程 -1）的同时你能移动到相邻的一格。
 		该技能在冷却前能激活连续 %d 个回合，消耗时间取决于蒸汽速度和移动速度较慢者。
 		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
 t("Startling Shot", "惊艳射击", "talent name")
@@ -5115,7 +5115,7 @@ t([[Your cunning and dexterity allow you to fire incredible trick shots that can
 		Your shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]], [[你的灵敏让你能射出同时击中多个敌人的子弹。
 		你精确地瞄准敌人，子弹命中后将弹射至其他目标上。
 		子弹最多弹射 %d 次，只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。
-		第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （ %d%% ）命中。]], "tformat")
+		第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （%d%%）命中。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/heavy-weapons.lua"
@@ -5377,7 +5377,7 @@ t([[When you fire your metalstar, your also establish a psionic bloodlink with t
 		This damage does not break daze and increases with your Steampower.]], [[每次你使用灵晶射击时，你将与灵晶碎片建立血液灵能联系，持续 %d 回合。
 		每回合目标将受到 %0.2f 物理伤害，一半伤害值将转化为治疗。
 		每增加一名额外目标，其带来的治疗量进一步减半。
-		当目标距离超过金属灵晶范围（当前 %d ）的两倍时，效果中止。
+		当目标距离超过金属灵晶范围（当前 %d）的两倍时，效果中止。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Steamstar", "蒸汽灵晶", "talent name")
 t([[Your bloodstar effect also burns part of your victim's flesh, dealing %0.2f fire damage.
@@ -5481,7 +5481,7 @@ t([[Throw a cone of flame with radius %d
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
-		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物（蒸汽蜘蛛 ）%d 生命值。
+		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物（蒸汽蜘蛛）%d 生命值。
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
@@ -6050,7 +6050,7 @@ section "tome-orcs/data/talents/uber/str.lua"
 
 t("Pain Enhancement System", "痛苦强化系统", "talent name")
 t("Earned the achievement 'Size Matters' on this character.", "当前角色解锁了“伤害很重要”成就。", "_t")
-t("When you deal a critical hit your embedded system activates, increasing all your primary stats except Strength by 50%% of your Strength for 6 turns.", "系统将会在你暴击时启动，在 6 回合内你的全属性（ 力量除外 ）将会增加等同于你 50%% 力量的值。", "tformat")
+t("When you deal a critical hit your embedded system activates, increasing all your primary stats except Strength by 50%% of your Strength for 6 turns.", "系统将会在你暴击时启动，在 6 回合内你的全属性（力量除外）将会增加等同于你 50%% 力量的值。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/uber/wil.lua"
@@ -6058,7 +6058,7 @@ section "tome-orcs/data/talents/uber/wil.lua"
 t("Range Amplification Device", "射程增幅装置", "talent name")
 t("Have a light radius of 10 or more", "光照范围为10或以上", "_t")
 t([[Activate a special focusing device that extends all your ranged spells and psionic powers range by 3 (only works on those with range 2 or more and up to 10 max).
-		The use of this device is very strenuous, increasing fatigue by 20%% while active.]], [[启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10 ）。
+		The use of this device is very strenuous, increasing fatigue by 20%% while active.]], [[启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。
 		使用这个装置非常的费力，启动时会增加 20%% 疲劳。]], "tformat")
 
 ------------------------------------------------
@@ -6382,7 +6382,7 @@ t("You have %d%% chances to encase your foes in iceblocks.", "你造成伤害时
 t("disease", "疾病", "effect subtype")
 t("Larvae Infestation", "里奇幼虫寄生", "_t")
 t("The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.", "目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫。", "tformat")
-t(" for %0.2f physical damage (increasing) each turn", " ，每回合受到 %0.2f 物理伤害（ 随回合递增）", "tformat")
+t(" for %0.2f physical damage (increasing) each turn", " ，每回合受到 %0.2f 物理伤害（随回合递增）", "tformat")
 t("#Target# is #ORANGE#INFESTED#LAST# with ritch larvae!", "#Target# 被里奇幼虫#ORANGE#寄生#LAST#！", "_t")
 t("+Larvae Infestation", "+里奇幼虫寄生", "_t")
 t("developing ", "正在生长的", "_t")

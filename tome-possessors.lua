@@ -58,7 +58,7 @@ t([[You concentrate to create a psionic block field all around you for 5 turns.
 		When damage is cancelled you instinctively make a retaliation mind strike against the source, dealing %0.2f mind damage. (The retaliation may only happen 2 times per turn.)
 		]], [[创造一个持续 5 回合的灵能盾牌围绕你。
 		技能生效时有 %d%% 几率会无视伤害。
-		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次 ）
+		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）
 		]], "tformat")
 
 ------------------------------------------------
@@ -118,7 +118,7 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 t("Spectral Dash", "幽灵冲锋", "talent name")
 t([[For a brief moment your whole body becomes etheral and you dash into a nearby creature and all those in straight line behind it (in range %d).
 		You reappear on the other side, with %d more psi and having dealt %0.2f mind damage to your targets.
-		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d )。
+		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d)。
 		你再次出现在另一边，获得 %d 灵能值并对目标造成 %0.2f 精神伤害。
 		]], "tformat")
 t("Writhing Psionic Mass", "扭动灵能团", "talent name")
@@ -424,7 +424,7 @@ t("#Target# is protected by a psionic block!", "#Target#被灵能格挡保护！
 t("#Target# no longer protected by the psionic block.", "#Target#不再被灵能格挡保护。", "_t")
 t("#ROYAL_BLUE#The attack against %s is cancelled by a psionic block!", "#ROYAL_BLUE#对%s的攻击被灵能格挡！", "logSeen")
 t("Sadist", "虐待狂", "_t")
-t("Mindpower (raw) increased by %d.", "精神强度（ 原始值 ）增加 %d。", "tformat")
+t("Mindpower (raw) increased by %d.", "精神强度（原始值）增加 %d。", "tformat")
 t("#Target# is empowered by the suffering of others!", "#Target#被其他人的痛苦强化！", "_t")
 t("#Target# is no longer empowered.", "#Target#不再被强化。", "_t")
 t("Radiate Agony", "痛苦辐射", "_t")

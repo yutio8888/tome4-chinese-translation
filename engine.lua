@@ -520,9 +520,9 @@ t("Sell %d %s", "出售%d个%s", "tformat")
 ------------------------------------------------
 section "engine/engine/Trap.lua"
 
-t("%s fails to disarm a trap (%s).", "%s 拆除陷阱（ %s ）失败。", "logSeen")
-t("%s disarms a trap (%s).", "%s 拆除了陷阱（ %s ）。", "logSeen")
-t("%s triggers a trap (%s)!", "%s 触发了陷阱（ %s ）！", "logSeen")
+t("%s fails to disarm a trap (%s).", "%s 拆除陷阱（%s）失败。", "logSeen")
+t("%s disarms a trap (%s).", "%s 拆除了陷阱（%s）。", "logSeen")
+t("%s triggers a trap (%s)!", "%s 触发了陷阱（%s）！", "logSeen")
 -- untranslated text
 --[==[
 t("%s", "%s", "logSeen")
