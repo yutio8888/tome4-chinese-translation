@@ -8592,9 +8592,9 @@ section "mod-tome/data/general/npcs/orc-rak-shor.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("orc necromancer", "兽人死灵法师", "entity name")
-t("An orc dressed in black robes. He mumbles in a harsh tongue.", "一只身穿黑色长袍的兽人。它在用嘶哑的声音低语。", "_t")
+t("An orc dressed in black robes. He mumbles in a harsh tongue.", "一只身穿黑色长袍的兽人。它用刺耳的语言喃喃自语。", "_t")
 t("orc blood mage", "兽人血法师", "entity name")
-t("An orc dressed in blood-stained robes. He mumbles in a harsh tongue.", "一只穿着鲜血斑斑长袍的兽人。它在用嘶哑的声音低语。", "_t")
+t("An orc dressed in blood-stained robes. He mumbles in a harsh tongue.", "一只穿着鲜血斑斑长袍的兽人。它用刺耳的语言喃喃自语。", "_t")
 t("orc corruptor", "兽人堕落者", "entity name")
 t("An orc dressed in putrid robes. He mumbles in a harsh tongue.", "一个穿着腐烂长袍的兽人。他用刺耳的语言喃喃自语。", "_t")
 
@@ -8604,10 +8604,10 @@ section "mod-tome/data/general/npcs/orc-vor.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("orc pyromancer", "兽人烈焰术士", "entity name")
-t("An orc dressed in bright red robes. He mumbles in a harsh tongue.", "一只身穿亮红色长袍的兽人。它在用嘶哑的声音低语。", "_t")
+t("An orc dressed in bright red robes. He mumbles in a harsh tongue.", "一只身穿亮红色长袍的兽人。它用刺耳的语言喃喃自语。", "_t")
 t("orc high pyromancer", "高阶兽人烈焰术士", "entity name")
 t("orc cryomancer", "兽人冰霜术士", "entity name")
-t("An orc dressed in cold blue robes. He mumbles in a harsh tongue.", "一只身穿冰蓝色长袍的兽人。它在用嘶哑的声音低语。", "_t")
+t("An orc dressed in cold blue robes. He mumbles in a harsh tongue.", "一只身穿冰蓝色长袍的兽人。它用刺耳的语言喃喃自语。", "_t")
 t("orc high cryomancer", "高阶兽人冰霜术士", "entity name")
 
 ------------------------------------------------
@@ -8898,7 +8898,7 @@ t("A giant troll with scabrous black skin. With a shudder, you notice the belt o
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
-t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，身披一张丑陋但异常坚硬的兽皮。", "_t")
+t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，皮肤异常坚韧且长满疣。", "_t")
 t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
 t("patchwork troll", "拼凑巨魔", "entity name")
 t("A disgusting and mismatched construct of necromantically-enhanced troll bits and shattered weapons. Confused and furious, it rends and shatters its surroundings with impossible strength, moving with speed found nowhere in nature.", "一个由死灵法术强化的巨魔残肢与碎裂武器拼凑而成的恶心造物。它困惑而暴怒，以不可思议的力量撕裂摧毁周围的一切，移动速度在自然界中无处可寻。", "_t")
@@ -12751,7 +12751,7 @@ t("Intense heat radiates from this powerful shot.", "子弹中放射出极高的
 t("sets off a powerful explosion", "产生一次猛烈的爆炸", "_t")
 t("Nexus of the Way", "维网之核", "entity name")
 t("brilliant green mindstar", "闪耀的绿色灵晶", "_t")
-t("The vast psionic force of the Way reverberates through this gemstone. With a single touch, you can sense overwhelming power, and hear countless thoughts.", "巨大的意念力在这颗宝石之中回响，仅仅轻触就可以让你获得无穷的力量和无限的思维。", "_t")
+t("The vast psionic force of the Way reverberates through this gemstone. With a single touch, you can sense overwhelming power, and hear countless thoughts.", "维网的庞大灵能力量在这颗宝石之中回响。只需轻轻一触，你就能感受到压倒性的力量，听见无数的思绪。", "_t")
 t("#LIGHT_BLUE#You feel the power of the Way within you!", "#LIGHT_BLUE#你感到了维网的力量！", "logPlayer")
 t("#RED#The Way rejects its former captors!", "#RED#维网拒绝它之前的奴役者！", "logPlayer")
 t("Amethyst of Sanctuary", "庇护的紫水晶", "entity name")
@@ -13280,7 +13280,7 @@ t("%s revels in the bloodlust of %s %s!", "%s沉醉于%s%s的嗜血之中！", "
 t("Blood Charges: %d", "鲜血充能：%d", "tformat")
 t("Decayed Visage", "腐朽面容", "entity name")
 t("mask of mummified skin", "木乃伊皮面罩", "_t")
-t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一小片人皮面具，是烈火纪一位死灵法师的遗物。转化过程部分成功了：他的身体逐渐腐烂，却无法死去，就这样过了数年。现在，他的灵魂仍藏身于这小块皮肤中，渴求着永恒的生命。", "_t")
+t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一张干枯的人皮面具，属于烈火纪一位未能成为巫妖的死灵法师，是他仅存于世的遗物。转化过程只成功了一部分：他的身体在数年间由内而外缓慢腐烂，而他却无法死去。如今，他的灵魂仍寄居在这最后一小块干瘪的血肉中，依旧渴求着永恒的生命。", "_t")
 t("Dream Malleus", "梦境之槌", "entity name")
 t("keening hammer", "哀号之锤", "_t")
 t("A large shimmering maul that seems to produce a ringing in your ears.  It is both as malleable as thought and as hard as the strongest steel.", "一个闪闪发光的大战槌，你的耳朵里似乎能听到它发出的鸣响。它既像思想一样可塑，又像最强的钢铁一样坚硬。", "_t")
@@ -38443,7 +38443,7 @@ t([[The noxious fumes have invaded all your body, you suddenty fall into a deep 
 ... you feel weak ...
 ... you feel unimportant ...
 ... you feel like ... food ...
-You feel like running away!]], [[有毒的气息渗入你的全身，渐渐地，你缓缓陷入沉眠之中…
+You feel like running away!]], [[有毒的气息渗入你的全身，你突然陷入沉眠之中…
 …你感觉自己很虚弱…
 …你感觉自己很渺小…
 …你感觉自己…就像是猎物…
@@ -38456,7 +38456,7 @@ t([[The noxious fumes have invaded all your body, you suddenty fall into a deep 
 ... you feel you forgot something ...
 ... you feel lost ...
 ... you feel sad ...
-You forgot your wife! Find her!]], [[有毒的气息渗入你的全身，渐渐地，你缓缓陷入沉眠之中…
+You forgot your wife! Find her!]], [[有毒的气息渗入你的全身，你突然陷入沉眠之中…
 …你感觉自己忘了什么…
 …你感觉自己处在迷失之中…
 …你感觉自己很沮丧…

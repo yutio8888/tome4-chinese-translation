@@ -1610,7 +1610,7 @@ t("A giant troll with scabrous black skin. With a shudder, you notice the belt o
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
-t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，身披一张丑陋但异常坚硬的兽皮。", "_t")
+t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，皮肤异常坚韧且长满疣。", "_t")
 t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
 
 ------------------------------------------------
