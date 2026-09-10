@@ -38,6 +38,17 @@ DOC = 'docs/paseo-translation-context-review-v2-contract.md'
 # 若改回会弹窗的模式，等待器必须轮询 PendingPermissions，
 # 否则 `paseo agent wait` 会静默阻塞到超时。
 MODE = (sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'auto')
+
+# 交叉复核 reviewer 的模型与推理档。维护者裁定，2026-09-10 起由
+# codex/gpt-5.6-sol + medium 改为 codex/gpt-6-astra + xhigh。
+# 代价须记明：两轮至此使用同一模型，契约第 23 条「两轮各自独立复现同一主张
+# 才算 confirmed」的独立性由跨模型退化为跨契约——表层轮只看冻结条目、
+# 不读源码，交叉轮读钉住的游戏源码，任务与证据仍不同，但相关性盲区会上升。
+# 若要恢复跨模型，加 --provider codex/gpt-5.6-sol 即可。
+PROVIDER = (sys.argv[sys.argv.index('--provider') + 1]
+            if '--provider' in sys.argv else 'codex/gpt-6-astra')
+THINKING = (sys.argv[sys.argv.index('--thinking') + 1]
+            if '--thinking' in sys.argv else 'xhigh')
 assert (_orch.ROOT / DOC).is_file(), f'契约文档不存在：{DOC}'
 
 
@@ -126,17 +137,17 @@ def main():
                   'paseo.parent-agent-id': parent}
         if emit_path:
             emit.append({'task_id': task, 'dispatch_id': did, 'key': f'{task}|{did}',
-                         'provider': 'codex/gpt-5.6-sol',
+                         'provider': PROVIDER,
                          'workspaceId': ws, 'cwd': str(_orch.ROOT),
-                         'thinkingOptionId': 'medium', 'modeId': MODE,
+                         'thinkingOptionId': THINKING, 'modeId': MODE,
                          'labels': labels, 'prompt': prompt})
             made += 1
             print(f'{task} {did} 待 MCP 创建 ({n} bytes)')
             continue
 
         o = _orch.paseo_json([
-            'run', '--background', '--provider', 'codex/gpt-5.6-sol',
-            '--thinking', 'medium', '--mode', MODE,
+            'run', '--background', '--provider', PROVIDER,
+            '--thinking', THINKING, '--mode', MODE,
             '--workspace', ws, '--cwd', str(_orch.ROOT),
             '--label', f'task_id={task}', '--label', 'role=reviewer',
             '--label', 'purpose=translation_contextual_v2',

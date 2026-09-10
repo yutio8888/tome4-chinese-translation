@@ -31,6 +31,22 @@ import _orch
 CONTRACT = 'translation_surface_screen_v1'
 DOC = 'docs/paseo-translation-surface-screen-v1-contract.md'
 
+# 表层筛查 reviewer 的模型／推理档／派发模式。维护者裁定，2026-09-10 起
+# 由 claude/claude-opus-5 + medium + bypassPermissions 改为
+# codex/gpt-6-astra + xhigh + auto。
+# 换 provider 就必须换 mode：bypassPermissions 是 claude 侧的模式名，
+# codex 侧对应的是 auto（Paseo 归一为 auto-review：workspace-write、无网络，
+# 符合条件的 on-request 审批交给 auto-reviewer 子 agent，不会弹给编排者）。
+# 注意 codex 的 features 为空，没有 fast_mode，本脚本的 MCP 两段式派发
+# （--emit/--record）对 codex 已无必要，但保留不动以便切回 claude。
+# 三个开关都可用命令行覆盖，便于回退或做 A/B。
+PROVIDER = (sys.argv[sys.argv.index('--provider') + 1]
+            if '--provider' in sys.argv else 'codex/gpt-6-astra')
+THINKING = (sys.argv[sys.argv.index('--thinking') + 1]
+            if '--thinking' in sys.argv else 'xhigh')
+MODE = (sys.argv[sys.argv.index('--mode') + 1]
+        if '--mode' in sys.argv else 'auto')
+
 
 def build_prompt(ci, ip):
     prompt = (
@@ -118,17 +134,17 @@ def main():
             if emit_path:
                 emit.append({'task_id': task, 'dispatch_id': did,
                              'key': f'{task}|{did}',
-                             'provider': 'claude/claude-opus-5',
+                             'provider': PROVIDER,
                              'workspaceId': ws, 'cwd': str(_orch.ROOT),
-                             'thinkingOptionId': 'medium', 'modeId': 'bypassPermissions',
+                             'thinkingOptionId': THINKING, 'modeId': MODE,
                              'labels': labels, 'prompt': build_prompt(ci, ip)})
                 made += 1
                 print(f'{task} {did} 待 MCP 创建')
                 continue
 
             o = _orch.paseo_json([
-                'run', '--background', '--provider', 'claude/claude-opus-5',
-                '--thinking', 'medium', '--mode', 'bypassPermissions',
+                'run', '--background', '--provider', PROVIDER,
+                '--thinking', THINKING, '--mode', MODE,
                 '--workspace', ws, '--cwd', str(_orch.ROOT),
                 '--label', f'task_id={task}', '--label', 'role=reviewer',
                 '--label', f'purpose={CONTRACT}', '--label', f'candidate_identity={ci}',
