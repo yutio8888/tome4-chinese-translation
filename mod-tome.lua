@@ -31207,7 +31207,7 @@ t([[Enter a protective battle stance allowing you to defend yourself more profic
 		提升护甲值 %d，格挡值 %d，减少格挡冷却 2 回合。
 		提升眩晕和击退抗性 %d%%。
 		护甲和格挡值加成受你的敏捷和力量值影响。]], "tformat")
-t("Repulsion", "盾牌猛击", "talent name")
+t("Repulsion", "盾牌排斥", "talent name")
 t("You cannot use Repulsion without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Smash your shield into the face of all adjacent foes dealing %d%% shield damage and knocking them back %d grids.
@@ -39326,7 +39326,7 @@ section "mod-tome/data/zones/paradox-plane/npcs.lua"
 t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
 t("Epoch", "亚伯契", "entity name")
-t("A huge being composed of sparking blue and yellow energy stands before you.  It shifts and flows as it moves, at once erratic and graceful.", "在你面前的是一只黄蓝双色能量线的混合体。它快速的闪现和移动，看起来优雅又飘逸。", "_t")
+t("A huge being composed of sparking blue and yellow energy stands before you.  It shifts and flows as it moves, at once erratic and graceful.", "一个由噼啪作响的蓝黄双色能量构成的巨大存在站在你面前。它在移动时不断变形、流动，既飘忽不定又优雅。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/objects.lua"
