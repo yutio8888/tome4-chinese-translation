@@ -23311,7 +23311,7 @@ t("The knowledge of trap laying and assorted trickeries.", "学习装配陷阱�
 t("traps", "陷阱", "talent type")
 t("Collection of known traps.", "学会制造各种功能的陷阱。", "_t")
 t("poisons", "毒素", "talent type")
-t("The knowledge of poisons and how to apply them to 'good' effects.", "关于毒物的知识，并使毒素效果更有效。", "_t")
+t("The knowledge of poisons and how to apply them to 'good' effects.", "关于毒物的知识，以及如何用它们取得“良好”的效果。", "_t")
 t("Collection of known poisons.", "制造各种不同毒素。", "_t")
 t("dirty fighting", "卑劣攻击", "talent type")
 t("Teaches various talents to cripple your foes.", "使你学会令你目标致残的技能。", "_t")
@@ -23469,8 +23469,8 @@ t("Misdirection", "误导", "talent name")
 t("#ORANGE#%s redirects the effect '%s'!#LAST#", "#ORANGE#%s 误导了 '%s' 效果！#LAST#", "logSeen")
 t([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.
 You gain %d defense.
-The chance to apply status effects increases with your Accuracy and the Defense with your Cunning.]], [[你制造混乱的技巧已趋于巅峰。现在，即便是你最简单的动作也会迷惑敌人，使他们看不透你的行踪。
-		敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果你周围有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。
+The chance to apply status effects increases with your Accuracy and the Defense with your Cunning.]], [[你制造混乱的技巧已趋于巅峰。
+		敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。
 		你获得 %d 闪避。
 		施加负面状态几率受命中影响。
 		闪避加成受灵巧影响。]], "tformat")
