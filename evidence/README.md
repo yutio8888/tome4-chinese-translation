@@ -9,7 +9,7 @@
 
 ## Production-review shadow baseline
 
-`evidence/production-review/` 保存 WP1 校准所需的内容寻址 locator snapshot、catalog、一次性 shadow journal/checkpoint 与 shadow batch。它们是当前输入的受跟踪核验锚点，但 marker 固定为非权威／不可派发／不可提升，不是人工裁决、正式 queue、ownership 或完成覆盖率；真实 surface consumer 必须拒绝它们；默认 ledger CLI 合并工具仓库 ROOT 与所选 `--root` 的 exact shadow manifest forbidden provenance set，generic library replay 仅作 legacy 状态机结构验证，formal catalog flag 在 WP2 exact validator 实现前拒绝所有 catalog，未来 validator 仍须应用 forbidden set。相同 ID 只接受相同 bytes；drift 和 reconciliation report 位于被忽略的 `.artifacts/i18n/production-review/`。WP2 不得把这些 artifact 当 parent；publication 在新的单锁 generation transaction 能于锁内精确完成 WP1 retirement、父目录 fsync、五 family/总预算预检及五 family publication/恢复前完全不可用。详细配方与 128 MiB 预算见 [`docs/translation-production-catalog-queue-v1-plan.md`](../docs/translation-production-catalog-queue-v1-plan.md)。
+`evidence/production-review/` 保存 WP1 校准所需的内容寻址 locator snapshot、catalog、一次性 shadow journal/checkpoint 与 shadow batch。它们是当前输入的受跟踪核验锚点，但 marker 固定为非权威／不可派发／不可提升，不是人工裁决、正式 queue、ownership 或完成覆盖率；真实 surface consumer 必须拒绝它们；默认 ledger CLI 合并工具仓库 ROOT 与所选 `--root` 的 exact shadow manifest forbidden provenance set，generic library replay 仅作 legacy 状态机结构验证，formal catalog flag 在 WP2 exact validator 实现前拒绝所有 catalog，未来 validator 仍须应用 forbidden set。相同 ID 只接受相同 bytes；drift 和 reconciliation report 位于被忽略的 `.artifacts/i18n/production-review/`。WP2 不得把这些 artifact 当 parent；publication 在新的单锁 generation transaction 能于锁内精确完成 WP1 retirement、父目录 fsync、五 family/总预算预检及五 family publication/恢复前完全不可用。详细配方与 128 MiB 预算见 [`docs/translation-production-catalog-queue-v1-plan.md`](../deprecated/docs/translation-production-catalog-queue-v1-plan.md)。
 
 ## 批次文件迁移
 

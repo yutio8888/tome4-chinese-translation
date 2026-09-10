@@ -6,7 +6,7 @@
 不得原地重解释历史数据。
 
 未来在现有语境审核之外增加只读 evaluator 旁路的架构、权限、桥接、路由和分阶段实施设计见
-[`docs/translation-quality-evaluator-layer-v1.md`](../../docs/translation-quality-evaluator-layer-v1.md)。
+[`docs/translation-quality-evaluator-layer-v1.md`](../../deprecated/docs/translation-quality-evaluator-layer-v1.md)。
 该文档当前仅为设计，不激活 purpose、provider 调用、外发、campaign 或生产权限。
 
 ## 内容

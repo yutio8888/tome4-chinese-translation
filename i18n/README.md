@@ -7,7 +7,7 @@
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
 最新已推送 addon 版本、条目数和待发布事项见
-[`docs/release-plan.md`](../docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
+[`docs/release-plan.md`](../deprecated/docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
 是工具链可复现输入 pin，不等同于发布仓库的最新 HEAD；不能只因发布版本前进就改写该 pin。
 
 ## 常用命令
@@ -197,14 +197,14 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   `sample_value` 必须是 non-empty string；`%s` 只接受 raw bare token，`%q` 样例不得含除 LF 外的
   C0 或 DEL；数值机制证据留在 numeric claim／decomposition，数值 runtime
   composition 需由未来的版本化 renderer 支持。详细字段、保守默认与复用边界见
-  [`docs/semantic-claim-runtime-composition-v1.md`](../docs/semantic-claim-runtime-composition-v1.md)。
+  [`docs/semantic-claim-runtime-composition-v1.md`](../deprecated/docs/semantic-claim-runtime-composition-v1.md)。
 - `production authoritative-catalog/queue/batch/migration/repair` 为已实施的正式 WP2-Lite
   入口；受跟踪 catalog、迁移与批次证据位于 `evidence/production-review-v2-lite/`。
   SQLite 与活动 checkpoint 位于 `.artifacts/i18n/production-review-v2-lite/`，可从 Git
   重建。无活动批次时以 `production queue rebuild` 同步当前提交，再执行 `queue check`；
   活动批次必须先按 `batch show` 和恢复契约处理，不能直接删 checkpoint。
   `queue status --json` 分开报告当前表层／深审覆盖、待修复和历史失效，不把表层通过
-  当作深审。当前操作入口见[审核交接](../docs/production-review-handoff-2026-09-05.md)，
+  当作深审。当前操作入口见[审核交接](../deprecated/docs/production-review-handoff-2026-09-05.md)，
   正式设计见[WP2-Lite 方案](../docs/translation-production-review-v2-lite-plan.md)。
   旧 `locator/catalog/shadow-policy/shadow-journal/replay/batch-draft/reconciliation`
   子命令保留用于 WP1 shadow 校准及历史校验；shadow marker 仍非权威、不可派发或提升，
