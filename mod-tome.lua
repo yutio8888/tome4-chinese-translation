@@ -39391,7 +39391,7 @@ t("Golbug the Destroyer", "毁灭者高尔布格", "entity name")
 t("A huge and muscular orc of unknown breed. He looks both menacing and cunning...", "一只膘肥身健的巨大兽人。他看起来既危险又狡猾……", "_t")
 t("They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.", "据说在确认兽人仍居住在瑞库纳之后，他们在那里发现了一个强大的恶魔。", "_t")
 t("Danger...", "小心……", "_t")
-t("When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", "你上次过来时，这个洞穴里满是你杀死的兽人尸体。现在，更多的尸体铺在了地上，呈烧焦状态并且散发着糊味。桔色的昏暗灯光照亮了洞穴延伸的东面。", "_t")
+t("When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", "你上次过来时，这个洞穴里满是你杀死的兽人尸体。现在，更多的尸体铺在了地上，尽皆焦黑，散发着刺鼻的硫磺味。桔色的昏暗灯光照亮了洞穴延伸的东面。", "_t")
 t("human", "人类", "entity subtype")
 t("Harno, Herald of Last Hope", "最后希望的传令官哈诺", "entity name")
 t("This is one of the heralds of Last Hope. He seems to be looking for you.", "他是最后希望传令官中的一员。他似乎找你有事。", "_t")
@@ -41724,11 +41724,12 @@ t([[Toggles between various tactical information display:
 - Only healthbar
 - No tactical information at all
 
-#{italic}#You can also change this directly ingame by pressing shift+T.#{normal}##WHITE#]], [[切换血条显示模式：
+#{italic}#You can also change this directly ingame by pressing shift+T.#{normal}##WHITE#]], [[切换战术信息显示模式：
 - 生命值条+小框架
 - 生命值条+大框架
 - 只显示生命值条
 - 不显示
+
 #{italic}#在游戏中按Shift+T可以直接切换#{normal}##WHITE#]], "_t")
 t("#GOLD##{bold}#Tactical overlay#WHITE##{normal}#", "#GOLD##{bold}#战术视图#WHITE##{normal}#", "_t")
 t("Combined Small", "生命值条+小框架", "_t")
