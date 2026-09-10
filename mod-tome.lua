@@ -9157,8 +9157,8 @@ t("A choker made of pure flame, casting forever shifting patterns around the nec
 t("Chromatic Harness", "七彩鳞甲", "entity name")
 t("multi-hued scale-mail armour", "多彩的鳞片护甲", "_t")
 t("This dragon scale harness shines with multiple colors, quickly shifting through them in a seemingly chaotic manner.", "这个以巨龙鳞片制成的护甲闪耀着五颜六色的光芒，它们在鳞甲表面不断的变化着。", "_t")
-t("Glory of the Pride", "普莱德之荣耀", "entity name")
-t("The most prized treasure of the Battlemaster of the Pride, Grushnak. This gold ring is inscribed in the now lost orc tongue.", "这是普莱德的战争领主格鲁希纳克最宝贵的财富。这枚金戒指上铭刻着失传的兽人语。", "_t")
+t("Glory of the Pride", "部落之荣耀", "entity name")
+t("The most prized treasure of the Battlemaster of the Pride, Grushnak. This gold ring is inscribed in the now lost orc tongue.", "这是部落的战争领主格鲁希纳克最宝贵的财富。这枚金戒指上铭刻着失传的兽人语。", "_t")
 t("deep black ring", "深黑色的戒指", "_t")
 t("Black Robe", "黑色长袍", "entity name")
 t("black robe", "黑色长袍", "_t")
@@ -20177,8 +20177,8 @@ t("Honor their sacrifice; do not let the orcs finish their work!", "向他们的
 t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来的太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
 t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", "使用传送门到达远东大陆，你必须阻止他们，不惜一切代价。", "_t")
 t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你终于及时赶来阻止了仪式，法师们被驱散了。", "_t")
-t("#VIOLET#A portal activates in the distance. You hear the orcs shout, 'The Sorcerers have departed! Follow them!'", "#VIOLET#远处一个传送门被激活，你听到兽人们吼道：“恶魔法师已经离开！跟上他们！”", "logPlayer")
-t("#VIOLET#The Sorcerers flee through a portal. As you prepare to follow them, a huge faeros appears to block the way.", "#VIOLET#恶魔法师从传送门逃跑了，当你准备跟随他们时，一个巨大的法罗挡住了去路。", "logPlayer")
+t("#VIOLET#A portal activates in the distance. You hear the orcs shout, 'The Sorcerers have departed! Follow them!'", "#VIOLET#远处一个传送门被激活，你听到兽人们吼道：“巫师们已经离开！跟上他们！”", "logPlayer")
+t("#VIOLET#The Sorcerers flee through a portal. As you prepare to follow them, a huge faeros appears to block the way.", "#VIOLET#巫师们从传送门逃跑了，当你准备跟随他们时，一个巨大的法罗挡住了去路。", "logPlayer")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -22897,10 +22897,10 @@ t("Infestation", "侵扰", "talent name")
 t([[Your body has become a mass of living corruption, increasing your blight and acid resistance by %d%% and blight affinity by %d%%.
 On taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.
 You can never have more than 5 worms active from any source at a time.
-When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害亲和。
-		每次生命值损失大于 15%% 时，伤害将减少 %d%%，同时在相邻的格子生成蠕虫，攻击你的敌人 5 回合。
-		你同时只能拥有 5 只蠕虫。
-		蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，造成 %0.2f 枯萎伤害并治疗你 33%% 伤害量。]], "tformat")
+When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性，%d%% 枯萎伤害亲和。
+		每当你受到大于最大生命值 15%% 的伤害时，该伤害将减少 %d%%，同时在相邻的格子生成一团腐尸蠕虫，攻击你的敌人 5 回合。
+		无论来源为何，你同时最多只能拥有 5 只蠕虫。
+		蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，每回合造成 %0.2f 枯萎伤害，并按该伤害的 33%% 治疗你。]], "tformat")
 t("Worm Walk", "蠕虫行走", "talent name")
 t("You do not have line of sight to this location.", "你没有这个位置的视野。", "logPlayer")
 t("The worm walk fizzles!", "蠕虫行走失败了！", "logSeen")
@@ -37501,7 +37501,7 @@ t("#Target#'s acid damage is more potent.", "#Target#的酸性伤害增加。", 
 t("+Corrosive Nature", "+自然腐蚀", "_t")
 t("#Target#'s acid damage is no longer so potent.", "#Target#的酸性伤害不再增加。", "_t")
 t("-Corrosive Nature", "-自然腐蚀", "_t")
-t("%s's corrosive nature intensifies!", "%s的自然腐蚀之力增强了！", "logSeen")
+t("%s's corrosive nature intensifies!", "%s的腐蚀性增强了！", "logSeen")
 t("Natural Acid", "自然酸化", "_t")
 t("Nature damage increased by %d%%.", "自然伤害增加 %d%%。", "tformat")
 t("#Target#'s nature damage is more potent.", "#Target#的自然伤害增加。", "_t")
@@ -41078,7 +41078,7 @@ t("reading candle", "阅读蜡烛", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/vor-pride/npcs.lua"
 
-t("Vor, Grand Geomancer of the Pride", "普莱德地卜师将军沃尔", "entity name")
+t("Vor, Grand Geomancer of the Pride", "部落高阶地卜师沃尔", "entity name")
 t("An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.", "一名身穿彩色长袍的年老兽人。冰晶在他周围飞舞，在身后留下一道燃烧着火焰与闪电的轨迹。", "_t")
 t("and used as target practice for initiate mages", "并作为新兵法师的人肉靶子", "_t")
 
