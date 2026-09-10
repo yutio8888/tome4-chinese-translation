@@ -9870,8 +9870,8 @@ t(" of massiveness", "巨型之", "entity name")
 t("massive", "巨型", "entity keyword")
 t("fleetfooted ", "敏足的", "entity name")
 t("fleetfooted", "敏足", "entity keyword")
-t(" of force", "原力之", "entity name")
-t("force", "原力", "entity keyword")
+t(" of force", "威能之", "entity name")
+t("force", "威能", "entity keyword")
 t(" of invasion", "侵略之", "entity name")
 t("invasion", "侵略", "entity keyword")
 t(" of spellbinding", "魔法咒印之", "entity name")
@@ -12922,7 +12922,7 @@ t("deep black lantern", "深黑色的灯笼", "_t")
 t("This lantern of pale white crystal holds a sphere of darkness, that yet emanates light. Everywhere it shines, darkness vanishes entirely.", "这个灰白色水晶制成的灯笼周围笼罩着一片黑暗，但是它仍放射着光芒。光之所在，黑暗尽除。", "_t")
 t("Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).", "在光照范围内吸收所有黑暗(强度 %d，基于意志和灵巧) 并增加亮度(当前增幅：%d)。", "tformat")
 t("#ORCHID#Umbraphage is fully powered!", "#ORCHID#暗影吞噬者充分获得了能量！", "logPlayer")
-t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径）, 并造成 %0.2f 暗影伤害（基于精神强度和吸收量）", "tformat")
+t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径），并造成 %0.2f 暗影伤害（基于精神强度和吸收量）", "tformat")
 t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，释放出一股暗影洪流！", "logSeen")
 t("Spectral Cage", "幽灵牢笼", "entity name")
 t("ethereal blue lantern", "飘渺的蓝色灯笼", "_t")
@@ -13276,7 +13276,7 @@ t("Cuirass of the Dark Lord", "黑暗领主胸甲", "entity name")
 t("black, spiked armor", "一件黑色的尖刺铠甲", "_t")
 t("Worn by a villain long forgotten, this armor was powered by the blood of thousands of innocents. Decrepit and old, the dark lord died in solitude, his dominion crumbled, his subjects gone. Only this cuirass remained, dying to finally taste fresh blood again.", "这件胸甲属于一个早已被人遗忘的暴君，成千上万无辜死者的鲜血强化了这件铠甲。黑暗领主最终在衰老与虚弱中孤独的死去，他的统治分崩离析，他的人民四散而去。只有这件胸甲被保留了下来，渴望着再次品尝鲜血的味道。", "_t")
 t("drain blood from all creatures within range 5, causing them to bleed for %0.2f physical damage over 4 turns (based on your Physicalpower). For each creature drained (up to 10), the armor gains strength, which fades over 10 turns if it is not fed", "吸收半径 5 内所有生物的血液，令其在 4 回合内受到 %0.2f 点物理伤害（基于你的物理强度）。每吸收一个生物（至多10个），护甲的属性便会增强；若不再喂食，增益会在 10 回合后消退。", "tformat")
-t("%s revels in the bloodlust of %s %s!", "%s激发了%s%s的嗜血渴望！", "logSeen")
+t("%s revels in the bloodlust of %s %s!", "%s沉醉于%s%s的嗜血之中！", "logSeen")
 t("Blood Charges: %d", "鲜血充能：%d", "tformat")
 t("Decayed Visage", "腐朽面容", "entity name")
 t("mask of mummified skin", "木乃伊皮面罩", "_t")
@@ -22254,7 +22254,7 @@ t([[Fragile spikes of carbon protrude from your flesh, clothing, and armor, incr
 		The armor and bleed damage will increase with your Spellpower.]], [[脆弱的碳化钉刺从你的肉体、衣服和护甲中伸出来，增加 %d 点护甲值。同时，在 6 回合内对攻击者造成总计 %0.2f 点流血伤害。每次你受到攻击时，护甲增益效果减少 1 点。每回合会自动回复 1 点护甲增益至初始效果。
 		如果护甲增益降到 1 点以下，则技能会被中断，效果结束。
 		护甲增益和流血伤害受法术强度加成。]], "tformat")
-t("Destabilize", "时空裂隙", "talent name")
+t("Destabilize", "时空失稳", "talent name")
 t([[Destabilizes the target, inflicting %0.2f temporal damage per turn for 10 turns.  If the target dies while destabilized, it will explode, doing %0.2f temporal damage and %0.2f physical damage in a radius of 4.
 		If the target dies while also under the effects of continuum destabilization, all explosion damage will be done as temporal damage.
 		The damage will scale with your Spellpower.]], [[使目标所处的时空出现裂隙，每回合造成 %0.2f 时空伤害，持续 10 回合。如果目标在被标记时死亡，则会产生 4 码半径范围的时空爆炸，造成 %0.2f 时空伤害和 %0.2f 物理伤害。
@@ -23539,7 +23539,7 @@ t([[You know how to make the most out of being unseen.
 		Your critical multiplier against targets that cannot see you is increased by up to %d%%. (You must be able to see your target and the bonus is reduced from its full value at range 3 to 0 at range 10.)
 		Also, after exiting stealth for any reason, the critical multiplier persists for %d turns (with no range limitation).]], [[你充分发挥潜行优势。
 		潜行状态下攻击时，如果直到命中前你的目标都没有发现你，你的攻击将自动暴击。（即使目标注意到你，你的法术和精神攻击也会暴击。）
-		对于看不见你的目标，暴击伤害增加 %d%%。（你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）、
+		对于看不见你的目标，暴击伤害增加 %d%%。（你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）。
 		此外，由于任何原因脱离潜行后，暴击伤害奖励会持续存在 %d 回合（不受范围限制）。]], "tformat")
 t("Soothing Darkness", "黑暗亲和", "talent name")
 t([[You have a special affinity for darkness and shadows.
@@ -31116,7 +31116,7 @@ t("@Source@ prepares to block incoming attacks.", "@Source@准备格挡接下来
 t([[Toughen your body blocking up to %d damage per combo point (Max %d) across 2 turns.
 			Current block value: %d
 			Using this talent removes your combo points.
-			The damage absorbed scales with your Physical Power.]], [[硬化身体，每有一点连击点就能格挡 %d 点伤害（至多 %d）,持续 2 回合。
+			The damage absorbed scales with your Physical Power.]], [[硬化身体，每有一点连击点就能格挡 %d 点伤害（至多 %d），持续 2 回合。
 			当前格挡值：%d
 			使用该技能会除去所有连击点。
 			伤害吸收受物理强度加成。]], "tformat")
@@ -36722,7 +36722,7 @@ t("#LIGHT_BLUE#The illusion covering #Target# disappears.", "#LIGHT_BLUE##Target
 t("-CLOAK OF DECEPTION", "-欺诈斗篷", "_t")
 t("suffocating", "窒息", "effect subtype")
 t("Suffocating", "窒息", "_t")
-t("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)", "你正在窒息 ! 每回合按比例损失生命，且越来越多（现在 %d%%）", "tformat")
+t("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)", "你正在窒息！每回合按比例损失生命，且越来越多（现在 %d%%）", "tformat")
 t("#Target# is suffocating.", "#Target#进入窒息状态。", "_t")
 t("+SUFFOCATING", "+窒息", "_t")
 t("#Target# can breathe again.", "#Target#可以呼吸了。", "_t")
@@ -37871,7 +37871,7 @@ t("A scrap of paper.", "一张纸片。", "_t")
 t("Rod of Spydric Poison", "蜘蛛毒枝", "entity name")
 t("poison dripping wand", "滴着毒液的枝条", "_t")
 t("This rod carved out of a giant spider fang continuously drips venom.", "这根法杖由巨大蜘蛛的毒牙雕刻而成，它往下不断的滴落毒液。", "_t")
-t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法）, 并使其在%d回合内无法移动", "tformat")
+t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法），并使其在%d回合内无法移动", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 
 ------------------------------------------------

@@ -5552,7 +5552,7 @@ t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使�
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which does %0.2f physical damage.
 		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪在射程内制造一场特殊的爆炸。
-　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害 ,
+　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害，
 　　这个技能不使用弹药。]], "tformat")
 t("Flare Shell", "闪光弹", "talent name")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
