@@ -24,12 +24,20 @@ import _orch
 
 DOC = 'docs/paseo-translation-context-review-v2-contract.md'
 
-# 派发模式。默认 full-access 是历史取值，但 codex 对该模式的说明含「访问网络」，
-# 曾导致 reviewer 用 curl 拉上游 master 而非钉住的 1.7.6（契约第 94 行禁止读
-# 该文件与契约第六节以外的内容）。auto 是 workspace-write、默认无网络，
-# 代价是可能触发权限弹窗——等待器须同时探测 PendingPermissions，
+# 派发模式。默认 auto（维护者裁定，2026-09-10 起）。
+# 原默认 full-access 的问题：codex 对该模式的说明含「访问网络」，
+# batch-4fec420d 的 reviewer 据此 curl 了 raw.githubusercontent.com 上的
+# tome-base master 分支取源码，而非钉住的 1.7.6；契约第 94 行的固定 prompt
+# 已写明「仅读该文件、其明确引用内容及第六节」，属 reviewer 违约，该次输出作废。
+# auto 是 workspace-write、无网络。Paseo 会把 auto 归一为 codex 的 auto-review
+# ——权限与 auto 相同，差别是符合条件的 on-request 审批交由 auto-reviewer
+# 子 agent 处理而非弹给编排者，故不会卡权限弹窗。
+# batch-1ac9fcc3 实测：100 秒完成，PendingPermissions 全程为空，
+# 且 reviewer 主动 `git cat-file -t 624a6732` 核验钉住提交后读本地树。
+# 仍保留 --mode 以便回退；但注意 CLI 直派拿不到 Paseo 的权限通知，
+# 若改回会弹窗的模式，等待器必须轮询 PendingPermissions，
 # 否则 `paseo agent wait` 会静默阻塞到超时。
-MODE = (sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'full-access')
+MODE = (sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'auto')
 assert (_orch.ROOT / DOC).is_file(), f'契约文档不存在：{DOC}'
 
 

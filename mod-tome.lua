@@ -3697,7 +3697,7 @@ t("Tatoos", "纹身", "birth facial category")
 t("Ghoul", "食尸鬼", "birth descriptor name")
 t("Slow to shuffle, quick to bite, learn from master, rule the night!", "动如磐石，撕咬如火，跟随主人，平定江山！", "_t")
 t("Ghouls are dumb, but resilient, rotting undead creatures, making good fighters.", "食尸鬼是愚钝但坚韧的腐烂不死生物，适合成为战士。", "_t")
-t("They have access to #GOLD#special ghoul talents#WHITE# and a wide range of undead abilities:", "他们天生有独特的 #GOLD# 食尸鬼#WHITE# 技能和一系列不死系技能：", "_t")
+t("They have access to #GOLD#special ghoul talents#WHITE# and a wide range of undead abilities:", "他们能使用 #GOLD#特殊的食尸鬼技能#WHITE# 和种类繁多的不死系能力：", "_t")
 t("- great poison resistance", "- 极高的毒素抗性", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
 t("- stun resistance", "- 震慑抵抗", "_t")
@@ -12385,7 +12385,7 @@ t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Drake's Bane", "屠龙", "entity name")
 t("viciously sharp battle axe", "凶猛的锋利战斧", "_t")
 t("The killing of Kroltar, mightiest of wyrms, took seven months and the lives of 20,000 dwarven warriors.  Finally the beast was worn down and mastersmith Gruxim, standing atop the bodies of his fallen comrades, was able slit its throat with this axe crafted purely for the purpose of penetrating the wyrm's hide.", "对最强大的巨龙库洛塔的猎杀持续了七个月，并夺走了两万名矮人战士的生命。最终这头巨兽被消磨殆尽，工匠大师格鲁克西姆站在倒下战友的尸体之上，用这把专为穿透龙皮而锻造的战斧割开了它的喉咙。", "_t")
-t("Blood-Letter", "血字", "entity name")
+t("Blood-Letter", "放血者", "entity name")
 t("glacial hatchet", "冰冷的手斧", "_t")
 t("A hand axe carved out of the most frozen parts of the northern wasteland.", "用北部荒原的寒冰之核雕成的手斧。", "_t")
 t("Telos's Staff Crystal", "泰勒斯的法杖水晶", "entity name")
@@ -18455,18 +18455,18 @@ Welcome to Point Zero, agent. Enclosed are timespace coordinates to what is, qui
 
 PS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless "he" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition.]], [[女士们先生们，恭喜你。无论是你受到了时空的邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在你失败时不断重试，能够通过预知结果来节约时间，甚至在调查发生前就看到结果。尽管我们的能力被限制在于魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将可以无所不知，无所不能。
 
-不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，既不意外导致矮人的灭绝，也没有因为突然爆发的瘟疫毁掉你满盘的计划，尝试了六次也没能得出结果的话——很快你也会丧失耐心的。
+不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，还不能让矮人一族因此灭绝；结果就在一切眼看近乎完美的时候，一场瘟疫偏偏爆发了，毁掉你满盘的计划——而且这已经是第六次了——很快你也会丧失耐心的。
 
 看。这就是问题的关键。那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
 
 不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。
 
-这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，和概率开个玩笑——但是我们有要维护的避难所，并且，理论上来说，当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。当你被人骚扰了，就要反击回去，但动作不要太大，不要弄出太大的动静，导致整个系统在我们头顶崩塌。如此这般的话，你就能享受这份永恒。
+这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，和概率开个玩笑——但是我们有要维持的掩护身份，并且，理论上来说，当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。别人帮了你的忙，你也要记得还回去；但别把动静弄得太大，免得整个系统在你头顶崩塌。如此这般的话，你就能享受这份永恒。
 
-欢迎来到零点圣域，特工。这里面装的时空坐标指向的东西，只有我们可以毫不客气地说，是有史以来可能存在的最好的烤雪人餐厅——我的小队会在那里等你。一会儿谢。
+欢迎来到零点圣域，特工。这里面装的时空坐标指向的东西，只有我们可以毫不客气地说，是有史以来可能存在的最好的烤雪人餐厅——我的小队会在那时那地等你。一会儿谢。
 [i]-加尔萨麦[/i]
 
-注：你可能会在旅途中遇到一些……某种意义上的恩人。当你看见它时就会认出它——它正笨拙地把它的傀儡从死亡边缘拽回来。如果你亲眼见证了这一切，你必须很遗憾地得知，你已经偏离了主时间线，向着E4-RL时间轴走向了一条注定灭亡的单程旅行，除非“他愿意”笨拙地把他的傀儡从死亡边缘拽回来，把你重新编织进时空的路线——而且他似乎一般只会青睐那些通过无可替代的力量或运气来避免自己被设计好的灭亡的人。如果你被它的方案所选择了，那么你可能会从E4-EXPADV时间轴子网络的时间坟场回来。我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。]], "_t")
+注：你可能会在旅途中遇到一些……某种意义上的恩人。当你看见它时就会认出它——它正笨拙地把它的傀儡从死亡边缘拽回来。如果你亲眼见证了这一切，我们很遗憾地通知你，你已经踏上一条单程旅途，离开了作为主时间线的E4-RL辖域，落入一条注定灭亡的支线——除非“他”愿意把你重新编织回来。而它似乎一般只会对那些凭借惊人的力量或运气、堪堪躲过它一手策划的末日的人这么做。如果你已被它的算计选中，那就顺着演下去，你或许能从E4-EXPADV时间轴子网络那座时间坟场里被带回来。我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。]], "_t")
 t("spydrë", "蜘蛛族", "newLore category")
 t("Mantra of a Shiiak", "希阿克真言", "_t")
 t([[Each morning I wake, happy I'm alive;
@@ -20252,7 +20252,7 @@ section "mod-tome/data/quests/grave-necromancer.lua"
 t("And now for a grave", "绝望的坟墓", "_t")
 t("Ungrol of Last Hope asked you to look for his wife's friend Celia, who has been reported missing. She frequently visits her late husband's mausoleum, in the graveyard near Last Hope.", "最后的希望城的温格洛请你寻找他妻子的朋友赛利亚；据说她失踪了。赛利亚常去最后的希望附近墓地中她亡夫的陵墓。", "_t")
 t("You searched for Celia in the graveyard near Last Hope, and found a note. In it, Celia reveals that she has been conducting experiments in the dark arts, in an attempt to extend her life... also, she is pregnant.", "你在最后的希望附近的墓地寻找赛利亚，并发现了一张字条。字条中，赛利亚透露自己一直在研究黑暗法术，试图延长寿命……而且她怀孕了。", "_t")
-t("You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there.", "你跟踪赛利亚到了她亡夫在最后的希望附近墓地的陵墓里，似乎她在那里复活了一些尸体。", "_t")
+t("You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there.", "你跟踪赛利亚，找到了她亡夫位于最后的希望附近墓地中的陵墓。看来她对那里的尸体做了些出格的事。", "_t")
 t("You have laid Celia to rest, putting an end to her gruesome experiments.", "你埋葬了赛利亚，终结了她阴森恐怖的实验。", "_t")
 t("You have laid Celia to rest, putting an end to her failed experiments. You have taken her heart, for your own experiments. You do not plan to fail as she did.", "你埋葬了赛利亚，终结了她失败的实验，你拿走了她的心脏为自己的实验做准备，你相信你不会重蹈她的覆辙。", "_t")
 
