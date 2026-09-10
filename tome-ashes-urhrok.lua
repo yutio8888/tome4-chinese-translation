@@ -794,7 +794,7 @@ t("Acidic Bath", "酸浴", "talent name")
 t([[You spawn a pool of acid in radius 4 around you for %d turns, dealing %0.2f acid damage to all creatures, including you.
 		You also gain 40%% acid resistance and %d%% acid affinity.
 		The damage scales with your Spellpower.]], [[在半径 4 的范围内制造持续 %d 回合的酸池，造成 %0.2f 酸性伤害（包括自己）。
-		你获得 40%% 酸性抗性与 %d%% 酸性伤害吸收。
+		你获得 40%% 酸性抗性与 %d%% 酸性伤害亲和。
 		伤害受法术强度加成。]], "tformat")
 t("Blighted Path", "枯萎之路", "talent name")
 t("Blighted Path", "枯萎之路", "_t")
@@ -878,7 +878,7 @@ t([[Raging flames burn foes and allies alike, doing %0.2f fire damage in a radiu
 		伤害受法术强度加成。]], "tformat")
 t("Pain Affinity", "痛苦协调", "talent name")
 t([[Whenever you take blight damage you bask in the sweet pain for 2 turns, increasing all damage affinity by 15%%.
-		This can only happen every %d turns.]], [[每当你受到枯萎伤害，你沐浴痛苦的甜美，在 2 回合内获得 15%% 伤害吸收。
+		This can only happen every %d turns.]], [[每当你受到枯萎伤害，你沐浴痛苦的甜美，在 2 回合内提升全体伤害亲和 15%%。
 		这一效果最多每 %d 回合触发一次。]], "tformat")
 t("Hexed Shield", "邪术护盾", "talent name")
 t([[Whenever you block an attack with your shield, you randomly hex the attacker with one of the hexes: Pacification, Domination, Burning or Empathic as if cast at talent level %d.
@@ -1091,7 +1091,7 @@ t([[Your affinity for the shadows grow stronger.
 		If you kill a creature with darkness damage this effect always triggers.
 		You can only gain one stack of Dark Reign per turn.
 		This effect stacks multiplicatively up to %d times.]], [[你与阴影的联系更加紧密了。
-		每次你使用法术造成暗影伤害时，你有 %d%% 几率获得 8%% 全体伤害吸收，持续 8 回合。
+		每次你使用法术造成暗影伤害时，你有 %d%% 几率获得 8%% 全体伤害亲和，持续 8 回合。
 		如果你用暗影伤害杀死一个生物，这一效果必定触发。
 		你每回合最多只能获得一层黑暗支配效果。
 		这个效果能叠加至最多 %d 层。]], "tformat")
@@ -1172,7 +1172,7 @@ t("Cauterize Spirit", "灵魂焚净", "talent name")
 t([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.
 		This ignores all resists, defenses, and affinities.
 		This does not take a turn.]], [[移除所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
-	伤害无视一切抗性、防御效果和伤害吸收。
+	伤害无视一切抗性、防御效果和伤害亲和。
 
 此技能瞬发。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
@@ -1547,7 +1547,7 @@ t("+Osmosis Regen", "+渗透吸收", "_t")
 t("-Osmosis Regen", "-渗透吸收", "_t")
 t("resistance", "抵抗", "effect subtype")
 t("Acidic Bath", "酸浴", "_t")
-t("Gain %d%% resistance and %d%% affinity to acid.", "获得%d%% 酸性抗性与 %d%%酸性伤害吸收。", "tformat")
+t("Gain %d%% resistance and %d%% affinity to acid.", "获得%d%% 酸性抗性与 %d%%酸性伤害亲和。", "tformat")
 t("+Acidic Bath", "+酸浴", "_t")
 t("-Acidic Bath", "-酸浴", "_t")
 t("Plaguefire", "瘟疫之焰", "_t")
@@ -1610,7 +1610,7 @@ t("#Target# is no longer influenced by the Spellblaze.", "#Target#不再受魔�
 t("-Shattered Mind", "-精神破碎", "_t")
 t("Dark Reign", "黑暗支配", "_t")
 t([[All damage affinity increased by %d%%.
-Will not die until %d life]], [[全体伤害吸收增加 %d%%。
+Will not die until %d life]], [[全体伤害亲和增加 %d%%。
 生命值不低于 %d 时不会死亡。]], "tformat")
 t("+Dark Reign", "+黑暗支配", "_t")
 t("-Dark Reign", "-黑暗支配", "_t")
@@ -1625,7 +1625,7 @@ t("Blackice", "黑冰", "_t")
 t("You have %d charges.", "叠加次数：%d。", "tformat")
 t("Fire and physical resistance reduced by %d%%.", "火焰和物理抗性下降%d%%。", "tformat")
 t("Fire Haven", "火焰庇护", "_t")
-t("The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.", "目标被火焰庇护围绕，获得 40% 火焰伤害吸收，但减少 15% 枯萎抗性。", "_t")
+t("The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.", "目标被火焰庇护围绕，获得 40% 火焰伤害亲和，但减少 15% 枯萎抗性。", "_t")
 t("vim", "活力", "effect subtype")
 t("Bleak Outcome", "悲惨结局", "_t")
 t("Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.", "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。", "tformat")
@@ -1638,9 +1638,9 @@ t("Triggers Blood Drinker if this creature dies.", "这个生物死后会触发�
 t("%d vim regen and %d%% evasion chance.", "获得 %d 活力值恢复，%d%% 闪避率。", "tformat")
 t("#Target# is drunk with blood!", "#Target#饮血狂欢！", "_t")
 t("The bloodlust of #target# subsides.", "#target#的嗜血狂热消退了。", "_t")
-t("affinity", "伤害吸收", "effect subtype")
+t("affinity", "伤害亲和", "effect subtype")
 t("Pain Affinity", "痛苦协调", "_t")
-t("All damage affinity increased by %d%%.", "全体伤害吸收提升%d%%。", "tformat")
+t("All damage affinity increased by %d%%.", "全体伤害亲和提升%d%%。", "tformat")
 t("Ominous Shadow", "不祥黑影", "_t")
 t("Improves/gives invisibility (power %d), converts all damage to darkness and uses your highest damage penetration and increase for darkness.", "强化或获得隐形（强度 %d）；所有伤害转化为暗影伤害，暗影伤害使用你最高的伤害加成和抗性穿透。", "tformat")
 t("#Target# vanishes from sight.", "#Target#从视线中消失。", "_t")

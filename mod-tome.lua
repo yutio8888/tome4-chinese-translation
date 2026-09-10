@@ -826,7 +826,7 @@ t("Changes resistances penetration: ", "抗性穿透改变：", "_t")
 t("Changes damage: ", "伤害变化：", "_t")
 t("Reduced damage from: ", "降低特定来源伤害：", "_t")
 t("Talent category bonus: ", "技能树加成：", "_t")
-t("Damage affinity(heal): ", "伤害吸收（治疗）：", "_t")
+t("Damage affinity(heal): ", "伤害亲和（治疗）：", "_t")
 t("Change telepathy range by : ", "心灵感应范围改变：", "_t")
 t("All", "所有", "_t")
 
@@ -2072,17 +2072,17 @@ t([[#GOLD#Damage affinity: all#LAST#
 All damage you receive, through any means, also heals you for this percentage of the damage.
 This stacks with individual damage type affinities.
 Important: Affinity healing happens after damage has been taken, it can not prevent death.
-]], [[#GOLD#伤害吸收：全体#LAST#
+]], [[#GOLD#伤害亲和：全体#LAST#
 任何方式对你造成的所有类型伤害，都会按此比例治疗你。
-可以与独立类型的伤害吸收效果叠加。
-注意：伤害吸收的治疗效果在伤害产生后处理，不能防止秒杀。
+可以与独立类型的伤害亲和效果叠加。
+注意：伤害亲和的治疗在伤害结算之后才生效，不能防止死亡。
 ]], "_t")
 t([[#GOLD#Damage affinity: specific#LAST#
 All damage of this type that you receive, through any means, also heals you for this percentage of the damage.
 Important: Affinity healing happens after damage has been taken, it can not prevent death.
-]], [[#GOLD#伤害吸收：指定#LAST#
+]], [[#GOLD#伤害亲和：指定#LAST#
 任何方式对你造成的此类型伤害，都会按此比例治疗你。
-注意：伤害吸收的治疗效果在伤害产生后处理，不能防止秒杀。
+注意：伤害亲和的治疗在伤害结算之后才生效，不能防止死亡。
 ]], "_t")
 t([[#GOLD#Status resistance#LAST#
 Most bad status effects can be avoided by having an appropriate immunity, represented by a percent chance to completely avoid the effect in question.  This chance is applied in addition to any saving throws or other checks that may apply.
@@ -20381,7 +20381,7 @@ t("The secrets of death lay open to you! You are to become a Lich upon your next
 ------------------------------------------------
 section "mod-tome/data/quests/lightning-overload.lua"
 
-t("Storming the city", "雷鸣之城", "_t")
+t("Storming the city", "风暴袭城", "_t")
 t("As you approached Derth you saw a huge dark cloud over the small town.", "当你接近德斯镇时，你看到一大片漆黑的乌云笼罩在小镇上方。", "_t")
 t("When you entered you were greeted by an army of air elementals slaughtering the population.", "当你进入小镇时，迎面所见是一群正在屠杀居民的空气元素。", "_t")
 t(" * You have dispatched the elementals but the cloud lingers still. You must find a powerful ally to remove it. There are rumours of a secret town in the mountains, to the southwest. You could also check out the Ziguranth group that is supposed to fight magic.", " * 你已经驱散了元素生物，但是天上乌云并未就此散去。你需要寻找一位盟友来帮助你。传说中，在西南方的山脉之中有一个神秘的小镇，你也能顺便调查一下伊格兰斯这个反魔法军团。", "_t")
@@ -21305,7 +21305,7 @@ t([[Your glyphs are imbued with celestial fury; they last %d turns longer and wh
 		#7f7f7f#月光圣印#LAST#：造成 %0.2f 暗影伤害。
 		#9D9DC9#暮光圣印#LAST#：造成 %0.2f 光系和 %0.2f 暗影伤害。]], "tformat")
 t("Empowered Glyphs", "充能之印", "talent name")
-t("Up to 3 times per turn when one of your glyphs triggers you feel a surge of celestial power, increasing your darkness and light resistance and affinity by 5%% for %d turns, stacking up to %d times.", "当你的圣印触发时，天空能量的涌动让你获得暗影、光系抗性和伤害吸收各 5%%，持续 %d 回合，最多叠加 %d 次。该效果每回合最多触发 3 次。", "tformat")
+t("Up to 3 times per turn when one of your glyphs triggers you feel a surge of celestial power, increasing your darkness and light resistance and affinity by 5%% for %d turns, stacking up to %d times.", "当你的圣印触发时，天空能量的涌动让你获得暗影、光系抗性和伤害亲和各 5%%，持续 %d 回合，最多叠加 %d 次。该效果每回合最多触发 3 次。", "tformat")
 t("Destabilize Glyphs", "激发圣印", "talent name")
 t([[Destabilize your glyphs, triggering every glyph in radius 10 with an enemy standing on it.
 		At talent level 2 glyphs triggered this way will leave a residue of themselves on the ground, dealing damage each turn for %d turns.
@@ -21486,7 +21486,7 @@ t([[You are so infused with sunlight that your body glows permanently in radius 
 		Your vision and body adapt to this glow, giving you %d%% blindness resistance, %d%% light resistance, and %d%% light affinity.
 		The light radius overrides your normal light if it is bigger (it does not stack).
 		]], [[你的体内充满了阳光，即使身处黑暗之中，身体也会永久发出半径 %d 的光芒。
-		你的眼睛和身体适应了光明，获得 %d%% 目盲免疫，%d%% 光系抗性和 %d%% 光系伤害吸收。
+		你的眼睛和身体适应了光明，获得 %d%% 目盲免疫，%d%% 光系抗性和 %d%% 光系伤害亲和。
 		光照超过你的灯具时取代之，不与灯具叠加光照。
 		]], "tformat")
 t("Judgement", "裁决", "talent name")
@@ -22231,7 +22231,7 @@ t("Damage Smearing", "时空转化", "talent name")
 t("%s(%d smeared)#LAST#", "%s(%d 时空转化)#LAST#", "tformat")
 t([[You convert %d%% of all non-temporal damage you receive into temporal damage spread out over %d turns.
 		This damage will bypass resistance and affinity.]], [[你转化所有受到的 %d%% 的非时空伤害为持续 %d 回合的时空伤害释放出去。
-		造成的伤害无视抗性和伤害吸收。]], "tformat")
+		造成的伤害无视抗性和伤害亲和。]], "tformat")
 t("Phase Shift", "相位切换", "talent name")
 t("Phase shift yourself for %d turns; any damage greater than 10%% of your maximum life will teleport you to an adjacent tile and be reduced by 50%% (can only happen once per turn).", "切换你的相位 %d 回合；任何将会对你造成超过你最大生命值 10%% 伤害的攻击会把你传送到一个相邻的格子里，并且这次伤害减少50%%（每回合只能发生一次）。", "tformat")
 t("Swap", "时空交换", "talent name")
@@ -22544,7 +22544,7 @@ t([[Command your Temporal Hounds to breathe time, dealing %0.2f temporal damage 
 		Affected targets will have their stats reduced by %d for %d turns.  You are immune to the breath of your own hounds and your hounds are immune to stat damage from other hounds.
 		When you learn this talent, your hounds gain %d%% temporal damage affinity.]], [[命令猎犬们使用时光吐息，对半径 %d 的锥形范围内所有目标造成 %0.2f 点时空伤害，并使其三项最高属性降低 %d 点，持续 %d 回合。
 		你免疫自己猎犬的吐息。自己的猎犬免疫其他猎犬的属性降低效果。
-		当你学会该技能后，猎犬们获得 %d%% 时空伤害吸收。]], "tformat", {2,1,3,4,5})
+		当你学会该技能后，猎犬们获得 %d%% 时空伤害亲和。]], "tformat", {2,1,3,4,5})
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/threaded-combat.lua"
@@ -22897,7 +22897,7 @@ t("Infestation", "侵扰", "talent name")
 t([[Your body has become a mass of living corruption, increasing your blight and acid resistance by %d%% and blight affinity by %d%%.
 On taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.
 You can never have more than 5 worms active from any source at a time.
-When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害吸收。
+When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害亲和。
 		每次生命值损失大于 15%% 时，伤害将减少 %d%%，同时在相邻的格子生成蠕虫，攻击你的敌人 5 回合。
 		你同时只能拥有 5 只蠕虫。
 		蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，造成 %0.2f 枯萎伤害并治疗你 33%% 伤害量。]], "tformat")
@@ -24321,7 +24321,7 @@ t([[Your awareness extends to your shadows.
 t("Shadows Empathy", "阴影链接", "talent name")
 t([[You empathy with your shadows causes the line between you and your shadows to blur.
 		You lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.]], [[你与阴影之间的共鸣，使彼此的界限逐渐模糊。
-		你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。]], "tformat")
+		你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害亲和。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。]], "tformat")
 t("Shadow Transposition", "阴影换位", "talent name")
 t([[Observers find it difficult to tell you and your shadows apart.
 		You can target a shadow in radius %d and instantly trade places with it.
@@ -25578,7 +25578,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		Hostile effects will not hit you or your other summons.
 		The effects improve with your mindpower, and some can crit.]], [[献祭一只召唤兽，使它在 %d 码范围内爆炸。
 		-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。
-		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害吸收，并获得每回合 %d 生命回复，持续 7 回合。
+		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。
 		-雾凇：形成一个冰球，造成 %d 伤害，可能冰冻敌人。
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
 		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。
@@ -25965,7 +25965,7 @@ Also removes cross-tier effects of the affected types for free.]], [[激活纹�
 t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
 t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。", "tformat")
-t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害吸收 %d%%; 减少 %d; 持续 %d; 冷却 %d", "tformat")
+t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%; 减少 %d; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Movement", "纹身：移动", "talent name")
 t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		You gain 100%% stun, daze, and pin immunity during the effect.
@@ -26845,7 +26845,7 @@ t([[Call upon nature to regenerate your body for %d life every turn and increase
 t("Verdant", "亲近自然", "talent name")
 t([[Thaloren have an affinity for natural elements, allowing them to heal for a portion of damage taken from them.
 		You gain %d%% Nature and Acid damage affinity.]], [[自然精灵对自然元素有亲和力，这让它们在受到伤害时可以获得一定的治疗。
-		获得 %d%% 自然和酸性伤害吸收。]], "tformat")
+		获得 %d%% 自然和酸性伤害亲和。]], "tformat")
 t("Guardian of the Wood", "森林守护", "talent name")
 t([[Thaloren are part of the wood; it shields them from corruption.
 		Increase disease immunity by %d%%, blight resistance by %0.1f%%, and all resistances by %0.1f%%.]], [[自然精灵是森林的一部分；森林保护他们免受腐化。
@@ -31577,7 +31577,7 @@ t([[Your inner flame is strong. Each time that you receive a blow that would kil
 		Each turn 10%% of the damage absorbed will be dealt by the flames. This will bypass resistance and affinity.
 		Warning: this has a cooldown.]], [[你的心炎是如此强大。每当你受到足以致死的攻击时，你的身体都会被火焰环绕。
 		火焰会烧灼伤口，完全吸收本回合受到的所有伤害，但会继续在你身上燃烧 8 回合。
-		此后每回合，火焰会对你造成此前所吸收伤害的 10%%，且无视抗性和伤害吸收效果。
+		此后每回合，火焰会对你造成此前所吸收伤害的 10%%，且无视抗性和伤害亲和效果。
 		警告：此技能有冷却时间。]], "tformat")
 t("Lich", "巫妖", "talent name")
 t("Is a living creature that knows necromancy", "是活着的生物，并且掌握死灵法术", "_t")
@@ -33608,7 +33608,7 @@ You can now create new characters with the #LIGHT_GREEN#Adventurer class#WHITE#.
 
 Adventurers start the game with 7 talent category points and all possible class and generic trees in the game.
 They are a #{bold}#bonus#{normal}# class, in no way meant to be balanced or even working with all possible talent combos.
-Use at your own risk, and have fun.]], [[祝贺你，你通关了 !
+Use at your own risk, and have fun.]], [[祝贺你，你通关了！
 你现在可以使用新的职业—— #LIGHT_GREEN#冒险家#WHITE#。
 
 冒险家初始拥有 7 点技能树解锁点，并且可以解锁游戏中的任何职业技能树和通用技能树。
@@ -35067,7 +35067,7 @@ t("The very fabric of space alters around #target#.", "#target#周围的空间�
 t("+Displacement Shield", "+偏转护盾", "_t")
 t("The fabric of space around #target# stabilizes to normal.", "#target#周围的时空稳定了下来。", "_t")
 t("-Displacement Shield", "-偏转护盾", "_t")
-t("Damage Shield", "伤害吸收", "_t")
+t("Damage Shield", "伤害护盾", "_t")
 t("The target is surrounded by a magical shield, absorbing %d/%d damage %s before it crumbles.", "目标被一层魔法护盾包围，吸收（%d/%d）伤害%s直到其破裂。", "tformat")
 t("(reflecting %d%% back to the attacker)", "（反射 %d%% 伤害给攻击者）", "tformat")
 t("A shield forms around #target#.", "#target#的周围产生了一道护盾。", "_t")
@@ -35167,7 +35167,7 @@ t("The target's light, darkness, and fire resistance has been increased by %d%%.
 t("Totality", "日全食", "_t")
 t("The target's light and darkness spell penetration has been increased by %d%%.", "目标的光系和暗影法术穿透提高 %d%%。", "tformat")
 t("Empowered Glyphs", "充能之印", "_t")
-t("A divine glyph recently triggered, providing %d%% light and darkness affinity and resistence.", "圣印最近被触发过，提供 %d%% 光系和暗影伤害吸收与抗性。", "tformat")
+t("A divine glyph recently triggered, providing %d%% light and darkness affinity and resistence.", "圣印最近被触发过，提供 %d%% 光系和暗影伤害亲和与抗性。", "tformat")
 t("Fatiguing Starlight", "疲倦星光", "_t")
 t("Inflicted with a fatiguing starlight, taking %d darkness damage and increasing the cooldown of a cooling-down talent by 1 whenever they act", "受到疲倦星光影响，目标每次行动时会受到 %d 点暗影伤害，并使一个正在冷却的技能的冷却时间延长 1 回合", "tformat")
 t("Sunburst", "日炎爆发", "_t")
@@ -37126,7 +37126,7 @@ t("+Shell Shield", "+甲壳护盾", "_t")
 t("#Target# leaves the cover of its shell.", "#Target#失去了甲壳护盾。", "_t")
 t("-Shell Shield", "-甲壳护盾", "_t")
 t("Serpentine Nature", "巨蟒特质", "_t")
-t("The target takes on the properties of the hydra, gaining %d%% affinity to lightning, acid, and nature damage and regenerating %d life per turn.", "目标展现出多头蛇的特性，获得 %d%% 闪电、酸性和自然伤害吸收，每回合回复 %d 生命。", "tformat")
+t("The target takes on the properties of the hydra, gaining %d%% affinity to lightning, acid, and nature damage and regenerating %d life per turn.", "目标展现出多头蛇的特性，获得 %d%% 闪电、酸性和自然伤害亲和，每回合回复 %d 生命。", "tformat")
 t("Pain Suppression", "痛苦压制", "_t")
 t("The target ignores pain, reducing all damage taken by %d%%.", "目标忽视疼痛，减少所受伤害 %d%%。", "tformat")
 t("#Target# lessens the pain.", "#Target#可以无视疼痛。", "_t")
@@ -37134,7 +37134,7 @@ t("+Pain Suppression", "+痛苦压制", "_t")
 t("#Target# feels pain again.", "#Target#重新感受到疼痛。", "_t")
 t("-Pain Suppression", "-痛苦压制", "_t")
 t("Primal Attunement", "自然协调", "_t")
-t("The target is attuned to the wild, increasing all damage affinity by %d%% and reducing a random debuff duration by %d each turn.", "目标和自然协调，增加全体伤害吸收 %d%%，每回合随机减少一个负面状态 %d 回合持续时间。", "tformat")
+t("The target is attuned to the wild, increasing all damage affinity by %d%% and reducing a random debuff duration by %d each turn.", "目标和自然协调，增加全体伤害亲和 %d%%，每回合随机减少一个负面状态 %d 回合持续时间。", "tformat")
 t("#Target# attunes to the wild.", "#Target#和自然相和谐。", "_t")
 t("+Primal", "+原初", "_t")
 t("#Target# is no longer one with nature.", "#Target#不再与自然合一。", "_t")
@@ -37811,13 +37811,13 @@ t("Greater Mummy Lord", "巨型木乃伊领主", "entity name")
 t("The wrappings of this mummy radiate with so much power it feels like wind is blowing from them.", "这只木乃伊身上所缠绕的裹尸布散发着巨大的能量，似乎它的能量改变了空气的流动。", "_t")
 t("and raised as a soulless shuffling mummy", "并成为了一具没有灵魂的木乃伊", "_t")
 t("ancient elven mummy", "远古精灵木乃伊", "entity name")
-t("An animated corpse in mummy wrappings.", "一具缠绕着裹尸布的鲜活尸体。", "_t")
+t("An animated corpse in mummy wrappings.", "一具缠绕着裹尸布的活化尸体。", "_t")
 t("animated mummy wrappings", "蠕动的裹尸布", "entity name")
 t("An animated set of mummy wrappings, without a corpse inside; it seems like it cannot move.", "一条蠕动的木乃伊裹尸布，里面没有尸体……它看起来无法移动。", "_t")
 t("rotting mummy", "腐烂木乃伊", "entity name")
 t("A rotting animated corpse in mummy wrappings.", "缠绕着裹尸布的腐烂尸体。", "_t")
 t("greater mummy", "巨型木乃伊", "entity name")
-t("An animated corpse in mummy wrappings, both very well preserved.", "一具缠绕着裹尸布的鲜活尸体，保存得很好。", "_t")
+t("An animated corpse in mummy wrappings, both very well preserved.", "一具缠绕着裹尸布的活化尸体，尸身与裹尸布均保存完好。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/ancient-elven-ruins/objects.lua"
@@ -41504,7 +41504,7 @@ t("All", "所有", "_t")
 t("Absolute", "绝对抗性", "_t")
 t("Speed Res", "速度抗性", "_t")
 t("#ORANGE#vs %-11s#LAST#: #00ff00#%3s %s", "#ORANGE#对%-11s#LAST#：#00ff00#%3s %s", "tformat")
-t("#LIGHT_BLUE#Damage affinities:", "#LIGHT_BLUE#伤害吸收：", "_t")
+t("#LIGHT_BLUE#Damage affinities:", "#LIGHT_BLUE#伤害亲和：", "_t")
 t("#LIGHT_BLUE#Flat resistances:", "#LIGHT_BLUE#固定数值伤害减免：", "_t")
 t("#LIGHT_BLUE#Effect resistances:", "#LIGHT_BLUE#状态效果免疫：", "_t")
 t("#LIGHT_BLUE#Damage when hit:", "#LIGHT_BLUE#被击中后反击伤害：", "_t")
