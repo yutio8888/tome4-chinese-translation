@@ -23,6 +23,13 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import _orch
 
 DOC = 'docs/paseo-translation-context-review-v2-contract.md'
+
+# 派发模式。默认 full-access 是历史取值，但 codex 对该模式的说明含「访问网络」，
+# 曾导致 reviewer 用 curl 拉上游 master 而非钉住的 1.7.6（契约第 94 行禁止读
+# 该文件与契约第六节以外的内容）。auto 是 workspace-write、默认无网络，
+# 代价是可能触发权限弹窗——等待器须同时探测 PendingPermissions，
+# 否则 `paseo agent wait` 会静默阻塞到超时。
+MODE = (sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'full-access')
 assert (_orch.ROOT / DOC).is_file(), f'契约文档不存在：{DOC}'
 
 
@@ -113,7 +120,7 @@ def main():
             emit.append({'task_id': task, 'dispatch_id': did, 'key': f'{task}|{did}',
                          'provider': 'codex/gpt-5.6-sol',
                          'workspaceId': ws, 'cwd': str(_orch.ROOT),
-                         'thinkingOptionId': 'medium', 'modeId': 'full-access',
+                         'thinkingOptionId': 'medium', 'modeId': MODE,
                          'labels': labels, 'prompt': prompt})
             made += 1
             print(f'{task} {did} 待 MCP 创建 ({n} bytes)')
@@ -121,7 +128,7 @@ def main():
 
         o = _orch.paseo_json([
             'run', '--background', '--provider', 'codex/gpt-5.6-sol',
-            '--thinking', 'medium', '--mode', 'full-access',
+            '--thinking', 'medium', '--mode', MODE,
             '--workspace', ws, '--cwd', str(_orch.ROOT),
             '--label', f'task_id={task}', '--label', 'role=reviewer',
             '--label', 'purpose=translation_contextual_v2',
