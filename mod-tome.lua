@@ -5071,11 +5071,11 @@ t([[The people you saw are likely the volunteers of Zemekkys' early experiments 
 He is a mage who resides here in the Sunwall, eccentric but skilled, who believes that creation of a new farportal to Maj'Eyal is possible.
 Aside from a few early attempts with questionable results, he hasn't had much luck. Still, it's gladdening to hear that the volunteers for his experiments live, regardless of their location. We are all still under the same Sun, after all.
 
-Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是伊莫克斯关于远行传送门实验的志愿者。
+Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是泽梅基斯关于远行传送门实验的志愿者。
 他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以创造一个远行传送门达到马基·埃亚尔。
 除了他早期的一些尝试获得了一点可疑的结论外，他并不算走运。不过还是很高兴听到他的实验对象还活着，无论他们身在何方。毕竟我们都生活在同一片阳光下。
 
-事实上……也许去见见伊莫克斯对你有好处。他一定会对你手上的多元水晶球感兴趣。他就住在北边的小屋里。]], "_t")
+事实上……也许去见见泽梅基斯对你有好处。他一定会对你手上的多元水晶球感兴趣。他就住在北边的小屋里。]], "_t")
 t("Maybe I'll visit him. Thank you.", "也许我会见见他，谢谢。", "_t")
 t([[The news has indeed reached me. I could scarce believe it, so long have we been at war with the Pride.
 Now they are dead? At the hands of just one @playerdescriptor.race@? Truly I am amazed by your power.
@@ -6279,12 +6279,12 @@ t("Nothing, excuse me. Bye!", "没事，抱歉打扰了，再见！", "_t")
 t("Astonishing! I have heard tell of this Orb in ancient texts and legends. Might I see it?", "真令人惊讶！我在古代的文献和传说中读到过关于多元水晶球的资料。能让我看看么？", "_t")
 t("[Show him the Orb of Many Ways]", "[给他看多元水晶球]", "_t")
 t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位杰出伟人的杰作。也许莱娜尼尔她自己也曾经参与过建造。你说你带来了它的使用说明？", "_t")
-t("I do. [Show him Zemekkys's scribbled notes]", "是的。[给他看伊莫克斯潦草的笔记]", "_t")
-t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂伊莫克斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣钻石。", "_t")
+t("I do. [Show him Zemekkys's scribbled notes]", "是的。[给他看泽梅基斯潦草的笔记]", "_t")
+t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂泽梅基斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣钻石。", "_t")
 t("Have you any idea where they might be found?", "你知道去哪里寻找这两样东西么？", "_t")
 t("If the orcs created a portal in the depths of Reknor, they must have had access to such items. And if these items cannot pass through the portal they created, then it stands to reason that they must still be in Maj'Eyal. I would search Reknor, starting near the portal itself. Perhaps they did not move the Athame and Diamond far after its creation.", "假如兽人在瑞库纳深处制造了这样一个传送门，他们肯定拥有这两样东西。如果这些物品无法穿过他们制造的传送门，那么它们理应还在马基·埃亚尔。我会从传送门附近开始搜寻瑞库纳；或许造好传送门后，他们并没有把仪式匕首和共鸣钻石搬得太远。", "_t")
 t("I'll get searching. Thank you.", "我会去寻找的，谢谢你。", "_t")
-t("One last thing. I will need to hold onto the Orb of Many Ways while you search. I lack the expertise this Chronomancer Zemekkys possesses, and have much learning on the subject to do if I am to follow in his footsteps.", "最后一件事，在你搜寻期间，我得暂时保管多元水晶球并加以研究。我缺少时空法师伊莫克斯所拥有的专业知识，如果我要重复他的工作我必须得花些时间研究这些内容。", "_t")
+t("One last thing. I will need to hold onto the Orb of Many Ways while you search. I lack the expertise this Chronomancer Zemekkys possesses, and have much learning on the subject to do if I am to follow in his footsteps.", "最后一件事，在你搜寻期间，我得暂时保管多元水晶球并加以研究。我缺少时空法师泽梅基斯所拥有的专业知识，如果我要重复他的工作我必须得花些时间研究这些内容。", "_t")
 t("[Hand him the Orb] ", "[把多元水晶球交给他] ", "_t")
 t("I still require the Orb for now.", "我现在还需要多元水晶球。", "_t")
 t("Thank you. I will treat it with the utmost care.", "谢谢，我一定会极其小心地保管它。", "_t")
@@ -8085,7 +8085,7 @@ section "mod-tome/data/general/npcs/crystal.lua"
 
 t("immovable", "静态类", "entity type")
 t("crystal", "水晶", "entity subtype")
-t("A shining crystal formation charged with magical energies.", "一个由闪光水晶构成的生物，它通体围绕着魔法光芒。", "_t")
+t("A shining crystal formation charged with magical energies.", "一簇闪耀的水晶结构，其中充盈着魔法能量。", "_t")
 t("wisp", "鬼火", "entity name")
 t("elemental", "元素生物", "entity type")
 t("light", "轻甲", "entity subtype")
@@ -8308,11 +8308,11 @@ t("Ak'Gishil", "阿克·吉希尔", "entity name")
 t("This Blade Horror has been infused with intense temporal magic, causing its power to increase dramatically. Rifts in space open around it constantly, summoning and banishing blades before vanishing as quickly as they appear.", "这只刀锋恐魔被强烈的时空魔法灌注，力量急剧提升。空间裂隙在它周围不断开启，召唤与放逐着刀刃，随后又像出现时一样迅速消失。", "_t")
 t("construct", "构装体", "entity type")
 t("weapon", "武器", "entity subtype")
-t("Animated Sword", "次元之刃", "entity name")
+t("Animated Sword", "活化之剑", "entity name")
 t("Time seems to warp and bend around this floating weapon.", "时空在其周围扭曲。", "_t")
 t("#AQUAMARINE#A rift opens and a free floating blade emerges!", "#AQUAMARINE#时空裂缝打开了，里面出现了一把浮空的刀刃！", "logSeen")
 t("#AQUAMARINE#The %s no longer seems to be controlled and clatters to the ground before vanishing into a rift.", "#AQUAMARINE#%s 似乎失去了控制，坠落在地面，消失在时空裂隙中。", "logSeen")
-t("Distorted Animated Sword", "极·次元之刃", "entity name")
+t("Distorted Animated Sword", "扭曲活化之剑", "entity name")
 t("This floating weapon shifts and shimmers, time and space warping and bending as it moves. It appears to vibrate, as if it may explode at any moment.", "这件漂浮的武器不断晃动闪烁，移动时连时空也随之扭曲弯折。它似乎在震颤，仿佛随时都会爆炸。", "_t")
 t("#AQUAMARINE#A rift opens and a free floating blade emerges! It looks unstable...", "#AQUAMARINE#时空裂缝打开了，里面出现了一把浮空的刀刃！它看起来很不稳定…", "logSeen")
 
@@ -9001,7 +9001,7 @@ section "mod-tome/data/general/npcs/wild-drake.lua"
 t("dragon", "龙", "entity type")
 t("wild", "自然", "entity subtype")
 t("spire dragon", "螺旋巨龙", "entity name")
-t("A monstrous, coiled wyrm, patient and hateful. Its hide, studded with spikes and crests and blades, turns aside steel and sorcery with equal ease.", "一只奇特的、盘绕的巨龙，它可憎却沉稳。它的表皮上布满了倒刺和利刃，可以轻松抵挡金属武器攻击和魔法能量。", "_t")
+t("A monstrous, coiled wyrm, patient and hateful. Its hide, studded with spikes and crests and blades, turns aside steel and sorcery with equal ease.", "一条骇人的盘曲巨龙，耐心而怀恨。它的表皮上布满棘刺、脊冠与利刃，无论钢铁还是法术都被它同样轻易地卸开。", "_t")
 t("blinkwyrm", "相位巨龙", "entity name")
 t("A shifting, writhing, snake-like dragon, blinking in and out of existence, just waiting for you to turn your back.", "一只不断闪烁和换位的蛇状巨龙，它只是在等你回头。", "_t")
 
@@ -12297,7 +12297,7 @@ t("#GOLD#You feel a swell of positive energy!", "#GOLD#你感受到正能量的�
 t("If the sun doesn't set, dawn's power lasts forever.", "如果太阳永不落山，黎明的光辉将永恒。", "_t")
 t("#GOLD#As you wield the sword and shield of the Sunwall, you feel the Sun's light radiating from your core.", "#GOLD#当你握住太阳堡垒的剑与盾，你感觉到从你身体内部散发出太阳的光辉。", "logPlayer")
 t("#GOLD#You feel the Sun's light vanish from within you.", "#GOLD#你感受到太阳的光辉从你的身体里流失了。", "logPlayer")
-t("Zemekkys' Broken Hourglass", "伊莫克斯的破沙漏", "entity name")
+t("Zemekkys' Broken Hourglass", "泽梅基斯的破沙漏", "entity name")
 t("a broken hourglass", "坏掉的沙漏", "_t")
 t("This small broken hourglass hangs from a thin gold chain.  The glass is cracked and the sand has long since escaped.", "这个坏掉的小沙漏系在一根金子做的细链上。沙漏的玻璃被打破了，里面的沙子早就掉光了。", "_t")
 t("Mandible of Ungolmor", "阿格尔莫的上颚", "entity name")
@@ -16670,7 +16670,7 @@ Oh yeah, because I was broke. Bah...
 
 I think I might have considered things differently had I known I'd be transported without my clothes though! Imagine my embarrassment turning up in a foreign land, with my... my unmentionables on display... Thankfully I managed to borrow a robe from a friendly farmer, and did some work for him to earn gold enough for a bit of food, a journal, and a rusty old sword. When I heard there were ruins filled with undead nearby I knew my calling had come! So here I am, mighty Sun Paladin Telthar, to prove my strength in these foreign lands of the west!
 
-But all I've found so far is rats. I hate rats...]], [[该死的伊莫克斯！该死的疯狂实验！！至暗长夜在上，我当初为什么会答应参加这些实验？！
+But all I've found so far is rats. I hate rats...]], [[该死的泽梅基斯！该死的疯狂实验！！至暗长夜在上，我当初为什么会答应参加这些实验？！
 
 好吧，因为我很穷。呸……
 
@@ -18459,7 +18459,7 @@ PS: You might encounter a... benefactor of sorts in your travels. You'll know it
 
 看。这就是问题的关键。那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
 
-不过你还是要知道一些最重要的事情：虽然伊莫克斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。
+不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。
 
 这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，和概率开个玩笑——但是我们有要维护的避难所，并且，理论上来说，当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。当你被人骚扰了，就要反击回去，但动作不要太大，不要弄出太大的动静，导致整个系统在我们头顶崩塌。如此这般的话，你就能享受这份永恒。
 
@@ -20211,7 +20211,7 @@ t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, 
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你去泰尔玛之塔寻找一本有关传送门的典籍，尽管他也不确定那里是否真有。他让你过几天再回来。", "_t")
-t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系伊莫克斯，询问一些敏感问题。", "_t")
+t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系泽梅基斯，询问一些敏感问题。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
 t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", "泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！", "_t")
 t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", "泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
@@ -20869,18 +20869,18 @@ t("You must now finish what the Sher'tuls started. Take the Staff of Absorption 
 section "mod-tome/data/quests/west-portal.lua"
 
 t("There and back again", "穿越回来", "_t")
-t("Zemekkys in the Gates of Morning can build a portal back to your homeland for you.", "晨曦之门的伊莫克斯可以为你建造一座返回故乡的传送门。", "_t")
+t("Zemekkys in the Gates of Morning can build a portal back to your homeland for you.", "晨曦之门的泽梅基斯可以为你建造一座返回故乡的传送门。", "_t")
 t("#LIGHT_GREEN#* You have found a Blood-Runed Athame.#WHITE#", "#LIGHT_GREEN#* 你找到了血符仪式匕首。#WHITE#", "_t")
 t("#SLATE#* Find a Blood-Runed Athame.#WHITE#", "#SLATE#* 寻找血符仪式匕首。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have found the Resonating Diamond.#WHITE#", "#LIGHT_GREEN#* 你找到了共鸣钻石。#WHITE#", "_t")
 t("#SLATE#* Find a Resonating Diamond.#WHITE#", "#SLATE#* 寻找共鸣钻石。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The portal is now functional and can be used to go back, although, like all portals, it is one-way only.#WHITE#", "#LIGHT_GREEN#* 传送门现已启用，可以用它返回；不过和所有传送门一样，它只能单向通行。#WHITE#", "_t")
-t("Zemekkys points to the location of Vor Armoury on your map.", "伊莫克斯在你的地图上指出了沃尔军械库的位置。", "logPlayer")
-t("Zemekkys points to the location of Briagh's lair on your map.", "伊莫克斯在你的地图上指出了布莱亚的巢穴的位置。", "logPlayer")
-t("#VIOLET#Zemekkys starts to draw runes on the floor using the athame and gem dust.", "#VIOLET#伊莫克斯开始用仪式匕首和宝石粉末在地板上绘制符文。", "logPlayer")
+t("Zemekkys points to the location of Vor Armoury on your map.", "泽梅基斯在你的地图上指出了沃尔军械库的位置。", "logPlayer")
+t("Zemekkys points to the location of Briagh's lair on your map.", "泽梅基斯在你的地图上指出了布莱亚的巢穴的位置。", "logPlayer")
+t("#VIOLET#Zemekkys starts to draw runes on the floor using the athame and gem dust.", "#VIOLET#泽梅基斯开始用仪式匕首和宝石粉末在地板上绘制符文。", "logPlayer")
 t("#VIOLET#The whole area starts to shake!", "#VIOLET#整个区域开始颤抖起来！", "logPlayer")
-t("#VIOLET#Zemekkys says: 'The portal is done!'", "#VIOLET#伊莫克斯说道：“传送门已经开启！”", "logPlayer")
-t("High Chronomancer Zemekkys", "高阶时空法师伊莫克斯", "_t")
+t("#VIOLET#Zemekkys says: 'The portal is done!'", "#VIOLET#泽梅基斯说道：“传送门已经开启！”", "logPlayer")
+t("High Chronomancer Zemekkys", "高阶时空法师泽梅基斯", "_t")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -24067,7 +24067,7 @@ t("The effects of cursed objects.", "诅咒物品的效果。", "_t")
 t("fears", "恐惧", "talent type")
 t("Use the fear that lies at the heart of your curse to attack the minds of your enemies.", "利用诅咒核心的恐惧，直接攻击敌人的心智。", "_t")
 t("Bloodstained", "血染", "talent type")
-t("You, like your weapons, are tainted forever.", "你的武器像你一样永久堕落。", "_t")
+t("You, like your weapons, are tainted forever.", "你和你的武器一样，已被永久玷污。", "_t")
 t("Crimson Templar", "赤红守卫", "talent type")
 t("Blood is power. Let the rivers run red.", "鲜血即力量。让河水变红吧。", "_t")
 t("Hatred", "憎恨", "talent type")
@@ -25926,7 +25926,7 @@ t("Slime Roots", "史莱姆根须", "talent name")
 t("You extend slimy roots into the ground, follow them, and re-appear somewhere else in a range of %d with error margin of %d.", "你将史莱姆根须伸入地下，沿着根须移动，并在最远 %d 格外重新现身，位置误差为 %d 格。", "tformat")
 t("Animate Blade", "活化利刃", "talent name")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
-t("Open a hole in space, summoning an animated blade for 10 turns.", "在空间中打开一个孔洞，召唤一个次元之刃 10 回合。", "tformat")
+t("Open a hole in space, summoning an animated blade for 10 turns.", "在空间中打开一个孔洞，召唤一把活化之剑 10 回合。", "tformat")
 t("Drench", "浸湿", "talent name")
 t([[Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.
 		The damage will increase with your Spellpower.]], [[在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。
@@ -25942,7 +25942,7 @@ t([[Latch on to the target and suck their blood, doing %0.2f physical and %0.2f 
 		]], "tformat")
 
 ------------------------------------------------
-t("Open a hole in space, summoning an animated blade for 15 turns.", "在空间中打开一个孔洞，召唤一个次元之刃 15 回合。", "tformat")
+t("Open a hole in space, summoning an animated blade for 15 turns.", "在空间中打开一个孔洞，召唤一把活化之剑 15 回合。", "tformat")
 
 section "mod-tome/data/talents/misc/inscriptions.lua"
 
@@ -32033,7 +32033,7 @@ However, Grand Keeper of Reality Zemekkys has requested to see you.
 零点圣域的守护者们必须时刻对虚幻时空中的怪物们保持警惕。
 
 你听说了发生在马基·埃亚尔的时空干扰事件，并且想前去一探究竟。
-不过，现实至高守护者伊莫克斯要求见你。
+不过，现实至高守护者泽梅基斯要求见你。
 ]], "_t")
 
 ------------------------------------------------
@@ -35702,7 +35702,7 @@ t("The target is hexed.  Each time it uses an ability it takes %0.2f fire damage
 t("+Burning Hex", "+燃烧邪术", "_t")
 t("-Burning Hex", "-燃烧邪术", "_t")
 t("Empathic Hex", "转移邪术", "_t")
-t("The target is hexed, creating an empathic bond with its victims. It takes %d%% feedback damage from all damage done.", "目标受邪术影响，使其造成的伤害发生偏转，所有其造成的伤害有 %d%% 会反弹给自己。", "tformat")
+t("The target is hexed, creating an empathic bond with its victims. It takes %d%% feedback damage from all damage done.", "目标受到邪术影响，与其受害者之间建立起共感联结。它所造成的全部伤害中有 %d%% 会作为反馈伤害返还其自身。", "tformat")
 t("#Target# is hexed.", "#Target#被邪术影响。", "_t")
 t("+Empathic Hex", "+转移邪术", "_t")
 t("-Empathic hex", "-转移邪术", "_t")
@@ -35911,7 +35911,7 @@ t("The target's mind has been shattered. Its body remains as a thrall to %s.", "
 t("#Target#'s mind is shattered.", "#Target#的心智已被摧毁。", "_t")
 t("Thrall", "奴仆", "_t")
 t("%s's mind recovers from the domination.", "%s 的精神摆脱了支配。", "logSeen")
-t("%s collapses.", "%s 的精神瓦解。", "logSeen")
+t("%s collapses.", "%s 倒下了。", "logSeen")
 t("The target's mind has been shaken. It is temporarily aligned with %s and immune to all damage.", "目标的精神被支配，暂时处于 %s 阵营并免疫所有伤害。", "tformat")
 t("#Target#'s mind is dominated.", "#Target#的精神被操控。", "_t")
 t("+Dominant Will", "+精神控制", "_t")
@@ -40375,7 +40375,7 @@ t("Bows and Slings", "弓与投石索", "entity name")
 t("Sook's Arcane Goodness", "苏克的奥术物资店", "entity name")
 t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
-t("Zemekkys Home", "伊莫克斯的家", "entity name")
+t("Zemekkys Home", "泽梅基斯的家", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-gates-of-morning/zone.lua"
@@ -40576,7 +40576,7 @@ t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
 t("monstrous losgoroth", "大型洛斯格罗斯", "entity name")
-t("Zemekkys, Grand Keeper of Reality", "伊莫克斯，现实至高守护者", "entity name")
+t("Zemekkys, Grand Keeper of Reality", "泽梅基斯，现实至高守护者", "entity name")
 t("shalore", "永恒精灵", "entity subtype")
 t("A timeless elf stands before you. Even though his age is impossible to determine, you feel he has seen many things.", "一位中年精灵站在你面前，岁月不曾在其脸上留下痕迹。尽管你不知道他活了多久，但是你仍能感到他已经遍览世间万物。", "_t")
 t("horror", "恐魔", "entity type")

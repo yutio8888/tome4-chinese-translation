@@ -6993,7 +6993,7 @@ t("Bows and Slings", "弓与投石索", "entity name")
 t("Sook's Arcane Goodness", "苏克的奥术物资店", "entity name")
 t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
-t("Zemekkys Home", "伊莫克斯的家", "entity name")
+t("Zemekkys Home", "泽梅基斯的家", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gates-of-morning/zone.lua"
