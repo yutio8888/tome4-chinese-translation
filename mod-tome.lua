@@ -2952,7 +2952,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_
 section "mod-tome/data/birth/classes/chronomancer.lua"
 
 t("Chronomancer", "时空系", "birth descriptor name")
-t("Some do not walk upon the straight road others follow. Seek the hidden paths outside the normal course of life.", "他们是一些另辟蹊径的人，在平凡的道路上寻找出一条隐藏的路。", "_t")
+t("Some do not walk upon the straight road others follow. Seek the hidden paths outside the normal course of life.", "有些人并不走他人遵循的坦途。去寻觅常规生命轨迹之外的那些隐秘路径。", "_t")
 t("Exploiting a hole in the fabric of spacetime, Chronomancers learn to pull threads from other timelines into their own.", "通过利用时空结构上的孔洞，时空法师学会了将其他时间线的丝线拉入自己的时间线。", "_t")
 t("Pulling these threads creates tension and the harder they pull the more tension is produced.", "这些穿梭时空的行为会在时空中留下张力，他们改变现实的程度越大，造成的张力就越大。", "_t")
 t("Constantly they manage this tension, which they call Paradox, to avoid or control the anomalies they inevitably unleash on the world around them.", "他们时刻维系着这种被他们称为紊乱值的张力，以避免或控制其不可避免地在周围世界引发的异常现象。", "_t")
@@ -13182,7 +13182,7 @@ t("#RED#The robe drapes comfortably over your doomed body.", "#RED#长袍舒服�
 t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
 In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人，他也能临场发挥。", "_t")
-t("insignia ring", "荣誉之戒", "_t")
+t("insignia ring", "徽记戒指", "_t")
 t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s！", "logSeen")
 t("Piercing Gaze", "锐利目光", "entity name")
@@ -21536,7 +21536,7 @@ t("Sun Ray", "阳光烈焰", "talent name")
 t([[Calls forth a ray of light from the Sun, doing %0.1f Light damage to the target.
 		At level 3 the ray will be so intense it will also blind the target and everyone in a radius 2 around it for %d turns.
 		The damage dealt will increase with your Spellpower.]], [[召唤太阳之力，形成一道射线，造成 %0.1f 点光系伤害。
-		等级 3 时射线变得如此强烈，半径 2 以内的敌人将被致盲 %d 回合。
+		等级 3 时射线变得如此强烈，目标及其周围半径 2 以内的所有单位将被致盲 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Path of the Sun", "阳光大道", "talent name")
 t([[A path of sunlight appears in front of you for 5 turns. All foes standing inside take %0.1f Light damage per turn.
@@ -30318,7 +30318,7 @@ t("Increases weapon damage by %d%% and physical power by 30 when using swords, a
 t("Dagger Mastery", "匕首掌握", "talent name")
 t("Increases weapon damage by %d%% and physical power by 30 when using daggers.", "使用匕首时，增加 %d%% 伤害，增加 30 物理强度。", "tformat")
 t("Exotic Weapons Mastery", "特殊武器掌握", "talent name")
-t("Increases weapon damage by %d%% and physical power by 30 when using exotic weapons.", "使用特殊武器时，增加 %d%% 伤害，增加 30 物理强度。", "tformat")
+t("Increases weapon damage by %d%% and physical power by 30 when using exotic weapons.", "使用特殊武器时，增加 %d%% 武器伤害，增加 30 物理强度。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/conditioning.lua"
@@ -31517,7 +31517,7 @@ t([[You can wrap temporal threads around you, assuming the form of a telugoroth 
 		同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。
 		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力井和异常：虫洞。]], "tformat")
 t("Blighted Summoning", "枯萎召唤", "talent name")
-t("Have summoned at least 100 creatures. More permanent summons may count as more than 1.", "曾召唤了 100 个以上的召唤生物。各种永久召唤物算作超过 1 个单位。", "_t")
+t("Have summoned at least 100 creatures. More permanent summons may count as more than 1.", "曾召唤了 100 个以上的召唤生物。更为持久的召唤物可能会被计为多于 1 个。", "_t")
 t([[You infuse blighted energies into all of your summons, granting them Bone Shield (level 3) and a bonus to Spellpower equal to your Magic.
 		Your Wilder Summons and Necrotic Minions will gain special corrupted talents (level 3), other summons will gain 10%% Blight damage conversion and Virulent Disease (level 3).
 		#GREEN#Wilder Summons:#LAST#
