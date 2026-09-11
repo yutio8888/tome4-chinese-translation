@@ -8410,7 +8410,7 @@ section "mod-tome/data/general/npcs/losgoroth.lua"
 
 t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
-t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
+t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空元素生物，原生于群星之间的虚空。在星球表面几乎看不到这种生物。", "_t")
 t("losgoroth", "洛斯格罗斯", "entity name")
 t("manaworm", "魔法蠕虫", "entity name")
 t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "魔法蠕虫是以施法者的魔力为食的虚空生物。如果它们近距离接触到法师，它们会缠上去并吸干对方的魔力。", "_t")
@@ -23193,12 +23193,12 @@ Mastering a new tool places it (and its special effects, as appropriate) on cool
 t("Hidden Blades", "隐匿刀锋", "talent name")
 t("#Source# strikes #target# with hidden blades!", "#Source#使用隐藏的刀片击中了#target#！", "logCombat")
 t("Melee criticals trigger an extra unarmed attack, inflicting %d%% damage. 4 turn cooldown.", "近战暴击触发额外 %d%% 伤害徒手攻击，4 回合冷却。", "tformat")
-t("not prepared", "没有准备", "_t")
+t("not prepared", "未装备", "_t")
 t([[You conceal spring loaded blades within your equipment. On scoring a critical strike, you follow up with your blades for %d%% damage (as an unarmed attack).
 This talent has a cooldown.
-#YELLOW#Prepared with: %s#LAST#]], [[你将刀片隐藏在装备中，当你对临近目标造成暴击时，刀片自动弹出，造成 %d%% 徒手武器伤害。
+#YELLOW#Prepared with: %s#LAST#]], [[你将刀片隐藏在装备中，当你造成暴击时，刀片自动弹出，造成 %d%% 徒手武器伤害。
 该技能有冷却时间。
-#YELLOW#已装填：%s#LAST#]], "tformat")
+#YELLOW#装备于：%s#LAST#]], "tformat")
 t("Assassinate", "暗杀", "talent name")
 t("You must have Hidden Blades prepared to use this talent.", "你必须准备好隐藏刀片来使用该技能。", "logPlayer")
 t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害！", "logCombat")
@@ -23211,7 +23211,7 @@ t("%s is cured!", "%s 被治愈！", "logSeen")
 t("Prepare a potion that restores %d life, %d stamina, and cures %d negative physical effects. 20 turn cooldown.", "准备药剂，回复 %d 生命，%d 体力，解除 %d 项物理负面状态。20 回合冷却。", "tformat")
 t([[Imbibe a potent mixture of energizing and restorative substances, restoring %d life, %d stamina and curing %d detrimental physical effects.  The restorative effects improve with your Cunning.
 	#YELLOW#Prepared with: %s#LAST#]], [[饮用强效恢复药酒，使用后回复 %d 生命、%d 体力并解除 %d 项物理负面效果。该效果受灵巧加成。
-	#YELLOW#已装填：%s#LAST#]], "tformat")
+	#YELLOW#装备于：%s#LAST#]], "tformat")
 t("Rogue's Brew Mastery", "佳酿强化", "talent name")
 t("Your Rogue's Brew fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "你的盗贼佳酿会强化你 8 回合，使你在生命值降至 -%d 之前不会死亡。", "tformat")
 t("Adjust your Rogue's Brew formulation so that it fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "调整盗贼佳酿的配方，使其强化你 8 回合；在此期间，你的生命值降至 -%d 之前不会死亡。", "tformat")
@@ -23221,7 +23221,7 @@ t([[Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke 
 		Use of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.
 		#YELLOW#Prepared with: %s#LAST#]], [[扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d。
 		使用该技能不解除潜行。被烟雾影响的生物不能阻止你潜行。
-		#YELLOW#已装填：%s#LAST#]], "tformat")
+		#YELLOW#装备于：%s#LAST#]], "tformat")
 t("Smokescreen Mastery", "强化烟雾弹", "talent name")
 t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
 t("You infuse your smoke bomb with chokedust. Each turn, enemies in the smoke take %0.2f nature damage and are 50%% likely to be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有 50%% 几率被沉默。", "tformat")
@@ -23232,7 +23232,7 @@ t([[Fire a poisoned dart from a silent, concealed launcher on your person that d
 This can be used without breaking stealth.
 #YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标（仅限活物）沉睡 4 回合，期间无法行动。目标每受到 %d 点伤害，距离苏醒便提前 1 回合。
 使用该技能不解除潜行。
-#YELLOW#已装填：%s#LAST#]], "tformat")
+#YELLOW#装备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
 t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
@@ -23252,7 +23252,7 @@ t([[Toss out a grappling hook to a target within range %d.  If this strikes eith
 		Your grapple target must be at least 2 tiles from you.
 #YELLOW#Prepared with: %s#LAST#]], [[朝 %d 格范围内的目标发射钩爪，如果目标是墙壁、目标不能移动或目标体型比你大，你将被拉过去，否则将目标拉过来。之后，目标将被定身 2 回合。
 		钩爪至少要发射到两格外。
-#YELLOW#已装填：%s#LAST#]], "tformat")
+#YELLOW#装备于：%s#LAST#]], "tformat")
 t("Grappling Hook Mastery", "钩爪强化", "talent name")
 t("Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns.", "被钩爪击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
 t("Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.", "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
@@ -23332,7 +23332,7 @@ t("Create and use cunning tools.", "制造并使用工具。", "_t")
 t("tools", "工具", "talent type")
 t("Artificer's tools.", "诡计大师的工具。", "_t")
 t("Called Shots", "精准射击", "_t")
-t("Inflict maximum pain to specific places on your enemies.", "向指定位置射出弹药造成大量伤害。", "_t")
+t("Inflict maximum pain to specific places on your enemies.", "对敌人身上的特定部位施加极致的痛苦。", "_t")
 t("Talent not unlocked", "技能未解锁", "_t")
 
 ------------------------------------------------
@@ -40574,7 +40574,7 @@ t("guardian of reality", "现实守卫", "entity name")
 t("A stern-looking guardian, ever vigilant against the threats of the paradox.", "一名神情严肃的守卫，时刻警惕着悖论的威胁。", "_t")
 t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
-t("Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
+t("Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.", "洛斯格罗斯是强大的虚空元素生物，原生于群星之间的虚空。在星球表面几乎看不到这种生物。", "_t")
 t("monstrous losgoroth", "大型洛斯格罗斯", "entity name")
 t("Zemekkys, Grand Keeper of Reality", "泽梅基斯，现实至高守护者", "entity name")
 t("shalore", "永恒精灵", "entity subtype")
@@ -42493,7 +42493,7 @@ t("Restore: %s (v%d)", "恢复：%s (v%d)", "tformat")
 t("Restore: none", "恢复：无", "_t")
 t("#LIGHT_BLUE#Restoring [%s]%s from backup version %d", "#LIGHT_BLUE#恢复 [%s]%s（来自备份版本 %d）", "log")
 t("Gain points for stats, talents, and prodigies (unlimited respec)", "获得属性点，技能点和觉醒点（无限次重置）", "_t")
-t(" Force all BASE stats to: ", " 设置所有主属性为： ", "_t")
+t(" Force all BASE stats to: ", " 设置所有基础属性为： ", "_t")
 t(" Force all BONUS stats to: ", " 设置所有额外属性为： ", "_t")
 t("Learn Talents ", "学习技能 ", "_t")
 t("Unlock & Learn all available talents to level: ", "解锁并学习所有的技能到等级： ", "_t")
