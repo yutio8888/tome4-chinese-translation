@@ -9,6 +9,7 @@ from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_queue as queue
 from . import production_review_v2_lite_evidence as evidence
+from . import capacity_policy
 from . import gate_results
 import surface_screen_result_check as surface
 import surface_screen_manifest as surface_manifest
@@ -1536,6 +1537,21 @@ def _validate_abandon_prospective(checkpoint, runtime):
         raise _err("cannot restore evidence: prospective bytes differ from checkpoint postimages")
 
 
+def _gates_value(gate_result, prospective_bytes, committed_bytes):
+    """Build one gates receipt bound to the capacity policy it was written under.
+
+    Both emissions below go through here, so the provisional receipt and the
+    converged one cannot disagree about which policy the batch was measured
+    against.  Reading this receipt back resolves the named policy by digest, so
+    later raising the current ceiling cannot widen this batch's acceptance.
+    """
+    return {"schema_version": 3, "result": gate_result,
+            "prospective_bytes": prospective_bytes,
+            "committed_bytes": committed_bytes,
+            "capacity_policy_id": capacity_policy.CURRENT_POLICY_ID,
+            "capacity_policy_sha256": capacity_policy.digest(capacity_policy.CURRENT_POLICY_ID)}
+
+
 def _write_fsynced(path, raw):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name("." + path.name + ".tmp")
@@ -1599,7 +1615,7 @@ def prepare_evidence(root):
             refs.append(ref)
         def jsonl(values): return b"".join(wp1.canonical_bytes(v) + b"\n" for v in values)
         adjud_raw = jsonl(checkpoint.get("adjudications") or [])
-        gates_raw = wp1.canonical_bytes({"schema_version": 2, "result": gate_result, "prospective_bytes": 0, "committed_bytes": 0})
+        gates_raw = wp1.canonical_bytes(_gates_value(gate_result, 0, 0))
         # Bind every durable result to the generated raw bytes before the
         # prospective tree is published; the checkpoint paths are absolute
         # scratch paths while the manifest refs are repository-relative.
@@ -1647,9 +1663,7 @@ def prepare_evidence(root):
                                   expected_binding=gate_results.binding(root, selected), root=root)
         except (ValueError, OSError, subprocess.SubprocessError) as error:
             raise _err(f"gate reuse rejected: {error}") from error
-        gates_value = {"schema_version": 2, "result": gate_result,
-                       "prospective_bytes": prospective_total,
-                       "committed_bytes": prospective_total}
+        gates_value = _gates_value(gate_result, prospective_total, prospective_total)
         for _ in range(4):
             gates_raw = wp1.canonical_bytes(gates_value)
             _write_fsynced(batch_root / "gates.json", gates_raw)
@@ -1690,7 +1704,8 @@ def _committed_production_bytes(root, commit):
                 raise _err("committed production evidence contains a non-ordinary entry")
             total += len(queue._blob(root, object_id, path))
     if total > catalog.TRACKED_LIMIT:
-        raise _err("committed production evidence exceeds the combined 128 MiB budget")
+        raise _err("committed production evidence exceeds the combined "
+                   f"{capacity_policy.describe(catalog.TRACKED_LIMIT)} budget")
     return total
 
 

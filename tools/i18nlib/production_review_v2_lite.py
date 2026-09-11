@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
+from . import capacity_policy
 from . import production_review as wp1
 from .config import Manifest
 from .runtime import LuaRuntime
@@ -23,7 +24,7 @@ CATALOG_KIND = "production_review_v2_lite_catalog_v1"
 CALL_LOCATOR_KIND = "production_review_v2_lite_call_locator_v1"
 OCCURRENCE_KIND = "production_review_v2_lite_occurrence_v1"
 CURRENT_VECTOR = (30308, 29828, 480)
-TRACKED_LIMIT = 134217728
+TRACKED_LIMIT = capacity_policy.CURRENT_TRACKED_LIMIT
 BASELINE_HEAD = "a287652c344a3e37199fe0af2d8a6b4cdf25f0b2"
 SCHEMA_PATH = "i18n/quality/production-review-v2-lite/catalog-v1.schema.json"
 POLICY_PATH = "i18n/quality/production-review-v2-lite/policy-v1.json"
@@ -608,7 +609,7 @@ def prospective_occupancy(tracked_sizes:dict[str,int],candidate:dict[str,bytes])
                         or proposed.startswith(tracked + "/"))
     if collisions: raise wp1.ProductionReviewError(f"candidate collides with tracked paths: {collisions}")
     total=sum(size for path,size in tracked_sizes.items() if is_production_path(path) and path not in WP1_FILES)+sum(map(len,candidate.values()))
-    if total>TRACKED_LIMIT: raise wp1.ProductionReviewError(f"prospective tracked total exceeds 128 MiB (bytes={total}, limit={TRACKED_LIMIT})")
+    if total>TRACKED_LIMIT: raise wp1.ProductionReviewError(f"prospective tracked total exceeds {capacity_policy.describe(TRACKED_LIMIT)} (bytes={total}, limit={TRACKED_LIMIT})")
     return total
 
 
