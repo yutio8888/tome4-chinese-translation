@@ -30,25 +30,25 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 83 批 `batch-8d0dfd2fcd68e76a41eb`（已 push，evidence `5b56a5d`／修复 `3d641d7`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 121 个 |
-| 当前 catalog | `c81ac8dd…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `a751fdf0…`（revision_changed 10） |
+| 最后完成批次 | 第 84 批 `batch-c728d0ed87c0971376f0`（已 push，evidence `3851dd3`／修复 `554889b`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 122 个 |
+| 当前 catalog | `a9fdc7e8…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `e47fd409…`（revision_changed 6） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
-审核进度（第 82 批后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
+审核进度（第 84 批后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
 
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21572 |
+| 尚未覆盖（`implicit_queued`） | 21498 |
 
-按 80 条一批算，剩余约 **271 批**。
+按 80 条一批算，剩余约 **269 批**。
 
 > ✅ **容量阻塞已解除（2026-09-11，`b3da9f8`）。** 上限由 128 MiB 改为带版本的
 > 512 MiB 政策，当前已用 **22.8%**、余量 **395.46 MiB**，按实测 843 KiB/批够约
-> **480 批**，而剩余待审 270 批。详见 §13。可以开第 84 批。
+> **480 批**，而剩余待审 269 批。详见 §13。
 
 > **工作区是与一个优化者 agent 共享的**（`2577f8ff-95f4-432a-9b1e-68ae9559570c`，
 > opus 5）。它在 `/workspace/tome4-opt-1`（分支 `perf/merge-cli-steps`）的 git worktree
@@ -232,12 +232,19 @@ done
 | UI 选项名 | 保留 ASCII 引号 |
 | 纯中文括号 | 全角 |
 
-### 每批都会被重报、需另开有界窗口处理的四项
+### 原「每批复现的四项」已全部落地（2026-09-11 核实，此前本文档在此处是陈旧信息）
 
-`honey tree`（蜜蜂树，字面是 bee tree）、`Warden's Focus`（专注守卫，中心词颠倒）、
-`farportal`（远古传送门，Far 被当作 ancient，全库 83 处）、
-`Kryl-Feijan`（卡洛·斐济，「斐济」是 Fiji 的固定译名，跨两个组件）。
-**未授权前不要动**，每批照常裁决即可。
+`honey tree`→「蜂蜜树」、`Warden's Focus`→「守卫者专注」、`farportal`→「远行传送门」
+（全库「远古传送门」**0 处**）已由 `fbcf0aa` 改完；`Kryl-Feijan`→「克里尔·费扬」
+由 `07e8656` 改完。**四项都不再是挂起项，不要按旧表复述。**
+
+> 我在第 84 批照旧表复述过一次才发现表是过期的。凡引用本节的表，**先 `grep` 现状再说话**。
+
+### 新浮现的全库术语项：`Warden`
+
+第 84 批交叉复核提出 Paradox Plane 语境下 Wardens 应作「守望者」。现状：`Warden`
+在 `mod-tome.lua` 共 31 处，作「守卫」／「时空守卫」，「守望者」**0 处**。
+这是全库改名，需另开有界窗口，**未授权前不要动**。
 
 ---
 
@@ -324,7 +331,19 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 1. **`Foursaw the Clown` 墓志铭** —— 是否为韵文对换行规则破例；是否重造
    `Foursaw`/`saw` 的双关（要改一个 lore 角色名并重写墓志铭）。
 2. **标记内多余空格清理** —— 已排期又被叫停，且**结论需要修正**（见下）。
-3. **是否立项优化** `preflight` / `authoritative-catalog build`。
+   真正有视觉后果的只有 2 条高亮范围错位，见下表。
+3. **`crypt` 的译名不统一**（第 82 批 pending，2026-09-11 复核现状）——
+   `Crypt`→「地窖」(`mod-tome.lua:38204`)、`Shadow Crypt`→「阴影地窖」(`:7155`/`:39725`)、
+   `Forsaken Crypt`→「废弃地穴」(`:7393`)、`Call of the Crypt`→「墓穴召唤」(`:29190`)。
+   三种译法并存。是统一，还是按区域各自保留？
+4. **`Warden` 全库译名** —— 见 §5 末节，31 处现作「守卫／时空守卫」，
+   第 84 批交叉复核主张「守望者」。
+5. **工具链三项**（gpt-6 设计已交付，见 §13 末节）—— 跨进程投影记忆需要新信任根；
+   两项不新增信任的算法修正；`queue check` 的缓存冗余（维护者曾裁「等容量问题解决再议」，
+   容量已于 2026-09-11 解决）。
+
+> 原第 3 项「是否立项优化 `preflight` / `authoritative-catalog build`」已由优化者
+> 落地三项（`3575d72` / `263aa42` / `208a42f`），不再挂起。
 
 ### 关于「标记内多余空格」，我先前的报告是错的
 
@@ -623,3 +642,81 @@ PY
 
 两份并排设计在 `.ai/consult/capacity-perf-design-20260911/`（gpt-6）与
 `.ai/consult/disk-memo-design-20260911/`（优化者草案），均未入库。
+
+---
+
+## 14. 第 84 批完成记录（2026-09-11）
+
+| 项 | 值 |
+|---|---|
+| batch_id | `batch-c728d0ed87c0971376f0` |
+| evidence commit | `3851dd307f8c92da7fc3cdde1960581f090257b8` |
+| 修复 commit | `554889bdb87bad813b3db0f58d4dc902bbca7de2` |
+| migration | `e47fd409…`（revision_changed 6 / unchanged 29822 / ambiguous 0 / unmapped 0） |
+| catalog | `a9fdc7e8…` |
+| 裁决 | 11 条观察（6 surface + 5 contextual），**全部 confirmed**，6 条条目需修复 |
+| 队列 | 21572 → 21498 |
+
+条目全部来自 `tome` 组件，6 处修复全在 `mod-tome.lua`，无跨组件兄弟。
+
+### 六条修复
+
+| revision | 位置 | 问题 |
+|---|---|---|
+| `1f25cdcd` | `init.lua load_tips` | `rendered extinct` → 「几乎已经灭绝」擅加「几乎」；`hidden groups biding their time` 主语与蛰伏义丢失 |
+| `1f46b209` | `quests/east-portal.lua` | `about establishing a link back` → 「关于这件事」，任务指引失效 |
+| `1f698194` | `timed_effects/physical.lua` | `feels a surge of adrenaline` → 「被注入了肾上腺素」，主语与语态双错 |
+| `1f700213` | `talents/corruptions/plague.lua` | 同一项疾病的两个并列条件被读作先后施加两项；`enemy` 放宽为「单位」；`high` 升格为「最多」 |
+| `1f9a18af` | `zones/paradox-plane/objects.lua` | `for generations` → 「数载」；`According to legend` → 「根据历史记载」；`sapling` 漏译 |
+| `1fbe8466` | `lore/elvala.lua` | `Aye` 译作感叹词；`without ever dulling the blade` 删除并换成源文没有的「如同划破薄纸」；黑血喷涌换成「战斗的声响」；弃械护脸改成「抵挡呛人的烟雾」；`burning limbs flying into the air` 整句缺失 |
+
+### 一处单轮 confirmed，理由须留痕
+
+`1f698194` 的交叉复核轮判 **OK**，与表层轮分歧。仍判 confirmed，依据是 §5「单轮也可以
+confirmed」的机械例外（句法主语与语态）**加上**引擎源码的强独立证据：
+`game/modules/tome/data/timed_effects/physical.lua` 的 `ADRENALINE_SURGE` 是
+`status = "beneficial"` 的自身增益，`activate` 走 `self:addTemporaryValue`，
+机制上不存在外部施加者。分歧已写进裁决 conclusion。
+
+### 两处**未**采纳的复核主张
+
+- `1f9a18af`：`powers of both time and renewal` 译作「时空」**不改**——`Warden` 本库既有
+  译名即「时空守卫」（`mod-tome.lua:18441`/`:21853`），「时空」是本库既定行文。
+- `1f9a18af`：`Wardens` 应作「守望者」**本批不动**，属全库改名，见 §5 末节。
+
+### group 去重首次真数据验收（本批 `prepare-evidence`）
+
+四条检查项全部成立[实测]：
+
+```
+磁盘 group-*.json 份数          1
+distinct group_manifest_sha256   1   ← 本批多 lane run 数 = 1
+每个哈希挂的 lane 数              4
+文件名 vs 重算内容 sha256         逐字节相符（group-ca73e68e…d29.json）
+旧布局 *-group.json 残留          0
+「group manifest reference lacks a recorded SHA-256」 0 次
+gates schema_version             3
+capacity_policy_id               expanded-512mib-v1
+capacity_policy_sha256           4d3bf7d2… == capacity_policy.digest(CURRENT_POLICY_ID)
+prospective occupancy 定点        正常收敛，无 did not converge
+```
+
+本批省 57,168 字节 × 3 份 = 171,504 字节 = 167.5 KiB。
+
+> **本批只验到「4→1」这一个实例。** 跨 run 组字节不碰撞这条本批**验不到**
+> （只有 1 个多 lane run），证据仍只有优化者在 119 个历史批次上的形态验证
+> （按 sha 分组后每组恒为 4 条 lane，无 8 条）。两件事不要混为一谈。
+
+> **12.83 MiB 是已提交在历史里的，一个字节都收不回来。** 去重只让将来不再产生新冗余。
+> 算余量只能用「避免」不能用「回收」：按历史每批冗余均值 110.4 KiB × 剩余 269 批
+> ≈ 29.0 MiB 可避免[估算，乘数是剩余批数]。
+> 相对 395.46 MiB 余量，这 29 MiB 是锦上添花而非承重——**它以后若出问题，回退代价很低**，
+> 不必为保住 29 MiB 硬撑一个有疑点的改动。真正解开容量阻塞的是抬限那一项。
+
+### 性能实测（`263aa42` 之后）
+
+`batch start` 160s、`surface-export` 159s、`surface-import` 160s、`contextual-export` 159s、
+`contextual-import` 160s、`adjudicate` 159s、`prepare-evidence` 252s（含 17 项门禁）、
+`queue rebuild` 159–162s、`migration plan/check/apply` 各 163–165s。
+**每个子命令固定约 160s 的那一段就是整棵历史重放**，§13 末节的三项待裁定都针对它。
+
