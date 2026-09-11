@@ -797,15 +797,20 @@ def _new_checkpoint(root, manifest, rows, *, mode, attempt, created_by):
     value = {"schema_version": 1, "kind": "production_review_v2_lite_active_batch_v1", "batch_id": _batch_id(mode, selected, attempt), "catalog_id": manifest["catalog_id"], "base_commit": queue._head(root, "HEAD"), "policy_sha256": manifest["policy_sha256"], "created_at": catalog.utc_now(), "created_by": created_by, "attempt": attempt, "selection_mode": mode, "phase": "reserved", "selected": selected, "selected_sha256": _sha(wp1.canonical_bytes(selected)), "entry_snapshots": snapshots, "surface": None, "contextual": None, "adjudications": None, "repair_candidates": None, "gates": None, "last_safe_boundary": "reserved"}
     return value
 
-def _restore_orphans(root):
+def _restore_orphans(root, *, projection=None):
     """Reconcile reserved rows left by a crash before checkpoint replace.
 
     A committed blocked winner is authoritative; all other orphan reservations
     represent implicit queued rows.  Never reset an imported terminal/intermediate row.
+
+    ``projection`` is a replay the caller already holds for HEAD.  It is reused
+    only after re-resolving that commit and finding it unchanged; any other
+    answer replays, exactly as an omitted argument does.
     """
     db = queue.database_path(root)
     try:
-        projection = queue._projection(root, "HEAD")
+        if projection is None or projection[0] != queue._head(root, "HEAD"):
+            projection = queue._projection(root, "HEAD")
         blocked = {row[0] for row in projection[3] if row[2] == "blocked"}
         with sqlite3.connect(db) as con:
             blocked_rows = {row[0]: row for row in projection[3] if row[2] == "blocked"}
@@ -1173,15 +1178,25 @@ def _reconcile_checkpoint(root, value):
     return value
 
 
-def preflight(root):
+def preflight(root, *, projection_out=None):
+    """Validate the active batch state; optionally hand back the one HEAD replay.
+
+    The no-checkpoint path used to replay the same evidence commit twice here
+    and a third time in `start`.  One replay now serves the orphan reconciler,
+    the strict check, and — through ``projection_out`` — the caller continuing
+    in this process.  Each consumer still re-resolves the commit before reuse.
+    """
     try:
         path = queue.checkpoint_path(root)
         if path.exists():
             return _reconcile_checkpoint(root, _load(path))
         db = queue.database_path(root)
         if not db.exists(): raise _err("queue database is missing; run queue init")
-        _restore_orphans(root)
-        queue.strict_check(root)
+        projection = queue._projection(root, "HEAD")
+        if projection_out is not None:
+            projection_out.append(projection)
+        _restore_orphans(root, projection=projection)
+        queue.strict_check(root, projection=projection)
         return None
     except wp1.ProductionReviewError:
         raise
@@ -1190,16 +1205,19 @@ def preflight(root):
 
 def start(root, *, limit=MAX_BATCH, retry_blocked=False, created_by="WP2L-3 EXECUTOR"):
     with queue.writer_lock(root):
-        current = preflight(root)
+        carried = []
+        current = preflight(root, projection_out=carried)
         if current is not None: raise _err("an active batch already exists; recover or abandon it")
-        queue.strict_check(root)
+        projection = carried[0] if carried else None
+        queue.strict_check(root, projection=projection)
         manifest, rows, overrides = _effective_rows(root)
         selected = stable_selection(rows, overrides, retry_blocked=retry_blocked, limit=limit)
         if not selected: return {"selected": 0, "active": False, "ok": True}
         mode = "retry_blocked" if retry_blocked else "queued"
         attempt = 1
         if mode == "retry_blocked":
-            projection = queue._projection(root, "HEAD")
+            if projection is None or projection[0] != queue._head(root, "HEAD"):
+                projection = queue._projection(root, "HEAD")
             winners = {row[0]: row for row in projection[3]}
             if any(winners.get(row["entry_revision_identity"], (None, None, None))[2] != "blocked" for row in selected):
                 raise _err("retry selection is not backed by current committed blocked winners")
