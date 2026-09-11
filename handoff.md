@@ -563,8 +563,21 @@ Kryl-Faijan 遭遇 `door`→「活门」改回「门」、Master Jeweler 成就�
 `evidence.py:MAX_TRACKED_BYTES`、`production_review_v2_lite.py:TRACKED_LIMIT`、
 `batch.py:_committed_production_bytes`、`queue.py` 重放时对历史 `gates.json` 的校验。
 
-> 这里有个必须记住的不对称：`queue.py` 拿**当前**政策校验**历史** receipt。
-> **调高对历史安全，调低会当场让合法旧批次变成无效证据。**
+> **注意这条我一度写错过，别沿用旧说法。**
+> 改造**之前**，`queue.py` 读的是唯一的 `catalog.TRACKED_LIMIT`，所以「调低会让合法旧批次
+> 当场失效」成立。**改造之后不再成立**——`queue.py` 对 `catalog.TRACKED_LIMIT` 的引用已是
+> **零**，四处容量判断全走 `LEGACY_TRACKED_LIMIT`（固定）或 `resolve()`（按 receipt 自己
+> 指名的政策），与 `CURRENT_POLICY_ID` 无关。
+>
+> 当前政策现在只卡**新产出**三处：`evidence.py:141/233`（prospective）、
+> `production_review_v2_lite.py:27`（`prospective_occupancy`）、
+> `batch.py:1767`（`_committed_production_bytes`，它量的是**整棵已提交生产树**）。
+>
+> 所以准确的说法是：**调低不影响任何历史 receipt，也不影响 `queue rebuild` / `queue check`；
+> 它只挡住新产出。** 一旦调到低于现有总量（116.54 MiB），新批次会 finalize 不了，
+> 但旧证据全部仍然有效——即调低是可逆的，代价只是新批次被挡住。
+> （优化者在隔离 worktree 里把两个上限一起压到 1 MiB 跑完整重放实测：
+> 重放成功、29828 条目、一条历史证据都没失效。）
 
 ### 同时做的 group 去重
 
