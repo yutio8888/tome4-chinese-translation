@@ -1039,6 +1039,19 @@ def _tree_id(root: Path, commit: str) -> str:
 
 
 def _is_ancestor(root: Path, ancestor: str, descendant: str) -> None:
+    """Check one boundary pair, at most once per pair inside a replay.
+
+    Every historical batch rebuilds its own chain over the same linear
+    migration list, so one replay asks the same adjacent pair once per batch:
+    ~74 distinct pairs, thousands of calls.  Commit ancestry is immutable, so
+    only the repeat is dropped — every distinct pair is still checked, and
+    outside a projection scope this is an ordinary call.
+    """
+    git_evidence_reader.derive(root, "ancestry", f"{ancestor}:{descendant}",
+                               lambda: _checked_ancestor(root, ancestor, descendant))
+
+
+def _checked_ancestor(root: Path, ancestor: str, descendant: str) -> bool:
     try:
         result = subprocess.run(
             ["git", "merge-base", "--is-ancestor", ancestor, descendant],
@@ -1048,6 +1061,7 @@ def _is_ancestor(root: Path, ancestor: str, descendant: str) -> None:
         raise _error(f"cannot validate migration ancestry: {error}") from error
     if result.returncode != 0:
         raise _error("migration boundaries are not on one linear Git history")
+    return True
 
 
 def _migration_publication_commit(root: Path, tree: dict[str, tuple[str, str, str]],
