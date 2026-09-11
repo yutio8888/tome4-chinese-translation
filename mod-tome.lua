@@ -14776,7 +14776,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “……什么？就只有我们两个人去吗？”
 
-“唉呀”，她缓缓望向我裸露在外的肌肉，眼中好奇的神情如同小孩子一样欢欣，“你是个男人吗？”
+“是啊”，她缓缓望向我裸露在外的肌肉，眼中好奇的神情如同小孩子一样欢欣，“你是个男人吗？”
 
 “对于精灵族来说这还真是个怪问题，我的女士。不过，我可以在此保证，只需要我一个人也可以亲手干掉那些兽人。如果你真的想要一同前行的话，我可能没法确保您的安全。”
 
@@ -14786,7 +14786,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “唔，看起来简直就像一只炼金傀儡，”她小声咕哝着，“快来吧，我有点无聊了。”紧接着，她轻巧地越过窗台，优雅地随风而去，在夜空中划出一道弧线。
 
-我拿起了我的爱剑。乍一眼看上去，这似乎只是一把普通的剑刃，唯一的装饰是剑柄上一颗硕大的月亮石。这把剑由矮人于多年之前所铸，其貌不扬却强韧无比。之后，他们的虚荣和浮华替代了匠人的坚毅，让装备成为了用于炫耀的道具而不是用于战斗的兵器。这把剑的剑锋可以轻易穿透钢铁和骨头，如同划破薄纸一般势如破竹。它的名字叫做斩月剑，尽管现在已经随着岁月的流逝而不知所踪。我凌空挥动爱剑，随即跃出窗外，在身下唤出气流软垫，迅速追随莱娜尼尔而去。
+我拿起了我的爱剑。乍一眼看上去，这似乎只是一把普通的剑刃，唯一的装饰是剑柄上一颗硕大的月亮石。这把剑由矮人于多年之前所铸，其貌不扬却强韧无比。之后，他们的虚荣和浮华替代了匠人的坚毅，让装备成为了用于炫耀的道具而不是用于战斗的兵器。这把剑的剑锋可以轻易穿透钢铁和骨头，且永不卷刃。它的名字叫做斩月剑，尽管现在已经随着岁月的流逝而不知所踪。我凌空挥动爱剑，随即跃出窗外，在身下唤出气流软垫，迅速追随莱娜尼尔而去。
 
 我们在零散的云层间疾飞，沉默了二十分钟，莱娜尼尔才开始下降。低矮群山之间点缀着营地的篝火；随着我们飞近，兽人的吟唱声渐渐清晰。“我们该怎么接近他们？”我高声问道，想知道这位女魔法师准备采取什么战术。
 
@@ -14794,13 +14794,13 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “舞会开始了”
 
-一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑尖高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，炽热之风在四周环绕咆哮。兽人军队在灼热的刺激下只能丢下慌忙武器试图抵挡呛人的烟雾，直到我怀着满意的微笑冲上前去，一剑终结他们的性命。突然，一团火焰冲击将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
+一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑尖高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，将他们的头颅一一斩落。突然，一团火焰冲击将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
 
 我应声道，旋即向刃尖注入寒冰的魔法，在剑刃灵巧的舞动中冰霜与寒风向着她周围的兽人席卷而来。随着一声声碎裂的轻响，兽人在她的火焰触及之前便被冻住，如同玻璃般裂成碎片。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。“喂，别抢了我的乐子。”，她大喊道。旋即，随着传送魔法的波动，她的身形出现在兽人营地的另一侧，烈火与爆炸的硝烟也随之燃起。
 
-我大笑着转身，剑尖轻击地面，地震的烈波横贯开来，周围的兽人纷纷不支倒下，任凭利刃穿透他们的脖颈。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。斗志昂扬的我热血沸腾，脱下头盔和板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败敌人的快乐。斩月剑在血肉横飞的战场回旋舞动，战斗的声响如同精灵最欢快的舞曲一般。
+我大笑着转身，剑尖轻击地面，地震的烈波横贯开来，周围的兽人纷纷不支倒下，任凭利刃穿透他们的脖颈。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。斗志昂扬的我热血沸腾，脱下头盔和板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败敌人的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
 
-远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹，晴朗的夜空下烈火燃烧直冲云霄，如同焰火般绽放于空中。炽焰点缀着她的裙摆，她晶莹的眸子又比那烈火更加炽热，轻盈的舞步绽放着辉耀的光华，如同火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
+远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。炽焰点缀着她的裙摆，她晶莹的眸子又比那烈火更加炽热，轻盈的舞步绽放着辉耀的光华，如同火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
 
 剩余的兽人眼看人数锐减，开始逃跑；但我相位移动到他们前方，截断退路，又召来一股洪水，逼他们退回莱娜尼尔的烈焰之中。火墙之前，我将他们击溃，大批兽人如风中落叶般倒下。鲜血大股涌出；斩月剑又刺出几下，莱娜尼尔又轰出几道法术，战斗便结束了。没有一个兽人还能动弹，地上倒着远超四百具尸体。
 
@@ -20206,7 +20206,7 @@ t("Perhaps you should explore it and find the truth, and the treasures, for your
 section "mod-tome/data/quests/east-portal.lua"
 
 t("Back and there again", "归而复往", "_t")
-t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", "你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
+t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", "你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈建立返回通路的事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", "你和最后的希望的长者交谈，得知要去找城市北边的泰恩。", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
@@ -22826,8 +22826,8 @@ t([[Whenever you deal non-disease blight damage you apply a disease dealing %0.2
 		Virulent Disease will always try to apply a disease the target does not currently have, and also one that will have the most debilitating effect for the target.
 		This disease will try to prioritize being applied to an enemy with a high disease count near the target.
 		The effect will increase with your Spellpower.]], [[每当你造成一个非疾病的枯萎伤害时，你将会对目标施加一项疾病，每回合造成 %0.2f 枯萎伤害，持续 6 回合，并降低其一项物理能力值（力量、体质、敏捷）%d。三种疾病可以叠加。
-		剧毒瘟疫总是会使目标感染一项其所没有的疾病，并试图附加一项对目标有着最大负面效果的疾病。
-		疾病会优先附加在目标周围感染疾病数量最多的单位身上。
+		剧毒瘟疫总是会试图施加一项目标当前尚未感染、且对目标负面效果最大的疾病。
+		该疾病会优先施加在目标附近疾病数量较多的敌人身上。
 		疾病效果随法术强度提升。]], "tformat")
 t("Cyst Burst", "瘟疫爆发", "talent name")
 t([[Make your target's diseases burst, doing %0.2f blight damage for each disease it is infected with.
@@ -37346,7 +37346,7 @@ t("-Free Action", "-自由行动", "_t")
 t("frenzy", "狂乱", "effect subtype")
 t("Adrenaline Surge", "肾上腺素", "_t")
 t("The target's combat damage is improved by %d and it an continue to fight past the point of exhaustion, supplementing life for stamina.", "目标战斗伤害提高 %d，能量枯竭时能以生命值代替体力继续战斗。", "tformat")
-t("#Target# feels a surge of adrenaline.", "#Target#被注入了肾上腺素。", "_t")
+t("#Target# feels a surge of adrenaline.", "#Target#感到肾上腺素激增。", "_t")
 t("#Target#'s adrenaline surge has come to an end.", "#Target#的肾上腺素效果消失。", "_t")
 t("Blindside Bonus", "攻其不备", "_t")
 t("The target has appeared out of nowhere! It's defense is boosted by %d.", "目标不知从哪里冒出来！闪避值增加 %d。", "tformat")
@@ -39334,8 +39334,8 @@ section "mod-tome/data/zones/paradox-plane/objects.lua"
 t("Epoch's Curve", "亚伯契的弧线", "entity name")
 t("white ash longbow", "灰白的白蜡长弓", "_t")
 t([[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
-According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契的弧线失踪前，它已经服务于守卫们数载，代代相传。
-根据历史记载，它是用魔法大爆炸后第一棵长出的白蜡树制成，拥有时空和恢复的力量。]], "_t")
+According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契的弧线失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
+根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/zone.lua"
@@ -43118,7 +43118,7 @@ t("The Rush talent lets you close in on an enemy quickly and daze them, disablin
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
 t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人学到了魔法的奥秘，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
-t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们几乎已经灭绝，不过传言他们正准备秘密地卷土重来。", "init.lua load_tips")
+t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
 t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了巨型傀儡阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
