@@ -117,11 +117,19 @@ git push origin develop
 ### 一次事故换来的规矩
 
 `bash tools/ci-gates.sh` 的 **17 项门禁不校验 migration 与 catalog 的绑定关系**。
-只有 `queue rebuild` 会走 `_validated_migration_edges`。曾经出现过：改了 addon 组件
+曾经出现过：改了 addon 组件
 → 重建 catalog → 只 diff 了 `entries.jsonl` 就以为 migration 不受影响 →
 用新 catalog 覆盖了 `exclusions.jsonl`，`catalog_id` 变了而 migration 里的
 `new_catalog_id` 还指向旧值。**17 项全绿，问题完全没被发现**，而且**无法用后续提交修复**。
 所以每次修复提交后的 `queue rebuild` 不能省。
+
+> **本文原先在此处写的「只有 `queue rebuild` 会走 `_validated_migration_edges`」是错的**
+> （2026-09-11 证伪，另见 runbook §41）。该函数在 `_projection_contents:661` 无条件执行，
+> 而 `_projection` 被 `strict_check`（`queue.py:958`）、`rebuild`（:925/:936）、
+> `check`（:966）共同调用——**每个 batch 子命令的 preflight 都会走它**。
+> 错的只是「只有它」这半句；「17 项门禁不查这层」仍然成立，事故本身也确实发生过。
+> `queue rebuild` 不能省的真正理由是 `meta/catalog/evidence-head` 漂移：
+> HEAD 前进而 `queue.sqlite3` 没跟上，下一个 writer 一来就报错。
 
 ---
 
@@ -288,8 +296,10 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 `batch start` 是例外（481 s）：它在入口处没有 active checkpoint，`preflight` 直接
 `strict_check` 后返回 None，吃不到这次优化。
 
-`authoritative-catalog build` 第 81 批只用 3 s（交接文档原记 ~3 min），
-疑为同会话内 git evidence reader 缓存命中，**尚未证实是持久收益**，不要据此排期。
+`authoritative-catalog build` 实测两次各 **3 s**（本文原记 ~3 min，是错值）。
+我一度猜是缓存命中，已证伪：该命令不跑投影，且 `git_evidence_reader.projection_scope`
+每次新建 reader、退出即清空 blobs/trees/derived（`git_evidence_reader.py:41-52`），
+不存在跨调用缓存。
 
 门禁里真正扫全库的几项（06 碰撞扫描、08 术语静态审计、12 addon 构建）**全在 1 秒内**，
 80% 时间是两个 Python 单元测试组（`03-toolchain` 26 s、`05-production-shadow` 33 s），
