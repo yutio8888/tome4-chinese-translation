@@ -1809,7 +1809,39 @@ entries 29828、overrides 8032、reconciliation 29828，以及三个内容摘要
 2. `preflight` 尾部的 `queue.strict_check`（`batch.py:1184`）
 3. `start` 自身的 `queue.strict_check`（`batch.py:1195`）
 
-`retry_blocked` 模式再加一次（`batch.py:1202`）。同款透传手法可省掉其中两次。
+`retry_blocked` 模式再加一次（`batch.py:1202`）。第 82 批复测 530 s，同一形态。
+
+**已修（`263aa42`）。** `preflight` 在该路径只重放一次，交给 `_restore_orphans`、
+`strict_check`，并通过新的 `projection_out` 交给同进程里继续的 `start`；
+`retry_blocked` 的 winner 查询也复用同一次。安全边界与 `3575d72` 一致：
+每个消费点复用前先用 `_head` 重新解析证据提交，不同就丢弃并照旧完整重放。
+
+在独立 worktree 里自建 queue、用 `git stash` 切换代码做同环境对照实测：
+
+```text
+改前: replays=3  每次=[176.8, 173.5, 177.0]  合计=528.1s
+改后: replays=1  每次=[172.9]                合计=173.3s
+```
+
+528.1 s 与主编排者实测的 481 s / 530 s 吻合。验收同 §41.3：同一 treeish 下
+8 字段逐一相同、180 项单测全过、17 门禁退出码 0。
+
+### §41.9 `queue rebuild` 之后的 `queue check` 是冗余的（待裁定，尚未改）
+`rebuild` → `_replace` 在原子替换并 fsync 之后，已经用**同一个投影**对最终落盘的
+数据库跑了一次 `_check_projection`（`queue.py:885`），而且 `rebuild` 的报表里本来
+就带 `progress`（`queue.py:936-938`）。紧跟其后的 `queue check` 只是把同一个投影
+重算一遍再比同一个库，多花约 165 s。
+
+`check` 相对 `_replace` 的后置检查只多两件事：活动 writer 存在时的
+`_fallback_report` 分支，以及在新进程里重读数据库。运行这一步时按流程没有活动 writer。
+
+**但这是删一个验证步骤，不是性能改写，需维护者裁定后才动。** 在那之前照旧两条都跑。
+
+### §41.10 一个可免费复用的交叉校验
+投影是证据提交的纯函数，与工作树无关——在 `git worktree` 里对同一提交重放，
+8 个字段应与主工作区逐字节相同（`b4bdbee` 实测确实相同）。
+所以在独立 worktree 里开发流水线改动时，这条比对可以当作免费的环境一致性检查；
+**若不同，那本身就是一个必须立刻上报的发现。**
 
 ### §41.5 三条原先写在本手册里、已被证伪的说法
 1. **「只有 `queue rebuild` 会走 `_validated_migration_edges`」不成立。**
