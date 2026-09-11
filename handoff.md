@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 81 批后）· HEAD `77a722c` · 分支 `develop`
+最后更新：2026-09-11（第 82 批后）· HEAD `c11ed71` · 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,21 +30,26 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 81 批 `batch-887b6eab00682b1aa283`（已 push，evidence `8381692`／修复 `77a722c`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 119 个 |
-| 当前 catalog | `cafbbffe…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `1a8a3e85…`（revision_changed 5） |
+| 最后完成批次 | 第 82 批 `batch-21c7c16c405ef0b9bc35`（已 push，evidence `ac8e782`／修复 `3041e90`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 120 个 |
+| 当前 catalog | `aaf72e83…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `473d5cf8…`（revision_changed 6） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
-审核进度（第 81 批修复提交后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
+审核进度（第 82 批后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
 
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21721 |
+| 尚未覆盖（`implicit_queued`） | 21647 |
 
-按 80 条一批算，剩余约 **272 批**。
+按 80 条一批算，剩余约 **271 批**。
+
+> **工作区是与一个优化者 agent 共享的**（`2577f8ff-95f4-432a-9b1e-68ae9559570c`，
+> opus 5）。它在 `/workspace/tome4-opt-1`（分支 `perf/merge-cli-steps`）的 git worktree
+> 里开发流水线提速，**只在批次间隙回主工作树做验收+合并**。协议见 §12。
+> 每批开始／关闭都要主动给它发消息划出只读窗口——批次期间它一提交，批次就锁死。
 
 **恢复工作的第一步**永远是 `queue rebuild` + `queue check`，确认没有漂移。
 
@@ -280,7 +285,7 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 | `surface-export` / `surface-import` | 320 s | **161 / 162 s** |
 | `contextual-export` / `contextual-import` | 327 / 344 s | **161 / 162 s** |
 | `adjudicate` / `finalize` | 同上量级 | 162 / 163 s |
-| `batch start` | — | **481 s**（例外，见下） |
+| `batch start` | 528 s | **~175 s**（`263aa42` 后，见下） |
 | `prepare-evidence`（含 17 项门禁） | — | 243 s |
 | `queue rebuild` | 157 s | 161–163 s（未动，每批两次） |
 | `bash tools/ci-gates.sh` 17 项 | 82 s | 77 s（每批两次） |
@@ -293,8 +298,11 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 不同就照旧完整重放。**`_validated_migration_edges` 在 `_projection_contents:661` 内部，
 复用的投影本身已跑过它，是不重复跑而非跳过**——这一点接手时值得自己再验一遍。
 
-`batch start` 是例外（481 s）：它在入口处没有 active checkpoint，`preflight` 直接
-`strict_check` 后返回 None，吃不到这次优化。
+`batch start` 原先是例外（481–530 s）：它在入口处没有 active checkpoint，该路径上有
+**三次**完整重放（`_restore_orphans` 的 `_projection`、`preflight` 尾部与 `start` 自身的
+两次 `strict_check`），`retry_blocked` 再加一次。`263aa42` 让 `preflight` 只重放一次，
+经新增的 `projection_out` 交给同进程里继续的 `start`。同环境对照实测
+528.1 s（replays=3）→ 173.3 s（replays=1）。
 
 `authoritative-catalog build` 实测两次各 **3 s**（本文原记 ~3 min，是错值）。
 我一度猜是缓存命中，已证伪：该命令不跑投影，且 `git_evidence_reader.projection_scope`
@@ -458,3 +466,61 @@ Epoch 外观描述。
 `queue.sqlite3` 的 `evidence_head` 就停在了上一个提交，下一个 writer 一来就报
 `meta/catalog/evidence-head drift`。§3 的第 3 条写的是「任何让 HEAD 前进的提交之后」，
 **文档提交也算**——别把它当成只适用于批次流程内的步骤。
+
+---
+
+## 12. 第 82 批完成记录与「共享工作区」协议（2026-09-11）
+
+`batch-21c7c16c405ef0b9bc35`，tome 80 条。表层 7 ISSUE，交叉复核 6 ISSUE + 1 OK。
+裁决 confirmed 11、advisory 1、**pending 1**；修复 6 条（migration `473d5cf8`）。
+
+修复：诱饵说明（`is very durable` 漏译、`some` 丢失并增写「自动」、
+`check individual trap descriptions` 误作「可鉴定」）、`Arcane Might`→「奥术伟力」、
+Sanctity 法阵作用对象「敌人」→「其他所有生物」并统一「阵法」为「法阵」、
+Kryl-Faijan 遭遇 `door`→「活门」改回「门」、Master Jeweler 成就「使用利米尔」
+与任务名「失落的知识」、女武神盾整句重译。
+
+### 本批的 pending（等维护者裁定）
+
+`underground crypt` 译作「地窖」。词义上确实丢了墓葬义，但全库对 `crypt` **已经有两套
+译名**：「地窖」（`mod-tome.lua:7157`／`:7194`）与「地穴」（`:7395`）。单改一条只会
+让不一致更碎，要改得跨条目统一——属专名裁定，故 `pending`。
+
+### 判例
+
+- **同一条目两轮报不同理由时，仍可对其中一条单独 confirm。** 本批 `1d8c741e15`
+  表层报 `crypt`→地窖，交叉报 `door`→活门，是两个不同主张。第 23 条的
+  「理由不同 ⇒ advisory」管的是**同一主张**能否升级，不意味着整条作废。
+  `door`→「活门」属机械客观事实且有强独立证据（「活门」是本库为另一遭遇 `trap door`
+  保留的译名；**同一遭遇的下一句** `:7193` 已正译为「这扇门」），按单轮可 confirm 处置；
+  `crypt` 那条另记 pending。
+- **改译名前先数库内分布。** 本批三处决定都靠计数落地：`crypt` 有两套译名（→ pending）、
+  「马基·埃亚尔大陆」10 处 vs「世界」1 处（→ 改）、「法阵」19 处 vs「阵法」2 处（→ 改）。
+  `might`→「伟力」也是先找到库内先例（`:4779` 泰勒斯的伟力）才定的。
+- **不给同一条串附加未经裁决的改动。** 诱饵说明里 `attracts all creatures` 也被译作
+  「敌人」，与本批已 confirm 的 Sanctity 缺陷同型，但**两轮都没报**，且我未能从源码
+  确认 Taunt 是否分阵营，故未改。
+
+### 共享工作区协议
+
+工作区与优化者 agent 共享，靠消息对时不可靠（我第 80 批收尾的文档提交让它报的 HEAD
+当场过期，`queue.sqlite3` 又漂移一次）。现行协议：
+
+1. 它在 `git worktree add -b perf/… /workspace/tome4-opt-1 develop` 里开发
+2. **验收与合并只能在「第 N 批已关闭」到「第 N+1 批已开始」之间**
+3. 合并后由它自己补 `queue rebuild`（规矩对谁都一样）
+4. 不要从 worktree 用 `--root` 指回主工作区跑写操作
+5. worktree 里 `.artifacts` 是空的，首次 rebuild 从零重放；**但投影是证据提交的纯函数，
+   两边算出的 8 个字段应当逐字节相同——不同本身就是发现**（已实测通过，可当免费的
+   环境一致性检查）
+
+### 尚未裁定：`queue rebuild` 之后的 `queue check` 是否冗余
+
+优化者提出：`rebuild` → `_replace` 在原子替换并 fsync 之后已用同一投影对落盘的库跑过
+`_check_projection`（`queue.py:885`），`check` 相对它只多「活动 writer 时的
+`_fallback_report` 分支」和「在新进程里独立重算一次投影再比对」，而按流程跑这步时没有
+活动 writer。省约 165 s/批。
+
+**我的意见是保留**，理由是 `check` 的独立重算与新进程重读是最后一道闸，而这条流水线
+换来的教训恰恰是「17 项全绿、问题完全没被发现、且无法用后续提交修复」。这是**删验证
+步骤**而非性能改写，须维护者裁定。**裁定前照旧两条都跑。**
