@@ -1639,6 +1639,61 @@ class PublicApiFlowTests(QueueTests):
         self.assertFalse(queue.checkpoint_path(self.root).exists())
 
 
+    def test_two_distinct_group_contents_stay_two_files(self):
+        """Dedup is by content: same bytes collapse, different bytes do not.
+
+        The fixture only ever builds one run, so the second run is synthesised
+        on the checkpoint.  The rule under test is the plan's, not the flow's.
+        """
+        self._prepare_for_count(4)
+        checkpoint = batch._load(queue.checkpoint_path(self.root))
+        second = copy.deepcopy(checkpoint["surface"])
+        other_hash = hashlib.sha256(b"a second run's group manifest").hexdigest()
+        for lane in second:
+            lane["run_index"] = checkpoint["surface"][0]["run_index"] + 1
+            lane["group_manifest_path"] = lane["group_manifest_path"] + ".second"
+            lane["group_manifest_sha256"] = other_hash
+        two_runs = copy.deepcopy(checkpoint)
+        two_runs["surface"] = checkpoint["surface"] + second
+        plan = batch._raw_copy_plan(two_runs)
+        groups = sorted(parts[2] for parts in plan["copies"] if parts[2].startswith("group-"))
+        self.assertEqual(len(groups), 2, groups)
+        self.assertIn(f"group-{other_hash}.json", groups)
+        # Eight lanes, two group files: four-to-one on each side.
+        self.assertEqual(len([item for item in plan["sections"] if item["group"] is not None]), 8)
+        self.assertEqual(len({item["group"] for item in plan["sections"]
+                              if item["group"] is not None}), 2)
+        # Every group file on disk is named after exactly its own bytes.
+        prospective = Path(batch._prospective_batch_path(self.root, checkpoint["batch_id"]))
+        for name in sorted(p.name for p in (prospective / "raw" / "surface").glob("group-*.json")):
+            digest = name[len("group-"):-len(".json")]
+            self.assertEqual(hashlib.sha256(
+                (prospective / "raw" / "surface" / name).read_bytes()).hexdigest(), digest)
+
+    def test_a_gap_in_section_numbers_does_not_shift_any_name(self):
+        """Sections without an output are skipped; the rest keep their own index."""
+        self._prepare_for_count(4)
+        checkpoint = batch._load(queue.checkpoint_path(self.root))
+        full = batch._raw_copy_plan(checkpoint)
+        holed = copy.deepcopy(checkpoint)
+        holed["surface"][1]["output_path"] = None
+        plan = batch._raw_copy_plan(holed)
+        self.assertEqual([item["number"] for item in plan["sections"]], [0, 2, 3])
+        # The surviving sections keep the exact names they had before the gap.
+        for item in plan["sections"]:
+            for key in ("input_path", "output_path"):
+                name = batch._raw_evidence_name(item["number"], key)
+                self.assertIn(("raw", item["kind"], name), full["copies"])
+                self.assertIn(("raw", item["kind"], name), plan["copies"])
+        # The skipped section's own files are gone, and nothing inherited them.
+        for key in ("input_path", "output_path"):
+            self.assertNotIn(("raw", "surface", batch._raw_evidence_name(1, key)),
+                             plan["copies"])
+        # One group manifest is still shared by the three surviving lanes.
+        self.assertEqual(len([parts for parts in plan["copies"]
+                              if parts[2].startswith("group-")]), 1)
+
+
 class C31PublicApiTests(PublicApiFlowTests):
     def _contextual_issue_ready(self, count=1, *, surface_verdict="ISSUE", source_before=False):
         self._resize_and_init(count)
@@ -1959,6 +2014,30 @@ class C31PublicApiTests(PublicApiFlowTests):
         batch._atomic(queue.checkpoint_path(self.root), batch._checkpoint_bytes(checkpoint))
         with self.assertRaisesRegex(wp1.ProductionReviewError, "occupancy"):
             batch.finalize(self.root, published)
+
+    def test_mixed_surface_and_contextual_keeps_groups_under_surface_only(self):
+        ref, output = self._contextual_issue_ready(count=4)
+        self._install_and_import_contextual(ref, output)
+        adjudication = self.root / "adjudication.json"
+        adjudication.write_bytes(wp1.canonical_bytes({"batch_id": batch.show(self.root)["batch_id"],
+                                                       "decisions": [self._legacy_decision(item) for item in
+                                                                      batch._accepted_observations(batch.show(self.root))]}))
+        batch.adjudicate(self.root, adjudication)
+        prospective = Path(batch.prepare_evidence(self.root)["prospective"])
+        self.assertEqual(len(list((prospective / "raw" / "surface").glob("group-*.json"))), 1)
+        # Contextual sections carry no group manifest at all, so none is written
+        # for them and none is shared across the two contracts.
+        contextual = prospective / "raw" / "contextual"
+        self.assertTrue(contextual.is_dir())
+        self.assertEqual(sorted(p.name for p in contextual.glob("group-*.json")), [])
+        manifest = wp1.parse_canonical_object(
+            (prospective / "manifest.json").read_bytes(), "manifest")
+        by_contract = {}
+        for item in manifest["adapter_refs"]:
+            by_contract.setdefault(item["contract"], []).append(item)
+        self.assertEqual(len(by_contract), 2, sorted(by_contract))
+        self.assertTrue(all("group_manifest_path" not in item
+                            for item in by_contract["translation_contextual_v2"]))
 
     def test_c39_named_dual_observations_publish_and_rebuild(self):
         ref, output = self._contextual_issue_ready()
