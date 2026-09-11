@@ -810,7 +810,7 @@ def _restore_orphans(root, *, projection=None):
     db = queue.database_path(root)
     try:
         if projection is None or projection[0] != queue._head(root, "HEAD"):
-            projection = queue._projection(root, "HEAD")
+            projection = queue.projection_for(root, "HEAD")
         blocked = {row[0] for row in projection[3] if row[2] == "blocked"}
         with sqlite3.connect(db) as con:
             blocked_rows = {row[0]: row for row in projection[3] if row[2] == "blocked"}
@@ -996,7 +996,7 @@ def _reconcile_checkpoint(root, value):
     # Rebuild all checkpoint identity inputs from the authoritative Git
     # projection before opening SQLite.  This covers both the normal
     # reservation-present path and the missing-reservation recovery path.
-    current_projection = queue._projection(root, "HEAD")
+    current_projection = queue.projection_for(root, "HEAD")
     _validate_mode_prior(root, value, current_projection)
     manifest, rows = _entries(root)
     committed = {row[0]: row for row in current_projection[3]}
@@ -1192,7 +1192,7 @@ def preflight(root, *, projection_out=None):
             return _reconcile_checkpoint(root, _load(path))
         db = queue.database_path(root)
         if not db.exists(): raise _err("queue database is missing; run queue init")
-        projection = queue._projection(root, "HEAD")
+        projection = queue.projection_for(root, "HEAD")
         if projection_out is not None:
             projection_out.append(projection)
         _restore_orphans(root, projection=projection)
@@ -1217,7 +1217,7 @@ def start(root, *, limit=MAX_BATCH, retry_blocked=False, created_by="WP2L-3 EXEC
         attempt = 1
         if mode == "retry_blocked":
             if projection is None or projection[0] != queue._head(root, "HEAD"):
-                projection = queue._projection(root, "HEAD")
+                projection = queue.projection_for(root, "HEAD")
             winners = {row[0]: row for row in projection[3]}
             if any(winners.get(row["entry_revision_identity"], (None, None, None))[2] != "blocked" for row in selected):
                 raise _err("retry selection is not backed by current committed blocked winners")

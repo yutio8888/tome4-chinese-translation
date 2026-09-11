@@ -11,6 +11,7 @@ import subprocess
 import tempfile
 from collections import Counter
 from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -740,6 +741,43 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
     return evidence_head, manifest, entries, overrides, reconciliation
 
 
+# A one-element slot, not a bare value: `None` means no scope is open, so a
+# single-action process never remembers anything and replays exactly as before.
+_carry_slot: ContextVar[list[Any] | None] = ContextVar("carry_projection_slot", default=None)
+
+
+@contextmanager
+def carry_projection() -> Iterator[None]:
+    """Let several actions in one process share one replay of the same commit.
+
+    Only code inside this scope reuses anything.  `projection_for` still
+    re-resolves the evidence commit on every call, so a HEAD that moves
+    mid-scope replays and refreshes the slot instead of reusing a stale value.
+    """
+    token = _carry_slot.set([])
+    try:
+        yield
+    finally:
+        _carry_slot.reset(token)
+
+
+def projection_for(root: Path, treeish: str = "HEAD") -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
+    """Replay `treeish`, reusing a carried replay only when it names this commit."""
+    slot = _carry_slot.get()
+    resolved = root.resolve()
+    if slot:
+        carried_root, carried = slot[0]
+        # Pin the repository too, the way GitEvidenceReader does: a replay is a
+        # pure function of its evidence commit, but keeping the root explicit
+        # makes that an invariant this code states rather than one it assumes.
+        if carried_root == resolved and carried[0] == _head(root, treeish):
+            return carried
+    value = _projection(root, treeish)
+    if slot is not None:
+        slot[:] = [(resolved, value)]
+    return value
+
+
 def _connect(path: Path) -> sqlite3.Connection:
     connection = sqlite3.connect(path)
     connection.execute("PRAGMA foreign_keys=ON")
@@ -955,7 +993,7 @@ def strict_check(root: Path, *, treeish: str = "HEAD",
     """
     _clean_evidence(root)
     if projection is None or projection[0] != _head(root, treeish):
-        projection = _projection(root, treeish)
+        projection = projection_for(root, treeish)
     return _check_projection(root, treeish, projection, active_writer=True)
 
 
