@@ -415,7 +415,11 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             raise wp1.ProductionReviewError("formal catalog schema/rules bytes mismatch")
         entries_raw = files[f"{CATALOG_PREFIX}/entries.jsonl"]
         exclusions_raw = files[f"{CATALOG_PREFIX}/exclusions.jsonl"]
-        entries = wp1.parse_jsonl(entries_raw, "formal catalog entries")
+        # Collected here, inside the call that `queue._catalog_from_tree`
+        # memoizes by the exact catalog blob OIDs, so the digests and the rows
+        # they belong to are two fields of one content-identified result.
+        entry_digests: list[str] = []
+        entries = wp1.parse_jsonl(entries_raw, "formal catalog entries", digests=entry_digests)
         exclusions = wp1.parse_jsonl(exclusions_raw, "formal catalog exclusions")
         previous = ""
         seen_revisions: set[str] = set()
@@ -506,7 +510,7 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             raise wp1.ProductionReviewError("formal catalog policy identity mismatch")
         if manifest["rules_version"] != _validate_migration_policy(files[POLICY_PATH])["rules_version"]:
             raise wp1.ProductionReviewError("formal catalog prospective rules identity mismatch")
-        return manifest, entries, exclusions
+        return manifest, wp1.VerifiedRows(entries, entry_digests), exclusions
     except wp1.ProductionReviewError:
         raise
     except (wp1.surface.ContractError, AttributeError, KeyError, TypeError, UnicodeError, ValueError) as error:

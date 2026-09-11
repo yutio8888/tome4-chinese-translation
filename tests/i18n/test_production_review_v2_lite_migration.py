@@ -152,6 +152,81 @@ class MigrationFixture(unittest.TestCase):
         return result
 
 
+
+class VerifiedRowDigestTests(unittest.TestCase):
+    """The verified line digests must follow row identity, never row position.
+
+    `_snapshots` sorts by revision identity and `reconcile` reaches the new
+    catalog through dict lookups, so the row at index i on one side is not the
+    row at index i on the other.  A positional implementation still produces
+    29,828 perfectly valid SHA-256 values -- attached to the wrong rows, with
+    nothing raising.  These cases are built so that positional and identity
+    lookups give *different* answers; see the mutation proof in the commit
+    message.
+    """
+
+    @staticmethod
+    def _row(revision, logical, target):
+        return {"entry_revision_identity": revision, "logical_entry_identity": logical,
+                "component": "mod-tome", "normalized_path": "a.lua", "section": "s",
+                "target": target}
+
+    @staticmethod
+    def _digest(row):
+        return hashlib.sha256(wp1.canonical_bytes(row)).hexdigest()
+
+    def _verified(self, rows):
+        digests = [hashlib.sha256(wp1.canonical_bytes(row)).hexdigest() for row in rows]
+        return wp1.VerifiedRows(rows, digests)
+
+    def test_digests_follow_identity_when_positions_differ(self):
+        # A revision that *changed* is the only case where the two sides carry
+        # different digests, so it is the only case that can detect a mix-up.
+        # An unchanged row would report the same digest either way and prove
+        # nothing -- the first version of this test made exactly that mistake.
+        old_rows = [self._row("1" * 64, "la" * 32, "A"), self._row("3" * 64, "lb" * 32, "B")]
+        changed = self._row("2" * 64, "la" * 32, "A-changed")
+        # File order here is deliberately not revision order, so an
+        # implementation that zips digests against a sorted view misassigns.
+        new_rows = [self._row("9" * 64, "lz" * 32, "Z"), changed,
+                    self._row("3" * 64, "lb" * 32, "B")]
+        old, new = self._verified(old_rows), self._verified(new_rows)
+
+        rows = migration.reconcile(old, new)
+        by_old = {row["old_entry_revision_identity"]: row for row in rows}
+        moved = by_old["1" * 64]
+        self.assertEqual(moved["disposition"], "revision_changed")
+        self.assertEqual(moved["old_row_sha256"], self._digest(old_rows[0]))
+        self.assertEqual(moved["new_row_sha256"], self._digest(changed))
+        self.assertNotEqual(moved["old_row_sha256"], moved["new_row_sha256"])
+        kept = by_old["3" * 64]
+        self.assertEqual(kept["disposition"], "unchanged")
+        self.assertEqual(kept["new_row_sha256"], self._digest(old_rows[1]))
+
+    def test_snapshot_digests_survive_the_revision_sort(self):
+        rows = [self._row("c" * 64, "lc" * 32, "C"), self._row("a" * 64, "la" * 32, "A")]
+        verified = self._verified(rows)
+        expected = {row["entry_revision_identity"]:
+                    hashlib.sha256(wp1.canonical_bytes(row)).hexdigest() for row in rows}
+        for snapshot in migration._snapshots(verified):
+            self.assertEqual(snapshot["row_sha256"],
+                             expected[snapshot["entry_revision_identity"]])
+
+    def test_plain_lists_recompute_and_agree_with_verified_rows(self):
+        rows = [self._row("a" * 64, "la" * 32, "A"), self._row("b" * 64, "lb" * 32, "B")]
+        plain = migration.reconcile(list(rows), [dict(row) for row in rows])
+        carried = migration.reconcile(self._verified(rows),
+                                      self._verified([dict(row) for row in rows]))
+        self.assertEqual(plain, carried)
+
+    def test_mispaired_digest_lengths_are_rejected(self):
+        rows = [self._row("a" * 64, "la" * 32, "A")]
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "not aligned"):
+            wp1.VerifiedRows(rows, [])
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "unique revision identities"):
+            wp1.VerifiedRows(rows + [dict(rows[0])], ["x" * 64, "y" * 64])
+
+
 class MigrationTests(MigrationFixture):
     def _summary_for_rows(self, entries, catalog_id):
         entries_raw = wp1._jsonl(entries)

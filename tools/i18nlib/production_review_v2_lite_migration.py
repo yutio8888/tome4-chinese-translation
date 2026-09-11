@@ -176,15 +176,35 @@ def _candidate_bundle(root: Path, candidate_root: Path) -> tuple[dict[str, Any],
     return manifest, entries, files, summary
 
 
-def _row_sha(row: dict[str, Any]) -> str:
+def _row_sha(row: dict[str, Any], digests: dict[str, str] | None = None) -> str:
+    """Digest one catalog row, reusing its own verified line digest when present.
+
+    ``digests`` maps revision identity to the SHA-256 of that row's exact
+    canonical line, produced by `wp1.parse_jsonl` at the moment it proved the
+    line was canonical (see `wp1.VerifiedRows`).  A miss recomputes, so a plain
+    list of rows behaves exactly as before.  Lookups are always by revision
+    identity: rows get sorted and filtered downstream, so **never index a
+    digest by position** -- that misalignment produces valid-looking digests
+    attached to the wrong rows and nothing reports it.
+    """
+    if digests is not None:
+        digest = digests.get(row["entry_revision_identity"])
+        if digest is not None:
+            return digest
     return _raw_sha(wp1.canonical_bytes(row))
 
 
+def _row_digests(entries: object) -> dict[str, str] | None:
+    """Return the verified line digests carried by these rows, if any."""
+    return getattr(entries, "digest_by_revision", None)
+
+
 def _snapshots(entries: Iterable[dict[str, Any]]) -> list[dict[str, str]]:
+    digests = _row_digests(entries)
     result = [{
         "logical_entry_identity": row["logical_entry_identity"],
         "entry_revision_identity": row["entry_revision_identity"],
-        "row_sha256": _row_sha(row),
+        "row_sha256": _row_sha(row, digests),
     } for row in entries]
     result.sort(key=lambda row: row["entry_revision_identity"].encode("ascii"))
     return result
@@ -259,7 +279,9 @@ def _structure(row: dict[str, Any]) -> tuple[str, str, str, str]:
             row.get("function_name", "t"))
 
 
-def _mapping_row(old: dict[str, Any], new: dict[str, Any] | None, disposition: str, reason: str) -> dict[str, Any]:
+def _mapping_row(old: dict[str, Any], new: dict[str, Any] | None, disposition: str, reason: str,
+                 old_digests: dict[str, str] | None = None,
+                 new_digests: dict[str, str] | None = None) -> dict[str, Any]:
     if disposition not in DISPOSITIONS or reason not in REASONS:
         raise _error("invalid migration classification")
     if new is None:
@@ -267,7 +289,7 @@ def _mapping_row(old: dict[str, Any], new: dict[str, Any] | None, disposition: s
     else:
         new_logical = new["logical_entry_identity"]
         new_revision = new["entry_revision_identity"]
-        new_hash = _row_sha(new)
+        new_hash = _row_sha(new, new_digests)
     return {
         "old_logical_entry_identity": old["logical_entry_identity"],
         "old_entry_revision_identity": old["entry_revision_identity"],
@@ -275,7 +297,7 @@ def _mapping_row(old: dict[str, Any], new: dict[str, Any] | None, disposition: s
         "new_entry_revision_identity": new_revision,
         "disposition": disposition,
         "reason": reason,
-        "old_row_sha256": _row_sha(old),
+        "old_row_sha256": _row_sha(old, old_digests),
         "new_row_sha256": new_hash,
     }
 
@@ -284,6 +306,12 @@ def reconcile(old_entries: list[dict[str, Any]], new_entries: list[dict[str, Any
     """Classify every old row using only exact identity and structure inputs."""
     new_by_logical = {row["logical_entry_identity"]: row for row in new_entries}
     new_by_revision = {row["entry_revision_identity"]: row for row in new_entries}
+    # Each side keeps its own digests.  Two catalogs can share revision
+    # identities while differing in row bytes, so one combined map would be
+    # exactly the wrong thing to build here.
+    old_digests, new_digests = _row_digests(old_entries), _row_digests(new_entries)
+    def mapping(old, new, disposition, reason):
+        return _mapping_row(old, new, disposition, reason, old_digests, new_digests)
     # The formal v2-lite entry schema has no loader-order field (args_order is
     # semantic formatting metadata, not call adjacency). Revision identities
     # are content hashes, so their byte order is not evidence of source
@@ -311,26 +339,26 @@ def reconcile(old_entries: list[dict[str, Any]], new_entries: list[dict[str, Any
     for old in old_entries:
         revision = old["entry_revision_identity"]
         if revision in exact_rows:
-            result.append(_mapping_row(old, exact_rows[revision], "unchanged", "unchanged"))
+            result.append(mapping(old, exact_rows[revision], "unchanged", "unchanged"))
             continue
         if revision in changed_rows:
             logical = changed_rows[revision]
-            result.append(_mapping_row(old, logical, "revision_changed", _reason_changed(old, logical)))
+            result.append(mapping(old, logical, "revision_changed", _reason_changed(old, logical)))
             continue
         structural = [row for row in new_entries
                       if row["entry_revision_identity"] not in used_new
                       and _structure(row) == _structure(old)]
         if len(structural) > 1:
-            result.append(_mapping_row(old, None, "ambiguous", "ambiguous"))
+            result.append(mapping(old, None, "ambiguous", "ambiguous"))
             continue
         if not structural:
-            result.append(_mapping_row(old, None, "removed", "removed"))
+            result.append(mapping(old, None, "removed", "removed"))
             continue
         # A unique structural candidate is still insufficient: the list order
         # of validated catalog rows is revision-hash order, not loader call
         # order.  Without an exact adjacency binding this is intentionally an
         # unmapped move and apply must stop for user adjudication.
-        result.append(_mapping_row(old, None, "unmapped", "unmapped"))
+        result.append(mapping(old, None, "unmapped", "unmapped"))
     result.sort(key=lambda row: row["old_entry_revision_identity"].encode("ascii"))
     if len(result) != len(old_entries):
         raise _error("migration does not conserve old catalog rows")

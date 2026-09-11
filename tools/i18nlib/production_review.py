@@ -179,7 +179,46 @@ def _jsonl(rows: Iterable[dict[str, Any]]) -> bytes:
     return b"".join(canonical_bytes(row) + b"\n" for row in rows)
 
 
-def parse_jsonl(raw: bytes, label: str) -> list[dict[str, Any]]:
+class VerifiedRows(list):
+    """Canonical JSONL rows that carry the digest of their own exact line.
+
+    The digests come from :func:`parse_jsonl`, taken at the moment it proves
+    ``canonical_bytes(value) == line``.  They are therefore digests of each
+    row's canonical bytes: exactly what re-serialising the row would produce,
+    without re-serialising it.
+
+    They live *on* the list rather than beside it.  Any plain list derived from
+    these rows -- by sorting, filtering or slicing -- simply has no digests and
+    falls back to recomputing, which is correct.  Pairing one catalog's digests
+    with another catalog's rows would require deliberately constructing this
+    type by hand.
+
+    **There is no cheap runtime check that would catch such a mispairing.**
+    Comparing key sets does not: a terminology-provenance change keeps the same
+    revision identities while changing the row bytes, which is precisely the
+    dangerous case.  Recomputing a sample is a symptom check, and recomputing
+    all of them costs what this saves.  The safety here is structural, not
+    verified at runtime -- do not add an assertion that pretends otherwise.
+    """
+
+    def __init__(self, rows: list[dict[str, Any]], digests: list[str]):
+        super().__init__(rows)
+        if len(digests) != len(rows):
+            raise ProductionReviewError("verified rows and line digests are not aligned")
+        self.digest_by_revision = {row["entry_revision_identity"]: digest
+                                   for row, digest in zip(rows, digests)}
+        if len(self.digest_by_revision) != len(rows):
+            raise ProductionReviewError("verified rows do not have unique revision identities")
+
+
+def parse_jsonl(raw: bytes, label: str, *, digests: list[str] | None = None) -> list[dict[str, Any]]:
+    """Parse canonical JSONL, optionally collecting each line's SHA-256.
+
+    ``digests`` receives one hex digest per row in file order.  The canonical
+    check on the line immediately above makes that the digest of the row's
+    canonical bytes, so a later consumer can use it instead of serialising the
+    row again.
+    """
     if raw and not raw.endswith(b"\n"): raise ProductionReviewError(f"{label} JSONL must end in LF")
     result = []
     for number, line in enumerate(raw.splitlines(), 1):
@@ -187,6 +226,8 @@ def parse_jsonl(raw: bytes, label: str) -> list[dict[str, Any]]:
         if not isinstance(value, dict) or canonical_bytes(value) != line:
             raise ProductionReviewError(f"{label} line {number} is not canonical")
         result.append(value)
+        if digests is not None:
+            digests.append(hashlib.sha256(line).hexdigest())
     return result
 
 
