@@ -727,6 +727,11 @@ run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run ent
   顺序必须是 harvest → archive → `write_states.py` → `ai_state_check.py --target DONE` →
   `contextual-import`；顺序反了报 `contextual task is not current DONE_VERIFIED bound to
   exact task/candidate/input/output`。已写进 `tools/orchestration/README.md` 的硬约束。
+  （**2026-09-11 更新**：上面这串是第 30-33 批当时的流程，照抄会跑到已删除的脚本。
+  `write_states.py` 已删除，归档／填 STATE／`ai_state_check --target DONE` 三步都并进了
+  `close_review_tasks.py`。现行顺序是 `harvest_reviews.py` → `close_review_tasks.py <kind>`
+  → `build_import_index.py <kind>` → `<kind>-import`，以
+  `tools/orchestration/README.md` 为准。）
 - **交叉复核可以对同一 revision 提出与 surface 不同的第二条 observation**（第 32 批的
   VIMSENSE_DETECT long_desc：surface 报缺句末标点、交叉复核报「看到」对 detection 精度不足）。
   此时 `_accepted_observations` 会给出两条 observation，`adjudicate` 的 decisions 必须两条都写；
