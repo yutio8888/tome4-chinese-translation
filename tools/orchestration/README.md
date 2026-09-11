@@ -22,8 +22,15 @@
 | `close_review_tasks.py <kind> <spec> <children> <rawdir>` | 写 review record、**确认式**归档 child、填 STATE 并校验 DONE_VERIFIED |
 
 上一代脚本，保留供对照，新批次不要再用：
-`dispatch_reviewers.py`、`harvest_reviewers.py`、`harvest_contextual.py`、`write_states.py`
+`dispatch_reviewers.py`、`harvest_reviewers.py`、`harvest_contextual.py`
 （它们的职责已分别并入 `dispatch_surface.py`、`harvest_reviews.py`、`close_review_tasks.py`）。
+
+`write_states.py` 原本也在这份名单里，2026-09-11 **删除**而不是留作对照：它把
+`runtime_observation` 的 provider/model/thinking 写成模块级常量，同时把该字段标成
+`source: live_agent_metadata` / `capture_status: captured`，而 `ai_state_check.py:166-171`
+只校验这两个字面量、校验不了内容是否真来自实况。它作为死代码没有危害，但作为
+「字段自称实测、实则写死」的现成模板，被复用一次就会变成真的假话——留着对照的价值
+低于这个风险。它的职责在 `close_review_tasks.py`。
 
 ## 身份与路径：一律运行时发现，不得硬编码
 
@@ -79,9 +86,13 @@ git push origin develop
 2. **修复前先全仓库 grep**。同一 runtime key 可能横跨 `mod-tome.lua`／`tome-cults.lua`／
    `tome-orcs.lua`／`engine.lua`／`mod-boot.lua`；漏改会让 `06-runtime-collision-scan` 失败。
 3. **`contextual-import` 要求对应 task 已 `DONE_VERIFIED`**（surface-import 没有这道检查）。
-   顺序必须是 harvest → archive → `write_states.py` → `ai_state_check.py --target DONE` →
-   `contextual-import`；顺序反了会报
+   顺序必须是 `harvest_reviews.py` → `close_review_tasks.py <kind>` →
+   `build_import_index.py <kind>` → `<kind>-import`；顺序反了会报
    `contextual task is not current DONE_VERIFIED bound to exact task/candidate/input/output`。
+   `close_review_tasks.py` 内部已包含归档、填 STATE 与 `ai_state_check.py --target DONE`
+   校验（`close_review_tasks.py:136-140` 直接调它并检查输出以 `DONE_VERIFIED` 开头），
+   **不需要也不应再单独跑 `ai_state_check.py`**。少跑 `build_import_index.py` 则 import
+   拿不到索引文件。
 4. **派发必须显式传 `--mode`**。claude 默认 Always Ask 会让 child 卡在权限弹窗上，
    编排者只看到 status 长期不变。
 5. **派发记录即时落盘**。`dispatch_*.py` 在调 paseo 之前先写 `status=dispatching`，
