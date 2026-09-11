@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 82 批后）· HEAD `c11ed71` · 分支 `develop`
+最后更新：2026-09-11（第 83 批后）· HEAD `3d641d7` · 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,10 +30,10 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 82 批 `batch-21c7c16c405ef0b9bc35`（已 push，evidence `ac8e782`／修复 `3041e90`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 120 个 |
-| 当前 catalog | `aaf72e83…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `473d5cf8…`（revision_changed 6） |
+| 最后完成批次 | 第 83 批 `batch-8d0dfd2fcd68e76a41eb`（已 push，evidence `5b56a5d`／修复 `3d641d7`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 121 个 |
+| 当前 catalog | `c81ac8dd…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `a751fdf0…`（revision_changed 10） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
@@ -42,9 +42,12 @@
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21647 |
+| 尚未覆盖（`implicit_queued`） | 21572 |
 
 按 80 条一批算，剩余约 **271 批**。
+
+> 🛑 **审核已暂停（2026-09-11）——不是因为进度，是因为证据容量。详见 §13。**
+> 维护者指示「先暂停，等待讨论结果」，**第 84 批不要开**。
 
 > **工作区是与一个优化者 agent 共享的**（`2577f8ff-95f4-432a-9b1e-68ae9559570c`，
 > opus 5）。它在 `/workspace/tome4-opt-1`（分支 `perf/merge-cli-steps`）的 git worktree
@@ -524,3 +527,84 @@ Kryl-Faijan 遭遇 `door`→「活门」改回「门」、Master Jeweler 成就�
 **我的意见是保留**，理由是 `check` 的独立重算与新进程重读是最后一道闸，而这条流水线
 换来的教训恰恰是「17 项全绿、问题完全没被发现、且无法用后续提交修复」。这是**删验证
 步骤**而非性能改写，须维护者裁定。**裁定前照旧两条都跑。**
+
+---
+
+## 13. 🛑 证据容量：128 MiB 硬门禁，约 14 批后停产（2026-09-11）
+
+`tools/i18nlib/production_review_v2_lite_evidence.py:18` 定义
+`MAX_TRACKED_BYTES = 128 * 1024 * 1024`，超限在 `prepare-evidence` 抛
+`prospective tracked evidence exceeds 128 MiB`（`:138-139`、`:229-230`）。
+统计范围是 `PRODUCTION_PREFIXES`（`:19-24`）。同名约束另见
+`production_review.py:906`、`production_review_v2_lite.py:611`。
+
+**撞上限的后果是当批 reviewer 输出作废、生产停摆**，而且它发生在
+`prepare-evidence` 阶段——也就是一批已经跑完 4 个表层 child + 1 个交叉复核 child 之后。
+
+### 实测（`git ls-tree -r -l` 逐快照统计，非估计）
+
+| 快照 | 批次/迁移 | 生产字节 | 占比 |
+|---|---|---|---|
+| `78037b2` | 96 / 49 | 100,828,781 | 75.1% |
+| `b4bdbee` | 118 / 73 | 119,258,700 | 88.9% |
+| `3d641d7`（第 83 批后） | 121 / 76 | **122,204,299** | **91.0%** |
+
+每批实测增量（evidence commit + fix commit）：80 批 +497 KiB、81 批 +1122、
+82 批 +1302、83 批 +452，**均值约 843 KiB/批 → 余量 11.46 MiB ≈ 14 批**。
+
+### 增长主因：`evidence_snapshot` 存的是源码文件全文
+
+`batches/*/adjudications.jsonl` 合计 15.55 MiB，其中 **88.9%（13.83 MiB）是
+`evidence_snapshot.content`**。因为游戏源码不在本仓库 git 里（钉在外部
+`/workspace/t-engine4`），`confirmed` 裁决无法用 `path + commit` 自证，
+`make_adjudication.py` 改为内嵌 `{content, sha256}`——**整个 `.lua` 文件全文**。
+
+而且同一条目的 surface 与 contextual 两条裁决**各存一份**，同一源码文件跨批次反复内嵌。
+
+> 全库 310 条带快照的裁决，**去重后只有 147 个不同快照、合计 2.80 MiB**。
+> **纯重复冗余 11.03 MiB**——几乎正好等于剩余余量。
+
+按时间序逐批模拟去重，最后 8 批 `adjudications.jsonl` 均值 467.8 → 85.4 KiB。
+
+### 另两个大头
+
+- `catalog/entries.jsonl` **33.59 MiB**（29828 条目的权威目录，结构性必需）
+- 那个唯一的 v1 全量 migration `8409708750…json` **32.83 MiB**，
+  占上限的 24%；其余 75 个 v2 sparse 合计仅约 3.9 MiB（均值 53 KB）
+
+### 三条路径（已算，未实施）
+
+| 方案 | 之后余量 | 之后增速 | 还能跑 |
+|---|---|---|---|
+| 现状 | 11.46 MiB | 843 KiB/批 | 约 14 批 |
+| A 快照去重（sha256 引用 + 内容单独存一份） | 22.49 MiB | 461 KiB/批 | 约 50 批 |
+| B = A + 重新表达 v1 全量 migration | 55.32 MiB | 461 KiB/批 | 约 123 批 |
+| C 调高 `MAX_TRACKED_BYTES` | 取决于新值 | 843 KiB/批 | 取决于新值 |
+
+**三条都不够 271 批。** A、B 都改动已发布批次的证据格式／迁移边界，
+C 是放弃该约束本身——**三条都必须维护者裁定，不得自行实施**。
+
+### 现状
+
+- 维护者 2026-09-11 指示「先暂停，等待讨论结果」，**第 84 批不开**
+- 已向 `codex/gpt-6-astra` 发起独立咨询，BRIEF 见
+  `.ai/consult/evidence-capacity-20260911/BRIEF.md`（刻意不含倾向性表述），
+  回答将落在同目录 `ANSWER-gpt-6-astra.md`
+- 优化者的「`queue check` 是否冗余」一并挂起，维护者裁定「先留着，等容量问题解决再议」
+
+### 给接手者的可复现命令
+
+```bash
+python3 - <<'PY'
+import subprocess
+PREF=("evidence/production-review/","i18n/quality/production-review/",
+      "evidence/production-review-v2-lite/","i18n/quality/production-review-v2-lite/")
+out=subprocess.run(["git","ls-tree","-r","-l","--full-tree","HEAD"],
+                   capture_output=True,text=True).stdout
+tot=sum(int(p[3]) for p in (l.split(None,4) for l in out.splitlines())
+        if len(p)==5 and p[3]!='-' and any(p[4].strip().startswith(x) for x in PREF))
+print(tot, f"{tot/(128*1024*1024)*100:.1f}%")
+PY
+```
+
+**每批开始前都该跑一次**，别再让它悄悄逼近上限。
