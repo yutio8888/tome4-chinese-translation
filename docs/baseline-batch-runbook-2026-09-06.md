@@ -1811,6 +1811,9 @@ entries 29828、overrides 8032、reconciliation 29828，以及三个内容摘要
 
 `retry_blocked` 模式再加一次（`batch.py:1202`）。第 82 批复测 530 s，同一形态。
 
+> 上面这四个行号是 `263aa42` **之前**的，用来读懂当时的形态；按当前代码去查会对不上。
+> 凡是描述**现在**的代码的地方，行号都以当前 `develop` 为准。
+
 **已修（`263aa42`）。** `preflight` 在该路径只重放一次，交给 `_restore_orphans`、
 `strict_check`，并通过新的 `projection_out` 交给同进程里继续的 `start`；
 `retry_blocked` 的 winner 查询也复用同一次。安全边界与 `3575d72` 一致：
@@ -1862,7 +1865,7 @@ entries 29828、overrides 8032、reconciliation 29828，以及三个内容摘要
 `gpt-6-astra` 与 `claude-fable-5` 独立咨询，**都判不采纳，且都指向同一个决定性事实**：
 
 `batch start` 向该表 `INSERT OR REPLACE` 写 `reserved` 行，**而 meta 一个字段都不动**
-（`batch.py:1209`）。所以批次进行期间 `meta.evidence_head == HEAD`
+（`batch.py:1227`）。所以批次进行期间 `meta.evidence_head == HEAD`
 **推不出** `state_override == 投影的 overrides`——而那正是要复用它的时段。
 按提案改完，下一次 preflight 会把自己的 reservation 当成 committed winner，
 在 `_validate_mode_prior`(`batch.py:771`) 报 `queued batch contains a committed winner`。
@@ -1895,3 +1898,63 @@ handoff 的耗时表记 `~3 min`，实测**两次各 3 秒**，`catalog_id` 逐�
   120.2 s 去减干净计时的 164.8 s，两个数不同源，结论无效。磁盘级记忆的收益必须单独实测。
 - **磁盘级记忆不是零信任改动。** key 必须覆盖全部输入**与验证器版本**，不能只用数据 blob id；
   命中时要校验载荷摘要，缺失或不符一律走原路径；保留一条显式绕过缓存的参考重放。
+
+### 41.11 第三、四项已落地（2026-09-11）
+
+数字标注：**[实测]** 本轮亲跑；**[转述]** 主编排者实测、本文作者未复核；**[估算]** 由前两类推出。
+
+**A「同进程串联」（`6f935fd`）** —— `queue.carry_projection()` 作用域 + `queue.projection_for()`，
+外加 `tools/orchestration/run_batch_steps.py` 把相邻动作串在一个进程里跑。
+
+复用的安全边界和 `3575d72`／`263aa42` 完全一致：每次复用前重新解析证据提交，
+提交变了就整份丢弃重放；作用域外槽位是 `None`，单动作进程行为零变化。
+作用域另外钉住仓库根——投影本来就是证据提交的纯函数（跨 worktree 已核对过 8 字段），
+钉根是把这条不变量写出来，不是默认它成立。
+
+包装器只收白名单里的六个动作（`surface-export/import`、`contextual-export/import`、
+`adjudicate`、`prepare-evidence`）；`finalize` 这类会推进 HEAD 或关批的一律拒绝，
+必须单独跑。每一步走的仍是 `i18nlib.cli.main` 这个真入口，各自完整校验 active batch；
+出错即停，**恢复权威仍然是 active checkpoint，不是这个包装器**——所以任何时候
+退回一步一个进程地跑都是合法的，且这应当是有疑虑时的默认动作。
+
+**B「祖先关系去重」（`208a42f`）** —— 一次重放里同一对迁移边界只问一次
+`git merge-base --is-ancestor`。每个历史批次都在同一条线性迁移列表上重建自己的链，
+所以同一对相邻提交被反复问了上百遍。只记成功、失败照抛；每一对**不同的**边界仍然真跑。
+
+[实测]（隔离 worktree、同提交 `c502287`、正反两序各一轮，排除顺序与页缓存效应）：
+
+| | spawn 次数 | 重放耗时 |
+|---|---|---|
+| 改前 | 5948 | 166.3 s / 166.9 s |
+| 改后 | 74 | 156.7 s / 156.1 s |
+
+即约 **10.2 s、6.1%**，两序一致。
+
+**一个值得单独记住的事实**：`_is_ancestor` 直接调 `subprocess.run`，**不走 `_git`**。
+所以任何只在 `_git` 上埋点的剖面都会漏掉这 5948 次 spawn——这解释了为什么一份
+「git 子进程共 5489 次」的剖面[转述]和「`_is_ancestor` 单独就有 5948 次」[实测]
+可以同时成立。以后做子进程计数，埋点要埋在 `subprocess.run` 上。
+
+**验收**：§37 八字段，对 `c502287` 与**同提交的纯净工作树**逐一相同
+（head / catalog_id / entries_n=29828 / overrides_n=8181 / reconciliation_n=29828
+及 entries、overrides、reconciliation 三个内容摘要）[实测]；
+213 个单测 + 17 道门禁全过[实测]；`carry_projection` 另有 8 条分支语义用例
+（无作用域不记忆 / 同提交复用 / 跨提交不复用 / HEAD 被别人推进后丢弃 /
+退出不外泄 / 抛异常仍释放 / 复用返回同一对象 / 换仓库根不复用）[实测]。
+
+**尚未端到端验证**：`run_batch_steps.py` 只跑过三条冒烟（拒绝 `finalize`、
+拒绝缺输入、真派发后原样返回 CLI 退出码并中止后续步骤）[实测]。
+它在真实批次里的首次使用就是它的第一次端到端验证——第一次用的时候请盯着看。
+
+### 41.12 数据卫生：一个被传播出去的错数
+
+我把「其余 74 个 sparse migration 合计约 3.9 MiB、均值 53 KB」写进给主编排者的消息，
+对方未复核就转写进了给第三方模型的 brief。**正确值是 2.24 MiB、均值 30.6 KiB**[实测]。
+
+成因不是估算，是**单位串位**：`migrations/` 合计 36,775,710 字节 = **35.07 MiB**，
+我把字节数的前几位「36.77」当成了 MiB 去减 32.83，于是 2.24 被算成了 3.9。
+标注「实测/估算」拦不住这类错——这本来就标着实测。**能拦住它的是把量纲写在算式里**：
+凡是做减法、除法，两个操作数的单位要在同一行里显式出现。
+
+复核后的完整口径[实测]（`git ls-tree -r -l HEAD -- evidence/.../migrations`）：
+76 个 blob 合计 35.07 MiB，最大的 v1 一个就占 32.83 MiB，其余 75 个共 2.24 MiB。
