@@ -2801,7 +2801,7 @@ t("Killed Slasul even though you sided with him to learn the Legacy of the Nalor
 t("Flooder", "倒戈", "achievement name")
 t("Defeated Ukllmswwik while doing his own quest.", "在做乌克勒姆斯维奇托付的任务时击败他。", "_t")
 t("Gem of the Moon", "月亮宝石", "achievement name")
-t("Completed the Master Jeweler quest with Limmir.", "使用利米尔完成珠宝匠托付的任务“失落的知识”。", "_t")
+t("Completed the Master Jeweler quest with Limmir.", "与利米尔一同完成了珠宝匠托付的任务“遗失的知识”。", "_t")
 t("Curse Lifter", "诅咒超度者", "achievement name")
 t("Killed Ben Cruthdar the Cursed.", "杀死被诅咒者本·克鲁塞达尔。", "_t")
 t("Fast Curse Dispel", "快速除咒", "achievement name")
@@ -7189,7 +7189,7 @@ t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
 You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地窖的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
 你听到了里面传来了陌生女人的哭声。]], "_t")
-t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你打开了活门，小心翼翼地进入了地窖……", "logPlayer")
+t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你小心翼翼地打开门，进入了地下的地窖……", "logPlayer")
 t("#LIGHT_RED#As you enter you notice the door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入后，你发现这扇门的里侧没有门把，你被困在这了！", "logPlayer")
 t("Enter the crypt", "进入地窖", "_t")
 t("Lost kitten", "迷路的猫咪", "entity name")
@@ -13202,7 +13202,7 @@ t("Can block like a shield, potentially disarming the enemy.", "可以像盾牌�
 t("Breaks enemy weapon.", "破坏对方武器。", "_t")
 t("Shieldsmaiden", "女武神之心", "entity name")
 t("icy shield", "冰冻的盾", "_t")
-t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中的女武神，来自马基·埃亚尔世界的北方荒地。她的美貌和力量吸引了众多爱慕者前去，然而所有人都空手而归。因此，有这样一句谚语：女武神的心同她的盾一样冰冷而不可打破。", "_t")
+t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中有一支名为女武神的女战士部族，她们来自马基·埃亚尔大陆的北方荒地。她们的武艺与美貌吸引了大批爱慕者，却无一得到回应。于是便有了那句谚语：女武神的心如她的盾一般冰冷而坚不可摧。", "_t")
 t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能：每十回合能抵挡一次攻击。", "_t")
 t("Tirakai's Maul", "提瑞卡之锤", "entity name")
 t("This massive hammer is formed from a thick mass of strange crystalline growths. In the side of the hammer itself you see an empty slot; it looks like a gem of your own could easily fit inside it.", "这柄巨型锤子是用一种厚厚的古怪结晶体制成的，锤子里面能看到一个空槽，似乎很容易就能将宝石放进去。", "_t")
@@ -21050,8 +21050,8 @@ t([[Creates a circle of radius %d at your feet; the circle increases your defens
 		The damage will increase with your Spellpower.]], [[在你的脚下创造一个半径 %d 的法阵，使你的闪避和所有豁免提高 %d，并使范围内除你之外的所有生物每回合受到 %0.2f 点暗影伤害。法阵持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Circle of Sanctity", "圣洁之阵", "talent name")
-t("Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius while silencing and dealing %d light damage to everyone else who enters. The circle lasts %d turns.", [[在你的脚下制造一个 %d 码半径范围的法阵，当你在法阵内，它会使你免疫沉默效果，沉默进入此范围内的敌人，并对其造成 %d 光系伤害。
-		阵法持续 %d 回合。]], "tformat")
+t("Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius while silencing and dealing %d light damage to everyone else who enters. The circle lasts %d turns.", [[在你的脚下制造一个 %d 码半径范围的法阵，当你在法阵内，它会使你免疫沉默效果，并沉默进入此范围的其他所有生物，对其造成 %d 光系伤害。
+		法阵持续 %d 回合。]], "tformat")
 t("Circle of Warding", "守护之阵", "talent name")
 t([[Creates a circle of radius %d at your feet; the circle slows incoming projectiles by %d%% and attempts to push all creatures other than yourself out of its radius, inflicting %0.2f light damage and %0.2f darkness damage per turn as it does so.  The circle lasts %d turns.
 		The effects will increase with your Spellpower.]], [[在你的脚下制造一个 %d 码半径范围的法阵，它会减慢 %d%% 抛射物速度并将除你外的其他生物推出去。
@@ -23672,8 +23672,8 @@ t([[Deploy a noisy lure that attracts all creatures within radius %d to it for %
 		It has %d life (based on your Cunning) and is very durable, with %d armor and %d%% resistance to non-physical damage.
 		At level 5, when the lure is destroyed, it will trigger some traps in a radius of 2 around it (check individual trap descriptions to see if they are triggered).
 		Use of this talent will not break stealth.]], [[抛出一个诱饵来吸引 %d 码半径内的敌人，持续 %d 回合。
-		诱饵有 %d 生命（基于灵巧），%d 护甲和 %d%% 非物理伤害抗性。
-		在等级 5 时，当诱饵被摧毁时，它会自动触发在它周围 2 码范围内的陷阱（可鉴定某些陷阱是否能被触发）。
+		诱饵有 %d 生命（基于灵巧），且非常坚韧，拥有 %d 护甲和 %d%% 非物理伤害抗性。
+		在等级 5 时，当诱饵被摧毁时，它会触发其周围 2 码范围内的部分陷阱（请查看各陷阱自身的说明，以确认其是否会被触发）。
 		此技能不会打断潜行状态。]], "tformat")
 t("Advanced Trap Deployment", "高级陷阱放置", "talent name")
 t([[You learn new techniques for setting traps.
@@ -31497,7 +31497,7 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 
 		你可以学会：
 %s]], "tformat")
-t("Arcane Might", "奥术之握", "talent name")
+t("Arcane Might", "奥术伟力", "talent name")
 t([[You have learned to harness your latent arcane powers, channeling them through your weapon.
 		This has the following effects:
 		Equipped weapons are treated as having an additional 50%% Magic modifier;
