@@ -4152,10 +4152,10 @@ t([[#LIGHT_GREEN#*The dwarf finally returns with a vial and a small pouch.*#WHIT
 I put a bit of the good stuff in this one, though it won't do you any favors tomorrow morning. And careful with that Taint of Purging, especially if the wife answers the door the next time you knock. Har!]], [[#LIGHT_GREEN#*那个矮人终于回来了，手里拿着一个药瓶和一个小袋子。*#WHITE#
 这里面我给你带来个好东西，尽管也许明天早上对你没什么用。小心使用这个“清除印记”，如果下次你敲门的时候，是我老婆开门的话，你可要小心点，哈！]], "_t")
 t("Bless you adventurers. Which will it be?", "祝福你我的冒险家，你选择哪一个？", "_t")
-t("Here's a list of the creature bits I need. Good luck with the murdering!", "这里有材料清单，祝你好运！", "_t")
+t("Here's a list of the creature bits I need. Good luck with the murdering!", "这是我需要的生物部件清单。祝你杀得顺利！", "_t")
 t([[Here's a list of the creature bits I need. Good luck with the murdering!
 
-Oh, and one other last thing... if you have the time for another errand, though I've got no reward on this one.]], [[这里有材料清单，祝你好运！
+Oh, and one other last thing... if you have the time for another errand, though I've got no reward on this one.]], [[这是我需要的生物部件清单。祝你杀得顺利！
 
 哦，对了，最后还有另外一件事……另外还有一件差事不知道你感不感兴趣，不过这件事可没有报酬的。]], "_t")
 t("Er, it seems that while you were out, somebody else managed to bring me the ingredients. I've got no reward for you! Sorry about that, but when time is of the essence, 'first come, first served' is the only sensible policy.", "呃，好像你不在的时候，已经有人把材料给我弄来了，我不会再给你奖励了。很抱歉，不过时间才是最重要的，“先来者先得”，你得记住这句话。", "_t")
@@ -5113,14 +5113,14 @@ The known bastions of the Pride are:
 - Vor Pride, in the northeast
 - Grushnak Pride, on the eastern slope of the High Peak]], [[我真的很想帮助你，不过我们的军队已经十分分散而且薄弱，我们无法直接给你提供军事援助。
 但是我尽我所能，告诉你兽人部落的组成结构。
-最近我们接到情报说兽人选举了新的领袖，他们很有可能就是抢夺神秘法杖的幕后主使人。
+最近我们听说部落里在谈论一位新的主人，也可能不止一位。你那根神秘法杖背后的主使，很可能就是他们。
 我们相信，他们的力量中心就是巅峰，在这个大陆的中部区域。不过它被某种护罩保护无法进入。
 你必须调查兽人部落的各个基地，或许你能找到更多有关巅峰的线索，而且你每杀死一个兽人，我们就少了一个攻击我们的敌人。
 已知的兽人部落有：
 - 拉克·肖部落，在南部沙漠的西面。
 - 加伯特部落，在南部沙漠的群山之中。
 - 沃尔部落，在东北方。
-- 格鲁希纳克部落，在通往高塔之巅的东部山坡上。]], "_t")
+- 格鲁希纳克部落，在巅峰的东坡上。]], "_t")
 t("I will investigate them.", "我会调查这些地方。", "_t")
 t("Aeryn points to the known locations on your map.", "艾琳在你的地图上指出了位置。", "logPlayer")
 t([[One more bit of aid I might give you before you go. Your tale has moved me, and the very stars shine with approval of your relentless pursuit. Take their blessing, and let nothing stop you in your quest.
@@ -21143,7 +21143,7 @@ t("Devourer Stance", "势吞干戈", "talent name")
 t([[Attune yourself to the endless hunger of distant dead suns.  For the next %d turns, your attacks will inflict an additional %0.2f gravity damage and attempt to pull enemies closer.  After three turns, you will recover half of all damage taken during this effect.
 The damage will increase with your Spellpower.]], [[你将死星那无尽的饥饿赋予自己。在接下来的 %d 回合里，你的攻击造成额外 %0.2f 重力伤害并会试图将敌人拉近。3回合之后，你获得此效果期间所受伤害一半的回复。
 伤害受法术强度加成。]], "tformat")
-t("Singularity Armor", "星核护甲", "talent name")
+t("Singularity Armor", "奇点护甲", "talent name")
 t("Create a gravity field around you that converts %d%% of all damage you deal into physical damage, slows incoming projectiles by %d%%, and causes your gravity damage to reduce the target's knockback resistance by half for two turns.", "在你身边制造一个重力场，将你造成伤害的 %d%% 转化为物理伤害，使向你发射的飞行物减速 %d%%，并使你的重力伤害令目标的击退抗性减半，持续 2 回合。", "tformat")
 t("Doom Spiral", "毁灭螺旋", "talent name")
 t([[Infuse your weapon with overwhelming gravitational power while spinning around.
@@ -22443,7 +22443,7 @@ t([[For the next %d turns you may not create minor anomalies.  You do not regain
 section "mod-tome/data/talents/chronomancy/temporal-archery.lua"
 
 t("Phase Shot", "相位射击", "talent name")
-t("You fire a shot that phases out of time and space allowing it to virtually ignore armor.  The shot will deal %d%% weapon damage as temporal damage to its target.", "你射出一枚在相位空间外的子弹，这使它可以忽视敌方护甲。此次射击会对目标造成 %d%% 时空武器伤害。", "tformat")
+t("You fire a shot that phases out of time and space allowing it to virtually ignore armor.  The shot will deal %d%% weapon damage as temporal damage to its target.", "你射出一枚脱离了时间与空间的子弹，这使它几乎可以无视护甲。此次射击会对目标造成 %d%% 时空武器伤害。", "tformat")
 t("Unerring Shot", "必中射击", "talent name")
 t("You focus your aim and fire a shot with great accuracy, inflicting %d%% weapon damage.  Afterwords your attack will remain improved for one turn as the chronomantic effects linger.", "你集中注意力射出极精准的一箭，造成 %d%% 武器伤害。接下来的一回合内，因时空延续，攻击加成保留。", "tformat")
 t("Perfect Aim", "完美瞄准", "talent name")
@@ -26219,7 +26219,7 @@ t([[Not the Master himself, nor all the orcs in fallen Reknor, nor even the terr
 t("Teleport to the ground", "返回地面", "talent name")
 t("You cannot teleport there.", "你不能传送到那里。", "log")
 t([[Use the onboard short-range teleport of the Fortress to beam down to the surface.
-	Requires being in flight above the ground of a planet.]], [[使用堡垒自带的传送系统“哔”的一下回到地面。
+	Requires being in flight above the ground of a planet.]], [[使用堡垒自带的短程传送装置“哔”的一下回到地面。
 	需要在某个星球的空中飞行。]], "_t")
 t("Fire a blast of energy", "火力支援", "talent name")
 t([[Use 10 Fortress energy to send a powerful blast to the ground, directly below the Fortress, heavily damaging any creatures caught inside.
@@ -36273,13 +36273,13 @@ t("#Target#'s subconscious has returned to normal.", "#Target#的潜意识回复
 t("-Focused Wrath", "-集火", "_t")
 t("sleep", "睡眠", "effect subtype")
 t("Sleep", "睡眠", "_t")
-t("The target is asleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.", "目标陷入沉睡无法动作，每受到 %d 伤害缩短 1 回合持续时间。", "tformat")
+t("The target is asleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.", "目标陷入睡眠，无法执行大多数行动，每受到 %d 伤害缩短 1 回合持续时间。", "tformat")
 t("#Target# has been put to sleep.", "#Target#陷入沉睡。", "_t")
 t("+Sleep", "+睡眠", "_t")
 t("#Target# is no longer sleeping.", "#Target#从沉睡中清醒。", "_t")
 t("-Sleep", "-睡眠", "_t")
 t("Slumber", "沉睡", "_t")
-t("The target is in a deep sleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.", "目标陷入沉睡无法动作，每受到 %d 伤害缩短 1 回合持续时间。", "tformat")
+t("The target is in a deep sleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.", "目标陷入沉睡，无法执行大多数行动，每受到 %d 伤害缩短 1 回合持续时间。", "tformat")
 t("#Target# is in a deep sleep.", "#Target#陷入沉睡。", "_t")
 t("+Slumber", "+沉睡", "_t")
 t("-Slumber", "-沉睡", "_t")
