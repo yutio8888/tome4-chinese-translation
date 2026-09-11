@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-10（第 77–79 批后）· HEAD `b7f85ef` · 分支 `develop`
+最后更新：2026-09-11（第 80 批后）· HEAD `2d5e6a7` · 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,25 +30,28 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 79 批 `batch-bd59b69afb97e21dd4c1`（已 push） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 117 个 |
-| 当前 catalog | `67b5b973…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `fdc71d7a…`（revision_changed 2） |
-| 活动批次 | **无**（可以安全提交、可以开新批） |
+| 最后完成批次 | 第 80 批 `batch-fa5522f26b0d131bec00`（已 push，evidence `e5824ee`／修复 `2d5e6a7`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 118 个 |
+| 当前 catalog | `7db1e8ba…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `441a4500…`（revision_changed 3） |
+| 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
-审核进度（`queue check`，2026-09-10，`ok: true`）：
+审核进度（第 80 批修复提交后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
 
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 已过表层筛查 | 7954（其中条目另有交叉复核） |
-| 尚未覆盖 | 21873 |
-| `done` 显式置位 | 7954 |
-| `blocked`（pending 裁决占位） | 1 |
-| `historical_revision_invalidated` | 618 |
+| 尚未覆盖（`implicit_queued`） | 21796 |
 
 按 80 条一批算，剩余约 **273 批**。
+
+> ⚠️ **第 81 批暂不要开。** 2026-09-11 维护者指示第 80 批后暂停主持，把工作区让给
+> 另一个 opus 5 优化者 agent（`2577f8ff-95f4-432a-9b1e-68ae9559570c`）。它要改
+> `tools/i18nlib/production_review_v2_lite_queue.py` 与
+> `…_batch.py`，让 `strict_check` 接受并透传已算出的 projection，消掉 `preflight`
+> 里那次重复的全历史重放（目标 335s → ~175s）。**那正是门禁与 migration 会走的
+> 代码路径**，改到一半时开批会让两边都拿到无效结果。等它 push 并主动通知后再恢复。
 
 **恢复工作的第一步**永远是 `queue rebuild` + `queue check`，确认没有漂移。
 
@@ -358,3 +361,40 @@ Epoch 外观描述。
 - **两轮一致但不与源码相符仍可 refute**：77 批 `#CADET_BLUE#Equipping %s with %s` 被
   表层报「语义颠倒」，但源码 `artifice.lua:49` 为 `player.artifice_tools[chat_tid] = tid`
   （工具被装入 artifice 槽），译文「将 [工具] 装备至 [artifice]」方向正确 → `refuted`。
+
+---
+
+## 10. 第 80 批完成记录（2026-09-11）
+
+`batch-fa5522f26b0d131bec00`，tome 80 条单来源（1 run，`task_id == batch_id`）。
+表层 4 lane × 20（`codex/gpt-6-astra` xhigh `auto`）报 4 条 ISSUE；交叉复核 1 child
+（`claude/claude-opus-5` xhigh `bypassPermissions`）判 3 ISSUE + 1 OK。
+源码工作集 80/80、17 项门禁两次全绿、5 个 child 全部有效。
+裁决 confirmed 6（3 条 × 两轮）、advisory 1；修复 3 条（migration `441a4500`）。
+
+| 条目 | 问题 | 处置 |
+| --- | --- | --- |
+| 祭坛腐化心脏日志 | shakes 误作「跳动」、丢失 vibrating／new、增写「最终被腐化」的完成结论 | confirmed，改「心脏干瘪、抖动，因新的堕落力量而震颤」 |
+| `arcane powered` 任务目标 | 能量来源属性误作强度「强力」 | confirmed，统一为同任务已有的「充满奥术力量的神器」 |
+| Nightsong 外观 | 漏译 `unadorned`、`tendrils` 抹平为「黑暗」、增写「无尽」 | confirmed，改「没有任何纹饰……黑暗的触须攀附其上」 |
+| `#Target# is less protected.` | 比较级被译作绝对的「不再被保护」 | **advisory**，见下 |
+
+本段新增判例：
+
+- **「运行时无事实错误」不足以 refute，「两轮不一致」才是 advisory 的依据。**
+  `less protected` 是 `EFF_STONE_LINK` 的 `on_lose`，该效果把目标所受全部伤害重定向给
+  施术者（`physical.lua:3692-3705`），效果结束时保护确实完全消失，故「不再被保护」
+  运行时不假；但源文的比较级与同块 `STONE_LINK_SOURCE` 的 `"no longer protecting
+  anyone."`（本库作「不再保护任何人」）构成有意对照，译文把 `less` 与 `no longer`
+  同归「不再」，抹平了该对照——表层的主张本身**成立**，只是没被第二轮复现。
+  claim 成立但未获两轮复现 ⇒ `advisory`；只有源码**反证** claim 时才 `refuted`
+  （对比第 76 批 `Escort: %s (level %s)` 与 77 批 artifice 两例）。
+- **同库既有译法是交叉复核最有用的独立证据。** 本批 2 条 confirmed 的决定性依据
+  都不是词典义，而是库内不一致：`arcane powered` 在同一任务函数上一行已作
+  「充满奥术力量的神器」；`tendrils` 在 `mod-tome.lua:12539-12544`／`24120-24121`
+  一律作「触须／卷须」。这类证据可机械复核，比语感判断可靠得多。
+- **术语改动不搭便车。** 本条心脏日志所在事件簇里 `corrupted` 一律作「腐化」
+  （`mod-tome.lua:39107/39109`），而本串的 `corrupt forces` 作「堕落力量」
+  （术语表 `corruption`→堕落）。两者不算冲突，且**没有任何一轮报过**，
+  故修复时原样保留——「一并修改同类问题」指同一缺陷的其他实例，
+  不是给同一条串附加未经裁决的改动。
