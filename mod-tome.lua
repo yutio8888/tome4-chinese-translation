@@ -5197,7 +5197,7 @@ t("%s creates: %s", "%s创造了：%s", "logPlayer")
 t("Imbue which amulet?", "镶嵌哪个项链？", "_t")
 t("Use which first gem?", "使用哪颗做第一个宝石？", "_t")
 t("Use which second gem?", "使用哪颗做第二个宝石？", "_t")
-t("Limmir needs more gold for the magical plating.", "利米尔需要更多钱用于镀金工艺。", "_t")
+t("Limmir needs more gold for the magical plating.", "利米尔需要更多金币用于魔法镀层。", "_t")
 t("You need to use %s gold for the plating, do you accept?", "你需要花费 %s 金币用于镀金，你确认接受吗？", "tformat")
 t("Limmir's Amulet of the Moon", "利米尔的月亮吊坠", "_t")
 t("Welcome, @playername@, to my shop.", "欢迎来我的商店，@playername@。", "_t")
@@ -6810,7 +6810,7 @@ t("raked", "被抓伤", "_t")
 t("bled", "流血过多", "_t")
 t("impaled", "被刺穿要害", "_t")
 t("dissected", "被切开", "_t")
-t("disembowelled", "被撕裂胸膛", "_t")
+t("disembowelled", "被开膛破肚", "_t")
 t("decapitated", "被斩首", "_t")
 t("stabbed", "被刺破喉咙", "_t")
 t("pierced", "被刺破心脏", "_t")
@@ -9396,7 +9396,7 @@ t("bloodied fang", "血痕覆盖的尖牙", "_t")
 t("A fang from the great warg, Rungof, still covered in blood.", "巨型座狼郎格夫之牙，上面仍被血痕覆盖。", "_t")
 t("Khulmanar's Wrath", "库马纳的怒火", "entity name")
 t("firey blackened battleaxe", "燃烧的黑色双手斧", "_t")
-t("Blackened with soot and covered in spikes, this battleaxe roars with the flames of the Fearscape. Given by Urh'Rok himself to his general, this powerful weapon can burn even the most resilient of foes.", "黑色的浓烟缠绕在这把双手斧上，恶魔空间的烈焰在其身上咆哮。这把战斧由乌鲁洛克授予他最强大的指挥官，它可以焚尽一切，包括最强大的敌人。", "_t")
+t("Blackened with soot and covered in spikes, this battleaxe roars with the flames of the Fearscape. Given by Urh'Rok himself to his general, this powerful weapon can burn even the most resilient of foes.", "这把双手斧被煤灰熏得漆黑，斧身布满尖刺，恶魔空间的烈焰在其上咆哮。它由乌鲁洛克亲手授予他的指挥官，这件强力武器甚至能烧穿最顽强的敌人。", "_t")
 t("Bladed Rift", "次元裂隙", "entity name")
 t("hole in space", "空间中的裂隙", "_t")
 t("Upon defeat, Ak'Gishil collapsed into this tiny rift. How it remains stable, you are unsure. If you focus, you think you can call forth a sword from it.", "在击败阿克·吉希尔后，它留下了这个小巧的裂隙。你无从知道，它是如何保持这样的稳定状态。冥冥中你感受到，你能从这个裂隙中召唤出一把剑。", "_t")
@@ -13101,10 +13101,10 @@ t("gloomy black cloak", "黑暗围绕的斗篷", "_t")
 t([[Forget the moons, the starry sky,
 The warm and greeting sheen of sun,
 The rays of light will never reach inside,
-The heart which wishes that it be unseen.]], [[月色皎洁，星空璀璨
-阳光温暖，光辉耀闪
-我心暗淡，其光难入
-我心苦楚，莫可见述。]], "_t")
+The heart which wishes that it be unseen.]], [[忘却明月，忘却星空，
+忘却那温暖相迎的日辉；
+光线永远照不进
+那颗但愿不被看见的心。]], "_t")
 t("Spelldrinker", "饮法者", "entity name")
 t("eerie black dagger", "怪异的黑色匕首", "_t")
 t([[Countless mages have fallen victim to the sharp sting of this blade, betrayed by those among them with greed for ever greater power.
@@ -17726,7 +17726,7 @@ t([[Last Will and Testament of Rolf Two-Axes
 I have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set out to slay was dead already by another's hand, but its corruption remained still. When I arrived in its chamber, Weisman was already half-gone; he was hacking away at foes only he could see. When I tried to stop him, he turned his axe on me... I am beaten and broken, hiding in some crevasse away from... from my own friend, who through the corruption in this place has been perverted into a monstrosity my axes were unable to fell. I hold no doubt that this is the last time I shall put quill to parchment, as even now I can hear my old friend's perverted voice.. calling to me. I bequeathe my belongings to any who slay ...
 #{italic}#(the ink blotch seems to indicate Weisman had caught up to his old friend, one-half of that abomination)#{normal}#]], [[双斧罗尔夫的遗嘱
 
-我失败了，以巨龙之战的名义，我承认我失败了！当我赶到这片领地时，原先的怪物已经被杀死了，但这个地方仍然存留着堕落的诅咒。威斯曼已经被整的半死不活，但他仍执着地朝着空气乱砍一气。我想要阻止他，可是那伙计对我举起了他的斧子，我被痛扁了一顿，只能抖抖索索的躲进周围的低洼地中，背弃了我的朋友，眼睁睁的看着他慢慢被这片领域腐化成我的战斧无法打败的骇人怪物。这也许是我最后一次提笔了，我听到老友阵阵疯狂的吼叫……他在呼唤着我……我之财物将赠予任何能杀死…
+我失败了。啊，以巨龙之巨口起誓，我失败了！威斯曼此行本要猎杀的那头野兽，早已死在他人之手，但它的腐化仍然残留于此。当我赶到它的巢穴时，威斯曼已经神智尽失；他正朝着只有他自己看得见的敌人挥斧乱砍。我想要阻止他，可他把斧头转向了我……我遍体鳞伤、心力交瘁，只能躲进某道裂隙中，躲开……躲开我自己的朋友，他已被此地的腐化扭曲成我的双斧无法放倒的骇人怪物。我毫不怀疑这是我最后一次提笔，因为此刻我已能听见老友那扭曲的声音……在呼唤着我……我之财物将赠予任何能杀死…
 #{italic}#（这点点污渍似乎叙说着威斯曼最终抓住了他的老朋友，他们以这种怪物的形式永远地团聚在了一起）#{normal}#]], "_t")
 t("myths of creation", "创世神话", "newLore category")
 t("memories of Artelia Firstborn", "亚特莱长子的记忆", "_t")
@@ -18430,13 +18430,13 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 诸君啊，敬请听我一言。
 
-现在，许多年轻人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。即使我将一切我未能亲身经历的故事全部当作神话，天哪，我所亲历的一切仍然是那么震撼人心，让我甚至无法相信我的亲眼所见。
+现在，许多年轻人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。若非我亲身在场，我多半会把自己亲眼所见的大半都当作神话；纵然亲历，有时我仍不免怀疑自己的眼睛。
 
 或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地宫里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
 
-如果要说我们能够亲眼所见的是什么，那就往往是那些过去和现在伟大冒险家的遗物：那是身怀着强大力量的神器，诉说着真正的史诗。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。
+那么，最终传到我们手上的并不是人，而是物：那是身怀强大力量的神器，是往昔留下的遗产。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。
 
-要记住重要的是，每一件神器都有其自己的意义，如同曾经手持他们的那些值得在史册留名的伟大英雄。尽管他们的故事已经被人们渐渐淡忘，他们的遗物仍然在世间永存。这就是为什么说，真正的英雄并不是因为他的财富扬名立万。真正的冒险家永远无畏于挑战前人所不敢为之事，无论他们的功绩是否为人所记载。无论如何，你伟大的冒险经历将开创属于你自己的史诗。
+要记住重要的是，每一件神器都有其自己的意义，如同曾经手持他们的那些值得在史册留名的伟大英雄。尽管他们的故事已经被人们渐渐淡忘，他们的遗物仍然在世间永存。这就是为什么说，成就一个冒险家的并不是神器。真正的冒险家永远无畏于挑战前人所不敢为之事，无论他们的功绩是否为人所记载。无论如何，你伟大的冒险经历将开创属于你自己的史诗。
 
 ——#{italic}#科斯汀·赫菲因#{normal}#]], "_t")
 t("point zero", "零点圣域", "newLore category")
@@ -22449,7 +22449,7 @@ t("You focus your aim and fire a shot with great accuracy, inflicting %d%% weapo
 t("Perfect Aim", "完美瞄准", "talent name")
 t([[You focus your aim, increasing your critical damage multiplier by %d%% and your physical and spell critical strike chance by %d%%
 		The effect will scale with your Spellpower.]], [[集中你的注意力瞄准，增加你的暴击加成 %d%% 并提高你的物理和法术暴击率 %d%%。
-		受魔法影响，效果按比例加成。]], "tformat")
+		效果随法术强度提高。]], "tformat")
 t("Quick Shot", "快速射击", "talent name")
 t([[You pause time around you long enough to fire a single shot, doing %d%% damage.
 		The damage will scale with your Paradox and the cooldown will go down with more talent points invested.]], [[你暂停时间给你足够的空闲射出一支箭，造成 %d%% 伤害。
@@ -23705,8 +23705,8 @@ t("\
 #YELLOW#Triggers immediately when placed.#LAST#", "\
 #YELLOW#放置后立即触发。#LAST#", "_t")
 t([[Lay a pressure triggered trap that explodes into a radius 2 wave of razor sharp wire, doing %0.2f physical damage. Those struck by the wire may be shredded, reducing accuracy, armor and defence by %d.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆炸形成半径 2 格的刀片风暴，造成 %0.2f 物理伤害。被击中的目标的命中、护甲和闪避下降 %d。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆开半径 2 格的锋利刀片，造成 %0.2f 物理伤害。被击中的目标可能被刀片切割，命中、护甲和闪避下降 %d。
+		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Bear Trap", "捕熊陷阱", "talent name")
 t("bear trap", "捕熊陷阱", "_t")
 t("Deals %0.2f physical damage and pins, slows (30%%), and wounds for an additional %0.2f damage over 5 turns).", "%0.2f 物理伤害，定身、30%% 减速，5回合额外 %0.2f 流血伤害。", "tformat")
@@ -38354,13 +38354,13 @@ t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
 What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只步履蹒跚、肌肉松弛的——怪物。从他下巴中伸出的浓密胡须以及他的毛发来看，这是一位矮人。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
-t("and offered to his dark Master", "并为他的不死主人永世效忠", "_t")
+t("and offered to his dark Master", "并被献祭给他的黑暗主人", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
 t([[What once must have been an enchantingly beautiful Higher woman now looks to be a ghost of utter despair. Her thin, elegant form ripples gently in the air, whilst her tattered robes seem oddly still. The ghost's face looks jittery and pained whilst her wild, glowing eyes move rapidly back and forth in their sockets.
 Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]], [[这只幽灵以前肯定是一位高等人类美人。她瘦弱而优雅的身躯在空中轻轻的摇晃，但是她的长袍却始终紧贴着身体。她的脸部除了疯狂便是万分的痛苦，她的眼睛在眼眶里不安的来回转动。
 有时她会看到一些东西，她的下巴会突然收缩，分裂的脸部会发出一阵充满痛苦和折磨的哀嚎。]], "_t")
-t("and offered to her dark Master", "并为她的不死主人永世效忠", "_t")
+t("and offered to her dark Master", "并被献祭给她的黑暗主人", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
 t([[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
 There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的、鬼鬼祟祟的骷髅，它的脚上裹着软垫。他迅捷而隐蔽，并且擅长融入黑暗。一只手拿着投石索，另一只手则拿着一柄匕首。
