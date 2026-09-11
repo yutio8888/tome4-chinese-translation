@@ -1747,3 +1747,119 @@ verdict, observation)` 现算，`observation_sha256` 是观察文本本身的 SH
 （第 58、59 批各命中 2 条，其中一条正是刚补过 `args_order` 的「活死人之躯」）。
 已改为：声明了 `args_order` 就按 `src[args_order[i]-1] == tgt[i]` 校验，
 未声明时才要求逐一相等。两批重算后均为 0。
+
+## §41 preflight 的重复重放：一次透传砍掉一半，以及被咨询推翻的三条说法
+
+### §41.1 测量：同一次 preflight 把历史重放了两遍
+给 `queue._projection` 挂计数器跑一次真实的 `batch` 子命令 preflight：
+
+```text
+_projection  HEAD  174.7s   <- batch.py:994  _reconcile_checkpoint
+_entries     -       1.0s
+_projection  HEAD  159.3s   <- batch.py:1077 -> _reconcile_phase_tuples -> queue.strict_check(queue.py:943)
+PREFLIGHT_TOTAL 335.3s
+```
+
+两次在同一进程、同一个钉死的 HEAD、中间没有任何写入，结果逐字节相同。
+第 80 批四次隔离实测正好是它的 2 倍：`surface-export` 320s、`surface-import` 320s、
+`contextual-export` 327s、`contextual-import` 344s。
+
+单次干净重放（无 profiler）在 `b4bdbee`（**118 批 / 73 迁移**）是 **164.8 s**。
+§37 的 125.4 s 是 96 批 / 49 迁移时的值。两点之间批次 +22、迁移 +24、耗时 +39.4 s，
+即每多一批（及其伴随的一条 migration）约 **+1.8 s**。这是两点外推，不是拟合，
+也无法把成本唯一归因于批次数——批次与迁移是同时增长的。
+
+### §41.2 改动（commit `3575d72`）
+`strict_check` 新增关键字参数 `projection`，接受调用方已算出的同 treeish 重放；
+`_reconcile_phase_tuples` 把手上的 `current_projection` 透传进去。
+`_check_projection`(`queue.py:794`) 本来就有 `expected` 参数，管道是现成的。
+
+**复用前先用 `_head` 重新解析一次证据提交，不同就丢弃并照旧完整重放。**
+于是「同一提交 → 复用」在字节层面等价，「提交变了 → 重放」与改前完全一致。
+其余四个 `strict_check` 调用点（migration 三处、batch 三处）不传该参数，行为不变。
+
+### §41.3 验收（照 §37 的规矩）
+改前改后各跑一次完整重放，8 个字段逐一相同：head `b4bdbee4`、catalog_id `7db1e8ba`、
+entries 29828、overrides 8032、reconciliation 29828，以及三个内容摘要
+`82c7228a` / `5123c73f` / `4cc27913`。另外：
+
+- `queue rebuild` 里 `_validated_migration_edges` 仍被调用 1 次（挂计数器实数，不是推断）
+- `strict_check` 决策表：传入当前投影 replays=0；不传 replays=1；传入 head 已过期的投影 replays=1
+- `tests/i18n` 的 queue/batch/migration 三套件 180 项全过
+- `tools/ci-gates.sh` 退出码 0，`results.json` `success=true`、17 项 `exit_code` 全 0
+- 提交后 `queue rebuild` + `queue check` 均 `ok: true`
+
+### §41.4 第 81 批实测：收益兑现，`batch start` 是例外
+
+| 子命令 | 第 80 批 | 第 81 批 |
+|---|---|---|
+| `surface-export` | 320 s | **161 s** |
+| `surface-import` | 320 s | **162 s** |
+| `contextual-export` | 327 s | **161 s** |
+| `contextual-import` | 344 s | **162 s** |
+
+`adjudicate` 162 s、`finalize` 163 s、`queue rebuild` 161–163 s（未动，符合预期）、
+`prepare-evidence` 243 s（含 17 项门禁约 77 s，故其 preflight 段也是约 165 s）。
+
+**`batch start` 481 s 没有减半**，因为入口处没有 active checkpoint，
+`preflight` 在 `_restore_orphans` + `strict_check` 之后就返回 `None`，走不到本次改动的路径。
+481 s 约合三次重放，与源码一致——`start` 在同一进程里做三次完整重放：
+
+1. `_restore_orphans` 内的 `queue._projection`（`batch.py:808`）
+2. `preflight` 尾部的 `queue.strict_check`（`batch.py:1184`）
+3. `start` 自身的 `queue.strict_check`（`batch.py:1195`）
+
+`retry_blocked` 模式再加一次（`batch.py:1202`）。同款透传手法可省掉其中两次。
+
+### §41.5 三条原先写在本手册里、已被证伪的说法
+1. **「只有 `queue rebuild` 会走 `_validated_migration_edges`」不成立。**
+   它在 `_projection_contents`(`queue.py:661`) 里**无条件执行**，所以
+   `queue check/status/strict_check`、`migration plan/check/apply`、`batch finalize`
+   以及批次进行中的每次 preflight 都会验。**不查的是 ci-gates 的 17 项**——这半句仍然成立，
+   §33 那次事故的教训（修复提交后必须 `queue rebuild`）也仍然成立，
+   因为那是流程里必然会跑的一步。
+2. **`_check_projection` 并非「不符一律报 drift」。** 有 active checkpoint 且所有 override 的
+   `batch_id` 非空时，允许 SQLite 与投影不同（`queue.py:818-825`）——活动批次本来就会把
+   未提交的 reservation 投影进 SQLite。
+3. **catalog 记忆的 key 不是三份目录文件。** `CANDIDATE_FILES` 是 **5 份**：
+   三个 catalog 文件加 schema 与 policy（`production_review_v2_lite.py:31`）。
+
+### §41.6 被否决的提案：不要让 SQLite 升为权威层
+提案是：`meta.evidence_head == HEAD` 且 `catalog_id` 匹配时，
+让 `_reconcile_checkpoint` 直接读 `state_override`，跳过重放。
+`gpt-6-astra` 与 `claude-fable-5` 独立咨询，**都判不采纳，且都指向同一个决定性事实**：
+
+`batch start` 向该表 `INSERT OR REPLACE` 写 `reserved` 行，**而 meta 一个字段都不动**
+（`batch.py:1209`）。所以批次进行期间 `meta.evidence_head == HEAD`
+**推不出** `state_override == 投影的 overrides`——而那正是要复用它的时段。
+按提案改完，下一次 preflight 会把自己的 reservation 当成 committed winner，
+在 `_validate_mode_prior`(`batch.py:771`) 报 `queued batch contains a committed winner`。
+`retry_blocked` 更糟：原 blocked winner 的 `batch_id/attempt/result_sha256` 已被覆盖销毁，
+checkpoint 的 `prior_effective_state` 重建不出来。
+
+另一条独立证据：`migration apply`(`migration.py:832-838`) 原地改库后把 meta 前置为
+`(new_catalog_id, base_commit)`，此刻库内容并不是该 commit 的重放——
+**「evidence_head 匹配而内容仍错」在自家代码里就有实例。**
+
+判错代价不对称：拒绝错了，只是每批多花十几分钟，随时可以补上；
+反向错了，外带写入会被 `finalize` 的 `_replace`(`batch.py:1706`) 无声抹掉，
+而 `_reconcile_phase_tuples` 里那三处交叉检查会退化成「SQLite 比 SQLite」的同义反复——
+比删掉更糟，因为留下了覆盖率错觉。
+
+### §41.7 `authoritative-catalog build` 不是 3 分钟，是 3 秒
+handoff 的耗时表记 `~3 min`，实测**两次各 3 秒**，`catalog_id` 逐次一致
+（`cafbbffe7005…`，29828 / 480 / 30308），与第 81 批的产物一致。
+
+它**根本不跑投影**（`cli_production.py:238` → `build_catalog` → `load_occurrences`，
+路径上没有任何缓存），所以也不可能是 `git_evidence_reader` 命中——
+那个缓存每次 `projection_scope` 新建、退出即清（`git_evidence_reader.py:40`），跨不了进程。
+该行应从「要压时间的候选」里删掉。
+
+### §41.8 还没做的三项，以及两条方法论
+优先级：**合并相邻 CLI 步骤**（投影次数约 18 → 9）> **`batch start` 的三次重放**
+> 磁盘级内容标识记忆 > 批量化 git 调用。
+
+- **不要混用 profile 与干净计时。** 「单次重放 165 s → 45 s」那个估算是拿 profile 里的
+  120.2 s 去减干净计时的 164.8 s，两个数不同源，结论无效。磁盘级记忆的收益必须单独实测。
+- **磁盘级记忆不是零信任改动。** key 必须覆盖全部输入**与验证器版本**，不能只用数据 blob id；
+  命中时要校验载荷摘要，缺失或不符一律走原路径；保留一条显式绕过缓存的参考重放。
