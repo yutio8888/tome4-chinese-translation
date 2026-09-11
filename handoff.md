@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 86 批 + crypt 全库统一为「地宫」后）· 分支 `develop`
+最后更新：2026-09-11（第 87 批后）· 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,10 +30,10 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 86 批 `batch-1c65f7e787ad7110fef5`（已 push，evidence `2d7d087`／修复 `b8019e5`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 124 个 |
-| 当前 catalog | `5b872a3f…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `55cbae2b…`（revision_changed 24，crypt 清扫） |
+| 最后完成批次 | 第 87 批 `batch-9762ac4184dbef00478c`（已 push，evidence `d7b5cf4`／修复 `770a145`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 125 个 |
+| 当前 catalog | `0d057aef…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `abf9e56f…`（revision_changed 10） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
@@ -42,14 +42,18 @@
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21342（crypt 清扫后 `queue rebuild` 的实测值见下） |
+| 尚未覆盖（`implicit_queued`） | 21274 |
 
-按 80 条一批算，剩余约 **267 批**。
+按 80 条一批算，剩余约 **266 批**。
 
 > 队列数不是简单的「减 80」。第 85 批 21498 → 21420 = −80 + 2：80 条审完出队，
 > 其中 2 条需修复、以后继重新入队；同批另有 14 条被维护者裁定改动的条目**本就在队列里**，
 > 它们的后继是**替换**原条目，净增 0。
 > 第 86 批 21421 → 21342 = −80 + 1（`Foursaw` 修复在开批前把队列从 21420 推到 21421）。
+> 第 87 批 21345 → 21274 = −80 + 9：migration 产生 10 条后继，其中 9 条是本批刚审过、
+> 因修复重新入队（净增 9）；第 10 条（`and offered to her dark Master`，同类变体）
+> 本来就在队列里未审，后继是替换，净增 0。
+> **差值必须能被独立算式导出**，「少了 71」本身不含信息。
 
 > ✅ **容量阻塞已解除（2026-09-11，`b3da9f8`）。** 上限由 128 MiB 改为带版本的
 > 512 MiB 政策，第 86 批后已用 **23.0%**、余量 **394 MiB**，够约 **479 批**，
@@ -342,7 +346,11 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 3. **工具链：跨进程投影记忆**（第 5 项）—— 维护者已**批准**两项不新增信任的算法修正
    （第 6 项，2026-09-11）；这一项仍未裁定。详见 §13 末节。
 4. ~~**`crypt` 译名**~~ —— 三方交叉咨询后维护者 2026-09-11 裁定**统一为「地宫」**，
-   全库 25 处已改并 push。**已结案**，详见 §17。
+   全库 25 处已改并 push（`41b819f`）。**已结案**，详见 §17。
+5. **交叉复核的 `OK` 是否要求附理由**（2026-09-11，第 87 批引出）——
+   契约下 `ISSUE` 必须带 `observation`，`OK` 只有 `revision_key` + `verdict` 两个字段。
+   后果是**一个无理由的 `OK` 可以单向否决一条有证据的表层观察**。
+   第 87 批 `22c6b53397` 已因此判 advisory，未修复。详见 §18。
 
 > 原第 3 项「是否立项优化 `preflight` / `authoritative-catalog build`」已由优化者
 > 落地三项（`3575d72` / `263aa42` / `208a42f`），不再挂起。
@@ -1050,3 +1058,103 @@ Gemini 选「地宫」取其尺度与四字区名的工整，代价是帝陵语�
 保留「阴影」是因为该入口实际通向 `Shadow Crypt`，而 `Dark crypt` 是
 Kryl-Feijan 区名的变体已作「黑暗地宫」——照字面改会让两个不同区域在界面上同名。
 **这是明知不忠实而保留，不是漏改。**
+
+
+---
+
+## 18. 第 87 批完成记录（2026-09-11）
+
+```
+batch     batch-9762ac4184dbef00478c   80 条   freeze 80/80
+evidence  d7b5cf4dec8bacfbc238216d389f5999ff2ebc3d
+修复      770a14542d061d6b553401ab243fa0edf5bc0eca
+catalog   0d057aeff651ada755aac2b7394f956fe9c1c772e60ea78595b30320849f4c77
+migration abf9e56f3a7b69cd08645bfe67ad491b0e14254d3e7945c02544ac0bc79ac218
+          revision_changed 10 / queued_successors 10
+queue     21345 → 21274
+```
+
+表层 10 条 ISSUE → 交叉复核 9 ISSUE / 1 OK。裁决 19 条观察
+（surface 10 + contextual 9）：**confirmed 18 / advisory 1**，repair 9 个条目，
+实际 12 处编辑（一个条目可含多处；另加 1 条同类变体）。
+
+### 表层轮只用了 90 秒，是真的
+
+4 个 lane 各跑 60–105 秒、25–31k 输入 token、1.2–1.5k 输出，比历史的 20–40 分钟短得多。
+我先按「不可能这么快」去查，结论是**它们确实做完了**：harvest 的覆盖校验报
+每 lane 20/20、身份校验通过。
+
+> **可靠的完成判据是 harvest 的覆盖数，不是 agent 的 `idle` 状态。**
+> `idle` 同时代表「跑完了」和「还没开始」，等待器区分不了这两者。
+
+### 一条 advisory，以及它引出的契约问题
+
+`22c6b53397`（`alchemist-last-hope.lua`）：源文 `Here's a list of the creature bits
+I need. Good luck with the murdering!` 中，`creature bits` 在译文「材料清单」里被泛化，
+`murdering` 整个没有对应成分。我独立核对属实。
+
+但交叉复核轮返回 `OK`，而**该判定在契约下不附任何理由**——其 verdict 对象只有
+`revision_key` 与 `verdict` 两个字段。按 §23 语义判断需两轮共同支持，两轮不一致，
+故判 advisory（一次性放行、不重新入队、不修复），而不是 refuted
+（refuted 等于承认观察是错的，而它不是）。
+
+> ⚠️ **待维护者裁定：交叉复核的 `OK` 是否应与 `ISSUE` 一样要求附理由？**
+> 现状是**一个无理由的 `OK` 可以单向否决一条有证据的表层观察**。
+> `ISSUE` 要举证而 `OK` 不用，等于把举证责任只压在「发现问题」一侧。
+
+### 修复中的两条同类检查
+
+修完后逐条 grep 旧文本，抓到两处残留，**一处是真同类，一处不是**：
+
+- `mod-tome.lua:38363` `and offered to her dark Master` —— 被点名的是 `his` 版，
+  这是同一句的**性别变体**，同样的错。一并修。
+- `mod-tome.lua:5220` 的「镀金工艺」**不是错**。它的原文就是 `a gold plating`，
+  与 `5200` 的 `magical plating` 是两个不同的英文串。同一个仪式在**英文原文里**
+  就有两种叫法，逐句忠实翻译正好保留了这个不一致。
+
+> 「同类问题」要按**英文源串**判定，不能按中文译文判定。
+> 我差点把 `5220` 当成同类顺手改掉，查了原文才停手。
+
+### 本批耗时[实测，非安静环境]
+
+| 子命令 | wall | user | sys |
+|---|---|---|---|
+| `batch start` / `surface-export` / `surface-import` | 154.9 / 178.1 / 174.8 | — | — |
+| `contextual-export` / `contextual-import` | 152.6 / 152.9 | 131.4 / 131.8 | 19.6 / 19.6 |
+| `adjudicate` | 153.6 | 132.3 | 19.8 |
+| `prepare-evidence` | 261.0 | 205.2 | 39.1 |
+| `finalize` | 154.5 | 132.8 | 20.3 |
+| `queue rebuild` ×2 | 152.4 / 152.8 | 131.7 / 132.2 | 19.5 / 19.3 |
+| `migration plan` / `check` / `apply` | 154.8 / 155.9 / 156.8 | 133.6 / 134.2 / 135.7 | 19.8 / 19.9 / 19.7 |
+| `authoritative-catalog build` | **3.8** | 3.6 | 0.15 |
+| `ci-gates.sh` ×2 | 97.6 / 98.9 | 66.3 / 67.8 | 16.8 / 16.7 |
+
+`authoritative-catalog build` 不走投影重放，只要 3.8 s，**不是优化目标**。
+
+### 第 88 批要做的一个实验
+
+维护者委托的 GPT-6 第二轮架构咨询读代码发现：`finalize` 内部已调 `_projection` +
+`_replace`，**所以 finalize 之后紧接的那次 `queue rebuild` 可能是重复的**。
+
+第 88 批按此顺序试：finalize → 修复 → `ci-gates` → `authoritative-catalog build`
+→ **跳过 rebuild，直接 `migration plan`**。
+
+- `plan` 报 `meta/catalog/evidence-head drift` ⇒ 这次 rebuild 必需，把理由写进 §3；
+- `plan` 正常返回 ⇒ 它是重复的，砍掉，**每批省约 155 s**。
+
+实验安全：`plan` 的 preflight 自身走 `_projection`（含 `_validated_migration_edges`），
+漂移会当场报错而不是静默产出错的 migration；失败代价只是一次白跑的 `plan`。
+
+> **修复提交之后那次 rebuild 不动。** 它是唯一校验 migration↔catalog 绑定的环节，
+> 17 项门禁查不到那一层且事后无法补救（有事故记录）。
+> 它不是重复生成，**它是验收**——写在这里免得下一个人看到「又 rebuild 一次」顺手砍掉。
+
+### 实现细节：`queue check` / `rebuild` 的前置条件
+
+两者第二行都是 `_clean_evidence(root)`：对 `evidence/production-review-v2-lite`
+跑 `git status --porcelain=v1 -z --untracked-files=all`，**非空就抛
+`tracked evidence worktree must be clean before queue rebuild`**。
+
+所以证据目录一脏，**连一次投影都不会发生**。函数名叫 `_clean_evidence` 但它不清理，
+它是断言干净——读代码时别被名字骗了。这也解释了为什么复制 catalog 进 `evidence/`
+必须排在所有 rebuild/check 之后。
