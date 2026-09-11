@@ -2911,7 +2911,7 @@ t("Doomed", "末日使者", "birth descriptor name")
 t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在未知之地的阴影之中，你必须战胜自己，直面自己的末日。", "_t")
 t("The Doomed are fallen mages who once wielded powerful magic wrought by ambition and dark bargains.", "末日使者是一些堕落的法师，他们曾经由于野心，通过黑暗的契约，获得了强大的魔法。", "_t")
 t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被黑暗剥夺了魔法力量的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
-t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们是选择了一条新的道路还是一条永远的末日惩罚之路。", "_t")
+t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们能否选择一条新的道路，还是永远身为末日使者。", "_t")
 t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末日使者操纵阴影，从黑暗中发动攻击。", "_t")
 t("They feed upon their enemies as they unleash their minds on all who confront them.", "他们以敌人为食，并对所有与他们对峙的人释放精神冲击。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
@@ -3745,7 +3745,7 @@ t("Runes 2", "符文2", "_t")
 t("Skeleton", "骷髅", "birth descriptor name")
 t("The marching bones, each step we rattle; but servants no more, we march to battle!", "行进之骨，咯吱有声；奴役不再，战士永存！", "_t")
 t("Skeletons are animated bones, undead creatures both strong and dexterous.", "骷髅是由有灵性的骨头组成的强壮而敏捷的不死生物。", "_t")
-t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有独特的 #GOLD# 骷髅#WHITE# 技能和一系列不死系技能：", "_t")
+t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有#GOLD#特殊骷髅技能#WHITE#和一系列不死系技能：", "_t")
 t("- poison immunity", "- 毒素免疫", "_t")
 t("- no need to breathe", "- 不需要呼吸", "_t")
 t("- special skeleton talents: bone armour, resilient bones, re-assemble", "- 特殊骷髅技能：骨质盔甲、坚韧骨骼、重组", "_t")
@@ -5403,7 +5403,7 @@ t("About what happened on the beach, I think I have found something.", "关于�
 t([[I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things.
 That is why I got stuck in that crypt, I want to see the world.
 My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]], [[我现在还不知道，在我完全康复之前我父亲都不准我出门。我一直想做很多事情。
-这也是为什么我会被困在那个地穴里，我想去看看外面的世界。
+这也是为什么我会被困在那个地窖里，我想去看看外面的世界。
 我父亲给了我一笔钱，让我能够自己把握未来。我在德斯镇有几个朋友，也许我会在那里开一家属于自己的小店。]], "_t")
 t("I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.", "我见过你是如何对抗那些腐化者的，还有你摧毁他们魔法的方式。我也想学会这些，这样如此可怕的惨剧就再也不会发生在任何人身上了。", "_t")
 t([[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks!
@@ -7382,7 +7382,7 @@ t("%s (protective aura)", "%s（防御光环）", "tformat")
 section "mod-tome/data/general/events/rat-lich.lua"
 
 t("way up to %s", "向上到%s的路", "tformat")
-t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开洞穴的时候，楼梯崩塌了。", "log")
+t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开地窖的时候，楼梯崩塌了。", "log")
 t("dusty rat skull", "肮脏的鼠骷髅", "_t")
 t("Skull of the Rat Lich", "巫妖鼠骨盔", "_t")
 t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这顶古老的骨盔是巫妖鼠仅存于世的东西，上面残留了巫妖鼠的部分精华能量。", "_t")
@@ -7390,11 +7390,11 @@ t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为�
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 令 %s %s站了起来，一道红光从它眼中闪过！", "logSeen")
 t("From the dust of decay a %s forms!", "从灰烬中诞生了一只%s！", "logSeen")
-t("Forsaken Crypt", "废弃地穴", "_t")
+t("Forsaken Crypt", "废弃地窖", "_t")
 t("stairway leading downwards", "向下的楼梯", "_t")
-t("Stairs seem to lead into some kind of crypt.", "通往某个地穴的楼梯。", "_t")
+t("Stairs seem to lead into some kind of crypt.", "通往某个地窖的楼梯。", "_t")
 t("You hear squeaks and the sounds of clicking bone echo around you... Pure death awaits. Flee!", "你听到老鼠的叫声夹杂着骨骼的响动的吱吱声……前面等待着你的是死亡的力量。快逃！", "_t")
-t("collapsed forsaken crypt", "坍塌的废弃地穴", "_t")
+t("collapsed forsaken crypt", "坍塌的废弃地窖", "_t")
 t("Stairs lead downwards into rubble.", "向下通往瓦砾之中的楼梯。", "_t")
 
 ------------------------------------------------
@@ -14764,7 +14764,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 #{bold}#第二章：难忘之夜#{normal}#
 
-三天后的午夜，我在一场噩梦中惊醒。眼前窗户大开，晦暗的光线中丝织的帘幕在晚风中舞动。随着我的眼睛渐渐适应了夜晚微弱的亮光，视线中隐约看到清朗的晚风中，莱娜尼尔身穿轻柔的紧身蔚蓝长裙的身影。她的腰间环绕着镶嵌着蛋白石和苍色符文的羊绒腰带，颈上腕间环绕着闪耀的金制首饰，一根顶端镶着一颗闪耀的红宝石的长杖静静地躺在她的手中。清风吹拂，她澄澈的眸子中映出我的影子，红色的长发迎风飘荡。
+三天后的午夜，我在一场噩梦中惊醒。眼前窗户大开，晦暗的光线中丝织的帘幕在晚风中舞动。随着我的眼睛渐渐适应了夜晚微弱的亮光，我看见莱娜尼尔就站在我的床尾，一袭轻薄的蔚蓝长裙在寒夜的空气里紧贴着她的肌肤。她的腰间环绕着镶嵌着蛋白石和苍色符文的羊绒腰带，颈上腕间环绕着闪耀的金制首饰，一根长杖轻轻搁在她的手中，杖首的装饰上嵌着数颗红宝石，熠熠生辉。清风吹拂，她澄澈的眸子中映出我的影子，红色的长发迎风飘荡。
 
 “你在做什么呢？”，我轻轻问道。我并没有打算询问她到底是如何绕过那些卫兵悄悄潜入我的卧房的。我知道，至少得是议会成员，才能在她专心施展幻象时察觉她的存在。
 
@@ -14772,7 +14772,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “我立刻就召集突击队迎敌。”，我不顾礼仪地从床上坐起。
 
-“唔，那样多无聊啊”，嘟哝着的她将匕首轻轻放下，回身面向着我，“你还记得我们曾经约定一起去狩猎兽人吗？”
+“唔，那样多无聊啊”，嘟哝着的她将匕首轻轻放下，回身面向着我，“那你许下的、要一起去猎兽人的承诺呢？”
 
 “……什么？就只有我们两个人去吗？”
 
@@ -14794,13 +14794,13 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “舞会开始了”
 
-一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑尖高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，将他们的头颅一一斩落。突然，一团火焰冲击将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
+一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑尖高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
 
 我应声道，旋即向刃尖注入寒冰的魔法，在剑刃灵巧的舞动中冰霜与寒风向着她周围的兽人席卷而来。随着一声声碎裂的轻响，兽人在她的火焰触及之前便被冻住，如同玻璃般裂成碎片。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。“喂，别抢了我的乐子。”，她大喊道。旋即，随着传送魔法的波动，她的身形出现在兽人营地的另一侧，烈火与爆炸的硝烟也随之燃起。
 
 我大笑着转身，剑尖轻击地面，地震的烈波横贯开来，周围的兽人纷纷不支倒下，任凭利刃穿透他们的脖颈。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。斗志昂扬的我热血沸腾，脱下头盔和板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败敌人的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
 
-远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。炽焰点缀着她的裙摆，她晶莹的眸子又比那烈火更加炽热，轻盈的舞步绽放着辉耀的光华，如同火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
+远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。烈焰缠绕着女魔法师的周身，她的眸子熠熠生辉，四周跃动的火光让她宛如火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
 
 剩余的兽人眼看人数锐减，开始逃跑；但我相位移动到他们前方，截断退路，又召来一股洪水，逼他们退回莱娜尼尔的烈焰之中。火墙之前，我将他们击溃，大批兽人如风中落叶般倒下。鲜血大股涌出；斩月剑又刺出几下，莱娜尼尔又轰出几道法术，战斗便结束了。没有一个兽人还能动弹，地上倒着远超四百具尸体。
 
@@ -15478,7 +15478,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 在洞穴的另一端，一堵冰墙堵住了我们的路。莱娜尼尔举起了卡库罗尔的戒指，其上的宝石开始燃烧。冰慢慢融化，露出通向另一个更小的房间的通道。
 
-这是个冰冷的、地穴般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我试图靠近研究它们，但我无法认出任何东西来，这超出了我的学识。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
+这是个冰冷的、地窖般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我试图靠近研究它们，但我无法认出任何东西来，这超出了我的学识。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
 
 她将手伸向墙壁，勾勒出一个门的轮廓。“这是奎科加的一座神庙，是一个名字不知为何被我遗忘了的种族之神。远在我们的种族出生之前，这个种族就已被夏·图尔人灭绝了。他们曾经为了纪念奎科加而建造了这座神庙，而他们中的最后一批人为了保卫奎科加本人而在这里战死。”
 
@@ -15969,7 +15969,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 #{bold}#3、尸妖#{normal}#
 
-尸妖是不死生物中的异类，往往并非由死灵法师特意创造，而是在条件成熟时自行出现。尸妖绝不是单独的灵魂，而常是某种集合意识的一部分；某片土地经历了足够多的杀戮——无论战场、森林、地穴还是墓园——尸妖便会成群升起，几乎是这片土地所受战争与动荡的实体化身。遗憾的是，死灵法师仍常常促成尸妖诞生，因为没有别的学问或行当会制造如此多的鲜血与死亡。
+尸妖是不死生物中的异类，往往并非由死灵法师特意创造，而是在条件成熟时自行出现。尸妖绝不是单独的灵魂，而常是某种集合意识的一部分；某片土地经历了足够多的杀戮——无论战场、森林、地窖还是墓园——尸妖便会成群升起，几乎是这片土地所受战争与动荡的实体化身。遗憾的是，死灵法师仍常常促成尸妖诞生，因为没有别的学问或行当会制造如此多的鲜血与死亡。
 
 与尸妖战斗过的人经常将其描述为：一具轮廓模糊的骷髅身形，裹着飘动的褪色长袍，袍角逐渐变淡、虚化，本该是眼睛的位置则跳动着诡异的光。幸存者们则述说只要靠近这种诡异的生物，仅仅是靠近这些死亡的化身，自己的生命力就会不住地衰减、消逝。
 
@@ -17017,7 +17017,7 @@ I must live. For you, my love, I will live.]], [[哦，塞西尔，你会怎么�
 
 在这片黑暗中，我有一个好消息要告诉你，亲爱的。我怀孕了。虽然你已经去世，你的血脉仍在我体内延续；即使我自己的肉体日渐枯萎，我仍能感觉到我们的孩子正在腹中成长。正因如此，我才继续进行这些实验，无论它们多么可怕。为了我们的孩子，我必须硬起心肠挣扎求生，不断延长自己的生命。
 
-在这寒冷的地穴中我又冷又孤单，我一直思念着和你一起度过的温暖时光。墙外潜伏着畸形怪物，它们疯狂的尖叫声折磨着我的耳朵，提醒我曾犯下的黑暗行径。但偶尔，我会感到腹中轻轻一踢，意志也随之更加坚定，随后便重新投入实验。
+在这寒冷的地窖中我又冷又孤单，我一直思念着和你一起度过的温暖时光。墙外潜伏着畸形怪物，它们疯狂的尖叫声折磨着我的耳朵，提醒我曾犯下的黑暗行径。但偶尔，我会感到腹中轻轻一踢，意志也随之更加坚定，随后便重新投入实验。
 
 我必须活下去。为了你，亲爱的。我将活下去。]], "_t")
 t("last hope graveyard", "最后的希望墓地", "newLore category")
@@ -18430,7 +18430,7 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 现在，许多年轻人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。即使我将一切我未能亲身经历的故事全部当作神话，天哪，我所亲历的一切仍然是那么震撼人心，让我甚至无法相信我的亲眼所见。
 
-或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地穴里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
+或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地窖里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
 
 如果要说我们能够亲眼所见的是什么，那就往往是那些过去和现在伟大冒险家的遗物：那是身怀着强大力量的神器，诉说着真正的史诗。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。
 
@@ -20351,10 +20351,10 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
 t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地穴中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地窖中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
-t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地穴。", "_t")
+t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地窖。", "_t")
 t("You failed to defeat the acolytes in time - the woman got torn apart by the demon growing inside her.", "你没能及时杀死那些侍僧，那个女人被在她体内成长的恶魔撕成了碎片。", "_t")
 
 ------------------------------------------------
@@ -29187,7 +29187,7 @@ t([[Your mastery of necromancy becomes so total that an aura of undeath radiates
 
 section "mod-tome/data/talents/spells/master-of-bones.lua"
 
-t("Call of the Crypt", "墓穴召唤", "talent name")
+t("Call of the Crypt", "地窖召唤", "talent name")
 t([[Call upon the battlefields of old, collecting bones, fusing them with souls, and forging them into skeletal minions.
 		Up to %d skeleton warriors of level %d are summoned, and up to %d skeletons can be controlled at once.
 		At level 3 the summons become armoured skeletons warriors.
