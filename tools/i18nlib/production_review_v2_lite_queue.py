@@ -940,15 +940,22 @@ def rebuild(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
         return report
 
 
-def strict_check(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
+def strict_check(root: Path, *, treeish: str = "HEAD",
+                 projection: tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]] | None = None) -> dict[str, Any]:
     """Check the exact projection; never turn a failure into an active-writer report.
 
     Writer preflight uses this entry point while holding the lock.  The public
     read-only check may still report a concurrent writer, but a writer must
     never proceed on that degraded answer.
+
+    ``projection`` is a replay the caller already holds for this same treeish.
+    A replay is a pure function of its evidence commit, so it is reused only
+    after re-resolving that commit and finding it unchanged; any other answer
+    discards it and replays, exactly as an omitted argument does.
     """
     _clean_evidence(root)
-    projection = _projection(root, treeish)
+    if projection is None or projection[0] != _head(root, treeish):
+        projection = _projection(root, treeish)
     return _check_projection(root, treeish, projection, active_writer=True)
 
 

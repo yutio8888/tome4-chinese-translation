@@ -981,7 +981,10 @@ def _reconcile_phase_tuples(root, checkpoint, current_projection):
         row = actual.get(revision)
         if row is None or not _tuple_matches(row, desired[revision]):
             raise _err("active batch phase tuple was not atomically advanced")
-    queue.strict_check(root)
+    # This replay was already produced for the same evidence commit before any
+    # SQLite was opened; only the database changed since.  strict_check still
+    # re-resolves the commit and replays if it moved.
+    queue.strict_check(root, projection=current_projection)
 
 
 def _reconcile_checkpoint(root, value):
