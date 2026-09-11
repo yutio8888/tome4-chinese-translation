@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 80 批后）· HEAD `2d5e6a7` · 分支 `develop`
+最后更新：2026-09-11（第 81 批后）· HEAD `77a722c` · 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,28 +30,21 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 80 批 `batch-fa5522f26b0d131bec00`（已 push，evidence `e5824ee`／修复 `2d5e6a7`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 118 个 |
-| 当前 catalog | `7db1e8ba…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `441a4500…`（revision_changed 3） |
+| 最后完成批次 | 第 81 批 `batch-887b6eab00682b1aa283`（已 push，evidence `8381692`／修复 `77a722c`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 119 个 |
+| 当前 catalog | `cafbbffe…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `1a8a3e85…`（revision_changed 5） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
-审核进度（第 80 批修复提交后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
+审核进度（第 81 批修复提交后 `queue rebuild` + `queue check`，2026-09-11，`ok: true`）：
 
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21796 |
+| 尚未覆盖（`implicit_queued`） | 21721 |
 
-按 80 条一批算，剩余约 **273 批**。
-
-> ⚠️ **第 81 批暂不要开。** 2026-09-11 维护者指示第 80 批后暂停主持，把工作区让给
-> 另一个 opus 5 优化者 agent（`2577f8ff-95f4-432a-9b1e-68ae9559570c`）。它要改
-> `tools/i18nlib/production_review_v2_lite_queue.py` 与
-> `…_batch.py`，让 `strict_check` 接受并透传已算出的 projection，消掉 `preflight`
-> 里那次重复的全历史重放（目标 335s → ~175s）。**那正是门禁与 migration 会走的
-> 代码路径**，改到一半时开批会让两边都拿到无效结果。等它 push 并主动通知后再恢复。
+按 80 条一批算，剩余约 **272 批**。
 
 **恢复工作的第一步**永远是 `queue rebuild` + `queue check`，确认没有漂移。
 
@@ -272,14 +265,31 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 
 ### 单批耗时构成（2026-09-10 实测）
 
-| 步骤 | 耗时 |
-|---|---|
-| `preflight`（每个 batch 子命令都跑一遍） | >4 min |
-| `authoritative-catalog build` | ~3 min |
-| `queue rebuild` | 157 s（每批两次） |
-| `bash tools/ci-gates.sh` 17 项 | 82 s（每批两次） |
-| 表层筛查 4 个 child | 约 1 min |
-| 交叉复核 1 个 child | 80–100 s |
+**已于 2026-09-11 优化，下表为第 81 批实测的现值：**
+
+| 步骤 | 优化前 | 现值 |
+|---|---|---|
+| `surface-export` / `surface-import` | 320 s | **161 / 162 s** |
+| `contextual-export` / `contextual-import` | 327 / 344 s | **161 / 162 s** |
+| `adjudicate` / `finalize` | 同上量级 | 162 / 163 s |
+| `batch start` | — | **481 s**（例外，见下） |
+| `prepare-evidence`（含 17 项门禁） | — | 243 s |
+| `queue rebuild` | 157 s | 161–163 s（未动，每批两次） |
+| `bash tools/ci-gates.sh` 17 项 | 82 s | 77 s（每批两次） |
+| 表层筛查 4 个 child | 约 1 min | 约 1 min |
+| 交叉复核 1 个 child | 80–100 s | 150–240 s |
+
+提速来自 `3575d72`：`preflight` 原本把整段证据历史重放**两遍**
+（`_reconcile_checkpoint` 一次，`_reconcile_phase_tuples → queue.strict_check` 又一次），
+现在 `strict_check` 接受调用方已算出的投影，复用前用 `_head` 重解析证据提交，
+不同就照旧完整重放。**`_validated_migration_edges` 在 `_projection_contents:661` 内部，
+复用的投影本身已跑过它，是不重复跑而非跳过**——这一点接手时值得自己再验一遍。
+
+`batch start` 是例外（481 s）：它在入口处没有 active checkpoint，`preflight` 直接
+`strict_check` 后返回 None，吃不到这次优化。
+
+`authoritative-catalog build` 第 81 批只用 3 s（交接文档原记 ~3 min），
+疑为同会话内 git evidence reader 缓存命中，**尚未证实是持久收益**，不要据此排期。
 
 门禁里真正扫全库的几项（06 碰撞扫描、08 术语静态审计、12 addon 构建）**全在 1 秒内**，
 80% 时间是两个 Python 单元测试组（`03-toolchain` 26 s、`05-production-shadow` 33 s），
@@ -398,3 +408,43 @@ Epoch 外观描述。
   （术语表 `corruption`→堕落）。两者不算冲突，且**没有任何一轮报过**，
   故修复时原样保留——「一并修改同类问题」指同一缺陷的其他实例，
   不是给同一条串附加未经裁决的改动。
+
+---
+
+## 11. 第 81 批完成记录（2026-09-11）
+
+`batch-887b6eab00682b1aa283`，tome 80 条单来源。表层报 7 条 ISSUE，交叉复核 5 ISSUE + 2 OK。
+源码工作集 80/80、17 项门禁两次全绿、5 个 child 全部有效。
+裁决 confirmed 10（5 条 × 两轮）、advisory 2；修复 5 条（migration `1a8a3e85`）。
+
+| 条目 | 问题 | 处置 |
+| --- | --- | --- |
+| `insignia ring`（Exiler 未鉴定名） | insignia 是徽记／纹章，误作「荣誉」，且未鉴定外观名被写成神器式命名 | confirmed →「徽记戒指」 |
+| Exotic Weapons Mastery | 漏译 `weapon` 限定，被读成全局伤害加成 | confirmed →「增加 %d%% 武器伤害」 |
+| 阳光烈焰致盲范围 | 丢掉作为圆心的 `the target`，`everyone` 错限为「敌人」 | confirmed →「目标及其周围半径 2 以内的所有单位」 |
+| 时空法师 `locked_desc` | 祈使指引被改写为第三人称陈述，`outside` 译反 | confirmed → 重译两句 |
+| Blighted Summoning 解锁条件 | `may`／`more` 的不确定限定被绝对化 | confirmed →「更为持久的召唤物可能会被计为多于 1 个」 |
+| `has survived the set up` | 「恢复了平衡」未表存活义 | **advisory**（交叉判 OK，见下） |
+| kor-pul lore 多一处换行 | 换行总数 4 → 5 | **advisory**（既有裁定） |
+
+本段新增判例：
+
+- **「效果自身的 long_desc」可以为译文背书。** `#Target# has survived the set up.` 是
+  `EFF_SET_UP` 的 `on_lose`，而该效果 `long_desc` 开篇即 `The target is off balance…`
+  （`physical.lua:1631-1640`），故「恢复了平衡」与运行时状态相符，不是事实错误。
+  与第 80 批 `less protected` 同型：**单轮 ISSUE + 交叉 OK + 源码不反证 ⇒ advisory**。
+  这类「译文换了视角但仍锚定同一机制」的情形，去 `long_desc` 找锚点比查词典有用。
+- **投射目标的 `friendlyfire` 缺省值决定描述范围。** 阳光烈焰的 `target2` 只写了
+  `selffire=false`，**没写** `friendlyfire=false`，所以除施法者外队友与召唤物都会被致盲，
+  原文的 `everyone` 是字面准确的。审 AoE 描述时要连 `friendlyfire` 一起看，
+  只看 `selffire` 会把「所有人」误判成「敌人」。
+- **解锁条件类文本要去数源码的写入点。** `More permanent summons may count as more than 1.`
+  的真假取决于 `summoned_times` 的全部写入点：全库仅三处，魔像计 99、暗影与巫妖各计 1。
+  绝对化译法之所以 confirmed，不是因为丢了 `may`，而是因为**与源码计数直接矛盾**。
+
+### 一条本该早就套用的规矩
+
+第 80 批收尾那条**纯文档提交**（handoff 更新）之后没有补 `queue rebuild`，
+`queue.sqlite3` 的 `evidence_head` 就停在了上一个提交，下一个 writer 一来就报
+`meta/catalog/evidence-head drift`。§3 的第 3 条写的是「任何让 HEAD 前进的提交之后」，
+**文档提交也算**——别把它当成只适用于批次流程内的步骤。
