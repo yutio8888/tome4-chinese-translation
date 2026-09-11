@@ -64,6 +64,18 @@ def _raw_evidence_name(number, key):
     return f"{number:03d}-{stems[key]}.json"
 
 
+def _group_evidence_name(digest):
+    """Return the content-addressed filename shared by one group manifest.
+
+    Naming the file after its own bytes is what makes the four lanes of a run
+    land on one copy: same bytes, same name.  It also makes "same name with
+    different bytes" a SHA-256 collision rather than an ordering accident.
+    """
+    if not isinstance(digest, str) or not wp1.SHA256_RE.fullmatch(digest):
+        raise _err("group manifest filename requires a lowercase SHA-256")
+    return f"group-{digest}.json"
+
+
 def _prospective_batch_path(root, batch_id):
     relative = _batch_relative(batch_id)
     return queue.checkpoint_path(root).parent / "prospective" / Path(relative)
@@ -1443,22 +1455,60 @@ def _actual_gate_records(root, selected):
     return result
 
 
-def _prospective_declared_paths(checkpoint):
-    """Return the exact repository-relative prepare inventory."""
+def _raw_copy_plan(checkpoint):
+    """Resolve the copy tasks, the ref bindings and the declared inventory together.
+
+    These three used to be derived in separate places, which is the easiest way
+    to let them disagree about which files a prepare will produce.  Here they
+    are three views of one walk over the checkpoint, so they cannot.
+
+    A run's four surface lanes all cite the same group manifest, so its
+    destination is content-addressed and the four lanes bind to one file
+    instead of four identical copies.  **Only** group manifests are shared:
+    lane inputs and outputs keep their per-section names even when their bytes
+    match, and every destination stays inside this batch.
+
+    This is a pure function of the checkpoint.  It reads no files, so abandon
+    can use the same plan after the sources are gone; the bytes are checked
+    against these recorded hashes when they are actually copied.
+    """
     batch_id = checkpoint["batch_id"]
     declared = {_batch_relative(batch_id, name) for name in evidence.CORE_FILES}
+    copies = {}
+    hash_by_source = {}
+    sections = []
     for number, section in enumerate((checkpoint.get("surface") or []) +
                                       (checkpoint.get("contextual") or [])):
         if not section.get("output_path"):
             continue
         kind = "contextual" if section["contract"] == "translation_contextual_v2" else "surface"
+        item = {"number": number, "kind": kind, "section": section, "group": None}
         for key in ("input_path", "output_path"):
-            declared.add(_batch_relative(batch_id, "raw", kind,
-                                         _raw_evidence_name(number, key)))
-        if section.get("group_manifest_path"):
-            declared.add(_batch_relative(batch_id, "raw", kind,
-                                         _raw_evidence_name(number, "group_manifest_path")))
-    return declared
+            parts = ("raw", kind, _raw_evidence_name(number, key))
+            copies[parts] = (section[key], None)
+            declared.add(_batch_relative(batch_id, *parts))
+        source = section.get("group_manifest_path")
+        if source:
+            digest = section.get("group_manifest_sha256")
+            if not isinstance(digest, str) or not wp1.SHA256_RE.fullmatch(digest):
+                raise _err("group manifest reference lacks a recorded SHA-256")
+            if hash_by_source.setdefault(source, digest) != digest:
+                raise _err("group manifest conflict: one source path carries two different hashes")
+            parts = ("raw", kind, _group_evidence_name(digest))
+            previous = copies.get(parts)
+            if previous is not None and previous[1] != digest:
+                raise _err("group manifest conflict: one destination carries two different hashes")
+            if previous is None:
+                copies[parts] = (source, digest)
+            declared.add(_batch_relative(batch_id, *parts))
+            item["group"] = parts
+        sections.append(item)
+    return {"declared": declared, "copies": copies, "sections": sections}
+
+
+def _prospective_declared_paths(checkpoint):
+    """Return the exact repository-relative prepare inventory."""
+    return _raw_copy_plan(checkpoint)["declared"]
 
 
 def _prospective_inventory(runtime, batch_id):
@@ -1588,30 +1638,41 @@ def prepare_evidence(root):
         # Freeze the complete path inventory before the first prospective
         # write.  Hashes are filled with exact postimages below; None marks an
         # interrupted prepare that is safe to resume, not a second store.
-        declared_paths = _prospective_declared_paths(checkpoint)
+        # One walk produces the inventory, the copy tasks and the ref bindings,
+        # so the frozen inventory below cannot describe a different tree than
+        # the one actually written.
+        plan = _raw_copy_plan(checkpoint)
+        declared_paths = plan["declared"]
         _remove_generated_prospective_temps(runtime, checkpoint["batch_id"], declared_paths)
         _validate_prepare_resume(checkpoint, runtime, declared_paths)
         checkpoint["gates"] = {"commands": gate_records, "prospective": {path: None for path in sorted(declared_paths)},
                                 "preimage_absent": sorted(declared_paths), "prospective_bytes": 0, "committed_bytes": 0}
         _atomic(queue.checkpoint_path(root), _checkpoint_bytes(checkpoint))
         runtime.mkdir(parents=True, exist_ok=True)
-        raw_root = runtime / "raw"
+        written = {}
+
+        def copy_once(parts):
+            """Copy one planned destination at most once, whoever asks for it."""
+            if parts in written:
+                return written[parts]
+            source, expected = plan["copies"][parts]
+            raw = Path(source).read_bytes()
+            digest = _sha(raw)
+            if expected is not None and digest != expected:
+                raise _err("group manifest bytes no longer match the hash recorded at import")
+            _write_fsynced(runtime / Path(*parts), raw)
+            written[parts] = (_batch_relative(checkpoint["batch_id"], *parts), digest)
+            return written[parts]
+
         refs = []
-        for number, section in enumerate((checkpoint.get("surface") or []) + (checkpoint.get("contextual") or [])):
-            if not section.get("output_path"): continue
-            kind = "contextual" if section["contract"] == "translation_contextual_v2" else "surface"
-            copied = {}
-            for key in ("input_path", "output_path"):
-                name = _raw_evidence_name(number, key)
-                src = Path(section[key]); dest = raw_root / kind / name
-                raw = src.read_bytes(); _write_fsynced(dest, raw)
-                copied[key] = (_batch_relative(checkpoint["batch_id"], "raw", kind, name), _sha(raw))
+        for item in plan["sections"]:
+            number, kind, section = item["number"], item["kind"], item["section"]
+            copied = {key: copy_once(("raw", kind, _raw_evidence_name(number, key)))
+                      for key in ("input_path", "output_path")}
             ref = {"contract": section["contract"], "input_path": copied["input_path"][0], "input_sha256": copied["input_path"][1], "output_path": copied["output_path"][0], "output_sha256": copied["output_path"][1], "candidate_identity": section["candidate_identity"]}
-            if section.get("group_manifest_path"):
-                name = _raw_evidence_name(number, "group_manifest_path")
-                src = Path(section["group_manifest_path"]); dest = raw_root / kind / name
-                raw = src.read_bytes(); _write_fsynced(dest, raw)
-                ref.update({"group_manifest_path": _batch_relative(checkpoint["batch_id"], "raw", kind, name), "group_manifest_sha256": _sha(raw)})
+            if item["group"] is not None:
+                group_path, group_hash = copy_once(item["group"])
+                ref.update({"group_manifest_path": group_path, "group_manifest_sha256": group_hash})
             refs.append(ref)
         def jsonl(values): return b"".join(wp1.canonical_bytes(v) + b"\n" for v in values)
         adjud_raw = jsonl(checkpoint.get("adjudications") or [])
