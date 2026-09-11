@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 83 批后 + 工具链维护窗口）· HEAD `b3da9f8` · 分支 `develop`
+最后更新：2026-09-11（第 86 批 + crypt 全库统一为「地宫」后）· 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -30,10 +30,10 @@
 
 | 项 | 值 |
 |---|---|
-| 最后完成批次 | 第 85 批 `batch-37e8bcf6fcc318e68716`（已 push，evidence `e040fad`／修复 `b2180f8`） |
-| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 123 个 |
-| 当前 catalog | `163074d8…`（29828 条目 / 480 排除 / 30308 occurrence） |
-| 最后 migration | `d33c84c7…`（revision_changed 16） |
+| 最后完成批次 | 第 86 批 `batch-1c65f7e787ad7110fef5`（已 push，evidence `2d7d087`／修复 `b8019e5`） |
+| 累计批次证据 | `evidence/production-review-v2-lite/batches/` 共 124 个 |
+| 当前 catalog | `5b872a3f…`（29828 条目 / 480 排除 / 30308 occurrence） |
+| 最后 migration | `55cbae2b…`（revision_changed 24，crypt 清扫） |
 | 活动批次 | **无**（可以安全提交） |
 | 工作树 | 干净，仅 `.ai/consult/` 未跟踪（三模型咨询存档，未入库是有意的） |
 
@@ -42,17 +42,18 @@
 | 项 | 条数 |
 |---|---|
 | 条目总数 | 29828 |
-| 尚未覆盖（`implicit_queued`） | 21420 |
+| 尚未覆盖（`implicit_queued`） | 21342（crypt 清扫后 `queue rebuild` 的实测值见下） |
 
-按 80 条一批算，剩余约 **268 批**。
+按 80 条一批算，剩余约 **267 批**。
 
 > 队列数不是简单的「减 80」。第 85 批 21498 → 21420 = −80 + 2：80 条审完出队，
 > 其中 2 条需修复、以后继重新入队；同批另有 14 条被维护者裁定改动的条目**本就在队列里**，
 > 它们的后继是**替换**原条目，净增 0。
+> 第 86 批 21421 → 21342 = −80 + 1（`Foursaw` 修复在开批前把队列从 21420 推到 21421）。
 
 > ✅ **容量阻塞已解除（2026-09-11，`b3da9f8`）。** 上限由 128 MiB 改为带版本的
-> 512 MiB 政策，当前已用 **22.8%**、余量 **395.46 MiB**，按实测 843 KiB/批够约
-> **480 批**，而剩余待审 269 批。详见 §13。
+> 512 MiB 政策，第 86 批后已用 **23.0%**、余量 **394 MiB**，够约 **479 批**，
+> 而剩余待审 267 批。详见 §13。
 
 > **工作区是与一个优化者 agent 共享的**（`2577f8ff-95f4-432a-9b1e-68ae9559570c`，
 > opus 5）。它在 `/workspace/tome4-opt-1`（分支 `perf/merge-cli-steps`）的 git worktree
@@ -332,14 +333,16 @@ catalog 的 6 个：`engine.lua`、`mod-boot.lua`、`mod-tome.lua`、
 
 ## 7. 挂起中，等维护者裁定
 
-1. **`Foursaw the Clown` 墓志铭** —— 维护者已授权破例换行与重造双关（2026-09-11），
-   **但换行根本不需要破例**：同墓园其它墓志铭本就逐行镜像，只有这条压成一行。
-   现等维护者在两个双关方案之间选定，详见 §15。
+1. ~~**`Foursaw the Clown` 墓志铭**~~ —— 维护者 2026-09-11 选定方案 A
+   （小丑先觉／我们笑着／直到察觉／笑话已经结束），已落地并 push。**已结案。**
+   附带结论：换行**不需要破例**，同墓园其它墓志铭本就逐行镜像，只有这条压成一行。
 2. ~~**标记内多余空格清理**~~ —— 真正有视觉后果的 2 条高亮范围错位
    **已于 2026-09-11 获授权并修复**（`b2180f8`）。其余「291 处」的结论本就站不住（见下）。
    此项**已结案**。
 3. **工具链：跨进程投影记忆**（第 5 项）—— 维护者已**批准**两项不新增信任的算法修正
    （第 6 项，2026-09-11）；这一项仍未裁定。详见 §13 末节。
+4. ~~**`crypt` 译名**~~ —— 三方交叉咨询后维护者 2026-09-11 裁定**统一为「地宫」**，
+   全库 25 处已改并 push。**已结案**，详见 §17。
 
 > 原第 3 项「是否立项优化 `preflight` / `authoritative-catalog build`」已由优化者
 > 落地三项（`3575d72` / `263aa42` / `208a42f`），不再挂起。
@@ -919,3 +922,131 @@ gates: schema 3 / expanded-512mib-v1 / 4d3bf7d2…
 `make_adjudication` 不会 KeyError。代价：若这类条目被判 confirmed，
 证据快照里不含该字面串，结论里要改引构造式所在行。
 
+
+
+---
+
+## 16. 第 86 批完成记录（2026-09-11）
+
+```
+batch      batch-1c65f7e787ad7110fef5   80 条   freeze 80/80
+evidence   2d7d0870d04a27ccad58a407a95eccbfb24c847e（父 f667cf5）
+修复       b8019e56e7126dec6fcec5a908cd41c565ea6ad5
+catalog    aa5a924741b4e51ce126b998da01300d460a519362d731a84fa80bb253754b99
+migration  9b2a2a4294e380591a5644b98c1895d2b046bcca6ce32ebf62ccfa49eafac998
+           revision_changed 1 / queued_successors 1
+queue      21421 → 21342
+```
+
+4 条观察 → **2 confirmed / 2 pending**，修复 1 条（4 处编辑，全在
+`mod-tome/init.lua` 的开场介绍）。
+
+| 处 | 问题 | 修法 |
+|---|---|---|
+| E1 | `after the Age of Pyre` 译作「在烈火纪末」，把「之后」反转成「结束前」 | 改「烈火纪之后」，并补回源文的空行分段 |
+| E2 | Toknor 一句主语悬空、重复指称；且凭空称 Mirvenia 为「半身人皇后」 | 重写；源文未称其为半身人，删 |
+| E3 | `with the Allied Kingdoms` 窄化为「和联合王国的人类们」（与同文人类半身人共存矛盾）；`yet` 的转折被改成让步「尽管」致逻辑反转 | 复原为「与联合王国」；改回「但」 |
+| E4 | 末段大段无据增译（「被遗忘的大陆、未被开发的森林」「谁也不知道最终会找到些什么」「大多数法师宁愿避开公众的视线」）；`wonders` 由「古老的力量」顶替 | 全删；`wonders` 还原为「奇观」 |
+
+两条 pending 都落在 `0c9009638b49`（rat-lich 事件的 `Stairs seem to lead into
+some kind of crypt.`）：crypt 译名 + `seem` 情态被抹除。**两条已在 §17 的
+crypt 清扫中一并修复**（改为「这道楼梯似乎通向某种地宫。」）。
+
+### 本批各子命令耗时[实测，非安静环境]
+
+| 子命令 | wall | user | sys |
+|---|---|---|---|
+| `batch start --limit 80` | 153 s | — | — |
+| `surface-export` / `surface-import` | 153 / 151 s | — | — |
+| `contextual-export` | 153.2 | 130.4 | 20.4 |
+| `contextual-import` | 154.2 | 131.2 | 20.3 |
+| `adjudicate` | 151.4 | 129.7 | 20.0 |
+| `prepare-evidence` | 260.1 | 203.7 | 39.7 |
+| `finalize` | 154.9 | 131.8 | 20.8 |
+| `queue rebuild` | 158.2 | 133.3 | 22.2 |
+| `migration plan` / `check` / `apply` | 165.5 / 157.3 / 156.6 | 139.2 / 134.4 / 134.0 | 23.0 / 20.6 / 20.5 |
+
+**这些数不能当基线**：测的时候优化者也在跑基准，两边互相污染。
+
+> ⚠️ **一个我犯过的错，记在这里防止重犯。** 我曾拿第 84 批的 160 s 和第 86 批的
+> 153 s 相减，报「6b 只省 6–7 s」。**两批的重放单元数不同**（122 vs 124），
+> 所以这个减法没有意义。绝对耗时只能在**同单元数、同工作树、同 treeish**
+> 之间比较。详见记忆 `perf-baseline-same-worktree-same-treeish`。
+
+---
+
+## 17. `crypt` 译名：三方交叉咨询与裁定（2026-09-11）
+
+### 裁定
+
+维护者裁定：**全部 `crypt` 统一译作「地宫」**。已落地 25 处
+（`mod-tome.lua` 24 + `tome-ashes-urhrok.lua` 1）。
+
+### 咨询过程
+
+简报 `.ai/consult/crypt-terminology-20260911/BRIEF.md`（未入库），只给条目清单、
+既有术语绑定表和约束，**不含任何倾向性结论**。三个模型独立作答：
+
+| 模型 | 结论 | 技能名 |
+|---|---|---|
+| GPT-6-Astra (xhigh) | 统一为「墓室」 | 墓室之唤 |
+| Grok 4.6 | 统一为「墓室」 | 墓室召唤 |
+| Gemini 3.8 Flash (high) | 统一为「地宫」 | 地宫召唤 |
+
+**三家一致：必须统一、「地窖」必须废弃。** 一致否决的候选也完全相同：
+墓穴（占 `grave`/`tombs`）、地穴（占 `breeding pits`/`Intimidating Cave`）、
+洞穴（占 `cave`）、墓园（占 `graveyard`）、陵墓（占 `mausoleum`）、
+地下室（占 `basement`）。
+
+分歧只在**空间尺度 vs 建筑属性**：GPT-6 与 Grok 选「墓室」取其墓葬本义，
+并**都主动承认**「室」是单间尺度、不合 5 层的 Kryl-Feijan 与 3 层的 Shadow Crypt；
+Gemini 选「地宫」取其尺度与四字区名的工整，代价是帝陵语域偏高。
+
+### 我漏掉的那条事实（比裁定本身更重要）
+
+第 85 批我把 crypt 改成「地窖」时，列出了洞穴／地穴／墓穴／墓园四个已绑定词并逐一排除。
+**但「地窖」自己早已绑给 `cellar`**（`tome-cults.lua:1667/1669`：活板门、酒、
+蔬菜干果），所以那次改动制造了一词两指。
+
+> **规矩：候选译名要双向查。**
+> 不只查「这个候选会不会撞到别的词」，还要查「这个候选是不是已经被别的英文词占了」。
+> 我上次只查了前一个方向——这是个不对称的盲区，光靠「我查过冲突了」不足以免疫。
+
+### 25 处编辑 = 24 个 catalog 条目
+
+`migration plan` 报 `revision_changed: 24` 而我改了 25 处，差的那一处**不是漏改**：
+`lore/fun.lua` 的尸妖段（`crypts and graveyards`）与幽灵段（`windswept crypts`）
+同属**一个** `t([[…]])` 块（`#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#`），
+两处编辑落在同一个条目上。反之 `Shadow Crypt` 出现两次却是**两个**条目
+（`entity name` 与 `_t`，kind 不同）。
+
+> 编辑处数和条目数天然不等，**差值必须逐条解释掉**，不能当舍入误差放过——
+> 「少了一条」和「某处漏改了」在数字上完全一样。
+
+### 25 处的分类
+
+| 类 | 处数 | 说明 |
+|---|---|---|
+| 区名与区内实体 | 10 | `Crypt`／`Dark crypt`／`Shadow Crypt`×2／`Forsaken Crypt`／`collapsed forsaken crypt`／入口／楼梯提示／离开日志／vault 变形日志 |
+| 遭遇文本 | 3 | `maj-eyal.lua` 的入口描述、开门日志、选项「进入地宫」 |
+| 任务文本 | 2 | `kryl-feijan-escape.lua` |
+| 技能名 | 1 | `Call of the Crypt` → 地宫召唤 |
+| 叙事 lore／对话 | 6 | 梅琳达父亲、elvala、fun×2、last-hope、misc |
+| **crypt 整词漏译，补回** | **3** | 见下 |
+
+三处漏译（与译名选择是两回事，一并修）：
+
+- `Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.`
+  旧译「从克里尔·费扬**邪教**手中……」——`Crypt` 是地点不是教派，专名整个丢失。
+- `ceaselessly drifting through windswept crypts` 旧译「它们不停的随风飘荡」
+  ——把 `windswept` 误读成「随风」并丢掉 `crypts`；`wanderers` 还被窄化成「生物」。
+- `Dreadfell has always been shunned for its haunted crypts` 旧译「因闹鬼而为人所避讳」
+  ——`crypts` 丢失；同句 `a darker and more terrible power in residence`（居于此）
+  被放大成「有位……的**主人统治了**此地」，一并改回。
+
+### 一处**有意不改**的地方
+
+`Entrance to a dark crypt` 现译「通向**阴影**地宫之路」，字面应作「黑暗」。
+保留「阴影」是因为该入口实际通向 `Shadow Crypt`，而 `Dark crypt` 是
+Kryl-Feijan 区名的变体已作「黑暗地宫」——照字面改会让两个不同区域在界面上同名。
+**这是明知不忠实而保留，不是漏改。**

@@ -2827,7 +2827,7 @@ t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔�
 t("Genocide", "兽人末日", "achievement name")
 t("Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.", "在繁衍地穴中杀死兽族王后，这对兽族来说不啻于一场灾难。", "_t")
 t("Savior of the damsels in distress", "迷路少女拯救者", "achievement name")
-t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "从克里尔·费扬邪教手中把梅琳达从厄运中拯救出来。", "_t")
+t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "在克里尔·费扬地宫中把梅琳达从可怕的命运中拯救出来。", "_t")
 t("Impossible Death", "不可能的死亡", "achievement name")
 t("Got killed by your future self.", "被未来的自己杀死。", "_t")
 t("Self-killer", "自杀者", "achievement name")
@@ -5403,7 +5403,7 @@ t("About what happened on the beach, I think I have found something.", "关于�
 t([[I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things.
 That is why I got stuck in that crypt, I want to see the world.
 My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]], [[我现在还不知道，在我完全康复之前我父亲都不准我出门。我一直想做很多事情。
-这也是为什么我会被困在那个地窖里，我想去看看外面的世界。
+这也是为什么我会被困在那个地宫里，我想去看看外面的世界。
 我父亲给了我一笔钱，让我能够自己把握未来。我在德斯镇有几个朋友，也许我会在那里开一家属于自己的小店。]], "_t")
 t("I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.", "我见过你是如何对抗那些腐化者的，还有你摧毁他们魔法的方式。我也想学会这些，这样如此可怕的惨剧就再也不会发生在任何人身上了。", "_t")
 t([[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks!
@@ -7152,9 +7152,9 @@ t("harmless", "无害", "entity type")
 t("special", "特殊", "entity subtype")
 t("Entrance to an underwater cave", "水下洞穴入口", "_t")
 t("#LIGHT_BLUE#You notice an entrance to an underwater cave.", "#LIGHT_BLUE#你发现了一个水下洞穴的入口。", "logPlayer")
-t("Shadow Crypt", "阴影地窖", "entity name")
+t("Shadow Crypt", "阴影地宫", "entity name")
 t("hostile", "敌对", "entity type")
-t("Entrance to a dark crypt", "通向阴影地窖之路", "_t")
+t("Entrance to a dark crypt", "通向阴影地宫之路", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/encounters/maj-eyal-npcs.lua"
@@ -7187,11 +7187,11 @@ t("Enter the tunnels", "进入通道", "_t")
 t("Leave carefully", "悄悄离开", "_t")
 t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
-You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地窖的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
+You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地宫的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
 你听到了里面传来了陌生女人的哭声。]], "_t")
-t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你小心翼翼地打开门，进入了地下的地窖……", "logPlayer")
+t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你小心翼翼地打开门，进入了地下的地宫……", "logPlayer")
 t("#LIGHT_RED#As you enter you notice the door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入后，你发现这扇门的里侧没有门把，你被困在这了！", "logPlayer")
-t("Enter the crypt", "进入地窖", "_t")
+t("Enter the crypt", "进入地宫", "_t")
 t("Lost kitten", "迷路的猫咪", "entity name")
 t("Lost Kitty", "迷路的猫咪", "_t")
 t("Ancient Elven Ruins", "远古精灵遗迹", "entity name")
@@ -7382,7 +7382,7 @@ t("%s (protective aura)", "%s（防御光环）", "tformat")
 section "mod-tome/data/general/events/rat-lich.lua"
 
 t("way up to %s", "向上到%s的路", "tformat")
-t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开地窖的时候，楼梯崩塌了。", "log")
+t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开地宫的时候，楼梯崩塌了。", "log")
 t("dusty rat skull", "肮脏的鼠骷髅", "_t")
 t("Skull of the Rat Lich", "巫妖鼠骨盔", "_t")
 t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这顶古老的骨盔是巫妖鼠仅存于世的东西，上面残留了巫妖鼠的部分精华能量。", "_t")
@@ -7390,11 +7390,11 @@ t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为�
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 令 %s %s站了起来，一道红光从它眼中闪过！", "logSeen")
 t("From the dust of decay a %s forms!", "从灰烬中诞生了一只%s！", "logSeen")
-t("Forsaken Crypt", "废弃地窖", "_t")
+t("Forsaken Crypt", "废弃地宫", "_t")
 t("stairway leading downwards", "向下的楼梯", "_t")
-t("Stairs seem to lead into some kind of crypt.", "通往某个地窖的楼梯。", "_t")
+t("Stairs seem to lead into some kind of crypt.", "这道楼梯似乎通向某种地宫。", "_t")
 t("You hear squeaks and the sounds of clicking bone echo around you... Pure death awaits. Flee!", "你听到老鼠的叫声夹杂着骨骼的响动的吱吱声……前面等待着你的是死亡的力量。快逃！", "_t")
-t("collapsed forsaken crypt", "坍塌的废弃地窖", "_t")
+t("collapsed forsaken crypt", "坍塌的废弃地宫", "_t")
 t("Stairs lead downwards into rubble.", "向下通往瓦砾之中的楼梯。", "_t")
 
 ------------------------------------------------
@@ -15478,7 +15478,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 在洞穴的另一端，一堵冰墙堵住了我们的路。莱娜尼尔举起了卡库罗尔的戒指，其上的宝石开始燃烧。冰慢慢融化，露出通向另一个更小的房间的通道。
 
-这是个冰冷的、地窖般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我试图靠近研究它们，但我无法认出任何东西来，这超出了我的学识。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
+这是个冰冷的、地宫般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我试图靠近研究它们，但我无法认出任何东西来，这超出了我的学识。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
 
 她将手伸向墙壁，勾勒出一个门的轮廓。“这是奎科加的一座神庙，是一个名字不知为何被我遗忘了的种族之神。远在我们的种族出生之前，这个种族就已被夏·图尔人灭绝了。他们曾经为了纪念奎科加而建造了这座神庙，而他们中的最后一批人为了保卫奎科加本人而在这里战死。”
 
@@ -15969,7 +15969,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 #{bold}#3、尸妖#{normal}#
 
-尸妖是不死生物中的异类，往往并非由死灵法师特意创造，而是在条件成熟时自行出现。尸妖绝不是单独的灵魂，而常是某种集合意识的一部分；某片土地经历了足够多的杀戮——无论战场、森林、地窖还是墓园——尸妖便会成群升起，几乎是这片土地所受战争与动荡的实体化身。遗憾的是，死灵法师仍常常促成尸妖诞生，因为没有别的学问或行当会制造如此多的鲜血与死亡。
+尸妖是不死生物中的异类，往往并非由死灵法师特意创造，而是在条件成熟时自行出现。尸妖绝不是单独的灵魂，而常是某种集合意识的一部分；某片土地经历了足够多的杀戮——无论战场、森林、地宫还是墓园——尸妖便会成群升起，几乎是这片土地所受战争与动荡的实体化身。遗憾的是，死灵法师仍常常促成尸妖诞生，因为没有别的学问或行当会制造如此多的鲜血与死亡。
 
 与尸妖战斗过的人经常将其描述为：一具轮廓模糊的骷髅身形，裹着飘动的褪色长袍，袍角逐渐变淡、虚化，本该是眼睛的位置则跳动着诡异的光。幸存者们则述说只要靠近这种诡异的生物，仅仅是靠近这些死亡的化身，自己的生命力就会不住地衰减、消逝。
 
@@ -16001,7 +16001,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 可惜事实并非如此。火焰能烧毁人的肉身，却没有任何火焰能够触及灵魂。
 
-更为不幸的是，死灵法师却可以触到。同时失去身体和自由的痛苦，让许多灵魂在死灵法师的奴役下疯狂了，它们不停的随风飘荡，用多种可怕的符咒和妖法折磨着任何与之遭遇的不幸生物。
+更为不幸的是，死灵法师却可以触到。同时失去身体和自由的痛苦，让许多灵魂在死灵法师的奴役下疯狂了，它们不停地飘荡在风蚀的地宫之中，用种种诅咒与妖法折磨着任何不幸与之遭遇的游荡者。
 
 最糟糕的是那些接受了自己新使命的灵魂，它们的力量会以惊人的速度增长。在马基·埃亚尔，没有任何生物像这些“噩灵”一样如此明显地为存在本身所憎恶——仿佛造物本身也想将它们从这个世界抹去。希望你和更多人能遂她所愿。
 
@@ -17017,7 +17017,7 @@ I must live. For you, my love, I will live.]], [[哦，塞西尔，你会怎么�
 
 在这片黑暗中，我有一个好消息要告诉你，亲爱的。我怀孕了。虽然你已经去世，你的血脉仍在我体内延续；即使我自己的肉体日渐枯萎，我仍能感觉到我们的孩子正在腹中成长。正因如此，我才继续进行这些实验，无论它们多么可怕。为了我们的孩子，我必须硬起心肠挣扎求生，不断延长自己的生命。
 
-在这寒冷的地窖中我又冷又孤单，我一直思念着和你一起度过的温暖时光。墙外潜伏着畸形怪物，它们疯狂的尖叫声折磨着我的耳朵，提醒我曾犯下的黑暗行径。但偶尔，我会感到腹中轻轻一踢，意志也随之更加坚定，随后便重新投入实验。
+在这寒冷的地宫中我又冷又孤单，我一直思念着和你一起度过的温暖时光。墙外潜伏着畸形怪物，它们疯狂的尖叫声折磨着我的耳朵，提醒我曾犯下的黑暗行径。但偶尔，我会感到腹中轻轻一踢，意志也随之更加坚定，随后便重新投入实验。
 
 我必须活下去。为了你，亲爱的。我将活下去。]], "_t")
 t("last hope graveyard", "最后的希望墓地", "newLore category")
@@ -18432,7 +18432,7 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 现在，许多年轻人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。即使我将一切我未能亲身经历的故事全部当作神话，天哪，我所亲历的一切仍然是那么震撼人心，让我甚至无法相信我的亲眼所见。
 
-或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地窖里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
+或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地宫里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
 
 如果要说我们能够亲眼所见的是什么，那就往往是那些过去和现在伟大冒险家的遗物：那是身怀着强大力量的神器，诉说着真正的史诗。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。
 
@@ -19963,7 +19963,7 @@ section "mod-tome/data/maps/vaults/greater-crypt.lua"
 
 t("Something in the floor clicks ominously%s", "什么东西在地上发出了不祥的咔嗒声%s", "logPlayer")
 t(", and suddenly the world spins around you!", "，突然，你周围的世界开始旋转！", "_t")
-t(", and the crypt rearranges itself around you!", "，突然，你周围地窖的地形自己改变了！", "_t")
+t(", and the crypt rearranges itself around you!", "，突然，你周围地宫的地形自己改变了！", "_t")
 t("Something in the floor clicks ominously.", "什么东西在地上发出了不祥的咔嗒声。", "logPlayer")
 t("Something beneath you clicks ominously.", "你脚下什么东西发出了不祥的咔嗒声。", "logPlayer")
 
@@ -20353,10 +20353,10 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
 t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地窖中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
-t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地窖。", "_t")
+t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地宫。", "_t")
 t("You failed to defeat the acolytes in time - the woman got torn apart by the demon growing inside her.", "你没能及时杀死那些侍僧，那个女人被在她体内成长的恶魔撕成了碎片。", "_t")
 
 ------------------------------------------------
@@ -29189,7 +29189,7 @@ t([[Your mastery of necromancy becomes so total that an aura of undeath radiates
 
 section "mod-tome/data/talents/spells/master-of-bones.lua"
 
-t("Call of the Crypt", "地窖召唤", "talent name")
+t("Call of the Crypt", "地宫召唤", "talent name")
 t([[Call upon the battlefields of old, collecting bones, fusing them with souls, and forging them into skeletal minions.
 		Up to %d skeleton warriors of level %d are summoned, and up to %d skeletons can be controlled at once.
 		At level 3 the summons become armoured skeletons warriors.
@@ -38202,8 +38202,8 @@ t("writhing mindstar", "翻腾的灵晶", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/zone.lua"
 
-t("Dark crypt", "黑暗地窖", "_t")
-t("Crypt", "地窖", "_t")
+t("Dark crypt", "黑暗地宫", "_t")
+t("Crypt", "地宫", "_t")
 t("You hear an eerie chanting echoing from a distance.", "你听到远方传来的念诵回响声。", "_t")
 t("The chanting grows louder. You hear a sudden high-pitched scream.", "念诵声增大了。你突然听到一声尖叫。", "_t")
 t("The cultists are about to sacrifice the woman. Stop them!", "邪教徒准备献祭那个女人。阻止他们！", "_t")
@@ -39724,7 +39724,7 @@ t("#PURPLE#The #Source# looks afraid, he did not plan on his creation turning ag
 ------------------------------------------------
 section "mod-tome/data/zones/shadow-crypt/zone.lua"
 
-t("Shadow Crypt", "阴影地窖", "_t")
+t("Shadow Crypt", "阴影地宫", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/shertul-fortress/grids.lua"
@@ -43132,7 +43132,7 @@ t("Some say that in their early days the Shaloren kings experimented with necrom
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，击溃了兽人军团，自此开启了卓越纪元。", "init.lua load_tips")
 t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。那些高傲法师们铸成的大错令人们永生难忘。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些被诅咒者承受了超出他们控制的灵魂力量，终其一生都活在憎恨和黑暗中。", "init.lua load_tips")
-t("Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.", "恐惧王座一直以来都因闹鬼而为人所避讳。但最近有流言传出，有位带着更加强大的黑暗力量的主人统治了此地。", "init.lua load_tips")
+t("Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.", "恐惧王座一直以来都因其闹鬼的地宫而为人所避讳，但最近有流言传出，此地盘踞着一股更加黑暗可怖的力量。", "init.lua load_tips")
 t("Some Sher'Tul artifacts can still be found in hidden places, but it is said they are not to be trifled with.", "虽然有人说还能在某些未知的地方找到夏·图尔的上古神器，不过普通人最好不要接近那种地方。", "init.lua load_tips")
 t("Drakes and wyrms are the strongest natural creatures in the world, capable of powers far beyond most other beings.", "龙与巨龙是这个世界上最强大的自然生物，它们所拥有的力量远在其他生物之上。", "init.lua load_tips")
 t("Giant worms tear open huge passageways through the deserts in the west. It is said great riches lie buried beneath the sand, still decorating the corpses of those who went there seeking great riches.", "西部沙漠中的巨型蠕虫挖掘出了很多巨大的通道。传说在那沙洞深处埋藏着很多诱人的宝物。不过除了宝物之外，更多的便是那些寻宝人的尸体。", "init.lua load_tips")
