@@ -15,6 +15,7 @@ from contextvars import ContextVar
 from pathlib import Path
 from typing import Any, Iterator
 
+from . import capacity_policy
 from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_evidence as evidence
@@ -580,19 +581,35 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
     if observed != revisions:
         raise _error("batch result order does not match ordered revisions")
     gates = wp1.parse_canonical_object(raws[f"{batch_root}/gates.json"], "batch gates")
-    if isinstance(gates, dict) and type(gates.get("schema_version")) is int and gates["schema_version"] == 2:
+    if isinstance(gates, dict) and type(gates.get("schema_version")) is int and gates["schema_version"] in {2, 3}:
         from . import gate_results
-        if set(gates) != {"schema_version", "result", "prospective_bytes", "committed_bytes"}:
-            raise _error("batch gates v2 exact schema mismatch")
+        # A receipt is read under the capacity policy it was written against.
+        # Schema 2 predates the policy binding, so it is always legacy; only a
+        # schema 3 receipt names its own policy, and the named policy's digest
+        # must match this toolchain's registry text for that policy.
+        if gates["schema_version"] == 2:
+            if set(gates) != {"schema_version", "result", "prospective_bytes", "committed_bytes"}:
+                raise _error("batch gates v2 exact schema mismatch")
+            byte_limit = capacity_policy.LEGACY_TRACKED_LIMIT
+        else:
+            if set(gates) != {"schema_version", "result", "prospective_bytes", "committed_bytes",
+                              "capacity_policy_id", "capacity_policy_sha256"}:
+                raise _error("batch gates v3 exact schema mismatch")
+            try:
+                byte_limit = capacity_policy.resolve(gates["capacity_policy_id"],
+                                                     gates["capacity_policy_sha256"])
+            except wp1.ProductionReviewError as error:
+                raise _error(f"batch gates v3 capacity policy invalid: {error}") from error
         try:
             gate_results.validate_historical(gates["result"], selected=gate_results.candidate(
                 manifest["batch_id"], manifest["catalog_id"], manifest["base_commit"],
                 manifest["policy_sha256"], revisions))
         except ValueError as error:
-            raise _error(f"batch gates v2 invalid: {error}") from error
-        if any(type(gates[key]) is not int or not 0 <= gates[key] <= catalog.TRACKED_LIMIT
+            raise _error(f"batch gates v{gates['schema_version']} invalid: {error}") from error
+        if any(type(gates[key]) is not int or not 0 <= gates[key] <= byte_limit
                for key in ("prospective_bytes", "committed_bytes")):
-            raise _error("batch gates exceed the combined 128 MiB production budget")
+            raise _error("batch gates exceed the combined "
+                         f"{capacity_policy.describe(byte_limit)} production budget")
     else:
         if not isinstance(gates, dict) or set(gates) not in ({"schema_version", "commands"}, {"schema_version", "commands", "prospective_bytes", "committed_bytes"}):
             raise _error("batch gates exact schema mismatch")
@@ -615,12 +632,16 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
         if "prospective_bytes" in gates and not commands:
             raise _error("active batch gates must record actual applicable commands")
         if "prospective_bytes" in gates:
+            # Schema 1 carries no policy binding, so it is historical by
+            # construction and stays on the legacy ceiling forever.
             if (type(gates["prospective_bytes"]) is not int or
                     type(gates["committed_bytes"]) is not int or
                     gates["prospective_bytes"] < 0 or gates["committed_bytes"] < 0 or
-                    gates["prospective_bytes"] > catalog.TRACKED_LIMIT or
-                    gates["committed_bytes"] > catalog.TRACKED_LIMIT):
-                raise _error("batch gates exceed the combined 128 MiB production budget")
+                    gates["prospective_bytes"] > capacity_policy.LEGACY_TRACKED_LIMIT or
+                    gates["committed_bytes"] > capacity_policy.LEGACY_TRACKED_LIMIT):
+                raise _error("batch gates exceed the combined "
+                             f"{capacity_policy.describe(capacity_policy.LEGACY_TRACKED_LIMIT)} "
+                             "production budget")
             if "tools/ci-gates.sh" in tree:
                 command_names = {item["command"] for item in commands}
                 if not any("tools/ci-gates.sh" in command for command in command_names):

@@ -12,10 +12,13 @@ import subprocess
 from pathlib import Path
 from typing import Iterable
 
+from . import capacity_policy
 from . import production_review as wp1
 
 CORE_FILES = ("manifest.json", "results.jsonl", "adjudications.jsonl", "gates.json")
-MAX_TRACKED_BYTES = 128 * 1024 * 1024
+# New production is measured against the current policy.  Historical receipts
+# are read under the policy they name themselves; see capacity_policy.
+MAX_TRACKED_BYTES = capacity_policy.CURRENT_TRACKED_LIMIT
 PRODUCTION_PREFIXES = (
     "evidence/production-review/",
     "i18n/quality/production-review/",
@@ -136,7 +139,8 @@ def require_core(files: dict[str, bytes]) -> None:
 def prospective_bytes(files: Iterable[bytes]) -> int:
     total = sum(len(value) for value in files)
     if total > MAX_TRACKED_BYTES:
-        raise wp1.ProductionReviewError("prospective tracked evidence exceeds 128 MiB")
+        raise wp1.ProductionReviewError(
+            f"prospective tracked evidence exceeds {capacity_policy.describe(MAX_TRACKED_BYTES)}")
     return total
 
 
@@ -227,5 +231,7 @@ def prospective_tracked_bytes(root: Path, candidate_root: Path) -> int:
         raise wp1.ProductionReviewError("prospective evidence collides with tracked paths")
     total = sum(existing_sizes.values()) + sum(len(raw) for raw in candidate.values())
     if total > MAX_TRACKED_BYTES:
-        raise wp1.ProductionReviewError(f"prospective tracked evidence exceeds 128 MiB (bytes={total})")
+        raise wp1.ProductionReviewError(
+            "prospective tracked evidence exceeds "
+            f"{capacity_policy.describe(MAX_TRACKED_BYTES)} (bytes={total})")
     return total

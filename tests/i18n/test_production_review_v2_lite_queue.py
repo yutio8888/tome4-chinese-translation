@@ -16,6 +16,7 @@ from contextlib import closing, nullcontext
 from pathlib import Path
 from unittest import mock
 
+from tools.i18nlib import capacity_policy
 from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_queue as queue
@@ -1176,7 +1177,12 @@ class PublicApiFlowTests(QueueTests):
                 prepared = batch.prepare_evidence(self.root)
                 self.assertEqual(self.gate_runner.call_count, 1)
                 receipt = json.loads((Path(prepared["prospective"]) / "gates.json").read_bytes())
-                self.assertEqual(receipt["schema_version"], 2)
+                # New receipts name the policy they were measured under, so a
+                # later ceiling change cannot widen this batch's acceptance.
+                self.assertEqual(receipt["schema_version"], 3)
+                self.assertEqual(receipt["capacity_policy_id"], capacity_policy.CURRENT_POLICY_ID)
+                self.assertEqual(receipt["capacity_policy_sha256"],
+                                 capacity_policy.digest(capacity_policy.CURRENT_POLICY_ID))
                 self.assertEqual(receipt["result"]["binding"]["candidate"]["ordered_revisions"], checkpoint["selected"])
                 if count == 80:
                     commit = self._publish_generated(Path(prepared["prospective"]))
@@ -1386,6 +1392,251 @@ class PublicApiFlowTests(QueueTests):
         self.assertFalse(checkpoint.exists())
         queue.rebuild(self.root)
         self.assertTrue(queue.check(self.root)["ok"])
+
+
+    def _prepare_for_count(self, count):
+        self._resize_and_init(count)
+        batch.start(self.root, limit=count)
+        batch.surface_export(self.root)
+        checkpoint = batch.show(self.root)
+        outputs = {str(i): self._surface_bytes(ref) for i, ref in enumerate(checkpoint["surface"])}
+        batch.surface_import(self.root, outputs)
+        empty = self.root / "empty-adjudication.json"
+        empty.write_bytes(wp1.canonical_bytes({"batch_id": checkpoint["batch_id"], "decisions": []}))
+        batch.adjudicate(self.root, empty)
+        self.gate_runner.reset_mock()
+        return batch.prepare_evidence(self.root)
+
+    def test_group_manifest_is_copied_once_per_distinct_content(self):
+        """Four lanes cite one group manifest, so one file is written, not four."""
+        prepared = self._prepare_for_count(4)
+        prospective = Path(prepared["prospective"])
+        groups = sorted(p.name for p in (prospective / "raw" / "surface").glob("group-*.json"))
+        self.assertEqual(len(groups), 1, groups)
+        # The old per-section copies must be gone entirely, not merely unused.
+        self.assertEqual(sorted(p.name for p in prospective.rglob("*-group.json")), [])
+        manifest = wp1.parse_canonical_object(
+            (prospective / "manifest.json").read_bytes(), "manifest")
+        bound = {(ref["group_manifest_path"], ref["group_manifest_sha256"])
+                 for ref in manifest["adapter_refs"] if "group_manifest_path" in ref}
+        self.assertEqual(len(bound), 1, bound)
+        group_path, group_hash = next(iter(bound))
+        self.assertTrue(group_path.endswith(f"/raw/surface/group-{group_hash}.json"), group_path)
+        self.assertEqual(
+            hashlib.sha256((prospective / "raw" / "surface" / f"group-{group_hash}.json"
+                            ).read_bytes()).hexdigest(), group_hash)
+        # Lane inputs and outputs are NOT shared: still one file per section.
+        self.assertEqual(len(list((prospective / "raw" / "surface").glob("*-input_path.json"))), 4)
+        self.assertEqual(len(list((prospective / "raw" / "surface").glob("*-output_path.json"))), 4)
+
+    def test_full_mode_has_no_group_file_at_all(self):
+        prospective = Path(self._prepare_for_count(1)["prospective"])
+        self.assertEqual(sorted(p.name for p in prospective.rglob("group-*.json")), [])
+        manifest = wp1.parse_canonical_object(
+            (prospective / "manifest.json").read_bytes(), "manifest")
+        self.assertTrue(all("group_manifest_path" not in ref
+                            for ref in manifest["adapter_refs"]))
+
+    def test_copy_plan_is_one_walk_and_reports_group_conflicts(self):
+        """The declared inventory and the copy tasks come from the same walk."""
+        self._prepare_for_count(4)
+        checkpoint = batch._load(queue.checkpoint_path(self.root))
+        plan = batch._raw_copy_plan(checkpoint)
+        planned = {batch._batch_relative(checkpoint["batch_id"], *parts) for parts in plan["copies"]}
+        core = {batch._batch_relative(checkpoint["batch_id"], name)
+                for name in batch.evidence.CORE_FILES}
+        self.assertEqual(plan["declared"], planned | core)
+        self.assertEqual(batch._prospective_declared_paths(checkpoint), plan["declared"])
+
+        # One source path carrying two different recorded hashes is a conflict,
+        # not something to resolve by picking one.
+        conflicted = copy.deepcopy(checkpoint)
+        conflicted["surface"][1]["group_manifest_sha256"] = "b" * 64
+        with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                    "one source path carries two different hashes"):
+            batch._raw_copy_plan(conflicted)
+
+        # A reference with no usable hash cannot be content-addressed at all.
+        missing = copy.deepcopy(checkpoint)
+        missing["surface"][0]["group_manifest_sha256"] = None
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "lacks a recorded SHA-256"):
+            batch._raw_copy_plan(missing)
+
+    def test_group_bytes_changing_after_import_fail_closed(self):
+        """Group bytes that drift after import stop the prepare, at some layer.
+
+        The existing surface projection check catches this first; the copy-time
+        hash check added with the dedup plan is a backstop for the case where
+        the bytes change between that check and the copy itself.
+        """
+        self._resize_and_init(4)
+        batch.start(self.root, limit=4)
+        batch.surface_export(self.root)
+        checkpoint = batch.show(self.root)
+        outputs = {str(i): self._surface_bytes(ref) for i, ref in enumerate(checkpoint["surface"])}
+        batch.surface_import(self.root, outputs)
+        empty = self.root / "empty-adjudication.json"
+        empty.write_bytes(wp1.canonical_bytes({"batch_id": checkpoint["batch_id"], "decisions": []}))
+        batch.adjudicate(self.root, empty)
+        source = Path(batch.show(self.root)["surface"][0]["group_manifest_path"])
+        source.write_bytes(source.read_bytes() + b" ")
+        self.gate_runner.reset_mock()
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "group manifest hash drift"):
+            batch.prepare_evidence(self.root)
+
+    def _publish_mutated(self, prospective, mutate):
+        """Commit a batch whose receipt was rewritten after the batch was closed.
+
+        The batch is abandoned before the rewrite lands, so the rewritten
+        receipt is only ever read the way a historical one is: by replaying
+        committed evidence, with no active checkpoint in the picture.
+        """
+        staging = Path(tempfile.mkdtemp()) / prospective.name
+        shutil.copytree(prospective, staging)
+        batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+        destination = self.root / "evidence/production-review-v2-lite/batches" / prospective.name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(staging, destination)
+        gates = wp1.parse_canonical_object((destination / "gates.json").read_bytes(), "gates")
+        mutate(gates)
+        gates_raw = wp1.canonical_bytes(gates)
+        (destination / "gates.json").write_bytes(gates_raw)
+        manifest = wp1.parse_canonical_object(
+            (destination / "manifest.json").read_bytes(), "manifest")
+        manifest["gates_sha256"] = hashlib.sha256(gates_raw).hexdigest()
+        (destination / "manifest.json").write_bytes(wp1.canonical_bytes(manifest))
+        self._commit("publish evidence with a rewritten receipt")
+
+    def test_historical_receipts_keep_the_legacy_ceiling(self):
+        """Raising the current ceiling must not widen an old receipt's domain."""
+        between = capacity_policy.LEGACY_TRACKED_LIMIT + 1
+        self.assertLess(between, capacity_policy.CURRENT_TRACKED_LIMIT)
+        def rewrite(schema):
+            def mutate(gates):
+                gates["schema_version"] = schema
+                gates["prospective_bytes"] = gates["committed_bytes"] = between
+                if schema == 2:
+                    gates.pop("capacity_policy_id")
+                    gates.pop("capacity_policy_sha256")
+            return mutate
+
+        # A schema 2 receipt predates the policy binding, so it is read under
+        # 128 MiB even though the current ceiling is 512 MiB.
+        self._publish_mutated(Path(self._prepare_for_count(1)["prospective"]), rewrite(2))
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "exceed the combined 128 MiB"):
+            queue.rebuild(self.root)
+        subprocess.run(["git", "revert", "--no-edit", "HEAD"], cwd=self.root,
+                       check=True, stdout=subprocess.DEVNULL)
+        # The same byte count under a schema 3 receipt naming the current
+        # policy is inside budget.  The only difference is the binding.
+        # A different entry count keeps this a distinct catalog and batch.
+        self._publish_mutated(Path(self._prepare_for_count(2)["prospective"]), rewrite(3))
+        queue.rebuild(self.root)
+
+    def test_gates_v3_rejects_an_unknown_or_mismatched_policy(self):
+        def wrong_digest(gates):
+            gates["capacity_policy_sha256"] = capacity_policy.digest(
+                capacity_policy.LEGACY_POLICY_ID)
+
+        self._publish_mutated(Path(self._prepare_for_count(1)["prospective"]), wrong_digest)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "capacity policy invalid"):
+            queue.rebuild(self.root)
+
+
+    def test_gates_ceiling_is_exact_on_both_sides_of_each_policy(self):
+        """limit / limit+1 for the receipt reader, under both policies."""
+        cases = [(2, capacity_policy.LEGACY_TRACKED_LIMIT, "accept"),
+                 (2, capacity_policy.LEGACY_TRACKED_LIMIT + 1, "reject"),
+                 (3, capacity_policy.CURRENT_TRACKED_LIMIT, "accept"),
+                 (3, capacity_policy.CURRENT_TRACKED_LIMIT + 1, "reject")]
+        for index, (schema, value, expectation) in enumerate(cases):
+            with self.subTest(schema=schema, value=value):
+                def mutate(gates, schema=schema, value=value):
+                    gates["schema_version"] = schema
+                    gates["prospective_bytes"] = gates["committed_bytes"] = value
+                    if schema == 2:
+                        gates.pop("capacity_policy_id", None)
+                        gates.pop("capacity_policy_sha256", None)
+
+                self._publish_mutated(
+                    Path(self._prepare_for_count(index + 1)["prospective"]), mutate)
+                if expectation == "reject":
+                    with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                                "exceed the combined"):
+                        queue.rebuild(self.root)
+                else:
+                    queue.rebuild(self.root)
+                subprocess.run(["git", "revert", "--no-edit", "HEAD"], cwd=self.root,
+                               check=True, stdout=subprocess.DEVNULL)
+
+    def test_committed_production_bytes_is_exact_at_the_ceiling(self):
+        prospective = Path(self._prepare_for_count(1)["prospective"])
+        commit = self._publish_generated(prospective)
+        batch.finalize(self.root, commit)
+        total = batch._committed_production_bytes(self.root, commit)
+        for ceiling, expectation in ((total - 1, "reject"), (total, "accept"),
+                                     (total + 1, "accept")):
+            with self.subTest(ceiling=ceiling):
+                with mock.patch.object(catalog, "TRACKED_LIMIT", ceiling):
+                    if expectation == "reject":
+                        with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                                    "committed production evidence exceeds"):
+                            batch._committed_production_bytes(self.root, commit)
+                    else:
+                        self.assertEqual(
+                            batch._committed_production_bytes(self.root, commit), total)
+
+    def _interrupted_prepare(self, count=4):
+        """Return a prepared batch rewound to the phase prepare resumes from."""
+        prepared = self._prepare_for_count(count)
+        prospective = Path(prepared["prospective"])
+        checkpoint = batch._load(queue.checkpoint_path(self.root))
+        checkpoint["phase"] = "adjudicated"
+        checkpoint["last_safe_boundary"] = "before_commit"
+        return prospective, checkpoint
+
+    def test_prepare_resumes_from_a_half_written_deduped_tree(self):
+        prospective, checkpoint = self._interrupted_prepare()
+        declared = batch._prospective_declared_paths(checkpoint)
+        checkpoint["gates"] = {"commands": [], "prospective": {path: None for path in sorted(declared)},
+                               "preimage_absent": sorted(declared),
+                               "prospective_bytes": 0, "committed_bytes": 0}
+        batch._atomic(queue.checkpoint_path(self.root), batch._checkpoint_bytes(checkpoint))
+        for path in sorted((prospective / "raw" / "surface").glob("*"))[:2]:
+            path.unlink()
+        self.gate_runner.reset_mock()
+        batch.prepare_evidence(self.root)
+        groups = sorted(p.name for p in (prospective / "raw" / "surface").glob("group-*.json"))
+        self.assertEqual(len(groups), 1, groups)
+
+    def test_prepare_resumes_from_complete_registered_postimages(self):
+        prospective, checkpoint = self._interrupted_prepare()
+        self.assertTrue(all(value is not None
+                            for value in checkpoint["gates"]["prospective"].values()))
+        batch._atomic(queue.checkpoint_path(self.root), batch._checkpoint_bytes(checkpoint))
+        self.gate_runner.reset_mock()
+        batch.prepare_evidence(self.root)
+        groups = sorted(p.name for p in (prospective / "raw" / "surface").glob("group-*.json"))
+        self.assertEqual(len(groups), 1, groups)
+
+    def test_a_stale_old_layout_file_is_rejected_not_adopted(self):
+        """Resume never infers the layout from whatever happens to be on disk."""
+        prospective, checkpoint = self._interrupted_prepare()
+        batch._atomic(queue.checkpoint_path(self.root), batch._checkpoint_bytes(checkpoint))
+        stale = prospective / "raw" / "surface" / "000-group.json"
+        stale.write_bytes(b"{}\n")
+        self.gate_runner.reset_mock()
+        with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                    "prospective evidence contains undeclared paths"):
+            batch.prepare_evidence(self.root)
+
+    def test_abandon_accepts_the_deduped_prospective_tree(self):
+        prospective = Path(self._prepare_for_count(4)["prospective"])
+        self.assertEqual(
+            len(list((prospective / "raw" / "surface").glob("group-*.json"))), 1)
+        batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+        self.assertFalse(prospective.exists())
+        self.assertFalse(queue.checkpoint_path(self.root).exists())
 
 
 class C31PublicApiTests(PublicApiFlowTests):
@@ -1700,7 +1951,8 @@ class C31PublicApiTests(PublicApiFlowTests):
         checkpoint["gates"]["committed_bytes"] = 0
         batch._atomic(queue.checkpoint_path(self.root), batch._checkpoint_bytes(checkpoint))
         with mock.patch.object(catalog, "TRACKED_LIMIT", 0):
-            with self.assertRaisesRegex(wp1.ProductionReviewError, "128 MiB"):
+            with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                        "committed production evidence exceeds the combined 0 MiB"):
                 batch.finalize(self.root, published)
         checkpoint = batch._load(queue.checkpoint_path(self.root))
         checkpoint["gates"]["committed_bytes"] = batch._committed_production_bytes(self.root, published) + 1

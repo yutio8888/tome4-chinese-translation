@@ -393,9 +393,15 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
         for tracked in (path + "-sibling", path.rsplit("/", 1)[0] + "-prefix/child"):
             with self.subTest(tracked=tracked):
                 self.assertEqual(v2.prospective_occupancy({tracked: 1}, candidate), len(candidate) + 1)
+        # The message states the ceiling actually in force, not a literal, so a
+        # policy change cannot leave the error naming a stale number.
         with mock.patch.object(v2, "TRACKED_LIMIT", 4):
-            with self.assertRaisesRegex(wp1.ProductionReviewError, "128 MiB"):
+            with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                        r"exceeds 4 bytes \(bytes=5, limit=4\)"):
                 v2.prospective_occupancy({}, candidate)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "exceeds 512 MiB"):
+            v2.prospective_occupancy({}, {"evidence/production-review-v2-lite/x":
+                                          b"x" * (v2.TRACKED_LIMIT + 1)})
 
     def test_wp1_preimage_is_absent_after_publication(self):
         self.assertEqual(len(v2.WP1_RETIREMENT_ROOTS), 6)
