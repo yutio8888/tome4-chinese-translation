@@ -3,6 +3,7 @@ from __future__ import annotations
 import fcntl
 import hashlib
 import copy
+import io
 import os
 import json
 from collections import Counter
@@ -12,7 +13,7 @@ import sys
 import tempfile
 import unittest
 import shutil
-from contextlib import closing, nullcontext
+from contextlib import closing, contextmanager, nullcontext, redirect_stderr, redirect_stdout
 from pathlib import Path
 from unittest import mock
 
@@ -2396,6 +2397,474 @@ class C31PublicApiTests(PublicApiFlowTests):
         self.assertEqual(first, {"active": False, "ok": True})
         self.assertEqual(second, first)
         self.assertTrue(database.exists())
+
+
+_FIXED_GATE_TIME = "2026-09-02T01:02:03+00:00"
+
+
+class ProjectionChainTests(QueueFixture):
+    """PERF-3: the run_batch_steps wrapper changes grouping, not behavior.
+
+    Every step stays the ordinary CLI action; the only thing one wrapper
+    invocation shares is one replay of the same evidence commit.  These tests
+    count the real ``queue._projection`` calls while driving the real
+    ``tools.i18nlib.cli`` entry point and the real ``run_batch_steps`` consumer
+    against disposable Git/SQLite fixtures.
+
+    The seventeen production gates are **not** run here: ``prepare-evidence``
+    keeps using the existing in-process ``batch._actual_gate_records`` seam from
+    ``QueueFixture``.  No assertion in this class claims the real gates passed.
+    """
+
+    # Reuse the existing helper implementations without inheriting their test
+    # methods (inheriting PublicApiFlowTests would re-run its whole suite).
+    _surface_bytes = PublicApiFlowTests._surface_bytes
+    _contextual_bytes = PublicApiFlowTests._contextual_bytes
+    _decision = PublicApiFlowTests._decision
+    _resize_and_init = QueueTests._resize_and_init
+
+    _steps_module = None
+
+    def setUp(self):
+        super().setUp()
+        import tools.i18nlib as tools_package
+        from tools.i18nlib import cli as tools_cli
+        self._tools_cli = tools_cli
+        self._aliases: list[str] = []
+        self._bind_alias("i18nlib", tools_package)
+        for name, module in list(sys.modules.items()):
+            if name.startswith("tools.i18nlib."):
+                self._bind_alias("i18nlib." + name[len("tools.i18nlib."):], module)
+        self.addCleanup(self._drop_aliases)
+        self._steps = self._load_wrapper()
+
+    def _bind_alias(self, name, module):
+        if name not in sys.modules:
+            sys.modules[name] = module
+            self._aliases.append(name)
+
+    def _drop_aliases(self):
+        for name in self._aliases:
+            sys.modules.pop(name, None)
+
+    def _load_wrapper(self):
+        """Load the real wrapper against the aliased i18nlib namespace.
+
+        ``tools/i18n`` and ``run_batch_steps.py`` import the top-level
+        ``i18nlib`` package while this module imports ``tools.i18nlib``.  The
+        alias above makes both names the same module objects, so a spy on
+        ``queue._projection`` really observes the wrapper's calls; without it
+        the two namespaces would be distinct and the spy would miss everything.
+        """
+        if ProjectionChainTests._steps_module is None:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location(
+                "perf_cli_projection_run_batch_steps",
+                ROOT / "tools/orchestration/run_batch_steps.py")
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            ProjectionChainTests._steps_module = module
+        return ProjectionChainTests._steps_module
+
+    @contextmanager
+    def _repo_env(self):
+        with mock.patch.dict(os.environ, {"I18N_REPOSITORY_ROOT": str(self.root)}):
+            yield
+
+    @contextmanager
+    def _fixed_clock(self):
+        """Pin the clocks and the gate log directory the two runs must share."""
+        def fixed_mkdtemp(prefix=None, dir=None):
+            directory = Path(dir) / "run.fixture"
+            directory.mkdir(parents=True, exist_ok=True)
+            return str(directory)
+        fake_tempfile = type("_FixedTempfile", (), {"mkdtemp": staticmethod(fixed_mkdtemp)})()
+        with mock.patch.object(catalog, "utc_now", return_value=STAMP), \
+                mock.patch.object(gate_results, "_now", return_value=_FIXED_GATE_TIME), \
+                mock.patch.object(gate_results, "tempfile", fake_tempfile):
+            yield
+
+    @contextmanager
+    def _count_projections(self):
+        calls = []
+        original = queue._projection
+
+        def counted(root, treeish, **kwargs):
+            calls.append((Path(root).resolve(), treeish))
+            return original(root, treeish, **kwargs)
+
+        with mock.patch.object(queue, "_projection", side_effect=counted):
+            yield calls
+
+    def _run_cli(self, *argv):
+        stdout, stderr = io.StringIO(), io.StringIO()
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            code = self._tools_cli.main(["production", "batch", *argv])
+        return code, stdout.getvalue(), stderr.getvalue()
+
+    def _run_wrapper(self, *tokens):
+        stdout, stderr = io.StringIO(), io.StringIO()
+        error = ""
+        try:
+            with redirect_stdout(stdout), redirect_stderr(stderr):
+                code = self._steps.main(list(tokens))
+        except SystemExit as exit_error:
+            code = exit_error.code if isinstance(exit_error.code, int) else 1
+            error = str(exit_error)
+        return code, stdout.getvalue(), stderr.getvalue() + error
+
+    def _input_dir(self):
+        directory = Path(tempfile.mkdtemp(prefix="perf-cli-projection.", dir=ROOT / ".artifacts/i18n"))
+        self.addCleanup(shutil.rmtree, directory, True)
+        return directory
+
+    def _surface_index(self, verdict):
+        checkpoint = batch.show(self.root)
+        directory = self._input_dir()
+        outputs = {}
+        for index, ref in enumerate(checkpoint["surface"]):
+            path = directory / f"surface-{index}.json"
+            path.write_bytes(self._surface_bytes(ref, verdict))
+            outputs[str(index)] = str(path)
+        index_path = directory / "surface-index.json"
+        index_path.write_text(json.dumps(outputs), encoding="utf-8")
+        return index_path
+
+    def _contextual_index(self):
+        checkpoint = batch.show(self.root)
+        directory = self._input_dir()
+        outputs = {}
+        for index, ref in enumerate(checkpoint["contextual"]):
+            path = directory / f"contextual-{index}.json"
+            path.write_bytes(self._contextual_bytes(ref, "OK"))
+            outputs[str(index)] = str(path)
+        index_path = directory / "contextual-index.json"
+        index_path.write_text(json.dumps(outputs), encoding="utf-8")
+        return index_path
+
+    def _adjudication_file(self, batch_id, decisions):
+        path = self._input_dir() / "adjudication.json"
+        path.write_bytes(wp1.canonical_bytes({"batch_id": batch_id, "decisions": decisions}))
+        return path
+
+    def _prospective_bytes(self, batch_id):
+        root = batch._prospective_batch_path(self.root, batch_id)
+        return {path.relative_to(root).as_posix(): path.read_bytes()
+                for path in sorted(root.rglob("*")) if path.is_file()}
+
+    def _clone_repo(self):
+        directory = Path(tempfile.mkdtemp(prefix="perf-cli-clone.", dir=ROOT / ".artifacts/i18n"))
+        self.addCleanup(shutil.rmtree, directory, True)
+        target = directory / "repo"
+        shutil.copytree(self.root, target, symlinks=True)
+        return target
+
+    def _failing_gate_records(self):
+        def failing(root, selected):
+            def execute(argv, cwd, log):
+                log.write_bytes(b"fixture gate failure\n")
+                return 1
+            return gate_results.run(root, selected, execute=execute)
+        return failing
+
+    def test_wrapper_and_cli_share_the_spied_real_module(self):
+        self.assertIs(self._steps.queue, queue)
+        self.assertIs(self._steps.cli_main, self._tools_cli.main)
+        import i18nlib.production_review_v2_lite_queue as aliased_queue
+        import i18nlib.production_review_v2_lite_batch as aliased_batch
+        self.assertIs(aliased_queue, queue)
+        self.assertIs(aliased_batch, batch)
+
+    def test_issue_chain_wrapper_projects_once_and_matches_separate_calls(self):
+        with self._repo_env(), self._fixed_clock():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            prepared = queue.checkpoint_path(self.root).read_bytes()
+            index_path = self._surface_index("ISSUE")
+
+            with self._count_projections() as separate:
+                imported = self._run_cli("surface-import", "--input", str(index_path))
+                exported = self._run_cli("contextual-export")
+            self.assertEqual(imported[0], 0, imported[2])
+            self.assertEqual(exported[0], 0, exported[2])
+            checkpoint_separate = queue.checkpoint_path(self.root).read_bytes()
+            rows_separate = queue.business_rows(queue.database_path(self.root))
+            progress_separate = queue.check(self.root)["progress"]
+
+            batch.abandon(self.root, discard_uncommitted_results=True)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), prepared)
+
+            with self._count_projections() as wrapped:
+                code, stdout, stderr = self._run_wrapper(
+                    f"surface-import={index_path}", "contextual-export")
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual([len(separate), len(wrapped)], [2, 1])
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), checkpoint_separate)
+            self.assertEqual(queue.business_rows(queue.database_path(self.root)), rows_separate)
+            self.assertEqual(stdout, imported[1] + exported[1])
+            report = queue.check(self.root)
+            self.assertTrue(report["ok"])
+            self.assertEqual(report["progress"], progress_separate)
+
+    def test_all_ok_import_then_second_chain_matches_separate_calls(self):
+        with self._repo_env(), self._fixed_clock():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            batch_id = batch.show(self.root)["batch_id"]
+            index_path = self._surface_index("OK")
+            adjudication = self._adjudication_file(batch_id, [])
+
+            # All-OK: import runs on its own, contextual-export is skipped and
+            # would be rejected if attempted.
+            with self._count_projections() as single:
+                code, _, stderr = self._run_wrapper(f"surface-import={index_path}")
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual(len(single), 1)
+            self.assertEqual(batch.show(self.root)["phase"], "surface_collected")
+            skipped = self._run_cli("contextual-export")
+            self.assertNotEqual(skipped[0], 0)
+            self.assertIn("no deep_required", skipped[2])
+
+            with self._count_projections() as separate:
+                adjudicated = self._run_cli("adjudicate", "--input", str(adjudication))
+                prepared = self._run_cli("prepare-evidence")
+            self.assertEqual(adjudicated[0], 0, adjudicated[2])
+            self.assertEqual(prepared[0], 0, prepared[2])
+            checkpoint_separate = queue.checkpoint_path(self.root).read_bytes()
+            rows_separate = queue.business_rows(queue.database_path(self.root))
+            prospective_separate = self._prospective_bytes(batch_id)
+
+            batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            self.assertEqual(self._run_cli("surface-import", "--input", str(index_path))[0], 0)
+
+            with self._count_projections() as wrapped:
+                code, stdout, stderr = self._run_wrapper(
+                    f"adjudicate={adjudication}", "prepare-evidence")
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual([len(separate), len(wrapped)], [2, 1])
+            self.assertEqual(stdout, adjudicated[1] + prepared[1])
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), checkpoint_separate)
+            self.assertEqual(queue.business_rows(queue.database_path(self.root)), rows_separate)
+            wrapped_prospective = self._prospective_bytes(batch_id)
+            self.assertEqual(wrapped_prospective, prospective_separate)
+            separate_receipt = json.loads(prospective_separate["gates.json"])
+            wrapped_receipt = json.loads(wrapped_prospective["gates.json"])
+            self.assertEqual(wrapped_receipt, separate_receipt)
+            self.assertEqual(separate_receipt["result"]["binding"]["candidate"]["ordered_revisions"],
+                             batch.show(self.root)["selected"])
+
+    def test_sqlite_row_drift_between_steps_is_rejected_not_reused(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("ISSUE")
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    imported = self._run_cli("surface-import", "--input", str(index_path))
+                    self.assertEqual(imported[0], 0, imported[2])
+                    with closing(sqlite3.connect(queue.database_path(self.root))) as connection:
+                        connection.execute("UPDATE state_override SET state='screened'")
+                        connection.commit()
+                    code, _, stderr = self._run_cli("contextual-export")
+            self.assertNotEqual(code, 0)
+            self.assertIn("not the exact previous or desired phase tuple", stderr)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(batch.show(self.root)["phase"], "surface_collected")
+
+    def test_raw_input_drift_between_steps_is_rejected_not_reused(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("ISSUE")
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    imported = self._run_cli("surface-import", "--input", str(index_path))
+                    self.assertEqual(imported[0], 0, imported[2])
+                    raw = Path(batch.show(self.root)["surface"][0]["input_path"])
+                    raw.write_bytes(raw.read_bytes() + b"\n")
+                    code, _, stderr = self._run_cli("contextual-export")
+            self.assertNotEqual(code, 0)
+            self.assertIn("drift", stderr)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(batch.show(self.root)["phase"], "surface_collected")
+
+    def test_failing_later_step_keeps_earlier_commit_and_skips_the_rest(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("OK")
+            bad = self._input_dir() / "bad-adjudication.json"
+            bad.write_text("{}", encoding="utf-8")
+
+            with self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper(
+                    f"surface-import={index_path}", f"adjudicate={bad}", "prepare-evidence")
+            self.assertNotEqual(code, 0)
+            self.assertIn("ERROR: adjudicate failed; remaining steps not run", stderr)
+            checkpoint = batch.show(self.root)
+            self.assertEqual(checkpoint["phase"], "surface_collected")
+            self.assertIsNone(checkpoint["adjudications"])
+            self.assertFalse(batch._prospective_batch_path(self.root, checkpoint["batch_id"]).exists())
+            # surface-import projected once; adjudicate reuses that carried
+            # replay before rejecting its own input; prepare-evidence never ran.
+            self.assertEqual(len(calls), 1)
+
+    def test_missing_later_input_rejects_the_whole_command_first(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("ISSUE")
+            missing = self._input_dir() / "does-not-exist.json"
+
+            with self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper(
+                    f"surface-import={index_path}", f"adjudicate={missing}")
+            self.assertNotEqual(code, 0)
+            self.assertIn("not a file", stderr)
+            self.assertEqual(len(calls), 0)
+            self.assertEqual(batch.show(self.root)["phase"], "surface_ready")
+
+            code, _, stderr = self._run_wrapper("finalize")
+            self.assertNotEqual(code, 0)
+            self.assertIn("not chainable", stderr)
+            code, _, stderr = self._run_wrapper("surface-import")
+            self.assertNotEqual(code, 0)
+            self.assertIn("requires =<input path>", stderr)
+            code, _, stderr = self._run_wrapper("surface-import=" + str(index_path), "surface-export=x")
+            self.assertNotEqual(code, 0)
+            self.assertIn("takes no input", stderr)
+
+    def test_held_writer_lock_rejects_chain_before_any_step(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("ISSUE")
+            lock = queue.repository_lock_path(self.root)
+            with lock.open("a+b") as handle:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                with self._count_projections() as calls:
+                    code, _, stderr = self._run_wrapper(
+                        f"surface-import={index_path}", "contextual-export")
+            self.assertNotEqual(code, 0)
+            self.assertIn("lock", stderr)
+            self.assertEqual(len(calls), 0)
+            self.assertEqual(batch.show(self.root)["phase"], "surface_ready")
+
+    def test_moved_head_is_rejected_inside_a_carry_scope(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    queue.projection_for(self.root, "HEAD")
+                    (self.root / "drift.txt").write_text("drift\n", encoding="utf-8")
+                    self._commit("head moves during active batch")
+                    code, _, stderr = self._run_cli("surface-export")
+            self.assertNotEqual(code, 0)
+            self.assertIn("drift", stderr)
+            self.assertEqual(len(calls), 2)
+            self.assertEqual(batch.show(self.root)["phase"], "reserved")
+
+    def test_carry_reuse_keys_on_root_and_head_and_resets_on_exit(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            elsewhere = self._clone_repo()
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    first = queue.projection_for(self.root, "HEAD")
+                    self.assertIs(queue.projection_for(self.root, "HEAD"), first)
+                    # Same HEAD, different root: the slot must replay instead of
+                    # reusing, which is the only case that catches a root-blind key.
+                    other = queue.projection_for(elsewhere, "HEAD")
+                    self.assertEqual(other[0], first[0])
+                    self.assertIsNot(other, first)
+                    (self.root / "moved.txt").write_text("moved\n", encoding="utf-8")
+                    moved = self._commit("moved head")
+                    self.assertEqual(queue.projection_for(self.root, "HEAD")[0], moved)
+                after = queue.projection_for(self.root, "HEAD")
+            self.assertEqual(after[0], moved)
+            self.assertEqual(len(calls), 4)
+
+    def test_exceptional_carry_exit_does_not_hold_a_slot(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            with self._count_projections() as calls:
+                with self.assertRaisesRegex(RuntimeError, "boom"):
+                    with queue.carry_projection():
+                        queue.projection_for(self.root, "HEAD")
+                        raise RuntimeError("boom")
+                self.assertIsNone(queue._carry_slot.get())
+                queue.projection_for(self.root, "HEAD")
+            self.assertEqual(len(calls), 2)
+
+    def test_queue_check_replays_inside_a_carry_scope(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    queue.projection_for(self.root, "HEAD")
+                    carried = queue.check(self.root)
+                independent = queue.check(self.root)
+            self.assertEqual(len(calls), 3)
+            self.assertTrue(carried["ok"])
+            self.assertEqual(carried["progress"], independent["progress"])
+
+    def test_chained_contextual_import_still_requires_done_verified(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("ISSUE")
+            self.assertEqual(self._run_cli("surface-import", "--input", str(index_path))[0], 0)
+            self.assertEqual(self._run_cli("contextual-export")[0], 0)
+            checkpoint = batch.show(self.root)
+            contextual_index = self._contextual_index()
+            adjudication = self._adjudication_file(checkpoint["batch_id"], [])
+            with self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper(
+                    f"contextual-import={contextual_index}", f"adjudicate={adjudication}")
+            self.assertNotEqual(code, 0)
+            self.assertIn("DONE_VERIFIED", stderr)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(batch.show(self.root)["phase"], "deep_ready")
+
+    def test_prepare_gate_failure_then_recovery_reruns_the_gates(self):
+        with self._repo_env(), self._fixed_clock():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("OK")
+            self.assertEqual(self._run_cli("surface-import", "--input", str(index_path))[0], 0)
+            checkpoint = batch.show(self.root)
+            adjudication = self._adjudication_file(checkpoint["batch_id"], [])
+
+            with mock.patch.object(batch, "_actual_gate_records",
+                                   side_effect=self._failing_gate_records()) as failed:
+                with self._count_projections() as calls:
+                    code, _, stderr = self._run_wrapper(f"adjudicate={adjudication}", "prepare-evidence")
+            self.assertNotEqual(code, 0)
+            self.assertIn("gate", stderr.lower())
+            self.assertEqual(failed.call_count, 1)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(batch.show(self.root)["phase"], "adjudicated")
+
+            with self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper("prepare-evidence")
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(self.gate_runner.call_count, 1)
+            self.assertEqual(batch.show(self.root)["phase"], "commit_ready")
 
 
 if __name__ == "__main__":

@@ -59,9 +59,9 @@ python3 -B tools/orchestration/harvest_reviews.py /tmp/kids-$B.json /tmp/raw-$B
 git status --short                                            # 证明 reviewer 未写入任何文件
 python3 -B tools/orchestration/close_review_tasks.py surface /tmp/plan-$B.json /tmp/kids-$B.json /tmp/raw-$B
 python3 -B tools/orchestration/build_import_index.py surface /tmp/raw-$B /tmp/idx-$B.json
-python3 -B tools/i18n production batch surface-import --input /tmp/idx-$B.json
-# 有 ISSUE 才需要（注意顺序：contextual-import 前对应 task 必须已 DONE_VERIFIED）：
-python3 -B tools/i18n production batch contextual-export
+# 有 ISSUE 时把 surface-import 与 contextual-export 串成一次调用（整段只投影一次）；
+# 无 ISSUE 时只跑 surface-import，不要跑 contextual-export：
+python3 -B tools/orchestration/run_batch_steps.py surface-import=/tmp/idx-$B.json contextual-export
 python3 -B tools/orchestration/stage_contextual.py $B --out /tmp/ctx-$B.json
 python3 -B tools/orchestration/dispatch_contextual.py /tmp/ctx-$B.json /tmp/ctxkids-$B.json
 # …等 child 结束…
@@ -69,13 +69,50 @@ python3 -B tools/orchestration/harvest_reviews.py /tmp/ctxkids-$B.json /tmp/ctxr
 python3 -B tools/orchestration/close_review_tasks.py contextual /tmp/ctx-$B.json /tmp/ctxkids-$B.json /tmp/ctxraw-$B
 python3 -B tools/orchestration/build_import_index.py contextual /tmp/ctxraw-$B /tmp/ctxidx-$B.json
 python3 -B tools/i18n production batch contextual-import --input /tmp/ctxidx-$B.json
-python3 -B tools/i18n production batch adjudicate --input <decisions.json>
-python3 -B tools/i18n production batch prepare-evidence       # 内含 17 项门禁
+# 裁决文件生成后，adjudicate 与 prepare-evidence 也串成一次调用：
+python3 -B tools/orchestration/run_batch_steps.py adjudicate=<decisions.json> prepare-evidence
 cp -r .artifacts/.../prospective/.../batches/$B evidence/production-review-v2-lite/batches/
 git add … && git commit && python3 -B tools/i18n production batch finalize --commit $(git rev-parse HEAD)
 git push origin develop
 # 有 confirmed 才需要：repair preflight → worktree → 改译文 → catalog build → migration → 门禁 → merge
 ```
+
+## 同进程串联：`run_batch_steps.py`
+
+`run_batch_steps.py` 把**两步**放进同一个进程：每一步仍是普通 CLI 动作（照样各自取
+writer lock、读 checkpoint、核验原始输入与 DONE_VERIFIED、比较 SQLite、各用各的事务），
+唯一共享的是同一 evidence commit 的一次重放。`queue.projection_for` 在复用前会重新解析
+HEAD 与 root，所以 HEAD 中途移动或换 root 都会重放，不会复用陈旧结果。
+
+本手册推荐采用这两条串联：
+
+| 链路 | 拆开跑 | 串联 | 适用 |
+| --- | ---: | ---: | --- |
+| `surface-import` → `contextual-export` | 2 次投影 | 1 次 | 表层结果里有 ISSUE |
+| `adjudicate` → `prepare-evidence` | 2 次投影 | 1 次 | 裁决文件已生成 |
+
+两条合计 4 → 2，即实测投影次数减少 **50%**。派生产物
+`.artifacts/i18n/perf-cli-projection-20260912/host-baseline.json` 可能已随 `.artifacts/` 清理，
+不是持久证据；持久复现入口是受跟踪的
+`tests/i18n/test_production_review_v2_lite_queue.py::ProjectionChainTests`。
+这只是调用次数，**不预报整批墙钟秒数**。
+
+全部 OK 时**只跑 `surface-import`**，不要接 `contextual-export`（没有 deep_required 会直接报错），
+随后用空裁决走第二条链路。顺序仍是 `contextual-import` → `make_adjudication.py` →
+`adjudicate`+`prepare-evidence`，不能把 `adjudicate` 提前。
+
+三条行为边界：
+
+- **输入必须先备好**：`run_batch_steps.py` 在派发任何一步之前，先检查整串动作名和所有
+  `=<input>` 文件是否存在。后面的输入缺失时整条命令在第一步之前就被拒绝；这与逐条起进程的
+  错误时序**不完全等价**，只在全部输入已备好时承诺等价。
+- **失败保留前一步成果**：某步返回非零立即停止，不跑后续步，已提交的 checkpoint／SQLite
+  成果保持在该步的真实状态；恢复以 checkpoint／Git 为准，没有额外的「wrapper 恢复日志」。
+- **仍要单独跑的动作**：`queue check/rebuild/status`、`batch start/show/abandon/finalize/recover`
+  以及 `migration plan/check/apply` 都不是可串联动作，必须单独调用。代码里的白名单是按
+  **动作**划分的现有六个（`surface-export/import`、`contextual-export/import`、`adjudicate`、
+  `prepare-evidence`），并非只允许上述两条链；本手册推荐采用这两条链。未改实现，非白名单动作
+  仍会被拒绝。即使处在串联作用域内，`queue.check` 也总是完整重放并生成 progress，不复用串联结果。
 
 ## 四条硬约束
 

@@ -86,9 +86,8 @@ python3 -B tools/orchestration/harvest_reviews.py /tmp/kids-$B.json /tmp/raw-$B
 git status --short                                             # 证明 reviewer 未写入
 python3 -B tools/orchestration/close_review_tasks.py surface /tmp/plan-$B.json /tmp/kids-$B.json /tmp/raw-$B
 python3 -B tools/orchestration/build_import_index.py surface /tmp/raw-$B /tmp/idx-$B.json
-python3 -B tools/i18n production batch surface-import --input /tmp/idx-$B.json
-#   有 ISSUE 才继续：
-python3 -B tools/i18n production batch contextual-export
+#   有 ISSUE 才继续（两步串成一次调用；无 ISSUE 时只跑 surface-import）：
+python3 -B tools/orchestration/run_batch_steps.py surface-import=/tmp/idx-$B.json contextual-export
 python3 -B tools/orchestration/stage_contextual.py $B --out /tmp/ctx-$B.json
 python3 -B tools/orchestration/dispatch_contextual.py /tmp/ctx-$B.json /tmp/ctxkids-$B.json
 #   …等 child idle…
@@ -97,8 +96,7 @@ python3 -B tools/orchestration/close_review_tasks.py contextual /tmp/ctx-$B.json
 python3 -B tools/orchestration/build_import_index.py contextual /tmp/ctxraw-$B /tmp/ctxidx-$B.json
 python3 -B tools/i18n production batch contextual-import --input /tmp/ctxidx-$B.json   # 必须在 adjudicate 之前
 python3 -B tools/orchestration/make_adjudication.py /tmp/spec-$B.json /tmp/adj-$B.json
-python3 -B tools/i18n production batch adjudicate --input /tmp/adj-$B.json
-python3 -B tools/i18n production batch prepare-evidence                                # 内含 17 项门禁
+python3 -B tools/orchestration/run_batch_steps.py adjudicate=/tmp/adj-$B.json prepare-evidence   # 内含 17 项门禁
 cp -r .artifacts/i18n/production-review-v2-lite/prospective/evidence/production-review-v2-lite/batches/$B \
       evidence/production-review-v2-lite/batches/$B
 git add … && git commit                                        # evidence commit
@@ -1525,7 +1523,8 @@ queue/checkpoint 前后不变；聚焦测试 `Ran 221 tests in 28.405s` `OK`。
   截断既有输出。新增 `tests/i18n/test_benchmark_projection.py`（mock `run`，13 项）并注册到
   `production-shadow-surface-ledger`。运行时文件与计时 `run()` 测量体未改，两个样本继续有效。
 - 仅实现 PERF-1（reader blob LRU 128 MiB、轻量 catalog 视图、完整行复用、紧凑 migration
-  mapping）。**PERF-2（publication 查询、6a）、PERF-3（CLI 串联）未做**，PERF-4 advisory 未做。
+  mapping）。**PERF-2（publication 查询、6a）未做**，PERF-4 advisory 未做；
+  PERF-3（CLI 串联）另见 §24。
 - 运行时改动只有 `tools/i18nlib/git_evidence_reader.py`、
   `production_review_v2_lite_queue.py`、`production_review_v2_lite_progress.py`；
   新 `tools/orchestration/benchmark_projection.py` 与 `tests/i18n/test_benchmark_projection.py`。
@@ -1542,3 +1541,58 @@ timeout -k 10s 300s python3 -B tools/orchestration/benchmark_projection.py \
   --compare .artifacts/i18n/perf-projection-20260911/baseline.json \
   --output .artifacts/i18n/perf-projection-20260911/candidate-feasibility.json
 ```
+
+---
+
+## 24. CLI 串联优化任务 perf-cli-projection-20260912（实现完成，待独立复审与门禁）
+
+针对「同一 HEAD 上相邻 CLI 动作各重放一次 evidence commit」的有界任务。设计结论是
+**采用已有的 `tools/orchestration/run_batch_steps.py`，不改生产 wrapper／queue／batch／
+migration**，只补真实消费者回归测试与操作文档。允许改动文件仅
+`tools/orchestration/README.md`、`handoff.md`、
+`tests/i18n/test_production_review_v2_lite_queue.py`。
+
+**PERF-1（投影内存）已提交**为 `3781551acccb95d173ad1243e98e75c82c57aeaa`（上一任务
+perf-projection-20260911 的验收提交）。本任务基线即该提交。
+
+### 已测量的调用次数（不是秒数）
+
+真实 CLI 派发 + 1 条小型 Git/SQLite fixture，对真实 `queue._projection` 计数：
+
+| 链路（同 root、同 HEAD） | 逐条调用 | `run_batch_steps.py` |
+| --- | ---: | ---: |
+| `surface-import` → `contextual-export`（表层有 ISSUE） | 2 | 1 |
+| `adjudicate` → `prepare-evidence`（空裁决，全 OK 路径） | 2 | 1 |
+| 两条合计 | 4 | 2 |
+
+即投影次数 **50%** 下降。派生产物
+`.artifacts/i18n/perf-cli-projection-20260912/host-baseline.json` 可能已随 `.artifacts/` 清理，
+不是持久证据；持久复现入口是受跟踪的
+`tests/i18n/test_production_review_v2_lite_queue.py::ProjectionChainTests`。
+**不预报整批墙钟秒数**：调用次数与耗时不是一回事。
+
+### 操作变化与边界
+
+- 有 ISSUE：`run_batch_steps.py surface-import=<idx> contextual-export`；全 OK 只跑
+  `surface-import`，不要跑 `contextual-export`（没有 deep_required 会失败）。
+- 顺序保持 `contextual-import` → `make_adjudication.py` → `run_batch_steps.py
+  adjudicate=<adj> prepare-evidence`。
+- 每一步仍独立取 writer lock、读 checkpoint、核验原始输入／DONE_VERIFIED／SQLite、各用各的事务。
+  测试比较了两条链路在拆开与串联下：每步 JSON 报告、完整 SQLite 业务行、checkpoint 字节、
+  prospective 文件字节与 gates 收据绑定；并覆盖 HEAD 移动／换 root 重放、串联内 SQLite 行与
+  原始输入漂移拒绝、锁占用、缺失后续输入的整串预检、后一步失败保留前一步成果、门禁失败后
+  以独立调用恢复并重新执行门禁，以及串联作用域内 `queue.check` 仍完整重放且 progress 一致。
+- 明确限制：wrapper 会在派发前检查整串动作名与**所有**输入文件是否存在，后面的输入缺失时
+  整条命令在第一步前被拒绝，这与逐条起进程的错误时序不完全等价；比较以输入全部备好为前提。
+  本手册推荐采用上述两条链路（不是「白名单只有两条」）：代码里的白名单是按**动作**划分的
+  现有六个（`surface-export/import`、`contextual-export/import`、`adjudicate`、
+  `prepare-evidence`），未改实现，非白名单动作仍被拒绝；`queue check/rebuild/status`、
+  `batch start/show/abandon/finalize/recover`、`migration plan/check/apply` 仍单独调用。
+- 串联不改变恢复权威：checkpoint-first 中断、SQLite-lag 恢复与 rebuild 语义仍由现有
+  queue／batch 测试覆盖（wrapper 不写恢复日志，恢复仍是独立调用），串联边界只额外验证了
+  串联作用域内 SQLite 行与原始输入漂移仍会被逐步拒绝。
+- 测试用现有 in-process `batch._actual_gate_records` seam，**没有运行真实 17 项门禁**，
+  也没有声称它通过。
+
+**最终交付状态以 `.ai/task/perf-cli-projection-20260912/STATE.json` 为准**；完整门禁、
+严格构建、独立复审与 FINAL_REVIEW 仍由 ORCHESTRATOR 执行，本文件不宣称 DONE。
