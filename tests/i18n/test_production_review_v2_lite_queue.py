@@ -1666,6 +1666,115 @@ raise SystemExit(cli_production._production(argparse.Namespace(
 
 
 class PublicApiFlowTests(QueueTests):
+    def _host_block_input(self, checkpoint, *, revision=None, literal_source_match=False):
+        revision = revision or checkpoint["selected"][0]
+        relative = ".artifacts/i18n/host-block-attribution.json"
+        attribution = {"schema": "freeze-miss-attribution/1", "attribution_done": True,
+                       "miss_entry": {"entry_revision_identity": revision,
+                                      "public_source_path": "game/source.lua",
+                                      "literal_source_match": literal_source_match},
+                       "bounded_diagnosis": {
+                           "step2_is_the_literal_present_in_the_code_file": {"result": "NO"}},
+                       "whole_code_scope_verification": {
+                           "fixed_source_commit": "a" * 40,
+                           "search_scope": "all_code_files",
+                           "literal_source_present": False},
+                       "attribution": "the frozen source literal is absent at the fixed commit"}
+        path = self.root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(attribution, indent=2) + "\n", encoding="utf-8")
+        request = {"batch_id": checkpoint["batch_id"],
+                   "entry_revision_identity": revision,
+                   "reason_code": catalog.HOST_BLOCK_REASON,
+                   "fixed_source_commit": "a" * 40,
+                   "public_source_path": "game/source.lua",
+                   "attribution_evidence_path": relative}
+        request_path = self.root / "host-block-input.json"
+        request_path.write_bytes(wp1.canonical_bytes(request))
+        return request_path
+
+    def test_host_block_projection_and_git_replay_use_same_embedded_evidence(self):
+        self._resize_and_init(1)
+        batch.start(self.root, limit=1)
+        checkpoint = batch.show(self.root)
+        request = self._host_block_input(checkpoint)
+        env = dict(os.environ, I18N_REPOSITORY_ROOT=str(self.root))
+        recorded = subprocess.run(
+            [sys.executable, "-B", str(ROOT / "tools/i18n"), "production", "batch",
+             "host-block", "--input", str(request)],
+            cwd=self.root, env=env, capture_output=True, text=True, timeout=20)
+        self.assertEqual(recorded.returncode, 0, recorded.stderr)
+        self.assertEqual(json.loads(recorded.stdout)["host_blocks"], 1)
+        batch.surface_export(self.root)
+        batch.surface_import(self.root, self._surface_outputs())
+        empty = self.root / "empty-adjudication.json"
+        empty.write_bytes(wp1.canonical_bytes({"batch_id": checkpoint["batch_id"], "decisions": []}))
+        batch.adjudicate(self.root, empty)
+        active = queue.status(self.root)
+        self.assertEqual(active["explicit_overrides"], {"blocked": 1})
+        prepared = batch.prepare_evidence(self.root)
+        prospective = Path(prepared["prospective"])
+        manifest = wp1.parse_canonical_object((prospective / "manifest.json").read_bytes(), "manifest")
+        self.assertEqual(manifest["host_blocks_sha256"], hashlib.sha256(
+            (prospective / "host_blocks.jsonl").read_bytes()).hexdigest())
+        embedded = wp1.parse_jsonl((prospective / "host_blocks.jsonl").read_bytes(), "host blocks")
+        self.assertFalse(embedded[0]["literal_source_match"])
+        commit = self._publish_generated(prospective)
+        batch.finalize(self.root, commit)
+        replayed = queue.status(self.root)
+        self.assertEqual(replayed["explicit_overrides"], active["explicit_overrides"])
+        self.assertTrue(queue.check(self.root)["ok"])
+
+    def test_host_block_record_requires_evidence_and_selected_revision(self):
+        self._resize_and_init(1)
+        batch.start(self.root, limit=1)
+        checkpoint = batch.show(self.root)
+        request = self._host_block_input(checkpoint, revision="f" * 64)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "unselected"):
+            batch.record_host_block(self.root, request)
+        request = self._host_block_input(checkpoint)
+        value = wp1.parse_canonical_object(request.read_bytes(), "request")
+        value.pop("attribution_evidence_path")
+        request.write_bytes(wp1.canonical_bytes(value))
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "canonical and bind"):
+            batch.record_host_block(self.root, request)
+        self.assertEqual(batch.show(self.root).get("host_blocks"), [])
+        batch.abandon(self.root)
+
+    def test_host_block_does_not_downgrade_surface_issue_repair_in_active_or_replay(self):
+        self._resize_and_init(1)
+        batch.start(self.root, limit=1)
+        checkpoint = batch.show(self.root)
+        batch.record_host_block(self.root, self._host_block_input(checkpoint))
+        batch.surface_export(self.root)
+        surface_ref = batch.show(self.root)["surface"][0]
+        batch.surface_import(self.root, {"0": self._surface_bytes(surface_ref, "ISSUE")})
+        batch.contextual_export(self.root)
+        contextual_ref = batch.show(self.root)["contextual"][0]
+        contextual_output = self._contextual_bytes(contextual_ref, "OK")
+        self._install_contextual_done_state(contextual_ref, contextual_output)
+        batch.contextual_import(self.root, {"0": contextual_output})
+        observations = batch._accepted_observations(batch.show(self.root))
+        self.assertEqual([item["contract"] for item in observations],
+                         [wp1.surface.CONTRACT])
+        source_snapshot = {"sha256": hashlib.sha256(b"host block repair source").hexdigest(),
+                           "content": "host block repair source"}
+        decisions = [self._decision(item, disposition="confirmed",
+                                    snapshot=source_snapshot, repair_required=True)
+                     for item in observations]
+        adjudication = self.root / "host-block-repair-adjudication.json"
+        adjudication.write_bytes(wp1.canonical_bytes({
+            "batch_id": checkpoint["batch_id"], "decisions": decisions}))
+        self.assertEqual(batch.adjudicate(self.root, adjudication)["repair_required"], 1)
+        self.assertEqual(queue.status(self.root)["explicit_overrides"],
+                         {"repair_required": 1})
+        prepared = batch.prepare_evidence(self.root)
+        publication = self._publish_generated(Path(prepared["prospective"]))
+        batch.finalize(self.root, publication)
+        queue.rebuild(self.root)
+        self.assertEqual(queue.status(self.root)["explicit_overrides"],
+                         {"repair_required": 1})
+
     def _surface_bytes(self, ref, verdict="OK"):
         raw = Path(ref["input_path"]).read_bytes()
         envelope = wp1.surface.strict_json_bytes(raw, label="surface envelope")

@@ -45,6 +45,13 @@ ENTRY_KEYS = frozenset({"schema_version", "component", "normalized_path", "secti
 RISK_KEYS_V1 = frozenset(wp1.RISK_KEYS)
 RISK_KEYS_V2 = RISK_KEYS_V1 | {"args_order"}
 RISK_KEYS = RISK_KEYS_V1
+HOST_BLOCK_REASON = "fixed_source_literal_unverifiable"
+HOST_BLOCK_KEYS = frozenset({"schema_version", "entry_revision_identity", "reason_code",
+    "fixed_source_commit", "public_source_path", "attribution_evidence_path",
+    "attribution_evidence_sha256", "attribution_evidence_snapshot", "host_reason",
+    "literal_source_match"})
+WHOLE_CODE_SCOPE_KEYS = frozenset({"fixed_source_commit", "search_scope",
+                                   "literal_source_present"})
 EXCLUSION_PRIORITY = ("outside_initial_six_component_scope", "empty_source", "empty_target")
 
 def _schema_value(rules_version: str) -> dict[str, Any]:
@@ -190,6 +197,83 @@ def fold_issue_observations(observations: Iterable[dict[str, Any]],
         if priority[state] > priority.get(folded.get(revision), -1):
             folded[revision] = state
     return folded
+
+
+def host_block_states(rows: object, selected: Iterable[str],
+                      entries_by_revision: dict[str, dict[str, Any]] | None = None) -> dict[str, str]:
+    """Validate independent host attribution and return its durable states."""
+    if rows is None:
+        return {}
+    if not isinstance(rows, list):
+        raise wp1.ProductionReviewError("host blocks must be an array")
+    selected_set = set(selected)
+    states: dict[str, str] = {}
+    for index, row in enumerate(rows):
+        label = f"host block {index}"
+        if not isinstance(row, dict) or set(row) != HOST_BLOCK_KEYS:
+            raise wp1.ProductionReviewError(f"{label} exact schema mismatch")
+        if type(row["schema_version"]) is not int or row["schema_version"] != 1:
+            raise wp1.ProductionReviewError(f"{label} schema_version mismatch")
+        revision = row["entry_revision_identity"]
+        if (not isinstance(revision, str) or not wp1.SHA256_RE.fullmatch(revision) or
+                revision not in selected_set or revision in states):
+            raise wp1.ProductionReviewError(f"{label} revision is unselected, invalid, or duplicated")
+        if row["reason_code"] != HOST_BLOCK_REASON or row["literal_source_match"] is not False:
+            raise wp1.ProductionReviewError(f"{label} reason/literal fact mismatch")
+        commit = row["fixed_source_commit"]
+        if (not isinstance(commit, str) or len(commit) != 40 or
+                any(ch not in "0123456789abcdef" for ch in commit)):
+            raise wp1.ProductionReviewError(f"{label} fixed source commit is invalid")
+        if (entries_by_revision is not None and
+                entries_by_revision.get(revision, {}).get("fixed_source_identity") != "commit:" + commit):
+            raise wp1.ProductionReviewError(f"{label} fixed source commit does not match the frozen catalog row")
+        for key in ("public_source_path", "attribution_evidence_path"):
+            path = row[key]
+            if (not isinstance(path, str) or not path or path.startswith("/") or
+                    ".." in Path(path).parts or wp1.surface.normalize_relative_path(path) != path):
+                raise wp1.ProductionReviewError(f"{label} {key} is not normalized")
+        snapshot = row["attribution_evidence_snapshot"]
+        if not isinstance(snapshot, dict) or snapshot.get("attribution_done") is not True:
+            raise wp1.ProductionReviewError(f"{label} attribution snapshot is not completed evidence")
+        if snapshot.get("schema") != "freeze-miss-attribution/1" and not (
+                isinstance(snapshot.get("batch_id"), str) and snapshot["batch_id"].startswith("batch-") and
+                type(snapshot.get("batch_number")) is int and snapshot["batch_number"] > 0 and
+                isinstance(snapshot.get("freeze_result"), str) and snapshot["freeze_result"]):
+            raise wp1.ProductionReviewError(f"{label} attribution snapshot kind is invalid")
+        digest = row["attribution_evidence_sha256"]
+        if (not isinstance(digest, str) or not wp1.SHA256_RE.fullmatch(digest) or
+                hashlib.sha256(wp1.canonical_bytes(snapshot)).hexdigest() != digest):
+            raise wp1.ProductionReviewError(f"{label} attribution snapshot hash mismatch")
+        miss = snapshot.get("miss_entry")
+        diagnosis = snapshot.get("bounded_diagnosis")
+        whole_code = snapshot.get("whole_code_scope_verification")
+        if (not isinstance(miss, dict) or
+                miss.get("entry_revision_identity") != revision or
+                miss.get("public_source_path") != row["public_source_path"] or
+                miss.get("literal_source_match") is not False or
+                not isinstance(diagnosis, dict) or
+                not isinstance(diagnosis.get("step2_is_the_literal_present_in_the_code_file"), dict) or
+                diagnosis["step2_is_the_literal_present_in_the_code_file"].get("result") != "NO"):
+            raise wp1.ProductionReviewError(f"{label} attribution does not prove the selected literal miss")
+        if (not isinstance(whole_code, dict) or set(whole_code) != WHOLE_CODE_SCOPE_KEYS or
+                whole_code.get("fixed_source_commit") != commit or
+                whole_code.get("search_scope") != "all_code_files" or
+                whole_code.get("literal_source_present") is not False):
+            raise wp1.ProductionReviewError(
+                f"{label} attribution does not prove whole-code absence at the fixed commit")
+        reason = snapshot.get("attribution")
+        if not isinstance(reason, str) or not reason.strip() or row["host_reason"] != reason:
+            raise wp1.ProductionReviewError(f"{label} host reason is not bound to the attribution")
+        states[revision] = "blocked"
+    return states
+
+
+def merge_durable_state(current: str, incoming: str) -> str:
+    """Apply the existing done < blocked < repair_required priority."""
+    priority = {"done": 0, "blocked": 1, "repair_required": 2}
+    if current not in priority or incoming not in priority:
+        raise wp1.ProductionReviewError("durable state priority input is invalid")
+    return incoming if priority[incoming] > priority[current] else current
 
 
 def _plain_id(kind: str, key: str, value: object) -> str:

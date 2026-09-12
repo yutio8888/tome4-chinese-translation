@@ -72,6 +72,7 @@ BATCH_MANIFEST_KEYS = frozenset({"schema_version", "kind", "catalog_id", "policy
     "batch_id", "attempt", "ordered_revisions", "ordered_revisions_sha256", "entry_snapshots_sha256",
     "adapter_refs", "results_sha256", "adjudications_sha256", "gates_sha256", "producer_task_ids",
     "recorded_at", "recorded_by"})
+BATCH_MANIFEST_OPTIONAL_KEYS = frozenset({"host_blocks_sha256"})
 RESULT_KEYS = frozenset({"schema_version", "source", "target", "source_tag", "normalized_path", "call_locator",
     "logical_entry_identity", "entry_revision_identity", "surface_verdict", "surface_observation",
     "deep_verdict", "deep_observation", "input_sha256", "output_sha256", "final_state", "completion_level"})
@@ -80,6 +81,14 @@ ADJUDICATION_KEYS = frozenset({"schema_version", "entry_revision_identity", "obs
 ADAPTER_REF_KEYS = frozenset({"contract", "input_path", "input_sha256", "output_path", "output_sha256",
                               "candidate_identity"})
 ADAPTER_REF_WITH_GROUP_KEYS = ADAPTER_REF_KEYS | {"group_manifest_path", "group_manifest_sha256"}
+
+
+def _batch_manifest(raw: bytes, label: str) -> dict[str, Any]:
+    value = wp1.parse_canonical_object(raw, label)
+    if (not isinstance(value, dict) or set(value) not in
+            {BATCH_MANIFEST_KEYS, BATCH_MANIFEST_KEYS | BATCH_MANIFEST_OPTIONAL_KEYS}):
+        raise _error(f"{label} exact schema mismatch")
+    return value
 
 
 def database_path(root: Path) -> Path:
@@ -575,14 +584,16 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
     tree = _tree(root, treeish)
     batch_root = manifest_path.rsplit("/", 1)[0]
     required = {f"{batch_root}/{name}" for name in ("manifest.json", "results.jsonl", "adjudications.jsonl", "gates.json")}
+    host_blocks_path = f"{batch_root}/host_blocks.jsonl"
     for path, (mode, kind, _object) in tree.items():
         if path.startswith(batch_root + "/") and (mode not in {"100644", "100755"} or kind != "blob"):
             raise _error(f"batch evidence contains symlink/special entry: {path}")
-        if path.startswith(batch_root + "/") and path not in required and not path.startswith(batch_root + "/raw/"):
+        if (path.startswith(batch_root + "/") and path not in required and path != host_blocks_path and
+                not path.startswith(batch_root + "/raw/")):
             raise _error(f"batch evidence contains unexpected file: {path}")
     raws = {path: _ordinary_blob(root, tree, path) for path in required}
     manifest_raw = raws[f"{batch_root}/manifest.json"]
-    manifest = _exact(wp1.parse_canonical_object(manifest_raw, "batch manifest"), BATCH_MANIFEST_KEYS, "batch manifest")
+    manifest = _batch_manifest(manifest_raw, "batch manifest")
     _schema_one(manifest["schema_version"], "batch manifest")
     if manifest["kind"] != "production_review_v2_lite_batch_v1":
         raise _error("batch manifest kind mismatch")
@@ -595,6 +606,16 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
         raise _error("batch attempt must be a nonnegative integer")
     wp1.strict_utc_seconds(manifest["recorded_at"])
     _nonempty(manifest["recorded_by"], "recorded_by")
+    if "host_blocks_sha256" in manifest:
+        if host_blocks_path not in tree:
+            raise _error("batch host blocks file is missing")
+        required.add(host_blocks_path)
+        raws[host_blocks_path] = _ordinary_blob(root, tree, host_blocks_path)
+        if hashlib.sha256(raws[host_blocks_path]).hexdigest() != _sha(
+                manifest["host_blocks_sha256"], "host blocks hash"):
+            raise _error("batch host_blocks.jsonl hash mismatch")
+    elif host_blocks_path in tree:
+        raise _error("batch host blocks file is not bound by its manifest")
     for name, key in (("results.jsonl", "results_sha256"), ("adjudications.jsonl", "adjudications_sha256"),
                       ("gates.json", "gates_sha256")):
         if hashlib.sha256(raws[f"{batch_root}/{name}"]).hexdigest() != _sha(manifest[key], key):
@@ -610,6 +631,9 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
         raise _error("batch ordered revision is not in the current catalog") from error
     if hashlib.sha256(wp1.canonical_bytes(snapshots)).hexdigest() != manifest["entry_snapshots_sha256"]:
         raise _error("batch entry snapshot hash mismatch")
+    host_states = catalog.host_block_states(
+        wp1.parse_jsonl(raws[host_blocks_path], "batch host blocks")
+        if host_blocks_path in raws else None, revisions, entries_by_revision)
     refs = manifest["adapter_refs"]
     if not isinstance(refs, list) or not refs:
         raise _error("batch adapter_refs must be a nonempty array")
@@ -633,7 +657,8 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
                                  manifest["base_commit"])
     # Replay is a derivation, not a trust decision: surface is the ordered
     # authority for the batch, deep is exactly its ISSUE projection, and no
-    # contextual-only or surface-OK-plus-blocked conclusion is representable.
+    # contextual-only conclusion is representable.  An independently bound
+    # host block may override an observation-derived done state below.
     surface_rows = accepted_by_contract.get(wp1.surface.CONTRACT, {})
     deep_rows = accepted_by_contract.get("translation_contextual_v2", {})
     if set(surface_rows) != set(revisions):
@@ -795,6 +820,8 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
             expected_state = "done"
         else:
             raise _error("durable result is not resolved by accepted observations")
+        if revision in host_states:
+            expected_state = catalog.merge_durable_state(expected_state, host_states[revision])
         if row["final_state"] != expected_state:
             raise _error("durable final state is not derived from accepted observations/adjudication")
         observed.append(revision)
@@ -913,15 +940,16 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
         batch_root = path.rsplit("/", 1)[0]
         required = {f"{batch_root}/{name}" for name in
                     ("manifest.json", "results.jsonl", "adjudications.jsonl", "gates.json")}
+        host_blocks_path = f"{batch_root}/host_blocks.jsonl"
         for candidate_path, (mode, kind, _object) in tree.items():
             if not candidate_path.startswith(batch_root + "/"):
                 continue
             if mode not in {"100644", "100755"} or kind != "blob":
                 raise _error(f"batch evidence contains symlink/special entry: {candidate_path}")
-            if candidate_path not in required and not candidate_path.startswith(batch_root + "/raw/"):
+            if (candidate_path not in required and candidate_path != host_blocks_path and
+                    not candidate_path.startswith(batch_root + "/raw/")):
                 raise _error(f"batch evidence contains unexpected file: {candidate_path}")
-        value = _exact(wp1.parse_canonical_object(_ordinary_blob(root, tree, path), "batch manifest"),
-                       BATCH_MANIFEST_KEYS, "batch manifest")
+        value = _batch_manifest(_ordinary_blob(root, tree, path), "batch manifest")
         _schema_one(value["schema_version"], "historical batch manifest")
         if value["kind"] != "production_review_v2_lite_batch_v1":
             raise _error("historical batch manifest kind mismatch")
@@ -929,6 +957,15 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
             raise _error("historical batch manifest has no catalog identity")
         if value.get("batch_id") != batch_root.rsplit("/", 1)[-1]:
             raise _error("historical batch ID/path mismatch")
+        if "host_blocks_sha256" in value:
+            if host_blocks_path not in tree:
+                raise _error("historical batch host blocks file is missing")
+            host_raw = _ordinary_blob(root, tree, host_blocks_path)
+            if hashlib.sha256(host_raw).hexdigest() != _sha(
+                    value["host_blocks_sha256"], "host blocks hash"):
+                raise _error("historical batch host_blocks.jsonl hash mismatch")
+        elif host_blocks_path in tree:
+            raise _error("historical batch host blocks file is not bound by its manifest")
         for name, key in (("results.jsonl", "results_sha256"),
                           ("adjudications.jsonl", "adjudications_sha256"),
                           ("gates.json", "gates_sha256")):

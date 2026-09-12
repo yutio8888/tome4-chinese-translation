@@ -66,6 +66,9 @@ def register(subparsers: argparse._SubParsersAction) -> None:
     contextual_import.add_argument("--input", required=True, type=Path)
     adjudicate = batch_sub.add_parser("adjudicate")
     adjudicate.add_argument("--input", required=True, type=Path)
+    host_block = batch_sub.add_parser(
+        "host-block", help="record a fixed-source literal as unverifiable")
+    host_block.add_argument("--input", required=True, type=Path)
     batch_sub.add_parser("prepare-evidence")
     finalize = batch_sub.add_parser("finalize")
     finalize.add_argument("--commit", required=True)
@@ -296,6 +299,8 @@ def _production(arguments: argparse.Namespace) -> int:
             report = production_review_v2_lite_batch.contextual_import(root, outputs)
         elif action == "adjudicate":
             report = production_review_v2_lite_batch.adjudicate(root, arguments.input)
+        elif action == "host-block":
+            report = production_review_v2_lite_batch.record_host_block(root, arguments.input)
         elif action == "prepare-evidence":
             report = production_review_v2_lite_batch.prepare_evidence(root)
         elif action == "finalize":

@@ -24,6 +24,60 @@ def row(identity, fixed="commit:" + "a" * 40, size=1, last=True):
 
 
 class BatchBoundaryTests(unittest.TestCase):
+    def _host_block(self, revision, *, literal_source_present=False):
+        attribution = {"schema": "freeze-miss-attribution/1", "attribution_done": True,
+                       "miss_entry": {"entry_revision_identity": revision,
+                                      "public_source_path": "game/source.lua",
+                                      "literal_source_match": False},
+                       "bounded_diagnosis": {
+                           "step2_is_the_literal_present_in_the_code_file": {"result": "NO"}},
+                       "whole_code_scope_verification": {
+                           "fixed_source_commit": "a" * 40,
+                           "search_scope": "all_code_files",
+                           "literal_source_present": literal_source_present},
+                       "attribution": "the frozen source literal is absent at the fixed commit"}
+        return {"schema_version": 1, "entry_revision_identity": revision,
+                "reason_code": "fixed_source_literal_unverifiable",
+                "fixed_source_commit": "a" * 40, "public_source_path": "game/source.lua",
+                "attribution_evidence_path": ".artifacts/i18n/freeze-attribution.json",
+                "attribution_evidence_sha256": hashlib.sha256(
+                    wp1.canonical_bytes(attribution)).hexdigest(),
+                "attribution_evidence_snapshot": attribution,
+                "host_reason": attribution["attribution"], "literal_source_match": False}
+
+    def test_host_block_is_independent_and_overrides_surface_ok_only_at_terminal_phase(self):
+        revision = "1" * 64
+        checkpoint = {"selected": [revision], "phase": "surface_collected",
+                      "surface": [{"intended_state_updates": {revision: "screened"}}],
+                      "contextual": None, "adjudications": None,
+                      "entry_snapshots": [{"entry_revision_identity": revision,
+                                           "fixed_source_identity": "commit:" + "a" * 40}],
+                      "host_blocks": [self._host_block(revision)]}
+        self.assertEqual(batch._desired_state_overlay(checkpoint), {revision: "screened"})
+        checkpoint["phase"] = "adjudicated"
+        checkpoint["adjudications"] = []
+        self.assertEqual(batch._desired_state_overlay(checkpoint), {revision: "blocked"})
+        self.assertEqual(queue_fixtures.catalog.merge_durable_state(
+            "repair_required", "blocked"), "repair_required")
+
+    def test_host_block_rejects_unselected_or_unproven_revision(self):
+        revision = "1" * 64
+        block = self._host_block(revision)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "unselected"):
+            queue_fixtures.catalog.host_block_states([block], ["2" * 64])
+        forged = copy.deepcopy(block)
+        forged["attribution_evidence_snapshot"]["miss_entry"]["literal_source_match"] = True
+        forged["attribution_evidence_sha256"] = hashlib.sha256(
+            wp1.canonical_bytes(forged["attribution_evidence_snapshot"])).hexdigest()
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "does not prove"):
+            queue_fixtures.catalog.host_block_states([forged], [revision])
+
+    def test_host_block_rejects_file_miss_when_literal_exists_elsewhere_in_code(self):
+        revision = "1" * 64
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "whole-code absence"):
+            queue_fixtures.catalog.host_block_states(
+                [self._host_block(revision, literal_source_present=True)], [revision])
+
     def test_limit_boundaries_and_stable_selection(self):
         rows = [row(format(i, "064x"), size=i) for i in range(1, 81)]
         self.assertEqual(batch.stable_selection(rows, {}, retry_blocked=False, limit=0), [])

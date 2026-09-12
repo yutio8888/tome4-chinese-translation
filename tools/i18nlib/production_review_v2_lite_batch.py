@@ -22,6 +22,7 @@ PHASES = frozenset({"reserved", "surface_ready", "surface_collected", "deep_read
 SAFE = frozenset({"reserved", "before_result_import", "before_commit"})
 CONTEXTUAL_REF_KEYS = frozenset({"run_index", "contract", "input_path", "input_sha256", "output_path", "output_sha256", "validator_status", "candidate_identity", "parent_indexes", "task_id", "task_state_path", "intended_state_updates"})
 CHECKPOINT_KEYS = frozenset({"schema_version", "kind", "batch_id", "catalog_id", "base_commit", "policy_sha256", "created_at", "created_by", "attempt", "selection_mode", "phase", "selected", "selected_sha256", "entry_snapshots", "surface", "contextual", "adjudications", "repair_candidates", "gates", "last_safe_boundary"})
+CHECKPOINT_OPTIONAL_KEYS = frozenset({"host_blocks"})
 SNAPSHOT_KEYS = frozenset(catalog.ENTRY_KEYS) | {"prior_effective_state", "row_sha256"}
 SURFACE_REF_KEYS = frozenset({"run_index", "lane_index", "contract", "input_path", "input_sha256", "output_path", "output_sha256", "validator_status", "candidate_identity", "parent_indexes", "intended_state_updates", "group_manifest_path", "group_manifest_sha256"})
 
@@ -113,7 +114,8 @@ def _load(path):
         value = wp1.parse_canonical_object(raw[:-1], "active batch checkpoint")
     except (OSError, ValueError, UnicodeError, TypeError) as error:
         raise _err(f"invalid active batch checkpoint: {error}") from error
-    if not isinstance(value, dict) or set(value) != CHECKPOINT_KEYS:
+    if (not isinstance(value, dict) or set(value) not in
+            {CHECKPOINT_KEYS, CHECKPOINT_KEYS | CHECKPOINT_OPTIONAL_KEYS}):
         raise _err("active batch checkpoint exact schema mismatch")
     if type(value.get("schema_version")) is not int or value["schema_version"] != 1 or value.get("kind") != "production_review_v2_lite_active_batch_v1":
         raise _err("active batch checkpoint schema/version mismatch")
@@ -160,6 +162,8 @@ def _load(path):
             raise _err("active batch entry snapshot row hash mismatch")
         if type(snapshot["schema_version"]) is not int or snapshot["schema_version"] != 1:
             raise _err("active batch snapshot schema_version mismatch")
+    catalog.host_block_states(value.get("host_blocks"), selected,
+                              {row["entry_revision_identity"]: row for row in snapshots})
     if value["phase"] == "reserved" and (value["surface"] is not None or value["contextual"] is not None):
         raise _err("reserved checkpoint must have null adapter sections")
     if value["surface"] is not None:
@@ -815,6 +819,11 @@ def _desired_state_overlay(checkpoint):
         # closes a clean surface-only row as durable ``done``.
         desired = {revision: ("done" if state == "screened" else state)
                    for revision, state in desired.items()}
+        for revision, state in catalog.host_block_states(
+                checkpoint.get("host_blocks"), checkpoint["selected"],
+                {row["entry_revision_identity"]: row
+                 for row in checkpoint["entry_snapshots"]}).items():
+            desired[revision] = catalog.merge_durable_state(desired[revision], state)
     if set(desired) != selected:
         raise _err("desired-state overlay does not cover selected identities")
     return desired
@@ -846,7 +855,7 @@ def _new_checkpoint(root, manifest, rows, *, mode, attempt, created_by):
         snapshot["prior_effective_state"] = "blocked" if mode == "retry_blocked" else "queued"
         snapshot["row_sha256"] = _sha(wp1.canonical_bytes(row))
         snapshots.append(snapshot)
-    value = {"schema_version": 1, "kind": "production_review_v2_lite_active_batch_v1", "batch_id": _batch_id(mode, selected, attempt), "catalog_id": manifest["catalog_id"], "base_commit": queue._head(root, "HEAD"), "policy_sha256": manifest["policy_sha256"], "created_at": catalog.utc_now(), "created_by": created_by, "attempt": attempt, "selection_mode": mode, "phase": "reserved", "selected": selected, "selected_sha256": _sha(wp1.canonical_bytes(selected)), "entry_snapshots": snapshots, "surface": None, "contextual": None, "adjudications": None, "repair_candidates": None, "gates": None, "last_safe_boundary": "reserved"}
+    value = {"schema_version": 1, "kind": "production_review_v2_lite_active_batch_v1", "batch_id": _batch_id(mode, selected, attempt), "catalog_id": manifest["catalog_id"], "base_commit": queue._head(root, "HEAD"), "policy_sha256": manifest["policy_sha256"], "created_at": catalog.utc_now(), "created_by": created_by, "attempt": attempt, "selection_mode": mode, "phase": "reserved", "selected": selected, "selected_sha256": _sha(wp1.canonical_bytes(selected)), "entry_snapshots": snapshots, "surface": None, "contextual": None, "adjudications": None, "repair_candidates": None, "host_blocks": [], "gates": None, "last_safe_boundary": "reserved"}
     return value
 
 def _restore_orphans(root, *, projection=None):
@@ -1284,6 +1293,64 @@ def show(root):
     path = queue.checkpoint_path(root)
     return {"active": False, "ok": True} if not path.exists() else {"active": True, **_load(path)}
 
+
+def record_host_block(root, input_path):
+    """Attach one source-literal miss with its complete attribution snapshot."""
+    with queue.writer_lock(root):
+        checkpoint = preflight(root)
+        if checkpoint is None or checkpoint["phase"] not in {
+                "reserved", "surface_ready", "surface_collected", "deep_ready", "deep_collected"}:
+            raise _err("host block requires an active pre-adjudication batch")
+        try:
+            raw = Path(input_path).read_bytes()
+            request = wp1.parse_canonical_object(raw, "host block input")
+        except (OSError, ValueError, UnicodeError, TypeError) as error:
+            raise _err(f"invalid host block input: {error}") from error
+        request_keys = {"batch_id", "entry_revision_identity", "reason_code",
+                        "fixed_source_commit", "public_source_path",
+                        "attribution_evidence_path"}
+        if (wp1.canonical_bytes(request) != raw or not isinstance(request, dict) or
+                set(request) != request_keys or request["batch_id"] != checkpoint["batch_id"]):
+            raise _err("host block input must be canonical and bind the active batch")
+        evidence_path = request["attribution_evidence_path"]
+        if (not isinstance(evidence_path, str) or not evidence_path or evidence_path.startswith("/") or
+                ".." in Path(evidence_path).parts or
+                wp1.surface.normalize_relative_path(evidence_path) != evidence_path):
+            raise _err("host block attribution evidence path is not normalized")
+        source = root / Path(evidence_path)
+        try:
+            parts = Path(evidence_path).parts
+            ancestors = [root.joinpath(*parts[:index]) for index in range(1, len(parts) + 1)]
+            if any(ancestor.is_symlink() for ancestor in ancestors) or not source.is_file():
+                raise OSError("not an ordinary file")
+            attribution = wp1._parse_json(source.read_bytes(), "host block attribution")
+            if not isinstance(attribution, dict):
+                raise ValueError("attribution must be one JSON object")
+        except (OSError, ValueError, UnicodeError, TypeError) as error:
+            raise _err(f"host block attribution evidence cannot be read: {error}") from error
+        block = {"schema_version": 1,
+                 "entry_revision_identity": request["entry_revision_identity"],
+                 "reason_code": request["reason_code"],
+                 "fixed_source_commit": request["fixed_source_commit"],
+                 "public_source_path": request["public_source_path"],
+                 "attribution_evidence_path": evidence_path,
+                 "attribution_evidence_sha256": _sha(wp1.canonical_bytes(attribution)),
+                 "attribution_evidence_snapshot": attribution,
+                 "host_reason": attribution.get("attribution") if isinstance(attribution, dict) else None,
+                 "literal_source_match": False}
+        existing = list(checkpoint.get("host_blocks") or [])
+        candidate_blocks = existing + [block]
+        catalog.host_block_states(
+            candidate_blocks, checkpoint["selected"],
+            {row["entry_revision_identity"]: row for row in checkpoint["entry_snapshots"]})
+        order = {revision: index for index, revision in enumerate(checkpoint["selected"])}
+        candidate_blocks.sort(key=lambda item: order[item["entry_revision_identity"]])
+        candidate = copy.deepcopy(checkpoint)
+        candidate["host_blocks"] = candidate_blocks
+        _atomic(queue.checkpoint_path(root), _checkpoint_bytes(candidate))
+        return {"batch_id": checkpoint["batch_id"], "entry_revision_identity":
+                block["entry_revision_identity"], "host_blocks": len(candidate_blocks), "ok": True}
+
 def abandon(root, *, discard_uncommitted_results=False, restore_evidence=False):
     with queue.writer_lock(root):
         # Validate the checkpoint-owned prospective tree before preflight can
@@ -1448,6 +1515,8 @@ def _evidence_rows(checkpoint):
     decision_states = catalog.fold_issue_observations(
         accepted_observations, checkpoint.get("adjudications") or [],
         require_complete=checkpoint.get("adjudications") is not None)
+    host_states = catalog.host_block_states(
+        checkpoint.get("host_blocks"), checkpoint["selected"], by)
     desired = _desired_state_overlay(checkpoint)
     final = {}
     for revision, row in by.items():
@@ -1470,6 +1539,8 @@ def _evidence_rows(checkpoint):
             state, level = "done", "surface_only"
         else:
             raise _err("selected row is not durably resolved")
+        if revision in host_states:
+            state = catalog.merge_durable_state(state, host_states[revision])
         if state != desired[revision]:
             raise _err("evidence row state does not match the complete desired tuple")
         adapter = next((ref for ref in (checkpoint.get("surface") or []) + (checkpoint.get("contextual") or [])
@@ -1513,6 +1584,8 @@ def _raw_copy_plan(checkpoint):
     """
     batch_id = checkpoint["batch_id"]
     declared = {_batch_relative(batch_id, name) for name in evidence.CORE_FILES}
+    if checkpoint.get("host_blocks"):
+        declared.add(_batch_relative(batch_id, "host_blocks.jsonl"))
     copies = {}
     hash_by_source = {}
     sections = []
@@ -1715,6 +1788,7 @@ def prepare_evidence(root):
             refs.append(ref)
         def jsonl(values): return b"".join(wp1.canonical_bytes(v) + b"\n" for v in values)
         adjud_raw = jsonl(checkpoint.get("adjudications") or [])
+        host_blocks_raw = jsonl(checkpoint.get("host_blocks") or [])
         gates_raw = wp1.canonical_bytes(_gates_value(gate_result, 0, 0))
         # Bind every durable result to the generated raw bytes before the
         # prospective tree is published; the checkpoint paths are absolute
@@ -1740,9 +1814,13 @@ def prepare_evidence(root):
                 raise _err("selected row has no generated adapter byte binding")
         results_raw = jsonl(rows)
         manifest = {"schema_version": 1, "kind": "production_review_v2_lite_batch_v1", "catalog_id": checkpoint["catalog_id"], "policy_sha256": checkpoint["policy_sha256"], "base_commit": checkpoint["base_commit"], "batch_id": checkpoint["batch_id"], "attempt": checkpoint["attempt"], "ordered_revisions": checkpoint["selected"], "ordered_revisions_sha256": _sha(wp1.canonical_bytes(checkpoint["selected"])), "entry_snapshots_sha256": _sha(wp1.canonical_bytes([{key: snapshot[key] for key in catalog.ENTRY_KEYS} for snapshot in checkpoint["entry_snapshots"]])), "adapter_refs": refs, "results_sha256": _sha(results_raw), "adjudications_sha256": _sha(adjud_raw), "gates_sha256": _sha(gates_raw), "producer_task_ids": [r["task_id"] for r in checkpoint.get("contextual") or []], "recorded_at": catalog.utc_now(), "recorded_by": checkpoint["created_by"]}
+        if host_blocks_raw:
+            manifest["host_blocks_sha256"] = _sha(host_blocks_raw)
         batch_root = runtime
         _write_fsynced(batch_root / "results.jsonl", results_raw)
         _write_fsynced(batch_root / "adjudications.jsonl", adjud_raw)
+        if host_blocks_raw:
+            _write_fsynced(batch_root / "host_blocks.jsonl", host_blocks_raw)
         _write_fsynced(batch_root / "gates.json", gates_raw)
         _write_fsynced(batch_root / "manifest.json", wp1.canonical_bytes(manifest))
         for directory in sorted((p for p in batch_root.rglob("*") if p.is_dir()), key=lambda p: len(p.parts), reverse=True):
