@@ -19,9 +19,9 @@ SAFE_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,31}$")
 SAFE_TASK_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,127}$")
 PHASES = frozenset({"REVIEW", "RE_REVIEW"})
 PROMPT_TEMPLATE = (
-    "任务：审核 input_path 中全部冻结 revision；按其术语、上下文及所引固定源码，仅报有证据的实质语义、机制、术语、关系或跨条一致性问题；否则判 OK。\n"
-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；仅读该文件、其明确引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
-    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 revision 并回显 identity；首字节{、末字节}，无其他文字、Markdown 或围栏。"
+    "任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。\n"
+    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
+    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。"
 )
 
 

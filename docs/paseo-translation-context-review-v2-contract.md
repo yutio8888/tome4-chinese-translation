@@ -94,13 +94,12 @@ full coverage 不得漂移这些字段。intervening 只允许 `RE_REVIEW/full|c
 固定三行 prompt：
 
 ```text
-任务：审核 input_path 中全部冻结 revision；按其术语、上下文及所引固定源码，仅报有证据的实质语义、机制、术语、关系或跨条一致性问题；否则判 OK。
-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；仅读该文件、其明确引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
-输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 revision 并回显 identity；首字节{、末字节}，无其他文字、Markdown 或围栏。
+任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
 ```
 
-模板为 637 UTF-8 bytes；使用本任务 ID 和最长 32 字节 dispatch ID 时实例为 773 bytes。
-模板和每次实例化 UTF-8 bytes 都必须 `<= 800`，且 full、closure、lane 和
+模板和每次实例化 UTF-8 bytes 都必须 `<= 800`；路径较长时仍按实际实例拒绝超限，且 full、closure、lane 和
 `FINAL_REVIEW/full` 每条 record 在派发前都执行此门禁；超限禁止 dispatch。此上限只约束
 dispatch prompt，不约束 payload `rendered_briefing`。唯一结果形状：
 
@@ -116,6 +115,14 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
 
 ## 七、外发和源码证据
 
-REVIEWER 只可读其精确 input_path、其中明确引用的内容和第六节；不得读其他 `.ai/task/`、
-`.ai/reviews/` 或先前 finding。机制结论必须绑定公开源码/固定 commit 或明确标记证据不足。
+根据维护者 2026-09-12 授权，REVIEWER 可读精确 input_path、其中明确引用的内容和第六、七节，
+并可沿调用链补查冻结版本中与当前 revision 相关的公开源码，不要求所有调用文件事先列入输入。
+为定位该版本源码仓库，可作必要的目录和 Git 对象元数据查询；不扫描无关资料。
+不得读其他 `.ai/task/`、`.ai/reviews/` 或先前 finding，也不据此扩大译文候选或取得写入权限。
+
+补查应记录组件、公开源码路径、固定 commit（或冻结快照）、关键调用及证据摘录或行范围。
+ISSUE 的依据写入现有 `observation`；OK 仍只返回第六节规定的两键对象。ORCHESTRATOR 在收获
+审计中依据只读调用记录补齐实际查询路径和证据，包含最终判 OK 的补查；不增加输出字段或改写 raw。
+未固定来源须明确标记证据不足，不得自行换用其他版本；机制结论仍以可核验源码为准。
+该授权用于后续派发，不追溯改写已冻结的 prompt、envelope 或审核记录。
 输出按本契约第五节原样持久化；通用只读、裁决及终态归档按[编排契约第七、八、十一节](paseo-orchestration-v2-contract.md#七托管-child-生命周期与即时归档)执行。
