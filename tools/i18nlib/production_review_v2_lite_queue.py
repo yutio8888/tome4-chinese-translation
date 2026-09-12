@@ -5,6 +5,7 @@ import errno
 import fcntl
 import hashlib
 import os
+import re
 import sqlite3
 import stat
 import subprocess
@@ -340,7 +341,162 @@ def _commit_parent(root: Path, commit: str) -> str:
     return raw[1]
 
 
+def _publication_git_environment(root: Path) -> bool:
+    """Recheck mutable Git inputs on every attempt; no cached permission.
+
+    Only settings irrelevant to these plumbing reads, and the audited normal
+    rename/no-follow cases, are allowed. Includes are expanded by Git itself.
+    Unknown settings/overrides decline the optimization, without logging values.
+    """
+    # Editors are not launched by these read-only commands. File selectors are
+    # not a trust bypass: config below reads their actual contents/includes in
+    # exactly the same inherited environment as every other _git invocation.
+    allowed_environment = {"GIT_PAGER", "GIT_EDITOR", "GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"}
+    if any(key.startswith("GIT_") and key not in allowed_environment for key in os.environ):
+        return False
+    raw = _git(root, "config", "--null", "--list", "--includes")
+    if raw and not raw.endswith(b"\0"):
+        return False
+    ordinary_core = {b"core.repositoryformatversion", b"core.filemode", b"core.bare",
+                     b"core.logallrefupdates", b"core.ignorecase", b"core.precomposeunicode",
+                     b"core.autocrlf", b"core.eol", b"core.safecrlf", b"core.pager", b"core.editor"}
+    for record in raw.split(b"\0")[:-1]:
+        key, separator, value = record.partition(b"\n")
+        key = key.lower()
+        if key == b"diff.renames":
+            if not separator or value.lower() not in {b"true", b"false", b"yes", b"no", b"on", b"off", b"0", b"1"}:
+                return False
+        elif key == b"log.follow":
+            if not separator or value.lower() not in {b"false", b"no", b"off", b"0"}:
+                return False
+        elif (key in ordinary_core or key == b"include.path" or
+              (key.startswith(b"includeif.") and key.endswith(b".path")) or
+              key.startswith((b"user.", b"remote.", b"branch.", b"credential.",
+                              b"safe.", b"init.", b"filter."))):
+            continue
+        else:
+            return False
+    locations = _git(root, "rev-parse", "--absolute-git-dir", "--git-common-dir",
+                     "--is-shallow-repository", "--show-prefix").decode("utf-8").splitlines()
+    if len(locations) != 4 or locations[2:] != ["false", ""]:
+        return False
+    for location in locations[:2]:
+        directory = (root / location).resolve(strict=True)
+        for relative in ("info/grafts", "shallow"):
+            candidate = directory / relative
+            # lstat also detects dangling links and propagates inspection errors.
+            try:
+                candidate.lstat()
+            except FileNotFoundError:
+                pass
+            else:
+                return False
+    return not _git(root, "for-each-ref", "--format=%(refname)", "refs/replace").strip()
+
+
+def _publication_base_layout(root: Path, base: str) -> tuple[bool, frozenset[bytes]]:
+    """Keep only ancestor blockers and occupied batch names, including empty trees.
+
+    Parsing is linear in the finite ls-tree response; the temporary validation
+    set is released, so each base retains no second full-tree dictionary.
+    """
+    raw = _git(root, "ls-tree", "-r", "-t", "-z", "--full-tree", base)
+    records = raw.split(b"\0")
+    if records[-1] != b"":
+        raise ValueError("missing layout NUL terminator")
+    seen: set[bytes] = set()
+    occupied: set[bytes] = set()
+    blocked = False
+    prefix = BATCH_PREFIX.encode("ascii")
+    ancestors = {b"evidence", b"evidence/production-review-v2-lite", prefix[:-1]}
+    kinds = {b"040000": b"tree", b"100644": b"blob", b"100755": b"blob",
+             b"120000": b"blob", b"160000": b"commit"}
+    for record in records[:-1]:
+        metadata, path = record.split(b"\t", 1)
+        mode, kind, oid = metadata.split(b" ")
+        if (kinds.get(mode) != kind or re.fullmatch(rb"[0-9a-f]{40}", oid) is None or
+                path in seen or any(part in {b"", b".", b".."} for part in path.split(b"/"))):
+            raise ValueError("invalid publication base layout")
+        seen.add(path)
+        if path in ancestors and kind != b"tree":
+            blocked = True
+        if path.startswith(prefix):
+            occupied.add(path[len(prefix):].split(b"/", 1)[0])
+    return blocked, frozenset(occupied)
+
+
+def _publication_commit_fast(root: Path, treeish: str, tree: dict[str, tuple[str, str, str]],
+                             paths: set[str], base_commit: object) -> str | None:
+    scope = git_evidence_reader.active_reader(root)
+    disabled_key = ("publication-fast-disabled-v1", "scope")
+    if scope is None or scope.derived.get(disabled_key):
+        return None
+    # Slow fallback can cache replacement tree bytes even for ineligible paths.
+    # Once observed, unsafe inputs poison fast permission for this scope only;
+    # do not clear those bytes or change the original slow oracle's behaviour.
+    try:
+        safe = _publication_git_environment(root)
+    except (wp1.ProductionReviewError, OSError, UnicodeError, ValueError):
+        scope.derived[disabled_key] = True
+        raise
+    if not safe:
+        scope.derived[disabled_key] = True
+        return None
+    # This proves only A entries in an entirely new batch directory. Everything
+    # else, including all refusals/errors, still belongs to the original oracle.
+    if (not paths or
+            not isinstance(base_commit, str) or
+            re.fullmatch(r"[0-9a-f]{40}", base_commit) is None or
+            re.fullmatch(r"[0-9a-f]{40}", treeish) is None):
+        return None
+    batch_names: set[str] = set()
+    for path in paths:
+        if (not path.startswith(BATCH_PREFIX) or
+                any(re.fullmatch(r"[A-Za-z0-9_-][A-Za-z0-9_.-]*", part) is None
+                    for part in path.split("/"))):
+            return None
+        parts = path[len(BATCH_PREFIX):].split("/")
+        if len(parts) < 2 or tree.get(path, ())[:2] not in {("100644", "blob"), ("100755", "blob")}:
+            return None
+        batch_names.add(parts[0])
+    if len(batch_names) != 1:
+        return None
+    for oid in (treeish, base_commit):
+        resolved = git_evidence_reader.derive(root, "publication-commit-v1", oid,
+                                              lambda: _head(root, oid))
+        if resolved != oid:
+            return None
+    blocked, occupied = git_evidence_reader.derive(
+        root, "publication-base-layout-v1", base_commit,
+        lambda: _publication_base_layout(root, base_commit))
+    if blocked or next(iter(batch_names)).encode("ascii") in occupied:
+        return None
+    matches: list[str] = []
+    # Keep the original complete AM history and examine every candidate, even
+    # after one match: sibling publications can otherwise become false success.
+    for commit in _candidate_commits(root, treeish, sorted(paths)[0]):
+        candidate_tree = _tree(root, commit)
+        if not all(candidate_tree.get(path) == tree[path] for path in paths):
+            continue
+        if _commit_parent(root, commit) == base_commit:
+            matches.append(commit)
+    return matches[0] if len(matches) == 1 else None
+
+
 def _publication_commit(root: Path, treeish: str, tree: dict[str, tuple[str, str, str]],
+                        paths: set[str], base_commit: object) -> str:
+    try:
+        commit = _publication_commit_fast(root, treeish, tree, paths, base_commit)
+    except (wp1.ProductionReviewError, OSError, UnicodeError, ValueError):
+        # A new probe may fail, but must neither hide the oracle's own exception
+        # nor turn a refusal into success. Failed derive loaders are not cached.
+        commit = None
+    if commit is not None:
+        return commit
+    return _publication_commit_slow(root, treeish, tree, paths, base_commit)
+
+
+def _publication_commit_slow(root: Path, treeish: str, tree: dict[str, tuple[str, str, str]],
                         paths: set[str], base_commit: object) -> str:
     """Find the one publication of the current evidence bytes bound to base_commit."""
     base = _nonempty(base_commit, "batch base_commit")

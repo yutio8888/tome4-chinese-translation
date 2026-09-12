@@ -31,6 +31,506 @@ STAMP = "2026-09-02T01:02:03Z"
 FIXTURE_ROOT = Path(os.environ.get("TOME_TEST_FIXTURE_ROOT", ROOT / ".artifacts/i18n"))
 
 
+@contextmanager
+def isolated_publication_git_environment():
+    """Real Git/guard, with private system/global files and no inherited GIT_*.
+
+    Keep HOME/CODEX_HOME and all other non-Git environment entries unchanged.
+    The explicit editor also exercises the actual reviewer's invocation setting.
+    """
+    with tempfile.TemporaryDirectory() as temporary:
+        directory = Path(temporary)
+        selectors = {}
+        for name in ("GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"):
+            config = directory / name
+            config.write_text("")
+            selectors[name] = str(config)
+        environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+        environment.update(selectors, GIT_EDITOR="true")
+        with mock.patch.dict(os.environ, environment, clear=True):
+            yield
+
+
+class PublicationHistoryTests(unittest.TestCase):
+    """Small real Git DAGs: compare the success optimization to the old oracle."""
+
+    def setUp(self):
+        environment = isolated_publication_git_environment()
+        environment.__enter__()
+        self.addCleanup(environment.__exit__, None, None, None)
+        FIXTURE_ROOT.mkdir(parents=True, exist_ok=True)
+        temporary = tempfile.TemporaryDirectory(dir=FIXTURE_ROOT)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.git("init", "-q")
+        self.git("config", "user.name", "Publication fixture")
+        self.git("config", "user.email", "fixture@example.invalid")
+        self.serial = 0
+        self.blob = self.git("hash-object", "-w", "--stdin", data=b"evidence\n").strip().decode()
+        self.other = self.git("hash-object", "-w", "--stdin", data=b"changed\n").strip().decode()
+        self.file = ("100644", "blob", self.blob)
+        self.changed = ("100644", "blob", self.other)
+        self.directory = queue.BATCH_PREFIX + "batch-test"
+        self.paths = {self.directory + "/manifest.json", self.directory + "/raw/input.json"}
+        self.seed = {"seed": self.file}
+        self.base = self.commit(self.seed)
+        self.entries = {**self.seed, **dict.fromkeys(self.paths, self.file)}
+
+    def git(self, *args, data=None):
+        return subprocess.run(["git", *args], cwd=self.root, input=data, check=True,
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout
+
+    def tree(self, entries):
+        nested = {}
+        for path, value in entries.items():
+            target = nested
+            parts = path.split("/")
+            for part in parts[:-1]:
+                target = target.setdefault(part, {})
+            target[parts[-1]] = value
+
+        def build(node):
+            records = []
+            for name, value in sorted(node.items()):
+                mode, kind, oid = ("040000", "tree", build(value)) if isinstance(value, dict) else value
+                records.append(f"{mode} {kind} {oid}\t{name}".encode() + b"\0")
+            return self.git("mktree", "-z", data=b"".join(records)).decode().strip()
+        return build(nested)
+
+    def commit(self, entries, *parents):
+        self.serial += 1
+        args = ["commit-tree", self.tree(entries)]
+        for parent in parents:
+            args.extend(("-p", parent))
+        oid = self.git(*args, data=f"fixture {self.serial}\n".encode()).decode().strip()
+        self.git("update-ref", "HEAD", oid)
+        return oid
+
+    @staticmethod
+    def outcome(operation):
+        try:
+            return ("return", operation())
+        except (wp1.ProductionReviewError, UnicodeError, ValueError) as error:
+            return ("error", type(error), str(error))
+
+    def compare(self, head, *, base=None, paths=None, fallback=None, logs=None):
+        base = self.base if base is None else base
+        paths = self.paths if paths is None else paths
+        tree = queue._tree(self.root, head)
+        with reader.projection_scope(self.root):
+            expected = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, paths, base))
+        with reader.projection_scope(self.root):
+            with mock.patch.object(queue, "_publication_commit_slow", wraps=queue._publication_commit_slow) as slow:
+                with mock.patch.object(queue, "_git", wraps=queue._git) as git:
+                    actual = self.outcome(lambda: queue._publication_commit(self.root, head, tree, paths, base))
+            self.assertEqual(actual, expected)
+            if fallback is not None:
+                self.assertEqual(slow.call_count, int(fallback))
+            if logs is not None:
+                self.assertEqual(sum(c.args[1] == "log" for c in git.call_args_list), logs)
+        return actual
+
+    def test_new_directory_uses_one_original_am_log(self):
+        head = self.commit(self.entries, self.base)
+        self.assertEqual(self.compare(head, fallback=False, logs=1), ("return", head))
+        tree = queue._tree(self.root, head)
+        with reader.projection_scope(self.root), mock.patch.object(queue, "_git", wraps=queue._git) as git:
+            self.assertEqual(queue._publication_commit(self.root, head, tree, self.paths, self.base), head)
+        logs = [c.args[1:] for c in git.call_args_list if c.args[1] == "log"]
+        self.assertEqual(logs, [("log", "--full-history", "--format=%H", "--diff-filter=AM",
+                                 head, "--", sorted(self.paths)[0])])
+
+    def test_split_raw_core_and_merge_itself_publishing_are_rejected(self):
+        anchor, raw = sorted(self.paths)
+        first = self.commit({**self.seed, raw: self.file}, self.base)
+        split = self.commit(self.entries, first)
+        self.assertEqual(self.compare(split, fallback=True)[0], "error")
+        sibling = self.commit({**self.seed, "sibling": self.changed}, self.base)
+        merge = self.commit(self.entries, first, sibling)
+        self.assertEqual(self.compare(merge, fallback=True)[0], "error")
+
+    def test_identical_siblings_rejected_but_one_matching_child_succeeds(self):
+        first = self.commit(self.entries, self.base)
+        second = self.commit(self.entries, self.base)
+        merged = self.commit(self.entries, first, second)
+        self.assertEqual(self.compare(merged, fallback=True)[0], "error")
+        different = self.commit({**self.entries, sorted(self.paths)[1]: self.changed}, self.base)
+        merged = self.commit(self.entries, different, first)
+        self.assertEqual(self.compare(merged, fallback=False), ("return", first))
+
+    def test_change_revert_deletion_restore_and_other_base(self):
+        first = self.commit(self.entries, self.base)
+        changed = self.commit({**self.entries, sorted(self.paths)[1]: self.changed}, first)
+        reverted = self.commit(self.entries, changed)
+        self.assertEqual(self.compare(reverted, fallback=False), ("return", first))
+        deleted = self.commit(self.seed, reverted)
+        restored = self.commit(self.entries, deleted)
+        self.assertEqual(self.compare(restored, fallback=False), ("return", first))
+        self.assertEqual(self.compare(restored, base=deleted, fallback=False), ("return", restored))
+        # Only raw changed here: the unchanged core has no AM at revert.
+        self.assertEqual(self.compare(restored, base=changed, fallback=True)[0], "error")
+        all_changed = self.commit({**self.seed, **dict.fromkeys(self.paths, self.changed)}, restored)
+        all_reverted = self.commit(self.entries, all_changed)
+        self.assertEqual(self.compare(all_reverted, base=all_changed, fallback=True), ("return", all_reverted))
+        self.assertEqual(self.compare(restored, base=first, fallback=True)[0], "error")
+
+    def test_external_rename_and_copy_use_real_single_path_am(self):
+        base = self.commit({**self.seed, "outside": self.file}, self.base)
+        for copy_source in (False, True):
+            with self.subTest(copy=copy_source):
+                entries = {**self.entries, **({"outside": self.file} if copy_source else {})}
+                head = self.commit(entries, base)
+                self.assertEqual(self.compare(head, base=base, fallback=False, logs=1), ("return", head))
+
+    def test_mode_type_and_oid_are_all_required(self):
+        first = self.commit(self.entries, self.base)
+        anchor = sorted(self.paths)[0]
+        for mode, kind, oid in (("100755", "blob", self.blob), ("120000", "blob", self.blob),
+                                ("160000", "commit", self.base)):
+            with self.subTest(mode=mode):
+                head = self.commit({**self.entries, anchor: (mode, kind, oid)}, first)
+                self.assertEqual(self.compare(head, fallback=True)[0], "error")
+                # When the old batch directory exists even a later valid M
+                # boundary must be decided by the unchanged slow algorithm.
+                self.compare(head, base=first, fallback=True)
+
+    def test_file_directory_empty_tree_and_ancestor_blockers_fall_back(self):
+        empty = self.git("mktree", data=b"").decode().strip()
+        cases = [{self.directory: ("040000", "tree", empty)},
+                 {self.directory + "/empty": ("040000", "tree", empty)},
+                 {self.directory: self.file},
+                 {self.directory + "/manifest.json/child": self.file}]
+        for ancestor in ("evidence", "evidence/production-review-v2-lite", queue.BATCH_PREFIX[:-1]):
+            for entry in (self.file, ("120000", "blob", self.blob), ("160000", "commit", self.base)):
+                cases.append({ancestor: entry})
+        for before in cases:
+            with self.subTest(before=before):
+                base = self.commit({**self.seed, **before}, self.base)
+                head = self.commit(self.entries, base)
+                self.compare(head, base=base, fallback=True)
+        # Explicitly prove why a leaf-only tree cannot establish absence.
+        base = self.commit({self.directory: ("040000", "tree", empty)}, self.base)
+        self.assertEqual(queue._tree(self.root, base), {})
+        with reader.projection_scope(self.root):
+            self.assertIn(b"batch-test", queue._publication_base_layout(self.root, base)[1])
+
+    def test_noncanonical_and_pathspec_paths_and_aliases_use_oracle(self):
+        for name in ("汉字", "has space", "has\ttab", "has\nnewline", "glob*", "q?", "[x]", ":magic", "back\\slash"):
+            with self.subTest(name=name):
+                paths = {self.directory + "/" + name, self.directory + "/raw/input.json"}
+                head = self.commit({**self.seed, **dict.fromkeys(paths, self.file)}, self.base)
+                self.compare(head, paths=paths, fallback=True)
+        head = self.commit(self.entries, self.base)
+        self.git("tag", "base-alias", self.base)
+        for base in ("base-alias", self.base[:12], self.base.upper(), " " + self.base, ""):
+            self.compare(head, base=base, fallback=True)
+        self.compare("HEAD", fallback=True)
+        other_paths = {"outside/a", "outside/b"}
+        head = self.commit(dict.fromkeys(other_paths, self.file), self.base)
+        self.compare(head, paths=other_paths, fallback=True)
+        paths = self.paths | {queue.BATCH_PREFIX + "other/raw.json"}
+        head = self.commit(dict.fromkeys(paths, self.file), self.base)
+        self.compare(head, paths=paths, fallback=True)
+
+    def test_subdirectory_cwd_cannot_borrow_full_tree_addition_proof(self):
+        # log pathspecs are cwd-relative, while ls-tree --full-tree is not.
+        # Only the nested anchor exists; the oracle must reject missing raw.
+        anchor = sorted(self.paths)[0]
+        head = self.commit({**self.entries, "nested/" + anchor: self.file}, self.base)
+        original = self.root
+        self.root = original / "nested"
+        self.root.mkdir()
+        try:
+            self.assertEqual(self.compare(head, fallback=True)[0], "error")
+        finally:
+            self.root = original
+
+    def test_effective_config_includes_and_same_scope_changes(self):
+        head = self.commit(self.entries, self.base)
+        tree = queue._tree(self.root, head)
+        with reader.projection_scope(self.root):
+            self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+            for key, value in (("diff.renames", "copies"), ("log.follow", "true"),
+                               ("diff.external", "false"), ("diff.fixture.textconv", "cat"),
+                               ("diff.algorithm", "patience"), ("log.diffMerges", "first-parent"),
+                               ("core.attributesFile", "/dev/null")):
+                with self.subTest(key=key):
+                    self.git("config", key, value)
+                    try:
+                        self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                        self.compare(head, fallback=True)
+                    finally:
+                        self.git("config", "--unset-all", key)
+            include = self.root / "included-config"
+            include.write_text("[diff]\n\trenames = copies\n")
+            self.git("config", "include.path", str(include))
+            self.compare(head, fallback=True)
+            include.write_text("[diff]\n\trenames = true\n[log]\n\tfollow = false\n")
+            self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+            self.compare(head, fallback=False)
+            self.git("config", "--unset-all", "include.path")
+
+    def test_environment_overrides_are_rechecked_without_secret_output(self):
+        head = self.commit(self.entries, self.base)
+        tree = queue._tree(self.root, head)
+        environments = [{"GIT_LITERAL_PATHSPECS": "1"}, {"GIT_GLOB_PATHSPECS": "1"},
+                        {"GIT_NOGLOB_PATHSPECS": "1"}, {"GIT_ICASE_PATHSPECS": "1"},
+                        {"GIT_NO_REPLACE_OBJECTS": "1"}, {"GIT_REPLACE_REF_BASE": "refs/custom/"},
+                        {"GIT_EXTERNAL_DIFF": "false"},
+                        {"GIT_CONFIG_COUNT": "1", "GIT_CONFIG_KEY_0": "diff.renames", "GIT_CONFIG_VALUE_0": "copies"},
+                        {"GIT_SHALLOW_FILE": str(self.root / "absent-shallow")},
+                        {"GIT_GRAFT_FILE": str(self.root / "absent-grafts")}]
+        with reader.projection_scope(self.root):
+            self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+            for environment in environments:
+                with self.subTest(keys=sorted(environment)), mock.patch.dict(os.environ, environment):
+                    self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                    self.compare(head, fallback=True)
+            self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+            self.compare(head, fallback=False)
+
+    def test_replace_custom_namespace_graft_shallow_and_linked_worktree(self):
+        head = self.commit(self.entries, self.base)
+        replacement = self.commit({**self.entries, "extra": self.changed}, self.base)
+        self.git("update-ref", "HEAD", head)
+        self.git("replace", head, replacement)
+        self.compare(head, fallback=True)
+        self.git("replace", "-d", head)
+        self.git("update-ref", "refs/custom/" + head, replacement)
+        with mock.patch.dict(os.environ, {"GIT_REPLACE_REF_BASE": "refs/custom/"}):
+            self.compare(head, fallback=True)
+        graft = self.root / ".git/info/grafts"
+        graft.write_text(head + " " + self.base + "\n")
+        self.compare(head, fallback=True)
+        graft.unlink()
+        with tempfile.TemporaryDirectory(dir=FIXTURE_ROOT) as temporary:
+            original = self.root
+            clone = Path(temporary) / "shallow"
+            self.git("clone", "-q", "--depth=1", original.as_uri(), str(clone))
+            self.root = clone
+            try:
+                self.compare(head, fallback=True)
+            finally:
+                self.root = original
+            worktree = Path(temporary) / "worktree"
+            self.git("worktree", "add", "-q", "--detach", str(worktree), head)
+            self.root = worktree
+            try:
+                self.assertTrue((worktree / ".git").is_file())
+                self.compare(head, fallback=False, logs=1)
+                graft.write_text("")
+                self.compare(head, fallback=True)
+                graft.unlink()
+            finally:
+                self.root = original
+                self.git("worktree", "remove", "--force", str(worktree))
+
+    def test_probe_failures_retry_and_preserve_original_errors(self):
+        head = self.commit(self.entries, self.base)
+        tree = queue._tree(self.root, head)
+        original = queue._git
+        for probe in ("config", "rev-parse", "for-each-ref", "ls-tree"):
+            with self.subTest(probe=probe), reader.projection_scope(self.root):
+                def fail(root, *args):
+                    if args[0] == probe:
+                        raise wp1.ProductionReviewError("probe unavailable")
+                    return original(root, *args)
+                with mock.patch.object(queue, "_git", side_effect=fail):
+                    expected = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+                    actual = self.outcome(lambda: queue._publication_commit(self.root, head, tree, self.paths, self.base))
+                    self.assertEqual(actual, expected)
+                if probe == "ls-tree":
+                    # Metadata loader failure is retryable, unlike environment
+                    # inspection failure. The failed derived value is absent.
+                    self.assertNotIn(("publication-base-layout-v1", self.base),
+                                     reader.active_reader(self.root).derived)
+                    self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+                else:
+                    self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                    self.assertEqual(queue._publication_commit(self.root, head, tree, self.paths, self.base),
+                                     queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+                self.compare(head, fallback=False)
+        for raw in (b"unterminated", b"040000 tree invalid\tpath\0", b"bad\0"):
+            with self.subTest(layout=raw), reader.projection_scope(self.root):
+                def malformed(root, *args):
+                    return raw if args[:4] == ("ls-tree", "-r", "-t", "-z") else original(root, *args)
+                with mock.patch.object(queue, "_git", side_effect=malformed):
+                    self.assertEqual(queue._publication_commit(self.root, head, tree, self.paths, self.base), head)
+                self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+        with reader.projection_scope(self.root), mock.patch.object(queue, "_git", side_effect=wp1.ProductionReviewError("git unavailable")):
+            expected = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+            actual = self.outcome(lambda: queue._publication_commit(self.root, head, tree, self.paths, self.base))
+            self.assertEqual(actual, expected)
+            self.assertEqual(actual[2], "git unavailable")
+
+    def test_replace_fallback_cache_never_reenables_fast_in_same_scope(self):
+        good = self.commit(self.entries, self.base)
+        anchor = sorted(self.paths)[0]
+        publication = self.commit({**self.seed, anchor: self.file}, self.base)
+        head = self.commit(self.entries, publication)
+        replacement = self.commit(self.entries, self.base)
+        self.git("update-ref", "HEAD", head)
+        tree = queue._tree(self.root, head)
+        for warm, alias in ((False, False), (True, False), (False, True)):
+            with self.subTest(warm=warm, ineligible_alias=alias), reader.projection_scope(self.root):
+                scope = reader.active_reader(self.root)
+                if warm:
+                    self.assertEqual(queue._publication_commit_fast(self.root, good, tree, self.paths, self.base), good)
+                self.git("replace", publication, replacement)
+                try:
+                    with mock.patch.object(queue, "_publication_commit_slow", wraps=queue._publication_commit_slow) as slow:
+                        # Enter through the wrapper, so replaced bytes really
+                        # populate the old reader cache before the ref is removed.
+                        self.assertEqual(queue._publication_commit(self.root, "HEAD" if alias else head,
+                                                                  tree, self.paths, self.base), publication)
+                        self.assertEqual(slow.call_count, 1)
+                    cached = scope.trees[publication]
+                finally:
+                    self.git("replace", "-d", publication)
+                self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                with mock.patch.object(queue, "_publication_commit_slow", wraps=queue._publication_commit_slow) as slow:
+                    actual = self.outcome(lambda: queue._publication_commit(self.root, head, tree, self.paths, self.base))
+                    self.assertEqual(slow.call_count, 1)
+                expected = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+                self.assertEqual(actual, expected)
+                self.assertEqual(actual[0], "error")
+                self.assertIs(scope.trees[publication], cached)
+                # A nested safe projection is independent even on exception;
+                # restoring the outer scope must also restore its disabled state.
+                with self.assertRaisesRegex(RuntimeError, "nested abort"):
+                    with reader.projection_scope(self.root):
+                        inner = reader.active_reader(self.root)
+                        self.assertEqual(queue._publication_commit_fast(self.root, good, tree, self.paths, self.base), good)
+                        raise RuntimeError("nested abort")
+                self.assertEqual(inner.derived, {})
+                self.assertIs(reader.active_reader(self.root), scope)
+                self.assertIsNone(queue._publication_commit_fast(self.root, good, tree, self.paths, self.base))
+                with tempfile.TemporaryDirectory(dir=FIXTURE_ROOT) as temporary:
+                    other = Path(temporary) / "clone"
+                    self.git("clone", "-q", str(self.root), str(other))
+                    self.assertIsNone(queue._publication_commit_fast(other, good, tree, self.paths, self.base))
+                    with reader.projection_scope(other):
+                        self.assertEqual(queue._publication_commit_fast(other, good, tree, self.paths, self.base), good)
+                self.assertIs(reader.active_reader(self.root), scope)
+                self.assertIsNone(queue._publication_commit_fast(self.root, good, tree, self.paths, self.base))
+            self.assertEqual(scope.derived, {})
+            fresh = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+            self.assertEqual(actual, fresh)
+            self.compare(head, fallback=True)
+            self.compare(good, fallback=False)
+
+    def test_disabled_inner_exception_does_not_disable_safe_outer(self):
+        head = self.commit(self.entries, self.base)
+        tree = queue._tree(self.root, head)
+        with reader.projection_scope(self.root):
+            self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+            with self.assertRaisesRegex(RuntimeError, "unsafe abort"):
+                with reader.projection_scope(self.root):
+                    inner = reader.active_reader(self.root)
+                    with mock.patch.dict(os.environ, {"GIT_UNKNOWN_PUBLICATION_INPUT": "1"}):
+                        self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                    raise RuntimeError("unsafe abort")
+            self.assertEqual(inner.derived, {})
+            self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+
+    def test_editor_and_config_selectors_check_actual_contents_every_time(self):
+        head = self.commit(self.entries, self.base)
+        tree = queue._tree(self.root, head)
+        self.assertEqual(os.environ["GIT_EDITOR"], "true")
+        self.git("config", "core.editor", "false")
+        self.assertEqual(self.compare(head, fallback=False, logs=1), ("return", head))
+        with mock.patch.dict(os.environ):
+            del os.environ["GIT_EDITOR"]
+            self.assertEqual(self.compare(head, fallback=False, logs=1), ("return", head))
+        for selector in ("GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"):
+            selected = Path(os.environ[selector])
+            included = selected.with_name(selected.name + "-include")
+            for indirect in (False, True):
+                with self.subTest(selector=selector, include=indirect), reader.projection_scope(self.root):
+                    selected.write_text("[include]\npath = " + str(included) + "\n" if indirect else "")
+                    target = included if indirect else selected
+                    target.write_text("[core]\neditor = false\n")
+                    self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+                    target.write_text("[diff]\nrenames = copies\n")
+                    try:
+                        self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                        self.compare(head, fallback=True)
+                    finally:
+                        target.write_text("[core]\neditor = false\n")
+                    self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                    self.assertEqual(queue._publication_commit(self.root, head, tree, self.paths, self.base),
+                                     queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+                    self.compare(head, fallback=False)
+            # Switching the selector itself also requires reading the new file.
+            selected.write_text("")
+            included.write_text("[log]\nfollow = true\n")
+            with reader.projection_scope(self.root):
+                self.assertEqual(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base), head)
+                with mock.patch.dict(os.environ, {selector: str(included)}):
+                    self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                    self.compare(head, fallback=True)
+                self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+            selected.write_text("")
+            with reader.projection_scope(self.root):
+                selected.write_text("[invalid config\n")
+                try:
+                    expected = self.outcome(lambda: queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+                    actual = self.outcome(lambda: queue._publication_commit(self.root, head, tree, self.paths, self.base))
+                    self.assertEqual(actual, expected)
+                    self.assertEqual(actual[0], "error")
+                finally:
+                    selected.write_text("")
+                self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, self.paths, self.base))
+                self.assertEqual(queue._publication_commit(self.root, head, tree, self.paths, self.base),
+                                 queue._publication_commit_slow(self.root, head, tree, self.paths, self.base))
+        for key, value in (("color.ui", "auto"), ("alias.st", "status"), ("pull.rebase", "true"),
+                           ("push.default", "simple"), ("gc.auto", "0"), ("commit.gpgsign", "false")):
+            with self.subTest(unknown_config=key):
+                self.git("config", key, value)
+                try:
+                    self.compare(head, fallback=True)
+                finally:
+                    self.git("config", "--unset-all", key)
+        with mock.patch.dict(os.environ, {"GIT_UNKNOWN_PUBLICATION_INPUT": "1"}):
+            self.compare(head, fallback=True)
+
+    def test_three_finite_wrong_algorithms_are_detected(self):
+        # Deliberately wrong local variants, each fed real Git histories/trees.
+        def wrong(head, base, variant):
+            current = queue._tree(self.root, head)
+            histories = ([self.git("rev-list", head).decode().splitlines()] if variant == "ignore-AM" else
+                         [queue._candidate_commits(self.root, head, path) for path in sorted(self.paths)])
+            common = set(histories[0]).intersection(*(set(h) for h in histories[1:]))
+            matches = []
+            for commit in histories[0]:
+                candidate = queue._tree(self.root, commit)
+                if commit not in common:
+                    continue
+                equal = all(candidate.get(p) == current[p] for p in self.paths)
+                if variant == "OID-only":
+                    equal = all(candidate.get(p, (None, None, None))[2] == current[p][2] for p in self.paths)
+                if equal and queue._commit_parent(self.root, commit) == base:
+                    matches.append(commit)
+                    if variant == "first-match":
+                        return commit
+            return matches[0] if len(matches) == 1 else None
+
+        anchor = sorted(self.paths)[0]
+        before = {**self.entries, anchor: ("120000", "blob", self.blob)}
+        base = self.commit(before, self.base)
+        type_change = self.commit(self.entries, base)
+        self.assertEqual(self.compare(type_change, base=base, fallback=True)[0], "error")
+        self.assertEqual(wrong(type_change, base, "ignore-AM"), type_change)
+        first = self.commit(self.entries, self.base)
+        sibling = self.commit(self.entries, self.base)
+        merged = self.commit(self.entries, first, sibling)
+        self.assertEqual(self.compare(merged)[0], "error")
+        self.assertIn(wrong(merged, self.base, "first-match"), {first, sibling})
+        executable = self.commit({**self.entries, anchor: ("100755", "blob", self.blob)}, first)
+        self.assertEqual(self.compare(executable)[0], "error")
+        self.assertEqual(wrong(executable, self.base, "OID-only"), first)
+
+
 class QueueFixture(unittest.TestCase):
     def setUp(self):
         # Minimal repository fixture: inject execution in-process, never in production

@@ -234,3 +234,77 @@ class GitEvidenceReaderTests(unittest.TestCase):
         self.assertEqual(cleared.rows, {})
         self.assertEqual(outer.rows, {})
         self.assertEqual(outer.tuples, {})
+
+class PublicationReaderTests(unittest.TestCase):
+    # Isolate only the P2 fixtures, including their setup; original reader tests
+    # and assertions retain their pre-task bodies and environment behaviour.
+    git = GitEvidenceReaderTests.git
+    commit = GitEvidenceReaderTests.commit
+
+    def setUp(self):
+        from tests.i18n.test_production_review_v2_lite_queue import isolated_publication_git_environment
+        environment = isolated_publication_git_environment()
+        environment.__enter__()
+        self.addCleanup(environment.__exit__, None, None, None)
+        GitEvidenceReaderTests.setUp(self)
+
+    def test_publication_layout_is_compact_root_local_and_released_on_exit(self):
+        base = self.head
+        paths = {queue.BATCH_PREFIX + "new/manifest.json", queue.BATCH_PREFIX + "new/raw/input.json"}
+        for path in paths:
+            destination = self.root / path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(b"evidence")
+        self.commit()
+        head = self.git("rev-parse", "HEAD").decode().strip()
+        tree = queue._tree(self.root, head)
+        self.assertIsNone(queue._publication_commit_fast(self.root, head, tree, paths, base))
+        with reader.projection_scope(self.root):
+            outer = reader.active_reader(self.root)
+            with mock.patch.object(queue, "_publication_base_layout", wraps=queue._publication_base_layout) as layout:
+                for _ in range(2):
+                    self.assertEqual(queue._publication_commit_fast(self.root, head, tree, paths, base), head)
+                self.assertEqual(layout.call_count, 1)
+                retained = outer.derived[("publication-base-layout-v1", base)]
+                self.assertEqual(retained, (False, frozenset()))
+                with self.assertRaisesRegex(RuntimeError, "abort"):
+                    with reader.projection_scope(self.root):
+                        inner = reader.active_reader(self.root)
+                        self.assertEqual(queue._publication_commit_fast(self.root, head, tree, paths, base), head)
+                        raise RuntimeError("abort")
+                self.assertEqual(inner.derived, {})
+                self.assertIs(reader.active_reader(self.root), outer)
+                self.assertEqual(layout.call_count, 2)
+                with tempfile.TemporaryDirectory() as temporary:
+                    other = Path(temporary) / "clone"
+                    subprocess.run(["git", "clone", "-q", str(self.root), str(other)], check=True)
+                    self.assertIsNone(queue._publication_commit_fast(other, head, tree, paths, base))
+                    with reader.projection_scope(other):
+                        self.assertEqual(queue._publication_commit_fast(other, head, tree, paths, base), head)
+                    self.assertIs(reader.active_reader(self.root), outer)
+                self.assertEqual(layout.call_count, 3)
+        self.assertEqual(outer.derived, {})
+        self.assertIsNone(reader.active_reader(self.root))
+
+    def test_publication_moved_head_resolves_new_fixed_identity(self):
+        base = self.head
+        paths = {queue.BATCH_PREFIX + "new/manifest.json", queue.BATCH_PREFIX + "new/raw/input.json"}
+        for path in paths:
+            destination = self.root / path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(b"evidence")
+        self.commit()
+        with reader.projection_scope(self.root):
+            original = queue._head(self.root, "HEAD")
+            original_tree = queue._tree(self.root, original)
+            self.assertEqual(queue._publication_commit_fast(self.root, original, original_tree, paths, base), original)
+            for path in paths:
+                (self.root / path).write_bytes(b"changed")
+            self.commit()
+            moved = queue._head(self.root, "HEAD")
+            moved_tree = queue._tree(self.root, moved)
+            self.assertNotEqual(original, moved)
+            self.assertEqual(queue._publication_commit(self.root, moved, moved_tree, paths, original), moved)
+            self.assertEqual(queue._publication_commit_fast(self.root, original, original_tree, paths, base), original)
+            with self.assertRaises(wp1.ProductionReviewError):
+                queue._publication_commit(self.root, moved, moved_tree, paths, base)

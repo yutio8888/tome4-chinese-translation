@@ -229,6 +229,27 @@ class VerifiedRowDigestTests(unittest.TestCase):
 
 
 class MigrationTests(MigrationFixture):
+    def test_unreferenced_bad_migration_still_fails_complete_projection(self):
+        # No batch exists or references this record. Validation must still run
+        # before the publication optimization can return any durable result.
+        target = self.root / (queue.MIGRATION_PREFIX + "bad.json")
+        target.parent.mkdir(parents=True)
+        target.write_bytes(wp1.canonical_bytes({"schema_version": 999}))
+        self.commit("unreferenced bad migration")
+        self.assertFalse(any(path.startswith(queue.BATCH_PREFIX)
+                             for path in queue._tree(self.root, "HEAD")))
+        diagnostics = []
+        for publication in (queue._publication_commit, queue._publication_commit_slow):
+            with mock.patch.object(queue, "_publication_commit", publication):
+                with mock.patch.object(migration, "_validate_migration_record",
+                                       wraps=migration._validate_migration_record) as validate:
+                    with self.assertRaises(wp1.ProductionReviewError) as caught:
+                        queue._projection(self.root, "HEAD")
+                    self.assertEqual(validate.call_count, 1)
+                    diagnostics.append((type(caught.exception), str(caught.exception)))
+        self.assertEqual(diagnostics[0], diagnostics[1])
+        self.assertIn("migration", diagnostics[0][1])
+
     def _summary_for_rows(self, entries, catalog_id):
         entries_raw = wp1._jsonl(entries)
         return {"catalog_id": catalog_id, "manifest_sha256": "c" * 64,
