@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-12（第 90 批完成；固定版本源码调用链补查授权）· 分支 `develop`
+最后更新：2026-09-12（第 91 批完成；翻译暂停，按报告顺序优化）· 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -18,9 +18,19 @@
 - 「一并修改发现的同类问题」是常驻指令
 - 全库清扫另开**有界维护窗口**，不混进正常批次的修复
 
-> **当前状态：连续审核已恢复。** 第 90 批已提交 `7983301` 并 finalize；
-> 74 条 done、5 条 repair_required、1 条 blocked，未修改译文、未 push。
-> 当前累计保留 10 条待修复及 2 条待裁决；本轮没有自动启动这些条目的修复或全局改名。
+> **当前恢复入口：翻译暂停，不启动第 92 批。** 第 91 批 `batch-05cc982cc1829a162740`
+> 已提交 `6c0c4d42d6860f721db117ed9eed5b3743280958` 并 finalize；80 条中
+> 79 done、1 repair_required、0 blocked，5 个子 agent 已确认归档，17 门禁与严格 build 通过。
+> 按 `191058b` 报告顺序推进 P1-A/B → P1-C → P2-A → P2-B。当前 P1-A/B 任务为
+> `review-speed-p1-20260912`，状态以 [.ai/task/review-speed-p1-20260912/STATE.json](.ai/task/review-speed-p1-20260912/STATE.json)
+> 为准；实现与验证说明见 [P1 报告](docs/review-speed-p1-20260912.md)，这里不预报 DONE。
+> P1-A/B cycle1 仅集中修复停止状态仍派发与可选 profile 设置兼容；后续按一次完整 FINAL_REVIEW 收口。
+> 最新授权见 `.ai/task/review-speed-p1-20260912/RESUME-TRANSLATION-AUTHORIZATION.json`：
+> 报告各项优化验收、提交完后**自动恢复第 92 批**，无需再次逐批批准；优化期间仍暂停。
+> 第 91 批从 07:41:02Z 至 08:15:41.731358Z，共 2079.731358 秒（34 分 39.7 秒），
+> 比第 90 批 2771.567502 秒约少 25%；深审 1 对 9 条、无重试对 1 次，不能作可比性能结论。
+> 原始计时见 `.ai/task/batch-05cc982cc1829a162740/TIMING.json`，finalize 结果见
+> `.artifacts/i18n/batch91-orchestration/finalize-result.json`。未 push。
 >
 > 维护者本轮新增指令：**交叉复核后仍无法从源码判定如何处置的条目，记 `pending`
 > 交回维护者人工裁决**（`pending` 会把队列状态置 `blocked`，保证日后重新浮出）。
@@ -33,7 +43,7 @@ commit／冻结快照、关键调用及摘录或行范围。ISSUE 在 observatio
 
 ---
 
-## 2. 现在停在哪
+## 2. 第 90 批历史快照（当前恢复以上方入口为准）
 
 | 项 | 值 |
 |---|---|

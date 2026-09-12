@@ -116,6 +116,15 @@ def terminal(s):
     timestamp(s['attentionTimestamp'])
 
 
+def require_frozen_terminal(row, capture):
+    frozen = row.get('terminal_capture')
+    if frozen is not None:
+        fields = ('id', 'workspaceId', 'cwd', 'labels', 'status', 'attentionReason',
+                  'attentionTimestamp', 'activeTurn', 'provider', 'persistence', 'runtimeInfo')
+        require(all(frozen['snapshot'].get(k) == capture['snapshot'].get(k) for k in fields),
+                'frozen terminal capture changed')
+
+
 def observation(s, captured_at):
     def field(key):
         return {'presence': 'present', 'value': deepcopy(s[key])} if key in s else {'presence': 'missing'}
@@ -346,8 +355,20 @@ class Journal:
                      **r['create_parameters']) for r in self.rows
                 if self.key(r) in {self.key(p) for p in prepared} and r['status'] in ('prepared', 'confirmed_absent')]
 
+    def create_blocked(self, key):
+        """Read-only stop gate for new work; existing-child recovery stays available."""
+        row = self.get(key)
+        state = read(self.root / '.ai/task' / row['task_id'] / 'STATE.json')
+        if state.get('state') in ('DONE', 'STOP', 'WAIT_USER'):
+            return 'new create blocked: task ' + state['state']
+        if any(r['archive_attempts_started'] >= 2 and not r['archive_confirmed'] for r in self.rows):
+            return 'new create blocked: unresolved archive budget exhausted'
+        return None
+
     def create_intent(self, key, profiles_path):
         row = self.get(key)
+        blocked = self.create_blocked(key)
+        require(blocked is None, blocked)
         require(row['status'] in ('prepared', 'confirmed_absent'), 'create already attempted; never blindly repeat')
         require(row.get('create_attempts_started', 0) < 2, 'creation retry budget exhausted')
         require(not any(r is not row and r['status'] in ('dispatching', 'created') for r in self.rows),
@@ -497,6 +518,12 @@ class Journal:
         require('runtime_observation' in row, 'first live metadata not bound')
         s = snapshot(capture, row)
         terminal(s)
+        require(s['status'] == 'idle' and s['attentionReason'] == 'finished',
+                'harvest needs successful natural completion; use explicit reject for error')
+        require_frozen_terminal(row, capture)
+        require(not row.get('archive_confirmed') and row.get('archive_attempts_started') == 0
+                or row.get('validation_state') in ('completed', 'rejected'),
+                'validation must precede archive')
         require(isinstance(raw, bytes), 'terminal output must be exact bytes')
         rejected = row.get('validation_state') == 'rejected' or bool(row.get('rejection'))
         path = Path(outdir) / row['task_id'] / (row['dispatch_id'] + '.raw')
@@ -531,6 +558,9 @@ class Journal:
             self.confirm_archive(key, capture)
             return False
         terminal(s)
+        require_frozen_terminal(row, capture)
+        require(row.get('output_valid') is not True or (s['status'] == 'idle' and s['attentionReason'] == 'finished'),
+                'accepted output needs successful terminal')
         require(row['archive_attempts_started'] < 2, 'archive budget exhausted; WAIT_USER, readback only')
         row['archive_attempts_started'] += 1
         row.update(lifecycle='archive_pending', archive_confirmed=False, archive_started_at=now())
@@ -712,7 +742,21 @@ class Journal:
                 else:
                     merged.append([start, end])
             totals[category] = sum(end - start for start, end in merged)
-        return dict(intervals=intervals, union_seconds_by_category=totals,
+        created = [r.get('first_live_capture', {}).get('snapshot', {}).get('createdAt') for r in self.rows]
+        starts = [r.get('create_started_at') for r in self.rows]
+        ends = [r.get('archive_confirmed_at') for r in self.rows]
+        measured = lambda values: bool(values) and all(values)
+        stage = dict(created_at_spread_s=max(map(timestamp, created)) - min(map(timestamp, created))
+                     if measured(created) else None,
+                     wall_s=max(map(timestamp, ends)) - min(map(timestamp, starts))
+                     if measured(starts) and measured(ends) else None,
+                     tool_calls=sum(len(r.get('wire_events', [])) for r in self.rows),
+                     members=[dict(key=self.key(r), created_at=c,
+                         terminal_at=r.get('terminal_capture', {}).get('snapshot', {}).get('attentionTimestamp'),
+                         notification_received_at=r.get('notification_received_at'),
+                         archive_started_at=r.get('archive_started_at'), archive_confirmed_at=r.get('archive_confirmed_at'))
+                         for r, c in zip(self.rows, created)])
+        return dict(stage=stage, intervals=intervals, union_seconds_by_category=totals,
                     note='Categories can overlap; do not sum as batch wall time. Missing endpoints are unmeasured.')
 
 
@@ -744,10 +788,11 @@ def native_identity(s, *, required=True):
         if 'cwd' in scope:
             require(scope['cwd'] == s['cwd'], 'conflicting persistence cwd')
         for key in ('sessionId', 'threadId'):
-            if key in scope:
+            if key in scope and scope[key] is not None:
                 require(isinstance(scope[key], str) and scope[key], 'invalid session alias')
                 sessions.append(scope[key])
-    if 'nativeHandle' in p:
+    if p.get('nativeHandle') is not None:
+        require(isinstance(p['nativeHandle'], str) and p['nativeHandle'], 'invalid session alias')
         sessions.append(p['nativeHandle'])
     require(not sessions or all(v == sessions[0] for v in sessions), 'conflicting session identity')
     return provider, session or (sessions[0] if sessions else None)
@@ -760,12 +805,13 @@ def _native_text(content, kind):
     return content[0]['text']
 
 
-def _parse_native_final(data, *, provider, session_id, cwd, prompt):
+def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_success=False):
     """Pure bounded parser: no filesystem, journal, agent calls or hidden-text output.
 
     Only the two verified version/record dialects are supported. Returned bytes
     encode the selected original string directly, including all whitespace.
     """
+    require(type(natural_success) is bool, 'natural_success must be explicit boolean')
     require(isinstance(data, bytes) and 0 < len(data) <= NATIVE_MAX_BYTES, 'native byte limit')
     require(data.endswith(b'\n'), 'incomplete native final line')
     lines = data.split(b'\n')[:-1]
@@ -892,11 +938,37 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt):
         require(records[prompt_index]['parentUuid'] is None
                 and all(i >= prompt_index for i, r in nodes.values())
                 and sum(r['parentUuid'] is None for i, r in nodes.values()) == 1, 'ambiguous Claude root')
-        tail = records[-1]
-        require(tail.get('type') == 'last-prompt' and tail.get('sessionId') == session_id
-                and tail.get('leafUuid') in nodes, 'missing Claude final leaf')
-        final, message_record = nodes[tail['leafUuid']]
-        require(final == len(records) - 2 and message_record['type'] == 'assistant', 'Claude leaf is not terminal assistant')
+        tail_index = len(records) - 1
+        title_present = records[tail_index]['type'] == 'ai-title'
+        if natural_success and title_present:
+            title = records[tail_index]
+            require(set(title) == {'type', 'aiTitle', 'sessionId'}
+                    and isinstance(title['aiTitle'], str) and bool(title['aiTitle'])
+                    and title['sessionId'] == session_id, 'invalid Claude ai-title')
+            tail_index -= 1
+        tail = records[tail_index]
+        last_prompt = tail.get('type') == 'last-prompt'
+        if last_prompt:
+            require(tail.get('sessionId') == session_id and tail.get('leafUuid') in nodes,
+                    'missing Claude final leaf')
+            leaf = tail['leafUuid']
+            final, message_record = nodes[leaf]
+            require(final == tail_index - 1, 'Claude leaf is not terminal assistant')
+        else:
+            require(natural_success is True and not title_present, 'missing Claude final leaf')
+            final, message_record = tail_index, tail
+            leaf = message_record.get('uuid')
+        require(message_record['type'] == 'assistant', 'Claude leaf is not terminal assistant')
+        # Claude also writes these metadata records during tool execution.
+        # They are not completion markers; keep the entire observed history.
+        for i, record in enumerate(records[:final]):
+            if record['type'] == 'last-prompt':
+                require(record.get('leafUuid') in nodes and nodes[record['leafUuid']][0] < i,
+                        'invalid historical Claude leaf')
+            elif record['type'] == 'ai-title':
+                require(set(record) == {'type', 'aiTitle', 'sessionId'}
+                        and isinstance(record['aiTitle'], str) and bool(record['aiTitle'])
+                        and record['sessionId'] == session_id, 'invalid historical Claude ai-title')
         message = message_record['message']
         require(message.get('stop_reason') == 'end_turn', 'Claude leaf is not end_turn')
         text = _native_text(message['content'], 'text')
@@ -915,7 +987,7 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt):
             require(message_record.get('apiBlockIndex') == 0, 'missing Claude final block')
         require(all(r['message'].get('id') != message['id'] for r in records[:ends[0]] if r['type'] == 'assistant'),
                 'split/ambiguous Claude final message')
-        chain, uid = set(), tail['leafUuid']
+        chain, uid = set(), leaf
         while uid is not None:  # parent points strictly backward, at most len(nodes)
             require(uid not in chain, 'cyclic Claude parent chain')
             chain.add(uid)
@@ -926,8 +998,10 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt):
                         and all(c.get('type') == 'tool_result' for c in r['message']['content']))
                         for uid, (i, r) in nodes.items()), 'ambiguous Claude branch')
         proof = dict(message_id=message['id'], message_uuid=message_record['uuid'],
-                     parent_uuid=message_record['parentUuid'], leaf_uuid=tail['leafUuid'],
-                     prompt_line=prompt_index + 1, final_line=final + 1, complete_line=len(records))
+                     parent_uuid=message_record['parentUuid'], leaf_uuid=leaf,
+                     prompt_line=prompt_index + 1, final_line=final + 1, complete_line=len(records),
+                     completion_basis='natural_success' if natural_success else 'last-prompt',
+                     last_prompt_present=last_prompt, ai_title_present=title_present)
     else:
         raise LifecycleError('unsupported native provider')
     try:
@@ -941,10 +1015,11 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt):
                      raw_bytes=len(raw), **proof)
 
 
-def parse_native_final(data, *, provider, session_id, cwd, prompt):
+def parse_native_final(data, *, provider, session_id, cwd, prompt, natural_success=False):
     """Pure parse interface; malformed unsupported shapes fail without text leaks."""
     try:
-        return _parse_native_final(data, provider=provider, session_id=session_id, cwd=cwd, prompt=prompt)
+        return _parse_native_final(data, provider=provider, session_id=session_id, cwd=cwd, prompt=prompt,
+                                   natural_success=natural_success)
     except (KeyError, TypeError, AttributeError, IndexError, RecursionError):
         raise LifecycleError('unsupported/malformed native structure') from None
 
@@ -964,6 +1039,8 @@ def read_native_final(path, **binding):
         data = stream.read(NATIVE_MAX_BYTES + 1)
         require(len(data) == opened.st_size, 'incomplete/changed native read')
         raw, proof = parse_native_final(data, **binding)
+        stream.seek(0)
+        require(stream.read(NATIVE_MAX_BYTES + 1) == data, 'native bytes changed during read')
         require(signature(os.fstat(stream.fileno())) == signature(before)
                 and signature(path.lstat()) == signature(before), 'native file changed during read')
     return raw, dict(proof, source_path=str(path))
@@ -986,7 +1063,8 @@ def export_native_final(journal, key, capture, native_log, outdir, *, notified):
         state = read(journal.root / '.ai/task' / row['task_id'] / 'STATE.json')
         require(state.get('task_id') == row['task_id'] and state.get('workspace_id') == row['workspace_id']
                 and state.get('orchestrator_agent_id') == row['parent_agent_id']
-                and state.get('state') not in ('DONE', 'STOP'), 'native STATE/root binding mismatch')
+                and state.get('state') not in ('DONE', 'STOP') and state.get('mode') == 'review_only'
+                and state.get('orchestration_transport') == row['creation_transport'], 'native STATE/root binding mismatch')
         children = [c for c in state.get('child_dispatches', []) if c.get('dispatch_id') == row['dispatch_id']]
         require(len(children) == 1 and all(children[0].get(k) == row.get(k) for k in
                 ('agent_id', 'role', 'purpose', 'workspace_id', 'parent_agent_id', 'labels',
@@ -1011,9 +1089,17 @@ def export_native_final(journal, key, capture, native_log, outdir, *, notified):
         if row.get('native_provenance'):
             require(row['native_provenance']['terminal_capture_sha256'] == digest(surface.canonical_bytes(capture)),
                     'frozen native terminal capture changed')
+            proof = row['native_provenance']
+            raw = Path(row['native_raw_path']).read_bytes()
+            require(digest(raw) == proof['raw_sha256'], 'frozen native raw changed')
+            require(read(Path(row['native_raw_path']).parent / 'provenance.json') == proof, 'frozen native proof changed')
+            immutable(folder / 'provenance.json', surface.canonical_bytes(proof))
+            immutable(folder / 'terminal.raw', raw)
+            return raw
         row.update(terminal_capture=deepcopy(capture), terminal_observed_at=now(), lifecycle='terminal')
         with journal.timed(row, 'tool_call', 'native_read'):
-            raw, proof = read_native_final(native_log, provider=provider, session_id=session, cwd=row['cwd'], prompt=prompt)
+            raw, proof = read_native_final(native_log, provider=provider, session_id=session, cwd=row['cwd'],
+                                           prompt=prompt, natural_success=True)
         proof.update(key=key, agent_id=row['agent_id'], workspace_id=row['workspace_id'],
                      parent_agent_id=row['parent_agent_id'], labels=deepcopy(row['labels']),
                      input_sha256=row['input_sha256'],
@@ -1038,9 +1124,161 @@ def export_native_final(journal, key, capture, native_log, outdir, *, notified):
         raise
 
 
+def mcp_payload(response, kind):
+    """Only observed Paseo CallToolResult dialects; never guess nested SDK data.
+
+    One text block duplicates structuredContent as JSON, optionally prefixed by
+    the observed count/IDs display. Both copies must agree. A prose-only block
+    is not a proven dialect and fails closed (the create display contains JSON).
+    """
+    require(isinstance(response, dict) and set(response) <= {'content', 'structuredContent', 'isError', '_meta'},
+            'unsupported MCP envelope')
+    require(response.get('isError', False) is False, 'MCP isError')
+    content = response.get('content')
+    require(isinstance(content, list) and len(content) == 1, 'multiple/missing MCP payloads')
+    block = content[0]
+    require(isinstance(block, dict) and set(block) == {'type', 'text'}
+            and block['type'] == 'text' and isinstance(block['text'], str), 'unsupported MCP content')
+    display = block['text']
+    prefix = None
+    if kind in ('create', 'profiles'):
+        name = 'availableModes' if kind == 'create' else 'profiles'
+        prefix = re.match(rf'{name}_count=(0|[1-9][0-9]*)\n{name}_ids=([^\n]*)\n\n', display)
+        if prefix:
+            display = display[prefix.end():]
+    try:
+        payload = json.loads(display, object_pairs_hook=contextual._reject_duplicate)
+    except (ValueError, contextual.ContractError):
+        raise LifecycleError('unsupported MCP text payload') from None
+    require(isinstance(payload, dict), 'MCP payload must be object')
+    if 'structuredContent' in response:
+        require(surface.canonical_bytes(response['structuredContent']) == surface.canonical_bytes(payload),
+                'conflicting MCP payloads')
+    # Prefixed text has only been observed paired with structuredContent.
+    require(prefix is None or 'structuredContent' in response, 'unproven MCP prefixed text-only shape')
+    if kind == 'create':
+        require(set(payload) == {'agentId', 'type', 'status', 'cwd', 'workspaceId', 'currentModeId',
+                                'availableModes', 'lastMessage', 'permission', 'guidance'}, 'unknown create payload')
+        items = payload['availableModes']
+    elif kind == 'profiles':
+        require(set(payload) == {'profiles'}, 'unknown profiles payload')
+        items = payload['profiles']
+    elif kind == 'status':
+        require(set(payload) == {'status', 'snapshot'} and isinstance(payload['snapshot'], dict),
+                'unknown status payload')
+    elif kind == 'archive':
+        require(set(payload) == {'success'} and payload['success'] is True, 'archive response unsuccessful')
+    else:
+        raise LifecycleError('unknown MCP operation')
+    if kind in ('profiles', 'create'):
+        require(isinstance(items, list) and all(isinstance(x, dict) and isinstance(x.get('id'), str)
+                                              and x['id'] for x in items), 'invalid MCP items')
+        ids = [x['id'] for x in items]
+        require(len(ids) == len(set(ids)), 'duplicate MCP item ID')
+        if prefix:
+            require(int(prefix[1]) == len(items) and prefix[2] == ','.join(ids), 'MCP display/payload mismatch')
+    return payload
+
+
+def mcp_create_parameters(row, profiles, profile_id):
+    matches = [p for p in profiles['profiles'] if p['id'] == profile_id]
+    require(len(matches) == 1, 'profile selection missing/ambiguous')
+    profile, frozen = matches[0], row['create_parameters']
+    require(all(isinstance(profile.get(k), str) and profile[k] for k in ('provider', 'model')),
+            'profile needs explicit provider/model')
+    provider = profile['provider'] + '/' + profile['model']
+    require(frozen['provider'] == provider, 'profile provider/model drift')
+    settings = {}
+    for source, target in (('modeId', 'modeId'), ('thinkingOptionId', 'thinkingOptionId'), ('featureValues', 'features')):
+        for declared in (profile, frozen):
+            if source in declared:
+                value = declared[source]
+                require(isinstance(value, dict) if source == 'featureValues' else isinstance(value, str) and bool(value),
+                        f'invalid profile setting: {source}')
+        require(source not in frozen or source not in profile
+                or surface.canonical_bytes(frozen[source]) == surface.canonical_bytes(profile[source]),
+                f'profile setting drift: {source}')
+        if source in profile or source in frozen:
+            settings[target] = deepcopy(profile[source] if source in profile else frozen[source])
+    return dict(provider=provider, initialPrompt=frozen['prompt'], title=row['dispatch_id'],
+                workspaceId=row['workspace_id'], labels=deepcopy(row['labels']), notifyOnFinish=True, settings=settings)
+
+
+def host_event(journal, key, data, *, outdir, native_log=None):
+    """One stdin event, one writer, no injected tools or scheduler inside Python."""
+    row = journal.get(key)
+    folder = Path(outdir) / row['task_id'] / row['dispatch_id'] / 'wire'
+    require(isinstance(data, bytes) and 0 < len(data) <= NATIVE_MAX_BYTES, 'host event byte limit')
+    # Save the entire shell-delivered envelope, even if validation rejects it.
+    path = folder / (digest(data) + '.json')
+    immutable(path, data)
+    event = json.loads(data, object_pairs_hook=contextual._reject_duplicate)
+    require(isinstance(event, dict) and set(event) <= {'op', 'response', 'profile_id', 'notified', 'notification_received_at', 'started_at', 'ended_at', 'operation'},
+            'unknown host event fields')
+    op = event.get('op')
+    require(op in ('recover', 'profiles', 'create', 'bind', 'harvest', 'archive-intent', 'archive-response', 'archive-confirm', 'call-failed'),
+            'unknown host operation')
+    fields = {'op'} if op == 'recover' else {'op', 'started_at', 'ended_at', 'response'}
+    if op == 'profiles': fields.add('profile_id')
+    if op == 'harvest': fields.update(('notified', 'notification_received_at'))
+    if op == 'call-failed': fields = {'op', 'operation', 'started_at', 'ended_at'}
+    require(set(event) <= fields, 'host fields disagree with operation')
+    journal.save()  # repair STATE before any subsequent external operation
+    result = {}
+    if op != 'recover':
+        kind = {'profiles': 'profiles', 'create': 'create', 'archive-response': 'archive'}.get(op, 'status')
+        if 'started_at' in event or 'ended_at' in event:
+            require(timestamp(event['ended_at']) >= timestamp(event['started_at']), 'invalid host tool interval')
+            timing = dict(category='tool_call', operation=op, started_at=event['started_at'], ended_at=event['ended_at'],
+                          wire_sha256=digest(data))
+            if timing not in row.setdefault('timing', []):
+                row['timing'].append(timing)
+        row.setdefault('wire_events', []).append(dict(op=op, path=str(path), sha256=digest(data)))
+        journal.save()
+        payload = None if op == 'call-failed' else mcp_payload(event.get('response'), kind)
+        if op == 'call-failed':
+            require(event.get('operation') in ('profiles', 'create', 'bind', 'harvest', 'archive-intent',
+                                              'archive-response', 'archive-confirm') and 'response' not in event,
+                    'invalid failed-call event')
+        elif op == 'profiles':
+            require(row['creation_transport'] == 'mcp', 'host recipe requires MCP creation')
+            require(sum(not journal.settled(r) for r in journal.rows) < 3, 'capacity=3 exhausted')
+            parameters = mcp_create_parameters(row, payload, event.get('profile_id'))
+            journal.create_intent(key, path)
+            row['create_attempts'][-1]['mcp_parameters'] = deepcopy(parameters)
+            result['parameters'] = parameters
+        elif op == 'create':
+            require(payload['cwd'] == row['cwd'] and payload['workspaceId'] == row['workspace_id']
+                    and payload['type'] == row['create_parameters']['provider'].split('/', 1)[0], 'create identity mismatch')
+            journal.record_id(key, payload['agentId'])
+        elif op == 'bind':
+            journal.bind(key, payload)
+        elif op == 'harvest':
+            require(event.get('notified') is True, 'notification required')
+            require(native_log, 'explicit native log required')
+            received = event.get('notification_received_at')
+            if received is not None:
+                timestamp(received)
+                row.setdefault('notification_received_at', received)
+            raw = export_native_final(journal, key, payload, native_log, Path(outdir) / 'native', notified=True)
+            result['output_valid'] = journal.harvest(key, payload, raw, Path(outdir) / 'raw', notified=True)
+        elif op == 'archive-intent':
+            result['archive'] = journal.archive_intent(key, payload)
+        elif op == 'archive-response':
+            require(row['archive_attempts_started'] > 0 and not row['archive_confirmed'], 'archive response without intent')
+            # Success is not confirmation. Only independent status can release capacity.
+        else:
+            journal.confirm_archive(key, payload)
+        journal.save()
+    return dict(result, rows=[dict(key=journal.key(r), agent_id=r.get('agent_id'), status=r['status'],
+                archive_confirmed=r['archive_confirmed'], archive_attempts_started=r['archive_attempts_started'],
+                validation_state=r.get('validation_state'), live_bound='runtime_observation' in r,
+                create_blocked=journal.create_blocked(journal.key(r))) for r in journal.rows])
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action', choices=['create-intent', 'reconcile-absent', 'bind', 'harvest', 'reject', 'archive-intent', 'archive-confirm', 'native-export', 'timing'])
+    p.add_argument('action', choices=['create-intent', 'reconcile-absent', 'bind', 'harvest', 'reject', 'archive-intent', 'archive-confirm', 'native-export', 'timing', 'host-event'])
     p.add_argument('children')
     p.add_argument('key', nargs='?')
     p.add_argument('--capture')
@@ -1057,7 +1295,11 @@ def main(argv=None):
         print(json.dumps(j.timing_report(), ensure_ascii=False, indent=2))
         return 0
     require(a.key, 'task_id|dispatch_id required')
-    if a.action == 'create-intent':
+    if a.action == 'host-event':
+        require(a.outdir, '--outdir required')
+        print(json.dumps(host_event(j, a.key, sys.stdin.buffer.read(NATIVE_MAX_BYTES + 1),
+                                    outdir=a.outdir, native_log=a.native_log), ensure_ascii=False))
+    elif a.action == 'create-intent':
         require(a.profiles, '--profiles required (fresh list_profiles response)')
         require(j.get(a.key)['creation_transport'] == 'mcp', 'CLI creation must use dispatch entrypoint')
         print(json.dumps(j.create_intent(a.key, a.profiles), ensure_ascii=False))

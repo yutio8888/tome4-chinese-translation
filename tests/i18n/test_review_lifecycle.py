@@ -33,6 +33,8 @@ class FakeTransport:
 
     def status(self, key):
         self.calls.append('status')
+        if not self.archived and self.row.get('native_provenance'):
+            return deepcopy(self.row['terminal_capture'])  # preserve verified native identity in this fixture
         return self.test.capture(self.row, 'closed' if self.archived else 'idle')
 
     def terminal_bytes(self, key):
@@ -1386,6 +1388,545 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
             self.assertEqual(life.export_native_final(self.j, self.j.key(row), cap, native, self.root / 'out', notified=True), raw)
             self.assertFalse(self.j.harvest(self.j.key(row), cap, raw, self.root / 'raw', notified=True))
         self.assertEqual((self.root / row['raw_output_path']).read_bytes(), text.encode())
+
+    def test_p1_null_alias_pair_and_invalid_known_values(self):
+        row, terminal, native = self.native_child('claude')
+        # Same locations/relationships as batch91 first/terminal; IDs and content synthetic.
+        first = row['first_live_capture']['snapshot']
+        first['runtimeInfo']['sessionId'] = None
+        original = deepcopy(first)
+        observation = deepcopy(row['runtime_observation'])
+        self.j.save()
+        self.assertEqual(life.native_identity(first, required=False), ('claude', 'session'))
+        self.assertEqual(life.native_identity(terminal['snapshot']), ('claude', 'session'))
+        for alias in ('sessionId', 'threadId'):
+            for invalid in ('', 0, False, {}, [], 'conflict'):
+                bad = deepcopy(first)
+                bad['runtimeInfo'][alias] = invalid
+                with self.subTest(alias=alias, invalid=invalid), self.assertRaises(life.LifecycleError):
+                    life.native_identity(bad, required=False)
+        for invalid in ('', 0, False, {}, [], 'conflict'):
+            bad = deepcopy(first)
+            bad['persistence']['nativeHandle'] = invalid
+            with self.assertRaises(life.LifecycleError):
+                life.native_identity(bad, required=False)
+        unknown = deepcopy(first)
+        unknown['persistence'].update(sessionId=None, nativeHandle=None)
+        self.assertEqual(life.native_identity(unknown, required=False), ('claude', None))
+        with self.assertRaises(life.LifecycleError):
+            life.native_identity(unknown)
+        source = self.native_records('claude', self.raw(row).decode(), cwd=str(self.root),
+                                     prompt=row['create_parameters']['prompt'])[:-1]
+        native.write_bytes(self.native_bytes(source))
+        raw = life.export_native_final(self.j, self.j.key(row), terminal, native, self.root / 'native-out', notified=True)
+        self.assertEqual(raw, self.raw(row))
+        self.assertEqual(first, original)
+        self.assertEqual(row['runtime_observation'], observation)
+
+    def test_p1_natural_tail_modes_preserve_source_and_reject_ambiguity(self):
+        rows = self.native_records('claude', ' \n{"exact":true}\t\n')
+        binding = dict(provider='claude', session_id='session', cwd='/fixture', prompt='frozen prompt')
+        versions = [rows[:-1], rows, rows + [dict(type='ai-title', aiTitle='fixture', sessionId='session')]]
+        raws, hashes = [], []
+        for records in versions:
+            data = self.native_bytes(records)
+            raw, proof = life.parse_native_final(data, **binding, natural_success=True)
+            raws.append(raw); hashes.append(proof['source_sha256'])
+            self.assertEqual(proof['source_bytes'], len(data))
+            self.assertEqual(proof['final_line'], len(rows) - 1)
+        self.assertEqual(len(set(raws)), 1)
+        self.assertEqual(len(set(hashes)), 3)
+        with self.assertRaisesRegex(life.LifecycleError, 'missing Claude final leaf'):
+            life.parse_native_final(self.native_bytes(rows[:-1]), **binding)
+        bads = [rows[:-1] + [versions[2][-1]], versions[2] + [versions[2][-1]],
+                rows + [dict(type='ai-title', aiTitle=1, sessionId='session')],
+                rows + [dict(type='ai-title', aiTitle='x', sessionId='other')],
+                rows + [dict(type='ai-title', aiTitle='x', sessionId='session', extra=True)],
+                rows + [rows[1]], rows[:-1] + [dict(type='unknown')]]
+        for records in bads:
+            with self.assertRaises(life.LifecycleError):
+                life.parse_native_final(self.native_bytes(records), **binding, natural_success=True)
+        for mutate in (lambda r: r[-2].update(parentUuid='missing'),
+                       lambda r: r[-1].update(leafUuid='early'),
+                       lambda r: r[-2].update(isSidechain=True),
+                       lambda r: r[-2].update(version='new'),
+                       lambda r: r[-2].update(uuid=r[1]['uuid'])):
+            bad = deepcopy(rows); mutate(bad)
+            with self.assertRaises(life.LifecycleError):
+                life.parse_native_final(self.native_bytes(bad), **binding, natural_success=True)
+
+    def test_p1_natural_historical_metadata_and_lifecycle_guards(self):
+        row, cap, native = self.native_child('claude')
+        records = [json.loads(x) for x in native.read_bytes().splitlines()][:-1]
+        historical = [dict(type='last-prompt', leafUuid='early', sessionId='session'),
+                      dict(type='ai-title', aiTitle='intermediate title', sessionId='session')]
+        records[3:3] = historical
+        native.write_bytes(self.native_bytes(records))
+        variants = []
+        for field, value in [('activeTurn', {}), ('attentionReason', 'error'), ('attentionTimestamp', 'bad')]:
+            bad = deepcopy(cap); bad['snapshot'][field] = value; variants.append(bad)
+        bad = deepcopy(cap); del bad['snapshot']['activeTurn']; variants.append(bad)
+        bad = deepcopy(cap); bad['status'] = bad['snapshot']['status'] = 'error'; variants.append(bad)
+        with patch.object(life, 'read_native_final') as reader:
+            for bad in variants:
+                with self.assertRaises((ValueError, life.LifecycleError)):
+                    life.export_native_final(self.j, self.j.key(row), bad, native, self.root / 'out', notified=True)
+            with self.assertRaises(life.LifecycleError):
+                life.export_native_final(self.j, self.j.key(row), cap, native, self.root / 'out', notified=False)
+            reader.assert_not_called()
+        raw = life.export_native_final(self.j, self.j.key(row), cap, native, self.root / 'out', notified=True)
+        self.assertEqual(raw, self.raw(row))
+        self.assertEqual(row['archive_attempts_started'], 0)
+        self.assertNotIn('output_valid', row)
+
+    def test_p1_natural_cli_strict_before_archive_and_error_raw_refused(self):
+        row, cap, native = self.native_child('claude')
+        records = [json.loads(x) for x in native.read_bytes().splitlines()]
+        native.write_bytes(self.native_bytes(records[:-1]))
+        capture = self.root / 'terminal.json'; write(capture, cap)
+        cli = [sys.executable, '-B', str(ROOT / 'tools/orchestration/review_lifecycle.py'),
+               'harvest', str(self.j.path), self.j.key(row), '--capture', str(capture),
+               '--outdir', str(self.root / 'output'), '--notified']
+        env = dict(os.environ, TOME_TRANSLATION_ROOT=str(self.root))
+        done = subprocess.run(cli + ['--native-log', str(native)], env=env, capture_output=True, timeout=15)
+        self.assertEqual(done.returncode, 0, done.stderr.decode())
+        self.j = life.Journal(self.j.path, root=self.root); row = self.j.get(self.j.key(row))
+        self.assertTrue(row['output_valid']); self.assertEqual(row['archive_attempts_started'], 0)
+        proof = deepcopy(row['native_provenance'])
+        native.unlink()  # fully frozen proof/raw survive source disappearance before archive
+        self.assertEqual(life.export_native_final(self.j, self.j.key(row), cap, native,
+                         self.root / 'output/native', notified=True), self.raw(row))
+        self.assertEqual(row['native_provenance'], proof)
+        for status, attention in [('error', 'error'), ('idle', 'error'), ('error', 'finished')]:
+            bad = deepcopy(cap); bad['status'] = status
+            bad['snapshot'].update(status=status, attentionReason=attention)
+            write(capture, bad)
+            failed = subprocess.run(cli + ['--raw', row['raw_output_path']], env=env, capture_output=True, timeout=15)
+            self.assertNotEqual(failed.returncode, 0)
+        changed = deepcopy(cap); changed['snapshot']['attentionTimestamp'] = '2026-09-12T01:03:00Z'
+        with self.assertRaisesRegex(life.LifecycleError, 'frozen terminal'):
+            self.j.archive_intent(self.j.key(row), changed)
+        self.assertEqual(row['archive_attempts_started'], 0)
+
+    @staticmethod
+    def wire(payload, prefix=None):
+        display = json.dumps(payload)
+        if prefix:
+            items = payload['availableModes' if prefix == 'availableModes' else 'profiles']
+            display = f'{prefix}_count={len(items)}\n{prefix}_ids=' + ','.join(x['id'] for x in items) + '\n\n' + display
+        return dict(content=[dict(type='text', text=display)], structuredContent=deepcopy(payload))
+
+    def test_p1_wire_shell_complete_payload_conflicts_and_duplicates(self):
+        payload = dict(agentId='fixture', type='codex', status='running', cwd='/fixture', workspaceId='fixture',
+                       currentModeId='auto-review', availableModes=[dict(id='auto-review')],
+                       lastMessage=None, permission=None, guidance='human guidance')
+        wire = self.wire(payload, 'availableModes')
+        self.assertEqual(life.mcp_payload(wire, 'create'), payload)
+        bads = []
+        bad = deepcopy(wire); bad['structuredContent']['agentId'] = 'conflict'; bads.append(bad)
+        bad = deepcopy(wire); bad['structuredContent']['permission'] = 0
+        bad['content'][0]['text'] = bad['content'][0]['text'].replace('\"permission\": null', '\"permission\": false'); bads.append(bad)
+        bad = deepcopy(wire); bad['content'] *= 2; bads.append(bad)
+        bad = deepcopy(wire); bad['isError'] = True; bads.append(bad)
+        bad = deepcopy(wire); bad['content'][0]['text'] = 'unknown explanation'; bads.append(bad)
+        bad = deepcopy(wire); bad['content'][0]['text'] = bad['content'][0]['text'].replace('count=1', 'count=2'); bads.append(bad)
+        bad = deepcopy(wire); bad['content'][0]['text'] = '{"agentId":"a","agentId":"b"}'; bads.append(bad)
+        for bad in bads:
+            with self.assertRaises((life.LifecycleError, life.contextual.ContractError)):
+                life.mcp_payload(bad, 'create')
+        specs = self.contextual(); self.prepare(specs); key = self.j.key(specs[0])
+        data = b'{"op":"recover","op":"create"}'
+        with self.assertRaises((ValueError, life.contextual.ContractError)):
+            life.host_event(self.j, key, data, outdir=self.root / 'out')
+        self.assertEqual(next((self.root / 'out').rglob('*.json')).read_bytes(), data)
+        self.assertEqual(self.j.get(key)['status'], 'prepared')
+
+    def test_p1_profiles_mapping_uses_fields_and_rejects_drift(self):
+        specs = self.contextual(); self.prepare(specs)
+        row = self.j.get(self.j.key(specs[0]))
+        profile = dict(id='chosen', name='Wrong model in title', provider='test', model='model',
+                       modeId='auto', thinkingOptionId='xhigh', featureValues={'fast_mode': False})
+        parameters = life.mcp_create_parameters(row, {'profiles': [profile]}, 'chosen')
+        self.assertEqual(parameters['settings']['features'], {'fast_mode': False})
+        self.assertEqual(parameters['provider'], 'test/model')
+        for field, value in [('provider', 'other'), ('model', 'other'), ('modeId', 'other'),
+                             ('thinkingOptionId', 'other')]:
+            changed = dict(profile, **{field: value})
+            with self.assertRaises(life.LifecycleError):
+                life.mcp_create_parameters(row, {'profiles': [changed]}, 'chosen')
+
+    def test_p1_readme_recipe_four_members_and_fault_recovery(self):
+        import shutil
+        self.assertIsNotNone(shutil.which('node'), 'Node is needed only to execute this README fixture')
+        recipe = (ROOT / 'tools/orchestration/README.md').read_text().split('// BEGIN REVIEW_HOST_RECIPE\n')[1].split('// END REVIEW_HOST_RECIPE')[0]
+        for fault in ('none', 'create-lost', 'id-crash', 'mirror-crash', 'archive-read-lost', 'archive-budget'):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory(prefix='p1-recipe-') as directory:
+                # Reuse real envelope/journal constructors; all state and source IO is temporary.
+                old_root, old_j, old_selection = self.root, self.j, self.selection
+                self.root = Path(directory); self.j = life.Journal(self.root / 'journal.json', root=self.root)
+                self.selection = dict(provider='claude/claude-opus-5', modeId='auto', thinkingOptionId='medium',
+                                      featureValues={'fast_mode': False})
+                try:
+                    specs = self.surface(); self.prepare(specs, life.SURFACE)
+                    keys = [self.j.key(s) for s in specs]
+                    profile = dict(id='chosen', name='Do not infer identity from me', provider='claude',
+                                   model='claude-opus-5', modeId='auto', thinkingOptionId='medium', featureValues={'fast_mode': False})
+                    captures, natives = {}, {}
+                    for row in self.j.rows:
+                        key = self.j.key(row); live = self.capture(row)
+                        live['snapshot'].update(provider='claude', model='claude-opus-5',
+                            persistence=dict(provider='claude', sessionId='session', nativeHandle='session'),
+                            runtimeInfo=dict(provider='claude', sessionId=None), createdAt='2026-09-12T01:00:00Z')
+                        end = deepcopy(live); end['status'] = 'idle'
+                        end['snapshot'].update(status='idle', activeTurn=None, attentionReason='finished',
+                                               attentionTimestamp='2026-09-12T01:01:00Z')
+                        closed = deepcopy(end); closed['status'] = 'closed'
+                        closed['snapshot'].update(status='closed', archivedAt='2026-09-12T01:02:00Z', attentionReason=None,
+                                                  attentionTimestamp=None)
+                        del closed['snapshot']['activeTurn']
+                        create = dict(agentId=live['snapshot']['id'], type='claude', status='running', cwd=str(self.root),
+                                      workspaceId=self.ws, currentModeId='auto', availableModes=[dict(id='auto')],
+                                      lastMessage=None, permission=None, guidance='fixture')
+                        captures[key] = dict(create=self.wire(create, 'availableModes'), live=self.wire(live),
+                                             terminal=self.wire(end), closed=self.wire(closed))
+                        path = self.root / (row['dispatch_id'] + '.jsonl'); natives[key] = str(path)
+                        path.write_bytes(self.native_bytes(self.native_records('claude', self.raw(row).decode(),
+                                  cwd=str(self.root), prompt=row['create_parameters']['prompt'])[:-1]))
+                    cfg = dict(children=str(self.j.path), outdir=str(self.root / "out ' $(touch NEVER) `false`"),
+                               helper=str(ROOT / 'tools/orchestration/review_lifecycle.py'), keys=keys,
+                               profileIds={k: 'chosen' for k in keys}, nativeLogs=natives)
+                    data = dict(cfg=cfg, captures=captures, profiles=self.wire({'profiles': [profile]}, 'profiles'),
+                                archive=self.wire({'success': True}), fault=fault, root=str(self.root))
+                    script = self.root / 'fixture.cjs'
+                    script.write_text('const data = ' + json.dumps(data) + ';\n' + recipe + self.recipe_runner())
+                    self.run_recipe_bridge(script)
+                finally:
+                    self.root, self.j, self.selection = old_root, old_j, old_selection
+
+    def test_cycle1_direct_intent_stops_without_mutation_and_allows_binding(self):
+        specs = self.surface(); self.prepare(specs, life.SURFACE)
+        first, second = self.j.rows[:2]
+        self.j.create_intent(self.j.key(first), self.profiles)
+        self.j.record_id(self.j.key(first), self.capture(first)['snapshot']['id'])
+        path = self.root / '.ai/task/surface-task/STATE.json'
+        original = life.read(path)
+        for stopped in ('WAIT_USER', 'DONE', 'STOP'):
+            with self.subTest(state=stopped):
+                state = dict(original, state=stopped,
+                             wait={'reason': 'user_decision', 'resume_state': 'REVIEW'})
+                write(path, state)
+                before = self.j.path.read_bytes(), path.read_bytes(), deepcopy(self.j.rows)
+                with self.assertRaisesRegex(life.LifecycleError, 'new create blocked: task ' + stopped):
+                    self.j.create_intent(self.j.key(second), self.profiles)
+                self.assertEqual(before, (self.j.path.read_bytes(), path.read_bytes(), self.j.rows))
+                self.assertFalse(list(self.root.glob('*lane-1-2-create-*-profiles.json')))
+                # A previously issued create may still complete its first binding.
+                self.j.bind(self.j.key(first), self.capture(first))
+                self.assertIn('runtime_observation', first)
+                self.assertEqual(life.read(path)['state'], stopped)
+        write(path, original)
+        # Even stale open STATE cannot hide a journal's exhausted archive budget.
+        first.update(archive_attempts_started=2, archive_confirmed=False)
+        before = deepcopy(self.j.rows)
+        with self.assertRaisesRegex(life.LifecycleError, 'unresolved archive budget exhausted'):
+            self.j.create_intent(self.j.key(second), self.profiles)
+        self.assertEqual(self.j.rows, before)
+        self.assertEqual(life.read(path), original)
+
+    def test_cycle1_real_astra_optional_settings(self):
+        # Sanitized shape from profiles-execute-astra-01.json: modeId is absent.
+        self.selection = dict(provider='codex/gpt-6-astra', thinkingOptionId='high',
+                              modeId='auto-review')
+        specs = self.contextual(); self.prepare(specs)
+        row = self.j.rows[0]
+        profile = dict(id='fixture-astra', name='Untrusted display name', provider='codex',
+                       model='gpt-6-astra', thinkingOptionId='high', notes='Sanitized fixture')
+        before = deepcopy(row)
+        payload = life.mcp_payload(self.wire({'profiles': [profile]}, 'profiles'), 'profiles')
+        parameters = life.mcp_create_parameters(row, payload, profile['id'])
+        self.assertEqual(parameters['provider'], 'codex/gpt-6-astra')
+        self.assertEqual(parameters['settings'], dict(modeId='auto-review', thinkingOptionId='high'))
+        self.assertEqual(row, before)
+        self.assertNotIn('runtime_observation', row)
+        fields = [('modeId', 'modeId', 'auto-review', 'other'),
+                  ('thinkingOptionId', 'thinkingOptionId', 'high', 'other'),
+                  ('featureValues', 'features', {'fast_mode': False}, {'fast_mode': True})]
+        for source, target, good, other in fields:
+            for declared in ('neither', 'profile', 'frozen', 'both'):
+                with self.subTest(source=source, declared=declared):
+                    r, p = deepcopy(row), deepcopy(profile)
+                    r['create_parameters'].pop(source, None); p.pop(source, None)
+                    if declared in ('profile', 'both'): p[source] = good
+                    if declared in ('frozen', 'both'): r['create_parameters'][source] = good
+                    settings = life.mcp_create_parameters(r, {'profiles': [p]}, p['id'])['settings']
+                    if declared == 'neither': self.assertNotIn(target, settings)
+                    else: self.assertEqual(settings[target], good)
+            p = dict(profile, **{source: other})
+            r = deepcopy(row); r['create_parameters'][source] = good
+            with self.assertRaisesRegex(life.LifecycleError, 'profile setting drift'):
+                life.mcp_create_parameters(r, {'profiles': [p]}, p['id'])
+            invalid = (None, '', 0, False, []) + (() if source == 'featureValues' else ({},))
+            for value in invalid:
+                for side in ('profile', 'frozen', 'both'):
+                    with self.subTest(source=source, value=value, side=side):
+                        r, p = deepcopy(row), deepcopy(profile)
+                        r['create_parameters'].pop(source, None); p.pop(source, None)
+                        if side in ('profile', 'both'): p[source] = value
+                        if side in ('frozen', 'both'): r['create_parameters'][source] = value
+                        with self.assertRaisesRegex(life.LifecycleError, 'invalid profile setting'):
+                            life.mcp_create_parameters(r, {'profiles': [p]}, p['id'])
+        # Full real-shaped wire to durable intent, without a remote create call.
+        data = json.dumps(dict(op='profiles', profile_id=profile['id'],
+                               response=self.wire({'profiles': [profile]}, 'profiles'))).encode()
+        result = life.host_event(self.j, self.j.key(row), data, outdir=self.root / 'out')
+        self.assertEqual(result['parameters'], parameters)
+        self.assertEqual(row['create_attempts'][-1]['mcp_parameters'], parameters)
+        self.assertEqual(row['create_parameters'], before['create_parameters'])
+        self.assertNotIn('runtime_observation', row)
+
+    def test_cycle1_readme_wait_user_other_member_frees_slot(self):
+        specs = self.surface(); self.prepare(specs, life.SURFACE)
+        a, b, c = self.bind(specs[:3]); d = self.j.rows[3]
+        for r in (a, b, c):
+            self.j.harvest(self.j.key(r), self.capture(r, 'idle'), self.raw(r),
+                           self.root / 'raw', notified=True)
+        for _ in range(2):
+            self.j.archive_intent(self.j.key(a), self.capture(a, 'idle'))
+            with self.assertRaises(life.LifecycleError):
+                self.j.confirm_archive(self.j.key(a), self.capture(a, 'idle'))
+        captures = {}
+        for r in self.j.rows:
+            live = self.capture(r)
+            created = dict(agentId=live['snapshot']['id'], type='test', status='running',
+                           cwd=str(self.root), workspaceId=self.ws, currentModeId='auto',
+                           availableModes=[dict(id='auto')], lastMessage=None, permission=None,
+                           guidance='fixture only')
+            captures[self.j.key(r)] = dict(live=self.wire(live), terminal=self.wire(self.capture(r, 'idle')),
+                closed=self.wire(self.capture(r, 'closed')), create=self.wire(created, 'availableModes'))
+        cfg = dict(children=str(self.j.path), outdir=str(self.root / "out ' quoted"),
+                   keys=[self.j.key(r) for r in self.j.rows],
+                   profileIds={self.j.key(d): 'chosen'}, nativeLogs={},
+                   helper=str(ROOT / 'tools/orchestration/review_lifecycle.py'))
+        profile = dict(id='chosen', provider='test', model='model', modeId='auto', thinkingOptionId='xhigh')
+        data = dict(cfg=cfg, captures=captures, profiles=self.wire({'profiles': [profile]}, 'profiles'),
+                    archive=self.wire({'success': True}),
+                    statepath=str(self.root / '.ai/task/surface-task/STATE.json'))
+        recipe = (ROOT / 'tools/orchestration/README.md').read_text().split(
+            '// BEGIN REVIEW_HOST_RECIPE\n')[1].split('// END REVIEW_HOST_RECIPE')[0]
+        runner = r'''
+const assert = require('assert'), fs = require('fs');
+const input = require('readline').createInterface({input:process.stdin});
+const disk = () => JSON.parse(fs.readFileSync(data.cfg.children));
+const state = () => JSON.parse(fs.readFileSync(data.statepath));
+const [a,b,c,d] = data.cfg.keys;
+const archived = new Set(), archives = [], creates = [], profiles = [];
+const keyFor = id => data.cfg.keys.find(k => data.captures[k].live.structuredContent.snapshot.id === id);
+const tools = {
+  exec_command: async args => {
+    const r = await new Promise(resolve => {
+      input.once('line', line => resolve(JSON.parse(line)));
+      process.stdout.write(JSON.stringify(args) + '\n');
+    });
+    return {exit_code:r.status, output:r.stdout + r.stderr};
+  },
+  mcp__paseo__list_profiles: async () => { profiles.push('profiles'); return data.profiles; },
+  mcp__paseo__create_agent: async args => {
+    assert.equal(state().state, 'REVIEW');
+    assert(disk().slice(0,3).every(r => r.archive_confirmed));
+    assert.equal(disk()[3].status, 'dispatching');
+    assert.equal(args.initialPrompt, disk()[3].create_parameters.prompt);
+    creates.push(d); return data.captures[d].create;
+  },
+  mcp__paseo__get_agent_status: async ({agentId}) => {
+    const k = keyFor(agentId);
+    return data.captures[k][archived.has(k) ? 'closed' : k === d ? 'live' : 'terminal'];
+  },
+  mcp__paseo__archive_agent: async ({agentId}) => {
+    const k = keyFor(agentId); assert.notEqual(k,a);
+    archives.push(k); archived.add(k); return data.archive;
+  }
+};
+const recover = k => reviewHost(tools, data.cfg, {type:'recover-archive', key:k,
+  agentId:data.captures[k].live.structuredContent.snapshot.id});
+(async () => {
+  const beforeD = JSON.stringify(disk()[3]), beforeWait = state().wait;
+  assert.deepEqual(beforeWait, {reason:'archive_pending', resume_state:'REVIEW'});
+  await recover(b); // Same README archive+fill: B releases capacity while A remains unresolved.
+  await reviewHost(tools, data.cfg, {type:'fill'});
+  assert.equal(state().state, 'WAIT_USER'); assert.deepEqual(state().wait, beforeWait);
+  assert.equal(disk()[0].archive_attempts_started,2); assert.equal(disk()[0].archive_confirmed,false);
+  assert.equal(disk()[1].archive_confirmed,true); assert.equal(JSON.stringify(disk()[3]),beforeD);
+  assert.equal(creates.length,0); assert.equal(profiles.length,0);
+  assert.deepEqual(archives,[b]);
+  archived.add(a); await recover(a); // Readback only; no third archive attempt or budget reset.
+  assert.equal(disk()[0].archive_attempts_started,2); assert.equal(disk()[0].archive_confirmed,true);
+  assert.equal(state().state,'WAIT_USER'); assert.equal(creates.length,0);
+  await recover(c); // Existing member uses its remaining budget; normal all-settled recovery.
+  assert.equal(state().state,'REVIEW'); assert.equal(state().wait,null);
+  assert.deepEqual(archives,[b,c]); assert.deepEqual(creates,[d]); assert.equal(profiles.length,1);
+  assert.equal(disk()[0].archive_attempts_started,2); assert.equal(disk()[3].status,'dispatched');
+  process.stdout.write(JSON.stringify({verified:true}) + '\n'); input.close();
+})().catch(e => {console.error(e); process.exit(1);});
+'''
+        script = self.root / 'cycle1.cjs'
+        script.write_text('const data = ' + json.dumps(data) + ';\n' + recipe + runner)
+        self.run_recipe_bridge(script)
+
+    def run_recipe_bridge(self, script):
+        # Some environments forbid Node child_process. Python executes the exact
+        # recipe command received over a one-request-at-a-time stdio bridge.
+        import selectors
+        import time
+        env = dict(os.environ, TOME_TRANSLATION_ROOT=str(self.root))
+        with tempfile.TemporaryFile() as errors:
+            process = subprocess.Popen(['node', str(script)], env=env, cwd=self.root,
+                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=errors, text=True)
+            try:
+                selector = selectors.DefaultSelector()
+                self.addCleanup(selector.close)
+                selector.register(process.stdout, selectors.EVENT_READ)
+                deadline = time.monotonic() + 90
+                verified = False
+                while True:
+                    remaining = deadline - time.monotonic()
+                    self.assertGreater(remaining, 0, 'README fixture deadline')
+                    self.assertTrue(selector.select(remaining), 'README fixture deadline')
+                    line = process.stdout.readline()
+                    if not line:
+                        break
+                    request = json.loads(line)
+                    if request.get('verified'):
+                        verified = True
+                        break
+                    result = subprocess.run(['/bin/bash', '-c', request['cmd']], env=env,
+                                            cwd=self.root, capture_output=True, text=True, timeout=15)
+                    process.stdin.write(json.dumps(dict(status=result.returncode, stdout=result.stdout, stderr=result.stderr)) + '\n')
+                    process.stdin.flush()
+                process.stdin.close()
+                code = process.wait(timeout=10)
+                errors.seek(0)
+                self.assertEqual(code, 0, errors.read().decode())
+                self.assertTrue(verified)
+            finally:
+                if process.poll() is None:
+                    process.kill(); process.wait(timeout=10)
+                process.stdout.close()
+                if not process.stdin.closed:
+                    process.stdin.close()
+
+    @staticmethod
+    def recipe_runner():
+        return r'''
+const fs = require('fs'), assert = require('assert');
+const input = require('readline').createInterface({input:process.stdin});
+const shell = args => new Promise(resolve => {
+  input.once('line', line => resolve(JSON.parse(line)));
+  process.stdout.write(JSON.stringify(args) + '\n');
+});
+const {cfg, fault} = data;
+const calls = [], archived = new Set(), created = new Set();
+let interrupted = false, finished = false, confirmAllowed = fault !== 'archive-budget';
+const disk = () => JSON.parse(fs.readFileSync(cfg.children));
+const statePath = data.root + '/.ai/task/surface-task/STATE.json';
+const keyFor = id => cfg.keys.find(k => data.captures[k].create.structuredContent.agentId === id);
+const tools = {
+  exec_command: async args => {
+    assert(args.cmd.startsWith("printf '%s' "));
+    const before = fs.readFileSync(statePath);
+    const r = await shell(args);
+    if (r.status === 0 && args.cmd.includes('"op":"create"') && fault === 'id-crash' && !interrupted) {
+      interrupted = true; throw Error('crash after ID persisted');
+    }
+    if (r.status === 0 && args.cmd.includes('"op":"bind"') && fault === 'mirror-crash' && !interrupted) {
+      fs.writeFileSync(statePath, before); interrupted = true; throw Error('crash before STATE mirror');
+    }
+    return {exit_code:r.status, output:r.stdout + r.stderr};
+  },
+  mcp__paseo__list_profiles: async args => {assert.deepEqual(args, {}); calls.push('profiles'); return data.profiles;},
+  mcp__paseo__create_agent: async args => {
+    const k = cfg.keys.find(k => data.captures[k].live.structuredContent.snapshot.labels.dispatch_id === args.labels.dispatch_id);
+    assert.equal(calls.at(-1), 'profiles');
+    assert(!disk().some(r => r.status === 'created'));
+    const r = disk().find(r => r.dispatch_id === args.labels.dispatch_id);
+    assert.equal(r.status, 'dispatching');
+    assert.equal(args.provider, 'claude/claude-opus-5'); assert.equal(args.initialPrompt, r.create_parameters.prompt);
+    assert.deepEqual(args.settings, {modeId:'auto', thinkingOptionId:'medium', features:{fast_mode:false}});
+    assert.deepEqual(Object.keys(args).sort(), ['provider','initialPrompt','title','workspaceId','labels','notifyOnFinish','settings'].sort());
+    assert.equal(args.notifyOnFinish, true);
+    calls.push('create:' + k); created.add(k);
+    if (fault === 'create-lost' && !interrupted) {interrupted = true; throw Error('create response lost');}
+    return data.captures[k].create;
+  },
+  mcp__paseo__get_agent_status: async ({agentId}) => {
+    const k = keyFor(agentId); calls.push('status:' + k);
+    if (archived.has(k) && fault === 'archive-read-lost' && !interrupted) {
+      interrupted = true; throw Error('archive readback lost');
+    }
+    return data.captures[k][archived.has(k) ? 'closed' : finished ? 'terminal' : 'live'];
+  },
+  mcp__paseo__archive_agent: async ({agentId}) => {
+    const k = keyFor(agentId), r = disk().find(r => r.agent_id === agentId);
+    const mirror = JSON.parse(fs.readFileSync(statePath)).child_dispatches.find(c => c.agent_id === agentId);
+    assert(r.archive_attempts_started > 0 && r.archive_attempts_started <= 2);
+    assert.equal(r.archive_attempts_started, mirror.archive_attempts_started);
+    assert.equal(r.validation_state, 'completed'); assert.equal(r.output_valid, true);
+    assert(r.native_provenance && r.native_provenance.last_prompt_present === false);
+    calls.push('archive:' + k); if (confirmAllowed) archived.add(k);
+    return data.archive;
+  }
+};
+(async () => {
+  let caught = false;
+  try { await reviewHost(tools, cfg, {type:'fill'}); } catch(e) {caught = true;}
+  if (['create-lost','id-crash','mirror-crash'].includes(fault)) assert(caught);
+  else assert(!caught);
+  if (fault === 'create-lost') {
+    assert.equal(disk()[0].status, 'dispatching');
+    const count = calls.length;
+    await assert.rejects(() => reviewHost(tools, cfg, {type:'fill'}), /Ambiguous create/);
+    assert.equal(calls.length, count); assert.equal(created.size, 1);
+    // Host's unique complete live reconciliation, using existing bind adapter.
+    const input = JSON.stringify({op:'bind', response:data.captures[cfg.keys[0]].live});
+    const quote = s => "'" + String(s).replace(/'/g, "'\\''") + "'";
+    const p = await shell({cmd: "printf '%s' " + quote(input) + ' | ' +
+      ['python3','-B',cfg.helper,'host-event',cfg.children,cfg.keys[0],'--outdir',cfg.outdir].map(quote).join(' ')});
+    assert.equal(p.status, 0, p.stderr);
+  }
+  await reviewHost(tools, cfg, {type:'fill'});
+  assert.equal(created.size, 3); assert(disk().slice(0,3).every(r => r.runtime_observation));
+  assert.equal(JSON.parse(fs.readFileSync(statePath)).child_dispatches.length, 3);
+  finished = true;
+  const action = {type:'finish', key:cfg.keys[0], agentId:disk()[0].agent_id};
+  if (fault === 'archive-budget') {
+    await assert.rejects(() => reviewHost(tools, cfg, action));
+    await assert.rejects(() => reviewHost(tools, cfg, {...action,type:'recover-archive'}));
+    const n = calls.filter(c => c.startsWith('archive:')).length; assert.equal(n,2);
+    await assert.rejects(() => reviewHost(tools, cfg, {...action,type:'recover-archive'}), /budget exhausted/);
+    assert.equal(calls.filter(c => c.startsWith('archive:')).length, n);
+    assert.equal(JSON.parse(fs.readFileSync(statePath)).state, 'WAIT_USER');
+    archived.add(cfg.keys[0]); confirmAllowed = true;
+    await reviewHost(tools, cfg, {...action,type:'recover-archive'});
+    // WAIT_USER resumes only once all existing children are confirmed archived.
+    assert.equal(created.size,3);
+    for (const key of cfg.keys.slice(1,3)) {
+      await reviewHost(tools, cfg, {type:'finish', key, agentId:data.captures[key].live.structuredContent.snapshot.id});
+    }
+  } else if (fault === 'archive-read-lost') {
+    await assert.rejects(() => reviewHost(tools, cfg, action));
+    assert.equal(created.size,3);
+    await reviewHost(tools, cfg, {...action,type:'recover-archive'});
+    assert.equal(calls.filter(c => c.startsWith('archive:')).length,1);
+  } else await reviewHost(tools, cfg, action);
+  assert.equal(created.size,4);
+  assert(calls.indexOf('archive:' + cfg.keys[0]) < calls.indexOf('create:' + cfg.keys[3]));
+  if (fault !== 'archive-budget')
+    assert(!calls.includes('archive:' + cfg.keys[1]) && !calls.includes('archive:' + cfg.keys[2]));
+  const count = calls.length;
+  await reviewHost(tools, cfg, action); assert.equal(calls.length,count);
+  assert(!fs.existsSync(data.root + '/NEVER'));
+  process.stdout.write(JSON.stringify({verified:true, calls}) + '\n'); input.close();
+})().catch(e => {console.error(e); process.exit(1);});
+'''
 
 
 if __name__ == '__main__':

@@ -143,7 +143,8 @@ provider/session 和冻结创建 prompt SHA；同层与 persistence/runtimeInfo/
 Codex 要求单个 task_started/turn_context、连续 ordinal、明确 `phase=final_answer` 的单个
 output_text，以及文件末尾同 turn_id 且字符串相等的 task_complete。已核验的环境 bootstrap
 只能在创建 prompt 之前。Claude 要求唯一初始 prompt、完整 UUID/父链、单个最终 text block、
-`stop_reason=end_turn` 和末尾 `last-prompt.leafUuid`；同 message 的 thinking block 不作为结果。
+`stop_reason=end_turn` 与唯一最终链；默认历史模式另要求末尾 `last-prompt.leafUuid`，
+生产成功自然终态模式详见下方 P1 配方。同 message 的 thinking block 不作为结果。
 其他版本、未知结构、后续用户轮次、缺失/多义 final、截断、无末行换行、重复 JSON 键均拒绝。
 最多读16MiB/10000行，打开前后及解析后核对普通文件身份、大小和时间，拒绝读取中的替换或增长。
 
@@ -264,3 +265,131 @@ MCP 手动调用的耗时只有调用者使用上述计时接口包裹时才有 
 以及 `adjudicate=<decisions> prepare-evidence`。各动作仍各自验证输入、锁、checkpoint 和事务，
 同一 root/HEAD 的投影可复用；HEAD 改变重新投影。无 ISSUE 只运行 surface-import。
 queue check/rebuild/status、batch start/finalize/recover、migration 不可串联；本次未扩充白名单。
+## MCP 宿主 stdin 配方（P1）
+
+以下 `functions.exec` JavaScript 定义 `reviewHost`，同一段代码由测试从本文提取执行。
+在同一个 exec 中追加调用，或重新定义函数后按 journal 恢复。`cfg` 指向已冻结并 prepared 的有限
+stage：`children`、`outdir`、`keys`（有序 key 列表）、`profileIds`（key → 已按 notes 选定的 ID）、
+`nativeLogs`（key → 明确原生日志路径）。每次创建仍实时读取 profiles；冻结 selection 的 provider/model 须与 profile 一致。
+可选 modeId、thinkingOptionId、featureValues 逐来源验证类型：仅一方声明时使用该值，双方声明时必须一致，
+双方缺失时不传。null 或非法类型不视为缺失。映射结果保存在本次 intent，不从标题推断或补填运行时身份。
+生产使用仓库 cwd 和默认 helper；`cfg.helper` 仅供隔离 fixture 指向同一脚本绝对路径。
+Python 只消费 stdin，不能调用宿主注入的异步 MCP tools。每次工具调用的完整返回及计时都经 shell
+单引号转义保存；`JSON.stringify` 只负责 JSON 编码，不能代替 shell quoting。
+
+```javascript
+// BEGIN REVIEW_HOST_RECIPE
+async function reviewHost(tools, cfg, action) {
+  const quote = s => "'" + String(s).replace(/'/g, "'\\''") + "'";
+  const helper = cfg.helper || 'tools/orchestration/review_lifecycle.py';
+  async function event(key, op, extra = {}) {
+    const input = JSON.stringify({op, ...extra});
+    const args = ['python3', '-B', helper, 'host-event', cfg.children, key, '--outdir', cfg.outdir];
+    if (cfg.nativeLogs[key]) args.push('--native-log', cfg.nativeLogs[key]);
+    const reply = await tools.exec_command({
+      cmd: "printf '%s' " + quote(input) + ' | ' + args.map(quote).join(' '),
+      yield_time_ms: 1000, max_output_tokens: 4000
+    });
+    // A still-running local command must be resumed by the host; never repeat it.
+    if (reply.session_id) throw new Error('Local command running; resume session ' + reply.session_id);
+    if (reply.exit_code !== 0) throw new Error(reply.output || 'host-event failed');
+    return JSON.parse(reply.output);
+  }
+  async function call(key, op, fn, extra = {}) {
+    const started_at = new Date().toISOString();
+    let response;
+    try { response = await fn(); } catch (error) {
+      await event(key, 'call-failed', {operation: op, started_at, ended_at: new Date().toISOString()});
+      throw error;
+    }
+    return event(key, op, {...extra, response, started_at, ended_at: new Date().toISOString()});
+  }
+  let state = await event(cfg.keys[0], 'recover');
+  const row = key => {
+    const hits = state.rows.filter(r => r.key === key);
+    if (hits.length !== 1) throw new Error('Unknown dispatch');
+    return hits[0];
+  };
+  async function fill() {
+    for (const key of cfg.keys) {
+      if (state.rows.some(r => r.status === 'dispatching'))
+        throw new Error('Ambiguous create: reconcile before any create');
+      for (const r of state.rows.filter(r => r.status === 'created')) {
+        state = await call(r.key, 'bind', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
+      }
+      if (state.rows.some(r => r.create_blocked)) return;
+      const occupied = state.rows.filter(r => r.agent_id ? !r.archive_confirmed :
+        !['prepared', 'confirmed_absent'].includes(r.status)).length;
+      if (occupied >= 3) return;
+      if (!['prepared', 'confirmed_absent'].includes(row(key).status)) continue;
+      state = await call(key, 'profiles', () => tools.mcp__paseo__list_profiles({}),
+                         {profile_id: cfg.profileIds[key]});
+      // Intent is durable. A lost create response leaves dispatching; no automatic retry.
+      state = await call(key, 'create', () => tools.mcp__paseo__create_agent(state.parameters));
+      const agentId = row(key).agent_id; // ID persisted by Python before the first status call.
+      state = await call(key, 'bind', () => tools.mcp__paseo__get_agent_status({agentId}));
+    }
+  }
+  if (action.type === 'fill') {
+    await fill();
+  } else if (action.type === 'finish' || action.type === 'recover-archive') {
+    const key = action.key;
+    const r = row(key);
+    if (r.agent_id !== action.agentId) throw new Error('Notification agent/dispatch mismatch');
+    if (r.archive_confirmed) return state; // Duplicate notification: no remote action.
+    if (!r.live_bound) throw new Error('Recover first live binding before processing notification');
+    if (action.type === 'recover-archive' && !['completed', 'rejected'].includes(r.validation_state))
+      throw new Error('Incomplete harvest requires original notification evidence');
+    if (!['completed', 'rejected'].includes(r.validation_state)) {
+      state = await call(key, 'harvest', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}),
+                         {notified: true, notification_received_at: action.receivedAt || null});
+    }
+    // Always read back first, including recovery after a lost archive response/readback.
+    state = await call(key, 'archive-intent', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
+    if (state.archive) {
+      try {
+        state = await call(key, 'archive-response', () => tools.mcp__paseo__archive_agent({agentId: r.agent_id}));
+      } finally {
+        state = await call(key, 'archive-confirm', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
+      }
+    }
+    await fill(); // First released slot starts member 4 before touching members 2/3.
+  } else {
+    throw new Error('Unknown host action');
+  }
+  return state;
+}
+// END REVIEW_HOST_RECIPE
+```
+
+初始执行 `text(await reviewHost(tools, cfg, {type: 'fill'}));`；收到已知 child 的真实 finish 通知后，
+调用 `text(await reviewHost(tools, cfg, {type: 'finish', key, agentId, receivedAt}));`，
+`receivedAt` 为实际收到通知时记录的 ISO 时间；若此前未记录可省略并标未测量。未收到通知时继续其他工作，
+没有定时轮询、sleep 或 idle 猜测取消。一个 journal 只能由一个宿主串行调用。
+归档回读丢失后使用 `{type: 'recover-archive', key, agentId}`，先回读，已关闭直接确认；否则只使用
+剩余预算。两次耗尽进入原 WAIT_USER 语义；该成员后续仅确认状态，其他已有成员仍可首绑定、取证及使用剩余预算归档。
+共享 create_intent 在落意图前拒绝 DONE/STOP/WAIT_USER 和未解决的耗尽归档，fill 同步停止新建，
+即使另一成员释放名额也不派发。保留预算 2 与 wait.resume_state，按原恢复条件确认已有成员后才恢复 fill。
+archive 异常仍回读；若 finally
+已确认而原异常仍抛出，重载后 `fill` 可立即释放名额。create 返回丢失须按既有 reconciliation
+契约查证：唯一完整捕获用 bind，确定不存在用 reconcile-absent；不得再调用 create 猜测。
+本配方不做列表发现，也不提供自动停止/取消。
+
+`host-event children.json 'task|dispatch' --outdir ...` 的 stdin 为
+`{op, response, started_at, ended_at}`；profiles 另带 `profile_id`，harvest 另带真实通知的
+`notified: true` 与可选实际 `notification_received_at`。传输抛错另存无响应的 `call-failed`，
+记录 operation 与起止，不虚构 response。完整外壳保存到 `outdir/task/dispatch/wire/<sha>.json`；未知结构、isError、重复键、
+多文本块及两份 payload 冲突均拒绝。仅支持已核验的 count/ids 前缀＋JSON，以及直接 JSON 文本；
+不会对人读前缀盲目 json.loads，也不会忽略前缀后与 structuredContent 冲突的 JSON。
+错误终态停在 harvest，需宿主以真实证据执行上述 explicit reject 后再归档；`--raw` 不能接受错误终态。
+
+Claude 2.1.259 的纯 parser 默认仍要求 last-prompt；显式 `natural_success=True` 支持最终 assistant
+结束、真实 last-prompt、以及其后一个 `{type, aiTitle, sessionId}`。生产仅在完整成功终态和
+首次 live/STATE 身份核验后启用。missing/null 可选 session 别名表示未知，非空已知值必须一致。
+proof 保留完整 source SHA、原样 raw SHA、final 位置与尾部形态；不会补写 last-prompt。
+已冻结的 raw/proof 在归档前可幂等复用，来源缺失或变化可恢复，显式判废不复活。
+
+`timing` 另输出 createdAt spread、成员终态/通知时间、stage 墙钟与已记录工具调用数；
+null 端点为未测量。`model_window` 是 activeTurn 窗口，**包括工具时间**，不是纯模型时间。
+README fixture 验证顺序与故障，不代表真实 stage 吞吐实测。真实 MCP 返回卸壳的只读复算与
+生产端到端、实际省时是三类不同证据，详见[本任务报告](../../docs/review-speed-p1-20260912.md)。
