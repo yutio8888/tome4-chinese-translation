@@ -21,6 +21,7 @@ from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_queue as queue
 from tools.i18nlib import production_review_v2_lite_batch as batch
+from tools.i18nlib import git_evidence_reader as reader
 from tools.i18nlib import gate_results
 import contextual_result_check
 
@@ -321,6 +322,55 @@ class ProjectionCacheTests(QueueFixture):
             self.assertEqual(set(calls), set(uncached_calls))
         self.assertEqual(projections[0], uncached)
         self.assertEqual(projections[0], projections[1])
+
+
+class CatalogViewCacheTests(QueueFixture):
+    """The lightweight catalog view must keep validating bytes and metadata."""
+
+    def test_validated_bytes_are_reused_but_every_candidate_is_rechecked(self):
+        with reader.projection_scope(self.root):
+            tree = queue._tree(self.root, "HEAD")
+            with mock.patch.object(queue, "_ordinary_blob", wraps=queue._ordinary_blob) as blob:
+                first = queue._catalog_view(self.root, tree)
+                self.assertEqual(blob.call_count, len(catalog.CANDIDATE_FILES))
+                second = queue._catalog_view(self.root, tree)
+                # A content-identity hit revalidates neither bytes nor digests.
+                self.assertEqual(blob.call_count, len(catalog.CANDIDATE_FILES))
+            self.assertEqual(first, second)
+            # Metadata is still proven on every call, including a cache hit.
+            for path in (f"{catalog.CATALOG_PREFIX}/entries.jsonl", catalog.SCHEMA_PATH):
+                for entry in (None, ("120000", "blob", tree[path][2]), ("100644", "tree", tree[path][2])):
+                    with self.subTest(path=path, entry=entry):
+                        broken = dict(tree)
+                        if entry is None:
+                            broken.pop(path)
+                        else:
+                            broken[path] = entry
+                        with self.assertRaises(wp1.ProductionReviewError):
+                            queue._catalog_view(self.root, broken)
+            # An unexpected catalog sibling fails the subtree check even on a hit.
+            extra = dict(tree)
+            extra[f"{catalog.CATALOG_PREFIX}/extra.json"] = ("100644", "blob", "0" * 40)
+            with self.assertRaises(wp1.ProductionReviewError):
+                queue._catalog_view(self.root, extra)
+
+    def test_new_candidate_blob_and_manifest_identity_revalidate(self):
+        with reader.projection_scope(self.root):
+            manifest, entries, _ = queue._catalog_view(self.root, queue._tree(self.root, "HEAD"))
+            # Identical entry rows under a different manifest: the catalog
+            # identity changes, the complete rows are reused object-for-object.
+            path = self.root / catalog.CATALOG_PREFIX / "manifest.json"
+            value = wp1.parse_canonical_object(path.read_bytes(), "manifest")
+            value["source_identities"]["engine"] = "commit:" + "9" * 40
+            value["catalog_id"] = catalog.catalog_id(value)
+            path.write_bytes(wp1.canonical_bytes(value))
+            commit = self._commit("manifest-only catalog identity change")
+            with mock.patch.object(queue, "_ordinary_blob", wraps=queue._ordinary_blob) as blob:
+                manifest2, entries2, _ = queue._catalog_view(self.root, queue._tree(self.root, commit))
+                self.assertEqual(blob.call_count, len(catalog.CANDIDATE_FILES))
+            self.assertNotEqual(manifest["catalog_id"], manifest2["catalog_id"])
+            self.assertEqual(len(entries), len(entries2))
+            self.assertTrue(all(left is right for left, right in zip(entries, entries2)))
 
 
 class QueueTests(QueueFixture):

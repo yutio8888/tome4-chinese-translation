@@ -133,3 +133,104 @@ class GitEvidenceReaderTests(unittest.TestCase):
                     with self.assertRaises(wp1.ProductionReviewError):
                         queue._blob(other, self.blob, "still missing")
                 self.assertEqual(queue._blob(self.root, self.blob, "restored"), b"same\n")
+
+    def test_blob_cache_is_a_bounded_lru_and_oversize_blobs_are_never_retained(self):
+        with reader.projection_scope(self.root):
+            scope_reader = reader.active_reader(self.root)
+            self.assertIsNotNone(scope_reader)
+            loads: list[str] = []
+
+            def loader(object_id, data):
+                def load():
+                    loads.append(object_id)
+                    return data
+                return load
+
+            with mock.patch.object(reader, "BLOB_CACHE_LIMIT_BYTES", 8):
+                self.assertEqual(scope_reader.read("blob", "first", loader("first", b"12345678")), b"12345678")
+                self.assertEqual(scope_reader.read("blob", "first", loader("first", b"rerun")), b"12345678")
+                self.assertEqual(loads, ["first"])
+                self.assertEqual(scope_reader.blob_bytes, 8)
+                # Inserting another 8-byte blob evicts the least-recently-used one.
+                scope_reader.read("blob", "second", loader("second", b"abcdefgh"))
+                self.assertEqual(list(scope_reader.blobs), ["second"])
+                self.assertEqual(scope_reader.blob_bytes, 8)
+                # An evicted blob is reloaded and its bytes are still equal.
+                self.assertEqual(scope_reader.read("blob", "first", loader("first", b"12345678")), b"12345678")
+                self.assertEqual(loads, ["first", "second", "first"])
+                # A blob over the budget is returned uncached and never counted.
+                before = scope_reader.blob_bytes
+                self.assertEqual(scope_reader.read("blob", "big", loader("big", b"123456789")), b"123456789")
+                self.assertNotIn("big", scope_reader.blobs)
+                self.assertEqual(scope_reader.blob_bytes, before)
+                scope_reader.read("blob", "big", loader("big", b"123456789"))
+                self.assertEqual(loads, ["first", "second", "first", "big", "big"])
+
+    def test_blob_failure_is_not_cached_and_retry_uses_the_current_loader(self):
+        with reader.projection_scope(self.root):
+            scope_reader = reader.active_reader(self.root)
+            calls = []
+
+            def failing():
+                calls.append("fail")
+                raise wp1.ProductionReviewError("read failed")
+
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "read failed"):
+                scope_reader.read("blob", "flaky", failing)
+            self.assertNotIn("flaky", scope_reader.blobs)
+            self.assertEqual(scope_reader.read("blob", "flaky", lambda: b"recovered"), b"recovered")
+            self.assertEqual(calls, ["fail"])
+
+    def test_row_and_tuple_pools_share_complete_equals_never_revisions(self):
+        with reader.projection_scope(self.root):
+            scope_reader = reader.active_reader(self.root)
+            row = {"entry_revision_identity": "rev", "target": "x", "risk": {"args_order": None}}
+            equal = {"entry_revision_identity": "rev", "target": "x", "risk": {"args_order": None}}
+            digest_a, canonical_a = scope_reader.intern_row("D1", row)
+            self.assertIs(canonical_a, row)
+            digest_b, canonical_b = scope_reader.intern_row("D1", equal)
+            self.assertIs(canonical_b, row)
+            self.assertIs(digest_a, digest_b)
+            # The same revision with a different digest/content must not merge.
+            provenance = {"entry_revision_identity": "rev", "target": "y", "risk": {"args_order": None}}
+            _digest_c, canonical_c = scope_reader.intern_row("D2", provenance)
+            self.assertIs(canonical_c, provenance)
+            # A digest collision (equal digest, unequal row) is never trusted.
+            collision = {"entry_revision_identity": "rev", "target": "z", "risk": {"args_order": None}}
+            _digest_d, canonical_d = scope_reader.intern_row("D1", collision)
+            self.assertIs(canonical_d, collision)
+            self.assertIs(scope_reader.rows["D1"][1], row)
+            # The module wrapper refuses to guess a scope outside a projection.
+            self.assertEqual(reader.intern_row(self.root, "D9", row), ("D9", row))
+            first = ("logical", "unchanged", "logical", "rev")
+            self.assertIs(scope_reader.intern_tuple(first), first)
+            self.assertIs(scope_reader.intern_tuple(tuple(first)), first)
+            self.assertEqual(reader.intern_tuple(self.root, first), first)
+
+    def test_pools_are_scope_local_and_cleared_on_normal_and_failed_exit(self):
+        with reader.projection_scope(self.root):
+            outer = reader.active_reader(self.root)
+            outer.intern_row("outer", {"entry_revision_identity": "outer", "target": "o"})
+            outer.intern_tuple(("outer", "unchanged", "outer", "outer"))
+            with reader.projection_scope(self.root):
+                inner = reader.active_reader(self.root)
+                self.assertIsNot(inner, outer)
+                self.assertEqual(inner.rows, {})
+                self.assertEqual(inner.tuples, {})
+                inner.intern_row("inner", {"entry_revision_identity": "inner", "target": "i"})
+                inner.intern_tuple(("inner", "unchanged", "inner", "inner"))
+                self.assertIn("inner", inner.rows)
+            self.assertNotIn("inner", outer.rows)
+            self.assertEqual(set(outer.rows), {"outer"})
+            self.assertEqual(set(outer.tuples), {("outer", "unchanged", "outer", "outer")})
+            with self.assertRaisesRegex(RuntimeError, "abort"):
+                with reader.projection_scope(self.root):
+                    failed = reader.active_reader(self.root)
+                    failed.intern_row("failed", {"entry_revision_identity": "failed", "target": "f"})
+                    raise RuntimeError("abort")
+            self.assertIs(reader.active_reader(self.root), outer)
+        self.assertIsNone(reader.active_reader(self.root))
+        cleared = reader.GitEvidenceReader(self.root)
+        self.assertEqual(cleared.rows, {})
+        self.assertEqual(outer.rows, {})
+        self.assertEqual(outer.tuples, {})

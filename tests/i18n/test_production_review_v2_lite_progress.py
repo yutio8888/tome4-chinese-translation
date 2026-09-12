@@ -18,10 +18,10 @@ def result(revision, *, surface="OK", level="surface_only"):
 
 
 def edge(old, new, disposition="revision_changed", *, old_logical=None, new_logical=None):
-    return {"rows_by_old": {old: {
-        "old_logical_entry_identity": old_logical or "logical-" + old,
-        "new_logical_entry_identity": new_logical or "logical-" + old,
-        "new_entry_revision_identity": new, "disposition": disposition}}}
+    # Compact projection representation: old_revision -> (old_logical,
+    # disposition, new_logical, new_revision).
+    return {"rows_by_old": {old: (old_logical or "logical-" + old, disposition,
+                                 new_logical or "logical-" + old, new)}}
 
 
 class ProgressTests(unittest.TestCase):
@@ -90,3 +90,22 @@ class ProgressTests(unittest.TestCase):
         empty = Progress([]).report([])
         self.assert_totals(empty, [0, 0, 0, 0])
         self.assertTrue(all(metric["ratio"] is None for metric in empty["metrics"].values()))
+
+    def test_compact_mapping_tuple_fields_are_read_positionally(self):
+        rows = [row("a")]
+        self.assertEqual(queue._unchanged_rows_through_chain(
+            rows, [edge("a", "a", "unchanged")], {"a"}), rows)
+        # Disposition says unchanged but the successor revision differs.
+        self.assertEqual(queue._unchanged_rows_through_chain(
+            rows, [edge("a", "b", "unchanged")], {"a"}), [])
+        self.assertEqual(queue._unchanged_rows_through_chain(
+            rows, [edge("a", "a", "unchanged", old_logical="other")], {"a"}), [])
+        self.assertEqual(queue._unchanged_rows_through_chain(
+            rows, [edge("z", "z", "unchanged")], {"a"}), [])
+        # The progress walk reads the same four fields in the same order.
+        progress = Progress([entry("b")])
+        progress.observe([row("a")], [], [result("a")], [edge("a", "b")])
+        self.assert_totals(progress.report([]), [0, 0, 0, 1])
+        progress = Progress([entry("b")])
+        progress.observe([row("a")], [], [result("a")], [edge("a", "b", old_logical="wrong")])
+        self.assert_totals(progress.report([]), [0, 0, 0, 0])

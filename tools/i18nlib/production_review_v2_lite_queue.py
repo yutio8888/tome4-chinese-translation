@@ -140,14 +140,18 @@ def _blob(root: Path, object_id: str, label: str) -> bytes:
         raise _error(f"cannot read {label}: {error}") from error
 
 
-def _ordinary_blob(root: Path, tree: dict[str, tuple[str, str, str]], path: str) -> bytes:
+def _ordinary_object(tree: dict[str, tuple[str, str, str]], path: str) -> str:
     entry = tree.get(path)
     if entry is None:
         raise _error(f"tracked formal catalog/evidence file is missing: {path}")
     mode, kind, object_id = entry
     if mode not in {"100644", "100755"} or kind != "blob":
         raise _error(f"tracked formal catalog/evidence entry is not an ordinary file: {path}")
-    return _blob(root, object_id, path)
+    return object_id
+
+
+def _ordinary_blob(root: Path, tree: dict[str, tuple[str, str, str]], path: str) -> bytes:
+    return _blob(root, _ordinary_object(tree, path), path)
 
 
 def _exact(value: object, keys: frozenset[str], label: str) -> dict[str, Any]:
@@ -174,8 +178,7 @@ def _schema_one(value: object, label: str) -> None:
         raise _error(f"{label} schema_version must be integer 1")
 
 
-def _catalog_from_tree(root: Path, treeish: str) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, bytes]]:
-    tree = _tree(root, treeish)
+def _catalog_paths(tree: dict[str, tuple[str, str, str]]) -> None:
     catalog_paths = {path for path in tree if path.startswith(catalog.CATALOG_PREFIX + "/")}
     expected_catalog_paths = {path for path in catalog.CANDIDATE_FILES
                               if path.startswith(catalog.CATALOG_PREFIX + "/")}
@@ -189,17 +192,80 @@ def _catalog_from_tree(root: Path, treeish: str) -> tuple[dict[str, Any], list[d
             f"(catalog_missing={sorted(expected_catalog_paths-catalog_paths)}, "
             f"catalog_extra={sorted(catalog_paths-expected_catalog_paths)}, "
             f"quality_extra={sorted(quality_paths-expected_quality_paths)})")
+
+
+def _catalog_identity(tree: dict[str, tuple[str, str, str]]) -> str:
+    # Content identity is exactly the five candidate paths and their blob OIDs.
+    return hashlib.sha256(b"\0".join(
+        path.encode("utf-8") + b":" + tree[path][2].encode("ascii")
+        for path in sorted(catalog.CANDIDATE_FILES))).hexdigest()
+
+
+def _intern_catalog_rows(root: Path, entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Reuse complete, equal canonical rows after full validation only.
+
+    ``VerifiedRows.digest_by_revision`` supplies the digest of each row's own
+    canonical bytes.  ``intern_row`` still compares the whole row before
+    sharing, and the rebuilt ``VerifiedRows`` keeps this catalog's own order
+    and revision -> digest mapping.  Never key on revision identity alone.
+
+    The reader is resolved and scope-verified exactly once here, not once per
+    row: a full replay interns millions of rows, and re-resolving the root in
+    each ``active_reader`` call dominated the projection's own CPU time.
+    """
+    reader = git_evidence_reader.active_reader(root)
+    if reader is None:
+        # No projection scope: the validated rows are already what a caller
+        # outside a replay would see, so keep them untouched.
+        return entries
+    intern = reader.intern_row
+    digest_by_revision = entries.digest_by_revision
+    rows: list[dict[str, Any]] = []
+    digests: list[str] = []
+    for row in entries:
+        digest, canonical = intern(digest_by_revision[row["entry_revision_identity"]], row)
+        rows.append(canonical)
+        digests.append(digest)
+    return wp1.VerifiedRows(rows, digests)
+
+
+def _validated_catalog(root: Path, files: dict[str, bytes]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], str]:
+    manifest, entries, exclusions = catalog.validate_catalog_files(files)
+    entries = _intern_catalog_rows(root, entries)
+    manifest_sha256 = hashlib.sha256(files[f"{catalog.CATALOG_PREFIX}/manifest.json"]).hexdigest()
+    return manifest, entries, exclusions, manifest_sha256
+
+
+def _catalog_from_tree(root: Path, treeish: str) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, bytes]]:
+    """Full files API: keeps every caller that needs the exact bytes working."""
+    tree = _tree(root, treeish)
+    _catalog_paths(tree)
     files = {path: _ordinary_blob(root, tree, path) for path in catalog.CANDIDATE_FILES}
     # Every tracked file is still read and checked above.  Only the pure
     # validation of those exact bytes is reused: validate_catalog_files takes
     # nothing but the bytes, so identical blob IDs cannot validate differently.
     # A replay covers ~200 catalog reads over ~43 distinct catalog contents.
-    identity = hashlib.sha256(b"\0".join(
-        path.encode("utf-8") + b":" + tree[path][2].encode("ascii")
-        for path in sorted(catalog.CANDIDATE_FILES))).hexdigest()
-    manifest, entries, _exclusions = git_evidence_reader.derive(
-        root, "catalog", identity, lambda: catalog.validate_catalog_files(files))
+    manifest, entries, _exclusions, _manifest_sha256 = git_evidence_reader.derive(
+        root, "catalog", _catalog_identity(tree), lambda: _validated_catalog(root, files))
     return manifest, entries, files
+
+
+def _catalog_view(root: Path, tree: dict[str, tuple[str, str, str]]) -> tuple[dict[str, Any], list[dict[str, Any]], str]:
+    """Projection view: manifest, interned rows and the actual manifest SHA-256.
+
+    Every call still proves the catalog subtree and each candidate path's
+    ordinary-file metadata from the tree.  Only when that content identity has
+    already been validated in this projection does it stop short of loading the
+    five raw files; the first sighting validates all five bytes exactly once.
+    """
+    _catalog_paths(tree)
+    for path in catalog.CANDIDATE_FILES:
+        _ordinary_object(tree, path)
+    manifest, entries, _exclusions, manifest_sha256 = git_evidence_reader.derive(
+        root, "catalog", _catalog_identity(tree),
+        lambda: _validated_catalog(root, {
+            path: _ordinary_blob(root, tree, path) for path in catalog.CANDIDATE_FILES}))
+    return manifest, entries, manifest_sha256
 
 
 def _clean_evidence(root: Path) -> None:
@@ -667,8 +733,8 @@ def _projection(root: Path, treeish: str, *, progress: dict[str, Any] | None = N
 
 def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] | None = None) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     evidence_head = _head(root, treeish)
-    manifest, entries, _files = _catalog_from_tree(root, evidence_head)
     tree = _tree(root, evidence_head)
+    manifest, entries, _manifest_sha256 = _catalog_view(root, tree)
     batch_paths = sorted(path for path in tree if path.startswith(BATCH_PREFIX))
     batch_roots = {"/".join(path.split("/")[:4]) for path in batch_paths}
     all_manifests = sorted(f"{batch_root}/manifest.json" for batch_root in batch_roots)
@@ -682,7 +748,7 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
     from . import production_review_v2_lite_migration as migration
     migration_edges = _validated_migration_edges(root, tree, evidence_head)
     matching_edges = [edge for edge in migration_edges
-                      if edge["value"]["new_catalog_id"] == manifest["catalog_id"]]
+                      if edge["new_catalog_id"] == manifest["catalog_id"]]
     if len(matching_edges) > 1:
         raise _error("more than one migration boundary targets the current catalog")
     reconciliation = migration.reconciliation_rows_for_tree(root, tree, manifest, entries)
@@ -718,7 +784,8 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
             # base_commit.  The current catalog may be a later boundary, and
             # parsing old result rows against it can silently manufacture or
             # discard durable conclusions.
-            source_manifest, source_entries, _source_files = _catalog_from_tree(root, value["base_commit"])
+            source_manifest, source_entries, _source_manifest_sha256 = _catalog_view(
+                root, _tree(root, value["base_commit"]))
         except wp1.ProductionReviewError as error:
             raise _error(f"cannot validate historical batch catalog: {error}") from error
         if source_manifest["catalog_id"] != value["catalog_id"]:
@@ -1133,12 +1200,12 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
         raw = _ordinary_blob(root, tree, path)
         value = migration._validate_migration_record(
             wp1.parse_canonical_object(raw, "migration"), target_path=path)
-        old_manifest, old_entries, old_files = _catalog_from_tree(root, value["base_commit"])
+        old_manifest, old_entries, old_manifest_sha256 = _catalog_view(root, _tree(root, value["base_commit"]))
         if _tree_id(root, value["base_commit"]) != value["base_tree"]:
             raise _error("migration base tree no longer names its base commit")
         if old_manifest["catalog_id"] != value["old_catalog_id"]:
             raise _error("migration base catalog identity drift")
-        if hashlib.sha256(old_files[f"{catalog.CATALOG_PREFIX}/manifest.json"]).hexdigest() != value["old_manifest_sha256"]:
+        if old_manifest_sha256 != value["old_manifest_sha256"]:
             raise _error("migration base catalog manifest hash drift")
         if old_manifest["entries_sha256"] != value["old_entries_sha256"]:
             raise _error("migration base catalog entries hash drift")
@@ -1146,10 +1213,10 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
             raise _error("migration base catalog exclusions hash drift")
 
         publication_commit = _migration_publication_commit(root, tree, treeish, path, value)
-        new_manifest, new_entries, new_files = _catalog_from_tree(root, publication_commit)
+        new_manifest, new_entries, new_manifest_sha256 = _catalog_view(root, _tree(root, publication_commit))
         if new_manifest["catalog_id"] != value["new_catalog_id"]:
             raise _error("migration publication catalog identity drift")
-        if hashlib.sha256(new_files[f"{catalog.CATALOG_PREFIX}/manifest.json"]).hexdigest() != value["new_manifest_sha256"]:
+        if new_manifest_sha256 != value["new_manifest_sha256"]:
             raise _error("migration publication catalog manifest hash drift")
         if new_manifest["entries_sha256"] != value["new_entries_sha256"]:
             raise _error("migration publication catalog entries hash drift")
@@ -1157,13 +1224,34 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
             raise _error("migration publication catalog exclusions hash drift")
         normalized = migration.validate_migration(
             value, expected_old_entries=old_entries, expected_new_entries=new_entries)
-        edges.append({"value": normalized, "path": path,
+        # A replay needs exactly the chain inputs and the compact mapping.  The
+        # expanded rows, both catalogs and both manifests die with this scope;
+        # only after full validation is the mapping compressed at all.
+        edges.append({"path": path,
+                      "old_catalog_id": old_manifest["catalog_id"],
+                      "new_catalog_id": new_manifest["catalog_id"],
+                      "base_commit": value["base_commit"],
                       "publication_commit": publication_commit,
-                      "old_manifest": old_manifest, "old_entries": old_entries,
-                      "new_manifest": new_manifest, "new_entries": new_entries,
-                      "rows_by_old": {row["old_entry_revision_identity"]: row
-                                      for row in normalized["rows"]}})
+                      "rows_by_old": _compact_mapping_rows(root, normalized["rows"])})
     return edges
+
+
+def _compact_mapping_rows(root: Path, rows: list[dict[str, Any]]) -> dict[str, tuple]:
+    """old_revision -> (old_logical, disposition, new_logical, new_revision).
+
+    The reader is resolved once per edge and the pooled tuple is shared by
+    exact value; only the mapping consumer's four fields are retained.
+    """
+    reader = git_evidence_reader.active_reader(root)
+    intern = reader.intern_tuple if reader is not None else None
+    index: dict[str, tuple] = {}
+    for row in rows:
+        value = (row["old_logical_entry_identity"], row["disposition"],
+                 row["new_logical_entry_identity"], row["new_entry_revision_identity"])
+        if intern is not None:
+            value = intern(value)
+        index[row["old_entry_revision_identity"]] = value
+    return index
 
 
 def _migration_chain(root: Path, edges: list[dict[str, Any]], source_catalog_id: str,
@@ -1173,8 +1261,7 @@ def _migration_chain(root: Path, edges: list[dict[str, Any]], source_catalog_id:
         return []
     by_old: dict[str, list[dict[str, Any]]] = {}
     for edge in edges:
-        value = edge["value"]
-        by_old.setdefault(value["old_catalog_id"], []).append(edge)
+        by_old.setdefault(edge["old_catalog_id"], []).append(edge)
     chain: list[dict[str, Any]] = []
     visited = {source_catalog_id}
     current = source_catalog_id
@@ -1185,12 +1272,11 @@ def _migration_chain(root: Path, edges: list[dict[str, Any]], source_catalog_id:
         if len(choices) != 1:
             raise _error("forked or ambiguous committed migration link")
         edge = choices[0]
-        value = edge["value"]
-        next_catalog = value["new_catalog_id"]
+        next_catalog = edge["new_catalog_id"]
         if next_catalog in visited:
             raise _error("committed migration chain contains a catalog cycle")
         if chain:
-            _is_ancestor(root, chain[-1]["publication_commit"], value["base_commit"])
+            _is_ancestor(root, chain[-1]["publication_commit"], edge["base_commit"])
         chain.append(edge)
         visited.add(next_catalog)
         current = next_catalog
@@ -1209,10 +1295,12 @@ def _unchanged_rows_through_chain(source_rows: list[tuple[Any, ...]],
         retain = True
         for edge in chain:
             mapping = edge["rows_by_old"].get(revision)
-            if (mapping is None or mapping["old_logical_entry_identity"] != logical or
-                    mapping["disposition"] != "unchanged" or
-                    mapping["new_logical_entry_identity"] != logical or
-                    mapping["new_entry_revision_identity"] != revision):
+            if mapping is None:
+                retain = False
+                break
+            old_logical, disposition, new_logical, new_revision = mapping
+            if (old_logical != logical or disposition != "unchanged" or
+                    new_logical != logical or new_revision != revision):
                 retain = False
                 break
         if retain:

@@ -16,6 +16,7 @@ from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_migration as migration
 from tools.i18nlib import production_review_v2_lite_queue as queue
+from tools.i18nlib import git_evidence_reader as reader
 
 
 class MigrationFixture(unittest.TestCase):
@@ -698,6 +699,103 @@ class MigrationTests(MigrationFixture):
         self.assertEqual(progress["metrics"]["surface_covered"]["count"], 1)
         self.assertEqual(progress["metrics"]["historical_revision_invalidated"]["count"], 1)
         self.assertEqual(progress["invalidated_without_current_review"], 0)
+
+    def _publish_terminology_boundary(self, name: str) -> None:
+        """Publish a real, committed boundary whose dispositions are unchanged."""
+        terminology = "f" * 64
+        entries = [self.replace(row, terminology_snapshot_sha256=terminology) for row in self.entries]
+        self.assertEqual([row["entry_revision_identity"] for row in entries],
+                         [row["entry_revision_identity"] for row in self.entries])
+        candidate = self.candidate(entries, terminology=terminology)
+        artifact = self.root / ".artifacts" / f"{name}.json"
+        report = migration.plan(self.root, candidate, output=artifact)
+        migration.apply(self.root, artifact, candidate_catalog=candidate)
+        candidate_files = catalog.ordinary_tree(candidate)
+        shutil.rmtree(candidate)
+        for relative, raw in candidate_files.items():
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+        migration_path = self.root / report["target_path"]
+        migration_path.parent.mkdir(parents=True, exist_ok=True)
+        migration_path.write_bytes(artifact.read_bytes())
+        self.commit(f"{name} catalog boundary")
+        self.entries = entries
+        self.catalog_id = report["new_catalog_id"]
+
+    def test_compacted_edges_equal_expanded_reconcile_and_pools_clear_after_scope(self):
+        self._publish_terminology_boundary("compacted-edges")
+        with reader.projection_scope(self.root):
+            scope_reader = reader.active_reader(self.root)
+            tree = queue._tree(self.root, "HEAD")
+            head = queue._head(self.root, "HEAD")
+            edges = queue._validated_migration_edges(self.root, tree, head)
+            self.assertEqual(len(edges), 1)
+            self.assertTrue(scope_reader.rows)
+            self.assertTrue(scope_reader.tuples)
+            for edge in edges:
+                self.assertEqual(set(edge), {"path", "old_catalog_id", "new_catalog_id",
+                                              "base_commit", "publication_commit", "rows_by_old"})
+                _old_manifest, old_entries, _ = queue._catalog_view(
+                    self.root, queue._tree(self.root, edge["base_commit"]))
+                _new_manifest, new_entries, _ = queue._catalog_view(
+                    self.root, queue._tree(self.root, edge["publication_commit"]))
+                old_by_revision = {row["entry_revision_identity"]: row for row in old_entries}
+                new_by_revision = {row["entry_revision_identity"]: row for row in new_entries}
+                self.assertEqual(set(old_by_revision), set(new_by_revision))
+                for revision, old_row in old_by_revision.items():
+                    # Identical revision identity with a changed terminology
+                    # provenance means different complete row bytes.  The pool
+                    # must keep them distinct, never merge by revision alone.
+                    self.assertIsNot(old_row, new_by_revision[revision])
+                    self.assertNotEqual(old_row, new_by_revision[revision])
+                expected = {row["old_entry_revision_identity"]: (
+                    row["old_logical_entry_identity"], row["disposition"],
+                    row["new_logical_entry_identity"], row["new_entry_revision_identity"])
+                    for row in migration.reconcile(old_entries, new_entries)}
+                self.assertEqual(edge["rows_by_old"], expected)
+                self.assertTrue(all(isinstance(value, tuple) and len(value) == 4
+                                    for value in edge["rows_by_old"].values()))
+            self.assertEqual(scope_reader.tuples,
+                             {value: value for value in edges[0]["rows_by_old"].values()})
+        self.assertEqual(scope_reader.rows, {})
+        self.assertEqual(scope_reader.tuples, {})
+
+    def test_compact_migration_chain_fails_closed_on_missing_fork_and_cycle(self):
+        def edge(old: str, new: str) -> dict:
+            return {"old_catalog_id": old, "new_catalog_id": new,
+                    "base_commit": "base-" + new, "publication_commit": "pub-" + new}
+
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "missing committed migration link"):
+            queue._migration_chain(self.root, [edge("a", "b")], "a", "c")
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "forked or ambiguous"):
+            queue._migration_chain(self.root, [edge("a", "b"), edge("a", "b2")], "a", "c")
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "catalog cycle"):
+            queue._migration_chain(self.root, [edge("a", "b"), edge("b", "a")], "a", "z")
+        self.assertEqual(queue._migration_chain(self.root, [], "a", "a"), [])
+        chain = queue._migration_chain(self.root, [edge("a", "b")], "a", "b")
+        self.assertEqual([item["new_catalog_id"] for item in chain], ["b"])
+
+    def test_failed_later_batch_validation_leaves_no_trusted_state(self):
+        self._publish_surface_batch(repair=False, entry_index=0, batch_name="trusted")
+        overrides, _reconciliation, _meta = queue.business_rows(queue.database_path(self.root))
+        self.assertEqual({row[0]: row[2] for row in overrides},
+                         {self.entries[0]["entry_revision_identity"]: "done"})
+        results = sorted((self.root / "evidence/production-review-v2-lite/batches").glob("*/results.jsonl"))
+        self.assertEqual(len(results), 1)
+        original = results[0].read_bytes()
+        # The catalog and every migration must still validate; only this later
+        # batch byte fails, so a successful catalog validation is already gone.
+        results[0].write_bytes(original + b"{}\n")
+        self.commit("tampered batch results")
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "results.jsonl hash mismatch"):
+            queue.rebuild(self.root)
+        results[0].write_bytes(original)
+        self.commit("restored batch results")
+        queue.rebuild(self.root)
+        overrides, _reconciliation, _meta = queue.business_rows(queue.database_path(self.root))
+        self.assertEqual({row[0]: row[2] for row in overrides},
+                         {self.entries[0]["entry_revision_identity"]: "done"})
 
     def test_rebuild_retains_unchanged_done_repair_blocked_across_boundary_delete_revert(self):
         self._publish_surface_batch(repair=False, entry_index=0, batch_name="done-state")

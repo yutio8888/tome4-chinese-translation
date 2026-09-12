@@ -1,6 +1,6 @@
 # 翻译审核主编排者 —— 交接说明
 
-最后更新：2026-09-11（第 88 批后 + 内存墙发现）· 分支 `develop`
+最后更新：2026-09-11（第 88 批后 + 内存墙发现 + 投影内存优化任务独立验收与 cycle 1 修复）· 分支 `develop`
 
 接手前请先读完本文，再读 `docs/baseline-batch-runbook-2026-09-06.md`（详细操作手册）
 与两份契约 `docs/paseo-translation-surface-screen-v1-contract.md`、
@@ -1488,3 +1488,57 @@ finalize 后的 rebuild 确认可省、发现内存墙（§20）。
 **该文件明确标注了它是归纳而非逐字原文**，因为原文确实已经丢了。
 其它几次咨询（`projection-trust-model-20260911` 等）都有 `ANSWER-*.md`，
 **以后发起咨询要把答复落盘，这次是流程缺口。**
+
+---
+
+## 23. 投影内存优化任务 perf-projection-20260911（实现完成，独立性能验收通过）
+
+针对 §20 内存墙的有界实现任务。设计契约与完整说明见
+`docs/projection-performance-20260911.md`；`.ai/task/perf-projection-20260911/` 下有
+SPEC／PLAN／SCOPE／STATE，测量产物在 `.artifacts/i18n/perf-projection-20260911/`。
+独立 Opus 验收（两次串行 candidate 重放 + 221 项聚焦测试）与 Opus5 normal_review、
+GPT6 high cross_review 两个不同精确模型的独立复审均已 PASS；cycle 1 修复 L1/L2 已落地。
+**最终交付状态以 `.ai/task/perf-projection-20260911/STATE.json` 为准**；完整 17 项门禁、
+严格构建与 FINAL_REVIEW 仍由 ORCHESTRATOR 执行，本文件不宣称 DONE/门禁通过。
+
+### 实际结果（同 harness，treeish `d95ee7f2`）
+
+| 项 | baseline | 初测 candidate-1（失败） | 本地可行性（单次） | Opus sample-1 | Opus sample-2 | 冻结上限 |
+|---|---|---|---|---|---|---|
+| wall | 141.7094 s | 165.5136 s ❌ | 142.8739 s ✅ | 142.6792 s ✅ | 142.0529 s ✅ | ≤155.8804 s |
+| total user | 126.67 s | 148.39 s ❌ | 128.64 s ✅ | 129.19 s ✅ | 128.42 s ✅ | ≤139.337 s |
+| peak self RSS | 14,090,612 KiB | 1,884,488 KiB | 1,884,736 KiB ✅ | 1,883,888 KiB ✅ | 1,883,524 KiB ✅ | ≤4,194,304 且 ≤35% baseline |
+
+所有 candidate 的八字段与完整 progress 均与 baseline 相等；root/treeish 相同，HEAD 与
+queue/checkpoint 前后不变；聚焦测试 `Ran 221 tests in 28.405s` `OK`。
+
+- **初测失败原因（已确认并修复）**：初版对每行调用 `intern_row`／`intern_tuple`，内部
+  `active_reader(root)` 每次 `root.resolve()`≈4.6 µs，一轮约 500 万次 ≈23 s。
+- **修复**：把 root/scope 核验提升到每份 catalog 与每条 edge 外层一次，池操作直接使用
+  已验证 reader；跨 root／嵌套 scope 语义不变。修复后 wall +0.8%、total user +1.6% baseline。
+- 独立 Opus 两个串行样本 RSS 均约为 baseline 的 **13.4%**（下降约 **86.6%**），wall
+  +0.68%／+0.24%、total user +2.0%／+1.4%。收益是固定输入下的常驻内存下降，
+  **耗时基本持平，不能称为速度优化**。
+- **cycle 1 修复（只改基准脚本）**：`benchmark_projection.compare` 增加 `same_root`（比较
+  run 规范化后的绝对 root）；`main` 在昂贵 `run` 前预检 `--compare` 存在／JSON／kind 与
+  `--output` 可用（可写常规文件、父目录可建可写，probe 探测），错误参数不触发重放也不
+  截断既有输出。新增 `tests/i18n/test_benchmark_projection.py`（mock `run`，13 项）并注册到
+  `production-shadow-surface-ledger`。运行时文件与计时 `run()` 测量体未改，两个样本继续有效。
+- 仅实现 PERF-1（reader blob LRU 128 MiB、轻量 catalog 视图、完整行复用、紧凑 migration
+  mapping）。**PERF-2（publication 查询、6a）、PERF-3（CLI 串联）未做**，PERF-4 advisory 未做。
+- 运行时改动只有 `tools/i18nlib/git_evidence_reader.py`、
+  `production_review_v2_lite_queue.py`、`production_review_v2_lite_progress.py`；
+  新 `tools/orchestration/benchmark_projection.py` 与 `tests/i18n/test_benchmark_projection.py`。
+
+### 跑测量时的硬约束（沿用 §20／§21）
+
+**绝不并发跑两个投影**（单次峰值 1.8–13 GB）；每个重放自带 `timeout`（本任务用
+`timeout -k 10s 300s`）；不要重跑或覆盖已固定的 baseline.json；主工作树该任务无活动批次。
+
+```bash
+timeout -k 10s 300s python3 -B tools/orchestration/benchmark_projection.py \
+  --root /workspace/tome4-chinese-translation \
+  --treeish d95ee7f2eda7ca3ecd2822defe40112645888c30 \
+  --compare .artifacts/i18n/perf-projection-20260911/baseline.json \
+  --output .artifacts/i18n/perf-projection-20260911/candidate-feasibility.json
+```

@@ -32,12 +32,14 @@ class Progress:
             # Follow exact logical moves too, never infer a successor by text.
             for edge in chain:
                 mapping = edge["rows_by_old"].get(revision)
-                if (mapping is None or mapping["old_logical_entry_identity"] != logical or
-                        mapping["disposition"] not in {"unchanged", "revision_changed", "logical_moved"}):
+                if mapping is None:
                     break
-                successor = mapping["new_entry_revision_identity"]
+                old_logical, disposition, new_logical, new_revision = mapping
+                if old_logical != logical or disposition not in {"unchanged", "revision_changed", "logical_moved"}:
+                    break
+                successor = new_revision
                 changed = changed or successor != revision
-                revision, logical = successor, mapping["new_logical_entry_identity"]
+                revision, logical = successor, new_logical
             else:
                 if changed and revision in self.current:
                     self.invalidated.add(revision)
