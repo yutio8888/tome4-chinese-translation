@@ -18,6 +18,8 @@ Usage:
 """
 from __future__ import annotations
 
+import argparse
+import os
 import sys
 import time
 from pathlib import Path
@@ -27,6 +29,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from i18nlib import production_review_v2_lite_queue as queue  # noqa: E402
 from i18nlib.cli import main as cli_main  # noqa: E402
+from orchestration import make_adjudication as adjudication  # noqa: E402
 
 # Only actions that are safe to chain: each one leaves a checkpoint the next
 # step re-validates.  Steps that move HEAD or close the batch are deliberately
@@ -62,8 +65,63 @@ def parse(tokens: list[str]) -> list[list[str]]:
     return steps
 
 
+def contextual_adjudication_chain(tokens):
+    parser = argparse.ArgumentParser(prog='run_batch_steps.py contextual-adjudication-chain',
+                                     allow_abbrev=False)
+    for name in ('input', 'spec', 'output', 'source-root'):
+        parser.add_argument('--' + name, required=True, type=Path)
+    args = parser.parse_args(tokens)
+    configured_root = os.environ.get('I18N_REPOSITORY_ROOT')
+    root = Path(configured_root).resolve() if configured_root else ROOT
+    label = 'chain-input-precheck'
+    try:
+        index_raw = adjudication.facts.ordinary_bytes(args.input)
+        index = adjudication.facts.strict_json(index_raw)
+        if (not isinstance(index, dict) or not index or
+                any(not key.isdecimal() or not isinstance(value, str) or not value
+                    for key, value in index.items())):
+            raise ValueError('contextual index requires run keys and raw file paths')
+        # The CLI still consumes the real index and raw files. Recheck these
+        # bytes before and after import; decisions/workset use their frozen read.
+        inputs = {args.input: index_raw}
+        for value in index.values():
+            inputs[Path(value)] = adjudication.facts.ordinary_bytes(value)
+        frozen = adjudication.freeze_inputs(args.spec)
+        adjudication.fresh_output(root, args.output)
+        with queue.carry_projection():
+            for label, step in (
+                ('contextual-import', ['production', 'batch', 'contextual-import', '--input', str(args.input)]),
+                ('generate-adjudication', None),
+                ('adjudicate', ['production', 'batch', 'adjudicate', '--input', str(args.output)]),
+                ('prepare-evidence', ['production', 'batch', 'prepare-evidence']),
+            ):
+                started = time.monotonic()
+                if label in {'contextual-import', 'generate-adjudication'}:
+                    for path, raw in inputs.items():
+                        if adjudication.facts.ordinary_bytes(path) != raw:
+                            raise ValueError(f'chain input bytes drifted: {path}')
+                if step is None:
+                    adjudication.generate(root, args.spec, args.output,
+                                          source_root=args.source_root, frozen=frozen)
+                    code = 0
+                else:
+                    code = cli_main(step)
+                print(f'--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s',
+                      file=sys.stderr)
+                if code != 0:
+                    print(f'ERROR: {label} failed; remaining steps not run', file=sys.stderr)
+                    return code
+    except (OSError, ValueError, KeyError, TypeError, adjudication.wp1.ProductionReviewError) as error:
+        print(f'ERROR: {label} failed; remaining steps not run: {error}', file=sys.stderr)
+        return 1
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
-    steps = parse(list(sys.argv[1:] if argv is None else argv))
+    tokens = list(sys.argv[1:] if argv is None else argv)
+    if tokens and tokens[0] == "contextual-adjudication-chain":
+        return contextual_adjudication_chain(tokens[1:])
+    steps = parse(tokens)
     with queue.carry_projection():
         for step in steps:
             label = step[2]

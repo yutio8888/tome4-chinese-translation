@@ -1623,3 +1623,17 @@ perf-projection-20260911 的验收提交）。本任务基线即该提交。
 
 **最终交付状态以 `.ai/task/perf-cli-projection-20260912/STATE.json` 为准**；完整门禁、
 严格构建、独立复审与 FINAL_REVIEW 仍由 ORCHESTRATOR 执行，本文件不宣称 DONE。
+
+## 2026-09-12 P2-B 本轮实现交接
+
+`review-speed-p2b-20260912 / execute-astra-01` 已留下六文件实现候选；最终状态以
+[任务 STATE](.ai/task/review-speed-p2b-20260912/STATE.json) 为准，EXECUTOR 未提交。
+新固定入口与恢复命令见 [README](tools/orchestration/README.md#contextual-导入裁决生成与证据准备p2-b)，
+实测为适用 contextual 链投影 3→1，222 + 29 测试通过；生产秒数未测量。
+[本轮报告](docs/review-speed-p2b-20260912.md) 披露首轮旧 CLI fixture cwd 错误曾误触主仓库
+preflight；首轮日志有完整 9 tests／2 failures／1 error 终态及 preflight 拒绝行。
+宿主及 Opus 已核对当前 queue SHA 未变、无 checkpoint／sidecars、HEAD／index 未变；
+保留历史隔离违规，不声称从未误触。cycle0 独立 440 tests／52.328s 通过，
+cycle1 `fix-astra-01` 合并 root 真值规则和两项文档修正，修复后小套件结果另见报告。
+最终全候选复审、全门禁／strict build、归档、
+DONE_VERIFIED 与提交仍由宿主完成；验收提交后自动恢复第 92 批，本条不宣称 DONE。

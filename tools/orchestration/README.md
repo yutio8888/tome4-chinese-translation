@@ -444,3 +444,100 @@ surface-export/import 流程处理当前边界，再以新 checkpoint 绑定的�
 
 验证与限制见 [P1-C 实现报告](../../docs/review-speed-p1c-20260912.md)。生产省时尚未测量；
 fixture 中的投影次数和运行耗时不代表生产收益。
+
+## Contextual 导入、裁决生成与证据准备（P2-B）
+
+已完成 surface 导入和 contextual 导出、有真实 contextual 任务的 DONE_VERIFIED 与原始
+结果后，可使用固定四步入口。先准备与当前 checkpoint 的 batch/catalog/base、selected
+冻结行逐项一致的 source-workset，再由宿主准备决策说明；不得从模型 verdict 自动决定
+confirmed。所有 ISSUE 观察各有一个键，同一 revision 的 surface/contextual 分开裁决。
+
+在生产仓库 cwd 执行下面命令，替换三个准备材料路径和本次唯一的输出名：
+
+```bash
+python3 -B tools/orchestration/build_import_index.py contextual /tmp/contextual-raw /tmp/contextual-index.json
+python3 -B tools/orchestration/run_batch_steps.py contextual-adjudication-chain \
+  --input /tmp/contextual-index.json \
+  --spec /tmp/adjudication-spec.json \
+  --output .artifacts/i18n/adjudication-chain/batch-id-attempt-01.json \
+  --source-root /path/to/public-source-root
+```
+
+`adjudication-spec.json` 示例（revision 前十位须替换为当前实际值，列齐全部观察）：
+
+```json
+{
+  "workset": "evidence/quality/production-batches/batch-id-source-workset.json",
+  "decisions": {
+    "0123456789|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "宿主对公开源码与当前观察的具体裁决理由"
+    },
+    "0123456789|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "宿主对语境观察的具体裁决理由"
+    }
+  }
+}
+```
+
+专用入口只执行 `contextual-import → generate → adjudicate → prepare-evidence`，
+不接受任意动作串。三个生产动作仍经过真实 CLI，各自获取锁与验证 checkpoint/SQLite；
+生成函数单独持有 writer lock，重新 preflight 后读取已接受 observations。唯一共享物是
+同 root/HEAD 的 carry 投影，无外层锁、嵌套 scope、生成子进程或持久缓存。
+root 与生产 CLI 一致：非空 `I18N_REPOSITORY_ROOT` 解析为绝对路径，未设置或空串均使用
+脚本所属仓库；相对输入、workset、
+source-root、output 路径仍相对当前 cwd。其他辅助脚本和旧生成 CLI 使用仓库 cwd，
+不能仅用该环境变量代替切换 cwd。
+
+导入前拒绝非普通 index/spec/workset、重复 JSON 键、非法类型和已占用输出。
+spec/workset 使用本次一次读取的 bytes，随后磁盘修改不会替换本次宿主决策；index/raw
+在导入前、生成前再次逐字节核对。当前 checkpoint 的完整 workset 绑定及观察集合只能在
+导入后的生成 preflight 中核验，缺失／多余决策到此才拒绝。disposition 仅允许
+confirmed/pending/advisory/refuted，repair_required 必须为 JSON bool，且仅 confirmed 可为 true。
+
+源码只读取 confirmed 所需的 `public_source_path`：必须能由显式 source-root 表达，路径
+相对、无穿越、无 symlink，并且普通文件原始 bytes 的 SHA256 等于工作集
+`source_verification.source_file_sha256`。快照原样保存 UTF-8 与换行。
+这证明**与工作集 SHA 一致**，不证明公开来源的 commit 或来源身份；DLC 来源未固定的事实
+不会因此改变。不匹配、缺失或需要多个无法由该根表达的来源时拒绝，不回退 ENGINE。
+此时可由宿主按现有十字段裁决规范准备文件，再独立调用 adjudicate。
+
+输出必须是生产 root 的 `.artifacts/i18n/adjudication-chain/` 内 fresh 文件；普通文件、
+目录和悬空 symlink 均算占用，所有父目录须普通。临时文件在目标目录独占创建，完整写入并
+fsync 后以不覆盖目标的 hard-link 原子发布，再同步目录并删除自己的临时文件。
+并发目标保留对方 bytes；失败可能留下本次创建的空目录，不清理其他文件。发布后异常也停止，
+现有输出不作为成功重试信号。scratch 文件是中间输入，持久裁决仍由原 evidence 流程发布。
+
+失败后以 checkpoint 为准，保留所有原始审核证据：
+
+- 导入失败：修复对应 raw／DONE 绑定后，使用相同冻结材料重新执行。
+- 导入成功、生成失败：修复宿主说明、来源或输出问题；可用 fresh 输出重跑该链，
+  原 contextual-import 对相同结果仍按原消费者规则处理。不会重新使用旧裁决文件。
+- 已生成、adjudicate 失败：核对文件和失败原因，按原规范修复／另存后独立执行下方 adjudicate。
+- prepare 失败：保留 adjudicated，独立重跑 prepare，门禁重新执行。
+- 发布后目录同步等错误：文件可能已存在，先核验该文件；独立消费者恢复，不能把文件存在当成功。
+
+```bash
+python3 -B tools/i18n production batch contextual-import --input /tmp/contextual-index.json
+# 必要的手工裁决准备完成后；该文件也可为已核验的 scratch 输出：
+python3 -B tools/i18n production batch adjudicate --input /tmp/validated-adjudications.json
+python3 -B tools/i18n production batch prepare-evidence
+```
+
+旧 `make_adjudication.py <spec.json> <out.json>` 两位置入口仍合法，默认读取 ENGINE 当前
+checkout，普通输出覆盖和摘要保持兼容；它不获得新链的 source-root/SHA/fresh 保障。
+旧入口仍以当前 cwd 为 root，现在也会在 preflight 前获取 writer lock，可能在该 cwd 下
+创建 `.artifacts/i18n/production-review-v2-lite/repository.lock` 及其父目录；其他 writer
+占用锁时立即拒绝，尚未执行 preflight。应先切换到目标仓库 cwd。旧 baseline 的 preflight
+本身就可能协调孤立 reservation／SQLite 状态，不能概括为纯只读；此处新增的是 writer lock
+及对应的文件／目录创建和占用拒绝行为。
+旧六动作 parse 和 `contextual-export=<workset>` 保持。纯 surface 无 ISSUE 走既有合法
+空裁决 `adjudicate=<empty.json> prepare-evidence`，不制造 contextual 前置状态。
+start/finalize/abandon/recover、queue 管理/check 与 migration 继续独立运行。
+
+有界 fixture 实测两种有 contextual 任务的路径均从 3 次投影降至 1 次；生产秒数未测量，
+不由 P2-A 106 秒样本推算批次收益。测试使用既有 gate seam，不能证明真实 17 门禁通过。
+测试命令、错误时序、作者测试隔离事故与验收边界见 [P2-B 报告](../../docs/review-speed-p2b-20260912.md)。

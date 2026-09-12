@@ -3612,5 +3612,620 @@ class SourceFactsChainTests(QueueFixture):
             self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), original)
 
 
+class AdjudicationChainTests(QueueFixture):
+    """Real bounded P2-B chain; gate execution uses only QueueFixture's seam."""
+    _surface_bytes = PublicApiFlowTests._surface_bytes
+    _contextual_bytes = PublicApiFlowTests._contextual_bytes
+    _resize_and_init = QueueTests._resize_and_init
+    _bind_alias = ProjectionChainTests._bind_alias
+    _drop_aliases = ProjectionChainTests._drop_aliases
+    _load_wrapper = ProjectionChainTests._load_wrapper
+    _repo_env = ProjectionChainTests._repo_env
+    _fixed_clock = ProjectionChainTests._fixed_clock
+    _count_projections = ProjectionChainTests._count_projections
+    _run_cli = ProjectionChainTests._run_cli
+    _run_wrapper = ProjectionChainTests._run_wrapper
+    _input_dir = ProjectionChainTests._input_dir
+    _surface_index = ProjectionChainTests._surface_index
+    _prospective_bytes = ProjectionChainTests._prospective_bytes
+    _clone_repo = ProjectionChainTests._clone_repo
+    _failing_gate_records = ProjectionChainTests._failing_gate_records
+
+    def setUp(self):
+        super().setUp()
+        import tools.i18nlib as package
+        from tools.i18nlib import cli
+        self._tools_cli, self._aliases = cli, []
+        self._bind_alias('i18nlib', package)
+        for name, module in list(sys.modules.items()):
+            if name.startswith('tools.i18nlib.'):
+                self._bind_alias('i18nlib.' + name[len('tools.i18nlib.'):], module)
+        self.addCleanup(self._drop_aliases)
+        self._steps = self._load_wrapper()
+        self.generator = self._steps.adjudication
+        self._resize_and_init(1)
+        self.inputs = self._input_dir()
+        self.source_root = self.root / '.artifacts/source'
+        self.source_root.mkdir(parents=True)
+        self.source = self.source_root / 'fixture.lua'
+        self.source.write_bytes('源码\r\nreturn 1\n'.encode())
+        self.output = self.root / '.artifacts/i18n/adjudication-chain/result.json'
+        self.spec_path = self.inputs / 'spec.json'
+        self.workset_path = self.inputs / 'workset.json'
+        self.index = self.inputs / 'contextual-index.json'
+        original_preflight = batch.preflight
+        def fixture_preflight(root, **kwargs):
+            self.assertEqual(Path(root).resolve(), self.root.resolve(), 'preflight escaped fixture')
+            return original_preflight(root, **kwargs)
+        guard = mock.patch.object(batch, 'preflight', side_effect=fixture_preflight)
+        guard.start()
+        self.addCleanup(guard.stop)
+
+    def ready(self, contextual='ISSUE', disposition='confirmed'):
+        with self._fixed_clock():
+            batch.start(self.root, limit=1)
+            batch.surface_export(self.root)
+            self.surface_index = self._surface_index('ISSUE')
+            self.assertEqual(self._run_cli('surface-import', '--input', str(self.surface_index))[0], 0)
+            self.assertEqual(self._run_cli('contextual-export')[0], 0)
+        cp = batch.show(self.root)
+        outputs = {}
+        for i, ref in enumerate(cp['contextual']):
+            raw = self._contextual_bytes(ref, contextual)
+            self._install_contextual_done_state(ref, raw)
+            path = self.inputs / f'raw-{i}.json'
+            path.write_bytes(raw)
+            outputs[str(i)] = str(path)
+        self.index.write_bytes(wp1.canonical_bytes(outputs))
+        verifications = []
+        decisions = {}
+        for row in cp['entry_snapshots']:
+            rev = row['entry_revision_identity']
+            verifications.append(dict(entry_revision_identity=rev, source=row['source'],
+                section=row['section'], source_tag=row['source_tag'], args_order=row['risk']['args_order'],
+                public_source_path='fixture.lua', source_file_sha256=hashlib.sha256(self.source.read_bytes()).hexdigest(),
+                matching_literal_lines=[]))
+            for kind in ['surface'] + (['contextual'] if contextual == 'ISSUE' else []):
+                decisions[rev[:10] + '|' + kind] = dict(disposition=disposition,
+                    repair_required=disposition == 'confirmed', conclusion='host fixture conclusion')
+        ws = {key: cp[key] for key in ('batch_id', 'catalog_id', 'base_commit')}
+        ws.update(entries=cp['entry_snapshots'], source_verification=verifications)
+        self.workset_path.write_bytes(wp1.canonical_bytes(ws))
+        self.spec_path.write_bytes(wp1.canonical_bytes(dict(workset=str(self.workset_path), decisions=decisions)))
+        return cp
+
+    def legacy(self, module, output):
+        # Historical CLI deliberately uses cwd, not I18N_REPOSITORY_ROOT.
+        previous = Path.cwd()
+        try:
+            os.chdir(self.root)
+            return module.main([str(self.spec_path), str(output)])
+        finally:
+            os.chdir(previous)
+
+    def chain(self):
+        return self._run_wrapper('contextual-adjudication-chain', '--input', str(self.index),
+            '--spec', str(self.spec_path), '--output', str(self.output), '--source-root', str(self.source_root))
+
+    def snapshot(self):
+        cp = batch._load(queue.checkpoint_path(self.root))
+        return (queue.checkpoint_path(self.root).read_bytes(),
+                queue.business_rows(queue.database_path(self.root)), self._prospective_bytes(cp['batch_id']))
+
+    def restore(self, saved):
+        shutil.rmtree(self.root)
+        shutil.copytree(saved, self.root, symlinks=True)
+
+    def test_real_three_to_one_reports_bytes_business_receipts_and_module_identity(self):
+        self.assertIs(self.generator.B, batch)
+        self.assertIs(self.generator.B.queue, queue)
+        self.assertIs(self._steps.queue, queue)
+        self.assertIs(self._steps.cli_main, self._tools_cli.main)
+        self.assertIs(self._tools_cli.cli_production.production_review_v2_lite_batch, batch)
+        with self._repo_env(), self._fixed_clock():
+            for contextual in ('ISSUE', 'OK'):
+                with self.subTest(contextual=contextual):
+                    cp = self.ready(contextual)
+                    saved = self._clone_repo()
+                    old_states = []
+                    actual_cli = self._steps.cli_main
+                    def record(argv):
+                        result = actual_cli(argv)
+                        old_states.append(self.snapshot())
+                        return result
+                    with mock.patch.object(self._steps, 'cli_main', side_effect=record):
+                        with self._count_projections() as old:
+                            import_report = io.StringIO()
+                            with redirect_stdout(import_report):
+                                first = record(['production', 'batch', 'contextual-import', '--input', str(self.index)])
+                            summary = io.StringIO()
+                            with redirect_stdout(summary), mock.patch.object(self.generator, 'ENGINE', self.source_root):
+                                self.assertEqual(self.legacy(self.generator, self.inputs / 'old.json'), 0)
+                            after_generation = self.snapshot()
+                            rest = self._run_wrapper(f'adjudicate={self.inputs / "old.json"}', 'prepare-evidence')
+                    self.assertEqual(first, 0)
+                    self.assertEqual(rest[0], 0, rest[2])
+                    expected = self.snapshot()
+                    expected_bytes = (self.inputs / 'old.json').read_bytes()
+                    self.assertEqual(len(json.loads(expected_bytes)['decisions']), 2 if contextual == 'ISSUE' else 1)
+                    self.restore(saved)  # fixture reset explicitly outside counted scope
+                    new_states, new_reports = [], []
+                    def capture(argv):
+                        stdout = io.StringIO()
+                        with redirect_stdout(stdout):
+                            result = actual_cli(argv)
+                        new_reports.append(stdout.getvalue())
+                        print(stdout.getvalue(), end='')
+                        new_states.append(self.snapshot())
+                        return result
+                    with mock.patch.object(self._steps, 'cli_main', side_effect=capture):
+                        with self._count_projections() as new:
+                            result = self.chain()
+                    self.assertEqual(result[0], 0, result[2])
+                    self.assertEqual([len(old), len(new)], [3, 1])
+                    self.assertEqual(new_states, old_states)
+                    self.assertEqual(after_generation, old_states[0])
+                    self.assertEqual(self.snapshot(), expected)
+                    self.assertEqual(self.output.read_bytes(), expected_bytes)
+                    self.assertIn(summary.getvalue(), result[1])
+                    self.assertEqual(new_reports[0], import_report.getvalue())
+                    self.assertEqual(''.join(new_reports[1:]), rest[1])
+                    print(f'P2B measured contextual={contextual} projection old=3 new=1; state/bytes/receipt equal')
+                    batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+                    self.output.unlink()
+
+    def test_precheck_invalid_inputs_and_stale_output_call_nothing(self):
+        with self._repo_env():
+            self.ready()
+            original_spec, original_ws = self.spec_path.read_bytes(), self.workset_path.read_bytes()
+            before = self.snapshot()
+            variants = [b'{"workset":1,"workset":2}', b'[]']
+            for field, value in [('repair_required', 1), ('disposition', 'bogus'), ('repair_required', 'false')]:
+                spec = json.loads(original_spec)
+                next(iter(spec['decisions'].values()))[field] = value
+                variants.append(wp1.canonical_bytes(spec))
+            for raw in variants:
+                with self.subTest(raw=raw):
+                    self.spec_path.write_bytes(raw)
+                    with mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                        self.assertEqual(self.chain()[0], 1)
+                    self.assertEqual(calls.call_count, 0)
+                    self.assertEqual(self.snapshot(), before)
+            self.spec_path.write_bytes(original_spec)
+            ws = json.loads(original_ws)
+            ws['entries'].append(ws['entries'][0])
+            self.workset_path.write_bytes(wp1.canonical_bytes(ws))
+            with mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                self.assertEqual(self.chain()[0], 1)
+            self.assertEqual(calls.call_count, 0)
+            self.workset_path.write_bytes(original_ws)
+            self.output.parent.mkdir(parents=True)
+            for kind in ('file', 'dangling', 'directory'):
+                with self.subTest(kind=kind):
+                    if kind == 'file': self.output.write_bytes(b'previous adjudication')
+                    elif kind == 'dangling': self.output.symlink_to(self.root / 'absent')
+                    else: self.output.mkdir()
+                    with mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                        self.assertEqual(self.chain()[0], 1)
+                    self.assertEqual(calls.call_count, 0)
+                    if kind == 'file': self.assertEqual(self.output.read_bytes(), b'previous adjudication')
+                    if kind == 'directory': self.output.rmdir()
+                    else: self.output.unlink()
+            for output in (self.spec_path, self.root / 'evidence/no.json', self.output.parent / '../escape.json'):
+                with mock.patch.object(self, 'output', output), mock.patch.object(self._steps, 'cli_main') as calls:
+                    self.assertEqual(self.chain()[0], 1)
+                    self.assertEqual(calls.call_count, 0)
+            self.assertEqual(self.snapshot(), before)
+
+    def test_missing_extra_decisions_source_sha_and_workset_binding_fail_after_import(self):
+        with self._repo_env():
+            self.ready()
+            saved = self._clone_repo()
+            spec_raw, ws_raw = self.spec_path.read_bytes(), self.workset_path.read_bytes()
+            for variant in ('missing', 'extra', 'sha', 'batch', 'row', 'path', 'symlink', 'missing-source'):
+                with self.subTest(variant=variant):
+                    self.restore(saved)
+                    spec, ws = json.loads(spec_raw), json.loads(ws_raw)
+                    if variant == 'missing': spec['decisions'].pop(next(iter(spec['decisions'])))
+                    if variant == 'extra': spec['decisions']['f'*10 + '|surface'] = next(iter(spec['decisions'].values()))
+                    if variant == 'sha': self.source.write_bytes(b'drifted checkout')
+                    if variant == 'batch': ws['batch_id'] = 'unrelated'
+                    if variant == 'row': ws['entries'][0]['target'] = 'changed frozen target'
+                    if variant == 'path': ws['source_verification'][0]['public_source_path'] = '../escape'
+                    if variant == 'symlink':
+                        self.source.unlink()
+                        self.source.symlink_to(self.spec_path)
+                    if variant == 'missing-source': self.source.unlink()
+                    self.spec_path.write_bytes(wp1.canonical_bytes(spec))
+                    self.workset_path.write_bytes(wp1.canonical_bytes(ws))
+                    with mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                        result = self.chain()
+                    self.assertEqual(result[0], 1, result)
+                    self.assertEqual([call.args[0][2] for call in calls.call_args_list], ['contextual-import'])
+                    self.assertEqual(batch.show(self.root)['phase'], 'deep_collected')
+                    self.assertFalse(self.output.exists())
+
+    def test_generator_owns_lock_preflight_and_frozen_decisions(self):
+        with self._repo_env():
+            self.ready()
+            actual = self._steps.cli_main
+            lock_handle = None
+            def held_after_import(argv):
+                nonlocal lock_handle
+                result = actual(argv)
+                lock_handle = queue.repository_lock_path(self.root).open('a+b')
+                fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                return result
+            try:
+                with mock.patch.object(self._steps, 'cli_main', side_effect=held_after_import) as calls:
+                    result = self.chain()
+                self.assertEqual(result[0], 1)
+                self.assertIn('lock', result[2])
+                self.assertEqual(calls.call_count, 1)
+                self.assertFalse(self.output.exists())
+            finally:
+                if lock_handle: lock_handle.close()
+            original_spec = self.spec_path.read_bytes()
+            real_preflight = batch.preflight
+            locks = []
+            def verify_lock(root, **kwargs):
+                with queue.repository_lock_path(root).open('a+b') as handle:
+                    try:
+                        fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    except BlockingIOError:
+                        locks.append(True)
+                    else:
+                        locks.append(False)
+                return real_preflight(root, **kwargs)
+            def change_spec(argv):
+                code = actual(argv)
+                if argv[2] == 'contextual-import':
+                    self.spec_path.write_bytes(b'{}')
+                    self.workset_path.write_bytes(b'{}')
+                return code
+            with mock.patch.object(batch, 'preflight', side_effect=verify_lock), \
+                    mock.patch.object(self._steps, 'cli_main', side_effect=change_spec):
+                result = self.chain()
+            self.assertEqual(result[0], 0, result[2])
+            self.assertEqual(locks, [True]*4)
+            self.assertEqual(len(json.loads(self.output.read_bytes())['decisions']), len(json.loads(original_spec)['decisions']))
+
+    def test_raw_state_checkpoint_sqlite_and_head_drift_stop_downstream(self):
+        with self._repo_env():
+            self.ready()
+            saved = self._clone_repo()
+            raw_path = Path(json.loads(self.index.read_bytes())['0'])
+            raw = raw_path.read_bytes()
+            actual = self._steps.cli_main
+            for kind in ('raw-before', 'state-before', 'raw-after', 'sqlite', 'checkpoint', 'head'):
+                with self.subTest(kind=kind):
+                    self.restore(saved)
+                    raw_path.write_bytes(raw)
+                    if kind == 'raw-before': raw_path.write_bytes(b'{}')
+                    if kind == 'state-before':
+                        state = next((self.root / '.ai/task').glob('*/STATE.json'))
+                        value = json.loads(state.read_bytes()); value['task_id'] = 'unrelated-task'
+                        state.write_bytes(wp1.canonical_bytes(value))
+                    def change(argv):
+                        result = actual(argv)
+                        if result == 0 and argv[2] == 'contextual-import':
+                            if kind == 'raw-after': raw_path.write_bytes(b'{}')
+                            if kind == 'sqlite':
+                                with sqlite3.connect(queue.database_path(self.root)) as con:
+                                    con.execute("UPDATE meta SET catalog_id=?", ('f'*64,))
+                            if kind == 'checkpoint':
+                                cp = batch._load(queue.checkpoint_path(self.root)); cp['catalog_id'] = 'f'*64
+                                queue.checkpoint_path(self.root).write_bytes(batch._checkpoint_bytes(cp))
+                            if kind == 'head': self._commit('head moved')
+                        return result
+                    with mock.patch.object(self._steps, 'cli_main', side_effect=change) as calls:
+                        result = self.chain()
+                    self.assertNotEqual(result[0], 0, result)
+                    self.assertEqual(calls.call_count, 1)
+                    self.assertFalse(self.output.exists())
+
+    def test_publish_race_fsync_failure_and_symlink_parent_preserve_import(self):
+        with self._repo_env():
+            self.ready()
+            saved = self._clone_repo()
+            real_link = os.link
+            for kind in ('race', 'fsync', 'parent'):
+                with self.subTest(kind=kind):
+                    self.restore(saved)
+                    def link(source, target):
+                        Path(target).write_bytes(b'racing winner')
+                        return real_link(source, target)
+                    def publish(root, output, raw):
+                        self.output.parent.mkdir(parents=True)
+                        self.output.parent.rmdir()
+                        self.output.parent.symlink_to(self.inputs, target_is_directory=True)
+                        return real_publish(root, output, raw)
+                    real_publish = self.generator.publish_fresh
+                    patch = (mock.patch.object(self.generator.os, 'link', side_effect=link) if kind == 'race' else
+                             mock.patch.object(self.generator.os, 'fsync', side_effect=OSError('sync failed')) if kind == 'fsync' else
+                             mock.patch.object(self.generator, 'publish_fresh', side_effect=publish))
+                    # fsync fault is limited to generation; production import remains real.
+                    real_generate = self.generator.generate
+                    def generate(*args, **kwargs):
+                        with patch: return real_generate(*args, **kwargs)
+                    with mock.patch.object(self.generator, 'generate', side_effect=generate), \
+                            mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                        result = self.chain()
+                    self.assertEqual(result[0], 1, result)
+                    self.assertEqual(calls.call_count, 1)
+                    self.assertEqual(batch.show(self.root)['phase'], 'deep_collected')
+                    if kind == 'race': self.assertEqual(self.output.read_bytes(), b'racing winner')
+                    else: self.assertFalse(self.output.exists())
+                    self.assertFalse(list(self.output.parent.glob('.adjudication-*.tmp')))
+
+    def test_adjudicate_failure_preserves_output_and_prepare_failure_recovers(self):
+        with self._repo_env():
+            self.ready()
+            actual = self._steps.cli_main
+            original = None
+            def corrupt(argv):
+                nonlocal original
+                if argv[2] == 'adjudicate':
+                    original = self.output.read_bytes()
+                    value = json.loads(original)
+                    value['decisions'][0]['observation_sha256'] = '0'*64
+                    self.output.write_bytes(wp1.canonical_bytes(value))
+                return actual(argv)
+            with mock.patch.object(self._steps, 'cli_main', side_effect=corrupt) as calls:
+                result = self.chain()
+            self.assertEqual(result[0], 1)
+            self.assertEqual(calls.call_count, 2)
+            self.assertTrue(self.output.exists())
+            self.assertEqual(batch.show(self.root)['phase'], 'deep_collected')
+            self.output.write_bytes(original)
+            self.assertEqual(self._run_cli('adjudicate', '--input', str(self.output))[0], 0)
+            with mock.patch.object(batch, '_actual_gate_records', side_effect=self._failing_gate_records()):
+                result = self._run_cli('prepare-evidence')
+            self.assertEqual(result[0], 1)
+            self.assertEqual(batch.show(self.root)['phase'], 'adjudicated')
+            before = self.gate_runner.call_count
+            self.assertEqual(self._run_cli('prepare-evidence')[0], 0)
+            self.assertGreater(self.gate_runner.call_count, before)
+
+    def test_nonconfirmed_never_reads_source_and_nested_scope_probe_detects_extra_replay(self):
+        with self._repo_env():
+            self.ready(disposition='advisory')
+            saved = self._clone_repo()
+            self.source.unlink()
+            with self._count_projections() as calls:
+                result = self.chain()
+            self.assertEqual(result[0], 0, result[2])
+            self.assertEqual(len(calls), 1)
+            self.restore(saved)
+            actual = self.generator.generate
+            def nested(*args, **kwargs):
+                with queue.carry_projection(): return actual(*args, **kwargs)
+            with mock.patch.object(self.generator, 'generate', side_effect=nested), self._count_projections() as wrong:
+                result = self.chain()
+            self.assertEqual(result[0], 0, result[2])
+            self.assertGreater(len(wrong), 1)  # bounded wrong variant cannot pass 3 -> 1 oracle
+            print(f'P2B nested-carry wrong variant projections={len(wrong)} (expected production=1)')
+
+    def test_import_has_no_side_effect_and_legacy_cli_default_engine_overwrites(self):
+        import importlib.util
+        with mock.patch.object(batch, 'preflight', side_effect=AssertionError('import preflight')):
+            spec = importlib.util.spec_from_file_location('p2b_import_probe', ROOT / 'tools/orchestration/make_adjudication.py')
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        self.assertEqual(module.ENGINE, Path('/workspace/t-engine4'))
+        self.assertIs(module.B, batch)
+        with self._repo_env():
+            self.ready()
+            self.assertEqual(self._run_cli('contextual-import', '--input', str(self.index))[0], 0)
+            target = self.inputs / 'legacy.json'
+            target.write_bytes(b'old ordinary output')
+            with mock.patch.object(module, 'ENGINE', self.source_root):
+                self.assertEqual(self.legacy(module, target), 0)
+            self.assertEqual(len(json.loads(target.read_bytes())['decisions']), 2)
+
+    def test_prepare_failure_in_chain_preserves_adjudicated_and_independent_retry(self):
+        with self._repo_env():
+            self.ready()
+            with mock.patch.object(batch, '_actual_gate_records', side_effect=self._failing_gate_records()), \
+                    mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                result = self.chain()
+            self.assertEqual(result[0], 1)
+            self.assertEqual([c.args[0][2] for c in calls.call_args_list],
+                             ['contextual-import', 'adjudicate', 'prepare-evidence'])
+            self.assertEqual(batch.show(self.root)['phase'], 'adjudicated')
+            self.assertTrue(self.output.is_file())
+            before = self.gate_runner.call_count
+            with self._count_projections() as count:
+                result = self._run_cli('prepare-evidence')
+            self.assertEqual(result[0], 0, result[2])
+            self.assertEqual(len(count), 1)
+            self.assertGreater(self.gate_runner.call_count, before)
+
+    def test_post_publication_error_stops_and_does_not_adopt_existing_output(self):
+        with self._repo_env():
+            self.ready()
+            actual_generate, actual_sync = self.generator.generate, os.fsync
+            def generate(*args, **kwargs):
+                count = 0
+                def sync(fd):
+                    nonlocal count
+                    count += 1
+                    if count == 2: raise OSError('directory sync after publication failed')
+                    return actual_sync(fd)
+                with mock.patch.object(self.generator.os, 'fsync', side_effect=sync):
+                    return actual_generate(*args, **kwargs)
+            with mock.patch.object(self.generator, 'generate', side_effect=generate), \
+                    mock.patch.object(self._steps, 'cli_main', wraps=self._steps.cli_main) as calls:
+                result = self.chain()
+            self.assertEqual(result[0], 1)
+            self.assertEqual(calls.call_count, 1)
+            raw = self.output.read_bytes()
+            self.assertFalse(list(self.output.parent.glob('.adjudication-*.tmp')))
+            with mock.patch.object(self._steps, 'cli_main') as calls:
+                self.assertEqual(self.chain()[0], 1)
+            self.assertEqual(calls.call_count, 0)
+            self.assertEqual(self.output.read_bytes(), raw)
+            self.assertEqual(self._run_cli('adjudicate', '--input', str(self.output))[0], 0)
+
+    def test_bounded_wrong_variants_are_distinguished_at_generation_boundary(self):
+        # Deliberately unsafe IN-MEMORY variants, scoped to this disposable root.
+        # They must disagree with the production failure assertions above.
+        with self._repo_env():
+            self.ready()
+            saved = self._clone_repo()
+            actual_cli, actual_generate = self._steps.cli_main, self.generator.generate
+            original_assemble = self.generator._assemble
+            for kind in ('no-lock', 'stale-preflight', 'no-source-sha', 'reuse-old-output'):
+                with self.subTest(kind=kind):
+                    self.restore(saved)
+                    handle = None
+                    accepted = None
+                    if kind == 'no-source-sha': self.source.write_bytes(b'wrong source bytes\n')
+                    if kind == 'reuse-old-output':
+                        self.output.parent.mkdir(parents=True)
+                        self.output.write_bytes(b'stale output')
+                    def cli(argv):
+                        nonlocal handle, accepted
+                        result = actual_cli(argv)
+                        if argv[2] == 'contextual-import' and result == 0:
+                            accepted = batch._load(queue.checkpoint_path(self.root))
+                            if kind == 'no-lock':
+                                handle = queue.repository_lock_path(self.root).open('a+b')
+                                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                            if kind == 'stale-preflight':
+                                with sqlite3.connect(queue.database_path(self.root)) as con:
+                                    con.execute('UPDATE meta SET catalog_id=?', ('e'*64,))
+                        return result
+                    def generate(*args, **kwargs):
+                        if kind == 'no-lock':
+                            patch = mock.patch.object(queue, 'writer_lock', side_effect=lambda root: nullcontext())
+                        elif kind == 'stale-preflight':
+                            patch = mock.patch.object(batch, 'preflight', return_value=accepted)
+                        elif kind == 'no-source-sha':
+                            def assemble(*args, **kwargs):
+                                kwargs['strict'] = False
+                                return original_assemble(*args, **kwargs)
+                            patch = mock.patch.object(self.generator, '_assemble', side_effect=assemble)
+                        else:
+                            patch = nullcontext()
+                        try:
+                            with patch: return actual_generate(*args, **kwargs)
+                        finally:
+                            if handle: handle.close()
+                    try:
+                        from contextlib import ExitStack
+                        with ExitStack() as stack:
+                            if kind == 'reuse-old-output':
+                                stack.enter_context(mock.patch.object(self.generator, 'fresh_output',
+                                    side_effect=lambda root, output, **kw: Path(output)))
+                                stack.enter_context(mock.patch.object(self.generator, 'publish_fresh',
+                                    side_effect=lambda root, output, raw: Path(output).write_bytes(raw)))
+                            stack.enter_context(mock.patch.object(self.generator, 'generate', side_effect=generate))
+                            calls = stack.enter_context(mock.patch.object(self._steps, 'cli_main', side_effect=cli))
+                            result = self.chain()
+                        self.assertTrue(self.output.is_file())  # production rejects before publication
+                        self.assertGreaterEqual(calls.call_count, 2)
+                        if kind == 'stale-preflight': self.assertEqual(result[0], 1)
+                        else: self.assertEqual(result[0], 0, result[2])
+                        print(f'P2B wrong variant {kind}: generated=yes CLI calls={calls.call_count} exit={result[0]}')
+                    finally:
+                        if handle: handle.close()
+
+
+    def test_root_truthiness_uses_one_fixture_for_all_four_real_steps(self):
+        from contextlib import ExitStack
+
+        fixture = self.root.resolve()
+        actual_lock, actual_preflight = queue.writer_lock, batch.preflight
+        actual_cli, actual_generate = self._steps.cli_main, self.generator.generate
+        actual_fresh, actual_projection = self.generator.fresh_output, queue._projection
+        stage = 'setup'
+        locks, preflights, stages, outputs, projections = [], [], [], [], []
+
+        def same_root(root):
+            self.assertEqual(Path(root).resolve(), fixture, 'root escaped fixture')
+
+        def lock(root):
+            same_root(root)  # Guard before even creating a lock or its parents.
+            locks.append(stage)
+            return actual_lock(root)
+
+        def preflight(root, **kwargs):
+            same_root(root)
+            preflights.append(stage)
+            return actual_preflight(root, **kwargs)
+
+        def fresh(root, output, **kwargs):
+            same_root(root)
+            self.assertEqual(Path(output), self.output)
+            outputs.append(stage)
+            return actual_fresh(root, output, **kwargs)
+
+        def projection(root, treeish, **kwargs):
+            same_root(root)
+            projections.append((Path(root).resolve(), treeish))
+            return actual_projection(root, treeish, **kwargs)
+
+        def cli(argv):
+            nonlocal stage
+            stage = argv[2]
+            stages.append(stage)
+            return actual_cli(argv)
+
+        def generate(root, *args, **kwargs):
+            nonlocal stage
+            stage = 'generate-adjudication'
+            stages.append(stage)
+            same_root(root)
+            return actual_generate(root, *args, **kwargs)
+
+        with tempfile.TemporaryDirectory(prefix='p2b-root-cwd-', dir=FIXTURE_ROOT) as td, ExitStack() as stack:
+            other = Path(td).resolve()
+            self.assertNotEqual(other, fixture)
+            # Install every boundary guard before setup/preflight. Default-root
+            # anchors are disposable even when the environment is empty/unset.
+            stack.enter_context(mock.patch.object(queue, 'writer_lock', side_effect=lock))
+            stack.enter_context(mock.patch.object(batch, 'preflight', side_effect=preflight))
+            stack.enter_context(mock.patch.object(queue, '_projection', side_effect=projection))
+            stack.enter_context(mock.patch.object(self.generator, 'fresh_output', side_effect=fresh))
+            stack.enter_context(mock.patch.object(self._steps, 'ROOT', fixture))
+            stack.enter_context(mock.patch.object(self.generator, 'ROOT', fixture))
+            stack.enter_context(mock.patch.object(self._tools_cli.cli_production, '__file__',
+                str(fixture / 'tools/i18nlib/cli_production.py')))
+            with self._repo_env(), self._fixed_clock():
+                self.ready()
+            saved = self._clone_repo()
+            previous = Path.cwd()
+            stack.callback(os.chdir, previous)
+            os.chdir(other)
+            for name, configured in (('empty', ''), ('unset', None),
+                    ('absolute', str(fixture)), ('relative', os.path.relpath(fixture, other))):
+                with self.subTest(root_case=name), mock.patch.dict(os.environ), self._fixed_clock():
+                    self.restore(saved)  # Setup/reset excluded from projection count.
+                    if configured is None:
+                        os.environ.pop('I18N_REPOSITORY_ROOT', None)
+                    else:
+                        os.environ['I18N_REPOSITORY_ROOT'] = configured
+                    stage = 'chain-input-precheck'
+                    for records in (locks, preflights, stages, outputs, projections):
+                        records.clear()
+                    with mock.patch.object(self._steps, 'cli_main', side_effect=cli), \
+                            mock.patch.object(self.generator, 'generate', side_effect=generate):
+                        result = self.chain()
+                    expected = ['contextual-import', 'generate-adjudication', 'adjudicate', 'prepare-evidence']
+                    self.assertEqual(result[0], 0, result[2])
+                    self.assertEqual(stages, expected)
+                    self.assertEqual(locks, expected)
+                    self.assertEqual(preflights, expected)
+                    self.assertEqual(len(projections), 1)
+                    self.assertEqual(projections[0][0], fixture)
+                    self.assertEqual(outputs[0], 'chain-input-precheck')
+                    self.assertIn('generate-adjudication', outputs)
+                    self.assertEqual(len(json.loads(self.output.read_bytes())['decisions']), 2)
+                    self.assertEqual(batch._load(queue.checkpoint_path(fixture))['phase'], 'commit_ready')
+                    self.assertEqual(list(other.iterdir()), [])
+                    print(f'P2B root={name}: four real steps/locks/preflights at fixture, projection=1, other cwd untouched')
+
+
 if __name__ == "__main__":
     unittest.main()
