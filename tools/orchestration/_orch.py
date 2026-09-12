@@ -72,11 +72,16 @@ def write_atomic(path, text):
     p.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=str(p.parent), prefix=p.name + '.', suffix='.tmp')
     try:
-        with os.fdopen(fd, 'w') as f:
-            f.write(text)
+        with os.fdopen(fd, 'wb') as f:
+            f.write(text.encode('utf-8') if isinstance(text, str) else text)
             f.flush()
             os.fsync(f.fileno())
         os.replace(tmp, p)
+        directory = os.open(p.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     except BaseException:
         pathlib.Path(tmp).unlink(missing_ok=True)
         raise
