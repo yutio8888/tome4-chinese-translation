@@ -939,6 +939,12 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
                 and all(i >= prompt_index for i, r in nodes.values())
                 and sum(r['parentUuid'] is None for i, r in nodes.values()) == 1, 'ambiguous Claude root')
         tail_index = len(records) - 1
+        if records[tail_index]['type'] == 'atis-latch':
+            latch = records[tail_index]
+            require(set(latch) == {'type', 'atis', 'sessionId'}
+                    and isinstance(latch['atis'], str)
+                    and latch['sessionId'] == session_id, 'invalid Claude atis-latch')
+            tail_index -= 1
         title_present = records[tail_index]['type'] == 'ai-title'
         if natural_success and title_present:
             title = records[tail_index]

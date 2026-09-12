@@ -1455,6 +1455,33 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
             with self.assertRaises(life.LifecycleError):
                 life.parse_native_final(self.native_bytes(bad), **binding, natural_success=True)
 
+    def test_p1_natural_atis_latch_preserves_exact_final_bytes(self):
+        text = ' \n---\n\n{"中文":"原样"}\t\r\n'
+        rows = self.native_records('claude', text)
+        binding = dict(provider='claude', session_id='session', cwd='/fixture', prompt='frozen prompt')
+        tail_modes = [rows[:-1], rows, rows + [dict(type='ai-title', aiTitle='fixture', sessionId='session')]]
+        for without_latch in tail_modes:
+            with_latch = without_latch + [dict(type='atis-latch', atis='', sessionId='session')]
+            plain, _ = life.parse_native_final(self.native_bytes(without_latch), **binding, natural_success=True)
+            latched, proof = life.parse_native_final(self.native_bytes(with_latch), **binding, natural_success=True)
+            self.assertEqual(latched, plain)
+            self.assertEqual(latched, text.encode())
+            self.assertEqual(proof['final_line'], len(rows) - 1)
+            self.assertEqual(proof['complete_line'], len(with_latch))
+
+    def test_p1_natural_atis_latch_rejects_invalid_shape_or_identity(self):
+        rows = self.native_records('claude', '{}')
+        binding = dict(provider='claude', session_id='session', cwd='/fixture', prompt='frozen prompt')
+        invalid = [
+            dict(type='atis-latch', sessionId='session'),
+            dict(type='atis-latch', atis='', sessionId='session', extra=True),
+            dict(type='atis-latch', atis='', sessionId='other'),
+            dict(type='atis-latch', atis=None, sessionId='session'),
+        ]
+        for latch in invalid:
+            with self.subTest(latch=latch), self.assertRaises(life.LifecycleError):
+                life.parse_native_final(self.native_bytes(rows + [latch]), **binding, natural_success=True)
+
     def test_p1_natural_historical_metadata_and_lifecycle_guards(self):
         row, cap, native = self.native_child('claude')
         records = [json.loads(x) for x in native.read_bytes().splitlines()][:-1]
