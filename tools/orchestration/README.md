@@ -393,3 +393,54 @@ proof 保留完整 source SHA、原样 raw SHA、final 位置与尾部形态；�
 null 端点为未测量。`model_window` 是 activeTurn 窗口，**包括工具时间**，不是纯模型时间。
 README fixture 验证顺序与故障，不代表真实 stage 吞吐实测。真实 MCP 返回卸壳的只读复算与
 生产端到端、实际省时是三类不同证据，详见[本任务报告](../../docs/review-speed-p1-20260912.md)。
+
+## 可选源码事实输入（P1-C）
+
+首次冻结 contextual 候选时，可把当前 `freeze_workset.py` 元数据齐备的已有 selected
+源码工作集交给真实 CLI（包含 `source_pinning`、`fixed_source_commit` 等绑定字段；
+缺失即明确失败，不为旧工作集补默认身份）：
+
+```bash
+python3 -B tools/i18n production batch contextual-export \
+  --source-workset evidence/quality/production-batches/<batch>-source-workset.json
+```
+
+同进程组合保留 surface-import 的结果和投影复用；无需为筛选 deep 条目另跑查询：
+
+```bash
+python3 -B tools/orchestration/run_batch_steps.py \
+  surface-import=/tmp/surface-index.json \
+  contextual-export=evidence/quality/production-batches/<batch>-source-workset.json
+```
+
+裸 `contextual-export` 与原七字段 envelope、candidate 计算保持兼容。新入口在 writer lock
+和既有 preflight 后读取一次普通工作集，核对全部 selected 的 batch/catalog/base、冻结行与
+verification 绑定，再仅为 deep_required 构建事实。全部 run 验证完成后才写入；错误不回退为裸导出。
+工作集原始 bytes SHA、manifest 摘要、run 有序成员和源码／术语事实经包 SHA 绑定到 context。
+SHA 不放 briefing；新增 JSON 中的等号编码为 `\u003d`，JSON 解码可还原，原 args_order 前缀保留。
+
+来源配置沿 `i18n/versions/tome-1.7.6.json`：固定来源使用 `TOME_ENGINE_ROOT` 等仓库配置，
+按 manifest commit 读取 Git 普通 blob；extractor 使用其独立固定 commit。checkout 修改或删除
+不会改变固定输入。DLC 使用 `TOME_DLC_ROOT` 下唯一匹配目录，或显式组件根
+`TOME_DLC_CULTS_ROOT`、`TOME_DLC_ORCS_ROOT`、`TOME_DLC_ASHES_ROOT`；组件根中保留
+`tome-cults/` 等 public path 前缀。多个目录匹配直接拒绝。DLC 公开源码版本未固定，提取快照
+不是源码 commit；所有读入 bytes 均核对工作集 SHA。绝对 public path、`..`、symlink、
+缺失文件、非法 UTF-8、错误 hash／行号均报错。
+
+术语优先取 batch base commit，按生产 `terminology_snapshot` 的 path/length framing 核对；
+当前文件只有同摘要才能替代。保留 scope/tag/status/notes，nil 与空串严格区分。事实只有有限
+源码入口和格式标记，不复制工作集的 confirmed/rule 结论，不扫描其他译文的现有用法；
+数量含义保持 unknown，无归属合法空命中标 pending。默认上下文 ±3 行，每条最多 8 入口、
+120 展示行、32 KiB canonical 事实，每 run 最多 512 KiB；超限拒绝，不静默截断。
+
+已有或请求带事实的候选只允许相同 bytes 幂等复用；变更事实、工作集排版或省略参数均不能
+覆盖已冻结事实。需要变更时，先由宿主按既有 `production batch abandon`／重新 start、
+surface-export/import 流程处理当前边界，再以新 checkpoint 绑定的工作集首次导出；
+`recover` 用于修复当前状态，不自动授予覆盖候选权限。已冻结 import、prepare 和证据回放
+消费 envelope 本身，不重新读取构建材料。原 `build_evidence_pack.py <batch> --context 3
+--siblings 4` 入口仍可用，与新路径共享构建器；siblings 参数仅保留兼容，旧包不批量改写。
+旧历史 envelope／replay 不新增源码或术语读取依赖。独立脚本独占创建 `.json.tmp`；
+该临时路径预存时直接失败，保留输入和已有 pack，不跟随符号链接或覆盖临时文件。
+
+验证与限制见 [P1-C 实现报告](../../docs/review-speed-p1c-20260912.md)。生产省时尚未测量；
+fixture 中的投影次数和运行耗时不代表生产收益。

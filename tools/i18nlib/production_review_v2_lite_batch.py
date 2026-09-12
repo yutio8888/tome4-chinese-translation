@@ -577,7 +577,7 @@ def partition_contextual_entries(checkpoint):
     return result
 
 
-def contextual_export(root, *, task_ids=None):
+def contextual_export(root, *, task_ids=None, source_workset=None):
     with queue.writer_lock(root):
         checkpoint = preflight(root)
         if checkpoint is None or checkpoint["phase"] not in {"surface_collected", "deep_ready"}:
@@ -588,16 +588,47 @@ def contextual_export(root, *, task_ids=None):
         runtime = queue.checkpoint_path(root).parent / "contextual"
         task_ids = task_ids or {}
         refs = []
+        packages = None
+        if source_workset is not None:
+            from orchestration import build_evidence_pack as source_facts
+            try:
+                packages = source_facts.build_source_facts(
+                    root, source_facts.ordinary_bytes(source_workset), checkpoint, runs)
+            except (OSError, ValueError, KeyError, TypeError) as error:
+                raise _err(f"invalid source workset/facts: {error}") from error
+        pending_inputs = []
         for run in runs:
             payload = _contextual_payload(run)
+            if packages is not None:
+                package = packages[run["run_index"]]
+                for context, fact in zip(payload["bounded_context"], package["entries"]):
+                    context["context"] += source_facts.bound_context(package, fact)
             raw = contextual.canonical_payload_bytes(payload)
             identity = _sha(raw)
             envelope = {"candidate_identity": identity, "payload": payload}
             input_raw = json.dumps(envelope, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
             path = runtime / f"run-{run['run_index']:03d}-input.json"
             task_id = task_ids.get(run["run_index"], f"{checkpoint['batch_id']}-contextual-{run['run_index']:03d}")
+            if not isinstance(task_id, str) or not task_id:
+                raise _err("contextual task_id must be a non-empty string")
             state_path = f".ai/task/{task_id}/STATE.json"
-            _atomic(path, input_raw)
+            # Check every path and candidate before writing any run. An enriched
+            # freeze is immutable, including when a retry omits --source-workset.
+            for ancestor in (path, *path.parents):
+                if ancestor.is_symlink():
+                    raise _err(f"contextual input path is symlink: {ancestor}")
+                if ancestor != path and ancestor.exists() and not ancestor.is_dir():
+                    raise _err(f"contextual input parent is not directory: {ancestor}")
+            temporary = path.with_name("." + path.name + ".tmp")
+            if temporary.is_symlink() or (temporary.exists() and not temporary.is_file()):
+                raise _err(f"contextual temporary is not ordinary file: {temporary}")
+            if path.exists():
+                if not path.is_file():
+                    raise _err(f"contextual input is not ordinary file: {path}")
+                existing = path.read_bytes()
+                if (packages is not None or b"source_facts_v1:" in existing) and existing != input_raw:
+                    raise _err("frozen source-facts candidate differs; use batch recovery/refreeze boundary")
+            pending_inputs.append((path, input_raw))
             refs.append({"run_index": run["run_index"], "contract": "translation_contextual_v2",
                          "input_path": str(path), "input_sha256": _sha(input_raw), "output_path": None,
                          "output_sha256": None, "validator_status": "prepared", "candidate_identity": identity,
@@ -606,7 +637,15 @@ def contextual_export(root, *, task_ids=None):
         checkpoint["contextual"] = refs
         checkpoint["phase"] = "deep_ready"
         checkpoint["last_safe_boundary"] = "before_result_import"
-        _atomic(queue.checkpoint_path(root), _checkpoint_bytes(checkpoint))
+        checkpoint_raw = _checkpoint_bytes(checkpoint)
+        checkpoint_path = queue.checkpoint_path(root)
+        temporary = checkpoint_path.with_name("." + checkpoint_path.name + ".tmp")
+        if temporary.is_symlink() or (temporary.exists() and not temporary.is_file()):
+            raise _err(f"checkpoint temporary is not ordinary file: {temporary}")
+        for path, input_raw in pending_inputs:
+            if not path.exists() or path.read_bytes() != input_raw:
+                _atomic(path, input_raw)
+        _atomic(checkpoint_path, checkpoint_raw)
         return {"batch_id": checkpoint["batch_id"], "runs": len(refs), "entries": sum(len(r["parent_indexes"]) for r in refs), "ok": True}
 
 

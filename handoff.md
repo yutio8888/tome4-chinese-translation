@@ -21,10 +21,11 @@
 > **当前恢复入口：翻译暂停，不启动第 92 批。** 第 91 批 `batch-05cc982cc1829a162740`
 > 已提交 `6c0c4d42d6860f721db117ed9eed5b3743280958` 并 finalize；80 条中
 > 79 done、1 repair_required、0 blocked，5 个子 agent 已确认归档，17 门禁与严格 build 通过。
-> 按 `191058b` 报告顺序推进 P1-A/B → P1-C → P2-A → P2-B。当前 P1-A/B 任务为
-> `review-speed-p1-20260912`，状态以 [.ai/task/review-speed-p1-20260912/STATE.json](.ai/task/review-speed-p1-20260912/STATE.json)
-> 为准；实现与验证说明见 [P1 报告](docs/review-speed-p1-20260912.md)，这里不预报 DONE。
-> P1-A/B cycle1 仅集中修复停止状态仍派发与可选 profile 设置兼容；后续按一次完整 FINAL_REVIEW 收口。
+> 按 `191058b` 报告顺序推进 P1-A/B → P1-C → P2-A → P2-B。P1-A/B 已提交 `d0c4be1` 并 DONE，
+> 实现与验证说明见 [P1 报告](docs/review-speed-p1-20260912.md)。当前 P1-C 任务为
+> `review-speed-p1c-20260912`，状态以 [.ai/task/review-speed-p1c-20260912/STATE.json](.ai/task/review-speed-p1c-20260912/STATE.json)
+> 为准；实现入口与有界验证见 [P1-C 报告](docs/review-speed-p1c-20260912.md)，这里不预报 DONE。
+> `fix-astra-01` 已集中修复四项问题，42 项有界测试通过；生产者字段归因更正及待宿主复审事项见该报告。
 > 最新授权见 `.ai/task/review-speed-p1-20260912/RESUME-TRANSLATION-AUTHORIZATION.json`：
 > 报告各项优化验收、提交完后**自动恢复第 92 批**，无需再次逐批批准；优化期间仍暂停。
 > 第 91 批从 07:41:02Z 至 08:15:41.731358Z，共 2079.731358 秒（34 分 39.7 秒），

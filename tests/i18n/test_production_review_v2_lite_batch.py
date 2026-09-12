@@ -348,5 +348,36 @@ class MixedRunConsumerTests(queue_fixtures.QueueFixture):
         self.assertEqual(batch.surface_import(self.root, outputs)['imported'], 9)
 
 
+class SourceFactsCompatibilityTests(unittest.TestCase):
+    def test_legacy_v1_v2_and_remap_payload_candidate_envelope_bytes(self):
+        # Independent pre-P1-C payload definition: compare whole canonical bytes,
+        # not selected fields. The new builder must not enter this code path.
+        for rules, remap in ((batch.catalog.FROZEN_RULES_VERSION, None),
+                             (batch.catalog.RULES_VERSION, None),
+                             (batch.catalog.RULES_VERSION, [2, 1])):
+            with self.subTest(rules=rules, remap=remap):
+                item = row('revision')
+                item.update(source='%s %d', target='%d %s' if remap else '%s %d',
+                            section='mod-tome/fixture.lua', rules_version=rules)
+                item['risk'].update(args_order=remap, has_args_order=remap is not None)
+                run = dict(entries=[item], identity=(item['fixed_source_identity'],
+                           item['terminology_snapshot_sha256'], rules))
+                old_context = item['section'] + (' args_order={2,1}' if remap else '')
+                expected = dict(contract='translation_contextual_v2', ordered_revision_keys=['revision'],
+                    translation_snapshot=[dict(revision_key='revision', source=item['source'], target=item['target'])],
+                    fixed_source_identity=item['fixed_source_identity'], terminology_snapshot=item['terminology_snapshot_sha256'],
+                    bounded_context=[dict(revision_key='revision', context=old_context)],
+                    rendered_briefing='WP2-Lite contextual review; review only')
+                actual = batch._contextual_payload(run)
+                expected_raw = wp1.canonical_bytes(expected)
+                actual_raw = batch.contextual.canonical_payload_bytes(actual)
+                self.assertEqual(actual_raw, expected_raw)
+                expected_id = hashlib.sha256(expected_raw).hexdigest()
+                actual_id = hashlib.sha256(actual_raw).hexdigest()
+                self.assertEqual(actual_id, expected_id)
+                self.assertEqual(wp1.canonical_bytes(dict(candidate_identity=actual_id, payload=actual)),
+                                 wp1.canonical_bytes(dict(candidate_identity=expected_id, payload=expected)))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -47,6 +47,10 @@ def parse(tokens: list[str]) -> list[list[str]]:
             if not Path(value).is_file():
                 raise SystemExit(f"ERROR: {action} input is not a file: {value}")
             steps.append(["production", "batch", action, "--input", value])
+        elif action == "contextual-export" and separator:
+            if not value or not Path(value).is_file():
+                raise SystemExit(f"ERROR: {action} requires an existing source workset")
+            steps.append(["production", "batch", action, "--source-workset", value])
         elif action in NO_INPUT:
             if separator:
                 raise SystemExit(f"ERROR: {action} takes no input")

@@ -60,7 +60,8 @@ def register(subparsers: argparse._SubParsersAction) -> None:
     batch_sub.add_parser("surface-export")
     batch_import = batch_sub.add_parser("surface-import")
     batch_import.add_argument("--input", required=True, type=Path)
-    batch_sub.add_parser("contextual-export")
+    contextual_export = batch_sub.add_parser("contextual-export")
+    contextual_export.add_argument("--source-workset", type=Path)
     contextual_import = batch_sub.add_parser("contextual-import")
     contextual_import.add_argument("--input", required=True, type=Path)
     adjudicate = batch_sub.add_parser("adjudicate")
@@ -285,7 +286,7 @@ def _production(arguments: argparse.Namespace) -> int:
                 raise production_review.ProductionReviewError(f"invalid surface import input: {error}") from error
             report = production_review_v2_lite_batch.surface_import(root, outputs)
         elif action == "contextual-export":
-            report = production_review_v2_lite_batch.contextual_export(root)
+            report = production_review_v2_lite_batch.contextual_export(root, source_workset=arguments.source_workset)
         elif action == "contextual-import":
             try:
                 values = json.loads(arguments.input.read_text(encoding="utf-8"))

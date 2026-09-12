@@ -28,6 +28,7 @@ import contextual_result_check
 
 ROOT = Path(__file__).resolve().parents[2]
 STAMP = "2026-09-02T01:02:03Z"
+FIXTURE_ROOT = Path(os.environ.get("TOME_TEST_FIXTURE_ROOT", ROOT / ".artifacts/i18n"))
 
 
 class QueueFixture(unittest.TestCase):
@@ -43,8 +44,8 @@ class QueueFixture(unittest.TestCase):
         patcher = mock.patch.object(batch, "_actual_gate_records", side_effect=fixture_gates)
         self.gate_runner = patcher.start()
         self.addCleanup(patcher.stop)
-        (ROOT / ".artifacts/i18n").mkdir(parents=True, exist_ok=True)
-        self.temp = tempfile.TemporaryDirectory(dir=ROOT / ".artifacts/i18n")
+        FIXTURE_ROOT.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(dir=FIXTURE_ROOT)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         subprocess.run(["git", "init", "-q"], cwd=self.root, check=True)
@@ -2514,7 +2515,7 @@ class ProjectionChainTests(QueueFixture):
         return code, stdout.getvalue(), stderr.getvalue() + error
 
     def _input_dir(self):
-        directory = Path(tempfile.mkdtemp(prefix="perf-cli-projection.", dir=ROOT / ".artifacts/i18n"))
+        directory = Path(tempfile.mkdtemp(prefix="perf-cli-projection.", dir=FIXTURE_ROOT))
         self.addCleanup(shutil.rmtree, directory, True)
         return directory
 
@@ -2553,7 +2554,7 @@ class ProjectionChainTests(QueueFixture):
                 for path in sorted(root.rglob("*")) if path.is_file()}
 
     def _clone_repo(self):
-        directory = Path(tempfile.mkdtemp(prefix="perf-cli-clone.", dir=ROOT / ".artifacts/i18n"))
+        directory = Path(tempfile.mkdtemp(prefix="perf-cli-clone.", dir=FIXTURE_ROOT))
         self.addCleanup(shutil.rmtree, directory, True)
         target = directory / "repo"
         shutil.copytree(self.root, target, symlinks=True)
@@ -2865,6 +2866,250 @@ class ProjectionChainTests(QueueFixture):
             self.assertEqual(len(calls), 1)
             self.assertEqual(self.gate_runner.call_count, 1)
             self.assertEqual(batch.show(self.root)["phase"], "commit_ready")
+
+
+
+
+
+class SourceFactsChainTests(QueueFixture):
+    """P1-C real CLI + SQLite + Git; only the inherited gate runner is synthetic."""
+    # Reuse bounded fixture helpers, without inheriting/re-running their tests.
+    _surface_bytes = ProjectionChainTests._surface_bytes
+    _contextual_bytes = ProjectionChainTests._contextual_bytes
+    _decision = ProjectionChainTests._decision
+    _bind_alias = ProjectionChainTests._bind_alias
+    _drop_aliases = ProjectionChainTests._drop_aliases
+    _load_wrapper = ProjectionChainTests._load_wrapper
+    _repo_env = ProjectionChainTests._repo_env
+    _fixed_clock = ProjectionChainTests._fixed_clock
+    _count_projections = ProjectionChainTests._count_projections
+    _run_cli = ProjectionChainTests._run_cli
+    _run_wrapper = ProjectionChainTests._run_wrapper
+    _input_dir = ProjectionChainTests._input_dir
+    _surface_index = ProjectionChainTests._surface_index
+    _adjudication_file = ProjectionChainTests._adjudication_file
+
+    def setUp(self):
+        super().setUp()
+        import tools.i18nlib as tools_package
+        from tools.i18nlib import cli as tools_cli
+        self._tools_cli = tools_cli
+        self._aliases = []
+        self._bind_alias("i18nlib", tools_package)
+        for name, module in list(sys.modules.items()):
+            if name.startswith("tools.i18nlib."):
+                self._bind_alias("i18nlib." + name[len("tools.i18nlib."):], module)
+        self.addCleanup(self._drop_aliases)
+        self._steps = self._load_wrapper()
+        from tests.i18n import test_review_source_facts as source_fixture
+        self.source_fixture = source_fixture
+        rows = [self._entry('1'), self._entry('2'), dict(self._entry('3'), component='cults')]
+        self.entries, self.source_root = source_fixture.install_sources(self.root, rows)
+        self._write_catalog()
+        self._rewrite_catalog(self.entries)
+        manifest_path = self.root / catalog.CATALOG_PREFIX / 'manifest.json'
+        manifest = json.loads(manifest_path.read_bytes())
+        manifest['terminology_snapshot_sha256'] = wp1.terminology_snapshot(self.root)
+        manifest['catalog_id'] = catalog.catalog_id(manifest)
+        manifest_path.write_bytes(wp1.canonical_bytes(manifest))
+        self._commit('P1-C real source and terms identities')
+        queue.init(self.root)
+        with self._fixed_clock():
+            batch.start(self.root, limit=3)
+            batch.surface_export(self.root)
+        cp = batch.show(self.root)
+        self.workset_value = source_fixture.workset(self.root, cp)
+        self.workset_path = self._input_dir() / 'source-workset.json'
+        self.workset_path.write_bytes(wp1.canonical_bytes(self.workset_value))
+        self.index_path = self._surface_index('ISSUE')
+        # One selected revision stays shallow; the remaining two form two runs.
+        self.shallow = next(r['entry_revision_identity'] for r in cp['entry_snapshots'] if r['component'] == 'tome')
+        for name in json.loads(self.index_path.read_bytes()).values():
+            path = Path(name)
+            output = json.loads(path.read_bytes())
+            for item in output['results']:
+                if item['entry_revision_identity'] == self.shallow:
+                    item['verdict'] = 'OK'
+                    item.pop('observation', None)
+            path.write_bytes(wp1.canonical_bytes(output))
+
+    def inputs(self):
+        cp = batch.show(self.root)
+        return {ref['run_index']: Path(ref['input_path']).read_bytes() for ref in cp['contextual']}
+
+    def test_enriched_real_wrapper_two_to_one_projection_exact_output_and_consumers(self):
+        with self._repo_env(), self._fixed_clock():
+            initial = queue.checkpoint_path(self.root).read_bytes()
+            with self._count_projections() as separate:
+                imported = self._run_cli('surface-import', '--input', str(self.index_path))
+                exported = self._run_cli('contextual-export', '--source-workset', str(self.workset_path))
+            self.assertEqual(imported[0], 0, imported[2])
+            self.assertEqual(exported[0], 0, exported[2])
+            separate_cp = queue.checkpoint_path(self.root).read_bytes()
+            separate_rows = queue.business_rows(queue.database_path(self.root))
+            separate_inputs = self.inputs()
+            self.assertEqual(len(separate_inputs), 2)
+            batch.abandon(self.root, discard_uncommitted_results=True)
+            batch.start(self.root, limit=3)
+            batch.surface_export(self.root)
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), initial)
+            with self._count_projections() as wrapped:
+                code, stdout, stderr = self._run_wrapper(f'surface-import={self.index_path}', f'contextual-export={self.workset_path}')
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual([len(separate), len(wrapped)], [2, 1])
+            self.assertEqual(stdout, imported[1] + exported[1])
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), separate_cp)
+            self.assertEqual(queue.business_rows(queue.database_path(self.root)), separate_rows)
+            self.assertEqual(self.inputs(), separate_inputs)
+            cp = batch.show(self.root)
+            deep_rows = batch._deep_rows(cp)
+            expected = [row['entry_revision_identity'] for _, row in deep_rows]
+            actual = []
+            for ref in cp['contextual']:
+                raw = Path(ref['input_path']).read_bytes()
+                payload, identity = contextual_result_check.validate_envelope(json.loads(raw))
+                self.assertEqual(identity, hashlib.sha256(contextual_result_check.canonical_payload_bytes(payload)).hexdigest())
+                self.assertEqual(set(payload), contextual_result_check.PAYLOAD_KEYS)
+                actual.extend(payload['ordered_revision_keys'])
+                facts = self.source_fixture.facts
+                parts = [json.loads(c['context'].split(facts.CONTEXT_MARKER)[1]) for c in payload['bounded_context']]
+                package = dict(parts[0]['binding'], entries=[p['fact'] for p in parts])
+                self.assertEqual(facts.sha(facts.canonical(package)), parts[0]['package_sha256'])
+                self.assertEqual(package['ordered_revisions'], payload['ordered_revision_keys'])
+                shallow_row = next(r for r in cp['entry_snapshots'] if r['entry_revision_identity'] == self.shallow)
+                self.assertNotIn(shallow_row['target'], raw.decode())
+                self.assertNotIn(shallow_row['source'], raw.decode())
+                self.assertNotIn(self.shallow, raw.decode())
+            self.assertEqual(actual, expected)
+            # Consumers use the frozen envelope after ALL external source inputs
+            # disappear. Terms are tracked base inputs; their disk copy also goes.
+            shutil.rmtree(self.source_root)
+            shutil.rmtree(self.root / 'terminology')
+            (self.root / 'i18n/versions/tome-1.7.6.json').unlink()
+            self.workset_path.unlink()
+            outputs = {}
+            for i, ref in enumerate(cp['contextual']):
+                raw = self._contextual_bytes(ref, 'OK')
+                self._install_contextual_done_state(ref, raw)
+                output_path = self._input_dir() / f'contextual-{i}.json'
+                output_path.write_bytes(raw)
+                outputs[str(i)] = str(output_path)
+            index = self._input_dir() / 'contextual-index.json'
+            index.write_bytes(wp1.canonical_bytes(outputs))
+            imported = self._run_cli('contextual-import', '--input', str(index))
+            self.assertEqual(imported[0], 0, imported[2])
+            decisions = [self._decision(item) for item in batch._accepted_observations(batch.show(self.root))]
+            path = self._adjudication_file(cp['batch_id'], decisions)
+            code, _, stderr = self._run_cli('adjudicate', '--input', str(path))
+            self.assertEqual(code, 0, stderr)
+            code, stdout, stderr = self._run_cli('prepare-evidence')
+            self.assertEqual(code, 0, stderr)
+            prospective = batch._prospective_batch_path(self.root, cp['batch_id'])
+            raw_copies = [p.read_bytes() for p in prospective.rglob('*') if p.is_file()]
+            for frozen in separate_inputs.values():
+                self.assertIn(frozen, raw_copies)
+            self.assertGreater(self.gate_runner.call_count, 0)
+
+    def test_second_run_failure_and_changed_or_bare_retry_never_overwrite(self):
+        with self._repo_env():
+            self.assertEqual(self._run_cli('surface-import', '--input', str(self.index_path))[0], 0)
+            self.assertEqual(self._run_cli('contextual-export', '--source-workset', str(self.workset_path))[0], 0)
+            before_cp, before_inputs = queue.checkpoint_path(self.root).read_bytes(), self.inputs()
+            # Idempotent reuse first, then a second-run hash failure.
+            self.assertEqual(self._run_cli('contextual-export', '--source-workset', str(self.workset_path))[0], 0)
+            cp = batch.show(self.root)
+            second = batch.partition_contextual_entries(cp)[1]['entries'][0]['entry_revision_identity']
+            value = copy.deepcopy(self.workset_value)
+            next(v for v in value['source_verification'] if v['entry_revision_identity'] == second)['source_file_sha256'] = '0'*64
+            self.workset_path.write_bytes(wp1.canonical_bytes(value))
+            code, _, stderr = self._run_cli('contextual-export', '--source-workset', str(self.workset_path))
+            self.assertNotEqual(code, 0)
+            self.assertIn('SHA mismatch', stderr)
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), before_cp)
+            self.assertEqual(self.inputs(), before_inputs)
+            # Legal raw-byte change is still a new candidate; frozen paths reject it.
+            self.workset_path.write_bytes(wp1.canonical_bytes(self.workset_value) + b'\n')
+            for args in [('contextual-export', '--source-workset', str(self.workset_path)), ('contextual-export',)]:
+                code, _, stderr = self._run_cli(*args)
+                self.assertNotEqual(code, 0)
+                self.assertIn('frozen source-facts candidate differs', stderr)
+                self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), before_cp)
+                self.assertEqual(self.inputs(), before_inputs)
+
+    def test_raw_bytes_fact_and_terms_changes_bind_new_candidate_on_fresh_boundary(self):
+        with self._repo_env(), self._fixed_clock():
+            def export():
+                self.assertEqual(self._run_cli('surface-import', '--input', str(self.index_path))[0], 0)
+                code, _, stderr = self._run_cli('contextual-export', '--source-workset', str(self.workset_path))
+                self.assertEqual(code, 0, stderr)
+                return [json.loads(v)['candidate_identity'] for v in self.inputs().values()]
+            def restart():
+                batch.abandon(self.root, discard_uncommitted_results=True)
+                batch.start(self.root, limit=3)
+                batch.surface_export(self.root)
+            original = export()
+            restart()
+            self.workset_path.write_bytes(wp1.canonical_bytes(self.workset_value) + b'\n')
+            self.assertNotEqual(export(), original)
+            restart()
+            changed = copy.deepcopy(self.workset_value)
+            for v in changed['source_verification']:
+                v['matching_literal_lines'] = []  # legal pending evidence, not a false proof
+            self.workset_path.write_bytes(wp1.canonical_bytes(changed))
+            self.assertNotEqual(export(), original)
+            # Pure terminology changes preserve rules-v2 revision keys. Bind a
+            # matching current snapshot by rebuilding a valid catalog/base.
+            restart()
+            batch.abandon(self.root, discard_uncommitted_results=True)
+            terms = self.root / 'terminology/terms.tsv'
+            terms.write_text(terms.read_text().replace('术语', '新术语'))
+            term_digest = wp1.terminology_snapshot(self.root)
+            for row in self.entries:
+                row['terminology_snapshot_sha256'] = term_digest
+            self._rewrite_catalog(self.entries)
+            mp = self.root / catalog.CATALOG_PREFIX / 'manifest.json'
+            manifest = json.loads(mp.read_bytes())
+            manifest['terminology_snapshot_sha256'] = term_digest
+            manifest['catalog_id'] = catalog.catalog_id(manifest)
+            mp.write_bytes(wp1.canonical_bytes(manifest))
+            self._commit('new legitimate term binding')
+            queue.rebuild(self.root)
+            batch.start(self.root, limit=3)
+            batch.surface_export(self.root)
+            cp = batch.show(self.root)
+            ws = self.source_fixture.workset(self.root, cp)
+            self.workset_path.write_bytes(wp1.canonical_bytes(ws))
+            self.index_path = self._surface_index('ISSUE')
+            updated = export()
+            self.assertNotEqual(updated, original)
+            self.assertIn('新术语', b''.join(self.inputs().values()).decode())
+
+    def test_fresh_export_validates_second_run_source_and_target_before_any_write(self):
+        with self._repo_env():
+            self.assertEqual(self._run_cli('surface-import', '--input', str(self.index_path))[0], 0)
+            cp = batch.show(self.root)
+            original = queue.checkpoint_path(self.root).read_bytes()
+            runs = batch.partition_contextual_entries(cp)
+            second = runs[1]['entries'][0]['entry_revision_identity']
+            value = copy.deepcopy(self.workset_value)
+            next(v for v in value['source_verification'] if v['entry_revision_identity'] == second)['source_file_sha256'] = '0'*64
+            self.workset_path.write_bytes(wp1.canonical_bytes(value))
+            runtime = queue.checkpoint_path(self.root).parent / 'contextual'
+            code, _, stderr = self._run_cli('contextual-export', '--source-workset', str(self.workset_path))
+            self.assertNotEqual(code, 0)
+            self.assertIn('SHA mismatch', stderr)
+            self.assertFalse(runtime.exists())
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), original)
+            # A bad second destination must likewise not write run zero.
+            self.workset_path.write_bytes(wp1.canonical_bytes(self.workset_value))
+            runtime.mkdir()
+            blocker = runtime / '.run-001-input.json.tmp'
+            blocker.mkdir()
+            code, _, stderr = self._run_cli('contextual-export', '--source-workset', str(self.workset_path))
+            self.assertNotEqual(code, 0)
+            self.assertIn('temporary is not ordinary', stderr)
+            self.assertEqual(list(runtime.iterdir()), [blocker])
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), original)
 
 
 if __name__ == "__main__":
