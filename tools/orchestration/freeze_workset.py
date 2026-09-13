@@ -17,6 +17,8 @@
      运行时取值来自同目录兄弟文件里的表键，字面量不在条目所属文件内）
   7. 运行期拼接实体名 concatenated_entity_name_verification（`"<前缀>"..name:lower()`
      与具名调用实参在源码里分处两地，两半都不是完整字面量）
+  8. 运行期小写化实体名 lowercased_entity_name_verification（`name = name:lower()` 无前缀，
+     实体名是同文件某次具名调用实参的小写形式，如 gem.lua 的 newGem("Fire Opal", ...)）
 详见 docs/baseline-batch-runbook-2026-09-06.md。
 """
 import json, hashlib, os, re, subprocess, sys
@@ -319,6 +321,27 @@ def main():
                     'status': 'confirmed',
                 }
                 break
+        lowered = None
+        if not hits and concat is None and snap['source_tag'] == 'entity name':
+            # `name = name:lower()`：第七类的空前缀形态。实体名没有拼接，
+            # 只是同文件某次具名调用实参的小写形式（gem.lua 的可掉落宝石）。
+            whole = '\n'.join(lines)
+            for m in re.finditer(r'(?<![.\w])name\s*=\s*name:lower\(\)', whole):
+                arglines = [i for i, ln in enumerate(lines, 1)
+                            for a in re.findall(r'\(\s*"([^"\\]*)"\s*,', ln)
+                            if a.lower() == src]
+                if not arglines:
+                    continue
+                lowered = {
+                    'algorithm': 'lowercased-entity-name-attribution/1',
+                    'argument_lines': arglines,
+                    'lower_lines': [whole.count('\n', 0, m.start()) + 1],
+                    'resolved_argument': src,
+                    'rule': ('entity name is produced at runtime by lowercasing a named call '
+                             'argument; the file holds the argument in its original case only'),
+                    'status': 'confirmed',
+                }
+                break
         legacy = None
         if not hits and pinned and snap['normalized_path'] == 'engine.lua':
             # 上游 locale 把当前源码已无字面量的历史条目留在对应 section 下，
@@ -386,6 +409,11 @@ def main():
             row['literal_source_match'] = False
             row['matching_literal_lines'] = None
             row['verification_status'] = 'confirmed'
+        if lowered is not None:
+            row['lowercased_entity_name_verification'] = lowered
+            row['literal_source_match'] = False
+            row['matching_literal_lines'] = None
+            row['verification_status'] = 'confirmed'
         if hostgen is not None:
             row['host_generated_key_verification'] = hostgen
             row['matching_literal_lines'] = None
@@ -402,7 +430,8 @@ def main():
             and 'interface_mixin_verification' not in v
             and 'legacy_locale_entry_verification' not in v
             and 'dynamic_tag_sibling_key_verification' not in v
-            and 'concatenated_entity_name_verification' not in v]
+            and 'concatenated_entity_name_verification' not in v
+            and 'lowercased_entity_name_verification' not in v]
     out = {
         'base_commit': cp['base_commit'],
         'batch_id': batch,

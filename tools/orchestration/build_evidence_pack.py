@@ -376,7 +376,8 @@ class FactBuilder:
                 raise SourceFactsError(f'{rev}: literal not at declared lines')
             anchor('literal', hits, digest=ver['source_file_sha256'])
         for kind in ('interface_mixin', 'host_generated_key', 'dynamic_tag_sibling_key',
-                     'concatenated_entity_name', 'always_merge_locale', 'legacy_locale_entry'):
+                     'concatenated_entity_name', 'lowercased_entity_name',
+                     'always_merge_locale', 'legacy_locale_entry'):
             key = kind + '_verification'
             if key not in ver:
                 continue
@@ -404,6 +405,12 @@ class FactBuilder:
                 if not isinstance(data['resolved_argument'], str) or not data['resolved_argument'] or not any(
                         data['resolved_argument'].lower() in main_lines[n-1].lower() for n in data['argument_lines']):
                     raise SourceFactsError('concatenation argument missing')
+            elif kind == 'lowercased_entity_name':
+                anchor(kind + ':lower', data['lower_lines'], tokens=('name:lower()',))
+                anchor(kind + ':argument', data['argument_lines'])
+                if not isinstance(data['resolved_argument'], str) or not data['resolved_argument'] or not any(
+                        data['resolved_argument'].lower() in main_lines[n-1].lower() for n in data['argument_lines']):
+                    raise SourceFactsError('lowercased argument missing')
             else:
                 owner = next(c for c in self.manifest.components if c.id == 'engine')
                 locale = data['locale_public_source_path']

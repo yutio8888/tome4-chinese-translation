@@ -7,6 +7,7 @@ from dataclasses import replace
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -378,7 +379,8 @@ class SourceFactsTests(unittest.TestCase):
 
     def attribution_fixture(self):
         body = ('require "engine.Interface"\ncosmetic_key = {\n_t(value, "tag")\n'
-                'name = "prefix "..name:lower()\nmake("Argument", 1)\n')
+                'name = "prefix "..name:lower()\nmake("Argument", 1)\n'
+                'name = name:lower()\nnewGem("Argument", 1)\n')
         put(self.source, 'interface.lua', 't("' + self.rows[0]['source'] + '")\n')
         put(self.source, 'sibling.lua', '{ my_key = 1 }\n')
         locale = 'section "mod-tome/a.lua"\n-- old translated text\nt("' + self.rows[0]['source'] + '", "locale only")\n'
@@ -392,6 +394,7 @@ class SourceFactsTests(unittest.TestCase):
             'host_generated_key_verification': dict(source_lines=[2], source_key='cosmetic_key', extractor_lines=[1,2], extractor_path=extractor_path, extractor_commit=self.config.extractor.commit, extractor_sha256=facts.sha(extractor_raw)),
             'dynamic_tag_sibling_key_verification': dict(dynamic_call_lines=[3], key_lines=[1], key_public_source_path='sibling.lua', source_key='my_key'),
             'concatenated_entity_name_verification': dict(concat_lines=[4], argument_lines=[5], literal_prefix='prefix ', resolved_argument='argument'),
+            'lowercased_entity_name_verification': dict(lower_lines=[6], argument_lines=[7], resolved_argument='argument'),
             'legacy_locale_entry_verification': dict(locale_public_source_path=self.config.component('engine').official_locale, locale_section='mod-tome/a.lua', source_lines=[3], locale_marker_line=2),
         }
 
@@ -431,6 +434,36 @@ class SourceFactsTests(unittest.TestCase):
                    matching_literal_lines=[], always_merge_locale_verification=dict(locale_public_source_path=locale, locale_section='.always_merge', source_lines=[2]))
         fact = self.direct(ver, row)
         self.assertEqual([a['kind'] for a in fact['anchors']], ['always_merge_locale:section', 'always_merge_locale:definition'])
+
+    def test_lowercased_entity_name_matcher_is_the_empty_prefix_case(self):
+        # Runbook §34.2 seventh category only matches the prefixed form
+        # `"alchemist "..name:lower()`.  The lootable gems in gem.lua use the
+        # bare `name = name:lower()`, which has no concatenation at all, so the
+        # eighth category must match it and the seventh must not.
+        source = (ROOT / 'tools/orchestration/freeze_workset.py').read_text()
+        tree = ast.parse(source)
+        patterns = {}
+        for node in ast.walk(tree):
+            if (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+                    and node.func.attr == 'finditer' and isinstance(node.args[0], ast.Constant)):
+                pattern = node.args[0].value
+                if 'name:lower' in pattern:
+                    patterns[pattern] = True
+        self.assertEqual(len(patterns), 2, patterns)
+        concat = next(p for p in patterns if '\\.\\.' in p)
+        lowered = next(p for p in patterns if p != concat)
+        prefixed = 'name = "alchemist "..name:lower()'
+        bare = '\t\tname = name:lower(), subtype = color,'
+        self.assertTrue(re.search(concat, prefixed))
+        self.assertFalse(re.search(concat, bare))
+        # The eighth category must claim the bare form and keep its hands off
+        # the prefixed one, otherwise a gem would attribute under both rules.
+        self.assertTrue(re.search(lowered, bare))
+        self.assertFalse(re.search(lowered, prefixed))
+        # The resolved argument is the lowercase of a named call argument.
+        call = '\tnewGem("Fire Opal",\t"object/fireopal.png",5,\t18,\t"red",'
+        args = re.findall(r'\(\s*"([^"\\]*)"\s*,', call)
+        self.assertEqual([a for a in args if a.lower() == 'fire opal'], ['Fire Opal'])
 
     def test_always_merge_current_producer_and_missing_section_shapes(self):
         locale = self.config.component('engine').official_locale
