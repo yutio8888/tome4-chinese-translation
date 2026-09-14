@@ -23635,7 +23635,7 @@ t("#PINK#A %s materializes from the shadows!", "#PINK#一个%s从阴影中现身
 t("bladestorm construct", "剑刃风暴装置", "_t")
 t("A lethal contraption of whirling blades.", "一堆旋转刀片的致命组合。", "_t")
 t("Trap Mastery", "陷阱专精", "talent name")
-t("Prepare which traps? (maximum: %d, up to tier %d)%s", "准备什么陷阱？(最多%d个，最大材质等级 %d)%s", "tformat")
+t("Prepare which traps? (maximum: %d, up to tier %d)%s", "准备什么陷阱？(最多%d个，最高阶级 %d)%s", "tformat")
 t("\
 Game Start: Newly prepared traps will NOT start on cooldown.", "\
 游戏开始：新准备的陷阱不会进入冷却。", "_t")
@@ -27121,7 +27121,7 @@ t([[Focus thermal energy and strike an enemy for %d%% weapon damage as cold.
 		If the attack freezes a pinned creature a burst of ice is summoned, circling the caster and the creature with a wall of ice for 3 turns.
 		The cold burst damage will scale with your Mindpower.]], [[聚焦热能打击敌人造成 %d%% 寒冷武器伤害。
 		之后，一股寒冰能量将爆发并吞噬他们，造成额外 %0.1f 寒冷伤害并冻结他们 %d 回合。
-		如果被冻结的目标已经被定身，则会在周围爆发寒冰能量，组成冰墙，持续 3 回合。
+		如果被冻结的目标已经被定身，则会爆发寒冰能量，环绕施法者与该生物组成冰墙，持续 3 回合。
 		爆发的寒冷伤害受精神强度加成。]], "tformat")
 t("Charged Strike", "电能打击", "talent name")
 t([[Focus charged energy and strike an enemy for %d%% weapon damage as lightning.
@@ -30355,7 +30355,7 @@ t([[You release a surge of adrenaline that increases your Physical Power by %d f
 		You may continue to use stamina based talents while at zero stamina at the cost of life.
 		The Physical Power increase will scale with your Constitution.
 		Using this talent does not take a turn.]], [[你激活肾上腺素来增加 %d 物理强度持续 %d 回合。
-		此技能激活时，你可以不知疲倦地战斗，若体力为 0，可继续使用消耗类技能，代价为消耗生命。
+		此技能激活时，你可以不知疲倦地战斗，若体力为 0，可继续使用消耗体力的技能，代价为消耗生命。
 		物理强度受体质值加成。
 		使用本技能不会消耗额外回合。]], "tformat")
 
@@ -35993,7 +35993,7 @@ t("+Cursed Miasma", "+诅咒瘴气", "_t")
 t("The cursed miasma around #target# dissipates.", "#target#周围的诅咒瘴气消失了。", "_t")
 t("-Cursed Miasma", "-诅咒瘴气", "_t")
 t("Harassed", "疲倦", "_t")
-t("The target has been harassed by its stalker, reducing damage by %d%%.", "目标被追踪至疲倦，伤害减低 %d%%。", "tformat")
+t("The target has been harassed by its stalker, reducing damage by %d%%.", "目标受到追踪者骚扰，伤害降低 %d%%。", "tformat")
 t("#Target# has been harassed.", "#Target#陷入疲倦。", "_t")
 t("+Harassed", "+疲倦", "_t")
 t("#Target# is no longer harassed.", "#Target#摆脱了疲倦。", "_t")
@@ -40143,7 +40143,7 @@ t("dragon", "龙", "entity type")
 t("Rantha the Abomination", "兰莎，憎恶形态", "entity name")
 t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……并且这只似乎被时空能量所扭曲。", "_t")
 t("Chronolith Twin", "双生琼纳里斯", "entity name")
-t("A six-armed creature, dressed in robes, with black insectile eyes.", "身穿长袍、有着昆虫样复眼的六臂生物。", "_t")
+t("A six-armed creature, dressed in robes, with black insectile eyes.", "身穿长袍、有着黑色昆虫样眼睛的六臂生物。", "_t")
 t("Chronolith Clone", "克隆琼纳里斯", "entity name")
 
 ------------------------------------------------
@@ -41901,7 +41901,7 @@ This makes it save more often but the game will use less memory when deep in a d
 t("#GOLD##{bold}#Zone save per level#WHITE##{normal}#", "#GOLD##{bold}#每层地图自动存档#WHITE##{normal}#", "_t")
 t("Disallow boot images that could be found 'offensive'.#WHITE#", "不允许可能令人不快的启动画面图片。#WHITE#", "_t")
 t("#GOLD##{bold}#Censor boot#WHITE##{normal}#", "#GOLD##{bold}#启动画面审查#WHITE##{normal}#", "_t")
-t("Replace headwear images by cloak hoods if a cloak is worn#WHITE#", "当戴着斗篷时，用斗篷代替头部装备图像。#WHITE#", "_t")
+t("Replace headwear images by cloak hoods if a cloak is worn#WHITE#", "当戴着斗篷时，用斗篷兜帽替换头部装备图像。#WHITE#", "_t")
 t("#GOLD##{bold}#Show cloak hoods#WHITE##{normal}#", "#GOLD##{bold}#显示斗篷兜帽#WHITE##{normal}#", "_t")
 
 ------------------------------------------------
