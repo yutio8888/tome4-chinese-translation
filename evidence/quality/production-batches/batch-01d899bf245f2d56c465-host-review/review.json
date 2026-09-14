@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "kind": "production_batch_host_review_record",
+  "batch_id": "batch-01d899bf245f2d56c465",
+  "base_commit": "1c3aaeab751565aa22e732084511ca166a639935",
+  "recorded_at": "2026-09-14T15:44:10.134708+00:00",
+  "independent_research": {
+    "batch_id": "batch-01d899bf245f2d56c465",
+    "recorded_at": "2026-09-14T15:27:16.150973+00:00",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "research_before_contextual_dispatch": true,
+    "rows": [
+      {
+        "entry_revision_identity": "58998cc5d82009661a0de3745177be0ffcb2fd119fb2d74dc9c7ead5047efb65",
+        "status": "confirmed",
+        "conclusion": "world-artifacts.lua:6538-6539 retains newline before Perhaps; target has none. Preserve source newline.",
+        "anchors": [
+          "game/modules/tome/data/general/objects/world-artifacts.lua:6538"
+        ],
+        "source": "This ring is filled with an overwhelming, yet restrained, power. It lashes, grasps from its metal prison, searching for life to snuff out. You alone are unharmed.\nPerhaps it feels all the death you will bring to others in the near future.",
+        "target": "这枚戒指充满了强大而克制的力量。它从自己的金属牢笼中挥舞、攫取，搜寻着可以扼杀的生命。唯独你安然无恙。也许它预感到了不久的将来你将给他人带去的所有死亡。"
+      },
+      {
+        "entry_revision_identity": "58a12a308ae0ae50414bcea5cd3fda8749c05bf0436079206cd56f699c1baf07",
+        "status": "confirmed",
+        "conclusion": "Ring of the Dead has one_shot_life_saving=true at 247. DeathDialog:321-326 offers resurrection by consuming it, so this is post-death resurrection, not rescue at death edge.",
+        "anchors": [
+          "game/modules/tome/data/general/objects/world-artifacts.lua:238",
+          "game/modules/tome/dialogs/DeathDialog.lua:321"
+        ],
+        "source": "Will bring you back from death, but only once!",
+        "target": "能将你从死亡边缘拯救1次"
+      },
+      {
+        "entry_revision_identity": "58b13bebac0962b5018bac31ec04c30aca284e79a2b06ef1bf716c9a0b73ad55",
+        "status": "confirmed",
+        "conclusion": "Log is part of the sceptre set bonus applied to undead; target omits explicit sceptre source of power.",
+        "anchors": [
+          "game/modules/tome/data/general/objects/world-artifacts.lua:2677"
+        ],
+        "source": "#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!",
+        "target": "#LIGHT_BLUE#在亡灵形态下你感受到了强大的力量流动！"
+      },
+      {
+        "entry_revision_identity": "58c0369ef676121693067b054d149bab76d71b6d7914d5e107a7db12224b281e",
+        "status": "confirmed",
+        "conclusion": "A hall of doors is one hall lined with doors, not a row of entrance halls. Sound echoes through darkest parts of mind, not through external darkness into brain.",
+        "anchors": [
+          "game/modules/tome/data/zones/last-hope-graveyard/zone.lua:191",
+          "game/modules/tome/data/zones/last-hope-graveyard/zone.lua:193"
+        ],
+        "source": "As you tread softly down the stairs a large stone slab slides into place behind you, blocking all retreat. The air is still and stuffy, and in this tight space you feel as if in a coffin, buried alive.\n\nAdding to your unease is a rising feeling of dread, overwhelming fear in fact. A hall of doors lies ahead, and behind each you sense a power of great malevolence and unholy horror. At the end of the corridor you see a faint light beneath a large black door, and you have a vague sense that the other doors are enslaved to this one - obedient, subservient, and waiting...\n\nYou hear the sound of a woman sobbing, and every now and then it turns into a fit of pained moans and screams. They echo round the dark chamber and through the darkest parts of your mind, reminding you of every black deed and vile sin you have ever committed. Guilt, horror and terror flood through your thoughts, each competing for stronger control of your psyche. Your only clear thought is of escape, by whatever means you can find.",
+        "target": "当你蹑手蹑脚地走下楼梯时，一块巨大的石板在你身后滑入原位，堵住了所有退路。空气凝滞而闷热，在这狭小的空间里，你感觉自己仿佛被活埋进了棺材。\n\n更令你不安的是不断攀升的恐惧感，事实上是压倒性的恐惧。前方是一排门厅，每扇门后你都能感觉到巨大的恶意和不洁的恐怖。走廊尽头，一扇巨大的黑色门下透出微弱的灯光，你隐约感到其他门都臣服于这扇门——顺从、恭顺，静静等待……\n\n你听到一个女人的哭泣，时不时还夹杂着一声痛苦的哀嚎和尖叫。声音在密室里回荡并且通过黑暗传入了你的大脑，提醒你所犯的每一项罪过。内疚、恐怖和害怕如潮水般袭来，它们每个都紧紧抓住了你的灵魂。你唯一的想法便是逃离此地，不择一切手段。"
+      },
+      {
+        "entry_revision_identity": "58cc50b63d191a4f910a7e82b068d5711c11907226ba44239dab97e53e3e8eea",
+        "status": "partially_confirmed",
+        "conclusion": "Surface generic object-vs-subject claim needs correction: actual argument is reflexive himself/herself/itself, and this is intentional self-sacrifice. Chinese produces 他自己牺牲自己, duplicating reflexive and mishandling fragment composition. PartyDeath prepends actor identity. A conservative repair is 为阻止维网而牺牲了%s; preserve %s as reflexive object. No claim that some other character is sacrificed.",
+        "anchors": [
+          "game/modules/tome/data/chats/sorcerer-end.lua:179",
+          "game/engines/default/engine/utils.lua:953",
+          "game/modules/tome/class/interface/PartyDeath.lua:123"
+        ],
+        "source": "sacrificing %s to stop the Way",
+        "target": "%s牺牲自己，阻止了维网。"
+      },
+      {
+        "entry_revision_identity": "58f310cacb7ca20bbe9ba81f66245bda333f78a7b8215f3f457ee29dabe33a5c",
+        "status": "confirmed",
+        "conclusion": "daikara.lua:71-72 has adjacent lines with one newline, while target inserts blank line. Source 3 newlines, target 4; preserve original count.",
+        "anchors": [
+          "game/modules/tome/data/lore/daikara.lua:70"
+        ],
+        "source": "#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#\nIt knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add \"being charred to a crisp\" to my list of troubles today.\nI might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...\n#{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of dragonsfire. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#",
+        "target": "#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#\n那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被烧成焦炭”这一项。\n\n我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……\n#{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出龙火。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#"
+      },
+      {
+        "entry_revision_identity": "59337486ee0d7e33f54a1602ca440a1ec3fab6675e0e2559e34f1e7f704a4b3b",
+        "status": "confirmed",
+        "conclusion": "Store.interact checks who.no_inventory_access at 281 before interacting with store; not absence of an inventory data structure.",
+        "anchors": [
+          "game/modules/tome/class/Store.lua:279"
+        ],
+        "source": "This entity can not access inventories.",
+        "target": "这个生物没有物品栏。"
+      },
+      {
+        "entry_revision_identity": "595769074b2d539d6b8d2028f61c0a8abc067945fd6caddcec6845b3dc554001",
+        "status": "confirmed",
+        "conclusion": "stabbed appears in the generic PHYSICAL death_message list at damage_types.lua:778. No throat-specific predicate; throat detail is invented.",
+        "anchors": [
+          "game/modules/tome/data/damage_types.lua:778"
+        ],
+        "source": "stabbed",
+        "target": "被刺破喉咙"
+      }
+    ],
+    "other_observations": [
+      {
+        "revision": "592bb410f6",
+        "status": "advisory",
+        "conclusion": "Both source and target describe chance, but ignore_direct_crits at damage_types.lua:130-154 deterministically reduces critical bonus. No surface finding; do not expand current repair or invent source fidelity verdict. Record upstream/source discrepancy for later scoped review."
+      },
+      {
+        "revision": "596906d4bf",
+        "status": "pending",
+        "conclusion": "Catalog Player.lua/logPlayer attribution differs from current Object.lua:199/tformat. Recorded in source workset. Surface OK does not close source ownership claim."
+      }
+    ],
+    "catalog_cross_checks": {
+      "scope": "root translation Lua files only; no consult reads",
+      "results": {
+        "Will bring you back from death": 1,
+        "power of the sceptre": 1,
+        "sacrificing %s to stop the Way": 1,
+        "This entity can not access inventories": 1,
+        "stabbed_exact_t_call": 1
+      },
+      "proposed_phrase_checks": {
+        "死后复活": 0,
+        "无法访问物品栏": 0,
+        "被刺中": 0
+      },
+      "sacrificing_family": "Five related tformat rows exist in mod-tome.lua at 6142/6160/6187/6202/6212; only 6202 is in current workset. Do not expand repair to siblings."
+    }
+  },
+  "binding_checks": {
+    "pinned_main_source_hashes_checked": 80,
+    "unique_main_source_files": 60,
+    "surface_exact_ordered_coverage": 80,
+    "surface_ok": 72,
+    "surface_issue": 8,
+    "source_literal_or_supported_attribution_matched": 79,
+    "source_attribution_pending": [
+      "596906d4bfc54686ca4c85b19e75abb7c9754c07add3011c4761511bee7ca1c2"
+    ]
+  },
+  "rejected_contextual_attempt": {
+    "tool_call_count": 12,
+    "A_locale_or_translation_reads": [],
+    "B_git_grep_total": 3,
+    "B_git_grep_without_exclusion": [],
+    "C_engine_access_not_pinned": [],
+    "D_write_attempts": [],
+    "E_other_ai_paths": [],
+    "all_calls": [
+      {
+        "name": "Bash",
+        "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+      },
+      {
+        "name": "Bash",
+        "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('==== ',i,k)\n    for kk,vv in t.items(): print(' ',kk,':',repr(vv))\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['bounded_context'])):\n    print('==== ',i,k)\n    for kk,vv in t.items(): print(' ',kk,':',vv)\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git log --oneline -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '215,265p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git grep -n \"one_shot_life_saving\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/dialogs/DeathDialog.lua | sed -n '305,345p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git grep -n \"his_her_self\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head; echo ---; git grep -n \"special_death_msg\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/PartyDeath.lua | sed -n '80,140p'; echo ---UTILS---; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/utils.lua | sed -n '945,965p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git grep -n \"no_inventory_access\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '2640,2700p'"
+      }
+    ],
+    "host_scope_audit": {
+      "status": "rejected",
+      "reason": "Fixed-commit git grep searches have only negative locale exclusion and no positive directory pathspec. This searches the entire tree, contrary to handoff section 2 item 8 necessary-directory-only/no-whole-repository-scan boundary. A-E script success alone is insufficient.",
+      "offending_calls": [
+        {
+          "name": "Bash",
+          "arg": "cd <engine-repository> && git grep -n \"one_shot_life_saving\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+        },
+        {
+          "name": "Bash",
+          "arg": "cd <engine-repository> && git grep -n \"his_her_self\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head; echo ---; git grep -n \"special_death_msg\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+        },
+        {
+          "name": "Bash",
+          "arg": "cd <engine-repository> && git grep -n \"no_inventory_access\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- ':!*/locales/*' | head -20"
+        }
+      ],
+      "locale_exclusions_present": true,
+      "publication_accepted": false
+    },
+    "native_log_sha256": "b86089a0eafee5ebb740a2c9afd99914348dcce0e8b47614ac61863332944def"
+  },
+  "accepted_contextual_attempt": {
+    "tool_call_count": 14,
+    "A_locale_or_translation_reads": [],
+    "B_git_grep_total": 0,
+    "B_git_grep_without_exclusion": [],
+    "C_engine_access_not_pinned": [],
+    "D_write_attempts": [
+      [
+        "Bash",
+        "cd /workspace/t-engine4 && for f in game/modules/tome/class/interface/ActorLife.lua game/engines/default/engine/interface/ActorLife.lua game/modules/tome/class/GameState.lua game/modules/tome/dialogs/DeathDialog.lua; do echo \"== $f\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:$f 2>/dev/null | grep -n \"special_death_msg\" ; done"
+      ]
+    ],
+    "E_other_ai_paths": [],
+    "all_calls": [
+      {
+        "name": "Bash",
+        "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+      },
+      {
+        "name": "Bash",
+        "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint('BC', json.dumps(p['bounded_context'],ensure_ascii=False)[:2000])\nprint('TS', json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('==== ',i,k[:12])\n    for kk,vv in t.items(): print('--',kk,':',vv)\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-01d899bf245f2d56c465-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,c) in enumerate(zip(p['ordered_revision_keys'],p['bounded_context'])):\n    print('==== ',i,k[:12], list(c.keys()))\n    ctx=c['context']\n    head=ctx.split('source_facts_v1:')[0]\n    print('HEAD:',head)\n    try:\n        f=json.loads(ctx.split('source_facts_v1:',1)[1])\n        for a in f['fact']['anchors']:\n            print('  ANCHOR',a['repository'],a['public_source_path'],a['kind'],a.get('matching_lines'))\n            for s in a['snippet']: print('    ',s['line'],'*' if s['is_match'] else ' ',s['text'][:200])\n        for kk in f['fact']:\n            if kk!='anchors': print('  ',kk,json.dumps(f['fact'][kk],ensure_ascii=False)[:600])\n    except Exception as e: print('ERR',e)\n\" 2>&1 | head -200"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '200,260p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '2620,2700p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Store.lua | sed -n '270,300p'; echo ====; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | grep -n \"no_inventory_access\" "
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | grep -n \"special_death_msg\" ; echo ==== ; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Player.lua | grep -n \"special_death_msg\""
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && for f in game/modules/tome/class/interface/ActorLife.lua game/engines/default/engine/interface/ActorLife.lua game/modules/tome/class/GameState.lua game/modules/tome/dialogs/DeathDialog.lua; do echo \"== $f\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:$f 2>/dev/null | grep -n \"special_death_msg\" ; done"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git ls-tree -r --name-only 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/class/ game/modules/tome/dialogs/ | head -80"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && for f in game/modules/tome/class/interface/PartyDeath.lua game/modules/tome/class/Game.lua game/modules/tome/class/interface/ActorLife.lua; do echo \"== $f\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:$f | grep -n \"death_msg\\|death_message\" | head -20; done"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/PartyDeath.lua | sed -n '55,140p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd <engine-repository> && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n '745,780p'; echo ====; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/utils.lua | grep -n \"his_her_self\" -A6 | head -30"
+      }
+    ],
+    "host_scope_audit": {
+      "status": "accepted",
+      "git_grep_calls": 0,
+      "conclusion": "All source-content queries use git show at the pinned commit with explicit files; the single ls-tree call is scoped to tome/class and tome/dialogs. No translation/locale/other .ai reads or persistent writes observed.",
+      "D_disposition": "advisory_false_positive",
+      "D_reason": "The only D match is 2>/dev/null suppressing stderr while checking four explicitly named files. /dev/null is the discard device; it creates/modifies no task or scratch file. Raw script result retained unchanged."
+    },
+    "F_contextual_OK": [
+      {
+        "revision": "58998cc5d8",
+        "reviewed_input": true,
+        "disposition": "override_with_fixed_bytes",
+        "reason": "Reviewer read frozen source and target, but no rationale addresses missing newline. Fixed source world-artifacts6538-6539 has newline; target lacks it. Enforce newline invariant."
+      },
+      {
+        "revision": "58a12a308a",
+        "reviewed_input": true,
+        "disposition": "override_with_source_call_chain",
+        "reason": "Reviewer read Ring of the Dead entity200-260; returned no rationale defending near-death wording. Host independently checked DeathDialog321-326 offering post-death resurrection by consumption. Retain confirmed source/implementation mismatch."
+      },
+      {
+        "revision": "58f310cacb",
+        "reviewed_input": true,
+        "disposition": "override_with_fixed_bytes",
+        "reason": "Reviewer read frozen source and target. No rationale addresses added blank line; fixed lore70-73 has3 newlines and target4. Enforce newline invariant."
+      }
+    ],
+    "native_log_sha256": "204ac8660bde697611dcd500345a303f668f6da4cb4f3f27dea41dffd2d2d5e0"
+  },
+  "rejected_raw_path": "evidence/quality/production-batches/batch-01d899bf245f2d56c465-host-review/rejected-contextual-full-000.json",
+  "rejected_raw_sha256": "b5c53387e32aa51acc5b08a4036d0432bb0ee7258b76a99edbf1f1322b93c61f",
+  "children": [
+    {
+      "task_id": "batch-01d899bf245f2d56c465",
+      "dispatch_id": "lane-000-0",
+      "agent_id": "8013a2d6-d369-434e-bb6a-1784915ac854",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "completed",
+      "output_valid": true,
+      "raw_output_sha256": "9540ada97ed2765615a7a0a0bafdb609e994f47241af093e99eede59376b01d7",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:22:45.394258+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      }
+    },
+    {
+      "task_id": "batch-01d899bf245f2d56c465",
+      "dispatch_id": "lane-000-1",
+      "agent_id": "0dddd1c4-d51a-4679-ac9a-b023b4a32a8c",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "completed",
+      "output_valid": true,
+      "raw_output_sha256": "6d02efc489e23bfcc99ca5cef102bd0554ae088278f574de323beebc941fd904",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:22:53.866602+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      }
+    },
+    {
+      "task_id": "batch-01d899bf245f2d56c465",
+      "dispatch_id": "lane-000-2",
+      "agent_id": "a524dc4c-d021-4e2b-956b-5fdd4a8575c2",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "completed",
+      "output_valid": true,
+      "raw_output_sha256": "67d3a17079f6dfdf5caef125ef6f3b509e8d2139f4569777cae38e5c1330b989",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:23:00.701572+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      }
+    },
+    {
+      "task_id": "batch-01d899bf245f2d56c465",
+      "dispatch_id": "lane-000-3",
+      "agent_id": "6a39a047-6be1-408f-b084-1fd18cae3a97",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "completed",
+      "output_valid": true,
+      "raw_output_sha256": "4497e6ca9992ed2f7e473871a4157dbf301604f8b1b416eb6e35dc84a6b41ea9",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:24:25.170109+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      }
+    },
+    {
+      "task_id": "batch-01d899bf245f2d56c465-contextual-000",
+      "dispatch_id": "full-000",
+      "agent_id": "5ef8b97d-9a1b-4978-9156-6df8479f8914",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "rejected",
+      "output_valid": false,
+      "raw_output_sha256": "b5c53387e32aa51acc5b08a4036d0432bb0ee7258b76a99edbf1f1322b93c61f",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:30:32.425467+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto"
+        },
+        "model": {
+          "presence": "present",
+          "value": "claude-opus-5"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "claude"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      }
+    },
+    {
+      "task_id": "batch-01d899bf245f2d56c465-contextual-000",
+      "dispatch_id": "full-001",
+      "agent_id": "a3a5e4dd-7002-4922-8c8c-0f4cf5f90752",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "lineage_verified": true,
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "validation_state": "completed",
+      "output_valid": true,
+      "raw_output_sha256": "784202450a5b36402cc40f58f67bcb9c08ce6a1adda28f49e81cca11690204df",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-14T15:36:20.312943+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto"
+        },
+        "model": {
+          "presence": "present",
+          "value": "claude-opus-5"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "claude"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      }
+    }
+  ],
+  "host_decisions": {
+    "workset": "evidence/quality/production-batches/batch-01d899bf245f2d56c465-source-workset.json",
+    "decisions": {
+      "58998cc5d8|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认换行缺失：固定源码 game/modules/tome/data/general/objects/world-artifacts.lua:6538-6539 在 Perhaps 前换行，冻结 target 在“也许”前无换行（source 1、target 0）。保留原换行位置，不作其他措辞扩展。语境复核已读快照但 OK 未说明该字节差异，依据源码和 newline 不变量维持修复。"
+      },
+      "58a12a308a|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认死亡时序错译：world-artifacts.lua:238 的 Ring of the Dead 描述，:247 设置 one_shot_life_saving=true；game/modules/tome/dialogs/DeathDialog.lua:321-326 在死亡对话框中列出消耗该物品复活的选项。是死后复活一次，非濒死边缘救援。语境复核虽然读了 entity，但其 OK 未给出相反机制依据；宿主派发前已独立核验消费链，维持 confirmed。只修本条，沿用一次性限制。"
+      },
+      "58b13bebac|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认漏译权杖这一力量来源：game/modules/tome/data/general/objects/world-artifacts.lua:2667-2678 是权杖 on_wear，对 Undead 角色追加属性并在 :2677 打印本条。译文须恢复“权杖的力量流过亡灵之躯”的关系及原色标；不把“强大”作为来源的替代。不新增装备名术语或扩展套装其他行。"
+      },
+      "58c0369ef6|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认空间和意象关系错译：game/modules/tome/data/zones/last-hope-graveyard/zone.lua:191 的 hall of doors 与 corridor 指有多扇门的厅廊，不是“一排门厅”；:193 的 darkest parts of your mind 是内心最黑暗处，不是声音穿过外部黑暗进入大脑。修复这两处；语境补充的 competing 关系另在同条恢复。保持段落、换行和既有专名；不清查整座墓地其他段落。"
+      },
+      "58cc50b63d|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。限定确认占位符角色及宿主组合问题：game/modules/tome/data/chats/sorcerer-end.lua:179 传入 string.his_her_self(player)，engine 的 game/engines/default/engine/utils.lua:953-958 返回 herself/itself/himself，本地既有对应“她自己/它自己/他自己”。因此确实是自我牺牲，不采“牺牲了另一人”之类泛化解释。当前 %s牺牲自己 渲染为“他自己牺牲自己”；game/modules/tome/class/interface/PartyDeath.lua:122-132 还会前置玩家身份并后接死亡地点，条目自带句号切断复合句。修复为保留 %s 作反身宾语的谓语片段并去掉内嵌句号。五条同族中仅本批 :6202 这一条修复，不扩展其余四条。"
+      },
+      "58f310cacb|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认新增空行：game/modules/tome/data/lore/daikara.lua:70-73 中 troubles today. 与 I might 相邻，冻结 source 共 3 个换行，target 共 4 个，在“这一项。”后多出空行。语境复核读过快照但 OK 未解释差异，按 newline 不变量移除多出的一个换行；不改其余叙事措辞。"
+      },
+      "59337486ee|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认机制错误：game/modules/tome/class/Store.lua:279-284 根据 who.no_inventory_access 拦截商店交互；这是不能存取物品栏，不是物品栏不存在。译文恢复访问限制这一含义，不扩大到 entity 全目录术语统一。"
+      },
+      "595769074b|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认无依据增加喉咙部位：game/modules/tome/data/damage_types.lua:778 的 stabbed 为通用 PHYSICAL death_message 词表项，game/modules/tome/class/interface/PartyDeath.lua:69-72 随机选取，再在 :110-120 组合死亡播报，未限定喉咙。去掉喉咙具体化，保留可嵌入现有中文死亡模板的表达。不得因近义词同时出现就强制全表改名。"
+      },
+      "58b13bebac|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认漏译权杖这一力量来源：game/modules/tome/data/general/objects/world-artifacts.lua:2667-2678 是权杖 on_wear，对 Undead 角色追加属性并在 :2677 打印本条。译文须恢复“权杖的力量流过亡灵之躯”的关系及原色标；不把“强大”作为来源的替代。不新增装备名术语或扩展套装其他行。语境补查 on_wear 条件和日志入口，与宿主独立证据一致；确认权杖来源及力量作用对象丢失。"
+      },
+      "58c0369ef6|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认空间和意象关系错译：game/modules/tome/data/zones/last-hope-graveyard/zone.lua:191 的 hall of doors 与 corridor 指有多扇门的厅廊，不是“一排门厅”；:193 的 darkest parts of your mind 是内心最黑暗处，不是声音穿过外部黑暗进入大脑。修复这两处；语境补充的 competing 关系另在同条恢复。保持段落、换行和既有专名；不清查整座墓地其他段落。语境新增的 each competing for stronger control 在 :193 确有相互争夺控制权之义，当前“每个都紧紧抓住”丢失竞争关系，确认并在本条修复。black deed/vile sin 的并列表达可随本条恢复，但不把所有修辞压缩一概定为机制缺陷；其他无证据的风格重写不采。"
+      },
+      "58cc50b63d|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。限定确认占位符角色及宿主组合问题：game/modules/tome/data/chats/sorcerer-end.lua:179 传入 string.his_her_self(player)，engine 的 game/engines/default/engine/utils.lua:953-958 返回 herself/itself/himself，本地既有对应“她自己/它自己/他自己”。因此确实是自我牺牲，不采“牺牲了另一人”之类泛化解释。当前 %s牺牲自己 渲染为“他自己牺牲自己”；game/modules/tome/class/interface/PartyDeath.lua:122-132 还会前置玩家身份并后接死亡地点，条目自带句号切断复合句。修复为保留 %s 作反身宾语的谓语片段并去掉内嵌句号。五条同族中仅本批 :6202 这一条修复，不扩展其余四条。语境补充句号在宿主模板中部断句的证据，与 PartyDeath 实际组合一致。按反身宾语及无句末句号的片段修复，不将自我牺牲改成牺牲他人。"
+      },
+      "59337486ee|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认机制错误：game/modules/tome/class/Store.lua:279-284 根据 who.no_inventory_access 拦截商店交互；这是不能存取物品栏，不是物品栏不存在。译文恢复访问限制这一含义，不扩大到 entity 全目录术语统一。语境对 no_inventory_access 的补查与 Store 分支一致，确认访问限制被改成容器不存在。保留这一最小修复，不自动采纳关于玩家能否取走分身装备的额外推论。"
+      },
+      "595769074b|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。确认无依据增加喉咙部位：game/modules/tome/data/damage_types.lua:778 的 stabbed 为通用 PHYSICAL death_message 词表项，game/modules/tome/class/interface/PartyDeath.lua:69-72 随机选取，再在 :110-120 组合死亡播报，未限定喉咙。去掉喉咙具体化，保留可嵌入现有中文死亡模板的表达。不得因近义词同时出现就强制全表改名。只确认部位添译。撤销语境意见中“被”与外层被动语态必然重复的子主张：实际本地 PartyDeath 模板是“%s而死”等中文结构，英文 was/by 不会原样留在中文输出，故不能用英文外层推定中文双重被动。“同表近义词撞车”也无须变成本批全表统一任务。"
+      }
+    }
+  },
+  "scope_notes": [
+    "Only full-001 is eligible for contextual import. full-000 is preserved solely as rejected diagnostic evidence.",
+    "Surface OK on 596906d4bf does not resolve catalog/source-tag attribution; that claim remains pending in the source workset.",
+    "592bb410f6 upstream chance-vs-deterministic critical reduction discrepancy is advisory and outside current repair findings.",
+    "No translation edits in active review batch; repair findings require a separate implementation task after finalize."
+  ],
+  "local_preparation_recovery": "First retry prepare attempted redundant --select-transport mcp and was rejected before state changes; reran without transport selection under the already fixed mcp transport. No candidate or historical dispatch rewritten."
+}
