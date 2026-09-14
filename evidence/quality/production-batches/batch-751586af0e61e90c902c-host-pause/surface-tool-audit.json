@@ -1,0 +1,66 @@
+{
+  "rows": [
+    {
+      "key": "batch-751586af0e61e90c902c|lane-000-0",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":16000})); \ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\ne=json.load(open(p))\\nissues={14:'原文为对该敌人的首次近战攻击必定暴击，译文增加“你对”的限制，缩小了攻击者范围。',15:'原文含两处换行及缩进，译文合并前两段，仅保留一处换行及缩进。'}\\nr=[]\\nfor i,x in enumerate(e['payload']['entries']):\\n d={'entry_revision_identity':x['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:d['observation']=issues[i]\\n r.append(d)\\na=[x['entry_revision_identity'] for x in e['payload']['entries']]\\nb=[x['entry_revision_identity'] for x in r]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nprint(json.dumps({'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-751586af0e61e90c902c|lane-000-1",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":18000}); text(r.output);\nconst s = await tools.exec_command({cmd:\"awk '/^## /{show=($0 ~ /^## 六|^## 6[.、 ]/)} show{print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}); text(s.output);\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nissues={5:'原文 TestZone 指测试区域，译文“测试！”遗漏了区域含义。',17:'extensive use 指被大量或长期使用，译文“被很多人使用过”误写为使用者人数众多。',18:'原文开头的换行在译文中缺失。'}\\nr=[]\\nfor i,e in enumerate(x['payload']['entries']):\\n    v={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:v['observation']=issues[i]\\n    r.append(v)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\ns=json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nz=json.loads(s)\\na=[e['entry_revision_identity'] for e in x['payload']['entries']]\\nb=[e['entry_revision_identity'] for e in z['results']]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(p==q and len(q)==64 for p,q in zip(a,b))\\nprint(s,end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-751586af0e61e90c902c|lane-000-2",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,line in enumerate(lines):\\n    if line.startswith('#'):\\n        print(f'{i+1}: {line}')\\nprint('\\\\n--- INPUT ---\\\\n')\\nprint(Path('.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":19000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\ne=x['payload']['entries']\\nr={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':a['entry_revision_identity'],'verdict':'OK'} for a in e]}\\nassert len(e)==len(r['results'])==20\\nassert len({a['entry_revision_identity'] for a in r['results']})==20\\nfor a,b in zip(e,r['results']):\\n    assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-751586af0e61e90c902c|lane-000-3",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n    if l.startswith('## '):\\n        print(i+1,l)\\nprint('\\\\n---INPUT---\\\\n')\\nprint(Path('.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nPY\",\"max_output_tokens\":14000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":3000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-751586af0e61e90c902c/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\ne=x['payload']['entries']\\nobservations={6:'原文 bleeding ice 的冰属性信息被漏译，译文仅表示不再流血。',18:'原文 may be 表示可能受到震慑等状态，译文“并被”将其表述为必然受到状态。'}\\nr=[]\\nfor i,v in enumerate(e):\\n    item={'entry_revision_identity':v['entry_revision_identity'],'verdict':'ISSUE' if i in observations else 'OK'}\\n    if i in observations:item['observation']=observations[i]\\n    r.append(item)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(e)==len(r)==20\\nassert len({z['entry_revision_identity'] for z in r})==20\\nfor a,b in zip(e,r):\\n    assert a['entry_revision_identity']==b['entry_revision_identity']\\n    assert len(b['entry_revision_identity'])==64\\nprint(json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));"
+        }
+      ]
+    }
+  ],
+  "reviewed": true,
+  "conclusion": "All4 native logs read own envelope and contract only; in-memory output construction and printing, no persistent writes or external reads. All20 per-lane identities copied and strict validator accepted."
+}

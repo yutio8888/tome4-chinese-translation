@@ -1,0 +1,114 @@
+{
+  "batch_id": "batch-751586af0e61e90c902c",
+  "claims": [
+    {
+      "revision_prefix": "5ac9f60c7c",
+      "status": "confirmed",
+      "claim": "DISMAYED checks target effect only, no attacker==effectsource check; first melee attack critical is not restricted to you. Also removal at1105-1106. NPC skill description misc/npcs.lua3665 agrees.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+      "line_start": 1942,
+      "line_end": 1949,
+      "excerpt": "1942: \tlocal chance = self:combatCrit(weapon) + (add_chance or 0)\n1943: \tcrit_power_add = crit_power_add or 0\n1944: \tif weapon and weapon.crit_power then crit_power_add = crit_power_add + weapon.crit_power/100 end\n1945: \n1946: \tif target and target:hasEffect(target.EFF_DISMAYED) then\n1947: \t\tchance = 100\n1948: \tend\n1949: ",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "5aca85b405",
+      "status": "confirmed",
+      "claim": "Source2newline vs target1; merges target with seized stone vine, emerges near caster; target compressed two source sentences and omits merge-with-stone relation. Keep description structure and nature damage formula.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/gifts/earthen-vines.lua",
+      "line_start": 173,
+      "line_end": 178,
+      "excerpt": "173: \tinfo = function(self, t)\n174: \t\treturn ([[Merge your target (within range %d) with one of your stone vines that has seized it, forcing it to traverse the vine and reappear near you.\n175: \t\tMerging with the stone is detrimental for the target, dealing %0.1f nature damage.\n176: \t\tThe damage will increases with your Willpower.]])\n177: \t\t:tformat(self:getTalentRange(t), 80 + self:combatTalentStatDamage(t, \"wil\", 40, 330))\n178: \tend,",
+      "source_newline_count": 2,
+      "target_newline_count": 1
+    },
+    {
+      "revision_prefix": "5b3d83ed3c",
+      "status": "confirmed",
+      "claim": "Extensive use means heavily used, not used by many people. Unknown prior ownership in same sentence does not establish many users.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+      "line_start": 6433,
+      "line_end": 6440,
+      "excerpt": "6433: \tpower_source = {psionic=true},\n6434: \tunique = true,\n6435: \tname = \"Boots of the Hunter\", image = \"object/artifact/boots_of_the_hunter.png\",\n6436: \tunided_name = _t\"well-worn boots\",\n6437: \tdesc = _t[[These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.]],\n6438: \tcolor = colors.BLACK,\n6439: \tlevel_range = {30, 40},\n6440: \trarity = 240,",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "5b402d5764",
+      "status": "confirmed",
+      "claim": "Frozen source has leading newline, target lacks it. Leading layout invariant is objective; remaining prose broadly faithful.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/chats/tutorial-start.lua",
+      "line_start": 45,
+      "line_end": 57,
+      "excerpt": "45: newChat{ id=\"done\",\n46: \ttext = _t[[\n47: \n48: You have completed all the tutorials, and should now know the basics of ToME4. You are ready to step forward into the world to find glory, treasures and be mercilessly slaughtered by hordes of creatures you thought you could handle!\n49: \n50: During this tutorial some creatures were adjusted according to the needs of the lessons. In the unforgiving world of Eyal, monsters are rarely this nice!\n51: \n52: If you need a reminder of which key does what, you can access the game menu by pressing #GOLD#Escape#WHITE# and checking the key binds. You can also adjust them to suit your needs.\n53: \n54: If this is your first time with the game, you will find the selection of races and classes limited. Don't worry; many, many more will become available as you unlock them during your adventures. \n55: \n56: Now go boldly and remember: #GOLD#have fun!#WHITE#\n57: Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!]],",
+      "source_newline_count": 10,
+      "target_newline_count": 9
+    },
+    {
+      "revision_prefix": "5bb577838d",
+      "status": "confirmed",
+      "claim": "FROST_CUT on_lose stops bleeding ice. Target drops ice and could be confused with ordinarybleeding. Preserve ice imagery without inventing cure of everybleeding effect.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "line_start": 5147,
+      "line_end": 5156,
+      "excerpt": "5147: \tdesc = _t\"Frost Cut\",\n5148: \tlong_desc = function(self, eff) return (\"Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.\"):tformat(eff.power, eff.speed) end,\n5149: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n5150: \ttype = \"magical\",\n5151: \tsubtype = { wound=true, cut=true, bleed=true, cold=true },\n5152: \tstatus = \"detrimental\",\n5153: \tparameters = { power=1, speed=10 },\n5154: \ton_gain = function(self, err) return _t\"#Target# starts to bleed ice.\", _t\"+Frost Cut\" end,\n5155: \ton_lose = function(self, err) return _t\"#Target# stops bleeding ice.\", _t\"-Frost Cut\" end,\n5156: \ton_merge = function(self, old_eff, new_eff)",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "5bc76e0fe4",
+      "status": "advisory",
+      "claim": "Source2newlines vs target3; extra linebreak before lowlifeexecute sentence. Target execute must follow strike; do not invent guaranteed kill.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/techniques/finishing-moves.lua",
+      "line_start": 257,
+      "line_end": 265,
+      "excerpt": "257: \tinfo = function(self, t)\n258: \t\tlocal damage = t.getDamage(self, t) * 100\n259: \t\tlocal maxDamage = damage * 2\n260: \t\tlocal stamina = t.getStamina(self, t, 0)/self.max_stamina*100\n261: \t\tlocal staminamax = t.getStamina(self, t, 5)/self.max_stamina*100\n262: \t\treturn ([[A vicious finishing strike that deals %d%% damage increased by 20%% per combo point you have up to a max of %d%%. If the target ends up with low enough life (<20%%), it might be instantly killed.\n263: \t\tKilling a target with Haymaker will instantly restore %d%% to %d%% of your maximum stamina, depending on the amount of combo points you've accumulated.\n264: \t\tUsing this talent removes your combo points.]])\n265: \t\t:tformat(damage, maxDamage, stamina, staminamax)",
+      "source_newline_count": 2,
+      "target_newline_count": 3,
+      "scope": "newline mismatch verified but not a selected surface ISSUE; retained as host observation outside current contextual7, no automatic repair or scope expansion"
+    },
+    {
+      "revision_prefix": "5be7ee0eee",
+      "status": "confirmed",
+      "claim": "may control effects translatedwill, plus source1newline target2. RANDOM_WARP damage_types3870-3906 checks canBe for each random effect and apply_power; outcome can fail.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua",
+      "line_start": 435,
+      "line_end": 447,
+      "excerpt": "435: \t\t\t-- random warp\n436: \t\t\tDamageType:get(DamageType.RANDOM_WARP).projector(self, target.x, target.y, DamageType.RANDOM_WARP, {dur=t.getDuration(self, t), apply_power=getParadoxSpellpower(self, t)})\n437: \t\tend)\n438: \n439: \t\tgame:playSoundNear(self, \"talents/teleport\")\n440: \n441: \t\treturn true\n442: \tend,\n443: \tinfo = function(self, t)\n444: \t\tlocal range = t.getTeleport(self, t)\n445: \t\tlocal duration = t.getDuration(self, t)\n446: \t\treturn ([[Randomly teleports all enemies within a radius of three.  Enemies will be teleported between %d and %d tiles from you and may be stunned, blinded, confused, or pinned for %d turns.\n447: \t\tThe chance of teleportion will scale with your Spellpower.]]):tformat(range / 2, range, duration)",
+      "source_newline_count": 1,
+      "target_newline_count": 2
+    },
+    {
+      "revision_prefix": "5b0bbd7e95",
+      "status": "advisory",
+      "claim": "TestZone! is a zone display name at21, target测试！is a shortened name but still identifies test purpose; adding区域is a clarity improvement, no concrete wrong mechanism or demonstrated confusion. Review-only may record advisory without automatically repairing this low-impact name.",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/zones/test/zone.lua",
+      "line_start": 20,
+      "line_end": 25,
+      "excerpt": "20: return {\n21: \tname = _t\"TestZone!\",\n22: \tlevel_range = {1, 50},\n23: \tlevel_scheme = \"player\",\n24: \tmax_level = 4,\n25: \tdecay = {300, 800},"
+    }
+  ],
+  "advisories": [
+    {
+      "revision_prefix": "5ac42d128a",
+      "claim": "Do not infer lostCauterizename: current mod-tome31575 talent name Cauterize=灼烧 and36707 effectsame; currentdeathstringcontainsit."
+    }
+  ]
+}

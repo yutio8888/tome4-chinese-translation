@@ -1,0 +1,54 @@
+{
+  "batch_id": "batch-751586af0e61e90c902c",
+  "base_commit": "e36692643f45c05d9cc85deb6674672eefa0f34b",
+  "status": "WAIT_USER",
+  "reason": "Automatic approval review rejected Claude reviewer creation: explicit provider export/workspace read authorization required; complete reconciliation confirms no agent was created.",
+  "surface": {
+    "done_verified": true,
+    "entries": 80,
+    "ok": 73,
+    "issue": 7,
+    "children_archived": 4
+  },
+  "contextual": {
+    "entries": 7,
+    "candidate_identity": "d20147cb8ce0996ca54cb3ffb2eaf55671f462abfece8911475c6ad73dfcb81a",
+    "input_sha256": "f32b76ab07481b58f14fb1fece7f5ba1bf016889709f9a68802afc54dd1ed3ad",
+    "agent_id": null,
+    "create_attempts_started": 1,
+    "reconciliation": [
+      {
+        "at": "2026-09-14T16:37:17.225912+00:00",
+        "create_attempt": 1,
+        "evidence_path": ".artifacts/i18n/batch137-orchestration/batch-751586af0e61e90c902c-contextual-000-full-000-absent-1.json",
+        "evidence_sha256": "72a52d62263b5038bf8d56e1ae001fdd239b5dcf8cef6459255555f0d15d35ea",
+        "excluded_history_ids": [],
+        "matched_ids": []
+      }
+    ],
+    "request": "Approve sending frozen7 translation rows and their bounded context to Claude Opus5 and permit this reviewer read-only access to that input, its review contract and related pinned public game source within the existing workspace; no file writes."
+  },
+  "artifacts": [
+    {
+      "file": "CONTEXTUAL-ENVELOPE.json",
+      "sha256": "f32b76ab07481b58f14fb1fece7f5ba1bf016889709f9a68802afc54dd1ed3ad"
+    },
+    {
+      "file": "host-research.json",
+      "sha256": "97289957e70ff3275bcf5c4ae90872056a9c4f7e83caf57ceae016e78e481a9d"
+    },
+    {
+      "file": "source-binding-check.json",
+      "sha256": "d541c6d58e241dbd1bf042f8d8a52b42ec532e7018d121de4624cb69a304a16b"
+    },
+    {
+      "file": "surface-tool-audit.json",
+      "sha256": "e5028f0a8d9af1f8d90dd25952f572ce2caf2cebaeabddd9e394c3cf90c1da54"
+    },
+    {
+      "file": "CONTEXTUAL-STATE.json",
+      "sha256": "99588b48e3e9c9398c9bf1af314b617f463ead034878d739b35225a395a8c79a"
+    }
+  ],
+  "resume": "After explicit approval, restore contextual STATE REVIEW and clear wait/last_error, preserve journal confirmed_absent and frozen input; fresh live profiles then at most one remaining create attempt for this dispatch. Do not rerun stage or export, do not move HEAD until batch completion."
+}
