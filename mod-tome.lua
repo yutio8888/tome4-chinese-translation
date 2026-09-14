@@ -2781,7 +2781,7 @@ t("Fought the two Sorcerers and closed one invocation portal.", "在关闭1扇�
 t("Portal reaver", "传送门收割者", "achievement name")
 t("Fought the two Sorcerers and closed two invocation portals.", "在关闭2扇传送门的情况下，杀死2名巫师。", "_t")
 t("Portal ender", "传送门终结者", "achievement name")
-t("Fought the two Sorcerers and closed three invocation portals.", "在关闭3扇传送门的情况下，杀死2名巫师。", "_t")
+t("Fought the two Sorcerers and closed three invocation portals.", "在关闭3扇召唤传送门的情况下，与两名巫师交战。", "_t")
 t("Portal master", "传送门主宰者", "achievement name")
 t("Fought the two Sorcerers and closed four invocation portals.", "在关闭4扇传送门的情况下，杀死2名巫师。", "_t")
 t("Never Look Back And There Again", "从未回头", "achievement name")
@@ -21948,7 +21948,7 @@ t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("%s's %s is disrupted by the Energy Absorption!", "%s 的 %s 被能量吸收所打断！", "logSeen")
 t([[You sap the target's energy and add it to your own, placing up to %d random talents on cooldown for %d turns.
 		For each talent put on cooldown, you reduce the cooldown of one of your talents currently on cooldown by %d turns.]], [[你吸收目标的能量并化为己用，最多使 %d 个随机技能进入 %d 回合冷却。
-		每使一个技能进入冷却，你可以减少你处于冷却中的技能的冷却时间 %d 回合。]], "tformat")
+		每使一个技能进入冷却，你减少你的一个处于冷却中的技能的冷却时间 %d 回合。]], "tformat")
 t("Redux", "时空回响", "talent name")
 t([[The next talent you cast with a cooldown of %d or less will not go on cooldown.
 		Once a talent is effected by this spell or %d turns pass the effect is lost.]], [[在接下来的 %d 回合内，你施放的下一个冷却时间不超过 %d 回合的技能不会进入冷却。
@@ -35809,7 +35809,7 @@ t("#Target# is free from the dire plague.", "#Target#脱离恐怖瘟疫影响。
 t("Dire Plague rips out a piece of %s soul!", "恐怖瘟疫撕裂了%s灵魂的一部分！", "logSeen")
 t("Frost Cut", "寒霜流血", "_t")
 t("Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.", "被魔法伤口割伤，每回合受到 %0.2f 寒冷伤害，移动速度降低 %d%%。", "tformat")
-t("#Target# starts to bleed ice.", "#Target# 被冰割伤流血。", "_t")
+t("#Target# starts to bleed ice.", "#Target# 开始渗出寒冰。", "_t")
 t("+Frost Cut", "+寒霜流血", "_t")
 t("#Target# stops bleeding ice.", "#Target# 不再流血。", "_t")
 t("-Frost Cut", "-寒霜流血", "_t")
@@ -36508,7 +36508,7 @@ t("#Target# stops taking damage received in the past.", "#Target#不再受到过
 t("-Smeared", "-转化", "_t")
 t("was smeared across all space and time", "被涂抹到所有时空之中", "_t")
 t("See the Threads", "命运螺旋", "_t")
-t("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d).", "你可以从三条时间线中选择一条进入(当前时间线：%d)。", "tformat")
+t("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d).", "你经历三条不同的时间线，最后选择你偏好的一条(当前时间线：%d)。", "tformat")
 t("#LIGHT_RED#The see the threads spell fizzles and cancels, leaving you in this timeline.", "#LIGHT_RED#命运螺旋法术失败了，你停留在了当前时间线。", "logSeen")
 t("#LIGHT_BLUE#You unfold the space time continuum to the start of the time threads!", "#LIGHT_BLUE#你展开了时空连续体，回到了时间线的起点！", "logPlayer")
 t("Imminent Paradox Clone", "悖论分身将至", "_t")
