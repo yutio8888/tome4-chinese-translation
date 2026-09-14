@@ -1,0 +1,57 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/da8872cf-063f-436e-9668-16266d6e032e.jsonl",
+  "tool_call_count": 9,
+  "A_locale_or_translation_reads": [],
+  "B_git_grep_total": 0,
+  "B_git_grep_without_exclusion": [],
+  "C_engine_access_not_pinned": [],
+  "D_write_attempts": [],
+  "E_other_ai_paths": [],
+  "all_calls": [
+    {
+      "name": "Bash",
+      "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md && cat docs/paseo-translation-context-review-v2-contract.md"
+    },
+    {
+      "name": "Bash",
+      "arg": "f=.ai/task/batch-079d67c3a797fb4bad14-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && wc -c \"$f\" && python3 -c \"\nimport json\nd=json.load(open('$f'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "f=.ai/task/batch-079d67c3a797fb4bad14-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && python3 -c \"\nimport json\nd=json.load(open('$f'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    print('='*20,i+1,k)\n    for name in ['translation_snapshot','bounded_context']:\n        o=p[name][i]\n        print('---',name)\n        for kk,vv in o.items():\n            print(' ',kk,':',vv)\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "f=.ai/task/batch-079d67c3a797fb4bad14-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && python3 -c \"\nimport json\nd=json.load(open('$f'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    print('='*20,i+1,k[:12])\n    o=p['translation_snapshot'][i]\n    for kk,vv in o.items():\n        if kk=='revision_key': continue\n        print('---',kk)\n        print(vv)\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "f=.ai/task/batch-079d67c3a797fb4bad14-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && python3 -c \"\nimport json\nd=json.load(open('$f'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    o=p['bounded_context'][i]\n    print('='*20,i+1,k[:12], list(o.keys()))\n    c=o['context']\n    head,_,rest=c.partition('source_facts_v1:')\n    print('CTX:',head.strip())\n    fa=json.loads(rest)\n    for a in fa['fact']['anchors']:\n        print('  anchor',a['kind'],a['repository'],a['public_source_path'],a['commit'][:10],a.get('matching_lines'))\n    for kk in fa['fact']:\n        if kk!='anchors': print('  fact.',kk,'=',json.dumps(fa['fact'][kk],ensure_ascii=False)[:600])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63 && echo \"--- shadowflame 100-130\" && git show $C:game/modules/tome/data/talents/corruptions/shadowflame.lua | sed -n '60,130p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63 && echo \"=== ring-of-blood 1-40\" && git show $C:game/modules/tome/data/quests/ring-of-blood.lua | sed -n '1,40p' && echo \"=== shade 90-120\" && git show $C:game/modules/tome/data/general/npcs/shade.lua | sed -n '85,120p' && echo \"=== ingredients 210-225\" && git show $C:game/modules/tome/data/ingredients.lua | sed -n '208,224p' && echo \"=== grids 50-125\" && git show $C:game/modules/tome/data/zones/stellar-system-shandral/grids.lua | sed -n '45,125p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '3370,3415p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/npcs/shade.lua | sed -n '18,50p'"
+    }
+  ],
+  "host_scope_audit": {
+    "status": "accepted",
+    "G_positive_source_path_scope": "All supplemental source reads use git show fixedcommit:concretepath. No whole-tree search, no locale/translation/private reads, no writes. Nine native tool calls manually reviewed.",
+    "F_snapshot_coverage": "All7 frozen translation_snapshot and bounded_context items explicitly read. Seven ISSUE verdicts, no unread OK override.",
+    "observation_corrections": [
+      "Dwarf main path in observation has typo data/tome/load.lua; actual workset main is game/modules/tome/load.lua and host alternate is data/lore/misc.lua.",
+      "Fearscape name and mummy-agent subclaims require host correction; schema/tool validity does not endorse them."
+    ]
+  }
+}

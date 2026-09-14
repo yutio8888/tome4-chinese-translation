@@ -1,0 +1,142 @@
+{
+  "reviewed": true,
+  "conclusion": "All12 native logs read only own envelope and surface contract. Attempt3 additionally constructed/checked output in memory and printed JSON; no file writes or other task/source reads. Invalid attempts excluded for strict identity/count failure, not tool-boundary failure.",
+  "rows": [
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-000-0",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n if l.startswith('#'):\\n  print(f'{i+1}:{l}')\\np=Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-000-0.json')\\nprint(p.read_text())\\nPY\",\"max_output_tokens\":18000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-000-1",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n    if l.startswith('#'): print(f'{i+1}:{l}')\\np=Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-000-1.json')\\nprint(p.read_text())\\nPY\",\"max_output_tokens\":20000}));"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-000-2",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nimport re\\nheads=list(re.finditer(r'^## .*$',s,re.M))\\nfor i,m in enumerate(heads):\\n if re.match(r'## (六|6)',m.group()):\\n  print(s[m.start():heads[i+1].start() if i+1<len(heads) else len(s)])\\nprint(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":14000}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-000-3",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nheads=[(i,l) for i,l in enumerate(lines) if l.startswith('## ')]\\nfor k,(i,l) in enumerate(heads):\\n if l.startswith('## 6') or l.startswith('## 六'):\\n  j=heads[k+1][0] if k+1<len(heads) else len(lines)\\n  print('\\\\n'.join(lines[i:j]))\\nprint('\\\\nENVELOPE\\\\n')\\nprint(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nPY\",\"max_output_tokens\":22000}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-001-0",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-001-0.json\",\"max_output_tokens\":20000}));text(await tools.exec_command({cmd:\"awk '/^## /{if ($0 ~ /^## (六|6)[、. ：:]/) {p=1} else if(p) {exit}} p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-001-1",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text(); lines=s.splitlines(); heads=[(i,l) for i,l in enumerate(lines) if l.startswith('## ')]\\nfor j,(i,l) in enumerate(heads):\\n if '六' in l or l.startswith('## 6'):\\n  print('\\\\n'.join(lines[i:heads[j+1][0] if j+1<len(heads) else len(lines)]))\\nprint(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-001-1.json').read_text())\\nPY\",\"max_output_tokens\":22000}));"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-001-2",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '/^## 6/,/^## 7/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":8000}));text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-001-2.json\",\"max_output_tokens\":24000}));\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"awk '/^## 六/{p=1} p{if (/^## / && !/^## 六/) exit; print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-001-3",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-001-3.json\",\"max_output_tokens\":22000}));\ntext(await tools.exec_command({cmd:\"awk '/^## / { if ($0 ~ /^## 六[、.：: ]/) {p=1} else if(p) {exit} } p {print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-002-0",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-0.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-0.json').read_text())\\nissues={14:'原文 essence 指精华或本质，译成“实体”误表为召唤恶魔领主本体。',17:'原文 main planets 指主要星球，译成“众多星球”把主要误作数量多。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:item['observation']=issues[i]\\n    r.append(item)\\nassert len(r)==20\\nassert [x['entry_revision_identity'] for x in r]==[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(set(x['entry_revision_identity'] for x in r))==20\\nassert all(len(x['entry_revision_identity'])==64 for x in r)\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-002-1",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-1.json\",\"max_output_tokens\":20000});text(r.output);\nconst s = await tools.exec_command({cmd:\"awk '/^## /{p=($0 ~ /^## 六/ || $0 ~ /^## 6[.、 ]/)} p{print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(s.output);\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-1.json').read_text())\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==15:\\n        r.update(verdict='ISSUE',observation='原文建议寻找不会施加诅咒的木乃伊，译文变成寻找没有被诅咒的骨头，改变了对象及施加诅咒的含义；原文说骨头是必定能找到的部分，译文变成只能找到骨头。')\\n    results.append(r)\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(results)==len(ids)==20\\nassert len(set(ids))==20\\nassert all(r['entry_revision_identity']==identity and len(identity)==64 for r,identity in zip(results,ids))\\nassert p['candidate_identity']=='09f4260c9202ad1ee3e64efe175a04ac079a72438ebc52a2632175fc12c5346b'\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-002-2",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-2.json\",\"max_output_tokens\":20000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-2.json').read_text())\\nissues={2:'原文各公会在统治委员会中享有平等代表权，被译为每个协会各有公正委员会控制；矮人痛苦时自己撕扯胡须的表现，被译为撕扯胡须是刑罚；另将冒险者误译为有冒险经费支持。',5:'原文标题意为直到鲜血流清，译文鲜血之环与原文含义明显不符。',14:'unlife 指亡灵式的存在，译为赋予生命丢失了亡灵含义。'}\\nr={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':[]}\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:item['observation']=issues[i]\\n    r['results'].append(item)\\na=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nb=[e['entry_revision_identity'] for e in r['results']]\\nassert len(a)==len(b)==20 and a==b and len(set(b))==20\\nassert all(len(x)==64 for x in b)\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":5000}));\n"
+        }
+      ]
+    },
+    {
+      "key": "batch-079d67c3a797fb4bad14|lane-002-3",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-3.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np = json.loads(Path('.ai/task/batch-079d67c3a797fb4bad14/SURFACE-SCREEN-ENVELOPE-lane-002-3.json').read_text())\\nentries = p['payload']['entries']\\nresults = [{'entry_revision_identity': e['entry_revision_identity'], 'verdict': 'OK'} for e in entries]\\nresults[19].update(verdict='ISSUE', observation='原文表示被刀片刺网缠住，译文变成被刀片切割，遗漏了缠绕含义并改成切割动作。')\\nassert p['candidate_identity'] == '3bde5d0646f6874c7f62b88c4792fcd123d84ae196ea014ede4cf1114ea1f44c'\\nassert len(results) == len(entries) == 20\\nassert len({r['entry_revision_identity'] for r in results}) == 20\\nassert all(r['entry_revision_identity'] == e['entry_revision_identity'] and len(r['entry_revision_identity']) == 64 for r, e in zip(results, entries))\\nprint(json.dumps({'candidate_identity': p['candidate_identity'], 'contract': p['payload']['contract'], 'results': results}, ensure_ascii=False, sort_keys=True, separators=(',', ':')), end='')\\nPY\",\"max_output_tokens\":3000}));\n"
+        }
+      ]
+    }
+  ]
+}
