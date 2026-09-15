@@ -785,7 +785,12 @@ def native_identity(s, *, required=True):
     sessions = []
     for scope in scopes:
         if 'provider' in scope:
-            require(scope['provider'] == provider, 'conflicting provider')
+            # Grok is exposed by the agent API, but its native session is
+            # persisted by the ACP runtime.  Keep the exception scoped to
+            # persistence.metadata; every other provider alias must still
+            # agree with the agent provider.
+            allowed = ('acp',) if provider == 'grok' and scope is p.get('metadata') else (provider,)
+            require(scope['provider'] in allowed, 'conflicting provider')
         if 'cwd' in scope:
             require(scope['cwd'] == s['cwd'], 'conflicting persistence cwd')
         for key in ('sessionId', 'threadId'):
@@ -1069,10 +1074,15 @@ def _parse_grok_native_final(sources, *, session_id, cwd, prompt, natural_succes
     require(summary_lines + len(events) + len(chat) <= NATIVE_MAX_LINES,
             'Grok native line limit')
     starts = []
+    event_types = {'mcp_config_resolved', 'mcp_server_starting', 'turn_started',
+                   'mcp_server_connected', 'mcp_init_completed', 'loop_started',
+                   'phase_changed', 'first_token', 'tool_started', 'tool_completed',
+                   'permission_requested', 'permission_resolved', 'turn_ended'}
+    mcp_bootstrap = {'mcp_config_resolved', 'mcp_server_starting',
+                     'mcp_server_connected', 'mcp_init_completed'}
     for i, event in enumerate(events):
         kind = event.get('type')
-        require(isinstance(kind, str) and (kind in {'turn_started', 'turn_ended',
-                'phase_changed', 'first_token'} or (kind.startswith('tool_') and len(kind) > 5)),
+        require(isinstance(kind, str) and kind in event_types,
                 'unknown Grok event type/shape')
         if 'session_id' in event:
             require(event['session_id'] == session_id, 'Grok event session mismatch')
@@ -1086,19 +1096,39 @@ def _parse_grok_native_final(sources, *, session_id, cwd, prompt, natural_succes
         elif kind == 'turn_ended':
             require(event.get('outcome') in ('completed', 'failed', 'cancelled', 'error'),
                     'unknown Grok turn outcome')
-    require(len(starts) == 1 and starts[0] == 0, 'ambiguous Grok turn start')
+    require(len(starts) == 1 and starts[0] > 0
+            and all(e.get('type') in mcp_bootstrap for e in events[:starts[0]]),
+            'ambiguous Grok turn start or non-bootstrap prefix')
     require(events[-1].get('type') == 'turn_ended' and events[-1].get('outcome') == 'completed'
             and sum(e.get('type') == 'turn_ended' for e in events) == 1,
             'Grok final completion missing or ambiguous')
     users, assistants = [], []
     for i, record in enumerate(chat):
         kind = record.get('type')
-        require(kind in {'system', 'user', 'reasoning', 'assistant', 'tool_result'}
-                and isinstance(record.get('content'), str), 'unknown Grok chat type/shape')
-        try:
-            record['content'].encode('utf-8', errors='strict')
-        except UnicodeError:
-            raise LifecycleError('Grok chat content is not valid UTF-8') from None
+        require(kind in {'system', 'user', 'reasoning', 'assistant', 'tool_result'},
+                'unknown Grok chat type/shape')
+        if kind == 'reasoning':
+            require('content' not in record and isinstance(record.get('summary'), list),
+                    'invalid Grok reasoning shape')
+            for item in record['summary']:
+                require(isinstance(item, dict), 'invalid Grok reasoning summary')
+        elif kind == 'user':
+            content = record.get('content')
+            require(isinstance(content, list) and content
+                    and all(isinstance(block, dict) and block.get('type') == 'text'
+                            and isinstance(block.get('text'), str) for block in content),
+                    'Grok user content requires text blocks')
+            for block in content:
+                try:
+                    block['text'].encode('utf-8', errors='strict')
+                except UnicodeError:
+                    raise LifecycleError('Grok chat content is not valid UTF-8') from None
+        else:
+            require(isinstance(record.get('content'), str), 'invalid Grok chat content')
+            try:
+                record['content'].encode('utf-8', errors='strict')
+            except UnicodeError:
+                raise LifecycleError('Grok chat content is not valid UTF-8') from None
         if 'session_id' in record:
             require(record['session_id'] == session_id, 'Grok chat session mismatch')
         if 'cwd' in record:
@@ -1107,22 +1137,32 @@ def _parse_grok_native_final(sources, *, session_id, cwd, prompt, natural_succes
             users.append(i)
         elif kind == 'assistant':
             assistants.append(i)
-    require(len(users) == 1 and assistants and all(users[0] < i for i in assistants),
-            'missing/ambiguous Grok prompt or assistant')
-    user = chat[users[0]]['content']
-    require(user.count('<user_query>') == user.count('</user_query>') == 1
-            and user.count('<user_info>') == user.count('</user_info>') == 1,
+    require(users and assistants and max(users) < min(assistants),
+            'missing/ambiguous Grok prompt or assistant ordering')
+    user_texts = [(i, ''.join(block['text'] for block in chat[i]['content'])) for i in users]
+    query_records = [(i, text) for i, text in user_texts if text.count('<user_query>')
+                     == text.count('</user_query>') == 1]
+    info_records = [(i, text) for i, text in user_texts if text.count('<user_info>')
+                    == text.count('</user_info>') == 1 and 'Workspace Path:' in text]
+    require(sum(text.count('<user_query>') for _, text in user_texts)
+            == sum(text.count('</user_query>') for _, text in user_texts) == 1
+            and sum(text.count('<user_info>') for _, text in user_texts)
+            == sum(text.count('</user_info>') for _, text in user_texts) == 1
+            and len(query_records) == 1 and len(info_records) == 1,
             'unknown Grok prompt wrapper')
-    query = user.split('<user_query>', 1)[1].split('</user_query>', 1)[0]
+    query_line, query_record = query_records[0]
+    info_line, info_record = info_records[0]
+    require(query_line < min(assistants) and info_line < min(assistants),
+            'Grok prompt context must precede assistants')
+    query = query_record.split('<user_query>', 1)[1].split('</user_query>', 1)[0]
     # One newline on either side belongs to the XML-style host wrapper.
     if query.startswith('\n') and query.endswith('\n'):
         query = query[1:-1]
-    user_info = user.split('<user_info>', 1)[1].split('</user_info>', 1)[0]
+    user_info = info_record.split('<user_info>', 1)[1].split('</user_info>', 1)[0]
     paths = re.findall(r'(?m)^Workspace Path: ([^\r\n]+)$', user_info)
     require(query == prompt and paths == [cwd], 'Grok frozen prompt/cwd mismatch')
     final = assistants[-1]
-    require(all(not chat[i]['content'] for i in assistants[:-1])
-            and bool(chat[final]['content']), 'zero/multiple Grok final assistant text records')
+    require(bool(chat[final]['content']), 'zero Grok final assistant text record')
     text = chat[final]['content']
     try:
         raw = text.encode('utf-8', errors='strict')
@@ -1135,7 +1175,8 @@ def _parse_grok_native_final(sources, *, session_id, cwd, prompt, natural_succes
                      source_sha256=digest(surface.canonical_bytes(file_shas)),
                      source_bytes=sum(map(len, sources.values())), source_lines=summary_lines + len(events) + len(chat),
                      raw_sha256=digest(raw), raw_bytes=len(raw),
-                     prompt_line=users[0] + 1, final_line=final + 1, complete_line=len(events))
+                     prompt_line=query_line + 1, info_line=info_line + 1,
+                     final_line=final + 1, complete_line=len(events))
 
 
 def _read_grok_native_final(path, **binding):
