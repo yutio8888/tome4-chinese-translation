@@ -1,0 +1,48 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/9746aee7-f734-43bb-8292-9de3b8f534fc.jsonl",
+  "tool_call_count": 7,
+  "A_locale_or_translation_reads": [],
+  "B_git_grep_total": 0,
+  "B_git_grep_without_exclusion": [],
+  "C_engine_access_not_pinned": [],
+  "D_write_attempts": [],
+  "E_other_ai_paths": [],
+  "all_calls": [
+    {
+      "name": "Bash",
+      "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-8475abd96282707d03e4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+    },
+    {
+      "name": "Bash",
+      "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-8475abd96282707d03e4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint('---BRIEFING---')\nprint(p['rendered_briefing'])\nprint('---CTX---')\nprint(json.dumps(p['bounded_context'],ensure_ascii=False)[:2000])\nprint('---TERM---')\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-8475abd96282707d03e4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('=== REV',i,k)\n    print(json.dumps(t,ensure_ascii=False,indent=1))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-8475abd96282707d03e4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    print('=== CTX',i, c.get('revision_key'))\n    print(c['context'])\n    print()\n\" | head -200"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/temporal-rift.lua | sed -n '18,60p'; echo ===; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '228,262p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/projection.lua | grep -n \"name = \\|DamageType\\|damage\" | head -40"
+    }
+  ],
+  "F_full_source_target_visibility": {
+    "status": "PASS",
+    "entry_count": 4,
+    "native_tool_use_id": "toolu_01PZSf5zG4bVcwKFSurwWfr5",
+    "all_sources_targets_exact": true
+  },
+  "G_host_manual_assessment": "Host read all 7 complete Bash calls. No prohibited file reads, writes, or repository-wide scans. Four full source/target strings are visible in native result. Bounded-context output capped at head -200; no assertion that all context was read. Additional fixed-commit quest and artifact snippets plus projection grep/head were consulted. Reviewer extrapolations from stats or sibling-tree wording do not substitute for host source adjudication.",
+  "status": "PASS"
+}

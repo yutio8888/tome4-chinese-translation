@@ -1,0 +1,134 @@
+{
+  "batch_id": "batch-8475abd96282707d03e4",
+  "status": "PASS",
+  "reviews": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T07-52-05-01a0a40d-3b1f-7291-bcc0-0442e4bde26e.jsonl",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_07920f5394e670fc016aa8f92f899c87d19dd41550fabb4593",
+          "status": "completed",
+          "call_id": "call_Xebky5x0Kyv1Qgcd5jHWrwV5",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":20000}));\ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-3b5c-7942-80ac-6b43bf4f4209",
+            "create_time": 1789458731.916454
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_07920f5394e670fc016aa8f93a014887d19c7fc3d047992664",
+          "status": "completed",
+          "call_id": "call_cknl24XqymzjcFJQGOhgNWKR",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={1:'原文为投射能量伤害敌人，译文“摧毁目标”将伤害夸大为摧毁。',8:'漏译“of unknown breed”（种类不明）这一描述。'}\\nr=[dict(entry_revision_identity=e['entry_revision_identity'],**({'observation':issues[i],'verdict':'ISSUE'} if i in issues else {'verdict':'OK'})) for i,e in enumerate(p['payload']['entries'])]\\nassert len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(x['entry_revision_identity']==e['entry_revision_identity'] and len(x['entry_revision_identity'])==64 for x,e in zip(r,p['payload']['entries']))\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-3b5c-7942-80ac-6b43bf4f4209",
+            "create_time": 1789458739.040622
+          }
+        }
+      ],
+      "status": "PASS",
+      "assessment": "Host read every complete tool call: own frozen envelope, section VI contract, in-memory identity checked JSON. No task scans or file writes."
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T07-52-21-01a0a40d-77f3-7091-a9ab-4939dba991e9.jsonl",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_05d838793043991a016aa8f93c609087d1bde1a73cb43e3cd1",
+          "status": "completed",
+          "call_id": "call_rEF7THywRPZQdUMcPvTbDpML",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":16000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-7830-7a53-aa69-d4e3fe3a8566",
+            "create_time": 1789458746.892045
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_05d838793043991a016aa8f9427f4c87d18718f501dd0e43c1",
+          "status": "completed",
+          "call_id": "call_bn0cjStoUixlE0FS5Q028h6p",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nr={'candidate_identity':p['candidate_identity'],'contract':p['payload']['contract'],'results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in p['payload']['entries']]}\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(ids)==20 and len(set(ids))==20\\nassert [e['entry_revision_identity'] for e in r['results']]==ids\\nassert all(len(s)==64 for s in ids)\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-7830-7a53-aa69-d4e3fe3a8566",
+            "create_time": 1789458752.319714
+          }
+        }
+      ],
+      "status": "PASS",
+      "assessment": "Host read every complete tool call: own frozen envelope, section VI contract, in-memory identity checked JSON. No task scans or file writes."
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T07-52-36-01a0a40d-b223-7180-b26d-99f103e5510a.jsonl",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_0300b8d53d825fc8016aa8f94c0a6487d29f9c0e4c4930c85d",
+          "status": "completed",
+          "call_id": "call_xpEuSUB5cvFVfXZztF6B38F8",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":18000}); text(r.output);\nconst s = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}); text(s.output);\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-b25f-7192-8d8a-2c87a5d1c118",
+            "create_time": 1789458761.968497
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_0300b8d53d825fc8016aa8f95a354887d28225e52787ace5a0",
+          "status": "completed",
+          "call_id": "call_fmVnbL8tkV92BEi3oHAtbZ2B",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'\\nwith open(p) as f: data=json.load(f)\\nentries=data['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==17:\\n        r.update(verdict='ISSUE',observation='“powers from beyond the grave”指来自死后世界的力量，译成“坟墓的气息”丢失了力量及其来源的含义。')\\n    results.append(r)\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nout={'candidate_identity':data['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40d-b25f-7192-8d8a-2c87a5d1c118",
+            "create_time": 1789458767.821726
+          }
+        }
+      ],
+      "status": "PASS",
+      "assessment": "Host read every complete tool call: own frozen envelope, section VI contract, in-memory identity checked JSON. No task scans or file writes."
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T07-53-59-01a0a40e-f6a9-7e60-9bca-4d6a4eb08de0.jsonl",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_083706e2b2360297016aa8f9a0251487d28377801221de496f",
+          "status": "completed",
+          "call_id": "call_dq9fl1lPsBjs54KSQ1WXbf2S",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":24000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40e-f6e6-7d53-a51e-4ec94a90dade",
+            "create_time": 1789458845.369962
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_083706e2b2360297016aa8f9af896487d28aaaab7eec331524",
+          "status": "completed",
+          "call_id": "call_mvYabBE7wGWJ7uGD0KXw23M2",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-8475abd96282707d03e4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json'\\nwith open(p) as f: envelope=json.load(f)\\nentries=envelope['payload']['entries']\\nresults=[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in entries]\\nresults[9].update(verdict='ISSUE',observation='原文三次重复 Back，表达反复返回；译文“回到未来”漏掉了反复返回的含义。')\\noutput={'candidate_identity':envelope['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor entry,result in zip(entries,results):\\n    assert result['entry_revision_identity']==entry['entry_revision_identity']\\n    assert len(result['entry_revision_identity'])==64\\nprint(json.dumps(output,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0a40e-f6e6-7d53-a51e-4ec94a90dade",
+            "create_time": 1789458851.364983
+          }
+        }
+      ],
+      "status": "PASS",
+      "assessment": "Host read every complete tool call: own frozen envelope, section VI contract, in-memory identity checked JSON. No task scans or file writes."
+    }
+  ]
+}
