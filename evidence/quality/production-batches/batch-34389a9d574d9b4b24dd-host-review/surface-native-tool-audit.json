@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-16-02-01a0a310-7ef3-7db1-bbec-35d3540950a8.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\ntext(await tools.exec_command({cmd:\"cat .ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":17000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==7:\\n        r.update(verdict='ISSUE',observation='treated with the correct chemicals（用合适的化学药剂处理）被误译为“就像是对待真正的实验品一样”；My greatness cannot be allowed to fade（我的伟大不能消逝）被误译为“我的伟大不容亵渎”。')\\n    results.append(r)\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity']\\n    assert len(r['entry_revision_identity'])==64\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-16-32-01a0a310-f281-7641-80cb-345f17280255.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":20000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":12000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries=p['payload']['entries']\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in entries]}\\na=[e['entry_revision_identity'] for e in entries]\\nb=[r['entry_revision_identity'] for r in out['results']]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-17-06-01a0a311-77d0-7ba2-ab24-ee1e439be674.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n if l.startswith('#'): print(f'{i+1}: {l}')\\nprint('ENVELOPE')\\nprint(Path('.ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":16000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n if i==0:\\n  r.update(verdict='ISSUE',observation='剧毒弹部分漏译 additional（额外伤害）及 as per Exotic Munitions（毒素效果参照该技能），丢失伤害叠加和效果参照信息。')\\n results.append(r)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nv=json.loads(s)\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(ids)==len(v['results'])==20\\nassert len(set(ids))==20\\nassert [r['entry_revision_identity'] for r in v['results']]==ids\\nassert all(len(r['entry_revision_identity'])==64 for r in v['results'])\\nprint(s,end='')\\nPY\",\"max_output_tokens\":4000}));",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-18-47-01a0a313-0385-7653-8547-c62ff9a94117.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const results = await Promise.allSettled([\ntools.exec_command({cmd:\"cat .ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",max_output_tokens:16000}),\ntools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:6000})\n]); for(let i=0;i<results.length;i++) text({i,...results[i]});\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-34389a9d574d9b4b24dd/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nissues={3:'原文为运用各种技巧控制战场；译文遗漏各种技巧，并增添提升格斗效果的含义。',12:'原文说通常无法驱散或移除，译文遗漏通常，将其表述为绝对不会被解除或移除。',16:'rot 指腐烂，译成腐蚀改变了含义。',18:'原文仅表示此时无法提供帮助，译文没空帮你将原因限定为没有时间。'}\\nr=[]\\nfor i,e in enumerate(x['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues: item['observation']=issues[i]\\n    r.append(item)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert y['candidate_identity']=='4587248fc181ba6798f8fab3bf3f1b7709990d48a0dc2d72ccb73718cb1c456b'\\nassert len(r)==20 and len({i['entry_revision_identity'] for i in r})==20\\nassert all(a['entry_revision_identity']==b['entry_revision_identity'] and len(a['entry_revision_identity'])==64 for a,b in zip(r,x['payload']['entries']))\\nprint(json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "Inspected all nine custom tool calls: own frozen envelope and contract output section/headings only; JSON computed in memory/stdout with ordered 20-row checks; no external source/translation/unrelated task reads or file writes. Surface OK does not resolve separately recorded host finding."
+}
