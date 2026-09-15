@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-36-06-01a0a359-ce88-7d93-ae91-4643b5d6a6a3.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\\nsed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":18000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nwith open(p) as f: e=json.load(f)\\nentries=e['payload']['entries']\\nr=[]\\nfor i,x in enumerate(entries):\\n    v={'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'}\\n    if i==14:\\n        v.update(verdict='ISSUE',observation='原文减少的是所列技能的冷却时间；译文遗漏“冷却时间”，变成“减少……技能 %d 回合”，未准确表达减少的对象。')\\n    r.append(v)\\nassert len(r)==len(entries)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(a['entry_revision_identity']==b['entry_revision_identity'] for a,b in zip(r,entries))\\nprint(json.dumps({'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ],
+      "host_scope_verdict": "allowed frozen envelope, specified contract section, in-memory/same-envelope output identity checks; no writes or external reads",
+      "all_entries_read": true,
+      "output_count": 2
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-36-30-01a0a35a-292d-7463-8fe2-024b09958b00.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(r.output);\nconst q = await tools.exec_command({cmd:\"cat .ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":24000}); text(q.output);store(\"surfaceRaw\",q.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const input=JSON.parse(load(\"surfaceRaw\")); const entries=input.payload.entries;\nconst observations=new Map([[2,\"译文遗漏专名 Shantiz，仅保留称号“风暴之刃”。\"],[4,\"遗漏“As long as you sustain this spell”，未说明传送以持续维持该法术为条件。\"],[6,\"Net Damage 被译为“基础伤害”，混淆净伤害与基础伤害。\"],[19,\"Decrepitude 表示衰老、衰弱，译为“破碎”明显偏离原意。\"]]);\nconst out={candidate_identity:input.candidate_identity,contract:\"translation_surface_screen_v1\",results:entries.map((e,i)=>observations.has(i)?{entry_revision_identity:e.entry_revision_identity,observation:observations.get(i),verdict:\"ISSUE\"}:{entry_revision_identity:e.entry_revision_identity,verdict:\"OK\"})};\nif(entries.length!==20 ||out.results.length!==20||new Set(out.results.map(x=>x.entry_revision_identity)).size!==20)throw Error(\"coverage\");\nout.results.forEach((x,i)=>{if(x.entry_revision_identity!==entries[i].entry_revision_identity||x.entry_revision_identity.length!==64)throw Error(\"identity\");});\ntext(JSON.stringify(out));\n",
+          "arguments": null
+        }
+      ],
+      "host_scope_verdict": "allowed frozen envelope, specified contract section, in-memory/same-envelope output identity checks; no writes or external reads",
+      "all_entries_read": true,
+      "output_count": 2
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-36-55-01a0a35a-8bcd-7023-9e39-6571007fbf73.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":16000});text(r.output);\nconst s=await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000});text(s.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nentries=p['payload']['entries']\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in entries]}\\na=[e['entry_revision_identity'] for e in entries]\\nb=[e['entry_revision_identity'] for e in out['results']]\\nassert len(a)==len(b)==20 and len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ],
+      "host_scope_verdict": "allowed frozen envelope, specified contract section, in-memory/same-envelope output identity checks; no writes or external reads",
+      "all_entries_read": true,
+      "output_count": 2
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-38-22-01a0a35b-de4c-7673-869a-3871fa9d965a.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"awk '/^## 六/{p=1} p{print} /^## 七/{exit}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-3168f2ee01cfb213f893/SURFACE-SCREEN-ENVELOPE-lane-000-3.json'\\nx=json.load(open(p)); entries=x['payload']['entries']; results=[]\\nfor i,e in enumerate(entries):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n if i==3:\\n  r.update(verdict='ISSUE',observation='Exploit Weakness 表示利用弱点，译为“弱点感知”将利用弱点变成了感知弱点。')\\n results.append(r)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nassert all(r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64 for r,e in zip(results,entries))\\nprint(json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "arguments": null
+        }
+      ],
+      "host_scope_verdict": "allowed frozen envelope, specified contract section, in-memory/same-envelope output identity checks; no writes or external reads",
+      "all_entries_read": true,
+      "output_count": 2
+    }
+  ],
+  "status": "passed",
+  "host_manual_review": "All 8 native calls inspected, only allowed inputs and stdout assembly; complete 80 source/target pairs visible."
+}
