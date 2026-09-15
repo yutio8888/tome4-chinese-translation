@@ -1,0 +1,83 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/66e371eb-bdb1-43f5-8f42-00fe083719ac.jsonl",
+  "tool_call_count": 12,
+  "A_locale_or_translation_reads": [],
+  "B_git_grep_total": 0,
+  "B_git_grep_without_exclusion": [],
+  "C_engine_access_not_pinned": [],
+  "D_write_attempts": [
+    [
+      "Bash",
+      "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in (3,6,4,5,1,2):\n  ctx=p['bounded_context'][i]['context']\n  fj=json.loads(ctx.split('source_facts_v1:',1)[1])\n  print('=== idx',i)\n  for a in fj['fact']['anchors']:\n    print(' anchor',a['public_source_path'],a['kind'],a['matching_lines'])\n    for s in a['snippet']:\n      print(('>' if s['is_match'] else ' '),s['line'],s['text'])\n\""
+    ]
+  ],
+  "E_other_ai_paths": [],
+  "all_calls": [
+    {
+      "name": "Bash",
+      "arg": "sed -n '1,200p' docs/paseo-translation-context-review-v2-contract.md"
+    },
+    {
+      "name": "Bash",
+      "arg": "wc -c .ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(type(d), list(d.keys()) if isinstance(d,dict) else len(d))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(json.dumps(p['ordered_revision_keys'],ensure_ascii=False))\nprint('--- terminology')\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nts=p['translation_snapshot']; bc=p['bounded_context']\nprint(type(ts),len(ts)); print(type(bc),len(bc))\nfor i,(a,b) in enumerate(zip(ts,bc)):\n  print('=== idx',i, p['ordered_revision_keys'][i])\n  print('TS keys',list(a.keys()))\n  print(json.dumps(a,ensure_ascii=False,indent=1))\n  print('BC', json.dumps(b,ensure_ascii=False,indent=1))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "sed -n '1,120p' /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/66e371eb-bdb1-43f5-8f42-00fe083719ac/tool-results/bf9ui6sww.txt"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(json.dumps(p['bounded_context'][0],ensure_ascii=False,indent=1))\n\" 2>&1 | head -60"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in (1,2):\n  t=p['translation_snapshot'][i]\n  print('=== idx',i)\n  print('SRC:',t['source'])\n  print('TGT:',t['target'])\n\" 2>&1 | head -40"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in range(7):\n  ctx=p['bounded_context'][i]['context']\n  head=ctx.split('source_facts_v1:')[0].strip()\n  fj=json.loads(ctx.split('source_facts_v1:',1)[1])\n  f=fj['fact']\n  print('=== idx',i,'|',head)\n  print(' main:',f['main_source']['public_source_path'],f['main_source'].get('commit'),'comp',f['source_component'])\n  print(' evidence_status',f['evidence_status'],'missing',f['missing_evidence'],'ph',f['placeholders'],'ph_t',f['placeholders_in_target'],'ord_ok',f['placeholder_order_matches'],'args',f['args_order'])\n  for t in f['terminology']:\n    print('  TERM',t['source'],'->',t['target'],'|',t['category'],t['scope'],t['status'],'|',t['file'],t['line'],'|',t.get('notes'))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in (3,4,5,6):\n  t=p['translation_snapshot'][i]\n  print('=== idx',i)\n  print('SRC:',repr(t['source']))\n  print('TGT:',repr(t['target']))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-124e8a0f95ff5a02e52b-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in (3,6,4,5,1,2):\n  ctx=p['bounded_context'][i]['context']\n  fj=json.loads(ctx.split('source_facts_v1:',1)[1])\n  print('=== idx',i)\n  for a in fj['fact']['anchors']:\n    print(' anchor',a['public_source_path'],a['kind'],a['matching_lines'])\n    for s in a['snippet']:\n      print(('>' if s['is_match'] else ' '),s['line'],s['text'])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 2>&1; git ls-tree 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/talents/chronomancy/ 2>&1 | head -40"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && for f in timetravel spacetime-folding other; do echo \"## $f\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/$f.lua | grep -n -i -A22 'TEMPORAL_REPRIEVE\\|Temporal Reprieve' | head -80; done"
+    }
+  ],
+  "host_audit": {
+    "status": "pass",
+    "D_raw_flag_disposition": "false_positive",
+    "reason": "唯一D命中为python print中的字符串字面量 >，用于标记匹配行；无重定向或持久写入。保留原始检测结果。child所读tool-results/bf9ui6sww.txt为本session自身上一调用被截断的输出，非外部输入。"
+  },
+  "F_OK_input_coverage": {
+    "status": "pass",
+    "revision_prefixes": [
+      "5e8ffef248",
+      "5ecf018f17",
+      "5efffba099"
+    ],
+    "reason": "call9显式输出索引3/4/6的source和target，call10读取相应冻结anchor，call12补查Temporal Reprieve源码；OK均已覆盖。"
+  },
+  "G_positive_source_scope": {
+    "status": "pass",
+    "reason": "源码检索仅固定commit的chronomancy目录ls-tree及三个具体文件git show，无全树内容扫描；其余只读本人envelope、v2契约及本人上一工具输出。"
+  }
+}

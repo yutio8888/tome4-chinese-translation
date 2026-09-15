@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T00-46-04-01a0a287-32ad-7e63-9e72-d5d808ae8e09.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":24000}));text(await tools.exec_command({cmd:\"awk '/^## / { if ($0 ~ /^## 六/ || $0 ~ /^## 6[.、 ]/) p=1; else if(p) exit } p {print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={8:'原文“If you\\\\'d like to use this feature”指希望使用探索模式功能，译为“如果你喜欢这类游戏”改变了条件含义。',18:'译文在“反应能力。”之后新增换行，原文对应段落没有该换行；换行总数由2变为3。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    x={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:x['observation']=issues[i]\\n    r.append(x)\\nassert len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(x['entry_revision_identity']==e['entry_revision_identity'] and len(x['entry_revision_identity'])==64 for x,e in zip(r,p['payload']['entries'],strict=True))\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T00-46-15-01a0a287-5f12-7112-831f-d7283dc6081a.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n    if l.startswith('## '): print(i+1,l)\\np=Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-1.json')\\nprint(p.read_text())\\nPY\",\"max_output_tokens\":14000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":3000})).output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\ne=json.loads(Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nobservations={15:'原文将念刃砸向地面，译为“向四周粉碎利刃”，动作和方向明显不符；原文流血对象限定为敌人，译为“目标”丢失敌我限定。',18:'原文“freezing it in place”表示使其定在原地，译为“石化”加入了原文未明示的具体状态。'}\\nresults=[]\\nfor i,entry in enumerate(e['payload']['entries']):\\n    r={'entry_revision_identity':entry['entry_revision_identity'],'verdict':'ISSUE' if i in observations else 'OK'}\\n    if i in observations:r['observation']=observations[i]\\n    results.append(r)\\no={'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\ns=json.dumps(o,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nr=json.loads(s)\\nassert len(r['results'])==len(e['payload']['entries'])==20\\nassert len(set(v['entry_revision_identity'] for v in r['results']))==20\\nfor a,b in zip(e['payload']['entries'],r['results']):\\n    assert a['entry_revision_identity']==b['entry_revision_identity']\\n    assert len(b['entry_revision_identity'])==64\\nprint(s,end='')\\nPY\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T00-46-28-01a0a287-91b3-7c33-bdf0-843c0ec00141.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":20000}));\ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==11:\\n        r.update(verdict='ISSUE',observation='原文 is fearsome to behold 描述外观令人畏惧，译文改为“是水中的恐怖恶魔”，增添了原文没有的恶魔身份。')\\n    results.append(r)\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nout={'candidate_identity':p['candidate_identity'],'contract':p['payload']['contract'],'results':results}\\nassert out['candidate_identity']=='db199993e3e73dd715f21eca31e3c518ab22c4c9954c5a582e1fa5cf19e2598d'\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T00-47-48-01a0a288-c84f-7a13-b1a4-26e88603dc5a.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nstart=next(i for i,l in enumerate(lines) if l.startswith('## ') and ('六' in l or l.startswith('## 6')))\\nend=next((i for i in range(start+1,len(lines)) if lines[i].startswith('## ')),len(lines))\\nprint('\\\\n'.join(lines[start:end]))\\nprint(Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nPY\",\"max_output_tokens\":14000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nv=json.loads(Path('.ai/task/batch-124e8a0f95ff5a02e52b/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nissues={2:'原文后句指这些事件确曾在某个时候发生，译文“他们在某个时候干过”误将事件指代为人物并改变了含义。',10:'原文仅说目标已撤退到安全地点，译文改为“被传送”，添加了原文未表达的传送方式。'}\\nresults=[]\\nfor i,e in enumerate(v['payload']['entries']):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:r['observation']=issues[i]\\n results.append(r)\\nout={'candidate_identity':v['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(results)==len(v['payload']['entries'])==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor a,b in zip(v['payload']['entries'],results):\\n assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "host_conclusion": "All nine custom tool calls inspected. Each child read only its own frozen envelope and contract section/headings; JSON built in memory/stdout. No persistent writes or unrelated reads.",
+  "status": "pass"
+}
