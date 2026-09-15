@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-45-28-01a0a32b-7109-79f3-a002-a84846a8c4b2.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":15000});text(r.output);\nconst s = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(s.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nobservations={2:'原文指多重攻击触发效果（procs）的强度衰减，译文遗漏“触发效果”，变成多重攻击本身的强度衰减。',13:'原文眩晕对象为区域内所有敌人，译文扩大为“所有目标”。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in observations else 'OK'}\\n    if i in observations:item['observation']=observations[i]\\n    r.append(item)\\nassert len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nfor a,b in zip(p['payload']['entries'],r):\\n    assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-45-40-01a0a32b-9ff5-70b0-8b50-c3a9297527bf.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"rg -n '^#{1,3} ' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":2000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i == 13:\\n        item.update(verdict='ISSUE',observation='原文警告织梦者可能相信世界仅存在于自己心中，译文改为“失去自我，世界于他而言将成为虚幻”，改变了核心含义并增添“失去自我”。')\\n    r.append(item)\\nassert len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nfor a,b in zip(p['payload']['entries'],r):\\n    assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':p['payload']['contract'],'results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-45-56-01a0a32b-de1d-7b62-bf50-7a97acc96240.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"awk '/^## / {show=($0 ~ /^## (六|6)[、.． ：:]/)} show {print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nissues={2:'原文限定轰击堡垒正下方，并伤害范围内任何生物；译文遗漏正下方的位置限定，且将任何生物缩窄为敌人。',16:'原文名称明确包含 Robe（法袍），译文遗漏了这一物品类别。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:item['observation']=issues[i]\\n    r.append(item)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\ncheck=json.loads(s)\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(r)==len(ids)==20 and len(set(ids))==20\\nassert [e['entry_revision_identity'] for e in check['results']]==ids\\nassert all(len(x)==64 for x in ids)\\nassert p['candidate_identity']=='7e485a2bf2663eba1e8fa8a5ec6482299dd966096a71b905ad9bcd19ba13c582'\\nprint(s,end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T03-47-25-01a0a32d-3a13-7d31-911d-5ca15165e1ea.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nimport re\\nheads=list(re.finditer(r'^## .+$',s,re.M))\\nfor i,h in enumerate(heads):\\n if re.match(r'## (?:六|6)[、.\\\\s：:]?',h.group()):\\n  print(s[h.start():heads[i+1].start() if i+1<len(heads) else len(s)])\\nprint(Path('.ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nPY\",\"max_output_tokens\":14000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\ne=json.loads(Path('.ai/task/batch-49d8993d3b2ada09d117/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nr=[]\\nfor i,x in enumerate(e['payload']['entries']):\\n d={'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'}\\n if i==1:\\n  d.update(verdict='ISSUE',observation='换行格式与原文不一致：在“可越过之后……”及“每一分知识……”后新增空行，并删除末尾 #{normal}# 前的换行。')\\n r.append(d)\\no={'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nids=[x['entry_revision_identity'] for x in e['payload']['entries']]\\nassert len(r)==len(ids)==20 and len(set(ids))==20\\nassert all(x['entry_revision_identity']==ident and len(ident)==64 for x,ident in zip(r,ids))\\nprint(json.dumps(o,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "Inspected all nine custom calls: each lane reads only its own frozen envelope and contract output section/headings; output generation is in memory/stdout with exact ordered 20-row checks. No external sources, translation/other task reads, or persistent writes. Lane3 notification showed duplicated streaming text, but native final harvested by lifecycle is valid exact JSON; no manual reconstruction. Two independent host findings and one source-version pending remain separately recorded."
+}
