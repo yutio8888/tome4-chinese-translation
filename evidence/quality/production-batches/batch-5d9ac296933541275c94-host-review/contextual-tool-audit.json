@@ -1,0 +1,88 @@
+{
+  "batch_id": "batch-5d9ac296933541275c94",
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ea01c33a-00ff-47e4-a733-42866b46cc1a.jsonl",
+  "native_log_sha256": "65c665bfaeacecacc319f676b5c42d4e0cf116126e3dab5f0c17dae55cd6d157",
+  "manual_review": "PASS",
+  "checks_A_to_E": {
+    "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ea01c33a-00ff-47e4-a733-42866b46cc1a.jsonl",
+    "tool_call_count": 8,
+    "A_locale_or_translation_reads": [],
+    "B_git_grep_total": 0,
+    "B_git_grep_without_exclusion": [],
+    "C_engine_access_not_pinned": [],
+    "D_write_attempts": [],
+    "E_other_ai_paths": [],
+    "all_calls": [
+      {
+        "name": "Bash",
+        "arg": "sed -n '1,400p' docs/paseo-translation-context-review-v2-contract.md"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-5d9ac296933541275c94-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(json.dumps(p['ordered_revision_keys'],ensure_ascii=False))\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-5d9ac296933541275c94-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('=== ',i,k)\n    print(json.dumps(t,ensure_ascii=False,indent=1))\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-5d9ac296933541275c94-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(json.dumps(p['bounded_context'],ensure_ascii=False,indent=1))\n\" | head -200"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/egos/cloak.lua | sed -n '245,275p'; echo \"=== races\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/races.lua | sed -n '925,960p'; echo \"=== dex\"; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/uber/dex.lua | sed -n '150,190p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/absorption.lua | sed -n '330,393p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-5d9ac296933541275c94-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\nprint('---BRIEF---')\nprint(p['rendered_briefing'][:3000])\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/npcs.lua | sed -n '1955,1990p'"
+      }
+    ]
+  },
+  "check_F": {
+    "complete_frozen_entries_seen": 8,
+    "entries": [
+      {
+        "revision_key": "6bed29e553b623bc9ebfa367ef601e5c14f0e232833b10c85a20355c000a2d0e",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6c0b915e1886560b07568879b6ec994942a2f049a2e7608a0254390ab4a768ac",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6c339501e1c64a7f5b32f89e8d281545744f521f445ca0b0575964f24e79e8a6",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6c348a048f9f9485998df11c1ea98912976c724f37be3aed12cd460c52d215b8",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6c640e02208bc6f84a72409c4265732bb02c2bcf8e3f4254b8d3a604cda15a06",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6c8317f78a4af0b68718410ccf957ddbabd82d623f34b4dc87b4dae8009ae08f",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6ca2787004d7bf966be96f241296e0c122455011bc35ead2f72388a402397279",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6cfddb98dd89159e0f4da7df188ac3533946985a86f720275255793f53bb98b5",
+        "source_target_seen_complete": true
+      }
+    ]
+  },
+  "check_G": "PASS: manually inspected all8 full Bash calls; own frozen envelope and contract, exact pinned public source files only. No git grep, no translations/locale/other-task reads, no writes. Full8 source/target pairs verified in native tool result. Bounded-context preview truncated to200 lines; do not infer all context read from this preview. Host independently verified source and adjudicates observations."
+}
