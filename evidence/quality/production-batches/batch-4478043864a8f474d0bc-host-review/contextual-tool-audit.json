@@ -1,0 +1,88 @@
+{
+  "batch_id": "batch-4478043864a8f474d0bc",
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/c42f7574-b240-4f68-bcc4-2540386d014a.jsonl",
+  "native_log_sha256": "75ab0afb4307103cd666571295dcbfc624c1575c7ab26a5dbbd56483b88ece6c",
+  "manual_review": "PASS",
+  "checks_A_to_E": {
+    "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/c42f7574-b240-4f68-bcc4-2540386d014a.jsonl",
+    "tool_call_count": 9,
+    "A_locale_or_translation_reads": [],
+    "B_git_grep_total": 0,
+    "B_git_grep_without_exclusion": [],
+    "C_engine_access_not_pinned": [],
+    "D_write_attempts": [],
+    "E_other_ai_paths": [],
+    "all_calls": [
+      {
+        "name": "Bash",
+        "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-4478043864a8f474d0bc-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+      },
+      {
+        "name": "Bash",
+        "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-4478043864a8f474d0bc-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint('BRIEF:', p['rendered_briefing'][:3000])\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-4478043864a8f474d0bc-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n    print('='*70)\n    print('KEY',k)\n    print('T:',json.dumps(t,ensure_ascii=False,indent=1))\n    print('C:',json.dumps(c,ensure_ascii=False,indent=1))\n\""
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/npcs/wild-drake.lua | sed -n '1,60p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/unarmed-discipline.lua | sed -n '150,218p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/objects.lua | sed -n '630,672p'; echo ---POISON---; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/poisons.lua | sed -n '480,527p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/shadow-magic.lua | sed -n '20,56p'"
+      },
+      {
+        "name": "Bash",
+        "arg": "python3 - <<'PYEOF'\nimport json\nkeys=['6a55249cd99e02cbd30f1a84daf42d533c441bb47b1f6dcdd1b95892e3d0f3b4','6a6acf02290df46eded0c91d724d63fa4c2f2dff6f60f36041f301427e986b0f','6a8f0fa70272f2485302d3968d6421b68f16885aa3ebdd3e4805c6ccc0db8a58','6ac1580b985d7afcb0367285ae2f7f198a0d6c0fbba222eb8441a28bd86d069f','6aecf1162c089dd5d056ed415db8ba49ec6aab5fde8debe79f09c319d7b3b88a','6b17833e0f123f52a3f160d3fca12c6cf7437a5f86a9f5e20abf05beaa5f2a94','6b78f233fdd073ae891f75d9c1e4db106298a07714d5388e1057b8339dd8a3bb']\nobs={\n0:\"专名误译：source 为 spire dragon（尖塔/尖刺之龙），译文「螺旋巨龙」把 spire 读作 spiral（螺旋）。补查 tome 组件 game/modules/tome/data/general/npcs/wild-drake.lua @commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：第 47 行 name = \\\"spire dragon\\\"，紧邻第 48 行 desc 描述其外形为「hide, studded with spikes and crests and blades」（布满尖刺、脊冠与刀刃），第 49 行贴图 npc/dragon_wild_spire_dragon.png，全条目无任何螺旋/盘绕形态属性（coiled 仅形容其为盘踞的巨蛇形龙，非命名依据）。应取「尖刺/尖塔」义。\",\n3:\"机制漏译：source 为 bypassing their defense and evasion，译文「无视闪避和躲闪效果」把 defense（防御）与 evasion（闪避）两项合并成同义的两个闪避词，丢失「无视防御」这一项。补查 tome 组件 game/modules/tome/data/talents/techniques/unarmed-discipline.lua @commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，Touch of Death 的 action：第 189 行 self.turn_procs.auto_melee_hit = true（强制命中，绕过 defense 的命中判定），第 191-192 行 local evasion = target.evasion; target.evasion = 0（另行清零 evasion），攻击后第 195 行还原。两者是源码中彼此独立的两套机制，译文只表达了其中一项。\",\n4:\"语义误译：source 的 killer_message 为 and clobbered into soup，clobber 意为猛击/捶打，整句指被打成一摊肉泥；译文「并被煮成汤」改成了烹煮。补查 tome 组件 game/modules/tome/data/zones/trollmire/npcs.lua @commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：第 188 行 killer_message = _t\\\"and clobbered into soup\\\"，其所属条目 desc（第 185-187 行）为「Big, brawny, powerful and with a taste for Halfling. / He is wielding a small tree trunk and lumbering toward you.」——致死手段是挥舞树干的钝击，源文本中并无任何炊煮行为。\",\n5:\"机制范围被放大：source 为 reducing the damage of all physical melee attacks against you by %d，译文「减少所有物理伤害 %d 点」漏译限定词 melee（近战），使描述覆盖到所有物理来源。补查 tome 组件 game/modules/tome/data/talents/misc/objects.lua @commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 第 670-671 行 info 原文含 physical melee attacks，第 661 行 action 施加 EFF_BLOCKING。应补回「近战」限定。\",\n6:\"关联漏译且受益方向表述错误：source 为 Enhances your Deadly Poison with a leeching agent, causing it to heal you for %d%% of the damage it does to its target，译文「在你的武器上涂上吸血毒素，你受到中毒伤害 %d%% 的治疗」既丢失了「强化致命之毒（Deadly Poison）」这一前置关联，又把治疗量的来源由「毒素对目标造成的伤害」写成读作「你受到的中毒伤害」。补查 tome 组件 game/modules/tome/data/talents/cunning/poisons.lua @commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：第 499-527 行 Leeching Poison 为 mode = \\\"sustained\\\" 的 Vile Poisons 变体（activate 中 cancelPoisons(self) 并置 self.vile_poisons[t.id] = true），即改变致命之毒的性质，而非在武器上另涂一种毒；第 525 行 info 明确 heal you for %d%% of the damage it does to its target。\",\n}\nv=[]\nfor i,k in enumerate(keys):\n    if i in obs: v.append({\"revision_key\":k,\"verdict\":\"ISSUE\",\"observation\":obs[i]})\n    else: v.append({\"revision_key\":k,\"verdict\":\"OK\"})\nout={\"contract\":\"translation_contextual_v2\",\"candidate_identity\":\"93c27e0e316e6a109b55af05202dedc52972c709ad6fb9f79b747b6ab7560759\",\"verdicts\":v}\nprint(json.dumps(out,ensure_ascii=False,separators=(',',':'),allow_nan=False))\nPYEOF"
+      }
+    ]
+  },
+  "check_F": {
+    "complete_frozen_entries_seen": 7,
+    "entries": [
+      {
+        "revision_key": "6a55249cd99e02cbd30f1a84daf42d533c441bb47b1f6dcdd1b95892e3d0f3b4",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6a6acf02290df46eded0c91d724d63fa4c2f2dff6f60f36041f301427e986b0f",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6a8f0fa70272f2485302d3968d6421b68f16885aa3ebdd3e4805c6ccc0db8a58",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6ac1580b985d7afcb0367285ae2f7f198a0d6c0fbba222eb8441a28bd86d069f",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6aecf1162c089dd5d056ed415db8ba49ec6aab5fde8debe79f09c319d7b3b88a",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6b17833e0f123f52a3f160d3fca12c6cf7437a5f86a9f5e20abf05beaa5f2a94",
+        "source_target_seen_complete": true
+      },
+      {
+        "revision_key": "6b78f233fdd073ae891f75d9c1e4db106298a07714d5388e1057b8339dd8a3bb",
+        "source_target_seen_complete": true
+      }
+    ]
+  },
+  "check_G": "PASS: inspected all9 full Bash tool calls; own envelope and contract, exact pinned public source files only, no git grep, no locale/terminology/other task reads, no file writes. Final Python builds JSON in memory. All frozen7 translations and bounded contexts appeared in native tool results; contextual judgments adjudicated independently."
+}

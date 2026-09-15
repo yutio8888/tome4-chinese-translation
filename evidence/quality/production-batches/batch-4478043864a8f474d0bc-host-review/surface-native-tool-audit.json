@@ -1,0 +1,100 @@
+{
+  "batch_id": "batch-4478043864a8f474d0bc",
+  "children": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "997f0123-1116-4297-8d8b-8ca8e630808b",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-04-29-01a0a3aa-b793-7a50-9db7-3d76465b9bbe.jsonl",
+      "native_log_sha256": "ed4112ff319a4a0f1364d8a947aa26de3331a9a1e6db8ea35687f4365d7e439e",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-4478043864d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",max_output_tokens:12000}));\ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",max_output_tokens:18000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={1:'spire 表示尖塔，译为“螺旋”混淆了词义。',9:'遗漏传送方向取决于地雷类型的说明，并将时空折叠技能的 range 译成“半径”。',18:'遗漏近战攻击的限定及“额外”伤害，译文变成每次攻击造成该数值伤害。'}\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:r['observation']=issues[i]\\n    results.append(r)\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(results)==len(ids)==20\\nassert len(set(ids))==20\\nfor r,ident in zip(results,ids):\\n    assert r['entry_revision_identity']==ident and len(r['entry_revision_identity'])==64\\nassert p['candidate_identity']=='ee8ea266e982cf68b110b5f571efb35bff685b4d1b90871059e7ab88c08f55cf'\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired. First envelope path had truncated batch ID; native tool result confirms No such file or directory; corrected exact input subsequently read. Failed nonexistent path acquired no other task context."
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "720f62e0-eb4c-4929-87d2-09626e9a4f41",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-04-54-01a0a3ab-1937-7b01-8f42-4ee12b126c66.jsonl",
+      "native_log_sha256": "4a87845dca4190db33fcc26f4674b2e258c9a45798d6b46d00e0c381315ec499",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":20000});text(r.output);\nconst c = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(c.output);\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==11:\\n        r['verdict']='ISSUE'\\n        r['observation']='原文明确为持续4回合、每回合造成相当于本次攻击伤害100%的物理伤害；译文“在四回合内造成相当于攻击伤害的100%”遗漏“每回合”，易误读为四回合合计100%。'\\n    results.append(r)\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nassert all(r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64 for r,e in zip(results,entries))\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "a1154d70-dec9-4e2e-8a43-8402c6a8f164",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-05-23-01a0a3ab-88f7-76d0-bb2c-03c3eb52cd42.jsonl",
+      "native_log_sha256": "2201e2a26f44ee9a0150e8bb380c50c3b7cef88410da6648306a0b1f7d01cea5",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":20000}));\ntext(await tools.exec_command({cmd:\"awk '/^## / {if ($0 ~ /^## (六|6)[、.：: ]/) p=1; else if(p) exit} p {print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\ne=p['payload']['entries']\\nissues={5:'clobbered into soup 指被打成稀烂，译为“被煮成汤”将殴打误译为烹煮。',13:'physical melee attacks 限定为物理近战攻击，译文“所有物理伤害”漏掉近战攻击限制，扩大了减伤范围。'}\\nr=[]\\nfor i,item in enumerate(e):\\n    row={'entry_revision_identity':item['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues: row['observation']=issues[i]\\n    r.append(row)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(e)==len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64 for a,b in zip(e,r))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "b0653e0f-9695-4822-940c-bcedd1774035",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-06-48-01a0a3ac-d7ab-7213-ae03-52d5f05e74f8.jsonl",
+      "native_log_sha256": "c83b9ee38fd11756587ff4493e6a8bf9cbcb14a169394b078b0a0a31bb397cc8",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":14000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-4478043864a8f474d0bc/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nes=p['payload']['entries']\\nrs=[]\\nfor i,e in enumerate(es):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==11:\\n        r.update(verdict='ISSUE',observation='原文为强化致命毒药，并按其对目标造成的伤害治疗你；译文改为在武器上涂毒，遗漏强化致命毒药这一限定，且未明确治疗量基于对目标造成的伤害。')\\n    rs.append(r)\\nids=[r['entry_revision_identity'] for r in rs]\\nassert len(ids)==20 and len(set(ids))==20\\nassert all(a==e['entry_revision_identity'] and len(a)==64 for a,e in zip(ids,es))\\nassert p['candidate_identity']=='379267a0a55a0c88600a3c3c34ecb3559f9b32cfc0afa43f436c35cb96ca6847'\\ns=json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':rs},ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nprint(s,end='')\\nPY\",\"max_output_tokens\":3000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    }
+  ],
+  "manual_review": "PASS"
+}
