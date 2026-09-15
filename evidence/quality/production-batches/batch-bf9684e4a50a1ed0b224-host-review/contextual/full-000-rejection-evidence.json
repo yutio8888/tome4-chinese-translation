@@ -1,0 +1,7 @@
+{"schema":"host-rejection/1","batch_id":"batch-bf9684e4a50a1ed0b224","key":"batch-bf9684e4a50a1ed0b224-contextual-000|full-000",
+ "agent_id":"c57f78af-30ef-448e-a343-e92f2b2e4e59","provider":"grok","model":"grok-4.6",
+ "reason":"Grok 4.6 native session is not supported by the evidence pipeline",
+ "facts":["tools/orchestration/review_lifecycle.py:775 rejects any provider other than codex/claude (unsupported native provider)",
+          "Grok stores sessions at ~/.grok/sessions/<cwd>/<sessionId>/{events.jsonl,chat_history.jsonl}, a structure the verified native parser has not been validated against",
+          "grok persistence.nativeHandle=01a0a533-505a-7f80-9381-29b7df50148a; output cannot be harvested with validated provenance"],
+ "action":"abandon attempt; re-dispatch contextual with a supported provider (codex/gpt-6-astra)"}
