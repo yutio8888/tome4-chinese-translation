@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-11-06-01a0a342-e794-7970-b93d-710994427a8c.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":14000}));text(await tools.exec_command({cmd:\"awk '/^## /{if ($0 ~ /^## (六|6)[、 .：:]/) p=1; else if(p) exit} p{print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nobservations={15:'原文在两句之间的显式换行被删除，两个段落合并。',16:'原文强调箭的速度（velocity）无与伦比，译文却改成了威力。'}\\nr={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':[dict(entry_revision_identity=e['entry_revision_identity'],**({'observation':observations[i],'verdict':'ISSUE'} if i in observations else {'verdict':'OK'})) for i,e in enumerate(x['payload']['entries'])]}\\na=[e['entry_revision_identity'] for e in x['payload']['entries']]\\nb=[e['entry_revision_identity'] for e in r['results']]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(p==q and len(q)==64 for p,q in zip(a,b))\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-11-19-01a0a343-1ad3-7ff3-afb8-6e26fcb2bcd1.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r=await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,line in enumerate(lines):\\n if line.startswith('## '): print(i+1,line)\\np=Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-1.json')\\nprint(p.read_text())\\nPY\",\"max_output_tokens\":15000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":3000})).output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nissues={12:'原文明确写出同时精通盾牌和投石索，译文遗漏投石索。',13:'译文增加了原文没有的“对附近的一个敌人”这一目标及范围限制。'}\\nr=[]\\nfor i,e in enumerate(x['payload']['entries']):\\n item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:item['observation']=issues[i]\\n r.append(item)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\ns=json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nz=json.loads(s)\\na=[e['entry_revision_identity'] for e in x['payload']['entries']]\\nb=[e['entry_revision_identity'] for e in z['results']]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(i==j and len(j)==64 for i,j in zip(a,b))\\nprint(s,end='')\\nPY\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-11-28-01a0a343-3ed6-7ed3-939a-b92c0e69f4ab.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r=await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nimport re\\nheads=list(re.finditer(r'^## .+$',s,re.M))\\nfor i,h in enumerate(heads):\\n if re.match(r'## (?:六|6)',h.group()):\\n  print(s[h.start():heads[i+1].start() if i+1<len(heads) else len(s)])\\nprint(Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":22000});text(r.output)\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nentries=x['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n if i==6:\\n  r.update(verdict='ISSUE',observation='漏译反馈值衰减速率取决于技能（depending on talents）的限定，将该速率表述为无条件固定值。')\\n results.append(r)\\nout={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n assert r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000})).output)\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T04-13-28-01a0a345-123d-7390-b026-6854153a791e.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":22000}));\ntext(await tools.exec_command({cmd:\"rg -n '^## ' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":2000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-122a4271dacf48499782/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==17:\\n        r.update(verdict='ISSUE',observation='原文受驱散时即取消技能维持并提供6回合保护，译文“并在6回合内不受解除，然后关闭这一技能”误为保护结束后才关闭；“40 raw spellpower”漏译未折算的强度限定。')\\n    results.append(r)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nassert all(r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64 for r,e in zip(results,entries))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "Inspected all ten custom calls. Each lane reads own frozen envelope plus contract output section/headings only, computes exact ordered JSON in memory/stdout. No persistent edits or other source/catalog/task reads. Lane2 notification includes stream separator but native final is valid exact JSON."
+}
