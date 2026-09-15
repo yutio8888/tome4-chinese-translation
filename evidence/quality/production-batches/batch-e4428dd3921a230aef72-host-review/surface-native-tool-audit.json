@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch-e4428dd3921a230aef72",
+  "accepted_attempt": 2,
+  "scope_audit": "pass",
+  "entries": [
+    {
+      "agent_id": "6b46147e-e923-4c70-b252-88ecb023fcaf",
+      "dispatch_id": "lane-000-a2-0",
+      "native_source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-10-07-01a0a378-f2ad-7650-b29d-33e92b713e39.jsonl",
+      "native_source_sha256": "30fef447f19bbdde8d6e20dd51386214655ebf87ca5568bdebe393d600592ea1",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-0.json\",max_output_tokens:16000}));\ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-0.json').read_text())\\nissues={5:'原文标题含“And There Again”，译文“从未回头”遗漏了再次到那里的含义。',13:'原文“Light”意为光，译文“之矛”将其改成了武器意象。',16:'原文“charging their enemies”描述向敌人冲锋，译文改成“向敌人挥舞”武器，丢失了冲锋动作。'}\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:r['observation']=issues[i]\\n results.append(r)\\na=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nb=[r['entry_revision_identity'] for r in results]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "manual_scope_review": "all calls inspected; only own frozen envelope plus surface contract section 6 read; JSON generation prints without writing; no unrelated input, source scan or file mutations",
+      "full_frozen_pairs_reviewed": 20
+    },
+    {
+      "agent_id": "09ef999a-199d-4cdf-a883-be1507d54521",
+      "dispatch_id": "lane-000-a2-1",
+      "native_source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-10-34-01a0a379-59eb-7dc0-b183-a472f33eeec9.jsonl",
+      "native_source_sha256": "9f0274aac31c038ad8e9891d1c4ca38b1bfecb53261c15badce08f59c8c4c182",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r=await tools.exec_command({cmd:\"cat .ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-1.json\",\"max_output_tokens\":18000});text(r.output);\nconst c=await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(c.output)\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-1.json'\\nwith open(p) as f: e=json.load(f)\\nissues={7:'原文表示已承担清理并重创兽人的任务，译文“清理了它”“造成了”误写成已经完成；“致命”也强化了 crippling 的含义。',12:'原文 before 表示先用可爱的小眼睛看着你，再扑向你；译文“同时”将先后动作误写为同时发生。'}\\nr=[]\\nfor i,x in enumerate(e['payload']['entries']):\\n    y={'entry_revision_identity':x['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:y['observation']=issues[i]\\n    r.append(y)\\nids=[x['entry_revision_identity'] for x in e['payload']['entries']]\\nassert len(r)==len(ids)==20 and len(set(ids))==20\\nassert all(x['entry_revision_identity']==s and len(s)==64 for x,s in zip(r,ids))\\nassert e['candidate_identity']=='0ffd844de522cc06f42073a7bfbd3924be37bf9e0a73baedd9d358d93c83a113'\\nprint(json.dumps({'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000})).output)\n"
+        }
+      ],
+      "manual_scope_review": "all calls inspected; only own frozen envelope plus surface contract section 6 read; JSON generation prints without writing; no unrelated input, source scan or file mutations",
+      "full_frozen_pairs_reviewed": 20
+    },
+    {
+      "agent_id": "c5189c1f-22ab-4223-82b7-952743505a8a",
+      "dispatch_id": "lane-000-a2-2",
+      "native_source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-11-00-01a0a379-bf92-7773-b338-9a819b33979d.jsonl",
+      "native_source_sha256": "6662b38bb4039992c6472fb131f72ec5072a0b784f0f58d2688019f029cbd6e8",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-2.json\",\"max_output_tokens\":22000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nwith open('.ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-2.json', encoding='utf-8') as f:\\n    envelope = json.load(f)\\nentries = envelope['payload']['entries']\\nresults = []\\nfor i, entry in enumerate(entries):\\n    result = {'entry_revision_identity': entry['entry_revision_identity'], 'verdict': 'OK'}\\n    if i == 11:\\n        result.update(verdict='ISSUE', observation='原文要求解开打结处，译文改成清理掉其他蠕虫，改变了动作并增添原文没有的对象。')\\n    results.append(result)\\nassert len(entries) == len(results) == 20\\nassert len({r['entry_revision_identity'] for r in results}) == 20\\nfor entry, result in zip(entries, results):\\n    assert result['entry_revision_identity'] == entry['entry_revision_identity']\\n    assert len(result['entry_revision_identity']) == 64\\noutput = {'candidate_identity': envelope['candidate_identity'], 'contract': 'translation_surface_screen_v1', 'results': results}\\nprint(json.dumps(output, ensure_ascii=False, sort_keys=True, separators=(',', ':')), end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "manual_scope_review": "all calls inspected; only own frozen envelope plus surface contract section 6 read; JSON generation prints without writing; no unrelated input, source scan or file mutations",
+      "full_frozen_pairs_reviewed": 20
+    },
+    {
+      "agent_id": "b48a2504-4678-4e37-b784-fc4ddd90dab8",
+      "dispatch_id": "lane-000-a2-3",
+      "native_source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-12-23-01a0a37b-038f-7551-917e-b60df85d6d17.jsonl",
+      "native_source_sha256": "90116550a930a2684b8f9543adf64ec7b0dbdf5f1c5cb77dd65a65602568786d",
+      "tool_calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r=await tools.exec_command({cmd:\"cat .ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-3.json\\nsed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:16000});text(r.output);\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-e4428dd3921a230aef72/SURFACE-SCREEN-ENVELOPE-lane-000-a2-3.json').read_text())\\ne=p['payload']['entries']\\nr=[]\\nfor i,x in enumerate(e):\\n    y={'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'}\\n    if i==15:\\n        y.update(verdict='ISSUE',observation='原文“a thought shall break us free”（思想将使我们挣脱束缚、获得自由）的独立含义被遗漏，译文只保留复仇思想从梦境中爆发。')\\n    r.append(y)\\no={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(e)==len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64 for a,b in zip(e,r))\\nassert o['candidate_identity']=='a361c0c1d2d8b65fe3437a243f7f5b29f87d260001cf1a43e010f0bfdfac36fd'\\nprint(json.dumps(o,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n"
+        }
+      ],
+      "manual_scope_review": "all calls inspected; only own frozen envelope plus surface contract section 6 read; JSON generation prints without writing; no unrelated input, source scan or file mutations",
+      "full_frozen_pairs_reviewed": 20
+    }
+  ]
+}
