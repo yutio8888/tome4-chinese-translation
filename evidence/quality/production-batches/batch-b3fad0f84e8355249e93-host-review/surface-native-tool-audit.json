@@ -1,0 +1,94 @@
+{
+  "batch_id": "batch-b3fad0f84e8355249e93",
+  "manual_review": "PASS",
+  "children": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "ec1618ea-9a49-4e07-afed-e20c9bd1c0b3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-36-29-01a0a391-14b7-7c01-8775-3beade87d074.jsonl",
+      "native_log_sha256": "d02fc4933b3db3053e082034851c109ad20ed0315ad3da1dffe8c5ad37e63e58",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":22000});text(r.output);\nconst c = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(c.output);\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==0:\\n        r.update(verdict='ISSUE',observation='spellcowled 表示魔法罩覆或戴着魔法兜帽，译为“暗影蒙面的”将魔法误作暗影。')\\n    results.append(r)\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nassert all(r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64 for r,e in zip(results,entries))\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000})).output);\n"
+        }
+      ],
+      "manual_scope_review": "PASS: inspected both complete calls; only own frozen envelope and contract section 6 read; second call renders already reviewed verdicts and validates all20 identities; no filesystem mutation or forbidden context",
+      "complete_entry_count": 20
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "e872f7ed-30b4-4257-8930-5cf95a4ed8ff",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-36-46-01a0a391-577b-75a0-bc64-ee70a2f3102f.jsonl",
+      "native_log_sha256": "d7aaf1a96df3e8a41cd7f539d913db02205e1690dcfb89a013f6b9d5657289f9",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":22000});text(r.output);\nconst c = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000});text(c.output);\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\ne=p['payload']['entries']\\nr=[{'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'} for x in e]\\nr[13].update(verdict='ISSUE',observation='“siblings of spirit”误译为“精神之源”；“Much of what is now said ... is traced with myth”指相关传说掺杂神话，误译为“许多人说纳鲁精灵是虚构出来的”；“their love of the sea was to be their undoing”指对海洋的热爱导致毁灭，误译为“他们对大海的爱已成往事”。')\\na=[x['entry_revision_identity'] for x in e]\\nb=[x['entry_revision_identity'] for x in r]\\nassert len(a)==len(b)==20 and len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nassert p['candidate_identity']=='3ed63093036609ef60c41838f29943c50482ea57a7253deb8873a97ff77f926d'\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "manual_scope_review": "PASS: inspected both complete calls; only own frozen envelope and contract section 6 read; second call renders already reviewed verdicts and validates all20 identities; no filesystem mutation or forbidden context",
+      "complete_entry_count": 20
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "677bf66b-be36-4b7b-885c-3d1032679709",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-37-03-01a0a391-9a4f-7821-a8b6-93935ad5dccf.jsonl",
+      "native_log_sha256": "1447ef9f145b0e3900a5932d6b18c5a59cb3d2f20990d5685af623d726fe79c3",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==9:\\n        r.update(verdict='ISSUE',observation='原文 Fought the two Sorcerers 表示与两名巫师战斗，译文“杀死2名巫师”增加了原文未表述的击杀结果。')\\n    results.append(r)\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nassert p['candidate_identity']=='266d67fe5193c3547e06f9ec1e9273705dd1076c2ce5343079e59c2708674eed'\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "manual_scope_review": "PASS: inspected both complete calls; only own frozen envelope and contract section 6 read; second call renders already reviewed verdicts and validates all20 identities; no filesystem mutation or forbidden context",
+      "complete_entry_count": 20
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "20dd1e4d-724d-4bf9-9223-7e8ac68f5351",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T05-38-28-01a0a392-e506-7860-9bbc-909731a3d353.jsonl",
+      "native_log_sha256": "81bae2e2b1e1f6ab36c186772edb78f6253385abb3ea25d60fbd4fd8f7dee680",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":20000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-b3fad0f84e8355249e93/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nissues={2:'原文表示“未准备好”，译文却表示“未装备”，状态含义不同。',4:'译文遗漏 reanimation（复活／使重新活动）这一实验目的，将其泛化成闪电魔法实验。',6:'原文只说资源不足，译文将资源限定为魔力，缩窄了原意。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    x={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:x['observation']=issues[i]\\n    r.append(x)\\nassert len(r)==20\\nassert [x['entry_revision_identity'] for x in r]==[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(len(x['entry_revision_identity'])==64 for x in r)\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':p['payload']['contract'],'results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "manual_scope_review": "PASS: inspected both complete calls; only own frozen envelope and contract section 6 read; second call renders already reviewed verdicts and validates all20 identities; no filesystem mutation or forbidden context",
+      "complete_entry_count": 20
+    }
+  ]
+}
