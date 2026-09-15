@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T02-49-36-01a0a2f8-4c39-7510-bb51-d487bffb5894.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text(); lines=s.splitlines(); start=next(i for i,x in enumerate(lines) if x.startswith('## ') and ('六' in x or '6.' in x or '6 ' in x)); end=next((i for i in range(start+1,len(lines)) if lines[i].startswith('## ')),len(lines)); print('\\\\n'.join(lines[start:end]))\\nprint(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nPY\",\"max_output_tokens\":16000});text(r.output)\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nobj=json.loads(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nentries=obj['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==6:\\n        assert e['source']=='Bronze Donator'\\n        r.update(verdict='ISSUE',observation='Bronze 指青铜，译文“黄铜”对应 brass，金属名称误译。')\\n    results.append(r)\\nout={'candidate_identity':obj['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000})).output)\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T02-50-00-01a0a2f8-a9af-7382-a36f-80acadf8f9a1.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":20000});text(r.output);\nconst s = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000});text(s.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\ne=p['payload']['entries']\\nissues={4:'原文明确说明光照半径降至1是暂时效果，译文遗漏“暂时”的限制。',8:'sneakthief 指偷偷行窃的窃贼，译文“刺客”将其误作行刺者。'}\\nr=[dict(entry_revision_identity=x['entry_revision_identity'],**({'observation':issues[i],'verdict':'ISSUE'} if i in issues else {'verdict':'OK'})) for i,x in enumerate(e)]\\nassert len(r)==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64 for a,b in zip(e,r))\\nassert p['candidate_identity']=='9cec32cd282a49e7ff45851f90044f32ae609362e628b30f0ce18a060d175b9d'\\nprint(json.dumps(dict(candidate_identity=p['candidate_identity'],contract='translation_surface_screen_v1',results=r),ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T02-50-26-01a0a2f9-0f2a-7472-8345-2adc4e2296c9.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n    if l.startswith('## '):\\n        print(f'{i+1}: {l}')\\nprint('\\\\n---ENVELOPE---\\\\n')\\nprint(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":14000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nentries=x['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==2:\\n        r.update(verdict='ISSUE',observation='原文明确为木制戒指（wooden ring），译文遗漏了木制材质。')\\n    results.append(r)\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity']\\n    assert len(r['entry_revision_identity'])==64\\nout={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert out['candidate_identity']=='9501377ef3fa7a2415651c0207b29c8b7afe3917101e43803af7c361008e2c77'\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T02-51-45-01a0a2fa-4440-7fd0-a49d-81ba96655783.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"awk '/^## 六/{flag=1} flag{if ($0 ~ /^## / && $0 !~ /^## 六/) exit; print}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-f014e73c983af3372635/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nentries=p['payload']['entries']\\nr={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in entries]}\\nassert len(r['results'])==20\\nassert len({e['entry_revision_identity'] for e in r['results']})==20\\nfor a,b in zip(entries,r['results']):\\n assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "All nine custom tool calls inspected: each lane reads only its frozen envelope and contract section six/headings, generates JSON in memory/stdout, and checks ordered 20-row coverage. No external sources, unrelated task/translation reads, or file writes. Surface OKs do not resolve independently recorded host findings."
+}
