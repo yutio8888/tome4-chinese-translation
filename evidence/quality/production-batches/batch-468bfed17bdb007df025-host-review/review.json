@@ -1,0 +1,1982 @@
+{
+  "schema_version": 1,
+  "batch_id": "batch-468bfed17bdb007df025",
+  "kind": "host_adjudicated_review",
+  "scope": "review_only; no translation changes",
+  "source_binding": {
+    "batch_id": "batch-468bfed17bdb007df025",
+    "main_source_sha256_verified": 80,
+    "literal_matches": 78,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "nonliteral_verifications": [
+      {
+        "args_order": null,
+        "component": "tome",
+        "concatenated_entity_name_verification": {
+          "algorithm": "concatenated-entity-name-attribution/1",
+          "argument_lines": [
+            135
+          ],
+          "concat_lines": [
+            83
+          ],
+          "literal_prefix": "alchemist ",
+          "resolved_argument": "quartz",
+          "rule": "entity name is built at runtime by concatenating a literal prefix with a lowercased call argument; neither half is a whole literal",
+          "status": "confirmed"
+        },
+        "entry_revision_identity": "60e31adb1af7cd8b63ffca13e253169d8321314e0fe7e60f416c98f82f5f8311",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "line_ending_normalization": null,
+        "literal_source_match": false,
+        "matching_literal_lines": null,
+        "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+        "section": "mod-tome/data/general/objects/gem.lua",
+        "source": "alchemist quartz",
+        "source_file_sha256": "ee0988d5f263755ee3d2082a944b6daa465d258e524d43f51083e8767009a98e",
+        "source_pinning": "pinned",
+        "source_tag": "entity name",
+        "verification_status": "confirmed"
+      },
+      {
+        "args_order": null,
+        "component": "tome",
+        "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "line_ending_normalization": null,
+        "literal_source_match": false,
+        "matching_literal_lines": [],
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "section": "mod-tome/data/talents/celestial/combat.lua",
+        "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+        "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "source_pinning": "pinned",
+        "source_tag": "tformat",
+        "verification_status": "pending",
+        "host_source_attribution_review": {
+          "status": "pending",
+          "kind": "fixed_source_text_version_mismatch",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+          "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+          "reason": "目录英文与固定源码111-113不完全一致，目录缺少护盾duration至少2回合说明；源码实际callback亦在101行附近设置math.max(2,shield.dur)。仅确认功能上下文，不将旧字符串作为固定版本完整字面来源；不自动迁移source/source_tag，不宣称全代码范围不存在该文本。",
+          "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+        }
+      }
+    ],
+    "source_attribution_pending": [
+      {
+        "args_order": null,
+        "component": "tome",
+        "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "line_ending_normalization": null,
+        "literal_source_match": false,
+        "matching_literal_lines": [],
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "section": "mod-tome/data/talents/celestial/combat.lua",
+        "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+        "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "source_pinning": "pinned",
+        "source_tag": "tformat",
+        "verification_status": "pending",
+        "host_source_attribution_review": {
+          "status": "pending",
+          "kind": "fixed_source_text_version_mismatch",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+          "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+          "reason": "目录英文与固定源码111-113不完全一致，目录缺少护盾duration至少2回合说明；源码实际callback亦在101行附近设置math.max(2,shield.dur)。仅确认功能上下文，不将旧字符串作为固定版本完整字面来源；不自动迁移source/source_tag，不宣称全代码范围不存在该文本。",
+          "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+        }
+      }
+    ],
+    "generated_source_verification": [
+      {
+        "revision_prefix": "60e31adb1a",
+        "status": "confirmed",
+        "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "reason": "83行alchemist前缀加lower(name)，135行Quartz实参，生成alchemist quartz。",
+        "excerpt": "82: \t-- Alchemist gems, not lootable, only created by talents\n83: \tnewEntity{ base = \"BASE_GEM\", define_as = \"ALCHEMIST_GEM_\"..name:gsub(\" \", \"_\"):upper(),\t\tname = \"alchemist \"..name:lower(), type='alchemist-gem', subtype = color,\n84: \t\tslot = \"QUIVER\",\n85: \t\tmoddable_tile = resolvers.moddable_tile(\"gembag\"),\n135: newGem(\"Quartz\",\t\"object/quartz.png\",3,\t12,\t\"white\",\t20,\t30, 3, 50,\n136: \t{ stun_immune=0.3 },\n137: \t{ splash={type=\"SPELLKNOCKBACK\", dam=10} }\n138: )"
+      }
+    ]
+  },
+  "research": {
+    "batch_id": "batch-468bfed17bdb007df025",
+    "claims": [
+      {
+        "revision_prefix": "607fb07c1a",
+        "status": "confirmed",
+        "claim": "确认starts to break down应为开始崩坏，非即将爆炸；91-105仅设broken、完成任务、生成NPC并开启对话，没有此处爆炸伤害实现。保留VIOLET警告。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/zones/slazish-fen/grids.lua",
+        "sha256": "69df72a04e49ffd1d21972776d3df93ec51139c9ffac9654f07d0956343bfd3f",
+        "line_start": 83,
+        "line_end": 110,
+        "excerpt": "83: \tpass_projectile = true,\n84: \tblock_move = function(self, x, y, who, act, couldpass)\n85: \t\tif not who or not who.player or not act then return true end\n86: \t\tif self.broken then\n87: \t\t\tgame.log(\"#VIOLET#The portal is already broken!\")\n88: \t\t\treturn true\n89: \t\tend\n90: \n91: \t\twho:restInit(20, _t\"destroying the portal\", _t\"destroyed the portal\", function(cnt, max)\n92: \t\t\tif cnt > max then\n93: \t\t\t\tgame.log(\"#VIOLET#The portal starts to break down, run!\")\n94: \t\t\t\tself.broken = true\n95: \t\t\t\twho:setQuestStatus(\"start-sunwall\", engine.Quest.COMPLETED, \"slazish\")\n96: \t\t\t\tgame:onTickEnd(function()\n97: \t\t\t\t\tlocal sx, sy = util.findFreeGrid(x, y, 10, true, {[engine.Map.ACTOR]=true})\n98: \t\t\t\t\tlocal npc = game.zone:makeEntityByName(game.level, \"actor\", \"ZOISLA\")\n99: \t\t\t\t\tif sx then\n100: \t\t\t\t\t\tgame.zone:addEntity(game.level, npc, \"actor\", sx, sy)\n101: \t\t\t\t\t\tgame.level.map:particleEmitter(sx, sy, 1, \"teleport_water\")\n102: \t\t\t\t\t\tlocal chat = require(\"engine.Chat\").new(\"zoisla\", npc, who)\n103: \t\t\t\t\t\tchat:invoke(\"welcome\")\n104: \t\t\t\t\tend\n105: \t\t\t\tend)\n106: \t\t\tend\n107: \t\tend)\n108: \n109: \t\treturn true\n110: \tend,",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "60b9c0e8a7",
+        "status": "confirmed",
+        "claim": "确认Blending magic and shadows是融合魔法与阴影，cunning/shadow-magic类型简介并未规定躲在阴影里秘密施法；恢复二者融合关系，不改技能树专名。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/cunning/cunning.lua",
+        "sha256": "6276d5a6bbdc05005ef81ca033f9b47b4d719eaee73596de270408845a7e8810",
+        "line_start": 27,
+        "line_end": 31,
+        "excerpt": "27: newTalentType{ allow_random=true, type=\"cunning/dirty\", name = _t(\"dirty fighting\", \"talent type\"), description = _t\"Teaches various talents to cripple your foes.\" }\n28: newTalentType{ allow_random=true, type=\"cunning/lethality\", generic = true, name = _t(\"lethality\", \"talent type\"), description = _t\"How to make your foes feel the pain.\" }\n29: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/shadow-magic\", name = _t(\"shadow magic\", \"talent type\"), description = _t\"Blending magic and shadows.\" }\n30: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/ambush\", name = _t(\"ambush\", \"talent type\"), min_lev = 10, description = _t\"Using darkness and a bit of magic, you manipulate the shadows.\" }\n31: newTalentType{ allow_random=true, type=\"cunning/survival\", name = _t(\"survival\", \"talent type\"), generic = true, description = _t\"The knowledge of the dangers of the world, and how to best avoid them.\" }",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "613dd8184d",
+        "status": "confirmed",
+        "claim": "确认触碰施受颠倒：its very touch以怪物为施动者，现译对它的接触改成别人触碰怪物。其自身combat定义攻击，恢复它的触碰会侵害/扰乱生命；不由背景句新增反伤机制。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/general/npcs/ghost.lua",
+        "sha256": "c20b2ae1af1d1d99d0128b817a975cbfda791fa821778cee5bcc814600400238",
+        "line_start": 81,
+        "line_end": 96,
+        "excerpt": "81: newEntity{ base = \"BASE_NPC_GHOST\",\n82: \tname = \"dreadmaster\", color=colors.YELLOW, image=\"npc/dreadmaster.png\",\n83: \tdesc = _t[[It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.]],\n84: \tlevel_range = {32, nil}, exp_worth = 1,\n85: \trarity = 15,\n86: \trank = 3,\n87: \tmax_life = resolvers.rngavg(140,170),\n88: \n89: \tai = \"tactical\",\n90: \n91: \tcombat_armor = 0, combat_def = resolvers.mbonus(10, 50),\n92: \tstealth = resolvers.mbonus(30, 20),\n93: \n94: \tcombat = { dam=resolvers.mbonus(65, 65), atk=resolvers.mbonus(25, 45), apr=100, dammod={str=0.5, mag=0.5} },\n95: \n96: \tsummon = {{type=\"undead\", subtype=\"ghost\", name=\"dread\", number=3, hasxp=false}, },",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "615ee367b8",
+        "status": "confirmed",
+        "claim": "确认phasing in and out of reality指在现实中出没/时隐时现，现译现实与相位之间切换把过程当成地点；恢复在现实中显现/消失。corrupted的侵蚀限定可一并恢复，不改既有角色名。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/zones/temporal-rift/npcs.lua",
+        "sha256": "f0f18f389196cc8fa4bf8f22988e9eed21547953297738c49f8bb4823899a993",
+        "line_start": 24,
+        "line_end": 35,
+        "excerpt": "24: \n25: newEntity{ define_as = \"BEN_CRUTHDAR_ABOMINATION\",\n26: \ttype = \"humanoid\", subtype = \"temporal\", unique = true,\n27: \tname = \"Ben Cruthdar, the Abomination\", image = \"npc/humanoid_human_ben_cruthdar__the_cursed.png\",\n28: \tdisplay = \"p\", color=colors.VIOLET,\n29: \tdesc = _t[[This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.]],\n30: \tlevel_range = {15, nil}, exp_worth = 2,\n31: \tmax_life = 270, life_rating = 17, fixed_rating = true,\n32: \tmax_stamina = 85,\n33: \tstats = { str=20, dex=15, wil=18, con=20 },\n34: \trank = 3.5,\n35: \tsize_category = 3,",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "61646027f8",
+        "status": "confirmed",
+        "claim": "确认首段时序与清剿关系错译：卓越纪初由图库纳发动清剿，之后兽人绝迹，并非绝迹后国王才开创卓越纪。475艺术主题是生育与战斗，不是战争时期。同行racial pride events不是泛称节日狂欢。471股干/普通士卒记忆误成老人们的记忆，stringier不是更强大。473一万半身人牺牲以击败首领、阻止军队前进，不是上万毁灭整支军团。477无经证实报告被简化为没有报告而下一句仍有目击。按原文恢复限定/主题/因果并保留史料作者的偏见，不据其他游戏剧情改写文内观点或全局改专名。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/lore/misc.lua",
+        "sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+        "line_start": 466,
+        "line_end": 477,
+        "excerpt": "466: \tid = \"races-7\",\n467: \tcategory = \"races\",\n468: \tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 8 - Orcs (extinct)\",\n469: \tlore = _t[[The orcs are, joyfully, extinct from Maj'Eyal, following the purge instigated by King Toknor the Brave at the start of the Age of Ascendancy. But an academic study of their previous culture and civilisation is still of interest, primitive though it may have been.\n470: \n471: Orcs were generally around 6'1\", with green or black skin. They varied greatly in physical appearance and build, most likely due to their exceptionally fast breeding rates. The majority of orcs were thick-built and heavily muscled, well remembered as the stock grunts of their terrible armies. However in the Age of Pyre a greater number of thinner, stringier orcs appeared, oft versed in destructive magics.\n472: \n473: The orcs were first encountered by the Eldoral halflings, who tried to use the simple creatures as servants, but gave up after finding them to be too violent. In the many centuries since wars and battles have been almost continuously fought with the brutes. Their oft superior numbers have at times threatened to overwhelm all of civilisation, even leading to such drastic defensive measures as the Spellblaze. The most terrifying time though was during the Age of Pyre, when the orcs developed arcane abilities, and under the leadership of Garkul the Devourer they swept through the continent, mercilessly slaying all before them. In the end 10,000 halflings gave up their lives in the Battle of Nargol to defeat their demonic leader and stem their army's advance. Gradually the civilised races began to recover, and finally King Toknor and Queen Mirvenia succeeded in uniting the human and halfling kingdoms, putting together a force to push back the orcs and ultimately extinguishing them entirely.\n474: \n475: Recent investigations of orcish ruins have revealed a surprising amount of cultural material, and even crude artworks based around fertility and battle. Some evidence has also been found of strong community elements to their culture, with much focus on sporting activities and racial pride events. However these are still clearly lacking in the subtleties and aesthetics of our more advanced cultures, and any attempt to compare them with us must be overshadowed by their brutality, territorial violence, and obsession with war.\n476: \n477: There have been no substantiated reports of orcs for over 100 years. What reported sightings there are tend to be from such unreliable sources as adventurers and hermits, and have never been verified. We should be thankful that these horrible creatures have been banished to the annals of history, surviving only as stories to be told to misbehaving children.]]}",
+        "source_newline_count": 8,
+        "target_newline_count": 8
+      },
+      {
+        "revision_prefix": "616efc4ff4",
+        "status": "confirmed",
+        "claim": "确认流血%d%%漏武器伤害基准；60计算combatTalentWeaponDamage，102-106将combatDamage乘getBleedDamage并以dam/5施加5回合EFF_CUT，数值是五回合总武器伤害比例。保留100%%/标记六回合/冷却返还限定。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/cursed/bloodstained.lua",
+        "sha256": "3c1841077169754f56549e8aa11e42cd0ccdd7380b735b88f08bfd3ba7cfe01c",
+        "line_start": 112,
+        "line_end": 120,
+        "excerpt": "112: \tinfo = function(self, t)\n113: \t\tlocal damage = t.getBleedDamage(self, t)\n114: \t\treturn ([[Teleport to an enemy, striking them for 100%% weapon damage, bleeding them for %d%% weapon damage over five turns, and marking them for six turns. You will not teleport if you are already adjacent.\n115: \n116: When the marked enemy dies, the cooldown of this talent will be reduced by two turns for every turn the mark had remaining.\n117: \n118: Each point in Bloodstained talents reduces the amount of damage you take from bleed effects by 2%%]]):\n119: \t\ttformat(100 * damage)\n120: \tend,",
+        "source_newline_count": 4,
+        "target_newline_count": 4
+      },
+      {
+        "revision_prefix": "61721c91c4",
+        "status": "confirmed",
+        "claim": "确认thick twine粗绳误为细线；dead flesh早已死亡、开始腐败，不是大自然使其从有活力变死肉。somewhat intact仅一定程度完整，现译很好地保护过强；保持盐和粘土、齿痕、恶臭语境。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+        "sha256": "71d52afb5fe7ea023254b4c7a628919aad222253d8a4d8a74fe380867881d5c7",
+        "line_start": 1586,
+        "line_end": 1592,
+        "excerpt": "1586: \tunique = true,\n1587: \tname = \"Prox's Lucky Halfling Foot\", color = colors.WHITE,\n1588: \tunided_name = _t\"a mummified halfling foot\", image = \"object/artifact/proxs_lucky_halfling_foot.png\",\n1589: \tdesc = _t[[A large hairy foot, very recognizably a halfling's, is strung on a piece of thick twine. In its decomposed state it's hard to tell how long ago it parted with its owner, but from what look like teeth marks around the ankle you get the impression that it wasn't given willingly.\n1590: It has been kept somewhat intact with layers of salt and clay, but in spite of this it's clear that nature is beginning to take its toll on the dead flesh. Some say the foot of a halfling brings luck to its bearer - right now the only thing you can be sure of is that it stinks.]],\n1591: \tlevel_range = {5, 12},\n1592: \trarity = 200,",
+        "source_newline_count": 1,
+        "target_newline_count": 1
+      },
+      {
+        "revision_prefix": "6179939ecc",
+        "status": "confirmed",
+        "claim": "限定确认共同文本中的melee hit遗漏：固定代码activate把额外光伤放入melee_project，护盾回调是callbackOnMeleeAttack；恢复每次近战命中，非所有攻击。来源版本仍pending：目录英文缺少固定源码112行护盾至少2回合的追加内容，callback实际math.max(2,shield.dur)；这是源文本版本差异，不能只改旧译文并宣称已覆盖完整固定版本，source/source_tag迁移不在本批自动执行。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "line_start": 86,
+        "line_end": 114,
+        "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)",
+        "source_newline_count": 2,
+        "target_newline_count": 2
+      }
+    ],
+    "auxiliary_mechanism_evidence": [
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/cursed/bloodstained.lua",
+        "sha256": "3c1841077169754f56549e8aa11e42cd0ccdd7380b735b88f08bfd3ba7cfe01c",
+        "line_start": 54,
+        "line_end": 110,
+        "excerpt": "54: \thate = 4,\n55: \ttactical = { ATTACK = 2, CLOSEIN = 1 },\n56: \trange = 8,\n57: \trequires_target = true,\n58: \tis_melee = true,\n59: \tis_teleport = true,\n60: \tgetBleedDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.7, 2.1) end,\n61: \tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.0, 1.0) end,\n62: \ttarget = function(self, t) return {type=\"hit\", pass_terrain = true, range=self:getTalentRange(t)} end,\n63: \ton_learn = function(self, t) self:learnTalent(self.T_BLOOD_CLOT, true) end,\n64: \ton_unlearn = function(self, t) self:unlearnTalent(self.T_BLOOD_CLOT) end,\n65: \ton_pre_use = function(self, t)\n66: \t\tif self:attr(\"never_move\") then return false end\n67: \t\treturn true\n68: \tend,\n69: \taction = function(self, t)\n70: \t\tlocal tg = self:getTalentTarget(t)\n71: \t\tlocal x, y, target = self:getTarget(tg)\n72: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n73: \t\t\n74: \t\t-- skip teleport if already adjacent\n75: \t\tif core.fov.distance(self.x, self.y, target.x, target.y) ~= 1 then\n76: \t\t\t\n77: \t\t\t--check if landing space is avilable\n78: \t\t\tfx, fy = util.findFreeGrid(x, y, 1, false, {[Map.ACTOR]=true})\n79: \t\t\tif not fx or not fy then game.logSeen(self, \"Nowhere to appear!\") return false end\n80: \t\t\t\n81: \t\t\tif not self:teleportRandom(x, y, 0) then game.logSeen(self, \"The bloodrush fizzles!\") return true end\n82: \t\t\tgame:playSoundNear(self, \"talents/teleport\")\n83: \t\tend\n84: \t\t\n85: \t\t-- Attack\n86: \t\tif target and target.x and core.fov.distance(self.x, self.y, target.x, target.y) == 1 then\n87: \t\t\ttarget:setEffect(target.EFF_BLOOD_RUSH_MARK, 6, {src=self})\n88: \t\t\tlocal hit = self:attackTarget(target, nil, 1, true)\n89: \t\t\tif hit then\n90: \t\t\t\tif target.dead then\n91: \t\t\t\t\tgame:onTickEnd(function() \n92: \t\t\t\t\t\t\t\t\t\t\t\t\t self:alterTalentCoolingdown(t.id, -12)\n93: \t\t\t\t\t\t\t\t\t\t\t\t end)\n94: \t\t\t\tend\n95: \t\t\t\tif target:canBe('cut') then\n96: \t\t\t\t\tlocal sw = self:getInven(\"MAINHAND\")\n97: \t\t\t\t\tif sw then\n98: \t\t\t\t\t\tsw = sw[1] and sw[1].combat\n99: \t\t\t\t\tend\n100: \t\t\t\t\tsw = sw or self.combat\n101: \t\t\t\t\tlocal dam = self:combatDamage(sw)\n102: \t\t\t\t\tlocal damrange = self:combatDamageRange(sw)\n103: \t\t\t\t\tdam = rng.range(dam, dam * damrange)\n104: \t\t\t\t\tdam = dam * t.getBleedDamage(self, t)\n105: \t\t\t\t\ttarget:setEffect(target.EFF_CUT, 5, {power=dam / 5, src=self})\n106: \t\t\t\tend\n107: \t\t\tend\n108: \t\tend\n109: \t\t\n110: \t\treturn true"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "line_start": 62,
+        "line_end": 114,
+        "excerpt": "62: newTalent{\n63: \tname = \"Weapon of Light\",\n64: \ttype = {\"celestial/combat\", 1},\n65: \tmode = \"sustained\",\n66: \trequire = divi_req1,\n67: \tpoints = 5,\n68: \tcooldown = 10,\n69: \tsustain_positive = 10,\n70: \ttactical = { BUFF = 2 },\n71: \trange = 10,\n72: \tgetDamage = function(self, t) return (7 + self:combatSpellpower(0.092) * self:combatTalentScale(t, 1, 7))  end,\n73: \tgetShieldFlat = function(self, t)\n74: \t\treturn t.getDamage(self, t)\n75: \tend,\n76: \tactivate = function(self, t)\n77: \t\tgame:playSoundNear(self, \"talents/spell_generic2\")\n78: \t\tlocal ret = {}\n79: \t\tif not self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then ret.dam = self:addTemporaryValue(\"melee_project\", {[DamageType.LIGHT]=t.getDamage(self, t)}) end\n80: \t\treturn ret\n81: \tend,\n82: \tdeactivate = function(self, t, p)\n83: \t\tif p.dam then self:removeTemporaryValue(\"melee_project\", p.dam) end\n84: \t\treturn true\n85: \tend,\n86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+      }
+    ],
+    "additional_confirmed_findings": [
+      {
+        "revision_prefix": "60c840f8b1",
+        "entry_revision_identity": "60c840f8b1835b5b92aa0b0971c209e4e54cb0ea8810d5124f7de75f6b24d53d",
+        "status": "confirmed",
+        "kind": "newline_invariant",
+        "claim": "表层lane1将此条判为OK，主审逐字节确认源码2换行、现译4换行；首句被拆行、末句被拆行，需恢复原有分段。",
+        "source": "Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.\nYou gain %d defense.\nThe chance to apply status effects increases with your Accuracy and the Defense with your Cunning.",
+        "target": "你制造混乱的技巧已趋于巅峰。\n\t\t敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。\n\t\t你获得 %d 闪避。\n\t\t施加负面状态几率受命中影响。\n\t\t闪避加成受灵巧影响。",
+        "source_newline_count": 2,
+        "target_newline_count": 4,
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/cunning/scoundrel.lua",
+        "sha256": "c90171bb35a1bab1c02cbefa1cfd36ac7d3bed9dbb089327030f4c830f038703",
+        "line_start": 152,
+        "line_end": 157,
+        "excerpt": "152: \tinfo = function(self, t)\n153: \t\treturn ([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.\n154: You gain %d defense.\n155: The chance to apply status effects increases with your Accuracy and the Defense with your Cunning.]]):\n156: \t\ttformat(t.getChance(self,t),t.getDuration(self,t), t.getDefense(self, t))\n157: \tend,",
+        "adapter_observation_present": false,
+        "queue_status_note": "本批适配器无此条ISSUE，常规adjudicate只能覆盖已导入观察；此为单独人工确认待办，未计入适配器repair队列。不可将surface_only_done表述为该换行问题已解决。"
+      }
+    ],
+    "workflow_limitation": "Additional confirmed host-only finding retained for bounded follow-up; no fabricated adapter output or source-absence host block."
+  },
+  "decisions": {
+    "workset": "evidence/quality/production-batches/batch-468bfed17bdb007df025-source-workset.json",
+    "decisions": {
+      "607fb07c1a|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/zones/slazish-fen/grids.lua:83-110。确认starts to break down应为开始崩坏，非即将爆炸；91-105仅设broken、完成任务、生成NPC并开启对话，没有此处爆炸伤害实现。保留VIOLET警告。"
+      },
+      "60b9c0e8a7|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/cunning/cunning.lua:27-31。确认Blending magic and shadows是融合魔法与阴影，cunning/shadow-magic类型简介并未规定躲在阴影里秘密施法；恢复二者融合关系，不改技能树专名。不采纳将相邻ambush概括为借黑暗潜行的扩展，原句仅说操纵阴影；融合义本身已足够判定。"
+      },
+      "613dd8184d|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/general/npcs/ghost.lua:81-96。确认触碰施受颠倒：its very touch以怪物为施动者，现译对它的接触改成别人触碰怪物。其自身combat定义攻击，恢复它的触碰会侵害/扰乱生命；不由背景句新增反伤机制。补充确认almost几乎遗漏以及abuses/disrupts被弱化为影响；均由同一句直接可证。"
+      },
+      "615ee367b8|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/zones/temporal-rift/npcs.lua:24-35。确认phasing in and out of reality指在现实中出没/时隐时现，现译现实与相位之间切换把过程当成地点；恢复在现实中显现/消失。corrupted的侵蚀限定可一并恢复，不改既有角色名。"
+      },
+      "61646027f8|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/lore/misc.lua:466-477。确认首段时序与清剿关系错译：卓越纪初由图库纳发动清剿，之后兽人绝迹，并非绝迹后国王才开创卓越纪。475艺术主题是生育与战斗，不是战争时期。同行racial pride events不是泛称节日狂欢。471股干/普通士卒记忆误成老人们的记忆，stringier不是更强大。473一万半身人牺牲以击败首领、阻止军队前进，不是上万毁灭整支军团。477无经证实报告被简化为没有报告而下一句仍有目击。按原文恢复限定/主题/因果并保留史料作者的偏见，不据其他游戏剧情改写文内观点或全局改专名。补充确认the Brave称号遗漏；servants宜为仆役，但源码此句未界定是否强迫劳动，不由此另断言游戏奴役机制错误。这里审核的是带偏见史料的叙述忠实度，不将史料全部观点判为客观史实。"
+      },
+      "616efc4ff4|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/cursed/bloodstained.lua:112-120。确认流血%d%%漏武器伤害基准；60计算combatTalentWeaponDamage，102-106将combatDamage乘getBleedDamage并以dam/5施加5回合EFF_CUT，数值是五回合总武器伤害比例。保留100%%/标记六回合/冷却返还限定。"
+      },
+      "61721c91c4|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua:1586-1592。确认thick twine粗绳误为细线；dead flesh早已死亡、开始腐败，不是大自然使其从有活力变死肉。somewhat intact仅一定程度完整，现译很好地保护过强；保持盐和粘土、齿痕、恶臭语境。"
+      },
+      "6179939ecc|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/celestial/combat.lua:86-114。限定确认共同文本中的melee hit遗漏：固定代码activate把额外光伤放入melee_project，护盾回调是callbackOnMeleeAttack；恢复每次近战命中，非所有攻击。来源版本仍pending：目录英文缺少固定源码112行护盾至少2回合的追加内容，callback实际math.max(2,shield.dur)；这是源文本版本差异，不能只改旧译文并宣称已覆盖完整固定版本，source/source_tag迁移不在本批自动执行。覆盖contextual的OK，仅恢复第一句近战命中限定；第二句已有近战。冻结原文与固定源码的护盾持续时间差异仍单独pending。"
+      },
+      "607fb07c1a|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/zones/slazish-fen/grids.lua:83-110。确认starts to break down应为开始崩坏，非即将爆炸；91-105仅设broken、完成任务、生成NPC并开启对话，没有此处爆炸伤害实现。保留VIOLET警告。"
+      },
+      "60b9c0e8a7|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/cunning/cunning.lua:27-31。确认Blending magic and shadows是融合魔法与阴影，cunning/shadow-magic类型简介并未规定躲在阴影里秘密施法；恢复二者融合关系，不改技能树专名。不采纳将相邻ambush概括为借黑暗潜行的扩展，原句仅说操纵阴影；融合义本身已足够判定。"
+      },
+      "613dd8184d|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/general/npcs/ghost.lua:81-96。确认触碰施受颠倒：its very touch以怪物为施动者，现译对它的接触改成别人触碰怪物。其自身combat定义攻击，恢复它的触碰会侵害/扰乱生命；不由背景句新增反伤机制。补充确认almost几乎遗漏以及abuses/disrupts被弱化为影响；均由同一句直接可证。"
+      },
+      "615ee367b8|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/zones/temporal-rift/npcs.lua:24-35。确认phasing in and out of reality指在现实中出没/时隐时现，现译现实与相位之间切换把过程当成地点；恢复在现实中显现/消失。corrupted的侵蚀限定可一并恢复，不改既有角色名。"
+      },
+      "61646027f8|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/lore/misc.lua:466-477。确认首段时序与清剿关系错译：卓越纪初由图库纳发动清剿，之后兽人绝迹，并非绝迹后国王才开创卓越纪。475艺术主题是生育与战斗，不是战争时期。同行racial pride events不是泛称节日狂欢。471股干/普通士卒记忆误成老人们的记忆，stringier不是更强大。473一万半身人牺牲以击败首领、阻止军队前进，不是上万毁灭整支军团。477无经证实报告被简化为没有报告而下一句仍有目击。按原文恢复限定/主题/因果并保留史料作者的偏见，不据其他游戏剧情改写文内观点或全局改专名。补充确认the Brave称号遗漏；servants宜为仆役，但源码此句未界定是否强迫劳动，不由此另断言游戏奴役机制错误。这里审核的是带偏见史料的叙述忠实度，不将史料全部观点判为客观史实。"
+      },
+      "616efc4ff4|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/cursed/bloodstained.lua:112-120。确认流血%d%%漏武器伤害基准；60计算combatTalentWeaponDamage，102-106将combatDamage乘getBleedDamage并以dam/5施加5回合EFF_CUT，数值是五回合总武器伤害比例。保留100%%/标记六回合/冷却返还限定。"
+      },
+      "61721c91c4|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua:1586-1592。确认thick twine粗绳误为细线；dead flesh早已死亡、开始腐败，不是大自然使其从有活力变死肉。somewhat intact仅一定程度完整，现译很好地保护过强；保持盐和粘土、齿痕、恶臭语境。"
+      }
+    }
+  },
+  "source_attribution_pending": [
+    {
+      "args_order": null,
+      "component": "tome",
+      "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "host_source_attribution_review": {
+        "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "kind": "fixed_source_text_version_mismatch",
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "reason": "目录英文与固定源码111-113不完全一致，目录缺少护盾duration至少2回合说明；源码实际callback亦在101行附近设置math.max(2,shield.dur)。仅确认功能上下文，不将旧字符串作为固定版本完整字面来源；不自动迁移source/source_tag，不宣称全代码范围不存在该文本。",
+        "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "status": "pending"
+      },
+      "line_ending_normalization": null,
+      "literal_source_match": false,
+      "matching_literal_lines": [],
+      "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+      "section": "mod-tome/data/talents/celestial/combat.lua",
+      "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+      "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+      "source_pinning": "pinned",
+      "source_tag": "tformat",
+      "verification_status": "pending"
+    }
+  ],
+  "surface_summary": {
+    "accepted_attempt": 1,
+    "accepted_count": 80,
+    "ok": 72,
+    "issue": 8,
+    "failed_attempts": []
+  },
+  "publication": {
+    "files": 15,
+    "adapter_refs": 5,
+    "adjudications": 15,
+    "gates_passed": 17,
+    "published_tree_sha256": {
+      "results.jsonl": "bbe308600f4ce213d517b79a7a7544e0e236d6e980314b0e56707c319f0aeb54",
+      "adjudications.jsonl": "eb67efcc245d3456a3a9f472518a316bca022ee28f00f5cea1ed45954505b419",
+      "gates.json": "4012374a9a2bddb35af8e96e3b16c2d0d14ec2c45389506dd7f767a298637785",
+      "manifest.json": "07dbb22d28d9204f1ea625a4adfd785b2f4a32e9912a55fca6b06a3164822328",
+      "raw/surface/000-input_path.json": "336ccf030f5fe331e8bf20470ad70caf545847961af43df44ce77aecbfd32dbf",
+      "raw/surface/000-output_path.json": "276d230cb129256feb0bd22ae7d39c47c0a7c9374663377a4f390db8fd147f2a",
+      "raw/surface/group-97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f.json": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f",
+      "raw/surface/001-input_path.json": "f242072fab6448c6d336386bf2e26d8ebc963ac0ed244aa51f0bfffb7cc1d4b0",
+      "raw/surface/001-output_path.json": "69b5f1b999005630047f3b79cba0e6f5b372a3e031124cddcc4c8e810cdd78f1",
+      "raw/surface/002-input_path.json": "0aec76bd309c70cc5167acf0e9baa9283f13a305b1db33637192cd4858674913",
+      "raw/surface/002-output_path.json": "76ca800c9f2ae856b8f900abdb4cd6c95a466e5865291694179ffc93b7b82c67",
+      "raw/surface/003-input_path.json": "354051bfc6bc9a58428fb69403ec617ea5d38285b681b9ca5d1bcb1eaba344a3",
+      "raw/surface/003-output_path.json": "c5450799e23c4e2b485a20f968057208f2b43ff21f10e375a8a8c7e7e38a1ab3",
+      "raw/contextual/004-input_path.json": "09780b72fb206556eec1b22887608dcad0d471b6421135613b6192c24709ffa4",
+      "raw/contextual/004-output_path.json": "527306f0ce519a83e78b52e1b7369a5aa4ba272a6a6de020db2c572f7cd31452"
+    }
+  },
+  "children": [
+    {
+      "task_id": "batch-468bfed17bdb007df025",
+      "dispatch_id": "lane-000-0",
+      "agent_id": "f0767d14-41e0-4692-b71d-c5ded2b9e445",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "06fd1599a04bacca58f7bcc4a8facf231da00d829b97defdee71f4da708258c6",
+      "input_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "input_sha256": "336ccf030f5fe331e8bf20470ad70caf545847961af43df44ce77aecbfd32dbf",
+      "group_manifest_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f",
+      "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+      "labels": {
+        "candidate_identity": "06fd1599a04bacca58f7bcc4a8facf231da00d829b97defdee71f4da708258c6",
+        "dispatch_id": "lane-000-0",
+        "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+        "lane_index": "1",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-468bfed17bdb007df025"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "276d230cb129256feb0bd22ae7d39c47c0a7c9374663377a4f390db8fd147f2a",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:36:19.654707+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "f0767d14-41e0-4692-b71d-c5ded2b9e445",
+        "complete_line": 29,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 26,
+        "first_live_capture_sha256": "662e36a7b9546687c309b7b36fc9123f40d47d559866e7941c5aa74e3cfa0ec6",
+        "input_sha256": "336ccf030f5fe331e8bf20470ad70caf545847961af43df44ce77aecbfd32dbf",
+        "key": "batch-468bfed17bdb007df025|lane-000-0",
+        "labels": {
+          "candidate_identity": "06fd1599a04bacca58f7bcc4a8facf231da00d829b97defdee71f4da708258c6",
+          "dispatch_id": "lane-000-0",
+          "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+          "lane_index": "1",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-468bfed17bdb007df025"
+        },
+        "message_id": "msg_0e97a9a07158310e016aa8a12c631887d2a00f59144e3c8a44",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "bfa9545549cd5cd12e82dab962fb36041f320d05103c41e8df61ca61a9bed961",
+        "provider": "codex",
+        "raw_bytes": 2603,
+        "raw_sha256": "276d230cb129256feb0bd22ae7d39c47c0a7c9374663377a4f390db8fd147f2a",
+        "schema_version": 1,
+        "session_id": "01a0a2b5-247c-72c3-90df-b26b9555b747",
+        "source_bytes": 177668,
+        "source_lines": 29,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-15-01a0a2b5-247c-72c3-90df-b26b9555b747.jsonl",
+        "source_sha256": "96df46b42866b527615e46e494e6894bd1f642ec0e2ce99ed196062cd6577cff",
+        "terminal_capture_sha256": "510adfa101c7376f0bb201976029d91671111c016af09a9898b3ddbe338c8481",
+        "turn_id": "01a0a2b5-24bb-7613-b2b0-9a1374c2c78f",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:36:15.552Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:15.478Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "f0767d14-41e0-4692-b71d-c5ded2b9e445",
+          "labels": {
+            "candidate_identity": "06fd1599a04bacca58f7bcc4a8facf231da00d829b97defdee71f4da708258c6",
+            "dispatch_id": "lane-000-0",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "1",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUserMessageAt": null,
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a2b5-247c-72c3-90df-b26b9555b747"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-247c-72c3-90df-b26b9555b747",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-0",
+          "updatedAt": "2026-09-15T01:36:15.574Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:37:16.378Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:15.478Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "f0767d14-41e0-4692-b71d-c5ded2b9e445",
+          "labels": {
+            "candidate_identity": "06fd1599a04bacca58f7bcc4a8facf231da00d829b97defdee71f4da708258c6",
+            "dispatch_id": "lane-000-0",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "1",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27136,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 29829,
+            "inputTokens": 28767,
+            "outputTokens": 1062
+          },
+          "lastUserMessageAt": "2026-09-15T01:36:20.155Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a2b5-247c-72c3-90df-b26b9555b747",
+              "title": "lane-000-0"
+            },
+            "nativeHandle": "01a0a2b5-247c-72c3-90df-b26b9555b747",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-247c-72c3-90df-b26b9555b747"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-247c-72c3-90df-b26b9555b747",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-0",
+          "updatedAt": "2026-09-15T01:37:16.379Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:37:50.459Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-468bfed17bdb007df025",
+      "dispatch_id": "lane-000-1",
+      "agent_id": "826a783b-c6a3-45e3-b8a5-f7f201b4f5c2",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "4972ad8b65dfbf653d446ef505592981f1ad2349626685a17b23052d8d4deea8",
+      "input_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "input_sha256": "f242072fab6448c6d336386bf2e26d8ebc963ac0ed244aa51f0bfffb7cc1d4b0",
+      "group_manifest_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f",
+      "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+      "labels": {
+        "candidate_identity": "4972ad8b65dfbf653d446ef505592981f1ad2349626685a17b23052d8d4deea8",
+        "dispatch_id": "lane-000-1",
+        "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+        "lane_index": "2",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-468bfed17bdb007df025"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "69b5f1b999005630047f3b79cba0e6f5b372a3e031124cddcc4c8e810cdd78f1",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:36:38.038957+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "826a783b-c6a3-45e3-b8a5-f7f201b4f5c2",
+        "complete_line": 35,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 32,
+        "first_live_capture_sha256": "6f09ac03bc4e9ea6e3c5367130a05a40ce782bdc31d6e7551d9ac78a29425b4b",
+        "input_sha256": "f242072fab6448c6d336386bf2e26d8ebc963ac0ed244aa51f0bfffb7cc1d4b0",
+        "key": "batch-468bfed17bdb007df025|lane-000-1",
+        "labels": {
+          "candidate_identity": "4972ad8b65dfbf653d446ef505592981f1ad2349626685a17b23052d8d4deea8",
+          "dispatch_id": "lane-000-1",
+          "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+          "lane_index": "2",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-468bfed17bdb007df025"
+        },
+        "message_id": "msg_08b3b78a8953c88c016aa8a13c859c87d1a92c8fa49dc11651",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "5ccc38fcafdea22232035bba4fdf74839dbe300aba52e390575f84bb79ac60c3",
+        "provider": "codex",
+        "raw_bytes": 2344,
+        "raw_sha256": "69b5f1b999005630047f3b79cba0e6f5b372a3e031124cddcc4c8e810cdd78f1",
+        "schema_version": 1,
+        "session_id": "01a0a2b5-6644-7760-8a21-cad0b59010b6",
+        "source_bytes": 181643,
+        "source_lines": 35,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-32-01a0a2b5-6644-7760-8a21-cad0b59010b6.jsonl",
+        "source_sha256": "989b084cc00eccb03ea8474a7b76931c84a9b56b95a777c09b33414768f83328",
+        "terminal_capture_sha256": "99ab217893b65193bf0587740632918b90d42307c5ee21db7317014b58771b3b",
+        "turn_id": "01a0a2b5-6683-7702-bf7f-ca4100c4f5c6",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:36:32.394Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:32.317Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "826a783b-c6a3-45e3-b8a5-f7f201b4f5c2",
+          "labels": {
+            "candidate_identity": "4972ad8b65dfbf653d446ef505592981f1ad2349626685a17b23052d8d4deea8",
+            "dispatch_id": "lane-000-1",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "2",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUserMessageAt": null,
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a2b5-6644-7760-8a21-cad0b59010b6"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-6644-7760-8a21-cad0b59010b6",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-1",
+          "updatedAt": "2026-09-15T01:36:32.412Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:37:30.853Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:32.317Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "826a783b-c6a3-45e3-b8a5-f7f201b4f5c2",
+          "labels": {
+            "candidate_identity": "4972ad8b65dfbf653d446ef505592981f1ad2349626685a17b23052d8d4deea8",
+            "dispatch_id": "lane-000-1",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "2",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27392,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 29869,
+            "inputTokens": 28865,
+            "outputTokens": 1004
+          },
+          "lastUserMessageAt": "2026-09-15T01:36:38.213Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a2b5-6644-7760-8a21-cad0b59010b6",
+              "title": "lane-000-1"
+            },
+            "nativeHandle": "01a0a2b5-6644-7760-8a21-cad0b59010b6",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-6644-7760-8a21-cad0b59010b6"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-6644-7760-8a21-cad0b59010b6",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-1",
+          "updatedAt": "2026-09-15T01:37:30.853Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:38:54.933Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-468bfed17bdb007df025",
+      "dispatch_id": "lane-000-2",
+      "agent_id": "69a08686-1beb-4ebf-b93e-377eca387181",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "78bab2230e4d06d769dacc9098ad990c3f3846f4bfbf9903e67b6811532d4740",
+      "input_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "input_sha256": "0aec76bd309c70cc5167acf0e9baa9283f13a305b1db33637192cd4858674913",
+      "group_manifest_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f",
+      "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+      "labels": {
+        "candidate_identity": "78bab2230e4d06d769dacc9098ad990c3f3846f4bfbf9903e67b6811532d4740",
+        "dispatch_id": "lane-000-2",
+        "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+        "lane_index": "3",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-468bfed17bdb007df025"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "76ca800c9f2ae856b8f900abdb4cd6c95a466e5865291694179ffc93b7b82c67",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:37:02.135124+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "69a08686-1beb-4ebf-b93e-377eca387181",
+        "complete_line": 29,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 26,
+        "first_live_capture_sha256": "efded9050cc041116442481aa1b9f866f9d78c57f3b425dbbb3c09c723b61297",
+        "input_sha256": "0aec76bd309c70cc5167acf0e9baa9283f13a305b1db33637192cd4858674913",
+        "key": "batch-468bfed17bdb007df025|lane-000-2",
+        "labels": {
+          "candidate_identity": "78bab2230e4d06d769dacc9098ad990c3f3846f4bfbf9903e67b6811532d4740",
+          "dispatch_id": "lane-000-2",
+          "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+          "lane_index": "3",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-468bfed17bdb007df025"
+        },
+        "message_id": "msg_0affe8141a471108016aa8a153588c87d2be8c1c5428da6224",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "925224440638f1c7334cca1393d9f8ec86c795b2c40684d71b461ab43ec82be1",
+        "provider": "codex",
+        "raw_bytes": 2680,
+        "raw_sha256": "76ca800c9f2ae856b8f900abdb4cd6c95a466e5865291694179ffc93b7b82c67",
+        "schema_version": 1,
+        "session_id": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3",
+        "source_bytes": 179795,
+        "source_lines": 29,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-54-01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3.jsonl",
+        "source_sha256": "6f74d9e1f1ac281526c69adb8f588f2f2cfa48e6561a1185a7ccb8a60891af59",
+        "terminal_capture_sha256": "a8c8f4940db6cdf4ed27b49c1c537fc5e7369a29450e9aca11673ef00684b7e4",
+        "turn_id": "01a0a2b5-bc09-7c23-8c4e-829935ccd2c4",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:36:54.288Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:54.211Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "69a08686-1beb-4ebf-b93e-377eca387181",
+          "labels": {
+            "candidate_identity": "78bab2230e4d06d769dacc9098ad990c3f3846f4bfbf9903e67b6811532d4740",
+            "dispatch_id": "lane-000-2",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "3",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUserMessageAt": "2026-09-15T01:36:58.914Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-2",
+          "updatedAt": "2026-09-15T01:36:58.914Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:37:55.943Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:36:54.211Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "69a08686-1beb-4ebf-b93e-377eca387181",
+          "labels": {
+            "candidate_identity": "78bab2230e4d06d769dacc9098ad990c3f3846f4bfbf9903e67b6811532d4740",
+            "dispatch_id": "lane-000-2",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "3",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27136,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 30059,
+            "inputTokens": 28976,
+            "outputTokens": 1083
+          },
+          "lastUserMessageAt": "2026-09-15T01:36:58.914Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3",
+              "title": "lane-000-2"
+            },
+            "nativeHandle": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-2",
+          "updatedAt": "2026-09-15T01:37:55.944Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:39:11.150Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-468bfed17bdb007df025",
+      "dispatch_id": "lane-000-3",
+      "agent_id": "093f69c5-e717-452e-8145-f7e73504df5b",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "c25fb10d1c8fc02a2c18f75e1a8186eac6dedd6062f36e2787f709131f842153",
+      "input_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "input_sha256": "354051bfc6bc9a58428fb69403ec617ea5d38285b681b9ca5d1bcb1eaba344a3",
+      "group_manifest_path": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f",
+      "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+      "labels": {
+        "candidate_identity": "c25fb10d1c8fc02a2c18f75e1a8186eac6dedd6062f36e2787f709131f842153",
+        "dispatch_id": "lane-000-3",
+        "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+        "lane_index": "4",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-468bfed17bdb007df025"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "c5450799e23c4e2b485a20f968057208f2b43ff21f10e375a8a8c7e7e38a1ab3",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:38:14.716775+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "093f69c5-e717-452e-8145-f7e73504df5b",
+        "complete_line": 35,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 32,
+        "first_live_capture_sha256": "75c1d38bf75e28e3312d899dc04702db47cbaabf67edb373811e93e32cc41ba3",
+        "input_sha256": "354051bfc6bc9a58428fb69403ec617ea5d38285b681b9ca5d1bcb1eaba344a3",
+        "key": "batch-468bfed17bdb007df025|lane-000-3",
+        "labels": {
+          "candidate_identity": "c25fb10d1c8fc02a2c18f75e1a8186eac6dedd6062f36e2787f709131f842153",
+          "dispatch_id": "lane-000-3",
+          "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+          "lane_index": "4",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-468bfed17bdb007df025"
+        },
+        "message_id": "msg_035c9699d695b103016aa8a1a4281887d18dda18a794ed621c",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "7d4d8e730afa2534d826588b8ca483d4964cb8da2e1d4d5117e958669e34257a",
+        "provider": "codex",
+        "raw_bytes": 2949,
+        "raw_sha256": "c5450799e23c4e2b485a20f968057208f2b43ff21f10e375a8a8c7e7e38a1ab3",
+        "schema_version": 1,
+        "session_id": "01a0a2b6-df26-7cb0-8925-c144f21b34f2",
+        "source_bytes": 215775,
+        "source_lines": 35,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-38-08-01a0a2b6-df26-7cb0-8925-c144f21b34f2.jsonl",
+        "source_sha256": "3953097b7eb0151bf8cd628c92387c77478d884efd0ad1ac5feb37d9043bc60e",
+        "terminal_capture_sha256": "28adeff9e8290359130c5d4a8e4683c8f907b21e1f35857a5f2dfbc7406caf49",
+        "turn_id": "01a0a2b6-df65-75d2-a730-d320a46dad92",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:38:08.876Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:38:08.798Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "093f69c5-e717-452e-8145-f7e73504df5b",
+          "labels": {
+            "candidate_identity": "c25fb10d1c8fc02a2c18f75e1a8186eac6dedd6062f36e2787f709131f842153",
+            "dispatch_id": "lane-000-3",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "4",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUserMessageAt": "2026-09-15T01:38:13.667Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a2b6-df26-7cb0-8925-c144f21b34f2"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b6-df26-7cb0-8925-c144f21b34f2",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-3",
+          "updatedAt": "2026-09-15T01:38:13.667Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:39:19.265Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:38:08.798Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "093f69c5-e717-452e-8145-f7e73504df5b",
+          "labels": {
+            "candidate_identity": "c25fb10d1c8fc02a2c18f75e1a8186eac6dedd6062f36e2787f709131f842153",
+            "dispatch_id": "lane-000-3",
+            "lane_group_identity": "5016541e33d53449aff49376bcca899a8cde74b03ba9cdd2722288773c0d6d6d",
+            "lane_index": "4",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 29056,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 32210,
+            "inputTokens": 31045,
+            "outputTokens": 1165
+          },
+          "lastUserMessageAt": "2026-09-15T01:38:13.667Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a2b6-df26-7cb0-8925-c144f21b34f2",
+              "title": "lane-000-3"
+            },
+            "nativeHandle": "01a0a2b6-df26-7cb0-8925-c144f21b34f2",
+            "provider": "codex",
+            "sessionId": "01a0a2b6-df26-7cb0-8925-c144f21b34f2"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2b6-df26-7cb0-8925-c144f21b34f2",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-3",
+          "updatedAt": "2026-09-15T01:39:19.266Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:39:42.410Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-468bfed17bdb007df025-contextual-000",
+      "dispatch_id": "full-000",
+      "agent_id": "0de34c82-9a09-490a-8358-a5944bcc19ba",
+      "purpose": "translation_contextual_v2",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "fa4d8081895de975522683113a2db16130101fa00086f4cac6940f156951497c",
+      "input_path": ".ai/task/batch-468bfed17bdb007df025-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+      "input_sha256": "09780b72fb206556eec1b22887608dcad0d471b6421135613b6192c24709ffa4",
+      "group_manifest_path": null,
+      "group_manifest_sha256": null,
+      "lane_group_identity": null,
+      "labels": {
+        "candidate_identity": "fa4d8081895de975522683113a2db16130101fa00086f4cac6940f156951497c",
+        "dispatch_id": "full-000",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_contextual_v2",
+        "role": "reviewer",
+        "task_id": "batch-468bfed17bdb007df025-contextual-000"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "527306f0ce519a83e78b52e1b7369a5aa4ba272a6a6de020db2c572f7cd31452",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T02:30:44.618604+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto"
+        },
+        "model": {
+          "presence": "present",
+          "value": "claude-opus-5"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "claude"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "0de34c82-9a09-490a-8358-a5944bcc19ba",
+        "ai_title_present": false,
+        "complete_line": 74,
+        "completion_basis": "natural_success",
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 74,
+        "first_live_capture_sha256": "d9a21bd88407edf8d1f5429aec731178e92e604f71d7eda57bd01e48240b1387",
+        "input_sha256": "09780b72fb206556eec1b22887608dcad0d471b6421135613b6192c24709ffa4",
+        "key": "batch-468bfed17bdb007df025-contextual-000|full-000",
+        "labels": {
+          "candidate_identity": "fa4d8081895de975522683113a2db16130101fa00086f4cac6940f156951497c",
+          "dispatch_id": "full-000",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_contextual_v2",
+          "role": "reviewer",
+          "task_id": "batch-468bfed17bdb007df025-contextual-000"
+        },
+        "last_prompt_present": false,
+        "leaf_uuid": "ec6dc449-d0ca-4b0e-8567-1415fac64a90",
+        "message_id": "msg_011Cf4SdhmyqKKC3tdwR2nBj",
+        "message_uuid": "ec6dc449-d0ca-4b0e-8567-1415fac64a90",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "parent_uuid": "cddbb492-7312-4266-988f-1af41116e99c",
+        "prompt_line": 3,
+        "prompt_sha256": "33e871d514904642606a9042955beef3d04d0652950a49b548364a94a26ce8ca",
+        "provider": "claude",
+        "raw_bytes": 5654,
+        "raw_sha256": "527306f0ce519a83e78b52e1b7369a5aa4ba272a6a6de020db2c572f7cd31452",
+        "schema_version": 1,
+        "session_id": "22b273f6-514b-42ca-bc7a-4fea44fad901",
+        "source_bytes": 242069,
+        "source_lines": 74,
+        "source_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/22b273f6-514b-42ca-bc7a-4fea44fad901.jsonl",
+        "source_sha256": "ec6b9d9f1e6ea12c467a3a90b27b09716692857714c3a16ceb60ece6492db4e5",
+        "terminal_capture_sha256": "e625160046038ff44c72ba13acee81d1301aa44a2c8cdeb4ecc309e157f97228",
+        "version": "2.1.259",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T02:30:40.914Z",
+            "turnId": "foreground-turn-1"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Analyze the codebase without executing tools or edits",
+              "id": "plan",
+              "label": "Plan Mode"
+            },
+            {
+              "description": "Prompts for permission the first time a tool is used",
+              "id": "default",
+              "label": "Always Ask"
+            },
+            {
+              "description": "Automatically approves edit-focused tools without prompting",
+              "id": "acceptEdits",
+              "label": "Accept File Edits"
+            },
+            {
+              "description": "Uses a model classifier to review permission prompts automatically",
+              "id": "auto",
+              "label": "Auto mode"
+            },
+            {
+              "description": "Skip all permission prompts (use with caution)",
+              "id": "bypassPermissions",
+              "label": "Bypass"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": true,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": true,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": true,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T02:30:39.873Z",
+          "currentModeId": "auto",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "medium",
+          "features": [
+            {
+              "description": "Lower latency Opus responses at higher token cost",
+              "icon": "zap",
+              "id": "fast_mode",
+              "label": "Fast",
+              "tooltip": "Toggle fast mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "0de34c82-9a09-490a-8358-a5944bcc19ba",
+          "labels": {
+            "candidate_identity": "fa4d8081895de975522683113a2db16130101fa00086f4cac6940f156951497c",
+            "dispatch_id": "full-000",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_contextual_v2",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025-contextual-000"
+          },
+          "lastUsage": {
+            "contextWindowMaxTokens": 1000000,
+            "contextWindowUsedTokens": 21425
+          },
+          "lastUserMessageAt": "2026-09-15T02:30:40.916Z",
+          "model": "claude-opus-5",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "featureValues": {
+                "fast_mode": false
+              },
+              "modeId": "auto",
+              "model": "claude-opus-5",
+              "provider": "claude",
+              "thinkingOptionId": "medium",
+              "title": "full-000"
+            },
+            "nativeHandle": "22b273f6-514b-42ca-bc7a-4fea44fad901",
+            "provider": "claude",
+            "sessionId": "22b273f6-514b-42ca-bc7a-4fea44fad901"
+          },
+          "provider": "claude",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "modeId": "auto",
+            "model": null,
+            "provider": "claude",
+            "sessionId": null
+          },
+          "status": "running",
+          "thinkingOptionId": "medium",
+          "title": "full-000",
+          "updatedAt": "2026-09-15T02:30:44.185Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T02:33:56.922Z",
+          "availableModes": [
+            {
+              "description": "Analyze the codebase without executing tools or edits",
+              "id": "plan",
+              "label": "Plan Mode"
+            },
+            {
+              "description": "Prompts for permission the first time a tool is used",
+              "id": "default",
+              "label": "Always Ask"
+            },
+            {
+              "description": "Automatically approves edit-focused tools without prompting",
+              "id": "acceptEdits",
+              "label": "Accept File Edits"
+            },
+            {
+              "description": "Uses a model classifier to review permission prompts automatically",
+              "id": "auto",
+              "label": "Auto mode"
+            },
+            {
+              "description": "Skip all permission prompts (use with caution)",
+              "id": "bypassPermissions",
+              "label": "Bypass"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": true,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": true,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": true,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T02:30:39.873Z",
+          "currentModeId": "auto",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "medium",
+          "features": [
+            {
+              "description": "Lower latency Opus responses at higher token cost",
+              "icon": "zap",
+              "id": "fast_mode",
+              "label": "Fast",
+              "tooltip": "Toggle fast mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "0de34c82-9a09-490a-8358-a5944bcc19ba",
+          "labels": {
+            "candidate_identity": "fa4d8081895de975522683113a2db16130101fa00086f4cac6940f156951497c",
+            "dispatch_id": "full-000",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_contextual_v2",
+            "role": "reviewer",
+            "task_id": "batch-468bfed17bdb007df025-contextual-000"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 370258,
+            "contextWindowMaxTokens": 1000000,
+            "contextWindowUsedTokens": 52856,
+            "inputTokens": 24,
+            "outputTokens": 12137,
+            "totalCostUsd": 0.87828
+          },
+          "lastUserMessageAt": "2026-09-15T02:30:40.916Z",
+          "model": "claude-opus-5",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "featureValues": {
+                "fast_mode": false
+              },
+              "modeId": "auto",
+              "model": "claude-opus-5",
+              "provider": "claude",
+              "thinkingOptionId": "medium",
+              "title": "full-000"
+            },
+            "nativeHandle": "22b273f6-514b-42ca-bc7a-4fea44fad901",
+            "provider": "claude",
+            "sessionId": "22b273f6-514b-42ca-bc7a-4fea44fad901"
+          },
+          "provider": "claude",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "runtimeModel": "claude-opus-5"
+            },
+            "modeId": "auto",
+            "model": "claude-opus-5",
+            "provider": "claude",
+            "sessionId": "22b273f6-514b-42ca-bc7a-4fea44fad901"
+          },
+          "status": "idle",
+          "thinkingOptionId": "medium",
+          "title": "full-000",
+          "updatedAt": "2026-09-15T02:33:56.923Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T02:34:13.247Z",
+      "archive_attempts_started": 1
+    }
+  ],
+  "artifacts": [
+    {
+      "source": ".artifacts/i18n/batch142-orchestration/surface-wire/raw/batch-468bfed17bdb007df025/lane-000-0.raw",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/lane-000-0.raw",
+      "sha256": "276d230cb129256feb0bd22ae7d39c47c0a7c9374663377a4f390db8fd147f2a"
+    },
+    {
+      "source": ".artifacts/i18n/batch142-orchestration/surface-wire/raw/batch-468bfed17bdb007df025/lane-000-1.raw",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/lane-000-1.raw",
+      "sha256": "69b5f1b999005630047f3b79cba0e6f5b372a3e031124cddcc4c8e810cdd78f1"
+    },
+    {
+      "source": ".artifacts/i18n/batch142-orchestration/surface-wire/raw/batch-468bfed17bdb007df025/lane-000-2.raw",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/lane-000-2.raw",
+      "sha256": "76ca800c9f2ae856b8f900abdb4cd6c95a466e5865291694179ffc93b7b82c67"
+    },
+    {
+      "source": ".artifacts/i18n/batch142-orchestration/surface-wire/raw/batch-468bfed17bdb007df025/lane-000-3.raw",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/lane-000-3.raw",
+      "sha256": "c5450799e23c4e2b485a20f968057208f2b43ff21f10e375a8a8c7e7e38a1ab3"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/STATE.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/STATE.json",
+      "sha256": "3dec0eb524603043f9141ebdd6a32fbda837f3040e3d817c7e2da256254aa5cc"
+    },
+    {
+      "source": ".ai/reviews/batch-468bfed17bdb007df025/lane-000-0.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/records/lane-000-0.json",
+      "sha256": "1c3dd5c2cea105116e71b97138bbc75bb883f88b06f63b2cb56325fd9b258e44"
+    },
+    {
+      "source": ".ai/reviews/batch-468bfed17bdb007df025/lane-000-1.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/records/lane-000-1.json",
+      "sha256": "539e908b427dbbbc643d48a46ccbf61f89260f8f56cc0ea7cb26e76c9a9a910a"
+    },
+    {
+      "source": ".ai/reviews/batch-468bfed17bdb007df025/lane-000-2.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/records/lane-000-2.json",
+      "sha256": "025db6adfa0644c85b8367c811f202e26a0efd46620e7d1efdc777403a33d0b6"
+    },
+    {
+      "source": ".ai/reviews/batch-468bfed17bdb007df025/lane-000-3.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/records/lane-000-3.json",
+      "sha256": "f06ab947bc44f351802764a313a0350b52478078a0f08dba7df913b4f86f478b"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-GROUP-group-000.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/SURFACE-SCREEN-GROUP-group-000.json",
+      "sha256": "97745f24597784b1c34452aa20add7f5e345981839606032e1c47cedfc84ad4f"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-INPUT-DRAFT.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/INPUT-DRAFT.json",
+      "sha256": "f54c1bccacc6030c929431ffd930be54516d87b3bc415b1e437c37f3fa261336"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "sha256": "336ccf030f5fe331e8bf20470ad70caf545847961af43df44ce77aecbfd32dbf"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "sha256": "f242072fab6448c6d336386bf2e26d8ebc963ac0ed244aa51f0bfffb7cc1d4b0"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "sha256": "0aec76bd309c70cc5167acf0e9baa9283f13a305b1db33637192cd4858674913"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "sha256": "354051bfc6bc9a58428fb69403ec617ea5d38285b681b9ca5d1bcb1eaba344a3"
+    },
+    {
+      "source": ".artifacts/i18n/batch142-orchestration/contextual-wire/raw/batch-468bfed17bdb007df025-contextual-000/full-000.raw",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/contextual/full-000.raw",
+      "sha256": "527306f0ce519a83e78b52e1b7369a5aa4ba272a6a6de020db2c572f7cd31452"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025-contextual-000/STATE.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/contextual/STATE.json",
+      "sha256": "89ae773f262dcd79c7cf612eaad490270d46c3e2eea3470941a8c489f311864d"
+    },
+    {
+      "source": ".ai/reviews/batch-468bfed17bdb007df025-contextual-000/full-000.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/contextual/records/full-000.json",
+      "sha256": "a6eaca538aef7537ce1d8177b676f95be8c0841077852d8f9338238c26fc723d"
+    },
+    {
+      "source": ".ai/task/batch-468bfed17bdb007df025-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/contextual/inputs/CONTEXTUAL-ENVELOPE-final-full.json",
+      "sha256": "09780b72fb206556eec1b22887608dcad0d471b6421135613b6192c24709ffa4"
+    },
+    {
+      "source": "/workspace/tome4-chinese-translation/.artifacts/i18n/batch142-orchestration/surface-native-tool-audit.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/surface-native-tool-audit.json",
+      "sha256": "cc18abf01fe41a36e39457a801dfa551feab7f19f3e277a34b1ed3d2e7e67faf"
+    },
+    {
+      "source": "/workspace/tome4-chinese-translation/.artifacts/i18n/batch142-orchestration/contextual-tool-audit.json",
+      "evidence": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-review/contextual-tool-audit.json",
+      "sha256": "cca0f1463004724cc402b12c0018dc2cea15f6d29346e18137de09e137663ee7"
+    }
+  ],
+  "provider_authorization": {
+    "record": "evidence/quality/production-batches/batch-468bfed17bdb007df025-host-pause/resume.json",
+    "sha256": "c59ee9f3155907accd3303d7f1791bee6b6b7ad768ef8df9ae2f42a638291b04",
+    "persistent": true
+  },
+  "prior_pause_resolution": "Historical WAIT_USER snapshot retained unchanged. User supplied persistent authorization, second create succeeded, reviewer completed and archive confirmed; current contextual DONE is in this report."
+}

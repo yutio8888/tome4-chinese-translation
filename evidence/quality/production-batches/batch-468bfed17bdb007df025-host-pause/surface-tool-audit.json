@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-15-01a0a2b5-247c-72c3-90df-b26b9555b747.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":16000});text(r.output);\nconst s = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(s.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={5:'原文说传送门开始崩坏，译文改成了要爆炸，改变了事件含义。',16:'原文指融合魔法与阴影，译文改成躲在阴影中使用秘密法术，改变了两者关系并添加了秘密施法含义。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    x={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:x['observation']=issues[i]\\n    r.append(x)\\nassert len(r)==20\\nassert [x['entry_revision_identity'] for x in r]==[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(len(x['entry_revision_identity'])==64 for x in r)\\nprint(json.dumps({'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000})).output);\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-32-01a0a2b5-6644-7760-8a21-cad0b59010b6.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n    if l.startswith('## '): print(f'{i+1}: {l}')\\nprint('ENVELOPE')\\nprint(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nPY\",\"max_output_tokens\":16000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text((await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries=x['payload']['entries']\\nout={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in entries]}\\nids=[e['entry_revision_identity'] for e in entries]\\nassert len(ids)==20 and len(set(ids))==20\\nassert [r['entry_revision_identity'] for r in out['results']]==ids\\nassert all(len(i)==64 for i in ids)\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000})).output);\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-36-54-01a0a2b5-bbca-7bc0-a77b-9d9d26e011b3.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":16000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6500}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nobservations={14:'原文 its very touch 指它的触碰侵害并扰乱生命流动，译文“对它的轻微接触”颠倒了触碰的施受关系。',19:'原文 phasing in and out of reality 指身体在现实中时隐时现，译文“在现实与相位之间切换”误把 phasing 当成与现实并列的去处。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in observations else 'OK'}\\n    if i in observations:item['observation']=observations[i]\\n    r.append(item)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(r)==len(p['payload']['entries'])==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(x['entry_revision_identity']==e['entry_revision_identity'] and len(x['entry_revision_identity'])==64 for x,e in zip(r,p['payload']['entries']))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-38-08-01a0a2b6-df26-7cb0-8925-c144f21b34f2.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nfor i,l in enumerate(lines):\\n if l.startswith('#'): print(f'{i+1}: {l}')\\nprint('\\\\n---INPUT---\\\\n')\\nprint(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nPY\",\"max_output_tokens\":14000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":3000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-468bfed17bdb007df025/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nobs={1:'原文说兽人在卓越纪初遭国王清剿后绝迹，译文变成兽人绝迹后才开启卓越纪；based around fertility and battle 被译成战争时期，遗漏生育主题并改变关系。',4:'%d%% weapon damage 的流血伤害漏译武器伤害这一计算基准。',6:'thick twine 被译成细线；nature is beginning to take its toll on the dead flesh 指死肉开始腐败，译文变成大自然剥夺活力后才成为死肉。',10:'on each melee hit 被译为每击，遗漏附加光系伤害仅限近战命中的条件。'}\\nr=[]\\nfor i,e in enumerate(x['payload']['entries']):\\n item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in obs else 'OK'}\\n if i in obs:item['observation']=obs[i]\\n r.append(item)\\nout={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(r)==len(x['payload']['entries'])==20\\nassert len({v['entry_revision_identity'] for v in r})==20\\nfor a,b in zip(x['payload']['entries'],r):\\n assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "All ten custom tool calls inspected; own frozen envelope and contract section six/headings only; JSON generated in memory/stdout. No unrelated reads or persistent writes. Content findings are separately adjudicated; schema validity does not prove every OK correct."
+}

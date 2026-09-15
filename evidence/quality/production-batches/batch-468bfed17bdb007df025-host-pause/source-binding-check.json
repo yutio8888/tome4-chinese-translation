@@ -1,0 +1,99 @@
+{
+  "batch_id": "batch-468bfed17bdb007df025",
+  "main_source_sha256_verified": 80,
+  "literal_matches": 78,
+  "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "nonliteral_verifications": [
+    {
+      "args_order": null,
+      "component": "tome",
+      "concatenated_entity_name_verification": {
+        "algorithm": "concatenated-entity-name-attribution/1",
+        "argument_lines": [
+          135
+        ],
+        "concat_lines": [
+          83
+        ],
+        "literal_prefix": "alchemist ",
+        "resolved_argument": "quartz",
+        "rule": "entity name is built at runtime by concatenating a literal prefix with a lowercased call argument; neither half is a whole literal",
+        "status": "confirmed"
+      },
+      "entry_revision_identity": "60e31adb1af7cd8b63ffca13e253169d8321314e0fe7e60f416c98f82f5f8311",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "line_ending_normalization": null,
+      "literal_source_match": false,
+      "matching_literal_lines": null,
+      "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+      "section": "mod-tome/data/general/objects/gem.lua",
+      "source": "alchemist quartz",
+      "source_file_sha256": "ee0988d5f263755ee3d2082a944b6daa465d258e524d43f51083e8767009a98e",
+      "source_pinning": "pinned",
+      "source_tag": "entity name",
+      "verification_status": "confirmed"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "line_ending_normalization": null,
+      "literal_source_match": false,
+      "matching_literal_lines": [],
+      "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+      "section": "mod-tome/data/talents/celestial/combat.lua",
+      "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+      "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+      "source_pinning": "pinned",
+      "source_tag": "tformat",
+      "verification_status": "pending",
+      "host_source_attribution_review": {
+        "status": "pending",
+        "kind": "fixed_source_text_version_mismatch",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "reason": "目录英文与固定源码111-113不完全一致，目录缺少护盾duration至少2回合说明；源码实际callback亦在101行附近设置math.max(2,shield.dur)。仅确认功能上下文，不将旧字符串作为固定版本完整字面来源；不自动迁移source/source_tag，不宣称全代码范围不存在该文本。",
+        "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+      }
+    }
+  ],
+  "source_attribution_pending": [
+    {
+      "args_order": null,
+      "component": "tome",
+      "entry_revision_identity": "6179939ecc1bd2ee9f575fe53a84f30e37c378320ff4232ecca7d0dc531d5d4a",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "line_ending_normalization": null,
+      "literal_source_match": false,
+      "matching_literal_lines": [],
+      "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+      "section": "mod-tome/data/talents/celestial/combat.lua",
+      "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower.",
+      "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+      "source_pinning": "pinned",
+      "source_tag": "tformat",
+      "verification_status": "pending",
+      "host_source_attribution_review": {
+        "status": "pending",
+        "kind": "fixed_source_text_version_mismatch",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+        "source_file_sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+        "reason": "目录英文与固定源码111-113不完全一致，目录缺少护盾duration至少2回合说明；源码实际callback亦在101行附近设置math.max(2,shield.dur)。仅确认功能上下文，不将旧字符串作为固定版本完整字面来源；不自动迁移source/source_tag，不宣称全代码范围不存在该文本。",
+        "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+      }
+    }
+  ],
+  "generated_source_verification": [
+    {
+      "revision_prefix": "60e31adb1a",
+      "status": "confirmed",
+      "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "reason": "83行alchemist前缀加lower(name)，135行Quartz实参，生成alchemist quartz。",
+      "excerpt": "82: \t-- Alchemist gems, not lootable, only created by talents\n83: \tnewEntity{ base = \"BASE_GEM\", define_as = \"ALCHEMIST_GEM_\"..name:gsub(\" \", \"_\"):upper(),\t\tname = \"alchemist \"..name:lower(), type='alchemist-gem', subtype = color,\n84: \t\tslot = \"QUIVER\",\n85: \t\tmoddable_tile = resolvers.moddable_tile(\"gembag\"),\n135: newGem(\"Quartz\",\t\"object/quartz.png\",3,\t12,\t\"white\",\t20,\t30, 3, 50,\n136: \t{ stun_immune=0.3 },\n137: \t{ splash={type=\"SPELLKNOCKBACK\", dam=10} }\n138: )"
+    }
+  ]
+}

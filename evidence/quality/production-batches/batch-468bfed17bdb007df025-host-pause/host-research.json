@@ -1,0 +1,157 @@
+{
+  "batch_id": "batch-468bfed17bdb007df025",
+  "claims": [
+    {
+      "revision_prefix": "607fb07c1a",
+      "status": "confirmed",
+      "claim": "确认starts to break down应为开始崩坏，非即将爆炸；91-105仅设broken、完成任务、生成NPC并开启对话，没有此处爆炸伤害实现。保留VIOLET警告。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/zones/slazish-fen/grids.lua",
+      "sha256": "69df72a04e49ffd1d21972776d3df93ec51139c9ffac9654f07d0956343bfd3f",
+      "line_start": 83,
+      "line_end": 110,
+      "excerpt": "83: \tpass_projectile = true,\n84: \tblock_move = function(self, x, y, who, act, couldpass)\n85: \t\tif not who or not who.player or not act then return true end\n86: \t\tif self.broken then\n87: \t\t\tgame.log(\"#VIOLET#The portal is already broken!\")\n88: \t\t\treturn true\n89: \t\tend\n90: \n91: \t\twho:restInit(20, _t\"destroying the portal\", _t\"destroyed the portal\", function(cnt, max)\n92: \t\t\tif cnt > max then\n93: \t\t\t\tgame.log(\"#VIOLET#The portal starts to break down, run!\")\n94: \t\t\t\tself.broken = true\n95: \t\t\t\twho:setQuestStatus(\"start-sunwall\", engine.Quest.COMPLETED, \"slazish\")\n96: \t\t\t\tgame:onTickEnd(function()\n97: \t\t\t\t\tlocal sx, sy = util.findFreeGrid(x, y, 10, true, {[engine.Map.ACTOR]=true})\n98: \t\t\t\t\tlocal npc = game.zone:makeEntityByName(game.level, \"actor\", \"ZOISLA\")\n99: \t\t\t\t\tif sx then\n100: \t\t\t\t\t\tgame.zone:addEntity(game.level, npc, \"actor\", sx, sy)\n101: \t\t\t\t\t\tgame.level.map:particleEmitter(sx, sy, 1, \"teleport_water\")\n102: \t\t\t\t\t\tlocal chat = require(\"engine.Chat\").new(\"zoisla\", npc, who)\n103: \t\t\t\t\t\tchat:invoke(\"welcome\")\n104: \t\t\t\t\tend\n105: \t\t\t\tend)\n106: \t\t\tend\n107: \t\tend)\n108: \n109: \t\treturn true\n110: \tend,",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "60b9c0e8a7",
+      "status": "confirmed",
+      "claim": "确认Blending magic and shadows是融合魔法与阴影，cunning/shadow-magic类型简介并未规定躲在阴影里秘密施法；恢复二者融合关系，不改技能树专名。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/cunning/cunning.lua",
+      "sha256": "6276d5a6bbdc05005ef81ca033f9b47b4d719eaee73596de270408845a7e8810",
+      "line_start": 27,
+      "line_end": 31,
+      "excerpt": "27: newTalentType{ allow_random=true, type=\"cunning/dirty\", name = _t(\"dirty fighting\", \"talent type\"), description = _t\"Teaches various talents to cripple your foes.\" }\n28: newTalentType{ allow_random=true, type=\"cunning/lethality\", generic = true, name = _t(\"lethality\", \"talent type\"), description = _t\"How to make your foes feel the pain.\" }\n29: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/shadow-magic\", name = _t(\"shadow magic\", \"talent type\"), description = _t\"Blending magic and shadows.\" }\n30: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/ambush\", name = _t(\"ambush\", \"talent type\"), min_lev = 10, description = _t\"Using darkness and a bit of magic, you manipulate the shadows.\" }\n31: newTalentType{ allow_random=true, type=\"cunning/survival\", name = _t(\"survival\", \"talent type\"), generic = true, description = _t\"The knowledge of the dangers of the world, and how to best avoid them.\" }",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "613dd8184d",
+      "status": "confirmed",
+      "claim": "确认触碰施受颠倒：its very touch以怪物为施动者，现译对它的接触改成别人触碰怪物。其自身combat定义攻击，恢复它的触碰会侵害/扰乱生命；不由背景句新增反伤机制。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/general/npcs/ghost.lua",
+      "sha256": "c20b2ae1af1d1d99d0128b817a975cbfda791fa821778cee5bcc814600400238",
+      "line_start": 81,
+      "line_end": 96,
+      "excerpt": "81: newEntity{ base = \"BASE_NPC_GHOST\",\n82: \tname = \"dreadmaster\", color=colors.YELLOW, image=\"npc/dreadmaster.png\",\n83: \tdesc = _t[[It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.]],\n84: \tlevel_range = {32, nil}, exp_worth = 1,\n85: \trarity = 15,\n86: \trank = 3,\n87: \tmax_life = resolvers.rngavg(140,170),\n88: \n89: \tai = \"tactical\",\n90: \n91: \tcombat_armor = 0, combat_def = resolvers.mbonus(10, 50),\n92: \tstealth = resolvers.mbonus(30, 20),\n93: \n94: \tcombat = { dam=resolvers.mbonus(65, 65), atk=resolvers.mbonus(25, 45), apr=100, dammod={str=0.5, mag=0.5} },\n95: \n96: \tsummon = {{type=\"undead\", subtype=\"ghost\", name=\"dread\", number=3, hasxp=false}, },",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "615ee367b8",
+      "status": "confirmed",
+      "claim": "确认phasing in and out of reality指在现实中出没/时隐时现，现译现实与相位之间切换把过程当成地点；恢复在现实中显现/消失。corrupted的侵蚀限定可一并恢复，不改既有角色名。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/zones/temporal-rift/npcs.lua",
+      "sha256": "f0f18f389196cc8fa4bf8f22988e9eed21547953297738c49f8bb4823899a993",
+      "line_start": 24,
+      "line_end": 35,
+      "excerpt": "24: \n25: newEntity{ define_as = \"BEN_CRUTHDAR_ABOMINATION\",\n26: \ttype = \"humanoid\", subtype = \"temporal\", unique = true,\n27: \tname = \"Ben Cruthdar, the Abomination\", image = \"npc/humanoid_human_ben_cruthdar__the_cursed.png\",\n28: \tdisplay = \"p\", color=colors.VIOLET,\n29: \tdesc = _t[[This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.]],\n30: \tlevel_range = {15, nil}, exp_worth = 2,\n31: \tmax_life = 270, life_rating = 17, fixed_rating = true,\n32: \tmax_stamina = 85,\n33: \tstats = { str=20, dex=15, wil=18, con=20 },\n34: \trank = 3.5,\n35: \tsize_category = 3,",
+      "source_newline_count": 0,
+      "target_newline_count": 0
+    },
+    {
+      "revision_prefix": "61646027f8",
+      "status": "confirmed",
+      "claim": "确认首段时序与清剿关系错译：卓越纪初由图库纳发动清剿，之后兽人绝迹，并非绝迹后国王才开创卓越纪。475艺术主题是生育与战斗，不是战争时期。同行racial pride events不是泛称节日狂欢。471股干/普通士卒记忆误成老人们的记忆，stringier不是更强大。473一万半身人牺牲以击败首领、阻止军队前进，不是上万毁灭整支军团。477无经证实报告被简化为没有报告而下一句仍有目击。按原文恢复限定/主题/因果并保留史料作者的偏见，不据其他游戏剧情改写文内观点或全局改专名。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/lore/misc.lua",
+      "sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "line_start": 466,
+      "line_end": 477,
+      "excerpt": "466: \tid = \"races-7\",\n467: \tcategory = \"races\",\n468: \tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 8 - Orcs (extinct)\",\n469: \tlore = _t[[The orcs are, joyfully, extinct from Maj'Eyal, following the purge instigated by King Toknor the Brave at the start of the Age of Ascendancy. But an academic study of their previous culture and civilisation is still of interest, primitive though it may have been.\n470: \n471: Orcs were generally around 6'1\", with green or black skin. They varied greatly in physical appearance and build, most likely due to their exceptionally fast breeding rates. The majority of orcs were thick-built and heavily muscled, well remembered as the stock grunts of their terrible armies. However in the Age of Pyre a greater number of thinner, stringier orcs appeared, oft versed in destructive magics.\n472: \n473: The orcs were first encountered by the Eldoral halflings, who tried to use the simple creatures as servants, but gave up after finding them to be too violent. In the many centuries since wars and battles have been almost continuously fought with the brutes. Their oft superior numbers have at times threatened to overwhelm all of civilisation, even leading to such drastic defensive measures as the Spellblaze. The most terrifying time though was during the Age of Pyre, when the orcs developed arcane abilities, and under the leadership of Garkul the Devourer they swept through the continent, mercilessly slaying all before them. In the end 10,000 halflings gave up their lives in the Battle of Nargol to defeat their demonic leader and stem their army's advance. Gradually the civilised races began to recover, and finally King Toknor and Queen Mirvenia succeeded in uniting the human and halfling kingdoms, putting together a force to push back the orcs and ultimately extinguishing them entirely.\n474: \n475: Recent investigations of orcish ruins have revealed a surprising amount of cultural material, and even crude artworks based around fertility and battle. Some evidence has also been found of strong community elements to their culture, with much focus on sporting activities and racial pride events. However these are still clearly lacking in the subtleties and aesthetics of our more advanced cultures, and any attempt to compare them with us must be overshadowed by their brutality, territorial violence, and obsession with war.\n476: \n477: There have been no substantiated reports of orcs for over 100 years. What reported sightings there are tend to be from such unreliable sources as adventurers and hermits, and have never been verified. We should be thankful that these horrible creatures have been banished to the annals of history, surviving only as stories to be told to misbehaving children.]]}",
+      "source_newline_count": 8,
+      "target_newline_count": 8
+    },
+    {
+      "revision_prefix": "616efc4ff4",
+      "status": "confirmed",
+      "claim": "确认流血%d%%漏武器伤害基准；60计算combatTalentWeaponDamage，102-106将combatDamage乘getBleedDamage并以dam/5施加5回合EFF_CUT，数值是五回合总武器伤害比例。保留100%%/标记六回合/冷却返还限定。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/cursed/bloodstained.lua",
+      "sha256": "3c1841077169754f56549e8aa11e42cd0ccdd7380b735b88f08bfd3ba7cfe01c",
+      "line_start": 112,
+      "line_end": 120,
+      "excerpt": "112: \tinfo = function(self, t)\n113: \t\tlocal damage = t.getBleedDamage(self, t)\n114: \t\treturn ([[Teleport to an enemy, striking them for 100%% weapon damage, bleeding them for %d%% weapon damage over five turns, and marking them for six turns. You will not teleport if you are already adjacent.\n115: \n116: When the marked enemy dies, the cooldown of this talent will be reduced by two turns for every turn the mark had remaining.\n117: \n118: Each point in Bloodstained talents reduces the amount of damage you take from bleed effects by 2%%]]):\n119: \t\ttformat(100 * damage)\n120: \tend,",
+      "source_newline_count": 4,
+      "target_newline_count": 4
+    },
+    {
+      "revision_prefix": "61721c91c4",
+      "status": "confirmed",
+      "claim": "确认thick twine粗绳误为细线；dead flesh早已死亡、开始腐败，不是大自然使其从有活力变死肉。somewhat intact仅一定程度完整，现译很好地保护过强；保持盐和粘土、齿痕、恶臭语境。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+      "sha256": "71d52afb5fe7ea023254b4c7a628919aad222253d8a4d8a74fe380867881d5c7",
+      "line_start": 1586,
+      "line_end": 1592,
+      "excerpt": "1586: \tunique = true,\n1587: \tname = \"Prox's Lucky Halfling Foot\", color = colors.WHITE,\n1588: \tunided_name = _t\"a mummified halfling foot\", image = \"object/artifact/proxs_lucky_halfling_foot.png\",\n1589: \tdesc = _t[[A large hairy foot, very recognizably a halfling's, is strung on a piece of thick twine. In its decomposed state it's hard to tell how long ago it parted with its owner, but from what look like teeth marks around the ankle you get the impression that it wasn't given willingly.\n1590: It has been kept somewhat intact with layers of salt and clay, but in spite of this it's clear that nature is beginning to take its toll on the dead flesh. Some say the foot of a halfling brings luck to its bearer - right now the only thing you can be sure of is that it stinks.]],\n1591: \tlevel_range = {5, 12},\n1592: \trarity = 200,",
+      "source_newline_count": 1,
+      "target_newline_count": 1
+    },
+    {
+      "revision_prefix": "6179939ecc",
+      "status": "confirmed",
+      "claim": "限定确认共同文本中的melee hit遗漏：固定代码activate把额外光伤放入melee_project，护盾回调是callbackOnMeleeAttack；恢复每次近战命中，非所有攻击。来源版本仍pending：目录英文缺少固定源码112行护盾至少2回合的追加内容，callback实际math.max(2,shield.dur)；这是源文本版本差异，不能只改旧译文并宣称已覆盖完整固定版本，source/source_tag迁移不在本批自动执行。",
+      "component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+      "sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+      "line_start": 86,
+      "line_end": 114,
+      "excerpt": "86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)",
+      "source_newline_count": 2,
+      "target_newline_count": 2
+    }
+  ],
+  "auxiliary_mechanism_evidence": [
+    {
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/cursed/bloodstained.lua",
+      "sha256": "3c1841077169754f56549e8aa11e42cd0ccdd7380b735b88f08bfd3ba7cfe01c",
+      "line_start": 54,
+      "line_end": 110,
+      "excerpt": "54: \thate = 4,\n55: \ttactical = { ATTACK = 2, CLOSEIN = 1 },\n56: \trange = 8,\n57: \trequires_target = true,\n58: \tis_melee = true,\n59: \tis_teleport = true,\n60: \tgetBleedDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.7, 2.1) end,\n61: \tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.0, 1.0) end,\n62: \ttarget = function(self, t) return {type=\"hit\", pass_terrain = true, range=self:getTalentRange(t)} end,\n63: \ton_learn = function(self, t) self:learnTalent(self.T_BLOOD_CLOT, true) end,\n64: \ton_unlearn = function(self, t) self:unlearnTalent(self.T_BLOOD_CLOT) end,\n65: \ton_pre_use = function(self, t)\n66: \t\tif self:attr(\"never_move\") then return false end\n67: \t\treturn true\n68: \tend,\n69: \taction = function(self, t)\n70: \t\tlocal tg = self:getTalentTarget(t)\n71: \t\tlocal x, y, target = self:getTarget(tg)\n72: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n73: \t\t\n74: \t\t-- skip teleport if already adjacent\n75: \t\tif core.fov.distance(self.x, self.y, target.x, target.y) ~= 1 then\n76: \t\t\t\n77: \t\t\t--check if landing space is avilable\n78: \t\t\tfx, fy = util.findFreeGrid(x, y, 1, false, {[Map.ACTOR]=true})\n79: \t\t\tif not fx or not fy then game.logSeen(self, \"Nowhere to appear!\") return false end\n80: \t\t\t\n81: \t\t\tif not self:teleportRandom(x, y, 0) then game.logSeen(self, \"The bloodrush fizzles!\") return true end\n82: \t\t\tgame:playSoundNear(self, \"talents/teleport\")\n83: \t\tend\n84: \t\t\n85: \t\t-- Attack\n86: \t\tif target and target.x and core.fov.distance(self.x, self.y, target.x, target.y) == 1 then\n87: \t\t\ttarget:setEffect(target.EFF_BLOOD_RUSH_MARK, 6, {src=self})\n88: \t\t\tlocal hit = self:attackTarget(target, nil, 1, true)\n89: \t\t\tif hit then\n90: \t\t\t\tif target.dead then\n91: \t\t\t\t\tgame:onTickEnd(function() \n92: \t\t\t\t\t\t\t\t\t\t\t\t\t self:alterTalentCoolingdown(t.id, -12)\n93: \t\t\t\t\t\t\t\t\t\t\t\t end)\n94: \t\t\t\tend\n95: \t\t\t\tif target:canBe('cut') then\n96: \t\t\t\t\tlocal sw = self:getInven(\"MAINHAND\")\n97: \t\t\t\t\tif sw then\n98: \t\t\t\t\t\tsw = sw[1] and sw[1].combat\n99: \t\t\t\t\tend\n100: \t\t\t\t\tsw = sw or self.combat\n101: \t\t\t\t\tlocal dam = self:combatDamage(sw)\n102: \t\t\t\t\tlocal damrange = self:combatDamageRange(sw)\n103: \t\t\t\t\tdam = rng.range(dam, dam * damrange)\n104: \t\t\t\t\tdam = dam * t.getBleedDamage(self, t)\n105: \t\t\t\t\ttarget:setEffect(target.EFF_CUT, 5, {power=dam / 5, src=self})\n106: \t\t\t\tend\n107: \t\t\tend\n108: \t\tend\n109: \t\t\n110: \t\treturn true"
+    },
+    {
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+      "sha256": "af245231a506d8169ca124f83e624e5f88212b736a7895309e6350e83ee923d8",
+      "line_start": 62,
+      "line_end": 114,
+      "excerpt": "62: newTalent{\n63: \tname = \"Weapon of Light\",\n64: \ttype = {\"celestial/combat\", 1},\n65: \tmode = \"sustained\",\n66: \trequire = divi_req1,\n67: \tpoints = 5,\n68: \tcooldown = 10,\n69: \tsustain_positive = 10,\n70: \ttactical = { BUFF = 2 },\n71: \trange = 10,\n72: \tgetDamage = function(self, t) return (7 + self:combatSpellpower(0.092) * self:combatTalentScale(t, 1, 7))  end,\n73: \tgetShieldFlat = function(self, t)\n74: \t\treturn t.getDamage(self, t)\n75: \tend,\n76: \tactivate = function(self, t)\n77: \t\tgame:playSoundNear(self, \"talents/spell_generic2\")\n78: \t\tlocal ret = {}\n79: \t\tif not self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then ret.dam = self:addTemporaryValue(\"melee_project\", {[DamageType.LIGHT]=t.getDamage(self, t)}) end\n80: \t\treturn ret\n81: \tend,\n82: \tdeactivate = function(self, t, p)\n83: \t\tif p.dam then self:removeTemporaryValue(\"melee_project\", p.dam) end\n84: \t\treturn true\n85: \tend,\n86: \tcallbackOnMeleeAttack = function(self, t, target, hitted, crit, weapon, damtype, mult, dam)\n87: \t\tif self.turn_procs.weapon_of_light then return end\n88: \t\tif hitted and self:hasEffect(self.EFF_DAMAGE_SHIELD) and (self:reactionToward(target) < 0) then\n89: \t\t\tself.turn_procs.weapon_of_light = true\n90: \t\t\t-- Shields can't usually merge, so change the parameters manually\n91: \t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n92: \t\t\tlocal shield_power = t.getShieldFlat(self, t)\n93: \n94: \t\t\tshield.power = shield.power + shield_power\n95: \t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n96: \t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n97: \t\t\tshield.dur = math.max(2, shield.dur)\n98: \t\tend\n99: \t\tif hitted and self:isTalentActive(self.T_GRAVITIC_EFFULGENCE) then\n100: \t\t\tlocal list = table.values(self:projectCollect({type=\"ball\", radius=5, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, Map.ACTOR))\n101: \t\t\ttable.sort(list, \"dist\")\n102: \t\t\tfor _, l in ipairs(list) do\n103: \t\t\t\tif l.target:canBe(\"knockback\") then l.target:pull(target.x, target.y, 5) end\n104: \t\t\tend\n105: \t\t\tself:project({type=\"ball\", radius=2, x=target.x, y=target.y, friendlyfire=false}, target.x, target.y, DamageType.LIGHT, t.getDamage(self, t))\n106: \t\tend\n107: \tend,\n108: \tinfo = function(self, t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal shieldflat = t.getShieldFlat(self, t)\n111: \t\treturn ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n112: \t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\n113: \t\tThe damage dealt and shield bonus will increase with your Spellpower.]]):\n114: \t\ttformat(damDesc(self, DamageType.LIGHT, damage), shieldflat)"
+    }
+  ],
+  "additional_confirmed_findings": [
+    {
+      "revision_prefix": "60c840f8b1",
+      "entry_revision_identity": "60c840f8b1835b5b92aa0b0971c209e4e54cb0ea8810d5124f7de75f6b24d53d",
+      "status": "confirmed",
+      "kind": "newline_invariant",
+      "claim": "表层lane1将此条判为OK，主审逐字节确认源码2换行、现译4换行；首句被拆行、末句被拆行，需恢复原有分段。",
+      "source": "Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.\nYou gain %d defense.\nThe chance to apply status effects increases with your Accuracy and the Defense with your Cunning.",
+      "target": "你制造混乱的技巧已趋于巅峰。\n\t\t敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。\n\t\t你获得 %d 闪避。\n\t\t施加负面状态几率受命中影响。\n\t\t闪避加成受灵巧影响。",
+      "source_newline_count": 2,
+      "target_newline_count": 4,
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/talents/cunning/scoundrel.lua",
+      "sha256": "c90171bb35a1bab1c02cbefa1cfd36ac7d3bed9dbb089327030f4c830f038703",
+      "line_start": 152,
+      "line_end": 157,
+      "excerpt": "152: \tinfo = function(self, t)\n153: \t\treturn ([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.\n154: You gain %d defense.\n155: The chance to apply status effects increases with your Accuracy and the Defense with your Cunning.]]):\n156: \t\ttformat(t.getChance(self,t),t.getDuration(self,t), t.getDefense(self, t))\n157: \tend,",
+      "adapter_observation_present": false,
+      "queue_status_note": "本批适配器无此条ISSUE，常规adjudicate只能覆盖已导入观察；此为单独人工确认待办，未计入适配器repair队列。不可将surface_only_done表述为该换行问题已解决。"
+    }
+  ],
+  "workflow_limitation": "Additional confirmed host-only finding retained for bounded follow-up; no fabricated adapter output or source-absence host block."
+}
