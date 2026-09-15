@@ -1,0 +1,94 @@
+{
+  "batch_id": "batch-634cb858766cd363b1c7",
+  "children": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "1cddc3ba-b106-4a3e-ab3c-d8df7e6352b4",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-58-43-01a0a3dc-5d0e-7353-8ef1-e7475ab67b09.jsonl",
+      "native_log_sha256": "7ba5ce061550be1fd2a6f21913ee00cbeafa28a61a52b72ca60f0aec773ef896",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":22000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={6:'原文 massive humanoid 的“体型庞大的人形生物”信息在译文中遗漏。',14:'原文限定受影响者为 foes（敌人），译文写成“所有……目标”，遗漏敌我范围限制。',17:'雾凇一项原文明确造成 ice damage，译文仅写“伤害”，遗漏冰系伤害类型。',19:'原文 banishes all shadows 为驱散所有暗影，译文“驱散了黑暗”改变了被驱散的对象。'}\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:r['observation']=issues[i]\\n results.append(r)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(p['payload']['entries'],results):\\n assert e['entry_revision_identity']==r['entry_revision_identity'] and len(r['entry_revision_identity'])==64\\nassert out['candidate_identity']=='a46e2ce30b82fc842756d2d6490d54501e83d6f0c1c8d61b8f4db885e238e122'\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4500}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "c42b4f01-13de-42fe-ba63-3d7cb96c9f77",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-59-12-01a0a3dc-d155-7502-9811-7f6764036a4c.jsonl",
+      "native_log_sha256": "35b4678757326942e2453421261a263bc4006a7b3aaeaafe2215f29935c04fc2",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",max_output_tokens:22000}));\ntext(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np = json.loads(Path('.ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries = p['payload']['entries']\\nresult = {'candidate_identity': p['candidate_identity'], 'contract': 'translation_surface_screen_v1', 'results': [{'entry_revision_identity': e['entry_revision_identity'], 'verdict': 'OK'} for e in entries]}\\nassert len(entries) == len(result['results']) == 20\\nids = [e['entry_revision_identity'] for e in entries]\\nassert len(set(ids)) == 20\\nfor e, r in zip(entries, result['results']):\\n    assert r['entry_revision_identity'] == e['entry_revision_identity'] and len(r['entry_revision_identity']) == 64\\nprint(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(',', ':')), end='')\\nPY\",\"max_output_tokens\":3000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "9c819978-a9b3-43d9-9eac-77526535dbc5",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T06-59-41-01a0a3dd-3f80-75f2-9568-6ac8d19681e0.jsonl",
+      "native_log_sha256": "6e89f40e60b7774b9b97da8c06388df18f72dbd5674f61c9186b77de389eaa6a",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":16000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\ne=json.loads(Path('.ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nr={'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'} for x in e['payload']['entries']]}\\na=[x['entry_revision_identity'] for x in e['payload']['entries']]\\nb=[x['entry_revision_identity'] for x in r['results']]\\nassert len(a)==len(b)==len(set(b))==20\\nassert all(x==y and len(y)==64 for x,y in zip(a,b))\\nprint(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "f92d997c-0139-43da-a11a-0e2009f23d90",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T07-01-50-01a0a3df-3937-7a60-b7df-62209aebecb8.jsonl",
+      "native_log_sha256": "b193ef313b0adb711c5b5dc7ea64dc030b3afad67d3c149ba3f84775f5651fab",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":22000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n"
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "arguments": null,
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-634cb858766cd363b1c7/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nissues={3:'原文仅说必须通过兽人阻挡的道路，译文改成必须打倒他，增加了原文没有的击败要求。',15:'Continuum 指连续体，译为“连续紊乱”将其误作表示连续发生的修饰语，丢失了紊乱对象。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:item['observation']=issues[i]\\n    r.append(item)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(r)==20\\nassert [x['entry_revision_identity'] for x in r]==[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len({x['entry_revision_identity'] for x in r})==20\\nassert all(len(x['entry_revision_identity'])==64 for x in r)\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n"
+        }
+      ],
+      "complete_entry_count": 20,
+      "manual_scope_review": "PASS: all complete tool calls inspected; reads own frozen envelope and contract section6; renders verdicts and checks20 identities in memory; no writes or forbidden content acquired."
+    }
+  ],
+  "manual_review": "PASS"
+}

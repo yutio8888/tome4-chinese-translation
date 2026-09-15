@@ -1,0 +1,35 @@
+{
+  "batch_id": "batch-634cb858766cd363b1c7",
+  "kind": "host_independent_followups",
+  "scope": "read_only; no mutation of frozen reviewer results or queue",
+  "findings": [
+    {
+      "entry_revision_identity": "6d5afa164b446aa376820b6bd94a9275a690ae31e3b85673069f74fb62e9debc",
+      "status": "confirmed",
+      "category": "newline",
+      "path": "mod-tome.lua",
+      "line_at_review": 30199,
+      "source": "Delight in spilling the blood of your foes.  After scoring a critical hit, your maximum hit points will be increased by %d%%, your life regeneration by %0.2f per turn, and your stamina regeneration by %0.2f per turn for %d turns.\n\t\tThe life and stamina regeneration will stack up to five times, for a maximum of %0.2f and %0.2f each turn, respectively.",
+      "target": "沐浴着敌人的鲜血令你感到兴奋。\n\t\t在成功打出一次暴击后，会增加你 %d%% 的最大生命值、%0.2f 每回合生命回复点数和 %0.2f 每回合体力回复点数持续 %d 回合。\n\t\t生命与体力回复可以叠加 5 次直至 %0.2f 生命和 %0.2f 体力回复/回合。",
+      "source_newlines": 1,
+      "target_newlines": 2,
+      "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "section": "mod-tome/data/talents/techniques/bloodthirst.lua",
+      "conclusion": "译文新增换行，需在后续有界修复中恢复原文行结构。当前仅完成主代理独立核验，未进入本批冻结contextual子集与正式修复队列。"
+    },
+    {
+      "entry_revision_identity": "6e26e9e910363207c3a66c8e92da9a43075e1c3e0815e1d239c3a7abd363d777",
+      "status": "confirmed",
+      "category": "newline",
+      "path": "mod-tome.lua",
+      "line_at_review": 32745,
+      "source": "Many times when you perform an attack, or suffer one, the success of the attack is determined by comparing #GOLD#combat stat#WHITE# scores of the attacker and defender. We saw already that physical attacks, such as melee blows or an archer's loosed arrow, involve comparing the attacker's #LIGHT_GREEN#Accuracy#WHITE# and the defender's #LIGHT_GREEN#Defense#WHITE#.\n\nWhat about the other #GOLD#combat stats#WHITE#?\n\nThey're a little harder to pin down. #LIGHT_GREEN#Physical save#WHITE#,  #LIGHT_GREEN#Spell save#WHITE#,  and #LIGHT_GREEN#Mental save#WHITE# are generally used by a defender when there's some sort of unpleasant effect at stake-- say, getting pinned to the ground or blinded or knocked flying. The #GOLD#combat stat#WHITE# used by the attacker in such cases depends on the source of the attack. Let's consider a few examples...\n",
+      "target": "很多时候，当你发动攻击或承受攻击时，攻击是否成功取决于比较攻击者和防御者的 #GOLD#战斗属性#WHITE# 数值。\n我们已经看到物理攻击（如近身的打击和远程射箭）的成功率和攻击者的 #LIGHT_GREEN#命中#WHITE# 和防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较结果有关。\n\n那么其他 #GOLD#战斗属性#WHITE#呢？\n\n有点难以被确定下来。#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般是防御者用来计算一些不良效果如定身、致盲或者击退。\n攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#取决于攻击来源，我们来看几个例子……\n",
+      "source_newlines": 5,
+      "target_newlines": 7,
+      "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "section": "mod-tome/data/texts/tutorial/stats/stats5.lua",
+      "conclusion": "译文新增换行，需在后续有界修复中恢复原文行结构。当前仅完成主代理独立核验，未进入本批冻结contextual子集与正式修复队列。"
+    }
+  ]
+}
