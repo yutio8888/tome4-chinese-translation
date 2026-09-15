@@ -19,6 +19,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -772,7 +773,7 @@ def native_identity(s, *, required=True):
         p = {}
     require(isinstance(p, dict), 'native source requires persistence')
     provider, session = s.get('provider'), p.get('sessionId')
-    require(provider in ('codex', 'claude'), 'unsupported native provider')
+    require(provider in ('codex', 'claude', 'grok'), 'unsupported native provider')
     if required:
         require(isinstance(session, str) and session, 'missing persistence.sessionId')
         require(p.get('provider') == provider, 'persistence provider mismatch')
@@ -1030,8 +1031,161 @@ def parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succe
         raise LifecycleError('unsupported/malformed native structure') from None
 
 
+def _grok_jsonl(data, label):
+    require(data and len(data) <= NATIVE_MAX_BYTES and data.endswith(b'\n'),
+            f'incomplete or oversized Grok {label}')
+    lines = data.split(b'\n')[:-1]
+    require(1 <= len(lines) <= NATIVE_MAX_LINES and all(lines), f'invalid Grok {label} line count')
+    try:
+        records = [json.loads(line.decode('utf-8'), object_pairs_hook=contextual._reject_duplicate)
+                   for line in lines]
+    except (ValueError, UnicodeError, RecursionError, contextual.ContractError):
+        raise LifecycleError(f'invalid Grok {label} JSONL') from None
+    require(all(isinstance(r, dict) for r in records), f'invalid Grok {label} record')
+    return records
+
+
+def _parse_grok_native_final(sources, *, session_id, cwd, prompt, natural_success=False):
+    """Bind the three observed Grok sources before selecting any assistant text."""
+    require(type(natural_success) is bool and natural_success, 'Grok needs natural completion')
+    require(all(isinstance(v, str) and v for v in (session_id, cwd, prompt)), 'native binding missing')
+    require(set(sources) == {'summary.json', 'events.jsonl', 'chat_history.jsonl'},
+            'missing Grok source')
+    require(all(isinstance(v, bytes) and 0 < len(v) <= NATIVE_MAX_BYTES for v in sources.values())
+            and sum(map(len, sources.values())) <= NATIVE_MAX_BYTES, 'Grok native byte limit')
+    try:
+        summary = json.loads(sources['summary.json'].decode('utf-8'),
+                             object_pairs_hook=contextual._reject_duplicate)
+    except (ValueError, UnicodeError, RecursionError, contextual.ContractError):
+        raise LifecycleError('invalid Grok summary JSON') from None
+    require(isinstance(summary, dict) and isinstance(summary.get('info'), dict), 'invalid Grok summary shape')
+    info = summary['info']
+    model = summary.get('current_model_id')
+    require(info.get('id') == session_id and info.get('cwd') == cwd
+            and isinstance(model, str) and model, 'Grok summary identity/cwd/model mismatch')
+    events = _grok_jsonl(sources['events.jsonl'], 'events')
+    chat = _grok_jsonl(sources['chat_history.jsonl'], 'chat history')
+    summary_lines = sources['summary.json'].count(b'\n') + 1
+    require(summary_lines + len(events) + len(chat) <= NATIVE_MAX_LINES,
+            'Grok native line limit')
+    starts = []
+    for i, event in enumerate(events):
+        kind = event.get('type')
+        require(isinstance(kind, str) and (kind in {'turn_started', 'turn_ended',
+                'phase_changed', 'first_token'} or (kind.startswith('tool_') and len(kind) > 5)),
+                'unknown Grok event type/shape')
+        if 'session_id' in event:
+            require(event['session_id'] == session_id, 'Grok event session mismatch')
+        if 'cwd' in event:
+            require(event['cwd'] == cwd, 'Grok event cwd mismatch')
+        if kind == 'turn_started':
+            require(event.get('session_id') == session_id and type(event.get('turn_number')) is int
+                    and event['turn_number'] == 0 and event.get('model_id') == model,
+                    'Grok turn start identity/model mismatch')
+            starts.append(i)
+        elif kind == 'turn_ended':
+            require(event.get('outcome') in ('completed', 'failed', 'cancelled', 'error'),
+                    'unknown Grok turn outcome')
+    require(len(starts) == 1 and starts[0] == 0, 'ambiguous Grok turn start')
+    require(events[-1].get('type') == 'turn_ended' and events[-1].get('outcome') == 'completed'
+            and sum(e.get('type') == 'turn_ended' for e in events) == 1,
+            'Grok final completion missing or ambiguous')
+    users, assistants = [], []
+    for i, record in enumerate(chat):
+        kind = record.get('type')
+        require(kind in {'system', 'user', 'reasoning', 'assistant', 'tool_result'}
+                and isinstance(record.get('content'), str), 'unknown Grok chat type/shape')
+        try:
+            record['content'].encode('utf-8', errors='strict')
+        except UnicodeError:
+            raise LifecycleError('Grok chat content is not valid UTF-8') from None
+        if 'session_id' in record:
+            require(record['session_id'] == session_id, 'Grok chat session mismatch')
+        if 'cwd' in record:
+            require(record['cwd'] == cwd, 'Grok chat cwd mismatch')
+        if kind == 'user':
+            users.append(i)
+        elif kind == 'assistant':
+            assistants.append(i)
+    require(len(users) == 1 and assistants and all(users[0] < i for i in assistants),
+            'missing/ambiguous Grok prompt or assistant')
+    user = chat[users[0]]['content']
+    require(user.count('<user_query>') == user.count('</user_query>') == 1
+            and user.count('<user_info>') == user.count('</user_info>') == 1,
+            'unknown Grok prompt wrapper')
+    query = user.split('<user_query>', 1)[1].split('</user_query>', 1)[0]
+    # One newline on either side belongs to the XML-style host wrapper.
+    if query.startswith('\n') and query.endswith('\n'):
+        query = query[1:-1]
+    user_info = user.split('<user_info>', 1)[1].split('</user_info>', 1)[0]
+    paths = re.findall(r'(?m)^Workspace Path: ([^\r\n]+)$', user_info)
+    require(query == prompt and paths == [cwd], 'Grok frozen prompt/cwd mismatch')
+    final = assistants[-1]
+    require(all(not chat[i]['content'] for i in assistants[:-1])
+            and bool(chat[final]['content']), 'zero/multiple Grok final assistant text records')
+    text = chat[final]['content']
+    try:
+        raw = text.encode('utf-8', errors='strict')
+        prompt_sha = digest(prompt.encode('utf-8', errors='strict'))
+    except UnicodeError:
+        raise LifecycleError('Grok text is not valid UTF-8') from None
+    file_shas = {name: digest(data) for name, data in sources.items()}
+    return raw, dict(schema_version=1, provider='grok', version=model, session_id=session_id,
+                     cwd=cwd, prompt_sha256=prompt_sha, source_file_sha256=file_shas,
+                     source_sha256=digest(surface.canonical_bytes(file_shas)),
+                     source_bytes=sum(map(len, sources.values())), source_lines=summary_lines + len(events) + len(chat),
+                     raw_sha256=digest(raw), raw_bytes=len(raw),
+                     prompt_line=users[0] + 1, final_line=final + 1, complete_line=len(events))
+
+
+def _read_grok_native_final(path, **binding):
+    path = Path(path).absolute()
+    session_id, cwd = binding.get('session_id'), binding.get('cwd')
+    require(isinstance(session_id, str) and session_id and isinstance(cwd, str) and cwd,
+            'missing Grok directory binding')
+    before = path.lstat()
+    require(stat.S_ISDIR(before.st_mode) and path.name == session_id
+            and path.parent.name == quote(cwd, safe='') and path.parent.parent.name == 'sessions',
+            'Grok session directory identity/cwd mismatch')
+    sessions = path.parent.parent
+    require(stat.S_ISDIR(sessions.lstat().st_mode) and stat.S_ISDIR(path.parent.lstat().st_mode),
+            'Grok session parent must be an ordinary directory')
+    matches = [p for p in sessions.iterdir() if p.is_dir() and (p / session_id).exists()]
+    require(len(matches) == 1 and matches[0] == path.parent, 'missing/duplicate Grok session directory')
+    def signature(s):
+        return (s.st_dev, s.st_ino, s.st_mode, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+    sources, signatures = {}, {}
+    for name in ('summary.json', 'events.jsonl', 'chat_history.jsonl'):
+        source = path / name
+        old = source.lstat()
+        require(stat.S_ISREG(old.st_mode) and 0 < old.st_size <= NATIVE_MAX_BYTES,
+                f'missing/oversized Grok {name}')
+        fd = os.open(source, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+        with os.fdopen(fd, 'rb') as stream:
+            require(signature(os.fstat(stream.fileno())) == signature(old), 'Grok file changed before read')
+            data = stream.read(NATIVE_MAX_BYTES + 1)
+            require(len(data) == old.st_size, 'incomplete/changed Grok read')
+            stream.seek(0)
+            require(stream.read(NATIVE_MAX_BYTES + 1) == data
+                    and signature(os.fstat(stream.fileno())) == signature(old)
+                    and signature(source.lstat()) == signature(old), 'Grok file changed during read')
+        sources[name] = data
+        signatures[name] = signature(old)
+    require(signature(path.lstat()) == signature(before), 'Grok session directory changed during read')
+    try:
+        raw, proof = _parse_grok_native_final(sources, **{k: v for k, v in binding.items() if k != 'provider'})
+    except (KeyError, TypeError, AttributeError, IndexError, RecursionError):
+        raise LifecycleError('unsupported/malformed Grok structure') from None
+    require(signature(path.lstat()) == signature(before)
+            and all(signature((path / name).lstat()) == old for name, old in signatures.items()),
+            'Grok source changed during parse')
+    return raw, dict(proof, source_path=str(path), source_file_paths={name: str(path / name) for name in sources})
+
+
 def read_native_final(path, **binding):
     """Read only one explicit ordinary file; reject replacement/growth/partial IO."""
+    if binding.get('provider') == 'grok':
+        return _read_grok_native_final(path, **binding)
     path = Path(path).absolute()
     before = path.lstat()
     require(stat.S_ISREG(before.st_mode), 'native log must be an ordinary file')
