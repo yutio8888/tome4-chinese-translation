@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/14/rollout-2026-09-14T23-57-33-01a0a25a-c660-7812-bf7e-5eed9fb18990.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={8:'原文 slim and muscular 描述躯干纤瘦而结实，译文“高大威猛”改变了体态；blonde hair 的金色信息遗漏。',19:'译文在“学习一项新技能，”后新增原文没有的换行，改变了原文的换行结构。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    item={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:item['observation']=issues[i]\\n    r.append(item)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nraw=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nq=json.loads(raw)\\nids=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nassert len(ids)==len(q['results'])==20\\nassert len(set(ids))==20\\nassert [e['entry_revision_identity'] for e in q['results']]==ids\\nassert all(len(x)==64 for x in ids)\\nprint(raw,end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/14/rollout-2026-09-14T23-57-47-01a0a25a-ffe3-7ef0-9251-40272e815a26.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":16000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==0:\\n        r.update(verdict='ISSUE',observation='原文“Drains %d life”说明汲取傀儡的生命量，译文“恢复 %d 点生命”将该数值改为自身恢复量，遗漏了对应的生命汲取描述。')\\n    results.append(r)\\nassert len(results)==len(entries)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nfor e,r in zip(entries,results):\\n    assert r['entry_revision_identity']==e['entry_revision_identity']\\n    assert len(r['entry_revision_identity'])==64\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/14/rollout-2026-09-14T23-57-58-01a0a25b-2a9f-7b23-abc2-936ea4aeb909.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nstart=next(i for i,l in enumerate(lines) if l.startswith('## ') and ('六' in l or l.startswith('## 6')))\\nend=next((i for i in range(start+1,len(lines)) if lines[i].startswith('## ')),len(lines))\\nprint('\\\\n'.join(lines[start:end]))\\nprint(Path('.ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"max_output_tokens\":16000});text(r.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\nx=json.loads(Path('.ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\ne=x['payload']['entries']\\nissues={8:'原文“have departed”表示法师们已经离开，译文“被驱散了”改成了被动驱逐的结果。',18:'“flowing robe”描述法袍飘逸、垂坠的形态，译文“平滑的法袍”误成表面光滑。'}\\nr=[]\\nfor i,v in enumerate(e):\\n d={'entry_revision_identity':v['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:d['observation']=issues[i]\\n r.append(d)\\ny={'candidate_identity':x['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert len(r)==len(e)==20\\nassert len({v['entry_revision_identity'] for v in r})==20\\nfor a,b in zip(e,r):\\n assert a['entry_revision_identity']==b['entry_revision_identity'] and len(b['entry_revision_identity'])==64\\nprint(json.dumps(y,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/14/rollout-2026-09-14T23-59-02-01a0a25c-23dc-78b2-808d-46ca84aed0fc.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":22000}));text(await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":7000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-97a7e7dc06db4990a51a/SURFACE-SCREEN-ENVELOPE-lane-000-3.json').read_text())\\nobservations={8:'原文为石头与腐肉构成的肢体，译文变成“腐烂的石化躯体”；“认为能举起，但很沉”被改为“可以轻易举起，但事实证明”，增添了原文没有的轻易判断和实际验证。',9:'原文说明奇异重力使击退抗性降低，译文省略该原因，并把降低击退抗性归因于恶魔空间的火焰。'}\\nr=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    v={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in observations else 'OK'}\\n    if i in observations:v['observation']=observations[i]\\n    r.append(v)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\nassert out['candidate_identity']=='3f1843a6ce7fc7bb9c076d2966b5e5a4d93b940b37c6e52a05ee4cda8d00840b'\\nassert len(r)==20 and len({v['entry_revision_identity'] for v in r})==20\\nfor e,v in zip(p['payload']['entries'],r):\\n    assert v['entry_revision_identity']==e['entry_revision_identity'] and len(v['entry_revision_identity'])==64\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));\n",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "host_conclusion": "All four children read only own frozen envelope and allowed contract section; generated JSON solely in memory/stdout. No persistent file writes, no extra catalog or other task reads. Eight custom tool calls inspected.",
+  "status": "pass"
+}
