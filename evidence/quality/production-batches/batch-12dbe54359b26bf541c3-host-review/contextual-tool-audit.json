@@ -1,0 +1,82 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/eda7d90c-b8ff-40e3-945e-09fffa0643fa.jsonl",
+  "tool_call_count": 14,
+  "A_locale_or_translation_reads": [],
+  "B_git_grep_total": 0,
+  "B_git_grep_without_exclusion": [],
+  "C_engine_access_not_pinned": [],
+  "D_write_attempts": [],
+  "E_other_ai_paths": [],
+  "all_calls": [
+    {
+      "name": "Bash",
+      "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+    },
+    {
+      "name": "Bash",
+      "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['bounded_context'],ensure_ascii=False)[:2000])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('=== ',i,k)\n    print(json.dumps(t,ensure_ascii=False,indent=1))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    print('=== ',i, c.get('revision_key'))\n    ctx=c.get('context','')\n    # strip the source_facts json blob for readability partially\n    print(ctx[:400])\n    print('---LEN',len(ctx))\n\" "
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    ctx=c['context']\n    head,rest=ctx.split('source_facts_v1:',1)\n    f=json.loads(rest)\n    print('===',i,head.strip())\n    for a in f['fact']['anchors']:\n        print(' anchor',a['kind'],a['public_source_path'],a['repository'],a['matching_lines'])\n        for s in a['snippet']:\n            print('   ',('*' if s['is_match'] else ' '),s['line'],s['text'])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/corruptions/blight.lua | sed -n '45,120p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | grep -n \"unided_name\\|getName\" | head -40"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | sed -n '560,625p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/infinite-dungeon/zone.lua | sed -n '60,135p'; echo ---; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/infinite-dungeon/zone.lua | grep -n \"desc\" | head -40"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/infinite-dungeon/zone.lua | sed -n '204,250p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/infinite-dungeon/zone.lua | sed -n '255,320p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '4855,4925p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-12dbe54359b26bf541c3-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\nprint('BRIEF')\nprint(p['rendered_briefing'][:3000])\n\""
+    }
+  ],
+  "D_host_adjudication": [
+    {
+      "status": "no_violation",
+      "reason": "No write-attempt matches; all 14 complete calls read only the frozen envelope/contract and pinned engine sources."
+    }
+  ],
+  "F_full_source_target_visibility": {
+    "status": "PASS",
+    "entry_count": 8,
+    "native_tool_use_id": "toolu_01RxAmXFundHZWmNbuxovqe7",
+    "all_sources_targets_exact": true
+  },
+  "G_host_manual_assessment": "Host read all 14 complete calls. The dump call printed every translation_snapshot source/target and bounded_context. Engine reads use the pinned commit; no writes, no locale/task scans. Conduct audit does not adjudicate findings.",
+  "status": "PASS"
+}
