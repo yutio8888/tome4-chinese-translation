@@ -1,0 +1,1878 @@
+{
+  "schema_version": 1,
+  "batch_id": "batch-70b2fb0f42f8ef39e0f4",
+  "kind": "host_adjudicated_review",
+  "scope": "review_only; no translation changes",
+  "source_binding": {
+    "batch_id": "batch-70b2fb0f42f8ef39e0f4",
+    "main_source_sha256_verified": 80,
+    "literal_matches": 79,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "nonliteral_verifications": [
+      {
+        "args_order": null,
+        "component": "tome",
+        "entry_revision_identity": "5fe3e12e8d0678ff5e39f81f84cba84f31aa3238899d0de0797928118db31d01",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "line_ending_normalization": null,
+        "literal_source_match": false,
+        "matching_literal_lines": [],
+        "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+        "section": "mod-tome/data/general/objects/gem.lua",
+        "source": "fire opal",
+        "source_file_sha256": "ee0988d5f263755ee3d2082a944b6daa465d258e524d43f51083e8767009a98e",
+        "source_pinning": "pinned",
+        "source_tag": "gem name",
+        "verification_status": "confirmed"
+      }
+    ],
+    "source_attribution_pending": [],
+    "generated_source_verification": [
+      {
+        "entry_revision_identity": "5fe3e12e8d0678ff5e39f81f84cba84f31aa3238899d0de0797928118db31d01",
+        "status": "confirmed",
+        "public_source_path": "game/modules/tome/data/general/objects/gem.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "reason": "newGem(\"Fire Opal\",...)传参；newGem中name=name:lower()生成fire opal，非缺失来源。",
+        "excerpt": "72: \t\tname = name:lower(), subtype = color,\n73: \t\tcolor = colors[color:upper()], image=image,\n74: \t\tlevel_range = {min_level, max_level},\n75: \t\trarity = rarity, cost = cost * 10,\n76: \t\tmaterial_level = tier,\n77: \t\timbue_powers = imbue,\n78: \t\twielder = imbue,\n107: newGem(\"Fire Opal\",\t\"object/fireopal.png\",5,\t18,\t\"red\",\t\t40,\t50, 5, 70,\n108: \t{ inc_damage = {all=10}, combat_physcrit=5, combat_mindcrit=5, combat_spellcrit=5,  },\n109: \t{ splash={type=\"FIRE\", dam=40} }\n110: )"
+      }
+    ]
+  },
+  "research": {
+    "batch_id": "batch-70b2fb0f42f8ef39e0f4",
+    "claims": [
+      {
+        "revision_prefix": "5f29649a8a",
+        "status": "confirmed",
+        "claim": "shattered是通用PHYSICAL死亡措辞碎裂，现译被压爆加入受压爆裂方式；该列表已有独立crushed等用语，没有要求受压或爆炸的条件。修复为碎裂/粉碎表述，不改批外同族条目。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "line_start": 775,
+        "line_end": 779,
+        "excerpt": "775: \n776: \t\treturn realdam\n777: \tend,\n778: \tdeath_message = {_t\"battered\", _t\"bludgeoned\", _t\"sliced\", _t\"maimed\", _t\"raked\", _t\"bled\", _t\"impaled\", _t\"dissected\", _t\"disembowelled\", _t\"decapitated\", _t\"stabbed\", _t\"pierced\", _t\"torn limb from limb\", _t\"crushed\", _t\"shattered\", _t\"smashed\", _t\"cleaved\", _t\"swiped\", _t\"struck\", _t\"mutilated\", _t\"tortured\", _t\"skewered\", _t\"squished\", _t\"mauled\", _t\"chopped into tiny pieces\", _t\"splattered\", _t\"ground\", _t\"minced\", _t\"punctured\", _t\"hacked apart\", _t\"eviscerated\"},\n779: }",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "5f64fa219d",
+        "status": "confirmed",
+        "claim": "Twisted限定被Twist Fate暂时控制的异常，现译当前异常省去受控限定。flux179-181保存talent/paradox，201-203说明held等待触发；建议恢复当前受控的异常，不新增全局术语或改变占位符/两换行。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+        "sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+        "line_start": 3110,
+        "line_end": 3125,
+        "excerpt": "3110: \tname = \"TWIST_FATE\", image = \"talents/twist_fate.png\",\n3111: \tdesc = _t\"Twist Fate\",\n3112: \tlong_desc = function(self, eff)\n3113: \t\tlocal t = self:getTalentFromId(eff.talent)\n3114: \t\treturn\n3115: \t\t([[Currently Twisted Anomaly: %s\n3116: \n3117: \t\t%s]]):tformat(t.name or \"none\", t.info(self, t) or \"none\")\n3118: \tend,\n3119: \ttype = \"other\",\n3120: \tsubtype = { time=true },\n3121: \tstatus = \"detrimental\",\n3122: \tparameters = { paradox=0, twisted=false },\n3123: \ton_gain = function(self, err) return nil, _t\"+Twist Fate\" end,\n3124: \ton_lose = function(self, err) return nil, _t\"-Twist Fate\" end,\n3125: \tactivate = function(self, eff)",
+        "source_newline_count": 2,
+        "target_newline_count": 2
+      },
+      {
+        "revision_prefix": "5f7854cacd",
+        "status": "confirmed",
+        "claim": "direct healing限定遗漏；HEALING_NEXUS_BUFF在callbackOnHeal中放大正值治疗并incEquilibrium(-eff.eq)。Actor onHeal2335-2345处理回调，而regenLife2301-2317直接增加life、没有该回调，故不可泛称所有治疗/回复。恢复直接治疗并用降低失衡值明确负向变化。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "line_start": 1825,
+        "line_end": 1841,
+        "excerpt": "1825: newEffect{\n1826: \tname = \"HEALING_NEXUS_BUFF\", image = \"talents/healing_nexus.png\",\n1827: \tdesc = _t\"Healing Nexus\",\n1828: \tlong_desc = function(self, eff)\n1829: \t\treturn (\"All direct healing done to the target is increased by %d%% and each heal restores %0.1f equilibrium.\"):tformat(eff.pct * 100, eff.eq)\n1830: \tend,\n1831: \ttype = \"physical\",\n1832: \tsubtype = { nature=true, heal=true },\n1833: \tstatus = \"beneficial\",\n1834: \tparameters = { pct = 1, eq = 0 },\n1835: \tcallbackOnHeal = function(self, eff, value, src, raw_value)\n1836: \t\tif value > 0 then\n1837: \t\t\tgame:delayedLogMessage(self, self, \"healing_nexus_buff\", \"#YELLOW_GREEN##Source#'s healing is amplified!\")\n1838: \t\t\tself:incEquilibrium(-eff.eq)\n1839: \t\t\treturn {value=value*(1 + eff.pct)}\n1840: \t\tend\n1841: \tend,",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "5fdea387ca",
+        "status": "confirmed",
+        "claim": "确认换行不变量变化：原文总计4换行、现译6换行；测试一下后多一段内换行，末尾由2换行变为3换行，与surface观察一致。恢复原有分段并保留逐一查看效果提示的要求。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/texts/tutorial/stats-tier/tier4.lua",
+        "sha256": "f6b216f6de48d48df240cf540e2882f2075f3fc4005ee2a1b40391cf3a368627",
+        "line_start": 20,
+        "line_end": 25,
+        "excerpt": "20: return _t[[\n21: Let's take a closer look at these new timed effects. The easiest way to do that is to have them inflicted on you.\n22: \n23: Ahead are a series of bored elves who will happily blast you with whatever spell they have handy. Examine the tooltip of each effect they inflict on you.\n24: \n25: ]]",
+        "source_newline_count": 4,
+        "target_newline_count": 6
+      },
+      {
+        "revision_prefix": "5ff0af0de0",
+        "status": "advisory",
+        "claim": "不确认行为变人物的机制错误：本条source_tag为entity keyword，belt239-253是of burglary装备词缀，给予拆陷阱、侦测、潜行与灵巧等属性；Object638-646将keyword作为物品名称旁的特性标签，盗贼在此表明盗贼式装备特性，不是声称发生入室盗窃行为。盗窃可作更贴字面建议，不启动专名/词缀全局统一。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/general/objects/egos/belt.lua",
+        "sha256": "97a5941172b1c39f64ab5bdb1cd8cb2c2e59f1f9373764dc76b524d7e06babdf",
+        "line_start": 237,
+        "line_end": 255,
+        "excerpt": "237: newEntity{\n238: \tpower_source = {technique=true},\n239: \tname = \" of burglary\", suffix=true, instant_resolve=true,\n240: \tkeywords = {burglary=true},\n241: \tlevel_range = {20, 50},\n242: \tgreater_ego = 1,\n243: \trarity = 15,\n244: \tcost = 30,\n245: \twielder = {\n246: \t\tdisarm_bonus = resolvers.mbonus_material(25, 5),\n247: \t\ttrap_detect_power = resolvers.mbonus_material(25, 5),\n248: \t\tinfravision = resolvers.mbonus_material(3, 3),\n249: \t\tinc_stealth = resolvers.mbonus_material(10, 5),\n250: \t\tinc_stats = {\n251: \t\t\t[Stats.STAT_DEX] = resolvers.mbonus_material(3, 3),\n252: \t\t\t[Stats.STAT_CUN] = resolvers.mbonus_material(3, 3),\n253: \t\t\t[Stats.STAT_LCK] = resolvers.mbonus_material(5, 5),\n254: \t\t},\n255: \t},",
+        "source_newline_count": 0,
+        "target_newline_count": 0
+      },
+      {
+        "revision_prefix": "6046f6d403",
+        "status": "confirmed",
+        "claim": "确认Up to召唤数量上限遗漏，以及总控骷髅上限被缩为骷髅战士。getMax按nb_skeleton扣除现存数量，necroArmyStats统计所有skeleton_minion包括mage/archer；action按min(nb,max,soul)与空位召唤，额外法师/弓手也进入总上限并可移除战士返魂。保留所有三个整数占位符及条件。",
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/spells/master-of-bones.lua",
+        "sha256": "4318c0328da28c7a7767bf96027d8ccc449ab120b17558d8af699a6a6a05d170",
+        "line_start": 277,
+        "line_end": 285,
+        "excerpt": "277: \tend,\n278: \tinfo = function(self, t)\n279: \t\treturn ([[Call upon the battlefields of old, collecting bones, fusing them with souls, and forging them into skeletal minions.\n280: \t\tUp to %d skeleton warriors of level %d are summoned, and up to %d skeletons can be controlled at once.\n281: \t\tAt level 3 the summons become armoured skeletons warriors.\n282: \t\tAt level 5, for every 3 skeleton warriors, a skeleton mage or archer will also be created without costing any souls. If this makes you go over your skeleton limit, a normal skeleton will be removed and its soul refunded.\n283: \n284: \t\t#GREY##{italic}#Skeleton minions come in fewer numbers than ghoul minions but are generally more durable.#{normal}#\n285: \t\t]]):tformat(t:_getNb(self), math.max(1, self.level + t:_getLevel(self)), t:_getMax(self, true))",
+        "source_newline_count": 6,
+        "target_newline_count": 6
+      }
+    ],
+    "auxiliary_mechanism_evidence": [
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/class/Actor.lua",
+        "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+        "line_start": 2301,
+        "line_end": 2318,
+        "excerpt": "2301: function _M:regenLife(fake)\n2302: \tif self.life_regen and not self:attr(\"no_life_regen\") then\n2303: \t\tlocal regen, psi_increase = self.life_regen * util.bound((self.healing_factor or 1), 0, self.healing_factor_max or 2.5)\n2304: \n2305: \t\t-- Solipsism: regeneration split between life and psi\n2306: \t\tif self:knowTalent(self.T_SOLIPSISM) then\n2307: \t\t\tlocal ratio = self:callTalent(self.T_SOLIPSISM, \"getConversionRatio\")\n2308: \t\t\tpsi_increase = util.bound(regen * ratio, 0, self.max_psi - self.psi)\n2309: \t\t\t\tregen = regen - psi_increase\n2310: \t\t\tif not fake then self:incPsi(psi_increase) end\n2311: \t\t\tpsi_increase = psi_increase + self.psi_regen\n2312: \t\tend\n2313: \n2314: \t\t-- handles maximum life (including Blood Lock)\n2315: \t\tregen = util.bound(self.life + regen, self.die_at, self:attr(\"blood_lock\") or self.max_life) - self.life\n2316: \t\tif not fake then self.life = self.life + regen end\n2317: \t\treturn regen, psi_increase or self.psi_regen or 0\n2318: \tend"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/class/Actor.lua",
+        "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+        "line_start": 2335,
+        "line_end": 2346,
+        "excerpt": "2335: --- Called before healing\n2336: function _M:onHeal(value, src)\n2337: \tlocal raw_value = value\n2338: \tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n2339: \n2340: \tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n2341: \t\tlocal ret = cb(value, src, raw_value)\n2342: \t\tif ret then\n2343: \t\t\traw_value = ret.raw_value or raw_value*ret.value/value\n2344: \t\t\tvalue = ret.value\n2345: \t\tend\n2346: \tend"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/chronomancy/flux.lua",
+        "sha256": "34b20fbdefa32a89d9ec28dc72e6e3f52301a3e36f10f1e9453ab40eb2edfb2a",
+        "line_start": 149,
+        "line_end": 208,
+        "excerpt": "149: newTalent{\n150: \tname = \"Twist Fate\",\n151: \ttype = {\"chronomancy/flux\", 4},\n152: \trequire = chrono_req4,\n153: \tpoints = 5,\n154: \tcooldown = function(self, t) return math.ceil(self:combatTalentLimit(t, 6, 20, 8)) end, -- Limit >4\n155: \ttactical = { ATTACKAREA = 2 },\n156: \ton_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_TWIST_FATE) then if not silent then game.logPlayer(self, \"You must have a twisted anomaly to cast this spell.\") end return false end return true end,\n157: \tgetDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 1, 6))) end,\n158: \tdoTwistFate = function(self, t, twist)\n159: \t\tlocal eff = self:hasEffect(self.EFF_TWIST_FATE)\n160: \t\t\n161: \t\tif twist then\n162: \t\t\teff.twisted = twist\n163: \t\t\tlocal anom = self:getTalentFromId(eff.talent)\n164: \t\t\t\n165: \t\t\t-- make it real obvious for the player\n166: \t\t\tgame.logPlayer(self, \"#STEEL_BLUE#Casts %s.\", anom.name)\n167: \t\t\tif self == game.player then\n168: \t\t\t\tgame.bignews:saySimple(180, \"#STEEL_BLUE#Targeting %s\", anom.name)\n169: \t\t\tend\n170: \t\t\t\n171: \t\t\t-- Call the anomaly action function directly, while disabling the\n172: \t\t\t-- ability to cancel targeting\n173: \t\t\tanom.doAction(self, anom, false)\n174: \t\t\tself:incParadox(-eff.paradox)\n175: \t\tend\n176: \t\t\t\n177: \t\tself:removeEffect(self.EFF_TWIST_FATE)\n178: \tend,\n179: \tsetEffect = function(self, t, talent, paradox)\n180: \t\tgame.logPlayer(self, \"#STEEL_BLUE#You take control of %s.\", self:getTalentFromId(talent).name or nil)\n181: \t\tself:setEffect(self.EFF_TWIST_FATE, t.getDuration(self, t), {talent=talent, paradox=paradox})\n182: \t\t\n183: \t\tgame:playSoundNear(self, \"talents/echo\")\n184: \tend,\n185: \taction = function(self, t)\n186: \t\tt.doTwistFate(self, t, true)\n187: \t\tgame:playSoundNear(self, \"talents/echo\")\n188: \t\treturn true\n189: \tend,\n190: \tinfo = function(self, t)\n191: \t\tlocal duration = t.getDuration(self, t)\n192: \t\tlocal talent\n193: \t\tlocal t_name = \"None\"\n194: \t\tlocal t_info = \"\"\n195: \t\tlocal eff = self:hasEffect(self.EFF_TWIST_FATE)\n196: \t\tif eff then\n197: \t\t\ttalent = self:getTalentFromId(eff.talent)\n198: \t\t\tt_name = talent.name\n199: \t\t\tt_info = talent.info(self, talent)\n200: \t\tend\n201: \t\treturn ([[If Twist Fate is not on cooldown minor anomalies will be held for %d turns, allowing your spell to cast as normal.  While held you may cast Twist Fate in order to trigger the anomaly and may choose the target area.\n202: \t\tIf a second anomaly occurs while a prior one is held or the timed effect expires the first anomaly will trigger immediately, interrupting your current turn or action.\n203: \t\tParadox reductions from held anomalies occur when triggered.\n204: \t\t\t\t\n205: \t\tCurrent Anomaly: %s\n206: \t\t\n207: \t\t%s]]):\n208: \t\ttformat(duration, t_name, t_info)"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/class/Object.lua",
+        "sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+        "line_start": 638,
+        "line_end": 646,
+        "excerpt": "638: \telseif self.keywords and next(self.keywords) then\n639: \t\t-- I18N translate keywords.\n640: \t\tlocal ks = table.keys(self.keywords)\n641: \t\tlocal k = {}\n642: \t\tfor i, key in ipairs(ks) do\n643: \t\t\tk[i] = _t(key, \"entity keyword\")\n644: \t\tend\n645: \t\ttable.sort(k)\n646: \t\tname = name..\", \"..table.concat(k, ', ')"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/spells/master-of-bones.lua",
+        "sha256": "4318c0328da28c7a7767bf96027d8ccc449ab120b17558d8af699a6a6a05d170",
+        "line_start": 179,
+        "line_end": 192,
+        "excerpt": "179: \ttarget = function(self, t) return {type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), selffire=false, talent=t} end,\n180: \tgetNb = function(self, t, ignore)\n181: \t\treturn math.max(1, math.floor(self:combatTalentScale(t, 1, 2, \"log\")))\n182: \tend,\n183: \tgetMax = function(self, t, ignore)\n184: \t\tlocal max = math.max(1, math.floor(self:combatTalentScale(t, 1, 4.5)))\n185: \t\tif ignore then return max end\n186: \t\treturn math.max(0, max - necroArmyStats(self).nb_skeleton)\n187: \tend,\n188: \t-- Fucking respec.\n189: \ton_levelup_changed = function(self, t, lvl, old_lvl, lvl_raw, old_lvl_raw)\n190: \t\tlocal stats = necroArmyStats(self)\n191: \t\tfor i, minion in ipairs(stats.list) do if minion.skeleton_minion then\n192: \t\t\tif self:getTalentLevel(t) < 3 and not minion.basic_skeleton_minion then"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/spells/master-of-bones.lua",
+        "sha256": "4318c0328da28c7a7767bf96027d8ccc449ab120b17558d8af699a6a6a05d170",
+        "line_start": 211,
+        "line_end": 270,
+        "excerpt": "211: \tend,\n212: \tgetLevel = function(self, t) return math.floor(self:combatScale(self:getTalentLevel(t), -6, 0.9, 2, 5)) end, -- -6 @ 1, +2 @ 5, +5 @ 8\n213: \ton_pre_use = function(self, t) return math.min(t.getMax(self, t), self:getSoul()) >= 1 end,\n214: \taction = function(self, t)\n215: \t\tlocal nb = t:_getNb(self)\n216: \t\tlocal max = t:_getMax(self)\n217: \t\tnb = math.min(nb, max, self:getSoul())\n218: \t\tif nb < 1 then return end\n219: \t\tlocal lev = t.getLevel(self, t)\n220: \n221: \t\t-- Summon minions in a cone\n222: \t\tlocal tg = self:getTalentTarget(t)\n223: \t\tlocal x, y = self:getTarget(tg)\n224: \t\tif not x or not y then return nil end\n225: \t\tlocal possible_spots = {}\n226: \t\tself:project(tg, x, y, function(px, py)\n227: \t\t\tif not game.level.map:checkAllEntities(px, py, \"block_move\") then\n228: \t\t\t\tpossible_spots[#possible_spots+1] = {x=px, y=py}\n229: \t\t\tend\n230: \t\tend)\n231: \t\tif #possible_spots == 0 then return end\n232: \n233: \t\tlocal use_ressource = not self:attr(\"zero_resource_cost\") and not self:attr(\"force_talent_ignore_ressources\")\n234: \t\tfor i = 1, nb do\n235: \t\t\tlocal pos = rng.tableRemove(possible_spots)\n236: \t\t\tif pos then\n237: \t\t\t\tif use_ressource then self:incSoul(-1) end\n238: \t\t\t\tnecroSetupSummon(self, self:getTalentLevel(t) >= 3 and t.minions_list.a_skel_warrior or t.minions_list.skel_warrior, pos.x, pos.y, lev, nil, true)\n239: \t\t\t\tself.__call_crypt_count = (self.__call_crypt_count or 0) + 1\n240: \t\t\t\tif self.__call_crypt_count == 3 then\n241: \t\t\t\t\tself.__call_crypt_count = 0\n242: \t\t\t\t\tif self:getTalentLevel(t) >= 5 then\n243: \t\t\t\t\t\tlocal stats = necroArmyStats(self)\n244: \t\t\t\t\t\tlocal pos = rng.tableRemove(possible_spots)\n245: \t\t\t\t\t\tlocal kind = nil\n246: \t\t\t\t\t\tif not stats.has_skeleton_mage and stats.has_skeleton_archer then\n247: \t\t\t\t\t\t\tkind = t.minions_list.skel_mage\n248: \t\t\t\t\t\telseif stats.has_skeleton_mage and not stats.has_skeleton_archer then\n249: \t\t\t\t\t\t\tkind = t.minions_list.skel_m_archer\n250: \t\t\t\t\t\telseif not stats.has_skeleton_mage and not stats.has_skeleton_archer then\n251: \t\t\t\t\t\t\tkind = rng.percent(50) and t.minions_list.skel_mage or t.minions_list.skel_m_archer\n252: \t\t\t\t\t\telse\n253: \t\t\t\t\t\t\tkind = t.minions_list.a_skel_warrior\n254: \t\t\t\t\t\tend\n255: \t\t\t\t\t\tif pos and kind then necroSetupSummon(self, kind, pos.x, pos.y, lev, nil, true) end\n256: \t\t\t\t\tend\n257: \t\t\t\tend\n258: \t\t\tend\n259: \t\tend\n260: \n261: \t\t-- Ensure max capacity only\n262: \t\twhile true do\n263: \t\t\tlocal stats = necroArmyStats(self)\n264: \t\t\tlocal max = t:_getMax(self, true)\n265: \t\t\tif stats.nb_skeleton <= max then break end\n266: \t\t\tfor i, minion in ipairs(stats.list) do if minion.skeleton_minion == \"warrior\" then\n267: \t\t\t\tgame.party:removeMember(minion, true)\n268: \t\t\t\tminion:disappear(self)\n269: \t\t\t\tself:incSoul(1)\n270: \t\t\t\tbreak"
+      },
+      {
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/spells/spells.lua",
+        "sha256": "714c6bb79c10b1e0dfb59e6ee7bcccd18704c5a26b19737a917673ed194c5b58",
+        "line_start": 139,
+        "line_end": 172,
+        "excerpt": "139: function necroArmyStats(self)\n140: \tlocal stats = {nb=0, nb_skeleton=0, nb_ghoul=0, list={}}\n141: \tif not game.level then return stats end\n142: \tif not game.party or not game.party:hasMember(self) then\n143: \t\tfor _, act in pairs(game.level.entities) do if act.summoner == self and act.necrotic_minion then\n144: \t\t\tstats.nb = stats.nb + 1\n145: \t\t\tif act.skeleton_minion then\n146: \t\t\t\tstats.nb_skeleton = stats.nb_skeleton + 1\n147: \t\t\t\tif act.skeleton_minion == \"mage\" then stats.has_skeleton_mage = true end\n148: \t\t\t\tif act.skeleton_minion == \"archer\" then stats.has_skeleton_archer = true end\n149: \t\t\tend\n150: \t\t\tif act.ghoul_minion then stats.nb_ghoul = stats.nb_ghoul + 1 end\n151: \t\t\tif act.lord_of_skulls then stats.lord_of_skulls = act end\n152: \t\t\tif act.is_bone_giant then stats.bone_giant = act end\n153: \t\t\tif act.dread_minion then stats.dread = act end\n154: \t\t\tstats.list[#stats.list+1] = act\n155: \t\tend end\n156: \telse\n157: \t\tfor act, _ in pairs(game.party.members) do if act.summoner == self and act.necrotic_minion then\n158: \t\t\tstats.nb = stats.nb + 1\n159: \t\t\tif act.skeleton_minion then\n160: \t\t\t\tstats.nb_skeleton = stats.nb_skeleton + 1\n161: \t\t\t\tif act.skeleton_minion == \"mage\" then stats.has_skeleton_mage = true end\n162: \t\t\t\tif act.skeleton_minion == \"archer\" then stats.has_skeleton_archer = true end\n163: \t\t\tend\n164: \t\t\tif act.ghoul_minion then stats.nb_ghoul = stats.nb_ghoul + 1 end\n165: \t\t\tif act.lord_of_skulls then stats.lord_of_skulls = act end\n166: \t\t\tif act.is_bone_giant then stats.bone_giant = act end\n167: \t\t\tif act.dread_minion then stats.dread = act end\n168: \t\t\tstats.list[#stats.list+1] = act\n169: \t\tend end\n170: \tend\n171: \treturn stats\n172: end"
+      }
+    ],
+    "post_contextual_adjudication": [
+      {
+        "revision_prefix": "5f29649a8a",
+        "status": "partially_confirmed",
+        "conclusion": "仅确认压爆增添特定受压爆裂方式；同一随机列表中有近义表达本身不是错误，未对照兄弟译文，不能据此宣称已证实中文撞义。"
+      },
+      {
+        "revision_prefix": "5f64fa219d",
+        "status": "partially_confirmed",
+        "conclusion": "确认Twisted/受控暂存限定遗漏；当前异常并不字面断言正在生效，不采纳机制完全相反的过强归因。"
+      },
+      {
+        "revision_prefix": "5f7854cacd",
+        "status": "partially_confirmed",
+        "conclusion": "直接治疗范围遗漏仍须修复。源码确定incEquilibrium(-eff.eq)降低失衡，建议明确为降低；现译恢复存在方向歧义，不能仅凭该词断言译文明确增加数值，不采纳确定把增益写减益的归因。"
+      },
+      {
+        "revision_prefix": "5fdea387ca",
+        "status": "confirmed",
+        "conclusion": "覆盖contextual的OK：实际完整读过该条，但原文4换行、现译6换行的字节差异客观可验证。"
+      },
+      {
+        "revision_prefix": "6046f6d403",
+        "status": "confirmed",
+        "conclusion": "上限含全部骷髅且单次至多数量确认；精确区分_getMax(self,true)显示总上限（ignore=true直接返回max）和无ignore调用返回剩余名额，避免沿用观察把true调用也描述为减现有数的混写。"
+      }
+    ]
+  },
+  "decisions": {
+    "workset": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-source-workset.json",
+    "decisions": {
+      "5f29649a8a|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/damage_types.lua:775-779。shattered是通用PHYSICAL死亡措辞碎裂，现译被压爆加入受压爆裂方式；该列表已有独立crushed等用语，没有要求受压或爆炸的条件。修复为碎裂/粉碎表述，不改批外同族条目。仅确认压爆增添特定受压爆裂方式；同一随机列表中有近义表达本身不是错误，未对照兄弟译文，不能据此宣称已证实中文撞义。"
+      },
+      "5f64fa219d|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/timed_effects/other.lua:3110-3125。Twisted限定被Twist Fate暂时控制的异常，现译当前异常省去受控限定。flux179-181保存talent/paradox，201-203说明held等待触发；建议恢复当前受控的异常，不新增全局术语或改变占位符/两换行。确认Twisted/受控暂存限定遗漏；当前异常并不字面断言正在生效，不采纳机制完全相反的过强归因。"
+      },
+      "5f7854cacd|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/timed_effects/physical.lua:1825-1841。direct healing限定遗漏；HEALING_NEXUS_BUFF在callbackOnHeal中放大正值治疗并incEquilibrium(-eff.eq)。Actor onHeal2335-2345处理回调，而regenLife2301-2317直接增加life、没有该回调，故不可泛称所有治疗/回复。恢复直接治疗并用降低失衡值明确负向变化。直接治疗范围遗漏仍须修复。源码确定incEquilibrium(-eff.eq)降低失衡，建议明确为降低；现译恢复存在方向歧义，不能仅凭该词断言译文明确增加数值，不采纳确定把增益写减益的归因。"
+      },
+      "5fdea387ca|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/texts/tutorial/stats-tier/tier4.lua:20-25。确认换行不变量变化：原文总计4换行、现译6换行；测试一下后多一段内换行，末尾由2换行变为3换行，与surface观察一致。恢复原有分段并保留逐一查看效果提示的要求。覆盖contextual的OK：实际完整读过该条，但原文4换行、现译6换行的字节差异客观可验证。"
+      },
+      "5ff0af0de0|surface": {
+        "disposition": "advisory",
+        "repair_required": false,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/general/objects/egos/belt.lua:237-255。不确认行为变人物的机制错误：本条source_tag为entity keyword，belt239-253是of burglary装备词缀，给予拆陷阱、侦测、潜行与灵巧等属性；Object638-646将keyword作为物品名称旁的特性标签，盗贼在此表明盗贼式装备特性，不是声称发生入室盗窃行为。盗窃可作更贴字面建议，不启动专名/词缀全局统一。"
+      },
+      "6046f6d403|surface": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/spells/master-of-bones.lua:277-285。确认Up to召唤数量上限遗漏，以及总控骷髅上限被缩为骷髅战士。getMax按nb_skeleton扣除现存数量，necroArmyStats统计所有skeleton_minion包括mage/archer；action按min(nb,max,soul)与空位召唤，额外法师/弓手也进入总上限并可移除战士返魂。保留所有三个整数占位符及条件。上限含全部骷髅且单次至多数量确认；精确区分_getMax(self,true)显示总上限（ignore=true直接返回max）和无ignore调用返回剩余名额，避免沿用观察把true调用也描述为减现有数的混写。"
+      },
+      "5f29649a8a|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/damage_types.lua:775-779。shattered是通用PHYSICAL死亡措辞碎裂，现译被压爆加入受压爆裂方式；该列表已有独立crushed等用语，没有要求受压或爆炸的条件。修复为碎裂/粉碎表述，不改批外同族条目。仅确认压爆增添特定受压爆裂方式；同一随机列表中有近义表达本身不是错误，未对照兄弟译文，不能据此宣称已证实中文撞义。"
+      },
+      "5f64fa219d|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/timed_effects/other.lua:3110-3125。Twisted限定被Twist Fate暂时控制的异常，现译当前异常省去受控限定。flux179-181保存talent/paradox，201-203说明held等待触发；建议恢复当前受控的异常，不新增全局术语或改变占位符/两换行。确认Twisted/受控暂存限定遗漏；当前异常并不字面断言正在生效，不采纳机制完全相反的过强归因。"
+      },
+      "5f7854cacd|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/timed_effects/physical.lua:1825-1841。direct healing限定遗漏；HEALING_NEXUS_BUFF在callbackOnHeal中放大正值治疗并incEquilibrium(-eff.eq)。Actor onHeal2335-2345处理回调，而regenLife2301-2317直接增加life、没有该回调，故不可泛称所有治疗/回复。恢复直接治疗并用降低失衡值明确负向变化。直接治疗范围遗漏仍须修复。源码确定incEquilibrium(-eff.eq)降低失衡，建议明确为降低；现译恢复存在方向歧义，不能仅凭该词断言译文明确增加数值，不采纳确定把增益写减益的归因。"
+      },
+      "6046f6d403|contextual": {
+        "disposition": "confirmed",
+        "repair_required": true,
+        "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63；game/modules/tome/data/talents/spells/master-of-bones.lua:277-285。确认Up to召唤数量上限遗漏，以及总控骷髅上限被缩为骷髅战士。getMax按nb_skeleton扣除现存数量，necroArmyStats统计所有skeleton_minion包括mage/archer；action按min(nb,max,soul)与空位召唤，额外法师/弓手也进入总上限并可移除战士返魂。保留所有三个整数占位符及条件。上限含全部骷髅且单次至多数量确认；精确区分_getMax(self,true)显示总上限（ignore=true直接返回max）和无ignore调用返回剩余名额，避免沿用观察把true调用也描述为减现有数的混写。"
+      }
+    }
+  },
+  "source_attribution_pending": [],
+  "surface_summary": {
+    "accepted_attempt": 1,
+    "accepted_count": 80,
+    "ok": 74,
+    "issue": 6,
+    "failed_attempts": []
+  },
+  "publication": {
+    "files": 15,
+    "adapter_refs": 5,
+    "adjudications": 10,
+    "gates_passed": 17,
+    "published_tree_sha256": {
+      "results.jsonl": "39c586937aed6bd88a63ce6a88e5f2c6d67a5015fca06ea7e1f8ae71bcce5c83",
+      "adjudications.jsonl": "6c6048466e37a01c8137e768122b13020333ea798e0dc01ce1aa75a42e0ebf65",
+      "gates.json": "fa13535ea8f580ce54e16c36991cf730c0f555aea3828722936fc0e52ad7bf4c",
+      "manifest.json": "ad0e528332dec40a9a610c72bab654d6c8c5169992766b84974949aa7ab61895",
+      "raw/surface/000-input_path.json": "81b7915a35ba3cdb414d59c7b1ec4b2c4a76d6ff4f5dfb2bde606a3a4a0075e2",
+      "raw/surface/000-output_path.json": "907db3cd0adc7ed18c52ec2dc39d56a278e489b7b86d8792179021edae4d59e1",
+      "raw/surface/group-56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f.json": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f",
+      "raw/surface/001-input_path.json": "b00a602478c475c3e538bfc6e9c7c4b2e3b1c8cbd86aca32f70621271c57668b",
+      "raw/surface/001-output_path.json": "f72a93f7e3857439c0ab6292ba2c582461f36e607ee803bb98d7107a574bf482",
+      "raw/surface/002-input_path.json": "d4f77dcb576262bf468e507f00fb3f194206e74784fd7c038dcff781005a9bd0",
+      "raw/surface/002-output_path.json": "e39a377d1dd27f7f48c58b44e83650135f30c39aa9037c6c82c4d37539119aac",
+      "raw/surface/003-input_path.json": "c12c8ca29983fdf854cf547199d40133bfc82cec03ba6d60754044a7ee9dc776",
+      "raw/surface/003-output_path.json": "0cbc8172bac4b6bb96ffabfb42bbccf4f2818035e49cb2ce3587e0248986d05f",
+      "raw/contextual/004-input_path.json": "00eac09f3f673175f730fe073f3f35947db962c859af678acdd54669daae426a",
+      "raw/contextual/004-output_path.json": "263ff113c96e00142b45c6a6fe5fedbf50a743e7fde12fb48df34dd8a8ef2d95"
+    }
+  },
+  "children": [
+    {
+      "task_id": "batch-70b2fb0f42f8ef39e0f4",
+      "dispatch_id": "lane-000-0",
+      "agent_id": "71aaa17e-dd51-4268-84b3-6ff843c85eca",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449",
+      "input_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "input_sha256": "81b7915a35ba3cdb414d59c7b1ec4b2c4a76d6ff4f5dfb2bde606a3a4a0075e2",
+      "group_manifest_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f",
+      "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+      "labels": {
+        "candidate_identity": "e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449",
+        "dispatch_id": "lane-000-0",
+        "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+        "lane_index": "1",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-70b2fb0f42f8ef39e0f4"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "907db3cd0adc7ed18c52ec2dc39d56a278e489b7b86d8792179021edae4d59e1",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:11:44.491471+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "71aaa17e-dd51-4268-84b3-6ff843c85eca",
+        "complete_line": 32,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 29,
+        "first_live_capture_sha256": "deb6adc3ab3e66c550c048c4ad576bada3048771f68b9596d098f98e8d5754c0",
+        "input_sha256": "81b7915a35ba3cdb414d59c7b1ec4b2c4a76d6ff4f5dfb2bde606a3a4a0075e2",
+        "key": "batch-70b2fb0f42f8ef39e0f4|lane-000-0",
+        "labels": {
+          "candidate_identity": "e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449",
+          "dispatch_id": "lane-000-0",
+          "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+          "lane_index": "1",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-70b2fb0f42f8ef39e0f4"
+        },
+        "message_id": "msg_0c7c44376fbd26f4016aa89b6f1f9887d181a7e84fb719be28",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "44e671ec4d07ff25b2b1c17cbe7cbfc75c38f138a67b16adb3146e66f4d9bb99",
+        "provider": "codex",
+        "raw_bytes": 2566,
+        "raw_sha256": "907db3cd0adc7ed18c52ec2dc39d56a278e489b7b86d8792179021edae4d59e1",
+        "schema_version": 1,
+        "session_id": "01a0a29e-95af-7b70-aa76-3f36f0996fa7",
+        "source_bytes": 183291,
+        "source_lines": 32,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-11-37-01a0a29e-95af-7b70-aa76-3f36f0996fa7.jsonl",
+        "source_sha256": "8959956ea09973dfc0f1db7084252cdecc03591e30033b6c4b27e75473b345dd",
+        "terminal_capture_sha256": "7c033786f4f7b0130d1b763cad03c0af22c418f8e4a996927359b09b1825aad6",
+        "turn_id": "01a0a29e-95eb-7623-b1d6-000ac67701cb",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:11:37.200Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:11:37.128Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "71aaa17e-dd51-4268-84b3-6ff843c85eca",
+          "labels": {
+            "candidate_identity": "e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449",
+            "dispatch_id": "lane-000-0",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "1",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUserMessageAt": "2026-09-15T01:11:42.029Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a29e-95af-7b70-aa76-3f36f0996fa7"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29e-95af-7b70-aa76-3f36f0996fa7",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-0",
+          "updatedAt": "2026-09-15T01:11:42.029Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:12:47.996Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:11:37.128Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "71aaa17e-dd51-4268-84b3-6ff843c85eca",
+          "labels": {
+            "candidate_identity": "e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449",
+            "dispatch_id": "lane-000-0",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "1",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27392,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 30327,
+            "inputTokens": 29236,
+            "outputTokens": 1091
+          },
+          "lastUserMessageAt": "2026-09-15T01:11:42.029Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a29e-95af-7b70-aa76-3f36f0996fa7",
+              "title": "lane-000-0"
+            },
+            "nativeHandle": "01a0a29e-95af-7b70-aa76-3f36f0996fa7",
+            "provider": "codex",
+            "sessionId": "01a0a29e-95af-7b70-aa76-3f36f0996fa7"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29e-95af-7b70-aa76-3f36f0996fa7",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-0",
+          "updatedAt": "2026-09-15T01:12:47.997Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:13:15.326Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-70b2fb0f42f8ef39e0f4",
+      "dispatch_id": "lane-000-1",
+      "agent_id": "828f2cd3-c2fd-4db3-a535-03f4eb11fb25",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "7f5c12ddd28c4a2f0c2067a384c54c193c23e8ed22116140eb0a48fe8fe2b42a",
+      "input_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "input_sha256": "b00a602478c475c3e538bfc6e9c7c4b2e3b1c8cbd86aca32f70621271c57668b",
+      "group_manifest_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f",
+      "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+      "labels": {
+        "candidate_identity": "7f5c12ddd28c4a2f0c2067a384c54c193c23e8ed22116140eb0a48fe8fe2b42a",
+        "dispatch_id": "lane-000-1",
+        "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+        "lane_index": "2",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-70b2fb0f42f8ef39e0f4"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "f72a93f7e3857439c0ab6292ba2c582461f36e607ee803bb98d7107a574bf482",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:12:04.179689+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "828f2cd3-c2fd-4db3-a535-03f4eb11fb25",
+        "complete_line": 29,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 26,
+        "first_live_capture_sha256": "be3c85b85c0523b2d568c86dbd31d8712bd1dfb66073da91e82850e02966e485",
+        "input_sha256": "b00a602478c475c3e538bfc6e9c7c4b2e3b1c8cbd86aca32f70621271c57668b",
+        "key": "batch-70b2fb0f42f8ef39e0f4|lane-000-1",
+        "labels": {
+          "candidate_identity": "7f5c12ddd28c4a2f0c2067a384c54c193c23e8ed22116140eb0a48fe8fe2b42a",
+          "dispatch_id": "lane-000-1",
+          "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+          "lane_index": "2",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-70b2fb0f42f8ef39e0f4"
+        },
+        "message_id": "msg_0b117c99b05fee72016aa89b79896c87d1ac332061ce4ed230",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "229928e66b7aac9fdc4cd502795b6d3c0783cf178cb8f0583ec1a988e3a26b80",
+        "provider": "codex",
+        "raw_bytes": 2489,
+        "raw_sha256": "f72a93f7e3857439c0ab6292ba2c582461f36e607ee803bb98d7107a574bf482",
+        "schema_version": 1,
+        "session_id": "01a0a29e-e523-7bd3-bc7e-35fc88304b82",
+        "source_bytes": 180745,
+        "source_lines": 29,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-11-57-01a0a29e-e523-7bd3-bc7e-35fc88304b82.jsonl",
+        "source_sha256": "5b68c9e601ae3097a2eda2d2ae407c988a64ac2cd56985242f3ecd01ee85defd",
+        "terminal_capture_sha256": "9b9df796eca73641e5021d709350678201b8269adb186b8efd7076000650fc93",
+        "turn_id": "01a0a29e-e55d-76e0-b486-a08501ae33dc",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:11:57.539Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:11:57.468Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "828f2cd3-c2fd-4db3-a535-03f4eb11fb25",
+          "labels": {
+            "candidate_identity": "7f5c12ddd28c4a2f0c2067a384c54c193c23e8ed22116140eb0a48fe8fe2b42a",
+            "dispatch_id": "lane-000-1",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "2",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUserMessageAt": "2026-09-15T01:12:03.225Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a29e-e523-7bd3-bc7e-35fc88304b82"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29e-e523-7bd3-bc7e-35fc88304b82",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-1",
+          "updatedAt": "2026-09-15T01:12:03.225Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:12:56.712Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:11:57.468Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "828f2cd3-c2fd-4db3-a535-03f4eb11fb25",
+          "labels": {
+            "candidate_identity": "7f5c12ddd28c4a2f0c2067a384c54c193c23e8ed22116140eb0a48fe8fe2b42a",
+            "dispatch_id": "lane-000-1",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "2",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27392,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 30095,
+            "inputTokens": 29062,
+            "outputTokens": 1033
+          },
+          "lastUserMessageAt": "2026-09-15T01:12:03.225Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a29e-e523-7bd3-bc7e-35fc88304b82",
+              "title": "lane-000-1"
+            },
+            "nativeHandle": "01a0a29e-e523-7bd3-bc7e-35fc88304b82",
+            "provider": "codex",
+            "sessionId": "01a0a29e-e523-7bd3-bc7e-35fc88304b82"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29e-e523-7bd3-bc7e-35fc88304b82",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-1",
+          "updatedAt": "2026-09-15T01:12:56.713Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:14:03.157Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-70b2fb0f42f8ef39e0f4",
+      "dispatch_id": "lane-000-2",
+      "agent_id": "bb4708b9-f3f7-4de4-a102-a7a90cd3cfe8",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "ac5265df9e236c36d35a06f01ef21c81545ef56822ee4dcd2e1101ca73bdac30",
+      "input_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "input_sha256": "d4f77dcb576262bf468e507f00fb3f194206e74784fd7c038dcff781005a9bd0",
+      "group_manifest_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f",
+      "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+      "labels": {
+        "candidate_identity": "ac5265df9e236c36d35a06f01ef21c81545ef56822ee4dcd2e1101ca73bdac30",
+        "dispatch_id": "lane-000-2",
+        "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+        "lane_index": "3",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-70b2fb0f42f8ef39e0f4"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "e39a377d1dd27f7f48c58b44e83650135f30c39aa9037c6c82c4d37539119aac",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:12:25.481887+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "bb4708b9-f3f7-4de4-a102-a7a90cd3cfe8",
+        "complete_line": 36,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 33,
+        "first_live_capture_sha256": "1c7a0a3128c5ce54c494c71060121ed0d536f02f84897cf7d54b3d03d6787467",
+        "input_sha256": "d4f77dcb576262bf468e507f00fb3f194206e74784fd7c038dcff781005a9bd0",
+        "key": "batch-70b2fb0f42f8ef39e0f4|lane-000-2",
+        "labels": {
+          "candidate_identity": "ac5265df9e236c36d35a06f01ef21c81545ef56822ee4dcd2e1101ca73bdac30",
+          "dispatch_id": "lane-000-2",
+          "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+          "lane_index": "3",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-70b2fb0f42f8ef39e0f4"
+        },
+        "message_id": "msg_0480a81e5e36fc75016aa89b97391c87d2a14a8fd9b53a2330",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "81e79d50fbaceb7f4cfed88d6122c8eb3f4463e8118d9abd3ee10959a63a3630",
+        "provider": "codex",
+        "raw_bytes": 2579,
+        "raw_sha256": "e39a377d1dd27f7f48c58b44e83650135f30c39aa9037c6c82c4d37539119aac",
+        "schema_version": 1,
+        "session_id": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c",
+        "source_bytes": 188170,
+        "source_lines": 36,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-12-18-01a0a29f-3840-72c1-a613-9aa1d1bf2d1c.jsonl",
+        "source_sha256": "190a40453441e44b8fb1bbc0b3ec0c1a1631b5db2255645a1382a13b5843b6e6",
+        "terminal_capture_sha256": "1c37c56085788311e534d86c87a3d61f398568f1cd1cd395a5d74d9fde5cf15b",
+        "turn_id": "01a0a29f-387a-78a3-b540-995d89e86f33",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:12:18.816Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:12:18.745Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "bb4708b9-f3f7-4de4-a102-a7a90cd3cfe8",
+          "labels": {
+            "candidate_identity": "ac5265df9e236c36d35a06f01ef21c81545ef56822ee4dcd2e1101ca73bdac30",
+            "dispatch_id": "lane-000-2",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "3",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUserMessageAt": "2026-09-15T01:12:23.897Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-2",
+          "updatedAt": "2026-09-15T01:12:23.897Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:13:27.157Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:12:18.745Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "bb4708b9-f3f7-4de4-a102-a7a90cd3cfe8",
+          "labels": {
+            "candidate_identity": "ac5265df9e236c36d35a06f01ef21c81545ef56822ee4dcd2e1101ca73bdac30",
+            "dispatch_id": "lane-000-2",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "3",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27520,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 30335,
+            "inputTokens": 29275,
+            "outputTokens": 1060
+          },
+          "lastUserMessageAt": "2026-09-15T01:12:23.897Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c",
+              "title": "lane-000-2"
+            },
+            "nativeHandle": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c",
+            "provider": "codex",
+            "sessionId": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a29f-3840-72c1-a613-9aa1d1bf2d1c",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-2",
+          "updatedAt": "2026-09-15T01:13:27.158Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:14:32.860Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-70b2fb0f42f8ef39e0f4",
+      "dispatch_id": "lane-000-3",
+      "agent_id": "c0e87eee-3ee9-469d-a75f-6fbf0d91fe42",
+      "purpose": "translation_surface_screen_v1",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "ce45167ae57b226a3b12ce8e1d80627d2f7227e441087791ad6cdc093cfc5ec7",
+      "input_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "input_sha256": "c12c8ca29983fdf854cf547199d40133bfc82cec03ba6d60754044a7ee9dc776",
+      "group_manifest_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-GROUP-group-000.json",
+      "group_manifest_sha256": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f",
+      "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+      "labels": {
+        "candidate_identity": "ce45167ae57b226a3b12ce8e1d80627d2f7227e441087791ad6cdc093cfc5ec7",
+        "dispatch_id": "lane-000-3",
+        "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+        "lane_index": "4",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_surface_screen_v1",
+        "role": "reviewer",
+        "task_id": "batch-70b2fb0f42f8ef39e0f4"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "0cbc8172bac4b6bb96ffabfb42bbccf4f2818035e49cb2ce3587e0248986d05f",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:13:34.543820+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6-astra"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "c0e87eee-3ee9-469d-a75f-6fbf0d91fe42",
+        "complete_line": 29,
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 26,
+        "first_live_capture_sha256": "aed08012584edd880396cccf6c2a902785be58bf63e998aabae50435bcdeda93",
+        "input_sha256": "c12c8ca29983fdf854cf547199d40133bfc82cec03ba6d60754044a7ee9dc776",
+        "key": "batch-70b2fb0f42f8ef39e0f4|lane-000-3",
+        "labels": {
+          "candidate_identity": "ce45167ae57b226a3b12ce8e1d80627d2f7227e441087791ad6cdc093cfc5ec7",
+          "dispatch_id": "lane-000-3",
+          "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+          "lane_index": "4",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_surface_screen_v1",
+          "role": "reviewer",
+          "task_id": "batch-70b2fb0f42f8ef39e0f4"
+        },
+        "message_id": "msg_0004620630c06b2d016aa89bda5dfc87d29d813b28dfce6b7a",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "prompt_line": 10,
+        "prompt_sha256": "4317cc0758ba1769f4ded29c10b3edb782151905ab76d62c882e00b0708920b9",
+        "provider": "codex",
+        "raw_bytes": 2551,
+        "raw_sha256": "0cbc8172bac4b6bb96ffabfb42bbccf4f2818035e49cb2ce3587e0248986d05f",
+        "schema_version": 1,
+        "session_id": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798",
+        "source_bytes": 183226,
+        "source_lines": 29,
+        "source_path": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-13-30-01a0a2a0-526c-7ff2-8cf1-aba01a4a1798.jsonl",
+        "source_sha256": "e30cd6aa9557a118d65be57868351ced0892b6e2c469304131578c62fe1f9305",
+        "terminal_capture_sha256": "50ba48f9c95fcb18664acf218e95b485cac3aed194416dade32fdbd8094295fd",
+        "turn_id": "01a0a2a0-52a7-7462-b09a-890b28f8fdfa",
+        "version": "0.153.0",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:13:31.052Z",
+            "turnId": "codex-turn-0"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:13:30.980Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "c0e87eee-3ee9-469d-a75f-6fbf0d91fe42",
+          "labels": {
+            "candidate_identity": "ce45167ae57b226a3b12ce8e1d80627d2f7227e441087791ad6cdc093cfc5ec7",
+            "dispatch_id": "lane-000-3",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "4",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUserMessageAt": null,
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation"
+            },
+            "provider": "codex",
+            "sessionId": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798"
+          },
+          "provider": "codex",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798",
+            "thinkingOptionId": "high"
+          },
+          "status": "running",
+          "thinkingOptionId": "high",
+          "title": "lane-000-3",
+          "updatedAt": "2026-09-15T01:13:31.066Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:14:33.912Z",
+          "availableModes": [
+            {
+              "description": "Edit files and run commands with Codex's default approval flow.",
+              "id": "auto",
+              "label": "Default Permissions"
+            },
+            {
+              "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+              "id": "auto-review",
+              "label": "Auto-review"
+            },
+            {
+              "description": "Edit files, run commands, and access the network without additional prompts.",
+              "id": "full-access",
+              "label": "Full Access"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": false,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": false,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": false,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:13:30.980Z",
+          "currentModeId": "auto-review",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "high",
+          "features": [
+            {
+              "description": "Switch Codex into planning-only collaboration mode",
+              "icon": "list-todo",
+              "id": "plan_mode",
+              "label": "Plan",
+              "tooltip": "Toggle plan mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "c0e87eee-3ee9-469d-a75f-6fbf0d91fe42",
+          "labels": {
+            "candidate_identity": "ce45167ae57b226a3b12ce8e1d80627d2f7227e441087791ad6cdc093cfc5ec7",
+            "dispatch_id": "lane-000-3",
+            "lane_group_identity": "7222f410955c74186222732445307f37a9ad3b14b4586f28dfb341c033d35198",
+            "lane_index": "4",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_surface_screen_v1",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 27520,
+            "contextWindowMaxTokens": 258400,
+            "contextWindowUsedTokens": 30251,
+            "inputTokens": 29207,
+            "outputTokens": 1044
+          },
+          "lastUserMessageAt": "2026-09-15T01:13:36.211Z",
+          "model": "gpt-6-astra",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "modeId": "auto-review",
+              "model": "gpt-6-astra",
+              "provider": "codex",
+              "thinkingOptionId": "high",
+              "threadId": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798",
+              "title": "lane-000-3"
+            },
+            "nativeHandle": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798",
+            "provider": "codex",
+            "sessionId": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798"
+          },
+          "provider": "codex",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "collaborationMode": "Default"
+            },
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "provider": "codex",
+            "sessionId": "01a0a2a0-526c-7ff2-8cf1-aba01a4a1798",
+            "thinkingOptionId": "high"
+          },
+          "status": "idle",
+          "thinkingOptionId": "high",
+          "title": "lane-000-3",
+          "updatedAt": "2026-09-15T01:14:33.913Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:15:12.898Z",
+      "archive_attempts_started": 1
+    },
+    {
+      "task_id": "batch-70b2fb0f42f8ef39e0f4-contextual-000",
+      "dispatch_id": "full-000",
+      "agent_id": "f58b9759-b20e-4333-869f-b92307bc06b5",
+      "purpose": "translation_contextual_v2",
+      "role": "REVIEWER",
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+      "attempt": 1,
+      "candidate_identity": "a7aa373f049ab2d34625859076995995fb26c0a4f9a15cceb00107562c0d6021",
+      "input_path": ".ai/task/batch-70b2fb0f42f8ef39e0f4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+      "input_sha256": "00eac09f3f673175f730fe073f3f35947db962c859af678acdd54669daae426a",
+      "group_manifest_path": null,
+      "group_manifest_sha256": null,
+      "lane_group_identity": null,
+      "labels": {
+        "candidate_identity": "a7aa373f049ab2d34625859076995995fb26c0a4f9a15cceb00107562c0d6021",
+        "dispatch_id": "full-000",
+        "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "purpose": "translation_contextual_v2",
+        "role": "reviewer",
+        "task_id": "batch-70b2fb0f42f8ef39e0f4-contextual-000"
+      },
+      "output_valid": true,
+      "validation_state": "completed",
+      "validation_error": null,
+      "raw_output_sha256": "263ff113c96e00142b45c6a6fe5fedbf50a743e7fde12fb48df34dd8a8ef2d95",
+      "runtime_observation": {
+        "capture_status": "captured",
+        "captured_at": "2026-09-15T01:19:13.998370+00:00",
+        "mode": {
+          "presence": "present",
+          "value": "auto"
+        },
+        "model": {
+          "presence": "present",
+          "value": "claude-opus-5"
+        },
+        "provider": {
+          "presence": "present",
+          "value": "claude"
+        },
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      },
+      "native_provenance": {
+        "agent_id": "f58b9759-b20e-4333-869f-b92307bc06b5",
+        "ai_title_present": false,
+        "complete_line": 48,
+        "completion_basis": "natural_success",
+        "cwd": "/workspace/tome4-chinese-translation",
+        "final_line": 48,
+        "first_live_capture_sha256": "9127f8b92c8d0cc1ec9e5e745200e1574ae010da8c73b2745617f919e410e06c",
+        "input_sha256": "00eac09f3f673175f730fe073f3f35947db962c859af678acdd54669daae426a",
+        "key": "batch-70b2fb0f42f8ef39e0f4-contextual-000|full-000",
+        "labels": {
+          "candidate_identity": "a7aa373f049ab2d34625859076995995fb26c0a4f9a15cceb00107562c0d6021",
+          "dispatch_id": "full-000",
+          "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+          "purpose": "translation_contextual_v2",
+          "role": "reviewer",
+          "task_id": "batch-70b2fb0f42f8ef39e0f4-contextual-000"
+        },
+        "last_prompt_present": false,
+        "leaf_uuid": "a6a34b4d-b0b4-4e82-bd56-05c00885e88a",
+        "message_id": "msg_011Cf4M4QgpmwVjWAfXvjYSS",
+        "message_uuid": "a6a34b4d-b0b4-4e82-bd56-05c00885e88a",
+        "parent_agent_id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+        "parent_uuid": "4ebc4136-aa71-4472-b7a4-50b1ed9f6ae4",
+        "prompt_line": 3,
+        "prompt_sha256": "59d9771ad4b67b0bb3a1c6e924a21020068f1567e1fed7afb991b612b0c6e229",
+        "provider": "claude",
+        "raw_bytes": 4204,
+        "raw_sha256": "263ff113c96e00142b45c6a6fe5fedbf50a743e7fde12fb48df34dd8a8ef2d95",
+        "schema_version": 1,
+        "session_id": "711ff04a-fbc4-49a8-b9f2-968203100de5",
+        "source_bytes": 187590,
+        "source_lines": 48,
+        "source_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/711ff04a-fbc4-49a8-b9f2-968203100de5.jsonl",
+        "source_sha256": "d918230250810b9e620bb198f9f5b120dc4050c932bb98d066abe297f9a53db6",
+        "terminal_capture_sha256": "31b2d988e1eca28cd1832407f06e6b79817c09d7232b61be5829193e1a0d5ee3",
+        "version": "2.1.259",
+        "workspace_id": "wks_420314270844170b"
+      },
+      "first_live_capture": {
+        "snapshot": {
+          "activeTurn": {
+            "startedAt": "2026-09-15T01:19:07.057Z",
+            "turnId": "foreground-turn-1"
+          },
+          "attentionReason": null,
+          "attentionTimestamp": null,
+          "availableModes": [
+            {
+              "description": "Analyze the codebase without executing tools or edits",
+              "id": "plan",
+              "label": "Plan Mode"
+            },
+            {
+              "description": "Prompts for permission the first time a tool is used",
+              "id": "default",
+              "label": "Always Ask"
+            },
+            {
+              "description": "Automatically approves edit-focused tools without prompting",
+              "id": "acceptEdits",
+              "label": "Accept File Edits"
+            },
+            {
+              "description": "Uses a model classifier to review permission prompts automatically",
+              "id": "auto",
+              "label": "Auto mode"
+            },
+            {
+              "description": "Skip all permission prompts (use with caution)",
+              "id": "bypassPermissions",
+              "label": "Bypass"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": true,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": true,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": true,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:19:06.060Z",
+          "currentModeId": "auto",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "medium",
+          "features": [
+            {
+              "description": "Lower latency Opus responses at higher token cost",
+              "icon": "zap",
+              "id": "fast_mode",
+              "label": "Fast",
+              "tooltip": "Toggle fast mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "f58b9759-b20e-4333-869f-b92307bc06b5",
+          "labels": {
+            "candidate_identity": "a7aa373f049ab2d34625859076995995fb26c0a4f9a15cceb00107562c0d6021",
+            "dispatch_id": "full-000",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_contextual_v2",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4-contextual-000"
+          },
+          "lastUsage": {
+            "contextWindowMaxTokens": 1000000,
+            "contextWindowUsedTokens": 25467
+          },
+          "lastUserMessageAt": "2026-09-15T01:19:07.058Z",
+          "model": "claude-opus-5",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "featureValues": {
+                "fast_mode": false
+              },
+              "modeId": "auto",
+              "model": "claude-opus-5",
+              "provider": "claude",
+              "thinkingOptionId": "medium",
+              "title": "full-000"
+            },
+            "nativeHandle": "711ff04a-fbc4-49a8-b9f2-968203100de5",
+            "provider": "claude",
+            "sessionId": "711ff04a-fbc4-49a8-b9f2-968203100de5"
+          },
+          "provider": "claude",
+          "requiresAttention": false,
+          "runtimeInfo": {
+            "modeId": "auto",
+            "model": null,
+            "provider": "claude",
+            "sessionId": null
+          },
+          "status": "running",
+          "thinkingOptionId": "medium",
+          "title": "full-000",
+          "updatedAt": "2026-09-15T01:19:12.192Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "running"
+      },
+      "terminal_capture": {
+        "snapshot": {
+          "activeTurn": null,
+          "attentionReason": "finished",
+          "attentionTimestamp": "2026-09-15T01:21:19.554Z",
+          "availableModes": [
+            {
+              "description": "Analyze the codebase without executing tools or edits",
+              "id": "plan",
+              "label": "Plan Mode"
+            },
+            {
+              "description": "Prompts for permission the first time a tool is used",
+              "id": "default",
+              "label": "Always Ask"
+            },
+            {
+              "description": "Automatically approves edit-focused tools without prompting",
+              "id": "acceptEdits",
+              "label": "Accept File Edits"
+            },
+            {
+              "description": "Uses a model classifier to review permission prompts automatically",
+              "id": "auto",
+              "label": "Auto mode"
+            },
+            {
+              "description": "Skip all permission prompts (use with caution)",
+              "id": "bypassPermissions",
+              "label": "Bypass"
+            }
+          ],
+          "capabilities": {
+            "supportsDynamicModes": true,
+            "supportsMcpServers": true,
+            "supportsReasoningStream": true,
+            "supportsRewindBoth": true,
+            "supportsRewindConversation": true,
+            "supportsRewindFiles": true,
+            "supportsSessionListing": true,
+            "supportsSessionPersistence": true,
+            "supportsStreaming": true,
+            "supportsToolInvocations": true
+          },
+          "createdAt": "2026-09-15T01:19:06.060Z",
+          "currentModeId": "auto",
+          "cwd": "/workspace/tome4-chinese-translation",
+          "effectiveThinkingOptionId": "medium",
+          "features": [
+            {
+              "description": "Lower latency Opus responses at higher token cost",
+              "icon": "zap",
+              "id": "fast_mode",
+              "label": "Fast",
+              "tooltip": "Toggle fast mode",
+              "type": "toggle",
+              "value": false
+            }
+          ],
+          "id": "f58b9759-b20e-4333-869f-b92307bc06b5",
+          "labels": {
+            "candidate_identity": "a7aa373f049ab2d34625859076995995fb26c0a4f9a15cceb00107562c0d6021",
+            "dispatch_id": "full-000",
+            "paseo.parent-agent-id": "59a2d44e-abc3-4af2-b92a-6b0df907a22c",
+            "purpose": "translation_contextual_v2",
+            "role": "reviewer",
+            "task_id": "batch-70b2fb0f42f8ef39e0f4-contextual-000"
+          },
+          "lastUsage": {
+            "cachedInputTokens": 215817,
+            "contextWindowMaxTokens": 1000000,
+            "contextWindowUsedTokens": 51273,
+            "inputTokens": 14,
+            "outputTokens": 7162,
+            "totalCostUsd": 0.6238435000000001
+          },
+          "lastUserMessageAt": "2026-09-15T01:19:07.058Z",
+          "model": "claude-opus-5",
+          "pendingPermissions": [],
+          "persistence": {
+            "metadata": {
+              "cwd": "/workspace/tome4-chinese-translation",
+              "featureValues": {
+                "fast_mode": false
+              },
+              "modeId": "auto",
+              "model": "claude-opus-5",
+              "provider": "claude",
+              "thinkingOptionId": "medium",
+              "title": "full-000"
+            },
+            "nativeHandle": "711ff04a-fbc4-49a8-b9f2-968203100de5",
+            "provider": "claude",
+            "sessionId": "711ff04a-fbc4-49a8-b9f2-968203100de5"
+          },
+          "provider": "claude",
+          "requiresAttention": true,
+          "runtimeInfo": {
+            "extra": {
+              "runtimeModel": "claude-opus-5"
+            },
+            "modeId": "auto",
+            "model": "claude-opus-5",
+            "provider": "claude",
+            "sessionId": "711ff04a-fbc4-49a8-b9f2-968203100de5"
+          },
+          "status": "idle",
+          "thinkingOptionId": "medium",
+          "title": "full-000",
+          "updatedAt": "2026-09-15T01:21:19.555Z",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "status": "idle"
+      },
+      "archive_confirmed": true,
+      "archived_at": "2026-09-15T01:22:00.188Z",
+      "archive_attempts_started": 1
+    }
+  ],
+  "artifacts": [
+    {
+      "source": ".artifacts/i18n/batch141-orchestration/surface-wire/raw/batch-70b2fb0f42f8ef39e0f4/lane-000-0.raw",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/lane-000-0.raw",
+      "sha256": "907db3cd0adc7ed18c52ec2dc39d56a278e489b7b86d8792179021edae4d59e1"
+    },
+    {
+      "source": ".artifacts/i18n/batch141-orchestration/surface-wire/raw/batch-70b2fb0f42f8ef39e0f4/lane-000-1.raw",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/lane-000-1.raw",
+      "sha256": "f72a93f7e3857439c0ab6292ba2c582461f36e607ee803bb98d7107a574bf482"
+    },
+    {
+      "source": ".artifacts/i18n/batch141-orchestration/surface-wire/raw/batch-70b2fb0f42f8ef39e0f4/lane-000-2.raw",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/lane-000-2.raw",
+      "sha256": "e39a377d1dd27f7f48c58b44e83650135f30c39aa9037c6c82c4d37539119aac"
+    },
+    {
+      "source": ".artifacts/i18n/batch141-orchestration/surface-wire/raw/batch-70b2fb0f42f8ef39e0f4/lane-000-3.raw",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/lane-000-3.raw",
+      "sha256": "0cbc8172bac4b6bb96ffabfb42bbccf4f2818035e49cb2ce3587e0248986d05f"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/STATE.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/STATE.json",
+      "sha256": "984fc188d9edcc5ee524fc71779347744a4c5ffaf450396fffe096842645b04c"
+    },
+    {
+      "source": ".ai/reviews/batch-70b2fb0f42f8ef39e0f4/lane-000-0.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/records/lane-000-0.json",
+      "sha256": "3c78d49a6e38615ab92f957f615eb165f4bb9ce973149578b921a06816f17aa6"
+    },
+    {
+      "source": ".ai/reviews/batch-70b2fb0f42f8ef39e0f4/lane-000-1.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/records/lane-000-1.json",
+      "sha256": "92f63bc0757db41c30d5c4cfd538c71d2f37910abab6d4bced984836896e277b"
+    },
+    {
+      "source": ".ai/reviews/batch-70b2fb0f42f8ef39e0f4/lane-000-2.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/records/lane-000-2.json",
+      "sha256": "f3c25000d52b7ccf52a56bcecc2a1ddcc83e1ee9e175d26a6d4b17517c99d4d8"
+    },
+    {
+      "source": ".ai/reviews/batch-70b2fb0f42f8ef39e0f4/lane-000-3.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/records/lane-000-3.json",
+      "sha256": "0d194fd87d9fa89835c7feade300638ee5bd2e06ea051b3a1f5180d30c9afda5"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-GROUP-group-000.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/SURFACE-SCREEN-GROUP-group-000.json",
+      "sha256": "56fb8ef6b8ae8b44c415eefbf7d07c25023e3ade800f9a532c43c1534a5e855f"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-INPUT-DRAFT.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/INPUT-DRAFT.json",
+      "sha256": "ce3d70bf0de2bb90de694ea0381c8fbfb2038422a7bd4326857144936d9902c2"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+      "sha256": "81b7915a35ba3cdb414d59c7b1ec4b2c4a76d6ff4f5dfb2bde606a3a4a0075e2"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+      "sha256": "b00a602478c475c3e538bfc6e9c7c4b2e3b1c8cbd86aca32f70621271c57668b"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+      "sha256": "d4f77dcb576262bf468e507f00fb3f194206e74784fd7c038dcff781005a9bd0"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface/inputs/SURFACE-SCREEN-ENVELOPE-lane-000-3.json",
+      "sha256": "c12c8ca29983fdf854cf547199d40133bfc82cec03ba6d60754044a7ee9dc776"
+    },
+    {
+      "source": ".artifacts/i18n/batch141-orchestration/contextual-wire/raw/batch-70b2fb0f42f8ef39e0f4-contextual-000/full-000.raw",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/contextual/full-000.raw",
+      "sha256": "263ff113c96e00142b45c6a6fe5fedbf50a743e7fde12fb48df34dd8a8ef2d95"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4-contextual-000/STATE.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/contextual/STATE.json",
+      "sha256": "82257c98e7de69cbf5ea17659b0a5351f890b0f62559067e3cbbcae1a04ef5e2"
+    },
+    {
+      "source": ".ai/reviews/batch-70b2fb0f42f8ef39e0f4-contextual-000/full-000.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/contextual/records/full-000.json",
+      "sha256": "ac8a0e6332d967a2567b8ac9fca7e26959f73b9f5f075584c22e84aa62de508f"
+    },
+    {
+      "source": ".ai/task/batch-70b2fb0f42f8ef39e0f4-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/contextual/inputs/CONTEXTUAL-ENVELOPE-final-full.json",
+      "sha256": "00eac09f3f673175f730fe073f3f35947db962c859af678acdd54669daae426a"
+    },
+    {
+      "source": "/workspace/tome4-chinese-translation/.artifacts/i18n/batch141-orchestration/surface-native-tool-audit.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/surface-native-tool-audit.json",
+      "sha256": "ea995b6d2200259dc343d95d80524dabed710e21607a023ee98f55fae08233a4"
+    },
+    {
+      "source": "/workspace/tome4-chinese-translation/.artifacts/i18n/batch141-orchestration/contextual-tool-audit.json",
+      "evidence": "evidence/quality/production-batches/batch-70b2fb0f42f8ef39e0f4-host-review/contextual-tool-audit.json",
+      "sha256": "53ab206bd8b0cdbcf849b9df5b5e79093c1e16fb3aee6689c09aadd3f18accf2"
+    }
+  ]
+}

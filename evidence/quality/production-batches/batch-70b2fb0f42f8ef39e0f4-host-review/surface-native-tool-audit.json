@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-11-37-01a0a29e-95af-7b70-aa76-3f36f0996fa7.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('docs/paseo-translation-surface-screen-v1-contract.md')\\ns=p.read_text()\\nlines=s.splitlines()\\nheads=[(i,l) for i,l in enumerate(lines) if l.startswith('## ')]\\nfor n,(i,l) in enumerate(heads):\\n if l.startswith('## 6') or '第六节' in l or l.startswith('## 六'):\\n  end=heads[n+1][0] if n+1<len(heads) else len(lines)\\n  print('\\\\n'.join(lines[i:end]))\\nprint(Path('.ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nPY\",\"max_output_tokens\":16000}));",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\ne=json.loads(Path('.ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-0.json').read_text())\\nissues={0:'shattered 表示碎裂，译为“被压爆”改变了破碎方式，额外引入受压爆裂的含义。',18:'漏译 Twisted，将特指的 Twisted Anomaly 简化为普通“异常”。'}\\nr=[]\\nfor i,entry in enumerate(e['payload']['entries']):\\n item={'entry_revision_identity':entry['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n if i in issues:item['observation']=issues[i]\\n r.append(item)\\nassert len(r)==len(e['payload']['entries'])==20\\nassert len({x['entry_revision_identity'] for x in r})==20\\nfor item,entry in zip(r,e['payload']['entries']):\\n assert item['entry_revision_identity']==entry['entry_revision_identity']\\n assert len(item['entry_revision_identity'])==64\\nassert e['candidate_identity']=='e90eeedeb77a82455d01ce9a62b4d6e741fe356340fa235064b5477a1b310449'\\nprint(json.dumps({'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':r},ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":4000}));",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-11-57-01a0a29e-e523-7bd3-bc7e-35fc88304b82.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"max_output_tokens\":16000}));\ntext(await tools.exec_command({cmd:\"awk '/^## 六/{p=1} p{print} /^## 七/{exit}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-1.json').read_text())\\nentries=p['payload']['entries']\\nresults=[]\\nfor i,e in enumerate(entries):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'}\\n    if i==3:\\n        r.update(verdict='ISSUE',observation='原文限定为直接治疗（direct healing），译文“所有受到的治疗”遗漏该限定，扩大了适用范围。')\\n    results.append(r)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(entries)==len(results)==20\\nassert len({r['entry_revision_identity'] for r in results})==20\\nassert all(r['entry_revision_identity']==e['entry_revision_identity'] and len(r['entry_revision_identity'])==64 for r,e in zip(results,entries))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":3000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-12-18-01a0a29f-3840-72c1-a613-9aa1d1bf2d1c.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"cat .ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":16000}));\ntext(await tools.exec_command({cmd:\"rg -n '^#{1,4} ' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":3000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=json.loads(Path('.ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nissues={5:'译文在“测试一下”后新增段内换行，结尾由两个换行变为三个换行，与原文格式不符。',11:'burglary 表示盗窃行为，译为“盗贼”变成了实施行为的人。'}\\nresults=[]\\nfor i,e in enumerate(p['payload']['entries']):\\n    r={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in issues else 'OK'}\\n    if i in issues:r['observation']=issues[i]\\n    results.append(r)\\nout={'candidate_identity':p['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nexpected=[e['entry_revision_identity'] for e in p['payload']['entries']]\\nactual=[e['entry_revision_identity'] for e in out['results']]\\nassert len(expected)==len(actual)==20\\nassert len(set(actual))==20\\nassert all(a==b and len(a)==64 for a,b in zip(actual,expected))\\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\\nPY\",\"max_output_tokens\":5000}));\n",
+          "arguments": null
+        }
+      ]
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/15/rollout-2026-09-15T01-13-30-01a0a2a0-526c-7ff2-8cf1-aba01a4a1798.jsonl",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"cat .ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"max_output_tokens\":18000});text(r.output);\nconst s = await tools.exec_command({cmd:\"awk '/^## 六/{p=1} p{print} p && /^## / && !/^## 六/{exit}' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":6000});text(s.output);\n",
+          "arguments": null
+        },
+        {
+          "type": "custom_tool_call",
+          "name": "exec",
+          "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nwith open('.ai/task/batch-70b2fb0f42f8ef39e0f4/SURFACE-SCREEN-ENVELOPE-lane-000-3.json', encoding='utf-8') as f:\\n    envelope=json.load(f)\\nentries=envelope['payload']['entries']\\nresults=[]\\nfor i,entry in enumerate(entries):\\n    row={'entry_revision_identity':entry['entry_revision_identity'],'verdict':'OK'}\\n    if i==10:\\n        row.update(verdict='ISSUE',observation='原文最多同时控制 %d 个骷髅，译文改为最多掌控 %d 个骷髅战士，错误缩小了上限涵盖的单位范围；召唤数量的“Up to”也被漏译为固定数量。')\\n    results.append(row)\\noutput={'candidate_identity':envelope['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nserialized=json.dumps(output,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nparsed=json.loads(serialized)\\nassert len(entries)==len(parsed['results'])==20\\nassert len({r['entry_revision_identity'] for r in parsed['results']})==20\\nfor entry,row in zip(entries,parsed['results']):\\n    assert len(row['entry_revision_identity'])==64\\n    assert row['entry_revision_identity']==entry['entry_revision_identity']\\nprint(serialized,end='')\\nPY\",\"max_output_tokens\":3500}));\n",
+          "arguments": null
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "host_conclusion": "All nine custom tool calls inspected. Each child reads only own frozen envelope and contract section six/headings; constructs JSON in memory/stdout. No unrelated reads or persistent writes."
+}
