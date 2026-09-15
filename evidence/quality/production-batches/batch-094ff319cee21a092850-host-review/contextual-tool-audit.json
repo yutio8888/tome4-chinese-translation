@@ -1,0 +1,79 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/171883a3-4d66-443e-abac-7fdac0ad85fc.jsonl",
+  "tool_call_count": 14,
+  "A_locale_or_translation_reads": [],
+  "B_git_grep_total": 0,
+  "B_git_grep_without_exclusion": [],
+  "C_engine_access_not_pinned": [],
+  "D_write_attempts": [],
+  "E_other_ai_paths": [],
+  "all_calls": [
+    {
+      "name": "Bash",
+      "arg": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json"
+    },
+    {
+      "name": "Bash",
+      "arg": "cat docs/paseo-translation-context-review-v2-contract.md"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint('=== BRIEFING ===')\nprint(p['rendered_briefing'])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nks=p['ordered_revision_keys']\nfor i,(k,t,b) in enumerate(zip(ks,p['translation_snapshot'],p['bounded_context'])):\n    print('###',i,k)\n    print('--- translation:'); print(json.dumps(t,ensure_ascii=False,indent=1))\n    print('--- bounded:'); print(json.dumps(b,ensure_ascii=False,indent=1))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('###',i)\n    print('SRC:',t['source'])\n    print('TGT:',t['target'])\n    print()\nprint('=== TERMINOLOGY ===')\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:4000])\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=b['context']\n    head,_,rest=c.partition('source_facts_v1:')\n    print('###',i,'HEAD:',repr(head))\n    f=json.loads(rest)\n    for a in f['fact'].get('anchors',[]):\n        print('  anchor',a['repository'],a['public_source_path'],a['kind'],a.get('matching_lines'),a['commit'][:8])\n    print('  factkeys',list(f['fact'].keys()))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    f=json.loads(b['context'].partition('source_facts_v1:')[2])['fact']\n    g={k:v for k,v in f.items() if k!='anchors'}\n    print('###',i,json.dumps(g,ensure_ascii=False))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i in [0,2,3,5,6,7]:\n    f=json.loads(p['bounded_context'][i]['context'].partition('source_facts_v1:')[2])['fact']\n    print('###',i)\n    for a in f['anchors']:\n        for s in a['snippet']:\n            print(('*' if s['is_match'] else ' '),s['line'],s['text'])\n    print()\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/other.lua | sed -n '40,82p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/egos/shield.lua | sed -n '415,445p'; echo ====; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/reflexes.lua | sed -n '85,121p'; echo ====; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/birth/classes/mage.lua | sed -n '135,155p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | sed -n '55,70p'"
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    s,g=t['source'],t['target']\n    print(i,'srcNL',s.count(chr(10)),'tgtNL',g.count(chr(10)),'srcTab',s.count(chr(9)),'tgtTab',g.count(chr(9)))\nprint(repr(p['translation_snapshot'][6]['source']))\nprint(repr(p['translation_snapshot'][6]['target']))\n\""
+    },
+    {
+      "name": "Bash",
+      "arg": "python3 -c \"\nimport json,difflib\nd=json.load(open('.ai/task/batch-094ff319cee21a092850-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nt=p['translation_snapshot'][1]\ns=t['source'].split(chr(10)); g=t['target'].split(chr(10))\nfor i in range(max(len(s),len(g))):\n    print(i,'|S|',repr(s[i])[:60] if i<len(s) else None)\n    print(i,'|T|',repr(g[i])[:60] if i<len(g) else None)\nprint('---8---')\nprint(repr(p['translation_snapshot'][8]['source'][-40:]))\nprint(repr(p['translation_snapshot'][8]['target'][-40:]))\n\""
+    }
+  ],
+  "F_full_translation_read": {
+    "status": "PASS",
+    "count": 9,
+    "native_tool_result": "toolu_01T97XARbcWqiAf3Nxc4ZE9u",
+    "method": "Host verified every full source and target string in untruncated tool result; ordered revision keys separately read by toolu_01TChXNz1Ee22YGarLVFV4zy."
+  },
+  "G_source_context_read": {
+    "status": "PASS",
+    "assessment": "Host read all 14 complete Bash calls. Frozen bounded context initially dumped then metadata and selected anchors expanded (indices 0,2,3,5,6,7). Pinned psionic, shield ego, reflexes, mage, lore source reads plus direct newline counts. Initial large dump not claimed fully visible; subsequent focused reads support reported findings. No writes, other task reads, locale reads or repository scans."
+  },
+  "host_status": "PASS"
+}
