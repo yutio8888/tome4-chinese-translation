@@ -1,0 +1,15 @@
+{
+  "rejected_call": {
+    "content": [
+      {
+        "type": "text",
+        "text": "This action was rejected due to unacceptable risk.\nReason: Automatic approval review failed: Selected model is at capacity. Please try a different model.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
+      }
+    ],
+    "isError": true
+  },
+  "operation": "mcp list_workspaces",
+  "check": "Tool metadata and Paseo SKILL.md line 26 both define read-only listing of active workspaces; no file or remote mutation. Existing continuous review authorization requires workspace identity binding.",
+  "resolution": "Same read-only MCP operation retried after verification; succeeded and unique cwd confirmed. No transport workaround or bypass.",
+  "blocked": false
+}
