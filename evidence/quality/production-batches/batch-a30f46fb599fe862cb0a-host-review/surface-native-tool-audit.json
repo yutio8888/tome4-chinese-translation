@@ -1,0 +1,122 @@
+{
+ "batch_id": "batch-a30f46fb599fe862cb0a",
+ "status": "PASS",
+ "reviews": [
+  {
+   "dispatch_id": "lane-000-0",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T03-57-28-01a0a85c-c8dd-74a0-b3b5-a9ba45bc77dc.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_01e9f07cfb0d521b016aaa13b1111887d28854de31d94766ce",
+     "status": "completed",
+     "call_id": "call_rK3WK2k7AYgRZCy6LrF72anN",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '/^## 六、/,/^## 七、/p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-c91a-7de1-aae3-04e1d0a01539",
+      "create_time": 1789531053.784722
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_01e9f07cfb0d521b016aaa13cdf9f087d2bedbaf06bf75a6c4",
+     "status": "completed",
+     "call_id": "call_ZAA53THpkIF49rymZyMxA2KR",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nimport json\\np='.ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nwith open(p,encoding='utf-8') as f: e=json.load(f)\\nissues={\\n'862d4092b37f682428918fcc5a565bcd1a6000edabf129dd8cef6003d76288a5':'将 slime mold（黏菌）误译为史莱姆，物种含义改变'\\n}\\nresults=[]\\nfor x in e['payload']['entries']:\\n d={'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'}\\n if x['entry_revision_identity'] in issues:\\n  d['observation']=issues[x['entry_revision_identity']]\\n  d['verdict']='ISSUE'\\n results.append(d)\\nout={'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nassert len(results)==20\\nassert [x['entry_revision_identity'] for x in results]==[x['entry_revision_identity'] for x in e['payload']['entries']]\\nassert len(set(x['entry_revision_identity'] for x in results))==20\\nassert all(len(x['entry_revision_identity'])==64 for x in results)\\nprint(s,end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-c91a-7de1-aae3-04e1d0a01539",
+      "create_time": 1789531059.738443
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-1",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T03-57-29-01a0a85c-ccea-7f02-8561-d18c37014564.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0135779b6d3d3819016aaa13b297e087d28b5c6d974222e0d4",
+     "status": "completed",
+     "call_id": "call_aomsqqVd8unwidEaHE1Dl75N",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-cd28-74c1-b809-345b307d3823",
+      "create_time": 1789531054.794151
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0135779b6d3d3819016aaa13cbd0f087d295bb067f059dfb4c",
+     "status": "completed",
+     "call_id": "call_7KFUw27NEAk2O790siJPIR3n",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\n  cmd: \"python3 -c 'import json; p=\\\".ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\\\"; d=json.load(open(p,encoding=\\\"utf-8\\\")); o={\\\"candidate_identity\\\":d[\\\"candidate_identity\\\"],\\\"contract\\\":\\\"translation_surface_screen_v1\\\",\\\"results\\\":[{\\\"entry_revision_identity\\\":e[\\\"entry_revision_identity\\\"],\\\"verdict\\\":\\\"OK\\\"} for e in d[\\\"payload\\\"][\\\"entries\\\"]]}; assert len(o[\\\"results\\\"])==20 and len({x[\\\"entry_revision_identity\\\"] for x in o[\\\"results\\\"]})==20 and all(len(x[\\\"entry_revision_identity\\\"])==64 for x in o[\\\"results\\\"]); print(json.dumps(o,ensure_ascii=False,separators=(\\\",\\\",\\\":\\\"),sort_keys=True))'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 10000\n});\ntext(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-cd28-74c1-b809-345b307d3823",
+      "create_time": 1789531061.285349
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-2",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T03-57-30-01a0a85c-d100-7581-b477-f38c849bbae0.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0fef03450ad25199016aaa13b44f9087d28d042111aca7611a",
+     "status": "completed",
+     "call_id": "call_9stH22D1yPJNwBYBGyujBZYV",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '/^## 六/,$p' docs/paseo-translation-surface-screen-v1-contract.md | sed -n '1,/^## 七/p'\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nprint(Path('.ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-2.json').read_text())\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-d13e-73a0-90c3-4db6442fd137",
+      "create_time": 1789531056.651474
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0fef03450ad25199016aaa13d0760487d2a1588c85237171f5",
+     "status": "completed",
+     "call_id": "call_x5VtDF6rD1XzQzDE288VfWqy",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'\\nwith open(p,encoding='utf-8') as f: e=json.load(f)\\nissues={\\n'869a8d378198d48ab64b9935d12cec2a3bab091c362c0b7b8c576315f97875e9':'译文比原文多出一处换行及制表符',\\n'86c40dc2f90d4b829e9111279e109296886cf9495eae875e9772c4399e41570c':'将“对魔法的恐惧”误译成“有关魔法的恐怖”',\\n}\\nresults=[]\\nfor x in e['payload']['entries']:\\n d={'entry_revision_identity':x['entry_revision_identity']}\\n if x['entry_revision_identity'] in issues:\\n  d['observation']=issues[x['entry_revision_identity']];d['verdict']='ISSUE'\\n else:d['verdict']='OK'\\n results.append(d)\\nout={'candidate_identity':e['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\nassert len(results)==20\\nassert [x['entry_revision_identity'] for x in results]==[x['entry_revision_identity'] for x in e['payload']['entries']]\\ns=json.dumps(out,ensure_ascii=False,separators=(',',':'),sort_keys=True)\\nassert s==json.dumps(json.loads(s),ensure_ascii=False,separators=(',',':'),sort_keys=True)\\nprint(s,end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85c-d13e-73a0-90c3-4db6442fd137",
+      "create_time": 1789531062.820555
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-3",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T03-58-45-01a0a85d-f89b-7711-b5e5-f73fd967fa29.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0d1035f7a7a35ad9016aaa13fd9a0487d2a4d183287eaffff9",
+     "status": "completed",
+     "call_id": "call_0VpckAJd2Vd4BCCVrfUJ1QqO",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' .ai/task/batch-a30f46fb599fe862cb0a/SURFACE-SCREEN-ENVELOPE-lane-000-3.json && sed -n '/^## 六、/,/^## 七、/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a85d-f8d7-7842-8ef5-2cbebaae579b",
+      "create_time": 1789531131.175499
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  }
+ ]
+}
