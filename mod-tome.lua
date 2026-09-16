@@ -3008,7 +3008,7 @@ t("Mages are the wielders of arcane powers, able to cast powerful spells of dest
 t("Golem", "傀儡", "birth facial category")
 t("Alchemist", "炼金术师", "birth descriptor name")
 t("An Alchemist is a manipulator of materials using magic.", "炼金术士使用魔法来操纵物质。", "_t")
-t("They do not use the forbidden arcane arts practised by the mages of old - such perverters of nature have been shunned or actively hunted down since the Spellblaze.", "他们不使用那些远古的被禁止的法术，那些法术自从魔法大爆炸之后就被人们禁止和追捕。", "_t")
+t("They do not use the forbidden arcane arts practised by the mages of old - such perverters of nature have been shunned or actively hunted down since the Spellblaze.", "他们不使用古代法师所施行的被禁止的奥术——自魔法大爆炸以来，这些扭曲自然的人一直被排斥甚至遭到追捕。", "_t")
 t("Alchemists can transmute gems to bring forth elemental effects, turning them into balls of fire, torrents of acid, and other effects.  They can also reinforce armour with magical effects using gems, and channel arcane staffs to produce bolts of energy.", "炼金术士可以将元素力量输入各种宝石，使它们变成火球、酸液和其他效果。另外他们也可以利用宝石来强化装甲并使用法杖发射能量球。", "_t")
 t("Though normally physically weak, most alchemists are accompanied by magical golems which they construct and use as bodyguards.  These golems are enslaved to their master's will, and can grow in power as their master advances through the arts.", "炼金术士自身非常脆弱，但是他们可以建造炼金傀儡来保护他们。傀儡服从主人的意志，并依靠主人来强化它们的力量。", "_t")
 t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔法和体质。", "_t")
@@ -3743,7 +3743,7 @@ t("Guts", "碎肉", "_t")
 t("Runes 1", "符文1", "_t")
 t("Runes 2", "符文2", "_t")
 t("Skeleton", "骷髅", "birth descriptor name")
-t("The marching bones, each step we rattle; but servants no more, we march to battle!", "行进之骨，咯吱有声；奴役不再，战士永存！", "_t")
+t("The marching bones, each step we rattle; but servants no more, we march to battle!", "行进之骨，咯吱有声；奴役不再，出征迎战！", "_t")
 t("Skeletons are animated bones, undead creatures both strong and dexterous.", "骷髅是由有灵性的骨头组成的强壮而敏捷的不死生物。", "_t")
 t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有#GOLD#特殊骷髅技能#WHITE#和一系列不死系技能：", "_t")
 t("- poison immunity", "- 毒素免疫", "_t")
@@ -4067,8 +4067,8 @@ t("AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBA
 t("I'M IN.", "我接受。", "_t")
 t("I CANNOT AID YOU AT THIS TIME.", "我没空帮你。", "_t")
 t([[#LIGHT_GREEN#*He hands you a slip of paper with the names and properties of some elixirs on it.*#WHITE#
-THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]], [[#LIGHT_GREEN#*他递给你一张写着药剂材料的纸片。*#WHITE#
-这些配方的材料算是商业机密，所以一次我只给你一个，然后我会告诉你怎么做。哦，等我做好以后一定会让你喝个够，这会令你大受裨益。好了，你现在选哪一个？你只要用手点一下这该死的列表就可以了，你说的话我一个字都没听见。但愿你不是站在那儿想向我推销什么东西。]], "_t")
+THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]], [[#LIGHT_GREEN#*他递给你一张写着药剂名称和特性的纸片。*#WHITE#
+这些配方的材料算是商业机密，所以一次我只给你一个，看看效果怎么样。哦，等我做好以后一定会让你喝个够，这会令你大受裨益。好了，你现在选哪一个？你只要用手点一下这该死的列表就可以了，你说的话我一个字都没听见。但愿你不是站在那儿想向我推销什么东西。]], "_t")
 t("[Indicate the %s.]", "[指向 %s.]", "tformat")
 t("HERE'S A LIST OF THE STUFF I NEED. MOST OF IT WILL TRY TO KILL YOU, SO I HOPE YOU'RE NOT INCOMPETENT. I'VE GOT PLENTY OF INCOMPETENT HELP ALREADY. I HOPE FOR YOUR SAKE THAT YOU'RE SMARTER AND FASTER THAN THEM.", "这里有一张我需要的材料清单，大多数材料拥有者可能会要了你的小命，但愿你没那么挫，我已经有一票挫子帮手了。希望你比他们要聪明，动作麻利点。", "_t")
 t("I'LL BE OFF.", "我走了。", "_t")
@@ -7978,9 +7978,9 @@ t("A snake-like being, moving toward you.", "像蛇一样的生物，径直朝�
 t("electric eel", "电鳗", "entity name")
 t("A snake-like being, radiating electricity.", "一个辐射出电流的蛇形生物。", "_t")
 t("dragon turtle", "龙龟", "entity name")
-t("A huge, elongated sea-green reptile.", "一只巨大、细长且泛着海蓝色的爬行动物。", "_t")
+t("A huge, elongated sea-green reptile.", "一只巨大、细长且泛着海绿色的爬行动物。", "_t")
 t("ancient dragon turtle", "远古龙龟", "entity name")
-t("A huge, elongated sea-green reptile, it looks old and impenetrable.", "一只巨大、细长泛着海蓝色的爬行动物。看上去苍老而结实。", "_t")
+t("A huge, elongated sea-green reptile, it looks old and impenetrable.", "一只巨大、细长且泛着海绿色的爬行动物。看上去苍老而结实。", "_t")
 t("squid", "乌贼", "entity name")
 t("Darting its many tentacles toward you, it tries to lock you down.", "它向你伸出触手，试图把你困住。", "_t")
 t("ink squid", "喷墨乌贼", "entity name")
@@ -8010,7 +8010,7 @@ t("It has come down from its cave foraging for food. Unfortunately, it found you
 t("war bear", "战熊", "entity name")
 t("Bears with tusks, trained to kill.", "带着獠牙的巨熊，被训练过杀人的技巧。", "_t")
 t("grizzly bear", "灰熊", "entity name")
-t("A huge, beastly bear, more savage than most of its kind.", "一头巨大的野兽，比同类更加凶残。", "_t")
+t("A huge, beastly bear, more savage than most of its kind.", "一头巨大而凶猛的熊，比同类更加凶残。", "_t")
 t("polar bear", "北极熊", "entity name")
 t("This huge white bear has wandered south in search of food.", "这只巨大的白熊正在向南寻找食物。", "_t")
 
@@ -9403,7 +9403,7 @@ t("Upon defeat, Ak'Gishil collapsed into this tiny rift. How it remains stable, 
 t("Blade of Distorted Time", "时光扭曲之刃", "entity name")
 t("time-warped sword", "扭曲时间的剑", "_t")
 t("The remnants of a damaged timeline, this blade shifts and fades at random.", "这把剑由一段损坏的时间线构成，它在不断的出入相位现实。", "_t")
-t("deals %d temporal damage and slows enemies in radius 6 of the target by %d%% based on Magic", "造成%d时空伤害，并使6码范围内的敌人减速%d%%（基于魔法）。", "tformat")
+t("deals %d temporal damage and slows enemies in radius 6 of the target by %d%% based on Magic", "造成 %d 时空伤害，并使目标周围 6 码范围内的敌人减速 %d%%（基于魔法）。", "tformat")
 t("Rune of Reflection", "反射符文", "entity name")
 t("You can see your own image mirrored in the surface of this silvery rune.", "你可以在这块银色的符文表面看到自己的倒影。", "_t")
 t("shiny rune", "闪光的符文", "_t")
@@ -12809,7 +12809,7 @@ t("strike an enemy within range %d (for 100%% weapon damage as lightning) and re
 t("#Source# strikes #Target# with %s %s, sending out an arc of lightning!", "#Source#用%s%s攻击了#Target#，触发一阵电弧！", "logCombat")
 t("Focus Whip", "聚灵鞭", "entity name")
 t("gemmed whip handle", "镶有宝石的鞭柄", "_t")
-t("A small mindstar rests at top of this handle. As you touch it, a translucent cord appears, flicking with your will.", "这只手柄上镶有一颗小小的灵晶。当你触摸它时，一根半透明的绳子浮现在你面前，并随着你的意志闪烁。", "_t")
+t("A small mindstar rests at top of this handle. As you touch it, a translucent cord appears, flicking with your will.", "这只手柄上镶有一颗小小的灵晶。当你触摸它时，一根半透明的绳索浮现出来，随着你的意念抽动挥摆。", "_t")
 t("Try to fry your enemies brain (25% chance to brainlock)", "试图封锁敌人的大脑（25%几率思维封锁）", "_t")
 t("strike all targets in a line (for 100%% weapon damage as mind) out to range 4", [[打击一条长度为4码的直线上的所有目标，
 造成相当于100%%武器伤害的精神伤害。]], "_t")
@@ -18411,7 +18411,7 @@ t([[Your arcane abilities have been interfered with!
 
 Eyal is a torn world, and the forces of nature can react strongly to the arcane energies that seek to manipulate them. Some items and areas are imbued with anti-magic, a natural energy that disrupts magical abilities and effects. There are even those who have learned to harness anti-magic into their own wild abilities, and who use them to hunt down and destroy those who practise magic. So beware, caster! It is a hostile world ye wander in.]], [[你的奥术能量被干扰了！
 
-埃亚尔是一块被撕裂的大陆，自然力量对奥术能量反应激烈，试图彻底控制它。某些物品和地方被灌输了反魔力量，这是一种能干扰魔法能力和魔法效果的自然力量。甚至还有一些人，将反魔力量和他们本身的自然力量结合起来，用于猎捕并摧毁魔法使用者。小心，施法者！你漫游的世界并不友好。]], "_t")
+埃亚尔是一个被撕裂的世界，自然力量会对试图操纵它们的奥术能量产生强烈反应。某些物品和地方被灌输了反魔力量，这是一种能干扰魔法能力和效果的自然能量。甚至还有一些人学会了驾驭反魔力量，将其融入自身的野性能力中，用于猎捕并摧毁魔法使用者。小心，施法者！你漫游的世界并不友好。]], "_t")
 t("highfin", "赫菲因", "newLore category")
 t("On Adventuring", "关于冒险", "_t")
 t([[I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.
@@ -22757,7 +22757,7 @@ t("Touch the very essence of your victims.", "触及受害者的生命本质。"
 t("bone", "骨", "talent type")
 t("Harness the power of bones.", "控制白骨的力量。", "_t")
 t("hexes", "邪术", "talent type")
-t("Hex your foes, hindering and crippling them.", "控制你的目标，阻碍并削弱他们的力量。", "_t")
+t("Hex your foes, hindering and crippling them.", "对你的敌人施加邪术，阻碍并削弱他们。", "_t")
 t("curses", "诅咒", "talent type")
 t("Curse your foes, hindering and crippling them.", "诅咒你的目标，阻碍并削弱他们的力量。", "_t")
 t("vile life", "邪恶生命", "talent type")
@@ -22942,8 +22942,8 @@ t("Bloodcasting", "血祭施法", "talent name")
 t("The cost of using life instead of vim for talents is reduced to %d%%.", "使用生命值取代活力值释放技能时，生命值消耗减少到 %d%%。", "tformat")
 t("Absorb Life", "生命吞噬", "talent name")
 t([[Absorbs the life force of your foes as you kill them.
-		As long as this talent is active, vim will decrease by 0.5 per turn and increase by %0.1f for each kill of a non-undead creature (in addition to the usual increase based on Willpower).]], [[当你杀死敌人时，你会吸收目标生命。
-		当此技能激活时，每回合会消耗 0.5 点活力；当你杀死一个非不死族单位时，会获得 %0.1f 点活力（此外自然增长受意志影响）。]], "tformat")
+		As long as this talent is active, vim will decrease by 0.5 per turn and increase by %0.1f for each kill of a non-undead creature (in addition to the usual increase based on Willpower).]], [[当你杀死敌人时，你会吸收其生命力。
+		当此技能激活时，每回合会消耗 0.5 点活力；当你杀死一个非不死族单位时，会获得 %0.1f 点活力（在基于意志的常规击杀加成之外额外获得）。]], "tformat")
 t("Life Tap", "生命分流", "talent name")
 t([[Feed on the pain you cause your foes.
 			For 2 turns you gain %d%% lifesteal on all damage dealt.
@@ -25195,7 +25195,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
 		The damage will increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
-		这种苔藓又厚又滑，所有经过的敌人的移动速度会被降低 %d%%，并有 %d%% 概率被定身 4 回合。
+		这种苔藓又厚又黏，所有经过的敌人的移动速度会被降低 %d%%，并有 %d%% 概率被定身 4 回合。
 		苔藓持续 %d 个回合。
 		苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。
 		伤害受精神强度加成。]], "tformat")
@@ -26089,7 +26089,7 @@ The light is so powerful it will also banish magical darkness", "\
 t("rad %d; power %d; turns %d%s", "范围 %d; 强度 %d; 持续 %d%s", "tformat")
 t("; dispels darkness", "; 驱散黑暗", "_t")
 t("Taint: Telepathy", "堕落印记：感应", "talent name")
-t("Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.", "解除你的精神束缚 %d 回合，感应 %d 格范围内的所有生物；精神豁免降低 %d，精神强度提高 %d，持续 10 回合。", "tformat")
+t("Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.", "卸除你心灵上的防护屏障 %d 回合，感应 %d 格范围内所有生物的思维；精神豁免降低 %d，精神强度提高 %d，持续 10 回合。", "tformat")
 t("Range %d telepathy for %d turns", "范围 %d 码心灵感应持续 %d 回合。", "tformat")
 t("Rune: Frozen Spear", "符文：冰枪", "talent name")
 t([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.
@@ -27187,8 +27187,8 @@ t("Mind Storm", "心灵风暴", "talent name")
 t([[Unleash your subconscious on the world around you.  While active, you fire up to %d bolts each turn (one per hostile target) that deal %0.2f mind damage.  Each bolt consumes 5 Feedback.
 		Feedback gains beyond your maximum allowed amount may generate extra bolts (one bolt per %d excess Feedback per target), but no more than %d extra bolts per turn. 
 		This effect is a psionic channel, increasing the range of Mind Sear, Psychic Lobotomy, and Sunder Mind to 10 but will break if you move.
-		The damage will scale with your Mindpower.]], [[用你的潜意识渗透周围的环境。当此技能激活时，每回合你会射出 %d 个灵能值球造成 %0.2f 精神伤害（每个敌方单位只承受一次灵能值球攻击）。每个灵能值球消耗 5 点反馈值。
-		当获得的反馈值超出最大值时，你会产生额外的灵能值球（每超出 %d 反馈值产生 1 个灵能值球），但是每回合产生的额外灵能值球数量不会超过 %d。
+		The damage will scale with your Mindpower.]], [[将你的潜意识释放到周围的世界。当此技能激活时，每回合你最多射出 %d 个灵能值球（每个敌方目标一个），造成 %0.2f 精神伤害。每个灵能值球消耗 5 点反馈值。
+		当获得的反馈值超出最大值时，你会产生额外的灵能值球（每个目标每超出 %d 反馈值产生 1 个灵能值球），但是每回合产生的额外灵能值球数量不会超过 %d。
 		此技能运用了灵能通道，所以当你移动时会中断此技能。
 		特别地，当你开启此技能时，心灵灼烧、心灵脑叶切除和碾碎心灵的攻击范围将变为10格。
 		受精神强度影响，伤害按比例加成。]], "tformat")
@@ -28395,7 +28395,7 @@ t([[Surround yourself with arcane forces, disrupting any attempts to harm you by
 		Current shield power: %d
 		Current stored energy: %d]], [[你的身边充满奥术力量，制造出一层能吸收 %d 伤害的护盾。
 		在战斗中你无法集中精力持续维持这层护盾，一旦护盾值消耗归零，则会使用你的法力值来吸收伤害，比例为 %0.2f 法力值吸收一点伤害。
-		每当法力值被该效果消耗时，护盾会储存一定能量（最多 %d）。当护盾关闭时，这些储存的能量将转化为在你身边 %d 格的奥术风暴，在5回合内每回合造成 20%% 累计吸收伤害的伤害。
+		每当法力值被该效果消耗时，护盾会储存一定能量（最多 %d）。当护盾关闭时，这些储存的能量将转化为在你身边 %d 格的奥术风暴，在5回合内每回合造成 20%% 总储存能量的伤害。
 		战斗外该护盾每回合回复 10%%，同时储存的能量迅速消散。
 		当你法力值下降到 50%% 以下，或者达到最大能量存储量，护盾会自动关闭。
 		护盾值受法术强度加成。
@@ -30301,7 +30301,7 @@ t([[You become better at using your armour to deflect blows and protect your vit
 		At level 2, it allows you to wear shields.
 		At level 3, it allows you to wear massive plate armour.
 		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。
-		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 被暴击几率。
+		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 近战和远程攻击的暴击几率。
 		（这项技能只对重甲或板甲提供加成。）
 		在等级 1 时，能使你装备锁甲、金属手套、头盔和重靴。
 		在等级 2 时，能使你装备盾牌。
@@ -30424,7 +30424,7 @@ t([[The flow of battle invigorates you, allowing you to press your advantage as 
 		Up to once each per turn, while dual wielding, you may:
 		Riposte -- If a melee or archery attack misses you or you parry it, you instantly restore %0.1f stamina and gain %d%% of a turn.
 		Recover -- On performing a critical strike with your offhand weapon, you instantly restore %0.1f stamina.]], [[战斗鼓舞着你，让你在战斗中获得优势。
-		每回合一次，若你双持武器，你将：
+		双持武器时，每回合各至多一次，你可以：
 		反击 -- 如果你闪避或抵挡了近战或弓箭攻击，你立刻回复 %0.1f 体力并获得 %d%% 额外回合。
 		回复 -- 副手武器暴击时回复 %0.1f 体力。]], "tformat")
 t("Feint", "佯攻", "talent name")
@@ -30526,9 +30526,9 @@ t([[Increases your Physical Save by %d and your Physical Power by %d.
 t("Clinch", "关节技：锁钳", "talent name")
 t([[Make a melee attack for %d%% damage and then attempt to grapple a target up to one size category larger than yourself for %d turns. A grappled opponent will be unable to move, take %d damage each turn, and %d%% of the damage you receive from any source will be redirected to them as physical damage.
 		Any movement from the target or you will break the grapple. Maintaining a grapple drains %d stamina per turn.
-		You may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.]], [[对目标造成 %d%% 武器伤害并抓取目标（可抓取目标的身材最多比你大 1 级）持续 %d 回合。1 个被钳住的对手将无法移动，每回合受到 %d 伤害，同时你受到的伤害的 %d%% 将转移至它身上。
+		You may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.]], [[对目标进行一次近战攻击，造成 %d%% 武器伤害并抓取目标（可抓取目标的身材最多比你大 1 级）持续 %d 回合。被钳住的对手将无法移动，每回合受到 %d 物理伤害，同时你从任何来源受到的伤害的 %d%% 将以物理伤害的形式转移至它身上。
 		任何目标或你的移动将会打破抓取。维持抓取每回合消耗 %d 体力。
-		同时你只能抓取 1 个目标，并且对任意 1 个你没有抓取的目标使用非抓取徒手技能均会打破抓取。]], "tformat")
+		同时你只能抓取 1 个目标，并且对任意一个你未在抓取中的目标使用指向性徒手技能均会打破抓取。]], "tformat")
 t("Crushing Hold", "碾压擒抱", "talent name")
 t([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.
 		#RED#Talent Level 1:  Reduces physical power by %d
@@ -43061,8 +43061,7 @@ section "mod-tome/dialogs/talents/MagicalCombatArcaneCombat.lua"
 
 t("Arcane Combat", "奥术格斗", "_t")
 t([[You may select a spell for Arcane Combat to automatically trigger with melee attacks.  Otherwise, select 'Random spells' to have a spell selected automatically with each attack.
-]], [[你可以选择一项法术，会在奥术格斗开启时进行物理攻击的时候自动施放。
-如果你选择随机法术，攻击时会随机施放一个法术。
+]], [[你可以选择一项法术，在奥术格斗中进行近战攻击时自动施放。如果你选择随机法术，每次攻击时会随机施放一个法术。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Random spells", "随机法术", "_t")
@@ -43311,7 +43310,7 @@ t([[Quekorja was the god of time and possibilities. What stands out about Eyal's
 
  Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
 
- According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神，它的传说唯一的特点就是变化万千，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
+ According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
 
  奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 

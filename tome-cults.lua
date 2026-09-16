@@ -2185,7 +2185,7 @@ t([[Quekorja was the god of time and possibilities. What stands out about Eyal's
 
 Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
 
-According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神，它的传说唯一的特点就是变化万千，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
+According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
 
 奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 
