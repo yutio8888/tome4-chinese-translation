@@ -5235,9 +5235,9 @@ section "mod-tome/data/chats/keepsake-berethh-encounter.lua"
 t([[#VIOLET#*Before you stands Berethh. His face shows no emotion, but his posture is threatening.#LAST#
 ]], [[#VIOLET#*贝里斯站在你的面前。他面无表情，但姿态充满威胁。#LAST#
 ]], "_t")
-t("Kyless is dead.", "克里斯死了。", "_t")
+t("Kyless is dead.", "凯勒斯死了。", "_t")
 t("I'm not sure if you deserved your fate. Still I cannot let you live.", "我不确定你落得这般下场是否罪有应得。但我依然不能留你活命。", "_t")
-t("Then you will die like Kyless. #LIGHT_GREEN#[Attack]#LAST#", "那么你也会像克里斯一样死去。#LIGHT_GREEN#[攻击]#LAST#", "_t")
+t("Then you will die like Kyless. #LIGHT_GREEN#[Attack]#LAST#", "那么你也会像凯勒斯一样死去。#LIGHT_GREEN#[攻击]#LAST#", "_t")
 t("I need your help. I want to overcome my curse.", "我需要你的帮助。我想要摆脱我的诅咒。", "_t")
 t("I do not want to kill you.", "我不想杀你。", "_t")
 t("#VIOLET#*Berethh ignores your comment, unslings his bow and prepares his attack.*#LAST#", "#VIOLET#*贝里斯无视了你的话，取下背上的弓，准备发起攻击。*#LAST#", "_t")
@@ -5258,13 +5258,13 @@ t("...", "……", "_t")
 section "mod-tome/data/chats/keepsake-kyless-death.lua"
 
 t([[#VIOLET#*Kyless lies dying on the floor. In his hand he holds a book.*#LAST#
-Please! Before I die I have one request. Destroy the book. It wasn't me. The book brought this on us. It must be destoyed!]], [[#VIOLET#*克里斯躺在地板上奄奄一息。他的手里还握着一本书。*#LAST#
+Please! Before I die I have one request. Destroy the book. It wasn't me. The book brought this on us. It must be destoyed!]], [[#VIOLET#*凯勒斯躺在地板上奄奄一息。他的手里还握着一本书。*#LAST#
 求求你！在我死前我有一个请求。毁掉这本书。其实不是我，是这本书将灾难带给了我们。它必须被毁掉！]], "_t")
 t("I will. #LIGHT_GREEN#[destroy the book]#LAST#", "我会的。#LIGHT_GREEN#[毁掉这本书]#LAST#", "_t")
 t("I'm sorry but I need it. #LIGHT_GREEN#[keep the book]#LAST#", "对不起，但我需要它。#LIGHT_GREEN#[留下这本书]#LAST#", "_t")
-t("#VIOLET#*You destroy the book. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你毁掉了这本书。当你做完这一切后，你发现克里斯已经死了。*#LAST#", "_t")
-t("Goodbye, Kyless.", "再见，克里斯。", "_t")
-t("#VIOLET#*You place the book in your pack. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你将这本书放到了背包里。当你做完这一切后，你发现克里斯已经死了。*#LAST#", "_t")
+t("#VIOLET#*You destroy the book. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你毁掉了这本书。当你做完这一切后，你发现凯勒斯已经死了。*#LAST#", "_t")
+t("Goodbye, Kyless.", "再见，凯勒斯。", "_t")
+t("#VIOLET#*You place the book in your pack. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你将这本书放到了背包里。当你做完这一切后，你发现凯勒斯已经死了。*#LAST#", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/last-hope-elder.lua"
@@ -6382,7 +6382,7 @@ section "mod-tome/data/chats/the-master-resurrect.lua"
 
 t([[#LIGHT_GREEN#*The Master crumbles before you, vanquished. Yet in the blink of an eye you see his form recreating from dust; unharmed and ready to fight again!*#WHITE#
 Ahah you fool! See how even death has no meaning for me; for I am the Master and you are my toy, now and forever.]], [[#LIGHT_GREEN#*领主在你面前倒下，化成灰烬。突然，你发现他从尘土里站了起来，毫发未伤，正准备战斗！*#WHITE#
-啊哈，你这个愚蠢的傻瓜！看吧，死亡对我毫无意义；我是主人，你只是我的玩具，永远如此。]], "_t")
+啊哈，你这个愚蠢的傻瓜！看吧，死亡对我毫无意义；我是领主，你只是我的玩具，永远如此。]], "_t")
 t("Never! Die!", "绝不！去死吧！", "_t")
 
 ------------------------------------------------
@@ -16423,7 +16423,7 @@ t([[#{italic}#You find a folded up piece of paper with some notes on it...#{norm
 
 * 袭击者都是灵魂或者黑暗鬼火。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要查证一下他们的说法。
 
-* 当我问到此事时，人们通常会提到三名新雇员。为什么会提到他们？我听说贝里斯算是这一带的英雄。阿尔瓦认为克里斯是一个烂人，据我所知，不止她一个人这么讲过。
+* 当我问到此事时，人们通常会提到三名新雇员。为什么会提到他们？我听说贝里斯算是这一带的英雄。阿尔瓦认为凯勒斯是一个烂人，据我所知，不止她一个人这么讲过。
 
 * 有的人说：“班德，你问得太多了。”我得给他们一些时间，尽管已经过去了这么多年。
 ]], "_t")
@@ -16435,7 +16435,7 @@ You keep turning the acorn in your hand and squeezing it until the cold iron bit
 That gives you comfort somehow. Unable to part with it, you put it in your pack.
 ]], [[在小径上，你发现脚边有某样东西。那是一个小巧的铁制橡果。你盯着它看了一会儿，捡了起来。
 这个小东西属于班德的妈妈，而在那之前，属于班德的爸爸。你记得她当时总是走到哪带到哪。
-那个时候，班德只是一个孩子。不知道他后来怎么样了？想必过得不太好——这都拜贝里斯、克里斯和你所赐。
+那个时候，班德只是一个孩子。不知道他后来怎么样了？想必过得不太好——这都拜贝里斯、凯勒斯和你所赐。
 你继续在手中转动这颗橡果，越握越紧，冰冷的铁压得皮肤生疼。
 不知为何，这给了你些许安慰。因为不忍将其丢弃，你将它塞到了背包里。
 ]], "_t")
@@ -16471,7 +16471,7 @@ Kyless had taken you this way once. On the north side of the meadow was a secret
 他有一个藏身处——一个可以储藏他的“所得”的洞穴。也许你能在那找到他。
 
 当你环顾四周时，你认出了这是何处，也隐约明白或许是什么将你引来。
-克里斯曾带你走过这条路。草原北侧有一条秘密小径通向他的洞穴。
+凯勒斯曾带你走过这条路。草原北侧有一条秘密小径通向他的洞穴。
 ]], "_t")
 t("The Stone Marker", "石碑", "_t")
 t([[#{italic}#You find a stone marker at the entrance to a sealed off cave...#{normal}#
@@ -16511,7 +16511,7 @@ Together the dog and the shadows rise up to face you.
 你注意到一些阴影沿着地面向那条狗移动。这只狗抬起头，似乎在倾听着什么。
 那条狗站起身，阴影也从地面升起，一同面对着你。
 ]], "_t")
-t("Kyless' Journal: First Entry", "克里斯的日记：第一篇", "_t")
+t("Kyless' Journal: First Entry", "凯勒斯的日记：第一篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 I finally made it out. I don't think I could stay another year on that farm.
@@ -16521,7 +16521,7 @@ So far the work at the caravan is pretty dull. I've been paying attention to the
 They let me follow them on their trips into the towns. I'm learning a lot. In time I may become one of them.
 The caravan hired a couple of other porters too. They won't say but I think the last ones were killed in some kind of raid.
 I'll have to learn to defend myself or let others do it for me. Still, this is better than being a farmer.
-]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
+]], [[#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#
 
 我终于离开了。我可没法在那个农场再待上一年。
 爸爸一点志气都没有。每次我和他去卖我们的庄稼时，总是商贩开价什么他就答应什么。
@@ -16531,7 +16531,7 @@ I'll have to learn to defend myself or let others do it for me. Still, this is b
 商队也雇佣了另外两名搬运工。他们不肯透露，但我感觉之前的搬运工是在某场袭击中丧命。
 我必须学会保护自己，或者请其他人帮忙保护我。不过，这总比当农民强。
 ]], "_t")
-t("Kyless' Journal: Second Entry", "克里斯的日记：第二篇", "_t")
+t("Kyless' Journal: Second Entry", "凯勒斯的日记：第二篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 Berethh found something in the woods...a dead man and a few dead trolls.
@@ -16543,7 +16543,7 @@ It's more like a language. A way of thinking or calling out with your mind. I'm 
 I hear what sound like whispers in my head. And I've found I can whisper back.
 My mind can reach out. Control things. Control people. But there's more. Something is out there. I have to reach out.
 Once I've mastered this I may be able to use it to advance in the caravan. I'm tired of just being a porter.
-]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
+]], [[#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#
 
 贝里斯在森林中发现了什么——一具男尸和几具巨魔尸体。
 一开始我们以为他们同归于尽，身上却看不出任何外伤。可他们显然遭遇了什么可怕的事，从他们脸上就看得出来。
@@ -16555,7 +16555,7 @@ Once I've mastered this I may be able to use it to advance in the caravan. I'm t
 我的心灵能够向外探触。我可以控制物体，控制别人。但还不止如此。外面还有某种存在。我必须把心灵探得更远。
 一旦我掌握了它，也许就能靠它来帮我在商队中获得晋升。我已经厌倦了只能当搬运工。
 ]], "_t")
-t("Kyless' Journal: Third Entry", "克里斯的日记：第三篇", "_t")
+t("Kyless' Journal: Third Entry", "凯勒斯的日记：第三篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 I've come so far in the last year. The other merchants listen to me now. They think I have a real gift for trade.
@@ -16565,7 +16565,7 @@ The fear on their faces when I struck was priceless. They must have had more gol
 I got some help carrying it off to a nearby cave. A few more encounters like that and I'll be rich.
 Until then, I'll stay with the caravan. The only prolem is Jak. He doesn't trust me.
 I guess I threaten his authority. Not sure what I'll have to do about that...
-]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
+]], [[#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#
 
 在过去一年内我进步神速。现在其他商人都愿意听从我了。他们认为我真的有商业天赋。
 那些跟我们做买卖的农民意志薄弱，实在太容易控制了。他们简直是在把钱白送给我。
@@ -16575,7 +16575,7 @@ I guess I threaten his authority. Not sure what I'll have to do about that...
 在那之前，我还会和商队呆在一起。眼下只有一个问题，那就是贾克。他并不信任我。
 我猜是因为我对他的权威构成了威胁。我还不知道该怎么处理这件事……
 ]], "_t")
-t("Kyless' Journal: Fourth Entry", "克里斯的日记：第四篇", "_t")
+t("Kyless' Journal: Fourth Entry", "凯勒斯的日记：第四篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 Berethh! He must have followed me back to the cave. How could he know I was behind the attacks?
@@ -16585,7 +16585,7 @@ But they didn't follow. He must have known I was too strong.
 The entrance has been sealed now. I can't seem to break it. Nothing I've tried works.
 It's as though the seal were alive, growing stronger with every attack. Berethh must have planned this carefully.
 I'm sure I can overcome his wards though. I just need some time to grow my power.
-]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
+]], [[#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#
 
 贝里斯！他肯定尾随我回到了洞穴。他怎么知道我就是幕后黑手？
 现在他背叛了我。可我们曾经是好朋友！但似乎他在这一带交了些新朋友啊。
@@ -16606,7 +16606,7 @@ You never thought he would go after the caravan. How could you have known?
 You've tried to forget that day for a long time. You've tried to forget what he did to those people.
 And those things of his almost killed you too. But maybe you were cursed long before that day ever happened.
 ]], [[你发现自己正站在一个小房间的入口。
-这是克里斯用过的藏宝室之一，他把外出时带回的值钱东西存放在这里。
+这是凯勒斯用过的藏宝室之一，他把外出时带回的值钱东西存放在这里。
 你曾以分成为报酬，帮他把东西搬到这里。你靠他赚了不少钱。
 当时觉得，这些不入流强盗的赃物真是一大笔财富。现在看来，这想法是多么可笑啊。
 你当时就该与他决裂，事情到最后变得非常糟糕。
@@ -16615,17 +16615,17 @@ And those things of his almost killed you too. But maybe you were cursed long be
 很长一段时间里，你一直试图忘掉那一天。你也曾试图忘记他对那些人的所作所为。
 他的那些东西也险些要了你的命。也许早在那天之前，你就已经被诅咒了。
 ]], "_t")
-t("Kyless", "克里斯", "_t")
+t("Kyless", "凯勒斯", "_t")
 t([[A figure squats in the darkness with his face turned your way. At first you're not sure if Kyless recognizes you.
 His face seems twisted by hunger and madness. But soon it softens and he begins to look more like the Kyless of old.
 He speaks your name in recognition but doesn't move. Slowly, almost imperceptibly, the air in the room begins to change.
 A charge seems to fill the space around you. Small gusts of wind pick up and scatter dust across the floor.
 You feel as if the room itself is coming to bear upon you. Kyless smiles and then attacks.
-]], [[黑暗中蹲伏着一个面朝你的人。一开始，你无法确认克里斯是否认出了你。
+]], [[黑暗中蹲伏着一个面朝你的人。一开始，你无法确认凯勒斯是否认出了你。
 他的面容仿佛因饥饿与疯狂而扭曲。但很快，他的神情缓和下来，渐渐恢复了昔日的模样。
 他一动不动，叫出了你的名字。慢慢地，你发觉这个空间里的空气发生了几不可察的变化。
 你感到四周仿佛充满了某种能量。阵阵微风吹起，卷散了地面上的尘土。
-你感到整个空间似乎都压向了你。克里斯嘴角扬起一抹微笑，向你发起了攻击……
+你感到整个空间似乎都压向了你。凯勒斯嘴角扬起一抹微笑，向你发起了攻击……
 ]], "_t")
 t("Keepsake", "往昔信物", "_t")
 t([[Berethh lies dead. Kyless has been destroyed. The merchant caravan wiped out. Nothing of your past remains.
@@ -16635,7 +16635,7 @@ The cold iron hardens your resolve. Whether the curse consumes you or not, you w
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯已经死了。克里斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
+]], [[贝里斯已经死了。凯勒斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
 当你试图将这些想法从头脑里赶出时，你发现自己正在手中转动那个铁质橡果。
 冰冷的铁质橡果让你的意志变得坚定。不管诅咒是否会吞噬你，你都要继续前行。
@@ -16650,7 +16650,7 @@ The acorn now serves as a focus for your anger. Though the curse may consume you
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯死了。克里斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
+]], [[贝里斯死了。凯勒斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
 当你试图将这些想法从头脑里赶出时，你发现自己正在手中转动那个铁质橡果。
 如今，这颗橡果承载着你所有的愤怒。尽管诅咒可能会吞噬你，但仍然有许多人理应承受你的怒火。他们会尝到这怒火的滋味。
@@ -20320,13 +20320,13 @@ t("Keepsake", "往昔信物", "_t")
 t("You have begun to look for a way to overcome the curse that afflicts you.", "你开始寻求方法以驱除一直困扰着你的诅咒。", "_t")
 t("You have found a small iron acorn which you keep as a reminder of your past.", "你找到了一个小小的铁质橡果，将它保留下来，作为对过去的提醒。", "_t")
 t("You have destroyed the merchant caravan that you once considered family.", "你摧毁了那个你曾经视作家人的商队。", "_t")
-t("Kyless, the one who brought the curse, is dead by your hand.", "克里斯，那个曾经为你带来诅咒的人，死在了你的手上。", "_t")
+t("Kyless, the one who brought the curse, is dead by your hand.", "凯勒斯，那个曾经为你带来诅咒的人，死在了你的手上。", "_t")
 t("Berethh is dead, may he rest in peace.", "贝里斯已死，但愿他能安息。", "_t")
 t("Your curse has changed the iron acorn which now serves as a cruel reminder of your past and present.", "你的诅咒使铁橡果成为了使你回忆起残酷过去和现实的信物。", "_t")
 t("You have found a small iron acorn which you keep as a reminder of your past", "你找到了一个小小的铁质橡果，将它保留下来，作为对过去的提醒。", "_t")
 t("Your curse has defiled the iron acorn which now serves as a reminder of your vile nature.", "你的诅咒污浊了铁橡果，它成为了使你回想起你卑劣本性的信物。", "_t")
 t("#LIGHT_GREEN#You need to find Berethh, the last person who may be able to help you.", "#LIGHT_GREEN#你得找到贝里斯，也许他是最后一个可以帮助你的人。", "_t")
-t("#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him.", "#LIGHT_GREEN#找出位于草原北部的克里斯的洞穴，然后杀掉他，他的死也许会解除这个诅咒。", "_t")
+t("#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him.", "#LIGHT_GREEN#找出位于草原北部的凯勒斯的洞穴，然后杀掉他，他的死也许会解除这个诅咒。", "_t")
 t("#LIGHT_GREEN#Discover the meaning of the acorn and the dream.", "#LIGHT_GREEN#搞清楚铁橡果与这个梦境的含义。", "_t")
 t("#LIGHT_GREEN#You may have to revist your past to unlock some secret buried there.", "#LIGHT_GREEN#你可以回忆一下过去来解开埋藏在这里的秘密。", "_t")
 t("#VIOLET#The time has come to learn the true nature of your curse.", "#VIOLET#是时候搞清楚你诅咒的本质了。", "logPlayer")
@@ -20336,16 +20336,16 @@ t("#VIOLET#You have discovered a small iron acorn, a link to your past.", "#VIOL
 t("#VIOLET#The merchant caravan from the past has appeared in your dream.", "#VIOLET#很久以前商队的往事出现在你的梦里。", "logPlayer")
 t("Last of the Caravan", "商队的最后一人", "_t")
 t("secret path to the cave", "通向山洞的秘密通道", "_t")
-t("#VIOLET#You have begun your hunt for Kyless!", "#VIOLET#你开始追杀克里斯！", "logPlayer")
-t("#VIOLET#You have a marker to the entrance of Kyless' cave!", "#VIOLET#你在通往克里斯洞穴的入口上有一个记号！", "logPlayer")
-t("#VIOLET#You have found the entrance to Kyless' cave!", "#VIOLET#你找到了通往克里斯洞穴的入口！", "logPlayer")
+t("#VIOLET#You have begun your hunt for Kyless!", "#VIOLET#你开始追杀凯勒斯！", "logPlayer")
+t("#VIOLET#You have a marker to the entrance of Kyless' cave!", "#VIOLET#你在通往凯勒斯洞穴的入口上有一个记号！", "logPlayer")
+t("#VIOLET#You have found the entrance to Kyless' cave!", "#VIOLET#你找到了通往凯勒斯洞穴的入口！", "logPlayer")
 t("#VIOLET#You have found the entrance to a vault!", "#VIOLET#你找到了通往一处宝库的入口！", "logPlayer")
 t("#VIOLET#The shadows have noticed you!", "#VIOLET#阴影注意到了你！", "logPlayer")
 t("A Second Vault", "另一处宝库", "_t")
 t("You recognize this door as the entrance to a second vault. There are some scuffling noises and heavy breathing coming from the other side of the door.", "你认出来这扇门是通向另一处宝库的门户。你可以听到门的另一边有拖曳的脚步声和沉重的呼吸声。", "_t")
-t("#VIOLET#You have found Kyless. You must destroy him.", "#VIOLET#你找到了克里斯，你必须杀死他。", "logPlayer")
-t("Death of Kyless", "克里斯之死", "_t")
-t("#VIOLET#Kyless is dead.", "#VIOLET#克里斯死了。", "logPlayer")
+t("#VIOLET#You have found Kyless. You must destroy him.", "#VIOLET#你找到了凯勒斯，你必须杀死他。", "logPlayer")
+t("Death of Kyless", "凯勒斯之死", "_t")
+t("#VIOLET#Kyless is dead.", "#VIOLET#凯勒斯死了。", "logPlayer")
 t("Berethh", "贝里斯", "_t")
 t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 
@@ -20659,7 +20659,7 @@ t([[Explore the caves below the ruins of Kor'Pul and the Trollmire in search of 
 ]], "_t")
 t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔夏克斯。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔普罗克斯。#WHITE#", "_t")
-t("#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入食人魔沼泽去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
+t("#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入巨魔沼泽去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了恶灵附身的强盗头目。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了暗影骷髅。#WHITE#", "_t")
 t("#SLATE#* You must explore the ruins of Kor'Pul and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入卡·普尔废墟去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
@@ -20835,7 +20835,7 @@ t("Temporal Warden", "时空守卫", "_t")
 section "mod-tome/data/quests/trollmire-treasure.lua"
 
 t("Hidden treasure", "隐藏的财宝", "_t")
-t("You have found all the clues leading to the hidden treasure. There should be a way on the third level of the Trollmire.", "你已经找到了所有有关秘密财宝的线索，在食人魔沼泽第三层应该能找到一条通往那里的路。", "_t")
+t("You have found all the clues leading to the hidden treasure. There should be a way on the third level of the Trollmire.", "你已经找到了所有有关秘密财宝的线索，在巨魔沼泽第三层应该能找到一条通往那里的路。", "_t")
 t("It looks extremely dangerous, however - beware.", "注意：看样子那里非常危险。", "_t")
 t("You have slain Bill. His treasure is yours for the taking.", "你已经干掉了比尔，他的财宝现在归你了。", "_t")
 t("way to the hidden trollmire treasure", "通往巨魔沼泽隐藏宝藏的路", "_t")
@@ -36677,29 +36677,29 @@ t("#LIGHT_RED#The spell fizzles.", "#LIGHT_RED#法术失败了。", "logSeen")
 t("#LIGHT_BLUE#You go back in time to rewrite history!", "#LIGHT_BLUE#你回到过去，改写了历史！", "logPlayer")
 t("aura", "光环", "effect subtype")
 t("Oil mist", "油雾", "_t")
-t("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.", "范围效果：+10% 火焰伤害，-10% 火焰抗性，-10% 护甲值，-2 可视范围。", "_t")
+t("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.", "区域效果：+10% 火焰伤害，-10% 火焰抗性，-10% 护甲值，-2 可视范围。", "_t")
 t("Grave chill", "墓地深寒", "_t")
-t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "范围效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱抗性。", "_t")
+t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "区域效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱抗性。", "_t")
 t("Static discharge", "静电放射", "_t")
-t("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.", "范围效果：+10% 闪电伤害，-10% 闪电抗性，-10% 物理强度，-20% 震慑抗性。", "_t")
+t("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.", "区域效果：+10% 闪电伤害，-10% 闪电抗性，-10% 物理强度，-20% 震慑抗性。", "_t")
 t("Noxious fumes", "毒性气体", "_t")
-t("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.", "范围效果：+10% 酸性伤害，-10% 酸性抗性，-10% 闪避，-20% 缴械抗性。", "_t")
+t("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.", "区域效果：+10% 酸性伤害，-10% 酸性抗性，-10% 闪避，-20% 缴械抗性。", "_t")
 t("Echoes of the void", "虚空回响", "_t")
-t("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.", "范围效果：+10% 暗影伤害，-10% 暗影抗性，-10% 精神豁免，-20% 恐惧抗性。", "_t")
+t("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.", "区域效果：+10% 暗影伤害，-10% 暗影抗性，-10% 精神豁免，-20% 恐惧抗性。", "_t")
 t("Eerie silence", "恐惧噤声", "_t")
-t("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.", "范围效果：+10% 精神伤害，-10% 精神抗性，-10% 法术强度，-20% 沉默抗性。", "_t")
+t("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.", "区域效果：+10% 精神伤害，-10% 精神抗性，-10% 法术强度，-20% 沉默抗性。", "_t")
 t("Aura of light", "光明光环", "_t")
-t("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.", "范围效果：+10% 光系伤害，-10% 光系抗性，-10% 命中，-20% 致盲抗性。", "_t")
+t("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.", "区域效果：+10% 光系伤害，-10% 光系抗性，-10% 命中，-20% 致盲抗性。", "_t")
 t("Aether residue", "以太残渣", "_t")
-t("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.", "范围效果：+10% 奥术伤害，-10% 奥术抗性，-10% 护甲强度，-20% 石化抗性。", "_t")
+t("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.", "区域效果：+10% 奥术伤害，-10% 奥术抗性，-10% 护甲强度，-20% 石化抗性。", "_t")
 t("Impossible geometries", "扭曲空间", "_t")
-t("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.", "范围效果：+10% 时空伤害，-10% 时空抗性，-10% 法术豁免，-20% 定身抗性。", "_t")
+t("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.", "区域效果：+10% 时空伤害，-10% 时空抗性，-10% 法术豁免，-20% 定身抗性。", "_t")
 t("Uncontrolled anger", "无边愤怒", "_t")
-t("Zone-wide effect: +10% physical damage, -10% physical resistance, -10% mindpower, -20% knockback immunity.", "范围效果：+10% 物理伤害，-10% 物理抗性，-10% 精神强度，-20% 击退免疫。", "_t")
+t("Zone-wide effect: +10% physical damage, -10% physical resistance, -10% mindpower, -20% knockback immunity.", "区域效果：+10% 物理伤害，-10% 物理抗性，-10% 精神强度，-20% 击退免疫。", "_t")
 t("Miasma", "瘴气", "_t")
-t("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.", "范围效果：+10% 枯萎伤害，-10% 枯萎抗性，-20% 治疗加成，-20% 疾病抗性。", "_t")
+t("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.", "区域效果：+10% 枯萎伤害，-10% 枯萎抗性，-20% 治疗加成，-20% 疾病抗性。", "_t")
 t("Slimy floor", "泥泞之地", "_t")
-t("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.", "范围效果：+10% 自然伤害，-10% 自然抗性，-10% 远程闪避，-20% 毒素抗性。", "_t")
+t("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.", "区域效果：+10% 自然伤害，-10% 自然抗性，-10% 远程闪避，-20% 毒素抗性。", "_t")
 t("vault", "宝库", "effect subtype")
 t("In Vault", "在宝库中", "_t")
 t("The target is part of a vault and cannot act until it has been openend.", "目标属于宝库的一部分，在宝库被打开之前无法行动。", "_t")
@@ -36803,27 +36803,27 @@ t("Death in a Dream", "梦中死亡", "_t")
 t("The target had breathed in noxious sleep-induced fumes and is losing %d life per turn.", "目标吸入有毒的催眠气体，每回合损失 %d 生命。", "tformat")
 t("killed in a dream", "梦中被杀", "_t")
 t("Natural Aura", "自然光环", "_t")
-t("Zone-wide effect: +20 mindpower, +2 life regen, -1 equilibrium per turn, -20% resistance penetration.", "地图效果 : +20 精神强度 , +2 生命恢复 , -1 失衡值 / 回合，-20% 抗性穿透。", "_t")
+t("Zone-wide effect: +20 mindpower, +2 life regen, -1 equilibrium per turn, -20% resistance penetration.", "区域效果 : +20 精神强度 , +2 生命恢复 , -1 失衡值 / 回合，-20% 抗性穿透。", "_t")
 t("Sorcerous Aura", "魔法光环", "_t")
-t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "地图效果 : +20 魔法 , +2 法力回复 , -20 命中，-20 潜行强度。", "_t")
+t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "区域效果 : +20 魔法 , +2 法力回复 , -20 命中，-20 潜行强度。", "_t")
 t("Disciplined Aura", "纪律光环", "_t")
-t("Zone-wide effect: +20 defense, +20 all saves, -20 spell power.", "地图效果 : +20 闪避，+20 全豁免 , -20 法术强度。", "_t")
+t("Zone-wide effect: +20 defense, +20 all saves, -20 spell power.", "区域效果 : +20 闪避，+20 全豁免 , -20 法术强度。", "_t")
 t("Sinister Aura", "危险光环", "_t")
-t("Zone-wide effect: +10% critical chance, +20% critical damage, -20% nature and blight resistance.", "地图效果 : +10% 暴击几率 , +20% 暴击伤害 , -20% 自然枯萎抗性。", "_t")
+t("Zone-wide effect: +10% critical chance, +20% critical damage, -20% nature and blight resistance.", "区域效果 : +10% 暴击几率 , +20% 暴击伤害 , -20% 自然枯萎抗性。", "_t")
 t("Underwater Zone", "水下区域", "_t")
-t("Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%.", "地图效果 :  空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。", "_t")
+t("Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%.", "区域效果 :  空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。", "_t")
 t("Fearscape Zone", "恶魔空间", "_t")
-t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "地图效果 :  恶魔空间的火焰将增加 10% 火焰和枯萎伤害，同时减少 20% 击退抗性。", "_t")
+t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果 :  恶魔空间的火焰将增加 10% 火焰和枯萎伤害，同时减少 20% 击退抗性。", "_t")
 t("Out of Time Zone", "异常时空", "_t")
-t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "地图效果 : 你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性  , -20% 传送免疫。", "_t")
+t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果 : 你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性  , -20% 传送免疫。", "_t")
 t("Spellblaze Aura", "魔法大爆炸区域", "_t")
-t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "地图效果 : 魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性 , +10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
+t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果 : 魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性 , +10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
 t("Heady Scent", "催眠区域", "_t")
-t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "地图效果 :  强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
+t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果 :  强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
 t("Thunderstorm", "闪电风暴", "_t")
-t("Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance.", "地图效果 :  强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。", "_t")
+t("Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance.", "区域效果 :  强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。", "_t")
 t("Abashed Expanse", "次元浮岛", "_t")
-t("Zone-wide effect: Your Phase Door spell is super easy to use here, allowing you to target it regardless of level. Any projectiles is slowed down by 80%.", "地图效果 : 你的相位之门法术在这里极其容易施展，不论等级如何，都能指定位置。所有抛射物速度减慢 80%。", "_t")
+t("Zone-wide effect: Your Phase Door spell is super easy to use here, allowing you to target it regardless of level. Any projectiles is slowed down by 80%.", "区域效果 : 你的相位之门法术在这里极其容易施展，不论等级如何，都能指定位置。所有抛射物速度减慢 80%。", "_t")
 t("Challenge", "挑战", "_t")
 t("Throwing Knives", "飞刀投掷", "_t")
 t("%d Knives", "%d 飞刀", "tformat")
@@ -38960,8 +38960,8 @@ t("Companion Warrior", "同伴战士", "entity name")
 t("This elf is a companion of Berethh. He's dressed in light armor and wields a sword.", "这个精灵战士是贝里斯的同伴。他身穿皮甲，手拿长剑。", "_t")
 t("Companion Archer", "同伴弓手", "entity name")
 t("This elf is a companion of Berethh. He's dressed in light armor and wields a bow.", "这个精灵弓手是贝里斯的同伴。他身穿皮甲，手拿长弓。", "_t")
-t("Kyless", "克里斯", "entity name")
-t("This is Kyless, your old friend. He seems dirtier than you recall and a good bit more dangerous.", "这是克里斯，你的老朋友。他比你的记忆中更加蓬头垢面，也更加危险。", "_t")
+t("Kyless", "凯勒斯", "entity name")
+t("This is Kyless, your old friend. He seems dirtier than you recall and a good bit more dangerous.", "这是凯勒斯，你的老朋友。他比你的记忆中更加蓬头垢面，也更加危险。", "_t")
 t("and fed to his corrupted dogs", "并被喂给他堕落的恶犬", "_t")
 t("Berethh", "贝里斯", "entity name")
 t("This is Berethh, your old friend. He is dressed in well-worn leather and skillfully wields a bow. There is something noble about the way he carries himself but his expression carries no emotion.", "这是贝里斯，你的老朋友。他穿着磨损的皮甲，熟练地使用着长弓。他举止高贵，但脸上毫无表情。", "_t")
@@ -38981,9 +38981,9 @@ t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but n
 t("Cold Iron Acorn", "寒铁橡果", "entity name")
 t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. The acorn serves as a reminder of who and what you are.", "一颗用铁粗制而成的小橡果。它曾经属于班德，但现在是你的。这只橡果时刻提醒着你，你是谁、你是什么。", "_t")
 t("journal page", "日记书页", "entity name")
-t("A page containing an entry from Kyless' journal.", "克里斯日记上的一页。", "_t")
-t("Kyless' Book", "克里斯的书", "entity name")
-t("This was the book that gave power to Kyless and eventually led to his doom. The book is simple in appearance, bound in leather with no markings on the cover. All of the pages are blank.", "这就是那本赋予克里斯力量、并最终导致他毁灭的书。书本用牛皮简单的装订着，封面上没有任何标记，翻开书本，入目尽是空白页。", "_t")
+t("A page containing an entry from Kyless' journal.", "凯勒斯日记上的一页。", "_t")
+t("Kyless' Book", "凯勒斯的书", "entity name")
+t("This was the book that gave power to Kyless and eventually led to his doom. The book is simple in appearance, bound in leather with no markings on the cover. All of the pages are blank.", "这就是那本赋予凯勒斯力量、并最终导致他毁灭的书。书本用牛皮简单的装订着，封面上没有任何标记，翻开书本，入目尽是空白页。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/keepsake-meadow/traps.lua"
