@@ -1,0 +1,122 @@
+{
+ "batch_id": "batch-e8091bc9e208567f5ce0",
+ "status": "PASS",
+ "reviews": [
+  {
+   "dispatch_id": "lane-000-0",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T12-04-03-01a0aa1a-455e-7ef0-85d7-a4b363486c66.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09dcf5bc2267802b016aaa85becbe087d1b6bfe67e4faa042a",
+     "status": "completed",
+     "call_id": "call_w1FCUrlzp1S7vHyWwfohobZn",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-45ab-7712-ad9b-64d5ea7605be",
+      "create_time": 1789560249.107009
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09dcf5bc2267802b016aaa85da936887d19946693b5fa22b09",
+     "status": "completed",
+     "call_id": "call_oxEd3wWL90NmvlWdGjsI9PWM",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"jq -r '.payload.entries[].entry_revision_identity' .ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":4000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-45ab-7712-ad9b-64d5ea7605be",
+      "create_time": 1789560256.882845
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-1",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T12-04-04-01a0aa1a-4a24-7e71-99ca-6adbe72c58e1.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0bbca46e6474c49b016aaa85c31b7c87d29b662bd8efb89547",
+     "status": "completed",
+     "call_id": "call_7XeycQNWmd3e4ZKumQliJ4MQ",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"rg -n '^#{1,6} ' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-4a74-7ea2-be96-7b75e61c6851",
+      "create_time": 1789560250.703459
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0bbca46e6474c49b016aaa85ca102487d2ace329e6aa1d3a4a",
+     "status": "completed",
+     "call_id": "call_ugyhnpRLBe0WKq1qCTs768bc",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-4a74-7ea2-be96-7b75e61c6851",
+      "create_time": 1789560261.338678
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0bbca46e6474c49b016aaa85f2268887d281fd0ec94a562b8e",
+     "status": "completed",
+     "call_id": "call_ClAes6CnFKDLFhoZdTKzDGKh",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"jq -cj '{candidate_identity:.candidate_identity,contract:.payload.contract,results:[.payload.entries[]|if .entry_revision_identity==\\\"902f8cc811931edab6facb24e9a4eca5757934e59b1b278ac966738e60695bc9\\\" then {entry_revision_identity:.entry_revision_identity,observation:\\\"技能名 ghoulish leap 误译为‘定向跳跃’，丢失‘食尸鬼’含义\\\",verdict:\\\"ISSUE\\\"} elif .entry_revision_identity==\\\"903e5b664df44c925b45591a7d7d102508881651bb686a02414839b9c19cbd9c\\\" then {entry_revision_identity:.entry_revision_identity,observation:\\\"遗漏‘每回合从范围内每个敌人至多抽取’的限制、对象与频率，且‘它并抽取’语病明显\\\",verdict:\\\"ISSUE\\\"} else {entry_revision_identity:.entry_revision_identity,verdict:\\\"OK\\\"} end]}' .ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-4a74-7ea2-be96-7b75e61c6851",
+      "create_time": 1789560267.77272
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-2",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T12-04-06-01a0aa1a-4f0d-7d72-a62d-150940ddda2d.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09f0be9bf2e0c559016aaa85c722b487d18511bf42a07aab09",
+     "status": "completed",
+     "call_id": "call_sjrhXCoNfhU5Q44OpELV7Zdt",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '/^## 六、/,/^## 七、/p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1a-4f66-79d2-be46-c55e6b9f819a",
+      "create_time": 1789560251.640722
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-3",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T12-06-46-01a0aa1c-c2f4-7932-8a72-c92addb14ffc.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0cadaa895a65dc0f016aaa865f826c87d19a4c3a3d9fef1564",
+     "status": "completed",
+     "call_id": "call_b5sImqzCjbVy89lztRAGQYoQ",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '/^## 六/,$p' docs/paseo-translation-surface-screen-v1-contract.md | sed -n '1,220p'; python3 - <<'PY'\\nimport json\\np='.ai/task/batch-e8091bc9e208567f5ce0/SURFACE-SCREEN-ENVELOPE-lane-000-3.json'\\nd=json.load(open(p))\\nprint('\\\\n---INPUT---')\\nprint(json.dumps(d,ensure_ascii=False,indent=2))\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0aa1c-c33f-7a70-a6f7-7f889ce684e7",
+      "create_time": 1789560412.429223
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  }
+ ]
+}
