@@ -2380,7 +2380,7 @@ t("Score: %d", "分数：%d", "tformat")
 t("Wave(TOP) %d", "波次(TOP) %d", "tformat")
 t("Wave %d", "波次 %d", "tformat")
 t(" [MiniBoss]", " [小Boss]", "_t")
-t(" [Boss]", " [Boss战]", "_t")
+t(" [Boss]", " [Boss]", "_t")
 t(" [Final]", " [最终战]", "_t")
 t("Bonus: %d (x%.1f)", "奖励：%d (x%.1f)", "tformat")
 t(" VS", " 对战", "_t")
@@ -2435,8 +2435,8 @@ Right click to toggle resources bars visibility", "\
 右键点击切换资源槽是否可见", "_t")
 t("Score[1st]: %d", "分数[第一名]：%d", "tformat")
 t("Score: %d", "分数：%d", "tformat")
-t("[MiniBoss]", "[小Boss战]", "_t")
-t("[Boss]", "[Boss战]", "_t")
+t("[MiniBoss]", "[小Boss]", "_t")
+t("[Boss]", "[Boss]", "_t")
 t("[Final]", "[最终Boss]", "_t")
 t("Wave(TOP) %d %s", "波次（最高）%d %s", "tformat")
 t("Wave %d %s", "波次 %d %s", "tformat")
@@ -3176,7 +3176,7 @@ t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Oozemancer", "软泥使", "birth descriptor name")
 t("Magic must fail, magic must lose, nothing arcane can face the ooze...", "魔法必定失败，魔法终会消亡，任何奥术能量都不能对抗软泥的力量…", "_t")
-t("Oozemancers separate themselves from normal civilisation so that they be more in harmony with Nature. Arcane force are reviled by them, and their natural attunement to the wilds lets them do battle with abusive magic-users on an equal footing.", "软泥使将自己和正常文明割裂，让自己与自然更加和谐。他们拒绝奥术能量，同时，与生俱来的自然和野性力量让他们成为了对抗魔法使用者的中坚力量。", "_t")
+t("Oozemancers separate themselves from normal civilisation so that they be more in harmony with Nature. Arcane force are reviled by them, and their natural attunement to the wilds lets them do battle with abusive magic-users on an equal footing.", "软泥使将自己和正常文明割裂，让自己与自然更加和谐。他们憎恶奥术之力，而与生俱来的自然亲和让他们得以与滥用魔法者势均力敌地交战。", "_t")
 t("They can spawn oozes to protect and attack from a distance while also being adept at harnessing the power of mindstars and psiblades.", "他们能制造软泥怪，来保护自己或远距离攻击对方，同时也能利用灵晶和心灵利刃来强化自己。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+4 灵巧", "_t")
@@ -9111,7 +9111,7 @@ t("weapon", "武器", "entity type")
 t("trident", "三叉戟", "entity subtype")
 t("trident", "三叉戟", "entity combat talented")
 t([[A two-handed massive trident.
-Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。\n三叉戟需要异形武器掌握技能才能正确使用。", "_t")
+Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。\n三叉戟需要特殊武器掌握技能才能正确使用。", "_t")
 t("coral trident", "珊瑚三叉戟", "entity name")
 t("coral", "珊瑚", "entity short_name")
 t("blue-steel trident", "蓝钢三叉戟", "entity name")
@@ -9150,7 +9150,7 @@ t("Black blood for foul deeds. This dagger serves evil.", "为邪恶行径而流
 t("Trident of the Tides", "潮汐三叉戟", "entity name")
 t("ever-dripping trident", "不停滴水的三叉戟", "_t")
 t([[The power of the tides rush through this trident.
-Tridents require the exotic weapons mastery talent to use correctly.]], "这把三叉戟上流动着潮汐的力量。\n三叉戟需要异形武器掌握技能才能正确使用。", "_t")
+Tridents require the exotic weapons mastery talent to use correctly.]], "这把三叉戟上流动着潮汐的力量。\n三叉戟需要特殊武器掌握技能才能正确使用。", "_t")
 t("Fiery Choker", "炽焰护符", "entity name")
 t("flame-wrought amulet", "火焰制造的护符", "_t")
 t("A choker made of pure flame, casting forever shifting patterns around the neck of its wearer. Its fire seems to not harm the wearer.", "一个由火焰形成的护符，在它的佩戴者身上不断地改变着形状。它的火焰似乎不会伤害到佩戴者。", "_t")
@@ -12364,7 +12364,7 @@ t("When dropping below 30% max HP, you gain 20% attack speed, lose 100% fatigue,
 t("Orc Feller", "兽人砍伐者", "entity name")
 t("shining dagger", "光辉的匕首", "_t")
 t("During the invasion of Eldoral the Halfling Rogue Herah is said to have slain over one hundred orcs while defending a group of refugees.", "据说在艾德瑞尔战争中，半身人盗贼赫拉在保护一群难民时杀死了100多个兽人。", "_t")
-t("#LIGHT_BLUE#Herah's guile and luck is with you, her successor!", "#LIGHT_BLUE#Herah的狡诈和幸运与你同在，她的继承人！", "logPlayer")
+t("#LIGHT_BLUE#Herah's guile and luck is with you, her successor!", "#LIGHT_BLUE#赫拉的狡诈和幸运与你同在，她的继承人！", "logPlayer")
 t("Nature's Vengeance", "自然的复仇", "entity name")
 t("thick wooden mace", "木质粗权杖", "_t")
 t("This thick-set mace was used by the Spellhunter Vorlan, who crafted it from the wood of an ancient oak that was uprooted during the Spellblaze.  Many were the wizards and witches felled by this weapon, brought to justice for the crimes they committed against nature.", "这把加粗的权杖曾属于猎魔人沃尔兰，他从一棵在魔法大爆炸中被连根拔起的古老橡树中取材制造了它。众多法师和女巫倒在了这把武器之下，他们对自然犯下的罪行得到了制裁。", "_t")
@@ -12542,12 +12542,12 @@ t("Up to once per turn, pull an attacker up to 15 spaces away into melee range, 
 t("#ORCHID#Black tendrils from #Source# grab #Target#!", "#ORCHID#黑暗触须从#Source#处伸出，抓住了#Target#！", "logCombat")
 t("#ORCHID##Source#'s tendrils pull #Target# in!", "#ORCHID##Source#的触须将#Target#拉近自己！", "logCombat")
 t("#ORCHID#%s resists the tendrils' pull!", "#ORCHID#%s抵抗了触须的抓取！", "logSeen")
-t("Rogue Plight", "刺客契约", "entity name")
+t("Rogue Plight", "盗贼之厄", "entity name")
 t("blackened leather armour", "熏黑的皮甲", "_t")
 t("No rogue blades shall incapacitate the wearer of this armour.", "盗贼之刃将不能加于装备者之身。", "_t")
 t("Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns.", "每4回合将一项流血、毒素或伤口效果转移给效果来源或者附近的敌人。", "_t")
-t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#刺客契约将一项效果转移给其来源！", "logPlayer")
-t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#刺客契约将一项效果转移给周围敌人！", "logPlayer")
+t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#盗贼之厄将一项效果转移给其来源！", "logPlayer")
+t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#盗贼之厄将一项效果转移给周围敌人！", "logPlayer")
 t("misc", "杂项", "entity type")
 t("egg", "蛋", "entity subtype")
 t("Mummified Egg-sac of Ungolë", "温格勒的僵化卵囊", "entity name")
@@ -13015,7 +13015,7 @@ t("This lightweight armor appears to have been woven of countless sprouts, still
 t("#DARK_GREEN#You feel the strength of the whole world behind you!", "#DARK_GREEN#你感受到了世界的力量！", "logPlayer")
 t("Eternity's Counter", "永恒沙漏", "entity name")
 t("crystalline hourglass", "水晶沙漏", "_t")
-t("This hourglass of otherworldly crystal appears to be filled with countless tiny gemstones in place of sand. As they fall, you feel the flow of time change around you.", "这只漂亮的沙漏里装载着数以千计的宝石，用以代替沙子。当它们落下时，你能够感受到时间的变化。", "_t")
+t("This hourglass of otherworldly crystal appears to be filled with countless tiny gemstones in place of sand. As they fall, you feel the flow of time change around you.", "这只异界水晶制成的沙漏里装载着无数细小的宝石，用以代替沙子。当它们落下时，你能感受到你周围时间的流动发生变化。", "_t")
 t("Offers either offensive or defensive benefits, depending on the position of the sands.  Switching the direction of flow takes no time.", "根据沙的位置在进攻增益和防守增益间切换。切换沙的流向不消耗时间。", "_t")
 t("flip the hourglass (sands currently flowing towards %s)", "翻转沙漏(沙子目前流向%s)", "tformat")
 t("stability", "稳定", "_t")
@@ -13181,7 +13181,7 @@ t("#RED#You feel yourself lost in the aura of the robe.", "#RED#你觉得你在�
 t("#RED#The robe drapes comfortably over your doomed body.", "#RED#长袍舒服地披在你被诅咒的身躯上。", "logPlayer")
 t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
-In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人，他也能临场发挥。", "_t")
+In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯闻名于整个埃亚尔。他总是抓住了他的敌人落单之时。\n即使对手不是独自一人，他也能临场发挥。", "_t")
 t("insignia ring", "徽记戒指", "_t")
 t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s！", "logSeen")
@@ -13462,7 +13462,7 @@ t("frozen spot", "被冻结的地点", "_t")
 t("lightning", "闪电", "entity subtype")
 t("lightning trap", "闪电陷阱", "entity name")
 t("A bolt of lightning fires onto @target@!", "一枚闪电箭击中了@target@！", "_t")
-t("crackling spot", "爆裂的地点", "_t")
+t("crackling spot", "噼啪作响的地点", "_t")
 t("poison", "毒素", "entity subtype")
 t("poison trap", "毒液陷阱", "entity name")
 t("A stream of poison gushes onto @target@!", "一股毒液击中了@target@！", "_t")
@@ -19370,7 +19370,7 @@ t([[This picture shows the huge god holding some smaller figures in his hands an
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#", "不明意义的文字：#{italic}#“Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"”#{normal}#", "_t")
-t("#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#", "#{italic}#并且阿马克泰尔制造了夏·图尔，给予我们完成自我意志的力量，他对我们说：“走向世界，为自己取得一切。”#{normal}#", "_t")
+t("#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#", "#{italic}#并且阿马克泰尔制造了夏·图尔，给予我们完成自我意志的力量，他对我们说：“走向光所照及之处，为自己取得一切。”#{normal}#", "_t")
 t("fourth mural painting", "第四幅壁画", "_t")
 t([[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky.
 There is some text beneath ]], [[你在壁画上看到一个巨大的水晶之城，有数个浮空岛悬浮在周围。在画面的最前端坐着的是夏·图尔人，他向天空笔直的举起手臂。
@@ -23733,7 +23733,7 @@ t("flash bang trap", "闪光陷阱", "_t")
 t("Explodes (radius 2) for %0.2f physical damage, 50%% blind/daze for %d turns.", "爆炸（半径2）造成 %0.2f 物理伤害，50%% 致盲/眩晕 %d 回合。", "tformat")
 t([[Lay a trap that explodes in a radius of 2, dealing %0.2f physical damage and blinding and dazing (50%% chance of each) any creature caught inside for %d turns.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个闪光陷阱。产生一个 2 码范围的爆炸，造成 %0.2f 物理伤害，致盲或眩晕目标 %d 回合（各 50%% 几率）。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
+		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Bladestorm Trap", "剑刃风暴陷阱", "talent name")
 t("bladestorm trap", "剑刃风暴陷阱", "_t")
 t("Construct attacks all adjacent enemies each turn for %d turns.", "每回合攻击周围生物，持续 %d 回合。", "tformat")
@@ -23762,7 +23762,7 @@ t([[Lay a trap that explodes into a radius 2 cloud of freezing vapour when trigg
 		The freezing vapour persists for 5 turns, dealing %0.2f cold damage each turn to foes with a 25%% chance to freeze.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，激活后产生半径 2 的冰冻气体，造成 %0.2f 寒冷伤害并定身 3 回合。
 		冰冻气体持续 5 回合，每回合造成 %0.2f 伤害，有 25%% 几率冻结。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
+		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Dragonsfire Trap", "龙火陷阱", "talent name")
 t("dragonsfire trap", "龙火陷阱", "_t")
 t("Explodes (radius 2): stuns and combusts for %0.2f fire damage per turn for 3 turns.  Area deflagrates (%0.2f fire damage) for 5 turns.", "爆炸（范围 2）：震慑并在3回合内每回合造成 %0.2f 火焰伤害。范围火焰 (%0.2f 火焰伤害) 持续5 回合。", "tformat")
@@ -23770,7 +23770,7 @@ t([[Lay a pressure triggered trap that explodes in a radius 2 cloud of searing f
 		The deflagration persists in the area for 5 turns, burning foes for %0.2f fire damage each turn.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个压力感应陷阱，激活后产生半径 2 的火云，震慑敌人 (每回合 %0.2f 火焰伤害) 3 回合。
 		火焰持续 5 回合，每回合燃烧造成 %0.2f 火焰伤害。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
+		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Gravitic Trap", "引力陷阱", "talent name")
 t("@Source@ deploys a warped device.", "@Source@放置了一个扭曲的装置。", "_t")
 t("gravitic trap", "引力陷阱", "_t")
@@ -23801,7 +23801,7 @@ t([[Lay a trap that releases a burst of antimagic energies (radius 2), draining 
 		The draining effect scales with your Willpower, and you must have 25 Willpower to prepare this trap.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
 		吸取效果受意志加成，你需要 25 点意志来使用该技能。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
+		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Explosion Trap", "爆炸陷阱", "talent name")
 t("You have learned how to create Explosion traps!", "你学会了如何制作爆炸陷阱！", "_t")
 t("explosion trap", "爆炸陷阱", "_t")
@@ -24176,7 +24176,7 @@ t([[Let hate fuel your movements. While active, you gain %d%% movement speed. Th
 		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
 		Sustaining Surge while Dual Wielding grants %d additional Defense.
 		Movement speed and dual-wielding Defense both increase with the Willpower stat.]], [[让杀意激发你敏捷的身手，提高你 %d%% 移动速度。不顾一切的移动会带给你厄运（-3 幸运）。
-		分裂攻击、杀意涌动和无所畏惧不能同时开启，并且激活其中一个也会使另外两个进入冷却。
+		分裂攻击、无所畏惧和杀意涌动不能同时开启，并且激活其中一个也会使另外两个进入冷却。
 		双持武器时，杀意涌动还会提高你 %d 的闪避。
 		移动速度和双持时的闪避增益受意志加成。]], "tformat")
 
@@ -24577,7 +24577,7 @@ t([[While active, every swing of your weapon strikes strikes other adjacent enem
 		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
 		Cleave will deal 25%% additional damage while using a two-handed weapon.
 		The Cleave damage increases with your Strength.]], [[激活时，你的每次武器攻击都会同时攻击其他相邻敌人，造成 %d%% （0 仇恨值）到 %d%% （100 仇恨值）的物理伤害。如此不顾一切的杀戮会带给你厄运（幸运 -3）。
-		分裂攻击、杀意涌动和无所畏惧不能同时开启，并且激活一个也会使另外两个进入冷却。
+		分裂攻击、无所畏惧和杀意涌动不能同时开启，并且激活一个也会使另外两个进入冷却。
 		当使用双手武器时，分裂攻击会造成 25%% 的额外伤害。
 		分裂攻击伤害受力量值加成。]], "tformat")
 
@@ -24611,7 +24611,7 @@ t([[Rather than hide from the onslaught, you face down every threat. While activ
 		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
 		Repel chance increases with your Strength and by 20%% when equipped with a shield.]], [[在猛烈的攻击面前，你选择直面威胁而不是躲藏。
 		当技能激活时，你有 %d%% 概率抵挡一次近程攻击。不顾一切的防御会带给你厄运（-3幸运）。
-		分裂攻击，杀意涌动和无所畏惧不能同时开启，并且激活其中一个也会使另外两个进入冷却。
+		分裂攻击，无所畏惧和杀意涌动不能同时开启，并且激活其中一个也会使另外两个进入冷却。
 		抵挡概率受力量加成。
 		装备盾牌时，抵挡概率增加 20%%。]], "tformat")
 
@@ -26816,7 +26816,7 @@ t([[Highers were originally created during the Age of Allure by the human Concla
 		Also, when you cast a spell dealing damage, you gain a 20%% bonus to the damage type for 5 turns. (This effect has a cooldown.)]], [[高等人类们最初是在厄流纪由孔克雷夫创造的。他们天生具有魔法天赋。
 		提高 %d 点法术豁免和 %d%% 奥术抗性。
 		每次释放伤害法术时，5 回合内该伤害类型获得 20%% 伤害加成。（该效果有冷却时间。）]], "tformat")
-t("Highborn's Bloom", "生命绽放", "talent name")
+t("Highborn's Bloom", "高等人类之绽放", "talent name")
 t([[Activate some of your inner magic, using it to power your abilities.  For the next %d turns all active talents will be used without resource cost.
 		Your resources must still be high enough to initially power the talent and failure rates (etc.) still apply.
 		]], [[激活你的内在潜力，以提高你的能力。
@@ -27218,13 +27218,13 @@ t([[Focus your mind on a single target, diverting all offensive Discharge talent
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/distortion.lua"
 
-t("Distortion Bolt", "扭曲之球", "talent name")
+t("Distortion Bolt", "扭曲飞弹", "talent name")
 t([[Fire a bolt of distortion that ignores resistance and inflicts %0.2f physical damage.  This damage will distort affected targets, decreasing physical resistance by %d%% and rendering them vulnerable to distortion effects for two turns.
 		If the bolt comes in contact with a target that's already distorted, a detonation will occur, inflicting 150%% of the base damage in a radius of %d.
 		Investing in this talent will increase the physical resistance reduction from all of your distortion effects.
 		At talent level 5, you learn to shape your distortion effects, preventing them from hitting you or your allies.
-		The damage will scale with your Mindpower.]], [[射出一枚无视抵抗的扭曲之球并造成 %0.2f 物理伤害。此技能会扭曲目标，减少对方物理抗性 %d%%，并使其在 2 回合内受到扭曲效果时会产生额外的负面影响。
-		如果目标身上已存在扭曲效果，则会在 %d 码范围内产生 150 %%基础伤害的爆炸。
+		The damage will scale with your Mindpower.]], [[射出一枚无视抵抗的扭曲飞弹并造成 %0.2f 物理伤害。此技能会扭曲目标，减少对方物理抗性 %d%%，并使其在 2 回合内受到扭曲效果时会产生额外的负面影响。
+		如果飞弹命中已存在扭曲效果的目标，则会在 %d 码范围内产生 150%% 基础伤害的爆炸。
 		在该技能投入点数会增加你所有扭曲效果的降抗效果。
 		在等级 5 时，你学会控制你的扭曲效果，防止扭曲效果攻击到你或友军。
 		受精神强度影响，伤害按比例加成。]], "tformat")
@@ -31694,7 +31694,7 @@ t("Slasul will be happy to know your faith in his cause. You should return to sp
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
 		In addition, should Slasul still live, he may have a further reward for you as thanks...]], [[你站在萨拉苏尔一方并帮助他解决了乌克勒姆斯维奇。你现在可以轻松地在水下呼吸。
-		同时，你能轻易学会如何使用三叉戟和其他异形武器（获得 %d 级异形武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。技能等级随人物等级增长。
+		同时，你能轻易学会如何使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。技能等级随人物等级增长。
 		此外，若萨拉苏尔仍然存活，他还会送你一份大礼…]], "tformat")
 t("Superpower", "超级力量", "talent name")
 t([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.
@@ -36100,7 +36100,7 @@ t("shield", "护盾", "effect subtype")
 t("Spiked Kinetic Shield", "尖刺念力护盾", "_t")
 t(", nature", ", 自然", "_t")
 t(", temporal", ", 时空", "_t")
-t("The target erects a powerful kinetic shield capable of absorbing %d/%d physical%s or acid damage before it crumbles.", "目标施放一个念力护盾吸收 %d/%d 物理 %s 或酸性伤害。", "tformat")
+t("The target erects a powerful kinetic shield capable of absorbing %d/%d physical%s or acid damage before it crumbles.", "目标施放一个念力护盾，在碎裂前吸收 %d/%d 物理%s或酸性伤害。", "tformat")
 t("A powerful kinetic shield forms around #target#.", "#target#四周形成了强大的念力护盾。", "_t")
 t("+Shield", "+护盾", "_t")
 t("The powerful kinetic shield around #target# crumbles.", "#target#的念力护盾消失了。", "_t")
@@ -36114,7 +36114,7 @@ t("The powerful thermal shield around #target# crumbles.", "#target#的热能护
 t("Spiked Charged Shield", "尖刺充能护盾", "_t")
 t(", darkness", ", 暗影", "_t")
 t(", mind", ", 精神", "_t")
-t("The target erects a powerful charged shield capable of absorbing %d/%d lightning%s or blight damage before it crumbles.", "目标施放一个充能护盾吸收 %d/%d 闪电 %s 或枯萎伤害。", "tformat")
+t("The target erects a powerful charged shield capable of absorbing %d/%d lightning%s or blight damage before it crumbles.", "目标施放一个充能护盾，在碎裂前吸收 %d/%d 闪电%s或枯萎伤害。", "tformat")
 t("A powerful charged shield forms around #target#.", "#target#获得了充能护盾。", "_t")
 t("The powerful charged shield around #target# crumbles.", "#target#的充能护盾消失了。", "_t")
 t("Perfect control", "完美控制", "_t")
@@ -36647,7 +36647,7 @@ t("The target has faded and is no longer taking damage.", "目标消隐了，不
 t("#Target# fades!", "#Target#消失了！", "_t")
 t("+Faded", "+隐匿", "_t")
 t("arcane", "奥术", "effect subtype")
-t("Highborn's Bloom", "生命绽放", "_t")
+t("Highborn's Bloom", "高等人类之绽放", "_t")
 t("The target is using talents without consuming resources.", "目标使用技能时不再消耗能量。", "_t")
 t("Victory Rush", "胜利冲锋", "_t")
 t("The thrill of victory makes this creature invulnerable.", "胜利的激励使目标刀枪不入。", "_t")
@@ -36679,27 +36679,27 @@ t("aura", "光环", "effect subtype")
 t("Oil mist", "油雾", "_t")
 t("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.", "区域效果：+10% 火焰伤害，-10% 火焰抗性，-10% 护甲值，-2 可视范围。", "_t")
 t("Grave chill", "墓地深寒", "_t")
-t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "区域效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱抗性。", "_t")
+t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "区域效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱免疫。", "_t")
 t("Static discharge", "静电放射", "_t")
-t("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.", "区域效果：+10% 闪电伤害，-10% 闪电抗性，-10% 物理强度，-20% 震慑抗性。", "_t")
+t("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.", "区域效果：+10% 闪电伤害，-10% 闪电抗性，-10% 物理强度，-20% 震慑免疫。", "_t")
 t("Noxious fumes", "毒性气体", "_t")
-t("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.", "区域效果：+10% 酸性伤害，-10% 酸性抗性，-10% 闪避，-20% 缴械抗性。", "_t")
+t("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.", "区域效果：+10% 酸性伤害，-10% 酸性抗性，-10% 闪避，-20% 缴械免疫。", "_t")
 t("Echoes of the void", "虚空回响", "_t")
-t("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.", "区域效果：+10% 暗影伤害，-10% 暗影抗性，-10% 精神豁免，-20% 恐惧抗性。", "_t")
+t("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.", "区域效果：+10% 暗影伤害，-10% 暗影抗性，-10% 精神豁免，-20% 恐惧免疫。", "_t")
 t("Eerie silence", "恐惧噤声", "_t")
-t("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.", "区域效果：+10% 精神伤害，-10% 精神抗性，-10% 法术强度，-20% 沉默抗性。", "_t")
+t("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.", "区域效果：+10% 精神伤害，-10% 精神抗性，-10% 法术强度，-20% 沉默免疫。", "_t")
 t("Aura of light", "光明光环", "_t")
-t("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.", "区域效果：+10% 光系伤害，-10% 光系抗性，-10% 命中，-20% 致盲抗性。", "_t")
+t("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.", "区域效果：+10% 光系伤害，-10% 光系抗性，-10% 命中，-20% 致盲免疫。", "_t")
 t("Aether residue", "以太残渣", "_t")
-t("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.", "区域效果：+10% 奥术伤害，-10% 奥术抗性，-10% 护甲强度，-20% 石化抗性。", "_t")
+t("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.", "区域效果：+10% 奥术伤害，-10% 奥术抗性，-10% 护甲强度，-20% 石化免疫。", "_t")
 t("Impossible geometries", "扭曲空间", "_t")
-t("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.", "区域效果：+10% 时空伤害，-10% 时空抗性，-10% 法术豁免，-20% 定身抗性。", "_t")
+t("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.", "区域效果：+10% 时空伤害，-10% 时空抗性，-10% 法术豁免，-20% 定身免疫。", "_t")
 t("Uncontrolled anger", "无边愤怒", "_t")
 t("Zone-wide effect: +10% physical damage, -10% physical resistance, -10% mindpower, -20% knockback immunity.", "区域效果：+10% 物理伤害，-10% 物理抗性，-10% 精神强度，-20% 击退免疫。", "_t")
 t("Miasma", "瘴气", "_t")
-t("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.", "区域效果：+10% 枯萎伤害，-10% 枯萎抗性，-20% 治疗加成，-20% 疾病抗性。", "_t")
+t("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.", "区域效果：+10% 枯萎伤害，-10% 枯萎抗性，-20% 治疗加成，-20% 疾病免疫。", "_t")
 t("Slimy floor", "泥泞之地", "_t")
-t("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.", "区域效果：+10% 自然伤害，-10% 自然抗性，-10% 远程闪避，-20% 毒素抗性。", "_t")
+t("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.", "区域效果：+10% 自然伤害，-10% 自然抗性，-10% 远程闪避，-20% 毒素免疫。", "_t")
 t("vault", "宝库", "effect subtype")
 t("In Vault", "在宝库中", "_t")
 t("The target is part of a vault and cannot act until it has been openend.", "目标属于宝库的一部分，在宝库被打开之前无法行动。", "_t")
@@ -36803,27 +36803,27 @@ t("Death in a Dream", "梦中死亡", "_t")
 t("The target had breathed in noxious sleep-induced fumes and is losing %d life per turn.", "目标吸入有毒的催眠气体，每回合损失 %d 生命。", "tformat")
 t("killed in a dream", "梦中被杀", "_t")
 t("Natural Aura", "自然光环", "_t")
-t("Zone-wide effect: +20 mindpower, +2 life regen, -1 equilibrium per turn, -20% resistance penetration.", "区域效果 : +20 精神强度 , +2 生命恢复 , -1 失衡值 / 回合，-20% 抗性穿透。", "_t")
+t("Zone-wide effect: +20 mindpower, +2 life regen, -1 equilibrium per turn, -20% resistance penetration.", "区域效果：+20 精神强度，+2 生命恢复，-1 失衡值 / 回合，-20% 抗性穿透。", "_t")
 t("Sorcerous Aura", "魔法光环", "_t")
-t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "区域效果 : +20 魔法 , +2 法力回复 , -20 命中，-20 潜行强度。", "_t")
+t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "区域效果：+20 魔法，+2 法力回复，-20 命中，-20 潜行强度。", "_t")
 t("Disciplined Aura", "纪律光环", "_t")
-t("Zone-wide effect: +20 defense, +20 all saves, -20 spell power.", "区域效果 : +20 闪避，+20 全豁免 , -20 法术强度。", "_t")
+t("Zone-wide effect: +20 defense, +20 all saves, -20 spell power.", "区域效果：+20 闪避，+20 全豁免，-20 法术强度。", "_t")
 t("Sinister Aura", "危险光环", "_t")
-t("Zone-wide effect: +10% critical chance, +20% critical damage, -20% nature and blight resistance.", "区域效果 : +10% 暴击几率 , +20% 暴击伤害 , -20% 自然枯萎抗性。", "_t")
+t("Zone-wide effect: +10% critical chance, +20% critical damage, -20% nature and blight resistance.", "区域效果：+10% 暴击几率，+20% 暴击伤害，-20% 自然枯萎抗性。", "_t")
 t("Underwater Zone", "水下区域", "_t")
-t("Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%.", "区域效果 :  空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。", "_t")
+t("Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%.", "区域效果： 空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。", "_t")
 t("Fearscape Zone", "恶魔空间", "_t")
-t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果 :  恶魔空间的火焰将增加 10% 火焰和枯萎伤害，同时减少 20% 击退抗性。", "_t")
+t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果： 恶魔空间的火焰将增加 10% 火焰和枯萎伤害，同时减少 20% 击退抗性。", "_t")
 t("Out of Time Zone", "异常时空", "_t")
-t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果 : 你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性  , -20% 传送免疫。", "_t")
+t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性 ，-20% 传送免疫。", "_t")
 t("Spellblaze Aura", "魔法大爆炸区域", "_t")
-t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果 : 魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性 , +10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
+t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
 t("Heady Scent", "催眠区域", "_t")
-t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果 :  强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
+t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
 t("Thunderstorm", "闪电风暴", "_t")
-t("Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance.", "区域效果 :  强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。", "_t")
+t("Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance.", "区域效果： 强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。", "_t")
 t("Abashed Expanse", "次元浮岛", "_t")
-t("Zone-wide effect: Your Phase Door spell is super easy to use here, allowing you to target it regardless of level. Any projectiles is slowed down by 80%.", "区域效果 : 你的相位之门法术在这里极其容易施展，不论等级如何，都能指定位置。所有抛射物速度减慢 80%。", "_t")
+t("Zone-wide effect: Your Phase Door spell is super easy to use here, allowing you to target it regardless of level. Any projectiles is slowed down by 80%.", "区域效果：你的相位之门法术在这里极其容易施展，不论等级如何，都能指定位置。所有抛射物速度减慢 80%。", "_t")
 t("Challenge", "挑战", "_t")
 t("Throwing Knives", "飞刀投掷", "_t")
 t("%d Knives", "%d 飞刀", "tformat")

@@ -86,6 +86,7 @@ ITEM_SOURCES = {
     "power",  # 物品词缀语境（of power 能量之）与 orcs entity subtype
     "cleansing ", "cleansing", "cleanse",  # 核心装备 ego 名称与 short_key
     "grounding ", "insulating ",  # 核心装备 ego 前缀名称
+    "Rogue Plight",  # 世界神器（world-artifacts.lua ROGUE_PLIGHT），2026-09-16 定名「盗贼之厄」
 }
 # 生物类 source
 CREATURE_SOURCES = {
