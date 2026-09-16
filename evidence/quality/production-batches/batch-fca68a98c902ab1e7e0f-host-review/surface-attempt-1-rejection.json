@@ -1,0 +1,29 @@
+{
+ "batch_id": "batch-fca68a98c902ab1e7e0f",
+ "attempt": 1,
+ "dispatch_id": "lane-000-3",
+ "agent_id": "50e1311f-ec34-4e85-b0b5-23d553b56b7c",
+ "validator": "translation_surface_screen_v1",
+ "validation_error": "results[12] does not match the frozen entry order",
+ "output_valid": false,
+ "raw_output_path": ".artifacts/i18n/batch178-orchestration/raw/batch-fca68a98c902ab1e7e0f/lane-000-3.raw",
+ "raw_output_sha256": "71aea4d4d7f3c15c53cd84b993c308d7d954a2c2d20944aa4951c02ace77fe25",
+ "frozen_input_path": ".artifacts/i18n/production-review-v2-lite/surface/run-000-lane-03.json",
+ "diagnosis": "子 agent 输出的第 13 条（索引 12）identity 与冻结输入不符。两者均为 64 位十六进制、前 24 位相同、自第 25 位起分叉，说明该 identity 不是从输入逐字复制，而是被凭记忆重打/续写生成——这正是派发提示明确禁止的行为（「每条identity必须从输入逐字完整复制，不凭记忆重打」）。其余 19 条 identity 与顺序均正确，条数也正确（20 条），故不是漏报或错位，而是单点伪造。",
+ "mismatches": [
+  {
+   "index": 12,
+   "frozen": "8b6b31d67f9ea95230c84013f1d88daa46d8165a29d8b086c397e6f7f85b6114",
+   "returned": "8b6b31d67f9ea95230c84013c8a3384df6c36191f9b54a6c85b7708ef9ac65e7",
+   "first_divergent_char_index": 24,
+   "returned_verdict": "OK"
+  }
+ ],
+ "counts": {
+  "frozen_entries": 20,
+  "returned_results": 20,
+  "identity_mismatches": 1,
+  "order_or_count_errors": 0
+ },
+ "host_action": "按 review_lifecycle 的重试语义，lane 重试必须使用**全新的 group manifest**（require: surface retry needs fresh group，且 lane 的 attempt/cycle 取自 group manifest payload）；而 group manifest 由 checkpoint 的 attempt 绑定，batch_id 本身又由 _batch_id(mode, selected, attempt) 派生。因此单独重跑一条 lane 不在支持路径内；正确做法是 abandon 当前批次后以 attempt=2 重开同一批 80 条，重新派发全部四条 lane。本批次未导入任何结果（phase=surface_ready，四条 ref 均为 validator_status=prepared），abandon 不丢弃任何已接受结果。"
+}

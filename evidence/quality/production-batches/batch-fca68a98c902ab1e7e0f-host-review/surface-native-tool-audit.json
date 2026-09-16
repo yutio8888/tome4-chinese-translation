@@ -1,0 +1,182 @@
+{
+ "batch_id": "batch-fca68a98c902ab1e7e0f",
+ "status": "PASS",
+ "reviews": [
+  {
+   "dispatch_id": "lane-000-0",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T06-35-48-01a0a8ed-c0bf-76d3-a341-926408ccfc7d.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_006ec9e8df3731f6016aaa38d0507c87d2a8bfdc55ac830013",
+     "status": "completed",
+     "call_id": "call_R5D7wfvfb3P2Q7gWTSOFGr4h",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,260p' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-0.json && sed -n '/^## 六\\\\|^## 6\\\\|^### 六\\\\|^### 6/,/^## /p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c109-7e50-94f4-ccc65d63df9d",
+      "create_time": 1789540554.605391
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_006ec9e8df3731f6016aaa39107a6887d2b86d4134051816e9",
+     "status": "completed",
+     "call_id": "call_sMRy8GOybVuhMACscaeM7mZb",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"rg -n -F -e 'Flagpost tactical bars' -e 'The target takes %d%% increased damage from all sources.' -e 'Target is protected by a mirror image.' --glob 'mod-tome.lua' --glob '!.ai/**' .\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":5000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c109-7e50-94f4-ccc65d63df9d",
+      "create_time": 1789540563.184969
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_006ec9e8df3731f6016aaa392524cc87d29b0740148c621e06",
+     "status": "completed",
+     "call_id": "call_mgGpokGC28pyOCfIv7Fp0v5D",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nimport json\\np='.ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nwith open(p,encoding='utf-8') as f: d=json.load(f)\\nissues={\\n4:'将“runs its full course”误成泛指“效果结束时”，括号内追加伤害的关系也表述错乱',\\n17:'将“Flagpost tactical bars”误译为“战术视图旗杆”，遗漏了 tactical bars 的“战术条”含义'\\n}\\nresults=[]\\nfor i,e in enumerate(d['payload']['entries']):\\n    x={'entry_revision_identity':e['entry_revision_identity']}\\n    if i in issues: x['observation']=issues[i]; x['verdict']='ISSUE'\\n    else: x['verdict']='OK'\\n    results.append(x)\\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':results}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nassert len(results)==20\\nassert [x['entry_revision_identity'] for x in results]==[e['entry_revision_identity'] for e in d['payload']['entries']]\\nassert len({x['entry_revision_identity'] for x in results})==20\\nassert s[0]=='{' and s[-1]=='}' and json.dumps(json.loads(s),ensure_ascii=False,sort_keys=True,separators=(',',':'))==s\\nprint(s,end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c109-7e50-94f4-ccc65d63df9d",
+      "create_time": 1789540626.355535
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-1",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T06-35-49-01a0a8ed-c4e9-71c3-ab87-4840144a0a48.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_02c21e3b691b973d016aaa38cde35487d2aac117f778daaa3b",
+     "status": "completed",
+     "call_id": "call_CEHqc2FCcuFawZbZ0HM764ct",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c527-7020-aa71-ad41d4f64174",
+      "create_time": 1789540555.567353
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_02c21e3b691b973d016aaa38eda9cc87d28fec16363e06d53c",
+     "status": "completed",
+     "call_id": "call_BVK7VlAD9oFAMcQahfcE6BtX",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\np='.ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-1.json'\\nwith open(p,encoding='utf-8') as f: d=json.load(f)\\nobs={\\n4:'将“Skull”改成“骨盔”，改变了物品名称所指对象。',\\n12:'将“currently following you”的生物错译为“所有敌人”，明显扩大了对象范围。',\\n15:'遗漏“scorching”，未译出光芒具有灼热性质。',\\n17:'将“Shrouds”错译为“屏障”，语义不符。',\\n18:'遗漏标题中的“damp caves”。',\\n}\\nr=[]\\nfor i,e in enumerate(d['payload']['entries']):\\n x={'entry_revision_identity':e['entry_revision_identity']}\\n if i in obs: x.update(observation=obs[i],verdict='ISSUE')\\n else: x['verdict']='OK'\\n r.append(x)\\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nassert len(r)==20\\nassert [x['entry_revision_identity'] for x in r]==[e['entry_revision_identity'] for e in d['payload']['entries']]\\nprint(s,end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c527-7020-aa71-ad41d4f64174",
+      "create_time": 1789540560.587455
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-2",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T06-35-50-01a0a8ed-c909-7f00-863a-6e5ed3b8e1b5.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09d41affc62a1be8016aaa38d445c487d18800f56f090a781a",
+     "status": "completed",
+     "call_id": "call_nlykFBHR4oKbYTrWbeytYqGG",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\\nsed -n '/^## 六、/,/^## 七、/p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c946-7912-912b-64dd3fb1efbb",
+      "create_time": 1789540561.040746
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09d41affc62a1be8016aaa38da994487d1b0bfcfd8ac07135c",
+     "status": "completed",
+     "call_id": "call_Uqz0MSwebkFGHgEhAvIQhsBz",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"jq '.payload.entries | length' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":1000});text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c946-7912-912b-64dd3fb1efbb",
+      "create_time": 1789540566.831372
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09d41affc62a1be8016aaa38dd206887d1be9a1862fd2e9cc3",
+     "status": "completed",
+     "call_id": "call_MpxEPXPVh19SL0xOfKOjgLMD",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"jq -r '.payload.entries[] | [.entry_revision_identity,.source,.target] | @tsv' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000});text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c946-7912-912b-64dd3fb1efbb",
+      "create_time": 1789540572.111282
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09d41affc62a1be8016aaa38f5c07487d19b4a9295943d3d90",
+     "status": "completed",
+     "call_id": "call_HhOP1qEpR0ZjXkbl2tU7f2q1",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:mod-tome.lua | rg -n -C 2 'Poltergeist.s %s|Noxious Caldera|Reabsorb|dwarven nature|Starry|Beastmaster #rng#'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":5000});text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c946-7912-912b-64dd3fb1efbb",
+      "create_time": 1789540575.494517
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_09d41affc62a1be8016aaa38fa936087d185c15d379fc7cf2f",
+     "status": "completed",
+     "call_id": "call_g3wVIf9VZQwv4Bc8AA1Yulra",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"jq -cS '{candidate_identity:.candidate_identity,contract:.payload.contract,results:[.payload.entries[]|if .entry_revision_identity==\\\"8b2cf18d03e330758003281880a8449f293c289de21e9db2673c1541ee95ace0\\\" then {entry_revision_identity:.entry_revision_identity,observation:\\\"Reabsorb 意为“重新吸收”，译成“强化吸收”改变了含义\\\",verdict:\\\"ISSUE\\\"} else {entry_revision_identity:.entry_revision_identity,verdict:\\\"OK\\\"} end]}' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000});text(r.output)\n",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ed-c946-7912-912b-64dd3fb1efbb",
+      "create_time": 1789540599.765107
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  },
+  {
+   "dispatch_id": "lane-000-3",
+   "native_log": "/home/paseo/.codex/sessions/2026/09/16/rollout-2026-09-16T06-37-59-01a0a8ef-bd78-7751-8868-a2ca722a1baa.jsonl",
+   "tool_calls": [
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0126f9b402aa000c016aaa394f50c487d1859641c9da435151",
+     "status": "completed",
+     "call_id": "call_rZvzBDqZXqmbQTKWFp0YU6gE",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"sed -n '/^## 六\\\\|^# 六\\\\|第六节/,$p' docs/paseo-translation-surface-screen-v1-contract.md | sed -n '1,240p'\\nprintf '\\\\n---INPUT---\\\\n'\\nsed -n '1,260p' .ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ef-bdb6-73e0-b96b-f7287a6e6ba8",
+      "create_time": 1789540685.025681
+     }
+    },
+    {
+     "type": "custom_tool_call",
+     "id": "ctc_0126f9b402aa000c016aaa396e12a087d19f64e0b631a71cab",
+     "status": "completed",
+     "call_id": "call_Ndx6868b3CtH4fudv2N50A14",
+     "name": "exec",
+     "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\np='.ai/task/batch-fca68a98c902ab1e7e0f/SURFACE-SCREEN-ENVELOPE-lane-000-3.json'\\nwith open(p,encoding='utf-8') as f: d=json.load(f)\\nobs={\\n1:'将“pustulent flesh”（脓疮遍布的肉体）误译为“碎肉”，遗漏了脓疮特征',\\n5:'将“Working Actor”（当前操作的角色）误译为“生成角色”',\\n6:'将“Encroaching terrain”（正在侵入/蔓延的地形）误译为“此处地形”',\\n7:'“冒险日/月”未准确表达“冒险天数 / 当前月份”',\\n9:'将“使万物运动的力量与能量”误译为“将这些元素精密结合在一起的力量”',\\n14:'将“挥出旋转反手击”误译为“冲出去打出旋风打击”',\\n}\\nres=[]\\nfor i,e in enumerate(d['payload']['entries']):\\n    x={'entry_revision_identity':e['entry_revision_identity']}\\n    if i in obs: x.update(observation=obs[i],verdict='ISSUE')\\n    else: x['verdict']='OK'\\n    res.append(x)\\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':res}\\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\\nassert len(res)==20\\nassert [x['entry_revision_identity'] for x in res]==[e['entry_revision_identity'] for e in d['payload']['entries']]\\nassert len(set(x['entry_revision_identity'] for x in res))==20\\nassert all(len(x['entry_revision_identity'])==64 for x in res)\\nassert s[0]=='{' and s[-1]=='}'\\nprint(s,end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000});\ntext(r.output);",
+     "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0a8ef-bdb6-73e0-b96b-f7287a6e6ba8",
+      "create_time": 1789540690.270381
+     }
+    }
+   ],
+   "status": "PASS",
+   "assessment": "Host read all complete exec calls: own frozen envelope, contract section VI, and an in-memory identity/result check. No prohibited task scan, locale read, engine access or write."
+  }
+ ]
+}
