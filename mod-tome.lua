@@ -2643,7 +2643,7 @@ t("Killed your target while having only 1 life left.", "当你只剩1滴血时�
 t("Size matters", "伤害很重要", "achievement name")
 t("Did over 600 damage in one attack.", "在一次攻击中造成600点伤害。", "_t")
 t("Size is everything", "伤害就是一切", "achievement name")
-t("Did over 1500 damage in one attack.", "在一次攻击中造成1500点伤害。", "_t")
+t("Did over 1500 damage in one attack.", "在一次攻击中造成超过1500点伤害。", "_t")
 t("The bigger the better!", "越大越好！", "achievement name")
 t("Did over 3000 damage in one attack.", "在一次攻击中造成3000点伤害。", "_t")
 t("Overpowered!", "过于强大！", "achievement name")
@@ -2797,7 +2797,7 @@ t("Sided with the assassin lord.", "与刺客领主同流合污。", "_t")
 t("Destroyer of the creation", "创造神终结者", "achievement name")
 t("Killed Slasul.", "杀死萨拉苏尔。", "_t")
 t("Treacherous Bastard", "阴险的背叛者", "achievement name")
-t("Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.", "杀死萨拉苏尔，尽管你曾与他并肩作战并了解过纳鲁精灵的传奇。", "_t")
+t("Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.", "杀死萨拉苏尔，尽管你曾为习得觉醒技“纳鲁精灵的遗产”而与他结盟。", "_t")
 t("Flooder", "倒戈", "achievement name")
 t("Defeated Ukllmswwik while doing his own quest.", "在做乌克勒姆斯维奇托付的任务时击败他。", "_t")
 t("Gem of the Moon", "月亮宝石", "achievement name")
@@ -6684,7 +6684,7 @@ t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I
 t("Thank you.", "谢谢。", "_t")
 t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚怎么可能让一颗钻石溜走？", "_t")
 t("Briagh?", "布莱亚？", "_t")
-t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚，那条巨型沙虫，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚的鳞片间长达几个世纪，逐渐被灌注了生命节律。你看，它正是睡在一堆珍贵宝石和金属上呢。", "_t")
+t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚，那条巨型沙龙，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚的鳞片间长达几个世纪，逐渐被灌注了生命节律。你看，它正是睡在一堆珍贵宝石和金属上呢。", "_t")
 t("Where might I find Briagh's lair??", "布莱亚的老巢在什么地方？？", "_t")
 t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒以南很远的地方，我会在你的地图上给你做个记号。", "_t")
 t("I'll be back with a Resonating Diamond.", "我会带回共鸣钻石。", "_t")
@@ -6884,7 +6884,7 @@ t("tainted", "被污染", "_t")
 t("light", "光系", "damage type")
 t("radiated", "受到辐射", "_t")
 t("seared", "被烧焦", "_t")
-t("purified", "经过72层净化", "_t")
+t("purified", "被净化", "_t")
 t("sun baked", "被太阳烤干", "_t")
 t("jerkied", "被烈日晒干", "_t")
 t("tanned", "被烈日曝晒", "_t")
@@ -8252,7 +8252,7 @@ t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("worm that walks", "蠕虫合体", "entity name")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
-Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的斧子。\n每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
+Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍似乎要从接缝处裂开，成团浮肿的蠕虫从这移动的躯体四周向外涌出。两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的战斧。\n每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
 t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来！", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
@@ -8729,7 +8729,7 @@ t("A frail skeleton; just about the only bones that aren't cracked are its arms.
 t("skeleton mage", "骷髅法师", "entity name")
 t("Given its condition, you're less inclined to think this skeleton knows proper spells, rather than simply disgorging its magical energy as it breaks down.  This doesn't make it much less dangerous to be around, mind you.", "看着它残破的样子，你与其相信这只骷髅会释放魔法，不如相信是在它身躯逐渐破碎的同时将奥术能量胡乱喷射出来。不过，这一点也没有降低它的危险性，小心。", "_t")
 t("skeleton warrior", "骷髅战士", "entity name")
-t("The forces binding this skeleton together are resilient enough to let it hold a shield and swing a weapon as well as it could have in life.  It's still wearing its old armor, in rusty but servicable condition.", "施展在这只骷髅身上的魔法已经足够强大，足以让它像还活着的时候那样严阵以待，挥动武器。它仍然穿着它原来的那件老盔甲，锈迹斑斑却值得信赖。", "_t")
+t("The forces binding this skeleton together are resilient enough to let it hold a shield and swing a weapon as well as it could have in life.  It's still wearing its old armor, in rusty but servicable condition.", "施展在这只骷髅身上的魔法已经足够强大，足以让它像生前一样持盾挥击。它仍然穿着它原来的那件老盔甲，锈迹斑斑却值得信赖。", "_t")
 t("skeleton archer", "骷髅弓箭手", "entity name")
 t("Nobody scavenged the high-quality bow from this archer before it was raised from the dead.  You're about to wish the world had more grave-robbers.", "在被复活之前，这位弓箭手的遗体上居然还保留着一张还不错的弓。你开始觉得，世界上如果有更多的盗墓贼就好了。", "_t")
 t("skeleton magus", "骷髅魔导师", "entity name")
@@ -9243,7 +9243,7 @@ t("Lunar Shield", "银月辉盾", "entity name")
 t("chitinous shield", "甲壳质盾牌", "_t")
 t("A large section of chitin removed from Nimisil. It continues to give off a strange white glow.", "一块从尼米希尔身上剥离下来的巨大甲壳。它持续发出奇异的白色光芒。", "_t")
 t("Wrathroot's Barkwood", "狂怒树精的树皮", "entity name")
-t("large chunk of wood", "巨大的树皮", "_t")
+t("large chunk of wood", "一大块木头", "_t")
 t("The barkwood of Wrathroot, made into roughly the shape of a shield.", "用狂怒树精的树皮制成的粗糙盾牌。", "_t")
 t("Petrified Wood", "硅化木", "entity name")
 t("red", "红宝石", "entity subtype")
@@ -10811,8 +10811,8 @@ t(" of lightning storm", "闪电风暴之", "entity name")
 t("lightning storm", "闪电风暴", "entity keyword")
 t("create a radius %d storm for %d turns. Each turn, creatures within take %d lightning damage and will be dazed for 1 turn (%d total damage)", "制造一场半径%d的风暴，持续 %d 回合。每回合将对卷入其中的生物造成 %d 闪电伤害，并眩晕1回合。（总伤害%d）", "tformat")
 t("%s conjures a lightning storm from %s %s!", "%s从%s%s中召唤出闪电风暴！", "logSeen")
-t(" of conjuration", "咒语之", "entity name")
-t("conjure", "咒语", "entity keyword")
+t(" of conjuration", "幻化之", "entity name")
+t("conjure", "幻化", "entity keyword")
 t("fire a magical bolt dealing %d %s damage", "发射魔法箭，造成%d %s伤害", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t(" of shielding", "护盾之", "entity name")
@@ -18023,13 +18023,13 @@ Dwarves are known especially for their smithwork and artificing, which is unriva
 
 Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.
 
-As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，之后他们会对外界积极开放，我甚至很荣幸的得到了去他们的首都——钢铁王座游玩的资格，并有幸与他们的主要领导人对话。
+As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的主要领导人对话。
 
-矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
-矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，各行业公会在统治委员会中拥有平等的代表权。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
+矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
-他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
+他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于人种的调查——第四章——永恒精灵", "_t")
@@ -19222,7 +19222,7 @@ It's on the wyrmic path I go!]], [[我曾凝视赤红巨龙的巨口深处
 可穿过干旱荒漠与沙暴
 我所追寻的另有其物
 
-我循着巨型沙虫的踪迹
+我循着巨型沙龙的踪迹
 穿行在地下沙土隧道
 休要再提那些奥术器具
 我走的是龙战士之道！]], "_t")
@@ -20422,7 +20422,7 @@ t("Melinda, lucky girl", "幸运女孩梅琳达", "_t")
 t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", "在你从克里尔·费扬邪教手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
 t("Melinda was saved from the brink of death at the beach, by a strange wave of blight.", "在海滩上，一股奇异的枯萎能量将梅琳达从死亡边缘救了回来。", "_t")
 t("Melinda died to a Yaech raiding party at the beach.", "梅琳达被沙滩上的夺魂魔杀死了。", "_t")
-t("The Fortress Shadow said she could be cured.", "堡垒之影说她会得到治疗。", "_t")
+t("The Fortress Shadow said she could be cured.", "堡垒之影说她有可能被治愈。", "_t")
 t("Melinda decided to come live with you in your Fortress.", "梅琳达决定和你一起在堡垒里生活。", "_t")
 t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，他让她能够自由来去。", "_t")
 t("After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.", "在你的胜利之后，你回到了最后的希望，并与梅琳达重聚，梅琳达在许多年后没有再受到恶魔腐化的影响。", "_t")
@@ -23562,7 +23562,7 @@ t([[You notice the small things others do not notice, allowing you to "see" crea
 		The detection abilities improve with Cunning.]], [[你注意到他人注意不到的细节，甚至能在阴影区域“看到”怪物，%d 码半径范围。
 		注意此能力不属于心灵感应，仍然受到视野的限制。
 		同时你的细致观察使你侦察潜行和隐身的能力增加 %d，使你发现周围的陷阱的能力增加 %d。
-		陷阱侦查强度受灵巧加成。]], "tformat")
+		上述侦测能力均受灵巧加成。]], "tformat")
 t("Device Mastery", "装置掌握", "talent name")
 t([[Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns and the power cost of all usable items by %d%%.
 		In addition your knowledge of devices allows you to disarm known traps (%d disarm 'power', improves with Cunning).]], [[你精于操控装置，能更有效地使用护符（魔杖、图腾和项圈），使所有可用物品的冷却时间和能量消耗降低 %d%%。
@@ -24756,10 +24756,9 @@ t("You somehow fail to set the corrosive seed.", "你没能设置腐蚀之种。
 t([[You focus on a target zone of radius 2 to make up to %d corrosive seeds appear.
 		The first seed will appear at the center of the target zone, while others will appear at random spots.
 		Each seed lasts %d turns and will explode when a hostile creature walks over it, knocking the creature back and dealing %0.1f Acid damage within radius 1.
-		The damage will increase with your Mindpower.]], [[你集中精神于某块半径 2 的区域，制造出 %d 个腐蚀之种。
+		The damage will increase with your Mindpower.]], [[你集中精神于某块半径 2 的区域，制造至多 %d 个腐蚀之种。
 		第一个种子会产生于中心处，其他的会随机出现。
-     每个种子持续 %d 回合，
-		当一个生物走过腐蚀之种时，会在半径 1 的区域内引发一场爆炸，击退对方并造成 %0.1f 点酸性伤害。
+		每个种子持续 %d 回合，当一个敌对生物走过腐蚀之种时，会在半径 1 的区域内引发一场爆炸，击退对方并造成 %0.1f 点酸性伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Acidic Soil", "酸化大地", "talent name")
 t([[Surround yourself with natural forces, ignoring %d%% acid resistance of your targets.
@@ -27316,7 +27315,7 @@ t([[Craft a hammer from the dream forge and strike an adjacent foe, inflicting %
 t("Hammer Toss", "回旋投掷", "talent name")
 t("Hammer Toss", "回旋投掷", "_t")
 t([[Throw your Dream Hammer at a distant location, inflicting %d%% weapon damage on all targets between you and it.  After reaching its destination, the Dream Hammer will return, potentially hitting targets a second time.
-		Learning this talent increases the Accuracy of your Dream Hammer by %d.]], [[将你的梦之巨锤扔向远处，对沿途所有敌方单位造成 %d%% 武器伤害。在到达目标点后，梦之巨锤会自动返回，再次对沿途目标造成伤害。
+		Learning this talent increases the Accuracy of your Dream Hammer by %d.]], [[将你的梦之巨锤扔向远处，对沿途所有敌方单位造成 %d%% 武器伤害。在到达目标点后，梦之巨锤会飞回，可能再次对沿途目标造成伤害。
 		学习此技能会增加梦之巨锤 %d 点命中。]], "tformat")
 t("Dream Crusher", "雷霆一击", "talent name")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
@@ -27638,7 +27637,7 @@ t([[The telekinetically-wielded ranged weapon uses Willpower in place of Strengt
 			Damage: %d
 			APR: %d
 			Crit: %0.1f%%
-			Speed: %0.1f%%]], [[念动武器使用意志和灵巧来分别代替力量和敏捷以决定武器的攻击。
+			Speed: %0.1f%%]], [[念动远程武器使用意志和灵巧来分别代替力量和敏捷，以决定命中和伤害。
 			战斗属性：
 			范围：%d
 			命中：%d
@@ -27652,7 +27651,7 @@ t([[The telekinetically-wielded weapon uses Willpower in place of Strength, and 
 			Damage: %d
 			APR: %d
 			Crit: %0.2f
-			Speed: %0.2f]], [[念动武器使用意志和灵巧来分别代替力量和敏捷以决定武器的攻击。
+			Speed: %0.2f]], [[念动武器使用意志和灵巧来分别代替力量和敏捷，以决定伤害和命中。
 			战斗属性：
 			命中：%d
 			伤害：%d
@@ -29374,12 +29373,12 @@ t([[As you continue to attune your body to undeath you reject nature as a whole.
 		如果没有自然纹身，你身上的每个符文提供 -%d 生命底线和 %0.1f%% 法术暴击率。
 
 		当前：%s]], "tformat")
-t("Spikes of Decrepitude", "破碎尖刺", "talent name")
+t("Spikes of Decrepitude", "衰老尖刺", "talent name")
 t([[Each turn you unleash dark powers through your runeskin.
 		For each rune you have a random foe in sight will be hit by a spike of decrepitude, dealing %0.2f frostdusk damage.
 		A foe can only be hit by one spike per turn.
 		If your life is below 1, the spikes also reduce all damage done by the targets by %d%%.]], [[你每回合都从符文皮肤中释放出黑暗能量。
-		你每拥有一个符文，就会用破碎尖刺攻击视野内的一名随机敌人，造成 %0.2f 霜暮伤害。
+		你每拥有一个符文，就会用衰老尖刺攻击视野内的一名随机敌人，造成 %0.2f 霜暮伤害。
 		每个敌人每回合只会被尖刺攻击一次。
 		如果你的生命值在 1 以下，尖刺还会使目标造成的伤害减少 %d%%。]], "tformat")
 
@@ -29675,8 +29674,7 @@ t("body armour, a belt, or a head piece", "胸甲、腰带或头盔", "_t")
 t("a body armour", "胸甲", "_t")
 t("Gem Portal", "宝石传送", "talent name")
 t("You need to ready 5 alchemist gems in your quiver.", "你需要在箭袋中准备 5 枚炼金宝石。", "logPlayer")
-t("Crush 5 alchemist gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.", [[使用 5 块宝石的粉末标记一块不可通过区域，你可以立即越过障碍物并出现在另一端。
-		有效范围 %d 码。]], "tformat")
+t("Crush 5 alchemist gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.", [[将 5 枚炼金宝石碾碎为粉末，标记你身旁的一块不可通行地形。你立即进入其中并出现在障碍物另一侧，穿越距离至多 %d 格。]], "tformat")
 t("Stone Touch", "石化之触", "talent name")
 t([[Touch your foe and turn it to stone for %d turns.
 		Stoned creatures are unable to act or regen life, and are very brittle.
@@ -29866,7 +29864,8 @@ t([[You absorb latent cold around you, turning into an ice elemental - a shivgor
 		#AQUAMARINE#Ice storm:#LAST#
 		%s]], [[你吸收周围的寒冰围绕你，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。
 		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 震慑和流血抵抗，%d%% 寒冷伤害抗性。所有寒冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
-		效果受法术强度加成
+		效果受法术强度加成。
+
 		#AQUAMARINE#冰雪风暴：#LAST#
 		%s]], "tformat")
 t("Ice Storm", "冰雪风暴", "talent name")
@@ -35769,7 +35768,7 @@ t("Lord of Skulls (warrior)", "骷髅王（战士）", "_t")
 t("Lord of Skulls (archer)", "骷髅王（弓箭手）", "_t")
 t("Lord of Skulls (mage)", "骷髅王（法师）", "_t")
 t("Lord of Skulls (bone giant)", "骷髅王（骨巨人）", "_t")
-t("Spike of Decrepitude", "破碎尖刺", "_t")
+t("Spike of Decrepitude", "衰老尖刺", "_t")
 t("Damage reduced by %d%%.", "伤害减少 %d%%。", "tformat")
 t("Soul Leech", "灵魂吸取", "_t")
 t("Soul absorbed upon death.", "死后灵魂会被吸收。", "_t")
@@ -37712,7 +37711,7 @@ t("-Snipe", "-狙击", "_t")
 t("Concealment", "隐匿", "_t")
 t("The target is concealed, increasing sight and attack range by %d and chance to avoid damage by %d%%.", "目标处于隐匿状态，视野和攻击范围增加 %d 格，有 %d%% 几率闪避伤害。", "tformat")
 t("Shadow Smoke", "影之烟雾", "_t")
-t("The target is wrapped in disorientating smoke, reducing vision range by %d.", "目标被烟雾包围，处于混乱状态，视野减少 %d。", "tformat")
+t("The target is wrapped in disorientating smoke, reducing vision range by %d.", "目标被令人迷失方向的烟雾包围，视野减少 %d。", "tformat")
 t("+Shadow Smoke", "+影之烟雾", "_t")
 t("The smoke around #target# dissipate.", "#target#周围的浓烟消散了。", "_t")
 t("-Shadow Smoke", "-影之烟雾", "_t")
@@ -38067,7 +38066,7 @@ section "mod-tome/data/zones/briagh-lair/npcs.lua"
 
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
-t("Briagh, Great Sand Wyrm", "巨型沙虫布莱亚", "entity name")
+t("Briagh, Great Sand Wyrm", "巨型沙龙布莱亚", "entity name")
 t("A towering sand drake stands before you. This wingless worm is mighty and could easily crush you.", "一只铁塔般的沙龙站在你面前。这只无翼巨虫非常强大，可以轻易碾碎你。", "_t")
 
 ------------------------------------------------
@@ -38583,7 +38582,8 @@ section "mod-tome/data/zones/golem-graveyard/objects.lua"
 t("red", "红宝石", "entity subtype")
 t("Atamathon's Ruby Eye", "阿塔玛森的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], "那只传奇傀儡——阿塔玛森的一只眼睛。据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。", "_t")
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨型傀儡阿塔玛森的红宝石眼睛之一。
+据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/zone.lua"
@@ -39355,7 +39355,7 @@ t("A massive, shifting, ethereal form floats in the air around an orb of frozen 
 t("Heavy Sentinel", "笨重的森提内尔", "entity name")
 t("A towering creature, made from the bones of countless bodies. An aura of flame billows from within its chest.", "像铁塔一样的生物，由数不清的骨头构成。它的胸前缠绕着一圈烈焰。", "_t")
 t("Arch Zephyr", "阿克·伊法", "entity name")
-t("The robes of this ancient vampire billow with intense winds. Bolts of lightning arc along its body. In its hand it holds a bow, electricity streaking across it.", "这只远古吸血鬼的长袍无风自动。闪电在他的周身环绕。他手里握着一把长弓，电弧在这把弓上流转。", "_t")
+t("The robes of this ancient vampire billow with intense winds. Bolts of lightning arc along its body. In its hand it holds a bow, electricity streaking across it.", "这只远古吸血鬼的长袍在强风中鼓荡翻涌。闪电在他的周身环绕。他手里握着一把长弓，电弧在这把弓上流转。", "_t")
 t("Void Spectre", "虚空亡魂", "entity name")
 t("Intense Arcane energy whirls in the air around this ethereal form.", "强烈的奥术能量在这个灵体周围的空气中旋转翻涌。", "_t")
 
@@ -43295,13 +43295,13 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.
 
- As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，之后他们会对外界积极开放，我甚至很荣幸的得到了去他们的首都——钢铁王座游玩的资格，并有幸与他们的主要领导人对话。
+ As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的主要领导人对话。
 
- 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+ 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
- 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，各行业公会在统治委员会中拥有平等的代表权。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
+ 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
- 他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
+ 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
  在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
