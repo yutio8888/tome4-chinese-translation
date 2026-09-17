@@ -2224,7 +2224,7 @@ Your power to see stealthed creatures. The higher it is, the more likely you are
 t([[#GOLD#Invisibility#LAST#
 Invisible creatures are magically removed from the sight of all others. They can only be see by creatures that can see invisible.
 ]], [[#GOLD#隐形#LAST#
-隐形生物可以从敌人的视线中消失，他们只能被有侦测隐形的生物发现。
+隐形生物通过魔法从所有其他生物的视线中消失。他们只能被有侦测隐形能力的生物发现。
 ]], "_t")
 t([[#GOLD#See invisible#LAST#
 Your power to see invisible creatures. The higher it is, the more likely you are to see them (based on their own invisibility score).
@@ -2911,7 +2911,7 @@ t("Doomed", "末日使者", "birth descriptor name")
 t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在未知之地的阴影之中，你必须战胜自己，直面自己的末日。", "_t")
 t("The Doomed are fallen mages who once wielded powerful magic wrought by ambition and dark bargains.", "末日使者是一些堕落的法师，他们曾经由于野心，通过黑暗的契约，获得了强大的魔法。", "_t")
 t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被黑暗剥夺了魔法力量的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
-t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们能否选择一条新的道路，还是永远身为末日使者。", "_t")
+t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们能否选择一条新的道路，还是永远为厄运所缚。", "_t")
 t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末日使者操纵阴影，从黑暗中发动攻击。", "_t")
 t("They feed upon their enemies as they unleash their minds on all who confront them.", "他们以敌人为食，并对所有与他们对峙的人释放精神冲击。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
@@ -6739,7 +6739,7 @@ You will be challenged against magical foes. Should you defeat them, we will tea
 t("I will face your challenge!", "我接受挑战！", "_t")
 t("I'm not interested.", "我没什么兴趣。", "_t")
 t("Very well. I will say that this is disappointing, but it is your choice. Farewell.", "好吧，不得不说我有点失望，不过这是你自己的选择，再见。", "_t")
-t("Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.", "啊，你似乎跃跃欲试，但等级或许还太低。等升到10级后再来吧。", "_t")
+t("Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.", "啊，你似乎跃跃欲试，但或许还太稚嫩。等你再成长一些再来吧。", "_t")
 t("I shall.", "我会的。", "_t")
 t("\
 Worry not, though, Ogre - we can replace your unclean runes with a newly-discovered mixture of infusions, eliminating your dependence on them.  The process will feel...  unpleasant, and will dramatically shorten your lifespan, but you will finally be free from the addictive grip of the arcane!\
@@ -8257,7 +8257,7 @@ t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
-t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，映照出你内心深处的恐惧。", "_t")
+t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，似乎映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
@@ -8291,7 +8291,7 @@ t("#LIGHT_BLUE#The sleeper stirs...", "#LIGHT_BLUE#沉睡者骚动起来……",
 t("dream seed", "梦境之种", "entity name")
 t("A pinkish bubble floats here, reflecting the world not as it is, but as it would be in that surreal place that exists only in our dreams.", "一个粉红色的气泡漂浮在这里，反映的不是世界的本来面目，而是那个只存在于我们梦中的超现实。", "_t")
 t("maelstrom", "灵能漩涡", "entity name")
-t("This powerful vortex of ice and lightning somehow gives you the impression of claws, teeth and intense hunger...", "这个由冰和闪电组成的强大漩涡不知为何给你一种利齿尖牙和强烈饥饿的印象……", "_t")
+t("This powerful vortex of ice and lightning somehow gives you the impression of claws, teeth and intense hunger...", "这个由冰和闪电组成的强大漩涡不知为何给你一种利爪、尖牙和强烈饥饿的印象……", "_t")
 t("parasitic horror", "寄生恐魔", "entity name")
 t("You don't want to think about what sort of creature this lamprey-like horror was feeding on to grow so large.  Its skin pulsates and writhes, like things are moving underneath...", "你不想知道这个像七鳃鳗一样的恐魔是吃什么才能长这么大的。它的皮肤不停的扭动，就像有东西在下面移动一样……", "_t")
 t("%s's severed flesh starts crawling!", "%s被切割的血肉开始爬行！", "logSeen")
@@ -9326,7 +9326,7 @@ t("Tooth of the Mouth", "深渊之牙", "entity name")
 t("a tooth", "一颗牙齿", "_t")
 t("A huge tooth taken from the Mouth, in the Deep Bellow.", "一颗取自深渊咆哮中巨口的巨大牙齿。", "_t")
 t("The Warped Boots", "扭曲之靴", "entity name")
-t("pair of painful-looking boots", "有着难看痕迹的靴子", "_t")
+t("pair of painful-looking boots", "看着就疼的靴子", "_t")
 t("These blackened boots have lost all vestiges of any former glory they might have had. Now, they are a testament to the corruption of the Deep Bellow, and its power.", "这些被玷污的靴子已经丧失了它们以前的荣耀，现在，它们只能作为深渊咆哮的存在以及腐蚀力量的证明。", "_t")
 t("Withering Orbs", "枯萎眼球", "entity name")
 t("shadow-strung orbs", "阴影缠绕的眼球", "_t")
@@ -9366,7 +9366,7 @@ t("release a wave of psionic power, dealing %0.2f mind damage (based on Willpowe
 t("%s's %s sends out a blast of psionic energy!", "%s的%s释放出灵能冲击波！", "logSeen")
 t("Storm Bringer's Gauntlets", "风暴使者臂铠", "entity name")
 t("fine-mesh gauntlets", "细孔臂铠", "_t")
-t("This pair of fine mesh voratun gauntlets is covered with glyphs of power that spark with azure energy.  The metal is supple and light so as not to interfere with spell-casting.  When and where these gauntlets were forged is a mystery, but odds are the crafter knew a thing or two about magic.", "这副细孔沃瑞钽臂铠被闪烁着蓝色能量的雕文所覆盖。这种金属柔软且轻盈，不会对施法造成阻碍。制造这副手套的时间和地点都是一个谜，但是可以确认的是，制造者对于魔法技术有一定的了解。", "_t")
+t("This pair of fine mesh voratun gauntlets is covered with glyphs of power that spark with azure energy.  The metal is supple and light so as not to interfere with spell-casting.  When and where these gauntlets were forged is a mystery, but odds are the crafter knew a thing or two about magic.", "这副细孔沃瑞钽臂铠被闪烁着蓝色能量的雕文所覆盖。这种金属柔软且轻盈，不会对施法造成阻碍。制造这副臂铠的时间和地点都是一个谜，但是可以确认的是，制造者对于魔法技术有一定的了解。", "_t")
 t("+1 to all lightning damage spells", "+1 所有闪电伤害技能等级", "_t")
 t("River's Fury", "河流之怒", "entity name")
 t("ornate trident", "华丽的三叉戟", "_t")
@@ -12861,17 +12861,17 @@ t(" and %s", "和 %s", "tformat")
 t("#Source#'s three headed flail lashes at #Target#!", "#Source#的三头连枷扫过了 #Target#！", "logCombat")
 t("Spellhunt Remnants", "魔法狩猎遗物", "entity name")
 t("heavily corroded voratun gauntlets", "严重破损的沃瑞钽臂铠", "_t")
-t("These once brilliant voratun gauntlets have fallen into a deep decay. Originally used in the spellhunt, they were often used to destroy arcane artifacts, curing the world of their influence.", "你从这副锈迹斑斑的臂铠上勉强能看出其曾经的辉煌。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
+t("These once brilliant voratun gauntlets have fallen into a deep decay. Originally used in the spellhunt, they were often used to destroy arcane artifacts, curing the world of their influence.", "这副曾经辉煌的沃瑞钽臂铠已经严重朽坏。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("Can't be worn by those with arcane powers.", "使用奥术力量的人无法穿戴。", "_t")
 t("#ORCHID#Your arcane equipment or powers conflict with the gauntlets!#LAST#", "#ORCHID#你的奥术装备或能力和臂铠发生了冲突！#LAST#", "logPlayer")
 t("corroded voratun gauntlets", "破损的沃瑞钽臂铠", "_t")
-t("These once brilliant voratun gauntlets appear heavily decayed. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠看起来十分破旧。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
+t("These once brilliant voratun gauntlets appear heavily decayed. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠看起来十分破旧。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("tarnished voratun gauntlets", "破旧的沃瑞钽臂铠", "_t")
-t("These voratun gauntlets appear to have suffered considerable damage. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠曾经受到过可观的损伤。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
+t("These voratun gauntlets appear to have suffered considerable damage. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠曾经受到过可观的损伤。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("slightly tarnished voratun gauntlets", "稍微破旧的沃瑞钽臂铠", "_t")
-t("These voratun gauntlets shine brightly beneath a thin layer of wear. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠虽然有一些使用痕迹，仍然闪耀着光芒。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
+t("These voratun gauntlets shine brightly beneath a thin layer of wear. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠虽然有一些使用痕迹，仍然闪耀着光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("gleaming voratun gauntlets", "闪耀的沃瑞钽臂铠", "_t")
-t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
+t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域摧毁生物身上的所有魔法效果和魔法持续技能（非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
 t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量！", "logSeen")
 t("%s's animating magic is disrupted by the burst of power!", "%s的魔法被强大的反魔法力量干扰了！", "logSeen")
@@ -14455,8 +14455,7 @@ t([[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#
 It knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add "being frozen solid" to my list of troubles today.
 I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...
 #{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of ice. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
-那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被彻底冻住”这一项。
-
+那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出”被彻底冻住”这一项。
 我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……
 #{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出寒冰。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#]], "_t")
 
@@ -18128,9 +18127,9 @@ What caused them to become extinct is unknown, though many theories abound. The 
 
 夏·图尔生活在距今一万年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度统治过整个世界。
 
-传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。那些试图刨根挖底的人，现在湮灭在了历史中——那些永恒精灵法师将所有已知的传送门搬到了一个靠近他们首都的地方，并且他们的法师被释放出的能量所淹没，从而引发了魔法大爆炸，他们瞬间化为了灰烬并且整个大陆分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。
+传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。
 
-关于他们的长相几乎没有人说得清，因为毫无历史文献或者是记录来描述他们的样子。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
+关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
 
 他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。在考古界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中。其他理论——阿奇曼·加里伯德，恶魔研究者则一直相信夏·图尔人在魔法上的杰出造诣引来了异次元的恶魔，最终导致了整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races", "博学者格雷诺特关于人种的调查——第十章——怪物种族", "_t")
@@ -22187,9 +22186,9 @@ t([[You begin to gather energy from other timelines. Your Spellpower will increa
 		The effect ends either when you cast a spell, or after five turns.
 		Eacn turn the effect is active, your Paradox will be reduced by %d.
 		This spell will not break Spacetime Tuning, nor will it be broken by activating Spacetime Tuning.]], [[你开始从其他时间线搜集能量，初始增加 %0.2f 法术强度并且每回合逐渐增加 %0.2f 法术强度。
-		此效果会因为使用技能而中断，否则此技能会在 5 回合后结束。
-		当此技能激活时，每回合你的紊乱值会降低 %d 点。
-		此技能不会打断时空调谐，激活时空调谐技能也同样不会打断此技能。]], "tformat")
+		此效果会因为施放法术而中断，否则会在 5 回合后结束。
+		当此效果激活时，每回合你的紊乱值会降低 %d 点。
+		此法术不会打断时空调谐，激活时空调谐也同样不会打断此法术。]], "tformat")
 t("Entropic Field", "熵光领域", "talent name")
 t([[You encase yourself in a field that slows incoming projectiles by %d%%, and increases your physical resistance by %d%%.
 		The effect will scale with your Spellpower.]], [[制造一个领域围绕自己，减少所有抛射物 %d%% 的速度并增加 %d%% 物理伤害抗性。
@@ -23984,7 +23983,7 @@ t("Dark Gifts", "黑暗礼物", "talent name")
 t([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.
 		Talent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]], [[你的诅咒带来黑暗的礼物。解锁所有诅咒第 %d 层效果，并允许你在诅咒达到该等级时获得此效果。
 		在等级 5 时，因诅咒带来的幸运惩罚降到 1。
-		等级 5 以上时增加诅咒效果（当前增加 %0.1f）。]], "tformat")
+		等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。]], "tformat")
 t("Ruined Earth", "毁灭大地", "talent name")
 t("Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%", [[诅咒你周围 %d 码半径范围的大地，持续 %d 回合。
 		任何站在大地上的目标将会被虚弱，减少它们 %d%% 的伤害。]], "tformat")
@@ -24483,7 +24482,7 @@ t("damage", "伤害", "_t")
 t("%s(%d bled out#LAST#%s)#LAST#", "%s(%d 流血而死#LAST#%s)#LAST#", "tformat")
 t([[Any direct damage that exceeds %d%% of your maximum life has the excess damage converted to a shallow wound that bleeds over the next %d turns. This bleed cannot be resisted or removed, but can be reduced by Bloodstained. Extremely powerful hits (more than %d%% of your max life) are not fully converted.
 
-#{italic}#You can't just die. That would be too easy.#{normal}#]], [[任何超过你最大生命 %d%% 的伤害中的额外部分会变成一道浅表伤口，在接下来的 %d 回合中造成流血伤害。此流血效果不能被抵抗或去除，但强度可以被血染系技能降低。极其强力的攻击（超过 %d%% 最大生命）无法被完全转化。
+#{italic}#You can't just die. That would be too easy.#{normal}#]], [[任何超过你最大生命 %d%% 的直接伤害中的额外部分会变成一道浅表伤口，在接下来的 %d 回合中造成流血伤害。此流血效果不能被抵抗或去除，但强度可以被血染系技能降低。极其强力的攻击（超过 %d%% 最大生命）无法被完全转化。
 
 #{italic}#你不能就这么死了。这太轻松了。#{normal}#]], "tformat")
 -- untranslated text
@@ -28807,7 +28806,7 @@ t([[Grants %d%% protection to you, your golem and other friendly creatures again
 		在等级 5 时它同时会保护你免疫你的炸弹所带来的特殊效果。]], "tformat")
 t("Explosion Expert", "爆破专家", "talent name")
 t([[Your alchemist bombs now affect a radius of %d around them.
-		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在增加 %d 码。
+		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在为 %d 码。
 		增加 %d%% （地形开阔）～ %d%% （地形狭窄）爆炸伤害。]], "tformat")
 t("Shockwave Bomb", "冲击波炸弹", "talent name")
 t("You need to ready at least two alchemist gems in your quiver.", "至少需要装备两枚炼金宝石。", "logPlayer")
@@ -30247,8 +30246,8 @@ t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("Bash an enemy in melee range with your shield (twice for talent level 5 or more), doing %d%% damage and knocking them back %d squares. You may then follow with a deadly short-range sling attack, dealing %d%% damage. The shield bash will use Dexterity instead of Strength for the shield's bonus damage.", [[用盾牌重击近战范围内的一名敌人（当技能等级在 5 级或更高时重击 2 次），造成 %d%% 伤害并击退 %d 格。随后还可用投石索发动一次致命的近距离攻击，造成 %d%% 伤害。
 		盾牌攻击使用敏捷取代力量来计算盾牌伤害加成。]], "tformat")
 t("Buckler Mastery", "格挡大师", "talent name")
-t(" At talent level 5, your Bash and Smash shield hits are guaranteed criticals.", "技能等级 5，你的盾击必定暴击。", "_t")
-t(" At talent level 5, your Bash and Smash shield hit is a guaranteed critical.", "技能等级 5 时，你的击退射击必定暴击。", "_t")
+t(" At talent level 5, your Bash and Smash shield hits are guaranteed criticals.", "技能等级 5 时，你的击退射击的盾击必定暴击。", "_t")
+t(" At talent level 5, your Bash and Smash shield hit is a guaranteed critical.", "技能等级 5 时，你的击退射击的盾击必定暴击。", "_t")
 t("When you are hit by a projectile, physical or otherwise, you have a %d%% chance to deflect it up to %d squares away.%s", "当你被抛射物攻击时，不论是否为物理类型，你有 %d%% 的几率使其偏斜最多 %d 格。%s", "tformat")
 t("Counter Shot", "以牙还牙", "talent name")
 t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#启动了反击射击。#LAST#。", "logCombat")
@@ -30730,7 +30729,7 @@ t("Double Strike", "双重打击", "talent name")
 t("@Source@ throws two quick punches.", "@Source@快速打出两次拳击。", "_t")
 t([[Deliver two quick punches that deal %d%% damage each, and switch your stance to Striking Stance. If you already have Striking Stance active and Double Strike isn't on cooldown, this talent will automatically replace your normal attacks (and trigger the cooldown).
 		If either jab connects, you earn one combo point. At talent level 4 or greater, if both jabs connect, you'll earn two combo points.]], [[对目标进行 2 次快速打击，每次打击造成 %d%% 伤害并使你的姿态切换为攻击姿态，如果你已经在攻击姿态且此技能已就绪，那么此技能会自动取代你的普通攻击（并触发冷却）。
-		任何一次打击都会使你获得 1 点连击点。在等级 4 或更高等级时若 2 次打击都命中你可以获得 2 点连击点。]], "tformat")
+		若任一次打击命中，你获得 1 点连击点。在等级 4 或更高等级时，若两次打击都命中，则获得 2 点连击点。]], "tformat")
 t("Spinning Backhand", "旋风打击", "talent name")
 t("@Source@ lashes out with a spinning backhand.", "@Source@冲出去打出旋风打击。", "_t")
 t([[Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage. If you're not adjacent to the target, you'll step forward as you spin, gaining up to %d%% bonus damage, which increases the farther you move.
@@ -31431,8 +31430,8 @@ t("Use tool", "使用工具", "_t")
 t([[You like to keep your most precious tools always at hand. This talent lets you prepare up to 4 items in advance (outside of combat).
 		Then at a moment's notice you can use any of them as if they were worn.
 		In addition swapping equipment sets (default q key) takes no time.]], [[你喜欢将最有用的工具常备手边。该技能允许你在战斗外准备最多4件工具。
-		你可以在战斗中使用这些工具。
-		此外，切换主/副武器(默认 Q 键)不再消耗回合。]], "tformat")
+		你可以随时使用它们，如同已装备一样。
+		此外，切换装备组（默认 Q 键）不再消耗回合。]], "tformat")
 t("Windblade", "剑刃风暴", "talent name")
 t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成超过 50000 点伤害", "_t")
 t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 码范围内所有敌人造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
@@ -36315,7 +36314,7 @@ t("Absorbs %d damage from the next blockable attack.  Currently Blocking: %s.", 
 t("willpower", "意志", "effect subtype")
 t("Hidden Resources", "潜能爆发", "_t")
 t("The target does not consume any resources.", "目标不再消耗任何资源。", "_t")
-t("#Target#'s focuses.", "#Target#的潜能爆发了。", "_t")
+t("#Target#'s focuses.", "#Target#集中了意志。", "_t")
 t("+Hidden Ressources", "+潜能爆发", "_t")
 t("#Target#'s loses some focus.", "#Target#不再集中意志。", "_t")
 t("-Hidden Ressources", "-潜能爆发", "_t")
@@ -38044,7 +38043,7 @@ This specimen looks like it was hastily assembled and is not really complete yet
 t("fleshy experiment", "血肉试验品", "entity name")
 t("This pile of rotting flesh twitches and makes horrid noises.", "这团腐肉抽动着，发出可怕的噪音。", "_t")
 t("boney experiment", "骨骸试验品", "entity name")
-t("This pile of bones appears to move on its own, but it can't seem to organise itself into something dangerous.", "这团骨头试着想要自己移动起来，但是看来它好像没法把自己变成更加强大的形态。", "_t")
+t("This pile of bones appears to move on its own, but it can't seem to organise itself into something dangerous.", "这团骨头看起来在自行移动，但似乎无法将自己组织成危险的形态。", "_t")
 t("sanguine experiment", "鲜血试验品", "entity name")
 t("It looks like a giant blood clot. Is that what its creator intended?", "它看起来就像一个巨大的血块。这是它的创造者的本意吗？", "_t")
 
@@ -39294,7 +39293,7 @@ t("young orc", "年轻兽人", "entity name")
 t("This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.", "这只年轻兽人已近乎成年，厚实的皮肤下肌肉贲张。虽然它已不像年幼的同类那样野性十足，但你能从它漆黑的双眼背后看到智慧与冷酷算计的光芒。", "_t")
 t("orc mother", "兽人母体", "entity name")
 t([[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n\n站在我们面前的是一只跟龙差不多体型的怪物。皮肤下鼓起了无数浮肿的肉块，粗大的毛孔里不断流淌出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
+Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n站在你面前的是一只跟龙差不多体型的怪物。浮肿的皮肤隆起成厚厚的褶皱，粗大的毛孔渗出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
 t("Orc Greatmother", "巨型兽人母体", "entity name")
 t("and given to the children as a plaything", "并成为孩子们的玩具", "_t")
 t("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.", "#PURPLE#当兽人母体倒下时你意识到你对兽人部落造成了致命的打击。", "log")
