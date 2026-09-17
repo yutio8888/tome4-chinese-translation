@@ -3043,7 +3043,7 @@ t("Your race cannot select a class; it has its own powers.", "你的种族不能
 section "mod-tome/data/birth/classes/psionic.lua"
 
 t("Psionic", "灵能系", "birth descriptor name")
-t("Weakness of flesh can be overcome by mental prowess. Find the way and fight for the way to open the key to your mind.", "肉体的软弱可以被精神的强大所克服。寻找一条能够进入你精神世界的路。", "_t")
+t("Weakness of flesh can be overcome by mental prowess. Find the way and fight for the way to open the key to your mind.", "肉体的软弱可以被精神的强大所克服。寻找道路，并为之奋战，以打开通往你精神世界的钥匙。", "_t")
 t("Psionics find their power within themselves. Their highly trained minds can harness energy from many different sources and manipulate it to produce physical effects.", "灵能力者发掘自身的潜在力量。他们经过高度开发的精神力能够利用许多不同的能量源吸收能量，并对现实世界产生影响。", "_t")
 t("Mindslayer", "心灵杀手", "birth descriptor name")
 t("A thought can inspire; a thought can kill. After centuries of oppression, years of imprisonment, a thought shall break us free and vengeance will strike from our darkest dreams.", "思想可以鼓舞人，思想也能杀人，在几个世纪的压抑、数年的监禁之后，我们心中的复仇思想会从我们最黑暗的梦境中爆发。", "_t")
@@ -3167,7 +3167,7 @@ t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Max summons: %d", "最大召唤数：%d", "tformat")
 t("Wyrmic", "龙战士", "birth descriptor name")
-t("Sleek, majestic, powerful... In the path of dragons we walk, and their breath is our breath. See their beating hearts with your eyes and taste their majesty between your teeth.", "雄伟、庄严、强壮……在通往龙的道路上和他们一同呼吸，用你的眼睛凝视他们跳动的心脏，在你的唇间品味他们的威严。", "_t")
+t("Sleek, majestic, powerful... In the path of dragons we walk, and their breath is our breath. See their beating hearts with your eyes and taste their majesty between your teeth.", "矫健、雄壮、强大……我们行走在巨龙之道上，它们的吐息便是我们的吐息。用你的双眼凝视它们跳动的心脏，在你的齿间品味它们的威严。", "_t")
 t("Wyrmics are fighters who have learnt how to mimic some of the aspects of the dragons.", "龙战士是学习守护巨龙战斗方式的战士。", "_t")
 t("They have access to talents normally belonging to the various kind of drakes.", "他们从不同的龙中学习技能。", "_t")
 t("Their most important stats are: Strength and Willpower", "他们最重要的属性是：力量和意志。", "_t")
@@ -6209,7 +6209,7 @@ After searching the remains of the Sorcerers you find a note explaining that the
 你搜索魔法师的遗骸时找到一张便条，上面写着：只有牺牲一个有智慧的生命，才能关闭传送门。]], "_t")
 t("Aeryn, I am sorry but one of us needs to be sacrificed for the world to go on. #LIGHT_GREEN#[sacrifice Aeryn for the sake of the world]", "艾琳，很抱歉我们之中得有一个人牺牲才能维持这个世界的存在。#LIGHT_GREEN#[为了这个世界牺牲艾琳]", "_t")
 t("I will close it. #LIGHT_GREEN#[sacrifice yourself for the sake of the world]", "我会关闭它。#LIGHT_GREEN#[为了这个世界牺牲你自己。]", "_t")
-t("sacrificing %s for the sake of the world", "%s为了世界牺牲了自己", "tformat")
+t("sacrificing %s for the sake of the world", "为了世界牺牲了%s", "tformat")
 t([[I cannot believe we succeeded. I was prepared to die and it seems I will die, but at least I will do so knowing my sacrifice is not in vain.
 Please, make sure the world is safe.]], [[真不敢相信我们成功了。我早已准备赴死，而现在看来我确实将死，但至少我知道自己的牺牲不会白费。
 请务必保护好这个世界。]], "_t")
@@ -6804,7 +6804,7 @@ t("cosmeticed", "外观", "_t")
 t("physical", "物理", "damage type")
 t("battered", "被猛击", "_t")
 t("bludgeoned", "受到内伤", "_t")
-t("sliced", "被切成薯片", "_t")
+t("sliced", "被切开", "_t")
 t("maimed", "被致残", "_t")
 t("raked", "被抓伤", "_t")
 t("bled", "流血过多", "_t")
@@ -7240,7 +7240,7 @@ t("An elven cultist. He doesn't seem to mind you.", "一个精灵邪教徒。他
 t("My soul for her!", "我的灵魂属于她！", "_t")
 t("The Dark Queen shall reign!", "黑暗女王将君临天下！", "_t")
 t("Take me! Take me!", "把我带走！把我带走吧！", "_t")
-t("From death comes life!", "我的牺牲将带来永生！", "_t")
+t("From death comes life!", "死亡带来生命！", "_t")
 t("corrupted monolith", "被污染的符文巨石", "_t")
 t("This is too soon!", "太早了！", "_t")
 t("No the ritual will weaken!", "不！仪式会被削弱的！", "_t")
@@ -12711,7 +12711,7 @@ It is said the wielder will slowly grow mad. This, however, has never been prove
 据说持有者会慢慢变得疯狂。这个，不管怎样，从来没有被证实过——没有任何持有者能活到揭开真相。]], "_t")
 t("Sword of Potential Futures", "未来潜能之剑", "entity name")
 t("under-wrought blade", "未完工的剑", "_t")
-t("Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the untapped potential of time.", "传说这把长剑是一对兵器中的其中一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它将随着时间展现威力。", "_t")
+t("Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the untapped potential of time.", "传说这把长剑是一对兵器中的其中一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它代表着时间尚未开发的潜能。", "_t")
 t("In the past there was a dagger with it.", "过去有柄匕首和它成套。", "_t")
 t("10% chance to reduce the target's resistances to all damage", "10% 几率降低目标对所有伤害的抗性。", "_t")
 t("#CRIMSON#The echoes of time resound as the blades are reunited once more.", "#CRIMSON#当剑重合在一起时出现了时间的回音。", "logSeen")
@@ -17702,9 +17702,9 @@ Wishing you and your ale a hearty good-bye,
 
 Weisman.]], [[罗尔夫，
 
-我完全不记得和那可怕怪物的战斗中发生了什么。抬起头来，在绝不可能获胜的敌人面前逃跑没什么可羞耻的兄弟，不是吗？去客栈喝麦酒也许是个好主意，但也许彻底战胜自己的恐惧才是更好的选择……原谅我的任性，这个怪物我是宁死也要打倒的。
+那场战斗我什么都不记得了，唯一记得的就是靠近那个恐怖而强大的东西时的纯粹恐惧。在根本不可能战胜的敌人面前逃跑，不丢人吧？去客栈喝麦酒也许是个好主意，但也许彻底战胜自己的恐惧才是更好的选择……希望你能原谅我，但我必须打倒这个怪物，哪怕穷尽余生。
 
-希望你能早日从醉生梦死中清醒过来，兄弟，
+衷心祝你和你的麦酒一切安好，就此别过，
 威斯曼。]], "_t")
 t("letter to Weisman (4)", "写给威斯曼的信 (4)", "_t")
 t([[Weisman,
@@ -18279,10 +18279,10 @@ The blood that freely ran
 "Fool warlock dead, you were too vain
 To gifts of Nature trust
 Your faith instead in tools arcane
-Now to Nature you are dust"]], [[厄流纪崛起一位黑魔导
+Now to Nature you are dust"]], [[厄流纪崛起一位大法师
 有着无与伦比的能力
-平民百姓只可仰视
-他黑色且可怕的巢穴
+贫苦百姓不敢靠近
+他黑暗而可怕的巢穴
 
 当作物死于干旱和枯萎
 感染疾病的孩童增长
@@ -18314,20 +18314,20 @@ Now to Nature you are dust"]], [[厄流纪崛起一位黑魔导
 但他仍坚定信念
 英雄永不屈服
 
-刀光划过了巫师的身体
+刀光划过了巫师的衣袍
 他的帽子掉在了地上
 法杖也因失去控制而落下
 臭名昭著的法师终于陨落
 
-现在赤着身子、刀剑残缺
-这里只躺着一个人
-奥术的力量必将得到审判
-自由的血液将欢快的流动
+如今赤身裸体、手无寸铁
+这里只躺着一个凡人
+奥术之罪再也无法弥补
+那自由流淌的鲜血
 
-“愚蠢之人，你太专注虚荣
-大自然恩赐的信任不再
-你的信念转向了法术
-现在落叶归根吧”]], "_t")
+“愚蠢的术士已死，你太过自负
+未将信任交给自然的恩赐
+你的信念转向了奥术之器
+如今你已归于尘土”]], "_t")
 t("dreamscape", "梦境空间", "newLore category")
 t("If I Should Die Before I Wake", "从噩梦中惊醒，还是在梦魇中永眠？", "_t")
 t([[You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. 
@@ -18516,15 +18516,15 @@ I have done it! My fool of a master said I was not ready for the rites of lichdo
 (Another entry is written beneath this one, in a much more elegant and controlled script.)
 
 Zilquick the Eternal, hah! What an unbearable buffoon, and I am glad his pride was his undoing. The young fool used up the Ruby of Eldoral in creating his phylactery, however; I must acquire a new phylactery for myself. On the bright side, my incompetent apprentice did illustrate why a bone from a creature slain by my own hand is important: the dragon bone he chose had left to fester a mold infection, and the mold somehow infused itself with the bone's inherent magical properties, altering the magical composition of the spell. I do hope whoever finds this note shall kill this "lich" using the most painful means available, and shall deposit him someplace where he is sure to be found.
-Oh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl.]], [[#{italic}#（这篇手写的日记看起来竭尽了全力。写日记之人似乎疾病缠身。）
+Oh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl.]], [[#{italic}#（这篇日记的字迹很差。写日记之人似乎健康状况不佳。）
 
 #{bold}#烈火纪603年，厄流月53日#{normal}#
 
-我完成了！我愚蠢的主人说我没有做巫妖的条件，我没有足够的能力……说什么蠢话。我已经感觉到了身上的变化，并且我确信这脆弱的身躯只是我短暂的居所。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一副有着魔力的骨架，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都太次，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！
+我完成了！我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注……说什么蠢话。我已经感觉到了身上的变化，并且我确信这虚弱只是暂时的。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一根魔法生物的骨头，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都太次，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！
 
-（这篇日记下面垫着一张纸，上面的字看起来更加优雅。）
+（这段文字下面还写着另一段记录，笔迹更加优雅工整。）
 
-不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而讨厌的是，这个年轻的傻小子在制作他的命匣时用光了艾德瑞尔之石，所以我也必须为我自己做一只命匣。从好的一面来说，我那不成器的学徒从反面说明了为什么我们应该使用亲手杀死的生物的骨架作为死亡转化的道具：他所选择的那具龙骨正在发霉溃烂，并且附在上面的霉菌似乎利用了骨头内的魔法能量转化了自己，成为了一种新的魔法形式。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并且将他弃置于光明之地。
+不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而讨厌的是，这个年轻的傻小子在制作他的命匣时用光了艾德瑞尔之石，所以我也必须为我自己做一只命匣。从好的一面来说，我那不成器的学徒从反面说明了为什么我们应该使用亲手杀死的生物的骨架作为死亡转化的道具：他所选择的那具龙骨正在发霉溃烂，并且附在上面的霉菌似乎利用了骨头内的魔法能量，改变了咒语的魔法组成。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并把他丢到一个肯定会被人找到的地方。
 哦，看呐，它正在试图用法术攻击我，不过他所能做的只是拥有一个堕落的名字：兹基克茨。]], "_t")
 t("Walrog", "乌尔罗格", "_t")
 t([[Dirge of the Naloren
@@ -20527,7 +20527,7 @@ t([[You have met what seems to be a future version of yourself.
 ]], [[你看到了一个未来的自己。
 ]], "_t")
 t([[You tried to kill yourself to prevent you from doing something, or going somewhere... you were not very clear.
-]], [[你尝试杀掉自己，以免他做什么你不知道的事或者到某个……你也不清楚的地方。
+]], [[你尝试杀掉自己，以阻止自己做某件事，或去往某个地方……你说得不太清楚。
 ]], "_t")
 t([[You were killed by your future self, and thus this event never occured.
 ]], [[你被未来的自己杀掉了，这件事就像没有发生过一样。
@@ -22230,7 +22230,7 @@ t([[Clones the target creature for up to %d turns.  The duration of the effect w
 t("Damage Smearing", "时空转化", "talent name")
 t("%s(%d smeared)#LAST#", "%s(%d 时空转化)#LAST#", "tformat")
 t([[You convert %d%% of all non-temporal damage you receive into temporal damage spread out over %d turns.
-		This damage will bypass resistance and affinity.]], [[你转化所有受到的 %d%% 的非时空伤害为持续 %d 回合的时空伤害释放出去。
+		This damage will bypass resistance and affinity.]], [[你将所有受到的 %d%% 的非时空伤害转化为时空伤害，分摊到 %d 回合承受。
 		造成的伤害无视抗性和伤害亲和。]], "tformat")
 t("Phase Shift", "相位切换", "talent name")
 t("Phase shift yourself for %d turns; any damage greater than 10%% of your maximum life will teleport you to an adjacent tile and be reduced by 50%% (can only happen once per turn).", "切换你的相位 %d 回合；任何将会对你造成超过你最大生命值 10%% 伤害的攻击会把你传送到一个相邻的格子里，并且这次伤害减少50%%（每回合只能发生一次）。", "tformat")
@@ -24373,7 +24373,7 @@ t("Your attempt to displace fails!", "你尝试置换术但是失败了！", "lo
 t("Instantaneously displace yourself within line of sight up to 3 squares away.", "瞬间将自己移动到视线内、最多 3 格远的位置。", "tformat")
 t("Primal Skin", "原始皮肤", "talent name")
 t([[Years of magic have permeated your skin leaving it resistant to the physical world. Your armor is increased by %d.
-		The bonus will increase with the Magic stat.]], [[魔法渗透进你的皮肤，增加你的物理抗性，提高你的护甲值 %d。
+		The bonus will increase with the Magic stat.]], [[魔法渗透进你的皮肤，使之能抵御外部世界的侵蚀。护甲值增加 %d。
 		增益效果受魔力值加成。]], "tformat")
 t("Vaporize", "蒸发", "talent name")
 t([[Bathes the target in raw magic inflicting %d damage. Such wild magic is difficult to control and if you fail to keep your wits you will be confused for 4 turns.
@@ -26622,7 +26622,7 @@ t([[You have learned to hit the right spot, increasing your armor penetration by
 		The Armour penetration bonus will increase with your Dexterity.]], [[你已经学会打击弱点位置，双持时增加你 %d 点护甲穿透。
 		护甲穿透受敏捷值加成。]], "tformat")
 t("Momentum", "急速切割", "talent name")
-t("You require two melee weapons to use this talent.", "你需要双持武器才能使用这个技能。", "logPlayer")
+t("You require two melee weapons to use this talent.", "你需要双持近战武器才能使用这个技能。", "logPlayer")
 t("You cannot use Momentum without dual wielding melee weapons!", "你只有双持武器的时候才可以使用急速切割！", "logPlayer")
 t("When dual wielding, increases attack speed by %d%%, but drains stamina quickly (-6 stamina/turn).", "当你双持武器时，增加 %d%% 攻击速度，快速消耗体力（-6体力/回合）。", "tformat")
 t("Defensive Throw", "闪身投掷", "talent name")
@@ -27982,7 +27982,7 @@ t("Heat Shift", "热能转移", "talent name")
 t([[Within radius %d, transfer heat from a group of enemies bodies to their equipment, freezing them to the floor while the excess heat disables their weapons and armor.
 		Those afflicted will be dealt %0.1f Cold and %0.1f Fire damage, and be pinned (Frozen Feet) and disarmed for %d turns.
 		Targets suffering both types of damage will also have have their Armour and saves reduced by %d.
-		The chance to apply the effects and the duration increase with your Mindpower.]], [[在半径 %d 范围内，将所有敌人身上的热量转移到武器上，把敌人冻僵在地面，多余的热量则令他们无法使用武器和盔甲。
+		The chance to apply the effects and the duration increase with your Mindpower.]], [[在半径 %d 范围内，将一群敌人身上的热量转移到他们的装备上，把敌人冻僵在地面，多余的热量则令他们无法使用武器和盔甲。
 		造成 %0.1f 寒冷伤害和 %0.1f 火焰伤害，并对敌人施加定身（冻足）和缴械状态，持续 %d 回合。
 		受到两种伤害影响的单位也会降低 %d 护甲和豁免。
 		施加状态的几率和持续时间受精神强度加成。]], "tformat")
@@ -30819,7 +30819,7 @@ t("Concealment", "隐匿", "talent name")
 t("You are being observed too closely to enter Concealment!", "你被近距离观察，不能进入 隐匿 状态！", "logPlayer")
 t([[Enter a concealed sniping stance, increasing your weapon's attack range and vision range by %d, giving all incoming damage a %d%% chance to miss you, and causing your Headshot, Volley and Called Shots to behave as if the target was marked.
 Any non-instant, non-movement action will break concealment, but the increased range and vision and damage avoidance will persist for 3 turns, with the damage avoidance decreasing in power by 33%% each turn.
-This requires a bow to use, and cannot be used if there are foes in sight within range %d.]], [[进入隐匿的狙击状态，增加武器攻击范围和视野 %d 格，所有攻击有 %d%% 几率无法命中你，爆头、齐射和精巧射击视为目标已被标记。
+This requires a bow to use, and cannot be used if there are foes in sight within range %d.]], [[进入隐匿的狙击状态，增加武器攻击范围和视野 %d 格，所有受到的伤害有 %d%% 几率被完全抵消，爆头、齐射和精巧射击视为目标已被标记。
 所有非瞬时非移动行为将打破隐匿状态，攻击范围与视野的加成和伤害回避效果将额外持续 3 回合，伤害回避效果每回合减少 33%%。
 该技能需要弓来使用；如果视野内 %d 格范围内有敌人，则不能使用。]], "tformat")
 t("Shadow Shot", "暗影射击", "talent name")
@@ -31196,7 +31196,7 @@ t("You cannot use Shield Slam without a shield!", "必须装备一面盾牌施�
 t("Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.", [[用盾牌拍击目标 3 次，造成 %d%% 武器伤害，然后迅速进入格挡状态。
 		该格挡不占用盾牌的格挡技能冷却。]], "tformat")
 t("Assault", "强袭", "talent name")
-t("You cannot use Assault without a mainhand weapon and shield!", "必须装备武器和一面盾牌施展该技能！", "logPlayer")
+t("You cannot use Assault without a mainhand weapon and shield!", "没有主手武器和盾牌，无法使用强袭！", "logPlayer")
 t("Hits the target with your shield, doing %d%% damage. If it hits, you follow up with two automatic critical hits with your weapon, doing %d%% base damage each.", "用你的盾牌攻击目标并造成 %d%% 伤害，如果此次攻击命中，那么你将会发动 2 次武器暴击，每击分别造成 %d%% 基础伤害。", "tformat")
 t("Shield Wall", "盾墙", "talent name")
 t("You cannot use Shield Wall without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
@@ -35806,7 +35806,7 @@ t("#Target# is afflicted by a dire plague!", "#Target#被恐怖瘟疫感染！",
 t("#Target# is free from the dire plague.", "#Target#脱离恐怖瘟疫影响。", "_t")
 t("Dire Plague rips out a piece of %s soul!", "恐怖瘟疫撕裂了%s灵魂的一部分！", "logSeen")
 t("Frost Cut", "寒霜流血", "_t")
-t("Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.", "被魔法伤口割伤，每回合受到 %0.2f 寒冷伤害，移动速度降低 %d%%。", "tformat")
+t("Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.", "被魔法冻结的伤口，每回合受到 %0.2f 寒冷伤害，移动速度降低 %d%%。", "tformat")
 t("#Target# starts to bleed ice.", "#Target# 开始渗出寒冰。", "_t")
 t("+Frost Cut", "+寒霜流血", "_t")
 t("#Target# stops bleeding ice.", "#Target# 不再流血。", "_t")
@@ -35990,12 +35990,12 @@ t("#Target# is surrounded by a cursed miasma.", "#Target#被诅咒瘴气环绕�
 t("+Cursed Miasma", "+诅咒瘴气", "_t")
 t("The cursed miasma around #target# dissipates.", "#target#周围的诅咒瘴气消失了。", "_t")
 t("-Cursed Miasma", "-诅咒瘴气", "_t")
-t("Harassed", "疲倦", "_t")
+t("Harassed", "被骚扰", "_t")
 t("The target has been harassed by its stalker, reducing damage by %d%%.", "目标受到追踪者骚扰，伤害降低 %d%%。", "tformat")
-t("#Target# has been harassed.", "#Target#陷入疲倦。", "_t")
-t("+Harassed", "+疲倦", "_t")
-t("#Target# is no longer harassed.", "#Target#摆脱了疲倦。", "_t")
-t("-Harassed", "-疲倦", "_t")
+t("#Target# has been harassed.", "#Target#受到骚扰。", "_t")
+t("+Harassed", "+被骚扰", "_t")
+t("#Target# is no longer harassed.", "#Target#不再受到骚扰。", "_t")
+t("-Harassed", "-被骚扰", "_t")
 t("Dominated", "支配意志", "_t")
 t("The target has been dominated.  It is unable to move and has lost %d armor and %d defense. Attacks from %s gain %d%% damage penetration.", "目标已被支配，无法移动，并失去 %d 点护甲和 %d 点闪避。来自 %s 的攻击获得 %d%% 抗性穿透。", "tformat")
 t("#F53CBE##Target# has been dominated!", "#F53CBE##Target#受到支配！", "_t")
@@ -38227,7 +38227,7 @@ t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...", "�
 t("and fed to the hatchlings", "并被喂给了幼龙们分食", "_t")
 t("I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.", "我听说有一名弑龙者来到了岱卡拉，他对于这里栖息的巨龙已经被干掉这件事沮丧不已。", "_t")
 t("fire", "火焰", "entity subtype")
-t("Varsha the Writhing", "巨龙瓦莎", "entity name")
+t("Varsha the Writhing", "蜷曲的瓦莎", "entity name")
 t("Claws and teeth. Fire and death. Dragons are not all extinct it seems...", "尖牙利齿，火焰致命。似乎龙族并没有灭绝……", "_t")
 t("Massok the Dragonslayer", "弑龙者马萨克", "entity name")
 t("A huge and heavily-scarred orc with a gigantic sword. His helm is fashioned from a dragon's skull.", "一个手持巨剑的高大兽人，浑身伤疤。他的头盔由龙的头骨制成。", "_t")
@@ -43066,7 +43066,7 @@ t("Talent", "技能", "_t")
 t("Random spells", "随机法术", "_t")
 t("Each time Arcane Combat is triggered, a random allowed spell will be used.", "每当奥术格斗触发的时候，会施放一个随机可用的法术。", "_t")
 t("#{bold}#Choose a spell#{normal}#", "#{bold}#选择一个法术#{normal}#", "_t")
-t("All known spells that can be used with Arcane Combat.", "所有可以被奥术格斗施放的技能。", "_t")
+t("All known spells that can be used with Arcane Combat.", "所有已学会的可用于奥术格斗的法术。", "_t")
 -- untranslated text
 --[==[
 t("", "", "_t")
