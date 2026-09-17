@@ -1678,7 +1678,7 @@ These talents work like normal, learned talents, but are lost if the object gran
 t([[#GOLD#Activated Talents#LAST#
 Most talents require activation (i.e. time) to use, and create a specific effect when called upon.
 Specific information on each talent appears its tooltip.]], [[#GOLD#主动技能#LAST#
-大部分技能都需要主动（花费时间）来使用，并且会在使用的时候触发额外的效果。
+大部分技能都需要主动（花费时间）来使用，并且会在使用时产生特定的效果。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Instant Talents#LAST#
 Some activated talents take no time to use, being activated with but a thought.
@@ -7772,7 +7772,7 @@ t("sand", "沙", "entity name")
 t("wall", "墙壁", "entity type")
 t("sandwall", "沙墙", "entity name")
 t("unstable sand tunnel", "不稳定的流沙通道", "_t")
-t("Loose sand is steadily filling this void, which could collapse suddenly and completely.", "松散的沙子填充了这一空间，但是这些沙子随时可能坍塌下来。", "_t")
+t("Loose sand is steadily filling this void, which could collapse suddenly and completely.", "松散的沙子正在不断填充这一空洞，而空洞随时可能突然彻底坍塌。", "_t")
 t("The unstable sand tunnel collapses!", "不稳定的流沙通道塌陷了！", "logSeen")
 t("You are crushed by the collapsing tunnel! You suffocate!", "你被压在了倒塌的通道中！你感到无法呼吸！", "logPlayer")
 t("was buried alive", "被活埋", "_t")
@@ -9003,7 +9003,7 @@ t("wild", "自然", "entity subtype")
 t("spire dragon", "螺旋巨龙", "entity name")
 t("A monstrous, coiled wyrm, patient and hateful. Its hide, studded with spikes and crests and blades, turns aside steel and sorcery with equal ease.", "一条骇人的盘曲巨龙，耐心而怀恨。它的表皮上布满棘刺、脊冠与利刃，无论钢铁还是法术都被它同样轻易地卸开。", "_t")
 t("blinkwyrm", "相位巨龙", "entity name")
-t("A shifting, writhing, snake-like dragon, blinking in and out of existence, just waiting for you to turn your back.", "一只不断闪烁和换位的蛇状巨龙，它只是在等你回头。", "_t")
+t("A shifting, writhing, snake-like dragon, blinking in and out of existence, just waiting for you to turn your back.", "一只不断扭动变幻、忽隐忽现的蛇状巨龙，只等你一转身露出破绽。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/xorn.lua"
@@ -11700,7 +11700,7 @@ t("generic max hate", "通用 最大仇恨值", "entity name")
 t("generic hate on crit", "通用 暴击仇恨值", "entity name")
 t("generic max psi", "通用 最大灵能值", "entity name")
 t("generic psi on hit", "通用 击中灵能值", "entity name")
-t("generic phys dam", "通用 武器伤害", "entity name")
+t("generic phys dam", "通用 物理伤害", "entity name")
 t("generic phys apr", "通用 武器护甲穿透", "entity name")
 t("generic phys crit", "通用 物理暴击", "entity name")
 t("generic phys atk", "通用 物理命中", "entity name")
@@ -11951,7 +11951,7 @@ t("spell crit magnitude", "法术暴击伤害", "entity name")
 t("mindpower", "精神强度", "entity name")
 t("mindcrit", "精神暴击", "entity name")
 t("mind crit magnitude", "精神暴击伤害", "entity name")
-t("phys dam", "武器伤害", "entity name")
+t("phys dam", "物理伤害", "entity name")
 t("phys apr", "武器穿透", "entity name")
 t("phys crit", "物理暴击", "entity name")
 t("phys atk", "武器命中", "entity name")
@@ -12475,7 +12475,7 @@ t("darkness infused staff", "充满黑暗气息的法杖", "_t")
 t("This unique-looking staff is carved with runes of destruction.", "这个品相独特的法杖上刻印着毁灭符文。", "_t")
 t("Vargh Redemption", "瓦尔弗的救赎", "entity name")
 t("sea-blue ring", "海蓝色的戒指", "_t")
-t("This azure ring seems to be always moist to the touch.", "这个海蓝色的戒指看上去总是水汪汪的。", "_t")
+t("This azure ring seems to be always moist to the touch.", "这枚碧蓝色的戒指摸起来似乎总是湿润的。", "_t")
 t("summon a radius %d tidal wave that expands slowly over %d turns, dealing %0.2f cold and %0.2f physical damage (based on Willpower) each turn, knocking opponents back, and lowering their stun resistance", "召唤缓慢扩张的半径 %d 的潮汐，持续 %d 回合，每回合造成 %0.2f 寒冷和 %0.2f 物理伤害，击退敌人，并降低他们的震慑抗性。", "tformat")
 t("tidal wave", "潮汐", "_t")
 t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，召唤了海洋的力量！", "logSeen")
@@ -12722,7 +12722,7 @@ t("Legend has it this blade is one of a pair: twin blades forged in the earliest
 t("Potentially it would go with a sword in the future.", "未来可能有把剑和它成套。", "_t")
 t("10% chance to return the target to a much younger state", "有 10% 几率使目标回到更年轻的状态。", "_t")
 t("Stone Gauntlets of Harkor'Zun", "哈克祖的岩石臂铠", "entity name")
-t("dark stone gauntlets", "黑曜石臂铠", "_t")
+t("dark stone gauntlets", "黑石臂铠", "_t")
 t("Fashioned in ancient times by cultists of Harkor'Zun, these heavy granite gauntlets were designed to protect the wearer from the wrath of their dark master.", "古时候由哈克祖的狂热崇拜者制作，这副花岗岩臂铠被设计为可以保护穿戴者免于遭受黑暗之主的暴怒。", "_t")
 t("Unflinching Eye", "坚定之眼", "entity name")
 t("a bloodshot eye", "充血的眼球", "_t")
@@ -13118,7 +13118,7 @@ t("Gives all your cold damage a 20% chance to freeze the target.", "你造成寒
 t("Twilight's Edge", "晨昏之刃", "entity name")
 t("shining long sword", "发光的长剑", "_t")
 t("The blade of this sword seems to have been forged of a mixture of voratun and stralite, resulting in a blend of swirling light and darkness.", "这柄长剑似乎是用沃瑞钽和斯莱特混合制成，光与暗在不断旋转交融。", "_t")
-t("release a burst of light and dark damage (scales with Magic)", "爆发光明和黑暗伤害（受魔法值加成）", "_t")
+t("release a burst of light and dark damage (scales with Magic)", "爆发光明和黑暗伤害（受魔法加成）", "_t")
 t("Mnemonic", "记忆", "entity name")
 t("As long as you wear this ring, you will never forget who you are.", "只要你戴上这枚戒指，你就永远不会忘记自己是谁。", "_t")
 t("familiar ring", "熟悉的戒指", "_t")
@@ -13203,7 +13203,7 @@ t("Breaks enemy weapon.", "破坏对方武器。", "_t")
 t("Shieldsmaiden", "女武神之心", "entity name")
 t("icy shield", "冰冻的盾", "_t")
 t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中有一支名为女武神的女战士部族，她们来自马基·埃亚尔大陆的北方荒地。她们的武艺与美貌吸引了大批爱慕者，却无一得到回应。于是便有了那句谚语：女武神的心如她的盾一般冰冷而坚不可摧。", "_t")
-t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能：每十回合能抵挡一次攻击。", "_t")
+t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能：每十回合能抵挡一次伤害。", "_t")
 t("Tirakai's Maul", "提瑞卡之锤", "entity name")
 t("This massive hammer is formed from a thick mass of strange crystalline growths. In the side of the hammer itself you see an empty slot; it looks like a gem of your own could easily fit inside it.", "这柄巨型锤子是用一种厚厚的古怪结晶体制成的，锤子里面能看到一个空槽，似乎很容易就能将宝石放进去。", "_t")
 t("None", "无", "_t")
@@ -13603,7 +13603,7 @@ t("The heart of an orc. Perhaps surprisingly, it isn't green.", "一颗兽人的
 t("If you can fetch me a still-beating orc heart, that would be even better. But you don't look like a master necromancer to me.", "如果你能给我一个新鲜的、跳动着的兽人心脏，那就太好了。但是在我看来，你不像是一个死灵魔导师。", "_t")
 t("naga tongue", "娜迦舌头", "entity name")
 t("A severed naga tongue. It reeks of brine.", "一截娜迦的舌头。它散发着海水的气息。", "_t")
-t("Best results occur with tongues never tainted by profanity, so if you happen to know any saintly nagas...", "最好的结果便是从未被污言秽语亵渎过的舌头，所以如果你正好碰到那些圣者娜迦……", "_t")
+t("Best results occur with tongues never tainted by profanity, so if you happen to know any saintly nagas...", "最好的结果来自从未被污言秽语亵渎过的舌头，所以如果你正好碰到那些圣洁的娜迦……", "_t")
 t("vial of greater demon bile", "一瓶大恶魔胆汁", "entity name")
 t("A vial of greater demon bile. It hurts your sinuses even with the vial's stopper firmly in place.", "一瓶大恶魔的胆汁。尽管有着良好的阻隔，它仍刺激着你的鼻窦。", "_t")
 t("Don't drink it, even if it tells you to.", "不要去喝它，即使它诱惑着你……", "_t")
@@ -19394,7 +19394,7 @@ t([[You see the red-robed Sher'Tul striking the huge god with the dark, runed st
 There is some text underneath ]], [[你看到红袍夏·图尔人用那根刻有符文的黑色法杖攻击巨神。周围尸横遍地，后方的黄金王座浸满鲜血。巨神眼中的光芒似乎已经黯淡……
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Trobazan AMAKTHEL konruata as va aurin leas, ik mab peli zort akan hun, penetar dondeberoth.'#{normal}#", "不明意义的文字：#{italic}#'Trobazan AMAKTHEL konruata as va aurin leas, ik mab peli zort akan hun, penetar dondeberoth.'#{normal}#", "_t")
-t("#{italic}#'The almighty AMAKTHEL was assaulted on his golden throne, and though many died before his feet, he was finally felled.'#{normal}#", "#{italic}#真神阿马克泰尔最终倒在了他的黄金王座下，虽然数以千计的人死在他的脚下，他最终还是陨落了。#{normal}#", "_t")
+t("#{italic}#'The almighty AMAKTHEL was assaulted on his golden throne, and though many died before his feet, he was finally felled.'#{normal}#", "#{italic}#'全能的阿马克泰尔在他的黄金王座上遭到了围攻，尽管无数人死在了他的脚下，他最终还是陨落了。'#{normal}#", "_t")
 t("eighth mural painting", "第八幅壁画", "_t")
 t([[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.
 The text beneath says simply ]], [[这幅巨大的壁画上，真神摊倒在地，那根黑色法杖抵在他的胸口。夏·图尔人围绕着他，有的砍下他的肢体，有的割出他的舌头，还有的用锁链将他捆住。一名高大的夏·图尔战士正用黑刃长戟剜他的眼睛，长戟落下之处迸发出一阵光芒。远处，一名夏·图尔法师朝地面上的巨大深渊示意。
@@ -19877,7 +19877,7 @@ section "mod-tome/data/maps/towns/last-hope.lua"
 
 t("Statue of King Tolak the Fair", "公正王托拉克的雕像", "_t")
 t("Statue of King Toknor the Brave", "勇气之王图库纳的雕像", "_t")
-t("Statue of Queen Mirvenia the Inspirer", "智慧王后米雯尼雅的雕像", "_t")
+t("Statue of Queen Mirvenia the Inspirer", "鼓舞者王后米雯尼雅的雕像", "_t")
 t("Declaration of the Unification of the Allied Kingdoms", "联合王国统一公告", "_t")
 
 ------------------------------------------------
@@ -20328,7 +20328,7 @@ t("Your curse has defiled the iron acorn which now serves as a reminder of your 
 t("#LIGHT_GREEN#You need to find Berethh, the last person who may be able to help you.", "#LIGHT_GREEN#你得找到贝里斯，也许他是最后一个可以帮助你的人。", "_t")
 t("#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him.", "#LIGHT_GREEN#找出位于草原北部的凯勒斯的洞穴，然后杀掉他，他的死也许会解除这个诅咒。", "_t")
 t("#LIGHT_GREEN#Discover the meaning of the acorn and the dream.", "#LIGHT_GREEN#搞清楚铁橡果与这个梦境的含义。", "_t")
-t("#LIGHT_GREEN#You may have to revist your past to unlock some secret buried there.", "#LIGHT_GREEN#你可以回忆一下过去来解开埋藏在这里的秘密。", "_t")
+t("#LIGHT_GREEN#You may have to revist your past to unlock some secret buried there.", "#LIGHT_GREEN#你可能需要重访过去，以解开埋藏在那里的秘密。", "_t")
 t("#VIOLET#The time has come to learn the true nature of your curse.", "#VIOLET#是时候搞清楚你诅咒的本质了。", "logPlayer")
 t("#VIOLET#You find yourself in a dream.", "#VIOLET#你发现你在一个梦境里。", "logPlayer")
 t("#VIOLET#Your hate surges. You refuse to succumb to death!", "#VIOLET#你仇恨涌动，你不屈服于死亡！", "logPlayer")
@@ -22618,7 +22618,7 @@ t([[Over the next %d turns, you attempt to remove the target from the timeline, 
 		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
 		The resistance penalty will scale with your Spellpower.]], [[接下来 %d 回合，你尝试抹杀目标在当前时间线的存在，降低目标物理和时空抗性 %d%%。
 		如果你在法术生效期间击杀了目标，你将会返回到你释放该法术的时间点，而目标将被杀死。
-		这个法术分离的时间线。法术生效期间，其余分离时间线的法术将无法成功试用。
+		该法术会分裂时间线。法术生效期间，其余分裂时间线的法术将无法成功使用。
 		抗性减少程度受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -31107,7 +31107,7 @@ t("@Source@ unleashes a flurry of disrupting kicks.", "@Source@使出一连串�
 t([[Unleash a flurry of disruptive kicks at your target's vulnerable areas. For each combo point you attack for %d%% weapon damage and deactivate one physical sustain.
 			At talent level 3 #DARK_ORCHID#Magical#LAST# sustains will also be effected.
 			At talent level 5 #YELLOW#Mental#LAST# sustains will also be effected.
-			Using this talent removes your combo points.]], [[每有一个连击点，对目标造成 %d%% 武器伤害，并解除目标一项物理持续技能。
+			Using this talent removes your combo points.]], [[对目标的要害部位释放一连串破坏性踢击。每有一个连击点，对目标造成 %d%% 武器伤害，并解除目标一项物理持续技能。
 		等级 3 时，#DARK_ORCHID#魔法#LAST#持续技能也会受影响。
 		等级 5 时，#YELLOW#精神#LAST#持续技能也会受影响。
 		使用该技能将除去全部连击点。]], "tformat")
@@ -31719,8 +31719,8 @@ t([[During your studies of celestial forces you came in contact with an entity f
 		- If you also know #GOLD#Irresistible Sun#LAST#, it will set the fire and light resistances of those affected to 0%%
 
 		#{italic}##GOLD#Will you bind yourself to the Distant Sun?#{normal}#
-		]], [[在学习太阳的力量时，你接触到了距离埃亚尔大陆极其遥远的存在：一颗恒星的化身！
-        和它同盟，你将获得它的力量。
+		]], [[在研习天体之力时，你接触到了距离埃亚尔大陆极其遥远的存在：一颗恒星的化身！
+        与它结盟，你将获得它的力量。
 
         增益：
         - 你的力量如此强大，你可以#GOLD#同时装备双手武器和盾牌#LAST#
@@ -36636,7 +36636,7 @@ t("The target has recently blinked through a wall using probability travel.", "�
 t("Cursed Form", "诅咒形态", "_t")
 t("The target's unnatural body has responded to damage taken.", "目标的诅咒之体对其所承受的苦难做出了回应。", "_t")
 t(" All damage that the target inflicts is increased by %d%%.", " 目标造成的所有伤害增加 %d%%。", "tformat")
-t(" Strength and Willpower are increased by %d. Poisons and diseases have a %d%% chance of being neutralized each turn.", " 力量和意志增加 %d。每回合有 %d%% 免疫疾病和毒素效果。", "tformat")
+t(" Strength and Willpower are increased by %d. Poisons and diseases have a %d%% chance of being neutralized each turn.", " 力量和意志增加 %d。毒素和疾病每回合有 %d%% 几率被净化。", "tformat")
 t("predator", "猎杀", "effect subtype")
 t("Marked Prey", "标记猎物", "_t")
 t("Hunting:", "猎杀中：", "_t")
@@ -37713,7 +37713,7 @@ t("+Snipe", "+狙击", "_t")
 t("#Target# is no longer aiming.", "#Target#停止瞄准。", "_t")
 t("-Snipe", "-狙击", "_t")
 t("Concealment", "隐匿", "_t")
-t("The target is concealed, increasing sight and attack range by %d and chance to avoid damage by %d%%.", "目标处于隐匿状态，增加攻击范围和视野 %d格，有%d%% 几率躲闪攻击。", "tformat")
+t("The target is concealed, increasing sight and attack range by %d and chance to avoid damage by %d%%.", "目标处于隐匿状态，视野和攻击范围增加 %d 格，有 %d%% 几率闪避伤害。", "tformat")
 t("Shadow Smoke", "影之烟雾", "_t")
 t("The target is wrapped in disorientating smoke, reducing vision range by %d.", "目标被烟雾包围，处于混乱状态，视野减少 %d。", "tformat")
 t("+Shadow Smoke", "+影之烟雾", "_t")
@@ -37956,9 +37956,9 @@ t("anorithil", "星月术士", "entity name")
 t("elf", "精灵", "entity subtype")
 t("Warriors from afar. They use the power of light and darkness against you!", "来自远方的战士。他们使用光暗魔法攻击你！", "_t")
 t("sun paladin", "太阳骑士", "entity name")
-t("Warriors from afar. They wield the power of light, and a mean sword.", "来自远方的战士。他们擅长光魔法和华丽的剑技。", "_t")
+t("Warriors from afar. They wield the power of light, and a mean sword.", "来自远方的战士。他们擅长光魔法，剑术也十分凶狠。", "_t")
 t("star crusader", "星辰骑士", "entity name")
-t("Warriors from afar. They wield the power of light, and a mean sword. Darkness, too.", "来自远方的战士。他们擅长光魔法和华丽的剑技，同样也精通暗魔法。", "_t")
+t("Warriors from afar. They wield the power of light, and a mean sword. Darkness, too.", "来自远方的战士。他们擅长光魔法，剑术也十分凶狠。暗魔法也不在话下。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/arena/objects.lua"
@@ -40052,7 +40052,7 @@ section "mod-tome/data/zones/telmur/npcs.lua"
 t("undead", "亡灵", "entity type")
 t("ghost", "幽灵", "entity subtype")
 t("The Shade of Telos", "泰勒斯之影", "entity name")
-t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他的能量之源。", "_t")
+t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。", "_t")
 t("and was savagely mutilated, a show of his rage towards all living things", "并被残忍肢解，作为他对所有生物的无尽怒火的体现", "_t")
 t("Back and there again", "归而复往", "_t")
 t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《反转与复原概率场》标题的文本。你必须回到泰恩那。", "_t")
@@ -42024,8 +42024,9 @@ t([[Talent category points allow you to either:
 You gain a new point at level 10, 20 and 34.
 Some races or items may increase them as well.]], [[技能树解锁点有以下作用：
 - 解锁职业或通用技能树
-- 提升一个技能树所有技能等级，每点提升 0.2
+- 提升已解锁技能树的精通度，每点提升 0.2
 - 解锁新的刻印位（最多 5 个，你使用刻印时会自动消耗点数解锁）
+
 你会在人物等级达到 10、20 和 34 级时各获得 1 个点数。
 某些种族和物品可以获得额外的点数。]], "_t")
 t([[Prodigies are special talents that only the most powerful of characters can attain.
