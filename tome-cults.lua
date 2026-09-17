@@ -2309,7 +2309,7 @@ When he first heard of the plan to kill the gods, he volunteered eagerly to beco
 section "tome-cults/data/lore/misc.lua"
 
 t("Forbidden Cults", "禁忌邪教", "newLore category")
-t("Message from the Assassin's Lord", "来自盗贼领主的消息", "_t")
+t("Message from the Assassin's Lord", "来自刺客领主的消息", "_t")
 t([[My dear %s,
 
 You have come a long way since the days we met. I am proud of you.
