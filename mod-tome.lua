@@ -1279,13 +1279,13 @@ t("Valfren the Rampage", "狂暴的瓦弗伦", "_t")
 t("%s the %s", "%s %s", "tformat", {2,1})
 t(" appear!!", " 出现了！！", "_t")
 t(" appears!!", " 出现了！！", "_t")
-t("#LIGHT_RED#WARNING! %s appears!!!", "#LIGHT_RED#警告！%s 出现了！!！", "log")
+t("#LIGHT_RED#WARNING! %s appears!!!", "#LIGHT_RED#警告！%s 出现了！！！", "log")
 t("The final fight!", "最后一战！", "_t")
 t("Congratulations!", "恭喜", "_t")
 t("Rej the Master of Arena", "竞技场主宰瑞吉", "_t")
-t("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!", "#LIGHT_RED#警告！竞技场主宰瑞吉·阿卡提斯，出现了！!！", "log")
+t("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!", "#LIGHT_RED#警告！竞技场主宰瑞吉·阿卡提斯，出现了！！！", "log")
 t("%s the Master of Arena", "竞技场主宰%s", "tformat")
-t("#LIGHT_RED#WARNING! %s, the master of the arena, appears!!!", "#LIGHT_RED#警告！竞技场主宰%s，出现了！!！", "log")
+t("#LIGHT_RED#WARNING! %s, the master of the arena, appears!!!", "#LIGHT_RED#警告！竞技场主宰%s，出现了！！！", "log")
 t("OVERKILL", "超杀", "_t")
 t("#LIGHT_GREEN#Your powerful attack completely obliterates #WHITE#%s#LIGHT_GREEN#!", "#LIGHT_GREEN#你强力的攻击将#WHITE#%s#LIGHT_GREEN#完全毁灭！", "log")
 t("#LIGHT_GREEN#The audience cheers!", "#LIGHT_GREEN#观众发出欢呼！", "log")
@@ -6889,7 +6889,7 @@ t("sun baked", "被太阳烤干", "_t")
 t("jerkied", "被烈日晒干", "_t")
 t("tanned", "被烈日曝晒", "_t")
 t("darkness", "暗影", "damage type")
-t("shadowed", "被阴影暗杀", "_t")
+t("shadowed", "被阴影笼罩", "_t")
 t("darkened", "被黑暗吞噬", "_t")
 t("swallowed by the void", "被虚空吞噬", "_t")
 t("mind", "精神", "damage type")
@@ -8261,7 +8261,7 @@ t("A shifting form of darkest night that seems to reflect your deepest fears.", 
 t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
-t("eldritch eye", "艾尔德里奇之眼", "entity name")
+t("eldritch eye", "骇异之眼", "entity name")
 t("A small bloodshot eye floats here.", "一只带血的小眼睛漂浮在这里。", "_t")
 t("#AQUAMARINE#As #Source# falls #Target# seems to weaken!", "#AQUAMARINE#当#Source#倒下时，#Target#似乎被削弱了！", "logCombat")
 t("+Blind", "+致盲", "_t")
@@ -8735,7 +8735,7 @@ t("Nobody scavenged the high-quality bow from this archer before it was raised f
 t("skeleton magus", "骷髅魔导师", "entity name")
 t("This skeleton has been imbued with far more magical energy than normal, and serves as a conduit of its master's spellcasting prowess.", "这只骷髅的身上充盈着远超常规的魔法力量，充当其主人施法威能的导管。", "_t")
 t("armoured skeleton warrior", "装甲骷髅战士", "entity name")
-t("It feels no pain.  It moves with fluidity and strength that would tear natural muscles apart.  It must be from a fresh corpse, since its bones, armor, and weapon are all in pristine condition.  And it's furious.", "这只骷髅战士没有任何痛感，它的动作行云流水，强大的挥斩足以将常人的肌肉撕裂。它一定是来自一具新鲜的尸体：它的骨头、装甲和武器还是崭新的。并且，他仿佛怒不可遏。", "_t")
+t("It feels no pain.  It moves with fluidity and strength that would tear natural muscles apart.  It must be from a fresh corpse, since its bones, armor, and weapon are all in pristine condition.  And it's furious.", "它感觉不到疼痛。它的动作流畅而有力，足以撕裂天然的肌肉。它一定来自一具新鲜的尸体，因为它的骨头、装甲和武器都完好如新。而且，它怒不可遏。", "_t")
 t("skeleton master archer", "骷髅弓箭手大师", "entity name")
 t("This skeleton can fire arrows and nock new ones with blinding speed.  Arcane forces pull its bones with unnatural precision - its arms will never tremble or get tired.", "这只骷髅可以飞速的拈弓射箭，奥术的力量使它的身躯达到了常人无法企及的精确度——它的射击永远不会颤动，也永远不会疲累。", "_t")
 t("skeleton assassin", "骷髅刺客", "entity name")
@@ -9498,7 +9498,7 @@ t("permanently increase your strength and constitution by three", "永久提升�
 t("#00FF00#The elixir has augmented your physical might and resilience!", "#00FF00#药剂提升了你物理打击能力和抵抗力！", "logPlayer")
 t("Elixir of Stoneskin", "石肤药剂", "entity name")
 t("vial of iron-colored fluid", "一瓶铁色液体。", "_t")
-t("A vial of grainy, iron-colored fluid.", "一瓶带有特殊纹理、泛着金属光泽的液体。", "_t")
+t("A vial of grainy, iron-colored fluid.", "一瓶颗粒状的铁色液体。", "_t")
 t("permanently increase your armor by four", "永久提升你4点护甲值", "_t")
 t("#00FF00#The elixir has reinforced your entire body!", "#00FF00#药剂强化了你整个身体！", "logPlayer")
 t("Elixir of Foundations", "领悟药剂", "entity name")
@@ -10252,7 +10252,7 @@ t("preserve", "保持", "entity keyword")
 t("piercing ", "穿透的", "entity name")
 t("piercing", "穿透", "entity keyword")
 t("dreamer's ", "梦者的", "entity name")
-t("guide", "梦想家", "entity keyword")
+t("guide", "向导", "entity keyword")
 t("void-walker's ", "虚空行者的", "entity name")
 t("void", "虚空", "entity keyword")
 t("nightwalker's ", "暗夜行者的", "entity name")
@@ -11506,7 +11506,7 @@ t("massive", "板甲", "entity subtype")
 t("A suit of armour made of metal plates.", "一套用金属片制成的板甲。", "_t")
 t("iron plate armour", "铁质板甲", "entity name")
 t("iron", "铁", "entity short_name")
-t("steel plate armour", "钢化板甲", "entity name")
+t("steel plate armour", "钢质板甲", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel plate armour", "矮人钢板甲", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
@@ -12640,7 +12640,7 @@ t("A plain elven-silk robe. It would be unremarkable if not for the sheer power 
 t("Temporal Augmentation Robe - Designed In-Style", "时空增益·引领时尚", "entity name")
 t("stylish robe with a scarf", "配有围巾的时髦长袍", "_t")
 t("Designed by a slightly quirky Paradox Mage, this robe always appears to be stylish in any time the user finds him, her, or itself in. Crafted to aid Paradox Mages through their adventures, this robe is of great help to those that understand what a wibbly-wobbly, timey-wimey mess time actually is. Curiously, as a result of a particularly prolonged battle involving its fourth wearer, the robe appends a very long, multi-coloured scarf to its present wearers.", "被有些古怪的时空法师设计出来，无论穿戴者在哪个时代，这袍子都显得格外时髦。它为协助时空法师冒险而制作。这件法袍对擅长摆弄那团乱糟糟、缠来绕去的时间的人来说有着巨大的作用。有趣的是，由于它第四任主人参与了一场相当漫长的战斗，长袍上附带了一条很长的多彩围巾。", "_t")
-t("Oddly it never produces a hat.", "奇怪的是，它没有一顶帽子。", "_t")
+t("Oddly it never produces a hat.", "奇怪的是，它从不变出帽子。", "_t")
 t("Un'fezan's Cap", "Un'fezan之帽", "entity name")
 t("red stylish hat", "时尚的红色毡帽", "_t")
 t([[This fez once belonged to a traveler; it always seems to be found lying around in odd locations.
@@ -20052,7 +20052,7 @@ section "mod-tome/data/maps/zones/halfling-ruins-last.lua"
 
 t("Long tunnel to the island of Rel", "通往瑞尔岛的漫长通道", "_t")
 t("Long tunnel", "漫长的通道", "_t")
-t("As you enter the tunnel you feel a strange compulsion to go backward.", "在你试图进入隧道时，有种奇怪的力量把你推了回去。", "_t")
+t("As you enter the tunnel you feel a strange compulsion to go backward.", "当你进入隧道时，你感到一种奇怪的冲动，驱使你往回走。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/maps/zones/shertul-fortress-caldizar.lua"
@@ -22093,8 +22093,8 @@ t("You must have Cosmic Cycle active to use this talent.", "你必须开启宇�
 t("Polarity Bolt", "极性飞弹", "_t")
 t([[Reverses the polarity of your Cosmic Cycle.  If it's currently contracting, it will begin to expand, firing a homing missile at each target within the radius that deals %0.2f temporal damage.
 		If it's currently expanding, it will begin to contract, braiding the lifelines of all targets within the radius for %d turns.  Braided targets take %d%% of all damage dealt to other braided targets.
-		The damage will scale with your Spellpower.]], [[逆转你宇宙圈的极性。如果它正在收缩，它将开始膨胀，向半径范围内的每个目标发射一枚瞄准的飞弹，造成 %0.2f 时空伤害。
-		如果它目前正在扩张，它将开始收缩，将半径范围内所有目标的生命线编织 %d 回合。被编织目标承受对其他编织目标造成的所有伤害的 %d%%。
+		The damage will scale with your Spellpower.]], [[逆转你宇宙圈的极性。如果它正在收缩，它将开始膨胀，向半径范围内的每个目标发射一枚追踪飞弹，造成 %0.2f 时空伤害。
+		如果它目前正在膨胀，它将开始收缩，将半径范围内所有目标的生命线编织 %d 回合。被编织目标承受对其他编织目标造成的所有伤害的 %d%%。
 		伤害受法术强度加成。]], "tformat")
 t("Reverse Causality", "逆转因果", "talent name")
 t([[When a creature enters your expanding Cosmic Cycle, you heal %d life at the start of your next turn.
@@ -22509,7 +22509,7 @@ t([[Attack the target with either your ranged or melee weapons for %d%% damage.
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/temporal-hounds.lua"
 
-t("A trained hound that appears to be all at once a little puppy and a toothless old dog.", "一条受训的猎犬，它的形态在小狗崽到掉牙的老狗之间来回切换。", "_t")
+t("A trained hound that appears to be all at once a little puppy and a toothless old dog.", "一条受训的猎犬，它看起来同时既是一只小狗崽，又是一条掉牙的老狗。", "_t")
 t("temporal-hound", "时空猎犬", "_t")
 t("Temporal Hounds", "时空猎犬", "talent name")
 t([[Upon activation summon a Temporal Hound.  Every %d turns another hound will be summoned, up to a maximum of three hounds. If a hound dies you'll summon a new hound in %d turns.  
@@ -25273,7 +25273,7 @@ t([[Your mucus is brought to near sentience.
 		粘液软泥怪会存在 %d 回合，会向任何附近的敌人释放史莱姆喷吐。
 		同时场上可存在 %d 只粘液软泥怪。（基于你的灵巧值）
 		每当你造成一次精神暴击，你的所有粘液软泥怪的存在时间会延长 2 回合。
-		效果受精神强度加成。]], "tformat")
+		生成概率受精神强度加成。]], "tformat")
 t("Oozewalk", "粘液探戈", "talent name")
 t("You can only Oozewalk from one area of mucus to another.", "你只能从粘液传送到另一处粘液。", "logPlayer")
 t([[You temporarily merge with your mucus, cleansing yourself of %d physical or magical detrimental effects.
@@ -26663,8 +26663,8 @@ t("Shadow Leash", "暗影束缚", "talent name")
 t([[For an instant, your weapons turn into a shadow leash that tries to grab the target's weapon, disarming it for %d turns.
 		The chance to hit improves with your Accuracy.]], [[使你的武器立刻转化为暗影之缚形态，夺取目标武器，缴械目标 %d 回合。
 		技能命中率受命中加成。]], "tformat")
-t("Dismay", "黑暗痛苦", "talent name")
-t("Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.", "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率受到黑暗痛苦持续 %d 回合，你对受黑暗痛苦折磨的目标进行的首次近战攻击必定暴击。", "tformat")
+t("Dismay", "惊骇", "talent name")
+t("Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.", "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率受到惊骇持续 %d 回合，你对受惊骇影响的目标进行的首次近战攻击必定暴击。", "tformat")
 t("Shadow Empathy", "阴影链接", "talent name")
 t([[You are linked to your shadows for %d turns, diverting %d%% of all damage you take to a random shadow.
 		Effect increases with Mindpower.]], [[你与自己的影子相连 %d 回合，将你受到的所有伤害的 %d%% 转移给一个随机影子。
@@ -27853,7 +27853,7 @@ t([[Sends a telepathic attack, trying to destroy the brains of any target in the
 t("Psychic Lobotomy", "心灵脑叶切除", "talent name")
 t("%s resists the lobotomy!", "%s抵抗了脑叶切除！", "logSeen")
 t([[Inflicts %0.2f mind damage and cripples the target's higher mental functions, reducing cunning by %d and confusing (%d%% power) the target for %d turns.
-		The damage, cunning penalty, and confusion power will scale with your Mindpower.]], [[造成 %0.2f 精神伤害，并摧毁目标的高级精神系统，降低 %d 灵巧并混乱目标（%d%% 强度），持续 %d 回合。
+		The damage, cunning penalty, and confusion power will scale with your Mindpower.]], [[造成 %0.2f 精神伤害，并严重损害目标的高级心智功能，降低 %d 灵巧并混乱目标（%d%% 强度），持续 %d 回合。
 		受精神强度影响，伤害、灵巧降幅和混乱强度按比例加成。]], "tformat")
 t("Synaptic Static", "心灵爆破", "talent name")
 t([[Sends out a blast of telepathic static in a %d radius, inflicting %0.2f mind damage.  This attack can brainlock affected targets.
@@ -28009,12 +28009,12 @@ t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learn
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术掌握、强化命中、稳固射击、致残射击和急速射击，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
 		激活此技能会使其他思维形态技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
-t("Thought-Form: Warrior", "思维形态：狂战士", "talent name")
-t("thought-forged warrior", "精神体狂战士", "_t")
-t("A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.", "一位身穿重甲的精神体狂战士。他时刻准备着战斗。", "_t")
+t("Thought-Form: Warrior", "思维形态：战士", "talent name")
+t("thought-forged warrior", "精神体战士", "_t")
+t("A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.", "一位身穿重甲的精神体战士。他时刻准备着战斗。", "_t")
 t([[Forge a warrior wielding a battle-axe from your thoughts.  The warrior learns Weapon Mastery, Combat Accuracy, Berserker, Death Dance, and Rush as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持战斧的精神体狂战士。当精神体狂战士到达对应等级时可习得武器掌握、强化命中、嗜血、死亡之舞和冲锋，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
+		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持战斧的精神体战士。当精神体战士到达对应等级时可习得武器掌握、强化命中、嗜血、死亡之舞和冲锋，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
 		激活此技能会使其他思维形态技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
 t("Thought-Form: Defender", "思维形态：盾战士", "talent name")
@@ -28053,7 +28053,7 @@ t([[Take direct control of your active thought-form, improving its damage, attac
 t("Thought-Form Unity", "思维形态共鸣", "talent name")
 t([[You now gain %d%% mind speed while Thought-Form: Bowman is active, %d Mindpower while Thought-Form: Warrior is active, and %d%% resist all while Thought-Form: Defender is active. 
 		These bonuses scale with your Mindpower.]], [[现在，当思维形态：弓箭手激活时，你提升 %d%% 精神速度；
-		当思维形态：狂战士激活时，你提升 %d 精神强度；
+		当思维形态：战士激活时，你提升 %d 精神强度；
 		当思维形态：盾战士激活时，你提升 %d%% 全体伤害抗性。
 		受精神强度影响，增益效果按比例加成。]], "tformat")
 
@@ -31693,7 +31693,7 @@ t("Slasul will be happy to know your faith in his cause. You should return to sp
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
 		In addition, should Slasul still live, he may have a further reward for you as thanks...]], [[你站在萨拉苏尔一方并帮助他解决了乌克勒姆斯维奇。你现在可以轻松地在水下呼吸。
-		同时，你能轻易学会如何使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。技能等级随人物等级增长。
+		同时，你能轻易学会如何使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。这些是额外的技能等级，随人物等级增长。
 		此外，若萨拉苏尔仍然存活，他还会送你一份大礼…]], "tformat")
 t("Superpower", "超级力量", "talent name")
 t([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.
@@ -35272,7 +35272,7 @@ t("#Target# is doomed!", "#Target#遭受了厄运！", "_t")
 t("+Doomed", "+灾厄", "_t")
 t("#Target# is freed from the impending doom.", "#Target#摆脱了厄运。", "_t")
 t("-Doomed", "-灾厄", "_t")
-t("#CRIMSON#A piece of the soul of %s is torn apart by Impending Doom!", "#CRIMSON#%s的灵魂被撕裂了一片！", "logSeen")
+t("#CRIMSON#A piece of the soul of %s is torn apart by Impending Doom!", "#CRIMSON#%s的灵魂被灾厄降临撕裂了一片！", "logSeen")
 t("necrotic", "死灵", "effect subtype")
 t("Rigor Mortis", "尸僵症", "_t")
 t("The target is slowed by %d%%.", "目标被减速 %d%%。", "tformat")
@@ -37989,9 +37989,9 @@ t("#LIGHT_GREEN#The public is pleased by your performance! You now have the rank
 t("%d kills!", "%d连杀！", "tformat")
 t("#YELLOW#You killed %d enemies in a single turn! The public is excited!", "#YELLOW#你在一回合内干掉了%d个敌人！观众们很兴奋！", "log")
 t("#YELLOW#Items lying around will disappear in #WHITE#%d#YELLOW# turns!#LAST#", "#YELLOW#地上的物品将会在#WHITE#%d#YELLOW#回合内消失！#LAST#", "log")
-t("#VIOLET#Boss round!!!", "#VIOLET#Boss轮！!！", "log")
+t("#VIOLET#Boss round!!!", "#VIOLET#Boss轮！！！", "log")
 t("#GOLD#Miniboss round!", "#GOLD#小Boss轮！", "log")
-t("#LIGHT_RED#Final round!!!", "#LIGHT_RED#最终轮！!！", "log")
+t("#LIGHT_RED#Final round!!!", "#LIGHT_RED#最终轮！！！", "log")
 t("Round Clear! +%s EXP!", "全清！+%s 经验！", "tformat")
 t("%sWave clear!", "%s波次已全清！", "log")
 t("%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!", "%s全清奖励：%s%s%s! 分数奖励：%s%s%s! 危险度奖励：%s%s%s! 级别奖励：%s%s%s！", "log")
@@ -38865,7 +38865,7 @@ t("Potion of Martial Prowess", "尚武药剂", "entity name")
 t("phial filled with metallic liquid", "金属质的药剂", "_t")
 t("This potent elixir can give insights into martial combat to those unlucky enough to ignore the basics.", "这种强大的药剂可以给那些忽视基础的人提供最基本的武学技巧。", "_t")
 t("%s quaffs the %s!", "%s 大口喝下 %s！", "logSeen")
-t("#VIOLET#You seem to understand the basic martial pratices. (Combat Training talents unlocked)", "#VIOLET#你似乎理解了一些基础的训练。（战斗训练系解锁）", "logPlayer")
+t("#VIOLET#You seem to understand the basic martial pratices. (Combat Training talents unlocked)", "#VIOLET#你似乎理解了一些基础的武术训练。（战斗训练系解锁）", "logPlayer")
 t("#VIOLET#You seem to now know how to properly use a bow or a sling.", "#VIOLET#你似乎学会了如何使用弓和投石索。", "logPlayer")
 t("#VIOLET#Images of yourself beating people with a stick spring into your mind. (Staff Combat category can be bought)", "#VIOLET#你用木棒击打敌人的镜像进入了你的大脑。（能购买法杖格斗系）", "logPlayer")
 t("#VIOLET#You suddenly understand how to channel your mental force through mindstars. (Mindstar Mastery category can be bought)", "#VIOLET#你突然理解如何用灵晶调用精神力量。（能购买灵晶掌握系）", "logPlayer")
@@ -39350,7 +39350,7 @@ t("Rak'shor, Grand Necromancer of the Pride", "部落死灵大法师拉克·肖"
 t("An old orc, wearing black robes. He commands his undead armies to destroy you.", "一只穿着黑色长袍的年老兽人。他命令不死大军攻击你。", "_t")
 t("and raised as a malformed servant", "并复活作为一个畸形的仆从", "_t")
 t("Rotting Titan", "腐烂泰坦", "entity name")
-t("This gigantic mass of flesh and stone moves slowly, the ground rumbling with each step it takes. Its body seems to constantly pulsate and reform. Massive stones at the end of each limb form massive blunt weapons.", "这只行动缓慢的巨大石化怪物每走一步都会使大地为之震颤。它的身体看起来似乎在不断的颤动和重塑。厚重的石化指尖成为了它强大的钝器。", "_t")
+t("This gigantic mass of flesh and stone moves slowly, the ground rumbling with each step it takes. Its body seems to constantly pulsate and reform. Massive stones at the end of each limb form massive blunt weapons.", "这个由血肉与岩石构成的巨大躯体行动缓慢，每走一步都使大地为之震颤。它的身体看起来在不断地颤动和重塑。每条肢体末端的巨石构成了强大的钝器。", "_t")
 t("The ground shakes as %s steps!", "当 %s前进时，大地在震动！", "logSeen")
 t("Glacial Legion", "冰川军团", "entity name")
 t("A massive, shifting, ethereal form floats in the air around an orb of frozen blood.  The air around it condenses into freezing pools on the floor beneath it.", "一个巨大的、变幻不定的灵体漂浮在半空，环绕着一颗冰封的血球。它周围的空气凝结成它脚下地板上的一滩滩寒冰。", "_t")
@@ -40871,7 +40871,7 @@ t("Dried-up old boots.", "干瘪的老旧靴子。", "_t")
 t("Fine boots that increase your Physical Save by 10.", "可以提高你10点物理豁免的好靴。", "_t")
 t("Amulet of Mindpower (+3)", "精神强度之项链（+3）", "entity name")
 t("Glittering amulet.", "闪光的项链。", "_t")
-t("A beautiful amulet that increases your Mindpower by 3.", "可以提高你3点精神强度的项链。", "_t")
+t("A beautiful amulet that increases your Mindpower by 3.", "一条精美的项链，可以提高你3点精神强度。", "_t")
 t("Helmet of Accuracy (+6)", "命中之头盔（+6）", "entity name")
 t("Hard-looking helmet.", "坚硬的头盔。", "_t")
 t("A finely-wrought helmet that increases your Accuracy by 6.", "一只可以提高你6点命中的精工头盔。", "_t")
