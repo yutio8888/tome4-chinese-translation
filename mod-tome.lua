@@ -1171,7 +1171,7 @@ t("Sell %d %s for %0.2f gold%s?", "你要出售%d个%s，获得 %0.2f 金币%s�
 t("Sold: %s %s for %0.2f gold.", "已出售：%s %s 价格 %0.2f 金币。", "log")
 t("Buy for: %0.2f gold (You have %0.2f gold)", "购买价：%0.2f 金币 (你有 %0.2f 金币)", "tformat")
 t("Sell for: %0.2f gold (You have %0.2f gold)", "出售价：%0.2f 金币 (你有 %0.2f 金币)", "tformat")
-t("This entity can not access inventories.", "这个生物没有物品栏。", "logPlayer")
+t("This entity can not access inventories.", "该实体无法使用物品栏。", "logPlayer")
 t("You must be level %d to access this shop.", "你必须达到 %d级才能进入这个商店。", "logPlayer")
 
 ------------------------------------------------
@@ -2821,7 +2821,7 @@ t("Destroyed the spydric menace.", "清除蜘蛛威胁。", "_t")
 t("Clone War", "克隆战争", "achievement name")
 t("Destroyed your own Shade.", "击败你自己的影子。", "_t")
 t("Home sweet home", "家，甜蜜的家", "achievement name")
-t("Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.", "除去异形触手并控制伊克格，夏·图尔堡垒成为你的私有物。", "_t")
+t("Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.", "击败异形怪兽并夺取伊克格，将夏·图尔堡垒据为己用。", "_t")
 t("Squadmate", "一路有你", "achievement name")
 t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔甘从瑞库纳死里逃生。", "_t")
 t("Genocide", "兽人末日", "achievement name")
@@ -6199,7 +6199,7 @@ You were a precious ally and a friend. The world will remember your last act of 
 你是一位珍贵的盟友，也是一位朋友。我发誓，整个世界都会铭记你最后这次无私的牺牲。
 #LIGHT_GREEN#*说着，她猛然一剑刺穿你的身体，终结了维网的计划。*#WHITE#
 ]], "_t")
-t("sacrificing %s to stop the Way", "%s牺牲自己，阻止了维网。", "tformat")
+t("sacrificing %s to stop the Way", "牺牲%s以阻止维网", "tformat")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 #LIGHT_GREEN#*Their bodies vanish in a small cloud of mist, quickly fading away.*#WHITE#
 But the portal to the Void is already open. It must be closed before the Creator can come through or all will have been in vain!
@@ -6812,7 +6812,7 @@ t("impaled", "被刺穿要害", "_t")
 t("dissected", "被切开", "_t")
 t("disembowelled", "被开膛破肚", "_t")
 t("decapitated", "被斩首", "_t")
-t("stabbed", "被刺破喉咙", "_t")
+t("stabbed", "被刺杀", "_t")
 t("pierced", "被刺破心脏", "_t")
 t("torn limb from limb", "被五马分尸", "_t")
 t("crushed", "被碾碎", "_t")
@@ -12482,7 +12482,7 @@ t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，�
 t("Ring of the Dead", "亡者之戒", "entity name")
 t("dull black ring", "黯淡的黑色戒指", "_t")
 t("This ring is imbued with powers from beyond the grave. It is said that those who wear it may find a new path when all other roads turn dim.", "这枚戒指充溢着坟墓的气息。据说佩戴它的人会在走投无路时发现新的道路。", "_t")
-t("Will bring you back from death, but only once!", "能将你从死亡边缘拯救1次", "_t")
+t("Will bring you back from death, but only once!", "能将你从死亡中复活，但仅限一次！", "_t")
 t("Elemental Fury", "元素之怒", "entity name")
 t("multi-hued ring", "多彩戒指", "_t")
 t("This ring shines with many colors.", "这枚戒指闪耀着多种不同的色彩。", "_t")
@@ -12761,7 +12761,7 @@ t("Reduce damage from attackers more than 3 tiles away by 25%", "来自3格外�
 t("Sceptre of the Archlich", "死灵权杖", "entity name")
 t("bone carved sceptre", "白骨雕刻的权杖", "_t")
 t("This sceptre, carved of ancient, blackened bone, holds a single gem of deep obsidian. You feel a dark power from deep within, looking to get out.", "这根权杖上有古老焦黑的白骨雕刻，镶嵌着一颗黑曜石，你感受到里面有一股黑暗力量呼之欲出。", "_t")
-t("#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!", "#LIGHT_BLUE#在亡灵形态下你感受到了强大的力量流动！", "logPlayer")
+t("#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!", "#LIGHT_BLUE#你感到权杖的力量流过你的亡灵之躯！", "logPlayer")
 t("It desires to be surrounded by undeath.", "它渴望被亡灵围绕。", "_t")
 t("Oozing Heart", "史莱姆之心", "entity name")
 t("slimy mindstar", "粘糊糊的灵晶", "_t")
@@ -13152,7 +13152,8 @@ t("These gloves are coated with a thick, green liquid.", "这双手套被粘稠�
 t("Ring of the Archlich", "大巫妖之戒", "entity name")
 t("dusty, cracked ring", "布满尘土且有裂纹的戒指", "_t")
 t([[This ring is filled with an overwhelming, yet restrained, power. It lashes, grasps from its metal prison, searching for life to snuff out. You alone are unharmed.
-Perhaps it feels all the death you will bring to others in the near future.]], "这枚戒指充满了强大而克制的力量。它从自己的金属牢笼中挥舞、攫取，搜寻着可以扼杀的生命。唯独你安然无恙。也许它预感到了不久的将来你将给他人带去的所有死亡。", "_t")
+Perhaps it feels all the death you will bring to others in the near future.]], [[这枚戒指充满了强大而克制的力量。它从自己的金属牢笼中挥舞、攫取，搜寻着可以扼杀的生命。唯独你安然无恙。
+也许它预感到了不久的将来你将给他人带去的所有死亡。]], "_t")
 t("#DARK_GREY#Your ring releases a burst of necromantic energy!", "#DARK_GREY#你的戒指释放出一股死灵能量！", "logPlayer")
 t("#DARK_GREY#Your ring's power fades away.", "#DARK_GREY#你的戒指的力量消退了。", "logPlayer")
 t("Lightbringer's Wand", "光明使者之棒", "entity name")
@@ -13654,7 +13655,7 @@ t("Rotten and reeking. It still twitches occasionally.", "这块肉腐烂且散�
 t("Unfortunately for you, the chunks that regularly fall off ghouls won't do. I need one freshly carved off.", "告诉你一个不幸的消息，平时从食尸鬼身上掉下来的肉是不行的。我需要新鲜的，刚切下来的肉。", "_t")
 t("mummified bone", "木乃伊骨头", "entity name")
 t("Bits of dry flesh still cling to this ancient bone.", "在这个古代的骨头上仍残留着一点肉块。", "_t")
-t("That is, a bone from a corpse that's undergone mummification. Actually, any bit of the body would do, but the bones are the only parts you're certain to find when you kick a mummy apart. I recommend finding one that doesn't apply curses.", "那就是，经过木乃伊化的尸体身上的骨头。实际上，身体的任何部位都可以，只是从它们身上只能找到骨头了。我推荐你去找一根没有被诅咒的骨头。", "_t")
+t("That is, a bone from a corpse that's undergone mummification. Actually, any bit of the body would do, but the bones are the only parts you're certain to find when you kick a mummy apart. I recommend finding one that doesn't apply curses.", "那就是，经过木乃伊化的尸体身上的骨头。实际上，身体的任何部位都可以，只是踢散一具木乃伊后唯一保证能找到的就是骨头了。我推荐你找一具不会施加诅咒的木乃伊。", "_t")
 t("sandworm tooth", "沙虫之牙", "entity name")
 t("Tiny, dark grey, and wickedly sharp. It looks more like rock than bone.", "它小巧、暗灰且锋利得吓人。它看起来更像石头而不是骨头。", "_t")
 t("Yes, sandworms have teeth. They're just very small and well back from where you're ever likely to see them and live.", "是的，沙虫也有牙齿。它们只是很小，藏得很好，如果你把头伸进去找它你就没法活着回来了。", "_t")
@@ -14446,8 +14447,7 @@ t([[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#
 It knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add "being charred to a crisp" to my list of troubles today.
 I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...
 #{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of dragonsfire. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
-那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被烧成焦炭”这一项。
-
+那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出”被烧成焦炭”这一项。
 我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……
 #{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出龙火。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#]], "_t")
 t("Freezing Trap", "冰冻陷阱", "_t")
@@ -22988,10 +22988,10 @@ t("Flame of Urh'Rok", "乌鲁洛克之焰", "talent name")
 t([[Call upon the essence of the supreme demon overlord Urh'Rok to turn into a demon.
 		While in demon form, you gain %d%% fire resistance, %d%% darkness resistance, and your global speed is increased by %d%%.
 		The flames of the Fearscape will heal you while in demon form.
-		The resistances and heal will increase with your Spellpower.]], [[召唤伟大的恶魔领主乌鲁洛克的实体，转化为恶魔。
+		The resistances and heal will increase with your Spellpower.]], [[召唤至高恶魔领主乌鲁洛克的本质之力，转化为恶魔。
 		当你处于恶魔形态时，你增加 %d%% 火焰抗性，%d%% 暗影抗性并且全局速度提升 %d%%。
 		当你处于恶魔形态时，恶魔空间的火焰会治疗你。
-		抵抗和治疗量受法术强度加成。]], "tformat")
+		抗性和治疗量受法术强度加成。]], "tformat")
 t("Fearscape", "恶魔空间", "talent name")
 t("This spell cannot be used from within the Fearscape.", "该技能不能在恶魔空间使用。", "logPlayer")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
@@ -25591,7 +25591,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		引爆产生的负面效果不会影响到你或你的召唤兽。
 		效果受精神强度加成，其中一些可以暴击。]], "tformat")
 t("Resilience", "体质强化", "talent name")
-t("Increases all your summons' max life by %0.1f%% and extends your summons' maximum lifetime by %d turns.", "提升你所有召唤物的生命值 %0.1f%%，并延长所有召唤物的存活时间 %d 回合。", "tformat")
+t("Increases all your summons' max life by %0.1f%% and extends your summons' maximum lifetime by %d turns.", "提升你所有召唤物的最大生命值 %0.1f%%，并延长所有召唤物的存活时间 %d 回合。", "tformat")
 t("Phase Summon", "次元召唤", "talent name")
 t("Switches places with one of your summons. This disorients your foes, granting both you and your summon 50%% evasion for %d turns.", "与一只召唤兽调换位置。这会干扰你的敌人，使你和该召唤兽获得 50%% 躲闪状态，持续 %d 回合。", "tformat")
 
@@ -25883,7 +25883,7 @@ t([[Bites the target for %d%% weapon damage, potentially causing it to bleed for
 		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
 		如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。
 		狂热状态会增加全局速度 %d%% , 物理暴击率 %d%% , 同时降至 -%d%% 生命时才会死去。]], "tformat")
-t("Abyssal Shroud", "堕入深渊", "talent name")
+t("Abyssal Shroud", "深渊裹幕", "talent name")
 t("Creates a shroud of darkness over a radius 3 area that lasts %d turns.  The shroud causes %0.2f darkness damage each turn, reduces light radius by %d, and darkness resistance by %d%% of those within.", "在半径 3 格区域制造一片持续 %d 回合的暗影帷幕。帷幕每回合造成 %0.2f 点暗影伤害，使区域内生物的光照半径降低 %d、暗影抗性降低 %d%%。", "tformat")
 t("Echoes From The Void", "虚空回响", "talent name")
 t("@Source@ shows @Target@ the madness of the void.", "@Source@向 @Target@ 展示了虚空的疯狂。", "_t")
@@ -28650,7 +28650,7 @@ t([[Imbues your shields with arcane power, dealing %0.2f arcane damage with each
 		当你不完全格挡时，也可以进行反击。格挡技能的冷却时间降低 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Eldritch Fury", "奥术连击", "talent name")
-t("You cannot use Eldricth Fury without a shield!", "必须装备一面盾牌！", "logPlayer")
+t("You cannot use Eldricth Fury without a shield!", "没有盾牌无法使用奥术连击！", "logPlayer")
 t("%s resists the dazing blows!", "%s抵抗了眩晕打击！", "logSeen")
 t([[Channel eldritch forces into a ferocious melee attack, hitting the target three times with your shields doing %d%% Nature damage.
 		If any of the attacks hit, the target will be dazed for %d turns and your Block cooldown is reset.
@@ -31060,8 +31060,8 @@ t("%s resists the headblow!", "%s抵抗了铁头功！", "logSeen")
 t([[You smack your forehead against your enemy's head (or whatever sensitive part you can find), causing %0.1f Physical damage.
 		If the attack hits, the target is confused (%d%% effect) for %d turns.
 		Damage done increases with the quality of your headgear, your Strength, and your physical damage bonuses.
-		Confusion power increases with your Dexterity, and chance increases with Accuracy.]], [[你用前额猛击敌人头部（或者任意你能找到的有效位置），造成 %0.1f 物理伤害。如果
-		此次攻击命中，则目标会混乱(%d%% 强度) %d 回合。
+		Confusion power increases with your Dexterity, and chance increases with Accuracy.]], [[你用前额猛击敌人头部（或者任意你能找到的有效位置），造成 %0.1f 物理伤害。
+		如果此次攻击命中，则目标会混乱(%d%% 强度) %d 回合。
 		伤害受头盔品质、力量和物理伤害加成。
 		混乱强度受敏捷加成，几率受命中加成。]], "tformat")
 t("Riot-born", "暴乱之子", "talent name")
@@ -35283,7 +35283,7 @@ t("Death Rush", "死亡加速", "_t")
 t("Movement speed increased by %d%%.", "移动速度增加 %d%%。", "tformat")
 t("#Target# is invogorated by death!", "#Target# 被死亡加速！", "_t")
 t("#Target# is less fast.", "#Target# 不再被加速。", "_t")
-t("Abyssal Shroud", "堕入深渊", "_t")
+t("Abyssal Shroud", "深渊裹幕", "_t")
 t("The target's lite radius has been reduced by %d, and its darkness resistance by %d%%.", "目标光照范围减少 %d，暗影抗性下降 %d%%。", "tformat")
 t("#Target# feels closer to the abyss!", "#Target#堕入了深渊！", "_t")
 t("+Abyssal Shroud", "+堕入深渊", "_t")
@@ -37895,7 +37895,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("skeletal rat", "骷髅鼠", "entity name")
 t("undead", "亡灵", "entity type")
-t("The diminutive skeleton of a giant rat, charged with evil energies. Nobody understands the usefulness of undead rodents until several of them come after you.", "一只被邪恶能量支配的巨大老鼠骨骼。在它们追赶你之前，没人知道亡灵啮齿动物的可怕。", "_t")
+t("The diminutive skeleton of a giant rat, charged with evil energies. Nobody understands the usefulness of undead rodents until several of them come after you.", "一副充盈着邪恶能量的小小巨鼠骨架。没人理解亡灵啮齿动物有什么用——直到好几只朝你追过来。", "_t")
 t("homeless fighter", "无家可归的斗士", "entity name")
 t("Will fight for a meal.", "为一餐温饱而战。", "_t")
 t("golden crystal", "金色水晶体", "entity name")
@@ -38346,7 +38346,7 @@ t("A terrifying vampiric figure of power, with flowing robes and an intense aura
 t("and raised as his tortured undead thrall", "并作为他的不死仆从永受折磨", "_t")
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
-t("Pale Drake", "亡灵德瑞克", "entity name")
+t("Pale Drake", "苍白德瑞克", "entity name")
 t("A malevolent skeleton archmage that has taken control of the Dreadfell since the Master's demise.", "一位邪恶的骷髅法师，自从领主大人死后，他便继承了恐惧王座。", "_t")
 t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
@@ -39078,9 +39078,9 @@ Adding to your unease is a rising feeling of dread, overwhelming fear in fact. A
 
 You hear the sound of a woman sobbing, and every now and then it turns into a fit of pained moans and screams. They echo round the dark chamber and through the darkest parts of your mind, reminding you of every black deed and vile sin you have ever committed. Guilt, horror and terror flood through your thoughts, each competing for stronger control of your psyche. Your only clear thought is of escape, by whatever means you can find.]], [[当你蹑手蹑脚地走下楼梯时，一块巨大的石板在你身后滑入原位，堵住了所有退路。空气凝滞而闷热，在这狭小的空间里，你感觉自己仿佛被活埋进了棺材。
 
-更令你不安的是不断攀升的恐惧感，事实上是压倒性的恐惧。前方是一排门厅，每扇门后你都能感觉到巨大的恶意和不洁的恐怖。走廊尽头，一扇巨大的黑色门下透出微弱的灯光，你隐约感到其他门都臣服于这扇门——顺从、恭顺，静静等待……
+更令你不安的是不断攀升的恐惧感，事实上是压倒性的恐惧。前方是一条布满门扉的长廊，每扇门后你都能感觉到巨大的恶意和不洁的恐怖。走廊尽头，一扇巨大的黑色门下透出微弱的灯光，你隐约感到其他门都臣服于这扇门——顺从、恭顺，静静等待……
 
-你听到一个女人的哭泣，时不时还夹杂着一声痛苦的哀嚎和尖叫。声音在密室里回荡并且通过黑暗传入了你的大脑，提醒你所犯的每一项罪过。内疚、恐怖和害怕如潮水般袭来，它们每个都紧紧抓住了你的灵魂。你唯一的想法便是逃离此地，不择一切手段。]], "_t")
+你听到一个女人的哭泣，时不时还夹杂着一声痛苦的哀嚎和尖叫。声音在阴暗的密室中回荡，穿透你内心最黑暗的角落，提醒你曾犯下的每一桩恶行与卑劣的罪孽。内疚、恐怖和害怕如潮水般涌入你的思绪，彼此争夺着对你心智更强的控制。你唯一清晰的念头便是逃离此地，不择一切手段。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/mark-spellblaze/grids.lua"
@@ -39979,7 +39979,7 @@ section "mod-tome/data/zones/stellar-system-shandral/grids.lua"
 t("Shandral (Sun)", "珊德拉（恒星）", "entity name")
 t("The sun of the Shandral star system.", "珊德拉星系的恒星。", "_t")
 t("Eyal (Planet)", "埃亚尔（星球）", "entity name")
-t("One of the main planets of the Shandral system.", "珊德拉星系的众多星球之一。", "_t")
+t("One of the main planets of the Shandral system.", "珊德拉星系的主要行星之一。", "_t")
 t("Summertide (Moon of Eyal)", "夏殇（埃亚尔的卫星）", "entity name")
 t("One of the moons of Eyal.", "埃亚尔的一个卫星。", "_t")
 t("Wintertide (Moon of Eyal)", "霜华（埃亚尔的卫星）", "entity name")
@@ -40106,9 +40106,9 @@ t("Legacy of the Naloren", "纳鲁精灵的遗产", "entity name")
 t("ornate orichalcum trident", "华丽的奥利哈刚三叉戟", "_t")
 t([[This incredibly beautiful -- and powerful -- trident is made of the rare metal orichalcum. An amazing pearl is seated in head of the trident, as it spreads into three razor sharp prongs.
 It is imbued with the greatest strengths of all of the most powerful Naga warriors.
-Slasul gave it to you as a sign of his faith in you. It is a sign of hope for all of the Naloren race, that one outside of their tribe could be so trusted.]], [[这柄拥有着强大力量的三叉戟通体由奥利哈刚金属打造而成。一颗闪亮的珍珠镶嵌在其顶端，向前延伸而出的，是三道锋利的三叉戟刃。
-它被灌输了娜迦即纳鲁精灵一族最强大战士的力量。
-现在，萨拉苏尔将它赐予你，作为他对你的信任。同时，它也寄托了纳鲁一族的希望，只有你能受到他们如此的信任。]], "_t")
+Slasul gave it to you as a sign of his faith in you. It is a sign of hope for all of the Naloren race, that one outside of their tribe could be so trusted.]], [[这柄美得令人难以置信——且威力强大——的三叉戟由稀有的奥利哈刚金属打造而成。一颗璀璨的珍珠镶嵌在叉头处，向前分出三道锋利的尖刺。
+它被灌注了所有最强大的娜迦战士的至高力量。
+萨拉苏尔将它赐予你，作为他对你信任的象征。它也是纳鲁一族全体的希望——一个部落之外的人竟能获得如此信任。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/temple-of-creation/zone.lua"
@@ -43125,7 +43125,7 @@ t("Alchemists can transmute gems to create fiery explosions, and are known to tr
 t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了巨型傀儡阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
-t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的出现在最初的岁月里给所有种族带来了非常的劫难。", "init.lua load_tips")
+t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
 t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。但永恒精灵们都否认这个传说的真实性。", "init.lua load_tips")
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，击溃了兽人军团，自此开启了卓越纪元。", "init.lua load_tips")
 t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。那些高傲法师们铸成的大错令人们永生难忘。", "init.lua load_tips")
