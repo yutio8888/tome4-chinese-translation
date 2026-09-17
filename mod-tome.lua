@@ -3022,7 +3022,7 @@ t("Hated, harrowed, hunted, hidden... Our ways are forbidden, but our cause is j
 t("An Archmage devotes his whole life to the study of magic above anything else.", "对一个元素法师来说魔法超越一切，他们倾尽一生学习魔法。", "_t")
 t("Most Archmagi lack basic skills that others take for granted (like general fighting sense), but they make up for it by their raw magical power.", "元素法师缺乏最基本的物理格斗技能，他们用魔法取而代之。", "_t")
 t("Archmagi start with knowledge of many schools of magic. However, they usually refuse to have anything to do with Necromancy.", "元素法师学习各种学科的魔法知识。然而，他们通常拒绝任何死灵法术。", "_t")
-t("Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.", "元素法师在一个名叫安格利文的秘密小镇接受训练，并拥有一个直接传送到那里的独特技能。", "_t")
+t("Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.", "大多数元素法师在一个名叫安格利文的秘密小镇接受训练，并拥有一个直接传送到那里的独特技能。", "_t")
 t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +5 魔法，+3 意志，+1 灵巧", "_t")
@@ -6803,7 +6803,7 @@ t("cosmetic", "外观", "damage type")
 t("cosmeticed", "外观", "_t")
 t("physical", "物理", "damage type")
 t("battered", "被猛击", "_t")
-t("bludgeoned", "受到内伤", "_t")
+t("bludgeoned", "受到钝击", "_t")
 t("sliced", "被切开", "_t")
 t("maimed", "被致残", "_t")
 t("raked", "被抓伤", "_t")
@@ -8252,7 +8252,7 @@ t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("worm that walks", "蠕虫合体", "entity name")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
-Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的斧子。每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
+Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的斧子。\n每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
 t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来！", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
@@ -8450,7 +8450,7 @@ t("wretchling", "小劣魔", "entity name")
 t("Acid oozes all over this small demon's skin.  Beware, they tend to hunt in packs.", "酸液从这只小恶魔的身体上渗出。当心，它们喜欢群体行动。", "_t")
 t("onilug", "欧尼路格", "entity name")
 t([[A gaunt vaguely humanoid shape featuring unadorned grey leathery skin. Its arms and legs seem somehow too long and it stands tall, projecting an ominous shadow even in darkness.
-Its glowing red eyes shine with both cruelty and a deep frightening intellect.]], [[一个憔悴而模糊不清的人形生物，全身是未经修饰的灰色皮肤。不知为何，它的胳膊和腿很长。当它耸立在那里的时候，即使在黑暗中也会投下不祥的阴影。
+Its glowing red eyes shine with both cruelty and a deep frightening intellect.]], [[一个憔悴、隐约近似人类的身影，全身是未经修饰的灰色皮革质地的皮肤。它的胳膊和腿不知为何过于修长。当它耸立在那里的时候，即使在黑暗中也会投下不祥的阴影。
 它发光的红色眼睛闪烁着，目光里蕴含着既残酷又深邃可怕的智慧。]], "_t")
 t("quasit", "夸塞魔", "entity name")
 t("A small, heavily armoured demon, rushing toward you.", "一只装备了重甲的小恶魔，它向你发起冲锋。", "_t")
@@ -8699,7 +8699,7 @@ section "mod-tome/data/general/npcs/shade.lua"
 
 t("undead", "亡灵", "entity type")
 t("shade", "暗影", "entity subtype")
-t("Through some terrible process that remains mysterious, this creature's shadow has been torn from its body and given unlife.", "通过某种神秘的可怕手段，这只生物的影子被剥离出来并被赋予了生命。", "_t")
+t("Through some terrible process that remains mysterious, this creature's shadow has been torn from its body and given unlife.", "通过某种神秘的可怕手段，这只生物的影子被从身体上剥离出来，并被赋予了亡灵般的存在。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/shertul.lua"
@@ -8725,7 +8725,7 @@ t("skeleton", "骷髅", "entity subtype")
 t("degenerated skeleton warrior", "退化骷髅战士", "entity name")
 t("A haphazard collection of crumbling bones, with jerky movements that remind you of a child playing with a marionette.  It only has one arm, but that's all it needs to hold a sword.", "这具仿佛是死灵法师随意收集而成的，摇摇欲坠的骨骸，生涩地从你的眼前走过，仿佛孩童手中玩弄的木偶。虽然它只有一条手臂，不过反正这对于拿一把剑也够了，对吧。", "_t")
 t("degenerated skeleton archer", "退化骷髅弓箭手", "entity name")
-t("A frail skeleton; just about the only bones that aren't cracked are its arms.  It's missing a hand, but a notch has been carved into its wrist to let it pull back a bowstring regardless.", "这具破烂不堪的骨架只有一根骨头是好的：它手持长弓的手臂。尽管它缺少了一只手，不过残缺的骨骼上雕刻的凹槽刚好可以卡住弓弦拉弓上箭。", "_t")
+t("A frail skeleton; just about the only bones that aren't cracked are its arms.  It's missing a hand, but a notch has been carved into its wrist to let it pull back a bowstring regardless.", "一具脆弱的骨架；几乎只有双臂的骨头没有开裂。它缺少了一只手，不过手腕上刻了一道凹槽，刚好可以卡住弓弦拉弓上箭。", "_t")
 t("skeleton mage", "骷髅法师", "entity name")
 t("Given its condition, you're less inclined to think this skeleton knows proper spells, rather than simply disgorging its magical energy as it breaks down.  This doesn't make it much less dangerous to be around, mind you.", "看着它残破的样子，你与其相信这只骷髅会释放魔法，不如相信是在它身躯逐渐破碎的同时将奥术能量胡乱喷射出来。不过，这一点也没有降低它的危险性，小心。", "_t")
 t("skeleton warrior", "骷髅战士", "entity name")
@@ -10638,7 +10638,7 @@ t("reinforced ", "强化的", "entity name")
 t("reinforced", "强化", "entity keyword")
 t(" of resilience", "恢复之", "entity name")
 t("resilience", "恢复", "entity keyword")
-t("living ", "生存的", "entity name")
+t("living ", "活性的", "entity name")
 t("living", "生命", "entity keyword")
 t("scouring ", "洗练的", "entity name")
 t("scouring", "洗练", "entity keyword")
@@ -12644,7 +12644,7 @@ t("Oddly it never produces a hat.", "奇怪的是，它从不变出帽子。", "
 t("Un'fezan's Cap", "Un'fezan之帽", "entity name")
 t("red stylish hat", "时尚的红色毡帽", "_t")
 t([[This fez once belonged to a traveler; it always seems to be found lying around in odd locations.
-#{italic}#Fezzes are cool.#{normal}#]], "这顶菲斯帽曾属于一位旅行家；它似乎总是出现在各种古怪的地方。#{italic}#菲斯帽很酷。#{normal}#", "_t")
+#{italic}#Fezzes are cool.#{normal}#]], "这顶菲斯帽曾属于一位旅行家；它似乎总是出现在各种古怪的地方。\n#{italic}#菲斯帽很酷。#{normal}#", "_t")
 t("Needs something equally stylish and cool to go with it.", "需要一件同样时尚而炫酷的装备来搭配。", "_t")
 t("#STEEL_BLUE#A time vortex briefly appears in front of you.", "#STEEL_BLUE#一个时间漩涡在你面前出现。", "logPlayer")
 t("Crude Iron Battle Axe of Kroll", "克罗尔的生铁战斧", "entity name")
@@ -17588,7 +17588,7 @@ The same force that destroyed the Nalorën would save them. Through the Sher'Tul
 那毁灭纳鲁的力量，同样可以拯救他们。通过夏·图尔魔法，纳鲁们可以在水里自由的呼吸。他们的身体变的适合水下行动，他们的腿变成了细长的像蛇一样的尾巴。你可以想象，这种非自然的变化会带来多少恐惧。不管怎样，纳鲁们看到了未来的希望——他们沉没的大陆再次成为了他们的家园。家园将会重建，文明将会传承，历史将会延续。纳鲁一族已经随着大陆沉没在历史中，他们将建立新的自由国度——“娜迦”。]], "_t")
 t("personal note (Slasul)", "萨拉苏尔的个人笔记", "_t")
 t([[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.
-]], "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然怎么会创造出娜迦这样的种族？不管怎样，当造物主神庙之门为我打开，我们可以变的更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。", "_t")
+]], "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然怎么会创造出娜迦这样的种族？不管怎样，当造物主神庙之门为我打开，我们可以变的更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n", "_t")
 t("adventures", "冒险家", "newLore category")
 t("letter to Rolf (1)", "写给罗尔夫的信 (1)", "_t")
 t([[Dear Rolf,
@@ -18031,7 +18031,7 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 
 他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
 
-在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们有冒险经费的支持，同时在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。从个人来讲，一些成年矮人则认为这是一种“市场调查策略”。]], "_t")
+在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于人种的调查——第四章——永恒精灵", "_t")
 t([[Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole "Elore", which means "siblings", yet the interactions between these brothers and sisters are oft strained.
 
@@ -20564,7 +20564,7 @@ t([[You must find a way to Maj'Eyal through the tunnel to the north of the islan
 ------------------------------------------------
 section "mod-tome/data/quests/ring-of-blood.lua"
 
-t("Till the Blood Runs Clear", "鲜血之环", "_t")
+t("Till the Blood Runs Clear", "直到鲜血流清", "_t")
 t("You have found a slavers' compound and entered it.", "你发现了一处奴隶贩子的营地，并走了进去。", "_t")
 t("You decided to join the slavers and take part in their game. You won the ring of blood!", "你决定加入奴隶贩子，参与他们的游戏。你赢得了鲜血之环！", "_t")
 t("You decided you cannot let slavers continue their dirty work and destroyed them!", "你认定不能任由奴隶贩子继续干这种肮脏勾当，于是消灭了他们！", "_t")
@@ -26518,8 +26518,7 @@ t([[Encase your body in a sheath of thought-quick forces, allowing you to contro
 t("Shattering Charge", "毁灭冲锋", "talent name")
 t("You can't move there.", "你不能移动至那里。", "logSeen")
 t([[You expend massive amounts of energy to launch yourself across %d squares at incredible speed. All enemies in your path will be knocked flying and dealt between %d and %d Physical damage.
-		At talent level 5, you can batter through solid walls.]], [[冲锋 %d 码。
-		路径上的敌人会被击退并受到 %d 至 %d 点物理伤害。
+		At talent level 5, you can batter through solid walls.]], [[消耗大量能量，以惊人的速度冲锋 %d 格。路径上的所有敌人会被击飞并受到 %d 至 %d 点物理伤害。
 		技能等级 5 时你能冲过墙壁。]], "tformat")
 t("Telekinetic Throw", "动能投掷", "talent name")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
@@ -27107,7 +27106,7 @@ t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t([[Focus kinetic energy and strike an enemy for %d%% weapon damage as physical.
 		They will be pinned to the ground for %d turns by the force of this attack.
 		Any frozen creature hit by this attack will take an extra %0.2f physical damage.
-		The extra damage will scale with your Mindpower.]], [[聚焦动能打击敌人造成 %d%% 武器伤害
+		The extra damage will scale with your Mindpower.]], [[聚焦动能打击敌人，造成 %d%% 武器物理伤害。
 		敌人将被这次攻击的力量定身 %d 回合。
 		任何处于冻结状态的目标受到额外 %0.2f 物理伤害。
 		额外伤害受精神强度加成。]], "tformat")
@@ -27361,8 +27360,9 @@ t([[You move through the dream world, reappearing at a nearby location.
 t("Dream Prison", "梦境牢笼", "talent name")
 t([[Imprisons all sleeping targets within range in their dream state, effectively extending sleeping effects for as long as Dream Prison is maintainted.
 		This powerful effect constantly drains %0.2f%% of your maximum Psi (excluding this talent) per turn, and is considered a psionic channel; as such it will break if you move.
-		(Note that sleeping effects that happen each turn, such as Nightmare's damage and Sleep's contagion, will cease to function for the duration of the effect.)]], [[将范围内所有睡眠状态的目标囚禁在梦境牢笼里，有效地延长他们的睡眠效果，这个强大的技能每回合会持续消耗 %0.2f%% 最大灵能值（本技能除外），并且运用了灵能通道，所以当你移动时会中断此技能。
-		注意：每回合可产生的睡眠附加状态，如梦魇的伤害和入梦的传染效果，将在此效果持续过程中失效。]], "tformat")
+		(Note that sleeping effects that happen each turn, such as Nightmare's damage and Sleep's contagion, will cease to function for the duration of the effect.)]], [[将范围内所有睡眠状态的目标囚禁在梦境牢笼里，在梦境牢笼维持期间有效地延长他们的睡眠效果。
+		这个强大的技能每回合会持续消耗 %0.2f%% 最大灵能值（本技能除外），并且运用了灵能通道，所以当你移动时会中断此技能。
+		（注意：每回合可产生的睡眠附加状态，如梦魇的伤害和入梦的传染效果，将在此效果持续过程中失效。）]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/feedback.lua"
@@ -27607,7 +27607,7 @@ t("Telekinetic Grasp", "念力之握", "talent name")
 t("Telekinetically grasp which item?", "念力之握抓握哪把武器？", "_t")
 t("%s telekinetically seizes: %s.", "%s用念力装备了%s。", "logSeen")
 t([[Telekinetically grasp a weapon or gem using mentally-directed forces, holding it aloft and bringing it to bear with the power of your mind alone.
-		Note: The normal restrictions on worn equipment do not apply to this item.]], [[使用你的精神力量，用念动力举起一件武器或宝石悬浮在空中，使它能够承受你的精神力量。
+		Note: The normal restrictions on worn equipment do not apply to this item.]], [[用精神引导的念动力抓握一件武器或宝石，将其举起悬浮在空中，仅凭意念之力操控使用。
 		请注意：通常装备物品的一些限制不适用于这样装备的物品。]], "tformat")
 t("Beyond the Flesh", "超越肉体", "talent name")
 t("#Source#'s mindstar telekinetically grabs #target#!", "#Source#的灵晶念力抓取了#target#！", "logCombat")
@@ -30761,8 +30761,8 @@ t([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spe
 		此外，射向你的抛射物飞行速度下降 %d%%，你的抛射物不再击中你自己。]], "tformat")
 t("Intuitive Shots", "直觉射击", "talent name")
 t([[Activating this talent enhances your reflexes to incredible levels.  Each time you are attacked in melee, you have a %d%% chance to fire off a defensive shot off in time to intercept the attack, evading it and dealing %d%% archery damage.
-		This cannot damage the same target more than once per turn.]], [[激活这个技能将你的反应提升到令人难以置信的水平。每当你被近身攻击，你有 %d%% 几率射出一箭拦截攻击，躲闪攻击并造成 %d%% 伤害。
-		该技能每回合对同一目标触发最多一次。]], "tformat")
+		This cannot damage the same target more than once per turn.]], [[激活这个技能将你的反应提升到令人难以置信的水平。每当你被近身攻击，你有 %d%% 几率射出一箭拦截攻击，躲闪攻击并造成 %d%% 弓箭伤害。
+		每回合对同一目标最多造成一次伤害。]], "tformat")
 t("Sentinel", "哨兵", "talent name")
 t("%s's %s is disrupted by the shot!", "%s的%s被射击干扰了！", "logSeen")
 t([[You take close notice of the target for the next 5 turns. If they attempt to use a non-instant talent you react with incredible speed, firing a shot dealing 25%% damage that causes the talent to fail and go on cooldown.
@@ -34269,8 +34269,7 @@ It slowly replenishes over time.
 在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。
 这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。
 死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。这个时代是他们荣耀的时代。
-那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误
-解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
+那些所谓的”高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
 
 你已经学会了死灵法术的基础，并且杀死了一个死灵法师，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#死灵法师#WHITE#。
 
@@ -37602,7 +37601,7 @@ t("-Deadly Poison", "-致命毒素", "_t")
 t("physical", "物理", "effect subtype")
 t("Razorwire", "刀片切割", "_t")
 t("The target's equipment has been shredded by razorwire, reducing its accuracy by %d, armour by %d, and defense by %d.", "目标的装备被刀片切割，命中减少 %d，护甲减少 %d，闪避减少 %d。", "tformat")
-t("#Target# is entangled in razorwire!", "#Target#被刀片切割！", "_t")
+t("#Target# is entangled in razorwire!", "#Target#被刀片刺网缠住！", "_t")
 t("#Target# has shook off the razorwire.", "#Target#脱离了刀片。", "_t")
 t("Dirty Fighting", "卑劣攻击", "_t")
 t("The target is reeling in pain. Stun, pin, blindness, and confusion immunity are halved and physical save is reduced by %d.", "目标在痛苦中挣扎，震慑、定身、目盲、混乱免疫减半，物理豁免减少 %d。", "tformat")
@@ -38685,7 +38684,7 @@ t("The Way sent you?", "是维网带你来的吗？", "_t")
 t("You.. saved me?", "你…救了我？", "_t")
 t("Yeek Wayist", "夺心魔维网信徒", "entity name")
 t("yeek", "夺心魔", "entity subtype")
-t("This creature is about as tall as a halfling. It is covered in white silky fur and has a disproportionate head. The weirdest thing about it though, its weapon simply floats in front of it.", "这只生物像半身人一样高。他浑身被有白色的毛发并有一颗不相称的大头。最不可思议的是，他的武器就那样悬浮在他面前。", "_t")
+t("This creature is about as tall as a halfling. It is covered in white silky fur and has a disproportionate head. The weirdest thing about it though, its weapon simply floats in front of it.", "这只生物像半身人一样高。它浑身覆盖着白色的丝滑毛发，长着一颗不相称的大头。最不可思议的是，它的武器就那样悬浮在它面前。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/halfling-ruins/objects.lua"
@@ -41168,7 +41167,7 @@ t("Ziguranth main training ground", "伊格兰斯的主要训练基地", "_t")
 t("Zigur", "伊格", "_t")
 t("Somehow as magic user you feel this place is not safe for you.", "不知为何，作为一个魔法使用者，你觉得这个地方对你来说很危险。", "_t")
 t("Iron Council (Town)", "钢铁议会（城镇）", "entity name")
-t("Heart of the dwarven Empire", "矮人王国的心脏", "_t")
+t("Heart of the dwarven Empire", "矮人帝国的心脏", "_t")
 t("A gate into the Maze", "进入迷宫的门", "entity name")
 t("Passageway into the Trollmire", "通往巨魔沼泽的路", "entity name")
 t("A path into the Old Forest", "通往远古森林的路", "entity name")
@@ -43298,13 +43297,13 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，之后他们会对外界积极开放，我甚至很荣幸的得到了去他们的首都——钢铁王座游玩的资格，并有幸与他们的主要领导人对话。
 
- 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，对他胡子的贬低就是最大的侮辱，并且对于他们来说，撕扯他们的胡子也是最痛苦的刑罚。
+ 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
- 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，每一只协会都有公正委员会来控制。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
+ 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，各行业公会在统治委员会中拥有平等的代表权。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
  他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
 
- 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们有冒险经费的支持，同时在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。因为这是他们作为“世界之锤”的荣耀。从个人来讲，一些成年矮人则认为这是一种“市场调查策略”。]], "_t")
+ 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
 
  Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
