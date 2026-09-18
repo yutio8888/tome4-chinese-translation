@@ -1631,7 +1631,7 @@ Represents the raw materials for creating undead minions.
 It increases each time you or your minions kill something that is inside the aura radius.
 ]], [[#GOLD#死灵光环#LAST#
 代表召唤死灵生物的原材料。
-光环内的死灵随从每次杀死生物时会增加灵魂值。
+每当你或你的随从杀死光环范围内的生物时，光环会增强。
 ]], "_t")
 t([[#GOLD#Fortress Energy#LAST#
 The energy of the Sher'Tul Fortress. It is replenished by transmogrifying items and used to power all the Fortress systems.
@@ -2087,7 +2087,7 @@ Important: Affinity healing happens after damage has been taken, it can not prev
 t([[#GOLD#Status resistance#LAST#
 Most bad status effects can be avoided by having an appropriate immunity, represented by a percent chance to completely avoid the effect in question.  This chance is applied in addition to any saving throws or other checks that may apply.
 ]], [[#GOLD#状态免疫#LAST#
-大部分状态效果可以被特定的免疫来抵消，以百分比表示你完全免疫该效果的几率。这一几率会与任何适用的豁免或其他判定叠加计算。
+大部分负面状态效果可以被特定的免疫来抵消，以百分比表示你完全免疫该效果的几率。这一几率会与任何适用的豁免或其他判定叠加计算。
 ]], "_t")
 t([[#GOLD#Effect resistance chance#LAST#
 This represents your chance to completely resist this specific effect.
@@ -9031,7 +9031,7 @@ section "mod-tome/data/general/npcs/yaech.lua"
 t("humanoid", "人形生物", "entity type")
 t("yaech", "夺魂魔", "entity subtype")
 t("yaech diver", "夺魂魔潜水者", "entity name")
-t("Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.", "夺魂魔是夺心魔的一支亚种。他们拥有同样的灵能，但夺魂魔拒绝加入维网。", "_t")
+t("Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.", "夺魂魔是夺心魔的一支水栖亚种。他们拥有同样的灵能，但夺魂魔拒绝加入维网。", "_t")
 t("yaech hunter", "夺魂魔猎手", "entity name")
 t("yaech mindslayer", "夺魂魔心灵杀手", "entity name")
 t("yaech psion", "夺魂魔灵能力者", "entity name")
@@ -9354,7 +9354,7 @@ It has been kept somewhat intact with layers of salt and clay, but in spite of t
 它的外面有一层盐和粘土，被很好的保护着，尽管如此，大自然还是剥夺了它的活力，它已经成为了一块死肉。有人说，半身人的脚可以带来好运，但是现在唯一可确认的是——它臭死了。]], "_t")
 t([[Detects traps.
 Removes (25%% chance) up to three stuns, pins, or dazes each turn%s]], [[侦查陷阱。
-25%%几率解除至多3个震慑、定身或眩晕效果。%s]], "tformat")
+每回合有 25%%几率解除至多3个震慑、定身或眩晕效果。%s]], "tformat")
 t(" (cooling down: %d turns)", " (冷却时间：%d 回合)", "tformat")
 t("#CRIMSON#%s twitches, alerting %s that a hidden trap is nearby.", "#CRIMSON#%s扭动着，警告%s旁边有隐藏的陷阱。", "logSeen")
 t("%s shrugs off some effects!", "%s摆脱了某些负面效果！", "logSeen")
@@ -12845,7 +12845,7 @@ t("#CRIMSON#The tentacles release your arm, sated.", "#CRIMSON#触手餍足地�
 t("#CRIMSON#As you tear the tentacles from your arm, horrible images enter your mind!", "#CRIMSON#当你将触手从手臂上扯下，可怕的景象进入了你的大脑！", "logPlayer")
 t("#CRIMSON#As you wield the sword, the tentacles on its hilt wrap around your arm. You feel the sword's will invading your mind!", "#CRIMSON#当你持有这把剑时，触手开始在你手臂环绕。你感觉这把剑的意志侵入了你的大脑！", "logPlayer")
 t("Morrigor", "摄魂剑·莫瑞格", "entity name")
-t("jagged, segmented, sword", "锯齿状的剑", "_t")
+t("jagged, segmented, sword", "锯齿分节的剑", "_t")
 t("This heavy, ridged blade emanates magical power, yet as you grasp the handle an icy chill runs its course through your spine. You feel the disembodied presence of all those slain by it. In unison, they demand company.", "这把沉重的，有着锯齿状刀刃的长剑正在向外散发强大的魔法波动，当你握住剑时，一阵寒意从剑柄传来，直刺灵魂。你仿佛感觉到了葬身剑下的亡灵，他们渴望着更多同伴的到来。", "_t")
 t("deal %0.2f arcane and %0.2f darkness damage (based on Magic) in a radius 1 around the target", "在目标周围1码范围内，造成%0.2f奥术和%0.2f暗影伤害（基于魔法）", "tformat")
 t("swallows the victim's soul, gaining a new power", "吞噬目标的灵魂，获得新的能力。", "_t")
@@ -14783,7 +14783,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “这是我的战斗服”，我戴上头盔，披上斗篷。
 
-“唔，看起来简直就像一只炼金傀儡，”她小声咕哝着，“快来吧，我有点无聊了。”紧接着，她轻巧地越过窗台，优雅地随风而去，在夜空中划出一道弧线。
+“唔，看起来简直就像一只傀儡，”她小声咕哝着，”快来吧，我有点无聊了。”紧接着，她轻巧地越过窗台，优雅地随风而去，在夜空中划出一道弧线。
 
 随后我从剑架上取下我的双手巨剑。乍一眼看上去，这似乎只是一把普通的剑刃，唯一的装饰是剑柄上一颗硕大的月亮石。这把剑由矮人于多年之前所铸，其貌不扬却强韧无比。之后，他们的虚荣和浮华替代了匠人的坚毅，让装备成为了用于炫耀的道具而不是用于战斗的兵器。这把剑的剑锋可以轻易穿透钢铁和骨头，且永不卷刃。它的名字叫做斩月剑，尽管现在已经随着岁月的流逝而不知所踪。我凌空挥动爱剑，随即跃出窗外，在身下唤出气流软垫，迅速追随莱娜尼尔而去。
 
@@ -14797,7 +14797,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 我闷哼一声，将剑刃化为坚冰，以精妙的剑技向她周围的兽人劈出道道凛冽寒流，在火焰触及之前便将他们冻成冰雕，碎裂如玻璃。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。”别抢了我的乐子！”她大喊道，随即传送到兽人营地的另一侧，在那里掀起新一轮烈焰。
 
-我大笑着扑向最近的野兽，每一挥都让大地剧震，兽人在震波中失去平衡纷纷倒下，任凭我的利剑穿透他们的喉咙。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。我在战斗的狂热中再次大笑，丢掉头盔撕下板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败这些弱小之敌的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
+我大笑着扑向最近的野兽，每一挥都让大地剧震，兽人在震波中失去平衡纷纷倒下，任凭我的利剑穿透他们的喉咙。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。我在战斗的狂热中再次大笑，丢掉头盔撕下板甲，享受卸甲后在战场上轻快移动、屠戮这些弱小之敌的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
 
 远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。烈焰缠绕着女魔法师的周身，她的眸子熠熠生辉，四周跃动的火光让她宛如火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
 
@@ -17559,9 +17559,9 @@ The lands of the Nalorën had sunk beneath the waves.]], [[#{bold}#毁灭之源#
 
 尽管在魔法大爆炸强大的力量面前，军队眨眼覆灭，森林片刻消失，天空满是流火，但他们总认为大陆会安然无恙。它看起来永恒不变。甚至狂怒的魔法大爆炸都无法摧毁它。
 
-但他们错了。这些与世隔绝了很久的纳鲁精灵，以为他们的土地可以抵抗任何的攻击，但他们怎能指望陆地去阻止它自身的崩溃？当看到房屋倒塌，海啸来袭——这一刻，他们才真正见识了魔法大爆炸的力量。它不仅毁灭了世上的人，也毁灭了这个世界。
+但他们错了。长久与世隔绝的纳鲁人早已准备好抵御对他们土地的任何进攻，但他们怎能指望阻止大地本身的崩塌？眼看着家园被生生撕裂，平原与森林坠入大海——在那短暂而恐怖的一刻，他们终于见识了魔法大爆炸的真正威力。它不仅在毁灭世间的生灵，也在毁灭这个世界本身。
 
-纳鲁大陆缓缓沉入海底。]], "_t")
+纳鲁大陆沉入了波涛之下。]], "_t")
 t("tract of anarchy", "无序之治", "_t")
 t([[#{bold}#Tract of Anarchy#{normal}#
 
@@ -17929,7 +17929,7 @@ Yes, yes, this is all clearly an illusion! A strange nightmare that I shall wake
 
 视野中，随着这个世界逐渐旋转，逐渐被挤压碎裂，我隐约能看到那个世界的中心。在那里，是一个拥有闪烁的白色眼睛，头上长角的巨大影像。它向外伸展而出的强壮四肢紧紧抓着世界的核心，试图将它连结在一起，来对抗那些不断将这颗星球撕裂的可怕力量。在剧烈的痛苦和愤怒中，巨人的表情被其扭曲，发出怒吼。
 
-“乌鲁洛克，”一个深沉的声音在我的脑海中响起。“我们的神，我们的救世主，保护世界之人。以乌鲁洛克的名义，我们将向阿马克泰尔和夏·图尔人复仇。渺小的埃亚尔世界终将陨落！”我被噩梦所惊醒，我的直觉告诉我周围某种东西正凝望着我，让我撒腿就跑。
+“乌鲁洛克，”一个深沉的声音在我的脑海中响起。“我们的神，我们的救世主，保护世界之人。以乌鲁洛克的名义，我们将向阿马克泰尔和夏·图尔人复仇。渺小的埃亚尔世界终将陨落！”我被噩梦所惊醒，直觉告诉我有什么东西就在附近，正在搜寻着我。我立刻拔腿就跑。
 
 是我的脑子出了什么问题吗？那个奇怪的名字，“乌鲁洛克”仍然在我的心头回响，我的视野也变得昏暗起来。大概是我戴了这个戒指太久了的副作用的缘故……
 
@@ -18431,7 +18431,7 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 那么，最终传到我们手上的并不是人，而是物：那是身怀强大力量的神器，是往昔留下的遗产。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。
 
-要记住重要的是，每一件神器都有其自己的意义，如同曾经手持他们的那些值得在史册留名的伟大英雄。尽管他们的故事已经被人们渐渐淡忘，他们的遗物仍然在世间永存。这就是为什么说，成就一个冒险家的并不是神器。真正的冒险家永远无畏于挑战前人所不敢为之事，无论他们的功绩是否为人所记载。无论如何，你伟大的冒险经历将开创属于你自己的史诗。
+要记住重要的是，每一件神器的背后都有其意义，都代表着曾经手持它们的那些强大而重要的存在。然而他们的故事如今正渐渐被人淡忘。这就是为什么说，成就一个冒险家的并不是神器，而是他的伟大事迹，是敢为天下先的勇气。你的功绩是否为人所知并不重要——毕竟，如果你真的足够伟大，或许你也会留下属于自己的传奇。
 
 ——#{italic}#科斯汀·赫菲因#{normal}#]], "_t")
 t("point zero", "零点圣域", "newLore category")
@@ -19403,7 +19403,7 @@ t("This final mural has been ruined, with deep scores and scratches etched acros
 t("Yiilkgur raising toward the sky", "伊克格，飞向天空", "_t")
 t("Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.", "伊克格——夏·图尔要塞——被重新激活，从纳尔湖深处升向天空。", "_t")
 t("a living Sher'Tul?!", "活着的夏·图尔人？！", "_t")
-t("You somehow got teleported to an other Sher'Tul Fortress, in a very alien location. There you saw a living Sher'Tul.", "不管怎样，你传送到了另一个异次元的夏·图尔要塞。在那里，你看到了一位活着的夏·图尔人。", "_t")
+t("You somehow got teleported to an other Sher'Tul Fortress, in a very alien location. There you saw a living Sher'Tul.", "你不知怎么地被传送到了另一座夏·图尔要塞，位于一个非常陌生的地方。在那里，你看到了一位活着的夏·图尔人。", "_t")
 t("lost farportal", "失落的传送门", "_t")
 t("%s boldly entering a Sher'Tul farportal.", "%s勇敢地进入了一个夏·图尔传送门。", "tformat")
 -- untranslated text
@@ -24092,7 +24092,7 @@ t("You hide your terrible nature behind a pitiful figure. Those that see you fro
 section "mod-tome/data/talents/cursed/dark-sustenance.lua"
 
 t("Feed", "吸食精华", "talent name")
-t("You can only gain sustenance from your foes!", "你只能从你的目标身上吸取！", "logPlayer")
+t("You can only gain sustenance from your foes!", "你只能从敌人身上吸取！", "logPlayer")
 t([[Feed from the essence of your enemy. Draws %0.1f hate per turn from a targeted foe, as long as they remain in your line of sight.
 			If you aren't already feeding this will be automatically applied to the nearest enemy.
 		Hate gain improves with your Mindpower.]], [[吞噬敌人的精华。只要目标仍在你的视野中，每回合便从其身上汲取 %0.1f 仇恨值。
@@ -26618,7 +26618,7 @@ t([[You have learned to hit the right spot, increasing your armor penetration by
 		护甲穿透受敏捷值加成。]], "tformat")
 t("Momentum", "急速切割", "talent name")
 t("You require two melee weapons to use this talent.", "你需要双持近战武器才能使用这个技能。", "logPlayer")
-t("You cannot use Momentum without dual wielding melee weapons!", "你只有双持武器的时候才可以使用急速切割！", "logPlayer")
+t("You cannot use Momentum without dual wielding melee weapons!", "你只有双持近战武器的时候才可以使用急速切割！", "logPlayer")
 t("When dual wielding, increases attack speed by %d%%, but drains stamina quickly (-6 stamina/turn).", "当你双持武器时，增加 %d%% 攻击速度，快速消耗体力（-6体力/回合）。", "tformat")
 t("Defensive Throw", "闪身投掷", "talent name")
 t("#Source# slams #Target# into the ground!", "#Source#将#Target#掀翻在地！", "logCombat")
@@ -26831,7 +26831,7 @@ t([[As the only immortal race of Eyal, Shaloren have learnt over the long years 
 t("Timeless", "超越永恒", "talent name")
 t([[The world grows old as you stand through the ages. To you, time is different.
 		Reduces the time remaining on detrimental effects by %d, most cooling down talents by %d, and increases the time remaining on beneficial effects by %d (up to 2 times the current duration).]], [[世界在不断的变老，而你似乎永恒不变。对于你来说，时间是不同寻常的。
-		减少 %d 回合负面状态的持续时间，减少技能 %d 回合冷却时间直至冷却并增加 %d 回合增益状态的持续时间（至多延长为剩余时间的两倍）。]], "tformat")
+		减少 %d 回合负面状态的持续时间，减少大多数技能 %d 回合冷却时间，并增加 %d 回合增益状态的持续时间（至多延长为剩余时间的两倍）。]], "tformat")
 t("thalore", "自然精灵", "talent type")
 t("Gift of the Woods", "森林的恩赐", "talent name")
 t([[Call upon nature to regenerate your body for %d life every turn and increase healing mod by %d%% for 8 turns.
@@ -27539,7 +27539,7 @@ t("%s's mind is clear!", "%s的精神被净化了！", "logSeen")
 t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[净化你当前所有的精神状态，并在接下来的 6 回合内免疫新增的精神状态。最多一共（净化和免疫）能影响 %d 种精神状态。
 		此技能使用时不消耗回合。]], "tformat")
 t("Projection", "灵魂出窍", "talent name")
-t("Not enough space to invoke your spirit!", "没有空间激发你的灵魂！", "logPlayer")
+t("Not enough space to invoke your spirit!", "没有足够的空间召唤你的投影！", "logPlayer")
 t("Projection of %s", "%s的投影。", "tformat")
 t("A ghostly figure.", "一个隐约的形象。", "_t")
 t([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.
@@ -30042,8 +30042,8 @@ t("Rapid Shot", "速射姿态", "talent name")
 t("You cannot use Rapid Fire without a bow or sling!", "你需要一把弓或者投石索来施放这个技能！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
-Requires a sling to use.]], [[进入流畅而灵活的射击姿势，更适用于近战。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
-命中敌人的远程攻击将给你带来 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0 %%）。该效果每回合只能生效一次。
+Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
+命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该效果每回合只能生效一次。
 该技能需要投石索。]], "tformat")
 
 ------------------------------------------------
@@ -30080,7 +30080,7 @@ t("Headshot", "爆头", "talent name")
 t([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.
 Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目标头部发射穿透性弹药，造成 %d%% 武器伤害。
 此次攻击额外获得 100 命中，且能穿透目标以外单位。
-只能对被标记的单位使用，使用将消耗掉标记。]], "tformat")
+只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
 If the primary target is marked, you consume the mark to fire a second volley of arrows for %d%% damage at no ammo cost.]], [[你向天空发射无数弹药，如箭雨般落向目标，造成 %d%% 伤害，杀伤半径 %d 格。
@@ -31131,7 +31131,7 @@ section "mod-tome/data/talents/techniques/unarmed-training.lua"
 t("Empty Hand", "空手道", "talent name")
 t([[Grants %d Physical Power when fighting unarmed (or with gloves or gauntlets).
 		This talent's effects will scale with your level.]], [[当你徒手或仅装备手套和臂铠时提高 %d 物理强度。
-		效果受技能等级加成。]], "tformat")
+		效果受角色等级加成。]], "tformat")
 t("Unarmed Mastery", "徒手大师", "talent name")
 t([[Increases all unarmed damage by %d%% and physical power by 30 (including grapples and kicks).
 		Note that brawlers naturally gain 0.5 Physical Power per character level while unarmed (current brawler physical power bonus: %0.1f) and attack 20%% faster while unarmed.]], [[增加 %d%% 所有徒手伤害，提高 30 物理强度（包括抓取/徒手技）。
@@ -32396,8 +32396,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 我们没法阻止他们，不过我们抓了他们中的一个。
 
 他知道的不多，但他提到了远东大陆的“主人”。
-他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包
-裹”送过传送门。
+他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个”包裹”送过传送门。
 
 事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
 
@@ -36776,7 +36775,7 @@ t("Unstoppable", "势不可挡", "_t")
 t("The target is unstoppable! It refuses to die and cannot heal.  When the effect ends, it will heal %d Life (%d%% of maximum life per foe slain during the frenzy).", "目标无可阻挡！它拒绝死亡，也无法被治疗。效果结束时将回复 %d 点生命（狂怒期间每击杀一个敌人回复 %d%% 最大生命）。", "tformat")
 t("combat", "战斗", "effect subtype")
 t("penalty", "惩罚", "effect subtype")
-t("Hit Penalty", "双手惩罚", "_t")
+t("Hit Penalty", "命中惩罚", "_t")
 t("The target is using a two handed weapon in a single hand, reducing accuracy, physical power, spellpower and mindpower by %d%% (based on size); also all damage procs from your offhand are reduced by 50%%.", "目标单手使用双手武器，命中、物理、法术和精神强度下降 %d%%（受体型影响）；同时副手附加伤害减少 50%%。", "tformat")
 t("Twist Fate", "扭曲命运", "_t")
 t([[Currently Twisted Anomaly: %s
@@ -38489,7 +38488,7 @@ t("A ripple in the void that somehow seems... alive, this creature stares at you
 section "mod-tome/data/zones/eidolon-plane/zone.lua"
 
 t("Eidolon Plane", "艾德隆位面", "_t")
-t("The Eidolon Plane seems not to physically exist in the same way the normal world does. You cannot seem to drop anything here. %s comes back into your backpack.", "艾德隆位面似乎并不像现实世界一样真实存在，你在这里似乎不能丢弃任何东西，%s 又回到了你的手中。", "logPlayer")
+t("The Eidolon Plane seems not to physically exist in the same way the normal world does. You cannot seem to drop anything here. %s comes back into your backpack.", "艾德隆位面似乎并不像现实世界一样真实存在，你在这里似乎不能丢弃任何东西，%s 又回到了你的背包中。", "logPlayer")
 t("#LIGHT_RED#You are sent back to the material plane!", "#LIGHT_RED#你被传送回现实世界！", "logPlayer")
 
 ------------------------------------------------
