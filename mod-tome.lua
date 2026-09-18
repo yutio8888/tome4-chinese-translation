@@ -3187,7 +3187,7 @@ and when it comes down to it, gold won't take sides...]], [[魔法大爆炸带�
 然而人们心中的偏见仍没有消失。
 自然与奥术本可弥合分歧——
 在这两者之间，金钱从不站队……]], "_t")
-t("Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.", "岩石守卫是那些同时训练魔法技艺与自然力量的矮人。", "_t")
+t("Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.", "岩石守卫是同时研习奥术技艺与自然崇拜的矮人。", "_t")
 t("While other races are stuck in their belief that arcane forces and natural forces are meant to oppose, dwarves have found a way to combine them in harmony.", "在其他种族受困于自然和魔法天生对立的偏见时，矮人们已经找到方法让这两种力量和谐共存。", "_t")
 t("Stone Wardens are armoured fighters, dual wielding shields to channel many of their powers.", "岩石守卫是身着重甲的战士，双持盾牌来施展技艺。", "_t")
 t("Their most important stats are: Strength, Magic and Willpower", "他们最重要的属性是：力量，魔法和意志", "_t")
@@ -8964,7 +8964,7 @@ section "mod-tome/data/general/npcs/venom-drake.lua"
 t("dragon", "龙", "entity type")
 t("venom", "毒液", "entity subtype")
 t("venom drake hatchling", "毒龙幼仔", "entity name")
-t("A corrosive venom drake hatchling; not too powerful by itself, but it usually comes with its brothers and sisters.", "一只毒龙幼仔。它本身并不强大，但是它们经常集体行动。", "_t")
+t("A corrosive venom drake hatchling; not too powerful by itself, but it usually comes with its brothers and sisters.", "一只腐蚀性的毒龙幼仔。它本身并不强大，但是它们经常集体行动。", "_t")
 t("venom drake", "毒龙", "entity name")
 t("A mature corrosive venom drake, armed with deadly breath and nasty claws.", "一条成年毒龙，拥有致命的吐息和锋利的爪子。", "_t")
 t("venom wyrm", "猛毒巨龙", "entity name")
@@ -12685,7 +12685,7 @@ t("9% chance to stun or confuse the target", "9% 几率震慑或混乱目标", "
 t("Ureslak's Femur", "乌尔斯拉克的股骨", "entity name")
 t("a strangely colored bone", "染的稀奇古怪的骨头", "_t")
 t("A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.", "强大的棱晶龙乌尔斯拉克被截断的腿骨，这根奇怪的棍子仍然流动着乌尔斯拉克的天性。", "_t")
-t("10% chance to shimmer to a different hue and gain powers", "10% 几率变换不同颜色并且增加强度", "_t")
+t("10% chance to shimmer to a different hue and gain powers", "10% 几率闪烁变换成不同色调并获得相应能力", "_t")
 t("Ureslak's %s Femur", "乌尔斯拉克的%s股骨", "tformat")
 t("#GOLD#Ureslak's Femur glows and shimmers!", "#GOLD#乌尔斯拉克的股骨发出闪光！", "logSeen")
 t("Flaming", "火焰", "_t")
@@ -12949,7 +12949,7 @@ t("wand", "魔杖", "entity subtype")
 t("Void Shard", "虚空碎片", "entity name")
 t("strange jagged shape", "奇怪的锯齿状碎片", "_t")
 t("This jagged shape looks like a hole in space, yet it is solid, though light in weight.", "这个锯齿状的影像看上去像是时空中的黑洞，但它又是固态的，尽管重量非常的轻。", "_t")
-t("release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)", "在 %d 码范围内释放虚空能量，至多距离 %d。造成 %0.2f 时空和 %0.2f 暗影伤害。（基于魔法）", "tformat")
+t("release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)", "释放一片半径 %d 的虚空能量爆发，最远可及 %d 码距离，造成 %0.2f 时空和 %0.2f 暗影伤害。（基于魔法）", "tformat")
 t("%s siphons space and time into %s %s!", "%s将时空吸收入%s%s！", "logSeen")
 t("Coral Spray", "云雾珊瑚", "entity name")
 t("thick coral plate", "厚重的珊瑚板甲", "_t")
@@ -24075,7 +24075,7 @@ section "mod-tome/data/talents/cursed/dark-figure.lua"
 
 t("Radiant Fear", "恐惧辉耀", "talent name")
 t("You are too far to from the target!", "你距离目标太远了！", "logPlayer")
-t("Fear radiates from your target in a radius of %d for %d turns driving all others away.", "恐惧 %d 码半径内的目标以驱逐他们，持续 %d 回合。", "tformat")
+t("Fear radiates from your target in a radius of %d for %d turns driving all others away.", "恐惧从你的目标身上向 %d 码半径散发，持续 %d 回合，将周围所有其他生物驱离。", "tformat")
 t("Suppression", "诅咒抑制", "talent name")
 t("The time you have spent suppressing the curse has taught you self control. The duration of most non-magical effects are reduced by %d%%.", "长年对抗诅咒的经历使你能够自我控制。大部分非魔法效果的持续时间减少 %d%%。", "tformat")
 t("Cruel Vigor", "残酷活力", "talent name")
@@ -24104,7 +24104,7 @@ t([[Enhances your feeding by reducing your targeted foe's damage by %d%%, and in
 		效果受精神强度加成。]], "tformat")
 t("Feed Strengths", "腐蚀吸食", "talent name")
 t([[Enhances your feeding by reducing your targeted foe's resistances, multiplying them by %0.2f and increasing your resistances by the amount drained. Resistance to "all" is not affected.
-		Improves with your Mindpower.]], [[提高你的吸食能力，将目标的伤害抗性降低到原来的 %0.2f 倍，并增加你同样数值的状态抵抗。
+		Improves with your Mindpower.]], [[提高你的吸食能力，将目标的伤害抗性降低到原来的 %0.2f 倍，并将你自身相应的伤害抗性提高相同数值。
 		对“所有”抗性无效。
 		效果受精神强度加成。]], "tformat")
 
@@ -24958,7 +24958,7 @@ t([[Surround yourself with a myriad of tiny, nearly invisible, reinforcing fungi
 t("Fungal Growth", "真菌生长", "talent name")
 t([[The fungus on your body allows regeneration effects to last longer.
 		Each time you gain a beneficial effect with the regeneration subtype you increase its duration by %d%% + 1 rounded up.
-		The effect will increase with your Mindpower.]], [[你身上的孢子让回复效果更加持久。
+		The effect will increase with your Mindpower.]], [[你身上的真菌让回复效果更加持久。
 		每当你获得一个回复类的增益效果，你会让它的持续时间增加 %d%% +1，向上取整。
 		技能效果受精神强度加成。]], "tformat")
 t("Ancestral Life", "原始生命", "talent name")
@@ -26009,7 +26009,7 @@ t("Your nonexistant mana regeneration rate is unaffected by the rune.", "你没�
 t([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.
 			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力回复，增加法力回复 %d%%，持续 %d 回合（总计 %d），并立即回复 %d 点法力值。
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
-t("regen %d%% over %d turns; mana %d; cd %d", "回复 %d%% 持续 %d 回合 ; %d 法力瞬回；冷却 %d", "tformat")
+t("regen %d%% over %d turns; mana %d; cd %d", "每回合回蓝 %d%%，持续 %d 回合；瞬回 %d 法力；冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
 t("%s is immune!", "%s 免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -27190,7 +27190,7 @@ t("Backlash", "灵能反击", "talent name")
 t([[Your subconscious now retaliates when you take damage.  If the attacker is within range (%d), you'll inflict mind damage equal to the Feedback gained from the attack or %0.2f, whichever is lower.
 		This effect can only happen once per creature per turn.
 		The damage will scale with your Mindpower.]], [[你的潜意识会报复那些伤害你的人。
-		当攻击者在 %d 码范围内时，你会对目标造成伤害，伤害值为因承受此攻击而获得的反馈数值（但不超过 %0.2f）。
+		当攻击者在 %d 码范围内时，你会对目标造成精神伤害，伤害值为因承受此攻击而获得的反馈数值（但不超过 %0.2f）。
 		此效果每回合对同一生物最多只能触发 1 次。
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Focused Wrath", "集火", "talent name")
@@ -27345,8 +27345,7 @@ t("You may only dream walk to an open space within your line of sight.", "你只
 t("Your dream walk fails!", "你的梦境穿梭失败了！", "logSeen")
 t([[You move through the dream world, reappearing at a nearby location.
 		If there is a sleeping creature at the target location, you'll appear as close to them as possible, otherwise, you'll appear within %d tiles of your intended destination.]], [[你穿越梦境，出现在某个目标地点附近。
-		如果目标为处于睡眠状态的生物，你将会出现在离目标最近的地方。
-		否则，你会出现在目标位置的 %d 码范围内。]], "tformat")
+		如果目标位置有处于睡眠状态的生物，你会尽量出现在离它最近的地方；否则，你会出现在目标位置 %d 码范围内。]], "tformat")
 t("Dream Prison", "梦境牢笼", "talent name")
 t([[Imprisons all sleeping targets within range in their dream state, effectively extending sleeping effects for as long as Dream Prison is maintainted.
 		This powerful effect constantly drains %0.2f%% of your maximum Psi (excluding this talent) per turn, and is considered a psionic channel; as such it will break if you move.
@@ -30452,7 +30451,7 @@ t("%s %s the attack!", "%s %s攻击", "logSeen")
 t("intercepts", "拦截了", "_t")
 t("fails to intercept", "未能拦截", "_t")
 t([[Activating this talent enhances your reflexes to incredible levels.  Each time you are attacked in melee, you have a %d%% chance get a defensive shot off in time to intercept the attack, fully disrupting it (including extra blows from certain talents), dealing %d%% archery damage, and knocking the attacker back %d tiles.
-		Activating this talent will not interrupt reloading.]], "激活该技能会大幅强化你的反射神经。每次你受到近战攻击，你有 %d%% 的几率进行一次防御性射击来中止对方这次攻击，并造成 %d%% 伤害，同时击退对方 %d 码。激活这项技能不会中断装填弹药。", "tformat")
+		Activating this talent will not interrupt reloading.]], "激活该技能会大幅强化你的反射神经。每次你受到近战攻击，你有 %d%% 的几率及时进行一次防御性射击来拦截并完全瓦解对方这次攻击（包括某些技能带来的额外打击），造成 %d%% 射击伤害，同时击退对方 %d 码。激活这项技能不会中断装填弹药。", "tformat")
 t("Strangling Shot", "沉默射击", "talent name")
 t("%s resists the strangling shot!", "%s抵抗了沉默射击！", "logSeen")
 t([[You fire a shot at your target's throat, mouth, or equivalent body part, doing %d%% damage and silencing it for %d turns.
@@ -30641,7 +30640,7 @@ t([[You have trained to be very light on your feet and have conditioned your ref
 		This requires %0.1f stamina and reduces the damage by %d%%.
 		Your reactions are too slow for this if you are wearing heavy armour.
 		The damage reduction improves with your Defense.]], [[经过训练后，你脚步轻快，神经敏锐。
-		技能开启时，你会对超过你 %d%% 最大生命值的直接伤害做出反应（状态效果带来的伤害除外）。
+		技能开启时，你会对达到或超过你 %d%% 最大生命值的直接伤害做出反应（状态效果带来的伤害除外）。
 		消耗 %0.1f 体力，你将减少 %d%% 伤害。
 		身着重甲时无法使用。
 		伤害减免受闪避加成。]], "tformat")
@@ -35923,7 +35922,7 @@ t("#F53CBE##Target# is no longer weakened.", "#F53CBE##Target#不再被削弱。
 t("slow", "减速", "effect subtype")
 t("Slowed by the gloom", "黑暗减速", "_t")
 t("The gloom reduces the target's global speed by %d%%.", "降低目标全局速度 %d%%。", "tformat")
-t("#F53CBE##Target# moves reluctantly!", "#F53CBE##Target#移动受黑暗影响！", "_t")
+t("#F53CBE##Target# moves reluctantly!", "#F53CBE##Target#移动变得迟缓！", "_t")
 t("+Slow", "+减速", "_t")
 t("#Target# overcomes the gloom.", "#Target#战胜了黑暗。", "_t")
 t("-Slow", "-减速", "_t")
@@ -36194,7 +36193,7 @@ t("-Rampage", "-暴走", "_t")
 t("%s has shrugged off %d damage and is ready for more.", "%s 无视了 %d 伤害，似乎仍意犹未尽。", "logSeen")
 t("#F53CBE#Your rampage is invigorated by the intense onslaught! (+1 duration)", "#F53CBE#你的猛攻强化了你的暴走！（+1持续时间）。", "logPlayer")
 t("#RED#(%d rampage shugs off#LAST#)", "#RED#(%d 暴走摆脱伤害#LAST#)", "tformat")
-t("#F53CBE#You feel your rampage slowing down. (-1 duration)", "#F53CBE#你感受到你的暴走开始减速。（-1持续时间）", "logPlayer")
+t("#F53CBE#You feel your rampage slowing down. (-1 duration)", "#F53CBE#你感觉你的暴走正在消退。（-1持续时间）", "logPlayer")
 t("Orcish Fury", "兽人狂暴", "_t")
 t("The target enters a destructive fury, increasing all damage done by %d%%.", "目标进入具有破坏力的愤怒状态，提升 %d%% 伤害。", "tformat")
 t("#Target# enters a state of bloodlust.", "#Target#获得嗜血状态。", "_t")
@@ -39033,7 +39032,8 @@ t("A tall woman stands before you in a stained robe. Her sallow skin is marked b
 t("You receive: %s.", "你收到：%s。", "logPlayer")
 t("Celia", "赛利亚", "_t")
 t([[As you deal the last blow you quickly carve out Celia's heart for your Lichform ritual.
-Carefully weaving magic around it to keep it beating.]], [[当你挥出最后一击后，你迅速挖出赛利亚的心脏，为巫妖仪式做准备。小心的用魔法环绕它来保持它的跳动。]], "_t")
+Carefully weaving magic around it to keep it beating.]], [[当你挥出最后一击后，你迅速挖出赛利亚的心脏，为巫妖仪式做准备。
+小心地用魔法环绕它，让它保持跳动。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/last-hope-graveyard/objects.lua"
@@ -39044,7 +39044,7 @@ t("misc", "杂项", "entity type")
 t("heart", "心脏", "entity subtype")
 t("Celia's Still Beating Heart", "赛利亚的跳动心脏", "entity name")
 t("bloody heart", "鲜红的心脏", "_t")
-t("The living heart of the necromancer Celia, carved out of her chest and preserved with magic.", "死灵法师赛利亚的跳动心脏，取自她的胸膛，上面充满了魔法的力量。", "_t")
+t("The living heart of the necromancer Celia, carved out of her chest and preserved with magic.", "死灵法师赛利亚的跳动心脏，从她胸膛中挖出，并以魔法加以保存。", "_t")
 t("extract a tiny part of Celia's soul", "抽取赛利亚灵魂的一小块", "_t")
 t("You squeeze Celia's heart in your hand, absorbing part of her soul into your necrotic aura.", "你把赛利亚的心脏放在手中挤压，将她的部分灵魂吸收进你的死灵光环里。", "logPlayer")
 
@@ -39245,7 +39245,7 @@ t("crystal", "水晶", "entity subtype")
 t("Shardskin", "水晶树精", "entity name")
 t("This crystalline structure seems to be filled with a malevolent aura. Through the crystal surface you can still see the remains of what once was a huge tree.", "这个水晶一样的生物内部似乎充满了邪恶能量，透过水晶表面，你似乎还能看到里面曾是树的部分。", "_t")
 t("and integrated into the crystaline structure", "并被它的水晶结构所吸收", "_t")
-t("Have you heard, the old forest seems to have been claimed by a new evil!", "你有听说过吗，有人说在古老森林出现了新的怪物！", "_t")
+t("Have you heard, the old forest seems to have been claimed by a new evil!", "你有听说过吗，古老森林似乎已经被一股新的邪恶势力占据了！", "_t")
 t("treant", "树人", "entity subtype")
 t("Wrathroot", "狂怒树精", "entity name")
 t("The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.", "这棵古老的灰色柳树，古老森林的统治者。他蔑视一切闯入他领地的入侵者。", "_t")
@@ -43109,7 +43109,7 @@ t("Movement is key on the battlefield. A stationary fighter will become a dead f
 t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人学到了魔法的奥秘，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
-t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
+t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造炽烈的爆炸，并且往往带着一尊坚固的傀儡随行以获得额外保护。", "init.lua load_tips")
 t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了巨型傀儡阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
