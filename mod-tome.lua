@@ -2435,7 +2435,7 @@ t("Score[1st]: %d", "分数[第一名]：%d", "tformat")
 t("Score: %d", "分数：%d", "tformat")
 t("[MiniBoss]", "[小Boss]", "_t")
 t("[Boss]", "[Boss]", "_t")
-t("[Final]", "[最终Boss]", "_t")
+t("[Final]", "[最终]", "_t")
 t("Wave(TOP) %d %s", "波次（最高）%d %s", "tformat")
 t("Wave %d %s", "波次 %d %s", "tformat")
 t("Bonus: %d (x%.1f)", "奖励：%d (x%.1f)", "tformat")
@@ -2989,7 +2989,7 @@ t("#LIGHT_BLUE# * +4 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Corruptor", "腐化者", "birth descriptor name")
-t("Blight and depravity hold the greatest powers. Accept temptation and become one with corruption.", "枯萎和邪恶掌握了强大的力量。接受诱惑成为腐化者中的一员吧。", "_t")
+t("Blight and depravity hold the greatest powers. Accept temptation and become one with corruption.", "枯萎与堕落蕴藏着最强大的力量。接受诱惑，与腐化融为一体吧。", "_t")
 t("A corruptor is a terrible foe, wielding dark magics that can sap the very soul of her target.", "腐化者是一个恐怖的对手，使用黑暗魔法并汲取目标的灵魂。", "_t")
 t("They can harness the blight of evil, crushing souls, stealing life force to replenish themselves.", "他们驾驭邪恶的枯萎术，粉碎灵魂，偷取生命力量来治疗自己。", "_t")
 t("The most powerful corruptors can even take on some demonic aspects for themselves.", "最强大的腐化者甚至可以掌握恶魔的力量。", "_t")
@@ -7097,7 +7097,7 @@ t("random poison", "随机毒素", "damage type")
 t("blinding powder", "致盲粉", "damage type")
 t("%s<blinding powder>#LAST#", "%s<致盲粉>#LAST#", "tformat")
 t("smokescreen", "烟幕弹", "damage type")
-t("%s<smoke>#LAST#", "%s<烟雾弹>#LAST#", "tformat")
+t("%s<smoke>#LAST#", "%s<烟雾>#LAST#", "tformat")
 t("flare", "闪光弹", "damage type")
 t("%s resists the blinding flare!", "%s抵抗了致盲闪光！", "logSeen")
 t("flare light", "闪光弹光", "damage type")
@@ -9482,7 +9482,7 @@ t("A vial of churning orange fluid.", "一瓶翻涌的橙色液体。", "_t")
 t("permanently increase your chance to critically strike with spells by 4%", "永久提升你4%法术暴击率", "_t")
 t("#00FF00#The elixir has improved your eye for an enemy's magical weak points!", "#00FF00#药剂提升了你发现敌人魔法弱点的能力！", "logPlayer")
 t("Elixir of Serendipity", "幸运药剂", "entity name")
-t("vial of yellow fluid", "一瓶黄色液体。", "_t")
+t("vial of yellow fluid", "黄色液体小瓶", "_t")
 t("A vial of lively yellow fluid.", "一瓶流动的黄色液体。", "_t")
 t("permanently increase your luck by 5", "永久提升你5点运气", "_t")
 t("#00FF00#The elixir seems to have subtly repositioned your entire being within the fabric of reality!", "#00FF00#这瓶炼金药剂似乎将你的整个存在在现实结构中微妙地重新定位了！", "logPlayer")
@@ -12373,7 +12373,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这副锋利的尖刺拳套属于一位烈火纪的兽人队长，他曾征服西部沙地，并以这片被征服的沙地为基地，对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这副黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这副凶恶的尖刺拳套属于烈火纪的一位兽人队长，他征服了西部沙地，并以此为基地向南方的埃尔瓦拉发动劫掠。他人称“沙蝎”，在战斗中似乎不可战胜，能以凶狠的精神之力将敌人拉向自己，再施以致命打击。永恒精灵的伟大法师们临死之前，最后看到的往往就是这对黄黑相间的拳套化作的一阵连击。\n\n最终，沙蝎被炼金术师奈瑟莉亚击败——她独自前去面对这个凶残的兽人。队长发出残暴的怪笑，将这名精灵拉向自己，但还没来得及将她体内的生命击碎，她便扯开长袍，露出绑在身上的八十枚燃烧弹。她指尖迸出一点火花，引发了数里之外都能看见的大爆炸。时至今日，奈瑟莉亚为保护族人而牺牲自己不朽生命的事迹，仍被人们传唱于歌谣之中。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -12495,7 +12495,7 @@ t("a weird metallic hand", "奇怪的金属手", "_t")
 t("You can feel this strange metallic hand wriggling around, it feels as if space distorts around it.", "你能感受到这个奇怪的金属手在扭动着，似乎周围的空间被扭曲了。", "_t")
 t("Garkul's Teeth", "加库尔的牙齿", "entity name")
 t("a necklace made of teeth", "一个用牙齿串成的项链", "_t")
-t("Hundreds of humanoid teeth have been strung together on multiple strands of thin leather, creating this tribal necklace.  One would have to assume that these are not the teeth of Garkul the Devourer but rather the teeth of Garkul's many meals.", "数以百计的人类牙齿被串在用多股皮革结成的绳索上，组成了这个部落项链。那些牙齿并非吞噬者加库尔自己的，而是来自于加库尔的食物。", "_t")
+t("Hundreds of humanoid teeth have been strung together on multiple strands of thin leather, creating this tribal necklace.  One would have to assume that these are not the teeth of Garkul the Devourer but rather the teeth of Garkul's many meals.", "数以百计的类人生物牙齿被串在多股细皮革绳上，组成了这条部落项链。可以推测，这些牙齿并非吞噬者加库尔本人的，而是来自加库尔的众多猎食对象。", "_t")
 t("Another of Garkul's heirlooms would bring out his spirit.", "另一件加库尔的遗物将唤醒他的英灵。", "_t")
 t("#CRIMSON#As you wear both Garkul's heirlooms you can feel the mighty warrior's spirit flowing through you.", "#CRIMSON#当你穿上整套加库尔的遗物时，你感受到战士的精神流淌在你的身上。", "logSeen")
 t("#CRIMSON#The spirit of Garkul fades away.", "#CRIMSON#加库尔的精神消失了。", "logPlayer")
@@ -12961,7 +12961,7 @@ t("cracked black amulet", "损坏的黑色项链", "_t")
 t("A deep red light glows from within this damaged amulet of black stone. When you touch it, you can hear voices whispering within your mind.", "从这条损坏的黑色项链上放出暗红色的光亮，当你触摸它时，你能听到脑海里的窃窃私语。", "_t")
 t("Pouch of the Subconscious", "潜意识之袋", "entity name")
 t("familiar pouch", "常见的弹药袋", "_t")
-t("You find yourself constantly fighting an urge to handle this strange pouch of shot.", "你情不自禁的想使用这袋弹药。", "_t")
+t("You find yourself constantly fighting an urge to handle this strange pouch of shot.", "你发现自己在不断抵抗摆弄这袋奇异弹丸的冲动。", "_t")
 t("50% chance to reload 1 ammo", "50% 几率装填1发弹药", "_t")
 t("Wind Worn Shot", "风化弹", "entity name")
 t("perfectly smooth shot", "极其光滑的弹药", "_t")
@@ -20696,7 +20696,7 @@ section "mod-tome/data/quests/start-point-zero.lua"
 
 t("Future Echoes", "未来的回音", "_t")
 t("The unhallowed morass is the name of the 'zone' surrounding Point Zero.", "混沌之沼是零点圣域周围区域的名字。", "_t")
-t("The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on.", "栖息在那里的时空蜘蛛开始变得有攻击性，你得去调查一下到底发生了什么事。", "_t")
+t("The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on.", "栖息在那里的时空蜘蛛日益焦躁，开始随机发起攻击。你得去调查一下到底发生了什么事。", "_t")
 t("#LIGHT_GREEN#* You have explored the morass and destroyed the weaver queen, finding strange traces on it.#WHITE#", "#LIGHT_GREEN#* 你探索了混沌之沼并杀死了织网蛛后，发现了奇怪的痕迹。#WHITE#", "_t")
 t("#SLATE#* You must explore the morass.#WHITE#", "#SLATE#* 你必须探索混沌之沼。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have helped defend Point Zero.#WHITE#", "#LIGHT_GREEN#* 你成功守卫了零点圣域。#WHITE#", "_t")
@@ -24399,7 +24399,7 @@ The damage increases with your Mindpower.]], [[对你的目标释放极大的痛
 被影响的敌人每回合有 25%% 概率附加思维封锁效果。
 
 伤害受精神强度加成。]], "tformat")
-t("Madness", "绝望", "talent name")
+t("Madness", "疯狂", "talent name")
 t("Your hateful will splinters into the minds of those you torture, breaking them down. Each time you inflict Mind damage, the victim has a %0.1f%% chance of going mad for 3 turns unless they save against your Mindpower. The madness will lower the victim's Mind resistance by %0.1f%% and cause them to become confused (50%% power), slowed (30%% power), or stunned for the duration.", "你的仇恨会撕裂那些被你折磨的敌人的思想，使他们崩溃。每次你造成精神伤害时，被伤害的对象有 %0.1f%% 概率必须用精神豁免抵消你的精神强度，否则会疯狂3回合。疯狂会使它们降低 %0.1f%% 对精神伤害的抵抗，并被混乱（50%%强度），减速（30%%强度）或震慑。", "tformat")
 
 ------------------------------------------------
@@ -27520,7 +27520,7 @@ t("Iron Will", "钢铁意志", "talent name")
 t("Improves Mental Saves by %d, and stun immunity by %d%%.", "精神豁免提高 %d，震慑免疫提高 %d%%。", "tformat")
 t("Highly Trained Mind", "精神训练", "talent name")
 t([[A life of the mind has had predictably good effects on your Willpower and Cunning.
-		Increases Willpower and Cunning by %d.]], [[一次精神训练加强了你的意志和灵巧。
+		Increases Willpower and Cunning by %d.]], [[过着心智生活自然会对你的意志和灵巧大有裨益。
 		增加 %d 点意志和灵巧。]], "tformat")
 
 ------------------------------------------------
@@ -27891,10 +27891,9 @@ t([[Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you
 		Projections inflict 50%% less damage than the original, unless the target has Lucid Dreamer active.
 		When the Dreamscape ends, for each projection destroyed, the target's life will be reduced by 10%% and it will be brainlocked for one turn.
 		In the Dreamscape, your damage will be improved by %d%%.
-		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。
-		当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境守卫来保护它的心灵。
-		除非目标激活了清晰梦境，否则梦境守卫造成的普通伤害只有 50 %%。
-		当梦境空间的效果结束时，你每摧毁一个梦境守卫，目标生命值会减少 10 %%，并且受到持续 1 回合的思维封锁效果（可叠加）。
+		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境守卫来保护它的心灵。
+		除非目标激活了清晰梦境，否则梦境守卫造成的伤害比本体低 50%%。
+		当梦境空间的效果结束时，你每摧毁一个梦境守卫，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。
 		在梦境空间中时，你的伤害会提高 %d%%。
 		伤害增益受精神强度加成。]], "tformat")
 
@@ -30824,7 +30823,7 @@ t("Aim", "瞄准姿态", "talent name")
 t([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.
 This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.
 The physical power and accuracy increase with your Dexterity. This requires a bow to use.]], [[进入一个平静，专注的姿态，增加 %d 物理强度和命中，抛射物速度增加 %d%% 并且标记目标的几率增加 %d%%。
-这让你在射程内射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%% , 8 格距离时达到最大值（%0.1f%%）。
+这让你在射程内射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格距离时达到最大值（%0.1f%%）。
 物理强度和命中受敏捷值加成。该技能需要弓来使用。]], "tformat")
 t("Snipe", "狙击", "talent name")
 t([[Take aim for 1 turn, preparing a deadly shot. During the next turn, this talent will be replaced with the ability to fire a lethal shot dealing %d%% damage and marking the target.
@@ -30983,7 +30982,7 @@ t("You require a %s to use this talent.", "你需要装备 %s 才能使用这一
 t("missile launcher", "导弹发射器", "_t")
 t("You require ammo to use this talent.", "你需要弹药来使用技能。", "_t")
 t("Your ammo cannot be used.", "你的弹药不能使用。", "_t")
-t("Your ammo is incompatible with your missile launcher.", "你的弹药类型与导弹发射器不匹配。", "_t")
+t("Your ammo is incompatible with your missile launcher.", "你的弹药与你的远程发射武器不匹配。", "_t")
 t("bow", "弓", "_t")
 t("You require a missile launcher and ammo for this talent.", "你需要一件远程武器（弓、投石索等）和弹药才能使用这一技能。", "_t")
 t("You do not have enough ammo left!", "你没有足够的弹药！", "logPlayer")
@@ -31481,7 +31480,7 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 		Your Lure talent cooldown is reduced by 5.
 
 		You learn the following talents:
-%s]], [[通过对奥术之力的研究，你开发出了新的陷阱和毒药（由学习此进阶时掌握的技能决定）
+%s]], [[通过对奥术之力的研究，你找到了运用自己陷阱与毒药天赋的新方式。
 
 你在灵巧/毒药系和灵巧/陷阱系技能树上获得 1.0 系数。
 		你的毒素爆发技能冷却时间减少 3。
@@ -36590,11 +36589,11 @@ t([[Horrible visions fill your mind.
 #CRIMSON#Power 2+: %s%+d Luck, %+d Willpower
 #CRIMSON#Power 3+: %sHarrow: When a foe attempts to inflict a detrimental effect upon you, your harrowing aura retaliates against a random foe in range 10, dealing %d mind and %d darkness damage.
 #CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (summon Terrors and chances to slow, deal %d Mind damage, and deal %d Darkness damage) for 8 turns. The chance grows each time you are struck but fades over time.]], [[你的脑海中充斥恐怖景象。
-#CRIMSON# 惩罚：#WHITE# 扰乱幻象：当鉴定时，你的精神豁免有 20%%概率减少 %d%%
+#CRIMSON# 惩罚：#WHITE# 扰乱幻象：受检定时，你的精神豁免有 20%%概率减少 %d%%
 #CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志
 #CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。
-#CRIMSON# 强度 4+：%s 噩梦：每次受到目标攻击有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。]], "tformat")
+#CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。]], "tformat")
 t("#F53CBE#%s harrows %s!", "#F53CBE#%s惊扰%s！", "logSeen")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
 t("Nightmare", "梦魇", "_t")
@@ -36702,7 +36701,7 @@ t("Protected by the Eidolon", "受艾德隆保护", "_t")
 t("The target is protected by the Eidolon, no creature may harm it (except self-harm).", "目标受到艾德隆保护，没有生物可以伤害它（自残除外）。", "_t")
 t("undead", "亡灵", "effect subtype")
 t("Cloak of Deception", "欺诈斗篷", "_t")
-t("The target is under the effect of the cloak of deception, making it look human.", "目标受到欺诈斗篷的效果影响，使它看上去像活人一样。", "_t")
+t("The target is under the effect of the cloak of deception, making it look human.", "目标受到欺诈斗篷的效果影响，使它看上去像人类一样。", "_t")
 t("#LIGHT_BLUE#An illusion appears around #Target# making %s appear human.", "#LIGHT_BLUE##Target#周围的幻影让%s看起来像活着一样。", "tformat")
 t("+CLOAK OF DECEPTION", "+欺诈斗篷", "_t")
 t("#LIGHT_BLUE#The illusion covering #Target# disappears.", "#LIGHT_BLUE##Target#周围的幻影消失了。", "_t")
