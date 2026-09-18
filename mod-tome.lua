@@ -1622,9 +1622,8 @@ Feedback decays at the rate of 10% or 1 per turn (which ever is greater) dependi
 All damage you take from an outside source will increase your Feedback based on to how much of your health is lost and your level.  First level characters gain 100 Feedback when losing 50% health, while 50th level characters gain the same amount when losing 20% health.
 ]], [[#GOLD#反馈值#LAST#
 反馈值反映你能利用你的痛苦来释放灵能，可以用于释放反馈系技能。
-反馈值会以每回合10%的速率下降，且每回合至少下降1点。
-你从外界受到的所有伤害都会增加你的反馈值，增加的数值取决于你损失生命值的百分比和你的等级。
-1级人物在损失50%生命后获得100反馈值，而50级人物损失20%生命后获得同样多的反馈值。
+反馈值每回合按 10% 或 1 点（取较大者）衰减，具体衰减速率还受技能影响。
+你从外界受到的所有伤害都会增加你的反馈值，增加的数值取决于你损失生命值的百分比和你的等级。1级人物在损失50%生命后获得100反馈值，而50级人物损失20%生命后获得同样多的反馈值。
 ]], "_t")
 t([[#GOLD#Necrotic Aura#LAST#
 Represents the raw materials for creating undead minions.
@@ -2982,7 +2981,7 @@ t("Dark thoughts, black bloods, vile deeds... Those who spill their brethren's b
 t("Defilers are touched by the mark of evil. They are a blight on the world. Working to promote the cause of evil, they serve their masters, or themselves become masters.", "堕落系职业身上带有邪恶的印记，他们是世界的祸害。他们为邪恶事业效力，侍奉他们的主人，或者自己成为主人。", "_t")
 t("Reaver", "收割者", "birth descriptor name")
 t("Reap thee the souls of thine enemies, and the powers of darkness shall enter thy flesh.", "收割敌人的灵魂，你会发现黑暗的力量涌入体内。", "_t")
-t("Reavers are terrible foes, charging their enemies with a weapon in each hand.", "收割者是一个恐怖的对手，他可以向敌人挥舞两把单手武器。", "_t")
+t("Reavers are terrible foes, charging their enemies with a weapon in each hand.", "收割者是可怕的对手，他们双手各持一把武器向敌人发起冲锋。", "_t")
 t("They can harness the blight of evil, infecting their foes with terrible contagious diseases while crushing their skulls with devastating combat techniques.", "他们可以驾驭邪恶的枯萎术，一边将恐怖的传染病散布给敌人，一边以毁灭性的战斗技巧击碎他们的头颅。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -3045,7 +3044,7 @@ t("Psionic", "灵能系", "birth descriptor name")
 t("Weakness of flesh can be overcome by mental prowess. Find the way and fight for the way to open the key to your mind.", "肉体的软弱可以被精神的强大所克服。寻找道路，并为之奋战，以打开通往你精神世界的钥匙。", "_t")
 t("Psionics find their power within themselves. Their highly trained minds can harness energy from many different sources and manipulate it to produce physical effects.", "灵能力者发掘自身的潜在力量。他们经过高度开发的精神力能够利用许多不同的能量源吸收能量，并对现实世界产生影响。", "_t")
 t("Mindslayer", "心灵杀手", "birth descriptor name")
-t("A thought can inspire; a thought can kill. After centuries of oppression, years of imprisonment, a thought shall break us free and vengeance will strike from our darkest dreams.", "思想可以鼓舞人，思想也能杀人，在几个世纪的压抑、数年的监禁之后，我们心中的复仇思想会从我们最黑暗的梦境中爆发。", "_t")
+t("A thought can inspire; a thought can kill. After centuries of oppression, years of imprisonment, a thought shall break us free and vengeance will strike from our darkest dreams.", "思想可以鼓舞人，思想也能杀人。历经数个世纪的压迫、数年的囚禁，一个念头终将使我们挣脱束缚，而复仇将从我们最黑暗的梦境中降临。", "_t")
 t("Mindslayers specialize in direct and brutal application of mental forces to their immediate surroundings.", "心灵杀手专门使用直接而残酷的精神力量来对付周围的敌人。", "_t")
 t("When Mindslayers do battle, they will most often be found in the thick of the fighting, vast energies churning around them and telekinetically-wielded weapons hewing nearby foes at the speed of thought.", "心灵杀手在战斗时，大多会出现在战场中心，庞大的能量在他们周围翻涌，念动力操控的武器以思想般的速度砍伐附近的敌人。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
@@ -9978,7 +9977,7 @@ t(" of sorcery", "幻术之", "entity name")
 t("sorcery", "幻术", "entity keyword")
 t(" of mindcraft", "心灵锻造之", "entity name")
 t("mindcraft", "心灵锻造", "entity keyword")
-t("spellcowled ", "暗影蒙面的", "entity name")
+t("spellcowled ", "法术兜帽的", "entity name")
 t("spellcowled", "暗影蒙面", "entity keyword")
 t("marshal's ", "元帅的", "entity name")
 t("marshal", "元帅", "entity keyword")
@@ -18054,13 +18053,13 @@ Their capital city is Shatur, hidden deep within the northern woods, and they ar
 
 Those who choose to leave the fastness of the forest tend to be of unique disposition with unusual attitudes and traits. Oft they are musicians, bowmasters or skilled warriors. However they are sometimes mistrusted heavily, as rumour has it that many of those who leave Shatur are actually criminals expelled for the very worst crimes. In any case they tend to be natural loners who wander the world on their own personal quests.
 
-The Thaloren do business very rarely with the outside world, but when they do it is normally for metals and certain foodstuffs that they cannot get themselves. Usually in trade they sell woodcraft and fine silks. This is the only legal source of elven-wood, a rare commodity that is often sought after for fletchwork. Black market sources rely on poachers to cut trees from the Shatur forest - an immensely risky business, but also very profitable for the high prices paid by Shaloren mages for an elven-wood staff.]], [[自然精灵（或木精灵——“自然之怒”）通常身高6英尺4英寸左右，有着棕黑色的头发和淡褐色或绿色的眼睛。他们有着发达的肌肉和强悍的物理战力，并且以他们渴望杀戮的心态闻名——激烈的战斗就是他们欢乐的歌谣。因为厌恶同族兄弟对魔法的使用，他们与永恒精灵互相敌视。
+The Thaloren do business very rarely with the outside world, but when they do it is normally for metals and certain foodstuffs that they cannot get themselves. Usually in trade they sell woodcraft and fine silks. This is the only legal source of elven-wood, a rare commodity that is often sought after for fletchwork. Black market sources rely on poachers to cut trees from the Shatur forest - an immensely risky business, but also very profitable for the high prices paid by Shaloren mages for an elven-wood staff.]], [[自然精灵（或木精灵——字面意为「愤怒的同胞」）平均身高约 6 英尺 4 英寸，有着深棕色的头发和淡褐色或绿色的眼睛。他们大多体格健硕，以强悍的体魄闻名。他们以喜怒无常的性情著称——既会骤然陷入狂暴的杀戮，也会同样迅捷地放声欢歌。他们与永恒精灵的关系尤为紧张，因为他们强烈反对同族对魔法的使用。
 
-他们的首都在夏特尔，隐藏在北部丛林的深处，并且他们不允许任何外来者接近森林周围。弓箭手和战士们认真的巡逻边境，他们将会从树上给任何靠近的人带来死亡。他们的领袖是王后奈希拉·坦泰兰，据说他们生活在巨大的树腹中，但是他们的社会很少为人所知。
+他们的首都是夏特尔，深藏于北方的丛林之中；他们厌恶任何外来者，甚至不容外人接近周围的森林。弓箭手与战士小心地巡守边界，随时准备从树上向任何入侵者倾泻死亡。他们的领袖是女王奈希拉·坦泰兰，据说他们居住在雕凿于巨树之中的宽敞居所里，但外界对他们的社会所知甚少。
 
-那些离开森林的精灵则出于一种不同的态度和独特的生活观念。他们通常是音乐家、弓术大师或战斗大师。不过他们通常不被信任，因为有传言说他们是被夏特尔放逐出来的重犯。不管出于何种原因，他们都是为信仰而走向世界的自然宠儿。
+那些选择离开这片森林堡垒的精灵，往往性情独特、态度与秉性异于常人。他们常是乐师、弓术大师或身手不凡的战士。不过他们有时也备受猜忌，因为传言说许多离开夏特尔的人其实是因最恶劣的罪行而被放逐的罪犯。无论如何，他们大多是天生的独行者，为着各自的个人追寻而浪迹世界。
 
-自然精灵很少与外界交易，只有为不能自给自足的商品如金属或食物，他们才会对外交易。他们通常出售木制品和上等的丝绸。这是购买到精灵木的唯一合法方法——那是一种非常稀有、用于透雕细工的珍贵木材。黑市资源则主要依赖于对夏特尔树木的偷伐——一项高风险的工作，但同样永恒精灵们会为制作精灵木法杖而付出一笔可观的金钱。]], "_t")
+自然精灵极少与外界通商，一旦通商，通常是为了换取他们无法自给的金属和某些食物。他们通常出售木制品和上等丝绸。这是精灵木的唯一合法来源——那是一种珍稀商品，常被用于制箭。黑市货源则依赖偷猎者从夏特尔森林中盗伐树木——这是一桩极其危险的营生，但也利润丰厚，因为永恒精灵法师愿为一根精灵木法杖付出高价。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 6 - Naloren (extinct)", "博学者格雷诺特关于人种的调查——第六章——纳鲁精灵（灭绝）", "_t")
 t([[The Naloren (or Nalore - lit "siblings of spirit") are now an extinct race, as their homeland was swept into the sea by the Cataclysm. However as a separate elf race they are worth studying, scant though the records be. Much of what is now said about the Naloren is traced with myth, but one can deduce certain facts.
 
@@ -18068,13 +18067,13 @@ Naloren elves were around 5'10", with blonde hair and green eyes. They were incr
 
 They traded little with the other races, and were very protective of their coastal lands. They most especially guarded jealously an ancient Sher'Tul ruin that lay in the centre of their territories. The Shaloren were in particular keen to study this relic, but the Naloren always refused them access, though they were too afraid to touch it themselves. The orcs were said to encroach on their lands often, but were always fought back by their mail-clad warriors wielding vicious tridents.
 
-Alas their love of the sea was to be their undoing. When the Cataclysm came the whole of the coastal kingdom was shorn away and fell into the sea, annihilating almost the entire race. What small numbers survived committed suicide soon after by leaping from the eastern cliffs into the ocean, following their fallen brothers and sisters. Almost no evidence of their civilisation remains.]], [[纳鲁精灵（或纳精灵——“精神之源”）是一支绝迹的种族，他们的大陆因大灾变的影响而沉入大海。不过，作为精灵族的分支种族，他们还是很多值得研究的地方，虽然历史记载很少。许多人说纳鲁精灵是虚构出来的，但是有人可以推测出某些史实。
+Alas their love of the sea was to be their undoing. When the Cataclysm came the whole of the coastal kingdom was shorn away and fell into the sea, annihilating almost the entire race. What small numbers survived committed suicide soon after by leaping from the eastern cliffs into the ocean, following their fallen brothers and sisters. Almost no evidence of their civilisation remains.]], [[纳鲁精灵（或纳精灵——字面意为「精魂同胞」）如今已是绝迹的种族，他们的家园在大灾变中被卷入大海。不过作为一支独立的精灵种族，他们仍有诸多值得研究之处，尽管留存的记载十分稀少。如今关于纳鲁精灵的说法大多掺杂着神话，但仍能从中推断出某些史实。
 
-纳鲁精灵大约在5英尺10英寸左右，有着亚麻色的长发和绿色的眼睛。他们非常瘦弱，但却以敏捷的身手和灵巧的行动而闻名。他们的王国座落在马基·埃亚尔的东部地区，并且他们所有的城镇都建在海边或者河边。他们擅长捕鱼、采集海绵、航海和音乐。他们同样以超长的水下屏息能力而闻名，并且那些掌握了魔法的人甚至可以做到水下呼吸。
+纳鲁精灵身高约 5 英尺 10 英寸，有着亚麻色的头发和绿色的眼睛。他们身形极为纤瘦，却以迅捷灵巧的身手著称。他们的王国位于马基·埃亚尔的东部，所有城镇都濒海而建或横跨大河。他们以捕鱼、采海绵、航海和奏乐为业。他们以能在水下连续停留数小时而闻名，而那些拥有奥术之力者据说能无限期地潜藏于水中。
 
-他们很少与外界交易，并且很重视他们的土地。他们尤其小心守护的是他们领土中心一个古老的夏·图尔遗迹。永恒精灵们非常渴望研究它们，虽然纳鲁们自己很害怕接触它，但是却始终拒绝永恒精灵们进入。据说兽人们经常侵略他们的边境，但是总能被他们武装整齐、手持三叉戟的精锐战士击退。
+他们很少与其他种族往来，并极力守护自己的沿海领土。他们尤其小心地守护着位于其领地中心的一处古老夏·图尔遗迹。永恒精灵尤为渴望研究这处遗物，但纳鲁精灵始终拒绝他们进入，尽管他们自己也不敢触碰它。据说兽人时常侵扰他们的土地，但总被他们身披锁甲、手持凶恶三叉戟的战士击退。
 
-可悲的是他们对大海的爱已成往事。当大灾变来临之时，整个半岛王国四分五裂、沉入大海，整个种族几乎毁灭。所剩无几的幸存者决定从东边悬崖跳海自杀，追随他们已逝的兄弟姐妹。整个文明都基本消弭了。]], "_t")
+可叹的是，他们对大海的热爱最终成了他们的祸根。大灾变来临时，整个沿海王国被撕裂并坠入大海，几乎令整个种族就此覆灭。所剩无几的幸存者不久后也纵身跃下东部悬崖、投入海洋，追随他们逝去的兄弟姐妹而去。他们的文明几乎没有留下任何痕迹。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 7 - Ogres", "博学者格雷诺特关于人种的调查——第七章——食人魔", "_t")
 t([[Ogres have never been a thriving race, starting from their abrupt appearance as soldiers and laborers for the Conclave during the Allure Wars (unexplained aside from a highly implausible story from the Conclave's Overseers about a lost mountain tribe).  Left without homes or proper runic training after the war's end, they were forced to found their own tribes and rediscover the fields of rune and infusion creation for themselves, and though their numbers dropped rapidly, they enjoyed a brief period of relative success as nomadic rune-traders, virtually unaffected by the Spellblaze.  The Spellhunt nearly proved to be their undoing, as their monstrous size and rune-covered skin made them popular targets; they were thought to be extinct, and only in recent years has the city of Elvala revealed that some Ogres took refuge there during this time.  Their descendants still live today, fearful of persecution but gradually beginning to explore outside Elvala for the first time in ages.
 
@@ -20485,7 +20484,7 @@ t("Desperate Measures", "绝望手段", "_t")
 t("You have encountered a dying sun paladin that told you about the orcs breeding pit, a true abomination.", "你遇到了一个垂死的太阳骑士，他告诉了你有关兽人育种棚的消息，那是一个真正的梦魇。", "_t")
 t("You have decided to report the information to Aeryn so she can deal with it.", "你已经决定把这个消息报告给艾琳，让她处理此事。", "_t")
 t("Aeryn said she would send troops to deal with it.", "艾琳说她会派军队去处理。", "_t")
-t("You have taken upon yourself to cleanse it and deal a crippling blow to the orcs.", "你决定自己行动，清理了它，对兽人造成了致命的打击。", "_t")
+t("You have taken upon yourself to cleanse it and deal a crippling blow to the orcs.", "你已决意亲自清除此地，给兽人以沉重的一击。", "_t")
 t("The abominable task is done.", "这个可怕的任务完成了。", "_t")
 t("Entrance to the orc breeding pit", "兽人育种棚的入口", "_t")
 
@@ -21620,7 +21619,7 @@ t([[Creates a shadowy copy of a hostile target. The copy will attack its progeni
 		复制体拥有目标 %d%% 的生命值、+50%% 暗影抗性和 -50%% 光系抗性，造成的伤害降低 50%%。
 		持续时间和生命值随你的灵巧属性提高。]], "tformat")
 t("Jumpgate Two", "跃迁之门II", "talent name")
-t("Create a second shadow jumpgate at your location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.", "在你当前位置创造第 2 个跃迁之门，你可以使用跃迁之门：传送技能将你传送至这个位置，距离不超过 %d 码。", "tformat")
+t("Create a second shadow jumpgate at your location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.", "在你当前位置创造第二个暗影跃迁之门。只要你维持本法术，便可使用「跃迁之门II：传送」立即传送至该跃迁之门，只要你在其 %d 码范围内。", "tformat")
 t("Jumpgate Two: Teleport To", "跃迁之门II：传送", "talent name")
 t("You must sustain the Jumpgate Two spell to be able to teleport.", "你必须开启跃迁之门II技能才能传送。", "logPlayer")
 t("Instantly travel to your second jumpgate, as long as you are within %d tiles of it.", "立即传送你至先前创造的第 2 个跃迁之门，距离不超过 %d 码。", "tformat")
@@ -22294,13 +22293,11 @@ t([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that 
 		The mines are hidden traps (%d detection and %d disarm power based on your Magic), last for %d turns, and each have a ten turn cooldown.
 		Investing in this talent improves the range of all Spacetime Folding talents and the damage caused by your Warp Mines will improve with your Spellpower.
 		
-		Current Spacetime Folding Range: %d]], [[学会在半径 1 的范围内埋设时空地雷，造成 %0.2f 物理和 %0.2f 时空伤害。
-		时空地雷能将敌人传送，到你身边或者传到远处。
-		地雷是隐藏的陷阱（%d 侦查强度 %d 解除强度基于魔法），持续 %d 回合，有 10 回合冷却时间。
-		在该技能上投入点数能增加时空折叠系技能的半径。
-		地雷伤害受法术强度加成。
-
-		当前半径：%d]], "tformat")
+		Current Spacetime Folding Range: %d]], [[学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
+		地雷是隐藏的陷阱（侦测强度 %d、拆除强度 %d，基于你的魔法），持续 %d 回合，各有 10 回合冷却时间。
+		在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。
+		
+		当前时空折叠范围：%d]], "tformat")
 t("Spatial Tether", "时空系绳", "talent name")
 t("You can't place a tether here", "你不能在这里放置时空系绳。", "logPlayer")
 t("%s's spatial tether", "%s的时空系绳", "tformat")
@@ -23441,7 +23438,7 @@ t("Enhances your Deadly Poison with an insidious agent, causing it to reduce the
 t("Crippling Poison", "致残毒素", "talent name")
 t("Enhances your Deadly Poison with a crippling agent, giving enemies a %d%% chance on using a talent to fail and lose a turn.", "在你的武器上涂上致残毒素，中毒目标每次使用技能都有 %d%% 概率失败并流失 1 回合时间。", "tformat")
 t("Leeching Poison", "吸血毒素", "talent name")
-t("Enhances your Deadly Poison with a leeching agent, causing it to heal you for %d%% of the damage it does to its target.", "在你的武器上涂上吸血毒素，你受到中毒伤害 %d%% 的治疗。", "tformat")
+t("Enhances your Deadly Poison with a leeching agent, causing it to heal you for %d%% of the damage it does to its target.", "以吸血成分强化你的致命毒素，使其对目标造成的伤害按 %d%% 转化为对你的治疗。", "tformat")
 t("Volatile Poison", "易爆毒素", "talent name")
 t("Enhances your Deadly Poison with a volatile agent, causing the poison to deal %d%% increased damage to the victim and damage all of your enemies adjacent to it for 50%%.", "在你的武器上涂上传染毒素，毒素造成额外 %d%% 伤害，且会对周围敌人造成 50%% 的伤害。", "tformat")
 t("Vulnerability Poison", "脆弱毒素", "talent name")
@@ -23489,7 +23486,7 @@ section "mod-tome/data/talents/cunning/shadow-magic.lua"
 
 t("Shadow Combat", "影之格斗", "talent name")
 t([[Channel raw magical energy into your melee attacks; each blow you land will do an additional %.2f darkness damage.
-		The damage will improve with your Spellpower.]], [[在你的武器上注入一股黑暗的能量，每次攻击会造成 %.2f 暗影伤害。
+		The damage will improve with your Spellpower.]], [[将原始的魔法能量灌注到你的近战攻击中，你每次成功命中都会额外造成 %.2f 暗影伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Shadow Cunning", "影之狡诈", "talent name")
 t("Your preparations give you greater magical capabilities. You gain a bonus to Spellpower equal to %d%% of your Cunning (Current bonus: %d).", "你的充分准备提高了你的魔法运用能力。增加相当于你 %d%% 灵巧的法术强度。目前的法术强度加成：%d。", "tformat")
@@ -26602,7 +26599,7 @@ t([[You are light on your feet, handling your armour better. Each step you take 
 		At level 3 you are able to walk so lightly that you never trigger traps that require pressure.]], [[你的步伐很轻快，使你能更好的适应盔甲的重量。每移动一步你可以回复 %0.2f 体力，并且你的疲劳值永久减少 %0.1f%%。
 		在等级3时你的脚步非常轻快，以至于你不会触发压力式陷阱。]], "tformat")
 t("Strider", "凌波微步", "talent name")
-t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避技能 %d 回合。", "tformat")
+t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避的冷却时间 %d 回合。", "tformat")
 t("Charm Mastery", "饰品掌握", "talent name")
 t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑，使你可以更加有效的使用饰品（魔杖、图腾和项圈），减少 %d%% 饰品的冷却时间。", "tformat")
 t("Piercing Sight", "洞察视界", "talent name")
@@ -26943,7 +26940,7 @@ t([[Your mind becomes more attuned to the Way, and is shielded from outside effe
 		Increase confusion and silence immunities by %d%% and Mental Save by %d.]], [[你的心智与维网更加协调，并得到保护，不受外界影响。
 		混乱和沉默免疫提高 %d%%，精神豁免提高 %d 点。]], "tformat")
 t("Quickened", "迅捷", "talent name")
-t("#RED#%s reacts immediately after taking severe wounds!#LAST#", "#RED#%s受伤后反应迅速！#LAST#", "logSeen")
+t("#RED#%s reacts immediately after taking severe wounds!#LAST#", "#RED#%s在受到重伤后立即作出反应！#LAST#", "logSeen")
 t([[Yeeks live fast, think fast, and sacrifice fast for the Way.
 		Your global speed is increased by %0.1f%%.
 		If your life is below 30%% after taking damage you gain 1.5 turns.  This effect can only happen once every %d turns.]], [[夺心魔为维网而活得快、思考得快，也牺牲得快。
@@ -27062,7 +27059,7 @@ t("Forcefield", "灵能场", "talent name")
 t([[Surround yourself with a forcefield, reducing all incoming damage by %d%%.
 		Such a shield is very expensive to maintain, draining 5%% of your maximum psi per turn initially plus an addition 5%% for each turn it has been maintained. For example, on turn 2 it will drain 10%%.
 		Current drain rate: %0.1f psi/turn]], [[用力场环绕自己，减少受到的所有伤害 %d%%
-		维持这样的护盾代价非常昂贵，开启的第一回合会消耗你 5%% 的灵能值，之后每维持一回合就会多消耗 5%% 的灵能值。例如，第二回合会消耗 10%% 的灵能值。
+		维持这样的护盾代价非常昂贵：初始每回合消耗你 5%% 的最大灵能值，此后每多维持一回合再额外增加 5%%。例如第 2 回合会消耗 10%%。
 		目前的灵能值消耗：每回合 %0.1f 灵能值]], "tformat")
 
 ------------------------------------------------
@@ -31121,7 +31118,7 @@ t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要
 t([[Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.
 		This strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).
 		If the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.]], [[使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害，无视闪避和躲闪效果。
-		这次攻击在敌人身上造成可怕的内伤，在四回合内造成相当于攻击伤害的 100%% 的物理伤害，每回合增加 %d%% (4 回合后，总共造成 %d%% 伤害)。
+		这次攻击在敌人身上造成可怕的内伤，在之后的 4 回合内，每回合都造成相当于本次攻击所造成伤害 100%% 的物理伤害，且每回合递增 %d%%（因此 4 回合后共计造成 %d%% 伤害）。
 		如果目标死在该效果下，他们身体会爆炸，并让半径 %d 内的敌人受到等于他们当前回合的点穴伤害的物理伤害，并给你 4 点连击点。]], "tformat")
 
 ------------------------------------------------
@@ -31472,9 +31469,9 @@ t("Have been exposed to the void of space", "曾去过无尽虚空", "_t")
 t("#ORCHID#Aether Permeation protects %s from a dispel!", "#ORCHID#以太渗透保护 %s 抵消了驱散！", "logSeen")
 t([[You manifest a thin layer of aether all around you. 
 		Any time you are the target of a dispel effect the aether strengthens around you, protecting you from the dispel and any further ones for 6 turns and unsustaining this spell.
-		While undisturbed the layer of aether provides you with 40 raw spellpower.]], [[你在身边形成薄薄的一层以太层。
-		每当你受到解除效果的影响，以太层会在你的身边强化，保护你免受这一解除效果的影响，并在 6 回合内不受解除，然后关闭这一技能。
-		当这一以太层保持的时候，你获得 40 法术强度。]], "tformat")
+		While undisturbed the layer of aether provides you with 40 raw spellpower.]], [[你在身边形成薄薄的一层以太。
+		每当你成为解除效果的目标时，以太便会在你周围强化，使你免受该次解除以及此后 6 回合内的任何解除，并同时终止本持续法术。
+		只要不受干扰，这层以太便为你提供 40 点原始法术强度。]], "tformat")
 t("Mystical Cunning", "魔之秘术", "talent name")
 t("Know how to either prepare traps or apply poisons", "掌握陷阱或者毒药技能", "_t")
 t([[Your study of arcane forces has let you develop a new way of applying your aptitude for trapping and poisons.
@@ -39255,7 +39252,7 @@ t("Wrathroot", "狂怒树精", "entity name")
 t("The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.", "这棵古老的灰色柳树，古老森林的统治者。他蔑视一切闯入他领地的入侵者。", "_t")
 t("and digested by treants", "并被树人们化为养分", "_t")
 t("cute little bunny", "可爱的小白兔", "entity name")
-t("It looks at you with cute little eyes before jumping at you with razor sharp teeth.", "它用无辜的眼神看着你，同时用剃刀般锋利的牙齿扑向你。", "_t")
+t("It looks at you with cute little eyes before jumping at you with razor sharp teeth.", "它用无辜的眼神看着你，随即用剃刀般锋利的牙齿扑向你。", "_t")
 t("(how pathetic)", "（真可怜！）", "_t")
 t("Snaproot", "远古树精", "entity name")
 t("This ancient Treant's bark is scorched almost black. It sees humanity as a scourge, to be purged.", "这棵远古树人的树皮被烧得几乎焦黑。它视人类为必须清除的祸害。", "_t")
@@ -40068,7 +40065,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Urkis, the High Tempest", "风暴魔导师厄奇斯", "entity name")
 t("Lightning crackles around this middle-aged man. He radiates power.", "电弧在这名中年男子周围劈啪作响。他散发着力量。", "_t")
-t("and used in mad electrical reanimation experiments", "并被作为他疯狂的闪电魔法的实验品", "_t")
+t("and used in mad electrical reanimation experiments", "并被用于他疯狂的电击复活实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/tempest-peak/zone.lua"
@@ -40712,7 +40709,7 @@ t("Bill the Stone Troll", "岩石巨魔比尔", "entity name")
 t([[Big, brawny, powerful and with a taste for Halfling.
 He is wielding a small tree trunk and lumbering toward you.
 This is the troll the notes spoke about, no doubt.]], "高大、强壮且嗜食半身人。他手持一柄小巧的树干并冲向你。这就是手稿里提到的那只巨魔，没跑了……", "_t")
-t("and clobbered into soup", "并被煮成汤", "_t")
+t("and clobbered into soup", "并被打成肉泥", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Aluin the Fallen", "堕落骑士阿鲁因", "entity name")
