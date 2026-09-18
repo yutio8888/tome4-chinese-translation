@@ -4118,7 +4118,7 @@ t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你
 t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基·埃亚尔唯一的堕落印记——清除印记哦。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
-t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们肯定不希望我来坐这个位置的，因此你越快动身越好。现在，你选择帮我完成哪个药剂吧：蛮牛药剂？石肤药剂？还是领悟药剂？哦，应该说药剂（Elixirs）。不是酿造物（Brews）。最好现在就开始改口，我想。", "_t")
+t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们可不会闲着等我们慢慢来，所以你越快动身越好。现在，你选择帮我完成哪个吧：蛮牛佳酿？石肤佳酿？还是领悟佳酿？哦，应该说药剂才对。不是佳酿。最好现在就开始改口，我想。", "_t")
 t("The %s.", "%s。", "tformat")
 t("Right, here's the list. Oh, one more thing. Got me some fellas already out hunting for this stuff, and I'll not play favorites. One of them brings me those ingredients before you do, and you're out of luck. Hurry back.", "OK，这里是材料的清单。哦对了，另外还有一件事，有几个家伙已经出发帮我找这些材料了，我一视同仁，要是其中有人先把材料找到给我带来的话，那你就只能自认倒霉了，动作快点吧。", "_t")
 t("I'll be off.", "我走了。", "_t")
@@ -12829,7 +12829,7 @@ t("venomous gemstone", "剧毒宝石", "_t")
 t("A thick venom drips from this mindstar.", "凝厚的毒液不断地从这个灵晶上滴落。", "_t")
 t("Corpathus", "束缚之剑·卡帕萨斯", "entity name")
 t("bound sword", "被束缚的长剑", "_t")
-t("Thick straps encircle this blade. Jagged edges like teeth travel down the blade, bisecting it. It fights to overcome the straps, but lacks the strength.", "这把剑被厚重的带所束缚。两排锯齿状的锋刃沿着剑身直到剑柄，它试图挣脱带子的束缚，但似乎缺乏足够的力量。", "_t")
+t("Thick straps encircle this blade. Jagged edges like teeth travel down the blade, bisecting it. It fights to overcome the straps, but lacks the strength.", "厚重的革带紧缚着这把剑。锯齿般的锋刃沿着剑身纵贯而下，将其一分为二。它试图挣脱革带的束缚，但似乎缺乏足够的力量。", "_t")
 t("grows dramatically in power", "大幅增加强度", "_t")
 t("grows in power", "增加强度", "_t")
 t("Corpathus bursts open, unleashing a horrific mass!", "卡帕萨斯爆裂开来，放出了一团恐怖的物质！", "logSeen")
@@ -13199,7 +13199,7 @@ t("#GREEN#Shantiz strikes down a projectile!", "#GREEN#风暴之刃击落了抛�
 t("Swordbreaker", "破剑匕", "entity name")
 t("hooked blade", "带锯齿的匕首", "_t")
 t("This ordinary blade is made of fine, sturdy voratun and outfitted with jagged hooks along the edge. This simple appearance belies a great power - the hooked maw of this dagger broke many a blade and the stride of many would-be warriors.", "这柄普通的匕首是由精制坚硬的沃瑞钽制成的，配有锯齿钩边。看似平凡的外表背后潜藏着强大的力量——它破坏过诸多刀刃，收割走那些战士的生命和未来。", "_t")
-t("Can block like a shield, potentially disarming the enemy.", "可以像盾牌一样格挡，并缴械目标。", "_t")
+t("Can block like a shield, potentially disarming the enemy.", "可以像盾牌一样格挡，并可能缴械目标。", "_t")
 t("Breaks enemy weapon.", "破坏对方武器。", "_t")
 t("Shieldsmaiden", "女武神之心", "entity name")
 t("icy shield", "冰冻的盾", "_t")
@@ -13646,7 +13646,7 @@ t("This tooth has been blunted with age, but still looks more than capable of do
 t("Ice Wyrms lose teeth fairly often, so you might get lucky and not have to do battle with one. But dress warm just in case.", "冰龙每隔一段时间会换齿，所以你幸运的话，可以捡到几颗而不需要和它战斗。保险起见穿的暖和点……", "_t")
 t("red crystal shard", "红色水晶碎片", "entity name")
 t("Tiny flames still dance ethereally inside this transparent crystal, though its heat seems to have faded... you hope.", "小巧的火焰依然在这颗透明的水晶里轻盈舞动，尽管它的热量似乎已经消退……你希望如此。", "_t")
-t("I hear these can be found in a cave near Elvala. I also hear that they can cause you to spontaneously combust, so no need to explain if you come back hideously scarred.", "我听说这些小家伙可以在埃尔瓦拉附近的洞穴里找到。我还听说它们会使你自燃，所以当你高度烧伤回来的话，不要向我诉苦。", "_t")
+t("I hear these can be found in a cave near Elvala. I also hear that they can cause you to spontaneously combust, so no need to explain if you come back hideously scarred.", "我听说这些东西可以在埃尔瓦拉附近的洞穴里找到。我还听说它们会使你自燃，所以要是你回来时遍体伤疤，也用不着解释了。", "_t")
 t("vial of fire wyrm saliva", "一瓶火龙涎", "entity name")
 t("Clear and slightly thicker than water. It froths when shaken.", "龙涎比水更加粘稠，和水一样清澈，当你摇晃它时会有泡沫产生。", "_t")
 t("Keep this stuff well away from your campfire unless you want me to have to find a new, more alive adventurer.", "把这个瓶子离你的篝火远一些，我可不想明天重新找一个活的冒险家。", "_t")
@@ -17803,7 +17803,7 @@ Now that this has been clearly analysed in logical terms, one must consider the 
 
 However there remains the matter of the Sher'Tul. Clearly these were of greater power than us, and yet they disappeared. One must presume that our god made this race before us, but was somehow unhappy with them, and so removed them and made us instead. We are not as powerful as the Sher'Tul - not yet at least - but we have our own gifts that evidently give us a greater place in our creator's heart. This would explain why we were the first race to unlock the powers of the Sher'Tul farportals. We had a natural affinity to the works of our elder brethren.
 
-So what happened to these gods after they had made the races which we see today? One must presume strife between them, and that they killed themselves, or took their battle away from the world. Our creator, seeing the other gods killed or left, must have then entrusted the world to us halflings, knowing that we would rule over it in his stead. This is why at every point in history we have played a pivotal role in the shaping of our world. It is our rightful inheritance, and it is our duty to rule it well.]], [[关于这个创世的故事有许多版本，有的荒诞不经，有的浪漫无比，有的则令人恐惧。但他们都只不过是神话而已，即使它们中最可信的故事都连真相的脚后跟都触及不到。我们的种族历史悠久，但是与其它种族有交集前的历史记载较为稀少。讽刺的是，与其它种族的战斗组成了我们历史的大部分篇章。
+So what happened to these gods after they had made the races which we see today? One must presume strife between them, and that they killed themselves, or took their battle away from the world. Our creator, seeing the other gods killed or left, must have then entrusted the world to us halflings, knowing that we would rule over it in his stead. This is why at every point in history we have played a pivotal role in the shaping of our world. It is our rightful inheritance, and it is our duty to rule it well.]], [[关于这个创世的故事有许多版本，有的荒诞不经，有的浪漫无比，有的则令人恐惧。但他们都只不过是神话而已，即使其中最可信的也只包含些许真相的种子。我们的种族历史悠久，但是与其它种族有交集前的历史记载较为稀少。事实上，唯有通过与其它种族的战争，我们才留下了这些古老的记载。
 
 精灵们可能拥有关于古代历史最多的知识，但他们对此沉默寡言。一种普遍的推测是真正的历史要么就并不为其所知，要么就是会让其蒙羞而被故意隐藏了起来。而后者一点都不会让我们感到奇怪。
 
@@ -17813,13 +17813,13 @@ So what happened to these gods after they had made the races which we see today?
 
 对于神明的研究当然是道难题，苦于今日并没有发现什么神圣力量残存于世。可是世界并不是凭空创造出来的，就算是伟大的夏·图尔也只是凭着自己的意愿改造世界而已，他们并没有创世。
 
-先从理论上来看，只能推测出是一种伟大的存在创造了这个世界。他一定亲切又和蔼，因为很明显最终他牺牲了自己创造了大陆上繁荣的生命，而我们半身人正是他伟大的产物。我们可以说是唯一真正能够欣赏这个世界的种族。我们不会像永恒精灵一样用奇怪的魔法力量扭曲这个世界，亦不会像自然精灵一样消极避世。我们不会像兽人一样带来无尽的破坏，也不会像矮人一样贪婪无度。而且，我们所理解和掌握的知识比起人类来实在先进太多，真不明白为何要和弱智的人类分享这个世界。我们半身人一定是现存种族里最先被创造出来的，这显然赋予了我们天生对马基·埃亚尔的归属感。
+先从理论上来看，只能推测出是一种伟大的存在创造了这个世界。他一定亲切又和蔼，因为很明显他创造了大陆上繁荣的生命，而我们半身人正是他伟大的产物。我们可以说是唯一真正能够欣赏这个世界的种族。我们不会像永恒精灵一样用奇怪的魔法力量扭曲这个世界，亦不会像自然精灵一样消极避世。我们不会像兽人一样带来无尽的破坏，也不会像矮人一样贪婪无度。而且，我们所理解和掌握的知识比起人类来实在先进太多，真不明白为何要和他们分享同一个世界。我们半身人一定是现存种族里最先被创造出来的，这显然赋予了我们对马基·埃亚尔天然的所有权。
 
-现在从逻辑上来说已经很清楚了，必须考证其他种族的起源。因为他们不可能由同一个上帝所创造——真的不可能。是什么神奇的存在创造了我们的种族，使我们如此全面而有天赋，然后再创造那些丑陋的智商低下的生物类似于矮人和人类？不，很显然其他创造者也很负责，但比起我们的创造者来差了一些。只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美。
+现在从逻辑上来说已经很清楚了，必须考证其他种族的起源。因为他们不可能由同一个上帝所创造——真的不可能。是什么神奇的存在创造了我们的种族，使我们如此全面而有天赋，然后再创造那些畸形扭曲的生物，比如矮人和人类？不，很显然其他创造者也很负责，但比起我们的创造者来差了一些。只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美。
 
-然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们返工制成了我们。虽然我们没有夏·图尔人那么强大——没有至少——但是我们有自己的礼物——那就是在我们伟大的创造者心中，我们占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔传送门的种族。因为我们和我们的兄弟种族有着天然的联系。
+然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们移除，另外创造了我们。虽然我们没有夏·图尔人那么强大——至少目前还没有——但是我们有自己的天赋，显然在我们伟大的创造者心中占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔传送门的种族。因为我们和我们的兄弟种族有着天然的联系。
 
-那么在那些神创造了这些种族后又发生了什么？肯定是他们之间发生了纠葛，或者他们同归于尽，亦或是他们的战场远离了这个世界。我们的创造者，看到其他众神，或是被杀或是离开，肯定是将这个世界委托给了我们半身人，因为他知道我们将代替他掌管这个世界。这使我们拥有合法继承权，我们也有职责管理好它。]], "_t")
+那么在那些神创造了这些种族后又发生了什么？肯定是他们之间发生了纠葛，或者他们同归于尽，亦或是他们的战场远离了这个世界。我们的创造者，看到其他众神，或是被杀或是离开，肯定是将这个世界委托给了我们半身人，因为他知道我们将代替他掌管这个世界。这就是为何在历史的每一个节点上，我们都在世界的塑造中扮演了关键角色。这是我们当之无愧的继承权，治理好这个世界也是我们的职责。]], "_t")
 t("eyal", "埃亚尔", "newLore category")
 t("Tale of the Moonsisters", "月亮姐妹的传说", "_t")
 t([[Eyal was raised from Darkness,
@@ -17956,9 +17956,9 @@ Chapter 8 - Orcs (extinct)
 Chapter 9 - Sher'Tul (extinct)
 Chapter 10 - Monstrous Races
 Chapter 11 - Dragons
-]], [[我从这里开始，来对马基·埃亚尔大陆上的所有智慧种族进行充分和全面的分析。尽管这是一项庞大的计划，不过它已经有了许多年的准备，包括我在马基·埃亚尔大陆的跨国旅途中对最高统治者和圣贤们的访问。我从众人所知的常识、对高层的独家采访以及数万页有些甚至可以追溯到数个世纪前的历史记录中进行资料的搜集和整理。
+]], [[我从这里开始，来对马基·埃亚尔大陆上的所有智慧种族进行充分和全面的分析。尽管这是一项庞大的计划，不过它已经有了许多年的准备，包括我在马基·埃亚尔各王国的旅途中与许多最高统治者和最博学的圣贤们的当面会晤。我从众人所知的常识、独家采访以及数千页典籍与历史——其中有些甚至可以追溯到数十个世纪前——中进行资料的搜集和整理。
 
-我自己就是一个高等人类，效力于公正之王托拉克，但是我尽量从客观的角度来叙述各个种族的历史。我等着同行们对我的工作进行评价。
+我自己就是一个高等人类，效力于公正之王托拉克的朝廷，但是我尽量从纯粹中立的角度来叙述各个种族的历史。我等着同行们对我的工作进行评价。
 
 目录：
 第1章 - 人类
@@ -19147,7 +19147,10 @@ More have joined our cause. Their eyes have been opened to the injustice our peo
 Trust in his power, for he shall bring us all to glory.
 
 -- The Inquisitor]], [[闪光洞穴必须受到保护。伟大的领袖已经下令，他的话比任何法律都更不容违逆。我们人数不多，行动必须隐秘，但仍要暗中监视洞穴。凡被发现干涉其中事务的人，都必须诱到我们这处据点，再带到我面前接受审问。
-又有更多人投身我们的事业。他们终于看清了我族遭受的不公：其他种族把魔法大爆炸及其影响都归罪于我们。他们受够了长老会的怯懦——当我们在世界各地遭到蔑视与憎恨时，那群人只会默不作声。但最令他们振奋的，还是我们伟大的领袖，以及他研究魔法大爆炸所得的力量。唯有他洞悉我族全部潜能，唯有他能看透我们内心真正拥有的力量。他赐福于我，将我从备受折磨的人生中拯救出来，又以自己的力量触碰了我。唯有他能领导我们的人民！在他的掌控下，世界将见证我们的力量，承认我们是一股不可轻视的势力。信赖他的力量吧，他必将带领我们所有人走向荣耀。
+
+又有更多人投身我们的事业。他们终于看清了我族遭受的不公：其他种族把魔法大爆炸及其影响都归罪于我们。他们受够了长老会的怯懦——当我们在世界各地遭到蔑视与憎恨时，那群人只会默不作声。但最令他们振奋的，还是我们伟大的领袖，以及他研究魔法大爆炸所得的力量。唯有他洞悉我族全部潜能，唯有他能看透我们内心真正拥有的力量。他赐福于我，将我从备受折磨的人生中拯救出来，又以自己的力量触碰了我。唯有他能领导我们的人民！在他的掌控下，世界将见证我们的力量，承认我们是一股不可轻视的势力。
+
+信赖他的力量吧，他必将带领我们所有人走向荣耀。
 
 -- 审判者]], "_t")
 t([[For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.
@@ -19375,7 +19378,7 @@ t([[You see a mural showing a huge metropolis made of crystal, with small island
 There is some text beneath ]], [[你在壁画上看到一个巨大的水晶之城，有数个浮空岛悬浮在周围。在画面的最前端坐着的是夏·图尔人，他向天空笔直的举起手臂。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#", "不明意义的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#", "_t")
-t("#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#", "#{italic}#我们征服了世界，为自己建造高楼大厦，水晶般梦幻的都市和悬浮天空的堡垒，但有些人还不满足……#{normal}#", "_t")
+t("#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#", "#{italic}#'我们征服了世界，为自己建造了高耸的水晶之城和遨游天际的堡垒，但有些人还不满足……'#{normal}#", "_t")
 t("fifth mural painting", "第五幅壁画", "_t")
 t([[This mural shows nine Sher'Tul standing side by side, each holding aloft a dark weapon. Your eyes are drawn to a runed staff held by the red-robed figure in the centre. It seems familiar somehow...
 There is some text beneath ]], [[这幅壁画显示了九个夏·图尔人肩并肩站着，每人手里都高举着一件一模一样的黑色武器。你的注意力集中在画面中间——被红袍者举起的符文法杖上。它看起来很眼熟……
@@ -19695,7 +19698,7 @@ Well, I won't have it.  I've been selling potions and inscriptions on the side f
 
 我的论辩换来的只有茫然目光，以及越来越多的背后窃窃私语（倒是有一对年轻伴侣突然离开，或许是受到我在一场“伦理”讲座后激情驳斥的启发）。有些人甚至开始避开论点本身，把一切归咎于我魔力不足，还说我花了太多时间研究龙傀儡！他们以为不弄脏双手也能启迪世界、保护它免遭危险；兽人入侵已经证明，他们做不到。我担心一旦恶魔开始大举来袭，恐怕到时我们会更加措手不及。我们甚至畏惧伊格兰斯——无论有多少人死于本可由自由行动的治疗者治好的疾病，也不肯抓来几名伊格兰斯成员，轻易找出绕过他们防御的办法。
 
-好吧，我才不接受这种局面。尽管安格利文有种种规定，我这两年来一直私下出售药水和刻印，终于攒够钱在远离安格利文的地方建一座实验室。在那里，我要做那些胆小的同僚因伦理顾忌而下不了手的实验。他们肯定不会赞同，可我已经不在乎了——有些事情必须赶在太迟前弄清楚；只要我的数据长远来看能拯救无数生命，过程中死掉几个狂热分子或罪犯根本无关紧要。明天开始施工。我安排了三批彼此独立的承包商，这样谁都不知道塔的完整布局；我也已经与最后的希望城几位权势商人谈妥，可以公开开展部分实验（他们想要可供贸易使用的传送门，而我让他们相信，建造传送门不会再引发一次魔法大爆炸），为更……有争议的实验提供方便的掩护。我可以让龙傀儡搬运敏感设备，省得回答棘手问题。我绝不会刚逃离一群自命不凡的蠢货，又让另一群人没收我花重金弄来的骨巨人。]], "_t")
+好吧，我才不接受这种局面。尽管安格利文有种种规定，我这两年来一直私下出售药水和刻印，终于攒够钱在远离安格利文的地方建一座实验室。在那里，我要做那些胆小怕事的同僚不敢动手的实验。他们肯定不会赞同，可我已经不在乎了——有些事情必须赶在太迟前弄清楚；只要我的数据长远来看能拯救无数生命，过程中死掉几个狂热分子或罪犯根本无关紧要。明天开始施工。我安排了三批彼此独立的承包商，这样谁都不知道塔的完整布局；我也已经与最后的希望城几位权势商人谈妥，可以公开开展部分实验（他们想要可供贸易使用的传送门，而我让他们相信，我不会因为建造传送门而再引发一次魔法大爆炸），为更……有争议的实验提供方便的掩护。我可以让龙傀儡搬运敏感设备，省得回答棘手问题。我绝不会刚逃离一群自命不凡的蠢货，又让另一群人没收我花重金弄来的骨巨人。]], "_t")
 t("Personal note (2)", "个人笔记（2）", "_t")
 t([[Well...  that was interesting.
 
@@ -20336,7 +20339,7 @@ t("#VIOLET#The merchant caravan from the past has appeared in your dream.", "#VI
 t("Last of the Caravan", "商队的最后一人", "_t")
 t("secret path to the cave", "通向山洞的秘密通道", "_t")
 t("#VIOLET#You have begun your hunt for Kyless!", "#VIOLET#你开始追杀凯勒斯！", "logPlayer")
-t("#VIOLET#You have a marker to the entrance of Kyless' cave!", "#VIOLET#你在通往凯勒斯洞穴的入口上有一个记号！", "logPlayer")
+t("#VIOLET#You have a marker to the entrance of Kyless' cave!", "#VIOLET#你获得了通往凯勒斯洞穴入口的标记！", "logPlayer")
 t("#VIOLET#You have found the entrance to Kyless' cave!", "#VIOLET#你找到了通往凯勒斯洞穴的入口！", "logPlayer")
 t("#VIOLET#You have found the entrance to a vault!", "#VIOLET#你找到了通往一处宝库的入口！", "logPlayer")
 t("#VIOLET#The shadows have noticed you!", "#VIOLET#阴影注意到了你！", "logPlayer")
@@ -24634,11 +24637,10 @@ t([[You stand in the way of magical damage. That which does not kill you will ma
 		At talent level 3, the bonus resistance may apply to 3 elements, refreshing the duration with each element added.
 		Additionally, each time you take non-physical, non-mind damage, your equilibrium will decrease and stamina increase by %0.2f.
 		The effects will increase with the greater of your Mindpower or Physical power and the bonus resistance can be a mental crit.]], [[你选择了站在魔法的对立面。那些未能杀死你的磨难将使你更加强大。
-		每次你从敌对目标那里受到一种非物理、非精神时，你能增加 %d%% 对该类型伤害的抗性，持续 7 回合。
+		每次你从敌对目标那里受到一种非物理、非精神伤害时，你能增加 %d%% 对该类型伤害的抗性，持续 7 回合。
 		在技能等级 3 时，你可以获得对 3 种类型的抗性，每增加一种类型时都会刷新持续时间。
 		此外，每当你被非物理，非精神伤害击中时，你会降低 %0.2f 失衡值并增加等量体力值。
-		技能效果受精神或物理强度较高者加成。
-		抗性加成效果可以触发精神暴击。]], "tformat")
+		技能效果受精神或物理强度较高者加成，抗性加成效果可以触发精神暴击。]], "tformat")
 t("Antimagic Zone", "反魔领域", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
 t([[Let out a burst of sound that silences for %d turns all those affected in a radius of %d.
@@ -25155,8 +25157,7 @@ t("Psiblades", "心灵利刃", "talent name")
 t([[Channel your mental power through your wielded mindstars, generating psionic blades.
 		Mindstar psiblades have their damage modifiers (how much damage they gain from stats) multiplied by %0.2f, their armour penetration by %0.2f and mindpower, willpower and cunning by %0.2f.
 		Also passively increases weapon damage by %d%% and physical power by 30 when using mindstars.]], [[将你的精神能量灌入你所装备的灵晶中，使其生成心灵利刃。
-		灵晶所产生的心灵利刃会进行 %0.2f 伤害修正加成（从属性中获得的伤害值），增加 %0.2f 护甲穿透。
-		心灵利刃将使灵晶附加的精神强度、意志和灵巧变为 %0.2f 倍。
+		灵晶所产生的心灵利刃的伤害修正（从属性中获得的伤害值）变为 %0.2f 倍，护甲穿透变为 %0.2f 倍，精神强度、意志和灵巧变为 %0.2f 倍。
 		同时，还会在使用灵晶时增加 %d%% 武器伤害与 30 点物理强度。]], "tformat")
 t("Thorn Grab", "荆棘之握", "talent name")
 t("You require a psiblade in your mainhand to use this talent.", "你需要主手的心灵利刃来使用该技能。", "logPlayer")
@@ -25219,7 +25220,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		这种苔藓十分光滑，会使所有受影响的敌人有 %d%% 概率不能做出复杂行动。
 		苔藓持续 %d 个回合。
 		苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。
-		自然伤害和复杂行动失败几率受精神强度加成。]], "tformat")
+		自然伤害和光滑效果的施加几率受精神强度加成。]], "tformat")
 t("Hallucinogenic Moss", "迷幻苔藓", "talent name")
 t([[Instantly grow a moss circle of radius %d at your feet.
 		Each turn the moss deals %0.2f nature damage to each foe within its radius.
@@ -25277,7 +25278,7 @@ t("You can only Oozewalk from one area of mucus to another.", "你只能从粘�
 t([[You temporarily merge with your mucus, cleansing yourself of %d physical or magical detrimental effects.
 		You can then reemerge on any tile within sight and range that is also covered by mucus.
 		This is quick, performed in only %d%% of the normal time, but you must be in contact with your mucus.]], [[你暂时性的和粘液融为一体，净化你身上 %d 物理或魔法负面效果。
-		然后，你可以闪现到视野内任何有粘液覆盖的区域。
+		然后，你可以闪现到视野且射程内任何有粘液覆盖的区域。
 		此技能使用速度很快，只消耗一般技能使用时间的 %d%%，但只有当你站在粘液区时才能使用。]], "tformat")
 
 ------------------------------------------------
@@ -26900,8 +26901,7 @@ t([[Halflings have always been a very organised and methodical race; the more fo
 t("Indomitable", "不屈意志", "talent name")
 t([[Halflings have one of the most powerful military forces in the known world and have been at war with most other races for thousands of years.
 		Removes %d stun, daze, or pin effects and grants immunity to stuns, dazes and pins for %d turns.]], [[半身人以骁勇善战闻名于世，他们曾经在战场上对抗其他种族上千年。
-		立刻移除 %d 种震慑、眩晕和定身状态，并使你对震慑、眩晕和定身免疫 %d 回合。
-		使用此技能不消耗回合。]], "tformat")
+		立刻移除 %d 种震慑、眩晕和定身状态，并使你对震慑、眩晕和定身免疫 %d 回合。]], "tformat")
 t("orc", "兽人", "talent type")
 t("Orcish Fury", "兽人狂暴", "talent name")
 t([[Summons your lust for blood and destruction; especially when the odds are against you.  
@@ -26914,7 +26914,7 @@ t("#CRIMSON#%s roars with rage shaking off %d mental debuffs!", "#CRIMSON#%s愤�
 t([[Orcs have been the prey of the other races for thousands of years, with or without justification. They have learnt to withstand things that would break weaker races.
 		When your life goes below 50%% your sheer determination cleanses you of %d mental debuff(s) based on talent level and Willpower.  This can only happen once every %d turns.
 		Also increases physical save by %d.]], [[其他种族对兽族的猎杀持续了上千年，不管是否正义。你们已经学会忍受那些会摧毁弱小种族的灾难。
-		当你的生命值降低到 50%% 以下，你强大的意志移除你身上最多 %d 个精神状态（基于技能等级和意志）。该效果每 %d 回合最多触发一次。
+		当你的生命值降低到 50%% 以下，你强大的意志移除你身上最多 %d 个精神负面效果（基于技能等级和意志）。该效果每 %d 回合最多触发一次。
 		额外增加 %d 物理豁免。]], "tformat")
 t("Skirmisher", "散兵", "talent name")
 t([[Orcs have seen countless battles, and won many of them.
@@ -37347,7 +37347,7 @@ t("Adrenaline Surge", "肾上腺素", "_t")
 t("The target's combat damage is improved by %d and it an continue to fight past the point of exhaustion, supplementing life for stamina.", "目标战斗伤害提高 %d，能量枯竭时能以生命值代替体力继续战斗。", "tformat")
 t("#Target# feels a surge of adrenaline.", "#Target#感到肾上腺素激增。", "_t")
 t("#Target#'s adrenaline surge has come to an end.", "#Target#的肾上腺素效果消失。", "_t")
-t("Blindside Bonus", "攻其不备", "_t")
+t("Blindside Bonus", "闪电突袭加成", "_t")
 t("The target has appeared out of nowhere! It's defense is boosted by %d.", "目标不知从哪里冒出来！闪避值增加 %d。", "tformat")
 t("cross tier", "越层效果", "effect subtype")
 t("Off-balance", "失去平衡", "_t")
@@ -39768,7 +39768,7 @@ t("Mirror of Reflection", "反射之镜", "entity name")
 section "mod-tome/data/zones/shertul-fortress/npcs.lua"
 
 t("Weirdling Beast", "异形触手", "entity name")
-t("A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.", "一只类人生物，在四肢的位置它长出了触须状的关节。当你发现他没有头时你吓了一跳。瘤状物在它的皮肤上不断的冒出又爆炸。", "_t")
+t("A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.", "一只大致呈人形的生物，四肢的位置长着触须般的附肢。当你发现它没有头时，倒吸了一口凉气。腐臭的肉疣在它皮肤上迅速鼓起，又迅速炸开。", "_t")
 t("and slowly consumed", "并被慢慢消化", "_t")
 t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着怪诞野兽的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！", "log")
 t("Teleportation portal to the Sher'Tul Fortress", "通向夏·图尔堡垒的传送阵", "_t")
@@ -40014,7 +40014,8 @@ t("construct", "构装体", "entity type")
 t("golem", "傀儡", "entity subtype")
 t("Drolem", "卓勒姆", "entity name")
 t([[This is Tannen's construct, a HUGE golem in the rough shape of a dragon.
-It is so huge that it blocks sight beyond it.]], "这是泰恩的构装体，一只巨大的龙形傀儡。它如此庞大，遮蔽了它身后的视线。", "_t")
+It is so huge that it blocks sight beyond it.]], [[这是泰恩的构装体，一只巨大的龙形傀儡。
+它如此庞大，遮蔽了它身后的视线。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/tannen-tower/objects.lua"
@@ -40114,7 +40115,7 @@ Slasul gave it to you as a sign of his faith in you. It is a sign of hope for al
 section "mod-tome/data/zones/temple-of-creation/zone.lua"
 
 t("Temple of Creation", "造物者神庙", "_t")
-t("#AQUAMARINE#You arrive deep under water, at the sea floor, as you look upwards you only see a glimpse of light coming through.", "#AQUAMARINE#你深入了水下，在海床上，当你抬头看时你看到有光亮一闪而过。", "logPlayer")
+t("#AQUAMARINE#You arrive deep under water, at the sea floor, as you look upwards you only see a glimpse of light coming through.", "#AQUAMARINE#你深入了水下，来到海床上。当你抬头仰望时，只能隐约看到一丝从水面透下的光。", "logPlayer")
 t("#AQUAMARINE#You should be crushed by the pressure, but strangely you feel no discomfort.", "#AQUAMARINE#你应该被压力所压扁，不过奇怪的是你没有感到任何不适。", "logPlayer")
 t("#AQUAMARINE#All around you there is only water as far as you can see, except to your left, a giant coral structure. This is probably the temple of Creation.", "#AQUAMARINE#在你四周除了水你看到的还是水，除了在你的左边，你看到一个巨大的珊瑚礁建筑，有可能这就是造物者神庙。", "logPlayer")
 
