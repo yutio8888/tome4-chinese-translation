@@ -2487,7 +2487,7 @@ t("Remove this object from your hotkeys?", "从快捷栏去掉该物品？", "_t
 t([[Left mouse to show inventory
 Right mouse to show ingredients]], [[左键点击显示物品栏
 右键显示材料]], "_t")
-t("Left mouse to show known talents", "左键点击显示技能", "_t")
+t("Left mouse to show known talents", "左键点击显示已掌握的技能", "_t")
 t("Left mouse to show message/chat log.", "左键点击显示信息/聊天栏。", "_t")
 t([[Left mouse to show quest log.
 Right mouse to show all known lore.]], [[左键点击显示任务日志
@@ -2821,7 +2821,7 @@ t("Destroyed the spydric menace.", "清除蜘蛛威胁。", "_t")
 t("Clone War", "克隆战争", "achievement name")
 t("Destroyed your own Shade.", "击败你自己的影子。", "_t")
 t("Home sweet home", "家，甜蜜的家", "achievement name")
-t("Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.", "击败异形怪兽并夺取伊克格，将夏·图尔堡垒据为己用。", "_t")
+t("Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.", "击败异形触手并占据了伊克格——夏·图尔堡垒，据为己用。", "_t")
 t("Squadmate", "一路有你", "achievement name")
 t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔甘从瑞库纳死里逃生。", "_t")
 t("Genocide", "兽人末日", "achievement name")
@@ -2861,7 +2861,7 @@ section "mod-tome/data/achievements/talents.lua"
 t("Pyromancer", "烈焰术士", "achievement name")
 t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁大法师职业并造成累计100万火焰伤害（使用任意物品/技能/职业）。", "_t")
 t("Cryomancer", "冰霜术士", "achievement name")
-t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁大法师职业并造成累计100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
+t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁大法师职业并造成超过100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
 t("Lichform", "巫妖转生", "achievement name")
 t("Achieved your wild dreams of power and eternal life: you turned into a Lich!", "成就你的野心并获得永恒的生命，你终于成为了巫妖！", "_t")
 t("Best album ever!", "最佳唱片", "achievement name")
@@ -4113,7 +4113,7 @@ t("By the corpses of the gods, I love adventurers. Was about to become one mysel
 t("What do you propose?", "那……你的建议呢？", "_t")
 t("I propose that I give you a list of monster parts to fetch, then you go and fetch them, then I make some blindingly amazing brews with said monster parts, then I get accepted into the Brotherhood of Alchemists.", "我的想法就是，我给你怪物物品清单，然后你给我把它们都找回来。然后我用这些材料做一些很炫的药剂，之后我就可以加入炼金术士兄弟会了。", "_t")
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
-t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "这可是一个极好的计划，而这些药剂，好吧，显然如果我加入炼金术士兄弟会的话，他们一定会称我的这些为“万能药”，我会照他们说的话去做的，因为他们自有他们的一套办法让我不得不服从他们的命令……那……我们刚说到哪儿了？", "_t")
+t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "我做计划可是一流的。还有药剂——加入兄弟会之后他们肯定会让我改口叫“万能药”的。我会照做，因为他们有的是办法让你乖乖听话。那么……我们说到哪儿了？", "_t")
 t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你加入那个什么什么兄弟会……我能得到什么回报？", "_t")
 t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基·埃亚尔唯一的堕落印记——清除印记哦。", "_t")
 t("I accept.", "我接受了。", "_t")
@@ -6139,7 +6139,7 @@ You feel you the gentle warmth of your Distant Sun patron. It speaks directly to
 <<<最后那句话有着不可抗拒的力量。你无法反抗！>>>
 ]], "tformat")
 t("#YELLOW#[sacrifice yourself to bring forth your patron to Eyal!]", "#YELLOW#[牺牲自己，让遥远太阳降临埃亚尔世界！]", "_t")
-t("sacrificing %s to bring the fiery wrath of the Distant Sun", "%s牺牲自己，引来遥远太阳炽烈的怒火", "tformat")
+t("sacrificing %s to bring the fiery wrath of the Distant Sun", "牺牲了%s，引来遥远太阳炽烈的怒火", "tformat")
 t("Nnnnnooo! Get.. get out of my head!", "不——！滚……滚出我的脑海！", "_t")
 t([[<<<The warmth in your mind turns into searing pain!>>>
 #CRIMSON#YOU WILL DO AS YOU ARE TOLD! YOU ARE MY TOOL AND I INTEND TO USE IT!
@@ -6424,7 +6424,8 @@ If you need a reminder of which key does what, you can access the game menu by p
 If this is your first time with the game, you will find the selection of races and classes limited. Don't worry; many, many more will become available as you unlock them during your adventures. \
 \
 Now go boldly and remember: #GOLD#have fun!#WHITE#\
-Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!", [[你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，然后被一大群你以为自己能应付的怪物无情地屠杀！
+Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!", [[
+你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，然后被一大群你以为自己能应付的怪物无情地屠杀！
 
 在教学过程中，一些怪物为了教学目的被相应地做过修改，不过在真实的埃亚尔世界中，怪物可不会这么简单！
 
@@ -8257,7 +8258,7 @@ t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
-t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，似乎映照出你内心深处的恐惧。", "_t")
+t("A shifting form of darkest night that seems to reflect your deepest fears.", "一团由最深沉的黑夜凝聚而成、不断变幻的形体，似乎映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
@@ -9186,7 +9187,7 @@ t("%s releases an icy blast from %s %s!", "%s从%s%s中释放出冰风！", "log
 t("icy vapors", "冰霜雾气", "_t")
 t("Blighted Maul", "枯萎之锤", "entity name")
 t("rotten stone limb", "腐烂的石化肢体", "_t")
-t("The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.", "这是腐化泰坦的一部分沉重肢体，一大块腐烂的石化躯体。你认为你可以轻易举起它，但事实证明，它重的不可思议。", "_t")
+t("The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.", "腐化泰坦巨大的石质肢体，一大块石头与腐肉的混合体。你觉得自己举得动它，但它非常沉重。", "_t")
 t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "在目标周围制造半径 1 的冲击波，轰击范围内的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
 t("%s's %s shakes the ground with its impact!", "%s的%s震动了大地！", "logSeen")
 t("knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each", "击退半径 %d 的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
@@ -9462,7 +9463,7 @@ t("permanently increase your physical critical strike chance by 4%", "永久提�
 t("#00FF00#The elixir has improved your eye for an enemy's weak points!", "#00FF00#药剂提高了你发现敌人弱点的能力！", "logPlayer")
 t("Elixir of Mysticism", "神秘药剂", "entity name")
 t("vial of cyan fluid", "一瓶青色液体。", "_t")
-t("A vial of glowing cyan fluid.", "一瓶炽热的青色液体。", "_t")
+t("A vial of glowing cyan fluid.", "一瓶发光的青色液体。", "_t")
 t("permanently increase your magic and willpower by three", "永久提升你3点魔法和意志点数", "_t")
 t("#00FF00#The elixir has augmented your magical and mental capacity!", "#00FF00#药剂增加了你的魔法和精神能量！", "logPlayer")
 t("Elixir of the Savior", "守护药剂", "entity name")
@@ -11154,8 +11155,8 @@ t("alchemist quartz", "炼金石英", "alchemist gem")
 t("quartz", "石英", "gem name")
 t("alchemist emerald", "炼金祖母绿", "alchemist gem")
 t("emerald", "祖母绿", "gem name")
-t("alchemist lapis lazuli", "炼金天青石", "alchemist gem")
-t("lapis lazuli", "天青石", "gem name")
+t("alchemist lapis lazuli", "炼金青金石", "alchemist gem")
+t("lapis lazuli", "青金石", "gem name")
 t("alchemist garnet", "炼金石榴石", "alchemist gem")
 t("garnet", "石榴石", "gem name")
 t("alchemist onyx", "炼金缟玛瑙", "alchemist gem")
@@ -12892,7 +12893,7 @@ t("Wanderer's Rest", "旅者的休憩", "entity name")
 t("weightless boots", "没有重量的靴子", "_t")
 t("These boots feel nearly completely weightless. Touching them, you feel an enormous burden lifted from you.", "这双靴子几乎没有重量，触摸它，你觉得身上的重担一下子减轻了许多。", "_t")
 t("Silk Current", "流波法袍", "entity name")
-t("flowing robe", "平滑的法袍", "_t")
+t("flowing robe", "飘逸的法袍", "_t")
 t("This deep blue robe flows and ripples as if pushed by an invisible tide.", "这件深蓝色的法袍荡起涟漪，仿佛有一股看不见的浪潮在涌动。", "_t")
 t("Skeletal Claw", "白骨之握", "entity name")
 t("bone-link chain", "连着骨爪的鞭子", "_t")
@@ -13143,7 +13144,7 @@ t("This cloak waves and bends with shimmering light, reflecting the depths of sp
 t("Damage shields have +1 duration and +15% power", "伤害护盾增加一回合持续时间和15%强度", "_t")
 t("Boots of the Hunter", "猎人之靴", "entity name")
 t("well-worn boots", "用旧了的靴子", "_t")
-t("These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.", "这对有裂缝的靴子涂着厚厚的一层泥浆。目前还不清楚它以前属于谁，但显然，它曾被很多人使用过。", "_t")
+t("These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.", "这双裂纹遍布的靴子上糊着厚厚一层泥浆。不清楚它以前属于谁，但显然经历过大量的使用。", "_t")
 t("boost movement speed by 300% for up to 5 turns (or until you perform a non-movement action)", "增加移动速度300%五回合。（任何非移动行动会打断这个效果）", "_t")
 t("%s digs in %s %s.", "%s使用了%s%s。", "logSeen")
 t("Sludgegrip", "泥泞之握", "entity name")
@@ -14775,7 +14776,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “……什么？就只有我们两个人去吗？”
 
-“是啊”，她缓缓望向我裸露在外的肌肉，眼中好奇的神情如同小孩子一样欢欣，“你是个男人吗？”
+“是啊”，她的目光在我赤裸的身体上缓缓游移，上下打量，似乎对眼前的景色颇为享受，”还是说你不够男人？”
 
 “对于精灵族来说这还真是个怪问题，我的女士。不过，我可以在此保证，只需要我一个人也可以亲手干掉那些兽人。如果你真的想要一同前行的话，我可能没法确保您的安全。”
 
@@ -22316,7 +22317,7 @@ t("#CRIMSON#%s has been banished!", "#CRIMSON#%s 被放逐了！", "logSeen")
 t("%s resists the banishment!", "%s抵抗了放逐！", "logSeen")
 t([[Randomly teleports all enemies within a radius of three.  Enemies will be teleported between %d and %d tiles from you and may be stunned, blinded, confused, or pinned for %d turns.
 		The chance of teleportion will scale with your Spellpower.]], [[将半径 3 以内的敌人随机传送。
-		敌人将会传送至距离你 %d 至 %d 码的范围内，并被震慑、致盲、混乱或者定身 %d 回合。
+		敌人将会传送至距离你 %d 至 %d 码的范围内，并可能被震慑、致盲、混乱或定身 %d 回合。
 		传送几率与法术强度相关。]], "tformat")
 t("Dimensional Anchor", "时空锚", "talent name")
 t([[Create a radius three anti-teleport field for %d turns and daze all enemies in the area of effect for two turns.
@@ -24876,7 +24877,8 @@ t([[Merge with one of your stone vines, traversing it to emerge near an entangle
 t("Rockswallow", "岩石吞噬", "talent name")
 t([[Merge your target (within range %d) with one of your stone vines that has seized it, forcing it to traverse the vine and reappear near you.
 		Merging with the stone is detrimental for the target, dealing %0.1f nature damage.
-		The damage will increases with your Willpower.]], [[将已被你的岩石藤蔓抓住的、半径 %d 内的目标拉过来，使其强制穿越藤蔓，造成 %0.1f 自然伤害。
+		The damage will increases with your Willpower.]], [[将射程 %d 内已被你的岩石藤蔓抓住的目标与藤蔓融合，使其强制穿越藤蔓，重新出现在你身边。
+		与岩石融合的过程会对目标造成 %0.1f 自然伤害。
 		伤害受意志加成。]], "tformat")
 
 ------------------------------------------------
@@ -28143,7 +28145,7 @@ section "mod-tome/data/talents/spells/advanced-golemancy.lua"
 t("Life Tap", "生命分流", "talent name")
 t("Having an Alchemist Golem", "有一个炼金傀儡", "_t")
 t("Your golem is currently inactive.", "你的傀儡当前尚未被激活。", "logPlayer")
-t("You tap into your golem's life energies to replenish your own. Drains %d life.", "你汲取傀儡的生命能量来恢复自己。恢复 %d 点生命。", "tformat")
+t("You tap into your golem's life energies to replenish your own. Drains %d life.", "你汲取傀儡的生命能量来恢复自己。从傀儡身上吸取 %d 点生命。", "tformat")
 t("Gem Golem", "宝石傀儡", "talent name")
 t([[Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove.
 		Gem level usable: %d
@@ -33204,8 +33206,7 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier0.lua"
 t([[Until now, a certain game mechanic has been disabled. Go learn a new talent at the nearby Rune of Enlightenment and use it to blast each of the enemies in the next room. 
 
 Can you identify the new mechanic?
-]], [[到目前为止，某项游戏机制一直处于禁用状态。去附近的启蒙符文处学习一项新技能，
-并用它轰击下一个房间里的每个敌人。
+]], [[到目前为止，某项游戏机制一直处于禁用状态。去附近的启蒙符文处学习一项新技能，并用它轰击下一个房间里的每个敌人。
 
 你能辨认出这项新机制吗？
 ]], "_t")
@@ -35803,7 +35804,7 @@ t("Frost Cut", "寒霜流血", "_t")
 t("Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.", "被魔法冻结的伤口，每回合受到 %0.2f 寒冷伤害，移动速度降低 %d%%。", "tformat")
 t("#Target# starts to bleed ice.", "#Target# 开始渗出寒冰。", "_t")
 t("+Frost Cut", "+寒霜流血", "_t")
-t("#Target# stops bleeding ice.", "#Target# 不再流血。", "_t")
+t("#Target# stops bleeding ice.", "#Target# 不再渗出寒冰。", "_t")
 t("-Frost Cut", "-寒霜流血", "_t")
 t("skeleton", "骷髅", "effect subtype")
 t("bone", "骨", "effect subtype")
@@ -39842,7 +39843,7 @@ section "mod-tome/data/zones/slazish-fen/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga tidewarden", "娜迦潮汐守卫", "entity name")
-t("Before you stands a tall figure, propped high by a serpent's tail in place of where his legs should rightly be. His torso is slim and muscular, and his face has an elven beauty to it, framed by locks of blonde hair. But there is a fierceness to this creature too, and his bright eyes veil a smouldering anger.", "在你的面前站着一位高大的生物，在他的腿部是像蛇一样的尾巴。他的身躯看起来高大威猛，并且他还有着一张精灵般美貌的脸庞和一头秀丽的长发。但同样的，这个生物也异常危险，你可以从他的眼睛中看到潜藏的愤怒。", "_t")
+t("Before you stands a tall figure, propped high by a serpent's tail in place of where his legs should rightly be. His torso is slim and muscular, and his face has an elven beauty to it, framed by locks of blonde hair. But there is a fierceness to this creature too, and his bright eyes veil a smouldering anger.", "在你面前站着一个高大的身影，本该是双腿的位置由一条蛇尾高高撑起。他的躯干纤细而精悍，面容有着精灵般的俊美，两侧垂落着一缕缕金色长发。但这个生物也透着一股凶悍之气，明亮的双眼背后藏着燃烧的怒火。", "_t")
 t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
 t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful Elf-like woman. As she moves her delicate hands, water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
@@ -43170,7 +43171,7 @@ t("Summoners can call upon a variety of natural creatures to protect and support
 t("The highest sorcerers are known as archmages, and the masters amongst them are said to have the power to change the world. They are feared immensely.", "元素法师被认为是最高级别的法师，而其中的魔导师更是拥有改变世界的强大法力，他们也是世人最惧怕之人。", "init.lua load_tips")
 t("Bulwarks are defensive fighters that can take hits more readily than other warriors whilst preparing for the most effective counter attacks.", "盾战士是防御型的战士，他们可以比其他战士职业承受更多伤害，在防御的同时他们也能随时做出反击。", "init.lua load_tips")
 t("Brawlers are trained in the use of their fists and mastery of their bodies. They can be as dangerous in combat as any swordsman.", "格斗家通过学习对自身力量的掌握，并将其发挥至极限，他们的拳头是他们唯一的武器，但其杀伤力不亚于任何一个持剑的战士。", "init.lua load_tips")
-t("Lightning is a chaotic element that is hard to control. It is said that those most attuned to it are eventually driven insane.", "雷电是一种混沌的元素力量，难以操控。据说掌握雷电法术的人也都因此而陷于疯狂。", "init.lua load_tips")
+t("Lightning is a chaotic element that is hard to control. It is said that those most attuned to it are eventually driven insane.", "雷电是一种混沌的元素力量，难以操控。据说与之最为亲和者最终都会陷入疯狂。", "init.lua load_tips")
 
 ------------------------------------------------
 section "mod-tome/load.lua"
