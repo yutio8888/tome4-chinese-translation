@@ -1995,7 +1995,7 @@ Each time you deal damage with a mental attack you may have a chance to perform 
 Some talents allow you to increase this percentage.
 It is improved by Cunning.
 ]], [[#GOLD#精神暴击#LAST#
-每次造成精神伤害时你都有一定几率暴击造成额外伤害。
+每次以精神攻击造成伤害时你都有一定几率暴击造成额外伤害。
 一些技能可以提高这个几率。
 提升灵巧属性值可以提高精神暴击。
 ]], "_t")
@@ -2938,7 +2938,7 @@ t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Anorithil", "星月术士", "birth descriptor name")
-t("The balance of the heavens' powers is a daunting task. Mighty are those that stand in the twilight places, wielding both light and darkness in their mind.", "平衡天空的力量是一件令人望而生畏的任务。他们站在黎明深处同时掌控着黑暗与光明的力量。", "_t")
+t("The balance of the heavens' powers is a daunting task. Mighty are those that stand in the twilight places, wielding both light and darkness in their mind.", "平衡天空的力量是一件令人望而生畏的任务。强大的是那些驻足于暮光之境的人，心中同时驾驭着光明与黑暗的力量。", "_t")
 t("Anorithils hail from the Gates of Morning, the last bastion of the free people in the Far East.", "星月术士出生于晨曦之门，那是遥远东方自由生活的人们的最后堡垒。", "_t")
 t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的生活方式集中体现在他们的座右铭中：我们站在太阳与月亮之间，光暗交替之界。在灰色的黎明中寻找我们的使命。", "_t")
 t("They can channel the power of the Sun and the Moons to burn and tear apart all who seek to destroy the Sunwall.", "他们可以施展太阳、月亮的法术将任何试图破坏太阳堡垒的人消灭。", "_t")
@@ -3139,7 +3139,7 @@ t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Brawler", "格斗家", "birth descriptor name")
-t("Though you may fight alone against many, destined to fight till you die, still you do not relent. In a ring of blood you learn that a pair of fists can face the world.", "虽然你击败了许多对手，你也知道你命中注定要战斗至死，但你毫不退缩，在鲜血之环你会知道只有依靠你的双拳来面对这个世界。", "_t")
+t("Though you may fight alone against many, destined to fight till you die, still you do not relent. In a ring of blood you learn that a pair of fists can face the world.", "纵使你独自一人面对千军万马，注定战至最后一刻，你依然绝不退缩。在鲜血之环中，你学会了一双拳头就足以面对整个世界。", "_t")
 t("The ravages of the Spellblaze stretched armies thin and left many unprotected. Not everyone could afford the luxury of a weapon.", "魔法大爆炸的肆虐让军队捉襟见肘，许多人失去了保护。不是每个人都买得起武器这样的奢侈品。", "_t")
 t("Without steel or iron, poor communities of all races turned to the strength of their own bodies for defense against the darkness.", "没有钢铁，各个种族的贫穷社群只能依靠自身的力量来抵御黑暗。", "_t")
 t("Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today.", "无论是一个职业拳手还是个业余的门外汉，格斗技能直到现在仍然十分有用。", "_t")
@@ -3247,7 +3247,7 @@ t("Unique (fixed) bosses advance in bonus classes 170% faster", "独有（固定
 t("All enemies have 200% more life", "所有敌人血量增加 200%", "_t")
 t("Stairs can not be used for 9 turns after a kill.", "你杀死生物 9 回合内不能使用楼梯。", "_t")
 t("Player starts with 100 more life and 500 gold, but trust us, you'll need it!", "玩家起始获得100额外生命值和500金钱，相信我，你会用到它们的！", "_t")
-t("Player is being hunted! Randomly all foes in a radius will get a feeling of where she/he is", "玩家处于被捕猎的状态，随机地，一定半径内的所有生物都会感知到你所在的位置。", "_t")
+t("Player is being hunted! Randomly all foes in a radius will get a feeling of where she/he is", "玩家处于被捕猎的状态，随机地，一定半径内的所有敌人都会感知到你所在的位置。", "_t")
 t("Player can earn Madness version of achievements if also playing in Roguelike or Adventure permadeath mode.", "玩家如果选择永久死亡模式或冒险模式可以达成绝望难度成就。", "_t")
 t("Exploration", "探索模式", "birth descriptor name")
 t("Exploration mode: Infinite lives (donator feature)", "探索模式：无限生命（捐赠者特权）", "_t")
@@ -3603,7 +3603,7 @@ t("Hairs", "发型", "birth facial category")
 t("Facial features", "脸部特征", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Human", "人类", "birth descriptor name")
-t("The Humans are one of the main races on Maj'Eyal, along with the Halflings. For many thousands of years they fought each other until events, and great people, unified all the Human and Halfling nations under one rule.", "人类与半身人一起是马基·埃亚尔的主要种族，他们曾互相争战了几千年，直到在领袖们的伟大领导下，人类和半身人的国度再度联合起来。", "_t")
+t("The Humans are one of the main races on Maj'Eyal, along with the Halflings. For many thousands of years they fought each other until events, and great people, unified all the Human and Halfling nations under one rule.", "人类与半身人一起是马基·埃亚尔的主要种族，他们曾互相争战了几千年，直到历史的洪流与伟大的领袖将所有人类和半身人的国度统一在同一面旗帜之下。", "_t")
 t("Humans of these Allied Kingdoms have known peace for over a century now.", "联合王国的人类已经享有和平超过一个世纪。", "_t")
 t("Humans are split into two categories: the Highers, and the rest. Highers have latent magic in their blood which gives them higher attributes and senses along with a longer life.", "人类被分为两个亚种：高等人类和普通人类。高等人类体内流淌着魔法的血液，他们拥有额外的属性和感知能力并更长寿。", "_t")
 t("The rest of Humanity is gifted with quick learning and mastery. They can do and become anything they desire.", "其他人类天生具有快速学习和精通的能力。他们可以做任何想做的事，成为任何想成为的人。", "_t")
@@ -8401,7 +8401,7 @@ t("Having thought to discover life eternal, these beings have allowed undeath to
 t("ancient lich", "远古巫妖", "entity name")
 t("An elder being from a now-forgotten age, filled and fueled by its hate and rage toward all things living, it seeks to deprive all others of a prize it cannot have... life.", "一位存活了不知多少岁月的巫妖，它对这个世界和生者充满了仇恨，所以它试图去剥夺生者所拥有而它所没有的财富——生命。", "_t")
 t("archlich", "高阶巫妖", "entity name")
-t("Blacker than the deepest night, this cold cruel form of darkness approaches.  Long ago it laid aside its mortality, but it has not forgotten its power; rather, its malice and hate have bent this undead entity on the destruction of all things living.", "从比漆黑的夜还要深邃的黑暗中，你感受到了一股冰冷的寒意。很久以前它放弃了生命，但却没忘记力量，相反，它被怨恨和邪念所强化，这只扭曲的不死生物要毁灭所有的生者。", "_t")
+t("Blacker than the deepest night, this cold cruel form of darkness approaches.  Long ago it laid aside its mortality, but it has not forgotten its power; rather, its malice and hate have bent this undead entity on the destruction of all things living.", "比最深沉的暗夜还要漆黑，这个冰冷残忍的黑暗形体正在逼近。很久以前它抛弃了自己的凡躯，但并未忘却自身的力量；恰恰相反，它的恶意与仇恨驱使这个不死存在一心毁灭所有活物。", "_t")
 t("blood lich", "血巫妖", "entity name")
 t("The seething, pumping, disembodied blood of a horrendously powerful necromancer. To strike it is to bathe in the rivers of the Fearscape itself.", "来自一位极其强大的死灵法师的沸腾、搏动、脱离躯体的血液。攻击它就等于在恐惧之地本身的河流中沐浴。", "_t")
 
@@ -9510,7 +9510,7 @@ t("Infusion of Wild Growth", "纹身：野性生长", "entity name")
 t("Lifebinding Emerald", "生命绑定翡翠", "entity name")
 t("green", "绿宝石", "entity subtype")
 t("cloudy, heavy emerald", "半透明的厚重翡翠", "_t")
-t("A lopsided, heavy emerald with murky green clouds shifting sluggishly under the surface.", "一块不规则的厚重翡翠，表面有云纹浮动。", "_t")
+t("A lopsided, heavy emerald with murky green clouds shifting sluggishly under the surface.", "一块不规则的厚重翡翠，表面之下有暗绿色的云纹缓缓浮动。", "_t")
 t("Elixir of Invulnerability", "无敌药剂", "entity name")
 t("vial of black fluid", "一瓶黑色液体", "_t")
 t("A vial of thick fluid, metallic and reflective. It's incredibly heavy.", "一瓶粘稠的反射着金属光泽的液体。它有着难以置信的重量。", "_t")
@@ -12354,8 +12354,8 @@ t("A thick staff with a heavy knob on the end.  It was said to be used by the gr
 t("Guidance", "指引者", "entity name")
 t("a softly glowing crystal", "一颗散发着柔和光芒的水晶", "_t")
 t([[Said to have once belonged to Inquisitor Marcus Dunn during the Spellhunt this fist sized quartz crystal glows constantly with a soft white light and was rumoured to be a great aid in meditation, helping focus the mind, body, and soul of the owner as well as protecting them from the foulest of magics.
-It seems somebody well versed in antimagic could use it to its fullest potential.]], [[曾经属于魔法狩猎时期的检察官玛库斯·丹。这个拳头大小的石英晶体不断散发出柔和的白光。而且据说对冥想有相当大的帮助，不但可以帮助集中精神、身体，还可以保护持有者的灵魂，并且保护他们免遭邪恶魔法的侵蚀。
-似乎只有拥有反魔力量的人才能发挥它的全部潜能。]], "_t")
+It seems somebody well versed in antimagic could use it to its fullest potential.]], [[据说曾属于魔法狩猎时期的审判官玛库斯·丹。这个拳头大小的石英晶体不断散发出柔和的白光，据说是冥想的极佳辅助，能帮助持有者凝聚精神、身体和灵魂，还能保护他们免遭最邪恶的魔法侵蚀。
+似乎只有精通反魔法的人才能发挥它的全部潜能。]], "_t")
 t("#LIGHT_BLUE#You feel a great hero guiding you!", "#LIGHT_BLUE#你感到有个伟大的英雄在指引着你！", "logPlayer")
 t("Eldoral Last Resort", "艾德瑞尔的最后手段", "entity name")
 t("well-made sling", "精良的投石器", "_t")
@@ -18095,7 +18095,7 @@ Due to the safety and comfort of Elvala, and their mistrust of much of the outsi
 
 或许即使是永恒精灵也有可能放弃魔法的力量，但是食人魔可没有这样的奢侈。他们身上的符文对他们的生命和体内器官的结构完整性至关重要。在魔法狩猎时期，伊格兰斯曾试着“净化”所捕获食人魔身上的符文，结果导致他们先因自身重量而瘫倒，随后器官一个接一个停止工作。可以假定，他们身上的纹身也相当重要。因此，食人魔的生育是一个十分复杂的过程。婴儿们可以保持没有符文的状态几个月，在此之后父母必须在他的身上铭刻一套包含各种符文和纹身的复杂的整体。父母们通常一起执行一个任务，使用彼此的符文作为参考，并且在这个转录的过程中的任何错误都会影响孩子的健康和发育。通常这一影响是不利的，然而因祸得福，似乎也正是转录错误缓解了食人魔们过去火爆的脾气。因此，孩子们身上所铭刻的符文和纹身对它们未来的发展，和父母本身的身心特质同样重要。
 
-由于埃尔瓦拉的舒适安定的生活和深切感受到的来自外界的不信任，绝大多数离开家园的食人魔仅仅是为了一些商业目的。不再需要永恒精灵作为他们的中介人，一些人已经开始进入纹身和符文这一不断增长的市场，他们在这方面的天赋使他们在这一领域大获成功。而那些少数可以被视为冒险家的人，往往只是收拾好自己的东西突然离开，不为荣耀和财富，只为消除世界上不断出现的苦难与不幸而为他人奉献。经常听到这样的故事，一个食人魔偶尔听到有满载粮食的货船被劫的消息，立即出发。几天之后，他挥舞着那终结了曾经不可一世的强盗性命的狼牙棒荣归故里，然后继续回到乡间照料他的庄稼。]], "_t")
+由于埃尔瓦拉的安逸舒适以及食人魔对外部世界根深蒂固的不信任，绝大多数离开家园的食人魔仅仅是为了一些商业目的。不再需要永恒精灵作为他们的中介人，一些人已经开始进入纹身和符文这一不断增长的市场，他们在这方面的天赋使他们在这一领域大获成功。而那些少数可以被视为冒险家的人，往往只是收拾好自己的东西突然离开，不为荣耀和财富，只为消除世界上不断出现的苦难与不幸而为他人奉献。经常听到这样的故事，一个食人魔偶尔听到有满载粮食的货船被劫的消息，立即出发。几天之后，他挥舞着那终结了曾经不可一世的强盗性命的狼牙棒荣归故里，然后继续回到乡间照料他的庄稼。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 8 - Orcs (extinct)", "博学者格雷诺特关于人种的调查——第八章——兽人（灭绝）", "_t")
 t([[The orcs are, joyfully, extinct from Maj'Eyal, following the purge instigated by King Toknor the Brave at the start of the Age of Ascendancy. But an academic study of their previous culture and civilisation is still of interest, primitive though it may have been.
 
@@ -20751,7 +20751,7 @@ t("#SLATE#* You must explore the Heart of the Gloom.#WHITE#", "#SLATE#* 你必�
 section "mod-tome/data/quests/start-undead.lua"
 
 t("The rotting stench of the dead", "死者腐烂的恶臭", "_t")
-t("You have been resurrected as an undead by some dark powers.", "你被黑暗力量复活了。", "_t")
+t("You have been resurrected as an undead by some dark powers.", "你被某种黑暗力量复活为不死生物。", "_t")
 t("However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world.", "不过，复活仪式似乎出了点问题，你保留了自己的意识，你必须离开这个黑暗地方并找到属于自己的栖息地。", "_t")
 t("You have found a very special cloak that will help you walk among the living without trouble.", "你发现了一个非常神奇的斗篷，可以使你在活人之中自由生活而不会陷入麻烦。", "_t")
 
@@ -21207,7 +21207,7 @@ t("Dirge of Conquest", "征服挽歌", "talent name")
 t([[Sing a song of violence and victory (mostly violence) and sustain yourself through cruelty.
 Each time you deal a critical strike you gain 10%% of a turn (only once per turn).
 Each time you kill a creature you gain %d%% of a turn (only once per turn).
-]], [[为暴力和（通过暴力取得的）胜利高歌一曲来支持残酷的你。
+]], [[唱一首关于暴力与胜利的歌（主要是暴力），以残酷来维持自身。
 你每次暴击时获得 10%% 个回合的时间（每回合限一次）。
 你每次杀死一个生物时获得 %d%% 个回合的时间（每回合限一次）。
 ]], "tformat")
@@ -21802,7 +21802,7 @@ t([[Teleport to the target and attack with your melee weapons for %d%% damage.  
 		闪烁灵刃可以命中同一个目标多次。]], "tformat")
 t("Blade Shear", "灵刃切变", "talent name")
 t("%s has been cut from the timeline!", "%s被从时间线中切除", "logSeen")
-t("%s resists the temporal shear!", "%s 抵挡了灵刃切变！", "logSeen")
+t("%s resists the temporal shear!", "%s 抵挡了时空切变！", "logSeen")
 t([[Attack up to three adjacent targets for %d%% weapon damage.  If any attack hits you'll create a temporal shear dealing %0.2f temporal damage in a radius %d cone.
 		Each target you hit with your weapons beyond the first increases the damage of the shear by 25%%.  Targets reduced below 20%% of maximum life by the shear may be instantly slain.
 		The cone damage improves with your Spellpower.]], [[攻击至多三个相邻目标，造成 %d%% 武器伤害。只要任意一次攻击命中，就会制造一道时空切变，造成 %0.2f 时空伤害，范围为半径 %d 的锥形区域。
@@ -22117,7 +22117,7 @@ section "mod-tome/data/talents/chronomancy/matter.lua"
 t("Dust to Dust", "土归土", "talent name")
 t([[Fires a beam that turns matter into dust, inflicting %0.2f temporal damage and %0.2f physical (warp) damage.
 		Alternatively you may target yourself, creating a field of radius %d around you that will inflict the damage over three turns.
-		The damage will scale with your Spellpower.]], [[发射一道射线，令物质归于尘土，造成 %0.2f 时空与 %0.2f 物理伤害。
+		The damage will scale with your Spellpower.]], [[发射一道射线，令物质归于尘土，造成 %0.2f 时空伤害与 %0.2f 物理（扭曲）伤害。
 		也可以以自己为目标，制造一个围绕自己 %d 码的领域，在 3 回合内造成伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Matter Weaving", "物质编织", "talent name")
@@ -22644,7 +22644,7 @@ t("This talent cannot be used here.", "该技能不能在此处使用。", "logP
 t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("#STEEL_BLUE#You time travel to a quiet place.", "#STEEL_BLUE#你时空旅行到了一个寂静的地方。", "logPlayer")
 t("What the... ugh.", "这什么鬼……额。", "_t")
-t("Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...", "有些新手时空法师还不知道，通常的时空避难所把你带到的是一个随机的安全的地方，而不是一个固定的地方，结果他们就把自己背包里的东西散落在了这里。你发现这些装备都是些十二只脚的人才能用到的东西，并且你的转化之盒也处理不了，就一脚把它们踢进了虚空之中，然而，一张残破的笔记吸引了你的注意力…", "_t")
+t("Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...", "某个新手时空法师马上就会发现，标准的时空避难所会把你传送到一个随机的安全区域，而不是固定的地方，而这位法师已经把背包里的东西散落在了此处。这些装备几乎都是你的转化之盒处理不了的、没有十二条肢体根本用不了的东西，所以你把大部分踢进了虚空，但一张皱巴巴的笔记引起了你的注意……", "_t")
 t("Transport yourself to a safe place for %d turns.", "将自己传送至安全的位置，停留 %d 回合。", "tformat")
 t("Echoes From The Past", "往昔回响", "talent name")
 t([[Creates a temporal echo in a radius of %d around you.  Affected targets take %0.2f temporal damage, as well as up to %d%% of the difference between their current life and max life as additional temporal damage.
@@ -24439,7 +24439,7 @@ t("Slam", "猛力抨击", "talent name")
 t("You must be rampaging to use this talant.", "只有在暴走状态下才能使用这个技能。", "logPlayer")
 t("#F53CBE#%s slams %s!", "#F53CBE#%s 猛击了 %s！", "logSeen")
 t("#F53CBE#%s resists the stunning blow!", "#F53CBE#%s抵抗了震慑一击！", "logSeen")
-t("#F53CBE#Your rampage is invigorated by the collosal slam! (+1 duration)", "#F53CBE#你的暴走受到鼓舞！（+1 持续时间）。", "logPlayer")
+t("#F53CBE#Your rampage is invigorated by the collosal slam! (+1 duration)", "#F53CBE#巨力猛击激发了你的暴走！（+1 持续时间）", "logPlayer")
 t([[While rampaging, you slam up to %d adjacent opponents, stunning them for %d turns and damaging them for between %d and %d physical damage. Your first slam of at least two opponents increases the rampage duration by 1.
 		Damage increases with your Physical Power.]], [[暴走状态中，你可以攻击到最多 %d 个邻近目标，震慑他们 %d 回合，并造成 %d ～ %d 物理伤害，首次同时对两个以上目标造成的攻击可以延长暴走效果 1 回合。
 		伤害受物理强度加成。]], "tformat")
@@ -25124,7 +25124,7 @@ t([[Your body is more like that of an ooze, you can split into two for %d turns.
 		你的本体获得原始的软泥特性，而分裂体则获得酸性特性。
 		如果你习得软泥之刃系技能树，则该技能树会变为腐蚀之刃技能树。
 		你和分裂体共享生命。
-		当你分裂时，你增加 %d%% 所有抵抗。
+		当你分裂时，你和分裂体增加 %d%% 所有抵抗。
 		抵抗受精神强度加成。]], "tformat")
 t([[Improve your fungus to allow it to take a part of any healing you receive and improve it.
 		Each time you are healed you get a regeneration effect for 6 turns that heals you of %d%% of the direct heal you received.
@@ -29330,7 +29330,7 @@ t([[You learn to finely craft and tune your spells, reducing all their cooldowns
 		In doing so you can also carve a hole in spells that affect an area to avoid damaging yourself.  The chance of success is %d%%.
 		In addition, you hone your damaging spells to spellshock their targets. Whenever you deal damage with a spell you attempt to spellshock them with %d more Spellpower than normal. Spellshocked targets suffer a temporary 20%% penalty to damage resistances.]], [[你学会巧妙控制和调谐你的法术，降低 %d%% 法术冷却时间。
 		此外，你可以控制自己的攻击性魔法，尝试在攻击范围中留出空隙，避免伤及自身。成功概率为 %d%%。
-		如果你的法术强度等级超过目标法术豁免等级，你的攻击法术将会对目标产生法术冲击。此技能将会在判定目标是否会被你法术冲击，使用法术强度对抗敌人法术豁免的时候，使这一判定获得 %d 额外法术强度加成。被法术冲击目标暂时减少 20%% 伤害抗性。]], "tformat")
+		此外，你还能磨练你的伤害法术，尝试对目标施加法术冲击。每当你用法术造成伤害时，你会尝试以比正常高出 %d 点的法术强度对目标施加法术冲击。被法术冲击的目标暂时减少 20%% 伤害抗性。]], "tformat")
 t("Energy Alteration", "能量转化", "talent name")
 t([[Your mastery over magic is so great that you can alter the energy of all damaging spells to suit your needs.
 		Whenever you deal damage with a spell you attune to the element of that spell for 6 turns, converting %d%% of any damage you deal into that element.
@@ -30454,7 +30454,8 @@ t([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spe
 t("Bull Shot", "冲锋射击", "talent name")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[You rush toward your foe, readying your shot. If you reach the enemy, you release the shot, imbuing it with great power.
-		The shot does %d%% weapon damage and knocks back your target by %d.]], "你冲向你的敌人，并准备好射击。如果你接触到敌人，你将射出你准备好的箭矢/ 弹药，给予其强劲的力量。射击造成 %d%% 伤害并击退对手 %d 码。", "tformat")
+		The shot does %d%% weapon damage and knocks back your target by %d.]], [[你冲向你的敌人，并准备好射击。如果你接触到敌人，你将射出你准备好的箭矢/弹药，给予其强劲的力量。
+		射击造成 %d%% 武器伤害并击退对手 %d 码。]], "tformat")
 t("Intuitive Shots", "直觉射击", "talent name")
 t("%s %s the attack!", "%s %s攻击", "logSeen")
 t("intercepts", "拦截了", "_t")
@@ -31218,7 +31219,7 @@ t([[Smash your shield into the face of all adjacent foes dealing %d%% shield dam
 		击退距离受技能等级加成。
 		眩晕时间受力量加成。]], "tformat")
 t("Shield Expertise", "盾牌专精", "talent name")
-t("Improves your damage with shield-based skills, and increases your Spell (+%d) and Physical (+%d) Saves.", "当你用盾牌攻击时提高你的伤害，并提高法术豁免（+%d）和物理豁免（+%d）。", "tformat")
+t("Improves your damage with shield-based skills, and increases your Spell (+%d) and Physical (+%d) Saves.", "提高你使用盾牌系技能时造成的伤害，并提高法术豁免（+%d）和物理豁免（+%d）。", "tformat")
 t("Last Stand", "破釜沉舟", "talent name")
 t("You cannot use Last Stand without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t([[You brace yourself for the final stand, increasing Defense and Armor by %d, maximum and current life by %d, but making you unable to move.
@@ -31921,7 +31922,7 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 t("Commander of the Dead", "亡者领袖", "talent name")
 t([[You are so full with power that it overflows out of you whenever you cast a spell.
 		Upon spell cast you have %d%% chances to boost the physical power, spellpower, mindpower and all saves of all friendly undeads in sight (including yourself) by %d for 4 turns.]], [[你的力量如此强大，每当你释放法术的时候，你的力量会喷涌而出。
-		使用法术时，你有 %d%% 几率强化周围所有可见的不死生物（包括你自己），物理强度、法术强度、精神强度，所有豁免提升 %d，持续 4 回合。]], "tformat")
+		使用法术时，你有 %d%% 几率强化周围所有可见的友方不死生物（包括你自己），物理强度、法术强度、精神强度，所有豁免提升 %d，持续 4 回合。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/undeads/skeleton.lua"
