@@ -9474,7 +9474,7 @@ t("Elixir of Mastery", "掌握药剂", "entity name")
 t("vial of maroon fluid", "一瓶栗色液体。", "_t")
 t("A vial of thick maroon fluid.", "一瓶粘稠的栗色液体。", "_t")
 t("grant you four additional stat points", "获得4点额外属性点数", "_t")
-t("#00FF00#The elixir has greatly expanded your capacity for improving your mind and body.", "#00FF00#药剂大大提升了你的智力和体能。", "logPlayer")
+t("#00FF00#The elixir has greatly expanded your capacity for improving your mind and body.", "#00FF00#药剂大大拓展了你提升身心的潜力。", "logPlayer")
 t("You have %d stat point(s) to spend. Press G to use them.", "你有%d属性点。请按 G 键使用。", "logPlayer")
 t("Elixir of Explosive Force", "爆炸药剂", "entity name")
 t("vial of orange fluid", "一瓶橙色液体。", "_t")
@@ -10046,7 +10046,7 @@ t("cinder", "灰烬", "entity keyword")
 t("corrosive ", "腐蚀的", "entity name")
 t("corrosive", "腐蚀", "entity keyword")
 t("naturalist's ", "自然主义者的", "entity name")
-t("natural", "自然主义者", "entity keyword")
+t("natural", "自然", "entity keyword")
 t("polar ", "两极的", "entity name")
 t("polar", "两极", "entity keyword")
 t("psychic's ", "灵能力者的", "entity name")
@@ -10777,7 +10777,7 @@ t(" of thorny skin", "荆棘皮肤之", "entity name")
 t("thorny", "荆棘", "entity keyword")
 t("harden the skin for 7 turns increasing armour by %d and armour hardiness by %d%%%%", "在7回合内硬化皮肤，护甲增加 %d 护甲强度增加 %d%%%%", "tformat")
 t(" of summon tentacle", "召唤触手之", "entity name")
-t("tentacle", "召唤触手", "entity keyword")
+t("tentacle", "触手", "entity keyword")
 t([[(Tentacle Stats)
 Life:  %d
 Base Damage:  %d
@@ -11645,7 +11645,8 @@ Items in the chest will not encumber you.]], [[这只宝箱是某个夏·图尔�
 这个过程的副产物是黄金，因为没有用，所以被自动传送给你。
 
 当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。
-如果你想保留物品，只需要从宝箱里把它移到包裹中。在宝箱中的物品不会增加你的负重。]], "_t")
+如果你想保留物品，只需要从宝箱里把它移到包裹中。
+在宝箱中的物品不会增加你的负重。]], "_t")
 t("transmogrify all the items in your chest at once (also done automatically when you change level)", "立即转化盒子中的所有物品（当你切换地图时也会自动转化）", "_t")
 t("Transmogrification Chest", "转化之盒", "_t")
 t("Make the Transmogrification Chest the default item's destroyer?", "将转化之盒作为默认的物品处理装置吗？", "_t")
@@ -11661,7 +11662,8 @@ Items in the chest will not encumber you.]], [[这只宝箱是某个夏·图尔�
 这个过程的副产物是黄金，因为没有用，所以被自动传送给你。
 
 当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。
-如果你想保留物品，只需要从宝箱里把它移到包裹中。在宝箱中的物品不会增加你的负重。]], "_t")
+如果你想保留物品，只需要从宝箱里把它移到包裹中。
+在宝箱中的物品不会增加你的负重。]], "_t")
 t("Bikini", "比基尼", "entity name")
 t("tiny piece of cloth", "小小的一块布", "_t")
 t([[Revealing, pink, fun.
@@ -12280,7 +12282,7 @@ t("Untouched by the ravages of time, this fine spun white cloak appears to be cr
 t("Blood-Edge", "饮血剑", "entity name")
 t("red crystalline sword", "红色的水晶剑", "_t")
 t([[This deep red sword weeps blood continuously. It was born in the labs of the orcish corrupter Hurik, who sought to make a crystal that would house his soul after death. But his plans were disrupted by a band of sun paladins, and though most died purging his keep of dread minions, their leader Raasul fought through to Hurik's lab, sword in hand. There the two did battle, blade against blood magic, till both fell to the floor with weeping wounds. The orc with his last strength crawled towards his fashioned phylactery, hoping to save himself, but Raasul saw his plans and struck the crystal with his light-bathed sword. It shattered, and in the sudden impulse of energies the steel, crystal and blood were fused into one.
-Now the broken fragments of Raasul's soul are trapped in this terrible artifact, his mind warped beyond all sanity by decades of imprisonment. Only the taste of blood calls him forth, his soul stealing the lifeblood of others to take on physical form again, that he may thrash and wail against the living.]], [[这把深红色的剑不断的向下滴血。它诞生于兽人堕落者胡里克的实验室。最初，胡里克寻找了一枚水晶来制造他的命匣，但他的计划很快被一群太阳骑士打断，尽管大部分骑士死于不死军团的阻拦，但骑士团团长瑞苏尔却单枪匹马杀入了胡里克的实验室。在那里，两位强者展开了对决，利剑与血魔法你来我往，直到他们都重伤倒地。兽人想拼尽最后一分力气，拿到他的命匣，希望能拯救自己，但是瑞苏尔识破了他的阴谋，挥起沐浴着圣光的利剑击碎了水晶。命匣破碎的瞬间，钢铁、水晶与鲜血融为了一体。
+Now the broken fragments of Raasul's soul are trapped in this terrible artifact, his mind warped beyond all sanity by decades of imprisonment. Only the taste of blood calls him forth, his soul stealing the lifeblood of others to take on physical form again, that he may thrash and wail against the living.]], [[这把深红色的剑不断的向下滴血。它诞生于兽人堕落者胡里克的实验室。最初，胡里克试图制造一枚能在死后寄存其灵魂的水晶，但他的计划很快被一群太阳骑士打断，尽管大部分骑士在清剿其要塞中的可怕爪牙时战死，但骑士团团长瑞苏尔却单枪匹马杀入了胡里克的实验室。在那里，两位强者展开了对决，利剑与血魔法你来我往，直到他们都重伤倒地。兽人想拼尽最后一分力气，拿到他的命匣，希望能拯救自己，但是瑞苏尔识破了他的阴谋，挥起沐浴着圣光的利剑击碎了水晶。命匣破碎的瞬间，钢铁、水晶与鲜血融为了一体。
 如今，瑞苏尔残破的灵魂被困在这件可怕的造物中，数十年的囚禁早已扭曲了他的心智。只有鲜血的味道能唤醒他，他的灵魂窃取他人的生命之血以重获形体，好向生者咆哮哀嚎。]], "_t")
 t("15% chance to animate a bleeding foe's blood", "15%几率活化流血敌人的血液", "_t")
 t("animated blood", "活化血液", "_t")
@@ -18157,13 +18159,13 @@ Attacks from dragons on humans and halfling settlements are fairly rare, but whe
 
 Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是另人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。
 
-龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的咽喉和锋利爪子的前后肢。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，由于龙族在世界起源时形成较早，因此能表现出强大的元素亲和力。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。
+龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的咽喉和锋利爪子的前后肢。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。
 
 马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。
 
-龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找重金属和宝石来作储藏。龙族的财富已经成为了一种传奇，那些巨龙们都以拥有成山的金币为傲，但是现在如此多的宝藏几乎没有。矮人们在厄流纪对龙族的狩猎，使得龙族几乎趋于绝迹，现在的大部分龙族在巢穴里只有适量的财富。
+龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，那些巨龙们都以拥有成山的金币为傲，但是现在如此多的宝藏几乎没有。矮人们在厄流纪对龙族的狩猎，使得龙族几乎趋于绝迹，现在的大部分龙族在巢穴里只有适量的财富。
 
-龙族经常由于它们结实的龙皮和元素亲和度极高的骨头而被狩猎。龙皮是护甲制作者们最喜爱的材料，因为它们通常轻薄坚硬，并且通常保留有龙皮主人生前的魔法亲和力。龙骨是法杖制作者们最喜爱的材料，因为它的魔法亲和力非常高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然衰老”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。仍然，由于龙族全身都是宝的原因，每年都有许多在龙族的尖牙利齿下度日，被欲望冲昏了头脑的人死亡。]], "_t")
+龙族经常由于它们结实的龙皮和元素亲和度极高的骨头而被狩猎。龙皮是护甲制作者们最喜爱的材料，因为它们通常轻薄坚硬，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然衰老”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。仍然，由于龙族全身都是宝的原因，每年都有许多在龙族的尖牙利齿下度日，被欲望冲昏了头脑的人死亡。]], "_t")
 t("shatur", "夏特尔", "newLore category")
 t("Lament for Lands now Lost", "失去的大陆的挽歌", "_t")
 t([[You see a moss covered statue of a Thalore reciting a poem, over and over.
@@ -23841,8 +23843,8 @@ t("Stone", "石化", "talent name")
 t([[Target a nearby shadow, and force it to slam into a nearby enemy, dealing %0.1f Physical damage.
 		Your shadow will then set them as their target, and they will target your shadow.
 		Damage increases with your Mindpower.]], [[指定附近的一个阴影，令其攻击附近的一个敌人，造成 %0.1f 物理伤害。
-你的阴影将把那个敌人设为目标，而敌人也会攻击那个阴影。
-伤害受精神强度加成。]], "tformat")
+		你的阴影将把那个敌人设为目标，而敌人也会攻击那个阴影。
+		伤害受精神强度加成。]], "tformat")
 t("Shadow's Path", "阴影之路", "talent name")
 t("You need a shadow in sight range!", "你需要视野内有阴影才能使用该技能", "logPlayer")
 t([[Command all Shadows within sight to tele-dash to a target location, damaging any enemies they pass through for %0.1f Physical damage.
@@ -28845,8 +28847,8 @@ section "mod-tome/data/talents/spells/fire.lua"
 t("Flame", "火焰", "talent name")
 t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
 		At level 5, it will create a beam of flames.
-		The damage will increase with your Spellpower.]], [[制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。
-		在等级 5 时，火焰会有穿透效果。
+		The damage will increase with your Spellpower.]], [[制造一道火焰弹，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。
+		在等级 5 时，它会变为一道贯穿的火焰光束。
 		伤害受法术强度加成。]], "tformat")
 t("Flameshock", "火焰冲击", "talent name")
 t([[Conjures up a cone of flame with radius %d. Any targets caught in the area will suffer Burning Shock, stunning them and dealing %0.2f fire damage over %d turns.
@@ -30086,7 +30088,7 @@ t("%s resists the slow!", "%s抵抗了减速！", "logSeen")
 t([[You fire a disabling shot at a target's throat (or equivalent), dealing %d%% weapon damage and silencing them for %d turns.
 If the target is marked, you consume the mark to fire two secondary shots at their arms and legs (or other appendages) dealing %d%% damage, reducing their movement speed by 50%% and disarming them for the duration.
 The status chance increases with your Accuracy.]], [[你朝目标的喉咙（或者类似部位）射击，造成 %d%% 武器伤害并沉默 %d 回合。
-如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害，降低其 50 %% 移动速度，同时使其不能使用武器。
+如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害，降低其 50%% 移动速度，同时使其不能使用武器。
 状态效果几率受命中加成。]], "tformat")
 t("Bullseye", "靶心", "talent name")
 t("Each time you consume a mark, you gain %d%% increased attack speed for 2 turns and the cooldown of %d random techniques are reduced by %d turns.", "每次消耗标记时，获得 %d%% 攻击速度加成，持续 2 回合，并随机减少 %d 个战斗技巧系技能的冷却时间 %d 回合。", "tformat")
@@ -30736,8 +30738,7 @@ t("Flurry of Fists", "流星拳", "talent name")
 t("@Source@ lashes out with a flurry of fists.", "@Source@冲出去打出流星拳。", "_t")
 t([[Lashes out at the target with three quick punches that each deal %d%% damage.
 		Earns one combo point. If your talent level is 4 or greater, this instead earns one combo point per blow that connects.]], [[对目标造成 3 次快速打击，每击造成 %d%% 伤害。
-		此攻击使你得到 1 点连击点。
-		在等级 4 或更高时，每次命中的打击都会使你获得 1 点连击点。]], "tformat")
+		此攻击使你获得 1 点连击点；在技能等级 4 或更高时，改为每次命中的打击都使你获得 1 点连击点。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/reflexes.lua"
@@ -31128,8 +31129,8 @@ t([[Grants %d Physical Power when fighting unarmed (or with gloves or gauntlets)
 		效果受角色等级加成。]], "tformat")
 t("Unarmed Mastery", "徒手大师", "talent name")
 t([[Increases all unarmed damage by %d%% and physical power by 30 (including grapples and kicks).
-		Note that brawlers naturally gain 0.5 Physical Power per character level while unarmed (current brawler physical power bonus: %0.1f) and attack 20%% faster while unarmed.]], [[增加 %d%% 所有徒手伤害，提高 30 物理强度（包括抓取/徒手技）。
-		注意：徒手战斗时，格斗家具有随等级每级增加 0.5 物理强度。（当前提高 %0.1f 物理强度）和攻击速度提高 20%% 的固有属性。]], "tformat")
+		Note that brawlers naturally gain 0.5 Physical Power per character level while unarmed (current brawler physical power bonus: %0.1f) and attack 20%% faster while unarmed.]], [[增加 %d%% 所有徒手伤害，并提高 30 物理强度（包括抓取与踢击）。
+		注意：格斗家徒手时天生随角色每级获得 0.5 物理强度（当前物理强度加成：%0.1f），且徒手时攻击速度提高 20%%。]], "tformat")
 t("Unified Body", "强化身躯", "talent name")
 t("Your mastery of unarmed combat unifies your body. Increases your Strength by %d based on Cunning and your Constitution by %d based on Dexterity.", "你对徒手格斗的掌握强化了你的身体，增加 %d 力量（基于灵巧），%d 体质（基于敏捷）。", "tformat")
 t("Heightened Reflexes", "高度反射", "talent name")
@@ -31142,7 +31143,7 @@ t("Your understanding of physiology allows you to apply your reflexes in new way
 section "mod-tome/data/talents/techniques/warcries.lua"
 
 t("Shattering Shout", "狮子吼", "talent name")
-t("#Source# shatters '#Target#'.", "#Source#击落了'#Target#'。", "logCombat")
+t("#Source# shatters '#Target#'.", "#Source#击碎了'#Target#'。", "logCombat")
 t([[Release a powerful shout, doing %0.2f physical damage in a radius %d cone in front of you.
 		At level 5 the shout is so strong it shatters all incomming projectiles caught inside.
 		The damage increases with your Strength.]], [[一次强有力的怒吼，在你前方锥形区域内造成 %0.2f 物理伤害（有效半径 %d 码）。
@@ -32168,7 +32169,6 @@ To the west lies another dangerous place: a camp of Rhaloren. They are renegade 
 
 After days of travel, you have found the caves and entered it. What will you find there...?
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
-
 你是一名食人魔，来自埃尔瓦拉。
 
 你面临着来自一个从未被你的同族伤害过的世界的轻蔑和恐惧；若非永恒精灵表示同情并允许你的祖先在埃尔瓦拉避难，魔法狩猎本会将你的种族彻底灭绝。
@@ -38298,7 +38298,7 @@ t("Shifting Boots", "闪现靴", "entity name")
 t("pair of shifting boots", "一双可以闪现的靴子", "_t")
 t("Those leather boots can make anybody as annoying as their former possessor, Draebor.", "这双靴子可以使任何人像它以前的主人小恶魔德瑞宝一样淘气。", "_t")
 t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置（基于魔法）", "tformat")
-t("%s taps %s %s together!", "%s将%s %s拼在一起！", "logSeen")
+t("%s taps %s %s together!", "%s将%s %s相互轻叩！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/zones/demon-plane/zone.lua"
@@ -38771,7 +38771,7 @@ t("A creature stands before you, with long tentacle-like appendages and a squat 
 section "mod-tome/data/zones/high-peak/objects.lua"
 
 t("bloodsoaked diamond", "血染的钻石", "entity name")
-t("A strangely wet diamond.", "奇怪的潮湿宝石。", "_t")
+t("A strangely wet diamond.", "奇怪的潮湿钻石。", "_t")
 t("bloodsoaked athame", "浸血的仪式匕首", "entity name")
 t("A strangely wet athame.", "一把莫名湿润的仪式匕首。", "_t")
 t("journal", "日记", "entity name")
@@ -41038,7 +41038,7 @@ t("Void between worlds", "无尽虚空", "_t")
 section "mod-tome/data/zones/vor-armoury/npcs.lua"
 
 t("Warmaster Gnarg", "战争领主格纳哥", "entity name")
-t("This ugly orc looks really nasty and vicious. He wields a huge two-handed sword and means to use it.", "这名丑陋的兽人看起来阴险狡诈。他手持双手大剑并擅长此道。", "_t")
+t("This ugly orc looks really nasty and vicious. He wields a huge two-handed sword and means to use it.", "这名丑陋的兽人看起来凶恶残暴。他手持一把巨大的双手剑，并且打算好好用上它。", "_t")
 t("overpowered greater multi-hued wyrm", "超强的七彩龙精英", "entity name")
 
 ------------------------------------------------
@@ -43106,7 +43106,7 @@ t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of
 t("The Rush talent lets you close in on an enemy quickly and daze them, disabling them whilst you hack down their friends.", "冲锋技能可以让你快速接近敌人并眩晕目标，你可以借此时机击倒它的同伴。", "init.lua load_tips")
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
-t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人学到了魔法的奥秘，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
+t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人掌握了魔法的奥秘，凭借新获得的力量几乎征服了整个马基·埃亚尔。", "init.lua load_tips")
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造炽烈的爆炸，并且往往带着一尊坚固的傀儡随行以获得额外保护。", "init.lua load_tips")

@@ -5244,7 +5244,7 @@ You now also use your Cunning in place of Strength when equipping shields as wel
 你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求。]], "tformat")
 t("Magnetic Field", "磁性力场", "talent name")
 t("You require a shield for this talent.", "你需要一面盾牌才能使用这一技能。", "logPlayer")
-t("#Source# shatters '#Target#'.", "#Source#击落了'#Target#'。", "logCombat")
+t("#Source# shatters '#Target#'.", "#Source#击碎了'#Target#'。", "logCombat")
 t([[You project a powerful blast of magnetic energy from your shield in radius %d around you. Enemies caught within are knocked back %d tiles and take %d%% shield damage as lightning, and any projectiles will be destroyed.
 		While this talent is not on cooldown, you also project a magnetic field from your shield, reducing the speed of incoming projectiles by %d%% and your chance to be critically hit by %d%%.]], [[你从盾牌中发射出强大的磁性能量冲击波，半径为 %d 码范围。所有被击中的敌人会被击退 %d 码，并受到 %d%% 闪电盾牌伤害。所有的抛射物也会被摧毁。
 		当这一技能不处于冷却时间的时候，你会从盾牌中发射出一个磁性力场，降低所有瞄准你的抛射物速度 %d%%，并且你被暴击的几率降低 %d%%。]], "tformat")
