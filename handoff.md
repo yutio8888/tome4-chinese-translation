@@ -1,14 +1,15 @@
 # 翻译审核主编排者 —— 交接说明
 
-> **2026-09-18 当前入口：审核批 187–194 + 修复批 207–216 已完成；下一步为审核批 195。**
-> 请先读[最新交接](docs/review-handoff-20260918-batch192.md)（§1/§7 已更新到第 194/216 批）。
+> **2026-09-18 当前入口：审核批 187–197 + 修复批 207–218 已完成；下一步为修复批 219。**
+> 请先读[最新交接](docs/review-handoff-20260918-batch192.md)（§1/§7 记录到第 194/216 批；195–197、217–218 见下方要点）。
 > 下文保留历史状态和当时的操作说明，不构成自动恢复授权。
 >
-> 交叉复核模型：`claude/claude-opus-5`。HEAD 见 git log（batch 216 evidence `df87793` + 本 handoff）。
-> repair_required **244**、blocked **11**、done **17924**。无活动批次。
-> **审核-修复严格 1:1 交替**，当前轮到**审核批 195**（`batch start --limit 80`）。
+> 交叉复核模型：`claude/claude-opus-5`。HEAD 见 git log（batch 197 evidence `c914890` + 本 handoff）。
+> repair_required **约 224**、无活动批次。本会话全程仅本地提交，**未授权 push**。
+> **审核-修复严格 1:1 交替**，当前轮到**修复批 219**（查 queue repair_required 取 ~20 条，见 docs §3）。
 > 表层派发走 MCP 手工驱动，见记忆 [[mcp-review-lifecycle-manual-drive]]、[[surface-raw-extraction-trailing-newline]]。
-> **freeze MISS 处置见 [[freeze-miss-hostblock-procedure]]**（batch 194 combat.lua 死键已 host-block）。
+> **freeze MISS 处置**：死键走 [[freeze-miss-hostblock-procedure]]；但**运行期拼接/小写实体名（form #7/#8）不是死键**，勿 host-block——batch 197 gem.lua「alchemist agate」即因 freeze_workset 把 concat 校验限定在 `source_tag=='entity name'`、漏了 `alchemist gem` 标签而误报 MISS，已手工补 concat 归因；该 tag-filter 缺口待维护者修 freeze_workset.py。
+> **待维护者专名/术语裁决（勿自决）**：Shantiz 音译、Continuum Destabilization 时空改名（5 处）、Feed Strengths、Armour Configuration、Harass Prey、of thunder 词缀、the Sorcerers 统一、Toxic Death、combat.lua 死键 source-key 迁移。
 
 
 最后更新：2026-09-12（第 91 批完成；翻译暂停，按报告顺序优化）· 分支 `develop`
