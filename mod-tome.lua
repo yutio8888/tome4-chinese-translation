@@ -8892,7 +8892,7 @@ section "mod-tome/data/general/npcs/troll.lua"
 t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
-t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "丑陋的绿皮生物正盯着你，同时它握紧了满是肉瘤的绿色拳头。", "_t")
+t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是肉瘤的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
@@ -12481,7 +12481,7 @@ t("tidal wave", "潮汐", "_t")
 t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，召唤了海洋的力量！", "logSeen")
 t("Ring of the Dead", "亡者之戒", "entity name")
 t("dull black ring", "黯淡的黑色戒指", "_t")
-t("This ring is imbued with powers from beyond the grave. It is said that those who wear it may find a new path when all other roads turn dim.", "这枚戒指充溢着坟墓的气息。据说佩戴它的人会在走投无路时发现新的道路。", "_t")
+t("This ring is imbued with powers from beyond the grave. It is said that those who wear it may find a new path when all other roads turn dim.", "这枚戒指充溢着来自死亡彼岸的力量。据说佩戴它的人会在走投无路时发现新的道路。", "_t")
 t("Will bring you back from death, but only once!", "能将你从死亡中复活，但仅限一次！", "_t")
 t("Elemental Fury", "元素之怒", "entity name")
 t("multi-hued ring", "多彩戒指", "_t")
@@ -12872,7 +12872,7 @@ t("slightly tarnished voratun gauntlets", "稍微破旧的沃瑞钽臂铠", "_t"
 t("These voratun gauntlets shine brightly beneath a thin layer of wear. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠虽然有一些使用痕迹，仍然闪耀着光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("gleaming voratun gauntlets", "闪耀的沃瑞钽臂铠", "_t")
 t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
-t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域摧毁生物身上的所有魔法效果和魔法持续技能（非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
+t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域尝试驱散生物身上的魔法效果和魔法持续技能（至多两项；非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
 t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量！", "logSeen")
 t("%s's animating magic is disrupted by the burst of power!", "%s的魔法被强大的反魔法力量干扰了！", "logSeen")
 t("destroy an arcane item (of a higher tier than the gauntlets)", "摧毁一件奥术装备（比臂铠材质级别高）", "_t")
@@ -13237,7 +13237,7 @@ t([[Stolen flesh,
 	舍弃本我，
 	秽尸复苏。]], "_t")
 t([[Reduces all damage by %d%% of current vim or 50%% of the damage, whichever is lower; but at the cost of vim equal to 5%% of the damage blocked. 
-Current Bonus: %d]], [[降低所有伤害相当于%d%%当前活力值的数值，但不超过伤害值的50%%;降低伤害时，消耗相当于5%%伤害量的活力值。
+Current Bonus: %d]], [[降低所有伤害相当于%d%%当前活力值的数值，但不超过伤害值的50%%;降低伤害时，消耗相当于被抵消伤害 5%% 的活力值。
 当前加成：%d]], "tformat")
 t("With a better grip it would be the destroyer of your enemies.", "如果有更好的掌控力，它将摧毁敌人。", "_t")
 t("Obliterator", "抹杀者", "entity name")
@@ -20822,7 +20822,7 @@ t("A portal opens to the flooded cave.", "一道通往被淹没洞穴的传送�
 ------------------------------------------------
 section "mod-tome/data/quests/temporal-rift.lua"
 
-t("Back and Back and Back to the Future", "回到未来", "_t")
+t("Back and Back and Back to the Future", "回到、回到、回到未来", "_t")
 t([[After passing through some kind of time anomaly you met a temporal warden who told you to destroy the abominations of this alternate timeline.
 ]], [[穿过了异常时空你碰到了一个时空守卫，他告诉你去摧毁这个变换时间线里的怪物。
 ]], "_t")
@@ -22126,8 +22126,8 @@ t("Materialize Barrier", "物质屏障", "talent name")
 t("materialize barrier", "物质屏障", "_t")
 t("a summoned wall of stone", "召唤的岩石墙壁", "_t")
 t([[Create a tightly bound matter wall of up to a length of %d that lasts %d turns.
-		If any part of this wall is dug out it will explode, causing targets in a radius of %d to bleed for %0.2f physical damage over six turns.]], [[制造一层坚实的物质墙，长度为 %d，持续 %d 回合。
-		当墙壁被挖掘时，会产生半径 %d 的爆炸，范围内敌人会进入流血状态，6 回合内受到 %0.2f 物理伤害。]], "tformat")
+		If any part of this wall is dug out it will explode, causing targets in a radius of %d to bleed for %0.2f physical damage over six turns.]], [[制造一层坚实的物质墙，长度最多为 %d，持续 %d 回合。
+		当墙壁被挖掘时，会产生半径 %d 的爆炸，范围内的目标会进入流血状态，6 回合内受到 %0.2f 物理伤害。]], "tformat")
 t("Disintegration", "裂解", "talent name")
 t("#CRIMSON#%s's beneficial effect was stripped!#LAST#", "#CRIMSON#%s的有益效果被除去了！#LAST#", "logSeen")
 t([[While active your physical and temporal damage has a %d%% chance to remove one beneficial physical or magical temporary effect (respectively) from targets you hit.
@@ -22834,7 +22834,7 @@ t([[Make your target's diseases burst, doing %0.2f blight damage for each diseas
 t("Catalepsy", "僵硬瘟疫", "talent name")
 t("Diseases #DARK_GREEN#BURN THROUGH#LAST# %s!", "疾病在 %s 身上 #DARK_GREEN#燃烧#LAST#！", "logSeen")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
-t("All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly.", "所有 %d 码球形范围内感染疾病的目标进入僵硬状态，震慑它们 %d 回合并立即爆发 %d%% 剩余所有疾病伤害。", "tformat")
+t("All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly.", "所有 %d 码球形范围内感染疾病的敌人进入僵硬状态，震慑它们 %d 回合并立即爆发 %d%% 剩余所有疾病伤害。", "tformat")
 t("Epidemic", "传染病", "talent name")
 t("The diseases of %s spread!", "%s的疾病在传播！", "logSeen")
 t([[Infects the target with a very contagious disease, doing %0.2f damage per turn for 6 turns.
@@ -24121,10 +24121,8 @@ t([[Creeping dark slowly spreads from the target location and %d spots in a radi
 		伤害随精神强度提高。你对任何进入蔓延黑暗的目标额外造成 +%d%% 伤害。]], "tformat")
 t("Dark Vision", "黑暗视觉", "talent name")
 t([[Your eyes penetrate the darkness to find anyone that may be hiding there. This allows you to see through creeping darkness out to a radius of %d. You can also find your way through the darkness with greater speed (+%d%% movement into creeping darkness).
-		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗并发现隐藏在黑暗里的敌人。
-		你的视线同样可以穿过黑暗之雾看到 %d 的半径范围。同时黑暗之雾极大的提高你的步伐。
-		（在黑暗之雾中增加你 +%d%% 移动速度）
-		你对任何进入黑暗之雾的人造成 +%d%% 伤害。]], "tformat")
+		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗，发现可能隐藏其中的敌人。你的视线可以穿过黑暗之雾看到 %d 码半径范围，同时你能以更快的步伐穿行于黑暗之中（在黑暗之雾中增加你 +%d%% 移动速度）。
+		你对任何进入你的黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
 t("Dark Torrent", "黑暗迸发", "talent name")
 t([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.
 		If you know the Creeping Darkness talent, a short-lived trail of darkness is left in the beam's wake. Its damage is identical to that of Creeping Darkness's.
@@ -25572,7 +25570,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		The effects improve with your mindpower, and some can crit.]], [[献祭一只召唤兽，使它在 %d 码范围内爆炸。
 		-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。
 		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。
-		-雾凇：形成一个冰球，造成 %d 伤害，可能冰冻敌人。
+		-雾凇：形成一个冰球，造成 %d 冰冷伤害，可能冰冻敌人。
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
 		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。
 		-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。
@@ -26438,7 +26436,7 @@ t([[Exhale a wave of dark fire with radius %d. Any non demon caught in the area 
 		伤害受力量值加成。]], "tformat")
 t("Frost Hands", "霜冻之手", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of frost, dealing %0.2f cold damage per melee attack and increasing all cold damage by %d%%.
-		The effects will increase with your Spellpower.]], [[将你的双手笼罩在寒冰之中每次近战攻击造成 %0.2f 冰冷伤害，并提高 %d%% 冰冷伤害。
+		The effects will increase with your Spellpower.]], [[将你的双手（及武器）笼罩在寒冰之中，每次近战攻击造成 %0.2f 冰冷伤害，并提高 %d%% 冰冷伤害。
 		效果受法术强度加成。]], "tformat")
 t("Meteor Rain", "流星雨", "talent name")
 t([[Use arcane forces to summon %d meteors that fall to the ground within range 2 of the target.
@@ -27486,13 +27484,16 @@ t([[Build telekinetic power and dump it into an adjacent creature or yourself.
 
 		When used on yourself, you will launch in a straight line, knocking enemies flying and doing %0.1f Physical damage to each.
 		You can break through %d walls while doing this.
-		The damage and range increases with Mindpower.]], [[使用你的念动力增强你的力量，使你能够举起一个相邻的敌人或者你自己并投掷到半径 %d 范围的任意位置。
-		敌人落地时受到 %0.1f 物理伤害，并被震慑 %d 回合。落点周边半径 2 格内的所有其他单位受到 %0.1f 物理伤害，并被击退至远离你的位置。
-		这个技能无视被投掷目标 %d%% 的击退抵抗，如果目标抵抗击退，只受到一半伤害。
+		The damage and range increases with Mindpower.]], [[使用你的念动力，将其灌注到一个相邻的生物或你自己身上。
+		将其投掷到 %d 码范围内的目标位置。
 
-		对你自己使用时，击退线路上所有目标并造成 %0.1f 物理伤害。
-		同时能破坏至多 %d 面墙壁。
-		伤害和投掷距离受精神强度加成。]], "tformat")
+		被投掷的敌人落地时受到 %0.1f 物理伤害，并被震慑 %d 回合。
+		目标落地时，半径 2 格内的生物受到 %0.1f 物理伤害，并被击退远离你。
+		这个技能无视被投掷目标 %d%% 的击退抗性，若目标抵抗投掷则只受到一半伤害。
+
+		对你自己使用时，你会沿直线飞出，将沿途敌人撞飞并对每个造成 %0.1f 物理伤害。
+		你在此过程中能撞穿 %d 面墙壁。
+		伤害和距离随精神强度提升。]], "tformat")
 t("Deflect Projectiles", "弹道偏移", "talent name")
 t([[You learn to devote a portion of your attention to mentally swatting, grabbing, or otherwise deflecting incoming projectiles.
 		All projectiles targeting you have a %d%% chance to instead target another spot within radius %d and move %d%% slower.
@@ -27786,7 +27787,7 @@ t("psionic", "灵能", "talent category")
 t("absorption", "吸收", "talent type")
 t("Absorb damage and gain energy.", "吸收伤害并获得能量。", "_t")
 t("projection", "投射", "talent type")
-t("Project energy to damage foes.", "使用能量摧毁目标。", "_t")
+t("Project energy to damage foes.", "投射能量以伤害敌人。", "_t")
 t("psi-fighting", "灵能格斗", "talent type")
 t("Wield melee weapons with mentally-manipulated forces.", "用意志力来控制近战武器。", "_t")
 t("focus", "聚焦", "talent type")
@@ -29276,8 +29277,8 @@ t([[Shattering up to %d ghouls or ghasts you create a putrescent swirling cloud 
 		Any ghoul or ghast dying or expiring within this cloud increases its duration by %d turn and every two absorbed ghoul/ghast your gain back one soul.
 		The cloud deals %0.2f frostdusk damage to any foes caught inside.
 		The damage will increase with your Spellpower.
-		]], [[你粉碎最多 %d 个食尸鬼或妖鬼，在身边创造出半径 %d 码的腐败云雾，持续时间为杀死的食尸鬼数量乘 3 再加一回合。你会优先选择最老的食尸鬼。
-		每个在云雾中死去的食尸鬼或妖鬼会增加它的持续时间 %d 回合，每死亡2个食尸鬼或妖鬼会恢复1点灵魂。
+		]], [[你粉碎最多 %d 个食尸鬼或妖鬼，在身边创造出半径 %d 码、并持续跟随你的腐败云雾，持续时间为杀死的食尸鬼数量乘 3 再加一回合。你会优先选择最老的食尸鬼。
+		每个在云雾中死去或到期的食尸鬼或妖鬼会增加它的持续时间 %d 回合，每死亡2个食尸鬼或妖鬼会恢复1点灵魂。
 		云雾会对其中的所有敌人造成 %0.2f 霜暮伤害。
 		伤害受法术强度加成。
 		]], "tformat")
@@ -29649,8 +29650,7 @@ t("Use which gem?", "使用哪颗宝石？", "_t")
 t("You create: %s", "你制造了：%s", "logPlayer")
 t([[Carve 40 to 80 alchemist gems out of a natural gemstone.
 		Alchemist gems are used for many other spells, and each gem type creates a different effect.]], [[从自然宝石中制造 40 ～ 80 个炼金宝石。
-		许多法术需要使用炼金宝石。
-		每种宝石拥有不同的特效。]], "tformat")
+		许多法术需要使用炼金宝石，每种宝石拥有不同的特效。]], "tformat")
 t("Extract Gems", "宝石提炼", "talent name")
 t("You extract %s from %s", "你从%s中提炼了%s。", "logPlayer", {2,1})
 t("Try to extract gems from which metallic item?", "从哪个金属物品中提取宝石？", "_t")
@@ -31426,7 +31426,7 @@ t([[You like to keep your most precious tools always at hand. This talent lets y
 		此外，切换装备组（默认 Q 键）不再消耗回合。]], "tformat")
 t("Windblade", "剑刃风暴", "talent name")
 t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成超过 50000 点伤害", "_t")
-t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 码范围内所有敌人造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
+t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 码范围内所有目标造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
 t("Windtouched Speed", "疾风之速", "talent name")
 t("Know at least 10 talent levels of equilibrium-using talents", "掌握至少10级使用失衡值的技能", "_t")
 t([[You are attuned with Nature, and she helps you in your fight against the arcane forces.
@@ -39376,7 +39376,7 @@ section "mod-tome/data/zones/reknor/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("Golbug the Destroyer", "毁灭者高尔布格", "entity name")
-t("A huge and muscular orc of unknown breed. He looks both menacing and cunning...", "一只膘肥身健的巨大兽人。他看起来既危险又狡猾……", "_t")
+t("A huge and muscular orc of unknown breed. He looks both menacing and cunning...", "一只种类不明、肌肉发达的巨大兽人。他看起来既危险又狡猾……", "_t")
 t("They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.", "据说在确认兽人仍居住在瑞库纳之后，他们在那里发现了一个强大的恶魔。", "_t")
 t("Danger...", "小心……", "_t")
 t("When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", "你上次过来时，这个洞穴里满是你杀死的兽人尸体。现在，更多的尸体铺在了地上，尽皆焦黑，散发着刺鼻的硫磺味。桔色的昏暗灯光照亮了洞穴延伸的东面。", "_t")
@@ -39426,7 +39426,7 @@ section "mod-tome/data/zones/reknor-escape/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("Brotoq the Reaver", "收割者布罗托克", "entity name")
-t("A huge orc blocks your way to the Iron Council. You must pass.", "一只阻挡了通向钢铁议会道路的兽人。你必须打倒他。", "_t")
+t("A huge orc blocks your way to the Iron Council. You must pass.", "一只阻挡了通向钢铁议会道路的巨大兽人。你必须通过。", "_t")
 t(", who ate their brains still warm,", "，他会趁热吃掉他们的脑子，", "_t")
 t("dwarf", "矮人", "entity subtype")
 t("Norgan", "诺尔甘", "entity name")
@@ -42953,7 +42953,7 @@ t([[#{bold}##CRIMSON#WARNING: this is an EXPERIMENTAL feature. It may explode!#L
 Sustains auras with name in #YELLOW#yellow#LAST# can not be automatically turned back on if disabled. After turning them on here, you need to unsustain and resustain them manually.
 
 #{bold}#This is a purely cosmetic change.#{normal}#]], [[#{bold}##CRIMSON#警告：这是一项实验性功能。它随时可能出现问题！#LAST##{normal}#
-名称显示为#YELLOW#黄色#LAST#的持续技能光环，如果被禁用，将无法自动重新开启。在你在这里调整之后，需要手动重新启用这些持续技能。
+名称显示为#YELLOW#黄色#LAST#的持续技能光环，如果被禁用，将无法自动重新开启。在你在这里调整之后，需要手动先关闭再重新启用这些持续技能。
 
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#]], "_t")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
