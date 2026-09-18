@@ -2060,8 +2060,8 @@ t([[#GOLD#Damage resistance: by speed#LAST#
 All damage you receive, through any means, is decreased by this percentage, which increases as your total movement speed (global times movement) decreases.
 This is applied after normal damage type resistances.
 ]], [[#GOLD#伤害抗性：速度#LAST#
-所有类型任何方式对你造成的伤害按此值减免，随着你的总体移动速度减少而增加。
-该效果在常规伤害抗性后生效，不受抗性穿透影响。
+所有类型任何方式对你造成的伤害按此值减免，随着你的总体移动速度（全局速度×移动速度）减少而增加。
+该效果在常规伤害类型抗性之后生效。
 ]], "_t")
 t([[#GOLD#Damage resistance: creature type#LAST#
 All damage you receive from creatures of this type, through any means, is decreased by this percentage.  This is applied separately to (stacks with) normal resistances.
@@ -2794,7 +2794,7 @@ t("Rescuer of the lost", "救助迷失者", "achievement name")
 t("Rescued the merchant from the assassin lord.", "从刺客领主手中救回商人。", "_t")
 t("Poisonous", "卑鄙小人", "achievement name")
 t("Sided with the assassin lord.", "与刺客领主同流合污。", "_t")
-t("Destroyer of the creation", "创造神终结者", "achievement name")
+t("Destroyer of the creation", "造物的毁灭者", "achievement name")
 t("Killed Slasul.", "杀死萨拉苏尔。", "_t")
 t("Treacherous Bastard", "阴险的背叛者", "achievement name")
 t("Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.", "杀死萨拉苏尔，尽管你曾为习得觉醒技“纳鲁精灵的遗产”而与他结盟。", "_t")
@@ -8234,7 +8234,7 @@ t("horror", "恐魔", "entity subtype")
 t("necrotic mass", "亡灵集合", "entity name")
 t("This putrid mass of rotting flesh shifts and quivers, but shows no signs of intelligence or mobility.", "这块腐烂的血肉不断变形颤抖，不过似乎没有智力和移动力。", "_t")
 t("necrotic abomination", "亡灵憎恶", "entity name")
-t("This monstrous form of putrid, torn flesh and chipped bone drags its mass towards you, spurting blood and viscera along the way.", "这块腐烂的被切碎的血肉，挣扎着向你移动，在路上喷出的血液和内脏。", "_t")
+t("This monstrous form of putrid, torn flesh and chipped bone drags its mass towards you, spurting blood and viscera along the way.", "这团腐烂的碎肉残骨拖着庞大的躯体向你蠕动，沿途喷溅出血液和内脏。", "_t")
 t("#VIOLET#As the necrotic abomination is destroyed you see the remaining bones and flesh reassembling in the form of new foes!", "#VIOLET#当亡灵憎恶被摧毁时，你发现它的剩余部分重组为新的敌人！", "logSeen")
 t("bone horror", "骨灵恐魔", "entity name")
 t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中央的巨大胸腔伴随着响亮而清晰的碎裂声搏动着，许多骷髅手臂从中伸出，缠绕、融合，形成长长的骨骼肢体支撑自身，而其他部分则崩塌向内坍缩。在此期间，它们似乎都想抓住你。", "_t")
@@ -8435,7 +8435,7 @@ It moves swiftly toward you, casting terrible spells and swinging its weapons at
 t("champion of Urh'Rok", "乌鲁洛克的冠军", "entity name")
 t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克本人的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
 t("forge-giant", "锻造巨人", "entity name")
-t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "锻造巨人的每只手都有一柄地底锻造巨锤——被乌鲁洛克加持以锻造魔钢的巨锤。进入他们的领地是极度危险的事情。", "_t")
+t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "一个浑身燃烧的巨人，双手各持一柄来自地底的锻造巨锤——由乌鲁洛克亲自赋予碾碎和锻造魔钢之力的武器。踏入它们的攻击范围，后果自负。", "_t")
 t("Khulmanar, General of Urh'Rok", "库马纳，乌鲁洛克的将军", "entity name")
 t("This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.", "这个庞大的躯体笼罩在黑暗之炎中，他在一群小恶魔中显得鹤立鸡群。在他手里握着一柄沉重的双手斧，火焰在刀锋处舞动。", "_t")
 
@@ -9478,7 +9478,7 @@ t("#00FF00#The elixir has greatly expanded your capacity for improving your mind
 t("You have %d stat point(s) to spend. Press G to use them.", "你有%d属性点。请按 G 键使用。", "logPlayer")
 t("Elixir of Explosive Force", "爆炸药剂", "entity name")
 t("vial of orange fluid", "一瓶橙色液体。", "_t")
-t("A vial of churning orange fluid.", "一瓶浑浊的橙色液体。", "_t")
+t("A vial of churning orange fluid.", "一瓶翻涌的橙色液体。", "_t")
 t("permanently increase your chance to critically strike with spells by 4%", "永久提升你4%法术暴击率", "_t")
 t("#00FF00#The elixir has improved your eye for an enemy's magical weak points!", "#00FF00#药剂提升了你发现敌人魔法弱点的能力！", "logPlayer")
 t("Elixir of Serendipity", "幸运药剂", "entity name")
@@ -12544,7 +12544,7 @@ t("#ORCHID##Source#'s tendrils pull #Target# in!", "#ORCHID##Source#的触须将
 t("#ORCHID#%s resists the tendrils' pull!", "#ORCHID#%s抵抗了触须的抓取！", "logSeen")
 t("Rogue Plight", "盗贼之厄", "entity name")
 t("blackened leather armour", "熏黑的皮甲", "_t")
-t("No rogue blades shall incapacitate the wearer of this armour.", "盗贼之刃将不能加于装备者之身。", "_t")
+t("No rogue blades shall incapacitate the wearer of this armour.", "盗贼之刃休想令此甲的穿戴者丧失行动能力。", "_t")
 t("Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns.", "每4回合将一项流血、毒素或伤口效果转移给效果来源或者附近的敌人。", "_t")
 t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#盗贼之厄将一项效果转移给其来源！", "logPlayer")
 t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#盗贼之厄将一项效果转移给周围敌人！", "logPlayer")
@@ -12794,7 +12794,7 @@ t("gold coated emblem", "镶金的纹饰腰带", "_t")
 t("Said to have belonged to a master of avoiding attacks, this gilded steel emblem symbolizes his talent.", "据说它曾属于一位闪避大师，这枚镀金的钢徽记象征着他的才能。", "_t")
 t("Surefire", "神火", "entity name")
 t("high-quality bow", "制作精良的弓", "_t")
-t("This tightly strung bow appears to have been crafted by someone of considerable talent. When you pull the string, you feel incredible power behind it.", "这把做工精良的弓相传由一位不知名的大师打造。当你拉动弓弦时，你能感受到这把弓蕴藏着难以置信的力量。", "_t")
+t("This tightly strung bow appears to have been crafted by someone of considerable talent. When you pull the string, you feel incredible power behind it.", "这把弓弦绷紧的弓看起来出自一位技艺高超者之手。当你拉动弓弦时，你能感受到蕴藏其中的惊人力量。", "_t")
 t("Frozen Shards", "冰极碎", "entity name")
 t("pouch of crystallized ice", "一袋水晶质的冰弹", "_t")
 t("In this dark blue pouch lie several small orbs of ice. A strange vapour surrounds them, and touching them chills you to the bone.", "在这个深蓝色的袋子里，躺着几颗冰晶弹。一团奇异的冰雾环绕着它们，当你触摸它们时，你感到刺骨的凉意。", "_t")
@@ -13276,7 +13276,7 @@ t("fire trail", "火焰尾迹", "_t")
 t("Cuirass of the Dark Lord", "黑暗领主胸甲", "entity name")
 t("black, spiked armor", "一件黑色的尖刺铠甲", "_t")
 t("Worn by a villain long forgotten, this armor was powered by the blood of thousands of innocents. Decrepit and old, the dark lord died in solitude, his dominion crumbled, his subjects gone. Only this cuirass remained, dying to finally taste fresh blood again.", "这件胸甲属于一个早已被人遗忘的暴君，成千上万无辜死者的鲜血强化了这件铠甲。黑暗领主最终在衰老与虚弱中孤独的死去，他的统治分崩离析，他的人民四散而去。只有这件胸甲被保留了下来，渴望着再次品尝鲜血的味道。", "_t")
-t("drain blood from all creatures within range 5, causing them to bleed for %0.2f physical damage over 4 turns (based on your Physicalpower). For each creature drained (up to 10), the armor gains strength, which fades over 10 turns if it is not fed", "吸收半径 5 内所有生物的血液，令其在 4 回合内受到 %0.2f 点物理伤害（基于你的物理强度）。每吸收一个生物（至多10个），护甲的属性便会增强；若不再喂食，增益会在 10 回合后消退。", "tformat")
+t("drain blood from all creatures within range 5, causing them to bleed for %0.2f physical damage over 4 turns (based on your Physicalpower). For each creature drained (up to 10), the armor gains strength, which fades over 10 turns if it is not fed", "吸收半径 5 内所有生物的血液，令其流血，在 4 回合内受到 %0.2f 点物理伤害（基于你的物理强度）。每吸收一个生物（至多10个），护甲的属性便会增强；若不再喂食，增益将在 10 回合内逐渐消退。", "tformat")
 t("%s revels in the bloodlust of %s %s!", "%s沉醉于%s%s的嗜血之中！", "logSeen")
 t("Blood Charges: %d", "鲜血充能：%d", "tformat")
 t("Decayed Visage", "腐朽面容", "entity name")
@@ -14779,7 +14779,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “对于精灵族来说这还真是个怪问题，我的女士。不过，我可以在此保证，只需要我一个人也可以亲手干掉那些兽人。如果你真的想要一同前行的话，我可能没法确保您的安全。”
 
-她的笑声如同水晶泠泠碰撞般清脆。“那真是太好了！来，拿上你的金属棍子，让我们来比一比谁才是这个领域的专家。”我微笑着点头，走进武器库，匆匆套上金属护胫、锁子甲、胸甲和钢制护手。莱娜尼尔不耐烦地咂舌道，“你非得穿上这堆废铜烂铁不可吗？”
+她的笑声如同水晶泠泠碰撞般清脆。“那真是太好了！来，拿上你的金属棍子，让我们来看看谁更能撑得住。”我微笑着点头，走进武器库，匆匆套上金属护胫、锁子甲、胸甲和钢制护手。莱娜尼尔不耐烦地咂舌道，“你非得穿上这堆废铜烂铁不可吗？”
 
 “这是我的战斗服”，我戴上头盔，披上斗篷。
 
@@ -14793,17 +14793,17 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “舞会开始了”
 
-一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑尖高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
+一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑刃高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”。在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
 
-我应声道，旋即向刃尖注入寒冰的魔法，在剑刃灵巧的舞动中冰霜与寒风向着她周围的兽人席卷而来。随着一声声碎裂的轻响，兽人在她的火焰触及之前便被冻住，如同玻璃般裂成碎片。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。“喂，别抢了我的乐子。”，她大喊道。旋即，随着传送魔法的波动，她的身形出现在兽人营地的另一侧，烈火与爆炸的硝烟也随之燃起。
+我应声道，旋即将整个剑刃化为了冰，在剑刃灵巧的舞动中冰霜与寒风向着她周围的兽人席卷而来。随着一声声碎裂的轻响，兽人在她的火焰触及之前便被冻住，如同玻璃般裂成碎片。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。“喂，别抢了我的乐子。”，她大喊道。旋即，随着传送魔法的波动，她的身形出现在兽人营地的另一侧，烈火与爆炸的硝烟也随之燃起。
 
-我大笑着转身，剑尖轻击地面，地震的烈波横贯开来，周围的兽人纷纷不支倒下，任凭利刃穿透他们的脖颈。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。斗志昂扬的我热血沸腾，脱下头盔和板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败敌人的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
+我大笑着转身，每次挥击都使大地剧震，震波横贯开来，周围的兽人纷纷不支倒下，任凭利刃穿透他们的脖颈。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。斗志昂扬的我热血沸腾，脱下头盔和板甲，在敌人已经溃不成军的队列中尽情厮杀，享受击败敌人的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
 
 远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。烈焰缠绕着女魔法师的周身，她的眸子熠熠生辉，四周跃动的火光让她宛如火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
 
 剩余的兽人眼看人数锐减，开始逃跑；但我相位移动到他们前方，截断退路，又召来一股洪水，逼他们退回莱娜尼尔的烈焰之中。火墙之前，我将他们击溃，大批兽人如风中落叶般倒下。鲜血大股涌出；斩月剑又刺出几下，莱娜尼尔又轰出几道法术，战斗便结束了。没有一个兽人还能动弹，地上倒着远超四百具尸体。
 
-面对面地，我和莱娜尼尔的身躯矗立在硝烟弥漫的战场上，随着战斗的肾上腺素退去，突如其来的疲惫令两个人气喘吁吁，呼出的气息在空气中凝成雾气。“抱歉”，我气喘吁吁地说道，“我有些忘了，到底是谁杀的更多了…”。她害羞地微笑着，汗水从泛红的面颊滴落。战场的烈火和利刃撕开了她美丽的长袍，展现着长袍下雪白的皮肤。肩上的细带不知何时已经悄然滑落，营地篝火昏黄的光线照耀着她的身躯。混乱的呼吸声中，她的胸脯轻轻摇动，深邃的眼神饱含着柔情。
+面对面地，我和莱娜尼尔的身躯矗立在硝烟弥漫的战场上，随着战斗的肾上腺素退去，突如其来的疲惫令两个人气喘吁吁，呼出的气息在空气中凝成雾气。我气喘吁吁地说道，”我已经记不清了，到底是谁杀的更多…”。她害羞地微笑着，汗水从泛红的面颊滴落。战斗中的刀伤和灼烧让她的长袍残破不堪，一侧肩带松松垂落。她泛着光泽的胸膛剧烈起伏，深邃的双眼以赤裸的炽烈目光看着我。
 
 她大步走来，粗暴地揪住我的锁子甲，把我的双唇拉向她。这一吻火热而激烈；她咬住我的下唇，战斗中奔涌的热血顿时再度沸腾。我又吻住她，一把搂住她的身体，将她紧紧拉向自己，双唇始终交缠。她欲火中烧地撕扯我剩下的护甲，将其甩在地上；我也褪下她的丝绸衣裳，直到我们赤裸着站在群星之下。我们靠在一处岩壁上，紧贴着彼此，仍因刚才的战斗喘息流汗。炽烈的激情中，肌肤交融，我们火热的呻吟升入寒冷的夜空。]], "_t")
 t("The Spellblaze Chronicles(3): The Farportal", "魔法大爆炸纪事(3)：远行传送门", "_t")
@@ -15483,7 +15483,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我敬畏地看着周围的一切。虽然我曾探索过很多夏·图尔遗址，但我从未见过这样的景象。这座建筑简洁而优雅，表现出一种粗糙的美感。我转身望向莱娜尼尔正在检查的门。
 
-她试图打开这扇门，但好像很难找到一个方法。“一定有某种钥匙…或者靠解决某种难题来打开它，”她喃喃地说。“但我解决不了——这里的秘密已经随着时间流逝而消失了。”她发出愤怒的咆哮，站了起来。她拿出她的法杖，释放出一股奥术力量，强行地将石头门分开，撕开一条通往下一个房间的通道。
+她试图打开这扇门，但好像很难找到一个方法。“一定有某种钥匙…或者靠解决某种难题来打开它，”她喃喃地说。“但我解决不了——这里的秘密已经随着时间流逝而消失了。”她发出愤怒的咆哮，向后退开。她拿出她的法杖，释放出一股奥术力量，强行地将石头门分开，撕开一条通往下一个房间的通道。
 
 在那一瞬间，发生了许多事情。从远处，我感受到了一股能量，一股我从未感受过的巨大力量。莱娜尼尔强烈地关注着这份能量。但很快，四周传来有生物在四处移动的噪音。我们进入的山洞里发出了上百生物的哀嚎和尖啸，我们脚下的地板也开始在颤抖。岩石从天花板上掉下来，从里面冒出来了一些可怕的生物，长着有尖刺的四肢和光滑的三角形脸孔。从颤抖的地面中升起了一个光组成的奇怪的虚幻存在，它有着长长的四肢触手。当我转身面对这些威胁时，我看到在前一个洞穴里的蠕虫已经恢复生机，他们现在正在融合成一大堆腐烂的肉。
 
@@ -15513,7 +15513,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 这句话对我来说如同当头一棒。“杀了你？但我做不到……”
 
-“但你必须这么做！”她坚定地说。“在你对我做了那样的事情之后……在你给我的生命中带来那么多痛苦之后……这是你欠我的。”我深深地看向她的眼睛，看到了她内心情感的波动，看到了她遭受的无数痛苦和磨难，看到了在她身上无数不公正的仇恨和责备，看到了她不能够帮助更多人时内心无尽的内疚和羞愧……还有，在她内心深处的那仅存的有关我和我们爱的回忆。我伸出手，拂过她柔软的头发，手指轻轻地抚摸着她的脸庞。我靠得很近，她闭上了眼睛，当我将嘴唇移向她的时候，她的脸转向了我。
+“但你必须这么做！”她坚定地说。“在你对我做了那样的事情之后……在你给我的生命中带来那么多痛苦之后……这是你欠我的。”我深深地看向她的眼睛，看到了她内心情感的波动，看到了她遭受的无数痛苦和磨难，看到了她对加害者的仇恨和责怪，看到了她不能够帮助更多人时内心无尽的内疚和羞愧……还有，在她内心深处的那仅存的有关我和我们爱的回忆。我伸出手，拂过她柔软的头发，手指轻轻地抚摸着她的脸庞。我靠得很近，她闭上了眼睛，当我将嘴唇移向她的时候，她的脸转向了我。
 
 “不！”她突然发出一声哀鸣，把我一把推开。“不可能！”她迅速转身背对我，我看到眼泪从她的脸颊划过。“世界已经变了，艾伦尼恩。我肩负着使命，谁也不能陪我走上这条路。”随后，她手持法杖向前跑去，奔向在冰墙中封锁着的巨大眼睛。我试图追上她，但她速度更快。然后，她一跃而起，将自己法杖的一端猛地插入了已死之神的眼睛的中央。
 
@@ -15525,7 +15525,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那些发着光的触手怪物轻松穿过了我所造出的火墙，我冲上前去，试图用我的剑刃刺穿这个怪物的核心。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
 
-那团蠕虫团穿透了墙壁，伴随着它的是另外两个闪烁着光辉的恐魔，还有一些某种暗影和噩梦的魔鬼。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则把它的触手如同长矛一般直射过来，准备吸走我的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了我的剑柄，随时准备轻快地躲开它们的攻势。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
+那团蠕虫团穿透了墙壁，伴随着它的是另外两个闪烁着光辉的恐魔，还有一些某种暗影和噩梦的魔鬼。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则把它的触手如同长矛一般直射过来，准备吸走我的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了握剑的手势，准备以轻捷的挥砍将它们挡在攻击范围之外。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
 
 然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的身旁起舞，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我手中紧握着我的长剑，不知道这到底是我知道的那个莱娜尼尔，还是因为她和已死之神的融合中产生的另一种存在。
 
@@ -15543,7 +15543,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “不过现在，再见，艾伦尼恩”，她的身体慢慢飞向空中，然后加快了速度，消失在了我的视线当中。
 
-我躺在冰冷的石头上，休息了一段时间，慢慢地愈合了的伤口并恢复了我的力量。我回顾了自傍晚以来的事件，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她什么样的影响呢？
+我躺在冰冷的石头上，休息了一段时间，慢慢地愈合伤口并恢复力量。我回顾了自傍晚以来的事件，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她什么样的影响呢？
 
 然后，我想到了有关我们种族的前途。在过去的岁月，我们曾经追求永生的力量。我们古代的领袖曾经多么为此着迷，但那都是出于虚荣，骄傲和对死亡的恐惧。如果我们的种族都能获得永生的恩赐，那么结果又会怎么样呢？永恒的生命会把我们从外部世界的冲突和战争隔绝。它会给我们一种新的视野，超越其他种族琐碎而骄傲的无止境的争执。
 
@@ -17749,15 +17749,11 @@ In all those centuries I still searched for the woman and found no trace. I know
 
 我感到力量涌入了四肢，声音从咽喉中奔放而出。我站起来环顾四周，发现了广袤的世界与耀眼的星空，我大声的歌唱着欢乐。这女人听到了我的歌唱，她笑了，她不再流泪。所以我继续歌唱了一会儿来取悦她。但随后我说，“我是独一无二的吗？” 她点了点头，说：“没有其它的人像你一样了。” 听到这句话，我感到很悲伤，而她似乎看穿了我心中的孤寂。女人犹豫了一会，说：“虽然这会让我痛苦，但我绝不会否定你的欲望，你将再次沉睡，当你醒来时，将会被许许多多和你一样的人所包围，而你的宿命将是走进这个破碎的世界并修复它。”
 
-她一说完我便立刻再次陷入沉睡，当我醒来时发现世界变了，空中燃烧着一团耀眼的火焰在——这就是新生的太阳。
+她一说完我便立刻再次陷入沉睡，当我醒来时发现世界变了，空中燃起了一道耀眼的光芒——这就是新生的太阳。接着我看到周围许许多多和我一样的人们，还有一些人虽然长相相同却有着迥异的能力与个性。我将他们唤醒并聚集起来，我们都为有同伴而感到高兴，并决定称呼自己为阿洛。但是那个女人已经离去了，除了我没有任何人见过她，我对她踪迹的一切搜寻都徒劳无果。
 
-接着我看到周围许许多多和我一样的人们，还有一些人虽然长相相同却有着迥异的能力与个性。我将他们唤醒并聚集起来，我们都为有同伴而感到高兴，并决定称呼自己为阿洛。但是那个女人已经离去了，除了我没有任何人见过她，似乎她从未存在过。
+时光如水，岁月如梭，我们发现了其它生物，但它们往往邪恶而凶残，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们艺术之道。在随后的战争中，我们某些人想在他们的战斗中给予帮助，但很快我们发现在这些大师身旁，我们只是累赘而已。于是我们退回丛林，直到战争出现了灾难性的结果。
 
-时光如水，岁月如梭，我们发现了其它生物，但它们都邪恶而野蛮，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们艺术之道。在随后的战争中，我们某些人想在他们的战斗中给予帮助，但很快我们发现在这些大师身旁，我们只是累赘而已。于是我们退回丛林，直到战争出现了灾难性的结果。
-
-在数个世纪里我都在不停的寻找那个女人，但却一无所获。我知道所有的神明都已经被猎杀，也记得夏·图尔在他们圣战中所做的详细研究。
-
-现在我也老了，与我一起醒来的人都各自离我而去，每个夜晚都是那么的清冷孤寂，但每每在我沉睡之时我仍能听到她温柔的细语，感受到她温暖的脸颊，总有一天我会再次见到她。]], "_t")
+在数个世纪里我都在不停的寻找那个女人，但却一无所获。我知道所有的神明都已经被猎杀，也记得夏·图尔在圣战中的彻底搜捕。现在我也老了，与我一同醒来的人中，有些已经逝去，每个夜晚都是那么的清冷孤寂，但每每在我沉睡之时我仍能看到她的面容，听到她的声音，总有一天我会再次见到她。]], "_t")
 t("human myth of creation", "人类的创世传说", "_t")
 t([[At the start of time Sun was born, and Moons, and Eyal raised from the Darkness.
 And Gerlyk walked Eyal with his three brothers.
@@ -24874,8 +24870,8 @@ t([[Each time one of your stone vines deals damage to a creature it will restore
 t("Rockwalk", "岩石漫步", "talent name")
 t([[Merge with one of your stone vines, traversing it to emerge near an entangled creature (maximum range %d).
 		Merging with the stone is beneficial for you, healing %0.2f life (increases with Willpower).
-		This will not break Body of Stone.]], [[吸收一条岩石藤蔓，并将自己拉到被困住的怪物附近（最大半径 %d）。
-		吸收岩石藤蔓会治疗你 %0.2f 点生命值（受意志加成）。
+		This will not break Body of Stone.]], [[融入一条岩石藤蔓，穿行其中到达被缠绕的生物附近（最大射程 %d）。
+		融入岩石藤蔓会治疗你 %0.2f 点生命值（受意志加成）。
 		使用这个技能不会打破岩石身躯。]], "tformat")
 t("Rockswallow", "岩石吞噬", "talent name")
 t([[Merge your target (within range %d) with one of your stone vines that has seized it, forcing it to traverse the vine and reappear near you.
@@ -24992,7 +24988,7 @@ t("Be at one with nature.", "与大自然融为一体。", "_t")
 t("harmony", "自然协调", "talent type")
 t("Nature heals and cleans you.", "利用大自然的力量治疗你受到的创伤、清洁你的身体。", "_t")
 t("antimagic", "反魔法", "talent type")
-t("The way to combat magic, or even nullify it.", "你选择终生与魔法对抗并试图永远终结它。", "_t")
+t("The way to combat magic, or even nullify it.", "对抗乃至使魔法失效的手段。", "_t")
 t("summoning (melee)", "召唤（近战）", "talent type")
 t("The art of calling creatures adept in melee combat to your aid.", "召唤近战生物来协助你战斗的艺术。", "_t")
 t("summoning (distance)", "召唤（远程）", "talent type")
@@ -26900,8 +26896,8 @@ t([[Halflings have always been a very organised and methodical race; the more fo
 		如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f（最多 5 个敌人）。]], "tformat")
 t("Indomitable", "不屈意志", "talent name")
 t([[Halflings have one of the most powerful military forces in the known world and have been at war with most other races for thousands of years.
-		Removes %d stun, daze, or pin effects and grants immunity to stuns, dazes and pins for %d turns.]], [[半身人以骁勇善战闻名于世，他们曾经在战场上对抗其他种族上千年。
-		立刻移除 %d 种震慑、眩晕和定身状态，并使你对震慑、眩晕和定身免疫 %d 回合。]], "tformat")
+		Removes %d stun, daze, or pin effects and grants immunity to stuns, dazes and pins for %d turns.]], [[半身人拥有已知世界最强大的军事力量之一，数千年来一直与大多数其他种族交战。
+		移除 %d 个震慑、眩晕或定身效果，并使你对震慑、眩晕和定身免疫 %d 回合。]], "tformat")
 t("orc", "兽人", "talent type")
 t("Orcish Fury", "兽人狂暴", "talent name")
 t([[Summons your lust for blood and destruction; especially when the odds are against you.  
@@ -27580,8 +27576,8 @@ t("%s resists the demons!", "%s抵抗了心魔！", "logSeen")
 t([[Brings the target's inner demons to the surface.  Each turn, for %d turns, there's a %d%% chance that a demon will surface, requiring the target to make a Mental Save to keep it from manifesting.
 		If the target is sleeping, the chance to save will be halved, and fear immunity will be ignored.  Otherwise, if the summoning is resisted, the effect will end early.
 		The summon chance will scale with your Mindpower and the demon's life will scale with the target's rank.
-		If a demon manifests the sheer terror will remove all sleep effects from the victim, but not the Inner Demons.]], [[使目标的心魔具象化。在 %d 回合内，每回合有 %d%% 的几率会召唤一个心魔，需要目标进行一次精神豁免鉴定，失败则心魔具象化。
-		如果目标处于睡眠状态，豁免概率减半，且无视目标的恐惧免疫。若目标豁免鉴定成功，则心魔的效果提前结束。
+		If a demon manifests the sheer terror will remove all sleep effects from the victim, but not the Inner Demons.]], [[使目标的心魔浮现。在 %d 回合内，每回合有 %d%% 的几率会召唤一个心魔，需要目标进行一次精神豁免鉴定，失败则心魔具现化。
+		如果目标处于睡眠状态，豁免概率减半，且无视目标的恐惧免疫。若目标未处于睡眠状态且豁免鉴定成功，则心魔的效果提前结束。
 		受精神强度影响，召唤几率按比例加成。
 		心魔的生命值受目标分级加成。
 		心魔具现化时，会移除目标身上的所有睡眠类效果，本技能除外。]], "tformat")
@@ -30099,7 +30095,7 @@ The status chance increases with your Accuracy.]], [[你朝目标的喉咙（或
 如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害，降低其 50 %% 移动速度，同时使其不能使用武器。
 状态效果几率受命中加成。]], "tformat")
 t("Bullseye", "靶心", "talent name")
-t("Each time you consume a mark, you gain %d%% increased attack speed for 2 turns and the cooldown of %d random techniques are reduced by %d turns.", "每次消耗标记时，获得 %d%% 攻击速度 2 回合，并减少 %d 个战斗技巧系技能冷却时间 %d 回合。", "tformat")
+t("Each time you consume a mark, you gain %d%% increased attack speed for 2 turns and the cooldown of %d random techniques are reduced by %d turns.", "每次消耗标记时，获得 %d%% 攻击速度加成，持续 2 回合，并随机减少 %d 个战斗技巧系技能的冷却时间 %d 回合。", "tformat")
 t("Relaxed Shot", "宁神射击", "talent name")
 t([[You fire a shot without putting much strength into it, doing %d%% damage.
 		That brief moment of relief allows you to regain %d stamina.]], [[你轻松射出一箭，造成 %d%% 伤害。
@@ -30538,8 +30534,8 @@ t([[Enhances your grapples with additional effects. All additional effects will 
 t("Take Down", "关节技：抱摔", "talent name")
 t("You cannot move!", "你无法移动！", "logPlayer")
 t([[Rushes forward and attempts to take the target to the ground, making a melee attack for %d%% damage then attempting to grapple them. If you're already grappling the target you'll instead slam them into the ground creating a radius 5 shockwave for %d physical damage and breaking your grapple.
-		The grapple effects and duration will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[冲向目标，试图将他掀翻在地，造成 %d%% 伤害然后抓取之。如果已经抓取，则将他掀翻，制造冲击波，在半径 5 的范围内造成 %d 物理伤害并解除抓取。
-		抓取效果和持续时间基于抓取技能。伤害受物理强度加成。]], "tformat")
+		The grapple effects and duration will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[冲向目标，试图将其扑倒在地，进行一次近战攻击造成 %d%% 伤害，然后尝试抓取。如果已在抓取状态，则将目标猛砸向地面，制造冲击波，在半径 5 的范围内造成 %d 物理伤害并解除抓取。
+		抓取效果和持续时间取决于你的抓取技能（若已习得），伤害受物理强度加成。]], "tformat")
 t("Hurricane Throw", "关节技：飓风投", "talent name")
 t("You must be grappling something to use this talent.", "你必须处于抓取中才能使用这个技能。", "logPlayer")
 t("Your grapple victim must be able to move to use this talent.", "要使用这个技能，你抓取的目标必须可以移动。", "logPlayer")
@@ -36625,8 +36621,8 @@ t([[Mayhem and destruction seem to follow you.
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 灵巧
 #CRIMSON# 强度 3+：%s 错失良机：机会转瞬即逝，你身边的人会错失良机 (+%d%% 躲闪概率)。
 #CRIMSON# 强度 4+：%s 厄运终结：如果提高后的伤害足够杀死对手的话，你将可以提高 %d%% 的伤害。]], "tformat")
-t("#F53CBE#%s suffers an unfortunate end.", "#F53CBE#%s遭受厄运。", "logSeen")
-t("#F53CBE#%s suffers an unfortunate blow.", "#F53CBE#%s遭受了厄运的打击。", "logSeen")
+t("#F53CBE#%s suffers an unfortunate end.", "#F53CBE#%s遭遇了厄运终结。", "logSeen")
+t("#F53CBE#%s suffers an unfortunate blow.", "#F53CBE#%s遭受了一记厄运之击。", "logSeen")
 t("space", "空间", "effect subtype")
 t("Unstable Probabilites", "不稳定可能性", "_t")
 t("The target has recently blinked through a wall using probability travel.", "目标刚才用次元移动穿过了一面墙。", "_t")
@@ -36810,7 +36806,7 @@ t("Zone-wide effect: +10% critical chance, +20% critical damage, -20% nature and
 t("Underwater Zone", "水下区域", "_t")
 t("Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%.", "区域效果： 空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。", "_t")
 t("Fearscape Zone", "恶魔空间", "_t")
-t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果： 恶魔空间的火焰将增加 10% 火焰和枯萎伤害，同时减少 20% 击退抗性。", "_t")
+t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果：恶魔空间的火焰使所有火焰和枯萎伤害增加 10%，但其诡异的重力会使击退抗性降低 20%。", "_t")
 t("Out of Time Zone", "异常时空", "_t")
 t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性 ，-20% 传送免疫。", "_t")
 t("Spellblaze Aura", "魔法大爆炸区域", "_t")
@@ -40477,7 +40473,7 @@ t("Farportal: Gates of Morning", "远行传送门：晨曦之门", "entity name"
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the Gates of Morning in the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
 这扇门似乎通向远东的晨曦之门附近。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经到了晨曦之门的山脚下，此间毫无传送门的痕迹……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经来到了能望见晨曦之门的地方，此间毫无传送门的痕迹……", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-last-hope/npcs.lua"
