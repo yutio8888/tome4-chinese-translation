@@ -1783,8 +1783,7 @@ Willpower defines your character's ability to concentrate. It increases your man
 t([[#GOLD#Cunning#LAST#
 Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your Mindpower, Mental Save, and critical chance.
 ]], [[#GOLD#灵巧#LAST#
-灵巧属性提升你学习、思考和反应能力。
-提升灵巧可以让你学习更多的技能，并提升精神力和精神豁免，以及暴击几率。
+灵巧决定你角色学习、思考和反应的能力。它让你能够学习许多世俗的技艺，并提升你的精神强度、精神豁免和暴击几率。
 ]], "_t")
 t([[#AQUAMARINE#Physical stats#LAST#
 ---
@@ -6425,6 +6424,7 @@ If this is your first time with the game, you will find the selection of races a
 \
 Now go boldly and remember: #GOLD#have fun!#WHITE#\
 Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!", [[
+
 你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，然后被一大群你以为自己能应付的怪物无情地屠杀！
 
 在教学过程中，一些怪物为了教学目的被相应地做过修改，不过在真实的埃亚尔世界中，怪物可不会这么简单！
@@ -6817,7 +6817,7 @@ t("stabbed", "被刺杀", "_t")
 t("pierced", "被刺破心脏", "_t")
 t("torn limb from limb", "被五马分尸", "_t")
 t("crushed", "被碾碎", "_t")
-t("shattered", "被压爆", "_t")
+t("shattered", "被击碎", "_t")
 t("smashed", "被粉碎", "_t")
 t("cleaved", "被裂颅", "_t")
 t("swiped", "被砍掉脑袋", "_t")
@@ -8179,7 +8179,7 @@ t("ghost", "幽灵", "entity subtype")
 t("dread", "噩灵", "entity name")
 t("It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.", "它的可怕形象冲击着你的双眼。它是死亡的化身，它丑恶的身体似乎在向宇宙宣告着它与现实的格格不入。", "_t")
 t("dreadmaster", "噩灵之王", "entity name")
-t("It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.", "它代表着无可匹敌的非生命力量。是对现实存在的否定。对它的轻微接触都会影响生命的流动，它那纯粹的不可思议的黑色肢体能够轻松地使岩石崩解，血肉成灰。", "_t")
+t("It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.", "它是一种几乎无可匹敌的非生命力量。它是对存在本身的冒犯，它的触碰本身便会侵害并扰乱生命的流动，它那纯粹的不可思议的黑色肢体能够轻松地使岩石崩解，血肉成灰。", "_t")
 t("banshee", "哀嚎女妖", "entity name")
 t("It is a ghostly woman's form that wails mournfully.", "一个发出凄惨尖叫的女妖。", "_t")
 t("ruin banshee", "毁灭女妖", "entity name")
@@ -9351,8 +9351,8 @@ Hard to tell if that really helped its former owner, but it's clear that the ski
 t("Prox's Lucky Halfling Foot", "普罗克斯的幸运半身人脚", "entity name")
 t("a mummified halfling foot", "一只风干的半身人脚", "_t")
 t([[A large hairy foot, very recognizably a halfling's, is strung on a piece of thick twine. In its decomposed state it's hard to tell how long ago it parted with its owner, but from what look like teeth marks around the ankle you get the impression that it wasn't given willingly.
-It has been kept somewhat intact with layers of salt and clay, but in spite of this it's clear that nature is beginning to take its toll on the dead flesh. Some say the foot of a halfling brings luck to its bearer - right now the only thing you can be sure of is that it stinks.]], [[一只用细线串起来的巨大毛脚，很显然这是一位半身人的。目前的状态，很难讲它多久以前被割了下来，但是从脚踝处的齿痕来看，应该不是出于自愿。
-它的外面有一层盐和粘土，被很好的保护着，尽管如此，大自然还是剥夺了它的活力，它已经成为了一块死肉。有人说，半身人的脚可以带来好运，但是现在唯一可确认的是——它臭死了。]], "_t")
+It has been kept somewhat intact with layers of salt and clay, but in spite of this it's clear that nature is beginning to take its toll on the dead flesh. Some say the foot of a halfling brings luck to its bearer - right now the only thing you can be sure of is that it stinks.]], [[一只用粗绳串起来的巨大毛脚，很显然这是一位半身人的。目前的状态，很难讲它多久以前被割了下来，但是从脚踝处的齿痕来看，应该不是出于自愿。
+它靠着几层盐和粘土才勉强保持了一定程度的完整，但尽管如此，很明显大自然已经开始侵蚀这块早已死去的血肉。有人说，半身人的脚可以带来好运，但是现在唯一可确认的是——它臭死了。]], "_t")
 t([[Detects traps.
 Removes (25%% chance) up to three stuns, pins, or dazes each turn%s]], [[侦查陷阱。
 每回合有 25%%几率解除至多3个震慑、定身或眩晕效果。%s]], "tformat")
@@ -11212,7 +11212,7 @@ t("alchemist quartz", "炼金石英", "entity name")
 t("emerald", "祖母绿", "entity name")
 t("alchemist emerald", "炼金祖母绿", "entity name")
 t("lapis lazuli", "天青石", "entity name")
-t("alchemist lapis lazuli", "炼金天青石", "entity name")
+t("alchemist lapis lazuli", "炼金青金石", "entity name")
 t("garnet", "石榴石", "entity name")
 t("alchemist garnet", "炼金石榴石", "entity name")
 t("onyx", "缟玛瑙", "entity name")
@@ -11593,7 +11593,7 @@ t("Staff of Absorption", "吸能法杖", "entity name")
 t("staff", "法杖", "entity combat talented")
 t("dark runed staff", "黑暗符文法杖", "_t")
 t([[Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.
-Light around it seems to dim and you can feel its tremendous power simply by touching it.]], "杖身铭刻着符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。它周围的光线会变的暗淡，当你触摸它时可以感受到惊人的魔力。", "_t")
+Light around it seems to dim and you can feel its tremendous power simply by touching it.]], "杖身铭刻着符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。\n它周围的光线会变的暗淡，当你触摸它时可以感受到惊人的魔力。", "_t")
 t("absorb energies", "吸收能量", "_t")
 t("This power seems too much to wield; you fear it might absorb YOU.", "这件装备的力量太强大了，你害怕它会把你吸收进去。", "logPlayer")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
@@ -18102,15 +18102,15 @@ The orcs were first encountered by the Eldoral halflings, who tried to use the s
 
 Recent investigations of orcish ruins have revealed a surprising amount of cultural material, and even crude artworks based around fertility and battle. Some evidence has also been found of strong community elements to their culture, with much focus on sporting activities and racial pride events. However these are still clearly lacking in the subtleties and aesthetics of our more advanced cultures, and any attempt to compare them with us must be overshadowed by their brutality, territorial violence, and obsession with war.
 
-There have been no substantiated reports of orcs for over 100 years. What reported sightings there are tend to be from such unreliable sources as adventurers and hermits, and have never been verified. We should be thankful that these horrible creatures have been banished to the annals of history, surviving only as stories to be told to misbehaving children.]], [[兽人们，很高兴的说，已经在马基·埃亚尔大陆上绝迹了，紧接着的便是图库纳国王揭开的新纪元——卓越纪。但是对它们之前文化风俗的学术研究却是非常有趣的，虽然可能会比较原始。
+There have been no substantiated reports of orcs for over 100 years. What reported sightings there are tend to be from such unreliable sources as adventurers and hermits, and have never been verified. We should be thankful that these horrible creatures have been banished to the annals of history, surviving only as stories to be told to misbehaving children.]], [[兽人们，很高兴地说，已经从马基·埃亚尔大陆上绝迹了——这紧随着勇者图库纳国王在卓越纪之初发动的清剿。但是对它们从前文化与文明的学术研究却仍然很有价值，尽管它可能相当原始。
 
-兽人们大约在6英尺1英寸左右，有着绿色或黑色的皮肤。他们的外表和体格差异很大，这似乎与他们惊人的繁殖速度有关。大部分兽人拥有雄壮的体型和发达的肌肉，关于兽人军队的这部分记忆仍旧存在于老人们的心中。然而在烈火纪，一群相对瘦弱却更加强大的兽人出现了，他们掌握了毁灭性的法术。
+兽人身高大约在6英尺1英寸左右，皮肤呈绿色或黑色。他们的外表与体格差异极大，这很可能与他们惊人的繁殖速度有关。大部分兽人体格粗壮、肌肉发达，作为他们那些可怕军队中的普通士卒而广为人知。然而在烈火纪，出现了大量更为瘦削、精悍的兽人，他们往往通晓毁灭性的法术。
 
-与兽人发生第一次接触的是艾德瑞尔半身人，他们只想将兽人当做奴隶，但是在发现兽人们过于凶残后放弃了这一想法。在随后的数个世纪中，战争与争斗始终是为了对抗这些野兽。他们压倒性的数量，一度对所有文明产生过巨大的威胁，甚至迫使各族采取魔法大爆炸这样极端的防御手段。最可怕的年代是在烈火纪，当兽人们掌握了魔法，并且在吞噬者加库尔的领导下时，他们几乎扫除了面前的一切障碍。最终，上万的半身人士兵在纳格尔之战中为了毁灭兽族恶魔般的领袖和军团献出了生命。之后各种族的文明开始缓慢恢复，最终图库纳国王和米雯尼雅王后统一了人类和半身人王国，使大家团结一致击退了兽人，并将它们一网打尽。
+最早与兽人接触的是艾德瑞尔半身人，他们本想把这些头脑简单的生物用作仆役，但在发现它们过于凶残后便放弃了。在此后的数个世纪里，人们几乎从未间断地与这些野兽征战厮杀。它们往往占据数量优势，一度威胁要压垮整个文明，甚至迫使各族采取了魔法大爆炸这样极端的防御手段。而最可怕的时期是在烈火纪，兽人掌握了奥术能力，在吞噬者加库尔的率领下横扫大陆，无情地屠戮面前的一切。最终，一万名半身人在纳格尔之战中献出了生命，击败了他们那恶魔般的领袖，并遏止了兽人军队的推进。此后各文明种族逐渐恢复，最终图库纳国王与米雯尼雅王后成功统一了人类与半身人的王国，集结起一支力量将兽人击退，并最终将他们彻底消灭。
 
-最近通过对兽族废墟的调查研究，我们发现了惊人的文化资料，甚至有战争时期的粗糙艺术品。有些证据显示他们的文化里有着强大的社交元素，主要集中于体育运动和节日狂欢项目上。然而这些粗陋的文化仍落后于我们先进的文化许多，并且不管他们如何尝试，都掩盖不了他们凶残的本质，极端的暴力以及战争的欲望。
+近来对兽人废墟的调查揭示出数量惊人的文化遗存，甚至还有以生育与战斗为主题的粗糙艺术品。也有证据表明他们的文化中带有强烈的群体色彩，尤其重视体育活动与彰显民族自豪的活动。然而这些显然仍缺乏我们更先进文化所具有的精妙与美感，任何将他们与我们相提并论的尝试，都必然会被他们的野蛮、对领地的暴力和对战争的痴迷所掩盖。
 
-已经有100多年没有兽人的相关报道了。相关的目击报道都是一些不可信的冒险者和隐士们说出的，并且从未被证实过。我们应该庆幸如此可怕的种族已经消弭在历史的尘埃中，剩下的只有吓唬小孩子的可怕故事。]], "_t")
+100多年来，再没有关于兽人的确切报告。现有的所谓目击，多半出自冒险者和隐士这类不可靠的来源，也从未得到证实。我们理应庆幸这些可怕的生物已被逐入历史的册页，只作为讲给顽劣孩童的故事而留存。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 9 - Sher'Tul (extinct)", "博学者格雷诺特关于人种的调查——第九章——夏·图尔人（灭绝）", "_t")
 t([[Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries.
 
@@ -20541,7 +20541,7 @@ t("but nobody knew why #sex# suddenly became evil", "但是没有人知道为什
 t("#LIGHT_BLUE#Killing your own future self does feel weird, but you know that you can avoid this future. Just do not time travel.", "#LIGHT_BLUE#杀死未来的自己确实感觉很怪，但你知道自己可以避免这样的未来。只要别穿越时间。", "logSeen")
 t("Meet the guardian!", "去见时空守卫！", "_t")
 t("#LIGHT_BLUE#Your future self kills you! The timestreams are broken by the paradox!", "#LIGHT_BLUE#你未来的自己杀死了你！时间流被混乱所打破！", "logSeen")
-t("#LIGHT_BLUE#All those events never happened. Except they did, somewhen.", "#LIGHT_BLUE#所有这些从来没有发生过，除了他们在某个时候干过。", "logSeen")
+t("#LIGHT_BLUE#All those events never happened. Except they did, somewhen.", "#LIGHT_BLUE#所有这些事件都从未发生过，只不过它们确实在某个时候发生了。", "logSeen")
 t("This rift in time has been created by the paradox. You dare not enter it; it could make things worse. Another Warden will have to fix your mess.", "这个时间裂隙是时空紊乱造成的。你不敢进入，事情可能会变得更糟，另外一个守卫将不得不前去修复混乱。", "log")
 
 ------------------------------------------------
@@ -23318,7 +23318,7 @@ t("Teaches various talents to cripple your foes.", "使你学会令你目标致�
 t("lethality", "致命攻击", "talent type")
 t("How to make your foes feel the pain.", "让你的对手尝尝什么是真正的痛苦……", "_t")
 t("shadow magic", "影之秘法", "talent type")
-t("Blending magic and shadows.", "隐秘在阴影之中使用的秘密法术。", "_t")
+t("Blending magic and shadows.", "融合魔法与阴影。", "_t")
 t("ambush", "伏击", "talent type")
 t("Using darkness and a bit of magic, you manipulate the shadows.", "使用黑暗和魔法，操控阴影的力量。", "_t")
 t("survival", "生存", "talent type")
@@ -23876,7 +23876,7 @@ t([[Teleport to an enemy, striking them for 100%% weapon damage, bleeding them f
 
 When the marked enemy dies, the cooldown of this talent will be reduced by two turns for every turn the mark had remaining.
 
-Each point in Bloodstained talents reduces the amount of damage you take from bleed effects by 2%%]], [[传送至一个敌人面前，攻击造成 100%% 武器伤害，使其在5回合里受到 %d%% 流血伤害，并标记它6回合。如果目标已经在你身边，则不会传送。
+Each point in Bloodstained talents reduces the amount of damage you take from bleed effects by 2%%]], [[传送至一个敌人面前，攻击造成 100%% 武器伤害，使其在5回合里受到相当于 %d%% 武器伤害的流血伤害，并标记它6回合。如果目标已经在你身边，则不会传送。
 
 被标记的敌人死亡时，标记每剩余一回合此技能的冷却减少2回合。
 
@@ -25169,9 +25169,9 @@ t("You require two psiblades in your hands to use this talent.", "你需要双�
 t([[Smash your psiblades into the ground, creating a tide of crystallized leaves circling you in a radius of 3 for 7 turns.
 		All foes hit by the leaves will start bleeding for %0.2f per turn (cumulative).
 		All allies hit will be covered in leaves, granting them %d%% chance to completely avoid any damaging attack.
-		Damage and avoidance will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %0.2f).]], [[向四周粉碎利刃，在你周围的 3 码半径范围内形成一股叶刃风暴，持续 7 回合。
-		被叶刃击中的目标会开始流血，每回合受到 %0.2f 点伤害（可叠加）。
-		所有被叶刃覆盖的同伴，获得 %d%% 概率完全免疫任何伤害。
+		Damage and avoidance will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %0.2f).]], [[将你的心灵利刃砸入地面，在你周围 3 码半径范围内形成一圈盘旋的结晶树叶，持续 7 回合。
+		被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。
+		所有被树叶覆盖的同伴，获得 %d%% 概率完全免疫任何伤害。
 		伤害和免疫几率受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %0.2f）。]], "tformat")
 t("Nature's Equilibrium", "自然均衡", "talent name")
 t([[You hit a foe with your mainhand psiblade doing %d%% weapon damage, channeling all the damage done through your offhand psiblade with which you touch a friendly creature to heal it.
@@ -28123,9 +28123,8 @@ t("Caustic Golem", "酸化傀儡", "talent name")
 t([[While Acid Infusion is active, your bombs coat your golem in acid for %d turns when they hit it.
 		While coated, any melee hit against your golem has a %d%% chance to trigger a radius 4 cone of acid towards the attacker that does %0.1f Acid damage to all caught inside. (This can only happen once per turn.)
 		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]], [[当你的酸性充能激活时，若你的炸弹击中了你的傀儡，酸液会覆盖傀儡 %d 回合。
-		当傀儡被酸液覆盖时，任何近战攻击有 %d%% 概率产生一次范围 4 的锥形酸液喷射，造成 %0.1f 点伤害（每回合至多一次）。
-
-		效果受法术强度、技能等级和傀儡伤害加成。]], "tformat")
+		当傀儡被酸液覆盖时，任何命中傀儡的近战攻击有 %d%% 概率朝攻击者方向触发一次范围 4 的锥形酸液喷射，对波及范围内的所有单位造成 %0.1f 点酸性伤害（每回合至多一次）。
+		效果受你的技能等级、法术强度和傀儡的伤害加成影响。]], "tformat")
 t("Caustic Mire", "腐蚀之地", "talent name")
 t([[A radius %d pool of acid spawns at the target location, doing %0.1f Acid damage each turn for %d turns.
 		All creatures caught in the mire will also suffer a %d%% slowness effect.
@@ -29192,7 +29191,7 @@ t([[Call upon the battlefields of old, collecting bones, fusing them with souls,
 
 		#GREY##{italic}#Skeleton minions come in fewer numbers than ghoul minions but are generally more durable.#{normal}#
 		]], [[从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。
-		使用技能将会召唤 %d 个等级 %d 的骷髅战士。最多同时掌控 %d 个骷髅战士。
+		最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。
 		技能等级 3 时，你将会改为召唤武装骷髅战士。
 		技能等级 5 时，每当你召唤 3 个骷髅战士，将会额外召唤一个骷髅法师或骷髅弓箭手，不消耗灵魂。如果这超过了你的骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。
 
@@ -33301,9 +33300,7 @@ Ahead are a series of bored elves who will happily blast you with whatever spell
 
 ]], [[让我们再仔细研究一下这些新的持续效果的机制。最简单的方法就是让这些效果作用在你自己身上。
 
-前面有几个无聊的精灵，他们会很高兴在你身上施展各种他们所学会的法术，测试一下
-这些持续效果在你身上的作用，注意查看鼠标提示。
-
+前面有几个无聊的精灵，他们会很高兴在你身上施展各种他们所学会的法术，测试一下这些持续效果在你身上的作用，注意查看鼠标提示。
 
 ]], "_t")
 
@@ -36781,7 +36778,7 @@ t("The target is using a two handed weapon in a single hand, reducing accuracy, 
 t("Twist Fate", "扭曲命运", "_t")
 t([[Currently Twisted Anomaly: %s
 
-		%s]], [[当前异常：%s
+		%s]], [[当前受控的异常：%s
 
 		%s]], "tformat")
 t("+Twist Fate", "+扭曲命运", "_t")
@@ -37318,7 +37315,7 @@ t("Healing Nexus Redirection", "治疗被转移", "_t")
 t("All direct healing done to the target fails, and is instead redirected to %s at %d%% effectiveness.", "目标受到的直接治疗将被转移至 %s (%d%% 效率)。", "tformat")
 t("#YELLOW_GREEN##Source# steals healing from #Target#!", "#YELLOW_GREEN##Source#从#Target#偷取了治疗！", "delayedLogMessage")
 t("Healing Nexus", "治疗转移", "_t")
-t("All direct healing done to the target is increased by %d%% and each heal restores %0.1f equilibrium.", "目标所有受到的治疗增加 %d%%，每次治疗恢复 %0.1f 失衡值。", "tformat")
+t("All direct healing done to the target is increased by %d%% and each heal restores %0.1f equilibrium.", "目标受到的所有直接治疗提高 %d%%，且每次治疗降低 %0.1f 点失衡值。", "tformat")
 t("#YELLOW_GREEN##Source#'s healing is amplified!", "#YELLOW_GREEN##Source#的治疗被增幅了！", "delayedLogMessage")
 t("telekinesis", "念力", "effect subtype")
 t("Immobilized", "固定", "_t")
@@ -39835,7 +39832,7 @@ t("coral portal", "珊瑚传送门", "entity name")
 t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！", "log")
 t("destroying the portal", "摧毁传送门中", "_t")
 t("destroyed the portal", "摧毁传送门", "_t")
-t("#VIOLET#The portal starts to break down, run!", "#VIOLET#传送门要爆炸了，快跑！", "log")
+t("#VIOLET#The portal starts to break down, run!", "#VIOLET#传送门开始崩塌了，快跑！", "log")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/npcs.lua"
@@ -40133,7 +40130,7 @@ section "mod-tome/data/zones/temporal-rift/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("temporal", "时空", "entity subtype")
 t("Ben Cruthdar, the Abomination", "本·克鲁塞达尔，憎恶形态", "entity name")
-t("This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.", "这个疯子似乎被时空能量所扭曲，他的身体不断在现实与相位之间切换。", "_t")
+t("This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.", "这个疯子似乎被时空能量扭曲并侵蚀，他的身体不断变换，在现实中时隐时现。", "_t")
 t("dragon", "龙", "entity type")
 t("Rantha the Abomination", "兰莎，憎恶形态", "entity name")
 t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……并且这只似乎被时空能量所扭曲。", "_t")
@@ -41273,10 +41270,10 @@ You will need an online profile active and connected for the tile selector to en
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
 马基·埃亚尔的故事是一款非常耐玩的游戏，你需要不断的从错误中学习。（同样从死亡的错误中学习）
-我觉得这款游戏可能不会被所有人接受并且在接受了许多建议后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
+我觉得这款游戏可能不会被所有人接受并且在收到多次请求后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
 不过要注意的是，无限的生命并不意味着难度的减少，仅仅意味着你可以有着无限多的尝试次数。
 
-如果你喜欢这类游戏并且你觉得这款游戏很好，你可以考虑捐赠。
+如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。
 这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
 你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 
