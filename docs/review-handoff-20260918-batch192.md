@@ -13,15 +13,20 @@
 
 | 项 | 值 |
 | --- | --- |
-| 已完成审核批 | 第 187–**193** 批（每批 80 条），均 review_only，17/17 门禁逐批通过 |
-| 已完成修复批 | 第 207–**215** 批（每批 20 条），catalog + migration 均已落地 |
-| done | **17849** |
-| **repair_required** | **260** |
-| blocked | **9**（第 193 批新增 pending：the Sorcerers 术语统一 ad393c54） |
-| HEAD | batch 215 evidence `1d51b9f` +本 handoff 提交；无活动批次 |
+| 已完成审核批 | 第 187–**194** 批（每批 80 条），均 review_only，17/17 门禁逐批通过 |
+| 已完成修复批 | 第 207–**216** 批，catalog + migration 均已落地 |
+| done | **17924** |
+| **repair_required** | **244** |
+| blocked | **11**（193 批 pending Sorcerers、194 批 pending Toxic Death 撞名、194 批 host-block combat.lua 死键） |
+| HEAD | batch 216 evidence `df87793` +本 handoff 提交；无活动批次 |
 | 未 push | `origin/develop` 停在旧位置，本地领先多个提交 |
 | 工作树 | 干净；`.ai/consult/` 是唯一 `??`，**严禁读取、暂存或清理** |
-| 交替节奏 | **严格 1:1**（80 条审核 → 20 条修复），当前轮到**审核批 194** |
+| 交替节奏 | **严格 1:1**（80 条审核 → ~20 条修复），当前轮到**审核批 195** |
+
+### 第 194 审核批 + 第 216 修复批（2026-09-18，续跑）
+- 审核批 194（`batch-8ae8f4a2f6b49ee43feb`，evidence `2f218a1`）：freeze 时 combat.lua「Weapon of Light」MISS（上游 1.7.6 改串未重生 locale key＝死键），按 [[freeze-miss-hostblock-procedure]] host-block 放行，审其余 79。confirmed 6 / refuted 5 / advisory 1 / pending 1（Toxic Death「致命毒素」与 Deadly Poison 撞名，改名归维护者）；3 条入 repair。
+- 修复批 216（evidence `df87793`，migration `7063807a`，19 revisions）：#4 Shantiz the Stormblade 音译留待维护者故跳过；余含 Naloren/Thaloren 传说整段重译、原始法术强度、删限定词、施受方向、换行布局等。
+- **下一步：审核批 195**。恢复第一步先 `queue rebuild`+`queue check`。
 
 ### 第 214 修复批 + 第 193 审核批（2026-09-18，本会话）
 - 修复批 214：20 条（青金石/换行不变量/删限定词/施受方向/master-of-bones 召唤上限/兽人 lore 因果与称号/半身人脚粗绳等），migration `2734d4f8`，evidence `e2a9faf`。
@@ -170,9 +175,9 @@ batch start --limit 80
 
 ---
 
-## 7. 恢复入口（审核批 194）
+## 7. 恢复入口（审核批 195）
 
-当前轮到审核批（1:1 交替节奏）。先 `queue rebuild`+`queue check`（HEAD 因 handoff 提交前进过），再 `batch start --limit 80` 按 §4 流程与记忆 [[mcp-review-lifecycle-manual-drive]] 派发。260 条 repair_required 仍待后续修复批清理。
+当前轮到审核批（1:1 交替节奏）。先 `queue rebuild`+`queue check`（HEAD 因 handoff 提交前进过），再 `batch start --limit 80` 按 §4 流程与记忆 [[mcp-review-lifecycle-manual-drive]] 派发。244 条 repair_required 仍待后续修复批清理。若 freeze 报 MISS，按 [[freeze-miss-hostblock-procedure]] 处置。
 
 ```bash
 # 查 repair_required 条目
