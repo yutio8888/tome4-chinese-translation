@@ -768,7 +768,7 @@ t("Travel speed: ", "飞行速度：", "_t")
 t("Damage Shield penetration (this weapon only): ", "伤害护盾穿透（仅该武器）：", "_t")
 t("Lifesteal (this weapon only): ", "吸血（仅该武器）：", "_t")
 t("Multiple attacks: ", "多重攻击：", "_t")
-t("Multiple attacks procs power reduction: ", "多重攻击强度衰减：", "_t")
+t("Multiple attacks procs power reduction: ", "多重攻击触发效果衰减：", "_t")
 t("Shots beam through all targets.", "光束穿透所有目标。", "_t")
 t("Damage (Melee): ", "近战附加伤害：", "_t")
 t(" %s", "%s", "tformat")
@@ -1692,7 +1692,7 @@ When learned, passive talents permanently alter the user in some way.
 The effects are always present and are usually not dispellable or removable, though other effects may counteract or negate them.
 Specific information on each talent appears its tooltip.]], [[#GOLD#被动技能#LAST#
 当你学会被动技能之后，它会以某种方式永久性的给玩家带来改变。
-这些效果始终存在，不会被解除，也不会被移除，但是有些特殊效果可能会抵消或消除它们。
+这些效果始终存在，通常不会被解除或移除，但是有些特殊效果可能会抵消或消除它们。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Sustained Talents#LAST#
 Sustained talents are turned on and left on.
@@ -2547,7 +2547,7 @@ t("Killed 10 or more enemies in one single attack in the arena.", "在竞技场�
 ------------------------------------------------
 section "mod-tome/data/achievements/donator.lua"
 
-t("Bronze Donator", "黄铜捐赠者", "achievement name")
+t("Bronze Donator", "青铜捐赠者", "achievement name")
 t("Donated up to 5 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠不超过 5 欧元。", "_t")
 t("Silver Donator", "白银捐赠者", "achievement name")
 t("Donated at least 6 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 6 欧元。", "_t")
@@ -3057,7 +3057,7 @@ t("Solipsist", "织梦者", "birth descriptor name")
 t("Some believe that the world is the collective dream of those that live in it.  Find and wake the sleeper and you'll unlock the potential of your dreams.", "有些人认为世界由许多个梦境组成，而我们生活在这些梦境里。寻找并唤醒沉睡者，你可以打开通往梦境之门。", "_t")
 t("The Solipsist believes that reality is malleable and nothing more than the collective vision of those that experience it.", "织梦者们相信现实是可以塑造的，它不过是体验它的人们集体想象的产物。", "_t")
 t("They wield this knowledge to both create and destroy, to invade the minds of others, and to manipulate the dreams of those around them.", "他们依靠此理论进行创造和毁灭，侵入他人的思维并操纵他人的梦境。", "_t")
-t("This knowledge comes with a heavy price and the Solipsist must guard his thoughts, lest he come to believe that the world exists only within his own mind.", "使用此理论需要付出巨大的代价，织梦者必须对自己的思维有很强的控制力，否则他将会失去自我，世界于他而言将成为虚幻。", "_t")
+t("This knowledge comes with a heavy price and the Solipsist must guard his thoughts, lest he come to believe that the world exists only within his own mind.", "使用此理论需要付出巨大的代价，织梦者必须对自己的思维有很强的控制力，否则他会渐渐相信这世界只存在于他自己的心智之中。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -4 (*special*)", "#GOLD#每等级生命加值：#LIGHT_BLUE# -4 (*特殊*)", "_t")
@@ -4064,7 +4064,7 @@ t("THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD
 t("THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.", "这可不像一个隐士的态度。", "_t")
 t("AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBABILITY, EITHER DON'T EXIST OR ARE THINGS LIKE RECIPES FOR ELIXIRS OF WHO-GIVES-A-FLYING-DUCK-- ARE OUT IN THE OPEN, THE BROTHERHOOD OF ASSWIPES WILL HAVE NOTHING TO HOLD IT TOGETHER BUT ELIXIRS OF THEIR TEARS AND WIDESPREAD DISDAIN FROM THE REST OF THE WORLD. SPEAK UP, THEN. ARE YOU IN OR OUT?", "然后他们会怎么样？当他们的宝贝秘密，或许根本就不存在，或者就是些操蛋秘方公之于众之后，除了用他们的泪水做药剂和被大家鄙视之外，“蠢货兄弟会”将一无所有。现在，说大声点！你是接受任务还是拒绝？", "_t")
 t("I'M IN.", "我接受。", "_t")
-t("I CANNOT AID YOU AT THIS TIME.", "我没空帮你。", "_t")
+t("I CANNOT AID YOU AT THIS TIME.", "我暂时无法帮助你。", "_t")
 t([[#LIGHT_GREEN#*He hands you a slip of paper with the names and properties of some elixirs on it.*#WHITE#
 THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]], [[#LIGHT_GREEN#*他递给你一张写着药剂名称和特性的纸片。*#WHITE#
 这些配方的材料算是商业机密，所以一次我只给你一个，看看效果怎么样。哦，等我做好以后一定会让你喝个够，这会令你大受裨益。好了，你现在选哪一个？你只要用手点一下这该死的列表就可以了，你说的话我一个字都没听见。但愿你不是站在那儿想向我推销什么东西。]], "_t")
@@ -10480,7 +10480,7 @@ t("wizard's ", "法师的", "entity name")
 t("wizard", "法师", "entity keyword")
 t("psionicist's ", "灵能力者的", "entity name")
 t("psionic", "灵能", "entity keyword")
-t("sneakthief's ", "刺客的", "entity name")
+t("sneakthief's ", "窃贼的", "entity name")
 t("sneakthief", "刺客", "entity keyword")
 t("gladiator's ", "角斗者的", "entity name")
 t("gladiator", "角斗者", "entity keyword")
@@ -12638,7 +12638,7 @@ t("#CRIMSON# A powerful fire aura appears around you as you equip the %s.", "#CR
 t("Robe of the Archmage", "大法师的长袍", "entity name")
 t("glittering robe", "闪闪发光的长袍", "_t")
 t("A plain elven-silk robe. It would be unremarkable if not for the sheer power it radiates.", "朴素的精灵丝绸长袍。如果不是它放射出的惊人威力，它真的毫不起眼。", "_t")
-t("Temporal Augmentation Robe - Designed In-Style", "时空增益·引领时尚", "entity name")
+t("Temporal Augmentation Robe - Designed In-Style", "时空增益长袍·引领时尚", "entity name")
 t("stylish robe with a scarf", "配有围巾的时髦长袍", "_t")
 t("Designed by a slightly quirky Paradox Mage, this robe always appears to be stylish in any time the user finds him, her, or itself in. Crafted to aid Paradox Mages through their adventures, this robe is of great help to those that understand what a wibbly-wobbly, timey-wimey mess time actually is. Curiously, as a result of a particularly prolonged battle involving its fourth wearer, the robe appends a very long, multi-coloured scarf to its present wearers.", "被有些古怪的时空法师设计出来，无论穿戴者在哪个时代，这袍子都显得格外时髦。它为协助时空法师冒险而制作。这件法袍对擅长摆弄那团乱糟糟、缠来绕去的时间的人来说有着巨大的作用。有趣的是，由于它第四任主人参与了一场相当漫长的战斗，长袍上附带了一条很长的多彩围巾。", "_t")
 t("Oddly it never produces a hat.", "奇怪的是，它从不变出帽子。", "_t")
@@ -13000,7 +13000,7 @@ t("#CRIMSON# A powerful healing aura appears around you as you equip the %s.", "
 t("take root increasing health by 300, armor by 20, and armor hardiness by 20%% but rooting you in place for 4 turns", "扎根，增加300点生命、20点护甲和20%%护甲强度，但不能移动，持续4回合。", "_t")
 t("%s merges with %s %s!", "%s与%s%s合并！", "logSeen")
 t("Ring of Growth", "生命之戒", "entity name")
-t("This small wooden ring has a single green stem wrapped around it. Thin leaves still seem to be growing from it.", "这枚小巧的戒指上缠绕着一根藤蔓，藤蔓似乎仍然在不断的吐出新叶。", "_t")
+t("This small wooden ring has a single green stem wrapped around it. Thin leaves still seem to be growing from it.", "这枚小巧的木戒上缠绕着一根绿色的茎，纤薄的叶片似乎仍在从中生长。", "_t")
 t("vine encircled ring", "藤蔓缠绕的戒指", "_t")
 t("Wrap of Stone", "石化风衣", "entity name")
 t("solid stone cloak", "石头斗篷", "_t")
@@ -17880,9 +17880,9 @@ t([[Death is nearing. I can feel her chilling breath down the back of my neck. S
 ]], "死亡正在逼近。我能感到她在我脖子后面冰冷的呼吸。我们许多人已经过世了。我不能容忍……我不会让自己像其他人一样化为尘土。我是最强大的永恒精灵——我有权活下去！", "_t")
 t([[Death mocks my experiments. I can preserve the flesh of my servants, tightly wrapped and salted, treated with the correct chemicals. I can animate them, make them shuffle about the empty halls of my mausoleum. But they are but empty shells, devoid of any soul. Is this how my majesty is to end? I demand a greater fate...
 
-My days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]], [[死亡嘲弄着我的实验。我可以保存侍从们的血肉，将他们用盐防腐后紧紧的包裹起来，就像是对待真正的实验品一样。我可以复活他们，使他们在我阴森森的坟墓里晃悠。但他们不过是没有任何灵魂的容器。这意味着我的霸业要结束了？我需要更好的机遇……
+My days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]], [[死亡嘲弄着我的实验。我可以保存侍从们的血肉，将他们紧紧包裹、以盐腌渍，并用正确的化学药剂加以处理。我可以驱动他们，让他们在我陵寝空荡的厅堂间蹒跚游荡。但他们不过是没有任何灵魂的容器。这意味着我的霸业要结束了？我要求一个更伟大的命运……
 
-我的日子屈指可数。我的力量随着每个夜晚逐渐流逝。我必须找到将灵魂保存在肉体里的方法。我的伟大不容亵渎。]], "_t")
+我的日子屈指可数。我的力量随着每个夜晚逐渐流逝。我必须找到将灵魂保存在肉体里的方法。我的伟大绝不容许消逝。]], "_t")
 t([[Death has met her match. My results are complete, and I am ready to step to the Beyond. I have my sword by my side, and its icy edge will freeze even the dark one in her tracks. My powers cannot be denied...
 
 Come, Death, try to lay your bony fingers on me! I will vanish before your very eyes and slice you apart! You and your agents are no threat to me. I am immortal!]], [[死神终于遇到了对手。我的实验已经完成，我已准备好超越生死。我将一把剑放在身边，其冰冷的边缘甚至能把黑暗者冻在原地。我要让世人见证我的力量……
@@ -18680,18 +18680,17 @@ If any come after, I bid you turn ... horrors ... too much. If you are foolish e
 钥匙就在这里，但我始终没能……那扇门。
 
 我毫无准备！树木我还能躲开，水域我能……横渡，可越过之后……
-
 恐魔……触手……炽烈强光，刹那间灼烧……
 我的血肉被吞噬，心智支离破碎……虫子，活着，成群行……
 ……我才勉强逃脱。可我的伤太……血止不住……
 
 我曾以为夏·图尔无比神奇，令我着迷……渴求能得到的每一分知识……
-
 可这，这就是他们的遗产吗？……太可怕了……我所有的梦想……或许死亡如今反倒是一种解脱……
 
 若有人随后来到这里，我劝你回……恐怖……承受不住。若你愚蠢到还要……我唯一的忠告是……
 
-#{italic}#你在笔记旁找到一颗微微发光的小球——这就是笔记里提到的钥匙吗？#{normal}#]], "_t")
+#{italic}#你在笔记旁找到一颗微微发光的小球——这就是笔记里提到的钥匙吗？
+#{normal}#]], "_t")
 t("lake of nur", "纳尔湖", "newLore category")
 t("magical barrier", "魔法屏障", "_t")
 t("As you descend to the next level you traverse a kind of magical barrier keeping the water away. You hear terrible screams.", "你向下一层深入时，穿过了某种将水阻隔在外的魔法屏障。可怕的尖叫声传入耳中。", "_t")
@@ -21078,7 +21077,7 @@ t("Your Weapon of Light nows pulls in all foes in radius 5.", "你的光明之�
 t("Weapon of Light", "光明之刃", "talent name")
 t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
 		Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.
-		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。
+		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每次近战命中造成 %0.1f 光系伤害。
 		如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度。
 		伤害和护盾加成受法术强度加成。]], "tformat")
 t("Wave of Power", "光明冲击", "talent name")
@@ -22322,8 +22321,8 @@ t([[Randomly teleports all enemies within a radius of three.  Enemies will be te
 t("Dimensional Anchor", "时空锚", "talent name")
 t([[Create a radius three anti-teleport field for %d turns and daze all enemies in the area of effect for two turns.
 		Enemies attempting to teleport while anchored take %0.2f physical and %0.2f temporal (warp) damage.
-		The damage will scale with your Spellpower.]], [[制造一个半径 3 的时空锚，持续 %d 轮，并眩晕其中所有目标 2 回合。
-		试图传送的敌人将受到 %0.2f 物理 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[制造一个半径 3 的反传送力场，持续 %d 回合，并眩晕其中所有敌人 2 回合。
+		被锚定期间试图传送的敌人将受到 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -23859,10 +23858,9 @@ t([[Command all Shadows within sight to tele-dash to a target location, damaging
 t("Cursed Bolt", "诅咒之球", "talent name")
 t([[Share your hatred with all shadows within sight range, gaining temporary full control. You then fire a blast of pure hatred from all affected shadows, dealing %0.1f Mind damage per blast.
 		You cannot cancel this talent once the first bolt is cast.
-		Damage increases with your Mindpower.]], [[和视野内的阴影共享仇恨，获得临时控制。
-每个阴影将发射纯粹的仇恨之球，对附近的一个敌人造成 %0.1f 精神伤害。
-一旦发射了一个仇恨之球，该技能不能取消。
-伤害受精神强度加成。]], "tformat")
+		Damage increases with your Mindpower.]], [[和视野内的所有阴影共享你的仇恨，获得临时的完全控制。随后你从所有受影响的阴影中发射一道纯粹的仇恨冲击，每道造成 %0.1f 精神伤害。
+		一旦发射了第一道，便无法取消该技能。
+		伤害受精神强度加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/bloodstained.lua"
@@ -26219,7 +26217,7 @@ t([[Use the onboard short-range teleport of the Fortress to beam down to the sur
 	需要在某个星球的空中飞行。]], "_t")
 t("Fire a blast of energy", "火力支援", "talent name")
 t([[Use 10 Fortress energy to send a powerful blast to the ground, directly below the Fortress, heavily damaging any creatures caught inside.
-	Requires being in flight above the ground of a planet.]], [[消耗 10 点堡垒能量，将一股强大的爆炸能量送到地面，重创任何区域内的敌人。
+	Requires being in flight above the ground of a planet.]], [[消耗 10 点堡垒能量，向堡垒正下方的地面发出一道强力冲击，重创位于其中的任何生物。
 	需要在某个星球的空中飞行。]], "_t")
 t("High Planetary Orbit", "高空轨道", "talent name")
 t([[Activate the powerful flight engines of the Fortress, propelling it fast into high planetary orbit.
@@ -27719,7 +27717,7 @@ section "mod-tome/data/talents/psionic/psi-archery.lua"
 t("Guided Shot", "导引箭", "talent name")
 t("Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.", "射出一支导引箭精确的飞向敌人。造成普通伤害，但是命中和暴击率提高 %d。", "tformat")
 t("Augmented Shot", "强力射击", "talent name")
-t("Use telekinetic forces to greatly augment the durability and tension of your bow in order to fire an arrow with velocity unmatched by even the mightiest mundane archers. Increases armor penetration by %d, and deals %d%% damage.", "使用精神灵能以增强弓的耐久和张力，使射出的箭具有无与伦比的威力。增加 %d 点护甲穿透并造成 %d%% 伤害。", "tformat")
+t("Use telekinetic forces to greatly augment the durability and tension of your bow in order to fire an arrow with velocity unmatched by even the mightiest mundane archers. Increases armor penetration by %d, and deals %d%% damage.", "使用精神灵能以增强弓的耐久和张力，使射出的箭矢拥有连最强大的普通弓手都无法企及的飞行速度。增加 %d 点护甲穿透并造成 %d%% 伤害。", "tformat")
 t("Thought-quick Shot", "意念射击", "talent name")
 t("Ready and release an arrow with a flitting thought. This attack does not use a turn, and increases in talent level reduce its cooldown.", "用飞翔的思绪射出一支箭矢。此攻击不消耗回合数。随着技能等级提高，冷却时间缩短。", "tformat")
 t("Masterful Telekinetic Archery", "灵能射击掌握", "talent name")
@@ -30711,8 +30709,8 @@ Venomous - Shots deal an additional %d%% weapon damage as nature in a radius %d 
 Piercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.
 The physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]], [[混合你的弹药，造成更强力的效果：
 燃烧弹- 受到爆炸袭击的目标护甲和豁免减少 %d 持续 3 回合，你的物理和火焰穿透增加 %d%%.
-剧毒弹- 造成 %d%% 自然武器伤害，伤害半径 %d，并施加麻痹毒素效果。每回合最多生效一次。
-穿甲弹- 造成 %0.2f 物理伤害并使目标流血，5 回合内造成 %0.2f 物理伤害并减少他们造成的伤害 %d%%.
+剧毒弹- 额外造成 %d%% 自然武器伤害，作用于半径 %d 的球形范围，并如同异种弹药一样施加麻痹毒素。每回合最多生效一次。
+穿甲弹- 造成 %0.2f 物理伤害并使目标伤残（Maim），在 5 回合内额外流血造成 %0.2f 物理伤害，并使其造成的所有伤害减少 %d%%.
 物理伤害、护甲和豁免削减受物理强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -30933,7 +30931,7 @@ t("Master the warcries to improve yourself and weaken others.", "提升战吼效
 t("bloodthirst", "嗜血", "talent type")
 t("Delight in the act of battle and the spilling of blood.", "你渴望鲜血并沉浸在战斗的狂热中。", "_t")
 t("field control", "阵地控制", "talent type")
-t("Control the battlefield using various techniques.", "你时刻注意控制战场的状况，提升你的格斗效果。", "_t")
+t("Control the battlefield using various techniques.", "运用各种技巧控制战场。", "_t")
 t("combat techniques", "战斗技巧", "talent type")
 t("Generic combat oriented techniques.", "通用格斗技巧。", "_t")
 t("combat veteran", "战斗经验", "talent type")
@@ -35075,7 +35073,7 @@ t("#Target# is no longer influenced by martyrdom.", "#Target#不再受殉难影�
 t("-Martyr", "-殉难", "_t")
 t("radiance", "光辉", "effect subtype")
 t("Radiance Lost", "光辉暗淡", "_t")
-t("You have expended the power of your Radiance temporarily reducing its radius to 1.", "你身边的光亮变得暗淡了，光照半径降低到1码。", "tformat")
+t("You have expended the power of your Radiance temporarily reducing its radius to 1.", "你消耗了光辉之力，暂时把光照半径降低到 1 码。", "tformat")
 t("#Target#'s aura dims.", "#Target#的光环变得暗淡了。", "_t")
 t("+Dim", "+黯淡", "_t")
 t("#Target# shines with renewed light.", "#Target#身边光明再次闪耀。", "_t")
@@ -39589,7 +39587,7 @@ t("undead", "亡灵", "entity type")
 t("skeleton", "骷髅", "entity subtype")
 t("The Shade", "暗影骷髅", "entity name")
 t("This skeleton looks nasty. There are red flames in its empty eye sockets. It wields a nasty sword and strides toward you, throwing spells.", "这只骷髅看起来很邪恶。它的眼眶里有红色的燃烧火焰。它手持一把大剑冲向你，并向你投掷法术。", "_t")
-t("and left to rot", "并抛尸野外任其腐蚀", "_t")
+t("and left to rot", "并任其腐烂", "_t")
 t(".. yes I tell you! The old ruins of Kor'Pul are still haunted!", "…是的，我告诉你！卡·普尔的古老废墟仍然闹鬼！", "_t")
 t("The Possessed", "幽灵附体的强盗头目", "entity name")
 t("He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.", "这是那伙杀死暗影骷髅的强盗的头目，但显然暗影骷髅上的灵魂并没有这么甘心离去，曾经不可一世的强盗头目也只是被其附体的行尸走肉罢了。", "_t")
@@ -42059,7 +42057,7 @@ t("Shrug off criticals chance: ", "暴击摆脱率：", "_t")
 t("Class powers:", "职业能力：", "_t")
 t("Talent Category", "技能树", "_t")
 t([[A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 34. You may also find trainers or artifacts that allow you to learn more.
-A talent category point can be used either to learn a new category or increase the mastery of a known one.]], "一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树点数，也可以找到训练师或神器来学习更多。每一点技能树点数可以用来学习一个新的技能树，或者提升一个已知技能树的熟练度。", "_t")
+A talent category point can be used either to learn a new category or increase the mastery of a known one.]], "一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树点数，也可以找到训练师或神器来学习更多。\n每一点技能树点数可以用来学习一个新的技能树，或者提升一个已知技能树的熟练度。", "_t")
 t("Generic talent tree", "通用技能树", "_t")
 t("A generic talent allows you to perform various utility actions and improve your character. It represents a skill anybody can learn (should you find a trainer for it). You gain one point every level (except every 5th level). You may also find trainers or artifacts that allow you to learn more.", "通用技能让你能够执行各种实用动作并强化角色。它代表任何人都能学习的技能（只要能找到训练师）。你每升 1 级获得一点通用技能点（每第 5 级除外），也可以通过训练师或神器获得更多。", "_t")
 t("Class talent tree", "职业技能树", "_t")
