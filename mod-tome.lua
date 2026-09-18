@@ -7469,7 +7469,7 @@ t("He will consume all!", "他将吞噬一切！", "_t")
 t("My life for His!", "我的生命属于他！", "_t")
 t("Die intruder!", "去死吧，闯入者！", "_t")
 t("weird pedestal (glowing)", "奇怪的发光基座", "_t")
-t("%s's soul is absorbed by the pedestal. A glowing orb appears.", "%s的灵魂被基座吸收了。一个发光的水晶球出现了。", "logSeen")
+t("%s's soul is absorbed by the pedestal. A glowing orb appears.", "%s的灵魂被基座吸收了。一个发光的球体出现了。", "logSeen")
 t("#rng# the Bringer of Doom", "末日行者#rng#", "_t")
 t("You hear a terrible voice saying 'Their lives are mine! I am coming!'", "你听到一个可怕而低沉的声音：“他们的生死由吾掌控！吾即将降临！”", "_t")
 
@@ -8948,7 +8948,7 @@ t("These ancient cursed beings often take the form of a bat and attack their pre
 t("lesser vampire", "小吸血鬼", "entity name")
 t("This vampire has only just begun its new life. It has not yet fathomed its newfound power, yet it still has a thirst for blood.", "这只吸血鬼刚开始它的新生活，还不能熟练运用它的新能力，但是它同样渴望鲜血。", "_t")
 t("vampire", "吸血鬼", "entity name")
-t("It is a humanoid with an aura of power. You notice a sharp set of front teeth.", "这是一只成年吸血鬼，你注意到他有一副獠牙。", "_t")
+t("It is a humanoid with an aura of power. You notice a sharp set of front teeth.", "这是一个散发着力量气场的类人生物，你注意到它长着一副锋利的门牙。", "_t")
 t("master vampire", "吸血鬼大师", "entity name")
 t("It is a humanoid form dressed in robes. Power emanates from its chilling frame.", "这是一个穿着长袍的人形身影。力量从它冰冷的身躯中散发出来。", "_t")
 t("elder vampire", "吸血鬼长老", "entity name")
@@ -12876,7 +12876,7 @@ t("gleaming voratun gauntlets", "闪耀的沃瑞钽臂铠", "_t")
 t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域尝试驱散生物身上的魔法效果和魔法持续技能（至多两项；非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
 t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量！", "logSeen")
-t("%s's animating magic is disrupted by the burst of power!", "%s的魔法被强大的反魔法力量干扰了！", "logSeen")
+t("%s's animating magic is disrupted by the burst of power!", "%s的活化魔法被爆发的力量干扰了！", "logSeen")
 t("destroy an arcane item (of a higher tier than the gauntlets)", "摧毁一件奥术装备（比臂铠材质级别高）", "_t")
 t("#LIGHT_RED#You can not do that with a tinker attached. Remove it first.", "#LIGHT_RED#当有配件附着时，你不能这么做。先移除配件。", "log")
 t("Destroy which item?", "摧毁哪一件物品？", "_t")
@@ -17687,11 +17687,11 @@ Rolf]], [[威斯曼，
 
 我完全不记得我们是如何幸存下来的。残存的记忆里只有痛苦、惊慌与恐惧。依稀记得当时大脑里唯一的念头就是我必须立刻逃走，远离这个鬼地方……惭愧的是，当时其它所有的想法都离我而去。
 
-对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是向着自由策马狂奔，离这个怪物越远越好。
+对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是不停劈砍挡在我与自由之间的……那些东西。
 
 也许这就是为什么它没有……不！也许我不应该再想它了。既然这野兽一定会在我今晚的噩梦中出现，至少清醒时我不能允许它再充斥我的大脑。
 
-好好休息吧，兄弟，它虽然夺走了你的眼睛，但想想最坏的情况下它本会夺走……不管怎么说，我马上都要前往客栈了，希望麦芽酒能让我从恐惧中缓解出来。
+好好休息吧，兄弟，它虽然夺走了你的眼睛，但想想最坏的情况下它本会夺走……不管怎么说，我马上就要前往酒馆了，希望麦芽酒能让我从恐惧中缓解出来。
 
 希望你下封信上的字又大又美，
 罗尔夫]], "_t")
@@ -18039,13 +18039,13 @@ The Shaloren have a long history of magic-use which continues to this day. Thoug
 
 Their capital city is Elvala, in the south-west peninsula, and they have very few settlements outside of this. They have naturally long lives, and their mastery of the arcane arts has allowed them to extend their lives indefinitely. The eldest immortals make up their Council of Elders, which is headed by their King Aranion Gayaeil. Death is a particular fascination amongst the Shaloren, and early kings of their race were said to build great tombs for themselves whilst experimenting in flesh preservation and necromancy. The Shaloren of course deny this.
 
-They deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield.]], [[虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征则差异极大。必须说的是，他们称自己为整体的“Elore”，意即“兄弟”，然而这些兄弟姐妹间的关系通常是比较紧张的。
+They deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield.]], [[虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征则差异极大。必须说的是，他们称自己为整体的“Elore”，意即“兄弟姐妹”，然而这些兄弟姐妹间的关系通常是比较紧张的。
 
-永恒精灵（或不朽精灵——“不朽恩赐”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝紫色的眼睛。他们身材苗条，体重较轻，有着魔法运用上的巨大优势。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。
+永恒精灵（或不朽精灵——“不朽恩赐”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝紫色的眼睛。他们身材苗条，体格轻盈，更以精神智慧而非体格强健著称。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。
 
-很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵是导致魔法大爆炸的源头之一，虽然他们可能已经忘记了它，但是炽热的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭大门并用一层薄雾笼罩着整个城市，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。
+很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵正是发动魔法大爆炸的元凶，虽然他们很快便设法让此事被人遗忘，但是归咎于他们的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭大门并用一层薄雾笼罩着整个城市，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。
 
-他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。那些长者们组成了由精灵王艾伦尼恩·加威尔为首的长老会。死亡在永恒精灵中是相当重大的事情，相传过去的国王为自己建造了奢华的坟墓并在里面研究死者复生和亡灵法术。当然，永恒精灵们是矢口否认的。
+他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。那些长者们组成了由精灵王艾伦尼恩·加威尔为首的长老会。死亡在永恒精灵中是相当重大的事情，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。
 
 他们很少和其他种族交易，一直过着低调的生活，大部分的交易是通过半身人来完成的。少数符文师和附魔师在一些主要城市做生意，另外还有一些骄傲的年轻人去外界闯荡。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 5 - Thaloren", "博学者格雷诺特关于人种的调查——第五章——自然精灵", "_t")
@@ -18334,9 +18334,9 @@ They all seem to be focused on something in particular, but what? Just as soon a
 Somehow, your foe has invaded your very subconcious and is attacking you in your dreams. Still unable to move, your lucid mind races on how to handle such an insane and horrible situation. On a whim you concentrate on one of your projections and you find that you can control it. 
 Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]], [[你从意料外的沉睡中醒来，但是你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，各色阴影在视野中飞舞……
 当你的眼睛渐渐习惯这幅奇怪的场景时，你惊恐地发觉你动不了了！你的身体似乎没有重量，但是你移动不了一步。更奇怪的是，当你回想起麻痹的噩梦时，有种似曾相识的感觉，正当此时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你突然注意到奇怪的现象，让你更加确信这一点：你自己的镜像正在逐渐从你站的位置产生，并自主行动。
-他们似乎都集中精神于某个东西，但那个是什么？正在你思考你的梦境守卫在面对什么时，你感觉到了它。虽然恐惧，但你意识到自己并不孤单。
-你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，但你的大脑也开始思考如何在这疯狂而恐怖的处境下存活。当你试着集中精神到你的梦境守卫上时，你发现你能够控制它。
-专心面对眼前的噩梦，你开始寻找你的敌人，虽然你感觉到让你的一个梦境守卫被摧毁似乎不会成为灾难，但如果许多个守卫被一起摧毁呢？那会发生什么，你不愿去想，只是专心来击退敌人。]], "_t")
+他们似乎都集中精神于某个东西，但那个是什么？正在你思考你的梦中自我在关注什么时，你感觉到了它。你惊恐地意识到，这里不止你一个人。
+你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，但你的大脑也开始思考如何在这疯狂而恐怖的处境下存活。当你试着集中精神到你的梦中自我上时，你发现你能够控制它。
+专心面对眼前的噩梦，你开始寻找你的敌人，虽然你感觉到让你的一个梦中自我被摧毁似乎不会成为灾难，但如果许多个梦中自我被一起摧毁呢？那会发生什么，你不愿去想，只是专心来击退敌人。]], "_t")
 t("vault", "宝库", "newLore category")
 t("Mocking Note", "嘲弄字条", "_t")
 t([[Dear graverobber,
@@ -19400,7 +19400,7 @@ The text beneath says simply ]], [[这幅巨大的壁画上，真神摊倒在地
 下面的文字只有一句]], "_t")
 t("#{italic}#'The Great Sin.'#{normal}#", "#{italic}#罪恶之源。#{normal}#", "_t")
 t("ninth mural painting", "第九幅壁画", "_t")
-t("This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.", "最后的这块壁画似乎损坏的很严重，上面有深深的划痕和腐蚀的痕迹。你所能看到的似乎是火焰的画面。", "_t")
+t("This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.", "最后的这块壁画损坏得很严重，表面刻满了深深的刻痕和划痕。你所能辨认出的原始图案似乎只有火焰。", "_t")
 t("Yiilkgur raising toward the sky", "伊克格，飞向天空", "_t")
 t("Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.", "伊克格——夏·图尔要塞——被重新激活，从纳尔湖深处升向天空。", "_t")
 t("a living Sher'Tul?!", "活着的夏·图尔人？！", "_t")
@@ -25650,7 +25650,7 @@ t("%s (wild summon)", "%s（野性召唤）", "tformat")
 t([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamespitters are weak in melee and die easily, but they can burn your foes from afar.
 		It will get %d Willpower, %d Cunning and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤一只喷火里奇来燃烧敌人，持续 %d 回合。喷火里奇很脆弱，但是它们可以远远地燃烧敌人。
+		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤一只喷火里奇来燃烧敌人，持续 %d 回合。喷火里奇近战薄弱且容易死亡，但是它们可以从远处燃烧敌人。
 		它拥有 %d 点意志，%d 点灵巧和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		喷火里奇的意志和灵巧受精神强度加成。]], "tformat")
@@ -25885,7 +25885,7 @@ t("Void Shards", "虚空碎片", "talent name")
 t("@Source@ summons void shards.", "@Source@召唤出虚空碎片。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("void shard", "虚空碎片", "_t")
-t("It looks like a small hole in the fabric of spacetime.", "看起来像空间中的一小块破洞。", "_t")
+t("It looks like a small hole in the fabric of spacetime.", "看起来像时空结构中的一个小洞。", "_t")
 t("Summons %d void shards.  The void shards come into being destabilized and will suffer %0.2f temporal damage each turn for five turns.  If they die while destabilized they'll explode for %0.2f temporal and %0.2f physical damage in a radius of 4.", "召唤 %d 个虚空碎片。碎片生成时处于不稳定状态，持续 5 回合，每回合受到 %0.2f 时空伤害。若它们在不稳定状态下死亡，会爆炸并对半径 4 格内造成 %0.2f 时空伤害和 %0.2f 物理伤害。", "tformat")
 t("Knife Storm", "刀刃风暴", "talent name")
 t([[Summon a storm of swirling blades to slice your foes, inflicting %d physical damage and bleeding to anyone who approaches for %d turns.
@@ -26977,7 +26977,7 @@ t([[An ogre's body is acclimated to spells and inscriptions.
 		At level 5 your body is so strong you can use a two handed weapon in your main hand while still using an offhand item.
 		When using a two handed weapon this way you suffer a 20%% accuracy, physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; further, all damage procs from your weapons are reduced by 50%%.]], [[食人魔的身体对法术和刻印的亲和力很强。
 		增加 %d 法术豁免，增加刻印的属性加成效果 %d%%。
-		技能等级 5 时，你的身体变得如此强壮，能在主手持有双手武器的同时，副手持有其他副手武器。
+		技能等级 5 时，你的身体变得如此强壮，能在主手持有双手武器的同时，副手持有其他副手物品。
 		这样做的话，你的命中、物理、法术、精神强度会下降 20%%，体型超过#{italic}#“较大”#{normal}#时，每增加一体型，惩罚减少 5%%。同时你的武器附加伤害减少 50%%。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
@@ -40930,7 +40930,7 @@ t("A large brownish arachnid, its fangs drip with a strange fluid.", "一只巨�
 t("orb weaver", "球蛛编织者", "entity name")
 t("A large brownish arachnid spinning its web.  It doesn't look pleased that you've disturbed its work.", "一只正在结网的巨大褐色蜘蛛，你的打扰使它很不高兴。", "_t")
 t("fate spinner", "命运纺织者", "entity name")
-t("Easily as big as a horse, this giant spider menaces at you with claws and fangs.", "像一只马一样大的蜘蛛，它的尖牙利齿已经饥渴难耐了。", "_t")
+t("Easily as big as a horse, this giant spider menaces at you with claws and fangs.", "这只巨型蜘蛛足有一匹马那么大，用利爪和獠牙威胁着你。", "_t")
 t("fate weaver", "命运编织者", "entity name")
 t("A large white spider.", "一只巨大的白色蜘蛛。", "_t")
 t("Weaver Queen", "织网蛛后", "entity name")
@@ -42778,8 +42778,8 @@ t("#ORANGE#Randart Data:#LAST# ", "#ORANGE#随机神器数据：#LAST# ", "_t")
 t("#ORANGE#Randart#LAST#", "#ORANGE#随机神器#LAST#", "_t")
 t("Show #GOLD#I#LAST#nventory", "显示#GOLD#[I]#LAST#物品栏", "_t")
 t("Show #GOLD#C#LAST#haracter Sheet", "显示#GOLD#[C]#LAST#角色面板", "_t")
-t("Set working actor: [%s] %s", "设置生成角色：[%s] %s", "tformat")
-t("Set working actor: [%s] %s%s", "设置生成角色：[%s] %s%s", "tformat")
+t("Set working actor: [%s] %s", "设置工作角色：[%s] %s", "tformat")
+t("Set working actor: [%s] %s%s", "设置工作角色：[%s] %s%s", "tformat")
 t(" #LIGHT_GREEN#(player)#LAST#", " #LIGHT_GREEN#（玩家）#LAST#", "_t")
 t("#GREY#No Tooltip to Display#LAST#", "#GREY#没有待显示的提示#LAST#", "_t")
 t("Filter/Data/Resolver Reference", "筛选器/数据/解析器文档", "_t")
@@ -42806,7 +42806,7 @@ t("#LIGHT_BLUE#No object to add", "#LIGHT_BLUE#没有待添加的物品", "log")
 t([[#LIGHT_BLUE#ERROR accepting object with resolver %s.
  Error:%s]], [[#LIGHT_BLUE#使用解析器%s接受物品时出错。
  错误：%s]], "log")
-t("#LIGHT_BLUE#Working Actor set to [%s]%s at (%d, %d)", "#LIGHT_BLUE#将生成角色设置为[%s]%s 位于(%d, %d)", "log")
+t("#LIGHT_BLUE#Working Actor set to [%s]%s at (%d, %d)", "#LIGHT_BLUE#将工作角色设置为[%s]%s 位于(%d, %d)", "log")
 
 ------------------------------------------------
 section "mod-tome/dialogs/debug/SpawnEvent.lua"
