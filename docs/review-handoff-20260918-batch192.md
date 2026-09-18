@@ -14,19 +14,21 @@
 | 项 | 值 |
 | --- | --- |
 | 已完成审核批 | 第 187–**193** 批（每批 80 条），均 review_only，17/17 门禁逐批通过 |
-| 已完成修复批 | 第 207–**214** 批（每批 20 条），catalog + migration 均已落地 |
+| 已完成修复批 | 第 207–**215** 批（每批 20 条），catalog + migration 均已落地 |
 | done | **17849** |
-| **repair_required** | **280** |
+| **repair_required** | **260** |
 | blocked | **9**（第 193 批新增 pending：the Sorcerers 术语统一 ad393c54） |
-| HEAD | `6932fbe`（batch 193 finalize）；无活动批次 |
+| HEAD | batch 215 evidence `1d51b9f` +本 handoff 提交；无活动批次 |
 | 未 push | `origin/develop` 停在旧位置，本地领先多个提交 |
 | 工作树 | 干净；`.ai/consult/` 是唯一 `??`，**严禁读取、暂存或清理** |
-| 交替节奏 | **严格 1:1**（80 条审核 → 20 条修复），当前轮到**修复批 215** |
+| 交替节奏 | **严格 1:1**（80 条审核 → 20 条修复），当前轮到**审核批 194** |
 
 ### 第 214 修复批 + 第 193 审核批（2026-09-18，本会话）
 - 修复批 214：20 条（青金石/换行不变量/删限定词/施受方向/master-of-bones 召唤上限/兽人 lore 因果与称号/半身人脚粗绳等），migration `2734d4f8`，evidence `e2a9faf`。
 - 审核批 193（`batch-45074f76e6ee8c10db28`，evidence `6932fbe`）：80 条，表层 4 lane（gpt-5.6-sol，MCP 手工驱动）+ 交叉复核 1 child（opus-5）。裁决 confirmed 9 / refuted 9 / advisory 2 / **pending 1**，5 条 entry 入 repair_required。
 - **表层派发全程走 MCP 手工 lifecycle**（emit→create_agent→intent/bind/harvest/archive/confirm→close），详见记忆 `mcp-review-lifecycle-manual-drive` 与 `surface-raw-extraction-trailing-newline`。
+- 修复批 215（evidence `1d51b9f`）：20 条（青铜捐赠者/光辉暂降/窃贼词缀 sneakthief/删限定词 usually·additional·directly-below/施受方向/reduce-power-scope/换行布局 old-forest·shadowmancy 等），migration `492b8d43`。附带补交了批 193 遗漏的 source-workset（evidence/quality/production-batches/）。
+- **下一步：审核批 194**（1:1 交替，轮到审核）。恢复第一步先 `queue rebuild`+`queue check`。
 
 ### 批次提交对照（自上一份交接以来）
 
@@ -168,9 +170,9 @@ batch start --limit 80
 
 ---
 
-## 7. 恢复入口（修复批 215）
+## 7. 恢复入口（审核批 194）
 
-当前轮到修复批（1:1 交替节奏），280 条 repair_required 待清理。
+当前轮到审核批（1:1 交替节奏）。先 `queue rebuild`+`queue check`（HEAD 因 handoff 提交前进过），再 `batch start --limit 80` 按 §4 流程与记忆 [[mcp-review-lifecycle-manual-drive]] 派发。260 条 repair_required 仍待后续修复批清理。
 
 ```bash
 # 查 repair_required 条目
