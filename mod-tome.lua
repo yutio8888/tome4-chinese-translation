@@ -842,7 +842,7 @@ t("turn", "回合", "_t")
 t("%s granted: ", "获得%s: ", "tformat")
 t("Allows you to breathe in: ", "可以在以下环境呼吸：", "_t")
 t("Critical mult.: ", "暴击伤害加成：", "_t")
-t("Reduces incoming crit damage: ", "降低暴击伤害：", "_t")
+t("Reduces incoming crit damage: ", "降低受到的暴击伤害：", "_t")
 t("Reduces opponents crit chance: ", "降低对方暴击率：", "_t")
 t("Trap disarming bonus: ", "拆除陷阱加成：", "_t")
 t("Stealth bonus: ", "潜行加成：", "_t")
@@ -1831,7 +1831,7 @@ Armour penetration allows you to ignore a part of the target's armour (this only
 This can never increase the damage you do beyond reducing armour, so it is only useful against armoured foes.
 ]], [[#GOLD#护甲穿透#LAST#
 护甲穿透可以让你忽视部分目标护甲值（只对护甲值有效，对伤害抗性无效）。
-它不能提高造成的伤害，只对有护甲的目标有效。
+除了减少护甲之外，它绝不会额外提高你造成的伤害，因此只对有护甲的目标有用。
 ]], "_t")
 t([[#GOLD#Critical chance#LAST#
 Each time you deal damage you have a chance to make a critical hit that deals extra damage.
@@ -1923,7 +1923,7 @@ Saving throws represent your ability to shrug off, partially or fully, detriment
 t([[#GOLD#Physical saving throw#LAST#
 Increases chance to shrug off physically-induced effects.  Also reduces duration of detrimental physical effects by up to 5% per point, depending on the power of the opponent's effect.
 ]], [[#GOLD#物理豁免#LAST#
-增加你摆脱物理效果的几率。此外，基于目标强度判定后，每超过1点减少5%不良物理状态持续时间。
+增加你摆脱物理引发效果的几率。此外，每点最多减少 5% 不良物理状态的持续时间，具体取决于对方效果的强度。
 ]], "_t")
 t([[#GOLD#Spell saving throw#LAST#
 Increases chance to shrug off magically-induced effects.  Also reduces duration of detrimental magical effects by up to 5% per point, depending on the power of the opponent's effect.
@@ -2965,7 +2965,7 @@ t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +5 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Temporal Warden", "时空守卫", "birth descriptor name")
-t("We preserve the past to protect the future. The hands of time are guarded by the arms of war.", "我们平衡过去，守护未来，我们用战斗来维持时间的秩序。", "_t")
+t("We preserve the past to protect the future. The hands of time are guarded by the arms of war.", "我们守护过去，以护佑未来。时间之手由战争之臂守卫。", "_t")
 t("Their lifelines braided, Temporal Wardens have learned to work with their other selves across multiple timelines.", "通过缠结不同的时间线，时空守卫可以召唤其他世界线的分身，和自己一同战斗。", "_t")
 t("Through their study of chronomancy, they learn to blend archery and dual-weapon fighting, seamlessly switching from one to the other.", "时空守卫通过学习时空法术，可以将箭术和双持武器战斗联合在一起，在两者之间随意切换。", "_t")
 t("Their most important stats are: Magic, Dexterity, and Willpower", "他们最重要的属性是：魔法、敏捷和意志。", "_t")
@@ -3870,7 +3870,7 @@ t("The known world has been at relative peace for over one hundred years, and pe
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
 t("Infinite Dungeon: The Neverending Descent", "无尽地下城：永无止境的下降", "_t")
-t("Ever deeper, never ending, no reprieve, keep descending. In ruins old, through barred gate, once riddle solved, find thy fate.", "无尽深度，没有终点，没有重复，不断深入，在古老的废墟里，穿过关闭的大门，解开谜题，寻找你的宿命。", "_t")
+t("Ever deeper, never ending, no reprieve, keep descending. In ruins old, through barred gate, once riddle solved, find thy fate.", "无尽深度，没有终点，没有喘息，不断深入，在古老的废墟里，穿过关闭的大门，解开谜题，寻找你的宿命。", "_t")
 t("Play as your favorite race and class and venture into the infinite dungeon.", "选择你最喜欢的种族和职业，进入无尽地下城冒险。", "_t")
 t("The only limit to how far you can go is your own skill!", "能够前进多远取决于你的个人技术！", "_t")
 t("Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).", "在无尽地下城中你不受限制，你可以突破 50 级的等级上限并继续获得属性和技能点数（以一个较低的比例获得）。", "_t")
@@ -4082,7 +4082,7 @@ t([[#LIGHT_GREEN#*For the first time you've seen, genuine pleasure lights up the
 GOOD WORK, WHOEVER YOU ARE. ALL OF MAJ'EYAL OWES YOU THEIR THANKS, EXCEPT FOR MEMBERS OF THE BROTHERHOOD OF ALCHEMISTS, WHO MIGHT TRY TO DO YOU BODILY HARM. FORTUNATELY FOR YOU, THEY'RE MOSTLY HARMLESS.]], [[#LIGHT_GREEN#*你第一次看到，半身人满是煤灰的脸上绽放出了诚恳的笑容。*#WHITE#
 干的好！不管你是谁！整个马基·埃亚尔都应该感谢你，除了那些炼金术士兄弟会成员，他们想加害于你。不过幸运的是，那些货通常来说根本伤不到你。]], "_t")
 t("[Give him the monster bits]", "[给他材料]", "_t")
-t("WAIT HERE. THERE'S A GOOD CHANCE YOU'LL GET BLOWN INTO ADVENTURER KIBBLE IF YOU STEP INSIDE THIS BUILDING. MY ROBE OF MAD ALCHEMIST PROTECTION IS THE ONLY REASON I'M NOT VAPOUR.", "在这儿等着就好，如果你进入这栋建筑，你会有幸成为冒险家牌肉松。由于我有这件强大的炼金长袍保护，我才没变成粉蒸肉。", "_t")
+t("WAIT HERE. THERE'S A GOOD CHANCE YOU'LL GET BLOWN INTO ADVENTURER KIBBLE IF YOU STEP INSIDE THIS BUILDING. MY ROBE OF MAD ALCHEMIST PROTECTION IS THE ONLY REASON I'M NOT VAPOUR.", "在这儿等着就好，如果你进入这栋建筑，你会有幸成为冒险家牌肉松。全靠我这件疯炼金术士防护袍的保护，我才没变成粉蒸肉。", "_t")
 t("[Wait]", "[等待]", "_t")
 t("GIVE ME AN HOUR, AND THINK UNPLEASANT THOUGHTS ABOUT THE BROTHERHOOD. IF ANYTHING EXPLODES, COME RESCUE ME, EVEN IF IT LOOKS LIKE THE BUILDING IS AN INFERNO OF POISONOUS SMOKE AND POLKA-DOT FLAMES.", "给我一小时，好好想想那帮兄弟会的可恨之处。要是有什么东西爆炸了，快来救我，哪怕整栋楼已经变成毒烟弥漫、火焰乱舞的炼狱。", "_t")
 t([[#LIGHT_GREEN#*Disaster fails to occur. The halfling finally returns and hands you a small vial of sooty glass.*#WHITE#
@@ -6902,7 +6902,7 @@ t("timewarped", "被时空隔断", "_t")
 t("temporally distorted", "被时空扭曲", "_t")
 t("spaghettified across the whole of space and time", "被时空之力拉成了面条", "_t")
 t("paradoxed", "遇到时空异常", "_t")
-t("replaced by a time clone (and no one ever knew the difference)", "被时空克隆（其他人均不会感到任何差别）", "_t")
+t("replaced by a time clone (and no one ever knew the difference)", "被一个时间克隆体取代（其他人均不会感到任何差别）", "_t")
 t("grandfathered", "因弹指间度过了无数美好的青葱岁月，转瞬间你已白发苍苍", "_t")
 t("time dilated", "因时间膨胀", "_t")
 t("temporal stun", "时空震慑", "damage type")
@@ -8892,7 +8892,7 @@ section "mod-tome/data/general/npcs/troll.lua"
 t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
-t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是肉瘤的绿色拳头。", "_t")
+t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
@@ -10480,7 +10480,7 @@ t("wizard", "法师", "entity keyword")
 t("psionicist's ", "灵能力者的", "entity name")
 t("psionic", "灵能", "entity keyword")
 t("sneakthief's ", "窃贼的", "entity name")
-t("sneakthief", "刺客", "entity keyword")
+t("sneakthief", "窃贼", "entity keyword")
 t("gladiator's ", "角斗者的", "entity name")
 t("gladiator", "角斗者", "entity keyword")
 t("conjurer's ", "咒术师的", "entity name")
@@ -14455,7 +14455,7 @@ t([[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#
 It knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add "being frozen solid" to my list of troubles today.
 I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...
 #{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of ice. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
-那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出”被彻底冻住”这一项。
+那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被彻底冻住”这一项。
 我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……
 #{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出寒冰。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#]], "_t")
 
@@ -23667,7 +23667,7 @@ t("A noisy lure.", "一个吵闹的诱饵。", "_t")
 t([[Deploy a noisy lure that attracts all creatures within radius %d to it for %d turns.
 		It has %d life (based on your Cunning) and is very durable, with %d armor and %d%% resistance to non-physical damage.
 		At level 5, when the lure is destroyed, it will trigger some traps in a radius of 2 around it (check individual trap descriptions to see if they are triggered).
-		Use of this talent will not break stealth.]], [[抛出一个诱饵来吸引 %d 码半径内的敌人，持续 %d 回合。
+		Use of this talent will not break stealth.]], [[抛出一个诱饵来吸引 %d 码半径内的所有生物，持续 %d 回合。
 		诱饵有 %d 生命（基于灵巧），且非常坚韧，拥有 %d 护甲和 %d%% 非物理伤害抗性。
 		在等级 5 时，当诱饵被摧毁时，它会触发其周围 2 码范围内的部分陷阱（请查看各陷阱自身的说明，以确认其是否会被触发）。
 		此技能不会打断潜行状态。]], "tformat")
@@ -36524,7 +36524,7 @@ t("#Target# is no longer covered by shadows.", "#Target#不再遮蔽在暗影中
 t("-Assail", "-暗影笼罩", "_t")
 t("spacetime", "时空", "effect subtype")
 t("Zero Gravity", "失重", "_t")
-t("There is no gravity here; you float in the air. Movement is three times as slow, and any melee or archery blows have a chance to knockback. Maximum encumbrance is greatly increased.", "这里没有重力，你漂浮在空中。移动速度下降三倍，所有近战攻击或射击有一定几率击退目标。负重上限大幅增加。", "_t")
+t("There is no gravity here; you float in the air. Movement is three times as slow, and any melee or archery blows have a chance to knockback. Maximum encumbrance is greatly increased.", "这里没有重力，你漂浮在空中。移动速度降至原来的三分之一，所有近战攻击或射击有一定几率击退目标。负重上限大幅增加。", "_t")
 t("#LIGHT_BLUE#You enter a zero gravity zone, beware!", "#LIGHT_BLUE#注意！你进入了失重区域！", "logPlayer")
 t("curse", "诅咒", "effect subtype")
 t("Curse of Corpses", "尸体诅咒", "_t")
@@ -37769,7 +37769,7 @@ t("#VIOLET#The wormhole absorbs energies and stabilizes. You can now use it to t
 section "mod-tome/data/zones/abashed-expanse/npcs.lua"
 
 t("Spacial Disturbance", "空间扰动", "entity name")
-t("A hole in the fabric of space, it seems to be the source of the expanse instability.", "一个由虚空构成的虫洞，它似乎是空间不稳的原因。", "_t")
+t("A hole in the fabric of space, it seems to be the source of the expanse instability.", "空间结构上的一个孔洞，它似乎是此地空间不稳定的根源。", "_t")
 t("and folded out of existence", "并从时空中被抹杀", "_t")
 
 ------------------------------------------------
@@ -37814,7 +37814,7 @@ t("This seems to be an account of the last days of a great Shaloren mage.", "这
 t("Bindings of Eternal Night", "永夜绷带", "entity name")
 t("blackened, slithering mummy wrappings", "染黑、蜿蜒滑动的木乃伊绷带", "_t")
 t("Woven through with fell magics of undeath, these bindings suck the light and life out of everything they touch. Any who don them will find themselves suspended in a nightmarish limbo between life and death.", "这些由亡灵邪恶魔法编织的绷带会吸走一切触及之物的光与生命。任何穿上它们的人都会发现自己悬浮在生与死之间的噩梦般地带。", "_t")
-t("A complementing item would be your crowning glory.", "能与其匹敌的只有永夜无上的荣耀。", "_t")
+t("A complementing item would be your crowning glory.", "再补齐一件配套的套装部件，将成为你至高无上的荣耀。", "_t")
 t("Crown of Eternal Night", "永夜王冠", "entity name")
 t("blackened crown", "染黑的王冠", "_t")
 t("This crown looks useless, yet you can feel it is woven with fell magics of undeath. Maybe it has a use.", "这顶王冠看起来毫无用处，尽管如此你仍能感受到它是由亡灵能量编织而成的。可能会有些用处吧。", "_t")
@@ -43141,7 +43141,7 @@ t("The Nargol empire was once the largest force in Maj'Eyal, but a combination o
 t("Some of the most powerful undead do not fall easily, and only through extreme persistence can they be put to rest.", "那些最强大的不死族并不是那么容易被打败的，只有通过不懈的战斗才能将它们彻底置于死地。", "init.lua load_tips")
 t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "历史对居住在半身人领地上的古代夺心魔族记载甚少，他们在魔法大爆炸之前就已销声匿迹。", "init.lua load_tips")
 t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition turned on them. Most live secretive lives in their closed-off city, the Iron Throne.", "矮人们好管闲事，但他们自己却不喜欢别人来打搅，他们大多数居住在秘密的地下城市——钢铁王座之中。", "init.lua load_tips")
-t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石中的魔法效果附到盔甲上，保护他们或者提高他们的能力。一些高级炼金师还能把宝石制成首饰。", "init.lua load_tips")
+t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石镶嵌到盔甲上，赋予其魔法效果，以保护穿戴者或增强其能力。一些提供商业服务的炼金术士还能把宝石镶嵌到首饰中。", "init.lua load_tips")
 t("The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.", "魔法大爆炸之后到来的是黄昏纪，那是一个疫病肆虐文明溃败的时代。死灵法师和一些堕落法师利用当时的混乱来散播他们的恶行。", "init.lua load_tips")
 t("After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.", "魔法大爆炸之后，猎魔行动随之而来。普通民众奋起反抗法师的傲慢，像猎狼一样追杀他们。一些法师幸存下来并躲藏起来，但也有许多无辜者遇害。", "init.lua load_tips")
 t("Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.", "人们认为恶魔是被魔法力量从其他世界带到埃亚尔大陆的。有些恶魔具有高度的智慧并有他们自己的野心，没人知道他们的真正目的。", "init.lua load_tips")

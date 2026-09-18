@@ -1604,7 +1604,7 @@ section "engine/modules/boot/data/general/npcs/troll.lua"
 t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
-t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "丑陋的绿皮生物正盯着你，同时它握紧了满是肉瘤的绿色拳头。", "_t")
+t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
