@@ -1121,7 +1121,7 @@ t("Use object", "使用物品", "_t")
 t("You can not use the Orb with foes watching (#Target# to the %s%s)", "你不能在有敌人的情况下使用水晶球(#Target#在%s%s)", "logCombat")
 t("This does not seem to have any effect.", "似乎没有发生任何作用。", "logPlayer")
 t("You use the %s on the pedestal. There is a distant 'clonk' sound.", "你在基座上使用了 %s。你听到远处传来一声“咔嗒”声。", "logPlayer")
-t("#LIGHT_RED#%s briefly catches sight of you!", "#LIGHT_RED#%s 发现了你的踪迹！", "logPlayer")
+t("#LIGHT_RED#%s briefly catches sight of you!", "#LIGHT_RED#%s 短暂地瞥见了你！", "logPlayer")
 t("#LIGHT_RED#You sense that Something has taken notice of you ...", "#LIGHT_RED#你感觉到有某个生物注意到了你的存在。", "logPlayer")
 -- untranslated text
 --[==[
@@ -1956,7 +1956,7 @@ Your spellpower represents how powerful your magical spells are.  It is opposed 
 In addition, when your spells inflict temporary detrimental effects, every point your opponent's save exceeds your spellpower will reduce the duration of the effect by 5%.
 ]], [[#GOLD#法术强度#LAST#
 你的法术强度决定了你施放法术技能的威力。敌人用法术豁免对抗你的法术强度。
-另外当造成基于法术强度的负面效果时，敌人的相应豁免每超过法术强度一点将减少5%持续时间。
+另外当你的法术造成临时性负面效果时，敌人的相应豁免每超过法术强度一点将减少5%持续时间。
 ]], "_t")
 t([[#GOLD#Spell critical chance#LAST#
 Each time you deal damage with a spell you may have a chance to perform a critical hit that deals extra damage.
@@ -17937,7 +17937,7 @@ Yes, yes, this is all clearly an illusion! A strange nightmare that I shall wake
 
 唉，对，这一定是我的幻觉！我早该从这个怪梦里醒来了。我应该赶紧脱下这个该死的戒指，回去看看我可爱的月亮石们。只要能让我看见美丽的星空，一切都一定会好起来的……]], "_t")
 t("races", "种族", "newLore category")
-t("Loremaster Greynot's Analysis of the Races - Introduction", "博学者格雷诺特关于人种的调查——引言", "_t")
+t("Loremaster Greynot's Analysis of the Races - Introduction", "博学者格雷诺特关于种族的调查——引言", "_t")
 t([[I set out here to give a full and complete analysis of all the intelligent races in Maj'Eyal. This is an ambitious project to say the least, but it is put together from a great many years labour, including travels across all the kingdoms and direct meetings with many of the highest rulers and most learned sages. I have drawn my findings from common knowledge, exclusive interviews, and studies of many thousands of pages of texts and histories, some going back dozens of centuries.
 
 I myself am a Higher human, in the employ of the court of King Tolak the Fair, but I have done my best to write all accounts from a purely neutral standpoint. I leave it to my peers to judge my success.
@@ -17971,7 +17971,7 @@ Chapter 11 - Dragons
 第10章 - 怪物种族
 第11章 - 龙族
 ]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 1 - Humans", "博学者格雷诺特关于人种的调查——第一章——人类", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 1 - Humans", "博学者格雷诺特关于种族的调查——第一章——人类", "_t")
 t([[I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.
 
 Cornacs are normally around 5'9", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.
@@ -17993,7 +17993,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
 
 在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings", "博学者格雷诺特关于人种的调查——第二章——半身人", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings", "博学者格雷诺特关于种族的调查——第二章——半身人", "_t")
 t([[There are two main kingdoms of halflings, the Eldoral and the Nargol, though both mix often. All halflings are just under 4' tall, and are generally noted for their large feet and curly hair. Eldoral are usually fair-haired and blue-eyed. Nargol tend to be darker in hair and complexion, with hazel eyes, and oft slightly shorter than their cousins. Halflings are known for their intelligence and quick wit, but also their arrogance in dealing with other races - something they do not deny, for they say it is well-deserved.
 
 Halflings used to be the most dominant race in Maj'Eyal, with control of many strategic Sher'Tul ruins and rule over great swathes of land. The recorded wars between humans and halflings are numerous, and the halflings were the most often victors. However the Age of Pyre brought them great ruin, for the orcs seemed to target them more fiercely than any other race, and many of their communities were wiped out. This has forced them to rely more on trade with other races in modern times, especially with the humans.
@@ -18012,7 +18012,7 @@ The most famous of all halflings is Queen Mirvenia, most famed for her saving of
 纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，并且他们的许多人口聚居区被摧毁。最后希望的崛起加速了这一进程，许多市民迁移到了最后希望的城市边缘。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且他们拥有世界上最好的军事家。许多军事家和顾问都来自于他们国家。
 
 在半身人中最著名的则是王后米雯尼雅，她在一场和兽人对抗的战役中将狮心王图库纳拯救出来，自此一战成名。她如何带领军队通过严寒地带，并及时的出现在战场上拯救图库纳始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了狮心王图库纳，并生下了第一位著名的混血儿——公正之王托拉克。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于人种的调查——第三章——矮人", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于种族的调查——第三章——矮人", "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
 Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.
@@ -18030,7 +18030,7 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于人种的调查——第四章——永恒精灵", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于种族的调查——第四章——永恒精灵", "_t")
 t([[Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole "Elore", which means "siblings", yet the interactions between these brothers and sisters are oft strained.
 
 Shaloren (or Shalore - lit "siblings of grace") are on average 6'2", with bright hair and blue or purple eyes. They are usually slim and lightly built, more marked for their mental prowess than their physical strengths. They are however known to be extremely swift of movement and light of foot. But of particular note is their magical affinity, which is far stronger than any other race, and their intense powers of will.
@@ -18048,7 +18048,7 @@ They deal with other races seldom, preferring to keep a low profile, and most of
 他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。那些长者们组成了由精灵王艾伦尼恩·加威尔为首的长老会。死亡在永恒精灵中是相当重大的事情，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。
 
 他们很少和其他种族交易，一直过着低调的生活，大部分的交易是通过半身人来完成的。少数符文师和附魔师在一些主要城市做生意，另外还有一些骄傲的年轻人去外界闯荡。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 5 - Thaloren", "博学者格雷诺特关于人种的调查——第五章——自然精灵", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 5 - Thaloren", "博学者格雷诺特关于种族的调查——第五章——自然精灵", "_t")
 t([[The Thaloren (or Thalore - lit "siblings of wrath") are on average 6'4", with dark brown hair and hazel or green eyes. They are generally of muscular build, and known for their physical prowess. They are renowned to be of a fey mindset - as quick to furious violence as they are to joyous song. Their relations with the Shaloren are particularly strained, as they strongly oppose their brethren's use of magic.
 
 Their capital city is Shatur, hidden deep within the northern woods, and they are loathe to let any outsiders even approach the surrounding forest. Archers and fighters carefully patrol their borders, ready to rain down death from the trees on any who encroach. Their leader is Queen Nessilla Tantaelen, and they are said to live in extensive dwellings carved into giant trees, but little else is known about their society.
@@ -18062,7 +18062,7 @@ The Thaloren do business very rarely with the outside world, but when they do it
 那些选择离开这片森林堡垒的精灵，往往性情独特、态度与秉性异于常人。他们常是乐师、弓术大师或身手不凡的战士。不过他们有时也备受猜忌，因为传言说许多离开夏特尔的人其实是因最恶劣的罪行而被放逐的罪犯。无论如何，他们大多是天生的独行者，为着各自的个人追寻而浪迹世界。
 
 自然精灵极少与外界通商，一旦通商，通常是为了换取他们无法自给的金属和某些食物。他们通常出售木制品和上等丝绸。这是精灵木的唯一合法来源——那是一种珍稀商品，常被用于制箭。黑市货源则依赖偷猎者从夏特尔森林中盗伐树木——这是一桩极其危险的营生，但也利润丰厚，因为永恒精灵法师愿为一根精灵木法杖付出高价。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 6 - Naloren (extinct)", "博学者格雷诺特关于人种的调查——第六章——纳鲁精灵（灭绝）", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 6 - Naloren (extinct)", "博学者格雷诺特关于种族的调查——第六章——纳鲁精灵（灭绝）", "_t")
 t([[The Naloren (or Nalore - lit "siblings of spirit") are now an extinct race, as their homeland was swept into the sea by the Cataclysm. However as a separate elf race they are worth studying, scant though the records be. Much of what is now said about the Naloren is traced with myth, but one can deduce certain facts.
 
 Naloren elves were around 5'10", with blonde hair and green eyes. They were incredibly thin, but known for their swift and dextrous capabilities. Their kingdom was located on the eastern side of Maj'Eyal, and all of their towns were on the sea or straddling major rivers. They employed themselves as fishermen, sponge-divers, sailors and musicians. They were renowned for being able to stay underwater for hours at a time, and those with arcane abilities were said to be able to stay submerged indefinitely.
@@ -18076,7 +18076,7 @@ Alas their love of the sea was to be their undoing. When the Cataclysm came the 
 他们很少与其他种族往来，并极力守护自己的沿海领土。他们尤其小心地守护着位于其领地中心的一处古老夏·图尔遗迹。永恒精灵尤为渴望研究这处遗物，但纳鲁精灵始终拒绝他们进入，尽管他们自己也不敢触碰它。据说兽人时常侵扰他们的土地，但总被他们身披锁甲、手持凶恶三叉戟的战士击退。
 
 可叹的是，他们对大海的热爱最终成了他们的祸根。大灾变来临时，整个沿海王国被撕裂并坠入大海，几乎令整个种族就此覆灭。所剩无几的幸存者不久后也纵身跃下东部悬崖、投入海洋，追随他们逝去的兄弟姐妹而去。他们的文明几乎没有留下任何痕迹。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 7 - Ogres", "博学者格雷诺特关于人种的调查——第七章——食人魔", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 7 - Ogres", "博学者格雷诺特关于种族的调查——第七章——食人魔", "_t")
 t([[Ogres have never been a thriving race, starting from their abrupt appearance as soldiers and laborers for the Conclave during the Allure Wars (unexplained aside from a highly implausible story from the Conclave's Overseers about a lost mountain tribe).  Left without homes or proper runic training after the war's end, they were forced to found their own tribes and rediscover the fields of rune and infusion creation for themselves, and though their numbers dropped rapidly, they enjoyed a brief period of relative success as nomadic rune-traders, virtually unaffected by the Spellblaze.  The Spellhunt nearly proved to be their undoing, as their monstrous size and rune-covered skin made them popular targets; they were thought to be extinct, and only in recent years has the city of Elvala revealed that some Ogres took refuge there during this time.  Their descendants still live today, fearful of persecution but gradually beginning to explore outside Elvala for the first time in ages.
 
 Ogres' most striking feature is their size, by far the largest of any intelligent race; they average at roughly 8'4" tall, and most are nearly half as wide with muscle.  They have a similar range of skin tones to humans, although slightly grayer on the whole; their hair tends to be dark brown or black, and their eyes run the gamut from black to bright blue to purple, presumably a side-effect of runic mis-transcription.  Their angular facial features invite some impolite comparisons to Orcs, with strong jawlines, disproportionately large mouths and teeth, and squarish heads, but otherwise resemble those of humans.  It would be remiss of me to describe Ogres' appearance without mentioning the intricate, glowing pattern of runes covering their skin from head to toe, although the exact patterns and colors vary.  
@@ -18094,7 +18094,7 @@ Due to the safety and comfort of Elvala, and their mistrust of much of the outsi
 或许即使是永恒精灵也有可能放弃魔法的力量，但是食人魔可没有这样的奢侈。他们身上的符文对他们的生命和体内器官的结构完整性至关重要。在魔法狩猎时期，伊格兰斯曾试着“净化”所捕获食人魔身上的符文，结果导致他们先因自身重量而瘫倒，随后器官一个接一个停止工作。可以假定，他们身上的纹身也相当重要。因此，食人魔的生育是一个十分复杂的过程。婴儿们可以保持没有符文的状态几个月，在此之后父母必须在他的身上铭刻一套包含各种符文和纹身的复杂的整体。父母们通常一起执行一个任务，使用彼此的符文作为参考，并且在这个转录的过程中的任何错误都会影响孩子的健康和发育。通常这一影响是不利的，然而因祸得福，似乎也正是转录错误缓解了食人魔们过去火爆的脾气。因此，孩子们身上所铭刻的符文和纹身对它们未来的发展，和父母本身的身心特质同样重要。
 
 由于埃尔瓦拉的安逸舒适以及食人魔对外部世界根深蒂固的不信任，绝大多数离开家园的食人魔仅仅是为了一些商业目的。不再需要永恒精灵作为他们的中介人，一些人已经开始进入纹身和符文这一不断增长的市场，他们在这方面的天赋使他们在这一领域大获成功。而那些少数可以被视为冒险家的人，往往只是收拾好自己的东西突然离开，不为荣耀和财富，只为消除世界上不断出现的苦难与不幸而为他人奉献。经常听到这样的故事，一个食人魔偶尔听到有满载粮食的货船被劫的消息，立即出发。几天之后，他挥舞着那终结了曾经不可一世的强盗性命的狼牙棒荣归故里，然后继续回到乡间照料他的庄稼。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 8 - Orcs (extinct)", "博学者格雷诺特关于人种的调查——第八章——兽人（灭绝）", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 8 - Orcs (extinct)", "博学者格雷诺特关于种族的调查——第八章——兽人（灭绝）", "_t")
 t([[The orcs are, joyfully, extinct from Maj'Eyal, following the purge instigated by King Toknor the Brave at the start of the Age of Ascendancy. But an academic study of their previous culture and civilisation is still of interest, primitive though it may have been.
 
 Orcs were generally around 6'1", with green or black skin. They varied greatly in physical appearance and build, most likely due to their exceptionally fast breeding rates. The majority of orcs were thick-built and heavily muscled, well remembered as the stock grunts of their terrible armies. However in the Age of Pyre a greater number of thinner, stringier orcs appeared, oft versed in destructive magics.
@@ -18112,7 +18112,7 @@ There have been no substantiated reports of orcs for over 100 years. What report
 近来对兽人废墟的调查揭示出数量惊人的文化遗存，甚至还有以生育与战斗为主题的粗糙艺术品。也有证据表明他们的文化中带有强烈的群体色彩，尤其重视体育活动与彰显民族自豪的活动。然而这些显然仍缺乏我们更先进文化所具有的精妙与美感，任何将他们与我们相提并论的尝试，都必然会被他们的野蛮、对领地的暴力和对战争的痴迷所掩盖。
 
 100多年来，再没有关于兽人的确切报告。现有的所谓目击，多半出自冒险者和隐士这类不可靠的来源，也从未得到证实。我们理应庆幸这些可怕的生物已被逐入历史的册页，只作为讲给顽劣孩童的故事而留存。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 9 - Sher'Tul (extinct)", "博学者格雷诺特关于人种的调查——第九章——夏·图尔人（灭绝）", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 9 - Sher'Tul (extinct)", "博学者格雷诺特关于种族的调查——第九章——夏·图尔人（灭绝）", "_t")
 t([[Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries.
 
 The Sher'Tul lived over ten thousand years ago, during what is referred to as the Age of Haze. The name of the race we know from the elves, who speak of the ancient beings with awe and reverence, yet know little else about them. Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal, and some have been observed in sunken lands off the coasts, implying that in their time the Sher'Tul must have ruled unopposed all across the world.
@@ -18130,7 +18130,7 @@ What caused them to become extinct is unknown, though many theories abound. The 
 关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
 
 他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。在考古界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中。其他理论——阿奇曼·加里伯德，恶魔研究者则一直相信夏·图尔人在魔法上的杰出造诣引来了异次元的恶魔，最终导致了整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races", "博学者格雷诺特关于人种的调查——第十章——怪物种族", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races", "博学者格雷诺特关于种族的调查——第十章——怪物种族", "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
 
 Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.
@@ -18148,7 +18148,7 @@ The origin of Demons is not wholly known, but it is clear that they are capable 
 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
 恶魔的起源已经不为人所知，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常与恶魔巫师们为伍。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个由纯净的奥术能量链接的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。这一切看起来都是建立在精通魔法的某种基础上，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
-t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于人种的调查——第十一章——龙族", "_t")
+t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于种族的调查——第十一章——龙族", "_t")
 t([[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.
 
 Dragons come in many shapes and sizes, normally growing from 5' long hatchlings to 20' long mature drakes, with some of the greatest wyrms growing to over 40' in length. They are generally winged, with large lizard-like maws and sharp talons on both their fore and hind legs. They are often noted for the lustrous colour of their scales, normally representing an attunement to one of the key Elements of Eyal. This attunement is unseen in any other race, and some philosophers believe that dragons predate all other races, being formed as raw representations of the elements of nature at the beginning of the world. However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long.
@@ -18398,7 +18398,7 @@ Take 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure
 
 仪式需要一份祭品，随便哪个人都可以。用防火胶布把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫可能会让人分心，可能会让你在之后的仪式中犯错。
 
-取2瓶火龙涎，溶解2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热，构成类似于—
+取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——
 
 #{italic}#卷轴的剩余部分已经被烧焦了，无法辨认。当你抓到这份卷轴的时候，那些残存的纸页就化为了灰烬#{normal}#
 	]], "_t")
@@ -20142,7 +20142,7 @@ section "mod-tome/data/quests/brotherhood-of-alchemists.lua"
 
 t("The Brotherhood of Alchemists", "炼金术士兄弟会", "_t")
 t("#LIGHT_GREEN#Thanks to your timely aid, %s is the newest member of the Brotherhood of Alchemists.#WHITE#", "#LIGHT_GREEN#感谢你的及时帮助，%s成为了炼金术士兄弟会的新成员。#WHITE#", "tformat")
-t("#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is %s.#WHITE#", "#RED#你帮助了马基·埃亚尔的许多人加入炼金术士兄弟会，但是你没有成为任何一个决定性因素。今年的新成员是%s。#WHITE#", "tformat")
+t("#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is %s.#WHITE#", "#RED#你帮助了马基·埃亚尔的许多人尝试加入炼金术士兄弟会，但是你没有成为任何一个决定性因素。今年的新成员是%s。#WHITE#", "tformat")
 t("#LIGHT_BLUE#Various alchemists around Maj'Eyal are competing to gain entry into the great Brotherhood of Alchemists, and one or more have enlisted your aid.#WHITE#", "#LIGHT_BLUE#很多马基·埃亚尔的炼金术士想竞争加入强大的炼金术士兄弟会，其中有一个或者几个人请求你的帮助。#WHITE#", "_t")
 t("#GREEN#You have aided %s in creating an %s.#WHITE#", "#GREEN#你帮助%s制造了%s。#WHITE#", "tformat")
 t("#RED#%s has completed an %s without your aid.#WHITE#", "#RED#%s已经制造了%s，并没有获得你的帮助。#WHITE#", "tformat")
@@ -20540,7 +20540,7 @@ t("A later (less fortunate?) version of %s, possibly going mad.", "某个未来�
 t("but nobody knew why #sex# suddenly became evil", "但是没有人知道为什么#sex#突然变得邪恶了", "_t")
 t("#LIGHT_BLUE#Killing your own future self does feel weird, but you know that you can avoid this future. Just do not time travel.", "#LIGHT_BLUE#杀死未来的自己确实感觉很怪，但你知道自己可以避免这样的未来。只要别穿越时间。", "logSeen")
 t("Meet the guardian!", "去见时空守卫！", "_t")
-t("#LIGHT_BLUE#Your future self kills you! The timestreams are broken by the paradox!", "#LIGHT_BLUE#你未来的自己杀死了你！时间流被混乱所打破！", "logSeen")
+t("#LIGHT_BLUE#Your future self kills you! The timestreams are broken by the paradox!", "#LIGHT_BLUE#你未来的自己杀死了你！时间流被这个悖论所打破！", "logSeen")
 t("#LIGHT_BLUE#All those events never happened. Except they did, somewhen.", "#LIGHT_BLUE#所有这些事件都从未发生过，只不过它们确实在某个时候发生了。", "logSeen")
 t("This rift in time has been created by the paradox. You dare not enter it; it could make things worse. Another Warden will have to fix your mess.", "这个时间裂隙是时空紊乱造成的。你不敢进入，事情可能会变得更糟，另外一个守卫将不得不前去修复混乱。", "log")
 
@@ -21055,9 +21055,7 @@ t("Creates a circle of radius %d at your feet; the circle protects you from sile
 		法阵持续 %d 回合。]], "tformat")
 t("Circle of Warding", "守护之阵", "talent name")
 t([[Creates a circle of radius %d at your feet; the circle slows incoming projectiles by %d%% and attempts to push all creatures other than yourself out of its radius, inflicting %0.2f light damage and %0.2f darkness damage per turn as it does so.  The circle lasts %d turns.
-		The effects will increase with your Spellpower.]], [[在你的脚下制造一个 %d 码半径范围的法阵，它会减慢 %d%% 抛射物速度并将除你外的其他生物推出去。
-		同时，每回合对目标造成 %0.2f 光系伤害和 %0.2f 暗影伤害。
-		法阵持续 %d 回合。
+		The effects will increase with your Spellpower.]], [[在你的脚下制造一个 %d 码半径范围的法阵，它会减慢 %d%% 抛射物速度并尝试将除你以外的其他生物推出法阵范围，同时每回合造成 %0.2f 光系伤害和 %0.2f 暗影伤害。法阵持续 %d 回合。
 		效果受法术强度加成。]], "tformat")
 t("Celestial Surge", "天体潮涌", "talent name")
 t([[Conjure a surge of celestial power through your circles. Any foe standing within one of your circles will be slowed by %d%% for %d turns and take %d light and %d darkness damage.
@@ -26212,7 +26210,7 @@ t("You cannot teleport there.", "你不能传送到那里。", "log")
 t([[Use the onboard short-range teleport of the Fortress to beam down to the surface.
 	Requires being in flight above the ground of a planet.]], [[使用堡垒自带的短程传送装置“哔”的一下回到地面。
 	需要在某个星球的空中飞行。]], "_t")
-t("Fire a blast of energy", "火力支援", "talent name")
+t("Fire a blast of energy", "发射能量冲击", "talent name")
 t([[Use 10 Fortress energy to send a powerful blast to the ground, directly below the Fortress, heavily damaging any creatures caught inside.
 	Requires being in flight above the ground of a planet.]], [[消耗 10 点堡垒能量，向堡垒正下方的地面发出一道强力冲击，重创位于其中的任何生物。
 	需要在某个星球的空中飞行。]], "_t")
@@ -30579,7 +30577,7 @@ t([[Raw magical damage channels through the caster's weapon, increasing raw Phys
 		At level 5 the ball becomes radius 2.
 		]], [[通过你的武器来传送原始的魔法伤害。增加相当于你 %d%% 魔法属性值的物理强度（当前值：%d）。
 		每当你近战攻击暴击时，你会释放一个半径为 %d 码的奥术属性的魔法球，造成 %0.2f 的伤害。
-		受法术强度影响，增益按比例加成。
+		增益随法术强度与技能等级提升。
 		当使用盾牌时，只有50%% 的几率触发。
 		当双持武器时，只有50%% 的几率触发。
 		技能等级 5 时，魔法球的半径变成 2。]], "tformat")
@@ -31868,10 +31866,9 @@ t([[Gnaw your target for %d%% damage.  If your attack hits, the target may be in
 		Each turn, Ghoul Rot inflicts %0.2f blight damage.
 		Targets suffering from Ghoul Rot rise as friendly ghouls when slain.
 		Ghouls last for %d turns and can use Gnaw, Ghoulish Leap, Stun, and Rotting Disease.
-		The blight damage scales with your Constitution.]], [[啃噬目标，造成 %d%% 伤害。
-		如果你的攻击命中，目标会感染食尸鬼腐烂疫病持续 %d 回合。
+		The blight damage scales with your Constitution.]], [[啃噬目标，造成 %d%% 伤害。如果你的攻击命中，目标可能感染食尸鬼腐烂疫病，持续 %d 回合。
 		食尸鬼腐烂疫病每回合造成 %0.2f 枯萎伤害。
-		目标被杀死时会变成你的可以完全控制的食尸鬼傀儡。
+		目标被杀死时会变成为你作战的友方食尸鬼。
 		食尸鬼傀儡持续 %d 回合，可以使用啃噬、食尸鬼跳跃、震慑和腐烂疫病。
 		受体质影响，枯萎伤害按比例加成。]], "tformat")
 
@@ -32590,8 +32587,7 @@ When this tutorial started you were tasked to kill the Lone Wolf, you are nearin
 
 你可以按下 'j'键或右键点击你自己来查看当前获得的任务。
 
-当任务完成或者失败，会从任务列表消失。ToME4中大多数任务是可选的。假如你觉得
-自己无法活着完成某个任务，就不要去做。
+当任务完成或者失败，会从任务列表消失。ToME4中大多数任务是可选的。假如你觉得自己无法活着完成某个任务，就不要去做。
 
 教程开始时，你接到的任务是杀死孤狼；你已经接近它的位置了。
 #GOLD#小心，并光明正大地战斗！#WHITE#
@@ -42128,7 +42124,7 @@ t("Switch to which character?", "切换到哪个角色？", "_t")
 section "mod-tome/dialogs/PartySendItem.lua"
 
 t("Give item to a party member", "把物品交给队伍成员", "_t")
-t("%s cannot receive items while asleep!", "%s不能在睡眠中接收物品", "log")
+t("%s cannot receive items while asleep!", "%s不能在睡眠中接收物品！", "log")
 t("%s cannot transfer items while asleep!", "%s不能在睡眠中转移物品", "log")
 t("You give %s to %s.", "你把%s交给了%s。", "log")
 t(" #YELLOW#[SLEEPING]#LAST#", " #YELLOW#[睡眠中]#LAST#", "_t")
