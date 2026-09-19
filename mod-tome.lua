@@ -1060,7 +1060,7 @@ t("#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in t
 t("No, we must hurry!", "不行，我们必须得抓紧时间！", "_t")
 t("Ok, but not for long.", "好吧，但时间不要太长。", "_t")
 t("very close", "很近了", "_t")
-t("close", "接近", "_t")
+t("close", "较近了", "_t")
 t("still far away", "还很远", "_t")
 t("The portal is %s, to the %s.", "传送门%s，在%s。", "tformat")
 
@@ -6789,7 +6789,7 @@ t("%s(%d warded)#LAST#", "%s(%d 被守护)#LAST#", "tformat")
 t("#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).", "#Source#在黑暗中打击了#Target#(%+d%%%%%%%% 伤害)。", "delayedLogMessage")
 t("Something", "某物", "_t")
 t("%s forces the iceblock to shatter.", "%s 将冰块打破。", "logSeen")
-t("%s(%d to psi shield)#LAST#", "%s(%d 灵能盾)#LAST#", "tformat")
+t("%s(%d to psi shield)#LAST#", "%s(%d 灵能盾吸收)#LAST#", "tformat")
 t("%s(%d blocked)#LAST#", "%s(%d 格挡)#LAST#", "tformat")
 t("%s(%d abyssal shield)#LAST#", "%s(%d 深渊护盾)#LAST#", "tformat")
 t("%s(%d antimagic)#LAST#", "%s(%d 反魔盾)#LAST#", "tformat")
@@ -10437,8 +10437,8 @@ t(" of sensing", "感觉之", "entity name")
 t("sensing", "感觉", "entity keyword")
 t(" of clarity", "清晰之", "entity name")
 t("clarity", "清晰", "entity keyword")
-t(" of tenacity", "固执之", "entity name")
-t("tenacity", "固执", "entity keyword")
+t(" of tenacity", "不屈之", "entity name")
+t("tenacity", "不屈不挠", "entity keyword")
 t(" of perseverance", "不懈之", "entity name")
 t("perseverance", "不懈", "entity keyword")
 t(" of arcana (#REGEN#)", "奥术之 (#REGEN#)", "entity name")
@@ -10638,7 +10638,7 @@ t("reinforced ", "强化的", "entity name")
 t("reinforced", "强化", "entity keyword")
 t(" of resilience", "恢复之", "entity name")
 t("resilience", "恢复", "entity keyword")
-t("living ", "活性的", "entity name")
+t("living ", "生命的", "entity name")
 t("living", "生命", "entity keyword")
 t("scouring ", "洗练的", "entity name")
 t("scouring", "洗练", "entity keyword")
@@ -12767,7 +12767,7 @@ t("#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!", "
 t("It desires to be surrounded by undeath.", "它渴望被亡灵围绕。", "_t")
 t("Oozing Heart", "史莱姆之心", "entity name")
 t("slimy mindstar", "粘糊糊的灵晶", "_t")
-t("This mindstar oozes a thick, caustic liquid. Magic seems to die around it.", "这只灵晶在不断的向外渗出粘糊糊的液体。魔法似乎消逝在它周围。", "_t")
+t("This mindstar oozes a thick, caustic liquid. Magic seems to die around it.", "这只灵晶在不断的向外渗出粘稠的腐蚀性液体。魔法似乎消逝在它周围。", "_t")
 t("#DARK_GREEN#The Heart pulses with antimagic forces as you grasp it.", "#DARK_GREEN#当你握住它时，心脏辐射出反魔能量。", "logPlayer")
 t("Bloomsoul", "夏花之魂", "entity name")
 t("flower covered mindstar", "鲜花覆盖的灵晶", "_t")
@@ -12792,7 +12792,7 @@ t("This dagger seems to be formed of pure shadows, with a strange miasma surroun
 t("20% chance to make the target bleed shadows. You heal for 15 whenever you hit an enemy bleeding shadows.", "有20%的几率让目标流出阴影。每当你击中流出阴影的敌人，恢复15点生命值。", "_t")
 t("%s resists the shadowy cut", "%s抵抗了阴影切割", "logSeen")
 t("Emblem of Evasion", "闪避徽记", "entity name")
-t("gold coated emblem", "镶金的纹饰腰带", "_t")
+t("gold coated emblem", "镀金的徽记", "_t")
 t("Said to have belonged to a master of avoiding attacks, this gilded steel emblem symbolizes his talent.", "据说它曾属于一位闪避大师，这枚镀金的钢徽记象征着他的才能。", "_t")
 t("Surefire", "神火", "entity name")
 t("high-quality bow", "制作精良的弓", "_t")
@@ -13222,7 +13222,7 @@ t("Unique", "神器", "_t")
 t("You imbue your %s with %s.", "你在 %s 上安装了 %s。", "logPlayer")
 t("Fist of the Destroyer", "毁灭者之拳", "entity name")
 t("vile gauntlets", "邪恶的手套", "_t")
-t("These fell looking gloves glow with untold power.", "这对手套看上去十分恐怖，闪耀着不明能量。", "_t")
+t("These fell looking gloves glow with untold power.", "这对手套看上去十分恐怖，闪耀着难以言喻的强大力量。", "_t")
 t([[Increases all damage by %d%% of current vim 
 Current Bonus: %d%%]], [[获得相当于你%d%%活力值的伤害加成
 当前加成：%d%%]], "tformat")
@@ -19377,7 +19377,7 @@ t("which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fr
 t("#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#", "#{italic}#'我们征服了世界，为自己建造了高耸的水晶之城和遨游天际的堡垒，但有些人还不满足……'#{normal}#", "_t")
 t("fifth mural painting", "第五幅壁画", "_t")
 t([[This mural shows nine Sher'Tul standing side by side, each holding aloft a dark weapon. Your eyes are drawn to a runed staff held by the red-robed figure in the centre. It seems familiar somehow...
-There is some text beneath ]], [[这幅壁画显示了九个夏·图尔人肩并肩站着，每人手里都高举着一件一模一样的黑色武器。你的注意力集中在画面中间——被红袍者举起的符文法杖上。它看起来很眼熟……
+There is some text beneath ]], [[这幅壁画显示了九个夏·图尔人肩并肩站着，每人手里都高举着一件黑色武器。你的注意力集中在画面中间——被红袍者举起的符文法杖上。它看起来很眼熟……
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Zubadon koref noch hesen, ik dorudon koref noch pasor. Cosief maro dondreth karatu - Ranaduzil - ik jein belsan ovrienis.'#{normal}#", "不明意义的文字：#{italic}#'Zubadon koref noch hesen, ik dorudon koref noch pasor. Cosief maro dondreth karatu - Ranaduzil - ik jein belsan ovrienis.'#{normal}#", "_t")
 t("#{italic}#'Of pride we accepted no equals, and of greed we accepted no servitude. We made for ourselves terrible weapons - the Godslayers - and nine were chosen to wield them.'#{normal}#", "#{italic}#出于骄傲，我们不接受任何与我们平起平坐者；出于贪婪，我们不接受任何奴役。我们为自己打造了可怕的弑神武器，并选出九名弑神者来使用它们。#{normal}#", "_t")
@@ -20796,7 +20796,7 @@ t("#SLATE#* You must explore the Daikara and find out what lurks there and what 
 section "mod-tome/data/quests/strange-new-world.lua"
 
 t("Strange new world", "陌生的新世界", "_t")
-t("You arrived through the farportal in a cave, probably in the Far East.", "你穿过了山洞的远行传送门，可能会到达远东大陆。", "_t")
+t("You arrived through the farportal in a cave, probably in the Far East.", "你经由远行传送门抵达了一处山洞，大概位于远东大陆。", "_t")
 t("Upon arrival you met an Elf and an orc fighting.", "你碰到了一个精灵在和一个兽人战斗。", "_t")
 t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
@@ -22380,10 +22380,10 @@ t("None", "无", "_t")
 t([[Empowers the selected chronomancy spell, increasing spellpower when casting it by %d%%.
 		Each spell can only be spellbound in one way at a time.
 		
-		Current Empowered Spell: %s]], [[强化指定的时空系法术，施放指定技能时法术强度增加 %d%%。
-		每个技能只能附加一种时空增效系效果。
+		Current Empowered Spell: %s]], [[使指定的时空系法术在施放时法术强度增加 %d%%。
+		每个法术同时只能附加一种时空绑定效果。
 		
-		当前强化法术：%s]], "tformat")
+		当前能量增幅法术：%s]], "tformat")
 t("Extension", "法术延展", "talent name")
 t([[Extends the duration of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
@@ -22396,18 +22396,18 @@ t("Matrix", "矩阵加速", "talent name")
 t([[Reduces the cooldown of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
 		
-		Current Matrix Spell: %s]], [[强化指定的时空系法术，减少指定法术的冷却时间 %d%%。
-		每个技能只能附加一种时空增效系效果。
+		Current Matrix Spell: %s]], [[减少指定时空系法术 %d%% 的冷却时间。
+		每个法术同时只能附加一种时空绑定效果。
 		
-		当前强化法术：%s]], "tformat")
+		当前矩阵加速法术：%s]], "tformat")
 t("Quicken", "迅捷施法", "talent name")
 t([[Reduces the casting speed of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
 		
-		Current Quickened Spell: %s]], [[强化指定的时空系法术，减少施放指定法术需要的时间 %d%%。
-		每个技能只能附加一种时空增效系效果。
+		Current Quickened Spell: %s]], [[减少指定时空系法术 %d%% 的施法时间。
+		每个法术同时只能附加一种时空绑定效果。
 		
-		当前强化法术：%s]], "tformat")
+		当前迅捷施法法术：%s]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/stasis.lua"
@@ -24397,7 +24397,7 @@ The damage increases with your Mindpower.]], [[用恶毒私语感染目标心智
 t("Agony", "极度痛苦", "talent name")
 t([[Sear your hatred into the mind of a target, dealing escalating Mind damage each turn over %d turns. The victim will suffer %0.1f damage on the first turn, slowly increasing up to %0.1f damage on the last, dealing %d Mind damage in total. Re-applying the effect resets the damage escalation. The victim has a 25%% chance of suffering Brainlock each turn from the unbearable pain.
 
-The damage increases with your Mindpower.]], [[对你的目标释放极大的痛苦。痛苦会在 %d 回合内逐渐增加。第一回合会造成 %0.1f 点伤害并在最后 1 回合增加至 %0.1f 点伤害（总计 %d）。重复施加这一效果会把伤害值重置为初始伤害值。
+The damage increases with your Mindpower.]], [[将你的憎恨灼入目标的心智，在 %d 回合内每回合造成不断升级的精神伤害。第一回合会造成 %0.1f 点精神伤害并在最后 1 回合增加至 %0.1f 点，总计 %d 点精神伤害。重复施加这一效果会把伤害值重置为初始伤害值。
 被影响的敌人每回合有 25%% 概率附加思维封锁效果。
 
 伤害受精神强度加成。]], "tformat")
@@ -27597,7 +27597,7 @@ t([[Increases your damage and resistance penetration on sleeping targets by %d%%
 section "mod-tome/data/talents/psionic/other.lua"
 
 t("Telekinetic Grasp", "念力之握", "talent name")
-t("Telekinetically grasp which item?", "念力之握抓握哪把武器？", "_t")
+t("Telekinetically grasp which item?", "念力之握抓握哪件物品？", "_t")
 t("%s telekinetically seizes: %s.", "%s用念力装备了%s。", "logSeen")
 t([[Telekinetically grasp a weapon or gem using mentally-directed forces, holding it aloft and bringing it to bear with the power of your mind alone.
 		Note: The normal restrictions on worn equipment do not apply to this item.]], [[用精神引导的念动力抓握一件武器或宝石，将其举起悬浮在空中，仅凭意念之力操控使用。
@@ -30664,7 +30664,7 @@ The poison damage dealt, armor penetration and save reduction will increase with
 t("Incendiary Ammunition", "燃烧弹", "talent name")
 t([[Load incendiary ammunition, causing attacks to deal an additional %d%% weapon damage as fire in a radius %d ball around your target. 
 		This cannot trigger more than once per turn.
-		The damage will scale with your Physical Power.]], [[装填燃烧弹，对目标附近的敌人造成 %d%% 火焰武器伤害，范围最大为 %d。
+		The damage will scale with your Physical Power.]], [[装填燃烧弹，使你的攻击额外造成 %d%% 武器伤害的火焰伤害，作用于以目标为中心、半径 %d 的范围内。
 		该技能每回合最多触发一次。
 		伤害受物理强度加成。]], "tformat")
 t("Venomous Ammunition", "剧毒弹", "talent name")
@@ -31460,7 +31460,7 @@ t("Ethereal Form", "虚幻形态", "talent name")
 t("Have an effective defense of at least 40", "有效闪避值至少达到 40", "_t")
 t([[You gain 25%% absolute damage resistance and 25%% all damage penetration.  Each time you are struck by a weapon these bonuses are reduced by 5%% but fully recovered after 8 turns.
 			Additionally, you gain 70%% of the highest of your Magic or Dexterity stat as defense (%d)]], [[你获得 25%% 绝对伤害抗性，25%% 全体伤害抗性穿透。
-			每当你被武器攻击的时候，这项增益会减少 5%%，8 回合后完全恢复。
+			每当你被武器攻击的时候，这两项加成各减少 5%%，8 回合后完全恢复。
 			此外，你将获得相当于你魔力和敏捷中最高的一项  70%% 的闪避值 (%d)]], "tformat")
 t("Aether Permeation", "以太渗透", "talent name")
 t("Have been exposed to the void of space", "曾去过无尽虚空", "_t")
@@ -31498,7 +31498,7 @@ t([[You have learned to harness your latent arcane powers, channeling them throu
 		你的基础物理强度增加等同于 100%% 基础法强的数值。
 		你的物理暴击率增加等同于 25%% 法术暴击率的数值。]], "tformat")
 t("Temporal Form", "时空形态", "talent name")
-t("Have cast over 1000 spells and visited a zone outside of time", "曾释放过 1000 个以上的技能并且成功进入过其他时间线。", "_t")
+t("Have cast over 1000 spells and visited a zone outside of time", "曾释放过 1000 个以上的法术并且进入过时间之外的区域。", "_t")
 t([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.
 		While in this form you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, 50%% of the damage you deal becomes temporal, and you gain 20%% temporal resistance penetration.
 		You also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]], [[你可以扭曲周围的时间线，转换成时空元素“泰鲁戈洛斯”形态，持续 10 回合。
@@ -36793,7 +36793,7 @@ t("Zone-wide effect: Air decreases over time. If you run out of air you will sta
 t("Fearscape Zone", "恶魔空间", "_t")
 t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果：恶魔空间的火焰使所有火焰和枯萎伤害增加 10%，但其诡异的重力会使击退抗性降低 20%。", "_t")
 t("Out of Time Zone", "异常时空", "_t")
-t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性 ，-20% 传送免疫。", "_t")
+t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性，-20% 传送抗性。", "_t")
 t("Spellblaze Aura", "魔法大爆炸光环", "_t")
 t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
 t("Heady Scent", "催眠区域", "_t")
@@ -38322,7 +38322,7 @@ section "mod-tome/data/zones/dreadfell/npcs.lua"
 t("undead", "亡灵", "entity type")
 t("vampire", "吸血鬼", "entity subtype")
 t("The Master", "领主", "entity name")
-t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而强壮的肉体似乎在向世界宣告着贪婪和怨恨，他的眼神透露着一股睥睨天下的自信。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
+t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而精瘦的肉体似乎全凭贪婪与恶意才得以留驻人间，他的眼神透露出远超凡俗之辈的强大意志。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老、危险而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
 t("and raised as his tortured undead thrall", "并作为他的不死仆从永受折磨", "_t")
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
@@ -39471,7 +39471,7 @@ section "mod-tome/data/zones/ring-of-blood/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("yaech", "夺魂魔", "entity subtype")
 t("Blood Master", "血之领主", "entity name")
-t("This small humanoid is covered in silky white fur. Its bulging eyes stare deep into your mind.", "这只矮小的人形生物有着白色的毛发。他似乎能看穿你的心灵。", "_t")
+t("This small humanoid is covered in silky white fur. Its bulging eyes stare deep into your mind.", "这只矮小的人形生物全身覆盖着丝般顺滑的白色毛发。它凸出的眼睛直视你的内心深处。", "_t")
 t("spectator", "观众", "entity name")
 t("A spectator, who probably paid a lot to watch this bloody \"game\".", "一名观众，他可能为了看这场血腥的“游戏”花了很多钱。", "_t")
 t("Blood!", "鲜血！", "_t")
@@ -43201,7 +43201,7 @@ t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or so
 t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
 t("Swift Hands", "无影手", "_t")
-t("List of items that can be instantly used by swift hands.", "可以被无影手使用的物品。", "_t")
+t("List of items that can be instantly used by swift hands.", "无影手可即时使用（不消耗回合）的物品列表。", "_t")
 t("Strength", "力量", "stat name")
 t("str", "力量", "stat short_name")
 t("Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.", "力量属性影响你的角色的物理能力，提升力量可以提高物理强度，提高使用重型武器造成的伤害，提高物理豁免，同时提高你的负重量。", "_t")
