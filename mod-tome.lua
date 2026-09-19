@@ -1947,7 +1947,7 @@ Each time you deal damage with a physical ability you may have a chance to perfo
 Some talents allow you to increase this percentage, and it may be modified by your weapon.
 It is improved by Cunning.
 ]], [[#GOLD#物理暴击#LAST#
-每次造成物理伤害时你都有一定几率暴击造成额外伤害。
+每次以物理技能造成伤害时你都有一定几率暴击造成额外伤害。
 一些技能可以提高这个几率，它也可能受你的武器影响。
 灵巧属性可以提升这个几率。
 ]], "_t")
@@ -1963,7 +1963,7 @@ Each time you deal damage with a spell you may have a chance to perform a critic
 Some talents allow you to increase this percentage.
 It is improved by Cunning.
 ]], [[#GOLD#法术暴击#LAST#
-每次造成法术伤害时你都有一定几率暴击造成额外伤害。
+每次以法术造成伤害时你都有一定几率暴击造成额外伤害。
 一些技能可以提高这个几率。
 提升灵巧属性值可以提高法术暴击率。
 ]], "_t")
@@ -2271,7 +2271,9 @@ t([[#GOLD#Shield Block Value#LAST#
 The base amount of damage a shield will block when actively used in defense.
 Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus to the block value if the shield used grants resistance to that damage type.
 ]], [[#GOLD#盾牌格挡值#LAST#
-盾牌在激活时所能阻挡的基础伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
+盾牌在主动用于防御时所能阻挡的基础伤害量。
+精神伤害无法被格挡。面对其他伤害类型时，如果所用盾牌提供该类型的抗性，你的格挡值会获得 50%% 加成。
+]], "_t")
 
 section "mod-tome/class/interface/WorldAchievements.lua"
 
@@ -12352,7 +12354,7 @@ t("pitch black blade", "漆黑的剑", "_t")
 t("Farian was King Toknor's captain, and fought by his side in the great Battle of Last Hope.  However, when he returned after the battle to find his hometown burnt in an orcish pyre, a madness overtook him.  The desire for vengeance made him quit the army and strike out on his own, lightly armoured and carrying nought but his sword.  Most thought him dead until the reports came back of a fell figure tearing through the orcish encampments, slaughtering all before him and mercilessly butchering the corpses after.  It is said his blade drank the blood of 100 orcs each day until finally all of Maj'Eyal was cleared of their presence.  When the final orc was slain and no more were to be found, Farian at the last turned the blade on himself and stuck it through his chest.  Those nearby said his body shook with convulsions as he did so, though they could not tell whether he was laughing or crying.", "法瑞安曾是图库纳国王的指挥官，在最后希望的伟大战役中跟随国王并肩作战。然而，当战争结束，凯旋归来之时，他却发现故乡处处燃烧着兽人的火焰，无边的怒火吞噬了他。复仇的欲望使他离开军队，孤身一人踏上了征程，他除了护甲之外只带了一柄剑。大多数人认为他已经死了。直到有消息称有一个毁灭者般的身影正在摧残兽人的营地，他屠杀了所有见到的兽人并残忍的肢解对方的尸体。据说他每天要用100个兽人的鲜血来祭刀直到杀光马基·埃亚尔的兽人。当最后一个兽人被杀死并且没有发现更多的时候，法瑞安最终把利刃转向了自己——那把剑刺穿了他的胸膛。那些在附近的目击者说，当法瑞安这样做的时候身体伴随着阵阵痉挛，他们说不清他到底是哭是笑。", "_t")
 t("Bolbum's Big Knocker", "鲍尔本的大门扣", "entity name")
 t("thick staff", "一根厚重的法杖", "_t")
-t("A thick staff with a heavy knob on the end.  It was said to be used by the grand alchemist Bolbum in the Age of Allure.  Much renowned is the fear of his students for their master, and the high rate of cranial injuries amongst them.  Bolbum died with seven daggers in his back and his much-cursed staff went missing after.", "这是一根末端有着厚重门扣的沉重法杖。据说是炼金魔导师鲍尔本在厄流纪使用的法杖。它之所以闻名于世，大部分来源于鲍尔本的学生们对他的恐惧以及被它打伤脑袋的超高几率。鲍尔本被7把匕首插在后背而死，那根被众人诅咒的法杖也从此消失不见。", "_t")
+t("A thick staff with a heavy knob on the end.  It was said to be used by the grand alchemist Bolbum in the Age of Allure.  Much renowned is the fear of his students for their master, and the high rate of cranial injuries amongst them.  Bolbum died with seven daggers in his back and his much-cursed staff went missing after.", "这是一根末端带着沉重瘤状杖头的粗大法杖。据说是炼金师鲍尔本在厄流纪使用的法杖。它之所以闻名于世，大部分来源于鲍尔本的学生们对他的恐惧以及被它打伤脑袋的超高几率。鲍尔本被7把匕首插在后背而死，那根被众人诅咒的法杖也从此消失不见。", "_t")
 t("Guidance", "指引者", "entity name")
 t("a softly glowing crystal", "一颗散发着柔和光芒的水晶", "_t")
 t([[Said to have once belonged to Inquisitor Marcus Dunn during the Spellhunt this fist sized quartz crystal glows constantly with a soft white light and was rumoured to be a great aid in meditation, helping focus the mind, body, and soul of the owner as well as protecting them from the foulest of magics.
@@ -12857,7 +12859,7 @@ t("%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!", "%s
 t("Hydra's Bite", "三头龙之牙", "entity name")
 t("triple headed flail", "有三个头的连枷", "_t")
 t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的斯莱特连枷，使用的是一只三头龙的力量。它的攻击可以伤害到周围的所有敌人。", "_t")
-t("hit up to two adjacent enemies", "攻击目标相邻的2个单位", "_t")
+t("hit up to two adjacent enemies", "攻击你身边最多 2 个相邻敌人", "_t")
 t("#Source#'s three headed flail lashes at #Target#%s!", "#Source#使用三头连枷打击#Target#%s！", "logCombat")
 t(" and %s", "和 %s", "tformat")
 t("#Source#'s three headed flail lashes at #Target#!", "#Source#的三头连枷扫过了 #Target#！", "logCombat")
@@ -18160,11 +18162,11 @@ Attacks from dragons on humans and halfling settlements are fairly rare, but whe
 
 Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是另人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。
 
-龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的咽喉和锋利爪子的前后肢。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。
+龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。
 
 马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。
 
-龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪对龙族的狩猎，使得龙族几乎趋于绝迹，现在的大部分龙族在巢穴里只有适量的财富。
+龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪大肆猎捕囤积财宝的龙，使这一类龙几乎绝迹，现在的大部分龙族在巢穴里只有适量的财富。
 
 龙族经常由于它们厚实的鳞片和蕴含元素之力的骨头而被狩猎。龙皮革是护甲制作者们珍视的材料，因为经过适当处理后它既轻便又坚韧，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然采集”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。尽管如此，各类龙族材料的需求依然旺盛，价格也高得惊人，每年都有许多贪婪之徒丧生于这些壮丽生物的尖牙利爪之下。]], "_t")
 t("shatur", "夏特尔", "newLore category")
@@ -23822,7 +23824,7 @@ t("Nightshade Trap", "颠茄陷阱", "talent name")
 t("You have learned how to create Nightshade traps!", "你学会了如何制作颠茄陷阱！", "_t")
 t("nightshade trap", "颠茄陷阱", "_t")
 t("Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.", "造成 %0.1f 自然伤害，震慑且每回合造成 %0.1f 自然伤害，持续4 回合。", "tformat")
-t("Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.", "放置一个涂了颠茄毒素的陷阱，造成 %0.2f 自然伤害并震慑目标 4 回合，并在四回合内受到额外 %0.2f 自然伤害。", "tformat")
+t("Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.", "放置一个涂了颠茄毒素的陷阱，经过的生物会受到 %0.2f 自然伤害，并被震慑和中毒 4 回合，中毒每回合造成 %0.2f 自然伤害。", "tformat")
 -- untranslated text
 --[==[
 t(" (%s)", " (%s)", "tformat")
@@ -24651,7 +24653,7 @@ t("#GREEN#The antimagic shield of %s crumbles.", "#GREEN#%s的反魔法护盾消
 t([[Surround yourself with a shield that will absorb at most %d non-physical, non-mind element damage per attack.
 		Each time damage is absorbed by the shield, your equilibrium increases by 1 for every 30 points of damage and a standard Equilibrium check is made. If the check fails, the shield will crumble and Antimagic Shield will go on cooldown.
 		The damage the shield can absorb will increase with your Mindpower or Physical power (whichever is greater).]], [[给你增加一个护盾，每次被攻击吸收最多 %d 点非物理、非精神元素伤害。
-		每吸收 30 点伤害都会增加 1 点失衡值，并进行一次失衡值鉴定，若鉴定失败，则护盾会破碎且技能会进入冷却状态。
+		每当护盾吸收伤害时，都会按每 30 点伤害增加 1 点失衡值，并进行一次失衡值鉴定；若鉴定失败，则护盾会破碎且技能会进入冷却状态。
 		护盾的最大伤害吸收值受精神或物理强度较高者加成。]], "tformat")
 t("Mana Clash", "奥术对撞", "talent name")
 t("\
@@ -26529,7 +26531,9 @@ t("You must have a quiver or pouch equipped.", "你必须装备弹药。", "logP
 t([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
 		Doing so requires no turn but you are considered disarmed for 2 turns.
 
-		Reloading does not break stealth.]], [[立刻装填 %d 弹药。之后缴械 2 回合。
+		Reloading does not break stealth.]], [[立刻装填 %d 弹药（数量取决于专精与装备加成）。
+		此举不消耗回合，但你在 2 回合内被视为缴械。
+
 		装填弹药不会打破潜行。]], "tformat")
 t("Sweep", "横扫", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
@@ -40571,7 +40575,7 @@ t("A huge, slender, metallic monstrosity with long claws in place of fingers, an
 section "mod-tome/data/zones/town-point-zero/objects.lua"
 
 t("Shard of Crystalized Time", "时空结晶碎片", "entity name")
-t("An iridescent shard of violet crystal.  Its light ebbs and flows, sometimes fast and sometimes slow, keeping pace with the chaotic streams of time itself.  It makes you feel both old and young, a newborn child and an ancient being, your flesh simply one instance in a thousand refractions of a single timeless and eternal soul.", "这是一块紫色的闪光碎片。闪光时缓时快，时而亮如星辰，时而黯淡无光。握着它时，你感到自己既年轻又苍老，时而觉得自己是一个年轻人，时而又觉得自己像是活了几千年。你的肉体在短暂的瞬间似乎跨越了千年，但是灵魂却永恒不变。", "_t")
+t("An iridescent shard of violet crystal.  Its light ebbs and flows, sometimes fast and sometimes slow, keeping pace with the chaotic streams of time itself.  It makes you feel both old and young, a newborn child and an ancient being, your flesh simply one instance in a thousand refractions of a single timeless and eternal soul.", "这是一块闪着虹彩的紫色水晶碎片。它的光芒忽明忽暗、时缓时快，与时间本身的混乱流动同步。握着它时，你感到自己既年轻又苍老，既是初生的婴孩又是远古的存在；你的肉身不过是同一个超越时间的永恒灵魂在千重折射中的一个影像。", "_t")
 t("glowing shard", "闪光的碎片", "_t")
 
 ------------------------------------------------
