@@ -1583,7 +1583,7 @@ Being too far out of balance may cause your Wild Gifts to fail when called upon.
 ]], [[#GOLD#失衡值#LAST#
 失衡值是你保持自然平衡的能力，决定了你使用野性系技能的难易程度。
 失衡值越接近于0你破坏自然平衡的量越少。
-当你的失衡值过高时会影响你使用野性系技能。
+当你的失衡值过高时，你使用野性系技能时可能会失败。
 ]], "_t")
 t([[#GOLD#Hate#LAST#
 Hate represents your inner rage against all that lives and dares face you.
@@ -1658,7 +1658,7 @@ The people of Eyal have found a way to create herbal infusions and runes that ca
 Those inscriptions give the bearer always-accessible powers that can be used an unlimited number of times.
 A simple regeneration infusion is the most common type of infusion, and the use of runes of various types is also common among arcane users.
 ]], [[#GOLD#刻印#LAST#
-埃亚尔的人们发明了一种利用提取的植物精华将一些符咒纹刻到皮肤上的技术。此外，可能存在着某些更加奇异的刻印。
+埃亚尔的人们找到了制作草药输液与符文、并将其纹刻在生物皮肤上的方法。此外，还存在一些更为奇异的刻印。
 刻印给被刻印者提供一些可以无限使用的特殊能力。
 通常人们会纹刻一种回复纹身，当然奥术施法者之中还有各种常见的符文。
 ]], "_t")
@@ -2847,7 +2847,7 @@ t("Freed at least 30 enthralled slaves in the slavers' compound.", "在奴隶贩
 t("Lost in translation", "迷失", "achievement name")
 t("Destroyed the naga portal in the slazish fens and got caught in the after-effect.", "在斯拉伊什沼泽摧毁娜迦传送门，并被带回旧大陆。", "_t")
 t("Dreaming my dreams", "我的梦就是你的梦", "achievement name")
-t("Experienced and completed all the dreams in the Dogroth Caldera.", "经历并完成达格罗斯火山的梦境。", "_t")
+t("Experienced and completed all the dreams in the Dogroth Caldera.", "经历并完成达格罗斯火山的全部梦境。", "_t")
 t("Oozemancer", "软泥使", "achievement name")
 t("Destroyed the corrupted oozemancer.", "杀死堕落的软泥使。", "_t")
 t("Lucky Girl", "幸运女孩", "achievement name")
@@ -7401,7 +7401,7 @@ t("Stairs lead downwards into rubble.", "向下通往瓦砾之中的楼梯。", 
 section "mod-tome/data/general/events/slimey-pool.lua"
 
 t("slimey pool", "史莱姆之沼", "_t")
-t("%s (slimey)", "%s（泥泞）", "tformat")
+t("%s (slimey)", "%s（黏滑）", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/sludgenest.lua"
@@ -12921,7 +12921,7 @@ t("A vile poison drips from the tips of these arrows.", "箭矢的尖端滴落�
 t("afflicts the target with a poison dealing 20 damage per turn and causing actions to fail 20% of the time for 6 turns", "使目标中毒，每回合造成20伤害，使用技能有20%几率失败，持续6回合。", "_t")
 t("Umbraphage", "安布瑞吉·暗影吞噬者", "entity name")
 t("deep black lantern", "深黑色的灯笼", "_t")
-t("This lantern of pale white crystal holds a sphere of darkness, that yet emanates light. Everywhere it shines, darkness vanishes entirely.", "这个灰白色水晶制成的灯笼周围笼罩着一片黑暗，但是它仍放射着光芒。光之所在，黑暗尽除。", "_t")
+t("This lantern of pale white crystal holds a sphere of darkness, that yet emanates light. Everywhere it shines, darkness vanishes entirely.", "这个灰白色水晶制成的灯笼中盛着一颗黑暗之球，却仍放射着光芒。光之所在，黑暗尽除。", "_t")
 t("Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).", "在光照范围内吸收所有黑暗(强度 %d，基于意志和灵巧) 并增加亮度(当前增幅：%d)。", "tformat")
 t("#ORCHID#Umbraphage is fully powered!", "#ORCHID#暗影吞噬者充分获得了能量！", "logPlayer")
 t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径），并造成 %0.2f 暗影伤害（基于精神强度和吸收量）", "tformat")
@@ -24202,7 +24202,7 @@ t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fe
 			这一效果无视恐惧抗性，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
-		Additionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.]], [[提高对被你恐惧的目标的精神专制。当一个敌人获得了一个新的恐惧效果，你有 %d%% 的几率增加这一效果和另一个随机的已有恐惧效果的持续时间 %d 回合，最多 8 回合。
+		Additionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.]], [[将你的专制施加于畏惧你的敌人的心智。当一个敌人获得一个新的恐惧效果时，你有 %d%% 的几率将其强化恐惧以及另一个随机的已有恐惧效果的持续时间延长 %d 回合，最多 8 回合。
 		此外，每当你恐惧一个目标，你获得 %d 精神强度和物理强度，持续 5 回合，最多叠加 %d 层。]], "tformat")
 t("Panic", "惊慌失措", "talent name")
 t("#F53CBE#%s ignores the panic!", "#F53CBE#%s无视惊恐！", "logSeen")
@@ -25032,7 +25032,7 @@ t("Dwarves have learned to imbue their shields with the power of stone itself.",
 t("earthen vines", "岩石藤蔓", "talent type")
 t("Control the stone itself and bring it alive in the form of dreadful vines.", "掌握岩石并赋予其生命，形成恐怖的藤蔓。", "_t")
 t("dwarven nature", "矮人之自然力量", "talent type")
-t("Learn to harness the innate power of your race.", "学会强化自身的种族能力。", "_t")
+t("Learn to harness the innate power of your race.", "学会驾驭自身与生俱来的种族力量。", "_t")
 t("#PINK#You can manage a maximum of %d summons at any time. You need %d Cunning to increase your limit.", "#PINK#你能同时拥有最多 %d 名召唤物。你需要 %d 灵巧来提升上限。", "logPlayer")
 t("Summon", "召唤", "_t")
 
@@ -25114,7 +25114,7 @@ t([[Your body is more like that of an ooze, you can split into two for %d turns.
 		If you know the Oozing Blades tree all the talents inside are exchanged for those of the Corrosive Blades tree.
 		Your two selves share the same healthpool.
 		While you are split both of you gain %d%% all resistances.
-		Resistances will increase with Mindpower.]], [[你的身体变的像软泥怪一样，你可以分裂成2个，持续 %d 回合。
+		Resistances will increase with Mindpower.]], [[你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。
 		你的本体获得原始的软泥特性，而分裂体则获得酸性特性。
 		如果你习得软泥之刃系技能树，则该技能树会变为腐蚀之刃技能树。
 		你和分裂体共享生命。
@@ -26912,7 +26912,7 @@ t("Skirmisher", "散兵", "talent name")
 t([[Orcs have seen countless battles, and won many of them.
 		You revel in the defeat of your foes, gaining %d%% damage resistance for 2 turns each time you kill an enemy.
 		The resistance will scale with talent level and your Constitution.
-		Additionally, passively increase all damage penetration by %d%%.]], [[兽人经历并赢得过无数战斗。
+		Additionally, passively increase all damage penetration by %d%%.]], [[兽人经历过无数战斗，并赢得了其中许多场。
 		每当你击杀一个敌人，都会因战胜对手而振奋，获得 %d%% 全伤害抗性，持续 2 回合。
 		该抗性随技能等级和体质提高。
 		此外，被动提高 %d%% 所有伤害穿透。]], "tformat")
@@ -30714,7 +30714,7 @@ section "mod-tome/data/talents/techniques/pugilism.lua"
 t("Striking Stance", "攻击姿态", "talent name")
 t([[Increases your Accuracy by %d, the damage multiplier of your striking talents (Pugilism and Finishing Moves) by %d%%, and reduces all damage taken by %d.
 		The offensive bonuses scale with your Dexterity and the damage reduction with your Strength.]], [[增加你 %d 命中。你攻击系技能（拳术、终结技）伤害增加 %d%% , 同时减少 %d 受到的伤害。
-		受敏捷影响，伤害按比例加成。伤害减免受力量值加成。]], "tformat")
+		攻击加成（命中与伤害）受敏捷加成，伤害减免受力量加成。]], "tformat")
 t("Double Strike", "双重打击", "talent name")
 t("@Source@ throws two quick punches.", "@Source@快速打出两次拳击。", "_t")
 t([[Deliver two quick punches that deal %d%% damage each, and switch your stance to Striking Stance. If you already have Striking Stance active and Double Strike isn't on cooldown, this talent will automatically replace your normal attacks (and trigger the cooldown).
