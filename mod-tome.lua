@@ -1621,7 +1621,7 @@ Feedback represents using pain as a means of psionic grounding and it can be use
 Feedback decays at the rate of 10% or 1 per turn (which ever is greater) depending on talents.
 All damage you take from an outside source will increase your Feedback based on to how much of your health is lost and your level.  First level characters gain 100 Feedback when losing 50% health, while 50th level characters gain the same amount when losing 20% health.
 ]], [[#GOLD#反馈值#LAST#
-反馈值反映你能利用你的痛苦来释放灵能，可以用于释放反馈系技能。
+反馈值代表以痛苦作为灵能的定锚，可以用于驱动反馈类技能。
 反馈值每回合按 10% 或 1 点（取较大者）衰减，具体衰减速率还受技能影响。
 你从外界受到的所有伤害都会增加你的反馈值，增加的数值取决于你损失生命值的百分比和你的等级。1级人物在损失50%生命后获得100反馈值，而50级人物损失20%生命后获得同样多的反馈值。
 ]], "_t")
@@ -1977,8 +1977,8 @@ Higher is faster - 200% means that you cast spells twice as fast as someone at 1
 t([[#GOLD#Spellcooldown#LAST#
 Spell cooldown represents how fast your spells will come off of cooldown.
 The lower it is, the more often you'll be able to use your spell talents and runes.
-]], [[#GOLD#法术冷却速度#LAST#
-法术冷却速度反映了你的法术冷却时间有多短。
+]], [[#GOLD#法术冷却时间#LAST#
+法术冷却时间反映了你的法术需要多久才能脱离冷却。
 它的数值越低，你越可以频繁的使用法术和符文技能。
 ]], "_t")
 t([[#GOLD#Mindpower#LAST#
@@ -2210,9 +2210,9 @@ Even if they have seen you they will have a harder time hitting you.
 Any creature can try to see through your stealth.
 ]], [[#GOLD#潜行#LAST#
 要使用潜行角色必须具有潜行技能。
-潜行可以让你在不被敌人发现的情况下接近敌人。
+潜行让你可以尝试躲避那些本来能看见你的生物。
 就算他们发现了你，也更难击中你。
-所有生物都会从潜行中试图发现你。
+任何生物都可以尝试识破你的潜行。
 ]], "_t")
 t([[#GOLD#See stealth#LAST#
 Your power to see stealthed creatures. The higher it is, the more likely you are to see them (based on their own stealth score).
@@ -4137,7 +4137,7 @@ t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*He gleefully claps you on the shoulder.*#WHITE#
 Ha ha! This is the last one! Stire and Marus and that damned hermit can suck on my beard! And so can my wife! YES, I KNOW YOU CAN HEAR ME. Good work, friend. Let's have them.]], [[#LIGHT_GREEN#*他欢快地拍着你的肩膀。*#WHITE#
-哈哈！这可是最后一件！斯泰尔和马鲁斯还有那个该死的隐士只能舔我的胡子了，还有我老婆也是！对没错，我知道你能听见！干得好伙计，我们开始完成它吧。]], "_t")
+哈哈！这可是最后一件！斯泰尔和马鲁斯还有那个该死的隐士只能舔我的胡子了，还有我老婆也是！对没错，我知道你能听见！干得好伙计，把东西交给我吧。]], "_t")
 t("[Give him the monster bits]", "[给他材料]", "_t")
 t("Give me an hour or so to make with the alchemy. Don't go anywhere.", "别走开，给我一个小时的时间去做药剂。", "_t")
 t("[Wait]", "[等待]", "_t")
@@ -8797,7 +8797,7 @@ t("Largest of all the spiderkin, its folds of skin seem nearly impenetrable.", "
 t("losselhing", "卢瑟尔荷", "entity name")
 t("The air seems to freeze solid around this frigid spider.", "这只寒冷的蜘蛛似乎使周围的空气都凝固了。", "_t")
 t("weaver young", "编织者幼体", "entity name")
-t("A tiny arachnid that phases in and out of reality.", "一只小小的蜘蛛，它在不断的出入相位现实。", "_t")
+t("A tiny arachnid that phases in and out of reality.", "一只小小的蜘蛛，它不断地在现实中时隐时现。", "_t")
 t("weaver patriarch", "雄性编织者", "entity name")
 t("A large blue arachnid with white markings on its thorax.  It shifts and shimmers as though only partially connected to the timeline.", "一只胸部有着白色花纹的巨大蓝蜘蛛。它不断的移动和闪烁，好像它只有部分连接在时间线上。", "_t")
 t("weaver matriarch", "雌性编织者", "entity name")
@@ -9248,7 +9248,7 @@ t("The barkwood of Wrathroot, made into roughly the shape of a shield.", "用狂
 t("Petrified Wood", "硅化木", "entity name")
 t("red", "红宝石", "entity subtype")
 t("burned piece of wood", "烧毁的木头残片", "_t")
-t("A piece of the scorched wood taken from the remains of Snaproot.", "从远古树精身上得到的木头残片。", "_t")
+t("A piece of the scorched wood taken from the remains of Snaproot.", "取自远古树精遗骸的一块烧焦的木头。", "_t")
 t("Crystal Shard", "水晶之杖", "entity name")
 t("crystalline tree branch", "水晶般的树枝", "_t")
 t("This crystalline tree branch is remarkably rigid, and refracts light in myriad colors. Gazing at it entrances you, and you worry where its power may have come from.", "这根水晶树枝异常坚硬，折射出万千色彩的光芒。凝视着它会让你入迷，同时你会担心它的力量究竟来自何处。", "_t")
@@ -11641,8 +11641,8 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 Simply go to your inventory to move them out of the chest if you wish to keep them.
-Items in the chest will not encumber you.]], [[这只宝箱是某个夏·图尔古代建筑的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。
-这个过程的副产物是黄金，因为没有用，所以被自动传送给你。
+Items in the chest will not encumber you.]], [[这只宝箱是某处古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。
+这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
 当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。
 如果你想保留物品，只需要从宝箱里把它移到包裹中。
@@ -11658,8 +11658,8 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 To take an item out, simply go to your inventory to move them out of the chest.
-Items in the chest will not encumber you.]], [[这只宝箱是某个夏·图尔古代建筑的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。
-这个过程的副产物是黄金，因为没有用，所以被自动传送给你。
+Items in the chest will not encumber you.]], [[这只宝箱是某处古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。
+这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
 当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。
 如果你想保留物品，只需要从宝箱里把它移到包裹中。
@@ -18141,13 +18141,13 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。
 
-巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
+巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
 
-娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
+娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
-恶魔的起源已经不为人所知，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常与恶魔巫师们为伍。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个由纯净的奥术能量链接的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。这一切看起来都是建立在精通魔法的某种基础上，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于种族的调查——第十一章——龙族", "_t")
 t([[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.
 
@@ -18163,9 +18163,9 @@ Dragons are regularly hunted for their thick scales and their elementally imbued
 
 马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。
 
-龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，那些巨龙们都以拥有成山的金币为傲，但是现在如此多的宝藏几乎没有。矮人们在厄流纪对龙族的狩猎，使得龙族几乎趋于绝迹，现在的大部分龙族在巢穴里只有适量的财富。
+龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪对龙族的狩猎，使得龙族几乎趋于绝迹，现在的大部分龙族在巢穴里只有适量的财富。
 
-龙族经常由于它们结实的龙皮和元素亲和度极高的骨头而被狩猎。龙皮是护甲制作者们最喜爱的材料，因为它们通常轻薄坚硬，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然衰老”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。仍然，由于龙族全身都是宝的原因，每年都有许多在龙族的尖牙利齿下度日，被欲望冲昏了头脑的人死亡。]], "_t")
+龙族经常由于它们厚实的鳞片和蕴含元素之力的骨头而被狩猎。龙皮革是护甲制作者们珍视的材料，因为经过适当处理后它既轻便又坚韧，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然采集”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。尽管如此，各类龙族材料的需求依然旺盛，价格也高得惊人，每年都有许多贪婪之徒丧生于这些壮丽生物的尖牙利爪之下。]], "_t")
 t("shatur", "夏特尔", "newLore category")
 t("Lament for Lands now Lost", "失去的大陆的挽歌", "_t")
 t([[You see a moss covered statue of a Thalore reciting a poem, over and over.
@@ -18332,11 +18332,11 @@ t([[You wake suddenly from your unexpected slumber and attempt to quickly regain
 As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.
 They all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. 
 Somehow, your foe has invaded your very subconcious and is attacking you in your dreams. Still unable to move, your lucid mind races on how to handle such an insane and horrible situation. On a whim you concentrate on one of your projections and you find that you can control it. 
-Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]], [[你从意料外的沉睡中醒来，但是你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，各色阴影在视野中飞舞……
-当你的眼睛渐渐习惯这幅奇怪的场景时，你惊恐地发觉你动不了了！你的身体似乎没有重量，但是你移动不了一步。更奇怪的是，当你回想起麻痹的噩梦时，有种似曾相识的感觉，正当此时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你突然注意到奇怪的现象，让你更加确信这一点：你自己的镜像正在逐渐从你站的位置产生，并自主行动。
+Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]], [[你从意料外的沉睡中骤然醒来，试图尽快辨明自己身在何处。然而，你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，各色阴影在视野中飞舞……
+当你的眼睛渐渐习惯这幅奇怪的场景时，你惊恐地发觉你动不了了！你的身体似乎完全没有重量，任你如何挣扎也移动不了一寸。更奇怪的是，当你回想起麻痹的噩梦时，有种似曾相识的感觉，正当此时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你突然注意到奇怪的现象，让你更加确信这一点：你自己的镜像正在逐渐从你站的位置产生，并自主行动。
 他们似乎都集中精神于某个东西，但那个是什么？正在你思考你的梦中自我在关注什么时，你感觉到了它。你惊恐地意识到，这里不止你一个人。
 你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，但你的大脑也开始思考如何在这疯狂而恐怖的处境下存活。当你试着集中精神到你的梦中自我上时，你发现你能够控制它。
-专心面对眼前的噩梦，你开始寻找你的敌人，虽然你感觉到让你的一个梦中自我被摧毁似乎不会成为灾难，但如果许多个梦中自我被一起摧毁呢？那会发生什么，你不愿去想，只是专心来击退敌人。]], "_t")
+终于能自由行动去面对这场噩梦，你转身寻找你的敌人，虽然你感觉到让你的一个梦中自我被摧毁似乎不会成为灾难，但如果有数个乃至许多个梦中自我相继被摧毁呢？那会发生什么，你不愿去探究，于是下定决心终结这场对你心灵的侵犯。]], "_t")
 t("vault", "宝库", "newLore category")
 t("Mocking Note", "嘲弄字条", "_t")
 t([[Dear graverobber,
@@ -21170,7 +21170,7 @@ You gain a bonus to Mindpower equal to %d%% of your Magic.
 你获得相当于 %d%% 意志的法术强度加值。
 你获得相当于 %d%% 魔法的精神强度加值。
 
-#{italic}#你里面有些不对劲。你的太阳法术被遮蔽了，但你血腥的行径使得事物依然如同白昼一样清晰。#{normal}#]], "tformat")
+#{italic}#你的体内有些不对劲。你的太阳法术不知何故被扭曲了，但你血腥的仪式使得事物如同白昼一样清晰。#{normal}#]], "tformat")
 t("Flee the Sun", "阴走", "talent name")
 t("%s's teleportation fizzles!", "%s 的传送失败了！", "logSeen")
 t("%s emerges from the darkness!", "%s从黑暗中现身了！", "logSeen")
@@ -22951,7 +22951,7 @@ section "mod-tome/data/talents/corruptions/scourge.lua"
 
 t("Virulent Strike", "撕裂", "talent name")
 t("You cannot use Virulent Strike without two weapons!", "你需要两把武器来使用撕裂技能！", "logPlayer")
-t("Strike the target with both weapons dealing %d%% damage with each hit.  Each strike that hits will increase the duration of the lowest duration disease effect by %d.", "向目标挥舞两把武器，每次攻击造成 %d%% 伤害，每次攻击将会使目标身上持续时间最短的疾病效果的持续时间延长 %d 回合。", "tformat")
+t("Strike the target with both weapons dealing %d%% damage with each hit.  Each strike that hits will increase the duration of the lowest duration disease effect by %d.", "向目标挥舞两把武器，每次攻击造成 %d%% 伤害，每次命中都会使目标身上持续时间最短的疾病效果的持续时间延长 %d 回合。", "tformat")
 t("Ruin", "毁伤", "talent name")
 t([[Concentrate on the corruption you bring, enhancing each of your melee strikes with %0.2f blight damage (which also heals you for %0.2f each hit).
 		The damage will increase with your Spellpower.]], [[专注于你带来的瘟疫，每次近战攻击会造成 %0.2f 枯萎伤害（同时每击恢复你 %0.2f 生命值）。
@@ -26010,7 +26010,7 @@ t("Your nonexistant mana regeneration rate is unaffected by the rune.", "你没�
 t([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.
 			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力回复，增加法力回复 %d%%，持续 %d 回合（总计 %d），并立即回复 %d 点法力值。
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
-t("regen %d%% over %d turns; mana %d; cd %d", "每回合回蓝 %d%%，持续 %d 回合；瞬回 %d 法力；冷却 %d", "tformat")
+t("regen %d%% over %d turns; mana %d; cd %d", "法力回复 +%d%%，持续 %d 回合；瞬回 %d 法力；冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
 t("%s is immune!", "%s 免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -26560,7 +26560,7 @@ t([[Using a series of tricks and maneuvers, you switch places with your target.
 		Switching places will confuse your foes, granting you Evasion (50%%) for %d turns.
 		While switching places, your weapon(s) will connect with the target; this will not do weapon damage, but on hit effects of the weapons can trigger.]], [[通过一系列的技巧和动作，你可以和你的目标交换位置。
 		这个换位动作会迷惑你的敌人，让你获得持续 %d 回合的 50%% 概率躲闪效果。
-		切换位置时，你的武器将会与目标连接；这不会造成武器伤害，但武器的命中效果会触发。]], "tformat")
+		切换位置时，你的武器将会击中目标；这不会造成武器伤害，但武器的命中特效可能会触发。]], "tformat")
 t("Cripple", "致残", "talent name")
 t([[You hit your target, doing %d%% damage. If your attack connects, the target is crippled for %d turns, losing %d%% melee, spellcasting and mind speed.
 		The chance to land the status improves with Accuracy, and the status power improves with Cunning.]], [[你打击你的目标，造成 %d%% 伤害。如果你击中了目标，目标会被残废 %d 回合，降低 %d%% 战斗，法术和精神速度。
@@ -26600,7 +26600,7 @@ t([[You are light on your feet, handling your armour better. Each step you take 
 t("Strider", "凌波微步", "talent name")
 t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避的冷却时间 %d 回合。", "tformat")
 t("Charm Mastery", "饰品掌握", "talent name")
-t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑，使你可以更加有效的使用饰品（魔杖、图腾和项圈），减少 %d%% 饰品的冷却时间。", "tformat")
+t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑，使你可以更加有效的使用护符（魔杖、图腾和项圈），减少 %d%% 护符的冷却时间。", "tformat")
 t("Piercing Sight", "洞察视界", "talent name")
 t([[You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures.
 		Increases stealth detection by %d and invisibility detection by %d.
@@ -27993,7 +27993,7 @@ t("thought-form", "精神体", "_t")
 t("Thought-Form: Bowman", "思维形态：弓箭手", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("thought-forged bowman", "精神体弓箭手", "_t")
-t("A thought-forged bowman.  It appears ready for battle.", "一位身穿皮甲的精神体弓箭手。他时刻准备着战斗。", "_t")
+t("A thought-forged bowman.  It appears ready for battle.", "一位精神体弓箭手。他时刻准备着战斗。", "_t")
 t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术掌握、强化命中、稳固射击、致残射击和急速射击，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
@@ -28792,8 +28792,8 @@ t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 		伤害受宝石品质和法术强度加成。]], "tformat")
 t("Alchemist Protection", "炼金保护", "talent name")
 t([[Grants %d%% protection to you, your golem and other friendly creatures against the elemental damage of your own bombs, and against external elemental damage (fire, cold, lightning and acid) by %d%%.
-		At talent level 5 it also protects against all side effects of your bombs.]], [[提高你和其他友好生物对自己炸弹 %d%% 的元素伤害抗性，并增加 %d%% 对外界的元素伤害抗性。
-		在等级 5 时它同时会保护你免疫你的炸弹所带来的特殊效果。]], "tformat")
+		At talent level 5 it also protects against all side effects of your bombs.]], [[提高你、你的傀儡和其他友好生物对自己炸弹 %d%% 的元素伤害抗性，并增加 %d%% 对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性。
+		在技能等级 5 时它同时会保护你免疫你的炸弹所带来的特殊效果。]], "tformat")
 t("Explosion Expert", "爆破专家", "talent name")
 t([[Your alchemist bombs now affect a radius of %d around them.
 		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在为 %d 码。
@@ -30086,7 +30086,7 @@ t("%s resists the slow!", "%s抵抗了减速！", "logSeen")
 t([[You fire a disabling shot at a target's throat (or equivalent), dealing %d%% weapon damage and silencing them for %d turns.
 If the target is marked, you consume the mark to fire two secondary shots at their arms and legs (or other appendages) dealing %d%% damage, reducing their movement speed by 50%% and disarming them for the duration.
 The status chance increases with your Accuracy.]], [[你朝目标的喉咙（或者类似部位）射击，造成 %d%% 武器伤害并沉默 %d 回合。
-如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害，降低其 50%% 移动速度，同时使其不能使用武器。
+如果目标被标记，则消耗标记并额外向目标的手臂与腿（或者类似附肢）射击两次，造成 %d%% 伤害，并在相同的持续时间内降低其 50%% 移动速度并将其缴械。
 状态效果几率受命中加成。]], "tformat")
 t("Bullseye", "靶心", "talent name")
 t("Each time you consume a mark, you gain %d%% increased attack speed for 2 turns and the cooldown of %d random techniques are reduced by %d turns.", "每次消耗标记时，获得 %d%% 攻击速度加成，持续 2 回合，并随机减少 %d 个战斗技巧系技能的冷却时间 %d 回合。", "tformat")
@@ -35576,7 +35576,7 @@ t("#Target# is no longer being grounded.", "#Target#不再被锚定在时间线�
 t("runic", "符文", "effect subtype")
 t("Ogric Wrath", "食人魔之怒", "_t")
 t("Do not try to resist it!", "不要妄图抵抗！", "tformat")
-t("#Target# enters an ogric frenzy.", "#Target#进入狂热状态。", "_t")
+t("#Target# enters an ogric frenzy.", "#Target#陷入食人魔般的狂怒。", "_t")
 t("+Ogric Wrath", "+食人魔之怒", "_t")
 t("#Target# calms down.", "#Target#冷静了下来。", "_t")
 t("-Ogric Wrath", "-食人魔之怒", "_t")
@@ -37211,7 +37211,7 @@ t("+Dragon's fire", "+龙之焰", "_t")
 t("#Target#'s throat seems to cool down.", "#Target#的火焰平息了下来。", "_t")
 t("-Dragon's fire", "-龙之焰", "_t")
 t("Greater Weapon Focus", "专注打击", "_t")
-t("Each melee blow landed has a %d%% chance to trigger an additional melee blow (up to once per turn for each weapon).", "每次近战命中都有 %d%% 几率触发额外一击（每回合每种武器至多一次）。", "tformat")
+t("Each melee blow landed has a %d%% chance to trigger an additional melee blow (up to once per turn for each weapon).", "每次近战命中都有 %d%% 几率触发额外一击（每回合每把武器至多一次）。", "tformat")
 t("Grappling", "抓取", "_t")
 t("Engaged in a grapple draining %d stamina per turn and redirecting %d%% of damage taken to %s.  Any movement will break the effect as will some unarmed talents.", "目标进入抓取状态，每回合吸取 %d 体力，同时将 %d%% 伤害转移到 %s。任何移动或其他一些徒手技能都会取消这个状态。", "tformat")
 t("#Target# is engaged in a grapple!", "#Target#进入抓取状态！", "_t")
@@ -37426,7 +37426,7 @@ t("Has a %d%% chance to counter attack with a defensive throw when avoiding a me
 t("distortion", "扭曲", "effect subtype")
 t("Ravage", "疯狂扭曲", "_t")
 t("each turn.", "每回合。", "_t")
-t("and is losing one physical effect turn.", "每回合失去一个物理效果并。", "_t")
+t("and is losing one physical effect turn.", "每回合失去一个物理效果并", "_t")
 t("The target is being ravaged by distortion, taking %0.2f physical damage %s", "目标被疯狂扭曲，%s受到 %0.2f 物理伤害", "tformat", {2,1})
 t("+Ravage", "+疯狂扭曲", "_t")
 t("#Target# is no longer being ravaged.", "#Target#不再被疯狂扭曲。", "_t")
@@ -43263,13 +43263,13 @@ t([[No text would be complete without at least a brief note of some of the more 
 
  The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[没有任何文字可以诠释那些影响我们世界的野蛮种族。他们没有任何文化遗留，也没有任何先进的智慧或文化，但是他们仍能激起大家研究原始种族的兴趣。
 
- 巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
+ 巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
  巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
 
- 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。有关他们的记载只有近一百年的，并且越来越多的证据表明他们并不是喝醉水手们的幻觉。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
+ 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只有近一百年的，并且越来越多的证据表明他们并不是喝醉水手们的幻觉。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
- 恶魔的起源已经不为人所知，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常与恶魔巫师们为伍。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个由纯净的奥术能量链接的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属化的血肉，可以表现出超乎我们想象的形态——有些绽放在火焰中，有的藏在酸雾里或是可怕的黑暗中。这一切看起来都是建立在精通魔法的某种基础上，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+ 恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属化的血肉，可以表现出超乎我们想象的形态——有些绽放在火焰中，有的藏在酸雾里或是可怕的黑暗中。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
  Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.
