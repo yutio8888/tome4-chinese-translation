@@ -1658,9 +1658,9 @@ The people of Eyal have found a way to create herbal infusions and runes that ca
 Those inscriptions give the bearer always-accessible powers that can be used an unlimited number of times.
 A simple regeneration infusion is the most common type of infusion, and the use of runes of various types is also common among arcane users.
 ]], [[#GOLD#刻印#LAST#
-埃亚尔的人们找到了制作草药输液与符文、并将其纹刻在生物皮肤上的方法。此外，还存在一些更为奇异的刻印。
+埃亚尔的人们找到了制作草本纹身与符文、并将其纹刻在生物皮肤上的方法。此外，还存在一些更为奇异的刻印。
 刻印给被刻印者提供一些可以无限使用的特殊能力。
-通常人们会纹刻一种回复纹身，当然奥术施法者之中还有各种常见的符文。
+最常见的一种纹身是简单的回复纹身，而各类符文在奥术施法者之中也同样常见。
 ]], "_t")
 t([[#GOLD#Prodigies#LAST#
 Prodigies are special talents that only the most powerful of characters can acquire.
@@ -4111,7 +4111,7 @@ t("By the corpses of the gods, I love adventurers. Was about to become one mysel
 t("What do you propose?", "那……你的建议呢？", "_t")
 t("I propose that I give you a list of monster parts to fetch, then you go and fetch them, then I make some blindingly amazing brews with said monster parts, then I get accepted into the Brotherhood of Alchemists.", "我的想法就是，我给你怪物物品清单，然后你给我把它们都找回来。然后我用这些材料做一些很炫的药剂，之后我就可以加入炼金术士兄弟会了。", "_t")
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
-t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "我做计划可是一流的。还有药剂——加入兄弟会之后他们肯定会让我改口叫“万能药”的。我会照做，因为他们有的是办法让你乖乖听话。那么……我们说到哪儿了？", "_t")
+t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "我做计划可是一流的。还有配药——加入兄弟会之后他们肯定会让我改口叫“药剂”的。我会照做，因为他们总有办法达成自己的目的。那么……我们说到哪儿了？", "_t")
 t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你加入那个什么什么兄弟会……我能得到什么回报？", "_t")
 t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基·埃亚尔唯一的堕落印记——清除印记哦。", "_t")
 t("I accept.", "我接受了。", "_t")
@@ -5087,7 +5087,7 @@ He also said the only way to enter the peak and de-activate the shield is throug
 他还说想要进入顶层并关闭护罩的唯一通道是“史莱姆通道”，位于某一个兽人部落内，有可能是格鲁希纳克的部落。
 ]], "_t")
 t("Thanks, my lady. I have not been able to find all of the orbs of command in my travels; could you have some of your men search for me?", "谢谢，我的女士。我没能找到所有的指令水晶球；请问你可以让你们的人来帮我寻找一下吗？", "_t")
-t("Thanks, my lady. I will look for the tunnel and venture inside the Peak.", "谢谢，我的女士，我会寻找史莱姆通道，探寻前往巅峰的道路。", "_t")
+t("Thanks, my lady. I will look for the tunnel and venture inside the Peak.", "谢谢，我的女士，我会找到那条通道，向巅峰内部挺进。", "_t")
 t([[I have already sent parties to clear out the remainder of the prides as you progressed, and have instructed to keep a sharp eye out for any orbs of command you may have missed.
 	Which do you not have? I can check with the parties if they found any. Our sources indicate that you should have four: one of Undeath, one of Destruction, one of Dragons, and one of Elemental might.]], [[我们已经派出部队，清理那些被你所击溃的部落的残军。我命令他们仔细搜查，确保找到可能落下的任何指令水晶球的踪影。
 	你缺少了什么水晶球？我会去问问他们，看看他们有没有找到什么线索。我们得到情报，应该有四颗指令水晶球：亡灵水晶球，毁灭水晶球，巨龙水晶球，元素水晶球。]], "_t")
@@ -5095,7 +5095,7 @@ t("The orb of Undeath.", "亡灵水晶球。", "_t")
 t("The orb of Destruction.", "毁灭水晶球。", "_t")
 t("The orb of Dragons.", "巨龙水晶球。", "_t")
 t("The orb of Elements.", "元素水晶球。", "_t")
-t("Thanks, my lady, that is all of them. I will look for the tunnel and venture inside the Peak.", "谢谢你，我的女士，看来我已经集齐了所有的水晶球。我会寻找史莱姆通道，打开通向巅峰的道路。", "_t")
+t("Thanks, my lady, that is all of them. I will look for the tunnel and venture inside the Peak.", "谢谢你，我的女士，看来我已经集齐了所有的水晶球。我会找到那条通道，向巅峰内部挺进。", "_t")
 t("Ah yes, my men have found that in Rak'Shor Pride. Here: ", "啊，是的，我们的人在拉克·肖部落找到了这个水晶球。给你：", "_t")
 t("Ah yes, my men have found that in Vor Pride. Here: ", "啊，是的，我们的人在沃尔部落找到了这个水晶球。给你：", "_t")
 t("Ah yes, my men have found that in Grushnak Pride. Here: ", "啊，是的，我们的人在格鲁希纳克部落找到了这个水晶球。给你：", "_t")
@@ -9375,7 +9375,7 @@ t("Unerring Scalpel", "精准的解剖刀", "entity name")
 t("long sharp scalpel", "锋利的长解剖刀", "_t")
 t("This scalpel was used by the dread sorcerer Kor'Pul when he began learning the necromantic arts in the Age of Dusk.  Many were the bodies, living and dead, that became unwilling victims of his terrible experiments.", "这把解剖刀曾经被可怕的巫师卡·普尔在黄昏纪刚开始学习死灵法术时使用。无论活物还是死尸，许多都成了他可怕实验中不情愿的牺牲品。", "_t")
 t("Wyrmbreath", "龙之吐息", "entity name")
-t("clawed dragon-scale gloves", "嵌有龙爪的手套", "_t")
+t("clawed dragon-scale gloves", "带爪的龙鳞手套", "_t")
 t("These dragon scale gloves are tipped with the claws and teeth of a vicious Wyrm. The gloves are warm to the touch.", "这件龙鳞手套上嵌着一条恶龙的牙齿与爪子。手套摸上去十分温暖。", "_t")
 t("Eye of the Dreaming One", "梦境之眼", "entity name")
 t("translucent sphere", "半透明的球体", "_t")
@@ -9509,7 +9509,7 @@ t("Taint of Purging", "堕落印记：清除", "entity name")
 t("Infusion of Wild Growth", "纹身：野性生长", "entity name")
 t("Lifebinding Emerald", "生命绑定翡翠", "entity name")
 t("green", "绿宝石", "entity subtype")
-t("cloudy, heavy emerald", "半透明的厚重翡翠", "_t")
+t("cloudy, heavy emerald", "浑浊的厚重翡翠", "_t")
 t("A lopsided, heavy emerald with murky green clouds shifting sluggishly under the surface.", "一块不规则的厚重翡翠，表面之下有暗绿色的云纹缓缓浮动。", "_t")
 t("Elixir of Invulnerability", "无敌药剂", "entity name")
 t("vial of black fluid", "一瓶黑色液体", "_t")
@@ -13005,7 +13005,7 @@ t("This small wooden ring has a single green stem wrapped around it. Thin leaves
 t("vine encircled ring", "藤蔓缠绕的戒指", "_t")
 t("Wrap of Stone", "石化风衣", "entity name")
 t("solid stone cloak", "石头斗篷", "_t")
-t("This thick cloak is incredibly tough, yet bends and flows with ease.", "尽管这件石头斗篷又硬又厚，但是你仍能轻松地折叠它。", "_t")
+t("This thick cloak is incredibly tough, yet bends and flows with ease.", "这件厚重的斗篷坚韧异常，却依然能轻松地弯折垂流。", "_t")
 t("Death's Embrace", "死亡拥抱", "entity name")
 t("black leather armor", "黑色的皮甲", "_t")
 t("This deep black leather armor, wrapped with thick silk, is icy cold to the touch.", "这件黑色的皮甲上覆盖着一层厚厚的丝绸，触感冰凉。", "_t")
@@ -17557,13 +17557,13 @@ Though armies would fall before the Spellblaze's might, though forests were raze
 
 How wrong they were. The Nalorën people, long secluded, were prepared to fend off any attacks on their land, but how could they hope to stop the land itself crumbling? Seeing their home literally tearing itself apart, plains and forests tumbling into the seas... For one brief, terrible moment, they beheld the true extent of the Spellblaze's power. Not only was it destroying the people of the world, but the world itself.
 
-The lands of the Nalorën had sunk beneath the waves.]], [[#{bold}#毁灭之源#{normal}#
+The lands of the Nalorën had sunk beneath the waves.]], [[#{bold}#毁灭之卷#{normal}#
 
 尽管在魔法大爆炸强大的力量面前，军队眨眼覆灭，森林片刻消失，天空满是流火，但他们总认为大陆会安然无恙。它看起来永恒不变。甚至狂怒的魔法大爆炸都无法摧毁它。
 
 但他们错了。长久与世隔绝的纳鲁人早已准备好抵御对他们土地的任何进攻，但他们怎能指望阻止大地本身的崩塌？眼看着家园被生生撕裂，平原与森林坠入大海——在那短暂而恐怖的一刻，他们终于见识了魔法大爆炸的真正威力。它不仅在毁灭世间的生灵，也在毁灭这个世界本身。
 
-纳鲁大陆沉入了波涛之下。]], "_t")
+纳鲁人的土地沉入了波涛之下。]], "_t")
 t("tract of anarchy", "无序之治", "_t")
 t([[#{bold}#Tract of Anarchy#{normal}#
 
@@ -17665,9 +17665,9 @@ Well, no more. We shall meet seven days from now in Derth's town square. Come pr
 Prepare yourself, if you've the courage,
 Rolf]], [[最亲爱的威斯曼，
 
-不好意思打断你观赏花鸟，但我必须给你的笑话打上休止符。老子已经忍你很久了。上次我觉得你写的”野生小动物观察日记“还是挺幽默的，慢慢的我惊恐的发现你这家伙是当真的呀。你这可悲的家伙以为自己的郊游是传说级的冒险吗？
+不好意思打断你观赏花鸟，但我必须给这场插科打诨画上休止符。你那可笑的自大和虚假的英雄气概，我已经忍了太久了。起初我觉得你写的那些吹得天花乱坠的“骚扰当地野生动物”见闻还算幽默，如今我却惊恐地发现你这家伙是当真的——你竟以为自己那些可悲的闲逛是传说级的事迹。
 
-好吧，到此为止了，七天后我们在德斯镇见。别忘记为旅行做好准备。最近有传闻说有个怪物占领了城市北方的遗迹，事态的恶化让人们不能单纯的以传闻处之了。你应该随我来，见识一下这只怪物，切身体会一下你和我之间的差距。幸运的话，这次冒险后你能全身而退，但恐怕面对这只怪物会打断你一两条肋骨。
+好吧，到此为止了，七天后我们在德斯镇的镇广场见。别忘记为旅行做好准备。最近有传闻说有个怪物占领了城市北方的遗迹，事态的恶化让人们不能单纯的以传闻处之了。你应该随我来，见识一下这只怪物，切身体会一下你和我之间的差距。幸运的话，这次冒险后你能全身而退，但恐怕这场考验会让你搭上一两条胳膊或腿。
 
 开始准备吧，如果你够胆的话。
 罗尔夫]], "_t")
@@ -21342,9 +21342,9 @@ t("Crusade", "十字军打击", "talent name")
 t("You cannot use Crusade without a shield!", "使用十字军打击必须使用盾牌！", "logPlayer")
 t([[You demonstrate your dedication to the light with a measured attack striking once with your weapon for %d%% Light damage and once with your shield for %d%% Light damage.
 			If the first strike connects %d random talent cooldowns are reduced by 1.
-			If the second strike connects you are cleansed of %d debuffs.]], [[你用武器攻击造成 %d%% 光系伤害，再用盾牌攻击造成 %d%% 光系伤害。
+			If the second strike connects you are cleansed of %d debuffs.]], [[你以一次沉稳的攻击展现对圣光的奉献：先用武器攻击造成 %d%% 光系伤害，再用盾牌攻击造成 %d%% 光系伤害。
 			如果第一次攻击命中，随机 %d 个技能冷却时间减少1回合。
-			如果第二次攻击命中，除去你身上至多 %d 个 debuff。]], "tformat")
+			如果第二次攻击命中，除去你身上至多 %d 个负面状态。]], "tformat")
 t("Avatar Distant Sun Unlock Checker", "日耀神使解锁检查", "talent name")
 t("#CRIMSON#As your \"talk\" with the star ends, you feel its power, the whole area around you erupts in flames, burning your foes to cinders!", "#CRIMSON#当你和遥远恒星的\"交谈\"结束后，你感受到了它的力量，火焰在你周围爆发，将敌人烧成灰烬！", "log")
 
@@ -21898,12 +21898,12 @@ section "mod-tome/data/talents/chronomancy/chronomancy.lua"
 t("Precognition", "预知未来", "talent name")
 t([[You peer into the future, sensing creatures and traps in a radius of %d for %d turns.
 		If you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight bonuses) while Precognition is active.]], [[你预知未来，感知半径 %d 以内的生物和陷阱，持续 %d 回合。
-		如果你学会了深谋远虑，那么在你激活这个技能的时候，你可以获得额外的闪避和暴击减免（数值等于深谋远虑的奖励）。]], "tformat")
+		如果你学会了深谋远虑，那么在你激活这个技能的时候，你可以获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。]], "tformat")
 t("Foresight", "深谋远虑", "talent name")
 t([[Gain %d defense and %d%% chance to shrug off critical hits.
 		If you have Precognition or See the Threads active these bonuses will be added to those effects, granting additional defense and chance to shrug off critical hits.
-		These bonuses scale with your Magic stat.]], [[获得 %d 闪避  和 %d%% 暴击减免。
-		如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和暴击减免。
+		These bonuses scale with your Magic stat.]], [[获得 %d 闪避和 %d%% 几率无视暴击伤害。
+		如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和无视暴击伤害几率。
 		增益效果受魔力值加成。]], "tformat")
 t("Contingency", "意外术", "talent name")
 t("#LIGHT_RED#Your Contingency has failed to cast %s!", "#LIGHT_RED#你的意外术没能触发%s！", "logPlayer")
@@ -21926,7 +21926,7 @@ t([[You peer into three possible futures, allowing you to explore each for %d tu
 		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
 		If you die in any thread you'll revert the timeline to the point when you first cast the spell and the effect will end.
 		This spell may only be used once per zone level.]], [[你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。
-		如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和暴击减免（数值等于深谋远虑的奖励）。
+		如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。
 		这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。
 		如果你在任何一条时间线上死亡，你将使时间线回到你使用技能的地方，并且技能效果结束。
 		这个技能每个楼层只能使用一次。]], "tformat")
@@ -24888,9 +24888,9 @@ t("Nature's Defiance", "自然的反抗", "talent name")
 t([[Your devotion to nature has made your body more attuned to the natural world and resistant to unnatural energies.
 		You gain %d Spell save, %0.1f%% Arcane resistance, and %0.1f%% Nature damage affinity.
 		You defy arcane forces, so that any time you take damage from a spell, you restore %0.1f Equilibrium each turn for %d turns.
-		The effects increase with your Mindpower.]], [[你对自然的贡献让你的身体更亲近自然世界，对非自然力量也更具抵抗力。
-		你获得 %d 点法术豁免，%0.1f%% 奥术抗性，同时将受到的 %0.1f%% 的自然伤害转化为治疗。
-		由于你和奥术力量对抗，每次你受到法术伤害时，你回复 %0.1f 点失衡值，持续 %d 回合。
+		The effects increase with your Mindpower.]], [[你对自然的虔诚让你的身体更亲近自然世界，对非自然力量也更具抵抗力。
+		你获得 %d 点法术豁免，%0.1f%% 奥术抗性，以及 %0.1f%% 自然伤害亲和。
+		由于你和奥术力量对抗，每次你受到法术伤害时，你每回合回复 %0.1f 点失衡值，持续 %d 回合。
 		效果受精神强度加成。]], "tformat")
 t("Acidfire", "酸火", "talent name")
 t("Acidfire cloud", "酸火毒云", "_t")
@@ -25132,8 +25132,8 @@ t([[Both of you swap place in an instant, creatures attacking one will target th
 		伤害和治疗量受精神强度加成。]], "tformat")
 t("Indiscernible Anatomyblabla", "难以辨认的解剖结构", "talent name")
 t([[Your body's internal organs are melted together, making it much harder to suffer critical hits.
-		All direct critical hits (physical, mental, spells) against you have a %d%% chance to instead do their normal damage.]], [[你身体的内部器官融化在一起，使你更难遭受致命打击。
-		所有对你产生的直接暴击（物理、精神、法术）都会有 %d%% 几率变成普通攻击。]], "tformat")
+		All direct critical hits (physical, mental, spells) against you have a %d%% chance to instead do their normal damage.]], [[你身体的内部器官融化在一起，使你更难遭受暴击。
+		所有对你产生的直接暴击（物理、精神、法术）都有 %d%% 几率改按普通伤害结算。]], "tformat")
 -- untranslated text
 --[==[
 t("azdadazdazdazd", "azdadazdazdazd", "talent name")
@@ -25912,7 +25912,7 @@ t([[Grab a target and drag it to your side, holding it in place and silencing no
 		伤害受精神强度加成。]], "tformat")
 t("Ooze Spit", "凝胶喷射", "talent name")
 t([[Spit slime at your target doing %0.2f nature damage and slowing it down by 30%% for 3 turns.
-		The damage will increase with the Dexterity stat]], [[向目标喷射毒液造成 %0.2f 自然伤害并降低其 30%% 移动速度持续 3 回合。
+		The damage will increase with the Dexterity stat]], [[向目标喷射黏液，造成 %0.2f 自然伤害，并使其减速 30%%，持续 3 回合。
 		伤害受敏捷值加成。]], "tformat")
 t("Slime Roots", "史莱姆根须", "talent name")
 t("You extend slimy roots into the ground, follow them, and re-appear somewhere else in a range of %d with error margin of %d.", "你将史莱姆根须伸入地下，沿着根须移动，并在最远 %d 格外重新现身，位置误差为 %d 格。", "tformat")
@@ -26726,7 +26726,7 @@ t("None", "无", "_t")
 t(" and ", "和", "_t")
 t(" Increases your spell save by %d for that turn.", " 那回合增加 %d 点法术豁免。", "tformat")
 t(" Reflects all blocked damage back to the source.", " 反弹所有格挡的伤害。", "_t")
-t(" All blocked damage heals the wielder.", " 所有格挡的伤害值会治疗玩家。", "_t")
+t(" All blocked damage heals the wielder.", " 所有格挡的伤害值会治疗持有者。", "_t")
 t([[Raise your shield into blocking position for 2 turns reducing all non-Mind damage by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (the next weapon attack will instead deal 200%% damage) for one turn.
 			Counterstrike can normally only effect one enemy per block.
 			If any damage was successfully blocked this effect will be removed at the start of your turn.
@@ -28053,7 +28053,7 @@ section "mod-tome/data/talents/psionic/trance.lua"
 t("Trance of Purity", "净化入定", "talent name")
 t([[Activate to purge negative status effects (100%% chance for the first effect, -%d%% less chance for each subsequent effect).  While this talent is sustained all your saving throws are increased by %d.
 		The chance to purge and saving throw bonus will scale with your mindpower.
-		Only one trance may be active at a time.]], [[激活以清除负面状态（100%% 清除第一个状态，-%d%% 几率清除后续状态）。当此技能激活时，你的所有豁免值增加 %d。
+		Only one trance may be active at a time.]], [[激活以清除负面状态（第一个状态 100%% 清除，此后每清除一个，几率再降低 %d%%）。当此技能激活时，你的所有豁免值增加 %d。
 		受精神强度影响，净化几率和豁免增益按比例加成。
 		同一时间只能维持一种入定。]], "tformat")
 t("Trance of Well-Being", "康健入定", "talent name")
@@ -30239,7 +30239,7 @@ t(" At talent level 5, your Bash and Smash shield hits are guaranteed criticals.
 t(" At talent level 5, your Bash and Smash shield hit is a guaranteed critical.", "技能等级 5 时，你的击退射击的盾击必定暴击。", "_t")
 t("When you are hit by a projectile, physical or otherwise, you have a %d%% chance to deflect it up to %d squares away.%s", "当你被抛射物攻击时，不论是否为物理类型，你有 %d%% 的几率使其偏斜最多 %d 格。%s", "tformat")
 t("Counter Shot", "以牙还牙", "talent name")
-t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#启动了反击射击。#LAST#。", "logCombat")
+t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#追加了一次反击射击。#LAST#", "logCombat")
 t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
 			]], [[每当你的格挡专家或者格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多只能发动 %d 次反击。
 			]], "tformat")
@@ -30625,7 +30625,7 @@ t([[Your quick wit and reflexes allow you to anticipate attacks against you, gra
 		The chance to evade and defense bonus increase with your Dexterity.]], [[你的战斗技巧和反射神经让你能迅速躲闪攻击，获得 %d%% 几率躲闪近战与远程攻击，闪避值增加 %d，持续 %d 回合。
 		躲闪几率和闪避加成受敏捷加成。]], "tformat")
 t("Tumble", "翻筋斗", "talent name")
-t("You must have an empty space to roll to.", "你需要有空位来滚动。", "logPlayer")
+t("You must have an empty space to roll to.", "你必须有一个空的格子才能翻筋斗过去。", "logPlayer")
 t([[In an extreme feat of agility, you move to a spot you can see within range, bounding around, over, or through any enemies in the way.
 		This talent cannot be used while wearing heavy armor, and leaves you exhausted.  The exhaustion increases the cost of your activated Mobility talents by %d%% (stacking), but fades over %d turns.]], [[你迅速地移动至范围内可见的位置，跃过路径上所有敌人。
 		该技能在身着重甲时不能使用，使用后你会进入疲劳状态，增加移动系技能消耗 %d%% （可以叠加），%d 回合后解除。]], "tformat")
@@ -37547,11 +37547,11 @@ t("Target is caught in an anti-gravity field, halving its knockback resistance."
 t("+Anti-Gravity", "+反重力", "_t")
 t("-Anti-Gravity", "-反重力", "_t")
 t("parasite", "寄生", "effect subtype")
-t("Parasitic Leeches", "寄生虫", "_t")
-t("Parasitic Leeches: %d masses", "寄生虫：%d堆", "tformat")
-t("The target is being fed upon by %d masses of parasitic leeches for %0.2f physical and %0.2f acid damage each turn.  After a %d turn feeding period, one mass will drop off and multiply.", "目标被 %d 堆寄生虫寄生，每回合受到 %0.2f 物理和 %0.2f 酸性伤害。每隔 %d 回合，一堆寄生虫将脱落并繁殖。", "tformat")
-t("#Target# is #GREEN#INFESTED#LAST# with parasitic leeches!", "#Target#被寄生虫#GREEN#寄生#LAST#了！", "_t")
-t("+Parasitic Leeches", "+寄生虫", "_t")
+t("Parasitic Leeches", "寄生水蛭", "_t")
+t("Parasitic Leeches: %d masses", "寄生水蛭：%d堆", "tformat")
+t("The target is being fed upon by %d masses of parasitic leeches for %0.2f physical and %0.2f acid damage each turn.  After a %d turn feeding period, one mass will drop off and multiply.", "目标被 %d 堆寄生水蛭寄生，每回合受到 %0.2f 物理和 %0.2f 酸性伤害。每隔 %d 回合，一堆寄生水蛭将脱落并繁殖。", "tformat")
+t("#Target# is #GREEN#INFESTED#LAST# with parasitic leeches!", "#Target#被寄生水蛭#GREEN#寄生#LAST#了！", "_t")
+t("+Parasitic Leeches", "+寄生水蛭", "_t")
 t("Some leeches drop off %s!", "寄生虫从%s处脱落！", "logSeen")
 t("Garrote", "绞杀", "_t")
 t("  It is silenced for the next %d turn(s), preventing it from casting spells and using some vocal talents.", "  目标还会被沉默 %d 回合，无法施放法术或使用部分发声类技能。", "tformat")
@@ -38335,7 +38335,7 @@ t("and offered to his dark Master", "并被献祭给他的黑暗主人", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
 t([[What once must have been an enchantingly beautiful Higher woman now looks to be a ghost of utter despair. Her thin, elegant form ripples gently in the air, whilst her tattered robes seem oddly still. The ghost's face looks jittery and pained whilst her wild, glowing eyes move rapidly back and forth in their sockets.
-Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]], [[这只幽灵以前肯定是一位高等人类美人。她瘦弱而优雅的身躯在空中轻轻的摇晃，但是她的长袍却始终紧贴着身体。她的脸部除了疯狂便是万分的痛苦，她的眼睛在眼眶里不安的来回转动。
+Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]], [[这位曾经想必美得摄人心魄的高等人类女子，如今看上去只是一只彻底绝望的幽灵。她瘦弱而优雅的身躯在空中轻轻荡漾，破烂的长袍却诡异地纹丝不动。她的脸上满是抽搐与痛苦，狂乱而发亮的眼睛在眼眶里飞快地来回转动。
 有时她会看到一些东西，她的下巴会突然收缩，分裂的脸部会发出一阵充满痛苦和折磨的哀嚎。]], "_t")
 t("and offered to her dark Master", "并被献祭给她的黑暗主人", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
@@ -42271,7 +42271,7 @@ t("Inventory", "物品栏", "_t")
 t("Category", "分类", "_t")
 t("Price", "价格", "_t")
 t("Store", "商店", "_t")
-t(" (pays up to %0.2f gold, Your Gold: %0.2f)", " (付款 %0.2f 金币，你的金币：%0.2f)", "tformat")
+t(" (pays up to %0.2f gold, Your Gold: %0.2f)", " (最多付款 %0.2f 金币，你的金币：%0.2f)", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
