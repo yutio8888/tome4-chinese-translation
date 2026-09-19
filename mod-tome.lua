@@ -2643,7 +2643,7 @@ t("Did over 600 damage in one attack.", "在一次攻击中造成超过 600 点�
 t("Size is everything", "伤害就是一切", "achievement name")
 t("Did over 1500 damage in one attack.", "在一次攻击中造成超过1500点伤害。", "_t")
 t("The bigger the better!", "越大越好！", "achievement name")
-t("Did over 3000 damage in one attack.", "在一次攻击中造成3000点伤害。", "_t")
+t("Did over 3000 damage in one attack.", "在一次攻击中造成超过 3000 点伤害。", "_t")
 t("Overpowered!", "过于强大！", "achievement name")
 t("Did over 6000 damage in one attack.", "在一次攻击中造成6000点伤害。", "_t")
 t("Exterminator", "屠夫", "achievement name")
@@ -2908,7 +2908,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_
 t("Doomed", "末日使者", "birth descriptor name")
 t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在未知之地的阴影之中，你必须战胜自己，直面自己的末日。", "_t")
 t("The Doomed are fallen mages who once wielded powerful magic wrought by ambition and dark bargains.", "末日使者是一些堕落的法师，他们曾经由于野心，通过黑暗的契约，获得了强大的魔法。", "_t")
-t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被黑暗剥夺了魔法力量的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
+t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被那些曾经侍奉他们的黑暗力量夺去魔法的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
 t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们能否选择一条新的道路，还是永远为厄运所缚。", "_t")
 t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末日使者操纵阴影，从黑暗中发动攻击。", "_t")
 t("They feed upon their enemies as they unleash their minds on all who confront them.", "他们以敌人为食，并对所有与他们对峙的人释放精神冲击。", "_t")
@@ -8182,7 +8182,7 @@ t("It is an unlife of power almost unequaled. An affront to existence, its very 
 t("banshee", "哀嚎女妖", "entity name")
 t("It is a ghostly woman's form that wails mournfully.", "一个发出凄惨尖叫的女妖。", "_t")
 t("ruin banshee", "毁灭女妖", "entity name")
-t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。恐惧之地的气息不断从她次元扭曲的身体中渗出，不断灼烧和腐蚀着周围的一切。", "_t")
+t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。恶魔空间的气息不断从她次元扭曲的身体中渗出，不断灼烧和腐蚀着周围的一切。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/ghoul.lua"
@@ -8403,7 +8403,7 @@ t("An elder being from a now-forgotten age, filled and fueled by its hate and ra
 t("archlich", "高阶巫妖", "entity name")
 t("Blacker than the deepest night, this cold cruel form of darkness approaches.  Long ago it laid aside its mortality, but it has not forgotten its power; rather, its malice and hate have bent this undead entity on the destruction of all things living.", "比最深沉的暗夜还要漆黑，这个冰冷残忍的黑暗形体正在逼近。很久以前它抛弃了自己的凡躯，但并未忘却自身的力量；恰恰相反，它的恶意与仇恨驱使这个不死存在一心毁灭所有活物。", "_t")
 t("blood lich", "血巫妖", "entity name")
-t("The seething, pumping, disembodied blood of a horrendously powerful necromancer. To strike it is to bathe in the rivers of the Fearscape itself.", "来自一位极其强大的死灵法师的沸腾、搏动、脱离躯体的血液。攻击它就等于在恐惧之地本身的河流中沐浴。", "_t")
+t("The seething, pumping, disembodied blood of a horrendously powerful necromancer. To strike it is to bathe in the rivers of the Fearscape itself.", "来自一位极其强大的死灵法师的沸腾、搏动、脱离躯体的血液。攻击它就等于在恶魔空间本身的河流中沐浴。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/losgoroth.lua"
@@ -13076,7 +13076,7 @@ t("The Untouchable", "不可触及", "entity name")
 t("tough leather coat", "硬皮甲", "_t")
 t([[This rugged jacket is the subject of many a rural legend.
 Some say it was fashioned by an adventurous mage turned rogue, in times before the Spellblaze, but was since lost.
-All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。\n形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
+All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。\n有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。\n形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
 t("When you take a hit of more than 20% of your max life a shield is created equal to 130% the damage taken.", "当你受到一次攻击损失超过20%最大生命值时，你获得一个护盾，可吸收那个数值130%的伤害。", "_t")
 t("#LIGHT_BLUE#A barrier bursts from the leather jacket!", "#LIGHT_BLUE#这件皮夹克突然爆发出一股护盾能量！", "logPlayer")
 t("Honeywood Chalice", "蜂蜜木酒杯", "entity name")
@@ -13226,7 +13226,7 @@ t("These fell looking gloves glow with untold power.", "这对手套看上去十
 t([[Increases all damage by %d%% of current vim 
 Current Bonus: %d%%]], [[获得相当于你%d%%活力值的伤害加成
 当前加成：%d%%]], "tformat")
-t("Only the masochistic can unlock its full power.", "只有受虐狂才能解锁它的能量。", "_t")
+t("Only the masochistic can unlock its full power.", "只有受虐狂才能解锁它的全部力量。", "_t")
 t("#STEEL_BLUE#The fist and the mangled clothing glow ominously!", "#STEEL_BLUE#拳套和衣服开始发出不祥的光！", "logPlayer")
 t("#STEEL_BLUE#The ominous glow dies down.", "#STEEL_BLUE#不祥的光芒停止了。", "logPlayer")
 t("Masochism", "受虐狂", "entity name")
@@ -13272,7 +13272,7 @@ t("bone mask", "骨质面具", "_t")
 t("This mask appears to be carved out of the skull of a creature that never should have existed, malformed and distorted. You shiver as you look upon it, and its hollow eye sockets seem to stare back into you.", "这件面具似乎用某种不明生物的头骨制成的，那是一种本不应该存在于世间的可怕生物，畸形并且扭曲。每当你盯着这个面具时，它那空洞的眼窝似乎也在注视着你，令你感到发自内心的颤栗。", "_t")
 t("Cinderfeet", "余烬之足", "entity name")
 t("flame coated sandals", "一双被火焰覆盖的草鞋", "_t")
-t("A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.", "这是一个警示故事，讲的是有个叫凯姆的古代术士，为了勘查地狱般的恶魔荒原，也为了考验自己，自命不凡的认为可以在恶魔的老巢高达勒斯天天散步。他每次从恶魔位面归来都小心翼翼地不敢带回任何东西，生怕成为恶魔找到他的指引。不幸的是，来回很多次以后，他的草鞋浸满了恐惧之地的烟尘和灰烬。地狱之焰随他的脚步被带到了世间，同时也注定了他悲惨的命运。", "_t")
+t("A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.", "这是一个警示故事，讲的是有个叫凯姆的古代术士，为了勘查地狱般的恶魔荒原，也为了考验自己，自命不凡的认为可以在恶魔的老巢高达勒斯天天散步。他每次从恶魔位面归来都小心翼翼地不敢带回任何东西，生怕成为恶魔找到他的指引。不幸的是，来回很多次以后，他的草鞋浸满了恶魔空间的烟尘和灰烬。地狱之焰随他的脚步被带到了世间，同时也注定了他悲惨的命运。", "_t")
 t("Each step you take leaves a burning trail behind you lasting 5 turns that deals %d fire damage (based on Spellpower) to foes who enter it.", "你每踏出一步会在脚下留下一条持续5回合的燃烧痕迹，对所有经过的生物造成 %d 火焰伤害（基于法术强度）。", "tformat")
 t("fire trail", "火焰尾迹", "_t")
 t("Cuirass of the Dark Lord", "黑暗领主胸甲", "entity name")
@@ -20432,7 +20432,7 @@ t("You saved her from the depth of a cultists' lair and fell in love with her. S
 section "mod-tome/data/quests/lumberjack-cursed.lua"
 
 t("The beast within", "心中的野兽", "_t")
-t("You met a half-mad lumberjack fleeing a small village, rambling about an untold horror lurking there, slaughtering people.", "你遇到了一个吓得魂飞魄散的伐木工人从一个小村庄里跑出来，大声喊着有个没见过的吓人的东西在里面杀人。", "_t")
+t("You met a half-mad lumberjack fleeing a small village, rambling about an untold horror lurking there, slaughtering people.", "你遇到了一个从小村庄里逃出来的半疯癫的伐木工人，大声喊着有个没见过的吓人的东西在里面杀人。", "_t")
 t("%d lumberjacks have died.", "%d 个伐木工人死了。", "tformat")
 t("Small lumberjack village", "伐木工人的小村庄", "_t")
 t("He points in the direction of the Riljek forest to the north.", "他指着北方的里尔约克森林。", "logPlayer")
@@ -22381,6 +22381,7 @@ t([[Empowers the selected chronomancy spell, increasing spellpower when casting 
 		
 		Current Empowered Spell: %s]], [[强化指定的时空系法术，施放指定技能时法术强度增加 %d%%。
 		每个技能只能附加一种时空增效系效果。
+		
 		当前强化法术：%s]], "tformat")
 t("Extension", "法术延展", "talent name")
 t([[Extends the duration of the selected chronomancy spell by %d%%.
@@ -22388,7 +22389,7 @@ t([[Extends the duration of the selected chronomancy spell by %d%%.
 		
 		Current Extended Spell: %s]], [[将选定时空法术的持续时间延长 %d%%。
 		每个法术同时只能通过一种方式获得时空增效。
-
+		
 		当前延展法术：%s]], "tformat")
 t("Matrix", "矩阵加速", "talent name")
 t([[Reduces the cooldown of the selected chronomancy spell by %d%%.
@@ -22396,6 +22397,7 @@ t([[Reduces the cooldown of the selected chronomancy spell by %d%%.
 		
 		Current Matrix Spell: %s]], [[强化指定的时空系法术，减少指定法术的冷却时间 %d%%。
 		每个技能只能附加一种时空增效系效果。
+		
 		当前强化法术：%s]], "tformat")
 t("Quicken", "迅捷施法", "talent name")
 t([[Reduces the casting speed of the selected chronomancy spell by %d%%.
@@ -22403,7 +22405,7 @@ t([[Reduces the casting speed of the selected chronomancy spell by %d%%.
 		
 		Current Quickened Spell: %s]], [[强化指定的时空系法术，减少施放指定法术需要的时间 %d%%。
 		每个技能只能附加一种时空增效系效果。
-
+		
 		当前强化法术：%s]], "tformat")
 
 ------------------------------------------------
@@ -24197,7 +24199,7 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 t("Heighten Fear", "恐惧加深", "talent name")
 t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
 			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有被你灌注恐惧的目标若停留在你视野内，并且和你距离不超过 %d，这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
-		这一效果无视恐惧免疫，但可以被豁免。]], "tformat")
+			这一效果无视恐惧抗性，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
 		Additionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.]], [[提高对被你恐惧的目标的精神专制。当一个敌人获得了一个新的恐惧效果，你有 %d%% 的几率增加这一效果和另一个随机的已有恐惧效果的持续时间 %d 回合，最多 8 回合。
@@ -26584,7 +26586,7 @@ t([[You are able to perform usually unstealthy actions (attacking, using objects
 		Success is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.
 		Your base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.
 		You estimate your current chance to maintain stealth as %0.1f%%.]], [[你学会在潜行状态下使用一些通常会打破潜行的技能（如攻击，使用物品……）当你在隐身状态下这么做的时候，你有一定概率不会打破潜行状态。
-		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
+		面对的对手越少，成功率越高；你的成功率取决于你潜行强度的%0.2f倍（当前值 %d），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		当你不在敌人的视野内时，基础成功率为 100%%，这一几率还受你的运气影响。
 		你估计当前成功率为 %0.1f%%。]], "tformat")
 t("Hack'n'Back", "燕回斩", "talent name")
@@ -27084,7 +27086,7 @@ t([[Briefly extend your telekinetic reach to grab an enemy, haul them towards yo
 t("Telekinetic Leap", "灵能跳跃", "talent name")
 t("@Source@ performs a telekinetically enhanced leap!", "@Source@在灵能的帮助下跳跃！", "_t")
 t("You can not jump onto a creature.", "你不能跳到另一个生物上。", "logPlayer")
-t("You perform a precise, telekinetically-enhanced leap, landing up to %d squares from your starting point.", "使用灵能，精准地跳向 %d 码外的地点。", "tformat")
+t("You perform a precise, telekinetically-enhanced leap, landing up to %d squares from your starting point.", "使用灵能，精准地跳跃，落在距起点至多 %d 格处。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/augmented-striking.lua"
@@ -38328,7 +38330,7 @@ t("A malevolent skeleton archmage that has taken control of the Dreadfell since 
 t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
-What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只步履蹒跚、肌肉松弛的——怪物。从他下巴中伸出的浓密胡须以及他的毛发来看，这是一位矮人。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
+What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，松垂的厚皮松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
 t("and offered to his dark Master", "并被献祭给他的黑暗主人", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
@@ -38729,7 +38731,7 @@ t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot
 t("Farportal: the Void", "远行传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
- 这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
+这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s（已禁用）", "tformat")
 t("Invocation Portal: Undeath", "召唤传送门：亡灵", "entity name")
@@ -43108,7 +43110,7 @@ t("In deep places dark things dwell beyond description or understanding. None kn
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
 t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。但永恒精灵们都否认这个传说的真实性。", "init.lua load_tips")
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，击溃了兽人军团，自此开启了卓越纪元。", "init.lua load_tips")
-t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。那些高傲法师们铸成的大错令人们永生难忘。", "init.lua load_tips")
+t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些人被诅咒，获得了超出自身完全掌控的精神力量，从此堕入由仇恨驱动的黑暗生涯。", "init.lua load_tips")
 t("Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.", "恐惧王座一直以来都因其闹鬼的地宫而为人所避讳，但最近有流言传出，此地盘踞着一股更加黑暗可怖的力量。", "init.lua load_tips")
 t("Some Sher'Tul artifacts can still be found in hidden places, but it is said they are not to be trifled with.", "虽然有人说还能在某些隐秘之地找到夏·图尔的神器，但据说不可轻慢它们。", "init.lua load_tips")
