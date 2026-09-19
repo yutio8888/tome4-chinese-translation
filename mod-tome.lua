@@ -2568,8 +2568,8 @@ t("Invasion from the Depths", "海底入侵", "achievement name")
 t("Stopped a naga invasion by closing their portal.", "关闭传送门来阻止娜迦入侵。", "_t")
 t("The Restless Dead", "永不安息", "achievement name")
 t("Disturbed an old battlefield and survived the consequences.", "踏入古战场并最终生还。", "_t")
-t("The Rat Lich", "巫妖鼠", "achievement name")
-t("Killed the terrible Rat Lich.", "杀死可怕的巫妖鼠。", "_t")
+t("The Rat Lich", "鼠巫妖", "achievement name")
+t("Killed the terrible Rat Lich.", "杀死可怕的鼠巫妖。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "achievement name")
 t("Killed Shasshhiy'Kaish after letting her grow as powerful as possible.", "在莎西·凯希成长到尽可能强大之后杀死她。", "_t")
 t("Bringer of Doom", "厄运行者", "achievement name")
@@ -7384,8 +7384,8 @@ section "mod-tome/data/general/events/rat-lich.lua"
 t("way up to %s", "向上到%s的路", "tformat")
 t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开地宫的时候，楼梯崩塌了。", "log")
 t("dusty rat skull", "肮脏的鼠骷髅", "_t")
-t("Skull of the Rat Lich", "巫妖鼠骨盔", "_t")
-t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这顶古老的骨盔是巫妖鼠仅存于世的东西，上面残留了巫妖鼠的部分精华能量。", "_t")
+t("Skull of the Rat Lich", "鼠巫妖头骨", "_t")
+t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这枚古老的头骨是鼠巫妖仅存于世的东西，上面残留了鼠巫妖的部分精华能量。", "_t")
 t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为你作战", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 令 %s %s站了起来，一道红光从它眼中闪过！", "logSeen")
@@ -8091,7 +8091,7 @@ t("elemental", "元素生物", "entity type")
 t("light", "轻甲", "entity subtype")
 t("A floating orb of magical energy. It shines with a radiant light. They explode upon contact.", "一个充满魔法能量的球体，散发着耀眼的光芒，接触其他物体时会爆炸。", "_t")
 t("red crystal", "红色水晶体", "entity name")
-t("A formation of red crystal. It emits bright red, scorching light.", "一个由红色水晶构成的生物，它散发着耀眼的红色光芒。", "_t")
+t("A formation of red crystal. It emits bright red, scorching light.", "一个由红色水晶构成的生物，它散发着耀眼而灼热的红色光芒。", "_t")
 t("white crystal", "白色水晶体", "entity name")
 t("A formation of white crystal. It emits bright white, chilling light.", "一个由白色水晶构成的生物，它发出冰冷刺骨的白色光芒。", "_t")
 t("black crystal", "黑色水晶体", "entity name")
@@ -16322,8 +16322,8 @@ yes to diamonds. arm our merchants in the caravan, no extra guards. profits are 
       红宝石 - 40pcs.
       钻石 - 20pcs.
 
-今年钻石产量很低——加价50%？伊格兰斯袭击了我们上一支安格利文商队——增派守卫？——D·
-钻石同意加价。武装商队里的商人，不增派守卫。利润已经够薄了！——S·。]], "_t")
+今年钻石产量很低——加价50%？伊格兰斯袭击了我们上一支安格利文商队——增派守卫？——D
+钻石同意加价。武装商队里的商人，不增派守卫。利润已经够薄了！——S]], "_t")
 t("Iron Throne Reknor expedition, last words", "钢铁王座瑞库纳远征军的遗言", "_t")
 t("...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.", [[……我们完了。兽人大军势不可当。无论我们小队杀死多少，都会有更多兽人从深处涌来。这些该死的生物究竟从哪里来的？！
 我们已经窥见他们的首领，却根本没有希望杀死他；他是一头野兽，一个毁灭者，身燃炼狱烈火与残酷刺骨的寒冰。这些兽人如今掌握的力量令我恐惧……或许他们找到了新的强大盟友？这消息必须送到统治者手中。战友们……对不起。我会在机会出现时逃走，但要知道，你们的牺牲绝不会白费。愿帝国长存。]], "_t")
@@ -20652,7 +20652,7 @@ t([[You are surprised to still be alive.
 ------------------------------------------------
 section "mod-tome/data/quests/start-allied.lua"
 
-t("Of trolls and damp caves", "巨魔巢穴", "_t")
+t("Of trolls and damp caves", "巨魔与潮湿洞窟", "_t")
 t([[Explore the caves below the ruins of Kor'Pul and the Trollmire in search of treasure and glory!
 ]], [[到卡·普尔废墟和巨魔沼泽的地下城去发现宝藏和荣耀！
 ]], "_t")
@@ -24206,7 +24206,7 @@ t([[Impose your tyranny on the minds of those who fear you. When a foe gains a n
 t("Panic", "惊慌失措", "talent name")
 t("#F53CBE#%s ignores the panic!", "#F53CBE#%s无视惊恐！", "logSeen")
 t("#F53CBE#%s resists the panic!", "#F53CBE#%s抵抗了惊恐！", "logSeen")
-t("Panic your enemies within a range of %d for %d turns. Anyone who fails to make a mental save against your Mindpower has a %d%% chance each turn of trying to run away from you.", "使 %d 范围内的敌人惊慌失措，持续 %d 回合，任何未通过精神豁免的敌人每回合将有 %d%% 概率从你身边吓走。", "tformat")
+t("Panic your enemies within a range of %d for %d turns. Anyone who fails to make a mental save against your Mindpower has a %d%% chance each turn of trying to run away from you.", "使 %d 范围内的敌人惊慌失措，持续 %d 回合，任何未通过精神豁免的敌人每回合将有 %d%% 概率试图逃离你。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/force-of-will.lua"
@@ -26578,7 +26578,7 @@ t([[You have learned how to be stealthy even when in plain sight of your foes.  
 		You estimate your current chance to hide as %0.1f%%.]], [[即使在你的敌人面前，你也学会了如何隐身。不管你与敌人有多近，你都可以尝试潜行，但敌人越少，距离越远成功率越高。
 		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		如果没有生物能看到你，你一定会潜行成功。
-		这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有敌人都会失去对你位置的感知。
+		这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有正在追踪你的生物都会失去对你位置的感知。
 		你估计你目前使用这一技能的成功率为%0.1f%%。]], "tformat")
 t("Unseen Actions", "行动如风", "talent name")
 t([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.	 When you perform such an action while stealthed, you have a chance to stay hidden.
@@ -27813,7 +27813,7 @@ t("Distort reality with your mental energy.", "使用你的精神力量扭曲现
 t("Dream Smith", "梦境锻造", "talent type")
 t("Call the dream-forge hammer to smite your foes.", "召唤梦之巨锤碾碎你的敌人。", "_t")
 t("nightmare", "梦魇", "talent type")
-t("Manifest your enemies nightmares.", "使你的敌人陷入噩梦。", "_t")
+t("Manifest your enemies nightmares.", "将敌人的噩梦具现化。", "_t")
 t("Psychic Assault", "心灵突袭", "talent type")
 t("Directly attack your opponents minds.", "直接攻击敌人的心灵。", "_t")
 t("slumber", "沉睡", "talent type")
@@ -31035,7 +31035,7 @@ t("Venomous Throw", "剧毒飞刀", "_t")
 t([[Throw a knife coated with venom, doing %d%% damage as nature and inflicting additional effects based on your active vile poisons (as per the Venomous Strike talent):
 		
 		%s
-		Using this talent puts your Venomous Strike talent on cooldown.]], [[投掷一把剧毒飞刀，造成 %d%% 自然伤害并根据你当前生效的毒素造成中毒效果（和毒素爆发相同）:
+		Using this talent puts your Venomous Strike talent on cooldown.]], [[投掷一把剧毒飞刀，造成 %d%% 自然伤害并根据你当前生效的邪恶毒素附加额外效果（和毒素爆发相同）:
 
 		%s
 		使用这技能将使毒素爆发进入冷却。]], "tformat")
@@ -37563,7 +37563,7 @@ t("#Target# is free from %s's garrote.", "#Target#从%s的绞杀中脱离。", "
 t("-Garrote", "-绞杀", "_t")
 t("#Source# #LIGHT_RED#strangles#LAST# #Target#!", "#Source##LIGHT_RED#绞杀#LAST##Target#！", "logCombat")
 t("Marked for Death", "死亡标记", "_t")
-t("The target takes %d%% increased damage from all sources.  If this effect runs its full course, the target will take an additional %0.1f physical damage (increased by %d%% of all damage taken while this effect is active).", "目标承受额外 %d%% 伤害。效果结束时，目标将受到 %0.1f 物理伤害(已追加标记期间受到总伤害的 %d%%)。", "tformat")
+t("The target takes %d%% increased damage from all sources.  If this effect runs its full course, the target will take an additional %0.1f physical damage (increased by %d%% of all damage taken while this effect is active).", "目标承受来自任何来源的额外 %d%% 伤害。若此效果完整持续到结束，目标将受到 %0.1f 物理伤害(已追加标记期间受到总伤害的 %d%%)。", "tformat")
 t("#Target# is marked for death!", "#Target#被死亡标记！", "_t")
 t("+Marked for Death!", "+死亡标记！", "_t")
 t("#Target# is free from the deathmark.", "#Target#脱离死亡标记。", "_t")
@@ -43097,7 +43097,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 ]], "init.lua description")
 t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of mages.", "尽管魔法在马基·埃亚尔大陆遭到排斥，不过传说仍然有一个法师的秘密庇护所。", "init.lua load_tips")
 t("The Rush talent lets you close in on an enemy quickly and daze them, disabling them whilst you hack down their friends.", "冲锋技能可以让你快速接近敌人并眩晕目标，你可以借此时机击倒它的同伴。", "init.lua load_tips")
-t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
+t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，为你制造机会重新占位，或以更低的风险将其解决。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
 t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人掌握了魔法的奥秘，凭借新获得的力量几乎征服了整个马基·埃亚尔。", "init.lua load_tips")
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
