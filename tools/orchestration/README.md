@@ -267,8 +267,9 @@ MCP 手动调用的耗时只有调用者使用上述计时接口包裹时才有 
 queue check/rebuild/status、batch start/finalize/recover、migration 不可串联；本次未扩充白名单。
 ## MCP 宿主 stdin 配方（P1）
 
-以下 `functions.exec` JavaScript 定义 `reviewHost`，同一段代码由测试从本文提取执行。
-在同一个 exec 中追加调用，或重新定义函数后按 journal 恢复。`cfg` 指向已冻结并 prepared 的有限
+[`review_host.js`](review_host.js) 是 `reviewHost` 的唯一实现，组合既有
+`review_lifecycle.py host-event` API，不修改 lifecycle backend。测试直接加载这个真实入口，
+README 不再复制一份可能漂移的实现。`cfg` 指向已冻结并 prepared 的有限
 stage：`children`、`outdir`、`keys`（有序 key 列表）、`profileIds`（key → 已按 notes 选定的 ID）、
 `nativeLogs`（key → 明确原生日志路径）。每次创建仍实时读取 profiles；冻结 selection 的 provider/model 须与 profile 一致。
 可选 modeId、thinkingOptionId、featureValues 逐来源验证类型：仅一方声明时使用该值，双方声明时必须一致，
@@ -276,94 +277,42 @@ stage：`children`、`outdir`、`keys`（有序 key 列表）、`profileIds`（k
 生产使用仓库 cwd 和默认 helper；`cfg.helper` 仅供隔离 fixture 指向同一脚本绝对路径。
 Python 只消费 stdin，不能调用宿主注入的异步 MCP tools。每次工具调用的完整返回及计时都经 shell
 单引号转义保存；`JSON.stringify` 只负责 JSON 编码，不能代替 shell quoting。
+`host-event` 本地命令若返回 `session_id`，`reviewHost` 会立即抛错并保留该 `session_id`；调用者须用
+`tools.write_stdin` 手动恢复原会话，且不得重新执行原命令。
+
+当前 `functions.exec` 隔离环境没有 Node `require` 或虚构的直接文件 API；应通过已注入的
+`tools.exec_command` 读取这个固定仓库文件，再在同一隔离环境求值。下面是可直接使用的加载与调用形状，
+其中 `cfg` 和 `action` 由当前冻结 stage/真实通知提供：
 
 ```javascript
-// BEGIN REVIEW_HOST_RECIPE
-async function reviewHost(tools, cfg, action) {
-  const quote = s => "'" + String(s).replace(/'/g, "'\\''") + "'";
-  const helper = cfg.helper || 'tools/orchestration/review_lifecycle.py';
-  async function event(key, op, extra = {}) {
-    const input = JSON.stringify({op, ...extra});
-    const args = ['python3', '-B', helper, 'host-event', cfg.children, key, '--outdir', cfg.outdir];
-    if (cfg.nativeLogs[key]) args.push('--native-log', cfg.nativeLogs[key]);
-    const reply = await tools.exec_command({
-      cmd: "printf '%s' " + quote(input) + ' | ' + args.map(quote).join(' '),
-      yield_time_ms: 1000, max_output_tokens: 4000
-    });
-    // A still-running local command must be resumed by the host; never repeat it.
-    if (reply.session_id) throw new Error('Local command running; resume session ' + reply.session_id);
-    if (reply.exit_code !== 0) throw new Error(reply.output || 'host-event failed');
-    return JSON.parse(reply.output);
-  }
-  async function call(key, op, fn, extra = {}) {
-    const started_at = new Date().toISOString();
-    let response;
-    try { response = await fn(); } catch (error) {
-      await event(key, 'call-failed', {operation: op, started_at, ended_at: new Date().toISOString()});
-      throw error;
-    }
-    return event(key, op, {...extra, response, started_at, ended_at: new Date().toISOString()});
-  }
-  let state = await event(cfg.keys[0], 'recover');
-  const row = key => {
-    const hits = state.rows.filter(r => r.key === key);
-    if (hits.length !== 1) throw new Error('Unknown dispatch');
-    return hits[0];
-  };
-  async function fill() {
-    for (const key of cfg.keys) {
-      if (state.rows.some(r => r.status === 'dispatching'))
-        throw new Error('Ambiguous create: reconcile before any create');
-      for (const r of state.rows.filter(r => r.status === 'created')) {
-        state = await call(r.key, 'bind', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
-      }
-      if (state.rows.some(r => r.create_blocked)) return;
-      const occupied = state.rows.filter(r => r.agent_id ? !r.archive_confirmed :
-        !['prepared', 'confirmed_absent'].includes(r.status)).length;
-      if (occupied >= 3) return;
-      if (!['prepared', 'confirmed_absent'].includes(row(key).status)) continue;
-      state = await call(key, 'profiles', () => tools.mcp__paseo__list_profiles({}),
-                         {profile_id: cfg.profileIds[key]});
-      // Intent is durable. A lost create response leaves dispatching; no automatic retry.
-      state = await call(key, 'create', () => tools.mcp__paseo__create_agent(state.parameters));
-      const agentId = row(key).agent_id; // ID persisted by Python before the first status call.
-      state = await call(key, 'bind', () => tools.mcp__paseo__get_agent_status({agentId}));
-    }
-  }
-  if (action.type === 'fill') {
-    await fill();
-  } else if (action.type === 'finish' || action.type === 'recover-archive') {
-    const key = action.key;
-    const r = row(key);
-    if (r.agent_id !== action.agentId) throw new Error('Notification agent/dispatch mismatch');
-    if (r.archive_confirmed) return state; // Duplicate notification: no remote action.
-    if (!r.live_bound) throw new Error('Recover first live binding before processing notification');
-    if (action.type === 'recover-archive' && !['completed', 'rejected'].includes(r.validation_state))
-      throw new Error('Incomplete harvest requires original notification evidence');
-    if (!['completed', 'rejected'].includes(r.validation_state)) {
-      state = await call(key, 'harvest', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}),
-                         {notified: true, notification_received_at: action.receivedAt || null});
-    }
-    // Always read back first, including recovery after a lost archive response/readback.
-    state = await call(key, 'archive-intent', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
-    if (state.archive) {
-      try {
-        state = await call(key, 'archive-response', () => tools.mcp__paseo__archive_agent({agentId: r.agent_id}));
-      } finally {
-        state = await call(key, 'archive-confirm', () => tools.mcp__paseo__get_agent_status({agentId: r.agent_id}));
-      }
-    }
-    await fill(); // First released slot starts member 4 before touching members 2/3.
-  } else {
-    throw new Error('Unknown host action');
-  }
-  return state;
+const source = await tools.exec_command({
+  cmd: "sed -n '1,400p' tools/orchestration/review_host.js",
+  yield_time_ms: 1000,
+  max_output_tokens: 20000
+});
+if (source.session_id) throw new Error(`loader still running: ${source.session_id}`);
+if (source.exit_code !== 0) throw new Error(source.output || 'review host load failed');
+(0, eval)(source.output);
+try {
+  text(JSON.stringify(await globalThis.reviewHost(tools, cfg, action)));
+} catch (error) {
+  if (error.reviewHostSummary) text(JSON.stringify(error.reviewHostSummary));
+  throw error;
 }
-// END REVIEW_HOST_RECIPE
 ```
 
-初始执行 `text(await reviewHost(tools, cfg, {type: 'fill'}));`；收到已知 child 的真实 finish 通知后，
-调用 `text(await reviewHost(tools, cfg, {type: 'finish', key, agentId, receivedAt}));`，
+默认 `reviewHost` 只返回 `review-host-summary/1`：routine success 聚合状态，只保留未归档
+dispatch 的 `key`/`agent_id`（供 finish 通知）和 authoritative journal/outdir 指针；只有需要处理的
+行才展开归档预算/恢复动作，只有失败才展开错误。已归档的 rejected 行仍保留
+`key`/`agent_id`/`validation_state=rejected` 与不得接受该输出的 fresh-retry 指引。若首个
+recover 命令失败，`state` 及 counts/notifications 明确标为 unknown，不会把未知 child
+状态写成零。
+完整返回不截断、不替代任何权威文件；需要代码读取 host-event 的完整内部结果时显式调用
+`reviewHostDetailed(tools, cfg, action)`，其返回 `{state, summary}`。加载命令的 400 行和 20000 token
+上限覆盖当前有界入口；加载失败必须停止，不能执行截断源码。
+
+初始 action 为 `{type: 'fill'}`；收到已知 child 的真实 finish 通知后，action 为
+`{type: 'finish', key, agentId, receivedAt}`，
 `receivedAt` 为实际收到通知时记录的 ISO 时间；若此前未记录可省略并标未测量。未收到通知时继续其他工作，
 没有定时轮询、sleep 或 idle 猜测取消。一个 journal 只能由一个宿主串行调用。
 归档回读丢失后使用 `{type: 'recover-archive', key, agentId}`，先回读，已关闭直接确认；否则只使用
@@ -374,6 +323,11 @@ archive 异常仍回读；若 finally
 已确认而原异常仍抛出，重载后 `fill` 可立即释放名额。create 返回丢失须按既有 reconciliation
 契约查证：唯一完整捕获用 bind，确定不存在用 reconcile-absent；不得再调用 create 猜测。
 本配方不做列表发现，也不提供自动停止/取消。
+
+显式、离线的 request 用量比较使用 `python3 -B tools/orchestration/review_usage.py RECORDS.json`；
+完整输入 schema、cached 口径、unknown 与区间语义见
+[2026-09-19 效率说明](../../docs/token-efficiency-20260919.md)。该工具不扫描 native session，
+不把 `lastUsage` 快照称为 session 总量，也不计算成本或 provider/tokenizer 推断值。
 
 `host-event children.json 'task|dispatch' --outdir ...` 的 stdin 为
 `{op, response, started_at, ended_at}`；profiles 另带 `profile_id`，harvest 另带真实通知的

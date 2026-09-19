@@ -1,0 +1,170 @@
+{
+  "task_id": "token-efficiency-20260919",
+  "baseline_commit": "c2b03ac91195ad5a0a6016c4166bf7659109092b",
+  "candidate_ref": "4e8cdc38e4fb7addf0fe2a0ee3e62a10b4d999b105dcacfae534e013f8e21d85",
+  "implementation_file_sha256": {
+    "handoff.md": "d64f5bb0a7bf125a65286d4ec64cdc926571c0b2725ffaadb7842da0985f2b89",
+    "docs/handoff-history-through-20260919.md": "5f2f8ebd71359a208a6f688d33e5a9a67741a16c288a1e1ce044de27b883b48e",
+    "tools/orchestration/review_host.js": "a2f16cf11a743b171d00c583d029b86d5ed02d265d7bdc31e2b2df3931fc5fe8",
+    "tools/orchestration/review_usage.py": "b4ae434441b62262b9b4cd0c83c8dff96f639eff3a22fcedf5528292858118f7",
+    "tools/orchestration/README.md": "89004877eca7338bdf9a10c8ff72a54fa02ade5366aedfe5880b7d2f52f7041c",
+    "tests/i18n/test_review_lifecycle.py": "20df43fc4e101d0733bf564f0c771a686e17053370b387d8f2504809c49c9fa3",
+    "tests/i18n/test_review_usage.py": "c33050cb1303133749617be14e55b06f70edba7dc857b873d59bb8c49600292e",
+    "tests/i18n/test_groups.json": "f15cac4ec7d5a276c3b8d6282132569ea1d8a146e15e3a7d2ca939af2ab34589",
+    "docs/token-efficiency-20260919.md": "5c50ba9e7350243ce8c51dca4804d67c899df155bb2834a238016e48c4f808e7"
+  },
+  "scope": "First bounded token-efficiency improvement; production remains paused after audit210, next repair232 only after user resumes",
+  "measurements": {
+    "unit": "UTF-8 serialized bytes, not tokens or production speed",
+    "handoff_before": 101711,
+    "handoff_after": 3571,
+    "representative_host_output_before": 744,
+    "representative_host_output_after": 406
+  },
+  "validation": {
+    "gate_command": "bash tools/ci-gates.sh --skip-build",
+    "build_skip_reason": "No addon output, packaging or loading changes",
+    "gate_result_path": ".artifacts/i18n/ci-gates/run.kfxkpe8o/results.json",
+    "gate_result_sha256": "0f38b247221057d9f9e9402967673da7462bfaef293afdadf34ee7aefa035f87",
+    "checks": [
+      {
+        "id": "01-doctor",
+        "exit_code": 0,
+        "output_sha256": "32477ce56928ad19a8ef98f11248e11a3b481822e88ade96066612b10f08770d"
+      },
+      {
+        "id": "02-strict-lint",
+        "exit_code": 0,
+        "output_sha256": "20a16a3da0ae6551474b8d755f9c76576f7f6192fe4e4e45f06395028b0781a2"
+      },
+      {
+        "id": "03-test-group-registration",
+        "exit_code": 0,
+        "output_sha256": "876b7d75f5ca4d0af47530061d156242cf72572afd2c0d38bf7481dfdf7f39fd"
+      },
+      {
+        "id": "03-toolchain-unit-tests",
+        "exit_code": 0,
+        "output_sha256": "79181e7ed4fbc0f5c875f745219329feb5408aa0c6b7b620f4ad497eef89e7c1"
+      },
+      {
+        "id": "04-quality-facts-unit-tests",
+        "exit_code": 0,
+        "output_sha256": "076d8fb6bd002aa48343ad3e7004c6b7305c38003645fe8e152e2a7fbea47f14"
+      },
+      {
+        "id": "04-semantic-claim-unit-tests",
+        "exit_code": 0,
+        "output_sha256": "c6ce38f8628202af1065d69944a6e44df52f3eb2c6ce8f972572771e0d0cab05"
+      },
+      {
+        "id": "04-semantic-claims-strict-registry",
+        "exit_code": 0,
+        "output_sha256": "883ebfd6aa5ee334dfddeac8e273e1357b3195c28ea6505dc5108efdefb354c7"
+      },
+      {
+        "id": "05-contract-suite-unit-tests",
+        "exit_code": 0,
+        "output_sha256": "0354b14def11a0d4171b05f2ad35e5c9e8d412a00ee66da2e36a9e955288741f"
+      },
+      {
+        "id": "05-production-shadow-surface-ledger-tests",
+        "exit_code": 0,
+        "output_sha256": "289cfe3f1300d69cc4253458a862227c6e21311bcb23c44226db88fef950d3da"
+      },
+      {
+        "id": "06-runtime-collision-scan",
+        "exit_code": 0,
+        "output_sha256": "043dce74e940940cc230ae8746c8fa91d0ead572e9af5c126b7120461f9adb07"
+      },
+      {
+        "id": "07-runtime-key-classification",
+        "exit_code": 0,
+        "output_sha256": "3b7c74b1c1ab6c6b10ba1a2d7811dca0bf01c2f619a0a3aa2c33787281957984"
+      },
+      {
+        "id": "08-terminology-static-audit",
+        "exit_code": 0,
+        "output_sha256": "f55ffa00d237f541d253121252c7c7493b72b57eff80c708043fdd97a9c2c26c"
+      },
+      {
+        "id": "09-terminology-dynamic-audit",
+        "exit_code": 0,
+        "output_sha256": "4301797005133317b79412dc7ed0ea58696acd352d5f581f5fafe0053028152a"
+      },
+      {
+        "id": "10-domain-annotation",
+        "exit_code": 0,
+        "output_sha256": "5defe689ff2139eaef51d789e1c9c3c7462c8941db06499b942985b5a4fb42a0"
+      },
+      {
+        "id": "11-worktree-whitespace",
+        "exit_code": 0,
+        "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "11-staged-whitespace",
+        "exit_code": 0,
+        "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "gate_applicability": "All16 passed. Since that run only README recovery wording changed, independently matched to code; no code/test inputs changed. No cross-command full receipt reuse claimed.",
+    "actual_host_loader": "Loaded via injected exec_command and indirect eval; unknown-state and exact session_id handoff independently verified",
+    "closure": "DONE_VERIFIED"
+  },
+  "adjudication": [
+    {
+      "finding": "NR-01",
+      "status": "confirmed_resolved",
+      "resolution": "Archived rejected output remains visible/actionable"
+    },
+    {
+      "finding": "C1",
+      "status": "confirmed_resolved",
+      "resolution": "Unread journal state stays unknown, never zero"
+    },
+    {
+      "finding": "C2",
+      "status": "confirmed_resolved",
+      "resolution": "Historical README heading anchor restored"
+    },
+    {
+      "finding": "HOST-02",
+      "status": "confirmed_resolved",
+      "resolution": "Removed unintended local wait loop, corrected byte measurement"
+    },
+    {
+      "finding": "CR2-1",
+      "status": "confirmed_resolved",
+      "severity": "low",
+      "resolution": "README now documents manual original-session resume; independently scope-calibrated"
+    }
+  ],
+  "latest_independent_reviews": [
+    {
+      "role": "REVIEWER",
+      "agent_id": "29c797d6-3e64-465a-bd9d-45a32b379220",
+      "phase": "RE_REVIEW",
+      "cycle": 3,
+      "verdict": "PASS"
+    },
+    {
+      "role": "senior-reviewer",
+      "agent_id": "99a3cc43-868f-4248-8a19-8a545d58fd7d",
+      "phase": "RE_REVIEW",
+      "cycle": 3,
+      "verdict": "PASS"
+    }
+  ],
+  "nonblocking_advisories": [
+    "Automated coverage of indirect-eval loader; current loader manually verified",
+    "Structured session_id error and uniform unknown-notification type could simplify future consumers"
+  ],
+  "closeout_authorization": "User explicitly requested no more small-fix/full-review loops; no separate additional FINAL_REVIEW dispatch was started and existing phases were not relabeled.",
+  "lifecycle": {
+    "dispatches": 11,
+    "all_archived_confirmed": true,
+    "deviation": "For final cross-03, local harvest persistence guard failed after report receipt; archive was nevertheless called. Its report and actual consumed archive count=1 were then recorded and archived state reconfirmed. This is a documented retrospective correction, not a claim of pre-call intent persistence."
+  },
+  "limits": "No real production token/cost/wall-time reduction has yet been measured; usage CLI requires explicit records, it does not collect provider billing data."
+}

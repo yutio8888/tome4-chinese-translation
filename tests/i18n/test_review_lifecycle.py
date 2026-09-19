@@ -1582,10 +1582,12 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
             with self.assertRaises(life.LifecycleError):
                 life.mcp_create_parameters(row, {'profiles': [changed]}, 'chosen')
 
-    def test_p1_readme_recipe_four_members_and_fault_recovery(self):
+    def test_reusable_host_entry_four_members_and_fault_recovery(self):
         import shutil
-        self.assertIsNotNone(shutil.which('node'), 'Node is needed only to execute this README fixture')
-        recipe = (ROOT / 'tools/orchestration/README.md').read_text().split('// BEGIN REVIEW_HOST_RECIPE\n')[1].split('// END REVIEW_HOST_RECIPE')[0]
+        self.assertIsNotNone(shutil.which('node'), 'Node is needed to execute the reusable host entry')
+        host = ROOT / 'tools/orchestration/review_host.js'
+        recipe = ('const {reviewHost, reviewHostDetailed, compactReviewHostState} = require('
+                  + json.dumps(str(host)) + ');\n')
         for fault in ('none', 'create-lost', 'id-crash', 'mirror-crash', 'archive-read-lost', 'archive-budget'):
             with self.subTest(fault=fault), tempfile.TemporaryDirectory(prefix='p1-recipe-') as directory:
                 # Reuse real envelope/journal constructors; all state and source IO is temporary.
@@ -1629,6 +1631,78 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
                     self.run_recipe_bridge(script)
                 finally:
                     self.root, self.j, self.selection = old_root, old_j, old_selection
+
+    def test_cycle1_host_summary_preserves_rejection_and_unknown_recover_state(self):
+        import shutil
+        self.assertIsNotNone(shutil.which('node'), 'Node is needed to execute the reusable host entry')
+        host = ROOT / 'tools/orchestration/review_host.js'
+        script = r'''
+const assert = require('assert');
+const {reviewHost, compactReviewHostState} = require(HOST);
+const cfg = {children:'/fixture/children.json', outdir:'/fixture/out', keys:['task|lane-1'],
+  profileIds:{'task|lane-1':'chosen'}, nativeLogs:{}};
+const completed = {key:'task|lane-1', agent_id:'agent-1', status:'archived',
+  archive_confirmed:true, archive_attempts_started:1, validation_state:'completed',
+  output_valid:true, live_bound:true, create_blocked:false};
+const rejected = {...completed, validation_state:'rejected', output_valid:false};
+const good = compactReviewHostState({rows:[completed]}, {type:'recover-archive'}, cfg);
+const bad = compactReviewHostState({rows:[rejected]}, {type:'recover-archive'}, cfg);
+assert.equal(good.state, 'known');
+assert(!Object.hasOwn(good, 'rejected'));
+assert.notDeepEqual(bad, good);
+assert.deepEqual(bad.rejected, [{key:'task|lane-1', agent_id:'agent-1',
+  validation_state:'rejected', output_valid:false,
+  next:'invalid output: inspect preserved rejection evidence and use a fresh retry dispatch; do not accept this output'}]);
+assert.equal(bad.evidence.journal, cfg.children);
+assert.equal(bad.evidence.outdir, cfg.outdir);
+
+async function failedSummary(tools) {
+  try {
+    await reviewHost(tools, cfg, {type:'fill'});
+    assert.fail('recover failure must reject');
+  } catch (error) {
+    assert(error.reviewHostSummary);
+    return error;
+  }
+}
+(async () => {
+  let commands = 0;
+  const initialError = await failedSummary({exec_command: async () => {
+    commands += 1; return {exit_code:7, output:'initial recover failed'};
+  }});
+  const initial = initialError.reviewHostSummary;
+  assert.equal(commands, 1);
+  assert.equal(initial.state, 'unknown');
+  assert.deepEqual(initial.counts, {state:'unknown', total:null, status:null,
+    active:null, archived:null, blocked:null});
+  assert.deepEqual(initial.notifications, {state:'unknown'});
+  assert.equal(initial.errors[0].operation, 'recover');
+  assert.match(initial.errors[0].message, /initial recover failed/);
+  assert.equal(initial.evidence.journal, cfg.children);
+
+  let starts = 0, resumes = 0;
+  const yieldedError = await failedSummary({
+    exec_command: async () => {
+      starts += 1; return {session_id:42, output:''};
+    },
+    write_stdin: async () => {
+      resumes += 1;
+      throw new Error('reviewHost must hand the original session back to its caller');
+    }
+  });
+  const yielded = yieldedError.reviewHostSummary;
+  assert.equal(starts, 1, 'the original local command must not be repeated');
+  assert.equal(resumes, 0, 'reviewHost must not resume the original local command session');
+  assert.match(yieldedError.message, /session_id 42; resume the original command session/);
+  assert.equal(yielded.state, 'unknown');
+  assert.equal(yielded.counts.total, null);
+  assert.deepEqual(yielded.notifications, {state:'unknown'});
+  assert.equal(yielded.errors[0].operation, 'recover');
+  assert.match(yielded.errors[0].message, /session_id 42; resume the original command session/);
+})().catch(error => { console.error(error); process.exit(1); });
+'''.replace('HOST', json.dumps(str(host)), 1)
+        result = subprocess.run(['node', '-e', script], cwd=self.root, capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_cycle1_direct_intent_stops_without_mutation_and_allows_binding(self):
         specs = self.surface(); self.prepare(specs, life.SURFACE)
@@ -1738,8 +1812,9 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
         data = dict(cfg=cfg, captures=captures, profiles=self.wire({'profiles': [profile]}, 'profiles'),
                     archive=self.wire({'success': True}),
                     statepath=str(self.root / '.ai/task/surface-task/STATE.json'))
-        recipe = (ROOT / 'tools/orchestration/README.md').read_text().split(
-            '// BEGIN REVIEW_HOST_RECIPE\n')[1].split('// END REVIEW_HOST_RECIPE')[0]
+        host = ROOT / 'tools/orchestration/review_host.js'
+        recipe = ('const {reviewHost, reviewHostDetailed, compactReviewHostState} = require('
+                  + json.dumps(str(host)) + ');\n')
         runner = r'''
 const assert = require('assert'), fs = require('fs');
 const input = require('readline').createInterface({input:process.stdin});
@@ -1903,10 +1978,15 @@ const tools = {
   }
 };
 (async () => {
-  let caught = false;
-  try { await reviewHost(tools, cfg, {type:'fill'}); } catch(e) {caught = true;}
+  let caught = false, caughtError = null;
+  try { await reviewHost(tools, cfg, {type:'fill'}); } catch(e) {caught = true; caughtError = e;}
   if (['create-lost','id-crash','mirror-crash'].includes(fault)) assert(caught);
   else assert(!caught);
+  if (caught) {
+    assert.equal(caughtError.reviewHostSummary.schema, 'review-host-summary/1');
+    assert(caughtError.reviewHostSummary.errors[0].message.length > 0);
+    assert.equal(caughtError.reviewHostSummary.evidence.journal, cfg.children);
+  }
   if (fault === 'create-lost') {
     assert.equal(disk()[0].status, 'dispatching');
     const count = calls.length;
@@ -1949,7 +2029,15 @@ const tools = {
   if (fault !== 'archive-budget')
     assert(!calls.includes('archive:' + cfg.keys[1]) && !calls.includes('archive:' + cfg.keys[2]));
   const count = calls.length;
-  await reviewHost(tools, cfg, action); assert.equal(calls.length,count);
+  const compact = await reviewHost(tools, cfg, action); assert.equal(calls.length,count);
+  assert.equal(compact.schema, 'review-host-summary/1');
+  assert.equal(compact.counts.total, 4);
+  assert.equal(compact.evidence.journal, cfg.children);
+  assert(!Object.hasOwn(compact, 'parameters'));
+  const detailed = await reviewHostDetailed(tools, cfg, action);
+  assert(Array.isArray(detailed.state.rows));
+  assert.equal(detailed.summary.schema, 'review-host-summary/1');
+  assert(Buffer.byteLength(JSON.stringify(detailed.summary)) < Buffer.byteLength(JSON.stringify(detailed.state)));
   assert(!fs.existsSync(data.root + '/NEVER'));
   process.stdout.write(JSON.stringify({verified:true, calls}) + '\n'); input.close();
 })().catch(e => {console.error(e); process.exit(1);});
