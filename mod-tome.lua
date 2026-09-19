@@ -12873,7 +12873,7 @@ t("These voratun gauntlets appear to have suffered considerable damage. Original
 t("slightly tarnished voratun gauntlets", "稍微破旧的沃瑞钽臂铠", "_t")
 t("These voratun gauntlets shine brightly beneath a thin layer of wear. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.", "这件沃瑞钽臂铠虽然有一些使用痕迹，仍然闪耀着光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
 t("gleaming voratun gauntlets", "闪耀的沃瑞钽臂铠", "_t")
-t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。", "_t")
+t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着近乎超凡脱俗的光芒。它最初在魔法狩猎中使用，常被用于摧毁奥术类装备，以消除它们对世界的影响。履行这一古老职责的自豪，几乎从这件臂铠上散发出来。", "_t")
 t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域尝试驱散生物身上的魔法效果和魔法持续技能（至多两项；非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
 t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量！", "logSeen")
 t("%s's animating magic is disrupted by the burst of power!", "%s的活化魔法被爆发的力量干扰了！", "logSeen")
@@ -24828,7 +24828,7 @@ t([[Sharp shards of stone grow from your shields.
 		When you are hit in melee, you will get a free attack against the attacker with the shards doing %d%% shield damage (as Nature).
 		This effect can only happen once per turn and is not affected by counterstrike.]], [[尖锐的岩石碎片从盾牌生长出来。
 		每次你承受近战攻击时，你能利用这些碎片反击攻击者，造成 %d%% 自然盾牌伤害。
-		每回合只能反击一次，且无法触发格挡反击。]], "tformat")
+		每回合只能反击一次，且不受反击（Counterstrike）状态影响。]], "tformat")
 t("Eldritch Stone", "奥术岩盾", "talent name")
 t([[Creates a shield of impenetrable stone around you for %d turns, absorbing up to %d damage.
 		Your equilibrium will increase by twice the damage absorbed.
@@ -27999,7 +27999,7 @@ t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learn
 		属性增益受精神强度加成。]], "tformat")
 t("Thought-Form: Warrior", "思维形态：战士", "talent name")
 t("thought-forged warrior", "精神体战士", "_t")
-t("A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.", "一位身穿重甲的精神体战士。他时刻准备着战斗。", "_t")
+t("A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.", "一位手持巨型战斧、身穿重甲的精神体战士。他时刻准备着战斗。", "_t")
 t([[Forge a warrior wielding a battle-axe from your thoughts.  The warrior learns Weapon Mastery, Combat Accuracy, Berserker, Death Dance, and Rush as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持战斧的精神体战士。当精神体战士到达对应等级时可习得武器掌握、强化命中、嗜血、死亡之舞和冲锋，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
@@ -31180,7 +31180,7 @@ t([[Improves your ability to perform counterstrikes after blocks in the followin
 		受敏捷影响，此暴击率按比例加成。]], "tformat")
 t("Shield Slam", "拍击", "talent name")
 t("You cannot use Shield Slam without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
-t("Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.", [[用盾牌拍击目标 3 次，造成 %d%% 武器伤害，然后迅速进入格挡状态。
+t("Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.", [[用盾牌拍击目标 3 次，造成 %d%% 盾牌伤害，然后迅速进入格挡状态。
 		该格挡不占用盾牌的格挡技能冷却。]], "tformat")
 t("Assault", "强袭", "talent name")
 t("You cannot use Assault without a mainhand weapon and shield!", "没有主手武器和盾牌，无法使用强袭！", "logPlayer")
@@ -31777,8 +31777,8 @@ t("#LIGHT_BLUE##Source# punishes #Target# for casting a spell!", "#LIGHT_BLUE##S
 t([[Your will is a shield against assaults from crazed arcane users.
 		Each time that you take damage from a spell, you punish the spellcaster with %0.2f mind damage.
 		Also, they will suffer a 35%% spell failure chance (with duration equal to the cooldown of the spell they used on you).
-		Note: this talent has a cooldown.]], [[你的意志是对抗邪恶魔法师的盾牌。
-		每当你受到魔法伤害，你会惩罚施法者，使其受到 %0.2f 的精神伤害。
+		Note: this talent has a cooldown.]], [[你的意志是对抗癫狂奥术使用者的盾牌。
+		每当你受到法术造成的伤害，你会惩罚施法者，使其受到 %0.2f 的精神伤害。
 		同时，它们在对你使用的技能进入冷却的回合中，会受到 35%% 法术失败率惩罚。
 		注意：该技能有冷却时间。]], "tformat")
 t("Mental Tyranny", "心灵暴政", "talent name")
@@ -36647,7 +36647,7 @@ t("tremendous loss", "巨大的损失", "_t")
 t("terrible loss", "可怕的损失", "_t")
 t("#LIGHT_RED#%s suffered a %s of self in the Dreamscape!", "#LIGHT_RED#%s在梦境空间中受到了%s！", "logSeen")
 t("Revisionist History", "修正历史", "_t")
-t("While this effect holds you can decide recent history did not happen the way it did.", "该效果持续时你可以改变现实历史使其不会发生。", "_t")
+t("While this effect holds you can decide recent history did not happen the way it did.", "该效果持续时你可以裁定最近发生的事并非以原本的方式发生。", "_t")
 t("#LIGHT_RED#The spell fizzles.", "#LIGHT_RED#法术失败了。", "logSeen")
 t("#LIGHT_BLUE#You go back in time to rewrite history!", "#LIGHT_BLUE#你回到过去，改写了历史！", "logPlayer")
 t("aura", "光环", "effect subtype")
@@ -38319,7 +38319,7 @@ section "mod-tome/data/zones/dreadfell/npcs.lua"
 t("undead", "亡灵", "entity type")
 t("vampire", "吸血鬼", "entity subtype")
 t("The Master", "领主", "entity name")
-t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而强壮的肉体似乎在向世界宣告着贪婪和怨恨，他的眼神透露着一股睥睨天下的自信。周围的不死族都完全服从于他，尽管如此，他还是表现出厌恶的神情，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
+t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而强壮的肉体似乎在向世界宣告着贪婪和怨恨，他的眼神透露着一股睥睨天下的自信。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
 t("and raised as his tortured undead thrall", "并作为他的不死仆从永受折磨", "_t")
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
@@ -39267,7 +39267,7 @@ t("orc", "兽人", "entity subtype")
 t("orc baby", "兽人宝宝", "entity name")
 t("Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and slime still sticking to its skin.", "虽然只能用四肢在地上爬行，这只绿皮生物和可爱却丝毫没有关联。它有着锋利的牙齿和指甲，并且它的皮肤上沾了一层粘糊糊的液体。", "_t")
 t("orc child", "兽人儿童", "entity name")
-t("This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.", "这只小兽人的眼里透露着怨恨和贪婪。它有着旺盛的活力并能以惊人的速度移动。虽然还没完全长大，但是你能看到他全身上下微微隆起的肌肉。", "_t")
+t("This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.", "这只小兽人的眼里透露着怨恨和贪婪。它有着旺盛的活力并能以惊人的速度移动。虽然还没完全长大，但是你仍能看到他修长四肢上正在成形的肌肉，末端连着带爪的手指和脚趾。", "_t")
 t("young orc", "年轻兽人", "entity name")
 t("This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.", "这只年轻兽人已近乎成年，厚实的皮肤下肌肉贲张。虽然它已不像年幼的同类那样野性十足，但你能从它漆黑的双眼背后看到智慧与冷酷算计的光芒。", "_t")
 t("orc mother", "兽人母体", "entity name")
@@ -39614,7 +39614,7 @@ t("Did you hear? Something seems to have devoured all the last sandworms!", "你
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
 t("Corrupted Sand Wyrm", "堕落沙龙", "entity name")
-t("The sandworms are gone, devoured by this shrieking, warped horror.", "沙虫们已经死了，它们被这只扭曲的恐怖所吞噬。", "_t")
+t("The sandworms are gone, devoured by this shrieking, warped horror.", "沙虫们已经死了，它们被这只尖啸而扭曲的恐怖所吞噬。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/sandworm-lair/objects.lua"
