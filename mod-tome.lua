@@ -2777,7 +2777,7 @@ t("Fought the two Sorcerers without closing any invocation portals.", "在不关
 t("Portal destroyer", "传送门毁灭者", "achievement name")
 t("Fought the two Sorcerers and closed one invocation portal.", "与两名巫师交战并关闭了1扇召唤传送门。", "_t")
 t("Portal reaver", "传送门收割者", "achievement name")
-t("Fought the two Sorcerers and closed two invocation portals.", "在关闭2扇传送门的情况下，杀死2名巫师。", "_t")
+t("Fought the two Sorcerers and closed two invocation portals.", "与两名巫师交战并关闭了2扇召唤传送门。", "_t")
 t("Portal ender", "传送门终结者", "achievement name")
 t("Fought the two Sorcerers and closed three invocation portals.", "在关闭3扇召唤传送门的情况下，与两名巫师交战。", "_t")
 t("Portal master", "传送门主宰者", "achievement name")
@@ -8423,7 +8423,7 @@ t("major", "大恶魔", "entity subtype")
 t("dolleg", "多雷格", "entity name")
 t("A monstrous demon, covered in acidic thorns.", "一只畸形的恶魔，身上长有酸性尖刺。", "_t")
 t("dúathedlen", "多瑟顿", "entity name")
-t("Under a shroud of darkness you discern an evil shape.", "在黑暗之雾的笼罩下，依稀可见恶魔的形态。", "_t")
+t("Under a shroud of darkness you discern an evil shape.", "在一片黑暗的笼罩下，依稀可见一道邪恶的身影。", "_t")
 t("uruivellas", "乌尔维拉斯", "entity name")
 t([[This demon would look like a minotaur, if a minotaur had a fiery aura surrounding it and horns all over its body.
 Oh, and it is twice as big, too.]], "这只恶魔长得像一只米诺陶斯，如果米诺陶斯周身环绕着炽焰光环、全身长满尖角的话。\n哦，而且它还有两倍大。", "_t")
@@ -8478,7 +8478,7 @@ t("A strange brown growth on the dungeon floor.", "地板上的奇特棕色植�
 t("shining mold", "闪光霉菌", "entity name")
 t("A strange luminescent growth on the dungeon floor.", "地板上的奇特闪光植物。", "_t")
 t("green mold", "绿色霉菌", "entity name")
-t("A strange sickly green growth on the dungeon floor.", "地板上的奇特绿色植物。", "_t")
+t("A strange sickly green growth on the dungeon floor.", "地牢地面上一片古怪的病态绿色菌丛。", "_t")
 t("undead", "亡灵", "entity type")
 t("Z'quikzshl the skeletal mold", "骨化霉菌兹基克茨", "entity name")
 t("Steeped in fungal malevolence, this mold refused to die.  How a mold becomes a skeleton, though, is beyond you.  Are those its own bones, or the bones of hapless adventurers?", "这团霉菌浸透着真菌的恶意，拒绝死亡。然而，霉菌是如何变成骷髅的，你想不明白。那是它自己的骨头，还是倒霉冒险者的骨头？", "_t")
@@ -8669,7 +8669,7 @@ t("giant brown rat", "巨大棕耗子", "entity name")
 t("giant rabbit", "巨大兔子", "entity name")
 t("Kill the wabbit, kill the wabbit, kill the wabbbbbiiiiiit.", "快去打小白兔，哼哼哈嘿；快去打小白兔，哼哼哈嘿；吾辈就是要去，打小白兔……", "_t")
 t("giant crystal rat", "巨大水晶耗子", "entity name")
-t("Instead of fur, this rat has crystals growing on its back, which provide extra protection.", "与普通耗子不同，这只耗子背上长着晶化皮毛，它因此获得了额外的保护。", "_t")
+t("Instead of fur, this rat has crystals growing on its back, which provide extra protection.", "这只耗子背上长的不是毛发而是晶体，它因此获得了额外的保护。", "_t")
 t("giant grey mouse", "巨大灰鼠", "entity name")
 t("giant grey rat", "巨大灰耗子", "entity name")
 
@@ -12685,7 +12685,7 @@ t("three-edged sword", "三棱剑", "_t")
 t("The wise ones say that truth is a three-edged sword. And sometimes, the truth hurts.", "有些聪明人说真理是把三刃剑。因为有些时候，“真理”是会伤到人的。", "_t")
 t("9% chance to stun or confuse the target", "9% 几率震慑或混乱目标", "_t")
 t("Ureslak's Femur", "乌尔斯拉克的股骨", "entity name")
-t("a strangely colored bone", "染的稀奇古怪的骨头", "_t")
+t("a strangely colored bone", "一根颜色奇异的骨头", "_t")
 t("A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.", "强大的棱晶龙乌尔斯拉克被截断的腿骨，这根奇怪的棍子仍然流动着乌尔斯拉克的天性。", "_t")
 t("10% chance to shimmer to a different hue and gain powers", "10% 几率闪烁变换成不同色调并获得相应能力", "_t")
 t("Ureslak's %s Femur", "乌尔斯拉克的%s股骨", "tformat")
@@ -13040,7 +13040,7 @@ t("overgrown leather cap", "长满苔藓的皮帽", "_t")
 t("This leather cap is overgrown with a thick moss, except for around the very front, where an eye, carved of wood, rests. A thick green slime slowly pours from the corners of the eye, like tears.", "这顶皮帽上长满了厚厚的苔藓，帽子正前方用木头刻上了一只眼睛——绿色的液体缓缓从眼睛的眼角流出，仿佛眼泪一样。", "_t")
 t("Eyal's Will", "埃亚尔之意志", "entity name")
 t("pale green mindstar", "淡绿色的灵晶", "_t")
-t("This smooth green crystal flows with a light green slime in its core. Droplets occasionally form on its surface, tufts of grass growing quickly on the ground where they fall.", "光滑的绿色晶体，内部有闪亮的绿色液体在流动。偶尔一小滴液体渗了出来，滴在地上，地面马上就长满了青草。", "_t")
+t("This smooth green crystal flows with a light green slime in its core. Droplets occasionally form on its surface, tufts of grass growing quickly on the ground where they fall.", "光滑的绿色晶体，内部流动着浅绿色的黏液。偶尔有液滴在其表面凝结，滴落处的地面很快长出几簇青草。", "_t")
 t("Evermoss Robe", "常青苔之袍", "entity name")
 t("fuzzy green robe", "毛茸茸的绿色长袍", "_t")
 t("This thick robe is woven from a dark green moss, firmly bound and cool to the touch. It is said to have rejuvenating properties.", "这件厚厚的长袍使用一大块深绿的苔藓织成的，十分牢固，摸上去很清凉。据说，它能让人恢复青春。", "_t")
@@ -17665,9 +17665,9 @@ Well, no more. We shall meet seven days from now in Derth's town square. Come pr
 Prepare yourself, if you've the courage,
 Rolf]], [[最亲爱的威斯曼，
 
-不好意思打断你观赏花鸟，但我必须给这场插科打诨画上休止符。你那可笑的自大和虚假的英雄气概，我已经忍了太久了。起初我觉得你写的那些吹得天花乱坠的“骚扰当地野生动物”见闻还算幽默，如今我却惊恐地发现你这家伙是当真的——你竟以为自己那些可悲的闲逛是传说级的事迹。
+不好意思打断你的观鸟之行，但我必须给这场插科打诨画上休止符。你那可笑的自大和虚假的英雄气概，我已经忍了太久了。起初我觉得你写的那些吹得天花乱坠的“骚扰当地野生动物”见闻还算幽默，如今我却惊恐地发现你这家伙是当真的——你竟以为自己那些可悲的闲逛是传说级的事迹。
 
-好吧，到此为止了，七天后我们在德斯镇的镇广场见。别忘记为旅行做好准备。最近有传闻说有个怪物占领了城市北方的遗迹，事态的恶化让人们不能单纯的以传闻处之了。你应该随我来，见识一下这只怪物，切身体会一下你和我之间的差距。幸运的话，这次冒险后你能全身而退，但恐怕这场考验会让你搭上一两条胳膊或腿。
+好吧，到此为止了，七天后我们在德斯镇的镇广场见。别忘记为旅行做好准备。有传闻说一只怪物盘踞在镇子北边不远处的遗迹里，这类传闻已经多到不能再当作传闻看待了。你要随我同去，与我并肩直面这只怪物，亲身体会你我本领之间的巨大差距。幸运的话，你能毫发无伤地学到这一课，但恐怕这场考验会让你搭上一两条胳膊或腿。
 
 开始准备吧，如果你够胆的话。
 罗尔夫]], "_t")
@@ -18025,11 +18025,11 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 
 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
-矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
+矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
-在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
+在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于种族的调查——第四章——永恒精灵", "_t")
 t([[Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole "Elore", which means "siblings", yet the interactions between these brothers and sisters are oft strained.
 
@@ -23186,7 +23186,7 @@ Mastering a new tool places it (and its special effects, as appropriate) on cool
 
 %s
 效果取决于技能等级。
-强化工具将使其进入冷却。]], "tformat")
+掌握一件新工具会使该工具（及其相应的特殊效果）进入冷却。]], "tformat")
 t("Hidden Blades", "隐匿刀锋", "talent name")
 t("#Source# strikes #target# with hidden blades!", "#Source#使用隐藏的刀片击中了#target#！", "logCombat")
 t("Melee criticals trigger an extra unarmed attack, inflicting %d%% damage. 4 turn cooldown.", "近战暴击触发额外 %d%% 伤害徒手攻击，4 回合冷却。", "tformat")
@@ -26654,7 +26654,7 @@ t([[For an instant, your weapons turn into a shadow leash that tries to grab the
 		The chance to hit improves with your Accuracy.]], [[使你的武器立刻转化为暗影之缚形态，夺取目标武器，缴械目标 %d 回合。
 		技能命中率受命中加成。]], "tformat")
 t("Dismay", "惊骇", "talent name")
-t("Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.", "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率受到惊骇持续 %d 回合，你对受惊骇影响的目标进行的首次近战攻击必定暴击。", "tformat")
+t("Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.", "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率陷入惊慌失措持续 %d 回合，对处于惊慌失措状态的目标发动的首次近战攻击必定暴击。", "tformat")
 t("Shadow Empathy", "阴影链接", "talent name")
 t([[You are linked to your shadows for %d turns, diverting %d%% of all damage you take to a random shadow.
 		Effect increases with Mindpower.]], [[你与自己的影子相连 %d 回合，将你受到的所有伤害的 %d%% 转移给一个随机影子。
@@ -26671,7 +26671,7 @@ t([[The caster's image blurs, granting a %d bonus to Defense.
 t("Cold Flames", "骨灵冷火", "talent name")
 t("cold flames", "冷火", "_t")
 t([[Cold Flames slowly spread from %d spots in a radius of %d around the targeted location. The flames deal %0.2f cold damage, and have a chance of freezing.
-		Damage improves with your Spellpower.]], [[冰冷的火焰从目标点向 %d 个方向扩散，有效范围 %d 码半径。火焰会造成 %0.2f 冰冷伤害并有几率冰冻目标。
+		Damage improves with your Spellpower.]], [[冰冷的火焰从目标位置周围 %d 处地点缓慢扩散，范围半径 %d 格。火焰会造成 %0.2f 冰冷伤害并有几率冰冻目标。
 		伤害受法术强度加成。]], "tformat")
 t("Quicken Spells", "快速施法", "talent name")
 t("Reduces the cooldown of all spells by %d%%.", "减少 %d%% 所有法术冷却时间。", "tformat")
@@ -27080,9 +27080,9 @@ t("Mindhook", "心灵钩爪", "talent name")
 t("The target is out of range", "目标距离太远", "logPlayer")
 t([[Briefly extend your telekinetic reach to grab an enemy, haul them towards you and daze them for 1 turn.
 		Works on enemies up to %d squares away.
-		The cooldown decreases, and the range increases, with additional talent points spent.]], [[用灵能将远处的敌人抓过来，并使其眩晕1回合。
-		至多对半径 %d 的敌人有效。
-		范围和冷却时间受技能等级影响。]], "tformat")
+		The cooldown decreases, and the range increases, with additional talent points spent.]], [[短暂延伸你的灵能触及以抓住一名敌人，将其拖向你并使其眩晕 1 回合。
+		可作用于至多 %d 格外的敌人。
+		每投入额外的技能点，冷却时间下降、射程提升。]], "tformat")
 t("Telekinetic Leap", "灵能跳跃", "talent name")
 t("@Source@ performs a telekinetically enhanced leap!", "@Source@在灵能的帮助下跳跃！", "_t")
 t("You can not jump onto a creature.", "你不能跳到另一个生物上。", "logPlayer")
@@ -29802,7 +29802,7 @@ t([[Using your near-perfect knowledge of beam spells you combine them all into a
 		The damage will increase with your Spellpower.]], [[你的射线类法术已臻化境，可以将各种元素合并起来，发射出纯粹能量构成，宽度为3的强力射线。
 		射线造成 %0.2f 奇术伤害，且必定发射到最远距离。
 		奇术伤害无法被“全体抗性”之外的任何抗性阻挡，使用你最高的抗性穿透属性和最高的伤害加成属性，且无法被变为其他伤害类型。
-		这一技能可以触发无尽之炎和风暴之怒。
+		这一技能可以触发无尽之焰和风暴之怒。
 		如果你处在西弗格罗斯形态下，对潮湿目标伤害增加 30%%。
 		在开启水晶力场或绝对零度的情况下，技能分别有 25%% 几率震慑或冻结目标 3 回合。
 		每当你使用射线类技能造成伤害，这一技能的冷却时间降低 1 回合（这一效果每回合最多触发一次）。
@@ -29874,7 +29874,7 @@ t("Blastwave", "火焰新星", "talent name")
 t([[A wave of fire emanates from you with a radius of %d, knocking back anything caught inside and setting them ablaze, doing %0.2f fire damage over 3 turns.
 		The damage will increase with your Spellpower.]], [[从你身上释放出一波 %d 码半径范围的火焰，击退范围内所有目标并使它们进入 3 回合灼烧状态，共造成 %0.2f 火焰伤害。
 		伤害受法术强度加成。]], "tformat")
-t("Burning Wake", "无尽之炎", "talent name")
+t("Burning Wake", "无尽之焰", "talent name")
 t([[Your Flame, Flameshock, Fireflash and Blastwave spells leave a burning wake on the ground, burning all within for %0.2f fire damage for 4 turns.
 		The damage will increase with your Spellpower.]], [[你的火球术、火焰冲击、爆裂火球和火焰新星都会在地上留下燃烧的火焰，每回合对经过者造成 %0.2f 火焰伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
@@ -30420,8 +30420,8 @@ t("%s cannot move!", "%s 无法移动！", "logPlayer")
 t("Terrain prevents #Source# from switching places with #Target#.", "地形阻止了#Source#与#Target#的换位。", "logCombat")
 t([[Make a cunning feint that tricks your target into swapping places with you.  While moving, you take the opportunity to trip them, pinning and dazing them for 2 turns.
 		Switching places distracts your foes and allows you to improve your defenses:  For %d turns, Dual Weapon Mastery yields one extra parry each turn and you are %d%% less likely to miss your parry opportunities.
-		The chance to pin and to daze increases with your Accuracy]], [[假装攻击敌人，欺骗敌人和你换位。在移动时趁机削弱敌人，使其定身并眩晕 2 回合。
-		换位令你的敌人分心，使你的闪避得到强化：%d 回合内，双持掌握提供额外一次招架机会，你错失招架机会的几率下降 %d%%。
+		The chance to pin and to daze increases with your Accuracy]], [[以巧妙的虚招诱使目标与你换位。换位移动时你趁机将其绊倒，使其定身并眩晕 2 回合。
+		换位令你的敌人分心，使你的防御得到强化：%d 回合内，双持掌握每回合提供额外一次招架机会，你错失招架机会的几率下降 %d%%。
 		定身与眩晕几率受命中加成。]], "tformat")
 t("Lunge", "刺击", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
@@ -30940,7 +30940,7 @@ t("Whatever wins the day, wins the day.", "只要能赢，什么手段都行。"
 t("assassination", "暗杀", "talent type")
 t("Bring death from the shadows.", "从暗影中带来死亡。", "_t")
 t("throwing knives", "飞刀", "talent type")
-t("Master the art of throwing knives to fight from a distance.", "掌握使用飞刀从远程射击敌人的艺术。", "_t")
+t("Master the art of throwing knives to fight from a distance.", "掌握飞刀投掷的技艺，以远距离作战。", "_t")
 t("duelist", "决斗专家", "talent type")
 t("Use your dual weapons to parry and counter.", "使用双持武器招架反击。", "_t")
 t("marksmanship", "神枪手", "talent type")
@@ -31484,7 +31484,7 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 		你的毒素爆发技能冷却时间减少 3。
 		你的诱饵技能冷却时间减少 5。
 
-		你可以学会：
+		你将习得以下技能：
 %s]], "tformat")
 t("Arcane Might", "奥术伟力", "talent name")
 t([[You have learned to harness your latent arcane powers, channeling them through your weapon.
@@ -35388,7 +35388,7 @@ t("Filled with pure aether forces!", "充满以太力量！", "_t")
 t("poison", "毒素", "effect subtype")
 t("Vulnerability Poison", "脆弱毒素", "_t")
 t("The target is afflicted with a magical poison and is suffering %0.2f arcane damage per turn.  All resistances are reduced by 10%%%s.", "目标被魔法毒素感染，每回合受到 %0.2f 奥术伤害，所有伤害抗性下降 10%% %s。", "tformat")
-t(" and poison resistance is reduced by %s%%", " 毒素免疫下降 %s%%", "tformat")
+t(" and poison resistance is reduced by %s%%", "，且毒素抗性下降 %s%%", "tformat")
 t("#Target# is magically poisoned!", "#Target#被魔法毒素感染！", "_t")
 t("+Vulnerability Poison", "+脆弱毒素", "_t")
 t("#Target# is no longer magically poisoned.", "#Target#不再受魔法毒素影响。", "_t")
@@ -36502,7 +36502,7 @@ t("The target's lifeline is being cut. When the effect ends %d temporal damage w
 t("#Target#'s lifeline is being severed!", "#Target#的生命线被收割了！", "_t")
 t("+Sever Lifeline", "+生命离断", "_t")
 t("Fade From Time", "时光凋零", "_t")
-t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标暂时被从时间线中移除，造成的伤害减少 %d%%，减少受到伤害 %d%%，并减少 %d%% 回合所有不良效果持续时间。", "tformat")
+t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标被部分移出时间线，造成的伤害减少 %d%%，受到的伤害减少 %d%%，所有不良效果的持续时间缩短 %d%%。", "tformat")
 t("#Target# has partially removed itself from the timeline.", "#Target#部分从时间线中消失。", "_t")
 t("+Fade From Time", "+时光凋零", "_t")
 t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间线内。", "_t")
@@ -36663,7 +36663,7 @@ t("Noxious fumes", "毒性气体", "_t")
 t("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.", "区域效果：+10% 酸性伤害，-10% 酸性抗性，-10% 闪避，-20% 缴械免疫。", "_t")
 t("Echoes of the void", "虚空回响", "_t")
 t("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.", "区域效果：+10% 暗影伤害，-10% 暗影抗性，-10% 精神豁免，-20% 恐惧免疫。", "_t")
-t("Eerie silence", "恐惧噤声", "_t")
+t("Eerie silence", "诡异的寂静", "_t")
 t("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.", "区域效果：+10% 精神伤害，-10% 精神抗性，-10% 法术强度，-20% 沉默免疫。", "_t")
 t("Aura of light", "光明光环", "_t")
 t("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.", "区域效果：+10% 光系伤害，-10% 光系抗性，-10% 命中，-20% 致盲免疫。", "_t")
@@ -40121,7 +40121,7 @@ t("Ben Cruthdar, the Abomination", "本·克鲁塞达尔，憎恶形态", "entit
 t("This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.", "这个疯子似乎被时空能量扭曲并侵蚀，他的身体不断变换，在现实中时隐时现。", "_t")
 t("dragon", "龙", "entity type")
 t("Rantha the Abomination", "兰莎，憎恶形态", "entity name")
-t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……并且这只似乎被时空能量所扭曲。", "_t")
+t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……而这一只似乎已被时空裂隙所腐蚀。", "_t")
 t("Chronolith Twin", "双生琼纳里斯", "entity name")
 t("A six-armed creature, dressed in robes, with black insectile eyes.", "身穿长袍、有着黑色昆虫样眼睛的六臂生物。", "_t")
 t("Chronolith Clone", "克隆琼纳里斯", "entity name")
@@ -43282,11 +43282,11 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
- 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
+ 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
  他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
- 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在”世界之砧”上锤炼自己。不过私下里，一些成年矮人承认推广这项活动是为了帮助他们的”市场调查策略”。]], "_t")
+ 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
 
  Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
