@@ -1903,7 +1903,7 @@ Crit reduction reduces the chance an opponent has of landing a critical strike w
 t([[#GOLD#Crits Shrug Off#LAST#
 Gives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).
 ]], [[#GOLD#暴击摆脱#LAST#
-让你在受到直接暴击伤害时，降低暴击的额外伤害（无论是近战，法术，远程，精神力量，还是…）。
+有几率完全忽略任何直接伤害攻击（近战、法术、远程、精神力量……）所造成的额外暴击伤害。
 ]], "_t")
 t([[#GOLD#Defense#LAST#
 Defense represents your chance to avoid melee weapon attacks and reduces the chance you'll be knocked off-balance by an enemy's attack. It is measured against the attacker's Accuracy.
@@ -2977,7 +2977,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_
 section "mod-tome/data/birth/classes/corrupted.lua"
 
 t("Defiler", "堕落系", "birth descriptor name")
-t("Dark thoughts, black bloods, vile deeds... Those who spill their brethren's blood will find its power.", "黑暗的思想、黑色的血液、卑鄙的行为……那些背信弃义的人会发现他们的力量所在。", "_t")
+t("Dark thoughts, black bloods, vile deeds... Those who spill their brethren's blood will find its power.", "黑暗的思想、黑色的血液、卑鄙的行为……那些倾洒同族之血的人，将发现血的力量。", "_t")
 t("Defilers are touched by the mark of evil. They are a blight on the world. Working to promote the cause of evil, they serve their masters, or themselves become masters.", "堕落系职业身上带有邪恶的印记，他们是世界的祸害。他们为邪恶事业效力，侍奉他们的主人，或者自己成为主人。", "_t")
 t("Reaver", "收割者", "birth descriptor name")
 t("Reap thee the souls of thine enemies, and the powers of darkness shall enter thy flesh.", "收割敌人的灵魂，你会发现黑暗的力量涌入体内。", "_t")
@@ -8723,7 +8723,7 @@ section "mod-tome/data/general/npcs/skeleton.lua"
 t("undead", "亡灵", "entity type")
 t("skeleton", "骷髅", "entity subtype")
 t("degenerated skeleton warrior", "退化骷髅战士", "entity name")
-t("A haphazard collection of crumbling bones, with jerky movements that remind you of a child playing with a marionette.  It only has one arm, but that's all it needs to hold a sword.", "这具仿佛是死灵法师随意收集而成的，摇摇欲坠的骨骸，生涩地从你的眼前走过，仿佛孩童手中玩弄的木偶。虽然它只有一条手臂，不过反正这对于拿一把剑也够了，对吧。", "_t")
+t("A haphazard collection of crumbling bones, with jerky movements that remind you of a child playing with a marionette.  It only has one arm, but that's all it needs to hold a sword.", "一堆杂乱拼凑、摇摇欲坠的骨骸，动作僵硬抽搐，令你想起孩童手中玩弄的木偶。它只有一条手臂，但握住一把剑也就够了。", "_t")
 t("degenerated skeleton archer", "退化骷髅弓箭手", "entity name")
 t("A frail skeleton; just about the only bones that aren't cracked are its arms.  It's missing a hand, but a notch has been carved into its wrist to let it pull back a bowstring regardless.", "一具脆弱的骨架；几乎只有双臂的骨头没有开裂。它缺少了一只手，不过手腕上刻了一道凹槽，刚好可以卡住弓弦拉弓上箭。", "_t")
 t("skeleton mage", "骷髅法师", "entity name")
@@ -8791,7 +8791,7 @@ t("These cunning spiders terrorize those who enter the ever-growing borders of t
 t("ninurlhing", "林尔荷", "entity name")
 t("The air reeks with noxious fumes and the ground around it decays.", "在它周围，毒雾散播，大地枯萎。", "_t")
 t("faerlhing", "费尔荷", "entity name")
-t("This spider seems to command the flow of mana, which pulses freely through its body.", "这只蜘蛛善于控制法力流动，它可以使法力在它体内有节奏的跳跃。", "_t")
+t("This spider seems to command the flow of mana, which pulses freely through its body.", "这只蜘蛛似乎能掌控法力的流动，法力在它体内自由涌动。", "_t")
 t("ungolmor", "阿格尔莫", "entity name")
 t("Largest of all the spiderkin, its folds of skin seem nearly impenetrable.", "它是体型最大的蜘蛛，它褶皱的皮肤看起来牢不可破。", "_t")
 t("losselhing", "卢瑟尔荷", "entity name")
@@ -9445,39 +9445,39 @@ section "mod-tome/data/general/objects/brotherhood-artifacts.lua"
 t("potion", "药水", "entity type")
 t("potion", "药水", "entity subtype")
 t("Elixir of the Fox", "狡诈药剂", "entity name")
-t("vial of pink fluid", "一瓶粉红色液体。", "_t")
+t("vial of pink fluid", "一瓶粉红色液体", "_t")
 t("A vial of pink, airy fluid.", "一瓶粉红色、轻盈的液体。", "_t")
 t("permanently increase your dexterity and cunning by three", "永久提升你3点敏捷与灵巧点数", "_t")
 t("#00FFFF#You drink the elixir and feel forever transformed!", "#00FFFF#你喝下了药剂，你感受到你的身体发生了永久性的变化！", "logPlayer")
 t("#00FF00#The elixir has given you foxlike physical and mental agility!", "#00FF00#药剂给予了你狐狸般的物理、精神能力！", "logPlayer")
 t("Elixir of Avoidance", "闪避药剂", "entity name")
-t("vial of green fluid", "一瓶绿色液体。", "_t")
+t("vial of green fluid", "一瓶绿色液体", "_t")
 t("A vial of opaque green fluid.", "一瓶浑浊的绿色液体。", "_t")
 t("permanently increase your defense and ranged defense by six", "永久提升你6点近身和远程闪避", "_t")
 t("#00FF00#The elixir has improved your defensive instincts!", "#00FF00#药剂提高了你的防御本能！", "logPlayer")
 t("Elixir of Precision", "精准药剂", "entity name")
-t("vial of red fluid", "一瓶红色液体。", "_t")
+t("vial of red fluid", "一瓶红色液体", "_t")
 t("A vial of chunky red fluid.", "一瓶粘稠的红色液体。", "_t")
 t("permanently increase your physical critical strike chance by 4%", "永久提升你4%物理暴击率", "_t")
 t("#00FF00#The elixir has improved your eye for an enemy's weak points!", "#00FF00#药剂提高了你发现敌人弱点的能力！", "logPlayer")
 t("Elixir of Mysticism", "神秘药剂", "entity name")
-t("vial of cyan fluid", "一瓶青色液体。", "_t")
+t("vial of cyan fluid", "一瓶青色液体", "_t")
 t("A vial of glowing cyan fluid.", "一瓶发光的青色液体。", "_t")
 t("permanently increase your magic and willpower by three", "永久提升你3点魔法和意志点数", "_t")
 t("#00FF00#The elixir has augmented your magical and mental capacity!", "#00FF00#药剂增加了你的魔法和精神能量！", "logPlayer")
 t("Elixir of the Savior", "守护药剂", "entity name")
-t("vial of grey fluid", "一瓶灰色液体。", "_t")
+t("vial of grey fluid", "一瓶灰色液体", "_t")
 t("A vial of bubbling, slate-colored fluid.", "一瓶翻滚着泡沫的灰色液体。", "_t")
 t("permanently increase all your saving throws by 4", "永久提升你4点全体豁免", "_t")
 t("#00FF00#The elixir has improved your resistance to unpleasant effects!", "#00FF00#药剂增加了你抵抗不良效果的能力！", "logPlayer")
 t("Elixir of Mastery", "掌握药剂", "entity name")
-t("vial of maroon fluid", "一瓶栗色液体。", "_t")
+t("vial of maroon fluid", "一瓶栗色液体", "_t")
 t("A vial of thick maroon fluid.", "一瓶粘稠的栗色液体。", "_t")
 t("grant you four additional stat points", "获得4点额外属性点数", "_t")
 t("#00FF00#The elixir has greatly expanded your capacity for improving your mind and body.", "#00FF00#药剂大大拓展了你提升身心的潜力。", "logPlayer")
 t("You have %d stat point(s) to spend. Press G to use them.", "你有%d属性点。请按 G 键使用。", "logPlayer")
 t("Elixir of Explosive Force", "爆炸药剂", "entity name")
-t("vial of orange fluid", "一瓶橙色液体。", "_t")
+t("vial of orange fluid", "一瓶橙色液体", "_t")
 t("A vial of churning orange fluid.", "一瓶翻涌的橙色液体。", "_t")
 t("permanently increase your chance to critically strike with spells by 4%", "永久提升你4%法术暴击率", "_t")
 t("#00FF00#The elixir has improved your eye for an enemy's magical weak points!", "#00FF00#药剂提升了你发现敌人魔法弱点的能力！", "logPlayer")
@@ -9487,12 +9487,12 @@ t("A vial of lively yellow fluid.", "一瓶流动的黄色液体。", "_t")
 t("permanently increase your luck by 5", "永久提升你5点运气", "_t")
 t("#00FF00#The elixir seems to have subtly repositioned your entire being within the fabric of reality!", "#00FF00#这瓶炼金药剂似乎将你的整个存在在现实结构中微妙地重新定位了！", "logPlayer")
 t("Elixir of Focus", "专注药剂", "entity name")
-t("vial of clear fluid", "一瓶透明液体。", "_t")
+t("vial of clear fluid", "一瓶透明液体", "_t")
 t("A vial of clear, steaming fluid.", "一瓶清澈、冒着蒸汽的液体。", "_t")
 t("grant you two additional class talent points", "获得额外2点职业技能点数", "_t")
 t("#00FF00#The elixir has improved your capacity for exercising your core talents.", "#00FF00#药剂提升了你核心技能的能力。", "logPlayer")
 t("Elixir of Brawn", "蛮牛药剂", "entity name")
-t("vial of tan fluid", "一瓶棕褐色液体。", "_t")
+t("vial of tan fluid", "一瓶棕褐色液体", "_t")
 t("A vial of sluggish tan fluid.", "一瓶粘稠的棕褐色液体。", "_t")
 t("permanently increase your strength and constitution by three", "永久提升你3点力量和体质点数", "_t")
 t("#00FF00#The elixir has augmented your physical might and resilience!", "#00FF00#药剂提升了你物理打击能力和抵抗力！", "logPlayer")
@@ -9502,7 +9502,7 @@ t("A vial of grainy, iron-colored fluid.", "一瓶颗粒状的铁色液体。", 
 t("permanently increase your armor by four", "永久提升你4点护甲值", "_t")
 t("#00FF00#The elixir has reinforced your entire body!", "#00FF00#药剂强化了你整个身体！", "logPlayer")
 t("Elixir of Foundations", "领悟药剂", "entity name")
-t("vial of white fluid", "一瓶白色液体。", "_t")
+t("vial of white fluid", "一瓶白色液体", "_t")
 t("A vial of murky white fluid.", "一瓶朦胧的白色液体。", "_t")
 t("grant you two additional generic talent points", "获得额外2点通用技能点数", "_t")
 t("Taint of Purging", "堕落印记：清除", "entity name")
@@ -11452,7 +11452,7 @@ t("analysis", "分析", "entity subtype")
 section "mod-tome/data/general/objects/lore/misc.lua"
 
 t("The story of my salvation", "我的救赎", "entity name")
-t("An old tale about the fear of magic.", "有关魔法的恐怖的古老传说。", "_t")
+t("An old tale about the fear of magic.", "一则关于人们畏惧魔法的古老传说。", "_t")
 t("On Adventuring", "关于冒险", "entity name")
 t("Fragments of a fabled traveler.", "一个传说中的旅行者的记录。", "_t")
 t("memories of Artelia Firstborn", "亚特莱长子的记忆", "entity name")
@@ -26889,7 +26889,7 @@ t([[Halfling's incredible luck always kicks in at just the right moment to save 
 		每当你受到相当于生命值 %d%% 或更多的单次伤害时，你在接下来的 %d 回合内获得 %d%% 躲闪概率和 %d 点闪避值（其中闪避值加成基于幸运和其他闪避相关数值）。]], "tformat", {1,4,2,3})
 t("Militant Mind", "好斗精神", "talent name")
 t([[Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.
-		If two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).]], [[半身人曾是一个有组织纪律的种族，敌人越多他们越团结。
+		If two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).]], [[半身人向来是一个有组织、有条理的种族，敌人越多他们越团结。
 		如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f（最多 5 个敌人）。]], "tformat")
 t("Indomitable", "不屈意志", "talent name")
 t([[Halflings have one of the most powerful military forces in the known world and have been at war with most other races for thousands of years.
@@ -27365,8 +27365,7 @@ t([[Your Feedback decay now heals you for %0.1f times the loss, and the decay ra
 t("Resonance Field", "共鸣领域", "talent name")
 t([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
 		The max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]], [[激活此技能可产生一个吸收所受全部伤害 50%% 的共鸣领域（最大吸收值 %d）。此领域不会干扰反馈值的增长。
-		最大吸收值受精神强度加成。
-		此技能最多维持 10 回合。]], "tformat")
+		最大吸收值受精神强度加成，此技能最多维持 10 回合。]], "tformat")
 t("Amplification", "强化反馈", "talent name")
 t([[Increases your maximum Feedback by %d, and increases your base Feedback gain ratio to %d%%.
 		The Feedback gain will scale with your Mindpower.]], [[增加 %d 最大反馈值，同时反馈值的基础获得比率增加到 %d%%。
@@ -28714,10 +28713,10 @@ t([[Infuse your body with lightning energy, bolstering your movement speed by +%
 		In addition, damage to your health will energize you.
 		At the start of each turn in which you have lost at least %d life (20%% of your maximum life) since your last turn, you will gain %d%% of a turn.
 		The effects increase with your Spellpower.]], [[将闪电能量填充到身体中，增加 %d%% 移动速度。
-		每回合半径 %d 内的一个生物将会被闪电击中，造成 %0.1f 点闪电伤害。
+		每回合半径 %d 内的一个敌人将会被闪电击中，造成 %0.1f 点闪电伤害。
 		另外，对你的伤害会激活你。
-		每次你的回合开始时，如果自从上个回合结束你受到至少 %d 点伤害（20%% 最大生命值），你将获得 %d%% 个额外回合。
-		伤害受法术强度加成。]], "tformat")
+		每次你的回合开始时，如果自上个回合以来你损失了至少 %d 点生命（20%% 最大生命值），你将获得 %d%% 个额外回合。
+		上述效果均随法术强度提升。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/enhancement.lua"
@@ -29539,7 +29538,7 @@ t("Meta spells alter the working of magic itself.", "超魔系法术能改变魔
 t("temporal", "时空", "talent type")
 t("The school of time manipulation.", "学习操控时间。", "_t")
 t("phantasm", "幻术", "talent type")
-t("Control the power of tricks and illusions.", "制造错觉来混乱敌人的战术。", "_t")
+t("Control the power of tricks and illusions.", "掌控诡计与幻象之力。", "_t")
 t("enhancement", "附魔", "talent type")
 t("Magical enhancement of your body.", "用魔法强化你的身体。", "_t")
 t("thaumaturgy", "奇术", "talent type")
@@ -32039,12 +32038,10 @@ To the west lies another dangerous place: the old ruins of Kor'Pul. You heard th
 
 After days of travel, you have found the forest and entered it. What will you find there...?
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是联合王国北部地区的一个居民，那里是人类和半身人平静的家园。
-你来自于一个叫做德斯的小镇。
+你是联合王国北部地区的一个居民，那里是人类和半身人平静的家园。你来自于一个叫做德斯的小镇。
 人类是这片土地上最主要的种族，而你就是其中的一员。为了证明你的价值，你决定到野外那些古老的地方去冒险，寻找财富和荣耀。
 
-你来到了自然精灵森林西部边界附近一个叫做德斯荒野的地方，
-寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。
+你来到了自然精灵森林西部边界附近一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。
 向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的害虫和亡灵生物。
 
 经过了几天的旅行，你终于发现并进入了这片树林，你会在那里发现什么呢……
