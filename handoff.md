@@ -1,15 +1,17 @@
 # 翻译审核主编排者 —— 交接说明
 
-> **2026-09-18 当前入口：审核批 187–197 + 修复批 207–218 已完成；下一步为修复批 219。**
-> 请先读[最新交接](docs/review-handoff-20260918-batch192.md)（§1/§7 记录到第 194/216 批；195–197、217–218 见下方要点）。
+> **2026-09-19 当前入口：审核批 …–210 + 修复批 …–231 已完成；维护者指令「完成审核批 210 后暂停」，下一轮为修复批 232，待维护者恢复后再启，勿自动推进。**
+> 逐批进度、confirmed/refuted 明细、维护者待办与多轮收敛项以记忆 [[repair-batch-cursor]] 为权威（比本文详细）。
 > 下文保留历史状态和当时的操作说明，不构成自动恢复授权。
 >
-> 交叉复核模型：`claude/claude-opus-5`。HEAD 见 git log（batch 197 evidence `c914890` + 本 handoff）。
-> repair_required **约 224**、无活动批次。本会话全程仅本地提交，**未授权 push**。
-> **审核-修复严格 1:1 交替**，当前轮到**修复批 219**（查 queue repair_required 取 ~20 条，见 docs §3）。
+> 交叉复核模型：`claude/claude-opus-5`（xhigh、bypassPermissions、1 full child）。表层筛查 `codex/gpt-5.6-sol`（medium、auto-review、4 lane、并发上限 3）。
+> HEAD = batch 210 evidence `632e1b0`（全 SHA `632e1b0b95c3383e62945d4342179a8ef9f4cacf`，已 finalize），无活动批次。
+> queue rebuild 后 **repair_required=131**。本会话全程仅本地提交，**未授权 push**。
+> **审核-修复严格 1:1 交替**；下一轮到**修复批 232**（查 queue repair_required 取最旧 ~20 条 FIFO，见 docs §3 与 [[repair-batch-cursor]]）。**当前暂停中，恢复由维护者发起。**
 > 表层派发走 MCP 手工驱动，见记忆 [[mcp-review-lifecycle-manual-drive]]、[[surface-raw-extraction-trailing-newline]]。
-> **freeze MISS 处置**：死键走 [[freeze-miss-hostblock-procedure]]；但**运行期拼接/小写实体名（form #7/#8）不是死键**，勿 host-block——batch 197 gem.lua「alchemist agate」即因 freeze_workset 把 concat 校验限定在 `source_tag=='entity name'`、漏了 `alchemist gem` 标签而误报 MISS，已手工补 concat 归因；该 tag-filter 缺口待维护者修 freeze_workset.py。
-> **待维护者专名/术语裁决（勿自决）**：Shantiz 音译、Continuum Destabilization 时空改名（5 处）、Feed Strengths、Armour Configuration、Harass Prey、of thunder 词缀、the Sorcerers 统一、Toxic Death、combat.lua 死键 source-key 迁移。
+> **freeze MISS 处置**：死键走 [[freeze-miss-hostblock-procedure]]；但**运行期拼接/小写实体名（form #7/#8）不是死键**，勿 host-block——batch 208 gem.lua「alchemist lapis lazuli」即因 freeze_workset 把 concat 校验限定在 `source_tag=='entity name'`、漏了 `alchemist gem` 标签而误报 MISS，已手工补 concat 归因（`.artifacts/i18n/batch208-orchestration/freeze-miss-bb497407ff.json`）；该 tag-filter 缺口待维护者修 freeze_workset.py。
+> **批 232 首要修复项（批 210 confirmed，均可修/对齐既有，非专名）**：刻印 lore herbal infusions「草药输液」→**纹身**（纠正修复批 231 自身错误，infusion 全库既定作纹身）；盾牌 Block the wielder「玩家」→持有者；Weisman 信件 limb→四肢/At first→起初/补 ridiculous pomposity+false heroics+town square。
+> **待维护者专名/术语裁决（勿自决，长期滞留 FIFO 前端，每批跳过）**：Shantiz 音译、Continuum Destabilization 改名、Feed Strengths、Corrupted Negation、archery prowess、Pushy elf、Hurricane、Sapphire×2、Dirge Intoner、-Attenuate、Summertide、the Darkness、Arena Master 头衔、slimy 词缀、Massive Blow、Sudden Growth、slime mold、Power/Range 面板、blood-etched、Intricate Tools、Flexible Combat、Curse of Shrouds、Reabsorb、Empty Hand、Epoch's Curve、Hide in Plain Sight（详见 [[repair-batch-cursor]]）。
 
 
 最后更新：2026-09-12（第 91 批完成；翻译暂停，按报告顺序优化）· 分支 `develop`
