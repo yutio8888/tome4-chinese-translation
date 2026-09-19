@@ -1060,7 +1060,7 @@ t("#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in t
 t("No, we must hurry!", "不行，我们必须得抓紧时间！", "_t")
 t("Ok, but not for long.", "好吧，但时间不要太长。", "_t")
 t("very close", "很近了", "_t")
-t("close", "接近了", "_t")
+t("close", "接近", "_t")
 t("still far away", "还很远", "_t")
 t("The portal is %s, to the %s.", "传送门%s，在%s。", "tformat")
 
@@ -7016,7 +7016,7 @@ t("#DARK_ORCHID#Your damage shield cannot be extended any farther and has explod
 t("judgement", "审判", "damage type")
 t("healing nature", "自然治疗", "damage type")
 t("infective blight", "枯萎感染", "damage type")
-t("hindering blight", "枯萎阻碍", "damage type")
+t("hindering blight", "阻碍性枯萎", "damage type")
 t("life leech", "吸血", "damage type")
 t("physical stun", "物理震慑", "damage type")
 t("warp", "翘曲", "damage type")
@@ -7362,7 +7362,7 @@ section "mod-tome/data/general/events/old-battle-field.lua"
 t("ramp up to %s", "通往%s的上行坡道", "tformat")
 t("#VIOLET# The ramp crumbles as you climb it, followed by the collapse of the cavern.", "#VIOLET# 当你沿着坡道向上爬时，坡道崩塌了，洞穴随之坍塌。", "log")
 t("Cavern beneath tombstones", "地下墓穴", "_t")
-t("Undead are rising from the ground! You must hold on!", "地上的亡灵正在复活！你必须坚持住！", "_t")
+t("Undead are rising from the ground! You must hold on!", "亡灵正从地下升起！你必须坚持住！", "_t")
 t("Onslaught", "猛攻", "_t")
 t("You have survived the onslaught of undead. You notice a way to climb up you had not seen before in a wall nearby.", "你从不死生物的猛攻中存活了下来，你看到旁边的墙上有一条之前没有发现的通路，可以爬上去。", "_t")
 t("grave", "坟墓", "_t")
@@ -10106,7 +10106,7 @@ t("spellstream", "法术汹涌", "entity keyword")
 t("heroic ", "英雄的", "entity name")
 t("heroic", "英雄", "entity keyword")
 t(" of archery", "弓道之", "entity name")
-t("archer", "弓道", "entity keyword")
+t("archer", "弓箭手", "entity keyword")
 
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/heavy-armor.lua"
@@ -13146,7 +13146,7 @@ t("Damage shields have +1 duration and +15% power", "伤害护盾增加一回合
 t("Boots of the Hunter", "猎人之靴", "entity name")
 t("well-worn boots", "用旧了的靴子", "_t")
 t("These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.", "这双裂纹遍布的靴子上糊着厚厚一层泥浆。不清楚它以前属于谁，但显然经历过大量的使用。", "_t")
-t("boost movement speed by 300% for up to 5 turns (or until you perform a non-movement action)", "增加移动速度300%五回合。（任何非移动行动会打断这个效果）", "_t")
+t("boost movement speed by 300% for up to 5 turns (or until you perform a non-movement action)", "增加移动速度300%，最多持续五回合。（任何非移动行动会打断这个效果）", "_t")
 t("%s digs in %s %s.", "%s使用了%s%s。", "logSeen")
 t("Sludgegrip", "泥泞之握", "entity name")
 t("slimy gloves", "粘液覆盖的手套", "_t")
@@ -21593,7 +21593,7 @@ t([[You stand between the darkness and the light, allowing you to convert 15 pos
 		效果受灵巧加成。]], "tformat")
 t("Jumpgate: Teleport To", "跃迁之门：传送", "talent name")
 t("You must sustain the Jumpgate spell to be able to teleport.", "你必须激活 跃迁之门 才能传送。", "logPlayer")
-t("Instantly travel to your jumpgate, as long as you are within %d tiles of it.", "在 %d 码范围以内你可以立即传送至你的跃迁之门。", "tformat")
+t("Instantly travel to your jumpgate, as long as you are within %d tiles of it.", "在 %d 格范围以内你可以立即传送至你的跃迁之门。", "tformat")
 t("Jumpgate", "跃迁之门", "talent name")
 t("jumpgate", "跃迁之门", "_t")
 t([[Create a shadow jumpgate at your current location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.
@@ -30873,7 +30873,7 @@ section "mod-tome/data/talents/techniques/superiority.lua"
 
 t("Juggernaut", "战场主宰", "talent name")
 t([[Concentrate on the battle, ignoring some of the damage you take.
-		Improves physical damage reduction by %d%% and provides a %d%% chance to shrug off critical damage for 20 turns.]], [[专注于战斗并忽略你所承受的攻击。
+		Improves physical damage reduction by %d%% and provides a %d%% chance to shrug off critical damage for 20 turns.]], [[专注于战斗，忽略你所受的部分伤害。
 		增加物理伤害减免 %d%% 同时有 %d%% 几率摆脱暴击伤害，持续 20 回合。]], "tformat")
 t("Onslaught", "猛攻", "talent name")
 t([[Take an offensive stance. As you attack your foes, you knock your target and foes adjacent to them in a frontal arc back (up to %d grids).
@@ -36793,7 +36793,7 @@ t("Fearscape Zone", "恶魔空间", "_t")
 t("Zone-wide effect: The flames of the Fearscape increase all fire and blight damage by 10%, but the weird gravity reduces knockback resistance by 20%.", "区域效果：恶魔空间的火焰使所有火焰和枯萎伤害增加 10%，但其诡异的重力会使击退抗性降低 20%。", "_t")
 t("Out of Time Zone", "异常时空", "_t")
 t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性 ，-20% 传送免疫。", "_t")
-t("Spellblaze Aura", "魔法大爆炸区域", "_t")
+t("Spellblaze Aura", "魔法大爆炸光环", "_t")
 t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
 t("Heady Scent", "催眠区域", "_t")
 t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
