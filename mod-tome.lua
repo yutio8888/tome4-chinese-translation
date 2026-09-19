@@ -2271,7 +2271,7 @@ t([[#GOLD#Shield Block Value#LAST#
 The base amount of damage a shield will block when actively used in defense.
 Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus to the block value if the shield used grants resistance to that damage type.
 ]], [[#GOLD#盾牌格挡值#LAST#
-盾牌在激活时所能阻挡的基础伤害量，以及来自格挡值加成。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
+盾牌在激活时所能阻挡的基础伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
 
 section "mod-tome/class/interface/WorldAchievements.lua"
 
@@ -2639,7 +2639,7 @@ section "mod-tome/data/achievements/kills.lua"
 t("That was close", "千钧一发", "achievement name")
 t("Killed your target while having only 1 life left.", "当你只剩1滴血时杀死目标。", "_t")
 t("Size matters", "伤害很重要", "achievement name")
-t("Did over 600 damage in one attack.", "在一次攻击中造成600点伤害。", "_t")
+t("Did over 600 damage in one attack.", "在一次攻击中造成超过 600 点伤害。", "_t")
 t("Size is everything", "伤害就是一切", "achievement name")
 t("Did over 1500 damage in one attack.", "在一次攻击中造成超过1500点伤害。", "_t")
 t("The bigger the better!", "越大越好！", "achievement name")
@@ -3700,7 +3700,7 @@ t("- great poison resistance", "- 极高的毒素抗性", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
 t("- stun resistance", "- 震慑抵抗", "_t")
 t("- fear immunity", "- 恐惧免疫", "_t")
-t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 特殊食尸鬼技能：定向跳跃、啃噬和腐秽呕吐", "_t")
+t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 特殊食尸鬼技能：食尸鬼跳跃、啃噬和腐秽呕吐", "_t")
 t("The rotting bodies of ghouls also force them to act a bit more slowly than most creatures.", "食尸鬼腐烂的身体同时使它比别的生物行动要慢一些。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +5 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+5 体质", "_t")
@@ -7359,7 +7359,7 @@ t("You feel a tremor in the ground for a few seconds and it disappears...", "你
 ------------------------------------------------
 section "mod-tome/data/general/events/old-battle-field.lua"
 
-t("ramp up to %s", "通向%s的通路", "tformat")
+t("ramp up to %s", "通往%s的上行坡道", "tformat")
 t("#VIOLET# The ramp crumbles as you climb it, followed by the collapse of the cavern.", "#VIOLET# 当你沿着坡道向上爬时，坡道崩塌了，洞穴随之坍塌。", "log")
 t("Cavern beneath tombstones", "地下墓穴", "_t")
 t("Undead are rising from the ground! You must hold on!", "地上的亡灵正在复活！你必须坚持住！", "_t")
@@ -11954,7 +11954,7 @@ t("mindpower", "精神强度", "entity name")
 t("mindcrit", "精神暴击", "entity name")
 t("mind crit magnitude", "精神暴击伤害", "entity name")
 t("phys dam", "物理伤害", "entity name")
-t("phys apr", "武器穿透", "entity name")
+t("phys apr", "武器护甲穿透", "entity name")
 t("phys crit", "物理暴击", "entity name")
 t("phys atk", "武器命中", "entity name")
 t("phys crit magnitude", "物理暴击伤害", "entity name")
@@ -21914,7 +21914,8 @@ t([[Choose an activatable spell that affects only you, does not require a target
 		This effect can only occur once every %d turns and takes place after the damage is resolved.
 
 		Current Contingency Spell: %s]], [[选择一个只会影响你并且不需要选中目标的非固定冷却时间主动法术。当你受到伤害并使生命值降低到 %d%% 以下时，自动释放这个技能。
-		即使选择的技能处于冷却状态也可以释放  ，并且不消耗回合或资源，技能等级为该技能和指定技能当中较低的一方。		这个效果每 %d 回合只能触发一次，并且在伤害结算之后生效。
+		即使选择的技能处于冷却状态也可以释放  ，并且不消耗回合或资源，技能等级取意外术与所选法术两者中较低的一方。
+		这个效果每 %d 回合只能触发一次，并且在伤害结算之后生效。
 
 		当前选择技能：%s]], "tformat")
 t("See the Threads", "命运螺旋", "talent name")
@@ -23014,7 +23015,7 @@ t([[You set your mind toward a single goal: the destruction of all your foes.
 		Increases the maximum amount of vim you can store by %d.]], [[你将精神集中于一个目标：摧毁所有敌人。
 		增加你 %d 点活力上限。]], "tformat")
 t("Blood Lock", "鲜血禁锢", "talent name")
-t("Reach out and touch the blood and health of your foes. Any creatures caught in the radius 2 ball will be unable to heal above their current life value (at the time of the casting) for %d turns.", "掌控敌人的血液和肉体。在 2 码范围内，任何被鲜血禁锢攻击到的敌人的治疗或回复将不能超过当前生命值，持续 %d 回合。", "tformat")
+t("Reach out and touch the blood and health of your foes. Any creatures caught in the radius 2 ball will be unable to heal above their current life value (at the time of the casting) for %d turns.", "掌控敌人的血液和肉体。在 2 码范围内，任何被鲜血禁锢攻击到的敌人的治疗或回复将不能超过施法瞬间锁定的生命值，持续 %d 回合。", "tformat")
 t("Overkill", "赶尽杀绝", "talent name")
 t([[When you kill a creature, the remainder of the damage done will not be lost. Instead, %d%% of it will splash in a radius 2 as blight damage.
 		The splash damage will increase with your Spellpower.]], [[当你杀死一个敌人后，多余的伤害不会消失。
@@ -23724,7 +23725,7 @@ t("Flash Bang Trap", "闪光陷阱", "talent name")
 t("flash bang trap", "闪光陷阱", "_t")
 t("Explodes (radius 2) for %0.2f physical damage, 50%% blind/daze for %d turns.", "爆炸（半径2）造成 %0.2f 物理伤害，50%% 致盲/眩晕 %d 回合。", "tformat")
 t([[Lay a trap that explodes in a radius of 2, dealing %0.2f physical damage and blinding and dazing (50%% chance of each) any creature caught inside for %d turns.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个闪光陷阱。产生一个 2 码范围的爆炸，造成 %0.2f 物理伤害，致盲或眩晕目标 %d 回合（各 50%% 几率）。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个闪光陷阱。产生一个 2 码范围的爆炸，造成 %0.2f 物理伤害，致盲和眩晕目标 %d 回合（各 50%% 几率）。
 		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Bladestorm Trap", "剑刃风暴陷阱", "talent name")
 t("bladestorm trap", "剑刃风暴陷阱", "_t")
@@ -24904,7 +24905,7 @@ t([[You draw deeply from your connection with nature to create a radius %d storm
 		In addtion, it will drain up to %d Mana, %d Vim, %d Positive, and %d Negative energy from each enemy within it's area every turn, while you restore Equilibrium equal to 10%% of the amount drained.
 		The damage and drain increase with your Mindpower.]], [[你在自己周围半径 %d 的范围内制造自然力量风暴，持续 %d 回合。
 		风暴会跟随你移动，每回合对每个敌人造成 %0.1f 点自然伤害。
-		此外，它并抽取 %d 点法力，%d 点活力，%d 点正能量和 %d 点负能量，同时你的失衡值会回复你抽取能量的 10%%。
+		此外，每回合还会从范围内的每个敌人身上最多抽取 %d 点法力、%d 点活力、%d 点正能量和 %d 点负能量，同时使你的失衡值降低相当于所抽取能量的 10%%。
 		伤害和吸取量受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -26713,7 +26714,7 @@ t("Alter the flow of energies through a staff.", "改变法杖中流动的能量
 t("Ward", "守护", "talent name")
 t("Ward", "守护", "_t")
 t([[Bring a damage-type-specific ward into being. The ward will fully negate as many attacks of its element as it has charges.
-		You can activate the following wards: %s]], [[激活指定伤害类型的抵抗状态，能够完全抵抗对应属性的伤害。抵抗次数由魔杖决定。
+		You can activate the following wards: %s]], [[激活指定伤害类型的抵抗状态，可完全抵消该属性的攻击，能抵消的次数等于其充能数。
 		你能激活的伤害类型有：%s]], "tformat")
 t("Teleport to the ground", "返回地面", "talent name")
 t("Use Yiilkgur's teleporter to teleport to the ground.", "使用伊克格的传送阵传送回地面。", "tformat")
