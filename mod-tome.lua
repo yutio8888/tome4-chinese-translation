@@ -6813,7 +6813,7 @@ t("dissected", "被切开", "_t")
 t("disembowelled", "被开膛破肚", "_t")
 t("decapitated", "被斩首", "_t")
 t("stabbed", "被刺杀", "_t")
-t("pierced", "被刺破心脏", "_t")
+t("pierced", "被刺穿", "_t")
 t("torn limb from limb", "被五马分尸", "_t")
 t("crushed", "被碾碎", "_t")
 t("shattered", "被击碎", "_t")
@@ -9153,7 +9153,7 @@ t([[The power of the tides rush through this trident.
 Tridents require the exotic weapons mastery talent to use correctly.]], "这把三叉戟上流动着潮汐的力量。\n三叉戟需要特殊武器掌握技能才能正确使用。", "_t")
 t("Fiery Choker", "炽焰护符", "entity name")
 t("flame-wrought amulet", "火焰制造的护符", "_t")
-t("A choker made of pure flame, casting forever shifting patterns around the neck of its wearer. Its fire seems to not harm the wearer.", "一个由火焰形成的护符，在它的佩戴者身上不断地改变着形状。它的火焰似乎不会伤害到佩戴者。", "_t")
+t("A choker made of pure flame, casting forever shifting patterns around the neck of its wearer. Its fire seems to not harm the wearer.", "一个由火焰形成的护符，在佩戴者的颈部周围投射出不断变幻的光影。它的火焰似乎不会伤害到佩戴者。", "_t")
 t("Chromatic Harness", "七彩鳞甲", "entity name")
 t("multi-hued scale-mail armour", "多彩的鳞片护甲", "_t")
 t("This dragon scale harness shines with multiple colors, quickly shifting through them in a seemingly chaotic manner.", "这个以巨龙鳞片制成的护甲闪耀着五颜六色的光芒，它们在鳞甲表面不断的变化着。", "_t")
@@ -14246,7 +14246,7 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 
 这问题听起来多么粗俗平常，可它偏偏是我最常被问到的问题，甚至一些学识最渊博的学生也会询问。我们太常借实践、模仿和对最终效果的专注来教授魔法技艺，却不更详细地教授底层原理。正如音乐家可以快乐地弹奏竖琴，却不知声音如何由琴弦震动产生，法师也可以运用魔法，却不了解其中真正起作用的力量。我希望在这篇文章中教授魔法的本质，以及底层效应如何结出我们所能创造的一切奇妙果实。
 
-炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成基本元素来分析他们是如何互相影响的。但这只是世界的一面，基本元素虽然表现了物质面上世界的构成，却不能解释将这些元素精密结合在一起的力量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
+炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成基本元素来分析他们是如何互相影响的。但这只是世界的一面，基本元素虽然表现了物质面上世界的构成，却不能解释推动万物运动的力量与能量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
 
 元素之力天然存在于世界，编织在万物周围，构成一幅无所不包的织布。它们与世界中的物质一同移动、震动与共鸣，彼此的效应互相深刻影响。所有生物都会自然地运用这些元素，但有些生物比其他生物更贴合这些丝线。通过大量训练与实践，我们自己也能更贴合这些狂野力量；如此一来，有些人就能匹敌狼的速度、熊的力量、树人的坚韧，甚至巨龙的浩大自然之力。
 
@@ -14254,7 +14254,7 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 
 拨动丝线会消耗巨大，需要投入大量意志来维持。我们精通奥术之人将这种专门用于与世界元素互动的精神耐力称为“法力”。持续使用魔法就像不断举起并托住重物，最终会发现自己的能力已被耗尽。练习能让人积累更庞大的法力储备，某些符文与法术也能逐渐积累额外储备，以供需要时调用。
 
-魔法符文和物品都被灌注了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金术师常用它们引发元素效应。
+魔法符文和物品都被灌注了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金师常用它们引发元素效应。
 
 一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文里的学生我假定你们都是不同意这种说法的。魔法只是自然之力的延伸，我们身为自然生物为何不能去尝试运用它？但你们要谨记魔法的存在仍是一柄双刃剑。作为工具它确实能产生极大的价值——明智的使用它。
 ]], "_t")
@@ -18625,9 +18625,7 @@ My quest has drawn me into the Old Forest. What is there to be said about a plac
 Rumours are growing of trees roaming in its depths, moving as you or I would. Some even claim that they now possess the spark of sentience. The Sher'Tul were rumoured to hold the power of animism... is this mere coincidence?]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
 #{bold}#第一章：夏·图尔
 
-#{normal}#夏·图尔。他们是谁？从何而来？又去了哪里？围绕这个古老种族的谜团几乎无穷无尽。我们掌握的寥寥资料，只隐约指向一个强盛而遍及世界的文明，他们驾驭着难以想象的力量与魔法。
-
-然而如今，他们只剩下遭人遗忘、饱受风蚀的废墟；其技术最细微的片段，也被封存在离群索居的贤者书斋中。亲爱的读者，他们的谜团是否也像呼唤我一样，唤起了你的好奇心？
+#{normal}#夏·图尔。他们是谁？从何而来？又去了哪里？围绕这个古老种族的谜团几乎无穷无尽。我们掌握的寥寥资料，只隐约指向一个强盛而遍及世界的文明，他们驾驭着难以想象的力量与魔法。然而如今，他们只剩下遭人遗忘、饱受风蚀的废墟；其技术最细微的片段，也被封存在离群索居的贤者书斋中。亲爱的读者，他们的谜团是否也像呼唤我一样，唤起了你的好奇心？
 
 我的探寻将我带进了古老森林。对于一个叫作“古老森林”的地方，还能说些什么？它是一片森林，而且很古老。只看这毫无新意的名字，你就能猜到德斯人有多么重视这里：当地经常走入林荫之下的，只有寻找材料的新手炼金术师，外加偶尔几个志向不高的猎人。不过，这片古老森林的故事如今有了更有趣的转折……
 
@@ -23460,7 +23458,7 @@ t("#CRIMSON#%s's %s is disrupted by %s wounds!#LAST#", "#CRIMSON#%s 的 %s 被 %
 t([[Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. 
 In addition, your attacks have a %d%% chance to inflict a painful wound that causes them to forget a random talent for %d turns.  The last effect cannot occur more than once per turn per target.
 		]], [[你的近战和远程攻击制造的伤口会使敌人分心，使目标的暴击系数减少 %d%%，持续 5 回合。
-		此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果每回合最多只能触发一次。]], "tformat")
+		此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果对每个目标每回合最多触发一次。]], "tformat")
 t("Misdirection", "误导", "talent name")
 t("#ORANGE#%s redirects the effect '%s'!#LAST#", "#ORANGE#%s 误导了 '%s' 效果！#LAST#", "logSeen")
 t([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.
@@ -24068,7 +24066,7 @@ t("Blood is power. Let the rivers run red.", "鲜血即力量。让河水变红�
 t("Hatred", "憎恨", "talent type")
 t("All the things in this dark world are contemptible.  Let yourself hate them and find the power therein.", "这个黑暗世界里的一切都是可鄙的。尽情憎恨这一切，从中汲取力量。", "_t")
 t("Cursed", "被诅咒者", "talent type")
-t("Hate-powered abilities that don't belong anywhere else.", "不适于其他地方的仇恨之力。", "_t")
+t("Hate-powered abilities that don't belong anywhere else.", "由仇恨驱动、无法归入其他类别的各项能力。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/dark-figure.lua"
@@ -31685,7 +31683,7 @@ t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now a
 t("Superpower", "超级力量", "talent name")
 t([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.
 		This prodigy grants a Mindpower bonus equal to 60%% of your Strength.
-		Additionally, you treat all weapons as having an additional 40%% Willpower modifier.]], [[强壮的身体才能承载强大的灵魂。而强大的灵魂却可以创造一个强壮的身体。
+		Additionally, you treat all weapons as having an additional 40%% Willpower modifier.]], [[强壮的身体才能承载强大的精神。而强大的精神却可以创造一个强壮的身体。
 		获得相当于你 60%% 力量值的精神强度增益。
 		此外，你的所有武器都会有额外的 40%% 意志修正加成。]], "tformat")
 t("Avatar of a Distant Sun", "日耀神使", "talent name")
@@ -38886,7 +38884,7 @@ t("molten", "熔融", "_t")
 t("temperate", "温带", "_t")
 t("\
 Encroaching terrain:\
-%s%s", "\n此处地形：\n%s%s", "tformat")
+%s%s", "\n前方地形：\n%s%s", "tformat")
 t("indistinct", "模糊不清", "_t")
 t("continuation of the Infinite Dungeon", "无尽地下城的延续", "_t")
 
@@ -39604,7 +39602,7 @@ t("sandworm", "沙虫", "entity subtype")
 t("sandworm burrower", "沙虫挖掘者", "entity name")
 t([[This sandworm seems to not care about your presence at all and simply continues digging its way through the sand.
 	
-Maybe following it is the only way to move around here...]], "这只沙虫似乎毫不在意你的出现，只顾埋头挖掘。也许跟着它才能找到出路。", "_t")
+Maybe following it is the only way to move around here...]], "这只沙虫似乎毫不在意你的出现，只顾埋头挖掘。\n\t\n也许跟着它才是在这一带四处走动的唯一办法……", "_t")
 t("huge sandworm burrower", "巨型沙虫挖掘者", "entity name")
 t("Sandworm Queen", "沙虫女皇", "entity name")
 t("Before you stands the queen of the sandworms. Massive and bloated, she slithers toward you, calling for her offspring!", "在你面前站着的是沙虫女皇。她带着厚重的甲壳和肥胖的身体向你冲来，同时她还在召唤子孙！", "_t")
@@ -40377,7 +40375,7 @@ t("Catch @himher@!", "抓住@himher@！", "_t")
 t("yeek mindslayer", "夺心魔心灵杀手", "entity name")
 t("A mindslayer in training.", "一名正在训练中的心灵杀手。", "_t")
 t("yeek psionic", "夺心魔灵能力者", "entity name")
-t("You can literaly feel the mental energies emitted by this yeek.", "你可以感受到这名夺心魔周围的能量。", "_t")
+t("You can literaly feel the mental energies emitted by this yeek.", "你几乎能真切地感受到这名夺心魔散发出的精神能量。", "_t")
 t("gem crafter", "珠宝匠", "entity name")
 t("This yeek has all sorts of gems to sell.", "这名夺心魔出售所有品种的宝石。", "_t")
 t("two hander weapons crafter", "双手武器铁匠", "entity name")
