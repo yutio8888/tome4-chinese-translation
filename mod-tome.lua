@@ -12676,7 +12676,7 @@ t("gore-encrusted suit of iron mail", "沾满血污的铁甲", "_t")
 t("Blood drips continuously from this fell suit of iron, and dark magics churn almost visibly around it. Bloody ruin comes to those who stand against its wearer.", "鲜血不断的从这套骇人的铁甲上滴落，几乎可以看得见黑魔法在它的周围流动。胆敢阻挡装备者的人会遭到血腥的毁灭。", "_t")
 t("Scale Mail of Kroltar", "库洛塔的龙鳞甲", "entity name")
 t("perfectly-wrought suit of dragon scales", "锻造精良的龙鳞铠甲", "_t")
-t("A heavy shirt of scale mail constructed from the remains of Kroltar, whose armour was like tenfold shields.", "一件用库洛塔的遗物打造的重甲，她的护甲有盾牌的十倍重。", "_t")
+t("A heavy shirt of scale mail constructed from the remains of Kroltar, whose armour was like tenfold shields.", "一件用库洛塔的遗骸打造的厚重鳞甲，他的护甲坚如十重盾牌。", "_t")
 t("Kroltar's head would turn up the heat.", "库洛塔的头会加剧这里的炎热。", "_t")
 t("Cuirass of the Thronesmen", "钢铁战士胸甲", "entity name")
 t("heavy dwarven-steel armour", "重型矮人钢护甲", "_t")
@@ -27322,7 +27322,7 @@ t([[Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If 
 t("Forge Echoes", "回音击", "talent name")
 t([[Strike an adjacent target with a mighty blow from the forge, inflicting %d%% weapon damage.  If the attack hits, the echo of the attack will lash out at all enemies in a %d radius of the impact.
 		Learning this talent adds %0.2f mind damage and %0.2f burning damage to your Dream Hammer strikes.
-		The mind and fire damage will scale with your Mindpower.]], [[用梦之巨锤对近身目标挥出强力的一击，造成 %d%% 武器伤害。如果攻击命中，挥击所产生的回音会伤害 %d 码范围内的所有目标。
+		The mind and fire damage will scale with your Mindpower.]], [[用梦之巨锤对近身目标挥出强力的一击，造成 %d%% 武器伤害。如果攻击命中，挥击所产生的回音会伤害 %d 码范围内的所有敌人。
 		学习此技能会使你的梦之巨锤附加 %0.2f 精神伤害和 %0.2f 燃烧伤害。
 		受精神强度影响，梦之巨锤附加的精神伤害和燃烧伤害按比例加成。]], "tformat")
 
@@ -29327,9 +29327,9 @@ t([[You learn to finely craft and tune your spells, reducing all their cooldowns
 t("Energy Alteration", "能量转化", "talent name")
 t([[Your mastery over magic is so great that you can alter the energy of all damaging spells to suit your needs.
 		Whenever you deal damage with a spell you attune to the element of that spell for 6 turns, converting %d%% of any damage you deal into that element.
-		This effect will not override itself and will only trigger from spells directly cast by you, not from damage over time or ground damage effects.]], [[你对魔法的掌握是如此精巧，你可以调节任何伤害技能的能量，来为你所用。
-		每当你使用法术造成伤害的时候，你将法术调谐到这一元素，持续 6 回合，你造成的所有伤害中的 %d%% 将会转化为该元素。
-		这一效果不会覆盖自身，只会被你直接释放的技能触发，不会因持续伤害或地面伤害效果而触发。]], "tformat")
+		This effect will not override itself and will only trigger from spells directly cast by you, not from damage over time or ground damage effects.]], [[你对魔法的掌握是如此精巧，你可以调节任何伤害性法术的能量，来为你所用。
+		每当你使用法术造成伤害的时候，你会调谐到该法术的元素，持续 6 回合，你造成的所有伤害中的 %d%% 将会转化为该元素。
+		这一效果不会覆盖自身，只会被你直接释放的法术触发，不会因持续伤害或地面伤害效果而触发。]], "tformat")
 t("Metaflow", "奥术流动", "talent name")
 t([[Your mastery of arcane flows allow you to reset the cooldown of up to %d of your spells (that don't have a fixed cooldown) of tier %d or less.
 		In addition for %d turns you are overflowing with energy; all known spells are considered one talent level higher when casting them.]], [[你对奥术的精通使你能重置法术的冷却时间，重置至多 %d 个法术的冷却（对固定冷却时间的技能无效），对技能层次 %d 或更低的技能有效。
