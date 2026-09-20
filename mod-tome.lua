@@ -12737,7 +12737,7 @@ t("This ancient pickaxe was used to pass down dwarven legends from one generatio
 t("#LIGHT_BLUE#You feel the whisper of your ancestors as you wield this pickaxe!", "#LIGHT_BLUE#当你挥舞这把十字镐时，你仿佛听到了先祖的低语！", "logPlayer")
 t("Quiver of the Sun", "日冕箭壶", "entity name")
 t("bright quiver", "发光的箭壶", "_t")
-t("This strange orange quiver is made of brass and etched with many bright red runes that glow and glitter in the light.  The arrows themselves appear to be solid shafts of blazing hot light, like rays of sunshine, hammered and forged into a solid state.", "这个奇特的橙色箭壶由黄铜制成，在阳光下，你可以看到壶身铭刻着许多亮红色的发光符文。箭矢似乎配有燃烧的箭杆，就像被锻造过的阳光。", "_t")
+t("This strange orange quiver is made of brass and etched with many bright red runes that glow and glitter in the light.  The arrows themselves appear to be solid shafts of blazing hot light, like rays of sunshine, hammered and forged into a solid state.", "这个奇特的橙色箭壶由黄铜制成，在阳光下，你可以看到壶身铭刻着许多亮红色的发光符文。箭矢本身仿佛就是炽热光芒凝成的实体箭杆，如同阳光被锤炼锻造成了固态。", "_t")
 t("Quiver of Domination", "统御箭袋", "entity name")
 t("grey quiver", "灰色的箭袋", "_t")
 t("Powerful telepathic forces emanate from the arrows of this quiver. The tips appear dull, but touching them causes you intense pain.", "箭袋中的箭矢中散发出一股强大的意念力，尖端虽然看上去不锋利，但是当你触摸时却让你感到剧烈的疼痛。", "_t")
@@ -14913,7 +14913,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 这一令人惊讶的提问让我感到一阵震惊，我不知道她究竟是如何瞬间洞悉了我的内心想法。在此之前，我从来没有在任何人面前表现出过我的担忧，然而她一下子就看穿了我的伪装。她和我五个星期前才刚刚见面，然而任何事情都逃脱不了她敏锐的洞察。
 
-关于魔法大爆炸计划的筹备工作正在有条不紊地进行当中。卡库罗尔首领特塞尔已经返回了他位于北方的城堡，然而他的两个女儿仍然作为双方合作的大使留在这里，为我们在魔法技术上提供指导。这意味着莱娜尼尔和我可以时常相见，然而我们始终保守秘密。我高傲的同族们仍然难以接受精灵与人类的浪漫关系，而我们也无法接受可能迎来的流言蜚语。即使这样，我也难以抵御她的魅力，而她也是一样。
+关于魔法大爆炸计划的筹备工作正在有条不紊地进行当中。卡库罗尔首领特塞尔已经返回了他位于北方的城堡，然而他的两个女儿仍然作为大使留在这里，协助我们的计划。这意味着莱娜尼尔和我可以时常相见，然而我们始终保守秘密。我高傲的同族们仍然难以接受精灵与人类的浪漫关系，而我们也无法接受可能迎来的流言蜚语。即使这样，我也难以抵御她的魅力，而她也是一样。
 
 “我是一个战士，”许久的沉思后，我从床上爬起，整理我的长袍，“我喜欢亲自面对敌人，而不是借助某件遗物从远处消灭他们。这样的懦夫行径令真正的战士作呕。”
 
@@ -14923,7 +14923,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 莱娜尼尔凝望着我，用调笑一般的语调柔声说道，“如果你成为了领袖，你可能会阻止这一切；但那样的话，或许我会一辈子恨你。”
 
-我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去检查关于远行传送门最后的准备工序了。如果你乐意的话，请务必和我一同前去。”
+我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去了解远行传送门那边工作的最新进展了。如果你乐意的话，请务必和我一同前去。”
 
 她有些倦怠地摇了摇头。“不，我想要再休息一下。还有，听取他们的报告只会让我嫉妒不已。请让我在这里呆一会儿吧——我稍后就会秘密离开。”
 
@@ -14971,9 +14971,9 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 尼耶拉的微笑令人无法判断她到底是否是在生气。“能够亲眼见证你们有关遗迹能量的强大能力和丰富技巧将会是我无上的荣幸，伊菲尼亚斯大人。”
 
-国王微笑着点了点头，回身叫来了他的副官。“准备地形演示，使用锐火束。”他回身向我们说道。“我向你们展示的可不只是技巧和能力，而是从精微到庞大的一切细节。现在请你们稍等一下，我将会亲自完成这一切。”
+国王微笑着点了点头，回身叫来了他的副官。“准备地形演示，使用锐火束。”他回身向我们说道。“我向你们展示的可不只是技巧和能力，而是从精微到庞大的一切细节。现在请二位稍候片刻，我去与他们会合。”
 
-他与其他两名研究院高阶法师一起走到远行传送门面前，互相遥望，四周传来一阵阵和谐的低吟。随着法术的和声在大厅中飘扬，远行传送门周围的闪烁着星星点点的隐约红色。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远行传送门中产了一束闪烁的橙色火焰。在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。
+他与其他两名研究院高阶法师一起走到远行传送门面前，互相遥望，四周传来一阵阵和谐的低吟。随着法术的和声在大厅中飘扬，远行传送门周围的闪烁着星星点点的隐约红色。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远行传送门上方浮现出一幅由火焰构成的影像。在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。
 
 紧接着，随着吟唱的歌声越来越大，影像中的视野也愈发宽广，从中呈现出我们身边的远行传送门和周围围绕着的众多法师。视野飞腾而上，眼前所见的东西越来越小，最终化为宏伟大厅内的一个小点。紧接着，画面被一个白色的方形取代，周围是挖掘直入地底的痕迹，显然我们的视野正处于水晶塔的正上方。随着聚焦范围越来越大，大地奔腾而过，西部埃尔瓦拉市的房屋隐约可见。伴随着吟诵之声，我们看到了奔腾的大海，看到了西北的层峦叠嶂。我们看到了整片大陆的全景，北部寒风笼罩的高原被冰雪所覆盖，包围着的海洋似乎无穷无尽，大陆上闪烁着无数的白色小点，如同繁星一般。咏唱达到了高潮，我们从宇宙俯瞰到了埃亚尔星球的全景，在火焰的缭绕中悬浮于半空之中，慢慢转动。
 
@@ -24208,7 +24208,7 @@ t([[Impose your tyranny on the minds of those who fear you. When a foe gains a n
 t("Panic", "惊慌失措", "talent name")
 t("#F53CBE#%s ignores the panic!", "#F53CBE#%s无视惊恐！", "logSeen")
 t("#F53CBE#%s resists the panic!", "#F53CBE#%s抵抗了惊恐！", "logSeen")
-t("Panic your enemies within a range of %d for %d turns. Anyone who fails to make a mental save against your Mindpower has a %d%% chance each turn of trying to run away from you.", "使 %d 范围内的敌人惊慌失措，持续 %d 回合，任何未通过精神豁免的敌人每回合将有 %d%% 概率试图逃离你。", "tformat")
+t("Panic your enemies within a range of %d for %d turns. Anyone who fails to make a mental save against your Mindpower has a %d%% chance each turn of trying to run away from you.", "使 %d 范围内的敌人惊慌失措，持续 %d 回合，任何未能通过精神豁免抵抗你的精神强度的敌人，每回合将有 %d%% 概率试图逃离你。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/force-of-will.lua"
@@ -27668,7 +27668,7 @@ t([[Fills the air around you with reactive currents of force.
 		#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#
 		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.
 		You can only have two of these auras active at once.]], [[将你周围的空气充满能量力场。
-		如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有接近的目标造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。
+		如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有相邻的敌人造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。
 		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的物理伤害，每次攻击消耗 %0.1f 能量。
 		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
@@ -42858,7 +42858,7 @@ Word travels fast in Maj'Eyal, and if %s is a summon all future summons of the s
 ]], "tformat")
 t("Talent Name", "技能名", "_t")
 t("Weight", "权重", "_t")
-t("Enter the talent weight multiplier", "输入技能使用权重", "_t")
+t("Enter the talent weight multiplier", "输入技能权重乘数", "_t")
 t("0 is off, 1 is normal", "0 表示不使用这个技能，1 为默认", "_t")
 -- untranslated text
 --[==[
@@ -43247,15 +43247,15 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
 
- All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。迄今为止，最强的人类王国是科纳克王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
+ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
  科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。
 
  肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
 
- 马卓普人在黄昏纪和魔法大爆炸后基本已经灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍能在某些偏远的地方找到。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+ 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
- 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
+ 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 
  在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
