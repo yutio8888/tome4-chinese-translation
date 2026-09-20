@@ -3894,7 +3894,7 @@ t("Regrowth", "复苏月", "calendar allied")
 t("Time of Balance", "平衡之日", "calendar allied")
 t("Pyre", "派尔月", "calendar allied")
 t("Mirth", "狂欢月", "calendar allied")
-t("Summertide", "夏殇", "calendar allied")
+t("Summertide", "炎华", "calendar allied")
 t("Flare", "辉耀月", "calendar allied")
 t("Dusk", "黄昏月", "calendar allied")
 t("Time of Equilibrium", "均衡之日", "calendar allied")
@@ -7051,7 +7051,7 @@ t("temporal slow", "时空减速", "damage type")
 t("molten rock", "熔岩", "damage type")
 t("entangle", "纠缠", "damage type")
 t("%s resists entanglement!", "%s抵抗了纠缠！", "logSeen")
-t("manaworm arcane", "法力蠕虫", "damage type")
+t("manaworm arcane", "法力蠕虫奥术", "damage type")
 t("%s has no mana to burn.", "%s没有法力可供燃烧。", "logSeen")
 t("arcane blast", "奥术爆炸", "damage type")
 t("circle of death", "死亡法阵", "damage type")
@@ -8414,8 +8414,8 @@ t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空元素生物，原生于群星之间的虚空。在星球表面几乎看不到这种生物。", "_t")
 t("losgoroth", "洛斯格罗斯", "entity name")
-t("manaworm", "魔法蠕虫", "entity name")
-t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "魔法蠕虫是以施法者的魔力为食的虚空生物。如果它们近距离接触到法师，它们会缠上去并吸干对方的魔力。", "_t")
+t("manaworm", "法力蠕虫", "entity name")
+t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "法力蠕虫是以施法者的魔力为食的虚空生物。如果它们近距离接触到法师，它们会缠上去并吸干对方的魔力。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/major-demon.lua"
@@ -9975,8 +9975,8 @@ t("wyrmwaxed ", "龙蜡的", "entity name")
 t("wyrmwaxed", "龙蜡", "entity keyword")
 t("battlemaster's ", "战斗大师的", "entity name")
 t("battlemaster", "战斗大师", "entity keyword")
-t(" of sorcery", "幻术之", "entity name")
-t("sorcery", "幻术", "entity keyword")
+t(" of sorcery", "咒术之", "entity name")
+t("sorcery", "咒术", "entity keyword")
 t(" of mindcraft", "心灵锻造之", "entity name")
 t("mindcraft", "心灵锻造", "entity keyword")
 t("spellcowled ", "法术兜帽的", "entity name")
@@ -11457,7 +11457,7 @@ t("The story of my salvation", "我的救赎", "entity name")
 t("An old tale about the fear of magic.", "一则关于人们畏惧魔法的古老传说。", "_t")
 t("On Adventuring", "关于冒险", "entity name")
 t("Fragments of a fabled traveler.", "一个传说中的旅行者的记录。", "_t")
-t("memories of Artelia Firstborn", "亚特莱长子的记忆", "entity name")
+t("memories of Artelia Firstborn", "首生者亚特莱的记忆", "entity name")
 t("The memories of the first elf ever to awaken.", "传说中第一个醒来的精灵的记忆。", "_t")
 t("human myth of creation", "人类的创世传说", "entity name")
 t("Myth of creation of the humans.", "人类的创世传说。", "_t")
@@ -12503,9 +12503,9 @@ t("Hundreds of humanoid teeth have been strung together on multiple strands of t
 t("Another of Garkul's heirlooms would bring out his spirit.", "另一件加库尔的遗物将唤醒他的英灵。", "_t")
 t("#CRIMSON#As you wear both Garkul's heirlooms you can feel the mighty warrior's spirit flowing through you.", "#CRIMSON#当你穿上整套加库尔的遗物时，你感受到战士的精神流淌在你的身上。", "logSeen")
 t("#CRIMSON#The spirit of Garkul fades away.", "#CRIMSON#加库尔的精神消失了。", "logPlayer")
-t("Summertide Phial", "夏至之瓶", "entity name")
+t("Summertide Phial", "炎华之瓶", "entity name")
 t("glowing phial", "发光的小药瓶", "_t")
-t("A small crystal phial that captured Sunlight during the Summertide.", "一个小水晶瓶里捕获了夏日的阳光。", "_t")
+t("A small crystal phial that captured Sunlight during the Summertide.", "一个小水晶瓶里捕获了炎华时节的阳光。", "_t")
 t("When attacking in melee, deals 15 light damage and lights tiles in radius 1.", "近战攻击时，在1码半径内造成15光系伤害并照亮区域。", "_t")
 t("call light, dispelling darkness and lighting tiles in radius 20.(%d power, based on Willpower)", "召唤阳光，驱除黑暗并照亮20格内的地面。（%d强度，基于意志）", "tformat")
 t("%s brandishes %s %s and banishes all shadows!", "%s挥舞%s%s，驱散了黑暗！", "logSeen")
@@ -12536,7 +12536,7 @@ t("Fire Dragon Shield", "火龙之盾", "entity name")
 t("dragon shield", "龙盾", "_t")
 t("This large shield was made using scales of many fire drakes from the lost land of Tar'Eyal.", "这个巨大的盾牌使用了很多生活在失落的大陆塔·埃亚尔的火龙的鳞片打造而成。", "_t")
 t("30% chance that you'll breathe fire in a cone at the attacker (if within range 6).  This can only occur up to 4 times per turn.", "30% 几率向攻击者喷射锥形火焰（6格范围内）。该效果每回合最多触发4次。", "_t")
-t("Titanic", "泰坦尼克", "entity name")
+t("Titanic", "泰坦之盾", "entity name")
 t("huge shield", "巨型盾牌", "_t")
 t("This shield made of the darkest stralite is huge, heavy and very solid.", "这面用最深邃的斯莱特打造的盾牌巨大、沉重且相当坚固。", "_t")
 t("Black Mesh", "黑暗之网", "entity name")
@@ -12886,7 +12886,7 @@ t("You crush the %s, and the gloves take on an illustrious shine!", "你摧毁�
 t("Merkul's Second Eye", "米库尔的第二只眼", "entity name")
 t("sleek stringed bow", "丝弦光滑的弓", "_t")
 t("This bow is said to have been the tool of an infamous dwarven spy. Rumours say it allowed him to \"steal\" the eyes of his enemies. Adversaries struck were left alive, only to unknowingly divulge their secrets to his unwavering sight.", "这把弓据说属于一位臭名昭著的矮人间谍。更有传言称，这把弓能帮助他利用所有敌人的眼睛。被射中的敌人虽然不会丧命，但却没有意识到自己的眼睛已经把周围的秘密全都泄漏给了他。", "_t")
-t("Summertide", "夏殇", "entity name")
+t("Summertide", "炎华", "entity name")
 t("shining gold shield", "闪光的金色盾牌", "_t")
 t("A bright light shines from the center of this shield. Holding it clears your mind.", "从这面盾牌的中心放射出耀眼的光芒，当你紧握这面盾牌时，你的思维变得清晰。", "_t")
 t("releases a burst of light", "发出一股光芒", "_t")
@@ -16807,7 +16807,7 @@ Died the 2th Summertide, Year of Ascendancy 108
 
 King of Kings, Founder of Last Hope, Purger of Orcs, Father of the Age of Ascendancy. Great is the memory of the warrior who fought for peace, and won.
 Quoth King Toknor: "I have lived for the future, a future of peace and prosperity, a future free for all. How happy I am to see that future now... Aye, and it is brighter than any sword, and stronger than any armour, and more enduring than any war. Though warrior I am in flesh and mind, my heart belongs to peace."]], [[生于烈火纪682年，厄流月23日
-死于卓越纪108年，夏殇2日
+死于卓越纪108年，炎华2日
 
 万王之王，最后的希望创始人，兽人清剿者，卓越纪的缔造者。这位为和平而战并赢得胜利的战士，值得世人永远铭记。
 图库纳国王曾言：“我为未来而活——一个和平繁荣、人人自由的未来。如今能亲眼见到这个未来，我何其欣慰……是啊，它比任何刀剑更明亮，比任何护甲更坚固，比任何战争更长久。纵然我在肉体与思想上都是一名战士，我的心却属于和平。”]], "_t")
@@ -16817,7 +16817,7 @@ Died the 2th Summertide, Year of Ascendancy 113
 
 Saviour of the Battle of Last Hope, Bringer of Unity, Soother of Hearts and Minds. Greatly is missed the alchemist that could change sorrow to joy, despair to hope, defeat to victory.
 Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last Hope, seeing all the joy and beauty we have brought here bathed in glorious light. At moments like this I still feel him next to me, and I know I have lived a good life. Today has been a good day... Today I think I shall die."]], [[生于烈火纪688年，辉耀月5日
-死于卓越纪113年，夏殇2日
+死于卓越纪113年，炎华2日
 
 最后的希望战役的救世主，团结的缔造者，心灵的抚慰者。人们深切怀念这位能化悲伤为喜悦、化绝望为希望、化失败为胜利的炼金术士。
 米雯尼雅女王曾言：“没有什么比这一幕更令我动容：夕阳落在最后的希望之上，我们带到此地的一切欢乐与美好都沐浴在灿烂光辉中。每逢此刻，我依然觉得他就在身旁，也明白自己此生无憾。今天是个好日子……我想，今天我将死去。”]], "_t")
@@ -17733,7 +17733,7 @@ I have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set 
 我失败了。啊，以巨龙之巨口起誓，我失败了！威斯曼此行本要猎杀的那头野兽，早已死在他人之手，但它的腐化仍然残留于此。当我赶到它的巢穴时，威斯曼已经神智尽失；他正朝着只有他自己看得见的敌人挥斧乱砍。我想要阻止他，可他把斧头转向了我……我遍体鳞伤、心力交瘁，只能躲进某道裂隙中，躲开……躲开我自己的朋友，他已被此地的腐化扭曲成我的双斧无法放倒的骇人怪物。我毫不怀疑这是我最后一次提笔，因为此刻我已能听见老友那扭曲的声音……在呼唤着我……我之财物将赠予任何能杀死…
 #{italic}#（这点点污渍似乎叙说着威斯曼最终抓住了他的老朋友，他们以这种怪物的形式永远地团聚在了一起）#{normal}#]], "_t")
 t("myths of creation", "创世神话", "newLore category")
-t("memories of Artelia Firstborn", "亚特莱长子的记忆", "_t")
+t("memories of Artelia Firstborn", "首生者亚特莱的记忆", "_t")
 t([[#{italic}#This scroll looks ancient, possibly going back millennia, but has been incredibly well-preserved.#{normal}#
 
 I remember when I first woke, and I drew my first breath, and the fresh young air of the world filled me with vitality. I opened my eyes, and above me stood a figure of outstanding radiance. She was tall and slim, crowned in silver hair that fell to the ground in silken tresses. Her skin was pale to the point of luminance, and her eyes were brighter than the stars.
@@ -19341,10 +19341,10 @@ It's strange, really.. from the fragments I've been able to find, they seem to a
 Well... that was certainly unexpected. There may be some truth to the rumours that these crystals can move about, or at least that they have some will of their own - I was just about to finish my investigation of the caves, when in the very last part of the cave I hadn't yet explored, I saw what appeared to be two giant... legs, growing from the cavern. I was immediately overcome by feelings of fear and malice, and not my own - that crystal sent them to me, that I was unwelcome here, that it was not yet finished. I dare not tell the council of my cowardice, so I shall... invent a more fitting report in a much safer place. If some wayward adventurer finds these notes, it is my surmise that whomever destroyed the original crystals left such a strong impression of strength and will that the rudimentary intelligence governing them decided the form of its destroyer was stronger than the original, crystalline shapes.]], [[#{italic}#卓越纪122年狂欢月10日#{normal}#
 那个罗兰精灵疯子走上街头大喊大叫，声称有人“玷污”了闪光洞穴，长老会这才认为应该准许我前来调查……我没看出这里有任何所谓的玷污，但也没有见到传闻中会移动的水晶。只有一些位置古怪的水晶碎片，像是从某个更大的东西上断裂下来的，实在称不上惊人。
 
-#{italic}#卓越纪122年夏殇2日#{normal}#
+#{italic}#卓越纪122年炎华2日#{normal}#
 说来确实奇怪……从我找到的碎片判断，它们似乎都遵循魔法那无形的几何结构：以形态来看，红色碎片似乎是火焰魔法的一部分，蓝色则对应水，诸如此类……此外还有一些畸变的水晶碎片，仿佛某种可怕力量把这些水晶原有的颜色与元素属性扭成了绝不应有的形态——这就是那个疯子叫嚷的“玷污”吗？
 
-#{italic}#卓越纪122年夏殇3日#{normal}#
+#{italic}#卓越纪122年炎华3日#{normal}#
 好吧……这可真是出乎意料。水晶能够移动的传闻或许确有几分真实，至少它们似乎拥有自己的意志——我正要结束洞穴调查，却在最后一处尚未探索的角落里，看见两条巨大的……腿，仿佛正从洞穴中生长出来。恐惧与恶意顿时淹没了我，可那不是我的情绪——是水晶把它们送进我心里，告诉我这里不欢迎我，也告诉我它的形态尚未完成。我不敢向长老会坦白自己的怯懦，所以还是……到安全得多的地方，编一份更体面的报告吧。若有哪位四处游荡的冒险者发现这些笔记，我的推测是：摧毁原有水晶的某个存在，以其力量与意志留下了无比深刻的印象，于是支配水晶的原始意识认定，毁灭者的形态比原本的水晶形态更加强大。]], "_t")
 
 ------------------------------------------------
@@ -19841,7 +19841,7 @@ I have no voice now to tell my story to others, and so I write it down instead, 
 
 然而有一天，镇上好几个人染上了一种怪病。流言四起，说是我的药剂害了他们，于是顾客不再登门。我的生意彻底败落，很快便面临一贫如洗的处境。随后一名长老死了；他明明已经病了一段时间，人们却把死因归到我头上，说我对他施了邪术，关于巫术的窃窃私语就此传开。
 
-我依然记得，镇民前来抓我时，那个夜晚原本显得多么安宁。我仰望明亮群星与夏殇之月那轮清澈的弯月，思考该如何重振生意，忽然听见远处传来喊声。我看见人群从街角涌出，举着火把步步逼近。我尖声呼救，可他们撞破我的门，砸烂窗户，将我抓住。他们把我拖到屋外，用火把点燃房子。我被剥得一丝不挂，遭到毒打；他们不断诅咒嘲弄，就连曾与我订婚的男人也向我脸上吐口水，咒骂我。
+我依然记得，镇民前来抓我时，那个夜晚原本显得多么安宁。我仰望明亮群星与炎华之月那轮清澈的弯月，思考该如何重振生意，忽然听见远处传来喊声。我看见人群从街角涌出，举着火把步步逼近。我尖声呼救，可他们撞破我的门，砸烂窗户，将我抓住。他们把我拖到屋外，用火把点燃房子。我被剥得一丝不挂，遭到毒打；他们不断诅咒嘲弄，就连曾与我订婚的男人也向我脸上吐口水，咒骂我。
 
 他们拖着我穿过草地和石路，一直来到镇中心的广场。泪水和肿胀的皮肉几乎遮住了我的视线，但我仍能看见他们正在竖起一根木制火刑柱。我试图呼喊、哀求怜悯，得到的回应却是有人扼住我的喉咙，把我按倒，再用铁匠的火钳扯出我的舌头。我咳着鲜血，他们把我靠在那根木柱上，用带刺的绳索将我的双腕举过头顶绑在木柱上。痛苦令人无法忍受，我昏了过去，直到脚边灼烧起来才醒。烟雾开始环绕身体，人群高声欢呼；我每从肺里挤出一声痛苦惨叫，他们的欢呼便更加响亮。
 
@@ -21989,12 +21989,12 @@ t("#LIGHT_BLUE#(%d converted)#LAST#", "#LIGHT_BLUE#(%d 转化)#LAST#", "tformat"
 t([[While active 30%% of all damage you take is converted into %0.2f Paradox per point.
 		The Paradox is gained over three turns.]], [[当激活这个技能时，你受到的伤害有 30%% 会按每点伤害转化为 %0.2f 紊乱值。
 		这些紊乱值会在三个回合内逐步获得。]], "tformat")
-t("Attenuate", "湮灭洪流", "talent name")
+t("Attenuate", "衰减", "talent name")
 t([[Deals %0.2f temporal damage over %d turns to all targets in a radius of %d.  Targets with Reality Smearing active will instead recover %d life over four turns.
 		If a target is reduced below 20%% life while Attenuate is active it may be instantly slain.
 		The damage will scale with your Spellpower.]], [[对范围内所有目标造成 %0.2f 点时空伤害，伤害分摊到 %d 回合内。技能半径为 %d 格。
 		带有弥散现实效果的目标则改为在四回合内恢复 %d 点生命。
-		湮灭洪流生效期间，若目标的生命值降至 20%% 以下，它可能会被立即杀死。
+		衰减生效期间，若目标的生命值降至 20%% 以下，它可能会被立即杀死。
 		伤害受法术强度加成。]], "tformat")
 t("Twist Fate", "扭曲命运", "talent name")
 t("You must have a twisted anomaly to cast this spell.", "你必须有被捕获的异常来使用该法术。", "logPlayer")
@@ -22099,7 +22099,7 @@ t([[When a creature enters your expanding Cosmic Cycle, you heal %d life at the 
 		The healing will scale with your Spellpower.]], [[当一个生物进入你膨胀的宇宙圈时，你在下一回合开始时治疗 %d 生命。
 		当一个生物离开你收缩的宇宙圈时，下回合开始时，你身上的一个负面效果持续时间减少 %d 回合。
 		治疗量受法术强度加成。]], "tformat")
-t("Epoch", "亚伯契", "talent name")
+t("Epoch", "纪元", "talent name")
 t("%s resists the blindness!", "%s抵抗了致盲！", "logSeen")
 t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t("%s resists the confusion!", "%s抵抗了混乱！", "logSeen")
@@ -24997,7 +24997,7 @@ t("The art of manipulating the lifespan and location of your summons.", "操纵�
 t("summoning (advanced)", "高级召唤", "talent type")
 t("The art of improving the quality of your summons.", "增强召唤物的战斗艺术。", "_t")
 t("slime", "史莱姆", "talent type")
-t("Through dedicated consumption of slime mold juice, you have gained an affinity with slime molds.", "通过坚持饮用史莱姆汁液，你获得了对史莱姆的亲和力。", "_t")
+t("Through dedicated consumption of slime mold juice, you have gained an affinity with slime molds.", "通过坚持饮用黏菌汁液，你获得了对黏菌的亲和力。", "_t")
 t("fungus", "真菌", "talent type")
 t("By covering yourself in fungus, you better your healing.", "利用真菌环绕周身，增强你的治疗能力。", "_t")
 t("sand drake aspect", "土龙形态", "talent type")
@@ -27312,7 +27312,7 @@ t("Hammer Toss", "回旋投掷", "_t")
 t([[Throw your Dream Hammer at a distant location, inflicting %d%% weapon damage on all targets between you and it.  After reaching its destination, the Dream Hammer will return, potentially hitting targets a second time.
 		Learning this talent increases the Accuracy of your Dream Hammer by %d.]], [[将你的梦之巨锤扔向远处，对沿途所有敌方单位造成 %d%% 武器伤害。在到达目标点后，梦之巨锤会飞回，可能再次对沿途目标造成伤害。
 		学习此技能会增加梦之巨锤 %d 点命中。]], "tformat")
-t("Dream Crusher", "雷霆一击", "talent name")
+t("Dream Crusher", "梦锤碎击", "talent name")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If the attack hits, the target is stunned for %d turns.
 		Stun chance improves with your Mindpower.  Learning this talent increases your Physical Power for Dream Hammer damage calculations by %d and all damage with Dream Hammer attacks by %d%%.
@@ -28982,7 +28982,7 @@ t([[Turns the golem's skin into molten rock. The heat generated sets ablaze ever
 		The damage and resistance will increase with your Spellpower.]], [[使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。
 		灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。
 		此外，傀儡获得 %d%% 火焰抗性。
-		召唤者存活时，炽热皮肤只会伤害召唤者的敌人。
+		炽热皮肤的伤害不会影响友方生物。
 		伤害和抗性随你的法术强度提高。]], "tformat")
 t("Self-destruction", "自爆", "talent name")
 t([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
@@ -35565,12 +35565,12 @@ t("#Target# has regressed.", "#Target#退化了。", "_t")
 t("+Regression", "+退化", "_t")
 t("#Target# has returned to its natural state.", "#Target#返回了自然状态。", "_t")
 t("-Regression", "-退化", "_t")
-t("Attenuate", "湮灭洪流", "_t")
+t("Attenuate", "衰减", "_t")
 t("The target is being removed from the timeline and is taking %0.2f temporal damage per turn.", "目标被移出时间线，每轮受到 %0.2f 时空伤害。", "tformat")
 t("#Target# is being being removed from the timeline!", "#Target#被从时间线中除去！", "_t")
-t("+Attenuate", "+湮灭洪流", "_t")
+t("+Attenuate", "+衰减", "_t")
 t("#Target# survived the attenuation.", "#Target#从时间线中存活了。", "_t")
-t("-Attenuate", "-湮灭洪流", "_t")
+t("-Attenuate", "-衰减", "_t")
 t("%s has been removed from the timeline!", "%s 被移出时间线！", "logSeen")
 t("The target is being grounded in the timeline and is healing %0.2f life per turn.", "目标正被锚定在时间线中，每回合恢复 %0.2f 点生命。", "tformat")
 t("#Target# is being being grounded in the timeline!", "#Target#被锚定在时间线中！", "_t")
@@ -36555,25 +36555,25 @@ t([[You feel your grip on reality slipping.
 #CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击超过你生命的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。]], "tformat")
 t("#F53CBE#%s's mania hastens cooldowns.", "#F53CBE#%s的狂热降低了冷却时间。", "logSeen")
 t("#F53CBE##Source# spreads the madness to #Target#.", "#F53CBE##Source#的疯狂传播到#Target#。", "logCombat")
-t("Curse of Shrouds", "屏障诅咒", "_t")
-t("Shrouds", "屏障", "_t")
-t("Curse of Shrouds (power %0.1f)", "屏障诅咒 (强度 %0.1f)", "tformat")
+t("Curse of Shrouds", "帷幕诅咒", "_t")
+t("Shrouds", "帷幕", "_t")
+t("Curse of Shrouds (power %0.1f)", "帷幕诅咒 (强度 %0.1f)", "tformat")
 t([[A shroud of darkness seems to fall across your path.
 #CRIMSON#Penalty : #WHITE#Shroud of Weakness: Small chance of becoming enveloped in a Shroud of Weakness (reduces damage dealt by %d%%) for 4 turns.
 #CRIMSON#Power 1+: %sNightwalker: %+d Darkness Resistance, %+d%% Max Darkness Resistance, %+d See Invisible
 #CRIMSON#Power 2+: %s%+d Luck, %+d Constitution
 #CRIMSON#Power 3+: %sShroud of Passing: Your form seems to fade as you move, reducing all damage taken by %d%% for 1 turn after movement.
-#CRIMSON#Power 4+: %sShroud of Death: The power of every kill seems to envelop you like a shroud, reducing all damage taken by %d%% for 3 turns.]], [[一道黑暗屏障降临在你的面前。
-#CRIMSON# 惩罚：#WHITE# 虚弱之纱：有较小几率被虚弱之纱包裹（使你造成的伤害降低 %d%%）持续 4 回合。
+#CRIMSON#Power 4+: %sShroud of Death: The power of every kill seems to envelop you like a shroud, reducing all damage taken by %d%% for 3 turns.]], [[一道黑暗帷幕降临在你的面前。
+#CRIMSON# 惩罚：#WHITE# 虚弱帷幕：有较小几率被虚弱帷幕笼罩（使你造成的伤害降低 %d%%）持续 4 回合。
 #CRIMSON# 强度 1+：%s 暗夜行者：%+d 暗影抗性，%+d%% 最大暗影抗性，%+d 看破隐形强度
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 体质
-#CRIMSON# 强度 3+：%s 穿越屏障：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
-#CRIMSON# 强度 4+：%s 死亡屏障：每一次杀死目标可以让你笼罩在一个屏障内，减少 %d%% 所受伤害持续 3 回合。]], "tformat")
-t("Shroud of Weakness", "虚弱屏障", "_t")
-t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在一个虚弱屏障内(减少造成伤害 %d%%)。", "tformat")
-t("Shroud of Passing", "消逝之纱", "_t")
-t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在一个屏障内使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
-t("Shroud of Death", "死亡屏障", "_t")
+#CRIMSON# 强度 3+：%s 消逝帷幕：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
+#CRIMSON# 强度 4+：%s 死亡帷幕：每一次杀死目标可以让你笼罩在帷幕中，减少 %d%% 所受伤害持续 3 回合。]], "tformat")
+t("Shroud of Weakness", "虚弱帷幕", "_t")
+t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在虚弱帷幕中（造成的伤害降低 %d%%）。", "tformat")
+t("Shroud of Passing", "消逝帷幕", "_t")
+t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在帷幕中使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
+t("Shroud of Death", "死亡帷幕", "_t")
 t("Curse of Nightmares", "噩梦诅咒", "_t")
 t("Nightmares", "噩梦", "_t")
 t("Curse of Nightmares (power %0.1f): %d%%", "噩梦诅咒 (强度 %0.1f)：%d%%", "tformat")
@@ -39308,16 +39308,16 @@ section "mod-tome/data/zones/paradox-plane/npcs.lua"
 
 t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
-t("Epoch", "亚伯契", "entity name")
+t("Epoch", "纪元", "entity name")
 t("A huge being composed of sparking blue and yellow energy stands before you.  It shifts and flows as it moves, at once erratic and graceful.", "一个由噼啪作响的蓝黄双色能量构成的巨大存在站在你面前。它在移动时不断变形、流动，既飘忽不定又优雅。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/objects.lua"
 
-t("Epoch's Curve", "亚伯契的弧线", "entity name")
+t("Epoch's Curve", "纪元之弧", "entity name")
 t("white ash longbow", "白蜡长弓", "_t")
 t([[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
-According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契的弧线失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
+According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在纪元之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
 根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。]], "_t")
 
 ------------------------------------------------
@@ -39963,7 +39963,7 @@ t("Shandral (Sun)", "珊德拉（恒星）", "entity name")
 t("The sun of the Shandral star system.", "珊德拉星系的恒星。", "_t")
 t("Eyal (Planet)", "埃亚尔（星球）", "entity name")
 t("One of the main planets of the Shandral system.", "珊德拉星系的主要行星之一。", "_t")
-t("Summertide (Moon of Eyal)", "夏殇（埃亚尔的卫星）", "entity name")
+t("Summertide (Moon of Eyal)", "炎华（埃亚尔的卫星）", "entity name")
 t("One of the moons of Eyal.", "埃亚尔的一个卫星。", "_t")
 t("Wintertide (Moon of Eyal)", "霜华（埃亚尔的卫星）", "entity name")
 t("Kolal (Planet)", "克拉尔（星球）", "entity name")
