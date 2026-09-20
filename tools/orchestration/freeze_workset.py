@@ -45,6 +45,13 @@ DLC_MAP = {
 STANDARD_TAGS = {'_t', 'tformat', 'log', 'logPlayer', 'logSeen', 'logCombat',
                  'entity name', 'talent name', 'entity desc', 'talent desc'}
 
+# 运行期构造的实体名可能挂在提取器自定义的 tag 上，而不是通用的 'entity name'：
+# gem.lua 经 newGem() 同时产出 'gem name'（name:lower()）与
+# 'alchemist gem'（"alchemist "..name:lower()），见 tools/i18nlib/extract.py。
+# 第七、八类归因的成立与否由「同文件里拼接式＋同名具名调用实参」这一证据决定，
+# tag 只用来限定候选范围，故此处按提取器的实际取值列全。
+RUNTIME_ENTITY_NAME_TAGS = {'entity name', 'gem name', 'alchemist gem'}
+
 def unescape_variants(s):
     out = [s]
     # engine files may write embedded newlines/tabs as two-char escapes
@@ -296,7 +303,7 @@ def main():
                         }
                         break
         concat = None
-        if not hits and snap['source_tag'] == 'entity name':
+        if not hits and snap['source_tag'] in RUNTIME_ENTITY_NAME_TAGS:
             # `name = "alchemist "..name:lower()`：条目是运行期拼接值，
             # 前缀在拼接处，剩余部分是同文件某次具名调用的字面量实参。
             whole = '\n'.join(lines)
@@ -322,7 +329,7 @@ def main():
                 }
                 break
         lowered = None
-        if not hits and concat is None and snap['source_tag'] == 'entity name':
+        if not hits and concat is None and snap['source_tag'] in RUNTIME_ENTITY_NAME_TAGS:
             # `name = name:lower()`：第七类的空前缀形态。实体名没有拼接，
             # 只是同文件某次具名调用实参的小写形式（gem.lua 的可掉落宝石）。
             whole = '\n'.join(lines)
