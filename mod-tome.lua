@@ -22656,7 +22656,7 @@ t("Dark Ritual", "黑暗仪式", "talent name")
 t([[Increases your critical damage multiplier by %d%%.
 		The multiplier will increase with your Spellpower.]], [[增加 %d%% 暴击倍率。
 		倍率受法术强度加成。]], "tformat")
-t("Corrupted Negation", "能量腐蚀", "talent name")
+t("Corrupted Negation", "堕落驱散", "talent name")
 t([[Project a corrupted blast of power that removes up to %d magical or physical effects or any type of sustain and deals %0.2f blight damage to any creatures caught in the radius 3 ball.
 		For each effect, the creature has a chance to resist based on its spell save.
 		The damage will increase with your Spellpower.]], [[在 3 码球形范围内制造一个堕落能量球，移除范围内任意怪物至多 %d 种魔法/物理效果或任意类型的持续技能，并造成 %0.2f 枯萎伤害。
@@ -24100,11 +24100,11 @@ t("Devour Life", "吞噬生命", "talent name")
 t([[Devours life from the target of your feeding reducing their life regeneration by %d and adding half of that to yours.
 		Improves with your Mindpower.]], [[你的吸食效果会吸收目标的生命。降低目标 %d 的生命回复率，将一半的回复量加到自己身上。
 		技能效果随精神强度提升。]], "tformat")
-t("Feed Power", "强化吸食", "talent name")
+t("Feed Power", "吸食伤害", "talent name")
 t([[Enhances your feeding by reducing your targeted foe's damage by %d%%, and increasing yours by the same amount.
 		Improves with your Mindpower.]], [[提高你的吸食能力，降低目标 %d%% 伤害并增加你自己同样数值的伤害。
 		效果受精神强度加成。]], "tformat")
-t("Feed Strengths", "腐蚀吸食", "talent name")
+t("Feed Strengths", "吸食抗性", "talent name")
 t([[Enhances your feeding by reducing your targeted foe's resistances, multiplying them by %0.2f and increasing your resistances by the amount drained. Resistance to "all" is not affected.
 		Improves with your Mindpower.]], [[提高你的吸食能力，将目标的伤害抗性降低到原来的 %0.2f 倍，并将你自身相应的伤害抗性提高相同数值。
 		对“所有”抗性无效。
@@ -24973,7 +24973,7 @@ t([[Your fungus reaches into the primordial ages of the world, granting you anci
 		这一效果最多获得 2 个回合。
 		同时，每当你受到回复作用时，每回合你的失衡值将会减少 %0.1f。
 		增益回合受精神强度加成。]], "tformat")
-t("Sudden Growth", "疯狂成长", "talent name")
+t("Sudden Growth", "骤然生长", "talent name")
 t("A wave of energy passes through your fungus, making it release immediate healing energies on you, healing you for %d%% of your current life regeneration rate (#GREEN#%d#LAST#).", "一股强大的能量穿过你的孢子，使其立刻对你释放治愈性能量，治疗你 %d%% 当前生命回复值（#GREEN# %d #LAST#）。", "tformat")
 
 ------------------------------------------------
@@ -25296,7 +25296,7 @@ t([[Your body is more like that of an ooze.
 		你同时最多只能拥有 %d 只浮肿软泥怪，你所承受的所有伤害会在你和浮肿软泥怪间均摊。
 		每只浮肿软泥怪存在 %d 回合，对非均摊的伤害的抗性很高（%d%% 对全部伤害的抗性），同时生命回复快。
 		%s几率受灵巧加成。]], "tformat")
-t("Reabsorb", "强化吸收", "talent name")
+t("Reabsorb", "再吸收", "talent name")
 t([[You randomly merge with an adjacent bloated ooze, granting you 40%% all damage resistance for %d turns.
 		This process releases a burst of antimagic, dealing %0.1f Manaburn damage in radius %d.
 		This talent allows you to restore %0.1f Equilibrium per turn while Mitosis is active.
@@ -26573,7 +26573,7 @@ t("@Source@ dashes quickly!", "@Source@快速移动！", "_t")
 t("You can not do that currently.", "目前你不能这样做。", "logPlayer")
 t("You cannot dash through that!", "你不能穿过去！", "logPlayer")
 t("Quickly and quietly dash your way to the target square, if it is not blocked by enemies or obstacles. This talent will not break Stealth.", "如果没有敌人或障碍物的阻挡，你可以快速而安静地冲向目标位置。这个技能不会打破潜行。", "tformat")
-t("Hide in Plain Sight", "强制潜行", "talent name")
+t("Hide in Plain Sight", "明处潜行", "talent name")
 t("You cannot be stealthy with such heavy armour on!", "你不能在身着重甲的情况下潜行！", "logPlayer")
 t([[You have learned how to be stealthy even when in plain sight of your foes.  You may attempt to enter stealth regardless of how close you are to your enemies, but success is more likely against fewer opponents that are farther away.
 		Your chance to succeed is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection of all enemies (reduced by 10%% per tile distance) that have a clear line of sight to you.
@@ -29722,7 +29722,7 @@ t([[Conjures up a bolt of lightning, doing %0.2f to %0.2f damage (%0.2f average)
 		The damage will increase with your Spellpower.]], [[召唤一道闪电，对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f），并使其眩晕 3 回合。
 		如果目标抵抗了眩晕效果，则转而受到“震撼”效果，震慑、眩晕和定身抗性减半，持续 5 回合。
 		伤害随法术强度提高。]], "tformat")
-t("Hurricane", "风暴之怒", "talent name")
+t("Hurricane", "飓风", "talent name")
 t([[Each time one of your lightning spells dazes a target, it has a %d%% chance to creates a chain reaction that summons a mighty Hurricane that lasts for 10 turns around the target with a radius of %d.
 		Each turn, the afflicted creature and all creatures around it will take %0.2f to %0.2f lightning damage (%0.2f average).
 		The damage will increase with your Spellpower.]], [[每当你的闪电法术使目标眩晕时，有 %d%% 概率触发连锁反应，以目标为中心召唤半径 %d 的强力飓风，持续 10 回合。
@@ -29804,7 +29804,7 @@ t([[Using your near-perfect knowledge of beam spells you combine them all into a
 		The damage will increase with your Spellpower.]], [[你的射线类法术已臻化境，可以将各种元素合并起来，发射出纯粹能量构成，宽度为3的强力射线。
 		射线造成 %0.2f 奇术伤害，且必定发射到最远距离。
 		奇术伤害无法被“全体抗性”之外的任何抗性阻挡，使用你最高的抗性穿透属性和最高的伤害加成属性，且无法被变为其他伤害类型。
-		这一技能可以触发无尽之焰和风暴之怒。
+		这一技能可以触发无尽之焰和飓风。
 		如果你处在西弗格罗斯形态下，对潮湿目标伤害增加 30%%。
 		在开启水晶力场或绝对零度的情况下，技能分别有 25%% 几率震慑或冻结目标 3 回合。
 		每当你使用射线类技能造成伤害，这一技能的冷却时间降低 1 回合（这一效果每回合最多触发一次）。
@@ -30914,7 +30914,7 @@ t("archery - slings", "投石索", "talent type")
 t("Specialized sling techniques.", "提升使用投石索的攻击效果。", "_t")
 t("archery training", "箭术训练", "talent type")
 t("Generic archery techniques.", "通用射击技巧。", "_t")
-t("archery prowess", "强化箭", "talent type")
+t("archery prowess", "箭术造诣", "talent type")
 t("Specialized archery techniques to maim your targets.", "专精于重创目标的箭术技巧。", "_t")
 t("archery excellence", "高等箭术", "talent type")
 t("Specialized archery techniques that result from honed training.", "经过千锤百炼的箭术技巧。", "_t")
@@ -31400,7 +31400,7 @@ t([[- %s
 ------------------------------------------------
 section "mod-tome/data/talents/uber/dex.lua"
 
-t("Flexible Combat", "自由格斗", "talent name")
+t("Flexible Combat", "灵活格斗", "talent name")
 t("Each time that you make a melee attack you have a 50%% chance to execute an additional unarmed strike.", "每当你进行近战攻击时，有 50%% 几率追加一次额外的徒手攻击。", "tformat")
 t("Through The Crowd", "穿梭人群", "talent name")
 t("Have had at least 6 party members at the same time", "队伍里同时拥有至少6名成员", "_t")
@@ -31651,7 +31651,7 @@ t([[You deal a massive blow to your foe, smashing it for 350%% weapon damage, kn
 		For each size category over 'big' you gain an additional +80%% weapon damage.]], [[对敌人进行一次猛击，造成 350%% 的武器伤害并将目标击退 5 格，同时撞开路径上的所有敌人。
 		所有受影响的目标都会被震慑 3 回合。
 		体型每超过“较大”一级，便额外造成 80%% 武器伤害。]], "tformat")
-t("Massive Blow", "巨人之锤", "talent name")
+t("Massive Blow", "巨力重击", "talent name")
 t("Have dug at least 30 walls/trees/etc. and have dealt over 50000 damage with two-handed weapons", "曾挖掉至少 30 块石头/树木/等等，并且使用双手武器造成超过 50000 点伤害", "_t")
 t([[You deal a massive blow to your foe, smashing it for 150%% weapon damage and knocking it back 4 tiles (ignoring knockback resistance or physical save).
 		If the knockback makes it hit a wall, it will smash down the wall, deal an additional 350%% weapon damage and apply the Counterstrike effect.]], [[对敌人进行一次猛击，造成 150%% 的武器伤害并击退目标 4 码。（无视击退免疫和物理豁免）
@@ -34318,7 +34318,7 @@ Talents:
 技能：
 - #YELLOW# 闪电新星：#WHITE# 对你的四周施放闪电新星，对周围生物造成闪电伤害并带有眩晕效果。
 - #YELLOW# 闪电之击：#WHITE# 发射一道快速的闪电箭，眩晕目标
-- #YELLOW# 风暴之怒：#WHITE# 召唤风暴攻击你眩晕的目标，产生围绕他们的闪电对其造成伤害。
+- #YELLOW# 飓风：#WHITE# 召唤风暴攻击你眩晕的目标，产生围绕他们的闪电对其造成伤害。
 - #YELLOW# 无尽风暴：#WHITE# 掌握无尽风暴，甚至能穿透目标的闪电免疫。
 ]], "_t")
 
@@ -35104,12 +35104,12 @@ t("#Target# is consumed in a burst of flame. All that remains is a fiery egg.", 
 t("+Phoenix", "+凤凰涅槃", "_t")
 t("#Target# bursts out from the egg.", "#Target#从蛋中冲出。", "_t")
 t("-Phoenix", "-凤凰涅槃", "_t")
-t("Hurricane", "风暴之怒", "_t")
+t("Hurricane", "飓风", "_t")
 t("The target is in the center of a lightning hurricane, doing %0.2f to %0.2f lightning damage to itself and others around every turn.", "目标处于闪电飓风中心，使自身和周围目标每回合受到 %0.2f ～ %0.2f 闪电伤害。", "tformat")
 t("#Target# is caught inside a Hurricane.", "#Target#卷入了飓风之中。", "_t")
-t("+Hurricane", "+风暴之怒", "_t")
+t("+Hurricane", "+飓风", "_t")
 t("The Hurricane around #Target# dissipates.", "#Target#身边的飓风被驱散了。", "_t")
-t("-Hurricane", "-风暴之怒", "_t")
+t("-Hurricane", "-飓风", "_t")
 t("Teleport: Angolwen", "传送：安格利文", "_t")
 t("The target is waiting to be recalled back to Angolwen.", "目标等待被传送至安格利文。", "_t")
 t("There are creatures that could be watching you; you cannot take the risk of teleporting to Angolwen.", "有生物可以看见你，你不能冒这个险传送安格利文。", "log")
@@ -40821,14 +40821,14 @@ t("Robe-clad elf", "披着长袍的精灵", "entity name")
 t("An elf that looks as though he spends a good amount of his time wiggling his fingers and chanting.", "这名精灵看起来把大量时间花在摆动手指和吟唱上。", "_t")
 t("Stubborn orc", "顽固的兽人", "entity name")
 t("Obstinate orc", "固执的兽人", "entity name")
-t("Pushy orc", "爱出风头的兽人", "entity name")
+t("Pushy orc", "推搡的兽人", "entity name")
 t("Rude orc", "粗暴的兽人", "entity name")
 t("Troll", "巨魔", "entity name")
 t("Ugly troll", "丑陋的巨魔", "entity name")
 t("Gross troll", "粗野的巨魔", "entity name")
 t("Ghastly troll", "可怕的巨魔", "entity name")
 t("Forum troll", "论坛巨魔", "entity name")
-t("Pushy elf", "爱出风头的精灵", "entity name")
+t("Pushy elf", "推搡的精灵", "entity name")
 t("Blustering elf", "虚张声势的精灵", "entity name")
 t("Breezy elf", "活泼的精灵", "entity name")
 t("spiderkin", "蜘蛛族", "entity type")
