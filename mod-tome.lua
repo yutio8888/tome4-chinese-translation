@@ -4109,7 +4109,7 @@ Say, you interested in dismembering stuff and getting paid?]], [[#LIGHT_GREEN#*�
 说！你是不是对收钱帮人搜集材料感兴趣？]], "_t")
 t("Always.", "对。", "_t")
 t("[leave]", "[离开]", "_t")
-t("By the corpses of the gods, I love adventurers. Was about to become one myself when it suddenly hit me. And by \"it\" I mean \"my wife.\" Har!", "感谢上帝，我喜欢冒险者，我本准备自己也去当个冒险者，结果它打了回来，呃……我说的“它”其实是指我老婆，哈！", "_t")
+t("By the corpses of the gods, I love adventurers. Was about to become one myself when it suddenly hit me. And by \"it\" I mean \"my wife.\" Har!", "以诸神的尸骸起誓，我可太喜欢冒险者了。我本来也打算去当一个，结果它突然给了我当头一棒。呃……我说的“它”其实是指我老婆，哈！", "_t")
 t("What do you propose?", "那……你的建议呢？", "_t")
 t("I propose that I give you a list of monster parts to fetch, then you go and fetch them, then I make some blindingly amazing brews with said monster parts, then I get accepted into the Brotherhood of Alchemists.", "我的想法就是，我给你怪物物品清单，然后你给我把它们都找回来。然后我用这些材料做一些很炫的药剂，之后我就可以加入炼金术士兄弟会了。", "_t")
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
@@ -14949,7 +14949,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 是嫉妒促使她说出这番话吗？她嫉妒的是姐妹对我的关注，还是我对她姐妹的关注？我始终没有弄清。剩余的旅途中，我和尼耶拉始终保持沉默。夕阳从马车的背后缓缓落下，巨大的阴影投射在向前的小路上，暮色的笼罩将周围的风景染上了一片深红。有一瞬间，我们仿佛在恶魔的位面上漫步，漆黑的阴影慢慢融化在血色的土壤之上，群星惨淡的冷白色光辉似乎瞬间从苍穹直射下来。繁星点点间，遗迹从地平线映入眼帘，让我不禁颤栗。
 
-考古学家们从来没有发现过比埃尔瓦拉附近的夏·图尔遗迹更为壮观的存在。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像着整座塔并不是立于地面之上，而是在天空中漂浮，直到某种力量让它从空中坠落，静静地在大地中沉眠了无数的岁月。
+已发现的夏·图尔遗迹中，鲜有能与埃尔瓦拉附近那一处的宏伟相提并论的。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像着整座塔并不是立于地面之上，而是在天空中漂浮，直到某种力量让它从空中坠落，静静地在大地中沉眠了无数的岁月。
 
 若干年前，我们的魔法师找到了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律的排布着，就连墙壁似乎也呼吸着能量。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺的高台，巨大能量如同星云般在周围盘旋，噼啪作响。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
 
@@ -14965,7 +14965,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “啊！真高兴见到你，艾伦尼恩将军！”他说道，“你终于来了。这位是卡库罗尔的大小姐吧，真是太好了。”
 
-我微微鞠躬。“是的，陛下。我在这里等待您的指示，为下一步的工作准备。”
+我微微鞠躬。“陛下。我此来是想了解我们行动的最新进展。”
 
 “啊，啊，当然是的，”他有些鄙夷地挥了挥手。“那么不用说，这位小姐一定是来这里确认我们到底会不会用魔法吧。”
 
@@ -17580,16 +17580,16 @@ The Nalorën received no answer.]], [[#{bold}#无序之治#{normal}#
 面对种族即将毁灭的局面，他们向同样受魔法大爆炸影响的兄弟种族——永恒精灵、自然精灵发出了求援信。甚至他们还向人类和半身人们发出了求援，希望对方能给予一些帮助。
 
 纳鲁精灵没有收到任何回应。]], "_t")
-t("tract of acceptance", "命运抉择", "_t")
+t("tract of acceptance", "接纳之卷", "_t")
 t([[#{bold}#Tract of Acceptance#{normal}#
 
 Betrayed by the Shalorën, wilful and destructive, and the Thalorën, aloof and suspicious, a long, seething silence fell over the remaining Nalorën people. It was during this period of grim introspection that salvation was suddenly and unexpectedly granted. The ancient Sher'Tul magicks, long pondered over by the land's mystics, would bear fruit at last.
 
-The same force that destroyed the Nalorën would save them. Through the Sher'Tul's magic, the Nalorën became able to breathe water as if it was air. Their bodies became adapted for existence under the waves, their legs becoming long, snake-like tails. Such drastic metamorphosis would naturally cause horror, you may expect. However, the Nalorën saw the possibilities their new forms provided: Their sunken lands were their own once again. Their homes would be rebuilt, their civilisation reborn. Nalorën no more, the denizens of the sunken kingdom would come to be known as 'nagas'...]], [[#{bold}#命运抉择#{normal}#
+The same force that destroyed the Nalorën would save them. Through the Sher'Tul's magic, the Nalorën became able to breathe water as if it was air. Their bodies became adapted for existence under the waves, their legs becoming long, snake-like tails. Such drastic metamorphosis would naturally cause horror, you may expect. However, the Nalorën saw the possibilities their new forms provided: Their sunken lands were their own once again. Their homes would be rebuilt, their civilisation reborn. Nalorën no more, the denizens of the sunken kingdom would come to be known as 'nagas'...]], [[#{bold}#接纳之卷#{normal}#
 
-被任性消极的永恒精灵和冷漠猜忌的自然精灵背叛后，纳鲁精灵们始终保持着缄默。此时此刻，拯救种族方法的出现既显得突兀又显得理所当然。通过研究远古的夏·图尔魔法，占星师们经过长时间的思考，终于完成了最终方案。
+被任性而暴戾的永恒精灵和冷漠猜忌的自然精灵背叛之后，残存的纳鲁精灵陷入了漫长而压抑的沉默。正是在这段阴郁的自省岁月里，救赎突如其来、始料未及地降临了。这片土地上的秘术学者们长久思索的远古夏·图尔魔法，终于结出了果实。
 
-那毁灭纳鲁的力量，同样可以拯救他们。通过夏·图尔魔法，纳鲁们可以在水里自由的呼吸。他们的身体变的适合水下行动，他们的腿变成了细长的像蛇一样的尾巴。你可以想象，这种非自然的变化会带来多少恐惧。不管怎样，纳鲁们看到了未来的希望——他们沉没的大陆再次成为了他们的家园。家园将会重建，文明将会传承，历史将会延续。纳鲁一族已经随着大陆沉没在历史中，他们将建立新的自由国度——“娜迦”。]], "_t")
+那毁灭纳鲁的力量，同样可以拯救他们。通过夏·图尔魔法，纳鲁们可以在水里自由的呼吸。他们的身体变的适合水下行动，他们的腿变成了细长的像蛇一样的尾巴。你可以想象，这种非自然的变化会带来多少恐惧。不管怎样，纳鲁们看到了未来的希望——他们沉没的大陆再次成为了他们的家园。家园将会重建，文明将会传承，历史将会延续。他们不再是纳鲁人；这沉没王国的居民，此后将被世人称作“娜迦”……]], "_t")
 t("personal note (Slasul)", "萨拉苏尔的个人笔记", "_t")
 t([[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.
 ]], "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然怎么会创造出娜迦这样的种族？不管怎样，当造物主神庙之门为我打开，我们可以变的更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n", "_t")
@@ -23434,7 +23434,7 @@ t([[You strike your target with your melee or ranged weapon, doing %d%% weapon d
 		同时学会本技能和飞刀投掷技能后，你可以学会剧毒飞刀技能，用淬毒匕首攻击敌人；使用本技能时，剧毒飞刀也会进入冷却。
 		]], "tformat")
 t("Numbing Poison", "麻痹毒素", "talent name")
-t("Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.", "在你的武器上涂上麻痹毒素，中毒目标造成的伤害降低 %d%%。", "tformat")
+t("Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.", "为你的致命剧毒加入麻痹成分，使该毒素令目标造成的所有伤害降低 %d%%。", "tformat")
 t("Insidious Poison", "阴险毒素", "talent name")
 t("Enhances your Deadly Poison with an insidious agent, causing it to reduce the healing taken by enemies by %d%%.", "在你的武器上涂上阴险毒素，中毒目标受到的治疗效果减少 %d%%。", "tformat")
 t("Crippling Poison", "致残毒素", "talent name")
@@ -23576,7 +23576,7 @@ t([[You have an enhanced sense of self preservation, and your keen intuition all
 		You also gain an additional chance (at your normal save %+d, effective) to resist detrimental status effects that can be resisted.
 		The detection and additional save chance improve with Cunning.]], [[你拥有了更高级的自我保护感知力，敏锐的直觉让你察觉到他人会忽略的危险。
 		你感知陷阱的能力提升了（+%d 点侦察强度）。
-		对你发动的攻击的暴击伤害降低 %0.1f%%，同时潜行单位因未被发现而对你造成的额外伤害的倍率减小 %d%%。
+		对你发动的暴击，其暴击加成伤害降低 %0.1f%%；攻击者因未被你看见而获得的伤害加成倍率减小 %d%%。
 		你获得一次机会重新抵抗未成功抵抗的负面效果，豁免为正常豁免 %+d。
 		侦测点数和豁免随灵巧提升。]], "tformat")
 t("Disarm Trap", "解除陷阱", "talent name")
@@ -24547,6 +24547,7 @@ t([[You slash wildly at your target for %d%% (at 0 Hate) to %d%% (at 100+ Hate) 
 		This talent will also attack with your shield, if you have one equipped.]], [[野蛮的削砍你的目标造成 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。
 		等级 3 时攻击附带诅咒，降低目标治疗效果 %d%% 持续 %d 回合，效果可叠加。
 		伤害比例受力量值加成。
+
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Frenzy", "狂热", "talent name")
 t([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Stalked prey are always targeted if nearby.
@@ -31619,7 +31620,7 @@ t([[Thaumaturgists have unlocked a deeper understanding of their spells, allowin
 		#CRIMSON#The fine spellcasting required for wide beams and all thaumaturgy spells can only happen while wearing cloth. Anything heavier will hinder the casting too much.]], [[奇术师是对元素法术有着深入理解的人，他们可以用新的方法融合元素，释放更强大的力量。
 		火球术、奥术射线、闪电术、粉碎钻击和寒冰箭被永久转化为宽度为3的射线技能。
 		此外，你获得独有的奇术师技能：
-		- 奇术之球：召唤一个可以复制你释放的射线类法术的球
+		- 奇术之球：召唤一个限时存在的球，可以复制你释放的射线类法术
 		- 多重施法：当你释放射线类法术的时候，有一定几率追加释放一个其他的元素法师法术。
 		- 能量滑流：释放射线类法术的时候可以移动。
 		- 元素阵爆发：发射强力的多元素射线，可以施加所有元素异常状态，无法被元素抗性抵抗
