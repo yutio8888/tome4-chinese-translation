@@ -2841,7 +2841,7 @@ t("Stabilized the Abashed Expanse to maintain it in orbit.", "控制次元浮岛
 t("Wibbly Wobbly Timey Wimey Stuff", "摇晃的不稳定法杖", "achievement name")
 t("Killed the weaver queen and the temporal defiler.", "杀死编织者女皇和时空污秽魔。", "_t")
 t("Matrix style!", "黑客帝国！", "achievement name")
-t("Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!", "探索完整个次元浮岛并且毫发无损。我闪！", "_t")
+t("Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!", "通关整个次元浮岛，全程未被任何一次虚空冲击或法力蠕虫命中。闪避真有趣！", "_t")
 t("The Right thing to do", "正确的选择", "achievement name")
 t("Did the righteous thing in the ring of blood and disposed of the Blood Master.", "你在鲜血之环做出了正确的选择，并消灭了血之领主。", "_t")
 t("Thralless", "奴隶救星！", "achievement name")
@@ -12480,7 +12480,7 @@ t("This unique-looking staff is carved with runes of destruction.", "这个品�
 t("Vargh Redemption", "瓦尔弗的救赎", "entity name")
 t("sea-blue ring", "海蓝色的戒指", "_t")
 t("This azure ring seems to be always moist to the touch.", "这枚碧蓝色的戒指摸起来似乎总是湿润的。", "_t")
-t("summon a radius %d tidal wave that expands slowly over %d turns, dealing %0.2f cold and %0.2f physical damage (based on Willpower) each turn, knocking opponents back, and lowering their stun resistance", "召唤缓慢扩张的半径 %d 的潮汐，持续 %d 回合，每回合造成 %0.2f 寒冷和 %0.2f 物理伤害，击退敌人，并降低他们的震慑抗性。", "tformat")
+t("summon a radius %d tidal wave that expands slowly over %d turns, dealing %0.2f cold and %0.2f physical damage (based on Willpower) each turn, knocking opponents back, and lowering their stun resistance", "召唤缓慢扩张的半径 %d 的潮汐，持续 %d 回合，每回合造成 %0.2f 寒冷和 %0.2f 物理伤害（基于意志），击退敌人，并降低他们的震慑抗性。", "tformat")
 t("tidal wave", "潮汐", "_t")
 t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，召唤了海洋的力量！", "logSeen")
 t("Ring of the Dead", "亡者之戒", "entity name")
@@ -17645,15 +17645,15 @@ Such a magnificent sight! With wings of fire, leaving the air itself hissing and
 Learn from my experiences,
 Weisman]], [[亲爱的弑蚁者罗尔夫，
 
-真是厉害！真是可怕的梦魇！哈哈哈哈哈。去他妈的巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用加急快递将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
+哈！你克服了何等的艰难险阻！去他妈的巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用加急快递将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
 
-我希望你听懂了我之前话语中的讽刺，不过我显然不能对一个连蚂蚁都对付不了的人抱有太多期望。真没想到你这在蝼蚁之中挣扎的家伙竟也敢来笑我。
+我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。
 
 请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途径一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。
 
-真是难以言喻的壮丽景象！巨鸟煽动着烈焰之翼，将四周的空气都炙烤如岩浆般扭曲、流动。
+真是难以言喻的壮丽景象！巨鸟煽动着烈焰之翼，所过之处空气本身都嘶嘶作响、余烟袅袅。
 
-我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦渐渐被其炙热所融化。就在此时，我总算明白了成为一名冒险家的真正意义，这片广阔的大地总会有许多让我们无法理解，震撼心灵的奇迹发生。
+我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦在那灼人的高热下扭曲变形。就在此时，我总算明白了成为一名冒险家的真正意义，我们这个世界上，总还有更多令人惊叹、令人震撼的事物。
 
 希望你能从我的经验里学到些什么。
 威斯曼]], "_t")
@@ -43130,7 +43130,7 @@ t("Records say that giants once lived civilised lives, with mastery of many craf
 t("Zigur was founded by escapees of Conclave experiments during the Allure wars between humans and halflings.", "伊格是由厄流纪人类与半身人战争中的孔克雷夫实验逃亡者创立的。", "init.lua load_tips")
 t("The Thaloren and Shaloren elves have never had good relations, and have been outright hostile since the Spellblaze devastated many Thaloren lands.", "自然精灵与永恒精灵之间关系一直不佳，自从魔法大爆炸摧毁了很多自然精灵大陆之后，他们之间更是相互敌视。", "init.lua load_tips")
 t("The third elven race, the Naloren, were rendered extinct after a huge cataclysm swept the eastern side of Maj'Eyal into the sea.", "精灵第三分支，纳鲁精灵，在魔法大爆炸将马基·埃亚尔的东部地区沉入海底后，彻底灭绝。", "init.lua load_tips")
-t("Trolls were once seen as little more than beasts or pests, but the orcs trained them up for use in war and they became much more intelligent and fearsome.", "巨魔的力量原先不过与野兽和毒虫差不多，不过后来兽人因为战争的需要对它们进行了训练。现在他们变得更聪明更可怕。", "init.lua load_tips")
+t("Trolls were once seen as little more than beasts or pests, but the orcs trained them up for use in war and they became much more intelligent and fearsome.", "巨魔从前不过被视作与野兽或害虫无异的东西，不过后来兽人因为战争的需要对它们加以训练，如今它们变得聪明得多，也可怕得多。", "init.lua load_tips")
 t("Some say that the foot of a halfling is lucky to own. Halflings do not take well to those who enquire too forcefully.", "有人说拥有一只半身人的脚能带来好运。半身人可不待见那些打听得太起劲的家伙。", "init.lua load_tips")
 t("The Nargol empire was once the largest force in Maj'Eyal, but a combination of the Spellblaze and orcish attacks have dwindled it into insignificance.", "纳格尔王国曾经是马基·埃亚尔最强大的国家。但是经历了魔法大爆炸和兽人的入侵之后他们已经变得无足轻重了。", "init.lua load_tips")
 t("Some of the most powerful undead do not fall easily, and only through extreme persistence can they be put to rest.", "那些最强大的不死族并不是那么容易被打败的，只有通过不懈的战斗才能将它们彻底置于死地。", "init.lua load_tips")
