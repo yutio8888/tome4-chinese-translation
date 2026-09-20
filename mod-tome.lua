@@ -2838,7 +2838,7 @@ t("Explorer", "探索者", "achievement name")
 t("Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.", "同一角色至少使用 7 次夏·图尔堡垒的探索用远行传送门。", "_t")
 t("Orbituary", "轨道学者", "achievement name")
 t("Stabilized the Abashed Expanse to maintain it in orbit.", "控制次元浮岛使其稳定在轨道上。", "_t")
-t("Wibbly Wobbly Timey Wimey Stuff", "摇晃的不稳定法杖", "achievement name")
+t("Wibbly Wobbly Timey Wimey Stuff", "摇摇晃晃、时时空空的玩意儿", "achievement name")
 t("Killed the weaver queen and the temporal defiler.", "杀死编织者女皇和时空污秽魔。", "_t")
 t("Matrix style!", "黑客帝国！", "achievement name")
 t("Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!", "通关整个次元浮岛，全程未被任何一次虚空冲击或法力蠕虫命中。闪避真有趣！", "_t")
@@ -2859,9 +2859,9 @@ t("Saved Melinda again and invited her to the Fortress to cure her.", "再次拯
 section "mod-tome/data/achievements/talents.lua"
 
 t("Pyromancer", "烈焰术士", "achievement name")
-t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁大法师职业并造成累计100万火焰伤害（使用任意物品/技能/职业）。", "_t")
+t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁元素法师职业并造成超过100万火焰伤害（使用任意物品/技能/职业）。", "_t")
 t("Cryomancer", "冰霜术士", "achievement name")
-t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁大法师职业并造成超过100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
+t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁元素法师职业并造成超过100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
 t("Lichform", "巫妖转生", "achievement name")
 t("Achieved your wild dreams of power and eternal life: you turned into a Lich!", "成就你的野心并获得永恒的生命，你终于成为了巫妖！", "_t")
 t("Best album ever!", "最佳唱片", "achievement name")
@@ -10569,8 +10569,8 @@ t("sunsealed ", "太阳封印的", "entity name")
 t("sunseal", "太阳封印", "entity keyword")
 t(" of life", "生命之", "entity name")
 t("life", "生命", "entity keyword")
-t("slimy ", "史莱姆的", "entity name")
-t("slimy", "史莱姆", "entity keyword")
+t("slimy ", "黏滑的", "entity name")
+t("slimy", "黏滑", "entity keyword")
 t("stormwoven ", "织岚的", "entity name")
 t("storm", "风暴", "entity keyword")
 t("verdant ", "苍郁的", "entity name")
@@ -17985,15 +17985,15 @@ Mardrop humans are all but extinct, after the Spellhunt and the plagues during t
 
 Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
 
-All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
+All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，他们目前是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。
 
-肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
+肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
 
-在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
-高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
+高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
 
 在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings", "博学者格雷诺特关于种族的调查——第二章——半身人", "_t")
@@ -21224,7 +21224,7 @@ t([[Even now, something compels you to sing.
 			征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。
 			瘟疫挽歌：敌人对你造成负面效果时获得 %d 的护盾（5 回合冷却）。
 			你同时只能激活一种挽歌。]], "tformat")
-t("Dirge Intoner", "悲恸之声", "talent name")
+t("Dirge Intoner", "挽歌吟诵者", "talent name")
 t([[Your dirges carry the pain within you, which threatens to swallow those who come too close.  Anyone who hits you in melee suffers %0.2f mind damage.
 							You, on the other hand, are steadied by the song.  Your dirges increase your resistance to stun and knockback by %d%%.
 							The damage will increase with your Mindpower and your level.]], [[你的挽歌中寄寓着痛苦，过于接近你的生物可能会被这份痛苦吞噬。任何近战击中你的敌人会受到 %0.2f 精神伤害。
@@ -21236,7 +21236,7 @@ t([[Your dirges echo mournfully through the air.  When you end a dirge, you cont
 Furthermore, you are given focus by the song.  Your dirges increase your resistance to confusion and fear by %d%%.]], [[你的挽歌在周围回荡着悲伤。当你结束挽歌时，你持续获得其入门效果 %d 回合。你同时只能受到一种挽歌的余音效果。
 
 而且歌声使得你更加专注。挽歌增加你 %d%% 的混乱和恐惧抗性。]], "tformat")
-t("Dirge Nihilist", "虚无主义", "talent name")
+t("Dirge Nihilist", "挽歌虚无者", "talent name")
 t([[Your dirges deaden you to the outside world, reducing all incoming damage by %d.
 The damage reduction will increase with your Spellpower.]], [[你的挽歌使你对外界变得迟钝，减免所有伤害 %d。
 伤害减免受法术强度加成。]], "tformat")
@@ -23153,7 +23153,7 @@ Preparing a tool sets its talent level and puts it on cooldown.
 %s
 准备工具会将其技能等级设为本技能等级，并使其进入冷却。
 ]], "tformat")
-t("Cunning Tools", "二号工具", "talent name")
+t("Cunning Tools", "机巧工具", "talent name")
 t([[With some advanced preparation, you learn to create and equip a second tool (at #YELLOW#level %d#WHITE#):
 
 %s
@@ -23165,7 +23165,7 @@ Only one tool of each type can be equipped at a time.
 准备工具会将其技能等级设为本技能等级，并使其进入冷却。
 每种类型同时只能装备一件工具。
 ]], "tformat")
-t("Intricate Tools", "三号工具", "talent name")
+t("Intricate Tools", "精密工具", "talent name")
 t([[With some advanced preparation, you learn to create and equip a third tool (at #YELLOW#level %d#WHITE#):
 
 %s
@@ -23177,7 +23177,7 @@ Only one tool of each type can be equipped at a time.
 准备工具会将其技能等级设为本技能等级，并使其进入冷却。
 每种类型同时只能装备一件工具。
 ]], "tformat")
-t("Master Artificer", "强化工具", "talent name")
+t("Master Artificer", "诡计大师", "talent name")
 t("none", "没有", "_t")
 t([[You become a master of your craft, allowing you to focus on a single tool (#YELLOW#currently %s#LAST#) to greatly improve its capabilities:
 
@@ -42324,7 +42324,7 @@ t(" (dismantling)", " （分解中）", "_t")
 t(" (need more skill)", " （需要更多技能）", "_t")
 t("%s) Tier %d: %s%s", "%s) 等级 %d：%s%s", "tformat")
 t("#LIGHT_BLUE#You cannot prepare this trap: %s.", "#LIGHT_BLUE#你不能准备这个陷阱：%s。", "logPlayer")
-t("#LIGHT_BLUE#You need more skill to prepare this trap.", "#LIGHT_BLUE#你需要学习更多技能才能准备这个陷阱。", "logPlayer")
+t("#LIGHT_BLUE#You need more skill to prepare this trap.", "#LIGHT_BLUE#你的技能等级不足，无法准备这个陷阱。", "logPlayer")
 t("#LIGHT_BLUE#Preparing trap with normal trigger.", "#LIGHT_BLUE#准备了常规触发的陷阱。", "logPlayer")
 t("Accept these selections", "确认选择", "_t")
 t("#LIGHT_BLUE#You cannot prepare more than %d traps.", "#LIGHT_BLUE#你不能准备多于%d个陷阱。", "logPlayer")
@@ -43247,15 +43247,15 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
 
- All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
+ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，他们目前是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
  科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。
 
- 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
+ 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
 
- 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+ 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
- 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
+ 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 
  在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
