@@ -17552,7 +17552,7 @@ No, NO! I have - I --- acci--- pain, such pa--______
 section "mod-tome/data/lore/misc.lua"
 
 t("temple of creation", "造物主神庙", "newLore category")
-t("tract of destruction", "毁灭之源", "_t")
+t("tract of destruction", "毁灭之卷", "_t")
 t([[#{bold}#Tract of Destruction#{normal}#
 
 Though armies would fall before the Spellblaze's might, though forests were razed and the skies bled red with fire, they always felt that the earth would endure. It seemed eternal, unmoving. Not even the fury of the Spellblaze could hope to destroy it.
@@ -17566,7 +17566,7 @@ The lands of the Nalorën had sunk beneath the waves.]], [[#{bold}#毁灭之卷#
 但他们错了。长久与世隔绝的纳鲁人早已准备好抵御对他们土地的任何进攻，但他们怎能指望阻止大地本身的崩塌？眼看着家园被生生撕裂，平原与森林坠入大海——在那短暂而恐怖的一刻，他们终于见识了魔法大爆炸的真正威力。它不仅在毁灭世间的生灵，也在毁灭这个世界本身。
 
 纳鲁人的土地沉入了波涛之下。]], "_t")
-t("tract of anarchy", "无序之治", "_t")
+t("tract of anarchy", "无序之卷", "_t")
 t([[#{bold}#Tract of Anarchy#{normal}#
 
 For the years following the cataclysm, chaos reigned. Their culture, their way of life, it was as broken and fractured as the land itself. Nalorë civilisation was reduced to a few isolated and feeble settlements, scratching out meagre existences as land, mind and body was warped in both shape and spirit.
@@ -17575,7 +17575,7 @@ Faced with the idea of their great race failing – another victim of the Spellb
 
 The Nalorën received no answer.]], [[#{bold}#无序之治#{normal}#
 
-大灾难多年以后，世界变幻莫测。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体形神俱扭的境况中勉强求生。
+大灾难之后的那些年里，混乱当道。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体形神俱扭的境况中勉强求生。
 
 面对自己这个伟大种族行将覆灭的前景——沦为魔法大爆炸的又一个牺牲品，史书上的一个脚注——他们向兄弟种族永恒精灵与自然精灵发出了恳切的求援。他们甚至向彼时正深陷自家琐碎内斗的人类和半身人求助。
 
@@ -18008,13 +18008,13 @@ The Nargols once had many strong fortifications in the south of Maj'Eyal, but th
 The most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair.
 ]], [[主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人都只有4英尺高，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着浅色的头发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。
 
-半身人曾经是马基·埃亚尔最具统治地位的种族，他们控制着许多具有战略价值的夏·图尔废墟，并统治着广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
+半身人曾经是马基·埃亚尔最具统治地位的种族，他们控制着许多具有战略价值的夏·图尔废墟，并统治着广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖与其他种族的贸易往来，尤其是与人类。
 
 艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍有着如德斯镇一样和其他种族共同管理的农场。艾德瑞尔人擅长治疗师和农民，并且他们的投石者被认为是世界上最优秀的。
 
 纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。
 
-在半身人中最著名的则是王后米雯尼雅，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。]], "_t")
+在半身人中最著名的则是米雯尼雅女王，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于种族的调查——第三章——矮人", "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
@@ -18110,7 +18110,7 @@ There have been no substantiated reports of orcs for over 100 years. What report
 
 兽人身高大约在6英尺1英寸左右，皮肤呈绿色或黑色。他们的外表与体格差异极大，这很可能与他们惊人的繁殖速度有关。大部分兽人体格粗壮、肌肉发达，作为他们那些可怕军队中的普通士卒而广为人知。然而在烈火纪，出现了大量更为瘦削、精悍的兽人，他们往往通晓毁灭性的法术。
 
-最早与兽人接触的是艾德瑞尔半身人，他们本想把这些头脑简单的生物用作仆役，但在发现它们过于凶残后便放弃了。在此后的数个世纪里，人们几乎从未间断地与这些野兽征战厮杀。它们往往占据数量优势，一度威胁要压垮整个文明，甚至迫使各族采取了魔法大爆炸这样极端的防御手段。而最可怕的时期是在烈火纪，兽人掌握了奥术能力，在吞噬者加库尔的率领下横扫大陆，无情地屠戮面前的一切。最终，一万名半身人在纳格尔之战中献出了生命，击败了他们那恶魔般的领袖，并遏止了兽人军队的推进。此后各文明种族逐渐恢复，最终图库纳国王与米雯尼雅王后成功统一了人类与半身人的王国，集结起一支力量将兽人击退，并最终将他们彻底消灭。
+最早与兽人接触的是艾德瑞尔半身人，他们本想把这些头脑简单的生物用作仆役，但在发现它们过于凶残后便放弃了。在此后的数个世纪里，人们几乎从未间断地与这些野兽征战厮杀。它们往往占据数量优势，一度威胁要压垮整个文明，甚至迫使各族采取了魔法大爆炸这样极端的防御手段。而最可怕的时期是在烈火纪，兽人掌握了奥术能力，在吞噬者加库尔的率领下横扫大陆，无情地屠戮面前的一切。最终，一万名半身人在纳格尔之战中献出了生命，击败了他们那恶魔般的领袖，并遏止了兽人军队的推进。此后各文明种族逐渐恢复，最终图库纳国王与米雯尼雅女王成功统一了人类与半身人的王国，集结起一支力量将兽人击退，并最终将他们彻底消灭。
 
 近来对兽人废墟的调查揭示出数量惊人的文化遗存，甚至还有以生育与战斗为主题的粗糙艺术品。也有证据表明他们的文化中带有强烈的群体色彩，尤其重视体育活动与彰显民族自豪的活动。然而这些显然仍缺乏我们更先进文化所具有的精妙与美感，任何将他们与我们相提并论的尝试，都必然会被他们的野蛮、对领地的暴力和对战争的痴迷所掩盖。
 
@@ -19875,7 +19875,7 @@ section "mod-tome/data/maps/towns/last-hope.lua"
 
 t("Statue of King Tolak the Fair", "公正王托拉克的雕像", "_t")
 t("Statue of King Toknor the Brave", "勇气之王图库纳的雕像", "_t")
-t("Statue of Queen Mirvenia the Inspirer", "鼓舞者王后米雯尼雅的雕像", "_t")
+t("Statue of Queen Mirvenia the Inspirer", "鼓舞者米雯尼雅女王的雕像", "_t")
 t("Declaration of the Unification of the Allied Kingdoms", "联合王国统一公告", "_t")
 
 ------------------------------------------------
@@ -23436,9 +23436,9 @@ t([[You strike your target with your melee or ranged weapon, doing %d%% weapon d
 t("Numbing Poison", "麻痹毒素", "talent name")
 t("Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.", "为你的致命剧毒加入麻痹成分，使该毒素令目标造成的所有伤害降低 %d%%。", "tformat")
 t("Insidious Poison", "阴险毒素", "talent name")
-t("Enhances your Deadly Poison with an insidious agent, causing it to reduce the healing taken by enemies by %d%%.", "在你的武器上涂上阴险毒素，中毒目标受到的治疗效果减少 %d%%。", "tformat")
+t("Enhances your Deadly Poison with an insidious agent, causing it to reduce the healing taken by enemies by %d%%.", "以阴险成分强化你的致命毒素，中毒目标受到的治疗效果减少 %d%%。", "tformat")
 t("Crippling Poison", "致残毒素", "talent name")
-t("Enhances your Deadly Poison with a crippling agent, giving enemies a %d%% chance on using a talent to fail and lose a turn.", "在你的武器上涂上致残毒素，中毒目标每次使用技能都有 %d%% 概率失败并流失 1 回合时间。", "tformat")
+t("Enhances your Deadly Poison with a crippling agent, giving enemies a %d%% chance on using a talent to fail and lose a turn.", "以致残成分强化你的致命毒素，中毒目标每次使用技能都有 %d%% 概率失败并流失 1 回合时间。", "tformat")
 t("Leeching Poison", "吸血毒素", "talent name")
 t("Enhances your Deadly Poison with a leeching agent, causing it to heal you for %d%% of the damage it does to its target.", "以吸血成分强化你的致命毒素，使其对目标造成的伤害按 %d%% 转化为对你的治疗。", "tformat")
 t("Volatile Poison", "易爆毒素", "talent name")
@@ -28037,12 +28037,12 @@ t("You must have an active Thought-Form to use this talent!", "你必须维持�
 t([[Take direct control of your active thought-form, improving its damage, attack speed, and maximum life by %d%%, but leaving your body a defenseless shell.
 		At talent level 1, any Feedback your Thought-Forms gain will be given to you as well. At level 3, your Thought-Forms gain a bonus to all saves equal to your Mental Save. At level 5, they gain a bonus to all damage equal to your bonus mind damage.
 		The secondary bonuses apply whether or not this talent is currently active.
-		The life, damage, and speed bonus will improve with your Mindpower.]], [[直接控制当前的精神体，增加其 %d%% 伤害、攻速以及最大生命值，但是此时你的身体会处于比较脆弱的状态。
-		在等级 1 时，你的守护者所获得的任何反馈值也会传递给你。
-		在等级 3 时，你的守护者会获得所有豁免的增益效果，数值等同你精神豁免的大小。
+		The life, damage, and speed bonus will improve with your Mindpower.]], [[直接控制当前的精神体，增加其 %d%% 伤害、攻速以及最大生命值，但你的身体会变成毫无防御的空壳。
+		在等级 1 时，你的精神体所获得的任何反馈值也会传递给你。
+		在等级 3 时，你的精神体会获得所有豁免的增益效果，数值等同你精神豁免的大小。
 		在等级 5 时，它们会获得伤害增益，增益值基于你的额外精神伤害。
 		这些次级增益无论此技能是否激活均有效。
-		增益效果受精神强度加成。]], "tformat")
+		上述生命、伤害与速度加成受精神强度加成。]], "tformat")
 t("Thought-Form Unity", "思维形态共鸣", "talent name")
 t([[You now gain %d%% mind speed while Thought-Form: Bowman is active, %d Mindpower while Thought-Form: Warrior is active, and %d%% resist all while Thought-Form: Defender is active. 
 		These bonuses scale with your Mindpower.]], [[现在，当思维形态：弓箭手激活时，你提升 %d%% 精神速度；
@@ -30080,7 +30080,7 @@ Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目
 只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
-If the primary target is marked, you consume the mark to fire a second volley of arrows for %d%% damage at no ammo cost.]], [[你向天空发射无数弹药，如箭雨般落向目标，造成 %d%% 伤害，杀伤半径 %d 格。
+If the primary target is marked, you consume the mark to fire a second volley of arrows for %d%% damage at no ammo cost.]], [[你向天空发射无数弹药，如箭雨般落向目标，造成 %d%% 武器伤害，杀伤半径 %d 格。
 如果中心目标被标记，你将消耗其标记，不消耗弹药发射额外齐射一轮，造成 %d%% 伤害。]], "tformat")
 t("Called Shots", "精准射击", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
@@ -37853,7 +37853,7 @@ t("A scrap of paper.", "一张纸片。", "_t")
 t("Rod of Spydric Poison", "蜘蛛毒枝", "entity name")
 t("poison dripping wand", "滴着毒液的枝条", "_t")
 t("This rod carved out of a giant spider fang continuously drips venom.", "这根法杖由巨大蜘蛛的毒牙雕刻而成，它往下不断的滴落毒液。", "_t")
-t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法），并使其在%d回合内无法移动", "tformat")
+t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法），该伤害在%d回合内分次造成，期间目标无法移动", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 
 ------------------------------------------------
