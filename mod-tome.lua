@@ -13961,9 +13961,9 @@ And three, that the war will soon be over, and with it we shall no longer have t
 
 After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]], [[在这样的医院工作，比我预想的更令人精疲力竭。我本以为，帮助伤员恢复健康定能让我始终充满动力；可看到他们有这么多，又知道有些人我无能为力……这令我心情沉重。若不是时刻记着几件事，我很难继续坚持。
 
-第一，我确实在尽全力减少世间的痛苦：既直接治疗病痛，也间接保证世界将在孔克雷夫明智而深思熟虑的统治下归于一统。随时可用的再生纹身确保即便最严重的伤势也能在几天内治愈，让士兵重返战场；此外，长老会还授予我们使用致人失忆的法术，让我们能够妥善治疗那些被战场恐怖景象创伤的人。愿高等人的眼睛在未来数千年间守望这个世界。
+第一，我确实在尽全力减少世间的痛苦：既直接治疗病痛，也间接保证世界将在孔克雷夫明智而深思熟虑的统治下归于一统。随时可用的再生纹身确保即便最严重的伤势也能在几天内治愈，让士兵重返战场；此外，长老会还授予我们使用致人失忆的法术，让我们能够妥善治疗那些被战场恐怖景象创伤的人。愿高等人类的眼睛在未来数千年间守望这个世界。
 
-第二点的话，就是在长老的殷切督导之下，我目前正在进行的子计划十分顺利。那些同意参加我们的试验性治疗，接受经过单独试验处理的英勇纹身和护盾符文的结合治疗的伤者，在术后在体力和耐力上都有了不同程度的提升，并且这一提升并不随时间消退。尽管如此，还是有一个轻微的副作用稍稍引起了我得注意，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老向我保证，这种攻击性其实整体上有助于提高部队士气，因此我可以等到战争结束后再治疗这些攻击倾向。在此期间，我为我的工作深感骄傲。虽然比起高等人类这实在只能算是微不足道的改进，然而长期而言这也将会给我们的社会带来巨大的福音。
+第二，长老会指派给我的那个“子计划”进展十分顺利。那些同意参加我们的试验性治疗——由英勇纹身与护盾符文的实验性变体独特组合而成——的伤者，在术后体力和耐力都有了轻微的提升，并且这一提升并不随时间消退。尽管如此，还是有一个轻微的副作用令我颇为担忧，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老会向我保证，这种攻击性其实整体上有助于提高部队士气，因此我可以等到战争结束后再治疗这些攻击倾向。在此期间，我为我的工作深感骄傲。虽然比起创造高等人类种族这实在只能算是微不足道的改进，然而长期而言这也将会给我们的社会带来巨大的福音。
 
 第三，战争很快就会结束，我们将不必再忍受骄傲士兵们的残缺，也不必再忍受纳格尔的傲慢。最近几天，我们取得了令人瞩目的领土进展，粉碎了多次伏击，在继续深入纳格尔领土时仍保持着推进势头。当然，没人能确定我们听到的消息有多少经过长老会“润色”，但纳格尔最近的一份声明让我相信战报属实：
 
@@ -24147,7 +24147,7 @@ t([[When you focus your attacks on a single foe and strike them in melee for two
 		Bonus level 2: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		Bonus level 3: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]], [[当你连续两回合持续近战攻击同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。
-		你每回合命中猎物都会使增益提升 1 层；未攻击猎物的每回合，增益降低 1 层。
+		你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。
 		1 重增益：+%d 命中，+%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
 		2 重增益：+%d 命中，+%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
 		3 重增益：+%d 命中，+%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
@@ -26736,7 +26736,7 @@ t([[Raise your shield into blocking position for 2 turns reducing all non-Mind d
 			If any damage was successfully blocked this effect will be removed at the start of your turn.
 			If the shield has damage resistance to the blocked damage type the block value is increased by 50%%.
 			
-			Current Bonuses:  %s%s%s%s]], [[举起你的盾牌进入防御姿态 2 回合，减少所有非精神攻击伤害 %d。如果你完全格挡了一次攻击，攻击者将遭到一次致命的反击（武器攻击将造成 200%% 伤害），持续 1 回合。
+			Current Bonuses:  %s%s%s%s]], [[举起你的盾牌进入防御姿态 2 回合，减少所有非精神攻击伤害 %d。如果你完全格挡了一次攻击，攻击者将陷入可被致命反击的状态（下一次武器攻击将改为造成 200%% 伤害），持续 1 回合。
 		每次格挡通常只能反击一个敌人。
 		如果有任何伤害被成功格挡，此效果将在回合开始时移除。
 		如果盾牌对格挡伤害类型有伤害抗性，则格挡值增加50%%。
@@ -27696,9 +27696,9 @@ t([[Fills the air around you with crackling energy.
 		#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#
 		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.
 		You can only have two of these auras active at once.]], [[将你周围的空气充满噼啪响的电能。
-		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有接近的目标造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。
+		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。
 		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的闪电伤害，每次攻击消耗 %0.1f 能量。
-		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。
+		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
 		如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
@@ -31643,7 +31643,7 @@ section "mod-tome/data/talents/uber/str.lua"
 t("Giant Leap", "巨人飞跃", "talent name")
 t("Have dealt over 50000 damage with any weapon or unarmed", "曾使用武器或徒手造成超过50000点伤害", "_t")
 t([[You accurately jump to the target and deal 200%% weapon damage to all foes within radius 1 on impact as well as dazing them for 3 turns.
-		When you jump you free yourself from any stun, daze and pinning effects.]], [[你跃向目标地点，对 1 码半径范围内的所有敌人造成 200%% 的武器伤害，并眩晕目标 3 回合。
+		When you jump you free yourself from any stun, daze and pinning effects.]], [[你跃向目标地点，对 1 码半径范围内的所有敌人造成 200%% 的武器伤害，并使它们眩晕 3 回合。
 		落地后，你解除自身眩晕、定身和震慑效果。]], "tformat")
 t("You Shall Be My Weapon!", "你将成为我的武器！", "talent name")
 t("Be of size category 'big' or larger. This is also required to use it.", "体型至少为较大（使用也要满足此条件）", "_t")
