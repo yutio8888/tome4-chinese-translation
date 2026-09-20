@@ -953,7 +953,7 @@ t("Lucid Dreamer: ", "清晰梦境： ", "_t")
 t("This item allows the wearer to act while sleeping.", "此装备允许装备者边睡觉边行动。", "_t")
 t("The wearer no longer has to breathe.", "装备者不需要呼吸。", "_t")
 t("Quick Weapon Swap:", "快速切换武器：", "_t")
-t("This item allows the wearer to swap to their secondary weapon without spending a turn.", "该武器允许装备者在切换至副武器时无需消耗一回合。", "_t")
+t("This item allows the wearer to swap to their secondary weapon without spending a turn.", "该物品允许装备者在切换至副武器时无需消耗一回合。", "_t")
 t("Avoid Pressure Traps: ", "避免压力陷阱： ", "_t")
 t("The wearer never triggers traps that require pressure.", "该物品可防止装备者触发压力式陷阱。", "_t")
 t("Allows you to speak and read the old Sher'Tul language.", "让你学会古老的夏·图尔语言。", "_t")
@@ -2647,7 +2647,7 @@ t("Did over 1500 damage in one attack.", "在一次攻击中造成超过1500点�
 t("The bigger the better!", "越大越好！", "achievement name")
 t("Did over 3000 damage in one attack.", "在一次攻击中造成超过 3000 点伤害。", "_t")
 t("Overpowered!", "过于强大！", "achievement name")
-t("Did over 6000 damage in one attack.", "在一次攻击中造成6000点伤害。", "_t")
+t("Did over 6000 damage in one attack.", "在一次攻击中造成超过 6000 点伤害。", "_t")
 t("Exterminator", "屠夫", "achievement name")
 t("Killed 1000 creatures.", "杀死1000个怪物。", "_t")
 t("Pest Control", "害虫防治", "achievement name")
@@ -3132,7 +3132,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_
 t("Arcane Blade", "奥术之刃", "birth descriptor name")
 t("The Arcane Blade is a warrior who has been touched by the gift of magic.", "奥术之刃是一个拥有魔法的战士。", "_t")
 t("Their use of magic is innate and not really studied; as such they do not naturally regenerate mana and must use external means of recharging.", "他们的魔法并非习得而是与生俱来的，因此他们不能依靠自然的法力恢复而必须依靠额外的方法来恢复法力值。", "_t")
-t("They can cast spells from a limited selection but have the unique capacity to 'channel' their attack spells through their melee attacks.", "他们能施展一些有限的法术，同时也能将法术融合在他们的近战攻击中。", "_t")
+t("They can cast spells from a limited selection but have the unique capacity to 'channel' their attack spells through their melee attacks.", "他们能施展一些有限的法术，并且独有将攻击法术「导引」进近战攻击的能力。", "_t")
 t("They are adept with two-handed weapons, for the sheer destruction they can bring.", "他们擅长使用双手武器，造成最大的伤害。", "_t")
 t("Their most important stats are: Strength, Cunning and Magic", "他们最重要的属性是：力量、灵巧和魔法。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+0 体质", "_t")
@@ -17575,9 +17575,9 @@ Faced with the idea of their great race failing – another victim of the Spellb
 
 The Nalorën received no answer.]], [[#{bold}#无序之治#{normal}#
 
-大灾难多年以后，世界变幻莫测。他们的文化，他们的生活方式，都因为大陆的沉没而支离破碎。纳鲁文明只剩下了几个孤立而脆弱的定居点——寥寥无几的陆地，他们身心俱疲，前途渺茫。
+大灾难多年以后，世界变幻莫测。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体形神俱扭的境况中勉强求生。
 
-面对种族即将毁灭的局面，他们向同样受魔法大爆炸影响的兄弟种族——永恒精灵、自然精灵发出了求援信。甚至他们还向人类和半身人们发出了求援，希望对方能给予一些帮助。
+面对自己这个伟大种族行将覆灭的前景——沦为魔法大爆炸的又一个牺牲品，史书上的一个脚注——他们向兄弟种族永恒精灵与自然精灵发出了恳切的求援。他们甚至向彼时正深陷自家琐碎内斗的人类和半身人求助。
 
 纳鲁精灵没有收到任何回应。]], "_t")
 t("tract of acceptance", "接纳之卷", "_t")
@@ -18008,13 +18008,13 @@ The Nargols once had many strong fortifications in the south of Maj'Eyal, but th
 The most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair.
 ]], [[主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人都只有4英尺高，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着浅色的头发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。
 
-半身人曾经是马基·埃亚尔最具威慑力的种族，他们控制了大部分的夏·图尔废墟并拥有广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
+半身人曾经是马基·埃亚尔最具统治地位的种族，他们控制着许多具有战略价值的夏·图尔废墟，并统治着广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
 
 艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍有着如德斯镇一样和其他种族共同管理的农场。艾德瑞尔人擅长治疗师和农民，并且他们的投石者被认为是世界上最优秀的。
 
-纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，并且他们的许多人口聚居区被摧毁。最后希望的崛起加速了这一进程，许多市民迁移到了最后希望的城市边缘。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且他们拥有世界上最好的军事家。许多军事家和顾问都来自于他们国家。
+纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。
 
-在半身人中最著名的则是王后米雯尼雅，她在一场和兽人对抗的战役中将勇者图库纳国王拯救出来，自此一战成名。她如何带领军队通过严寒地带，并及时的出现在战场上拯救图库纳始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了第一位著名的混血儿——公正之王托拉克。]], "_t")
+在半身人中最著名的则是王后米雯尼雅，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于种族的调查——第三章——矮人", "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
@@ -30201,7 +30201,7 @@ t([[You enter a battle frenzy for %d turns. During that time, you can not use it
 		At the end of the frenzy, you regain %d%% of your health per foe slain during the frenzy.
 		While Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death.]], [[你进入疯狂战斗状态 %d 回合。
 		在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。
-		状态结束后你每杀死一个敌人可以回复 %d%% 最大生命值。
+		状态期间你每杀死一个敌人，都会在状态结束时回复 %d%% 最大生命值。
 		当进入无双状态时，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。]], "tformat")
 
 ------------------------------------------------
