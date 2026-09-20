@@ -3878,7 +3878,7 @@ t("The only limit to how far you can go is your own skill!", "能够前进多远
 t("Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).", "在无尽地下城中你不受限制，你可以突破 50 级的等级上限并继续获得属性和技能点数（以一个较低的比例获得）。", "_t")
 t("Every level after level 50 the maximum of stats will increase by one.", "50 级之后每级，属性最大值增加 1 点。", "_t")
 t("Every 10 levels after level 50 the maximum points of each talent will increase by one.", "50 级之后每 10 级，技能的最大等级增加 1 点。", "_t")
-t("The Arena: Challenge of the Master", "竞技场：领主的挑战", "_t")
+t("The Arena: Challenge of the Master", "竞技场：擂主的挑战", "_t")
 t("Blood spilled on sand, only the strong survive. Prove yourself worthy to enter.", "血溅沙场，勇者生存，需证明你有进入的资格。", "_t")
 t("Play as a lone warrior facing the Arena's challenge!", "孤身一人直面竞技场的挑战！", "_t")
 t("You can use any class and race for it.", "你可以使用任何职业和种族。", "_t")
@@ -9169,8 +9169,8 @@ t("Crown of the Elements", "元素王冠", "entity name")
 t("jeweled crown", "镶嵌宝石的王冠", "_t")
 t("This jeweled crown shimmers with colors.", "这顶镶嵌宝石的王冠闪闪发光。", "_t")
 t("Warmaster Gnarg's Murderblade", "战争之王格纳哥的饮血剑", "entity name")
-t("blood-etched greatsword", "血迹斑斑的大剑", "_t")
-t("A blood-etched greatsword, it has seen many foes. From the inside.", "一把血迹斑斑的大剑，它洞穿了许多敌人。", "_t")
+t("blood-etched greatsword", "血蚀纹大剑", "_t")
+t("A blood-etched greatsword, it has seen many foes. From the inside.", "一把镌着血蚀纹路的大剑，它见过许多敌人——从体内。", "_t")
 t("10% chance to send the wielder into a killing frenzy", "10% 几率使持有者进入疯狂杀戮状态", "_t")
 t("Whip of Urh'Rok", "乌鲁洛克之鞭", "entity name")
 t("fiery whip", "炽热的鞭子", "_t")
@@ -12841,7 +12841,7 @@ t("Vilespawn", "邪恶子嗣", "_t")
 t("This mass of putrid slime burst from Corpathus, and seems quite hungry.", "这团腐烂的黏液从卡帕萨斯中放出，它现在十分饥饿。", "_t")
 t("Anmalice", "扭曲之刃·圣灵之眼", "entity name")
 t("twisted blade", "扭曲的利刃", "_t")
-t("The eye on the hilt of this blade seems to glare at you, piercing your soul and mind. Tentacles surround the hilt, latching onto your hand.", "剑柄上的眼睛似乎直视着你，试图撕裂你的灵魂。剑柄上环绕的触手可以使其很好的固定在你手上。", "_t")
+t("The eye on the hilt of this blade seems to glare at you, piercing your soul and mind. Tentacles surround the hilt, latching onto your hand.", "这柄剑护手上的眼睛怒视着你，洞穿你的灵魂与心智。触须缠绕着剑柄，攀附在你的手上。", "_t")
 t("torments the target with many mental effects", "对目标附加多种精神状态", "_t")
 t("reduces mental save penalty", "降低精神豁免惩罚", "_t")
 t("Anmalice focuses its mind-piercing eye on #Target#!", "扭曲之刃·圣灵之眼将它穿透灵魂的目光集中在了 #Target# 上！", "logCombat")
@@ -15131,7 +15131,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 #{bold}#第五章：魔法大爆炸之日#{normal}#
 
-随着军队向前前进，我的斩月剑也将出鞘。我的手中握紧缰绳，以免我的战马因为过于兴奋而向前奔驰，我一旁的侍从也握紧缰绳，神情严肃。空气中弥漫着紧张的气氛。放眼向前望去，在不到一英里的地方，兽人军队的前锋已经清晰可见。我们惊动了他们的巢穴，他们便倾巢而出。他们庞大的军势，宛如一道枯萎的暗影，正在缓缓吞噬着地平线下的一切。他们就像是侵扰，吞噬着这个世界的瘟疫。在我们前方的永恒精灵军队在他们庞大的军力面前看起来是那么渺小，但我知道我们的力量可不是由数量决定的。
+随着军队向前前进，我的斩月剑也将出鞘。我的手中握紧缰绳，以免我的战马因为过于兴奋而向前奔驰，我一旁的侍从也握紧缰绳，神情严肃。空气中弥漫着紧张的气氛。放眼向前望去，在不到一英里的地方，兽人军队的前锋已经清晰可见。我们惊动了他们的巢穴，他们便倾巢而出。他们庞大的军势，宛如一道枯萎的暗影，正在缓缓吞噬着地平线下的一切。他们就像一场滔天瘟疫，眼看就要将这个世界吞噬殆尽。在我们前方的永恒精灵军队在他们庞大的军力面前看起来是那么渺小，但我知道我们的力量可不是由数量决定的。
 
 最前方的防线吹响了号角，准备在需要时迎击第一波冲锋。战场北方部署着弓箭手，负责粉碎敌军最初的抵抗；侧翼则是一支法术骑手军团，他们骑在可怖的坐骑上，双手闪耀着奥术能量。南方是常规骑兵、双手剑士、重甲骑士和法师主力，正在准备支援法术。战场各处还散布着资深的战斗法师，随时准备迅速赶往战况最激烈之处，用强大的魔法荡平敌军。任何地方都无需部署两人——他们孤身一人便能轻易消灭二十个兽人。
 
@@ -15141,7 +15141,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 “就是今天！”我们的一个战士发出了呐喊，很快，周围的士兵也重复了他的呐喊。“就是今天！”，他们开始吟唱，期待着即将到来的荣耀。“就是今天！”，我的侍从开始歌唱，他的声音充满了年轻的喜悦和希望。“就是今天！”我们合力发出喊声，随着黎明的第一丝曙光从地面升起，永恒精灵王国的荣耀在我们的心头闪耀。“就是今天！就是今天！就是今——”
 
-沉默。突然间，周围一片万籁俱寂，可怕的沉寂仿佛突然间席卷了整个战场。因为我们的种族和魔法天然的联系，我们所有人都在那一瞬间感受到了那种可怕的体验。那就像是一瞬间体验自己的呼吸被一下子掐断的窒息感，或是脚下站立的大地一瞬间被抽走一般的无助。在那一瞬间，我们的法力通道突然间消失了，奥术能量一下子从我们的手边远去。随着人群的呻吟和低语，一旁的法师们在无尽的绝望中撕扯着自己的头发。我看到我的侍从在他的马鞍上摇摇欲坠，无法控制地呕吐起来，我的军旗也从他的手中滑落。其他的骑兵们纷纷从马上坠落，在剧痛中挣扎。我用尽意志努力抗争着这场灾变压倒性的力量，视野中只剩下一块块模糊不清的景象。我试图控制自己，寻找新的法力通道。
+沉默。突然间，周围一片万籁俱寂，可怕的沉寂仿佛突然间席卷了整个战场。因为我们的种族和魔法天然的联系，我们所有人都在那一瞬间感受到了那种可怕的体验。那就像是一瞬间体验自己的呼吸被一下子掐断的窒息感，或是脚下站立的大地一瞬间被抽走一般的无助。在那一瞬间，我们的法力通道突然间消失了，奥术能量一下子从我们的手边远去。随着人群的呻吟和低语，一旁的法师们在无尽的绝望中抱紧了自己的头。我看到我的侍从在他的马鞍上摇摇欲坠，无法控制地呕吐起来，我的军旗也从他的手中滑落。其他人纷纷倒在地上，在剧痛中挣扎。我用尽意志强忍着排山倒海般的偏头痛，视野中只剩下一块块模糊不清的景象。我试图控制自己，寻找新的法力通道。
 
 但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。现在，我不得不和我经受多年的魔法训练所抗争。我过去已知依赖着那些已知的魔法流动，然而现在我却必须奋力寻找新的能量源。我用尽全力，把自己仅存的力量试图用于启动侦查系魔法，在那一刻，我发现的一切让我深深感到震惊。
 
@@ -15157,7 +15157,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 我挣扎着站起来，环顾四周，只看到四面八方的荒凉景象。蒸汽和烟雾从地面的裂缝中涌出，四周只剩下散落的血肉，残肢和灰烬。周围没有看到任何一个幸存者。在一瞬间的茫然中，我很快感受到了那份绝望：不久前站在这里的数十万人中，只剩下我一个幸存者。无论是朋友还是战友，无论是导师还是学生，无论是我从未认识的人还是我曾经非常接近的人——一切都逝去了。当我想到莱娜尼尔的时候，一股剧烈的痛苦刺穿了我的心房。她是不会死的，对吧？
 
-我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，周围被摧残的万物景象慢慢进入我的眼中。我慢慢地向东北方向前进，四周尽是满目疮痍。四周焚烧的血肉的气息环绕着我，我竭尽全力试图抓住仅存的一丝理智，然而周围尽是超越我的想象的恐怖景象，废土中无尽的寂静比我听到的最为震耳欲聋的声音更加摧残着我的精神。最终，我找到了卡库罗尔军队曾经驻守的地方仅存的遗迹，在无尽的废土中，我试图寻找仅存的生命的迹象。最终，我发现了一些微弱的信号，那是多么虚弱的生命的银线，顺着那个线索，我最终找到了她。
+我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，周围被摧残的万物景象慢慢进入我的眼中。我慢慢地向东北方向前进，四周尽是满目疮痍。四周焚烧的血肉的气息环绕着我，我竭尽全力试图抓住仅存的一丝理智，然而周围尽是超越我的想象的恐怖景象，废土中无尽的寂静比我听到的最为震耳欲聋的声音更加摧残着我的精神。最终，我找到了卡库罗尔军队曾经驻守的地方仅存的遗迹，在无尽的废土中，我试图寻找仅存的生命的迹象。最终，我发现了一些微弱的信号，那是多么微弱的一丝生命，顺着那个线索，我最终找到了她。
 
 她的衣服几乎全部被烧毁，她的长发一半被烧成了灰烬，鲜血在她身上无数的创口缓缓向外流淌。她的身上还残留着微弱的护盾能量，然而当我跪下，把手放在她身上的时候，那个护盾就消失了。她微弱地呼吸着，呢喃着“尼耶拉”的声音，然后很快陷入了无意识之中。她还活着，但是已经奄奄一息。我向四周望去，没有任何她的孪生姐妹的迹象，也没有任何卡库罗尔的士兵。四周只剩下烧焦的血肉和骨骼化成的焦炭，昭示着魔法大爆炸带来的毁灭。
 
@@ -17773,7 +17773,7 @@ And the brother with the water made a thin creature, and called it Elf.
 But Gerlyk's brothers grew jealous of each others creatures, and they fought, and they all were killed. And Elf cried and Dwarf cried and Halfling cried to see their creators fall.
 And Gerlyk was sad, and looked at Human and said, "I am sorry, but this is not a time for creators any more. I must go."
 And Gerlyk walked into the Darkness.
-But Human did not cry, for the coal in his heart burned hot, and he knew he was not truly alone.]], [[在日月初生之时，埃亚尔亦从混沌中诞生。
+But Human did not cry, for the coal in his heart burned hot, and he knew he was not truly alone.]], [[在日月初生之时，埃亚尔亦从黑暗中诞生。
 那时盖里克与他的三个兄弟一起漫步在埃亚尔大陆之上。
 但有天当盖里克独行时，他感到了寂寞，他的内心渴望着同伴。
 于是盖里克使用了一块燃烧的煤炭，在它周围放上石头，包裹上泥土，再将它沐浴在清水之后，把自身的气息灌注其中，这块煤炭居然有了生命——盖里克将他命名为人类。
@@ -17785,7 +17785,7 @@ But Human did not cry, for the coal in his heart burned hot, and he knew he was 
 同样的掌握清水的兄弟用清水造出了一种清瘦的生物，这种生物被命名为精灵。
 盖里克的兄弟们居然为其它人的创造物而互相嫉妒，他们开始了争斗，并同归于尽。精灵，矮人，半身人都为自己创造者的死而哭泣。
 盖里克十分难过，他看着人类说：“对不起，现在已不是创世者的时代了，我也必须离开。”
-于是盖里克缓缓步入了混沌。
+于是盖里克缓缓步入了黑暗。
 人类并未因此哭泣，不仅因为他胸中的煤炭正散发出无穷的热量，更因为他知道自己并非真正孤单。]], "_t")
 t("a logical analysis of creation, by philosopher Smythen", "创世传说的逻辑分析，哲学家斯迈森著", "_t")
 t([[Many are the tales of how our world was made, from the absurd to the romantic to the horrific. But they are all mere myths, with no more than seeds of truth to even the most reliable. The history of our race goes back far, but it is tantalisingly scant in details from before we met the other races. Indeed, it is only through our battles with the others that we halflings have any ancient records at all.
@@ -20127,7 +20127,7 @@ t("The Arena", "竞技场", "_t")
 t("Seeking wealth, glory, and a great fight, you challenge the Arena!", "寻找财富、荣耀和强大的对手，去挑战竞技场吧！", "_t")
 t("Can you defeat your foes and become Master of Arena?", "你能打败对手，成为竞技场主宰吗？", "_t")
 t("Winner", "游戏胜利", "_t")
-t("#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#", "#GOLD#干得好！你赢得了竞技场：领主的挑战#WHITE#", "_t")
+t("#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#", "#GOLD#干得好！你赢得了竞技场：擂主的挑战#WHITE#", "_t")
 t("You valiantly fought every creature the arena could throw at you and you emerged victorious!", "你勇敢地战胜了竞技场里的所有生物并赢得了最终胜利！", "_t")
 t("Glory to you, you are now the new master and your future characters will challenge you.", "荣耀属于你！你已成为新的竞技场主宰，未来的角色将向你发起挑战。", "_t")
 -- untranslated text
@@ -33706,7 +33706,7 @@ All your new characters will now be able to betray arcane escort quests to send 
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-campaign_arena.lua"
 
-t("New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master", "新战役：#LIGHT_GREEN#竞技场：挑战主宰", "_t")
+t("New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master", "新战役：#LIGHT_GREEN#竞技场：擂主的挑战", "_t")
 t([[The arena, a way of violent entertainment. 
 A delight for the audience, a source of wealth and glory. A place where aspiring fighters, former adventurers and those cursed to fight
 eternally gather to hack away at each other.
@@ -40703,7 +40703,9 @@ t("Shax staggers for a moment. A note seems to drop at his feet.", "夏克斯蹒
 t("Bill the Stone Troll", "岩石巨魔比尔", "entity name")
 t([[Big, brawny, powerful and with a taste for Halfling.
 He is wielding a small tree trunk and lumbering toward you.
-This is the troll the notes spoke about, no doubt.]], "高大、强壮且嗜食半身人。他手持一柄小巧的树干并冲向你。这就是手稿里提到的那只巨魔，没跑了……", "_t")
+This is the troll the notes spoke about, no doubt.]], [[高大、魁梧、力大无穷，且嗜食半身人。
+他抡着一根小树的树干，正笨重地朝你挪来。
+这就是那些碎纸片上提到的巨魔，绝对没错。]], "_t")
 t("and clobbered into soup", "并被打成肉泥", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
