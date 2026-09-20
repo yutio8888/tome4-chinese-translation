@@ -8618,7 +8618,7 @@ section "mod-tome/data/general/npcs/orc.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("orc warrior", "兽人战士", "entity name")
-t("He is a hardy, well-weathered survivor.", "它是一个勇敢的，历经多次战争洗礼的幸存者。", "_t")
+t("He is a hardy, well-weathered survivor.", "它是一个强健坚韧、饱经风霜的幸存者。", "_t")
 t("orc archer", "兽人弓箭手", "entity name")
 t("orc soldier", "兽人士兵", "entity name")
 t("A fierce soldier-orc.", "一个勇猛的兽人士兵。", "_t")
@@ -10021,8 +10021,8 @@ t("dream-smith's ", "梦境锻造的", "entity name")
 t("smiths", "梦境锻造", "entity keyword")
 t("soldier's ", "士兵的", "entity name")
 t("soldier", "士兵", "entity keyword")
-t("bloodhexed ", "嗜血的", "entity name")
-t("bloodhexed", "嗜血", "entity keyword")
+t("bloodhexed ", "血邪术的", "entity name")
+t("bloodhexed", "血邪术", "entity keyword")
 t("crystalomancer's ", "水晶术士的", "entity name")
 t("crystal", "水晶", "entity keyword")
 t("shattering ", "破碎的", "entity name")
@@ -12427,8 +12427,8 @@ t("Beautifully detailed with images of King Toknor's defence of Last Hope. Despa
 t("Witch-Bane", "巫师毁灭者", "entity name")
 t("an ivory handled voratun longsword", "象牙柄沃瑞钽长剑", "_t")
 t([[A thin voratun blade with an ivory handle wrapped in purple cloth.  The weapon is nearly as legendary as its former owner, Marcus Dunn, and was thought to have been destroyed after Marcus was slain near the end of the Spellhunt.
-It seems somebody well versed in antimagic could use it to its fullest potential.]], [[一把沃瑞钽长剑，象牙的剑柄被紫色的布包裹着。这把兵器的传奇性跟它上一任拥有者玛库斯·丹差不多了，人们都以为这把剑在魔法狩猎末期玛库斯被害的时候被摧毁了。
-据说只有将全身心奉献给反魔法事业的人才能充分发挥它的力量。]], "_t")
+It seems somebody well versed in antimagic could use it to its fullest potential.]], [[一把细长的沃瑞钽剑刃，象牙的剑柄被紫色的布包裹着。这把兵器的传奇性跟它上一任拥有者玛库斯·丹差不多了，人们都以为这把剑在魔法狩猎末期玛库斯被害的时候被摧毁了。
+似乎只有精通反魔法的人才能发挥它的全部潜能。]], "_t")
 t("#LIGHT_BLUE#You feel a great hero watching over you!", "#LIGHT_BLUE#你感到有位伟大的英雄正在注视着你！", "logPlayer")
 t("Staff of Arcane Supremacy", "奥术至上法杖", "entity name")
 t("silver-runed staff", "银色符文法杖", "_t")
@@ -26595,7 +26595,7 @@ t([[You are able to perform usually unstealthy actions (attacking, using objects
 t("Hack'n'Back", "燕回斩", "talent name")
 t("You hit your target, doing %d%% damage, distracting it while you jump back %d squares away.", "你打击目标造成 %d%% 伤害，分散它的注意力并往回跳 %d 码。", "tformat")
 t("Mobile Defence", "轻装防御", "talent name")
-t("Whilst wearing leather or lighter armour, you gain %d%% Defense and %d%% Armour hardiness.", "当你装备皮甲或轻甲时，你会增加 %d%% 近身闪避和 %d%% 护甲强度。", "tformat")
+t("Whilst wearing leather or lighter armour, you gain %d%% Defense and %d%% Armour hardiness.", "当你身着轻甲和布甲时，你会增加 %d%% 近身闪避和 %d%% 护甲强度。", "tformat")
 t("Light of Foot", "踏雪无痕", "talent name")
 t([[You are light on your feet, handling your armour better. Each step you take regenerates %0.2f stamina, and your fatigue is permanently reduced by %0.1f%%.
 		At level 3 you are able to walk so lightly that you never trigger traps that require pressure.]], [[你的步伐很轻快，使你能更好的适应盔甲的重量。每移动一步你可以回复 %0.2f 体力，并且你的疲劳值永久减少 %0.1f%%。
