@@ -13195,11 +13195,11 @@ t("stone-eyed shield", "刻有岩石眼的盾牌", "_t")
 t("This gigantic shield has a stone eye embedded in it.", "这个巨大的盾牌上嵌有一个石质的眼睛。", "_t")
 t("30% chance of petrifying the attacker.", "30%几率石化攻击者。", "_t")
 t("The eye locks onto %s, freezing it in place!", "眼睛凝视着%s，将其石化了", "logSeen")
-t("Shantiz the Stormblade", "风暴之刃", "entity name")
-t("thin stormy blade", "细长的风暴之刃", "_t")
+t("Shantiz the Stormblade", "风暴之刃珊提兹", "entity name")
+t("thin stormy blade", "细长的风暴刀刃", "_t")
 t("This surreal dagger crackles with the intensity of a vicious storm.", "这柄超现实的匕首周围环绕有强大的风暴。", "_t")
 t("Causes lightning to strike and destroy any projectiles in a radius of 10, dealing damage and dazing enemies in a radius of 5 around them.", "触发闪电，击落半径10内所有抛射物，抛射物半径5以内的敌人受到伤害并被眩晕。", "_t")
-t("#GREEN#Shantiz strikes down a projectile!", "#GREEN#风暴之刃击落了抛射物！", "logPlayer")
+t("#GREEN#Shantiz strikes down a projectile!", "#GREEN#珊提兹击落了抛射物！", "logPlayer")
 t("Swordbreaker", "破剑匕", "entity name")
 t("hooked blade", "带锯齿的匕首", "_t")
 t("This ordinary blade is made of fine, sturdy voratun and outfitted with jagged hooks along the edge. This simple appearance belies a great power - the hooked maw of this dagger broke many a blade and the stride of many would-be warriors.", "这柄普通的匕首是由精制坚硬的沃瑞钽制成的，配有锯齿钩边。看似平凡的外表背后潜藏着强大的力量——它破坏过诸多刀刃，收割走那些战士的生命和未来。", "_t")
@@ -22167,7 +22167,7 @@ t([[Creates a time distortion in a radius of %d that lasts for %d turns, decreas
 		The slow effect and damage dealt will scale with your Spellpower.]], [[在半径 %d 格内制造一个持续 %d 回合的时间扭曲力场，使范围内所有目标的全局速度降低 %d%%，持续 3 回合，并每回合对其造成 %0.2f 时空伤害。
 		减速效果和伤害受法术强度加成。]], "tformat")
 t("Spacetime Mastery", "时空掌握", "talent name")
-t("Your mastery of spacetime reduces the cooldown of Banish, Dimensional Step, Swap, and Temporal Wake by %d, and the cooldown of Wormhole by %d.  Also improves your Spellpower for purposes of hitting targets with chronomancy effects that may cause continuum destabilization (Banish, Time Skip, etc.), as well as your chance of overcoming continuum destabilization, by %d%%.", "你的时空掌控使放逐、空间跳跃、时空交换和时空尾迹的冷却时间减少 %d 回合，使虫洞穿梭的冷却时间减少 %d 回合。当你用可能造成连续紊乱的时空技能（如放逐、时间跳跃等）命中目标时，判定所用的法术强度以及克服连续紊乱的几率均提高 %d%%。", "tformat")
+t("Your mastery of spacetime reduces the cooldown of Banish, Dimensional Step, Swap, and Temporal Wake by %d, and the cooldown of Wormhole by %d.  Also improves your Spellpower for purposes of hitting targets with chronomancy effects that may cause continuum destabilization (Banish, Time Skip, etc.), as well as your chance of overcoming continuum destabilization, by %d%%.", "你的时空掌控使放逐、空间跳跃、时空交换和时空尾迹的冷却时间减少 %d 回合，使虫洞穿梭的冷却时间减少 %d 回合。当你用可能造成连续体失稳的时空技能（如放逐、时间跳跃等）命中目标时，判定所用的法术强度以及克服连续体失稳的几率均提高 %d%%。", "tformat")
 t("Quantum Feed", "量子充能", "talent name")
 t([[You've learned to boost your magic through your control over the spacetime continuum.  Increases your Magic and your Spell Save by %d.
 		The effect will scale with your Willpower.]], [[你已经学会通过控制时空的流动来增强魔力。
@@ -22256,7 +22256,7 @@ t("Destabilize", "时空失稳", "talent name")
 t([[Destabilizes the target, inflicting %0.2f temporal damage per turn for 10 turns.  If the target dies while destabilized, it will explode, doing %0.2f temporal damage and %0.2f physical damage in a radius of 4.
 		If the target dies while also under the effects of continuum destabilization, all explosion damage will be done as temporal damage.
 		The damage will scale with your Spellpower.]], [[使目标所处的时空出现裂隙，每回合造成 %0.2f 时空伤害，持续 10 回合。如果目标在被标记时死亡，则会产生 4 码半径范围的时空爆炸，造成 %0.2f 时空伤害和 %0.2f 物理伤害。
-		如果目标死亡时处于连续紊乱状态，则爆炸产生的所有伤害会转化为时空伤害。
+		如果目标死亡时处于连续体失稳状态，则爆炸产生的所有伤害会转化为时空伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Quantum Spike", "量子钉刺", "talent name")
 t("%s has been pulled apart at a molecular level!", "%s 被分崩离析！", "logSeen")
@@ -22264,7 +22264,7 @@ t("%s resists the quantum spike!", "%s抵抗了量子钉刺！", "logSeen")
 t([[Attempts to pull the target apart at a molecular level, inflicting %0.2f temporal damage and %0.2f physical damage.  If the target ends up with low enough life (<20%%), it might be instantly killed.
 		Quantum Spike deals 50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization.
 		The damage will scale with your Spellpower.]], [[试图将目标分离为分子状态，造成 %0.2f 时空伤害和 %0.2f 物理伤害，技能结束后若目标生命值不足 20%% 则可能会被立刻杀死。
-		量子钉刺对受时空紊乱和/或连续紊乱的目标会多造成 50%%的伤害。
+		量子钉刺对受时空失稳和/或连续体失稳的目标会多造成 50%%的伤害。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -35222,13 +35222,13 @@ t("#Target# flying bones crumble.", "#Target#不再受到骨盾保护。", "_t")
 t("-Bone Shield", "-白骨护盾", "_t")
 t("Redux", "时空回响", "_t")
 t("Chronomancy spells with cooldown less than %d will not go on cooldown when cast.", "冷却时间低于 %d 的时空法术在释放后将不进入冷却。", "tformat")
-t("Temporal Destabilization", "时空紊乱", "_t")
-t("Target is destabilized and in %d turns will start suffering %0.2f temporal damage per turn.  If it dies with this effect active after the damage starts it will explode.", "目标陷入不稳定状态，%d 回合后将开始每回合受到 %0.2f 点时空伤害。伤害开始后，若目标在该效果持续期间死亡，就会爆炸。", "tformat")
+t("Temporal Destabilization", "时空失稳", "_t")
+t("Target is destabilized and in %d turns will start suffering %0.2f temporal damage per turn.  If it dies with this effect active after the damage starts it will explode.", "目标陷入时空失稳状态，%d 回合后将开始每回合受到 %0.2f 点时空伤害。伤害开始后，若目标在该效果持续期间死亡，就会爆炸。", "tformat")
 t("#Target# is unstable.", "#Target#变得不稳定。", "_t")
-t("+Temporal Destabilization", "+时空紊乱", "_t")
+t("+Temporal Destabilization", "+时空失稳", "_t")
 t("#Target# has regained stability.", "#Target#恢复了稳定。", "_t")
-t("-Temporal Destabilization", "-时空紊乱", "_t")
-t("Target is destabilized and suffering %0.2f temporal damage per turn.  If it dies with this effect active it will explode.", "目标失去时间平衡并每回合受到 %0.2f 时空伤害。如果目标在效果持续时死亡则会爆炸。", "tformat")
+t("-Temporal Destabilization", "-时空失稳", "_t")
+t("Target is destabilized and suffering %0.2f temporal damage per turn.  If it dies with this effect active it will explode.", "目标陷入时空失稳状态，每回合受到 %0.2f 时空伤害。如果目标在效果持续时死亡则会爆炸。", "tformat")
 t("speed", "速度", "effect subtype")
 t("Celerity", "迅捷", "_t")
 t("The target is moving is %d%% faster.", "目标移动速度增加 %d%%。", "tformat")
@@ -36471,13 +36471,13 @@ t("Shadow out of sight", "阴影在视线外", "_t")
 t("The shadow is out of sight of its host; direct control will be lost!", "阴影在视线以外，你将失去对它的控制！", "_t")
 t("#LIGHT_RED#You lost sight of your shadow for too long; it dissipates!", "#LIGHT_RED#阴影脱离视线太久；它消失了！", "logPlayer")
 t("shadow out of sight", "阴影在视线外", "_t")
-t("Continuum Destabilization", "连续紊乱", "_t")
+t("Continuum Destabilization", "连续体失稳", "_t")
 t("The target has been affected by space or time manipulations and is becoming more resistant to them (+%d).", "目标受时空操纵的影响，提升豁免 (+%d)。", "tformat")
 t("#Target# looks a little pale around the edges.", "#Target#看上去变得暗淡了。", "_t")
-t("+Destabilized", "+紊乱", "_t")
+t("+Destabilized", "+失稳", "_t")
 t("#Target# is firmly planted in reality.", "#Target#返回了现实世界。", "_t")
-t("-Destabilized", "-紊乱", "_t")
-t("Summoning Destabilization", "召唤紊乱", "_t")
+t("-Destabilized", "-失稳", "_t")
+t("Summoning Destabilization", "召唤失稳", "_t")
 t("The more the target summons creatures the longer it will take to summon more (+%d turns).", "目标召唤的生物越多，施放召唤技能所需时间越长（+%d 回合）。", "tformat")
 t("Damage Smearing", "时空转化", "_t")
 t("Damage received in the past is returned as %0.2f temporal damage per turn.", "过去受到的伤害被转化为每回合 %0.2f 时空伤害。", "tformat")
