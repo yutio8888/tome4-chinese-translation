@@ -21987,8 +21987,8 @@ t("Reality Smearing", "弥散现实", "talent name")
 t("#LIGHT_BLUE##Source# converts damage to paradox!", "#LIGHT_BLUE##Source#将伤害转化为紊乱值！", "delayedLogMessage")
 t("#LIGHT_BLUE#(%d converted)#LAST#", "#LIGHT_BLUE#(%d 转化)#LAST#", "tformat")
 t([[While active 30%% of all damage you take is converted into %0.2f Paradox per point.
-		The Paradox is gained over three turns.]], [[当激活这个技能时，你受到伤害的 30%% 被转化为 %0.2f 的紊乱值。
-		这些紊乱伤害会被分散到三个回合中。]], "tformat")
+		The Paradox is gained over three turns.]], [[当激活这个技能时，你受到的伤害有 30%% 会按每点伤害转化为 %0.2f 紊乱值。
+		这些紊乱值会在三个回合内逐步获得。]], "tformat")
 t("Attenuate", "湮灭洪流", "talent name")
 t([[Deals %0.2f temporal damage over %d turns to all targets in a radius of %d.  Targets with Reality Smearing active will instead recover %d life over four turns.
 		If a target is reduced below 20%% life while Attenuate is active it may be instantly slain.
@@ -22966,7 +22966,7 @@ t([[Strike with each of your weapons, doing %d%% acid weapon damage with each hi
 		溅射伤害受法术强度加成。]], "tformat", {1,3,2})
 t("Corrupting Strike", "腐化打击", "talent name")
 t("You cannot use Corrupting Strike without two weapons!", "你需要两把武器才能使用腐化打击！", "logPlayer")
-t("Corrupt the target reducing disease immunity by 100%% for 2 turns and stripping up to 2 nature sustains then strike with both your weapons dealing %d%% damage.", "腐化目标，2 回合内降低其 100%% 的疾病免疫，并去除其 2 个自然持续效果。然后用你的两把武器打击敌人，造成 %d%% 伤害。", "tformat")
+t("Corrupt the target reducing disease immunity by 100%% for 2 turns and stripping up to 2 nature sustains then strike with both your weapons dealing %d%% damage.", "腐化目标，2 回合内降低其 100%% 的疾病免疫，并最多去除其 2 个自然持续效果。然后用你的两把武器打击敌人，造成 %d%% 伤害。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/corruptions/shadowflame.lua"
@@ -27536,8 +27536,7 @@ t([[Resonate with psionic, nature, and anti-magic powered objects you wear, incr
 		当前加成：%d]], "tformat")
 t("Mental Shielding", "精神屏障", "talent name")
 t("%s's mind is clear!", "%s的精神被净化了！", "logSeen")
-t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[净化你当前所有的精神状态，并在接下来的 6 回合内免疫新增的精神状态。最多一共（净化和免疫）能影响 %d 种精神状态。
-		此技能使用时不消耗回合。]], "tformat")
+t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[净化你当前所有的精神状态，并在接下来的 6 回合内免疫新增的精神状态。最多一共（净化和免疫）能影响 %d 种精神状态。]], "tformat")
 t("Projection", "灵魂出窍", "talent name")
 t("Not enough space to invoke your spirit!", "没有足够的空间召唤你的投影！", "logPlayer")
 t("Projection of %s", "%s的投影。", "tformat")
@@ -29793,7 +29792,7 @@ t([[By weaving arcane triggers around you feet you can use the residual energies
 		If you exit combat with some charges left it will after 10 turn regenerates its charges, if you have enough mana.]], [[你将奥术力量编织于双脚，可以使用射线类法术来进行免费移动。
 		每当你释放一个射线类法术，你可以立刻移动一次，不需要消耗时间。
 		这一法术有 %d 次充能。当充能耗尽时，这一法术将会解除持续。
-		脱离战斗10 回合内将会消耗法力值补充充能。]], "tformat")
+		若你在尚有剩余充能时脱离战斗，则在脱离战斗 10 回合后，只要法力充足便会消耗法力补满充能，否则解除持续。]], "tformat")
 t("Elemental Array Burst", "元素阵爆发", "talent name")
 t([[Using your near-perfect knowledge of beam spells you combine them all into a powerful 3-wide beam of pure energy.
 		The beam deals %0.2f thaumic damage and always goes as far as possible.
@@ -30458,7 +30457,7 @@ t([[Activating this talent enhances your reflexes to incredible levels.  Each ti
 t("Strangling Shot", "沉默射击", "talent name")
 t("%s resists the strangling shot!", "%s抵抗了沉默射击！", "logSeen")
 t([[You fire a shot at your target's throat, mouth, or equivalent body part, doing %d%% damage and silencing it for %d turns.
-		The silence chance increases with your Accuracy.]], "你瞄准目标的喉咙、嘴巴或相关部位，造成 %d%% 伤害，并沉默对方 %d 个回合。沉默几率随命中增长。", "tformat")
+		The silence chance increases with your Accuracy.]], "你瞄准目标的喉咙、嘴巴或相关部位，造成 %d%% 伤害，并沉默对方 %d 个回合。\n\t\t沉默几率随命中增长。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/field-control.lua"
@@ -39025,7 +39024,7 @@ section "mod-tome/data/zones/last-hope-graveyard/npcs.lua"
 t("Celia", "赛利亚", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("A tall woman stands before you in a stained robe. Her sallow skin is marked by pox and open sores, but her eyes are bright and keen. The bulge around her abdomen would indicate that she is several months pregnant.", "一位穿着肮脏长袍的高瘦女人。她灰色的皮肤上满是疮痕，但她的眼睛清澈明亮。她隆起的腹部表明她已怀有数月身孕。", "_t")
+t("A tall woman stands before you in a stained robe. Her sallow skin is marked by pox and open sores, but her eyes are bright and keen. The bulge around her abdomen would indicate that she is several months pregnant.", "一位身材高挑的女人站在你面前，身着一件污渍斑斑的长袍。她蜡黄的皮肤上布满痘疮与未愈的疮口，但一双眼睛明亮而锐利。她隆起的腹部表明她已怀有数月身孕。", "_t")
 t("You receive: %s.", "你收到：%s。", "logPlayer")
 t("Celia", "赛利亚", "_t")
 t([[As you deal the last blow you quickly carve out Celia's heart for your Lichform ritual.
@@ -43090,7 +43089,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 十四年前，国王因年纪过大而去世了，他的儿子，#14fffc#托拉克#ffffff#继承了王位。
 
 精灵们的王国安详而平和。住在埃尔瓦拉的永恒精灵们试图让世界忘记他们在魔法大爆炸中扮演的角色，在精灵王#14fffc#艾伦尼恩·加威尔#ffffff#的统治下快乐地生活着。
-而自然精灵则遵从古老的传统，住在森林当中，由不朽的贤者#14fffc#奈希拉·坦泰兰#ffffff#统领。
+而自然精灵则遵从古老的传统，住在森林当中，一如既往地由贤者#14fffc#奈希拉·坦泰兰#ffffff#统领。
 
 近一百年来，钢铁王座的矮人们一直小心谨慎地与联合王国维持着贸易往来，但外界对这个种族所知甚少，甚至不知道他们的统治者是谁。
 
