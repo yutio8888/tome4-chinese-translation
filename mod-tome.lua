@@ -12713,7 +12713,7 @@ t("razor sharp war axe", "剃刀战斧", "_t")
 t([[This mighty axe can cleave through armour like the sharpest swords, yet hit with all the impact of a heavy club.
 It is said the wielder will slowly grow mad. This, however, has never been proven - no known possessor of this item has lived to tell the tale.]], [[这把强力的斧头可以像剑一样劈开护甲，却能造成如同钝器一般的重击。
 据说持有者会慢慢变得疯狂。这个，不管怎样，从来没有被证实过——没有任何持有者能活到揭开真相。]], "_t")
-t("Sword of Potential Futures", "未来潜能之剑", "entity name")
+t("Sword of Potential Futures", "可能未来之剑", "entity name")
 t("under-wrought blade", "未完工的剑", "_t")
 t("Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the untapped potential of time.", "传说这把长剑是一对兵器中的其中一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它代表着时间尚未开发的潜能。", "_t")
 t("In the past there was a dagger with it.", "过去有柄匕首和它成套。", "_t")
@@ -12899,7 +12899,7 @@ t("Silk Current", "流波法袍", "entity name")
 t("flowing robe", "飘逸的法袍", "_t")
 t("This deep blue robe flows and ripples as if pushed by an invisible tide.", "这件深蓝色的法袍荡起涟漪，仿佛有一股看不见的浪潮在涌动。", "_t")
 t("Skeletal Claw", "白骨之握", "entity name")
-t("bone-link chain", "连着骨爪的鞭子", "_t")
+t("bone-link chain", "骨节锁链", "_t")
 t("This whip appears to have been made from a human spine. A handle sits on one end, a sharply honed claw on the other.", "这根鞭子看上去像是人类的脊骨做成，一端有一个柄，另一端是一个磨光的爪子。", "_t")
 t("Core of the Forge", "熔炉之核", "entity name")
 t("fiery mindstar", "灼热的灵晶", "_t")
@@ -18487,25 +18487,23 @@ Curse the dead all you want, but we've stayed afloat;
 we're the only ones blessed with the skillset to thrive.
 
 Our wit, strength, and teamwork outweigh cosmic powers;
-they've done what they could but Spydrë is [b]ours.[/b] ]], [[每个清晨醒来都很愉快
-坟墓里的陷阱今天仍能躲开
-尽管饥饿诅咒让我痛苦难耐
-我的诅咒更加强力，持久不改
+they've done what they could but Spydrë is [b]ours.[/b] ]], [[每个清晨醒来都庆幸自己还活着
+这座墓穴的陷阱今天仍未能索我的命
+尽管它饥饿的诅咒啃噬着我的脏腑
+我却以活得比它更久回敬了这道诅咒
 
-诅咒哥布林的厄运
-诅咒窃取世界的神祇
-诅咒吸取魔力的冰寒
-诅咒群星旋转变暗
+诅咒哥布林留下的那些酷刑
+诅咒窃走半个世界的神祇
+诅咒抽干魔力的严寒
+诅咒旋转着黯淡下去的星辰
 
-纵使命运不公
-如今仅我存活
-尽情诅咒亡者
-我等兴盛蓬勃
+但最要紧的是记住
+纵使命运偏私，唯有我们幸存
+尽情诅咒亡者吧，我们却依然屹立
+唯有我们被赋予了兴盛的本事
 
-智慧力量协作
-三者胜过万物
-他人尽其所能
-蜘蛛已然[b]归我。[/b] ]], "_t")
+我们的智慧、力量与协作胜过宇宙伟力
+它们已尽其所能，但斯派德[b]属于我们[/b]。 ]], "_t")
 t("boss", "Boss", "newLore category")
 t("Z'quikzshl", "不朽的兹基克茨", "_t")
 t([[#{italic}#(The handwriting of this diary entry is poor at best. Whoever wrote this was in poor health.)
@@ -18546,19 +18544,19 @@ for Ol' Walrog sent the gale
 that drowned her at last.]], [[纳鲁精灵的挽歌
 
 从前有一个村庄
-纳鲁们快乐地生活
-当乌尔罗格来到村庄
+为纳鲁人所珍爱
+可当乌尔罗格前来劫掠
 他们只能在恐惧中颤抖
 
 他践踏村庄的人民
 不放过初生的孩童
-他的力量毁灭一切
-唤起飓风席卷天地
+眼见此事已了
+他唤起一场风暴
 
-所以记住这个故事
-贝壳之海的湮灭
-是因为乌尔罗格的来临
-毁灭了贝壳之海。]], "_t")
+所以，请记住贝壳之海
+记住她昔日的模样
+因为乌尔罗格放出的飓风
+终究将她淹没。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/noxious-caldera.lua"
@@ -39318,7 +39316,7 @@ t("A huge being composed of sparking blue and yellow energy stands before you.  
 section "mod-tome/data/zones/paradox-plane/objects.lua"
 
 t("Epoch's Curve", "亚伯契的弧线", "entity name")
-t("white ash longbow", "灰白的白蜡长弓", "_t")
+t("white ash longbow", "白蜡长弓", "_t")
 t([[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
 According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契的弧线失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
 根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。]], "_t")
