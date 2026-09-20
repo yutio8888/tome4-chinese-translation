@@ -17881,7 +17881,7 @@ Aye, and Gerlyk did walk abroad that night, into Darkness beyond, and has ne'er 
 t("ancient elven ruins", "古代精灵废墟", "newLore category")
 t("ancient papyrus scroll", "古老的莎草卷轴", "_t")
 t([[Death is nearing. I can feel her chilling breath down the back of my neck. So many of us firstborn have passed on already. I cannot allow it... I will not let myself rot into dirt like the others. I am the mightiest of the Shaloren - I have a right to life!
-]], "死亡正在逼近。我能感到她在我脖子后面冰冷的呼吸。我们许多人已经过世了。我不能容忍……我不会让自己像其他人一样化为尘土。我是最强大的永恒精灵——我有权活下去！", "_t")
+]], "死亡正在逼近。我能感到她在我脖子后面冰冷的呼吸。我们这些首生者中已有许多人逝去。我不能容忍……我不会让自己像其他人一样化为尘土。我是最强大的永恒精灵——我有权活下去！\n", "_t")
 t([[Death mocks my experiments. I can preserve the flesh of my servants, tightly wrapped and salted, treated with the correct chemicals. I can animate them, make them shuffle about the empty halls of my mausoleum. But they are but empty shells, devoid of any soul. Is this how my majesty is to end? I demand a greater fate...
 
 My days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]], [[死亡嘲弄着我的实验。我可以保存侍从们的血肉，将他们紧紧包裹、以盐腌渍，并用正确的化学药剂加以处理。我可以驱动他们，让他们在我陵寝空荡的厅堂间蹒跚游荡。但他们不过是没有任何灵魂的容器。这意味着我的霸业要结束了？我要求一个更伟大的命运……
@@ -18392,14 +18392,14 @@ Take 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure
 	  10袋法罗的灰烬
 	  5瓶火龙涎
 	  3块红色水晶碎片
-	  3袋骨巨人粉尘
+	  3袋骨巨人骨灰
 	  1瓶大恶魔胆汁
 	  1个骷髅法师头骨
 	  一小撮金色恐魔的粉尘
 
 这是一个漫长而复杂的仪式，如果你想要成功的话，就必须严格遵循所有的步骤。要知道，自视过高的蠢材如果冒险进行自己没有能力掌控的仪式，一定会迎来自己应得的下场。如果你高估了自己掌控火焰的力量，那么等待你的只有玩火自焚的结局。
 
-仪式需要一份祭品，随便哪个人都可以。用防火胶布把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫可能会让人分心，可能会让你在之后的仪式中犯错。
+仪式需要一份祭品，随便哪个人都可以。用防火胶布把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫会让人相当分心，几天下来容易让你在仪式中出错。
 
 取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——
 
@@ -35570,7 +35570,7 @@ t("Attenuate", "衰减", "_t")
 t("The target is being removed from the timeline and is taking %0.2f temporal damage per turn.", "目标被移出时间线，每轮受到 %0.2f 时空伤害。", "tformat")
 t("#Target# is being being removed from the timeline!", "#Target#被从时间线中除去！", "_t")
 t("+Attenuate", "+衰减", "_t")
-t("#Target# survived the attenuation.", "#Target#从时间线中存活了。", "_t")
+t("#Target# survived the attenuation.", "#Target#从衰减中存活了下来。", "_t")
 t("-Attenuate", "-衰减", "_t")
 t("%s has been removed from the timeline!", "%s 被移出时间线！", "logSeen")
 t("The target is being grounded in the timeline and is healing %0.2f life per turn.", "目标正被锚定在时间线中，每回合恢复 %0.2f 点生命。", "tformat")
