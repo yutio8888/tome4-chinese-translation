@@ -1772,7 +1772,7 @@ Constitution defines your character's ability to withstand and resist damage. It
 t([[#GOLD#Magic#LAST#
 Magic defines your character's ability to manipulate the magical energy of the world. It increases your Spellpower, Spell Save, and the effect of spells and other magic items.
 ]], [[#GOLD#魔法#LAST#
-魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，提升法术豁免和提高其他魔法物品的使用效果。
+魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，提升法术豁免，并提高法术和其他魔法物品的效果。
 ]], "_t")
 t([[#GOLD#Willpower#LAST#
 Willpower defines your character's ability to concentrate. It increases your mana, stamina, psi capacity, Mindpower, Spell Save, and Mental Save.
@@ -23233,7 +23233,7 @@ This can be used without breaking stealth.
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
 t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
-t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
+t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "你的飞镖发射器的睡眠毒素强效到足以无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("Grappling Hook", "钩爪", "talent name")
 t("You are too close to your target to swing your hook effectively!", "你距离目标太近了，不方便使用钩爪！", "logPlayer")
 t("You cannot move!", "你无法移动！", "logPlayer")
@@ -39810,7 +39810,7 @@ section "mod-tome/data/zones/shertul-fortress-caldizar/zone.lua"
 t("Unknown Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
 t("Unknown Sher'Tul Fortress (%s)", "未知的夏·图尔堡垒 (%s)", "tformat")
 t("Unknown the Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
-t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和温暖的灯光提醒你这是你的堡垒。不过它仍然有所不同。背后传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种既可怕又美妙的东西，恐惧充满了你身心的每个角落。", "_t")
+t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和柔和的灯光让你想起自己的堡垒。不过它仍然有所不同。背景中传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种既可怕又美妙的东西，恐惧充满了你身心的每个角落。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/grids.lua"
