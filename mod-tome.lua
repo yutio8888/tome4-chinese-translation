@@ -3260,7 +3260,7 @@ t("Full talent respec is always available.", "此模式下你可以无限洗点�
 t("Adventure", "冒险模式", "birth descriptor name")
 t("#GOLD##{bold}#Adventure mode#WHITE#", "#GOLD##{bold}#冒险模式#WHITE#", "_t")
 t("Provides you with limited extra lives.", "你拥有有限的额外生命。", "_t")
-t("Use it if you want normal playing conditions but do not feel ready for just one life.#{normal}#", "如果还没有准备好一条命通关就用这个模式进行。#{normal}#", "_t")
+t("Use it if you want normal playing conditions but do not feel ready for just one life.#{normal}#", "如果你想要普通的游戏条件、但还没准备好一条命通关，就选择这个模式。#{normal}#", "_t")
 t("At level 1,2,5,7,14,24,35 get one more 'life' that allows you to resurrect at the start of the level.", "在 1,2,5,7,14,24,35 级时各获得一条额外生命，可在本层起点复活。", "_t")
 t("Roguelike", "永久死亡模式", "birth descriptor name")
 t("#GOLD##{bold}#Roguelike mode#WHITE#", "#GOLD##{bold}#永久死亡模式#WHITE#", "_t")
