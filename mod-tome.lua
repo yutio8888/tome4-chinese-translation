@@ -8178,7 +8178,7 @@ section "mod-tome/data/general/npcs/ghost.lua"
 t("undead", "亡灵", "entity type")
 t("ghost", "幽灵", "entity subtype")
 t("dread", "噩灵", "entity name")
-t("It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.", "它的可怕形象冲击着你的双眼。它是死亡的化身，它丑恶的身体似乎在向宇宙宣告着它与现实的格格不入。", "_t")
+t("It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.", "它的可怕形象冲击着你的双眼。它是死亡的化身，它那丑恶的黑色躯体似乎正与现实相抗争，而宇宙本身竭力要将它放逐。", "_t")
 t("dreadmaster", "噩灵之王", "entity name")
 t("It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.", "它是一种几乎无可匹敌的非生命力量。它是对存在本身的冒犯，它的触碰本身便会侵害并扰乱生命的流动，它那纯粹的不可思议的黑色肢体能够轻松地使岩石崩解，血肉成灰。", "_t")
 t("banshee", "哀嚎女妖", "entity name")
@@ -13825,14 +13825,14 @@ We're really getting somewhere here... Just a shame humans are such messy creatu
 #{bold}#红帕兰的日志记录六#{normal}#
 #{italic}#厄流纪 4546年#{normal}#
 
-实验品 A-C：在传送过程中体内发生爆裂。
+实验品 A-C：在传送过程中向内爆裂。
 试验品 D：在传送过程中爆炸。
 试验品 E：一半传送走了，一半留在原地。这算部分成功？
-试验品 F：在传送过程中体内发生爆裂。
+试验品 F：在传送过程中向内爆裂。
 试验品 G：在传送过程中变成肉酱。
-试验品 H-K：在传送过程中体内发生爆裂。
+试验品 H-K：在传送过程中向内爆裂。
 试验品 L：在传送过程中被冻结。
-试验品 M：在第一次传送中存活，2秒后体内发生爆裂，总算是有点进展了。
+试验品 M：在第一次传送中存活，2秒后向内爆裂，总算是有点进展了。
 试验品 N：在第一次传送中存活，但昏迷不醒，于4天后死亡。
 
 我们的实验真的有进展了……只可惜人类真是肮脏的生物！说真的，他们到底需要多少肠子？！明年初就开始测试下一批试验品。
