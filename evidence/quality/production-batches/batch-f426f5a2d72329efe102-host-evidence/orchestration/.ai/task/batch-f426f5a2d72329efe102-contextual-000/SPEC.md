@@ -1,0 +1,3 @@
+本任务为审核批244的有界上下文复核，mode=review_only，change_class=standard。范围仅冻结envelope中的3个revision；基线 e117983a360b8dcb360ab35f0b5414148d534605。
+使用 translation_contextual_v2 full，REVIEWER只读envelope及其明确引用的固定源码/术语事实与v2契约输出要求，禁止读其他task/review、历史finding或主代理裁决。模型只返回observations；ORCHESTRATOR独立核验事实并裁决。不得修改译文、术语、规则、交接或证据。
+验收：冻结前SCOPE anchor preflight，精确candidate/raw/lineage/runtime观察，strict result检查、归档确认及DONE_VERIFIED。当前来源tome固定commit624a67329fe2ad440c5b344785a9c73fcf22ae63，无DLC。

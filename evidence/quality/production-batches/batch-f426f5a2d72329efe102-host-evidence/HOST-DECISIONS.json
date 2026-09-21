@@ -1,0 +1,35 @@
+{
+  "workset": "evidence/quality/production-batches/batch-f426f5a2d72329efe102-source-workset.json",
+  "decisions": {
+    "df2e6ce614|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/general/npcs/horror_aquatic.lua 中，同一 entrenched horror 实体 desc 明确为 massive stony structure，并有 never_move=1、土系技能。故巨石不是凭空增义；现译按该实体外形命名有公开源码语境支持。此 observation 不触发自动重命名或术语库改动。"
+    },
+    "df61b36589|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "部分确认，限本条：现译未明确 each turn 的逐回合重复，且 determine attack and damage 的伤害信息缺失。固定tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/psionic/psi-archery.lua:Masterful Telekinetic Archery callbackOnActBase 实际从 tgts 经 rng.table 选 a，并以 a.x/a.y 构造 targets 调 archeryShoot；nearest target 局部变量虽计算却未参与选敌，所以撤销要求恢复“最近”的部分。Archery.lua:314/666 切换 use_psi_combat，Combat.lua:1391-1399 用灵巧参与远程命中，1651-1669 将伤害属性 str→wil、dex→cun；应补明每回合及命中和伤害，不照抄过时英文最近目标。参数1是 t.duration 的回合数；args_order=null。完整固定源码与定向参数流向存于本批 host-evidence/HOST-SOURCE-CLAIM-EVIDENCE.json。"
+    },
+    "df8f5280bf|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认持续补召与最多并存数量两处遗漏，限本条。固定tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/shadows.lua:Call Shadows 为 sustained；callbackOnActBase 将 remainingCooldown 递减、每次重置为10后调用 summonShadow；后者达到 getMaxShadows 时不再召唤，且要求空位与hate>=5并扣除5。修复应明确激活期间自动持续补召、最多%d个等级%d阴影，保留每只5仇恨及后续治疗/闪电突袭/相位之门/主人伤害减免内容。参数1上限、2生物等级、3/4天赋等级、5主人伤害减免百分比，args_order=null；定向流向证据已随本批保留。"
+    },
+    "df2e6ce614|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "作为命名风格建议保留，不自动修复。固定tome源码同一实体确有 never_move=1，entrenched 具有固着/据守语义；但 desc 同时明确 massive stony structure，现译巨石恐魔有实体外形依据，未引入与源码冲突的机制断言。要将现有专名改为强调固着的命名，属于另行命名取舍，不能仅凭该观察自动重命名。本批不改术语库或扩大统一范围。"
+    },
+    "df61b36589|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "部分确认，限本条：现译未明确 each turn 的逐回合重复，且 determine attack and damage 的伤害信息缺失。固定tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/psionic/psi-archery.lua:Masterful Telekinetic Archery callbackOnActBase 实际从 tgts 经 rng.table 选 a，并以 a.x/a.y 构造 targets 调 archeryShoot；nearest target 局部变量虽计算却未参与选敌，所以撤销要求恢复“最近”的部分。Archery.lua:314/666 切换 use_psi_combat，Combat.lua:1391-1399 用灵巧参与远程命中，1651-1669 将伤害属性 str→wil、dex→cun；应补明每回合及命中和伤害，不照抄过时英文最近目标。参数1是 t.duration 的回合数；args_order=null。完整固定源码与定向参数流向存于本批 host-evidence/HOST-SOURCE-CLAIM-EVIDENCE.json。 对“两组属性替代关系模糊”的部分仅作表达建议：现译的排列顺序未反转对应关系，可以在本条修复中明确“意志代替力量、灵巧代替敏捷”，但不据此声称当前数值关系颠倒。"
+    },
+    "df8f5280bf|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认持续补召与最多并存数量两处遗漏，限本条。固定tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/shadows.lua:Call Shadows 为 sustained；callbackOnActBase 将 remainingCooldown 递减、每次重置为10后调用 summonShadow；后者达到 getMaxShadows 时不再召唤，且要求空位与hate>=5并扣除5。修复应明确激活期间自动持续补召、最多%d个等级%d阴影，保留每只5仇恨及后续治疗/闪电突袭/相位之门/主人伤害减免内容。参数1上限、2生物等级、3/4天赋等级、5主人伤害减免百分比，args_order=null；定向流向证据已随本批保留。"
+    }
+  }
+}

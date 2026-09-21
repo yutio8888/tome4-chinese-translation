@@ -1,0 +1,43 @@
+{
+  "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "claims": [
+    {
+      "revision_prefix": "df61b36589",
+      "status": "partially_confirmed",
+      "finding": "现译漏每回合、伤害；nearest不得照英文恢复。",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/psi-archery.lua:callbackOnActBase picks rng.table(tgts), nearest target variable calculated but not used; archeryShoot(...use_psi_archery=true)",
+        "game/modules/tome/class/interface/Combat.lua:1391-1399 Cunning replaces Dexterity for ranged accuracy",
+        "game/modules/tome/class/interface/Combat.lua:1651-1669 damage modifiers str->wil, dex->cun"
+      ],
+      "scope": "await accepted contextual observations; preserve source precedence"
+    },
+    {
+      "revision_prefix": "df2e6ce614",
+      "status": "refuted",
+      "finding": "初筛称巨石凭空引入，但同一实体 desc=This massive stony structure...；never_move=1支持据守语义，现译为外形命名，有源码根据。",
+      "evidence": [
+        "game/modules/tome/data/general/npcs/horror_aquatic.lua:entrenched horror entity desc, never_move=1, earthen talents"
+      ],
+      "scope": "no automatic rename"
+    },
+    {
+      "revision_prefix": "df8f5280bf",
+      "status": "confirmed",
+      "finding": "主代理另见现译未明确持续补召及最多数量；源码callbackOnActBase每10回合尝试summonShadow，后者检查getMaxShadows及5hate。等待上下文审核覆盖；不向reviewer注入意见。",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/shadows.lua:Call Shadows callbackOnActBase/summonShadow"
+      ],
+      "scope": "surface observation独立核验完成；待contextual结果后逐观察裁决"
+    },
+    {
+      "revision_prefix": "df6b4d7ae0",
+      "status": "advisory",
+      "finding": "调试升级概述将points简写为属性点，但同窗口实际复选框明确列出stats, talents, prodigies，操作入口仍完整；作为低影响界面文案建议保留，不加入本批仅由accepted observations导出的修复队列。",
+      "evidence": [
+        "game/modules/tome/dialogs/debug/AdvanceActor.lua:levelupActor data.get_points block"
+      ],
+      "scope": "host-only advisory; no state override or automatic repair"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+审核批244，mode=review_only；连续窗口3的首批。用户已授权持续译文复核及每批完成后推送。
+本批冻结80条，以active checkpoint的selected和entry_snapshots为唯一范围；基线=e117983a360b8dcb360ab35f0b5414148d534605。
+本任务只做translation_surface_screen_v1表层筛查，语境复审另建独立task，模型输出只作observation。禁止修改译文、术语、规则和旧证据。受跟踪source-workset及必要host裁决/审核证据由既有工具和ORCHESTRATOR生成。
+REVIEWER只读精确冻结输入、明确引用内容和surface契约第六节；不得读历史finding、其他task/review或memory。四lane整组生效，任一无效需归档整组后fresh retry。
+验收：逐条源码来源核验，冻结candidate/manifest/创建labels/lineage/raw/归档完整；surface DONE_VERIFIED；按消费者要求语境复审与宿主裁决；完整17门禁/严格构建；commit_ready后本批evidence commit、finalize、每批push。活动批次中禁止译文及无关提交，commit_ready的本批evidence提交是finalize的必要前置。
+永久排除RW1-SIB-01/02；Archmage 8b977dd836范围外pending，保持状态且不计可执行阈值。本批结束后按三批窗口/20个可执行revision/高影响缺陷触发修复规则前进。
