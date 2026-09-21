@@ -8399,7 +8399,7 @@ t("undead", "亡灵", "entity type")
 t("lich", "巫妖", "entity subtype")
 t("Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.", "只有最强大的法师，才会被复活成为巫妖。他们注定要永远萦绕在这个世界上，他们憎恨所有在他们的领地上呼吸或侵入的人。不幸的是，这包括你在内。", "_t")
 t("lich", "巫妖", "entity name")
-t("Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.", "为了探索永恒的生命，这些人允许不死族剥夺他们的生趣。现在，他们同样在毁灭生者。", "_t")
+t("Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.", "这些存在本以为能求得永生，却让不死之身夺走了生之乐趣。现在，他们同样在毁灭生者。", "_t")
 t("ancient lich", "远古巫妖", "entity name")
 t("An elder being from a now-forgotten age, filled and fueled by its hate and rage toward all things living, it seeks to deprive all others of a prize it cannot have... life.", "一位存活了不知多少岁月的巫妖，它对这个世界和生者充满了仇恨，所以它试图去剥夺生者所拥有而它所没有的财富——生命。", "_t")
 t("archlich", "高阶巫妖", "entity name")
@@ -12419,7 +12419,7 @@ t("surround yourself with a magical shield (strength %d, based on Magic) for %d 
 t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆！", "logSeen")
 t("Nature's Blessing", "自然之赐", "entity name")
 t("supple leather armour entwined with willow bark", "与柳树皮交织的柔韧皮甲", "_t")
-t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者阿尔登穿着，他在魔法战争中首次于人类和半身人之间建立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
+t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者阿尔登穿着，他在人类与半身人之间的魔法战争期间创立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
 t("#DARK_GREEN#You feel especially blessed.", "#DARK_GREEN#你感觉自己被特别祝福了。", "logPlayer")
 t("Plate Armor of the King", "国王的板甲", "entity name")
 t("suit of gleaming voratun plate", "隐隐放光的沃瑞钽板甲", "_t")
@@ -13338,7 +13338,7 @@ t("#Source# hurls %s %s at #target#!", "#Source#把%s%s掷向#target#！", "logC
 t("%s's weapon returns to %s!", "%s的武器回到了%s手中！", "logSeen")
 t("Kinetic Focus", "动能之核", "entity name")
 t("Kinetic energies are focussed in the core of this mindstar.", "动能集中在这个灵晶的核心里。", "_t")
-t("You feel two unconnected psionic channels on this item.", "在这个物品里你感受到了两种不相关的能量。", "_t")
+t("You feel two unconnected psionic channels on this item.", "你感到这件物品上有两条尚未连通的灵能通道。", "_t")
 t("#YELLOW#You feel psionic energy linking the mindstars.", "#YELLOW#你感受到灵晶之间建立了灵能的连接。", "logSeen")
 t("Charged Focus", "电能之核", "entity name")
 t("sparking mindstar", "发出火花的灵晶", "_t")
@@ -13863,9 +13863,9 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 ]], [[#{bold}#红帕兰的日志记录七#{normal}#
 #{italic}#厄流纪 4547年#{normal}#
 
-试验品 O：在传送过程中体内发生爆裂。
+试验品 O：在传送过程中向内爆裂。
 试验品 P：在第一次传送中存活，但疯了，不得不被处死。
-试验品 Q：在第一次传送中存活，在传送回来的过程中体内发生爆裂。
+试验品 Q：在第一次传送中存活，在传送回来的过程中向内爆裂。
 试验品 R：在第一次传送中死亡。
 试验品 S-T：在返回传送过程中向内爆裂。
 试验品 U：在返回传送中存活。他喃喃说了句似乎听见某个声音的话，便又跳进传送门——随后向内爆裂。真麻烦！
@@ -15339,7 +15339,7 @@ I took a deep breath and stepped forwards.]], [[#{italic}#来自 艾伦尼恩·�
 
 法律和秩序已经完全崩溃。魔法大爆炸带来的灾难肆虐摧毁了无数的军队，领土和城市，许多土地都变得完全无法居住。王国倒台，暴君取而代之。强盗们如同腐烂尸体上的秃鹫，在文明的废墟上四处横行霸道。
 
-一个被称为伊格兰斯的，在很久以前就灭亡的组织，突然进入了复兴的阶段。他们在民众反对魔法的狂热中获得了广泛的支持。我听说，有些法师躲藏了起来，但终究难免被揪出来，或是拼命地不断东躲西藏。还有另一些黑暗的故事，那些死灵法师和堕落的巫师为了抵抗或躲避攻击，修筑了地牢和堡垒，开始了恐怖的统治。
+一个名为伊格兰斯、外界以为早已消亡的组织，突然重新兴起。他们在民众反对魔法的狂热中获得了广泛的支持。我听说，有些法师躲藏了起来，但终究难免被揪出来，或是拼命地不断东躲西藏。还有另一些黑暗的故事，那些死灵法师和堕落的巫师为了抵抗或躲避攻击，修筑了地牢和堡垒，开始了恐怖的统治。
 
 我还听到了另一个故事，有一群法师决定团结，一起隐藏起来，然而他们仍然不断在伊格兰斯的袭击下被迫逃跑。在那些外面世界的传说里，那些法师被一个有着火焰一样的头发，烈焰一般的双眼，手中裹挟着火焰的恶魔所领导。她用愤怒的烈焰战斗，没人能够战胜她。我对于这样的描述很是熟悉……
 
@@ -19383,7 +19383,7 @@ t("which you do not understand: #{italic}#'Zubadon koref noch hesen, ik dorudon 
 t("#{italic}#'Of pride we accepted no equals, and of greed we accepted no servitude. We made for ourselves terrible weapons - the Godslayers - and nine were chosen to wield them.'#{normal}#", "#{italic}#出于骄傲，我们不接受任何与我们平起平坐者；出于贪婪，我们不接受任何奴役。我们为自己打造了可怕的弑神武器，并选出九名弑神者来使用它们。#{normal}#", "_t")
 t("sixth mural painting", "第六幅壁画", "_t")
 t([[You see images of epic battles, with Sher'Tul warriors fighting and slaying god-like figures over ten times their size.
-There is some text underneath ]], [[你在这幅画上看到一场史诗战争——夏·图尔的战士们在和10倍大于他们的神祗战斗。
+There is some text underneath ]], [[你在这幅壁画上看到一幕幕史诗般的战斗——夏·图尔的战士们正与十倍于自身的神明般的存在厮杀，并将其斩灭。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton...'#{normal}#", "不明意义的文字：#{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton……'#{normal}#", "_t")
 t("#{italic}#'The petty gods were hunted down and slain, and their spirits rent to nothing. The land became our own. But one god remained...'#{normal}#", "#{italic}#伪神们被逐一猎杀，他们的灵魂被撕成虚无。大地终于归我们所有。但是还有一位神存在……#{normal}#", "_t")
@@ -23305,7 +23305,7 @@ t("cunning", "灵巧", "talent category")
 t("stealth", "潜行", "talent type")
 t("Allows the user to enter stealth.", "使你的角色进入潜行。", "_t")
 t("trapping", "陷阱制作", "talent type")
-t("The knowledge of trap laying and assorted trickeries.", "学习装配陷阱的技术。", "_t")
+t("The knowledge of trap laying and assorted trickeries.", "关于布设陷阱与各式诡计的知识。", "_t")
 t("traps", "陷阱", "talent type")
 t("Collection of known traps.", "学会制造各种功能的陷阱。", "_t")
 t("poisons", "毒素", "talent type")
@@ -23945,7 +23945,7 @@ t("Defiling Touch", "诅咒之触", "talent name")
 t("curse", "诅咒", "_t")
 t("Cursed Fate", "被诅咒的命运", "_t")
 t("The %s lying nearby catches your attention. What draws you to it is not the thing itself, but something burning inside you. You feel contempt for it and all worldly things. This feeling is not new but the power of it overwhelms you. You reach out to touch the object, to curse it, to defile it. And you notice it begin to change. The colors of it begin to fade and are replaced with an insatiable hate. For a moment you hesitate. You know you must choose to resist this manifestation of your curse now and forever, or fall further into your madness.", "地上的%s引起了你的注意。吸引你的并不是物体本身，而是在你心底熊熊燃烧的憎恨之火。你对它充满着憎恨，正如你憎恨着世间万物一般。对你而言，这种感觉已经相当的熟悉，但是这一次，这股憎恨已经快要支配你了。你伸出手触碰它，发自内心地诅咒它、亵渎它。紧接着，你发现它发生了变化。它的光泽开始暗淡，继而充斥着无尽的憎恨。那一瞬间，你犹豫了。你知道命运的抉择正放在面前，要么从今天起抵抗身上的诅咒，并与之对抗终身；要么继续放纵自我，任由诅咒带你堕入这疯狂的深渊。", "tformat")
-t("The %s lies defiled at your feet. An aura of hatred surrounds you and you now feel truly cursed. You have gained the Cursed Aura talent tree and 1 point in Defiling Touch, but at the cost of 2 Willpower.", "你的脚下躺着受诅咒的%s。一个诅咒光环笼罩了你，你感到自己被诅咒了。你获得了诅咒光环技能树和等级 1 的诅咒之触，但是需永久消耗 2 点意志。", "tformat")
+t("The %s lies defiled at your feet. An aura of hatred surrounds you and you now feel truly cursed. You have gained the Cursed Aura talent tree and 1 point in Defiling Touch, but at the cost of 2 Willpower.", "你的脚下躺着被亵渎的%s。一股仇恨的气息笼罩了你，你感到自己真正被诅咒了。你获得了诅咒光环技能树和等级 1 的诅咒之触，但是需永久消耗 2 点意志。", "tformat")
 t("The %s returns to normal and your hate subsides.", "这个%s变回原样，你的仇恨消弭了。", "tformat")
 t("Release your hate upon the object", "将你的憎恨释放到物品上", "_t")
 t("Suppress your affliction", "压制你的憎恨之意", "_t")
