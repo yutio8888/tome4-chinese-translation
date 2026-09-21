@@ -22634,7 +22634,7 @@ t("Something has prevented the timetravel.", "某物阻止了时空旅行。", "
 t("temporal instability", "时间不稳定性", "_t")
 t("%s has moved forward in time!", "%s的时间向前推移！", "logSeen")
 t([[Inflicts %0.2f temporal damage.  If your target survives, it may be removed from time for %d turns.
-		The damage will scale with your Spellpower.]], [[造成 %0.2f 时空伤害。如果你的目标存活，它有几率被从这个时空放逐 %d 回合。
+		The damage will scale with your Spellpower.]], [[造成 %0.2f 时空伤害。如果你的目标存活，它有几率被移出时间线 %d 回合。
 		伤害受到法术强度加成。]], "tformat")
 t("Temporal Reprieve", "时空避难所", "talent name")
 t("This talent cannot be used from within the reprieve.", "时空避难所内无法使用该技能。", "logPlayer")
