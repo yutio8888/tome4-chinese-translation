@@ -6821,7 +6821,7 @@ t("crushed", "被碾碎", "_t")
 t("shattered", "被击碎", "_t")
 t("smashed", "被粉碎", "_t")
 t("cleaved", "被裂颅", "_t")
-t("swiped", "被砍掉脑袋", "_t")
+t("swiped", "被横扫", "_t")
 t("struck", "被重拳击中要害", "_t")
 t("mutilated", "被肢解", "_t")
 t("tortured", "被折磨", "_t")
@@ -21725,7 +21725,7 @@ t("Entombs a single target in a wall of stone.", "将一个单位用岩石墙环
 t("Anomaly Entropy", "异常：熵", "talent name")
 t("@Source@ increases local entropy.", "@Source@增加了局部的熵。", "_t")
 t("%s's %s is disrupted!", "%s的%s被打断了！", "logSeen")
-t("Places between three and six talents of up to 5 targets in a radius %d ball on cooldown for up to %d turns.", "让半径 %d 范围内最多五个单位的三到六个技能进入冷却 %d 回合。", "tformat")
+t("Places between three and six talents of up to 5 targets in a radius %d ball on cooldown for up to %d turns.", "让半径 %d 范围内最多五个单位的三到六个技能进入最多 %d 回合的冷却。", "tformat")
 t("Anomaly Gravity Well", "异常：重力井", "talent name")
 t("Creates a gravity well in a radius %d ball, pinning up to five targets.", "在半径 %d 范围内制造重力井，定身最多五个单位。", "tformat")
 t("Anomaly Quake", "异常：地震", "talent name")
@@ -23232,7 +23232,7 @@ This can be used without breaking stealth.
 使用该技能不解除潜行。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
-t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
+t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "你的飞镖无视中毒免疫和睡眠免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "你的飞镖发射器的睡眠毒素强效到足以无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("Grappling Hook", "钩爪", "talent name")
 t("You are too close to your target to swing your hook effectively!", "你距离目标太近了，不方便使用钩爪！", "logPlayer")
@@ -30868,7 +30868,7 @@ t([[Search your inner strength for a surge of power.
 		Only usable at 30%% or lower stamina.
 		Stamina regeneration is based on your Constitution stat.]], [[激发你内在的力量，持续 %d 回合。
 		每回合恢复 %d 体力，同时增加 %d%% 移动速度和攻击速度。
-		只能在体力少于 30%% 时使用。
+		只能在体力不高于 30%% 时使用。
 		体力回复受体质加成。]], "tformat")
 
 ------------------------------------------------
@@ -31498,7 +31498,7 @@ t([[You have learned to harness your latent arcane powers, channeling them throu
 		这一技能具有以下效果：
 		所有武器均有额外的 50%% 魔法加成。
 		你的基础物理强度增加等同于 100%% 基础法强的数值。
-		你的物理暴击率增加等同于 25%% 法术暴击率的数值。]], "tformat")
+		你的物理暴击率增加等同于 25%% 额外法术暴击率的数值。]], "tformat")
 t("Temporal Form", "时空形态", "talent name")
 t("Have cast over 1000 spells and visited a zone outside of time", "曾释放过 1000 个以上的法术并且进入过时间之外的区域。", "_t")
 t([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.
@@ -37638,7 +37638,7 @@ t("The target is protected by %s, redirecting all damage to it.", "目标被%s�
 t("#Target# is protected by a stone shield.", "#Target#被岩石护盾保护。", "_t")
 t("#Target# is less protected.", "#Target#不再被保护。", "_t")
 t("Exhaustion", "疲劳", "_t")
-t("The target has recently performed an extreme feat of agility and is exhausted.  The stamina cost of activated Mobility talents is increased by %d%%.", "目标最近施展了强力的敏捷技艺，非常疲劳。移动系技能消耗增加 %d%%。", "tformat")
+t("The target has recently performed an extreme feat of agility and is exhausted.  The stamina cost of activated Mobility talents is increased by %d%%.", "目标最近施展了强力的敏捷技艺，非常疲劳。主动型移动系技能的体力消耗增加 %d%%。", "tformat")
 t("Mobile Defense", "移动闪避", "_t")
 t("stamina regeneration by %0.1f and ", "%0.1f体力回复和", "tformat")
 t("Increases %sdefense by %d.", "增加 %s %d闪避。", "tformat")
