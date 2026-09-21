@@ -1,0 +1,252 @@
+[
+  {
+    "agent_id": "6ba5b43f-20b6-4877-a92b-35e2759974e9",
+    "dispatch_id": "lane-000-0",
+    "native_sha256": "9ba53fe700d6972be88adefcad9c81efa6af34d5481eac310d429ccaa8e5b957",
+    "tool_calls": [
+      {
+        "type": "tool_use",
+        "id": "toolu_01XynhJLSskgD5qZSxCSeAiX",
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-0.json && cat .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-0.json"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01MocpeHZ8qV6FvvqSHYqDvD",
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^#+ *(6|六)[\\.、 ]/{f=1} f' docs/paseo-translation-surface-screen-v1-contract.md | head -120"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01FzZNc5nJrAMRwAED9gsyft",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'))\ne=d['payload']['entries']\niss={0:'原文「removes up to %d magical or physical detrimental effects」的限定词 up to 被删，译文作「移除 %d 个魔法或物理负面效果」，把上限说成了确定数量',19:'译文在「打断你的集中力」后增写「并使这个持续技能进入冷却」，原文仅有 break your concentration / deactivate this sustained talent，无冷却表述'}\nres=[{'entry_revision_identity':x['entry_revision_identity'],'verdict':'ISSUE','observation':iss[i]} if i in iss else {'entry_revision_identity':x['entry_revision_identity'],'verdict':'OK'} for i,x in enumerate(e)]\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':res}\nimport sys;sys.stdout.write(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')))\n\""
+        },
+        "caller": {
+          "type": "direct"
+        }
+      }
+    ],
+    "status": "accepted",
+    "conclusion": "Reads own frozen envelope and contract headings/section6; stdout-only result construction; no current translations, other task/evidence, historical findings, or file writes."
+  },
+  {
+    "agent_id": "ae345ef3-b475-443b-9c72-2453e3c4c1ed",
+    "dispatch_id": "lane-000-1",
+    "native_sha256": "910238d3505c2a00e42eac572eb10a0161360f5793b02ca994cf552614d3d238",
+    "tool_calls": [
+      {
+        "type": "tool_use",
+        "id": "toolu_01YAaMHXN593LKw9YjZeNEqj",
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-1.json && cat .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-1.json",
+          "description": "Read surface screen envelope"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01MiTazBb8xp7igfMCkp9R9M",
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^## 6/,/^## 7/' docs/paseo-translation-surface-screen-v1-contract.md",
+          "description": "Read contract section 6"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01VM1EUwUSeGkiczHNN6EpUN",
+        "name": "Bash",
+        "input": {
+          "command": "grep -n \"^#\" docs/paseo-translation-surface-screen-v1-contract.md | head -40",
+          "description": "List headings"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01W4ezuQZTuamYPGDUKkHM47",
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '182,208p' docs/paseo-translation-surface-screen-v1-contract.md",
+          "description": "Read section 6"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01UwDyUCDfSH4CQsJjbhCpcG",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-1.json'))\nes=d['payload']['entries']\niss={9:'源文 skewered 仅指被利器贯穿，译文「被烤成肉串」额外引入了烧烤/炙烤含义，源文无此依据',18:'源文 Ritch Great Hive Mother 中的 Great 未译，译文「里奇女皇」与同族的 Ritch Hive Mother 无法区分'}\nr=[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} if i not in iss else {'entry_revision_identity':e['entry_revision_identity'],'observation':iss[i],'verdict':'ISSUE'} for i,e in enumerate(es)]\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':r}\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\n\"",
+          "description": "Build canonical result JSON"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      }
+    ],
+    "status": "accepted",
+    "conclusion": "Reads own frozen envelope and contract headings/section6; stdout-only result construction; no current translations, other task/evidence, historical findings, or file writes."
+  },
+  {
+    "agent_id": "90309ea6-4ece-43ee-a861-7f2fc78ad043",
+    "dispatch_id": "lane-000-2",
+    "native_sha256": "e7ca2d59abf46b8c6a7e3fd152119dd7ad67327c6db43369635826430b1998a9",
+    "tool_calls": [
+      {
+        "type": "tool_use",
+        "id": "toolu_012snxvZ4WVrD9gEgfHXPqBK",
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-2.json && head -c 3000 .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-2.json"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Jj4RsL5zKuCF5qsCR37CYh",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'))\nprint(list(d.keys()))\np=d['payload']\nprint({k:(v if not isinstance(v,list) else len(v)) for k,v in p.items()})\n\""
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01ToQMe6DYQbMGybb2BD6oDR",
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '1,400p' docs/paseo-translation-surface-screen-v1-contract.md | grep -n \"\" | sed -n '/^[0-9]*:## /p'"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01ErCsMaKmr9ZPi1HpW2X4TZ",
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '182,208p' docs/paseo-translation-surface-screen-v1-contract.md"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_018c6g7NgctgKRSYokuhaxvj",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'))\nfor i,e in enumerate(d['payload']['entries']):\n    print('=== %d  %s | %s | args_order=%r'%(i,e['entry_revision_identity'][:12],e['source_tag'],e['args_order']))\n    print('PATH:',e['normalized_path'],e['component'])\n    print('SRC:',repr(e['source']))\n    print('TGT:',repr(e['target']))\n    print()\n\""
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01ERyDuH8kVd86bTZuR48h2F",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'))\nes=d['payload']['entries']\nobs={8:'误译并删限定词：源文 \\\"The target is in a whistling vortex\\\"（目标处于漩涡之中）被译作「目标靠近尖啸漩涡」，in 变成「靠近」；同句 \\\"incoming projectiles are 30%% slower\\\" 中的限定词 incoming 被删成「抛射物减缓 30%%」，丢失「飞向目标的」方向性，读者可能误解为目标自身发射的抛射物变慢。'}\nres=[]\nfor i,e in enumerate(es):\n    it={'entry_revision_identity':e['entry_revision_identity'],'verdict':'ISSUE' if i in obs else 'OK'}\n    if i in obs: it['observation']=obs[i]\n    res.append(it)\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':res}\nprint(json.dumps(out,sort_keys=True,ensure_ascii=False,separators=(',',':')),end='')\n\""
+        },
+        "caller": {
+          "type": "direct"
+        }
+      }
+    ],
+    "status": "accepted",
+    "conclusion": "Reads own frozen envelope and contract headings/section6; stdout-only result construction; no current translations, other task/evidence, historical findings, or file writes."
+  },
+  {
+    "agent_id": "d8ee1d4e-cbf7-4470-b23a-d37f9e18baf3",
+    "dispatch_id": "lane-000-3",
+    "native_sha256": "10b48aff36aaa592d3ed8a1d353b2e180a835c7d4e0e967d473bab74ce6361c9",
+    "tool_calls": [
+      {
+        "type": "tool_use",
+        "id": "toolu_01SXhcT427ZP4XvZiPpA1eS6",
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-3.json && cat .ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-3.json"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_017A6kkTQztQitSqaSo5r2QW",
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^## *6/,/^## *7/' docs/paseo-translation-surface-screen-v1-contract.md"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_019Zue2EUgYwxEvyoeJ1pP4S",
+        "name": "Bash",
+        "input": {
+          "command": "grep -n \"^#\" docs/paseo-translation-surface-screen-v1-contract.md | head -50"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_017gSmaHD4uQnKBjDSyqJTtK",
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '182,208p' docs/paseo-translation-surface-screen-v1-contract.md"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_019KsJivUVi8w7y2PU2pSP2M",
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-939b816bedca462e4fc8/SURFACE-SCREEN-ENVELOPE-lane-000-3.json'))\ne=d['payload']['entries']\niss={'e0ec0f9cf12d881a94bfc1cc26d931cef065487f37ef042d00a9c48ffa446d98':'原文 yellow light 译为「金色的光芒」，颜色与原文黄色不符'}\nres=[]\nfor x in e:\n    r=x['entry_revision_identity']\n    if r in iss: res.append({'entry_revision_identity':r,'observation':iss[r],'verdict':'ISSUE'})\n    else: res.append({'entry_revision_identity':r,'verdict':'OK'})\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':res}\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')),end='')\n\""
+        },
+        "caller": {
+          "type": "direct"
+        }
+      }
+    ],
+    "status": "accepted",
+    "conclusion": "Reads own frozen envelope and contract headings/section6; stdout-only result construction; no current translations, other task/evidence, historical findings, or file writes."
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-09-21T14:14:26.226229+00:00",
+  "not_externalized_to_reviewers": true,
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "claims": [
+    {
+      "revision_prefix": "dff11a9be5",
+      "status": "confirmed",
+      "claim": "minimum heal applies per detrimental bleed effect, not per bleeding enemy",
+      "source": "game/modules/tome/data/talents/cursed/crimson-templar.lua",
+      "lines": [
+        217,
+        220,
+        231,
+        236,
+        255,
+        268,
+        270
+      ],
+      "evidence": "loop over target.tmp; each matching bleed contributes max(eff.power*eff.dur*conversion,healMin) to drain; target text 每个流血敌人 changes aggregation unit."
+    },
+    {
+      "revision_prefix": "e035e585a6",
+      "status": "confirmed",
+      "claim": "skewered describes physical impalement; roast meaning unsupported",
+      "source": "game/modules/tome/data/damage_types.lua",
+      "lines": [
+        758,
+        778
+      ],
+      "evidence": "PHYSICAL death_message contains skewered; target 被烤成肉串 adds roasting/fire unsupported by physical context."
+    },
+    {
+      "revision_prefix": "e0ae874bf8",
+      "status": "refuted",
+      "claim": "possible additive vs multiplicative mismatch",
+      "source": "game/modules/tome/data/damage_types.lua",
+      "lines": [
+        210,
+        229
+      ],
+      "evidence": "ordinary inc_damage initializes inc; inc_damage_actor_type then uses inc=inc+increase, confirming additive with general damage increase. Existing 加法叠加 has direct code support; no repair."
+    }
+  ]
+}

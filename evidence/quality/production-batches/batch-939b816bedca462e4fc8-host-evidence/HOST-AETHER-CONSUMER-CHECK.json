@@ -1,0 +1,10 @@
+{
+  "revision_prefix": "dfdfbe6089",
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source": "game/modules/tome/class/Actor.lua",
+  "full_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+  "start_line": 7143,
+  "end_line": 7183,
+  "text": "--- Find effects based on a filter, up to nb.\nfunction _M:effectsFilter(t, nb)\n\tlocal effs = {}\n\n\tfor eff_id, p in pairs(self.tmp) do\n\t\tlocal e = self.tempeffect_def[eff_id]\n\t\tif t == true then\n\t\t\teffs[#effs+1] = eff_id\n\t\telseif type(t) == \"function\" then\n\t\t\tif t(e) then effs[#effs+1] = eff_id end\n\t\telse\n\t\t\tlocal test = true\n\t\t\tlocal include_other = (t.type and t.type==\"other\") or (t.types and t.types.other)\n\t\t\ttest = (not t.ignore_crosstier or not e.subtype[\"cross tier\"])\n\t\t\ttest = test and (include_other or e.type ~= \"other\")  -- only remove other explicitly\n\t\t\ttest = test and (not t.type or t.type == e.type)\n\t\t\ttest = test and (not t.types or t.types[e.type])\n\t\t\tif t.subtype then\n\t\t\t\tlocal valid = false\n\t\t\t\tfor k, _ in pairs(t.subtype) do valid = valid or e.subtype[k] end\n\t\t\t\ttest = test and valid\n\t\t\tend\n\t\t\ttest = test and (not t.status or e.status == t.status)\n\t\t\tif test then effs[#effs+1] = eff_id end\n\t\tend\n\tend\n\n\treturn rng.tableSample(effs, nb)\nend\n\nfunction _M:removeEffectsFilter(src, t, nb, silent, force, check_remove, allow_immunity)\n\tif allow_immunity == nil then allow_immunity = true end\n\tt = t or {}\n\tlocal eff_ids = self:effectsFilter(t, nb)\n\tfor _, eff_id in ipairs(eff_ids) do\n\t\tif not check_remove or check_remove(self, eff_id) then\n\t\t\tself:dispel(eff_id, src, not force and allow_immunity, {force=force, silent=silent})\n\t\tend\n\tend\n\treturn #eff_ids\nend",
+  "conclusion": "effectsFilter只收集符合条件的已有效果，再rng.tableSample(effs,nb)；removeEffectsFilter逐个dispel被选效果。数量参数是筛选上限，不能保证有足额可清除效果；允许免疫默认true。与up to限定相符。"
+}

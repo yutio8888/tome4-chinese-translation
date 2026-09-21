@@ -1,0 +1,194 @@
+{
+  "created_at": "2026-09-21T14:24:45.026897+00:00",
+  "sources": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/spells/aether.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "f40adf8a89c61643ec20e4d2fdd4a910ad53cfbb9139f5d096833d6750fa25cb",
+      "excerpts": [
+        {
+          "start_line": 246,
+          "end_line": 254,
+          "text": "\tend,\n\taction = function(self, t)\n\t\tlocal aegis\n\t\tself:setEffect(self.EFF_AETHER_AVATAR, t.getNb(self, t), {})\n\t\tif self:isTalentActive(self.T_PURE_AETHER) and self:getTalentLevel(self.T_PURE_AETHER) >= 5 then\n\t\t\tself:removeEffectsFilter(self, function(eff) return eff.status == \"detrimental\" and (eff.type == \"physical\" or eff.type == \"magical\") end, self:callTalent(self.T_PURE_AETHER, \"getNbRemove\"))\n\t\tend\n\t\tgame:playSoundNear(self, \"talents/arcane\")\n\t\treturn true"
+        },
+        {
+          "start_line": 268,
+          "end_line": 307,
+          "text": "\tname = \"Pure Aether\",\n\ttype = {\"spell/aether\",4},\n\trequire = spells_req_high4,\n\tpoints = 5,\n\tmode = \"sustained\",\n\tsustain_mana = 50,\n\tcooldown = 30,\n\tuse_only_arcane = 1,\n\ttactical = { BUFF = 2 },\n\tgetNbRemove = function(self, t) return math.floor(self:combatTalentScale(t, 1, 4)) end,\n\tgetDamageIncrease = function(self, t) return self:combatTalentScale(t, 2.5, 10) end,\n\tgetResistPenalty = function(self, t) return self:combatTalentLimit(t, 60, 20, 50) end, -- Limit < 60%\t\n\tactivate = function(self, t)\n\t\tgame:playSoundNear(self, \"talents/arcane\")\n\n\t\tlocal particle\n\t\tlocal ret = {\n\t\t\tdam = self:addTemporaryValue(\"inc_damage\", {[DamageType.ARCANE] = t.getDamageIncrease(self, t)}),\n\t\t\tresist = self:addTemporaryValue(\"resists_pen\", {[DamageType.ARCANE] = t.getResistPenalty(self, t)}),\n\t\t}\n\t\tif core.shader.active(4) then\n\t\t\tret.particle = self:addParticles(Particles.new(\"shader_ring_rotating\", 1, {toback=true, rotation=0, radius=2, img=\"arcanegeneric\", a=0.7}, {type=\"sunaura\", time_factor=5000}))\n--\t\t\tparticle = self:addParticles(Particles.new(\"shader_ring_rotating\", 1, {radius=1.1}, {type=\"flames\", hide_center=0, time_factor=1700, zoom=0.3, npow=1, color1={0.6, 0.3, 0.8, 1}, color2={0.8, 0, 0.8, 1}, xy={self.x, self.y}}))\n\t\telse\n\t\t\tret.particle = self:addParticles(Particles.new(\"ultrashield\", 1, {rm=180, rM=220, gm=10, gM=50, bm=190, bM=220, am=120, aM=200, radius=0.4, density=100, life=8, instop=20}))\n\t\tend\n\t\treturn ret\n\tend,\n\tdeactivate = function(self, t, p)\n\t\tself:removeParticles(p.particle)\n\t\tself:removeTemporaryValue(\"inc_damage\", p.dam)\n\t\tself:removeTemporaryValue(\"resists_pen\", p.resist)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damageinc = t.getDamageIncrease(self, t)\n\t\tlocal ressistpen = t.getResistPenalty(self, t)\n\t\treturn ([[Surround yourself with Pure Aether, increasing all your arcane damage by %0.1f%% and ignoring %d%% arcane resistance of your targets.\n\t\tAt level 5 casting Aether Avatar removes up to %d magical or physical detrimental effects.]])\n\t\t:tformat(damageinc, ressistpen, t.getNbRemove(self, t))"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/kinetic-mastery.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "6716ed63275e4a57b3d2f27b9cf613fa56fe22818557b45207494e88716b73a5",
+      "excerpts": [
+        {
+          "start_line": 159,
+          "end_line": 216,
+          "text": "newTalent{\n\tname = \"Deflect Projectiles\",\n\ttype = {\"psionic/kinetic-mastery\", 3},\n\trequire = psi_wil_high3, \n\tpoints = 5,\n\tmode = \"sustained\", no_sustain_autoreset = true,\n\tsustain_psi = 25,\n\tcooldown = 10,\n\trange = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8, \"log\")) end, \n\tradius = 10,\n\ttarget = function(self, t)\n\t\treturn {type=\"hit\", range=self:getTalentRange(t), selffire=false, talent=t}\n\tend,\n\tgetEvasion = function(self, t) return self:combatTalentLimit(t, 90, 20, 40), self:getTalentLevel(t) >= 4 and 2 or 1 end, -- Limit chance <90%\n\tactivate = function(self, t)\n\t\tlocal chance, spread = t.getEvasion(self, t)\n\t\treturn {\n\t\t\tchance = self:addTemporaryValue(\"projectile_evasion\", chance),\n\t\t\tslow = self:addTemporaryValue(\"slow_projectiles\", chance),\n\t\t\tspread = self:addTemporaryValue(\"projectile_evasion_spread\", spread),\n\t\t}\n\tend,\n\tdeactivate = function(self, t, p)\n\t\tself:removeTemporaryValue(\"projectile_evasion\", p.chance)\n\t\tself:removeTemporaryValue(\"projectile_evasion_spread\", p.spread)\n\t\tself:removeTemporaryValue(\"slow_projectiles\", p.slow)\n\t\tif self:attr(\"save_cleanup\") then return true end\n\t\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal tx, ty = self:getTarget(tg)\n\t\tif not tx or not ty then return nil end\n\t\t\n\t\tlocal grids = core.fov.circle_grids(self.x, self.y, self:getTalentRadius(t), true)\n\t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n\t\t\tlocal i = 0\n\t\t\tlocal p = game.level.map(x, y, Map.PROJECTILE+i)\n\t\t\twhile p do\n\t\t\t\tif p.project and p.project.def.typ.source_actor ~= self then\n\t\t\t\t\tp.project.def.typ.line_function = core.fov.line(p.x, p.y, tx, ty)\n\t\t\t\tend\n\t\t\t\t\n\t\t\t\ti = i + 1\n\t\t\t\tp = game.level.map(x, y, Map.PROJECTILE+i)\n\t\t\tend\n\t\tend end\n\n\t\tgame.level.map:particleEmitter(self.x, self.y, self:getTalentRadius(t), \"shout\", {additive=true, life=10, size=3, distorion_factor=0.0, radius=self:getTalentRadius(t), nb_circles=4, rm=0.8, rM=1, gm=0, gM=0, bm=0.8, bM=1.0, am=0.4, aM=0.6})\n\t\t\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal chance, spread = t.getEvasion(self, t)\n\t\treturn ([[You learn to devote a portion of your attention to mentally swatting, grabbing, or otherwise deflecting incoming projectiles.\n\t\tAll projectiles targeting you have a %d%% chance to instead target another spot within radius %d and move %d%% slower.\n\t\tIf you choose, you can use your mind to grab all projectiles within radius 10 of you and hurl them toward any location within range %d of you, but this will break your concentration.\n\t\tTo do this, deactivate this sustained talent.]]):\n\t\ttformat(chance, spread, chance, self:getTalentRange(t))\n\tend,"
+        }
+      ]
+    },
+    {
+      "component": "engine",
+      "public_source_path": "game/engines/default/engine/interface/ActorTalents.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b",
+      "excerpts": [
+        {
+          "start_line": 242,
+          "end_line": 288,
+          "text": "\t\t\t\t\tif 'table' ~= type(lists) then lists = {lists} end\n\t\t\t\t\tfor _, list in ipairs(lists) do\n\t\t\t\t\t\tif 'table' == type(list) then\n\t\t\t\t\t\t\tlist = table.getTable(self, unpack(list))\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tlist = table.getTable(self, list)\n\t\t\t\t\t\tend\n\t\t\t\t\t\ttable.insert(list, id)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif ab.post_action then ab.post_action(who, ab) end\n\t\t\telse -- deactivating\n\t\t\t\tif self.deactivating_sustain_talent == ab.id then return end\n\n\t\t\t\tlocal p = self.sustain_talents[id]\n\t\t\t\tif p and type(p) == \"table\" and p.__tmpvals then\n\t\t\t\t\tfor i = 1, #p.__tmpvals do\n\t\t\t\t\t\tself:removeTemporaryValue(p.__tmpvals[i][1], p.__tmpvals[i][2])\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tp.__tmpvals = nil\n\t\t\t\tif p and type(p) == \"table\" and p.__tmpparticles then\n\t\t\t\t\tfor i = 1, #p.__tmpparticles do\n\t\t\t\t\t\tself:removeParticles(p.__tmpparticles[i])\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tp.__tmpparticles = nil\n\t\t\t\tself:setCurrentTalentMode(\"active\", ab.id)\n\t\t\t\tprepareUse()\n\t\t\t\tok, ret, special = xpcall(function() return ab.deactivate(who, ab, p) end, debug.traceback)\n\t\t\t\tfinishUse()\n\t\t\t\tself:setCurrentTalentMode(nil)\n\t\t\t\tif not ok then self:onTalentLuaError(ab, ret) error(ret) end\n\t\t\t\t\n\t\t\t\tif not ret and self._silent_talent_failure then -- remove messages generated by failed talent\n\t\t\t\t\tlocal msg, newline = game.logNewest()\n\t\t\t\t\tif newline ~= line then game.logRollback(line) end\n\t\t\t\tend\n\n\t\t\t\tself.deactivating_sustain_talent = ab.id\n\t\t\t\tif not self:postUseTalent(ab, ret, silent) then self.deactivating_sustain_talent = nil return false end\n\t\t\t\tself.deactivating_sustain_talent = nil\n\n\t\t\t\t-- Everything went ok? then start cooldown if any\n\t\t\t\tif not ignore_cd then self:startTalentCooldown(ab) end\n\t\t\t\tself.sustain_talents[id] = nil\n"
+        },
+        {
+          "start_line": 1016,
+          "end_line": 1026,
+          "text": "--- Starts a talent cooldown\n-- @param t the talent to cooldown\n-- @param v override the normal cooldown that that, nil to get the normal effect\nfunction _M:startTalentCooldown(t, v)\n\tt = self:getTalentFromId(t)\n\tlocal cd = t.cooldown\n\tif v then cd = math.max(v, self.talents_cd[t.id] or 0) end\n\tif not cd then return end\n\tif type(cd) == \"function\" then cd = cd(self, t) end\n\tself.talents_cd[t.id] = cd\n\tself.changed = true"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "excerpts": [
+        {
+          "start_line": 208,
+          "end_line": 230,
+          "text": "\n\t\t-- Increases damage\n\t\tlocal mind_linked = false\n\t\tlocal inc = 0\n\t\tif src.inc_damage then\n\t\t\tif src.combatGetDamageIncrease then inc = src:combatGetDamageIncrease(type)\n\t\t\telse inc = (src.inc_damage.all or 0) + (src.inc_damage[type] or 0) end\n\t\t\tif src.getVim and src:attr(\"demonblood_dam\") then inc = inc + ((src.demonblood_dam or 0) * (src:getVim() or 0)) end\n\t\t\tif src.attr and src:attr(\"blind_inc_damage\") and (target:attr(\"blind\") or target:attr(\"dazzled\")) then inc = inc + src:attr(\"blind_inc_damage\") end\n\t\t\tif inc ~= 0 then print(\"[PROJECTOR] after DamageType increase dam\", dam + (dam * inc / 100)) end\n\t\tend\n\n\t\t-- Increases damage for the entity type (Demon, Undead, etc)\n\t\tif target.type and src and src.inc_damage_actor_type then\n\t\t\tlocal increase = 0\n\t\t\tfor k, v in pairs(src.inc_damage_actor_type) do\n\t\t\t\tif target:checkClassification(tostring(k)) then increase = math.max(increase, v) end\n\t\t\tend\n\t\t\tif increase and increase~= 0 then\n\t\t\t\tprint(\"[PROJECTOR] before inc_damage_actor_type\", dam + (dam * inc / 100))\n\t\t\t\tinc = inc + increase\n\t\t\t\tprint(\"[PROJECTOR] after inc_damage_actor_type\", dam + (dam * inc / 100))\n\t\t\tend"
+        },
+        {
+          "start_line": 756,
+          "end_line": 779,
+          "text": "\tdeath_message = {_t\"cosmeticed\"},\n}\n\n-- The base elemental damage types are:\n-- PHYSICAL, FIRE, COLD, ARCANE, LIGHTNING, ACID, NATURE, BLIGHT, LIGHT, DARKNESS, MIND, TEMPORAL\n\n-- Need a provision to allow for compound DamageTypes to work with damDesc, combatGetResist, combatGetDamageIncrease, combatGetResistPen, combatGetAffinity, etc.\n\nnewDamageType{\n\tname = _t(\"physical\", \"damage type\"), type = \"PHYSICAL\", text_color = \"#WHITE#\",\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tlocal realdam = DamageType.defaultProjector(src, x, y, type, dam, state)\n\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif target and src.isTalentActive and src:isTalentActive(src.T_DISINTEGRATION) then\n\t\t\tsrc:callTalent(src.T_DISINTEGRATION, \"doStrip\", target, type)\n\t\tend\n\n\t\treturn realdam\n\tend,\n\tdeath_message = {_t\"battered\", _t\"bludgeoned\", _t\"sliced\", _t\"maimed\", _t\"raked\", _t\"bled\", _t\"impaled\", _t\"dissected\", _t\"disembowelled\", _t\"decapitated\", _t\"stabbed\", _t\"pierced\", _t\"torn limb from limb\", _t\"crushed\", _t\"shattered\", _t\"smashed\", _t\"cleaved\", _t\"swiped\", _t\"struck\", _t\"mutilated\", _t\"tortured\", _t\"skewered\", _t\"squished\", _t\"mauled\", _t\"chopped into tiny pieces\", _t\"splattered\", _t\"ground\", _t\"minced\", _t\"punctured\", _t\"hacked apart\", _t\"eviscerated\"},\n}"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/ritch-tunnels/npcs.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "52f4539d11c611f1e2a1cff6f8bfb0c16ac77056e71c9bff3556000efd6e7354",
+      "excerpts": [
+        {
+          "start_line": 97,
+          "end_line": 115,
+          "text": "-- Screw it just die, die, die\nnewEntity{ base = \"BASE_NPC_RITCH_REL\", define_as = \"HIVE_MOTHER\",\n\tunique = true, female = true,\n\tname = \"Ritch Great Hive Mother\", image = \"npc/insect_ritch_ritch_hive_mother.png\",\n\tdisplay = \"I\", color=colors.VIOLET,\n\tdesc = _t[[This huge ritch seems to be the mother of all those here. Her sharp, fiery, claws dart toward you!]],\n\tlevel_range = {7, nil}, exp_worth = 2,\n\tmax_life = 120, life_rating = 14, fixed_rating = true,\n\tequilibrium_regen = -50,\n\tinfravision = 10,\n\tstats = { str=15, dex=10, cun=8, mag=16, wil=16, con=10 },\n\tmove_others=true,\n\n\tinstakill_immune = 1,\n\tblind_immune = 1,\n\tno_breath = 1,\n\ttier1 = true,\n\trank = 4,\n\tsize_category = 4,"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/npcs/ritch.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "c2353543ac61995c0371536ca897ec92fb2a49ce0e226f6f5933e738f272f0ad",
+      "excerpts": [
+        {
+          "start_line": 80,
+          "end_line": 103,
+          "text": "\t\t[Talents.T_SHRIEK]=3,\n\t},\n\n}\n\nnewEntity{ base = \"BASE_NPC_RITCH\",\n\tname = \"ritch hive mother\", color=colors.LIGHT_RED,\n\tlevel_range = {32, nil}, exp_worth = 1,\n\trarity = 4,\n\tmax_life = 250,\n\tlife_rating = 12,\n\n\trank = 3,\n\tsize_category = 2,\n\tcombat_armor = 20, combat_def = 20,\n\n\tai = \"tactical\",\n\tai_tactic = resolvers.tactic\"ranged\",\n\n\tmake_escort = {\n\t\t{type=\"insect\", subtype=\"ritch\", number=3, no_subescort=true},\n\t},\n\tsummon = {\n\t\t{type=\"insect\", subtype=\"ritch\", number=1, hasxp=false},"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/floor.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "2a188aa4700431f377cff2b82759c77dfa7bd59406c00fe556f7f9271ab153d5",
+      "excerpts": [
+        {
+          "start_line": 20,
+          "end_line": 64,
+          "text": "local Stats = require \"engine.interface.ActorStats\"\nlocal Particles = require \"engine.Particles\"\nlocal Entity = require \"engine.Entity\"\nlocal Chat = require \"engine.Chat\"\nlocal Map = require \"engine.Map\"\nlocal Level = require \"engine.Level\"\n\n--I18N-TODO Need some clean up\nlocal function floorEffect(t)\n\tt.name = t.name or t.desc\n\tt.name = t.name:upper():gsub(\"[ ']\", \"_\")\n\tt.desc = _t(t.desc, \"floorEffect desc\")\n\tlocal d = t.long_desc\n\tif type(t.long_desc) == \"string\" then t.long_desc = function() return d end end\n\tt.type = \"other\"\n\tt.subtype = { floor=true }\n\tt.status = \"neutral\"\n\tt.on_gain = function(self, err) return nil, \"+\"..t.desc end\n\tt.on_lose = function(self, err) return nil, \"-\"..t.desc end\n\n\tnewEffect(t)\nend\n\nfloorEffect{\n\tdesc = \"Icy Floor\", image = \"talents/ice_storm.png\",\n\tlong_desc = _t\"The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.\",\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"resists_pen\", {[DamageType.COLD] = 20})\n\t\tself:effectTemporaryValue(eff, \"movement_speed\", 0.2)\n\t\tself:effectTemporaryValue(eff, \"stun_immune\", -0.3)\n\tend,\n}\n\nfloorEffect{\n\tdesc = \"Font of Life\", image = \"talents/grand_arrival.png\",\n\tlong_desc = function(self, eff) return (\"The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)\"):tformat(eff.power, eff.equilibrium, eff.stamina, eff.psi) end,\n\tparameters = {power=1, equilibrium=0, stamina=0, psi=0},\n\tactivate = function(self, eff)\n\t\tif not self:checkClassification(\"living\") then eff.power = 0 return end\n\t\teff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, \"object\") / 2\n\t\teff.psi = (eff.power/5)^.75\n\t\teff.stamina = eff.psi\n\t\teff.equilibrium = -eff.psi\n\t\tself:effectTemporaryValue(eff, \"life_regen\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"stamina_regen\", eff.stamina)"
+        },
+        {
+          "start_line": 133,
+          "end_line": 142,
+          "text": "floorEffect{\n\tdesc = \"Whistling Vortex\", image = \"talents/shadow_blast.png\",\n\tlong_desc = function(self, eff) return (\"The target is in a whistling vortex, granting +%d ranged defense, -%d ranged accuracy and incoming projectiles are 30%% slower.\"):tformat(eff.power, eff.power) end,\n\tactivate = function(self, eff)\n\t\teff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, \"object\") / 2\n\t\tself:effectTemporaryValue(eff, \"combat_def_ranged\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_atk_ranged\", -eff.power)\n\t\tself:effectTemporaryValue(eff, \"slow_projectiles\", 30)\n\tend,\n}"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Actor.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "excerpts": [
+        {
+          "start_line": 7839,
+          "end_line": 7856,
+          "text": "\n--- Called when we fire a projectile\nfunction _M:on_projectile_fired(proj, typ, x, y, damtype, dam, particles)\n\tif self:attr(\"slow_projectiles_outgoing\") then\n\t\tprint(\"Projectile slowing down from\", proj.energy.mod)\n\t\tproj.energy.mod = proj.energy.mod * (100 - math.min(90, self.slow_projectiles_outgoing)) / 100\n\t\tprint(\"Projectile slowing down to\", proj.energy.mod)\n\tend\nend\n\n--- Called when we are targeted by a projectile\nfunction _M:on_projectile_target(x, y, p)\n\tif self:attr(\"slow_projectiles\") then\n\t\tprint(\"Projectile slowing down from\", p.energy.mod)\n\t\tp.energy.mod = p.energy.mod * (100 - math.min(90, self.slow_projectiles)) / 100\n\t\tprint(\"Projectile slowing down to\", p.energy.mod)\n\tend\n\tif self:knowTalent(self.T_HEIGHTENED_REFLEXES) then"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/npcs/horror.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "59fb5c3d04db48cfa87a1b3fd51565c915a8a8573b5e72459177694a8541e77c",
+      "excerpts": [
+        {
+          "start_line": 407,
+          "end_line": 421,
+          "text": "-- TODO: Make Luminous and Radiant Horrors cooler\nnewEntity{ base = \"BASE_NPC_HORROR\",\n\tname = \"luminous horror\", color=colors.YELLOW,\n\tdesc =_t\"A lanky humanoid shape composed of yellow light.\",\n\tlevel_range = {20, nil}, exp_worth = 1,\n\trarity = 2,\n\tautolevel = \"caster\",\n\tcombat_armor = 1, combat_def = 10,\n\tcombat = { dam=5, atk=15, apr=20, dammod={mag=0.6}, damtype=DamageType.LIGHT},\n\tai = \"dumb_talented_simple\", ai_state = { ai_move=\"move_complex\", talent_in=1.5, },\n\tlite = 3,\n\n\tresists = {all = 35, [DamageType.DARKNESS] = -50, [DamageType.LIGHT] = 100, [DamageType.FIRE] = 100},\n\tdamage_affinity = { [DamageType.LIGHT] = 50,  [DamageType.FIRE] = 50, },\n"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/crimson-templar.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "full_file_sha256": "909d08e1f26b3f38f8244c116af6e4a1e54af696abfc74816659c14c5269db18",
+      "excerpts": [
+        {
+          "start_line": 180,
+          "end_line": 205,
+          "text": "newTalent{\n\tname = \"Rosebloom\",\n\ttype = {\"cursed/crimson-templar\", 4},\n\trequire = cursed_mag_req_high4,\n\tpoints = 5,\n\trange = 0,\n\tradius = 10,\n\tcooldown = 24,\n\tpositive = 10,\n\thate = 10,\n\tdirect_hit = true,\n\tgetExtension = function(self, t) return math.floor(self:combatTalentScale(t, 0, 4)) end,\n\tgetConversion = function(self, t) return 0.20 end,\n\tgetInsomniaPower= function(self, t)\n\t\tlocal t = self:getTalentFromId(self.T_SANDMAN)\n\t\tlocal reduction = t.getInsomniaPower(self, t)\n\t\treturn 20 - reduction\n\tend,\n\tgetMinHeal = function(self, t) return self:combatTalentScale(t, 10, 25) end,\n\tgetSleepMultiplier = function(self, t)\n\t\tif self:knowTalent(self.T_SANDMAN) then\n\t\t\tlocal sandman = self:getTalentFromId(self.T_SANDMAN)\n\t\t\treturn sandman.getSleepPowerBonus(self, sandman)\n\t\tend\n\t\treturn 1\n\tend,"
+        },
+        {
+          "start_line": 217,
+          "end_line": 270,
+          "text": "\t\t-- Store up bleed damage\n\t\tlocal drain = 0\n\t\tlocal conversion = t.getConversion(self, t)\n\t\tlocal healMin = t.getMinHeal(self, t)\n\t\t\n\t\tlocal sleepMultiplier = t.getSleepMultiplier(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tself:project(tg, self.x, self.y, function(tx, ty)\n\t\t\t\t\t\t\t\t\t local target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\t\t\t\t\t\t\t if target then\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t\t local bleeding = false\n\t\t\t\t\t\t\t\t\t\t local dur = 1\n\t\t\t\t\t\t\t\t\t\t local sleepPower = 0\n\t\t\t\t\t\t\t\t\t\t for eff_id, p in pairs(target.tmp) do\n\t\t\t\t\t\t\t\t\t\t\t local e = target.tempeffect_def[eff_id]\n\t\t\t\t\t\t\t\t\t\t\t if e.subtype.bleed and e.status == \"detrimental\" then\n\t\t\t\t\t\t\t\t\t\t\t\t bleeding = true\n\t\t\t\t\t\t\t\t\t\t\t\t local eff = target.tmp[eff_id]\n\t\t\t\t\t\t\t\t\t\t\t\t drain = drain + math.max(eff.power*eff.dur*conversion, healMin)\n\t\t\t\t\t\t\t\t\t\t\t\t dur = math.max(dur, eff.dur)\n\t\t\t\t\t\t\t\t\t\t\t\t sleepPower = sleepPower + eff.power\n\t\t\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t\t if bleeding and target:canBe(\"sleep\") then\n\t\t\t\t\t\t\t\t\t\t\t local hx, hy = self:attachementSpot(\"back\", true)\n\t\t\t\t\t\t\t\t\t\t\t local ps = Particles.new(\"blood_trail\", 1, {range=core.fov.distance(self.x, self.y, target.x, target.y), dir=math.deg(math.atan2(target.y-self.y, target.x-self.x)+math.pi/2), img=\"blood_trail_segment_thick\", grab=true, dx=hx, dy=hy})\n\t\t\t\t\t\t\t\t\t\t\t self:addParticles(ps)\n\t\t\t\t\t\t\t\t\t\t\t target:setEffect(target.EFF_SLEEP, dur+t.getExtension(self, t), {src=self, power = math.ceil(sleepPower * sleepMultiplier * 1.5), contagious=0, waking=is_waking, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatSpellpower()})\n\t\t\t\t\t\t\t\t\t\t else\n\t\t\t\t\t\t\t\t\t\t\t game.logSeen(self, \"%s resists the sleep!\", target.name:capitalize())\n\t\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t end)\n\t\t\n\t\t-- Heal to heal\n\t\tself:attr(\"allow_on_heal\", 1)\n\t\tself:heal(drain, self) -- don't crit, would double dip\n\t\tself:attr(\"allow_on_heal\", -1)\n\t\t\n\t\tgame:playSoundNear(self, \"talents/dispel\")\n\t\treturn true\n\tend,\n\t\n\tinfo = function(self, t)\n\t\tlocal conversion = t.getConversion(self, t)*100\n\t\tlocal minimum = t.getMinHeal(self, t)\n\t\tlocal extension = t.getExtension(self, t)\n\t\treturn ([[Draw on the wounds of enemies within range 10, healing yourself and putting them into a merciful sleep.\n\t\t\t\t\t\t\tThe sleep chance increases with your Spellpower.\n\t\t\t\t\t\t\tYou are healed for %d%% of the remaining damage of bleed effects on enemies in range (minimum %d per bleed). Enemies fall asleep for %d turns longer than their longest-lasting bleed, rendering them unable to act. The strength of the sleep effect is based on the strength of the bleed. Excess damage will reduce their sleep duration.\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tWhen the sleep ends, each target will benefit from Insomnia for a number of turns equal to the amount of time it was asleep (up to ten turns max), granting it 50%% sleep immunity.]]):tformat(conversion, minimum, extension)"
+        }
+      ]
+    }
+  ],
+  "translation_name_comparison": {
+    "commit": "74b484a69923e28495027841ab3ad057f37f6f2f",
+    "path": "mod-tome.lua",
+    "lines": [
+      {
+        "line": 8660,
+        "text": "t(\"ritch hive mother\", \"里奇巢母\", \"entity name\")"
+      },
+      {
+        "line": 39525,
+        "text": "t(\"Ritch Great Hive Mother\", \"里奇女皇\", \"entity name\")"
+      }
+    ]
+  },
+  "value_flow": [
+    {
+      "revision_prefix": "dfdfbe6089",
+      "arguments": [
+        "getDamageIncrease -> inc_damage[ARCANE]",
+        "getResistPenalty -> resists_pen[ARCANE]",
+        "getNbRemove -> removeEffectsFilter count cap in Aether Avatar when Pure Aether level>=5"
+      ],
+      "args_order": null
+    },
+    {
+      "revision_prefix": "e0886c07f8",
+      "arguments": [
+        "eff.power -> combat_def_ranged",
+        "eff.power -> -combat_atk_ranged"
+      ],
+      "speed": "slow_projectiles=30 -> on_projectile_target energy.mod*=0.7; outgoing uses distinct slow_projectiles_outgoing",
+      "args_order": null
+    }
+  ]
+}

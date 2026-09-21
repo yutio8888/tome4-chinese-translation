@@ -1,0 +1,55 @@
+{
+  "workset": "evidence/quality/production-batches/batch-939b816bedca462e4fc8-source-workset.json",
+  "decisions": {
+    "dfdfbe6089|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认清除数量上限遗漏。固定tome624a67329fe2ad440c5b344785a9c73fcf22ae63，spells/aether.lua 的 Pure Aether getNbRemove 值作为 Aether Avatar action 中 removeEffectsFilter 的数量上限；仅在纯净以太激活且等级至少5时执行。应补“最多%d个”，不改变参数顺序或其他技能机制。"
+    },
+    "e023272e67|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "撤销“进入冷却是无依据增译”。固定tome/engine同commit624a67329fe2ad440c5b344785a9c73fcf22ae63，psionic/kinetic-mastery.lua:159-207 定义mode=sustained、cooldown=10并在成功deactivate后return true；engine/interface/ActorTalents.lua:281-287 的成功取消路径调用startTalentCooldown，1019-1025按技能cooldown设值。现译对成功抓取投回后的冷却补充有实际机制依据。"
+    },
+    "e035e585a6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认额外烧烤语义。固定tome同commit game/modules/tome/data/damage_types.lua:756-778 将skewered列于PHYSICAL death_message；意为被刺穿/串穿，现译“被烤成肉串”引入热/火烤过程。限本条修正，不全局改其他死亡描述。"
+    },
+    "e061678ef5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "撤销“与普通巢母无法区分”。固定tome同commit ritch-tunnels/npcs.lua:98-102 为unique=true的Ritch Great Hive Mother、同群之母；general/npcs/ritch.lua:86为普通ritch hive mother。汉化固定基线74b484a的mod-tome.lua:39525为里奇女皇、8660为里奇巢母，现译已区分位阶。Great与Hive Mother整体意译为女皇属有语境依据的专名取舍，不自动逐词重命名或改术语库。"
+    },
+    "e0886c07f8|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认所处位置与来袭方向缺失。固定tome同commit data/timed_effects/floor.lua:133-140 为目标置身漩涡的地面效果，增加远程闪避、减少远程命中并给slow_projectiles=30；class/Actor.lua:7849-7854仅在on_projectile_target中减速来袭投射物，自己发射减速用不同slow_projectiles_outgoing。应明确“处于漩涡中”和“飞向目标的抛射物”；两处%d同为eff.power，args_order=null。"
+    },
+    "e0ec0f9cf1|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "颜色精确化记advisory，不自动修复。固定tome同commit general/npcs/horror.lua:408-417 为luminous horror、colors.YELLOW、yellow light与LIGHT伤害。现译“金色的光芒”在此发光实体语境中可描述明亮黄色，并未声称金属材质或改变机制；可偏好“黄色光芒”，但仅凭黄色/金色近义色调表达不足以确认实质错译。"
+    },
+    "dfdfbe6089|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认清除数量上限遗漏。固定tome624a67329fe2ad440c5b344785a9c73fcf22ae63，spells/aether.lua 的 Pure Aether getNbRemove 值作为 Aether Avatar action 中 removeEffectsFilter 的数量上限；仅在纯净以太激活且等级至少5时执行。应补“最多%d个”，不改变参数顺序或其他技能机制。"
+    },
+    "e035e585a6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认额外烧烤语义。固定tome同commit game/modules/tome/data/damage_types.lua:756-778 将skewered列于PHYSICAL death_message；意为被刺穿/串穿，现译“被烤成肉串”引入热/火烤过程。限本条修正，不全局改其他死亡描述。"
+    },
+    "e0886c07f8|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "确认所处位置与来袭方向缺失。固定tome同commit data/timed_effects/floor.lua:133-140 为目标置身漩涡的地面效果，增加远程闪避、减少远程命中并给slow_projectiles=30；class/Actor.lua:7849-7854仅在on_projectile_target中减速来袭投射物，自己发射减速用不同slow_projectiles_outgoing。应明确“处于漩涡中”和“飞向目标的抛射物”；两处%d同为eff.power，args_order=null。"
+    },
+    "e0ec0f9cf1|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "颜色精确化记advisory，不自动修复。固定tome同commit general/npcs/horror.lua:408-417 为luminous horror、colors.YELLOW、yellow light与LIGHT伤害。现译“金色的光芒”在此发光实体语境中可描述明亮黄色，并未声称金属材质或改变机制；可偏好“黄色光芒”，但仅凭黄色/金色近义色调表达不足以确认实质错译。"
+    }
+  }
+}

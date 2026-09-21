@@ -1,0 +1,26 @@
+{
+  "status": "confirmed",
+  "revision_key": "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32",
+  "repair_required": true,
+  "conclusion": "逐个bleed effect的下限误译为逐个流血敌人；固定crimson-templar.lua231-236直接证明。首次source核验在独立补充复审之前已记录，未外发finding。",
+  "production_boundary": "Original surface OK retained; supplemental review is not imported into six-entry production deep set and does not claim a production repair_required override. Track as one additional confirmed executable revision for repair window3.",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_path": "game/modules/tome/data/talents/cursed/crimson-templar.lua",
+  "value_flow": [
+    {
+      "index": 1,
+      "producer": "getConversion*100",
+      "consumer": "eff.power*eff.dur*conversion, each bleed"
+    },
+    {
+      "index": 2,
+      "producer": "getMinHeal",
+      "consumer": "math.max(...,healMin) per effect"
+    },
+    {
+      "index": 3,
+      "producer": "getExtension",
+      "consumer": "EFF_SLEEP duration=max(bleed durations)+extension"
+    }
+  ]
+}
