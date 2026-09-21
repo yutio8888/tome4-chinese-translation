@@ -12608,7 +12608,7 @@ t("This crown was worn by the Halfling king Roupar, who ruled over the Nargol la
 t("#LIGHT_BLUE#As you don the %s, you gain understanding of the might of your race.", "#LIGHT_BLUE#当你戴上%s，你感受到了你种族的力量。", "logPlayer")
 t("Gloves of the Firm Hand", "铁腕之手套", "entity name")
 t("heavy gloves", "沉重的手套", "_t")
-t("These gloves make you feel rock steady! These magical gloves feel really soft to the touch from the inside. On the outside, magical stones create a rough surface that is constantly shifting. When you brace yourself, a magical ray of earth energy seems to automatically bind them to the ground, granting you increased stability.", "这副手套让你觉得坚如磐石！这双充满魔力的手套从里面摸起来无比松软。在其外，魔法石创造了一个不断转动的粗糙表面。当你振作精神，一束包含大地能量的魔法射线会将它自动扎根在地面上，赋予你更高的稳定性。", "_t")
+t("These gloves make you feel rock steady! These magical gloves feel really soft to the touch from the inside. On the outside, magical stones create a rough surface that is constantly shifting. When you brace yourself, a magical ray of earth energy seems to automatically bind them to the ground, granting you increased stability.", "这副手套令你感觉稳如磐石！这副魔法手套的内侧触感极其柔软，外侧则由不断变动的魔法石构成粗糙表面。当你稳住身体时，一道大地能量形成的魔法射线似乎会自动将它们固定在地面上，让你站得更稳。", "_t")
 t("Dakhtun's Gauntlets", "达克顿的臂铠", "entity name")
 t("expertly-crafted dwarven-steel gauntlets", "精工打造的矮人钢护手", "_t")
 t("Fashioned by Grand Smith Dakhtun in the Age of Allure, these dwarven-steel gauntlets have been etched with golden arcane runes and are said to grant the wearer unparalleled physical and magical might.", "厄流纪由大师级铁匠达克顿打造而成。那些矮人钢臂铠镂刻着金色的奥术符文，据说它们可以赋予穿戴者强大的魔武力量。", "_t")
@@ -13083,7 +13083,7 @@ t("When you take a hit of more than 20% of your max life a shield is created equ
 t("#LIGHT_BLUE#A barrier bursts from the leather jacket!", "#LIGHT_BLUE#这件皮夹克突然爆发出一股护盾能量！", "logPlayer")
 t("Honeywood Chalice", "蜂蜜木酒杯", "entity name")
 t("sap filled cup", "装满液体的杯子", "_t")
-t("This wooden cup seems perpetually filled with a thick sap-like substance. Tasting it is exhilarating, and you feel intensely aware when you do so.", "这个酒杯里装满了粘稠的物质，尝一口能提神醒脑。", "_t")
+t("This wooden cup seems perpetually filled with a thick sap-like substance. Tasting it is exhilarating, and you feel intensely aware when you do so.", "这个木杯似乎总是盛满一种浓稠的树液状物质。尝上一口令人精神振奋，同时会让你的感知变得异常敏锐。", "_t")
 t("The Calm", "宁静", "entity name")
 t("ornate green robe", "华丽的绿色长袍", "_t")
 t("This green robe is engraved with icons showing clouds and swirling winds. Its original owner, a powerful mage named Proccala, was often revered for both his great benevolence and his intense power when it proved necessary.", "这件绿色长袍上刻有云朵和旋风的图案。它最初的主人，大法师普偌卡拉，因其善行和力量被人们敬畏。", "_t")
@@ -25316,9 +25316,9 @@ t([[Instantly call all of your bloated oozes to your aid.
 t("Indiscernible Anatomy", "难以辨认的解剖结构", "talent name")
 t([[Your body's internal organs are indistinct, disguising your vital areas.
 		You have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).
-		In addition you gain %d%% resistance to disease, poison, wounds and blindness.]], [[你身体里的内脏全都融化在一起，隐藏了你的要害部位。
-		你有 %d%% 几率摆脱任何（物理，精神，法术）暴击。
-		你将额外获得 %d%% 的疾病、毒素、切割和目盲免疫。]], "tformat")
+		In addition you gain %d%% resistance to disease, poison, wounds and blindness.]], [[你体内的器官模糊难辨，掩盖了你的要害部位。
+		你受到的直接暴击（物理、精神、法术）的额外伤害降低 %d%%。
+		你将额外获得 %d%% 的疾病、毒素、流血和目盲免疫。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/oozing-blades.lua"
@@ -25533,21 +25533,21 @@ t([[For %d turn(s), you have 100%% chance that your summons appear as a wild ver
 		- Turtle: Can force all foes in a radius into melee range
 		- Spider: Can project an insidious poison at its foes, reducing their healing
 		This talent requires Master Summoner to be active to be used.
-		Effects scale with levels in summon talents.]], [[你在 %d 回合内 100%% 召唤出一只野性模式的召唤兽。
+		Effects scale with levels in summon talents.]], [[在 %d 回合内，你的召唤兽出现时有 100%% 几率成为野性版本。
 		此概率每回合递减。
-		野性召唤兽增加 1 个新的天赋：
-		- 喷火里奇：可以在空中飞行，吐火不会被路径上的生物所阻挡。
-		- 三头蛇：如果发现友军会被击中，则将吐息改为单体攻击。
-		- 雾凇：可以抓取敌人，将它们拉进自己的冰风暴范围。
-		- 火龙：可以用怒吼来沉默敌人
-		- 战争猎犬：可以狂暴，增加它的暴击率和护甲穿透值
-		- 果冻怪：可以在被攻击造成较大伤害的时候，分裂出一个果冻怪（分裂出的果冻怪不会占用你的召唤物上限）
+		野性生物比基础版本多一个天赋或能力：
+		- 喷火里奇：可以在空中飞行，并越过目标路径上的生物喷射火焰
+		- 三头蛇：吐息会波及友军时，可将吐息凝聚成弹体，改为喷出一道飞弹
+		- 雾凇：可以抓取敌人，将它们拉进自己的冰风暴范围
+		- 火龙：可以发出强力怒吼，使敌人沉默
+		- 战争猎犬：可以狂暴，提高暴击率并获得护甲穿透
+		- 果冻怪：受到一次重击时，可以分裂出另一个果冻怪（分裂出的果冻怪不会占用你的召唤物上限）
 		- 米诺陶：可以向目标冲锋
-		- 岩石傀儡：可以缴械敌人。
-		- 乌龟：可以嘲讽范围内敌人进入近战状态
-		- 蜘蛛：可以向目标吐出剧毒，减少它们的治疗效果
-		此技能只有在召唤精通激活时才能使用。
-		技能效果受召唤物技能等级加成。]], "tformat")
+		- 岩石傀儡：可以缴械敌人
+		- 乌龟：可以迫使半径内所有敌人进入近战范围
+		- 蜘蛛：可以向敌人喷射阴险的毒液，降低其治疗效果
+		使用此天赋需要召唤精通处于激活状态。
+		效果随召唤天赋等级提升。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/summon-augmentation.lua"
@@ -43109,7 +43109,7 @@ t("In the Age of Pyre the orcs learned the secrets of magic, and with their newf
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造炽烈的爆炸，并且往往带着一尊坚固的傀儡随行以获得额外保护。", "init.lua load_tips")
-t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了巨型傀儡阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
+t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造巨型傀儡阿塔玛森的唯一目的，就是阻止兽人首领吞噬者加库尔。加库尔仅凭一己之力便摧毁了这尊傀儡，随后又屠戮了一支数千人的军队，最终这名如恶魔般的战士才被杀死。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
