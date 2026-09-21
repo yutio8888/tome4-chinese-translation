@@ -989,7 +989,10 @@ def _validate_live_repair_preimage(root: Path, expected_manifest: dict[str, Any]
         raise _error("repair preflight live translation call/preimage/identity drift")
 
 
-def _repair_workset(root: Path, batch_id: str, *, manifest: Any | None = None) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def _repair_workset(root: Path, batch_id: str, *, manifest: Any | None = None,
+                    projection: tuple[str, dict[str, Any], list[dict[str, Any]],
+                                      list[tuple[Any, ...]], list[tuple[Any, ...]]] | None = None,
+                    ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     from . import production_review_v2_lite_queue as queue
     batch_id = _batch_id(batch_id)
     commit = _head(root, "HEAD")
@@ -1016,7 +1019,16 @@ def _repair_workset(root: Path, batch_id: str, *, manifest: Any | None = None) -
     # A named batch is usable for repair only while every repair row remains
     # the current durable winner.  In particular, a later done/blocked batch
     # must not be hidden by asking for the older batch by name.
-    current_projection = queue._projection(root, commit)
+    # A caller that just validated SQLite against this replay may carry it
+    # into workset construction.  Re-resolve HEAD before trusting it: moving
+    # HEAD fails closed instead of silently mixing the validated queue with a
+    # different evidence tree.  Independent callers still get a fresh replay.
+    if projection is None:
+        current_projection = queue.projection_for(root, commit)
+    elif projection[0] != commit:
+        raise _error("repair preflight HEAD changed after queue validation")
+    else:
+        current_projection = projection
     current_winners = {row[0]: row for row in current_projection[3]}
     repair_tuples = [row for row in tuples if row[2] == "repair_required" and row[3] == batch_id]
     for winner in repair_tuples:
@@ -1124,8 +1136,12 @@ def repair_preflight(root: Path, batch_id: str, *, output: Path | None = None,
     from . import production_review_v2_lite_queue as queue
     with queue.writer_lock(root):
         _quiescent(root, require_database=True)
-        queue.strict_check(root)
-        workset, items = _repair_workset(root, batch_id, manifest=manifest)
+        projection = queue.projection_for(root, "HEAD")
+        queue.strict_check(root, projection=projection)
+        workset, items = _repair_workset(
+            root, batch_id, manifest=manifest, projection=projection)
+        if _head(root, "HEAD") != projection[0]:
+            raise _error("repair preflight HEAD changed before workset publication")
         raw = wp1.canonical_bytes(workset)
         destination = output or root / ".artifacts/i18n/production-review-v2-lite" / f"repair-preflight-{_batch_id(batch_id)}.json"
         path = _write_output(root, destination, raw)

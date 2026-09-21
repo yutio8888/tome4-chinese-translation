@@ -26,9 +26,30 @@ git diff --name-status
 | contextual v1／schema 4 implement | 使用下文旧 P2 实现步骤与三阶段收敛；历史任务不迁移 |
 | contextual v2 implement | 按 [v2 契约](paseo-translation-context-review-v2-contract.md) 准备与收束，不照搬 v1 的 lane 数和轮次升级规则 |
 | WP2-Lite 正式审核 | 按[当前交接](../deprecated/docs/production-review-handoff-2026-09-05.md)和[正式方案](translation-production-review-v2-lite-plan.md)处理 checkpoint、队列、surface／deep、裁决及 evidence；active batch 内不修改译文 |
-| WP2-Lite repair | 审核证据已提交且 checkpoint 已移除后运行 `repair preflight`，另建唯一 EXECUTOR 的实现任务；提交译文、repair evidence、catalog 和 migration 后 rebuild queue，successor 等待重新审核 |
+| WP2-Lite repair | 审核证据已提交且 checkpoint 已移除后运行 `repair preflight`，另建唯一 EXECUTOR 的实现任务；按下文的译文 commit、两次 queue rebuild 和单次 catalog/migration 顺序完成，successor 等待重新审核 |
 
 有活动 checkpoint 时先按所属流程恢复；不能删除 checkpoint 或新开 writer 来套用另一条流程。
+
+### WP2-Lite 三批修复窗口
+
+连续审核以最多 3 个已 finalize 批次为一个窗口。每批裁决后只累计新增、已 confirmed 且当前可执行的
+`repair_required` revision，并按 revision 去重；累计达到 20 时，在当前批 finalize 且 checkpoint 已移除后
+提前结束审核窗口。机制、运行、placeholder／markup／newline 等高影响 confirmed finding 也在同一安全边界
+提前进入修复，不在活动批次中改译文。没有可执行修复时不创建空 repair 或 migration，直接开始下一审核批。
+
+窗口内每个已提交的来源批次分别运行真实 repair preflight，保留各自原 schema workset、batch provenance 和
+逐项验收，不把多个来源伪装成一个 durable batch。随后建立一个有界 IMPLEMENT 任务，显式列出来源 batch、
+去重 revision 及获准的同族附属范围；经既有独立复审和完整门禁后，操作顺序固定为：提交译文 → 计时运行
+queue rebuild 使 SQLite `meta.evidence_head` 与新 HEAD 同步 → 构建一次候选 catalog → 运行一次 migration-chain →
+提交全部必要 repair evidence（含 catalog/migration）→ 再次计时运行 queue rebuild。两次 rebuild 都是真实边界同步，
+不能由一次 catalog/migration 构建替代。successor 仍须重新审核；窗口不会放宽 source/term 授权、writer 串行、
+失败恢复或正式任务契约。
+
+历史 pending／待维护者术语另列并在每个窗口报告，不计入 20 条、不得擅自修复或清零。一个旧
+`repair_required` 若因口径未决而不可执行，也不反复触发阈值或阻塞后续审核；待口径裁决后才进入可执行集合。
+批次和修复窗口的耗时须分别记录实际命令、投影和门禁墙钟；只观察到审核提速不能宣称端到端提速。
+首轮报告后的宿主暂停是供主代理收集测量的操作节点，不是新增用户审批；主代理可在既有连续审核授权范围内
+根据结果继续安排。
 
 ## 审核、修复与停止
 

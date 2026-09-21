@@ -265,6 +265,52 @@ MCP 手动调用的耗时只有调用者使用上述计时接口包裹时才有 
 以及 `adjudicate=<decisions> prepare-evidence`。各动作仍各自验证输入、锁、checkpoint 和事务，
 同一 root/HEAD 的投影可复用；HEAD 改变重新投影。无 ISSUE 只运行 surface-import。
 queue check/rebuild/status、batch start/finalize/recover、migration 不可串联；本次未扩充白名单。
+
+### Repair preflight 与 migration 有界串联
+
+`run_repair_steps.py` 是独立的 repair/migration 入口，不扩充 `run_batch_steps.py` 白名单。来源审核已提交、
+batch 已 finalize 且没有 checkpoint 后，可一次为 1 至 3 个互异来源批次分别冻结 workset：
+
+```bash
+python3 -B tools/orchestration/run_repair_steps.py preflight \
+  --batch-id <source-batch-a> --output .artifacts/i18n/repair-window/<source-batch-a>.json \
+  --batch-id <source-batch-b> --output .artifacts/i18n/repair-window/<source-batch-b>.json \
+  --timing-output .artifacts/i18n/repair-window/preflight-timing.json
+```
+
+每个 step 都调用真实 `production repair preflight`，分别获取 writer lock、验证当前 winner、live preimage、
+HEAD/catalog/SQLite 并写出原有 schema；只在同一进程、同一 root/HEAD carry scope 中复用投影。批次 ID、输出
+路径和 timing 路径在任何动作前全部检查；正式输出及其固定 `.<name>.tmp` 临时名必须 fresh、彼此不碰撞且
+位于允许的忽略位置。首个失败立即停止，已成功 workset 保留，恢复时可改用原 standalone CLI；HEAD 改变会
+重新投影并由原验证拒绝不一致状态。
+
+译文按正式流程准备并通过复审/门禁后，先提交译文，再计时运行一次 queue rebuild，使 SQLite
+`meta.evidence_head` 与推进后的 HEAD 同步；随后只构建一次候选 catalog，并串联已有 migration 三步：
+
+```bash
+python3 -B tools/orchestration/run_repair_steps.py migration-chain \
+  --candidate-catalog .artifacts/i18n/repair-window/candidate-catalog \
+  --migration-output .artifacts/i18n/repair-window/migration.json \
+  --timing-output .artifacts/i18n/repair-window/migration-timing.json
+```
+
+实际顺序固定为 `migration plan → check → apply`。每步仍单独持有原 writer lock、重新读取输入和候选、校验
+SQLite，并保留 apply 的单独事务；不自动 commit、发布、rebuild 或跨 HEAD 复用。plan 后失败会保留 migration
+文件，check 后失败不会继续 apply，apply 成功修改 SQLite 后链立即结束，再按正式流程提交全部必要的 catalog/
+migration/repair evidence，并计时运行第二次 queue rebuild，同步 evidence commit 后的新 HEAD。完整窗口顺序因此是：
+`译文 commit → queue rebuild → 单次 catalog build → migration-chain → 必要 evidence commit → queue rebuild`；两次
+rebuild 都不能省略。候选目录、migration 输出和 timing 输出必须显式给出，输出不得位于候选目录内，也不得
+位于 `.artifacts/i18n/production-review-v2-lite/` 可变状态目录内（包括 queue、checkpoint、lock、sidecar 及其
+子路径）。
+fresh 是入口开始和最终 timing 写入前的拒绝检查；底层普通输出仍使用既有临时文件加替换协议，不宣称能阻止
+另一个未授权进程在两次检查之间抢占路径。
+
+timing 文件为 canonical JSON `production_repair_step_timing_v1`，记录每个实际 step 的 wall time/exit code、
+总 elapsed、success/failure step，以及真实 `_projection` 调用次数、总时长和逐次样本。计数器包裹原实现并在
+`perf_counter` 调用前后测量，不跳过投影、不作为恢复权威，也不进入 production evidence schema。
+如果业务步骤结束后 timing 写入失败，stderr 会列出已经执行的步骤并警告产物或 SQLite 变更可能已存在、不得
+盲目重跑；业务原非零 exit 保持不变，业务原异常继续抛出，仅“业务全成功但 timing 写失败”返回专用 exit 9。
+
 ## MCP 宿主 stdin 配方（P1）
 
 [`review_host.js`](review_host.js) 是 `reviewHost` 的唯一实现，组合既有

@@ -1012,9 +1012,18 @@ class MigrationTests(MigrationFixture):
     def test_repair_preflight_rejects_later_done_winner_for_named_old_batch(self):
         self._publish_surface_batch(repair=True)
         self._publish_surface_batch(repair=False)
-        with mock.patch.object(migration, "_validate_live_repair_preimage"):
+        calls = []
+        original = queue._projection
+
+        def counted(*args, **kwargs):
+            calls.append(1)
+            return original(*args, **kwargs)
+
+        with mock.patch.object(queue, "_projection", side_effect=counted), \
+                mock.patch.object(migration, "_validate_live_repair_preimage"):
             with self.assertRaisesRegex(wp1.ProductionReviewError, "current durable winners"):
                 migration.repair_preflight(self.root, "repair")
+        self.assertEqual(len(calls), 1)
 
     def test_rebuild_reads_latest_reconciliation_and_git_revert_restores_old_projection(self):
         candidate = self.candidate([self.replace(self.entries[0], target="revised target"), *self.entries[1:]])
@@ -1075,6 +1084,48 @@ class MigrationTests(MigrationFixture):
         entries_path.write_bytes(entries_path.read_bytes().replace(b"target 0", b"drifted target 0", 1))
         with self.assertRaisesRegex(wp1.ProductionReviewError, "clean|preimage"):
             migration.repair_preflight(self.root, "repair")
+
+    def test_standalone_repair_preflight_replays_projection_once(self):
+        self._publish_surface_batch(repair=True)
+        calls = []
+        original = queue._projection
+
+        def counted(*args, **kwargs):
+            calls.append((args, kwargs))
+            return original(*args, **kwargs)
+
+        with mock.patch.object(queue, "_projection", side_effect=counted), \
+                mock.patch.object(migration, "_validate_live_repair_preimage"), \
+                mock.patch.object(catalog, "utc_now", return_value="2026-09-21T01:02:03Z"):
+            report = migration.repair_preflight(
+                self.root, "repair", output=self.root / ".artifacts/repair-once.json")
+        self.assertTrue(report["ok"])
+        self.assertEqual(len(calls), 1)
+
+    def test_repair_workset_rejects_carried_projection_after_head_moves(self):
+        self._publish_surface_batch(repair=True)
+        projection = queue.projection_for(self.root, "HEAD")
+        (self.root / "head-moved.txt").write_text("moved\n", encoding="utf-8")
+        self.commit("move head after repair projection")
+        with mock.patch.object(migration, "_validate_live_repair_preimage"):
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "HEAD changed"):
+                migration._repair_workset(
+                    self.root, "repair", projection=projection)
+
+    def test_repair_preflight_rejects_head_move_before_workset_publication(self):
+        self._publish_surface_batch(repair=True)
+        output = self.root / ".artifacts/repair-head-move.json"
+
+        def move_head(*_args, **_kwargs):
+            (self.root / "late-head-move.txt").write_text("moved\n", encoding="utf-8")
+            self.commit("move head during live repair validation")
+
+        with mock.patch.object(migration, "_validate_live_repair_preimage",
+                               side_effect=move_head):
+            with self.assertRaisesRegex(wp1.ProductionReviewError,
+                                        "HEAD changed before workset publication"):
+                migration.repair_preflight(self.root, "repair", output=output)
+        self.assertFalse(output.exists())
 
     def test_rebuild_queues_repaired_successor_without_replaying_old_batch(self):
         self._publish_surface_batch(repair=True)

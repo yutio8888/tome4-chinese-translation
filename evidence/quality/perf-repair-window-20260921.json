@@ -1,0 +1,815 @@
+{
+  "schema_version": 1,
+  "task_id": "perf-repair-window-20260921",
+  "recorded_at": "2026-09-21T05:41:07.453973+00:00",
+  "scope": "bounded repair scheduling and same-process projection reuse; no translation or terminology edits",
+  "candidate": {
+    "candidate_ref": "194f0735a6b239ab31577d5ad495123a128e459655875c3088f813af4c825c6f",
+    "candidate_locator": {
+      "spec_path": ".ai/task/perf-repair-window-20260921/SPEC-FINAL_REVIEW-2-1.md",
+      "diff_path": ".ai/task/perf-repair-window-20260921/CODE_DIFF-FINAL_REVIEW-2-1.patch"
+    },
+    "base_commit": "3873a7534ea240f92d37c007de2e50e9a14a96cf",
+    "changed_paths": [
+      "docs/agent-workflow.md",
+      "docs/review-speed-repair-window-20260921.md",
+      "handoff.md",
+      "tests/i18n/test_groups.json",
+      "tests/i18n/test_production_review_v2_lite_migration.py",
+      "tests/i18n/test_repair_steps.py",
+      "tools/i18nlib/production_review_v2_lite_migration.py",
+      "tools/orchestration/README.md",
+      "tools/orchestration/run_repair_steps.py"
+    ],
+    "current_sha256": {
+      "docs/agent-workflow.md": "1e4d732e7e6b82d9786a4f50e034da8cf5a4888ffef47844a537a96b34628d0d",
+      "docs/review-speed-repair-window-20260921.md": "5c456eda1724bb9b851a7725a9c48336c821e98e7522da8d4104ce0f052216df",
+      "handoff.md": "89d01718dded048304b4c2d29d49655c34bb13e50cf3646a55ab882c92263df9",
+      "tests/i18n/test_groups.json": "51b9b4dd569b4005bd33930019c62a4bc579ea70e07e4211569bc556f344363f",
+      "tests/i18n/test_production_review_v2_lite_migration.py": "ab0047715599bcfa49a950f7e648c256af68f3ebc652ebe874b3d690cbb80ff9",
+      "tests/i18n/test_repair_steps.py": "0cd9d50f48375f4b3a5e7adbd19c3581d3cd2d60ac95bd965fe763bffb7f8a01",
+      "tools/i18nlib/production_review_v2_lite_migration.py": "0b015630712800f1b05366941cb869053d097b43fa4e812924096cd94aed4e87",
+      "tools/orchestration/README.md": "bf91f129608d72a4c7916cf5089197e7b26d0eea412b15d8fe233d003a3e6c3b",
+      "tools/orchestration/run_repair_steps.py": "6bef1ed12d055bd09201d164c4f143f313fc4e2181819827c96bb2981f25ffe1"
+    },
+    "diff_recipe": "sorted SCOPE allowed_files; tracked: git diff base_commit -- path; new: git diff --no-index -- /dev/null path; concatenate stdout",
+    "review_phase": "FINAL_REVIEW",
+    "cycle": 2,
+    "attempt": 1
+  },
+  "production_benchmark": {
+    "baseline": {
+      "label": "baseline",
+      "head": "3873a7534ea240f92d37c007de2e50e9a14a96cf",
+      "wall_s": 423.89275682499283,
+      "projection_calls": 2,
+      "projection_wall_s": [
+        210.35030836699298,
+        210.90796607697848
+      ],
+      "exit_code": 1,
+      "cli_stdout": "",
+      "before": {
+        "queue.sqlite3": "8982a69a94e8f9018a65840ef5769e894bb088ed1bb95caede270efe9e34c76a",
+        "active-batch.json": null
+      },
+      "after": {
+        "queue.sqlite3": "8982a69a94e8f9018a65840ef5769e894bb088ed1bb95caede270efe9e34c76a",
+        "active-batch.json": null
+      },
+      "implementation_sha256": {
+        "tools/i18nlib/production_review_v2_lite_migration.py": "adff7be4e75d9ee29b1869cf7101ccebaa7b043e4b23e94514cb742cfb07da8d",
+        "tools/i18nlib/production_review_v2_lite_queue.py": "ec9f669ee34bc9770296413f066e8c42b563d73de2c966b74fd5b2ef7cc8a19c"
+      },
+      "workset": ".artifacts/i18n/perf-repair-window-20260921/baseline-workset.json"
+    },
+    "candidate": {
+      "label": "candidate",
+      "head": "3873a7534ea240f92d37c007de2e50e9a14a96cf",
+      "wall_s": 212.7548893999774,
+      "projection_calls": 1,
+      "projection_wall_s": [
+        210.1378710209974
+      ],
+      "exit_code": 1,
+      "cli_stdout": "",
+      "before": {
+        "queue.sqlite3": "8982a69a94e8f9018a65840ef5769e894bb088ed1bb95caede270efe9e34c76a",
+        "active-batch.json": null
+      },
+      "after": {
+        "queue.sqlite3": "8982a69a94e8f9018a65840ef5769e894bb088ed1bb95caede270efe9e34c76a",
+        "active-batch.json": null
+      },
+      "implementation_sha256": {
+        "tools/i18nlib/production_review_v2_lite_migration.py": "0b015630712800f1b05366941cb869053d097b43fa4e812924096cd94aed4e87",
+        "tools/i18nlib/production_review_v2_lite_queue.py": "ec9f669ee34bc9770296413f066e8c42b563d73de2c966b74fd5b2ef7cc8a19c"
+      },
+      "workset": ".artifacts/i18n/perf-repair-window-20260921/candidate-workset.json"
+    },
+    "assessment": {
+      "measurement_kind": "same_input_current_production_readonly_rejection_path",
+      "head": "3873a7534ea240f92d37c007de2e50e9a14a96cf",
+      "baseline_wall_seconds": 423.8927568,
+      "candidate_wall_seconds": 212.7548893999774,
+      "baseline_projection_calls": 2,
+      "candidate_projection_calls": 1,
+      "outcome_both": "exit 1; named repair batch rows are not the current durable winners",
+      "workset_created_both": false,
+      "queue_and_checkpoint_unchanged_both": true,
+      "interpretation": "One full replay removed. Single rejection-path wall sample only; no successful full production cycle measured. Positive path equivalence and 2+ batch / migration 3-step sharing verified with temporary real Git/SQLite fixtures.",
+      "raw_baseline": ".artifacts/i18n/perf-repair-window-20260921/baseline-preflight.json",
+      "raw_candidate": ".artifacts/i18n/perf-repair-window-20260921/candidate-preflight.json"
+    }
+  },
+  "historical_phase_timing": {
+    "schema": "repair-window-history-timing/1",
+    "sample": "review-231-240",
+    "boundary": "first surface child creation through next batch first surface child creation; phase windows include orchestration; gate is included, not additive",
+    "rows": [
+      {
+        "review_batch": 231,
+        "repair_batch": 256,
+        "review_commit": "a664c4ef64cac91c4cfe9c8c28e7e9fb697b15be",
+        "repair_commit": "fc1cb3903f9f7342e1e0e88bf0c2c78a9b94f75a",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-66cc93d47a4dd578178f/gates.json",
+        "terminal_path": ".artifacts/i18n/batch231-orchestration/terminal",
+        "surface_created_at": "2026-09-20T17:17:24.818000+00:00",
+        "next_surface_created_at": "2026-09-20T18:23:46.460000+00:00",
+        "surface_window_seconds": 98.729,
+        "surface_to_contextual_seconds": 345.578,
+        "contextual_window_seconds": 125.853,
+        "contextual_to_review_commit_seconds": 1106.022,
+        "review_to_repair_commit_seconds": 1233.0,
+        "repair_to_next_surface_seconds": 1072.46,
+        "cycle_seconds": 3981.642,
+        "review_gate_seconds": 113.994554
+      },
+      {
+        "review_batch": 232,
+        "repair_batch": 257,
+        "review_commit": "d96a6dbef7b677ce88960f04b6df4614727a8742",
+        "repair_commit": "d282125b539fa66d44be323dd184a1a8e88f7692",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-f7190272da16b7f12bb6/gates.json",
+        "terminal_path": ".artifacts/i18n/batch232-orchestration/terminal",
+        "surface_created_at": "2026-09-20T18:23:46.460000+00:00",
+        "next_surface_created_at": "2026-09-20T19:19:37.264000+00:00",
+        "surface_window_seconds": 108.373,
+        "surface_to_contextual_seconds": 334.348,
+        "contextual_window_seconds": 173.238,
+        "contextual_to_review_commit_seconds": 882.581,
+        "review_to_repair_commit_seconds": 1220.0,
+        "repair_to_next_surface_seconds": 632.264,
+        "cycle_seconds": 3350.804,
+        "review_gate_seconds": 114.143204
+      },
+      {
+        "review_batch": 233,
+        "repair_batch": 258,
+        "review_commit": "90e3841cfcfdbe5f6c5de02eb03379d70b571f37",
+        "repair_commit": "0b0aa1cd2eac41dc4e037448f3539d4f5a273c8d",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-61d0cc7fbb91d62a3d1e/gates.json",
+        "terminal_path": ".artifacts/i18n/batch233-orchestration/terminal",
+        "surface_created_at": "2026-09-20T19:19:37.264000+00:00",
+        "next_surface_created_at": "2026-09-20T20:27:11.877000+00:00",
+        "surface_window_seconds": 116.224,
+        "surface_to_contextual_seconds": 341.802,
+        "contextual_window_seconds": 232.622,
+        "contextual_to_review_commit_seconds": 851.088,
+        "review_to_repair_commit_seconds": 1186.0,
+        "repair_to_next_surface_seconds": 1326.877,
+        "cycle_seconds": 4054.613,
+        "review_gate_seconds": 114.166459
+      },
+      {
+        "review_batch": 234,
+        "repair_batch": 259,
+        "review_commit": "10eb2cab644cc74583b668148b85f4b5c171a533",
+        "repair_commit": "34e9f77ecea056f8279d104bc92e9fbaace47b07",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-5bc536cbd453cb120dbe/gates.json",
+        "terminal_path": ".artifacts/i18n/batch234-orchestration/terminal",
+        "surface_created_at": "2026-09-20T20:27:11.877000+00:00",
+        "next_surface_created_at": "2026-09-20T21:22:41.170000+00:00",
+        "surface_window_seconds": 119.584,
+        "surface_to_contextual_seconds": 341.873,
+        "contextual_window_seconds": 114.298,
+        "contextual_to_review_commit_seconds": 874.368,
+        "review_to_repair_commit_seconds": 1199.0,
+        "repair_to_next_surface_seconds": 680.17,
+        "cycle_seconds": 3329.293,
+        "review_gate_seconds": 113.617748
+      },
+      {
+        "review_batch": 235,
+        "repair_batch": 260,
+        "review_commit": "cc6cb18df4cc3876adc80334df89fc80945f0e8f",
+        "repair_commit": "95607341275cc36c11094a80f5a1d9610ceb826e",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-ce7ed0e61500226ef2a5/gates.json",
+        "terminal_path": ".artifacts/i18n/batch235-orchestration/terminal",
+        "surface_created_at": "2026-09-20T21:22:41.170000+00:00",
+        "next_surface_created_at": "2026-09-20T22:22:22.747000+00:00",
+        "surface_window_seconds": 122.664,
+        "surface_to_contextual_seconds": 345.763,
+        "contextual_window_seconds": 176.411,
+        "contextual_to_review_commit_seconds": 896.992,
+        "review_to_repair_commit_seconds": 1199.0,
+        "repair_to_next_surface_seconds": 840.747,
+        "cycle_seconds": 3581.577,
+        "review_gate_seconds": 113.456057
+      },
+      {
+        "review_batch": 236,
+        "repair_batch": 261,
+        "review_commit": "c9f979c1da5b08e550be89a9c620494c4ea91250",
+        "repair_commit": "2637560c74e1c9b55dc957eec791029f90814b4a",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-b88ddf47e8eee98d31f4/gates.json",
+        "terminal_path": ".artifacts/i18n/batch236-orchestration/terminal",
+        "surface_created_at": "2026-09-20T22:22:22.747000+00:00",
+        "next_surface_created_at": "2026-09-20T23:35:17.926000+00:00",
+        "surface_window_seconds": 127.892,
+        "surface_to_contextual_seconds": 351.017,
+        "contextual_window_seconds": 249.709,
+        "contextual_to_review_commit_seconds": 1220.635,
+        "review_to_repair_commit_seconds": 1704.0,
+        "repair_to_next_surface_seconds": 721.926,
+        "cycle_seconds": 4375.179,
+        "review_gate_seconds": 113.989004
+      },
+      {
+        "review_batch": 237,
+        "repair_batch": 262,
+        "review_commit": "068318658221cf3a108f38af7fa669218aa207e2",
+        "repair_commit": "6957050c0846daf77442feb91a3eba5a1f92d544",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-74564723d1fa21460775/gates.json",
+        "terminal_path": ".artifacts/i18n/batch237-orchestration/terminal",
+        "surface_created_at": "2026-09-20T23:35:17.926000+00:00",
+        "next_surface_created_at": "2026-09-21T00:35:05.870000+00:00",
+        "surface_window_seconds": 99.629,
+        "surface_to_contextual_seconds": 375.116,
+        "contextual_window_seconds": 72.498,
+        "contextual_to_review_commit_seconds": 881.831,
+        "review_to_repair_commit_seconds": 1461.0,
+        "repair_to_next_surface_seconds": 697.87,
+        "cycle_seconds": 3587.944,
+        "review_gate_seconds": 114.222579
+      },
+      {
+        "review_batch": 238,
+        "repair_batch": 263,
+        "review_commit": "1e7a3960f164feb714cf1d7c430e4e9fdce44a51",
+        "repair_commit": "9dd1494024df725b75b9b74f9d72ea6b305241e1",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-6f4c919ed2ed52cf63f8/gates.json",
+        "terminal_path": ".artifacts/i18n/batch238-orchestration/terminal",
+        "surface_created_at": "2026-09-21T00:35:05.870000+00:00",
+        "next_surface_created_at": "2026-09-21T01:36:22.621000+00:00",
+        "surface_window_seconds": 106.274,
+        "surface_to_contextual_seconds": 359.888,
+        "contextual_window_seconds": 82.66,
+        "contextual_to_review_commit_seconds": 967.308,
+        "review_to_repair_commit_seconds": 1476.0,
+        "repair_to_next_surface_seconds": 684.621,
+        "cycle_seconds": 3676.751,
+        "review_gate_seconds": 113.519521
+      },
+      {
+        "review_batch": 239,
+        "repair_batch": 264,
+        "review_commit": "8f592ccfb0ff3d784178feeef207b06070e0e836",
+        "repair_commit": "b298d9f39fdf90861249fec48408208152aa688e",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-e5912e14e9c4546e0e4f/gates.json",
+        "terminal_path": ".artifacts/i18n/batch239-orchestration/terminal",
+        "surface_created_at": "2026-09-21T01:36:22.621000+00:00",
+        "next_surface_created_at": "2026-09-21T02:38:26.621000+00:00",
+        "surface_window_seconds": 110.881,
+        "surface_to_contextual_seconds": 362.862,
+        "contextual_window_seconds": 129.67,
+        "contextual_to_review_commit_seconds": 929.966,
+        "review_to_repair_commit_seconds": 1495.0,
+        "repair_to_next_surface_seconds": 695.621,
+        "cycle_seconds": 3724.0,
+        "review_gate_seconds": 112.77564
+      },
+      {
+        "review_batch": 240,
+        "repair_batch": 265,
+        "review_commit": "c95475c42da5872443a0a3a1def80386c259e29a",
+        "repair_commit": "1421ccf223f2c090f3d78dbc71e33293f099969d",
+        "gate_path": "evidence/production-review-v2-lite/batches/batch-57930019db0566e3e2d0/gates.json",
+        "terminal_path": ".artifacts/i18n/batch240-orchestration/terminal",
+        "surface_created_at": "2026-09-21T02:38:26.621000+00:00",
+        "next_surface_created_at": "2026-09-21T03:44:05.484000+00:00",
+        "surface_window_seconds": 112.141,
+        "surface_to_contextual_seconds": 371.389,
+        "contextual_window_seconds": 231.547,
+        "contextual_to_review_commit_seconds": 980.302,
+        "review_to_repair_commit_seconds": 1544.0,
+        "repair_to_next_surface_seconds": 699.484,
+        "cycle_seconds": 3938.863,
+        "review_gate_seconds": 114.345087
+      }
+    ],
+    "median_seconds": {
+      "surface_window_seconds": 111.511,
+      "surface_to_contextual_seconds": 348.39,
+      "contextual_window_seconds": 151.454,
+      "contextual_to_review_commit_seconds": 913.479,
+      "review_to_repair_commit_seconds": 1347.0,
+      "repair_to_next_surface_seconds": 698.677,
+      "cycle_seconds": 3700.3755,
+      "review_gate_seconds": 113.991779
+    },
+    "limitations": [
+      "No attribution of uninstrumented host gaps to projection or host reasoning",
+      "Child creation-to-finish includes startup and is not pure inference",
+      "Each phase median cannot be summed to obtain cycle median",
+      "Review gates only; repair gate count not inferred"
+    ]
+  },
+  "validation": {
+    "focused_log_sha256": "73295d05beecbaa2fc1d53451050d249750da5a4abe6f66454bff8807f47aa8b",
+    "wrapper_verification_logs": [
+      {
+        "path": ".artifacts/i18n/perf-repair-window-20260921/host-repair-fix2.log",
+        "sha256": "1ab19742c34081dbc3b67f4f9ddc4d54209b82cb0b93e78a25492193350b3500"
+      }
+    ],
+    "gate_result_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/results.json",
+    "gate_result_sha256": "4d2776ccb013682e262db33166db3464de7dbc8ab82362f1194f198d945acdf7",
+    "gate_result": {
+      "binding": {
+        "candidate": null,
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "check_set_sha256": "3bb0f340205361ba68b1133f3adaaad5dba7ab996bb844262b8883d09fb048f6",
+        "config_sha256": "5bb12e89e7439e07acec75c272f30640a015576a154d1b986511818f41f50bd8",
+        "python_version": "3.11.2",
+        "runner_version": "ci-gates-v2",
+        "skip_build": false,
+        "tool_commit": "3873a7534ea240f92d37c007de2e50e9a14a96cf",
+        "tool_version": "0.5.0",
+        "worktree_sha256": "6a4994283d4cbf00792cac0efe7b67930be11c1f3ef6270353d8e00d6960779c"
+      },
+      "checks": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/i18n",
+            "doctor"
+          ],
+          "command": "python3 -B tools/i18n doctor",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:37:54.510867+00:00",
+          "id": "01-doctor",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/01-doctor.log",
+          "output_sha256": "32477ce56928ad19a8ef98f11248e11a3b481822e88ade96066612b10f08770d",
+          "started_at": "2026-09-21T05:37:54.427751+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/i18n",
+            "lint",
+            "--strict"
+          ],
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:37:55.220177+00:00",
+          "id": "02-strict-lint",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/02-strict-lint.log",
+          "output_sha256": "52daa4b596f65c777ec4dc9b7510d4fadb18d0dcc8dec9cb134ec315f88aafcb",
+          "started_at": "2026-09-21T05:37:54.510899+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--check"
+          ],
+          "command": "python3 -B tools/test_groups.py --check",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:37:55.242056+00:00",
+          "id": "03-test-group-registration",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/03-test-group-registration.log",
+          "output_sha256": "876b7d75f5ca4d0af47530061d156242cf72572afd2c0d38bf7481dfdf7f39fd",
+          "started_at": "2026-09-21T05:37:55.220208+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--group",
+            "toolchain"
+          ],
+          "command": "python3 -B tools/test_groups.py --group toolchain",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:38:20.572590+00:00",
+          "id": "03-toolchain-unit-tests",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/03-toolchain-unit-tests.log",
+          "output_sha256": "fb9f491506730acec6a566a9a13cef7a70ecc7b2fea484e97fcb427b2618ef50",
+          "started_at": "2026-09-21T05:37:55.242075+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--group",
+            "quality-facts"
+          ],
+          "command": "python3 -B tools/test_groups.py --group quality-facts",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:38:30.917392+00:00",
+          "id": "04-quality-facts-unit-tests",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/04-quality-facts-unit-tests.log",
+          "output_sha256": "8f2d3bf7275dc35cec62e2f6d106538fdc78e36af3983839eba34331caae1080",
+          "started_at": "2026-09-21T05:38:20.572619+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--group",
+            "semantic-claim"
+          ],
+          "command": "python3 -B tools/test_groups.py --group semantic-claim",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:38:31.071574+00:00",
+          "id": "04-semantic-claim-unit-tests",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/04-semantic-claim-unit-tests.log",
+          "output_sha256": "a1921de74736f5b0cb956021f3565d3ded2fd37fce6f08458227ed8f24c8c91d",
+          "started_at": "2026-09-21T05:38:30.917420+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/i18n",
+            "claims",
+            "check",
+            "--registry",
+            "evidence/quality/semantic-claim-regressions-v1.json",
+            "--strict"
+          ],
+          "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:38:31.129940+00:00",
+          "id": "04-semantic-claims-strict-registry",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/04-semantic-claims-strict-registry.log",
+          "output_sha256": "883ebfd6aa5ee334dfddeac8e273e1357b3195c28ea6505dc5108efdefb354c7",
+          "started_at": "2026-09-21T05:38:31.071603+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--group",
+            "contract-suite"
+          ],
+          "command": "python3 -B tools/test_groups.py --group contract-suite",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:38:50.975781+00:00",
+          "id": "05-contract-suite-unit-tests",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/05-contract-suite-unit-tests.log",
+          "output_sha256": "ce396d47b5d517d6fdb4fefed55e26099d0c99640490b5ee565e3752bdd22e19",
+          "started_at": "2026-09-21T05:38:31.129963+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/test_groups.py",
+            "--group",
+            "production-shadow-surface-ledger"
+          ],
+          "command": "python3 -B tools/test_groups.py --group production-shadow-surface-ledger",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:44.861752+00:00",
+          "id": "05-production-shadow-surface-ledger-tests",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/05-production-shadow-surface-ledger-tests.log",
+          "output_sha256": "7cb426ac4158602c0dd718e55c1ac3b14b5c23953d5334763f0ddd973c7bb9be",
+          "started_at": "2026-09-21T05:38:50.975810+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/scan_runtime_collisions.py"
+          ],
+          "command": "python3 -B tools/scan_runtime_collisions.py",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:45.381121+00:00",
+          "id": "06-runtime-collision-scan",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/06-runtime-collision-scan.log",
+          "output_sha256": "043dce74e940940cc230ae8746c8fa91d0ead572e9af5c126b7120461f9adb07",
+          "started_at": "2026-09-21T05:39:44.861796+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/classify_runtime_keys.py"
+          ],
+          "command": "python3 -B tools/classify_runtime_keys.py",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:45.888096+00:00",
+          "id": "07-runtime-key-classification",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/07-runtime-key-classification.log",
+          "output_sha256": "3b7c74b1c1ab6c6b10ba1a2d7811dca0bf01c2f619a0a3aa2c33787281957984",
+          "started_at": "2026-09-21T05:39:45.381149+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/audit_static.py"
+          ],
+          "command": "python3 -B tools/audit_static.py",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:45.921822+00:00",
+          "id": "08-terminology-static-audit",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/08-terminology-static-audit.log",
+          "output_sha256": "f55ffa00d237f541d253121252c7c7493b72b57eff80c708043fdd97a9c2c26c",
+          "started_at": "2026-09-21T05:39:45.888130+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/audit_dynamic.py"
+          ],
+          "command": "python3 -B tools/audit_dynamic.py",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:46.968584+00:00",
+          "id": "09-terminology-dynamic-audit",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/09-terminology-dynamic-audit.log",
+          "output_sha256": "f5ff3a709571d32a2889251ab4ea51ba1ba9107152d7602de2da350f7ad75f42",
+          "started_at": "2026-09-21T05:39:45.921844+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/annotate_domains.py"
+          ],
+          "command": "python3 -B tools/annotate_domains.py",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:47.000265+00:00",
+          "id": "10-domain-annotation",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/10-domain-annotation.log",
+          "output_sha256": "5defe689ff2139eaef51d789e1c9c3c7462c8941db06499b942985b5a4fb42a0",
+          "started_at": "2026-09-21T05:39:46.968620+00:00"
+        },
+        {
+          "argv": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "command": "git diff --check",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:47.003866+00:00",
+          "id": "11-worktree-whitespace",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/11-worktree-whitespace.log",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "started_at": "2026-09-21T05:39:47.000285+00:00"
+        },
+        {
+          "argv": [
+            "git",
+            "diff",
+            "--cached",
+            "--check"
+          ],
+          "command": "git diff --cached --check",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:47.005051+00:00",
+          "id": "11-staged-whitespace",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/11-staged-whitespace.log",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "started_at": "2026-09-21T05:39:47.003880+00:00"
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "tools/i18n",
+            "build",
+            "--profile",
+            "addon",
+            "--component",
+            "tome",
+            "--require-complete"
+          ],
+          "command": "python3 -B tools/i18n build --profile addon --component tome --require-complete",
+          "exit_code": 0,
+          "finished_at": "2026-09-21T05:39:48.256227+00:00",
+          "id": "12-core-addon-build",
+          "log_path": ".artifacts/i18n/ci-gates/run.bjw4u97j/12-core-addon-build.log",
+          "output_sha256": "4f1920d20e170f002bfd2da458b35e96884d210e9ec704a7b2f2aad9104631d2",
+          "started_at": "2026-09-21T05:39:47.005059+00:00"
+        }
+      ],
+      "complete": true,
+      "coverage": {
+        "tests/i18n/test_contextual_result_check.py": "05-contract-suite-unit-tests",
+        "tests/i18n/test_surface_screen_manifest.py": "05-production-shadow-surface-ledger-tests",
+        "tests/i18n/test_surface_screen_result_check.py": "05-production-shadow-surface-ledger-tests"
+      },
+      "error": null,
+      "finished_at": "2026-09-21T05:39:48.500143+00:00",
+      "schema_version": 2,
+      "started_at": "2026-09-21T05:37:54.176283+00:00",
+      "success": true
+    },
+    "state_check": "DONE_VERIFIED",
+    "reviews": [
+      {
+        "review_phase": "REVIEW",
+        "cycle": 0,
+        "attempt": 1,
+        "purpose": "normal_review",
+        "agent_id": "010d3b65-44b5-42a1-8d6c-6b23f031257f",
+        "candidate_ref": "133cc26a60382105f23f48f66d1d3df39375fc39de8130a30b47c7b3668e249f",
+        "status": "CHANGES_REQUIRED",
+        "findings": [
+          {
+            "ID": "NR-001",
+            "Severity": "medium",
+            "File": "tools/orchestration/run_repair_steps.py",
+            "Location": "67–73、108–118、171–177",
+            "Problem": "新增 timing 输出允许占用 production checkpoint 路径，使观测产物干扰生产恢复状态。",
+            "Evidence": "只读调用 `_precheck`，将 `--timing-output` 指向 `.artifacts/i18n/production-review-v2-lite/active-batch.json`，在该文件不存在时预检通过。`_fresh_output` 仅检查 ignored/fresh；步骤结束后 `_write_timing` 会向该路径写入计时 JSON。`queue._no_checkpoint`（288–296 行）只要发现该路径存在就拒绝继续。此复现未调用 CLI 或写入文件。",
+            "Impact": "即使业务步骤成功或正常拒绝，包装器也会制造无效 checkpoint，阻塞后续 repair、migration 和 rebuild，需要人工排查恢复。",
+            "Recommended fix": "在执行任何步骤前，将 checkpoint、数据库及其 sidecar、锁等运行状态路径及关联临时路径纳入输出碰撞检查；增加拒绝这些路径且不调用 CLI 的测试。"
+          },
+          {
+            "ID": "NR-002",
+            "Severity": "medium",
+            "File": "docs/agent-workflow.md",
+            "Location": "42–43；同样顺序见 handoff.md:25–26",
+            "Problem": "新修复窗口流程要求先提交译文，再构建 catalog/migration，但遗漏提交后、migration 前同步 queue HEAD 的步骤，照文档执行会失败。",
+            "Evidence": "译文提交把 HEAD 从 H0 推进到 H1，SQLite 的 `meta.evidence_head` 仍为 H0。真实 `migration.plan` 在 `production_review_v2_lite_migration.py:748–749` 调用 `queue.strict_check`；`queue._check_projection` 比较 SQLite meta 与当前投影 HEAD，不一致即报 `queue database meta/catalog/evidence-head drift`。文档只在最终 evidence 提交后安排 rebuild；此次 handoff 替换还移除了原有提交后须先 rebuild 的提醒。",
+            "Impact": "正常修复窗口会在 migration-chain 的第一步停止；首轮试运行方案缺少必需操作及其耗时，无法按当前说明完整执行。",
+            "Recommended fix": "保留先提交译文的顺序时，明确在该提交后、migration-chain 前执行一次 queue rebuild，并同步修改交接及实现说明，将这次 rebuild 纳入端到端计时。"
+          }
+        ],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "RE_REVIEW",
+        "cycle": 1,
+        "attempt": 1,
+        "purpose": "normal_review",
+        "agent_id": "ff4a670a-fe03-49cf-a00d-dc99b486514c",
+        "candidate_ref": "137ceb9a4f036e6db55edc82160372609479f6dfeb3a3d8053b9fd49fa999e59",
+        "status": "PASS",
+        "findings": [],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "RE_REVIEW",
+        "cycle": 2,
+        "attempt": 1,
+        "purpose": "normal_review",
+        "agent_id": "0fe36298-f023-4b98-bc43-5ce7b8d34fa3",
+        "candidate_ref": "194f0735a6b239ab31577d5ad495123a128e459655875c3088f813af4c825c6f",
+        "status": "PASS",
+        "findings": [],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "FINAL_REVIEW",
+        "cycle": 2,
+        "attempt": 1,
+        "purpose": "normal_review",
+        "agent_id": "0c8607a6-9260-41fe-a12b-418746892488",
+        "candidate_ref": "194f0735a6b239ab31577d5ad495123a128e459655875c3088f813af4c825c6f",
+        "status": "CHANGES_REQUIRED",
+        "findings": [
+          {
+            "ID": "NR-FINAL-01",
+            "Severity": "medium",
+            "File": "tools/orchestration/run_repair_steps.py",
+            "Location": "68–83、127–128、148–149",
+            "Problem": "`--timing-output` 未限制在仓库被忽略的 `.artifacts/` 内，不满足冻结 SPEC 第 4 项的测量产物写入边界。",
+            "Evidence": "只读调用 `_precheck`，传入 `/tmp/tome4-readonly-review-timing-194f0735.json`，预检成功。其调用的 `_safe_output` 允许仓库外路径，后续 `_write_timing` 也没有补充此限制。核验未调用业务 CLI 或输出写入函数。",
+            "Impact": "两个新入口均可接受越界 timing 路径，并在业务执行后向该路径写入测量产物。",
+            "Recommended fix": "在执行任何步骤前，要求 timing 路径位于当前 root 的 `.artifacts/` 下且被 Git 忽略；增加仓库外 timing 路径被预检拒绝的测试。"
+          }
+        ],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "REVIEW",
+        "cycle": 0,
+        "attempt": 1,
+        "purpose": "cross_review",
+        "agent_id": "4991903a-fa44-45dc-a1bc-88c38a515597",
+        "candidate_ref": "133cc26a60382105f23f48f66d1d3df39375fc39de8130a30b47c7b3668e249f",
+        "status": "CHANGES_REQUIRED",
+        "findings": [
+          {
+            "ID": "CR-0-1-01",
+            "Severity": "high",
+            "File": "`tools/orchestration/run_repair_steps.py`",
+            "Location": "`main()` lines 195–226, with `_write_timing` lines 171–178",
+            "Problem": "The timing (observation) write is on the unconditional critical path between the business steps and every exit route, and any failure inside it replaces the primary outcome. `_write_timing` can raise `RuntimeError` (its own re-freshness check, line 176) or `ProductionReviewError`/`OSError` (via `migration._write_output` → `_safe_output`, `git check-ignore`, `open(\"xb\")`, `os.fsync`). It is called at line 223, i.e. *before* `raise unexpected` (225) and *before* `return 0 if failure_step is None else records[-1][\"exit_code\"]` (226). So a telemetry failure discards (a) the real business exception captured at line 201, (b) the real CLI exit code recorded at line 204, and (c) the success verdict of a chain whose `migration apply` has already committed the SQLite transaction.",
+            "Evidence": "The candidate's own probe artifact records exactly this masking rather than refuting it — `.artifacts/i18n/perf-repair-window-20260921/host-timing-failure-probe.json` states the requirement `\"timing failure must not mask primary failure\"` and then reports, for both cases, `cli_exit_7 → {\"raised\": \"OSError\", \"message\": \"telemetry write failed\"}` and `cli_unexpected_error → {\"raised\": \"OSError\", \"message\": \"telemetry write failed\"}`. The step's exit 7 and the unexpected business exception are both gone. The probe covers only failing steps; the untested success case is worse, because `migration.apply` (`production_review_v2_lite_migration.py:860-866`) has already run `BEGIN IMMEDIATE` … `connection.commit()` and fsynced the queue before line 223 executes.",
+            "Impact": "A write-side telemetry fault turns a completed `plan → check → apply` chain — SQLite `state_override`/`reconciliation`/`meta` already rewritten — into a nonzero exit with the message `telemetry write failed`. The operator's recovery path is chosen from that message, so the likely next action is re-running the chain; the re-run is then rejected by `_fresh_output` on the surviving migration file, or, via the standalone CLI, hits `_assert_old`/`meta does not name the migration old boundary` — diagnosing a mutation that in fact succeeded. On the failing-step path the actionable signal (which validator rejected, and with what exit code) is replaced by an I/O message about the observation file. This is the monitoring layer deciding the reported business outcome and becoming the recovery authority.",
+            "Design/AC basis": "SPEC 实现内容与边界 item 4: 「观测不能跳过调用、改产物、吞异常或变成恢复权威。」Also `docs/review-speed-repair-window-20260921.md` (this candidate, 计时口径 section): 「该报告是忽略目录中的观测产物，不是 evidence、checkpoint 或恢复权威。」The code does not yet hold that boundary on the write side.",
+            "Minimum sufficient fix": "Isolate the telemetry write in `main()`: wrap the line 223 call in `try/except Exception`, print `ERROR: timing output failed: <error>` to `sys.stderr`, and let the primary outcome still decide control flow (`raise unexpected` if set, else return the step-derived code). If a telemetry-only failure must be visible in the exit status, give it a distinct code used *only* when `failure_step is None and unexpected is None`, so it can never overwrite a real step verdict."
+          },
+          {
+            "ID": "CR-0-1-02",
+            "Severity": "medium",
+            "File": "`handoff.md`",
+            "Location": "removed `## 已知机制与操作事实` block (diff hunk `@@ -50,18 +45,13 @@`, removed lines) vs. new `## 操作入口与不变量`",
+            "Problem": "The rewrite removes live, currently-applicable operational facts from the only authoritative handoff and leaves them reachable only through a document that the same file labels non-authoritative. The deleted items are: surface 筛查 4 lane／并发上限 3／1 full child; the freeze MISS rule that 运行期拼接或小写实体名（form #7/#8）不是死键, including the `freeze_workset.py` tag-filter gap (`source_tag == 'entity name'` only, missing the `alchemist gem` tag) that is explicitly 待维护者授权修复; and 固定版本机制事实优先于既有译文／术语库／模型 finding. The new file's only pointer is 「2026-09-19 以前的批次细节与事故记录见 [历史交接存档]，只供追溯，不构成当前授权」.",
+            "Evidence": "Those facts now live only at `docs/handoff-history-through-20260919.md:12` (`4 lane、并发上限 3`, `1 full child`) and `:17` (form #7/#8 非死键 + the `freeze_workset` tag-filter gap and its manual concat attribution). I grepped the two files the new handoff routes readers to: `docs/agent-workflow.md` contains no surface-lane concurrency, no freeze-MISS rule and no `freeze_workset` reference (its only lane text, lines 27 and 159–163, is contextual-v2 translation-review lanes, a different mechanism), and `tools/orchestration/README.md` has no 并发上限 for surface lanes (only the generic 「不要并发运行多个写 journal 的命令」 at line 13). The pre-change `handoff.md` deliberately kept these under 已知机制与操作事实 *separately* from the archive pointer it already carried, i.e. the live/archived split was intentional and is now collapsed.",
+            "Impact": "SPEC item 7 directs the resuming host to run 审核 242–244, which is surface screening plus contextual review. A freeze MISS arising from runtime name concatenation or a lowercase entity name is exactly the case the deleted line warned against, and the unrepaired `freeze_workset.py` tag filter still produces it. The resuming host, reading only the current handoff and the two files it links, has no live record of that gap and would plausibly treat the MISS as a dead key and run the `batch host-block` procedure — recording a fixed-source literal as unverifiable when it is in fact verifiable, i.e. a wrong durable evidence write on a path with no later gate to catch it.",
+            "Design/AC basis": "SPEC item 6 authorizes a bounded handoff change — 「更新 handoff 实际游标至审核241/修复266，下一审核242；优化期间保持暂停」 — and item 5 restricts the change to 调度. Deleting unrelated live operational invariants exceeds that scope, and item 6 also requires 「历史待决术语单列并每窗口报告，不擅自修复/清零」, whose spirit (keep pending maintainer items visible) the removed `freeze_workset.py` pending gap falls under.",
+            "Minimum sufficient fix": "Restore a short live 已知机制与操作事实 block in `handoff.md` carrying the three still-applicable facts (surface 4 lane／并发上限 3／1 full child; freeze MISS form #7/#8 非死键 plus the open `freeze_workset.py` tag-filter gap awaiting maintainer authorization; 固定版本机制事实优先), or add them to `docs/agent-workflow.md` and link that anchor from 操作入口与不变量. No wording change to the new scheduling sections is needed."
+          }
+        ],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "RE_REVIEW",
+        "cycle": 1,
+        "attempt": 1,
+        "purpose": "cross_review",
+        "agent_id": "b3b23f5f-01a5-455f-b0cb-a46efe0c5d2c",
+        "candidate_ref": "137ceb9a4f036e6db55edc82160372609479f6dfeb3a3d8053b9fd49fa999e59",
+        "status": "CHANGES_REQUIRED",
+        "findings": [
+          {
+            "ID": "CR-1-1-01",
+            "Severity": "low",
+            "File": "`tools/orchestration/run_repair_steps.py`",
+            "Location": "`TIMING_WRITE_EXIT = 2` (line 28), consumed at `main()` lines 248–251; documented at `tools/orchestration/README.md:312` and `docs/review-speed-repair-window-20260921.md:35,60`",
+            "Problem": "The exit code reserved for \"business fully succeeded, only the timing write failed\" is not reserved. `2` is a live business exit code: `ConfigurationError.exit_code = 2` (`tools/i18nlib/errors.py:10-11`), and `tools/i18nlib/cli.py:44-47` returns `error.exit_code` for any `I18nToolError`. The wrapper's own `argparse` failures also exit 2. So three states with opposite recovery actions share one code, while the candidate's own docs assert it is 专用/dedicated.",
+            "Evidence": "`cli_production.py:322-324` builds the repair-preflight call as `repair_preflight(root, arguments.batch_id, output=..., manifest=_manifest(arguments))`; `_manifest` (`cli_common.py:36-40`) → `config.load_manifest`, which raises `ConfigurationError` on an unreadable/invalid manifest (`config.py:313-322`) — evaluated as an argument, i.e. before `queue.writer_lock` is ever taken. `cli.main` maps that to return `2`. In `run_repair_steps.main`, that becomes `records[-1][\"exit_code\"] == 2` → `business_code = 2` → `return 2` (lines 248, 251) — indistinguishable from the `return TIMING_WRITE_EXIT` at line 250. The wrapper forwards `--version-manifest`/`--manifest` verbatim (`_precheck` `common`, lines 137-139), so the typo path is the ordinary operator path, not a contrived one.",
+            "Impact": "The three exit-2 states are: (a) argparse rejected the wrapper's arguments — nothing ran; (b) step 1 `repair preflight` failed on manifest resolution before taking the lock — nothing ran, no timing file absent/present distinction that matches intuition (the timing file *is* written here, with `success=false`); (c) the whole `plan → check → apply` chain committed SQLite and only the timing write failed (timing file absent). An operator or the resuming host following README:312 reads exit 2 as case (c) and concludes a migration was applied — or, symmetrically, sees case (c) and re-runs after \"just a config error\", which is exactly what the stderr warning at lines 243-247 tells them not to do (`migration apply` has already run `BEGIN IMMEDIATE`…`commit()`, `production_review_v2_lite_migration.py:826-866`, and a re-run then fails at `_assert_old`/`queue meta does not name the migration old boundary`). Disambiguation is possible only from stderr text plus timing-file presence, not from the exit status the docs present as authoritative.",
+            "Design/AC basis": "SPEC 实现内容与边界 item 4 requires machine-readable, non-authority-usurping observation, and item 2/3 require `首次失败停止后续，保留前步成果供原命令恢复` — the recovery decision is what this code selects. The candidate's own contract text (`tools/orchestration/README.md:312`, `docs/review-speed-repair-window-20260921.md:35`) states 「仅\"业务全成功但 timing 写失败\"返回专用 exit 2」, which the code does not satisfy. This is the residual half of my earlier CR-0-1-01 minimum fix (\"a *distinct* code used only when `failure_step is None and unexpected is None`\"): the \"only when\" half landed, the \"distinct\" half did not.",
+            "Minimum sufficient fix": "Change `TIMING_WRITE_EXIT` to a value outside the `I18nToolError` range (`1`–`6`, `errors.py:7-39`) and outside argparse's `2` — e.g. `TIMING_WRITE_EXIT = 9` — and update the two doc sentences (`README.md:312`, `review-speed-repair-window-20260921.md:35,60`) to name that code. `tests/i18n/test_repair_steps.py:test_timing_write_failure_after_success_uses_dedicated_exit` already asserts against the constant, so it needs no change; optionally add one assertion that `TIMING_WRITE_EXIT` is not in the `I18nToolError` exit-code set, so the reservation stays true if those codes grow."
+          }
+        ],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "RE_REVIEW",
+        "cycle": 2,
+        "attempt": 1,
+        "purpose": "cross_review",
+        "agent_id": "42f17a26-e838-48b6-a458-a8a8ea8b3991",
+        "candidate_ref": "194f0735a6b239ab31577d5ad495123a128e459655875c3088f813af4c825c6f",
+        "status": "PASS",
+        "findings": [],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "FINAL_REVIEW",
+        "cycle": 2,
+        "attempt": 1,
+        "purpose": "cross_review",
+        "agent_id": "87e5b2fe-eb24-445d-b4c0-98726d8938bc",
+        "candidate_ref": "194f0735a6b239ab31577d5ad495123a128e459655875c3088f813af4c825c6f",
+        "status": "PASS",
+        "findings": [],
+        "source_reviews": null,
+        "assessments": null
+      },
+      {
+        "review_phase": "FINAL_REVIEW",
+        "cycle": 2,
+        "attempt": 1,
+        "purpose": "scope_audit",
+        "agent_id": "5968d56b-b1a3-4da8-b5a5-e0331051f726",
+        "candidate_ref": null,
+        "status": "completed",
+        "findings": [],
+        "source_reviews": [
+          ".ai/reviews/perf-repair-window-20260921-final-astra-2-1-canonical.json"
+        ],
+        "assessments": {
+          ".ai/reviews/perf-repair-window-20260921-final-astra-2-1-canonical.json / NR-FINAL-01": {
+            "Finding ref": ".ai/reviews/perf-repair-window-20260921-final-astra-2-1-canonical.json / NR-FINAL-01",
+            "Assessment": "downgrade",
+            "Design/AC basis": "SPEC 第 4 项写「测量产物只写忽略 .artifacts，不修改规范 evidence schema」，但验收段没有任何一条要求入口拒绝仓库外 timing 路径；验收只要求预检覆盖 workset/SQLite/前步产物边界。第 2/3 项明确 wrapper「不合并或伪造 durable 身份」「旧 standalone CLI 不变」，即输出路径策略沿用既有 CLI。_fresh_output 直接复用未改动的 migration._safe_output（HEAD 版本相同）：仓库内路径必须 git 忽略，仓库外路径放行；这与 standalone repair preflight / migration plan 的 --output 完全同一策略。SPEC 「只写忽略 .artifacts」是对主代理自身测量产物的存放约定，同一 SPEC 的主代理验证产物段也是用「忽略的 .artifacts/i18n/perf-repair-window-20260921」这种存放位置语气表述，而非工具级强制拒绝条款。README 与 review-speed 文档的示例命令均给 .artifacts 路径，且明确列出的拒绝项只有 fresh、碰撞、候选目录内与 production 可变状态目录内。",
+            "Observable impact": "低。timing 文件是可重生成的派生产物，不是 evidence 权威也不是恢复权威；写到 /tmp 不会污染受跟踪树（仓库内非忽略路径已被 _safe_output 拒绝），不会触碰 queue/checkpoint/lock（已由 _fresh_output 拒绝），不会改变业务步骤、投影计数或退出码语义。与既有 standalone CLI 的 --output 相比没有新增任何越界能力。唯一实际后果是操作者可能把测量文件放在 .artifacts 之外，导致主代理验证摘要引用的原始 timing 样本不在约定位置。原 finding 的复现也只覆盖 _precheck 接受路径，未证明有任何业务或状态被破坏。",
+            "Personal-project proportionality": "为 timing 单独加一条比既有 CLI 更严的路径策略（必须在 root/.artifacts 下且被忽略）会让 wrapper 与其调用的 standalone 命令出现两套输出边界，同一 SPEC 又要求 standalone CLI 不变；测试 fixture 中 root 是 tmp 目录，若强制 root/.artifacts 还要改现有多处用例的 timing 路径写法。收益是把一条操作约定变成机械拒绝，代价是新增不对称规则与测试改动。对个人项目而言不成比例；操作配方（README 示例已固定 .artifacts 路径）加上主代理验证摘要引用时核对路径即可覆盖。",
+            "Minimum sufficient action": "不改代码。将其作为 advisory 记录：在 README migration-chain / preflight 段的路径说明里补一句「timing 输出应与其他派生产物一样放在 .artifacts 下，仓库外路径仅供临时诊断，不作为验证摘要的测量锚点」；主代理生成 evidence/quality/perf-repair-window-20260921.json 时核对所引用 timing 文件位于 .artifacts。若最终仍决定 keep，动作限定为：仅对 --timing-output 增加「必须位于 root/.artifacts 下」的预检拒绝，并加一组调用前拒绝测试（cli_main 未被调用、runtime 快照不变），不触碰 _safe_output、业务 CLI 与投影逻辑。",
+            "Rationale": "finding 的事实陈述属实：_precheck 通过 _safe_output 接受 /tmp 路径，_write_timing 也未补充限制。但它把 SPEC 第 4 项的存放约定读成了必须由工具强制的输出边界，而 SPEC 验收条款、既有 CLI 行为与文档列出的拒绝清单都不支持这一读法；wrapper 与 standalone 命令保持同一路径策略正是 SPEC 2/3 的意图。可观察影响限于派生 timing 文件放错位置，无状态、evidence 或恢复语义风险，因此从 medium 降为 advisory，用操作配方与主代理摘要核对满足，不作为 CHANGES_REQUIRED 阻塞项。"
+          }
+        }
+      }
+    ],
+    "adjudication": "NR-001 and NR-002 confirmed; HOST-TIMING-001 and CR-0-1-01 same confirmed medium issue; CR-0-1-02 narrowed to live reminders, stale claim of unresolved alchemist-gem gap rejected based on commit9935df0. CR-1-1-01 confirmed low: timing-only failure now uses exit9, distinct from current business/config/argument error codes. All accepted issues resolved; children archived."
+  },
+  "advisory_findings": [
+    {
+      "id": "NR-FINAL-01",
+      "status": "advisory",
+      "adjudication": "Observed external-path acceptance is real, but .artifacts is the task measurement-storage convention rather than a required new CLI output rejection. Existing safe/fresh/ignored-state boundaries remain enforced. All formal measurement anchors must resolve under repository .artifacts; orchestrator verifies this. No code or SPEC change and no further FIX. Root prior blocker interpretation withdrawn after scope calibration.",
+      "scope_audit": ".ai/reviews/perf-repair-window-20260921-scope-audit-2-1.json"
+    }
+  ],
+  "measurement_anchor_directory_check": "All referenced raw measurement/test/gate anchors resolved under repository .artifacts; external diagnosis-only paths excluded.",
+  "limits": [
+    "Single production rejection-path sample; both reject stale batch with exit1 and produce no workset. Successful path equivalence proven on temporary real Git/SQLite fixtures.",
+    "Historical phase windows include orchestration and are not pure model or projection time; per-phase medians are not additive.",
+    "No completed post-change production window at this point; end-to-end throughput remains to be collected by orchestrator."
+  ]
+}
