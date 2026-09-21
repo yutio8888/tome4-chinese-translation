@@ -9174,7 +9174,7 @@ t("A blood-etched greatsword, it has seen many foes. From the inside.", "一把�
 t("10% chance to send the wielder into a killing frenzy", "10% 几率使持有者进入疯狂杀戮状态", "_t")
 t("Whip of Urh'Rok", "乌鲁洛克之鞭", "entity name")
 t("fiery whip", "炽热的鞭子", "_t")
-t("With this unbearably bright whip of flame, the demon master Urh'Rok has become known for never having lost in combat.", "用这根炽焰打造的鞭子，恶魔领主乌鲁洛克未尝一败。", "_t")
+t("With this unbearably bright whip of flame, the demon master Urh'Rok has become known for never having lost in combat.", "这根由火焰构成、亮得令人无法直视的长鞭，让恶魔领主乌鲁洛克以战无不胜闻名。", "_t")
 t("Storm Fury", "风暴之怒", "entity name")
 t("crackling longbow", "电弧缠绕的长弓", "_t")
 t("This dragonbone longbow is enhanced with bands of steel, which arc with intense lightning. Bolts travel up and down the string, ignorant of you.", "这把龙骨长弓由精钢镶制而成，一道道电弧缠绕在其身上，闪电球在其弓弦上徘徊，但是却绕过了你的手臂。", "_t")
@@ -22634,7 +22634,7 @@ t("Something has prevented the timetravel.", "某物阻止了时空旅行。", "
 t("temporal instability", "时间不稳定性", "_t")
 t("%s has moved forward in time!", "%s的时间向前推移！", "logSeen")
 t([[Inflicts %0.2f temporal damage.  If your target survives, it may be removed from time for %d turns.
-		The damage will scale with your Spellpower.]], [[造成 %0.2f 时空伤害。如果你的目标存活，他将被从这个时空放逐 %d 回合。
+		The damage will scale with your Spellpower.]], [[造成 %0.2f 时空伤害。如果你的目标存活，它有几率被从这个时空放逐 %d 回合。
 		伤害受到法术强度加成。]], "tformat")
 t("Temporal Reprieve", "时空避难所", "talent name")
 t("This talent cannot be used from within the reprieve.", "时空避难所内无法使用该技能。", "logPlayer")
@@ -30048,7 +30048,7 @@ section "mod-tome/data/talents/techniques/archery.lua"
 
 t("Shoot", "射击", "talent name")
 t("@Source@ shoots!", "@Source@射击！", "_t")
-t("Shoot your bow, sling or other missile launcher!", "使用弓箭，投石索或者导弹发射器射击！", "tformat")
+t("Shoot your bow, sling or other missile launcher!", "用你的弓、投石索或其他远程投射武器射击！", "tformat")
 t("Steady Shot", "稳固射击", "talent name")
 t([[Fire a steady shot, doing %d%% damage with a %d%% chance to mark the target.
 If Steady Shot is not on cooldown, this talent will automatically replace your normal attacks (and trigger the cooldown).]], [[稳固地射击，造成 %d%% 伤害，同时有 %d%% 几率标记目标。
@@ -30980,7 +30980,7 @@ t("unarmed other", "其他格斗技能", "talent type")
 t("Base martial arts attack and stances.", "基础武学和姿态。", "_t")
 t("You are currently disarmed and cannot use this talent.", "你当前被缴械，不能使用该技能。", "_t")
 t("You require a %s to use this talent.", "你需要装备 %s 才能使用这一技能。", "tformat")
-t("missile launcher", "导弹发射器", "_t")
+t("missile launcher", "远程投射武器", "_t")
 t("You require ammo to use this talent.", "你需要弹药来使用技能。", "_t")
 t("Your ammo cannot be used.", "你的弹药不能使用。", "_t")
 t("Your ammo is incompatible with your missile launcher.", "你的弹药与你的远程发射武器不匹配。", "_t")
