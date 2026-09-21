@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "candidate": "repair-window-2-20260921",
+  "translation_file": "mod-tome.lua",
+  "preflight": {
+    "path": ".artifacts/i18n/repair-window/window2-20260921-preflight-2.json",
+    "sha256": "5a4b9917ca71896a1d17af3f57fec84132e4b0b6bc3e59237439a78d02dda0c5",
+    "items": 5,
+    "copied_as": "preflight-workset.schema1.json",
+    "copy_sha256": "d5f0dc5b7ecdb9bbc9c2c4e1794f4339dc75b768214514565d772756f9075ce8",
+    "copy_note": "parsed JSON is identical; saved copy adds one final LF"
+  },
+  "checks": [
+    {
+      "command": "python3 -B .ai/task/repair-w2-20260921/verify.py",
+      "rc": 0,
+      "result": "verified=true; records=22989; changed=5; all changes are the authorized target fields"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "rc": 0,
+      "result": "30308 translations checked; 0 errors; 0 warnings",
+      "report": ".artifacts/i18n/runs/20260921T121115.971749Z-2-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "rc": 0,
+      "result": "OK; numeric=1; briefings=1; compositions=1; pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "rc": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "not_run_here": [
+    "independent REVIEW",
+    "FINAL_REVIEW/full",
+    "full ci-gates/build",
+    "DONE_VERIFIED",
+    "stage/commit/push"
+  ]
+}

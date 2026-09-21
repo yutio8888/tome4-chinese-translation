@@ -1,0 +1,339 @@
+[
+  {
+    "dispatch_id": "r0a2l1",
+    "native_session_id": "ccf3bcd7-1dce-4da6-8bcf-d06d0bb67ff9",
+    "native_source_sha256": "365d6550a8dcbb406ef9472c0a001db4ccd7876767fa57fab412e264f283021d",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '1,50p' .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l1.json | head -c 3000; echo; echo \"=== SIZE ===\"; wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l1.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l1.json'))\nprint(list(d.keys()))\nfor k,v in d.items():\n    if k=='payload':\n        print('payload keys',list(v.keys()))\n        for kk,vv in v.items():\n            if kk!='bounded_context':\n                print('--',kk,json.dumps(vv,ensure_ascii=False)[:2000])\n    else:\n        print(k, json.dumps(v,ensure_ascii=False)[:1500])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/tome4-chinese-translation; awk '/^## *六/,/^## *八/' docs/paseo-translation-context-review-v2-contract.md; echo \"=====ANCHORS=====\"; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'));print(json.dumps(d,ensure_ascii=False,indent=1)[:6000])\""
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: reads confined to frozen input, cited neutral anchors, contract and related source lookups; no prior findings or memory content read"
+  },
+  {
+    "dispatch_id": "r0a2l2",
+    "native_session_id": "cb098455-3105-43c0-bb91-4b90777bcc79",
+    "native_source_sha256": "e16d50e2de26445acf80cc9dd7039789dfe69b546888a71e615efeaf31affa91",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l2.json && head -c 3000 .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l2.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l2.json'))\nprint(list(d.keys()))\nfor t in d['payload']['translation_snapshot']:\n    print('SOURCE:');print(t['source']);print('TARGET:');print(t['target']);print(t.get('source_tag'))\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '1,200p' docs/paseo-translation-context-review-v2-contract.md | sed -n '/第六/,$p' ; echo ===; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nprint(json.dumps(d,ensure_ascii=False,indent=1)[:8000])\n\""
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: reads confined to frozen input, cited neutral anchors, contract and related source lookups; no prior findings or memory content read"
+  },
+  {
+    "dispatch_id": "r0a2l3",
+    "native_session_id": "1bebb047-8b11-465b-ae0c-c06cbcef00bb",
+    "native_source_sha256": "ed6e9c800fffa21cd0b2c2b53b74213538deb77a15d36ff8728c42bd1335a107",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l3.json && sed -n '1,400p' docs/paseo-translation-context-review-v2-contract.md | head -50"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l3.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(json.dumps(p,ensure_ascii=False,indent=1)[:6000])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'));print(json.dumps(d,ensure_ascii=False)[:8000])\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nfor c in d:\n  print(c['path'], [ (e['start_line'],e['end_line']) for e in c['excerpts']])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nfor c in d:\n  if 'ooze.lua' in c['path']:\n    for e in c['excerpts']: print(e['text'])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/t-engine4 2>/dev/null && git grep -n \"ignore_direct_crits\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -20"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nfor c in d:\n  if 'damage_types' in c['path']:\n    for e in c['excerpts']: print(e['start_line'],'---'); print(e['text'])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^## 六/,/^## 八/' docs/paseo-translation-context-review-v2-contract.md"
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: reads confined to frozen input, cited neutral anchors, contract and related source lookups; no prior findings or memory content read"
+  },
+  {
+    "dispatch_id": "r0a2l4",
+    "native_session_id": "a24d21d0-642f-4e32-98cc-872dd753b43e",
+    "native_source_sha256": "9e46c34d0ff7cd241fad14f9c09f4d6c9818673cf7294cbf8580c932b575e158",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l4.json && sed -n '1,80p' docs/paseo-translation-context-review-v2-contract.md",
+          "description": "Inspect envelope size and contract head"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '80,220p' docs/paseo-translation-context-review-v2-contract.md",
+          "description": "Read contract sections 6 and 7"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cat .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-r0a2l4.json | python3 -m json.tool",
+          "description": "Read envelope"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'));print(json.dumps(d,ensure_ascii=False,indent=1))\" | head -200",
+          "description": "Read source anchors"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/t-engine4 2>/dev/null && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && grep -rn \"Battle Trance\" --include=*.lua game/modules/tome/data/talents/ | head",
+          "description": "Locate Battle Trance talent"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/objects.lua | sed -n '425,480p'",
+          "description": "Show Battle Trance at fixed commit"
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: reads confined to frozen input, cited neutral anchors, contract and related source lookups; no prior findings or memory content read"
+  },
+  {
+    "dispatch_id": "c1a1",
+    "native_session_id": "affe4f20-775a-4e9c-b1d6-f77717349172",
+    "native_source_sha256": "bc02dd3fc9b7c69ab6a604163a3651b70ac8bcec3ad6cb2025c101b9401e8500",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-c1a1.json && head -c 4000 .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-c1a1.json",
+          "description": "Read envelope head"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cat .ai/task/repair-w2-20260921/SOURCE-ANCHORS.json; echo \"=== CUT ===\"; cat .ai/task/repair-w2-20260921/SOURCE-CUT-ANCHORS.json",
+          "description": "Read source anchors"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^#+ *六/,/^#+ *八/' docs/paseo-translation-context-review-v2-contract.md",
+          "description": "Read contract sections 6-7"
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: reads confined to frozen input, cited neutral anchors, contract and related source lookups; no prior findings or memory content read"
+  },
+  {
+    "dispatch_id": "f1a2",
+    "native_session_id": "799623ce-8653-4489-8a69-edfbaf60c3a5",
+    "native_source_sha256": "e47ee257f13be33b956af528435a32114d99cc9d72d0a2c2d5a3278cd9f3bc2d",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a2.json && sed -n '1,200p' docs/paseo-translation-context-review-v2-contract.md | head -50",
+          "description": "Check envelope size and contract head"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "awk '/^## 六、/,/^## 八、/' docs/paseo-translation-context-review-v2-contract.md",
+          "description": "Read sections 6 and 7"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a2.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False,indent=1)[:2000])\n\"",
+          "description": "Inspect envelope"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nprint('=== BRIEFING ===');print(p['rendered_briefing'])\nprint('=== BOUNDED ===');print(json.dumps(p['bounded_context'],ensure_ascii=False,indent=1))\n\"",
+          "description": "Print briefing and bounded context"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a2.json'))\nfor t in d['payload']['translation_snapshot']:\n    print('---',t['revision_key'])\n    print('SRC:',t['source'])\n    print('TGT:',t.get('target'))\n\"",
+          "description": "Print translations"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd .ai/task/repair-w2-20260921/ && ls && python3 -c \"\nimport json\nfor f in ['SOURCE-ANCHORS.json','SOURCE-CUT-ANCHORS.json']:\n    d=json.load(open(f))\n    print('=====',f)\n    print(json.dumps(d,ensure_ascii=False,indent=1)[:12000])\n\"",
+          "description": "Read source anchors"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/tome4-chinese-translation && python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nfor c in d[7:]:\n    print('=====',c['path'])\n    for e in c['excerpts']: print(e['start_line'],e['end_line']); print(e['text'])\n\"",
+          "description": "Print remaining anchors"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cd /workspace/t-engine4 2>/dev/null && git grep -n \"ignore_direct_crits\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/modules/tome/data | head -30",
+          "description": "Search ignore_direct_crits at fixed commit"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "for t in \"Ritch Flamespitter\" \"War Hound\" \"Fire Drake\" \"Stone Golem\" \"Minotaur\" \"Hydra\"; do echo \"== $t\"; grep -n -A1 \"^\\[\\\"$t\\\"\\]\" mod-tome.lua | head -4; done",
+          "description": "Check summon name consistency"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "for t in \"Ritch Flamespitter\" \"War Hound\" \"Fire Drake\" \"Stone Golem\" \"Hydra\" \"Turtle\"; do echo \"== $t\"; grep -n \"\\\"$t\\\"\" mod-tome.lua | head -3; done",
+          "description": "Grep summon names in locale"
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation",
+      "/workspace/tome4-chinese-translation/.ai/task/repair-w2-20260921"
+    ],
+    "host_status": "rejected: strict native parser cwd mismatch"
+  },
+  {
+    "dispatch_id": "f1a3",
+    "native_session_id": "7d4ad943-7834-466b-86d5-e1224ca6e9d2",
+    "native_source_sha256": "885ff699f69fb60f097bccac8453302ce00e48b04ab12335df2f86ed8bdb4803",
+    "tool_calls": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "wc -c .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a3.json && sed -n '1,80p' .ai/task/repair-w2-20260921/CONTEXTUAL-ENVELOPE-f1a3.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "grep -n \"^#\\{1,3\\} \" docs/paseo-translation-context-review-v2-contract.md | head -40"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "sed -n '92,180p' docs/paseo-translation-context-review-v2-contract.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\nprint(json.dumps(d,ensure_ascii=False)[:8000])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/SOURCE-ANCHORS.json'))\ns=json.dumps(d,ensure_ascii=False)\nprint(s[8000:20000])\n\""
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w2-20260921/SOURCE-CUT-ANCHORS.json'))\nprint(json.dumps(d,ensure_ascii=False,indent=1)[:9000])\n\""
+        }
+      }
+    ],
+    "observed_cwds": [
+      "/workspace/tome4-chinese-translation"
+    ],
+    "host_status": "accepted: only frozen input, cited neutral anchors and contract read; no historical findings or memory"
+  }
+]

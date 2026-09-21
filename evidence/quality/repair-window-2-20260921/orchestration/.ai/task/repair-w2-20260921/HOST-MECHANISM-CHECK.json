@@ -1,0 +1,32 @@
+{
+  "kind": "host_arithmetic_crosscheck",
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source": "game/modules/tome/data/damage_types.lua:150-154",
+  "limitation": "源公式算术核对，不声称执行完整游戏运行时。",
+  "examples": [
+    {
+      "incoming_postcrit_damage": 150,
+      "crit_power": 1.5,
+      "ignore_direct_crits": 50,
+      "output_from_source_formula": 125.0
+    },
+    {
+      "incoming_postcrit_damage": 200,
+      "crit_power": 2,
+      "ignore_direct_crits": 50,
+      "output_from_source_formula": 150.0
+    },
+    {
+      "incoming_postcrit_damage": 150,
+      "crit_power": 1.5,
+      "ignore_direct_crits": 100,
+      "output_from_source_formula": 100.0
+    },
+    {
+      "incoming_postcrit_damage": 150,
+      "crit_power": 1.5,
+      "ignore_direct_crits": 0,
+      "output_from_source_formula": 150.0
+    }
+  ]
+}

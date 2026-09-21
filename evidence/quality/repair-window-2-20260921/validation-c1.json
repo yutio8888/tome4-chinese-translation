@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "candidate": "repair-window-2-20260921-cycle-1",
+  "revision": "de9af808fffcbe480b1c10f7948a421f6f7571f4015e5fa16557cc1cdc42fa85",
+  "correction": {
+    "before": "疾病、毒素、切割和目盲免疫",
+    "after": "疾病、毒素、流血和目盲免疫",
+    "scope": "only the Anatomy target status name; all five existing repairs retained"
+  },
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "input": ".ai/task/repair-w2-20260921/SOURCE-CUT-ANCHORS.json",
+    "copied_as": "SOURCE-CUT-ANCHORS.json",
+    "input_sha256": "faacf71aad458b9f9007294591d57848f42f3972ff886cc33d88ec7840eb4e83",
+    "copy_sha256": "faacf71aad458b9f9007294591d57848f42f3972ff886cc33d88ec7840eb4e83",
+    "byte_identical": true
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "rc": 0,
+      "result": "30308 translations checked; 0 errors; 0 warnings",
+      "report": ".artifacts/i18n/runs/20260921T122644.497461Z-2-lint/lint.json"
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w2-20260921/verify.py",
+      "rc": 0,
+      "result": "verified=true; records=22989; changed=5; all changes remain restricted to the five authorized target fields; Anatomy contains the cycle-1 流血 correction"
+    },
+    {
+      "command": "git diff --check",
+      "rc": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "not_run_here": [
+    "independent REVIEW",
+    "FINAL_REVIEW/full",
+    "full ci-gates/build",
+    "DONE_VERIFIED",
+    "stage/commit/push"
+  ]
+}

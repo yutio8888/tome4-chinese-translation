@@ -1,0 +1,26 @@
+[
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/talents/gifts/ooze.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "start_line": 254,
+    "end_line": 272,
+    "excerpt": "\tmode = \"passive\",\n\t--compare to lethality: self:combatTalentScale(t, 7.5, 25, 0.75)\n\tcritResist = function(self, t) return self:combatTalentScale(t, 15, 50, 0.75) end,\n\timmunities = function(self, t) return self:combatTalentLimit(t, 1, 0.25, 0.65) end, -- Limit < 100% immunities\n\tpassives = function(self, t, p)\n\t\tself:talentTemporaryValue(p, \"blind_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"poison_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"disease_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"cut_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"ignore_direct_crits\", t.critResist(self, t))\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Your body's internal organs are indistinct, disguising your vital areas.\n\t\tYou have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).\n\t\tIn addition you gain %d%% resistance to disease, poison, wounds and blindness.]]):\n\t\ttformat(t.critResist(self, t), 100*t.immunities(self, t))\n\tend,\n}"
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/timed_effects/physical.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "start_line": 123,
+    "end_line": 133,
+    "excerpt": "newEffect{\n\tname = \"CUT\", image = \"effects/cut.png\",\n\tdesc = _t\"Bleeding\",\n\tlong_desc = function(self, eff) return (\"Huge cut that bleeds, doing %0.2f physical damage per turn.\"):tformat(eff.power) end,\n\tcharges = function(self, eff) return (math.floor(eff.power)) end,\n\ttype = \"physical\",\n\tsubtype = { wound=true, cut=true, bleed=true },\n\tstatus = \"detrimental\",\n\tparameters = { power=1 },\n\ton_gain = function(self, err) return _t\"#Target# starts to bleed.\", _t\"+Bleeds\" end,\n\ton_lose = function(self, err) return _t\"#Target# stops bleeding.\", _t\"-Bleeds\" end,"
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/class/Actor.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "start_line": 7554,
+    "end_line": 7584,
+    "excerpt": "--- list of actor status types and corresponding immunity attribute tags (inputs to newStatusType)\n--\tboolean values in this table are updated below by newStatusType\n_M.StatusTypes = {poison=true,\tdisease=true, cut=true, confusion=true, blind=true,\tsilence=true,\n\tdisarm=true, stun=true, sleep=true, fear=true, stone=true, slow=true,\n\tinstakill=false, anomaly=false,\n\tdispel_sustains=function(self) return 100 * ((self:attr(\"dispel_sustains_immune\") or 0) + (self:attr(\"dispel_immune\") or 0)) end,\n\tdispel_effects=function(self) return 100 * ((self:attr(\"dispel_effects_immune\") or 0) + (self:attr(\"dispel_immune\") or 0)) end,\n\tpin=function(self) return (self:attr(\"negative_status_effect_immune\") or self:attr(\"levitation\") or self:attr(\"fly\")) and 100 or 100 * (self:attr(\"pin_immune\") or 0) end,\n\tknockback=function(self) return self:attr(\"never_move\") and 100 or 100 * (self:attr(\"knockback_immune\") or 0) end,\n\tteleport=function(self) return self:attr(\"encased_in_ice\") and 100 or 100 * (self:attr(\"teleport_immune\") or 0) end,\n\tworldport=function(self) return game.level and game.level.data and game.level.data.no_worldport and 100 or 0 end,\n\tplanechange=function(self) return game.level and game.level.data and game.level.data.no_planechange and 100 or 0 end,\n\tsummon=function(self) return self:attr(\"suppress_summon\") and 100 or 0 end,\n}\n--- List of all of the above that are \"bad\" for the actor to be immune to, instead of beneficial\n_M.StatusTypesIsBad = {\tworldport = true, planechange = true, summon = true, }\n\n--- list of actor status types that are associated with temporary effects\n_M.StatusTypesIsEffect = {}\n\n--- define a new Status type\n-- @param what [string] the label to be used (i.e. actor:canBe(\"label\"))\n-- @param[1] [type=boolean] method checks will be against the <what .. \"_immune\"> attribute\n--\t\tif method == true then the status is treated as a general effect (general immunities apply)\n-- @param[2] [type=function] method is a function(self) returning % chance to resist the effect\nfunction _M.newStatusType(what, method)\n\tif type(method) == \"boolean\" then\n\t\t_M.StatusTypesIsEffect[what] = method\n\t\t_M.StatusTypes[what] = what .. \"_immune\"\n\telse _M.StatusTypes[what] = method\n\tend"
+  }
+]

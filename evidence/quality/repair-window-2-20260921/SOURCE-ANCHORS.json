@@ -1,0 +1,108 @@
+[
+  {
+    "component": "tome",
+    "path": "game/modules/tome/init.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 89,
+        "end_line": 95,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_blood_mage.png\", text=[[In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_berserker.png\", text=[[The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_fire_wyrmic.png\", text=[[Intense willpower lets wyrmics take on the natural powers of dragons.]]},\n\t{image=\"/data/gfx/loadtiles/alchemist_golem.png\", text=[[Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.]]},\n\t{image=\"/data/gfx/shockbolt/npc/construct_golem_athamathon_the_giant_golem.png\", text=[[In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.]]},\n\t{image=\"/data/gfx/loadtiles/farportal.png\", text=[[None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.]]},\n\t{image=\"/data/gfx/shockbolt/npc/horror_eldritch_luminous_horror.png\", text=[[In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.]]},"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 1165,
+        "end_line": 1190,
+        "text": "newEntity{ base = \"BASE_GLOVES\",\n\tpower_source = {technique=true},\n\tunique = true,\n\tname = \"Gloves of the Firm Hand\", image = \"object/artifact/gloves_of_the_firm_hand.png\",\n\tunided_name = _t\"heavy gloves\",\n\tdesc = _t[[These gloves make you feel rock steady! These magical gloves feel really soft to the touch from the inside. On the outside, magical stones create a rough surface that is constantly shifting. When you brace yourself, a magical ray of earth energy seems to automatically bind them to the ground, granting you increased stability.]],\n\tlevel_range = {17, 27},\n\trarity = 210,\n\tcost = 150,\n\tmaterial_level = 3,\n\twielder = {\n\t\ttalent_cd_reduction={[Talents.T_CLINCH]=2},\n\t\tinc_stats = { [Stats.STAT_CON] = 4 },\n\t\tcombat_armor = 8,\n\t\tdisarm_immune=0.4,\n\t\tknockback_immune=0.3,\n\t\tstun_immune = 0.3,\n\t\tcombat = {\n\t\t\tdam = 18,\n\t\t\tapr = 1,\n\t\t\tphyscrit = 7,\n\t\t\ttalent_on_hit = { T_CLINCH = {level=3, chance=20}, T_MAIM = {level=3, chance=10}, T_TAKE_DOWN = {level=3, chance=10} },\n\t\t\tdammod = {dex=0.4, str=-0.6, cun=0.4 },\n\t\t},\n\t},\n}"
+      },
+      {
+        "start_line": 5934,
+        "end_line": 5955,
+        "text": "newEntity{ base = \"BASE_TOOL_MISC\",\n\tpower_source = {nature = true},\n\tunique=true, rarity=240, image = \"object/artifact/honeywood_chalice.png\",\n\ttype = \"charm\", subtype=\"totem\",\n\tname = \"Honeywood Chalice\",\n\tunided_name = _t\"sap filled cup\",\n\tcolor = colors.BROWN,\n\tlevel_range = {30, 40},\n\tdesc = _t[[This wooden cup seems perpetually filled with a thick sap-like substance. Tasting it is exhilarating, and you feel intensely aware when you do so.]],\n\tcost = 320,\n\tmaterial_level = 4,\n\twielder = {\n\t\tcombat_physresist = 10,\n\t\tinc_stats = {[Stats.STAT_STR] = 5,},\n\t\tinc_damage={[DamageType.PHYSICAL] = 5,},\n\t\tresists={[DamageType.NATURE] = 10,},\n\t\tlife_regen=0.15,\n\t\thealing_factor=0.1,\n\n\t\tlearn_talent = {[Talents.T_BATTLE_TRANCE] = 1},\n\t},\n}"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/talents/gifts/summon-advanced.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 104,
+        "end_line": 143,
+        "text": "newTalent{\n\tname = \"Wild Summon\",\n\ttype = {\"wild-gift/summon-advanced\", 4},\n\trequire = gifts_req_high4,\n\tpoints = 5,\n\tequilibrium = 9,\n\tcooldown = 25,\n\trange = 10,\n\ttactical = { BUFF = 2 },\n\tno_energy = true,\n\ton_pre_use = function(self, t, silent)\n\t\treturn self:isTalentActive(self.T_MASTER_SUMMONER)\n\tend,\n\tduration = function(self, t) return math.floor(self:combatTalentLimit(t, 15, 3, 7)) end, -- Limit <15\n\taction = function(self, t)\n\t\tself:setEffect(self.EFF_WILD_SUMMON, t.duration(self,t), {chance=100})\n\t\tgame:playSoundNear(self, \"talents/teleport\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[For %d turn(s), you have 100%% chance that your summons appear as a wild version.\n\t\tEach turn the chance disminishes.\n\t\tWild creatures have one more talent/power than the base versions:\n\t\t- Ritch Flamespitter: Can fly in the air, spitting its Flamespit past creatures in the path of its target\n\t\t- Hydra: Can concentrate its breath into spits when allies would be caught in a breath, instead spitting a bolt\n\t\t- Rimebark: Can grab foes, pulling them into range of its ice storm\n\t\t- Fire Drake: Can emit a powerful roar to silence its foes\n\t\t- War Hound: Can rage, inreasing its critical chance and gaining armour penetration\n\t\t- Jelly: Can split into an additional jelly upon taking a large hit (jellies formed by splitting do not count against your summon cap)\n\t\t- Minotaur: Can rush toward its target\n\t\t- Stone Golem: Can disarm its foes\n\t\t- Turtle: Can force all foes in a radius into melee range\n\t\t- Spider: Can project an insidious poison at its foes, reducing their healing\n\t\tThis talent requires Master Summoner to be active to be used.\n\t\tEffects scale with levels in summon talents.]]):tformat(t.duration(self,t))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 175,
+        "end_line": 205,
+        "text": "\t\t\tcombat_armor = 10, combat_def = 0,\n\t\t\tcombat = { dam=1, atk=1, },\n\n\t\t\twild_gift_detonate = t.id,\n\n\t\t\tresolvers.talents{\n\t\t\t\t[self.T_TAUNT]=self:getTalentLevelRaw(t),\n\t\t\t\t[self.T_SHELL_SHIELD]=self:getTalentLevelRaw(t),\n\t\t\t},\n\n\t\t\tsummoner = self, summoner_gain_exp=true, wild_gift_summon=true,\n\t\t\tsummon_time = t.summonTime(self, t),\n\t\t\tai_target = {actor=target}\n\t\t}\n\t\tif self:attr(\"wild_summon\") and rng.percent(self:attr(\"wild_summon\")) then\n\t\t\tm.name = (\"%s (wild summon)\"):tformat(_t(m.name))\n\t\t\tm[#m+1] = resolvers.talents{ [self.T_BATTLE_CALL]=self:getTalentLevelRaw(t) }\n\t\tend\n\t\tm.is_nature_summon = true\n\t\tsetupSummon(self, m, x, y)\n\n\t\tif self:knowTalent(self.T_RESILIENCE) then\n\t\t\tlocal incLife = self:callTalent(self.T_RESILIENCE, \"incLife\") + 1\n\t\t\tm.max_life = m.max_life * incLife\n\t\t\tm.life = m.max_life\n\t\tend\n\n\t\tm:forceUseTalent(m.T_TAUNT, {ignore_energy=true})\n\n\t\tgame:playSoundNear(self, \"talents/spell_generic\")\n\t\treturn true"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/talents/techniques/superiority.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 74,
+        "end_line": 106,
+        "text": "newTalent{\n\tname = \"Battle Call\",\n\ttype = {\"technique/superiority\", 3},\n\trequire = techs_req_high3,\n\tpoints = 5,\n\trandom_ego = \"attack\",\n\tcooldown = 10,\n\tstamina = 30,\n\ttactical = { CLOSEIN = 2 },\n\trange = 0,\n\tradius = function(self, t)\n\t\treturn math.floor(self:combatTalentScale(t, 3, 7))\n\tend,\n\trequires_target = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), friendlyfire=false, radius=self:getTalentRadius(t), talent=t}\n\tend,\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tself:project(tg, self.x, self.y, function(px, py)\n\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\tif not target then return end\n\t\t\tlocal tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})\n\t\t\tif tx and ty and target:canBe(\"teleport\") then\n\t\t\t\ttarget:move(tx, ty, true)\n\t\t\t\tgame.logSeen(target, \"%s is called to battle!\", target:getName():capitalize())\n\t\t\tend\n\t\tend)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Call all foes in a radius of %d around you into battle, getting them into melee range in an instant.]]):tformat(t.radius(self,t))\n\tend,"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/timed_effects/mental.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 2094,
+        "end_line": 2114,
+        "text": "newEffect{\n\tname = \"WILD_SUMMON\", image = \"talents/wild_summon.png\",\n\tdesc = _t\"Wild Summon\",\n\tlong_desc = function(self, eff) return (\"%d%% chance to get a more powerful summon.\"):tformat(eff.chance) end,\n\ttype = \"mental\",\n\tsubtype = { summon=true },\n\tstatus = \"beneficial\",\n\tparameters = { chance=100 },\n\tactivate = function(self, eff)\n\t\teff.tid = self:addTemporaryValue(\"wild_summon\", eff.chance)\n\tend,\n\ton_timeout = function(self, eff)\n\t\teff.chance = eff.chance or 100\n\t\teff.chance = math.floor(eff.chance * 0.66)\n\t\tself:removeTemporaryValue(\"wild_summon\", eff.tid)\n\t\teff.tid = self:addTemporaryValue(\"wild_summon\", eff.chance)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"wild_summon\", eff.tid)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/talents/gifts/ooze.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 248,
+        "end_line": 274,
+        "text": "\nnewTalent{\n\tname = \"Indiscernible Anatomy\",\n\ttype = {\"wild-gift/ooze\", 4},\n\trequire = gifts_req4,\n\tpoints = 5,\n\tmode = \"passive\",\n\t--compare to lethality: self:combatTalentScale(t, 7.5, 25, 0.75)\n\tcritResist = function(self, t) return self:combatTalentScale(t, 15, 50, 0.75) end,\n\timmunities = function(self, t) return self:combatTalentLimit(t, 1, 0.25, 0.65) end, -- Limit < 100% immunities\n\tpassives = function(self, t, p)\n\t\tself:talentTemporaryValue(p, \"blind_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"poison_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"disease_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"cut_immune\", t.immunities(self, t))\n\t\tself:talentTemporaryValue(p, \"ignore_direct_crits\", t.critResist(self, t))\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Your body's internal organs are indistinct, disguising your vital areas.\n\t\tYou have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).\n\t\tIn addition you gain %d%% resistance to disease, poison, wounds and blindness.]]):\n\t\ttformat(t.critResist(self, t), 100*t.immunities(self, t))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "component": "tome",
+    "path": "game/modules/tome/data/damage_types.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpts": [
+      {
+        "start_line": 29,
+        "end_line": 55,
+        "text": "-- Loads the implicit crit if one has not been passed.\nfunction DamageType.useImplicitCrit(src, state)\n\tif state.crit_set then return end\n\tstate.crit_set = true\n\tif not src.turn_procs then\n\t\tstate.crit_type = false\n\t\tstate.crit_power = 1\n\telse\n\t\tstate.crit_type = src.turn_procs.is_crit\n\t\tstate.crit_power = src.turn_procs.crit_power or 1\n\t\tsrc.turn_procs.is_crit = nil\n\t\tsrc.turn_procs.crit_power = nil\n\tend\nend\n\nlocal useImplicitCrit = DamageType.useImplicitCrit\nlocal initState = DamageType.initState\n\n-- The basic stuff used to damage a grid\nsetDefaultProjector(function(src, x, y, type, dam, state)\n\tif not game.level.map:isBound(x, y) then return 0 end\n\n\t-- Manage crits.\n\tstate = initState(state)\n\tuseImplicitCrit(src, state)\n\tlocal crit_type = state.crit_type\n\tlocal crit_power = state.crit_power"
+      },
+      {
+        "start_line": 123,
+        "end_line": 156,
+        "text": "\tlocal target = game.level.map(x, y, Map.ACTOR)\n\tif target then\n\t\tlocal rsrc = src.resolveSource and src:resolveSource() or src\n\t\tlocal rtarget = target.resolveSource and target:resolveSource() or target\n\n\t\tprint(\"[PROJECTOR] starting dam\", type, dam)\n\n\t\tlocal ignore_direct_crits = target:attr 'ignore_direct_crits'\n\t\tif crit_power > 1 and ignore_direct_crits then -- Reduce the post crit damage, we have to do this here since most crits are calculated before knowing their target\n\n\t\t\t-- Add crit bonus power for being unseen (direct damage only, diminished with range)\n\t\t\tlocal unseen_crit = src.__is_actor and target.__is_actor and not src.__project_source and src.unseen_critical_power\n\t\t\tif unseen_crit and not target:canSee(src) and src:canSee(target) then\n\t\t\t\tlocal d, reduc = core.fov.distance(src.x, src.y, x, y), 0\n\t\t\t\tif d > 3 then\n\t\t\t\t\treduc = math.scale(d, 3, 10, 0, 1)\n\t\t\t\t\tunseen_crit = math.max(0, unseen_crit*(1 - reduc))\n\t\t\t\tend\n\t\t\t\tif unseen_crit > 0 then\n\t\t\t\t\tif target.unseen_crit_defense and target.unseen_crit_defense > 0 then\n\t\t\t\t\t\tunseen_crit = math.max(0, unseen_crit*(1 - target.unseen_crit_defense))\n\t\t\t\t\tend\n\t\t\t\t\tcrit_power = crit_power + unseen_crit\n\t\t\t\t\tprint(\"[PROJECTOR] after unseen_critical_power type/dam/range/power\", type, dam, d, unseen_crit, \"::\", crit_power - unseen_crit, \"=>\", crit_power)\n\t\t\t\tend\n\t\t\tend\t\n\n\t\t\tdam = dam / crit_power\n\t\t\tlocal reduce = (crit_power - 1) * (util.bound(ignore_direct_crits, 0, 100) / 100)\n\t\t\tcrit_power = math.max(1, crit_power - reduce)\n\t\t\tdam = dam * crit_power\n\t\t\tprint(\"[PROJECTOR] crit power reduce dam\", dam)\n\t\tend\n"
+      }
+    ]
+  }
+]
