@@ -1,0 +1,1 @@
+只读补充复审，范围为相同三条冻结payload和SCOPE；先独立preflight后fresh freeze，独立REVIEWER只读input及引用公开源码与契约六七节。禁止读取当前译文文件、历史finding或写入。宿主逐条源码裁决、完整边界审计、strict结果和归档后DONE。补充证据与更正纳入当前后续批次证据交付，不改原冻结历史。
