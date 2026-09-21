@@ -1,0 +1,12 @@
+{
+  "original_batch": "batch-f426f5a2d72329efe102",
+  "original_commit": "79e81d1ac08123c626fedb9e299c033498e26f97",
+  "original_task": "batch-f426f5a2d72329efe102-contextual-000",
+  "original_scope_missing_schema_version": true,
+  "independent_anchor_preflight_was_not_run": true,
+  "mistaken_assumption": "review_lifecycle.validate_input only validates envelope/candidate/input bytes, not independent anchor preflight",
+  "evidence": "tools/orchestration/review_lifecycle.py:validate_input; original task SCOPE.json and absence of preflight execution",
+  "impact": "procedural precondition omitted; source literal checks and independent reviews/gates did run; no assertion of source mismatch or bad translation inferred",
+  "remediation": "new task with actual preflight before fresh freeze/review; keep original frozen records unchanged",
+  "reported_to_user": true
+}
