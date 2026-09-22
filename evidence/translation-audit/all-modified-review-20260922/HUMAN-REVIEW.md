@@ -794,3 +794,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01823 | confirmed：这里是地面选点而非生物目标；confirmed：“选择一个转移目标”有交互歧义 | 与 `Displace` 既定译名统一，明确是目的地坐标 |
 
 译文未修改。2 条 pending（术语记录类）留主代理核对。
+
+## batch-061 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-061-01.md](reports/sol-061-01.md)。译文未修改。共 10 个 claim：7 confirmed、2 refuted、1 advisory、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01835 | confirmed：遗漏 `continually` 与 `up to`（持续技能、上限 1–4 个、自动补充） | 改“持续召唤至多 %d 个……”，按机制完整性处理 |
+| entry-01838 | confirmed：该日志属进攻分支；confirmed：与 01839 中文完全相同。advisory：单独看本条尚不足以确认独立机制误译 | 统一润色为“阴影向 #Target# 集中！” |
+| entry-01839 | confirmed：攻防语境差异成立，现译丢失防守语义（`form around` 被译成与进攻相同） | 改“阴影在 #Target# 周围列阵！”；是否加“护卫”由人工定 |
+| entry-01851 | confirmed：酸性伤害 + 可能触发缴械。refuted：“浓缩但未造成机制歧义”不成立（25% 概率、可免疫） | 恢复条件关系“并可能缴械”；概率数值是否写明另议 |
+| entry-01861 | confirmed：效果是每回合降低失衡值；confirmed：“回复失衡值”可能被读反。refuted：Gemini“未算翻译错误”不成立 | 改“每回合降低／减少 %0.1f 点失衡值” |
+
+译文未修改。2 条 refuted 是对 Gemini 判断的下修，原样转录。
