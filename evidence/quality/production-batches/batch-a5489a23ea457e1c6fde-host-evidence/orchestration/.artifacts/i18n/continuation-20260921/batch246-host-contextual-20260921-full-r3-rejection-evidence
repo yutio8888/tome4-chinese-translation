@@ -1,0 +1,12 @@
+{
+  "dispatch_id": "full-r3",
+  "original_prompt": "只读复核全部冻结revision。candidate_identity=ac17f0f48d82c2f4d89d006ce72cf3ce3ac70717dce819f3cb2f416f1d302617；input_path=.ai/task/batch246-host-contextual-20260921/CONTEXTUAL-ENVELOPE-final-full.json。输出 translation_contextual_v2 第六节单一紧凑JSON，按冻结顺序完整覆盖，无其他文字。仅读此input、其中明确引用内容、docs/paseo-translation-context-review-v2-contract.md 第六七节（仅94–128行），以及 /workspace/t-engine4 固定版本中沿调用链相关的公开源码。术语只用input内快照，不再查询术语文件。译文只读冻结snapshot；禁查当前汉化文件、其他task/review、历史finding；禁止写文件。只报有证据的语义/机制/术语问题，否则OK；补查依据写observation。",
+  "old_canonical_prompt": "任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。\n输入：candidate_identity=ac17f0f48d82c2f4d89d006ce72cf3ce3ac70717dce819f3cb2f416f1d302617；input_path=.ai/task/batch246-host-contextual-20260921/CONTEXTUAL-ENVELOPE-final-full.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。",
+  "original_canonical": false,
+  "actual_read_boundary_valid": true,
+  "strict_json_valid": true,
+  "host_process_defect": "Host supplied one-line custom prompt instead of then-required fixed three-line template. Not a reviewer conduct finding and not retroactive new policy.",
+  "action": "Reject only unpublished output, preserve raw and archive evidence, reissue through canonical builder.",
+  "candidate_identity": "ac17f0f48d82c2f4d89d006ce72cf3ce3ac70717dce819f3cb2f416f1d302617",
+  "input_sha256": "ddff327ba044ab72c31c2792d180880a8e6e53820cc4e5e40085405189f41966"
+}

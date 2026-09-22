@@ -1,0 +1,109 @@
+{
+  "checked_at": "2026-09-21T23:33:19.447312+00:00",
+  "rows": [
+    {
+      "key": "batch-a5489a23ea457e1c6fde|lane-000-0",
+      "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/d08bc446-0204-44f2-a945-32a08a76e953.jsonl",
+      "native_sha256": "88cf90648be8872b638f30ccc10c782b7580f74f4c4cd051fb1486c1fa19d499",
+      "calls": [
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "wc -c .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-0.json && cat .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+            "description": "Read surface screen envelope"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "awk '/^#+ *6\\./,/^#+ *7\\./' docs/paseo-translation-surface-screen-v1-contract.md",
+            "description": "Read section 6 of contract"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "grep -n \"^#\" docs/paseo-translation-surface-screen-v1-contract.md | head -50",
+            "description": "List headings"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "sed -n '182,208p' docs/paseo-translation-surface-screen-v1-contract.md",
+            "description": "Read section six"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "python3 - <<'PY'\nimport json\nd=json.load(open('.ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'))\ne=d['payload']['entries']\niss={9:\"漏译源文 \\\"overhealing is not counted\\\"：译文未说明过量治疗不计入，改变了该效果的计算口径\",\n     11:\"源文 \\\"vial of iron-colored fluid\\\" 是物品名，无句末标点，译文「一瓶铁色液体。」多加了句号\"}\nres=[{\"entry_revision_identity\":x['entry_revision_identity'],\"verdict\":\"ISSUE\",\"observation\":iss[i]} if i in iss else {\"entry_revision_identity\":x['entry_revision_identity'],\"verdict\":\"OK\"} for i,x in enumerate(e)]\nout={\"candidate_identity\":d['candidate_identity'],\"contract\":\"translation_surface_screen_v1\",\"results\":res}\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')))\nPY",
+            "description": "Build canonical result JSON"
+          }
+        }
+      ],
+      "boundary_valid": true,
+      "reason": "Only envelope and section six; headings used for navigation."
+    },
+    {
+      "key": "batch-a5489a23ea457e1c6fde|lane-000-1",
+      "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/71b66382-3241-4a6a-89a4-cd5942fca8be.jsonl",
+      "native_sha256": "7ac9fdb01e435ce730243bcd3019f00b12688e8cfe3fdf130646c99ac8088f46",
+      "calls": [
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "wc -c .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-1.json && cat .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-1.json"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "awk '/^#+ *(六|6)[.、 ]/{f=1} f' docs/paseo-translation-surface-screen-v1-contract.md | head -120"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-1.json'))\np=d['payload']\nids=[e['entry_revision_identity'] for e in p['entries']]\nprint(len(ids))\niss={'e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1':'漏译条件限定词：源串为 \\\"A successful saving throw can crit and will reduce the damage by at least 50%%\\\"，译文作「鉴定时精神豁免可能暴击，至少减少 50%% 的伤害」，未体现「豁免成功」这一前提，把有条件减伤说成必然；同句末段「增加你 10 %%唯我临界点」在数字与 %% 之间多出空格且缺「的」，格式与读法均异常。'}\nres=[{'entry_revision_identity':i,'observation':iss[i],'verdict':'ISSUE'} if i in iss else {'entry_revision_identity':i,'verdict':'OK'} for i in ids]\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':res}\ns=json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':'))\nopen('/tmp/out.json','w').write(s)\nprint(s)\n\""
+          }
+        }
+      ],
+      "boundary_valid": false,
+      "reason": "Read substantive section seven outside the explicitly permitted section six. Also wrote /tmp/out.json despite read-only instruction."
+    },
+    {
+      "key": "batch-a5489a23ea457e1c6fde|lane-000-2",
+      "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/e76ad6bf-1577-4faa-93f9-fcd5576a8f75.jsonl",
+      "native_sha256": "848438f75cee61841dbcc331fabae7fdce1c2e52828efd1ad763a2e1a0878300",
+      "calls": [
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "wc -c .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-2.json && cat .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+            "description": "Read lane envelope"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "awk '/^## *(六|6)[\\.、 ]/,0' docs/paseo-translation-surface-screen-v1-contract.md | head -120",
+            "description": "Read contract section 6"
+          }
+        },
+        {
+          "tool": "Bash",
+          "input": {
+            "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-lane-000-2.json'))\nout={'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in d['payload']['entries']]}\nprint(json.dumps(out,ensure_ascii=False,sort_keys=True,separators=(',',':')))\n\"",
+            "description": "Build canonical result JSON"
+          }
+        }
+      ],
+      "boundary_valid": false,
+      "reason": "Read substantive section seven outside the explicitly permitted section six."
+    }
+  ],
+  "stage_accepted": false,
+  "decision": "Reject attempt as a whole; preserve raw; fresh complete four-lane retry. No child was created for lane 4.",
+  "tracked_diff": ""
+}

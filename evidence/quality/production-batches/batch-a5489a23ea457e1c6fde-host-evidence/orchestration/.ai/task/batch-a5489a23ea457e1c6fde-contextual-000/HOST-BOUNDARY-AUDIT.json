@@ -1,0 +1,71 @@
+{
+  "native_sha256": "44fa3ec0eff775c5e9f1526f6d93f57da9c936b5fb4f6c21194de8daed8a1103",
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_09d394cf5cf9fa92016ab1c35c747887d29a1d5d3b96b95252",
+      "status": "completed",
+      "call_id": "call_N15rAhwJunMibasplN5LS4V9",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '94,128p' docs/paseo-translation-context-review-v2-contract.md && python3 - <<'PY'\\nimport json\\np='.ai/task/batch-a5489a23ea457e1c6fde-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'\\nwith open(p,encoding='utf-8') as f:d=json.load(f)\\nprint(json.dumps(d,ensure_ascii=False,indent=2))\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c662-e23a-7222-97bf-56984b304782",
+        "create_time": 1790034769.33967
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_09d394cf5cf9fa92016ab1c381875487d2b61c79f8ce3452f6",
+      "status": "completed",
+      "call_id": "call_jqtimG1w0WGcMo3CaOtrWmD6",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 rev-parse HEAD && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/solipsism.lua | sed -n '145,200p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/other.lua | sed -n '665,722p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c662-e23a-7222-97bf-56984b304782",
+        "create_time": 1790034786.233649
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_09d394cf5cf9fa92016ab1c395c4d087d296b9e68d153d00e3",
+      "status": "completed",
+      "call_id": "call_cG8Wp3NJxCyjHtIn820UiTrU",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nimport json\\np='.ai/task/batch-a5489a23ea457e1c6fde-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'\\nd=json.load(open(p,encoding='utf-8'))['payload']\\nfor c,t in zip(d['bounded_context'],d['translation_snapshot']):\\n    print('KEY',c['revision_key'])\\n    print('PATH',c['context'].splitlines()[0])\\n    sf=json.loads(c['context'].split('source_facts_v1:',1)[1])['fact']\\n    print('TERMS',json.dumps(sf['terminology'],ensure_ascii=False))\\n    for a in sf['anchors']:\\n      print('ANCHOR',a['public_source_path'],a['commit'],a['matching_lines'])\\n      for s in a['snippet']:\\n       if s['is_match']: print(f\\\"  {s['line']}: {s['text']}\\\")\\n    print('SOURCE',repr(t['source']))\\n    print('TARGET',repr(t['target']))\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c662-e23a-7222-97bf-56984b304782",
+        "create_time": 1790034824.450261
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_09d394cf5cf9fa92016ab1c3be186c87d2b39b053563c8b83c",
+      "status": "completed",
+      "call_id": "call_Nen1zp4sr0V68WhxCXRtpQS4",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/fungus.lua | nl -ba | sed -n '55,106p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/other.lua | nl -ba | sed -n '680,720p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c662-e23a-7222-97bf-56984b304782",
+        "create_time": 1790034848.721278
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_09d394cf5cf9fa92016ab1c3c692b087d28c4feb90a0f6d541",
+      "status": "completed",
+      "call_id": "call_ZF4YrbswNroO7sTdwx0mUSZb",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/other.lua | nl -ba | sed -n '660,684p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":4000});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c662-e23a-7222-97bf-56984b304782",
+        "create_time": 1790034884.714619
+      }
+    }
+  ],
+  "boundary_valid": true,
+  "output_valid": true,
+  "archive_confirmed": true,
+  "actual_scope": "Own frozen input, contract94-128, fixed related public game source. No external terminology or current translation/prior findings/writes.",
+  "acceptance_published": false,
+  "procedural_note": "Custom prompt deviation under user-requested process audit; see parent task PROMPT-FLOW-AUDIT.md."
+}

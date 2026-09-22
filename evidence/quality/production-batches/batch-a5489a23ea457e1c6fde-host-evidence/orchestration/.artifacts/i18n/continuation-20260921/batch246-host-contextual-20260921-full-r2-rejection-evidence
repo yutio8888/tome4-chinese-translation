@@ -1,0 +1,117 @@
+{
+  "native_sha256": "dfea30bbcae554876d10586465fa30b69c8baf8a6c0a04f1530386fd1c412f76",
+  "calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_014PMSSKGxFGM6Tox2g3WZRd",
+      "name": "Bash",
+      "input": {
+        "command": "ls -la .ai/task/batch246-host-contextual-20260921/ && wc -c .ai/task/batch246-host-contextual-20260921/CONTEXTUAL-ENVELOPE-final-full.json",
+        "description": "List task dir and envelope size"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Jfcswckrftet1fuw97UBaB",
+      "name": "Bash",
+      "input": {
+        "command": "cat .ai/task/batch246-host-contextual-20260921/CONTEXTUAL-ENVELOPE-final-full.json",
+        "description": "Read envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01YNWQm94okprosTADpDQhrX",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '1,40p' docs/paseo-translation-context-review-v2-contract.md | head -5; echo ---; awk '/^#+ *六/,/^#+ *八/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract sections 6-7"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01HcVeNPskZFMEvDQ4xtpUCb",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git cat-file -p 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/warcries.lua | sed -n '85,135p'",
+        "description": "Read warcries talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Wbirz7jRJWbHGLvxuDvwTH",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git cat-file -p 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | grep -n \"BATTLE_CRY\" ",
+        "description": "Find BATTLE_CRY effect"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_019ohFizQhGZRuUGLCi7U8JN",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git grep -n \"BATTLE_CRY\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/timed_effects/ | head",
+        "description": "Locate BATTLE_CRY effect definition"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BCPznK23eN7K5LkzbEMPoF",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git cat-file -p 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '265,305p'",
+        "description": "Read BATTLE_CRY effect body"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01UddH675Zi5M1WNZNdSvSe3",
+      "name": "Bash",
+      "input": {
+        "command": "ls terminology/ 2>/dev/null | head; grep -nP \"^(Defense|Evasion|Concealment|Willpower)\\t\" terminology/combat.tsv 2>/dev/null; echo \"---\"; grep -niP \"\\t(Defense|Evasion)\\t|^(Defense|Evasion)\\b\" terminology/combat.tsv | head -20",
+        "description": "Check terminology for Defense/Evasion"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S7toEGiQgNThSP5FG1WPMj",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git cat-file -p 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '1405,1470p'",
+        "description": "Read GRAPPLING/GRAPPLED effects"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "strict_output_valid": true,
+  "boundary_valid": false,
+  "reason": "Read combat.tsv lines 113 and 118 beyond explicitly frozen terminology row 140; also read contract introduction beyond sections six-seven. Related fixed-source reads and read-only behavior otherwise valid. Raw preserved; acceptance not published.",
+  "archive_confirmed": true
+}

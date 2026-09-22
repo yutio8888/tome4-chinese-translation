@@ -1,0 +1,50 @@
+{
+  "recorded_at": "2026-09-21T23:31:41.986215+00:00",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "not_reviewer_input": true,
+  "not_production_adjudication": true,
+  "observations": [
+    {
+      "revision_prefix": "e128c83148",
+      "category": "mechanism/completeness",
+      "observation": "非回复治疗按实际有效治疗量计能量；溢出治疗不计，能量总储量封顶两回合。现译遗漏前者，把后者写成每次效果最多获得两回合。",
+      "source_anchor": "game/modules/tome/data/talents/gifts/fungus.lua:73-80",
+      "status": "host_source_checked_pending_independent_review"
+    },
+    {
+      "revision_prefix": "e1343327ea",
+      "category": "mechanism/fidelity",
+      "observation": "GRAPPLING状态在持有者on_timeout内incStamina(-eff.drain)，是每回合消耗自身的体力，现译“吸取”方向错误。",
+      "source_anchor": "game/modules/tome/data/timed_effects/physical.lua:1422-1434",
+      "status": "host_source_checked_pending_independent_review"
+    },
+    {
+      "revision_prefix": "e172753e04",
+      "category": "mechanism/completeness",
+      "observation": "doDismissalOnHit只有checkHit成功才调用mindCrit并减伤，失败return value；现译减伤句缺少鉴定成功条件。意志/体质基准10的补充有on_learn163-164依据，不能一并删除。",
+      "source_anchor": "game/modules/tome/data/talents/psionic/solipsism.lua:155-195",
+      "status": "host_source_checked_pending_independent_review"
+    },
+    {
+      "revision_prefix": "e200845e1a",
+      "category": "mechanism/fidelity",
+      "observation": "BattleCry震慑防御意志，并不扣意志属性；状态只有combat_def/no_evasion/blind_fighted。现译“减少…意志”有属性误导，拟按击溃斗志核验；范围实际cone而原文只称radius。",
+      "source_anchor": "game/modules/tome/data/timed_effects/mental.lua:271-284; game/modules/tome/data/talents/techniques/warcries.lua:T_BATTLE_CRY",
+      "status": "host_source_checked_pending_independent_review"
+    },
+    {
+      "revision_prefix": "e1cd6fb504",
+      "category": "fidelity/completeness",
+      "observation": "书信把问候健康改为书信安全到达，遗漏遭遇地点Derth；matching whole pack/同剑长误作远超/更长，并增写赤眼与吞噬一切生命。需独立确认具体可接受修复边界。",
+      "source_anchor": "game/modules/tome/data/lore/misc.lua:76-85",
+      "status": "host_source_checked_pending_independent_review"
+    },
+    {
+      "revision_prefix": "e1177a8f9f",
+      "category": "fidelity/completeness",
+      "observation": "壁画中小石岛位于水晶城后方，现译改为周围且遗漏石质与小的限定；需独立确认该叙述失真。",
+      "source_anchor": "game/modules/tome/data/lore/shertul.lua:59-60",
+      "status": "host_source_checked_pending_independent_review"
+    }
+  ]
+}

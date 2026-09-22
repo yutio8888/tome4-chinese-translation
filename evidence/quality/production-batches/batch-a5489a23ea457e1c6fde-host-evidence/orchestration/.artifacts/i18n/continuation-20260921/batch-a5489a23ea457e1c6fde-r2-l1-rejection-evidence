@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "key": "batch-a5489a23ea457e1c6fde|r2-l1",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_086cfdb59e6efec5016ab1befb242887d1be42b142ef4e8310",
+          "status": "completed",
+          "call_id": "call_QrIxU2LJta36x0KB8vrX4Vdr",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '/^## 六/,$p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0c651-dce0-7a30-8faf-76da38d8d23c",
+            "create_time": 1790033654.586528
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_086cfdb59e6efec5016ab1bf012b1887d1a61cf6c2fa825d9b",
+          "status": "completed",
+          "call_id": "call_AQmq3IZMCjKVPGjKYUNGnBCz",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('.ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-r2-l1.json')\\nprint(p.read_text())\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0c651-dce0-7a30-8faf-76da38d8d23c",
+            "create_time": 1790033662.597942
+          }
+        }
+      ],
+      "native_sha256": "d4b8dfe05eba3ecb5c8d0bc99c0ca2402c4170c084c8f37afeb52b82d24540e5",
+      "boundary_valid": false,
+      "reason": "sed from section six through EOF included substantive section seven outside the exact allowed boundary."
+    },
+    {
+      "key": "batch-a5489a23ea457e1c6fde|r2-l2",
+      "calls": [
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_0fe923231fb1bfaf016ab1befabf7487d2ab2d5b151047dbc5",
+          "status": "completed",
+          "call_id": "call_Zfa58ACLct2bSn6jD4V5Uh4H",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"rg -n '^#{1,6} |第六|第 6|六、' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,240p' .ai/task/batch-a5489a23ea457e1c6fde/SURFACE-SCREEN-ENVELOPE-r2-l2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0c651-dee7-7bf3-9e74-d602bdc08f05",
+            "create_time": 1790033654.243532
+          }
+        },
+        {
+          "type": "custom_tool_call",
+          "id": "ctc_0fe923231fb1bfaf016ab1bf0145b087d28cb6f11504bba213",
+          "status": "completed",
+          "call_id": "call_dFNVjGAvzvQ5CfWx9Vse5GlI",
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '182,207p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n",
+          "internal_chat_message_metadata_passthrough": {
+            "turn_id": "01a0c651-dee7-7bf3-9e74-d602bdc08f05",
+            "create_time": 1790033663.591671
+          }
+        }
+      ],
+      "native_sha256": "7f77dcd1346c5140df7b87a7742cbdf711e66dea80893456417ff130f07ca8e3",
+      "boundary_valid": true,
+      "reason": "Only input plus heading navigation and section six lines 182-207."
+    }
+  ],
+  "stage_accepted": false,
+  "decision": "Fresh complete group; retain all raw and historical records."
+}

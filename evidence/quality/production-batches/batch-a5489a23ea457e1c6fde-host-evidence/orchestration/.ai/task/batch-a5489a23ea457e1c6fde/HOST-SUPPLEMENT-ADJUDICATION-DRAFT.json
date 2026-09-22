@@ -1,0 +1,83 @@
+{
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "not_production_adjudication": true,
+  "formal_surface_and_contextual_raw_unchanged": true,
+  "items": [
+    {
+      "revision_key": "e1343327ead953361b1fefe6fb85fd1569679eb6b9a269a08a6f5c1c8a473152",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "origin": "independent host check plus valid supplemental full-r3",
+      "conclusion": "GRAPPLING持有者每回合消耗自身体力，而不是吸取体力；转移的是所受伤害。固定tome624a67329fe2ad440c5b344785a9c73fcf22ae63 physical.lua:1422-1452，incStamina(-eff.drain)、cb.value*eff.sharePct、return cb.value-share。",
+      "parameter_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "stamina",
+          "producer": "eff.drain",
+          "consumer": "holder:incStamina(-eff.drain)",
+          "display": "%d每回合消耗"
+        },
+        {
+          "index": 2,
+          "quantity_kind": "damage_fraction",
+          "producer": "eff.sharePct*100",
+          "consumer": "cb.value*eff.sharePct routed to eff.trgt; original cb.value-share",
+          "display": "%d%%所受伤害"
+        },
+        {
+          "index": 3,
+          "quantity_kind": "entity_name",
+          "producer": "eff.trgt.name or unknown",
+          "consumer": "display only",
+          "display": "%s"
+        }
+      ]
+    },
+    {
+      "revision_key": "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "origin": "host independent fixed-source check; formal contextual verdict remains OK",
+      "conclusion": "Dismissal的伤害减免必须鉴定成功；solipsism.lua:178-189只有checkHit成功才mindCrit并return value*...，失败return value。现译未写成功条件而把至少减伤50%接在鉴定时后，会使失败也减伤。保留基准属性10的源码支持补充。",
+      "parameter_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "save_fraction",
+          "producer": "t.getSavePercentage(self,t)*100",
+          "consumer": "saving_throw=self:combatMentalResist()*t.getSavePercentage(self,t); checkHit(saving_throw,value)",
+          "display": "%d%%精神豁免系数"
+        },
+        {
+          "index": 2,
+          "quantity_kind": "threshold_percent",
+          "producer": "math.min(self.solipsism_threshold or 0,self.clarity_threshold or 1)*100",
+          "consumer": "display current threshold; on_learn adds10percent",
+          "display": "%d%%当前唯我临界点"
+        }
+      ]
+    },
+    {
+      "revision_key": "e200845e1abc8076051b8f755bd28ff1bfe68ebb7009b6c15f1b022aaecd461a",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "origin": "host independent fixed-source claim; valid supplemental full-r3 raised different related observations",
+      "conclusion": "BattleCry的shatters the will是击溃防御斗志，不减Willpower属性。mental.lua:271-284仅修改combat_def/no_evasion/blind_fighted。修复减少意志的属性误导；evasion与不可见命中限制可清楚分别表述，但原“不可见带来的闪避效果”确可泛指免中优势，不能仅凭命名认定另一独立机制错误。码的跨批次统一不在本批授权内。warcries.lua:111-123投射为cone，修复描述如明确扇形须以此源码为依据。",
+      "parameter_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "range",
+          "producer": "self:getTalentRadius(t)",
+          "consumer": "target.type=cone radius; self:project(tg)",
+          "display": "%d范围"
+        },
+        {
+          "index": 2,
+          "quantity_kind": "defense_reduction",
+          "producer": "7*self:getTalentLevel(t)",
+          "consumer": "setEffect(EFF_BATTLE_CRY,7,{power=...})->combat_def -eff.power",
+          "display": "%d闪避降低"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+独立只读上下文补充复审，用户已恢复连续审核。仅draft冻结的2条revision，来源本批batch-a5489a23ea457e1c6fde及固定源码。此task不属于生产deep set，不改原surface或生产checkpoint。先准确SCOPE/draft独立anchor preflight再冻结，REVIEWER只读冻结译文、引用、契约六七节及调用链相关固定源码，不查当前汉化文件或历史finding。输出只作观察，由宿主核验裁决。禁止修改译文、术语、规则和旧记录；完整raw/身份/lineage/读取边界校验、归档与DONE_VERIFIED后才采用。confirmed项另记宿主补充修复候选，不伪造生产repair_required状态。基线7c38a53b88a1c80d7d9b209f84c518ae9f6eac00。
+
+## 后续派发政策修订（2026-09-22）
+
+根据用户“请调整流程和prompt后继续”授权，且review-input-policy-20260922已DONE_VERIFIED，后续dispatch采用统一正式三行prompt及当前完整对应契约读取政策。译文/术语仅用冻结envelope内实际正文，provenance不授予当前库读取；相关固定版本公开源码调用链仍可补查。此补充替代上文仅六七节的后续派发限制，仅读边界不变。原SPEC、candidate/envelope/raw/prompt及旧审核记录均保留，不重解释历史。当前envelope内容和identity不变，先前真实anchor preflight仍绑定同一输入。
