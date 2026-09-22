@@ -455,3 +455,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01223 | confirmed：格式控制符与段落结构；confirmed：`this human` 指代被译错；confirmed：`none of this I knew` 时间指代错；confirmed：`saying to seek you out in Elvala` 漏译；confirmed：`I took on` 漏掉主动接战；confirmed：第 28 段漏句末标点；confirmed：第 29 段重叠标点；confirmed：第 32 段从句被句号截断；confirmed：第 22 段时间状语断裂；confirmed：`relapse` 弱化为“虚弱状态”；confirmed：`scared of that empty look` 译成“心如刀割”；confirmed：`empty` 译“空灵无物”；confirmed：`white stone` 译“磐石”；confirmed：`dealings` 译“交易”偏窄。pending：「白石是所有夏·图尔遗迹的普遍材质」广义设定主张证据不足。advisory：Gemini 称寻人遗命为“关键情节枢纽”略有夸大 |
 
 人工待决：两处“关键情节遗漏”按 Sol 的收窄意见评估影响，不按完全丢失情节计。译文未修改。
+
+## batch-037 单条交叉结果（entry-01224）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-036-01.md](reports/sol-036-01.md)。译文未修改。共 3 个 claim：2 confirmed、1 advisory。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01224 | confirmed：「床位」应为「床尾」，源码 `near the end of my bed`（elvala.lua:429），同章第二夜也用 `at the foot of my bed` | 改“床尾的一个身影”或更贴 near 的“床尾附近的一个身影” |
+| entry-01224 | advisory：眼周皱纹特写被泛化成“脸上的痕迹”，且相邻分句重复“痕迹” | 若纳入本轮润色，恢复“眼睛周围布满操劳的皱纹” |
+| entry-01224 | confirmed（低影响）：直接引语逗号置于后引号之外；Sol 认为 Gemini 视为中性的“排版习惯差异”略显宽松 | 先确认仓库对话标点体例，再决定优先级 |
+
+译文未修改。
