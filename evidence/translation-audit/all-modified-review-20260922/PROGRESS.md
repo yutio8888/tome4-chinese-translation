@@ -578,5 +578,5 @@
 - gemini-060-01：40/40（entry-01786–01825）。**覆盖 1830/4144**。七处标记：01788、01803、01823 存在疑点；01798、01804、01807、01820 细微观察。报告 sha256 `41fd6656fe72c6f0d00cadaec8341b85fe8656b29e19118da67b57ce11a6e657`。
 - 收回核验：batch-060 / cross-batch-059 / batch-059 / gemini-059 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-060-01 `2026-09-22T09:46:07.717Z`，sol-058-01 `2026-09-22T09:46:09.211Z`。无未归档 child。
-- 下一片已就绪：batch-061（entry-01826–01865，40 条，sha `45748343b37b4e5e2822fde6fbd4cfbdc9285bba87b59858d603b3599947df12`）+ cross-batch-060（7 条，sha `$X` 见上一行输出 CROSS060_SHA）。
+- 下一片已就绪：batch-061（entry-01826–01865，40 条，sha `45748343b37b4e5e2822fde6fbd4cfbdc9285bba87b59858d603b3599947df12`）+ cross-batch-060（7 条，sha `36fad4de4c10b3e0687c5deca5a9c0e1392fd5da4295612f63bf19d1994c39c8`）。
 - 更新时间见 STATE.json `updated_at`。
