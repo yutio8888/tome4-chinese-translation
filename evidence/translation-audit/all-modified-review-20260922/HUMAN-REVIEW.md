@@ -887,3 +887,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02067 | confirmed：上游源码参数顺序缺陷（译文层面 advisory 级） | 记入上游问题清单，译文低优先级 |
 
 译文未修改。Sol 明确：真正可确认的译文语义问题只有 02028。两条 refuted 是对 Gemini 机制推断的下修，原样转录。
+
+## batch-067 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-067-01.md](reports/sol-067-01.md)。译文未修改。共 20 个 claim：13 confirmed、5 advisory、2 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02069 | confirmed：“Orcs”译“兽族”；confirmed：占位符与机制数值正确。advisory：“They”改“你们” | 称谓统一 |
+| entry-02074 | confirmed：减伤与逐回合灵能消耗描述正确。advisory：首行缺句末标点 | 补句号 |
+| entry-02081 | confirmed×3：`bolts` 译“灵能值球”；每枚飞弹消耗 5 Feedback；四占位符正确 | 改回飞弹类措辞 |
+| entry-02097 | confirmed：伤害/震慑时间/物理强度参数正确。advisory：末尾缺句号 | 补句号 |
+| entry-02103 | confirmed：`stamina` 译“耐力”；confirmed：八参数及资源对应正确 | 按术语改 |
+| entry-02106 | confirmed：行首句号与半角句点混用；confirmed：“全属性”增译符合实现；confirmed：三参数顺序正确。refuted：省略 `+%d%%` 正号**不构成**语义问题 | 修标点；不因正号改语义 |
+| entry-02107 | confirmed：`for 2 turns` 译“两轮”；confirmed：伤害/降伤/时长机制准确。refuted：省略 `penalty` **不构成**机制信息丢失（清晰度问题记 advisory） | 两轮改“回合”；penalty 可选补 |
+
+译文未修改。2 条 refuted 是对 Gemini“机制信息丢失”定性的下修，原样转录。
