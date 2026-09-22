@@ -1,0 +1,3 @@
+审核250，修复窗口5第一批。用户授权持续审核并逐批push。固定基线27541f6fbb8055a15645fc6d0673ba8a14f9e6fb；范围仅现有checkpoint/source-workset/envelope所冻结的80个有序revision，见SCOPE.json。全为tome，79条固定字面匹配，1条alchemist garnet经固定源码运行期拼接核验；全部63个文件SHA与commit624a67329fe2ad440c5b344785a9c73fcf22ae63的git对象一致。只读表面与上下文审核；主代理按源码裁决，禁止修改译文、术语、规则及旧冻结记录。四lane初筛后按真实anchor preflight冻结上下文，规范三行prompt、strict/native/读取边界检查、归档和DONE_VERIFIED；完整17门禁与严格addon构建后证据提交、finalize、队列同步与push。既有Archmage命名策略及RW1-SIB-01/02不扩大，当前新选Archmagi说明可按其具体文本审核，不改类名。保留无关文件。本批不实施译文修复，确认项汇总至窗口5。
+
+记录时序：本SPEC/PLAN/SCOPE于2026-09-22T07:58:08.881936+00:00补录，初筛前实际范围已在已冻结checkpoint、source-workset、四lane envelope/group及派发参数中建立；不声称这些行政文档先于初筛存在，不改变任何已发输入、角色权限或原始结果。

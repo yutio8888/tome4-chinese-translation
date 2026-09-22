@@ -1,0 +1,51 @@
+{
+  "recorded_at": "2026-09-22T07:54:22.330048+00:00",
+  "reviews": [
+    {
+      "dispatch": "batch-990137011625a41fa36b|lane-000-0",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T07-50-36-01a0c818-6149-7722-a529-ac34d58dbb5a.jsonl",
+      "native_sha256": "ada32e19716ed8771a469e783c97a8723838d8ef66df2cd19784687c7f7a3295",
+      "tool_calls": [
+        "const r = await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md && cat .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":50000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-0.json && sed -n '1,180p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '181,360p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq -r '.candidate_identity, (.payload.entries|length), (.payload.entries | to_entries[] | \\\"INDEX \\\\(.key)\\\\nID \\\\(.value.entry_revision_identity)\\\\nSOURCE:\\\\n\\\\(.value.source)\\\\nTARGET:\\\\n\\\\(.value.target)\\\\n---\\\")' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":50000}); text(r.output);\n"
+      ],
+      "boundary_result": "PASS",
+      "basis": "宿主已逐项阅读全部调用，仅读取各自冻结envelope及完整surface契约，无写入或越界读取。"
+    },
+    {
+      "dispatch": "batch-990137011625a41fa36b|lane-000-1",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T07-50-36-01a0c818-6353-74d2-a596-18bfba38f225.jsonl",
+      "native_sha256": "9f3fe6f48003338985e979e8505374fd3ae7041676d4aaf2e190d74b7ade809c",
+      "tool_calls": [
+        "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-1.json && sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,240p' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"sed -n '241,270p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":5000});\ntext(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq -r '.payload.entries[] | [.entry_revision_identity,.source,.target] | @tsv' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000});\ntext(r.output);\n"
+      ],
+      "boundary_result": "PASS",
+      "basis": "宿主已逐项阅读全部调用，仅读取各自冻结envelope及完整surface契约，无写入或越界读取。"
+    },
+    {
+      "dispatch": "batch-990137011625a41fa36b|lane-000-2",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T07-50-37-01a0c818-6563-7a50-a5ec-1292c044cd08.jsonl",
+      "native_sha256": "3abfda0d25495da73436b7118baae658bd0a7d05d4e58809922e6bde2bef37a5",
+      "tool_calls": [
+        "const r = await tools.exec_command({cmd:\"sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '241,520p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+      ],
+      "boundary_result": "PASS",
+      "basis": "宿主已逐项阅读全部调用，仅读取各自冻结envelope及完整surface契约，无写入或越界读取。"
+    },
+    {
+      "dispatch": "batch-990137011625a41fa36b|lane-000-3",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T07-51-56-01a0c819-9c45-7562-8f23-b4168255f56e.jsonl",
+      "native_sha256": "eb08b79af1d68e9ccf84be25489739f72cd3f2bf3d8262e9911a0753a4d59c16",
+      "tool_calls": [
+        "const r = await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md && cat .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq -c '{candidate_identity,entries:.payload.entries}' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq -r '.payload.entries[] | .entry_revision_identity' .ai/task/batch-990137011625a41fa36b/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":5000}); text(r.output);\n"
+      ],
+      "boundary_result": "PASS",
+      "basis": "宿主已逐项阅读全部调用，仅读取各自冻结envelope及完整surface契约，无写入或越界读取。"
+    }
+  ]
+}

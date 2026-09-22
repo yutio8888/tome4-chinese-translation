@@ -1,0 +1,65 @@
+{
+  "workset": "evidence/quality/production-batches/batch-990137011625a41fa36b-source-workset.json",
+  "decisions": {
+    "323606655f|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定lore/elvala.lua:188明确各个表面闪耀光芒，对应译文只保留墙壁能量，缺少该完整分句；190段闪光大厅描述属于另句，不能代替188分句。新revision全条审核内确认局部遗漏，不追溯改写窗口4限定修复的原结论。"
+    },
+    "6c8f356230|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定orc-breeding-pit/zone.lua:69–74为叙述中直接引出喊声，译文“叫道…！”后又加句号形成重复句末终止标点；确认局部中文标点问题，不改变刚修复的建筑内空间关系。"
+    },
+    "e564485d2a|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定general/npcs/wight.lua:65–69描述forest wight整体humanoid form；译文把人形改成人类脸孔，确认形态对象偏移。"
+    },
+    "e5666d20d3|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定undeads/ghoul.lua:226–256及timed_effects/magical.lua:2429–2454、Actor.lua:3399–3405：非致死命中须成功感染GHOUL_ROT且make_ghoul有效，之后死亡才生成友方食尸鬼，译文第三句省略此限定。但surface称感染为全部复活的必要条件过强：Gnaw直接击杀且可染病时会直接spawn_ghoul。只确认后续死亡分支说明遗漏，修复不得断言未感染时任何分支均不能复活。"
+    },
+    "e569fd5838|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定gifts/summon-distance.lua:382–403的talent属于wild-gift/summon-distance，is_summon=true、使用目标SummonTarget且message明确summons；后文info直接写Summon a Ritch Flamespitter。名称召唤前缀是本技能功能的有据说明，不以未逐字对应原名判错或改全局命名。"
+    },
+    "e56b636891|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定cursed/darkness.lua:23–134、430–480以duration=12创建追踪实体，目标死亡、距离无法追上、无路可行会提前消散，命中后改为pinDuration倒计时；原文up to 12 turns遗漏最多。原文1LF、译文2LF，另有缩进TAB差异；LF是独立明确布局缺陷，TAB不与LF混称。保留伤害与定身参数顺序。"
+    },
+    "e571821f55|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定timed_effects/floor.lua:53–68只允许checkClassification(living)受益；Actor.lua:7047–7076的unliving还含construct、crystal，living为其反集。译文只说不死族无法获益不能覆盖构装体与水晶，确认适用对象限定遗漏。"
+    },
+    "e5746fcea6|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定timed_effects/other.lua:624–685和chronomancy/chronomancy.lua:165–212表明该状态对应三条时间线的探索、回溯与选择；命运螺旋为技能/状态一致的既有意译，不将看见丝线的字面未复现直接判为机制错误。可记命名贴合度建议，不据此自动改名或更新术语。"
+    },
+    "e58ba9366d|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定birth/classes/mage.lua:139–151明确start with knowledge，187–214列出出生已掌握多个法术系及四个初始技能。现译学习各种学科遗漏初始就掌握的状态；只修此说明限定，不涉及Archmage类名政策。"
+    },
+    "e5a468946b|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定chats/alchemist-last-hope.lua:121–142是初遇炼金术士对白，dismembering明确肢解，后续proposal索取monster parts；泛化为搜集材料遗漏该动作。Say是搭话语而非要求对方说话的命令，现译“说！”也使语气不自然。确认局部对白语义，不扩大任务情节。"
+    },
+    "e5bca739cc|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定init.lua:115的many Thaloren lands指多处自然精灵领地；many不是许多大陆，后一句另谈Maj’Eyal东部。确认大陆误译，沿用现有自然精灵名称。"
+    },
+    "e5dc6a60be|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定lore/elvala.lua:368–396的完整直接引语与叙述，现译“等等！”，和“离开这个地方。”。形成多余句末标点；可按中文直接引语修正。一般“……”后逗号的位置须按所引内容是否独立完整判断，不把一切引号外逗号自动判错。其他保真疑点另按具体源码裁决，不由标点观察自动扩展。"
+    }
+  }
+}

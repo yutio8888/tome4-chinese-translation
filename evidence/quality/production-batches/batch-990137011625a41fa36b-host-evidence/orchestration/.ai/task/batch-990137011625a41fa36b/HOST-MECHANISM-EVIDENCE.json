@@ -1,0 +1,104 @@
+{
+  "anchors": [
+    {
+      "label": "Gnaw action and info",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+      "line_start": 226,
+      "line_end": 256,
+      "source_sha256": "036f501d24a0e0f24b96d135bb879a2a344d977473f26c460c8d1ca99f0a98d9",
+      "text": "\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y, target = self:getTarget(tg)\n\t\tif not target or not self:canProject(tg, x, y) then return nil end\n\t\tlocal hitted = self:attackTarget(target, nil, t.getDamage(self, t), true)\n\n\t\tif hitted then\n\t\t\tif target:canBe(\"disease\") then\n\t\t\t\tif target.dead then\n\t\t\t\t\tt.spawn_ghoul(self, target, t)\n\t\t\t\telse\n\t\t\t\t\ttarget:setEffect(target.EFF_GHOUL_ROT, t.getDuration(self,t), {src=self, apply_power=self:combatPhysicalpower(), dam=t.getDiseaseDamage(self, t),  make_ghoul=1})\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tgame.logSeen(target, \"%s resists the disease!\", target:getName():capitalize())\n\t\t\tend\n\t\tend\n\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damage = t.getDamage(self, t)\n\t\tlocal duration = t.getDuration(self, t)\n\t\tlocal ghoul_duration = t.getGhoulDuration(self, t)\n\t\tlocal disease_damage = t.getDiseaseDamage(self, t)\n\t\treturn ([[Gnaw your target for %d%% damage.  If your attack hits, the target may be infected with Ghoul Rot for %d turns.\n\t\tEach turn, Ghoul Rot inflicts %0.2f blight damage.\n\t\tTargets suffering from Ghoul Rot rise as friendly ghouls when slain.\n\t\tGhouls last for %d turns and can use Gnaw, Ghoulish Leap, Stun, and Rotting Disease.\n\t\tThe blight damage scales with your Constitution.]]):\n\t\ttformat(100 * damage, duration, damDesc(self, DamageType.BLIGHT, disease_damage), ghoul_duration)"
+    },
+    {
+      "label": "Ghoul Rot effect",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/timed_effects/magical.lua",
+      "line_start": 2429,
+      "line_end": 2454,
+      "source_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "text": "newEffect{\n\tname = \"GHOUL_ROT\", image = \"talents/gnaw.png\",\n\tdesc = _t\"Ghoul Rot\",\n\tlong_desc = function(self, eff)\n\t\tlocal ghoulify = \"\"\n\t\tif eff.make_ghoul > 0 then ghoulify = _t\"  If the target dies while ghoul rot is active it will rise as a ghoul.\" end\n\t\treturn (\"The target is infected by a disease doing %0.2f blight damage per turn.%s\"):tformat(eff.dam, ghoulify)\n\tend,\n\ttype = \"magical\",\n\tsubtype = {disease=true, blight=true},\n\tstatus = \"detrimental\",\n\tparameters = {str = 0, con = 0, dex = 0, make_ghoul = 0},\n\ton_gain = function(self, err) return _t\"#Target# is afflicted by ghoul rot!\" end,\n\ton_lose = function(self, err) return _t\"#Target# is free from the ghoul rot.\" end,\n\t-- Damage each turn\n\ton_timeout = function(self, eff)\n\t\tif self:attr(\"purify_disease\") then self:heal(eff.dam, eff.src)\n\t\telse DamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, eff.dam, {from_disease=true})\n\t\tend\n\tend,\n\tactivate = function(self, eff)\n\tend,\n\tdeactivate = function(self, eff)\n\tend,\n}\n"
+    },
+    {
+      "label": "Ghoul Rot on death",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/class/Actor.lua",
+      "line_start": 3397,
+      "line_end": 3408,
+      "source_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "text": "\tend\n\n\tif self:hasEffect(self.EFF_GHOUL_ROT) then\n\t\tlocal p = self:hasEffect(self.EFF_GHOUL_ROT)\n\t\tif p.make_ghoul > 0 then\n\t\t\tlocal t = p.src:getTalentFromId(p.src.T_GNAW)\n\t\t\tt.spawn_ghoul(p.src, self, t)\n\t\tend\n\tend\n\n\tif src and self:attr(\"sleep\") and src.isTalentActive and src:isTalentActive(src.T_NIGHT_TERROR) then\n\t\tlocal t = src:getTalentFromId(src.T_NIGHT_TERROR)"
+    },
+    {
+      "label": "Ritch summon definition",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/talents/gifts/summon-distance.lua",
+      "line_start": 382,
+      "line_end": 403,
+      "source_sha256": "647fa41f0891735435261fb1b75a9f3ab2e9be16288e14ed3ed5c5562eec59f0",
+      "text": "newTalent{\n\tname = \"Ritch Flamespitter\",\n\ttype = {\"wild-gift/summon-distance\", 1},\n\trequire = gifts_req1,\n\tpoints = 5,\n\trandom_ego = \"attack\",\n\tmessage = _t\"@Source@ summons a Ritch Flamespitter!\",\n\tequilibrium = 2,\n\tcooldown = 10,\n\trange = 5,\n\tradius = 5, -- used by the the AI as additional range to the target\n\trequires_target = true,\n\tis_summon = true,\n\ttarget = SummonTarget,\n\tonAIGetTarget = onAIGetTargetSummon,\n\taiSummonGrid = aiSummonGridRanged,\n\ttactical = { ATTACK = { FIRE = 2 } },\n\ton_pre_use = function(self, t, silent)\n\t\tif not self:canBe(\"summon\") and not silent then game.logPlayer(self, \"You cannot summon; you are suppressed!\") return end\n\t\treturn not checkMaxSummon(self, silent)\n\tend,\n\ton_pre_use_ai = aiSummonPreUse,"
+    },
+    {
+      "label": "See Threads three timelines effect",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/timed_effects/other.lua",
+      "line_start": 624,
+      "line_end": 685,
+      "source_sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+      "text": "newEffect{\n\tname = \"SEE_THREADS\", image = \"talents/see_the_threads.png\",\n\tdesc = _t\"See the Threads\",\n\tlong_desc = function(self, eff) return (\"You walk three different timelines, choosing the one you prefer at the end (current timeline: %d).\"):tformat(eff.thread) end,\n\ttype = \"other\",\n\tsubtype = { time=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=10, defense=0, crits=0 },\n\tremove_on_clone = true,\n\tactivate = function(self, eff)\n\t\teff.thread = 1\n\t\teff.max_dur = eff.dur\n\t\tgame:onTickEnd(function()\n\t\t\tgame:chronoClone(\"see_threads_base\")\n\t\tend)\n\n\t\tself:effectTemporaryValue(eff, \"ignore_direct_crits\", eff.crits)\n\t\tself:effectTemporaryValue(eff, \"combat_def\", eff.defense)\n\tend,\n\tdeactivate = function(self, eff)\n\t\t-- clone protection\n\t\tif self ~= game.player then\n\t\t\treturn\n\t\tend\n\n\t\tgame:onTickEnd(function()\n\n\t\t\tif game._chronoworlds == nil then\n\t\t\t\tgame.logSeen(self, \"#LIGHT_RED#The see the threads spell fizzles and cancels, leaving you in this timeline.\")\n\t\t\t\treturn\n\t\t\tend\n\n\t\t\tif eff.thread < 3 then\n\t\t\t\tlocal worlds = game._chronoworlds\n\n\t\t\t\t-- Clone but not the subworlds\n\t\t\t\tgame._chronoworlds = nil\n\t\t\t\tlocal clone = game:chronoClone()\n\n\t\t\t\t-- Restore the base world and resave it\n\t\t\t\tgame._chronoworlds = worlds\n\t\t\t\tgame:chronoRestore(\"see_threads_base\", true)\n\n\t\t\t\t-- Setup next thread\n\t\t\t\tlocal eff = game.player:hasEffect(game.player.EFF_SEE_THREADS)\n\t\t\t\teff.thread = eff.thread + 1\n\t\t\t\tgame.logPlayer(game.player, \"#LIGHT_BLUE#You unfold the space time continuum to the start of the time threads!\")\n\n\t\t\t\tgame._chronoworlds = worlds\n\t\t\t\tgame:chronoClone(\"see_threads_base\")\n\n\t\t\t\t-- Add the previous thread\n\t\t\t\tgame._chronoworlds[\"see_threads_\"..(eff.thread-1)] = clone\n\t\t\t\tgame.level.map:particleEmitter(game.player.x, game.player.y, 1, \"rewrite_universe\")\n\t\t\t\treturn\n\t\telse\n\t\t\t\tgame._chronoworlds.see_threads_base = nil\n\t\t\t\tlocal chat = Chat.new(\"chronomancy-see-threads\", {name=_t\"See the Threads\", image = \"talents/see_the_threads.png\"}, self, {turns=eff.max_dur})\n\t\t\t\tchat:invoke()\n\t\t\tend\n\t\tend)\n\tend,"
+    },
+    {
+      "label": "See Threads talent application",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/talents/chronomancy/chronomancy.lua",
+      "line_start": 165,
+      "line_end": 212,
+      "source_sha256": "0c61afbcd99a9df41a0a1d203822784782a78722efb59ec593b4878f6a129faf",
+      "text": "\tname = \"See the Threads\",\n\ttype = {\"chronomancy/chronomancy\", 4},\n\trequire = chrono_req4,\n\tpoints = 5,\n\tparadox = function (self, t) return getParadoxCost(self, t, 24) end,\n\tcooldown = 50,\n\tno_npc_use = true,  -- so rares don't learn useless talents\n\tgetDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 4, 16))) end,\n\ton_pre_use = function(self, t, silent)\n\t\tif checkTimeline(self) then\n\t\t\tif not silent then\n\t\t\t\tgame.logPlayer(self, \"The timeline is too fractured to do this now.\")\n\t\t\tend\n\t\t\treturn false\n\t\tend\n\t\tif game.level and game.level.data and game.level.data.see_the_threads_done then\n\t\t\tif not silent then\n\t\t\t\tgame.logPlayer(self, \"You've seen as much as you can here.\")\n\t\t\tend\n\t\t\treturn false\n\t\tend\n\t\treturn true\n\tend,\n\taction = function(self, t)\n\t\t-- Foresight Bonuses\n\t\tlocal defense = 0\n\t\tlocal crits = 0\n\t\tif self:knowTalent(self.T_FORESIGHT) then\n\t\t\tdefense = self:callTalent(self.T_FORESIGHT, \"getDefense\")\n\t\t\tcrits = self:callTalent(self.T_FORESIGHT, \"getCritDefense\")\n\t\tend\n\t\t\n\t\tif game.level and game.level.data then\n\t\t\tgame.level.data.see_the_threads_done = true\n\t\tend\n\t\t\n\t\tself:setEffect(self.EFF_SEE_THREADS, t.getDuration(self, t), {defense=defense, crits=crits})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal duration = t.getDuration(self, t)\n\t\treturn ([[You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.\n\t\tIf you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight values) while See the Threads is active.\n\t\tThis spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.\n\t\tIf you die in any thread you'll revert the timeline to the point when you first cast the spell and the effect will end.\n\t\tThis spell may only be used once per zone level.]])\n\t\t:tformat(duration)\n\tend,"
+    },
+    {
+      "label": "Archmage descriptor",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/birth/classes/mage.lua",
+      "line_start": 139,
+      "line_end": 151,
+      "source_sha256": "9329b7b8e6bef70a694543c226acd13d5059ec715ebef32404c84e6cc9644903",
+      "text": "newBirthDescriptor{\n\ttype = \"subclass\",\n\tname = \"Archmage\",\n\tlocked = function() return profile.mod.allow_build.mage end,\n\tlocked_desc = _t\"Hated, harrowed, hunted, hidden... Our ways are forbidden, but our cause is just. In our veiled valley we find solace from the world's wrath, free to study our arts. Only through charity and friendship can you earn our trust.\",\n\tdesc = {\n\t\t_t\"An Archmage devotes his whole life to the study of magic above anything else.\",\n\t\t_t\"Most Archmagi lack basic skills that others take for granted (like general fighting sense), but they make up for it by their raw magical power.\",\n\t\t_t\"Archmagi start with knowledge of many schools of magic. However, they usually refuse to have anything to do with Necromancy.\",\n\t\t_t\"Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.\",\n\t\t_t\"Their most important stats are: Magic and Willpower\",\n\t\t_t\"#GOLD#Stat modifiers:\",\n\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+    },
+    {
+      "label": "Archmage initial talents",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/birth/classes/mage.lua",
+      "line_start": 187,
+      "line_end": 214,
+      "source_sha256": "9329b7b8e6bef70a694543c226acd13d5059ec715ebef32404c84e6cc9644903",
+      "text": "\ttalents_types = {\n\t\t[\"spell/arcane\"]={true, 0.3},\n\t\t[\"spell/aether\"]={false, 0.3},\n\t\t[\"spell/fire\"]={true, 0.3},\n\t\t[\"spell/wildfire\"]={false, 0.3},\n\t\t[\"spell/earth\"]={true, 0.3},\n\t\t[\"spell/stone\"]={false, 0.3},\n\t\t[\"spell/water\"]={true, 0.3},\n\t\t[\"spell/ice\"]={false, 0.3},\n\t\t[\"spell/air\"]={true, 0.3},\n\t\t[\"spell/storm\"]={false, 0.3},\n\t\t[\"spell/phantasm\"]={true, 0.3},\n\t\t[\"spell/temporal\"]={true, 0.3},\n\t\t[\"spell/meta\"]={false, 0.3},\n\t\t[\"spell/divination\"]={true, 0.3},\n\t\t[\"spell/conveyance\"]={true, 0.3},\n\t\t[\"spell/aegis\"]={true, 0.3},\n\t\t[\"cunning/survival\"]={false, 0.0},\n\t},\n\ttalents = {\n\t\t[ActorTalents.T_MANATHRUST] = 1,\n\t\t[ActorTalents.T_FLAME] = 1,\n\t\t[ActorTalents.T_LIGHTNING] = 1,\n\t\t[ActorTalents.T_PHASE_DOOR] = 1,\n\t},\n\tcopy = {\n\t\t-- Mages start in angolwen\n\t\tclass_start_check = function(self)"
+    },
+    {
+      "label": "alchemist gem runtime constructor",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/general/objects/gem.lua",
+      "line_start": 81,
+      "line_end": 94,
+      "source_sha256": "ee0988d5f263755ee3d2082a944b6daa465d258e524d43f51083e8767009a98e",
+      "text": "\t}\n\t-- Alchemist gems, not lootable, only created by talents\n\tnewEntity{ base = \"BASE_GEM\", define_as = \"ALCHEMIST_GEM_\"..name:gsub(\" \", \"_\"):upper(),\t\tname = \"alchemist \"..name:lower(), type='alchemist-gem', subtype = color,\n\t\tslot = \"QUIVER\",\n\t\tmoddable_tile = resolvers.moddable_tile(\"gembag\"),\n\t\tuse_no_wear = false,\n\t\tcolor = colors[color:upper()], image=image,\n\t\tcost = cost * 0.01,\n\t\tmaterial_level = tier,\n\t\talchemist_power = power,\n\t\talchemist_bomb = bomb,\n\t}\nend\n"
+    },
+    {
+      "label": "Garnet argument",
+      "component": "tome",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/general/objects/gem.lua",
+      "line_start": 147,
+      "line_end": 150,
+      "source_sha256": "ee0988d5f263755ee3d2082a944b6daa465d258e524d43f51083e8767009a98e",
+      "text": "newGem(\"Garnet\",\t\"object/garnet.png\",3,\t12,\t\"red\",\t\t20,\t30, 3, 50,\n\t{ inc_damage = {all=6}, combat_physcrit=3, combat_mindcrit=3, combat_spellcrit=3, },\n\t{ leech=5 }\n)"
+    }
+  ]
+}
