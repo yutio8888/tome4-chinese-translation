@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -593,7 +594,7 @@ class StateCheckerFixtureTests(unittest.TestCase):
             ),
             content,
         )
-        bad_index = positive.replace(b"index 0000000..", b"index invalid..", 1)
+        bad_index = re.sub(rb"(?m)^index 0+\.\.", b"index invalid..", positive, count=1)
         self.assertNotEqual(bad_index, positive)
         cases = {
             "truncated": positive[:-1],

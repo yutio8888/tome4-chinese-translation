@@ -1,9 +1,30 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（窗口5译文、复审、门禁、catalog与migration已完成，待宿主出版闭合）
+更新时间：2026-09-22（审核252已finalize，待收尾提交后的队列同步与push；随后窗口6修复2条）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
+
+审核252已完成并finalize：`batch-5378d30fad3ca6f0275d`，80条固定tome来源，
+**78 done / 2 repair_required**。证据提交`89fa93ba3a5671eb271572b17b4518502321b21f`；
+当前无活动checkpoint，五个审核child全部确认归档。Finalize后的实测队列为22182 done、
+3 repair_required、24 blocked、7619 queued。两条新增修复为日记段落空行和古战场成就的惊扰行为；
+因确认newline问题，按窗口规则在252安全边界提前进入窗口6，不先启动253。
+
+157文件、1,992,658 bytes的冻结快照及两个任务独立重放均DONE_VERIFIED。
+14项观察经宿主裁决为3 confirmed、6 refuted、5 advisory；详情见
+[252宿主证据](evidence/quality/production-batches/batch-5378d30fad3ca6f0275d-host-evidence/summary.md)及
+[finalize收据](evidence/quality/production-batches/batch-5378d30fad3ca6f0275d-host-evidence/FINALIZE-RECEIPT.json)。
+首次17门禁中一个测试夹具因硬编码7位Git索引、实际输出8位而失败；明确仅对子进程指定
+core.abbrev=7后完整17项门禁和严格构建全部通过。失败与环境重跑证据保持原样。
+Finalize后已将该夹具改为长度无关的非法索引构造，生产解析器未变；默认131项模块测试及
+7/8/12/40位负例均通过，见[有界维护](evidence/quality/git-abbrev-fixture-20260922/summary.md)。
+收尾脚本曾残留250旧提交号，在断言处停止；已按252真实commit重取并核验，未移动错误运行材料。
+原脚本及更正说明均保留，runtime contextual输入输出已与提交逐字节核验并归档。
+
+本次收尾提交后的queue rebuild、push和远端核验仍待执行，不提前宣称完成。
+
+### 已闭合的修复窗口5
 
 用户持续授权连续审核和每批 push。审核 250、251 均已完成；窗口 5 因高影响机制问题在
 251 安全边界提前进入修复，没有等待第三批。18 条修复由两次真实 repair preflight 的 16 条
@@ -31,9 +52,9 @@ migration 为 `198b6812cf2fc2865016eb39153f90a70f244d3984a6ca81009bde8c2e897b6a`
 unchanged，0 ambiguous/unmapped，18 个 successor 已入队且须重新审核，不继承旧 revision 完成态。
 完整边界、哈希与计时见[窗口5出版证据](evidence/quality/repair-window-5-20260922/PUBLICATION.md)。
 
-本次证据/catalog/migration commit、提交后的第二次 queue rebuild、push 与远端复核仍待宿主执行，
-不能提前视为完成。闭合后继续审核 252，默认 80 条。旧 Archmage、范围外 pending、旧 blocked
-及 `RW1-SIB-01/02` 不扩大；`.ai/consult/`、`recipe` 和 15 个旧 source-workset 保留，不纳入
+窗口5证据提交`901fce3886d5b565bc55b205e5ab27086621aa8f`、提交后的第二次queue rebuild、
+push及远端复核均已于12:28完成，18个successor当时逐条验证入队；不再重做。
+旧Archmage、范围外pending、旧blocked及`RW1-SIB-01/02`不扩大；`.ai/consult/`、`recipe` 和 15 个旧 source-workset 保留，不纳入
 本次提交或清理。
 
 ## 审核251：修复窗口5第二批，提前修复边界
@@ -175,12 +196,14 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 宿主检查窗口 5 出版工作树，只提交本窗口证据、精确安装的 catalog/migration 与 handoff；
-   保留所有无关既有文件，不纳入 `.ai/consult/`、`recipe` 或 15 个旧 source-workset。
-2. 提交后只执行第二次 queue rebuild，再 push 并核实远端；不要重跑已完成的第一次 queue、catalog、
-   migration-chain、复审或完整门禁。
-3. 出版闭合后启动审核 252（默认 80 条）。18 个迁移 successor 必须重新审核；不把 advisory、
-   Archmage、旧 blocked 或范围外 pending 自动计入修复。
+1. 提交252 finalize收据、测试夹具维护和本交接后，执行一次queue rebuild并push核对远端；
+   不重做已完成的252审核、finalize或窗口5的catalog/migration。
+2. 闭合后对252实际运行repair preflight，建立窗口6有界implement，范围仅新增2条confirmed。
+   日记只恢复两个空行；古战场成就只补全主动惊扰及后果语义。默认max_cycles=3，
+   窗口5的第四轮授权不沿用。
+3. 修复仍按唯一EXECUTOR、独立复审、完整门禁、译文commit、queue、单次catalog/migration、
+   证据commit、queue与push闭合；之后继续253默认80条。距离单位“码”、宿主独立记录的
+   e75edbe9ad额外LF及其他非阻断pending/advisory不自动扩入本窗口。
 
 ## 保留边界与历史
 
