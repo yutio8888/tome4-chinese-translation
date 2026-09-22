@@ -731,3 +731,13 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01588 | confirmed：省略 weave matter 动作及与技能名的呼应；confirmed：护甲/震慑免疫/流血免疫与机制吻合。advisory：`Magic` 译“魔力值” | 补呼应；`Magic` 译法待术语 |
 | entry-01605 | confirmed：漏译 `(warp)`／“（扭曲）”。refuted：末句省略“时空地雷的”主语构成漏译不成立 | 补 warp；不按漏译改主语 |
 | entry-01617 | confirmed：占位符正确。advisory：与同系三条 spellbound 译法不一致（事实已证实） | 是否统一系内译法 |
+
+## batch-056 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-055-01.md](reports/sol-055-01.md)。译文未修改。共 8 个 claim：7 confirmed、1 refuted、0 advisory/pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01625 | confirmed：“你猎犬”缺“的”；confirmed：遗漏 `Upon activation`；confirmed：占位符与百分号格式正确。refuted：“将在 %d 回合内召唤”应改“%d 回合后”不成立 | 补“的”与激活条件；回合措辞不改 |
+| entry-01659 | confirmed：“%d 码球形范围”误用单位并遗漏半径概念；confirmed：占位符数量和顺序正确 | 改为“半径 %d 码”类表述 |
+| entry-01661 | confirmed：`carrion worm mass` 未统一“腐肉虫群”；confirmed：占位符正确、第五参数未被文本消费 | 按术语统一；死参数说明记录即可 |
