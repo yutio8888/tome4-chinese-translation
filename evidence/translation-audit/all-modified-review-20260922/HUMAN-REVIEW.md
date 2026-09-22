@@ -567,3 +567,14 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01298 | confirmed：`Thalore` 与 `Thaloren` 是同一种族的不同形式。refuted：“木精灵脱离官方源码既有用法”不成立。advisory：会让读者误以为存在两个分支。pending：“木精灵”是否全库仅此一处 | 分支指称需全库核对后再定 |
 
 译文未修改。refuted 项是对 Gemini 术语推断的下修，原样转录。
+
+## batch-045 两处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-044-01.md](reports/sol-044-01.md)。译文未修改。共 10 个 claim：8 confirmed、2 pending、无 refuted/advisory。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01302 | confirmed：`careful inscription` 误作“管理符文”；confirmed：`patient study` 与 `if properly motivated` 语义漂移；confirmed：`Conclave's Overseers` 译“孔克雷夫的长老会”缺乏依据；confirmed：`hijacked shipment of grain` 过度具体化为“满载粮食的货船被劫”；confirmed：无占位符、五段结构对应。pending：「全部专名均符合规范」中“埃尔瓦拉”在本批术语快照无记录 | 逐句按源码回改；埃尔瓦拉查术语记录 |
+| entry-01306 | confirmed：`Other theories hold weight though` 判断谓语漏译；confirmed：`academic circles` 缩窄为“考古界”；confirmed：`crucible` 修饰语被省略。pending：`crucible` 具体译法 | 补谓语、放宽学界范围；`crucible` 译法定夺 |
+
+译文未修改。Sol 同时确认了 Gemini 的正面项（占位符与结构），原样记录。
