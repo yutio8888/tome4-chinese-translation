@@ -708,3 +708,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01554 之外的 entry-01544 | confirmed：采用第二座跃迁门实际子技能有源码依据；confirmed：`%d` 对应该子技能有效距离 |
 
 译文未修改。3 条 refuted 与 2 条 pending 均原样转录；多处 Gemini 行号被 Sol 校正。
+
+## batch-054 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-053-01.md](reports/sol-053-01.md)。译文未修改。共 10 个 claim：7 confirmed、2 advisory、1 pending、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01554 | confirmed：占位符及顺序正确；confirmed：末句把特定 `Shoot` 天赋泛化为“远程攻击”。advisory：“守卫伤害降低”译“灵矢伤害降低”但当前行为等价 | 是否恢复天赋名 |
+| entry-01557 | confirmed：增译“你的”并漏 `threads` 意象。pending：Gemini 所举 Spin Fate 叠加“命运之丝”例证 | 补 threads 意象；例证需另取冻结文本 |
+| entry-01563 | confirmed：三占位符正确；confirmed：“释放  ，”含两个多余半角空格 | 删空格 |
+| entry-01565 | confirmed：时间回溯点被译成空间“地方” | 改“时点/时刻”类 |
+| entry-01576 | confirmed：数值占位符正确。advisory：原文无“码”，译文额外指定单位 | 是否补单位属风格 |
