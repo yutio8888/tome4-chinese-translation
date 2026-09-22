@@ -1,0 +1,20 @@
+窗口6证据发布与交接已完成。
+
+- 安装冻结包 97 文件，共 765,623 bytes；`STATE.json` 使用 immutable checkpoint。
+- 安装五个 catalog 文件及 migration `92da0238…`。
+- 归档 15 个 publication 原始附件，保留既有实施证据。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-6-20260922/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确252收尾已推送、窗口6状态及宿主后续步骤。
+
+验证通过：
+
+- 全部副本 SHA、字节数及逐字节比较通过。
+- catalog、migration 精确复制通过。
+- `mod-tome.lua` 与 `38e666aaae9e5738819e3b6525398b9bfc9872eb` 完全相同。
+- 快照只读检查返回 `DONE_VERIFIED`。
+- 文档链接、UTF-8、`git diff --check` 均通过。
+- 旧 pending、`.ai/consult/`、`recipe` 和15个旧 source-workset均保留。
+
+未修改 `.ai`、Lua、术语、规则、工具或旧证据；未运行 `verify_pack.py`，未 stage/commit/push。
+
+仍待宿主：归档本 publication child、提交窗口6证据、第二次 queue rebuild、push及远端核验。

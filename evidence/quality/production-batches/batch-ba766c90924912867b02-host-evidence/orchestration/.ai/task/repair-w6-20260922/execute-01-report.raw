@@ -1,0 +1,17 @@
+修复窗口 6 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:2572)：恢复“主动惊扰古战场，并在由此引发的后果中幸存”的语义。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:19738)：仅恢复省略号前后两个空行，3 LF → 5 LF，文字未变。
+- source/tag/args_order/special/printf/markup/TAB 均保持；另一条 LF=0。
+- 两条均无数值 placeholder，值流检查不适用。
+- 已保存冻结副本、实施说明及[真实检查记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-6-20260922/VALIDATION.json)。
+
+检查全部通过：
+
+- `verify.py`：22,989 条记录中恰好两个 target 改变
+- strict lint：30,308 条，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+- evidence JSON、副本一致性及未跟踪文件空白检查：通过
+
+未 stage/commit，未修改 `.ai`，既有无关 untracked 均保留。独立复审、完整门禁、严格构建和 `DONE_VERIFIED` 未运行，未声称通过。

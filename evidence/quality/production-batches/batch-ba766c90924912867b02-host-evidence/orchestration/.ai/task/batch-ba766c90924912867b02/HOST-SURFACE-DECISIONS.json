@@ -1,0 +1,157 @@
+{
+  "status": "host adjudicated surface observations; contextual observations will be adjudicated separately",
+  "rows": [
+    {
+      "revision_key": "e80304576e38d38aec618a843b469085df4579f12be32b6c69f4bfb7de87395e",
+      "stage": "surface",
+      "observation": "原文为散播任何疾病，译文擅自限定为衰老、虚弱、腐烂或传染性疾病，含义范围发生改变",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "plague.lua:20–38 按 e.subtype.disease 枚举全部疾病，Cyst Burst:128–168 逐项传播；译文额外限定四种疾病缩小适用范围。"
+    },
+    {
+      "revision_key": "e823fb9b479007d4b5bce51d4dba96619296bf311b5b5e0a69360e205a87ec5e",
+      "stage": "surface",
+      "observation": "原文 looks menacing 不含比较义，译文“更具威胁”无据增加了“更”",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "physical.lua:1076–1090 MIGHTY_BLOWS 获得状态增加 combat_dam，失去时对应 less menacing；更具威胁符合状态变化语境。"
+    },
+    {
+      "revision_key": "e8278a0ab7de418d5a2819db39a5adb72507a23587605edf45bbdb4abe0f962c",
+      "stage": "surface",
+      "observation": "译文“界面风格。”遗漏原文 Select 的选择指令含义",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "GameOptions.lua:150–166 此说明附于 HUD 选择列表，界面风格在界面中仍明确标识选择内容；补选择可提升完整措辞，但不改变选项功能，不据孤立动词遗漏强制修复。"
+    },
+    {
+      "revision_key": "e82c1978c71c3d8298c1ef0ed63ff51476d25f656e28aae20a0a08980f76664a",
+      "stage": "surface",
+      "observation": "原文 prepare the portal 是准备传送门，译文“准备制造传送门”额外引入了“制造”含义",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "zemekkys.lua:120–146 备齐材料后 prepare portal 的实际后续为 create_portal 任务；准备制造传送门符合具体动作，无额外能力或条件。"
+    },
+    {
+      "revision_key": "e82dab7a290c55e9305c34057ac1a5bb958fbcd6e09b771370c96b6d4944b453",
+      "stage": "surface",
+      "observation": "译文遗漏 massive，未表达法杖尖端十分巨大的含义",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "world-artifacts.lua:2770–2776 Gravitational Staff 的实物外观明确 massive tip；译文仅尖端，遗漏粗大这一独立形态信息。"
+    },
+    {
+      "revision_key": "e83a05187461932d0e24968427a2ca0412bbb3d024934baf7b7f76d1d10e57b8",
+      "stage": "surface",
+      "observation": "原文 this never happened 是过去未曾发生，译文“也不会发生”误成未来不会发生",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timeline-threading.lua:do_instakill 在抹除后日志 this never happened，紧接死亡处理；过去从未发生被译成也不会发生，改变时间方向。见 HOST-SOURCE-ADDITIONAL。"
+    },
+    {
+      "revision_key": "e8409bc80e58994cc8bd7b6a7b9ff7801d46faf450d50e5b085b0335b4d62852",
+      "stage": "surface",
+      "observation": "原文仅为 Weakness，译文“黑暗衰竭”额外引入“黑暗”和“衰竭”含义；缺少术语正文，无法确认是否为特定技能名",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "cursed/gloom.lua:95–139 Weakness 为 gloom 分支技能，弱化敌人伤害；黑暗衰竭为专名意译，无绑定术语正文要求 Weakness 必须虚弱。更名涉及命名偏好，不自动全局改名。"
+    },
+    {
+      "revision_key": "e8439bd0aeb513d16664e3eac14b4d4fc0c8ead18d6602d2abfbf1af17d286a5",
+      "stage": "surface",
+      "observation": "原文 power 被译为“伤害”，两者含义不等",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Object.lua:425–430 power 的实际格式参数是武器 c.dam 与 c.dam*c.damrange 的伤害区间，因此译成伤害正确。"
+    },
+    {
+      "revision_key": "e85982411310f6f86e0cf7817f88ea7d7b5302262c8ca3034e14bdcf6e308e0e",
+      "stage": "surface",
+      "observation": "原文 tome 指典籍或大部头书，译文“册子”误成小册子",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "原文 tome 的典籍语气比册子厚重，但当前语境无页数、体积或机制约束；册子仍指书册，词体优化保留建议，不强制判为小册子实体错误。"
+    },
+    {
+      "revision_key": "e85e4d885532dd2a1e0eb55069514b010ed3bee7ef2b98e4178a999ca3ef5e5e",
+      "stage": "surface",
+      "observation": "原文 dazing 表示使目标目眩，译文“眩晕”表达为更强的昏迷状态；缺少术语正文，无法确认游戏内状态名映射",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "冻结术语 combat.tsv daze 明确眩晕，stun 为震慑；agility.lua 施加 EFF_DAZED。审核将普通英语推断覆盖游戏状态术语，撤销该意见。"
+    },
+    {
+      "revision_key": "e862dfab54b6168d1c660bcae2217d8344cf55b71137915ea6091a0651b55959",
+      "stage": "surface",
+      "observation": "Artificer 指工匠或制造者，译文“诡计大师”误成擅长诡计的人",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "cunning/cunning.lua tools 为 artifice 配套工具；artifice.lua:25–62、216–245 为潜行者暗刃等诡计工具及 Master Artificer 掌握关系，非通用工匠锻造分类。当前相关技能名诡计大师支持该语境称呼，不能据脱离角色的词典义判错。"
+    },
+    {
+      "revision_key": "e873fb9bc746bc51474cf21c2a1ec7a82029168653fbd1ff6d14c2efb646e0fe",
+      "stage": "surface",
+      "observation": "“通用 法术豁免”中“通用”后存在无依据的半角空格",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "generic save spell 为内部通用物品标签，中文额外词间空格不改变语义，无运行或规定空白不变量被破坏；可作排版建议，不自动改动。"
+    },
+    {
+      "revision_key": "e882cc8d4ef163f98acffe86f7c50ff2ebff8d56a483ae9c1659a6713ea13b2d",
+      "stage": "surface",
+      "observation": "源文的 bolts 被译为含义异常的“灵能值球”；且源文3处换行，译文变为4处，段落格式未保持",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "discharge.lua:54–81 发射 MIND 弹体并扣除 Feedback；灵能值球误引入资源值含义。原文3LF/6TAB、译文4LF/8TAB，额外一段及缩进违反格式不变量。修复同时恢复客观格式，见 HOST-FORMAT-COMPARISON。"
+    },
+    {
+      "revision_key": "e8959a83e245e295592ddf1bc4abd37fd204cdb87b7f1b16e20df58c52602477",
+      "stage": "surface",
+      "observation": "“This will add to and extend an existing shield if possible”仅译为“强化你已有的伤害护盾”，遗漏延长护盾持续时间及“if possible”条件",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "dirge.lua:175 现有护盾 power 累加、dur=max(existing,eff.dur)，可增加护盾持续时间；译文仅强化，遗漏延长持续时间及适用条件。"
+    },
+    {
+      "revision_key": "e895fea0305d1be76d12a9fd52beca51c2a94cc217eaeef64bf8df6cf8ea16d5",
+      "stage": "surface",
+      "observation": "spinneret 指吐丝器官，译文“丝腺”指产生丝液的腺体，二者并非同一结构",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "elixir-ingredients.lua:153–162 明确 spinneret，带吐丝孔的巨蛛摘取部位。Australian Museum 将 spinnerets 与 silk glands 区分；丝腺误指产丝腺体，应恢复吐丝器官语义。主来源及固定源码见 HOST-SPINNERET-REFERENCE、HOST-SOURCE-SUPPLEMENTAL；不在本裁决授权全局替换相关名称。"
+    },
+    {
+      "revision_key": "e8a956f5c67e5c225b2807017ebc1be4dc546cc8f4cc9e49aabeb663803795c3",
+      "stage": "surface",
+      "observation": "Probability 被译为“次元”，冻结输入未提供支持该语义替换的术语依据",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "冻结 terminology/talents.tsv 的 Probability Travel 明确 preferred 次元移动，notes 要求技能/状态/异常名称统一；本条符合已授权术语。"
+    },
+    {
+      "revision_key": "e8b5b2f244657526cd6a0524eff86771e2ff00a9a6b09800e59c31d4e67b0ddf",
+      "stage": "surface",
+      "observation": "源文“The is invigorated”缺少明确主语，译文补作“目标”；冻结输入不足以确认主体是否确为目标。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "magical.lua:3355–3398 LIGHT_BURST 为作用于持有者的有益状态，邻接速度效果明确 The target；英文 The is 缺词，中文补目标由状态主体支持。"
+    },
+    {
+      "revision_key": "e8b90dff068deb7d3ab4e19d2c0b57ebccdcc880dc7c25fbf7baa6222974482f",
+      "stage": "surface",
+      "observation": "源文“notification”表示通知，译文“效果”将其误作效果，遗漏了通知这一界面含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "GameOptions.lua:397–405 开关 fullscreen_confusion，Player.lua:497–501 据混乱/睡眠启用 blur shader；实际为全屏画面效果，非通知消息流，全屏混乱效果准确。"
+    },
+    {
+      "revision_key": "e8bc936f6d6cb89e131fdddb68b357e4550d4ad593b0fd30247357dad567ca55",
+      "stage": "surface",
+      "observation": "“eviscerated”指被剖腹或去除内脏，译为“被掏心”将伤害部位错误限定为心脏。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "damage_types.lua:778 将 eviscerated 列为物理死亡描述；词义指取出内脏/剖腹，不限定心脏。译文被掏心错误缩窄受创器官，应恢复剖腹/内脏意象。"
+    }
+  ]
+}

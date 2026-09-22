@@ -1,0 +1,154 @@
+{
+  "queries": [
+    {
+      "revision_key": "e862dfab54b6168d1c660bcae2217d8344cf55b71137915ea6091a0651b55959",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "8a1d55511ff0273bfc9f4193b98de2269372475ffafc5c8185257d59bb7ad4d3",
+      "start_line": 25,
+      "end_line": 62,
+      "excerpt": "25: -- equipable artifice tool talents and associated mastery talents\n26: -- to add a new tool, define a tool talent and a mastery talent and update this table\n27: artifice_tool_tids = {T_HIDDEN_BLADES=\"T_ASSASSINATE\", T_SMOKESCREEN=\"T_SMOKESCREEN_MASTERY\", T_ROGUE_S_BREW=\"T_ROGUE_S_BREW_MASTERY\", T_DART_LAUNCHER=\"T_DART_LAUNCHER_MASTERY\", T_GRAPPLING_HOOK=\"T_GRAPPLING_HOOK_MASTERY\",}\n28: Talents.artifice_tool_tids = artifice_tool_tids\n29: \n30: -- Hook to show artifices on the doll\n31: class:bindHook(\"Actor:updateModdableTile:middle\", function(self, data)\n32: \tif not self.artifice_tools then return end\n33: \tfor _, tool in pairs(self.artifice_tools) do\n34: \t\tlocal img = self:callTalent(tool, \"getDollImage\")\n35: \t\tif img then\n36: \t\t\tdata.add[#data.add+1] = {image = data.base..img..\".png\", auto_tall=1}\n37: \t\tend\n38: \tend\n39: end)\n40: \n41: --- initialize artifice tools, update mastery level and unlearn any unselected tools talents\n42: function artifice_tools_setup(self, t)\n43: \tself.artifice_tools = self.artifice_tools or {}\n44: \tself:setTalentTypeMastery(\"cunning/tools\", self:getTalentMastery(t))\n45: \tfor tid, m_tid in pairs(artifice_tool_tids) do\n46: \t\tif self:knowTalent(tid) then\n47: \t\t\tlocal slot\n48: \t\t\tfor slot_id, tool_id in pairs(self.artifice_tools) do\n49: \t\t\t\tif tool_id == tid then slot = slot_id break end\n50: \t\t\tend\n51: \t\t\tif not slot then self:unlearnTalentFull(tid) end\n52: \t\tend\n53: \t\tif self.artifice_tools_mastery == tid then\n54: \t\t\tlocal m_level = self:getTalentLevelRaw(self.T_MASTER_ARTIFICER)\n55: \t\t\tif self:getTalentLevelRaw(m_tid) ~= m_level then\n56: \t\t\t\tself:unlearnTalentFull(m_tid)\n57: \t\t\t\tself:learnTalent(m_tid, true, m_level, {no_unlearn=true})\n58: \t\t\tend\n59: \t\telseif self:knowTalent(m_tid) then\n60: \t\t\tself:unlearnTalentFull(m_tid)\n61: \t\tend\n62: \tend"
+    },
+    {
+      "revision_key": "e862dfab54b6168d1c660bcae2217d8344cf55b71137915ea6091a0651b55959",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/cunning.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "6276d5a6bbdc05005ef81ca033f9b47b4d719eaee73596de270408845a7e8810",
+      "start_line": 30,
+      "end_line": 37,
+      "excerpt": "30: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/ambush\", name = _t(\"ambush\", \"talent type\"), min_lev = 10, description = _t\"Using darkness and a bit of magic, you manipulate the shadows.\" }\n31: newTalentType{ allow_random=true, type=\"cunning/survival\", name = _t(\"survival\", \"talent type\"), generic = true, description = _t\"The knowledge of the dangers of the world, and how to best avoid them.\" }\n32: newTalentType{ allow_random=true, type=\"cunning/tactical\", name = _t(\"tactical\", \"talent type\"), description = _t\"Tactical combat abilities.\" }\n33: newTalentType{ allow_random=true, type=\"cunning/scoundrel\", name = _t(\"scoundrel\", \"talent type\"), generic = true, description = _t\"The use of ungentlemanly techniques.\" }\n34: newTalentType{ allow_random=true, type=\"cunning/artifice\", name = _t(\"artifice\", \"talent type\"), min_lev = 10, description = _t\"Create and use cunning tools.\" }\n35: newTalentType{ allow_random=true, type=\"cunning/tools\", name = _t(\"tools\", \"talent type\"), description = _t\"Artificer's tools.\" }\n36: \n37: -- Skirmisher"
+    },
+    {
+      "revision_key": "e862dfab54b6168d1c660bcae2217d8344cf55b71137915ea6091a0651b55959",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "8a1d55511ff0273bfc9f4193b98de2269372475ffafc5c8185257d59bb7ad4d3",
+      "start_line": 216,
+      "end_line": 245,
+      "excerpt": "216: newTalent{\n217: \tname = \"Master Artificer\",\n218: \ttype = {\"cunning/artifice\", 4},\n219: \trequire = cuns_req_high4,\n220: \tpoints = 5,\n221: \tcooldown = 10,\n222: \tstamina = 0, -- forces learning stamina pool (npcs)\n223: \tno_energy = true,\n224: \tno_unlearn_last = true,\n225: \ton_pre_use = artifice_tools_setup,\n226: \ttactical = {BUFF = 2},\n227: \ton_pre_use_ai = function(self, t, silent, fake) -- npc's automatically master a tool they have prepared\n228: \t\tif self.artifice_tools and not self.artifice_tools_mastery then\n229: \t\t\tgame:onTickEnd(function()\n230: \t\t\t\tlocal tools = table.values(self.artifice_tools)\n231: \t\t\t\twhile #tools > 0 do\n232: \t\t\t\t\tlocal tool_id = rng.tableRemove(tools)\n233: \t\t\t\t\tlocal m_tid = artifice_tool_tids[tool_id]\n234: \t\t\t\t\tif m_tid then -- note: talent level affects AI use\n235: \t\t\t\t\t\tlocal tl = self:getTalentLevelRaw(m_tid)\n236: \t\t\t\t\t\tif self:learnTalent(m_tid, true, self:getTalentLevelRaw(t) - tl) then\n237: \t\t\t\t\t\t\tself.artifice_tools_mastery = tool_id\n238: \t\t\t\t\t\t\tif game.party:hasMember(self) then -- cooldowns for party members\n239: \t\t\t\t\t\t\t\tself:startTalentCooldown(t); self:startTalentCooldown(tool_id); self:startTalentCooldown(m_tid)\n240: \t\t\t\t\t\t\tend\n241: \t\t\t\t\t\t\tbreak\n242: \t\t\t\t\t\tend\n243: \t\t\t\t\tend\n244: \t\t\t\tend\n245: \t\t\tend)"
+    },
+    {
+      "revision_key": "e895fea0305d1be76d12a9fd52beca51c2a94cc217eaeef64bf8df6cf8ea16d5",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/elixir-ingredients.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "884c85ca99b6a23a5076311138b7318eed3b15b5bcb561479595c6708c4f6499",
+      "start_line": 153,
+      "end_line": 163,
+      "excerpt": "153: newEntity{ define_as = \"SPIDER_SPINNERET\",\n154: \tquest=true, identified=true, no_unique_lore=true,\n155: \ttype = \"misc\", subtype=\"ingredient\", image = \"object/spider_spinnarets.png\",\n156: \tlevel_range = {50, 50},\n157: \tencumber = 0,\n158: \tunided_name = _t\"spinneret\",\n159: \tname = \"giant spider spinneret\",\n160: \tdisplay = \"*\", color=colors.GREEN,\n161: \tdesc = _t[[An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.]],\n162: \talch = \"The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.\",\n163: }"
+    },
+    {
+      "revision_key": "e8b5b2f244657526cd6a0524eff86771e2ff00a9a6b09800e59c31d4e67b0ddf",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 3355,
+      "end_line": 3398,
+      "excerpt": "3355: newEffect{\n3356: \tname = \"LIGHT_BURST\",\n3357: \tdesc = _t\"Light Burst \", image = \"talents/light_burst.png\",\n3358: \tlong_desc = function(self, eff) return (\"The is invigorated when dealing damage with Searing Sight.\"):tformat() end,\n3359: \ttype = \"magical\",\n3360: \tsubtype = { sun=true },\n3361: \tstatus = \"beneficial\",\n3362: \tparameters = { max=1 },\n3363: \ton_gain = function(self, err) return nil, _t\"+Light Burst\" end,\n3364: \ton_lose = function(self, err) return nil, _t\"-Light Burst\" end,\n3365: }\n3366: \n3367: newEffect{\n3368: \tname = \"LIGHT_BURST_SPEED\",\n3369: \tdesc = _t\"Light Burst Speed\", image = \"effects/light_burst_speed.png\",\n3370: \tlong_desc = function(self, eff) return (\"The target is invigorated from Searing Sight, increasing movement speed by %d%%.\"):tformat(eff.charges * 10) end,\n3371: \ttype = \"magical\",\n3372: \tsubtype = { sun=true },\n3373: \tstatus = \"beneficial\",\n3374: \tparameters = {},\n3375: \tcharges = function(self, eff) return eff.charges end,\n3376: \ton_gain = function(self, err) return nil, _t\"+Light Burst Speed\" end,\n3377: \ton_lose = function(self, err) return nil, _t\"-Light Burst Speed\" end,\n3378: \ton_merge = function(self, old_eff, new_eff)\n3379: \t\tlocal p = self:hasEffect(self.EFF_LIGHT_BURST)\n3380: \t\tif not p then p = {max=1} end\n3381: \n3382: \t\tnew_eff.charges = math.min(old_eff.charges + 1, p.max)\n3383: \t\tself:removeTemporaryValue(\"movement_speed\", old_eff.tmpid)\n3384: \t\tnew_eff.tmpid = self:addTemporaryValue(\"movement_speed\", new_eff.charges * 0.1)\n3385: \t\treturn new_eff\n3386: \tend,\n3387: \tactivate = function(self, eff)\n3388: \t\teff.charges = 1\n3389: \t\teff.tmpid = self:addTemporaryValue(\"movement_speed\", eff.charges * 0.1)\n3390: \tend,\n3391: \tdeactivate = function(self, eff)\n3392: \t\tself:removeTemporaryValue(\"movement_speed\", eff.tmpid)\n3393: \tend,\n3394: }\n3395: \n3396: newEffect{\n3397: \tname = \"HEALING_INVERSION\",\n3398: \tdesc = _t\"Healing Inversion\", image = \"talents/healing_inversion.png\","
+    },
+    {
+      "revision_key": "e8b90dff068deb7d3ab4e19d2c0b57ebccdcc880dc7c25fbf7baa6222974482f",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/dialogs/GameOptions.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "acc964aa3f658ffff96905d31737901883aa3efe93f1b404fbfba75117d3f90f",
+      "start_line": 397,
+      "end_line": 405,
+      "excerpt": "397: \tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"If disabled you will not get a fullscreen notification of confusion effects. Beware.#WHITE#\"):toTString()}\n398: \tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Fullscreen confusion notification#WHITE##{normal}#\"):toTString(), status=function(item)\n399: \t\treturn tostring(config.settings.tome.fullscreen_confusion and _t\"enabled\" or _t\"disabled\")\n400: \tend, fct=function(item)\n401: \t\tconfig.settings.tome.fullscreen_confusion = not config.settings.tome.fullscreen_confusion\n402: \t\tgame:saveSettings(\"tome.fullscreen_confusion\", (\"tome.fullscreen_confusion = %s\\n\"):format(tostring(config.settings.tome.fullscreen_confusion)))\n403: \t\tself.c_list:drawItem(item)\n404: \t\tif self:isTome() then if game.player.updateMainShader then game.player:updateMainShader() end end\n405: \tend,}"
+    },
+    {
+      "revision_key": "e8439bd0aeb513d16664e3eac14b4d4fc0c8ead18d6602d2abfbf1af17d286a5",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Object.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+      "start_line": 410,
+      "end_line": 440,
+      "excerpt": "410: \n411: --- Returns a tooltip for the object\n412: function _M:tooltip(x, y, use_actor)\n413: \tlocal str = self:getDesc({do_color=true}, game.player:getInven(self:wornInven()))\n414: --\tlocal str = self:getDesc({do_color=true}, game.player:getInven(self:wornInven()), nil, use_actor)\n415: \tif config.settings.cheat then str:add(true, \"UID: \"..self.uid, true, self.image) end\n416: \tlocal nb = game.level.map:getObjectTotal(x, y)\n417: \tif nb == 2 then str:add(true, \"---\", true, _t\"You see one more object.\")\n418: \telseif nb > 2 then str:add(true, \"---\", true, (\"You see %d more objects.\"):tformat(nb-1))\n419: \tend\n420: \treturn str\n421: end\n422: \n423: --- Describes an attribute, to expand object name\n424: function _M:descAttribute(attr)\n425: \tlocal power = function(c)\n426: \t\tif config.settings.tome.advanced_weapon_stats then\n427: \t\t\treturn (\"%d%% power\"):tformat(math.floor(game.player:combatDamagePower(self.special_combat or self.combat)*100))\n428: \t\telse\n429: \t\t\treturn (\"%d-%d power\"):tformat(c.dam, (c.dam*(c.damrange or 1.1)))\n430: \t\tend\n431: \tend\n432: \tif attr == \"MASTERY\" then\n433: \t\tlocal tms = {}\n434: \t\tfor ttn, i in pairs(self.wielder.talents_types_mastery) do\n435: \t\t\tlocal tt = Talents.talents_types_def[ttn]\n436: \t\t\tlocal cat = tt.type:gsub(\"/.*\", \"\")\n437: \t\t\tlocal name = _t(cat, \"talent category\"):capitalize().._t(\" / \")..tt.name:capitalize()\n438: \t\t\ttms[#tms+1] = (\"%0.2f %s\"):tformat(i, name)\n439: \t\tend\n440: \t\treturn table.concat(tms, \",\")"
+    },
+    {
+      "revision_key": "e823fb9b479007d4b5bce51d4dba96619296bf311b5b5e0a69360e205a87ec5e",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start_line": 1076,
+      "end_line": 1090,
+      "excerpt": "1076: newEffect{\n1077: \tname = \"MIGHTY_BLOWS\", image = \"effects/mighty_blows.png\",\n1078: \tdesc = _t\"Mighty Blows\",\n1079: \tlong_desc = function(self, eff) return (\"The target's combat damage is improved by %d.\"):tformat(eff.power) end,\n1080: \ttype = \"physical\",\n1081: \tsubtype = { golem=true },\n1082: \tstatus = \"beneficial\",\n1083: \tparameters = { power=10 },\n1084: \ton_gain = function(self, err) return _t\"#Target# looks menacing.\" end,\n1085: \ton_lose = function(self, err) return _t\"#Target# looks less menacing.\" end,\n1086: \tactivate = function(self, eff)\n1087: \t\teff.tmpid = self:addTemporaryValue(\"combat_dam\", eff.power)\n1088: \tend,\n1089: \tdeactivate = function(self, eff)\n1090: \t\tself:removeTemporaryValue(\"combat_dam\", eff.tmpid)"
+    },
+    {
+      "revision_key": "e8278a0ab7de418d5a2819db39a5adb72507a23587605edf45bbdb4abe0f962c",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/dialogs/GameOptions.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "acc964aa3f658ffff96905d31737901883aa3efe93f1b404fbfba75117d3f90f",
+      "start_line": 150,
+      "end_line": 166,
+      "excerpt": "150: \n151: \tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"Select the HUD look. 'Minimalist' is the default one.\\n#LIGHT_RED#This will take effect on next restart.\"):toTString()}\n152: \tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#HUD Style#WHITE##{normal}#\"):toTString(), status=function(item)\n153: \t\treturn _t(tostring(config.settings.tome.uiset_mode):capitalize())\n154: \tend, fct=function(item)\n155: \t\tlocal huds = {{name=_t\"Minimalist\", ui=\"Minimalist\"}, {name=_t\"Classic\", ui=\"Classic\"}}\n156: \t\tself:triggerHook{\"GameOptions:HUDs\", huds=huds}\n157: \t\tDialog:listPopup(_t\"HUD style\", _t\"Select style\", huds, 300, 200, function(sel)\n158: \t\t\tif not sel or not sel.ui then return end\n159: \t\t\tgame:saveSettings(\"tome.uiset_mode\", (\"tome.uiset_mode = %q\\n\"):format(sel.ui))\n160: \t\t\tconfig.settings.tome.uiset_mode = sel.ui\n161: \t\t\tself.c_list:drawItem(item)\n162: \t\tend)\n163: \tend,}\n164: \n165: \tif self:isTome() and game.uiset:checkGameOption(\"log_lines\") then\t\n166: \t\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"The number of lines to display in the combat log (for the Classic HUD).\"):toTString()}"
+    },
+    {
+      "revision_key": "e82c1978c71c3d8298c1ef0ed63ff51476d25f656e28aae20a0a08980f76664a",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/chats/zemekkys.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "a7cf014477641960ed60d4fcb33617c0cf3c0091bd5d2a1858759eee90036fc2",
+      "start_line": 120,
+      "end_line": 146,
+      "excerpt": "120: \t\t{_t\"I'll be back with a Resonating Diamond.\", action=function(npc, player) player:hasQuest(\"west-portal\"):wyrm_lair(player) end},\n121: \t}\n122: }\n123: \n124: -----------------------------------------------------------------\n125: -- Return gem\n126: -----------------------------------------------------------------\n127: newChat{ id=\"complete\",\n128: \ttext = _t[[Yes? You got the Athame, the gem and 100 gold?]],\n129: \tanswers = {\n130: \t\t{_t\"[Give him the gem, the athame and 100 gold]\", jump=\"complete2\", cond=check_materials, action=remove_materials},\n131: \t\t{_t\"Sorry, it seems I lack some stuff. I will be back.\"},\n132: \t}\n133: }\n134: newChat{ id=\"complete2\",\n135: \ttext = _t[[#LIGHT_GREEN#*The door opens and a shabby Elf emerges.*#WHITE#\n136: Off we go to prepare the portal!]],\n137: \tanswers = {\n138: \t\t{_t\"[follow him]\", action=function(npc, player) player:hasQuest(\"west-portal\"):create_portal(npc, player) end},\n139: \t}\n140: }\n141: \n142: return \"welcome\""
+    },
+    {
+      "revision_key": "e8409bc80e58994cc8bd7b6a7b9ff7801d46faf450d50e5b085b0335b4d62852",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/gloom.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+      "start_line": 95,
+      "end_line": 139,
+      "excerpt": "95: \t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_SLOW, tGloom.getDuration(self, t), {power=0.3})\n96: \t\t\t\t\t\t\tend\n97: \t\t\t\t\t\tend\n98: \t\t\t\t\tend\n99: \n100: \t\t\t\t\t-- Weakness\n101: \t\t\t\t\tif self:getTalentLevel(tWeakness) > 0 and rng.percent(tWeakness.getChance(self, tWeakness)) and target:checkHit(mindpower, target:combatMentalResist(), 5, 95, 15) then\n102: \t\t\t\t\t\tif not target:hasEffect(target.EFF_GLOOM_WEAKNESS) then\n103: \t\t\t\t\t\t\tlocal duration = tWeakness.getDuration(self, tWeakness)\n104: \t\t\t\t\t\t\tlocal incDamageChange = tWeakness.getIncDamageChange(self, tWeakness)\n105: \t\t\t\t\t\t\tlocal hateBonus = tWeakness.getHateBonus(self, tWeakness)\n106: \t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_WEAKNESS, duration, {incDamageChange=incDamageChange,hateBonus=hateBonus})\n107: \t\t\t\t\t\tend\n108: \t\t\t\t\tend\n109: \n110: \t\t\t\t\t-- Dismay\n111: \t\t\t\t\tif self:getTalentLevel(tDismay) > 0 and rng.percent(tDismay.getChance(self, tDismay)) and target:checkHit(mindpower, target:combatMentalResist(), 5, 95, 15) then\n112: \t\t\t\t\t\ttarget:setEffect(target.EFF_DISMAYED, tDismay.getDuration(self, tDismay), {})\n113: \t\t\t\t\tend\n114: \n115: \t\t\t\tend\n116: \t\t\tend\n117: \t\tend\n118: \n119: \tend,\n120: \tinfo = function(self, t)\n121: \t\tlocal chance = t.getChance(self, t)\n122: \t\tlocal duration = t.getDuration(self, t)\n123: \t\tlocal mindpowerChange = gloomTalentsMindpower(self)\n124: \t\treturn ([[A terrible gloom surrounds you, affecting all those who approach to within radius 3. At the end of each game turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to suffer from slowness (30%%), stun or confusion (30%%) for %d turns.\n125: \t\tThe chance increases with your mind speed.\n126: \t\tThis ability is innate, and carries no cost to activate or deactivate.\n127: \t\tEach point in Gloom talents increases your Mindpower (current total: %d).]]):tformat(chance, duration, mindpowerChange)\n128: \tend,\n129: }\n130: \n131: newTalent{\n132: \tname = \"Weakness\",\n133: \ttype = {\"cursed/gloom\", 2},\n134: \tmode = \"passive\",\n135: \trequire = cursed_wil_req2,\n136: \tpoints = 5,\n137: \tgetChance = function(self, t) return math.min(25, self:combatScale(self:getTalentLevel(t), 7, 1, 15, 6.5) * math.max(1, self:combatScale(self.combat_mindspeed, 1, 1, 1.35, 1.5))) end,\n138: \tgetDuration = function(self, t)\n139: \t\treturn 3"
+    },
+    {
+      "revision_key": "e8bc936f6d6cb89e131fdddb68b357e4550d4ad593b0fd30247357dad567ca55",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start_line": 773,
+      "end_line": 785,
+      "excerpt": "773: \t\t\tsrc:callTalent(src.T_DISINTEGRATION, \"doStrip\", target, type)\n774: \t\tend\n775: \n776: \t\treturn realdam\n777: \tend,\n778: \tdeath_message = {_t\"battered\", _t\"bludgeoned\", _t\"sliced\", _t\"maimed\", _t\"raked\", _t\"bled\", _t\"impaled\", _t\"dissected\", _t\"disembowelled\", _t\"decapitated\", _t\"stabbed\", _t\"pierced\", _t\"torn limb from limb\", _t\"crushed\", _t\"shattered\", _t\"smashed\", _t\"cleaved\", _t\"swiped\", _t\"struck\", _t\"mutilated\", _t\"tortured\", _t\"skewered\", _t\"squished\", _t\"mauled\", _t\"chopped into tiny pieces\", _t\"splattered\", _t\"ground\", _t\"minced\", _t\"punctured\", _t\"hacked apart\", _t\"eviscerated\"},\n779: }\n780: \n781: -- Arcane is basic (usually) unresistable damage\n782: newDamageType{\n783: \tname = _t(\"arcane\", \"damage type\"), type = \"ARCANE\", text_color = \"#PURPLE#\",\n784: \tantimagic_resolve = true,\n785: \tdeath_message = {_t\"blasted\", _t\"energised\", _t\"mana-torn\", _t\"dweomered\", _t\"imploded\"},"
+    },
+    {
+      "revision_key": "e82dab7a290c55e9305c34057ac1a5bb958fbcd6e09b771370c96b6d4944b453",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+      "start_line": 2770,
+      "end_line": 2785,
+      "excerpt": "2770: \tname = \"Gravitational Staff\",\n2771: \tflavor_name = \"starstaff\",\n2772: \tunided_name = _t\"heavy staff\",\n2773: \tlevel_range = {25, 33},\n2774: \tcolor=colors.VIOLET, image = \"object/artifact/gravitational_staff.png\",\n2775: \trarity = 240,\n2776: \tdesc = _t[[Time and Space seem to warp and bend around the massive tip of this stave.]],\n2777: \tcost = resolvers.rngrange(225,350),\n2778: \tmaterial_level = 3,\n2779: \trequire = { stat = { mag=35 }, },\n2780: \tcombat = {\n2781: \t\tdam = 30,\n2782: \t\tapr = 8,\n2783: \t\tdammod = {mag=0.8},\n2784: \t\tdamtype = DamageType.GRAVITYPIN,\n2785: \t\telement = DamageType.PHYSICAL,"
+    },
+    {
+      "revision_key": "e8b90dff068deb7d3ab4e19d2c0b57ebccdcc880dc7c25fbf7baa6222974482f",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Player.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4878ab4818826c50b993dc8233dfc78b8ac389733093553564bbfe6b328fb80a",
+      "start_line": 492,
+      "end_line": 507,
+      "excerpt": "492: \t\telseif game.level and game.level.data.is_eidolon_plane then game.fbo_shader:setUniform(\"colorize\", {1,1,1,1})\n493: --\t\telseif game:hasDialogUp() then game.fbo_shader:setUniform(\"colorize\", {0.9,0.9,0.9})\n494: \t\telse game.fbo_shader:setUniform(\"colorize\", {0,0,0,0}) -- Disable\n495: \t\tend\n496: \n497: \t\t-- Blur shader\n498: \t\tif config.settings.tome.fullscreen_confusion and pf.blur and pf.blur.shad then\n499: \t\t\tif self:attr(\"confused\") and self.confused >= 1 then pf.blur.shad:uniBlur(2) effects[pf.blur.shad] = true\n500: \t\t\telseif self:attr(\"sleep\") and not self:attr(\"lucid_dreamer\") and self.sleep >= 1 then pf.blur.shad:uniBlur(2) effects[pf.blur.shad] = true\n501: \t\t\tend\n502: \t\tend\n503: \n504: \t\t-- Moving Blur shader\n505: \t\tif pf.motionblur and pf.motionblur.shad then\n506: \t\t\tif self:attr(\"invisible\") then pf.motionblur.shad:uniMotionblur(3) effects[pf.motionblur.shad] = true\n507: \t\t\telseif self:attr(\"lightning_speed\") then pf.motionblur.shad:uniMotionblur(2) effects[pf.motionblur.shad] = true"
+    },
+    {
+      "revision_key": "e85e4d885532dd2a1e0eb55069514b010ed3bee7ef2b98e4178a999ca3ef5e5e",
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/techniques/agility.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+      "start_line": 130,
+      "end_line": 169,
+      "excerpt": "130: \t\t-- Modify shield combat to use dex.\n131: \t\tlocal combat = table.clone(shield_combat, true)\n132: \t\tif combat.dammod.str and combat.dammod.str > 0 then\n133: \t\t\tcombat.dammod.dex = (combat.dammod.dex or 0) + combat.dammod.str\n134: \t\t\tcombat.dammod.str = nil\n135: \t\tend\n136: \n137: \t\t-- First attack with shield\n138: \t\tlocal speed, hit = self:attackTargetWith(target, combat, nil, t.getDamage(self, t))\n139: \n140: \t\t-- Daze\n141: \t\tif hit then\n142: \t\t\tif target:canBe(\"stun\") then\n143: \t\t\t\ttarget:setEffect(target.EFF_DAZED, 2, {apply_power=self:combatPhysicalpower()})\n144: \t\t\telse\n145: \t\t\t\tgame.logSeen(target, \"%s resists the daze!\", target:getName():capitalize())\n146: \t\t\tend\n147: \t\tend\n148: \t\t\n149: \t\tlocal ox, oy = self.x, self.y\n150: \t\tself:move(x, y, true)\n151: \t\tif config.settings.tome.smooth_move > 0 then\n152: \t\t\tself:resetMoveAnim()\n153: \t\t\tself:setMoveAnim(ox, oy, 8, 5)\n154: \t\tend\n155: \t\t\n156: \t\t-- Free block?\n157: \t\tif self:getTalentLevel(t) >= 5 then\n158: \t\t\tself:forceUseTalent(self.T_BLOCK, {ignore_energy=true, ignore_cd = true, silent = true})\n159: \t\tend\n160: \n161: \t\treturn true\n162: \tend,\n163: \tinfo = function(self, t)\n164: \t\tlocal dam = t.getDamage(self, t) * 100\n165: \t\tlocal range = t.getDist(self, t)\n166: \t\treturn ([[Leap onto an adjacent target with your shield, striking them for %d%% damage and dazing them for 2 turns, then using them as a springboard to leap to a tile within range %d.\n167: The shield bash will use Dexterity instead of Strength for the shield's bonus damage.\n168: At talent level 5, you will immediately enter a blocking stance on landing.]])\n169: \t\t:tformat(dam, range)"
+    }
+  ]
+}

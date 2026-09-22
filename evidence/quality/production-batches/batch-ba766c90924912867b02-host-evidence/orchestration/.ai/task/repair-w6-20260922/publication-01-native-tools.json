@@ -1,0 +1,163 @@
+{
+  "dispatch_id": "publication-01",
+  "native_session": "01a0c964-4d5d-7be3-bb91-e33b3e86b0e5",
+  "native_sha256": "d6a1e4c5483e569d27e369626d6627604d2c92408f65d1d9c8c71e7fd20038b1",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288506a5087d2913536a50b7b369d",
+      "status": "completed",
+      "call_id": "call_InrzgejKeeIma5TwM1e8USPa",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' .ai/roles/executor.md && sed -n '1,280p' .ai/task/repair-w6-20260922/PUBLICATION-SCOPE.md && sed -n '1,320p' .ai/task/repair-w6-20260922/PACK-MANIFEST.json && git status --short\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085194.896129
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab2885ed20c87d2a4cd75fef25586a8",
+      "status": "completed",
+      "call_id": "call_YOT1W5FhPwsdTWVmTaM3wC2e",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"jq '{schema_version,snapshot_meaning,translation_commit,file_count:(.files|length),total_bytes:(.files|map(.bytes)|add),first:.files[0],last:.files[-1]}' .ai/task/repair-w6-20260922/PACK-MANIFEST.json && find .artifacts/i18n/repair-window/window6-20260922-candidate-catalog -maxdepth 2 -type f -printf '%P\\\\n' | sort && find .artifacts/i18n/repair-window/publication -maxdepth 1 -type f -printf '%f\\\\n' | sort && find .artifacts/i18n/repair-window -maxdepth 1 -type f -name 'window6-20260922-*' -printf '%f\\\\n' | sort && find .artifacts/i18n/continuation-20260922 -maxdepth 1 -type f -printf '%f\\\\n' | sort && find evidence/quality/repair-window-6-20260922 -maxdepth 3 -type f -printf '%P\\\\n' | sort && sed -n '1,320p' handoff.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085205.284224
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab2886cd9ac87d282410f5f3598d671",
+      "status": "completed",
+      "call_id": "call_J0HJ2ZxhSOeP0eSm2HuGcp5Q",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"find .ai/task/repair-w6-20260922 -maxdepth 2 -type f -printf '%P\\\\n' | sort | tail -40 && find .artifacts/i18n/repair-window/window6-20260922-candidate-catalog -type f -printf '%p %s\\\\n' | sort && find .artifacts/i18n/repair-window -maxdepth 2 -type f \\\\( -name 'PACK-REPLAY-PROBE.json' -o -name 'CATALOG-CHANGE-VERIFICATION.json' -o -name 'MIGRATION-HOST-VERIFICATION.json' -o -name 'HOST-AUDIT-COUNT-CORRECTION.json' -o -name 'TRANSLATION-COMMIT.json' -o -name 'PUBLICATION-SCOPE.md' \\\\) -print && git show --stat --oneline --no-renames 38e666aaae9e5738819e3b6525398b9bfc9872eb && git diff 38e666aaae9e5738819e3b6525398b9bfc9872eb -- game/addons/tome-i18n/data/locales/zh_Hans/mod-tome.lua\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085225.346169
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288796bd887d29fb21c0a51da914e",
+      "status": "completed",
+      "call_id": "call_T5sv7ZPRq7CfiCgnXHEITzqE",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"for f in PUBLICATION-SCOPE.md PACK-REPLAY-PROBE.json CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json HOST-AUDIT-COUNT-CORRECTION.json; do find .ai/task/repair-w6-20260922 .artifacts/i18n/repair-window -type f -name \\\"$f\\\" -printf '%p %s\\\\n'; done; find evidence/quality/repair-window-5-20260922 -maxdepth 2 -type f -printf '%P\\\\n' | sort | head -80; sed -n '1,260p' evidence/quality/repair-window-5-20260922/PUBLICATION.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085239.558662
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab2888c85dc87d2aa6f5000ddf33c4a",
+      "status": "completed",
+      "call_id": "call_iezj2VnJJH0Hh6OS66y3WFDj",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"set -euo pipefail\\nmanifest=.ai/task/repair-w6-20260922/PACK-MANIFEST.json\\nroot=evidence/quality/repair-window-6-20260922\\ncount=0\\ntotal=0\\nwhile IFS=$'\\\\t' read -r src rel want_sha want_bytes; do\\n  test -f \\\"$src\\\" || { echo \\\"MISSING_SOURCE $src\\\"; exit 20; }\\n  got_sha=$(sha256sum \\\"$src\\\" | cut -d' ' -f1)\\n  got_bytes=$(wc -c < \\\"$src\\\")\\n  test \\\"$got_sha\\\" = \\\"$want_sha\\\" || { echo \\\"SOURCE_SHA_MISMATCH $src\\\"; exit 21; }\\n  test \\\"$got_bytes\\\" = \\\"$want_bytes\\\" || { echo \\\"SOURCE_BYTES_MISMATCH $src\\\"; exit 22; }\\n  dst=\\\"$root/orchestration/$rel\\\"\\n  if test -e \\\"$dst\\\"; then\\n    cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 23; }\\n  fi\\n  count=$((count+1)); total=$((total+got_bytes))\\ndone < <(jq -r '.files[] | [.source,.relative_destination,.sha256,(.bytes|tostring)] | @tsv' \\\"$manifest\\\")\\nmanifest_dst=\\\"$root/orchestration-pack-manifest.json\\\"\\nif test -e \\\"$manifest_dst\\\"; then cmp -s \\\"$manifest\\\" \\\"$manifest_dst\\\" || { echo \\\"DEST_CONFLICT $manifest_dst\\\"; exit 24; }; fi\\ncatalog_src=.artifacts/i18n/repair-window/window6-20260922-candidate-catalog\\nwhile IFS= read -r src; do\\n  rel=${src#\\\"$catalog_src/\\\"}; dst=\\\"$rel\\\"\\n  if test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 25; }; fi\\ndone < <(find \\\"$catalog_src\\\" -type f -print | sort)\\nmigration_src=.artifacts/i18n/repair-window/window6-20260922-migration.json\\nmigration_dst=evidence/production-review-v2-lite/migrations/92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d.json\\ntest -f \\\"$migration_src\\\"\\nif test -e \\\"$migration_dst\\\"; then cmp -s \\\"$migration_src\\\" \\\"$migration_dst\\\" || { echo \\\"DEST_CONFLICT $migration_dst\\\"; exit 26; }; fi\\nfor name in PUBLICATION-SCOPE.md PACK-REPLAY-PROBE.json CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json HOST-AUDIT-COUNT-CORRECTION.json; do\\n  src=\\\".ai/task/repair-w6-20260922/$name\\\"; dst=\\\"$root/publication/$name\\\"; test -f \\\"$src\\\"\\n  if test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 27; }; fi\\ndone\\nfor name in window6-20260922-queue-1.log window6-20260922-queue-1-timing.json window6-20260922-catalog.log window6-20260922-catalog-timing.json window6-20260922-migration.json window6-20260922-migration-timing.json window6-20260922-migration-run.log window6-20260922-migration-run-timing.json; do\\n  src=\\\".artifacts/i18n/repair-window/$name\\\"; dst=\\\"$root/publication/$name\\\"; test -f \\\"$src\\\"\\n  if test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 28; }; fi\\ndone\\nsrc=.artifacts/i18n/continuation-20260922/review252-push-verification.json; dst=\\\"$root/publication/review252-push-verification.json\\\"; test -f \\\"$src\\\"\\nif test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 29; }; fi\\nprintf 'PREFLIGHT_OK manifest_files=%s manifest_bytes=%s catalog_files=%s attachments=%s\\\\n' \\\"$count\\\" \\\"$total\\\" \\\"$(find \\\"$catalog_src\\\" -type f | wc -l)\\\" 15\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 4000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085248.713472
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288bbbbdc87d283abaccae0c942b5",
+      "status": "completed",
+      "call_id": "call_tDyjPw7Fp7nnEJNWFbzQxZ55",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,320p' .ai/task/repair-w6-20260922/prepare_publication.py && sed -n '1,360p' .ai/task/repair-w6-20260922/publish.py && sed -n '1,280p' .ai/task/repair-w6-20260922/verify_catalog.py && jq . .ai/task/repair-w6-20260922/CATALOG-CHANGE-VERIFICATION.json && jq . .ai/task/repair-w6-20260922/MIGRATION-HOST-VERIFICATION.json && jq . .ai/task/repair-w6-20260922/PACK-REPLAY-PROBE.json && jq . .ai/task/repair-w6-20260922/TRANSLATION-COMMIT.json && jq . .ai/task/repair-w6-20260922/HOST-AUDIT-COUNT-CORRECTION.json && jq . .artifacts/i18n/continuation-20260922/review252-push-verification.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085295.063738
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288cd90a087d2b6d45324fb3f1f2b",
+      "status": "completed",
+      "call_id": "call_IjNOwgm8o2lkGf1EXwFa5sxy",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"jq '{migration_id,old_catalog_id,new_catalog_id,target_path,summary,counts}' .artifacts/i18n/repair-window/window6-20260922-migration.json && jq . .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/manifest.json && jq . evidence/production-review-v2-lite/catalog/manifest.json && sha256sum .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/entries.jsonl .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/exclusions.jsonl .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/manifest.json .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/i18n/quality/production-review-v2-lite/catalog-v1.schema.json .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/i18n/quality/production-review-v2-lite/policy-v1.json .artifacts/i18n/repair-window/window6-20260922-migration.json && wc -c .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/entries.jsonl .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/exclusions.jsonl .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/evidence/production-review-v2-lite/catalog/manifest.json .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/i18n/quality/production-review-v2-lite/catalog-v1.schema.json .artifacts/i18n/repair-window/window6-20260922-candidate-catalog/i18n/quality/production-review-v2-lite/policy-v1.json .artifacts/i18n/repair-window/window6-20260922-migration.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 10000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085317.56894
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288e0c0e487d2b51c4179588c0bd0",
+      "status": "completed",
+      "call_id": "call_kdbcy0tbFqvVODFWjnMveJ8V",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"set -euo pipefail\\nroot=evidence/quality/repair-window-6-20260922\\nfor name in PUBLICATION-SCOPE.md PACK-REPLAY-PROBE.json CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json HOST-AUDIT-COUNT-CORRECTION.json; do\\n  src=\\\".ai/task/repair-w6-20260922/$name\\\"; dst=\\\"$root/publication/$name\\\"; test -f \\\"$src\\\"\\n  sha256sum \\\"$src\\\"; wc -c < \\\"$src\\\"\\n  if test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 27; }; fi\\ndone\\nfor name in window6-20260922-queue-1.log window6-20260922-queue-1-timing.json window6-20260922-catalog.log window6-20260922-catalog-timing.json window6-20260922-migration.json window6-20260922-migration-timing.json window6-20260922-migration-run.log window6-20260922-migration-run-timing.json; do\\n  src=\\\".artifacts/i18n/repair-window/$name\\\"; dst=\\\"$root/publication/$name\\\"; test -f \\\"$src\\\"\\n  sha256sum \\\"$src\\\"; wc -c < \\\"$src\\\"\\n  if test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 28; }; fi\\ndone\\nsrc=.artifacts/i18n/continuation-20260922/review252-push-verification.json; dst=\\\"$root/publication/review252-push-verification.json\\\"; test -f \\\"$src\\\"; sha256sum \\\"$src\\\"; wc -c < \\\"$src\\\"\\nif test -e \\\"$dst\\\"; then cmp -s \\\"$src\\\" \\\"$dst\\\" || { echo \\\"DEST_CONFLICT $dst\\\"; exit 29; }; fi\\nmigration_src=.artifacts/i18n/repair-window/window6-20260922-migration.json; migration_dst=evidence/production-review-v2-lite/migrations/92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d.json\\nif test -e \\\"$migration_dst\\\"; then cmp -s \\\"$migration_src\\\" \\\"$migration_dst\\\" || { echo \\\"DEST_CONFLICT $migration_dst\\\"; exit 30; }; fi\\nprintf 'AUX_PREFLIGHT_OK attachments=15 migration_target=clear\\\\n'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 10000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085342.74972
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab288fc7e3087d2b8323c17b033ed19",
+      "status": "completed",
+      "call_id": "call_uigAAhP586VuiaKfqzVfLrsC",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"set -euo pipefail\\nroot=evidence/quality/repair-window-6-20260922\\nmanifest=.ai/task/repair-w6-20260922/PACK-MANIFEST.json\\nwhile IFS=$'\\\\t' read -r src rel; do\\n  dst=\\\"$root/orchestration/$rel\\\"\\n  mkdir -p \\\"$(dirname \\\"$dst\\\")\\\"\\n  if ! test -e \\\"$dst\\\"; then cp -- \\\"$src\\\" \\\"$dst\\\"; fi\\ndone < <(jq -r '.files[] | [.source,.relative_destination] | @tsv' \\\"$manifest\\\")\\ncp -- \\\"$manifest\\\" \\\"$root/orchestration-pack-manifest.json\\\"\\nmkdir -p \\\"$root/publication\\\"\\nfor name in PUBLICATION-SCOPE.md PACK-REPLAY-PROBE.json CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json HOST-AUDIT-COUNT-CORRECTION.json; do cp -- \\\".ai/task/repair-w6-20260922/$name\\\" \\\"$root/publication/$name\\\"; done\\nfor name in window6-20260922-queue-1.log window6-20260922-queue-1-timing.json window6-20260922-catalog.log window6-20260922-catalog-timing.json window6-20260922-migration.json window6-20260922-migration-timing.json window6-20260922-migration-run.log window6-20260922-migration-run-timing.json; do cp -- \\\".artifacts/i18n/repair-window/$name\\\" \\\"$root/publication/$name\\\"; done\\ncp -- .artifacts/i18n/continuation-20260922/review252-push-verification.json \\\"$root/publication/review252-push-verification.json\\\"\\ncatalog_src=.artifacts/i18n/repair-window/window6-20260922-candidate-catalog\\nwhile IFS= read -r src; do rel=${src#\\\"$catalog_src/\\\"}; mkdir -p \\\"$(dirname \\\"$rel\\\")\\\"; cp -- \\\"$src\\\" \\\"$rel\\\"; done < <(find \\\"$catalog_src\\\" -type f -print | sort)\\nmkdir -p evidence/production-review-v2-lite/migrations\\ncp -- .artifacts/i18n/repair-window/window6-20260922-migration.json evidence/production-review-v2-lite/migrations/92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d.json\\nprintf 'COPIES_INSTALLED\\\\n'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 2000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085365.819534
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab289136b3487d299747eabada02bce",
+      "status": "completed",
+      "call_id": "call_cP8ayRGdbU1jf5uog1OQK76q",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"for f in evidence/quality/repair-window-6-20260922/publication/*timing.json; do echo \\\"$f\\\"; jq . \\\"$f\\\"; done; git rev-parse HEAD; git rev-parse origin/develop; git diff --stat; git status --short\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085393.731106
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab2891f261087d2aa646c1875f15ff1",
+      "status": "completed",
+      "call_id": "call_sg85HUSLQCDHub5U3do6Ce9X",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/repair-window-6-20260922/PUBLICATION.md\\n+# 修复窗口 6 出版证据\\n+\\n+## 范围与成果\\n+\\n+- 审核 252 已完成，结果为 78 `done` / 2 `repair_required`。收尾提交\\n+  `805b67263c3359441a4e6e12f3ebd0d2bdc5a0da`、queue 同步、push 与远端核验已于\\n+  2026-09-22 13:27 UTC 完成；核验原件见\\n+  [review252-push-verification.json](publication/review252-push-verification.json)。\\n+- 因审核 252 确认 newline 问题，窗口 6 在安全边界提前修复，范围恰为两条真实 repair\\n+  preflight：日记条目仅恢复省略号前后两个空行，文字不变；古战场成就补回主动惊扰行为和\\n+  后果关系。\\n+- 译文提交为 `38e666aaae9e5738819e3b6525398b9bfc9872eb`，只修改 `mod-tome.lua`\\n+  的两个 target。`source`、`source_tag`、`args_order`、printf、markup 和 TAB 均未改变，\\n+  没有术语库变更。\\n+- 本出版阶段没有修改 Lua、术语、规则、工具、旧证据或 `.ai`，也没有重跑 queue、catalog、\\n+  migration-chain、复审或完整门禁。\\n+\\n+## 复审、门禁与生命周期\\n+\\n+- 首轮 full `REVIEW` 和最终 full `FINAL_REVIEW` 的原始结果均为 2 `OK` / 0 `ISSUE`。\\n+  没有追加修复轮或 SENIOR 升级，默认 `max_cycles=3` 未扩展。\\n+- 最终完整门禁 `run.ko6u_j8h` 为 17/17 通过，包含严格 addon 构建；任务状态为\\n+  `DONE_VERIFIED`。\\n+- 实施、首轮复审和最终复审三个 child 均已确认归档。本出版 child 尚待宿主收获并确认归档，\\n+  本文不提前宣称其已归档。\\n+- [HOST-AUDIT-COUNT-CORRECTION.json](publication/HOST-AUDIT-COUNT-CORRECTION.json)\\n+  仅把实施审计汇总中的 12 次调用更正为真实 11 次；全部实际调用已逐项检查。原 immutable\\n+  快照保持不变，范围裁决及 finding 均未改变。\\n+\\n+## 冻结归档与重放\\n+\\n+归档的 [orchestration-pack-manifest.json](orchestration-pack-manifest.json) 与 producer manifest\\n+逐字节相同。清单的 97 个目标在复制前后均按声明的 SHA-256 和字节数核对，合计\\n+765,623 bytes。归档 `STATE.json` 明确来自 immutable\\n+`STATE-review-validation-checkpoint.json`，不是出版时的可变 `STATE.json`。冻结源码、SPEC、\\n+原始报告和 literal 行末空白均保持原始字节。\\n+\\n+producer 的独立 snapshot 重放结果保存在\\n+[PACK-REPLAY-PROBE.json](publication/PACK-REPLAY-PROBE.json)。本出版阶段又从受跟踪归档目录\\n+只读运行：\\n+\\n+`python3 -B tools/ai_state_check.py .ai/task/repair-w6-20260922/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-6-20260922/orchestration --target DONE`\\n+\\n+实际结果为 RC 0，stdout 为 `DONE_VERIFIED: DONE predicate verified`，stderr 为空。\\n+\\n+## Catalog、迁移与真实计时\\n+\\n+- 第一次 queue rebuild：RC 0，`222.21649448899552` 秒。\\n+- 单次候选 catalog build：RC 0，`3.5976528999744914` 秒。\\n+- 单次 migration-chain：成功，总计 `231.52436333103105` 秒；plan 为 RC 0、\\n+  `223.6283655950101` 秒，check 为 RC 0、`3.2227891150396317` 秒，apply 为 RC 0、\\n+  `4.629509743012022` 秒；投影调用一次。\\n+- catalog 从 `c267a00eaf39f49b99266912241cfed79dfcbda440903763975ea2e4334a239d`\\n+  迁移到 `6f08ccf5394d2f0431a066c1315ba5abcdeaed1928e4781a0b1cb65e37e68405`。\\n+  2 条 revision changed、29,826 条 unchanged，0 ambiguous、0 unmapped；2 个 successor\\n+  已入队，后续必须重新审核，不能继承旧 revision 的完成态。\\n+- migration ID 为\\n+  `92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d`。\\n+  catalog entries、exclusions、manifest 的 SHA-256 依次为\\n+  `f72cfe936694012d0d2b9c53b6b37893ff874c0446fe7f24e068baa43c0deb04`、\\n+  `1288283aa25ae95c3bf311850e168ecb04d25cd09370e02fb84e5fb9110a7da0`、\\n+  `4b045f8829798256a67867e01ea16c98a5456c8417c5e05e3f57299633d80fd6`。\\n+\\n+原始 producer 核验、计时和日志保存在 [publication/](publication/)；五个候选 catalog 文件、\\n+migration、15 个 publication 原始附件以及 `mod-tome.lua` 相对译文提交均已逐字节复核。\\n+\\n+## 尚未完成的出版步骤\\n+\\n+本文件生成时实际 `HEAD` 为译文提交 `38e666aa…`，本地远端跟踪引用 `origin/develop` 为\\n+`805b6726…`。本次证据/catalog/migration commit、提交后的第二次 queue rebuild、push 与远端\\n+复核仍待宿主执行；本文不宣称这些步骤已经完成。闭合后继续审核 253，默认 80 条，并开启新的\\n+修复窗口。\\n+\\n+旧 Archmage、旧回忆录 pending、旧 blocked、审核 252 范围外格式 pending 以及\\n+`RW1-SIB-01/02` 的边界不扩大、不清零。`.ai/consult/`、`recipe` 和 15 个旧 source-workset\\n+保留，不纳入本次提交或清理。\\n*** Update File: /workspace/tome4-chinese-translation/handoff.md\\n@@\\n-更新时间：2026-09-22（审核252已finalize，待收尾提交后的队列同步与push；随后窗口6修复2条）\\n+更新时间：2026-09-22（审核252收尾与窗口6译文已完成；待窗口6证据提交、第二次queue与push）\\n@@\\n-审核252已完成并finalize：`batch-5378d30fad3ca6f0275d`，80条固定tome来源，\\n-**78 done / 2 repair_required**。证据提交`89fa93ba3a5671eb271572b17b4518502321b21f`；\\n-当前无活动checkpoint，五个审核child全部确认归档。Finalize后的实测队列为22182 done、\\n-3 repair_required、24 blocked、7619 queued。两条新增修复为日记段落空行和古战场成就的惊扰行为；\\n-因确认newline问题，按窗口规则在252安全边界提前进入窗口6，不先启动253。\\n+审核252已完成并finalize：`batch-5378d30fad3ca6f0275d`，80条固定tome来源，\\n+**78 done / 2 repair_required**。证据提交`89fa93ba3a5671eb271572b17b4518502321b21f`；\\n+五个审核child全部确认归档。收尾提交`805b67263c3359441a4e6e12f3ebd0d2bdc5a0da`、\\n+queue同步、push及远端核验已于13:27完成，当时实测队列为22182 done、3 repair_required、\\n+24 blocked、7619 queued。两条新增修复为日记段落空行和古战场成就的惊扰行为；因确认newline\\n+问题，按窗口规则在252安全边界提前进入窗口6，没有先启动253。\\n@@\\n-本次收尾提交后的queue rebuild、push和远端核验仍待执行，不提前宣称完成。\\n+窗口6译文提交为`38e666aaae9e5738819e3b6525398b9bfc9872eb`；本次证据/catalog/migration\\n+提交、第二次queue rebuild、push和远端核验仍待宿主执行，不提前宣称完成。\\n+\\n+### 已完成译文与复审的修复窗口6\\n+\\n+窗口6范围恰为252的两条真实repair preflight：日记仅恢复省略号前后两个空行，文字不变；\\n+古战场成就补回主动惊扰行为及后果关系。`source`、`source_tag`、`args_order`、printf、markup、\\n+TAB均未变，无术语库改动。首轮full REVIEW和最终full FINAL_REVIEW原始结果均为2 OK / 0 ISSUE；\\n+没有追加修复轮或SENIOR升级，默认`max_cycles=3`未扩展。\\n+\\n+最终完整门禁`run.ko6u_j8h`为17/17通过，严格构建及`DONE_VERIFIED`通过。97文件、765,623 bytes\\n+的冻结包已独立snapshot重放通过，归档STATE来自immutable checkpoint。实施和两次复审共3个child\\n+均确认归档；出版child尚待宿主收获归档，不提前宣称。审计汇总数字12已更正为真实11个调用；\\n+全部实际调用均已检查，不改历史快照或范围裁决。详见\\n+[窗口6出版证据](evidence/quality/repair-window-6-20260922/PUBLICATION.md)。\\n+\\n+新catalog为`6f08ccf5394d2f0431a066c1315ba5abcdeaed1928e4781a0b1cb65e37e68405`，\\n+migration为`92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d`。\\n+一次catalog build和migration-chain已完成：2条revision changed、29,826条unchanged，0 ambiguous/\\n+unmapped，2个successor已入队并须重新审核，不继承done。本次证据提交、第二次queue rebuild、push\\n+及远端复核仍待宿主；完成后继续253默认80条并开启新的修复窗口。\\n@@\\n ## 下一步\\n \\n-1. 提交252 finalize收据、测试夹具维护和本交接后，执行一次queue rebuild并push核对远端；\\n-   不重做已完成的252审核、finalize或窗口5的catalog/migration。\\n-2. 闭合后对252实际运行repair preflight，建立窗口6有界implement，范围仅新增2条confirmed。\\n-   日记只恢复两个空行；古战场成就只补全主动惊扰及后果语义。默认max_cycles=3，\\n-   窗口5的第四轮授权不沿用。\\n-3. 修复仍按唯一EXECUTOR、独立复审、完整门禁、译文commit、queue、单次catalog/migration、\\n-   证据commit、queue与push闭合；之后继续253默认80条。距离单位“码”、宿主独立记录的\\n-   e75edbe9ad额外LF及其他非阻断pending/advisory不自动扩入本窗口。\\n+1. 宿主收获并归档本出版child，提交窗口6证据、catalog与migration；不要重做已完成的252收尾、\\n+   窗口6译文、复审、首轮queue、catalog build、migration-chain或完整门禁。\\n+2. 提交后执行第二次queue rebuild，再push并核对远端；这些步骤在实际完成前不得宣称完成。\\n+3. 闭合后继续253默认80条并开启新的修复窗口。距离单位“码”、宿主独立记录的e75edbe9ad额外LF、\\n+   旧回忆录pending及其他非阻断pending/advisory不自动扩入窗口6或后续批次。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085399.922248
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab2899506e487d2b66146501a8fc6bb",
+      "status": "completed",
+      "call_id": "call_wHALwlGB7TXVYRIYAZySx83U",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"set -euo pipefail\\nroot=evidence/quality/repair-window-6-20260922\\nmanifest=.ai/task/repair-w6-20260922/PACK-MANIFEST.json\\ncount=0; total=0\\nwhile IFS=$'\\\\t' read -r src rel want_sha want_bytes; do\\n  dst=\\\"$root/orchestration/$rel\\\"\\n  test -f \\\"$dst\\\"\\n  got_sha=$(sha256sum \\\"$dst\\\" | cut -d' ' -f1); got_bytes=$(wc -c < \\\"$dst\\\")\\n  test \\\"$got_sha\\\" = \\\"$want_sha\\\"; test \\\"$got_bytes\\\" = \\\"$want_bytes\\\"; cmp -s \\\"$src\\\" \\\"$dst\\\"\\n  count=$((count+1)); total=$((total+got_bytes))\\ndone < <(jq -r '.files[] | [.source,.relative_destination,.sha256,(.bytes|tostring)] | @tsv' \\\"$manifest\\\")\\ntest \\\"$count\\\" -eq 97; test \\\"$total\\\" -eq 765623\\ncmp -s \\\"$manifest\\\" \\\"$root/orchestration-pack-manifest.json\\\"\\ncmp -s .ai/task/repair-w6-20260922/STATE-review-validation-checkpoint.json \\\"$root/orchestration/.ai/task/repair-w6-20260922/STATE.json\\\"\\ncatalog_src=.artifacts/i18n/repair-window/window6-20260922-candidate-catalog\\nwhile IFS= read -r src; do rel=${src#\\\"$catalog_src/\\\"}; cmp -s \\\"$src\\\" \\\"$rel\\\"; done < <(find \\\"$catalog_src\\\" -type f -print | sort)\\ncmp -s .artifacts/i18n/repair-window/window6-20260922-migration.json evidence/production-review-v2-lite/migrations/92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d.json\\nfor name in PUBLICATION-SCOPE.md PACK-REPLAY-PROBE.json CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json HOST-AUDIT-COUNT-CORRECTION.json; do cmp -s \\\".ai/task/repair-w6-20260922/$name\\\" \\\"$root/publication/$name\\\"; done\\nfor name in window6-20260922-queue-1.log window6-20260922-queue-1-timing.json window6-20260922-catalog.log window6-20260922-catalog-timing.json window6-20260922-migration.json window6-20260922-migration-timing.json window6-20260922-migration-run.log window6-20260922-migration-run-timing.json; do cmp -s \\\".artifacts/i18n/repair-window/$name\\\" \\\"$root/publication/$name\\\"; done\\ncmp -s .artifacts/i18n/continuation-20260922/review252-push-verification.json \\\"$root/publication/review252-push-verification.json\\\"\\ngit diff --exit-code 38e666aaae9e5738819e3b6525398b9bfc9872eb -- mod-tome.lua\\npython3 -B tools/ai_state_check.py .ai/task/repair-w6-20260922/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-6-20260922/orchestration --target DONE\\niconv -f UTF-8 -t UTF-8 handoff.md >/dev/null\\niconv -f UTF-8 -t UTF-8 \\\"$root/PUBLICATION.md\\\" >/dev/null\\ngit diff --check\\nprintf 'EXACT_COPY_OK files=%s bytes=%s catalog=5 migration=1 attachments=15\\\\n' \\\"$count\\\" \\\"$total\\\"\\nprintf 'LUA_COMMIT_MATCH_OK\\\\nUTF8_WHITESPACE_OK\\\\n'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 30000,\n  max_output_tokens: 5000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085508.618787
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0da328435ca823ab016ab289bd90b887d2a717796197494d2d",
+      "status": "completed",
+      "call_id": "call_Wa6iHItkT2tPnTLpJjuDQ3sH",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -c 'import pathlib,re,sys\\nok=True\\nfor name in (\\\"handoff.md\\\",\\\"evidence/quality/repair-window-6-20260922/PUBLICATION.md\\\"):\\n p=pathlib.Path(name)\\n for target in re.findall(r\\\"\\\\[[^]]*\\\\]\\\\(([^)]+)\\\\)\\\",p.read_text(encoding=\\\"utf-8\\\")):\\n  if target.startswith((\\\"http://\\\",\\\"https://\\\",\\\"#\\\")): continue\\n  q=(p.parent/target.split(\\\"#\\\",1)[0]).resolve()\\n  if not q.exists(): print(f\\\"BROKEN_LINK {name}: {target}\\\"); ok=False\\nsys.exit(0 if ok else 1)' && test \\\"$(find evidence/quality/repair-window-6-20260922/orchestration -type f | wc -l)\\\" -eq 97 && test \\\"$(find evidence/quality/repair-window-6-20260922/publication -type f | wc -l)\\\" -eq 15 && sha256sum mod-tome.lua evidence/production-review-v2-lite/catalog/entries.jsonl evidence/production-review-v2-lite/catalog/exclusions.jsonl evidence/production-review-v2-lite/catalog/manifest.json i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json evidence/production-review-v2-lite/migrations/92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d.json && git status --short && git diff --stat && git diff -- handoff.md evidence/production-review-v2-lite/catalog/manifest.json | sed -n '1,260p'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c964-4da1-73b1-922a-a69628100292",
+        "create_time": 1790085555.144402
+      }
+    }
+  ]
+}
