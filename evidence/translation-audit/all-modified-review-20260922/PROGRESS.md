@@ -596,3 +596,12 @@
 - **gemini-061-02（补跑 entry-01865）首次启动失败**：antigravity 返回瞬时 `AGENT_CREATE_FAILED: Authentication required (terms)`，未创建任何 agent（live 列表核对）。重试一次成功，agent `e681a8ba-3b61-4b68-a928-abe96a826132` 运行中；`launch_note` 已入 STATE。本次为让 agent 读取冻结 prompt，派发内容用一行指针指向 `dispatches/gemini-061-02-prompt.md`。
 - **sol-060-dup-01 属我方错误的重复派发**：shell 里 `sol-060-01-prompt.md` 不存在时回退到 `sol-059-01-prompt.md`（目标 cross-batch-060，已由 sol-059-01 完成）。处置：不收获、不写入任何 cross 结果，按 `archive --force` 中断并归档（live `archivedAt` `2026-09-22T09:55:40.110Z`），STATE 标 `discarded=true`。我曾先把它写成 archived，发现归档被拒后立即用 live 真值更正。
 - 教训入档：回退 `cat ... || cat ...` 这种兜底在证据记录场景会掩盖“文件不存在”，后续改为派发前先断言 prompt 文件存在。
+
+## batch-061 补跑完成（40/40）
+
+- gemini-061-02：**第 4 次 5 分钟打印超时（status error）**，但 brain `b9d07dca` 已写出 entry-01865 完整报告：结论**未发现问题**，占位符/缩进/术语逐项核过。按既定规则计覆盖、不重跑；`last_error` 入 STATE。报告 sha256 `7c9dbb2bd12620bc1338cbab390b5f9168c065f4221d5d57dc8ff2e19b1df079`。
+- batch-061 由 `reviewed_partial` 转为 **`reviewed_awaiting_cross`，覆盖 40/40**（01826–01864 来自 gemini-061-01，01865 来自补跑）。**覆盖 1870/4144**。
+- 01865 无问题，故 cross-batch-061 仍为 5 条：01835、01838、01839（存在疑点）、01851、01861（细微观察），sha `ef1c203c56866204a787d1216d1e55d4646938efa0165aa932549305feb3fa67`。
+- 归档：先 `archive_attempts_started=1`，live 确认 `archivedAt` `2026-09-22T10:02:41.463Z`。无未归档 child。
+- 归档前核验：batch-061 / gemini-061-01 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 更新时间见 STATE.json `updated_at`。
