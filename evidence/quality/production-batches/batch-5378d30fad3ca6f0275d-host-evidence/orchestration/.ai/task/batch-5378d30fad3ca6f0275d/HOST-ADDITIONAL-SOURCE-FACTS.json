@@ -1,0 +1,1103 @@
+[
+  {
+    "entry_revision_prefix": "e717b0df51",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+    "lines": [
+      {
+        "line": 198,
+        "text": "newChat{ id=\"relentless\","
+      },
+      {
+        "line": 199,
+        "text": "\ttext = _t[[One more bit of aid I might give you before you go. Your tale has moved me, and the very stars shine with approval of your relentless pursuit. Take their blessing, and let nothing stop you in your quest."
+      },
+      {
+        "line": 200,
+        "text": "\t#LIGHT_GREEN#*She touches your forehead with one cool hand, and you feel a surge of power*"
+      },
+      {
+        "line": 201,
+        "text": "\t]],"
+      },
+      {
+        "line": 202,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 203,
+        "text": "\t\t{_t\"I'll leave not a single orc standing.\", jump=\"welcome\", action=function(npc, player)"
+      },
+      {
+        "line": 204,
+        "text": "\t\t\tplayer:learnTalent(player.T_RELENTLESS_PURSUIT, true, 1, {no_unlearn=true})"
+      },
+      {
+        "line": 205,
+        "text": "\t\t\tgame.logPlayer(game.player, \"#VIOLET#You have learned the talent Relentless Pursuit.\")"
+      },
+      {
+        "line": 206,
+        "text": "\t\tend},"
+      },
+      {
+        "line": 207,
+        "text": "\t},"
+      },
+      {
+        "line": 208,
+        "text": "}"
+      },
+      {
+        "line": 209,
+        "text": ""
+      },
+      {
+        "line": 210,
+        "text": "newChat{ id=\"charred-scar\","
+      }
+    ],
+    "claim": "对话原文的 relentless pursuit 是普通短语，但当前对话实际授予 T_RELENTLESS_PURSUIT；不能仅凭英文大小写断言中文技能提示为虚构。此为宿主补查事实，独立reviewer不读取本记录。",
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_identity": "e74a2fccf534b0b7ecb40d7f2f9579e5070e5920749b1616fa0dab07d21986ef",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/Actor.lua",
+    "lines": [
+      {
+        "line": 2687,
+        "text": "\t-- Resonance Field, must be called after Feedback gains"
+      },
+      {
+        "line": 2688,
+        "text": "\tif self:attr(\"resonance_field\") then"
+      },
+      {
+        "line": 2689,
+        "text": "\t\tlocal absorb = math.min(value/2, self.resonance_field_absorb)"
+      },
+      {
+        "line": 2690,
+        "text": "\t\tgame:delayedLogDamage(src, self, 0, (\"#SLATE#(%d resonance)#LAST#\"):tformat(absorb), false)"
+      },
+      {
+        "line": 2691,
+        "text": "\t\tif absorb < self.resonance_field_absorb then"
+      },
+      {
+        "line": 2692,
+        "text": "\t\t\tself.resonance_field_absorb = self.resonance_field_absorb - absorb"
+      },
+      {
+        "line": 2693,
+        "text": "\t\telse"
+      },
+      {
+        "line": 2694,
+        "text": "\t\t\tgame.logPlayer(self, \"Your resonance field crumbles under the damage!\")"
+      },
+      {
+        "line": 2695,
+        "text": "\t\t\tself:removeEffect(self.EFF_RESONANCE_FIELD)"
+      },
+      {
+        "line": 2696,
+        "text": "\t\tend"
+      },
+      {
+        "line": 2697,
+        "text": "\t\tvalue = value - absorb"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_identity": "e75edbe9ad2c774a32cd4d014163254c8647985284da6720ffa08a912c6ec229",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 3166,
+        "text": "\tmax_power = 10, power_regen = 1,"
+      },
+      {
+        "line": 3167,
+        "text": "\tuse_power = { name = _t\"strike all targets in a line (for 100%% weapon damage as mind) out to range 4\", power = 10,"
+      },
+      {
+        "line": 3168,
+        "text": "\t\trange = 4,"
+      },
+      {
+        "line": 3169,
+        "text": "\t\trequires_target = true,"
+      },
+      {
+        "line": 3170,
+        "text": "\t\ttactical = {ATTACK = {weapon = 1, mind = 1}},"
+      },
+      {
+        "line": 3171,
+        "text": "\t\tuse = function(self, who)"
+      },
+      {
+        "line": 3172,
+        "text": "\t\t\tlocal tg = {type=\"beam\", range=self.use_power.range}"
+      },
+      {
+        "line": 3173,
+        "text": "\t\t\tlocal x, y = who:getTarget(tg)"
+      },
+      {
+        "line": 3174,
+        "text": "\t\t\tif not x or not y then return nil end"
+      },
+      {
+        "line": 3175,
+        "text": "\t\t\twho:logCombat(target, \"#Source# manifests a psychic assult with %s %s!\", who:his_her(), self:getName({do_color = true, no_add_name = true}))"
+      },
+      {
+        "line": 3176,
+        "text": "\t\t\twho:project(tg, x, y, function(px, py)"
+      },
+      {
+        "line": 3177,
+        "text": "\t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)"
+      },
+      {
+        "line": 3178,
+        "text": "\t\t\t\tif not target then return end"
+      },
+      {
+        "line": 3179,
+        "text": "\t\t\t\twho:attackTarget(target, engine.DamageType.MIND, 1, true)"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_identity": "e76beac406a6c6fa3395656114eb482d1e5c38df94e5fa71b4ab35fa9126a13f",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 2829,
+        "text": "newEffect{"
+      },
+      {
+        "line": 2830,
+        "text": "\tname = \"HEART_STARTED\", image = \"talents/heartstart.png\","
+      },
+      {
+        "line": 2831,
+        "text": "\tdesc = _t\"Heart Started\","
+      },
+      {
+        "line": 2832,
+        "text": "\tlong_desc = function(self, eff) return (\"A psionic charge is keeping your heart pumping, allowing you to survive to %+d health.\"):tformat(-eff.power) end,"
+      },
+      {
+        "line": 2833,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 2834,
+        "text": "\tsubtype = { lightning=true },"
+      },
+      {
+        "line": 2835,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 2836,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 2837,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2838,
+        "text": "\t\tself:effectTemporaryValue(eff, \"die_at\", -eff.power)"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_identity": "e76d1e71a696e1e479cce9d01ad7799fdbbca10f18533cd9aa44a034e14d83a5",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/talents/cursed/one-with-shadows.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "newTalent{"
+      },
+      {
+        "line": 38,
+        "text": "\tname = \"Shadows Empathy\", image = \"talents/shadow_empathy.png\","
+      },
+      {
+        "line": 39,
+        "text": "\ttype = {\"cursed/one-with-shadows\", 2},"
+      },
+      {
+        "line": 40,
+        "text": "\trequire = cursed_cun_req_high2,"
+      },
+      {
+        "line": 41,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 42,
+        "text": "\tcooldown = 10,"
+      },
+      {
+        "line": 43,
+        "text": "\tmode = 'sustained',"
+      },
+      {
+        "line": 44,
+        "text": "\tno_npc_use = true,"
+      },
+      {
+        "line": 45,
+        "text": "\t--count shadows in party"
+      },
+      {
+        "line": 46,
+        "text": "\tgetShadows = function(self, t)"
+      },
+      {
+        "line": 47,
+        "text": "\t\tlocal shadowsCount = 0"
+      },
+      {
+        "line": 48,
+        "text": "\t\tfor _, actor in pairs(game.level.entities) do"
+      },
+      {
+        "line": 49,
+        "text": "\t\t\tif actor.summoner and actor.summoner == self and actor.subtype == \"shadow\" then shadowsCount = shadowsCount + 1 end"
+      },
+      {
+        "line": 50,
+        "text": "\t\tend"
+      },
+      {
+        "line": 51,
+        "text": "\t\treturn shadowsCount"
+      },
+      {
+        "line": 52,
+        "text": "\tend,"
+      },
+      {
+        "line": 53,
+        "text": "\t--values for resists and affinity"
+      },
+      {
+        "line": 54,
+        "text": "\tgetLightResist = function(self, t) return -15 end,"
+      },
+      {
+        "line": 55,
+        "text": "\tgetDarkResist = function(self, t) return self:combatTalentScale(t, 10, 25) end,"
+      },
+      {
+        "line": 56,
+        "text": "\tgetAffinity = function(self, t) return self:combatTalentScale(t, 10, 25) end,"
+      },
+      {
+        "line": 57,
+        "text": "\tgetAllResScale = function(self, t) return self:combatTalentScale(t, 2, 4) end,"
+      },
+      {
+        "line": 58,
+        "text": "\tgetAllResist = function(self, t) return t.getAllResScale(self, t) * t.getShadows(self, t) end, "
+      },
+      {
+        "line": 59,
+        "text": "\t--activate effects"
+      },
+      {
+        "line": 60,
+        "text": "\tactivate = function(self, t)"
+      },
+      {
+        "line": 61,
+        "text": "\t\tlocal ret = {"
+      },
+      {
+        "line": 62,
+        "text": "\t\t\tshadowres = self:addTemporaryValue(\"resists\", {all=t.getAllResist(self, t)}),"
+      },
+      {
+        "line": 63,
+        "text": "\t\t\tres = self:addTemporaryValue(\"resists\", {[DamageType.LIGHT]=t.getLightResist(self, t), [DamageType.DARKNESS]=t.getDarkResist(self, t)}),"
+      },
+      {
+        "line": 64,
+        "text": "\t\t\taff = self:addTemporaryValue(\"damage_affinity\", {[DamageType.DARKNESS]=t.getAffinity(self, t)}),"
+      },
+      {
+        "line": 65,
+        "text": "\t\t}"
+      },
+      {
+        "line": 66,
+        "text": "\t\treturn ret"
+      },
+      {
+        "line": 67,
+        "text": "\tend,"
+      },
+      {
+        "line": 68,
+        "text": "\t--callbacks"
+      },
+      {
+        "line": 69,
+        "text": "\tcallbackOnPartyAdd = function(self, t)"
+      },
+      {
+        "line": 70,
+        "text": "\t\tlocal p = self:isTalentActive(t.id)"
+      },
+      {
+        "line": 71,
+        "text": "\t\tif p.shadowres then self:removeTemporaryValue(\"resists\", p.shadowres) end"
+      },
+      {
+        "line": 72,
+        "text": "\t\tp.shadowres = self:addTemporaryValue(\"resists\", {all=t.getAllResist(self, t)})"
+      },
+      {
+        "line": 73,
+        "text": "\tend,"
+      },
+      {
+        "line": 74,
+        "text": "\tcallbackOnPartyRemove = function(self, t)"
+      },
+      {
+        "line": 75,
+        "text": "\t\tlocal p = self:isTalentActive(t.id)"
+      },
+      {
+        "line": 76,
+        "text": "\t\tgame:onTickEnd(function()"
+      },
+      {
+        "line": 77,
+        "text": "\t\tif p.shadowres then self:removeTemporaryValue(\"resists\", p.shadowres) end"
+      },
+      {
+        "line": 78,
+        "text": "\t\tp.shadowres = self:addTemporaryValue(\"resists\", {all=t.getAllResist(self, t)})"
+      },
+      {
+        "line": 79,
+        "text": "\t\tend)"
+      },
+      {
+        "line": 80,
+        "text": "\tend,"
+      },
+      {
+        "line": 81,
+        "text": "\t--daectivate effects"
+      },
+      {
+        "line": 82,
+        "text": "\tdeactivate = function(self, t, p)"
+      },
+      {
+        "line": 83,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", p.shadowres)"
+      },
+      {
+        "line": 84,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", p.res)"
+      },
+      {
+        "line": 85,
+        "text": "\t\tself:removeTemporaryValue(\"damage_affinity\", p.aff)"
+      },
+      {
+        "line": 86,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 87,
+        "text": "\tend,"
+      },
+      {
+        "line": 88,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 89,
+        "text": "\t\treturn ([[You empathy with your shadows causes the line between you and your shadows to blur."
+      },
+      {
+        "line": 90,
+        "text": "\t\tYou lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.]]):"
+      },
+      {
+        "line": 91,
+        "text": "\t\ttformat(t.getLightResist(self, t), t.getDarkResist(self, t), t.getAllResScale(self, t))"
+      },
+      {
+        "line": 92,
+        "text": "\tend,"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_identity": "e77f69e33560498d757700923301123c2656edd73d2b17ef788409336715c34c",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 781,
+        "text": "-- Arcane is basic (usually) unresistable damage"
+      },
+      {
+        "line": 782,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 783,
+        "text": "\tname = _t(\"arcane\", \"damage type\"), type = \"ARCANE\", text_color = \"#PURPLE#\","
+      },
+      {
+        "line": 784,
+        "text": "\tantimagic_resolve = true,"
+      },
+      {
+        "line": 785,
+        "text": "\tdeath_message = {_t\"blasted\", _t\"energised\", _t\"mana-torn\", _t\"dweomered\", _t\"imploded\"},"
+      },
+      {
+        "line": 786,
+        "text": "}"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e79b756a18",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/temporal-hounds.lua",
+    "lines": [
+      {
+        "line": 78,
+        "text": "\t\tm:attr(\"defense_on_teleport\", self:callTalent(self.T_COMMAND_BLINK, \"getDefense\"))"
+      },
+      {
+        "line": 79,
+        "text": "\t\tm:attr(\"resist_all_on_teleport\", self:callTalent(self.T_COMMAND_BLINK, \"getDefense\"))"
+      },
+      {
+        "line": 80,
+        "text": "\tend"
+      },
+      {
+        "line": 81,
+        "text": "\tif self:knowTalent(self.T_TEMPORAL_VIGOUR) then"
+      },
+      {
+        "line": 82,
+        "text": "\t\tm:attr(\"stun_immune\", self:callTalent(self.T_TEMPORAL_VIGOUR, \"getImmunities\"))"
+      },
+      {
+        "line": 83,
+        "text": "\t\tm:attr(\"blind_immune\", self:callTalent(self.T_TEMPORAL_VIGOUR, \"getImmunities\"))"
+      },
+      {
+        "line": 84,
+        "text": "\t\tm:attr(\"pin_immune\", self:callTalent(self.T_TEMPORAL_VIGOUR, \"getImmunities\"))"
+      },
+      {
+        "line": 85,
+        "text": "\t\tm:attr(\"confusion_immune\", self:callTalent(self.T_TEMPORAL_VIGOUR, \"getImmunities\"))"
+      },
+      {
+        "line": 86,
+        "text": "\tend"
+      },
+      {
+        "line": 336,
+        "text": "newTalent{"
+      },
+      {
+        "line": 337,
+        "text": "\tname = \"Temporal Vigour\","
+      },
+      {
+        "line": 338,
+        "text": "\ttype = {\"chronomancy/temporal-hounds\", 3},"
+      },
+      {
+        "line": 339,
+        "text": "\trequire = chrono_req_high3,"
+      },
+      {
+        "line": 340,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 341,
+        "text": "\tmode = \"passive\","
+      },
+      {
+        "line": 342,
+        "text": "\tgetImmunities = function(self, t)"
+      },
+      {
+        "line": 343,
+        "text": "\t\treturn self:combatTalentLimit(t, 1, 0.15, 0.50) -- Limit <100%"
+      },
+      {
+        "line": 344,
+        "text": "\tend,"
+      },
+      {
+        "line": 345,
+        "text": "\tgetRegen = function(self, t) return self:combatTalentSpellDamage(t, 10, 50, getParadoxSpellpower(self, t)) end,"
+      },
+      {
+        "line": 346,
+        "text": "\tgetHaste = function(self, t) return self:combatTalentLimit(t, 80, 20, 50)/100 end,"
+      },
+      {
+        "line": 347,
+        "text": "\tgetDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 1, 3))) end,"
+      },
+      {
+        "line": 348,
+        "text": "\tdoBlink = function(self, t, hound)  -- Triggered when the hounds is hit"
+      },
+      {
+        "line": 349,
+        "text": "\t\tlocal regen, haste = t.getRegen(self, t), t.getHaste(self, t)"
+      },
+      {
+        "line": 350,
+        "text": "\t\tif hound:hasEffect(hound.EFF_UNRAVEL) then"
+      },
+      {
+        "line": 351,
+        "text": "\t\t\tregen = regen * 2"
+      },
+      {
+        "line": 352,
+        "text": "\t\t\thaste = haste * 2"
+      },
+      {
+        "line": 353,
+        "text": "\t\tend"
+      },
+      {
+        "line": 354,
+        "text": "\t\thound:setEffect(hound.EFF_REGENERATION, 5, {power=regen}) "
+      },
+      {
+        "line": 355,
+        "text": "\t\thound:setEffect(hound.EFF_SPEED, 5, {power=haste})"
+      },
+      {
+        "line": 356,
+        "text": "\tend,"
+      },
+      {
+        "line": 357,
+        "text": "\tdoUnravel = function(self, t, hound, value)"
+      },
+      {
+        "line": 358,
+        "text": "\t\tlocal die_at = hound.life - value -1"
+      },
+      {
+        "line": 359,
+        "text": "\t\tprint(\"Unravel\", die_at)"
+      },
+      {
+        "line": 360,
+        "text": "\t\thound:setEffect(hound.EFF_UNRAVEL, t.getDuration(self, t), {power=50, die_at=die_at})"
+      },
+      {
+        "line": 361,
+        "text": "\t\treturn"
+      },
+      {
+        "line": 362,
+        "text": "\tend,"
+      },
+      {
+        "line": 363,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 364,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 365,
+        "text": "\t\tlocal regen = t.getRegen(self, t)"
+      },
+      {
+        "line": 366,
+        "text": "\t\tlocal haste = t.getHaste(self, t) * 100"
+      },
+      {
+        "line": 367,
+        "text": "\t\tlocal immunities = t.getImmunities(self, t) * 100"
+      },
+      {
+        "line": 368,
+        "text": "\t\treturn ([[Your hounds can now survive for up to %d turns after their hit points are reduced below 1.  While in this state they deal 50%% less damage but are immune to additional damage."
+      },
+      {
+        "line": 369,
+        "text": "\t\tCommand Blink will now regenerate your hounds for %d life per turn and increase their global speed by %d%% for five turns.  Hounds below 1 life when this effect occurs will have the bonuses doubled."
+      },
+      {
+        "line": 370,
+        "text": "\t\tWhen you learn this talent, your hounds gain %d%% stun, blind, confusion, and pin resistance."
+      },
+      {
+        "line": 371,
+        "text": "\t\tThe regeneration scales with your Spellpower.]]):tformat(duration, regen, haste, immunities)"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e79b756a18",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/Actor.lua",
+    "lines": [
+      {
+        "line": 7554,
+        "text": "--- list of actor status types and corresponding immunity attribute tags (inputs to newStatusType)"
+      },
+      {
+        "line": 7555,
+        "text": "--\tboolean values in this table are updated below by newStatusType"
+      },
+      {
+        "line": 7556,
+        "text": "_M.StatusTypes = {poison=true,\tdisease=true, cut=true, confusion=true, blind=true,\tsilence=true,"
+      },
+      {
+        "line": 7557,
+        "text": "\tdisarm=true, stun=true, sleep=true, fear=true, stone=true, slow=true,"
+      },
+      {
+        "line": 7558,
+        "text": "\tinstakill=false, anomaly=false,"
+      },
+      {
+        "line": 7559,
+        "text": "\tdispel_sustains=function(self) return 100 * ((self:attr(\"dispel_sustains_immune\") or 0) + (self:attr(\"dispel_immune\") or 0)) end,"
+      },
+      {
+        "line": 7560,
+        "text": "\tdispel_effects=function(self) return 100 * ((self:attr(\"dispel_effects_immune\") or 0) + (self:attr(\"dispel_immune\") or 0)) end,"
+      },
+      {
+        "line": 7561,
+        "text": "\tpin=function(self) return (self:attr(\"negative_status_effect_immune\") or self:attr(\"levitation\") or self:attr(\"fly\")) and 100 or 100 * (self:attr(\"pin_immune\") or 0) end,"
+      },
+      {
+        "line": 7562,
+        "text": "\tknockback=function(self) return self:attr(\"never_move\") and 100 or 100 * (self:attr(\"knockback_immune\") or 0) end,"
+      },
+      {
+        "line": 7563,
+        "text": "\tteleport=function(self) return self:attr(\"encased_in_ice\") and 100 or 100 * (self:attr(\"teleport_immune\") or 0) end,"
+      },
+      {
+        "line": 7564,
+        "text": "\tworldport=function(self) return game.level and game.level.data and game.level.data.no_worldport and 100 or 0 end,"
+      },
+      {
+        "line": 7565,
+        "text": "\tplanechange=function(self) return game.level and game.level.data and game.level.data.no_planechange and 100 or 0 end,"
+      },
+      {
+        "line": 7566,
+        "text": "\tsummon=function(self) return self:attr(\"suppress_summon\") and 100 or 0 end,"
+      },
+      {
+        "line": 7567,
+        "text": "}"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e7e5e7f4e5",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/achievements/events.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 39,
+        "text": "\tname = \"The Restless Dead\", id = \"EVENT_OLDBATTLEFIELD\","
+      },
+      {
+        "line": 40,
+        "text": "\tshow = \"name\","
+      },
+      {
+        "line": 41,
+        "text": "\tdesc = _t[[Disturbed an old battlefield and survived the consequences.]],"
+      },
+      {
+        "line": 42,
+        "text": "}"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e788ab931d",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/amulets.lua",
+    "lines": [
+      {
+        "line": 320,
+        "text": "newEntity{"
+      },
+      {
+        "line": 321,
+        "text": "\tpower_source = {technique=true},"
+      },
+      {
+        "line": 322,
+        "text": "\tname = \"enraging \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 323,
+        "text": "\tkeywords = {enraging=true},"
+      },
+      {
+        "line": 324,
+        "text": "\tlevel_range = {30, 50},"
+      },
+      {
+        "line": 325,
+        "text": "\tgreater_ego = 1,"
+      },
+      {
+        "line": 326,
+        "text": "\trarity = 20,"
+      },
+      {
+        "line": 327,
+        "text": "\tcost = 90,"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e7918bf2c5",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/dialogs/Birther.lua",
+    "lines": [
+      {
+        "line": 99,
+        "text": "\tself.c_options.hide = true"
+      },
+      {
+        "line": 100,
+        "text": "\tself.c_extra_options = Button.new{text=_t\"Extra Options\", fct=function() self:extraOptions() end}"
+      },
+      {
+        "line": 101,
+        "text": "\tself.c_extra_options.hide = not game.extra_birth_option_defs or #game.extra_birth_option_defs == 0"
+      },
+      {
+        "line": 102,
+        "text": ""
+      },
+      {
+        "line": 103,
+        "text": "\tself.c_name = Textbox.new{title=_t\"Name: \", text=(not config.settings.cheat and game.player_name == \"player\") and \"\" or game.player_name, chars=30, max_len=50, fct=function()"
+      },
+      {
+        "line": 104,
+        "text": "\t\tif config.settings.cheat then self:makeDefault() end"
+      },
+      {
+        "line": 105,
+        "text": "\tend, on_change=function() self:setDescriptor() end, on_mouse = function(button) if button == \"right\" then self:randomName() end end}"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication"
+  },
+  {
+    "entry_revision_prefix": "e7e5e7f4e5",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/general/events/old-battle-field.lua",
+    "lines": [
+      {
+        "line": 79,
+        "text": "\t\t\ton_enter = function(lev)"
+      },
+      {
+        "line": 80,
+        "text": "\t\t\t\tgame.level.turn_counter = 101 * 10"
+      },
+      {
+        "line": 81,
+        "text": "\t\t\t\tgame.level.max_turn_counter = 101 * 10"
+      },
+      {
+        "line": 82,
+        "text": "\t\t\t\tgame.level.turn_counter_desc = _t\"Undead are rising from the ground! You must hold on!\""
+      },
+      {
+        "line": 83,
+        "text": "\t\t\t\tgame.level.nb_pop = 1"
+      },
+      {
+        "line": 84,
+        "text": "\t\t\tend,"
+      },
+      {
+        "line": 85,
+        "text": "\t\t\ton_turn = function(self)"
+      },
+      {
+        "line": 86,
+        "text": "\t\t\t\tif game.level.turn_counter then"
+      },
+      {
+        "line": 87,
+        "text": "\t\t\t\t\tgame.level.turn_counter = game.level.turn_counter - 1"
+      },
+      {
+        "line": 88,
+        "text": "\t\t\t\t\tgame.player.changed = true"
+      },
+      {
+        "line": 89,
+        "text": "\t\t\t\t\tif game.level.turn_counter < 0 then"
+      },
+      {
+        "line": 90,
+        "text": "\t\t\t\t\t\tgame.level.turn_counter = nil"
+      },
+      {
+        "line": 91,
+        "text": "\t\t\t\t\t\tlocal spot = game.level:pickSpot{type=\"pop\", subtype=\"undead\"}"
+      },
+      {
+        "line": 92,
+        "text": "\t\t\t\t\t\tlocal g = game.zone:makeEntityByName(game.level, \"terrain\", \"CAVE_LADDER_UP_WILDERNESS\")"
+      },
+      {
+        "line": 93,
+        "text": "\t\t\t\t\t\tgame.zone:addEntity(game.level, g, \"terrain\", spot.x, spot.y)"
+      },
+      {
+        "line": 94,
+        "text": ""
+      },
+      {
+        "line": 95,
+        "text": "\t\t\t\t\t\t-- A \"boss\" comes"
+      },
+      {
+        "line": 96,
+        "text": "\t\t\t\t\t\tlocal nb = 20"
+      },
+      {
+        "line": 97,
+        "text": "\t\t\t\t\t\twhile nb > 0 do"
+      },
+      {
+        "line": 98,
+        "text": "\t\t\t\t\t\t\tlocal spot = game.level:pickSpot{type=\"pop\", subtype=\"undead\"}"
+      },
+      {
+        "line": 99,
+        "text": "\t\t\t\t\t\t\tif not game.level.map(spot.x, spot.y, game.level.map.ACTOR) then"
+      },
+      {
+        "line": 100,
+        "text": "\t\t\t\t\t\t\t\tlocal m = game.zone:makeEntity(game.level, \"actor\", {random_elite={life_rating=function(v) return v * 1.5 + 4 end, nb_rares=6}}, nil, true)"
+      },
+      {
+        "line": 101,
+        "text": "\t\t\t\t\t\t\t\tif m then game.zone:addEntity(game.level, m, \"actor\", spot.x, spot.y) m:setTarget(game.player) break end"
+      },
+      {
+        "line": 102,
+        "text": "\t\t\t\t\t\t\tend"
+      },
+      {
+        "line": 103,
+        "text": "\t\t\t\t\t\t\tnb = nb - 1"
+      },
+      {
+        "line": 104,
+        "text": "\t\t\t\t\t\tend"
+      },
+      {
+        "line": 105,
+        "text": ""
+      },
+      {
+        "line": 106,
+        "text": "\t\t\t\t\t\tworld:gainAchievement(\"EVENT_OLDBATTLEFIELD\", game:getPlayer(true))"
+      },
+      {
+        "line": 107,
+        "text": "\t\t\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Onslaught\", _t\"You have survived the onslaught of undead. You notice a way to climb up you had not seen before in a wall nearby.\", 400)"
+      },
+      {
+        "line": 108,
+        "text": "\t\t\t\t\telseif game.level.turn_counter % 50 == 0 then"
+      }
+    ],
+    "status": "context_verified_no_final_adjudication",
+    "claim": "进入地下战场后需撑过亡灵来袭计时；106行授予EVENT_OLDBATTLEFIELD，107行明确survived the onslaught。因此成就并非单纯到访即可。"
+  },
+  {
+    "entry_revision_prefix": "e7e5e7f4e5",
+    "component": "tome",
+    "source_pinning": "pinned",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/general/events/old-battle-field.lua",
+    "lines": [
+      {
+        "line": 144,
+        "text": "\t\t\tif game.level.event_battlefield_entered then return false end"
+      },
+      {
+        "line": 145,
+        "text": "\t\t\twho:runStop(_t\"grave\")"
+      },
+      {
+        "line": 146,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Grave\", _t\"Do you wish to disturb the grave?\", function(ret) if ret then"
+      },
+      {
+        "line": 147,
+        "text": "\t\t\t\tself:change_level_check()"
+      },
+      {
+        "line": 148,
+        "text": "\t\t\tend end)"
+      },
+      {
+        "line": 149,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 150,
+        "text": "\t\tend"
+      },
+      {
+        "line": 151,
+        "text": "\t\tg.change_level=1 g.change_zone=id g.glow=true"
+      },
+      {
+        "line": 152,
+        "text": "\t\tg.real_change = changer"
+      },
+      {
+        "line": 153,
+        "text": "\t\tg.change_level_check = function(self)"
+      },
+      {
+        "line": 154,
+        "text": "\t\t\tgame:chronoCancel(_t\"#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.\")"
+      },
+      {
+        "line": 155,
+        "text": "\t\t\tif game.level.event_battlefield_entered then return true end"
+      },
+      {
+        "line": 156,
+        "text": "\t\t\tself:removeAllMOs()"
+      },
+      {
+        "line": 157,
+        "text": "\t\t\tif self.add_displays then"
+      },
+      {
+        "line": 158,
+        "text": "\t\t\t\tlocal ov = self.add_displays[#self.add_displays]"
+      },
+      {
+        "line": 159,
+        "text": "\t\t\t\tov.image = \"terrain/grave_opened_0\"..rng.range(1, 3)..\"_64.png\""
+      },
+      {
+        "line": 160,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 161,
+        "text": "\t\t\tself.name = _t\"opened grave\""
+      },
+      {
+        "line": 162,
+        "text": "\t\t\tgame.level.map:updateMap(self.x, self.y)"
+      },
+      {
+        "line": 163,
+        "text": "\t\t\tgame.level.event_battlefield_entered = true"
+      },
+      {
+        "line": 164,
+        "text": "\t\t\tgame:changeLevel(1, self.real_change(self.change_zone), {temporary_zone_shift=true, direct_switch=true})"
+      },
+      {
+        "line": 165,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"Fall...\", _t\"As you began digging up the grave, the ground collapsed beneath you. You fall into an eerily lit cavern.\")"
+      },
+      {
+        "line": 166,
+        "text": "\t\t\tfor i, gr in ipairs(self.graves) do"
+      }
+    ],
+    "status": "confirmed",
+    "claim": "146主动选择disturb grave、165开始挖掘后陷入地下洞窟；结合106成就授予，踏入遗漏主动惊扰行为。"
+  }
+]

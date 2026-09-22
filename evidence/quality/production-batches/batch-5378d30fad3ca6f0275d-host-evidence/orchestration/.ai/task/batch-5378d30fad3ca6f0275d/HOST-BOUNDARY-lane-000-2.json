@@ -1,0 +1,22 @@
+{
+  "key": "batch-5378d30fad3ca6f0275d|lane-000-2",
+  "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T12-38-09-01a0c91f-a47a-7a90-9a46-8e232b9dc986.jsonl",
+  "native_sha256": "1de8e88f021b644a6696e411138787d3fdcf9a955ded32cf45bf2fbc411764c1",
+  "reviewed_at": "2026-09-22T12:39:54.640056+00:00",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b936e4d85733b17016ab276bc366c87d1a36bbd12a7f7eb19",
+      "status": "completed",
+      "call_id": "call_5NC0vaKNoBHJBZMlnquacTTV",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-5378d30fad3ca6f0275d/SURFACE-SCREEN-ENVELOPE-lane-000-2.json && sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-5378d30fad3ca6f0275d/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c91f-a4c1-7643-9461-fcfd802a298a",
+        "create_time": 1790080694.365645
+      }
+    }
+  ],
+  "status": "PASS",
+  "reason": "All native tool calls manually inspected: reads own frozen envelope and corresponding full surface contract only; no writes, source investigation, mutable translations or prior findings."
+}

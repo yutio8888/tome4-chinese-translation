@@ -1,0 +1,114 @@
+{
+  "batch_id": "batch-5378d30fad3ca6f0275d",
+  "observations": {
+    "e7091b21dc|surface": "原文省略号前后各有一个空行，译文删除了这两个空行，段落格式未保留。",
+    "e74a2fccf5|surface": "原文 resonance 未含“领域”之意，译文新增“领域”，可能改变数值所指对象；冻结输入无术语正文可供确认。",
+    "e75edbe9ad|surface": "source 仅写 range 4，译文擅加距离单位“码”",
+    "e76beac406|surface": "Heart Started 表示心脏开始跳动或启动，译文“强心电击”误译为一种电击行为",
+    "e76d1e71a6|surface": "Empathy 表示感应或共鸣，译文“链接”改变了词义",
+    "e77f69e335|surface": "energised 表示获得能量或充能，译文“被能量冲击”误译为受到冲击",
+    "e788ab931d|surface": "source 末尾空格未在 target 中保留，可能破坏与后续实体名的拼接格式",
+    "e7918bf2c5|surface": "source 末尾空格未在 target 中保留，可能破坏后续文本拼接格式",
+    "e79b756a18|surface": "原文为震慑、致盲、混乱和定身抗性，译文写成“免疫”，明显改变机制含义。",
+    "e7e5e7f4e5|surface": "原文“Disturbed”表示惊扰了古战场，且“the consequences”表示由此引发的后果；译文仅称“踏入古战场”，遗漏了这层因果含义。",
+    "e74a2fccf5|contextual": "固定源码 game/modules/tome/class/Actor.lua:2688-2693 表明 %d 是共鸣力场本次吸收并从 resonance_field_absorb 扣除的伤害量；译作“%d 共鸣领域”把数值错误地修饰为领域数量，丢失吸收量含义。",
+    "e75edbe9ad|contextual": "固定源码 game/modules/tome/data/general/objects/world-artifacts.lua:3167-3174 将 range=4 用作 beam 的游戏格射程；译文擅自写成“长度为4码”，把射程机制改成了现实长度单位。",
+    "e76d1e71a6|contextual": "“Empathy”是共感/共情关系；固定源码 game/modules/tome/data/talents/cursed/one-with-shadows.lua:38-88 的效果是按阴影数量赋予抗性与黑暗亲和，并不存在链接机制。“阴影链接”改变了技能名称表达的关系并暗示源码没有的链接。",
+    "e7e5e7f4e5|contextual": "固定源码 game/modules/tome/data/general/events/old-battle-field.lua:145-166 明确由玩家选择扰动并挖掘坟墓触发事件；“踏入古战场”把主动惊扰古战场/坟墓改成了单纯进入，遗漏成就所述行为。"
+  },
+  "decisions": {
+    "e7091b21dc|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定lore/trollmire.lua的日记片段在省略号前后各有空行；冻结source=5 LF、target=3 LF（HOST-FORMAT-COMPARISON），明确少两个段落分隔。只恢复这两处空行，不改已经修正的嗅觉追踪语义。contextual返回OK不覆盖可逐字核对的格式事实，也不改其原始结果。"
+    },
+    "e74a2fccf5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定Actor.lua:2687–2697在resonance_field分支把absorb显示为括号伤害日志，并扣除同名吸收池。中文“(%d 共鸣领域)”与原“(%d resonance)”同为数值加吸收来源标签，未出现“个”等领域数量量词；现有字段并不声称领域数量。surface称新增领域无据、contextual称领域数量失真均无实际格式或机制证据，不强制扩写吸收。"
+    },
+    "e75edbe9ad|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定world-artifacts.lua:3167–3179确为beam range=4，中文保留直线范围4及100%%精神武器伤害；“码”作为游戏距离俗称的统一已在既有交接明确留作跨批策略。记录单位精确度建议，不在此批自动决定全局单位规则。另见HOST-FORMAT-COMPARISON的0/1 LF差异，作为宿主独立非阻断pending保留，未伪称本条surface/contextual的单位观察包含该意见。"
+    },
+    "e76beac406|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定mental.lua:2829–2838的HEART_STARTED明确psionic charge维持心跳、subtype=lightning，并降低die_at。强心电击具有实际电性语境，不能仅因Started表面时态认定机制错误；保持命名细化建议，不改术语或名称。"
+    },
+    "e76d1e71a6|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定one-with-shadows.lua:37–92描述自身与阴影界线模糊，并按队伍阴影数获得抗性，存在持续相互关联的叙事依据；链接不必表示另有可选连线技能。共感更直接对应Empathy可作命名建议，但没有足够证据确认误导具体机制，不据词典差异自动改名。"
+    },
+    "e77f69e335|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定damage_types.lua:781–786将energised放在ARCANE的death_message列表中；被能量冲击符合致死能量语境，不是正向获得能量的状态。"
+    },
+    "e788ab931d|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定amulets.lua:320–327为enraging前缀；中文暴怒的可直接衔接物品名称。英文空格承担英语词界，未发现中文省略空格破坏占位或语法的证据。"
+    },
+    "e7918bf2c5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定Birther.lua:103为Textbox title；中文名称：的全角冒号已提供标题边界，英文尾随空格不是必须保留的格式token。"
+    },
+    "e79b756a18|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定temporal-hounds.lua:82–85写入四种*_immune比例，342–343上限小于1，367–371乘100显示百分比；Actor.lua:7554–7567也以比例计算状态免疫。译文明确%d%%免疫，不是无条件完全免疫，未把数值抗性变成绝对状态。"
+    },
+    "e7e5e7f4e5|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定achievements/events.lua:38–42明确Disturbed及consequences；old-battle-field.lua:145–166由玩家选择惊扰坟墓并开始挖掘后触发陷落，79–108要求撑过亡灵进攻并在106授予成就。“踏入古战场”遗漏主动惊扰，“最终生还”泛化由此引发的后果。仅修这一句成就说明，保持实际幸存语义。"
+    },
+    "e74a2fccf5|contextual": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定Actor.lua:2687–2697在resonance_field分支把absorb显示为括号伤害日志，并扣除同名吸收池。中文“(%d 共鸣领域)”与原“(%d resonance)”同为数值加吸收来源标签，未出现“个”等领域数量量词；现有字段并不声称领域数量。surface称新增领域无据、contextual称领域数量失真均无实际格式或机制证据，不强制扩写吸收。"
+    },
+    "e75edbe9ad|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定world-artifacts.lua:3167–3179确为beam range=4，中文保留直线范围4及100%%精神武器伤害；“码”作为游戏距离俗称的统一已在既有交接明确留作跨批策略。记录单位精确度建议，不在此批自动决定全局单位规则。另见HOST-FORMAT-COMPARISON的0/1 LF差异，作为宿主独立非阻断pending保留，未伪称本条surface/contextual的单位观察包含该意见。"
+    },
+    "e76d1e71a6|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定one-with-shadows.lua:37–92描述自身与阴影界线模糊，并按队伍阴影数获得抗性，存在持续相互关联的叙事依据；链接不必表示另有可选连线技能。共感更直接对应Empathy可作命名建议，但没有足够证据确认误导具体机制，不据词典差异自动改名。"
+    },
+    "e7e5e7f4e5|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定achievements/events.lua:38–42明确Disturbed及consequences；old-battle-field.lua:145–166由玩家选择惊扰坟墓并开始挖掘后触发陷落，79–108要求撑过亡灵进攻并在106授予成就。“踏入古战场”遗漏主动惊扰，“最终生还”泛化由此引发的后果。仅修这一句成就说明，保持实际幸存语义。"
+    }
+  },
+  "counts": {
+    "confirmed": 3,
+    "refuted": 6,
+    "advisory": 5
+  },
+  "repair_revisions": [
+    "e7091b21dcc32852f5515f5a0c9304597eb3eaef2bfe88ab9f8dad95bb5a0384",
+    "e7e5e7f4e541826ba3972684d86422f723d89df27804d83798e60f787fb6aacc"
+  ],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2
+  },
+  "supplemental_pending": [
+    {
+      "revision": "e75edbe9ad2c774a32cd4d014163254c8647985284da6720ffa08a912c6ec229",
+      "claim": "source 0 LF / target 1 LF",
+      "evidence": "HOST-FORMAT-COMPARISON.json",
+      "disposition": "pending",
+      "repair_required": false,
+      "reason": "宿主独立格式观察未列入本批accepted修复；不把单位观察偷换成格式finding。"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# 第252批宿主证据
+
+80条固定tome来源，64个公开源码文件均与固定Git提交624a67329fe2ad440c5b344785a9c73fcf22ae63逐字节匹配，80条字面归属命中。surface四lane原始结果70 OK / 10 ISSUE；上下文10条原始结果6 OK / 4 ISSUE。五个真实审核child均通过strict、原生来源及读取边界核验并确认归档。两任务DONE_VERIFIED，源码、SPEC/PLAN/SCOPE均在surface派发前建立；contextual真实anchor preflight在导出前通过，正式payload与预检draft相同。
+
+14项模型观察经宿主固定源码裁决为3 confirmed、6 refuted、5 advisory，按revision合并为78 done / 2 repair_required。确认日记省略号前后缺失两个空行（source 5 LF / target 3 LF）及古战场成就主动惊扰与后果含义遗漏。contextual对日记返回OK原样保留；不以模型OK覆盖可直接核对的布局事实。古战场源码明确选择惊扰坟墓并挖掘后陷落，再撑过亡灵来袭计时获得成就。
+
+共鸣领域数值为吸收来源标签，不是领域数量；energised是奥术死亡消息；带百分比的状态免疫不是绝对免疫；中文前缀和全角冒号无需机械保留英语词间空格。上述误报撤销。Heart Started、Shadows Empathy名称只记建议；距离单位“码”按既有跨批策略边界保留advisory。另有e75edbe9ad的source 0 LF / target 1 LF宿主独立观察，明确为未接受修复的非阻断pending，不偷换成模型的单位观察，不自动扩大本窗口范围。
+
+首轮完整门禁run.f6ec1bg_有16项通过、1项契约测试组失败；573个测试中仅一项夹具失败，原因是测试硬编码7位Git索引零哈希，而仓库自动输出8位，导致bad_index替换未发生。默认环境有界复现失败；仅对子进程设置GIT_CONFIG_COUNT=1、GIT_CONFIG_KEY_0=core.abbrev、GIT_CONFIG_VALUE_0=7后，错误输入测试和独立12位哈希解析测试均通过。未修改仓库配置、测试或生产代码，未跳过检查。该夹具的长度假设作为后续有界维护项保留。
+
+第二轮prepare-evidence在上述明确环境下运行390.55秒，run.jzfw3kn9的17项完整门禁及严格addon构建全部通过。原失败日志、两次定向诊断、完整重跑计时和环境覆盖均保留。证据安装前逐项核验新门禁日志哈希，安装后两个任务的独立快照重放和生产prospective字节检查结果见SNAPSHOT-REPLAY.json及PRODUCTION-COMMIT-READY.json。本说明记录提交前状态，不声称后续finalize或push已发生。
+
+这是修复窗口6第一批；已确认的newline问题触发安全边界提前修复。必须在本批提交、finalize且活动checkpoint移除后才运行真实repair preflight，范围为这2条，不先启动253。修复窗口5早已在901fce3886d5b565bc55b205e5ab27086621aa8f完成证据提交、第二次队列同步和push，不重做catalog或migration。Archmage、旧blocked、范围外pending及RW1-SIB-01/02保持排除，17项既有无关未跟踪文件保留。

@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-09-22T13:06:42.380146+00:00",
+  "failure_log": ".artifacts/i18n/ci-gates/run.f6ec1bg_/05-contract-suite-unit-tests.log",
+  "cause": "Fixture bad_index mutation hardcodes seven zeroes; Git automatically uses eight-digit abbreviations in this repository, so mutation is a no-op before parser negative assertions run.",
+  "runs": [
+    {
+      "case": "default",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_rejects_truncation_crlf_bad_index_and_modification",
+        "tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_reconstructs_real_git_patch_with_12_digit_index",
+        "-v"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "log_path": ".ai/task/batch-5378d30fad3ca6f0275d/GATE-DIAG-default.log"
+    },
+    {
+      "case": "explicit_git_abbrev_7",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_rejects_truncation_crlf_bad_index_and_modification",
+        "tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_reconstructs_real_git_patch_with_12_digit_index",
+        "-v"
+      ],
+      "environment_overrides": {
+        "GIT_CONFIG_COUNT": "1",
+        "GIT_CONFIG_KEY_0": "core.abbrev",
+        "GIT_CONFIG_VALUE_0": "7"
+      },
+      "exit_code": 0,
+      "log_path": ".ai/task/batch-5378d30fad3ca6f0275d/GATE-DIAG-explicit_git_abbrev_7.log"
+    }
+  ],
+  "repository_files_changed": false
+}
