@@ -435,3 +435,13 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01221 | confirmed：`no normal day` 译反且漏 `day of reckoning`；confirmed：“希望的缰绳/扼住命运的咽喉/真正的和平”均为无依据增译；confirmed：`the steady hand` 单数比喻被破坏；confirmed：`rip out the flesh beneath` 的大地—血肉意象被泛化；confirmed：“这个恶魔就是兽人”“任何种族”改变原句关系；confirmed：“组织其她手下的法师”表面文本缺陷；confirmed：`taking courage from the duties of command` 施受关系被改变；confirmed：`Turning up her face` 译成反向动作；confirmed：“与我长吻”属无依据增添；confirmed：`pavilion` 重复译“营地”；confirmed：`doubt` 被弱化又无依据强化为“无尽的困扰”；confirmed：`raved` 贬义被改成褒义“慷慨激昂”；confirmed：`bringing my face close` 漏译并换成无依据动作；confirmed：`bravado` 漏译且“平日”无依据；confirmed：两处敬称均属增译且互不一致。advisory：「血肉意象呼应被焚村镇」只是合理解读非源码明示。refuted：“长吻必然与轻柔细腻冲突”不成立 |
 
 人工待决：逐项决定改写；refuted/advisory 两项不要写进修复理由。译文未修改。
+
+## batch-035 单条 Lore 交叉结果（entry-01222）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-034-01.md](reports/sol-034-01.md)。译文未修改。共 13 个 claim：10 confirmed、1 refuted、1 advisory、1 pending。
+
+| 条目 | Sol 分档要点 |
+| --- | --- |
+| entry-01222 | confirmed：格式与控制字符无问题；confirmed：“我过去已知依赖着”错别字（已知/一直）；confirmed：两处 `！”`，` 冗余标点；confirmed：`head in my lap` 译成“抱着……脸庞”；confirmed：`crisis` 译“毁灭”并加“瞬间”；confirmed：`burns` 泛化成“创口”；confirmed：末段声音/音符隐喻被抹平；confirmed：`bulwarks` 译“防线”；confirmed：“用我们的方式用力量……”句式套叠；confirmed：瞬时模板词高频重复。refuted：`seeping freely` 被“反向表达”不成立（但仍有轻微信息损失 advisory）。pending：`Kar’Krul` 与“卡·克鲁尔”跨文本不一致，允许输入内无法独立确认 |
+
+人工待决：术语类 pending 需主代理按术语库核对后才能升级；refuted 项不进修复理由。译文未修改。

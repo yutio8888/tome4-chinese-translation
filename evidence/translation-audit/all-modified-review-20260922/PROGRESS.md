@@ -350,3 +350,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-035-01 `2026-09-22T06:33:54.778Z`，sol-033-01 `2026-09-22T06:33:56.257Z`。无未归档 child。
 - 下一片已就绪：batch-036（仅 entry-01223，sha `f15232b7…`）+ cross-batch-035（1 条，sha `12f6e5ee00e1ca048c596740f82ee13e85f7c87cd93106cec127888ebb00e5cb`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 035/036 收获（含一次平台超时）
+
+- gemini-036-01：**turn 报 5 分钟平台超时（status error）**，但原生 brain `49e6cae0` 的最终非空 PLANNER_RESPONSE 已含完整报告（1 条 entry-01223），按 batch-019 同样规则计为完整覆盖，**不整批重跑**；`last_error` 已写入 dispatch 记录。报告 sha256 `f9ab573c898f7c605e85dee150d5c655f50abaced8c600e6af5f29d7409511c2`，条目结论：存在疑点。
+- 覆盖 **1229/4144**。error 时也核了工作树：diff 只在 evidence 目录，reviewer 无写入。
+- sol-034-01：1/1（entry-01222）13 claim（10 confirmed、1 refuted、1 advisory、1 pending）。报告 sha256 `194cadb4e5198252535217f042c79a6db505a7326f5bfc99cf8ff02bf501d185`，rollout `01a0c7d3-17a6-7922-b040-76e8de774a4e`。
+- 收回核验：batch-036 / cross-batch-035 / batch-035 / gemini-035 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-036-01 `2026-09-22T06:46:32.914Z`（error 态归档），sol-034-01 `2026-09-22T06:46:34.407Z`。无未归档 child。
+- 下一片已就绪：batch-037（仅 entry-01224，sha `9a60a2f0…`）+ cross-batch-036（1 条，sha `12f5cbce5f25f276d5ef4a0b8ad46fb4c12aff401d7cef280b54ca75a78a0ea5`）。
+- 更新时间见 STATE.json `updated_at`。
