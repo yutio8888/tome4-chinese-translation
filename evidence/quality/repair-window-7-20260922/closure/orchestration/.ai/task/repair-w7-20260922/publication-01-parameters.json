@@ -1,0 +1,18 @@
+{
+  "title": "W7 证据归档与暂停交接",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行窗口7证据发布及暂停交接。读.ai/roles/executor.md和.ai/task/repair-w7-20260922/PUBLICATION-SCOPE.md，严格按其中明确路径写入。按PACK-MANIFEST.json安装452项逐字节冻结证据并核SHA，STATE必须用immutable checkpoint；安装已验证candidate catalog和migration逐字副本及附件，新增PUBLICATION.md并更新handoff.md当前状态。读取REVIEW-SUMMARY.json/各ADJUDICATION以准确概述实际结果；最终full8OK，历轮ISSUE不能抹去。最新用户要求窗口7闭合后暂停，不启动254。当前证据commit/queue2/push仍待宿主，交接必须如实标明，宿主会在完成后更新实际收尾。不得改Lua/术语/工具/规则/.ai/旧证据，不stage/commit/push、不创建agent，不重跑queue/catalog/migration/完整门禁。已有同字节可保留，异则停止；保留无关untracked。验证副本/允许路径/UTF8/文档链接与空白；冻结字节不清洗，允许只读snapshot ai_state DONE检查。最后报告实际成果。",
+  "labels": {
+    "task_id": "repair-w7-20260922",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "publication-01",
+    "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+  },
+  "notifyOnFinish": true
+}

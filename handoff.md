@@ -1,11 +1,11 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（修复窗口7证据已发布；按用户要求暂停，宿主待完成最终收尾）
+更新时间：2026-09-22（修复窗口7已闭合并推送；按用户要求暂停）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户于2026-09-22明确要求“这轮修复完成后暂停并撰写handoff文档”。修复窗口7闭合后进入
+用户于2026-09-22明确要求“这轮修复完成后暂停并撰写handoff文档”。修复窗口7已闭合，当前进入
 **STOP**：不得自动启动审核254，继续新批次必须取得新的用户授权；此前连续审核授权不覆盖本次
 暂停后的工作。
 
@@ -25,19 +25,26 @@ Mind Storm总量量词修复，spinneret兄弟项保持范围外advisory。第�
 不倒改历轮原始结果。
 
 最终完整门禁`run.4d0v0980`为17/17通过并含strict build；任务与452项、2,317,751 bytes的
-immutable快照均`DONE_VERIFIED`。实施/复审child共22个已确认归档；本publication child仍待宿主
-收获归档，不提前宣称。完整结果见[窗口7出版证据](evidence/quality/repair-window-7-20260922/PUBLICATION.md)。
+immutable快照均`DONE_VERIFIED`。实施/复审22个child及publication child共23个均已确认归档；最终状态检查通过。
+完整结果见[窗口7出版证据](evidence/quality/repair-window-7-20260922/PUBLICATION.md)。
 
-一次catalog build和migration-chain已完成，不得重跑。当前候选catalog为
+一次catalog build和migration-chain已完成，不得重跑。当前catalog为
 `0fece77f6c05306c2706b263729cc1a3b5fcdf1dc29f58bd41af380204595696`，migration为
 `677e6622a2146f9f9686ee91c9d1bc3f02990c8d08547df721786877dd287325`；8 revision changed、
 29,820 unchanged、0 ambiguous/unmapped，8个successor已入队且须重新审核，不继承旧done。
 
-### 宿主待完成的最终收尾
+### 已完成的收尾与暂停边界
 
-仅剩本次证据/catalog/migration提交、提交后的第二次queue rebuild、push、远端核验，以及本
-publication child的收获归档和最终暂停交接记录。这些步骤尚未实际完成，不得提前宣称；宿主完成后
-须追加实测证据并保持STOP，不得开始254。
+证据/catalog/migration提交为`bfa1a096da0b6d790167de0f600c7aff41dfcb59`，提交后的第二次queue rebuild、push与远端核验
+均已于`2026-09-22T16:14:31.628477+00:00`完成；本地HEAD、origin/develop与SQLite evidence head一致。
+队列实测 **22254 done / 1 repair_required / 24 blocked / 7549 queued**；本轮8个新revision逐条确认queued，须重新审核。
+详见[收尾核验](evidence/quality/repair-window-7-20260922/closure/orchestration/.ai/task/repair-w7-20260922/PUBLICATION-CLOSURE.json)。
+
+原452项immutable快照保持原字节；收尾增量共27项，包含publication生命周期、
+提交/队列/push证明，与基础快照合并后独立重放为`DONE_VERIFIED`。
+见[增量重放结果](evidence/quality/repair-window-7-20260922/closure/replay-verification.json)。
+本交接和收尾证明随最终文档提交保存，提交后仅同步queue并push，不再产生译文或新批次。
+**当前STOP；审核254未启动，只有新的用户授权才能继续。**
 
 旧Archmage、旧回忆录pending、`RW1-SIB-01/02`、旧blocked及范围外兄弟条目保持原状态。
 `.ai/consult/`、recipe和15个旧source-workset继续保留。
@@ -52,7 +59,7 @@ publication child的收获归档和最终暂停交接记录。这些步骤尚未
 快照中独立重放。原生审计调用汇总12已纠正为11；冻结证据5处历史空白有逐字节例外记录，
 没有清洗或改写冻结输入。17/17门禁及严格构建通过。
 
-当前catalog为`6f08ccf5394d2f0431a066c1315ba5abcdeaed1928e4781a0b1cb65e37e68405`，
+窗口6闭合时catalog为`6f08ccf5394d2f0431a066c1315ba5abcdeaed1928e4781a0b1cb65e37e68405`，
 窗口6migration为`92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d`。
 两条successor曾重新入队，本次253均通过审核；不得重复catalog build/migration。
 窗口6闭合时队列实测22182 done / 1 repair_required / 24 blocked / 7621 queued；后续以本批
@@ -64,7 +71,7 @@ publication child的收获归档和最终暂停交接记录。这些步骤尚未
 
 ### 已闭合的修复窗口5
 
-用户持续授权连续审核和每批 push。审核 250、251 均已完成；窗口 5 因高影响机制问题在
+窗口5执行时用户授权连续审核和每批 push；现以顶部暂停指令为准。审核 250、251 均已完成；窗口 5 因高影响机制问题在
 251 安全边界提前进入修复，没有等待第三批。18 条修复由两次真实 repair preflight 的 16 条
 （250 十条、251 六条）和 251 宿主独立补充 2 条组成；补充条目没有被伪称为生产
 `repair_required`。
@@ -84,7 +91,7 @@ accepted/deferred 后 completed：回忆录 source 358 清醒时喂水及 source
 最终完整门禁 `run.rlohbmvk` 为 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。738 文件、
 8,798,915 bytes 的冻结包已独立 snapshot 重放通过；归档 STATE 使用 immutable checkpoint。
 五个 candidate catalog 文件、migration 与 12 份 publication 原始附件均已逐字安装并复核。
-当前 catalog 为 `c267a00eaf39f49b99266912241cfed79dfcbda440903763975ea2e4334a239d`，
+窗口5闭合时 catalog 为 `c267a00eaf39f49b99266912241cfed79dfcbda440903763975ea2e4334a239d`，
 migration 为 `198b6812cf2fc2865016eb39153f90a70f244d3984a6ca81009bde8c2e897b6a`。
 单次 catalog build 与 migration-chain 已完成，禁止重做；18 条 revision changed、29,810 条
 unchanged，0 ambiguous/unmapped，18 个 successor 已入队且须重新审核，不继承旧 revision 完成态。

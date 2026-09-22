@@ -13,7 +13,7 @@
 - 译文提交为 `312dcd6844f80fff34911999bffab7a8f954e34f`，只修改 `mod-tome.lua` 的八个
   target；没有修改术语库、规则或工具。Daze=眩晕与 Probability Travel=次元移动保持基线术语，
   spinneret 只改本批未鉴定物品名，不扩大到已明确排除的兄弟条目。
-- 本出版阶段没有修改 Lua、术语、规则、工具、旧证据或 `.ai`，也没有重跑 queue、catalog、
+- publication EXECUTOR 没有修改 Lua、术语、规则、工具、旧证据或 `.ai`，也没有重跑 queue、catalog、
   migration-chain、复审或完整门禁。
 
 ## 独立复审、源码裁决与收敛
@@ -33,8 +33,8 @@
   或 deferred finding。该最终 8 `OK` 不改写此前各轮的真实 `ISSUE` 与裁决。
 
 完整裁决见归档中的 [REVIEW-SUMMARY.json](orchestration/.ai/task/repair-w7-20260922/REVIEW-SUMMARY.json)
-及各轮 `ADJUDICATION`。实施/复审 child 共 22 个，均在 immutable checkpoint 中确认归档；本
-publication child 尚待宿主收获并确认归档，本文不提前宣称。
+及各轮 `ADJUDICATION`。实施/复审 child 共 22 个，均在 immutable checkpoint 中确认归档；publication child 也已由宿主收获并确认归档，合计23个。
+最终生命周期与状态见[收尾增量](closure/snapshot-delta.json)。
 
 ## 门禁、冻结归档与重放
 
@@ -71,14 +71,23 @@ publication child 尚待宿主收获并确认归档，本文不提前宣称。
 五个候选 catalog 文件、migration 和 [publication/](publication/) 中 16 个 producer/253 收尾
 附件均按来源逐字节安装并复核。
 
-## 暂停状态与宿主待办
+## 已完成的宿主收尾与暂停状态
 
 用户于 2026-09-22 明确要求“这轮修复完成后暂停并撰写handoff文档”。因此窗口 7 闭合后为
 STOP，不得自动启动审核 254；此前连续授权不覆盖暂停后的新批次，继续工作需要新的用户授权。
 
-本文件生成时，窗口 7 的证据/catalog/migration commit、提交后的第二次 queue rebuild、push
-以及最终暂停交接收尾仍待宿主执行；后续须追加实际收尾证据，不得提前宣称完成。本 publication
-child 的收获与归档也由宿主完成。
+证据/catalog/migration提交`bfa1a096da0b6d790167de0f600c7aff41dfcb59`，提交后的第二次queue rebuild、push、
+本地/远端/SQLite三方核验均已于`2026-09-22T16:14:31.628477+00:00`完成。
+队列为 **22254 done / 1 repair_required / 24 blocked / 7549 queued**，8个successor逐条验证queued。
+23个child全部确认归档，最终STATE为`DONE_VERIFIED`。
+
+原452项包保持不变；27项收尾增量与基础包合并独立重放通过。
+见[实测收尾证明](closure/orchestration/.ai/task/repair-w7-20260922/PUBLICATION-CLOSURE.json)、
+[增量清单](closure/snapshot-delta.json)及[重放结果](closure/replay-verification.json)。
+提交检查发现12处冻结历史空白，均以来源和Git索引SHA绑定记录例外，原字节未修改。
+首次收尾脚本遗漏补丁中的space-before-tab诊断，经一次有界诊断完成独立核验；
+详见[提交核验](closure/orchestration/.ai/task/repair-w7-20260922/PUBLICATION-STAGING-VERIFICATION.json)。
+最终handoff与本收尾证明随文档提交保存；此后仅同步queue/push，当前STOP，未启动254。
 
 旧 Archmage、旧回忆录 pending、`RW1-SIB-01/02`、旧 blocked 及 spinneret/Vault 范围外兄弟
 或后续观察均保持原状态，不因本次闭合而清零或扩大。`.ai/consult/`、recipe 和 15 个旧
