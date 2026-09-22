@@ -8229,8 +8229,10 @@
    "count": 40,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-093.md",
    "input_sha256": "ec200ae296e7278f8e01902c65b89534a46fb7852b0c716d5f9e5d810f57a220",
-   "status": "queued",
-   "dispatches": []
+   "status": "dispatched",
+   "dispatches": [
+    "gemini-093-01"
+   ]
   },
   {
    "batch_id": "batch-094",
@@ -17362,10 +17364,11 @@
    ],
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
    "input_sha256": "7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca",
-   "status": "queued_redispatch",
+   "status": "dispatched",
    "source_dispatch_id": "gemini-091-01",
    "dispatches": [
-    "sol-091-01"
+    "sol-091-01",
+    "sol-091-02"
    ],
    "host_semantic_adjudication": false,
    "original_input_sha256": "763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3",
@@ -27750,6 +27753,104 @@
    "raw_output_sha256": "91d4b5d8b9a248fa7bb548d8f4ca789e3caa87132a73c3205c28ead30e4cd8d4",
    "raw_output_source": "pi session 01a0c9fa-62a8-7cdb-bf0c-d77ec3a0f82c final assistant text message",
    "coverage": "40/40 complete (0 issues; 1 minor entry-03058)"
+  },
+  {
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v1",
+   "dispatch_id": "sol-091-02",
+   "agent_id": "f8afe620-7b2b-4908-95b1-35088b781778",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+   "session_task_id": "all-modified-review-20260922-pi01",
+   "lineage_verified": true,
+   "lifecycle": "running",
+   "archive_confirmed": false,
+   "archive_attempts_started": 0,
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
+   "input_sha256": "7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca",
+   "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-091-02-prompt.md",
+   "candidate_author_agent_id": null,
+   "author_provider_resolution": "not_applicable",
+   "runtime_observation": {
+    "schema_version": 1,
+    "source": "live_agent_metadata",
+    "captured_at": "2026-09-22T16:40:30.794337+00:00",
+    "capture_status": "captured",
+    "provider": {
+     "presence": "present",
+     "value": "pi"
+    },
+    "model": {
+     "presence": "present",
+     "value": "cpa/gpt-5.6-sol"
+    },
+    "mode": {
+     "presence": "present",
+     "value": "default"
+    },
+    "thinking": {
+     "presence": "present",
+     "value": "medium"
+    },
+    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+    "lineage_verified": true
+   },
+   "last_error": null,
+   "head_at_dispatch": "f2967b18a893e4e63c046680bbfcd3ebbefe401f",
+   "harvested": false,
+   "created_at": "2026-09-22T16:40:38.977Z",
+   "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
+   "transport": "cli",
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+  },
+  {
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v1",
+   "dispatch_id": "gemini-093-01",
+   "agent_id": "e1714376-391b-4917-8284-29f20bba3a22",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+   "session_task_id": "all-modified-review-20260922-pi01",
+   "lineage_verified": true,
+   "lifecycle": "running",
+   "archive_confirmed": false,
+   "archive_attempts_started": 0,
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-093.md",
+   "input_sha256": "ec200ae296e7278f8e01902c65b89534a46fb7852b0c716d5f9e5d810f57a220",
+   "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-093-01-prompt.md",
+   "candidate_author_agent_id": null,
+   "author_provider_resolution": "not_applicable",
+   "runtime_observation": {
+    "schema_version": 1,
+    "source": "live_agent_metadata",
+    "captured_at": "2026-09-22T16:40:30.794337+00:00",
+    "capture_status": "captured",
+    "provider": {
+     "presence": "present",
+     "value": "pi"
+    },
+    "model": {
+     "presence": "present",
+     "value": "cpa/gemini-3.8-flash-high"
+    },
+    "mode": {
+     "presence": "present",
+     "value": "default"
+    },
+    "thinking": {
+     "presence": "present",
+     "value": "high"
+    },
+    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+    "lineage_verified": true
+   },
+   "last_error": null,
+   "head_at_dispatch": "f2967b18a893e4e63c046680bbfcd3ebbefe401f",
+   "harvested": false,
+   "created_at": "2026-09-22T16:40:35.262Z",
+   "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
+   "transport": "cli",
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
   }
  ],
  "locale_sha256": {
@@ -27765,7 +27866,7 @@
   "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
   "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
  },
- "updated_at": "2026-09-22T16:40:13.252249+00:00",
+ "updated_at": "2026-09-22T16:40:30.794337+00:00",
  "handoff_request": {
   "target_model": "grok-4.7",
   "scope": "orchestration and record keeping only",
@@ -27798,7 +27899,16 @@
   "ordered_by_user": true,
   "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
   "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-  "in_flight": [],
+  "in_flight": [
+   {
+    "dispatch_id": "gemini-093-01",
+    "agent_id": "e1714376-391b-4917-8284-29f20bba3a22"
+   },
+   {
+    "dispatch_id": "sol-091-02",
+    "agent_id": "f8afe620-7b2b-4908-95b1-35088b781778"
+   }
+  ],
   "committed_coverage": 770,
   "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
   "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
