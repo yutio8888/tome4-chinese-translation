@@ -1,0 +1,19 @@
+已完成修复窗口 4 第一次合并修复。
+
+实际改动：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14904)
+  - “不准备成为”→“不是”
+  - “成为了领袖，你可能会”→“是领袖，你就能”
+- 新增 [IMPLEMENTATION-FIX-1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/IMPLEMENTATION-FIX-1.md)
+- 新增 [VALIDATION-FIX-1.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/VALIDATION-FIX-1.json)
+
+验证全部通过：
+
+- LuaJIT 加载 22,989 条记录；相对 `BEFORE-FIX-1.lua` 仅一个记录、上述两个子句变化。
+- `verify.py`：原 baseline 的 17 条 target 及全部不变量通过。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 新增证据 JSON 解析及行尾空白检查：通过。
+- 未运行完整门禁；未 stage、commit、创建 agent 或操作 handoff/catalog/migration。
+- 其余既有文件和旧证据均保留。

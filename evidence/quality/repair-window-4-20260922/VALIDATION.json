@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w4-20260922",
+  "executed_at_utc": "2026-09-22T06:31:05Z",
+  "results": [
+    {
+      "command": "python3 -B .ai/task/repair-w4-20260922/verify.py",
+      "exit_code": 0,
+      "report": "evidence/quality/repair-window-4-20260922/VALIDATION-DETAIL.json",
+      "result": {
+        "verified": true,
+        "loaded_records": 22989,
+        "changed_target_count": 17,
+        "unchanged_non_target_fields": true,
+        "placeholder_markup_newline_tab_invariants": true,
+        "authorized_newline_exceptions": {
+          "e22d6fff0cc51ce714d920dcfd172d742b1e3e254c20401732fc7c2e59d63fa0": {
+            "baseline_lf": 5,
+            "final_lf": 7,
+            "source_lf": 7
+          },
+          "e454e243b1498217d1c15d8dba629bd73dd8959e05c0c6c1545c4bd7be6cfbb0": {
+            "baseline_lf": 5,
+            "final_lf": 7,
+            "source_lf": 7
+          }
+        }
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "generated_report": ".artifacts/i18n/runs/20260922T063105.155280Z-6-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "result": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    },
+    {
+      "command": "sha256sum task and evidence PREFLIGHT-BATCH247/248/249 pairs",
+      "exit_code": 0,
+      "result": "all three task/evidence hash pairs identical",
+      "sha256": {
+        "PREFLIGHT-BATCH247.json": "6e423a0ac438470a66a8c184416d8eca183ed68c2a8cd35ddeec11b7d5744861",
+        "PREFLIGHT-BATCH248.json": "a91a80e246340e45d9f0ad78e17a79941ec550e45a827b57c2dce768a05ad1f9",
+        "PREFLIGHT-BATCH249.json": "cbaaf0ad5fa86efb9683bc1302639d686cecddbf686d5effdbce42d64d1837a2"
+      }
+    },
+    {
+      "command": "git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:<public_source_path> | sha256sum (all unique frozen SOURCE-ANCHORS paths)",
+      "exit_code": 0,
+      "result": "17 unique fixed-source file hashes matched SOURCE-ANCHORS.json"
+    },
+    {
+      "command": "jq empty evidence/quality/repair-window-4-20260922/{HOST-WORKSET,SOURCE-ANCHORS,SUPPLEMENTAL-SOURCE-ANCHORS,VALIDATION-DETAIL}.json",
+      "exit_code": 0,
+      "result": "valid JSON"
+    }
+  ],
+  "proposal_generated": false,
+  "proposal_strict_check": "not_applicable",
+  "intentionally_not_run": [
+    "independent four-member review",
+    "whole-workset FINAL_REVIEW",
+    "full 17-gate suite",
+    "strict addon build",
+    "DONE_VERIFIED",
+    "stage or commit",
+    "catalog/migration",
+    "queue rebuild",
+    "push"
+  ]
+}

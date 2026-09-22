@@ -1,0 +1,31 @@
+{
+  "parameters": {
+    "initialPrompt": "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n输入：candidate_identity=4a899e13359cf6531fd95a2e40e082057ea433d71cc8cd9eb3d6a1d1272309dd；input_path=.ai/task/repair-w4-20260922/CONTEXTUAL-ENVELOPE-r1a1l4.json。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。",
+    "labels": {
+      "task_id": "repair-w4-20260922",
+      "role": "reviewer",
+      "purpose": "translation_contextual_v2",
+      "dispatch_id": "r1a1l4",
+      "candidate_identity": "4a899e13359cf6531fd95a2e40e082057ea433d71cc8cd9eb3d6a1d1272309dd",
+      "lane_group_identity": "07ddfbdd7ff1102a258c9ea35e2f306d89126ff18c2f68f0d7d059b9491d3fa0",
+      "lane_index": "4",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    },
+    "workspaceId": "wks_420314270844170b",
+    "title": "修复窗口4 第二轮复审 r1a1l4",
+    "notifyOnFinish": true,
+    "provider": "codex/gpt-6-astra",
+    "settings": {
+      "thinkingOptionId": "high"
+    }
+  },
+  "profile": {
+    "id": "legacy_favorite:codex:gpt-5.6-sol",
+    "name": "Review Gate — Sol",
+    "provider": "codex",
+    "model": "gpt-6-astra",
+    "thinkingOptionId": "high",
+    "notes": "Primary GPT review gate for role=REVIEWER purpose=normal_review and final code/contract review. Prefer a provider different from the candidate author, except GPT-authored candidates may use GPT review to consume Codex subscriptions. A paired cross-reviewer must use a different exact model. Read-only role boundaries and task SPEC remain controlling."
+  },
+  "selection_reason": "Complexity escalation for strict compact JSON and mechanism review; verified Codex author permits primary-subscription provider budget exception."
+}

@@ -1,0 +1,53 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/spells/fire.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+      "start_line": 176,
+      "end_line": 184,
+      "revision_keys": [
+        "e359df96b12ef0227123eb3b64af5384e6a7e5bdfc28b8c6311a180790638160"
+      ],
+      "excerpt": "176: \tend,\n177: \tinfo = function(self, t)\n178: \t\tlocal damage = t.getDamage(self, t)\n179: \t\tlocal radius = self:getTalentRadius(t)\n180: \t\treturn ([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.\n181: \t\tThe damage will increase with your Spellpower.]]):\n182: \t\ttformat(damDesc(self, DamageType.FIRE, damage), radius)\n183: \tend,\n184: }"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 3396,
+      "end_line": 3420,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "3396: newEffect{\n3397: \tname = \"HEALING_INVERSION\",\n3398: \tdesc = _t\"Healing Inversion\", image = \"talents/healing_inversion.png\",\n3399: \tlong_desc = function(self, eff) return (\"All healing done to the target will instead turn into %d%% blight damage.\"):tformat(eff.power) end,\n3400: \ttype = \"magical\",\n3401: \tsubtype = { heal=true },\n3402: \tstatus = \"detrimental\",\n3403: \tparameters = { power=10 },\n3404: \ton_gain = function(self, err) return nil, _t\"+Healing Inversion\" end,\n3405: \ton_lose = function(self, err) return nil, _t\"-Healing Inversion\" end,\n3406: \tcallbackPriorities={callbackOnHeal = 1}, -- trigger after (most) other healing callbacks\n3407: \tcallbackOnHeal = function(self, eff, value, src, raw_value)\n3408: \t\tif raw_value > 0 and not eff.projecting then -- avoid feedback; it's bad to lose out on dmg but it's worse to break the game\n3409: \t\t\teff.projecting = true\n3410: \t\t\tlocal dam = raw_value * eff.power / 100\n3411: \t\t\teff.src.__project_source = eff\n3412: \t\t\tDamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, dam)\n3413: \t\t\teff.src.__project_source = nil\n3414: \t\t\teff.projecting = false\n3415: \t\tend\n3416: \t\treturn {value=0}\n3417: \tend,\n3418: \tactivate = function(self, eff)\n3419: \t\teff.particle = self:addParticles(Particles.new(\"circle\", 1, {oversize=0.7, a=90, appear=8, speed=-2, img=\"necromantic_circle\", radius=0}))\n3420: \tend,"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Actor.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start_line": 2334,
+      "end_line": 2347,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "2334: \n2335: --- Called before healing\n2336: function _M:onHeal(value, src)\n2337: \tlocal raw_value = value\n2338: \tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n2339: \n2340: \tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n2341: \t\tlocal ret = cb(value, src, raw_value)\n2342: \t\tif ret then\n2343: \t\t\traw_value = ret.raw_value or raw_value*ret.value/value\n2344: \t\t\tvalue = ret.value\n2345: \t\tend\n2346: \tend\n2347: "
+    },
+    {
+      "component": "engine",
+      "public_source_path": "game/engines/default/engine/interface/ActorLife.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "fa8f4f527fcf8076572b1d60be36cd031d8ac8a1c026fbd70b1eadcd1a342324",
+      "start_line": 48,
+      "end_line": 60,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "48: --- Regenerate life, call it from your actor class act() method\n49: function _M:regenLife()\n50: \tif self.life_regen then\n51: \t\tself.life = util.bound(self.life + self.life_regen, self.die_at, self.max_life)\n52: \tend\n53: end\n54: \n55: --- Heal some\n56: function _M:heal(value, src)\n57: \tif self.onHeal then value = self:onHeal(value, src) end\n58: \tself.life = util.bound(self.life + value, self.die_at, self.max_life)\n59: \tself.changed = true\n60: \treturn value"
+    }
+  ]
+}

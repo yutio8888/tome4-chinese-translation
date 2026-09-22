@@ -1,21 +1,35 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核249已验收并finalize，下一步修复窗口4）
+更新时间：2026-09-22（修复窗口4已完成证据打包，待宿主出版闭合）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
 用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
-修复窗口3与审核247、248均已完成同步和推送；248远端核验为
-`7faabf3a88b2c5af346f37f469bae5bdb42d050b`，不得重做。审核249已提交并finalize；
-249已完成交接提交、队列同步及推送，HEAD/远端/SQLite实际核验均为cdc0fd0。
-当前收尾的是其后的一处修复预检兼容维护，见下节；不得重做249。
-恢复时核对实际HEAD、远端、SQLite及checkpoint，不重复已完成步骤。
+审核247—249及修复窗口4的译文、复审、门禁、第一次 queue rebuild、单次 catalog build 与
+单次 migration-chain 均已完成；不得重做这些生产步骤。译文提交为
+`df8a73a3c9b54f6696cf47baf297f01dc7105ce4`，当前新 catalog 为
+`4763c0b4c71f1ba7a64a5603aca78da83e689f658738d6bc31feaaa9d8f68f08`，migration 为
+`662b5a600a6702658db4397c077036c84d59a3eb32c87cb010d5508cce1c46bc`。
 
-- 审核249证据提交：`4fca890592dc150df90d82d01985be824de20c42`。
-- 当前catalog：`75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`。
-- 249真实finalize收据见[FINALIZE-RECEIPT](evidence/quality/production-batches/batch-1da0a9afd2d1888c2099-host-evidence/FINALIZE-RECEIPT.json)。
-- 当前无活动审核child或生产checkpoint；原有`.ai/consult/`、`recipe`和15个旧source-workset保留，不纳入提交或清理。
+窗口4主任务是17条：三批真实 preflight 的16条正式候选，加宿主独立回忆录1条。另有独立
+runtime sibling 修复 Cults 共享键1条，不属于主17清单，也不伪称来自 preflight。完整门禁首次
+16/17通过；runtime碰撞修复后的 retry `run.tb2mt5it` 为17/17通过并含构建，两个任务均
+`DONE_VERIFIED`。主任务最终原始结果为16 `OK` 加1个范围外 `ISSUE`，宿主裁决 scope 内无
+accepted/deferred 后 completed，不是17 `OK`；Cults有效 REVIEW/FINAL 均为1 `OK`，首次
+review input 格式错误的无效尝试及 fresh retry 均保留。
+
+Cults公开源码快照 SHA-256 为
+`6cc08be3041889e6e7223c27b056f6d8db173e75108e881fb20aea64234b5cb9`，但上游
+commit/版本未固定，catalog snapshot 不是源码 commit。共享 key 已存在于官方 core，故不重复
+加入 DLC overlay；不能据此声称整个 Cults 不发布。回忆录 source 164、198/210 观察继续保持
+pending/advisory；Archmage 和旧 blocked 保持排除。
+
+309文件、2,926,264 bytes 的冻结归档、五个候选文件、migration 及 publication 原始输入已按源
+逐字安装并复核；两个独立 snapshot 均从归档路径再次 `DONE_VERIFIED`。详情见
+[窗口4出版证据](evidence/quality/repair-window-4-20260922/PUBLICATION.md)。当前仍待宿主执行证据提交、
+提交后的第二次 queue rebuild、push 与远端复核，禁止写成已完成；完成后再开始250（默认80条）。
+原有 `.ai/consult/`、`recipe` 和15个旧 source-workset 保留，不纳入提交或清理。
 
 ## 审核249：修复窗口4第三批
 
@@ -122,13 +136,12 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 完成修复预检兼容维护的提交、队列同步和push，核实远端；249已完整推送，不重做。
-2. 无活动checkpoint且HEAD/queue一致后，启动修复窗口4：247的2条、248的6条、249的8条正式候选，
-   加248的1条独立补充，共17条。每个来源批次attempt02真实repair preflight已通过；补充候选保持独立来源。
-3. 17条均在mod-tome.lua；捐赠说明和keepsake两条分别恢复原文7个LF，其余保持既有换行/标记/占位符。
-   长篇回忆录只修4项已确认内容，不全面重写。按正式实施、四成员复审、最终全量复审、门禁、
-   catalog/migration、两次队列同步与推送流程执行；完成后继续250。不得提前开始250绕过修复窗口。
-   不把advisory、旧键blocked或范围外pending计入修复。
+1. 宿主检查窗口4出版工作树，只提交本窗口证据、精确安装的 catalog/migration、handoff 及既有
+   runtime sidecar；保留所有无关既有文件。
+2. 提交后只执行第二次 queue rebuild，再 push 并核实远端；不要重跑已完成的第一次 queue、catalog、
+   migration-chain、复审或完整门禁。
+3. 出版闭合后启动审核250（默认80条）。18个迁移 successor 必须重新审核；不把 advisory、
+   Archmage、旧 blocked 或范围外 pending 自动计入修复。
 
 ## 保留边界与历史
 

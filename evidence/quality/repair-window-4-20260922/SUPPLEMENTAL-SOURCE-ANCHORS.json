@@ -1,0 +1,17 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 3396,
+      "end_line": 3424,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "3396: newEffect{\n3397: \tname = \"HEALING_INVERSION\",\n3398: \tdesc = _t\"Healing Inversion\", image = \"talents/healing_inversion.png\",\n3399: \tlong_desc = function(self, eff) return (\"All healing done to the target will instead turn into %d%% blight damage.\"):tformat(eff.power) end,\n3400: \ttype = \"magical\",\n3401: \tsubtype = { heal=true },\n3402: \tstatus = \"detrimental\",\n3403: \tparameters = { power=10 },\n3404: \ton_gain = function(self, err) return nil, _t\"+Healing Inversion\" end,\n3405: \ton_lose = function(self, err) return nil, _t\"-Healing Inversion\" end,\n3406: \tcallbackPriorities={callbackOnHeal = 1}, -- trigger after (most) other healing callbacks\n3407: \tcallbackOnHeal = function(self, eff, value, src, raw_value)\n3408: \t\tif raw_value > 0 and not eff.projecting then -- avoid feedback; it's bad to lose out on dmg but it's worse to break the game\n3409: \t\t\teff.projecting = true\n3410: \t\t\tlocal dam = raw_value * eff.power / 100\n3411: \t\t\teff.src.__project_source = eff\n3412: \t\t\tDamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, dam)\n3413: \t\t\teff.src.__project_source = nil\n3414: \t\t\teff.projecting = false\n3415: \t\tend\n3416: \t\treturn {value=0}\n3417: \tend,\n3418: \tactivate = function(self, eff)\n3419: \t\teff.particle = self:addParticles(Particles.new(\"circle\", 1, {oversize=0.7, a=90, appear=8, speed=-2, img=\"necromantic_circle\", radius=0}))\n3420: \tend,\n3421: \tdeactivate = function(self, eff)\n3422: \t\tself:removeParticles(eff.particle)\n3423: \tend,\n3424: }"
+    }
+  ]
+}

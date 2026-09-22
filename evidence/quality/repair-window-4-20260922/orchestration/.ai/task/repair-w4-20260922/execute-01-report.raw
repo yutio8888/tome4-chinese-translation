@@ -1,0 +1,18 @@
+已完成修复窗口 4 的 17 条译文。
+
+- 仅修改了 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 中冻结的 17 个 target。
+- 回忆录严格限定在 L1/L3/L5/L7 四项修复。
+- 两条换行记录均由 5 LF 恢复为 7 LF；其余 LF、全部 TAB、source/tag/args_order/special、placeholder 和 markup 均保持。
+- 三份 preflight 已逐字节复制，完整证据、源码锚点、数值及方向值流见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/IMPLEMENTATION.md)。
+- 未修改术语库、`.ai`、handoff/catalog/migration；未 stage 或 commit；无关 untracked 均保留。
+
+验证全部通过：
+
+- `verify.py`：22,989 条记录中仅 17 个 target 改变。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- claims strict registry：通过。
+- 17 个固定源码文件哈希与源码锚点一致。
+- `git diff --check`、暂存区检查及新 evidence 空白检查：通过。
+- 未生成 proposal，因此无需运行 `proposal --strict`。
+
+真实结果记录在 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/VALIDATION.json)。独立复审、完整门禁、严格 addon 构建、`DONE_VERIFIED` 及出版流程尚未执行，留给宿主继续处理。

@@ -1,0 +1,245 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/dialogs/Birther.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "204816fe84012c76330e9547c178156b987dee490cb2c0760dab8e82d859fcd4",
+      "start_line": 1393,
+      "end_line": 1406,
+      "revision_keys": [
+        "e22d6fff0cc51ce714d920dcfd172d742b1e3e254c20401732fc7c2e59d63fa0"
+      ],
+      "excerpt": "1393: \n1394: function _M:selectTileNoDonations()\n1395: \tDialog:yesnoLongPopup(_t\"Custom tiles\",\n1396: \t_t[[Custom Tiles have been added as a thank you to everyone that has donated to ToME.\n1397: They are a fun cosmetic feature that allows you to choose a tile for your character from a list of nearly 180 (with more to be added over time), ranging from special humanoid tiles to downright wonky ones!\n1398: \n1399: If you'd like to use this feature and find this game good you should consider donating. It will help ensure its survival.\n1400: While this is a free game that I am doing for fun, if it can help feed my family a bit I certainly will not complain as real life can be harsh sometimes.\n1401: You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.\n1402: \n1403: Donators will also gain access to the Exploration Mode featuring infinite lives.]], 400, function(ret)\n1404: \t\tif not ret then\n1405: \t\t\tgame:registerDialog(require(\"mod.dialogs.Donation\").new(\"custom-tiles\"))\n1406: \t\tend"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/init.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+      "start_line": 132,
+      "end_line": 138,
+      "revision_keys": [
+        "e2be3d83772c355423e6bac093c843cee00dbef05f7f18fb8303e7605123a3c2"
+      ],
+      "excerpt": "132: \t{image=\"/data/gfx/shockbolt/terrain/worldmap.png\", text=[[The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.]]},\n133: \t{image=\"/data/gfx/shockbolt/npc/humanoid_elf_elven_archer.png\", text=[[Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.]]},\n134: \t{image=\"/data/gfx/shockbolt/npc/humanoid_human_reaver.png\", text=[[Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.]]},\n135: \t{image=\"/data/gfx/shockbolt/npc/humanoid_shalore_elven_corruptor.png\", text=[[Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.]]},\n136: \t{image=\"/data/gfx/shockbolt/trap/beartrap01.png\", text=[[Clever rogues can lay traps to damage or debilitate their foes without having to go near them.]]},\n137: \t{image=\"/data/gfx/talents/stealth.png\", text=[[Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.]]},\n138: \t{image=\"/data/gfx/shockbolt/object/rune_green.png\", text=[[A movement infusion can let you quickly approach a ranged opponent, or quickly escape a melee one.]]},"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/wilderness/grids.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e11b10c8f6220ae93ba97fa74dea5ea3ccfc70ad2ee63be707b8e85c19884f6a",
+      "start_line": 723,
+      "end_line": 730,
+      "revision_keys": [
+        "e318607df2361e6d5bf0ed02ff84a4a4e2d4459d0f87c6e393be9d1b44375e8a"
+      ],
+      "excerpt": "723: \tchange_level_check = function()\n724: \t\tgame.turn = game.turn + 5 * game.calendar.HOUR\n725: \t\tif not game.player:hasQuest(\"lightning-overload\").walked then\n726: \t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Danger...\", _t[[After walking many hours, you finally reach the end of the way. You are nearly on top of one of the highest peaks you can see.\n727: The storm is raging above your head.]], 400)\n728: \t\t\tgame.player:hasQuest(\"lightning-overload\").walked = true\n729: \t\tend\n730: \tend,"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/spells/fire.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+      "start_line": 140,
+      "end_line": 181,
+      "revision_keys": [
+        "e359df96b12ef0227123eb3b64af5384e6a7e5bdfc28b8c6311a180790638160"
+      ],
+      "excerpt": "140: newTalent{\n141: \tname = \"Fireflash\",\n142: \ttype = {\"spell/fire\",3},\n143: \trequire = spells_req3,\n144: \tpoints = 5,\n145: \tmana = 20,\n146: \tcooldown = 8,\n147: \ttactical = { ATTACKAREA = { FIRE = 2 } },\n148: \trange = 7,\n149: \tradius = function(self, t) return math.floor(self:combatTalentScale(t, 2, 5.5)) end,\n150: \tproj_speed = 4,\n151: \tdirect_hit = true,\n152: \trequires_target = true,\n153: \ttarget = function(self, t)\n154: \t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), player_selffire=true, selffire=self:spellFriendlyFire(), talent=t, display={particle=\"bolt_fire\", particle_args={size_factor=1.5}, trail=\"firetrail\"}, sound_stop=\"talents/fireflash\"}\n155: \tend,\n156: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 28, 330) end,\n157: \taction = function(self, t)\n158: \t\tlocal tg = self:getTalentTarget(t)\n159: \t\tlocal x, y = self:getTarget(tg)\n160: \t\tif not x or not y then return nil end\n161: \t\tself:projectile(tg, x, y, DamageType.FIRE, self:spellCrit(t.getDamage(self, t)), function(self, tg, x, y, grids)\n162: \t\t\tgame.level.map:particleEmitter(x, y, tg.radius, \"fireflash\", {radius=tg.radius, proj_x=x, proj_y=y, src_x=self.x, src_y=self.y})\n163: \t\t\tif self:attr(\"burning_wake\") then\n164: \t\t\t\tgame.level.map:addEffect(self,\n165: \t\t\t\t\tx, y, 4,\n166: \t\t\t\t\tengine.DamageType.INFERNO, self:attr(\"burning_wake\"),\n167: \t\t\t\t\ttg.radius,\n168: \t\t\t\t\t5, nil,\n169: \t\t\t\t\t{type=\"inferno\"},\n170: \t\t\t\t\tnil, tg.selffire\n171: \t\t\t\t)\n172: \t\t\tend\n173: \t\tend)\n174: \t\tgame:playSoundNear(self, \"talents/fire\")\n175: \t\treturn true\n176: \tend,\n177: \tinfo = function(self, t)\n178: \t\tlocal damage = t.getDamage(self, t)\n179: \t\tlocal radius = self:getTalentRadius(t)\n180: \t\treturn ([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.\n181: \t\tThe damage will increase with your Spellpower.]]):"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/orc-breeding-pit/zone.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "ff1911ae74d33659a8d46f8160f379a5ac4e4f27855a1b559f30d69fc69901c0",
+      "start_line": 66,
+      "end_line": 72,
+      "revision_keys": [
+        "e3aebb45950c7a7bf37c98e7aafde7bcc1d72459cb6b3f0ddd94362771a61b71"
+      ],
+      "excerpt": "66: \tend,\n67: \ton_enter = function(lev, old_lev, newzone)\n68: \t\tif newzone and not game.level.shown_warning then\n69: \t\t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"Orc Breeding Pit\", _t\"You arrive in a small underground structure. There are orcs there and as soon as they notice you they scream 'Protect the mothers!'.\")\n70: \t\t\tgame.level.shown_warning = true\n71: \t\tend\n72: \tend,"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "start_line": 1599,
+      "end_line": 1645,
+      "revision_keys": [
+        "e3b3e027a23bb74af6498bd77e02209815d965362c91056e4c4da45cbb9b23b7"
+      ],
+      "excerpt": "1599: \tend,\n1600: }\n1601: \n1602: newEffect{\n1603: \tname = \"WAKING_NIGHTMARE\", image = \"talents/waking_nightmare.png\",\n1604: \tdesc = _t\"Waking Nightmare\",\n1605: \tlong_desc = function(self, eff) return (\"The target is lost in a nightmare that deals %0.2f darkness damage each turn and has a %d%% chance to cause a random detrimental effect.\"):tformat(eff.dam, eff.chance) end,\n1606: \ttype = \"mental\",\n1607: \tsubtype = { nightmare=true, darkness=true },\n1608: \tstatus = \"detrimental\",\n1609: \tparameters = { chance=10, dam = 10 },\n1610: \ton_gain = function(self, err) return _t\"#F53CBE##Target# is lost in a nightmare.\", _t\"+Night Terrors\" end,\n1611: \ton_lose = function(self, err) return _t\"#Target# is free from the nightmare.\", _t\"-Night Terrors\" end,\n1612: \ton_timeout = function(self, eff)\n1613: \t\tDamageType:get(DamageType.DARKNESS).projector(eff.src or self, self.x, self.y, DamageType.DARKNESS, eff.dam)\n1614: \t\tlocal chance = eff.chance\n1615: \t\tif self:attr(\"sleep\") then chance = 100-(100-chance)/2 end -- Half normal chance to avoid effect\n1616: \t\tif rng.percent(chance) then\n1617: \t\t\t-- Pull random effect\n1618: \t\t\tchance = rng.range(1, 3)\n1619: \t\t\tif chance == 1 then\n1620: \t\t\t\tif self:canBe(\"blind\") then\n1621: \t\t\t\t\tself:setEffect(self.EFF_BLINDED, 3, {})\n1622: \t\t\t\tend\n1623: \t\t\telseif chance == 2 then\n1624: \t\t\t\tif self:canBe(\"stun\") then\n1625: \t\t\t\t\tself:setEffect(self.EFF_STUNNED, 3, {})\n1626: \t\t\t\tend\n1627: \t\t\telseif chance == 3 then\n1628: \t\t\t\tif self:canBe(\"confusion\") then\n1629: \t\t\t\t\tself:setEffect(self.EFF_CONFUSED, 3, {power=30})\n1630: \t\t\t\tend\n1631: \t\t\tend\n1632: \t\t\tgame.logSeen(self, \"#F53CBE#%s succumbs to the nightmare!\", self:getName():capitalize())\n1633: \t\tend\n1634: \tend,\n1635: }\n1636: \n1637: newEffect{\n1638: \tname = \"INNER_DEMONS\", image = \"talents/inner_demons.png\",\n1639: \tdesc = _t\"Inner Demons\",\n1640: \tlong_desc = function(self, eff) return (\"The target is plagued by inner demons and each turn there's a %d%% chance that one will appear.  If the caster is killed or the target resists setting his demons loose the effect will end early.\"):tformat(eff.chance) end,\n1641: \ttype = \"mental\",\n1642: \tsubtype = { nightmare=true },\n1643: \tstatus = \"detrimental\",\n1644: \tremove_on_clone = true,\n1645: \tparameters = {chance=0},"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/cunning.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "6276d5a6bbdc05005ef81ca033f9b47b4d719eaee73596de270408845a7e8810",
+      "start_line": 23,
+      "end_line": 29,
+      "revision_keys": [
+        "e3ed20c85beb1beae7cebab978c0437294794c8be88182aef1cf88fa0fe96a79"
+      ],
+      "excerpt": "23: newTalentType{ allow_random=true, type=\"cunning/trapping\", name = _t(\"trapping\", \"talent type\"), description = _t\"The knowledge of trap laying and assorted trickeries.\" }\n24: newTalentType{ allow_random=true, type=\"cunning/traps\", name = _t(\"traps\", \"talent type\"), description = _t\"Collection of known traps.\" }\n25: newTalentType{ allow_random=true, type=\"cunning/poisons\", name = _t(\"poisons\", \"talent type\"), description = _t\"The knowledge of poisons and how to apply them to 'good' effects.\" }\n26: newTalentType{ allow_random=true, type=\"cunning/poisons-effects\", name = _t(\"poisons\", \"talent type\"), description = _t\"Collection of known poisons.\" }\n27: newTalentType{ allow_random=true, type=\"cunning/dirty\", name = _t(\"dirty fighting\", \"talent type\"), description = _t\"Teaches various talents to cripple your foes.\" }\n28: newTalentType{ allow_random=true, type=\"cunning/lethality\", generic = true, name = _t(\"lethality\", \"talent type\"), description = _t\"How to make your foes feel the pain.\" }\n29: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/shadow-magic\", name = _t(\"shadow magic\", \"talent type\"), description = _t\"Blending magic and shadows.\" }"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/uber/cun.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e8f5d9281e0eed2b487a52666a6e8551d29371627cd1a604154296c3ae8b6979",
+      "start_line": 209,
+      "end_line": 245,
+      "revision_keys": [
+        "e407b46fe58cb5b80eeea8e60392e672f075aa716a945c90d8ae7e403b3e7e59"
+      ],
+      "excerpt": "209: -- Item rarities\n210: uberTalent{\n211: \tname = \"Secrets of Telos\",\n212: \tmode = \"passive\",\n213: \trequire = { special={desc=_t\"Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal\", fct=function(self)\n214: \t\tlocal o1 = self:findInAllInventoriesBy(\"define_as\", \"GEM_TELOS\")\n215: \t\tlocal o2 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_TOP_HALF\")\n216: \t\tlocal o3 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_BOTTOM_HALF\")\n217: \t\treturn o1 and o2 and o3\n218: \tend} },\n219: \tcant_steal = true,\n220: \tno_npc_use = true,\n221: \ton_learn = function(self, t)\n222: \t\tif not game.party:hasMember(self) then return end\n223: \t\tlocal list = mod.class.Object:loadList(\"/data/general/objects/special-artifacts.lua\")\n224: \t\tlocal o = game.zone:makeEntityByName(game.level, list, \"TELOS_SPIRE\", true)\n225: \t\tif o then\n226: \t\t\to:identify(true)\n227: \t\t\tself:addObject(self.INVEN_INVEN, o)\n228: \n229: \t\t\tlocal o1, item1, inven1 = self:findInAllInventoriesBy(\"define_as\", \"GEM_TELOS\")\n230: \t\t\tif item1 and inven1 then self:removeObject(inven1, item1, true) end\n231: \t\t\tlocal o2, item2, inven2 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_TOP_HALF\")\n232: \t\t\tif item2 and inven2 then self:removeObject(inven2, item2, true) end\n233: \t\t\tlocal o3, item3, inven3 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_BOTTOM_HALF\")\n234: \t\t\tif item3 and inven3 then self:removeObject(inven3, item3, true) end\n235: \n236: \t\t\tself:sortInven()\n237: \n238: \t\t\tgame.logSeen(self, \"#VIOLET#%s assembles %s!\", self:getName():capitalize(), o:getName{do_colour=true, no_count=true})\n239: \t\tend\n240: \tend,\n241: \tinfo = function(self, t)\n242: \t\treturn ([[You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.]])\n243: \t\t:tformat()\n244: \tend,\n245: }"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "start_line": 131,
+      "end_line": 223,
+      "revision_keys": [
+        "e433115e63be43b015cca379eadf2b0d75276411aabedf7c8c47ceebbbe1465d"
+      ],
+      "excerpt": "131: \tid = \"spellblaze-chronicles-3\",\n132: \tcategory = \"spellblaze\",\n133: \tname = _t\"The Spellblaze Chronicles(3): The Farportal\",\n134: \tlore = _t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#\n135: \n136: #{bold}#Chapter Three: The Farportal#{normal}#\n137: \n138: “Why are ye not leader?” asked Linaniil, resting her head in her hand with her naked form strewn across my bed.\n139:  \n140: I looked at her, surprised by the sudden question.  My mind struggled briefly with the strange query, still recovering from the heat of sex but a minute before.  “Why should I be leader?” I asked back.\n141:  \n142: “Because ye are strong, of course,” she responded.  “I deem ye stronger in battle than any of your kin.  Ye should rule with such strength.”\n143:  \n144: I chuckled softly.  “Mere strength is not enough to rule a people.  It requires responsibilities, careful decision making, and above all – politics.  I have no interest in such matters.  Ephinias is far better suited to those sorts of things.  Give me a sword and soldiers to lead into battle and I am content.  Let the leaders worry about where I should point my blade.”\n145: \n146: She was quiet a moment, seemingly dissatisfied with that response.  “Ye are not happy with the current plans though.”\n147: \n148: For a moment I was struck with shock.  It surprised me how clearly she divined my inner thoughts.  I had not expressed my concerns to anyone, yet she could so easily read me.  Five weeks it had been since we first met, and it seemed like there was nothing I could hide from her keen sight.\n149:  \n150: The preparations for the Spellblaze were well underway.  Turthel of the Kar’Krul had returned to his northern citadel, but he left his daughters as ambassadors to aid in our designs.  It meant Linaniil and I had many an opportunity to meet, though we kept it secret.  Few of my race would understand or approve of such a liaison, and none of us could afford a scandal. Yet I could not resist this human mage’s advancements, nor she mine.\n151:  \n152: “I am a warrior,” I said to her finally, getting brusquely from my bed and recovering my robes.  “I settle my battles facing my foe, not by toying with relics from afar.  It irks me that we must deal with our enemies in such a craven way.”\n153: \n154: “But does it not excite ye, using these Sher’Tul ruins?” she said, putting a finger to her lower lip as she still languished in my bed, the sheets sticking tightly to her bare skin.  She seemed visibly aroused by her thoughts.  “Such powers lain dormant for so long, ready to be summoned to our control...  How it were I to command so great a venture!”\n155: \n156: I shook my head sadly as I finished buttoning up my doublet.  “I do not trust those ruins.  We Shaloren are mighty, but we have yet to reach the heights of the Sher’Tul, nor do we truly understand the devices they have left behind.  My thoughts are more with your sister Neira on this.  We should stick to what abilities we have mastered, without stretching ourselves to such grand experimentation.”\n157:  \n158: Linaniil looked at me intently, a touch of humour in her dark eyes.  “If ye were leader then ye could stop this.  But then I would have to hate ye.”\n159:  \n160: I allowed myself a thin smile.  “Well, that would indeed be a terrible and dangerous thing.”  I finished dressing whilst Linaniil still lay in my bed, her face reflective.  “I must go now to check on the latest operations at the farportal.  You are welcome to join me.”\n161:  \n162: She shook her head languidly.  “Nay, I wish to rest more.  And besides, hearing their reports would but make me jealous.  Leave me here awhile – I wilst depart in secret later.”\n163:  \n164: I left my chamber then, dark thoughts now brooding at the back of my mind.  The date was coming closer when our plans would come to fruition and the Great Spellblaze would be unleashed.  A heavy foreboding lay over my heart.  Yet the alternatives seemed grim.  The war with the orcs was going badly, with few races able to secure their borders well and attacks from the brutes ever increasing.  Their numbers seemed inexhaustible.  Though they had little skill in warfare they could bring great harm to unprotected townsteads, and in enough force could bring down cities.  One human kingdom had collapsed under their attacks but a week before.  After that many who had initially rejected our plans came begging for our protection.  The Spellblaze seemed our only hope against imminent disaster.\n165:  \n166: Such thoughts were weighing on my mind as I passed from my chambers in the palace, down to the courtyard by the main gate.  Then from the corner of my eye I saw a swish of long red hair, and spun round thinking Linaniil had followed me.  But the golden robes and bright eyes of Neira revealed otherwise.\n167:  \n168: “Expecting someone else?” she asked with a wide smile, seeing the surprised look on my face.\n169:  \n170: “I was deep in thought,” I explained, bowing slightly to greet her.  “I am just on my way to inspect the farportal operations.  Perhaps you-“\n171:  \n172: “I shall join ye,” she said quickly, not waiting for my invitation.  I nodded my assent and guided her to my carriage.\n173:  \n174: As soon as we took off east the mood changed.  “She wilst only hurt ye,” said Neira suddenly.\n175:  \n176: I cursed quietly, understanding her meaning.  “Are there no secrets to be had in all Eyal?” I muttered.\n177:  \n178: “Not between sisters, and especially not between twins.”  She smiled warmly at me, yet there was no humour in her eyes.  “I mean it though.  I love mine sister, but I know her ways.  She be fickle, and willed to do her own thing when she likes.  Do not be surprised when she bores of ye.  Nor hurt.”\n179:  \n180: “I am quite capable of taking care of myself,” I said in clipped tone.\n181:  \n182: She gazed into my eyes a moment and then turned away to stare out the window.  “Well, I have warned ye...” she replied softly, a touch of sadness in her voice.\n183:  \n184: Was it jealousy perhaps that stirred such an outburst?  And for her sister’s attention or for mine?  I never did discover.  The rest of the trip was spent in sullen silence.  The sun was setting behind our carriage, casting a long shadow on the path ahead, and bathing the land about in crimson light.  It seemed for a moment like we rode into some demon’s plane, pitch black shadows melting into blood-red soil, whilst cold white stars began to spear through the sky above.  I shivered suddenly as the ruins came into view.\n185:  \n186: Few Sher’Tul ruins have been discovered which even come close to matching the grandeur of those which were near Elvala.  Many centuries our people spent excavating them, digging deep into the ground, ever careful not to damage or upset the relics.  The centrepiece was the Crystal Tower.  From the surface all that could be seen of it was a wide, even-sided square, which when cleaned of soil revealed a white stone smoother than marble.  But delving down our archaeologists found it plummeted deep, deep below the ground.  Half a mile it went down, the featureless white stone not bearing a single mark or engraving anywhere on its surface, until it ended suddenly and without foundation.  It was like the whole tower was separate from the earth, some strange thing of the stars that had dropped from the skies and lay sleeping beneath the soil.\n187:  \n188: Some years earlier our people had solved the invisible runes that allowed it to be opened, revealing vast crystal-lined halls and chambers arrayed in geometric patterns of sublime beauty.  Light sparked and shone from every surface, and the walls seemed to hum with energy.  Many shafts and passageways could only be navigated by flight, and at the top was found a grand room large enough to encompass the whole palace of Elvala.  At its centre was the farportal, a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.  It was beautiful and frightening, enchanting and terrifying.  No power of the Shaloren could discern its operation, and though through careful experimentation we were able to manipulate its energies, never could we get a true grasp of the forces that lay beneath.\n189: \n190: Neira and I descended to the base of the tower, smothered in the cold shadows of the excavated ruins.  I nodded to the guards as we passed through the square white entrance, and Neira’s eyes instantly enlarged in wonder.  The scintillating rooms were eye-catching to be sure, but they were also desolate and empty.  I tried to imagine what it must have looked like when filled with Sher’Tul.  “How did they all die?” I asked under my breath as we traversed the crystal halls, a question many had asked before.\n191:  \n192: The sorceress picked up on my words and laughed softly.  “It be a mystery, of course!  Mine mother once taught me that they killed themselves in a great civil war, using magics far beyond our imaginings.”\n193:  \n194: “I wonder,” said I.  We had our own records, of course, which we didn’t share with the younger races, but they were not so clear-cut as the many myths that had spread over the ages.\n195:  \n196: We reached the central shaft, and from there levitated up past floors and floors of abandoned chambers, living spaces, workshops, storerooms, and many other areas of purpose undivined by our loremasters.  Finally, after ascending for several minutes, we rose into the grand chamber of the farportal, and Neira gasped to see its size.  Her eyes soon settled on the great Sher’Tul farportal, sparks from it reflecting off the roof hundreds of feet above.  About it were bustling many of our Shaloren mages in silken robes, and Ephinias himself was leading the operations.\n197:  \n198: He broke from his advisers as he saw us arrive, and strode towards us with a confident smile on his face.  Though he wore the grey robes of a research mage he still bore his great golden staff, Luminis, token of his position as king.\n199:  \n200: “Ah, General Aranion!” he said, “You have come at last.  And brought the Kar’Krul girl with you; how splendid.”\n201:  \n202: I gave a small bow.  “Your majesty.  I am here for the update on our operations.”\n203:  \n204: “Yes, yes, of course,” he said with a dismissive hand gesture.  “And doubtless the girl is here to make sure we know what we’re doing?”\n205:  \n206: If Neira was offended she covered it up well.  “It would be mine delight to see evidence of ye skill and power over the ruins, lord Ephinias.”\n207:  \n208: The king smiled and nodded then, and called to some of his aides.  “Prepare the topography demonstration, using the acute fire strand.”  He turned back to us then.  “It is not mere skill and power of course that we can show you, but subtlety and scale too.  Now excuse me a moment whilst I join the others.”\n209:  \n210: He went with two of the senior research mages then to the front of the farportal.  They faced each other and began a low humming in unison, and slowly it seemed that the sparks from the farportal began to flicker redly.  Over the course of a few minutes their hum became a higher pitched chant, but softly sung and still in perfect unison.  As they raised their staffs there appeared above the farportal an image in flames, and looking at it both Neira and I marvelled, for we could see clearly that it was an image of ourselves, looking upwards, as if looking we were staring into a mirror.  Our features and movements were all clearly discernible, down the smallest detail, all carved out of flickering orange fire.\n211:  \n212: Then the chanting rose higher and it seemed the image zoomed out, so that we saw the farportal nearby us and the mages gathered about.  And still the focus soared upwards till we were but specks in a wide hall, until the image was displaced by a white square with carven edges dug into the earth about it, and I knew we were looking at the top of the Crystal Tower from above.  The view widened, and I could see the land rushing away, and the city of Elvala to the west.  The chanting rose higher and now the sea could be seen, and the mountains to the north-west, and all the land about.  And soon the continent was visible, right to the frozen north, and the ocean wrapped all about, and it seemed small white stars were dotted about the landscape.  The singing reached a crescendo and before us hung an image of the whole of Eyal, a globe of fire suspended in mid-air, slowly turning.\n213:  \n214: Then the chanting stopped and the image disappeared, and I could hear beside me Neira suddenly gasp for air, as if she had not dared draw breath through the last few minutes.\n215:  \n216: “You see now?” said Ephinias, grinning with pleasure.  “From the smallest detail to the grandest scale we can manipulate the farportal’s energy.  And did you see those white points marked across the image?  They are the other farportals spread across the world, and this one can connect to them all.  With careful, delicate control we can harmonise the energy of them all and use it to our will.  I’m afraid your sword can be no match to this, Aranion.”\n217:  \n218: I had no words to respond, and only nodded softly, still in awe of what I had seen.  Neira seemed the same, and I could see her now staring at the farportal with the same eager eyes as her sister.  She was converted.\n219:  \n220: Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured with unease.]],\n221: \ton_learn = function(who)\n222: \t\tworld:gainAchievement(\"SPELLBLAZE_LORE\")\n223: \tend,"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/keepsake.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "3e254536a6b8d0509c7e1b340595b024ff9c4f27f345b2b502d804717b5a7981",
+      "start_line": 21,
+      "end_line": 34,
+      "revision_keys": [
+        "e454e243b1498217d1c15d8dba629bd73dd8959e05c0c6c1545c4bd7be6cfbb0"
+      ],
+      "excerpt": "21: \tid = \"keepsake-meadow\",\n22: \tcategory = \"keepsake\",\n23: \tname = _t\"A Tranquil Meadow\",\n24: \tlore = _t[[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure.\n25: The only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life.\n26: You feel the hate inside you melt away. You feel as if the curse has subsided for a moment.\n27: \n28: This place makes you wonder if there is a way to end the curse.\n29: And if you can't overcome it you might be able to master it and take back a part of your life.\n30: Either way, you feel the time has come to do something more about this curse.\n31: ]],\n32: }\n33: \n34: newLore{"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+      "start_line": 1618,
+      "end_line": 1624,
+      "revision_keys": [
+        "e4871be69ccc6d47bae940feeec6c9dc9392935cf4c279d4ebee63e15e143af4"
+      ],
+      "excerpt": "1618: \tunique = true,\n1619: \tname = \"Girdle of Preservation\", image = \"object/artifact/belt_girdle_of_preservation.png\",\n1620: \tunided_name = _t\"shimmering, flawless belt\",\n1621: \tdesc = _t[[A pristine belt of purest white leather with a runed voratun buckle. The ravages of neither time nor the elements have touched it.]],\n1622: \tcolor = colors.WHITE,\n1623: \tlevel_range = {45, 50},\n1624: \trarity = 400,"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/shertul.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "5e2c74eb697a0468d01cd0318e8bb9192201b3b652cb83fdf278e1354a72692a",
+      "start_line": 92,
+      "end_line": 104,
+      "revision_keys": [
+        "e4afe73e4f1c341bdd477f280fcefcb613e1b759c5ccdc2f46d867e73ce8a573"
+      ],
+      "excerpt": "92: }\n93: \n94: newLore{\n95: \tid = \"shertul-fortress-8\",\n96: \tcategory = \"sher'tul\",\n97: \tname = _t\"eighth mural painting\", always_pop = true,\n98: \timage = \"shertul_fortress_lore8.png\",\n99: \tlore = function() return _t[[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.\n100: The text beneath says simply ]]..(not game.player:attr(\"speaks_shertul\") and _t[[#{italic}#'Meas Abar.'#{normal}#]] or _t[[#{italic}#'The Great Sin.'#{normal}#]])\n101: \tend,\n102: }\n103: \n104: newLore{"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/init.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+      "start_line": 88,
+      "end_line": 100,
+      "revision_keys": [
+        "e4c192463aa9c11e29c4827fe3c1a1f22fda6a4b707e99e65f33c226ddf24d68"
+      ],
+      "excerpt": "88: \t{image=\"/data/gfx/shockbolt/npc/humanoid_human_bandit.png\", text=[[Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.]]},\n89: \t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_blood_mage.png\", text=[[In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.]]},\n90: \t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_berserker.png\", text=[[The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.]]},\n91: \t{image=\"/data/gfx/shockbolt/npc/humanoid_human_fire_wyrmic.png\", text=[[Intense willpower lets wyrmics take on the natural powers of dragons.]]},\n92: \t{image=\"/data/gfx/loadtiles/alchemist_golem.png\", text=[[Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.]]},\n93: \t{image=\"/data/gfx/shockbolt/npc/construct_golem_athamathon_the_giant_golem.png\", text=[[In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.]]},\n94: \t{image=\"/data/gfx/loadtiles/farportal.png\", text=[[None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.]]},\n95: \t{image=\"/data/gfx/shockbolt/npc/horror_eldritch_luminous_horror.png\", text=[[In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.]]},\n96: \t{image=\"/data/gfx/shockbolt/npc/humanoid_human_celia.png\", img_y_off=-20, text=[[Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.]]},\n97: \t{image=\"/data/gfx/shockbolt/npc/undead_mummy_greater_mummy_lord.png\", text=[[Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.]]},\n98: \t{image=\"/data/gfx/loadtiles/toknor_mirvenia.png\", img_y_off=-10, text=[[120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.]]},\n99: \t{image=\"/data/gfx/loadtiles/lava.png\", text=[[\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.]]},\n100: \t{image=\"/data/gfx/shockbolt/npc/humanoid_human_ben_cruthdar__the_cursed.png\", text=[[Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.]]},"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/town-shatur/npcs.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "0f0f5f0ac81f650aa87858c9dac68cf0dcdd00d31c8a78beb57d8dc05ebca302",
+      "start_line": 23,
+      "end_line": 29,
+      "revision_keys": [
+        "e4c5fea288174229bde4b4395e927b41096465706d2818d60c003404609782bb"
+      ],
+      "excerpt": "23: \tdefine_as = \"BASE_NPC_ELVALA_TOWN\",\n24: \ttype = \"humanoid\", subtype = \"thalore\",\n25: \tdisplay = \"p\", color=colors.WHITE,\n26: \tfaction = \"thalore\",\n27: \tanger_emote = _t\"Catch @himher@!\",\n28: \texp_worth = 0,\n29: \tcombat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/town-shatur/npcs.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "0f0f5f0ac81f650aa87858c9dac68cf0dcdd00d31c8a78beb57d8dc05ebca302",
+      "start_line": 71,
+      "end_line": 85,
+      "revision_keys": [
+        "e4c5fea288174229bde4b4395e927b41096465706d2818d60c003404609782bb"
+      ],
+      "excerpt": "71: newEntity{ base = \"BASE_NPC_ELVALA_TOWN\",\n72: \tname = \"thalore wilder\", color=colors.GREEN,\n73: \tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_thalore_thalore_wilder.png\", display_h=2, display_y=-1}}},\n74: \tdesc = _t[[A tall elf, his skin covered in green moss.]],\n75: \tlevel_range = {1, nil}, exp_worth = 0,\n76: \trarity = 3,\n77: \tmax_life = resolvers.rngavg(50,60),\n78: \tai_state = { talent_in=1, },\n79: \tautolevel = \"wildcaster\",\n80: \tresolvers.talents{\n81: \t\t[Talents.T_RIMEBARK]={base=1, every=5, max=10},\n82: \t\t[Talents.T_WAR_HOUND]={base=1, every=5, max=10},\n83: \t},\n84: \tresolvers.inscriptions(3, \"infusion\"),\n85: }"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/corruptions/vile-life.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "717328f18ac054652eef915b0ee39f353aca3223074db29c36b148bbbb460c13",
+      "start_line": 128,
+      "end_line": 159,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "128: newTalent{\n129: \tname = \"Healing Inversion\",\n130: \ttype = {\"corruption/vile-life\", 3},\n131: \trequire = corrs_req3,\n132: \tpoints = 5,\n133: \tcooldown = 10,\n134: \tvim = 16,\n135: \trange = 8,\n136: \tradius = 4,\n137: \tno_npc_use = true,\n138: \tdirect_hit = true,\n139: \trequires_target = true,\n140: \ttarget = function(self, t) return {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), friendlyfire=false, talent=t} end,\n141: \tgetPower = function(self,t) return self:combatLimit(self:combatTalentSpellDamage(t, 4, 100), 100, 0, 0, 18.1, 18.1) end, -- Limit to <100%\n142: \taction = function(self, t)\n143: \t\tlocal tg = self:getTalentTarget(t)\n144: \t\tlocal x, y = self:getTarget(tg)\n145: \t\tif not x or not y then return nil end\n146: \t\tself:project(tg, x, y, function(tx, ty)\n147: \t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n148: \t\t\tif not target or target == self then return end\n149: \t\t\ttarget:setEffect(target.EFF_HEALING_INVERSION, 5, {src=self, apply_power=self:combatSpellpower(), power=t.getPower(self, t)})\n150: \t\tend)\n151: \t\tgame:playSoundNear(self, \"talents/slime\")\n152: \t\treturn true\n153: \tend,\n154: \tinfo = function(self, t)\n155: \t\treturn ([[You manipulate the vim of enemies in radius %d to temporarily invert all healing done to them (but not natural regeneration).\n156: \t\tFor 5 turns all healing will instead damage them for %d%% of the healing done as blight.\n157: \t\tThe effect will increase with your Spellpower.]]):tformat(self:getTalentRadius(t), t.getPower(self,t))\n158: \tend,\n159: }"
+    },
+    {
+      "component": "engine",
+      "public_source_path": "game/engines/default/engine/interface/ActorProject.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "start_line": 243,
+      "end_line": 264,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "243: \n244: \t-- Now project on each grid, one type\n245: \tlocal state = {}\n246: \tlocal stop = false\n247: \tDamageType:projectingFor(self, {project_type=typ})\n248: \tfor px, ys in pairs(grids) do\n249: \t\tfor py, _ in pairs(ys) do\n250: \t\t\t-- Call the projected method of the target grid if possible\n251: \t\t\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, t, px, py, damtype, dam, particles) then\n252: \t\t\t\t-- Check self- and friendly-fire, excluded Actors, and if the projection \"misses\"\n253: \t\t\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n254: \t\t\t\tif act and (typ.act_exclude and typ.act_exclude[act.uid]) or act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n255: \t\t\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n256: \t\t\t\t-- Otherwise hit\n257: \t\t\t\telse\n258: \t\t\t\t\tif type(damtype) == \"function\" then if damtype(px, py, t, self) then stop=true break end\n259: \t\t\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, state, nil) end\n260: \t\t\t\t\tif particles then\n261: \t\t\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n262: \t\t\t\t\tend\n263: \t\t\t\tend\n264: \t\t\tend"
+    },
+    {
+      "component": "engine",
+      "public_source_path": "game/engines/default/engine/interface/ActorProject.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "start_line": 482,
+      "end_line": 504,
+      "revision_keys": [
+        "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce"
+      ],
+      "excerpt": "482: \tif (not lx and not ly) then return lx, ly, false, true end\n483: \treturn lx, ly, false, false\n484: end\n485: \n486: --- projectDoAct\n487: function _M:projectDoAct(typ, tg, damtype, dam, particles, px, py, tmp)\n488: \t-- Now project on each grid, one type\n489: \t-- Call the projected method of the target grid if possible\n490: \tif not game.level.map:checkAllEntities(px, py, \"projected\", self, typ, px, py, damtype, dam, particles) then\n491: \t\t-- Check self- and friendly-fire, and if the projection \"misses\"\n492: \t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n493: \t\tif act and act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n494: \t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n495: \t\t-- Otherwise hit\n496: \t\telse\n497: \t\t\tDamageType:projectingFor(self, {project_type=tg})\n498: \t\t\tif type(damtype) == \"function\" then if damtype(px, py, tg, self, tmp) then return true end\n499: \t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, tmp, nil, tg) end\n500: \t\t\tif particles and type(particles) == \"table\" then\n501: \t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n502: \t\t\tend\n503: \t\t\tDamageType:projectingFor(self, nil)\n504: \t\tend"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/birth/classes/wilder.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "41415bb10ec90ae5e391e45ec1e02a1adc04bc8c652bfa485359d9778330306c",
+      "start_line": 256,
+      "end_line": 275,
+      "revision_keys": [
+        "e50eb91c9e7b1a7ac740aa13bdeed09cd39db28d1a47e0916ff4f592feb731db"
+      ],
+      "excerpt": "256: newBirthDescriptor{\n257: \ttype = \"subclass\",\n258: \tname = \"Stone Warden\",\n259: \tlocked = function() return profile.mod.allow_build.wilder_stone_warden end,\n260: \tlocked_desc = _t\"The Spellblaze's scars may be starting to heal,\\nbut little can change how the partisans feel.\\nNature and arcane could bridge their divide -\\nand when it comes down to it, gold won't take sides...\",\n261: \tdesc = {\n262: \t\t_t\"Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.\",\n263: \t\t_t\"While other races are stuck in their belief that arcane forces and natural forces are meant to oppose, dwarves have found a way to combine them in harmony.\",\n264: \t\t_t\"Stone Wardens are armoured fighters, dual wielding shields to channel many of their powers.\",\n265: \t\t_t\"Their most important stats are: Strength, Magic and Willpower\",\n266: \t\t_t\"#GOLD#Stat modifiers:\",\n267: \t\t_t\"#LIGHT_BLUE# * +2 Strength, +0 Dexterity, +0 Constitution\",\n268: \t\t_t\"#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning\",\n269: \t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\",\n270: \t},\n271: \tspecial_check = function(birth)\n272: \t\tif birth.descriptors_by_type.race ~= \"Dwarf\" then return false end\n273: \t\treturn true\n274: \tend,\n275: \tpower_source = {nature=true, arcane=true},"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "start_line": 3134,
+      "end_line": 3165,
+      "revision_keys": [
+        "e542306f47aa86f981bed8d5e008a42f8ffc57e090d8061a1841e9939e14c0d2"
+      ],
+      "excerpt": "3134: }\n3135: \n3136: newTalent{\n3137: \tname = \"Unseen Actions\",\n3138: \ttype = {\"other/other\", 1},\n3139: --\trequire = cuns_req4,\n3140: \tmode = \"passive\",\n3141: \tpoints = 5,\n3142: \thide = false,\n3143: \t-- Assume level 50 w/100 cun --> stealth = 54, detection = 50\n3144: \t-- 40% (~= 20% chance against 1 opponent (range 1) at talent level 1, 189% (~= 55% chance against 1 opponent (range 1) and 2 opponents (range 6) at talent level 5\n3145: \tstealthMult = function(self, t) return self:combatTalentScale(t, 0.4, 1.89) end,\n3146: \tgetChance = function(self, t, fake, estimate)\n3147: \t\tlocal netstealth = t.stealthMult(self, t) * (self:callTalent(self.T_STEALTH, \"getStealthPower\") + (self:attr(\"inc_stealth\") or 0))\n3148: \t\tif fake then return netstealth end\n3149: \t\tlocal detection = self:stealthDetection(10, estimate) -- Default radius 10\n3150: \t\tif not detection or detection <= 0 then return 100 end\n3151: \t\tlocal _, chance = self:checkHit(netstealth, detection)\n3152: \t\tprint(\"Unseen Actions: \"..netstealth..\" stealth vs \"..detection..\" detection -->chance(no luck): \"..chance)\n3153: \t\tif estimate then return chance end\n3154: \t\treturn util.bound(chance + (self:getLck() - 50) * 0.2, 0, 100)\n3155: \tend,\n3156: \tinfo = function(self, t)\n3157: \t\treturn ([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.\t When you perform such an action while stealthed, you have a chance to stay hidden.\n3158: \t\tSuccess is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.\n3159: \t\tYour base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.\n3160: \t\tYou estimate your current chance to maintain stealth as %0.1f%%.]]):\n3161: \t\ttformat(t.stealthMult(self, t), t.getChance(self, t, true), t.getChance(self, t, false, true))\n3162: \tend,\n3163: }\n3164: \n3165: newTalent{"
+    }
+  ]
+}

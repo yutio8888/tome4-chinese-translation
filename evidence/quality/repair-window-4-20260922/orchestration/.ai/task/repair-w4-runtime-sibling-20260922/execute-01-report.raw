@@ -1,0 +1,18 @@
+已实际完成指定附属修复。
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:4475)：唯一目标由“精灵自然师”改为“自然精灵自然师”。
+- [runtime-key-collisions.md](/workspace/tome4-chinese-translation/docs/runtime-key-collisions.md:28)：补充冲突、裁决、来源边界与验证记录。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/runtime-sibling/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/runtime-sibling/VALIDATION.json)：记录实施及实际验证证据。
+- Cults 已如实标为公开但源码仓库、commit、版本未固定。
+
+验证全部通过：
+
+- 严格 lint：30,308 条，0 error、0 warning。
+- 实际跨组件扫描：0 个冲突；[扫描结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-4-20260922/runtime-sibling/runtime-collisions/runtime-collisions.json)。
+- LuaJIT 加载：唯一匹配，source/source_tag/section/arity/args_order/special 全部符合不变量。
+- 两种加载顺序最终均为“自然精灵自然师”。
+- 发布层定向核验：该键由 core addon override 承载；Cults 当前无固定官方 locale，发布器跳过。
+- `mod-tome.lua` 前后 SHA-256 均为 `08251b…e1d`，字节未变。
+- `git diff --check` 及全部新 evidence 空白检查通过。
+
+按要求未运行完整门禁或 addon 构建，未修改 `.ai`，未 stage、commit、push，也未创建 agent。无计划偏差或未解决问题。

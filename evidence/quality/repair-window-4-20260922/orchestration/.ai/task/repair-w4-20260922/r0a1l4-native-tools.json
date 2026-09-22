@@ -1,0 +1,31 @@
+{
+  "dispatch_id": "r0a1l4",
+  "native_session": "01a0c7d5-7bc3-7d33-bb7d-227c60dca10a",
+  "native_sha256": "3df9d762057730e5df96cfbc6d684191af03cc63ac2418d55a678749d154b1d8",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0d6e1c28cebb289f016ab22235c77c87d1aa1c7ed95355cd75",
+      "status": "completed",
+      "call_id": "call_Z6FmhMwlgNw1Wkc8viMf8EbW",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/repair-w4-20260922/CONTEXTUAL-ENVELOPE-r0a1l4.json\",\"max_output_tokens\":16000}));text(await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":19000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c7d5-7c07-7650-a720-220843892115",
+        "create_time": 1790059058.081584
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0d6e1c28cebb289f016ab2223e729887d183db8402e6ef0382",
+      "status": "completed",
+      "call_id": "call_ZlRDsjBGfPTa6CN56m4ZyFGX",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,hashlib\\np='.ai/task/repair-w4-20260922/CONTEXTUAL-ENVELOPE-r0a1l4.json'\\ne=json.load(open(p))\\nh=hashlib.sha256(json.dumps(e['payload'],ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()\\nassert h==e['candidate_identity']=='4a899e13359cf6531fd95a2e40e082057ea433d71cc8cd9eb3d6a1d1272309dd'\\nassert [x['revision_key'] for x in e['payload']['translation_snapshot']]==e['payload']['ordered_revision_keys']\\nassert [x['revision_key'] for x in e['payload']['bounded_context']]==e['payload']['ordered_revision_keys']\\nprint('Identity and ordered coverage verified: 4 revisions.')\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c7d5-7c07-7650-a720-220843892115",
+        "create_time": 1790059063.975417
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w4-20260922",
+  "fix": "FIX-1",
+  "executed_at_utc": "2026-09-22T06:41:21Z",
+  "before_candidate": {
+    "path": ".ai/task/repair-w4-20260922/BEFORE-FIX-1.lua",
+    "sha256": "de6301334152bef6ef4f344d7b4089250aa7cafa87218bb1bb608439043ba789"
+  },
+  "after_candidate": {
+    "path": "mod-tome.lua",
+    "sha256": "08251b2534bcf69b9970009c6f458fa2f9592a294a11b81916418ae7bfaa6e1d"
+  },
+  "results": [
+    {
+      "check": "LuaJIT exact candidate comparison",
+      "exit_code": 0,
+      "runtime": "tools/i18nlib LuaRuntime with manifest-configured LuaJIT",
+      "loaded_records": 22989,
+      "changed_record_count": 1,
+      "section": "mod-tome/data/lore/elvala.lua",
+      "source_tag": "_t",
+      "exact_replacements": [
+        {
+          "before": "为什么你不准备成为精灵们的领袖呢？",
+          "after": "为什么你不是精灵们的领袖呢？"
+        },
+        {
+          "before": "如果你成为了领袖，你可能会阻止这一切",
+          "after": "如果你是领袖，你就能阻止这一切"
+        }
+      ],
+      "all_other_record_fields_and_targets_unchanged": true
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w4-20260922/verify.py",
+      "exit_code": 0,
+      "verified": true,
+      "loaded_records": 22989,
+      "changed_target_count_against_original_baseline": 17,
+      "result": "all 17 workset changes and placeholder, markup, newline, and tab invariants passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "generated_report": ".artifacts/i18n/runs/20260922T064116.502357Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    },
+    {
+      "check": "new evidence whitespace",
+      "paths": [
+        "evidence/quality/repair-window-4-20260922/IMPLEMENTATION-FIX-1.md",
+        "evidence/quality/repair-window-4-20260922/VALIDATION-FIX-1.json"
+      ],
+      "exit_code": 0,
+      "result": "no trailing whitespace; final newline present"
+    },
+    {
+      "command": "python3 -m json.tool evidence/quality/repair-window-4-20260922/VALIDATION-FIX-1.json",
+      "exit_code": 0,
+      "result": "valid JSON"
+    }
+  ],
+  "proposal_generated": false,
+  "intentionally_not_run": [
+    "full gate suite",
+    "stage or commit",
+    "handoff/catalog/migration"
+  ]
+}

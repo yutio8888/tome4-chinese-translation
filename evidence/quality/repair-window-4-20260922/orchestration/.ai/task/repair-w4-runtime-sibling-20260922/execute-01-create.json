@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "initialPrompt": "你是本任务唯一EXECUTOR。先读 .ai/roles/executor.md、.ai/task/repair-w4-runtime-sibling-20260922/SPEC.md、PLAN.md、WORKSET.json、SOURCE-PROVENANCE.json、COLLISION-BEFORE.json。仅把 tome-cults.lua 指定 thalore wilder/entity name 的精灵自然师改为自然精灵自然师，父任务 mod-tome.lua 逐字保持；按SPEC更新 docs/runtime-key-collisions.md 和 evidence/quality/repair-window-4-20260922/runtime-sibling/ 实施及实际验证证据。Cults来源公开但源码commit/版本未固定，请如实标明。运行LuaJIT加载证明一处target及全部字段不变量、严格lint、实际跨组件扫描、同键两个加载顺序结果及空白检查；不跑完整门禁或发布写入。可只读父任务当前同键译文作为实现参照，保留旧证据/无关文件。禁止写.ai、其他译文/规则/工具/术语/handoff/catalog/migration，禁止stage/commit/push或创建agent。实际完成后报告，不只回计划。",
+    "labels": {
+      "task_id": "repair-w4-runtime-sibling-20260922",
+      "role": "executor",
+      "purpose": "implement",
+      "dispatch_id": "execute-01",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    },
+    "workspaceId": "wks_420314270844170b",
+    "title": "修复窗口4 Cults共享键修复",
+    "notifyOnFinish": true,
+    "provider": "codex/gpt-5.6-sol",
+    "settings": {
+      "modeId": "auto-review",
+      "thinkingOptionId": "medium"
+    }
+  },
+  "profile": {
+    "id": "legacy_favorite:codex:gpt-5.6-luna",
+    "name": "Worker Primary — Sol",
+    "provider": "codex",
+    "model": "gpt-5.6-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Primary role=EXECUTOR worker for standard well-scoped implementation. Existing Paseo role, SPEC, single-writer, and outbound boundaries remain controlling."
+  }
+}

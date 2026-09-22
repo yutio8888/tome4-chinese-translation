@@ -20,11 +20,27 @@
 
 即判定为跨组件运行时覆盖风险项。
 
-## 三、当前问题清单（0 条，扫描于 2026-08-03 light 裁决后）
+## 三、当前问题清单（0 条，扫描于 2026-09-22 修复窗口 4 附属修复后）
 
 当前无跨组件同键多译。
 
 ## 四、已修复记录
+
+### 4.3 thalore wilder 跨组件共享键（2026-09-22）
+
+完整门禁的跨组件扫描发现 `thalore wilder`（`entity name`）在 tome 与 cults
+组件中分别译为“自然精灵自然师”和“精灵自然师”。引擎 locale 以
+`(source, source_tag)` 写入，section 不参与运行时键，因此加载顺序会改变最终译文。
+
+- **裁决**：将 cults 的 `tome-cults/data/zones/test/npcs.lua` 条目统一为
+  “自然精灵自然师”，与 tome 组件既有译文一致；source、source_tag 及其他运行时字段不变。
+- **源码依据**：Cults 的公开 `data/zones/test/npcs.lua` 快照中，该 NPC 继承
+  `subtype = "thalore"`、`faction = "thalore"`，使用 `wildcaster` 自动加点并具有召唤天赋。
+  公开快照 SHA-256 为
+  `6cc08be3041889e6e7223c27b056f6d8db173e75108e881fb20aea64234b5cb9`；
+  上游源码仓库、commit 与版本均未固定，catalog 提取快照不是源码 commit。
+- **验证**：实际跨组件扫描归零；tome→cults 与 cults→tome 两种加载顺序均得到
+  “自然精灵自然师”。
 
 ### 4.0 light 共享键裁决（2026-08-03）
 

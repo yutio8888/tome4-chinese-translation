@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w4-runtime-sibling-20260922",
+  "validated_at_utc": "2026-09-22T07:01:10Z",
+  "result": "pass",
+  "scope": {
+    "translation_file": "tome-cults.lua",
+    "section": "tome-cults/data/zones/test/npcs.lua",
+    "source": "thalore wilder",
+    "source_tag": "entity name",
+    "preimage_target": "精灵自然师",
+    "postimage_target": "自然精灵自然师",
+    "preimage_target_sha256": "799f7f77ecd4f50bb859dd452288f529309bd7a3640d704603f5bd0ef5a51888",
+    "postimage_target_sha256": "a86fe6cc87429502e32711ab66c7b0b28bd8bd7a43a9d153ff7ea0bee0180d83",
+    "git_diff_numstat": {
+      "added_lines": 1,
+      "deleted_lines": 1
+    },
+    "only_target_changed_relative_to_workset": true
+  },
+  "field_invariants": {
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "section_unchanged": true,
+    "call_arity_before": 3,
+    "call_arity_after": 3,
+    "args_order_before": null,
+    "args_order_after": null,
+    "special_before": null,
+    "special_after": null,
+    "source_placeholder_multiset_before": [],
+    "source_placeholder_multiset_after": [],
+    "target_placeholder_multiset_before": [],
+    "target_placeholder_multiset_after": [],
+    "target_markup_multiset_before": [],
+    "target_markup_multiset_after": [],
+    "target_newline_count_before": 0,
+    "target_newline_count_after": 0
+  },
+  "parent_guard": {
+    "path": "mod-tome.lua",
+    "sha256_before": "08251b2534bcf69b9970009c6f458fa2f9592a294a11b81916418ae7bfaa6e1d",
+    "sha256_after": "08251b2534bcf69b9970009c6f458fa2f9592a294a11b81916418ae7bfaa6e1d",
+    "byte_identical": true
+  },
+  "checks": [
+    {
+      "name": "luajit_locale_load_and_order",
+      "command": "env LUA_PATH=... LUA_CPATH=... $TOME_LUAJIT evidence/quality/repair-window-4-20260922/runtime-sibling/verify-load-order.lua",
+      "exit_code": 0,
+      "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3",
+      "cults_match_count": 1,
+      "tome_match_count": 1,
+      "tome_then_cults": "自然精灵自然师",
+      "cults_then_tome": "自然精灵自然师",
+      "passed": true
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20260922T065936.876306Z-2-lint/lint.json",
+      "passed": true
+    },
+    {
+      "name": "cross_component_runtime_collision_scan",
+      "command": "python3 -B tools/scan_runtime_collisions.py --out-dir evidence/quality/repair-window-4-20260922/runtime-sibling/runtime-collisions",
+      "exit_code": 0,
+      "translations_scanned": 30308,
+      "collision_count": 0,
+      "report": "evidence/quality/repair-window-4-20260922/runtime-sibling/runtime-collisions/runtime-collisions.json",
+      "passed": true
+    },
+    {
+      "name": "release_layer_selection",
+      "method": "read pinned official tome locale through LocaleLoader and inspect manifest/build selection inputs",
+      "engine_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "official_tome_target": "精灵自然师",
+      "canonical_tome_target": "自然精灵自然师",
+      "canonical_cults_target": "自然精灵自然师",
+      "core_layer_action": "override",
+      "cults_addon_publisher": "skipped: no pinned source_repository or official_locale",
+      "passed": true
+    }
+  ],
+  "source_provenance": {
+    "visibility": "public",
+    "snapshot_sha256": "6cc08be3041889e6e7223c27b056f6d8db173e75108e881fb20aea64234b5cb9",
+    "snapshot_sha256_verified": true,
+    "upstream_source_repository": null,
+    "upstream_source_commit": null,
+    "upstream_version": null,
+    "source_pinning": "unpinned",
+    "catalog_snapshot_is_not_source_commit": true
+  },
+  "intentionally_not_run": [
+    "full CI gate suite",
+    "strict addon build",
+    "publication writes"
+  ],
+  "whitespace_checks": {
+    "git_diff_check": "pass (exit 0, no diagnostics)",
+    "untracked_evidence_no_index_check": "pass (all files exit 1 for content difference, no whitespace diagnostics)"
+  }
+}

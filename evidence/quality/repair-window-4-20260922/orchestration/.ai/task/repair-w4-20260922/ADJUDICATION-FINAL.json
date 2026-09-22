@@ -1,0 +1,39 @@
+{
+  "task_id": "repair-w4-20260922",
+  "review_phase": "FINAL_REVIEW",
+  "cycle": 1,
+  "attempt": 2,
+  "candidate_identity": "adbafe8bbb4b53f3dfa6370a2609076e5bba9c439b7c5d770c736663b1a133ac",
+  "raw_output_path": ".ai/reviews/repair-w4-20260922/raw-f1a2.txt",
+  "raw_output_sha256": "e80f203a2bf6dd3ecca1d9a86d2c094fb8d647a2ca3b5023522aa6b7ba9e6fac",
+  "raw_verdict_counts": {
+    "OK": 16,
+    "ISSUE": 1
+  },
+  "findings": [
+    {
+      "finding_id": "RW4-FINAL-OUT-01",
+      "revision_key": "e433115e63be43b015cca379eadf2b0d75276411aabedf7c8c47ceebbbe1465d",
+      "status": "confirmed",
+      "accepted": false,
+      "disposition": "out_of_scope_advisory",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "lines": [
+        198,
+        210
+      ],
+      "source_excerpts": [
+        "He broke from his advisers as he saw us arrive, and strode towards us with a confident smile on his face.  Though he wore the grey robes of a research mage he still bore his great golden staff, Luminis, token of his position as king.",
+        "He went with two of the senior research mages then to the front of the farportal.  They faced each other and began a low humming in unison, and slowly it seemed that the sparks from the farportal began to flicker redly.  Over the course of a few minutes their hum became a higher pitched chant, but softly sung and still in perfect unison.  As they raised their staffs there appeared above the farportal an image in flames, and looking at it both Neira and I marvelled, for we could see clearly that it was an image of ourselves, looking upwards, as if looking we were staring into a mirror.  Our features and movements were all clearly discernible, down the smallest detail, all carved out of flickering orange fire."
+      ],
+      "reason": "所引片段的research mage/senior research mages没有研究院命名；译文新增机构归属。高阶可含资历或层级，不能仅凭该措辞单独确认新增游戏阶位；该部分保留advisory，不扩大模型归因。",
+      "scope_reason": "两处均位于本窗口138/154/158/174/186行所对应段落之外；与原baseline字样一致，不是本次引入。归入后续该条successor审核线索，不扩大本次局部修复。"
+    }
+  ],
+  "in_scope_accepted_findings": [],
+  "requires_user_decision": false,
+  "completion": "Final whole-workset review completed; no accepted or deferred in-scope finding remains. Raw ISSUE is retained and is not relabeled OK. The wrapper completion status records scoped adjudication, not a claim that the entire memoir is flawless.",
+  "prior_out_of_scope_observation": "RW4-R1-OUT-01 remains recorded; final silence does not retract it."
+}

@@ -1,0 +1,24 @@
+{
+  "component": "cults",
+  "public_source_path": "tome-cults/data/zones/test/npcs.lua",
+  "upstream_source_repository": null,
+  "upstream_source_commit": null,
+  "source_pinning": "unpinned",
+  "version": "unfixed",
+  "public_source_snapshot_sha256": "6cc08be3041889e6e7223c27b056f6d8db173e75108e881fb20aea64234b5cb9",
+  "frozen_snapshot_path": ".ai/task/repair-w4-runtime-sibling-20260922/CULTS-PUBLIC-SOURCE.lua",
+  "catalog_extraction_snapshot_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+  "catalog_snapshot_is_not_source_commit": true,
+  "license": "GPL-3.0-or-later (file header)",
+  "relevant_lines": [
+    25,
+    27,
+    71,
+    72,
+    79,
+    81,
+    82
+  ],
+  "source_excerpt": "-- ToME - Tales of Maj'Eyal\n-- Copyright (C) 2009 - 2019 Nicolas Casalini\n--\n-- This program is free software: you can redistribute it and/or modify\n-- it under the terms of the GNU General Public License as published by\n-- the Free Software Foundation, either version 3 of the License, or\n-- (at your option) any later version.\n--\n-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nlocal Talents = require(\"engine.interface.ActorTalents\")\n\nnewEntity{\n\tdefine_as = \"BASE_NPC_ELVALA_TOWN\",\n\ttype = \"humanoid\", subtype = \"thalore\",\n\tdisplay = \"p\", color=colors.WHITE,\n\tfaction = \"thalore\",\n\tanger_emote = \"Catch @himher@!\",\n\n\tcombat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },\n\n\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, QUIVER=1 },\n\tlite = 3,\n\n\tlife_rating = 10,\n\trank = 2,\n\tsize_category = 3,\n\n\topen_door = true,\n\n\tresolvers.racial(),\n\tresolvers.inscriptions(1, \"rune\"),\n\n\tautolevel = \"warrior\",\n\tai = \"dumb_talented_simple\", ai_state = { ai_move=\"move_complex\", talent_in=3, },\n\tstats = { str=12, dex=8, mag=6, con=10 },\n\n\temote_random = resolvers.emote_random{allow_backup_guardian=true},\n}\n\nnewEntity{ base = \"BASE_NPC_ELVALA_TOWN\", define_as = \"SOMEMERCHANT\",\n\tname = \"some merchant\", color=colors.LIGHT_UMBER,\n\tdesc = _t[[A stern-looking guard, he will not let you disturb the town.]],\n\tlevel_range = {1, nil}, exp_worth = 1,\n\trarity = 3,\n\tmax_life = resolvers.rngavg(70,80),\n\tresolvers.talents{\n\t\t[Talents.T_BOW_MASTERY]={base=1, every=10, max=5},\n\t\t[Talents.T_SHOOT]=1,\n\t},\n\tai_state = { talent_in=1, },\n\n\tautolevel = \"archer\",\n\tresolvers.inscriptions(1, \"infusion\"),\n\tresolvers.equip{\n\t\t{type=\"weapon\", subtype=\"longbow\", autoreq=true},\n\t\t{type=\"ammo\", subtype=\"arrow\", autoreq=true},\n\t},\n\tresolvers.racial(),\n}\n\nnewEntity{ base = \"BASE_NPC_ELVALA_TOWN\",\n\tname = \"thalore wilder\", color=colors.GREEN,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_thalore_thalore_wilder.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[A tall elf, his skin covered in green moss.]],\n\tlevel_range = {1, nil}, exp_worth = 1,\n\trarity = 3,\n\tmax_life = resolvers.rngavg(50,60),\n\tai_state = { talent_in=1, },\n\tautolevel = \"wildcaster\",\n\tresolvers.talents{\n\t\t[Talents.T_RIMEBARK]={base=1, every=5, max=10},\n\t\t[Talents.T_WAR_HOUND]={base=1, every=5, max=10},\n\t},\n\tresolvers.inscriptions(3, \"infusion\"),\n}\n",
+  "interpretation": "NPC inherits subtype/faction thalore and wildcaster summons; source explicitly names thalore wilder."
+}

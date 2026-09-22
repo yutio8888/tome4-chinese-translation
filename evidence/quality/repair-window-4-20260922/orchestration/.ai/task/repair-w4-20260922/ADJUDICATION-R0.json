@@ -1,0 +1,51 @@
+{
+  "task_id": "repair-w4-20260922",
+  "review_phase": "REVIEW",
+  "cycle": 0,
+  "attempt": 1,
+  "review_records": [
+    ".ai/reviews/repair-w4-20260922/r0a1l1.json",
+    ".ai/reviews/repair-w4-20260922/r0a1l2.json",
+    ".ai/reviews/repair-w4-20260922/r0a1l3.json",
+    ".ai/reviews/repair-w4-20260922/r0a1l4.json"
+  ],
+  "raw_observation_path": ".ai/reviews/repair-w4-20260922/raw-r0a1l2.txt",
+  "before_translation_sha256": "de6301334152bef6ef4f344d7b4089250aa7cafa87218bb1bb608439043ba789",
+  "findings": [
+    {
+      "finding_id": "RW4-R0-01",
+      "revision_key": "e433115e63be43b015cca379eadf2b0d75276411aabedf7c8c47ceebbbe1465d",
+      "status": "confirmed",
+      "accepted": true,
+      "defect_tier": 1,
+      "category": "fidelity",
+      "source_component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "line": 138,
+      "source_excerpt": "“Why are ye not leader?” asked Linaniil, resting her head in her hand with her naked form strewn across my bed.",
+      "current_clause": "为什么你不准备成为精灵们的领袖呢？",
+      "replacement_clause": "为什么你不是精灵们的领袖呢？",
+      "reason": "are ye not leader询问当前身份，不是未来计划；下文以实力、责任及政治兴趣回答。"
+    },
+    {
+      "finding_id": "RW4-R0-02",
+      "revision_key": "e433115e63be43b015cca379eadf2b0d75276411aabedf7c8c47ceebbbe1465d",
+      "status": "confirmed",
+      "accepted": true,
+      "defect_tier": 1,
+      "category": "fidelity",
+      "source_component": "tome",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "line": 158,
+      "source_excerpt": "Linaniil looked at me intently, a touch of humour in her dark eyes.  “If ye were leader then ye could stop this.  But then I would have to hate ye.”",
+      "current_clause": "如果你成为了领袖，你可能会阻止这一切",
+      "replacement_clause": "如果你是领袖，你就能阻止这一切",
+      "reason": "were leader then could stop表达该身份赋予阻止计划的能力；不是推测将来是否采取行动。"
+    }
+  ],
+  "scope_calibration": "Two new source-supported clause defects in the already selected memoir paragraphs at 138/158. Initial SPEC admitted four prior claims, not every sentence on those lines; the reviewer cannot set host authorization. Host now expressly admits these two local corrections under the ongoing translation-review authorization, within the same 17-entry workset and existing source paragraphs. This does not authorize a wholesale lore rewrite; all other clauses remain frozen.",
+  "other_entries": "16 OK",
+  "decision": "one merged fresh EXECUTOR dispatch, then cycle 1 full lane review"
+}
