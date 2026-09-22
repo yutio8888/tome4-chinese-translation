@@ -272,3 +272,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-00840 | confirmed：与同系列 9 处“一瓶[颜色]液体”句式不一致。refuted：“严重破坏排比”程度被夸大，应按低影响处理 | 若要求系列统一，改为“一瓶黄色液体” |
 
 共 7 个 claim：4 confirmed、1 pending、1 advisory、1 refuted。两处 refuted/advisory 是对 Gemini severity 的下修，原样转录，未由主代理改写。
+
+## batch-022 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-022-01.md](reports/sol-022-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00843 | advisory：“提升了你核心技能的能力”修饰关系生硬，未造成机制误解；Gemini 所写源码行号不准，实际在 brotherhood-artifacts.lua:203、263 | 若要顺，可改“运用核心技能的能力” |
+| entry-00852 | confirmed：“抓取藤蔓”与同 ego“抓握之/抓握”不一致，且可被读成“去抓藤蔓” | 在“抓握藤蔓/缠绕藤蔓”中择一，是否强制与 ego 名统一属风格裁决 |
+| entry-00866 | confirmed：靴子 ego 名称“振奋的”与关键字“疗愈”两套译法，关键字会显示在已鉴定物品名里 | 统一方向由人工定；按治疗机制 Sol 认为“疗愈”更直接 |
+| entry-00873 | confirmed：披风 ego 同样“振奋的/疗愈”割裂 | 与 00866 同批裁决，不要分开改 |
+| entry-00881 | refuted：`naturalist's` 与 `natural` 是两个不同源串，术语快照也映射 `natural → 自然`，不要求中文字面相同 | 无必办事项；除非另立“关键词必须与名称词干统一”规则 |
+
+共 5 个 claim：3 confirmed、1 refuted、1 advisory、无 pending。译文未修改。

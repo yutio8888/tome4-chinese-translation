@@ -232,3 +232,12 @@
 - 归档：先持久化 `archive_attempts_started=1`，一次成功并 live 确认：sol-021-01 `2026-09-22T04:47:05.938Z`，gemini-022-01 `2026-09-22T04:47:07.545Z`。无未归档 child。
 - batch-022 五处细微观察待派 Sol，见 cross-batch-022（sha `a84769cb48ef4839a81b364cad20c43c3964873623be0ef875012a439770db7a`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 022/023 收获
+
+- sol-022-01：5/5 条目 5 claim（3 confirmed、1 refuted、1 advisory），作者 Codex/gpt-5.6-sol/medium。报告 sha256 `a0cb16d7877e78e41dd22a1c6d50e57e6f9afdda3dcce067528d4259d5771132`。
+- gemini-023-01：40/40（entry-00882–entry-00921）。Gemini 覆盖 **930/4144**。三处细微观察：00899、00914、00918。报告 sha256 `fbccca3fcae8ecca0e80efa7b11d8a79594fd7163728ada172703b00662b8342`。
+- 收回核验：batch-023 / cross-batch-022 / batch-022 / gemini-022 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-022-01 `2026-09-22T04:52:34.193Z`，gemini-023-01 `2026-09-22T04:52:35.792Z`。无未归档 child。
+- batch-023 三处细微观察待派 Sol，见 cross-batch-023（sha `8fb550c9f433933a1791d5db67c29985e1788b9ca226a0c491bad8b9ccfb1087`）。
+- 更新时间见 STATE.json `updated_at`。
