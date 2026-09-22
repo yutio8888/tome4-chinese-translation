@@ -7004,10 +7004,61 @@
       "count": 34,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-079.md",
       "input_sha256": "af54359ebfa376cae9cc35faf3cc4a152dcf6b5fdc6a2fd5322bddbfd4e844b0",
-      "status": "dispatched",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-079-01"
-      ]
+      ],
+      "covered_entry_ids": [
+        "entry-02538",
+        "entry-02539",
+        "entry-02540",
+        "entry-02541",
+        "entry-02542",
+        "entry-02543",
+        "entry-02544",
+        "entry-02545",
+        "entry-02546",
+        "entry-02547",
+        "entry-02548",
+        "entry-02549",
+        "entry-02550",
+        "entry-02551",
+        "entry-02552",
+        "entry-02553",
+        "entry-02554",
+        "entry-02555",
+        "entry-02556",
+        "entry-02557",
+        "entry-02558",
+        "entry-02559",
+        "entry-02560",
+        "entry-02561",
+        "entry-02562",
+        "entry-02563",
+        "entry-02564",
+        "entry-02565",
+        "entry-02566",
+        "entry-02567",
+        "entry-02568",
+        "entry-02569",
+        "entry-02570",
+        "entry-02571"
+      ],
+      "issue_entry_ids": [
+        "entry-02538",
+        "entry-02541",
+        "entry-02545",
+        "entry-02552",
+        "entry-02555",
+        "entry-02557",
+        "entry-02559",
+        "entry-02565",
+        "entry-02568",
+        "entry-02570"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-079-01.md",
+      "raw_output_sha256": "32cf7cc814822c695487dad0a7e53cfc7e68c75f4dd10bcf384e0b90f1b56082",
+      "coverage_note": "34/34 一次完成；存在疑点 02552；细微观察 02538、02541、02545、02555、02557、02559、02565、02568、02570。"
     },
     {
       "batch_id": "batch-080",
@@ -15920,12 +15971,84 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-077.md",
       "input_sha256": "f6007fd98c2f7a126b47f294c1914d55e951eb56e19e1ba262333bb734955b22",
-      "status": "dispatched",
+      "status": "completed",
       "source_dispatch_id": "gemini-077-01",
       "dispatches": [
         "sol-077-01"
       ],
-      "host_semantic_adjudication": false
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-077-01.md",
+      "raw_output_sha256": "fb4f871f1d963173d4dba4c18b97ab616995b32863cc0b63aa4c71e611d71eb5",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-02474",
+          "claim": "冒号前多余空格、寒冷效果缺句号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02474",
+          "claim": "8 个占位符及百分号保持正确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02489",
+          "claim": "`Dread` 译作“梦魇”存在对象识别错误",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02489",
+          "claim": "正式替换词必定是“噩灵”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-02489",
+          "claim": "“白骨尖刺和 毁伤”多一个空格",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02489",
+          "claim": "其余技能名对应正常",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-02500",
+          "claim": "`strength of your bond` 误译为“你的力量如此强大”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02500",
+          "claim": "标签、百分号和核心机制完整",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02500",
+          "claim": "所有关联技能中文名均已对齐",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-02506",
+          "claim": "4 个占位符类型和顺序正确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02506",
+          "claim": "“食尸鬼跳跃”符合本段实际技能语境",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02506",
+          "claim": "与正式术语“定向跳跃”冲突",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-02506",
+          "claim": "建议保留“食尸鬼跳跃”",
+          "verdict": "advisory"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium",
+      "completed_at": "2026-09-22T14:17:53.288825+00:00",
+      "note": "13 leaf claims；4 条 pending 均为术语对齐需冻结术语输入（Dread/技能名），非语义分歧。"
     }
   ],
   "child_dispatches": [
@@ -24702,9 +24825,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-079.md",
       "input_sha256": "af54359ebfa376cae9cc35faf3cc4a152dcf6b5fdc6a2fd5322bddbfd4e844b0",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-079-01-prompt.md",
@@ -24736,11 +24859,17 @@
       },
       "last_error": null,
       "head_at_dispatch": "ca0cb8b057ae8e05fecd094578bcd81dfe87303b",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T14:11:59.716Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
       "transport": "cli",
-      "wake": "heartbeat 3a947f5b / run acd2cfab"
+      "wake": "heartbeat 3a947f5b / run acd2cfab",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-079-01.md",
+      "raw_output_sha256": "32cf7cc814822c695487dad0a7e53cfc7e68c75f4dd10bcf384e0b90f1b56082",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 6a3438fc-526f-4ea2-a85b-ae3162a8102f final non-empty PLANNER_RESPONSE step_index 83",
+      "coverage": "34/34 complete (10 flagged)",
+      "archived_at": "2026-09-22T14:17:17.160Z"
     },
     {
       "role": "REVIEWER",
@@ -24751,9 +24880,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-077.md",
       "input_sha256": "f6007fd98c2f7a126b47f294c1914d55e951eb56e19e1ba262333bb734955b22",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-077-01-prompt.md",
@@ -24785,11 +24914,17 @@
       },
       "last_error": null,
       "head_at_dispatch": "ca0cb8b057ae8e05fecd094578bcd81dfe87303b",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T14:11:54.282Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
       "transport": "cli",
-      "wake": "heartbeat 3a947f5b / run acd2cfab"
+      "wake": "heartbeat 3a947f5b / run acd2cfab",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-077-01.md",
+      "raw_output_sha256": "fb4f871f1d963173d4dba4c18b97ab616995b32863cc0b63aa4c71e611d71eb5",
+      "raw_output_source": "codex rollout 01a0c975-7931-72a3-9fc6-a145ccc7a0e8 final assistant output_text",
+      "coverage": "4/4 entry-02474,02489,02500,02506 (13 leaf claims)",
+      "archived_at": "2026-09-22T14:17:18.658Z"
     }
   ],
   "locale_sha256": {
@@ -24805,7 +24940,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T14:12:30.722221+00:00",
+  "updated_at": "2026-09-22T14:17:53.288825+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -24814,7 +24949,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 2538,
+  "gemini_covered_total": 2572,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
@@ -24865,38 +25000,25 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [
-      {
-        "dispatch_id": "gemini-079-01",
-        "agent_id": "9bacc3d9-6748-498a-9f7f-14f3396be091",
-        "status": "running",
-        "scope": "batch-079 34 entries"
-      },
-      {
-        "dispatch_id": "sol-077-01",
-        "agent_id": "a718ad11-c801-4215-912d-f9c7f5b85017",
-        "status": "running",
-        "scope": "batch-077 four entries"
-      }
-    ],
+    "in_flight": [],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
     "gemini_020": "archived",
     "queued_not_dispatched": [],
-    "coverage_including_uncommitted": 2538,
+    "coverage_including_uncommitted": 2572,
     "all_children_archived": true,
     "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
     "evidence_committed": false,
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
-    "updated_at": "2026-09-22T14:11:19.527711+00:00",
+    "updated_at": "2026-09-22T14:17:53.288825+00:00",
     "status": "resumed",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "ca0cb8b0 cross-batch-077 queued; previous barrier 0e74bbd4 batch077 40/40 + cross078"
+    "last_barrier": "pending: gemini-079-01 + sol-077-01 archived, records to commit"
   },
   "recorder_continuation": [
     {

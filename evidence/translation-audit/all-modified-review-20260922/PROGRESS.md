@@ -801,3 +801,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-077-01 `2026-09-22T14:10:35.479Z`，sol-078-01 `2026-09-22T14:10:36.965Z`。
 - 覆盖 **2538/4144（61.2%）**；批次 **001–078 全部已记录复核（78/130）**，交叉 77 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：079 批次 + 077 交叉收口
+
+- 派发记录提交 `9194885a`；cross-batch-077 登记与 prompt 提交 `ca0cb8b0`。
+- **gemini-079-01：34/34 一次完成**。存在疑点 02552；细微观察 02538、02541、02545、02555、02557、02559、02565、02568、02570。sha256 `32cf7cc814822c695487dad0a7e53cfc7e68c75f4dd10bcf384e0b90f1b56082`，brain `6a3438fc`。
+- **sol-077-01（cross-batch-077）：4/4 条目、13 claim**：8 confirmed、4 pending、1 advisory。sha256 `fb4f871f1d963173d4dba4c18b97ab616995b32863cc0b63aa4c71e611d71eb5`，rollout `01a0c975`。4 条 pending 均因需冻结术语输入（Dread、技能名对齐），按契约挂待人工。
+- 守卫全过：batch-079/cross-batch-077 冻结哈希、11 locale、非 evidence 零 diff，HEAD `9194885a`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-079-01 `2026-09-22T14:17:17.160Z`，sol-077-01 `2026-09-22T14:17:18.658Z`。
+- 覆盖 **2572/4144（62.1%）**；批次 79/130，交叉 78 组完成。
+- 更新时间见 STATE.json `updated_at`。

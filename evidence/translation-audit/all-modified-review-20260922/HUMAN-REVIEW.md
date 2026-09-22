@@ -1064,3 +1064,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02534 | confirmed：五组区间与颜色码对应；advisory：第五行颜色码前缺空格（五行不统一） | 统一留空格或都去 |
 
 译文未修改。两条 pending 均因冻结输入不含术语库/对照条目，不是语义分歧；一条 refuted 撤回 Gemini 的机制背书（原教程简化，非本条翻译失真）。
+
+## batch-077 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-077-01.md](reports/sol-077-01.md)。译文未修改。共 13 个 claim：8 confirmed、4 pending、1 advisory、0 refuted。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02474 | confirmed：冒号前多余空格、寒冷效果缺句号；confirmed：8 个占位符及百分号正确 | 排版直修 |
+| entry-02489 | confirmed：`Dread`→“梦魇”对象识别错误；pending：正式替换词必定是“噩灵”？；confirmed：“白骨尖刺和 毁伤”多空格；pending：其余技能名是否均对齐？ | **需术语条目裁定 Dread** |
+| entry-02500 | confirmed：`strength of your bond`→“你的力量如此强大”误译；confirmed：标签/百分号/机制完整；pending：关联技能中文名对齐？ | 补语义；需术语输入 |
+| entry-02506 | confirmed：4 个占位符正确；confirmed：“食尸鬼跳跃”符合本段语境；pending：与“定向跳跃”冲突？；advisory：建议保留“食尸鬼跳跃” | **术语一致性决定** |
+
+译文未修改。4 条 pending 全部指向“需提供冻结术语条目”而非语义分歧，按契约保持 pending 等人工。
