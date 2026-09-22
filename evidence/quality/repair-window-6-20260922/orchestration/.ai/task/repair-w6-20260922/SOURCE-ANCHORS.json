@@ -1,0 +1,53 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/trollmire.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "3d96be3e96e5c33f30ede28f2e991766a7afdf5d292a87f238db2837f54a84ac",
+      "start_line": 25,
+      "end_line": 36,
+      "revision_keys": [
+        "e7091b21dcc32852f5515f5a0c9304597eb3eaef2bfe88ab9f8dad95bb5a0384"
+      ],
+      "excerpt": "25: \tid = \"trollmire-note-1\",\n26: \tcategory = \"trollmire\",\n27: \tname = _t\"tattered paper scrap (trollmire)\",\n28: \tlore = _t[[You find a tattered page scrap. Perhaps this is part of a diary entry.\n29: \"...is a gorgeous glade, but I could swear that looked like a part of a human femur.\n30: \n31: ...\n32: \n33: Saw an absolutely gigantic troll, but fortunately I threw him off my scent.\"]],\n34: }\n35: \n36: newLore{"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/achievements/events.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "56f547237e6c59973265ee8683a67b4aa68f844d7046ab7bad4ce05998a614c7",
+      "start_line": 38,
+      "end_line": 43,
+      "revision_keys": [
+        "e7e5e7f4e541826ba3972684d86422f723d89df27804d83798e60f787fb6aacc"
+      ],
+      "excerpt": "38: newAchievement{\n39: \tname = \"The Restless Dead\", id = \"EVENT_OLDBATTLEFIELD\",\n40: \tshow = \"name\",\n41: \tdesc = _t[[Disturbed an old battlefield and survived the consequences.]],\n42: }\n43: "
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/events/old-battle-field.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "5893d96b442aab62a27ac4f89b89e95a71c146f0d997483a8ba45a377272d26f",
+      "start_line": 79,
+      "end_line": 108,
+      "revision_keys": [
+        "e7e5e7f4e541826ba3972684d86422f723d89df27804d83798e60f787fb6aacc"
+      ],
+      "excerpt": "79: \t\t\ton_enter = function(lev)\n80: \t\t\t\tgame.level.turn_counter = 101 * 10\n81: \t\t\t\tgame.level.max_turn_counter = 101 * 10\n82: \t\t\t\tgame.level.turn_counter_desc = _t\"Undead are rising from the ground! You must hold on!\"\n83: \t\t\t\tgame.level.nb_pop = 1\n84: \t\t\tend,\n85: \t\t\ton_turn = function(self)\n86: \t\t\t\tif game.level.turn_counter then\n87: \t\t\t\t\tgame.level.turn_counter = game.level.turn_counter - 1\n88: \t\t\t\t\tgame.player.changed = true\n89: \t\t\t\t\tif game.level.turn_counter < 0 then\n90: \t\t\t\t\t\tgame.level.turn_counter = nil\n91: \t\t\t\t\t\tlocal spot = game.level:pickSpot{type=\"pop\", subtype=\"undead\"}\n92: \t\t\t\t\t\tlocal g = game.zone:makeEntityByName(game.level, \"terrain\", \"CAVE_LADDER_UP_WILDERNESS\")\n93: \t\t\t\t\t\tgame.zone:addEntity(game.level, g, \"terrain\", spot.x, spot.y)\n94: \n95: \t\t\t\t\t\t-- A \"boss\" comes\n96: \t\t\t\t\t\tlocal nb = 20\n97: \t\t\t\t\t\twhile nb > 0 do\n98: \t\t\t\t\t\t\tlocal spot = game.level:pickSpot{type=\"pop\", subtype=\"undead\"}\n99: \t\t\t\t\t\t\tif not game.level.map(spot.x, spot.y, game.level.map.ACTOR) then\n100: \t\t\t\t\t\t\t\tlocal m = game.zone:makeEntity(game.level, \"actor\", {random_elite={life_rating=function(v) return v * 1.5 + 4 end, nb_rares=6}}, nil, true)\n101: \t\t\t\t\t\t\t\tif m then game.zone:addEntity(game.level, m, \"actor\", spot.x, spot.y) m:setTarget(game.player) break end\n102: \t\t\t\t\t\t\tend\n103: \t\t\t\t\t\t\tnb = nb - 1\n104: \t\t\t\t\t\tend\n105: \n106: \t\t\t\t\t\tworld:gainAchievement(\"EVENT_OLDBATTLEFIELD\", game:getPlayer(true))\n107: \t\t\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Onslaught\", _t\"You have survived the onslaught of undead. You notice a way to climb up you had not seen before in a wall nearby.\", 400)\n108: \t\t\t\t\telseif game.level.turn_counter % 50 == 0 then"
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/events/old-battle-field.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "5893d96b442aab62a27ac4f89b89e95a71c146f0d997483a8ba45a377272d26f",
+      "start_line": 145,
+      "end_line": 166,
+      "revision_keys": [
+        "e7e5e7f4e541826ba3972684d86422f723d89df27804d83798e60f787fb6aacc"
+      ],
+      "excerpt": "145: \t\t\twho:runStop(_t\"grave\")\n146: \t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Grave\", _t\"Do you wish to disturb the grave?\", function(ret) if ret then\n147: \t\t\t\tself:change_level_check()\n148: \t\t\tend end)\n149: \t\t\treturn false\n150: \t\tend\n151: \t\tg.change_level=1 g.change_zone=id g.glow=true\n152: \t\tg.real_change = changer\n153: \t\tg.change_level_check = function(self)\n154: \t\t\tgame:chronoCancel(_t\"#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.\")\n155: \t\t\tif game.level.event_battlefield_entered then return true end\n156: \t\t\tself:removeAllMOs()\n157: \t\t\tif self.add_displays then\n158: \t\t\t\tlocal ov = self.add_displays[#self.add_displays]\n159: \t\t\t\tov.image = \"terrain/grave_opened_0\"..rng.range(1, 3)..\"_64.png\"\n160: \t\t\tend\n161: \t\t\tself.name = _t\"opened grave\"\n162: \t\t\tgame.level.map:updateMap(self.x, self.y)\n163: \t\t\tgame.level.event_battlefield_entered = true\n164: \t\t\tgame:changeLevel(1, self.real_change(self.change_zone), {temporary_zone_shift=true, direct_switch=true})\n165: \t\t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"Fall...\", _t\"As you began digging up the grave, the ground collapsed beneath you. You fall into an eerily lit cavern.\")\n166: \t\t\tfor i, gr in ipairs(self.graves) do"
+    }
+  ]
+}

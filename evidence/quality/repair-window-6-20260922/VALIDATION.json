@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-6 unique EXECUTOR",
+  "scope": "2 target repairs plus bounded evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w6-20260922/verify.py",
+      "exit_code": 0,
+      "output": "{\n  \"verified\": true,\n  \"records\": 22989,\n  \"changed\": [\n    {\n      \"revision\": \"e7e5e7f4e541826ba3972684d86422f723d89df27804d83798e60f787fb6aacc\",\n      \"line\": 2572,\n      \"before\": \"踏入古战场并最终生还。\",\n      \"after\": \"惊扰了古战场，并在由此引发的后果中幸存下来。\"\n    },\n    {\n      \"revision\": \"e7091b21dcc32852f5515f5a0c9304597eb3eaef2bfe88ab9f8dad95bb5a0384\",\n      \"line\": 19738,\n      \"before\": \"你找到了一片破烂的纸页残片。也许这是某篇日记的一部分。\\n“……是一片美得惊人的林间空地，但我敢发誓，那东西看起来像一截人类股骨。\\n……\\n看到了一只大得吓人的巨魔，不过幸好我掩住了自己的气味，把他甩掉了。”\",\n      \"after\": \"你找到了一片破烂的纸页残片。也许这是某篇日记的一部分。\\n“……是一片美得惊人的林间空地，但我敢发誓，那东西看起来像一截人类股骨。\\n\\n……\\n\\n看到了一只大得吓人的巨魔，不过幸好我掩住了自己的气味，把他甩掉了。”\"\n    }\n  ]\n}\n"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260922T133547.092642Z-2-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "note": "This records only EXECUTOR-scoped checks; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

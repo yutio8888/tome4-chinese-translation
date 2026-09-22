@@ -1,15 +1,16 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核252已finalize，待收尾提交后的队列同步与push；随后窗口6修复2条）
+更新时间：2026-09-22（审核252收尾与窗口6译文已完成；待窗口6证据提交、第二次queue与push）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
 审核252已完成并finalize：`batch-5378d30fad3ca6f0275d`，80条固定tome来源，
 **78 done / 2 repair_required**。证据提交`89fa93ba3a5671eb271572b17b4518502321b21f`；
-当前无活动checkpoint，五个审核child全部确认归档。Finalize后的实测队列为22182 done、
-3 repair_required、24 blocked、7619 queued。两条新增修复为日记段落空行和古战场成就的惊扰行为；
-因确认newline问题，按窗口规则在252安全边界提前进入窗口6，不先启动253。
+五个审核child全部确认归档。收尾提交`805b67263c3359441a4e6e12f3ebd0d2bdc5a0da`、
+queue同步、push及远端核验已于13:27完成，当时实测队列为22182 done、3 repair_required、
+24 blocked、7619 queued。两条新增修复为日记段落空行和古战场成就的惊扰行为；因确认newline
+问题，按窗口规则在252安全边界提前进入窗口6，没有先启动253。
 
 157文件、1,992,658 bytes的冻结快照及两个任务独立重放均DONE_VERIFIED。
 14项观察经宿主裁决为3 confirmed、6 refuted、5 advisory；详情见
@@ -22,7 +23,27 @@ Finalize后已将该夹具改为长度无关的非法索引构造，生产解析
 收尾脚本曾残留250旧提交号，在断言处停止；已按252真实commit重取并核验，未移动错误运行材料。
 原脚本及更正说明均保留，runtime contextual输入输出已与提交逐字节核验并归档。
 
-本次收尾提交后的queue rebuild、push和远端核验仍待执行，不提前宣称完成。
+窗口6译文提交为`38e666aaae9e5738819e3b6525398b9bfc9872eb`；本次证据/catalog/migration
+提交、第二次queue rebuild、push和远端核验仍待宿主执行，不提前宣称完成。
+
+### 已完成译文与复审的修复窗口6
+
+窗口6范围恰为252的两条真实repair preflight：日记仅恢复省略号前后两个空行，文字不变；
+古战场成就补回主动惊扰行为及后果关系。`source`、`source_tag`、`args_order`、printf、markup、
+TAB均未变，无术语库改动。首轮full REVIEW和最终full FINAL_REVIEW原始结果均为2 OK / 0 ISSUE；
+没有追加修复轮或SENIOR升级，默认`max_cycles=3`未扩展。
+
+最终完整门禁`run.ko6u_j8h`为17/17通过，严格构建及`DONE_VERIFIED`通过。97文件、765,623 bytes
+的冻结包已独立snapshot重放通过，归档STATE来自immutable checkpoint。实施和两次复审共3个child
+均确认归档；出版child尚待宿主收获归档，不提前宣称。审计汇总数字12已更正为真实11个调用；
+全部实际调用均已检查，不改历史快照或范围裁决。详见
+[窗口6出版证据](evidence/quality/repair-window-6-20260922/PUBLICATION.md)。
+
+新catalog为`6f08ccf5394d2f0431a066c1315ba5abcdeaed1928e4781a0b1cb65e37e68405`，
+migration为`92da0238e3a17f7b5d3b4e46156ef0b9d5bacfd653bb2e00618d6f0ede25a83d`。
+一次catalog build和migration-chain已完成：2条revision changed、29,826条unchanged，0 ambiguous/
+unmapped，2个successor已入队并须重新审核，不继承done。本次证据提交、第二次queue rebuild、push
+及远端复核仍待宿主；完成后继续253默认80条并开启新的修复窗口。
 
 ### 已闭合的修复窗口5
 
@@ -196,14 +217,11 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 提交252 finalize收据、测试夹具维护和本交接后，执行一次queue rebuild并push核对远端；
-   不重做已完成的252审核、finalize或窗口5的catalog/migration。
-2. 闭合后对252实际运行repair preflight，建立窗口6有界implement，范围仅新增2条confirmed。
-   日记只恢复两个空行；古战场成就只补全主动惊扰及后果语义。默认max_cycles=3，
-   窗口5的第四轮授权不沿用。
-3. 修复仍按唯一EXECUTOR、独立复审、完整门禁、译文commit、queue、单次catalog/migration、
-   证据commit、queue与push闭合；之后继续253默认80条。距离单位“码”、宿主独立记录的
-   e75edbe9ad额外LF及其他非阻断pending/advisory不自动扩入本窗口。
+1. 宿主收获并归档本出版child，提交窗口6证据、catalog与migration；不要重做已完成的252收尾、
+   窗口6译文、复审、首轮queue、catalog build、migration-chain或完整门禁。
+2. 提交后执行第二次queue rebuild，再push并核对远端；这些步骤在实际完成前不得宣称完成。
+3. 闭合后继续253默认80条并开启新的修复窗口。距离单位“码”、宿主独立记录的e75edbe9ad额外LF、
+   旧回忆录pending及其他非阻断pending/advisory不自动扩入窗口6或后续批次。
 
 ## 保留边界与历史
 
