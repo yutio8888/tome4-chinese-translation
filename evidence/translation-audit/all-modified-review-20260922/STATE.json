@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3734,
+  "remaining_gemini": 3694,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -1015,7 +1015,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-010.md",
       "input_sha256": "fc7d81ad844ddc4fddecac9eadbac7bb5498e4fe732d74b97594c2047303cb8e",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-010-01"
       ],
@@ -1124,8 +1124,61 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-011.md",
       "input_sha256": "fc8774a52967fe8a5c673380cf93f77d0a0550aac45fc80853ff2b1462938681",
-      "status": "queued",
-      "dispatches": []
+      "status": "reviewed_awaiting_cross",
+      "dispatches": [
+        "gemini-011-01"
+      ],
+      "covered_entry_ids": [
+        "entry-00401",
+        "entry-00402",
+        "entry-00403",
+        "entry-00404",
+        "entry-00405",
+        "entry-00406",
+        "entry-00407",
+        "entry-00408",
+        "entry-00409",
+        "entry-00410",
+        "entry-00411",
+        "entry-00412",
+        "entry-00413",
+        "entry-00414",
+        "entry-00415",
+        "entry-00416",
+        "entry-00417",
+        "entry-00418",
+        "entry-00419",
+        "entry-00420",
+        "entry-00421",
+        "entry-00422",
+        "entry-00423",
+        "entry-00424",
+        "entry-00425",
+        "entry-00426",
+        "entry-00427",
+        "entry-00428",
+        "entry-00429",
+        "entry-00430",
+        "entry-00431",
+        "entry-00432",
+        "entry-00433",
+        "entry-00434",
+        "entry-00435",
+        "entry-00436",
+        "entry-00437",
+        "entry-00438",
+        "entry-00439",
+        "entry-00440"
+      ],
+      "issue_entry_ids": [
+        "entry-00419",
+        "entry-00423",
+        "entry-00428",
+        "entry-00429",
+        "entry-00434"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-011-01.md",
+      "raw_output_sha256": "002003a9752d23d65a4926fa86811b1e91ae98bb6f293d21911ae58231e3b944"
     },
     {
       "batch_id": "batch-012",
@@ -6836,10 +6889,89 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-010.md",
       "input_sha256": "55bf6428bc0a77891b835c8cb7d611a5d4d7a071e4f3da7e7a68adeade833d04",
-      "status": "queued",
+      "status": "completed",
       "source_dispatch_id": "gemini-010-01",
+      "dispatches": [
+        "sol-010-01"
+      ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-010-01.md",
+      "raw_output_sha256": "d32152b7c670f167fcf7640f9c0241090a25ef603596e86357a679d713942143",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-00368",
+          "claim": "失衡值被说成能力，方向容易反",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00373",
+          "claim": "被动改变的是使用者，译文改成了玩家",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00374",
+          "claim": "基础属性 Magic 面板是魔力，提示写成魔法",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00393",
+          "claim": "单模式后缀本身正确，只是括号风格不同",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00394",
+          "claim": "探索模式后缀本身正确",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00395",
+          "claim": "复合后缀含义正确，外层半角括号只是排版",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00396",
+          "claim": "噩梦永久死亡后缀正确，只是括号风格",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00397",
+          "claim": "疯狂冒险后缀正确，只是括号风格",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00398",
+          "claim": "复合后缀正确，只是括号风格",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00399",
+          "claim": "绝望冒险后缀正确，只是括号风格",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00400",
+          "claim": "绝望永久死亡后缀正确，只是括号风格",
+          "verdict": "advisory"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium"
+    },
+    {
+      "cross_id": "cross-batch-011",
+      "entry_ids": [
+        "entry-00419",
+        "entry-00423",
+        "entry-00428",
+        "entry-00429",
+        "entry-00434"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-011.md",
+      "input_sha256": "c4b94382592b538b25931f9d5daa2c7b2ac473c4999e968d431507475abb102e",
+      "status": "queued",
+      "source_dispatch_id": "gemini-011-01",
       "dispatches": [],
-      "host_semantic_adjudication": false
+      "host_semantic_adjudication": false,
+      "queue_note": "sol-010-01 still running; do not launch a second Sol"
     }
   ],
   "child_dispatches": [
@@ -8096,6 +8228,111 @@
       "raw_output_source": "codex rollout 01a0c6db-1d4a-7420-9f8d-25f5fc90fd90 final assistant output_text",
       "coverage": "4/4",
       "archived_at": "2026-09-22T02:09:07.345Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-011-01",
+      "agent_id": "4bbac91d-bf68-4436-a68e-2e86c5df52eb",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-011.md",
+      "input_sha256": "fc8774a52967fe8a5c673380cf93f77d0a0550aac45fc80853ff2b1462938681",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-011-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T02:10:09.193231+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "1290db9f24d7b53d9083c28f01428a1655022beb",
+      "harvested": true,
+      "created_at": "2026-09-22T02:09:45.418Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-011-01.md",
+      "raw_output_sha256": "002003a9752d23d65a4926fa86811b1e91ae98bb6f293d21911ae58231e3b944",
+      "raw_output_source": "antigravity transcript_full.jsonl brain e2f6addd-8328-4dd5-a3d9-705fac63c40b final PLANNER_RESPONSE",
+      "coverage": "40/40 entry-00401 through entry-00440",
+      "activity_feed_note": "Notification truncated. Native transcript has 40 headings and conclusions. Locale hashes unchanged.",
+      "archived_at": "2026-09-22T02:14:12.651Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-010-01",
+      "agent_id": "e80e8b96-f866-4b18-b9e7-c75d3440a49e",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-010.md",
+      "input_sha256": "55bf6428bc0a77891b835c8cb7d611a5d4d7a071e4f3da7e7a68adeade833d04",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-010-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T02:10:09.193231+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "1290db9f24d7b53d9083c28f01428a1655022beb",
+      "harvested": true,
+      "created_at": "2026-09-22T02:09:40.878Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-010-01.md",
+      "raw_output_sha256": "d32152b7c670f167fcf7640f9c0241090a25ef603596e86357a679d713942143",
+      "raw_output_source": "codex rollout 01a0c6e0-4215-7550-a475-0e0ab47e1131 final assistant output_text",
+      "coverage": "11/11",
+      "archived_at": "2026-09-22T02:15:18.346Z"
     }
   ],
   "locale_sha256": {
@@ -8111,7 +8348,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T02:09:26.024331+00:00",
+  "updated_at": "2026-09-22T02:15:37.065024+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -8120,7 +8357,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 410,
+  "gemini_covered_total": 450,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",

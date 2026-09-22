@@ -114,10 +114,18 @@
 - gemini-009-01：40/40。Gemini 覆盖 370/4144。四处排队交 Sol。
 - sol-008-01：6/6 已有分档，作者是 Sol。
 
-| batch-010 | 40 | reviewed_awaiting_cross | entry-00368, entry-00373, entry-00374, entry-00393–00400 |
+| batch-010 | 40 | reviewed_with_cross_results | 00368/00373/00374 confirmed；00393–00400 advisory |
 
 - gemini-009-01、sol-008-01 已归档，archivedAt 2026-09-22T02:03:31.521Z。证据提交 8c19c13，未 push。
 - gemini-010-01：running；agent 6f75bf3e-12f3-4f58-ad39-e2d2692234a2。只有这一路 Gemini。
 - sol-009-01：running；agent 652fea27-31a4-4470-84a7-e67d18f38ecf。交叉 00334、00344、00345、00354。
 - gemini-010-01：40/40。Gemini 覆盖 410/4144。十一条待 Sol。
 - sol-009-01：4/4 已有分档，作者是 Sol。
+
+| batch-011 | 40 | reviewed_awaiting_cross | entry-00419, entry-00423, entry-00428, entry-00429, entry-00434 |
+
+- gemini-010-01、sol-009-01 已归档，archivedAt 2026-09-22T02:09:07.345Z。证据提交 1290db9，未 push。
+- gemini-011-01：running；agent 4bbac91d-bf68-4436-a68e-2e86c5df52eb。只有这一路 Gemini。
+- sol-010-01：running；agent e80e8b96-f866-4b18-b9e7-c75d3440a49e。交叉 00368、00373、00374、00393–00400。
+- gemini-011-01：40/40。Gemini 覆盖 450/4144。五条排队等 Sol；sol-010-01 仍在运行，不并行再派 Sol。
+- sol-010-01：11/11 已有分档，作者是 Sol。gemini-011 已归档，下一批尚未派出。
