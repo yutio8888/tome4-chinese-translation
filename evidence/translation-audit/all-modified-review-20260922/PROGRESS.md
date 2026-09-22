@@ -74,7 +74,7 @@
 - sol-005-partial-01 已给出 00164–00166 的分档，作者是 Sol。
 - locale 哈希未变。HEAD 仍是 2fcd543be3b49430c1974180e688b18a8258e48d。
 
-| batch-006 | 40 | reviewing |  |
+| batch-006 | 40 | reviewed_awaiting_cross | entry-00216, entry-00221, entry-00223, entry-00226, entry-00231 |
 
 - sol-005-partial-01、gemini-005-02 已归档，archivedAt 2026-09-22T01:12:52.576Z。证据提交 52adbd3，未 push。
 - gemini-006-01：running；agent f4873805-db24-43b6-84c5-e79f6f5ce668。只有这一路 Gemini。
@@ -85,3 +85,5 @@
 - sol-005-rest-01 已归档，archivedAt 2026-09-22T01:18:28.518Z。
 
 - gemini-006-02：5 分钟打印超时。完整结论只有 entry-00201、entry-00202，均为未发现问题；entry-00203 在位置行中断。Gemini 覆盖 212/4144。无新疑点可交 Sol。
+- gemini-006-02 已归档，archivedAt 2026-09-22T01:26:42.100Z。证据提交 b4a706d。gemini-006-03 只补 entry-00203–00240，agent f99c28d3-5df2-4cb3-b177-80edac0a501f。
+- gemini-006-03：38/38，entry-00203–00240。Gemini 覆盖 250/4144。五条待 Sol。

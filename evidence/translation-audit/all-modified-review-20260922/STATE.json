@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3932,
+  "remaining_gemini": 3894,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -598,16 +598,15 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-006.md",
       "input_sha256": "efb3487acdc338d72f4fd082614988cd2eae762e614dc654f47853b17a37a700",
-      "status": "partial_coverage",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-006-01",
-        "gemini-006-02"
+        "gemini-006-02",
+        "gemini-006-03"
       ],
       "covered_entry_ids": [
         "entry-00201",
-        "entry-00202"
-      ],
-      "uncovered_entry_ids": [
+        "entry-00202",
         "entry-00203",
         "entry-00204",
         "entry-00205",
@@ -647,10 +646,18 @@
         "entry-00239",
         "entry-00240"
       ],
-      "issue_entry_ids": [],
+      "issue_entry_ids": [
+        "entry-00216",
+        "entry-00221",
+        "entry-00223",
+        "entry-00226",
+        "entry-00231"
+      ],
       "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-006-02.md",
       "raw_output_sha256": "6d1d281eb650ca7db6d3656427795a074a029d6417ecacb3b8af4af3987d0782",
-      "coverage_note": "gemini-006-01 startup 503. gemini-006-02 timed out. Only 00201 and 00202 have complete conclusions, both 未发现问题. 00203 is truncated and not counted."
+      "coverage_note": "00201-00202 from gemini-006-02 with no issues. 00203-00240 from gemini-006-03. Issues await Sol.",
+      "supplement_raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-006-03.md",
+      "supplement_raw_output_sha256": "5899f2459009c98d0b102d5905eadbe45126bdbb2e3446d5d2cd91dc2d9be720"
     },
     {
       "batch_id": "batch-007",
@@ -6358,6 +6365,22 @@
         }
       ],
       "verdict_author": "Codex/gpt-5.6-sol/medium"
+    },
+    {
+      "cross_id": "cross-batch-006",
+      "entry_ids": [
+        "entry-00216",
+        "entry-00221",
+        "entry-00223",
+        "entry-00226",
+        "entry-00231"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-006.md",
+      "input_sha256": "2560d1acc6ae4582241ab3f07bef8a692a028b4e9a181fdd041ce18763ac39f8",
+      "status": "queued",
+      "source_dispatch_id": "gemini-006-03",
+      "dispatches": [],
+      "host_semantic_adjudication": false
     }
   ],
   "child_dispatches": [
@@ -7088,6 +7111,61 @@
       "raw_output_source": "antigravity transcript_full.jsonl brain 68a983a2-d509-48b5-bf38-de24f4351684 PLANNER_RESPONSE step 62; turn timed out before a final message",
       "coverage": "2/40 complete entry-00201 entry-00202; entry-00203 truncated; entry-00204-00240 absent",
       "archived_at": "2026-09-22T01:26:42.100Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-006-03",
+      "agent_id": "f99c28d3-5df2-4cb3-b177-80edac0a501f",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-006.md",
+      "input_sha256": "efb3487acdc338d72f4fd082614988cd2eae762e614dc654f47853b17a37a700",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-006-03-prompt.md",
+      "scope": "entry-00203 through entry-00240",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:27:25.524452+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "b4a706d65c3366f12296689b23a16aedec6c8b40",
+      "harvested": true,
+      "created_at": "2026-09-22T01:27:09.759Z",
+      "retry_of": "gemini-006-02",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-006-03.md",
+      "raw_output_sha256": "5899f2459009c98d0b102d5905eadbe45126bdbb2e3446d5d2cd91dc2d9be720",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 79854e44-795a-4aaa-811b-1c2e15b36105 final PLANNER_RESPONSE",
+      "coverage": "38/38 entry-00203 through entry-00240",
+      "activity_feed_note": "Notification truncated. Native transcript has 38 headings and conclusions. Locale hashes unchanged. Gemini summary omitted entry-00223, but that entry's own conclusion is 细微观察.",
+      "archived_at": "2026-09-22T01:32:26.995Z"
     }
   ],
   "locale_sha256": {
@@ -7103,7 +7181,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T01:26:55.085717+00:00",
+  "updated_at": "2026-09-22T01:32:42.794123+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -7112,7 +7190,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 212,
+  "gemini_covered_total": 250,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
