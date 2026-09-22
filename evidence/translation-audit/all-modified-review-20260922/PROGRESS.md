@@ -590,3 +590,9 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-061-01 `2026-09-22T09:52:25.787Z`，sol-059-01 `2026-09-22T09:52:27.275Z`。无未归档 child。
 - 下一片已就绪：gemini-061-02（只补 entry-01865）+ sol-060-01（cross-batch-060，7 条，sha `36fad4de4c10b3e0687c5deca5a9c0e1392fd5da4295612f63bf19d1994c39c8`）。batch-062 起排在其后。
 - 更新时间见 STATE.json `updated_at`。
+
+## 第 42 轮派发异常处置（两条）
+
+- **gemini-061-02（补跑 entry-01865）首次启动失败**：antigravity 返回瞬时 `AGENT_CREATE_FAILED: Authentication required (terms)`，未创建任何 agent（live 列表核对）。重试一次成功，agent `e681a8ba-3b61-4b68-a928-abe96a826132` 运行中；`launch_note` 已入 STATE。本次为让 agent 读取冻结 prompt，派发内容用一行指针指向 `dispatches/gemini-061-02-prompt.md`。
+- **sol-060-dup-01 属我方错误的重复派发**：shell 里 `sol-060-01-prompt.md` 不存在时回退到 `sol-059-01-prompt.md`（目标 cross-batch-060，已由 sol-059-01 完成）。处置：不收获、不写入任何 cross 结果，按 `archive --force` 中断并归档（live `archivedAt` `2026-09-22T09:55:40.110Z`），STATE 标 `discarded=true`。我曾先把它写成 archived，发现归档被拒后立即用 live 真值更正。
+- 教训入档：回退 `cat ... || cat ...` 这种兜底在证据记录场景会掩盖“文件不存在”，后续改为派发前先断言 prompt 文件存在。
