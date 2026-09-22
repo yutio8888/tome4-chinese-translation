@@ -15620,9 +15620,11 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-076.md",
       "input_sha256": "2c393d46c97cf218de196149ec82fd539a8389483a2b4f34194364f4f5660861",
-      "status": "queued",
+      "status": "dispatched",
       "source_dispatch_id": "gemini-076-01",
-      "dispatches": [],
+      "dispatches": [
+        "sol-076-01"
+      ],
       "host_semantic_adjudication": false
     }
   ],
@@ -24217,6 +24219,56 @@
       "transport": "cli",
       "wake": "heartbeat 3a947f5b / run acd2cfab",
       "order_note": "deviation: dispatched batch-078 before batch-077 (I prepared the wrong prompt from template); batch-077 still queued and will be dispatched next. Batch slices are independent so coverage/cross integrity is unaffected; recorded for transparency."
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-076-01",
+      "agent_id": "e6f462aa-60a7-4ea7-a99e-052d4b48e9ef",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+      "session_task_id": "all-modified-review-20260922-resume01",
+      "lineage_verified": true,
+      "lifecycle": "running",
+      "archive_confirmed": false,
+      "archive_attempts_started": 0,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-076.md",
+      "input_sha256": "2c393d46c97cf218de196149ec82fd539a8389483a2b4f34194364f4f5660861",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-076-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T13:57:30.103116+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "550f8ace456f3d70ea72ceb76f10dbf5481f7365",
+      "harvested": false,
+      "created_at": "2026-09-22T13:57:17.348Z",
+      "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
+      "transport": "cli",
+      "wake": "heartbeat 3a947f5b / run acd2cfab",
+      "late_note": "first attempt exited 1 before dispatch because test -f ran before the prompt file was created in a parallel block; no child was created then. This is the successful dispatch."
     }
   ],
   "locale_sha256": {
@@ -24232,7 +24284,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T13:57:10.114176+00:00",
+  "updated_at": "2026-09-22T13:57:30.103116+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -24298,6 +24350,12 @@
         "agent_id": "ef528221-0402-4d9c-8aa6-f7f223a52ec6",
         "status": "running",
         "scope": "batch-078 28 entries"
+      },
+      {
+        "dispatch_id": "sol-076-01",
+        "agent_id": "e6f462aa-60a7-4ea7-a99e-052d4b48e9ef",
+        "status": "running",
+        "scope": "batch-076 seven entries"
       }
     ],
     "committed_coverage": 770,
