@@ -130,10 +130,32 @@
 - gemini-011-01：40/40。Gemini 覆盖 450/4144。五条排队等 Sol；sol-010-01 仍在运行，不并行再派 Sol。
 - sol-010-01：11/11 已有分档，作者是 Sol。gemini-011 已归档，下一批尚未派出。
 
-| batch-012 | 40 | reviewed_awaiting_cross | entry-00443, entry-00448, entry-00455, entry-00458, entry-00476 |
+| batch-012 | 40 | reviewed_with_cross_results | 五处已有 Sol |
 
 - gemini-011-01 已归档，archivedAt 2026-09-22T02:14:12.651Z。sol-010-01 已归档，archivedAt 2026-09-22T02:15:18.346Z。证据提交 0648abc，未 push。
 - gemini-012-01：running；agent ae5f30bf-3a08-4dc3-af04-22a11a559795。只有这一路 Gemini。
 - sol-011-01：running；agent b9f547f7-bc10-44fa-ad35-24d0aac1e28c。交叉 00419、00423、00428、00429、00434。
 - gemini-012-01：40/40。Gemini 覆盖 490/4144。五条待 Sol。
 - sol-011-01：5/5 已有分档，作者是 Sol。
+
+| batch-013 | 40 | reviewed_with_cross_results | 五处已有 Sol |
+
+- gemini-012-01、sol-011-01 已归档，archivedAt 2026-09-22T02:20:50.501Z。证据提交 62e6739，未 push。
+- gemini-013-01：running；agent dde5f034-04ab-4151-9dbe-c6cb1552542c。只有这一路 Gemini。
+- sol-012-01：running；agent 66a8ebae-e663-413b-8019-ff3ba17b282e。交叉 00443、00448、00455、00458、00476。
+- gemini-013-01：40/40。Gemini 覆盖 530/4144。五条排队等 Sol；sol-012-01 仍在运行，不并行再派 Sol。
+
+| batch-014 | 40 | reviewed_awaiting_cross | entry-00522, entry-00527, entry-00553, entry-00560 |
+
+- gemini-013-01 已归档，archivedAt 2026-09-22T02:25:34.587Z。sol-012-01 仍在运行，本波不提交，也不再派 Sol。
+- gemini-014-01：running；agent be2e7cd1-49cb-4fe8-ae30-e3139a5e2107。只有这一路 Gemini。
+- sol-012-01：5/5 已有分档，作者是 Sol。gemini-014 仍在运行，本波不提交。
+- gemini-014-01：40/40。Gemini 覆盖 570/4144。四处排队等 Sol。
+- sol-012-01 已归档，archivedAt 2026-09-22T02:28:16.199Z。sol-013-01 记录补写，agent fa503905-f9f8-4974-9c1a-98055318c144，仍在运行。本波不提交。
+
+| batch-015 | 40 | reviewed_awaiting_cross | entry-00570, entry-00574, entry-00579, entry-00581 |
+
+- gemini-014-01 已归档，archivedAt 2026-09-22T02:29:54.021Z。sol-013-01 仍在运行，本波不提交，也不再派 Sol。
+- gemini-015-01：running；agent ecdfa6b2-3bca-4707-98ad-0a2047ba9af6。只有这一路 Gemini。
+- gemini-015-01：40/40。Gemini 覆盖 610/4144。四处排队，等 batch-014 的 Sol 结束后再派。
+- sol-013-01：5/5 已有分档，作者是 Sol。
