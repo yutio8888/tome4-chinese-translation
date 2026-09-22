@@ -467,3 +467,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01224 | confirmed（低影响）：直接引语逗号置于后引号之外；Sol 认为 Gemini 视为中性的“排版习惯差异”略显宽松 | 先确认仓库对话标点体例，再决定优先级 |
 
 译文未修改。
+
+## batch-038 单条交叉结果（entry-01225）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-037-01.md](reports/sol-037-01.md)。译文未修改。共 19 个 claim：17 confirmed、2 pending、无 refuted/advisory。Sol 总评：Gemini 指出的断裂病句、方位错误、动作失真、漏标点、单复数与漏译均成立。
+
+| 组 | Sol 分档 |
+| --- | --- |
+| 病句/方位/动作（全 confirmed） | “长着六肢的长而厚的身体之上”断裂病句；“我面对着背后的怪物”方位矛盾；“顺便跳进了我背后的门中”；`blade` 译“刀片”；“她冲破了她分开的门” |
+| 标点（全 confirmed） | 第 41 段末漏句号；多处引号外标点 |
+| 实体 `luminous horror` | confirmed：此处确指该游戏实体；**pending**：固定中文实体名是否必须是“金色恐魔”；confirmed：“还有一些某种……”语病 |
+| 战斗动作（全 confirmed） | 单数误作复数；漏译剑上电火花并添“试图” |
+| 其他措辞（全 confirmed） | `hanging with one hand from her staff`；“她的法杖被瞬间破碎”；“已死神的尸体”；`all my senses seemed on edge` |
+| 正面项 | confirmed：富文本标记与占位符完整；confirmed（仅限本条目内部）：人名地名专名一致；**pending**：与传记前序章节“严格一致”的跨章节主张 |
+
+人工待决：两项 pending 需主代理按术语库/前序冻结文本核对后才能定。译文未修改。
