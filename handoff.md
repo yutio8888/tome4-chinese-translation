@@ -1,24 +1,39 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核 246 与流程维护已完成并推送；修复窗口 3 待出版收尾）
+更新时间：2026-09-22（修复窗口3已推送；审核247已验收并finalize，下一批248）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户已恢复连续审核并授权调整流程/prompt后继续；连续审核和每批 push 的授权持续有效，
-不逐批询问。审核 246 与流程维护已经完成、验收并推送。修复窗口 3 的 14 条译文已提交，
-第一次 queue rebuild、单次 catalog build 和 migration-chain 已完成；当前只待宿主完成证据提交、
-第二次 queue rebuild、push 与远端复核，完成后继续审核 247（默认 80 条）。
+用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
+修复窗口 3 已完成证据提交、第二次队列同步与 push，远端核验为
+`081d3a03ccaea62b735c05f0b10f44f4f892cba2`，不得重做。审核 247 已提交并 finalize，
+本交接记录的是其出版收尾前快照；宿主随后将提交本交接、同步队列和推送。
+恢复时先核对当前 HEAD、远端和 SQLite，不因历史步骤文字重复已完成操作。
 
-- 当前实际 `HEAD`：`254ad2b418e2660a1dd5c967889691c24925e6cb`
-  （`fix(i18n): repair fourteen translations from batches 244-246`）。
-- 当前实际远端 `origin/develop`：
-  `9fb5ec1df3c74e09fd981bb7d16300d6bce25ef9`。窗口 3 尚未 push，不得提前宣称完成。
-- SQLite meta 实测 `evidence_head=254ad2b418e2660a1dd5c967889691c24925e6cb`，
-  `catalog_id=75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`；
-  这是第一次同步和 migration apply 后状态。证据提交推进 HEAD 后必须再 rebuild 一次。
-- 当前工作树包含本窗口待提交的受跟踪 evidence/catalog/migration/handoff 改动，也保留
-  `.ai/consult/`、`recipe` 和旧 source-workset 等用户无关未跟踪文件；不得清理、暂存或改写这些无关文件。
+- 审核 247 证据提交：`70a0f96223d1596806ebafc37cca645fb06caea0`。
+- 当前 catalog：`75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`。
+- 审核 247 的 finalize 收据见 [FINALIZE-RECEIPT](evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-host-evidence/FINALIZE-RECEIPT.json)。
+- 当前没有活动审核 child；原有 `.ai/consult/`、`recipe` 和 15 个旧 source-workset
+  均保留，严禁将其纳入本任务提交或清理。
+
+## 审核 247：修复窗口 4 第一批
+
+`batch-fe19bbe5e5898a0c3547`，80 条固定 tome 来源，**78 done / 2 repair_required**。
+11 条进入上下文复核；13 条观察裁决为 4 confirmed、7 refuted、2 advisory，confirmed
+按 revision 去重为 2 条。5 个真实 reviewer 均完成 strict、读取边界及来源核验并确认归档；
+初筛和上下文两个任务均 DONE_VERIFIED，134 文件宿主快照独立重放通过。17 项完整门禁
+及严格 addon 构建通过。详情见 [247 宿主证据](evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-host-evidence/summary.md)。
+
+待修复项为 `e22d6fff0c…` 自定义贴图捐赠条件与段落换行、`e2be3d8377…` 腐化者自身腐化之血。
+随机选敌、Dismissal 生命上限调整、失眠累积、锥形战吼、Feed Power 和死亡阈值均经固定源码
+核验；不能因英文说明陈旧而回改当前译文。Fear 措辞、中文冒号空格及 Wanderer 省略仅为非阻断建议。
+
+首次 surface prepared 配置与 profile 不符，在任何 child 创建前拒绝，保留原 prepared 记录；
+实际使用 attempt 2 完整四 lane。首次 contextual export 因246旧运行时槽位占用失败，
+对照已提交246原文逐字节核验后保留备份再重试；本批 preflight 在首次 freeze 之前实际通过。
+不修改冻结候选，不更改工具防护。后续批次在 finalize 后按既有路径和哈希保留归档其运行时输入，
+避免将旧槽位误认为新批次候选；不得据目录残留自行扩展当前 checkpoint 的 refs。
 
 ## 审核 246 与流程维护
 
@@ -54,7 +69,7 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
   migration 为 `5dccee54c4aed46e7b80f17a523eb61d9058add7926f7e292ba5eb45350ad0bf`。
   结果为 14 changed / 29,814 unchanged，0 ambiguous/unmapped，14 个 successor 已入队且必须重新审核。
 - catalog/schema/policy、migration、464 文件归档及 publication 输入均按来源逐字节安装并复核。
-  完整边界、哈希、真实计时和待办见
+  证据提交 `081d3a03…`、第二次队列同步和远端核验均已完成；完整边界、哈希与真实计时见
   [窗口 3 出版证据](evidence/quality/repair-window-3-20260922/summary.md)。
 
 本窗口只修正获准 target，没有术语库修改、全局改名或跨批策略变更。固定 tome/engine 源码为
@@ -63,12 +78,10 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 复核待提交 diff 只含本窗口允许路径，提交 evidence/catalog/migration/handoff；不得纳入
-   `.ai/consult/`、`recipe` 或旧无关 source-workset。
-2. 提交推进 HEAD 后运行第二次 `python3 -B tools/i18n production queue rebuild`，核对
-   SQLite `meta.evidence_head` 与新 HEAD、catalog ID 和无活动 checkpoint。
-3. push `develop`，再实测远端与本地 HEAD 一致。以上步骤未完成前不得宣称窗口 3 已出版。
-4. 开始审核 247，默认 80 条，按完整正式批次流程执行并每批 push，不逐批询问。
+1. 宿主完成本交接与 finalize 收据的独立提交后，同步队列、push 并核实远端；恢复时以实际状态为准。
+2. 无活动 checkpoint 且 HEAD/queue 一致后，继续审核 **248**，默认 80 条，再审核249。
+3. 247—249 全部完成后，汇总修复窗口4的已确认候选，按正式修复、复审、门禁、catalog/migration、
+   两次队列同步与推送流程执行。不得把 advisory 或范围外 pending 计入修复。
 
 ## 保留边界与历史
 
