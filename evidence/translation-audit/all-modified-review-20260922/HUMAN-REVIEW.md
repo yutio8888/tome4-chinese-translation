@@ -482,3 +482,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | 正面项 | confirmed：富文本标记与占位符完整；confirmed（仅限本条目内部）：人名地名专名一致；**pending**：与传记前序章节“严格一致”的跨章节主张 |
 
 人工待决：两项 pending 需主代理按术语库/前序冻结文本核对后才能定。译文未修改。
+
+## batch-039 单条交叉结果（entry-01228）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-038-01.md](reports/sol-038-01.md)。译文未修改。共 9 个 claim：4 confirmed、3 advisory、1 refuted、1 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01228 | confirmed：吸血鬼段增译并改写因果（“团体的力量”“自己的奴隶”“用钢剑刺穿喉咙”）。Sol 提醒“严重增译”程度标签不必照收 | 改回“因关系网络而成为统治者”“以冰冷的钢铁相待” |
+| entry-01228 | confirmed：骸骨巨人段多处虚构修饰（“法师老头”“一向被视为力量象征”“每滴鲜血都令其饥渴”“有幸”） | 删除明确增饰；“有幸”是否保留属文风 |
+| entry-01228 | advisory：“算个屁指南”“弱柳扶风”更粗俗且丢“强风吹散”意象，但叙述者本就口语粗豪 | 文风是否收敛由人工定 |
+| entry-01228 | confirmed：`effort` 两次被具体化为“法力”，固定实现（master-of-bones.lua:233-274）只在施放末尾扣一次法力，无受损程度关联 | 改回“力量/心力/维持其复苏的力量” |
+| entry-01228 | confirmed：巫妖段强行男性化并增“身体”（源码为复数/中性 `liches`/`they`）。refuted：“巫妖超越传说”被曲解不成立，后句已表达。pending：`abyssal power` 是否必须译“深渊力量” | 去掉男性限定；查授权术语记录后再定 abyssal |
+| entry-01228 | advisory：尸妖段增“万幸的是”。advisory：单段被拆成多段、标题顿号 | 若要求严格贴合改“尽管如此”；拆段仅在要求结构对应时恢复 |
+
+译文未修改。Sol 总结把核心 confirmed 列为四点（增改因果、无依据增饰、`effort`→法力、男性化与“身体”）。

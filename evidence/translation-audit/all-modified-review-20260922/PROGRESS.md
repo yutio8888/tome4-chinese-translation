@@ -387,3 +387,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-039-01 `2026-09-22T07:08:38.983Z`，sol-037-01 `2026-09-22T07:08:40.463Z`。无未归档 child。
 - 下一片已就绪：batch-040（entry-01230–01249，20 条，sha `f03137dd…`）+ cross-batch-039（1 条，sha `ea5fb2c8702025304f6def733e217c6282f731929cf8644aa6cdf78378a414d3`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 039/040 收获
+
+- sol-038-01：1/1（entry-01228）9 claim（4 confirmed、3 advisory、1 refuted、1 pending）。报告 sha256 `2ddac858ffffb9b891c3bc43d578ea030cc2f714d05b71bacabf928b67ebf524`，rollout `01a0c7f2-dfcb-7c60-b2b3-0c1598da89fb`（首次自动匹配因最终回复未含 entry 编号而漏选，已改按 cwd+task_complete 定位）。
+- gemini-040-01：20/20（entry-01230–01249）。**覆盖 1255/4144**。三处细微观察：01230、01245、01247，本批无存在疑点。报告 sha256 `e235434aefc2e4172320e3fb4171bdafd7c1bfb27444b4193ad7701ccee74196`。
+- 收回核验：batch-040 / cross-batch-039 / batch-039 / gemini-039 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-040-01 `2026-09-22T07:13:24.408Z`，sol-038-01 `2026-09-22T07:13:26.476Z`。无未归档 child。
+- 记录自纠：本轮记录脚本的一处断言把 confirmed 数写成 3（实为 4），脚本在写盘前中止，STATE 未被部分写入；随后以更正后的断言重跑并核对通过。
+- 下一片已就绪：batch-041（entry-01250–01268，19 条，sha `5472c56d…`）+ cross-batch-040（3 条，sha `b975bc0bdd8c67d20d7728dc464234a9f0d1f981ee1a943077c97ed450d6d9cc`）。
+- 更新时间见 STATE.json `updated_at`。
