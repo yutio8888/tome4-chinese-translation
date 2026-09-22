@@ -332,3 +332,12 @@
 - 备注：从 batch-031 起批次明显变小（10、5、1、1 条），是清单按组件/section 分组的尾部切片，属正常。
 - 下一片已就绪：batch-034（仅 entry-01221，sha `e04092a0…`）+ cross-batch-033（1 条，sha `6d57da1e88ab8898717b737a4042a272bb943654376ed35c85a4f4c15745c57f`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 033/034 收获
+
+- sol-032-01：1/1（entry-01220）21 编号 claim + 2 收窄 claim = 23（21 confirmed、1 refuted、1 advisory）。报告 sha256 `2afb74a2e5e9fb693391ad7c2f468fc989164410f5335cde4d0adcb2f96a4f13`，rollout `01a0c7c3-8ddb-7520-aa47-fb8133b7acfe`。
+- gemini-034-01：1/1（entry-01221）。**覆盖 1227/4144**。该条存在疑点（4 组 fidelity/grammar 疑点 + 一组细微观察）。报告 sha256 `376e0c815e228a37179a0dc78d27fd9d32b9dfd07a54658bf6f6125e93cf75e5`。
+- 收回核验：batch-034 / cross-batch-033 / batch-033 / gemini-033 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-034-01 `2026-09-22T06:23:21.991Z`，sol-032-01 `2026-09-22T06:23:23.466Z`。无未归档 child。
+- 下一片已就绪：batch-035（仅 entry-01222，sha `2efbf6cf…`）+ cross-batch-034（1 条，sha `8099d804a51d1e48ada73ef8f3b7c1b19b880f1d60607c954b6986571af92870`）。
+- 更新时间见 STATE.json `updated_at`。

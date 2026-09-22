@@ -412,3 +412,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01218 | confirmed：四处对话以右双引号开引；确认问号句号与引号外标点重复；确认“舞会开始了”另拆段且缺句末标点。advisory：“魔法剑士技能组合”是联想不是机制证据；advisory：`Aranion` 添译“先生”拉远语气 | 四处引号、标点结构统一重排；是否并段、去“先生”属编辑风格 |
 
 译文未修改。一条译名一致性主张因冻结输入不含术语正文保持 pending。
+
+## batch-033 单条 Lore 交叉结果（entry-01220）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-032-01.md](reports/sol-032-01.md)。译文未修改。共 23 个 claim：21 confirmed、1 refuted、1 advisory，无 pending。Gemini「该条存在多处忠实度问题」的主结论被 confirmed。
+
+| 类别 | Sol 分档要点 |
+| --- | --- |
+| 忠实度/漏译（confirmed） | `be no match to this` 曲解；`Expecting someone else?` 错移；`I wonder` 语气丢失；`know what we’re doing` 窄化；“提上日程”未表达发动日临近；`collapsed under their attacks` 力度降低；`Yet the alternatives seemed grim` 漏译；`naked form` 漏译；`I looked at her` 漏译；`brusquely` 漏译且臆增“许久的沉思后”；`visibly aroused` 被弱化；向东启程与气氛骤变漏译；火花主体漏失并臆增“天花板上的图案” |
+| 语法/排版（confirmed） | “像着”错别字；“消失地无影无踪”应为“得”；“远行传送门周围的闪烁着……”句法残缺；三处 `？”，` 标点不规范 |
+| 无缺陷项（confirmed） | 单手支头被译成“双手”属动作事实错误；格式控制符完整；点名的核心专名未发现实质错误 |
+| 收窄 Gemini（refuted/advisory） | refuted：`I wonder` 并未“反转成附和”；advisory：`collapsed` 被定性“严重”过重，应按“力度降低”处理 |
+
+人工待决：按上表逐项决定改写；两项收窄意见不要写进修复理由。译文未修改。
