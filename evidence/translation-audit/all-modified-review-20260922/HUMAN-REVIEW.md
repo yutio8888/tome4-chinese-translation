@@ -445,3 +445,13 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01222 | confirmed：格式与控制字符无问题；confirmed：“我过去已知依赖着”错别字（已知/一直）；confirmed：两处 `！”`，` 冗余标点；confirmed：`head in my lap` 译成“抱着……脸庞”；confirmed：`crisis` 译“毁灭”并加“瞬间”；confirmed：`burns` 泛化成“创口”；confirmed：末段声音/音符隐喻被抹平；confirmed：`bulwarks` 译“防线”；confirmed：“用我们的方式用力量……”句式套叠；confirmed：瞬时模板词高频重复。refuted：`seeping freely` 被“反向表达”不成立（但仍有轻微信息损失 advisory）。pending：`Kar’Krul` 与“卡·克鲁尔”跨文本不一致，允许输入内无法独立确认 |
 
 人工待决：术语类 pending 需主代理按术语库核对后才能升级；refuted 项不进修复理由。译文未修改。
+
+## batch-036 单条 Lore 交叉结果（entry-01223）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-035-01.md](reports/sol-035-01.md)。译文未修改。共 16 个 claim：14 confirmed、1 pending、1 advisory，无 refuted。Sol 总评：Gemini 的核心事实疑点大多成立，`this human` 指代倒错与 `none of this` 时间倒错最明确。
+
+| 条目 | Sol 分档要点 |
+| --- | --- |
+| entry-01223 | confirmed：格式控制符与段落结构；confirmed：`this human` 指代被译错；confirmed：`none of this I knew` 时间指代错；confirmed：`saying to seek you out in Elvala` 漏译；confirmed：`I took on` 漏掉主动接战；confirmed：第 28 段漏句末标点；confirmed：第 29 段重叠标点；confirmed：第 32 段从句被句号截断；confirmed：第 22 段时间状语断裂；confirmed：`relapse` 弱化为“虚弱状态”；confirmed：`scared of that empty look` 译成“心如刀割”；confirmed：`empty` 译“空灵无物”；confirmed：`white stone` 译“磐石”；confirmed：`dealings` 译“交易”偏窄。pending：「白石是所有夏·图尔遗迹的普遍材质」广义设定主张证据不足。advisory：Gemini 称寻人遗命为“关键情节枢纽”略有夸大 |
+
+人工待决：两处“关键情节遗漏”按 Sol 的收窄意见评估影响，不按完全丢失情节计。译文未修改。
