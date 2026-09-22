@@ -2467,8 +2467,10 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-024.md",
       "input_sha256": "33964b38e100032dd083f64703e4235a2b7acc033ecfac24e42cfcd29fdcac30",
-      "status": "queued",
-      "dispatches": []
+      "status": "dispatched",
+      "dispatches": [
+        "gemini-024-01"
+      ]
     },
     {
       "batch_id": "batch-025",
@@ -8461,6 +8463,23 @@
       ],
       "verdict_author": "Codex/gpt-5.6-sol/medium",
       "completed_at": "2026-09-22T04:53:13.488736+00:00"
+    },
+    {
+      "cross_id": "cross-batch-023",
+      "entry_ids": [
+        "entry-00899",
+        "entry-00914",
+        "entry-00918"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-023.md",
+      "input_sha256": "8fb550c9f433933a1791d5db67c29985e1788b9ca226a0c491bad8b9ccfb1087",
+      "status": "dispatched",
+      "source_dispatch_id": "gemini-023-01",
+      "dispatches": [
+        "sol-023-01"
+      ],
+      "host_semantic_adjudication": false,
+      "note": "registration re-applied after a same-file parallel write race dropped the first write"
     }
   ],
   "child_dispatches": [
@@ -11098,6 +11117,102 @@
       "coverage": "40/40 entry-00882 through entry-00921",
       "activity_feed_note": "3 flagged entries match the report summary; special reordered entry-00908 verified against source arg order.",
       "archived_at": "2026-09-22T04:52:35.792Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-023-01",
+      "agent_id": "a38ad7e9-4540-47d7-979d-e5301d3b6184",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+      "session_task_id": "all-modified-review-20260922-resume01",
+      "lineage_verified": true,
+      "lifecycle": "running",
+      "archive_confirmed": false,
+      "archive_attempts_started": 0,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-023.md",
+      "input_sha256": "8fb550c9f433933a1791d5db67c29985e1788b9ca226a0c491bad8b9ccfb1087",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-023-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T04:54:32.112012+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "564cb9ecb09660b7ca4c37bc8a3fda6db0df23b6",
+      "harvested": false,
+      "created_at": "2026-09-22T04:53:22.330Z",
+      "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
+      "transport": "cli"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-024-01",
+      "agent_id": "935e6118-77ba-471b-8882-d082001455d7",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+      "session_task_id": "all-modified-review-20260922-resume01",
+      "lineage_verified": true,
+      "lifecycle": "running",
+      "archive_confirmed": false,
+      "archive_attempts_started": 0,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-024.md",
+      "input_sha256": "33964b38e100032dd083f64703e4235a2b7acc033ecfac24e42cfcd29fdcac30",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-024-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T04:54:32.112012+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "564cb9ecb09660b7ca4c37bc8a3fda6db0df23b6",
+      "harvested": false,
+      "created_at": "2026-09-22T04:53:27.503Z",
+      "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
+      "transport": "cli"
     }
   ],
   "locale_sha256": {
@@ -11113,7 +11228,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T04:53:13.488736+00:00",
+  "updated_at": "2026-09-22T04:54:32.112012+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -11173,7 +11288,20 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [],
+    "in_flight": [
+      {
+        "dispatch_id": "gemini-024-01",
+        "agent_id": "935e6118-77ba-471b-8882-d082001455d7",
+        "status": "running",
+        "scope": "batch-024 40 entries"
+      },
+      {
+        "dispatch_id": "sol-023-01",
+        "agent_id": "a38ad7e9-4540-47d7-979d-e5301d3b6184",
+        "status": "running",
+        "scope": "batch-023 three entries"
+      }
+    ],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
@@ -11191,7 +11319,7 @@
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "pending: sol-022-01 + gemini-023-01 archived, records to commit"
+    "last_barrier": "c884053 batch023 coverage + batch022 cross committed"
   },
   "recorder_continuation": [
     {
