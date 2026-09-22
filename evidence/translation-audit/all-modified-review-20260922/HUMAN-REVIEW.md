@@ -871,3 +871,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02027 | confirmed：背景句被明显压缩（漏灵巧、智取、肉体/精神攻击三层） | 按源码恢复三层信息 |
 
 译文未修改。Sol 提示 01988 与 batch-064 的 01984 同属历史陈旧键，宜一并纳入专门清理。
+
+## batch-066 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-066-01.md](reports/sol-066-01.md)。译文未修改。共 11 个 claim：7 confirmed、2 advisory、2 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02028 | confirmed：`feel a surge of power` 译“漏出一股汹涌的霸气”（“漏出”方向错、power 戏剧化）。advisory：`bites the dust` 译“扑街”属网络俚语 | 改回“感到力量涌起”类；俚语是否保留属文风 |
+| entry-02032 | confirmed（低影响） | 按原报告修 |
+| entry-02043 | confirmed（低影响） | 按原报告修 |
+| entry-02050 | confirmed（排版性，影响 advisory 级） | 版式取舍 |
+| entry-02058 | confirmed：表面文本漏 `melee`。refuted：“中文把机制描述错了”不成立（源码实现无近战限制）。advisory：应作为**英文上游**说明不准确处理，不要在中文补“近战” | 不因漏词补“近战”；上游问题另行记录 |
+| entry-02066 | confirmed：六项属性被归纳成“所有强度和豁免”。refuted：“归纳导致机制信息缺失”不成立 | 归纳可保留 |
+| entry-02067 | confirmed：上游源码参数顺序缺陷（译文层面 advisory 级） | 记入上游问题清单，译文低优先级 |
+
+译文未修改。Sol 明确：真正可确认的译文语义问题只有 02028。两条 refuted 是对 Gemini 机制推断的下修，原样转录。
