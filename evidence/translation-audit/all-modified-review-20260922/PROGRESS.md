@@ -95,7 +95,7 @@
 - sol-006-01：running；agent e6edd402-b616-482d-bad8-60436c53a538。交叉 00216、00221、00223、00226、00231。
 - gemini-007-01：40/40。Gemini 覆盖 290/4144。三处细微观察排队等 Sol；sol-006-01 仍在运行，不并行再派 Sol。
 
-| batch-008 | 40 | reviewing |  |
+| batch-008 | 40 | reviewed_awaiting_cross | entry-00284, entry-00286, entry-00288, entry-00298, entry-00299, entry-00318 |
 
 - gemini-007-01 已归档，archivedAt 2026-09-22T01:37:41.633Z。三处细微观察仍排队，等本路 Sol 归档后再派。
 - gemini-008-01：running；agent fd4aa2f8-26a3-4483-93dd-70f023a0617b。只有这一路 Gemini。记录补写于派发之后，父级与模型已在派发时核验。
@@ -103,3 +103,5 @@
 - sol-007-01：3/3 已有分档。gemini-008-01 仍在运行，本波不提交，也不再派 Sol。
 - sol-007-01 已归档，archivedAt 2026-09-22T01:44:04.175Z。
 - gemini-008-01：工具结束后 5 分钟内没有最终回复。原生转录没有逐条复核。0/40，不交 Sol。
+- gemini-008-01 已归档，archivedAt 2026-09-22T01:50:08.572Z。证据提交 86e4ba3。gemini-008-02 重试整批 40 条，agent cff6df9d-ee34-47f6-b91b-a04133cffc23。
+- gemini-008-02：40/40。Gemini 覆盖 330/4144。六条待 Sol。

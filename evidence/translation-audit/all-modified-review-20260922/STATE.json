@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3854,
+  "remaining_gemini": 3814,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -807,11 +807,64 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-008.md",
       "input_sha256": "f0dcdb6b78022895014da18d163146db0523dfdeac1ce6ca44b3cd2fa8740d4c",
-      "status": "reviewing",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
-        "gemini-008-01"
+        "gemini-008-01",
+        "gemini-008-02"
       ],
-      "coverage_note": "gemini-008-01 timed out before any final report. 0/40 counted."
+      "coverage_note": "gemini-008-01 timed out with 0 coverage. gemini-008-02 covered all 40.",
+      "covered_entry_ids": [
+        "entry-00281",
+        "entry-00282",
+        "entry-00283",
+        "entry-00284",
+        "entry-00285",
+        "entry-00286",
+        "entry-00287",
+        "entry-00288",
+        "entry-00289",
+        "entry-00290",
+        "entry-00291",
+        "entry-00292",
+        "entry-00293",
+        "entry-00294",
+        "entry-00295",
+        "entry-00296",
+        "entry-00297",
+        "entry-00298",
+        "entry-00299",
+        "entry-00300",
+        "entry-00301",
+        "entry-00302",
+        "entry-00303",
+        "entry-00304",
+        "entry-00305",
+        "entry-00306",
+        "entry-00307",
+        "entry-00308",
+        "entry-00309",
+        "entry-00310",
+        "entry-00311",
+        "entry-00312",
+        "entry-00313",
+        "entry-00314",
+        "entry-00315",
+        "entry-00316",
+        "entry-00317",
+        "entry-00318",
+        "entry-00319",
+        "entry-00320"
+      ],
+      "issue_entry_ids": [
+        "entry-00284",
+        "entry-00286",
+        "entry-00288",
+        "entry-00298",
+        "entry-00299",
+        "entry-00318"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-008-02.md",
+      "raw_output_sha256": "f51e9d8b526e83d80cdbd95cee97b04e4be488844988f157c56588272c31613c"
     },
     {
       "batch_id": "batch-009",
@@ -6533,6 +6586,23 @@
         }
       ],
       "verdict_author": "Codex/gpt-5.6-sol/medium"
+    },
+    {
+      "cross_id": "cross-batch-008",
+      "entry_ids": [
+        "entry-00284",
+        "entry-00286",
+        "entry-00288",
+        "entry-00298",
+        "entry-00299",
+        "entry-00318"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-008.md",
+      "input_sha256": "c6f6b88a6d639f9287c6c14e5ee9e5aca0a2a7c96c89638779523fb8c26535cb",
+      "status": "queued",
+      "source_dispatch_id": "gemini-008-02",
+      "dispatches": [],
+      "host_semantic_adjudication": false
     }
   ],
   "child_dispatches": [
@@ -7525,6 +7595,60 @@
       "raw_output_source": "codex rollout 01a0c6c4-ecab-7e61-9a21-0eb8dfffed83 final assistant output_text",
       "coverage": "3/3",
       "archived_at": "2026-09-22T01:44:04.175Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-008-02",
+      "agent_id": "cff6df9d-ee34-47f6-b91b-a04133cffc23",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-008.md",
+      "input_sha256": "f0dcdb6b78022895014da18d163146db0523dfdeac1ce6ca44b3cd2fa8740d4c",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-008-02-prompt.md",
+      "retry_of": "gemini-008-01",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:51:04.436293+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "86e4ba3cb45ab39bac961f8462ec93f34c377a02",
+      "harvested": true,
+      "created_at": "2026-09-22T01:50:46.462Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-008-02.md",
+      "raw_output_sha256": "f51e9d8b526e83d80cdbd95cee97b04e4be488844988f157c56588272c31613c",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 7334cffc-943f-447e-bbcb-c89439cd677c final PLANNER_RESPONSE",
+      "coverage": "40/40 entry-00281 through entry-00320",
+      "activity_feed_note": "Notification truncated. Native transcript has 40 headings and conclusions. Locale hashes unchanged.",
+      "archived_at": "2026-09-22T01:56:28.488Z"
     }
   ],
   "locale_sha256": {
@@ -7540,7 +7664,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T01:50:30.981057+00:00",
+  "updated_at": "2026-09-22T01:56:46.949186+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -7549,7 +7673,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 290,
+  "gemini_covered_total": 330,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
