@@ -837,3 +837,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01945 | advisory（仅部分成立）：`burn and crush your foes to death` 概括成“摧毁敌人”，漏掉烧灼与碾碎 | 是否补两层动作属文风 |
 
 译文未修改。1 条 refuted 是对 Gemini 排版判断的下修，原样转录。
+
+## batch-064 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-064-01.md](reports/sol-064-01.md)。译文未修改。共 6 个 claim：6 confirmed、0 其他。Sol 明确三档性质不同。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01970 | confirmed（影响仅 advisory）：`25 %%几率` 格式化后成 `25 %几率`，`%%` 前空格不消失 | 统一写法 `25%%几率` 或 `25%% 几率` |
+| entry-01976 | confirmed（影响仅 advisory）：末行两处带前置空格的半角逗号 `%d%% ,` | 按中文排版改全角逗号 |
+| entry-01980 | **confirmed（实质问题）**：第二个 `%d` 是旋刃风暴持续时间，不是流血时长（流血固定 5 回合）；现译把 `%d` 挂到流血并漏掉风暴持续 | 按建议句式重写：“……使其流血，风暴持续 %d 回合” |
+| entry-01984 | confirmed×3：固定版实为 15 回合；10 回合条目在固定版不命中（仅 locale 数据）；旧条目语义本身准确 | 作为历史陈旧键单独清理，不与 01980 同级修复 |
+
+译文未修改。Sol 的分档直接决定修复优先级，原样转录。

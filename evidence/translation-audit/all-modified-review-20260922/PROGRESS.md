@@ -632,3 +632,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-064-01 `2026-09-22T10:19:29.536Z`，sol-063-01 `2026-09-22T10:19:31.018Z`。无未归档 child。
 - 下一片已就绪：batch-065（entry-01988–02027，40 条，sha `db11b7a7f4cd018696d086e99379438c97a6391a928080f9ed523d0efea7ead0`）+ cross-batch-064（4 条，sha `46002e1c5e76da0ae804b8979acc47be43b215848718cda3dca1ef2e001c6797`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 064/065 收获（覆盖越过 2000）
+
+- sol-064-01：4/4 条目 6 claim（全部 confirmed；Sol 内部分级：01980 实质、01970/01976 仅格式、01984 历史陈旧条目）。报告 sha256 `45d32cc29e835317dbfa813822ec5bdfb86d3aeb0979a1077133a69a088091e6`，rollout `01a0c8a1-2df2-7e12-83d9-077b78656e5d`。
+- gemini-065-01：40/40（entry-01988–02027）。**覆盖 2030/4144（已过半程 49%）**。12 处标记：02022、02023、02024 存在疑点；01988、01989、01994、02000、02004、02015、02025、02026、02027 细微观察。报告 sha256 `5a88e354141a9bb7ceb5928160227d24f8bc66ba41355f9feb5445d9bc6e693f`。
+- 收回核验：batch-065 / cross-batch-064 / batch-064 / gemini-064 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-065-01 `2026-09-22T10:25:10.270Z`，sol-064-01 `2026-09-22T10:25:11.762Z`。无未归档 child。
+- 下一片已就绪：batch-066（entry-02028–02067，40 条，sha `2fd7f5f42e02abd6e6097700caf4844b280950755028fe6b426e9cc7febc8356`）+ cross-batch-065（12 条，sha `7f6eceda3caaf930b9db4bcd498448e02fa25d3e42090ff249703a759e7466ad`）。
+- 更新时间见 STATE.json `updated_at`。
