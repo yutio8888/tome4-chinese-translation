@@ -831,3 +831,14 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-081-01 `2026-09-22T14:31:01.156Z`，sol-080-01 `2026-09-22T14:31:02.656Z`。
 - 覆盖 **2652/4144（64.0%）**；批次 81/130，交叉 80 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：082 批次整批失败（0/40）+ 081 交叉收口
+
+- 派发记录提交 `10e8bbef`；cross-batch-081 登记与 prompt 提交 `ea08f290`。
+- **gemini-082-01 失败：0/40 输出**。wait 返回 `status=error`（5 分钟打印超时）；按事实取证而非只看 status：live `status=error`（UpdatedAt `2026-09-22T14:42:17.508Z`），brain `fc3c46af` **53 个 PLANNER_RESPONSE 全部 content 为空**，transcript 停在 14:37:11（agent 还在读源码），无任何报告文本（40 个 entry-id 来自读输入、`未发现问题`/`存在疑点` 计数来自 prompt 回显）。`last_error` 原文入档。
+- 处置：批次保持 `dispatched`、**覆盖不变 2652**；整批 **fresh retry `gemini-082-02`（40 条全量，禁止 resume）**。
+- **sol-081-01（cross-batch-081）：7/7 条目、7 claim**：4 confirmed、2 refuted、1 advisory。sha256 `ed025b33c38baeaaa11b213437a3cf546b0239b5606116ac938aacd1a88b68c2`，rollout `01a0c987`。refuted 明确修复责任边界（02643 而非 02644；02640 无需改）。
+- 守卫全过：batch-082/cross-batch-081 冻结哈希、11 locale、非 evidence 零 diff，HEAD `10e8bbef`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-082-01 `2026-09-22T14:44:10.223Z`（error child），sol-081-01 `2026-09-22T14:44:11.768Z`。
+- 本唤醒早前一次收获脚本在**写盘前** IndexError 中止（最新 brain 空 PLANNER 导致 `ne[-1]` 越界），未写任何文件；改用分步取证后重跑。
+- 交叉 81 组完成；批次仍 81/130（082 等重试）。更新时间见 STATE.json `updated_at`。

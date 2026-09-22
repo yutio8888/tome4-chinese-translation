@@ -1112,3 +1112,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02609 | advisory：Gemini“口语化但机制准确”成立 | 润色与否 |
 
 译文未修改。本组全部为 confirmed/advisory，无 refuted/pending；confirmed 中多条是「无缺陷」正面确认。
+
+## batch-081 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-081-01.md](reports/sol-081-01.md)。译文未修改。共 7 个 claim：4 confirmed、2 refuted、1 advisory、0 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02614 | advisory：“光照半径”机制准确，非误译 | 是否复现技能专名 |
+| entry-02636 | confirmed：同一 `GHOUL_ROT` 效果命名不一致（“食尸鬼的疾病” vs 固定简中“尸鬼腐蚀”） | 统一策略 |
+| entry-02637 | confirmed：移除提示同样不一致，**需与 02636 同策略、不能单边改** | 与 02636 一并 |
+| entry-02638 | confirmed：“吸收了%s的攻击”把获得状态误写成已承受攻击（明确语义错误） | 句式重写 |
+| entry-02640 | **refuted**：“被奥术漩涡围绕”准确，无需拘泥 `focused by` 字面 | 无 |
+| entry-02643 | confirmed：`10%% %s` 前多加半角空格（可见排版缺陷） | 删空格 |
+| entry-02644 | **refuted**：空格责任在 02643；本条全角逗号拼接正确 | 无（修复归 02643） |
+
+译文未修改。两条 refuted 明确了**修复责任边界**：02643 删空格即可，02644 不动。
