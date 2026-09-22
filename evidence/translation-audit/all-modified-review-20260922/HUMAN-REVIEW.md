@@ -387,3 +387,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01201 | confirmed：后半句明显扩写；译文另有轻微表达问题。advisory：Gemini 称生动契合背景。refuted：行号不准 | 收束到原文信息量 |
 
 译文未修改。多条 refuted 都是对 Gemini 证据质量（行号）的下修，原样转录。
+
+## batch-031 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-030-01.md](reports/sol-030-01.md)。译文未修改。共 12 个 claim：8 confirmed、2 refuted、1 pending、1 advisory。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01205 | confirmed：译文增补“其他蠕虫”属轻微增译。refuted：与物品描述并不构成矛盾。pending：`knots` 是否只能理解为解开自身的结 | 若要贴近原文用“把缠结解开”，不锁定意象 |
+| entry-01210 | confirmed：同列表“实验品 A-C”与“试验品 D-N”不一致。confirmed：专名、`#{bold}#` 等标签与语义完整 | 首项是否统一为“试验品 A-C”，人工决定 |
+| entry-01211 | refuted：`second` 并未漏译，“传送回来”已表达返程。confirmed：格式与叙事信息完整。advisory：“口吻贴合”属文风评价 | 不必因 second 改；可选显化“第二次” |
+| entry-01214 | confirmed：“截然而止”是误字应为“戛然而止”；confirmed：`sullied` 译“厌倦”语义偏移；confirmed：后段复数听众被改成单数“你”；confirmed：专名译法准确 | 改成语；`sullied` 定调；听众统一为“你们” |
+
+译文未修改。entry-01211 的主疑点被 refuted，原样转录。
