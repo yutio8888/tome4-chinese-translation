@@ -969,3 +969,14 @@
 - `cross-batch-092` 已登记排队（sha `c5408a31...`）。
 - 覆盖 **3092/4144（74.6%）**；批次 **92/130** 已复核，交叉 **90 组完成** + `cross-batch-091` 待替代复核 + `cross-batch-092` 排队。
 - 更新时间见 STATE.json `updated_at`。
+
+## 093 批次 + 091 交叉替代复核收口
+
+- 派发记录 `f2967b18`；cross-batch-092 登记与 prompt 提交 `f2967b18`。
+- **sol-091-02（更正输入后替代复核）：3/3 条目、3 claim 全部 confirmed**。报告 sha256 `99d23cb9f4256d574125f54363d813e00f4c1c6a54651740aecebb1651e4910e`。更正后确认：`Epoch`→“纪元”违反本批冻结术语（`Epoch→亚伯契`，T.PN.PERSON）与固定 zh_hans 既有译名；`Epoch's Curve` 与描述须随同一裁决同步。另附人工待决：是否改回“亚伯契的弧线”或保留“亚伯契”另行润色。
+- **gemini-093-01：40/40 一次完成**。存在疑点 03092（`Telos`→“泰勒”与同 section“泰勒斯”不一致）、03112/03114/03122（`Swordsmith`→“铸剑铺”与术语快照“长剑铁匠铺”不一致）；细微观察 03118/03129（`Sarah's Herbal Infusions` 招牌直译其双关）。报告 sha256 `3059d020a69de50fcf63a83fb8cc8640659a29bbd27d24d88762c5333053bd47`。
+- 守卫全过：batch-093/cross-batch-091（更正后）/cross-batch-092 冻结哈希、11 locale、非 evidence 零 diff，HEAD `74650c51`。
+- 归档先 persist attempts=1，一次成功并 live 复查：gemini-093-01 `2026-09-22T16:44:04.999Z`，sol-091-02 `2026-09-22T16:44:06.473Z`。
+- `cross-batch-093` 已登记排队（sha `fcf83323ee567dbb357efe09f7fda250c91a22fa5194e844f3c65dad2b1531c2`）。
+- 覆盖 **3132/4144（75.6%）**；批次 **93/130** 已复核，交叉 **91 组完成** + `cross-batch-092`、`cross-batch-093` 排队。
+- 更新时间见 STATE.json `updated_at`。

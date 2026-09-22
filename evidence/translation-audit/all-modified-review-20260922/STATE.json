@@ -8229,9 +8229,18 @@
    "count": 40,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-093.md",
    "input_sha256": "ec200ae296e7278f8e01902c65b89534a46fb7852b0c716d5f9e5d810f57a220",
-   "status": "dispatched",
+   "status": "reviewed_awaiting_cross",
    "dispatches": [
     "gemini-093-01"
+   ],
+   "reviewed_count": 40,
+   "flagged": [
+    "entry-03092",
+    "entry-03112",
+    "entry-03114",
+    "entry-03118",
+    "entry-03122",
+    "entry-03129"
    ]
   },
   {
@@ -17364,7 +17373,7 @@
    ],
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
    "input_sha256": "7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca",
-   "status": "dispatched",
+   "status": "reviewed",
    "source_dispatch_id": "gemini-091-01",
    "dispatches": [
     "sol-091-01",
@@ -17374,7 +17383,19 @@
    "original_input_sha256": "763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3",
    "input_correction": "原 cross-batch-091.md 把冻结输入与 batch 编号误写为 batch-092；已更正为 batch-091（术语快照含 Epoch->亚伯契）。sol-091-01 为无效输入运行，替代派发 sol-091-02。",
    "replacement_dispatch_id": "sol-091-02",
-   "invalid_run": "sol-091-01 (input pointer error; raw kept at reports/sol-091-01.md)"
+   "invalid_run": "sol-091-01 (input pointer error; raw kept at reports/sol-091-01.md)",
+   "result_dispatch_id": "sol-091-02",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-091-02.md",
+   "raw_output_sha256": "99d23cb9f4256d574125f54363d813e00f4c1c6a54651740aecebb1651e4910e",
+   "claims": {
+    "confirmed": 3,
+    "refuted": 0,
+    "pending": 0,
+    "advisory": 0,
+    "total": 3
+   },
+   "result_note": "更正输入后三条全部 confirmed：Epoch→“纪元”与本批冻结术语（亚伯契, T.PN.PERSON）及固定 zh_hans 既有专名冲突；Epoch's Curve/描述须随同一裁决同步。译文未修改。",
+   "replacement_resolved": true
   },
   {
    "cross_id": "cross-batch-092",
@@ -17388,6 +17409,24 @@
    "dispatches": [],
    "host_semantic_adjudication": false,
    "note": "Gemini 细微观察：`strangely` 漏译，叙事反差弱化"
+  },
+  {
+   "cross_id": "cross-batch-093",
+   "entry_ids": [
+    "entry-03092",
+    "entry-03112",
+    "entry-03114",
+    "entry-03118",
+    "entry-03122",
+    "entry-03129"
+   ],
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-093.md",
+   "input_sha256": "fcf83323ee567dbb357efe09f7fda250c91a22fa5194e844f3c65dad2b1531c2",
+   "status": "queued",
+   "source_dispatch_id": "gemini-093-01",
+   "dispatches": [],
+   "host_semantic_adjudication": false,
+   "note": "Telos→“泰勒”与同 section“泰勒斯”不一致；Swordsmith→“铸剑铺”与术语快照“长剑铁匠铺”不一致（3处）；Sarah's Herbal Infusions 店名直译（2处细微观察）"
   }
  ],
  "child_dispatches": [
@@ -27763,9 +27802,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
    "input_sha256": "7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-091-02-prompt.md",
@@ -27797,11 +27836,18 @@
    },
    "last_error": null,
    "head_at_dispatch": "f2967b18a893e4e63c046680bbfcd3ebbefe401f",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:40:38.977Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:44:06.473Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-091-02.md",
+   "raw_output_sha256": "99d23cb9f4256d574125f54363d813e00f4c1c6a54651740aecebb1651e4910e",
+   "raw_output_source": "pi session 01a0c9fd-a416-7487-aa2c-a9aa72e8f89a final assistant text message",
+   "coverage": "3/3 entry-03023,03025,03027 (3 claims all confirmed)",
+   "replacement_for": "sol-091-01 (invalid input pointer)"
   },
   {
    "role": "REVIEWER",
@@ -27812,9 +27858,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-093.md",
    "input_sha256": "ec200ae296e7278f8e01902c65b89534a46fb7852b0c716d5f9e5d810f57a220",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-093-01-prompt.md",
@@ -27846,11 +27892,17 @@
    },
    "last_error": null,
    "head_at_dispatch": "f2967b18a893e4e63c046680bbfcd3ebbefe401f",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:40:35.262Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:44:04.999Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-093-01.md",
+   "raw_output_sha256": "3059d020a69de50fcf63a83fb8cc8640659a29bbd27d24d88762c5333053bd47",
+   "raw_output_source": "pi session 01a0c9fd-9208-7ff9-ac66-25805facc60d final assistant text message",
+   "coverage": "40/40 complete (4 issues entry-03092,03112,03114,03122; 2 minor entry-03118,03129)"
   }
  ],
  "locale_sha256": {
@@ -27866,7 +27918,7 @@
   "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
   "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
  },
- "updated_at": "2026-09-22T16:40:30.794337+00:00",
+ "updated_at": "2026-09-22T16:44:14.304038+00:00",
  "handoff_request": {
   "target_model": "grok-4.7",
   "scope": "orchestration and record keeping only",
@@ -27875,7 +27927,7 @@
   "accepted_at": "2026-09-22T00:23:09.969034+00:00",
   "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
  },
- "gemini_covered_total": 3092,
+ "gemini_covered_total": 3132,
  "current_recorder": {
   "task_id": "all-modified-review-20260922-pi01",
   "agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
@@ -27899,22 +27951,13 @@
   "ordered_by_user": true,
   "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
   "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-  "in_flight": [
-   {
-    "dispatch_id": "gemini-093-01",
-    "agent_id": "e1714376-391b-4917-8284-29f20bba3a22"
-   },
-   {
-    "dispatch_id": "sol-091-02",
-    "agent_id": "f8afe620-7b2b-4908-95b1-35088b781778"
-   }
-  ],
+  "in_flight": [],
   "committed_coverage": 770,
   "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
   "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
   "gemini_020": "archived",
   "queued_not_dispatched": [],
-  "coverage_including_uncommitted": 3092,
+  "coverage_including_uncommitted": 3132,
   "all_children_archived": true,
   "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
   "evidence_committed": false,

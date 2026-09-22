@@ -1246,3 +1246,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | --- | --- | --- |
 | entry-02973 | confirmed：`deal a crippling blow`（对兽人阵营的重创）未译出，仅保留杀死加库尔的事实 | 是否补“给对方以重创” |
 | entry-02982 | confirmed：正文 `A farportal` 简称“传送门”，与同 section 实体名“远行传送门”不一致；advisory：连续“似乎”源自原文 `seems/seemingly`，非忠实度错误 | 正文是否统一专用名；可选合并重复 |
+
+## batch-091 Epoch 专名链（替代复核）
+
+作者是 Pi/CPA/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-091-02.md](reports/sol-091-02.md)。译文未修改。3 个 claim 全部 confirmed。
+
+说明：首次派发 sol-091-01 时宿主 cross 包误指 batch-092，其「Gemini 快照依据不存在」的推理无效；已更正输入并改派 sol-091-02，下列结论以替代复核为准（原报告 [sol-091-01.md](reports/sol-091-01.md) 仅作历史留档）。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-03023 | confirmed：`Epoch` 为悖论位面唯一实体名；本批冻结术语 `Epoch→亚伯契`（T.PN.PERSON）及固定 zh_hans `t("Epoch","亚伯契","entity name")` | 以“亚伯契”为规范还是废弃旧译统一“纪元”（需术语策略裁决并全链同步） |
+| entry-03025 | confirmed：`Epoch's Curve`→“纪元之弧”偏离冻结术语约束与固定既有名“亚伯契的弧线”；术语快照在 Epoch 条注释中点名该神器 | 后半“的弧线/之弧”中文措辞可另行润色 |
+| entry-03027 | confirmed：描述正文重复同一神器名，必须与 03025 同步改，否则名称/说明不一致 | 随 03025 一并处理 |
+
+译文未修改。本组暴露的是既有译文与冻结术语/旧版 locale 的专名体系冲突，不是运行时缺陷。
