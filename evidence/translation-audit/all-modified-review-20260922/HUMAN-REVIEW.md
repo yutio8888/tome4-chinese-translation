@@ -981,3 +981,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02306 | confirmed：英文报错 `Rapid Fire` 与实际技能名 `Rapid Shot` 不一致，译文“这个技能”避开错误名。refuted：Gemini“准确传达武器限制”**不成立**——有效前置是投石索（`archerPreUse(...,"sling")`） | 改为“需要装备投石索”；技能名不用 `Rapid Fire` |
 
 译文未修改。2 条 refuted 均是对 Gemini 机制推断的下修，原样转录。
+
+## batch-073 十处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-073-01.md](reports/sol-073-01.md)。译文未修改。共 10 个 claim（每条目一 claim）：4 confirmed、5 advisory、1 pending、0 refuted；与 Sol 自身汇总一致。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02312 | confirmed：条目结论成立 | 按原报告修 |
+| entry-02319 | advisory：风格/排版 | 文风取舍 |
+| entry-02326 | confirmed：条目结论成立 | 按原报告修 |
+| entry-02327 | **pending**：主张证据不足，需冻结术语/源码佐证 | 主代理按术语库核对后再定 |
+| entry-02337 | confirmed：条目结论成立 | 按原报告修 |
+| entry-02343 / 02344 / 02346 / 02347 | advisory：均属风格/排版 | 统一由编辑决定 |
+| entry-02345 | confirmed：条目结论成立 | 按原报告修 |
+
+译文未修改。完整 claim 措辞以报告为准，STATE 记录为逐条目 verdict 摘要。

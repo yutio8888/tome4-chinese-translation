@@ -730,3 +730,13 @@
 - 冒烟 `paseo-loop-smoke`（db3bd482，每分钟）验证通过：13:06:00Z 带 `<paseo-system>` schedule 通知头成功唤醒本 agent，身份/cwd/HEAD/git-status 四项核对通过，随后 `heartbeat delete` 成功；13:05:00 那次因 `hasInFlightRun` 被丢弃（串行化生效）。冒烟心跳已删除。
 - 正式心跳 `all-modified-review-auto`（**a2146eed**，`*/8 * * * *`，`max-runs 60`，`expires-in 12h`，target=本 agent）已 active，nextRunAt `2026-09-22T13:16:00Z`。prompt 内含完整状态机与 STOP 触发删除自身的规则，细节见 STATE.heartbeat_automation。
 - 实现要点：schedule 的 new-agent 模式会另开 workspace 且无 parent（违反 lineage 与单写者），故不采用；心跳指向本 agent，children 仍由本会话派发。
+
+## 心跳首轮（run 228a85c7）完成
+
+- 心跳 `all-modified-review-auto`（a2146eed）于 `2026-09-22T13:16:00Z` 成功唤醒本会话并自动派发：gemini-074-01 + sol-073-01（live 核对 model/thinking/mode/parent 全部通过，派发记录提交 `c1ac01b9`，`wake` 字段标注心跳 run id）。
+- gemini-074-01：40/40（entry-02349–02388）。**覆盖 2390/4144**。六处标记：02354、02356、02381 存在疑点；02352、02360、02380 细微观察。报告 sha256 `194fa0ac21c14017c839aea8062f225dc7f56878112f92a9ecfe09637babcd3b`。
+- sol-073-01：10/10 条目 10 claim（4 confirmed、5 advisory、1 pending）。报告 sha256 `c3b0169e483d480d819a49620b17af94147950615a6cf8936b45f5beb2fdda17`，rollout `01a0c942-76d3-75c2-b120-8094eaaf0ebd`。
+- 收回核验：batch-074 / cross-batch-073 / batch-073 / gemini-073 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-074-01 `2026-09-22T13:21:18.219Z`，sol-073-01 `2026-09-22T13:21:19.757Z`。无未归档 child。
+- 下一片已就绪：batch-075（entry-02389–02428，40 条，sha `05d4a4b7207fc5fcb07c8283cfc3d35709929576cbe7d1f12217c34296e35a90`）+ cross-batch-074（6 条，sha `b1531a1a889eb23d03bc6bf7b4ef89aee38f151d33352a62e14aef4cb4b79b59`）。
+- 心跳下一跳 `13:24:00Z`（8 分钟节奏）将继续。
