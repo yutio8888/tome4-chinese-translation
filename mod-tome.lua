@@ -2912,7 +2912,7 @@ t("In shaded places in unknown lands thou must overcome thyself and see thy doom
 t("The Doomed are fallen mages who once wielded powerful magic wrought by ambition and dark bargains.", "末日使者是一些堕落的法师，他们曾经由于野心，通过黑暗的契约，获得了强大的魔法。", "_t")
 t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被那些曾经侍奉他们的黑暗力量夺去魔法的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
 t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们能否选择一条新的道路，还是永远为厄运所缚。", "_t")
-t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末日使者操纵阴影，从黑暗中发动攻击。", "_t")
+t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末日使者从黑暗帷幕或阴影群的掩护下发动攻击。", "_t")
 t("They feed upon their enemies as they unleash their minds on all who confront them.", "他们以敌人为食，并对所有与他们对峙的人释放精神冲击。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
@@ -6825,7 +6825,7 @@ t("swiped", "被横扫", "_t")
 t("struck", "被重拳击中要害", "_t")
 t("mutilated", "被肢解", "_t")
 t("tortured", "被折磨", "_t")
-t("skewered", "被烤成肉串", "_t")
+t("skewered", "被刺穿成串", "_t")
 t("squished", "被压成照片", "_t")
 t("mauled", "被殴打", "_t")
 t("chopped into tiny pieces", "被切成肉末", "_t")
@@ -17606,13 +17606,13 @@ And indeed, would there have been much glory in killing such a creature? True, I
 With eager anticipation for your reply,
 Weisman]], [[亲爱的罗尔夫，
 
-我希望这封信可以安全的到达你手。我必须为我们最近这段时间疏于联系道歉：最近，我在马基·埃亚尔各地的冒险经历又有了许多惊险刺激的转折。你问我说的是什么转折？我知道你很喜欢阅读我的冒险事迹，所以客套话我就不多说了。
+希望你收到这封信时一切安好。近来我们有一阵子没有通信，我必须为此道歉；最近，我在马基·埃亚尔各地的冒险经历了许多既刺激又危险的转折。你问我指的是什么转折？我知道你喜欢阅读我的冒险事迹，所以就不再把时间浪费在这些开场白上了。
 
-想像一下，一只庞大如熊的饿狼，赤眼如炙，饥渴的吞噬着它周围一切的生命。这只暴君所带来的威胁远超一整群它弱小的同类。你也许亦曾对付一些当地人口中所谓的座狼，但想象一下这只如同熊一般巨大的“好家伙”。事实上，当我在周围的旅行时，不巧就遭遇到了这样一只令人生畏的贪婪怪物，它挥舞的獠牙比我的剑还要长。于是我与这只座狼王和它的狼子狼孙们展开了激烈的搏斗。可惜的是我最终并没有杀死这只野兽，但我能自豪的说，能从这场战斗中存活就已经是值得称道的了。
+请想象一匹狼。再想象一匹凶猛的狼，它的力量、凶性和对血肉的渴望，足以匹敌一整群较弱的同类。你或许也多少见识过一些当地人惯称为“座狼”的野兽。现在……再想象其中一匹有熊那么大。确实，我在德斯周边旅行时就遇到了这样一个可怕、惊人的狼族强敌。它的獠牙长如我的剑刃，我于是与这匹座狼之王及其潜伏的狼群展开战斗。遗憾的是，我没能杀死这头野兽；但我向你保证，能在如此狂野的暴怒下生还，本身便是值得赞誉、足以扬名的荣耀。
 
-再说，杀死这样的生物又能有多大荣耀呢？对，我确实会得到一大堆狼毛，多到足以给德斯镇每双靴子和每顶帽子做毛皮衬里，但我的内心告诉自己这种传说中的生物必须让其繁衍下去。因为正是它们，赋予了这个世界真正的灵魂！
+而且，杀死这样的生物又能有多少荣耀呢？没错，我本可以得到足够多的毛皮，给德斯的每一双靴子和每一顶帽子都做上内衬，但传奇必须流传下去。正是传奇赋予了这个世界真正的精神！
 
-殷切的期盼着你的回信，
+热切期待你的回信，
 威斯曼]], "_t")
 t("letter to Weisman (1)", "写给威斯曼的信 (1)", "_t")
 t([[Dear Weisman,
@@ -19371,8 +19371,8 @@ t("which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik balada
 t("#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#", "#{italic}#并且阿马克泰尔制造了夏·图尔，给予我们完成自我意志的力量，他对我们说：“走向光所照及之处，为自己取得一切。”#{normal}#", "_t")
 t("fourth mural painting", "第四幅壁画", "_t")
 t([[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky.
-There is some text beneath ]], [[你在壁画上看到一个巨大的水晶之城，有数个浮空岛悬浮在周围。在画面的最前端坐着的是夏·图尔人，他向天空笔直的举起手臂。
-下面有一行文字]], "_t")
+There is some text beneath ]], [[你看到一幅壁画，画中是一座巨大的水晶都市，后方有数座小型石质岛屿漂浮在空中。前景中坐着一名夏·图尔人，一只手伸向天空。
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#", "不明意义的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#", "_t")
 t("#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#", "#{italic}#'我们征服了世界，为自己建造了高耸的水晶之城和遨游天际的堡垒，但有些人还不满足……'#{normal}#", "_t")
 t("fifth mural painting", "第五幅壁画", "_t")
@@ -22236,7 +22236,7 @@ t("Swap", "时空交换", "talent name")
 t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t([[You manipulate the spacetime continuum in such a way that you switch places with another creature with in a range of %d.  The targeted creature will be confused (power %d%%) for %d turns.
-		The spell's hit chance will increase with your Spellpower.]], [[你控制时间的流动来使你和 %d 码范围内的某个怪物交换位置。目标会混乱（%d%% 强度）%d 回合。
+		The spell's hit chance will increase with your Spellpower.]], [[你操纵时空连续体，与 %d 码范围内的另一个生物交换位置。目标会混乱（%d%% 强度）%d 回合。
 		法术命中率受法术强度加成。]], "tformat")
 t("Temporal Wake", "时空尾迹", "talent name")
 t("You do not have line of sight.", "你没有视线。", "logSeen")
@@ -23934,9 +23934,9 @@ t([[Draw on the wounds of enemies within range 10, healing yourself and putting 
 							
 							When the sleep ends, each target will benefit from Insomnia for a number of turns equal to the amount of time it was asleep (up to ten turns max), granting it 50%% sleep immunity.]], [[吸收附近10码范围内敌人的伤痕以治疗自己，并仁慈地使它们入睡。
 							睡眠概率受法术强度加成。
-							你获得距离内敌人剩余流血伤害 %d%% 的治疗（每个流血敌人至少 %d 点）。敌人睡眠的持续时间为 %d 回合加上流血效果中最长的持续时间，期间无法行动。睡眠效果的强度由流血效果的强度决定，额外的伤害会缩短它们睡眠的时间。
+							你获得范围内敌人各流血效果剩余伤害 %d%% 的治疗（每个流血效果至少 %d 点）。敌人睡眠的持续时间为 %d 回合加上流血效果中最长的持续时间，期间无法行动。睡眠效果的强度由流血效果的强度决定，额外的伤害会缩短它们睡眠的时间。
 
-							睡眠结束时，目标会受失眠效果获得50%%睡眠免疫，持续时间等于它睡着的时间（最大10回合）。]], "tformat")
+							目标会在睡眠期间逐回合累积失眠，最多累积10回合；醒来后，失眠的剩余持续时间与睡眠抗性会逐回合衰减，每剩余1回合通常提供至多20%%睡眠抗性。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/cursed-aura.lua"
@@ -24509,7 +24509,7 @@ t("Call Shadows", "召唤阴影", "talent name")
 t("Your hate is too low to call another shadow!", "你的仇恨值不足，无法召唤阴影！", "logPlayer")
 t("Summon", "召唤", "_t")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Each shadow costs 5 hate to summon. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
-		Shadows ignore %d%% of the damage dealt to them by their master.]], [[当此技能激活时，你可以召唤 %d 个等级 %d 的阴影帮助你战斗。每个阴影需消耗 5 点仇恨值召唤。
+		Shadows ignore %d%% of the damage dealt to them by their master.]], [[此技能激活期间，你会持续自动补充至多 %d 个等级为 %d 的阴影来协助战斗。每召唤一个阴影消耗 5 点仇恨值。
 		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d），使用闪电突袭攻击敌人（等级 %d），使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
@@ -24969,11 +24969,11 @@ t("#LIGHT_GREEN##Source# gains %d%%%% of a turn from Ancestral Life.#LAST#", "#L
 t([[Your fungus reaches into the primordial ages of the world, granting you ancient instincts.
 		Each time you receive non-regeneration healing you gain %0.1f%% of a turn per 100 life healed.  This effect can't add energy past 2 stored turns and overhealing is not counted.
 		Also, regeneration effects on you will decrease your equilibrium by %0.1f each turn.
-		The turn gain increases with your Mindpower.]], [[你的孢子可以追溯到创世纪元，你可以传承来自远古的天赋。
-		每当你获得一个非回复的治疗效果，每治疗 100 点生命值，你获得 %0.1f%% 个回合。
-		这一效果最多获得 2 个回合。
-		同时，每当你受到回复作用时，每回合你的失衡值将会减少 %0.1f。
-		增益回合受精神强度加成。]], "tformat")
+		The turn gain increases with your Mindpower.]], [[你身上的真菌可追溯至世界的原初时代，赋予你远古本能。
+		每当你受到非回复类治疗时，每实际恢复 100 点生命，你获得 %0.1f%% 个回合。
+		溢出治疗不计入，且这一效果提供的能量最多可储存至 2 个回合。
+		同时，你身上的回复效果会使失衡值每回合减少 %0.1f。
+		获得的回合数受精神强度加成。]], "tformat")
 t("Sudden Growth", "骤然生长", "talent name")
 t("A wave of energy passes through your fungus, making it release immediate healing energies on you, healing you for %d%% of your current life regeneration rate (#GREEN#%d#LAST#).", "一股强大的能量穿过你的孢子，使其立刻对你释放治愈性能量，治疗你 %d%% 当前生命回复值（#GREEN# %d #LAST#）。", "tformat")
 
@@ -27724,8 +27724,8 @@ t("Masterful Telekinetic Archery", "灵能射击掌握", "talent name")
 t("You cannot do that without a telekinetically-wielded bow.", "你没有灵能持握弓箭，无法这么做。", "logPlayer")
 t([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack the nearest target each turn for %d turns.
 			The telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.
-			You are not telekinetically wielding anything right now.]], [[你暂时分出一部分精神去控制念动之弓。它会在 %d 回合内自动攻击1个目标。
-			念动弓使用意志和灵巧来代替力量和敏捷决定攻击。
+			You are not telekinetically wielding anything right now.]], [[你暂时分出一部分精神来控制念动之弓。它会在 %d 回合内每回合自动攻击一个随机目标。
+			念动弓以意志代替力量、以灵巧代替敏捷，来决定命中和伤害。
 			你暂时还没有装备任何念动武器。]], "tformat")
 t([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack a target each turn for %d turns.
 			The telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.
@@ -27928,9 +27928,9 @@ t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免
 t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat")
 t([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
-		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]], [[每当你受到伤害时，你会使用 %d%% 精神豁免来鉴定。鉴定时精神豁免可能暴击，至少减少 50%% 的伤害。
+		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]], [[每当你受到伤害时，你会用精神豁免的 %d%% 与本次伤害数值进行一次检定。检定成功时可触发精神暴击，并会使伤害至少降低 50%%。
 		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
-		学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。]], "tformat")
+		学习此技能也会使你的唯我临界点提高 10%%（当前 %d%%）。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/telekinetic-combat.lua"
@@ -28236,7 +28236,7 @@ t([[Infuse your body with untethered aether forces for %d turns.
 t("Pure Aether", "以太掌握", "talent name")
 t([[Surround yourself with Pure Aether, increasing all your arcane damage by %0.1f%% and ignoring %d%% arcane resistance of your targets.
 		At level 5 casting Aether Avatar removes up to %d magical or physical detrimental effects.]], [[纯净的以太能量环绕着你，增加 %0.1f%% 奥术伤害并且无视目标 %d%% 奥术抗性。
-		在等级 5 时，使用以太之体会移除 %d 个魔法或物理负面效果。]], "tformat")
+		在等级 5 时，使用以太之体会移除最多 %d 个魔法或物理负面效果。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/age-of-dusk.lua"
@@ -31159,8 +31159,8 @@ t([[Boost your life and stamina by %0.1f%% for %d turns by bellowing your battle
 t("Battle Cry", "战斗怒喝", "talent name")
 t([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.
 		All evasion and concealment bonuses are also disabled.
-		The chance to hit increases with your Physical Power.]], [[你的怒喝会减少 %d 码半径范围内敌人的意志，减少它们 %d 闪避，持续 7 回合。
-		同时，躲闪效果和不可见带来的闪避效果会被取消。
+		The chance to hit increases with your Physical Power.]], [[你的战吼会击溃前方 %d 码锥形范围内敌人的斗志，使其闪避降低 %d 点，持续 7 回合，令其更容易被命中。
+		躲闪与隐匿提供的未命中加成也会被禁用。
 		命中率受物理强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -34893,7 +34893,7 @@ t("The target is near an antimagic bush, granting +20%% nature damage, +20%% nat
 t("Necrotic Air", "死灵瘴气", "floorEffect desc")
 t("The target is in a zone of necrotic air, granting -40% healing mod. Undead creatures also get +15% to all resistances.", "目标位于死灵瘴气中，减少 40% 治疗效果。不死族则增加 15% 全体伤害抗性。", "_t")
 t("Whistling Vortex", "尖啸漩涡", "floorEffect desc")
-t("The target is in a whistling vortex, granting +%d ranged defense, -%d ranged accuracy and incoming projectiles are 30%% slower.", "目标靠近尖啸漩涡，增加 +%d 远程闪避，同时 -%d 远程命中，并且抛射物减缓 30%%。", "tformat")
+t("The target is in a whistling vortex, granting +%d ranged defense, -%d ranged accuracy and incoming projectiles are 30%% slower.", "目标处于尖啸漩涡中，获得 +%d 远程闪避、-%d 远程命中，向其飞来的抛射物速度降低 30%%。", "tformat")
 t("Fell Aura", "毁灭光环", "floorEffect desc")
 t("The target is surrounded by a fell aura, granting 40% critical damage bonus but -20% to all resistances.", "目标被毁灭光环所包围，增加 40% 暴击伤害，同时减少 20% 全体伤害抗性。", "_t")
 t("Slimey Pool", "史莱姆池", "floorEffect desc")
@@ -37216,7 +37216,7 @@ t("-Dragon's fire", "-龙之焰", "_t")
 t("Greater Weapon Focus", "专注打击", "_t")
 t("Each melee blow landed has a %d%% chance to trigger an additional melee blow (up to once per turn for each weapon).", "每次近战命中都有 %d%% 几率触发额外一击（每回合每把武器至多一次）。", "tformat")
 t("Grappling", "抓取", "_t")
-t("Engaged in a grapple draining %d stamina per turn and redirecting %d%% of damage taken to %s.  Any movement will break the effect as will some unarmed talents.", "目标进入抓取状态，每回合吸取 %d 体力，同时将 %d%% 伤害转移到 %s。任何移动或其他一些徒手技能都会取消这个状态。", "tformat")
+t("Engaged in a grapple draining %d stamina per turn and redirecting %d%% of damage taken to %s.  Any movement will break the effect as will some unarmed talents.", "处于抓取状态，每回合消耗自身 %d 点体力，并将自身所受伤害的 %d%% 转移给 %s。任何移动和某些徒手技能都会中断此效果。", "tformat")
 t("#Target# is engaged in a grapple!", "#Target#进入抓取状态！", "_t")
 t("+Grappling", "+抓取", "_t")
 t("#Target# has released the hold.", "#Target#脱离抓取状态。", "_t")
