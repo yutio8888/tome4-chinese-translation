@@ -2161,8 +2161,10 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-021.md",
       "input_sha256": "8b32123d11271163bfa7a72cd19a4732806e1f60869ae37623f5ed83a846e401",
-      "status": "queued",
-      "dispatches": []
+      "status": "dispatched",
+      "dispatches": [
+        "gemini-021-01"
+      ]
     },
     {
       "batch_id": "batch-022",
@@ -8135,9 +8137,11 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-020.md",
       "input_sha256": "e81d3095ec2b1b34196f40c145dbf37e9339f1e7a7640707430361714b755bb6",
-      "status": "queued_paused",
+      "status": "dispatched",
       "source_dispatch_id": "gemini-020-01",
-      "dispatches": [],
+      "dispatches": [
+        "sol-020-01"
+      ],
       "host_semantic_adjudication": false,
       "queue_note": "User pause: do not launch until resume. sol-019-01 is the last in-flight Sol."
     }
@@ -10449,6 +10453,102 @@
       "coverage": "9/9 entry-00722, entry-00723, entry-00728, entry-00730, entry-00731, entry-00733, entry-00740, entry-00746, entry-00752",
       "harvest_note": "Re-query before action: Status idle, no active turn, task_complete present in native rollout. Frozen input hashes (cross-batch-019/batch-019/gemini-019-01), 11 locale hashes and HEAD a711b997a4a6ca43e37d46daf893aee3d2d3e306 all unchanged; diff stays inside this evidence dir.",
       "archived_at": "2026-09-22T04:04:22.918Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-020-01",
+      "agent_id": "2a4400f6-1e3a-461e-afb8-1817e1c0b9f8",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+      "session_task_id": "all-modified-review-20260922-resume01",
+      "lineage_verified": true,
+      "lifecycle": "running",
+      "archive_confirmed": false,
+      "archive_attempts_started": 0,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-020.md",
+      "input_sha256": "e81d3095ec2b1b34196f40c145dbf37e9339f1e7a7640707430361714b755bb6",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-020-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T04:37:35.575826+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "3f6f49ea1ac2f623fe65f7528a38ee26bd6829cc",
+      "harvested": false,
+      "created_at": "2026-09-22T04:37:02.125Z",
+      "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj (codex/gpt-5.6-sol, auto-review, medium)",
+      "transport": "cli"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-021-01",
+      "agent_id": "1578f5fb-4d10-42e5-8d89-76e7e28b5053",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+      "session_task_id": "all-modified-review-20260922-resume01",
+      "lineage_verified": true,
+      "lifecycle": "running",
+      "archive_confirmed": false,
+      "archive_attempts_started": 0,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-021.md",
+      "input_sha256": "8b32123d11271163bfa7a72cd19a4732806e1f60869ae37623f5ed83a846e401",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-021-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T04:37:35.575826+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "3f6f49ea1ac2f623fe65f7528a38ee26bd6829cc",
+      "harvested": false,
+      "created_at": "2026-09-22T04:37:06.919Z",
+      "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash (antigravity/gemini-3.8-flash, dangerously-skip-permissions, high, auto_accept via unattended mode)",
+      "transport": "cli"
     }
   ],
   "locale_sha256": {
@@ -10464,7 +10564,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T04:36:28.967820+00:00",
+  "updated_at": "2026-09-22T04:37:35.575826+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -10564,7 +10664,18 @@
         "no push",
         "no translation or terminology edits"
       ],
-      "current_recorder_note": "current_recorder block above remains the grok01 campaign recorder of record; this session only executed the pause closing steps"
+      "current_recorder_note": "current_recorder block above remains the grok01 campaign recorder of record; this session only executed the pause closing steps",
+      "dispatches_created": [
+        {
+          "dispatch_id": "sol-020-01",
+          "agent_id": "2a4400f6-1e3a-461e-afb8-1817e1c0b9f8"
+        },
+        {
+          "dispatch_id": "gemini-021-01",
+          "agent_id": "1578f5fb-4d10-42e5-8d89-76e7e28b5053"
+        }
+      ],
+      "orchestration_transport": "cli (paseo CLI; same role, purpose, workspace, lineage and read-only semantics as mcp)"
     }
   ]
 }
