@@ -950,3 +950,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02227 | confirmed：`dazed` 译“茫然”与术语及效果身份冲突（应为“眩晕”） | 按术语改 |
 
 译文未修改。2 条 refuted 中有 1 条是 Gemini 源码引用不实，原样转录并标注不可引用。
+
+## batch-071 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-071-01.md](reports/sol-071-01.md)。译文未修改。共 7 个 claim：6 confirmed、1 advisory、0 refuted/pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02252 | confirmed（条目结论成立，完整措辞见报告） | 按原报告修 |
+| entry-02258 | confirmed：“更快的旅行”应为“更快地旅行”；confirmed（Sol 补充发现）：原文 `and` 并列被译成“或者”，使“更快旅行/追踪他人”看似互斥 | **优先处理连接词**（and→或），再润色的/地 |
+| entry-02259 | confirmed（条目结论成立） | 按原报告修 |
+| entry-02265 | advisory（排版/风格） | 文风取舍 |
+| entry-02267 | confirmed：第二行缺句号；confirmed：`melee damage` 应为“近战伤害”（源码 `is_melee=true`），现译“近程伤害”不准 | 补句号；改“近战伤害” |
+
+译文未修改。Sol 主动补充的 `and→或者` 属新增交叉发现，原样转录。
