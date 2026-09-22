@@ -821,3 +821,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-080-01 `2026-09-22T14:24:43.650Z`，sol-079-01 `2026-09-22T14:24:45.139Z`。
 - 覆盖 **2612/4144（63.0%）**；批次 80/130，交叉 79 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：081 批次 + 080 交叉收口
+
+- 派发记录提交 `36748426`；cross-batch-080 登记与 prompt 提交 `08c1c2a2`。
+- **gemini-081-01：40/40 一次完成**。存在疑点 02638、02643、02644；细微观察 02614、02636、02637、02640。sha256 `1023203e100442ead0afff27cb227f7e3c8d1be313376f998be4f2ad198e61d0`，brain `a26671a2`。
+- **sol-080-01（cross-batch-080）：7/7 条目、16 claim**：8 confirmed、8 advisory、0 refuted/pending。sha256 `97c11bed31b1e8b31a4c7df7b89dafa557a813cac53e9f0d5a5b1cd930e76563`，rollout `01a0c982`。confirmed 中多条为「无缺陷」正面确认；对 entry-02598 还**部分修正了 Gemini 的表述**（硬换行非空行段落）。
+- 守卫全过：batch-081/cross-batch-080 冻结哈希、11 locale、非 evidence 零 diff，HEAD `36748426`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-081-01 `2026-09-22T14:31:01.156Z`，sol-080-01 `2026-09-22T14:31:02.656Z`。
+- 覆盖 **2652/4144（64.0%）**；批次 81/130，交叉 80 组完成。
+- 更新时间见 STATE.json `updated_at`。

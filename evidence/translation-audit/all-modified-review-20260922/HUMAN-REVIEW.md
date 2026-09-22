@@ -1096,3 +1096,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02570 | confirmed：漏译中心词 `beam`；confirmed：残留小写 `boss`；confirmed：技能名与 `觉醒技` 一致 | 补译；本地化收尾 |
 
 译文未修改。两条 **refuted** 都是撤回 Gemini 的专名正确性主张，依据固定简中 locale 映射（派尔纪元、风暴之怒）。
+
+## batch-080 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-080-01.md](reports/sol-080-01.md)。译文未修改。共 16 个 claim：8 confirmed、8 advisory、0 refuted、0 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02576 | confirmed：伤害转灵能描述符合机制；advisory：重复译法带入 `dreams`；advisory：冒号/句号非缺陷 | 文风取舍 |
+| entry-02579 | confirmed：标签与职业特征完整；advisory：`Class features:` 移行；advisory：无冒号不构成缺陷 | 排版取舍 |
+| entry-02586 | confirmed：合理修正英文笔误且标签成对；confirmed：`奖励` 标签内多余空格；advisory：数字体例不统一 | 去空格；体例 |
+| entry-02598 | confirmed：专名与标签完整；advisory：复句拆硬换行（**部分修正 Gemini 表述**，非空行段落）；advisory：显式加入“在烈火纪元之前” | 文风取舍 |
+| entry-02599 | confirmed：`%+0.2f` 全部正确；confirmed：“仅活体生物受益”→“不死族无法获得”**不完整** | 补机制限定 |
+| entry-02601 | confirmed：`arcane forces`→“法力值”**缩窄资源范围** | 改译 |
+| entry-02609 | advisory：Gemini“口语化但机制准确”成立 | 润色与否 |
+
+译文未修改。本组全部为 confirmed/advisory，无 refuted/pending；confirmed 中多条是「无缺陷」正面确认。
