@@ -246,3 +246,16 @@ Sol 的汇总：确认的是 00652 的语序和 00660 的两项忠实度问题�
 | entry-00752 | confirmed：“两只巨大的双手”量词重复且身体意象错误；confirmed：蛇尾与腿的关系被译反 | 改“巨大的双手”或“两只巨大的手”；重写蛇尾句 |
 
 Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted。补充说明 Gemini 报告的若干源码行号并非实际描述行（`ghost.lua:83`、`ghost.lua:131`、`lich.lua:78`、`losgoroth.lua:75`），文本对象仍对应，引用行号不宜沿用。术语类 00728、00731、00746 因允许输入不含术语正文保持 pending，未由主代理代为裁决。
+
+## batch-020 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-020-01.md](reports/sol-020-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00763 | confirmed：torn away from 被译成“赶出来”，动作性质从被带离变成被驱逐；confirmed：home world 译“老家”丢了 world 且语域偏口语。pending：断言为“跨位面传送”缺源码依据 | 改成“被强行带离/从故乡世界剥离”；机制措辞不要写死 |
+| entry-00768 | confirmed（轻微）：serviceable condition 译成“值得信赖”，强于“尚堪使用” | 是否收束为“锈迹斑斑，但尚能使用” |
+| entry-00780 | advisory：“类人生物”与同批 entry-00778 的“人形生物”不一致，仅行文问题 | 项目要求统一自由叙事用词时再改 |
+| entry-00781 | confirmed：brothers and sisters 被概括成“集体行动”，遗漏同胞关系；confirmed：后半句单数改复数；confirmed：make_escort 配置要求三只同名护卫，但“运行时必定三只”这一绝对说法 refuted；pending：是否必为“同窝亲生”无机制依据 | 改成“与兄弟姐妹一同出现”，审核证据写“配置会尝试添加三只”，不要写成运行时保证 |
+
+共 10 个 claim：6 confirmed、2 pending、1 advisory、1 refuted。Sol 同时撤回了 Gemini 报告里“运行时固定伴随三只”的绝对表述，属证据强度修正，仍由人工决定最终措辞。

@@ -211,3 +211,15 @@
 - 本 workspace 再无运行中的审核 child：gemini-020-01 与 sol-019-01 均已归档。按用户指令到此停：不派 batch-021、不为 cross-batch-020 开 Sol、不提交证据、不 push、不改译文和术语。cross-batch-020 仍为 queued_paused。
 - 当前覆盖 810/4144（已提交基线仍为 770/4144，`a711b99`），batch-019/020 证据留在工作树未提交。
 - 更新时间见 STATE.json `updated_at`。
+
+## 恢复派发与 020/021 收获
+
+- 用户授权恢复（handoff 文件不提交，其余提交），`pause.status=resumed`，记录于 STATE。
+- 恢复前读 live profiles：Sol 用 `agent_profile_mt3s8sou_fggrhfnq1gj`（codex/gpt-5.6-sol/auto-review/medium），Gemini 用 `agent_profile_review_fallback_antigravity_gemini37_flash`（antigravity/gemini-3.8-flash/dangerously-skip-permissions/high）；live provider 元数据确认可用，未换用 legacy gpt-6-astra profile。传输为 paseo CLI（与 mcp 同语义），父级 c59be24f-5acc-4fa5-b130-41a33cf142fc，lineage 已核验。
+- 同一时刻 1 Gemini + 1 Sol：gemini-021-01 agent 1578f5fb-4d10-42e5-8d89-76e7e28b5053；sol-020-01 agent 2a4400f6-1e3a-461e-afb8-1817e1c0b9f8。
+- gemini-021-01：40/40（entry-00802–entry-00841）。Gemini 覆盖 **850/4144**。四处标记：00804 细微观察，00805、00820、00840 存在疑点，与报告汇总一致。原始报告 sha256 `37318e01c2aec1927736b17d1b92dce474587f050597a1a18370fc867a62c9a1`。
+- sol-020-01：4/4 条目共 10 claim（6 confirmed、2 pending、1 advisory、1 refuted），语义作者 Codex/gpt-5.6-sol/medium，已写入 cross-batch-020 与 HUMAN-REVIEW。原始报告 sha256 `0aea896a58c27b20e8da9b99ec4232e3df1cba2280e1103159f9010509ef5d54`。
+- 收回核验：batch-021 / cross-batch-020 / batch-020 / gemini-020 冻结哈希一致；11 个 locale 哈希一致；HEAD 由 `3f6f49e` 变为 `8146bfd` 仅因编排者自己的记录提交，locale 无 diff；evidence 目录以外无改动。
+- 归档：两路均先持久化 `archive_attempts_started=1`，一次成功，live 复查 `Archived=true`：sol-020-01 `2026-09-22T04:42:10.551Z`，gemini-021-01 `2026-09-22T04:42:12.138Z`。
+- 本轮无未归档 child。batch-021 四处疑点待派 Sol，见 cross-batch-021。
+- 更新时间见 STATE.json `updated_at`。
