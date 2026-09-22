@@ -1,0 +1,61 @@
+{
+  "verified_at": "2026-09-22T08:58:07.704936+00:00",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-53-05-01a0c851-98a2-79a3-b403-5d80af219272.jsonl",
+  "native_sha256": "3e5b15a378813fd8fc25f81571b8fd7b93def5036870474c1f9195ecf72563fd",
+  "calls": [
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-context-review-v2-contract.md && sed -n '1,260p' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"jq -c '.payload.translation_snapshot[]' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && jq -r '.payload.bounded_context[] | [.revision_key, (.context|fromjson? // .)] | @json' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"jq -r '.payload.bounded_context[] | (.context|split(\\\"\\\\nsource_facts_v1:\\\")[1]|fromjson) as $x | {revision_key:.revision_key,path:$x.fact.main_source.public_source_path,anchors:[$x.fact.anchors[].snippet[]|select(.is_match==true)|{line,text}],terminology:$x.fact.terminology} | @json' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/races.lua | sed -n '742,790p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/npcs.lua | sed -n '3200,3232p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua | sed -n '88,112p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"find /workspace -maxdepth 4 -type d -name .git -print\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":2000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/races.lua | sed -n '742,790p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/npcs.lua | sed -n '3200,3232p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua | sed -n '88,112p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "let{output,...rest}=await tools.exec_command({cmd:\"git grep -n \\\"equilibrium_on_crit\\\\|psi_on_crit\\\\|hate_on_crit\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -80\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":8000});text(rest);text(output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git grep -n \\\"interfere with stealth\\\\|heavy_armor\\\\|T_STEALTH\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents/cunning/stealth.lua game/modules/tome | head -100\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/stealth.lua | sed -n '20,120p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1760,1825p' && git grep -n \\\"EFF_UNNATURAL_BODY\\\\|UNNATURAL_BODY\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -60\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua | sed -n '1988,2038p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/ingredients.lua | sed -n '55,82p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '2304,2335p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git grep -n \\\"combatDefense\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/interface/Combat.lua game/modules/tome/data/talents/techniques/archery.lua game/modules/tome/class/interface/Archery.lua | head -80\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":8000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '1225,1300p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Archery.lua | sed -n '306,322p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output)\n"
+    }
+  ],
+  "verdict": "PASS",
+  "reason": "All 13 actual calls manually inspected: own frozen envelope/full contract and relevant fixed public source call chains. Initial fixed-commit lookup in translation repo failed; bounded .git directory discovery located source repo (metadata only), subsequent git show/grep pinned commit related mechanics. No mutable translation/terminology/other task content read or writes."
+}

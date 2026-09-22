@@ -1,0 +1,485 @@
+[
+  {
+    "parent_index": 40,
+    "entry_revision_identity": "e68cd1e92d8d4ed30000ea6f99cf98644f5bbccf68cc81a9817a93fd369ba8b9",
+    "kind": "fidelity",
+    "claim": "进入目标把击退撞击误成进入实体；固定force-of-will.lua69—76为被阻挡并碰到另一actor时日志。",
+    "status": "pending",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+    "file_sha256": "46631029827dac8f1525624d89491d194b26dd2056189b017ece7276f50ca732",
+    "lines": [
+      {
+        "line": 60,
+        "text": "\t\tif not target.dead and knockback and knockback > 0 and target:canBe(\"knockback\") and (target.never_move or 0) < 1 then"
+      },
+      {
+        "line": 61,
+        "text": "\t\t\tlocal block_actor = function(_, bx, by) return game.level.map:checkEntity(bx, by, Map.TERRAIN, \"block_move\", target) end"
+      },
+      {
+        "line": 62,
+        "text": "\t\t\tlocal lineFunction = core.fov.line(sourceX, sourceY, target.x, target.y, block_actor, true)"
+      },
+      {
+        "line": 63,
+        "text": "\t\t\tlocal finalX, finalY = target.x, target.y"
+      },
+      {
+        "line": 64,
+        "text": "\t\t\tlocal knockbackCount = 0"
+      },
+      {
+        "line": 65,
+        "text": "\t\t\tlocal blocked = false"
+      },
+      {
+        "line": 66,
+        "text": "\t\t\twhile knockback > 0 do"
+      },
+      {
+        "line": 67,
+        "text": "\t\t\t\tlocal x, y, is_corner_blocked = lineFunction:step(true)"
+      },
+      {
+        "line": 68,
+        "text": ""
+      },
+      {
+        "line": 69,
+        "text": "\t\t\t\tif not game.level.map:isBound(x, y) or is_corner_blocked or game.level.map:checkAllEntities(x, y, \"block_move\", target) then"
+      },
+      {
+        "line": 70,
+        "text": "\t\t\t\t\t-- blocked"
+      },
+      {
+        "line": 71,
+        "text": "\t\t\t\t\tlocal nextTarget = game.level.map(x, y, Map.ACTOR)"
+      },
+      {
+        "line": 72,
+        "text": "\t\t\t\t\tif nextTarget then"
+      },
+      {
+        "line": 73,
+        "text": "\t\t\t\t\t\tif knockbackCount > 0 then"
+      },
+      {
+        "line": 74,
+        "text": "\t\t\t\t\t\t\ttarget:logCombat(nextTarget, \"#Source# was blasted %d spaces into #Target#!\", knockbackCount)"
+      },
+      {
+        "line": 75,
+        "text": "\t\t\t\t\t\telse"
+      },
+      {
+        "line": 76,
+        "text": "\t\t\t\t\t\t\ttarget:logCombat(nextTarget, \"#Source# was blasted into #Target#!\")"
+      },
+      {
+        "line": 77,
+        "text": "\t\t\t\t\t\tend"
+      },
+      {
+        "line": 78,
+        "text": "\t\t\t\t\telseif knockbackCount > 0 then"
+      },
+      {
+        "line": 79,
+        "text": "\t\t\t\t\t\tgame.logSeen(target, \"%s was smashed back %d spaces!\", target:getName():capitalize(), knockbackCount)"
+      },
+      {
+        "line": 80,
+        "text": "\t\t\t\t\telse"
+      },
+      {
+        "line": 81,
+        "text": "\t\t\t\t\t\tgame.logSeen(target, \"%s was smashed!\", target:getName():capitalize())"
+      },
+      {
+        "line": 82,
+        "text": "\t\t\t\t\tend"
+      },
+      {
+        "line": 83,
+        "text": ""
+      },
+      {
+        "line": 84,
+        "text": "\t\t\t\t\t-- take partial damage"
+      },
+      {
+        "line": 85,
+        "text": "\t\t\t\t\tlocal blockDamage = damage * util.bound(knockback * (knockbackDamage / 100), 0, 1.5)"
+      },
+      {
+        "line": 86,
+        "text": "\t\t\t\t\tself:project({type=\"hit\", range=10, talent=t}, target.x, target.y, DamageType.PHYSICAL, blockDamage)"
+      },
+      {
+        "line": 87,
+        "text": ""
+      },
+      {
+        "line": 88,
+        "text": "\t\t\t\t\tif nextTarget then"
+      },
+      {
+        "line": 89,
+        "text": "\t\t\t\t\t\t-- start a new force hit with the knockback damage and current knockback"
+      },
+      {
+        "line": 90,
+        "text": "\t\t\t\t\t\tif max > 0 then"
+      },
+      {
+        "line": 91,
+        "text": "\t\t\t\t\t\t\tt.forceHit(self, t, nextTarget, sourceX, sourceY, blockDamage, knockback, knockbackDamage, power / 2, max - 1)"
+      }
+    ]
+  },
+  {
+    "parent_index": 45,
+    "entry_revision_identity": "e6976768f97b261a317d34b20fbdd66a6f42788687a1c448ec78f729eb5b8bd7",
+    "kind": "fidelity",
+    "claim": "精神攻击造成致命一击可能误限攻击；mindCrit同样由治疗调用。",
+    "status": "pending",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+    "file_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "lines": [
+      {
+        "line": 2060,
+        "text": "--- Computes mind crit for a damage"
+      },
+      {
+        "line": 2061,
+        "text": "function _M:mindCrit(dam, add_chance, crit_power_add)"
+      },
+      {
+        "line": 2062,
+        "text": "\tself.turn_procs.is_crit = nil"
+      },
+      {
+        "line": 2063,
+        "text": ""
+      },
+      {
+        "line": 2064,
+        "text": "\tcrit_power_add = crit_power_add or 0"
+      },
+      {
+        "line": 2065,
+        "text": "\tlocal chance = self:combatMindCrit() + (add_chance or 0)"
+      },
+      {
+        "line": 2066,
+        "text": "\tlocal crit = false"
+      },
+      {
+        "line": 2067,
+        "text": ""
+      },
+      {
+        "line": 2068,
+        "text": "\tif self:attr(\"stealth\") and self:knowTalent(self.T_SHADOWSTRIKE) then"
+      },
+      {
+        "line": 2069,
+        "text": "\t\tchance = 100"
+      },
+      {
+        "line": 2070,
+        "text": "\tend"
+      },
+      {
+        "line": 2071,
+        "text": ""
+      },
+      {
+        "line": 2072,
+        "text": "\tprint(\"[MIND CRIT %]\", self.turn_procs.auto_mind_crit and 100 or chance)"
+      },
+      {
+        "line": 2073,
+        "text": "\tif self.turn_procs.auto_mind_crit or rng.percent(chance) then"
+      },
+      {
+        "line": 2074,
+        "text": "\t\tself.turn_procs.is_crit = \"mind\""
+      },
+      {
+        "line": 2075,
+        "text": "\t\tself.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)"
+      },
+      {
+        "line": 2076,
+        "text": "\t\tdam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)"
+      },
+      {
+        "line": 2077,
+        "text": "\t\tcrit = true"
+      },
+      {
+        "line": 2078,
+        "text": "\t\tgame.logSeen(self, \"#{bold}#%s's mind surges with critical power!#{normal}#\", self:getName():capitalize())"
+      },
+      {
+        "line": 2079,
+        "text": ""
+      },
+      {
+        "line": 2080,
+        "text": "\t\tif self:attr(\"hate_on_crit\") then self:incHate(self:attr(\"hate_on_crit\")) end"
+      },
+      {
+        "line": 2081,
+        "text": "\t\tif self:attr(\"psi_on_crit\") then self:incPsi(self:attr(\"psi_on_crit\")) end"
+      },
+      {
+        "line": 2082,
+        "text": "\t\tif self:attr(\"equilibrium_on_crit\") then self:incEquilibrium(self:attr(\"equilibrium_on_crit\")) end"
+      },
+      {
+        "line": 2083,
+        "text": ""
+      },
+      {
+        "line": 2084,
+        "text": "\t\tif self:knowTalent(self.T_EYE_OF_THE_TIGER) then self:triggerTalent(self.T_EYE_OF_THE_TIGER, nil, \"mind\") end"
+      },
+      {
+        "line": 2085,
+        "text": "\t\tif self:knowTalent(self.T_LIVING_MUCUS) then self:callTalent(self.T_LIVING_MUCUS, \"on_crit\") end"
+      }
+    ],
+    "healing_caller": {
+      "public_source_path": "game/modules/tome/data/talents/gifts/call.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "b2df31016f55fb32b4e989d1fcb6e094f9c39e3d2cb9431e87be77f5f476e6b9",
+      "lines": [
+        {
+          "line": 126,
+          "text": "\t\treturn not target:attr(\"undead\") and 2*(target.healing_factor or 1) or 0 "
+        },
+        {
+          "line": 127,
+          "text": "\tend},"
+        },
+        {
+          "line": 128,
+          "text": "\tis_heal = true,"
+        },
+        {
+          "line": 129,
+          "text": "\ttarget = function(self, t) return {talent = t, default_target=self, type=\"hit\", nowarning=true, range=self:getTalentRange(t), first_target=\"friend\"} end,"
+        },
+        {
+          "line": 130,
+          "text": "\taction = function(self, t)"
+        },
+        {
+          "line": 131,
+          "text": "\t\tlocal tg = self:getTalentTarget(t)"
+        },
+        {
+          "line": 132,
+          "text": "\t\tlocal x, y, target = self:getTarget(tg)"
+        },
+        {
+          "line": 133,
+          "text": "\t\tif not target or not self:canProject(tg, x, y) then return nil end"
+        },
+        {
+          "line": 134,
+          "text": "\t\tif not target:attr(\"undead\") then"
+        },
+        {
+          "line": 135,
+          "text": "\t\t\ttarget:attr(\"allow_on_heal\", 1)"
+        },
+        {
+          "line": 136,
+          "text": "\t\t\ttarget:heal(self:mindCrit(t.getHeal(self, t)), self)"
+        },
+        {
+          "line": 137,
+          "text": "\t\t\ttarget:attr(\"allow_on_heal\", -1)"
+        },
+        {
+          "line": 138,
+          "text": "\t\t\tif core.shader.active(4) then"
+        },
+        {
+          "line": 139,
+          "text": "\t\t\t\ttarget:addParticles(Particles.new(\"shader_shield_temp\", 1, {toback=true ,size_factor=1.5, y=-0.3, img=\"healgreen\", life=25}, {type=\"healing\", time_factor=2000, beamsCount=20, noup=2.0}))"
+        },
+        {
+          "line": 140,
+          "text": "\t\t\t\ttarget:addParticles(Particles.new(\"shader_shield_temp\", 1, {toback=false,size_factor=1.5, y=-0.3, img=\"healgreen\", life=25}, {type=\"healing\", time_factor=2000, beamsCount=20, noup=1.0}))"
+        }
+      ]
+    }
+  },
+  {
+    "parent_index": 36,
+    "entry_revision_identity": "e67a8fe84f90497d0b1820eae7f50ee3d7ec863639fe06515b0b99e1d0c53f04",
+    "kind": "fidelity",
+    "claim": "long ago修饰注入时间，不是将军本身；stave off是抵挡，peak时段译文遗漏。",
+    "status": "pending",
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "lines": [
+      {
+        "line": 2309,
+        "text": "newEntity{ base = \"BASE_SHIELD\","
+      },
+      {
+        "line": 2310,
+        "text": "\tpower_source = {nature=true, antimagic=true},"
+      },
+      {
+        "line": 2311,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 2312,
+        "text": "\tname = \"Blightstopper\","
+      },
+      {
+        "line": 2313,
+        "text": "\tunided_name = _t\"vine coated shield\","
+      },
+      {
+        "line": 2314,
+        "text": "\tmoddable_tile = \"special/%s_blightstopper\","
+      },
+      {
+        "line": 2315,
+        "text": "\tmoddable_tile_big = true,"
+      },
+      {
+        "line": 2316,
+        "text": "\tdesc = _t[[This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.]],"
+      },
+      {
+        "line": 2317,
+        "text": "\tcolor = colors.LIGHT_GREEN, image = \"object/artifact/blightstopper.png\","
+      },
+      {
+        "line": 2318,
+        "text": "\tlevel_range = {36, 45},"
+      },
+      {
+        "line": 2319,
+        "text": "\trarity = 300,"
+      },
+      {
+        "line": 2320,
+        "text": "\trequire = { stat = { str=35 }, },"
+      },
+      {
+        "line": 2321,
+        "text": "\tcost = 375,"
+      },
+      {
+        "line": 2322,
+        "text": "\tmaterial_level = 5,"
+      },
+      {
+        "line": 2323,
+        "text": "\tspecial_combat = {"
+      },
+      {
+        "line": 2324,
+        "text": "\t\tdam = 52,"
+      },
+      {
+        "line": 2325,
+        "text": "\t\tblock = 240,"
+      },
+      {
+        "line": 2326,
+        "text": "\t\tphyscrit = 4.5,"
+      },
+      {
+        "line": 2327,
+        "text": "\t\tdammod = {str=1},"
+      },
+      {
+        "line": 2328,
+        "text": "\t\tdamtype = DamageType.PHYSICAL,"
+      },
+      {
+        "line": 2329,
+        "text": "\t\tconvert_damage = {"
+      },
+      {
+        "line": 2330,
+        "text": "\t\t\t[DamageType.NATURE] = 30,"
+      },
+      {
+        "line": 2331,
+        "text": "\t\t\t[DamageType.MANABURN] = 10,"
+      },
+      {
+        "line": 2332,
+        "text": "\t\t},"
+      },
+      {
+        "line": 2333,
+        "text": "\t},"
+      },
+      {
+        "line": 2334,
+        "text": "\twielder = {"
+      },
+      {
+        "line": 2335,
+        "text": "\t\tresists={[DamageType.BLIGHT] = 35, [DamageType.NATURE] = 15},"
+      },
+      {
+        "line": 2336,
+        "text": "\t\ton_melee_hit={[DamageType.NATURE] = 15},"
+      },
+      {
+        "line": 2337,
+        "text": "\t\tcombat_armor = 12,"
+      },
+      {
+        "line": 2338,
+        "text": "\t\tcombat_def = 18,"
+      },
+      {
+        "line": 2339,
+        "text": "\t\tcombat_def_ranged = 12,"
+      },
+      {
+        "line": 2340,
+        "text": "\t\tcombat_spellresist = 24,"
+      },
+      {
+        "line": 2341,
+        "text": "\t\ttalents_types_mastery = { [\"wild-gift/antimagic\"] = 0.2, },"
+      },
+      {
+        "line": 2342,
+        "text": "\t\tfatigue = 22,"
+      },
+      {
+        "line": 2343,
+        "text": "\t\tlearn_talent = { [Talents.T_BLOCK] = 1,},"
+      },
+      {
+        "line": 2344,
+        "text": "\t\tdisease_immune = 0.6,"
+      },
+      {
+        "line": 2345,
+        "text": "\t},"
+      }
+    ]
+  }
+]

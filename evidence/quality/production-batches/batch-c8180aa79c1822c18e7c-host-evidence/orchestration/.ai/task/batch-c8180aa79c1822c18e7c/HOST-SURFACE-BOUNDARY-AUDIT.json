@@ -1,0 +1,69 @@
+{
+  "verified_at": "2026-09-22T08:43:24.844088+00:00",
+  "children": [
+    {
+      "key": "batch-c8180aa79c1822c18e7c|lane-000-0",
+      "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-38-55-01a0c844-9e58-7471-864b-b8b8534fd7dc.jsonl",
+      "native_sha256": "80aed6b0615412ec6e68bd01388c7524ce709033da7e2c50b9fe7f95dc383907",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '241,520p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+        }
+      ],
+      "verdict": "PASS",
+      "reason": "All actual tool calls manually inspected: only own frozen envelope and full surface contract; no other content read or mutations."
+    },
+    {
+      "key": "batch-c8180aa79c1822c18e7c|lane-000-1",
+      "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-38-55-01a0c844-a065-7181-97af-d624c8867553.jsonl",
+      "native_sha256": "1cc2cddcfc52a50eb645ac247f5a6e6ee34edaf0b52130cf3b0260bb8e1f1d1e",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-1.json && sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});\ntext(r.output);\n"
+        }
+      ],
+      "verdict": "PASS",
+      "reason": "All actual tool calls manually inspected: only own frozen envelope and full surface contract; no other content read or mutations."
+    },
+    {
+      "key": "batch-c8180aa79c1822c18e7c|lane-000-2",
+      "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-38-56-01a0c844-a27e-7722-9fca-4cec06fae2c6.jsonl",
+      "native_sha256": "50516958fdc7622f2fbef7bf566e6ad1dba971b6e0c77d199ff0339b4500fe2a",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-2.json && sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000});text(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"sed -n '241,280p' docs/paseo-translation-surface-screen-v1-contract.md && od -An -tx1 -N 4 .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-2.json && sed -n '1p' .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000});text(r.output);\n"
+        }
+      ],
+      "verdict": "PASS",
+      "reason": "All actual tool calls manually inspected: only own frozen envelope and full surface contract; no other content read or mutations."
+    },
+    {
+      "key": "batch-c8180aa79c1822c18e7c|lane-000-3",
+      "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-40-54-01a0c846-70dd-7212-a8f6-7bca5c7e39a6.jsonl",
+      "native_sha256": "f03ee35ee947a024f62f3bcbcbb61a534045b5a9545bc81685a1b5e0879ae9e7",
+      "calls": [
+        {
+          "name": "exec",
+          "input": "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-3.json && sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-c8180aa79c1822c18e7c/SURFACE-SCREEN-ENVELOPE-lane-000-3.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+        }
+      ],
+      "verdict": "PASS",
+      "reason": "All actual tool calls manually inspected: only own frozen envelope and full surface contract; no other content read or mutations."
+    }
+  ]
+}

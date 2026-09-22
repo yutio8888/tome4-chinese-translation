@@ -1,0 +1,1 @@
+审核251，修复窗口5第二批。用户持续授权审核及逐批push。基线307269738b1c94de8f80b4ccafe72af061e37c7b，范围为SCOPE.json和checkpoint冻结的80个revision。只读审核；主代理按固定公开源码裁决，不改译文、术语、规则或旧冻结输入。确认项汇总至窗口5。既有Archmage策略和旧blocked保持排除，不扩大历史pending/advisory。独立reviewer仅按envelope及完整对应契约读取。

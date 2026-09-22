@@ -1,0 +1,214 @@
+[
+  {
+    "parent_index": 2,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "host_note": "resists punch是在knockback检查失败分支；抵抗击退有机制支持。",
+    "lines": [
+      {
+        "line": 1647,
+        "text": "\t\tif target and not state[target] then"
+      },
+      {
+        "line": 1648,
+        "text": "\t\t\tstate[target] = true"
+      },
+      {
+        "line": 1649,
+        "text": "\t\t\tDamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam, state)"
+      },
+      {
+        "line": 1650,
+        "text": "\t\t\tif target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe(\"knockback\") then"
+      },
+      {
+        "line": 1651,
+        "text": "\t\t\t\ttarget:knockback(src.x, src.y, dam.dist)"
+      },
+      {
+        "line": 1652,
+        "text": "\t\t\t\ttarget:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())"
+      },
+      {
+        "line": 1653,
+        "text": "\t\t\t\tgame.logSeen(target, \"%s is knocked back!\", target:getName():capitalize())"
+      },
+      {
+        "line": 1654,
+        "text": "\t\t\telse"
+      },
+      {
+        "line": 1655,
+        "text": "\t\t\t\tgame.logSeen(target, \"%s resists the punch!\", target:getName():capitalize())"
+      },
+      {
+        "line": 1656,
+        "text": "\t\t\tend"
+      }
+    ]
+  },
+  {
+    "parent_index": 35,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/talents/cunning/stealth.lua",
+    "host_note": "heavy/massive明确阻止潜行；不可潜行有机制支持。",
+    "lines": [
+      {
+        "line": 66,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You cannot be stealthy with such heavy armour on!\") end"
+      },
+      {
+        "line": 67,
+        "text": "\t\t\treturn nil"
+      },
+      {
+        "line": 68,
+        "text": "\t\tend"
+      },
+      {
+        "line": 69,
+        "text": "\t\tif self:isTalentActive(t.id) then return true end"
+      },
+      {
+        "line": 70,
+        "text": "\t\t"
+      },
+      {
+        "line": 71,
+        "text": "\t\t-- Check nearby actors detection ability"
+      },
+      {
+        "line": 72,
+        "text": "\t\tif not self.x or not self.y or not game.level then return end"
+      }
+    ]
+  },
+  {
+    "parent_index": 1,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/zones/arena/zone.lua",
+    "host_note": "一回合多杀奖励，不是累计击杀；连杀属于游戏提示近似用语，无独立必要修复。",
+    "lines": [
+      {
+        "line": 320,
+        "text": "\t\t\tcheckCombo = function (k)"
+      },
+      {
+        "line": 321,
+        "text": "\t\t\t\tif k >= 10 then world:gainAchievement(\"TEN_AT_ONE_BLOW\", game.player) end"
+      },
+      {
+        "line": 322,
+        "text": "\t\t\t\tif k > 2 then"
+      },
+      {
+        "line": 323,
+        "text": "\t\t\t\t\tlocal x, y = game.level.map:getTileToScreen(game.player.x, game.player.y, true)"
+      },
+      {
+        "line": 324,
+        "text": "\t\t\t\t\tlocal b = (k * 0.035) + 0.04"
+      },
+      {
+        "line": 325,
+        "text": "\t\t\t\t\tgame.level.arena.raiseRank(b)"
+      },
+      {
+        "line": 326,
+        "text": "\t\t\t\t\tgame.flyers:add(x, y, 90, 0.5, 0, (\"%d kills!\"):tformat(k), { 2, 57, 185 }, false)"
+      },
+      {
+        "line": 327,
+        "text": "\t\t\t\t\tgame.log(\"#YELLOW#You killed %d enemies in a single turn! The public is excited!\", k)"
+      }
+    ]
+  },
+  {
+    "parent_index": 49,
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "host_note": "unnatural body隶属curse效果，诅咒之体具有语境支持。",
+    "lines": [
+      {
+        "line": 1779,
+        "text": ""
+      },
+      {
+        "line": 1780,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1781,
+        "text": "\tname = \"CURSED_FORM\", image = \"talents/seethe.png\","
+      },
+      {
+        "line": 1782,
+        "text": "\tdesc = _t\"Cursed Form\","
+      },
+      {
+        "line": 1783,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 1784,
+        "text": "\tsubtype = { curse=true },"
+      },
+      {
+        "line": 1785,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 1786,
+        "text": "\tdecrease = 0,"
+      },
+      {
+        "line": 1787,
+        "text": "\tno_remove = true,"
+      },
+      {
+        "line": 1788,
+        "text": "\tcancel_on_level_change = true,"
+      },
+      {
+        "line": 1789,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 1790,
+        "text": "\tlong_desc = function(self, eff)"
+      },
+      {
+        "line": 1791,
+        "text": "\t\tlocal desc = _t\"The target's unnatural body has responded to damage taken.\""
+      },
+      {
+        "line": 1792,
+        "text": "\t\tif (eff.incDamageChange or 0) > 0 then"
+      },
+      {
+        "line": 1793,
+        "text": "\t\t\tdesc = desc..(\" All damage that the target inflicts is increased by %d%%.\"):tformat(eff.incDamageChange)"
+      },
+      {
+        "line": 1794,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1795,
+        "text": "\t\tif (eff.statChange or 0) > 0 then"
+      },
+      {
+        "line": 1796,
+        "text": "\t\t\tdesc = desc..(\" Strength and Willpower are increased by %d. Poisons and diseases have a %d%% chance of being neutralized each turn.\"):tformat(eff.statChange, eff.neutralizeChance)"
+      },
+      {
+        "line": 1797,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1798,
+        "text": "\t\treturn desc"
+      }
+    ]
+  }
+]

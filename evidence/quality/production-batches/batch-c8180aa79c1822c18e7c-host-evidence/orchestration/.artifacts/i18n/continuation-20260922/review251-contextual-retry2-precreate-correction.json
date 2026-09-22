@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-09-22T09:16:50.193387+00:00",
+  "reason": "Host passed codex instead of full codex/gpt-5.6-sol provider identifier; profiles guard rejected before any create. Correct prepared selection to established profile.",
+  "original_row": {
+    "agent_id": null,
+    "archive_attempts_started": 0,
+    "archive_confirmed": false,
+    "attempt": 3,
+    "author_provider_resolution": "not_applicable",
+    "candidate_author_agent_id": null,
+    "candidate_identity": "f69a6c668ca2cee014d00494f6cf314a4402d5555d02c0f96872d8763f5c9489",
+    "create_parameters": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "labels": {
+        "candidate_identity": "f69a6c668ca2cee014d00494f6cf314a4402d5555d02c0f96872d8763f5c9489",
+        "dispatch_id": "full-002",
+        "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498",
+        "purpose": "translation_contextual_v2",
+        "role": "reviewer",
+        "task_id": "batch-c8180aa79c1822c18e7c-contextual-000"
+      },
+      "modeId": "auto-review",
+      "prompt": "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n输入：candidate_identity=f69a6c668ca2cee014d00494f6cf314a4402d5555d02c0f96872d8763f5c9489；input_path=.ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。",
+      "provider": "codex",
+      "thinkingOptionId": "medium",
+      "workspaceId": "wks_420314270844170b"
+    },
+    "creation_transport": "mcp",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "cycle": 0,
+    "dispatch_id": "full-002",
+    "input_path": ".ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+    "input_sha256": "a8ad38f5f016ae3d697e0d1f0cea58f2c0032b83efebdf39056241fd9f2bec03",
+    "labels": {
+      "candidate_identity": "f69a6c668ca2cee014d00494f6cf314a4402d5555d02c0f96872d8763f5c9489",
+      "dispatch_id": "full-002",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498",
+      "purpose": "translation_contextual_v2",
+      "role": "reviewer",
+      "task_id": "batch-c8180aa79c1822c18e7c-contextual-000"
+    },
+    "lifecycle": "active",
+    "parent_agent_id": "575dc230-301d-4d11-95c9-b22c20f86498",
+    "prepared_at": "2026-09-22T09:07:13.660296+00:00",
+    "purpose": "translation_contextual_v2",
+    "retry_of": "batch-c8180aa79c1822c18e7c-contextual-000|full-001",
+    "review_kind": "full",
+    "role": "REVIEWER",
+    "status": "prepared",
+    "task_id": "batch-c8180aa79c1822c18e7c-contextual-000",
+    "timing": [
+      {
+        "category": "tool_call",
+        "ended_at": "2026-09-22T09:07:24.213Z",
+        "operation": "profiles",
+        "started_at": "2026-09-22T09:07:24.205Z",
+        "wire_sha256": "56900c935421dd67b43191420e3b323f87798208d251f27b219b238a6def8d79"
+      }
+    ],
+    "wire_events": [
+      {
+        "op": "profiles",
+        "path": ".artifacts/i18n/continuation-20260922/review251-contextual-wire/batch-c8180aa79c1822c18e7c-contextual-000/full-002/wire/56900c935421dd67b43191420e3b323f87798208d251f27b219b238a6def8d79.json",
+        "sha256": "56900c935421dd67b43191420e3b323f87798208d251f27b219b238a6def8d79"
+      }
+    ],
+    "workspace_id": "wks_420314270844170b"
+  }
+}

@@ -1,0 +1,357 @@
+[
+  {
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "sha256": "958b207fd24723fa3b1613c62048b19012df2e24e9b82152eb1ef2485a88aed1",
+    "lines": [
+      {
+        "line": 743,
+        "text": "\tname = \"Hold the Ground\","
+      },
+      {
+        "line": 744,
+        "text": "\ttype = {\"race/orc\", 2},"
+      },
+      {
+        "line": 745,
+        "text": "\trequire = racial_req2,"
+      },
+      {
+        "line": 746,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 747,
+        "text": "\tcooldown = function(self, t) return 12 end,"
+      },
+      {
+        "line": 748,
+        "text": "\tmode = \"passive\","
+      },
+      {
+        "line": 749,
+        "text": "\tgetSaves = function(self, t) return self:combatTalentScale(t, 4, 16, 0.75) end,"
+      },
+      {
+        "line": 750,
+        "text": "\tgetDebuff = function(self, t) return math.ceil(self:combatTalentStatDamage(t, \"wil\", 1, 5)) end,"
+      },
+      {
+        "line": 751,
+        "text": "\tpassives = function(self, t, p)"
+      },
+      {
+        "line": 752,
+        "text": "\t\tself:talentTemporaryValue(p, \"combat_physresist\", t.getSaves(self, t))"
+      },
+      {
+        "line": 753,
+        "text": "\tend,"
+      },
+      {
+        "line": 754,
+        "text": "\tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)"
+      },
+      {
+        "line": 755,
+        "text": "\t\tif self:isTalentCoolingDown(t) then return end"
+      },
+      {
+        "line": 756,
+        "text": "\t\tif not ( (self.life - dam) < (self.max_life * 0.5) ) then return end"
+      },
+      {
+        "line": 757,
+        "text": "\t\t"
+      },
+      {
+        "line": 758,
+        "text": "\t\tlocal nb = self:removeEffectsFilter(self, {status = \"detrimental\", type = \"mental\"}, t.getDebuff(self, t))"
+      },
+      {
+        "line": 759,
+        "text": "\t\tif nb > 0 then"
+      },
+      {
+        "line": 760,
+        "text": "\t\t\tgame.logSeen(self, \"#CRIMSON#%s roars with rage shaking off %d mental debuffs!\", self:getName():capitalize(), nb)"
+      },
+      {
+        "line": 761,
+        "text": "\t\t\tself:startTalentCooldown(t)"
+      },
+      {
+        "line": 762,
+        "text": "\t\tend"
+      },
+      {
+        "line": 763,
+        "text": "\tend,"
+      },
+      {
+        "line": 764,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 765,
+        "text": "\t\treturn ([[Orcs have been the prey of the other races for thousands of years, with or without justification. They have learnt to withstand things that would break weaker races."
+      },
+      {
+        "line": 766,
+        "text": "\t\tWhen your life goes below 50%% your sheer determination cleanses you of %d mental debuff(s) based on talent level and Willpower.  This can only happen once every %d turns."
+      },
+      {
+        "line": 767,
+        "text": "\t\tAlso increases physical save by %d.]]):"
+      },
+      {
+        "line": 768,
+        "text": "\t\ttformat(t.getDebuff(self, t), self:getTalentCooldown(t), t.getSaves(self, t))"
+      }
+    ]
+  },
+  {
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+    "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "lines": [
+      {
+        "line": 1266,
+        "text": "\tlocal mult = 1"
+      },
+      {
+        "line": 1267,
+        "text": "\tif light_armor then"
+      },
+      {
+        "line": 1268,
+        "text": "\t\tif self:knowTalent(self.T_MOBILE_DEFENCE) then"
+      },
+      {
+        "line": 1269,
+        "text": "\t\t\tmult = mult + self:callTalent(self.T_MOBILE_DEFENCE,\"getDef\")"
+      },
+      {
+        "line": 1270,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1271,
+        "text": "\tend"
+      },
+      {
+        "line": 1272,
+        "text": ""
+      },
+      {
+        "line": 1273,
+        "text": "\treturn math.max(0, d * mult + add) -- Add bonuses last to avoid compounding defense multipliers from talents"
+      },
+      {
+        "line": 1274,
+        "text": "end"
+      },
+      {
+        "line": 1275,
+        "text": ""
+      },
+      {
+        "line": 1276,
+        "text": "--- Gets the defense ranged"
+      },
+      {
+        "line": 1277,
+        "text": "function _M:combatDefense(fake, add)"
+      },
+      {
+        "line": 1278,
+        "text": "\tif self.combat_precomputed_defense then return self.combat_precomputed_defense end"
+      },
+      {
+        "line": 1279,
+        "text": "\tlocal base_defense = self:combatDefenseBase(true)"
+      },
+      {
+        "line": 1280,
+        "text": "\tif not fake then base_defense = self:combatDefenseBase() end"
+      },
+      {
+        "line": 1281,
+        "text": "\tlocal d = math.max(0, base_defense + (add or 0))"
+      },
+      {
+        "line": 1282,
+        "text": "\tif self:attr(\"dazed\") then d = d / 2 end"
+      },
+      {
+        "line": 1283,
+        "text": "\treturn self:rescaleCombatStats(d)"
+      },
+      {
+        "line": 1284,
+        "text": "end"
+      },
+      {
+        "line": 1285,
+        "text": ""
+      },
+      {
+        "line": 1286,
+        "text": "--- Gets the defense ranged"
+      },
+      {
+        "line": 1287,
+        "text": "function _M:combatDefenseRanged(fake, add)"
+      },
+      {
+        "line": 1288,
+        "text": "\tif self.combat_precomputed_defense then return self.combat_precomputed_defense end"
+      },
+      {
+        "line": 1289,
+        "text": "\tlocal base_defense = self:combatDefenseBase(true)"
+      },
+      {
+        "line": 1290,
+        "text": "\tif not fake then base_defense = self:combatDefenseBase() end"
+      },
+      {
+        "line": 1291,
+        "text": "\tlocal d = math.max(0, base_defense + (self.combat_def_ranged or 0) + (add or 0))"
+      },
+      {
+        "line": 1292,
+        "text": "\tif self:attr(\"dazed\") then d = d / 2 end"
+      },
+      {
+        "line": 1293,
+        "text": "\treturn self:rescaleCombatStats(d)"
+      },
+      {
+        "line": 1294,
+        "text": "end"
+      },
+      {
+        "line": 1295,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+    "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "lines": [
+      {
+        "line": 2073,
+        "text": "\tif self.turn_procs.auto_mind_crit or rng.percent(chance) then"
+      },
+      {
+        "line": 2074,
+        "text": "\t\tself.turn_procs.is_crit = \"mind\""
+      },
+      {
+        "line": 2075,
+        "text": "\t\tself.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)"
+      },
+      {
+        "line": 2076,
+        "text": "\t\tdam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)"
+      },
+      {
+        "line": 2077,
+        "text": "\t\tcrit = true"
+      },
+      {
+        "line": 2078,
+        "text": "\t\tgame.logSeen(self, \"#{bold}#%s's mind surges with critical power!#{normal}#\", self:getName():capitalize())"
+      },
+      {
+        "line": 2079,
+        "text": ""
+      },
+      {
+        "line": 2080,
+        "text": "\t\tif self:attr(\"hate_on_crit\") then self:incHate(self:attr(\"hate_on_crit\")) end"
+      },
+      {
+        "line": 2081,
+        "text": "\t\tif self:attr(\"psi_on_crit\") then self:incPsi(self:attr(\"psi_on_crit\")) end"
+      },
+      {
+        "line": 2082,
+        "text": "\t\tif self:attr(\"equilibrium_on_crit\") then self:incEquilibrium(self:attr(\"equilibrium_on_crit\")) end"
+      },
+      {
+        "line": 2083,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/Object.lua",
+    "sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+    "lines": [
+      {
+        "line": 1815,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"hate_on_crit\", \"%+.2f\", _t\"Hate when firing a critical mind attack: \")"
+      },
+      {
+        "line": 1816,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"psi_on_crit\", \"%+.2f\", _t\"Psi when firing a critical mind attack: \")"
+      },
+      {
+        "line": 1817,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"equilibrium_on_crit\", \"%+.2f\", _t\"Equilibrium when firing a critical mind attack: \")"
+      },
+      {
+        "line": 1818,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_source_path": "game/modules/tome/class/interface/Archery.lua",
+    "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+    "lines": [
+      {
+        "line": 310,
+        "text": ""
+      },
+      {
+        "line": 311,
+        "text": "\tself.turn_procs.weapon_type = {kind=weapon and weapon.talented or \"unknown\", mode=\"archery\"}"
+      },
+      {
+        "line": 312,
+        "text": ""
+      },
+      {
+        "line": 313,
+        "text": "\t-- Does the blow connect? yes .. complex :/"
+      },
+      {
+        "line": 314,
+        "text": "\tif tg.archery.use_psi_archery then self:attr(\"use_psi_combat\", 1) end"
+      },
+      {
+        "line": 315,
+        "text": "\tlocal atk, def = self:combatAttackRanged(weapon, ammo), target:combatDefenseRanged()"
+      },
+      {
+        "line": 316,
+        "text": "\tlocal dam, apr, armor = self:combatDamage(weapon, nil, ammo), self:combatAPR(ammo) + (weapon and weapon.apr or 0), target:combatArmor()"
+      },
+      {
+        "line": 317,
+        "text": "\tatk = atk + (tg.archery.atk or 0)"
+      },
+      {
+        "line": 318,
+        "text": "\tdam = dam + (tg.archery.dam or 0)"
+      }
+    ]
+  }
+]

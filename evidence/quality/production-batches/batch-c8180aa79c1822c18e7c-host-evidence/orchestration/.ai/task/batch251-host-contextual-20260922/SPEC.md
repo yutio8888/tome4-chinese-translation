@@ -1,0 +1,1 @@
+只读补充复审：第251批两条冻结日志revision。独立task不替换生产surface结果，不手改checkpoint或队列。完成后与宿主源码裁决一起作为窗口5补充证据。范围仅SCOPE/draft；reviewer仅读取冻结输入、完整contextual契约和相关固定公开源码，不能读取宿主finding/其他任务/当前译文或术语库。真实anchor preflight先于freeze。禁止写入；用户持续复核和窗口修复授权适用。

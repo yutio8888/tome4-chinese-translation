@@ -1,0 +1,177 @@
+{
+  "verified_at": "2026-09-22T09:27:21.497251+00:00",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/e9682ee7-fdbb-475d-a637-f06ca7a62211.jsonl",
+  "native_sha256": "88b757c3410d08d69aaad285fc06dbc178a9a7453dc019a985e434be5bfc44c8",
+  "calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01Px49D3XdDNnHsYVgFE736m",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+        "description": "Check sizes"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0111ANGe6TL78BxvXGPu8et2",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0115dtUjkxJ16gbSEApNUBuQ",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01SH1AzERABspbZ5HaMeuse2",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('==== idx',i,k)\n    print(json.dumps(t,ensure_ascii=False,indent=1))\n\"",
+        "description": "Dump translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WqKCo5VCwVU3ai6aJcfBzt",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    print('==== idx',i,b.get('revision_key'))\n    print(b.get('context'))\n\" | head -400",
+        "description": "Dump bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01CeKn4Vr9vTeEJGTjLw7W5L",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=b.get('context')\n    print('==== idx',i)\n    head,_,rest=c.partition('source_facts_v1:')\n    print('PATH:',head.strip())\n    try:\n        j=json.loads(rest)\n    except Exception as e:\n        print('ERR',e); continue\n    f=j['fact']\n    print('KEYS',list(f.keys()))\n    for a in f.get('anchors',[]):\n        print(' ANCHOR',a.get('kind'),a.get('public_source_path'),a.get('matching_lines'))\n        for s in a.get('snippet',[]):\n            print('   ',('*' if s['is_match'] else ' '),s['line'],s['text'])\n    if f.get('terminology'): print(' TERM',json.dumps(f['terminology'],ensure_ascii=False))\n    for k,v in f.items():\n        if k not in ('anchors','terminology'): print(' ',k,json.dumps(v,ensure_ascii=False)[:1500])\n\"",
+        "description": "Structured dump of context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013KUyLbwQ8tKMxPbKpW9hT8",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 2>/dev/null && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && echo OK || echo MISSING",
+        "description": "Locate frozen repo"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0178kqNYHfobJqtiJ5uY2yQn",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\necho \"=== races.lua Hold the Ground ===\"\ngit show $C:game/modules/tome/data/talents/misc/races.lua | sed -n '735,800p'\necho \"=== other.lua effect around 1780 ===\"\ngit show $C:game/modules/tome/data/timed_effects/other.lua | sed -n '1770,1810p'",
+        "description": "Inspect talent and effect source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S7ASQnMXkFMZpKpcGhvXq3",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/techniques/combat-training.lua | sed -n '70,130p'",
+        "description": "Armour training talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01P86Y8c1VUFX6JgRwvRxELp",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit grep -n \"stealth_penalty\\|T_STEALTH\\b\" $C -- game/modules/tome/data/talents/cunning/stealth.lua | head -30\necho '---'\ngit show $C:game/modules/tome/data/talents/cunning/stealth.lua | sed -n '1,80p'",
+        "description": "Stealth talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011GUXMiyHdbsxfYKmPviwpb",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/damage_types.lua | sed -n '1630,1660p'",
+        "description": "Knockback damage type source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VMJSGAVnPtgVGGMMC13YCD",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/misc/npcs.lua | sed -n '3190,3220p'",
+        "description": "NPC armour talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Bhh15nx79VomD1QSdGgzWG",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit grep -n \"equilibrium_on_crit\" $C -- game/modules/tome | head\necho '--- incEquilibrium ---'\ngit grep -n \"function _M:incEquilibrium\" $C -- game/modules/tome | head\necho '--- psi_on_crit hate_on_crit ---'\ngit grep -n \"psi_on_crit\" $C -- game/modules/tome/class | head",
+        "description": "Trace equilibrium_on_crit"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_019Z4df5woiaBczJx5QZWRnj",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/class/Game.lua | sed -n '2008,2045p'",
+        "description": "Healthbar mode source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "verdict": "PASS",
+  "reason": "All 14 native calls inspected: own frozen envelope and full contextual contract, then directly related public-source call chains at fixed commit 624a67329fe2ad440c5b344785a9c73fcf22ae63. No mutable translation/terminology, prior findings, other task reads, or writes. Strict raw validates ordered keys and candidate identity; provider/model runtime identity verified; archive confirmed."
+}

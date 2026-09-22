@@ -1,0 +1,15 @@
+# 第251批宿主证据
+
+80条表面筛查、12条正式上下文复核，另有2条宿主发现的独立补充复核。80条英文键均在固定tome源码字面匹配，58个来源文件与固定git对象逐字节一致。三个真实任务均DONE_VERIFIED；接受6个独立reviewer结果（5个Sol及1个Opus），共创建9个真实child，包含3个无效尝试，全部已确认归档。
+
+正式16项观察裁决为9 confirmed、3 refuted、4 advisory，按revision合并6条待修复，生产状态74 done / 6 repair_required。确认暴击失衡值不能预设回复方向、闪避加成不限近战、盾牌抵御关系/战争时期/时间修饰语、受伤触发描述、战术边框用途及伐木工叙述状态。incEquilibrium按带符号属性增减，不能沿用模型“必定增加”的泛化；兽族忍耐有被动抗逆机制语境，不强行改名。击退与重甲潜行限制有源码支持。心灵聚焦各物品分项已表达效果取决于物品；轮/回合同指turn，局部措辞建议不作必修。盾牌人物音译意见缺少统一命名依据，不修专名。日志文体意见不扩展为全面重写。
+
+补充任务独立确认2条：e68cd1e92d…击退撞上目标不能译成进入目标；e6976768f9…mindCrit也用于治疗，日志不能只称精神攻击。两条保留为窗口5的补充修复候选，不改写原表面OK和本批生产状态，完整独立输出、固定源码及宿主裁决均在补充任务快照。
+
+失败记录全部保留：main full-000和full-002的第4个revision标识各漏一个字符，严格校验拒收；full-001虽然JSON有效，实际仓库搜索读取当前译文及历史裁决，宿主在任何采纳之前按读取边界拒收。以上三个child自然完成且确认归档后才分别创建fresh retry，没有修补原始输出。full-003换用可用的Opus REVIEWER配置，原输入/candidate不变；14次原生调用逐项检查，只读自身冻结输入、完整契约及相关固定版本源码，strict、来源和读取边界均通过。full-002准备时宿主误传provider缩写，被profile检查在create前拒绝；保留原prepared记录后修正为完整provider/model，未产生歧义child。
+
+本批在surface派发前完成SPEC/PLAN/SCOPE，main contextual准确draft于08:48:08—08:48:12通过anchor preflight，再执行实际production export，导出payload与draft逐字匹配，之后冻结任务输入并派发；补充任务也独立预检冻结。未重复250的行政文档晚补或producer提前导出问题。未修改译文、术语或规则文件。
+
+窗口5在本批finalize并推送后按机制高影响触发提前修复：250的10条加251的6条正式候选及2条补充候选，共18条预期去重候选。逐来源真实repair preflight仍须执行；不在活动审核checkpoint内改译文。此前先252再修复的安排已前瞻调整，252尚未启动。
+
+17项完整门禁和严格addon构建全部通过，实际链耗时371.93秒。门禁日志哈希、prospective安装字节及三个独立任务快照重放见PRODUCTION-COMMIT-READY.json和SNAPSHOT-REPLAY.json。本说明为提交前验证快照，不宣称后续finalize/push已经发生。

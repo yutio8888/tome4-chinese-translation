@@ -1,0 +1,57 @@
+{
+  "verified_at": "2026-09-22T09:22:14.249571+00:00",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T09-16-50-01a0c867-5659-7ff1-9f1d-84552c932d0e.jsonl",
+  "native_sha256": "ebb11b7634cd256438e3c47836d5986565022ae2c95851f825142b936f2e603e",
+  "calls": [
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,260p' docs/paseo-translation-context-review-v2-contract.md && sed -n '1,260p' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"jq -r '.candidate_identity, (.payload.translation_snapshot[] | \\\"KEY=\\\"+.revision_key+\\\"\\\\nSRC=\\\"+.source+\\\"\\\\nTGT=\\\"+.target+\\\"\\\\nCTX=\\\"+(.revision_key as $k | input_filename))' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"jq -r '.payload.bounded_context[] | .revision_key as $k | (.context | split(\\\"\\\\nsource_facts_v1:\\\")[1] | fromjson) as $f | \\\"KEY=\\\"+$k+\\\"\\\\nPATH=\\\"+$f.fact.main_source.public_source_path+\\\"\\\\nEVID=\\\"+$f.fact.evidence_status+\\\"\\\\nTERMS=\\\"+($f.fact.terminology|tojson)+\\\"\\\\nSNIP=\\\"+([$f.fact.anchors[].snippet[]?|(.line|tostring)+\\\":\\\"+.text]|join(\\\"\\\\n\\\"))+\\\"\\\\n\\\"' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/races.lua | sed -n '742,790p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1765,1810p' && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua | sed -n '80,115p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"find /workspace -maxdepth 3 -type d -name .git -print\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/races.lua | sed -n '742,790p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1765,1810p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua | sed -n '80,115p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 grep -n 'equilibrium_on_crit\\\\|hate_on_crit\\\\|psi_on_crit' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -80 && git -C /workspace/t-engine4 grep -n 'equilibrium_on_crit' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/modules/tome/data | head -80 && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | sed -n '1780,1822p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 grep -n 'no_stealth\\\\|combat_armor.*stealth\\\\|STEALTH' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents/cunning/stealth.lua game/modules/tome/class | head -120 && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/stealth.lua | sed -n '25,130p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/projection.lua | sed -n '505,605p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n '1625,1760p' && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua | sed -n '1990,2045p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 grep -n 'combatDefense' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/interface/Combat.lua game/modules/tome/data/talents/techniques/archery.lua game/modules/tome/class | head -100 && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/npcs.lua | sed -n '3180,3220p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '1220,1305p' && git -C /workspace/t-engine4 grep -n 'Mobile Defence\\\\|T_MOBILE_DEFENCE' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -60\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":15000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"jq -cS '.payload' .ai/task/batch-c8180aa79c1822c18e7c-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | tr -d '\\\\n' | sha256sum\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":1000}); text(r.output)\n"
+    }
+  ],
+  "verdict": "PASS",
+  "reason": "All 12 calls inspected: own frozen envelope/full contract, relevant public source pinned commit, failed local git lookup and bounded .git metadata discovery. No mutable translation, terminology or prior findings read. Output independently invalid because verdicts[3] revision key lost one character."
+}

@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-09-22T08:47:19.800310+00:00",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T08-45-43-01a0c84a-d837-7710-8c46-d38606ca5139.jsonl",
+  "native_sha256": "3846a420644692a573c9ec133288e95bde46da8217cd1581758bb0a41724c357",
+  "calls": [
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-context-review-v2-contract.md && sed -n '1,260p' .ai/task/batch251-host-contextual-20260922/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n"
+    },
+    {
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"python3 -c 'import json,hashlib; p=json.load(open(\\\".ai/task/batch251-host-contextual-20260922/CONTEXTUAL-ENVELOPE-final-full.json\\\")); b=json.dumps(p[\\\"payload\\\"],ensure_ascii=False,sort_keys=True,separators=(\\\",\\\",\\\":\\\"),allow_nan=False).encode(); print(hashlib.sha256(b).hexdigest()); print(p[\\\"candidate_identity\\\"])'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":2000}); text(r.output)\n"
+    }
+  ],
+  "verdict": "PASS",
+  "reason": "Manually inspected both actual calls: own frozen envelope and full corresponding contract only; local hash computation no mutation."
+}
