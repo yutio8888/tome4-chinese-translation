@@ -22,6 +22,7 @@ from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_queue as queue
 from tools.i18nlib import production_review_v2_lite_batch as batch
+from tools.i18nlib import production_review_v2_lite_migration as migration
 from tools.i18nlib import git_evidence_reader as reader
 from tools.i18nlib import gate_results
 import contextual_result_check
@@ -1774,6 +1775,49 @@ class PublicApiFlowTests(QueueTests):
         queue.rebuild(self.root)
         self.assertEqual(queue.status(self.root)["explicit_overrides"],
                          {"repair_required": 1})
+
+    def test_repair_preflight_accepts_host_blocks_and_selects_only_repair_winners(self):
+        self._resize_and_init(2)
+        batch.start(self.root, limit=2)
+        checkpoint = batch.show(self.root)
+        repair_revision, blocked_revision = checkpoint["selected"]
+        batch.record_host_block(self.root, self._host_block_input(
+            checkpoint, revision=blocked_revision))
+        batch.surface_export(self.root)
+        surface_ref = batch.show(self.root)["surface"][0]
+        output = json.loads(self._surface_bytes(surface_ref))
+        output["results"][0].update(verdict="ISSUE", observation="repair fixture")
+        batch.surface_import(self.root, {"0": wp1.canonical_bytes(output)})
+        batch.contextual_export(self.root)
+        contextual_ref = batch.show(self.root)["contextual"][0]
+        contextual_output = self._contextual_bytes(contextual_ref, "OK")
+        self._install_contextual_done_state(contextual_ref, contextual_output)
+        batch.contextual_import(self.root, {"0": contextual_output})
+        observations = batch._accepted_observations(batch.show(self.root))
+        snapshot = {"sha256": hashlib.sha256(b"repair source").hexdigest(),
+                    "content": "repair source"}
+        decisions = [self._decision(item, disposition="confirmed", snapshot=snapshot,
+                                    repair_required=True) for item in observations]
+        adjudication = self.root / "mixed-repair-adjudication.json"
+        adjudication.write_bytes(wp1.canonical_bytes({
+            "batch_id": checkpoint["batch_id"], "decisions": decisions}))
+        batch.adjudicate(self.root, adjudication)
+        prepared = batch.prepare_evidence(self.root)
+        publication = self._publish_generated(Path(prepared["prospective"]))
+        batch.finalize(self.root, publication)
+        queue.rebuild(self.root)
+        self.assertEqual(queue.status(self.root)["explicit_overrides"],
+                         {"repair_required": 1, "blocked": 1})
+        # The fixture lacks a real Lua/version manifest. Keep Git evidence,
+        # manifest/hash validation and durable winner selection real.
+        with mock.patch.object(migration, "_validate_live_repair_preimage"):
+            report = migration.repair_preflight(self.root, checkpoint["batch_id"])
+        workset = wp1.parse_canonical_object(Path(report["workset"]).read_bytes(), "workset")
+        self.assertEqual([item["entry_revision_identity"] for item in workset["items"]],
+                         [repair_revision])
+        self.assertEqual(workset["evidence_commit"], publication)
+        self.assertNotIn(blocked_revision, [item["entry_revision_identity"]
+                                           for item in workset["items"]])
 
     def _surface_bytes(self, ref, verdict="OK"):
         raw = Path(ref["input_path"]).read_bytes()

@@ -1006,9 +1006,8 @@ def _repair_workset(root: Path, batch_id: str, *, manifest: Any | None = None,
     # Validate the named batch against the catalog that was current at its own
     # base commit before consulting the live current catalog.  This preserves
     # the historical row identity needed to compare it with today's winner.
-    batch_manifest = queue._exact(
-        wp1.parse_canonical_object(queue._ordinary_blob(root, tree, manifest_path), "repair batch manifest"),
-        queue.BATCH_MANIFEST_KEYS, "repair batch manifest")
+    batch_manifest = queue._batch_manifest(
+        queue._ordinary_blob(root, tree, manifest_path), "repair batch manifest")
     source_manifest, source_entries, _source_files = queue._catalog_from_tree(
         root, batch_manifest["base_commit"])
     if source_manifest["catalog_id"] != batch_manifest["catalog_id"]:

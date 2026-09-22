@@ -1,0 +1,11 @@
+# 修复预检兼容 host-block manifest
+
+窗口4的真实预检中，247通过，248因manifest新增的host_blocks_sha256被旧精确字段集合拒绝，249未执行。问题已定位于_repair_workset的前置解析；原248证据通过现有队列消费者，未被修改。
+
+仅将此调用改为现有queue._batch_manifest。它仍只接受封闭的已知字段集合；后续_batch_rows照常验证host_blocks.jsonl存在性、哈希、嵌入归因、当前durable winner和原译文preimage。阻断项不进入修复清单。
+
+新增真实混合批次回归：一条repair、一条host-blocked，实际Git发布/finalize/重放后repair preflight只返回repair项。fixture只模拟没有配置的Lua/版本桥，Git和消费者验证不被模拟。修改前测试复现同一错误；修改后与旧批次/preimage及host-block优先级测试共3项通过。测试日志中的fixture gate输出不代表真实仓库门禁；真实16项完整工具检查见ci-results.json。按普通维护验证矩阵使用--skip-build，因为没有addon源码、输出、打包或加载变化；后续正式译文修复仍运行完整门禁和构建。
+
+三个来源批次已重新真实preflight全部通过：247为2条、248为6条、249为8条。首次失败及部分成功产物保留，新尝试使用独立路径，没有覆盖历史。另1条回忆录的宿主补充保持独立来源，正式生产done状态不改写。
+
+本次是两个已DONE并确认全部child归档的249审核任务之后、尚未创建窗口4 IMPLEMENT task或child之前的一处有界工具维护；主代理按AGENTS普通维护规则直接实施。实际消费者重试时HEAD和SQLite仍是cdc0fd0，只有本维护工具/测试文件有变更，catalog、生产证据、译文和术语均保持不变；代码候选及真实门禁绑定见candidate.json。维护提交后的队列同步和push不由本提交前快照冒充完成。
