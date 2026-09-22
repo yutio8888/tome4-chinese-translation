@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核250已finalize，窗口5第一批）
+更新时间：2026-09-22（审核251已finalize，窗口5提前进入修复）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
@@ -29,9 +29,29 @@ pending/advisory；Archmage 和旧 blocked 保持排除。
 309文件、2,926,264 bytes 的冻结归档、五个候选文件、migration 及 publication 原始输入已按源
 逐字安装并复核；两个独立 snapshot 均从归档路径再次 `DONE_VERIFIED`。详情见
 [窗口4出版证据](evidence/quality/repair-window-4-20260922/PUBLICATION.md)。该文件的待出版文字是提交前快照；
-窗口4实际出版闭合已完成。250已finalize，本次交接提交后执行一次queue rebuild及push；
-恢复时先核对HEAD、远端与队列，避免重做。下一批251（80条），然后252（80条），再汇总修复窗口5。
+窗口4实际出版闭合已完成。250已finalize并推送3072697；251证据已提交并finalize。
+本次交接提交后执行一次queue rebuild及push；恢复时先核对HEAD、远端与队列，避免重做。
+窗口5因机制高影响问题在251安全边界提前修复：250的10条、251的6条正式候选，加251的2条独立
+补充候选，合计18条预期候选。两批各跑真实repair preflight，保留独立补充来源后建唯一EXECUTOR任务。
+252尚未启动，待修复窗口5完成后继续。
 原有 `.ai/consult/`、`recipe` 和15个旧 source-workset 保留，不纳入提交或清理。
+
+## 审核251：修复窗口5第二批，提前修复边界
+
+`batch-c8180aa79c1822c18e7c`，80条固定tome来源，**74 done / 6 repair_required**。
+12条正式上下文复核；16项观察裁决为9 confirmed、3 refuted、4 advisory。另2条独立补充复核
+确认击退碰撞日志和可用于治疗的精神暴击日志，保持原生产状态不变，单独纳入修复。
+9个真实child全部归档，其中6份有效结果、3份拒收结果；两次revision标识错误及一次读取越界
+均保留原始证据，未修补输出或冒充正式结果。最终Opus复审有效，5个有效Sol结果来自surface及补充任务。
+三个任务及206文件、1,522,597 bytes的独立快照均DONE_VERIFIED，17项完整门禁与严格构建通过。
+证据提交 `e0148fc67c09c8b1f6da0fab77b30aeface0e7f5` 已finalize，运行时contextual字节与提交逐一核验归档。
+详情见[251宿主证据](evidence/quality/production-batches/batch-c8180aa79c1822c18e7c-host-evidence/summary.md)和
+[finalize收据](evidence/quality/production-batches/batch-c8180aa79c1822c18e7c-host-evidence/FINALIZE-RECEIPT.json)。
+
+正式修复范围：暴击失衡值方向、闪避适用范围、盾牌抵御/时期/时间修饰语、受伤触发描述、战术边框用途、
+伐木工说话状态及恐怖描述。兽族忍耐命名、人物音译、轮/回合只记建议；击退、潜行及按物品分项的聚焦效果误报撤销。
+提前修复依据见[窗口决定](evidence/quality/production-batches/batch-c8180aa79c1822c18e7c-host-evidence/orchestration/.ai/task/batch-c8180aa79c1822c18e7c/WINDOW5-EARLY-REPAIR-DECISION.json)。
+补充两条为 `e68cd1e92d…`、`e6976768f9…`，来源见[补充裁决](evidence/quality/production-batches/batch-c8180aa79c1822c18e7c-host-evidence/orchestration/.ai/task/batch251-host-contextual-20260922/HOST-ADJUDICATION.json)。
 
 ## 审核250：修复窗口5第一批
 
