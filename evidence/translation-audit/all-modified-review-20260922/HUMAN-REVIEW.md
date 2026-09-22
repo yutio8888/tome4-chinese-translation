@@ -578,3 +578,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01306 | confirmed：`Other theories hold weight though` 判断谓语漏译；confirmed：`academic circles` 缩窄为“考古界”；confirmed：`crucible` 修饰语被省略。pending：`crucible` 具体译法 | 补谓语、放宽学界范围；`crucible` 译法定夺 |
 
 译文未修改。Sol 同时确认了 Gemini 的正面项（占位符与结构），原样记录。
+
+## batch-046 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-045-01.md](reports/sol-045-01.md)。译文未修改。按叶子 claim 共 27 条：23 confirmed、2 advisory、1 refuted、1 pending（Sol 自报“问题类 confirmed 20 项”，差额是 3 条正面确认）。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01308 | confirmed×4：`communities` 误作“市民”；`move faster` 重复翻译；`towards the end of` 漏译；`swinging` 漏译 | 逐句回改 |
+| entry-01310 | confirmed×3：“另人难以置信”错别字；`those` 指代误读；`borne purely from … delusions` 语义重心变化 | 改错别字、恢复指代 |
+| entry-01312 | confirmed×4：`children grew diseased` 语法误读；`renowned` 被加“臭名昭著”；`zeal` 误作“问心无愧”；`to Nature` 漏译 | 逐句回改 |
+| entry-01313 | confirmed×5：`otherworldly` 漏译；`peripheral vision` 泛化；`flicker in and out` 误作“飞舞”；`lucid` 漏译（有设定呼应）；`On a whim` 漏译。advisory：无源省略号。refuted：Gemini 称 `Lucid Dreamer` 是“被动天赋” | 补漏译；不要把“被动天赋”写进裁决依据 |
+| entry-01314 | confirmed：`Love, Eden` 主客关系改变；confirmed：样式与换行无问题 | 修主客关系 |
+| entry-01315 | confirmed：“防火胶布”加入源码没有的物件类型；confirmed：`luminous horror dust` 用冻结术语；confirmed：清单缩进与样式完整。advisory：截断破折号改双侧包裹。pending：“法罗的灰烬”是否固定译名 | 删臆造物件；查“法罗”术语记录 |
+| entry-01316 | confirmed：`arcane abilities` 译“奥术能量”；confirmed：其余核心词义与排版无异常 | 视术语决定是否改 |
+
+译文未修改。1 条 refuted 是对 Gemini 机制归因的下修，原样转录。
