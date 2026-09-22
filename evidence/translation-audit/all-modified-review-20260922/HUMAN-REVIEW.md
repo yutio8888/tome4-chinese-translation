@@ -622,3 +622,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01334 | advisory：外层中文双引号与内部半角双引号形成嵌套 | 统一嵌套引号规则后再处理，不升级为正确性问题 |
 
 译文未修改。
+
+## batch-049 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-048-01.md](reports/sol-048-01.md)。译文未修改。共 5 个 claim：4 confirmed、1 pending、无 refuted/advisory。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01347 | confirmed：“再告诉孩子们我爱他们。”后多一个空行（源码单换行）。Sol 建议按排版 advisory 处理，因该处正是话题转换、中文分段有可读性 | 项目若要求严格换行则删空行，否则可保留 |
+| entry-01382 | confirmed：漏译 `A few Sun Paladins made it there with you.`，丢失“太阳骑士与你一同抵达”的剧情关系 | 补回该层意思，句式可调 |
+| entry-01384 | confirmed：“你来的太晚了”应为“来得”；confirmed：`the sorcerers` 由执行链确认特指 Elandar 与 Argoniel。pending：同任务后文是否统一译“巫师们”（冻结输入未含 `mod-tome.lua:20180-20181` 目标译文） | 改“得”；称谓一致性需另取冻结译文再定 |
+
+译文未修改。Sol 明确 `confirmed` 只代表 claim 事实成立、不代表严重度。
