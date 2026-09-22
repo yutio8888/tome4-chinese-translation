@@ -741,3 +741,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01625 | confirmed：“你猎犬”缺“的”；confirmed：遗漏 `Upon activation`；confirmed：占位符与百分号格式正确。refuted：“将在 %d 回合内召唤”应改“%d 回合后”不成立 | 补“的”与激活条件；回合措辞不改 |
 | entry-01659 | confirmed：“%d 码球形范围”误用单位并遗漏半径概念；confirmed：占位符数量和顺序正确 | 改为“半径 %d 码”类表述 |
 | entry-01661 | confirmed：`carrion worm mass` 未统一“腐肉虫群”；confirmed：占位符正确、第五参数未被文本消费 | 按术语统一；死参数说明记录即可 |
+
+## batch-057 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-056-01.md](reports/sol-056-01.md)。译文未修改。共 5 个 claim：2 confirmed、2 advisory、1 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01689 | advisory：条目结论仅属排版/风格 | 无必办项 |
+| entry-01700 | advisory：条目结论仅属排版/风格 | 无必办项 |
+| entry-01703 | confirmed：钩爪追加的是流血与中毒效果；confirmed：把 `physical` 写成“流血伤害”遗漏实际伤害类型。refuted：`nature` 被写成“自然毒素伤害”**并非“完全丢失”自然伤害类型**（Sol 注措辞仍属 advisory） | 按伤害类型表回改措辞 |
+
+译文未修改。refuted 是对 Gemini 表述强度的下修，原样转录。
