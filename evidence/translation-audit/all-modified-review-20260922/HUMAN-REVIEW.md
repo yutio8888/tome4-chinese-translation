@@ -720,3 +720,14 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01563 | confirmed：三占位符正确；confirmed：“释放  ，”含两个多余半角空格 | 删空格 |
 | entry-01565 | confirmed：时间回溯点被译成空间“地方” | 改“时点/时刻”类 |
 | entry-01576 | confirmed：数值占位符正确。advisory：原文无“码”，译文额外指定单位 | 是否补单位属风格 |
+
+## batch-055 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-054-01.md](reports/sol-054-01.md)。译文未修改。共 9 个 claim：5 confirmed、2 advisory、1 pending、1 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01586 | confirmed：现译与固定简中译名不一致（Epoch→纪元）。pending：是否必然指同名专名实体、必须音译“亚伯契” | 术语核对后再定音译 |
+| entry-01588 | confirmed：省略 weave matter 动作及与技能名的呼应；confirmed：护甲/震慑免疫/流血免疫与机制吻合。advisory：`Magic` 译“魔力值” | 补呼应；`Magic` 译法待术语 |
+| entry-01605 | confirmed：漏译 `(warp)`／“（扭曲）”。refuted：末句省略“时空地雷的”主语构成漏译不成立 | 补 warp；不按漏译改主语 |
+| entry-01617 | confirmed：占位符正确。advisory：与同系三条 spellbound 译法不一致（事实已证实） | 是否统一系内译法 |
