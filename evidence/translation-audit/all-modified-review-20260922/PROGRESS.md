@@ -427,3 +427,12 @@
 - 流程自纠：本轮又把「读 STATE 的收获脚本」与「写 STATE 的归档脚本」并行，收获脚本读到半写 JSON 而失败（**未写入任何内容**），随后核验 STATE 完整并串行重跑；此后同一文件的读写不再并行。
 - 下一片已就绪：batch-044（entry-01292–01301，10 条，sha `f050852c…`）+ cross-batch-043（4 条，sha `b9e82d19a0a04da8c5cc38b6da9dde8a37788dbe83d5ccc8124c283153654463`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 043/044 收获（第三次平台超时）
+
+- gemini-044-01：**第三次 5 分钟打印超时（status error）**，brain `18e03c12` 报告 **10/10 完整**，按规则计完整覆盖不重跑，`last_error` 入记录。报告 sha256 `91f06cf0ef8e727752f038effc9d255367b64d5a7ba850d16e03c2c3f2ebbbea`。覆盖 **1307/4144**。标记 4 条：01298 存在疑点，01292、01294、01296 细微观察。
+- sol-042-01：4/4（01282、01283、01286、01290）16 claim（13 confirmed、3 advisory）。报告 sha256 `3234dd7c00a1e340607ca17529309ec790d70369e6ccc1af4b2bad943c5be7d7`，rollout `01a0c80f-d91e-7053-9c70-a6760559bdad`。
+- 收回核验：batch-044 / cross-batch-043 / batch-043 / gemini-043 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-044-01 `2026-09-22T07:50:18.771Z`（error 态），sol-042-01 `2026-09-22T07:50:20.258Z`。无未归档 child。
+- 下一片已就绪：batch-045（entry-01302–01307，6 条，sha `893562fd…`）+ cross-batch-044（4 条，sha `b60e30dc8b6ea25f9e9856579400fb0d08aed413fbc2f87c1d6bbee86ea287ba`）。
+- 更新时间见 STATE.json `updated_at`。

@@ -541,3 +541,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01280 | confirmed：“一个世纪”意象被改写；confirmed：`Am I alone?` 误作“我是独一无二的吗”；confirmed：两处“的”应为“地”。refuted：并非“极长时间→极短一瞬”完全反转。pending：`Alor?` 处理为“阿洛”是否正确 | 改问句与助词；专名与反转程度按收窄意见处理 |
 
 译文未修改。两处 refuted 是对 Gemini 反转/机制推断的下修，原样转录。
+
+## batch-043 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-042-01.md](reports/sol-042-01.md)。译文未修改。共 16 个 claim：13 confirmed、3 advisory、无 refuted/pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01282 | confirmed：`were responsible` 译成“其他创造者也很负责”；confirmed：`we halflings` 仅译“我们”丢失族称。advisory：`the same god` 译“同一个上帝” | 改动词结构、补“我们半身人” |
+| entry-01283 | confirmed：遗漏 `slimly seen` 月相意象；confirmed：`walk abroad` 理解与两处 `Aye` 遗漏（核心语义）；confirmed：`moonsister` 增译“月亮女神”。advisory：叹词风格 | 补月相与叹词，`moonsister` 回到“月 Sister/月姊妹”一类 |
+| entry-01286 | confirmed：七处——增添“刚睡醒的脑袋仍然一团浆糊”；`beyond the red star` 译“红色星星的上方”；`keep it held together` 译“将他们固定在一起”；`the lovely moonstone` 误作复数；`I shall wake up from` 译“我早该……醒来”；增添“该死的戒指”；`lava spilled up` 译“岩浆的波浪浮浮沉沉” | 逐句按源码回改，删除两处增译 |
+| entry-01290 | confirmed：`Cataclysm` 译“大爆炸”，与 `Spellblaze` 混淆（应为“大灾变”）。advisory：`spellhunters` 译“猎魔者”易与 demon 混淆 | 事件名回“大灾变”；猎称按术语统一 |
+
+译文未修改。
