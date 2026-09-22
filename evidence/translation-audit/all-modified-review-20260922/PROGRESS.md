@@ -842,3 +842,11 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-082-01 `2026-09-22T14:44:10.223Z`（error child），sol-081-01 `2026-09-22T14:44:11.768Z`。
 - 本唤醒早前一次收获脚本在**写盘前** IndexError 中止（最新 brain 空 PLANNER 导致 `ne[-1]` 越界），未写任何文件；改用分步取证后重跑。
 - 交叉 81 组完成；批次仍 81/130（082 等重试）。更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：082 整批重试成功（40/40）
+
+- 整批重试 `gemini-082-02`：**40/40 一次完成**（brain `5a8c1434`，step 79），报告 sha256 `72d131c66ce8f12dc3ff0308410ba92d057a073685ef4807949248d058f2c6f5`；仅 1 条标记：存在疑点 `entry-02688`（漏译 `fallen`、`the remains` 意译为“骨头”）。prompt 提交 `b4df54d3`，派发记录提交 `c76bf515`。
+- batch-082 → `reviewed_awaiting_cross`，**覆盖 2692/4144（65.0%）**；批次 82/130。
+- 归档：先 persist attempts、一次成功并 live 复查 `archivedAt` `2026-09-22T14:50:25.088Z`。
+- 守卫全过：batch-082 冻结哈希、11 locale、非 evidence 零 diff，HEAD `c76bf515`。
+- 更新时间见 STATE.json `updated_at`。
