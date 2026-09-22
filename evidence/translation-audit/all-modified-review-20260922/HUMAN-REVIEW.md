@@ -934,3 +934,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02187 | confirmed：两占位符正确；confirmed：“（怪物或被护送者）”属非原文增补且范围过窄 | 收窄或删除括注 |
 
 译文未修改。1 条 pending（增补数值来源）留主代理核对。
+
+## batch-070 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-070-01.md](reports/sol-070-01.md)。译文未修改。共 9 个 claim：6 confirmed、2 refuted、1 advisory、0 pending（与 Sol 自身汇总一致）。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02189 | confirmed：增译“（怪物或被护送者）”无据且缩窄可选目标。refuted：Gemini“minimum range 译最小半径不符合机制”的质疑不成立 | 删括注；最小半径质疑不采纳 |
+| entry-02191 | confirmed：“当你击中一个固体表面时”字面直译造成触发方式偏差 | 按语境重译触发条件 |
+| entry-02192 | confirmed：漏译 `one turn per effect`，现译易被读成固定一回合 | 补 per effect 限定 |
+| entry-02207 | advisory：“获得 %d%% 个额外回合”数值关系保留但不精确自然 | 文风取舍 |
+| entry-02210 | confirmed：第二句只写“保护你”，遗漏傀儡与其他友方。refuted：Gemini 所称源码五级判定 `target ~= self and target ~= golem` 不实（该引用不能作证据） | 补保护对象；引用不入证据链 |
+| entry-02212 | confirmed：技能名「Flame」与术语快照冲突（应为“火球术”） | 按术语改 |
+| entry-02227 | confirmed：`dazed` 译“茫然”与术语及效果身份冲突（应为“眩晕”） | 按术语改 |
+
+译文未修改。2 条 refuted 中有 1 条是 Gemini 源码引用不实，原样转录并标注不可引用。
