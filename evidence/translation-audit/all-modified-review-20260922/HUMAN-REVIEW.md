@@ -778,3 +778,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01785 | confirmed：`weary body` 反译成“不知疲倦”；confirmed：`Each day` 被改成“无时无刻”；confirmed：`begin the unending hunt` 被改写成“狩猎你的下一个目标”。pending：是否受相邻 `next victim` 串文影响（根因推测） | 三处按源码回改；根因保留为推测即可 |
 
 译文未修改。Sol 明确串文根因不影响对译文错误本身的确认。
+
+## batch-060 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-059-01.md](reports/sol-059-01.md)。译文未修改。共 19 个 claim：15 confirmed、2 pending、2 advisory、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01788 | confirmed：`hate` 是正式资源概念，译“愤怒”弱化体系关联；confirmed：`has grown within` 是“滋生/积聚”非“激增”。pending：术语是否强制不用“愤怒” | 查术语记录后定“仇恨”；措辞如“释放你内心积聚的仇恨” |
+| entry-01798 | confirmed：省略 `sustenance` 宾语；confirmed：不会造成机制误解。advisory：是否补“养分/力量/精华” | 若补，与 Feed 系列既有译名协调 |
+| entry-01803 | confirmed：`DARKNESS` 与同批“暗影伤害抗性”称谓不一致；confirmed：`anything` 译“人”过窄（源码为 Actor）；confirmed：占位符顺序无误。pending：术语库是否唯一规定“暗影伤害” | 确认正式术语；末句改“目标/生物” |
+| entry-01804 | confirmed：三参数对应正确；confirmed：末句 `anything` 译“人”仍过窄 | 与 01803 统一措辞 |
+| entry-01807 | advisory：`hate` 意译“杀意”非可确认误译。confirmed：占位符与互斥/冷却说明一致 | 是否要求技能风味直译资源名 |
+| entry-01820 | confirmed×3：负数参数判断正确；译文“变化 -15%”忠实；占位符顺序正确 | 可接受现适配；改写须同时考虑负数实参 |
+| entry-01823 | confirmed：这里是地面选点而非生物目标；confirmed：“选择一个转移目标”有交互歧义 | 与 `Displace` 既定译名统一，明确是目的地坐标 |
+
+译文未修改。2 条 pending（术语记录类）留主代理核对。

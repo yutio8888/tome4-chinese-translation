@@ -580,3 +580,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-060-01 `2026-09-22T09:46:07.717Z`，sol-058-01 `2026-09-22T09:46:09.211Z`。无未归档 child。
 - 下一片已就绪：batch-061（entry-01826–01865，40 条，sha `45748343b37b4e5e2822fde6fbd4cfbdc9285bba87b59858d603b3599947df12`）+ cross-batch-060（7 条，sha `36fad4de4c10b3e0687c5deca5a9c0e1392fd5da4295612f63bf19d1994c39c8`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 060/061 收获（含一次报告截断）
+
+- sol-059-01：7/7 条目 19 claim（15 confirmed、2 pending、2 advisory）。报告 sha256 `4c79b408f86f28fcf78dee26702759d9e0fd29281079208fa5195e2778ec87c1`，rollout `01a0c882-d9a0-78f2-b9fa-f11ed5a6aa4b`。
+- gemini-061-01：**39/40**（entry-01826–01864 完整；**entry-01865 报告在条目标题行中途截断、无结论**）。最终回复本身就断在那里，属真实覆盖缺口而非解析问题。按规则记部分覆盖 **不计入 01865**，下一轮用 fresh partial retry 只补该条（prompt 已备 `gemini-061-02-prompt.md`）。覆盖记 **1869/4144**（01865 未计）。报告 sha256 `3f0ef7de06cd81cf6f5456c64d8142d90e47e7ee305d8ee2a686bd87129cf006`。
+- 已完成条目的标记：存在疑点 01839；细微观察 01835、01838、01851、01861（01865 未知，待补跑后一并入 cross-batch-061）。
+- 收回核验：batch-061 / cross-batch-060 / batch-060 / gemini-060 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-061-01 `2026-09-22T09:52:25.787Z`，sol-059-01 `2026-09-22T09:52:27.275Z`。无未归档 child。
+- 下一片已就绪：gemini-061-02（只补 entry-01865）+ sol-060-01（cross-batch-060，7 条，sha `36fad4de4c10b3e0687c5deca5a9c0e1392fd5da4295612f63bf19d1994c39c8`）。batch-062 起排在其后。
+- 更新时间见 STATE.json `updated_at`。
