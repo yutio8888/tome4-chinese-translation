@@ -352,3 +352,23 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01120 | confirmed：光明/黑暗应按伤害类型术语作“光系/暗影”。confirmed：`Magic` 应译“魔力” | 改成“爆发出光系和暗影伤害（受魔力加成）”一类表述 |
 
 共 11 个 claim：8 confirmed、2 advisory、1 refuted、无 pending。Sol 引用的 entry-01091/01097 只是同批术语对照，不是交叉对象，未给分档。
+
+## batch-029 十一处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-028-01.md](reports/sol-028-01.md)。译文未修改。Sol 汇总：9 confirmed、2 advisory，无 refuted/pending；优先处理 01132、01156、01162、01163。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01127 | confirmed（低影响）：`most foes` 漏“大多数” | 是否补“大多数敌人” |
+| entry-01132 | confirmed：`time flows` 误作“时间线”，`through` 被改成聚焦位置 | 改“通过……汇聚时间流”一类表达 |
+| entry-01137 | confirmed（低影响）：丢 `crackles` 动态、弱化 `vicious` | 文风选择 |
+| entry-01145 | advisory：`imbue` 译“安装”，未体现力量注入 | 系统统一“镶嵌”还是“灌注”，由维护者定 |
+| entry-01149 | confirmed（纯排版）：`50%%;降低伤害时` 半角分号 | 换全角分号 |
+| entry-01155 | confirmed：「自命不凡的认为」的/地错误；“恶魔的老巢/地狱之焰”属增饰 | 保守直译还是保留叙事性意译 |
+| entry-01156 | confirmed：`to foes who enter it` 被译“所有经过的生物”，暗示伤害自身与友方 | 限定为“进入其中的敌人” |
+| entry-01160 | confirmed（低影响）：`biting colds` 意象偏移；“您/你”不统一 | 统一称谓与措辞 |
+| entry-01161 | advisory：`tingly` 译“刺痛”偏重、“增强了你的思考”生硬 | 是否润色，不按机制错误处理 |
+| entry-01162 | confirmed：`The blade` 是战斧刃部，译文写成剑身 | 改“斧刃” |
+| entry-01163 | confirmed：`bright warm light` 译“微光”，亮度方向相反 | 改“明亮而温暖的光芒” |
+
+共 11 个 claim：9 confirmed、2 advisory。译文未修改。
