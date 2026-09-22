@@ -1,0 +1,161 @@
+[
+  {
+    "path": "game/modules/tome/data/lore/keepsake.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "3e254536a6b8d0509c7e1b340595b024ff9c4f27f345b2b502d804717b5a7981",
+    "excerpts": [
+      {
+        "first_line": 20,
+        "last_line": 34,
+        "text": "newLore{\n\tid = \"keepsake-meadow\",\n\tcategory = \"keepsake\",\n\tname = _t\"A Tranquil Meadow\",\n\tlore = _t[[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure.\nThe only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life.\nYou feel the hate inside you melt away. You feel as if the curse has subsided for a moment.\n\nThis place makes you wonder if there is a way to end the curse.\nAnd if you can't overcome it you might be able to master it and take back a part of your life.\nEither way, you feel the time has come to do something more about this curse.\n]],\n}\n\nnewLore{"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 1615,
+        "last_line": 1650,
+        "text": "\nnewEntity{ base = \"BASE_LEATHER_BELT\",\n\tpower_source = {nature=true},\n\tunique = true,\n\tname = \"Girdle of Preservation\", image = \"object/artifact/belt_girdle_of_preservation.png\",\n\tunided_name = _t\"shimmering, flawless belt\",\n\tdesc = _t[[A pristine belt of purest white leather with a runed voratun buckle. The ravages of neither time nor the elements have touched it.]],\n\tcolor = colors.WHITE,\n\tlevel_range = {45, 50},\n\trarity = 400,\n\tcost = 750,\n\tmaterial_level = 5,\n\twielder = {\n\t\tinc_stats = { [Stats.STAT_CON] = 5, [Stats.STAT_WIL] = 5,  },\n\t\tresists = {\n\t\t\t[DamageType.ACID] = 15,\n\t\t\t[DamageType.LIGHTNING] = 15,\n\t\t\t[DamageType.FIRE] = 15,\n\t\t\t[DamageType.COLD] = 15,\n\t\t\t[DamageType.LIGHT] = 15,\n\t\t\t[DamageType.DARKNESS] = 15,\n\t\t\t[DamageType.BLIGHT] = 15,\n\t\t\t[DamageType.TEMPORAL] = 15,\n\t\t\t[DamageType.NATURE] = 15,\n\t\t\t[DamageType.PHYSICAL] = 10,\n\t\t\t[DamageType.ARCANE] = 10,\n\t\t},\n\t\tconfusion_immune = 0.2,\n\t\tcombat_physresist = 15,\n\t\tcombat_mentalresist = 15,\n\t\tcombat_spellresist = 15,\n\t},\n}\n\nnewEntity{ base = \"BASE_LEATHER_BELT\",\n\tpower_source = {nature=true},"
+      },
+      {
+        "first_line": 7014,
+        "last_line": 7045,
+        "text": "\nnewEntity{ base = \"BASE_KNIFE\",\n\tpower_source = {technique=true},\n\tunique = true,\n\tname = \"Swordbreaker\", image = \"object/artifact/swordbreaker.png\",\n\tunided_name = _t\"hooked blade\",\n\tmoddable_tile = \"special/%s_swordbreaker\",\n\tmoddable_tile_big = true,\n\tdesc = _t[[This ordinary blade is made of fine, sturdy voratun and outfitted with jagged hooks along the edge. This simple appearance belies a great power - the hooked maw of this dagger broke many a blade and the stride of many would-be warriors.]],\n\tlevel_range = {20, 30},\n\trarity = 250,\n\trequire = { stat = { dex=10, cun=10 }, },\n\tcost = 300,\n\tmaterial_level = 3,\n\tspecial_desc = function(self) return _t\"Can block like a shield, potentially disarming the enemy.\" end,\n\tcombat = {\n\t\tdam = 25,\n\t\tapr = 20,\n\t\tphyscrit = 15,\n\t\tphysspeed = 0.9,\n\t\tdammod = {dex=0.5,cun=0.5},\n\t\tspecial_on_crit = {desc=_t\"Breaks enemy weapon.\", fct=function(combat, who, target)\n\t\t\ttarget:setEffect(target.EFF_SUNDER_ARMS, 5, {power=5+(who:combatPhysicalpower()*0.33), apply_power=who:combatPhysicalpower()})\n\t\tend},\n\t},\n\twielder = {\n\t\tcombat_def = 15,\n\t\tdisarm_immune=0.5,\n\t\tcombat_physresist = 15,\n\t\tinc_stats = {\n\t\t\t[Stats.STAT_DEX] = 8,\n\t\t\t[Stats.STAT_CUN] = 8,"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/lore/shertul.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "5e2c74eb697a0468d01cd0318e8bb9192201b3b652cb83fdf278e1354a72692a",
+    "excerpts": [
+      {
+        "first_line": 92,
+        "last_line": 104,
+        "text": "}\n\nnewLore{\n\tid = \"shertul-fortress-8\",\n\tcategory = \"sher'tul\",\n\tname = _t\"eighth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore8.png\",\n\tlore = function() return _t[[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.\nThe text beneath says simply ]]..(not game.player:attr(\"speaks_shertul\") and _t[[#{italic}#'Meas Abar.'#{normal}#]] or _t[[#{italic}#'The Great Sin.'#{normal}#]])\n\tend,\n}\n\nnewLore{"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/init.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+    "excerpts": [
+      {
+        "first_line": 88,
+        "last_line": 99,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_bandit.png\", text=[[Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_blood_mage.png\", text=[[In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_orc_orc_berserker.png\", text=[[The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_fire_wyrmic.png\", text=[[Intense willpower lets wyrmics take on the natural powers of dragons.]]},\n\t{image=\"/data/gfx/loadtiles/alchemist_golem.png\", text=[[Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.]]},\n\t{image=\"/data/gfx/shockbolt/npc/construct_golem_athamathon_the_giant_golem.png\", text=[[In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.]]},\n\t{image=\"/data/gfx/loadtiles/farportal.png\", text=[[None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.]]},\n\t{image=\"/data/gfx/shockbolt/npc/horror_eldritch_luminous_horror.png\", text=[[In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_celia.png\", img_y_off=-20, text=[[Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.]]},\n\t{image=\"/data/gfx/shockbolt/npc/undead_mummy_greater_mummy_lord.png\", text=[[Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.]]},\n\t{image=\"/data/gfx/loadtiles/toknor_mirvenia.png\", img_y_off=-10, text=[[120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.]]},\n\t{image=\"/data/gfx/loadtiles/lava.png\", text=[[\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.]]},"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/zones/town-shatur/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "0f0f5f0ac81f650aa87858c9dac68cf0dcdd00d31c8a78beb57d8dc05ebca302",
+    "excerpts": [
+      {
+        "first_line": 23,
+        "last_line": 29,
+        "text": "\tdefine_as = \"BASE_NPC_ELVALA_TOWN\",\n\ttype = \"humanoid\", subtype = \"thalore\",\n\tdisplay = \"p\", color=colors.WHITE,\n\tfaction = \"thalore\",\n\tanger_emote = _t\"Catch @himher@!\",\n\texp_worth = 0,\n\tcombat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },"
+      },
+      {
+        "first_line": 71,
+        "last_line": 88,
+        "text": "newEntity{ base = \"BASE_NPC_ELVALA_TOWN\",\n\tname = \"thalore wilder\", color=colors.GREEN,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_thalore_thalore_wilder.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[A tall elf, his skin covered in green moss.]],\n\tlevel_range = {1, nil}, exp_worth = 0,\n\trarity = 3,\n\tmax_life = resolvers.rngavg(50,60),\n\tai_state = { talent_in=1, },\n\tautolevel = \"wildcaster\",\n\tresolvers.talents{\n\t\t[Talents.T_RIMEBARK]={base=1, every=5, max=10},\n\t\t[Talents.T_WAR_HOUND]={base=1, every=5, max=10},\n\t},\n\tresolvers.inscriptions(3, \"infusion\"),\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+    "excerpts": [
+      {
+        "first_line": 2163,
+        "last_line": 2217,
+        "text": "\tpoints = 1,\n\ttype_no_req = true,\n\trequire = cuns_req_unlock,\n\tunlock_talent = _t\"You have learned how to create Nightshade traps!\",\n\tno_unlearn_last = true,\n\ttrap_mastery_level = 4,\n\tcooldown = 8,\n\tstamina = 15,\n\ttactical = { ATTACK = {NATURE = 2}, DISABLE = { stun = 1.5 }, ESCAPE = 1, CLOSEIN = 1 },\n\trange = trap_range,\n\tspeed = trap_speed,\n\tno_break_stealth = trap_stealth,\n\tgetDamage = function(self, t) return 20 + trap_effectiveness(self, t, \"cun\")*35 end,\n\taction = function(self, t)\n\t\tlocal x, y = trapGetGrid(self, t)\n\t\tif not (x and y) then return nil end\n\n\t\tlocal dam = t.getDamage(self, t)\n\t\tlocal trap = trapping_CreateTrap(self, t, nil, {\n\t\t\ttype = \"nature\", name = _t\"nightshade trap\", color=colors.LIGHT_BLUE, image = \"trap/poison_vines01.png\",\n\t\t\tdam = dam,\n\t\t\tstamina = t.stamina,\n\t\t\tcheck_hit = self:combatAttack(),\n\t\t\tunlock_talent_on_disarm = {tid=t.id, chance=50},\n\t\t\ttriggered = function(self, x, y, who)\n\t\t\t\tself:project({type=\"hit\", x=x,y=y}, x, y, engine.DamageType.NATURE, self.dam, {type=\"slime\"})\n\t\t\t\tif who:canBe(\"stun\") then\n\t\t\t\t\twho:setEffect(who.EFF_STUNNED, 4, {src=self.summoner, apply_power=self.check_hit})\n\t\t\t\tend\n\t\t\t\tif who:canBe(\"poison\") then\n\t\t\t\t\twho:setEffect(who.EFF_POISONED, 4, {src=self.summoner, apply_power=self.check_hit, power=self.dam/10})\n\t\t\t\tend\n\t\t\t\treturn true, true\n\t\t\tend,\n\t\t})\n\t\ttrap:identify(true)\n\n\t\ttrap:resolve() trap:resolve(nil, true)\n\t\ttrap:setKnown(self, true)\n\t\tgame.level:addEntity(trap)\n\t\tgame.zone:addEntity(game.level, trap, \"trap\", x, y)\n\t\tgame.level.map:particleEmitter(x, y, 1, \"summon\")\n\n\t\treturn true\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))\n\t\treturn ([[Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.]]):\n\t\ttformat(dam, dam/10)\n\tend,\n\tinfo = function(self, t)\n\t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))\n\t\treturn ([[Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.]]):\n\t\ttformat(dam, dam/10)\n\tend,"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+    "excerpts": [
+      {
+        "first_line": 3135,
+        "last_line": 3163,
+        "text": "\nnewTalent{\n\tname = \"Unseen Actions\",\n\ttype = {\"other/other\", 1},\n--\trequire = cuns_req4,\n\tmode = \"passive\",\n\tpoints = 5,\n\thide = false,\n\t-- Assume level 50 w/100 cun --> stealth = 54, detection = 50\n\t-- 40% (~= 20% chance against 1 opponent (range 1) at talent level 1, 189% (~= 55% chance against 1 opponent (range 1) and 2 opponents (range 6) at talent level 5\n\tstealthMult = function(self, t) return self:combatTalentScale(t, 0.4, 1.89) end,\n\tgetChance = function(self, t, fake, estimate)\n\t\tlocal netstealth = t.stealthMult(self, t) * (self:callTalent(self.T_STEALTH, \"getStealthPower\") + (self:attr(\"inc_stealth\") or 0))\n\t\tif fake then return netstealth end\n\t\tlocal detection = self:stealthDetection(10, estimate) -- Default radius 10\n\t\tif not detection or detection <= 0 then return 100 end\n\t\tlocal _, chance = self:checkHit(netstealth, detection)\n\t\tprint(\"Unseen Actions: \"..netstealth..\" stealth vs \"..detection..\" detection -->chance(no luck): \"..chance)\n\t\tif estimate then return chance end\n\t\treturn util.bound(chance + (self:getLck() - 50) * 0.2, 0, 100)\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.\t When you perform such an action while stealthed, you have a chance to stay hidden.\n\t\tSuccess is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.\n\t\tYour base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.\n\t\tYou estimate your current chance to maintain stealth as %0.1f%%.]]):\n\t\ttformat(t.stealthMult(self, t), t.getChance(self, t, true), t.getChance(self, t, false, true))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/class/Object.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+    "excerpts": [
+      {
+        "first_line": 880,
+        "last_line": 905,
+        "text": "\t\t\tend\n\t\telse\n\t\t\tlocal power_diff = {}\n\t\t\tfor i, v in ipairs(compare_with) do\n\t\t\t\tif v[field] then\n\t\t\t\t\tlocal base_power_diff = ((combat.dam or 0) + (add_table.dam or 0)) - ((v[field].dam or 0) + (add_table.dam or 0))\n\t\t\t\t\tlocal dfl_range = (1.1 - (add_table.damrange or 0))\n\t\t\t\t\tlocal multi_diff = (((combat.damrange or dfl_range) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))) - (((v[field].damrange or dfl_range) + (add_table.damrange or 0)) * ((v[field].dam or 0) + (add_table.dam or 0)))\n\t\t\t\t\tpower_diff [#power_diff + 1] = (\"%s%+.1f#LAST# - %s%+.1f#LAST#\"):format(base_power_diff > 0 and \"#00ff00#\" or \"#ff0000#\", base_power_diff, multi_diff > 0 and \"#00ff00#\" or \"#ff0000#\", multi_diff)\n\t\t\t\t\tdiff_count = diff_count + 1\n\t\t\t\t\tif base_power_diff ~= 0 or multi_diff ~= 0 then\n\t\t\t\t\t\tany_diff = true\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\t\tif any_diff == false then\n\t\t\t\tpower_diff = \"\"\n\t\t\telse\n\t\t\t\tpower_diff = (\"(%s)\"):format(table.concat(power_diff, _t(\" / \")))\n\t\t\tend\n\t\t\tdesc:add((\"Base power: %.1f - %.1f\"):tformat((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))\n\t\t\tdesc:merge(power_diff:toTString())\n\t\tend\n\t\tdesc:add(true)\n\t\tdesc:add((\"Uses %s: %s\"):tformat(#dm > 1 and _t\"stats\" or _t\"stat\",table.concat(dm, ', ')), true)\n\t\tlocal col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or \"#WHITE#\"):toTString()"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/general/objects/world-artifacts-far-east.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "cd0dbfe594c6c6fb274c222f75f7bbb2f734dd5ce15136dc0a5ebfeceafbe8ac",
+    "excerpts": [
+      {
+        "first_line": 77,
+        "last_line": 113,
+        "text": "newEntity{ base = \"BASE_SHIELD\", define_as = \"SHIELD_UNSETTING\",\n\tpower_source = {arcane=true},\n\tunique = true,\n\tunided_name = _t\"shimmering gold shield\",\n\tname = \"Unsetting Sun\", image = \"object/artifact/shield_unsetting_sun.png\",\n\tmoddable_tile = \"special/%s_unsetting_sun\",\n\tmoddable_tile_big = true,\n\tdesc = _t[[When Elmio Panason, captain of the Vanguard, first sought shelter for his shipwrecked crew, he reflected the last rays of the setting sun off his shield.  Where the beam hit they rested and built the settlement that would become the Sunwall.  In the dark days that followed the shield became a symbol of hope for a better future.]],\n\tcolor = colors.YELLOW,\n\trarity = 300,\n\tlevel_range = {35, 45},\n\trequire = { stat = { str=40 }, },\n\tcost = math.random(700,1100),\n\tmaterial_level = 5,\n\tspecial_combat = {\n\t\tdam = 50,\n\t\tblock = 280,\n\t\tphyscrit = 4.5,\n\t\tdammod = {str=1},\n\t\tdamtype = DamageType.LIGHT,\n\t},\n\twielder = {\n\t\tlite = 2,\n\t\tcombat_armor = 20,\n\t\tcombat_def = 16,\n\t\tcombat_def_ranged = 17,\n\t\tfatigue = 14,\n\t\tcombat_spellresist = 19,\n\t\tresists = {[DamageType.BLIGHT] = 30, [DamageType.DARKNESS] = 30},\n\t\tlearn_talent = { [Talents.T_BLOCK] = 1, },\n\t},\n\tset_list = { {\"define_as\",\"SWORD_DAWN\"} },\n\tset_desc = {\n\t\tdawn = _t\"Glows brightly in the light of dawn.\",\n\t},\n\ton_set_complete = function(self, who)\n\t\tself:specialSetAdd({\"wielder\",\"life_regen\"}, 5)"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/corruptions/vile-life.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "717328f18ac054652eef915b0ee39f353aca3223074db29c36b148bbbb460c13",
+    "excerpts": [
+      {
+        "first_line": 128,
+        "last_line": 159,
+        "text": "newTalent{\n\tname = \"Healing Inversion\",\n\ttype = {\"corruption/vile-life\", 3},\n\trequire = corrs_req3,\n\tpoints = 5,\n\tcooldown = 10,\n\tvim = 16,\n\trange = 8,\n\tradius = 4,\n\tno_npc_use = true,\n\tdirect_hit = true,\n\trequires_target = true,\n\ttarget = function(self, t) return {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), friendlyfire=false, talent=t} end,\n\tgetPower = function(self,t) return self:combatLimit(self:combatTalentSpellDamage(t, 4, 100), 100, 0, 0, 18.1, 18.1) end, -- Limit to <100%\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:project(tg, x, y, function(tx, ty)\n\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\tif not target or target == self then return end\n\t\t\ttarget:setEffect(target.EFF_HEALING_INVERSION, 5, {src=self, apply_power=self:combatSpellpower(), power=t.getPower(self, t)})\n\t\tend)\n\t\tgame:playSoundNear(self, \"talents/slime\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You manipulate the vim of enemies in radius %d to temporarily invert all healing done to them (but not natural regeneration).\n\t\tFor 5 turns all healing will instead damage them for %d%% of the healing done as blight.\n\t\tThe effect will increase with your Spellpower.]]):tformat(self:getTalentRadius(t), t.getPower(self,t))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/engines/default/engine/interface/ActorProject.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+    "excerpts": [
+      {
+        "first_line": 243,
+        "last_line": 264,
+        "text": "\n\t-- Now project on each grid, one type\n\tlocal state = {}\n\tlocal stop = false\n\tDamageType:projectingFor(self, {project_type=typ})\n\tfor px, ys in pairs(grids) do\n\t\tfor py, _ in pairs(ys) do\n\t\t\t-- Call the projected method of the target grid if possible\n\t\t\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, t, px, py, damtype, dam, particles) then\n\t\t\t\t-- Check self- and friendly-fire, excluded Actors, and if the projection \"misses\"\n\t\t\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n\t\t\t\tif act and (typ.act_exclude and typ.act_exclude[act.uid]) or act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n\t\t\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n\t\t\t\t-- Otherwise hit\n\t\t\t\telse\n\t\t\t\t\tif type(damtype) == \"function\" then if damtype(px, py, t, self) then stop=true break end\n\t\t\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, state, nil) end\n\t\t\t\t\tif particles then\n\t\t\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend"
+      },
+      {
+        "first_line": 482,
+        "last_line": 504,
+        "text": "\tif (not lx and not ly) then return lx, ly, false, true end\n\treturn lx, ly, false, false\nend\n\n--- projectDoAct\nfunction _M:projectDoAct(typ, tg, damtype, dam, particles, px, py, tmp)\n\t-- Now project on each grid, one type\n\t-- Call the projected method of the target grid if possible\n\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, typ, px, py, damtype, dam, particles) then\n\t\t-- Check self- and friendly-fire, and if the projection \"misses\"\n\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n\t\tif act and act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n\t\t-- Otherwise hit\n\t\telse\n\t\t\tDamageType:projectingFor(self, {project_type=tg})\n\t\t\tif type(damtype) == \"function\" then if damtype(px, py, tg, self, tmp) then return true end\n\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, tmp, nil, tg) end\n\t\t\tif particles and type(particles) == \"table\" then\n\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n\t\t\tend\n\t\t\tDamageType:projectingFor(self, nil)\n\t\tend"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/birth/classes/wilder.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "41415bb10ec90ae5e391e45ec1e02a1adc04bc8c652bfa485359d9778330306c",
+    "excerpts": [
+      {
+        "first_line": 256,
+        "last_line": 275,
+        "text": "newBirthDescriptor{\n\ttype = \"subclass\",\n\tname = \"Stone Warden\",\n\tlocked = function() return profile.mod.allow_build.wilder_stone_warden end,\n\tlocked_desc = _t\"The Spellblaze's scars may be starting to heal,\\nbut little can change how the partisans feel.\\nNature and arcane could bridge their divide -\\nand when it comes down to it, gold won't take sides...\",\n\tdesc = {\n\t\t_t\"Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.\",\n\t\t_t\"While other races are stuck in their belief that arcane forces and natural forces are meant to oppose, dwarves have found a way to combine them in harmony.\",\n\t\t_t\"Stone Wardens are armoured fighters, dual wielding shields to channel many of their powers.\",\n\t\t_t\"Their most important stats are: Strength, Magic and Willpower\",\n\t\t_t\"#GOLD#Stat modifiers:\",\n\t\t_t\"#LIGHT_BLUE# * +2 Strength, +0 Dexterity, +0 Constitution\",\n\t\t_t\"#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning\",\n\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\",\n\t},\n\tspecial_check = function(birth)\n\t\tif birth.descriptors_by_type.race ~= \"Dwarf\" then return false end\n\t\treturn true\n\tend,\n\tpower_source = {nature=true, arcane=true},"
+      }
+    ]
+  }
+]

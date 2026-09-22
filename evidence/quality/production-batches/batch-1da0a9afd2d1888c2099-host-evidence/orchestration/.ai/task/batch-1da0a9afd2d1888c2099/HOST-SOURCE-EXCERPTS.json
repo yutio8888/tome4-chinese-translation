@@ -1,0 +1,1102 @@
+[
+  {
+    "entry_revision_identity": "e4333bc937016fa7ea39682612468ba4168893e3a93d711f3736a6dc7e01a985",
+    "source_path": "game/modules/tome/data/zones/sandworm-lair/zone.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "9a8c0f1171d77cc50431f431be6f25795a82967fee1331ffac79840e583eefb1",
+    "excerpts": [
+      {
+        "first_line": 23,
+        "last_line": 29,
+        "text": "if layout == \"DEFAULT\" then\n\nreturn {\n\tname = _t\"Sandworm lair\",\n\tlevel_range = {7, 16},\n\tlevel_scheme = \"player\",\n\tmax_level = 4,"
+      },
+      {
+        "first_line": 87,
+        "last_line": 93,
+        "text": "elseif layout == \"BIGWORM\" then\n\nreturn {\n\tname = _t\"Sandworm lair\",\n\tlevel_range = {7, 16},\n\tlevel_scheme = \"player\",\n\tmax_level = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e43462df74a57e88f67b094cbb14febc7ed98e5f148e6429c18b255cfbd6aadd",
+    "source_path": "game/modules/tome/class/Actor.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+    "excerpts": [
+      {
+        "first_line": 8153,
+        "last_line": 8159,
+        "text": "end\n\nfunction _M:transmoHelpPopup()\n\tDialog:simplePopup(_t\"Transmogrification Chest\", _t\"When you close the inventory window, all items in the chest will be transmogrified.\")\nend\n\nfunction _M:transmoGetName()"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e436f285f5a71f47c0e9134c367c2f9f3eec15bdfee0a69925a44b5b9aacce5c",
+    "source_path": "game/modules/tome/data/general/encounters/maj-eyal.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "437f365810aadfbab723199bf1f4c64c1e90be110de5bbd262b19aeee0f2423a",
+    "excerpts": [
+      {
+        "first_line": 275,
+        "last_line": 281,
+        "text": "\t\tif not x then return end\n\n\t\tlocal g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()\n\t\tg.name = _t\"tranquil meadow\"\n\t\tg.display='>' g.color_r=0 g.color_g=255 g.color_b=128 g.notice = true\n\t\tg.change_level=1 g.change_zone=\"keepsake-meadow\" g.glow=true\n\t\tg.add_displays = g.add_displays or {}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4384e0022522e1d665206b1d51e25901fc9bd545184e8bbb84ebdcf3528ad3a",
+    "source_path": "game/modules/tome/data/talents/misc/objects.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2",
+    "excerpts": [
+      {
+        "first_line": 20,
+        "last_line": 26,
+        "text": "newTalentType{ no_silence=true, is_spell=true, type=\"sher'tul/fortress\", name = _t(\"fortress\", \"talent type\"), description = _t\"Yiilkgur abilities.\" }\nnewTalentType{ no_silence=true, is_spell=true, type=\"spell/objects\", name = _t(\"object spells\", \"talent type\"), description = _t\"Spell abilities of the various objects of the world.\" }\nnewTalentType{ no_silence=true, type=\"other/objects\", name = _t(\"object powers\", \"talent type\"), description = _t\"Abilities of the various objects of the world.\" }\nnewTalentType{ type=\"technique/objects\", name = _t(\"object techniques\", \"talent type\"), description = _t\"Techniques of the various objects of the world.\" }\nnewTalentType{ type=\"wild-gift/objects\", name = _t(\"object techniques\", \"talent type\"), description = _t\"Wild gifts of the various objects of the world.\" }\nnewTalentType{ type=\"misc/objects\", name = _t(\"object techniques\", \"talent type\"), description = _t\"Powers of the various objects of the world.\" }\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4474e15500d1dcc966f1e9a4c901dd4c7edcf46f52eb86375fc9256e867d478",
+    "source_path": "game/modules/tome/data/talents/misc/horrors.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "0690eca57ddb8ebe78694f63ff7587798fa7432fde6e6b6ae32000255ab19292",
+    "excerpts": [
+      {
+        "first_line": 261,
+        "last_line": 267,
+        "text": "\tname = \"Void Shards\",\n\ttype = {\"other/horror\", 1},\n\tpoints = 5,\n\tmessage = _t\"@Source@ summons void shards.\",\n\tcooldown = 20,\n\trange = 10,\n\tradius = 5, -- used by the the AI as additional range to the target"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e44bcd8f67d3a4b4c73436dadd6a07975a2988ddc0ed1ad25b7fcff9a23018f1",
+    "source_path": "game/modules/tome/data/general/objects/egos/gloves.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "1630b9c86092070b271eaad10ae35c58c64d461b30059a9f96ad2a6100aef0b5",
+    "excerpts": [
+      {
+        "first_line": 659,
+        "last_line": 666,
+        "text": "\nnewEntity{\n\tpower_source = {technique=true},\n\tname = \"heroic \", prefix=true, instant_resolve=true,\n\tkeywords = {heroic=true},\n\tlevel_range = {30, 50},\n\tgreater_ego = 1,\n\trarity = 20,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e454e243b1498217d1c15d8dba629bd73dd8959e05c0c6c1545c4bd7be6cfbb0",
+    "source_path": "game/modules/tome/data/lore/keepsake.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "3e254536a6b8d0509c7e1b340595b024ff9c4f27f345b2b502d804717b5a7981",
+    "excerpts": [
+      {
+        "first_line": 21,
+        "last_line": 34,
+        "text": "\tid = \"keepsake-meadow\",\n\tcategory = \"keepsake\",\n\tname = _t\"A Tranquil Meadow\",\n\tlore = _t[[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure.\nThe only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life.\nYou feel the hate inside you melt away. You feel as if the curse has subsided for a moment.\n\nThis place makes you wonder if there is a way to end the curse.\nAnd if you can't overcome it you might be able to master it and take back a part of your life.\nEither way, you feel the time has come to do something more about this curse.\n]],\n}\n\nnewLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e455d1c61a023abbfdaf3b21f75af23efbac250fe91dcd430f65bb727ce8cd96",
+    "source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+    "excerpts": [
+      {
+        "first_line": 2494,
+        "last_line": 2500,
+        "text": "\tsubtype = { psionic=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=0 },\n\ton_gain = function(self, err) return _t\"#Target# is suffering from insomnia.\", _t\"+Insomnia\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer suffering from insomnia.\", _t\"-Insomnia\" end,\n\ton_merge = function(self, old_eff, new_eff)\n\t\t-- Add the durations on merge"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e457faf06fef79466f738a23beae9c03825cf160d04e2f8d753c8ec43b0e1a57",
+    "source_path": "game/modules/tome/data/talents/uber/cun.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "e8f5d9281e0eed2b487a52666a6e8551d29371627cd1a604154296c3ae8b6979",
+    "excerpts": [
+      {
+        "first_line": 301,
+        "last_line": 307,
+        "text": "\t\t\tself.elemental_surge[damtype] = 0\n\t\t\tif damtype == DamageType.PHYSICAL and not self:hasProc(\"elemental_surge_physical\") then\n\t\t\t\tself:setProc(\"elemental_surge_physical\", true, 10)\n\t\t\t\tgame.logSeen(self, \"%s surges with earthen power!\", self:getName():capitalize())\n\t\t\t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"physical\", ignore_crosstier=true}, 1)\n\t\t\t\tself:setEffect(self.EFF_ELEMENTAL_SURGE_PHYSICAL, 2, {})\n\t\t\t\tt.doProject(self, t, damtype, \"ball_earth\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e45b260e97100cbebf214f9bdeaa1f99b9187c055d07a7dc2a2bf696b7036bc7",
+    "source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+    "excerpts": [
+      {
+        "first_line": 637,
+        "last_line": 643,
+        "text": "\t\tNote that messing with the spacetime continuum may have unforeseen consequences.]]):tformat(damDesc(self, DamageType.TEMPORAL, damage), duration)\n\tend,\n\tshort_info = function(self, t)\n\t\treturn (\"%0.2f temporal damage, removed from time %d turns\"):tformat(t.getDamage(self, t), t.getDuration(self, t))\n\tend,\n}\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4672d859b6dca1b3a9b44813828a8e00e88eb52ed5c25e4592092b349df5f5d",
+    "source_path": "game/modules/tome/data/talents/psionic/dreaming.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "57cdfadb3cc978657a6d86a74cd2451d35beddc1b8002819cc279772155041bd",
+    "excerpts": [
+      {
+        "first_line": 226,
+        "last_line": 233,
+        "text": "\tend,\n\tinfo = function(self, t)\n\t\tlocal drain = t.getDrain(self, t)\n\t\treturn ([[Imprisons all sleeping targets within range in their dream state, effectively extending sleeping effects for as long as Dream Prison is maintainted.\n\t\tThis powerful effect constantly drains %0.2f%% of your maximum Psi (excluding this talent) per turn, and is considered a psionic channel; as such it will break if you move.\n\t\t(Note that sleeping effects that happen each turn, such as Nightmare's damage and Sleep's contagion, will cease to function for the duration of the effect.)]]):tformat(drain)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e46941e4a0d021bc2bb0eb3031f7a3d2dcee040c81178a717c819ab8672d4b68",
+    "source_path": "game/modules/tome/data/general/objects/boss-artifacts-far-east.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "6476ef6a9bec8c163356e8dc86f5d5bb009af7afc195ae2625c584691e3577a5",
+    "excerpts": [
+      {
+        "first_line": 584,
+        "last_line": 590,
+        "text": "\tdefine_as = \"AETHER_RING\",\n\tname = \"Void Orb\", unique=true, image = \"object/artifact/void_orbs.png\",\n\tdesc = _t[[This thin grey ring is adorned with a deep black orb. Tiny white dots swirl slowly within it, and a faint purple light glows from its core.]],\n\tunided_name = _t\"ethereal ring\",\n\tlevel_range = {40, 50},\n\trarity = 250,\n\tcost = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e46ab774bbad51ec8cc3fbbfecf40972d81db8e578e5cef89f123effcb989c81",
+    "source_path": "game/modules/tome/data/texts/tutorial/stats-tier/tier9.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "88a9873a2b9c28c7728095b60be09e2dd4298b17a6dae8de0a25c2bce1d858a5",
+    "excerpts": [
+      {
+        "first_line": 18,
+        "last_line": 24,
+        "text": "-- darkgod@te4.org\n\nreturn _t[[\nTheir melee attacks seem to sometimes apply the \"Off-balance\" effect, but not always.\n\nCan you figure out when it gets applied and when it doesn't?\n]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4710b024e3ab20c73defca8c43671965f335114d5ab2ccfc9690a116802412a",
+    "source_path": "game/modules/tome/class/Actor.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+    "excerpts": [
+      {
+        "first_line": 7802,
+        "last_line": 7808,
+        "text": "\n\t\tlocal dir = game.level.map:compassDirection(mods.x-x, mods.y-y)\n\t\tif not dir then\n\t\t\tdir = _t\"but fumbles!\"\n\t\telse\n\t\t\tdir = (\"to the %s!\"):tformat(dir)\n\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e473b308a88697996660325bdea086a4433df70e45afeb24f8bc984907b8ef5e",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 4863,
+        "last_line": 4869,
+        "text": "\tname = \"Pouch of the Subconscious\", image = \"object/artifact/pouch_of_the_subconscious.png\",\n\tproj_image = \"object/artifact/shot_s_pouch_of_the_subconscious.png\",\n\tunided_name = _t\"familiar pouch\",\n\tdesc = _t[[You find yourself constantly fighting an urge to handle this strange pouch of shot.]],\n\tcolor = colors.RED,\n\tlevel_range = {25, 40},\n\trarity = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e478e6d17e6f1436c0818bfc6fdeeedeab51cfa9166e3ec3f64a31b28344fc2e",
+    "source_path": "game/modules/tome/data/lore/misc.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+    "excerpts": [
+      {
+        "first_line": 61,
+        "last_line": 67,
+        "text": "newLore{\n\tid = \"temple-creation-note-4\",\n\tcategory = \"temple of creation\",\n\tname = _t\"personal note (Slasul)\",\n\tlore = _t[[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.\n]],\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e47b52d681a76a7bb6aa06a2ad24403a58647dbbe9caabee95be641bab2346d8",
+    "source_path": "game/modules/tome/data/texts/tutorial/tactics1.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "a549d98676c4f20d97a3eb472fabf947af0935675928665431c76e775946ee50",
+    "excerpts": [
+      {
+        "first_line": 17,
+        "last_line": 30,
+        "text": "-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nreturn _t[[You have found a nest of snakes! If you let them surround you, you might be in trouble!\nA basic tactic is to never get surrounded, do not hesitate to backtrack a bit to a safer spot.\n\n#GOLD#Always control the fight.#WHITE#\n\nAfter the combat you will probably be low on health, you can rest for a while to regain lost health and resources.\nEither press 'R' or right-click on yourself to rest. You will rest until fully restored or until a creature disturbs you.\n\nNow take a few steps back so you only have to fight one snake at a time, and you should survive.\nRemember to use your talents, infusions and runes to win the fight.\n]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e47bde95129bd02e5ca50665356bb4daf12d6afbf1aea9642093c816909b290c",
+    "source_path": "game/modules/tome/data/achievements/quests.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "ee4ebea3d2aedaaba26aee21a4f8ceec0c265eb8cb71aee307e3d63d436cd470",
+    "excerpts": [
+      {
+        "first_line": 174,
+        "last_line": 180,
+        "text": "\n-------------- Other quests\nnewAchievement{\n\tname = \"Rescuer of the lost\", id = \"LOST_MERCHANT_RESCUE\",\n\tshow = \"name\",\n\tdesc = _t[[Rescued the merchant from the assassin lord.]],\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e47cf632e0fa357e1c7fc45e6d7ec158a4d543d6ff5ce4d0d203f91c4975be3e",
+    "source_path": "game/modules/tome/data/talents/gifts/ooze.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "20889794d7c014f4472eb3e12d0635db4f161b2b61e139d54c3e5fa53e0f9d99",
+    "excerpts": [
+      {
+        "first_line": 55,
+        "last_line": 61,
+        "text": "\t\t\ttype = \"vermin\", subtype = \"oozes\",\n\t\t\tdisplay = \"j\", color=colors.GREEN, image = \"npc/vermin_oozes_bloated_ooze.png\",\n\t\t\tname = _t\"bloated ooze\",\n\t\t\tdesc = _t\"It's made from your own flesh and it's oozing.\",\n\t\t\tsound_moam = {\"creatures/jelly/jelly_%d\", 1, 3},\n\t\t\tsound_die = {\"creatures/jelly/jelly_die_%d\", 1, 2},\n\t\t\tsound_random = {\"creatures/jelly/jelly_%d\", 1, 3},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4871be69ccc6d47bae940feeec6c9dc9392935cf4c279d4ebee63e15e143af4",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 1618,
+        "last_line": 1624,
+        "text": "\tunique = true,\n\tname = \"Girdle of Preservation\", image = \"object/artifact/belt_girdle_of_preservation.png\",\n\tunided_name = _t\"shimmering, flawless belt\",\n\tdesc = _t[[A pristine belt of purest white leather with a runed voratun buckle. The ravages of neither time nor the elements have touched it.]],\n\tcolor = colors.WHITE,\n\tlevel_range = {45, 50},\n\trarity = 400,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e48a4697319afae411ab7e8c2d8a2f4f6d1c7c12344c3463034d2b9da54a4f56",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 5646,
+        "last_line": 5652,
+        "text": "\tpower_source = {technique=true},\n\tunique = true,\n\tname = \"Nithan's Force\", image = \"object/artifact/nithans_force.png\",\n\tunided_name = _t\"massive sling\",\n\tdesc = _t[[This powerful sling is said to have belonged to a warrior so strong his shots could knock down a brick wall...]],\n\tlevel_range = {35, 50},\n\trarity = 220,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e48b9b72790f309d7f5408b9a5af850d9d2b5eb2e92a98c2930ed90fda9c14b6",
+    "source_path": "game/modules/tome/data/talents/chronomancy/anomalies.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "cc36f9e9f4aaec5230730e339ec389d2185f125afad3bd5fc061d2a0631aca25",
+    "excerpts": [
+      {
+        "first_line": 926,
+        "last_line": 932,
+        "text": "}\n\nnewTalent{\n\tname = \"Anomaly Temporal Clone\",\n\ttype = {\"chronomancy/anomalies\", 1},\n\tanomaly_type = \"temporal\",\n\ttype_no_req = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e48c9720dadc84b8310628635962d8a1f872f80288080affc1c6251f3d43d7ef",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 4273,
+        "last_line": 4279,
+        "text": "\t\t\tif not x or not y then return {id=true} end\n\n\t\t\tlocal rad = 2\n\t\t\tgame.logSeen(who, \"%s is #PURPLE#ENVELOPED#LAST# in a deep purple aura from %s %s!\", who:getName():capitalize(), who:his_her(), self:getName({do_color = true, no_add_name = true}))\n\t\t\tgame.level.map:particleEmitter(who.x, who.y, 1, \"teleport\")\n\t\t\twho:teleportRandom(x, y, rad)\n\t\t\tgame.level.map:particleEmitter(who.x, who.y, 1, \"teleport\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e48e6f8ca023dd66ae8fcc9129225e0352cffcb08823af7d27ecefc3ea0548e9",
+    "source_path": "game/modules/tome/dialogs/debug/DebugMain.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "b351a4ca513c5ba3acb58faf923722e09215865e7c31eca8e3915afd74221c39",
+    "excerpts": [
+      {
+        "first_line": 169,
+        "last_line": 175,
+        "text": "\n\tlist[#list+1] = {name=_t\"Change Zone\", dialog=\"ChangeZone\"}\n\tlist[#list+1] = {name=_t\"Change Level\", action=\"change_level\"}\n\tlist[#list+1] = {name=_t\"Reveal all map\", action=\"magic_map\"}\n\tlist[#list+1] = {name=_t\"Toggle Demi-Godmode\", action=\"demigodmode\"}\n\tlist[#list+1] = {name=_t\"Toggle Godmode\", action=\"godmode\"}\n\tlist[#list+1] = {name=_t\"Alter Faction\", dialog=\"AlterFaction\"}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e495282645d45609388bc699f9ebd468013a5035064b29df40b8a687c238a7ed",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts-far-east.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "cd0dbfe594c6c6fb274c222f75f7bbb2f734dd5ce15136dc0a5ebfeceafbe8ac",
+    "excerpts": [
+      {
+        "first_line": 78,
+        "last_line": 84,
+        "text": "\tpower_source = {arcane=true},\n\tunique = true,\n\tunided_name = _t\"shimmering gold shield\",\n\tname = \"Unsetting Sun\", image = \"object/artifact/shield_unsetting_sun.png\",\n\tmoddable_tile = \"special/%s_unsetting_sun\",\n\tmoddable_tile_big = true,\n\tdesc = _t[[When Elmio Panason, captain of the Vanguard, first sought shelter for his shipwrecked crew, he reflected the last rays of the setting sun off his shield.  Where the beam hit they rested and built the settlement that would become the Sunwall.  In the dark days that followed the shield became a symbol of hope for a better future.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e49a1908da19bf22217b02c5589eb825f11eab085b358333a3d5351c2bf359a0",
+    "source_path": "game/modules/tome/data/general/objects/random-artifacts/generic.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "eb4a41cb6adf3df5d4b3235e404f3a7f7f4a5553fe42a61234b04319dfa794a3",
+    "excerpts": [
+      {
+        "first_line": 340,
+        "last_line": 346,
+        "text": "newEntity{ theme={fire=true}, name=\"generic resists pen fire\", points = 1, rarity = 16, level_range = {1, 50},\n\twielder = { resists_pen = { [DamageType.FIRE] = resolvers.randartmax(5, 25),  }, },\n}\nnewEntity{ theme={cold=true}, name=\"generic resists pen cold\", points = 1, rarity = 16, level_range = {1, 50},\n\twielder = { resists_pen = { [DamageType.COLD] = resolvers.randartmax(5, 25),  }, },\n}\nnewEntity{ theme={acid=true}, name=\"generic resists pen acid\", points = 1, rarity = 16, level_range = {1, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4a5d30861e11090b0c5849a97020e54efb56335a80865453a04389df36eb6e2",
+    "source_path": "game/modules/tome/data/chats/sage-kitty.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "6b30ad5ece6d0dd98ff0db9d8881d0d8ad449a233459696af1f3b9b5e8023e85",
+    "excerpts": [
+      {
+        "first_line": 40,
+        "last_line": 46,
+        "text": "newChat{ id=\"pet\",\n\ttext = _t[[#LIGHT_GREEN#*It eats it all and looks happy. After a while it strolls away. Somehow you feel you have not seen the last of it.*#WHITE#]],\n\tanswers = {\n\t\t{_t\"#LIGHT_GREEN#[Leave]\", action=function(npc, player)\n\t\t\tgame.state.kitty_fed = true\n\t\tend},\t\t\n\t}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4a6389da80e74d93675b9753e277dcbf5224920d49d788c02f27a47d746244b",
+    "source_path": "game/modules/tome/data/general/objects/jewelry.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4525d6731e6825ae468212d4d6ad8a0b7a73d44736fda1bbf7a478ad7ecd6240",
+    "excerpts": [
+      {
+        "first_line": 42,
+        "last_line": 49,
+        "text": "}\n\nnewEntity{ base = \"BASE_RING\",\n\tname = \"copper ring\", color = colors.UMBER,\n\tunided_name = _t\"copper ring\", short_name = \"copper\",\n\tlevel_range = {1, 10},\n\tcost = 1,\n\tmaterial_level = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4aa4be218fe30f2b074c282223fbd2654600c01265f7a1b5ae6c942cdf19b37",
+    "source_path": "game/modules/tome/init.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+    "excerpts": [
+      {
+        "first_line": 135,
+        "last_line": 141,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_shalore_elven_corruptor.png\", text=[[Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.]]},\n\t{image=\"/data/gfx/shockbolt/trap/beartrap01.png\", text=[[Clever rogues can lay traps to damage or debilitate their foes without having to go near them.]]},\n\t{image=\"/data/gfx/talents/stealth.png\", text=[[Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.]]},\n\t{image=\"/data/gfx/shockbolt/object/rune_green.png\", text=[[A movement infusion can let you quickly approach a ranged opponent, or quickly escape a melee one.]]},\n\t{image=\"/data/gfx/shockbolt/object/rune_red.png\", text=[[Invisibility lets you escape notice, giving you the freedom to move or recover your resources, but reduces your damage.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_assassin_lord.png\", text=[[Poison is the domain of assassins and master rogues, and its cunning use can cripple or kill enemies over a long fight.]]},\n\t{image=\"/data/gfx/loadtiles/summoner.png\", text=[[Summoners can call upon a variety of natural creatures to protect and support them, reducing the risk to their own flesh considerably.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4aca553fa01dbf841c1ab1ccc572d1d30d896200a5898c3f367b20ab45eb5d5",
+    "source_path": "game/modules/tome/data/lore/misc.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+    "excerpts": [
+      {
+        "first_line": 451,
+        "last_line": 457,
+        "text": "newLore{\n\tid = \"races-ogre\",\n\tcategory = \"races\",\n\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 7 - Ogres\",\n\tlore = _t[[Ogres have never been a thriving race, starting from their abrupt appearance as soldiers and laborers for the Conclave during the Allure Wars (unexplained aside from a highly implausible story from the Conclave's Overseers about a lost mountain tribe).  Left without homes or proper runic training after the war's end, they were forced to found their own tribes and rediscover the fields of rune and infusion creation for themselves, and though their numbers dropped rapidly, they enjoyed a brief period of relative success as nomadic rune-traders, virtually unaffected by the Spellblaze.  The Spellhunt nearly proved to be their undoing, as their monstrous size and rune-covered skin made them popular targets; they were thought to be extinct, and only in recent years has the city of Elvala revealed that some Ogres took refuge there during this time.  Their descendants still live today, fearful of persecution but gradually beginning to explore outside Elvala for the first time in ages.\n\nOgres' most striking feature is their size, by far the largest of any intelligent race; they average at roughly 8'4\" tall, and most are nearly half as wide with muscle.  They have a similar range of skin tones to humans, although slightly grayer on the whole; their hair tends to be dark brown or black, and their eyes run the gamut from black to bright blue to purple, presumably a side-effect of runic mis-transcription.  Their angular facial features invite some impolite comparisons to Orcs, with strong jawlines, disproportionately large mouths and teeth, and squarish heads, but otherwise resemble those of humans.  It would be remiss of me to describe Ogres' appearance without mentioning the intricate, glowing pattern of runes covering their skin from head to toe, although the exact patterns and colors vary.  "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4af3dd43fb251b4ac8f4fe838f1f9633df1821124cd7ff93c38005a064197ce",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 4939,
+        "last_line": 4945,
+        "text": "newEntity{ base = \"BASE_GREATMAUL\",\n\tpower_source = {nature=true, antimagic=true},\n\tname = \"Spellcrusher\", color = colors.GREEN, image = \"object/artifact/spellcrusher.png\",\n\tunided_name = _t\"vine coated hammer\", unique = true,\n\tdesc = _t[[This large steel greatmaul has thick vines wrapped around the handle.]],\n\tlevel_range = {10, 20},\n\trarity = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4afe73e4f1c341bdd477f280fcefcb613e1b759c5ccdc2f46d867e73ce8a573",
+    "source_path": "game/modules/tome/data/lore/shertul.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "5e2c74eb697a0468d01cd0318e8bb9192201b3b652cb83fdf278e1354a72692a",
+    "excerpts": [
+      {
+        "first_line": 97,
+        "last_line": 103,
+        "text": "\tname = _t\"eighth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore8.png\",\n\tlore = function() return _t[[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.\nThe text beneath says simply ]]..(not game.player:attr(\"speaks_shertul\") and _t[[#{italic}#'Meas Abar.'#{normal}#]] or _t[[#{italic}#'The Great Sin.'#{normal}#]])\n\tend,\n}\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4b0228aef2ee03210bd1a267827c77a71fb0cc900dad937fc4b8fba478e5b3d",
+    "source_path": "game/modules/tome/class/Object.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+    "excerpts": [
+      {
+        "first_line": 897,
+        "last_line": 903,
+        "text": "\t\t\telse\n\t\t\t\tpower_diff = (\"(%s)\"):format(table.concat(power_diff, _t(\" / \")))\n\t\t\tend\n\t\t\tdesc:add((\"Base power: %.1f - %.1f\"):tformat((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))\n\t\t\tdesc:merge(power_diff:toTString())\n\t\tend\n\t\tdesc:add(true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4bc7b20fc12985a4e014ef470129128251c3a07000f9fc651b45f4f5a45bec6",
+    "source_path": "game/modules/tome/data/chats/tannen.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "94c4a7d33b028df11e4ed781e1aba510207747482e4b3d0a5a3350c87e58c18c",
+    "excerpts": [
+      {
+        "first_line": 131,
+        "last_line": 137,
+        "text": "newChat{ id=\"has_material_withheld_orb\",\n\ttext = _t[[Excellent. Are you yet willing to leave the Orb in my care for a time?]],\n\tanswers = {\n\t\t{_t\"I dare not let it out of my sight. I'm sorry.\", jump=\"no_orb_loan\"},\n\t\t{_t\"Here it is. Guard it carefully. I must return to the Far East soon.\", jump=\"orb_loan\"},\n\t}\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4c192463aa9c11e29c4827fe3c1a1f22fda6a4b707e99e65f33c226ddf24d68",
+    "source_path": "game/modules/tome/init.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+    "excerpts": [
+      {
+        "first_line": 95,
+        "last_line": 101,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/horror_eldritch_luminous_horror.png\", text=[[In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_celia.png\", img_y_off=-20, text=[[Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.]]},\n\t{image=\"/data/gfx/shockbolt/npc/undead_mummy_greater_mummy_lord.png\", text=[[Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.]]},\n\t{image=\"/data/gfx/loadtiles/toknor_mirvenia.png\", img_y_off=-10, text=[[120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.]]},\n\t{image=\"/data/gfx/loadtiles/lava.png\", text=[[\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_ben_cruthdar__the_cursed.png\", text=[[Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.]]},\n\t{image=\"/data/gfx/shockbolt/npc/the_master.png\", text=[[Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4c54e567ca32304b2b209eb611a65c43c11328b347c807ae3cce9831642a172",
+    "source_path": "game/modules/tome/class/Actor.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+    "excerpts": [
+      {
+        "first_line": 2986,
+        "last_line": 2992,
+        "text": "\t\t\tvalue = value - abs\n\t\t\tself:removeEffect(self.EFF_ELDRITCH_STONE)\n\t\tend\n\t\tgame:delayedLogDamage(src, self, 0, (\"#SLATE#(%d to stone)#LAST#\"):tformat(abs), false)\n\tend\n\n\tif self:knowTalent(self.T_STONESHIELD) and not self.turn_procs.stoneshield then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4c5ce1f5883082e03ab8056dd51ec6799759d4971bc210e91a700af0565948a",
+    "source_path": "game/modules/tome/data/zones/charred-scar/grids.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "5376ed0987cd4d000f82369e1609401d6aeb43de1e3611f6479f4fe882b280bf",
+    "excerpts": [
+      {
+        "first_line": 30,
+        "last_line": 36,
+        "text": "\tnotice = true,\n\talways_remember = true,\n\tshow_tooltip = true,\n\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.]],\n\tnice_editer = lava_editer,\n\n\torb_portal = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4c5fea288174229bde4b4395e927b41096465706d2818d60c003404609782bb",
+    "source_path": "game/modules/tome/data/zones/town-shatur/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "0f0f5f0ac81f650aa87858c9dac68cf0dcdd00d31c8a78beb57d8dc05ebca302",
+    "excerpts": [
+      {
+        "first_line": 69,
+        "last_line": 75,
+        "text": "}\n\nnewEntity{ base = \"BASE_NPC_ELVALA_TOWN\",\n\tname = \"thalore wilder\", color=colors.GREEN,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_thalore_thalore_wilder.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[A tall elf, his skin covered in green moss.]],\n\tlevel_range = {1, nil}, exp_worth = 0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4c8e609097f1ac7a9e630119b83b8c8f722ea7538d69233e06dcf289c3f25ce",
+    "source_path": "game/modules/tome/data/talents/corruptions/vile-life.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "717328f18ac054652eef915b0ee39f353aca3223074db29c36b148bbbb460c13",
+    "excerpts": [
+      {
+        "first_line": 152,
+        "last_line": 160,
+        "text": "\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You manipulate the vim of enemies in radius %d to temporarily invert all healing done to them (but not natural regeneration).\n\t\tFor 5 turns all healing will instead damage them for %d%% of the healing done as blight.\n\t\tThe effect will increase with your Spellpower.]]):tformat(self:getTalentRadius(t), t.getPower(self,t))\n\tend,\n}\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4cd3ecdcc1f11979627d491e2efe565ec65f44ba1ee90c7ec034ec6ee906311",
+    "source_path": "game/modules/tome/data/talents/cursed/cursed-aura.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "f507f22b67613b0301b832ee4ae625b2de6349d6a10c0de2242f577a6cb94910",
+    "excerpts": [
+      {
+        "first_line": 296,
+        "last_line": 303,
+        "text": "\tinfo = function(self, t)\n\t\tlocal level = math.min(4, self:getTalentLevelRaw(t))\n\t\tlocal xs = t.curseBonusLevel(self,t)\n\t\treturn ([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.\n\t\tTalent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]]):\n\t\ttformat(level, xs)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4d1eebec3d4fe1ef25df97f3c1779ceb1ee405477466846823f1b76e5ca9b26",
+    "source_path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "60289877ddda683962fa2fec05fb30b7df9192c124666c46fa9be41767c5fa01",
+    "excerpts": [
+      {
+        "first_line": 166,
+        "last_line": 171,
+        "text": "\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Switches places with one of your summons. This disorients your foes, granting both you and your summon 50%% evasion for %d turns.]]):tformat(t.getDuration(self, t))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4d84ae2e9765e5d98fa413a92852f902be069f5be9364462bbb6820da787009",
+    "source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "958b207fd24723fa3b1613c62048b19012df2e24e9b82152eb1ef2485a88aed1",
+    "excerpts": [
+      {
+        "first_line": 620,
+        "last_line": 626,
+        "text": "}\n\nnewTalent{\n\tname = \"Militant Mind\",\n\ttype = {\"race/halfling\", 3},\n\trequire = racial_req3,\n\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4dccf8bbb5a613893c916937aaeb56d7e4c39244422ee250dddeb0a78a8ee4f",
+    "source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "958b207fd24723fa3b1613c62048b19012df2e24e9b82152eb1ef2485a88aed1",
+    "excerpts": [
+      {
+        "first_line": 856,
+        "last_line": 866,
+        "text": "-- Yeeks' powers\n------------------------------------------------------------------\n-- We check for max life on boss targets to avoid people using this to engage thus ensuring all their allies target them first\nnewTalentType{ type=\"race/yeek\", name = _t(\"yeek\", \"talent type\"), is_mind=true, generic = true, description = _t\"The various racial bonuses a character can have.\" }\nnewTalent{\n\tshort_name = \"YEEK_WILL\",\n\tname = \"Dominant Will\",\n\ttype = {\"race/yeek\", 1},\n\trequire = racial_req1,\n\tpoints = 5,\n\tno_energy = true,"
+      },
+      {
+        "first_line": 913,
+        "last_line": 919,
+        "text": "\nnewTalent{\n\tname = \"Unity\",\n\ttype = {\"race/yeek\", 2},\n\trequire = racial_req2,\n\tpoints = 5,\n\tmode = \"passive\","
+      },
+      {
+        "first_line": 933,
+        "last_line": 939,
+        "text": "\nnewTalent{\n\tname = \"Quickened\",\n\ttype = {\"race/yeek\", 3},\n\trequire = racial_req3,\n\tpoints = 5,\n\tmode = \"passive\","
+      },
+      {
+        "first_line": 960,
+        "last_line": 966,
+        "text": "\nnewTalent{\n\tname = \"Wayist\",\n\ttype = {\"race/yeek\", 4},\n\trequire = racial_req4,\n\tpoints = 5,\n\tno_energy = true,"
+      },
+      {
+        "first_line": 985,
+        "last_line": 994,
+        "text": "\n\t\t\tlocal NPC = require \"mod.class.NPC\"\n\t\t\tlocal m = NPC.new{\n\t\t\t\ttype = \"humanoid\", subtype = \"yeek\",\n\t\t\t\tdisplay = \"y\",\n\t\t\t\tname = _t\"yeek mindslayer\", color=colors.YELLOW,\n\t\t\t\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_yeek_yeek_mindslayer.png\", display_h=2, display_y=-1}}},\n\t\t\t\tdesc = _t\"A wayist that came to help.\",\n\n\t\t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, PSIONIC_FOCUS=1 },"
+      },
+      {
+        "first_line": 1044,
+        "last_line": 1051,
+        "text": "\tend,\n\tinfo = function(self, t)\n\t\tlocal base_stats = self:combatScale(self:getWil() * self:getTalentLevel(t), 25, 0, 125, 500, 0.75)\n\t\treturn ([[Reach through the collective psionic gestalt of the yeeks, the Way, to call for immediate help.\n\t\tSummons up to 3 yeek mindslayers to your side for 6 turns.\n\t\tAll their primary stats will be set to %d (based on your Willpower and Talent Level).\n\t\tYour increased damage, damage penetration, and many other stats will be inherited.]]):tformat(base_stats)\n\tend,"
+      },
+      {
+        "first_line": 1061,
+        "last_line": 1067,
+        "text": "\tmode = \"passive\",\n\ton_learn = function(self, t) self.auto_id = 100 end,\n\tinfo = function(self, t)\n\t\treturn ([[You merge your mind with the rest of the Way for a brief moment; the sum of all yeek knowledge gathers in your mind\n\t\tand allows you to identify any item you could not recognize yourself.]]):tformat()\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4de7be161fb1095b8d5caf9902d7ce73da7240406db2930759ad127782dbdd9",
+    "source_path": "game/modules/tome/data/chats/eidolon-plane.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "0220ec13745c19ad492ce99a9e93a2d6b0edabad92a41128e37ec4e9851fc19c",
+    "excerpts": [
+      {
+        "first_line": 35,
+        "last_line": 46,
+        "text": "else\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*Before you stands a humanoid shape filled with 'nothing'. It seems to stare at you.*#WHITE#\nI have brought you here on the instant of your death. I am the Eidolon.\nI have deemed you worthy of my 'interest'. I will watch your future steps with interest.\nYou may rest here, and when you are ready I will send you back to the material plane.\nBut do not abuse my help. I am not your servant, and someday I might just let you die.\nAs for your probable many questions, they will stay unanswered. I may help, but I am not here to explain why.]],\n\tanswers = {\n\t\t{_t\"Thank you. I will rest for a while.\"},\n\t\t{_t\"Thank you. I am ready to go back!\", "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4df855fc1414ac96959a5e9aacfda11f8b71b927e95b714507007c0c8f4a555",
+    "source_path": "game/modules/tome/data/zones/maze/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "f07231a5244764f2896978554836c032d56a19d06a56dc7c8528181e5a813c71",
+    "excerpts": [
+      {
+        "first_line": 101,
+        "last_line": 107,
+        "text": "newEntity{ define_as = \"MINOTAUR_MAZE\",\n\tallow_infinite_dungeon = true,\n\ttype = \"giant\", subtype = \"minotaur\", unique = true,\n\tname = \"Minotaur of the Labyrinth\",\n\tdisplay = \"H\", color=colors.VIOLET,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/giant_minotaur_minotaur_of_the_labyrinth.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[A fearsome bull-headed monster, he swings a mighty axe as he curses all who defy him.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4e0191c09277730f6625eab44f8fe98567388165d8cc88ef50e70033c1b033f",
+    "source_path": "game/modules/tome/data/general/objects/mindstars.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "146f3986a6a9ec41911095125c8e441c5fae93c20a4a56a82124dd67813ae947",
+    "excerpts": [
+      {
+        "first_line": 127,
+        "last_line": 133,
+        "text": "}\n\nnewEntity{ base = \"BASE_MINDSTAR\",\n\tname = \"living mindstar\", short_name = \"living\",\n\tlevel_range = {40, 50},\n\trequire = { stat = { wil=48 }, },\n\tcost = 35,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4e0b80de92eefeeccb8311f8303e1b1ede23ae1db0f3bb55c39653a239d2466",
+    "source_path": "game/modules/tome/data/lore/last-hope.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "9fee9b5c64625aa10692c77691bf1207a64e7a048589b44bed3788069f33a145",
+    "excerpts": [
+      {
+        "first_line": 208,
+        "last_line": 224,
+        "text": "\tcategory = \"last hope\",\n\tname = _t\"Declaration of the Unification of the Allied Kingdoms\",\n\talways_pop = true,\n\tlore = _t[[Herewith is set the constitutional declaration of the Allied Kingdoms under the rule of King Toknor and Queen Mirvenia. Any who defy or seek to undermine the laws here set shall suffer torment and death.\n\nAs of the 1st of Allure, Age of Pyre year 714, henceforth to be known as the Age of Ascendancy year 1, all human and halfling kingdoms shall be united under the banner of the Allied Kingdoms. This shall include all towns, villages, serfdoms and farmsteads with over 50% human or halfling populace in the whole expanse of Maj'Eyal.\n\nThe Allied Kingdoms shall be presided over by the rule of King Toknor and Queen Mirvenia, long may their line endure. Their throne and residency shall be held in the citadel of Last Hope, and here also shall be seated all administrative and military offices. Free trade shall be established between all elements of the Allied Kingdoms, and central taxation shall be administered by the Royal Treasury. All lands within the Allied Kingdoms shall be regularly patrolled by official guards to enforce the peace. One rule and one law shall be applied to all.\n\nThis unification shall make our lands stronger, more whole. Too long have we suffered under the shadows of invasion and terror. Too long have we been splintered, broken by petty infighting. But now we shirk off the failures of the past, and with one strong rule, one unbreakable alliance, we shall all prosper and find peace. Together we shall fight back against the darkness, and an age of light shall be born. We will fear the night no more.\n\nTo those who oppose this, let thee be afeared, for a new dawn is rising and it shall suffer no obstruction. This Alliance and the era it brings shall be protected at all costs. Treason will not be tolerated, and divisors will be damned. All shall follow the rule of Toknor and Mirvenia, or face the righteous wrath of a new age.\n\nAll hail the reign of King Toknor and Queen Mirvenia! All hail the Allied Kingdoms! All hail the Age of Ascendancy!]],\n}\n\nnewLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4ef410cba4915d0b5a215cf64c0948d7885eb74150474f7c79bedd0e2a164f5",
+    "source_path": "game/modules/tome/data/general/objects/egos/lite.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "84cd6d7d90ef265a91d2828a2bc2d4f381fabd6c866ec430b1dc2673aab674f0",
+    "excerpts": [
+      {
+        "first_line": 37,
+        "last_line": 44,
+        "text": "\nnewEntity{\n\tpower_source = {arcane=true},\n\tname = \" of the sun\", suffix=true, instant_resolve=true,\n\tkeywords = {sun=true},\n\tlevel_range = {30, 50},\n\tgreater_ego = 1,\n\trarity = 30,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4f14b107f0b16cbde936c87330e56e5b509c3aa3eca32b076d6113cecf867b2",
+    "source_path": "game/modules/tome/dialogs/CharacterSheet.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "d6c8555c085249893e02be80b079079f6c6a98f2533ac35e2085c724ea5f2582",
+    "excerpts": [
+      {
+        "first_line": 744,
+        "last_line": 750,
+        "text": "\t\tself:mouseTooltip(self.TOOLTIP_LIFE_REGEN,  s:drawColorStringBlended(self.font, (\"(with heal mod): #00ff00#%s\"):tformat(text), w, h, 255, 255, 255, true)) h = h + self.font_h\n\n\t\th = h + self.font_h\n\t\ts:drawColorStringBlended(self.font, _t\"#LIGHT_BLUE#Vision:\", w, h, 255, 255, 255, true) h = h + self.font_h\n\t\ttext = compare_fields(player, actor_to_compare, \"lite\", \"%d\", \"%+.0f\")\n\t\tif text then\n\t\t\tself:mouseTooltip(self.TOOLTIP_VISION_LITE,  s:drawColorStringBlended(self.font, (\"Light radius   : #00ff00#%s\"):tformat(text), w, h, 255, 255, 255, true)) h = h + self.font_h"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4f4d80132ef874ff27b3ec0b61b737e5377753317cb2b2ce02f39e31e171e36",
+    "source_path": "game/modules/tome/data/general/objects/egos/digger.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "8d065b86fb4e4e9676277cc0fb0e8ef9c66a2283accfc2c717d7db66dfaa8c60",
+    "excerpts": [
+      {
+        "first_line": 252,
+        "last_line": 259,
+        "text": "\nnewEntity{\n\tpower_source = {arcane=true},\n\tname = \" of quickening\", suffix=true, instant_resolve=true,\n\tkeywords = {quickening=true},\n\tlevel_range = {20, 50},\n\tgreater_ego = 1,\n\trarity = 20,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4f4f2ed98966da518a2d82e2c3eab912196e7d707460455195e30fce7edd207",
+    "source_path": "game/modules/tome/data/damage_types.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+    "excerpts": [
+      {
+        "first_line": 847,
+        "last_line": 853,
+        "text": "\t\tend\n\t\treturn realdam\n\tend,\n\tdeath_message = {_t\"electrocuted\", _t\"shocked\", _t\"bolted\", _t\"volted\", _t\"amped\", _t\"zapped\"},\n}\n\n-- Acid, few specific interactions currently aside from damage types later derived from this"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4f829fcba80ab9939002844256beb6eafa6a587350e45cf90aaecca2e914f56",
+    "source_path": "game/modules/tome/data/lore/kor-pul.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "55fb8d2bb8a162fac6f5570520ca206577e2e63e16d8a0866a4a2c5ca0a2bf0e",
+    "excerpts": [
+      {
+        "first_line": 25,
+        "last_line": 37,
+        "text": "\tid = \"kor-pul-note-1\",\n\tcategory = \"kor'pul\",\n\tname = _t\"journal page (kor'pul)\",\n\tlore = _t[[Damn that Zemekkys! Damn his insane experiments!! Why in the blackest night did I ever agree to take part in them?!\n\nOh yeah, because I was broke. Bah...\n\nI think I might have considered things differently had I known I'd be transported without my clothes though! Imagine my embarrassment turning up in a foreign land, with my... my unmentionables on display... Thankfully I managed to borrow a robe from a friendly farmer, and did some work for him to earn gold enough for a bit of food, a journal, and a rusty old sword. When I heard there were ruins filled with undead nearby I knew my calling had come! So here I am, mighty Sun Paladin Telthar, to prove my strength in these foreign lands of the west!\n\nBut all I've found so far is rats. I hate rats...]],\n}\n\nnewLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4f91e5cb05a4de9a4ff2a71ef1084976a38f273eff069ec2f4af6fe5facb141",
+    "source_path": "game/modules/tome/data/talents/chronomancy/timetravel.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "aa6ca390a27af48544efffd889c2ff020f5a482b35b682ec148890a19f3f0dec",
+    "excerpts": [
+      {
+        "first_line": 301,
+        "last_line": 307,
+        "text": "\tend,\n\tinfo = function(self, t)\n\t\tlocal duration = t.getDuration(self, t)\n\t\treturn ([[Transport yourself to a safe place for %d turns.]]):\n\t\ttformat(duration)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e4fb2a420bd3d506a36d9e69e97d8b4cb70e47ded7a56ededdd0698bafb6e655",
+    "source_path": "game/modules/tome/data/quests/high-peak.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "c0f31c4370312755b113e9dff847d68d174663a172405b788bb5fe323577ad01",
+    "excerpts": [
+      {
+        "first_line": 106,
+        "last_line": 112,
+        "text": "\tgame:onLevelLoad(\"wilderness-1\", function(zone, level)\n\t\tlocal spot = level:pickSpot{type=\"zone-pop\", subtype=\"ruined-gates-of-morning\"}\n\t\tlocal wild = level.map(spot.x, spot.y, engine.Map.TERRAIN)\n\t\twild.name = _t\"Ruins of the Gates of Morning\"\n\t\twild.desc = _t\"The Sunwall was destroyed while you were trapped in the High Peak.\"\n\t\twild.change_level = nil\n\t\twild.change_zone = nil"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e5003d83d72802c81ce7f9e78de3c1c8a99ddd668e25bcc3b4206c13c37d0b82",
+    "source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+    "excerpts": [
+      {
+        "first_line": 1482,
+        "last_line": 1488,
+        "text": "}\nnewEffect{\n\tname = \"CHARGESPIKE_SHIELD\", image = \"talents/charged_shield.png\",\n\tdesc = _t\"Spiked Charged Shield\",\n\tlong_desc = function(self, eff)\n\t\tlocal tl = self:getTalentLevel(self.T_ABSORPTION_MASTERY)\n\t\tlocal xs = (tl>=3 and _t\", darkness\" or \"\")..(tl>=6 and _t\", mind\" or \"\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e5014f693e96e2d103317db77f55bfea2818158030b2340e64ae3489e4e44033",
+    "source_path": "game/modules/tome/data/general/npcs/xorn.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "9157ba56ba268a92785c4afa8c26d68d68fa8944837358b19467b4681b49e837",
+    "excerpts": [
+      {
+        "first_line": 90,
+        "last_line": 96,
+        "text": "}\n\nnewEntity{ base = \"BASE_NPC_XORN\",\n\tname = \"The Fragmented Essence of Harkor'Zun\", color=colors.VIOLET, unique=true,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/elemental_xorn_fragmented_harkor_zun.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[Fragmented essence... maybe it'd be best if it stayed fragmented.]],\n\tlevel_range = {17, nil}, exp_worth = 0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e5034a82fe0990c4b8f3c70a6f2f8afe197e2031d8a26738535ba6e770f7faf8",
+    "source_path": "game/modules/tome/data/zones/ruins-kor-pul/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "ccf6405af2919d0074c4d876ad14a96bd77dee83dcb071178652fd60226844e4",
+    "excerpts": [
+      {
+        "first_line": 95,
+        "last_line": 101,
+        "text": "\tname = \"The Possessed\", color=colors.VIOLET,\n\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_human_the_possessed.png\", display_h=2, display_y=-1}}},\n\tdesc = _t[[He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.]],\n\tkiller_message = _t\"and used as a new host\",\n\tlevel_range = {7, nil}, exp_worth = 2,\n\tunique = true,\n\trank = 4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e50808ade93b2847edbfcb6db808bd30ea628998a260c6f01321330df0df15d4",
+    "source_path": "game/modules/tome/data/talents/spells/spells.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "714c6bb79c10b1e0dfb59e6ee7bcccd18704c5a26b19737a917673ed194c5b58",
+    "excerpts": [
+      {
+        "first_line": 69,
+        "last_line": 75,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_necromancy=true, is_spell=true, mana_regen=true, type=\"spell/animus\", name = _t(\"animus\", \"talent type\"), description = _t\"Crush the souls of your foes to improve yourself.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_necromancy=true, is_spell=true, mana_regen=true, type=\"spell/death\", name = _t(\"death\", \"talent type\"), description = _t\"Learn to fasten your foes way into the grave.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_necromancy=true, is_spell=true, mana_regen=true, type=\"spell/eradication\", name = _t(\"eradication\", \"talent type\"), min_lev = 10, description = _t\"Doom to all your foes. Crush them.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_necromancy=true, is_spell=true, mana_regen=true, type=\"spell/necrosis\", name = _t(\"necrosis\", \"talent type\"), generic = true, description = _t\"Gain control over death, by unnaturally expanding your life.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_necromancy=true, is_spell=true, mana_regen=true, type=\"spell/spectre\", name = _t(\"spectre\", \"talent type\"), generic = true, description = _t\"Turn into a spectre to move around the battlefield.\" }\n\n-- Stone Warden spells"
+      },
+      {
+        "first_line": 366,
+        "last_line": 372,
+        "text": "load(\"/data/talents/spells/animus.lua\")\nload(\"/data/talents/spells/death.lua\")\nload(\"/data/talents/spells/eradication.lua\")\nload(\"/data/talents/spells/necrosis.lua\")\nload(\"/data/talents/spells/spectre.lua\")\n\nload(\"/data/talents/spells/eldritch-shield.lua\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e50eb91c9e7b1a7ac740aa13bdeed09cd39db28d1a47e0916ff4f592feb731db",
+    "source_path": "game/modules/tome/data/birth/classes/wilder.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "41415bb10ec90ae5e391e45ec1e02a1adc04bc8c652bfa485359d9778330306c",
+    "excerpts": [
+      {
+        "first_line": 257,
+        "last_line": 263,
+        "text": "\ttype = \"subclass\",\n\tname = \"Stone Warden\",\n\tlocked = function() return profile.mod.allow_build.wilder_stone_warden end,\n\tlocked_desc = _t\"The Spellblaze's scars may be starting to heal,\\nbut little can change how the partisans feel.\\nNature and arcane could bridge their divide -\\nand when it comes down to it, gold won't take sides...\",\n\tdesc = {\n\t\t_t\"Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.\",\n\t\t_t\"While other races are stuck in their belief that arcane forces and natural forces are meant to oppose, dwarves have found a way to combine them in harmony.\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e50ec52f771fcd0fdbfc1de63cf193c5d2a61928c35cdd3cbfcfc3f7d7671169",
+    "source_path": "game/modules/tome/data/lore/tannen.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "814c3e0ed610b3a3e7a968c91848b7470e14650b3d5aa9a1ddf775c2792877d2",
+    "excerpts": [
+      {
+        "first_line": 23,
+        "last_line": 29,
+        "text": "\nnewLore{\n\tid = \"tannen-level1\",\n\tcategory = \"tannen's tower\",\n\tname = _t\"Welcome to your cell\",\n\tlore = _t[[A Note to the Adventurer:\n"
+      },
+      {
+        "first_line": 42,
+        "last_line": 48,
+        "text": "\nnewLore{\n\tid = \"tannen-level2\",\n\tcategory = \"tannen's tower\",\n\tname = _t\"Personal note (1)\",\n\tlore = _t[[Angolwen is too timid.  Too paranoid about repeating the mistakes of the past.  Too cautious and infuriatingly non-pragmatic.  Too prone to avoiding the \"little sins,\" ignoring the big picture.  I've told them again and again that our ancestors' mistake wasn't trying to use the Sher'Tul portals, it was trying to weaponize them before we understood how they worked - couldn't we have plundered the Nargol facility for more data, or started kidnapping orc scouting parties as experimental subjects?  Couldn't we have tried to learn more about the Sher'Tul _before_ desperation pushed us into blowing up half of the world?  No, that was \"forbidden\" magic, \"too powerful for mortals to tamper with,\" right up until we realized we needed all that power after all.  Like a pacifist finally picking up a flail to defend himself, only to bash himself in the head with it, our lack of familiarity led to catastrophe.\n"
+      },
+      {
+        "first_line": 54,
+        "last_line": 60,
+        "text": "\nnewLore{\n\tid = \"tannen-level3\",\n\tcategory = \"tannen's tower\",\n\tname = _t\"Personal note (2)\",\n\tlore = _t[[\nWell...  that was interesting."
+      },
+      {
+        "first_line": 72,
+        "last_line": 78,
+        "text": "\nnewLore{\n\tid = \"tannen-level4\",\n\tcategory = \"tannen's tower\",\n\tname = _t\"Demon Orders\",\n\tlore = _t[[Order to the Portal Excursion Team:\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e50f58e06aa50910aa865263f03468b0ee0ea53fe437e3c95eec583258105df9",
+    "source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+    "excerpts": [
+      {
+        "first_line": 418,
+        "last_line": 424,
+        "text": "\tstatus = \"beneficial\",\n\tparameters = { power=10, dot_dur=5, time_reducer=20 },\n\ton_gain = function(self, err) return _t\"The very fabric of time alters around #target#.\", _t\"+Time Shield\" end,\n\ton_lose = function(self, err) return _t\"The fabric of time around #target# stabilizes to normal.\", _t\"-Time Shield\" end,\n\ton_aegis = function(self, eff, aegis)\n\t\tself.time_shield_absorb = self.time_shield_absorb + eff.power * aegis / 100\n\t\tif core.shader.active(4) then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e51148a715779d2963492522e1c014f5305a4270d51a69a8e3e226221daa602c",
+    "source_path": "game/modules/tome/data/talents/celestial/twilight.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "6ba661780800c736c0fbdc10560fcf413516d7dad60f5d4c84cf843053b78d70",
+    "excerpts": [
+      {
+        "first_line": 354,
+        "last_line": 360,
+        "text": "\taction = function(self, t)\n\t\tlocal eff = self.sustain_talents[self.T_JUMPGATE_TWO]\n\t\tif not eff then\n\t\t\tgame.logPlayer(self, \"You must sustain the Jumpgate Two spell to be able to teleport.\")\n\t\t\treturn\n\t\tend\n\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"teleport\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e519a9ab99cbf162dbe8a1b476203761bc2c5976bb03f89af84d56fedc26eeb5",
+    "source_path": "game/modules/tome/data/chats/sorcerer-fight.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "017d905407a0fa2ba891f6a7e681470abe00892e94210c13262cebf7b54db597",
+    "excerpts": [
+      {
+        "first_line": 70,
+        "last_line": 76,
+        "text": "newChat{ id=\"explain2\",\n\ttext = _t[[Us? Ah, no, we are merely instruments for the Master. We have planned for His return.]],\n\tanswers = {\n\t\t{_t\"And 'He' would be...?\", jump=\"explain3\"},\n\t}\n}\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e51cb4dfedd1ad6fc39f62b800875a8cc73f587ce3b59d9cbf3174d3a4323948",
+    "source_path": "game/modules/tome/dialogs/debug/DebugMain.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "b351a4ca513c5ba3acb58faf923722e09215865e7c31eca8e3915afd74221c39",
+    "excerpts": [
+      {
+        "first_line": 143,
+        "last_line": 149,
+        "text": "\t\t\t\t\tend\n\t\t\t\t\tcount = count + 1\n\t\t\t\tend\n\t\t\t\tgame.log(\"#LIGHT_BLUE#%s %d creatures.\", remove_all and _t\"Removed\" or _t\"Killed\", count)\n\t\t\tend\n\t\t, _t\"Remove\", _t\"Kill\", _t\"Cancel\", false)\n\telseif act == \"all-ingredients\" then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e51da6a2b50f5d05cd723e731a851877c73f2a59784931c3d680f53d1c811345",
+    "source_path": "game/modules/tome/data/talents/psionic/psionic.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "e0bb97f034f35968fd76cbd3ff7dd6ea4d5c424d837f59830cd9186604c21a09",
+    "excerpts": [
+      {
+        "first_line": 39,
+        "last_line": 45,
+        "text": "--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type=\"psionic/brainstorm\", name = _t(\"brainstorm\", \"talent type\"), description = _t\"Focus your telekinetic powers in ways undreamed of by most mindslayers.\" }\n\n-- Solipsist Talent Trees\nnewTalentType{ allow_random=true, is_mind=true, type=\"psionic/discharge\", name = _t(\"discharge\", \"talent type\"), description = _t\"Project feedback on the world around you.\" }\nnewTalentType{ allow_random=true, is_mind=true, type=\"psionic/distortion\", name = _t(\"distortion\", \"talent type\"), description = _t\"Distort reality with your mental energy.\" }\nnewTalentType{ allow_random=true, is_mind=true, type=\"psionic/dream-smith\", name = _t(\"Dream Smith\", \"talent type\"), description = _t\"Call the dream-forge hammer to smite your foes.\" }\nnewTalentType{ allow_random=true, is_mind=true, type=\"psionic/nightmare\", name = _t(\"nightmare\", \"talent type\"), description = _t\"Manifest your enemies nightmares.\" }"
+      },
+      {
+        "first_line": 187,
+        "last_line": 193,
+        "text": "--load(\"/data/talents/psionic/grip.lua\")\n\n-- Solipsist\nload(\"/data/talents/psionic/discharge.lua\")\nload(\"/data/talents/psionic/distortion.lua\")\nload(\"/data/talents/psionic/dream-forge.lua\")\nload(\"/data/talents/psionic/dream-smith.lua\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e527b54a61b166af447672ea0980a4ad3e02a76d8124c066427f050ce74a8361",
+    "source_path": "game/modules/tome/data/talents/spells/fire-alchemy.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "960cd7fd46c1344be4e56277d23eed1f3950e8975f860de5ba4c3990eac36f07",
+    "excerpts": [
+      {
+        "first_line": 159,
+        "last_line": 165,
+        "text": "}\n\nnewTalent{\n\tname = \"Body of Fire\",\n\ttype = {\"spell/fire-alchemy\",4},\n\trequire = spells_req4,\n\tmode = \"sustained\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e528a719c6e1c65152a58cf15502f208548c838329efe35a5b080013ac95d7bc",
+    "source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+    "excerpts": [
+      {
+        "first_line": 2212,
+        "last_line": 2218,
+        "text": "\tend,\n\tinfo = function(self, t)\n\t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))\n\t\treturn ([[Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.]]):\n\t\ttformat(dam, dam/10)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e528ef6db36df704537b8a89319eacd51b6fc6d51dc4e8b47dd6873007607559",
+    "source_path": "game/modules/tome/data/talents/cunning/ambush.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "1152390e5642db9ea6ddf4da9fbc0a0a824ba81802981657019a9f8a39a8dae9",
+    "excerpts": [
+      {
+        "first_line": 20,
+        "last_line": 26,
+        "text": "local Map = require \"engine.Map\"\n\nnewTalent{\n\tname = \"Shadowguard\",\n\ttype = {\"cunning/ambush\", 1},\n\tmode = \"passive\",\n\trequire = cuns_req_high1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e529b02f5b58a98f1b7ba9ba2a3ecaf701ba541bc235954e713a78100a0c4c40",
+    "source_path": "game/modules/tome/data/talents/spells/advanced-golemancy.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "ffd9fffa394cc4b9b216b1e44d7a996d8e945812d5241a241f1ba1de0a7f4a8e",
+    "excerpts": [
+      {
+        "first_line": 68,
+        "last_line": 76,
+        "text": "\tpoints = 5,\n\tno_unlearn_last = true,\n\tinfo = function(self, t)\n\t\treturn ([[Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove.\n\t\tGem level usable: %d\n\t\tGem changing is done in the golem's inventory.]]):tformat(self:getTalentLevelRaw(t))\n\tend,\n}\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e52ddf3094425356b0efd1643b27a01bf9024c6b3dbb86af6dc6b372a3b8cd3a",
+    "source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+    "excerpts": [
+      {
+        "first_line": 7016,
+        "last_line": 7022,
+        "text": "\tpower_source = {technique=true},\n\tunique = true,\n\tname = \"Swordbreaker\", image = \"object/artifact/swordbreaker.png\",\n\tunided_name = _t\"hooked blade\",\n\tmoddable_tile = \"special/%s_swordbreaker\",\n\tmoddable_tile_big = true,\n\tdesc = _t[[This ordinary blade is made of fine, sturdy voratun and outfitted with jagged hooks along the edge. This simple appearance belies a great power - the hooked maw of this dagger broke many a blade and the stride of many would-be warriors.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e52faf63d5041f6b46b36e015e73750533c096560faa700178912fb33a573cbf",
+    "source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+    "excerpts": [
+      {
+        "first_line": 1983,
+        "last_line": 1989,
+        "text": "newEffect{\n\tname = \"SLOW_MOVE\",\n\tdesc = _t\"Slow movement\", image = \"talents/slow.png\",\n\tlong_desc = function(self, eff) return (\"Movement speed is reduced by %d%%.\"):tformat(eff.power*100) end,\n\ttype = \"physical\",\n\tsubtype = { nature=true },\n\tstatus = \"detrimental\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e535a21f4290248c3473f8d234b1c9754ccea84430e17c044ca9dab4ba67b36e",
+    "source_path": "game/modules/tome/data/zones/briagh-lair/zone.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "82ec56ab3c6db69b03463cdedcd6d2ae400411af85baa3cebb8031b1d2f08aee",
+    "excerpts": [
+      {
+        "first_line": 18,
+        "last_line": 24,
+        "text": "-- darkgod@te4.org\n\nreturn {\n\tname = _t\"Briagh's Lair\",\n\tlevel_range = {30, 40},\n\tlevel_scheme = \"player\",\n\tmax_level = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e536e47dfc11e438920c6c21754b079f0d91e88bdbb6ca51751295ec718e0c2a",
+    "source_path": "game/modules/tome/dialogs/Birther.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "204816fe84012c76330e9547c178156b987dee490cb2c0760dab8e82d859fcd4",
+    "excerpts": [
+      {
+        "first_line": 1408,
+        "last_line": 1414,
+        "text": "end\n\nfunction _M:selectTile()\n\tlocal d = Dialog.new(_t\"Select a Tile\", 600, 550)\n\n\tlocal list = {\n\t\t\"npc/alchemist_golem.png\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e53c3c192d53fe959eabe6e526a1fdae68279af5d04648e86f48057e9a8a4216",
+    "source_path": "game/modules/tome/data/chats/ring-of-blood-master.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "c00ea71591813a1fd768cc4b9f7a545e15399f4093fe0df42c4b694dcb1f8365",
+    "excerpts": [
+      {
+        "first_line": 34,
+        "last_line": 40,
+        "text": "Since you do not look like slave fodder to me I will offer to let you pay to play the game.\nIf you feel you cannot take part in a slaver's game, I am afraid you will need to... disappear.]],\n\tanswers = {\n\t\t{_t\"Slavers? This is so wrong! [attack]\", action=attack(_t\"You think so? Die.\")},\n\t\t{_t\"Game? I like playing, what's this about?\", jump=\"game\"},\n\t}\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e53de1cddaa39621fbf389cf17d41104005724954510874e27094e8b39aa9e1d",
+    "source_path": "game/modules/tome/data/quests/staff-absorption.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "4972728390af68d06a9857ba50b0dc46c0a2637fceeba60a674f45b11662d2b5",
+    "excerpts": [
+      {
+        "first_line": 107,
+        "last_line": 114,
+        "text": "killed_ukruk = function(self, who)\n\tgame.player.die = nil\n\n\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Ambush\", _t[[You are surprised to still be alive.\n#VIOLET#Go at once to Last Hope to report those events!]], 600)\n\n\tlocal oe = game.level.map(who.x, who.y, engine.Map.TERRAIN)\n\tif oe:attr(\"temporary\") and oe.old_feat then "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e540acef669aa05d1e055724f0c4e7e0077ea9f2285ec9aaaf8c9258687a16d9",
+    "source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+    "excerpts": [
+      {
+        "first_line": 57,
+        "last_line": 63,
+        "text": "\tsubtype = { darkness=true,}, no_ct_effect = true,\n\tstatus = \"detrimental\",\n\tparameters = {power=10, reduce=5},\n\ton_gain = function(self, err) return _t\"#Target# is weakened by the darkness!\", _t\"+Numbing Darkness\" end,\n\ton_lose = function(self, err) return _t\"#Target# regains their energy.\", _t\"-Numbing Darkness\" end,\n\ton_timeout = function(self, eff)\n"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e542306f47aa86f981bed8d5e008a42f8ffc57e090d8061a1841e9939e14c0d2",
+    "source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+    "excerpts": [
+      {
+        "first_line": 3154,
+        "last_line": 3163,
+        "text": "\t\treturn util.bound(chance + (self:getLck() - 50) * 0.2, 0, 100)\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.\t When you perform such an action while stealthed, you have a chance to stay hidden.\n\t\tSuccess is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.\n\t\tYour base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.\n\t\tYou estimate your current chance to maintain stealth as %0.1f%%.]]):\n\t\ttformat(t.stealthMult(self, t), t.getChance(self, t, true), t.getChance(self, t, false, true))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e548a5abcaeae2804abf2a83d5f2dc46c1b9d6cc4f35ea83efef27a7e8b96fab",
+    "source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+    "excerpts": [
+      {
+        "first_line": 3995,
+        "last_line": 4008,
+        "text": "\nnewEffect{\n\tname = \"SNIPE\", image = \"talents/snipe.png\",\n\tdesc = _t\"Snipe\",\n\tlong_desc = function(self, eff) return (\"The target is preparing a deadly sniper shot.\"):tformat() end,\n\ttype = \"physical\",\n\tsubtype = { tactic=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=50 },\n\ton_gain = function(self, err) return _t\"#Target# takes aim...\", _t\"+Snipe\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer aiming.\", _t\"-Snipe\" end,\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"negative_status_effect_immune\", 1)\n\t\tself:effectTemporaryValue(eff, \"incoming_reduce\", eff.power)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e54e9cabba03e8cb2dd9330725cf571ff9b8ec58e2f73181dacbcd3667810803",
+    "source_path": "game/modules/tome/data/talents/cunning/tactical.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "c16b9d714f494e9bdd6297069814d401138700b63e5b1169cd4c798940302e1f",
+    "excerpts": [
+      {
+        "first_line": 117,
+        "last_line": 123,
+        "text": "}\n\nnewTalent{\n\tname = \"Set Up\",\n\ttype = {\"cunning/tactical\", 3},\n\trequire = cuns_req3,\n\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e553df08c3a0f810f379d59aa65adfe2aadb77a0444678ed39fafebb5458835d",
+    "source_path": "game/modules/tome/data/general/npcs/vampire.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_file_sha256": "a797781c111911f9d7294c763701ce0b000280c7a4ba0b17b18a634816ad769c",
+    "excerpts": [
+      {
+        "first_line": 77,
+        "last_line": 83,
+        "text": "\nnewEntity{ base = \"BASE_NPC_VAMPIRE\",\n\tname = \"vampire\", color=colors.SLATE, image = \"npc/vampire.png\",\n\tdesc=_t[[It is a humanoid with an aura of power. You notice a sharp set of front teeth.]],\n\tlevel_range = {15, nil}, exp_worth = 1,\n\trarity = 1,\n\tmax_life = resolvers.rngavg(70,80),"
+      }
+    ]
+  }
+]

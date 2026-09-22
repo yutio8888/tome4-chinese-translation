@@ -1,0 +1,56 @@
+{
+  "reviewed_entries": 80,
+  "status": "preliminary_not_review_input",
+  "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "recorded_at": "2026-09-22T05:19:16.351805+00:00",
+  "observations": [
+    {
+      "prefix": "e454e243b1",
+      "status": "confirmed",
+      "claim": "source7个LF，target5个LF；丢失This place前空行并合并And if段内换行。保持实际换行不变量，不因译意已通顺放过。",
+      "evidence": "game/modules/tome/data/lore/keepsake.lua:24-31"
+    },
+    {
+      "prefix": "e4871be69c",
+      "status": "confirmed",
+      "claim": "pristine未译为完好/无瑕而增添古朴；runed voratun buckle的符文及材质结构表达失真。恢复无瑕白皮革腰带与刻符文的沃瑞钽带扣，叙述侵蚀未曾发生，不按防御数值推论物品不毁机制。",
+      "evidence": "game/modules/tome/data/general/objects/world-artifacts.lua:1616-1621"
+    },
+    {
+      "prefix": "e4afe73e4f",
+      "status": "pending",
+      "claim": "Great Sin字幕指壁画所绘弑神折磨行为的大罪，罪恶之源另加起源关系。未见现有术语行；需独立语境复核后判断。",
+      "evidence": "game/modules/tome/data/lore/shertul.lua:92-101"
+    },
+    {
+      "prefix": "e4c192463a",
+      "status": "confirmed",
+      "claim": "历史提示wiped out the orcish race被弱化为击溃军团。同组提示说rendered extinct但仍有隐匿群体传闻，系叙事内历史认知，不应自行用现存兽人纠正旁白。恢复民族层面的消灭描述。",
+      "evidence": "game/modules/tome/init.lua:90,98"
+    },
+    {
+      "prefix": "e4c5fea288",
+      "status": "pending",
+      "claim": "thalore wilder译精灵自然师省略亚种；固定NPCbase subtype/faction都thalore，术语Thalore自然精灵仅existing不是强制preferred，不能只据词表判错。",
+      "evidence": "game/modules/tome/data/zones/town-shatur/npcs.lua:23-27,71-75"
+    },
+    {
+      "prefix": "e528a719c6",
+      "status": "refuted",
+      "claim": "potent venom写颠茄毒素有同talent/entity名称nightshade trap支持；实际震慑与中毒都是4回合，第二参数dam/10，当前译文机制正确。",
+      "evidence": "game/modules/tome/data/talents/cunning/traps.lua:2164-2217"
+    },
+    {
+      "prefix": "e52ddf3094",
+      "status": "refuted",
+      "claim": "hooked blade译带锯齿匕首虽非逐词，实际BASE_KNIFE且desc写jagged hooks along edge/dagger，类型和锯齿状结构有证据。",
+      "evidence": "game/modules/tome/data/general/objects/world-artifacts.lua:7015-7024"
+    },
+    {
+      "prefix": "e542306f47",
+      "status": "advisory",
+      "claim": "首句操作写技能、stealth交替隐身/潜行可更精确，但举例攻击/使用物品已覆盖动作，后续公式源译一致；未确认实质机制错误。",
+      "evidence": "game/modules/tome/data/talents/misc/npcs.lua:3136-3162"
+    }
+  ]
+}
