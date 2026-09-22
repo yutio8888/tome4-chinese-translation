@@ -339,3 +339,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01081 | confirmed：遗漏 `once brilliant`。confirmed：`decayed` 被泛化为“破旧”，与 3723/3778/3802/3826/3850 的阶段词序列冲突。refuted：问题不是漏 `heavily`，程度已由“十分”承接 | 补“曾经辉煌/昔日璀璨”；`decayed` 改“严重朽坏/严重腐蚀” |
 
 共 8 个 claim：6 confirmed、1 advisory、1 refuted、无 pending。Sol 另注明 Gemini 行号偏移（实际 3251、3642、3778），不影响判断。译文未修改。
+
+## batch-028 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-027-01.md](reports/sol-027-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01085 | confirmed：`cone` 译“弧形区域”与同批 entry-01097“锥形范围”不一致。confirmed：“至多两项”是译文额外添加、但与源码行为一致。refuted：因此它不构成翻译问题。confirmed：占位符保留正确 | 统一为“锥形区域/范围”；“至多两项”保留，只调括号结构 |
+| entry-01096 | confirmed：两个 `%d` 顺序正确。advisory：半角括号与中文标点混排，且空格规则不一致。confirmed：`charge` 是可积累可消耗的蓄能值，“当前增幅”有机制歧义 | 括号统一全角；改“当前充能/蓄能”或与 entry-01097“吸收量”统一 |
+| entry-01116 | confirmed：漏译 `when it proved necessary`。advisory：与 `The Calm` 名称的对照属文学解读，源码未明写 | 补回条件语义，不扩写未明说的背景 |
+| entry-01120 | confirmed：光明/黑暗应按伤害类型术语作“光系/暗影”。confirmed：`Magic` 应译“魔力” | 改成“爆发出光系和暗影伤害（受魔力加成）”一类表述 |
+
+共 11 个 claim：8 confirmed、2 advisory、1 refuted、无 pending。Sol 引用的 entry-01091/01097 只是同批术语对照，不是交叉对象，未给分档。
