@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-7 fresh unique EXECUTOR",
+  "scope": "8-target candidate after R2 senior-kept bounded Dirge trigger refinement plus bounded evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w7-20260922/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 8,
+        "changed_revisions": [
+          "e8bc936f6d6cb89e131fdddb68b357e4550d4ad593b0fd30247357dad567ca55",
+          "e895fea0305d1be76d12a9fd52beca51c2a94cc217eaeef64bf8df6cf8ea16d5",
+          "e82dab7a290c55e9305c34057ac1a5bb958fbcd6e09b771370c96b6d4944b453",
+          "e8959a83e245e295592ddf1bc4abd37fd204cdb87b7f1b16e20df58c52602477",
+          "e83a05187461932d0e24968427a2ca0412bbb3d024934baf7b7f76d1d10e57b8",
+          "e80304576e38d38aec618a843b469085df4579f12be32b6c69f4bfb7de87395e",
+          "e882cc8d4ef163f98acffe86f7c50ff2ebff8d56a483ae9c1659a6713ea13b2d",
+          "e85e4d885532dd2a1e0eb55069514b010ed3bee7ef2b98e4178a999ca3ef5e5e"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260922T154154.635982Z-2-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w7-20260922/ADJUDICATION-R1.json",
+      "path": "evidence/quality/repair-window-7-20260922/ADJUDICATION-R1.json",
+      "sha256": "b579bd7e7a5f50a53094a19b2947746c78d2c1e53c476de573a569fd86e171b8",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w7-20260922/HOST-SOURCE-SUPPLEMENT.json",
+      "path": "evidence/quality/repair-window-7-20260922/HOST-SOURCE-SUPPLEMENT.json",
+      "sha256": "b568a3734ab3791018af7e0c841ecf1b14529a4216d3c1163755301c06ba4bd4",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w7-20260922/ADJUDICATION-R2.json",
+      "path": "evidence/quality/repair-window-7-20260922/ADJUDICATION-R2.json",
+      "sha256": "66bd69d55d2c4cb5c45288cd56d0b1c6b459041bbbabfb4c9b776102ded9d022",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w7-20260922/HOST-SOURCE-SUPPLEMENT-R3.json",
+      "path": "evidence/quality/repair-window-7-20260922/HOST-SOURCE-SUPPLEMENT-R3.json",
+      "sha256": "7d65b6579bca7debc229ca7d4807ce1b4f90c111a44255c187cdbdd2f41ecfcb",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the fresh EXECUTOR's R2 senior-kept bounded Dirge trigger refinement checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

@@ -1,0 +1,28 @@
+{
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Actor.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start_line": 5689,
+      "end_line": 5705,
+      "excerpt": "5689: function _M:incFeedback(v, set)\n5690: \tif not set then\n5691: \t\tlocal p = self:isTalentActive(self.T_MIND_STORM)\n5692: \t\tif p then\n5693: \t\t\tlocal t = self:getTalentFromId(self.T_MIND_STORM)\n5694: \t\t\tlocal overcharge_gain = math.floor((v + self:getFeedback() - self:getMaxFeedback()) / t.getOverchargeRatio(self, t))\n5695: \t\t\tif overcharge_gain > 0 then\n5696: \t\t\t\tp.overcharge = p.overcharge + overcharge_gain\n5697: \t\t\tend\n5698: \t\tend\n5699: \t\tself.psionic_feedback = util.bound(self.psionic_feedback + v, 0, self:getMaxFeedback())\n5700: \telse\n5701: \t\tself.psionic_feedback = math.min(v, self:getMaxFeedback())\n5702: \tend\n5703: end\n5704: \n5705: function _M:incMaxFeedback(v, set)",
+      "revision_keys": [
+        "e882cc8d4ef163f98acffe86f7c50ff2ebff8d56a483ae9c1659a6713ea13b2d"
+      ]
+    },
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/discharge.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "5724174a576013c817f9463b0ee1c0140a78d9a685c6b0502c037f9fbc065230",
+      "start_line": 36,
+      "end_line": 94,
+      "excerpt": "36: \tgetTargetCount = function(self, t) return math.floor(self:combatTalentScale(t, 1, 5, \"log\")) end,\n37: \tgetOverchargeRatio = function(self, t) return self:combatTalentLimit(t, 10, 19, 15) end, -- Limit >10\n38: \tcallbackOnActBase = function(self, t)\n39: \t\tlocal p = self:isTalentActive(t.id)\n40: \t\tif not (self:getFeedback() >= 5 or p.overcharge >= 1) then return end\n41: \t\tlocal tgts = {}\n42: \t\tlocal tgts_oc = {}\n43: \t\tlocal grids = core.fov.circle_grids(self.x, self.y, self:getTalentRange(t), true)\n44: \t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n45: \t\t\tlocal a = game.level.map(x, y, Map.ACTOR)\n46: \t\t\tif a and self:reactionToward(a) < 0 then\n47: \t\t\t\ttgts[#tgts+1] = a\n48: \t\t\t\ttgts_oc[#tgts_oc+1] = a\n49: \t\t\tend\n50: \t\tend end\t\n51: \t\t\n52: \t\tlocal wrath = self:hasEffect(self.EFF_FOCUSED_WRATH)\n53: \t\t\n54: \t\t-- Randomly take targets\n55: \t\tlocal tg = self:getTalentTarget(t)\n56: \t\tfor i = 1, t.getTargetCount(self, t) do\n57: \t\t\tif #tgts <= 0 or self:getFeedback() < 5 then break end\n58: \t\t\tlocal a, id = rng.table(tgts)\n59: \t\t\ttable.remove(tgts, id)\n60: \t\t\t-- Divert the Bolt?\n61: \t\t\tif wrath then\n62: \t\t\t\tself:projectile(tg, wrath.target.x, wrath.target.y, DamageType.MIND, self:mindCrit(t.getDamage(self, t), nil, wrath.power))\n63: \t\t\telse\n64: \t\t\t\tself:projectile(tg, a.x, a.y, DamageType.MIND, self:mindCrit(t.getDamage(self, t)))\n65: \t\t\tend\n66: \t\t\tself:incFeedback(-5)\n67: \t\tend\n68: \t\t\n69: \t\t-- Randomly take overcharge targets\n70: \t\tlocal tg = self:getTalentTarget(t)\n71: \t\tif p.overcharge >= 1 then\n72: \t\t\tfor i = 1, math.min(p.overcharge, t.getTargetCount(self, t)) do\n73: \t\t\t\tif #tgts_oc <= 0 then break end\n74: \t\t\t\tlocal a, id = rng.table(tgts_oc)\n75: \t\t\t\ttable.remove(tgts_oc, id)\n76: \t\t\t\t-- Divert the Bolt?\n77: \t\t\t\tif wrath then\n78: \t\t\t\t\tself:projectile(tg, wrath.target.x, wrath.target.y, DamageType.MIND, self:mindCrit(t.getDamage(self, t), nil, wrath.power))\n79: \t\t\t\telse\n80: \t\t\t\t\tself:projectile(tg, a.x, a.y, DamageType.MIND, self:mindCrit(t.getDamage(self, t)))\n81: \t\t\t\tend\n82: \t\t\tend\n83: \t\tend\n84: \t\t\t\n85: \t\tp.overcharge = 0\n86: \t\t\n87: \tend,\n88: \tactivate = function(self, t)\n89: \t\tgame:playSoundNear(self, \"talents/thunderstorm\")\n90: \t\tlocal ret = {\n91: \t\t\tovercharge = 0,\n92: \t\t\tparticles = self:addParticles(Particles.new(\"ultrashield\", 1, {rm=255, rM=255, gm=180, gM=255, bm=0, bM=0, am=35, aM=90, radius=0.2, density=15, life=28, instop=10}))\n93: \t\t}\n94: \t\treturn ret",
+      "revision_keys": [
+        "e882cc8d4ef163f98acffe86f7c50ff2ebff8d56a483ae9c1659a6713ea13b2d"
+      ]
+    }
+  ]
+}

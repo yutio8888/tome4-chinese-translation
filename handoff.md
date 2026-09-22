@@ -1,37 +1,46 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核253已finalize；本收尾提交后执行queue/push，再进入修复窗口7）
+更新时间：2026-09-22（修复窗口7证据已发布；按用户要求暂停，宿主待完成最终收尾）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户持续授权连续审核、范围内修复、提交与每批push；未增加批数或暂停限制。默认80条切片，
-当前修复窗口因格式不变量问题提前触发，必须先闭合窗口7，再继续254。默认max_cycles=3；
-窗口5获准的第四轮不自动沿用。
+用户于2026-09-22明确要求“这轮修复完成后暂停并撰写handoff文档”。修复窗口7闭合后进入
+**STOP**：不得自动启动审核254，继续新批次必须取得新的用户授权；此前连续审核授权不覆盖本次
+暂停后的工作。
 
-审核253：`batch-ba766c90924912867b02`，80条全部为manifest固定ToME源码，**72 done / 8 repair_required**。
-证据提交`3927ca05a43daee81bb2a2fadaf77d2b3b881d0b`，finalize已成功，active checkpoint已移除。
-四组surface为61 OK / 19 ISSUE；一组full contextual为13 OK / 6 ISSUE。
-25项观察由宿主独立裁决12 confirmed / 9 refuted / 4 advisory，合并8条repair；5个child均已
-确认归档。全部实际原生读取边界已审计，surface和contextual两个任务DONE_VERIFIED。
-完整17项门禁及严格构建通过；冻结包另包含窗口6发布收尾，并执行三个任务的独立DONE回放。
+审核253（`batch-ba766c90924912867b02`）已完全闭合，结果为 **72 done / 8 repair_required**。
+证据提交`3927ca05a43daee81bb2a2fadaf77d2b3b881d0b`、收尾提交
+`e103379a5e809923401aa0099cfbdc9f104725ca`，收尾后的queue、push、远端HEAD与SQLite evidence
+head核验均已完成。详见[253宿主证据](evidence/quality/production-batches/batch-ba766c90924912867b02-host-evidence/summary.md)、
+[finalize收据](evidence/quality/production-batches/batch-ba766c90924912867b02-host-evidence/FINALIZE-RECEIPT.json)
+及[收尾核验](evidence/quality/repair-window-7-20260922/publication/review253-push-verification.json)。
 
-本交接随finalize收尾记录提交；该收尾提交之后的queue rebuild、push与远端HEAD核验仍待宿主执行，
-不提前宣称完成。完成后实际运行repair preflight，冻结8条工作集，再建立Paseo窗口7实施任务。
-详见[253宿主证据](evidence/quality/production-batches/batch-ba766c90924912867b02-host-evidence/summary.md)及
-[finalize收据](evidence/quality/production-batches/batch-ba766c90924912867b02-host-evidence/FINALIZE-RECEIPT.json)。
+修复窗口7的八个target已完成并提交为`312dcd6844f80fff34911999bffab7a8f954e34f`。四成员复审各轮
+原始结果依次为R0 6 OK / 2 ISSUE、R1 6 OK / 2 ISSUE、R2 6 OK / 2 ISSUE、R3 7 OK / 1 ISSUE；
+这些历史finding均保留。R0经宿主源码确认并有界修复疾病传播全部疾病和盾牌跃击动作；R1只接受
+Mind Storm总量量词修复，spinneret兄弟项保持范围外advisory。第二轮后SENIOR scope audit对挽歌
+触发条件为`keep`、对spinneret兄弟项为`narrow`，宿主仅接受一个触发句修复，默认cycle 3上限
+没有扩大。R3的Vault选择坐标/落点观察裁决为非阻断advisory。最终full review为 **8 OK / 0 ISSUE**，
+不倒改历轮原始结果。
 
-### 下一步：有界修复窗口7
+最终完整门禁`run.4d0v0980`为17/17通过并含strict build；任务与452项、2,317,751 bytes的
+immutable快照均`DONE_VERIFIED`。实施/复审child共22个已确认归档；本publication child仍待宿主
+收获归档，不提前宣称。完整结果见[窗口7出版证据](evidence/quality/repair-window-7-20260922/PUBLICATION.md)。
 
-仅修复253确认的8条：疾病传播不能限定四种；补回法杖粗大尖端；时间抹除日志恢复过去时；
-盾牌敏捷替代力量仅指属性伤害加成；弹体“灵能值球”改回弹体含义并恢复3LF/6TAB；
-护盾说明补回持续时间延长，并恢复首句抗争与怨恨支撑自身之义；spinneret恢复吐丝器官语义；
-eviscerated恢复剖腹/内脏意象。
+一次catalog build和migration-chain已完成，不得重跑。当前候选catalog为
+`0fece77f6c05306c2706b263729cc1a3b5fcdf1dc29f58bd41af380204595696`，migration为
+`677e6622a2146f9f9686ee91c9d1bc3f02990c8d08547df721786877dd287325`；8 revision changed、
+29,820 unchanged、0 ambiguous/unmapped，8个successor已入队且须重新审核，不继承旧done。
 
-Daze=眩晕与Probability Travel=次元移动符合基线术语，不作全局更名。宿主术语来源为固定基线
-术语库；原先说明中的“冻结术语”措辞已用独立provenance更正记录区分，不伪称独立reviewer
-读过候选未内嵌的术语行。全屏混乱设置按Player.lua实际blur shader行为撤销误报。
-spinneret仅限本批未鉴定物品名，不自动扩大为兄弟条目或全局术语改名。
+### 宿主待完成的最终收尾
+
+仅剩本次证据/catalog/migration提交、提交后的第二次queue rebuild、push、远端核验，以及本
+publication child的收获归档和最终暂停交接记录。这些步骤尚未实际完成，不得提前宣称；宿主完成后
+须追加实测证据并保持STOP，不得开始254。
+
+旧Archmage、旧回忆录pending、`RW1-SIB-01/02`、旧blocked及范围外兄弟条目保持原状态。
+`.ai/consult/`、recipe和15个旧source-workset继续保留。
 
 ### 已闭合的修复窗口6
 
@@ -221,15 +230,8 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 实际三个来源批次重新preflight全部成功（2/6/8条）。原失败尝试及产物保留，正式新workset使用attempt02路径。
 此代码维护不改变addon输出，按矩阵跳过构建；后续17条正式译文修复仍需完整构建。
 详情见[兼容维护证据](evidence/quality/repair-preflight-host-blocks-20260922/summary.md)。
-当前需先提交本维护、同步队列并推送，再以新HEAD启动IMPLEMENT；已验证的catalog和17条preimage没有变化。
-
-## 下一步
-
-1. 宿主收获并归档本出版child，提交窗口6证据、catalog与migration；不要重做已完成的252收尾、
-   窗口6译文、复审、首轮queue、catalog build、migration-chain或完整门禁。
-2. 提交后执行第二次queue rebuild，再push并核对远端；这些步骤在实际完成前不得宣称完成。
-3. 闭合后继续253默认80条并开启新的修复窗口。距离单位“码”、宿主独立记录的e75edbe9ad额外LF、
-   旧回忆录pending及其他非阻断pending/advisory不自动扩入窗口6或后续批次。
+当时须先提交本维护、同步队列并推送，再以新HEAD启动IMPLEMENT；这些步骤现已作为历史闭合，
+已验证的catalog和17条preimage没有变化。
 
 ## 保留边界与历史
 

@@ -1,0 +1,14 @@
+本轮有界修复已完成并暂停：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:21219)：仅补全瘟疫挽歌触发限制；其余 7 条及 spinneret 兄弟项未动。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/IMPLEMENTATION.md) 与 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/VALIDATION.json) 已更新。
+- R2 裁决与 R3 源码补充已保存为逐字节副本，SHA-256 和 `cmp` 均一致。
+
+验证结果：
+
+- `verify.py`：通过；22,989 条记录，恰有既定 8 个 target 变化。
+- 严格 lint：通过；30,308 条，0 errors、0 warnings。
+- 严格 claims：通过。
+- `git diff --check`：通过，无输出。
+
+无计划偏差或未解决的 EXECUTOR 范围问题。未修改 `.ai`、工具、规则、术语、handoff 或 catalog；未创建 agent，未 stage/commit/push，未启动 254。完整复审及门禁留给宿主继续。

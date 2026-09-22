@@ -1,0 +1,85 @@
+diff --git a/mod-tome.lua b/mod-tome.lua
+index 9444a9b6..f6cf39df 100644
+--- a/mod-tome.lua
++++ b/mod-tome.lua
+@@ -6834,7 +6834,7 @@ t("ground", "被磨成豆浆", "_t")
+ t("minced", "被切成葱花", "_t")
+ t("punctured", "被刺穿", "_t")
+ t("hacked apart", "被腰斩", "_t")
+-t("eviscerated", "被掏心", "_t")
++t("eviscerated", "被掏出内脏", "_t")
+ t("arcane", "奥术", "damage type")
+ t("blasted", "被能量引爆", "_t")
+ t("energised", "被能量冲击", "_t")
+@@ -11034,7 +11034,7 @@ t("multi-hued wyrm scale", "多彩的龙鳞", "entity name")
+ t("shimmering scale", "闪光的鳞片", "_t")
+ t("Beautiful and nearly impregnable. Separating it from the dragon must have been hard work.", "美丽且异常坚固的龙鳞。把它从龙身上扒下来一定费了不少力气。", "_t")
+ t("giant spider spinneret", "巨蛛的丝腺", "entity name")
+-t("spinneret", "丝腺", "_t")
++t("spinneret", "吐丝器", "_t")
+ t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
+ t("honey tree root", "蜂蜜树的根", "entity name")
+ t("dirty root", "脏兮兮的树根", "_t")
+@@ -12776,7 +12776,7 @@ t("flower covered mindstar", "鲜花覆盖的灵晶", "_t")
+ t("Pristine flowers coat the surface of this mindstar. Touching it fills you with a sense of calm and refreshes your body.", "纯洁的花瓣覆盖着灵晶，当你触摸它时你感受到宁静和清新。", "_t")
+ t("Gravitational Staff", "重力之杖", "entity name")
+ t("heavy staff", "沉重的法杖", "_t")
+-t("Time and Space seem to warp and bend around the massive tip of this stave.", "法杖的尖端时空似乎陷入了扭曲。", "_t")
++t("Time and Space seem to warp and bend around the massive tip of this stave.", "法杖粗大的尖端周围，时空似乎发生了扭曲。", "_t")
+ t("Eye of the Wyrm", "七彩龙之眼", "entity name")
+ t("multi-colored mindstar", "多彩的灵晶", "_t")
+ t("A black iris cuts through the core of this mindstar, which shifts with myriad colours. It darts around, as if searching for something.", "一道黑色虹膜贯穿这颗灵晶的核心，灵晶变幻着万千色彩。它四处转动，仿佛在寻找着什么。", "_t")
+@@ -21215,8 +21215,8 @@ Each time you kill a creature you gain %d%% of a turn (only once per turn).
+ t("Dirge of Pestilence", "瘟疫挽歌", "talent name")
+ t([[Sing a song of decay and defiance and sustain yourself through spite.
+ 							Each time you suffer a detrimental effect, you gain a shield with strength %d, that lasts as long as the effect would.  This will add to and extend an existing shield if possible.
+-							This can only trigger once every %d turns]], [[为腐败和暴乱轻唱一曲来支持仇恨中的你。
+-							每次你受到负面状态时你获得 %d 的护盾，持续时间与那个状态的持续时间相同。这可以强化你已有的伤害护盾。
++							This can only trigger once every %d turns]], [[唱响腐朽与抗争之歌，以怨恨支撑自身。
++							每次你受到负面状态时，你获得强度为 %d 的护盾，持续时间与该状态相同。如果可能，此效果会叠加到已有护盾并延长其持续时间。
+ 							这一效果每 %d 回合只能触发一次。]], "tformat")
+ t("Dirge Acolyte", "挽歌入门", "talent name")
+ t([[Even now, something compels you to sing.
+@@ -22610,7 +22610,7 @@ t([[Your Rethread now braids the lifelines of all targets it hits for %d turns.
+ 		伤害受法术强度加成。]], "tformat")
+ t("Cease to Exist", "存在抹杀", "talent name")
+ t("The timeline is too fractured to do this now.", "目前的时间线过于破碎，你现在无法这么做。", "logPlayer")
+-t("#LIGHT_BLUE#%s never existed, this never happened!", "#LIGHT_BLUE#%s 不存在，也不会发生！", "logSeen")
++t("#LIGHT_BLUE#%s never existed, this never happened!", "#LIGHT_BLUE#%s 从未存在，这一切从未发生！", "logSeen")
+ t("#LIGHT_STEEL_BLUE#%s tries to remove %sself from existance!", "#LIGHT_STEEL_BLUE#%s试图抹杀%s自己！", "logSeen")
+ t("%s resists!", "%s抵抗了效果！", "logSeen")
+ t([[Over the next %d turns, you attempt to remove the target from the timeline, lowering its resistance to physical and temporal damage by %d%%.
+@@ -22835,7 +22835,7 @@ t("Cyst Burst", "瘟疫爆发", "talent name")
+ t([[Make your target's diseases burst, doing %0.2f blight damage for each disease it is infected with.
+ 		This will also spread any diseases to any nearby foes in a radius of %d with a minimum duration of 6.
+ 		The damage will increase with your Spellpower.]], [[使目标的疾病爆发，每种疾病造成 %0.2f 枯萎伤害。
+-		同时会向 %d 码半径范围内任意敌人散播衰老、虚弱、腐烂或传染性疾病，疾病的持续时间最少为6回合。
++		同时会将目标身上的所有疾病传播给 %d 码半径内的附近敌人，疾病的持续时间最少为 6 回合。
+ 		伤害受法术强度加成。]], "tformat")
+ t("Catalepsy", "僵硬瘟疫", "talent name")
+ t("Diseases #DARK_GREEN#BURN THROUGH#LAST# %s!", "疾病在 %s 身上 #DARK_GREEN#燃烧#LAST#！", "logSeen")
+@@ -27182,10 +27182,9 @@ t("Mind Storm", "心灵风暴", "talent name")
+ t([[Unleash your subconscious on the world around you.  While active, you fire up to %d bolts each turn (one per hostile target) that deal %0.2f mind damage.  Each bolt consumes 5 Feedback.
+ 		Feedback gains beyond your maximum allowed amount may generate extra bolts (one bolt per %d excess Feedback per target), but no more than %d extra bolts per turn. 
+ 		This effect is a psionic channel, increasing the range of Mind Sear, Psychic Lobotomy, and Sunder Mind to 10 but will break if you move.
+-		The damage will scale with your Mindpower.]], [[将你的潜意识释放到周围的世界。当此技能激活时，每回合你最多射出 %d 个灵能值球（每个敌方目标一个），造成 %0.2f 精神伤害。每个灵能值球消耗 5 点反馈值。
+-		当获得的反馈值超出最大值时，你会产生额外的灵能值球（每个目标每超出 %d 反馈值产生 1 个灵能值球），但是每回合产生的额外灵能值球数量不会超过 %d。
+-		此技能运用了灵能通道，所以当你移动时会中断此技能。
+-		特别地，当你开启此技能时，心灵灼烧、心灵脑叶切除和碾碎心灵的攻击范围将变为10格。
++		The damage will scale with your Mindpower.]], [[将你的潜意识释放到周围的世界。当此技能激活时，每回合你最多射出 %d 枚心灵飞弹（每个敌方目标一枚），造成 %0.2f 精神伤害。每枚飞弹消耗 5 点反馈值。
++		当获得的反馈值超出最大值时，每超出 %d 点反馈值可能产生 1 枚额外飞弹；这些额外飞弹会再分配给敌方目标，每个目标至多 1 枚，且每回合总数不超过 %d 枚。
++		此效果是一种灵能通道，可将心灵灼烧、心灵脑叶切除和碾碎心灵的射程提升至 10，但你一旦移动便会中断。
+ 		受精神强度影响，伤害按比例加成。]], "tformat")
+ t("Feedback Loop", "反馈循环", "talent name")
+ t("You have no feedback to start a feedback loop!", "你没有反馈值，不能这么做！", "logPlayer")
+@@ -30026,8 +30025,8 @@ t("You require a shield to use this talent.", "你需要一面盾牌来施展这
+ t("%s resists the daze!", "%s抵抗了眩晕！", "logSeen")
+ t([[Leap onto an adjacent target with your shield, striking them for %d%% damage and dazing them for 2 turns, then using them as a springboard to leap to a tile within range %d.
+ The shield bash will use Dexterity instead of Strength for the shield's bonus damage.
+-At talent level 5, you will immediately enter a blocking stance on landing.]], [[用盾牌踩在临近目标上，造成 %d%% 伤害并眩晕 2 回合，之后将其做为跳板跃向 %d 格内的空地。
+-盾袭将使用敏捷代替力量决定盾牌伤害。
++At talent level 5, you will immediately enter a blocking stance on landing.]], [[持盾跃向相邻目标，造成 %d%% 伤害并眩晕 2 回合，之后将其做为跳板跃向 %d 格内的空地。
++盾袭将使用敏捷代替力量决定盾牌的属性伤害加成。
+ 技能等级 5 时，你将在落地后立刻进入格挡状态。]], "tformat")
+ t("Bull Shot", "冲锋射击", "talent name")
+ t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")

@@ -1,0 +1,16 @@
+本轮有界修复已完成并暂停，未启动批次 254。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:22835)：明确传播“目标身上的所有疾病”。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:30026)：改为“持盾跃向相邻目标”，保留伤害、眩晕、跳板、落点及其余语义。
+- 其余 6 条未改；verifier 确认仍恰有 8 个 target 变化，所有非 target 字段及格式不变量保持有效。
+- 已更新 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/VALIDATION.json)。
+- 已保存逐字节一致的 [ADJUDICATION-R0.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/ADJUDICATION-R0.json)，SHA-256 为 `2d4ec1d45d112acd912c8a84f30519d4bd31dd86ecfc944d8996ff1d9a7660a7`。
+
+检查结果：
+
+- `verify.py`：通过，22,989 条记录，恰有 8 条目标变化。
+- 严格 lint：通过，30,308 条译文，0 errors、0 warnings。
+- 严格 claims：通过。
+- `git diff --check`：通过。
+
+未修改 `.ai/`、规则、工具、术语、handoff 或 catalog；未 stage、commit、push，也未创建 agent。完整门禁、严格构建、独立复审及 `DONE_VERIFIED` 仍待宿主执行。

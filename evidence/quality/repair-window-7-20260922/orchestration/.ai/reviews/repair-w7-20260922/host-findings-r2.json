@@ -1,0 +1,27 @@
+{
+  "task_id": "repair-w7-20260922",
+  "findings": [
+    {
+      "id": "W7-R2-DIRGE-TRIGGER",
+      "status": "pending",
+      "code_fact_verified": true,
+      "observation": "“每次你受到负面状态时”扩大了触发范围。固定源码 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/celestial/dirge.lua:164-179 仅在 e_def.status == \"detrimental\"、e_def.type ~= \"other\" 且 eff.src ~= self 时触发；“other”类及自身施加的负面效果不会产生护盾。",
+      "source_evidence": {
+        "component": "tome",
+        "public_source_path": "game/modules/tome/data/talents/celestial/dirge.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "file_sha256": "d9f8e153ac9d7c92ea670616aa88d9d410b4b14e1e521173dd86d419e5ef7e3a",
+        "start_line": 153,
+        "end_line": 215,
+        "excerpt": "153: \n154: newTalent{\n155: \tname = \"Dirge of Pestilence\",\n156: \ttype = {\"celestial/dirges\", 1},\n157: \tpoints = 5,\n158: \tno_energy = true,\n159: \tcooldown = 12,\n160: \tsustain_slots = 'fallen_celestial_dirge',\n161: \tmode = \"sustained\",\n162: \tgetShield = function(self, t) return self:combatTalentScale(t, 50, 200, 0.75) end,\n163: \tgetShieldCD = function(self, t) return 5 end,\n164: \tcallbackOnTemporaryEffectAdd = function(self, t, eff_id, e_def, eff)\n165: \t\tif not self:hasEffect(self.EFF_NO_PESTILENCE) then\n166: \t\t\tif e_def.status == \"detrimental\" and e_def.type ~= \"other\" and eff.src ~= self then\n167: \t\t\t\tself:setEffect(self.EFF_NO_PESTILENCE, t.getShieldCD(self, t), {src=self})\n168: \t\t\t\tif self:hasEffect(self.EFF_DAMAGE_SHIELD) then\n169: \t\t\t\t\tlocal shield = self:hasEffect(self.EFF_DAMAGE_SHIELD)\n170: \t\t\t\t\tlocal shield_power = self:spellCrit(t.getShield(self, t))\n171: \t\t\t\t\t\n172: \t\t\t\t\tshield.power = shield.power + shield_power\n173: \t\t\t\t\tself.damage_shield_absorb = self.damage_shield_absorb + shield_power\n174: \t\t\t\t\tself.damage_shield_absorb_max = self.damage_shield_absorb_max + shield_power\n175: \t\t\t\t\tshield.dur = math.max(eff.dur, shield.dur)\n176: \t\t\t\telse\n177: \t\t\t\t\tself:setEffect(self.EFF_DAMAGE_SHIELD, eff.dur, {color={0xff/255, 0x3b/255, 0x3f/255}, power=self:spellCrit(t.getShield(self, t))})\n178: \t\t\t\tend\n179: \t\t\tend\n180: \t\tend\n181: \tend,\n182: \tactivate = function(self, t)      \n183: \t\tlocal ret = {}\n184: \t\tret.particle = self:addParticles(Particles.new(\"dirge_shield\", 1))\n185: \t\t\n186: \t\t--Basic effect is in callbacks\n187: \t\t\n188: \t\tupgradeDirgeActivate(self, t, ret)\n189: \t\tgame:playSoundNear(self, \"talents/chant_three\")\n190: \t\t\n191: \t\treturn ret\n192: \tend,\n193: \tdeactivate = function(self, t, p)\n194: \t\tself:removeParticles(p.particle)\n195: \t\t\n196: \t\t--Adept Upgrade\n197: \t\tif self:knowTalent(self.T_DIRGE_ADEPT) then\n198: \t\t\tclearDirges(self)\n199: \t\t\tlocal t3 = self:getTalentFromId(self.T_DIRGE_ADEPT)\n200: \t\t\tself:setEffect(self.EFF_DIRGE_OF_PESTILENCE, t3.getDuration(self, t3), {src=self, shield=t.getShield(self, t), cd=t.getShieldCD(self, t)})\n201: \t\tend\n202: \t\t\n203: \t\treturn true\n204: \tend,\n205: \tinfo = function(self, t)\n206: \t\treturn ([[Sing a song of decay and defiance and sustain yourself through spite.\n207: \t\t\t\t\t\t\tEach time you suffer a detrimental effect, you gain a shield with strength %d, that lasts as long as the effect would.  This will add to and extend an existing shield if possible.\n208: \t\t\t\t\t\t\tThis can only trigger once every %d turns]]):tformat(t.getShield(self, t), t.getShieldCD(self, t))\n209: \tend,\n210: }\n211: \n212: \n213: newTalent{\n214: \tname = \"Dirge Acolyte\",\n215: \ttype = {\"celestial/dirge\", 1},"
+      },
+      "scope_question": "The predicate restrictions are actual. Current source tooltip and baseline target both say each detrimental effect; the repair corrected defiance/spite and shield add+extend, not trigger filters. Does personal-project scope require new tooltip filter exposition now, or track a bounded successor followup? Do not invent Chinese translations or reopen other clauses."
+    },
+    {
+      "id": "W7-R2-SPINNERET-SIBLING",
+      "status": "advisory",
+      "observation": "同一对象的 unided_name“spinneret”译为“吐丝器”，而相邻冻结 name“giant spider spinneret”译为“巨蛛的丝腺”；源码表明二者是同一实体鉴定前后的名称，但“吐丝器”与“丝腺”指不同解剖结构，存在跨条术语与实体关系不一致。",
+      "scope_question": "SPEC expressly excludes identified-name and quest siblings. Selected unided target corrects an anatomical mismatch. Calibrate only whether this sibling relationship should block current bounded repair; do not expand workset."
+    }
+  ]
+}

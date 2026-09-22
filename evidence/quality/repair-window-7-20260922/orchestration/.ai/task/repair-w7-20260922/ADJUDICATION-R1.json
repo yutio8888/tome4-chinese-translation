@@ -1,0 +1,30 @@
+{
+  "cycle": 1,
+  "raw_ok_count": 6,
+  "raw_issue_count": 2,
+  "decision": "single_bounded_fix_then_refreeze",
+  "findings": [
+    {
+      "id": "R1-MINDSTORM-COUNT",
+      "revision_key": "e882cc8d4ef163f98acffe86f7c50ff2ebff8d56a483ae9c1659a6713ea13b2d",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "evidence_paths": [
+        "HOST-SOURCE-SUPPLEMENT.json"
+      ],
+      "reason": "Actor.incFeedback computes one total overcharge_gain from excess feedback; Mind Storm emits at most min(total overcharge,target count) extra bolts, removing each selected target. Existing per-target quantifier may imply multiplication by targets; fixed-source behavior controls ambiguous English.",
+      "resolution": "Replace only second-line quantifier: one extra bolt per %d excess feedback, at most one extra bolt per selected target and total per-turn cap %d. Do not change unrelated focused-wrath behavior or original first line."
+    },
+    {
+      "id": "R1-SPINNERET-SIBLING",
+      "revision_key_prefix": "e895fea030",
+      "status": "advisory",
+      "disposition": "declined_scope",
+      "reason": "Actual source names one entity spinneret/giant spider spinneret; current unided target corrects gland-vs-spinning-organ distinction. Inconsistency resides in explicitly excluded sibling identified-name and quest strings. Do not revert correct target to gland or expand this batch; preserve sibling followup in handoff."
+    }
+  ],
+  "conflict_assessment": "Prior bare OK supplies no contradictory substantive source claim. New Mind Storm observation is newly evidenced tier-1 issue, not repeated mutually contradictory findings.",
+  "senior_scope_audit_required": false,
+  "senior_basis": "Current finding cycle=1; contract requires current-stage scope audit for additional review-triggered FIX when cycle>=2."
+}

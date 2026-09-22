@@ -1,0 +1,14 @@
+窗口 7 的 R1 有界修复已完成并暂停。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:27186)：仅修改 e882 第二行数量关系；每 `%d` 超额反馈值换算 1 枚额外飞弹，再分配目标，每目标至多 1 枚，总上限 `%d`。保持占位顺序、3LF/6TAB；其他 7 条及该条其余行未动。
+- 更新了 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/VALIDATION.json)。
+- 已保存 `ADJUDICATION-R1.json`、`HOST-SOURCE-SUPPLEMENT.json` 的逐字节副本，`cmp` 与 SHA-256 均一致。
+
+验证结果：
+
+- `verify.py`：通过，22989 条记录，恰有既定 8 个 target 变化
+- 严格 lint：通过，30308 条，0 errors / 0 warnings
+- 严格 claims：通过
+- `git diff --check`：通过
+
+未修改 spinneret 兄弟项、术语、规则、工具、handoff/catalog 或 `.ai`；未 stage、commit、push，未创建 agent，未启动 254。完整独立复审和门禁留给宿主继续。

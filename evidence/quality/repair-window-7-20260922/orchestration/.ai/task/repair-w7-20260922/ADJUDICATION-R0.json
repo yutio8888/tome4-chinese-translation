@@ -1,0 +1,28 @@
+{
+  "cycle": 0,
+  "decision": "repair_then_refreeze",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "findings": [
+    {
+      "id": "R0-DISEASE-ALL",
+      "revision_key_prefix": "e80304576e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "evidence": "game/modules/tome/data/talents/corruptions/plague.lua:159-171 iterates all collected diseases with ipairs; info any diseases describes all existing diseases, not a choice.",
+      "resolution": "将任意疾病传播 → 将目标身上的所有疾病传播; preserve resistance semantics and remaining wording."
+    },
+    {
+      "id": "R0-SHIELD-LEAP",
+      "revision_key_prefix": "e85e4d8855",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "evidence": "game/modules/tome/data/talents/techniques/agility.lua Vault uses shield attackTargetWith before move; info Leap onto ... with your shield. 用盾牌踩 misstates action.",
+      "resolution": "首句用盾牌踩在临近目标上 → 持盾跃向相邻目标; retain shield damage, 2-turn Daze=眩晕, springboard and destination semantics."
+    }
+  ],
+  "raw_ok_count": 6,
+  "raw_issue_count": 2,
+  "out_of_scope_changes": false
+}

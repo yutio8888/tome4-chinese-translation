@@ -1,0 +1,17 @@
+修复窗口 7 的 EXECUTOR 工作已完成并暂停，未启动批次 254。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰好修改冻结工作集中的 8 个 target。
+- e882 已恢复为 3LF/6TAB；其余格式及所有 source/tag/printf/markup 等不变量保持。
+- spinneret 仅修改未鉴定名，兄弟行未动；e85e 仅补全属性伤害加成范围，保留“眩晕”。
+- evidence、实施记录和 [EXECUTOR 交接](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/EXECUTOR-HANDOFF.md) 已保存；四个冻结 JSON 均为逐字节副本。
+
+检查全部通过：
+
+- 定向验证：22989 条记录中恰有 8 个 target 变化
+- strict lint：30308 条，0 errors、0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+真实结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/VALIDATION.json)，实施说明见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-7-20260922/IMPLEMENTATION.md)。
+
+未修改 `.ai`，未 stage、commit 或 push；独立复审、完整门禁、严格构建和 `DONE_VERIFIED` 仍由宿主继续。

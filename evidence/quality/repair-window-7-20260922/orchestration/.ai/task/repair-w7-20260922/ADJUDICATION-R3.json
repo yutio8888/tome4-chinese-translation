@@ -1,0 +1,34 @@
+{
+  "cycle": 3,
+  "raw_ok_count": 7,
+  "raw_issue_count": 1,
+  "decision": "converged_proceed_full_final",
+  "first_tier_confirmed": 0,
+  "open_accepted": [],
+  "findings": [
+    {
+      "id": "W7-R3-VAULT-SELECTION",
+      "revision_key_prefix": "e85e4d8855",
+      "status": "advisory",
+      "disposition": "declined_scope",
+      "category": "clarity",
+      "source_fact_verified": "Picker may accept an occupied coordinate, which is replaced by a free neighboring coordinate before movement.",
+      "reason": "The claim conflates selected coordinate with actual landing destination. Current 跃向…空地 describes the landing, which code enforces via findFreeGrid and block_move checks before move; it does not explicitly prohibit choosing an occupied coordinate. No objective first-tier false mechanism established. Clarifying picker behavior may improve wording but concerns an unchanged destination subclause, outside the accepted opening-action/stat-bonus repairs. At cycle3 retain only a nonblocking successor clarity note, not another FIX.",
+      "evidence": {
+        "component": "tome",
+        "public_source_path": "game/modules/tome/data/talents/techniques/agility.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "file_sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+        "start_line": 113,
+        "end_line": 155,
+        "excerpt": "113: \t\tlocal tg = self:getTalentTarget(t)\n114: \t\tlocal x, y, target = self:getTarget(tg)\n115: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n116: \n117: \t\t-- Leap\n118: \t\tlocal tg = {type=\"hit\", nolock=true, range=t.getDist(self,t)}\n119: \t\tlocal x, y  = self:getTarget(tg)\n120: \t\tif not x or not y then return nil end\n121: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n122: \n123: \t\tif game.level.map(x, y, Map.ACTOR) then\n124: \t\t\tx, y = util.findFreeGrid(x, y, 1, true, {[Map.ACTOR]=true})\n125: \t\t\tif not x then return end\n126: \t\tend\n127: \n128: \t\tif game.level.map:checkAllEntities(x, y, \"block_move\") then return end\n129: \n130: \t\t-- Modify shield combat to use dex.\n131: \t\tlocal combat = table.clone(shield_combat, true)\n132: \t\tif combat.dammod.str and combat.dammod.str > 0 then\n133: \t\t\tcombat.dammod.dex = (combat.dammod.dex or 0) + combat.dammod.str\n134: \t\t\tcombat.dammod.str = nil\n135: \t\tend\n136: \n137: \t\t-- First attack with shield\n138: \t\tlocal speed, hit = self:attackTargetWith(target, combat, nil, t.getDamage(self, t))\n139: \n140: \t\t-- Daze\n141: \t\tif hit then\n142: \t\t\tif target:canBe(\"stun\") then\n143: \t\t\t\ttarget:setEffect(target.EFF_DAZED, 2, {apply_power=self:combatPhysicalpower()})\n144: \t\t\telse\n145: \t\t\t\tgame.logSeen(target, \"%s resists the daze!\", target:getName():capitalize())\n146: \t\t\tend\n147: \t\tend\n148: \t\t\n149: \t\tlocal ox, oy = self.x, self.y\n150: \t\tself:move(x, y, true)\n151: \t\tif config.settings.tome.smooth_move > 0 then\n152: \t\t\tself:resetMoveAnim()\n153: \t\t\tself:setMoveAnim(ox, oy, 8, 5)\n154: \t\tend\n155: \t\t"
+      }
+    }
+  ],
+  "prior_advisory_retained": [
+    "R1-SPINNERET-SIBLING",
+    "W7-R2-SPINNERET-SIBLING"
+  ],
+  "senior_required": false,
+  "senior_basis": "No accepted finding triggers another FIX; prior audit not reused for this new observation."
+}
