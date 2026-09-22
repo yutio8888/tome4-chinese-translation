@@ -1031,3 +1031,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02428 | confirmed：混入相邻类别 Advanced、漏译 Teaches；confirmed：装备禁令误译 | 按本条原文重译 |
 
 译文未修改。02425–02428 四条「存在疑点」全部被 Sol 逐条确认（其中伴随的 advisory 单独分档）。
+
+## batch-076 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-076-01.md](reports/sol-076-01.md)。译文未修改。共 8 个 claim：5 confirmed、1 refuted、1 pending、1 advisory（本次交叉首次出现 refuted）。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02435 | confirmed：飞刀专属攻速被泛指“攻击速度”（机制范围误导） | 补“飞刀”限定 |
+| entry-02439 | **refuted**：遗漏触发前提不成立——“这个技能”承接首句条件，未产生不同机制 | 可选可读性优化，非必修 |
+| entry-02449 | confirmed：括注“冷却中仍可获得”有源码依据（`ignore_cd=true`），不构成错误 | 是否保留括注 |
+| entry-02451 | confirmed：遗漏力量/敏捷等权贡献细节 | 可补等权表述 |
+| entry-02445 之外 entry-02456 | pending：`corruption`→“枯萎能量”是否混淆 corruption/blight，冻结输入无术语裁决 | **需术语负责人裁定** |
+| entry-02460 | advisory：双感叹号规整；confirmed：颜色标签前多余空格 | 标点/界面文风 |
+| entry-02446 之外 entry-02466 | confirmed：`assembles`→“重组为”主宾颠倒（日志语义错误） | 按参数顺序重写 |
+
+译文未修改。entry-02439 的 Gemini 存疑被 **refuted**（转交范围不预设结论的直接例证）；entry-02456 保持 pending 待人工术语决定。

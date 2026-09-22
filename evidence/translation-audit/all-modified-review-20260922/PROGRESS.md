@@ -778,3 +778,16 @@
 - 归档先 `archive_attempts_started=1`，一次成功并 live 复查：gemini-076-01 `2026-09-22T13:55:35.946Z`，sol-075-01 `2026-09-22T13:55:37.473Z`。
 - 覆盖 **2470/4144（59.6%）**；批次 76/130，交叉 75 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳 run acd2cfab：078 批次（顺序偏差）+ 076 交叉收口
+
+- 派发记录提交 `3b188008`/`550f8ace`/`423de2ad`；交叉文件与 prompt 提交 `d647fb3a`。
+- **两处执行偏差，均已入档**：
+  1. Sol 首次尝试因 `test -f` 在并行块中先于 prompt 创建执行而 exit 1（**未创建 child**），串行重派成功（记录含 `late_note`）。
+  2. 我按模板误准备了 `gemini-078-01-prompt` 而先派 batch-078，**跳过了 batch-077**（记录含 `order_note`；批次切片独立、证据完整性不受影响）。077 的 prompt 早已就绪，下一片补回。
+- **gemini-078-01：28/28 一次完成**，逐条解析 8 条标记（存在疑点 02522；细微观察 02520/02521/02523/02524/02530/02533/02534）。报告尾部汇总自称「其余 22 条」，与逐条 20 clean 不符 → **以逐条为准**（已写入 coverage_note）。sha256 `49a255f3d56b0df92ac0009bfac22d0567d8cde0dbd05df6efa4e28d51e0e601`，brain `e437e3b3`。
+- **sol-076-01（cross-batch-076）：7/7 条目、8 claim**：5 confirmed、**1 refuted（entry-02439）**、1 pending（entry-02456 术语待裁）、1 advisory。报告 sha256 `1876ada63ed5bc9ca940dfe139474d06b1b3496006318deec7106425409530de`，rollout `01a0c968`。
+- 守卫全过：batch-078/cross-batch-076 冻结哈希、11 locale、非 evidence 零 diff，HEAD `423de2ad`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-078-01 `2026-09-22T14:02:05.181Z`，sol-076-01 `2026-09-22T14:02:06.674Z`。
+- 覆盖 **2498/4144（60.3%）**；已记录批次 77/130（077 待派），交叉 76 组完成。
+- 更新时间见 STATE.json `updated_at`。
