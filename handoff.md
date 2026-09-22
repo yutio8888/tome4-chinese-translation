@@ -1,21 +1,39 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（修复窗口3已推送；审核247已验收并finalize，下一批248）
+更新时间：2026-09-22（审核248已验收并finalize，下一批249）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
 用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
-修复窗口 3 已完成证据提交、第二次队列同步与 push，远端核验为
-`081d3a03ccaea62b735c05f0b10f44f4f892cba2`，不得重做。审核 247 已提交并 finalize，
-本交接记录的是其出版收尾前快照；宿主随后将提交本交接、同步队列和推送。
-恢复时先核对当前 HEAD、远端和 SQLite，不因历史步骤文字重复已完成操作。
+修复窗口3与审核247均已完成同步和推送；247远端核验为
+`6e6a7a197d226780a3bb76c1b873604200d77a65`，不得重做。审核248已提交并finalize；
+本交接为其推送收尾前快照，宿主随后提交交接和收据、同步队列并推送。
+恢复时核对实际HEAD、远端、SQLite及checkpoint，不重复已完成步骤。
 
-- 审核 247 证据提交：`70a0f96223d1596806ebafc37cca645fb06caea0`。
-- 当前 catalog：`75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`。
-- 审核 247 的 finalize 收据见 [FINALIZE-RECEIPT](evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-host-evidence/FINALIZE-RECEIPT.json)。
-- 当前没有活动审核 child；原有 `.ai/consult/`、`recipe` 和 15 个旧 source-workset
-  均保留，严禁将其纳入本任务提交或清理。
+- 审核248证据提交：`da5c71175b2c9ec184e80491026bf18715b49e93`。
+- 当前catalog：`75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`。
+- 248真实finalize收据见[FINALIZE-RECEIPT](evidence/quality/production-batches/batch-d83278160a384bef39ff-host-evidence/FINALIZE-RECEIPT.json)。
+- 当前无活动审核child或生产checkpoint；原有`.ai/consult/`、`recipe`和15个旧source-workset保留，不纳入提交或清理。
+
+## 审核248：修复窗口4第二批
+
+`batch-d83278160a384bef39ff`，80条固定tome来源，**73 done / 6 repair_required / 1 blocked**。
+10条正式上下文复核；18项观察裁决为11 confirmed、1 refuted、6 advisory，confirmed按revision去重为6条。
+另有一条长篇回忆录独立补充复核，作为窗口4的补充修复候选，不改写原surface OK或生产状态。
+六位真实reviewer均通过strict、原生来源与读取边界核验并确认归档；三个任务DONE_VERIFIED，
+157文件归档快照独立重放通过，17项完整门禁与严格addon构建通过。
+详情见[248宿主证据](evidence/quality/production-batches/batch-d83278160a384bef39ff-host-evidence/summary.md)。
+
+正式待修复项为峰顶限定`e318607df2…`、Fireflash爆炸半径`e359df96b1…`、建筑内外方位`e3aebb4595…`、
+噩梦新增清醒限制`e3b3e027a2…`、毒素集合`e3ed20c85b…`、组装物品关系`e407b46fe5…`。
+独立补充`e433115e63…`只修复已确认的裸体/兴奋场景、向东出发及气氛转折、条件性恨意和水晶塔比喻；
+依据见[补充裁决](evidence/quality/production-batches/batch-d83278160a384bef39ff-host-evidence/orchestration/.ai/task/batch248-host-contextual-20260922/HOST-ADJUDICATION.json)。
+
+`e3eec8e65c…`旧任务完成提示键与固定源码的空格不同；实际消费者在PlayerQuestPopup.lua。
+已按正式host-block记录阻断，[完整来源归因](evidence/quality/production-batches/batch-d83278160a384bef39ff-source-attribution.json)包含全固定源码精确检索和调用位置。
+不把表面OK算作done，不在此任务迁移source key。岩石藤蔓有源码支持，标题措辞、传送门简称/空格和
+技能树简述只记建议；不扩大距离单位“码”的跨批策略。运行时contextual输入已在finalize后与已提交原文逐字节核验并归档。
 
 ## 审核 247：修复窗口 4 第一批
 
@@ -78,10 +96,11 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 宿主完成本交接与 finalize 收据的独立提交后，同步队列、push 并核实远端；恢复时以实际状态为准。
-2. 无活动 checkpoint 且 HEAD/queue 一致后，继续审核 **248**，默认 80 条，再审核249。
-3. 247—249 全部完成后，汇总修复窗口4的已确认候选，按正式修复、复审、门禁、catalog/migration、
-   两次队列同步与推送流程执行。不得把 advisory 或范围外 pending 计入修复。
+1. 完成本交接与248收据的独立提交后，同步队列、push并核实远端；恢复时以实际状态为准。
+2. 无活动checkpoint且HEAD/queue一致后，继续审核 **249**，默认80条。
+3. 247—249全部完成后执行修复窗口4：当前为247的2条、248的6条正式候选，加248的1条独立补充，
+   再加入249确认项。按正式修复、复审、门禁、catalog/migration、两次队列同步与推送流程执行。
+   不把advisory、旧键blocked或范围外pending计入修复。
 
 ## 保留边界与历史
 
