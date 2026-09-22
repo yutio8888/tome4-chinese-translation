@@ -1,0 +1,1 @@
+只读补充复审：第248批选中长篇回忆录的一条冻结revision。此独立task不替换生产surface结果、不手改生产checkpoint或队列；完成后与宿主源码裁决一起作为下一修复窗口的补充证据。范围仅SCOPE/draft；REVIEWER只读精确输入和引用、完整contextual-v2契约及相关固定源码，禁止读取其他任务/既有finding/当前译文或术语库，禁止写入。实际anchor preflight先于freeze；保持规范prompt；原生结果校验、边界核验、归档确认、DONE_VERIFIED齐全后交付。用户持续复核和窗口修复授权适用；不修改译文、术语、规则或旧冻结记录。

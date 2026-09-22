@@ -1,0 +1,96 @@
+{
+  "recorded_at": "2026-09-22T04:52:13.676438+00:00",
+  "workset": "evidence/quality/production-batches/batch-d83278160a384bef39ff-source-workset.json",
+  "decisions": {
+    "e318607df2|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/wilderness/grids.lua:726-727 明确nearly on top of one of the highest peaks。当前译文已经站在最高峰位置丢失尚近峰顶与之一两个限定；恢复这两点。many hours与几个小时是数量程度措辞，可一并准确表达为行走多时，但不把时间表达定为独立重大机制错误。"
+    },
+    "e3223c075c|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/quests/spydric-infestation.lua:20-31是蜘蛛巢穴救援任务标题，任务正文明确大量不小的蜘蛛、击杀Ungole。“八脚怪物”是符合任务对象的标题改写；wonder的俏皮语气未保留，可改善但没有把实际对象译错，不仅凭单词字面建立必须改名的结论。"
+    },
+    "e322f0215e|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/gifts/gifts.lua:46将wild-gift/earthen-vines说明为Control the stone itself；gifts/earthen-vines.lua:20首技能是Stone Vines且使用同一talent type。岩石藤蔓有直接固定源码语境支持，不能强制将earth与stone分译。"
+    },
+    "e34de9c799|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/high-peak/grids.lua:59-66为WEST_PORTAL实体、标题Farportal: Iron Throne下的描述；正文的传送门在该实体语境中可识别，关键道具是用来激活它的物品的功能性表达，不足以证明新增特定物品类别。补写远行/外部可提高独立精确度，但不据此改动高复用术语。surface仅报告换行后一个ASCII空格，未改变换行数或占位符，属非阻断排版建议。"
+    },
+    "e359df96b1|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/spells/fire.lua:140-181 Fireflash的range=7与radius缩放值独立，target.type=ball、radius来自getRadius，info传入的%d就是伤害半径。当前有效范围未准确说明爆炸的范围伤害半径，应明确目标处爆炸并对半径%d内造成伤害。surface断言已明确误译为射程过强，按半径关系遗漏确认；保留既有单位策略，不扩大为全局“码”替换。"
+    },
+    "e3aebb4595|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/orc-breeding-pit/zone.lua:69-74 on_enter新区域时显示arrive in a small underground structure。当前建筑前改为建筑外部，恢复进入/抵达建筑内部的空间关系。"
+    },
+    "e3b3e027a2|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/timed_effects/mental.lua:1602-1620 long_desc无清醒限定，on_timeout还显式检测sleep并提高不良效果几率。名称Waking Nightmare不能覆盖实际执行逻辑；去掉正文新增的清醒状态，不改效果名或术语库。contextual OK没有反向源码证据，宿主按固定代码确认surface此项。"
+    },
+    "e3c1ba7e43|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/chronomancy/chronomancer.lua:31这是chronomancy/spacetime-folding类别的概括说明，名称本身为Spacetime Folding。译文折叠时空采用类别名称作简述；补充掌握空间点折叠可增加精确度，但此短标签未给出错误的具体机制，不升级为必须修复或跨批术语策略。"
+    },
+    "e3ed20c85b|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/cunning/cunning.lua:26是cunning/poisons-effects类别的Collection of known poisons说明，并非制造动作。当前制造各种不同毒素改变界面类别描述，恢复已知毒素集合/汇集的含义。"
+    },
+    "e407b46fe5|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/uber/cun.lua:209-243创建TELOS_SPIRE物品o并加入self物品栏；日志两个%s分别self:getName与o:getName。当前重组为把执行者说成变身为物品，应表达执行者组装出该物品，保持两个参数顺序及markup不变。"
+    },
+    "e318607df2|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/wilderness/grids.lua:726-727 明确nearly on top of one of the highest peaks。当前译文已经站在最高峰位置丢失尚近峰顶与之一两个限定；恢复这两点。many hours与几个小时是数量程度措辞，可一并准确表达为行走多时，但不把时间表达定为独立重大机制错误。"
+    },
+    "e3223c075c|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/quests/spydric-infestation.lua:20-31是蜘蛛巢穴救援任务标题，任务正文明确大量不小的蜘蛛、击杀Ungole。“八脚怪物”是符合任务对象的标题改写；wonder的俏皮语气未保留，可改善但没有把实际对象译错，不仅凭单词字面建立必须改名的结论。"
+    },
+    "e34de9c799|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/high-peak/grids.lua:59-66为WEST_PORTAL实体、标题Farportal: Iron Throne下的描述；正文的传送门在该实体语境中可识别，关键道具是用来激活它的物品的功能性表达，不足以证明新增特定物品类别。补写远行/外部可提高独立精确度，但不据此改动高复用术语。surface仅报告换行后一个ASCII空格，未改变换行数或占位符，属非阻断排版建议。"
+    },
+    "e359df96b1|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/spells/fire.lua:140-181 Fireflash的range=7与radius缩放值独立，target.type=ball、radius来自getRadius，info传入的%d就是伤害半径。当前有效范围未准确说明爆炸的范围伤害半径，应明确目标处爆炸并对半径%d内造成伤害。surface断言已明确误译为射程过强，按半径关系遗漏确认；保留既有单位策略，不扩大为全局“码”替换。"
+    },
+    "e3aebb4595|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/zones/orc-breeding-pit/zone.lua:69-74 on_enter新区域时显示arrive in a small underground structure。当前建筑前改为建筑外部，恢复进入/抵达建筑内部的空间关系。"
+    },
+    "e3c1ba7e43|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/chronomancy/chronomancer.lua:31这是chronomancy/spacetime-folding类别的概括说明，名称本身为Spacetime Folding。译文折叠时空采用类别名称作简述；补充掌握空间点折叠可增加精确度，但此短标签未给出错误的具体机制，不升级为必须修复或跨批术语策略。"
+    },
+    "e3ed20c85b|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/cunning/cunning.lua:26是cunning/poisons-effects类别的Collection of known poisons说明，并非制造动作。当前制造各种不同毒素改变界面类别描述，恢复已知毒素集合/汇集的含义。"
+    },
+    "e407b46fe5|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/uber/cun.lua:209-243创建TELOS_SPIRE物品o并加入self物品栏；日志两个%s分别self:getName与o:getName。当前重组为把执行者说成变身为物品，应表达执行者组装出该物品，保持两个参数顺序及markup不变。"
+    }
+  }
+}

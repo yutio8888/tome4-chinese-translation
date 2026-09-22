@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-09-22T04:51:09.709496+00:00",
+  "reviews": [
+    {
+      "key": "batch-d83278160a384bef39ff-contextual-000|full-000",
+      "native_log": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T04-48-16-01a0c771-7302-7c73-9a21-4420587b7371.jsonl",
+      "native_sha256": "052dd18d0db4e7fd0a7f48ba6e16f1b8a609d8162c1b244481957e6445744326",
+      "tool_calls": [
+        "const r = await tools.exec_command({cmd:\"wc -l docs/paseo-translation-context-review-v2-contract.md .ai/task/batch-d83278160a384bef39ff-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && sed -n '1,240p' docs/paseo-translation-context-review-v2-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq '{candidate_identity, payload_keys:(.payload|keys), contract:.payload.contract, fixed_source_identity:.payload.fixed_source_identity, count:(.payload.ordered_revision_keys|length), keys:.payload.ordered_revision_keys, translation_snapshot:.payload.translation_snapshot, terminology_snapshot:.payload.terminology_snapshot, bounded_context:.payload.bounded_context, rendered_briefing:.payload.rendered_briefing}' .ai/task/batch-d83278160a384bef39ff-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":50000}); text(r.output);\n",
+        "const r = await tools.exec_command({cmd:\"jq -jSc '.payload' .ai/task/batch-d83278160a384bef39ff-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | sha256sum && for i in $(seq 0 9); do jq -r --argjson i \\\"$i\\\" '.payload.bounded_context[$i] | [.revision_key,.context] | @tsv' .ai/task/batch-d83278160a384bef39ff-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; done\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":50000}); text(r.output);\n"
+      ],
+      "result": "PASS",
+      "basis": "三次调用仅本task冻结输入、完整v2契约；未读当前译文、术语库、其他任务或历史finding，无写操作。"
+    }
+  ]
+}

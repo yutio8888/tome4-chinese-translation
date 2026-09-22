@@ -1,0 +1,122 @@
+[
+  {
+    "path": "game/modules/tome/data/talents/uber/cun.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "e8f5d9281e0eed2b487a52666a6e8551d29371627cd1a604154296c3ae8b6979",
+    "excerpts": [
+      {
+        "first_line": 209,
+        "last_line": 243,
+        "text": "-- Item rarities\nuberTalent{\n\tname = \"Secrets of Telos\",\n\tmode = \"passive\",\n\trequire = { special={desc=_t\"Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal\", fct=function(self)\n\t\tlocal o1 = self:findInAllInventoriesBy(\"define_as\", \"GEM_TELOS\")\n\t\tlocal o2 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_TOP_HALF\")\n\t\tlocal o3 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_BOTTOM_HALF\")\n\t\treturn o1 and o2 and o3\n\tend} },\n\tcant_steal = true,\n\tno_npc_use = true,\n\ton_learn = function(self, t)\n\t\tif not game.party:hasMember(self) then return end\n\t\tlocal list = mod.class.Object:loadList(\"/data/general/objects/special-artifacts.lua\")\n\t\tlocal o = game.zone:makeEntityByName(game.level, list, \"TELOS_SPIRE\", true)\n\t\tif o then\n\t\t\to:identify(true)\n\t\t\tself:addObject(self.INVEN_INVEN, o)\n\n\t\t\tlocal o1, item1, inven1 = self:findInAllInventoriesBy(\"define_as\", \"GEM_TELOS\")\n\t\t\tif item1 and inven1 then self:removeObject(inven1, item1, true) end\n\t\t\tlocal o2, item2, inven2 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_TOP_HALF\")\n\t\t\tif item2 and inven2 then self:removeObject(inven2, item2, true) end\n\t\t\tlocal o3, item3, inven3 = self:findInAllInventoriesBy(\"define_as\", \"TELOS_BOTTOM_HALF\")\n\t\t\tif item3 and inven3 then self:removeObject(inven3, item3, true) end\n\n\t\t\tself:sortInven()\n\n\t\t\tgame.logSeen(self, \"#VIOLET#%s assembles %s!\", self:getName():capitalize(), o:getName{do_colour=true, no_count=true})\n\t\tend\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.]])\n\t\t:tformat()"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/cunning/cunning.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "6276d5a6bbdc05005ef81ca033f9b47b4d719eaee73596de270408845a7e8810",
+    "excerpts": [
+      {
+        "first_line": 22,
+        "last_line": 29,
+        "text": "newTalentType{ allow_random=true, type=\"cunning/stealth\", name = _t(\"stealth\", \"talent type\"), description = _t\"Allows the user to enter stealth.\" }\nnewTalentType{ allow_random=true, type=\"cunning/trapping\", name = _t(\"trapping\", \"talent type\"), description = _t\"The knowledge of trap laying and assorted trickeries.\" }\nnewTalentType{ allow_random=true, type=\"cunning/traps\", name = _t(\"traps\", \"talent type\"), description = _t\"Collection of known traps.\" }\nnewTalentType{ allow_random=true, type=\"cunning/poisons\", name = _t(\"poisons\", \"talent type\"), description = _t\"The knowledge of poisons and how to apply them to 'good' effects.\" }\nnewTalentType{ allow_random=true, type=\"cunning/poisons-effects\", name = _t(\"poisons\", \"talent type\"), description = _t\"Collection of known poisons.\" }\nnewTalentType{ allow_random=true, type=\"cunning/dirty\", name = _t(\"dirty fighting\", \"talent type\"), description = _t\"Teaches various talents to cripple your foes.\" }\nnewTalentType{ allow_random=true, type=\"cunning/lethality\", generic = true, name = _t(\"lethality\", \"talent type\"), description = _t\"How to make your foes feel the pain.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"cunning/shadow-magic\", name = _t(\"shadow magic\", \"talent type\"), description = _t\"Blending magic and shadows.\" }"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/timed_effects/mental.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+    "excerpts": [
+      {
+        "first_line": 1602,
+        "last_line": 1639,
+        "text": "newEffect{\n\tname = \"WAKING_NIGHTMARE\", image = \"talents/waking_nightmare.png\",\n\tdesc = _t\"Waking Nightmare\",\n\tlong_desc = function(self, eff) return (\"The target is lost in a nightmare that deals %0.2f darkness damage each turn and has a %d%% chance to cause a random detrimental effect.\"):tformat(eff.dam, eff.chance) end,\n\ttype = \"mental\",\n\tsubtype = { nightmare=true, darkness=true },\n\tstatus = \"detrimental\",\n\tparameters = { chance=10, dam = 10 },\n\ton_gain = function(self, err) return _t\"#F53CBE##Target# is lost in a nightmare.\", _t\"+Night Terrors\" end,\n\ton_lose = function(self, err) return _t\"#Target# is free from the nightmare.\", _t\"-Night Terrors\" end,\n\ton_timeout = function(self, eff)\n\t\tDamageType:get(DamageType.DARKNESS).projector(eff.src or self, self.x, self.y, DamageType.DARKNESS, eff.dam)\n\t\tlocal chance = eff.chance\n\t\tif self:attr(\"sleep\") then chance = 100-(100-chance)/2 end -- Half normal chance to avoid effect\n\t\tif rng.percent(chance) then\n\t\t\t-- Pull random effect\n\t\t\tchance = rng.range(1, 3)\n\t\t\tif chance == 1 then\n\t\t\t\tif self:canBe(\"blind\") then\n\t\t\t\t\tself:setEffect(self.EFF_BLINDED, 3, {})\n\t\t\t\tend\n\t\t\telseif chance == 2 then\n\t\t\t\tif self:canBe(\"stun\") then\n\t\t\t\t\tself:setEffect(self.EFF_STUNNED, 3, {})\n\t\t\t\tend\n\t\t\telseif chance == 3 then\n\t\t\t\tif self:canBe(\"confusion\") then\n\t\t\t\t\tself:setEffect(self.EFF_CONFUSED, 3, {power=30})\n\t\t\t\tend\n\t\t\tend\n\t\t\tgame.logSeen(self, \"#F53CBE#%s succumbs to the nightmare!\", self:getName():capitalize())\n\t\tend\n\tend,\n}\n\nnewEffect{\n\tname = \"INNER_DEMONS\", image = \"talents/inner_demons.png\",\n\tdesc = _t\"Inner Demons\","
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/chronomancy/chronomancer.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "9d531720dfd0063941c23ae7dd274a1276a8c05a31721efc896e681b7440cc7e",
+    "excerpts": [
+      {
+        "first_line": 28,
+        "last_line": 34,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/flux\", name = _t(\"flux\", \"talent type\"), description = _t\"Fluctuate spacetime.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/gravity\", name = _t(\"gravity\", \"talent type\"), description = _t\"Call upon the force of gravity to crush, push, and pull your foes.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/matter\", name = _t(\"matter\", \"talent type\"), description = _t\"Change and shape matter itself.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/spacetime-folding\", name = _t(\"Spacetime Folding\", \"talent type\"), description = _t\"Mastery of folding points in space.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/speed-control\", name = _t(\"Speed Control\", \"talent type\"), description = _t\"Control how fast objects and creatures move through spacetime.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/stasis\", name = _t(\"stasis\", \"talent type\"), description = _t\"Stabilize spacetime.\" }\nnewTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/timeline-threading\", name = _t(\"Timeline Threading\", \"talent type\"), min_lev = 10, description = _t\"Examine and alter the timelines that make up the spacetime continuum.\" }"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/class/Object.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+    "excerpts": [
+      {
+        "first_line": 1791,
+        "last_line": 1800,
+        "text": "\n\t\tcompare_fields(w, compare_with, field, \"life_regen\", \"%+.2f\", _t\"Life regen: \")\n\t\tcompare_fields(w, compare_with, field, \"stamina_regen\", \"%+.2f\", _t\"Stamina each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"mana_regen\", \"%+.2f\", _t\"Mana each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"hate_regen\", \"%+.2f\", _t\"Hate each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"psi_regen\", \"%+.2f\", _t\"Psi each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"equilibrium_regen\", \"%+.2f\", _t\"Equilibrium each turn: \", nil, true, true)\n\t\tcompare_fields(w, compare_with, field, \"vim_regen\", \"%+.2f\", _t\"Vim each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"positive_regen\", \"%+.2f\", _t\"P.Energy each turn: \")\n\t\tcompare_fields(w, compare_with, field, \"negative_regen\", \"%+.2f\", _t\"N.Energy each turn: \")"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/zones/orc-breeding-pit/zone.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "ff1911ae74d33659a8d46f8160f379a5ac4e4f27855a1b559f30d69fc69901c0",
+    "excerpts": [
+      {
+        "first_line": 65,
+        "last_line": 85,
+        "text": "\t\tfor uid, e in pairs(level.entities) do if e.faction ~= \"neutral\" then e.faction=\"orc-pride\" end end\n\tend,\n\ton_enter = function(lev, old_lev, newzone)\n\t\tif newzone and not game.level.shown_warning then\n\t\t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"Orc Breeding Pit\", _t\"You arrive in a small underground structure. There are orcs there and as soon as they notice you they scream 'Protect the mothers!'.\")\n\t\t\tgame.level.shown_warning = true\n\t\tend\n\tend,\n\tlevels =\n\t{\n\t\t[1] = {\n\t\t\tgenerator = { map = {\n\t\t\t\tclass = \"engine.generator.map.Static\",\n\t\t\t\tmap = \"zones/orc-breeding-pit-first\",\n\t\t\t}, actor = {\n\t\t\t\tnb_npc = {0, 0},\n\t\t\t}, },\n\t\t},\n\t\t[3] = { width = 15, height = 15, generator = {map = {min_floor=120}} },\n\t},\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/gifts/gifts.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "99adc44487cb958bccd8d8698c0d42e192c4c0fe4d81d60c95bd41fd0c3d33c6",
+    "excerpts": [
+      {
+        "first_line": 43,
+        "last_line": 48,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/corrosive-blades\", name = _t(\"corrosive blades\", \"talent type\"), description = _t\"You channel acid through your psiblades.\" }\nnewTalentType{ allow_random=true, is_mind=true, is_nature=true, is_antimagic=true, type=\"wild-gift/eyals-fury\", name = _t(\"eyal's fury\", \"talent type\"), description = _t\"Unleash nature's fury against foes around you.\" }\nnewTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/earthen-power\", name = _t(\"earthen power\", \"talent type\"), description = _t\"Dwarves have learned to imbue their shields with the power of stone itself.\" }\nnewTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/earthen-vines\", name = _t(\"earthen vines\", \"talent type\"), description = _t\"Control the stone itself and bring it alive in the form of dreadful vines.\" }\nnewTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/dwarven-nature\", name = _t(\"dwarven nature\", \"talent type\"), description = _t\"Learn to harness the innate power of your race.\" }\n"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/gifts/earthen-vines.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "36129e9f57f1b149567f2a58ad1a337ccc56bb6585546519c0d92911ea888205",
+    "excerpts": [
+      {
+        "first_line": 19,
+        "last_line": 35,
+        "text": "\nnewTalent{\n\tname = \"Stone Vines\",\n\ttype = {\"wild-gift/earthen-vines\", 1},\n\trequire = gifts_req1,\n\tpoints = 5,\n\tmode = \"sustained\",\n\tsustain_equilibrium = 15,\n\tcooldown = 10,\n\tno_energy = true,\n\ttactical = { ATTACK = { PHYSICAL = 2 }, BUFF = 2, DISABLE = { pin = 2 } },\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 4.5, 6.5)) end,\n\tgetValues = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)), self:combatTalentStatDamage(t, \"wil\", 6, 80), self:knowTalent(self.T_ELDRITCH_VINES) and self:callTalent(self.T_ELDRITCH_VINES, \"getDamage\") or nil end,\n\tcallbackOnActBase = function(self, t)\n\t\tlocal p = self:isTalentActive(t.id)\n\t\tlocal rad = self:getTalentRadius(t)\n"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/spells/fire.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+    "excerpts": [
+      {
+        "first_line": 140,
+        "last_line": 181,
+        "text": "newTalent{\n\tname = \"Fireflash\",\n\ttype = {\"spell/fire\",3},\n\trequire = spells_req3,\n\tpoints = 5,\n\tmana = 20,\n\tcooldown = 8,\n\ttactical = { ATTACKAREA = { FIRE = 2 } },\n\trange = 7,\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 2, 5.5)) end,\n\tproj_speed = 4,\n\tdirect_hit = true,\n\trequires_target = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), player_selffire=true, selffire=self:spellFriendlyFire(), talent=t, display={particle=\"bolt_fire\", particle_args={size_factor=1.5}, trail=\"firetrail\"}, sound_stop=\"talents/fireflash\"}\n\tend,\n\tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 28, 330) end,\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:projectile(tg, x, y, DamageType.FIRE, self:spellCrit(t.getDamage(self, t)), function(self, tg, x, y, grids)\n\t\t\tgame.level.map:particleEmitter(x, y, tg.radius, \"fireflash\", {radius=tg.radius, proj_x=x, proj_y=y, src_x=self.x, src_y=self.y})\n\t\t\tif self:attr(\"burning_wake\") then\n\t\t\t\tgame.level.map:addEffect(self,\n\t\t\t\t\tx, y, 4,\n\t\t\t\t\tengine.DamageType.INFERNO, self:attr(\"burning_wake\"),\n\t\t\t\t\ttg.radius,\n\t\t\t\t\t5, nil,\n\t\t\t\t\t{type=\"inferno\"},\n\t\t\t\t\tnil, tg.selffire\n\t\t\t\t)\n\t\t\tend\n\t\tend)\n\t\tgame:playSoundNear(self, \"talents/fire\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damage = t.getDamage(self, t)\n\t\tlocal radius = self:getTalentRadius(t)\n\t\treturn ([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.\n\t\tThe damage will increase with your Spellpower.]]):"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/quests/spydric-infestation.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "60c4e0ea93ea3c8d1099e707e248bcc5ee318449059f336d8c5c3a41a0fa7809",
+    "excerpts": [
+      {
+        "first_line": 20,
+        "last_line": 31,
+        "text": "name = _t\"Eight legs of wonder\"\ndesc = function(self, who)\n\tlocal desc = {}\n\tif not self:isCompleted() and not self:isEnded() then\n\t\tdesc[#desc+1] = _t\"Enter the caverns of Ardhungol and look for Sun Paladin Rashim.\"\n\t\tdesc[#desc+1] = _t\"But be careful; those are not small spiders...\"\n\telse\n\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#You have killed Ungolë in Ardhungol and saved the Sun Paladin.\"\n\tend\n\treturn table.concat(desc, \"\\n\")\nend\n"
+      }
+    ]
+  }
+]
