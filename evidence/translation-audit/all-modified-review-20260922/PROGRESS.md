@@ -52,7 +52,7 @@
 - 用户追加：Gemini Flash 不再并行派发。003 与 004 是该限制之前已经发出的一对，现已结束。
 - Gemini 覆盖 170/4144。上述疑点和细微观察进入同一次 Sol 交叉，尚未裁决。
 
-| batch-005 | 40 | partial_coverage | entry-00164, entry-00165, entry-00166；缺 entry-00173–00200 |
+| batch-005 | 40 | reviewed_awaiting_cross | 00164–00166 已有 Sol；待交叉 00184, 00185, 00191, 00195, 00198 |
 
 - gemini-005-01：running；父级已核验；agent b9da4335-d822-40bb-aa77-85a68a730a93。本波只有这一路 Gemini。
 - sol-003-004-01：running；父级已核验；agent 32ebea4f-f471-4964-ac29-19412fee830b。交叉 003 与 004 的疑点和细微观察。
@@ -63,3 +63,13 @@
 - sol-003-004-01 原始回复已保存，16 条全部有分档。语义作者是 Sol。
 - gemini-005-01 最终回复在 entry-00173 的依据句中途结束。entry-00161–00172 计为已覆盖；00173–00200 未计覆盖。Gemini 覆盖 182/4144。
 - 11 个 locale 哈希未变。HEAD 仍是 04048730c969b1858e9cce2841bc20142dda15cf。
+
+- gemini-005-01、sol-003-004-01 已归档，archivedAt 2026-09-22T01:05:13.017Z。证据提交 2fcd543，未 push。
+- gemini-005-02：running，只补 entry-00173–00200；agent 815cbd17-53cc-4db1-86be-5620c566eddc。没有第二路 Gemini。
+- sol-005-partial-01：running，只交叉 entry-00164–00166；agent d3d74794-8c27-492c-b04d-aa5eaa3745af。
+
+## 005 补缺与前三处 Sol
+
+- gemini-005-02 覆盖 entry-00173–00200，28/28。Gemini 覆盖 210/4144。
+- sol-005-partial-01 已给出 00164–00166 的分档，作者是 Sol。
+- locale 哈希未变。HEAD 仍是 2fcd543be3b49430c1974180e688b18a8258e48d。
