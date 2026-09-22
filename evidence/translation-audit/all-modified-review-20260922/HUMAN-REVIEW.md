@@ -1168,3 +1168,21 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02765 | **refuted**：Gemini 占位符计数 7 错（实际 9）；confirmed：9 参数保留、双空格；pending：术语核验；**confirmed×2（Sol 新增）**：`those around you` 主语误读、自动增伤被译成可选能力 | 改译×2；术语核验 |
 
 译文未修改。本组是**双向纠错样本**：Sol 修正 Gemini 计数错误，同时补充 3 条 Gemini 漏掉的 confirmed。
+
+## batch-085 九处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-085-01.md](reports/sol-085-01.md)。译文未修改。共 14 个 claim：4 confirmed、6 advisory、3 refuted、1 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02775 | advisory：“寒冰”与本批“寒冷”同词不一致 | 批内统一 |
+| entry-02789 | confirmed：未说明比例基数（实为**最大生命**比例递增扣血） | 补“最大生命” |
+| entry-02790 | advisory：缺“你”可省；confirmed：“带了回去”方向不当 | 改“带了回来” |
+| entry-02791 | **refuted**：占位符句式成立（`%s`=所有格代词）；pending：“时空克隆/复制体”不一致待对照 | 需另供对照条目 |
+| entry-02798 | confirmed：`Magic`→“魔法”混淆核心属性（应为“魔力”） | 术语裁定 |
+| entry-02801 | advisory：冒号后空格、连续两次“同时” | 润色 |
+| entry-02805 | confirmed：“反射传送”被改成“可能干扰”（确定性被改）；**refuted**：“burns”火焰隐喻译法非错误。**附注**：Sol 指出该状态 `activate` 未实现传送反射，英文描述本身待另行核查 | 恢复确定语气；机制另行核查 |
+| entry-02806 | advisory×2：冒号后空格；“进入梦境”弱化“沉睡”状态 | 润色 |
+| entry-02807 | advisory：冒号后空格；**refuted**：译文补 `%` 正确（源码 `inc_damage=10` 即百分比） | 只清空格 |
+
+译文未修改。entry-02805 附带一个**超出英中忠实度的机制疑问**（状态是否真反射传送），已按原文记录待人工另行核查。
