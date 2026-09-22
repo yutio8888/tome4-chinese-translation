@@ -122,10 +122,18 @@
 - gemini-010-01：40/40。Gemini 覆盖 410/4144。十一条待 Sol。
 - sol-009-01：4/4 已有分档，作者是 Sol。
 
-| batch-011 | 40 | reviewed_awaiting_cross | entry-00419, entry-00423, entry-00428, entry-00429, entry-00434 |
+| batch-011 | 40 | reviewed_with_cross_results | 五处已有 Sol |
 
 - gemini-010-01、sol-009-01 已归档，archivedAt 2026-09-22T02:09:07.345Z。证据提交 1290db9，未 push。
 - gemini-011-01：running；agent 4bbac91d-bf68-4436-a68e-2e86c5df52eb。只有这一路 Gemini。
 - sol-010-01：running；agent e80e8b96-f866-4b18-b9e7-c75d3440a49e。交叉 00368、00373、00374、00393–00400。
 - gemini-011-01：40/40。Gemini 覆盖 450/4144。五条排队等 Sol；sol-010-01 仍在运行，不并行再派 Sol。
 - sol-010-01：11/11 已有分档，作者是 Sol。gemini-011 已归档，下一批尚未派出。
+
+| batch-012 | 40 | reviewed_awaiting_cross | entry-00443, entry-00448, entry-00455, entry-00458, entry-00476 |
+
+- gemini-011-01 已归档，archivedAt 2026-09-22T02:14:12.651Z。sol-010-01 已归档，archivedAt 2026-09-22T02:15:18.346Z。证据提交 0648abc，未 push。
+- gemini-012-01：running；agent ae5f30bf-3a08-4dc3-af04-22a11a559795。只有这一路 Gemini。
+- sol-011-01：running；agent b9f547f7-bc10-44fa-ad35-24d0aac1e28c。交叉 00419、00423、00428、00429、00434。
+- gemini-012-01：40/40。Gemini 覆盖 490/4144。五条待 Sol。
+- sol-011-01：5/5 已有分档，作者是 Sol。
