@@ -723,3 +723,10 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-073-01 `2026-09-22T12:20:45.883Z`，sol-072-01 `2026-09-22T12:20:47.514Z`。无未归档 child。
 - 下一片已就绪：batch-074（entry-02349–02388，40 条，sha `c6db30cd08aae813d95df055275fe6ae9d9aab5a644f65d3fae0da339e364550`）+ cross-batch-073（10 条，sha `a8b8887e34e155c75d0ad551014dbcba12d0cf847dca84683cfbe72fa34ca753`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 自动续跑心跳（用户授权）
+
+- 2026-09-22 用户授权挂载心跳驱动自动下一轮（原话「挂上看看」）。
+- 冒烟 `paseo-loop-smoke`（db3bd482，每分钟）验证通过：13:06:00Z 带 `<paseo-system>` schedule 通知头成功唤醒本 agent，身份/cwd/HEAD/git-status 四项核对通过，随后 `heartbeat delete` 成功；13:05:00 那次因 `hasInFlightRun` 被丢弃（串行化生效）。冒烟心跳已删除。
+- 正式心跳 `all-modified-review-auto`（**a2146eed**，`*/8 * * * *`，`max-runs 60`，`expires-in 12h`，target=本 agent）已 active，nextRunAt `2026-09-22T13:16:00Z`。prompt 内含完整状态机与 STOP 触发删除自身的规则，细节见 STATE.heartbeat_automation。
+- 实现要点：schedule 的 new-agent 模式会另开 workspace 且无 parent（违反 lineage 与单写者），故不采用；心跳指向本 agent，children 仍由本会话派发。

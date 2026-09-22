@@ -23373,7 +23373,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T12:21:14.247085+00:00",
+  "updated_at": "2026-09-22T13:11:55.102995+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -23487,5 +23487,20 @@
       ],
       "orchestration_transport": "cli (paseo CLI; same role, purpose, workspace, lineage and read-only semantics as mcp)"
     }
-  ]
+  ],
+  "heartbeat_automation": {
+    "id": "a2146eed",
+    "name": "all-modified-review-auto",
+    "cadence": "cron:*/8 * * * *",
+    "max_runs": 60,
+    "expires_in": "12h",
+    "target": "agent:c59be24f-5acc-4fa5-b130-41a33cf142fc (ORCHESTRATOR 本人)",
+    "status": "active",
+    "created_at": "2026-09-22T13:11:55.102995+00:00",
+    "authorized_by": "user（原话：挂上看看）",
+    "smoke_test": "db3bd482 paseo-loop-smoke 于 2026-09-22T13:06:00Z 成功唤醒（带 <paseo-system> schedule 通知头），完成身份/cwd/HEAD/git-status 四项核对后已 delete；13:05:00 那次因 hasInFlightRun 被丢弃，串行化符合预期",
+    "behavior": "心跳把 prompt 注入本 agent 会话（同 worktree、同 lineage），重叠 tick 自动丢弃，故不会产生第二个写者；children 仍由本会话通过 paseo run 派发并核验 parent",
+    "stop_rule": "守卫连续失败/批次边界歧义/生命周期不可确认/全部批次与 cross 完成 → 记录原因并 paseo heartbeat delete a2146eed 后停止",
+    "schedule_cli_note": "paseo schedule ls/inspect 不列出 target=agent 的心跳（list 只列 new-agent）；用 heartbeat update/delete 按 id 操作"
+  }
 }
