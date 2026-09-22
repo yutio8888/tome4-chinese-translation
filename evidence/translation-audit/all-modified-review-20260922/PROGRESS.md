@@ -508,3 +508,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-052-01 `2026-09-22T08:57:14.367Z`，sol-050-01 `2026-09-22T08:57:15.844Z`。无未归档 child。
 - 下一片已就绪：batch-053（entry-01505–01544，40 条，sha `e1b5bc25…`）+ cross-batch-052（8 条，sha `d89a16908097c8c452d50f6390d4584bbde0a7f235f2c229e0563e5188de7b69`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 052/053 收获
+
+- sol-051-01：8/8 条目 10 claim（7 confirmed、2 advisory、1 refuted）。报告 sha256 `dd2c69f703e69c7452d3bbc4e47073cabe1ab467ccd5b9d315891bb359527d56`，rollout `01a0c856-3974-7b21-8455-f19f5ea8e150`。记录时按报告原文重写了 10 条 claim 措辞（首次转录用的是概括占位，已更正）。
+- gemini-053-01：40/40（entry-01505–01544）。**覆盖 1550/4144**。14 处全部为细微观察：01508、01509、01510、01512、01514、01516、01517、01518、01528、01531、01534、01536、01543、01544；本批无存在疑点。报告 sha256 `df377a6687c08d271c63cc0f3dd1ca8eaa1c6ab8e407360054909818fee2f1a1`。
+- 收回核验：batch-053 / cross-batch-052 / batch-052 / gemini-052 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-053-01 `2026-09-22T09:04:39.538Z`，sol-051-01 `2026-09-22T09:04:41.014Z`。无未归档 child。
+- 下一片已就绪：batch-054（entry-01545–01584，40 条，sha `7ad39410…`）+ cross-batch-053（14 条，sha `1f9a9e542c7b52538ed3e83b08010ab1e15ebfb114d4209ad1cbbdf4b8770e72`）。
+- 更新时间见 STATE.json `updated_at`。

@@ -668,3 +668,20 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01464 | advisory：“辐射出的力量和危险”直译腔 | 文风取舍 |
 
 译文未修改。1 条 refuted 是对 Gemini 实质误译定性的下修，原样转录。
+
+## batch-052 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-051-01.md](reports/sol-051-01.md)。译文未修改。共 10 个 claim：7 confirmed、2 advisory、1 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01468 | confirmed：`Let nothing stop you.` 译“不惜一切代价冲出去”多出代价与突围两层含义 | 是否接受戏剧化意译；忠实版“别让任何东西阻挡你” |
+| entry-01474 | confirmed：`carve a place for yourself` 译“找到属于自己的栖息地”，应为在世上谋得一席之地。advisory：原文两句被逗号连接 | 改“在这个世界谋得一席之地”；可顺带断句 |
+| entry-01479 | confirmed：`far west` 被“远一点的西面”弱化 | 改“德斯镇遥远的西面” |
+| entry-01482 | advisory：省略 `Upon arrival`；前句已交代抵达，无实质 completeness 问题 | 可选补“刚抵达时” |
+| entry-01486 | confirmed：`his side of the story` 误成“关于他的故事”，削弱双方各执一词结构 | 改“他这一方的说法” |
+| entry-01491 | confirmed：`randomly attacks villagers` 强化成“肆意屠杀村民的凶手” | 收束为“会随机袭击村民”或保留戏剧化 |
+| entry-01496 | refuted：`The portal is done!` 译“传送门已经开启”**不成立**，源码显示 done 后即 functional 可用；Sol 另注 Gemini 行号 `:75` 应为 `:80` | 无必办；严格贴字才改“传送门完成了” |
+| entry-01498 | confirmed：寻找线索的动作关系被颠倒（应先找到传送门进入远东，再调查线索）；confirmed：同一 `far east` 被译成两个地理称呼。Sol 另注 Gemini 行号 `:24` 应为 `:26` | 调整行动顺序句；统一地名 |
+
+译文未修改。1 条 refuted 是对 Gemini 场景判断的下修，原样转录。
