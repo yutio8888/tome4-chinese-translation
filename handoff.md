@@ -1,13 +1,14 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（修复窗口4已完成证据打包，待宿主出版闭合）
+更新时间：2026-09-22（审核250已finalize，窗口5第一批）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
 用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
-审核247—249及修复窗口4的译文、复审、门禁、第一次 queue rebuild、单次 catalog build 与
-单次 migration-chain 均已完成；不得重做这些生产步骤。译文提交为
+审核247—249及修复窗口4已完成提交、队列重建和push，远端、HEAD及SQLite evidence_head
+均已核对为 `27541f6fbb8055a15645fc6d0673ba8a14f9e6fb`。单次 catalog build 与
+单次 migration-chain 已完成，不得重做。译文提交为
 `df8a73a3c9b54f6696cf47baf297f01dc7105ce4`，当前新 catalog 为
 `4763c0b4c71f1ba7a64a5603aca78da83e689f658738d6bc31feaaa9d8f68f08`，migration 为
 `662b5a600a6702658db4397c077036c84d59a3eb32c87cb010d5508cce1c46bc`。
@@ -27,9 +28,27 @@ pending/advisory；Archmage 和旧 blocked 保持排除。
 
 309文件、2,926,264 bytes 的冻结归档、五个候选文件、migration 及 publication 原始输入已按源
 逐字安装并复核；两个独立 snapshot 均从归档路径再次 `DONE_VERIFIED`。详情见
-[窗口4出版证据](evidence/quality/repair-window-4-20260922/PUBLICATION.md)。当前仍待宿主执行证据提交、
-提交后的第二次 queue rebuild、push 与远端复核，禁止写成已完成；完成后再开始250（默认80条）。
+[窗口4出版证据](evidence/quality/repair-window-4-20260922/PUBLICATION.md)。该文件的待出版文字是提交前快照；
+窗口4实际出版闭合已完成。250已finalize，本次交接提交后执行一次queue rebuild及push；
+恢复时先核对HEAD、远端与队列，避免重做。下一批251（80条），然后252（80条），再汇总修复窗口5。
 原有 `.ai/consult/`、`recipe` 和15个旧 source-workset 保留，不纳入提交或清理。
+
+## 审核250：修复窗口5第一批
+
+`batch-990137011625a41fa36b`，80条固定tome来源，**70 done / 10 repair_required**。
+12条上下文复核；22项观察为19 confirmed、1 refuted、2 advisory，按revision合并为10条待修复。
+五位真实reviewer均已核验原始结果、读取边界及归档；两个任务及其独立快照重放均DONE_VERIFIED。
+17项完整门禁和严格addon构建通过，证据提交 `16c82d316f07007ac7bcbb48ce1bcb2f202414d6` 已finalize。
+详情见[250宿主证据](evidence/quality/production-batches/batch-990137011625a41fa36b-host-evidence/summary.md)及
+[finalize收据](evidence/quality/production-batches/batch-990137011625a41fa36b-host-evidence/FINALIZE-RECEIPT.json)。
+运行时contextual输入及输出与该提交逐字节一致，已保留归档并腾出下一批运行路径。
+
+本批保留了三项宿主准备偏差的真实记录：首次未创建child的profile准备被拒、行政元数据晚补、
+producer envelope提前导出后经preflight才重新冻结正式任务输入；所有contextual child均在后者之后派发。
+251须在surface派发前完成SPEC/PLAN/SCOPE，并在contextual export前完成准确draft的preflight。
+待修复包括幽灵人形、啃噬疫病后续死亡限定、触手追踪上限与换行、生命之泉分类、肢解含义、
+自然精灵领地、法师初始知识和两条回忆录局部问题。
+Ritch名称误报撤销；See Threads命名及其他非阻断建议不自动扩大修复范围。
 
 ## 审核249：修复窗口4第三批
 
