@@ -1,0 +1,102 @@
+[
+  {
+    "id": "RW5-R0-01",
+    "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+    "before": "我们的魔法师找到了遗迹上不可见的符文",
+    "after": "我们的族人破解了遗迹上不可见的符文",
+    "reason": "solved明确破解而非发现；our people不擅自限定职业。",
+    "evidence": {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "start_line": 188,
+      "end_line": 188,
+      "excerpt": "188: Some years earlier our people had solved the invisible runes that allowed it to be opened, revealing vast crystal-lined halls and chambers arrayed in geometric patterns of sublime beauty.  Light sparked and shone from every surface, and the walls seemed to hum with energy.  Many shafts and passageways could only be navigated by flight, and at the top was found a grand room large enough to encompass the whole palace of Elvala.  At its centre was the farportal, a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.  It was beautiful and frightening, enchanting and terrifying.  No power of the Shaloren could discern its operation, and though through careful experimentation we were able to manipulate its energies, never could we get a true grasp of the forces that lay beneath."
+    },
+    "status": "confirmed",
+    "accepted": true,
+    "defect_tier": 1,
+    "category": "fidelity"
+  },
+  {
+    "id": "RW5-R0-02",
+    "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+    "before": "想要操纵超越想象的可怕力量",
+    "after": "玩弄我们无法控制的可怕力量",
+    "reason": "beyond our control表示失控，不能改为超越想象。",
+    "evidence": {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "start_line": 380,
+      "end_line": 380,
+      "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+    },
+    "status": "confirmed",
+    "accepted": true,
+    "defect_tier": 1,
+    "category": "fidelity"
+  },
+  {
+    "id": "RW5-R0-03",
+    "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+    "before": "那些人类说他们要寻求复仇",
+    "after": "据这个人类所说，他们是来寻求复仇的",
+    "reason": "Perissa根据眼前Cuilan的叙述推断来袭人群意图，不是听到来袭人群自述。",
+    "evidence": {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "start_line": 382,
+      "end_line": 382,
+      "excerpt": "382: Perissa grabbed me then and turned me to her attention.  “This is what I need to speak with you about, General Aranion.  If this human’s tale is to be believed then we are in very grave danger!  Scout reports suggest there is a body of humans coming here from the north as we speak.  From what this human says they seek retribution - they wish to slaughter us all.  A storm of wrath lies on our borders and we are defenseless!  We need you desperately to organise our defence, to protect our city and our people.”"
+    },
+    "status": "confirmed",
+    "accepted": true,
+    "defect_tier": 1,
+    "category": "fidelity"
+  },
+  {
+    "id": "RW5-R0-04",
+    "revision_key": "e56b636891bf60ce57bbc04833cdc971eb4223a6f9b4ed3404f271b3b83f8ea4",
+    "before": "任何进入黑暗之雾的人",
+    "after": "任何进入你的黑暗之雾的目标",
+    "reason": "damage projector对creepingDark中的target没有人类限定，并检查dark.summoner==src。",
+    "evidence": {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start_line": 265,
+      "end_line": 272,
+      "excerpt": "265: \t\t-- dark vision increases damage done in creeping dark\n266: \t\tif src and src ~= target and game.level.map:checkAllEntities(x, y, \"creepingDark\") then\n267: \t\t\tlocal dark = game.level.map:checkAllEntities(x, y, \"creepingDark\")\n268: \t\t\tif dark.summoner == src and dark.damageIncrease > 0 and not dark.projecting then\n269: \t\t\t\tlocal source = src.__project_source or src\n270: \t\t\t\tinc = inc + dark.damageIncrease\n271: \t\t\t\tgame:delayedLogMessage(source, target, \"dark_strike\"..(source.uid or \"\"), \"#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).\", dark.damageIncrease) -- resolve %% 3 levels deep\n272: \t\t\tend"
+    },
+    "status": "confirmed",
+    "accepted": true,
+    "defect_tier": 1,
+    "category": "fidelity"
+  },
+  {
+    "id": "RW5-R0-05",
+    "revision_key": "e56b636891bf60ce57bbc04833cdc971eb4223a6f9b4ed3404f271b3b83f8ea4",
+    "before": "并在移动时留下蔓延的黑暗",
+    "after": "并在移动时留下不断蔓延的黑暗之雾",
+    "reason": "同一说明的creeping dark应能明确对应同一机制；沿用现有黑暗之雾，仅做本条前后对齐，不新增术语政策。",
+    "evidence": {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/darkness.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "b31c041e646a6187220fadbdb003053fb6ec737f5bbbd7709386f3987691aba6",
+      "start_line": 468,
+      "end_line": 480,
+      "excerpt": "468: \n469: \t\tcreateDarkTendrils(self, self.x, self.y, target, damage, 12, pinDuration)\n470: \n471: \t\treturn true\n472: \tend,\n473: \tinfo = function(self, t)\n474: \t\tlocal pinDuration = t.getPinDuration(self, t)\n475: \t\tlocal damage = t.getDamage(self, t)\n476: \t\tlocal damageIncrease = getDamageIncrease(self)\n477: \t\treturn ([[Spawn tendrils of darkness to pursue a single target for up to 12 turns, leaving behind a trail of creeping darkness as they move. Targets seized by the tendrils are pinned for %d turns and shrouded in darkness. The darkness deals %0.2f damage per turn to those within.\n478: \t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):tformat(pinDuration, damage, damageIncrease)\n479: \tend,\n480: }"
+    },
+    "status": "confirmed",
+    "accepted": true,
+    "defect_tier": 1,
+    "category": "terminology"
+  }
+]

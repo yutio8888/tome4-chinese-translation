@@ -1,0 +1,16 @@
+{
+  "queries": [
+    {
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start_line": 260,
+      "end_line": 273,
+      "excerpt": "260: \t\tif src.necrotic_minion and target:attr(\"inc_necrotic_minions\") then\n261: \t\t\tinc = inc + target:attr(\"inc_necrotic_minions\")\n262: \t\t\tprint(\"[PROJECTOR] after necrotic increase dam\", dam + (dam * inc) / 100)\n263: \t\tend\n264: \n265: \t\t-- dark vision increases damage done in creeping dark\n266: \t\tif src and src ~= target and game.level.map:checkAllEntities(x, y, \"creepingDark\") then\n267: \t\t\tlocal dark = game.level.map:checkAllEntities(x, y, \"creepingDark\")\n268: \t\t\tif dark.summoner == src and dark.damageIncrease > 0 and not dark.projecting then\n269: \t\t\t\tlocal source = src.__project_source or src\n270: \t\t\t\tinc = inc + dark.damageIncrease\n271: \t\t\t\tgame:delayedLogMessage(source, target, \"dark_strike\"..(source.uid or \"\"), \"#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).\", dark.damageIncrease) -- resolve %% 3 levels deep\n272: \t\t\tend\n273: \t\tend",
+      "revision_keys": [
+        "e56b636891bf60ce57bbc04833cdc971eb4223a6f9b4ed3404f271b3b83f8ea4"
+      ]
+    }
+  ]
+}

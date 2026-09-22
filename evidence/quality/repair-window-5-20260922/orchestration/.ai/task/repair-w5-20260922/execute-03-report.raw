@@ -1,0 +1,21 @@
+已完成窗口 5 第二次合并修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)：仅对 `e5dc6a60be…` 执行两处指定替换。
+- [IMPLEMENTATION-FIX-2.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/IMPLEMENTATION-FIX-2.md)
+- [VALIDATION-FIX-2.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/VALIDATION-FIX-2.json)
+
+验证全部通过：
+
+- `verify_fix2.py`：2 处替换、1 个 revision，其余字符与 `BEFORE-FIX-2.lua` 一致。
+- `verify.py`：22,989 条记录，仍仅有冻结工作集内 18 个 target 变化。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 两份新证据：UTF-8、末尾换行、无尾随空白，JSON 有效。
+
+最终 `mod-tome.lua` SHA-256：
+
+`35190ae973685a9bf7f7bd443556da1bbe38f761c7ade2d6472ec752a2ffc24d`
+
+旧 FIX-1 失败记录保持未改；新证据明确区分了旧脚本定位失败与宿主纠正后实际 PASS。未运行完整门禁，未 stage、commit、创建 agent 或执行 handoff/catalog/migration；无计划偏差或未解决问题。

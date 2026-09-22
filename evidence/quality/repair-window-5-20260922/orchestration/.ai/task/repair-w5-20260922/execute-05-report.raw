@@ -1,0 +1,19 @@
+已完成窗口 5 第四轮精确修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14954)：仅将“就连墙壁似乎也呼吸着能量”替换为“就连墙壁似乎也随着能量嗡嗡作响”。
+- 新增 [IMPLEMENTATION-FIX-4.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/IMPLEMENTATION-FIX-4.md)
+- 新增 [VALIDATION-FIX-4.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/VALIDATION-FIX-4.json)
+
+验证结果：
+
+- `verify_fix4.py`：通过；1 个精确替换、1 个 revision，其余字符与 `BEFORE-FIX-4.lua` 完全一致。
+- `verify.py`：通过；加载 22989 条记录，总工作集仍为 18 个 target。
+- `tools/i18n lint --strict`：通过；30308 条译文，0 错误、0 警告。
+- `git diff --check`：通过。
+- 两份新证据：UTF-8、末尾换行、无尾随空白及 JSON 语法检查全部通过。
+
+初次证据检查曾因检查命令将换行错误转义而误报；直接字节检查确认文件原本具有末尾换行，改用无歧义检查后通过，情况已如实记录。
+
+未修改 `.ai`、旧证据或其他文件；未创建 agent，未 stage/commit，也未运行完整门禁、queue、catalog 或 migration。

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "generated_by": "unique EXECUTOR for repair-w5-20260922 FIX-4",
+  "scope": {
+    "translation_file": "mod-tome.lua",
+    "before_file": ".ai/task/repair-w5-20260922/BEFORE-FIX-4.lua",
+    "replacement_file": ".ai/task/repair-w5-20260922/FIX-4-REPLACEMENTS.json",
+    "exact_replacements": 1,
+    "changed_revisions": 1,
+    "total_workset_targets": 18,
+    "before_sha256": "31ee5fa4c49422874cda5e7e58848e878628f13e1732d83a431e21be94702e8b",
+    "after_sha256": "f5f08ce87246df33d0baf8bf84d5faf728fcd8ca6063520dbcf5ffdeb223267e"
+  },
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify_fix4.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; exact_replacements=1; changed_revisions=1; sha256=f5f08ce87246df33d0baf8bf84d5faf728fcd8ca6063520dbcf5ffdeb223267e. All other characters equal BEFORE-FIX-4.lua."
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; 22989 loaded records; exactly 18 baseline-to-current target changes, all in the frozen workset."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Checked 30308 translations: 0 errors, 0 warnings."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "No whitespace errors in tracked diff."
+    },
+    {
+      "command": "Python UTF-8/final-newline/trailing-whitespace check for IMPLEMENTATION-FIX-4.md and VALIDATION-FIX-4.json, plus python3 -m json.tool for VALIDATION-FIX-4.json",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Both new evidence files are valid UTF-8, end with a newline, and contain no trailing spaces or tabs; VALIDATION-FIX-4.json is valid JSON."
+    }
+  ],
+  "note": "This records only the bounded FIX-4 EXECUTOR checks. An earlier diagnostic command falsely reported a missing final newline because it tested for a literal backslash-n byte sequence; direct byte inspection confirmed the newline, and the corrected final check used bytes([10]) and passed. Full gates, queue, catalog, migration, staging, and commit were intentionally not run."
+}

@@ -1,0 +1,682 @@
+MODULE tests/i18n/identity/test_identity.py: 36 tests
+MODULE tests/i18n/identity/test_stability.py: 3 tests
+MODULE tests/i18n/identity/test_conflicts.py: 33 tests
+MODULE tests/i18n/fingerprint/test_fingerprint.py: 17 tests
+MODULE tests/i18n/fingerprint/test_findings.py: 12 tests
+MODULE tests/i18n/baseline/test_baseline.py: 26 tests
+MODULE tests/i18n/incremental/test_incremental.py: 14 tests
+MODULE tests/i18n/incremental/test_domains.py: 48 tests
+MODULE tests/i18n/qa/test_injected_defects.py: 3 tests
+MODULE tests/i18n/test_terminology_inventory.py: 28 tests
+MODULE tests/i18n/test_ai_state_check.py: 118 tests
+MODULE tests/i18n/test_contextual_anchor_preflight.py: 44 tests
+MODULE tests/i18n/test_review_evidence.py: 11 tests
+MODULE tests/i18n/test_review_lifecycle.py: 72 tests
+MODULE tests/i18n/test_review_prompts.py: 8 tests
+MODULE tests/i18n/test_review_usage.py: 8 tests
+MODULE tests/test_grok_native_export.py: 8 tests
+MODULE tests/i18n/test_wave_review.py: 24 tests
+MODULE tests/test_executor_runner.py: 40 tests
+MODULE tests/i18n/test_check_allowed_files.py: 7 tests
+MODULE tests/i18n/test_contextual_lane_manifest.py: 7 tests (indirect)
+MODULE tests/i18n/test_contextual_result_check.py: 6 tests (indirect)
+test_bc1_non_static_name_no_anchor (tests.i18n.identity.test_identity.AnchorDerivationTests.test_bc1_non_static_name_no_anchor) ... ok
+test_effect_name_upper (tests.i18n.identity.test_identity.AnchorDerivationTests.test_effect_name_upper) ... ok
+test_entity_anchor_precedence (tests.i18n.identity.test_identity.AnchorDerivationTests.test_entity_anchor_precedence) ... ok
+test_entity_base_fallback_weak (tests.i18n.identity.test_identity.AnchorDerivationTests.test_entity_base_fallback_weak) ... ok
+test_entity_composite_weak (tests.i18n.identity.test_identity.AnchorDerivationTests.test_entity_composite_weak) ... ok
+test_talent_name_fallback (tests.i18n.identity.test_identity.AnchorDerivationTests.test_talent_name_fallback) ... ok
+test_talent_short_name (tests.i18n.identity.test_identity.AnchorDerivationTests.test_talent_short_name) ... ok
+test_weak_kinds_and_free (tests.i18n.identity.test_identity.AnchorDerivationTests.test_weak_kinds_and_free) ... ok
+test_effect_subtypes_coalesce_into_one_tu (tests.i18n.identity.test_identity.CoalescingTests.test_effect_subtypes_coalesce_into_one_tu) ... ok
+test_effect_desc_revision_changes_tu_stays (tests.i18n.identity.test_identity.EffectDescSlotTests.test_effect_desc_revision_changes_tu_stays)
+G10 analog for effect.desc: a desc source text change keeps the ... ok
+test_field_boundary_display_long_local_desc (tests.i18n.identity.test_identity.EffectDescSlotTests.test_field_boundary_display_long_local_desc)
+p2: only the top-level Field key strictly == desc is registered; ... ok
+test_field_boundary_floor_effect (tests.i18n.identity.test_identity.EffectDescSlotTests.test_field_boundary_floor_effect)
+p2: floorEffect.desc is a different entity; plain-string desc is ... ok
+test_matrix_dynamic_factory_fallback (tests.i18n.identity.test_identity.EffectDescSlotTests.test_matrix_dynamic_factory_fallback)
+Runtime-computed desc (e.desc = ("..."):tformat(name); newEffect(e)) ... ok
+test_matrix_not_captured_plain_string (tests.i18n.identity.test_identity.EffectDescSlotTests.test_matrix_not_captured_plain_string)
+desc = "plain string" produces no record and no effect.desc TU ... ok
+test_matrix_strong_deterministic_t_literal (tests.i18n.identity.test_identity.EffectDescSlotTests.test_matrix_strong_deterministic_t_literal)
+desc = _t"..." is captured once as a strong effect.desc. ... ok
+test_matrix_strong_table_merge_limited_support (tests.i18n.identity.test_identity.EffectDescSlotTests.test_matrix_strong_table_merge_limited_support)
+newEffect(table.merge(table.clone(def), {name, desc})) is captured ... ok
+test_shared_desc_one_to_many_tus (tests.i18n.identity.test_identity.EffectDescSlotTests.test_shared_desc_one_to_many_tus)
+p1: GREATER_INVISIBILITY/INVISIBILITY share the same desc literal ... ok
+test_g12_move_section_only (tests.i18n.identity.test_identity.FileMoveTests.test_g12_move_section_only) ... ok
+test_domain_separation (tests.i18n.identity.test_identity.FrozenHashVectorTests.test_domain_separation) ... ok
+test_entity_uid_vector (tests.i18n.identity.test_identity.FrozenHashVectorTests.test_entity_uid_vector) ... ok
+test_revision_uid_vector (tests.i18n.identity.test_identity.FrozenHashVectorTests.test_revision_uid_vector) ... ok
+test_tu_uid_fallback_vector (tests.i18n.identity.test_identity.FrozenHashVectorTests.test_tu_uid_fallback_vector) ... ok
+test_tu_uid_strong_vector (tests.i18n.identity.test_identity.FrozenHashVectorTests.test_tu_uid_strong_vector) ... ok
+test_match_migrations_requires_indexes (tests.i18n.identity.test_identity.MigrationMatcherTests.test_match_migrations_requires_indexes) ... ok
+test_g4_rename_candidate (tests.i18n.identity.test_identity.RenameEventTests.test_g4_rename_candidate) ... ok
+test_g4_rename_merge_suggestion_is_not_automatic (tests.i18n.identity.test_identity.RenameEventTests.test_g4_rename_merge_suggestion_is_not_automatic)
+G4 merge output: L2 rename suggestion carries automatic=False. ... ok
+test_g4b_rename_merge_suggestion_is_not_automatic (tests.i18n.identity.test_identity.RenameEventTests.test_g4b_rename_merge_suggestion_is_not_automatic)
+G4b merge output: despace rename also carries L2 + automatic=False. ... ok
+test_g4b_rename_with_despace (tests.i18n.identity.test_identity.RenameEventTests.test_g4b_rename_with_despace) ... ok
+test_rename_two_old_entities_to_one_new_never_l2 (tests.i18n.identity.test_identity.RenameEventTests.test_rename_two_old_entities_to_one_new_never_l2)
+FR-001: two old entities each uniquely matching the same new ... ok
+test_rename_unmatched_slot_falls_back_to_legacy_suggestion (tests.i18n.identity.test_identity.RenameEventTests.test_rename_unmatched_slot_falls_back_to_legacy_suggestion)
+F3/R2-001: a rename whose new slot has no old definition must not ... ok
+test_g10_revision_changes_tu_stays (tests.i18n.identity.test_identity.RevisionSemanticsTests.test_g10_revision_changes_tu_stays) ... ok
+test_matrix_captured_nondeterministic_fallback (tests.i18n.identity.test_identity.TalentInfoSlotTests.test_matrix_captured_nondeterministic_fallback)
+Runtime-computed info keeps its _t literal as a fallback capture. ... ok
+test_matrix_not_captured_plain_string (tests.i18n.identity.test_identity.TalentInfoSlotTests.test_matrix_not_captured_plain_string)
+info = "plain string" produces no tDef, no record and no TU. ... ok
+test_matrix_strong_deterministic_direct_t (tests.i18n.identity.test_identity.TalentInfoSlotTests.test_matrix_strong_deterministic_direct_t)
+info = _t[[...]] is reclassified from the generic _t capture. ... ok
+test_matrix_strong_deterministic_tformat (tests.i18n.identity.test_identity.TalentInfoSlotTests.test_matrix_strong_deterministic_tformat)
+(template):tformat(args) is captured once as a strong talent.info. ... ok
+test_unknown_slot_falls_back_to_editorial (tests.i18n.identity.test_identity.UnknownSlotBindingTests.test_unknown_slot_falls_back_to_editorial) ... ok
+test_g2_index_covers_snapshot (tests.i18n.identity.test_stability.CoverageTests.test_g2_index_covers_snapshot) ... ok
+test_g9_rebuild_determinism (tests.i18n.identity.test_stability.RebuildTests.test_g9_rebuild_determinism) ... ok
+test_g3_benign_transforms (tests.i18n.identity.test_stability.StabilityTests.test_g3_benign_transforms) ... ok
+test_kind_and_binding_scope_excludes_noise (tests.i18n.identity.test_conflicts.ConflictParticipantScopeTests.test_kind_and_binding_scope_excludes_noise) ... ok
+test_fully_exempted_conflict_is_suppressed (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_fully_exempted_conflict_is_suppressed) ... ok
+test_partial_exemption_below_two_sites_is_suppressed (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_partial_exemption_below_two_sites_is_suppressed) ... ok
+test_partially_exempted_keeps_error_with_remaining_sites (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_partially_exempted_keeps_error_with_remaining_sites) ... ok
+test_raw_conflicts_produce_errors_without_registry (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_raw_conflicts_produce_errors_without_registry) ... ok
+test_suppressed_exemptions_only_hit_sections (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_suppressed_exemptions_only_hit_sections)
+A component may list more unloaded sections than this conflict ... ok
+test_unloaded_sources_registry_does_not_change_fingerprint (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_unloaded_sources_registry_does_not_change_fingerprint)
+The exemption is a presence filter; a surviving ERROR keeps the ... ok
+test_weak_context_conflicts_never_filtered (tests.i18n.identity.test_conflicts.DuplicateConflictExemptionTests.test_weak_context_conflicts_never_filtered) ... ok
+test_partial_exemption_excludes_unloaded_only_tu (tests.i18n.identity.test_conflicts.PartialExemptionParticipantTests.test_partial_exemption_excludes_unloaded_only_tu) ... ok
+test_duplicate_effect_requires_effect_kind (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_duplicate_effect_requires_effect_kind) ... ok
+test_duplicate_requires_error_severity (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_duplicate_requires_error_severity) ... ok
+test_duplicate_sites_rejected (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_duplicate_sites_rejected) ... ok
+test_duplicate_talent_requires_talent_kind (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_duplicate_talent_requires_talent_kind) ... ok
+test_identity_conflict_requires_context_severity (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_identity_conflict_requires_context_severity) ... ok
+test_single_site_rejected (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_single_site_rejected) ... ok
+test_typo_code_rejected (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_typo_code_rejected) ... ok
+test_valid_weak_conflict_passes (tests.i18n.identity.test_conflicts.ReadIndexConflictsClosedModelTests.test_valid_weak_conflict_passes) ... ok
+test_bad_conflict_record_fails_closed (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_bad_conflict_record_fails_closed) ... ok
+test_component_mismatch_fails_closed (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_component_mismatch_fails_closed) ... ok
+test_conflicts_path_none_keeps_legacy_empty (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_conflicts_path_none_keeps_legacy_empty) ... ok
+test_conflicts_round_trip_through_identity_json (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_conflicts_round_trip_through_identity_json) ... ok
+test_corrupt_json_fails_closed (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_corrupt_json_fails_closed) ... ok
+test_missing_file_fails_closed (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_missing_file_fails_closed) ... ok
+test_missing_or_wrong_schema_version_fails_closed (tests.i18n.identity.test_conflicts.ReadIndexFilesConflictsTests.test_missing_or_wrong_schema_version_fails_closed) ... ok
+test_bad_schema_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_bad_schema_fails_closed) ... ok
+test_corrupt_json_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_corrupt_json_fails_closed) ... ok
+test_duplicate_pair_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_duplicate_pair_fails_closed) ... ok
+test_empty_entries_is_legal (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_empty_entries_is_legal)
+R9 (cycle 3): an empty entries array is a legal 'no exemptions ... ok
+test_load_and_sections_for (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_load_and_sections_for) ... ok
+test_missing_entries_key_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_missing_entries_key_fails_closed) ... ok
+test_missing_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_missing_fails_closed) ... ok
+test_non_array_entries_fails_closed (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_non_array_entries_fails_closed) ... ok
+test_real_registry_has_two_entries (tests.i18n.identity.test_conflicts.UnloadedSourcesRegistryTests.test_real_registry_has_two_entries) ... ok
+test_canonical_field_order (tests.i18n.fingerprint.test_fingerprint.CanonicalFormTests.test_canonical_field_order) ... ok
+test_canonical_order_and_reproducibility (tests.i18n.fingerprint.test_fingerprint.CanonicalFormTests.test_canonical_order_and_reproducibility) ... ok
+test_sort_by_five_tuple (tests.i18n.fingerprint.test_fingerprint.CanonicalFormTests.test_sort_by_five_tuple) ... ok
+test_anchor_key (tests.i18n.fingerprint.test_fingerprint.EvidenceKeyTests.test_anchor_key) ... ok
+test_constant (tests.i18n.fingerprint.test_fingerprint.EvidenceKeyTests.test_constant) ... ok
+test_conversion_pair (tests.i18n.fingerprint.test_fingerprint.EvidenceKeyTests.test_conversion_pair) ... ok
+test_formatter_tag (tests.i18n.fingerprint.test_fingerprint.EvidenceKeyTests.test_formatter_tag) ... ok
+test_runtime_key_matches_collision_id_source (tests.i18n.fingerprint.test_fingerprint.EvidenceKeyTests.test_runtime_key_matches_collision_id_source) ... ok
+test_excluded_fields_do_not_enter_fingerprint (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_excluded_fields_do_not_enter_fingerprint) ... ok
+test_file_move_and_line_drift_stable (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_file_move_and_line_drift_stable) ... ok
+test_fix_removes_finding (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_fix_removes_finding) ... ok
+test_participant_change_new_fingerprint (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_participant_change_new_fingerprint) ... ok
+test_rule_id_change_new_fingerprint (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_rule_id_change_new_fingerprint) ... ok
+test_rule_schema_bump_new_fingerprint (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_rule_schema_bump_new_fingerprint) ... ok
+test_unrelated_text_change_stable (tests.i18n.fingerprint.test_fingerprint.FingerprintStabilityTests.test_unrelated_text_change_stable) ... ok
+test_pilot_a_registry_loads (tests.i18n.fingerprint.test_fingerprint.RuleRegistryTests.test_pilot_a_registry_loads) ... ok
+test_unregistered_rule_fails_closed (tests.i18n.fingerprint.test_fingerprint.RuleRegistryTests.test_unregistered_rule_fails_closed) ... ok
+test_duplicate_anchor_precheck_finding (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_duplicate_anchor_precheck_finding) ... ok
+test_duplicate_conflict_record_severity_from_registry (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_duplicate_conflict_record_severity_from_registry)
+R3: the conflict-generated duplicate Issue also uses the registry ... ok
+test_fallback_binding_for_free_strings (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_fallback_binding_for_free_strings) ... ok
+test_fingerprint_reproducible_across_builds (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_fingerprint_reproducible_across_builds) ... ok
+test_format_mismatch_evidence_from_entry (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_format_mismatch_evidence_from_entry) ... ok
+test_r8_evidence_binds_to_the_exact_occurrence (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_r8_evidence_binds_to_the_exact_occurrence)
+R8 (cycle 3): duplicated editorial ids share entry_lookup; the ... ok
+test_registry_severity_is_authoritative_for_records (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_registry_severity_is_authoritative_for_records)
+R3: the Rule Registry severity wins for FindingRecords while the ... ok
+test_strong_binding_uses_entity_identity (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_strong_binding_uses_entity_identity) ... ok
+test_unregistered_code_has_no_finding (tests.i18n.fingerprint.test_findings.FindingBindingTests.test_unregistered_code_has_no_finding) ... ok
+test_participant_change_emits_new_fingerprint (tests.i18n.fingerprint.test_findings.OneToManyParticipantBindingTests.test_participant_change_emits_new_fingerprint)
+SS6.1: binding the full sharing TU set is what makes a ... ok
+test_runtime_key_subject_is_collision_fallback (tests.i18n.fingerprint.test_findings.OneToManyParticipantBindingTests.test_runtime_key_subject_is_collision_fallback)
+infra-contract-006: runtime-collision keeps the collision-fallback ... ok
+test_shared_editorial_id_binds_all_participants (tests.i18n.fingerprint.test_findings.OneToManyParticipantBindingTests.test_shared_editorial_id_binds_all_participants) ... ok
+test_baseline_bytes_deterministic (tests.i18n.baseline.test_baseline.BaselineLifecycleTests.test_baseline_bytes_deterministic) ... ok
+test_duplicate_fingerprint_rejected (tests.i18n.baseline.test_baseline.BaselineLifecycleTests.test_duplicate_fingerprint_rejected) ... ok
+test_environment_validation (tests.i18n.baseline.test_baseline.BaselineLifecycleTests.test_environment_validation) ... ok
+test_g11_b1_same_evidence_stays_legacy (tests.i18n.baseline.test_baseline.BaselineLifecycleTests.test_g11_b1_same_evidence_stays_legacy) ... ok
+test_g7_new_legacy_resolved (tests.i18n.baseline.test_baseline.BaselineLifecycleTests.test_g7_new_legacy_resolved) ... ok
+test_dirty_worktree_rejected (tests.i18n.baseline.test_baseline.FreezeProvenanceTests.test_dirty_worktree_rejected) ... ok
+test_head_commit_accepted (tests.i18n.baseline.test_baseline.FreezeProvenanceTests.test_head_commit_accepted) ... ok
+test_non_head_commit_rejected (tests.i18n.baseline.test_baseline.FreezeProvenanceTests.test_non_head_commit_rejected) ... ok
+test_short_sha_canonicalized_to_head (tests.i18n.baseline.test_baseline.FreezeProvenanceTests.test_short_sha_canonicalized_to_head) ... ok
+test_unresolvable_commit_rejected (tests.i18n.baseline.test_baseline.FreezeProvenanceTests.test_unresolvable_commit_rejected) ... ok
+test_meta_has_exact_contract_keys (tests.i18n.baseline.test_baseline.FrozenMetaFormatTests.test_meta_has_exact_contract_keys) ... ok
+test_bad_schema_version_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_bad_schema_version_rejected) ... ok
+test_component_mismatch_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_component_mismatch_rejected) ... ok
+test_extra_meta_key_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_extra_meta_key_rejected) ... ok
+test_half_set_missing_jsonl_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_half_set_missing_jsonl_rejected) ... ok
+test_half_set_missing_meta_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_half_set_missing_meta_rejected) ... ok
+test_missing_meta_key_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_missing_meta_key_rejected) ... ok
+test_translation_commit_mismatch_rejected (tests.i18n.baseline.test_baseline.MetaIdentityFailClosedTests.test_translation_commit_mismatch_rejected) ... ok
+test_differing_refreeze_rejected (tests.i18n.baseline.test_baseline.NoClobberFreezeTests.test_differing_refreeze_rejected) ... ok
+test_half_set_existing_rejected_as_corrupt (tests.i18n.baseline.test_baseline.NoClobberFreezeTests.test_half_set_existing_rejected_as_corrupt) ... ok
+test_identical_refreeze_is_idempotent (tests.i18n.baseline.test_baseline.NoClobberFreezeTests.test_identical_refreeze_is_idempotent) ... ok
+test_empty_required_set_rejected (tests.i18n.baseline.test_baseline.RequiredBaselinesLoaderTests.test_empty_required_set_rejected) ... ok
+test_indexed_but_corrupt_baseline_fail_closed (tests.i18n.baseline.test_baseline.RequiredBaselinesLoaderTests.test_indexed_but_corrupt_baseline_fail_closed) ... ok
+test_indexed_but_missing_baseline_fail_closed (tests.i18n.baseline.test_baseline.RequiredBaselinesLoaderTests.test_indexed_but_missing_baseline_fail_closed) ... ok
+test_indexed_component_loaded (tests.i18n.baseline.test_baseline.RequiredBaselinesLoaderTests.test_indexed_component_loaded) ... ok
+test_non_indexed_component_allowed_as_skipped (tests.i18n.baseline.test_baseline.RequiredBaselinesLoaderTests.test_non_indexed_component_allowed_as_skipped) ... ok
+test_f_new_keeps_unaffected_and_replaces_affected (tests.i18n.incremental.test_incremental.IncrementalAlgorithmTests.test_f_new_keeps_unaffected_and_replaces_affected) ... ok
+test_g8_canonical_self_check (tests.i18n.incremental.test_incremental.IncrementalAlgorithmTests.test_g8_canonical_self_check)
+G8: a consistent partition makes incremental == full byte-wise. ... ok
+test_self_check_writes_artifacts_on_mismatch (tests.i18n.incremental.test_incremental.IncrementalAlgorithmTests.test_self_check_writes_artifacts_on_mismatch) ... ok
+test_d4_cross_file_duplicate_without_self_check (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_d4_cross_file_duplicate_without_self_check)
+A changed file defines an anchor that duplicates an unchanged file's ... ok
+test_g8_incremental_source_flow_end_to_end (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_g8_incremental_source_flow_end_to_end) ... ok
+test_h2_add_new_file_new_tu_self_check (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_h2_add_new_file_new_tu_self_check)
+Head adds a new file with a new talent: the new TU is affected and ... ok
+test_h2_delete_file_no_crash_deleted_reported (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_h2_delete_file_no_crash_deleted_reported)
+Head deletes effects.lua: no missing-blob crash, the deleted file is ... ok
+test_h2_rename_same_file_new_uid_self_check (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_h2_rename_same_file_new_uid_self_check)
+Same-file entity rename: the new UID's TU is affected, the old ... ok
+test_h3_legacy_error_is_not_new (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_h3_legacy_error_is_not_new)
+H3: a recomputed error whose fingerprint exists in the base error ... ok
+test_r1_source_rename_includes_base_path (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_r1_source_rename_includes_base_path)
+R1: a detected rename must keep the old path in the affected set ... ok
+test_v8_full_head_binding_participants_without_self_check (tests.i18n.incremental.test_incremental.IncrementalSourceFlowTests.test_v8_full_head_binding_participants_without_self_check)
+V8: without --self-check, affected components bind against their ... ok
+test_affected_set_ignores_other_components (tests.i18n.incremental.test_incremental.SectionMappingTests.test_affected_set_ignores_other_components) ... ok
+test_forward_mapping (tests.i18n.incremental.test_incremental.SectionMappingTests.test_forward_mapping) ... ok
+test_round_trip_parity (tests.i18n.incremental.test_incremental.SectionMappingTests.test_round_trip_parity)
+§8.3 parity: every real section must round-trip. ... ok
+test_records_by_component_and_baseline_state (tests.i18n.incremental.test_domains.BaselineEntityOwnershipTests.test_records_by_component_and_baseline_state) ... ok
+test_partial_trio_and_corrupt_identity_fail_closed (tests.i18n.incremental.test_domains.CurrentIndexScanTests.test_partial_trio_and_corrupt_identity_fail_closed) ... ok
+test_absent_path_is_none_but_read_blob_keeps_raising (tests.i18n.incremental.test_domains.GitReadBlobOptionalTests.test_absent_path_is_none_but_read_blob_keeps_raising) ... ok
+test_directory_path_is_not_none (tests.i18n.incremental.test_domains.GitReadBlobOptionalTests.test_directory_path_is_not_none) ... ok
+test_current_indexes_for_uses_fail_closed_scan (tests.i18n.incremental.test_domains.HeadCommitSemanticsTests.test_current_indexes_for_uses_fail_closed_scan)
+V10: cli._current_indexes_for shares the fail-closed trio scan with ... ok
+test_rule_domain_ignores_corrupt_worktree (tests.i18n.incremental.test_domains.HeadCommitSemanticsTests.test_rule_domain_ignores_corrupt_worktree) ... ok
+test_translation_domain_corrupt_base_doc_fails_closed (tests.i18n.incremental.test_domains.HeadCommitSemanticsTests.test_translation_domain_corrupt_base_doc_fails_closed)
+V2/V4: a corrupt base document is a loader error, never treated as ... ok
+test_translation_domain_ignores_corrupt_worktree (tests.i18n.incremental.test_domains.HeadCommitSemanticsTests.test_translation_domain_ignores_corrupt_worktree) ... ok
+test_corrupt_base_registry_fails_closed (tests.i18n.incremental.test_domains.RuleDomainTests.test_corrupt_base_registry_fails_closed)
+A base registry that cannot be parsed must abort (never silently ... ok
+test_evidence_key_spec_change_affects_rule (tests.i18n.incremental.test_domains.RuleDomainTests.test_evidence_key_spec_change_affects_rule) ... ok
+test_no_change_early_return (tests.i18n.incremental.test_domains.RuleDomainTests.test_no_change_early_return) ... ok
+test_policy_change_affects_exactly_four_rules (tests.i18n.incremental.test_domains.RuleDomainTests.test_policy_change_affects_exactly_four_rules)
+D3: the three policy allowlists are consumed only by the four ... ok
+test_r3_severity_change_applies_to_records (tests.i18n.incremental.test_domains.RuleDomainTests.test_r3_severity_change_applies_to_records)
+R3: registry severity is authoritative on the record; flipping ... ok
+test_r4_unloaded_exemption_added_resolves_duplicate_error (tests.i18n.incremental.test_domains.RuleDomainTests.test_r4_unloaded_exemption_added_resolves_duplicate_error)
+R4: adding an exemption resolves the duplicate ERRORs; the base ... ok
+test_r4_unloaded_exemption_removed_adds_duplicate_error (tests.i18n.incremental.test_domains.RuleDomainTests.test_r4_unloaded_exemption_removed_adds_duplicate_error)
+R4: the unloaded-sources registry is a rule-domain dependency. ... ok
+test_rule_removed_affects_rule (tests.i18n.incremental.test_domains.RuleDomainTests.test_rule_removed_affects_rule) ... ok
+test_schema_version_bump_affects_rule (tests.i18n.incremental.test_domains.RuleDomainTests.test_schema_version_bump_affects_rule) ... ok
+test_severity_change_affects_rule (tests.i18n.incremental.test_domains.RuleDomainTests.test_severity_change_affects_rule) ... ok
+test_v6_evidence_spec_change_recomputes_finding (tests.i18n.incremental.test_domains.RuleDomainTests.test_v6_evidence_spec_change_recomputes_finding)
+format-mismatch conversion-pair -> constant changes the evidence ... ok
+test_v6_policy_allowlist_change_adds_finding (tests.i18n.incremental.test_domains.RuleDomainTests.test_v6_policy_allowlist_change_adds_finding)
+Removing an empty-target allowlist entry actually produces a NEW ... ok
+test_v6_policy_allowlist_change_removes_finding (tests.i18n.incremental.test_domains.RuleDomainTests.test_v6_policy_allowlist_change_removes_finding)
+Adding an allowlist entry resolves the finding (base -> head). ... ok
+test_v6_schema_bump_recomputes_finding_with_self_check (tests.i18n.incremental.test_domains.RuleDomainTests.test_v6_schema_bump_recomputes_finding_with_self_check)
+A real empty-target finding whose rule schema_version bumps gets a ... ok
+test_fixed_run_passes (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fixed_run_passes) ... ok
+test_fr2_json_ok_false_with_new_error_and_ci (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fr2_json_ok_false_with_new_error_and_ci)
+FR2: with --ci and a new ERROR the rendered JSON ok is False (the ... ok
+test_fr2_json_ok_true_with_legacy_only_and_ci (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fr2_json_ok_true_with_legacy_only_and_ci)
+FR2: legacy-only errors keep ok=True under --ci and do not raise. ... ok
+test_fr2_json_ok_true_without_ci_despite_new_error (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fr2_json_ok_true_without_ci_despite_new_error)
+FR2/V7: without --ci a new-error count never flips ok (the gate ... ok
+test_fr2_self_check_failed_keeps_exit2_priority (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fr2_self_check_failed_keeps_exit2_priority)
+A failed self-check keeps exit-2 priority even when --ci also ... ok
+test_fr2_self_check_passed_ci_new_error_raises_i18n_not_incremental (tests.i18n.incremental.test_domains.SourceCIGateTests.test_fr2_self_check_passed_ci_new_error_raises_i18n_not_incremental)
+FR2 regression: --self-check --ci with a PASSED self-check and a ... ok
+test_legacy_errors_do_not_fail (tests.i18n.incremental.test_domains.SourceCIGateTests.test_legacy_errors_do_not_fail) ... ok
+test_new_errors_fail_with_count_and_first_fingerprint (tests.i18n.incremental.test_domains.SourceCIGateTests.test_new_errors_fail_with_count_and_first_fingerprint) ... ok
+test_non_missing_errors_propagate (tests.i18n.incremental.test_domains.StagingFailClosedTests.test_non_missing_errors_propagate) ... ok
+test_006_shared_editorial_empty_target_consumption_chain (tests.i18n.incremental.test_domains.TranslationDomainTests.test_006_shared_editorial_empty_target_consumption_chain)
+infra-contract-006 end-to-end: a non-runtime-key empty-target ... ok
+test_006_shared_editorial_empty_target_resolve_no_stale (tests.i18n.incremental.test_domains.TranslationDomainTests.test_006_shared_editorial_empty_target_resolve_no_stale)
+infra-contract-006 consumption chain: base has an empty-target ... ok
+test_base_copy_fragment_kept (tests.i18n.incremental.test_domains.TranslationDomainTests.test_base_copy_fragment_kept)
+An unchanged copy fragment contributes base records that are kept ... ok
+test_fr1_head_only_empty_target_stays_new (tests.i18n.incremental.test_domains.TranslationDomainTests.test_fr1_head_only_empty_target_stays_new)
+FR1: with a defective head-only entry the empty-target finding is ... ok
+test_fr1_head_only_main_duplicate_identity_stable (tests.i18n.incremental.test_domains.TranslationDomainTests.test_fr1_head_only_main_duplicate_identity_stable)
+FR1: base has no main document, head adds it. The unchanged ... ok
+test_head_only_copy_fragment (tests.i18n.incremental.test_domains.TranslationDomainTests.test_head_only_copy_fragment)
+A copy fragment added in head is a separate logical document; all ... ok
+test_head_only_entry_and_deletion (tests.i18n.incremental.test_domains.TranslationDomainTests.test_head_only_entry_and_deletion)
+Added head entries are affected; deleted base entries drop their ... ok
+test_head_only_main_file_all_entries_affected (tests.i18n.incremental.test_domains.TranslationDomainTests.test_head_only_main_file_all_entries_affected)
+A translation file absent at base (head-only) marks every head ... ok
+test_r2_collision_add_without_self_check (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r2_collision_add_without_self_check)
+R2: adding a second runtime key occurrence (different target) ... ok
+test_r2_collision_delete_without_self_check (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r2_collision_delete_without_self_check)
+R2: removing one occurrence resolves the runtime-collision ERROR; ... ok
+test_r2_collision_growth_two_to_three_without_self_check (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r2_collision_growth_two_to_three_without_self_check)
+R2 (cycle 3): base already has a runtime collision A+B; head adds ... ok
+test_r2_collision_shrink_three_to_two_without_self_check (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r2_collision_shrink_three_to_two_without_self_check)
+R2 (cycle 3): base collision A+B+C, head removes C (only C's ... ok
+test_r5_duplicate_key_add_defective_occurrence (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r5_duplicate_key_add_defective_occurrence)
+R5: adding a second occurrence of the same editorial key (one ... ok
+test_r5_duplicate_key_remove_defective_occurrence (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r5_duplicate_key_remove_defective_occurrence)
+R5: removing the defective duplicate occurrence resolves both ... ok
+test_r8_format_mismatch_insert_valid_occurrence (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r8_format_mismatch_insert_valid_occurrence)
+R8 (cycle 3): inserting a valid duplicate before the defective ... ok
+test_r8_format_mismatch_occurrence_reorder_no_false_change (tests.i18n.incremental.test_domains.TranslationDomainTests.test_r8_format_mismatch_occurrence_reorder_no_false_change)
+R8 (cycle 3): base/head only reorder a valid + defective duplicate ... ok
+test_semantic_change_is_affected (tests.i18n.incremental.test_domains.TranslationDomainTests.test_semantic_change_is_affected)
+A target-only change (same editorial key) marks the TU affected. ... ok
+test_clean_entry_no_false_positive (tests.i18n.qa.test_injected_defects.InjectedDefectTests.test_clean_entry_no_false_positive) ... ok
+test_empty_target_detected (tests.i18n.qa.test_injected_defects.InjectedDefectTests.test_empty_target_detected) ... ok
+test_placeholder_defect_detected (tests.i18n.qa.test_injected_defects.InjectedDefectTests.test_placeholder_defect_detected)
+A %d dropped in the target must be a format-mismatch ERROR. ... ok
+test_a_class_units_never_auto_excluded (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_a_class_units_never_auto_excluded) ... ok
+test_auto_exclusion_conditions (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_auto_exclusion_conditions) ... ok
+test_force_manual_at_threshold (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_force_manual_at_threshold) ... ok
+test_mechanism_key_tags_never_auto_excluded (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_mechanism_key_tags_never_auto_excluded) ... ok
+test_registered_or_row_present_blocks_exclusion (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_registered_or_row_present_blocks_exclusion) ... ok
+test_single_occurrence_b_unit_is_auto_excluded (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_single_occurrence_b_unit_is_auto_excluded) ... ok
+test_whitespace_sources_never_auto_excluded (tests.i18n.test_terminology_inventory.AutoExclusionTests.test_whitespace_sources_never_auto_excluded) ... ok
+test_class_and_batch_by_tag (tests.i18n.test_terminology_inventory.ClassificationTests.test_class_and_batch_by_tag) ... ok
+test_row_batch_assignment (tests.i18n.test_terminology_inventory.ClassificationTests.test_row_batch_assignment) ... ok
+test_totals_are_consistent (tests.i18n.test_terminology_inventory.CoverageMathTests.test_totals_are_consistent) ... ok
+test_end_to_end_writes_inventory_and_p1_workset_artifacts (tests.i18n.test_terminology_inventory.InventoryArtifactTests.test_end_to_end_writes_inventory_and_p1_workset_artifacts) ... ok
+test_p1_workset_freezes_manual_rows_provisional_and_exclusion_sample (tests.i18n.test_terminology_inventory.InventoryArtifactTests.test_p1_workset_freezes_manual_rows_provisional_and_exclusion_sample) ... ok
+test_blacklist_terms_are_skipped (tests.i18n.test_terminology_inventory.ProjectionTests.test_blacklist_terms_are_skipped) ... ok
+test_case_sensitivity_for_proper_nouns (tests.i18n.test_terminology_inventory.ProjectionTests.test_case_sensitivity_for_proper_nouns) ... ok
+test_consistent_entry_is_not_a_candidate (tests.i18n.test_terminology_inventory.ProjectionTests.test_consistent_entry_is_not_a_candidate) ... ok
+test_drift_is_a_candidate (tests.i18n.test_terminology_inventory.ProjectionTests.test_drift_is_a_candidate) ... ok
+test_ignorecase_for_lowercase_terms (tests.i18n.test_terminology_inventory.ProjectionTests.test_ignorecase_for_lowercase_terms) ... ok
+test_markup_is_stripped_from_target (tests.i18n.test_terminology_inventory.ProjectionTests.test_markup_is_stripped_from_target) ... ok
+test_multiword_phrase_and_plural_forms (tests.i18n.test_terminology_inventory.ProjectionTests.test_multiword_phrase_and_plural_forms) ... ok
+test_rt_keys_are_not_scanned (tests.i18n.test_terminology_inventory.ProjectionTests.test_rt_keys_are_not_scanned) ... ok
+test_short_terms_are_skipped (tests.i18n.test_terminology_inventory.ProjectionTests.test_short_terms_are_skipped) ... ok
+test_word_boundary_prevents_partial_match (tests.i18n.test_terminology_inventory.ProjectionTests.test_word_boundary_prevents_partial_match) ... ok
+test_global_and_multi_match_any_component (tests.i18n.test_terminology_inventory.RegistrationSemanticsTests.test_global_and_multi_match_any_component) ... ok
+test_nil_row_matches_only_null_item_tag (tests.i18n.test_terminology_inventory.RegistrationSemanticsTests.test_nil_row_matches_only_null_item_tag) ... ok
+test_scope_matching_for_dlc_and_core (tests.i18n.test_terminology_inventory.RegistrationSemanticsTests.test_scope_matching_for_dlc_and_core) ... ok
+test_unmatched_scope_does_not_register (tests.i18n.test_terminology_inventory.RegistrationSemanticsTests.test_unmatched_scope_does_not_register) ... ok
+test_case_and_plural_variants (tests.i18n.test_terminology_inventory.UnitBuildingTests.test_case_and_plural_variants) ... ok
+test_unit_dedup_and_corpus_counts (tests.i18n.test_terminology_inventory.UnitBuildingTests.test_unit_dedup_and_corpus_counts) ... ok
+test_listed_tasks_are_informational_only_and_unlisted_deficient_tasks_fail_contract (tests.i18n.test_ai_state_check.AdoptionBoundaryTests.test_listed_tasks_are_informational_only_and_unlisted_deficient_tasks_fail_contract) ... ok
+test_manifest_schema_failures_are_contract_failures (tests.i18n.test_ai_state_check.AdoptionBoundaryTests.test_manifest_schema_failures_are_contract_failures) ... ok
+test_tracked_manifest_is_strict_future_only_boundary (tests.i18n.test_ai_state_check.AdoptionBoundaryTests.test_tracked_manifest_is_strict_future_only_boundary) ... ok
+test_candidate_byte_read_errors_are_input_errors (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_candidate_byte_read_errors_are_input_errors) ... ok
+test_cli_reports_every_stable_outcome_and_exit_code (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_cli_reports_every_stable_outcome_and_exit_code) ... ok
+test_completion_binding_checks_reviewer_purpose_and_identity_types (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_completion_binding_checks_reviewer_purpose_and_identity_types) ... ok
+test_completion_markers_use_the_terminal_vocabulary (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_completion_markers_use_the_terminal_vocabulary) ... ok
+test_contextual_binding_checks_record_dispatch_envelope_and_payload (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_binding_checks_record_dispatch_envelope_and_payload) ... ok
+test_contextual_metadata_types_are_checked_before_candidate_branch (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_metadata_types_are_checked_before_candidate_branch) ... ok
+test_contextual_v2_complete_lane_stage_cannot_be_latest (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_complete_lane_stage_cannot_be_latest) ... ok
+test_contextual_v2_creation_lane_labels_accept_exact_strings_and_integer_history (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_creation_lane_labels_accept_exact_strings_and_integer_history) ... ok
+test_contextual_v2_creation_lane_labels_fail_closed (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_creation_lane_labels_fail_closed) ... ok
+test_contextual_v2_dispatch_prompt_is_gated_for_all_records (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_dispatch_prompt_is_gated_for_all_records) ... ok
+test_contextual_v2_fixture_and_fail_closed_state_matrix (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_fixture_and_fail_closed_state_matrix) ... ok
+test_contextual_v2_nested_shadow_artifacts_cannot_override_workspace_root (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_nested_shadow_artifacts_cannot_override_workspace_root) ... ok
+test_contextual_v2_pointer_lane_index_remains_numeric (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_pointer_lane_index_remains_numeric) ... ok
+test_contextual_v2_public_cli_uses_explicit_workspace_root (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_public_cli_uses_explicit_workspace_root) ... ok
+test_contextual_v2_rejects_each_group_identifier_reused_across_stages (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_rejects_each_group_identifier_reused_across_stages) ... ok
+test_contextual_v2_structural_lane_indices_reject_strings (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_structural_lane_indices_reject_strings) ... ok
+test_contextual_v2_well_formed_closure_with_wrong_parent_is_rejected (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_contextual_v2_well_formed_closure_with_wrong_parent_is_rejected) ... ok
+test_done_predicate_fails_closed_for_each_load_bearing_relationship (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_done_predicate_fails_closed_for_each_load_bearing_relationship) ... ok
+test_evidence_binding_accepts_two_attempts_when_disk_is_latest (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_binding_accepts_two_attempts_when_disk_is_latest) ... ok
+test_evidence_binding_rejects_duplicate_new_file_and_handles_no_newline_marker (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_binding_rejects_duplicate_new_file_and_handles_no_newline_marker) ... ok
+test_evidence_citation_consistency_rejects_uncited_exact_review_path (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_citation_consistency_rejects_uncited_exact_review_path) ... ok
+test_evidence_e1_no_bound_record_fails_existing_closure_predicate (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_e1_no_bound_record_fails_existing_closure_predicate) ... ok
+test_evidence_e2_required_for_v3_review_only_infrastructure (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_e2_required_for_v3_review_only_infrastructure) ... ok
+test_evidence_e3_reviewer_must_not_be_orchestrator (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_e3_reviewer_must_not_be_orchestrator) ... ok
+test_evidence_f_is_candidate_bound_and_on_disk_sidecar_is_checked (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_f_is_candidate_bound_and_on_disk_sidecar_is_checked) ... ok
+test_evidence_latest_paired_records_must_have_identical_embedded_sidecar (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_latest_paired_records_must_have_identical_embedded_sidecar) ... ok
+test_evidence_latest_tied_records_must_derive_one_sidecar_path (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_latest_tied_records_must_derive_one_sidecar_path) ... ok
+test_evidence_schema_2_compatibility_and_implement_validate_if_present (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_schema_2_compatibility_and_implement_validate_if_present) ... ok
+test_evidence_schema_3_requires_valid_change_class_and_code_record (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_schema_3_requires_valid_change_class_and_code_record) ... ok
+test_evidence_scope_audit_is_checked_when_present_in_schema_3 (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_scope_audit_is_checked_when_present_in_schema_3) ... ok
+test_evidence_sidecar_task_id_must_match_state (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_sidecar_task_id_must_match_state) ... ok
+test_evidence_surface_colisting_never_waives_code_records (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_evidence_surface_colisting_never_waives_code_records) ... ok
+test_explicit_role_and_lifecycle_alias_matrix_is_reader_compatible (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_explicit_role_and_lifecycle_alias_matrix_is_reader_compatible) ... ok
+test_filename_binding_requires_exact_json_types (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_filename_binding_requires_exact_json_types) ... ok
+test_malformed_json_values_return_structured_results (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_malformed_json_values_return_structured_results) ... ok
+test_managed_wave_context_is_opt_in_and_workspace_bound (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_managed_wave_context_is_opt_in_and_workspace_bound) ... ok
+test_new_file_parser_ignores_rename_only_patch_without_sidecar (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_ignores_rename_only_patch_without_sidecar) ... ok
+test_new_file_parser_reconstructs_real_git_patch_with_12_digit_index (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_reconstructs_real_git_patch_with_12_digit_index) ... ok
+test_new_file_parser_rejects_truncation_crlf_bad_index_and_modification (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_new_file_parser_rejects_truncation_crlf_bad_index_and_modification) ... ok
+test_nul_candidate_vector_is_exact_and_not_the_obsolete_separator (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_nul_candidate_vector_is_exact_and_not_the_obsolete_separator) ... ok
+test_persisted_state_marker_is_required_and_canonical (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_persisted_state_marker_is_required_and_canonical) ... ok
+test_preflight_needs_target_and_cli_emits_structured_outcomes (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_preflight_needs_target_and_cli_emits_structured_outcomes) ... ok
+test_production_code_and_contextual_fixtures_are_done_verified (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_production_code_and_contextual_fixtures_are_done_verified) ... ok
+test_reader_aliases_and_legacy_record_mapping_remain_compatible (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_reader_aliases_and_legacy_record_mapping_remain_compatible) ... ok
+test_review_contracts_bind_to_purpose_before_candidate_validation (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_review_contracts_bind_to_purpose_before_candidate_validation) ... ok
+test_review_only_does_not_require_final_validation_and_stop_is_narrow (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_review_only_does_not_require_final_validation_and_stop_is_narrow) ... ok
+test_runtime_observation_exact_schema_and_placement (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_runtime_observation_exact_schema_and_placement) ... ok
+test_runtime_observation_is_optional_and_completion_neutral (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_runtime_observation_is_optional_and_completion_neutral) ... ok
+test_schema3_translation_implement_record_remains_compatible (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema3_translation_implement_record_remains_compatible) ... ok
+test_schema4_translation_adjudicated_pass_overrides_producer_status (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_adjudicated_pass_overrides_producer_status) ... ok
+test_schema4_translation_closure_cannot_finish (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_closure_cannot_finish) ... ok
+test_schema4_translation_closure_key_source_and_parent_drift_fail (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_closure_key_source_and_parent_drift_fail) ... ok
+test_schema4_translation_closure_parent_must_be_latest_earlier_full (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_closure_parent_must_be_latest_earlier_full) ... ok
+test_schema4_translation_failed_final_repair_successful_final_can_close (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_failed_final_repair_successful_final_can_close) ... ok
+test_schema4_translation_full_closure_final_full_can_close (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_full_closure_final_full_can_close) ... ok
+test_schema4_translation_max_cycles_default_and_authorization (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_max_cycles_default_and_authorization) ... ok
+test_schema4_translation_record_cycles_are_state_and_limit_bounded (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_record_cycles_are_state_and_limit_bounded) ... ok
+test_schema4_translation_stale_final_cannot_close_newer_state_cycle (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_stale_final_cannot_close_newer_state_cycle) ... ok
+test_schema4_translation_stale_pass_cannot_hide_newer_failure (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_stale_pass_cannot_hide_newer_failure) ... ok
+test_schema4_translation_terminal_phases_must_be_ordered (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_schema4_translation_terminal_phases_must_be_ordered) ... ok
+test_stop_ignores_unavailable_or_non_object_review_records (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_stop_ignores_unavailable_or_non_object_review_records) ... ok
+test_two_independent_attempts_recompute_distinct_candidates (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_two_independent_attempts_recompute_distinct_candidates) ... ok
+test_v1_canonical_payload_acceptance_is_unchanged (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_v1_canonical_payload_acceptance_is_unchanged) ... ok
+test_valid_record_plus_orphan_record_only_counts_the_valid_binding (tests.i18n.test_ai_state_check.StateCheckerFixtureTests.test_valid_record_plus_orphan_record_only_counts_the_valid_binding) ... ok
+test_carry_over_artifact_binds_complete_original_workset (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_carry_over_artifact_binds_complete_original_workset) ... ok
+test_carry_over_binding_covers_first_eighty_only (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_carry_over_binding_covers_first_eighty_only) ... ok
+test_carry_over_drift_is_rejected (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_carry_over_drift_is_rejected) ... ok
+test_carry_terminal_binds_first80_projection_payload_semantics (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_carry_terminal_binds_first80_projection_payload_semantics) ... ok
+test_change_class_matrix_for_review_only_surface (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_change_class_matrix_for_review_only_surface) ... ok
+test_full_terminal_binds_complete_draft_payload_semantics (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_full_terminal_binds_complete_draft_payload_semantics) ... ok
+test_lane_terminal_binds_whole_workset_draft_projection (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_lane_terminal_binds_whole_workset_draft_projection) ... ok
+test_review_only_complete_lane_group_is_done_verified (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_review_only_complete_lane_group_is_done_verified) ... ok
+test_review_only_rejects_partial_lane_publication (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_review_only_rejects_partial_lane_publication) ... ok
+test_review_only_rejects_second_stage (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_review_only_rejects_second_stage) ... ok
+test_review_only_single_full_is_done_verified (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_review_only_single_full_is_done_verified) ... ok
+test_review_only_translation_workflow_surface_is_done_verified_without_code_terminal (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_review_only_translation_workflow_surface_is_done_verified_without_code_terminal) ... ok
+test_stop_bad_record_path_cannot_hide_surface_records (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_stop_bad_record_path_cannot_hide_surface_records) ... ok
+test_stop_record_loader_handles_each_path_independently (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_stop_record_loader_handles_each_path_independently) ... ok
+test_surface_cannot_mix_with_contextual_contracts_or_low_schema (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_cannot_mix_with_contextual_contracts_or_low_schema) ... ok
+test_surface_convergence_fails_closed_without_contract_activation (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_convergence_fails_closed_without_contract_activation) ... ok
+test_surface_creation_lane_labels_accept_exact_strings_and_integer_history (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_creation_lane_labels_accept_exact_strings_and_integer_history) ... ok
+test_surface_creation_lane_labels_fail_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_creation_lane_labels_fail_closed) ... ok
+test_surface_evidence_binding_drift_fails_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_evidence_binding_drift_fails_closed) ... ok
+test_surface_evidence_binding_is_required_and_recomputed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_evidence_binding_is_required_and_recomputed) ... ok
+test_surface_failed_stage_group_reuse_fails_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_failed_stage_group_reuse_fails_closed) ... ok
+test_surface_failed_stage_reusing_orphan_group_fails_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_failed_stage_reusing_orphan_group_fails_closed) ... ok
+test_surface_full_stage_cardinality_is_enforced (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_full_stage_cardinality_is_enforced) ... ok
+test_surface_group_phase_only_allows_review (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_group_phase_only_allows_review) ... ok
+test_surface_lane_manifest_rejects_whole_stage_over_screen_limit (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_lane_manifest_rejects_whole_stage_over_screen_limit) ... ok
+test_surface_manifest_binding_and_terminal_matrix (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_manifest_binding_and_terminal_matrix) ... ok
+test_surface_n_zero_build_rejects_dispatch_inputs (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_n_zero_build_rejects_dispatch_inputs) ... ok
+test_surface_orphan_attempt_must_precede_success (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_orphan_attempt_must_precede_success) ... ok
+test_surface_orphan_failed_children_join_retry_history (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_orphan_failed_children_join_retry_history) ... ok
+test_surface_orphan_group_manifest_path_reuse_fails_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_orphan_group_manifest_path_reuse_fails_closed) ... ok
+test_surface_orphan_identity_reuse_fails_closed (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_orphan_identity_reuse_fails_closed) ... ok
+test_surface_orphan_inference_stays_bounded (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_orphan_inference_stays_bounded) ... ok
+test_surface_partially_orphaned_failed_stage_then_success (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_partially_orphaned_failed_stage_then_success) ... ok
+test_surface_purpose_relabeling_cannot_hide_orphan_children (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_purpose_relabeling_cannot_hide_orphan_children) ... ok
+test_surface_rejects_borrowed_implement_convergence (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_rejects_borrowed_implement_convergence) ... ok
+test_surface_requires_a_bound_completion_record (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_requires_a_bound_completion_record) ... ok
+test_surface_retry_all_failed_history_cannot_close (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_all_failed_history_cannot_close) ... ok
+test_surface_retry_attempts_must_be_monotonic_and_precede_success (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_attempts_must_be_monotonic_and_precede_success) ... ok
+test_surface_retry_failed_lane_stage_members_share_one_group_tuple (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_failed_lane_stage_members_share_one_group_tuple) ... ok
+test_surface_retry_failed_stage_group_reuse_is_rejected (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_failed_stage_group_reuse_is_rejected) ... ok
+test_surface_retry_history_failed_then_success_is_done_verified (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_history_failed_then_success_is_done_verified) ... ok
+test_surface_retry_identity_freshness_predicate (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_retry_identity_freshness_predicate) ... ok
+test_surface_stop_rejects_dispatched_screen (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_stop_rejects_dispatched_screen) ... ok
+test_surface_stop_rejects_dispatched_screen_despite_tampering (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_stop_rejects_dispatched_screen_despite_tampering) ... ok
+test_surface_stop_uses_the_all_source_activity_predicate (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_stop_uses_the_all_source_activity_predicate) ... ok
+test_surface_structural_lane_indices_reject_strings (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_surface_structural_lane_indices_reject_strings) ... ok
+test_whole_screen_terminal_must_cover_the_bound_draft_exactly (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_whole_screen_terminal_must_cover_the_bound_draft_exactly) ... ok
+test_zero_artifact_binds_recomputable_empty_workset_identity (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_zero_artifact_binds_recomputable_empty_workset_identity) ... ok
+test_zero_artifact_negative_matrix (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_zero_artifact_negative_matrix) ... ok
+test_zero_no_dispatch_artifact_is_done_verified (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_zero_no_dispatch_artifact_is_done_verified) ... ok
+test_zero_terminal_requires_actual_empty_input_draft (tests.i18n.test_ai_state_check.SurfaceScreenContractTests.test_zero_terminal_requires_actual_empty_input_draft) ... ok
+test_cli_exit_codes (tests.i18n.test_contextual_result_check.ContextualResultTests.test_cli_exit_codes) ... ok
+test_cli_rejects_lone_surrogate_without_traceback (tests.i18n.test_contextual_result_check.ContextualResultTests.test_cli_rejects_lone_surrogate_without_traceback) ... ok
+test_exact_compact_envelope_and_raw_bytes_are_required (tests.i18n.test_contextual_result_check.ContextualResultTests.test_exact_compact_envelope_and_raw_bytes_are_required) ... ok
+test_minimal_vector_and_valid_result (tests.i18n.test_contextual_result_check.ContextualResultTests.test_minimal_vector_and_valid_result) ... ok
+test_result_schema_negative_matrix (tests.i18n.test_contextual_result_check.ContextualResultTests.test_result_schema_negative_matrix) ... ok
+test_strict_json_rejections (tests.i18n.test_contextual_result_check.ContextualResultTests.test_strict_json_rejections) ... ok
+test_manifest_negative_matrix (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_manifest_negative_matrix) ... ok
+test_partition_and_manifest (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_partition_and_manifest) ... ok
+test_payload_rendered_briefing_is_not_a_dispatch_prompt_budget (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_payload_rendered_briefing_is_not_a_dispatch_prompt_budget) ... ok
+test_public_check_rejects_lone_surrogate_without_traceback (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_public_check_rejects_lone_surrogate_without_traceback) ... ok
+test_public_check_rejects_noncanonical_lane_envelope_bytes (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_public_check_rejects_noncanonical_lane_envelope_bytes) ... ok
+test_symlink_check_and_idempotent_write (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_symlink_check_and_idempotent_write) ... ok
+test_symlinked_publication_ancestor_is_rejected_before_write (tests.i18n.test_contextual_lane_manifest.LaneManifestTests.test_symlinked_publication_ancestor_is_rejected_before_write) ... ok
+test_anchor_prose_punctuation_is_not_contract_identity (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorContractGuardTests.test_anchor_prose_punctuation_is_not_contract_identity) ... ok
+test_contextual_live_version_cannot_be_replaced_by_history (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorContractGuardTests.test_contextual_live_version_cannot_be_replaced_by_history) ... ok
+test_anchor_scope_file_omitted_from_allowed_files_is_exact_input_error (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_anchor_scope_file_omitted_from_allowed_files_is_exact_input_error) ... ok
+test_args_order_correct_plus_wrong_disclosures_fail (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_correct_plus_wrong_disclosures_fail) ... ok
+test_args_order_disclosure_missing_token_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_disclosure_missing_token_fails) ... ok
+test_args_order_disclosure_verifies_matching_canonical_token (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_disclosure_verifies_matching_canonical_token) ... ok
+test_args_order_disclosure_with_suffix_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_disclosure_with_suffix_fails) ... ok
+test_args_order_disclosure_with_underscore_suffix_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_disclosure_with_underscore_suffix_fails) ... ok
+test_args_order_disclosure_wrong_token_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_disclosure_wrong_token_fails) ... ok
+test_args_order_explicit_nil_is_treated_as_absent (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_explicit_nil_is_treated_as_absent) ... ok
+test_args_order_longer_value_disclosure_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_longer_value_disclosure_fails) ... ok
+test_args_order_lua_separators_scan_and_verify (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_lua_separators_scan_and_verify) ... ok
+test_args_order_malformed_disclosure_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_malformed_disclosure_fails) ... ok
+test_args_order_malformed_fourth_argument_is_input_error (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_malformed_fourth_argument_is_input_error) ... ok
+test_args_order_prefixed_disclosure_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_prefixed_disclosure_fails) ... ok
+test_args_order_spaces_canonicalize_and_verify (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_spaces_canonicalize_and_verify) ... ok
+test_args_order_token_without_call_args_order_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_args_order_token_without_call_args_order_fails) ... ok
+test_body_chapter_mention_without_title_delimiter_does_not_bound_window (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_body_chapter_mention_without_title_delimiter_does_not_bound_window) ... ok
+test_cli_statuses_and_exit_codes (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_cli_statuses_and_exit_codes) ... ok
+test_cults_b3_declared_chapter_passes (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_cults_b3_declared_chapter_passes) ... ok
+test_cults_b3_undeclared_later_chapter_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_cults_b3_undeclared_later_chapter_fails) ... ok
+test_cults_b3_wrong_chapter_regression_fails (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_cults_b3_wrong_chapter_regression_fails) ... ok
+test_decimal_escapes_aggregate_utf8_bytes_and_use_ascii_digits (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_decimal_escapes_aggregate_utf8_bytes_and_use_ascii_digits) ... ok
+test_differing_in_window_args_order_values_fail_closed (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_differing_in_window_args_order_values_fail_closed) ... ok
+test_duplicate_actual_chapter_titles_fail_preflight (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_duplicate_actual_chapter_titles_fail_preflight) ... ok
+test_empty_ordered_titles_fails_closed_for_titled_section (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_empty_ordered_titles_fails_closed_for_titled_section) ... ok
+test_empty_ordered_titles_rejects_source_from_neighbouring_section (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_empty_ordered_titles_rejects_source_from_neighbouring_section) ... ok
+test_empty_ordered_titles_rejects_source_from_preceding_section (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_empty_ordered_titles_rejects_source_from_preceding_section) ... ok
+test_empty_ordered_titles_verifies_whole_untitled_section (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_empty_ordered_titles_verifies_whole_untitled_section) ... ok
+test_empty_scope_collections_are_exact_input_errors (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_empty_scope_collections_are_exact_input_errors) ... ok
+test_lua_long_bracket_sources_decode_with_delimiters_and_newline_rule (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_lua_long_bracket_sources_decode_with_delimiters_and_newline_rule) ... ok
+test_member_calls_are_not_global_translation_or_section_calls (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_member_calls_are_not_global_translation_or_section_calls) ... ok
+test_non_array_ordered_titles_has_exact_input_error_message (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_non_array_ordered_titles_has_exact_input_error_message) ... ok
+test_nonempty_ordered_titles_explicit_anchor_regression_remains_verified (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_nonempty_ordered_titles_explicit_anchor_regression_remains_verified) ... ok
+test_nul_and_value_error_paths_are_structured_input_errors (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_nul_and_value_error_paths_are_structured_input_errors) ... ok
+test_payload_shape_and_dynamic_lua_are_input_errors (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_payload_shape_and_dynamic_lua_are_input_errors) ... ok
+test_payload_source_in_allowed_undeclared_file_fails_preflight (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_payload_source_in_allowed_undeclared_file_fails_preflight) ... ok
+test_quoted_string_physical_line_escapes_normalize_lf_and_crlf (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_quoted_string_physical_line_escapes_normalize_lf_and_crlf) ... ok
+test_real_t_call_requires_complete_literal_first_argument_and_balance (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_real_t_call_requires_complete_literal_first_argument_and_balance) ... ok
+test_scanner_is_offline_and_does_not_import_locale_or_lua_runtime (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_scanner_is_offline_and_does_not_import_locale_or_lua_runtime) ... ok
+test_scope_schema_rejects_duplicates_and_missing_anchor (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_scope_schema_rejects_duplicates_and_missing_anchor) ... ok
+test_section_mismatch_and_ordering_fail_closed (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_section_mismatch_and_ordering_fail_closed) ... ok
+test_unsafe_and_nonordinary_paths_are_input_errors (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_unsafe_and_nonordinary_paths_are_input_errors) ... ok
+test_v2_payload_uses_the_same_anchor_semantics (tests.i18n.test_contextual_anchor_preflight.ContextualAnchorPreflightTests.test_v2_payload_uses_the_same_anchor_semantics) ... ok
+test_a_omission_is_reported_as_missing_composite_disposition (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_a_omission_is_reported_as_missing_composite_disposition) ... ok
+test_a_prime_launder_by_include_requires_claim (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_a_prime_launder_by_include_requires_claim) ... ok
+test_b_split_is_allowed_but_render_exposes_two_claims (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_b_split_is_allowed_but_render_exposes_two_claims) ... ok
+test_c_counts_are_derived_and_stored_counts_are_rejected (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_c_counts_are_derived_and_stored_counts_are_rejected) ... ok
+test_cli_inventory_check_and_render_are_read_only_and_structured (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_cli_inventory_check_and_render_are_read_only_and_structured) ... ok
+test_d_duplicate_requires_reason_and_included_composite_target (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_d_duplicate_requires_reason_and_included_composite_target) ... ok
+test_empty_map_is_the_only_valid_empty_source_case (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_empty_map_is_the_only_valid_empty_source_case) ... ok
+test_good_sidecar_and_composite_collision_pass (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_good_sidecar_and_composite_collision_pass) ... ok
+test_inventory_preserves_raw_metadata_and_handles_old_record (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_inventory_preserves_raw_metadata_and_handles_old_record) ... ok
+test_scope_audit_requires_composite_resolving_keys (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_scope_audit_requires_composite_resolving_keys) ... ok
+test_source_path_must_be_beneath_ai_reviews (tests.i18n.test_review_evidence.ReviewEvidenceTests.test_source_path_must_be_beneath_ai_reviews) ... ok
+test_absence_cannot_drop_raw_list_ids_or_claim_full_limit (tests.i18n.test_review_lifecycle.LifecycleTests.test_absence_cannot_drop_raw_list_ids_or_claim_full_limit) ... ok
+test_absent_reconciliation_one_retry_and_history (tests.i18n.test_review_lifecycle.LifecycleTests.test_absent_reconciliation_one_retry_and_history) ... ok
+test_actual_validation_failure_is_not_revalidated (tests.i18n.test_review_lifecycle.LifecycleTests.test_actual_validation_failure_is_not_revalidated) ... ok
+test_all_inputs_checked_before_any_preparation (tests.i18n.test_review_lifecycle.LifecycleTests.test_all_inputs_checked_before_any_preparation) ... ok
+test_ambiguous_creation_no_blind_retry (tests.i18n.test_review_lifecycle.LifecycleTests.test_ambiguous_creation_no_blind_retry) ... ok
+test_archive_crash_recovery_reads_before_retry (tests.i18n.test_review_lifecycle.LifecycleTests.test_archive_crash_recovery_reads_before_retry) ... ok
+test_archive_error_with_positive_readback_is_success (tests.i18n.test_review_lifecycle.LifecycleTests.test_archive_error_with_positive_readback_is_success) ... ok
+test_archive_exhaustion_wait_and_readonly_recovery (tests.i18n.test_review_lifecycle.LifecycleTests.test_archive_exhaustion_wait_and_readonly_recovery) ... ok
+test_archive_zero_return_without_readback_is_failure_and_bounded (tests.i18n.test_review_lifecycle.LifecycleTests.test_archive_zero_return_without_readback_is_failure_and_bounded) ... ok
+test_cli_emit_record_and_live_capture_are_connected (tests.i18n.test_review_lifecycle.LifecycleTests.test_cli_emit_record_and_live_capture_are_connected) ... ok
+test_cli_no_complete_transport_fails_before_create (tests.i18n.test_review_lifecycle.LifecycleTests.test_cli_no_complete_transport_fails_before_create) ... ok
+test_cycle1_direct_intent_stops_without_mutation_and_allows_binding (tests.i18n.test_review_lifecycle.LifecycleTests.test_cycle1_direct_intent_stops_without_mutation_and_allows_binding) ... ok
+test_cycle1_host_summary_preserves_rejection_and_unknown_recover_state (tests.i18n.test_review_lifecycle.LifecycleTests.test_cycle1_host_summary_preserves_rejection_and_unknown_recover_state) ... ok
+test_cycle1_readme_wait_user_other_member_frees_slot (tests.i18n.test_review_lifecycle.LifecycleTests.test_cycle1_readme_wait_user_other_member_frees_slot) ... ok
+test_cycle1_real_astra_optional_settings (tests.i18n.test_review_lifecycle.LifecycleTests.test_cycle1_real_astra_optional_settings) ... ok
+test_done_and_stop_mirrors_keep_bytes (tests.i18n.test_review_lifecycle.LifecycleTests.test_done_and_stop_mirrors_keep_bytes) ... ok
+test_duplicate_agent_ids_rejected (tests.i18n.test_review_lifecycle.LifecycleTests.test_duplicate_agent_ids_rejected) ... ok
+test_error_terminal_cli_reject_archive_readback_and_fresh_retry_without_native_final (tests.i18n.test_review_lifecycle.LifecycleTests.test_error_terminal_cli_reject_archive_readback_and_fresh_retry_without_native_final) ... ok
+test_explicit_abandonment_requires_evidence_and_cannot_be_reaccepted (tests.i18n.test_review_lifecycle.LifecycleTests.test_explicit_abandonment_requires_evidence_and_cannot_be_reaccepted) ... ok
+test_failed_consumer_does_not_publish_records_or_done (tests.i18n.test_review_lifecycle.LifecycleTests.test_failed_consumer_does_not_publish_records_or_done) ... ok
+test_fake_cli_creation_then_real_shape_binding_and_order (tests.i18n.test_review_lifecycle.LifecycleTests.test_fake_cli_creation_then_real_shape_binding_and_order) ... ok
+test_first_live_presence_and_idempotence (tests.i18n.test_review_lifecycle.LifecycleTests.test_first_live_presence_and_idempotence) ... ok
+test_four_lane_real_consumer (tests.i18n.test_review_lifecycle.LifecycleTests.test_four_lane_real_consumer) ... ok
+test_full_contextual_real_consumer_and_idempotent_publication (tests.i18n.test_review_lifecycle.LifecycleTests.test_full_contextual_real_consumer_and_idempotent_publication) ... ok
+test_idle_alone_or_missing_notification_not_terminal (tests.i18n.test_review_lifecycle.LifecycleTests.test_idle_alone_or_missing_notification_not_terminal) ... ok
+test_interrupted_validation_reloads_saved_raw_without_refetch (tests.i18n.test_review_lifecycle.LifecycleTests.test_interrupted_validation_reloads_saved_raw_without_refetch) ... ok
+test_invalid_attempt_archived_before_exact_full_retry (tests.i18n.test_review_lifecycle.LifecycleTests.test_invalid_attempt_archived_before_exact_full_retry) ... ok
+test_invalid_capture_leaves_same_journal_unmodified (tests.i18n.test_review_lifecycle.LifecycleTests.test_invalid_capture_leaves_same_journal_unmodified) ... ok
+test_invalid_live_identity_never_binds (tests.i18n.test_review_lifecycle.LifecycleTests.test_invalid_live_identity_never_binds) ... ok
+test_native_claude_rejects_thinking_leaf_branches_and_new_user_turn (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_claude_rejects_thinking_leaf_branches_and_new_user_turn) ... ok
+test_native_cli_export_harvest_then_real_consumer (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_cli_export_harvest_then_real_consumer) ... ok
+test_native_codex_rejects_unproven_boundaries_and_identity (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_codex_rejects_unproven_boundaries_and_identity) ... ok
+test_native_exact_text_not_earlier_json_tool_or_thinking (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_exact_text_not_earlier_json_tool_or_thinking) ... ok
+test_native_export_checks_notification_complete_identity_and_frozen_prompt_first (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_export_checks_notification_complete_identity_and_frozen_prompt_first) ... ok
+test_native_export_source_failure_recovers_without_archive_or_verdict (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_export_source_failure_recovers_without_archive_or_verdict) ... ok
+test_native_identity_aliases_are_scoped_and_conflicts_refused (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_identity_aliases_are_scoped_and_conflicts_refused) ... ok
+test_native_invalid_and_manual_reject_never_reaccepted (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_invalid_and_manual_reject_never_reaccepted) ... ok
+test_native_registered_state_and_first_session_checked_before_source (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_registered_state_and_first_session_checked_before_source) ... ok
+test_native_rejects_partial_json_unknown_provider_and_byte_line_limits (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_rejects_partial_json_unknown_provider_and_byte_line_limits) ... ok
+test_native_requires_ordinary_stable_file_and_never_blocks_on_fifo (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_requires_ordinary_stable_file_and_never_blocks_on_fifo) ... ok
+test_native_whitespace_and_markdown_preserved_then_strict_rejected (tests.i18n.test_review_lifecycle.LifecycleTests.test_native_whitespace_and_markdown_preserved_then_strict_rejected) ... ok
+test_original_output_symlink_cannot_publish (tests.i18n.test_review_lifecycle.LifecycleTests.test_original_output_symlink_cannot_publish) ... ok
+test_original_symlink_cannot_publish_done (tests.i18n.test_review_lifecycle.LifecycleTests.test_original_symlink_cannot_publish_done) ... ok
+test_p1_natural_atis_latch_preserves_exact_final_bytes (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_natural_atis_latch_preserves_exact_final_bytes) ... ok
+test_p1_natural_atis_latch_rejects_invalid_shape_or_identity (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_natural_atis_latch_rejects_invalid_shape_or_identity) ... ok
+test_p1_natural_cli_strict_before_archive_and_error_raw_refused (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_natural_cli_strict_before_archive_and_error_raw_refused) ... ok
+test_p1_natural_historical_metadata_and_lifecycle_guards (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_natural_historical_metadata_and_lifecycle_guards) ... ok
+test_p1_natural_tail_modes_preserve_source_and_reject_ambiguity (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_natural_tail_modes_preserve_source_and_reject_ambiguity) ... ok
+test_p1_null_alias_pair_and_invalid_known_values (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_null_alias_pair_and_invalid_known_values) ... ok
+test_p1_profiles_mapping_uses_fields_and_rejects_drift (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_profiles_mapping_uses_fields_and_rejects_drift) ... ok
+test_p1_wire_shell_complete_payload_conflicts_and_duplicates (tests.i18n.test_review_lifecycle.LifecycleTests.test_p1_wire_shell_complete_payload_conflicts_and_duplicates) ... ok
+test_partial_plan_can_retry_only_after_all_real_children_archived (tests.i18n.test_review_lifecycle.LifecycleTests.test_partial_plan_can_retry_only_after_all_real_children_archived) ... ok
+test_partial_stage_rejected_at_prepare_and_publish (tests.i18n.test_review_lifecycle.LifecycleTests.test_partial_stage_rejected_at_prepare_and_publish) ... ok
+test_prepare_and_mirror_recovery_idempotent (tests.i18n.test_review_lifecycle.LifecycleTests.test_prepare_and_mirror_recovery_idempotent) ... ok
+test_reconciliation_rejects_incomplete_stale_or_matching_capture (tests.i18n.test_review_lifecycle.LifecycleTests.test_reconciliation_rejects_incomplete_stale_or_matching_capture) ... ok
+test_reject_capture_and_evidence_are_immutable_and_repeated_calls_preserve_history (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_capture_and_evidence_are_immutable_and_repeated_calls_preserve_history) ... ok
+test_reject_capture_bad_identity_terminal_and_notification_leave_same_journal_unchanged (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_capture_bad_identity_terminal_and_notification_leave_same_journal_unchanged) ... ok
+test_reject_checks_registered_state_root_and_frozen_input_before_mutation (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_checks_registered_state_root_and_frozen_input_before_mutation) ... ok
+test_reject_mirror_validation_failure_leaves_no_partial_rejection (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_mirror_validation_failure_leaves_no_partial_rejection) ... ok
+test_reject_reason_and_evidence_validated_before_terminal_persistence (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_reason_and_evidence_validated_before_terminal_persistence) ... ok
+test_reject_with_capture_preserves_existing_raw_and_scope_rejection (tests.i18n.test_review_lifecycle.LifecycleTests.test_reject_with_capture_preserves_existing_raw_and_scope_rejection) ... ok
+test_repeated_harvest_does_not_replace_raw (tests.i18n.test_review_lifecycle.LifecycleTests.test_repeated_harvest_does_not_replace_raw) ... ok
+test_retry_input_drift_is_rejected (tests.i18n.test_review_lifecycle.LifecycleTests.test_retry_input_drift_is_rejected) ... ok
+test_reusable_host_entry_four_members_and_fault_recovery (tests.i18n.test_review_lifecycle.LifecycleTests.test_reusable_host_entry_four_members_and_fault_recovery) ... ok
+test_scope_rejection_preserves_strict_raw_and_allows_retry (tests.i18n.test_review_lifecycle.LifecycleTests.test_scope_rejection_preserves_strict_raw_and_allows_retry) ... ok
+test_small_surface_full_real_consumer (tests.i18n.test_review_lifecycle.LifecycleTests.test_small_surface_full_real_consumer) ... ok
+test_strict_output_failures_preserve_exact_raw (tests.i18n.test_review_lifecycle.LifecycleTests.test_strict_output_failures_preserve_exact_raw) ... ok
+test_surface_failed_group_archives_and_fresh_whole_group (tests.i18n.test_review_lifecycle.LifecycleTests.test_surface_failed_group_archives_and_fresh_whole_group) ... ok
+test_timing_unions_do_not_sum_parallel_models (tests.i18n.test_review_lifecycle.LifecycleTests.test_timing_unions_do_not_sum_parallel_models) ... ok
+test_transport_output_failure_is_recoverable_without_archive (tests.i18n.test_review_lifecycle.LifecycleTests.test_transport_output_failure_is_recoverable_without_archive) ... ok
+test_transport_selection_and_save_cannot_migrate_history (tests.i18n.test_review_lifecycle.LifecycleTests.test_transport_selection_and_save_cannot_migrate_history) ... ok
+test_unconfirmed_archive_blocks_retry (tests.i18n.test_review_lifecycle.LifecycleTests.test_unconfirmed_archive_blocks_retry) ... ok
+test_dispatch_entrypoints_use_the_shared_builders (tests.i18n.test_review_prompts.ReviewPromptTests.test_dispatch_entrypoints_use_the_shared_builders) ... ok
+test_every_splitlines_separator_is_rejected_by_all_public_renderers (tests.i18n.test_review_prompts.ReviewPromptTests.test_every_splitlines_separator_is_rejected_by_all_public_renderers) ... ok
+test_exact_utf8_byte_boundary (tests.i18n.test_review_prompts.ReviewPromptTests.test_exact_utf8_byte_boundary) ... ok
+test_formal_templates_are_exactly_the_contract_templates (tests.i18n.test_review_prompts.ReviewPromptTests.test_formal_templates_are_exactly_the_contract_templates) ... ok
+test_over_limit_and_invalid_identity_fail_closed (tests.i18n.test_review_prompts.ReviewPromptTests.test_over_limit_and_invalid_identity_fail_closed) ... ok
+test_real_consumers_share_templates_without_changing_replay_bindings (tests.i18n.test_review_prompts.ReviewPromptTests.test_real_consumers_share_templates_without_changing_replay_bindings) ... ok
+test_role_and_prompts_preserve_the_source_permission_difference (tests.i18n.test_review_prompts.ReviewPromptTests.test_role_and_prompts_preserve_the_source_permission_difference) ... ok
+test_three_lines_and_longest_legal_actual_paths_fit (tests.i18n.test_review_prompts.ReviewPromptTests.test_three_lines_and_longest_legal_actual_paths_fit) ... ok
+test_cached_subset_and_separate_measurement_stay_distinct (tests.i18n.test_review_usage.ReviewUsageTests.test_cached_subset_and_separate_measurement_stay_distinct) ... ok
+test_duplicate_request_identity_is_rejected (tests.i18n.test_review_usage.ReviewUsageTests.test_duplicate_request_identity_is_rejected) ... ok
+test_groups_orchestrator_and_all_children_by_batch_phase (tests.i18n.test_review_usage.ReviewUsageTests.test_groups_orchestrator_and_all_children_by_batch_phase) ... ok
+test_invalid_bool_and_negative_counters_are_rejected (tests.i18n.test_review_usage.ReviewUsageTests.test_invalid_bool_and_negative_counters_are_rejected) ... ok
+test_last_usage_snapshot_is_separate_and_cli_is_stdout_only (tests.i18n.test_review_usage.ReviewUsageTests.test_last_usage_snapshot_is_separate_and_cli_is_stdout_only) ... ok
+test_loader_rejects_nonregular_and_reads_with_actual_bound (tests.i18n.test_review_usage.ReviewUsageTests.test_loader_rejects_nonregular_and_reads_with_actual_bound) ... ok
+test_missing_counters_remain_unknown_not_zero (tests.i18n.test_review_usage.ReviewUsageTests.test_missing_counters_remain_unknown_not_zero) ... ok
+test_overlapping_child_intervals_use_span_not_sum (tests.i18n.test_review_usage.ReviewUsageTests.test_overlapping_child_intervals_use_span_not_sum) ... ok
+test_directory_and_source_files_fail_closed (tests.test_grok_native_export.GrokNativeExportTests.test_directory_and_source_files_fail_closed) ... ok
+test_export_binds_child_input_and_terminal_capture (tests.test_grok_native_export.GrokNativeExportTests.test_export_binds_child_input_and_terminal_capture) ... ok
+test_grok_acp_runtime_identity_accepts_only_acp (tests.test_grok_native_export.GrokNativeExportTests.test_grok_acp_runtime_identity_accepts_only_acp) ... ok
+test_json_encoding_and_limits_fail_closed (tests.test_grok_native_export.GrokNativeExportTests.test_json_encoding_and_limits_fail_closed) ... ok
+test_query_and_later_user_records_after_assistant_are_rejected (tests.test_grok_native_export.GrokNativeExportTests.test_query_and_later_user_records_after_assistant_are_rejected) ... ok
+test_real_session_fixtures_accept_and_preserve_final_bytes (tests.test_grok_native_export.GrokNativeExportTests.test_real_session_fixtures_accept_and_preserve_final_bytes) ... ok
+test_real_shape_requirements_fail_closed (tests.test_grok_native_export.GrokNativeExportTests.test_real_shape_requirements_fail_closed) ... ok
+test_user_record_count_is_not_a_runtime_invariant (tests.test_grok_native_export.GrokNativeExportTests.test_user_record_count_is_not_a_runtime_invariant) ... ok
+test_apply_requires_actual_paseo_caller_identity_in_real_worktrees (tests.i18n.test_wave_review.WaveReviewTests.test_apply_requires_actual_paseo_caller_identity_in_real_worktrees) ... ok
+test_apply_requires_integrating_and_completed_lane_state_and_review (tests.i18n.test_wave_review.WaveReviewTests.test_apply_requires_integrating_and_completed_lane_state_and_review) ... ok
+test_apply_requires_integration_identity_scope_and_executor_provenance (tests.i18n.test_wave_review.WaveReviewTests.test_apply_requires_integration_identity_scope_and_executor_provenance) ... ok
+test_cli_help_requires_workspace_map_and_exposes_publish (tests.i18n.test_wave_review.WaveReviewTests.test_cli_help_requires_workspace_map_and_exposes_publish) ... ok
+test_configurable_two_through_four_lane_positive_closure (tests.i18n.test_wave_review.WaveReviewTests.test_configurable_two_through_four_lane_positive_closure) ... ok
+test_contextual_provenance_rejects_rehashed_arbitrary_integration_fields (tests.i18n.test_wave_review.WaveReviewTests.test_contextual_provenance_rejects_rehashed_arbitrary_integration_fields) ... ok
+test_current_manifest_mutation_cannot_redefine_pinned_source_identity (tests.i18n.test_wave_review.WaveReviewTests.test_current_manifest_mutation_cannot_redefine_pinned_source_identity) ... ok
+test_done_ignores_runtime_untracked_but_rejects_ordinary_untracked (tests.i18n.test_wave_review.WaveReviewTests.test_done_ignores_runtime_untracked_but_rejects_ordinary_untracked) ... ok
+test_empty_patch_never_discards_candidate_or_current_target_drift (tests.i18n.test_wave_review.WaveReviewTests.test_empty_patch_never_discards_candidate_or_current_target_drift) ... ok
+test_final_review_must_be_unique_state_completion_not_shadow_record (tests.i18n.test_wave_review.WaveReviewTests.test_final_review_must_be_unique_state_completion_not_shadow_record) ... ok
+test_final_review_must_bind_unique_maximum_cycle_attempt (tests.i18n.test_wave_review.WaveReviewTests.test_final_review_must_bind_unique_maximum_cycle_attempt) ... ok
+test_four_lane_pairwise_conflict_checks_nonadjacent_pair (tests.i18n.test_wave_review.WaveReviewTests.test_four_lane_pairwise_conflict_checks_nonadjacent_pair) ... ok
+test_integration_envelope_requires_exact_queue_union_order_source_and_target (tests.i18n.test_wave_review.WaveReviewTests.test_integration_envelope_requires_exact_queue_union_order_source_and_target) ... ok
+test_integration_no_change_cannot_be_legitimized_by_recomputed_diff (tests.i18n.test_wave_review.WaveReviewTests.test_integration_no_change_cannot_be_legitimized_by_recomputed_diff) ... ok
+test_lane_bounds_duplicates_and_missing_lane_fail_closed (tests.i18n.test_wave_review.WaveReviewTests.test_lane_bounds_duplicates_and_missing_lane_fail_closed) ... ok
+test_lane_no_change_closure_rejects_workset_external_call_and_target_drift (tests.i18n.test_wave_review.WaveReviewTests.test_lane_no_change_closure_rejects_workset_external_call_and_target_drift) ... ok
+test_latest_full_completion_spans_both_state_arrays_and_legal_phases (tests.i18n.test_wave_review.WaveReviewTests.test_latest_full_completion_spans_both_state_arrays_and_legal_phases) ... ok
+test_prepare_publish_recovery_idempotence_and_postpublication_done (tests.i18n.test_wave_review.WaveReviewTests.test_prepare_publish_recovery_idempotence_and_postpublication_done) ... ok
+test_publish_fails_closed_on_missing_evidence_and_identity_or_byte_drift (tests.i18n.test_wave_review.WaveReviewTests.test_publish_fails_closed_on_missing_evidence_and_identity_or_byte_drift) ... ok
+test_real_cross_worktree_preflight_and_no_root_shadow_reads (tests.i18n.test_wave_review.WaveReviewTests.test_real_cross_worktree_preflight_and_no_root_shadow_reads) ... ok
+test_schemas_and_workset_provenance_fail_closed (tests.i18n.test_wave_review.WaveReviewTests.test_schemas_and_workset_provenance_fail_closed) ... ok
+test_three_lane_queue_and_evidence_order_or_cardinality_drift_fails (tests.i18n.test_wave_review.WaveReviewTests.test_three_lane_queue_and_evidence_order_or_cardinality_drift_fails) ... ok
+test_wave_evidence_requires_unique_fresh_bound_evidence_executor (tests.i18n.test_wave_review.WaveReviewTests.test_wave_evidence_requires_unique_fresh_bound_evidence_executor) ... ok
+test_workspace_map_is_exact_and_lane_symlink_fails_closed (tests.i18n.test_wave_review.WaveReviewTests.test_workspace_map_is_exact_and_lane_symlink_fails_closed) ... ok
+test_ancestor_descendant_paths_fail_in_both_orders_before_any_write (tests.test_executor_runner.TestBoundedExecutor.test_ancestor_descendant_paths_fail_in_both_orders_before_any_write) ... ok
+test_applying_crash_reconciles_actual_post_missing_from_applied (tests.test_executor_runner.TestBoundedExecutor.test_applying_crash_reconciles_actual_post_missing_from_applied) ... ok
+test_archive_receipts_are_exact_typed_trusted_host_facts (tests.test_executor_runner.TestBoundedExecutor.test_archive_receipts_are_exact_typed_trusted_host_facts) ... ok
+test_ascii_identifiers_are_enforced_by_apply_and_artifact_helpers (tests.test_executor_runner.TestBoundedExecutor.test_ascii_identifiers_are_enforced_by_apply_and_artifact_helpers) ... ok
+test_candidate_and_envelope_hash_fields_require_lowercase_hex (tests.test_executor_runner.TestBoundedExecutor.test_candidate_and_envelope_hash_fields_require_lowercase_hex) ... ok
+test_candidate_and_envelope_hashes_are_non_circular_and_distinct (tests.test_executor_runner.TestBoundedExecutor.test_candidate_and_envelope_hashes_are_non_circular_and_distinct) ... ok
+test_delete_apply_and_parent_fsync (tests.test_executor_runner.TestBoundedExecutor.test_delete_apply_and_parent_fsync) ... ok
+test_duplicate_keys_rejected_by_cli_loader_and_journal_reader (tests.test_executor_runner.TestBoundedExecutor.test_duplicate_keys_rejected_by_cli_loader_and_journal_reader) ... ok
+test_exact_envelope_candidate_and_list_schemas (tests.test_executor_runner.TestBoundedExecutor.test_exact_envelope_candidate_and_list_schemas) ... ok
+test_executor_candidate_author_remains_accepted (tests.test_executor_runner.TestBoundedExecutor.test_executor_candidate_author_remains_accepted) ... ok
+test_invalid_candidate_author_roles_fail_before_target_or_ledger_write (tests.test_executor_runner.TestBoundedExecutor.test_invalid_candidate_author_roles_fail_before_target_or_ledger_write) ... ok
+test_journal_less_complete_artifacts_resume_after_prepared_write_crash (tests.test_executor_runner.TestBoundedExecutor.test_journal_less_complete_artifacts_resume_after_prepared_write_crash) ... ok
+test_journal_less_partial_artifacts_are_verified_completed_and_applied (tests.test_executor_runner.TestBoundedExecutor.test_journal_less_partial_artifacts_are_verified_completed_and_applied) ... ok
+test_journal_less_tampered_or_unknown_artifacts_fail_without_target_write (tests.test_executor_runner.TestBoundedExecutor.test_journal_less_tampered_or_unknown_artifacts_fail_without_target_write) ... ok
+test_journal_less_target_drift_fails_without_artifact_or_target_rewrite (tests.test_executor_runner.TestBoundedExecutor.test_journal_less_target_drift_fails_without_artifact_or_target_rewrite) ... ok
+test_mode_bool_negative_and_overflow_are_rejected_without_writes (tests.test_executor_runner.TestBoundedExecutor.test_mode_bool_negative_and_overflow_are_rejected_without_writes) ... ok
+test_non_finite_json_and_non_string_journal_status_fail_closed (tests.test_executor_runner.TestBoundedExecutor.test_non_finite_json_and_non_string_journal_status_fail_closed) ... ok
+test_non_first_postimage_recovery_keeps_every_journal_ordered_and_idempotent (tests.test_executor_runner.TestBoundedExecutor.test_non_first_postimage_recovery_keeps_every_journal_ordered_and_idempotent) ... ok
+test_noncanonical_posix_paths_fail_before_any_write (tests.test_executor_runner.TestBoundedExecutor.test_noncanonical_posix_paths_fail_before_any_write) ... ok
+test_orchestrator_candidate_author_is_accepted (tests.test_executor_runner.TestBoundedExecutor.test_orchestrator_candidate_author_is_accepted) ... ok
+test_ordinary_dot_prefixed_target_is_allowed (tests.test_executor_runner.TestBoundedExecutor.test_ordinary_dot_prefixed_target_is_allowed) ... ok
+test_owner_unreadable_apply_failure_rolls_back_exact_bytes_and_modes (tests.test_executor_runner.TestBoundedExecutor.test_owner_unreadable_apply_failure_rolls_back_exact_bytes_and_modes) ... ok
+test_owner_unreadable_new_and_existing_files_apply_and_verify_without_root_bypass (tests.test_executor_runner.TestBoundedExecutor.test_owner_unreadable_new_and_existing_files_apply_and_verify_without_root_bypass) ... ok
+test_path_alias_pair_fails_before_any_write (tests.test_executor_runner.TestBoundedExecutor.test_path_alias_pair_fails_before_any_write) ... ok
+test_postimage_mismatch_fails_before_journal_or_target_write (tests.test_executor_runner.TestBoundedExecutor.test_postimage_mismatch_fails_before_journal_or_target_write) ... ok
+test_prepositioned_predictable_temp_symlinks_cannot_escape (tests.test_executor_runner.TestBoundedExecutor.test_prepositioned_predictable_temp_symlinks_cannot_escape) ... ok
+test_privileged_target_namespaces_fail_before_any_transaction_write (tests.test_executor_runner.TestBoundedExecutor.test_privileged_target_namespaces_fail_before_any_transaction_write) ... ok
+test_read_failure_is_not_masked_by_double_close (tests.test_executor_runner.TestBoundedExecutor.test_read_failure_is_not_masked_by_double_close) ... ok
+test_recovery_journal_rejects_noncanonical_ordered_paths_without_write (tests.test_executor_runner.TestBoundedExecutor.test_recovery_journal_rejects_noncanonical_ordered_paths_without_write) ... ok
+test_recovery_journal_rejects_privileged_ordered_paths (tests.test_executor_runner.TestBoundedExecutor.test_recovery_journal_rejects_privileged_ordered_paths) ... ok
+test_recovery_third_state_records_conflict_without_overwrite (tests.test_executor_runner.TestBoundedExecutor.test_recovery_third_state_records_conflict_without_overwrite) ... ok
+test_rolling_back_crash_removes_actual_pre_still_in_applied (tests.test_executor_runner.TestBoundedExecutor.test_rolling_back_crash_removes_actual_pre_still_in_applied) ... ok
+test_second_replace_failure_rolls_back_bytes_modes_and_journal (tests.test_executor_runner.TestBoundedExecutor.test_second_replace_failure_rolls_back_bytes_modes_and_journal) ... ok
+test_sibling_paths_are_allowed (tests.test_executor_runner.TestBoundedExecutor.test_sibling_paths_are_allowed) ... ok
+test_success_and_idempotent_commit_use_contract_artifact_root (tests.test_executor_runner.TestBoundedExecutor.test_success_and_idempotent_commit_use_contract_artifact_root) ... ok
+test_symlinked_artifact_root_is_rejected_without_external_write (tests.test_executor_runner.TestBoundedExecutor.test_symlinked_artifact_root_is_rejected_without_external_write) ... ok
+test_tampered_journal_schema_and_envelope_bindings_fail_closed (tests.test_executor_runner.TestBoundedExecutor.test_tampered_journal_schema_and_envelope_bindings_fail_closed) ... ok
+test_tampered_post_shadow_fails_before_target_write (tests.test_executor_runner.TestBoundedExecutor.test_tampered_post_shadow_fails_before_target_write) ... ok
+test_tampered_preimage_snapshot_fails_before_apply_or_rollback (tests.test_executor_runner.TestBoundedExecutor.test_tampered_preimage_snapshot_fails_before_apply_or_rollback) ... ok
+test_target_and_journal_replace_fsync_parent_directories (tests.test_executor_runner.TestBoundedExecutor.test_target_and_journal_replace_fsync_parent_directories) ... ok
+test_empty_allowed_files_rejected (tests.i18n.test_check_allowed_files.LoadAllowedFilesTests.test_empty_allowed_files_rejected) ... ok
+test_missing_scope_file_fails_closed (tests.i18n.test_check_allowed_files.LoadAllowedFilesTests.test_missing_scope_file_fails_closed) ... ok
+test_valid_scope_file_loads (tests.i18n.test_check_allowed_files.LoadAllowedFilesTests.test_valid_scope_file_loads) ... ok
+test_in_scope_paths_pass (tests.i18n.test_check_allowed_files.MainTests.test_in_scope_paths_pass) ... ok
+test_no_changed_paths_is_ok (tests.i18n.test_check_allowed_files.MainTests.test_no_changed_paths_is_ok) ... ok
+test_no_scope_file_fails_closed_via_main (tests.i18n.test_check_allowed_files.MainTests.test_no_scope_file_fails_closed_via_main) ... FAIL: no SCOPE.json for task 'missing' at /tmp/tmp_m3ee03w/.ai/task/missing/SCOPE.json (fail-closed: a task with no declared allowed_files cannot pass this check)
+ok
+test_out_of_scope_path_fails (tests.i18n.test_check_allowed_files.MainTests.test_out_of_scope_path_fails) ... FAIL: 1 changed path(s) outside allowed_files for task 't1':
+  - tome-orcs.lua
+allowed_files: ['tome-cults.lua']
+ok
+
+----------------------------------------------------------------------
+Ran 573 tests in 35.134s
+
+OK
+incremental 624a67329fe2ad440c5b344785a9c73fcf22ae63..624a67329fe2ad440c5b344785a9c73fcf22ae63 domain=source: affected_tus=0 previous=0 kept=0 recomputed=0 incremental=0
+ci: new_errors=0 legacy_errors=1
+incremental 624a67329fe2ad440c5b344785a9c73fcf22ae63..624a67329fe2ad440c5b344785a9c73fcf22ae63 domain=source: affected_tus=0 previous=0 kept=0 recomputed=0 incremental=0
+ci: new_errors=0 legacy_errors=3
+incremental 624a67329fe2ad440c5b344785a9c73fcf22ae63..624a67329fe2ad440c5b344785a9c73fcf22ae63 domain=source: affected_tus=0 previous=0 kept=0 recomputed=0 incremental=0
+ci: new_errors=2 legacy_errors=1
+terminology inventory done: 2 candidates (A=1, B=1, UNCLASSIFIED=0); missing=1, auto_excluded=0, force_manual=0
+terminology inventory done: 3 candidates (A=1, B=2, UNCLASSIFIED=0); missing=2, auto_excluded=1, force_manual=0
+PASS: 10 active Paseo documents; 4 live versions, 16 clause declarations
+OK: all 1 changed path(s) are within allowed_files for task 't1'
+OK: no changed paths to check

@@ -1,0 +1,18 @@
+已完成窗口 5 的 18 条译文修复：
+
+- 修改 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)，定向验证确认恰好 18 个 target 变化，其余记录及 source/tag/参数保持一致。
+- 黑暗触手布局恢复为 1 LF / 2 TAB；其他条目保持 baseline 布局。
+- 正确保留啃噬直接击杀分支、失衡值正负方向和精神暴击治疗场景。
+- 回忆录仅修改授权内容，没有全面重译或改动专名、术语库及全局策略。
+- 证据已写入 [repair-window-5-20260922](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/)，包括两个逐字节 preflight 副本、HOST-WORKSET、源码锚点、实施说明和完整验证输出。明确记录为两个 preflight 的 16 条加 2 条宿主补充，不是单一生产批次。
+
+验证结果：
+
+- `verify.py`：通过，22989 条记录中恰好 18 个独立 revision 发生 target 变化。
+- `tools/i18n lint --strict`：通过，30308 条译文，0 errors、0 warnings。
+- `tools/i18n claims check ... --strict`：通过。
+- `git diff --check`：通过。
+- 未产生 proposal。
+- 未 stage、commit，也未修改 `.ai`；原有无关 untracked 文件均保留。
+
+范围内没有未解决项。独立四成员 REVIEW、FINAL_REVIEW、完整门禁、严格构建和 `DONE_VERIFIED` 尚未执行，留给宿主完成。

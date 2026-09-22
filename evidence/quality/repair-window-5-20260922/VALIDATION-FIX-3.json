@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "generated_by": "unique EXECUTOR for repair-w5-20260922 FIX-3",
+  "scope": {
+    "translation_file": "mod-tome.lua",
+    "before_file": ".ai/task/repair-w5-20260922/BEFORE-FIX-3.lua",
+    "replacement_file": ".ai/task/repair-w5-20260922/FIX-3-REPLACEMENTS.json",
+    "exact_replacements": 2,
+    "changed_revisions": 2,
+    "total_workset_targets": 18,
+    "before_sha256": "35190ae973685a9bf7f7bd443556da1bbe38f761c7ade2d6472ec752a2ffc24d",
+    "after_sha256": "31ee5fa4c49422874cda5e7e58848e878628f13e1732d83a431e21be94702e8b"
+  },
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify_fix3.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; exact_replacements=2; changed_revisions=2; sha256=31ee5fa4c49422874cda5e7e58848e878628f13e1732d83a431e21be94702e8b. All other characters equal BEFORE-FIX-3.lua."
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; 22989 loaded records; exactly 18 baseline-to-current target changes, all in the frozen workset."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Checked 30308 translations: 0 errors, 0 warnings."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "No whitespace errors in tracked diff."
+    },
+    {
+      "command": "Python UTF-8/final-newline/trailing-whitespace check for IMPLEMENTATION-FIX-3.md and VALIDATION-FIX-3.json, plus python3 -m json.tool for VALIDATION-FIX-3.json",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Both new evidence files are valid UTF-8, end with a newline, and contain no trailing spaces or tabs; VALIDATION-FIX-3.json is valid JSON."
+    }
+  ],
+  "note": "This records only the bounded FIX-3 EXECUTOR checks. Full gates, queue, catalog, migration, staging, and commit were intentionally not run."
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-01",
+    "assessment": "keep",
+    "design_ac_basis": "冻结SPEC要求机制描述符合固定源码且仅修当前句；hasLightArmor接受cloth、light、mummy，而现有“轻甲和布甲”既遗漏类别又可能表达同时装备。",
+    "observable_impact": "玩家可能把触发条件理解为同时需要轻甲和布甲，且无法从文本得知木乃伊裹布等更轻护甲也满足条件。",
+    "personal_project_proportionality": "仅替换一个装备条件短语，不触及已修正的Defense范围、占位符或其他条目，成本和风险都很低。",
+    "minimum_sufficient_action": "采用宿主所列精确替换，将“当你身着轻甲和布甲时”改为“当你身着轻甲或更轻的护甲时”。",
+    "rationale": "冻结源码直接给出择一的三个可接受subtype，拟议措辞恢复“leather or lighter”的条件结构，并保持改动局部。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-02",
+    "assessment": "keep",
+    "design_ac_basis": "冻结SPEC已将368—396的直接引语及叙述标点纳入局部校准；该叙述句在换段前缺少终止标点。",
+    "observable_impact": "显示文本以无句末标点的叙述句结束，形成直接可见的中文标点缺陷。",
+    "personal_project_proportionality": "只补一个中文句号，不改变句义、段落结构或相邻引语，属于低风险局部修复。",
+    "minimum_sufficient_action": "采用宿主所列精确替换，在“我试图反对”后补“。”。",
+    "rationale": "该动作落在冻结的标点范围内，可独立核验，且无需借此扩展为整段译文修订。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-A01",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC只授权恢复感染后死亡分支限定，并明确不得否定直接击杀分支；源码证据同时表明该实体是有summoner、summon_time和summoned AI的友方召唤物。",
+    "observable_impact": "现有两种称呼可能造成局部命名不一致，但冻结证据不足以证明“傀儡”向玩家宣告了错误的机制或实体种族。",
+    "personal_project_proportionality": "为非机制性的称谓偏好重开已满足AC的条目不合比例；若以后统一称谓，可在专门的局部译名维护中处理。",
+    "minimum_sufficient_action": "本轮不修改；仅把该claim缩窄为同一实体称谓一致性的非阻断建议，不保留“新增错误机制性质”的结论。",
+    "rationale": "原观察能支持词面不一致，却不能支持其较强的机制归因；当前修复目标和运行语义均不受影响。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-A02",
+    "assessment": "reject",
+    "design_ac_basis": "冻结SPEC明确排除术语库和全局策略改动；该处是叙事性_t文本，输入未提供要求其服从职业birth descriptor名称的冻结规则。",
+    "observable_impact": "已有输入未证明“兽人堕落者”造成运行错误、机制误导或可确定的施受关系错误。",
+    "personal_project_proportionality": "为一个叙事称谓启动跨类别全局统一会显著扩大范围，且缺少授权和明确收益。",
+    "minimum_sufficient_action": "本轮不修改，也不据此建立全局替换；如未来需要统一职业与叙事称谓，应另行取得策略授权并建立有界工作集。",
+    "rationale": "该claim把职业名称约定外推到普通叙事称谓，冻结输入不足以支撑这种强制映射。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT01",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC将该回忆录revision限定为188段的符文、表面发光和星云位置修复，未授权152段改写，并要求successor重新审核。",
+    "observable_impact": "若原观察成立，起身动作及语气会被改成无来源的长时间沉思；该影响来自未被本窗口编辑的旧子句。",
+    "personal_project_proportionality": "把旧段落问题并入当前收敛轮会突破明确切片；留给有界successor核验更符合个人项目的批次控制。",
+    "minimum_sufficient_action": "当前候选不改；仅把claim保留为successor对152段的独立核验线索。",
+    "rationale": "潜在影响可以单独追踪，但与本轮188段AC和现有diff没有依赖关系。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT02",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC明确禁止全面重写该回忆录，并特别排除旧164观察；本轮diff没有修改该子句。",
+    "observable_impact": "若原观察成立，“离开房间”被具体化为“小心关门”，增加了原文没有的动作方式。",
+    "personal_project_proportionality": "该旧译问题可局部处理，但不应借同一长条目的其他改动绕过冻结范围。",
+    "minimum_sufficient_action": "当前候选不改；在successor中仅核验并处理164段对应子句，不扩展整章。",
+    "rationale": "冻结边界对164段已有明确排除，因此本轮最多保留后续线索。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT03",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC对该revision只授权188段及两项明确的局部校准，214段不在当前动作范围内。",
+    "observable_impact": "若原观察成立，先前屏息后突然吸气的动作被改成因景象而喘不过气，改变了动作原因。",
+    "personal_project_proportionality": "这是可独立切出的旧子句，不需要阻塞当前两个低风险修复或触发整章返工。",
+    "minimum_sufficient_action": "当前候选不改；作为successor对214段的有界保真核验线索保留。",
+    "rationale": "claim与当前diff无直接关系，后续单句核验足以覆盖其潜在影响。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT04",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC对352段只授权灾变回指修复，并明确不得因同一行号扩大到其他未编辑子句。",
+    "observable_impact": "若原观察成立，模糊的短暂时刻被无依据地量化为一秒，造成叙事细节具体化。",
+    "personal_project_proportionality": "该差异不影响本轮已授权的灾变回指修复，可由successor按单一子句处理。",
+    "minimum_sufficient_action": "当前候选不改；将“for but one moment”子句留给successor独立复核。",
+    "rationale": "同处352段不等于自动纳入当前工作集；最小范围应按冻结子句而非整段划定。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT05",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC及第二次局部校准只允许380段两个指定子句，未包括重建时态和“大部分人”措辞。",
+    "observable_impact": "若原观察成立，已开始尝试重建被改成尚未开始，并增加了无来源的人员数量限定。",
+    "personal_project_proportionality": "潜在保真影响值得后续核验，但在当前收敛轮追加同段其他旧问题会削弱明确的子句边界。",
+    "minimum_sufficient_action": "当前候选不改；successor仅对380段该开头子句建立局部修复，不连带重写整段。",
+    "rationale": "该claim与当前已授权的“失控力量”等子句可分离，后续单独处理即可。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT06",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC对380段的现轮授权不含交戒指时前往Elvala寻人的信息，且禁止按整行自动扩展。",
+    "observable_impact": "若原观察成立，角色受命前往Elvala寻找对方这一行动信息在译文中缺失。",
+    "personal_project_proportionality": "该遗漏可由一句局部补译解决，但没有必要为此突破当前两项拟修复的冻结范围。",
+    "minimum_sufficient_action": "当前候选不改；在successor中针对交戒指子句做一次有界源码核验和最小补译。",
+    "rationale": "潜在信息遗漏具有独立价值，但不依赖当前diff，拆入后续切片能保持范围可审计。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT07",
+    "assessment": "narrow",
+    "design_ac_basis": "第二次局部校准只授权382段“这个人类的叙述”及复仇消息归属两个子句，未授权改写Scout reports suggest。",
+    "observable_impact": "若原观察成立，译文把侦察报告的推测性表述加强为直接、确定的报告。",
+    "personal_project_proportionality": "该细微确定性差异可在后续单句修复中解决，不应扩大当前精确替换集。",
+    "minimum_sufficient_action": "当前候选不改；successor仅核验并调整Scout reports suggest对应子句。",
+    "rationale": "它与本轮已经修复的消息归属相邻但语义独立，冻结授权不能按邻接关系扩张。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT08",
+    "assessment": "downgrade",
+    "design_ac_basis": "冻结SPEC对396段只授权已确认的标点核验；输入未提供足以把“在记忆中封存”客观判为与locked away from memory相反的额外语境。",
+    "observable_impact": "两种表达可能在“从意识中排除”与“封存记忆”之间产生细微语义差别，但现有输入不足以确认玩家可观察到的实质反转。",
+    "personal_project_proportionality": "在证据仍允许相近心理意象解释时，为此重开长篇条目不合比例。",
+    "minimum_sufficient_action": "本轮不修改；仅作为successor中的低优先级语义核验项，不预设必须修复。",
+    "rationale": "原claim把存在解释空间的措辞定性为近乎相反，强度超过冻结证据所能支持的程度。"
+  },
+  {
+    "finding_ref": ".ai/reviews/repair-w5-20260922/host-findings-r2.json / RW5-R2-OUT09",
+    "assessment": "narrow",
+    "design_ac_basis": "冻结SPEC的当前标点范围止于396段，400段未被本窗口编辑，也未列入后续局部校准。",
+    "observable_impact": "若原观察成立，从属结构被句号截断，形成玩家可直接看到的残句。",
+    "personal_project_proportionality": "修复本身很小，但仍属于冻结范围之外的旧文本；放入下一个有界切片可保持审计边界清楚。",
+    "minimum_sufficient_action": "当前候选不改；successor对400段仅删除错误断句并恢复主从句连接。",
+    "rationale": "可见性和修复成本都明确，但不能仅因动作很小就越过当前明确的段落边界。"
+  }
+]

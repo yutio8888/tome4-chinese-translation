@@ -1,0 +1,89 @@
+{
+  "task_id": "repair-w5-20260922",
+  "review_phase": "FINAL_REVIEW",
+  "cycle": 3,
+  "attempt": 2,
+  "review_records": [
+    ".ai/reviews/repair-w5-20260922/f3a2.json"
+  ],
+  "raw_counts": {
+    "OK": 15,
+    "ISSUE": 3
+  },
+  "findings": [
+    {
+      "id": "RW5-FINAL-01",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/f3a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f3a2.txt",
+      "claim": "源码“the walls seemed to hum with energy”描述墙壁仿佛因能量而嗡鸣，译文“墙壁似乎也呼吸着能量”将听觉与振动意象改成了呼吸，语义不符。",
+      "status": "confirmed",
+      "accepted": true,
+      "tier": 1,
+      "defect_class": "fidelity",
+      "reason": "固定源码明确hum，即能量造成的嗡鸣；呼吸改换了声音/振动意象。该句位于本批明确纳入的188行对应段落，不能归为范围外。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          188,
+          188
+        ],
+        "excerpt": "Some years earlier our people had solved the invisible runes that allowed it to be opened, revealing vast crystal-lined halls and chambers arrayed in geometric patterns of sublime beauty.  Light sparked and shone from every surface, and the walls seemed to hum with energy.  Many shafts and passageways could only be navigated by flight, and at the top was found a grand room large enough to encompass the whole palace of Elvala.  At its centre was the farportal, a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.  It was beautiful and frightening, enchanting and terrifying.  No power of the Shaloren could discern its operation, and though through careful experimentation we were able to manipulate its energies, never could we get a true grasp of the forces that lay beneath."
+      },
+      "proposed_exact_change": {
+        "before": "就连墙壁似乎也呼吸着能量",
+        "after": "就连墙壁似乎也随着能量嗡嗡作响"
+      },
+      "disposition": "await_user_cycle_limit_extension"
+    },
+    {
+      "id": "RW5-FINAL-A01",
+      "revision_key": "e5666d20d3c3d8abd1d9a79f05c34e328e546c52648ceb73f41abcc1d9a4b800",
+      "source_review": ".ai/reviews/repair-w5-20260922/f3a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f3a2.txt",
+      "claim": "食尸鬼傀儡新增没有机制依据的实体性质",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "同一实体的两个称呼可以指称一致；源码faction=self.faction、summoner=self、summon_time、ai=summoned支持为施术者作战的召唤随从。傀儡不是在此宣称炼金傀儡种族；原本只修感染后死亡分支，不据称谓简化偏好扩大。 范围校准narrow采纳为仅称谓一致性建议，不确认错误机制性质。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "036f501d24a0e0f24b96d135bb879a2a344d977473f26c460c8d1ca99f0a98d9",
+        "lines": [
+          155,
+          182
+        ],
+        "excerpt": "155: \tspawn_ghoul = function (self, target, t)\n156: \t\tlocal x, y = util.findFreeGrid(target.x, target.y, 10, true, {[Map.ACTOR]=true})\n157: \t\tif not x then return nil end\n158: \t\tlocal NPC = require \"mod.class.NPC\"\n159: \t\tlocal ghoul = NPC.new{\n160: \t\t\ttype = \"undead\", subtype = \"ghoul\",\n161: \t\t\tdisplay = \"z\",\n162: \t\t\tname = _t\"Risen Ghoul\", color=colors.TAN,\n163: \t\t\timage=\"npc/undead_ghoul_ghoul.png\",\n164: \t\t\tdesc = _t[[Flesh is falling off in chunks from this decaying abomination.]],\n165: \t\t\tfaction = self.faction,\n166: \t\t\tlevel_range = {1, nil}, exp_worth = 0,\n167: \t\t\tlife_rating = 10,\n168: \t\t\tmax_life = 100,\n169: \t\t\tcombat_armor_hardiness = 40,  -- 70% total\n170: \t\t\tcombat_armor=resolvers.levelup(3, 1, 1), combat_def = 7,\n171: \t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },\n172: \t\t\tautolevel = \"ghoul\",\n173: \t\t\tsilent_levelup = true,\n174: \t\t\tno_inventory_access = true,\n175: \t\t\tno_drops = true,\n176: \t\t\tsummoner = self, summoner_gain_exp = true,\n177: \t\t\tsummon_time = t.getGhoulDuration(self, t),\n178: \t\t\tai = \"summoned\", ai_state = { talent_in=1, ai_move=\"move_ghoul\", },\n179: \t\t\tai_real = \"tactical\",\n180: \t\t\tai_tactic = resolvers.tactic\"melee\",\n181: \t\t\tstats = { str=14, dex=12, mag=10, con=12 },\n182: \t\t\t-- 1200 life, 82 Accuracy, 80 ppower at level 50 (with difficulty player summon bug fixed)"
+      },
+      "adjudication_stage": "final_host_after_scope_audit",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-FINAL-OUT01",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "claim": "bring her back for one moment与延长她一秒钟的时间",
+      "status": "pending",
+      "accepted": false,
+      "reason": "该语义子句未在本批编辑范围内；依既有范围校准保留后续源码核验线索，不扩大本轮整章修订。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          352,
+          352
+        ],
+        "excerpt": "352: But none of this I knew as I lay weeping in the aftermath, cradling in my lap the one life I cared about.  In abject misery I called on all the healing powers I could to bring her back to me for but one moment.  Her heart beat softly, and her eyes opened, but seemed glassy and far away."
+      },
+      "source_review": ".ai/reviews/repair-w5-20260922/f3a2.json"
+    }
+  ],
+  "accepted_findings": [
+    "RW5-FINAL-01"
+  ],
+  "decision": "WAIT_USER: confirmed in-scope fidelity finding at max_cycles=3; no new fix dispatch, commit, migration, publication, push, or next batch. All children archived."
+}

@@ -1,0 +1,109 @@
+{
+  "task_id": "repair-w5-20260922",
+  "review_phase": "RE_REVIEW",
+  "cycle": 1,
+  "attempt": 2,
+  "review_records": [
+    ".ai/reviews/repair-w5-20260922/r1a2l1.json",
+    ".ai/reviews/repair-w5-20260922/r1a2l2.json",
+    ".ai/reviews/repair-w5-20260922/r1a2l3.json",
+    ".ai/reviews/repair-w5-20260922/r1a2l4.json"
+  ],
+  "rejected_attempt_not_consumed": "r1a1",
+  "before_translation_sha256": "d161b1f96669e4efaf65b92bec72059dd7cedfd7605daf109ee70ad640fdd2f5",
+  "findings": [
+    {
+      "id": "RW5-R1-01",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "before": "说他绝不会伤害自己的人民",
+      "after": "说他无法还手",
+      "line": 380,
+      "reason": "could not fight back保持不能还手，不擅自指定拒绝伤害本国人民的动机。reviewer附带无力抵抗的具体身体/战力归因也不采纳；译文保留could not本身的开放原因。",
+      "status": "confirmed",
+      "accepted": true,
+      "defect_tier": 1,
+      "category": "fidelity",
+      "evidence": {
+        "component": "tome",
+        "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "line": 380,
+        "excerpt": "The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      }
+    },
+    {
+      "id": "RW5-R1-02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "before": "如果有关人类的事情是真的话",
+      "after": "如果这个人类的叙述可信",
+      "line": 382,
+      "reason": "this human's tale明确Cuilan陈述；恢复条件句证词来源，与后文据这个人类所说照应。",
+      "status": "confirmed",
+      "accepted": true,
+      "defect_tier": 1,
+      "category": "fidelity",
+      "evidence": {
+        "component": "tome",
+        "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "file_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "line": 382,
+        "excerpt": "Perissa grabbed me then and turned me to her attention.  “This is what I need to speak with you about, General Aranion.  If this human’s tale is to be believed then we are in very grave danger!  Scout reports suggest there is a body of humans coming here from the north as we speak.  From what this human says they seek retribution - they wish to slaughter us all.  A storm of wrath lies on our borders and we are defenseless!  We need you desperately to organise our defence, to protect our city and our people.”"
+      }
+    }
+  ],
+  "nonaccepted": [
+    {
+      "id": "RW5-R1-A01",
+      "revision_key": "e5666d20d3c3d8abd1d9a79f05c34e328e546c52648ceb73f41abcc1d9a4b800",
+      "status": "advisory",
+      "accepted": false,
+      "claim": "Ghoul Rot与Rotting Disease译名嵌套导致必然不可区分",
+      "reason": "源码确为两个对象，但现译完整名称分别为食尸鬼腐烂疫病和腐烂疫病，首段感染、后段可以使用也区分状态与技能；共享字词不等于同名或机制合并。未提供实际运行键碰撞、调用误述或强制术语依据，不据猜测启动高复用改名。",
+      "source_refs": [
+        "game/modules/tome/data/talents/undeads/ghoul.lua:155–200,226–257",
+        "game/modules/tome/data/timed_effects/magical.lua:2429–2453"
+      ],
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63"
+    },
+    {
+      "id": "RW5-R1-A02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "status": "refuted",
+      "accepted": false,
+      "claim": "孪生姐妹没有源码根据",
+      "reason": "固定elvala.lua:178明确Not between sisters, and especially not between twins.，此处同一Linaniil/Neira，跨段语境直接支持。",
+      "evidence": {
+        "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "line": 178,
+        "excerpt": "“Not between sisters, and especially not between twins.”  She smiled warmly at me, yet there was no humour in her eyes.  “I mean it though.  I love mine sister, but I know her ways.  She be fickle, and willed to do her own thing when she likes.  Do not be surprised when she bores of ye.  Nor hurt.”"
+      }
+    },
+    {
+      "id": "RW5-R1-A03",
+      "revision_key": "e67a8fe84f90497d0b1820eae7f50ee3d7ec863639fe06515b0b99e1d0c53f04",
+      "status": "advisory",
+      "accepted": false,
+      "claim": "orcish corruptors强制套用Corruptor职业条目腐化者",
+      "reason": "冻结classes.tsv:13为existing、T.GAME.CLASS、birth descriptor name；本条为物品叙事_t且用小写复数普通称谓。该行不是全局preferred，也未证明此句必须引用玩家职业标签；不得忽略source_tag/category把existing提升为全局命名义务。堕落者在相关腐化魔法叙事可理解，统一译法属未采用编辑建议。",
+      "term_record": "Corruptor\t腐化者\tT.GAME.CLASS\tclasses\tbirth descriptor name\texisting\tcore\t",
+      "source_refs": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:2316"
+      ],
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63"
+    },
+    {
+      "id": "RW5-R1-A04",
+      "revision_key": "e67a8fe84f90497d0b1820eae7f50ee3d7ec863639fe06515b0b99e1d0c53f04",
+      "status": "advisory",
+      "accepted": false,
+      "claim": "Almadar按拼写必须改名",
+      "reason": "无固定读音及强制人物术语；与R0相同的音译建议，保留现名，非实质译文反向结论。",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63"
+    }
+  ],
+  "scope_calibration": "Under continuous repair authorization host admits only these two exact additional clauses in already selected source380/382, same memoir revision and 18-entry workset. Does not expand to full paragraphs/whole lore, names, glossary or global policy. Reviewer cannot itself grant scope.",
+  "decision": "One merged fresh EXECUTOR fix, then cycle2 full lane group and full final."
+}

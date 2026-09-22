@@ -1,40 +1,40 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核251已finalize，窗口5提前进入修复）
+更新时间：2026-09-22（窗口5译文、复审、门禁、catalog与migration已完成，待宿主出版闭合）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
-审核247—249及修复窗口4已完成提交、队列重建和push，远端、HEAD及SQLite evidence_head
-均已核对为 `27541f6fbb8055a15645fc6d0673ba8a14f9e6fb`。单次 catalog build 与
-单次 migration-chain 已完成，不得重做。译文提交为
-`df8a73a3c9b54f6696cf47baf297f01dc7105ce4`，当前新 catalog 为
-`4763c0b4c71f1ba7a64a5603aca78da83e689f658738d6bc31feaaa9d8f68f08`，migration 为
-`662b5a600a6702658db4397c077036c84d59a3eb32c87cb010d5508cce1c46bc`。
+用户持续授权连续审核和每批 push。审核 250、251 均已完成；窗口 5 因高影响机制问题在
+251 安全边界提前进入修复，没有等待第三批。18 条修复由两次真实 repair preflight 的 16 条
+（250 十条、251 六条）和 251 宿主独立补充 2 条组成；补充条目没有被伪称为生产
+`repair_required`。
 
-窗口4主任务是17条：三批真实 preflight 的16条正式候选，加宿主独立回忆录1条。另有独立
-runtime sibling 修复 Cults 共享键1条，不属于主17清单，也不伪称来自 preflight。完整门禁首次
-16/17通过；runtime碰撞修复后的 retry `run.tb2mt5it` 为17/17通过并含构建，两个任务均
-`DONE_VERIFIED`。主任务最终原始结果为16 `OK` 加1个范围外 `ISSUE`，宿主裁决 scope 内无
-accepted/deferred 后 completed，不是17 `OK`；Cults有效 REVIEW/FINAL 均为1 `OK`，首次
-review input 格式错误的无效尝试及 fresh retry 均保留。
+译文提交为 `f0560f5d888a9c5a84f21c1216e43eb1645437d3`，只修改 `mod-tome.lua`
+的 18 个 target；source、source_tag、args_order 等保持不变，只有原授权 `e56b636891…`
+恢复源码 1 LF / 2 TAB 布局。没有术语库变更。三轮上限后的最终复审发现 source 188 的
+`hum` 被译成“呼吸”，任务真实暂停 `WAIT_USER`；用户“同意”额外一轮，SENIOR 范围校准
+`keep`，仅改成“嗡嗡作响”。本次 `max_cycles=4` 是单次明确授权，不是后续默认规则。
 
-Cults公开源码快照 SHA-256 为
-`6cc08be3041889e6e7223c27b056f6d8db173e75108e881fb20aea64234b5cb9`，但上游
-commit/版本未固定，catalog snapshot 不是源码 commit。共享 key 已存在于官方 core，故不重复
-加入 DLC overlay；不能据此声称整个 Cults 不发布。回忆录 source 164、198/210 观察继续保持
-pending/advisory；Archmage 和旧 blocked 保持排除。
+最新最终全量原始结果为 16 `OK` 加 2 `ISSUE`，不是 18 `OK`。宿主裁决范围内无
+accepted/deferred 后 completed：回忆录 source 358 清醒时喂水及 source 380 前往 Elvala
+的未编辑子句保留 pending；Corruptor 职业 birth descriptor existing 条目不强制映射叙事 `_t`，
+保留 advisory。其他历轮范围外回忆录和称谓建议保持原记录，不新增修复。身份或读取边界不合格的
+复审尝试及 fresh retries 均原样保留，未把无效结果用作审核依据。
 
-309文件、2,926,264 bytes 的冻结归档、五个候选文件、migration 及 publication 原始输入已按源
-逐字安装并复核；两个独立 snapshot 均从归档路径再次 `DONE_VERIFIED`。详情见
-[窗口4出版证据](evidence/quality/repair-window-4-20260922/PUBLICATION.md)。该文件的待出版文字是提交前快照；
-窗口4实际出版闭合已完成。250已finalize并推送3072697；251证据已提交并finalize。
-本次交接提交后执行一次queue rebuild及push；恢复时先核对HEAD、远端与队列，避免重做。
-窗口5因机制高影响问题在251安全边界提前修复：250的10条、251的6条正式候选，加251的2条独立
-补充候选，合计18条预期候选。两批各跑真实repair preflight，保留独立补充来源后建唯一EXECUTOR任务。
-252尚未启动，待修复窗口5完成后继续。
-原有 `.ai/consult/`、`recipe` 和15个旧 source-workset 保留，不纳入提交或清理。
+最终完整门禁 `run.rlohbmvk` 为 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。738 文件、
+8,798,915 bytes 的冻结包已独立 snapshot 重放通过；归档 STATE 使用 immutable checkpoint。
+五个 candidate catalog 文件、migration 与 12 份 publication 原始附件均已逐字安装并复核。
+当前 catalog 为 `c267a00eaf39f49b99266912241cfed79dfcbda440903763975ea2e4334a239d`，
+migration 为 `198b6812cf2fc2865016eb39153f90a70f244d3984a6ca81009bde8c2e897b6a`。
+单次 catalog build 与 migration-chain 已完成，禁止重做；18 条 revision changed、29,810 条
+unchanged，0 ambiguous/unmapped，18 个 successor 已入队且须重新审核，不继承旧 revision 完成态。
+完整边界、哈希与计时见[窗口5出版证据](evidence/quality/repair-window-5-20260922/PUBLICATION.md)。
+
+本次证据/catalog/migration commit、提交后的第二次 queue rebuild、push 与远端复核仍待宿主执行，
+不能提前视为完成。闭合后继续审核 252，默认 80 条。旧 Archmage、范围外 pending、旧 blocked
+及 `RW1-SIB-01/02` 不扩大；`.ai/consult/`、`recipe` 和 15 个旧 source-workset 保留，不纳入
+本次提交或清理。
 
 ## 审核251：修复窗口5第二批，提前修复边界
 
@@ -175,11 +175,11 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 宿主检查窗口4出版工作树，只提交本窗口证据、精确安装的 catalog/migration、handoff 及既有
-   runtime sidecar；保留所有无关既有文件。
+1. 宿主检查窗口 5 出版工作树，只提交本窗口证据、精确安装的 catalog/migration 与 handoff；
+   保留所有无关既有文件，不纳入 `.ai/consult/`、`recipe` 或 15 个旧 source-workset。
 2. 提交后只执行第二次 queue rebuild，再 push 并核实远端；不要重跑已完成的第一次 queue、catalog、
    migration-chain、复审或完整门禁。
-3. 出版闭合后启动审核250（默认80条）。18个迁移 successor 必须重新审核；不把 advisory、
+3. 出版闭合后启动审核 252（默认 80 条）。18 个迁移 successor 必须重新审核；不把 advisory、
    Archmage、旧 blocked 或范围外 pending 自动计入修复。
 
 ## 保留边界与历史

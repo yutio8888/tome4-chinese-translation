@@ -1,0 +1,129 @@
+{
+  "task_id": "repair-w5-20260922",
+  "review_phase": "RE_REVIEW",
+  "cycle": 4,
+  "attempt": 1,
+  "raw_counts": {
+    "OK": 15,
+    "ISSUE": 3
+  },
+  "review_records": [
+    ".ai/reviews/repair-w5-20260922/r4a1l1.json",
+    ".ai/reviews/repair-w5-20260922/r4a1l2.json",
+    ".ai/reviews/repair-w5-20260922/r4a1l3.json",
+    ".ai/reviews/repair-w5-20260922/r4a1l4.json"
+  ],
+  "findings": [
+    {
+      "id": "RW5-R4-A01",
+      "revision_key": "e5666d20d3c3d8abd1d9a79f05c34e328e546c52648ceb73f41abcc1d9a4b800",
+      "source_review": ".ai/reviews/repair-w5-20260922/r4a1l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r4a1l1.txt",
+      "claim": "食尸鬼傀儡新增没有机制依据的实体性质",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "同一实体的两个称呼可以指称一致；源码faction=self.faction、summoner=self、summon_time、ai=summoned支持为施术者作战的召唤随从。傀儡不是在此宣称炼金傀儡种族；原本只修感染后死亡分支，不据称谓简化偏好扩大。 范围校准narrow采纳为仅称谓一致性建议，不确认错误机制性质。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "036f501d24a0e0f24b96d135bb879a2a344d977473f26c460c8d1ca99f0a98d9",
+        "lines": [
+          155,
+          182
+        ],
+        "excerpt": "155: \tspawn_ghoul = function (self, target, t)\n156: \t\tlocal x, y = util.findFreeGrid(target.x, target.y, 10, true, {[Map.ACTOR]=true})\n157: \t\tif not x then return nil end\n158: \t\tlocal NPC = require \"mod.class.NPC\"\n159: \t\tlocal ghoul = NPC.new{\n160: \t\t\ttype = \"undead\", subtype = \"ghoul\",\n161: \t\t\tdisplay = \"z\",\n162: \t\t\tname = _t\"Risen Ghoul\", color=colors.TAN,\n163: \t\t\timage=\"npc/undead_ghoul_ghoul.png\",\n164: \t\t\tdesc = _t[[Flesh is falling off in chunks from this decaying abomination.]],\n165: \t\t\tfaction = self.faction,\n166: \t\t\tlevel_range = {1, nil}, exp_worth = 0,\n167: \t\t\tlife_rating = 10,\n168: \t\t\tmax_life = 100,\n169: \t\t\tcombat_armor_hardiness = 40,  -- 70% total\n170: \t\t\tcombat_armor=resolvers.levelup(3, 1, 1), combat_def = 7,\n171: \t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },\n172: \t\t\tautolevel = \"ghoul\",\n173: \t\t\tsilent_levelup = true,\n174: \t\t\tno_inventory_access = true,\n175: \t\t\tno_drops = true,\n176: \t\t\tsummoner = self, summoner_gain_exp = true,\n177: \t\t\tsummon_time = t.getGhoulDuration(self, t),\n178: \t\t\tai = \"summoned\", ai_state = { talent_in=1, ai_move=\"move_ghoul\", },\n179: \t\t\tai_real = \"tactical\",\n180: \t\t\tai_tactic = resolvers.tactic\"melee\",\n181: \t\t\tstats = { str=14, dex=12, mag=10, con=12 },\n182: \t\t\t-- 1200 life, 82 Accuracy, 80 ppower at level 50 (with difficulty player summon bug fixed)"
+      },
+      "adjudication_stage": "cycle4_host",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-R4-OUT02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r4a1l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r4a1l2.txt",
+      "claim": "as we began重建时态及大部分人增译",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      },
+      "adjudication_stage": "cycle4_host",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-R4-OUT03",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r4a1l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r4a1l2.txt",
+      "claim": "遗漏交戒时要求前往Elvala寻人",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      },
+      "adjudication_stage": "cycle4_host",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-R4-OUT01",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/r4a1l1.json",
+      "claim": "I cursed quietly被译为感到一阵震惊",
+      "status": "pending",
+      "accepted": false,
+      "reason": "source176在本批188行对应段落之外，未由本窗口改动；保留后续successor核验线索，不扩大第四轮用户仅授权嗡鸣短语的范围。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          176,
+          176
+        ],
+        "excerpt": "176: I cursed quietly, understanding her meaning.  “Are there no secrets to be had in all Eyal?” I muttered."
+      }
+    },
+    {
+      "id": "RW5-R4-A02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r4a1l2.json",
+      "claim": "法力通道的句末残留的",
+      "status": "advisory",
+      "accepted": false,
+      "tier": 2,
+      "reason": "该原有句式子句未编辑，且cycle4中文语法问题仅记advisory；不属于占位符/markup/newline不变量。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      }
+    }
+  ],
+  "accepted_findings": [],
+  "decision": "Scoped candidate converged; proceed final full review. Preserve all raw ISSUE observations."
+}

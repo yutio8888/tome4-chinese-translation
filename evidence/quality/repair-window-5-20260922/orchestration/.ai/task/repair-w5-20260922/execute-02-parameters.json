@@ -1,0 +1,17 @@
+{
+  "initialPrompt": "你是唯一EXECUTOR，执行窗口5第一次合并修复。读 .ai/roles/executor.md、.ai/task/repair-w5-20260922/SPEC.md、FIX-1.md、FIX-1-REPLACEMENTS.json、ADJUDICATION-R0.json。仅按五处精确before/after替换修改mod-tome.lua，其他字符相对BEFORE-FIX-1.lua完全不变；涉及三个现有revision，不全面重译回忆录。只可新增evidence/quality/repair-window-5-20260922/IMPLEMENTATION-FIX-1.md和VALIDATION-FIX-1.json，保留旧证据。执行python3 -B .ai/task/repair-w5-20260922/verify_fix1.py、verify.py、python3 -B tools/i18n lint --strict、git diff --check及新增证据空白检查，记录真实结果。禁止写.ai、其他译文、术语、规则、工具、handoff/catalog/migration，禁止stage/commit或创建agent。不跑完整门禁；保留全部无关文件。报告实际变更与验证，不只回计划。",
+  "labels": {
+    "task_id": "repair-w5-20260922",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+  },
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "title": "窗口5 五处合并修复",
+  "workspaceId": "wks_420314270844170b"
+}

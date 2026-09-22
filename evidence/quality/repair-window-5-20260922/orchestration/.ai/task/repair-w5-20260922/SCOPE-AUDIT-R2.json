@@ -1,0 +1,313 @@
+{
+  "role": "SENIOR_REVIEWER",
+  "purpose": "scope_audit",
+  "candidate_ref": "bc2649266dd7b023f4563fe5a7494a574e11d649d7b4d36a781ab25338ef96fd",
+  "candidate_locator": {
+    "spec_path": ".ai/task/repair-w5-20260922/SCOPE-AUDIT-R2-SPEC.md",
+    "diff_path": ".ai/task/repair-w5-20260922/CODE_DIFF-SENIOR_REVIEW-2-1.patch"
+  },
+  "source_reviews": [
+    ".ai/reviews/repair-w5-20260922/host-findings-r2.json",
+    ".ai/reviews/repair-w5-20260922/r2a3l1.json",
+    ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+    ".ai/reviews/repair-w5-20260922/r2a3l3.json",
+    ".ai/reviews/repair-w5-20260922/r2a3l4.json"
+  ],
+  "findings": [
+    {
+      "id": "RW5-R2-01",
+      "revision_key": "e66d53860d323fe59145c87fbfd046cd371500e0dac3d2d80f6a9457769102f7",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l3.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l3.txt",
+      "claim": "轻甲和布甲不能充分表达leather or lighter的择一装备条件",
+      "status": "confirmed",
+      "accepted": true,
+      "reason": "固定hasLightArmor只接受BODY单件cloth/light/mummy；当前两种类别枚举遗漏mummy，且和容易误读。最小动作只改装备条件，不碰已经修正的Defense范围或占位符。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/class/interface/Combat.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+        "lines": [
+          2669,
+          2680
+        ],
+        "excerpt": "2669: end\n2670: \n2671: --- Check if the actor has a light armor\n2672: function _M:hasLightArmor()\n2673: \tif not self:getInven(\"BODY\") then return end\n2674: \tlocal armor = self:getInven(\"BODY\")[1]\n2675: \tif not armor or (armor.subtype ~= \"cloth\" and armor.subtype ~= \"light\" and armor.subtype ~= \"mummy\") then\n2676: \t\treturn nil\n2677: \tend\n2678: \treturn armor\n2679: end\n2680: "
+      },
+      "proposed_exact_change": {
+        "before": "当你身着轻甲和布甲时",
+        "after": "当你身着轻甲或更轻的护甲时"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "我试图反对缺少句末标点",
+      "status": "confirmed",
+      "accepted": true,
+      "reason": "source392属于本批已核验368–396引语及叙述标点段，补中文句号可独立核验；不改句义或展开段落。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          390,
+          394
+        ],
+        "excerpt": "390: “This be our path then, Aranion,” she said quietly, raising herself from the bed and carefully placing the ring on the middle finger of her right hand.  “I must tend to mine people, and ye to yours.  We will not meet again.”\n391: \n392: “But your wounds-” I tried to object.\n393: \n394: “Will never heal!” she cried, hate dripping from her voice.  Her eyes were like cold and impenetrable ice, a smouldering anger deep within.  “Come, Cuilan, we must leave this place.”  And with that they departed, Linaniil walking tall and proud in spite of her injuries."
+      },
+      "proposed_exact_change": {
+        "before": "“但是你的伤口——”我试图反对\n",
+        "after": "“但是你的伤口——”我试图反对。\n"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-A01",
+      "revision_key": "e5666d20d3c3d8abd1d9a79f05c34e328e546c52648ceb73f41abcc1d9a4b800",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l1.txt",
+      "claim": "食尸鬼傀儡新增没有机制依据的实体性质",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "同一实体的两个称呼可以指称一致；源码faction=self.faction、summoner=self、summon_time、ai=summoned支持为施术者作战的召唤随从。傀儡不是在此宣称炼金傀儡种族；原本只修感染后死亡分支，不据称谓简化偏好扩大。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "036f501d24a0e0f24b96d135bb879a2a344d977473f26c460c8d1ca99f0a98d9",
+        "lines": [
+          155,
+          182
+        ],
+        "excerpt": "155: \tspawn_ghoul = function (self, target, t)\n156: \t\tlocal x, y = util.findFreeGrid(target.x, target.y, 10, true, {[Map.ACTOR]=true})\n157: \t\tif not x then return nil end\n158: \t\tlocal NPC = require \"mod.class.NPC\"\n159: \t\tlocal ghoul = NPC.new{\n160: \t\t\ttype = \"undead\", subtype = \"ghoul\",\n161: \t\t\tdisplay = \"z\",\n162: \t\t\tname = _t\"Risen Ghoul\", color=colors.TAN,\n163: \t\t\timage=\"npc/undead_ghoul_ghoul.png\",\n164: \t\t\tdesc = _t[[Flesh is falling off in chunks from this decaying abomination.]],\n165: \t\t\tfaction = self.faction,\n166: \t\t\tlevel_range = {1, nil}, exp_worth = 0,\n167: \t\t\tlife_rating = 10,\n168: \t\t\tmax_life = 100,\n169: \t\t\tcombat_armor_hardiness = 40,  -- 70% total\n170: \t\t\tcombat_armor=resolvers.levelup(3, 1, 1), combat_def = 7,\n171: \t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },\n172: \t\t\tautolevel = \"ghoul\",\n173: \t\t\tsilent_levelup = true,\n174: \t\t\tno_inventory_access = true,\n175: \t\t\tno_drops = true,\n176: \t\t\tsummoner = self, summoner_gain_exp = true,\n177: \t\t\tsummon_time = t.getGhoulDuration(self, t),\n178: \t\t\tai = \"summoned\", ai_state = { talent_in=1, ai_move=\"move_ghoul\", },\n179: \t\t\tai_real = \"tactical\",\n180: \t\t\tai_tactic = resolvers.tactic\"melee\",\n181: \t\t\tstats = { str=14, dex=12, mag=10, con=12 },\n182: \t\t\t-- 1200 life, 82 Accuracy, 80 ppower at level 50 (with difficulty player summon bug fixed)"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-A02",
+      "revision_key": "e67a8fe84f90497d0b1820eae7f50ee3d7ec863639fe06515b0b99e1d0c53f04",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l3.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l3.txt",
+      "claim": "corruptors须全局套用职业名称腐化者，堕落者施受关系错误",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "沿用有据的R1分类：classes.tsv的existing/T.GAME.CLASS/birth descriptor name不是叙事_t的强制全局条目；相关腐化法术施用者可以有称谓译名，不能从英语词尾单独推导命名必须保留施受语态。未发现运行键/明确机制错误，仍不作跨类全局统一。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+        "lines": [
+          2312,
+          2316
+        ],
+        "excerpt": "2312: \tname = \"Blightstopper\",\n2313: \tunided_name = _t\"vine coated shield\",\n2314: \tmoddable_tile = \"special/%s_blightstopper\",\n2315: \tmoddable_tile_big = true,\n2316: \tdesc = _t[[This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.]],"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT01",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l1.txt",
+      "claim": "getting brusquely from my bed被译为许久的沉思后",
+      "status": "pending",
+      "accepted": false,
+      "reason": "本轮只纳入188对应段落；所指措辞均未由本窗口改动。独立登记后续successor源码核验线索，不自动扩大为整章重写。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          152,
+          152
+        ],
+        "excerpt": "152: “I am a warrior,” I said to her finally, getting brusquely from my bed and recovering my robes.  “I settle my battles facing my foe, not by toying with relics from afar.  It irks me that we must deal with our enemies in such a craven way.”"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT02",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l1.txt",
+      "claim": "I left my chamber then被译为小心关门",
+      "status": "pending",
+      "accepted": false,
+      "reason": "本轮只纳入188对应段落；所指措辞均未由本窗口改动。独立登记后续successor源码核验线索，不自动扩大为整章重写。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          164,
+          164
+        ],
+        "excerpt": "164: I left my chamber then, dark thoughts now brooding at the back of my mind.  The date was coming closer when our plans would come to fruition and the Great Spellblaze would be unleashed.  A heavy foreboding lay over my heart.  Yet the alternatives seemed grim.  The war with the orcs was going badly, with few races able to secure their borders well and attacks from the brutes ever increasing.  Their numbers seemed inexhaustible.  Though they had little skill in warfare they could bring great harm to unprotected townsteads, and in enough force could bring down cities.  One human kingdom had collapsed under their attacks but a week before.  After that many who had initially rejected our plans came begging for our protection.  The Spellblaze seemed our only hope against imminent disaster."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT03",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l1.txt",
+      "claim": "gasp for air的屏息后吸气被译为喘不过气",
+      "status": "pending",
+      "accepted": false,
+      "reason": "本轮只纳入188对应段落；所指措辞均未由本窗口改动。独立登记后续successor源码核验线索，不自动扩大为整章重写。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          214,
+          214
+        ],
+        "excerpt": "214: Then the chanting stopped and the image disappeared, and I could hear beside me Neira suddenly gasp for air, as if she had not dared draw breath through the last few minutes."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT04",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "for but one moment被具体化为一秒钟",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          352,
+          352
+        ],
+        "excerpt": "352: But none of this I knew as I lay weeping in the aftermath, cradling in my lap the one life I cared about.  In abject misery I called on all the healing powers I could to bring her back to me for but one moment.  Her heart beat softly, and her eyes opened, but seemed glassy and far away."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT05",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "as we began重建时态及大部分人增译",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT06",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "遗漏交戒时要求前往Elvala寻人",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT07",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "Scout reports suggest的报告主体及确定性",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          382,
+          382
+        ],
+        "excerpt": "382: Perissa grabbed me then and turned me to her attention.  “This is what I need to speak with you about, General Aranion.  If this human’s tale is to be believed then we are in very grave danger!  Scout reports suggest there is a body of humans coming here from the north as we speak.  From what this human says they seek retribution - they wish to slaughter us all.  A storm of wrath lies on our borders and we are defenseless!  We need you desperately to organise our defence, to protect our city and our people.”"
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT08",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "locked away from memory与在记忆中封存关系",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          396,
+          396
+        ],
+        "excerpt": "396: I closed off my heart and my emotions then, lest they overwhelm me.  My duty was before me, and the events of the past had to be locked away from memory."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    },
+    {
+      "id": "RW5-R2-OUT09",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/r2a3l2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r2a3l2.txt",
+      "claim": "当那些农民陷入混乱的时候为残句",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          400,
+          400
+        ],
+        "excerpt": "400: The first waves of the storm of hate came the next day.  Human peasants and farmers, ordinary workers armed poorly, their looted swords and spears badly wielded.  I stood alone at our gates as they approached, Mooncutter in my hand.  When the first few charged at me I thrust the blade into the soil and tore a great chasm in the earth, and our mages summoned forth mists and smoke that rose from the ground and began to surround our whole city.  As the peasants stumbled in confusion archers started firing from our walls.  What few made it through the smoke and arrows I took on, tearing Mooncutter through their flesh with little resistance.  Their blood gushed out in the gallons, drenching our ground, staining my skin.  It was like a warm shower over my boiling emotions, a bath of blood to wash over my sins."
+      },
+      "adjudication_stage": "provisional_scope_audit_input"
+    }
+  ],
+  "instructions": "只校准这13个已有claim的范围/比例性及最小动作，不独立重新审核译文、不新增finding。host-findings明确为宿主拆分和暂定裁决，原始观察来自合法r2a3；不得读取无效尝试或外部记忆。两个拟accepted精确替换待你校准，其他条目为advisory或范围外pending线索。每项按senior role七字段返回；Finding ref用 .ai/reviews/repair-w5-20260922/host-findings-r2.json / <ID>。"
+}

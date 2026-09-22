@@ -1,0 +1,101 @@
+{
+  "task_id": "repair-w5-20260922",
+  "review_phase": "RE_REVIEW",
+  "cycle": 3,
+  "attempt": 1,
+  "review_records": [
+    ".ai/reviews/repair-w5-20260922/r3a1l1.json",
+    ".ai/reviews/repair-w5-20260922/r3a1l2.json",
+    ".ai/reviews/repair-w5-20260922/r3a1l3.json",
+    ".ai/reviews/repair-w5-20260922/r3a1l4.json"
+  ],
+  "raw_counts": {
+    "OK": 16,
+    "ISSUE": 2
+  },
+  "findings": [
+    {
+      "id": "RW5-R3-A01",
+      "revision_key": "e5666d20d3c3d8abd1d9a79f05c34e328e546c52648ceb73f41abcc1d9a4b800",
+      "source_review": ".ai/reviews/repair-w5-20260922/r3a1l1.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-r3a1l1.txt",
+      "claim": "食尸鬼傀儡新增没有机制依据的实体性质",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "同一实体的两个称呼可以指称一致；源码faction=self.faction、summoner=self、summon_time、ai=summoned支持为施术者作战的召唤随从。傀儡不是在此宣称炼金傀儡种族；原本只修感染后死亡分支，不据称谓简化偏好扩大。 范围校准narrow采纳为仅称谓一致性建议，不确认错误机制性质。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "036f501d24a0e0f24b96d135bb879a2a344d977473f26c460c8d1ca99f0a98d9",
+        "lines": [
+          155,
+          182
+        ],
+        "excerpt": "155: \tspawn_ghoul = function (self, target, t)\n156: \t\tlocal x, y = util.findFreeGrid(target.x, target.y, 10, true, {[Map.ACTOR]=true})\n157: \t\tif not x then return nil end\n158: \t\tlocal NPC = require \"mod.class.NPC\"\n159: \t\tlocal ghoul = NPC.new{\n160: \t\t\ttype = \"undead\", subtype = \"ghoul\",\n161: \t\t\tdisplay = \"z\",\n162: \t\t\tname = _t\"Risen Ghoul\", color=colors.TAN,\n163: \t\t\timage=\"npc/undead_ghoul_ghoul.png\",\n164: \t\t\tdesc = _t[[Flesh is falling off in chunks from this decaying abomination.]],\n165: \t\t\tfaction = self.faction,\n166: \t\t\tlevel_range = {1, nil}, exp_worth = 0,\n167: \t\t\tlife_rating = 10,\n168: \t\t\tmax_life = 100,\n169: \t\t\tcombat_armor_hardiness = 40,  -- 70% total\n170: \t\t\tcombat_armor=resolvers.levelup(3, 1, 1), combat_def = 7,\n171: \t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },\n172: \t\t\tautolevel = \"ghoul\",\n173: \t\t\tsilent_levelup = true,\n174: \t\t\tno_inventory_access = true,\n175: \t\t\tno_drops = true,\n176: \t\t\tsummoner = self, summoner_gain_exp = true,\n177: \t\t\tsummon_time = t.getGhoulDuration(self, t),\n178: \t\t\tai = \"summoned\", ai_state = { talent_in=1, ai_move=\"move_ghoul\", },\n179: \t\t\tai_real = \"tactical\",\n180: \t\t\tai_tactic = resolvers.tactic\"melee\",\n181: \t\t\tstats = { str=14, dex=12, mag=10, con=12 },\n182: \t\t\t-- 1200 life, 82 Accuracy, 80 ppower at level 50 (with difficulty player summon bug fixed)"
+      },
+      "adjudication_stage": "final_host_after_scope_audit",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-R3-OUT01",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "claim": "bring her back for one moment与延长她一秒钟的时间",
+      "status": "pending",
+      "accepted": false,
+      "reason": "该语义子句未在本批编辑范围内；依既有范围校准保留后续源码核验线索，不扩大本轮整章修订。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          352,
+          352
+        ],
+        "excerpt": "352: But none of this I knew as I lay weeping in the aftermath, cradling in my lap the one life I cared about.  In abject misery I called on all the healing powers I could to bring her back to me for but one moment.  Her heart beat softly, and her eyes opened, but seemed glassy and far away."
+      },
+      "source_review": ".ai/reviews/repair-w5-20260922/r3a1l2.json"
+    },
+    {
+      "id": "RW5-R3-OUT02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "claim": "lies on our borders被扩为包围并加入孤立无援",
+      "status": "pending",
+      "accepted": false,
+      "reason": "该语义子句未在本批编辑范围内；依既有范围校准保留后续源码核验线索，不扩大本轮整章修订。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          382,
+          382
+        ],
+        "excerpt": "382: Perissa grabbed me then and turned me to her attention.  “This is what I need to speak with you about, General Aranion.  If this human’s tale is to be believed then we are in very grave danger!  Scout reports suggest there is a body of humans coming here from the north as we speak.  From what this human says they seek retribution - they wish to slaughter us all.  A storm of wrath lies on our borders and we are defenseless!  We need you desperately to organise our defence, to protect our city and our people.”"
+      },
+      "source_review": ".ai/reviews/repair-w5-20260922/r3a1l2.json"
+    },
+    {
+      "id": "RW5-R3-A02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "claim": "小姐后引号内逗号与他说道句号之间的汉语标点关系",
+      "status": "advisory",
+      "accepted": false,
+      "tier": 2,
+      "reason": "实际译文为“嗯，是我，小姐，”他轻声说道。“我是奉你父亲之命来到这里的。”；引号配对完整，语义及说话者不变，符合固定英文标点结构但中文可调整。属于中文语法/标点习惯，不是markup或运行不变量错误；cycle3按二级收敛规则仅保留建议。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          370,
+          370
+        ],
+        "excerpt": "370: “Aye, it is me, my lady,” he said quietly.  “I have been sent here by your father.  He has ordered me to pass you this.”  And with that he brought forth a golden ring set with a fiery ruby.  I recognised it immediately as the Ring of Kar’Krul, worn by the mighty Turthel.  Linaniil sat up quickly, wincing from the pain, but with her eyes locked on the ring as it was placed in her hand."
+      },
+      "source_review": ".ai/reviews/repair-w5-20260922/r3a1l2.json"
+    }
+  ],
+  "accepted_findings": [],
+  "decision": "No confirmed tier1 finding in scoped candidate; converge to final full review. Raw ISSUE preserved."
+}

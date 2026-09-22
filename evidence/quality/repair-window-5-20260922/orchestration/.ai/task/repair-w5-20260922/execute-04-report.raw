@@ -1,0 +1,23 @@
+已完成窗口 5 第三轮两处精确修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+  - 轻甲条件修正为“轻甲或更轻的护甲”
+  - “我试图反对”补中文句号
+- 新增 [IMPLEMENTATION-FIX-3.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/IMPLEMENTATION-FIX-3.md)
+- 新增 [VALIDATION-FIX-3.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-5-20260922/VALIDATION-FIX-3.json)
+
+实际验证全部通过：
+
+- `verify_fix3.py`：2 个精确替换、2 个 revision；其余字符与 `BEFORE-FIX-3.lua` 完全一致
+- `verify.py`：22989 条记录，总工作集仍为 18 个 target
+- 严格 lint：30308 条翻译，0 errors、0 warnings
+- `git diff --check`：通过
+- 两个新证据文件：UTF-8、末尾换行、无尾随空白，JSON 语法有效
+
+最终 `mod-tome.lua` SHA-256：
+
+`31ee5fa4c49422874cda5e7e58848e878628f13e1732d83a431e21be94702e8b`
+
+未修改 `.ai` 或旧证据，未创建 agent，未 stage/commit，未运行完整门禁、queue、catalog 或 migration。

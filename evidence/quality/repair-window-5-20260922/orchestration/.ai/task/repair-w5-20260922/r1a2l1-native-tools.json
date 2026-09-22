@@ -1,0 +1,139 @@
+{
+  "dispatch_id": "r1a2l1",
+  "native_session": "b587e35a-08d0-4dc5-950c-9cc1ff7f2fd4",
+  "native_sha256": "ff04d599bb4c1db62408c1d42dc2c4f051984bc5842a59c3a1f783d609953e2f",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01Vzsd5n3BG63mawj4Ch1PY6",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json",
+        "description": "Check sizes of contract and envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017m57etefXD3nrNcDr2tyHa",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01R3QJbpBKuMSRGAYWJ4gvxZ",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01JN5QUwraCSAmetqaYAWn8T",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=== idx',i,'keys',list(t.keys()))\n    for k,v in t.items(): print('--',k,':',v)\n\"",
+        "description": "Dump translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013pFnV8mV6rGCXrGoXHmAGR",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nfor i,t in enumerate(p['bounded_context']):\n    print('=== idx',i,list(t.keys()))\n    print('key',t.get('revision_key'))\n    print(t.get('context'))\n\" | head -300",
+        "description": "Dump bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Ffoms7HSk22zwdENJEtwfW",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nc=json.loads(p['bounded_context'][0]['context'])\nprint(list(c.keys()))\nfor e in c['source_excerpts']:\n    for ln in e['excerpt'].split('\\n'):\n        if ln.startswith(('186:','187:','188:','189:','190:')): print(e['component'],ln[:600])\n\"",
+        "description": "Find line 188"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GoCA84g2zH57W88sdtbtQa",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nfor i in (1,2):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print('=== idx',i)\n    print(json.dumps(c,ensure_ascii=False,indent=1))\n\"",
+        "description": "Dump ctx 1,2"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BiBm6KdPwwueQ2gVSyN7Kg",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nfor i in (3,4):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print('=== idx',i)\n    print(json.dumps(c,ensure_ascii=False,indent=1))\n\"",
+        "description": "Dump ctx 3,4"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017vrVFtu7M6tAYTcvsFXxjS",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r1a2l1.json'))\np=d['payload']\nt=json.loads(p['terminology_snapshot'])\nprint(list(t.keys()))\nfor r in t['records']:\n    print(r['path'],r['line'],r['record'])\n\" ",
+        "description": "Dump terminology records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_019qYk4QFadNKFgLPyoq3Haq",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/undeads/ghoul.lua | grep -n 'name = \\|Rotting\\|Ghoul Rot' | head -40",
+        "description": "Check ghoul talents at fixed commit"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01XyirpH3RfW5ypD8WFEC6MC",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/undeads/ghoul.lua | sed -n '155,200p'; echo ---; git -C /workspace/t-engine4 grep -n 'Rotting Disease' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head",
+        "description": "Check Risen Ghoul talents and Rotting Disease definition"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

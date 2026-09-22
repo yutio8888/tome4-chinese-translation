@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_by": "unique EXECUTOR for repair-w5-20260922 FIX-2",
+  "scope": {
+    "translation_file": "mod-tome.lua",
+    "before_file": ".ai/task/repair-w5-20260922/BEFORE-FIX-2.lua",
+    "replacement_file": ".ai/task/repair-w5-20260922/FIX-2-REPLACEMENTS.json",
+    "exact_replacements": 2,
+    "changed_revisions": 1,
+    "before_sha256": "d161b1f96669e4efaf65b92bec72059dd7cedfd7605daf109ee70ad640fdd2f5",
+    "after_sha256": "35190ae973685a9bf7f7bd443556da1bbe38f761c7ade2d6472ec752a2ffc24d"
+  },
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify_fix2.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; exact_replacements=2; changed_revisions=1; sha256=35190ae973685a9bf7f7bd443556da1bbe38f761c7ade2d6472ec752a2ffc24d. All other bytes equal BEFORE-FIX-2.lua."
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; 22989 loaded records; exactly 18 baseline-to-current target changes, all in the frozen workset."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Checked 30308 translations: 0 errors, 0 warnings."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "No whitespace errors in tracked diff."
+    },
+    {
+      "command": "Python UTF-8/final-newline/trailing-whitespace check for IMPLEMENTATION-FIX-2.md and VALIDATION-FIX-2.json, plus python3 -m json.tool for VALIDATION-FIX-2.json",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Both new evidence files are valid UTF-8, end with a newline, and contain no trailing spaces or tabs; VALIDATION-FIX-2.json is valid JSON."
+    }
+  ],
+  "host_fix1_history": {
+    "original_executor_record": "evidence/quality/repair-window-5-20260922/VALIDATION-FIX-1.json",
+    "original_result": "The old host FIX-1 checker location failure remains preserved as historical output.",
+    "corrected_acceptance": ".ai/task/repair-w5-20260922/HOST-FIX1-ACCEPTANCE.json",
+    "corrected_result": "The corrected host FIX-1 verifier actually passed with exit code 0."
+  },
+  "note": "Full gates were intentionally not run. No stage, commit, agent creation, handoff, catalog or migration operation was performed."
+}

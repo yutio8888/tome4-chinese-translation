@@ -1,0 +1,84 @@
+{
+  "parameters": {
+    "initialPrompt": "只读审核冻结译文，有据问题报ISSUE，否则OK。candidate_identity=9c4de9cb0a9cca4b8c13882576f04d46e55d7cfb6abec485e7cf7dc692058d7e；input_path=.ai/task/repair-w5-20260922/CONTEXTUAL-ENVELOPE-r2a1l1.json。只读该输入和完整docs/paseo-translation-context-review-v2-contract.md；必要时仅用git -C /workspace/t-engine4 show核对同固定commit相关源码。禁止搜索或读取evidence/、其他.ai/task/、.ai/reviews/、当前译文/术语库、历史意见；禁止写入。仅输出契约第六节紧凑JSON，按序全覆盖并回显identity，首{末}，无说明或围栏。",
+    "provider": "claude/claude-opus-5",
+    "settings": {
+      "modeId": "auto",
+      "thinkingOptionId": "medium",
+      "features": {
+        "fast_mode": false
+      }
+    },
+    "title": "窗口5 第二轮复审 r2a1l1",
+    "workspaceId": "wks_420314270844170b",
+    "labels": {
+      "task_id": "repair-w5-20260922",
+      "role": "reviewer",
+      "purpose": "translation_contextual_v2",
+      "dispatch_id": "r2a1l1",
+      "candidate_identity": "9c4de9cb0a9cca4b8c13882576f04d46e55d7cfb6abec485e7cf7dc692058d7e",
+      "lane_group_identity": "e14aea4e490897ca2ae0f6b11fcf215fcc9fc4e0c5060167431f887fb4c7644c",
+      "lane_index": "1",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    }
+  },
+  "profile": {
+    "id": "agent_profile_mtjlooyy_myzr9tapied",
+    "name": "Cross Reviewer - Opus",
+    "provider": "claude",
+    "model": "claude-opus-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "featureValues": {
+      "fast_mode": false
+    },
+    "notes": "role=REVIEWER across contract-allowed purposes and role=SENIOR_REVIEWER purpose=cross_review/scope_audit."
+  },
+  "selection_reason": "Contract-permitted reviewer with provider separation from verified Codex candidate author.",
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "availableModes_count=5\navailableModes_ids=plan,default,acceptEdits,auto,bypassPermissions\n\n{\n  \"agentId\": \"736dba16-a25f-4e7e-a70e-e3ea6822f9c9\",\n  \"type\": \"claude\",\n  \"status\": \"running\",\n  \"cwd\": \"/workspace/tome4-chinese-translation\",\n  \"workspaceId\": \"wks_420314270844170b\",\n  \"currentModeId\": \"auto\",\n  \"availableModes\": [\n    {\n      \"id\": \"plan\",\n      \"label\": \"Plan Mode\",\n      \"description\": \"Analyze the codebase without executing tools or edits\"\n    },\n    {\n      \"id\": \"default\",\n      \"label\": \"Always Ask\",\n      \"description\": \"Prompts for permission the first time a tool is used\"\n    },\n    {\n      \"id\": \"acceptEdits\",\n      \"label\": \"Accept File Edits\",\n      \"description\": \"Automatically approves edit-focused tools without prompting\"\n    },\n    {\n      \"id\": \"auto\",\n      \"label\": \"Auto mode\",\n      \"description\": \"Uses a model classifier to review permission prompts automatically\"\n    },\n    {\n      \"id\": \"bypassPermissions\",\n      \"label\": \"Bypass\",\n      \"description\": \"Skip all permission prompts (use with caution)\"\n    }\n  ],\n  \"lastMessage\": null,\n  \"permission\": null,\n  \"guidance\": \"You will get notified when the created agent finishes, errors, or needs permission. Do not poll for status; continue with other work until the notification arrives.\"\n}"
+      }
+    ],
+    "structuredContent": {
+      "agentId": "736dba16-a25f-4e7e-a70e-e3ea6822f9c9",
+      "type": "claude",
+      "status": "running",
+      "cwd": "/workspace/tome4-chinese-translation",
+      "workspaceId": "wks_420314270844170b",
+      "currentModeId": "auto",
+      "availableModes": [
+        {
+          "id": "plan",
+          "label": "Plan Mode",
+          "description": "Analyze the codebase without executing tools or edits"
+        },
+        {
+          "id": "default",
+          "label": "Always Ask",
+          "description": "Prompts for permission the first time a tool is used"
+        },
+        {
+          "id": "acceptEdits",
+          "label": "Accept File Edits",
+          "description": "Automatically approves edit-focused tools without prompting"
+        },
+        {
+          "id": "auto",
+          "label": "Auto mode",
+          "description": "Uses a model classifier to review permission prompts automatically"
+        },
+        {
+          "id": "bypassPermissions",
+          "label": "Bypass",
+          "description": "Skip all permission prompts (use with caution)"
+        }
+      ],
+      "lastMessage": null,
+      "permission": null,
+      "guidance": "You will get notified when the created agent finishes, errors, or needs permission. Do not poll for status; continue with other work until the notification arrives."
+    }
+  }
+}

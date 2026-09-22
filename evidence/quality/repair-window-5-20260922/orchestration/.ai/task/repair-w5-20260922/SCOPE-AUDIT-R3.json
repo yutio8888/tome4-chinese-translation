@@ -1,0 +1,44 @@
+{
+  "role": "SENIOR_REVIEWER",
+  "purpose": "scope_audit",
+  "candidate_ref": "33660955bc2e08f3b3468657ef1ce110b560d707f22ca73e6953a0c6239bad9a",
+  "candidate_locator": {
+    "spec_path": ".ai/task/repair-w5-20260922/SCOPE-AUDIT-R3-SPEC.md",
+    "diff_path": ".ai/task/repair-w5-20260922/CODE_DIFF-SENIOR_REVIEW-3-1.patch"
+  },
+  "source_reviews": [
+    ".ai/reviews/repair-w5-20260922/host-findings-r3-final.json",
+    ".ai/reviews/repair-w5-20260922/f3a2.json"
+  ],
+  "findings": [
+    {
+      "id": "RW5-FINAL-01",
+      "revision_key": "323606655fb0b28b2c29b00cb042c85bf7b8f6275a6d327194b05db0b076bfd3",
+      "source_review": ".ai/reviews/repair-w5-20260922/f3a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f3a2.txt",
+      "claim": "源码“the walls seemed to hum with energy”描述墙壁仿佛因能量而嗡鸣，译文“墙壁似乎也呼吸着能量”将听觉与振动意象改成了呼吸，语义不符。",
+      "status": "confirmed",
+      "accepted": true,
+      "tier": 1,
+      "defect_class": "fidelity",
+      "reason": "固定源码明确hum，即能量造成的嗡鸣；呼吸改换了声音/振动意象。该句位于本批明确纳入的188行对应段落，不能归为范围外。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          188,
+          188
+        ],
+        "excerpt": "Some years earlier our people had solved the invisible runes that allowed it to be opened, revealing vast crystal-lined halls and chambers arrayed in geometric patterns of sublime beauty.  Light sparked and shone from every surface, and the walls seemed to hum with energy.  Many shafts and passageways could only be navigated by flight, and at the top was found a grand room large enough to encompass the whole palace of Elvala.  At its centre was the farportal, a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.  It was beautiful and frightening, enchanting and terrifying.  No power of the Shaloren could discern its operation, and though through careful experimentation we were able to manipulate its energies, never could we get a true grasp of the forces that lay beneath."
+      },
+      "proposed_exact_change": {
+        "before": "就连墙壁似乎也呼吸着能量",
+        "after": "就连墙壁似乎也随着能量嗡嗡作响"
+      },
+      "disposition": "await_user_cycle_limit_extension"
+    }
+  ],
+  "instructions": "只校准已有RW5-FINAL-01的范围、可观察影响、比例性和最小动作，不另审核或新增finding。用户已授权额外一轮，仅此精确短语；用户授权不意味着finding事实正确。finding_ref用 .ai/reviews/repair-w5-20260922/host-findings-r3-final.json / RW5-FINAL-01。"
+}

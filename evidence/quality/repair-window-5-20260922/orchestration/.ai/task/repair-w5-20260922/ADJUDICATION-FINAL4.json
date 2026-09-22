@@ -1,0 +1,83 @@
+{
+  "task_id": "repair-w5-20260922",
+  "review_phase": "FINAL_REVIEW",
+  "cycle": 4,
+  "attempt": 2,
+  "review_records": [
+    ".ai/reviews/repair-w5-20260922/f4a2.json"
+  ],
+  "raw_counts": {
+    "OK": 16,
+    "ISSUE": 2
+  },
+  "findings": [
+    {
+      "id": "RW5-FINAL4-OUT02",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/f4a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f4a2.txt",
+      "claim": "遗漏交戒时要求前往Elvala寻人",
+      "status": "pending",
+      "accepted": false,
+      "reason": "属于当前未编辑的其他子句。352仅改灾变回指、380/382各两个指定子句、396仅标点核验，不以行号相同扩大整段语义；保留后续successor线索，不触发本轮全面修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "lines": [
+          380,
+          380
+        ],
+        "excerpt": "380: The man looked at me then with a wan sadness in his eyes, before turning to address Linaniil.  “Yesterday, the day after the terrible Spellblaze, as we began some attempt at reconstruction, still struggling to realign our mana paths, a murmur began amongst the people.  It spoke thus: The Kar’Krul circle of mages had betrayed the ordinary people.  They accused us of siding with the elves to destroy non-mages, of toying with terrible powers beyond our control, of deliberately massacring them out of evil and malice.  We could not logic with them, they would listen to no reason, and they rose up in violent anger.  They attacked many of us, with farming instruments and whatever weapons they could find.  Our defences were weak, and striking back just made the crowd fiercer.  We retreated to your father’s home, begging for help, but he shook his head and said he could not fight back.  They came for us then, storming his palace, and Turthel ordered all to put up no resistance.  He handed me his ring, saying to seek you out in Elvala, and then stepped outside to face the crowds.  He didn’t resist!  The people... they... they...”  He lapsed into sullen silence, shaking his head in sorrow.  He looked like he wanted to cry, but had no tears left to shed.  Linaniil’s face was graven and she stared hard at the ring."
+      },
+      "adjudication_stage": "final4_host",
+      "scope_assessment": "narrow"
+    },
+    {
+      "id": "RW5-FINAL4-A01",
+      "revision_key": "e67a8fe84f90497d0b1820eae7f50ee3d7ec863639fe06515b0b99e1d0c53f04",
+      "source_review": ".ai/reviews/repair-w5-20260922/f4a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f4a2.txt",
+      "claim": "corruptors须全局套用职业名称腐化者，堕落者施受关系错误",
+      "status": "advisory",
+      "accepted": false,
+      "reason": "沿用有据的R1分类：classes.tsv的existing/T.GAME.CLASS/birth descriptor name不是叙事_t的强制全局条目；相关腐化法术施用者可以有称谓译名，不能从英语词尾单独推导命名必须保留施受语态。未发现运行键/明确机制错误，仍不作跨类全局统一。 范围校准reject强制映射；本轮保持advisory、不自动修复。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "blob_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+        "lines": [
+          2312,
+          2316
+        ],
+        "excerpt": "2312: \tname = \"Blightstopper\",\n2313: \tunided_name = _t\"vine coated shield\",\n2314: \tmoddable_tile = \"special/%s_blightstopper\",\n2315: \tmoddable_tile_big = true,\n2316: \tdesc = _t[[This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.]],"
+      },
+      "adjudication_stage": "final4_host",
+      "scope_assessment": "reject"
+    },
+    {
+      "id": "RW5-FINAL4-OUT01",
+      "revision_key": "e5dc6a60be28b479ec1dd1180035c4d256f55eefea348f4d9323f856574ec50e",
+      "source_review": ".ai/reviews/repair-w5-20260922/f4a2.json",
+      "source_raw": ".ai/reviews/repair-w5-20260922/raw-f4a2.txt",
+      "claim": "brief periods of waking喂水限制被译为不断给她水",
+      "status": "pending",
+      "accepted": false,
+      "reason": "固定source358支持观察的语义差异；但358段未在350/352/362及368—396标点与指定380/382子句的修复范围内，且本窗口未改该句。保留后续successor核验线索，不以整篇revision将范围扩大。",
+      "evidence": {
+        "component": "tome",
+        "path": "game/modules/tome/data/lore/elvala.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "lines": [
+          358,
+          358
+        ],
+        "excerpt": "358: Carefully I picked up her frail body, and began the journey back to Elvala.  Two days it took on foot, through blasted and ruined ground.  On the passage I came across other survivors, refugees now leaving their destroyed homes, heading to the city to seek shelter.  I tried to nurse Linaniil as best I could, giving her water during brief periods of waking and dressing her wounds, but true healing could not happen till I reached the city."
+      }
+    }
+  ],
+  "accepted_findings": [],
+  "decision": "Final whole workset complete; no accepted or deferred in-scope finding remains. Raw ISSUE preserved for out-of-scope memoir clauses and nonmandatory class/narrative terminology mapping."
+}

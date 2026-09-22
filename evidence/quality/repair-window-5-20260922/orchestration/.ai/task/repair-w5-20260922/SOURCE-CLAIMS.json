@@ -1,0 +1,20 @@
+{
+  "323606655f": "固定lore/elvala.lua:188明确各个表面闪耀光芒，对应译文只保留墙壁能量，缺少该完整分句；190段闪光大厅描述属于另句，不能代替188分句。新revision全条审核内确认局部遗漏，不追溯改写窗口4限定修复的原结论。\n固定lore/elvala.lua:188把缓慢旋转的cloud of stars放在高台之上，译文改成高台周围盘旋的能量，确认空间关系/意象合并失真。该条其他子判断降为advisory：176低声咒骂在译文次句“要命”及“小声说道”中可有语用对应，不能只凭“震惊”断言咒骂完全消失；186从地面所见square译巨大方块有形状表达粗略，但不足以单独断定三维结构错误。只修已确认星云位置，与surface独立确认的188光芒分句遗漏合并；不全面重写回忆录或自动纳入旧164/198/210 pending。",
+  "6c8f356230": "固定orc-breeding-pit/zone.lua:69–74为叙述中直接引出喊声，译文“叫道…！”后又加句号形成重复句末终止标点；确认局部中文标点问题，不改变刚修复的建筑内空间关系。",
+  "e564485d2a": "固定general/npcs/wight.lua:65–69描述forest wight整体humanoid form；译文把人形改成人类脸孔，确认形态对象偏移。",
+  "e5666d20d3": "固定undeads/ghoul.lua:226–256及timed_effects/magical.lua:2429–2454、Actor.lua:3399–3405：非致死命中须成功感染GHOUL_ROT且make_ghoul有效，之后死亡才生成友方食尸鬼，译文第三句省略此限定。但surface称感染为全部复活的必要条件过强：Gnaw直接击杀且可染病时会直接spawn_ghoul。只确认后续死亡分支说明遗漏，修复不得断言未感染时任何分支均不能复活。",
+  "e56b636891": "固定cursed/darkness.lua:23–134、430–480以duration=12创建追踪实体，目标死亡、距离无法追上、无路可行会提前消散，命中后改为pinDuration倒计时；原文up to 12 turns遗漏最多。原文1LF、译文2LF，另有缩进TAB差异；LF是独立明确布局缺陷，TAB不与LF混称。保留伤害与定身参数顺序。",
+  "e571821f55": "固定timed_effects/floor.lua:53–68只允许checkClassification(living)受益；Actor.lua:7047–7076的unliving还含construct、crystal，living为其反集。译文只说不死族无法获益不能覆盖构装体与水晶，确认适用对象限定遗漏。",
+  "e58ba9366d": "固定birth/classes/mage.lua:139–151明确start with knowledge，187–214列出出生已掌握多个法术系及四个初始技能。现译学习各种学科遗漏初始就掌握的状态；只修此说明限定，不涉及Archmage类名政策。",
+  "e5a468946b": "固定chats/alchemist-last-hope.lua:121–142是初遇炼金术士对白，dismembering明确肢解，后续proposal索取monster parts；泛化为搜集材料遗漏该动作。Say是搭话语而非要求对方说话的命令，现译“说！”也使语气不自然。确认局部对白语义，不扩大任务情节。",
+  "e5bca739cc": "固定init.lua:115的many Thaloren lands指多处自然精灵领地；many不是许多大陆，后一句另谈Maj’Eyal东部。确认大陆误译，沿用现有自然精灵名称。",
+  "e5dc6a60be": "固定lore/elvala.lua:368–396的完整直接引语与叙述，现译“等等！”，和“离开这个地方。”。形成多余句末标点；可按中文直接引语修正。一般“……”后逗号的位置须按所引内容是否独立完整判断，不把一切引号外逗号自动判错。其他保真疑点另按具体源码裁决，不由标点观察自动扩展。\n固定lore/elvala.lua:350明确死亡者无法计数，随后恐怖夺去更多生命；现译受难者及更大毁灭弱化死亡人数语义。352的none of this回指前述世界灾变和伤亡，现译不知道之后无尽困难改变指代及时间。362的strictest instructions修饰对医生的严令，现译最好的治疗师新增人员质量且漏严令。确认这三项局部叙事保真，与surface已确认标点合并，不扩大为全章重写。",
+  "e643063dc0": "Object.lua1817显示带符号equilibrium_on_crit属性，Combat.lua2082直接incEquilibrium该值；字段并非固定回复，译文不应预设回复方向。\nObject.lua1817显示带符号equilibrium_on_crit属性，Combat.lua2082直接incEquilibrium该值；字段并非固定回复，译文不应预设回复方向。 对contextual观察只确认方向预设错误；incEquilibrium按带符号数值变化，不能把模型“该值增加失衡值”泛化为所有属性值均为正数。",
+  "e66d53860d": "Combat.lua1266—1273的MOBILE_DEFENCE改变combatDefenseBase；1276—1293近战及远程防御均取该值，Archery.lua315消费combatDefenseRanged；近身限定错误。",
+  "e67a8fe84f": "world-artifacts.lua2316明确stave off抵挡而非驱散，during peak of Pyre Wars缺少时期限定；long ago修饰注入自然力量时间。\nworld-artifacts.lua2316明确stave off抵挡而非驱散，during peak of Pyre Wars缺少时期限定；long ago修饰注入自然力量时间。 contextual附带Almadar译名音节建议无冻结术语及统一命名依据，仅记advisory，不修专名。",
+  "e68cd1e92d": "源码第71–76行表明被击退者移动若干格后与 nextTarget 发生碰撞；“被推送%d格进入#Target#”把碰撞关系表述成进入目标体内，关系语义失真。 固定源码独立核验确认；纳入窗口5补充修复候选。",
+  "e6976768f9": "该日志由 mindCrit 的暴击分支触发，而固定源码 call.lua 第134–137行将 mindCrit 用于 target:heal；因此它也可描述治疗暴击，“精神攻击造成了致命一击”错误限定为攻击并误述效果。 固定源码独立核验确认；纳入窗口5补充修复候选。",
+  "e6a5f47809": "other.lua1791是damage taken的效果描述，后续增伤/属性改变取决于受伤反馈；苦难泛化具体受伤条件，应恢复所受伤害，诅咒之体名称本身有curse语境支持。",
+  "e6e55301b8": "Game.lua2017—2026设置viewer faction并区分仅血条模式；tactical是战术/阵营边框用途限定，译文只剩边框丢失该限定。",
+  "e70622f7b5": "固定quests/lumberjack-cursed.lua23描写rambling语无伦次絮叨，非大声喊叫；untold horror在此是难以言说的恐怖，非没见过的东西。确认说话状态及恐怖描述的局部偏移。\n固定quests/lumberjack-cursed.lua23描写rambling语无伦次絮叨，非大声喊叫；untold horror在此是难以言说的恐怖，非没见过的东西。确认说话状态及恐怖描述的局部偏移。 潜伏也未明确表达，可在本句修复时恢复；不接受由此扩展为整类任务日志文风重写。"
+}

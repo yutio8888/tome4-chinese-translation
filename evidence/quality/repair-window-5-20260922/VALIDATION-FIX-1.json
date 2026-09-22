@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "generated_by": "unique EXECUTOR for repair-w5-20260922 FIX-1",
+  "scope": {
+    "translation_file": "mod-tome.lua",
+    "before_file": ".ai/task/repair-w5-20260922/BEFORE-FIX-1.lua",
+    "replacement_file": ".ai/task/repair-w5-20260922/FIX-1-REPLACEMENTS.json",
+    "exact_replacements": 5,
+    "changed_revisions": 3,
+    "after_sha256": "d161b1f96669e4efaf65b92bec72059dd7cedfd7605daf109ee70ad640fdd2f5"
+  },
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify_fix1.py",
+      "exit_code": 1,
+      "result": "failed",
+      "detail": "AssertionError: RW5-R0-04. The frozen checker asserts that this before string occurs once globally, but it occurs in both out-of-scope Dark Torrent and in-scope Dark Tendrils; its first-occurrence replacement would modify a fourth revision."
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w5-20260922/verify.py",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "verified=true; 22989 loaded records; exactly 18 baseline-to-current target changes, all in the frozen workset."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Checked 30308 translations: 0 errors, 0 warnings."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "No whitespace errors in tracked diff."
+    },
+    {
+      "command": "Python UTF-8/final-newline/trailing-whitespace check for IMPLEMENTATION-FIX-1.md and VALIDATION-FIX-1.json",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Both new evidence files are valid UTF-8, end with a newline, and contain no trailing spaces or tabs. VALIDATION-FIX-1.json also passed python3 -m json.tool."
+    },
+    {
+      "command": "contextual exact-replacement read-only check",
+      "exit_code": 0,
+      "result": "passed",
+      "detail": "Current mod-tome.lua equals BEFORE-FIX-1.lua with replacements RW5-R0-01 through RW5-R0-03 applied at their unique occurrences and RW5-R0-04 through RW5-R0-05 applied only inside the frozen Dark Tendrils record; exact_replacements=5 and changed_revisions=3."
+    }
+  ],
+  "note": "The frozen verify_fix1.py failure is a checker ambiguity, not an implementation expansion. The prohibited .ai checker was not modified, and the out-of-scope Dark Torrent occurrence remains byte-for-byte unchanged. Full gates were intentionally not run."
+}
