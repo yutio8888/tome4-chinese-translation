@@ -653,3 +653,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01424 | confirmed：遗漏主要谓语 `protect her` | 补谓语 |
 
 译文未修改。Sol 汇总与其逐条一致（12/4/1/0）。
+
+## batch-051 六处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-050-01.md](reports/sol-050-01.md)。译文未修改。共 13 个 claim：6 confirmed、3 pending、3 advisory、1 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01432 | refuted：“目的从句被实质误译”不成立。advisory：“他让”生硬并引入未明确的性别代词。pending：“他让”是否是“好让”错字 | 只按错字/语感处理，不按实质误译改写 |
+| entry-01438 | confirmed：`gems` 译“珠宝”不精确；confirmed：`ancient tome` 译“旧书”弱化年代与典籍感。pending：与第 20466 行“宝石的力量”是否统一 | 改“宝石”“古老典籍”；一致性核后定 |
+| entry-01450 | advisory：“直到鲜血流清”直译感。pending：英文是否必然理解为战至血流尽 | 需上下文/设定依据再定 |
+| entry-01462 | confirmed：“一队兽人小队”量词重复 | 去重复 |
+| entry-01463 | confirmed×3：`asked about` 误成“从你那里得知了消息”；兽人接触前已知法杖并直接索要；与“你什么也没告诉他们”冲突 | 按“盘问/索取”重译，修复逻辑冲突 |
+| entry-01464 | advisory：“辐射出的力量和危险”直译腔 | 文风取舍 |
+
+译文未修改。1 条 refuted 是对 Gemini 实质误译定性的下修，原样转录。
