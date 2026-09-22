@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3494,
+  "remaining_gemini": 3454,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -1535,7 +1535,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-015.md",
       "input_sha256": "b47e6e5a4b1ffdfed7c943d773eaf82f991955eb46ed4e3a6471ba476109da5a",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-015-01"
       ],
@@ -1742,8 +1742,64 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-017.md",
       "input_sha256": "df124d1da1f0e9bfe5f2a702ec02871df4159fafba2c6eef49f74a324d208631",
-      "status": "queued",
-      "dispatches": []
+      "status": "reviewed_awaiting_cross",
+      "dispatches": [
+        "gemini-017-01"
+      ],
+      "covered_entry_ids": [
+        "entry-00641",
+        "entry-00642",
+        "entry-00643",
+        "entry-00644",
+        "entry-00645",
+        "entry-00646",
+        "entry-00647",
+        "entry-00648",
+        "entry-00649",
+        "entry-00650",
+        "entry-00651",
+        "entry-00652",
+        "entry-00653",
+        "entry-00654",
+        "entry-00655",
+        "entry-00656",
+        "entry-00657",
+        "entry-00658",
+        "entry-00659",
+        "entry-00660",
+        "entry-00661",
+        "entry-00662",
+        "entry-00663",
+        "entry-00664",
+        "entry-00665",
+        "entry-00666",
+        "entry-00667",
+        "entry-00668",
+        "entry-00669",
+        "entry-00670",
+        "entry-00671",
+        "entry-00672",
+        "entry-00673",
+        "entry-00674",
+        "entry-00675",
+        "entry-00676",
+        "entry-00677",
+        "entry-00678",
+        "entry-00679",
+        "entry-00680"
+      ],
+      "issue_entry_ids": [
+        "entry-00644",
+        "entry-00646",
+        "entry-00647",
+        "entry-00650",
+        "entry-00652",
+        "entry-00653",
+        "entry-00657",
+        "entry-00660"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-017-01.md",
+      "raw_output_sha256": "3608f5487c1be4b24f83cb9e1e76cbc3724104b6430f33fa3162664b25bb7f38"
     },
     {
       "batch_id": "batch-018",
@@ -7517,11 +7573,37 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-015.md",
       "input_sha256": "3254420312e4c3dddff23d78b81f4038defd6e3583f71826a9fe0a7508159764",
-      "status": "queued",
+      "status": "completed",
       "source_dispatch_id": "gemini-015-01",
-      "dispatches": [],
+      "dispatches": [
+        "sol-015-01"
+      ],
       "host_semantic_adjudication": false,
-      "queue_note": "sol-014 launches first for the already queued batch-014 packet"
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-015-01.md",
+      "raw_output_sha256": "ac155ae9d197e0b62b41a6ff2f01adeee2b7d89563b5c7ea2f5b7a88a0cb865f",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-00570",
+          "claim": "开引号误用了右双引号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00574",
+          "claim": "创造远行传送门达到马基·埃亚尔搭配不成立",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00579",
+          "claim": "Sorcerers 译成法师与部分成就的巫师不一致，但简中本身不统一",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00581",
+          "claim": "失败分支的法师应与 00579 联动，不宜单改",
+          "verdict": "advisory"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium"
     },
     {
       "cross_id": "cross-batch-016",
@@ -7541,6 +7623,26 @@
       "dispatches": [],
       "host_semantic_adjudication": false,
       "queue_note": "sol-015 launches first for the already queued batch-015 packet"
+    },
+    {
+      "cross_id": "cross-batch-017",
+      "entry_ids": [
+        "entry-00644",
+        "entry-00646",
+        "entry-00647",
+        "entry-00650",
+        "entry-00652",
+        "entry-00653",
+        "entry-00657",
+        "entry-00660"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-017.md",
+      "input_sha256": "1b368a95eee47ac50d92f758eef66db1236df156ef57b30b2cd0def3bcf3ac89",
+      "status": "queued",
+      "source_dispatch_id": "gemini-017-01",
+      "dispatches": [],
+      "host_semantic_adjudication": false,
+      "queue_note": "sol-016 launches first for the already queued batch-016 packet"
     }
   ],
   "child_dispatches": [
@@ -9376,6 +9478,111 @@
       "raw_output_source": "codex rollout 01a0c6f7-b272-7ff0-b5f0-a75410fa204e final assistant output_text",
       "coverage": "4/4",
       "archived_at": "2026-09-22T02:40:28.291Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-017-01",
+      "agent_id": "e0be0358-25ed-4062-be50-d849ea55a309",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-017.md",
+      "input_sha256": "df124d1da1f0e9bfe5f2a702ec02871df4159fafba2c6eef49f74a324d208631",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-017-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T02:41:29.019877+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "9eff951dabb635140f6e48f20e38e10524c43d7c",
+      "harvested": true,
+      "created_at": "2026-09-22T02:41:06.775Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-017-01.md",
+      "raw_output_sha256": "3608f5487c1be4b24f83cb9e1e76cbc3724104b6430f33fa3162664b25bb7f38",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 801352d1-b971-4960-b96b-5be428bac04a final PLANNER_RESPONSE",
+      "coverage": "40/40 entry-00641 through entry-00680",
+      "activity_feed_note": "Notification truncated. Native transcript has 40 headings and conclusions. Summary omitted entry-00653; per-entry conclusion is 细微观察 and it is queued. Locale hashes unchanged.",
+      "archived_at": "2026-09-22T02:45:30.333Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-015-01",
+      "agent_id": "f6da8198-ee44-4e81-9ea6-ba82873c53e1",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-015.md",
+      "input_sha256": "3254420312e4c3dddff23d78b81f4038defd6e3583f71826a9fe0a7508159764",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-015-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T02:41:29.019877+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "9eff951dabb635140f6e48f20e38e10524c43d7c",
+      "harvested": true,
+      "created_at": "2026-09-22T02:41:02.543Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-015-01.md",
+      "raw_output_sha256": "ac155ae9d197e0b62b41a6ff2f01adeee2b7d89563b5c7ea2f5b7a88a0cb865f",
+      "raw_output_source": "codex rollout 01a0c6fc-f856-7d43-86c4-969e4f3f2334 final assistant output_text",
+      "coverage": "4/4",
+      "archived_at": "2026-09-22T02:45:30.333Z"
     }
   ],
   "locale_sha256": {
@@ -9391,7 +9598,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T02:40:47.923070+00:00",
+  "updated_at": "2026-09-22T02:45:52.613441+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -9400,7 +9607,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 650,
+  "gemini_covered_total": 690,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
