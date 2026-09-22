@@ -400,3 +400,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01214 | confirmed：“截然而止”是误字应为“戛然而止”；confirmed：`sullied` 译“厌倦”语义偏移；confirmed：后段复数听众被改成单数“你”；confirmed：专名译法准确 | 改成语；`sullied` 定调；听众统一为“你们” |
 
 译文未修改。entry-01211 的主疑点被 refuted，原样转录。
+
+## batch-032 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-031-01.md](reports/sol-031-01.md)。译文未修改。共 12 个 claim：8 confirmed、3 advisory、1 pending、无 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01215 | confirmed：`base materials/components` 译“基本元素”，混淆物质组分与“埃亚尔元素”，且把无生命组分称作“他们”。confirmed：“明智的使用它”助词误用。confirmed：状语与主句粘连缺停顿。advisory：“双刃剑”替换了“可用于善或恶”。pending：控制码完整、译名同 section 一致的主张证据不足 | 改“基本成分/物质组分”“它们”“明智地”；补逗号；一致性另取冻结样本再确认 |
+| entry-01216 | confirmed：`”被烧成焦炭”` 开引号方向错误。confirmed：该 Lore 解锁龙火陷阱，叙事与机制相符 | 首字符换左双引号 |
+| entry-01218 | confirmed：四处对话以右双引号开引；确认问号句号与引号外标点重复；确认“舞会开始了”另拆段且缺句末标点。advisory：“魔法剑士技能组合”是联想不是机制证据；advisory：`Aranion` 添译“先生”拉远语气 | 四处引号、标点结构统一重排；是否并段、去“先生”属编辑风格 |
+
+译文未修改。一条译名一致性主张因冻结输入不含术语正文保持 pending。

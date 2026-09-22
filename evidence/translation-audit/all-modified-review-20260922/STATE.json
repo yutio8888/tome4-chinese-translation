@@ -3224,10 +3224,18 @@
       "count": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-033.md",
       "input_sha256": "98ba404e0458aa5809bcfb7907ee9993f1bfdd082185624e3568665d6c6c10a2",
-      "status": "dispatched",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-033-01"
-      ]
+      ],
+      "covered_entry_ids": [
+        "entry-01220"
+      ],
+      "issue_entry_ids": [
+        "entry-01220"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-033-01.md",
+      "raw_output_sha256": "c7d77ce9cf8d1aab745677afe6f71f9c67d812da546734a90c1afffcc19a50ac"
     },
     {
       "batch_id": "batch-034",
@@ -9566,11 +9574,89 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-032.md",
       "input_sha256": "8b427b28b4350a70c5ee83a99ea0b27298b842a89d5e992d5e5d400992652766",
-      "status": "dispatched",
+      "status": "completed",
       "source_dispatch_id": "gemini-032-01",
       "dispatches": [
         "sol-031-01"
       ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-031-01.md",
+      "raw_output_sha256": "f47cf3b75ce07dbd674b6e220c88530a1c0a314a70e04c266ff1120c47a8f2eb",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-01215",
+          "claim": "base materials/components 译“基本元素”，混淆物质组分与“埃亚尔元素”，并把无生命组分称作“他们”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01215",
+          "claim": "“可用于善行亦可用于恶行”意译成“一柄双刃剑”",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01215",
+          "claim": "“明智的使用它”的“的”误用",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01215",
+          "claim": "“作为安格利文里的学生我假定……”缺少停顿",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01215",
+          "claim": "控制码完整、人名地名与同 section 一致",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-01216",
+          "claim": "“被烧成焦炭”开引号方向错误（U+201D）",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01216",
+          "claim": "该 Lore 解锁龙火陷阱，叙事与机制相符",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01218",
+          "claim": "四处对话以右双引号作为开引号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01218",
+          "claim": "问号、句号与引号外标点重复",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01218",
+          "claim": "“舞会开始了”另拆成段且缺句末标点",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01218",
+          "claim": "叙事体现“魔法剑士技能组合”、背景“完全契合”",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01218",
+          "claim": "Aranion 添译“艾伦尼恩先生”语气生硬",
+          "verdict": "advisory"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium",
+      "completed_at": "2026-09-22T06:15:50.024750+00:00"
+    },
+    {
+      "cross_id": "cross-batch-033",
+      "entry_ids": [
+        "entry-01220"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-033.md",
+      "input_sha256": "6d57da1e88ab8898717b737a4042a272bb943654376ed35c85a4f4c15745c57f",
+      "status": "queued",
+      "source_dispatch_id": "gemini-033-01",
+      "dispatches": [],
       "host_semantic_adjudication": false
     }
   ],
@@ -13143,9 +13229,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-033.md",
       "input_sha256": "98ba404e0458aa5809bcfb7907ee9993f1bfdd082185624e3568665d6c6c10a2",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-033-01-prompt.md",
@@ -13177,10 +13263,16 @@
       },
       "last_error": null,
       "head_at_dispatch": "c1b0e8cba1db20b5619dd7af1c8d6e6207725e2d",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T06:11:09.710Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-033-01.md",
+      "raw_output_sha256": "c7d77ce9cf8d1aab745677afe6f71f9c67d812da546734a90c1afffcc19a50ac",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 3ad2d7ed-2467-45d0-b398-dec77cdad2ab final non-empty PLANNER_RESPONSE step_index 33",
+      "coverage": "1/1 entry-01220",
+      "archived_at": "2026-09-22T06:15:33.322Z"
     },
     {
       "role": "REVIEWER",
@@ -13191,9 +13283,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-032.md",
       "input_sha256": "8b427b28b4350a70c5ee83a99ea0b27298b842a89d5e992d5e5d400992652766",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-031-01-prompt.md",
@@ -13225,10 +13317,16 @@
       },
       "last_error": null,
       "head_at_dispatch": "c1b0e8cba1db20b5619dd7af1c8d6e6207725e2d",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T06:11:05.012Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-031-01.md",
+      "raw_output_sha256": "f47cf3b75ce07dbd674b6e220c88530a1c0a314a70e04c266ff1120c47a8f2eb",
+      "raw_output_source": "codex rollout 01a0c7bd-44bb-7601-b7cf-3592806b17c7 final assistant output_text",
+      "coverage": "3/3 entry-01215, entry-01216, entry-01218",
+      "archived_at": "2026-09-22T06:15:34.827Z"
     }
   ],
   "locale_sha256": {
@@ -13244,7 +13342,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T06:11:18.634944+00:00",
+  "updated_at": "2026-09-22T06:15:50.060510+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -13253,7 +13351,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 1225,
+  "gemini_covered_total": 1226,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
@@ -13304,38 +13402,25 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [
-      {
-        "dispatch_id": "gemini-033-01",
-        "agent_id": "0311ba08-97be-4676-bf9f-db1e1ccb09f3",
-        "status": "running",
-        "scope": "batch-033 1 entry"
-      },
-      {
-        "dispatch_id": "sol-031-01",
-        "agent_id": "725fb12e-0209-4473-8475-ad0bfc2d97a3",
-        "status": "running",
-        "scope": "batch-032 three entries"
-      }
-    ],
+    "in_flight": [],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
     "gemini_020": "archived",
     "queued_not_dispatched": [],
-    "coverage_including_uncommitted": 1225,
+    "coverage_including_uncommitted": 1226,
     "all_children_archived": true,
     "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
     "evidence_committed": false,
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
-    "updated_at": "2026-09-22T06:09:33.084088+00:00",
+    "updated_at": "2026-09-22T06:15:50.024750+00:00",
     "status": "resumed",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "c1b0e8c batch032 coverage + batch031 cross committed"
+    "last_barrier": "pending: gemini-033-01 + sol-031-01 archived, records to commit"
   },
   "recorder_continuation": [
     {

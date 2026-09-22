@@ -322,3 +322,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-032-01 `2026-09-22T06:09:13.957Z`，sol-030-01 `2026-09-22T06:09:15.651Z`。无未归档 child。
 - 下一片已就绪：batch-033（**仅 1 条** entry-01220，sha `98ba404e…`，prompt 已改条数）+ cross-batch-032（3 条，sha `8b427b28b4350a70c5ee83a99ea0b27298b842a89d5e992d5e5d400992652766`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 032/033 收获
+
+- sol-031-01：3/3 条目 12 claim（8 confirmed、3 advisory、1 pending），作者 Codex/gpt-5.6-sol/medium。报告 sha256 `f47cf3b75ce07dbd674b6e220c88530a1c0a314a70e04c266ff1120c47a8f2eb`，rollout `01a0c7bd-44bb-7601-b7cf-3592806b17c7`。
+- gemini-033-01：1/1（batch-033 只有 entry-01220）。**覆盖 1226/4144**。该条存在疑点。报告 sha256 `c7d77ce9cf8d1aab745677afe6f71f9c67d812da546734a90c1afffcc19a50ac`。
+- 收回核验：batch-033 / cross-batch-032 / batch-032 / gemini-032 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-033-01 `2026-09-22T06:15:33.322Z`，sol-031-01 `2026-09-22T06:15:34.827Z`。无未归档 child。
+- 备注：从 batch-031 起批次明显变小（10、5、1、1 条），是清单按组件/section 分组的尾部切片，属正常。
+- 下一片已就绪：batch-034（仅 entry-01221，sha `e04092a0…`）+ cross-batch-033（1 条，sha `6d57da1e88ab8898717b737a4042a272bb943654376ed35c85a4f4c15745c57f`）。
+- 更新时间见 STATE.json `updated_at`。
