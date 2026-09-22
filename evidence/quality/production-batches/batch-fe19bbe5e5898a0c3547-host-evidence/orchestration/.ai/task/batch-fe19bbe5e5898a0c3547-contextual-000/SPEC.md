@@ -1,0 +1,1 @@
+只读上下文审核；范围为本SCOPE和draft的11条revision；基线081d3a03ccaea62b735c05f0b10f44f4f892cba2。用户授权持续审核及逐批推送。先运行独立anchor preflight，成功后才冻结/export；模型只报observation，宿主依据固定源码裁决。禁止修改译文、术语、规则、旧冻结记录。原批surface意见不外发。独立REVIEWER只读精确输入、引用和契约第六七节；全量strict结果、边界核验、归档确认与DONE_VERIFIED后才导入生产消费者。

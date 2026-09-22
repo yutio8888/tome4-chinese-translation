@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-09-22T04:02:10.345771+00:00",
+  "agent_id": "746f8322-e973-4786-86bc-edb741994b44",
+  "native_sha256": "a2ca92c165612ea4504d8d4d34743344733b4985808135aa077c25917d3134dc",
+  "calls": [
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-context-review-v2-contract.md && wc -l docs/paseo-translation-context-review-v2-contract.md && sed -n '1,260p' .ai/task/batch-fe19bbe5e5898a0c3547-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"jq -r '.payload.translation_snapshot[] | \\\"KEY: \\\\(.revision_key)\\\\nSOURCE:\\\\n\\\\(.source)\\\\nTARGET:\\\\n\\\\(.target)\\\\n---\\\"' .ai/task/batch-fe19bbe5e5898a0c3547-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json && jq -r '.payload.bounded_context[] | \\\"KEY: \\\\(.revision_key)\\\\n\\\\(.context)\\\\n---\\\"' .ai/task/batch-fe19bbe5e5898a0c3547-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"for i in 3 4 5; do jq -r --argjson i \\\"$i\\\" '.payload.bounded_context[$i] | \\\"KEY: \\\\(.revision_key)\\\\n\\\\(.context)\\\"' .ai/task/batch-fe19bbe5e5898a0c3547-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; done\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":15000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/crimson-templar.lua | sed -n '210,275p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/warcries.lua | sed -n '85,135p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/dark-sustenance.lua | sed -n '155,235p'; git grep -n 'EFF_INSOMNIA\\\\|name = \\\"INSOMNIA\\\"\\\\|Insomnia' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -80\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"pwd; git rev-parse --show-toplevel; find .. -maxdepth 3 -type d -name .git -print; find /workspace -maxdepth 4 -type d \\\\( -name 't-engine4' -o -name 'tome4' -o -name 'engine' \\\\) -print\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":10000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/crimson-templar.lua | sed -n '210,275p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/warcries.lua | sed -n '85,135p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/dark-sustenance.lua | sed -n '155,235p'; git grep -n 'EFF_INSOMNIA\\\\|name = \\\"INSOMNIA\\\"\\\\|Insomnia' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -100\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/crimson-templar.lua | sed -n '175,215p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '2300,2350p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '2480,2530p'; git grep -n 'die_at' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -80\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/solipsism.lua | sed -n '120,205p'; git grep -n 'solipsism_threshold\\\\|solipsism.*wil\\\\|getWil.*10\\\\|inc_stats.*wil' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/modules/tome/data/talents/psionic | head -120; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/psi-archery.lua | sed -n '175,245p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":25000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git grep -n 'MASTERFUL_TELEKINETIC_ARCHERY\\\\|nearest target\\\\|use_psi_archery' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/timed_effects game/modules/tome/data/talents/psionic/psi-archery.lua | head -100; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '2680,2730p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/ActorLife.lua | sed -n '40,60p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n"
+    },
+    {
+      "name": "exec",
+      "arguments": "const r = await tools.exec_command({cmd:\"git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '1540,1585p'; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/psi-archery.lua | sed -n '145,205p'\",\"workdir\":\"/workspace/t-engine4\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n"
+    }
+  ],
+  "verdict": "PASS",
+  "rationale": "Read exact input and contract, then fixed commit related public source/call chain. Initial git show in translation root failed without reading source; repository directory discovery read metadata only, then used /workspace/t-engine4. No current translation/terminology/history/other findings access or writes observed.",
+  "git_diff_stat": "",
+  "git_status": "?? .ai/consult/\n?? evidence/quality/production-batches/batch-0e235b796c17c97b2863-source-workset.json\n?? evidence/quality/production-batches/batch-0fcb7931742e08786da0-source-workset.json\n?? evidence/quality/production-batches/batch-1419f936039192bd03ed-source-workset.json\n?? evidence/quality/production-batches/batch-1c22b824f0c235d2342d-source-workset.json\n?? evidence/quality/production-batches/batch-1c8b2b2cd042290fd225-source-workset.json\n?? evidence/quality/production-batches/batch-276668eeeb246afd3519-source-workset.json\n?? evidence/quality/production-batches/batch-4eb3405af821277cf891-source-workset.json\n?? evidence/quality/production-batches/batch-508f9eed009a1ccf70d8-source-workset.json\n?? evidence/quality/production-batches/batch-62fac8be9aabeaa6d44a-source-workset.json\n?? evidence/quality/production-batches/batch-665f49079badcfd36d57-source-workset.json\n?? evidence/quality/production-batches/batch-731b9b68a1116089f0b0-source-workset.json\n?? evidence/quality/production-batches/batch-8465c7c9348657cb5fe7-source-workset.json\n?? evidence/quality/production-batches/batch-b179ff3c867ad033734a-source-workset.json\n?? evidence/quality/production-batches/batch-ca1ad77480b03cf9b239-source-workset.json\n?? evidence/quality/production-batches/batch-e7e647278e6eaa97b1d5-source-workset.json\n?? evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-source-workset.json\n?? recipe\n"
+}

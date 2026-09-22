@@ -1,0 +1,1 @@
+审核批247，review_only；修复窗口4第一批。用户持续审核与逐批提交推送授权有效。范围仅active checkpoint的80条selected，基线081d3a03ccaea62b735c05f0b10f44f4f892cba2。ORCHESTRATOR负责冻结源码工作集与裁决；REVIEWER只读冻结输入及契约允许引用。四lane独立初筛、按需contextual实际anchor preflight后冻结、严格raw和读取边界核验、身份lineage与归档确认、DONE_VERIFIED。完成源码裁决、完整17门禁、严格构建、证据提交/finalize/push。禁止修改译文、术语、规则、旧冻结记录及无关文件；排除RW1-SIB-01/02与范围外Archmage pending。窗口3已完成，不重做。

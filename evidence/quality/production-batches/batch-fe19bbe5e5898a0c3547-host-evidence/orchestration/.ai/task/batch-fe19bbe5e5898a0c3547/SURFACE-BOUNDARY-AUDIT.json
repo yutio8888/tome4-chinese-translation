@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-09-22T03:43:29.972504+00:00",
+  "rows": [
+    {
+      "agent_id": "0b03c423-9d1a-4184-bf37-83518e1800cf",
+      "dispatch_id": "r2-l1",
+      "native_sha256": "cea222bb218f3b7491a22d0a2b177f7b6d6b4efeedac77f5fed370024d87a685",
+      "tool_calls": [
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-fe19bbe5e5898a0c3547/SURFACE-SCREEN-ENVELOPE-r2-l1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n"
+        }
+      ],
+      "host_boundary_verdict": "PASS: only exact frozen input and allowed contract read; no mutation/source/other findings access observed"
+    },
+    {
+      "agent_id": "d0eb4e2e-689c-4725-96ad-c671582334b2",
+      "dispatch_id": "r2-l2",
+      "native_sha256": "89e36dbe0e8b586e19d650e6f6d7ce17b99287c8c1b9293a4fe1d321d9042a81",
+      "tool_calls": [
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({\n  cmd: \"wc -l docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-fe19bbe5e5898a0c3547/SURFACE-SCREEN-ENVELOPE-r2-l2.json && sed -n '1,260p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-fe19bbe5e5898a0c3547/SURFACE-SCREEN-ENVELOPE-r2-l2.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n"
+        }
+      ],
+      "host_boundary_verdict": "PASS: only exact frozen input and allowed contract read; no mutation/source/other findings access observed"
+    },
+    {
+      "agent_id": "b89671da-09bd-4063-97b7-617b5509f0b1",
+      "dispatch_id": "r2-l3",
+      "native_sha256": "6b9d2b01f4d9c43f72a6ea61f24cd5f74599c40ab90ff6f28ce4321e63b73ab0",
+      "tool_calls": [
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({cmd:\"sed -n '241,520p' docs/paseo-translation-surface-screen-v1-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('.ai/task/batch-fe19bbe5e5898a0c3547/SURFACE-SCREEN-ENVELOPE-r2-l3.json')\\nprint(p.read_text(encoding='utf-8'), end='')\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n"
+        }
+      ],
+      "host_boundary_verdict": "PASS: only exact frozen input and allowed contract read; no mutation/source/other findings access observed"
+    },
+    {
+      "agent_id": "c8c27bf2-391d-44c4-b5bd-209ea7e71f53",
+      "dispatch_id": "r2-l4",
+      "native_sha256": "05fcc6011080ccc01c4d787b84051e8442114bcf4d3f79de57d19ada51d6194f",
+      "tool_calls": [
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' docs/paseo-translation-surface-screen-v1-contract.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n"
+        },
+        {
+          "name": "exec",
+          "arguments": "const r = await tools.exec_command({\n  cmd: \"sed -n '241,520p' docs/paseo-translation-surface-screen-v1-contract.md && sed -n '1,260p' .ai/task/batch-fe19bbe5e5898a0c3547/SURFACE-SCREEN-ENVELOPE-r2-l4.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n"
+        }
+      ],
+      "host_boundary_verdict": "PASS: only exact frozen input and allowed contract read; no mutation/source/other findings access observed"
+    }
+  ],
+  "git_diff_stat": "",
+  "git_status": "?? .ai/consult/\n?? evidence/quality/production-batches/batch-0e235b796c17c97b2863-source-workset.json\n?? evidence/quality/production-batches/batch-0fcb7931742e08786da0-source-workset.json\n?? evidence/quality/production-batches/batch-1419f936039192bd03ed-source-workset.json\n?? evidence/quality/production-batches/batch-1c22b824f0c235d2342d-source-workset.json\n?? evidence/quality/production-batches/batch-1c8b2b2cd042290fd225-source-workset.json\n?? evidence/quality/production-batches/batch-276668eeeb246afd3519-source-workset.json\n?? evidence/quality/production-batches/batch-4eb3405af821277cf891-source-workset.json\n?? evidence/quality/production-batches/batch-508f9eed009a1ccf70d8-source-workset.json\n?? evidence/quality/production-batches/batch-62fac8be9aabeaa6d44a-source-workset.json\n?? evidence/quality/production-batches/batch-665f49079badcfd36d57-source-workset.json\n?? evidence/quality/production-batches/batch-731b9b68a1116089f0b0-source-workset.json\n?? evidence/quality/production-batches/batch-8465c7c9348657cb5fe7-source-workset.json\n?? evidence/quality/production-batches/batch-b179ff3c867ad033734a-source-workset.json\n?? evidence/quality/production-batches/batch-ca1ad77480b03cf9b239-source-workset.json\n?? evidence/quality/production-batches/batch-e7e647278e6eaa97b1d5-source-workset.json\n?? evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-source-workset.json\n?? recipe\n"
+}

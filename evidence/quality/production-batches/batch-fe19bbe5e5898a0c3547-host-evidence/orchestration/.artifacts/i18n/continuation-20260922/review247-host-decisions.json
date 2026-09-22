@@ -1,0 +1,70 @@
+{
+  "workset": "evidence/quality/production-batches/batch-fe19bbe5e5898a0c3547-source-workset.json",
+  "decisions": {
+    "0bf0d6e5e0|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/psionic/psi-archery.lua:137-186 callbackOnActBase实际以rng.table(tgts)随机选敌；nearest变量未用于射击。译文随机目标符合执行逻辑，英文nearest陈旧。"
+    },
+    "56be6ee672|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/psionic/solipsism.lua:156-165 on_learn明确max_life -= (getCon()-10)*0.25且调整inc_resource_multi.life；当前译文注明基础10与低于10时反向增加，符合实际公式，并非误译。"
+    },
+    "693148a9a5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/cursed/crimson-templar.lua:187-196,246传入insomnia=20-reduction；data/timed_effects/mental.lua:2336-2338每个睡眠回合叠加INSOMNIA，2497-2522累积最多10、睡中保持时长、醒后按power*dur衰减。当前译文符合代码，英文固定50%不符实际。"
+    },
+    "bee2b4a8b9|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/techniques/warcries.lua:103-125 Battle Cry target明确type=cone，当前译文前方锥形正确。"
+    },
+    "e22bf33472|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/talents/cursed/dark-sustenance.lua:167-178 Feed Power的getDamageGain及info明确降低目标damage并提高自身等量damage；吸食伤害有直接语境支持，不能仅凭Power认定错译。"
+    },
+    "e22d6fff0c|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/dialogs/Birther.lua:1396-1403展示捐赠自定义贴图说明。if you would like to use this feature被译为喜欢这类游戏，改变条件；还合并survival之后的换行及末段空行。恢复使用此功能的条件并按原文段落换行，不扩大到其他捐赠条目。surface将问题简述为this game误译不够精确，以完整条件的固定原文校正其归因。"
+    },
+    "e25d3b6a86|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/class/Actor.lua:6819-6823 d:add把此标签与百分数拼接。中文全角冒号后直接接数值可读；此条没有占位符或换行变更，不把英文尾随ASCII空格普遍升级为不变量。仅记可选排版建议。"
+    },
+    "e26222117e|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/data/timed_effects/physical.lua:980展示负die_at阈值；game/engines/default/engine/interface/ActorLife.lua:71-78在life<=die_at时死亡。译文降至阈值时才会死去符合执行边界，不依英文even if反向改译。"
+    },
+    "e29b93a2cf|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/dialogs/WandererSeed.lua:38-63同一界面上方已明确随机技能树组合，下方Random选项说明完全随机在该语境可识别。trees指技能树而非模型所说树木；补写技能树组合可改善独立可读性，但不是当前界面的实质遗漏。"
+    },
+    "e29ff7538e|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/class/Object.lua:2274在power_source.technique条件下展示制造来源。装备制造者 某位大师作为界面标签表达同一关系，未将大师误指为装备或改变制造归属，不因句式转标签判错。"
+    },
+    "e2be3d8377|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/init.lua:135加载提示明确their own corrupted blood。译文他们的堕落力量遗漏血液且归属不清；应恢复自身的腐化之血，不修改职业名称或术语库。"
+    },
+    "e22d6fff0c|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/dialogs/Birther.lua:1396-1403展示捐赠自定义贴图说明。if you would like to use this feature被译为喜欢这类游戏，改变条件；还合并survival之后的换行及末段空行。恢复使用此功能的条件并按原文段落换行，不扩大到其他捐赠条目。surface将问题简述为this game误译不够精确，以完整条件的固定原文校正其归因。"
+    },
+    "e2be3d8377|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63：game/modules/tome/init.lua:135加载提示明确their own corrupted blood。译文他们的堕落力量遗漏血液且归属不清；应恢复自身的腐化之血，不修改职业名称或术语库。"
+    }
+  }
+}

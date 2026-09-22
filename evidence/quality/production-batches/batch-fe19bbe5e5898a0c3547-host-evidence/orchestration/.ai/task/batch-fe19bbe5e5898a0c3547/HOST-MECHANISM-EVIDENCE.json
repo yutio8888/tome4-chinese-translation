@@ -1,0 +1,166 @@
+[
+  {
+    "path": "game/modules/tome/data/talents/psionic/psi-archery.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "e43019d76e48860b5d970fe9a4b89a4a9d1722ab21c2eb34729c9d77edbab062",
+    "excerpts": [
+      {
+        "first_line": 135,
+        "last_line": 192,
+        "text": "\ttactical = { BUFF = 3 },\n\tduration = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n\tcallbackOnActBase = function(self, t)\n\t\tlocal targnum = 1\n\t\tif self:hasEffect(self.EFF_PSIFRENZY) then targnum = self:callTalent(self.T_FRENZIED_PSIFIGHTING, \"getTargNum\")  end\n\t\tlocal speed, hit = nil, false\n\t\tlocal sound, sound_miss = nil, nil\n\t\t--dam = self:getTalentLevel(t)\n\t\tlocal target\n\t\tlocal minDistance = 9999\n\t\tlocal tgts = {}\n\t\tlocal grids = core.fov.circle_grids(self.x, self.y, 10, true)\n\t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n\t\t\tlocal a = game.level.map(x, y, Map.ACTOR)\n\t\t\tif a and self:reactionToward(a) < 0 and self:hasLOS(a.x, a.y) then\n\t\t\t\ttgts[#tgts+1] = a\n\t\t\t\tlocal distance = core.fov.distance(self.x, self.y, a.x, a.y)\n\t\t\t\tif (not target or distance < minDistance) and self:hasLOS(a.x, a.y) then\n\t\t\t\t\ttarget = a\n\t\t\t\t\tminDistance = distance\n\t\t\t\tend\n\t\t\tend\n\t\tend end\n\n\n\t\t--local tg = {type=\"hit\", range=10, talent=t}\n\t\tfor i = 1, targnum do\n\t\t\tif #tgts <= 0 then break end\n\n\t\t\tlocal a, id = rng.table(tgts)\n\t\t\t--local a, id = tgts[i]\n\t\t\t--local targets = self:archeryAcquireTargets(target)\n\t\t\ttable.remove(tgts, id)\n\t\t\tlocal weapon, ammo = self:hasArcheryWeapon()\n\t\t\tlocal targets = {}\n\t\t\tlocal am\n\t\t\tif not ammo.infinite then\n\t\t\t\t\tif ammo.combat.shots_left <= 0 then return nil end -- Bug fix\n\t\t\t\t\tammo.combat.shots_left = ammo.combat.shots_left - 1\n\t\t\t\t\tam = ammo\n\t\t\telse\n\t\t\t\tam = ammo\n\t\t\tend\n\t\t\tif am then\n\t\t\t\ttargets = {{x=a.x, y=a.y, ammo=am.combat}}\n\t\t\tend\n\n\t\t\tif self:getInven(self.INVEN_PSIONIC_FOCUS) then\n\t\t\t\tfor i, o in ipairs(self:getInven(self.INVEN_PSIONIC_FOCUS)) do\n\t\t\t\t\tif o.combat and o.archery then\n\t\t\t\t\t\tprint(\"[PSI ATTACK] attacking with\", o.name)\n\t\t\t\t\t\tself:archeryShoot(targets, t, nil, {use_psi_archery = true})\n\t\t\t\t\t\t--local s, h = self:attackTargetWith(a, o.combat, nil, 1)\n\t\t\t\t\t\t--speed = math.max(speed or 0, s)\n\t\t\t\t\t\t--hit = hit or h\n\t\t\t\t\t\t--if hit and not sound then sound = o.combat.sound\n\t\t\t\t\t\t--elseif not hit and not sound_miss then sound_miss = o.combat.sound_miss end\n\t\t\t\t\t\tif not o.combat.no_stealth_break then self:breakStealth() end"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/psionic/solipsism.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "c5a3b13b26df9fd109926706b25a95cedc3e8204b91ac97afeac08ec2448e4e8",
+    "excerpts": [
+      {
+        "first_line": 148,
+        "last_line": 197,
+        "text": "newTalent{\n\tname = \"Dismissal\",\n\ttype = {\"psionic/solipsism\", 4},\n\tpoints = 5, \n\trequire = psi_wil_req4,\n\tmode = \"passive\",\n\tgetSavePercentage = function(self, t) return self:combatTalentScale(t, 0.25, 0.6) end,\n\ton_learn = function(self, t)\n\t\tif self:getTalentLevelRaw(t) == 1 then\n\t\t\tself.inc_resource_multi.psi = (self.inc_resource_multi.psi or 0) + 0.5\n\t\t\tself.inc_resource_multi.life = (self.inc_resource_multi.life or 0) - 0.25\n\t\t\tself.solipsism_threshold = (self.solipsism_threshold or 0) + 0.1\n\t\t\t-- Adjust the values onTickEnd for NPCs to make sure these table values are resolved\n\t\t\t-- If we're not the player, we resetToFull to ensure correct values\n\t\t\tgame:onTickEnd(function()\n\t\t\t\tself:incMaxPsi((self:getWil()-10) * 0.5)\n\t\t\t\tself.max_life = self.max_life - (self:getCon()-10) * 0.25\n\t\t\t\tif self ~= game.player then self:resetToFull() end\n\t\t\tend)\n\t\tend\n\tend,\n\ton_unlearn = function(self, t)\n\t\tif not self:knowTalent(t) then\n\t\t\tself:incMaxPsi(-(self:getWil()-10) * 0.5)\n\t\t\tself.max_life = self.max_life + (self:getCon()-10) * 0.25\n\t\t\tself.inc_resource_multi.psi = self.inc_resource_multi.psi - 0.5\n\t\t\tself.inc_resource_multi.life = self.inc_resource_multi.life + 0.25\n\t\t\tself.solipsism_threshold = self.solipsism_threshold - 0.1\n\t\tend\n\tend,\n\t-- called by _M:onTakeHit in mod.class.Actor.lua\n\tdoDismissalOnHit = function(self, value, src, t)\n\t\tlocal saving_throw = self:combatMentalResist() * t.getSavePercentage(self, t)\n\t\tprint(\"[Dismissal] \", self:getName():capitalize(), \" attempting to ignore \", value, \"damage from \", src.name:capitalize(), \"using\", saving_throw,  \"mental save.\")\n\t\tif self:checkHit(saving_throw, value) then\n\t\t\tlocal dismissed = value * (1 - (1 / self:mindCrit(2))) -- Diminishing returns on high crits\n\t\t\tgame:delayedLogMessage(self, nil, \"Dismissal\", \"#TAN##Source# mentally dismisses some damage!\")\n\t\t\tgame:delayedLogDamage(src, self, 0, (\"#TAN#(%d dismissed)#LAST#\"):tformat(dismissed))\n\t\t\treturn value - dismissed\n\t\telse\n\t\t\treturn value\n\t\tend\n\tend,\n\tinfo = function(self, t)\n\t\tlocal save_percentage = t.getSavePercentage(self, t)\n\t\treturn ([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.\n\t\tThe first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.\n\t\tThe first talent point also increases your solipsism threshold by 10%% (currently %d%%).]]):tformat(save_percentage * 100, math.min(self.solipsism_threshold or 0,self.clarity_threshold or 1) * 100)\t\t\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/cursed/crimson-templar.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "909d08e1f26b3f38f8244c116af6e4a1e54af696abfc74816659c14c5269db18",
+    "excerpts": [
+      {
+        "first_line": 187,
+        "last_line": 204,
+        "text": "\tcooldown = 24,\n\tpositive = 10,\n\thate = 10,\n\tdirect_hit = true,\n\tgetExtension = function(self, t) return math.floor(self:combatTalentScale(t, 0, 4)) end,\n\tgetConversion = function(self, t) return 0.20 end,\n\tgetInsomniaPower= function(self, t)\n\t\tlocal t = self:getTalentFromId(self.T_SANDMAN)\n\t\tlocal reduction = t.getInsomniaPower(self, t)\n\t\treturn 20 - reduction\n\tend,\n\tgetMinHeal = function(self, t) return self:combatTalentScale(t, 10, 25) end,\n\tgetSleepMultiplier = function(self, t)\n\t\tif self:knowTalent(self.T_SANDMAN) then\n\t\t\tlocal sandman = self:getTalentFromId(self.T_SANDMAN)\n\t\t\treturn sandman.getSleepPowerBonus(self, sandman)\n\t\tend\n\t\treturn 1"
+      },
+      {
+        "first_line": 238,
+        "last_line": 248,
+        "text": "\t\t\t\t\t\t\t\t\t\t\t\t sleepPower = sleepPower + eff.power\n\t\t\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t\t end\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t\t if bleeding and target:canBe(\"sleep\") then\n\t\t\t\t\t\t\t\t\t\t\t local hx, hy = self:attachementSpot(\"back\", true)\n\t\t\t\t\t\t\t\t\t\t\t local ps = Particles.new(\"blood_trail\", 1, {range=core.fov.distance(self.x, self.y, target.x, target.y), dir=math.deg(math.atan2(target.y-self.y, target.x-self.x)+math.pi/2), img=\"blood_trail_segment_thick\", grab=true, dx=hx, dy=hy})\n\t\t\t\t\t\t\t\t\t\t\t self:addParticles(ps)\n\t\t\t\t\t\t\t\t\t\t\t target:setEffect(target.EFF_SLEEP, dur+t.getExtension(self, t), {src=self, power = math.ceil(sleepPower * sleepMultiplier * 1.5), contagious=0, waking=is_waking, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatSpellpower()})\n\t\t\t\t\t\t\t\t\t\t else\n\t\t\t\t\t\t\t\t\t\t\t game.logSeen(self, \"%s resists the sleep!\", target.name:capitalize())"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/timed_effects/mental.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+    "excerpts": [
+      {
+        "first_line": 90,
+        "last_line": 124,
+        "text": "\nnewEffect{\n\tname = \"SUMMON_CONTROL\", image = \"talents/summon_control.png\", --Backwards compatibility\n\tdesc = _t\"Pheromones\",\n\tlong_desc = function(self, eff) return (\"The target has been marked as the focus for all nature summons within %d radius, receiving %d%% increased damage from nature summons.\"):tformat(eff.range, eff.power) end,\n\ttype = \"mental\",\n\tsubtype = { focus=true },\n\tstatus = \"detrimental\",\n\tparameters = { power = 10 },\n\ton_gain = function(self, err) return _t\"Summons flock towards #Target#.\", true end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer being targeted by summons.\", true end,\n\ton_timeout = function(self, eff)\n\t\tself:project({type=\"ball\", range=0, friendlyfire=false, radius=eff.range}, self.x, self.y, function(px, py)\n\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\tif not target then return end\n\t\tif target.summoner == eff.src then\n\t\t\ttarget:setTarget(self)\n\t\tend\n\t\tend)\n\tend,\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"inc_nature_summon\", eff.power)\n\n\t\tself:project({type=\"ball\", range=0, friendlyfire=false, radius=eff.range}, self.x, self.y, function(px, py)\n\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\tif not target then return end\n\t\tif target.summoner == eff.src then\n\t\t\ttarget:setTarget(self)\n\t\tend\n\t\tend)\n\tend,\n\tdeactivate = function(self, eff)\n\tend,\n}\n"
+      },
+      {
+        "first_line": 974,
+        "last_line": 1011,
+        "text": "end\n\nnewEffect{\n\tname = \"HEIGHTEN_FEAR\", image = \"talents/heighten_fear.png\",\n\tdesc = _t\"Heighten Fear\",\n\tlong_desc = function(self, eff) return (\"The target is in a state of growing fear. If they spend %d more turns within range %d and in sight of the source of this fear (%s), they will take %d mind and darkness damage and be subjected to a new fear.\"):\n\t\ttformat(eff.turns_left, eff.range, eff.src:getName(), eff.damage) end,\n\ttype = \"other\",\n\tcharges = function(self, eff) return _t\"#ORANGE#\"..eff.turns_left..\"#LAST#\" end,\n\tsubtype = { },\n\tstatus = \"detrimental\",\n\tcancel_on_level_change = true,\n\tparameters = { },\n\ton_timeout = function(self, eff)\n\t\tlocal tInstillFear = self:getTalentFromId(self.T_INSTILL_FEAR)\n--\t\tif tInstillFear.hasEffect(eff.src, tInstillFear, self) then\n\t\t\tif core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) <= eff.range and eff.src:hasLOS(self.x, self.y) then\n\t\t\t\teff.turns_left = eff.turns_left - 1\n\t\t\tend\n\t\t\tif eff.turns_left <= 0 then\n\t\t\t\teff.turns_left = eff.turns\n\t\t\t\tif rng.percent(eff.chance or 100) then\n\t\t\t\t\tgame.logSeen(self, \"%s succumbs to heightening fears!\", self:getName():capitalize())\n\t\t\t\t\tDamageType:get(DamageType.MIND).projector(eff.src, self.x, self.y, DamageType.MIND, { dam=eff.damage, crossTierChance=25 })\n\t\t\t\t\tDamageType:get(DamageType.DARKNESS).projector(eff.src, self.x, self.y, DamageType.DARKNESS, eff.damage)\n\t\t\t\t\ttInstillFear.applyEffect(eff.src, tInstillFear, self, true)\n\t\t\t\telse\n\t\t\t\t\tgame.logSeen(self, \"%s feels a little less afraid!\", self:getName():capitalize())\n\t\t\t\tend\n\t\t\tend\n\tend,\n\tactivate = function(self, eff)\n\tend,\n\tdeactivate = function(self, eff)\n\tend,\n}\n\nnewEffect{"
+      },
+      {
+        "first_line": 2333,
+        "last_line": 2342,
+        "text": "\t\tif eff.particle and not dream_prison then\n\t\t\tself:removeParticles(eff.particle)\n\t\tend\n\t\t-- Incriment Insomnia Duration\n\t\tif not self:attr(\"lucid_dreamer\") then\n\t\t\tself:setEffect(self.EFF_INSOMNIA, 1, {power=eff.insomnia})\n\t\tend\n\tend,\n\tactivate = function(self, eff)\n\t\teff.sid = self:addTemporaryValue(\"sleep\", 1)"
+      },
+      {
+        "first_line": 2488,
+        "last_line": 2528,
+        "text": "\nnewEffect{\n\tname = \"INSOMNIA\", image = \"effects/insomnia.png\",\n\tdesc = _t\"Insomnia\",\n\tlong_desc = function(self, eff) return (\"The target is wide awake and has %d%% resistance to sleep effects.\"):tformat(eff.cur_power) end,\n\ttype = \"mental\",\n\tsubtype = { psionic=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=0 },\n\ton_gain = function(self, err) return _t\"#Target# is suffering from insomnia.\", _t\"+Insomnia\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer suffering from insomnia.\", _t\"-Insomnia\" end,\n\ton_merge = function(self, old_eff, new_eff)\n\t\t-- Add the durations on merge\n\t\tlocal dur = old_eff.dur + new_eff.dur\n\t\told_eff.dur = math.min(10, dur)\n\t\told_eff.cur_power = old_eff.power * old_eff.dur\n\t\t-- Need to remove and re-add the effect\n\t\tself:removeTemporaryValue(\"sleep_immune\", old_eff.sid)\n\t\told_eff.sid = self:addTemporaryValue(\"sleep_immune\", old_eff.cur_power/100)\n\t\treturn old_eff\n\tend,\n\ton_timeout = function(self, eff)\n\t\t-- Insomnia only ticks when we're awake\n\t\tif self:attr(\"sleep\") and self:attr(\"sleep\") > 0 then\n\t\t\teff.dur = eff.dur + 1\n\t\telse\n\t\t\t-- Deincrement the power\n\t\t\teff.cur_power = eff.power * eff.dur\n\t\t\tself:removeTemporaryValue(\"sleep_immune\", eff.sid)\n\t\t\teff.sid = self:addTemporaryValue(\"sleep_immune\", eff.cur_power/100)\n\t\tend\n\tend,\n\tactivate = function(self, eff)\n\t\teff.cur_power = eff.power * eff.dur\n\t\teff.sid = self:addTemporaryValue(\"sleep_immune\", eff.cur_power/100)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"sleep_immune\", eff.sid)\n\tend,\n}\n"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/techniques/warcries.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "fabb2618fcab9a25cce43473e048b2ab64d5c7f92cbd68b9bbeaa3b6799f3e3e",
+    "excerpts": [
+      {
+        "first_line": 103,
+        "last_line": 134,
+        "text": "\tname = \"Battle Cry\",\n\ttype = {\"technique/warcries\", 4},\n\trequire = techs_req_high4,\n\tpoints = 5,\n\tcooldown = 30,\n\tstamina = 40,\n\trange = 0,\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n\ttarget = function(self, t)\n\t\treturn {type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), selffire=false}\n\tend,\n\trequires_target = true,\n\ttactical = { DISABLE = 2 },\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:project(tg, x, y, function(px, py)\n\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\tif not target then return end\n\t\t\ttarget:setEffect(target.EFF_BATTLE_CRY, 7, {power=7 * self:getTalentLevel(t), apply_power=self:combatPhysicalpower()})\n\t\tend)\n\t\tgame.level.map:particleEmitter(self.x, self.y, self:getTalentRadius(t), \"directional_shout\", {life=12, size=5, tx=x-self.x, ty=y-self.y, distorion_factor=0.1, radius=self:getTalentRadius(t), nb_circles=8, rm=0.8, rM=1, gm=0.8, gM=1, bm=0.1, bM=0.2, am=0.6, aM=0.8})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.\n\t\tAll evasion and concealment bonuses are also disabled.\n\t\tThe chance to hit increases with your Physical Power.]]):\n\t\ttformat(self:getTalentRadius(t), 7 * self:getTalentLevel(t))\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/data/talents/cursed/dark-sustenance.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "d4aeee3a3af35aad4576eadb78e716ab026f62c61dcbb878056042ad1295d02e",
+    "excerpts": [
+      {
+        "first_line": 164,
+        "last_line": 180,
+        "text": "}\n]]\nnewTalent{\n\tname = \"Feed Power\",\n\ttype = {\"cursed/dark-sustenance\", 3},\n\tmode = \"passive\",\n\trequire = cursed_wil_req3,\n\tpoints = 5,\n\tgetDamageGain = function(self, t)\n\t\treturn self:combatLimit(self:getTalentLevel(t)^0.5 * 5 + self:combatMindpower() * 0.05, 100, 0, 0, 14, 14) -- Limit < 100%\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damageGain = t.getDamageGain(self, t)\n\t\treturn ([[Enhances your feeding by reducing your targeted foe's damage by %d%%, and increasing yours by the same amount.\n\t\tImproves with your Mindpower.]]):tformat(damageGain)\n\tend,\n}"
+      }
+    ]
+  },
+  {
+    "path": "game/engines/default/engine/interface/ActorLife.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "fa8f4f527fcf8076572b1d60be36cd031d8ac8a1c026fbd70b1eadcd1a342324",
+    "excerpts": [
+      {
+        "first_line": 63,
+        "last_line": 81,
+        "text": "--- Remove some HP from an actor  \n-- If HP is reduced to 0 then remove from the level and call the die method.  \n-- When an actor dies its dead property is set to true, to wait until garbage collection deletes it\n-- @param value how much damage\n-- @param src attacker\n-- @string death_note message for death\n-- @return true/false if the actor died\n-- @return the actual damage done\nfunction _M:takeHit(value, src, death_note)\n\tif self.onTakeHit then value = self:onTakeHit(value, src) end\n\tself.life = self.life - value\n\tself.changed = true\n\tif self.life <= self.die_at and not self.dead then\n\t\tif src and src.on_kill and src:on_kill(self) then return false, value end\n\t\tgame.logSeen(self, \"#{bold}#%s killed %s!#{normal}#\", src and src:getName():capitalize() or _t\"something\", self:getName())\n\t\treturn self:die(src, death_note), value\n\tend\n\treturn false, value\nend"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/dialogs/WandererSeed.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "574dd3d5ee49c1071ffc477c673b9e9338fd680398cda2911e64f3e5ff7df63f",
+    "excerpts": [
+      {
+        "first_line": 33,
+        "last_line": 67,
+        "text": "\tself.actor = actor\n\tself.birth = birth\n\tself.finish = finish\n\n\tDialog.init(self, _t\"Wanderer Options\", 800, 300)\n\n\tlocal explain = Textzone.new{width=self.iw, auto_height=true, text=_t[[Welcome, wandering one! The Wanderer class uses a randomly selected set of talent trees.\nYou can now choose how this set is selected:]]}\n\tlocal explain_random = Textzone.new{width=self.iw - 32, auto_height=true, text=_t[[Simply make a random set of trees, this is the default option. If you want to share it with friends, you will find the seed in the character's sheet later on.]]}\n\tlocal explain_seed = Textzone.new{width=self.iw - 32, auto_height=true, text=_t[[If an other player gave you a seed to play, you can enter it here. Do note that while a seed will always work, you will only get the same talents set if you use the same DLC/addons.]]}\n\n\tlocal play = Button.new{text=_t\"Play!\", fct=function() game:unregisterDialog(self) self:makeWanderer() end}\n\tlocal sep = Separator.new{dir=\"vertical\", size=self.iw}\n\tself.c_randomoption = Checkbox.new{title=_t\"#{bold}##ANTIQUE_WHITE#Random#{normal}##LAST#\", default=true,\n\t\ton_change=function(c) if c then self:swapMode(\"random\") else self.c_randomoption.checked = true end end,\n\t}\n\tself.c_seedoption = Checkbox.new{title=_t\"#{bold}##ANTIQUE_WHITE#Seed#{normal}##LAST#\", default=false,\n\t\ton_change=function(c) if c then self:swapMode(\"seed\") else self.c_seedoption.checked = true end end,\n\t}\n\tself.c_seed = Textbox.new{title=\"  \"--[[do not translate]], text=__module_extra_info.tome_wanderer_seed or \"\", chars=40, max_len=200, fct=function() end, on_change=function(text) self:setSeed(text) end}\n\tself:setSeed(__module_extra_info.tome_wanderer_seed)\n\n\tself:loadUI{\n\t\t{left=0, top=0, ui=explain},\n\t\t{left=0, top=explain, ui=sep},\n\t\t{left=0, top=sep, ui=self.c_randomoption},\n\t\t{left=32, top=self.c_randomoption, ui=explain_random},\n\t\t{left=0, top=explain_random, ui=self.c_seedoption},\n\t\t{left=self.c_seedoption, top=explain_random, ui=self.c_seed, hidden=true},\n\t\t{left=32, top=self.c_seedoption, ui=explain_seed},\n\t\t{hcenter=0, bottom=0, ui=play},\n\t}\n\tself:setupUI(false, true)\nend\n"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/class/Object.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "17266682ae9c344a9b3c4d87a660ddb5c786c4a76103b804a91898146b69d02d",
+    "excerpts": [
+      {
+        "first_line": 2267,
+        "last_line": 2280,
+        "text": "\t\tdesc:merge(reqs)\n\tend\n\n\tif self.power_source then\n\t\tif self.power_source.arcane then desc:merge((_t\"Powered by #VIOLET#arcane forces#LAST#\\n\"):toTString()) end\n\t\tif self.power_source.nature then desc:merge((_t\"Infused by #OLIVE_DRAB#nature#LAST#\\n\"):toTString()) end\n\t\tif self.power_source.antimagic then desc:merge((_t\"Infused by #ORCHID#arcane disrupting forces#LAST#\\n\"):toTString()) end\n\t\tif self.power_source.technique then desc:merge((_t\"Crafted by #LIGHT_UMBER#a master#LAST#\\n\"):toTString()) end\n\t\tif self.power_source.psionic then desc:merge((_t\"Infused by #YELLOW#psionic forces#LAST#\\n\"):toTString()) end\n\t\tif self.power_source.unknown then desc:merge((_t\"Powered by #CRIMSON#unknown forces#LAST#\\n\"):toTString()) end\n\t\tself:triggerHook{\"Object:descPowerSource\", desc=desc, object=self}\n\tend\n\n\tif self.encumber then"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/class/Actor.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+    "excerpts": [
+      {
+        "first_line": 6815,
+        "last_line": 6828,
+        "text": "\t\t\t\t\tnbs, chance = t.no_break_stealth(self, t)\n\t\t\t\t\tif type(chance) ~= \"number\" then\n\t\t\t\t\t\tchance = nbs and 100 or 0\n\t\t\t\t\tend\n\t\t\t\telse chance = nbs and 100 or 0\n\t\t\t\tend\n\t\t\t\tif chance > 0 then\n\t\t\t\t\td:add({\"color\",0x6f,0xff,0x83}, _t\"Won't Break Stealth:  \", {\"color\",0xFF,0xFF,0xFF}, (\"%d%%\"):format(chance), true)\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\telse\n\t\tif not config.ignore_ressources then\n\t\t\tif self:getTalentCooldown(t) then d:add({\"color\",0x6f,0xff,0x83}, (\"%sCooldown: \"):tformat(t.fixed_cooldown and _t\"Fixed \" or \"\"), {\"color\",0xFF,0xFF,0xFF}, \"\"..self:getTalentCooldown(t), true) end"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/init.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "c10ebbd93388864680b10633d6fd310b5427f39d55fb96d7ecfeb42ee04e7264",
+    "excerpts": [
+      {
+        "first_line": 133,
+        "last_line": 137,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_elf_elven_archer.png\", text=[[Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_reaver.png\", text=[[Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.]]},\n\t{image=\"/data/gfx/shockbolt/npc/humanoid_shalore_elven_corruptor.png\", text=[[Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.]]},\n\t{image=\"/data/gfx/shockbolt/trap/beartrap01.png\", text=[[Clever rogues can lay traps to damage or debilitate their foes without having to go near them.]]},\n\t{image=\"/data/gfx/talents/stealth.png\", text=[[Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.]]},"
+      }
+    ]
+  },
+  {
+    "path": "game/modules/tome/dialogs/Birther.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "204816fe84012c76330e9547c178156b987dee490cb2c0760dab8e82d859fcd4",
+    "excerpts": [
+      {
+        "first_line": 1392,
+        "last_line": 1406,
+        "text": "end\n\nfunction _M:selectTileNoDonations()\n\tDialog:yesnoLongPopup(_t\"Custom tiles\",\n\t_t[[Custom Tiles have been added as a thank you to everyone that has donated to ToME.\nThey are a fun cosmetic feature that allows you to choose a tile for your character from a list of nearly 180 (with more to be added over time), ranging from special humanoid tiles to downright wonky ones!\n\nIf you'd like to use this feature and find this game good you should consider donating. It will help ensure its survival.\nWhile this is a free game that I am doing for fun, if it can help feed my family a bit I certainly will not complain as real life can be harsh sometimes.\nYou will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.\n\nDonators will also gain access to the Exploration Mode featuring infinite lives.]], 400, function(ret)\n\t\tif not ret then\n\t\t\tgame:registerDialog(require(\"mod.dialogs.Donation\").new(\"custom-tiles\"))\n\t\tend"
+      }
+    ]
+  }
+]

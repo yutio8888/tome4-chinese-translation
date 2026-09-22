@@ -1,0 +1,1 @@
+首次prepared误用了builder默认Astra/xhigh而配置所选Sol/medium；profiles校验在任何create意图或child创建前拒绝provider/model drift。原4行prepared保留，不伪造归档。以相同workset新attempt 2整组显式选择实时Main Reviewer Sol配置；输入和审核范围不变。

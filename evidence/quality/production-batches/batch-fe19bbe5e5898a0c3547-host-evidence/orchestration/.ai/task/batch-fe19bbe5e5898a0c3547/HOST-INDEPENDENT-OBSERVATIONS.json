@@ -1,0 +1,63 @@
+{
+  "status": "preliminary_not_model_input",
+  "reviewed_entries": 80,
+  "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "observations": [
+    {
+      "prefix": "e21f58bee0",
+      "status": "advisory",
+      "claim": "被你灌注恐惧可能误导为已成功获得恐惧；代码先过mindpower save，再设置HEIGHTEN_FEAR，再检查fear immunity。",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/fears.lua:65-91",
+        "game/modules/tome/data/timed_effects/mental.lua:977-1010"
+      ],
+      "conclusion": "灌注恐惧在此可指施加动作而非保证恐惧命中；固定源码也要求先通过精神豁免。存在表述澄清空间，但不足以确认当前译文强制宣称命中，不另建修复或扩大本批。"
+    },
+    {
+      "prefix": "e2be3d8377",
+      "status": "confirmed",
+      "claim": "own corrupted blood被误译为他们的堕落力量，遗漏自身腐化血液。",
+      "evidence": [
+        "game/modules/tome/init.lua:135"
+      ]
+    },
+    {
+      "prefix": "e22d6fff0c",
+      "status": "pending",
+      "claim": "若想使用此功能误为喜欢这类游戏；叙事轻微夸写与段落换行待审。",
+      "evidence": [
+        "game/modules/tome/dialogs/Birther.lua"
+      ]
+    },
+    {
+      "prefix": "e26222117e",
+      "status": "refuted",
+      "claim": "中文降至阈值死亡符合ActorLife.takeHit life<=die_at，不能照英文even if误修。",
+      "evidence": [
+        "game/engines/default/engine/interface/ActorLife.lua:71-78"
+      ]
+    },
+    {
+      "prefix": "e2b7aef6a2",
+      "status": "refuted",
+      "claim": "信息素范围以被标记目标为圆心，译文它周围正确。",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/mental.lua:102-118"
+      ]
+    }
+  ],
+  "note": "修复窗口3迁移后的新revision按独立输入正常审核；任何英文与现有修复冲突须再次依固定源码裁决。原始host helper假设全部literal失败，核验2条concat源码后正确完成；未改workset。 Preliminary host claims are not final production adjudications; retain independent contextual review and per-observation verification.",
+  "surface_claim_preliminary": {
+    "0bf0d6e5e0": "refuted: actual callback selects rng.table(tgts)",
+    "56be6ee672": "refuted: on_learn adjusts max_life by -(Con-10)*.25",
+    "693148a9a5": "refuted: actual insomnia power20-reduction, accumulate while asleep, decay awake",
+    "bee2b4a8b9": "refuted: actual target cone",
+    "e22bf33472": "refuted: damageGain transfers damage",
+    "e22d6fff0c": "confirmed: feature-use condition mistranslated and newline structure changed",
+    "e25d3b6a86": "advisory: Chinese colon adjacent percentage readable, no universal ASCII spaces rule",
+    "e26222117e": "refuted: ActorLife <=die_at triggers death",
+    "e29b93a2cf": "advisory: dialog explains talent trees immediately above Random option; no trees(木) mechanic",
+    "e29ff7538e": "refuted: maker label conveys same crafting source",
+    "e2be3d8377": "confirmed: corrupted blood lost"
+  }
+}
