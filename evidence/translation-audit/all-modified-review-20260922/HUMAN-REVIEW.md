@@ -372,3 +372,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01163 | confirmed：`bright warm light` 译“微光”，亮度方向相反 | 改“明亮而温暖的光芒” |
 
 共 11 个 claim：9 confirmed、2 advisory。译文未修改。
+
+## batch-030 六处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-029-01.md](reports/sol-029-01.md)。译文未修改。共 21 个 claim：9 confirmed、5 advisory、7 refuted（其中 6 条 refuted 是 Gemini 所引源码行号不准）。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01183 | confirmed：`%s` 后半角空格不一致。refuted：Gemini 行号不准 | 删多余空格 |
+| entry-01193 | confirmed：“牢牢的抓住”应为“牢牢地”。advisory：两句合并成逗号句；“挖地逃走”对原文的处理。refuted：行号不准 | 改“地”；是否拆回两句 |
+| entry-01194 | confirmed：`It doesn't much matter.` 被语义改写成“没有确切的答案”。advisory：Gemini 称对任务指引无实质负面影响存疑。refuted：行号不准 | 恢复“那没什么要紧”一类原意 |
+| entry-01196 | confirmed：“穿的”应为“穿得”；句号改省略号。refuted：「冰龙常换牙完全准确」不成立；行号不准 | 改“得”；标点按原句风格 |
+| entry-01198 | confirmed：把字句杂糅；无依据增添“明天”。advisory：`stuff` 译“瓶子”。refuted：行号不准 | 改“把这个瓶子拿远一些”；去“明天” |
+| entry-01201 | confirmed：后半句明显扩写；译文另有轻微表达问题。advisory：Gemini 称生动契合背景。refuted：行号不准 | 收束到原文信息量 |
+
+译文未修改。多条 refuted 都是对 Gemini 证据质量（行号）的下修，原样转录。
