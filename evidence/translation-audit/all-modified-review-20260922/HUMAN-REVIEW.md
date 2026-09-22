@@ -1012,3 +1012,22 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02381 | confirmed：条目结论成立 | 按原报告修 |
 
 译文未修改。单 claim 条目在 STATE 中以 verdict 摘要记录，完整措辞以报告为准。
+
+## batch-075 十处交叉结果（含补跑四条）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-075-01.md](reports/sol-075-01.md)。译文未修改。共 15 个 claim：11 confirmed、4 advisory、0 pending、0 refuted，全部基于固定 commit `624a6732…`。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02391 | confirmed：“隐匿”两侧多余空格（排版） | 排版取舍 |
+| entry-02392 | confirmed：Called Shots→“精巧射击”与正式译名“精准射击”不一致 | 局部对齐 |
+| entry-02393 | confirmed：半角标点 `0, `；confirmed：省略 `thick, disorientating smoke` 修饰；advisory：“带着烟雾弹的箭头”生硬 | 标点直修；完整性取舍 |
+| entry-02394 | confirmed：`at range` 误写“在射程内” | 改写措辞 |
+| entry-02399 | advisory：括号内省略“混乱” | 术语清晰度 |
+| entry-02422 | confirmed：“站位/走位至关重要”泛化 | 文风选择 |
+| entry-02425 | confirmed：施展限制误写“不能装备”（机制误导） | 改为施展限制 |
+| entry-02426 | confirmed：同上“不能装备”；advisory：“致命的”+单数化 | 后半必修；前半文风 |
+| entry-02427 | confirmed：同上装备禁令；advisory：Grappling techniques 译窄 | 可能涉及类别名一致性，需裁定 |
+| entry-02428 | confirmed：混入相邻类别 Advanced、漏译 Teaches；confirmed：装备禁令误译 | 按本条原文重译 |
+
+译文未修改。02425–02428 四条「存在疑点」全部被 Sol 逐条确认（其中伴随的 advisory 单独分档）。

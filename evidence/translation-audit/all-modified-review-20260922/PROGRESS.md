@@ -768,3 +768,13 @@
 - 归档：先 `archive_attempts_started=1`，live 确认 `archivedAt` `2026-09-22T13:41:06.546Z`。无未归档 child。
 - 记录自纠（第 4 次同类）：收获脚本与归档脚本并行读写 STATE，收获侧读到半写 JSON 中止（**未写入**），核验 JSON 完整后串行重跑；此后两者严格串行。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳 run f2f5bac0：076 批次 + 075 交叉收口
+
+- 派发记录提交 `3b188008`（gemini-076-01 + sol-075-01，wake 记录心跳 run id）。
+- **gemini-076-01：40/40 一次完成**（无截断）。报告 sha256 `10c5a8d8c2f83b3cc58247762e01f175d58589a177efaae4cd3211ea2fac057a`；brain `4a28d93e`。标记 7 条：存在疑点 02435、02466；细微观察 02439、02449、02451、02456、02460。
+- **sol-075-01（cross-batch-075）：10/10 条目、15 claim**，11 confirmed、4 advisory、0 pending/refuted。报告 sha256 `fda0e6753ebcd361a619bd1ebf22d0fa512685274ee0412232a49f0ee9a38400`，rollout `01a0c95d`。补跑四条（02425–02428）全部被逐条 confirmed。
+- 守卫全过：batch-076/cross-batch-075/gemini-075-02 冻结哈希、11 locale 哈希、非 evidence 零 diff，HEAD `3b188008`。
+- 归档先 `archive_attempts_started=1`，一次成功并 live 复查：gemini-076-01 `2026-09-22T13:55:35.946Z`，sol-075-01 `2026-09-22T13:55:37.473Z`。
+- 覆盖 **2470/4144（59.6%）**；批次 76/130，交叉 75 组完成。
+- 更新时间见 STATE.json `updated_at`。
