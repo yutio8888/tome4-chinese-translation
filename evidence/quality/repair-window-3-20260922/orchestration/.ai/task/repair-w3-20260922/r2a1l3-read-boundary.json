@@ -1,0 +1,33 @@
+{
+  "dispatch_id": "r2a1l3",
+  "native_session": "01a0c708-3aee-7570-adb8-bba8251ef1cd",
+  "native_sha256": "749c5acab512e216b3f31c2a736883be21ca0e6c93ffb1b66bb1cf6f5c4ecd07",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0efe97e1102a4802016ab1eda8013c87d1b23fb6dca0497867",
+      "status": "completed",
+      "call_id": "call_WF0hRCoqf2PJiFokx35j5kW9",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"cat .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r2a1l3.json\",\"max_output_tokens\":24000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c708-3b2a-7eb0-b473-8d5f7670a12e",
+        "create_time": 1790045605.934284
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0efe97e1102a4802016ab1edb0c7d887d1b33a5174d25d76d7",
+      "status": "completed",
+      "call_id": "call_hWlNG6f7VLmdTQDSkn8wNooZ",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,hashlib\\np='.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r2a1l3.json'\\nwith open(p,encoding='utf-8') as f:e=json.load(f)\\nb=json.dumps(e['payload'],ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()\\nh=hashlib.sha256(b).hexdigest()\\nassert h==e['candidate_identity']=='ca2c45df22443424ccb174ec95c94281d8b0e0e2162be995fb99a8924ee59203'\\npayload=e['payload']\\nassert [v['revision_key'] for v in payload['translation_snapshot']]==payload['ordered_revision_keys']\\nassert [v['revision_key'] for v in payload['bounded_context']]==payload['ordered_revision_keys']\\nprint('Identity and ordered coverage verified: 3 revisions.')\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c708-3b2a-7eb0-b473-8d5f7670a12e",
+        "create_time": 1790045610.874979
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Host inspected every native tool call: frozen own envelope and active contract only; no historical context or mutations."
+}

@@ -1,0 +1,34 @@
+{
+  "parameters": {
+    "provider": "codex",
+    "model": "gpt-5.6-sol",
+    "settings": {
+      "modeId": "auto-review",
+      "thinkingOptionId": "medium"
+    },
+    "workspaceId": "wks_420314270844170b",
+    "title": "修复窗口3 独立复审 r0a1l1",
+    "labels": {
+      "task_id": "repair-w3-20260922",
+      "role": "reviewer",
+      "purpose": "translation_contextual_v2",
+      "dispatch_id": "r0a1l1",
+      "candidate_identity": "96d023cb4109a0ad09a42f0dc4ca93a185f18cd81be6d0acb4b98384c056c876",
+      "lane_group_identity": "e2f4134d7891b0121b9bf445d9289101405310dbd456c080c055e0c4f85cd433",
+      "lane_index": "1",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    },
+    "notifyOnFinish": true,
+    "initialPrompt": "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n输入：candidate_identity=96d023cb4109a0ad09a42f0dc4ca93a185f18cd81be6d0acb4b98384c056c876；input_path=.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a1l1.json。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。"
+  },
+  "profile": {
+    "id": "agent_profile_mt3s8sou_fggrhfnq1gj",
+    "name": "Main Reviewer-GPT Sol",
+    "provider": "codex",
+    "model": "gpt-5.6-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "role=REVIEWER/SENIOR_REVIEWER. Main reviewer for project. If unavailable, select Grok 4.6, Gemini 3.7 Flash, or Opus according to the allowed role/purpose, author-provider avoidance, and exact-model diversity requirements."
+  },
+  "selection_reason": "Main reviewer; GPT-author subscription exception; independent fresh lane."
+}

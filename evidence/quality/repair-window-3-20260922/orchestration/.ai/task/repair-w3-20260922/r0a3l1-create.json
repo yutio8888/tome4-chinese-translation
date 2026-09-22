@@ -1,0 +1,39 @@
+{
+  "parameters": {
+    "provider": "claude/claude-opus-5",
+    "settings": {
+      "modeId": "auto",
+      "thinkingOptionId": "medium",
+      "features": {
+        "fast_mode": false
+      }
+    },
+    "workspaceId": "wks_420314270844170b",
+    "title": "修复窗口3 独立复审 r0a3l1",
+    "labels": {
+      "task_id": "repair-w3-20260922",
+      "role": "reviewer",
+      "purpose": "translation_contextual_v2",
+      "dispatch_id": "r0a3l1",
+      "candidate_identity": "96d023cb4109a0ad09a42f0dc4ca93a185f18cd81be6d0acb4b98384c056c876",
+      "lane_group_identity": "f484199604b0555038c341a356f816c8e4491b4ec3976226b4885ca8aa1def50",
+      "lane_index": "1",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    },
+    "notifyOnFinish": true,
+    "initialPrompt": "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n输入：candidate_identity=96d023cb4109a0ad09a42f0dc4ca93a185f18cd81be6d0acb4b98384c056c876；input_path=.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l1.json。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。"
+  },
+  "profile": {
+    "id": "agent_profile_mtjlooyy_myzr9tapied",
+    "name": "Cross Reviewer - Opus",
+    "provider": "claude",
+    "model": "claude-opus-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "featureValues": {
+      "fast_mode": false
+    },
+    "notes": "role=REVIEWER across contract-allowed purposes and role=SENIOR_REVIEWER purpose=cross_review/scope_audit."
+  },
+  "selection_reason": "Sol twice failed exact revision identity echo; switch to eligible cross-provider Opus for fresh full-group retry."
+}

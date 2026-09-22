@@ -1,0 +1,105 @@
+{
+  "dispatch_id": "r0a3l4",
+  "native_session": "fcadf746-a399-4c61-a8ad-bb136d2cc724",
+  "native_sha256": "f1a931478f7cd2427eb133bca138266e3add96c01910cb7cc70a0c2fde29ea84",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_013Z99rTuYc5R1ajnhCc7GEN",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json",
+        "description": "Check sizes of contract and envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_015YgmdgR5f4BYxwUJSnX59m",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01TT8WKWNtSDWbf3apFfLVRw",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01F1F19WnqMa6k1N5EcgkXFx",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=== TS',i, p['ordered_revision_keys'][i])\n    print(json.dumps(t,ensure_ascii=False,indent=1))\n\"",
+        "description": "Dump translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01MyzSJ1dCHpWiEtbbnDfrC7",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json'))\np=d['payload']\nfor i,t in enumerate(p['bounded_context']):\n    print('=== BC',i)\n    print(json.dumps(t,ensure_ascii=False,indent=1)[:6000])\n\"",
+        "description": "Dump bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BfxsoH3Z5cFX9K1DWFKrMT",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nfor r in ts['records']: print(r['path'],r['line'],'|',r['record'])\nprint('---keys', list(ts.keys()))\nfor k,v in ts.items():\n    if k!='records': print(k, json.dumps(v,ensure_ascii=False)[:800])\n\"",
+        "description": "Dump terminology records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_016mAgChHBL3uVTTm3M6NXx3",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l4.json'))\np=d['payload']\nc=json.loads(p['bounded_context'][2]['context'])\nprint(list(c.keys()))\nfor e in c['source_excerpts'][3:]:\n    print('###',e['public_source_path'],e['start_line'],e['end_line'])\n    print(e['excerpt'])\nprint('BRIEFING:'); print(p['rendered_briefing'])\n\"",
+        "description": "Rest of BC2 and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01DGxvhhnEKPGZrQHszGCW9p",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 2>/dev/null && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n 'cone' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/engines/default/engine/Target.lua | head -40",
+        "description": "Check cone handling in frozen engine"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Own frozen envelope, whole applicable contract, exact fixed-commit cone implementation lookup; no other task/review/current translation/current terminology reads or writes."
+}

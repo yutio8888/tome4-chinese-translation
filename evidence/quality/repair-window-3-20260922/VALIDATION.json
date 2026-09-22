@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w3-20260922",
+  "executed_at_utc": "2026-09-22T01:58:05Z",
+  "results": [
+    {
+      "command": "python3 -B .ai/task/repair-w3-20260922/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "loaded_records": 22989,
+        "changed_target_count": 14,
+        "unchanged_non_target_fields": true,
+        "placeholder_markup_newline_tab_invariants": true,
+        "changed_revisions": [
+          "e122dd9c588110e524f88fff62fa5c22a25ecd479f49ee7c2fe5fdf14a7ea7d1",
+          "e035e585a6aab2d698f018e59bf75b627f451524788fe8df9a739acf45e9b317",
+          "e1cd6fb504f3f8c421bbdb98148886f74982d2a5c9d5460e47e768a5388dc529",
+          "e1177a8f9f689644a232269ab42be3597862f1d26ab23562b7d6171aa6d4faf9",
+          "e1884052fcd739907285aff6c5dc71dab76ccba369640aefe7951a978c6d79c7",
+          "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32",
+          "df8f5280bf187a1f2e54241eff9b371cbcdb0d753fe7f40c7534d827878af4b4",
+          "e128c83148dea5452e6b6b00ae7f012edd33d7b5df2e8a7be284e4930a7f56b2",
+          "df61b36589e10427e9962900498418cf33dc207b93ebf0018c7d8b4a92c59345",
+          "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1",
+          "dfdfbe60890fa648d9b45b47b9e18c6c12129666160860591d4b44ba0e08c378",
+          "e200845e1abc8076051b8f755bd28ff1bfe68ebb7009b6c15f1b022aaecd461a",
+          "e0886c07f8c3d3450ad3db559fbbbaebe377e0d67e2374b0c374089d6f22fd1c",
+          "e1343327ead953361b1fefe6fb85fd1569679eb6b9a269a08a6f5c1c8a473152"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "generated_report": ".artifacts/i18n/runs/20260922T015805.278608Z-2-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "result": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "proposal_generated": false,
+  "proposal_strict_check": "not_applicable",
+  "intentionally_not_run": [
+    "independent four-member review",
+    "FINAL full review",
+    "full 17-gate suite",
+    "strict addon build",
+    "DONE_VERIFIED",
+    "commit",
+    "catalog/migration",
+    "queue rebuild",
+    "push"
+  ]
+}

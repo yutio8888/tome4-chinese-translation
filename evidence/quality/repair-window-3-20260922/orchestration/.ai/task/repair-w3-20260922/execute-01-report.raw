@@ -1,0 +1,20 @@
+已完成修复窗口 3 的 14 条译文。
+
+- 修改：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- 证据：[实施说明](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/IMPLEMENTATION.md)、[组合清单](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/HOST-WORKSET.json)、[验证结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/VALIDATION.json)、[源码锚点](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/SOURCE-ANCHORS.json)
+- 三份 `PREFLIGHT-BATCH*.json` 已逐字节复制，SHA-256 均与冻结输入一致。
+- 明确保留 11 条正式 repair 与 3 条宿主补充的来源区别。
+- 记录了全部数值 placeholder 的 index、quantity_kind、producer、consumer，以及治疗、伤害、时长和新增限定的方向值流。
+
+验证结果：
+
+- `verify.py`：通过；加载 22,989 条记录，恰好仅 14 个 target 改变。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- claims strict registry：通过。
+- `git diff --check`：通过。
+- 未产生 proposal。
+- 未 stage、commit；既有无关 untracked 均保留。
+
+偏差：首次 `verify.py` 捕获到时空交换条目的一处临时 source 误插，已立即恢复；最终校验确认 source/tag/args_order/special、占位符、markup、换行及 tab 均未变化。
+
+EXECUTOR 范围内无未解决项。独立 review、完整门禁、严格构建、`DONE_VERIFIED`、提交及发布链路尚未执行，留给宿主后续完成。

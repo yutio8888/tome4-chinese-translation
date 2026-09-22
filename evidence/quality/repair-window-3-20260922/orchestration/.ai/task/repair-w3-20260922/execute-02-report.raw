@@ -1,0 +1,15 @@
+修复窗口 3 第一次合并修复已完成。
+
+- [mod-tome.lua:19375](/workspace/tome4-chinese-translation/mod-tome.lua:19375)：壁画末行改为“下方写着”。
+- [mod-tome.lua:37219](/workspace/tome4-chinese-translation/mod-tome.lua:37219)：GRAPPLING 开头改为“处于抓取状态”。
+- 相对 `BEFORE-FIX-1.lua`，LuaJIT 加载确认恰好两条 target 变化；其余 12 条及邻接译文未变。
+- 壁画未知、已知两个分支均完成实际拼接验证。
+
+验证全部通过：
+
+- `verify.py`：22,989 条记录，冻结的 14 条候选及不变量通过。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过，无诊断。
+- 新增证据：[FIX-1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/FIX-1.md)、[VALIDATION-FIX-1.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/VALIDATION-FIX-1.json)、[MURAL-COMPOSITION-FIX-1.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/MURAL-COMPOSITION-FIX-1.json)。
+
+未处理 advisory，未运行完整门禁，未 stage/commit；原有实施记录、验证历史及全部无关未跟踪文件均保留。

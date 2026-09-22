@@ -1,0 +1,103 @@
+{
+  "dispatch_id": "r1a1l2",
+  "native_session": "97a47b2a-7ef7-4a23-8562-ee66a9777b05",
+  "native_sha256": "e1aab8f72be0b7a1cdcf781005563faf109e41dbe0933f36312c77341eddc93a",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_016Tcsz31JRD1SMUWU3XtUF5",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l2.json",
+        "description": "Check sizes of contract and envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011FdzK4nHdUhrFgVKoJhs7w",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0148TFZB829nTeXYCXsYMTum",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l2.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KJWDLjcXm2HaKn6FkNr8Yd",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l2.json'))\np=d['payload']\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n    print('=== R%d %s'%(i+1,k))\n    for kk,vv in t.items(): print('  [%s] %r'%(kk,vv))\n\"",
+        "description": "Dump translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_015xyRz2ZZFNq8rKH8JdjgCT",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l2.json'))\np=d['payload']\nfor i,(k,c) in enumerate(zip(p['ordered_revision_keys'],p['bounded_context'])):\n    print('=== R%d'%(i+1))\n    print(json.dumps(c,ensure_ascii=False,indent=1)[:6000])\n\"",
+        "description": "Dump bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01PhNhDygJjuPFQncmTnVego",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l2.json'))\np=d['payload']\nt=json.loads(p['terminology_snapshot'])\nfor r in t['records']: print(r['path'],r['line'],r['record'])\nprint([k for k in t if k!='records'])\nprint(json.dumps({k:v for k,v in t.items() if k!='records'},ensure_ascii=False)[:1500])\nprint('---BRIEFING---')\nprint(p['rendered_briefing'][:3000])\n\"",
+        "description": "Dump terminology records and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QEvFvyQNArxKez2hGmnskN",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 2>/dev/null && git log --oneline -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n \"slow_projectiles\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -20",
+        "description": "Check slow_projectiles at frozen commit"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S6Zr2rtHNPsiFa4m6yGCjY",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '7835,7860p'",
+        "description": "Inspect slow_projectiles handling"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

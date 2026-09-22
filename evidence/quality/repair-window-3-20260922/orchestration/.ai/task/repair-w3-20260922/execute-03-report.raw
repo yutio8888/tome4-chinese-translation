@@ -1,0 +1,17 @@
+第二次合并修复已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)：
+  - Rosebloom：改为失眠在睡眠期间逐回合累积、最多 10 回合，醒后持续时间和抗性衰减；每剩余回合通常至多提供 20% 睡眠抗性。
+  - Dismissal：明确以精神豁免的 `%d%%` 与本次伤害数值进行检定。
+  - 相对 `BEFORE-FIX-2.lua` 恰好两个 target 变化，其余 12 条不变；非 target 字段、占位符、markup、换行及 tab 均保持。
+
+- 新增 R1 锚点、裁决、机制补充、探针及 [FIX-2 验证记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-3-20260922/VALIDATION-FIX-2.json)，所有冻结材料副本均通过逐字节比较，旧证据未覆盖。
+
+验证结果：
+
+- `verify.py`：通过，22,989 条记录，冻结 workset 的 14 条变更正确。
+- LuaJIT 定向比较及实际 `string.format`：通过，`%%` 正确输出为 `%`。
+- 固定机制局部探针：输出与冻结结果一致；未声称为全游戏模拟。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未运行完整门禁，未修改 `.ai`，未 stage/commit，未创建 agent。

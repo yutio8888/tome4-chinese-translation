@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w3-20260922",
+  "fix_id": "FIX-2",
+  "executed_at_utc": "2026-09-22T02:49:33Z",
+  "candidate_baseline": {
+    "path": ".ai/task/repair-w3-20260922/BEFORE-FIX-2.lua",
+    "sha256": "8c65efc70256145b10393af22686a6fa1f58ab113ab3ce3b27d1ae130fb4eaa3"
+  },
+  "resulting_translation": {
+    "path": "mod-tome.lua",
+    "sha256": "dd793e3d0f4336c881f30e7cb4e62bdccfc90dbaa263182ce4b57a18ad4c76c8"
+  },
+  "results": [
+    {
+      "command": "python3 -B -c <manifest-LuaJIT BEFORE-FIX-2 candidate comparison and printf assertions>",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "loader": "manifest-compatible LuaJIT via LocaleLoader",
+        "loaded_records": 22989,
+        "changed_target_count_from_before_fix_2": 2,
+        "changed_revisions": [
+          "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32",
+          "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1"
+        ],
+        "other_twelve_candidate_targets_unchanged": true,
+        "non_target_fields_unchanged": true,
+        "placeholder_markup_newline_tab_invariants": true,
+        "printf_runtime": "/usr/bin/luajit",
+        "printf_literals_rendered": true,
+        "printf_samples": {
+          "rosebloom": "吸收附近10码范围内敌人的伤痕以治疗自己，并仁慈地使它们入睡。\n\t\t\t\t\t\t\t睡眠概率受法术强度加成。\n\t\t\t\t\t\t\t你获得范围内敌人各流血效果剩余伤害 20% 的治疗（每个流血效果至少 7 点）。敌人睡眠的持续时间为 3 回合加上流血效果中最长的持续时间，期间无法行动。睡眠效果的强度由流血效果的强度决定，额外的伤害会缩短它们睡眠的时间。\n\n\t\t\t\t\t\t\t目标会在睡眠期间逐回合累积失眠，最多累积10回合；醒来后，失眠的剩余持续时间与睡眠抗性会逐回合衰减，每剩余1回合通常提供至多20%睡眠抗性。",
+          "dismissal": "每当你受到伤害时，你会用精神豁免的 67% 与本次伤害数值进行一次检定。检定成功时可触发精神暴击，并会使伤害至少降低 50%。\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能也会使你的唯我临界点提高 10%（当前 40%）。"
+        }
+      }
+    },
+    {
+      "command": "python3 -B .ai/task/repair-w3-20260922/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "loaded_records": 22989,
+        "changed_target_count_from_task_baseline": 14,
+        "changed_revisions_match_frozen_workset": true,
+        "non_target_fields_unchanged": true,
+        "placeholder_markup_newline_tab_invariants": true
+      }
+    },
+    {
+      "command": "python3 -B -c <manifest-configured execution of evidence HOST-MECHANISM-PROBE.lua and frozen-output comparison>",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "runtime": "/usr/bin/luajit",
+        "stdout_matches_frozen_result": true,
+        "stderr_matches_frozen_result": true,
+        "scope": "Exact fixed-code callbacks executed with temporary-value and probability stubs; not a whole-game simulation. Awake duration decrement is explicitly supplied as engine input."
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "generated_report": ".artifacts/i18n/runs/20260922T024913.515933Z-5-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "copied_evidence": {
+    "source_anchor_query_count": 22,
+    "byte_identical_to_frozen_inputs": true,
+    "old_history_preserved": true
+  },
+  "proposal_generated": false,
+  "proposal_strict_check": "not_applicable",
+  "intentionally_not_run": [
+    "full gates",
+    "stage",
+    "commit"
+  ]
+}

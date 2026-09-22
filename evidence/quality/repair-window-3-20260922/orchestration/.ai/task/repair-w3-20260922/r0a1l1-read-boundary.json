@@ -1,0 +1,47 @@
+{
+  "dispatch_id": "r0a1l1",
+  "native_session": "01a0c6da-82a0-7960-aa4d-ae6656af32fa",
+  "native_sha256": "d85f8cc29150fc3e08c348cdf9c17a4de518e870735d035a583b814b1279fb2e",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_07b0731749f7b553016ab1e1f47ac887d1a91d9d8461c9ba50",
+      "status": "completed",
+      "call_id": "call_jHf2NimlUP6kCxJzyY4C1QNt",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"wc -l docs/paseo-translation-context-review-v2-contract.md && sed -n '1,240p' docs/paseo-translation-context-review-v2-contract.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6da-82de-7290-90aa-a609001b012a",
+        "create_time": 1790042610.004291
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_07b0731749f7b553016ab1e1f9f48c87d1a7116774fe1cbf58",
+      "status": "completed",
+      "call_id": "call_DFOPBr6KcAnevZcM761rIjjp",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a1l1.json')\\nprint(p.read_text())\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6da-82de-7290-90aa-a609001b012a",
+        "create_time": 1790042615.90434
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_07b0731749f7b553016ab1e23744b487d1a01944ad2a3d41a7",
+      "status": "completed",
+      "call_id": "call_4uE6eiBQTYyVkxzupbIMLJyK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nimport json,hashlib\\np='.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a1l1.json'\\ne=json.load(open(p,encoding='utf-8'))\\nb=json.dumps(e['payload'],ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()\\nprint(hashlib.sha256(b).hexdigest())\\nprint(e['candidate_identity'])\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":2000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6da-82de-7290-90aa-a609001b012a",
+        "create_time": 1790042623.21591
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Only own frozen envelope, full applicable contract, and fixed-commit relevant public source/call chain; no current translation/terminology or other task/review reads.",
+  "formal_review_accepted": false,
+  "reason": "Whole r0a1 invalid due lane2 revision identity typo."
+}

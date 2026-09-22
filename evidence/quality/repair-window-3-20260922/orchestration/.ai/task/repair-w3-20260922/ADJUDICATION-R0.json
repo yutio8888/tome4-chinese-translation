@@ -1,0 +1,50 @@
+{
+  "task_id": "repair-w3-20260922",
+  "stage": {
+    "cycle": 0,
+    "attempt": 3,
+    "kind": "lane_group"
+  },
+  "adjudicated_at": "2026-09-22T02:17:58.168537+00:00",
+  "findings": [
+    {
+      "id": "RW3-R0-01",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "revision_key": "e1177a8f9f689644a232269ab42be3597862f1d26ab23562b7d6171aa6d4faf9",
+      "review_dispatch": "r0a3l2",
+      "evidence": "HOST-MURAL-COMPOSITION.json; fixed shertul.lua:59-60 prefix .. conditional branch",
+      "finding": "尾句与未解读分支直拼为“下面有一行文字不明意义的文字”，且源文无一行数量限定。",
+      "minimum_fix": "仅把该获准target最后一行改为“下方写着”，其余段落及邻接分支不变；验证两个分支拼接。"
+    },
+    {
+      "id": "RW3-R0-02",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "revision_key": "e1343327ead953361b1fefe6fb85fd1569679eb6b9a269a08a6f5c1c8a473152",
+      "review_dispatch": "r0a3l3",
+      "evidence": "fixed physical.lua:1419-1454; same GRAPPLING effect desc/on_gain frozen as 抓取",
+      "finding": "本次把原有抓取改成擒抱，与同一状态的显示名及日志不一致。",
+      "minimum_fix": "仅将获准target开头“处于擒抱状态”恢复为“处于抓取状态”；保留本次修正的体力消耗、伤害方向及中断条件，不改术语库或邻近条目。"
+    },
+    {
+      "id": "RW3-R0-A1",
+      "status": "advisory",
+      "review_dispatch": "r0a3l1",
+      "revision_key": "dfdfbe60890fa648d9b45b47b9e18c6c12129666160860591d4b44ba0e08c378",
+      "blocking": false,
+      "finding": "建议把描述中的Pure Aether改为技能显示名以太掌握。",
+      "decision": "不自动修复。Pure Aether同时是技能名和该句with之后环绕人物的以太物质意象；固定实现有aura粒子、奥术增伤/穿透，没有调用另一个叫Pure Aether的技能。与第二句casting Aether Avatar明确调用另一个技能的语法和机制不同。既有talent name创译以太掌握不适合作为环绕的实体，“以太掌握环绕着你”反而产生生硬指称。当前纯净的以太能量保留意象，未改变已确认机制；仅词形相同不足以证明此句必须逐字复用技能标签。",
+      "evidence": {
+        "component": "tome",
+        "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "public_source_path": "game/modules/tome/data/talents/spells/aether.lua",
+        "file_sha256": "f40adf8a89c61643ec20e4d2fdd4a910ad53cfbb9139f5d096833d6750fa25cb",
+        "excerpt": "267: newTalent{\n268: \tname = \"Pure Aether\",\n269: \ttype = {\"spell/aether\",4},\n270: \trequire = spells_req_high4,\n271: \tpoints = 5,\n272: \tmode = \"sustained\",\n273: \tsustain_mana = 50,\n274: \tcooldown = 30,\n275: \tuse_only_arcane = 1,\n276: \ttactical = { BUFF = 2 },\n277: \tgetNbRemove = function(self, t) return math.floor(self:combatTalentScale(t, 1, 4)) end,\n278: \tgetDamageIncrease = function(self, t) return self:combatTalentScale(t, 2.5, 10) end,\n279: \tgetResistPenalty = function(self, t) return self:combatTalentLimit(t, 60, 20, 50) end, -- Limit < 60%\t\n280: \tactivate = function(self, t)\n281: \t\tgame:playSoundNear(self, \"talents/arcane\")\n282: \n283: \t\tlocal particle\n284: \t\tlocal ret = {\n285: \t\t\tdam = self:addTemporaryValue(\"inc_damage\", {[DamageType.ARCANE] = t.getDamageIncrease(self, t)}),\n286: \t\t\tresist = self:addTemporaryValue(\"resists_pen\", {[DamageType.ARCANE] = t.getResistPenalty(self, t)}),\n287: \t\t}\n288: \t\tif core.shader.active(4) then\n289: \t\t\tret.particle = self:addParticles(Particles.new(\"shader_ring_rotating\", 1, {toback=true, rotation=0, radius=2, img=\"arcanegeneric\", a=0.7}, {type=\"sunaura\", time_factor=5000}))\n290: --\t\t\tparticle = self:addParticles(Particles.new(\"shader_ring_rotating\", 1, {radius=1.1}, {type=\"flames\", hide_center=0, time_factor=1700, zoom=0.3, npow=1, color1={0.6, 0.3, 0.8, 1}, color2={0.8, 0, 0.8, 1}, xy={self.x, self.y}}))\n291: \t\telse\n292: \t\t\tret.particle = self:addParticles(Particles.new(\"ultrashield\", 1, {rm=180, rM=220, gm=10, gM=50, bm=190, bM=220, am=120, aM=200, radius=0.4, density=100, life=8, instop=20}))\n293: \t\tend\n294: \t\treturn ret\n295: \tend,\n296: \tdeactivate = function(self, t, p)\n297: \t\tself:removeParticles(p.particle)\n298: \t\tself:removeTemporaryValue(\"inc_damage\", p.dam)\n299: \t\tself:removeTemporaryValue(\"resists_pen\", p.resist)\n300: \t\treturn true\n301: \tend,\n302: \tinfo = function(self, t)\n303: \t\tlocal damageinc = t.getDamageIncrease(self, t)\n304: \t\tlocal ressistpen = t.getResistPenalty(self, t)\n305: \t\treturn ([[Surround yourself with Pure Aether, increasing all your arcane damage by %0.1f%% and ignoring %d%% arcane resistance of your targets.\n306: \t\tAt level 5 casting Aether Avatar removes up to %d magical or physical detrimental effects.]])\n307: \t\t:tformat(damageinc, ressistpen, t.getNbRemove(self, t))\n308: \tend,\n309: }"
+      }
+    }
+  ],
+  "result": "two confirmed merged into one EXECUTOR fix; one nonblocking advisory; no scope expansion"
+}

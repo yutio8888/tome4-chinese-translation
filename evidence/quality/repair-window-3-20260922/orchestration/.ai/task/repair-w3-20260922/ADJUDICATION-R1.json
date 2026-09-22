@@ -1,0 +1,42 @@
+{
+  "task_id": "repair-w3-20260922",
+  "stage": {
+    "cycle": 1,
+    "attempt": 3,
+    "kind": "lane_group"
+  },
+  "adjudicated_at": "2026-09-22T02:44:54.795495+00:00",
+  "findings": [
+    {
+      "id": "RW3-R1-01",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "revision_key": "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32",
+      "review_dispatch": "r1a3l1",
+      "finding": "固定50%睡眠免疫与固定实现不符：Rosebloom传入20-Sandman减免，睡眠每回合累积失眠，实际sleep_immune=(power*remaining_duration)/100。失眠最多10回合，醒后衰减。",
+      "evidence": [
+        "HOST-MECHANISM-SUPPLEMENT.json",
+        "HOST-MECHANISM-PROBE.json",
+        "SOURCE-ANCHORS.json"
+      ],
+      "minimum_fix": "仅修本条机制叙述，保留格式和其他已核实内容。"
+    },
+    {
+      "id": "RW3-R1-02",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "completeness",
+      "revision_key": "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1",
+      "review_dispatch": "r1a3l3",
+      "finding": "检定应明确以本次伤害数值为对抗值；现译未说出该关系。",
+      "evidence": [
+        "HOST-MECHANISM-SUPPLEMENT.json",
+        "HOST-MECHANISM-PROBE.json",
+        "SOURCE-ANCHORS.json"
+      ],
+      "minimum_fix": "仅修本条机制叙述，保留格式和其他已核实内容。"
+    }
+  ],
+  "result": "Two objectively confirmed mechanism findings; one merged bounded fix; cycle1 does not require scope audit. No conflicting substantive review claim."
+}

@@ -1,0 +1,80 @@
+{
+  "claims": [
+    {
+      "id": "HOST-RW3-INSOMNIA",
+      "status": "confirmed",
+      "tier": 1,
+      "revision_key": "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32",
+      "finding": "固定50%睡眠免疫与固定实现不符：Rosebloom传入20-Sandman减免，睡眠每回合累积失眠，实际sleep_immune=(power*remaining_duration)/100。失眠最多10回合，醒后衰减。",
+      "source_refs": [
+        {
+          "component": "tome",
+          "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+          "start_line": 2301,
+          "end_line": 2360,
+          "revision_keys": [
+            "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32"
+          ],
+          "excerpt": "2301: \n2302: newEffect{\n2303: \tname = \"SLEEP\", image = \"talents/sleep.png\",\n2304: \tdesc = _t\"Sleep\",\n2305: \tlong_desc = function(self, eff) return (\"The target is asleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.power) end,\n2306: \ttype = \"mental\",\n2307: \tsubtype = { sleep=true },\n2308: \tstatus = \"detrimental\",\n2309: \tparameters = { power=1, insomnia=1, waking=0, contagious=0 },\n2310: \ton_gain = function(self, err) return _t\"#Target# has been put to sleep.\", _t\"+Sleep\" end,\n2311: \ton_lose = function(self, err) return _t\"#Target# is no longer sleeping.\", _t\"-Sleep\" end,\n2312: \ton_timeout = function(self, eff)\n2313: \t\tlocal dream_prison = false\n2314: \t\tif eff.src and eff.src.isTalentActive and eff.src:isTalentActive(eff.src.T_DREAM_PRISON) then\n2315: \t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_DREAM_PRISON)\n2316: \t\t\tif core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) <= eff.src:getTalentRange(t) then\n2317: \t\t\t\tdream_prison = true\n2318: \t\t\tend\n2319: \t\tend\n2320: \t\tif dream_prison then\n2321: \t\t\teff.dur = eff.dur + 1\n2322: \t\t\tif not eff.particle then\n2323: \t\t\t\tif core.shader.active(4) then\n2324: \t\t\t\t\teff.particle = self:addParticles(Particles.new(\"shader_shield\", 1, {img=\"shield2\", size_factor=1.25}, {type=\"shield\", time_factor=6000, aadjust=5, color={0, 1, 1}}))\n2325: \t\t\t\telse\n2326: \t\t\t\t\teff.particle = self:addParticles(Particles.new(\"generic_shield\", 1, {r=0, g=1, b=1, a=1}))\n2327: \t\t\t\tend\n2328: \t\t\tend\n2329: \t\telseif eff.contagious > 0 and eff.dur > 1 then\n2330: \t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_SLEEP)\n2331: \t\t\tt.doContagiousSleep(eff.src, self, eff, t)\n2332: \t\tend\n2333: \t\tif eff.particle and not dream_prison then\n2334: \t\t\tself:removeParticles(eff.particle)\n2335: \t\tend\n2336: \t\t-- Incriment Insomnia Duration\n2337: \t\tif not self:attr(\"lucid_dreamer\") then\n2338: \t\t\tself:setEffect(self.EFF_INSOMNIA, 1, {power=eff.insomnia})\n2339: \t\tend\n2340: \tend,\n2341: \tactivate = function(self, eff)\n2342: \t\teff.sid = self:addTemporaryValue(\"sleep\", 1)\n2343: \tend,\n2344: \tdeactivate = function(self, eff)\n2345: \t\tself:removeTemporaryValue(\"sleep\", eff.sid)\n2346: \t\tif not self:attr(\"sleep\") and not self.dead and game.level:hasEntity(self) and eff.waking > 0 then\n2347: \t\t\tlocal t = eff.src:getTalentFromId(self.T_RESTLESS_NIGHT)\n2348: \t\t\tt.doRestlessNight(eff.src, self, eff.waking)\n2349: \t\tend\n2350: \t\tif eff.particle then\n2351: \t\t\tself:removeParticles(eff.particle)\n2352: \t\tend\n2353: \tend,\n2354: }\n2355: \n2356: newEffect{\n2357: \tname = \"SLUMBER\", image = \"talents/slumber.png\",\n2358: \tdesc = _t\"Slumber\",\n2359: \tlong_desc = function(self, eff) return (\"The target is in a deep sleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.power) end,\n2360: \ttype = \"mental\","
+        },
+        {
+          "component": "tome",
+          "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "file_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+          "start_line": 2489,
+          "end_line": 2529,
+          "revision_keys": [
+            "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32"
+          ],
+          "excerpt": "2489: newEffect{\n2490: \tname = \"INSOMNIA\", image = \"effects/insomnia.png\",\n2491: \tdesc = _t\"Insomnia\",\n2492: \tlong_desc = function(self, eff) return (\"The target is wide awake and has %d%% resistance to sleep effects.\"):tformat(eff.cur_power) end,\n2493: \ttype = \"mental\",\n2494: \tsubtype = { psionic=true },\n2495: \tstatus = \"beneficial\",\n2496: \tparameters = { power=0 },\n2497: \ton_gain = function(self, err) return _t\"#Target# is suffering from insomnia.\", _t\"+Insomnia\" end,\n2498: \ton_lose = function(self, err) return _t\"#Target# is no longer suffering from insomnia.\", _t\"-Insomnia\" end,\n2499: \ton_merge = function(self, old_eff, new_eff)\n2500: \t\t-- Add the durations on merge\n2501: \t\tlocal dur = old_eff.dur + new_eff.dur\n2502: \t\told_eff.dur = math.min(10, dur)\n2503: \t\told_eff.cur_power = old_eff.power * old_eff.dur\n2504: \t\t-- Need to remove and re-add the effect\n2505: \t\tself:removeTemporaryValue(\"sleep_immune\", old_eff.sid)\n2506: \t\told_eff.sid = self:addTemporaryValue(\"sleep_immune\", old_eff.cur_power/100)\n2507: \t\treturn old_eff\n2508: \tend,\n2509: \ton_timeout = function(self, eff)\n2510: \t\t-- Insomnia only ticks when we're awake\n2511: \t\tif self:attr(\"sleep\") and self:attr(\"sleep\") > 0 then\n2512: \t\t\teff.dur = eff.dur + 1\n2513: \t\telse\n2514: \t\t\t-- Deincrement the power\n2515: \t\t\teff.cur_power = eff.power * eff.dur\n2516: \t\t\tself:removeTemporaryValue(\"sleep_immune\", eff.sid)\n2517: \t\t\teff.sid = self:addTemporaryValue(\"sleep_immune\", eff.cur_power/100)\n2518: \t\tend\n2519: \tend,\n2520: \tactivate = function(self, eff)\n2521: \t\teff.cur_power = eff.power * eff.dur\n2522: \t\teff.sid = self:addTemporaryValue(\"sleep_immune\", eff.cur_power/100)\n2523: \tend,\n2524: \tdeactivate = function(self, eff)\n2525: \t\tself:removeTemporaryValue(\"sleep_immune\", eff.sid)\n2526: \tend,\n2527: }\n2528: \n2529: newEffect{"
+        },
+        {
+          "component": "tome",
+          "public_source_path": "game/modules/tome/data/talents/psionic/slumber.lua",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "file_sha256": "a030f97c98b707ded663c9e66ef0600834c750ccdba9a2ee666da41255376314",
+          "start_line": 100,
+          "end_line": 116,
+          "revision_keys": [
+            "dff11a9be5d688263842862c8d065f6da9d332faef7d18b35855b7bb17934e32"
+          ],
+          "excerpt": "100: \n101: newTalent{\n102: \tname = \"Sandman\",\n103: \ttype = {\"psionic/slumber\", 3},\n104: \tpoints = 5,\n105: \trequire = psi_wil_req3,\n106: \tmode = \"passive\",\n107: \tgetSleepPowerBonus = function(self, t) return self:combatTalentLimit(t, 2, 1.1, 1.5) end, -- Limit < 2\n108: \tgetInsomniaPower = function(self, t) return self:combatTalentLimit(t, 12, 4, 10) end, -- Limit to <20%\n109: \tinfo = function(self, t)\n110: \t\tlocal power_bonus = t.getSleepPowerBonus(self, t) - 1\n111: \t\tlocal insomnia = t.getInsomniaPower(self, t)\n112: \t\treturn([[Increases the amount of damage you can deal to sleeping targets before reducing the effect duration by %d%%, and reduces the sleep immunity of your Insomnia effects by %d%%.\n113: \t\tThese effects will be directly reflected in the appropriate talent descriptions.\n114: \t\tThe damage threshold bonus will scale with your Mindpower.]]):tformat(power_bonus * 100, insomnia)\n115: \tend,\n116: }"
+        }
+      ],
+      "producer": "crimson-templar.lua getInsomniaPower and EFF_SLEEP insomnia argument",
+      "consumer": "SLEEP.on_timeout -> INSOMNIA activate/on_merge/on_timeout -> addTemporaryValue sleep_immune",
+      "direction": "More remaining insomnia turns increases sleep immunity; awake ticks reduce it; Sandman reduces power per remaining turn.",
+      "report_origin": "Rejected Grok diagnostic is only a lead; host independently read exact fixed git blobs and verified call chain. Not an accepted independent review."
+    },
+    {
+      "id": "HOST-RW3-DISMISSAL",
+      "status": "confirmed",
+      "tier": 1,
+      "revision_key": "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1",
+      "finding": "检定应明确以本次伤害数值为对抗值；现译未说出该关系。",
+      "source_refs": [
+        {
+          "component": "tome",
+          "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+          "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "file_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+          "start_line": 336,
+          "end_line": 351,
+          "revision_keys": [
+            "e172753e04e296ee928a40a0b54f754ad2788f68a8563f03f587fefe0f4a66f1"
+          ],
+          "excerpt": "336: --New, simpler checkHit that relies on rescaleCombatStats() being used elsewhere\n337: function _M:checkHit(atk, def, min, max, factor, p)\n338: \tif atk < 0 then atk = 0 end\n339: \tif def < 0 then def = 0 end\n340: \tlocal min = min or 0\n341: \tlocal max = max or 100\n342: \tif game.player:hasQuest(\"tutorial-combat-stats\") then\n343: \t\tmin = 0\n344: \t\tmax = 100\n345: \tend --ensures predictable combat for the tutorial\n346: \tlocal hit = math.ceil(50 + 2.5 * (atk - def))\n347: \thit = util.bound(hit, min, max)\n348: \tprint(\"checkHit\", atk, \"vs\", def, \"=> chance to hit\", hit)\n349: \treturn rng.percent(hit), hit\n350: end\n351: "
+        }
+      ],
+      "producer": "solipsism.lua:179-190 combatMentalResist()*getSavePercentage, incoming value",
+      "consumer": "checkHit(saving_throw,value); ceil(50+2.5*(atk-def)) bounded 0..100",
+      "direction": "At fixed mental save, greater incoming damage lowers success chance.",
+      "report_origin": "Rejected Grok diagnostic is only a lead; independently verified fixed source."
+    }
+  ],
+  "candidate_not_changed": true,
+  "not_a_formal_review_record": true
+}

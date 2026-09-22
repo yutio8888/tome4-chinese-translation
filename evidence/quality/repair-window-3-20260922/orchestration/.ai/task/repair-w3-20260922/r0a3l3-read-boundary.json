@@ -1,0 +1,93 @@
+{
+  "dispatch_id": "r0a3l3",
+  "native_session": "1ff437d9-8bc2-4879-ba9c-d1f5db4bfa1d",
+  "native_sha256": "67c129a5739967878830163ac58b3cfa28812036af63d3f8148af05499206d7e",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01UDBxSd5xJ7HaZGvrA5jEV7",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json",
+        "description": "Check sizes of contract and envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01CgwesqYbCWPBth99eREpmQ",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01TDUDP8w3x4NPEC1AoswNWK",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01X95d1cS1TLx5rwT4bmwspV",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json'))\np=d['payload']\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[2000:6000])\n\"",
+        "description": "Rest of terminology snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01FKWFFrAomqFTDQGtCZoMg7",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    t=p['translation_snapshot'][i]\n    print('='*30, i, k)\n    for kk,vv in t.items():\n        print('---',kk)\n        print(vv)\n\"",
+        "description": "Print translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01E5br16Y1AVEhTMj35bprQN",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json'))\np=d['payload']\nprint(p['rendered_briefing'])\n\"",
+        "description": "Print briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RVhgT5wRJk87XjGFjWbTHY",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l3.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    print('='*30,i)\n    for kk,vv in c.items():\n        print('---',kk)\n        print(vv)\n\"",
+        "description": "Print bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Manually checked all tool calls: own frozen envelope and complete applicable contract only; no current translation/terminology or other tasks/reviews. No mutations."
+}

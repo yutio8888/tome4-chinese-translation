@@ -1,0 +1,93 @@
+{
+  "dispatch_id": "r0a3l2",
+  "native_session": "7fc69d82-d09b-4fc5-8611-a371155b792b",
+  "native_sha256": "b1d687f3d5b3523fa6b7058e8eecd57ce14f5db8bd795ba54f5d532dba254c04",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01EocztgB4mqdAs5EvxtCg6p",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l2.json",
+        "description": "Check sizes of contract and envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017AhHe3x69ouyDTwrtC1FTQ",
+      "name": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011zAtj2xJinuhVNmhYMiEA4",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l2.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(list(p.keys()))\nprint(p['contract'], p['fixed_source_identity'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01PbQwUmTnW4NqTeKGroGWah",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l2.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=== idx',i, p['ordered_revision_keys'][i])\n    for k,v in t.items(): print(' ',k,'=',repr(v))\n\"",
+        "description": "Print translation snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RwbiREasqDLXxu6Ze5ENmt",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l2.json'))\np=d['payload']\nfor i,t in enumerate(p['bounded_context']):\n    print('=== idx',i)\n    for k,v in t.items(): print(' ',k,'=',v if k!='context' else '')\n    if 'context' in t: print(t['context'])\n\"",
+        "description": "Print bounded context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017jUtRChUmUx4EaZcbGujbW",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a3l2.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nprint(list(ts.keys()))\nfor r in ts['records']: print(r['path'],r['line'],r['record'])\nprint('---BRIEFING---'); print(p['rendered_briefing'])\n\"",
+        "description": "Terminology records and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01UA56T4s5LDwmR377D9JZpF",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'PY'\nimport json\nout={\"contract\":\"translation_contextual_v2\",\"candidate_identity\":\"4ba02788530d298b29676982eeeef68dfa79640714e445d46fe1cbb2a4543800\",\"verdicts\":[\n{\"revision_key\":\"e035e585a6aab2d698f018e59bf75b627f451524788fe8df9a739acf45e9b317\",\"verdict\":\"OK\"},\n{\"revision_key\":\"e0886c07f8c3d3450ad3db559fbbbaebe377e0d67e2374b0c374089d6f22fd1c\",\"verdict\":\"OK\"},\n{\"revision_key\":\"e1177a8f9f689644a232269ab42be3597862f1d26ab23562b7d6171aa6d4faf9\",\"verdict\":\"ISSUE\",\"observation\":\"跨条拼接破损：冻结源码 game/modules/tome/data/lore/shertul.lua（commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，第 59-60 行）中本串以 `_t[[...There is some text beneath ]]..(... _t[[which you do not understand: ...]] ...)` 直接串接后续分支。本条译文把尾句收成完整句「下面有一行文字」，与 envelope 邻近冻结译文「不明意义的文字：#{italic}#'Batialatoth ro Eyal...」拼接后得到「下面有一行文字不明意义的文字：…」，「文字」重复且句法断裂；源码中英文侧 beneath 是接续后半句的介词/关系结构，并非独立句。另「some text」被译为「一行文字」，源串未给出行数，冻结证据不支持「一行」。\"},\n{\"revision_key\":\"e122dd9c588110e524f88fff62fa5c22a25ecd479f49ee7c2fe5fdf14a7ea7d1\",\"verdict\":\"OK\"}]}\nprint(json.dumps(out,ensure_ascii=False,separators=(',',':')))\nPY",
+        "description": "Emit result JSON"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Manually checked all tool calls: own frozen envelope and complete applicable contract only; no current translation/terminology or other tasks/reviews. No mutations."
+}

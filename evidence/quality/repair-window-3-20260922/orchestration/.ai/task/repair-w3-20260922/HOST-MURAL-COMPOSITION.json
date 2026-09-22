@@ -1,0 +1,15 @@
+{
+  "component": "tome",
+  "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_path": "game/modules/tome/data/lore/shertul.lua",
+  "source_sha256": "5e2c74eb697a0468d01cd0318e8bb9192201b3b652cb83fdf278e1354a72692a",
+  "source_operation": "fourth mural lore function directly concatenates prefix .. conditional unknown/known branch",
+  "prefix_target": "你看到一幅壁画，画中是一座巨大的水晶都市，后方有数座小型石质岛屿漂浮在空中。前景中坐着一名夏·图尔人，一只手伸向天空。\n下面有一行文字",
+  "unknown_target": "不明意义的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#",
+  "known_target": "#{italic}#'我们征服了世界，为自己建造了高耸的水晶之城和遨游天际的堡垒，但有些人还不满足……'#{normal}#",
+  "assembled_unknown": "你看到一幅壁画，画中是一座巨大的水晶都市，后方有数座小型石质岛屿漂浮在空中。前景中坐着一名夏·图尔人，一只手伸向天空。\n下面有一行文字不明意义的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#",
+  "assembled_known": "你看到一幅壁画，画中是一座巨大的水晶都市，后方有数座小型石质岛屿漂浮在空中。前景中坐着一名夏·图尔人，一只手伸向天空。\n下面有一行文字#{italic}#'我们征服了世界，为自己建造了高耸的水晶之城和遨游天际的堡垒，但有些人还不满足……'#{normal}#",
+  "host_status": "confirmed",
+  "defect": "Runtime concatenation repeats 文字 with no linking phrase: 下面有一行文字不明意义的文字. Can fix only allowed prefix final segment to 下方写着; both branch targets unchanged.",
+  "scope": "only current allowed mural revision; no adjacent translation edits"
+}

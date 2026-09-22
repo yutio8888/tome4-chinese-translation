@@ -1,0 +1,23 @@
+{
+  "dispatch_id": "r0a1l2",
+  "native_session": "01a0c6db-1c28-72e1-8580-c9b463c9cc77",
+  "native_sha256": "8e5cd581d5c12ad7e80ad742e8c0ff50a75f483bbda065704c541d42ea28e271",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0205643aa30cc352016ab1e21bd08c87d2a48e9485b00c87c0",
+      "status": "completed",
+      "call_id": "call_iSI6WvoVGcoswDFK5okxTWbr",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"sed -n '1,260p' docs/paseo-translation-context-review-v2-contract.md && printf '\\\\n__ENVELOPE__\\\\n' && sed -n '1,260p' .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r0a1l2.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output)\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6db-1c63-7731-a4c0-908040cf1bab",
+        "create_time": 1790042648.694854
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Only own frozen envelope, full applicable contract, and fixed-commit relevant public source/call chain; no current translation/terminology or other task/review reads.",
+  "formal_review_accepted": false,
+  "reason": "Whole r0a1 invalid due lane2 revision identity typo."
+}

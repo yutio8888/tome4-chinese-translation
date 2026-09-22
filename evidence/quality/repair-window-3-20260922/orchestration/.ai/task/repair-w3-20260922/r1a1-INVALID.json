@@ -1,0 +1,161 @@
+{
+  "reason": "Native provenance parser rejected terminal leaf: last-prompt references attachment following final assistant, not terminal assistant. Whole r1a1 invalid; no terminal review publication.",
+  "uncreated_dispatch": "r1a1l4",
+  "diagnostic_native_file_sha256": "5302f060c21cb1b445382beb0b4c5ed0889b5a5168cb1a18d5c3cd09a75d2570",
+  "diagnostic_final_uuid": "96158c87-b40c-47a4-b326-89aa07560f17",
+  "tail_leaf": {
+    "type": "last-prompt",
+    "lastPrompt": "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。 输入：candidate_identity=9e9e447b8944e1a99fd71cf6b29a280ba2b51ae994a7712f637c691be7abc197；input_path=.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a1l…",
+    "leafUuid": "5cd8fea7-68f1-4cd2-845b-9d76f71aa3fa",
+    "sessionId": "3ebb19f9-842d-43e6-82b6-b3038d319de5"
+  },
+  "terminal_attachment": {
+    "parentUuid": "96158c87-b40c-47a4-b326-89aa07560f17",
+    "isSidechain": false,
+    "attachment": {
+      "type": "deferred_tools_record",
+      "entries": [
+        {
+          "name": "mcp__claude_ai_Claude_Docs__batch",
+          "description": "Create a doc, or apply several operations to one doc atomically.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "batch": {
+                "type": "array"
+              },
+              "container": {
+                "properties": {
+                  "create": {
+                    "type": "object"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind"
+                ],
+                "type": "object"
+              },
+              "opId": {
+                "type": "string"
+              },
+              "verbose": {
+                "type": "boolean"
+              }
+            }
+          },
+          "eager_input_streaming": true,
+          "defer_loading": true
+        },
+        {
+          "name": "mcp__claude_ai_Claude_Docs__guide",
+          "description": "Docs guides: topic.instructions repeats the server instructions. Read it only if your client dropped them. Also topic.<name>, refusal.<code>. After a doc's birth → [\"topic.index\"].",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "description": "topic.<name> (instructions, index, editing, tabs, comments, charts, chart-definition, uploads, skill) or refusal.<code>; several per call is fine.",
+                "type": "array"
+              }
+            }
+          },
+          "eager_input_streaming": true,
+          "defer_loading": true
+        },
+        {
+          "name": "mcp__claude_ai_Claude_Docs__update",
+          "description": "Edit a tab's contents, rename a doc or tab, or change a stored value.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "answering": {
+                "maxLength": 64,
+                "type": "string"
+              },
+              "container": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "id"
+                ],
+                "type": "object"
+              },
+              "engine": {
+                "type": "string"
+              },
+              "opId": {
+                "type": "string"
+              },
+              "payload": {
+                "anyOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "ref": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "object": {
+                    "enum": [
+                      "project",
+                      "file",
+                      "node",
+                      "utterance",
+                      "enum"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "object",
+                  "id"
+                ],
+                "type": "object"
+              },
+              "verbose": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "ref",
+              "payload"
+            ]
+          },
+          "eager_input_streaming": true,
+          "defer_loading": true
+        }
+      ]
+    },
+    "type": "attachment",
+    "uuid": "5cd8fea7-68f1-4cd2-845b-9d76f71aa3fa",
+    "timestamp": "2026-09-22T02:26:40.118Z",
+    "userType": "external",
+    "entrypoint": "sdk-cli",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "sessionId": "3ebb19f9-842d-43e6-82b6-b3038d319de5",
+    "version": "2.1.259",
+    "gitBranch": "develop"
+  },
+  "do_not_accept_diagnostic_raw": true
+}

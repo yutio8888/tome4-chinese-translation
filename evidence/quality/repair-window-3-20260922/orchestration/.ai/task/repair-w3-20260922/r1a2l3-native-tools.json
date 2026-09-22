@@ -1,0 +1,172 @@
+{
+  "dispatch_id": "r1a2l3",
+  "native_session": "01a0c6f2-1f0b-7b13-85db-15a543ab72aa",
+  "native_sha256": "59b296b8b2b3357ca1edf442ff22ed403d5b1fe7402614f9f666ff102a1b205b",
+  "tool_calls": [
+    {
+      "id": "call-2ddd8f05-b68c-42fe-b6d0-6effcf9314c5-0",
+      "name": "read_file",
+      "arguments": "{\"target_file\":\"/home/paseo/.grok/memory-v2/workspaces/tome4-chinese-translation-3b9f0d14/topics/translation-context-review.md\"}"
+    },
+    {
+      "id": "call-2ddd8f05-b68c-42fe-b6d0-6effcf9314c5-1",
+      "name": "read_file",
+      "arguments": "{\"target_file\":\"/home/paseo/.grok/memory-v2/workspaces/tome4-chinese-translation-3b9f0d14/topics/tome4-cn-loc.md\"}"
+    },
+    {
+      "id": "call-2ddd8f05-b68c-42fe-b6d0-6effcf9314c5-2",
+      "name": "read_file",
+      "arguments": "{\"target_file\":\"/home/paseo/.grok/memory-v2/workspaces/tome4-chinese-translation-3b9f0d14/topics/tome4-source-mechanics.md\"}"
+    },
+    {
+      "id": "call-2ddd8f05-b68c-42fe-b6d0-6effcf9314c5-3",
+      "name": "read_file",
+      "arguments": "{\"target_file\":\"/workspace/tome4-chinese-translation/docs/paseo-translation-context-review-v2-contract.md\"}"
+    },
+    {
+      "id": "call-ff089ed2-1b23-4375-a734-65c016d2acbf-4",
+      "name": "read_file",
+      "arguments": "{\"target_file\":\"/workspace/tome4-chinese-translation/.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a2l3.json\"}"
+    },
+    {
+      "id": "call-a49f48ef-cc96-4050-b4de-9f52ae2bde7e-5",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"python3 -c \\\"\\nimport json, hashlib\\np='/workspace/tome4-chinese-translation/.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-r1a2l3.json'\\nwith open(p) as f:\\n    env=json.load(f)\\nprint('identity', env['candidate_identity'])\\npayload=env['payload']\\ncanon=json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(',',':'), allow_nan=False)\\nprint('computed', hashlib.sha256(canon.encode()).hexdigest())\\nprint('keys', payload['ordered_revision_keys'])\\nprint('n_trans', len(payload['translation_snapshot']))\\nprint('n_ctx', len(payload['bounded_context']))\\nprint('src_id', payload['fixed_source_identity'])\\n\\\"\\n\",\"description\":\"Verify envelope identity and parse keys\"}"
+    },
+    {
+      "id": "call-a49f48ef-cc96-4050-b4de-9f52ae2bde7e-6",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 rev-parse HEAD && git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/fungus.lua | sed -n '1,180p'\",\"description\":\"Show frozen Ancestral Life talent source\"}"
+    },
+    {
+      "id": "call-a8fff8d9-56d3-4398-9aa9-25c8d5767891-7",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"ANCESTRAL_LIFE|ancestral_life|getEq\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -80\",\"description\":\"Find Ancestral Life call sites in frozen source\"}"
+    },
+    {
+      "id": "call-a8fff8d9-56d3-4398-9aa9-25c8d5767891-8",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '1410,1600p'\",\"description\":\"Show frozen Grappling and Grappled effects\"}"
+    },
+    {
+      "id": "call-a8fff8d9-56d3-4398-9aa9-25c8d5767891-9",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/solipsism.lua | sed -n '1,250p'\",\"description\":\"Show frozen Solipsism Dismissal talent\"}"
+    },
+    {
+      "id": "call-1792a424-2e36-42f2-8e5a-c0562ac0e847-10",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"callbackOnHeal|allow_on_heal|disable_ancestral_life|non-regeneration\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -100\",\"description\":\"Find heal callback and ancestral-life filters\"}"
+    },
+    {
+      "id": "call-1792a424-2e36-42f2-8e5a-c0562ac0e847-11",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '160,230p'\",\"description\":\"Show regeneration effect Ancestral Life hook\"}"
+    },
+    {
+      "id": "call-1792a424-2e36-42f2-8e5a-c0562ac0e847-12",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"doDismissalOnHit|T_DISMISSAL|mindCrit\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua | head -50\",\"description\":\"Find Dismissal onTakeHit call in Actor.lua\"}"
+    },
+    {
+      "id": "call-b8e548db-a025-4e52-adf4-e4592ec0456c-13",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '2280,2420p'\",\"description\":\"Show Actor.heal and callbackOnHeal\"}"
+    },
+    {
+      "id": "call-b8e548db-a025-4e52-adf4-e4592ec0456c-14",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '2600,2720p'\",\"description\":\"Show Actor.onTakeHit Dismissal path\"}"
+    },
+    {
+      "id": "call-b8e548db-a025-4e52-adf4-e4592ec0456c-15",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/inscriptions.lua | sed -n '80,140p'\",\"description\":\"Show regeneration inscription ancestral-life disable\"}"
+    },
+    {
+      "id": "call-9397ef57-7636-4522-91b3-ad2f2bf64ac5-16",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"regeneration\\\\s*=\\\\s*true|subtype = \\\\{[^}]*regeneration\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data | head -80\",\"description\":\"Find all regeneration-subtype timed effects\"}"
+    },
+    {
+      "id": "call-9397ef57-7636-4522-91b3-ad2f2bf64ac5-17",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n \\\"disable_ancestral_life\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome\",\"description\":\"Find all disable_ancestral_life checks\"}"
+    },
+    {
+      "id": "call-9397ef57-7636-4522-91b3-ad2f2bf64ac5-18",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"function _M:checkHit|function _M:mindCrit\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class\",\"description\":\"Locate checkHit and mindCrit definitions\"}"
+    },
+    {
+      "id": "call-afa762a3-0980-4b4d-bd65-af6175edd7d6-19",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '1685,1740p'; echo '===== MENTAL ====='; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '1770,1830p'; echo '===== PHYS 1658 ====='; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '1640,1690p'; echo '===== PHYS 3444 ====='; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '3428,3480p'\",\"description\":\"Inspect other regeneration-subtype effects\"}"
+    },
+    {
+      "id": "call-afa762a3-0980-4b4d-bd65-af6175edd7d6-20",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '330,380p'; echo '===== mindCrit ====='; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '2055,2110p'\",\"description\":\"Read checkHit and mindCrit implementations\"}"
+    },
+    {
+      "id": "call-998c85c5-a3d3-475f-a6ae-36ba6fb0ba2d-21",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"EFF_GRAPPLING|removeEffect\\\\(self.EFF_GRAPPLING|break.*grapple|grapple\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents | head -80\",\"description\":\"Find talents that break or apply Grappling\"}"
+    },
+    {
+      "id": "call-998c85c5-a3d3-475f-a6ae-36ba6fb0ba2d-22",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"EFF_GRAPPLING|GRAPPLING\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class | head -50\",\"description\":\"Find Grappling movement-break in actor class\"}"
+    },
+    {
+      "id": "call-a29615c9-2a23-4c51-adbf-06815d997ae4-23",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n \\\"inc_resource_multi\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class | head -40\",\"description\":\"Find how inc_resource_multi applies to stats\"}"
+    },
+    {
+      "id": "call-a29615c9-2a23-4c51-adbf-06815d997ae4-24",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '2740,2840p'\",\"description\":\"Show Combat.lua grapple break on move\"}"
+    },
+    {
+      "id": "call-a29615c9-2a23-4c51-adbf-06815d997ae4-25",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '700,740p'\",\"description\":\"Show Actor stamina-break of Grappling\"}"
+    },
+    {
+      "id": "call-f97d509e-e81a-4ba5-bcfc-e2ead59751b9-26",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '4070,4140p'\",\"description\":\"Show stat-to-resource multipliers including psi/life\"}"
+    },
+    {
+      "id": "call-f97d509e-e81a-4ba5-bcfc-e2ead59751b9-27",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"breakGrapples|callbackOnMove.*[Gg]rappl|EFF_GRAPPLING\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua\",\"description\":\"Find move-triggered grapple breaks in Actor.lua\"}"
+    },
+    {
+      "id": "call-f97d509e-e81a-4ba5-bcfc-e2ead59751b9-28",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n \\\"breakGrapples\\\\|breakGrapple\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -40\",\"description\":\"Find all breakGrapples call sites\"}"
+    },
+    {
+      "id": "call-201cf32c-a03c-414c-9bc9-d86266a66cb7-29",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/inscriptions.lua | sed -n '40,90p'\",\"description\":\"Show Infusion Regeneration talent implementation\"}"
+    },
+    {
+      "id": "call-201cf32c-a03c-414c-9bc9-d86266a66cb7-30",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 grep -n -E \\\"function _M:move|breakGrapples|GRAPPLING\\\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua | head -30\",\"description\":\"Find Actor.move and grapple interaction\"}"
+    },
+    {
+      "id": "call-201cf32c-a03c-414c-9bc9-d86266a66cb7-31",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/grappling.lua | sed -n '1,120p'\",\"description\":\"Show Clinch talent grapple break rules\"}"
+    },
+    {
+      "id": "call-47eae3ed-2824-42b1-b207-a696fdfac0d3-32",
+      "name": "run_terminal_command",
+      "arguments": "{\"command\":\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '1388,1480p'\",\"description\":\"Read Actor.move for grapple breaking\"}"
+    }
+  ]
+}

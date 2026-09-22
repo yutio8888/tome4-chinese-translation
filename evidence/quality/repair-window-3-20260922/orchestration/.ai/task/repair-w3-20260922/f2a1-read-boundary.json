@@ -1,0 +1,57 @@
+{
+  "dispatch_id": "f2a1",
+  "native_session": "01a0c70a-e88d-7101-83ab-6c5422a72bcd",
+  "native_sha256": "9d5512783308334df37600657991af561b3cd541ffb4ac36a53cc68fcd474729",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0a6e7bea95715e74016ab1ee57a72c87d2805be550c9196485",
+      "status": "completed",
+      "call_id": "call_AfCEzG4DC5MjcWqnlSrhx1C2",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":22000}));\ntext(await tools.exec_command({cmd:\"cat .ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-f2a1.json\",\"max_output_tokens\":26000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c70a-e8cc-7e01-a1b8-49ec2bed3ac6",
+        "create_time": 1790045781.372209
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0a6e7bea95715e74016ab1ee5e4ab087d28d78e8eda00a0fc3",
+      "status": "completed",
+      "call_id": "call_Enaxaf4FNAA9yiEiIvPWMDZn",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,hashlib\\nx=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-f2a1.json'));p=x['payload']\\nprint('hash',hashlib.sha256(json.dumps(p,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest())\\nfor i,c in enumerate(p['bounded_context']):\\n d=json.loads(c['context']);print(i,c['revision_key'],[(e['public_source_path'],e['start_line'],e['end_line']) for e in d.get('source_excerpts',[])], 'extra keys', list(d))\\nfor i in range(4):\\n print('ENTRY',i);print(p['translation_snapshot'][i]);print(json.dumps(json.loads(p['bounded_context'][i]['context']),ensure_ascii=False,indent=2))\\nPY\",\"max_output_tokens\":15000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c70a-e8cc-7e01-a1b8-49ec2bed3ac6",
+        "create_time": 1790045787.520625
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0a6e7bea95715e74016ab1ee68725487d2ba76d0cde132950d",
+      "status": "completed",
+      "call_id": "call_YHwp4OHemBB5FHei87r3Icac",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-f2a1.json'))['payload']\\nfor i in [1,2,4,5,6,7,8,9]:\\n d=json.loads(p['bounded_context'][i]['context']);print('\\\\nENTRY',i, 'ADJACENT',d['adjacent_translations'])\\n for e in d['source_excerpts']: print(e['public_source_path'],e['excerpt'])\\nPY\",\"max_output_tokens\":10500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c70a-e8cc-7e01-a1b8-49ec2bed3ac6",
+        "create_time": 1790045797.465802
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0a6e7bea95715e74016ab1ee70121487d2b9ebce34b725190b",
+      "status": "completed",
+      "call_id": "call_HTcFhNel2uvqETTpIiZkOzPa",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np=json.load(open('.ai/task/repair-w3-20260922/CONTEXTUAL-ENVELOPE-f2a1.json'))['payload']\\nfor i in [10,11,12,13]:\\n d=json.loads(p['bounded_context'][i]['context']);print('\\\\nENTRY',i, 'ADJACENT',d['adjacent_translations'])\\n for e in d['source_excerpts']: print(e['public_source_path'],e['excerpt'])\\nPY\",\"max_output_tokens\":8500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c70a-e8cc-7e01-a1b8-49ec2bed3ac6",
+        "create_time": 1790045805.330486
+      }
+    }
+  ],
+  "host_read_boundary_valid": true,
+  "basis": "Host inspected all native tool calls: own envelope and active contract only, chunked full14 source reads; no historical inputs or mutations."
+}

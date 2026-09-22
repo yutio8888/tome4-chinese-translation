@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w3-20260922",
+  "fix_id": "FIX-1",
+  "executed_at_utc": "2026-09-22T02:21:57Z",
+  "candidate_baseline": {
+    "path": ".ai/task/repair-w3-20260922/BEFORE-FIX-1.lua",
+    "sha256": "6f42acf451ae67209687c359253368c25f931a3c78dd213a6e9ead4c9e788851"
+  },
+  "resulting_translation": {
+    "path": "mod-tome.lua",
+    "sha256": "8c65efc70256145b10393af22686a6fa1f58ab113ab3ce3b27d1ae130fb4eaa3"
+  },
+  "results": [
+    {
+      "command": "python3 -B .ai/task/repair-w3-20260922/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "loaded_records": 22989,
+        "changed_target_count_from_task_baseline": 14,
+        "changed_revisions_match_frozen_workset": true,
+        "non_target_fields_unchanged": true,
+        "placeholder_markup_newline_tab_invariants": true
+      }
+    },
+    {
+      "command": "python3 -B -c <manifest-LuaJIT candidate comparison and mural branch composition assertions>",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "loader": "manifest-compatible LuaJIT via LocaleLoader",
+        "loaded_records": 22989,
+        "changed_target_count_from_before_fix_1": 2,
+        "changed_revisions": [
+          "e1177a8f9f689644a232269ab42be3597862f1d26ab23562b7d6171aa6d4faf9",
+          "e1343327ead953361b1fefe6fb85fd1569679eb6b9a269a08a6f5c1c8a473152"
+        ],
+        "non_target_fields_unchanged": true,
+        "other_twelve_candidate_targets_unchanged": true,
+        "mural_neighbor_unknown_target_unchanged": true,
+        "mural_neighbor_known_target_unchanged": true,
+        "both_mural_compositions_verified": true
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "generated_report": ".artifacts/i18n/runs/20260922T022125.038770Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "proposal_generated": false,
+  "proposal_strict_check": "not_applicable",
+  "intentionally_not_run": [
+    "advisory changes",
+    "full gates",
+    "stage",
+    "commit"
+  ]
+}

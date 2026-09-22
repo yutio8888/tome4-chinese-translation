@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "provider": "codex/gpt-5.6-sol",
+    "settings": {
+      "modeId": "auto-review",
+      "thinkingOptionId": "medium"
+    },
+    "title": "修复窗口3 失眠与伤害检定修正",
+    "workspaceId": "wks_420314270844170b",
+    "initialPrompt": "你是本任务唯一EXECUTOR。先读 .ai/roles/executor.md、.ai/task/repair-w3-20260922/SPEC.md、FIX-2.md、ADJUDICATION-R1.json、HOST-MECHANISM-SUPPLEMENT.json 和 HOST-MECHANISM-PROBE.json。执行第二次合并修复，仅修改Rosebloom和Dismissal两条获准target的已确认机制，其他12条不变；用BEFORE-FIX-2.lua比较。具体写入边界和验收以FIX-2.md为准，新增证据保留旧历史。运行verify.py、严格lint、git diff --check并验证printf输出。禁止写.ai、stage/commit、新agent、修改术语规则工具其他条目；不跑完整门禁。完成后报告实际改动和验证，不只回计划。",
+    "labels": {
+      "task_id": "repair-w3-20260922",
+      "role": "executor",
+      "purpose": "implement",
+      "dispatch_id": "execute-03",
+      "paseo.parent-agent-id": "575dc230-301d-4d11-95c9-b22c20f86498"
+    },
+    "notifyOnFinish": true
+  },
+  "profile": {
+    "id": "legacy_favorite:codex:gpt-5.6-luna",
+    "name": "Worker Primary — Sol",
+    "provider": "codex",
+    "model": "gpt-5.6-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Primary role=EXECUTOR worker for standard well-scoped implementation. Existing Paseo role, SPEC, single-writer, and outbound boundaries remain controlling."
+  }
+}
