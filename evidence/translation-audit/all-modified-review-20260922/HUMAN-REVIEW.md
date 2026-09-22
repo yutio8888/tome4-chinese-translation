@@ -1077,3 +1077,22 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02506 | confirmed：4 个占位符正确；confirmed：“食尸鬼跳跃”符合本段语境；pending：与“定向跳跃”冲突？；advisory：建议保留“食尸鬼跳跃” | **术语一致性决定** |
 
 译文未修改。4 条 pending 全部指向“需提供冻结术语条目”而非语义分歧，按契约保持 pending 等人工。
+
+## batch-079 十处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-079-01.md](reports/sol-079-01.md)。译文未修改。共 25 个 claim：21 confirmed、2 advisory、2 refuted、0 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02538 | confirmed：增补“测试……”并弱化 each effect 提示；confirmed：换行完好 | 文风取舍 |
+| entry-02541 | confirmed：`"lifted"` 引号反讽被平化；confirmed：Gloom/hate/stunned/confused 映射与固定简中一致 | 补反讽 |
+| entry-02545 | confirmed：同位描述改目的表达成不完整句；advisory：“哦！”与 MAYHEM 文风；confirmed：末尾无额外 `#WHITE#` | 修句；文风 |
+| entry-02552 | confirmed：“达到目的法师”漏“的”（明确语病）；confirmed：专名有固定证据、标签闭合 | 直修语病 |
+| entry-02555 | confirmed：空格不规范、“玩的愉快”→“玩得愉快”；confirmed：难度/模式映射正确 | 直修 |
+| entry-02557 | confirmed：“如何……的方法”句式混用；confirmed：核心语义一致、标签闭合 | 改句式 |
+| entry-02559 | confirmed：增补“施展他们的特殊能力”；confirmed：晨曦之门/正能量有证据 | 是否删增补 |
+| entry-02565 | confirmed：前引号用右双引号；confirmed：近距离重复；**refuted**：`Age of Pyre` 应为“派尔纪元”非“烈火纪元” | **专名对齐** |
+| entry-02568 | confirmed：`#YELLOW#` 后空格与句末标点不统一；advisory：“自始以来”生硬；**refuted**：`Hurricane` 固定名是“风暴之怒”非“飓风”；confirmed：`daze→眩晕` 一致 | **专名对齐**；统一空格 |
+| entry-02570 | confirmed：漏译中心词 `beam`；confirmed：残留小写 `boss`；confirmed：技能名与 `觉醒技` 一致 | 补译；本地化收尾 |
+
+译文未修改。两条 **refuted** 都是撤回 Gemini 的专名正确性主张，依据固定简中 locale 映射（派尔纪元、风暴之怒）。

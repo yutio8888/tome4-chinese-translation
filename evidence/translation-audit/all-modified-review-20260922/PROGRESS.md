@@ -811,3 +811,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-079-01 `2026-09-22T14:17:17.160Z`，sol-077-01 `2026-09-22T14:17:18.658Z`。
 - 覆盖 **2572/4144（62.1%）**；批次 79/130，交叉 78 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：080 批次 + 079 交叉收口
+
+- 派发记录提交 `22fef7ea`；cross-batch-079 登记与 prompt 提交 `fb02682f`。
+- **gemini-080-01：40/40 一次完成**。存在疑点 02599、02601；细微观察 02576、02579、02586、02598、02609。sha256 `c045574168bac9f6f034845cf27766d61b5dc4edd9ee802d3796ba5f2ca24288`，brain `b67b67c3`。
+- **sol-079-01（cross-batch-079）：10/10 条目、25 claim**：21 confirmed、2 advisory、**2 refuted**、0 pending。sha256 `68e888e4bf0764cde306bfd6cecfb2450288923337feb87f26e0fcae08d56f48`，rollout `01a0c97b`。两条 refuted 均撤回 Gemini 专名主张（`Age of Pyre`→“派尔纪元”、`Hurricane`→“风暴之怒”），依据固定简中 locale 映射。
+- 守卫全过：batch-080/cross-batch-079 冻结哈希、11 locale、非 evidence 零 diff，HEAD `22fef7ea`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-080-01 `2026-09-22T14:24:43.650Z`，sol-079-01 `2026-09-22T14:24:45.139Z`。
+- 覆盖 **2612/4144（63.0%）**；批次 80/130，交叉 79 组完成。
+- 更新时间见 STATE.json `updated_at`。
