@@ -1237,3 +1237,12 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02967 | confirmed：`PAIN GIVING SUBMODULES` 意为“施加痛苦”，译“痛苦强化”词义偏移且弱化 `sub-`；纯喊话无机制影响 | 改“致痛子模块”类表达 |
 
 译文未修改。02937 的 Gemini 观察被裁为非缺陷（advisory），未升级。
+
+## batch-090 两处交叉结果
+
+作者是 Pi/CPA/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-090-01.md](reports/sol-090-01.md)。译文未修改。3 个 claim：2 confirmed、1 advisory。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02973 | confirmed：`deal a crippling blow`（对兽人阵营的重创）未译出，仅保留杀死加库尔的事实 | 是否补“给对方以重创” |
+| entry-02982 | confirmed：正文 `A farportal` 简称“传送门”，与同 section 实体名“远行传送门”不一致；advisory：连续“似乎”源自原文 `seems/seemingly`，非忠实度错误 | 正文是否统一专用名；可选合并重复 |

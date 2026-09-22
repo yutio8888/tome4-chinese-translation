@@ -945,3 +945,14 @@
 - `cross-batch-090` 已登记排队（sha `dc6dacdb7c900ad43b4c1dc1aec03c5cb262a8db8b7f25b893c022b68920a4b3`）。
 - 覆盖 **3012/4144（72.7%）**；批次 **90/130** 已复核，交叉 **89 组完成** + 1 排队。
 - 更新时间见 STATE.json `updated_at`。
+
+## 091 批次 + 090 交叉收口
+
+- 派发记录 `bb3760eb`；cross-batch-090 登记与 prompt 提交 `f0c49097`。
+- **gemini-091-01：40/40 一次完成**。存在疑点 03023、03025、03027（同一专名链：`Epoch`→“纪元”、`Epoch's Curve`→“纪元之弧”，与批内术语快照 preferred“亚伯契”及固定 zh_hans 既有译名冲突）；无细微观察。报告 sha256 `79c1036c1157ed688162eca911f8f48369c76b59fb179f0d34d55dd34bba7919`。
+- **sol-090-01（cross-batch-090）：2/2 条目、3 claim**：2 confirmed、1 advisory。报告 sha256 `c0a612419fcac79b8ff534955fe5b278321e4ebc2cc757dfc2b6fd789cc04f27`。02973 `crippling blow` 语义缺失 confirmed；02982 正文简称 confirmed、“似乎”重复 advisory（源自原文 seems/seemingly）。译文未修改。
+- 守卫全过：batch-091/batch-090/cross-batch-090 冻结哈希、11 locale、非 evidence 零 diff，HEAD `bb3760eb`。
+- 归档先 persist attempts=1，一次成功并 live 复查：gemini-091-01 `2026-09-22T16:36:33.225Z`，sol-090-01 `2026-09-22T16:36:34.700Z`。
+- `cross-batch-091` 已登记排队（sha `763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3`）。
+- 覆盖 **3052/4144（73.6%）**；批次 **91/130** 已复核，交叉 **90 组完成** + 1 排队。
+- 更新时间见 STATE.json `updated_at`。
