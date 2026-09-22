@@ -1141,3 +1141,14 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | “骨头”风格降级 | advisory：技能说明本身用 `bones`，语境自然一致 | 文体裁决 |
 
 译文未修改。Gemini 的「存在疑点」被 Sol 拆解为 1 confirmed（轻微）+ 2 refuted + 1 advisory——**条目级标签不等于条目被整体确认**。
+
+## batch-083 两条交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-083-01.md](reports/sol-083-01.md)。译文未修改。共 7 个 claim：3 confirmed、2 advisory、1 refuted、1 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02694 | pending：“CD”与既有术语不一致（需冻结术语输入）；confirmed：“冷却速度变慢一倍”表述含混；confirmed：两个 `50%%` 正确 | 术语裁定；改写表述 |
+| entry-02700 | confirmed：占位符数量/顺序/数值来源正确；**refuted**：“攻击目标时”已准确表达触发条件；advisory：`%s` 后半角句点；advisory：“Bonus level”简化 | 句点/术语体例 |
+
+译文未修改。1 pending 等术语库输入；refuted 表明 Gemini 的触发条件质疑不成立。

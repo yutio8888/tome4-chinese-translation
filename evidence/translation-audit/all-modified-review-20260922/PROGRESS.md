@@ -860,3 +860,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-083-01 `2026-09-22T14:54:57.361Z`，sol-082-01 `2026-09-22T14:54:58.898Z`。
 - 覆盖 **2732/4144（65.9%）**；批次 83/130，交叉 82 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：084 批次（打印超时但报告完整）+ 083 交叉收口
+
+- 派发记录提交 `96f7731a`；cross-batch-083 登记与 prompt 提交 `56bad0bb`。
+- **gemini-084-01：wait 报 `status=error`（5 分钟打印超时），但 brain 报告取证完整**：40/40 条目全部有结论、尾部完整（step 97）→ 按规则**计完整覆盖、不重跑**，`last_error` 原文入档。报告 sha256 `303cab1a1fcc35173a031396bc968cb15f427cb679e0877a1a03860d7863bec7`，brain `17f71734`。标记 7 条：存在疑点 02759；细微观察 02735、02740、02747、02763、02764、02765。
+- **sol-083-01（cross-batch-083）：2/2 条目、7 claim**：3 confirmed、2 advisory、1 refuted、1 pending。sha256 `fcaf38030a3e5640a4a25403cae03aae7721ede60fb25ec65cf3546e3705e5e0`，rollout `01a0c99d`。pending 为 CD 术语需冻结术语输入。
+- 守卫全过：batch-084/cross-batch-083 冻结哈希、11 locale、非 evidence 零 diff，HEAD `96f7731a`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-084-01 `2026-09-22T15:05:40.569Z`，sol-083-01 `2026-09-22T15:05:42.096Z`。
+- 覆盖 **2772/4144（66.9%）**；批次 84/130，交叉 83 组完成。
+- 更新时间见 STATE.json `updated_at`。
