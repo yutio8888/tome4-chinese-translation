@@ -160,7 +160,7 @@
 - gemini-015-01：40/40。Gemini 覆盖 610/4144。四处排队，等 batch-014 的 Sol 结束后再派。
 - sol-013-01：5/5 已有分档，作者是 Sol。
 
-| batch-016 | 40 | reviewed_awaiting_cross | entry-00604, entry-00605, entry-00615, entry-00620, entry-00621, entry-00623, entry-00634 |
+| batch-016 | 40 | reviewed_with_cross_results | 七处已有 Sol |
 
 - gemini-015-01、sol-013-01 已归档，archivedAt 2026-09-22T02:34:33.874Z。证据提交 a48a54d，未 push。
 - gemini-016-01：running；agent 0ad5c015-ca6b-4a0c-b16b-be9bc2f5a28f。只有这一路 Gemini。
@@ -168,10 +168,27 @@
 - gemini-016-01：40/40。Gemini 覆盖 650/4144。七条排队，等 batch-015 的 Sol 结束后再派。
 - sol-014-01：4/4 已有分档，作者是 Sol。
 
-| batch-017 | 40 | reviewed_awaiting_cross | entry-00644, entry-00646, entry-00647, entry-00650, entry-00652, entry-00653, entry-00657, entry-00660 |
+| batch-017 | 40 | reviewed_with_cross_results | 八处已有 Sol |
 
 - gemini-016-01、sol-014-01 已归档，archivedAt 2026-09-22T02:40:28.291Z。证据提交 9eff951，未 push。
 - gemini-017-01：running；agent e0be0358-25ed-4062-be50-d849ea55a309。只有这一路 Gemini。
 - sol-015-01：running；agent f6da8198-ee44-4e81-9ea6-ba82873c53e1。交叉 00570、00574、00579、00581。batch-016 七条仍排队。
 - gemini-017-01：40/40。Gemini 覆盖 690/4144。八条排队，等 batch-016 的 Sol 结束后再派。文末汇总漏了 entry-00653，已按条目结论纳入。
 - sol-015-01：4/4 已有分档，作者是 Sol。
+
+| batch-018 | 40 | reviewed_with_cross_results | 五处已有 Sol |
+
+- gemini-017-01、sol-015-01 已归档，archivedAt 2026-09-22T02:45:30.333Z。证据提交 7595f2d，未 push。
+- gemini-018-01：running；agent 4d10fe09-6550-40b2-a3d6-2ab68722f25d。只有这一路 Gemini。
+- sol-016-01：running；agent c773999c-33ae-4847-8f7b-b28ad1bbf633。交叉 00604、00605、00615、00620、00621、00623、00634。batch-017 八条仍排队。
+- gemini-018-01：40/40。Gemini 覆盖 730/4144。五条排队等 Sol。sol-016-01 仍在运行，batch-017 八条也还在它前面。本波不提交。
+
+| batch-019 | 40 | reviewed_awaiting_cross | entry-00722, entry-00723, entry-00728, entry-00730, entry-00731, entry-00733, entry-00740, entry-00746, entry-00752 |
+
+- gemini-018-01 已归档，archivedAt 2026-09-22T02:50:08.412Z。gemini-019-01 记录补写，agent 7f9ae5dd-0b64-41c8-89cc-19f74b918f27，仍在运行。
+- sol-016-01：7/7 已有分档。gemini-019 仍在跑，本波不提交。
+- sol-016-01 已归档，archivedAt 2026-09-22T02:52:20.129Z。sol-017-01 接着交叉 batch-017 八条；agent 15448ca5-a9da-46ca-a160-9e3fe20543e8。gemini-019 仍在跑，本波不提交。batch-018 五条仍排队。
+- sol-017-01：8/8 已有分档，作者是 Sol。gemini-019 仍在运行，本波不提交。
+- sol-017-01 已归档，archivedAt 2026-09-22T02:57:03.811Z。sol-018-01 接着交叉 00683、00684、00712、00713、00719；agent b93ffa6b-2a6a-4d2b-8272-de7bcb354718。gemini-019 仍在跑，本波不提交。
+- gemini-019-01：平台 5 分钟超时，但原生报告已含 40/40。Gemini 覆盖 770/4144。九条待 Sol。文末汇总漏了 00733 和 00746，已按条目结论纳入。
+- sol-018-01：5/5 已有分档，作者是 Sol。
