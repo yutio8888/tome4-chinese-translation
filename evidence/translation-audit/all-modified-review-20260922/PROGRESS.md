@@ -668,3 +668,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-068-01 `2026-09-22T11:04:40.605Z`，sol-067-01 `2026-09-22T11:04:42.135Z`。无未归档 child。
 - 下一片已就绪：batch-069（entry-02148–02187，40 条，sha `2c349073a9d239b6b816ccb0f216bc882fd8a79f4969d1ceefd3afc9fc9fec2b`）+ cross-batch-068（7 条，sha `3471e0e49500e1293808761dc092935577652a1cced225d3357ceb185c40c03c`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 068/069 收获（含一次实质失败）
+
+- sol-068-01：7/7 条目 19 claim（16 confirmed、1 advisory、1 refuted、1 pending）。报告 sha256 `09c6d0bfa919672a9a1116259e5702b6ec34f092abdb1512150976bc0eb164cb`，rollout `01a0c8ca-8dc5-7433-b3ab-59f1d3335920`。
+- **gemini-069-01 实质失败**：第 5 次 5 分钟超时，与前四次不同，这次**原生报告只完整写出 1/40（entry-02148）**，02149 在标题处截断、02150–02187 缺失（末 PLANNER_RESPONSE 仅 1059 字符）。因此**不按完整覆盖计**：batch-069 记 `reviewed_partial`，covered 仅 02148（其结论：存在疑点/细微观察），**覆盖计 2151/4144**。partial 报告 sha256 `46a1dea7541b05eabb9054af5d8ef83f74d040ea9e5ae63b19a89218e24587aa`；`last_error` 入 STATE。
+- 处置：下一轮用 fresh partial retry `gemini-069-02` 只补 **entry-02149–02187（39 条）**，prompt 已备（`gemini-069-02-prompt.md`），不 resume、不重跑 02148。
+- 收回核验：batch-069 / cross-batch-068 / batch-068 / gemini-068 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-069-01 `2026-09-22T11:16:08.065Z`（error 态），sol-068-01 `2026-09-22T11:16:09.662Z`。无未归档 child。
+- 下一轮：gemini-069-02 单独派发（无排队 Sol；cross-batch-069 待补跑完成后按两份报告合并登记）。
+- 更新时间见 STATE.json `updated_at`。

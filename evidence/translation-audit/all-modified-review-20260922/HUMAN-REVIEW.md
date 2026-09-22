@@ -903,3 +903,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02107 | confirmed：`for 2 turns` 译“两轮”；confirmed：伤害/降伤/时长机制准确。refuted：省略 `penalty` **不构成**机制信息丢失（清晰度问题记 advisory） | 两轮改“回合”；penalty 可选补 |
 
 译文未修改。2 条 refuted 是对 Gemini“机制信息丢失”定性的下修，原样转录。
+
+## batch-068 七处交叉结果（全为细微观察）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-068-01.md](reports/sol-068-01.md)。译文未修改。共 19 个 claim：16 confirmed、1 advisory、1 refuted、1 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02109 | confirmed：`energy projection` 译“灵能值运用”偏；confirmed：“变的更慢”字词错误；confirmed：占位符与 tformat 顺序相符 | 改措辞与“变得” |
+| entry-02110 | confirmed：‘最大能量吸收量’易被读成护盾上限（歧义）。refuted：该歧义的“实际消费逻辑归因”不成立。confirmed：同句 energy 译名前后不一；confirmed：参数一致 | 统一“每回合可获能量上限”表述与译名 |
+| entry-02113 | confirmed：共享配额符合代码；confirmed：%d 对应 getRemoveCount。advisory：前句孤立看会过度概括 | 依赖后句限定即可，低优先 |
+| entry-02115 | pending：`subtype=="ghost"` 判定对象确认（“鬼魂”无错认）需术语佐证。confirmed：括号拆“注”不改语义；confirmed：三参数一致 | 术语核对后定 pending |
+| entry-02125 | confirmed：英文说明自身顺序写反、中文忠实继承；confirmed：参数一致 | 记入上游问题，不在中文改 |
+| entry-02128 | confirmed：`spiking` 译“发射射线”不准；confirmed：`daze`→“眩晕”与内部机制相符；confirmed：七参数与粗体标记一致 | 改 `spiking` 措辞 |
+| entry-02141 | confirmed：意译造成语义重心变化 | 文风取舍 |
+
+译文未修改。1 条 refuted、1 条 pending 原样转录。
