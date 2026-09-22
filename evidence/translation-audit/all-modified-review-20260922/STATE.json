@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3934,
+  "remaining_gemini": 3932,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -488,7 +488,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-005.md",
       "input_sha256": "7a890c630970417f32b64688901b44f8fb5b1b3f3ee6d63fcc24b2264ee718cc",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-005-01",
         "gemini-005-02"
@@ -598,8 +598,59 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-006.md",
       "input_sha256": "efb3487acdc338d72f4fd082614988cd2eae762e614dc654f47853b17a37a700",
-      "status": "queued",
-      "dispatches": []
+      "status": "partial_coverage",
+      "dispatches": [
+        "gemini-006-01",
+        "gemini-006-02"
+      ],
+      "covered_entry_ids": [
+        "entry-00201",
+        "entry-00202"
+      ],
+      "uncovered_entry_ids": [
+        "entry-00203",
+        "entry-00204",
+        "entry-00205",
+        "entry-00206",
+        "entry-00207",
+        "entry-00208",
+        "entry-00209",
+        "entry-00210",
+        "entry-00211",
+        "entry-00212",
+        "entry-00213",
+        "entry-00214",
+        "entry-00215",
+        "entry-00216",
+        "entry-00217",
+        "entry-00218",
+        "entry-00219",
+        "entry-00220",
+        "entry-00221",
+        "entry-00222",
+        "entry-00223",
+        "entry-00224",
+        "entry-00225",
+        "entry-00226",
+        "entry-00227",
+        "entry-00228",
+        "entry-00229",
+        "entry-00230",
+        "entry-00231",
+        "entry-00232",
+        "entry-00233",
+        "entry-00234",
+        "entry-00235",
+        "entry-00236",
+        "entry-00237",
+        "entry-00238",
+        "entry-00239",
+        "entry-00240"
+      ],
+      "issue_entry_ids": [],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-006-02.md",
+      "raw_output_sha256": "6d1d281eb650ca7db6d3656427795a074a029d6417ecacb3b8af4af3987d0782",
+      "coverage_note": "gemini-006-01 startup 503. gemini-006-02 timed out. Only 00201 and 00202 have complete conclusions, both 未发现问题. 00203 is truncated and not counted."
     },
     {
       "batch_id": "batch-007",
@@ -6241,10 +6292,72 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-005-rest.md",
       "input_sha256": "32f84b7c6ccee819edac0ad252b2f2775fe91e9b0de2d899a1c98dafd26ccf9b",
-      "status": "queued",
+      "status": "completed",
       "source_dispatch_id": "gemini-005-02",
-      "dispatches": [],
-      "host_semantic_adjudication": false
+      "dispatches": [
+        "sol-005-rest-01"
+      ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-005-rest-01.md",
+      "raw_output_sha256": "2b33ff805a86dbbbfd65d07b0f572d09ae98f17e3aa3b8c5b8fe64585fa9950e",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-00184",
+          "verdict": "confirmed",
+          "claim": "段间空行缺失"
+        },
+        {
+          "entry_id": "entry-00184",
+          "verdict": "confirmed",
+          "claim": "“勇敢的向前”存在语法问题"
+        },
+        {
+          "entry_id": "entry-00184",
+          "verdict": "confirmed",
+          "claim": "颜色标记和数值顺序正确"
+        },
+        {
+          "entry_id": "entry-00185",
+          "verdict": "advisory",
+          "claim": "方括号内增加空格的事实成立，但不是明确错误"
+        },
+        {
+          "entry_id": "entry-00185",
+          "verdict": "confirmed",
+          "claim": "占位符和颜色码正确"
+        },
+        {
+          "entry_id": "entry-00191",
+          "verdict": "confirmed",
+          "claim": "“space-time”漏译了“时间”"
+        },
+        {
+          "entry_id": "entry-00191",
+          "verdict": "confirmed",
+          "claim": "后半句意译及占位符顺序正确"
+        },
+        {
+          "entry_id": "entry-00195",
+          "verdict": "confirmed",
+          "claim": "参数含义和顺序正确"
+        },
+        {
+          "entry_id": "entry-00195",
+          "verdict": "confirmed",
+          "claim": "“施展：%s”中的冒号造成不自然的动宾断裂"
+        },
+        {
+          "entry_id": "entry-00198",
+          "verdict": "pending",
+          "claim": "片段拼接机制已确认，但实际中文母句缺少停顿尚不能独立确认"
+        },
+        {
+          "entry_id": "entry-00198",
+          "verdict": "confirmed",
+          "claim": "“但是失败了！”保留失败结果及感叹号；措辞精度建议仅属 advisory"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium"
     }
   ],
   "child_dispatches": [
@@ -6822,6 +6935,159 @@
       "raw_output_source": "codex rollout 01a0c6a7-f150-7953-9c43-2f5293e5dc7c final assistant output_text",
       "coverage": "3/3",
       "archived_at": "2026-09-22T01:12:52.576Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-006-01",
+      "agent_id": "f4873805-db24-43b6-84c5-e79f6f5ce668",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-006.md",
+      "input_sha256": "efb3487acdc338d72f4fd082614988cd2eae762e614dc654f47853b17a37a700",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-006-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:14:00.896329+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": "Internal error: agy exited with status 1: error: Eligibility check failed: UNAVAILABLE (code 503): The service is currently unavailable.",
+      "head_at_dispatch": "52adbd30f013e615eb39083f0157d1b3a67e6169",
+      "harvested": false,
+      "created_at": "2026-09-22T01:13:35.004Z",
+      "coverage": "0/40 startup failure",
+      "archived_at": "2026-09-22T01:15:28.178Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-005-rest-01",
+      "agent_id": "788fb9bd-bea4-45a1-ae7e-820ce68ccf7e",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-005-rest.md",
+      "input_sha256": "32f84b7c6ccee819edac0ad252b2f2775fe91e9b0de2d899a1c98dafd26ccf9b",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-005-rest-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:14:00.896329+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "52adbd30f013e615eb39083f0157d1b3a67e6169",
+      "harvested": true,
+      "created_at": "2026-09-22T01:13:31.255Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-005-rest-01.md",
+      "raw_output_sha256": "2b33ff805a86dbbbfd65d07b0f572d09ae98f17e3aa3b8c5b8fe64585fa9950e",
+      "raw_output_source": "codex rollout 01a0c6ac-d77e-7b70-95d8-74b863c289cd final assistant output_text",
+      "coverage": "5/5",
+      "archived_at": "2026-09-22T01:18:28.518Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-006-02",
+      "agent_id": "56825c45-bd04-40db-b409-08ed40c9b1b3",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-006.md",
+      "input_sha256": "efb3487acdc338d72f4fd082614988cd2eae762e614dc654f47853b17a37a700",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-006-02-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:16:25.533894+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": "Internal error: agy print turn timed out after 5m0s while waiting for background tasks to complete and a final assistant message",
+      "head_at_dispatch": "52adbd30f013e615eb39083f0157d1b3a67e6169",
+      "harvested": true,
+      "created_at": "2026-09-22T01:15:48.625Z",
+      "retry_of": "gemini-006-01",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-006-02.md",
+      "raw_output_sha256": "6d1d281eb650ca7db6d3656427795a074a029d6417ecacb3b8af4af3987d0782",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 68a983a2-d509-48b5-bf38-de24f4351684 PLANNER_RESPONSE step 62; turn timed out before a final message",
+      "coverage": "2/40 complete entry-00201 entry-00202; entry-00203 truncated; entry-00204-00240 absent",
+      "archived_at": "2026-09-22T01:26:42.100Z"
     }
   ],
   "locale_sha256": {
@@ -6837,7 +7103,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T01:13:14.740698+00:00",
+  "updated_at": "2026-09-22T01:26:55.085717+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -6846,7 +7112,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 210,
+  "gemini_covered_total": 212,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",

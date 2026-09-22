@@ -52,7 +52,7 @@
 - 用户追加：Gemini Flash 不再并行派发。003 与 004 是该限制之前已经发出的一对，现已结束。
 - Gemini 覆盖 170/4144。上述疑点和细微观察进入同一次 Sol 交叉，尚未裁决。
 
-| batch-005 | 40 | reviewed_awaiting_cross | 00164–00166 已有 Sol；待交叉 00184, 00185, 00191, 00195, 00198 |
+| batch-005 | 40 | reviewed_with_cross_results | 00164–00166 与 00184, 00185, 00191, 00195, 00198 均已有 Sol |
 
 - gemini-005-01：running；父级已核验；agent b9da4335-d822-40bb-aa77-85a68a730a93。本波只有这一路 Gemini。
 - sol-003-004-01：running；父级已核验；agent 32ebea4f-f471-4964-ac29-19412fee830b。交叉 003 与 004 的疑点和细微观察。
@@ -73,3 +73,15 @@
 - gemini-005-02 覆盖 entry-00173–00200，28/28。Gemini 覆盖 210/4144。
 - sol-005-partial-01 已给出 00164–00166 的分档，作者是 Sol。
 - locale 哈希未变。HEAD 仍是 2fcd543be3b49430c1974180e688b18a8258e48d。
+
+| batch-006 | 40 | reviewing |  |
+
+- sol-005-partial-01、gemini-005-02 已归档，archivedAt 2026-09-22T01:12:52.576Z。证据提交 52adbd3，未 push。
+- gemini-006-01：running；agent f4873805-db24-43b6-84c5-e79f6f5ce668。只有这一路 Gemini。
+- sol-005-rest-01：running；agent 788fb9bd-bea4-45a1-ae7e-820ce68ccf7e。交叉 entry-00184、00185、00191、00195、00198。
+
+- gemini-006-01：启动时 503 Eligibility UNAVAILABLE，无复核覆盖；已归档，archivedAt 2026-09-22T01:15:28.178Z。未续跑该 agent。
+- gemini-006-02：fresh retry，running；agent 56825c45-bd04-40db-b409-08ed40c9b1b3。仍只有一路 Gemini。Sol 005 其余疑点仍在跑，本波不提交。
+- sol-005-rest-01 已归档，archivedAt 2026-09-22T01:18:28.518Z。
+
+- gemini-006-02：5 分钟打印超时。完整结论只有 entry-00201、entry-00202，均为未发现问题；entry-00203 在位置行中断。Gemini 覆盖 212/4144。无新疑点可交 Sol。
