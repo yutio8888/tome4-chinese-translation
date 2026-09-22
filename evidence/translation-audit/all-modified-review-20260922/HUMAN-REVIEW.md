@@ -425,3 +425,13 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | 收窄 Gemini（refuted/advisory） | refuted：`I wonder` 并未“反转成附和”；advisory：`collapsed` 被定性“严重”过重，应按“力度降低”处理 |
 
 人工待决：按上表逐项决定改写；两项收窄意见不要写进修复理由。译文未修改。
+
+## batch-034 单条 Lore 交叉结果（entry-01221）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-033-01.md](reports/sol-033-01.md)。译文未修改。共 17 个 claim：15 confirmed、1 advisory、1 refuted，无 pending。
+
+| 条目 | Sol 分档要点 |
+| --- | --- |
+| entry-01221 | confirmed：`no normal day` 译反且漏 `day of reckoning`；confirmed：“希望的缰绳/扼住命运的咽喉/真正的和平”均为无依据增译；confirmed：`the steady hand` 单数比喻被破坏；confirmed：`rip out the flesh beneath` 的大地—血肉意象被泛化；confirmed：“这个恶魔就是兽人”“任何种族”改变原句关系；confirmed：“组织其她手下的法师”表面文本缺陷；confirmed：`taking courage from the duties of command` 施受关系被改变；confirmed：`Turning up her face` 译成反向动作；confirmed：“与我长吻”属无依据增添；confirmed：`pavilion` 重复译“营地”；confirmed：`doubt` 被弱化又无依据强化为“无尽的困扰”；confirmed：`raved` 贬义被改成褒义“慷慨激昂”；confirmed：`bringing my face close` 漏译并换成无依据动作；confirmed：`bravado` 漏译且“平日”无依据；confirmed：两处敬称均属增译且互不一致。advisory：「血肉意象呼应被焚村镇」只是合理解读非源码明示。refuted：“长吻必然与轻柔细腻冲突”不成立 |
+
+人工待决：逐项决定改写；refuted/advisory 两项不要写进修复理由。译文未修改。
