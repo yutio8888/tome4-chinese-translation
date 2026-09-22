@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3814,
+  "remaining_gemini": 3774,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -807,7 +807,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-008.md",
       "input_sha256": "f0dcdb6b78022895014da18d163146db0523dfdeac1ce6ca44b3cd2fa8740d4c",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-008-01",
         "gemini-008-02"
@@ -913,8 +913,60 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-009.md",
       "input_sha256": "53b0d48ef3b2c663a51650680776a4f39f1668b13368f7c0026d44d275f81238",
-      "status": "queued",
-      "dispatches": []
+      "status": "reviewed_awaiting_cross",
+      "dispatches": [
+        "gemini-009-01"
+      ],
+      "covered_entry_ids": [
+        "entry-00321",
+        "entry-00322",
+        "entry-00323",
+        "entry-00324",
+        "entry-00325",
+        "entry-00326",
+        "entry-00327",
+        "entry-00328",
+        "entry-00329",
+        "entry-00330",
+        "entry-00331",
+        "entry-00332",
+        "entry-00333",
+        "entry-00334",
+        "entry-00335",
+        "entry-00336",
+        "entry-00337",
+        "entry-00338",
+        "entry-00339",
+        "entry-00340",
+        "entry-00341",
+        "entry-00342",
+        "entry-00343",
+        "entry-00344",
+        "entry-00345",
+        "entry-00346",
+        "entry-00347",
+        "entry-00348",
+        "entry-00349",
+        "entry-00350",
+        "entry-00351",
+        "entry-00352",
+        "entry-00353",
+        "entry-00354",
+        "entry-00355",
+        "entry-00356",
+        "entry-00357",
+        "entry-00358",
+        "entry-00359",
+        "entry-00360"
+      ],
+      "issue_entry_ids": [
+        "entry-00334",
+        "entry-00344",
+        "entry-00345",
+        "entry-00354"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-009-01.md",
+      "raw_output_sha256": "bf36825129c32a44e6205acc361c83cba44d187f39f431eedfef1f591d295b76"
     },
     {
       "batch_id": "batch-010",
@@ -6599,8 +6651,80 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-008.md",
       "input_sha256": "c6f6b88a6d639f9287c6c14e5ee9e5aca0a2a7c96c89638779523fb8c26535cb",
-      "status": "queued",
+      "status": "completed",
       "source_dispatch_id": "gemini-008-02",
+      "dispatches": [
+        "sol-008-01"
+      ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-008-01.md",
+      "raw_output_sha256": "9fa34001d6af664cfb87db5477a4bc10cca0195d24b6258eecadcbe9f57619ec",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-00284",
+          "claim": "法术命中后释放的语序紧凑，但不是明确错译",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00286",
+          "claim": "机制是 is_mind 而非 Mindpower 数值",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00288",
+          "claim": "主体译文已带句号，源码还会再追加句点",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00288",
+          "claim": "精确形态一定是带空格的 。 .",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00298",
+          "claim": "forbid_arcane 阻止奥术物品，不是技能被打断",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00298",
+          "claim": "历史提交把字符串从 Player.lua 移到 Object.lua",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00298",
+          "claim": "固定版本中 logPlayer 标签没有直接消费者",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00299",
+          "claim": "这是活动的 tformat 译文，且“反魔法技能打断了”不够准确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00318",
+          "claim": "动作片段已带了，模板再加了一个，形成双了",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00318",
+          "claim": "玩家日志位于 Trap.lua:290",
+          "verdict": "refuted"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium"
+    },
+    {
+      "cross_id": "cross-batch-009",
+      "entry_ids": [
+        "entry-00334",
+        "entry-00344",
+        "entry-00345",
+        "entry-00354"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-009.md",
+      "input_sha256": "018354675ebc4f09b090d9bb3ee315b068771ebec283b7b756a84e4d2566ac45",
+      "status": "queued",
+      "source_dispatch_id": "gemini-009-01",
       "dispatches": [],
       "host_semantic_adjudication": false
     }
@@ -7649,6 +7773,111 @@
       "coverage": "40/40 entry-00281 through entry-00320",
       "activity_feed_note": "Notification truncated. Native transcript has 40 headings and conclusions. Locale hashes unchanged.",
       "archived_at": "2026-09-22T01:56:28.488Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-009-01",
+      "agent_id": "d224a483-0537-4ddf-bcd6-59a02382cd45",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-009.md",
+      "input_sha256": "53b0d48ef3b2c663a51650680776a4f39f1668b13368f7c0026d44d275f81238",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-009-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:57:30.212921+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "9ee428726598207abb9b559ec877fb6a34211d98",
+      "harvested": true,
+      "created_at": "2026-09-22T01:57:06.076Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-009-01.md",
+      "raw_output_sha256": "bf36825129c32a44e6205acc361c83cba44d187f39f431eedfef1f591d295b76",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 87b4730a-34a7-4d60-9f1b-e8fd09d70613 final PLANNER_RESPONSE",
+      "coverage": "40/40 entry-00321 through entry-00360",
+      "activity_feed_note": "Notification truncated. Native transcript has 40 headings and conclusions. Locale hashes unchanged.",
+      "archived_at": "2026-09-22T02:03:31.521Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-008-01",
+      "agent_id": "a7de38dd-9888-49db-a6c9-a7ed7379d52c",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-008.md",
+      "input_sha256": "c6f6b88a6d639f9287c6c14e5ee9e5aca0a2a7c96c89638779523fb8c26535cb",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-008-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T01:57:30.212921+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "9ee428726598207abb9b559ec877fb6a34211d98",
+      "harvested": true,
+      "created_at": "2026-09-22T01:57:01.976Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-008-01.md",
+      "raw_output_sha256": "9fa34001d6af664cfb87db5477a4bc10cca0195d24b6258eecadcbe9f57619ec",
+      "raw_output_source": "codex rollout 01a0c6d4-ad9e-7312-b4d2-df3ecb5a483d final assistant output_text",
+      "coverage": "6/6",
+      "archived_at": "2026-09-22T02:03:31.521Z"
     }
   ],
   "locale_sha256": {
@@ -7664,7 +7893,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T01:56:46.949186+00:00",
+  "updated_at": "2026-09-22T02:03:49.884728+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -7673,7 +7902,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 330,
+  "gemini_covered_total": 370,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
