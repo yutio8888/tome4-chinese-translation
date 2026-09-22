@@ -192,3 +192,22 @@
 - sol-017-01 已归档，archivedAt 2026-09-22T02:57:03.811Z。sol-018-01 接着交叉 00683、00684、00712、00713、00719；agent b93ffa6b-2a6a-4d2b-8272-de7bcb354718。gemini-019 仍在跑，本波不提交。
 - gemini-019-01：平台 5 分钟超时，但原生报告已含 40/40。Gemini 覆盖 770/4144。九条待 Sol。文末汇总漏了 00733 和 00746，已按条目结论纳入。
 - sol-018-01：5/5 已有分档，作者是 Sol。
+
+| batch-020 | 40 | reviewed_awaiting_cross | entry-00763, entry-00768, entry-00780, entry-00781；暂停，未派 Sol |
+
+- gemini-019-01 已归档，archivedAt 2026-09-22T03:02:04.659Z。sol-018-01 已归档，archivedAt 2026-09-22T03:02:04.662Z。证据提交 a711b99，未 push。
+- gemini-020-01：running；agent ee8766ef-c1a7-491a-9313-5c1864a67283。只有这一路 Gemini。
+- sol-019-01：running；agent a280b1fc-9281-4a7e-858c-df456b257580。交叉 00722、00723、00728、00730、00731、00733、00740、00746、00752。
+- 用户要求完成本轮后暂停。交接见 HANDOFF-PAUSE.md。收回这两路后归档落盘，不派 batch-021，不再开新的 Sol。审核还在跑，暂停记录尚未提交。
+- gemini-020-01：40/40。Gemini 覆盖 810/4144。四处已写入 cross-batch-020，按暂停不派 Sol。sol-019-01 仍在运行。
+
+## 暂停收尾（sol-019 收获，未提交）
+
+- grok01 记录者 689b484a-da2e-4370-860a-1d5f67a61a41 因 API 402 额度耗尽中断（live 状态 error）。用户把暂停收尾交给新 session c59be24f-5acc-4fa5-b130-41a33cf142fc（pi/opencode-go/mimo-v2.6-flash/medium），只做收回、归档、转录。
+- sol-019-01 已 idle：动作前复查 status/attention 面与原生 rollout `01a0c710-d48c-7163-8c0d-3a5dceb0a267`，含 `task_complete`，无进行中运行。最终回复 4687 字符，原样存入 `reports/sol-019-01.md`，sha256 `f86174663a6f46759b3fa6771a344e8fdae112b3fe8a67bcd62ccf62675e1d92`，未改写。
+- 收回核验全部通过：cross-batch-019 / batch-019 / gemini-019-01 / batch-020 / cross-batch-020 冻结哈希一致；11 个 locale 哈希一致；HEAD 仍是派发时的 `a711b997a4a6ca43e37d46daf893aee3d2d3e306`；diff 只在本 evidence 目录，reviewer 无写入。
+- 归档前先持久化 `archive_attempts_started=1`，`paseo archive` 一次成功，live 复查 `Archived=true`、`archivedAt` `2026-09-22T04:04:22.918Z`、`Status=closed`。sol-019-01 lifecycle=archived、archive_confirmed=true、harvested=true、readonly_guard=passed。
+- cross-batch-019 转录完成：17 claim = 11 confirmed / 3 pending / 3 advisory / 0 refuted，语义作者 Codex/gpt-5.6-sol/medium，已写入 STATE 的 recorded_cross_verdicts 与 HUMAN-REVIEW.md。batch-019 状态改为 reviewed_with_cross_results。
+- 本 workspace 再无运行中的审核 child：gemini-020-01 与 sol-019-01 均已归档。按用户指令到此停：不派 batch-021、不为 cross-batch-020 开 Sol、不提交证据、不 push、不改译文和术语。cross-batch-020 仍为 queued_paused。
+- 当前覆盖 810/4144（已提交基线仍为 770/4144，`a711b99`），batch-019/020 证据留在工作树未提交。
+- 更新时间见 STATE.json `updated_at`。

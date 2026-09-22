@@ -228,3 +228,21 @@ Sol 的汇总：确认的是 00652 的语序和 00660 的两项忠实度问题�
 | entry-00712 | confirmed：impenetrable 译成结实，弱于难以穿透 | 在坚不可摧和较克制的说法之间选择 |
 | entry-00713 | confirmed：wants honey 被改成喜欢蜂蜜并加了萌化语气。advisory：标点累赘；“会吃掉玩家”不是源码明说 | 是否恢复“想要蜂蜜”，不要补写原文没有的“吃掉你” |
 | entry-00719 | confirmed：formation 被写成生物。refuted：同批基础描述译的是水晶结构，不是生物。pending：其他颜色晶体是否另有惯例 | 描述用水晶簇还是保留生物；更窄的一致性主张先不要当已核实 |
+
+## batch-019 九处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录，未作语义裁决。完整文本见 [sol-019-01.md](reports/sol-019-01.md)。译文未修改；本节在暂停收尾时转录，证据未提交。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00722 | confirmed：首句把实体写成抽象的“非生命力量”；confirmed：“unearthly limbs, of purest black”修饰关系被译错 | 重写首句保留实体中心；用“非尘世的纯黑肢体”一类语序 |
+| entry-00723 | confirmed：withering 译作“腐蚀”有轻微语义偏移。advisory：增译“周围的一切”属合理显化；“不断”连用三次 | 是否改成“使万物枯萎、灼烧”；重复用词只作顺手润色 |
+| entry-00728 | pending：carrion worm mass 是否违反固定术语“腐肉虫群”，允许输入不含术语正文，无法独立确认 | 查冻结术语记录；确认规范后再接受该 finding |
+| entry-00730 | confirmed：漏译 all，丢掉“全部眼睛一并落地”的机制信息；confirmed：条件分句后缺逗号 | 补“所有/全部”并加逗号，可合并处理 |
+| entry-00731 | pending：eldritch eye 是否必须按术语音译“艾尔德里奇之意”，意译“骇异之眼”脱离术语时可成立 | 核对术语记录的 section、source_tag 与备注 |
+| entry-00733 | confirmed：漏译 pulsates；confirmed：“不停的扭动”助词误用 | 补出“脉动/跳动”，整句重写时改用“地” |
+| entry-00740 | confirmed：seek to destroy 被译成进行体“在毁灭”；advisory：it 由“生命”具体化为“生者” | 改“企图/试图毁灭”；是否回“生命”属忠实度取舍 |
+| entry-00746 | confirmed：losgoroth 被泛化成“虚空生物”，与同批“洛斯格罗斯”不一致；pending：两处 mana 是否违反“法力值” | 恢复“洛斯格罗斯”专名；核对 Mana 冻结术语 |
+| entry-00752 | confirmed：“两只巨大的双手”量词重复且身体意象错误；confirmed：蛇尾与腿的关系被译反 | 改“巨大的双手”或“两只巨大的手”；重写蛇尾句 |
+
+Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted。补充说明 Gemini 报告的若干源码行号并非实际描述行（`ghost.lua:83`、`ghost.lua:131`、`lich.lua:78`、`losgoroth.lua:75`），文本对象仍对应，引用行号不宜沿用。术语类 00728、00731、00746 因允许输入不含术语正文保持 pending，未由主代理代为裁决。
