@@ -964,3 +964,20 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02267 | confirmed：第二行缺句号；confirmed：`melee damage` 应为“近战伤害”（源码 `is_melee=true`），现译“近程伤害”不准 | 补句号；改“近战伤害” |
 
 译文未修改。Sol 主动补充的 `and→或者` 属新增交叉发现，原样转录。
+
+## batch-072 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-072-01.md](reports/sol-072-01.md)。译文未修改。共 25 个 claim：16 confirmed、7 advisory、2 refuted、0 pending。Sol 自述口径：confirmed=有文本/源码支持，refuted=与源码冲突，advisory=现象存在但仅风格/排版。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02269 | confirmed：两 `%s` 含义顺序正确。advisory：“安装”与同技能“附魔”不一致（快照无 Imbue 条目） | 统一“附魔”或“镶嵌” |
+| entry-02273 | confirmed：`affinity with the earth` 译“土壤相关影响”丢亲和义；confirmed：`forced movement` 泛化丢“强制”；confirmed：冷却“回合数：%d%%”语义错；confirmed：五 `%d%%` 顺序正确。advisory：新增换行。refuted：Gemini“击退/传送会结束技能”机制结论**不成立**（`never_move` 无解除回调） | 位移句按英文保留“强制位移”或按源码改写；不要采用 Gemini 解释 |
+| entry-02277 | confirmed：省略“送往未来/时间回复力场”；confirmed：“时间屏障”违反快照（Time Shield→时间盾）；confirmed：数值关系正确。advisory：中间两段合并 | 按快照统一“时间盾”；决定是否恢复完整时空概念 |
+| entry-02278 | confirmed：机制表述正确；confirmed：唯一 `%d` 正确。advisory：多一处换行 | 无必办 |
+| entry-02280 | confirmed：补写的“消耗法力补满充能否则解除”有直接源码依据；confirmed：`%d` 与段落正确。advisory：省略 `residual energies` | 是否补“残余能量”属风味 |
+| entry-02290 | confirmed：三占位符顺序与全部属性修正覆盖准确。advisory：末句拆两行 | 仅格式 |
+| entry-02303 | confirmed：`Tumble` 应按快照为“翻筋斗”；confirmed：`%d` 等保留正确。advisory：等级3/5 拆段 | 统一“翻筋斗” |
+| entry-02306 | confirmed：英文报错 `Rapid Fire` 与实际技能名 `Rapid Shot` 不一致，译文“这个技能”避开错误名。refuted：Gemini“准确传达武器限制”**不成立**——有效前置是投石索（`archerPreUse(...,"sling")`） | 改为“需要装备投石索”；技能名不用 `Rapid Fire` |
+
+译文未修改。2 条 refuted 均是对 Gemini 机制推断的下修，原样转录。
