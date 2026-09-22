@@ -1225,3 +1225,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02929 | confirmed：`degenerated ogric mass`→“退化的食人魔碎肉”与 `huge mass of deformed flesh` 形态不符 | `mass` 改“血肉团/聚合体”；`degenerated` 命名策略 |
 
 译文未修改。三条均为排版/用词层面的真实但轻微问题。
+
+## batch-089 三处交叉结果
+
+作者是 Pi/CPA/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-089-01.md](reports/sol-089-01.md)。译文未修改。共 3 个 claim：2 confirmed、1 advisory。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02937 | advisory：`BOOM!`→“火山喷发！”与正文语境一致，仅损失拟声突发感，非缺陷 | 是否统一保留拟声（“轰！”类） |
+| entry-02957 | confirmed：`Dream ???`→“梦境 ??？”确为两个半角 `?` + 一个全角 `？` | 统一为“？？？”或保留“???” |
+| entry-02967 | confirmed：`PAIN GIVING SUBMODULES` 意为“施加痛苦”，译“痛苦强化”词义偏移且弱化 `sub-`；纯喊话无机制影响 | 改“致痛子模块”类表达 |
+
+译文未修改。02937 的 Gemini 观察被裁为非缺陷（advisory），未升级。

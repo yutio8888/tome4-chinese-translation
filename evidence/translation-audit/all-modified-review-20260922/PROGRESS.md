@@ -934,3 +934,14 @@
 - `cross-batch-089` 已登记排队（sha `f1ac6c714c49bb3336c88234d81511edeea401442666be755c1a9b9a78a03e17`）。
 - 覆盖 **2972/4144（71.7%）**；批次 **89/130** 已复核，交叉 **88 组完成** + 1 排队。
 - 更新时间见 STATE.json `updated_at`。
+
+## 090 批次 + 089 交叉收口
+
+- 派发记录提交 `c6084c06`；cross-batch-089 登记与 prompt 提交 `efb44657`。
+- **gemini-090-01：40/40 一次完成**。无「存在疑点」；细微观察 02973（`crippling blow` 弱化为“使首领走向死亡”）、02982（`farportal` 简译“传送门”+ 连续两个“似乎”）。报告 sha256 `b6268f321a845c792d8ea58ad05bf5346b6efb31a5136a53a1a40d458fd41f0e`。
+- **sol-089-01（cross-batch-089）：3/3 条目、3 claim**：2 confirmed、1 advisory。报告 sha256 `dc9b3ef3721354af89650509dc9f612d9e2ffcfcec9671cf4a4aa7edb4f6a179`。02937 `BOOM!`→“火山喷发！”被裁为风格取舍（advisory，非缺陷）；02957 问号半全角混用 confirmed；02967 `pain giving` 词义偏移 confirmed。译文未修改。
+- 守卫全过：batch-090/batch-089/cross-batch-089 冻结哈希、11 locale、非 evidence 零 diff，HEAD `c6084c06`。
+- 归档先 persist attempts=1，一次成功并 live 复查：gemini-090-01 `2026-09-22T16:32:08.078Z`，sol-089-01 `2026-09-22T16:32:09.548Z`。无未归档 child。
+- `cross-batch-090` 已登记排队（sha `dc6dacdb7c900ad43b4c1dc1aec03c5cb262a8db8b7f25b893c022b68920a4b3`）。
+- 覆盖 **3012/4144（72.7%）**；批次 **90/130** 已复核，交叉 **89 组完成** + 1 排队。
+- 更新时间见 STATE.json `updated_at`。
