@@ -1,0 +1,54 @@
+[
+  {
+    "id": "HOST-01",
+    "status": "confirmed",
+    "severity": "medium",
+    "problem": "Manifest/DONE consumers retain separate old prompt renderers, so formal new dispatch and downstream validation disagree.",
+    "evidence": [
+      "tools/contextual_lane_manifest.py:21-62",
+      "tools/surface_screen_result_check.py:75-84,398-408",
+      "tools/ai_state_check.py:1958,2040",
+      ".ai/task/review-input-policy-20260922/HOST-CONSUMER-PROBE.json"
+    ],
+    "minimum_fix": "Share canonical builder at renderer APIs preserving ContractError interfaces; exercise manifest/DONE consumers and historical replay without changing identity/schema. Requires two narrowly related consumer files in next-cycle allowed scope."
+  },
+  {
+    "id": "HOST-02",
+    "status": "confirmed",
+    "severity": "medium",
+    "problem": "New wording calls terminology_snapshot the sole terminology input, but real production envelopes carry only a digest there; contextual term rows live inside bounded_context source_facts_v1.fact.terminology, surface production snapshot contains no actual term rows.",
+    "evidence": [
+      "tools/orchestration/build_evidence_pack.py:441-449",
+      "tools/i18nlib/production_review_v2_lite_batch.py:374,563-565",
+      "docs/paseo-translation-context-review-v2-contract.md:94-96",
+      "docs/paseo-translation-surface-screen-v1-contract.md:169-175"
+    ],
+    "minimum_fix": "Describe inline frozen terminology contents wherever present in existing allowed envelope fields; distinguish terminology_snapshot digest from contents. Missing digest-resolved rows alone is not a translation defect. No envelope schema changes."
+  },
+  {
+    "id": "HOST-03",
+    "status": "advisory",
+    "severity": "low",
+    "problem": "Section seven attributes newly widened complete-contract permission to 2026-09-12; current authorization for that widening is 2026-09-22.",
+    "evidence": [
+      "docs/paseo-translation-context-review-v2-contract.md:126"
+    ],
+    "minimum_fix": "Separate original fixed-source authorization from current prospective input-policy update."
+  },
+  {
+    "id": "HOST-04",
+    "status": "confirmed",
+    "severity": "low",
+    "problem": "Shared builder accepts newline in input_path, producing four lines despite formal three-line invariant.",
+    "evidence": "build_contextual_prompt(a*64, input\\nextra.json) produces 4 lines",
+    "minimum_fix": "Reject CR/LF in input_path before rendering; test the property through public prompt APIs. Preserve ordinary path and byte-budget behavior."
+  },
+  {
+    "id": "HOST-05",
+    "status": "confirmed",
+    "severity": "medium",
+    "problem": "New test file is not registered, so the mandatory CI test registry rejects the candidate.",
+    "evidence": "python3 -B tools/test_groups.py --check -> exit2 ERROR: unregistered tests: tests/i18n/test_review_prompts.py",
+    "minimum_fix": "Add test_review_prompts.py to the appropriate existing tests/i18n/test_groups.json group; verify registry and actual consumer group. Add this narrowly related registry file to next-cycle allowed files."
+  }
+]

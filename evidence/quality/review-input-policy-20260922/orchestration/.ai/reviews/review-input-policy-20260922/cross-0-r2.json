@@ -1,0 +1,44 @@
+{
+  "task_id": "review-input-policy-20260922",
+  "review_contract": "code_legacy_v1",
+  "review_phase": "REVIEW",
+  "cycle": 0,
+  "attempt": 2,
+  "reviewer_role": "senior-reviewer",
+  "purpose": "cross_review",
+  "dispatch_id": "cross-0-r2",
+  "agent_id": "20fe90da-f890-4a92-b831-e9fd7da86f3b",
+  "status": "completed",
+  "verdict": "CHANGES_REQUIRED",
+  "findings": [
+    {
+      "id": "SR-01",
+      "severity": "high",
+      "file": "tools/contextual_lane_manifest.py; tools/surface_screen_result_check.py",
+      "location": "PROMPT_TEMPLATE/render_dispatch_prompt",
+      "problem": "Actual consumers retain old templates and reject valid longest paths",
+      "evidence": "Old885/830 bytes versus canonical798/793",
+      "impact": "Manifest/DONE reject valid dispatch path",
+      "design_ac_basis": "SPEC AC3,AC5",
+      "minimum_sufficient_fix": "Share canonical builder preserving ContractError APIs"
+    },
+    {
+      "id": "SR-02",
+      "severity": "medium",
+      "file": "tools/orchestration/review_prompts.py",
+      "location": "_render",
+      "problem": "Line separators in input_path break fixed three-line prompt",
+      "evidence": "Direct replacement; contextual full input paths can contain Unix newline",
+      "impact": "Four-line prompt and instruction injection",
+      "design_ac_basis": "SPEC AC3,AC5",
+      "minimum_sufficient_fix": "Reject all splitlines separators, test ASCII and Unicode cases"
+    }
+  ],
+  "candidate_ref": "1ab3c7bfcb728a4604fe266212ff63e74961b97d58030211a6c9da45fe11cf18",
+  "candidate_locator": {
+    "spec_path": ".ai/task/review-input-policy-20260922/SPEC.md",
+    "diff_path": ".ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch"
+  },
+  "raw_output_path": ".ai/task/review-input-policy-20260922/cross-0-r2.raw",
+  "raw_output_sha256": "f3bc2bff4605511c986952c1764fa5603c7f9391738b8cd59a75c3caeffd5933"
+}

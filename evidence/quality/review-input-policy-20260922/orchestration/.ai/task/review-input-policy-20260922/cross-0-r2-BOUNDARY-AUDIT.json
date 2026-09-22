@@ -1,0 +1,235 @@
+{
+  "native_sha256": "8373d8c95fa7e29a589f6e5aabee03390ff50c2298397b80c8f824a9f05af84c",
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cd90f20087d1ab752bd4e06e73d8",
+      "status": "completed",
+      "call_id": "call_pPYhlh3eFAsmnrI7di33PbT5",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' .ai/roles/senior-reviewer.md\\nsed -n '1,260p' .ai/task/review-input-policy-20260922/SPEC.md\\nsed -n '1,260p' .ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json\\nsed -n '1,320p' .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037386.037813
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cd99706887d1b92256bf46a1eaf7",
+      "status": "completed",
+      "call_id": "call_AVCSYUyDMbRPQdWeQmS02hsg",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '250,620p' .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037399.123958
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cda7a4e087d190e84c2344bae972",
+      "status": "completed",
+      "call_id": "call_3NuMdQRWXJ1tTEDt009x9Bv8",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,260p' tools/orchestration/review_prompts.py\\nsed -n '1,320p' tools/orchestration/dispatch_contextual.py\\nsed -n '1,320p' tools/orchestration/dispatch_surface.py\\nsed -n '1,260p' tools/orchestration/dispatch_reviewers.py\\nsed -n '1,220p' tests/i18n/test_review_prompts.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037404.999557
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cdb16b5087d19b21a171a53cbd6c",
+      "status": "completed",
+      "call_id": "call_1AZxRZN474ukf4j5KZV5uyqA",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,360p' tools/orchestration/review_lifecycle.py\\nsed -n '1,360p' tools/orchestration/build_evidence_pack.py\\nsed -n '1,320p' tools/contextual_lane_manifest.py\\nsed -n '1,300p' tools/contextual_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 40000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037421.530311
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cdb8d22c87d1a3ea2f2ab256ba25",
+      "status": "completed",
+      "call_id": "call_Hgm8cQsXTLRm2IAKRGPK8HkD",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"prompt|input_path|create_parameters|dispatch_main|prepare\\\\(\\\" tools/orchestration/review_lifecycle.py tools/orchestration/build_evidence_pack.py tools/contextual_lane_manifest.py tools/surface_screen_manifest.py tools/ai_state_check.py\\nsed -n '1,360p' tools/surface_screen_manifest.py\\nsed -n '1,320p' tools/surface_screen_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 36000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037430.469918
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cdc6f0fc87d192e2ab6766e2991e",
+      "status": "completed",
+      "call_id": "call_Ugr1ChrJpLdPHrD8eBHwXjh3",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,85p' tools/contextual_lane_manifest.py\\nrg -n \\\"PROMPT_TEMPLATE|render_dispatch_prompt\\\" tools/surface_screen_result_check.py tools/paseo_contract_check.py tests/i18n/test_review_lifecycle.py\\nsed -n '340,410p' tools/surface_screen_result_check.py\\nsed -n '1880,2060p' tools/ai_state_check.py\\nsed -n '1,260p' tools/paseo_contract_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 36000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037438.496705
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cdd30f4c87d1a78f3d7cfbdd0bbf",
+      "status": "completed",
+      "call_id": "call_d0ztsy6IxVSvLanpRb7q6aKp",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"dispatch_contextual|dispatch_surface|build_prompt|PROMPT_TEMPLATE|第六、七节|第六节|input_path 全部冻结|render_dispatch_prompt|create_parameters.*prompt|prompt.*sha\\\" tests/i18n/test_review_lifecycle.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037453.14643
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cde1a2dc87d1a28608f35735c9b7",
+      "status": "completed",
+      "call_id": "call_wREOZP42NJnDKxlz32PNkoh4",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"candidate_ref|candidate_locator|CODE_DIFF|hashes|base_commit|diff_recipe|candidate\\\" tools/orchestration/build_evidence_pack.py\\nsed -n '1,240p' tools/orchestration/build_evidence_pack.py\\nsed -n '240,520p' tools/orchestration/build_evidence_pack.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037464.333923
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cdf2303487d198b1c2a9fc03ea6b",
+      "status": "completed",
+      "call_id": "call_sS0nXR0Xw9NfyxKODySCP7an",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B - <<'PY'\\nimport hashlib,json,subprocess\\nfrom pathlib import Path\\nroot=Path('.')\\ncand=json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json').read_text())\\nfor p in cand['paths']:\\n    got=hashlib.sha256(Path(p).read_bytes()).hexdigest()\\n    print(('OK' if got==cand['hashes'][p] else 'MISMATCH'), p, got)\\npatch=Path('.ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch').read_bytes()\\nprint('patch_sha256',hashlib.sha256(patch).hexdigest())\\nfor obj,name in [\\n    ({'base_commit':cand['base_commit'],'paths':cand['paths'],'hashes':cand['hashes']},'base_paths_hashes'),\\n    ({'base_commit':cand['base_commit'],'hashes':cand['hashes']},'base_hashes'),\\n    ({'paths':cand['paths'],'hashes':cand['hashes']},'paths_hashes'),\\n]:\\n raw=json.dumps(obj,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()\\n print(name,hashlib.sha256(raw).hexdigest())\\nPY\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 5000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037478.745754
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1ce009ffc87d18d4d13c52ce3a395",
+      "status": "completed",
+      "call_id": "call_X88IQxu00p7M6vhSLz28D8mb",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B - <<'PY'\\nimport hashlib,json\\nfrom pathlib import Path\\nc=json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json').read_text())\\nfor exclude in [('candidate_ref',),('candidate_ref','candidate_locator'),('candidate_ref','diff_recipe'),('candidate_ref','candidate_locator','diff_recipe')]:\\n d={k:v for k,v in c.items() if k not in exclude}\\n for newline in (False,True):\\n  raw=json.dumps(d,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()+ (b'\\\\n' if newline else b'')\\n  h=hashlib.sha256(raw).hexdigest()\\n  if h==c['candidate_ref']: print('MATCH',exclude,newline)\\n  else: print(exclude,newline,h)\\nPY\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 5000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037503.060695
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1ce0d366887d1af8f3679fe8b845a",
+      "status": "completed",
+      "call_id": "call_dYbby4TgjhymexKLhlOZtalU",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"candidate_ref|candidate freeze|CANDIDATE|candidate.*hash|CODE_DIFF\\\" docs/paseo-orchestration-v2-contract.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037514.018713
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1ce12786887d1be4250f32fda6cc8",
+      "status": "completed",
+      "call_id": "call_c6yG9CqAoQWZqfCdcc6raFms",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '20,75p' docs/paseo-orchestration-v2-contract.md\\nsed -n '420,465p' docs/paseo-orchestration-v2-contract.md\\nsed -n '930,985p' docs/paseo-orchestration-v2-contract.md\\nsed -n '990,1085p' docs/paseo-orchestration-v2-contract.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 22000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037520.776907
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1ce198f0887d1a5832d841816a7ae",
+      "status": "completed",
+      "call_id": "call_IbgX7WT5WEVj4w7AyfvSIItO",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B - <<'PY'\\nimport hashlib,json\\nfrom pathlib import Path\\nspec=Path('.ai/task/review-input-policy-20260922/SPEC.md').read_bytes()\\ndiff=Path('.ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch').read_bytes()\\nc=json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json').read_text())\\nprint('candidate_ref_expected',hashlib.sha256(spec+b'\\\\0'+diff).hexdigest())\\nprint('candidate_ref_declared',c['candidate_ref'])\\nPY\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 1000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037528.063599
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf0c2eb887d19abafd252f23784c",
+      "status": "completed",
+      "call_id": "call_lmGOxJEMMRGOR676YZJUtqsW",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B - <<'PY'\\nimport json,subprocess\\nfrom pathlib import Path\\nc=json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json').read_text())\\nbase=c['base_commit']\\nchunks=[]\\nfor p in sorted(c['paths']):\\n    exists=subprocess.run(['git','cat-file','-e',f'{base}:{p}'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0\\n    if exists:\\n        q=subprocess.run(['git','diff','--no-ext-diff','--binary',base,'--',p],capture_output=True,check=True)\\n    else:\\n        q=subprocess.run(['git','diff','--no-index','--no-ext-diff','--binary','--','/dev/null',p],capture_output=True)\\n        if q.returncode not in (0,1): raise SystemExit(q.stderr.decode())\\n    chunks.append(q.stdout)\\nactual=b''.join(chunks)\\nfrozen=Path(c['candidate_locator']['diff_path']).read_bytes()\\nprint('diff_exact_match',actual==frozen,'actual_bytes',len(actual),'frozen_bytes',len(frozen))\\nPY\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 1000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037767.594582
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf2a2e5087d18692c057be5e584c",
+      "status": "completed",
+      "call_id": "call_eexXbQpqGY1ybcexbkXAeOvn",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B - <<'PY'\\nimport ast\\nfrom pathlib import Path\\nfor p,names in [\\n ('tools/orchestration/review_prompts.py',['CONTEXTUAL_PROMPT_TEMPLATE','SURFACE_PROMPT_TEMPLATE']),\\n ('tools/contextual_lane_manifest.py',['PROMPT_TEMPLATE']),\\n ('tools/surface_screen_result_check.py',['PROMPT_TEMPLATE'])]:\\n tree=ast.parse(Path(p).read_text())\\n vals={}\\n for node in tree.body:\\n  if isinstance(node,(ast.Assign,ast.AnnAssign)):\\n   targets=node.targets if isinstance(node,ast.Assign) else [node.target]\\n   for t in targets:\\n    if isinstance(t,ast.Name) and t.id in names:\\n     vals[t.id]=ast.literal_eval(node.value)\\n for k,v in vals.items():\\n  print(p,k,'template_bytes',len(v.encode()),'lines',len(v.splitlines()))\\n  for label,path in [('ctx',f'.ai/task/{\\\"t\\\"*128}/CONTEXTUAL-ENVELOPE-{\\\"d\\\"*32}.json'),('surface',f'.ai/task/{\\\"t\\\"*128}/SURFACE-SCREEN-ENVELOPE-{\\\"d\\\"*32}.json')]:\\n   rendered=v.replace('<candidate_identity>','a'*64).replace('<input_path>',path)\\n   print(' ',label,len(rendered.encode()))\\nPY\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 3000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037784.194363
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf422f1087d19d7876c93e180f3b",
+      "status": "completed",
+      "call_id": "call_0YOgWvDJKp48trjEaBSQ5ejq",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"input_path|task/dispatch|CONTEXTUAL-ENVELOPE|路径|path\\\" docs/paseo-translation-context-review-v2-contract.md docs/paseo-translation-surface-screen-v1-contract.md\\nsed -n '1,165p' docs/paseo-translation-context-review-v2-contract.md\\nsed -n '1,275p' docs/paseo-translation-surface-screen-v1-contract.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 36000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037815.627038
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf4e62ac87d18760f62f9cf229b8",
+      "status": "completed",
+      "call_id": "call_CUYOTiEapxcjvi5e43ZnF5K7",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,180p' .ai/roles/reviewer.md\\nsed -n '1,130p' tools/orchestration/README.md\\ngit show 7c38a53b88a1c80d7d9b209f84c518ae9f6eac00:.ai/roles/reviewer.md | sed -n '1,100p'\\ngit show 7c38a53b88a1c80d7d9b209f84c518ae9f6eac00:tools/orchestration/dispatch_contextual.py | sed -n '1,100p'\\ngit show 7c38a53b88a1c80d7d9b209f84c518ae9f6eac00:tools/orchestration/dispatch_surface.py | sed -n '1,100p'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 22000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037832.02117
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf75bf2487d1bbbb2c987c22da14",
+      "status": "completed",
+      "call_id": "call_KvR6zIMsiLat8vNEtvTNHPUA",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1520,1595p' tools/orchestration/review_lifecycle.py\\nsed -n '510,575p' tools/ai_state_check.py\\nsed -n '1160,1200p' tools/ai_state_check.py\\nrg -n \\\"CONTEXTUAL-ENVELOPE|contextual.*input_path|input_path.*contextual\\\" tools/ai_state_check.py tools/orchestration/review_lifecycle.py tests/i18n/test_review_lifecycle.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 18000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037847.559853
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_021a153c945697e1016ab1cf920c5887d1a523adba55caf851",
+      "status": "completed",
+      "call_id": "call_fm16M0wbrPbA4b5Xjnh6Btlu",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"唯一 builder|不得手填|test_dispatch_entrypoints|test_three_lines|def _render|not input_path|splitlines|CONTEXTUAL_PROMPT_TEMPLATE|SURFACE_PROMPT_TEMPLATE\\\" tools/orchestration/README.md tests/i18n/test_review_prompts.py tools/orchestration/review_prompts.py tools/contextual_lane_manifest.py tools/surface_screen_result_check.py\\nrg -n \\\"最长合法|统一正式builder|三行/字节\\\" .ai/task/review-input-policy-20260922/SPEC.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 5000\n});\ntext(r.output);",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c68a-ccf0-7180-adb4-4d386274ca4f",
+        "create_time": 1790037883.981088
+      }
+    }
+  ],
+  "boundary_valid": true,
+  "scope": "Frozen candidate/SPEC and explicitly allowed source files, exact git baseline; no tests, repo-wide search, writes or prior findings; memory computations use python3 -B."
+}

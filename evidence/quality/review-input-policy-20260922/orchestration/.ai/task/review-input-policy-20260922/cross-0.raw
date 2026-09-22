@@ -1,0 +1,39 @@
+## 覆盖依据
+
+- 冻结校验：CANDIDATE-REVIEW-0.json 所列 10 个路径的当前 sha256 与 `hashes` 逐条一致，`base_commit=7c38a53`，candidate_ref 与任务给定值相同 → 候选已冻结，可复审。
+- 读取范围：仅读 SPEC.md / SCOPE.json / PLAN.md / BASELINE-STATUS.txt / CANDIDATE-REVIEW-0.json / CODE_DIFF-REVIEW-0.patch、候选 10 文件当前版本、以及授权的真实消费者（`review_lifecycle.py`、`contextual_result_check.py`、`surface_screen_result_check.py`、`paseo_contract_check.py`、`test_review_lifecycle.py`、`build_evidence_pack.py`）。为核对"正式 builder 是否唯一"额外读了同链路被这些消费者 import 的 `surface_screen_manifest.py`、`contextual_lane_manifest.py`、`ai_state_check.py`（均为 diff 中 README/契约主张的直接反证对象）。未读任何其他 task/review、先前 finding 或兄弟报告。
+- 只读执行：`python3 -m unittest tests.i18n.test_review_prompts`（5 passed）、`python3 tools/paseo_contract_check.py`（PASS，4 live versions / 16 clause declarations）、以及纯内存的 prompt 字节测算。未写入、未 stage、未 commit。
+- 已核对且未发现问题的项：AC1/AC2/AC4 的政策文字在 role、两份审核契约、编排契约、正式模板五处语义一致（快照唯一输入、provenance 不授权、完整契约可读、contextual 可补查源码 / surface 不可、证据不足走既有 `observation`、不追溯旧记录）；结果 schema 未扩展；`terminology_snapshot`/`translation_snapshot` 在两个 payload schema 中确实存在；`PromptError(ValueError)` 被 `review_lifecycle.dispatch_main` 的 except 元组捕获，保持 fail-closed；`test_toolchain_contracts.py:233` 读的是 **v1** 契约第四节，不受本 diff 影响；`create_prompt_sha256` 派发记录保留。
+
+---
+
+**ID:** CR-1
+**Severity:** medium
+**File:** tools/orchestration/README.md
+**Location:** README.md:39-42；佐证 tools/contextual_lane_manifest.py:21-63,117,192、tools/surface_screen_result_check.py:75-82,398-407、tools/surface_screen_manifest.py:294,323,396、tools/ai_state_check.py:1958,2040、tools/orchestration/review_lifecycle.py:276,301、tests/i18n/test_review_prompts.py:66-84
+**Problem:** 正式 builder 并未统一：生产链路中仍有两份旧模板在**运行时**渲染并执行 800 字节门禁，且它们比新模板长，因此实际生效的上限仍是旧值。README 声明的"唯一 builder"与新测试声明的"最长合法实际路径可容纳"在端到端路径上都不成立。
+**Evidence:**
+- `review_lifecycle.prepare()` 在**同一次 surface lane 派发**里先后触发两套模板：:276 `manifests.validate_group_manifest(...)` → `surface_screen_manifest.py:396` → `surface_screen_result_check.render_dispatch_prompt`（旧模板，599 B），:301 才调用新 builder（562 B）。
+- contextual 侧同理：`contextual_lane_manifest.py:117/192` 在建组与校验时渲染旧模板（658 B）；`ai_state_check.py:1958/2040` 对每条已持久化 v2/surface dispatch 记录再渲染一次旧模板。
+- 实测各模板允许的 input_path 上限（candidate_identity 固定 64 hex）：contextual 新 **197 B** vs 旧 **110 B**；surface 新 **206 B** vs 旧 **169 B**。
+- 生产 id 文法允许 `task_id` ≤128、`dispatch_id` ≤32（`contextual_lane_manifest.py:18-19`、`surface_screen_manifest.py:28-29`、`ai_state_check.py:1121-1122`），即最长合法路径 contextual 195 B、surface 199 B。该路径下新模板实例为 798 B / 793 B（通过），旧模板实例为 **885 B / 830 B**（超限）。
+- `tests/i18n/test_review_prompts.py:66-84` 正是用 `"t"*128` / `"d"*32` 断言这条路径合规，但它只调用 `review_prompts`，绕过了上述两个门禁，因此绿灯并不代表系统具备该属性。
+**Impact:** 当 `task_id`+`dispatch_id` 使 contextual 路径 >110 B（或 surface >169 B）时，新 builder 生成的合法 prompt 会被 `validate_group_manifest` / `ai_state_check` 以旧模板超限为由 fail closed，表现为 `DISPATCH_FAILED` 或 STATE 校验失败，而错误信息指向一份根本不会被派发的模板，排查方向被误导。方向上是保守拒绝、无静默放行风险，但 SPEC AC3"<=800 UTF8 字节含最长合法实际路径"在端到端意义上未达成，AC5 的定向测试也因此断言了一个系统不具备的属性。
+**Design/AC basis:** SPEC AC3（统一正式 builder；<=800 字节含最长合法实际路径；超限如原来 fail-closed）、AC5（增加有意义的定向测试，不得自抄作假）、AC6（宿主按共享流程变更跑 ci-gates 与兼容测试）。
+**Minimum sufficient fix:** 三个源文件不在 SCOPE.json 允许清单内，最小充分动作是在候选内把主张与事实对齐，不擅自扩范围：① README.md:39-42 改为"`review_prompts.py` 是**派发**正式 prompt 的唯一 builder"，并显式写明 `contextual_lane_manifest` / `surface_screen_result_check` / `ai_state_check` 仍以旧模板做保守字节预检，当前生效上限为 contextual 110 B、surface 169 B 的 input_path；② 把 `test_three_lines_and_longest_legal_actual_paths_fit` 的断言与命名限定为"builder 层上限"，或改用生效上限（110/169）取值，避免测试断言未达成的端到端属性；③ 由宿主决定是否另开有界任务把那三处并入 `review_prompts`（属扩范围，须用户授权，不在本候选内完成）。
+
+---
+
+**ID:** CR-2
+**Severity:** low
+**File:** tools/orchestration/README.md
+**Location:** README.md:42
+**Problem:** "契约文档中的模板必须与 builder 逐字一致"这条要求只对新模板成立，而 `surface_screen_result_check.PROMPT_TEMPLATE` 与 surface 契约第五节的"固定三行 dispatch prompt"现已逐字不同，且无任何门禁能发现这一漂移。
+**Evidence:** `docs/paseo-translation-surface-screen-v1-contract.md:180-184` 已改为新三行文本；`tools/surface_screen_result_check.py:75-82` 仍是旧三行文本（"全程只读"/"第六节"/"其明确引用内容"）。`tests/i18n/test_review_prompts.py:29-40` 只比对 `review_prompts.*_TEMPLATE` 与契约，不覆盖该常量；`paseo_contract_check.py` 只校验 live version 与 clause 声明（实测 PASS），不比对 prompt 文本。
+**Impact:** 仓库内同时存在两份自称对应同一契约节的 surface 三行模板，且无自动检测；后续读到 `surface_screen_result_check.PROMPT_TEMPLATE` 的人会按旧边界（只读第六节、未禁当前译文/术语库）理解政策，与 AC1/AC2 的新读取语义相反。
+**Design/AC basis:** SPEC AC3（role、契约、正式三行 prompt 一致）、AC5（测试应覆盖正式 prompt 与契约模板一致）。
+**Minimum sufficient fix:** 在 README.md:42 把该句限定为"`review_prompts.py` 中的模板必须与契约逐字一致"，并加一行说明 `surface_screen_result_check.PROMPT_TEMPLATE` 是仅用于字节预检的遗留副本、不代表当前派发边界；是否收敛为单一来源由宿主按 AC4 的历史兼容口径另行裁决。
+
+---
+
+VERDICT: CHANGES_REQUIRED

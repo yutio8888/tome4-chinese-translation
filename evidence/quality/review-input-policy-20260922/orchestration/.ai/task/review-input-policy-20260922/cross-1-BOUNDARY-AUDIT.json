@@ -1,0 +1,191 @@
+{
+  "dispatch_id": "cross-1",
+  "candidate_ref": "09306d2c12fd31fe8d5b2a5e94c9900b966dfde7b964e85fe177004e45070b36",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T00-59-05-01a0c69f-a02b-77e1-8726-23e0d7b6e4ce.jsonl",
+  "native_sha256": "9277a86f002a7c497c945f83b7a419fac3e891700100bbd3e5a6d83ff4fafb08",
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d2e4b4fc87d288c345bb454d8850",
+      "status": "completed",
+      "call_id": "call_YD5hSBVR3bGepUq1BjxXaWOQ",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"cat .ai/roles/senior-reviewer.md && cat .ai/task/review-input-policy-20260922/SPEC-REV1.md && cat .ai/task/review-input-policy-20260922/CANDIDATE-RE_REVIEW-1.json && cat .ai/task/review-input-policy-20260922/CODE_DIFF-RE_REVIEW-1.patch\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038750.51342
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d2f3e81487d29e02d6ea1b5f4090",
+      "status": "completed",
+      "call_id": "call_CaoqsGp8vd3oOOmpJYFwsCvv",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sha256sum .ai/task/review-input-policy-20260922/CODE_DIFF-RE_REVIEW-1.patch .ai/roles/reviewer.md docs/paseo-orchestration-v2-contract.md docs/paseo-translation-context-review-v2-contract.md docs/paseo-translation-surface-screen-v1-contract.md tests/i18n/test_groups.json tests/i18n/test_review_prompts.py tools/contextual_lane_manifest.py tools/orchestration/README.md tools/orchestration/dispatch_contextual.py tools/orchestration/dispatch_reviewers.py tools/orchestration/dispatch_surface.py tools/orchestration/review_prompts.py tools/surface_screen_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 4000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038761.891984
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d2ff8ae487d2b2bce40f2507c922",
+      "status": "completed",
+      "call_id": "call_zyzbZARfIOZHXE28YGcYz0Jb",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,220p' .ai/roles/reviewer.md && sed -n '1,240p' docs/paseo-translation-context-review-v2-contract.md && sed -n '1,280p' docs/paseo-translation-surface-screen-v1-contract.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038778.768623
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3072d8c87d296ce1d5ca01155da",
+      "status": "completed",
+      "call_id": "call_QQ1BPuNHA4u1tZhxMQc7aSNp",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n '^diff --git|^@@' .ai/task/review-input-policy-20260922/CODE_DIFF-RE_REVIEW-1.patch\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 5000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038787.941226
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d313d99c87d2970a01da7fe66727",
+      "status": "completed",
+      "call_id": "call_qnbZ0Lp06MSWHlyZZCxBAGtK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' tests/i18n/test_review_prompts.py && sed -n '1,180p' tools/orchestration/review_prompts.py && sed -n '1,180p' tools/orchestration/dispatch_contextual.py && sed -n '1,180p' tools/orchestration/dispatch_surface.py && sed -n '1,180p' tools/orchestration/dispatch_reviewers.py && sed -n '1,120p' tests/i18n/test_groups.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 26000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038794.808143
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3231d1487d2b7d5f82af1528973",
+      "status": "completed",
+      "call_id": "call_ysgWU2Br3vHf5y8v4M43aekB",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n 'build_prompt|render_dispatch_prompt|PROMPT_TEMPLATE|prompt|dispatch_main|ContractError|candidate_identity|input_path' tools/orchestration/review_lifecycle.py tools/orchestration/build_evidence_pack.py tools/contextual_result_check.py tools/surface_screen_manifest.py tools/ai_state_check.py tools/paseo_contract_check.py tests/i18n/test_review_lifecycle.py tests/i18n/test_contextual_lane_manifest.py tests/i18n/test_surface_screen_manifest.py tests/i18n/test_surface_screen_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038810.368695
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d32e935087d2abf60a1a0c8c7948",
+      "status": "completed",
+      "call_id": "call_c5cl3ZaGgyj0H7cSxOQQgKA5",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,120p' tools/orchestration/review_lifecycle.py && sed -n '240,320p' tools/orchestration/review_lifecycle.py && sed -n '1520,1605p' tools/orchestration/review_lifecycle.py && sed -n '1,180p' tools/orchestration/build_evidence_pack.py && sed -n '1,230p' tools/contextual_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 26000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038825.505775
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3373ed087d29a63ad231ce911cc",
+      "status": "completed",
+      "call_id": "call_9iMFQUk4MggJY6Cs5RnOg7GG",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n 'terminology|bounded_context|source_facts_v1|rendered_briefing|translation_snapshot' tools/orchestration/build_evidence_pack.py tools/contextual_result_check.py tools/surface_screen_manifest.py tools/ai_state_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038836.313765
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d33e320087d2848d61e5a2d6af91",
+      "status": "completed",
+      "call_id": "call_l89HRkSCyqQWdDGMq2VYcGMs",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '170,235p' tools/orchestration/build_evidence_pack.py && sed -n '380,500p' tools/orchestration/build_evidence_pack.py && sed -n '1,130p' tools/surface_screen_manifest.py && sed -n '250,340p' tools/surface_screen_manifest.py && sed -n '380,425p' tools/surface_screen_manifest.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 18000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038843.648641
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d365fe6c87d2874ccdb062290a2e",
+      "status": "completed",
+      "call_id": "call_9jcYakQQvUs0iySEpWVNA7Bg",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n 'translation_contextual_v2|translation_surface_screen_v1|reviewer.md|prompt|第六|P2-TRANSLATION' tools/paseo_contract_check.py docs/paseo-orchestration-v2-contract.md tests/i18n/test_review_lifecycle.py tests/i18n/test_contextual_lane_manifest.py tests/i18n/test_surface_screen_manifest.py tests/i18n/test_surface_screen_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 18000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038851.736822
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d36f12f887d2b0ebd779733bc19b",
+      "status": "completed",
+      "call_id": "call_KW3U0nPxeRcOSg7C2JozDo2Q",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '120,205p' docs/paseo-orchestration-v2-contract.md && sed -n '430,465p' docs/paseo-orchestration-v2-contract.md && sed -n '835,875p' docs/paseo-orchestration-v2-contract.md && sed -n '980,1085p' docs/paseo-orchestration-v2-contract.md && sed -n '1,100p' tools/paseo_contract_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038891.611302
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d37aba0487d2badbff4d672b8bd8",
+      "status": "completed",
+      "call_id": "call_4MJceF6VlL7YVgGEq4Y7yfDM",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B -c 'from pathlib import Path; import hashlib; a=Path(\\\".ai/task/review-input-policy-20260922/SPEC-REV1.md\\\").read_bytes(); b=Path(\\\".ai/task/review-input-policy-20260922/CODE_DIFF-RE_REVIEW-1.patch\\\").read_bytes(); print(hashlib.sha256(a+b\\\"\\\\0\\\"+b).hexdigest())'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 1000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038901.29746
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3960a0c87d29aa78397d541baf8",
+      "status": "completed",
+      "call_id": "call_yhi8tenZ38ZVvrTx74JX9eKE",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B -c 'import importlib.util; p=\\\"tools/orchestration/review_prompts.py\\\"; s=importlib.util.spec_from_file_location(\\\"rp\\\",p); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); ci=\\\"a\\\"*64; task=\\\"t\\\"*128; dispatch=\\\"d\\\"*32; paths=[f\\\".ai/task/{task}/CONTEXTUAL-ENVELOPE-{dispatch}.json\\\",f\\\".ai/task/{task}/SURFACE-SCREEN-ENVELOPE-{dispatch}.json\\\"]; print(len(m.CONTEXTUAL_PROMPT_TEMPLATE.encode(\\\"utf-8\\\")),len(m.build_contextual_prompt(ci,paths[0]).encode(\\\"utf-8\\\")),len(m.SURFACE_PROMPT_TEMPLATE.encode(\\\"utf-8\\\")),len(m.build_surface_prompt(ci,paths[1]).encode(\\\"utf-8\\\"))); print(len(m.build_contextual_prompt(ci,paths[0]).splitlines()),len(m.build_surface_prompt(ci,paths[1]).splitlines()))'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 1000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038912.512764
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3c0e10887d28da681b4d242a177",
+      "status": "completed",
+      "call_id": "call_y78mqBZh1esFYatiQxHHST8R",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"python3 -B -c 'from pathlib import Path; import subprocess,hashlib,json; c=json.loads(Path(\\\".ai/task/review-input-policy-20260922/CANDIDATE-RE_REVIEW-1.json\\\").read_text()); base=c[\\\"base_commit\\\"]; out=[]\\nfor p in sorted(c[\\\"paths\\\"]):\\n q=subprocess.run([\\\"git\\\",\\\"cat-file\\\",\\\"-e\\\",base+\\\":\\\"+p],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\\n cmd=[\\\"git\\\",\\\"diff\\\",\\\"--no-ext-diff\\\",\\\"--binary\\\",base,\\\"--\\\",p] if q.returncode==0 else [\\\"git\\\",\\\"diff\\\",\\\"--no-index\\\",\\\"--no-ext-diff\\\",\\\"--binary\\\",\\\"--\\\",\\\"/dev/null\\\",p]\\n x=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE)\\n assert x.returncode in (0,1), (p,x.returncode,x.stderr)\\n out.append(x.stdout)\\nraw=b\\\"\\\".join(out); frozen=Path(c[\\\"candidate_locator\\\"][\\\"diff_path\\\"]).read_bytes(); print(raw==frozen,len(raw),len(frozen),hashlib.sha256(raw).hexdigest())'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 1000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038944.249585
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0b50ce7a6d37d130016ab1d3d145f487d28971b0a2146cb6f3",
+      "status": "completed",
+      "call_id": "call_5K5vp3hGKc71kpnjgZLKb8ta",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,230p' tests/i18n/test_review_lifecycle.py && sed -n '1,130p' tests/i18n/test_contextual_lane_manifest.py && sed -n '1,220p' tests/i18n/test_surface_screen_manifest.py && sed -n '380,420p' tests/i18n/test_surface_screen_result_check.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c69f-a069-75d1-8241-ba753c644b66",
+        "create_time": 1790038988.369185
+      }
+    }
+  ],
+  "host_read_all_calls": true,
+  "boundary_valid": true,
+  "reason": "Only frozen SPEC/candidate/diff, allowed source/tests/contracts, git baseline and python -B in-memory hashes/pure builder. No writes/tests/recursive search/prior findings/other task or review files."
+}

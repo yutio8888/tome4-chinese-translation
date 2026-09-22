@@ -1,0 +1,636 @@
+diff --git a/.ai/roles/reviewer.md b/.ai/roles/reviewer.md
+index 569d57f..f490533 100644
+--- a/.ai/roles/reviewer.md
++++ b/.ai/roles/reviewer.md
+@@ -28,9 +28,15 @@ File / Location / Problem / Evidence / Impact / Recommended fix`，复审轮标
+ 
+ ## translation_contextual_v2
+ 
+-只读取精确 input_path、其明确引用内容及
+-`docs/paseo-translation-context-review-v2-contract.md` 第六节；不得读取其他 `.ai/task/`、
+-`.ai/reviews/`、lane raw 或先前 finding。按冻结顺序返回恰好覆盖全部 revision 的单一紧凑
++只读取精确 input_path、其中精确范围的引用内容及完整
++`docs/paseo-translation-context-review-v2-contract.md`；不得读取其他 `.ai/task/`、
++`.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope
++冻结的 `translation_snapshot`；术语依据只取 envelope 内实际冻结的条目正文，包括
++`bounded_context` 中 `source_facts_v1.fact.terminology` 的正文。`terminology_snapshot` 常为摘要，
++摘要或 hash 本身不是术语正文；文件、行号和 hash 只证明来源，不扩大读取权限。仅可沿调用链补查冻结版本中
++与当前 revision 相关的公开源码。缺少术语依据时不得自行搜库或凭偏好判错；确有具体疑点才以
++现有 ISSUE observation 记录证据不足，否则判 OK，并由宿主补充中性快照后重新 preflight/freeze。
++按冻结顺序返回恰好覆盖全部 revision 的单一紧凑
+ JSON：root 仅含 `contract=translation_contextual_v2`、candidate_identity、verdicts；每项
+ 仅为 `{"revision_key":"…","verdict":"OK"}`，或 verdict 为 ISSUE 并额外包含 strip 后
+ 非空 observation。禁止 witness、index、revision_count、severity、裁决或修复建议；首字节
+@@ -44,9 +50,13 @@ JSON：root 仅含 `contract=translation_contextual_v2`、candidate_identity、v
+ 
+ ## translation_surface_screen_v1
+ 
+-只读取精确 input_path、其明确引用内容及
+-`docs/paseo-translation-surface-screen-v1-contract.md` 第六节；不得读取其他 `.ai/task/`、
+-`.ai/reviews/`、lane raw 或先前 finding。按冻结 entry 顺序返回恰好覆盖全部 entry 的单一紧
++只读取精确 input_path、其中精确范围的引用内容及完整
++`docs/paseo-translation-surface-screen-v1-contract.md`；不得读取其他 `.ai/task/`、
++`.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope
++冻结 entry 的 source/target；术语依据只取 envelope 内实际冻结的条目正文。
++`terminology_snapshot` 若只是摘要或 hash 就不是术语正文；文件、行号和 hash 只证明来源，不扩大读取权限；surface 不得据此补查源码。
++缺少术语依据时不得自行搜库或凭偏好判错；确有具体疑点才以现有 ISSUE observation 记录证据
++不足，否则判 OK，并由宿主补充中性快照后重新 freeze。按冻结 entry 顺序返回恰好覆盖全部 entry 的单一紧
+ 凑 JSON，且必须是 canonical sorted compact bytes：UTF-8、递归 key 排序、紧凑分隔符、无围栏、
+ 无缩进、无尾随换行或任何附加字节。root 仅含 `contract=translation_surface_screen_v1`、
+ candidate_identity、results；每项仅为
+diff --git a/docs/paseo-orchestration-v2-contract.md b/docs/paseo-orchestration-v2-contract.md
+index 32f5475..fd07830 100644
+--- a/docs/paseo-orchestration-v2-contract.md
++++ b/docs/paseo-orchestration-v2-contract.md
+@@ -1009,6 +1009,15 @@ closure 以 `parent_review_kind` 和 `parent_coverage_identity` 绑定最新更
+ prompt 模板和实例 UTF-8 bytes 均不得超过 800。完整 payload/result/raw/manifest/recovery/外发规则
+ 以 `docs/paseo-translation-context-review-v2-contract.md` 为准。
+ 
++2026-09-22 前瞻性 REVIEWER 输入政策以 envelope 中冻结的 `translation_snapshot` 为唯一译文
++输入；术语依据只取 envelope 内实际冻结的条目正文，包括 `bounded_context` 中
++`source_facts_v1.fact.terminology`。`terminology_snapshot` 常为摘要，摘要或 hash 不是正文；
++file／line／hash 只记录 provenance，不授予
++搜索当前译文或术语库的权限，其他引用必须给出精确范围。REVIEWER 可完整读取对应契约作为流程
++说明，并仍可沿调用链补查冻结版本中与当前 revision 相关的公开源码。缺少术语依据时不自行搜库
++或凭偏好判错；只有确有具体疑点才在既有 ISSUE `observation` 中记录证据不足，由宿主补充中性
++快照、重新 preflight/freeze，不扩展 schema。
++
+ ## `P2-TRANSLATION-SURFACE-V1`
+ 
+ `translation_surface_screen_v1` 只用于 `schema_version >= 5` 的 review-only 新 task，不能与
+@@ -1058,3 +1067,13 @@ ledger 工具按生产 SPEC 的命名状态机独立校验：每条迁移携带
+ reopen，偏好不得 reopen；ledger 只追加不重写，任意位置重复不可变事件与跨逻辑身份的
+ revision 复用 fail closed（仅 exact last line 幂等），且禁止从 provider/model 名称推导任何
+ 覆盖、稳定性或完成度。
++
++2026-09-22 surface 前瞻性输入政策只接受 envelope 冻结 entry 的 source/target 作为译文输入，
++术语依据只取 envelope 内实际冻结的条目正文；`terminology_snapshot` 若为摘要或 hash 就不是正文。
++file／line／hash 只记录 provenance，其他引用必须精确限定。REVIEWER 可完整读取对应契约，但
++不得借此补查源码、当前译文或术语库。证据不足只在确有具体疑点时使用既有 ISSUE
++`observation`；没有实际术语正文不自动构成译文缺陷。由宿主补充中性快照并重新 freeze，不增加结果字段。
++
++以上统一读取政策和正式 prompt 只作用于新派发，不迁移或重解释旧 candidate/hash、envelope、
++raw、result schema 或 ledger，也不要求原先合法且已归档的输出重跑。未采纳的旧输出仍按其原
++dispatch 边界审计后裁决；审计分别记录 JSON 声明、实际读取路径和 child 生命周期。
+diff --git a/docs/paseo-translation-context-review-v2-contract.md b/docs/paseo-translation-context-review-v2-contract.md
+index bed7ade..5ffe6c8 100644
+--- a/docs/paseo-translation-context-review-v2-contract.md
++++ b/docs/paseo-translation-context-review-v2-contract.md
+@@ -91,12 +91,22 @@ full coverage 不得漂移这些字段。intervening 只允许 `RE_REVIEW/full|c
+ 
+ ## 六、REVIEWER 输入与紧凑输出
+ 
++`translation_snapshot` 是 REVIEWER 唯一可用的译文输入；术语依据只来自 envelope 内实际冻结的
++条目正文，包括 `bounded_context[].context` 所含 `source_facts_v1.fact.terminology`。字段
++`terminology_snapshot` 在 WP2-Lite 等生产输入中常是摘要；摘要、file／line／hash 只记录
++provenance，不等于术语条目正文，也不授权读取或搜索当前译文、当前术语库。其他
++引用内容必须在 envelope 中给出精确范围，且不得指向其他 task、review、lane raw 或先前 finding。
++允许完整读取本契约作为流程说明，读取本契约的其他章节或标题元数据本身不构成越界。若冻结术语
++依据不足，REVIEWER 不得自行搜库或凭偏好判错：只有存在具体可陈述的疑点时，才按既有 schema
++返回 ISSUE 并在 `observation` 写明所缺证据；否则返回 OK。ORCHESTRATOR 应补充中性的最小快照，
++重新执行适用 preflight 并 freeze；不得为此扩展结果 schema。
++
+ 固定三行 prompt：
+ 
+ ```text
+-任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+-输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
++任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。
++输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
++输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。
+ ```
+ 
+ 模板和每次实例化 UTF-8 bytes 都必须 `<= 800`；路径较长时仍按实际实例拒绝超限，且 full、closure、lane 和
+@@ -115,8 +125,9 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
+ 
+ ## 七、外发和源码证据
+ 
+-根据维护者 2026-09-12 授权，REVIEWER 可读精确 input_path、其中明确引用的内容和第六、七节，
+-并可沿调用链补查冻结版本中与当前 revision 相关的公开源码，不要求所有调用文件事先列入输入。
++根据维护者 2026-09-12 授权，REVIEWER 可沿调用链补查冻结版本中与当前 revision 相关的公开源码，
++不要求所有调用文件事先列入输入。2026-09-22 的流程修订另行授权读取精确 input_path、其中精确
++范围的引用内容和完整本契约，并规定第六节的冻结译文／术语边界；两次授权不得互相追溯归因。
+ 为定位该版本源码仓库，可作必要的目录和 Git 对象元数据查询；不扫描无关资料。
+ 不得读其他 `.ai/task/`、`.ai/reviews/` 或先前 finding，也不据此扩大译文候选或取得写入权限。
+ 
+@@ -124,5 +135,8 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
+ ISSUE 的依据写入现有 `observation`；OK 仍只返回第六节规定的两键对象。ORCHESTRATOR 在收获
+ 审计中依据只读调用记录补齐实际查询路径和证据，包含最终判 OK 的补查；不增加输出字段或改写 raw。
+ 未固定来源须明确标记证据不足，不得自行换用其他版本；机制结论仍以可核验源码为准。
+-该授权用于后续派发，不追溯改写已冻结的 prompt、envelope 或审核记录。
++本节与第六节的统一边界只用于后续派发，不追溯改写已冻结的 prompt、candidate/hash、envelope、
++raw 或审核记录；原先合法且已归档的输出不因本规则重跑。当前尚未采纳的旧派发输出由宿主按其
++原 dispatch 边界审计后裁决。取证审计必须分别记录 JSON 声明、实际读取路径和 child 生命周期，
++不得互相推定。
+ 输出按本契约第五节原样持久化；通用只读、裁决及终态归档按[编排契约第七、八、十一节](paseo-orchestration-v2-contract.md#七托管-child-生命周期与即时归档)执行。
+diff --git a/docs/paseo-translation-surface-screen-v1-contract.md b/docs/paseo-translation-surface-screen-v1-contract.md
+index 7a0e580..60ad825 100644
+--- a/docs/paseo-translation-surface-screen-v1-contract.md
++++ b/docs/paseo-translation-surface-screen-v1-contract.md
+@@ -166,17 +166,23 @@ dispatch、任何 surface completion record 或任何 surface terminal 绑定）
+ 
+ ## 五、REVIEWER 输入与边界
+ 
+-REVIEWER 只读取精确 input_path、其中明确引用的内容和本契约第六节；不得读取其他
+-`.ai/task/`、`.ai/reviews/`、lane raw 或先前 finding。冻结 payload 只含 source/target
+-快照、locator、术语 snapshot 哈希所绑定的术语子集、算法版本与 lane-neutral briefing；
+-禁止注入先前 finding、裁决、建议修复或宿主 lineage。
++REVIEWER 只读取精确 input_path、其中精确范围的引用内容和完整本契约；读取本契约的其他章节或
++标题元数据本身不构成越界。不得读取其他 `.ai/task/`、`.ai/reviews/`、lane raw、先前 finding
++或当前译文／术语库，也不得写文件。冻结 payload 中 entry 的 source/target 是唯一可用的译文
++输入；术语依据只来自 envelope 内实际冻结的条目正文。`terminology_snapshot` 若只是摘要或 hash
++就不是术语条目正文；其中 file／line／hash 也只记录 provenance，不授权读取或搜索这些当前文件。
++其他引用必须给出精确范围。surface 不得借引用、provenance 或完整契约增加源码调查
++权限。缺少术语依据时不得自行搜库或凭偏好判错：只有存在具体可陈述的疑点时，才按既有 schema
++返回 ISSUE 并在 `observation` 写明所缺证据；没有实际术语正文不自动构成译文缺陷，否则返回
++OK。ORCHESTRATOR 应补充中性的最小快照
++并重新 freeze，不得扩展结果 schema。禁止注入先前 finding、裁决、建议修复或宿主 lineage。
+ 
+ 固定三行 dispatch prompt（模板与每次实例 UTF-8 bytes 均 `<= 800`，派发前逐条验证）：
+ 
+ ```text
+-任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、参数顺序或格式等表层问题；否则判 OK。
+-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；仅读该文件、其明确引用内容及 docs/paseo-translation-surface-screen-v1-contract.md 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+-输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；首字节{、末字节}，无其他文字、Markdown 或围栏。
++任务：筛查冻结 entry；仅报有据的明显错译、标记/占位符、参数顺序或格式问题，否则 OK。
++输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；仅读该输入、精确引用、完整 docs/paseo-translation-surface-screen-v1-contract.md；禁补查源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
++输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无其他文字/Markdown/围栏。
+ ```
+ 
+ ## 六、结果 schema 与校验（fail closed）
+@@ -236,3 +242,9 @@ translationese 证据 code，偏好性 reopen 一律拒绝；首条 append 也
+ replay，且既有历史在任何 append（包括 exact-last-line 幂等返回）之前必须先完整 replay，
+ 损坏的既有历史绝不能报告成功；任意位置的重复不可变事件（仅 exact last line 幂等）与跨逻
+ 辑身份的 revision 复用都 fail closed。
++
++第五节的完整契约读取与冻结术语边界来自维护者 2026-09-22 的流程修订，只用于后续派发，
++不追溯改写已冻结的 prompt、candidate/hash、envelope、raw、
++结果 schema 或 ledger；原先合法且已归档的输出不因本规则重跑。当前尚未采纳的旧派发输出由宿主
++按其原 dispatch 边界审计后裁决。取证审计必须分别记录 JSON 声明、实际读取路径和 child 生命周期，
++不得互相推定。
+diff --git a/tests/i18n/test_groups.json b/tests/i18n/test_groups.json
+index 1c5b7ff..a3e2f73 100644
+--- a/tests/i18n/test_groups.json
++++ b/tests/i18n/test_groups.json
+@@ -52,6 +52,7 @@
+       "tests/i18n/test_contextual_anchor_preflight.py",
+       "tests/i18n/test_review_evidence.py",
+       "tests/i18n/test_review_lifecycle.py",
++      "tests/i18n/test_review_prompts.py",
+       "tests/i18n/test_review_usage.py",
+       "tests/test_grok_native_export.py",
+       "tests/i18n/test_wave_review.py",
+diff --git a/tests/i18n/test_review_prompts.py b/tests/i18n/test_review_prompts.py
+new file mode 100644
+index 0000000..b0b544f
+--- /dev/null
++++ b/tests/i18n/test_review_prompts.py
+@@ -0,0 +1,177 @@
++from pathlib import Path
++import ast
++import re
++import sys
++import unittest
++
++
++ROOT = Path(__file__).resolve().parents[2]
++TOOLS = ROOT / "tools"
++ORCHESTRATION = ROOT / "tools/orchestration"
++sys.path.insert(0, str(TOOLS))
++sys.path.insert(0, str(ORCHESTRATION))
++
++import contextual_lane_manifest
++import dispatch_contextual
++import dispatch_surface
++import review_prompts
++import surface_screen_result_check
++
++
++def contract_prompt(relative: str, marker: str) -> str:
++    text = (ROOT / relative).read_text(encoding="utf-8")
++    tail = text.split(marker, 1)[1]
++    match = re.search(r"```text\n(.*?)\n```", tail, re.S)
++    if match is None:
++        raise AssertionError(f"missing formal prompt after {marker!r}")
++    return match.group(1)
++
++
++class ReviewPromptTests(unittest.TestCase):
++    CI = "a" * 64
++
++    def test_formal_templates_are_exactly_the_contract_templates(self):
++        self.assertEqual(
++            review_prompts.CONTEXTUAL_PROMPT_TEMPLATE,
++            contract_prompt(
++                "docs/paseo-translation-context-review-v2-contract.md",
++                "固定三行 prompt：",
++            ),
++        )
++        self.assertEqual(
++            review_prompts.SURFACE_PROMPT_TEMPLATE,
++            contract_prompt(
++                "docs/paseo-translation-surface-screen-v1-contract.md",
++                "固定三行 dispatch prompt",
++            ),
++        )
++
++    def test_dispatch_entrypoints_use_the_shared_builders(self):
++        self.assertIs(dispatch_contextual.build_prompt, review_prompts.build_contextual_prompt)
++        self.assertIs(dispatch_surface.build_prompt, review_prompts.build_surface_prompt)
++
++        source = (ORCHESTRATION / "dispatch_reviewers.py").read_text(encoding="utf-8")
++        tree = ast.parse(source)
++        imports = {
++            alias.name
++            for node in tree.body
++            if isinstance(node, ast.ImportFrom) and node.module == "review_prompts"
++            for alias in node.names
++        }
++        calls = {
++            node.func.id
++            for node in ast.walk(tree)
++            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
++        }
++        self.assertIn("build_surface_prompt", imports)
++        self.assertIn("build_surface_prompt", calls)
++        self.assertNotIn("candidate_identity=<candidate_identity>", source)
++
++    def test_three_lines_and_longest_legal_actual_paths_fit(self):
++        task = "t" * 128
++        dispatch = "d" * 32
++        cases = (
++            (
++                review_prompts.build_contextual_prompt,
++                f".ai/task/{task}/CONTEXTUAL-ENVELOPE-{dispatch}.json",
++            ),
++            (
++                review_prompts.build_surface_prompt,
++                f".ai/task/{task}/SURFACE-SCREEN-ENVELOPE-{dispatch}.json",
++            ),
++        )
++        for builder, path in cases:
++            with self.subTest(builder=builder.__name__):
++                prompt = builder(self.CI, path)
++                self.assertEqual(len(prompt.splitlines()), 3)
++                self.assertLessEqual(len(prompt.encode("utf-8")), review_prompts.MAX_PROMPT_BYTES)
++                self.assertIn(path, prompt)
++
++        real_consumers = (
++            (contextual_lane_manifest.render_dispatch_prompt, cases[0][1]),
++            (surface_screen_result_check.render_dispatch_prompt, cases[1][1]),
++        )
++        for renderer, path in real_consumers:
++            with self.subTest(renderer=renderer.__module__):
++                prompt = renderer(self.CI, path)
++                self.assertEqual(len(prompt.splitlines()), 3)
++                self.assertLessEqual(len(prompt.encode("utf-8")), review_prompts.MAX_PROMPT_BYTES)
++
++    def test_over_limit_and_invalid_identity_fail_closed(self):
++        with self.assertRaises(review_prompts.PromptError):
++            review_prompts.build_surface_prompt(self.CI, "x" * 801)
++        with self.assertRaises(review_prompts.PromptError):
++            review_prompts.build_contextual_prompt("not-a-hash", "input.json")
++
++        with self.assertRaises(contextual_lane_manifest.result_check.ContractError):
++            contextual_lane_manifest.render_dispatch_prompt(self.CI, "x" * 801)
++        with self.assertRaises(surface_screen_result_check.ContractError):
++            surface_screen_result_check.render_dispatch_prompt(self.CI, "x" * 801)
++
++    def test_exact_utf8_byte_boundary(self):
++        builders = (
++            review_prompts.build_contextual_prompt,
++            review_prompts.build_surface_prompt,
++        )
++        for builder in builders:
++            one_byte_path_size = len(builder(self.CI, "x").encode("utf-8"))
++            path_size = review_prompts.MAX_PROMPT_BYTES - one_byte_path_size + 1
++            with self.subTest(builder=builder.__name__):
++                prompt = builder(self.CI, "x" * path_size)
++                self.assertEqual(len(prompt.encode("utf-8")), review_prompts.MAX_PROMPT_BYTES)
++                with self.assertRaises(review_prompts.PromptError):
++                    builder(self.CI, "x" * (path_size + 1))
++
++    def test_every_splitlines_separator_is_rejected_by_all_public_renderers(self):
++        separators = ("\n", "\r", "\v", "\f", "\x1c", "\x1d", "\x1e", "\x85", "\u2028", "\u2029")
++        renderers = (
++            (review_prompts.build_contextual_prompt, review_prompts.PromptError),
++            (review_prompts.build_surface_prompt, review_prompts.PromptError),
++            (contextual_lane_manifest.render_dispatch_prompt, contextual_lane_manifest.result_check.ContractError),
++            (surface_screen_result_check.render_dispatch_prompt, surface_screen_result_check.ContractError),
++        )
++        for separator in separators:
++            self.assertGreater(len(f"before{separator}after".splitlines()), 1)
++            for renderer, error in renderers:
++                with self.subTest(separator=ascii(separator), renderer=renderer.__module__):
++                    with self.assertRaises(error):
++                        renderer(self.CI, f"before{separator}after")
++
++    def test_real_consumers_share_templates_without_changing_replay_bindings(self):
++        contextual_path = ".ai/task/legacy-task/CONTEXTUAL-ENVELOPE-legacy-dispatch.json"
++        surface_path = ".ai/task/legacy-task/SURFACE-SCREEN-ENVELOPE-legacy-dispatch.json"
++        self.assertIs(contextual_lane_manifest.PROMPT_TEMPLATE, review_prompts.CONTEXTUAL_PROMPT_TEMPLATE)
++        self.assertIs(surface_screen_result_check.PROMPT_TEMPLATE, review_prompts.SURFACE_PROMPT_TEMPLATE)
++        self.assertEqual(
++            contextual_lane_manifest.render_dispatch_prompt(self.CI, contextual_path),
++            review_prompts.build_contextual_prompt(self.CI, contextual_path),
++        )
++        self.assertEqual(
++            surface_screen_result_check.render_dispatch_prompt(self.CI, surface_path),
++            review_prompts.build_surface_prompt(self.CI, surface_path),
++        )
++
++    def test_role_and_prompts_preserve_the_source_permission_difference(self):
++        role = (ROOT / ".ai/roles/reviewer.md").read_text(encoding="utf-8")
++        contextual = (ROOT / "docs/paseo-translation-context-review-v2-contract.md").read_text(encoding="utf-8")
++        surface = (ROOT / "docs/paseo-translation-surface-screen-v1-contract.md").read_text(encoding="utf-8")
++        self.assertIn("文件、行号和 hash 只证明来源，不扩大读取权限", role)
++        self.assertIn("surface 不得据此补查源码", role)
++        self.assertIn("仅可沿调用链补查冻结版本", role)
++        self.assertIn("唯一可用的译文输入", contextual)
++        self.assertIn("source_facts_v1.fact.terminology", contextual)
++        self.assertIn("常是摘要", contextual)
++        self.assertIn("不追溯改写已冻结的 prompt、candidate/hash", contextual)
++        self.assertIn("唯一可用的译文", surface)
++        self.assertIn("只是摘要或 hash", surface)
++        self.assertIn("不自动构成译文缺陷", surface)
++        self.assertIn("surface 不得借引用、provenance 或完整契约增加源码调查", surface)
++        self.assertIn("不追溯改写已冻结的 prompt、candidate/hash", surface)
++        self.assertIn("完整 docs/paseo-translation-context-review-v2-contract.md", review_prompts.CONTEXTUAL_PROMPT_TEMPLATE)
++        self.assertIn("可沿调用链查冻结版相关源码", review_prompts.CONTEXTUAL_PROMPT_TEMPLATE)
++        self.assertIn("完整 docs/paseo-translation-surface-screen-v1-contract.md", review_prompts.SURFACE_PROMPT_TEMPLATE)
++        self.assertIn("禁补查源码", review_prompts.SURFACE_PROMPT_TEMPLATE)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tools/contextual_lane_manifest.py b/tools/contextual_lane_manifest.py
+index 29cff3b..ceef4fc 100644
+--- a/tools/contextual_lane_manifest.py
++++ b/tools/contextual_lane_manifest.py
+@@ -14,15 +14,17 @@ from typing import Any
+ import contextual_result_check as result_check
+ 
+ 
++ORCHESTRATION = Path(__file__).resolve().parent / "orchestration"
++if str(ORCHESTRATION) not in sys.path:
++    sys.path.insert(0, str(ORCHESTRATION))
++import review_prompts
++
++
+ ROOT = Path(__file__).resolve().parents[1]
+ SAFE_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,31}$")
+ SAFE_TASK_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,127}$")
+ PHASES = frozenset({"REVIEW", "RE_REVIEW"})
+-PROMPT_TEMPLATE = (
+-    "任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。\n"
+-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
+-    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。"
+-)
++PROMPT_TEMPLATE = review_prompts.CONTEXTUAL_PROMPT_TEMPLATE
+ 
+ 
+ def canonical_bytes(value: object) -> bytes:
+@@ -51,16 +53,10 @@ def partition(count: int) -> list[dict[str, int]]:
+ 
+ 
+ def render_dispatch_prompt(candidate_identity: str, input_path: str) -> str:
+-    if not isinstance(candidate_identity, str) or not result_check.SHA256.fullmatch(candidate_identity):
+-        raise result_check.ContractError("prompt candidate identity is invalid")
+-    if not isinstance(input_path, str):
+-        raise result_check.ContractError("prompt input_path is invalid")
+-    prompt = PROMPT_TEMPLATE.replace(
+-        "<candidate_identity>", candidate_identity
+-    ).replace("<input_path>", input_path)
+-    if len(PROMPT_TEMPLATE.encode("utf-8")) > 800 or len(prompt.encode("utf-8")) > 800:
+-        raise result_check.ContractError("prompt template or instance exceeds 800 UTF-8 bytes")
+-    return prompt
++    try:
++        return review_prompts.build_contextual_prompt(candidate_identity, input_path)
++    except review_prompts.PromptError as error:
++        raise result_check.ContractError(str(error)) from error
+ 
+ 
+ def _safe_id(value: object, label: str) -> str:
+diff --git a/tools/orchestration/README.md b/tools/orchestration/README.md
+index 11e9a09..2b60b0b 100644
+--- a/tools/orchestration/README.md
++++ b/tools/orchestration/README.md
+@@ -36,6 +36,19 @@ schema 将 provider/model、settings、workspace、labels 和 prompt 传给 agen
+ 原始响应；helper 只能留档该响应，不能替人工判断其时效、notes 或 profile 选择。
+ provider/mode/thinking 的默认值只是派发建议，不是实际 runtime 身份。
+ 
++`review_prompts.py` 是 contextual v2 与 surface v1 正式三行 dispatch prompt 的唯一 builder；
++`dispatch_contextual.py`、`dispatch_surface.py` 和保留的旧 `dispatch_reviewers.py` 都复用它。
++builder 对模板和含实际 input path 的实例执行 800 UTF-8 bytes fail-closed 门禁；不得手填文档
++行号或另造临时 prompt。契约文档中的模板必须与 builder 逐字一致。
++
++两类审核都只把 envelope 冻结的 source/target 当作译文输入，术语依据只取 envelope 内实际冻结
++的条目正文；contextual 的正文也可能位于 `bounded_context` 所含
++`source_facts_v1.fact.terminology`。`terminology_snapshot` 常为摘要，摘要或 hash 不是条目正文；
++file／line／hash 只是 provenance，不是读取当前译文或术语库的授权。其他引用必须精确限定范围，
++完整对应契约可作为流程说明读取。contextual v2 仍可沿调用链补查冻结版本中与 revision 相关的
++公开源码；surface v1 不获得源码调查权限。证据不足仍使用既有 observation schema，只有确有
++疑点才报 ISSUE；宿主补充中性快照后重新 preflight/freeze，不扩展 schema。
++
+ ## 从冻结输入到完成记录
+ 
+ 以下 shell 占位路径由当前任务指定；children、captures、timing 放任务自己的 ignored 目录。
+diff --git a/tools/orchestration/dispatch_contextual.py b/tools/orchestration/dispatch_contextual.py
+index 3fead02..c411075 100755
+--- a/tools/orchestration/dispatch_contextual.py
++++ b/tools/orchestration/dispatch_contextual.py
+@@ -4,22 +4,7 @@ import pathlib
+ import sys
+ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+ import review_lifecycle as lifecycle
+-
+-DOC = 'docs/paseo-translation-context-review-v2-contract.md'
+-
+-
+-def build_prompt(ci, ip):
+-    prompt = (
+-        '任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、'
+-        '关系或跨条一致性问题；否则判 OK。\n'
+-        f'输入：candidate_identity={ci}；input_path={ip}。全程只读；可读输入、引用内容及 '
+-        f'{DOC} 第六、七节；可沿调用链补查固定版本的相关公开源码；'
+-        '禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n'
+-        '输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；'
+-        '补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。')
+-    n = len(prompt.encode('utf-8'))
+-    assert n <= 800, f'prompt {n} 字节超 800'
+-    return prompt
++from review_prompts import build_contextual_prompt as build_prompt
+ 
+ 
+ 
+diff --git a/tools/orchestration/dispatch_reviewers.py b/tools/orchestration/dispatch_reviewers.py
+index cfce808..25aab34 100644
+--- a/tools/orchestration/dispatch_reviewers.py
++++ b/tools/orchestration/dispatch_reviewers.py
+@@ -15,6 +15,7 @@ import json, os, subprocess, sys
+ import pathlib as _pl, sys as _sys
+ _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+ import _orch
++from review_prompts import build_surface_prompt
+ 
+ from pathlib import Path
+ 
+@@ -35,11 +36,7 @@ def main():
+             did, ci, ip, idx = (lane['dispatch_id'], lane['candidate_identity'],
+                                 lane['input_path'], lane['index'])
+             assert len(ci) == 64 and ip, (task, did, ci, ip)   # 空值绝不能被静默派出去
+-            prompt = (
+-                "任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、参数顺序或格式等表层问题；否则判 OK。\n"
+-                f"输入：candidate_identity={ci}；input_path={ip}。全程只读；仅读该文件、其明确引用内容及 docs/paseo-translation-surface-screen-v1-contract.md 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
+-                "输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；首字节{、末字节}，无其他文字、Markdown 或围栏。")
+-            assert len(prompt.encode()) <= 800, len(prompt.encode())   # 契约上限
++            prompt = build_surface_prompt(ci, ip)
+             cmd = ['paseo', 'run', '--background', '--title', f'surface-{task}-{did}',
+                    '--provider', PROVIDER, '--thinking', THINKING, '--mode', MODE,
+                    '--workspace', wks, '--cwd', CWD,
+diff --git a/tools/orchestration/dispatch_surface.py b/tools/orchestration/dispatch_surface.py
+index 7da1042..8807b10 100644
+--- a/tools/orchestration/dispatch_surface.py
++++ b/tools/orchestration/dispatch_surface.py
+@@ -4,21 +4,7 @@ import pathlib
+ import sys
+ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+ import review_lifecycle as lifecycle
+-
+-DOC = 'docs/paseo-translation-surface-screen-v1-contract.md'
+-
+-
+-def build_prompt(ci, ip):
+-    prompt = (
+-        '任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、'
+-        '参数顺序或格式等表层问题；否则判 OK。\n'
+-        f'输入：candidate_identity={ci}；input_path={ip}。全程只读；仅读该文件、'
+-        f'其明确引用内容及 {DOC} 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n'
+-        '输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；'
+-        '首字节{、末字节}，无其他文字、Markdown 或围栏。')
+-    n = len(prompt.encode('utf-8'))
+-    assert n <= 800, ('prompt 超 800 字节', n)
+-    return prompt
++from review_prompts import build_surface_prompt as build_prompt
+ 
+ 
+ 
+diff --git a/tools/orchestration/review_prompts.py b/tools/orchestration/review_prompts.py
+new file mode 100644
+index 0000000..a6061cc
+--- /dev/null
++++ b/tools/orchestration/review_prompts.py
+@@ -0,0 +1,57 @@
++#!/usr/bin/env python3
++"""Canonical three-line prompts for managed translation reviews."""
++
++from __future__ import annotations
++
++import re
++
++
++MAX_PROMPT_BYTES = 800
++_SHA256 = re.compile(r"^[0-9a-f]{64}$")
++_LINE_SEPARATORS = frozenset("\n\r\v\f\x1c\x1d\x1e\x85\u2028\u2029")
++
++CONTEXTUAL_PROMPT_TEMPLATE = (
++    "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n"
++    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n"
++    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。"
++)
++
++SURFACE_PROMPT_TEMPLATE = (
++    "任务：筛查冻结 entry；仅报有据的明显错译、标记/占位符、参数顺序或格式问题，否则 OK。\n"
++    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；仅读该输入、精确引用、完整 docs/paseo-translation-surface-screen-v1-contract.md；禁补查源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n"
++    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无其他文字/Markdown/围栏。"
++)
++
++
++class PromptError(ValueError):
++    """The formal prompt cannot be rendered within its frozen boundary."""
++
++
++def _render(template: str, candidate_identity: str, input_path: str) -> str:
++    if not isinstance(candidate_identity, str) or not _SHA256.fullmatch(candidate_identity):
++        raise PromptError("prompt candidate identity is invalid")
++    if not isinstance(input_path, str) or not input_path:
++        raise PromptError("prompt input_path is invalid")
++    if any(character in _LINE_SEPARATORS for character in input_path):
++        raise PromptError("prompt input_path contains a line separator")
++    prompt = template.replace(
++        "<candidate_identity>", candidate_identity
++    ).replace("<input_path>", input_path)
++    try:
++        template_size = len(template.encode("utf-8"))
++        prompt_size = len(prompt.encode("utf-8"))
++    except UnicodeEncodeError as error:
++        raise PromptError("prompt is not valid UTF-8 text") from error
++    if template_size > MAX_PROMPT_BYTES or prompt_size > MAX_PROMPT_BYTES:
++        raise PromptError(
++            f"prompt template or instance exceeds {MAX_PROMPT_BYTES} UTF-8 bytes"
++        )
++    return prompt
++
++
++def build_contextual_prompt(candidate_identity: str, input_path: str) -> str:
++    return _render(CONTEXTUAL_PROMPT_TEMPLATE, candidate_identity, input_path)
++
++
++def build_surface_prompt(candidate_identity: str, input_path: str) -> str:
++    return _render(SURFACE_PROMPT_TEMPLATE, candidate_identity, input_path)
+diff --git a/tools/surface_screen_result_check.py b/tools/surface_screen_result_check.py
+index b778743..1a79b4a 100644
+--- a/tools/surface_screen_result_check.py
++++ b/tools/surface_screen_result_check.py
+@@ -22,6 +22,12 @@ import contextual_result_check as strict
+ from i18nlib.lint import extract_format_tokens
+ 
+ 
++ORCHESTRATION = Path(__file__).resolve().parent / "orchestration"
++if str(ORCHESTRATION) not in sys.path:
++    sys.path.insert(0, str(ORCHESTRATION))
++import review_prompts
++
++
+ # Surface reuses the shared strict JSON decoder and error taxonomy so that
+ # BOM, duplicate-key, NaN/Infinity, fence, and trailing-byte behaviour is
+ # identical to the contextual contracts.  Untrusted payloads cannot select a
+@@ -72,15 +78,7 @@ RESULT_ITEM_OK_KEYS = frozenset({"entry_revision_identity", "verdict"})
+ RESULT_ITEM_ISSUE_KEYS = frozenset({
+     "entry_revision_identity", "verdict", "observation",
+ })
+-PROMPT_TEMPLATE = (
+-    "任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、"
+-    "参数顺序或格式等表层问题；否则判 OK。\n"
+-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；"
+-    "仅读该文件、其明确引用内容及 docs/paseo-translation-surface-screen-v1-contract.md 第六节；"
+-    "禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
+-    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；"
+-    "首字节{、末字节}，无其他文字、Markdown 或围栏。"
+-)
++PROMPT_TEMPLATE = review_prompts.SURFACE_PROMPT_TEMPLATE
+ 
+ 
+ def canonical_bytes(value: object) -> bytes:
+@@ -396,16 +394,10 @@ def validate_result_bytes(envelope_bytes: bytes, raw_output: bytes) -> dict[str,
+ 
+ 
+ def render_dispatch_prompt(candidate_identity: str, input_path: str) -> str:
+-    if not isinstance(candidate_identity, str) or not SHA256.fullmatch(candidate_identity):
+-        raise ContractError("prompt candidate identity is invalid")
+-    if not isinstance(input_path, str) or not input_path:
+-        raise ContractError("prompt input_path is invalid")
+-    prompt = PROMPT_TEMPLATE.replace(
+-        "<candidate_identity>", candidate_identity
+-    ).replace("<input_path>", input_path)
+-    if len(PROMPT_TEMPLATE.encode("utf-8")) > 800 or len(prompt.encode("utf-8")) > 800:
+-        raise ContractError("prompt template or instance exceeds 800 UTF-8 bytes")
+-    return prompt
++    try:
++        return review_prompts.build_surface_prompt(candidate_identity, input_path)
++    except review_prompts.PromptError as error:
++        raise ContractError(str(error)) from error
+ 
+ 
+ def main(argv: list[str] | None = None) -> int:

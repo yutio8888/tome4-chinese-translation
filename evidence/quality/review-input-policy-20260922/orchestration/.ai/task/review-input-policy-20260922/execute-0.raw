@@ -1,0 +1,24 @@
+实现完成，未修改 SCOPE 外文件，未 stage/commit。
+
+实际变更：
+
+- 新增统一正式 prompt builder：[review_prompts.py](/workspace/tome4-chinese-translation/tools/orchestration/review_prompts.py)
+- contextual、surface 及旧 `dispatch_reviewers.py` 均复用统一 builder。
+- reviewer role、两份审核契约、总契约和工具说明统一了：
+  - 冻结译文/术语快照是唯一输入。
+  - file/line/hash 仅表示 provenance。
+  - 允许读取完整对应契约。
+  - contextual 可补查冻结版本相关源码；surface 禁止补查源码。
+  - 新政策不追溯旧 candidate、hash、raw 或审核记录。
+- 新增定向测试：[test_review_prompts.py](/workspace/tome4-chinese-translation/tests/i18n/test_review_prompts.py)
+
+验证结果：
+
+- 102 项相关单元测试全部通过。
+- 契约检查通过：10 份活跃文档、4 个版本、16 个条款。
+- `git diff --check` 通过。
+- 最长合法路径 prompt：contextual 798 bytes，surface 793 bytes，均为三行。
+- 范围审计通过；既有未跟踪生产证据保持不变，暂存区为空。
+
+计划偏差：无。  
+未解决问题：无。完整 CI 门禁、双模型复审及 DONE 检查按要求留给宿主执行。

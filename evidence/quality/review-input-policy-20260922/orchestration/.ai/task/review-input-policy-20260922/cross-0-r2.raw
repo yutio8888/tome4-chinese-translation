@@ -1,0 +1,21 @@
+ID: SR-01  
+Severity: high  
+File: `tools/contextual_lane_manifest.py`; `tools/surface_screen_result_check.py`  
+Location: `PROMPT_TEMPLATE` / `render_dispatch_prompt`（分别约第 21–63 行、第 75–84、398–408 行）  
+Problem: 两个实际 preflight／DONE 消费者仍保留旧 prompt 模板，没有使用新增的统一 builder；README 所称“唯一 builder”并不成立。  
+Evidence: `contextual_lane_manifest` 仍引用契约“第六、七节”，surface validator 仍引用“第六节”。静态字节计算显示最长合法路径下，新 contextual/surface prompt 分别为 798/793 bytes，但旧消费者渲染结果为 885/830 bytes。因此 manifest 构建会拒绝统一 builder 本可合法派发的任务。`surface_screen_manifest.py` 调用旧 surface renderer，`ai_state_check.py:1958,2040` 也继续通过两个旧 renderer 验证。新增测试仅检查三个 dispatch 入口，没有覆盖这些消费者。  
+Impact: 合法的最大长度 task/dispatch ID 无法通过 manifest/preflight；较短路径则由新旧两套不同政策同时判定，无法保证 role、契约、派发与消费者一致。  
+Design/AC basis: SPEC AC3 要求统一正式 builder、最长合法实际路径不超过 800 bytes；AC5 要求有意义的消费者差异测试。README 第 39–42 行也声明不得另造 prompt。  
+Minimum sufficient fix: 将 `tools/contextual_lane_manifest.py` 和 `tools/surface_screen_result_check.py` 加入允许文件并重新冻结候选；让其模板与 renderer 委托 `review_prompts`，同时保留现有 `ContractError` 失败接口。扩展 `test_review_prompts.py`，断言这两个 renderer 与共享 builder 对相同 identity/path 产生相同结果，并覆盖最长合法路径。依赖它们的 manifest 与 DONE checker 无需另造模板。
+
+ID: SR-02  
+Severity: medium  
+File: `tools/orchestration/review_prompts.py`  
+Location: `_render`, lines 29–46  
+Problem: builder 只要求 `input_path` 为非空字符串，未拒绝换行字符，因此动态路径可以把固定三行 prompt 扩展成四行或注入额外指令。  
+Evidence: `_render` 直接替换 `<input_path>`。`review_lifecycle.validate_input` 只检查相对路径、`..`、文件类型和 envelope，contextual full 又没有 surface 的 task/dispatch 派生路径约束；包含换行的合法 Unix 文件名可以到达 builder。`test_three_lines_and_longest_legal_actual_paths_fit` 仅测试普通路径，没有负向换行用例。旧 `dispatch_reviewers.py` 对 plan 中路径的约束更弱。  
+Impact: 正式 prompt 不再保证恰好三行，读取边界可被路径文本改变，违反 fail-closed 输入政策。  
+Design/AC basis: SPEC AC3、AC5 明确要求正式三行 prompt 与三行/字节边界测试。  
+Minimum sufficient fix: `_render` 在替换前拒绝 `input_path` 中任何会被 `splitlines()` 识别的行分隔符，并增加 `\n`、`\r` 和 Unicode 行分隔符的负向测试；继续保留现有 UTF-8 800-byte 检查。
+
+VERDICT: CHANGES_REQUIRED

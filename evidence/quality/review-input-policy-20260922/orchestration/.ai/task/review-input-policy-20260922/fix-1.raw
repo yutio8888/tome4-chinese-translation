@@ -1,0 +1,25 @@
+第一轮合并修复已完成，严格限定在 REV1 的 13 个文件内。
+
+主要变更：
+
+- 两个实际消费者统一复用 canonical prompt builder，并保留原公开 API 与 `ContractError` 类型：
+  - `tools/contextual_lane_manifest.py`
+  - `tools/surface_screen_result_check.py`
+- prompt builder 现拒绝全部 `splitlines()` 行分隔符，包括 CR/LF、VT、FF、`\x1c–1e`、NEL、U+2028/U+2029。
+- 明确 `terminology_snapshot` 摘要不等于术语正文；contextual 可使用冻结在 `bounded_context` 中的 `source_facts_v1.fact.terminology`。
+- 明确 surface 缺少实际术语正文不自动构成缺陷。
+- 分开说明 2026-09-12 源码补查授权与 2026-09-22 契约读取、术语边界修订。
+- 将 `test_review_prompts.py` 注册进 `contract-suite`。
+- 测试覆盖 canonical 和真实消费者入口、三行格式、最长实际路径、精确 800-byte 边界、超限、所有行分隔符、公开异常类型及历史 STATE/manifest 重放。
+
+验证结果：
+
+- 直接相关测试：249 项通过。
+- `python3 -B tools/test_groups.py --check`：通过。
+- `python3 -B tools/paseo_contract_check.py`：通过，10 份活跃文档、4 个版本、16 条 clause。
+- `git diff --check`：通过。
+- REV1 范围核对：13/13 文件，无越界。
+- 暂存区为空；未 stage、commit。
+- `.ai/task`、`.ai/reviews`、生产 checkpoint/queue、译文及既有未跟踪 baseline 均未改动。
+
+唯一执行偏差是首次误用直接测试文件调用 registry 检查，因模块路径报错；随后改用正式 `tools/test_groups.py --check` 入口并通过。无未解决问题，完整门禁留给宿主执行。

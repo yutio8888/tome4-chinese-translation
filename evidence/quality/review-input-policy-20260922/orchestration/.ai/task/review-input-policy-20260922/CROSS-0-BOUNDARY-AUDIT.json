@@ -1,0 +1,370 @@
+{
+  "status": "invalid",
+  "native_sha256": "2843c759840ffb92ed8d7540e88ab0c83c46d9b96a97adc07d9ee3b1ccff6823",
+  "calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01TXaWEgXSqyqFCPt5yXEMh9",
+      "name": "Bash",
+      "input": {
+        "command": "cat .ai/roles/senior-reviewer.md",
+        "description": "Read senior reviewer role"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01SBSzvcR5UemKsW6xytoEDs",
+      "name": "Bash",
+      "input": {
+        "command": "ls -la .ai/task/review-input-policy-20260922/ && cat .ai/task/review-input-policy-20260922/SPEC.md",
+        "description": "Read task spec"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KqCTUHkQUUfMrxuzDH81ii",
+      "name": "Bash",
+      "input": {
+        "command": "cat .ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json && echo \"=== SCOPE ===\" && cat .ai/task/review-input-policy-20260922/SCOPE.json && echo \"=== PLAN ===\" && cat .ai/task/review-input-policy-20260922/PLAN.md && echo \"=== BASELINE ===\" && cat .ai/task/review-input-policy-20260922/BASELINE-STATUS.txt",
+        "description": "Read candidate, scope, plan, baseline"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011nw8JSVx3TKxHCeUmFtLUC",
+      "name": "Bash",
+      "input": {
+        "command": "for f in .ai/roles/reviewer.md docs/paseo-orchestration-v2-contract.md docs/paseo-translation-context-review-v2-contract.md docs/paseo-translation-surface-screen-v1-contract.md tests/i18n/test_review_prompts.py tools/orchestration/README.md tools/orchestration/dispatch_contextual.py tools/orchestration/dispatch_reviewers.py tools/orchestration/dispatch_surface.py tools/orchestration/review_prompts.py; do printf \"%s %s\\n\" \"$(sha256sum \"$f\" | cut -d' ' -f1)\" \"$f\"; done",
+        "description": "Verify candidate file hashes"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VojGhbNKLWXXoVV8wRincY",
+      "name": "Bash",
+      "input": {
+        "command": "wc -l .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch && sed -n '1,200p' .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch",
+        "description": "Read diff head"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0144mgsWoHRu6BTmKU2YioKy",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '200,436p' .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch",
+        "description": "Read rest of diff"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01TuLWRLhaykF2ej13bd3TrJ",
+      "name": "Bash",
+      "input": {
+        "command": "grep -rn \"build_prompt\\|review_prompts\\|build_surface_prompt\\|build_contextual_prompt\" --include=*.py --include=*.md . | grep -v \"^./.ai/task/\" | head -50",
+        "description": "Find all prompt builder consumers"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VqcaPzX6YEPtToy2jwgsGc",
+      "name": "Bash",
+      "input": {
+        "command": "grep -rn \"第六节\\|第六、七节\\|全程只读\\|明确引用\" --include=*.py tools/ tests/ | head -40",
+        "description": "Find hardcoded prompt fragments in tools/tests"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NVa7Qq4ikF1KJoyTEP31c3",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '200,260p' tests/i18n/test_toolchain_contracts.py",
+        "description": "Read toolchain contract test around line 233"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_014HBu6tNuqhFg3Yzt8oMb58",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '60,130p' tools/surface_screen_result_check.py",
+        "description": "Read surface result check prompt usage"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013pyEWEey6HVNwyYCMnQZdt",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"PROMPT_TEMPLATE\\|PROMPT\" tools/surface_screen_result_check.py | head -30; echo \"=== ctx manifest ===\"; grep -n \"PROMPT\\|prompt\" tools/contextual_lane_manifest.py | head -30",
+        "description": "Check whether old templates are enforced"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01SLVHPK8Rf1mvZCezLHoJz5",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"四、\\|短派发\\|~~~text\\|```text\\|固定三行\" docs/paseo-translation-context-review-v2-contract.md docs/paseo-translation-surface-screen-v1-contract.md",
+        "description": "Find all prompt blocks in contracts"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011m4didJPFAFAxJiRQzNyf3",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"prompt\" tools/orchestration/review_lifecycle.py | head -40; echo \"=== dispatch_main ===\"; grep -n \"def dispatch_main\" -A 40 tools/orchestration/review_lifecycle.py",
+        "description": "Inspect review_lifecycle prompt flow"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_019QABxPwTirL9LC3JRiT8qB",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '390,420p' tools/surface_screen_result_check.py; echo \"=== manifest 100-200 ===\"; sed -n '100,125p;185,200p' tools/contextual_lane_manifest.py",
+        "description": "Read prompt render call sites"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017XxF7htU8xMiVEpR1vjowN",
+      "name": "Bash",
+      "input": {
+        "command": "grep -rn \"render_dispatch_prompt\" --include=*.py . | grep -v \"^./.ai/task\"; echo \"=== sizes ===\"; python3 -c \"\nimport sys; sys.path.insert(0,'tools/orchestration'); sys.path.insert(0,'tools')\nimport review_prompts as rp, contextual_lane_manifest as clm, surface_screen_result_check as ss\nci='a'*64; p='.ai/task/'+'t'*128+'/CONTEXTUAL-ENVELOPE-'+'d'*32+'.json'\nfor name,t in (('new_ctx',rp.CONTEXTUAL_PROMPT_TEMPLATE),('old_ctx',clm.PROMPT_TEMPLATE),('new_surf',rp.SURFACE_PROMPT_TEMPLATE),('old_surf',ss.PROMPT_TEMPLATE)):\n    inst=t.replace('<candidate_identity>',ci).replace('<input_path>',p)\n    print(name,'tmpl',len(t.encode()),'inst_with_len%d_path'%len(p),len(inst.encode()))\n\"",
+        "description": "Compare old and new prompt byte sizes"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WsJcwGM6fAZMVHdunZvotn",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '1935,1975p;2025,2055p' tools/ai_state_check.py",
+        "description": "Read ai_state_check prompt gate context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BU98smVCHAsnwUtBJ8Lnnj",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"SAFE_TASK_ID\\|SAFE_ID\\|_safe_id\" tools/ai_state_check.py tools/contextual_lane_manifest.py tools/surface_screen_result_check.py tools/surface_screen_manifest.py | head -20; echo ===; grep -n \"SAFE_TASK_ID =\\|SAFE_ID =\\|SAFE_TASK\\|^TASK_ID\" -r tools/*.py | head",
+        "description": "Find task/dispatch id grammars"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Qv3tjBSYkz7RfLDCjvuESV",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"固定三行\\|短派发\\|text$\" docs/paseo-translation-context-review-v2-contract.md | head -20; echo \"=== surface ===\"; grep -n \"固定三行\\|短派发\" docs/paseo-translation-surface-screen-v1-contract.md; echo \"=== _texts ===\"; grep -n \"_texts\" -A 15 tests/i18n/test_toolchain_contracts.py | head -30",
+        "description": "Check for multiple prompt blocks and which doc toolchain test reads"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0157B9sk3H83a3ZEtU6oYb41",
+      "name": "Bash",
+      "input": {
+        "command": "timeout 300 python3 -m pytest tests/i18n/test_review_prompts.py -q 2>&1 | tail -20",
+        "description": "Run the new read-only prompt test"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01W9nk64jo1TH4XrfLdKF12P",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '100,140p' tests/i18n/test_review_lifecycle.py; echo \"=== contract check ===\"; grep -n \"ACTIVE_FILES\\|CLAUSE\\|version\" tools/paseo_contract_check.py | head -30",
+        "description": "Read lifecycle test and contract checker"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01CPRDw88BuPHyyyK4SA3NY2",
+      "name": "Bash",
+      "input": {
+        "command": "timeout 300 python3 -m unittest tests.i18n.test_review_prompts -v 2>&1 | tail -20; echo \"=== contract check ===\"; timeout 120 python3 tools/paseo_contract_check.py 2>&1 | tail -10",
+        "description": "Run new tests and contract checker"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013gdxCGY8Sgwtgdrf5EyFEP",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '1575,1600p' tools/orchestration/review_lifecycle.py; echo \"=== require def ===\"; grep -n \"^def require\\|^class .*Error\" tools/orchestration/review_lifecycle.py | head",
+        "description": "Check dispatch_main error handling"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013V9TEzvRsdZaUxe6BVimqh",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"prompt\\|第六节\" tools/build_evidence_pack.py | head -20; echo \"=== reviewer.md ===\"; sed -n '1,70p' .ai/roles/reviewer.md",
+        "description": "Check evidence pack and reviewer role text"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_014DpZwxhDGBhEFVyaoVtfB2",
+      "name": "Bash",
+      "input": {
+        "command": "grep -rn \"terminology_snapshot\" tools/surface_screen_result_check.py tools/contextual_result_check.py | head; echo \"=== payload keys ===\"; grep -n \"PAYLOAD_KEYS\\|REQUIRED\" tools/surface_screen_result_check.py | head; echo \"=== evidence pack ===\"; find . -name \"build_evidence_pack.py\" -not -path \"./.git/*\" 2>/dev/null",
+        "description": "Check terminology_snapshot in surface schema"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BXTpkR1yTJkgSej7HHeuR6",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"prompt\" tools/orchestration/build_evidence_pack.py | head -20",
+        "description": "Check evidence pack prompt handling"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01G2YvHYhtuERvRNynCVZwgJ",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '1,35p' tools/orchestration/review_lifecycle.py; echo ===; grep -n \"contextual_lane_manifest\\|manifests\" tools/orchestration/review_lifecycle.py | head",
+        "description": "Check review_lifecycle imports"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NFiRjpXAJ9B1S7LyYw6SHM",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n '268,305p' tools/orchestration/review_lifecycle.py; echo \"=== ssm 390-400 ===\"; sed -n '388,400p' tools/surface_screen_manifest.py",
+        "description": "Confirm both templates exercised in prepare()"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017UFAYF69BKCGBrtJezap8v",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"唯一 builder\\|逐字一致\\|fail-closed 门禁\" tools/orchestration/README.md",
+        "description": "Locate README claim lines"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01ACYessWVnnqc6Lg3bioEBW",
+      "name": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport sys; sys.path.insert(0,'tools/orchestration'); sys.path.insert(0,'tools')\nimport review_prompts as rp, contextual_lane_manifest as clm, surface_screen_result_check as ss\nt='t'*128; d='d'*32\ncp=f'.ai/task/{t}/CONTEXTUAL-ENVELOPE-{d}.json'\nsp=f'.ai/task/{t}/SURFACE-SCREEN-ENVELOPE-{d}.json'\nci='a'*64\ndef n(tm,p): return len(tm.replace('<candidate_identity>',ci).replace('<input_path>',p).encode())\nprint('ctx path',len(cp),'new',n(rp.CONTEXTUAL_PROMPT_TEMPLATE,cp),'old(manifest/state)',n(clm.PROMPT_TEMPLATE,cp))\nprint('surf path',len(sp),'new',n(rp.SURFACE_PROMPT_TEMPLATE,sp),'old(manifest/state)',n(ss.PROMPT_TEMPLATE,sp))\n# threshold path lengths\nfor name,tm in (('new_ctx',rp.CONTEXTUAL_PROMPT_TEMPLATE),('old_ctx',clm.PROMPT_TEMPLATE),('new_surf',rp.SURFACE_PROMPT_TEMPLATE),('old_surf',ss.PROMPT_TEMPLATE)):\n    base=len(tm.encode())+ (64-len('<candidate_identity>')) - len('<input_path>')\n    print(name,'max path bytes =',800-base)\n\"",
+        "description": "Compute exact divergence thresholds"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "cache_artifacts": [
+    {
+      "path": "tools/orchestration/__pycache__/review_prompts.cpython-311.pyc",
+      "mtime_utc": "2026-09-22T00:30:45.698523+00:00",
+      "sha256": "21cce2f283da3d8cfc6ad2a8fcc7c067098d2703f57944e0059af1e2ae85c82f"
+    },
+    {
+      "path": "tests/i18n/__pycache__/test_review_prompts.cpython-311.pyc",
+      "mtime_utc": "2026-09-22T00:31:47.063828+00:00",
+      "sha256": "5515a0879abe027e3e6c34492ee952dc71e364de31efbc64ceb71039c8af216b"
+    }
+  ],
+  "reason": "Explicit task forbade writes and write-producing tests; reviewer ran Python without -B/PYTHONDONTWRITEBYTECODE and generated new module/test caches. Recursive repo searches also exceeded the enumerated frozen-review inputs and filtered task paths only after grep read them.",
+  "raw_preserved": true,
+  "archive_confirmed": true,
+  "adoption": "No accepted cross-review record; host findings predate this report and have their own source probe."
+}

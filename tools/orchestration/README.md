@@ -36,6 +36,19 @@ schema 将 provider/model、settings、workspace、labels 和 prompt 传给 agen
 原始响应；helper 只能留档该响应，不能替人工判断其时效、notes 或 profile 选择。
 provider/mode/thinking 的默认值只是派发建议，不是实际 runtime 身份。
 
+`review_prompts.py` 是 contextual v2 与 surface v1 正式三行 dispatch prompt 的唯一 builder；
+`dispatch_contextual.py`、`dispatch_surface.py` 和保留的旧 `dispatch_reviewers.py` 都复用它。
+builder 对模板和含实际 input path 的实例执行 800 UTF-8 bytes fail-closed 门禁；不得手填文档
+行号或另造临时 prompt。契约文档中的模板必须与 builder 逐字一致。
+
+两类审核都只把 envelope 冻结的 source/target 当作译文输入，术语依据只取 envelope 内实际冻结
+的条目正文；contextual 的正文也可能位于 `bounded_context` 所含
+`source_facts_v1.fact.terminology`。`terminology_snapshot` 常为摘要，摘要或 hash 不是条目正文；
+file／line／hash 只是 provenance，不是读取当前译文或术语库的授权。其他引用必须精确限定范围，
+完整对应契约可作为流程说明读取。contextual v2 仍可沿调用链补查冻结版本中与 revision 相关的
+公开源码；surface v1 不获得源码调查权限。证据不足仍使用既有 observation schema，只有确有
+疑点才报 ISSUE；宿主补充中性快照后重新 preflight/freeze，不扩展 schema。
+
 ## 从冻结输入到完成记录
 
 以下 shell 占位路径由当前任务指定；children、captures、timing 放任务自己的 ignored 目录。

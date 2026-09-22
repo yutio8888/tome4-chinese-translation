@@ -166,17 +166,23 @@ dispatch、任何 surface completion record 或任何 surface terminal 绑定）
 
 ## 五、REVIEWER 输入与边界
 
-REVIEWER 只读取精确 input_path、其中明确引用的内容和本契约第六节；不得读取其他
-`.ai/task/`、`.ai/reviews/`、lane raw 或先前 finding。冻结 payload 只含 source/target
-快照、locator、术语 snapshot 哈希所绑定的术语子集、算法版本与 lane-neutral briefing；
-禁止注入先前 finding、裁决、建议修复或宿主 lineage。
+REVIEWER 只读取精确 input_path、其中精确范围的引用内容和完整本契约；读取本契约的其他章节或
+标题元数据本身不构成越界。不得读取其他 `.ai/task/`、`.ai/reviews/`、lane raw、先前 finding
+或当前译文／术语库，也不得写文件。冻结 payload 中 entry 的 source/target 是唯一可用的译文
+输入；术语依据只来自 envelope 内实际冻结的条目正文。`terminology_snapshot` 若只是摘要或 hash
+就不是术语条目正文；其中 file／line／hash 也只记录 provenance，不授权读取或搜索这些当前文件。
+其他引用必须给出精确范围。surface 不得借引用、provenance 或完整契约增加源码调查
+权限。缺少术语依据时不得自行搜库或凭偏好判错：只有存在具体可陈述的疑点时，才按既有 schema
+返回 ISSUE 并在 `observation` 写明所缺证据；没有实际术语正文不自动构成译文缺陷，否则返回
+OK。ORCHESTRATOR 应补充中性的最小快照
+并重新 freeze，不得扩展结果 schema。禁止注入先前 finding、裁决、建议修复或宿主 lineage。
 
 固定三行 dispatch prompt（模板与每次实例 UTF-8 bytes 均 `<= 800`，派发前逐条验证）：
 
 ```text
-任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、参数顺序或格式等表层问题；否则判 OK。
-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；仅读该文件、其明确引用内容及 docs/paseo-translation-surface-screen-v1-contract.md 第六节；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
-输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；首字节{、末字节}，无其他文字、Markdown 或围栏。
+任务：筛查冻结 entry；仅报有据的明显错译、标记/占位符、参数顺序或格式问题，否则 OK。
+输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；仅读该输入、精确引用、完整 docs/paseo-translation-surface-screen-v1-contract.md；禁补查源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
+输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无其他文字/Markdown/围栏。
 ```
 
 ## 六、结果 schema 与校验（fail closed）
@@ -236,3 +242,9 @@ translationese 证据 code，偏好性 reopen 一律拒绝；首条 append 也�
 replay，且既有历史在任何 append（包括 exact-last-line 幂等返回）之前必须先完整 replay，
 损坏的既有历史绝不能报告成功；任意位置的重复不可变事件（仅 exact last line 幂等）与跨逻
 辑身份的 revision 复用都 fail closed。
+
+第五节的完整契约读取与冻结术语边界来自维护者 2026-09-22 的流程修订，只用于后续派发，
+不追溯改写已冻结的 prompt、candidate/hash、envelope、raw、
+结果 schema 或 ledger；原先合法且已归档的输出不因本规则重跑。当前尚未采纳的旧派发输出由宿主
+按其原 dispatch 边界审计后裁决。取证审计必须分别记录 JSON 声明、实际读取路径和 child 生命周期，
+不得互相推定。

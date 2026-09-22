@@ -1,0 +1,12 @@
+- ID: R1
+- Severity: medium
+- File: [docs/paseo-translation-context-review-v2-contract.md](/workspace/tome4-chinese-translation/docs/paseo-translation-context-review-v2-contract.md:94)
+- Location: 第94–100行；同义限制见编排契约第1012–1013行。
+- Problem: 将 `translation_snapshot`、`terminology_snapshot` 两个字段限定为唯一输入，排除了已冻结在 `bounded_context` 内的术语快照，比 SPEC 要求的“仅使用 envelope 冻结快照”更窄。
+- Evidence: [build_evidence_pack.py:441](/workspace/tome4-chinese-translation/tools/orchestration/build_evidence_pack.py:441) 筛选相关术语并写入 `fact.terminology`；[第489行](/workspace/tome4-chinese-translation/tools/orchestration/build_evidence_pack.py:489) 的 `bound_context()` 将完整 fact 序列化为 `source_facts_v1` 上下文，其中包含术语正文及来源信息。这些正文属于冻结内容，并非读取当前术语库。
+- Impact: 遵守新契约的 reviewer 会忽略已有术语证据，可能漏报术语错误，或误报证据不足并触发不必要的重新冻结。
+- Recommended fix: 两份契约明确允许 envelope 内已冻结的术语正文，包括 `bounded_context` 中的 `source_facts_v1.fact.terminology`；继续禁止凭 provenance 打开当前文件。增加针对该实际数据结构的边界测试，无需修改身份公式或生产消费者。
+
+已核对候选10文件哈希及绑定补丁；正式模板逐字一致，最长测试路径下 contextual／surface 分别为798／793 UTF-8字节。未写文件或运行会写文件的测试。
+
+VERDICT: CHANGES_REQUIRED

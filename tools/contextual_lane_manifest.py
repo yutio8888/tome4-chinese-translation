@@ -14,15 +14,17 @@ from typing import Any
 import contextual_result_check as result_check
 
 
+ORCHESTRATION = Path(__file__).resolve().parent / "orchestration"
+if str(ORCHESTRATION) not in sys.path:
+    sys.path.insert(0, str(ORCHESTRATION))
+import review_prompts
+
+
 ROOT = Path(__file__).resolve().parents[1]
 SAFE_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,31}$")
 SAFE_TASK_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,127}$")
 PHASES = frozenset({"REVIEW", "RE_REVIEW"})
-PROMPT_TEMPLATE = (
-    "任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。\n"
-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
-    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。"
-)
+PROMPT_TEMPLATE = review_prompts.CONTEXTUAL_PROMPT_TEMPLATE
 
 
 def canonical_bytes(value: object) -> bytes:
@@ -51,16 +53,10 @@ def partition(count: int) -> list[dict[str, int]]:
 
 
 def render_dispatch_prompt(candidate_identity: str, input_path: str) -> str:
-    if not isinstance(candidate_identity, str) or not result_check.SHA256.fullmatch(candidate_identity):
-        raise result_check.ContractError("prompt candidate identity is invalid")
-    if not isinstance(input_path, str):
-        raise result_check.ContractError("prompt input_path is invalid")
-    prompt = PROMPT_TEMPLATE.replace(
-        "<candidate_identity>", candidate_identity
-    ).replace("<input_path>", input_path)
-    if len(PROMPT_TEMPLATE.encode("utf-8")) > 800 or len(prompt.encode("utf-8")) > 800:
-        raise result_check.ContractError("prompt template or instance exceeds 800 UTF-8 bytes")
-    return prompt
+    try:
+        return review_prompts.build_contextual_prompt(candidate_identity, input_path)
+    except review_prompts.PromptError as error:
+        raise result_check.ContractError(str(error)) from error
 
 
 def _safe_id(value: object, label: str) -> str:

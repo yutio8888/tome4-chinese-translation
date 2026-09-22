@@ -1,0 +1,119 @@
+{
+  "dispatch_id": "final-1",
+  "candidate_ref": "09306d2c12fd31fe8d5b2a5e94c9900b966dfde7b964e85fe177004e45070b36",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/22/rollout-2026-09-22T01-05-31-01a0c6a5-853c-7fb0-a58f-39577270aefb.jsonl",
+  "native_sha256": "e34a901aeab3c4b386d982bd3c1525f189ad12d954cfec9fbd0f26e51f5d356d",
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d463cf2487d1a332f05588034ab2",
+      "status": "completed",
+      "call_id": "call_EMms6eLNoqFCludio0jPC3UX",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/reviewer.md .ai/task/review-input-policy-20260922/SPEC-REV1.md .ai/task/review-input-policy-20260922/CANDIDATE-FINAL_REVIEW-1.json .ai/task/review-input-policy-20260922/CODE_DIFF-FINAL_REVIEW-1.patch\",\"max_output_tokens\":27000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039136.693485
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d4692f2087d1b1a0486b09ad7dc8",
+      "status": "completed",
+      "call_id": "call_MGLeB9vGiYW4xtLRmmrqgDrP",
+      "name": "exec",
+      "input": "text((await tools.exec_command({cmd:\"cat .ai/task/review-input-policy-20260922/CODE_DIFF-FINAL_REVIEW-1.patch\",\"max_output_tokens\":17000})).output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039142.975598
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d46f701c87d1b54eedd56b18c011",
+      "status": "completed",
+      "call_id": "call_zGwZsaJdYdnwvUTp5FUMnsIK",
+      "name": "exec",
+      "input": "const results = await Promise.allSettled([\ntools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":7000}),\ntools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":9500}),\ntools.exec_command({cmd:\"cat tools/contextual_lane_manifest.py\",\"max_output_tokens\":10000})\n]); for (let i=0;i<results.length;i++) text({i,result:results[i].status===\"fulfilled\"?results[i].value.output:results[i].reason});\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039147.049941
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d479c42c87d188dd7f22c1e38145",
+      "status": "completed",
+      "call_id": "call_5KiDkDCeZRaJ0WmkhBCRG1eR",
+      "name": "exec",
+      "input": "text((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport ast, hashlib, json\\nfrom pathlib import Path\\nc = json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-FINAL_REVIEW-1.json').read_bytes())\\nfor path in c['paths']:\\n    print(path, hashlib.sha256(Path(path).read_bytes()).hexdigest() == c['hashes'][path])\\nprint('patch_sha256', hashlib.sha256(Path(c['candidate_locator']['diff_path']).read_bytes()).hexdigest())\\ntree = ast.parse(Path('tools/orchestration/review_prompts.py').read_text())\\nfor node in tree.body:\\n    if isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name) and node.targets[0].id in ('CONTEXTUAL_PROMPT_TEMPLATE', 'SURFACE_PROMPT_TEMPLATE'):\\n        value = ast.literal_eval(node.value)\\n        prefix = 'CONTEXTUAL' if node.targets[0].id.startswith('CONTEXTUAL') else 'SURFACE-SCREEN'\\n        path = '.ai/task/' + 't'*128 + '/' + prefix + '-ENVELOPE-' + 'd'*32 + '.json'\\n        rendered = value.replace('<candidate_identity>', 'a'*64).replace('<input_path>', path)\\n        print(node.targets[0].id, 'template_bytes', len(value.encode()), 'max_path_bytes', len(rendered.encode()), 'lines', len(rendered.splitlines()))\\nPY\",\"max_output_tokens\":2000})).output);\ntext((await tools.exec_command({cmd:\"rg -n 'prompt|terminology|source_facts|bounded_context|translation_snapshot|def ' tools/orchestration/build_evidence_pack.py\",\"max_output_tokens\":4000})).output);\ntext((await tools.exec_command({cmd:\"rg -n 'prompt|render_dispatch|terminology|source_facts|bounded_context|translation_snapshot|def ' tools/orchestration/review_lifecycle.py\",\"max_output_tokens\":5000})).output);\ntext((await tools.exec_command({cmd:\"rg -n 'prompt|render_dispatch|terminology_snapshot|bounded_context' tools/ai_state_check.py\",\"max_output_tokens\":5000})).output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039156.224464
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d48b354487d1aabe77b164850e93",
+      "status": "completed",
+      "call_id": "call_seKKVAEjhPmEjSRawiXqL3x6",
+      "name": "exec",
+      "input": "const calls = [\n[\"build facts\",\"sed -n '178,224p' tools/orchestration/build_evidence_pack.py\",2400],\n[\"fact serialization\",\"sed -n '416,495p' tools/orchestration/build_evidence_pack.py\",2400],\n[\"lifecycle prepare\",\"sed -n '256,358p' tools/orchestration/review_lifecycle.py\",3300],\n[\"dispatch contextual\",\"cat tools/orchestration/dispatch_contextual.py\",1000],\n[\"dispatch surface\",\"cat tools/orchestration/dispatch_surface.py\",1000],\n[\"dispatch legacy\",\"cat tools/orchestration/dispatch_reviewers.py\",4500],\n[\"result structure\",\"sed -n '1,205p' tools/contextual_result_check.py\",5500]\n]; const results=await Promise.allSettled(calls.map(async ([label,cmd,max_output_tokens])=>({label,...await tools.exec_command({cmd,max_output_tokens})}))); for(const r of results)text(r.status===\"fulfilled\"?{label:r.value.label,output:r.value.output}:r.reason);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039177.455051
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d496b7dc87d18721259673cdd5e5",
+      "status": "completed",
+      "call_id": "call_Q2VZXeaNDpYTPk4TP37efFZ0",
+      "name": "exec",
+      "input": "const calls=[\n[\"surface consumer\",\"sed -n '1,120p' tools/surface_screen_result_check.py\",3000],\n[\"surface validation\",\"sed -n '240,410p' tools/surface_screen_result_check.py\",4500],\n[\"manifest prompt\",\"rg -n 'prompt|SAFE_|ENVELOPE|def ' tools/surface_screen_manifest.py\",3500],\n[\"checker contract\",\"cat tools/paseo_contract_check.py\",9500],\n[\"main contract relevant\",\"sed -n '961,1085p' docs/paseo-orchestration-v2-contract.md\",6500]\n];for(const c of calls){const r=await tools.exec_command({cmd:c[1],max_output_tokens:c[2]});text({label:c[0],output:r.output});}\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039186.484241
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d4a1c8b887d18e29db28032a580f",
+      "status": "completed",
+      "call_id": "call_5AlgP2vNYadzHIyookiHZieP",
+      "name": "exec",
+      "input": "const queries=[\n[\"state binding\",\"sed -n '1898,2068p' tools/ai_state_check.py\",5500],\n[\"manifest consumers\",\"sed -n '257,421p' tools/surface_screen_manifest.py\",4500],\n[\"tests lifecycle\",\"rg -n 'prompt|prepare|replay|binding|frozen' tests/i18n/test_review_lifecycle.py\",4000],\n[\"tests contextual\",\"cat tests/i18n/test_contextual_lane_manifest.py\",6000],\n[\"tests surface manifest\",\"rg -n 'prompt|def test|fixture|expected|identity' tests/i18n/test_surface_screen_manifest.py\",2500],\n[\"tests surface result\",\"rg -n 'prompt|def test|fixture|expected|identity' tests/i18n/test_surface_screen_result_check.py\",3500]\n];const results=await Promise.allSettled(queries.map(async ([label,cmd,max_output_tokens])=>({label,...await tools.exec_command({cmd,max_output_tokens})})));for(const r of results)text(r.status===\"fulfilled\"?{label:r.value.label,output:r.value.output}:r.reason);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039197.29576
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d4ad5ed887d1a75787d7d022ab07",
+      "status": "completed",
+      "call_id": "call_C51UvHJeuWC7AT3AIOeWuqWL",
+      "name": "exec",
+      "input": "text((await tools.exec_command({cmd:\"rg -n 'candidate_ref|NUL|CODE_DIFF|SPEC.*bytes|spec_bytes' docs/paseo-orchestration-v2-contract.md\",\"max_output_tokens\":3000})).output);\ntext((await tools.exec_command({cmd:\"sed -n '1,170p' tests/i18n/test_review_lifecycle.py\",\"max_output_tokens\":5000})).output);\ntext((await tools.exec_command({cmd:\"cat tests/i18n/test_groups.json\",\"max_output_tokens\":3500})).output);\ntext((await tools.exec_command({cmd:\"sed -n '1,125p' tools/orchestration/README.md\",\"max_output_tokens\":5000})).output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039209.676169
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008aeadde6549424016ab1d4bab1a087d1a1606555414c9440",
+      "status": "completed",
+      "call_id": "call_IbYQUXmW7i8XVBc6XTgOEA1G",
+      "name": "exec",
+      "input": "text((await tools.exec_command({cmd:\"sed -n '433,452p' docs/paseo-orchestration-v2-contract.md\",\"max_output_tokens\":1200})).output);\ntext((await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport ast, hashlib, json, subprocess\\nfrom pathlib import Path\\nc = json.loads(Path('.ai/task/review-input-policy-20260922/CANDIDATE-FINAL_REVIEW-1.json').read_bytes())\\nspec = Path(c['candidate_locator']['spec_path']).read_bytes()\\nfrozen = Path(c['candidate_locator']['diff_path']).read_bytes()\\nprint('candidate_ref', hashlib.sha256(spec + b'\\\\0' + frozen).hexdigest())\\nchunks = []\\nfor path in sorted(c['paths']):\\n    diff = subprocess.run(['git', 'diff', '--no-ext-diff', '--binary', c['base_commit'], '--', path], check=True, capture_output=True).stdout\\n    if not diff:\\n        result = subprocess.run(['git', 'diff', '--no-index', '--no-ext-diff', '--binary', '--', '/dev/null', path], capture_output=True)\\n        if result.returncode != 1:\\n            raise RuntimeError(path)\\n        diff = result.stdout\\n    chunks.append(diff)\\nprint('frozen_diff_matches_baseline_to_current', b''.join(chunks) == frozen)\\ntree = ast.parse(Path('tools/orchestration/review_prompts.py').read_text())\\nfor node in tree.body:\\n    if isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name) and node.targets[0].id in ('CONTEXTUAL_PROMPT_TEMPLATE', 'SURFACE_PROMPT_TEMPLATE'):\\n        contextual = node.targets[0].id.startswith('CONTEXTUAL')\\n        name = 'docs/paseo-translation-context-review-v2-contract.md' if contextual else 'docs/paseo-translation-surface-screen-v1-contract.md'\\n        marker = '固定三行 prompt：' if contextual else '固定三行 dispatch prompt'\\n        template = Path(name).read_text().split(marker, 1)[1].split('```text\\\\n', 1)[1].split('\\\\n```', 1)[0]\\n        print(node.targets[0].id, 'matches_contract', ast.literal_eval(node.value) == template)\\nPY\",\"max_output_tokens\":1500})).output);\ntext((await tools.exec_command({cmd:\"sed -n '125,169p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":2500})).output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c6a5-8576-7551-ae36-b911166ae15b",
+        "create_time": 1790039218.654229
+      }
+    }
+  ],
+  "host_read_all_calls": true,
+  "boundary_valid": true,
+  "reason": "All calls read frozen input and listed consumers/contracts/tests; python -B in-memory AST/hash and git diff only. No writes, tests, prior finding or other task reads."
+}

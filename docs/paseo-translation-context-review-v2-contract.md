@@ -91,12 +91,22 @@ full coverage 不得漂移这些字段。intervening 只允许 `RE_REVIEW/full|c
 
 ## 六、REVIEWER 输入与紧凑输出
 
+`translation_snapshot` 是 REVIEWER 唯一可用的译文输入；术语依据只来自 envelope 内实际冻结的
+条目正文，包括 `bounded_context[].context` 所含 `source_facts_v1.fact.terminology`。字段
+`terminology_snapshot` 在 WP2-Lite 等生产输入中常是摘要；摘要、file／line／hash 只记录
+provenance，不等于术语条目正文，也不授权读取或搜索当前译文、当前术语库。其他
+引用内容必须在 envelope 中给出精确范围，且不得指向其他 task、review、lane raw 或先前 finding。
+允许完整读取本契约作为流程说明，读取本契约的其他章节或标题元数据本身不构成越界。若冻结术语
+依据不足，REVIEWER 不得自行搜库或凭偏好判错：只有存在具体可陈述的疑点时，才按既有 schema
+返回 ISSUE 并在 `observation` 写明所缺证据；否则返回 OK。ORCHESTRATOR 应补充中性的最小快照，
+重新执行适用 preflight 并 freeze；不得为此扩展结果 schema。
+
 固定三行 prompt：
 
 ```text
-任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
-输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。
+输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
+输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。
 ```
 
 模板和每次实例化 UTF-8 bytes 都必须 `<= 800`；路径较长时仍按实际实例拒绝超限，且 full、closure、lane 和
@@ -115,8 +125,9 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
 
 ## 七、外发和源码证据
 
-根据维护者 2026-09-12 授权，REVIEWER 可读精确 input_path、其中明确引用的内容和第六、七节，
-并可沿调用链补查冻结版本中与当前 revision 相关的公开源码，不要求所有调用文件事先列入输入。
+根据维护者 2026-09-12 授权，REVIEWER 可沿调用链补查冻结版本中与当前 revision 相关的公开源码，
+不要求所有调用文件事先列入输入。2026-09-22 的流程修订另行授权读取精确 input_path、其中精确
+范围的引用内容和完整本契约，并规定第六节的冻结译文／术语边界；两次授权不得互相追溯归因。
 为定位该版本源码仓库，可作必要的目录和 Git 对象元数据查询；不扫描无关资料。
 不得读其他 `.ai/task/`、`.ai/reviews/` 或先前 finding，也不据此扩大译文候选或取得写入权限。
 
@@ -124,5 +135,8 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
 ISSUE 的依据写入现有 `observation`；OK 仍只返回第六节规定的两键对象。ORCHESTRATOR 在收获
 审计中依据只读调用记录补齐实际查询路径和证据，包含最终判 OK 的补查；不增加输出字段或改写 raw。
 未固定来源须明确标记证据不足，不得自行换用其他版本；机制结论仍以可核验源码为准。
-该授权用于后续派发，不追溯改写已冻结的 prompt、envelope 或审核记录。
+本节与第六节的统一边界只用于后续派发，不追溯改写已冻结的 prompt、candidate/hash、envelope、
+raw 或审核记录；原先合法且已归档的输出不因本规则重跑。当前尚未采纳的旧派发输出由宿主按其
+原 dispatch 边界审计后裁决。取证审计必须分别记录 JSON 声明、实际读取路径和 child 生命周期，
+不得互相推定。
 输出按本契约第五节原样持久化；通用只读、裁决及终态归档按[编排契约第七、八、十一节](paseo-orchestration-v2-contract.md#七托管-child-生命周期与即时归档)执行。

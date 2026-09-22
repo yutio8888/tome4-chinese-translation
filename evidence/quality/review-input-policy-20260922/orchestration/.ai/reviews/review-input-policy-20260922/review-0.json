@@ -1,0 +1,32 @@
+{
+  "task_id": "review-input-policy-20260922",
+  "review_contract": "code_legacy_v1",
+  "review_phase": "REVIEW",
+  "cycle": 0,
+  "attempt": 1,
+  "reviewer_role": "REVIEWER",
+  "purpose": "normal_review",
+  "dispatch_id": "review-0",
+  "agent_id": "47199c08-738a-45b9-989e-997a33551c18",
+  "status": "completed",
+  "verdict": "CHANGES_REQUIRED",
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "medium",
+      "file": "docs/paseo-translation-context-review-v2-contract.md",
+      "location": "94-100; orchestration contract1012-1013",
+      "problem": "Field-only wording excludes frozen inline terminology in bounded_context",
+      "evidence": "build_evidence_pack.py441-449,489",
+      "impact": "Ignore valid term evidence or request unnecessary refreeze",
+      "recommended_fix": "Allow frozen terminology contents anywhere in existing allowed envelope fields, distinguish digest from content"
+    }
+  ],
+  "candidate_ref": "1ab3c7bfcb728a4604fe266212ff63e74961b97d58030211a6c9da45fe11cf18",
+  "candidate_locator": {
+    "spec_path": ".ai/task/review-input-policy-20260922/SPEC.md",
+    "diff_path": ".ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch"
+  },
+  "raw_output_path": ".ai/task/review-input-policy-20260922/review-0.raw",
+  "raw_output_sha256": "a92691319e8a39de9f28df74ebc72ccbf6eeece82f7802d12bd58be0eeef0000"
+}

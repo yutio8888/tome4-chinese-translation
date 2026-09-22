@@ -22,6 +22,12 @@ import contextual_result_check as strict
 from i18nlib.lint import extract_format_tokens
 
 
+ORCHESTRATION = Path(__file__).resolve().parent / "orchestration"
+if str(ORCHESTRATION) not in sys.path:
+    sys.path.insert(0, str(ORCHESTRATION))
+import review_prompts
+
+
 # Surface reuses the shared strict JSON decoder and error taxonomy so that
 # BOM, duplicate-key, NaN/Infinity, fence, and trailing-byte behaviour is
 # identical to the contextual contracts.  Untrusted payloads cannot select a
@@ -72,15 +78,7 @@ RESULT_ITEM_OK_KEYS = frozenset({"entry_revision_identity", "verdict"})
 RESULT_ITEM_ISSUE_KEYS = frozenset({
     "entry_revision_identity", "verdict", "observation",
 })
-PROMPT_TEMPLATE = (
-    "任务：筛查 input_path 中全部冻结 entry；只报告有证据的明显错译、标记/占位符破坏、"
-    "参数顺序或格式等表层问题；否则判 OK。\n"
-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。全程只读；"
-    "仅读该文件、其明确引用内容及 docs/paseo-translation-surface-screen-v1-contract.md 第六节；"
-    "禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。\n"
-    "输出：仅返回第六节单一紧凑 JSON；按冻结顺序恰好覆盖全部 entry 并回显 identity；"
-    "首字节{、末字节}，无其他文字、Markdown 或围栏。"
-)
+PROMPT_TEMPLATE = review_prompts.SURFACE_PROMPT_TEMPLATE
 
 
 def canonical_bytes(value: object) -> bytes:
@@ -396,16 +394,10 @@ def validate_result_bytes(envelope_bytes: bytes, raw_output: bytes) -> dict[str,
 
 
 def render_dispatch_prompt(candidate_identity: str, input_path: str) -> str:
-    if not isinstance(candidate_identity, str) or not SHA256.fullmatch(candidate_identity):
-        raise ContractError("prompt candidate identity is invalid")
-    if not isinstance(input_path, str) or not input_path:
-        raise ContractError("prompt input_path is invalid")
-    prompt = PROMPT_TEMPLATE.replace(
-        "<candidate_identity>", candidate_identity
-    ).replace("<input_path>", input_path)
-    if len(PROMPT_TEMPLATE.encode("utf-8")) > 800 or len(prompt.encode("utf-8")) > 800:
-        raise ContractError("prompt template or instance exceeds 800 UTF-8 bytes")
-    return prompt
+    try:
+        return review_prompts.build_surface_prompt(candidate_identity, input_path)
+    except review_prompts.PromptError as error:
+        raise ContractError(str(error)) from error
 
 
 def main(argv: list[str] | None = None) -> int:

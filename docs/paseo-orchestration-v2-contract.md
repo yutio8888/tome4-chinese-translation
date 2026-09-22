@@ -1009,6 +1009,15 @@ closure 以 `parent_review_kind` 和 `parent_coverage_identity` 绑定最新更�
 prompt 模板和实例 UTF-8 bytes 均不得超过 800。完整 payload/result/raw/manifest/recovery/外发规则
 以 `docs/paseo-translation-context-review-v2-contract.md` 为准。
 
+2026-09-22 前瞻性 REVIEWER 输入政策以 envelope 中冻结的 `translation_snapshot` 为唯一译文
+输入；术语依据只取 envelope 内实际冻结的条目正文，包括 `bounded_context` 中
+`source_facts_v1.fact.terminology`。`terminology_snapshot` 常为摘要，摘要或 hash 不是正文；
+file／line／hash 只记录 provenance，不授予
+搜索当前译文或术语库的权限，其他引用必须给出精确范围。REVIEWER 可完整读取对应契约作为流程
+说明，并仍可沿调用链补查冻结版本中与当前 revision 相关的公开源码。缺少术语依据时不自行搜库
+或凭偏好判错；只有确有具体疑点才在既有 ISSUE `observation` 中记录证据不足，由宿主补充中性
+快照、重新 preflight/freeze，不扩展 schema。
+
 ## `P2-TRANSLATION-SURFACE-V1`
 
 `translation_surface_screen_v1` 只用于 `schema_version >= 5` 的 review-only 新 task，不能与
@@ -1058,3 +1067,13 @@ ledger 工具按生产 SPEC 的命名状态机独立校验：每条迁移携带�
 reopen，偏好不得 reopen；ledger 只追加不重写，任意位置重复不可变事件与跨逻辑身份的
 revision 复用 fail closed（仅 exact last line 幂等），且禁止从 provider/model 名称推导任何
 覆盖、稳定性或完成度。
+
+2026-09-22 surface 前瞻性输入政策只接受 envelope 冻结 entry 的 source/target 作为译文输入，
+术语依据只取 envelope 内实际冻结的条目正文；`terminology_snapshot` 若为摘要或 hash 就不是正文。
+file／line／hash 只记录 provenance，其他引用必须精确限定。REVIEWER 可完整读取对应契约，但
+不得借此补查源码、当前译文或术语库。证据不足只在确有具体疑点时使用既有 ISSUE
+`observation`；没有实际术语正文不自动构成译文缺陷。由宿主补充中性快照并重新 freeze，不增加结果字段。
+
+以上统一读取政策和正式 prompt 只作用于新派发，不迁移或重解释旧 candidate/hash、envelope、
+raw、result schema 或 ledger，也不要求原先合法且已归档的输出重跑。未采纳的旧输出仍按其原
+dispatch 边界审计后裁决；审计分别记录 JSON 声明、实际读取路径和 child 生命周期。

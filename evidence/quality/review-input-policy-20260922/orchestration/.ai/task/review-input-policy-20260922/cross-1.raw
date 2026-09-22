@@ -1,0 +1,16 @@
+未发现 blocker/high/medium/low finding。
+
+覆盖依据：
+
+- `candidate_ref` 按 `SHA256(SPEC bytes + NUL + diff bytes)` 重算一致。
+- 13 个候选文件哈希全部匹配；补丁由声明的 Git 基线和文件清单重建后逐字一致。
+- contextual 的真实输入结构与政策一致：译文来自 `translation_snapshot`，术语正文可来自 `bounded_context[].context` 内嵌的 `source_facts_v1.fact.terminology`。
+- surface 政策正确限制为冻结 entry 的 source/target，不增加源码调查权限。
+- 正式 dispatch、旧 surface dispatch、manifest renderer 均复用共享 builder；原有公开 API 和 `ContractError` 转换保持兼容。
+- 最长合法路径下 contextual/surface prompt 分别为 798/793 UTF-8 字节，均严格三行且未超过 800 字节。
+- 新测试已注册到现有 contract suite，覆盖契约模板一致性、消费者复用、边界长度、换行注入和两类审核的源码权限差异。
+- 修改保持前瞻性，没有改变既有 candidate/hash、result schema、生命周期或 DONE 身份公式。
+
+按要求仅完成静态检查，未执行测试或产生写入。
+
+VERDICT: PASS

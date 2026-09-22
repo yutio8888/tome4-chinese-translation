@@ -1,0 +1,103 @@
+{
+  "native_sha256": "411386cb4ca1d9433d04491db72e9f7e9ac937d9cb087c8d91fcf156d21ec2ba",
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cbffa76887d2adacb4bd6ebc57e8",
+      "status": "completed",
+      "call_id": "call_xmQE7KQb6o4XgEEqEzKT1cbh",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/reviewer.md\",\"max_output_tokens\":12000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790036989.142307
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc020b0087d282c4194c4e1d1316",
+      "status": "completed",
+      "call_id": "call_rosgtTCkKgfjqChxVyniFmXz",
+      "name": "exec",
+      "input": "const rs = await Promise.allSettled([\n tools.exec_command({cmd:\"cat .ai/task/review-input-policy-20260922/SPEC.md\",\"max_output_tokens\":10000}),\n tools.exec_command({cmd:\"cat .ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json\",\"max_output_tokens\":10000}),\n tools.exec_command({cmd:\"cat .ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch\",\"max_output_tokens\":24000})\n]); rs.forEach(text);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790036992.921882
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc076f7087d2a48eb3136d6e0877",
+      "status": "completed",
+      "call_id": "call_HANcvFCr7O7CEkLepgHINwZA",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport pathlib,json,hashlib,subprocess\\nroot=pathlib.Path('.')\\nc=json.loads((root/'.ai/task/review-input-policy-20260922/CANDIDATE-REVIEW-0.json').read_text())\\nchunks=[]\\nfor p in c['paths']:\\n b=(root/p).read_bytes()\\n print(p, 'hash_match=',hashlib.sha256(b).hexdigest()==c['hashes'][p])\\n exists=subprocess.run(['git','cat-file','-e',c['base_commit']+':'+p],capture_output=True).returncode==0\\n args=['git','diff','--no-ext-diff','--binary',c['base_commit'],'--',p] if exists else ['git','diff','--no-index','--no-ext-diff','--binary','--','/dev/null',p]\\n chunks.append(subprocess.run(args,capture_output=True,check=False).stdout)\\np=(root/'.ai/task/review-input-policy-20260922/CODE_DIFF-REVIEW-0.patch').read_bytes()\\nprint('bound_diff_matches=',b''.join(chunks)==p)\\nprint('diff_sha256=',hashlib.sha256(p).hexdigest())\\nPY\",\"max_output_tokens\":2500}));\ntext(await tools.exec_command({cmd:\"cat tools/orchestration/dispatch_contextual.py tools/orchestration/dispatch_surface.py tools/orchestration/dispatch_reviewers.py tools/orchestration/README.md\",\"max_output_tokens\":11000}));\ntext(await tools.exec_command({cmd:\"rg -n 'prompt|input_path|dispatch_id|task_id|128|32|800|read|boundary|contract' tools/orchestration/review_lifecycle.py tools/orchestration/build_evidence_pack.py tools/contextual_result_check.py tools/surface_screen_result_check.py tools/paseo_contract_check.py tests/i18n/test_review_lifecycle.py\",\"max_output_tokens\":12000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790036998.106708
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc17a92487d2be1169cdc40dbc12",
+      "status": "completed",
+      "call_id": "call_gE2tit0sWL8Yy6nsGOlPJSRW",
+      "name": "exec",
+      "input": "const rs=await Promise.allSettled([\ntools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":8500}),\ntools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":12500}),\ntools.exec_command({cmd:\"sed -n '180,365p' tools/orchestration/review_lifecycle.py; sed -n '1535,1595p' tools/orchestration/review_lifecycle.py\",\"max_output_tokens\":8000}),\ntools.exec_command({cmd:\"sed -n '150,235p' tools/orchestration/build_evidence_pack.py; sed -n '340,455p' tools/orchestration/build_evidence_pack.py; cat tools/contextual_result_check.py\",\"max_output_tokens\":9000})\n]);rs.forEach(text);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790037012.956451
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc220d9c87d2995a3b37bbc3357c",
+      "status": "completed",
+      "call_id": "call_ImhIfohV8Q5Tk2YXLXwsnpmG",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '185,365p' tools/orchestration/review_lifecycle.py; sed -n '1535,1595p' tools/orchestration/review_lifecycle.py\",\"max_output_tokens\":7000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790037021.829419
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc2aadc087d2b94cbf300b45d61f",
+      "status": "completed",
+      "call_id": "call_JRKjhXG7dAjsRlTzCuJ46L4D",
+      "name": "exec",
+      "input": "const rs=await Promise.allSettled([\ntools.exec_command({cmd:\"sed -n '1,105p' tools/orchestration/build_evidence_pack.py; sed -n '460,535p' tools/orchestration/build_evidence_pack.py; sed -n '1,120p' tools/paseo_contract_check.py\",\"max_output_tokens\":4500}),\ntools.exec_command({cmd:\"rg -n 'prompt|prepare|cli|resume' tests/i18n/test_review_lifecycle.py\",\"max_output_tokens\":4500}),\ntools.exec_command({cmd:\"rg -n 'P2-READ-ONLY|P2-REVIEW-INDEPENDENCE|prompt|第六|输入|当前译文|术语|引用' docs/paseo-orchestration-v2-contract.md\",\"max_output_tokens\":5000}),\ntools.exec_command({cmd:\"sed -n '115,250p' docs/paseo-translation-surface-screen-v1-contract.md; sed -n '1,100p' tools/orchestration/review_lifecycle.py\",\"max_output_tokens\":5500})\n]);for(let i=0;i<rs.length;i++){let r=rs[i];store('read'+i,r);text({part:i,...r});}\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790037028.287656
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc40e28487d29a7713501785f43e",
+      "status": "completed",
+      "call_id": "call_D9C8ssbB5dUdXNR5zyREz3IK",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"nl -ba tools/orchestration/build_evidence_pack.py | sed -n '178,228p;433,449p;473,495p'; nl -ba docs/paseo-translation-context-review-v2-contract.md | sed -n '90,107p'; sed -n '836,861p' docs/paseo-orchestration-v2-contract.md; sed -n '740,795p' tests/i18n/test_review_lifecycle.py\",\"max_output_tokens\":4500}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport ast, re\\np=Path('tools/orchestration/review_prompts.py')\\nns={'__name__':'read_only_prompt_review'}\\nexec(compile(p.read_text(),str(p),'exec'),ns)\\nfor kind,doc,marker in [('CONTEXTUAL','docs/paseo-translation-context-review-v2-contract.md','固定三行 prompt：'),('SURFACE','docs/paseo-translation-surface-screen-v1-contract.md','固定三行 dispatch prompt')]:\\n template=ns[kind+'_PROMPT_TEMPLATE']\\n formal=re.search(r'```text\\\\n(.*?)\\\\n```',Path(doc).read_text().split(marker,1)[1],re.S).group(1)\\n name='CONTEXTUAL' if kind=='CONTEXTUAL' else 'SURFACE-SCREEN'\\n path='.ai/task/'+'t'*128+'/'+name+'-ENVELOPE-'+'d'*32+'.json'\\n rendered=ns['build_'+kind.lower()+'_prompt']('a'*64,path)\\n print(kind,'contract_exact=',template==formal,'template_bytes=',len(template.encode()),'longest_test_path_bytes=',len(rendered.encode()),'lines=',len(rendered.splitlines()))\\n for bad in ['x'*801, '\\\\ud800']:\\n  try: ns['build_'+kind.lower()+'_prompt']('a'*64,bad)\\n  except ns['PromptError']: print(kind,'invalid_or_overlimit_path=rejected')\\n  else: print(kind,'invalid_or_overlimit_path=ACCEPTED')\\nfor path in ['tools/orchestration/dispatch_contextual.py','tools/orchestration/dispatch_surface.py','tools/orchestration/dispatch_reviewers.py','tests/i18n/test_review_prompts.py']:\\n ast.parse(Path(path).read_text())\\n print(path, 'syntax=OK')\\nPY\",\"max_output_tokens\":2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790037043.112336
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0107c579f024ab62016ab1cc5c8bc887d29904db179823b3fd",
+      "status": "completed",
+      "call_id": "call_8elQ6OoVym2THBxoAhcEZO8K",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '1420,1490p' tools/orchestration/review_lifecycle.py; sed -n '370,400p' tools/orchestration/review_lifecycle.py; sed -n '1250,1308p' tools/orchestration/review_lifecycle.py; rg -n 'def validate_result|def canonical_payload|terminology_snapshot|raw output' tools/surface_screen_result_check.py\",\"max_output_tokens\":3000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0c684-c0e4-7dc2-9082-1a70aa88117d",
+        "create_time": 1790037073.770501
+      }
+    }
+  ],
+  "boundary_valid": true,
+  "scope": "Frozen candidate/SPEC and explicitly allowed source files, exact git baseline; no tests, repo-wide search, writes or prior findings; memory computations use python3 -B."
+}

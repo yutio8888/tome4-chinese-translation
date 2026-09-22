@@ -28,9 +28,15 @@ File / Location / Problem / Evidence / Impact / Recommended fix`，复审轮标�
 
 ## translation_contextual_v2
 
-只读取精确 input_path、其明确引用内容及
-`docs/paseo-translation-context-review-v2-contract.md` 第六节；不得读取其他 `.ai/task/`、
-`.ai/reviews/`、lane raw 或先前 finding。按冻结顺序返回恰好覆盖全部 revision 的单一紧凑
+只读取精确 input_path、其中精确范围的引用内容及完整
+`docs/paseo-translation-context-review-v2-contract.md`；不得读取其他 `.ai/task/`、
+`.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope
+冻结的 `translation_snapshot`；术语依据只取 envelope 内实际冻结的条目正文，包括
+`bounded_context` 中 `source_facts_v1.fact.terminology` 的正文。`terminology_snapshot` 常为摘要，
+摘要或 hash 本身不是术语正文；文件、行号和 hash 只证明来源，不扩大读取权限。仅可沿调用链补查冻结版本中
+与当前 revision 相关的公开源码。缺少术语依据时不得自行搜库或凭偏好判错；确有具体疑点才以
+现有 ISSUE observation 记录证据不足，否则判 OK，并由宿主补充中性快照后重新 preflight/freeze。
+按冻结顺序返回恰好覆盖全部 revision 的单一紧凑
 JSON：root 仅含 `contract=translation_contextual_v2`、candidate_identity、verdicts；每项
 仅为 `{"revision_key":"…","verdict":"OK"}`，或 verdict 为 ISSUE 并额外包含 strip 后
 非空 observation。禁止 witness、index、revision_count、severity、裁决或修复建议；首字节
@@ -44,9 +50,13 @@ JSON：root 仅含 `contract=translation_contextual_v2`、candidate_identity、v
 
 ## translation_surface_screen_v1
 
-只读取精确 input_path、其明确引用内容及
-`docs/paseo-translation-surface-screen-v1-contract.md` 第六节；不得读取其他 `.ai/task/`、
-`.ai/reviews/`、lane raw 或先前 finding。按冻结 entry 顺序返回恰好覆盖全部 entry 的单一紧
+只读取精确 input_path、其中精确范围的引用内容及完整
+`docs/paseo-translation-surface-screen-v1-contract.md`；不得读取其他 `.ai/task/`、
+`.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope
+冻结 entry 的 source/target；术语依据只取 envelope 内实际冻结的条目正文。
+`terminology_snapshot` 若只是摘要或 hash 就不是术语正文；文件、行号和 hash 只证明来源，不扩大读取权限；surface 不得据此补查源码。
+缺少术语依据时不得自行搜库或凭偏好判错；确有具体疑点才以现有 ISSUE observation 记录证据
+不足，否则判 OK，并由宿主补充中性快照后重新 freeze。按冻结 entry 顺序返回恰好覆盖全部 entry 的单一紧
 凑 JSON，且必须是 canonical sorted compact bytes：UTF-8、递归 key 排序、紧凑分隔符、无围栏、
 无缩进、无尾随换行或任何附加字节。root 仅含 `contract=translation_surface_screen_v1`、
 candidate_identity、results；每项仅为
