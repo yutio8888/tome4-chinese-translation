@@ -417,3 +417,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-042-01 `2026-09-22T07:31:01.852Z`，sol-040-01 `2026-09-22T07:31:03.326Z`。无未归档 child。
 - 下一片已就绪：batch-043（entry-01282–01291，10 条，sha `bc94c9d7…`）+ cross-batch-042（8 条，sha `fad3821a22ee12526a9fd7da2a69b7c5256f1c0cdf8218e84f44b7b2420e4b00`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 042/043 收获
+
+- sol-041-01：8/8 条目 29 claim（20 confirmed、5 advisory、2 refuted、2 pending）。报告 sha256 `449d34f9488f2f6584dd54e1a810e199fde92055af1654bca2dfaf6fce666e78`，rollout `01a0c807-9612-7db0-aade-7613e7a5ee37`。
+- gemini-043-01：10/10（entry-01282–01291）。**覆盖 1297/4144**。四处标记：01282、01286、01290 存在疑点，01283 细微观察。标题为 `【entry-...】`、标记为 `复核结论`。报告 sha256 `2245be926e1767d85c2a4963f0283ac6ae1e1f8088aa13431cd333aa70753a09`。
+- 收回核验：batch-043 / cross-batch-042 / batch-042 / gemini-042 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-043-01 `2026-09-22T07:38:45.638Z`，sol-041-01 `2026-09-22T07:38:47.114Z`。无未归档 child。
+- 流程自纠：本轮又把「读 STATE 的收获脚本」与「写 STATE 的归档脚本」并行，收获脚本读到半写 JSON 而失败（**未写入任何内容**），随后核验 STATE 完整并串行重跑；此后同一文件的读写不再并行。
+- 下一片已就绪：batch-044（entry-01292–01301，10 条，sha `f050852c…`）+ cross-batch-043（4 条，sha `b9e82d19a0a04da8c5cc38b6da9dde8a37788dbe83d5ccc8124c283153654463`）。
+- 更新时间见 STATE.json `updated_at`。

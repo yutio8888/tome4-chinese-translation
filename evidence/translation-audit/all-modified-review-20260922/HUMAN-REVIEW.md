@@ -524,3 +524,20 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01267 | confirmed：正文标题把 `Tract` 错成“治”并与系列译法冲突。refuted：“拾取名与打开名不一致”的说法；refuted：“无序之治”逻辑自相矛盾 | 统一系列译名，标题按 `Tract` 更正 |
 
 译文未修改。两处 refuted 是对 Gemini 严重程度与连锁推断的下修，原样转录。
+
+## batch-042 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-041-01.md](reports/sol-041-01.md)。译文未修改。共 29 个 claim：20 confirmed、5 advisory、2 refuted、2 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01270 | confirmed：娜迦赞叹句语气失真；confirmed：“Temple of Creation”术语不一致；confirmed：“变的”应为“变得” | 术语对齐 + 改“得” |
+| entry-01271 | confirmed：漏掉德斯镇；confirmed：递进结构被打乱并加入原文没有的描写；confirmed：“挥舞的獠牙”误写动作；confirmed：“让传说延续”被改成“让生物繁衍” | 补地名、按原文结构重写 |
+| entry-01272 | confirmed：Old Forest 专名偏离；confirmed：巨蚁始祖被实质改写；confirmed：外观与群体动作被改写；confirmed：漏译 `Such pluck and derring-do!`。advisory：自然段被拆分 | 专名与句法按源码回改 |
+| entry-01273 | confirmed：无依据加入“巨鸟”且“煽动”用字错误；confirmed：“去他妈的”加入原文没有的粗口。advisory：“加急快递”现代口吻；advisory：两处段落拆分 | 删增饰与粗口，口吻取舍 |
+| entry-01275 | confirmed：`nice and big` 误成“又大又美”；confirmed：触手代词及动作有偏差。advisory：内心独白拆成三段 | 重译该句、代词回正 |
+| entry-01277 | advisory：“profits”财富意象被抹平。pending：罗尔夫是否确定是矮人、是否 profits/prophets 双关 | 双关需彩蛋/设定依据 |
+| entry-01278 | confirmed：旁注改成煽情式“永远团聚”；confirmed：`half-gone` 译“神智尽失”程度过重。refuted：并非完全抹掉“两人合为怪物”机制 | 改回客观旁注、收束程度词 |
+| entry-01280 | confirmed：“一个世纪”意象被改写；confirmed：`Am I alone?` 误作“我是独一无二的吗”；confirmed：两处“的”应为“地”。refuted：并非“极长时间→极短一瞬”完全反转。pending：`Alor?` 处理为“阿洛”是否正确 | 改问句与助词；专名与反转程度按收窄意见处理 |
+
+译文未修改。两处 refuted 是对 Gemini 反转/机制推断的下修，原样转录。
