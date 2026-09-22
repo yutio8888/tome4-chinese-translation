@@ -268,3 +268,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-024-01 `2026-09-22T05:09:25.343Z`，gemini-026-01 `2026-09-22T05:09:26.966Z`。无未归档 child。
 - 下一片：batch-027（entry-01044–entry-01083）+ cross-batch-026（01029、01032、01038）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 026/027 收获
+
+- sol-025-01：3/3 条目 6 claim（5 confirmed、1 pending），作者 Codex/gpt-5.6-sol/medium。报告 sha256 `d227e330c36d9c52b6963fb951f6fb954fee3c6f5ebf9404c408ae16eb1b03d3`。rollout 选取按 cwd + CreatedAt 匹配（`01a0c785-a46b-78a3-9135-51d11ec91e96`）。
+- gemini-027-01：40/40（与批次条目表精确一致）。Gemini 覆盖 **1090/4144**。三处标记：01068、01081 存在疑点，01074 细微观察。报告 sha256 `58921648e34b99f0dfe8b2e3865ebdf693d4bdb3ebafddbc7cf14ad30b314e33`。
+- 收回核验：batch-027 / cross-batch-026 / batch-026 / gemini-026 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-025-01 `2026-09-22T05:13:51.771Z`，gemini-027-01 `2026-09-22T05:13:53.399Z`。无未归档 child。
+- 下一片已就绪：batch-028（entry-01084–entry-01124，sha `16e0c1cc…`）+ cross-batch-027（01068、01074、01081，sha `22731fded3ca1a46b181844af9a6f16c7446d1f4d4ac3e37ade5df9c9cbe8173`），对应 prompt 已写入 `dispatches/gemini-028-01-prompt.md`、`dispatches/sol-026-01-prompt.md`。
+- 更新时间见 STATE.json `updated_at`。

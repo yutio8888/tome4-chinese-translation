@@ -315,3 +315,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01002 | confirmed：`grand` 漏译。advisory：“炼金师”是叙事称谓不必然违反职业术语。advisory：“7把”数字格式 | 选“大炼金术师/伟大的炼金师”；数字格式按仓库风格 |
 
 共 17 个 claim：10 confirmed、2 pending、4 advisory、1 refuted。译文未修改。
+
+## batch-026 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-025-01.md](reports/sol-025-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01029 | confirmed：抵抗的是触须的拉扯（pull），不是抓取（grab）；源码 656–662 行先抓住再拉近，译文与前一条日志直接冲突 | 改成“抵抗了触须的拉扯/牵引”，措辞自选 |
+| entry-01032 | confirmed：`wound` 是该物品实际筛选的三个效果子类型之一。pending：“必须译为创伤”的术语条目不在允许输入内，无法确认 | 主代理按术语库核对该条 category/section/source_tag 后再定是否升级 |
+| entry-01038 | confirmed：主语错置，达克顿打造的是臂铠不是“厄流纪”；confirmed：`unparalleled` 被弱化；confirmed：`these` 译成“那些” | 重写首句恢复主体，另选“无与伦比/举世无双”和近指词 |
+
+共 6 个 claim：5 confirmed、1 pending。译文未修改。
