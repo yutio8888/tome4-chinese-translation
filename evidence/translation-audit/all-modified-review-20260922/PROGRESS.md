@@ -259,3 +259,12 @@
 - 归档：先 `archive_attempts_started=1`；调用返回已归档，live 复查 `Archived=true`、`archivedAt` `2026-09-22T05:03:24.297Z`。无未归档 child。
 - 八处待派 Sol，见 cross-batch-025（sha `41d129ee9eb94f3bcdb95e9528e08ed2dc2612772bcf5e91445ede42378658bd`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 025/026 收获
+
+- sol-024-01：8/8 条目 17 claim（10 confirmed、2 pending、4 advisory、1 refuted），作者 Codex/gpt-5.6-sol/medium。报告 sha256 `e6022004bd38589af452c433a5eaf441f7989d7fd6950d37c8a1140e180ac259`。首次提取误取了别的 cwd 的 rollout，已按 cwd+CreatedAt 匹配改回并在 STATE 记录，误取版本从未提交。
+- gemini-026-01：40/40（与批次条目表精确一致，该批无 entry-01037）。Gemini 覆盖 **1050/4144**。三处标记：01029、01038 存在疑点，01032 细微观察。报告 sha256 `1199a78178da74e9f0762f3eec4931e6cf5cfcf10bae104eee57192de38ff05d`（`- **entry-...**：【结论】` 条目式 + 汇总表）。
+- 收回核验：batch-026 / cross-batch-025 / batch-025 / gemini-025 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-024-01 `2026-09-22T05:09:25.343Z`，gemini-026-01 `2026-09-22T05:09:26.966Z`。无未归档 child。
+- 下一片：batch-027（entry-01044–entry-01083）+ cross-batch-026（01029、01032、01038）。
+- 更新时间见 STATE.json `updated_at`。

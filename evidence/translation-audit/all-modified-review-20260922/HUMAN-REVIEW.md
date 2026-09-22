@@ -298,3 +298,20 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-00918 | confirmed：名称在 wands-powers.lua:91；confirmed：与同词根条目字面一致。advisory：“魔术之”奇幻感弱；advisory：Gemini“既有译法故无问题”论证不足 | conjuration/conjure 是否统一奇幻化译名，连同戒指条目一起裁决 |
 
 共 11 个 claim：5 confirmed、4 advisory、1 refuted、1 pending。confirmed 均为源码事实与一致性核验，不是译文错误裁决。
+
+## batch-025 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-024-01.md](reports/sol-024-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00972 | advisory：“亚特莱”音节可能不完整，源码无官方读音不能判错。pending：所谓“全仓统一译法”无法在允许输入内验证 | 要不要改成“阿特利亚”类形式，交专名策略决定 |
+| entry-00980 | confirmed：“变的暗淡”应为“变得暗淡”。refuted：并非“其余内容完整准确”，`runes of power` 只译成“符文”漏了 `of power` | 修文法；是否补“力量符文/强力符文” |
+| entry-00984 | confirmed：无中生有“如果你想保留物品”的目的条件。pending：是否属有意复用无法证明 | 若要求逐句对应，改为直述“要取出物品，只需……” |
+| entry-00992 | confirmed：括号提前闭合，把“十回合”插进三组效果之间造成断裂。confirmed：`cut` 应按术语译“流血”，现作“撕裂” | 重排括号与持续时间；此处改“流血免疫” |
+| entry-00997 | confirmed：“不断的向下滴血”应为“不断地”。confirmed：Gemini 对专名与身份的正面判断成立 | 修文法即可，无阻断项 |
+| entry-01000 | confirmed：“基于魔法”应为“基于魔力”（源码 combatStatScale("mag")）。advisory：“疾病和毒素”有合计上限歧义 | 统一“基于魔力”；歧义可选改“疾病或毒素状态中的至多 %d 项” |
+| entry-01001 | confirmed：“（基于魔法）伤害半径 %d”缺标点连跑。confirmed：同样应为“基于魔力” | 补成“……物理伤害（基于魔力），半径为 %d” |
+| entry-01002 | confirmed：`grand` 漏译。advisory：“炼金师”是叙事称谓不必然违反职业术语。advisory：“7把”数字格式 | 选“大炼金术师/伟大的炼金师”；数字格式按仓库风格 |
+
+共 17 个 claim：10 confirmed、2 pending、4 advisory、1 refuted。译文未修改。
