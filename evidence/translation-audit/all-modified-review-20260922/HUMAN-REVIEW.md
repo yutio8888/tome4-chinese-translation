@@ -594,3 +594,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01316 | confirmed：`arcane abilities` 译“奥术能量”；confirmed：其余核心词义与排版无异常 | 视术语决定是否改 |
 
 译文未修改。1 条 refuted 是对 Gemini 机制归因的下修，原样转录。
+
+## batch-047 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-046-01.md](reports/sol-046-01.md)。译文未修改。共 23 个 claim：15 confirmed、4 advisory、2 refuted、2 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01317 | confirmed：并列意象被大幅扩写；confirmed：“大多数人”缩窄成“许多年轻人”；confirmed：`before all` 误作“前所未有”；confirmed：`too many` 改第二人称并增义。refuted：“他的主人”并未把英雄误认成另一位主人 | 扩写与范围词回改；身份解释不要写进修复理由 |
+| entry-01318 | confirmed：`fair game`→“公平竞赛”；confirmed：`a few decades`→“一些时代”；confirmed：`once in a while`→“总有一天”；confirmed：烤雪人餐厅句增“只有我们”；confirmed：单数 benefactor 译成复数；confirmed：“被限制在于”句法杂糅。advisory：`Thank me later`→“一会儿谢”生硬 | 六处按源码回改 |
+| entry-01319 | confirmed：`won’t claim me today` 决意语气丢失。advisory：粗体句点移到标记外；advisory：诗歌标点体例风格化。pending：“斯派德”跨条目一致性结论 | 诗文本身不判错；一致性另取冻结样本 |
+| entry-01320 | confirmed：末句 `manage/corruption` 被曲解；confirmed：同句“它／他”指代不统一；confirmed：`trivial` 误作“太次”。refuted：Gemini 对“他无法施法，只能发出名字声音”的剧情解释无源码支持。pending：“太次”是否与红宝石昂贵性直接矛盾 | 改末句与指代；剧情解释不写成事实 |
+| entry-01321 | confirmed：`Shellsea` 是前述村庄专名。advisory：诗歌标点前后不统一 | 保留专名；标点按体例统一 |
+
+译文未修改。2 条 refuted 是对 Gemini 过度推断的下修，原样转录。
