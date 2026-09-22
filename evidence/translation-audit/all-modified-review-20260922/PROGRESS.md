@@ -890,3 +890,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-086-01 `2026-09-22T15:18:41.543Z`，sol-085-01 `2026-09-22T15:18:43.034Z`。
 - 覆盖 **2852/4144（68.8%）**；批次 86/130，交叉 85 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：087 批次 + 086 交叉收口（本轮收口，随后按用户指示暂停并推送）
+
+- 派发记录提交 `97e20457`；cross-batch-086 登记与 prompt 提交 `d8add6a2`。
+- **gemini-087-01：40/40 一次完成**。存在疑点 02866；细微观察 02856、02858、02891。sha256 `6eef540233a981094b7be0d869cc92d1998b37c261d2c918335f015312e64332`，brain `c2eaa88f`。
+- **sol-086-01（cross-batch-086）：5/5 条目、8 claim**：3 confirmed、3 advisory、2 refuted。sha256 `db8ea02627756e08a4a153c46a7e8319f3b066aa6a31c803b45b727a684d0701`，rollout `01a0c9b3`。02849/02850 定性为宿主+两片段整体裁决，refuted 排除单方归因。
+- 归档注记：两路在执行 `paseo archive` 前已被平台自动归档（`15:24:03`）；本方 attempts=1 先行持久化，live `Archived=true` + 真实 `archivedAt` 复查通过，细节写入各自 dispatch 记录。
+- 守卫全过：batch-087/cross-batch-086 冻结哈希、11 locale、非 evidence 零 diff，HEAD `97e20457`。
+- `cross-batch-087` 已登记但**排队未派**（暂停点）。覆盖 **2892/4144（69.8%）**；批次 87/130，交叉 86 组完成。
+- 更新时间见 STATE.json `updated_at`。

@@ -1186,3 +1186,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02807 | advisory：冒号后空格；**refuted**：译文补 `%` 正确（源码 `inc_damage=10` 即百分比） | 只清空格 |
 
 译文未修改。entry-02805 附带一个**超出英中忠实度的机制疑问**（状态是否真反射传送），已按原文记录待人工另行核查。
+
+## batch-086 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-086-01.md](reports/sol-086-01.md)。译文未修改。共 8 个 claim：3 confirmed、3 advisory、2 refuted、0 pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02828 | advisory：“看到看不到的东西”偏口语，detection 比“看到”稍窄 | 润色 |
+| entry-02830 | confirmed：`准备了%s` 与运行时短语结合后语法生硬 | 联合两短语重定句型 |
+| entry-02846 | advisory：意译可接受但弱化 wound re-opened 意象；合并还可能加深治疗削减 | 文风 |
+| entry-02849 | confirmed：`每回合。` 被重排进句中造成错误断句 | **与宿主、02850 整体裁决** |
+| entry-02850 | **refuted**：“每回合”有 `on_timeout` 依据；advisory：未涵盖维持战技；confirmed：缺句末标点；**refuted**：并非本条导致 02849 错误 | 宿主统一承担句号 |
+
+译文未修改。02849/02850 是**同组整体问题**：Sol 明确 refuted 单方归因，宿主模板与两个片段需一并处理。
