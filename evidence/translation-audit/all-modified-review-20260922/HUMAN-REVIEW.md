@@ -1213,3 +1213,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02891 | advisory：`#OLIVE_DRAB#` 后半角空格（02890 已删、02891 保留，均源自英文原文）；标签与 2 占位符结构完好 | 中文排版惯例取舍（改 02891 或同时给 02890 保留） |
 
 译文未修改。本条 refuted 说明 Gemini 的“语序顺畅”判断不成立；02866 属同效果内专名一致性问题。
+
+## batch-088 三处交叉结果
+
+作者是 Pi/CPA/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-088-01.md](reports/sol-088-01.md)。译文未修改。3 个 claim 全部 confirmed，无 refuted/pending。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02921 | confirmed：四项奖励分句前三处半角 `! `、末处全角 `！`，原文统一半角；13 个 `%s` 与颜色码完好 | 是否统一为全角（或保留 ASCII 分隔） |
+| entry-02927 | confirmed：`去吧%s!我们会坚守防线！` 标点不一致、句界不佳；`%s` 功能正确 | 至少首处改全角；可选更自然呼语语序 |
+| entry-02929 | confirmed：`degenerated ogric mass`→“退化的食人魔碎肉”与 `huge mass of deformed flesh` 形态不符 | `mass` 改“血肉团/聚合体”；`degenerated` 命名策略 |
+
+译文未修改。三条均为排版/用词层面的真实但轻微问题。

@@ -923,3 +923,14 @@
 - `cross-batch-088` 已登记排队（sha `f40a014e566a0f9986bc62ce76bcb22f8e54d172ac25b4a097ec9b37495108be`）待下一轮派 Sol。
 - 覆盖 **2932/4144（70.8%）**；批次 **88/130** 已复核（088 待交叉），交叉 **87 组完成** + 1 排队。
 - 更新时间见 STATE.json `updated_at`。
+
+## 089 批次 + 088 交叉收口
+
+- 派发记录提交 `c1deb26d`；cross-batch-088 登记与 prompt 提交 `0c1baf93`。
+- **gemini-089-01：40/40 一次完成**。存在疑点 02957（`Dream ???`→“梦境 ??？”问号半全角混用）；细微观察 02937（`BOOM!`→“火山喷发！”拟声词意译）、02967（`pain giving`→“痛苦强化”词义偏差）。报告 sha256 `31a5a926f0a3054817ee75acfc29b057afc0458a77beb6a2e09e8ea8d9227a66`。
+- **sol-088-01（cross-batch-088）：3/3 条目、3 claim，全部 confirmed**。报告 sha256 `38951fed16eb94660da0a990ee529b0845b8dc332bf818f55d881101896af1f4`。三条均确认：02921 标点混用、02927 台词标点/呼语、02929 “碎肉”与 `huge mass` 形态不符。译文未修改。
+- 守卫全过：batch-089/batch-088/cross-batch-088 冻结哈希、11 locale、非 evidence 零 diff，HEAD `c1deb26d`。
+- 归档先 persist attempts=1，一次成功并 live 复查：gemini-089-01 `2026-09-22T16:28:15.033Z`，sol-088-01 `2026-09-22T16:28:16.506Z`。无未归档 child。
+- `cross-batch-089` 已登记排队（sha `f1ac6c714c49bb3336c88234d81511edeea401442666be755c1a9b9a78a03e17`）。
+- 覆盖 **2972/4144（71.7%）**；批次 **89/130** 已复核，交叉 **88 组完成** + 1 排队。
+- 更新时间见 STATE.json `updated_at`。
