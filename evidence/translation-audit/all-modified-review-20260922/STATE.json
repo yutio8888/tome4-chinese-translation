@@ -3457,10 +3457,42 @@
       "count": 19,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-041.md",
       "input_sha256": "5472c56d9c45046bd3faee5d99fe73c84cc206da9bad0f90643b95aeeb5c1985",
-      "status": "dispatched",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-041-01"
-      ]
+      ],
+      "covered_entry_ids": [
+        "entry-01250",
+        "entry-01251",
+        "entry-01252",
+        "entry-01253",
+        "entry-01254",
+        "entry-01255",
+        "entry-01256",
+        "entry-01257",
+        "entry-01258",
+        "entry-01259",
+        "entry-01260",
+        "entry-01261",
+        "entry-01262",
+        "entry-01263",
+        "entry-01264",
+        "entry-01265",
+        "entry-01266",
+        "entry-01267",
+        "entry-01268"
+      ],
+      "issue_entry_ids": [
+        "entry-01252",
+        "entry-01256",
+        "entry-01259",
+        "entry-01262",
+        "entry-01263",
+        "entry-01267"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-041-01.md",
+      "raw_output_sha256": "7075d24d0de28c319bb48ad12cfd6480ecb5070edb0bd577102b68a7a1d5b665",
+      "coverage_note": "01256/01259/01262/01267 存在疑点；01252 与 01263 结论为“未发现问题（附细微观察）”，观察一并转交。Dispatch hit a 5-minute platform timeout but report was complete; counted, no retry."
     },
     {
       "batch_id": "batch-042",
@@ -10393,11 +10425,79 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-040.md",
       "input_sha256": "b975bc0bdd8c67d20d7728dc464234a9f0d1f981ee1a943077c97ed450d6d9cc",
-      "status": "dispatched",
+      "status": "completed",
       "source_dispatch_id": "gemini-040-01",
       "dispatches": [
         "sol-039-01"
       ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-039-01.md",
+      "raw_output_sha256": "c6cfdbe242055c99a6b19f02374ff088528aa5caa91ccc8859274f5f841df26c",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-01230",
+          "claim": "对应 elandar-1，正文及专名含义相符",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01230",
+          "claim": "控制标签闭合且标点处理合理",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01230",
+          "claim": "`too` 斜体范围被扩大为“理智得过了头”",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01245",
+          "claim": "对应 keepsake-kyless-journal-2，正文、标签与心灵操控叙事准确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01245",
+          "claim": "“发现了什么——”略有不定代词直译痕迹",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01247",
+          "claim": "对应 keepsake-kyless-journal-3，人物与强盗藏金剧情准确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01247",
+          "claim": "`priceless` 译“令我感到无比快意”是合乎语境的意译",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01247",
+          "claim": "将该译法视作误译的主张",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-01247",
+          "claim": "“呆在一起”通假俗写，规范应为“待在一起”",
+          "verdict": "pending"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium",
+      "completed_at": "2026-09-22T07:24:59.736632+00:00"
+    },
+    {
+      "cross_id": "cross-batch-041",
+      "entry_ids": [
+        "entry-01252",
+        "entry-01256",
+        "entry-01259",
+        "entry-01262",
+        "entry-01263",
+        "entry-01267"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-041.md",
+      "input_sha256": "95e58b548d80890b21644007404e8a383531f6ceb0418e064fb5a8049e6c6069",
+      "status": "queued",
+      "source_dispatch_id": "gemini-041-01",
+      "dispatches": [],
       "host_semantic_adjudication": false
     }
   ],
@@ -14835,9 +14935,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-041.md",
       "input_sha256": "5472c56d9c45046bd3faee5d99fe73c84cc206da9bad0f90643b95aeeb5c1985",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-041-01-prompt.md",
@@ -14867,13 +14967,20 @@
         "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
         "lineage_verified": true
       },
-      "last_error": null,
+      "last_error": "Internal error: agy print turn timed out after 5m0s waiting for final assistant message",
       "head_at_dispatch": "a58f1f4602fd82d5bcf6e788f1666235a8b1fae6",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T07:16:06.991Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
       "transport": "cli",
-      "launch_note": "first launch attempt exited 1 before creating an agent; verified live list then retried fresh once"
+      "launch_note": "first launch attempt exited 1 before creating an agent; verified live list then retried fresh once",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-041-01.md",
+      "raw_output_sha256": "7075d24d0de28c319bb48ad12cfd6480ecb5070edb0bd577102b68a7a1d5b665",
+      "raw_output_source": "antigravity transcript_full.jsonl brain da3940fa-4717-4b58-b1d8-5f76b9d33420 final non-empty PLANNER_RESPONSE step_index 63",
+      "coverage": "19/19 entry-01250 through entry-01268",
+      "activity_feed_note": "Second occurrence of the 5-minute print-turn timeout (status error) with a complete report already in the native transcript; counted as full coverage, no retry. Launch also needed one fresh retry after an exit-1 start that created no agent.",
+      "archived_at": "2026-09-22T07:24:43.413Z"
     },
     {
       "role": "REVIEWER",
@@ -14884,9 +14991,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-040.md",
       "input_sha256": "b975bc0bdd8c67d20d7728dc464234a9f0d1f981ee1a943077c97ed450d6d9cc",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-039-01-prompt.md",
@@ -14918,10 +15025,16 @@
       },
       "last_error": null,
       "head_at_dispatch": "a58f1f4602fd82d5bcf6e788f1666235a8b1fae6",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T07:15:29.313Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-039-01.md",
+      "raw_output_sha256": "c6cfdbe242055c99a6b19f02374ff088528aa5caa91ccc8859274f5f841df26c",
+      "raw_output_source": "codex rollout 01a0c7f8-3ba8-7012-8914-2047910c1581 final assistant output_text",
+      "coverage": "3/3 entry-01230, entry-01245, entry-01247 (9 leaf claims)",
+      "archived_at": "2026-09-22T07:24:44.962Z"
     }
   ],
   "locale_sha256": {
@@ -14937,7 +15050,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T07:16:30.296683+00:00",
+  "updated_at": "2026-09-22T07:24:59.776665+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -14946,7 +15059,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 1255,
+  "gemini_covered_total": 1274,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
@@ -14997,38 +15110,25 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [
-      {
-        "dispatch_id": "gemini-041-01",
-        "agent_id": "e047a798-9137-4296-aa1c-886762c70367",
-        "status": "running",
-        "scope": "batch-041 19 entries"
-      },
-      {
-        "dispatch_id": "sol-039-01",
-        "agent_id": "419662fa-7e85-4670-a77c-5b31b6247db8",
-        "status": "running",
-        "scope": "batch-040 three entries"
-      }
-    ],
+    "in_flight": [],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
     "gemini_020": "archived",
     "queued_not_dispatched": [],
-    "coverage_including_uncommitted": 1255,
+    "coverage_including_uncommitted": 1274,
     "all_children_archived": true,
     "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
     "evidence_committed": false,
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
-    "updated_at": "2026-09-22T07:14:54.909036+00:00",
+    "updated_at": "2026-09-22T07:24:59.736632+00:00",
     "status": "resumed",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "a58f1f4 batch040 coverage + batch039 cross committed"
+    "last_barrier": "pending: gemini-041-01 (timeout, complete) + sol-039-01 archived, records to commit"
   },
   "recorder_continuation": [
     {

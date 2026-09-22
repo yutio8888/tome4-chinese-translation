@@ -397,3 +397,14 @@
 - 记录自纠：本轮记录脚本的一处断言把 confirmed 数写成 3（实为 4），脚本在写盘前中止，STATE 未被部分写入；随后以更正后的断言重跑并核对通过。
 - 下一片已就绪：batch-041（entry-01250–01268，19 条，sha `5472c56d…`）+ cross-batch-040（3 条，sha `b975bc0bdd8c67d20d7728dc464234a9f0d1f981ee1a943077c97ed450d6d9cc`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 040/041 收获（第二次平台超时）
+
+- gemini-041-01：**再次 5 分钟打印超时（status error）**，但 brain `da3940fa` 最终非空 PLANNER_RESPONSE 已含 **19/19 完整报告**，按既定规则计完整覆盖、不重跑；`last_error` 与说明写入 dispatch。报告 sha256 `7075d24d0de28c319bb48ad12cfd6480ecb5070edb0bd577102b68a7a1d5b665`。
+- 该轮首次启动 `exit 1` 且未创建任何 agent（live 列表确认只有重试的一个），按单次启动失败处理，fresh retry 一次成功，`launch_note` 已入记录。
+- 覆盖 **1274/4144**。标记 6 条：01256、01259、01262、01267 存在疑点；01252、01263 为「未发现问题（附细微观察）」，观察一并转交。
+- sol-039-01：3/3（01230、01245、01247）9 claim（5 confirmed、2 advisory、1 refuted、1 pending）。报告 sha256 `c6cfdbe242055c99a6b19f02374ff088528aa5caa91ccc8859274f5f841df26c`。
+- 收回核验：batch-041 / cross-batch-040 / batch-040 / gemini-040 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-041-01 `2026-09-22T07:24:43.413Z`（error 态），sol-039-01 `2026-09-22T07:24:44.962Z`。无未归档 child。
+- 下一片已就绪：batch-042（entry-01269–01281，13 条，sha `2e76acb8…`）+ cross-batch-041（6 条，sha `95e58b548d80890b21644007404e8a383531f6ceb0418e064fb5a8049e6c6069`）。
+- 更新时间见 STATE.json `updated_at`。

@@ -497,3 +497,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01228 | advisory：尸妖段增“万幸的是”。advisory：单段被拆成多段、标题顿号 | 若要求严格贴合改“尽管如此”；拆段仅在要求结构对应时恢复 |
 
 译文未修改。Sol 总结把核心 confirmed 列为四点（增改因果、无依据增饰、`effort`→法力、男性化与“身体”）。
+
+## batch-040 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-039-01.md](reports/sol-039-01.md)。译文未修改。共 9 个 claim：5 confirmed、2 advisory、1 refuted、1 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01230 | confirmed：对应 `elandar-1`，正文与专名含义相符；confirmed：控制标签闭合、标点合理。advisory：`too` 的斜体范围被扩大为“理智得过了头” | 斜体范围是否收束属排版取舍 |
+| entry-01245 | confirmed：对应 `keepsake-kyless-journal-2`，正文、标签与叙事准确。advisory：“发现了什么——”有不定代词直译痕迹 | 是否顺译该破折号结构 |
+| entry-01247 | confirmed：对应 `keepsake-kyless-journal-3`，剧情准确；confirmed：`priceless` 译“令我感到无比快意”合乎语境；refuted：把该译法当误译的主张不成立。pending：“呆在一起”通假俗写规范应为“待在一起” | 是否按规范改“待在”，属用字规范决定 |
+
+译文未修改。Sol 三条正文核对均以源码条目 ID 对照，正面结论也原样记录。
