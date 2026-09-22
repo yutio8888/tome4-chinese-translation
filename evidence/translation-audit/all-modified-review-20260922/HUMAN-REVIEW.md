@@ -608,3 +608,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01321 | confirmed：`Shellsea` 是前述村庄专名。advisory：诗歌标点前后不统一 | 保留专名；标点按体例统一 |
 
 译文未修改。2 条 refuted 是对 Gemini 过度推断的下修，原样转录。
+
+## batch-048 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-047-01.md](reports/sol-047-01.md)。译文未修改。共 10 个 claim：7 confirmed、2 advisory、1 pending、无 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01326 | confirmed：前两处分隔符后各多一个空行，第三处没有（源码每处只一空行） | 是否要求三处分段严格统一，低优先级 |
+| entry-01328 | confirmed：`giant worms` 译“巨型沙龙”混淆 worm/wyrm；confirmed：破坏诗中龙／虫对照。pending：同 section 另两处已译“沙虫”“传奇巨虫”的附加论据（冻结输入未收录那两处） | 改“巨型沙虫”；附加论据需主流程另取冻结文本 |
+| entry-01331 | advisory：外层直单引号被改成中文双引号，冻结语境本身风格混杂 | 若要统一引号，作为整个 section 的独立排版决策 |
+| entry-01333 | confirmed×4：`made the Sun from his breath` 漏“创造太阳”；`fled before his glory` 反向译成“慑服”；`All that this light touches shall be mine` 所有权宣告遗漏；`his might surpassed all else` 窄化为“勇武震慑众人”。Sol 建议整句重译 | 按源码整段重译，不逐词补丁 |
+| entry-01334 | advisory：外层中文双引号与内部半角双引号形成嵌套 | 统一嵌套引号规则后再处理，不升级为正确性问题 |
+
+译文未修改。
