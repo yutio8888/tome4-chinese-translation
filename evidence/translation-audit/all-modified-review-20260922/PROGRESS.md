@@ -909,3 +909,17 @@
 - 在飞 child：**0**；未归档 child：**0**；非 evidence diff：**0**（handoff 两文件按约定不提交、不入推送）。
 - 恢复方式：用户指示后按 STATE `pause.resume_note` 重新起批，或由用户指定新范围。
 - 更新时间见 STATE.json `updated_at`。
+
+## 恢复（用户指示）：Pi/CPA 主审与交叉，088 批次 + 087 交叉收口
+
+- 用户 2026-09-22 指示：继续推进修改译文复核；主审核由 **Pi/CPA/Gemini 3.8 Flash**，交叉复核由 **Pi/CPA/GPT-5.6 Sol medium**；后续批次直接进行，不需逐批同意。若 Sol 因额度等失败，交叉改用 **Pi/OpenCodeGO/CPA/GLM-5.3-flash**（`cpa/opencode-go/glm-5.3-flash`，已用 live `paseo provider models pi` 核验）。
+- 记录者交接：新编排 session `a2361362-6aab-4785-b32a-0fa873a45624`（pi/cpa/commandcode/deepseek/deepseek-v4.1-flash, thinking high），STATE `current_recorder` 已更新，`recorder_continuation` 追加并保留 grok01 历史记录；`orchestration_transport=cli`。恢复提交 `d3b0bfd3`。
+- 模型身份变更：自本批起主审 provider 由 antigravity 改为 pi/cpa；交叉由 codex 改为 pi/cpa。模型族与档位不变（Gemini 3.8 Flash high、GPT-5.6 Sol medium），逐次派发均读 live metadata 并记入 dispatch 记录。
+- 恢复状态机：先派排队 `cross-batch-087`（prompt `sol-087-01` 本次新建），再派 `batch-088`。
+- **gemini-088-01：40/40 一次完成**。无「存在疑点」；细微观察 02921（全清奖励标点半/全角混用）、02927（台词标点不统一）、02929（`degenerated ogric mass`→“退化的食人魔碎肉”形态偏差）。报告 sha256 `a5e7a8072be6e3ea4f4755939c5fed0cd1314663af9f8491c4a416f1fcf5650b`。
+- **sol-087-01（cross-batch-087）：4/4 条目、7 claim**：5 confirmed、1 refuted、1 advisory。报告 sha256 `c75f1ed969a8305f3cd6ae8c1926f23400e90d4b71784907aac189861e26ccef`。要点：02856 `defiantly` 漏译 confirmed、语序 refuted；02858 数值/机制 confirmed + `stands strong` 语义偏移 confirmed + 半角逗号 confirmed；02866 `leeches` 与同效果“寄生水蛭”不一致 confirmed；02891 颜色标签后半角空格 advisory。译文未修改。
+- 守卫全过：batch-088/batch-087/cross-batch-087 冻结哈希、11 locale 哈希、非 evidence 零 diff，HEAD `dc651286`。
+- 归档先 persist attempts=1，`paseo archive` 一次成功并 live 复查 `Archived=true`：sol-087-01 `2026-09-22T16:21:37.136Z`，gemini-088-01 `2026-09-22T16:21:38.610Z`。无未归档 child。
+- `cross-batch-088` 已登记排队（sha `f40a014e566a0f9986bc62ce76bcb22f8e54d172ac25b4a097ec9b37495108be`）待下一轮派 Sol。
+- 覆盖 **2932/4144（70.8%）**；批次 **88/130** 已复核（088 待交叉），交叉 **87 组完成** + 1 排队。
+- 更新时间见 STATE.json `updated_at`。

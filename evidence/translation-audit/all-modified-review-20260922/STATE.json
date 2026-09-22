@@ -7942,9 +7942,15 @@
    "count": 40,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-088.md",
    "input_sha256": "6ceb26935d81f12f6db99878785d30d9714985e4b2f5ffc77e45a6841b3abbd8",
-   "status": "dispatched",
+   "status": "reviewed_awaiting_cross",
    "dispatches": [
     "gemini-088-01"
+   ],
+   "reviewed_count": 40,
+   "flagged": [
+    "entry-02921",
+    "entry-02927",
+    "entry-02929"
    ]
   },
   {
@@ -17220,12 +17226,38 @@
    ],
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-087.md",
    "input_sha256": "213151e9b154d6b996fc6c88e78605b3285f335adbdea76addf697eb10325fde",
-   "status": "dispatched",
+   "status": "reviewed",
    "source_dispatch_id": "gemini-087-01",
    "dispatches": [
     "sol-087-01"
    ],
-   "host_semantic_adjudication": false
+   "host_semantic_adjudication": false,
+   "result_dispatch_id": "sol-087-01",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-087-01.md",
+   "raw_output_sha256": "c75f1ed969a8305f3cd6ae8c1926f23400e90d4b71784907aac189861e26ccef",
+   "claims": {
+    "confirmed": 5,
+    "refuted": 1,
+    "pending": 0,
+    "advisory": 1,
+    "total": 7
+   },
+   "result_note": "entry-02856: defiantly 漏译 confirmed + 语序 refuted；entry-02858: 数值/机制 confirmed、stands strong 语义偏移 confirmed、半角逗号 confirmed；entry-02866: leeches→“寄生虫”与同效果“寄生水蛭”不一致 confirmed；entry-02891: 颜色标签后半角空格 advisory。译文未修改。"
+  },
+  {
+   "cross_id": "cross-batch-088",
+   "entry_ids": [
+    "entry-02921",
+    "entry-02927",
+    "entry-02929"
+   ],
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-088.md",
+   "input_sha256": "f40a014e566a0f9986bc62ce76bcb22f8e54d172ac25b4a097ec9b37495108be",
+   "status": "queued",
+   "source_dispatch_id": "gemini-088-01",
+   "dispatches": [],
+   "host_semantic_adjudication": false,
+   "note": "三条均为 Gemini 细微观察（标点混用×2、名称用词形态×1）；交 Sol 交叉核验，不预设结论"
   }
  ],
  "child_dispatches": [
@@ -27048,9 +27080,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-087.md",
    "input_sha256": "213151e9b154d6b996fc6c88e78605b3285f335adbdea76addf697eb10325fde",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-087-01-prompt.md",
@@ -27082,11 +27114,17 @@
    },
    "last_error": null,
    "head_at_dispatch": "d3b0bfd37673fd2c7b135978b865f60723b4d71e",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:15:47.464Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:21:37.136Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-087-01.md",
+   "raw_output_sha256": "c75f1ed969a8305f3cd6ae8c1926f23400e90d4b71784907aac189861e26ccef",
+   "raw_output_source": "pi session 01a0c9e6-e1bb-7ec3-b26b-c239899997bd final assistant text message",
+   "coverage": "4/4 entry-02856,02858,02866,02891 (7 leaf claims)"
   },
   {
    "role": "REVIEWER",
@@ -27097,9 +27135,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-088.md",
    "input_sha256": "6ceb26935d81f12f6db99878785d30d9714985e4b2f5ffc77e45a6841b3abbd8",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-088-01-prompt.md",
@@ -27131,11 +27169,17 @@
    },
    "last_error": null,
    "head_at_dispatch": "d3b0bfd37673fd2c7b135978b865f60723b4d71e",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:16:01.788Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:21:38.610Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-088-01.md",
+   "raw_output_sha256": "a5e7a8072be6e3ea4f4755939c5fed0cd1314663af9f8491c4a416f1fcf5650b",
+   "raw_output_source": "pi session 01a0c9e7-1864-7908-811a-3643dad32628 final assistant text message",
+   "coverage": "40/40 complete (3 minor observations: entry-02921,02927,02929; 0 issues)"
   }
  ],
  "locale_sha256": {
@@ -27151,7 +27195,7 @@
   "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
   "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
  },
- "updated_at": "2026-09-22T16:16:29.231083+00:00",
+ "updated_at": "2026-09-22T16:22:17.818385+00:00",
  "handoff_request": {
   "target_model": "grok-4.7",
   "scope": "orchestration and record keeping only",
@@ -27160,7 +27204,7 @@
   "accepted_at": "2026-09-22T00:23:09.969034+00:00",
   "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
  },
- "gemini_covered_total": 2892,
+ "gemini_covered_total": 2932,
  "current_recorder": {
   "task_id": "all-modified-review-20260922-pi01",
   "agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
@@ -27184,22 +27228,13 @@
   "ordered_by_user": true,
   "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
   "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-  "in_flight": [
-   {
-    "dispatch_id": "gemini-088-01",
-    "agent_id": "d4857e86-3b31-4404-b623-5fa43fe324d8"
-   },
-   {
-    "dispatch_id": "sol-087-01",
-    "agent_id": "30b3af49-0010-41bc-832b-049b55ca31bd"
-   }
-  ],
+  "in_flight": [],
   "committed_coverage": 770,
   "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
   "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
   "gemini_020": "archived",
   "queued_not_dispatched": [],
-  "coverage_including_uncommitted": 2892,
+  "coverage_including_uncommitted": 2932,
   "all_children_archived": true,
   "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
   "evidence_committed": false,
@@ -27340,6 +27375,30 @@
    "antigravity/gemini-3.8-flash/high",
    "codex/gpt-5.6-sol/medium"
   ],
-  "source": "user instruction 2026-09-22; live paseo provider models pi metadata"
- }
+  "source": "user instruction 2026-09-22; live paseo provider models pi metadata",
+  "cross_fallback": {
+   "provider": "pi",
+   "model": "cpa/opencode-go/glm-5.3-flash",
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v1",
+   "trigger": "only if cpa/gpt-5.6-sol fails (quota/error); record actual model used per dispatch"
+  }
+ },
+ "user_directives": [
+  {
+   "at": "2026-09-22T16:22:17.818385+00:00",
+   "directive": "继续按既定流程推进后续批次，不需要逐批征求用户同意（逐批/连续运行授权）。",
+   "scope": "本 audit campaign 的批次复核与交叉核验连续运行；仍受只读、角色分离、证据与归档纪律约束"
+  },
+  {
+   "at": "2026-09-22T16:22:17.818385+00:00",
+   "directive": "若 GPT-5.6-Sol 因额度等原因失败，交叉复核改用 Pi/OpenCodeGO/CPA/GLM-5.3-flash。",
+   "verified_profile": {
+    "provider": "pi",
+    "model": "cpa/opencode-go/glm-5.3-flash",
+    "label": "GLM-5.3 Flash (CPA)",
+    "checked_via": "paseo provider models pi"
+   }
+  }
+ ]
 }

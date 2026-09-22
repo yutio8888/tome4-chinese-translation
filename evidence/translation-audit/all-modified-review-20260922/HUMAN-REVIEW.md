@@ -1200,3 +1200,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02850 | **refuted**：“每回合”有 `on_timeout` 依据；advisory：未涵盖维持战技；confirmed：缺句末标点；**refuted**：并非本条导致 02849 错误 | 宿主统一承担句号 |
 
 译文未修改。02849/02850 是**同组整体问题**：Sol 明确 refuted 单方归因，宿主模板与两个片段需一并处理。
+
+## batch-087 四处交叉结果
+
+作者是 Pi/CPA/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-087-01.md](reports/sol-087-01.md)。译文未修改。共 7 个 claim：5 confirmed、1 refuted、1 advisory。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02856 | confirmed：`defiantly` 漏译（语气丢失，机制/占位符无损）；**refuted**：`%s` 语序顺畅之说（`his_her` 为所有格，现译“建立他的/她的联系”欠自然） | 是否补语气；结合本地化 `his/her/its` 重定句式 |
+| entry-02858 | confirmed：两个 `%0.1f%%` 顺序与 `resists.all`/`resists_cap.all` 对应正确；confirmed：`stands strong`→“十分强大”语义偏移（应为挺立/屹立）；confirmed：半角逗号排版 | 改“屹立不倒”类表达；标点统一 |
+| entry-02866 | confirmed：`leeches`→“寄生虫”与同效果 02861–02865“寄生水蛭”不一致，且 `Some`“部分/一些”未体现 | 统一为“部分寄生水蛭……”；`%s` 搭配“身上/处” |
+| entry-02891 | advisory：`#OLIVE_DRAB#` 后半角空格（02890 已删、02891 保留，均源自英文原文）；标签与 2 占位符结构完好 | 中文排版惯例取舍（改 02891 或同时给 02890 保留） |
+
+译文未修改。本条 refuted 说明 Gemini 的“语序顺畅”判断不成立；02866 属同效果内专名一致性问题。
