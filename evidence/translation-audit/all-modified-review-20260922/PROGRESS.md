@@ -678,3 +678,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-069-01 `2026-09-22T11:16:08.065Z`（error 态），sol-068-01 `2026-09-22T11:16:09.662Z`。无未归档 child。
 - 下一轮：gemini-069-02 单独派发（无排队 Sol；cross-batch-069 待补跑完成后按两份报告合并登记）。
 - 更新时间见 STATE.json `updated_at`。
+
+## batch-069 补跑完成（40/40）
+
+- gemini-069-02：**39/39 全部完整**（entry-02149–02187），无超时。报告 sha256 `0751a022256cb532af35064b0afc084fb88a8ff9997b21d6d297abb533867313`，brain `f4a08932`。
+- batch-069 由 `reviewed_partial` 转为 **`reviewed_awaiting_cross`，覆盖 40/40**（02148 来自 gemini-069-01，02149–02187 来自补跑）。**覆盖 2190/4144（52.8%）**。
+- 合并后 issue 共 6 条：02148、02149（存在疑点），02150、02153、02181、02187（细微观察）→ 已登记 `cross-batch-069`（sha `cf7e2e6ce2788bb89cb283bb20842010187e219bae4bdfba5b7029fbb5031d98`），注明 input 合并两份报告。
+- 归档：先 `archive_attempts_started=1`，live 确认 `archivedAt` `2026-09-22T11:21:23.261Z`。无未归档 child。
+- 收回核验：batch-069 / 两份 gemini-069 报告哈希已记；11 个 locale 哈希一致；evidence 以外无改动。
+- 更新时间见 STATE.json `updated_at`。
