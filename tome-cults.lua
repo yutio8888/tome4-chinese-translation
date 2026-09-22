@@ -4472,7 +4472,7 @@ t("humanoid", "人形生物", "entity type")
 t("thalore", "自然精灵", "entity subtype")
 t("some merchant", "某个商人", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
-t("thalore wilder", "精灵自然师", "entity name")
+t("thalore wilder", "自然精灵自然师", "entity name")
 t("A tall elf, his skin covered in green moss.", "一名高大的精灵，他的皮肤覆有青苔。", "_t")
 
 ------------------------------------------------

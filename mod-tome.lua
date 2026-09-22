@@ -3185,7 +3185,7 @@ t("Stone Warden", "岩石守卫", "birth descriptor name")
 t([[The Spellblaze's scars may be starting to heal,
 but little can change how the partisans feel.
 Nature and arcane could bridge their divide -
-and when it comes down to it, gold won't take sides...]], [[魔法大爆炸带来的裂痕已经开始痊愈。
+and when it comes down to it, gold won't take sides...]], [[魔法大爆炸留下的裂痕或许正开始愈合。
 然而人们心中的偏见仍没有消失。
 自然与奥术本可弥合分歧——
 在这两者之间，金钱从不站队……]], "_t")
@@ -12660,7 +12660,7 @@ t("metal whip", "合金鞭", "_t")
 t("A long whip of linked metal joints finished with a viciously sharp barb leaking terrible venom.", "一条金属串接的长鞭，尾端锋利的邪恶倒刺渗透着毒液。", "_t")
 t("Girdle of Preservation", "防腐腰带", "entity name")
 t("shimmering, flawless belt", "闪烁的完美腰带", "_t")
-t("A pristine belt of purest white leather with a runed voratun buckle. The ravages of neither time nor the elements have touched it.", "一条有着沃瑞钽雕刻标志的皮带扣，用纯白色皮革制作的古朴的腰带。不论时间还是环境都不能对它造成任何损害。", "_t")
+t("A pristine belt of purest white leather with a runed voratun buckle. The ravages of neither time nor the elements have touched it.", "一条以最纯白的皮革制成的无瑕腰带，配有刻着符文的沃瑞钽带扣。无论时光还是风霜都未曾侵蚀它。", "_t")
 t("Girdle of the Calm Waters", "静水腰带", "entity name")
 t("golden belt", "金色腰带", "_t")
 t("A belt rumoured to have been worn by the Conclave healers.", "传说这条腰带曾被孔克雷夫的治疗师们佩戴。", "_t")
@@ -14901,7 +14901,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 #{bold}#第三章：远行传送门#{normal}#
 
-“为什么你不准备成为精灵们的领袖呢？”，莱娜尼尔悠闲地躺在我的床上，双手撑着头饶有兴致地问道。
+“为什么你不是精灵们的领袖呢？”，莱娜尼尔赤裸着身体横卧在我的床上，单手托头问道。
 
 我的思绪还没有从片刻前的温存中缓过来，对于这个突然的问题感到有些惊异。“为什么我会想要成为他们的领袖呢？”，我反问道。
 
@@ -14917,11 +14917,11 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “我是一个战士，”许久的沉思后，我从床上爬起，整理我的长袍，“我喜欢亲自面对敌人，而不是借助某件遗物从远处消灭他们。这样的懦夫行径令真正的战士作呕。”
 
-“然而，开发夏·图尔人遗迹中失落的力量不是那么让人心潮澎湃吗？”她呢喃着，手指轻触下唇，光滑的皮肤置身于柔软的被子的紧紧环绕中，仿佛已经被她那恢弘的梦想深深吸引，“这样强大的能量已经在世间沉眠了那么长时间，直到今天，我们强大的魔法可以让我们亲自驾驭它们，把雷霆万钧的恢弘气势掌握在不及盈寸的掌心之中……唉，若能由我亲自统领这般伟业，该有多好！”
+“然而，开发夏·图尔人遗迹中失落的力量不是那么让人心潮澎湃吗？”她呢喃着，手指轻触下唇，仍慵懒地躺在我的床上，被单紧贴着她赤裸的肌肤。她显然因自己的念头而兴奋不已，“这样强大的能量已经在世间沉眠了那么长时间，直到今天，我们强大的魔法可以让我们亲自驾驭它们，把雷霆万钧的恢弘气势掌握在不及盈寸的掌心之中……唉，若能由我亲自统领这般伟业，该有多好！”
 
 搭上上衣的搭扣，我有些遗憾地摇了摇头。“坦率地说，我并不信任这些遗迹的力量。是的，我们永恒精灵的确有着强大的魔法实力。然而，我们渺小的知识比起那些夏·图尔人实在是相距甚远，以至于我们甚至无法理解他们所遗留下来的物件究竟有什么意义。在这一意义上，我的想法更接近你的孪生姐妹尼耶拉。我们应该用稳健的脚步前行，妥善而审慎地使用那些我们所能掌握的能力，而不是猛然把我们的野心扩展到这种庞大的实验之上。”
 
-莱娜尼尔凝望着我，用调笑一般的语调柔声说道，“如果你成为了领袖，你可能会阻止这一切；但那样的话，或许我会一辈子恨你。”
+莱娜尼尔凝望着我，用调笑一般的语调柔声说道，“如果你是领袖，你就能阻止这一切；但那样的话，我就不得不恨你。”
 
 我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去了解远行传送门那边工作的最新进展了。如果你乐意的话，请务必和我一同前去。”
 
@@ -14937,7 +14937,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “我想和您一同前去。”还没等我说完，她就爽快地回应道。我点了点头，领着她坐上我的马车。
 
-马车缓缓前行，尼耶拉的声音突然从我耳边传来。“她这样做只会伤害你。”
+我们刚乘车向东出发，气氛便变了。尼耶拉突然说道：“她这样做只会伤害你。”
 
 我一下子明白了她的意思，感到一阵震惊。“要命，在埃亚尔已经不存在秘密了吗？”我小声说道
 
@@ -14949,7 +14949,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 是嫉妒促使她说出这番话吗？她嫉妒的是姐妹对我的关注，还是我对她姐妹的关注？我始终没有弄清。剩余的旅途中，我和尼耶拉始终保持沉默。夕阳从马车的背后缓缓落下，巨大的阴影投射在向前的小路上，暮色的笼罩将周围的风景染上了一片深红。有一瞬间，我们仿佛在恶魔的位面上漫步，漆黑的阴影慢慢融化在血色的土壤之上，群星惨淡的冷白色光辉似乎瞬间从苍穹直射下来。繁星点点间，遗迹从地平线映入眼帘，让我不禁颤栗。
 
-已发现的夏·图尔遗迹中，鲜有能与埃尔瓦拉附近那一处的宏伟相提并论的。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像着整座塔并不是立于地面之上，而是在天空中漂浮，直到某种力量让它从空中坠落，静静地在大地中沉眠了无数的岁月。
+已发现的夏·图尔遗迹中，鲜有能与埃尔瓦拉附近那一处的宏伟相提并论的。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像整座塔都与大地分离，是某种来自群星的奇异之物，从天空坠落后沉睡在泥土之下。
 
 若干年前，我们的魔法师找到了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律的排布着，就连墙壁似乎也呼吸着能量。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺的高台，巨大能量如同星云般在周围盘旋，噼啪作响。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
 
@@ -16387,7 +16387,9 @@ Either way, you feel the time has come to do something more about this curse.
 ]], [[映入眼帘的，是一片宁静祥和的草原。这里似乎有什么令你感到熟悉，但你并不十分确定。
 唯一可以确定的是，它让你从受诅咒人生的漫长苦难中得到了片刻喘息。
 你感到体内的仇恨渐渐消融，仿佛连诅咒也暂时消退了。
-在这片宁静的草地中，你萌发出一个念头。是否有什么方法能结束诅咒？即使你无法消除诅咒，你却有可能掌控它，并且夺回自己的一部分人生。
+
+在这片宁静的草地中，你萌发出一个念头。是否有什么方法能结束诅咒？
+即使你无法消除诅咒，你却有可能掌控它，并且夺回自己的一部分人生。
 不管怎样，你感到是时候进一步应对这道诅咒了。
 ]], "_t")
 t("A Haunting Dream", "噩梦", "_t")
@@ -19397,7 +19399,7 @@ t("eighth mural painting", "第八幅壁画", "_t")
 t([[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.
 The text beneath says simply ]], [[这幅巨大的壁画上，真神摊倒在地，那根黑色法杖抵在他的胸口。夏·图尔人围绕着他，有的砍下他的肢体，有的割出他的舌头，还有的用锁链将他捆住。一名高大的夏·图尔战士正用黑刃长戟剜他的眼睛，长戟落下之处迸发出一阵光芒。远处，一名夏·图尔法师朝地面上的巨大深渊示意。
 下面的文字只有一句]], "_t")
-t("#{italic}#'The Great Sin.'#{normal}#", "#{italic}#罪恶之源。#{normal}#", "_t")
+t("#{italic}#'The Great Sin.'#{normal}#", "#{italic}#大罪。#{normal}#", "_t")
 t("ninth mural painting", "第九幅壁画", "_t")
 t("This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.", "最后的这块壁画损坏得很严重，表面刻满了深深的刻痕和划痕。你所能辨认出的原始图案似乎只有火焰。", "_t")
 t("Yiilkgur raising toward the sky", "伊克格，飞向天空", "_t")
@@ -23061,7 +23063,7 @@ t([[Use elemental damage dealt to you to trigger terrible effects on the source:
 t("Healing Inversion", "治疗逆转", "talent name")
 t([[You manipulate the vim of enemies in radius %d to temporarily invert all healing done to them (but not natural regeneration).
 		For 5 turns all healing will instead damage them for %d%% of the healing done as blight.
-		The effect will increase with your Spellpower.]], [[你操控周围%d码范围内目标的活力，临时将他们所受到的所有治疗转化为伤害（但生命值自然回复除外）。
+		The effect will increase with your Spellpower.]], [[你操控半径%d码内敌人的活力，临时将他们所受到的所有治疗转化为伤害（但生命值自然回复除外）。
 		在 5 回合内，他们受到的一切治疗将会被转化为相当于治疗量 %d%% 的枯萎伤害。
 		效果受法术强度加成。]], "tformat")
 t("Vile Transplant", "邪恶移植", "talent name")
@@ -23310,7 +23312,7 @@ t("traps", "陷阱", "talent type")
 t("Collection of known traps.", "学会制造各种功能的陷阱。", "_t")
 t("poisons", "毒素", "talent type")
 t("The knowledge of poisons and how to apply them to 'good' effects.", "关于毒物的知识，以及如何用它们取得“良好”的效果。", "_t")
-t("Collection of known poisons.", "制造各种不同毒素。", "_t")
+t("Collection of known poisons.", "已知毒素合集。", "_t")
 t("dirty fighting", "卑劣攻击", "talent type")
 t("Teaches various talents to cripple your foes.", "使你学会令你目标致残的技能。", "_t")
 t("lethality", "致命攻击", "talent type")
@@ -26589,7 +26591,7 @@ t("Unseen Actions", "行动如风", "talent name")
 t([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.	 When you perform such an action while stealthed, you have a chance to stay hidden.
 		Success is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.
 		Your base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.
-		You estimate your current chance to maintain stealth as %0.1f%%.]], [[你学会在潜行状态下使用一些通常会打破潜行的技能（如攻击，使用物品……）当你在隐身状态下这么做的时候，你有一定概率不会打破潜行状态。
+		You estimate your current chance to maintain stealth as %0.1f%%.]], [[你学会在潜行状态下执行一些通常会打破潜行的行动（如攻击、使用物品……）。当你在潜行状态下这么做的时候，你有一定概率不会打破潜行状态。
 		面对的对手越少，成功率越高；你的成功率取决于你潜行强度的%0.2f倍（当前值 %d），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		当你不在敌人的视野内时，基础成功率为 100%%，这一几率还受你的运气影响。
 		你估计当前成功率为 %0.1f%%。]], "tformat")
@@ -28858,7 +28860,7 @@ t([[Conjures up a cone of flame with radius %d. Any targets caught in the area w
 		伤害受法术强度加成。]], "tformat")
 t("Fireflash", "爆裂火球", "talent name")
 t([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.
-		The damage will increase with your Spellpower.]], [[向你的目标发射一枚爆裂火球，造成 %0.2f 火焰伤害，有效范围 %d 码。
+		The damage will increase with your Spellpower.]], [[召唤一枚飞向目标的火焰弹，在目标处爆成烈焰，造成 %0.2f 火焰伤害，爆炸半径为 %d 码。
 		伤害受法术强度加成。]], "tformat")
 t("Inferno", "地狱火", "talent name")
 t([[Raging flames burn foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns.
@@ -31319,7 +31321,7 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
 t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "找到泰勒斯法杖的上半部，下半部和宝石。", "_t")
-t("#VIOLET#%s assembles %s!", "#VIOLET#%s 重组为 %s！", "logSeen")
+t("#VIOLET#%s assembles %s!", "#VIOLET#%s 组装出 %s！", "logSeen")
 t("You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.", "你已获得泰勒斯法杖的三个部件并仔细研究过。你相信自己能将它们重新合成为一根威力强大的法杖。", "tformat")
 t("Elemental Surge", "元素狂潮", "talent name")
 t("Have dealt over 10000 arcane, fire, cold, lightning, light or nature damage", "曾造成超过 10000 点奥术、火焰、冰冷、闪电、光系或自然伤害", "_t")
@@ -36122,7 +36124,7 @@ t("#Target# has survived the void madness.", "#Target#从虚空的疯狂中幸�
 t("-Void Echoes", "-虚空回响", "_t")
 t("nightmare", "梦魇", "effect subtype")
 t("Waking Nightmare", "梦魇复苏", "_t")
-t("The target is lost in a nightmare that deals %0.2f darkness damage each turn and has a %d%% chance to cause a random detrimental effect.", "目标陷入清醒状态的噩梦之中，每回合造成 %0.2f 暗影伤害，并有 %d%% 概率受到一个随机不良效果。", "tformat")
+t("The target is lost in a nightmare that deals %0.2f darkness damage each turn and has a %d%% chance to cause a random detrimental effect.", "目标陷入噩梦之中，每回合受到 %0.2f 暗影伤害，并有 %d%% 概率受到一个随机不良效果。", "tformat")
 t("#F53CBE##Target# is lost in a nightmare.", "#F53CBE##Target#陷入噩梦中。", "_t")
 t("+Night Terrors", "+梦魇恐怖", "_t")
 t("#Target# is free from the nightmare.", "#Target#摆脱了噩梦。", "_t")
@@ -39296,7 +39298,7 @@ section "mod-tome/data/zones/orc-breeding-pit/zone.lua"
 
 t("Orc breeding pits", "兽人育种棚", "_t")
 t("Orc Breeding Pit", "兽人育种棚", "_t")
-t("You arrive in a small underground structure. There are orcs there and as soon as they notice you they scream 'Protect the mothers!'.", "你来到了一个小型地下建筑前。那里有着许多兽人，当他们注意到你时，他们叫道“保护母亲们！”。", "_t")
+t("You arrive in a small underground structure. There are orcs there and as soon as they notice you they scream 'Protect the mothers!'.", "你来到了一个小型地下建筑内。那里有着许多兽人，当他们注意到你时，他们叫道“保护母亲们！”。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/grids.lua"
@@ -40607,7 +40609,7 @@ t("thalore", "自然精灵", "entity subtype")
 t("Catch @himher@!", "抓住@himher@！", "_t")
 t("thalore hunter", "自然精灵猎人", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
-t("thalore wilder", "精灵自然师", "entity name")
+t("thalore wilder", "自然精灵自然师", "entity name")
 t("A tall elf, his skin covered in green moss.", "一名高大的精灵，他的皮肤覆有青苔。", "_t")
 
 ------------------------------------------------
@@ -41180,7 +41182,7 @@ t("Way into the lair of Murgol", "穆格尔巢穴的入口", "entity name")
 t("Long road to the Tempest Peak", "通向风暴之巅的长道", "entity name")
 t("Danger...", "小心……", "_t")
 t([[After walking many hours, you finally reach the end of the way. You are nearly on top of one of the highest peaks you can see.
-The storm is raging above your head.]], [[在行走了几个小时后，你终于到达了终点。你站在了你能看到的最高峰位置。
+The storm is raging above your head.]], [[行走多时后，你终于到达了道路尽头。你已接近眼前最高的山峰之一的峰顶。
 风暴在你的头顶肆虐。]], "_t")
 t("A gate into Last Hope's graveyard", "通向最后的希望墓地的门", "entity name")
 t("Entrance to Rak'shor Pride bastion", "拉克·肖部落基地入口", "entity name")
@@ -41281,12 +41283,14 @@ If you'd like to use this feature and find this game good you should consider do
 While this is a free game that I am doing for fun, if it can help feed my family a bit I certainly will not complain as real life can be harsh sometimes.
 You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.
 
-Donators will also gain access to the Exploration Mode featuring infinite lives.]], [[添加自定义角色贴图模式是为了对所有ToME捐赠者表示感谢。
-你可以从近180个（以后还会添加）图标中选择一个你喜欢的角色个性贴图，从特殊的人形生物到各种奇怪的贴图都有。
+Donators will also gain access to the Exploration Mode featuring infinite lives.]], [[添加自定义角色贴图，是为了感谢所有向 ToME 捐赠的玩家。
+这是一项有趣的外观功能，你可以从近180种（以后还会继续添加）贴图中为角色选择一个，从特殊的人形贴图到各种稀奇古怪的贴图都有！
 
-如果你喜欢这类游戏并且你觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
-你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
-捐赠者也可以激活探索模式，获得无限的生命数。]], "_t")
+如果你想使用这项功能，也觉得这款游戏不错，可以考虑捐赠。这将有助于游戏继续生存下去。
+虽然这是一款我出于兴趣制作的免费游戏，但如果它还能稍微帮我养家，我当然不会抱怨，毕竟现实生活有时很残酷。
+要启用贴图选择器，你需要有一个已激活且已连接的在线档案。如果你现在选择捐赠，需要重启游戏才能获得使用权限。
+
+捐赠者还将获得探索模式的使用权限，该模式拥有无限生命。]], "_t")
 t("Select a Tile", "选择贴图", "_t")
 t("Use default tile", "选择默认贴图", "_t")
 t("Use custom-made tile", "选择自制贴图", "_t")
@@ -43114,7 +43118,7 @@ t("None know what the Sher'Tul looked like, or what caused them all to disappear
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
 t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。但永恒精灵们都否认这个传说的真实性。", "init.lua load_tips")
-t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，击溃了兽人军团，自此开启了卓越纪元。", "init.lua load_tips")
+t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，将兽人一族彻底消灭，自此开启了卓越纪元。", "init.lua load_tips")
 t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些人被诅咒，获得了超出自身完全掌控的精神力量，从此堕入由仇恨驱动的黑暗生涯。", "init.lua load_tips")
 t("Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.", "恐惧王座一直以来都因其闹鬼的地宫而为人所避讳，但最近有流言传出，此地盘踞着一股更加黑暗可怖的力量。", "init.lua load_tips")
@@ -43151,7 +43155,7 @@ t("Maj'Eyal is the biggest continent in the world of Eyal. Though records sugges
 t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并摧毁了所有纳鲁人的土地。", "init.lua load_tips")
 t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
-t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用他们的堕落力量发动致命的魔法攻击。", "init.lua load_tips")
+t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用自身的腐化之血发动致命的魔法攻击。", "init.lua load_tips")
 t("Clever rogues can lay traps to damage or debilitate their foes without having to go near them.", "聪明的盗贼可以在不近身的情况下安置陷阱对敌人造成伤害或者削弱他们。", "init.lua load_tips")
 t("Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.", "盗贼可以悄无声息的移动，在敌人毫无察觉的情况下悄悄近身，或者完全避开敌人。", "init.lua load_tips")
 t("A movement infusion can let you quickly approach a ranged opponent, or quickly escape a melee one.", "移动纹身可以使你快速地接近一个远程敌人或者逃离近战敌人。", "init.lua load_tips")
