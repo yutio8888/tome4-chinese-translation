@@ -791,3 +791,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-078-01 `2026-09-22T14:02:05.181Z`，sol-076-01 `2026-09-22T14:02:06.674Z`。
 - 覆盖 **2498/4144（60.3%）**；已记录批次 77/130（077 待派），交叉 76 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：077 补派批 + 078 交叉收口
+
+- 派发记录提交 `31a16018`；cross-batch-078 登记与 prompt 提交 `8d7127ca`；HUMAN-REVIEW 条目号病句更正单列一笔提交。
+- **gemini-077-01：40/40 一次完成**（补回顺序偏差）。存在疑点 02489；细微观察 02474、02500、02506。sha256 `7b84b60e31808bf05786450b06d602538a662f01963d466e1f9a5a8d723412a0`，brain `831c4a32`（step 121）。尾部汇总 36 与逐条一致。
+- **sol-078-01（cross-batch-078）：8/8 条目、22 claim**：12 confirmed、6 advisory、2 pending、2 refuted。sha256 `443954f8bff50726d2685518e0a3d5fa37b5a6a65a83cbbaf86f94b91ed8f5a5`，rollout `01a0c96d`。亮点：`entry-02522` 双右引号确证；`entry-02530` 的 Gemini 机制背书被 **refuted**（震慑免疫也是例外）；两条 pending 皆因缺冻结术语/对照输入。
+- 守卫全过：batch-077/cross-batch-078 冻结哈希、11 locale、非 evidence 零 diff，HEAD `31a16018`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-077-01 `2026-09-22T14:10:35.479Z`，sol-078-01 `2026-09-22T14:10:36.965Z`。
+- 覆盖 **2538/4144（61.2%）**；批次 **001–078 全部已记录复核（78/130）**，交叉 77 组完成。
+- 更新时间见 STATE.json `updated_at`。

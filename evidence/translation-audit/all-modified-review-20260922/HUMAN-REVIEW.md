@@ -1047,3 +1047,20 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02466 | confirmed：`assembles`→“重组为”主宾颠倒（日志语义错误） | 按参数顺序重写 |
 
 译文未修改。entry-02439 的 Gemini 存疑被 **refuted**（转交范围不预设结论的直接例证）；entry-02456 保持 pending 待人工术语决定。
+
+## batch-078 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-078-01.md](reports/sol-078-01.md)。译文未修改。共 22 个 claim：12 confirmed、6 advisory、2 pending、2 refuted。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02520 | advisory：全称缩写为“ToME 4”；pending：与成就／手札译名不一致（无冻结对照）；confirmed：颜色码/孤狼/按键无丢失 | 品牌风格；如需升级需另供对照 |
+| entry-02521 | advisory：落款缩进/句号；**refuted**：“ShowText 不影响显示”不成立（制表符原样绘制、句号可见）；confirmed：占位符/专名正确 | 缩进需游戏内截图 |
+| entry-02522 | confirmed：**“包裹”起始引号错误（双右引号 U+201D）**；advisory：额外空行；advisory：落款排版 | 引号可直接修 |
+| entry-02523 | confirmed：词内硬换行；advisory：半角括号；confirmed：语义与颜色标签完整 | 版面确认后清理换行 |
+| entry-02524 | confirmed：数值规则一致；pending：术语库合规无冻结输入；confirmed：多处行内硬换行 | 需提供术语条目 |
+| entry-02530 | confirmed：判定关系正确；**refuted**：Gemini“与源码完全一致”过度（震慑免疫也是例外，属原教程简化）；confirmed：行内硬换行 | 是否允许偏离英文补条件 |
+| entry-02533 | confirmed：区间/tier 正确；confirmed：额外硬换行 | 是否统一清理折行 |
+| entry-02534 | confirmed：五组区间与颜色码对应；advisory：第五行颜色码前缺空格（五行不统一） | 统一留空格或都去 |
+
+译文未修改。两条 pending 均因冻结输入不含术语库/对照条目，不是语义分歧；一条 refuted 撤回 Gemini 的机制背书（原教程简化，非本条翻译失真）。
