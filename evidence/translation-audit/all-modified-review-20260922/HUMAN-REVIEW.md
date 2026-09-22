@@ -259,3 +259,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-00781 | confirmed：brothers and sisters 被概括成“集体行动”，遗漏同胞关系；confirmed：后半句单数改复数；confirmed：make_escort 配置要求三只同名护卫，但“运行时必定三只”这一绝对说法 refuted；pending：是否必为“同窝亲生”无机制依据 | 改成“与兄弟姐妹一同出现”，审核证据写“配置会尝试添加三只”，不要写成运行时保证 |
 
 共 10 个 claim：6 confirmed、2 pending、1 advisory、1 refuted。Sol 同时撤回了 Gemini 报告里“运行时固定伴随三只”的绝对表述，属证据强度修正，仍由人工决定最终措辞。
+
+## batch-021 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-021-01.md](reports/sol-021-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00804 | pending：源码确认两处指向同一专名 `Rotting Titan`，但冻结输入未含该 NPC 现行中文译名，无法独立证实“腐化/腐烂”不一致 | 核对 `Rotting Titan` 规范译名后再裁决 |
+| entry-00805 | confirmed：漏掉 other；confirmed：`within radius %d` 修饰的是作用范围而非生物，译文改了修饰关系 | 改为“击退半径 %d 范围内的其他生物”，措辞自定 |
+| entry-00820 | confirmed：无端增译“的存在”，并把 corruption 与 power 糅合成“腐蚀力量”。advisory：blackened 译“被玷污”偏象征 | 去掉“的存在”，按设定裁定 its power 指代与“发黑/玷污”取舍 |
+| entry-00840 | confirmed：与同系列 9 处“一瓶[颜色]液体”句式不一致。refuted：“严重破坏排比”程度被夸大，应按低影响处理 | 若要求系列统一，改为“一瓶黄色液体” |
+
+共 7 个 claim：4 confirmed、1 pending、1 advisory、1 refuted。两处 refuted/advisory 是对 Gemini severity 的下修，原样转录，未由主代理改写。
