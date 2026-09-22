@@ -27050,7 +27050,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T15:24:55.992097+00:00",
+  "updated_at": "2026-09-22T15:25:31.299984+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -27123,12 +27123,15 @@
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
     "updated_at": "2026-09-22T15:24:55.948929+00:00",
-    "status": "resumed",
+    "status": "paused",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "pending: gemini-087-01 + sol-086-01 archived, records to commit"
+    "last_barrier": "af61bfea batch087 40/40 + cross086 done + cross-batch-087 queued (未派)",
+    "reason": "用户指示「本轮完成后暂停并推送」（2026-09-22，batch-087 + cross-batch-086 收口后）",
+    "paused_at": "2026-09-22T15:25:31.299984+00:00",
+    "resume_note": "恢复时按状态机：先派排队 cross-batch-087（prompt 需先建 sol-087-01），再派 batch-088；覆盖 2892/4144，批次 87/130，交叉 86 完成 + 1 排队"
   },
   "recorder_continuation": [
     {
@@ -27172,7 +27175,7 @@
     "max_runs": 400,
     "expires_in": "24h",
     "target": "agent:c59be24f-5acc-4fa5-b130-41a33cf142fc (ORCHESTRATOR 本人)",
-    "status": "active",
+    "status": "deleted",
     "created_at": "2026-09-22T13:28:34.133575+00:00",
     "supersedes": "a2146eed",
     "authorized_by": "user（先「挂上看看」，后「继续自动续跑，但8分钟心跳是否过久？」→ 收紧至 5 分钟）",
@@ -27206,6 +27209,9 @@
       }
     ],
     "stop_rule": "守卫连续失败/批次边界歧义/生命周期不可确认/全部批次与 cross 完成 → 记录原因并 paseo heartbeat delete 3a947f5b 后停止",
-    "schedule_cli_note": "paseo schedule ls/inspect 不列出 target=agent 的心跳；用 heartbeat update/delete 按 id 操作"
+    "schedule_cli_note": "paseo schedule ls/inspect 不列出 target=agent 的心跳；用 heartbeat update/delete 按 id 操作",
+    "deleted_at": "2026-09-22T15:25:31.299984+00:00",
+    "delete_reason": "用户指示本轮完成后暂停（push 授权同一条消息）",
+    "delete_verification": "paseo heartbeat delete 3a947f5b → STATUS deleted；随后 paseo schedule ls 为空、二次 delete 报 Schedule not found"
   }
 }

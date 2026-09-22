@@ -900,3 +900,12 @@
 - 守卫全过：batch-087/cross-batch-086 冻结哈希、11 locale、非 evidence 零 diff，HEAD `97e20457`。
 - `cross-batch-087` 已登记但**排队未派**（暂停点）。覆盖 **2892/4144（69.8%）**；批次 87/130，交叉 86 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 暂停（用户指示）并推送
+
+- 用户于 batch-087 + cross-batch-086 收口后指示「本轮完成后暂停并推送」。
+- `pause.status = paused`；心跳 `3a947f5b` 已删除并双重验证（delete 返回 `deleted`；`paseo schedule ls` 为空；二次 delete 报 `Schedule not found`），`heartbeat_automation.status = deleted`。
+- 暂停点状态：**覆盖 2892/4144（69.8%）**；批次 **87/130** 已复核；交叉 **86 组完成** + `cross-batch-087` 排队未派（prompt `sol-087-01` 尚未创建）；下一批 `batch-088`。
+- 在飞 child：**0**；未归档 child：**0**；非 evidence diff：**0**（handoff 两文件按约定不提交、不入推送）。
+- 恢复方式：用户指示后按 STATE `pause.resume_note` 重新起批，或由用户指定新范围。
+- 更新时间见 STATE.json `updated_at`。
