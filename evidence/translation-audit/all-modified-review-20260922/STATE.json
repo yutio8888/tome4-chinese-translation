@@ -8058,8 +8058,10 @@
    "count": 40,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-090.md",
    "input_sha256": "4a842aa56467043966f2a88091f53bab8521b1e8c93a8bdae933f1c5306cd2e9",
-   "status": "queued",
-   "dispatches": []
+   "status": "dispatched",
+   "dispatches": [
+    "gemini-090-01"
+   ]
   },
   {
    "batch_id": "batch-091",
@@ -17288,11 +17290,12 @@
    ],
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-089.md",
    "input_sha256": "f1ac6c714c49bb3336c88234d81511edeea401442666be755c1a9b9a78a03e17",
-   "status": "queued",
+   "status": "dispatched",
    "source_dispatch_id": "gemini-089-01",
-   "dispatches": [],
-   "host_semantic_adjudication": false,
-   "note": "entry-02957 为「存在疑点」（Dream ??? 问号半角全角混用）；02937、02967 为细微观察（拟声词意译、pain giving 词义）"
+   "dispatches": [
+    "sol-089-01"
+   ],
+   "host_semantic_adjudication": false
   }
  ],
  "child_dispatches": [
@@ -27325,6 +27328,104 @@
    "raw_output_sha256": "31a5a926f0a3054817ee75acfc29b057afc0458a77beb6a2e09e8ea8d9227a66",
    "raw_output_source": "pi session 01a0c9ed-3a78-72cd-9291-dafa518bf1f3 final assistant text message",
    "coverage": "40/40 complete (1 issue entry-02957; 2 minor entry-02937,02967)"
+  },
+  {
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v1",
+   "dispatch_id": "sol-089-01",
+   "agent_id": "6022dc24-3da9-4f7b-9a76-f29407c7ea18",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+   "session_task_id": "all-modified-review-20260922-pi01",
+   "lineage_verified": true,
+   "lifecycle": "running",
+   "archive_confirmed": false,
+   "archive_attempts_started": 0,
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-089.md",
+   "input_sha256": "f1ac6c714c49bb3336c88234d81511edeea401442666be755c1a9b9a78a03e17",
+   "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-089-01-prompt.md",
+   "candidate_author_agent_id": null,
+   "author_provider_resolution": "not_applicable",
+   "runtime_observation": {
+    "schema_version": 1,
+    "source": "live_agent_metadata",
+    "captured_at": "2026-09-22T16:29:02.897818+00:00",
+    "capture_status": "captured",
+    "provider": {
+     "presence": "present",
+     "value": "pi"
+    },
+    "model": {
+     "presence": "present",
+     "value": "cpa/gpt-5.6-sol"
+    },
+    "mode": {
+     "presence": "present",
+     "value": "default"
+    },
+    "thinking": {
+     "presence": "present",
+     "value": "medium"
+    },
+    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+    "lineage_verified": true
+   },
+   "last_error": null,
+   "head_at_dispatch": "efb44657743bb2648fa8cb6b7ab7e826a5467148",
+   "harvested": false,
+   "created_at": "2026-09-22T16:29:11.964Z",
+   "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
+   "transport": "cli",
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+  },
+  {
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v1",
+   "dispatch_id": "gemini-090-01",
+   "agent_id": "4cf5b124-cb2c-4e9f-b42b-6853ac4eb111",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+   "session_task_id": "all-modified-review-20260922-pi01",
+   "lineage_verified": true,
+   "lifecycle": "running",
+   "archive_confirmed": false,
+   "archive_attempts_started": 0,
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-090.md",
+   "input_sha256": "4a842aa56467043966f2a88091f53bab8521b1e8c93a8bdae933f1c5306cd2e9",
+   "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-090-01-prompt.md",
+   "candidate_author_agent_id": null,
+   "author_provider_resolution": "not_applicable",
+   "runtime_observation": {
+    "schema_version": 1,
+    "source": "live_agent_metadata",
+    "captured_at": "2026-09-22T16:29:02.897818+00:00",
+    "capture_status": "captured",
+    "provider": {
+     "presence": "present",
+     "value": "pi"
+    },
+    "model": {
+     "presence": "present",
+     "value": "cpa/gemini-3.8-flash-high"
+    },
+    "mode": {
+     "presence": "present",
+     "value": "default"
+    },
+    "thinking": {
+     "presence": "present",
+     "value": "high"
+    },
+    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
+    "lineage_verified": true
+   },
+   "last_error": null,
+   "head_at_dispatch": "efb44657743bb2648fa8cb6b7ab7e826a5467148",
+   "harvested": false,
+   "created_at": "2026-09-22T16:29:07.201Z",
+   "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
+   "transport": "cli",
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
   }
  ],
  "locale_sha256": {
@@ -27340,7 +27441,7 @@
   "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
   "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
  },
- "updated_at": "2026-09-22T16:28:35.227807+00:00",
+ "updated_at": "2026-09-22T16:29:02.897818+00:00",
  "handoff_request": {
   "target_model": "grok-4.7",
   "scope": "orchestration and record keeping only",
@@ -27373,7 +27474,16 @@
   "ordered_by_user": true,
   "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
   "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-  "in_flight": [],
+  "in_flight": [
+   {
+    "dispatch_id": "gemini-090-01",
+    "agent_id": "4cf5b124-cb2c-4e9f-b42b-6853ac4eb111"
+   },
+   {
+    "dispatch_id": "sol-089-01",
+    "agent_id": "6022dc24-3da9-4f7b-9a76-f29407c7ea18"
+   }
+  ],
   "committed_coverage": 770,
   "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
   "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
