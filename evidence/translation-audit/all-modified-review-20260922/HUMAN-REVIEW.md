@@ -634,3 +634,22 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01384 | confirmed：“你来的太晚了”应为“来得”；confirmed：`the sorcerers` 由执行链确认特指 Elandar 与 Argoniel。pending：同任务后文是否统一译“巫师们”（冻结输入未含 `mod-tome.lua:20180-20181` 目标译文） | 改“得”；称谓一致性需另取冻结译文再定 |
 
 译文未修改。Sol 明确 `confirmed` 只代表 claim 事实成立、不代表严重度。
+
+## batch-050 十处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-049-01.md](reports/sol-049-01.md)。译文未修改。共 17 个 claim：12 confirmed、4 advisory、1 pending、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01385 | confirmed：“到达”弱化 `go back to` 的返回方向；confirmed：遗漏 `*MUST*` 强调 | 改回“返回”、补强调 |
+| entry-01386 | confirmed：`departed` 错成“被驱散了” | 改“已离开/已离去” |
+| entry-01389 | confirmed：原文无句尾波浪号，译文凭空加“～”。advisory：波浪号是否符合该任务语域 | 删“～”，语域整体定 |
+| entry-01391 | confirmed：“不断有”强化 `from time to time` 频率。advisory：“已被尘封已久”语病 | 改“时有”、修语病 |
+| entry-01392 | confirmed：增加“比较”弱化肯定程度。advisory：“牛 X”属粗俗网络俚语 | 去“比较”、换俚语 |
+| entry-01400 | confirmed：`false one` 误成“错的水晶球”，未表达蓄意造假/掉包。pending：`demonic plane` 是否必须统一“恶魔位面” | 改“假冒的水晶球”类；位面术语待核 |
+| entry-01408 | confirmed：`Orc Pride` 错用“兽人军团”；confirmed：`vanquished` 译“征服了”不符实际行动 | 回“兽人部落/氏族”与“击败/覆灭” |
+| entry-01409 | advisory：`bend the world to their will` 译“扭曲这个世界”改变强调重点 | 文风取舍 |
+| entry-01410 | confirmed：`the peak` 错译“塔顶”；confirmed：`orbs of command` 译“指令水晶”遗漏 `orb` 实体 | 改“峰顶”与“宝珠”类 |
+| entry-01424 | confirmed：遗漏主要谓语 `protect her` | 补谓语 |
+
+译文未修改。Sol 汇总与其逐条一致（12/4/1/0）。
