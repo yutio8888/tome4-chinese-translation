@@ -554,3 +554,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01290 | confirmed：`Cataclysm` 译“大爆炸”，与 `Spellblaze` 混淆（应为“大灾变”）。advisory：`spellhunters` 译“猎魔者”易与 demon 混淆 | 事件名回“大灾变”；猎称按术语统一 |
 
 译文未修改。
+
+## batch-044 四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-043-01.md](reports/sol-043-01.md)。译文未修改。共 20 个 claim：10 confirmed、5 pending、4 advisory、1 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01292 | confirmed：末尾换行差异；confirmed：“勇者图库纳”“公正之王托拉克”有上下文依据；confirmed：无占位符缺失。pending：与现行第一章译法是否完全一致；pending：术语是否均符合术语表。advisory：`enlisted the aid of sorcerers` 译“雇佣了一些术士” | 与第一章逐条对照 + 术语核对 |
+| entry-01294 | confirmed：`physical suffering` 译“物理抵抗能力”；confirmed：`halls of stone` 译“石头洞穴”弱化意象；confirmed：段落与格式无异常。pending：钢铁王座、斯莱特、沃瑞钽等是否符合术语库 | 修措辞；术语待核 |
+| entry-01296 | confirmed：漏译 `or` 且保留 `Shalore` 拉丁拼写；confirmed：内容对应完整。advisory：`arcane arts` 译“魔法”；advisory：引号风格与 entry-01298 不一致。pending：关键事件与专名是否均符合规范 | 补 `or`、统一引号风格 |
+| entry-01298 | confirmed：`Thalore` 与 `Thaloren` 是同一种族的不同形式。refuted：“木精灵脱离官方源码既有用法”不成立。advisory：会让读者误以为存在两个分支。pending：“木精灵”是否全库仅此一处 | 分支指称需全库核对后再定 |
+
+译文未修改。refuted 项是对 Gemini 术语推断的下修，原样转录。
