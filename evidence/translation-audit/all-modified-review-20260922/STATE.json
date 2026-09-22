@@ -14,7 +14,7 @@
   "strict_contract_completion_claimed": false,
   "inventory_count": 4144,
   "gemini_prior_covered": 10,
-  "remaining_gemini": 3974,
+  "remaining_gemini": 3962,
   "batches": [
     {
       "batch_id": "batch-001",
@@ -276,7 +276,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-003.md",
       "input_sha256": "4d835af4b87bb646eadc83fc1839243f4959f3ebb31251ef35f951416d86ba36",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-003-01"
       ],
@@ -382,7 +382,7 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-004.md",
       "input_sha256": "7f402096d61e853d3b74f1a62c44e84784c81af8cfd530222cb6b5044c926dfe",
-      "status": "reviewed_awaiting_cross",
+      "status": "reviewed_with_cross_results",
       "dispatches": [
         "gemini-004-01"
       ],
@@ -488,8 +488,62 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-005.md",
       "input_sha256": "7a890c630970417f32b64688901b44f8fb5b1b3f3ee6d63fcc24b2264ee718cc",
-      "status": "queued",
-      "dispatches": []
+      "status": "partial_coverage",
+      "dispatches": [
+        "gemini-005-01"
+      ],
+      "covered_entry_ids": [
+        "entry-00161",
+        "entry-00162",
+        "entry-00163",
+        "entry-00164",
+        "entry-00165",
+        "entry-00166",
+        "entry-00167",
+        "entry-00168",
+        "entry-00169",
+        "entry-00170",
+        "entry-00171",
+        "entry-00172"
+      ],
+      "uncovered_entry_ids": [
+        "entry-00173",
+        "entry-00174",
+        "entry-00175",
+        "entry-00176",
+        "entry-00177",
+        "entry-00178",
+        "entry-00179",
+        "entry-00180",
+        "entry-00181",
+        "entry-00182",
+        "entry-00183",
+        "entry-00184",
+        "entry-00185",
+        "entry-00186",
+        "entry-00187",
+        "entry-00188",
+        "entry-00189",
+        "entry-00190",
+        "entry-00191",
+        "entry-00192",
+        "entry-00193",
+        "entry-00194",
+        "entry-00195",
+        "entry-00196",
+        "entry-00197",
+        "entry-00198",
+        "entry-00199",
+        "entry-00200"
+      ],
+      "issue_entry_ids": [
+        "entry-00164",
+        "entry-00165",
+        "entry-00166"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-005-01.md",
+      "raw_output_sha256": "c1853dfb6dfbe25570fe01cc7acdc29ffa0e2d15ce2cc36f1a7e0d63abb57258",
+      "coverage_note": "Native final PLANNER_RESPONSE ends inside entry-00173 evidence. entry-00161 through entry-00172 are complete. entry-00173 through entry-00200 are not counted covered."
     },
     {
       "batch_id": "batch-006",
@@ -5834,11 +5888,282 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-003-004.md",
       "input_sha256": "86ab5f0990094877e9c7fe8dd03ccf2323c51a3be179607aaf0100cbf990dc71",
-      "status": "queued",
+      "status": "completed",
       "source_dispatch_ids": [
         "gemini-003-01",
         "gemini-004-01"
       ],
+      "dispatches": [
+        "sol-003-004-01"
+      ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-003-004-01.md",
+      "raw_output_sha256": "5a912978ddc8224e1aca9516b04001ddffca4eee44c8f7a82461b1f304ae2b1c",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-00090",
+          "claim": "“玩的开心”应为“玩得开心”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00090",
+          "claim": "格式与调用有效",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00092",
+          "claim": "“这种情况不被支持的”缺少联系成分",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00092",
+          "claim": "三个 `%s`、颜色码和换行保持正确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00094",
+          "claim": "`donator` 使用“赞助者”而非报告所称 preferred“捐赠者”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00094",
+          "claim": "“第六个列表项加了句号”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00094",
+          "claim": "影响：Gemini 指认位置错误。列表末项与前项标点不统一可作为",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00102",
+          "claim": "boot `Flame` 是直接火焰投射攻击",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00102",
+          "claim": "“与主游戏 Flame 原型完全一致”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00102",
+          "claim": "因机制应译“火球术”，“火焰”会与伤害类型混淆",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00102",
+          "claim": "与项目术语条目 `Flame -> 火球术` 冲突",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00105",
+          "claim": "“捐助者”违背 preferred“捐赠者”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00105",
+          "claim": "首行缺少句末标点",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00110",
+          "claim": "译文确实写成“马基埃亚尔”，缺少间隔号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00110",
+          "claim": "“明确违反项目 preferred 术语”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00111",
+          "claim": "两处出现“西方灾星”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00111",
+          "claim": "“DLC 中统一使用‘西方天灾’，所以‘西方灾星’错误”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00111",
+          "claim": "“项目 preferred 为‘西方天灾’”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00111",
+          "claim": "`Psyshots` 必须译为“灵能射手”，DLC 全篇一致",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00111",
+          "claim": "项目术语是否要求“灵能射手”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "`Writhing Ones` 的“扭动者”与报告所称项目术语“蜿蜒怪人”冲突",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "“Cults DLC 实际统一译作‘蠕动者’”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "`Scourge Pits` 应为“天灾之穴”，“瘟疫之穴”错误",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "`Nethergames` 是对 `Nethergate` 的笔误",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "但“彼世之门”是否为项目 canonical",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00112",
+          "claim": "使用半角括号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00124",
+          "claim": "“玩的开心”用字",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00126",
+          "claim": "“这种情况不被支持的”语病",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00126",
+          "claim": "三个 `%s`、颜色码及换行正确",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00128",
+          "claim": "`donator` 应统一为“捐赠者”的 claim",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00136",
+          "claim": "该技能是 `bolt` 而非范围火球",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00136",
+          "claim": "`Fireflash` 才明确使用 `ball`",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00136",
+          "claim": "因而“火焰”是机制错误、必须改“火球术”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00136",
+          "claim": "项目术语表是否仍规定 `Flame -> 火球术`",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00136",
+          "claim": "Gemini 所称仓库所有现有译文均统一为“火焰”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00139",
+          "claim": "“捐助者”与 preferred“捐赠者”冲突",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00139",
+          "claim": "`Characters vault` 被译为“角色备份”",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-00139",
+          "claim": "富文本标签配对完整",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00144",
+          "claim": "“马基埃亚尔”缺少间隔号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00144",
+          "claim": "明确违反项目 preferred",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00145",
+          "claim": "两处“西方灾星”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00145",
+          "claim": "DLC 统一为“西方天灾”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00145",
+          "claim": "项目 preferred 是否为“西方天灾”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00145",
+          "claim": "DLC 全篇把 `Psyshot` 译作“灵能射手”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00145",
+          "claim": "项目 canonical 是否为“灵能射手”",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00146",
+          "claim": "“扭动者”与项目术语“蜿蜒怪人”冲突",
+          "verdict": "pending"
+        },
+        {
+          "entry_id": "entry-00146",
+          "claim": "Cults DLC 实际译作“蠕动者”",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00146",
+          "claim": "“瘟疫之穴”与 DLC 的“天灾之穴”冲突",
+          "verdict": "refuted"
+        },
+        {
+          "entry_id": "entry-00146",
+          "claim": "`Nethergames` 实为 `Nethergate` 笔误",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-00146",
+          "claim": "“彼世之门”是已确认 canonical",
+          "verdict": "pending"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium"
+    },
+    {
+      "cross_id": "cross-batch-005-partial",
+      "entry_ids": [
+        "entry-00164",
+        "entry-00165",
+        "entry-00166"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-005-partial.md",
+      "input_sha256": "b0cac07bb003631debdef461fc0ee909b7f0aa3fcc3911d04608ada8d23966e7",
+      "status": "queued",
+      "source_dispatch_id": "gemini-005-01",
       "dispatches": [],
       "host_semantic_adjudication": false
     }
@@ -6207,6 +6532,111 @@
       "activity_feed_note": "get_agent_activity for both agents embedded the same batch-004 report. Native transcripts match each assigned batch and were used as the raw report. Activity [Edit] entries are orchestrator evidence writes; locale hashes unchanged; no diff outside this evidence directory.",
       "coverage": "40/40",
       "archived_at": "2026-09-22T00:33:50.293Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "gemini-005-01",
+      "agent_id": "b9da4335-d822-40bb-aa77-85a68a730a93",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-005.md",
+      "input_sha256": "7a890c630970417f32b64688901b44f8fb5b1b3f3ee6d63fcc24b2264ee718cc",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-005-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T00:36:10.719786+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "antigravity"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gemini-3.8-flash"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "dangerously-skip-permissions"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "high"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "04048730c969b1858e9cce2841bc20142dda15cf",
+      "harvested": true,
+      "created_at": "2026-09-22T00:35:27.885Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-005-01.md",
+      "raw_output_sha256": "c1853dfb6dfbe25570fe01cc7acdc29ffa0e2d15ce2cc36f1a7e0d63abb57258",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 7d2a56b5-1e11-48c9-98e4-1570630f6bfa final PLANNER_RESPONSE",
+      "coverage": "12/40 complete; entry-00173 truncated; entry-00174-00200 absent",
+      "activity_feed_note": "Activity [Edit] entries are orchestrator evidence files. Locale hashes unchanged. Final report itself is truncated; activity did not contain the missing entries.",
+      "archived_at": "2026-09-22T01:05:13.017Z"
+    },
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "dispatch_id": "sol-003-004-01",
+      "agent_id": "32ebea4f-f471-4964-ac29-19412fee830b",
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+      "session_task_id": "all-modified-review-20260922-grok01",
+      "lineage_verified": true,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-003-004.md",
+      "input_sha256": "86ab5f0990094877e9c7fe8dd03ccf2323c51a3be179607aaf0100cbf990dc71",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-003-004-01-prompt.md",
+      "candidate_author_agent_id": null,
+      "author_provider_resolution": "not_applicable",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-09-22T00:36:10.719786+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        },
+        "parent_agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
+        "lineage_verified": true
+      },
+      "last_error": null,
+      "head_at_dispatch": "04048730c969b1858e9cce2841bc20142dda15cf",
+      "harvested": true,
+      "created_at": "2026-09-22T00:35:23.867Z",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-003-004-01.md",
+      "raw_output_sha256": "5a912978ddc8224e1aca9516b04001ddffca4eee44c8f7a82461b1f304ae2b1c",
+      "raw_output_source": "codex rollout 01a0c689-f062-7210-9f40-9d7e81ee4447 final assistant output_text",
+      "coverage": "16/16 assigned entries",
+      "archived_at": "2026-09-22T01:05:13.017Z"
     }
   ],
   "locale_sha256": {
@@ -6222,7 +6652,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T00:34:04.633800+00:00",
+  "updated_at": "2026-09-22T01:07:21.745305+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -6231,7 +6661,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 170,
+  "gemini_covered_total": 182,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",

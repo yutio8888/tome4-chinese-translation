@@ -39,8 +39,8 @@
 - 实时模型确认：Gemini 3.8 Flash / high / dangerously-skip-permissions / auto_accept；Sol gpt-5.6-sol / medium / auto-review 仍可用。本波只派 Gemini。
 - 更新时间：2026-09-22T00:23:09.969034+00:00
 
-| batch-003 | 40 | reviewed_awaiting_cross | entry-00090, entry-00092, entry-00094, entry-00102, entry-00105, entry-00110, entry-00111, entry-00112 |
-| batch-004 | 40 | reviewed_awaiting_cross | entry-00124, entry-00126, entry-00128, entry-00136, entry-00139, entry-00144, entry-00145, entry-00146 |
+| batch-003 | 40 | reviewed_with_cross_results | entry-00090, entry-00092, entry-00094, entry-00102, entry-00105, entry-00110, entry-00111, entry-00112 |
+| batch-004 | 40 | reviewed_with_cross_results | entry-00124, entry-00126, entry-00128, entry-00136, entry-00139, entry-00144, entry-00145, entry-00146 |
 
 - gemini-003-01：running；父级已核验 689b484a-da2e-4370-860a-1d5f67a61a41；agent bcced6b1-2c1c-43ca-bdb4-a0d4c05ba5dd
 - gemini-004-01：running；父级已核验 689b484a-da2e-4370-860a-1d5f67a61a41；agent ea8ad686-8118-4d20-b6bf-0ae822262c60
@@ -51,3 +51,15 @@
 - activity 里的 [Edit] 对应编排者自己的 evidence 写入。11 个 locale 哈希未变，evidence 目录以外无 diff。HEAD 仍是 ed873985f0fd527923db1bdb7e116da151ea6c5c。
 - 用户追加：Gemini Flash 不再并行派发。003 与 004 是该限制之前已经发出的一对，现已结束。
 - Gemini 覆盖 170/4144。上述疑点和细微观察进入同一次 Sol 交叉，尚未裁决。
+
+| batch-005 | 40 | partial_coverage | entry-00164, entry-00165, entry-00166；缺 entry-00173–00200 |
+
+- gemini-005-01：running；父级已核验；agent b9da4335-d822-40bb-aa77-85a68a730a93。本波只有这一路 Gemini。
+- sol-003-004-01：running；父级已核验；agent 32ebea4f-f471-4964-ac29-19412fee830b。交叉 003 与 004 的疑点和细微观察。
+- 003/004 证据已提交 04048730c969b1858e9cce2841bc20142dda15cf，未 push。
+
+## 003/004 Sol 与 005 部分收获
+
+- sol-003-004-01 原始回复已保存，16 条全部有分档。语义作者是 Sol。
+- gemini-005-01 最终回复在 entry-00173 的依据句中途结束。entry-00161–00172 计为已覆盖；00173–00200 未计覆盖。Gemini 覆盖 182/4144。
+- 11 个 locale 哈希未变。HEAD 仍是 04048730c969b1858e9cce2841bc20142dda15cf。
