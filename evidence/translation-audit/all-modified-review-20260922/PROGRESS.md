@@ -759,3 +759,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-075-01 `2026-09-22T13:36:20.836Z`，sol-074-01 `2026-09-22T13:36:22.375Z`。无未归档 child。
 - 记录自纠：本轮记录脚本 claim 计数断言误写 9（实为 8），脚本在写盘前中止、STATE 未被部分写入，已用更正断言重跑。
 - 更新时间见 STATE.json `updated_at`。
+
+## batch-075 补跑完成（40/40）
+
+- gemini-075-02：**4/4 完整**（entry-02425–02428），四条**全部为存在疑点**。报告 sha256 `84707ccd7c94e2d860ddc47949d7e18b191b37323ab9707388fc3b6722127d07`，brain `6079fad3`。
+- batch-075 转为 **`reviewed_awaiting_cross`，40/40**（02389–02424 + 补跑四条）。**覆盖 2430/4144（58.6%）**。
+- 合并 issue 共 10 条 → 已登记 `cross-batch-075`（sha `ec08583a6ae89a11a6be90e93619713238a25f4fc74ebf74ade1cfbe7bbeab00`），注明 input 合并两份报告。
+- 归档：先 `archive_attempts_started=1`，live 确认 `archivedAt` `2026-09-22T13:41:06.546Z`。无未归档 child。
+- 记录自纠（第 4 次同类）：收获脚本与归档脚本并行读写 STATE，收获侧读到半写 JSON 中止（**未写入**），核验 JSON 完整后串行重跑；此后两者严格串行。
+- 更新时间见 STATE.json `updated_at`。
