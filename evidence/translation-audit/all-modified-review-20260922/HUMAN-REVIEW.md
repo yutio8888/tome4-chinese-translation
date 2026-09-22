@@ -286,3 +286,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-00881 | refuted：`naturalist's` 与 `natural` 是两个不同源串，术语快照也映射 `natural → 自然`，不要求中文字面相同 | 无必办事项；除非另立“关键词必须与名称词干统一”规则 |
 
 共 5 个 claim：3 confirmed、1 refuted、1 advisory、无 pending。译文未修改。
+
+## batch-023 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-023-01.md](reports/sol-023-01.md)。译文未修改。三条均无 confirmed 的译文错误。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-00899 | confirmed：奥术戒指前缀机制描述准确；confirmed：同批 00900/00918/00919 同词根内部一致。advisory：“魔术师”偏舞台魔术；advisory：一致性不等于最佳译法 | 若要把 conjurer 词根奇幻化，需连关联条目和术语策略整体处理 |
+| entry-00914 | confirmed：调用实际在 totems-powers.lua:132，Gemini 行号不准。refuted：按句号改标点不成立，源码是感叹号。pending：术语快照另有 logSeen 句号版本无法在允许输入内确认 | 除非要跨日志语境统一句末标点，否则本条无需修改 |
+| entry-00918 | confirmed：名称在 wands-powers.lua:91；confirmed：与同词根条目字面一致。advisory：“魔术之”奇幻感弱；advisory：Gemini“既有译法故无问题”论证不足 | conjuration/conjure 是否统一奇幻化译名，连同戒指条目一起裁决 |
+
+共 11 个 claim：5 confirmed、4 advisory、1 refuted、1 pending。confirmed 均为源码事实与一致性核验，不是译文错误裁决。

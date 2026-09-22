@@ -241,3 +241,13 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-022-01 `2026-09-22T04:52:34.193Z`，gemini-023-01 `2026-09-22T04:52:35.792Z`。无未归档 child。
 - batch-023 三处细微观察待派 Sol，见 cross-batch-023（sha `8fb550c9f433933a1791d5db67c29985e1788b9ca226a0c491bad8b9ccfb1087`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 023/024 收获
+
+- sol-023-01：3/3 条目 11 claim（5 confirmed、4 advisory、1 refuted、1 pending），作者 Codex/gpt-5.6-sol/medium。报告 sha256 `70997b259f75e4f72ee80fcbe28ddc474f3cbda8da2bf0153613334c8379891e`。三条均无可确认的译文错误。
+- gemini-024-01：40/40（与 batch-024 条目表完全一致，该批不含 entry-00949）。Gemini 覆盖 **970/4144**。**零疑点**，batch-024 记为 `reviewed_no_issues`，不派 Sol。报告 sha256 `7c770ab0d39a13f1a946d6a1549fb881966488a29a2b8f633bc5b6a66c5cec96`。报告顺带提到批外旧译（gem.lua 11215 行「天青石」），只作跨批观察，不计入本批问题。
+- 收回核验：batch-024 / cross-batch-023 / batch-023 / gemini-023 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：sol-023-01 `2026-09-22T04:57:30.717Z`，gemini-024-01 `2026-09-22T04:57:32.319Z`。无未归档 child。
+- 记录事故与更正：一次并行写 STATE 导致 `cross-batch-023` 注册丢失，已在下一屏障按事实重新注册并在 STATE 注明原因；随后改为同一文件严格串行写入。
+- 下一片：gemini-025（batch-025，entry-00963–entry-01002），暂无排队的 Sol。
+- 更新时间见 STATE.json `updated_at`。
