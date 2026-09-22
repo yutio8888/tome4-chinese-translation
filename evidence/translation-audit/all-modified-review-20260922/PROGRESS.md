@@ -740,3 +740,10 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-074-01 `2026-09-22T13:21:18.219Z`，sol-073-01 `2026-09-22T13:21:19.757Z`。无未归档 child。
 - 下一片已就绪：batch-075（entry-02389–02428，40 条，sha `05d4a4b7207fc5fcb07c8283cfc3d35709929576cbe7d1f12217c34296e35a90`）+ cross-batch-074（6 条，sha `b1531a1a889eb23d03bc6bf7b4ef89aee38f151d33352a62e14aef4cb4b79b59`）。
 - 心跳下一跳 `13:24:00Z`（8 分钟节奏）将继续。
+
+## 心跳节奏收紧（8 分钟 → 5 分钟）
+
+- 实测近 40 轮「派发→屏障」耗时：中位 **5.7 分钟**（最近 10 轮 3.5–4.8，最慢 13.1）→ 8 分钟节奏在快轮后空等均值约 4 分钟、最坏 8 分钟，偏长。
+- 源码核算（schedule/service.js）：`appendRunningRun` 先记 run 再投递；我在跑时抛 `already has an active run` → `finishRun(status="failed")` → `countCompletedRuns(status!="running")` **计入 max-runs**。因此节奏越紧，空转 tick 越多吃预算。
+- 处置：删除 `a2146eed`（首轮 run 228a85c7 已验证），新建 **`3a947f5b`**：`*/5`（空等最坏 5 分钟）、**max-runs 400**（不再成为瓶颈）、**24h TTL**（硬上限），完成/STOP 仍自删。详见 STATE.heartbeat_automation。
+- 首个新 tick：`2026-09-22T13:30:00Z`。
