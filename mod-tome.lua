@@ -2569,7 +2569,7 @@ t("Stopped a demonic invasion by closing their portal.", "关闭传送门来阻�
 t("Invasion from the Depths", "海底入侵", "achievement name")
 t("Stopped a naga invasion by closing their portal.", "关闭传送门来阻止娜迦入侵。", "_t")
 t("The Restless Dead", "永不安息", "achievement name")
-t("Disturbed an old battlefield and survived the consequences.", "踏入古战场并最终生还。", "_t")
+t("Disturbed an old battlefield and survived the consequences.", "惊扰了古战场，并在由此引发的后果中幸存下来。", "_t")
 t("The Rat Lich", "鼠巫妖", "achievement name")
 t("Killed the terrible Rat Lich.", "杀死可怕的鼠巫妖。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "achievement name")
@@ -19742,7 +19742,9 @@ t([[You find a tattered page scrap. Perhaps this is part of a diary entry.
 
 Saw an absolutely gigantic troll, but fortunately I threw him off my scent."]], [[你找到了一片破烂的纸页残片。也许这是某篇日记的一部分。
 “……是一片美得惊人的林间空地，但我敢发誓，那东西看起来像一截人类股骨。
+
 ……
+
 看到了一只大得吓人的巨魔，不过幸好我掩住了自己的气味，把他甩掉了。”]], "_t")
 t([[You find a tattered page scrap. Perhaps this is part of a diary entry.
 "...ack again, but he's just a stupid old troll. It'll be easy to not let him get wind of me.
