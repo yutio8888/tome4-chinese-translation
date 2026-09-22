@@ -1,20 +1,35 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（审核248已验收并finalize，下一批249）
+更新时间：2026-09-22（审核249已验收并finalize，下一步修复窗口4）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
 用户持续授权连续审核和每批 push；按既定三批审核后汇总修复的窗口推进，不逐批询问。
-修复窗口3与审核247均已完成同步和推送；247远端核验为
-`6e6a7a197d226780a3bb76c1b873604200d77a65`，不得重做。审核248已提交并finalize；
+修复窗口3与审核247、248均已完成同步和推送；248远端核验为
+`7faabf3a88b2c5af346f37f469bae5bdb42d050b`，不得重做。审核249已提交并finalize；
 本交接为其推送收尾前快照，宿主随后提交交接和收据、同步队列并推送。
 恢复时核对实际HEAD、远端、SQLite及checkpoint，不重复已完成步骤。
 
-- 审核248证据提交：`da5c71175b2c9ec184e80491026bf18715b49e93`。
+- 审核249证据提交：`4fca890592dc150df90d82d01985be824de20c42`。
 - 当前catalog：`75472e42602fb1f9a44d165829a95a5c1deaaad8fde9f56fa8db5c6d187c8c6f`。
-- 248真实finalize收据见[FINALIZE-RECEIPT](evidence/quality/production-batches/batch-d83278160a384bef39ff-host-evidence/FINALIZE-RECEIPT.json)。
+- 249真实finalize收据见[FINALIZE-RECEIPT](evidence/quality/production-batches/batch-1da0a9afd2d1888c2099-host-evidence/FINALIZE-RECEIPT.json)。
 - 当前无活动审核child或生产checkpoint；原有`.ai/consult/`、`recipe`和15个旧source-workset保留，不纳入提交或清理。
+
+## 审核249：修复窗口4第三批
+
+`batch-1da0a9afd2d1888c2099`，80条固定tome来源，**72 done / 8 repair_required**。
+13条上下文复核；22项观察裁决为14 confirmed、3 refuted、5 advisory，按revision去重为8条待修复。
+5位真实reviewer均通过strict、原生来源与读取边界核验并确认归档；两个任务DONE_VERIFIED，
+127文件宿主快照独立重放通过，17项完整门禁和严格addon构建通过。
+详情见[249宿主证据](evidence/quality/production-batches/batch-1da0a9afd2d1888c2099-host-evidence/summary.md)。
+
+待修复为`e454e243b1…`换行、`e4871be69c…`腰带修饰关系、`e4afe73e4f…`大罪字幕、
+`e4c192463a…`兽人历史、`e4c5fea288…`自然精灵亚种、`e4c8e60909…`治疗反转敌方限定、
+`e50eb91c9e…`诗句可能情态、`e542306f47…`潜行动作及句界。
+基础伤害与颠茄毒素有源码支持；神器名称、传送门激活措辞、诗歌偏见意译与刃缘形状精细化仅为非阻断建议。
+临时准备脚本的旧契约节号说明已更正，实际派发prompt始终允许完整契约；未改冻结输入或既有审核记录。
+运行时contextual输入在finalize后已与提交原文逐字节核验并保留归档。
 
 ## 审核248：修复窗口4第二批
 
@@ -96,10 +111,12 @@ Rosebloom、擒抱和战吼 3 条为宿主独立补充。候选及当前 `mod-to
 
 ## 下一步
 
-1. 完成本交接与248收据的独立提交后，同步队列、push并核实远端；恢复时以实际状态为准。
-2. 无活动checkpoint且HEAD/queue一致后，继续审核 **249**，默认80条。
-3. 247—249全部完成后执行修复窗口4：当前为247的2条、248的6条正式候选，加248的1条独立补充，
-   再加入249确认项。按正式修复、复审、门禁、catalog/migration、两次队列同步与推送流程执行。
+1. 完成本交接与249收据的独立提交后，同步队列、push并核实远端；恢复时以实际状态为准。
+2. 无活动checkpoint且HEAD/queue一致后，启动修复窗口4：247的2条、248的6条、249的8条正式候选，
+   加248的1条独立补充，共17条。每个来源批次分别真实repair preflight；补充候选保持独立来源。
+3. 17条均在mod-tome.lua；捐赠说明和keepsake两条分别恢复原文7个LF，其余保持既有换行/标记/占位符。
+   长篇回忆录只修4项已确认内容，不全面重写。按正式实施、四成员复审、最终全量复审、门禁、
+   catalog/migration、两次队列同步与推送流程执行；完成后继续250。不得提前开始250绕过修复窗口。
    不把advisory、旧键blocked或范围外pending计入修复。
 
 ## 保留边界与历史
