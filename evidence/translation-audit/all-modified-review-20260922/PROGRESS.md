@@ -408,3 +408,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-041-01 `2026-09-22T07:24:43.413Z`（error 态），sol-039-01 `2026-09-22T07:24:44.962Z`。无未归档 child。
 - 下一片已就绪：batch-042（entry-01269–01281，13 条，sha `2e76acb8…`）+ cross-batch-041（6 条，sha `95e58b548d80890b21644007404e8a383531f6ceb0418e064fb5a8049e6c6069`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 041/042 收获
+
+- sol-040-01：6/6 条目 16 claim（8 confirmed、3 pending、3 advisory、2 refuted）。报告 sha256 `cfd7f19d40745e70eabbe4d8b1df4db3b654d90831b2711f72d5ce661e1373e1`，rollout `01a0c801-6ace-7793-99f0-a6050251c538`。
+- gemini-042-01：13/13（entry-01269–01281），**覆盖 1287/4144**。八处标记：01270、01271、01272、01273、01275、01278、01280 存在疑点，01277 细微观察。结论标记为 `审查结果`。报告 sha256 `9d341f4b7de135a26b70a5f7f3e9c6f45785cb7c147bada7ed5903560a4a4ec1`。
+- 收回核验：batch-042 / cross-batch-041 / batch-041 / gemini-041 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-042-01 `2026-09-22T07:31:01.852Z`，sol-040-01 `2026-09-22T07:31:03.326Z`。无未归档 child。
+- 下一片已就绪：batch-043（entry-01282–01291，10 条，sha `bc94c9d7…`）+ cross-batch-042（8 条，sha `fad3821a22ee12526a9fd7da2a69b7c5256f1c0cdf8218e84f44b7b2420e4b00`）。
+- 更新时间见 STATE.json `updated_at`。

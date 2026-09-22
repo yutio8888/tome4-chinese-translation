@@ -509,3 +509,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01247 | confirmed：对应 `keepsake-kyless-journal-3`，剧情准确；confirmed：`priceless` 译“令我感到无比快意”合乎语境；refuted：把该译法当误译的主张不成立。pending：“呆在一起”通假俗写规范应为“待在一起” | 是否按规范改“待在”，属用字规范决定 |
 
 译文未修改。Sol 三条正文核对均以源码条目 ID 对照，正面结论也原样记录。
+
+## batch-041 六处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-040-01.md](reports/sol-040-01.md)。译文未修改。共 16 个 claim：8 confirmed、3 pending、3 advisory、2 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01252 | confirmed：整体未发现问题。advisory：句号改省略号属修辞润色 | 无必办项 |
+| entry-01256 | confirmed：第二段被额外单换行切开；confirmed：末尾 `～。` 标点连用 | 并回段落、去重标点 |
+| entry-01259 | confirmed：`peace` 译“胜利”；confirmed：`newly found military might` 被窄化；confirmed：`Army of Rogues` 译“游击军”损失命名词义；pending：是否必然是 Rogue 职业双关；advisory：标题序号与二十/30 写法不统一 | 专名与职业双关待术语核对；序号统一 |
+| entry-01262 | pending：`Gaustadnes` 漏译 `-nes`；pending：是否为对 ToME 像素画师的致敬 | 需专名/彩蛋依据才能定 |
+| entry-01263 | confirmed：格式与年份无问题。advisory：“先觉/察觉”双关译法可议 | 无必办项 |
+| entry-01267 | confirmed：正文标题把 `Tract` 错成“治”并与系列译法冲突。refuted：“拾取名与打开名不一致”的说法；refuted：“无序之治”逻辑自相矛盾 | 统一系列译名，标题按 `Tract` 更正 |
+
+译文未修改。两处 refuted 是对 Gemini 严重程度与连锁推断的下修，原样转录。
