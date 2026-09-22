@@ -327,3 +327,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01038 | confirmed：主语错置，达克顿打造的是臂铠不是“厄流纪”；confirmed：`unparalleled` 被弱化；confirmed：`these` 译成“那些” | 重写首句恢复主体，另选“无与伦比/举世无双”和近指词 |
 
 共 6 个 claim：5 confirmed、1 pending。译文未修改。
+
+## batch-027 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-026-01.md](reports/sol-026-01.md)。译文未修改。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01068 | confirmed：第三个 `%s` 是物主代词（`who:his_her()`），不是敌人数量，现译“%s个敌人”是运行时可见的占位符语义错误 | 改句式保留物主关系，或按中文习惯处理该占位符，不能删参破坏参数契约 |
+| entry-01074 | confirmed：占位符、`@Source@`、`#SALMON#`、`#LAST#` 与参数角色完整。confirmed：“放出……被束缚的灵魂”与机制不符（剑只是调用被拘禁灵魂的力量，不会释放）。advisory：“模仿了%s”对应 `xmanifesting`（源码本身疑似拼写错误） | 改“调用/汲取/借用……力量”一类不暗示灵魂获释的措辞 |
+| entry-01081 | confirmed：遗漏 `once brilliant`。confirmed：`decayed` 被泛化为“破旧”，与 3723/3778/3802/3826/3850 的阶段词序列冲突。refuted：问题不是漏 `heavily`，程度已由“十分”承接 | 补“曾经辉煌/昔日璀璨”；`decayed` 改“严重朽坏/严重腐蚀” |
+
+共 8 个 claim：6 confirmed、1 advisory、1 refuted、无 pending。Sol 另注明 Gemini 行号偏移（实际 3251、3642、3778），不影响判断。译文未修改。
