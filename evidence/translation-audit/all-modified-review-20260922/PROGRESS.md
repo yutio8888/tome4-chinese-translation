@@ -956,3 +956,16 @@
 - `cross-batch-091` 已登记排队（sha `763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3`）。
 - 覆盖 **3052/4144（73.6%）**；批次 **91/130** 已复核，交叉 **90 组完成** + 1 排队。
 - 更新时间见 STATE.json `updated_at`。
+
+## 092 批次 + 091 交叉（发现输入指针错误并改派）
+
+- 派发记录 `b9` 段提交；cross-batch-091 登记与 prompt 提交 `255aee7b`。
+- **gemini-092-01：40/40 一次完成**。无「存在疑点」；细微观察 03058（`strangely` 漏译）。报告 sha256 `91d4b5d8b9a248fa7bb548d8f4ca789e3caa87132a73c3205c28ead30e4cd8d4`。
+- **sol-091-01：输入指针错误（宿主缺陷）**。`cross-batch-091.md` 最初把「冻结输入」与批次号误写成 batch-092，Sol 据 batch-092 的术语快照判定「Gemini 所述 Epoch 快照依据不存在」，因此三条均 pending。原报告保留为历史记录（sha `fc53c9625afd53df611b60ca31bdda0d07842a7329707cce797f2a33ec3d64e0`），**结论不计入本组**。
+- 更正：cross-batch-091.md 改指 batches/batch-091.md，并修正批次号；更正后 sha `7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca`。同时修正 prep 脚本（cross 文件误用下一个批次号/输入），并顺带修正 cross-batch-092.md 的同类错误（更正后 sha `c5408a31cf976b6a86096fdef27888a4397ecb6787dd45e402cdcd0613edc331`）。
+- 替代派发 `sol-091-02`（fresh child，不续跑），读更正后的 cross-batch-091，重新核验 03023/03025/03027。
+- 守卫全过：batch-092/batch-091/cross-batch-091 冻结哈希（更正前）、11 locale、非 evidence 零 diff，HEAD `b9`。
+- 归档先 persist attempts=1，一次成功并 live 复查：gemini-092-01 `2026-09-22T16:39:38.625Z`，sol-091-01 `2026-09-22T16:39:40.109Z`。
+- `cross-batch-092` 已登记排队（sha `c5408a31...`）。
+- 覆盖 **3092/4144（74.6%）**；批次 **92/130** 已复核，交叉 **90 组完成** + `cross-batch-091` 待替代复核 + `cross-batch-092` 排队。
+- 更新时间见 STATE.json `updated_at`。

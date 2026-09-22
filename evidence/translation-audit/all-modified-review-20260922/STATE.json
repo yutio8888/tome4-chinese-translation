@@ -8173,9 +8173,13 @@
    "count": 40,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-092.md",
    "input_sha256": "eceb6597d3ed24ae20bbbf5381767eb78d039584b82c38a68c446ef00b741054",
-   "status": "dispatched",
+   "status": "reviewed_awaiting_cross",
    "dispatches": [
     "gemini-092-01"
+   ],
+   "reviewed_count": 40,
+   "flagged": [
+    "entry-03058"
    ]
   },
   {
@@ -17357,13 +17361,30 @@
     "entry-03027"
    ],
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
-   "input_sha256": "763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3",
-   "status": "dispatched",
+   "input_sha256": "7c8427be20d9fcf31f4c57b4b16af0e09229b182f9f910127fca680d39b05eca",
+   "status": "queued_redispatch",
    "source_dispatch_id": "gemini-091-01",
    "dispatches": [
     "sol-091-01"
    ],
-   "host_semantic_adjudication": false
+   "host_semantic_adjudication": false,
+   "original_input_sha256": "763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3",
+   "input_correction": "原 cross-batch-091.md 把冻结输入与 batch 编号误写为 batch-092；已更正为 batch-091（术语快照含 Epoch->亚伯契）。sol-091-01 为无效输入运行，替代派发 sol-091-02。",
+   "replacement_dispatch_id": "sol-091-02",
+   "invalid_run": "sol-091-01 (input pointer error; raw kept at reports/sol-091-01.md)"
+  },
+  {
+   "cross_id": "cross-batch-092",
+   "entry_ids": [
+    "entry-03058"
+   ],
+   "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-092.md",
+   "input_sha256": "c5408a31cf976b6a86096fdef27888a4397ecb6787dd45e402cdcd0613edc331",
+   "status": "queued",
+   "source_dispatch_id": "gemini-092-01",
+   "dispatches": [],
+   "host_semantic_adjudication": false,
+   "note": "Gemini 细微观察：`strangely` 漏译，叙事反差弱化"
   }
  ],
  "child_dispatches": [
@@ -27626,9 +27647,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-091.md",
    "input_sha256": "763944930216d27d869331ce640707ea251fa9ecdb42baac47139f01311d60d3",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-091-01-prompt.md",
@@ -27660,11 +27681,20 @@
    },
    "last_error": null,
    "head_at_dispatch": "255aee7b43585287211eaf30042b59a85169a30b",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:37:10.895Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:39:40.109Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-091-01.md",
+   "raw_output_sha256": "fc53c9625afd53df611b60ca31bdda0d07842a7329707cce797f2a33ec3d64e0",
+   "raw_output_source": "pi session 01a0c9fa-7723-7162-a3ba-57be50285e6c final assistant text message",
+   "coverage": "3/3 entries, 3 claims all pending",
+   "invalid_input_pointer": true,
+   "invalid_input_detail": "cross-batch-091.md 最初误把「冻结输入」和「本次只核 batch-」指向 batch-092.md；Sol 据 batch-092 的术语快照判定 Gemini 的 Epoch 快照依据不存在。原始报告保留为历史记录，结论由 sol-091-02 替代。",
+   "conclusion_use": "superseded_by_sol-091-02"
   },
   {
    "role": "REVIEWER",
@@ -27675,9 +27705,9 @@
    "parent_agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
    "session_task_id": "all-modified-review-20260922-pi01",
    "lineage_verified": true,
-   "lifecycle": "running",
-   "archive_confirmed": false,
-   "archive_attempts_started": 0,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
    "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-092.md",
    "input_sha256": "eceb6597d3ed24ae20bbbf5381767eb78d039584b82c38a68c446ef00b741054",
    "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-092-01-prompt.md",
@@ -27709,11 +27739,17 @@
    },
    "last_error": null,
    "head_at_dispatch": "255aee7b43585287211eaf30042b59a85169a30b",
-   "harvested": false,
+   "harvested": true,
    "created_at": "2026-09-22T16:37:06.511Z",
    "profile_source": "live `paseo provider models pi` metadata; user-specified Pi/CPA profile verified 2026-09-22",
    "transport": "cli",
-   "wake": "orchestrator session a2361362 (user resume 2026-09-22)"
+   "wake": "orchestrator session a2361362 (user resume 2026-09-22)",
+   "archived_at": "2026-09-22T16:39:38.625Z",
+   "readonly_guard": "passed",
+   "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-092-01.md",
+   "raw_output_sha256": "91d4b5d8b9a248fa7bb548d8f4ca789e3caa87132a73c3205c28ead30e4cd8d4",
+   "raw_output_source": "pi session 01a0c9fa-62a8-7cdb-bf0c-d77ec3a0f82c final assistant text message",
+   "coverage": "40/40 complete (0 issues; 1 minor entry-03058)"
   }
  ],
  "locale_sha256": {
@@ -27729,7 +27765,7 @@
   "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
   "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
  },
- "updated_at": "2026-09-22T16:37:02.168499+00:00",
+ "updated_at": "2026-09-22T16:40:13.252249+00:00",
  "handoff_request": {
   "target_model": "grok-4.7",
   "scope": "orchestration and record keeping only",
@@ -27738,7 +27774,7 @@
   "accepted_at": "2026-09-22T00:23:09.969034+00:00",
   "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
  },
- "gemini_covered_total": 3052,
+ "gemini_covered_total": 3092,
  "current_recorder": {
   "task_id": "all-modified-review-20260922-pi01",
   "agent_id": "a2361362-6aab-4785-b32a-0fa873a45624",
@@ -27762,22 +27798,13 @@
   "ordered_by_user": true,
   "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
   "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-  "in_flight": [
-   {
-    "dispatch_id": "gemini-092-01",
-    "agent_id": "8155270a-bb32-4a7e-823e-023dca82fec5"
-   },
-   {
-    "dispatch_id": "sol-091-01",
-    "agent_id": "c464b1d8-fa25-45b2-b949-36137987b9df"
-   }
-  ],
+  "in_flight": [],
   "committed_coverage": 770,
   "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
   "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
   "gemini_020": "archived",
   "queued_not_dispatched": [],
-  "coverage_including_uncommitted": 3052,
+  "coverage_including_uncommitted": 3092,
   "all_children_archived": true,
   "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
   "evidence_committed": false,
@@ -27942,6 +27969,14 @@
     "label": "GLM-5.3 Flash (CPA)",
     "checked_via": "paseo provider models pi"
    }
+  }
+ ],
+ "host_process_corrections": [
+  {
+   "at": "2026-09-22T16:40:13.252249+00:00",
+   "issue": "本轮 prep 脚本生成的 cross-batch-091.md / cross-batch-092.md 把「本次只核 batch-N」和「冻结输入」指向了下一个批次（N+1）。",
+   "impact": "仅影响由脚本生成的两份 cross 文件（091、092）；088–090 为手工创建且正确。sol-091-01 因此读到 batch-092.md 的术语快照，其「Gemini 快照依据不存在」的推理前提无效。",
+   "action": "已修正两份 cross 文件与 /tmp/prep.py；sol-091-01 记为无效输入运行并保留原报告；改派 sol-091-02 用更正后的 cross-batch-091 重新核验同一三条。"
   }
  ]
 }
