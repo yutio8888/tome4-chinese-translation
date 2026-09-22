@@ -74,7 +74,7 @@
 - sol-005-partial-01 已给出 00164–00166 的分档，作者是 Sol。
 - locale 哈希未变。HEAD 仍是 2fcd543be3b49430c1974180e688b18a8258e48d。
 
-| batch-006 | 40 | reviewed_awaiting_cross | entry-00216, entry-00221, entry-00223, entry-00226, entry-00231 |
+| batch-006 | 40 | reviewed_with_cross_results | 五处已有 Sol |
 
 - sol-005-partial-01、gemini-005-02 已归档，archivedAt 2026-09-22T01:12:52.576Z。证据提交 52adbd3，未 push。
 - gemini-006-01：running；agent f4873805-db24-43b6-84c5-e79f6f5ce668。只有这一路 Gemini。
@@ -87,3 +87,19 @@
 - gemini-006-02：5 分钟打印超时。完整结论只有 entry-00201、entry-00202，均为未发现问题；entry-00203 在位置行中断。Gemini 覆盖 212/4144。无新疑点可交 Sol。
 - gemini-006-02 已归档，archivedAt 2026-09-22T01:26:42.100Z。证据提交 b4a706d。gemini-006-03 只补 entry-00203–00240，agent f99c28d3-5df2-4cb3-b177-80edac0a501f。
 - gemini-006-03：38/38，entry-00203–00240。Gemini 覆盖 250/4144。五条待 Sol。
+
+| batch-007 | 40 | reviewed_with_cross_results | 00244 refuted；00247 advisory；00254 confirmed |
+
+- gemini-006-03 已归档，archivedAt 2026-09-22T01:32:26.995Z。证据提交 465ed38，未 push。
+- gemini-007-01：running；agent 9830f32d-d2c1-4787-9a56-4a50048c6335。只有这一路 Gemini。
+- sol-006-01：running；agent e6edd402-b616-482d-bad8-60436c53a538。交叉 00216、00221、00223、00226、00231。
+- gemini-007-01：40/40。Gemini 覆盖 290/4144。三处细微观察排队等 Sol；sol-006-01 仍在运行，不并行再派 Sol。
+
+| batch-008 | 40 | reviewing |  |
+
+- gemini-007-01 已归档，archivedAt 2026-09-22T01:37:41.633Z。三处细微观察仍排队，等本路 Sol 归档后再派。
+- gemini-008-01：running；agent fd4aa2f8-26a3-4483-93dd-70f023a0617b。只有这一路 Gemini。记录补写于派发之后，父级与模型已在派发时核验。
+- sol-006-01 已归档，archivedAt 2026-09-22T01:39:34.387Z。sol-007-01 接着交叉 00244、00247、00254；agent 9fc8bea8-451e-40d8-8fe2-ef5667abdde5。gemini-008 仍在跑，本波不提交。
+- sol-007-01：3/3 已有分档。gemini-008-01 仍在运行，本波不提交，也不再派 Sol。
+- sol-007-01 已归档，archivedAt 2026-09-22T01:44:04.175Z。
+- gemini-008-01：工具结束后 5 分钟内没有最终回复。原生转录没有逐条复核。0/40，不交 Sol。
