@@ -753,3 +753,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01703 | confirmed：钩爪追加的是流血与中毒效果；confirmed：把 `physical` 写成“流血伤害”遗漏实际伤害类型。refuted：`nature` 被写成“自然毒素伤害”**并非“完全丢失”自然伤害类型**（Sol 注措辞仍属 advisory） | 按伤害类型表回改措辞 |
 
 译文未修改。refuted 是对 Gemini 表述强度的下修，原样转录。
+
+## batch-058 八处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-057-01.md](reports/sol-057-01.md)。译文未修改。共 13 个 claim：10 confirmed、2 advisory、1 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01706 / 01709 / 01711 / 01718 / 01727 | 各 1 条 confirmed（条目结论成立） | 按 Gemini 原报告逐条修；完整措辞见报告 |
+| entry-01732 | confirmed×3：漏掉致命毒素增强及触发关系；漏掉 `earth-based poison`；第二个 `%d` 缺每回合伤害单位。advisory：每轮／回合混用 | 按源码补效果与单位；统一用词 |
+| entry-01740 | confirmed：`%d` 与 `%s` 拼接产生双空格；confirmed：action 被缩窄为技能 | 修空格；放宽措辞 |
+| entry-01742 | refuted：“漏掉 `+` 导致数值机制缺失”不成立。advisory：省略 power 字样 | 不按漏机制改；power 字样可选 |
+
+译文未修改。1 条 refuted 是对 Gemini 机制推断的下修，原样转录。
