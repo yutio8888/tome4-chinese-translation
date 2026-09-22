@@ -919,3 +919,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02141 | confirmed：意译造成语义重心变化 | 文风取舍 |
 
 译文未修改。1 条 refuted、1 条 pending 原样转录。
+
+## batch-069 六处交叉结果（跨两份 Gemini 报告）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-069-01.md](reports/sol-069-01.md)。译文未修改。共 18 个 claim：10 confirmed、7 advisory、1 pending、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02148 | confirmed：`dream projection` 译“梦境守卫”，与实体名“梦境投影”及日志不一致；confirmed：占位符完整。advisory：“（可叠加）”是符合机制的解释性增补 | 统一为“梦境投影”；括号说明可留 |
+| entry-02149 | confirmed：`global speed` 译“所有速度”；confirmed：遗漏“对剩余部分继续减伤”的连续计算；confirmed：“高于基础值10／低于10”属非原文增补；confirmed：占位符正确。pending：增补数值是否对应首次学习调整。advisory：第二行缺句号 | 按源码补计算关系；增补数值待核 |
+| entry-02150 | confirmed：三占位符正确。advisory：基础值10及负体质反向影响增补；advisory：`100 %%`、`10 %%` 多余空格 | 删空格；增补是否保留 |
+| entry-02153 | confirmed：占位符正确。advisory：“鉴定”应为“检定/判定”；advisory：基础值10增补 | 改“检定”；增补取舍 |
+| entry-02181 | advisory：给抗性数值补上 `%` | 是否统一数值格式 |
+| entry-02187 | confirmed：两占位符正确；confirmed：“（怪物或被护送者）”属非原文增补且范围过窄 | 收窄或删除括注 |
+
+译文未修改。1 条 pending（增补数值来源）留主代理核对。
