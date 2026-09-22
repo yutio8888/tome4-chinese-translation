@@ -1152,3 +1152,19 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02700 | confirmed：占位符数量/顺序/数值来源正确；**refuted**：“攻击目标时”已准确表达触发条件；advisory：`%s` 后半角句点；advisory：“Bonus level”简化 | 句点/术语体例 |
 
 译文未修改。1 pending 等术语库输入；refuted 表明 Gemini 的触发条件质疑不成立。
+
+## batch-084 七处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-084-01.md](reports/sol-084-01.md)。译文未修改。共 22 个 claim：14 confirmed、4 pending、3 advisory、1 refuted。其中 **3 条 confirmed 是 Sol 自行发现、Gemini 未指出**。
+
+| 条目 | Sol 分档要点 | 人工待决 |
+| --- | --- | --- |
+| entry-02735 | confirmed：“近战反伤”机制准确、参数顺序正确；pending：`ice`→“寒冰”需术语条目 | 术语裁定 |
+| entry-02740 | confirmed：TAINT_COOLDOWN 占位符完整；pending：`taints` preferred 译法 | 术语裁定 |
+| entry-02747 | confirmed：`severed`→“被收割了”词义偏差（应为生命线被切断） | 改译 |
+| entry-02759 | confirmed：`like a heavy burden` 漏译；advisory：“虚弱帷幕”语境化成立 | 补译 |
+| entry-02763 | confirmed：15 参数正确、Harrow 词根不一、双空格；advisory：名动可不同词；pending：术语库合规；**confirmed（Sol 新增）**：`Plagued by Visions`→“扰乱幻象”语义倒置 | 统一策略；改译 |
+| entry-02764 | confirmed：日志/颜色码完整、用词差异成立；advisory：“惊扰”语气偏弱 | 统一策略 |
+| entry-02765 | **refuted**：Gemini 占位符计数 7 错（实际 9）；confirmed：9 参数保留、双空格；pending：术语核验；**confirmed×2（Sol 新增）**：`those around you` 主语误读、自动增伤被译成可选能力 | 改译×2；术语核验 |
+
+译文未修改。本组是**双向纠错样本**：Sol 修正 Gemini 计数错误，同时补充 3 条 Gemini 漏掉的 confirmed。

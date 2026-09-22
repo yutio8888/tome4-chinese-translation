@@ -870,3 +870,13 @@
 - 归档先 persist attempts、一次成功并 live 复查：gemini-084-01 `2026-09-22T15:05:40.569Z`，sol-083-01 `2026-09-22T15:05:42.096Z`。
 - 覆盖 **2772/4144（66.9%）**；批次 84/130，交叉 83 组完成。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：085 批次 + 084 交叉收口
+
+- 派发记录提交 `7720ca55`；cross-batch-084 登记与 prompt 提交 `02e4b548`。
+- **gemini-085-01：40/40 一次完成**。存在疑点 02790、02798、02805；细微观察 02775、02789、02791、02801、02806、02807。sha256 `0aadc066e65a01b213b2ad919636a6aaf4790af9ae84e7126d34f55e11843a24`，brain `3ba8a48c`。
+- **sol-084-01（cross-batch-084）：7/7 条目、22 claim**：14 confirmed、4 pending、3 advisory、1 refuted。sha256 `19dd1ab33a452d490e8974c0a17b4dd3c948ab8d3a17c7bd71453f467094aa91`，rollout `01a0c9a7`。**双向纠错**：refuted 修正 Gemini 占位符计数（7→9），同时 Sol 新增 3 条 Gemini 未指出的 confirmed（语义倒置、主语误读、自动增伤表述）。
+- 守卫全过：batch-085/cross-batch-084 冻结哈希、11 locale、非 evidence 零 diff，HEAD `7720ca55`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-085-01 `2026-09-22T15:11:51.809Z`，sol-084-01 `2026-09-22T15:11:53.314Z`。
+- 覆盖 **2812/4144（67.9%）**；批次 85/130，交叉 84 组完成。
+- 更新时间见 STATE.json `updated_at`。
