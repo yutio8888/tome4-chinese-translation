@@ -997,3 +997,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02345 | confirmed：条目结论成立 | 按原报告修 |
 
 译文未修改。完整 claim 措辞以报告为准，STATE 记录为逐条目 verdict 摘要。
+
+## batch-074 六处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-074-01.md](reports/sol-074-01.md)。译文未修改。共 8 个 claim：4 confirmed、3 advisory、1 pending、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-02352 | advisory（风格/排版） | 文风取舍 |
+| entry-02354 | confirmed：条目结论成立 | 按原报告修 |
+| entry-02356 | confirmed：条目结论成立 | 按原报告修 |
+| entry-02360 | confirmed：遗漏“全局行动速度”机制限定；confirmed：`#RED#` 后多空格。pending：术语是否规范为“全局速度” | 补机制限定；术语核对 |
+| entry-02380 | advisory（风格/排版） | 文风取舍 |
+| entry-02381 | confirmed：条目结论成立 | 按原报告修 |
+
+译文未修改。单 claim 条目在 STATE 中以 verdict 摘要记录，完整措辞以报告为准。

@@ -747,3 +747,15 @@
 - 源码核算（schedule/service.js）：`appendRunningRun` 先记 run 再投递；我在跑时抛 `already has an active run` → `finishRun(status="failed")` → `countCompletedRuns(status!="running")` **计入 max-runs**。因此节奏越紧，空转 tick 越多吃预算。
 - 处置：删除 `a2146eed`（首轮 run 228a85c7 已验证），新建 **`3a947f5b`**：`*/5`（空等最坏 5 分钟）、**max-runs 400**（不再成为瓶颈）、**24h TTL**（硬上限），完成/STOP 仍自删。详见 STATE.heartbeat_automation。
 - 首个新 tick：`2026-09-22T13:30:00Z`。
+
+## 心跳首轮（3a947f5b / run 72f03fa6）：074/075 收获 + 一次截断
+
+- 心跳 `*/5` 于 `2026-09-22T13:30:00Z` 唤醒并自动派发 gemini-075-01 + sol-074-01（`wake` 字段记录心跳 run id，派发记录提交 `95f5a94e`）。
+- sol-074-01：6/6 条目 8 claim（4 confirmed、3 advisory、1 pending）。报告 sha256 `2072d9b209255b03f428e96c9288162b5dfd2826f315068501bde6398892195d`，rollout `01a0c94f-4682-72c1-bdd2-9b974cf23cb3`。
+- **gemini-075-01 截断（非超时）**：agent 正常 idle，但最终消息在 `entry-02425` 行中截断，`02426–02428` 缺失 → **36/40**，batch-075 记 `reviewed_partial`，**覆盖 2426/4144**。报告 sha256 `7abbe6428c759ed70d9d3b7fd31c970051bb28207c93df37bf8891cb1534d8d3`；`activity_feed_note` 注明成因。
+- 已完整条目标记：存在疑点 02392、02394、02422；细微观察 02391、02393、02399（cross-batch-075 待补跑完成后与 02425–02428 结果合并登记，沿用 batch-069 先例）。
+- 处置：fresh partial retry `gemini-075-02` 只补 **entry-02425–02428（4 条）**，prompt 已备；不 resume、不重跑已完成 36 条。本轮无排队 Sol，故只派这一路。
+- 收回核验：batch-075 / cross-batch-074 / batch-074 / gemini-074 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动（diff 仅 handoff 与本轮新增报告）。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-075-01 `2026-09-22T13:36:20.836Z`，sol-074-01 `2026-09-22T13:36:22.375Z`。无未归档 child。
+- 记录自纠：本轮记录脚本 claim 计数断言误写 9（实为 8），脚本在写盘前中止、STATE 未被部分写入，已用更正断言重跑。
+- 更新时间见 STATE.json `updated_at`。
