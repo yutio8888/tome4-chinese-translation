@@ -106,10 +106,18 @@
 - gemini-008-01 已归档，archivedAt 2026-09-22T01:50:08.572Z。证据提交 86e4ba3。gemini-008-02 重试整批 40 条，agent cff6df9d-ee34-47f6-b91b-a04133cffc23。
 - gemini-008-02：40/40。Gemini 覆盖 330/4144。六条待 Sol。
 
-| batch-009 | 40 | reviewed_awaiting_cross | entry-00334, entry-00344, entry-00345, entry-00354 |
+| batch-009 | 40 | reviewed_with_cross_results | 四处已有 Sol |
 
 - gemini-008-02 已归档，archivedAt 2026-09-22T01:56:28.488Z。证据提交 9ee4287，未 push。
 - gemini-009-01：running；agent d224a483-0537-4ddf-bcd6-59a02382cd45。只有这一路 Gemini。
 - sol-008-01：running；agent a7de38dd-9888-49db-a6c9-a7ed7379d52c。交叉 00284、00286、00288、00298、00299、00318。
 - gemini-009-01：40/40。Gemini 覆盖 370/4144。四处排队交 Sol。
 - sol-008-01：6/6 已有分档，作者是 Sol。
+
+| batch-010 | 40 | reviewed_awaiting_cross | entry-00368, entry-00373, entry-00374, entry-00393–00400 |
+
+- gemini-009-01、sol-008-01 已归档，archivedAt 2026-09-22T02:03:31.521Z。证据提交 8c19c13，未 push。
+- gemini-010-01：running；agent 6f75bf3e-12f3-4f58-ad39-e2d2692234a2。只有这一路 Gemini。
+- sol-009-01：running；agent 652fea27-31a4-4470-84a7-e67d18f38ecf。交叉 00334、00344、00345、00354。
+- gemini-010-01：40/40。Gemini 覆盖 410/4144。十一条待 Sol。
+- sol-009-01：4/4 已有分档，作者是 Sol。
