@@ -850,3 +850,13 @@
 - 归档：先 persist attempts、一次成功并 live 复查 `archivedAt` `2026-09-22T14:50:25.088Z`。
 - 守卫全过：batch-082 冻结哈希、11 locale、非 evidence 零 diff，HEAD `c76bf515`。
 - 更新时间见 STATE.json `updated_at`。
+
+## 心跳延续：083 批次 + 082 交叉收口
+
+- 派发记录提交 `774cc1cb`；cross-batch-082 登记与 prompt 提交 `32921f61`。
+- **gemini-083-01：40/40 一次完成**。存在疑点 02694；细微观察 02700。sha256 `15ed8da5ab8a46f353c7977e39fbd63fc2efcb1aa0912754c6aa85d2013f428d`，brain `2a240ae0`。
+- **sol-082-01（cross-batch-082）：1/1 条目、4 claim**：1 confirmed（fallen 落词轻微）、**2 refuted**（“核心信息缺失”与“remains→骨头语义偏差”均不成立）、1 advisory。sha256 `f211a09b979aa0cc86e82d9ae44dbfb21a89b802196e7b794a2887cb35fcd37f`，rollout `01a0c999`。
+- 守卫全过：batch-083/cross-batch-082 冻结哈希、11 locale、非 evidence 零 diff，HEAD `774cc1cb`。
+- 归档先 persist attempts、一次成功并 live 复查：gemini-083-01 `2026-09-22T14:54:57.361Z`，sol-082-01 `2026-09-22T14:54:58.898Z`。
+- 覆盖 **2732/4144（65.9%）**；批次 83/130，交叉 82 组完成。
+- 更新时间见 STATE.json `updated_at`。

@@ -1128,3 +1128,16 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-02644 | **refuted**：空格责任在 02643；本条全角逗号拼接正确 | 无（修复归 02643） |
 
 译文未修改。两条 refuted 明确了**修复责任边界**：02643 删空格即可，02644 不动。
+
+## batch-082 单条目交叉结果（entry-02688）
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-082-01.md](reports/sol-082-01.md)。译文未修改。共 4 个 claim：1 confirmed、2 refuted、1 advisory、0 pending。
+
+| Claim | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| `fallen` 未明确落词 | confirmed（轻微）：译文无“倒下/阵亡”对应成分 | 是否要求逐词保留（可改“倒下同伴的骸骨”） |
+| “核心语境信息丢失” | **refuted**：效果只在骷髅/骨巨人死亡粉碎时触发，“捡骨头”已强烈暗示死亡 | 无 |
+| `remains`→“骨头”语义偏差 | **refuted**：源码即 `bones` 拾取消费逻辑，贴合机制 | 无（仅文体） |
+| “骨头”风格降级 | advisory：技能说明本身用 `bones`，语境自然一致 | 文体裁决 |
+
+译文未修改。Gemini 的「存在疑点」被 Sol 拆解为 1 confirmed（轻微）+ 2 refuted + 1 advisory——**条目级标签不等于条目被整体确认**。
