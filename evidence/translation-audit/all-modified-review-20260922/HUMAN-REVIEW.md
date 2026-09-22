@@ -766,3 +766,15 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01742 | refuted：“漏掉 `+` 导致数值机制缺失”不成立。advisory：省略 power 字样 | 不按漏机制改；power 字样可选 |
 
 译文未修改。1 条 refuted 是对 Gemini 机制推断的下修，原样转录。
+
+## batch-059 三处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-058-01.md](reports/sol-058-01.md)。译文未修改。共 9 个 claim：7 confirmed、1 advisory、1 pending、0 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01751 | confirmed：`Tier %d` 是陷阱精通技能门槛而非材质等级；confirmed：现译属跨语境误用“材质等级” | 统一“阶级 %d”（同批 entry-01747 用“最高阶级”）或“等级” |
+| entry-01767 | confirmed：第二段遗漏第二次伤害的“寒冷”属性；confirmed：占位符无损坏。advisory：有“冰冻气体”语境，影响较低 | 若求逐项完整，补“每回合造成 %0.2f 寒冷伤害” |
+| entry-01785 | confirmed：`weary body` 反译成“不知疲倦”；confirmed：`Each day` 被改成“无时无刻”；confirmed：`begin the unending hunt` 被改写成“狩猎你的下一个目标”。pending：是否受相邻 `next victim` 串文影响（根因推测） | 三处按源码回改；根因保留为推测即可 |
+
+译文未修改。Sol 明确串文根因不影响对译文错误本身的确认。
