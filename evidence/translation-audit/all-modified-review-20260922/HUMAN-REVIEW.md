@@ -808,3 +808,18 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01861 | confirmed：效果是每回合降低失衡值；confirmed：“回复失衡值”可能被读反。refuted：Gemini“未算翻译错误”不成立 | 改“每回合降低／减少 %0.1f 点失衡值” |
 
 译文未修改。2 条 refuted 是对 Gemini 判断的下修，原样转录。
+
+## batch-062 六处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-062-01.md](reports/sol-062-01.md)。译文未修改。共 11 个 claim：6 confirmed、3 advisory、1 pending、1 refuted。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01868 | confirmed：`fungi` 译“孢子”不准（真菌≠孢子）；confirmed：`reinforcing` 译“有治疗作用的”未覆盖 max_life | 统一改“真菌”“强化作用”类措辞 |
+| entry-01870 | confirmed：漏译“过量治疗不计入”（关键机制）；confirmed：`Your fungus` 译“你的孢子”。advisory：四行变五行的拆行 | 补机制句与“最多储存两回合能量”；拆行仅在要求结构时合并 |
+| entry-01891 | advisory：`natural mucus` 漏译 `natural` | 可改“天然/自然生成的粘液” |
+| entry-01895 | confirmed：漏译 `around you` 空间限定 | 补“向你周围的敌人” |
+| entry-01899 | confirmed：`all resistances` 译“抵抗”不符术语（应为“抗性/全部抗性”）。pending：技能树名“利刃/之刃”一致性（冻结输入无法证明） | 按术语改；名称一致性待取冻结条目 |
+| entry-01905 | advisory：`avoid/avoidance` 译“免疫”过泛。refuted：未重复“流血伤害”不构成问题 | 可改“免受伤害几率”；重复措辞不改 |
+
+译文未修改。1 条 refuted、1 条 pending 原样转录。
