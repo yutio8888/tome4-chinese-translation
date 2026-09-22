@@ -2565,10 +2565,64 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-025.md",
       "input_sha256": "88cc03f53994d11581041aecd26c3783c63c822aa8b3324515cc4159a538a8ef",
-      "status": "dispatched",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-025-01"
-      ]
+      ],
+      "covered_entry_ids": [
+        "entry-00963",
+        "entry-00964",
+        "entry-00965",
+        "entry-00966",
+        "entry-00967",
+        "entry-00968",
+        "entry-00969",
+        "entry-00970",
+        "entry-00971",
+        "entry-00972",
+        "entry-00973",
+        "entry-00974",
+        "entry-00975",
+        "entry-00976",
+        "entry-00977",
+        "entry-00978",
+        "entry-00979",
+        "entry-00980",
+        "entry-00981",
+        "entry-00982",
+        "entry-00983",
+        "entry-00984",
+        "entry-00985",
+        "entry-00986",
+        "entry-00987",
+        "entry-00988",
+        "entry-00989",
+        "entry-00990",
+        "entry-00991",
+        "entry-00992",
+        "entry-00993",
+        "entry-00994",
+        "entry-00995",
+        "entry-00996",
+        "entry-00997",
+        "entry-00998",
+        "entry-00999",
+        "entry-01000",
+        "entry-01001",
+        "entry-01002"
+      ],
+      "issue_entry_ids": [
+        "entry-00972",
+        "entry-00980",
+        "entry-00984",
+        "entry-00992",
+        "entry-00997",
+        "entry-01000",
+        "entry-01001",
+        "entry-01002"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-025-01.md",
+      "raw_output_sha256": "07bad303875fa5739086b728bbc93438dd7c4bbe2b701bdfe00c02e8420dadc9"
     },
     {
       "batch_id": "batch-026",
@@ -8589,6 +8643,25 @@
       ],
       "verdict_author": "Codex/gpt-5.6-sol/medium",
       "completed_at": "2026-09-22T04:57:48.989069+00:00"
+    },
+    {
+      "cross_id": "cross-batch-025",
+      "entry_ids": [
+        "entry-00972",
+        "entry-00980",
+        "entry-00984",
+        "entry-00992",
+        "entry-00997",
+        "entry-01000",
+        "entry-01001",
+        "entry-01002"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-025.md",
+      "input_sha256": "41d129ee9eb94f3bcdb95e9528e08ed2dc2612772bcf5e91445ede42378658bd",
+      "status": "queued",
+      "source_dispatch_id": "gemini-025-01",
+      "dispatches": [],
+      "host_semantic_adjudication": false
     }
   ],
   "child_dispatches": [
@@ -11345,9 +11418,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-025.md",
       "input_sha256": "88cc03f53994d11581041aecd26c3783c63c822aa8b3324515cc4159a538a8ef",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-025-01-prompt.md",
@@ -11379,10 +11452,17 @@
       },
       "last_error": null,
       "head_at_dispatch": "669d878fc887e975c1aba6b39a051700ab2a3cb0",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T04:58:13.735Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-025-01.md",
+      "raw_output_sha256": "07bad303875fa5739086b728bbc93438dd7c4bbe2b701bdfe00c02e8420dadc9",
+      "raw_output_source": "antigravity transcript_full.jsonl brain 4d1279f6-4b0d-4785-b3db-d337feb9a393 final non-empty PLANNER_RESPONSE step_index 103",
+      "coverage": "40/40 exact match with batch entry list (entry-00963 through entry-01002)",
+      "activity_feed_note": "Report uses five-hash ##### entry headings; 40 unique ids, 8 flagged. Archive call returned already archived, live archivedAt confirmed.",
+      "archived_at": "2026-09-22T05:03:24.297Z"
     }
   ],
   "locale_sha256": {
@@ -11398,7 +11478,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T04:58:24.345431+00:00",
+  "updated_at": "2026-09-22T05:04:01.029441+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -11407,7 +11487,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 970,
+  "gemini_covered_total": 1010,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
@@ -11458,32 +11538,25 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [
-      {
-        "dispatch_id": "gemini-025-01",
-        "agent_id": "8ccd8225-2b66-4a71-a2d6-e8c838d37fbf",
-        "status": "running",
-        "scope": "batch-025 40 entries"
-      }
-    ],
+    "in_flight": [],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
     "gemini_020": "archived",
     "queued_not_dispatched": [],
-    "coverage_including_uncommitted": 970,
+    "coverage_including_uncommitted": 1010,
     "all_children_archived": true,
     "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
     "evidence_committed": false,
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
-    "updated_at": "2026-09-22T04:57:48.989069+00:00",
+    "updated_at": "2026-09-22T05:03:48.498720+00:00",
     "status": "resumed",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "669d878 batch024 no-issue coverage + batch023 cross committed; no queued Sol"
+    "last_barrier": "pending: gemini-025-01 archived, records to commit; 8 entries queued for Sol"
   },
   "recorder_continuation": [
     {

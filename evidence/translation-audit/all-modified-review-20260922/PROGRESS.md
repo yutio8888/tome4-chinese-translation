@@ -251,3 +251,11 @@
 - 记录事故与更正：一次并行写 STATE 导致 `cross-batch-023` 注册丢失，已在下一屏障按事实重新注册并在 STATE 注明原因；随后改为同一文件严格串行写入。
 - 下一片：gemini-025（batch-025，entry-00963–entry-01002），暂无排队的 Sol。
 - 更新时间见 STATE.json `updated_at`。
+
+## 025 收获
+
+- gemini-025-01：40/40（entry-00963–entry-01002，`#####` 五级标题格式，逐条解析与批次条目表完全一致）。Gemini 覆盖 **1010/4144**。八处标记：00992、01001 为存在疑点；00972、00980、00984、00997、01000、01002 为细微观察。报告 sha256 `07bad303875fa5739086b728bbc93438dd7c4bbe2b701bdfe00c02e8420dadc9`。
+- 收回核验：batch-025 / batch-024 / gemini-024 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`；调用返回已归档，live 复查 `Archived=true`、`archivedAt` `2026-09-22T05:03:24.297Z`。无未归档 child。
+- 八处待派 Sol，见 cross-batch-025（sha `41d129ee9eb94f3bcdb95e9528e08ed2dc2612772bcf5e91445ede42378658bd`）。
+- 更新时间见 STATE.json `updated_at`。
