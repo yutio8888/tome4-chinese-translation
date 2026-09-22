@@ -623,3 +623,12 @@
 - 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-063-01 `2026-09-22T10:13:59.046Z`，sol-062-01 `2026-09-22T10:14:00.568Z`。无未归档 child。
 - 下一片已就绪：batch-064（entry-01948–01987，40 条，sha `f644ce5987f182800db1cb369915250184b60bdbce043619384f67eea99697d0`）+ cross-batch-063（5 条，sha `8334ecdfc0f9a633dbb8bb372474e498e7bd1ad6de06d7abb98e2cd3e6c26084`）。
 - 更新时间见 STATE.json `updated_at`。
+
+## 063/064 收获
+
+- sol-063-01：5/5 条目 8 claim（4 confirmed、3 advisory、1 refuted）。报告 sha256 `07f5d3972ebf2f1bf9d3f64ac6bf7f2b4485d366683ec0fdfceb9b9c0595ffff`，rollout `01a0c89c-720a-7fa0-81eb-6424c63c2c79`。
+- gemini-064-01：40/40（entry-01948–01987）。**覆盖 1990/4144**。四处标记：01980 存在疑点；01970、01976、01984 细微观察。报告 sha256 `966cc6456333042b3717d818ed47250a7674ac5094f8643262fc8f18368113bc`。
+- 收回核验：batch-064 / cross-batch-063 / batch-063 / gemini-063 冻结哈希一致；11 个 locale 哈希一致；evidence 以外无改动。
+- 归档：先 `archive_attempts_started=1`，一次成功并 live 确认：gemini-064-01 `2026-09-22T10:19:29.536Z`，sol-063-01 `2026-09-22T10:19:31.018Z`。无未归档 child。
+- 下一片已就绪：batch-065（entry-01988–02027，40 条，sha `db11b7a7f4cd018696d086e99379438c97a6391a928080f9ed523d0efea7ead0`）+ cross-batch-064（4 条，sha `46002e1c5e76da0ae804b8979acc47be43b215848718cda3dca1ef2e001c6797`）。
+- 更新时间见 STATE.json `updated_at`。

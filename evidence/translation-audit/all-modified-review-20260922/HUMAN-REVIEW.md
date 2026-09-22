@@ -823,3 +823,17 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01905 | advisory：`avoid/avoidance` 译“免疫”过泛。refuted：未重复“流血伤害”不构成问题 | 可改“免受伤害几率”；重复措辞不改 |
 
 译文未修改。1 条 refuted、1 条 pending 原样转录。
+
+## batch-063 五处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-063-01.md](reports/sol-063-01.md)。译文未修改。共 8 个 claim：4 confirmed、3 advisory、1 refuted、0 pending。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01911 | advisory：原文前两句换行被合并 | 仅在要求段落结构时恢复 |
+| entry-01913 | confirmed×3：漏译“受技能等级和召唤上限限制”；“受到攻击”错误扩大/改变触发条件；末句省略“分裂”只写“几率受灵巧加成” | 三处按源码回改 |
+| entry-01919 | confirmed：“最多4倍”把提升次数误译成倍率 | 改“最多提升 4 次”类表述 |
+| entry-01924 | advisory：“伤害受精神强度加成”缺句号。refuted：“最多移动20次”并入首句属排版瑕疵不成立 | 补句号；不按拆句改 |
+| entry-01945 | advisory（仅部分成立）：`burn and crush your foes to death` 概括成“摧毁敌人”，漏掉烧灼与碾碎 | 是否补两层动作属文风 |
+
+译文未修改。1 条 refuted 是对 Gemini 排版判断的下修，原样转录。
