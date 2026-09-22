@@ -685,3 +685,26 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01498 | confirmed：寻找线索的动作关系被颠倒（应先找到传送门进入远东，再调查线索）；confirmed：同一 `far east` 被译成两个地理称呼。Sol 另注 Gemini 行号 `:24` 应为 `:26` | 调整行动顺序句；统一地名 |
 
 译文未修改。1 条 refuted 是对 Gemini 场景判断的下修，原样转录。
+
+## batch-053 十四处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-052-01.md](reports/sol-052-01.md)。译文未修改。共 35 个 claim：20 confirmed、10 advisory、3 refuted、2 pending。本轮以占位符/机制核对为主。
+
+| 条目 | Sol 分档要点 |
+| --- | --- |
+| entry-01508 | confirmed：8 个占位符正确。advisory：句号与斜杠空格不统一 |
+| entry-01509 | confirmed：两个 `%d` 正确；confirmed：机制为“先清当前赞歌类型全部 cross-tier 效果，再随机清最多 `%d` 个同类型普通负面状态”。refuted：Gemini 称括号补充“不影响实质机制理解”过于乐观 |
+| entry-01510 | confirmed：三个 `%d` 顺序正确。advisory：末句另起一行 |
+| entry-01512 | confirmed：`%0.1f`/`%d` 对齐；confirmed：版本差异属实——“强化护盾持续至少 2 回合”在冻结英文与译文都缺（源码 `shield.dur = math.max(2, shield.dur)`） |
+| entry-01514 | confirmed：四占位符正确。advisory：首行缺句末标点、未保留英文括号 |
+| entry-01516 | confirmed：三个 `%d%%` 对应正确。advisory：`%d%% , 持续` 逗号空格不规范 |
+| entry-01517 | confirmed：四占位符正确。advisory：逗号前多余空格；advisory：“灼烧痕迹”未体现独立 `EFF_LIGHTBURN` 状态（无权威中文名） |
+| entry-01518 | confirmed：两个 `%d%%` 对应半径1/2 伤害；advisory：两行合一行无遗漏。refuted：Gemini 称 4 级护盾“对齐无误”不准确，实为 `cancel_damage_chance = 100` 免疫所有伤害 |
+| entry-01528 | confirmed：五占位符与颜色标签正确。advisory：补句号与“圣印”后缀属可接受整理 |
+| entry-01531 | confirmed：改写语义等价，正确源码 `guardian.lua:183-203`（Gemini 写成 `:149`）。pending：`Crusade` 是否已定名“十字军打击” |
+| entry-01534 | confirmed：四占位符正确；confirmed：`HEALING_POWER` 治疗+护盾+至少2回合+20次移除。advisory：英文无句号中文补句号 |
+| entry-01536 | confirmed：四占位符正确；confirmed：`blindness resistance`→“免疫”符合 `blind_immune`。refuted：把 `normal light` 限定为“灯具”不准确（实为 `self.lite` vs `radiance_aura`）。pending：“光系伤害亲和/吸收”术语裁决 |
+| entry-01543 | confirmed：源码为感叹号版本且位置 `twilight.lua:215-219`；confirmed：与术语快照句号规则不一致。advisory：仅标点差异 |
+| entry-01554 之外的 entry-01544 | confirmed：采用第二座跃迁门实际子技能有源码依据；confirmed：`%d` 对应该子技能有效距离 |
+
+译文未修改。3 条 refuted 与 2 条 pending 均原样转录；多处 Gemini 行号被 Sol 校正。
