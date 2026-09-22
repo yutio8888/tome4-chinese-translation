@@ -5651,10 +5651,64 @@
       "count": 40,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-066.md",
       "input_sha256": "2fd7f5f42e02abd6e6097700caf4844b280950755028fe6b426e9cc7febc8356",
-      "status": "dispatched",
+      "status": "reviewed_awaiting_cross",
       "dispatches": [
         "gemini-066-01"
-      ]
+      ],
+      "covered_entry_ids": [
+        "entry-02028",
+        "entry-02029",
+        "entry-02030",
+        "entry-02031",
+        "entry-02032",
+        "entry-02033",
+        "entry-02034",
+        "entry-02035",
+        "entry-02036",
+        "entry-02037",
+        "entry-02038",
+        "entry-02039",
+        "entry-02040",
+        "entry-02041",
+        "entry-02042",
+        "entry-02043",
+        "entry-02044",
+        "entry-02045",
+        "entry-02046",
+        "entry-02047",
+        "entry-02048",
+        "entry-02049",
+        "entry-02050",
+        "entry-02051",
+        "entry-02052",
+        "entry-02053",
+        "entry-02054",
+        "entry-02055",
+        "entry-02056",
+        "entry-02057",
+        "entry-02058",
+        "entry-02059",
+        "entry-02060",
+        "entry-02061",
+        "entry-02062",
+        "entry-02063",
+        "entry-02064",
+        "entry-02065",
+        "entry-02066",
+        "entry-02067"
+      ],
+      "issue_entry_ids": [
+        "entry-02028",
+        "entry-02032",
+        "entry-02043",
+        "entry-02050",
+        "entry-02058",
+        "entry-02066",
+        "entry-02067"
+      ],
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-066-01.md",
+      "raw_output_sha256": "ec4b5fcc79fb18aa71d420250427956b279bc37cbfaaf3bf6ab4949a462949a2",
+      "coverage_note": "存在疑点 02058；细微观察 02028、02032、02043、02050、02066、02067。"
     },
     {
       "batch_id": "batch-067",
@@ -13908,11 +13962,116 @@
       ],
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-065.md",
       "input_sha256": "7f6eceda3caaf930b9db4bcd498448e02fa25d3e42090ff249703a759e7466ad",
-      "status": "dispatched",
+      "status": "completed",
       "source_dispatch_id": "gemini-065-01",
       "dispatches": [
         "sol-065-01"
       ],
+      "host_semantic_adjudication": false,
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-065-01.md",
+      "raw_output_sha256": "cc3eace6226a47d5768c66d9bb97a907e554971d0bcc3022a0557ef2a71ebf7d",
+      "recorded_cross_verdicts": [
+        {
+          "entry_id": "entry-01988",
+          "claim": "括号数值被拆成独立行（仅版式）",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01988",
+          "claim": "“致死的伤害”略有加词",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-01988",
+          "claim": "这是历史遗留文本（旧串仅存于 zh_hans.lua）",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01989",
+          "claim": "中英文分号混用（`-%d 死亡底线；持续 %d;`）",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-01994",
+          "claim": "“脱离相位”与效果名“脱离现实”不一致（本句描述性短语本身准确）",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-02000",
+          "claim": "当前数值括号被拆行",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-02004",
+          "claim": "`beam down` 译“哔的一下”过于口语化",
+          "verdict": "advisory"
+        },
+        {
+          "entry_id": "entry-02015",
+          "claim": "`claws sharp and ready` 被动作化为“用尖利的爪子攻击”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02022",
+          "claim": "并非引导法术（一次性 action 挂 4 回合效果于目标）",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02022",
+          "claim": "施法者随后可移动和使用其他技能",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02022",
+          "claim": "实际结算是时空伤害而非无条件立即死亡",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02023",
+          "claim": "两处“冰冷伤害”应按术语为“寒冷”",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02024",
+          "claim": "遗漏 lightning 伤害类型",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02025",
+          "claim": "第二行缺句号",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02026",
+          "claim": "概率与“额外获得”之间被硬拆行",
+          "verdict": "confirmed"
+        },
+        {
+          "entry_id": "entry-02027",
+          "claim": "背景句被明显压缩（漏灵巧、智取、肉体/精神攻击）",
+          "verdict": "confirmed"
+        }
+      ],
+      "verdict_author": "Codex/gpt-5.6-sol/medium",
+      "completed_at": "2026-09-22T10:41:38.264626+00:00",
+      "note": "Sol 明确没有必须标 pending 的 claim；12 条全部给出分档。"
+    },
+    {
+      "cross_id": "cross-batch-066",
+      "entry_ids": [
+        "entry-02028",
+        "entry-02032",
+        "entry-02043",
+        "entry-02050",
+        "entry-02058",
+        "entry-02066",
+        "entry-02067"
+      ],
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-066.md",
+      "input_sha256": "8d9a6efcbba282e2d25b13326ee0de9e014b2c4a6797258eafee482958dd24b8",
+      "status": "queued",
+      "source_dispatch_id": "gemini-066-01",
+      "dispatches": [],
       "host_semantic_adjudication": false
     }
   ],
@@ -21160,9 +21319,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/batches/batch-066.md",
       "input_sha256": "2fd7f5f42e02abd6e6097700caf4844b280950755028fe6b426e9cc7febc8356",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/gemini-066-01-prompt.md",
@@ -21194,10 +21353,16 @@
       },
       "last_error": null,
       "head_at_dispatch": "42466d0fcc049250e43193951906280a0b10be96",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T10:36:05.792Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_review_fallback_antigravity_gemini37_flash",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/gemini-066-01.md",
+      "raw_output_sha256": "ec4b5fcc79fb18aa71d420250427956b279bc37cbfaaf3bf6ab4949a462949a2",
+      "raw_output_source": "antigravity transcript_full.jsonl brain f67cb809-5a56-4c7e-9c9c-985319fb9cb3 final non-empty PLANNER_RESPONSE step_index 123",
+      "coverage": "40/40 entry-02028 through entry-02067",
+      "archived_at": "2026-09-22T10:41:14.249Z"
     },
     {
       "role": "REVIEWER",
@@ -21208,9 +21373,9 @@
       "parent_agent_id": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
       "session_task_id": "all-modified-review-20260922-resume01",
       "lineage_verified": true,
-      "lifecycle": "running",
-      "archive_confirmed": false,
-      "archive_attempts_started": 0,
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
       "input_path": "evidence/translation-audit/all-modified-review-20260922/cross-batch-065.md",
       "input_sha256": "7f6eceda3caaf930b9db4bcd498448e02fa25d3e42090ff249703a759e7466ad",
       "prompt_path": "evidence/translation-audit/all-modified-review-20260922/dispatches/sol-065-01-prompt.md",
@@ -21242,10 +21407,16 @@
       },
       "last_error": null,
       "head_at_dispatch": "42466d0fcc049250e43193951906280a0b10be96",
-      "harvested": false,
+      "harvested": true,
       "created_at": "2026-09-22T10:35:59.730Z",
       "profile_source": "live daemon config daemon/agentProfiles agent_profile_mt3s8sou_fggrhfnq1gj",
-      "transport": "cli"
+      "transport": "cli",
+      "readonly_guard": "passed",
+      "raw_output_path": "evidence/translation-audit/all-modified-review-20260922/reports/sol-065-01.md",
+      "raw_output_sha256": "cc3eace6226a47d5768c66d9bb97a907e554971d0bcc3022a0557ef2a71ebf7d",
+      "raw_output_source": "codex rollout 01a0c8af-cd79-7961-b52a-f389874752e4 final assistant output_text",
+      "coverage": "12/12 entry-01988..02027 (16 leaf claims)",
+      "archived_at": "2026-09-22T10:41:15.777Z"
     }
   ],
   "locale_sha256": {
@@ -21261,7 +21432,7 @@
     "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
     "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
   },
-  "updated_at": "2026-09-22T10:38:01.409126+00:00",
+  "updated_at": "2026-09-22T10:41:38.307172+00:00",
   "handoff_request": {
     "target_model": "grok-4.7",
     "scope": "orchestration and record keeping only",
@@ -21270,7 +21441,7 @@
     "accepted_at": "2026-09-22T00:23:09.969034+00:00",
     "accepted_by": "689b484a-da2e-4370-860a-1d5f67a61a41"
   },
-  "gemini_covered_total": 2030,
+  "gemini_covered_total": 2070,
   "current_recorder": {
     "task_id": "all-modified-review-20260922-grok01",
     "agent_id": "689b484a-da2e-4370-860a-1d5f67a61a41",
@@ -21321,38 +21492,25 @@
     "ordered_by_user": true,
     "recorder": "689b484a-da2e-4370-860a-1d5f67a61a41",
     "rule": "Finish the in-flight round, harvest and archive it, then stop. Do not dispatch batch-021 or any later batch. Do not open another Sol after sol-019-01 is harvested.",
-    "in_flight": [
-      {
-        "dispatch_id": "gemini-066-01",
-        "agent_id": "cef37154-bfba-4de0-b87c-5bdd6965b683",
-        "status": "running",
-        "scope": "batch-066 40 entries"
-      },
-      {
-        "dispatch_id": "sol-065-01",
-        "agent_id": "2fe6f06a-d0d6-46ba-b6b8-99473bc6e7c3",
-        "status": "running",
-        "scope": "batch-065 twelve entries"
-      }
-    ],
+    "in_flight": [],
     "committed_coverage": 770,
     "committed_head": "a711b997a4a6ca43e37d46daf893aee3d2d3e306",
     "handoff": "evidence/translation-audit/all-modified-review-20260922/HANDOFF-PAUSE.md",
     "gemini_020": "archived",
     "queued_not_dispatched": [],
-    "coverage_including_uncommitted": 2030,
+    "coverage_including_uncommitted": 2070,
     "all_children_archived": true,
     "sol_019": "archived 2026-09-22T04:04:22.918Z; harvest+archive+transcribe done",
     "evidence_committed": false,
     "commit_note": "User directive 2026-09-22: batch evidence stays uncommitted for now (this line was still reviewing when the previous orchestrator stopped). No commit, no push after this pause harvest.",
     "stopped_after": "sol-019-01 harvest/archive/transcribe; no batch-021, no new Sol, cross-batch-020 still queued_paused",
-    "updated_at": "2026-09-22T10:25:33.825321+00:00",
+    "updated_at": "2026-09-22T10:41:38.264626+00:00",
     "status": "resumed",
     "resumed_at": "2026-09-22T04:36:28.967820+00:00",
     "resumed_by_session": "c59be24f-5acc-4fa5-b130-41a33cf142fc",
     "resume_instruction": "User 2026-09-22: handoff files stay uncommitted; commit the rest; continue the review following the previous process (1 Gemini at a time + 1 Sol in parallel, live profile/model checks, harvest/archive/record per batch).",
     "rule_superseded": "the no-dispatch rule above applied only until explicit user resume",
-    "last_barrier": "42466d0 batch065 coverage + batch064 cross committed"
+    "last_barrier": "pending: gemini-066-01 + sol-065-01 archived, records to commit"
   },
   "recorder_continuation": [
     {

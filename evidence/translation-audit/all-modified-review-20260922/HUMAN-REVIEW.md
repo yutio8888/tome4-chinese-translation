@@ -850,3 +850,24 @@ Sol 自报共 17 个 claim：11 confirmed、3 pending、3 advisory、0 refuted�
 | entry-01984 | confirmed×3：固定版实为 15 回合；10 回合条目在固定版不命中（仅 locale 数据）；旧条目语义本身准确 | 作为历史陈旧键单独清理，不与 01980 同级修复 |
 
 译文未修改。Sol 的分档直接决定修复优先级，原样转录。
+
+## batch-065 十二处交叉结果
+
+作者是 Codex/gpt-5.6-sol/medium。主代理只转录。完整文本见 [sol-065-01.md](reports/sol-065-01.md)。译文未修改。共 16 个 claim：11 confirmed、5 advisory、0 pending/refuted（Sol 明确无必须挂起项）。
+
+| 条目 | Sol 分档 | 人工待决 |
+| --- | --- | --- |
+| entry-01988 | confirmed：这是历史遗留文本（旧串只在 `zh_hans.lua`，现行技能描述已含“生命≤0 最多+100%”）。advisory：括号数值拆行；advisory：“致死的伤害”略加词 | 历史键单独清理；版式与措辞低优先级 |
+| entry-01989 | confirmed：中英文分号混用 | 统一分号 |
+| entry-01994 | advisory：“脱离相位”与状态名“脱离现实”不一致，但本句描述性短语本身准确 | 是否要求技能说明复用状态栏名 |
+| entry-02000 | advisory：当前数值括号被拆行（信息完整） | 版式取舍 |
+| entry-02004 | advisory：`beam down` 译“哔的一下”口语化（三个信息点保留） | 文风取舍 |
+| entry-02015 | confirmed：`claws sharp and ready` 被动作化为“用尖利的爪子攻击”，实际动作是冲向目标并定身 | 按源码回改动作描述 |
+| entry-02022 | confirmed×3：并非引导法术（4 回合效果挂目标）；施法者可自由移动施技；实际结算是时空伤害而非无条件立即死亡 | 三处按源码重写，避免“引导法术”误导 |
+| entry-02023 | confirmed：两处“冰冷伤害”应按术语“寒冷” | 按术语改 |
+| entry-02024 | confirmed：遗漏 `lightning` 伤害类型 | 补闪电伤害 |
+| entry-02025 | confirmed：第二行缺句号 | 补句号 |
+| entry-02026 | confirmed：概率与“额外获得”之间被硬拆行 | 并句 |
+| entry-02027 | confirmed：背景句被明显压缩（漏灵巧、智取、肉体/精神攻击三层） | 按源码恢复三层信息 |
+
+译文未修改。Sol 提示 01988 与 batch-064 的 01984 同属历史陈旧键，宜一并纳入专门清理。
