@@ -12223,7 +12223,7 @@ section "mod-tome/data/general/objects/wands.lua"
 t("charm", "护符", "entity type")
 t("wand", "魔杖", "entity subtype")
 t("wand", "魔杖", "_t")
-t("Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.", "魔杖被炼金术师和大法师用来储存法术。任何人可以用它来释放储存的法术。", "_t")
+t("Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.", "魔杖由强大的炼金术师和大法师制造，用于储存法术。任何人都可以用它释放其中的法术。", "_t")
 t("elm wand", "榆木魔杖", "entity name")
 t("elm", "榆木", "entity short_name")
 t("ash wand", "白蜡魔杖", "entity name")
@@ -29700,12 +29700,12 @@ t([[You root yourself into the earth, and transform your flesh into stone.  Whil
 		Your stone form and your affinity with the earth while the spell is active has the following effects:
 		* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%.
 		* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.
-		Resistances scale with your Spellpower.]], [[你将自己扎根于土壤并使你的肉体融入石头。
-		当此技能被激活时你不能移动并且任何移动会打断此技能效果。
-		当此技能激活时，受你的石化形态和土壤相关影响，会产生以下效果：
-		* 减少岩石飞弹、粉碎钻击、地震和山崩地裂冷却时间回合数：%d%%
-		* 获得 %d%% 火焰抗性，%d%% 闪电抗性，%d%% 酸性抗性和 %d%% 震慑抵抗。
-		受法术强度影响，抗性按比例加成。]], "tformat")
+		Resistances scale with your Spellpower.]], [[你将自己扎根于大地，并将肉体化为石头。
+		在此法术维持期间，你无法移动，任何强制位移都会终止此效果。
+		此法术激活时，你的石化形态和与大地的亲和力会产生以下效果：
+		* 使岩石飞弹、粉碎钻击、地震和山崩地裂的冷却时间缩短 %d%%。
+		* 获得 %d%% 火焰抗性、%d%% 闪电抗性、%d%% 酸性抗性和 %d%% 震慑抵抗。
+		抗性随法术强度提升。]], "tformat")
 t("Earthquake", "地震", "talent name")
 t([[Causes a violent earthquake that deals %0.2f physical damage in a radius of %d each turn for %d turns, and potentially stuns any and all creatures it affects.
 		The damage will increase with your Spellpower.]], [[引起一波强烈的地震，每回合造成 %0.2f 物理伤害（%d 码半径范围），持续 %d 回合。有概率震慑此技能所影响到的怪物。
@@ -30529,10 +30529,10 @@ t("Crushing Hold", "碾压擒抱", "talent name")
 t([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.
 		#RED#Talent Level 1:  Reduces physical power by %d
 		Talent Level 3:  Silences
-		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，获得额外效果，所有效果不需通过其他豁免或抵抗鉴定。
-		#RED# 等级 1：减少 %d 物理强度
-		等级 3：沉默
-		等级 5：目标减速 %d%%]], "tformat")
+		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。
+		#RED#技能等级 1：降低目标 %d 点物理强度
+		技能等级 3：沉默
+		技能等级 5：降低目标 %d%% 全局速度]], "tformat")
 t("Take Down", "关节技：抱摔", "talent name")
 t("You cannot move!", "你无法移动！", "logPlayer")
 t([[Rushes forward and attempts to take the target to the ground, making a melee attack for %d%% damage then attempting to grapple them. If you're already grappling the target you'll instead slam them into the ground creating a radius 5 shockwave for %d physical damage and breaking your grapple.
@@ -36909,7 +36909,7 @@ t("#CRIMSON##Target# is torn open by the powerful blow!", "#CRIMSON##Target# 被
 t("+Self-Judgement", "+自我审判", "_t")
 t("#CRIMSON##Target#'s wound has closed.", "#CRIMSON##Target#的伤口闭合了。", "_t")
 t("-Self-Judgement", "-自我审判", "_t")
-t("died a well-deserved death by exsanguination", "因失血过多而死，死得其所", "_t")
+t("died a well-deserved death by exsanguination", "因失血过多而死，罪有应得", "_t")
 t("#CRIMSON#%d Bleed #LAST#", "#CRIMSON#%d 流血 #LAST#", "tformat")
 -- untranslated text
 --[==[
