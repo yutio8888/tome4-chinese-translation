@@ -1,0 +1,48 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 15,
+      "native_calls_sha256": "ed1939056bde108900045537aa8c5d14b8afaebcbbfdb34247b1be1f9b27de84",
+      "writes": [
+        "mod-tome.lua (4 targets via apply_patch, verify.py PASS)",
+        "evidence/quality/repair-window-11-20260923/* (apply_patch add + cp of frozen inputs)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "docs/agent-workflow.md, i18n/README.md (grep)",
+        "prior window 9 evidence format",
+        "pinned source via git show 624a673"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "git_status": [
+        " M mod-tome.lua",
+        "?? .ai/consult/",
+        "?? evidence/quality/production-batches/batch-0e235b796c17c97b2863-source-workset.json",
+        "?? evidence/quality/production-batches/batch-0fcb7931742e08786da0-source-workset.json"
+      ]
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 9,
+      "native_calls_sha256": "846c0bdd49091c4529b25120dc173930a366403e76619212604f88314c1b7441",
+      "writes": [
+        "mod-tome.lua (ebcb3ef071 one clause only, verify.py PASS)",
+        "evidence/quality/repair-window-11-20260923/FIX-F1.md"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua",
+        "pinned torment.lua 144–149"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核257已完成；下一步修复窗口11，仅处理257的4条）
+更新时间：2026-09-23（修复窗口11已完成；待宿主发布收尾，随后审核258）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -100,6 +100,27 @@ contextual `claude/claude-opus-5-5` 为 2 OK / 3 ISSUE；8 个观察裁决为 7 
 下一步按 1:1 节奏开修复窗口11，仅处理 257 的 4 条：Trollmire 日记残页（两处空行与 get wind of 习语）、
 Torment 伤害阈值“超过至少”、鼠巫妖头骨未鉴定名 dusty rat skull、角色面板 Effect resistances 标题（免疫→抗性）。
 范围见 `.ai/task/batch-88cfb30f797898ed8ef5/WINDOW11-REPAIR-DECISION.json`；可复用窗口10b 模板，失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口11已完成。任务 `repair-w11-20260923` 的 `execute-01` 实施审核257的4条确认项：
+Trollmire 日记残页两处空行与 `get wind of` 习语、Torment 伤害阈值与判定方式、鼠巫妖头骨
+未鉴定名、角色面板“状态效果抗性”标题。`REVIEW(0)/full`（`codex/gpt-6-sol`）为
+3 OK / 1 ISSUE：Torment 应对每个冷却中的技能分别判定概率；reviewer 回显 `revision_key`
+有一段重复，经原生日志核实后由宿主 hand-attribution，原始字节保留于 `r0a1-original.raw`，
+宿主最初判为 pending。`FINAL(1)/full`（`claude/claude-opus-5-5`）同样为 3 OK / 1 ISSUE；
+宿主依据固定源码和 `AGENTS.md` 将同一机制问题更正为 confirmed 一级缺陷，R0 的 pending 记录
+已标 superseded 且不列入待审阅清单。`execute-02` 有界修复为“每个冷却中的技能各有 %d%% 概率
+减少 1 回合冷却时间”；`RE_REVIEW(2)`（`gpt-6-sol`）与 `FINAL(3)`（`opus-5-5`）均为
+4 OK。`execute-01` 后与 `execute-02` 后的完整门禁均为 17/17 通过并含严格构建，任务
+`DONE_VERIFIED`。2 个 executor 与 4 个 reviewer 均已归档确认；本 publication child 待宿主归档。
+
+译文提交为 `6eca6f9952781a1e98d117d35fac2c7028bacb85`；新 catalog 为
+`5020a313d684c44e837ce0bd2bd8a4062ad42a784b356cc802a934d6dfa1d957`，migration 为
+`5033b3e3c151150bebed931811e95f1cd91e7838e16773d0fe2e43bf4135a176`。迁移结果为
+4 条 revision changed、29,824 条 unchanged、0 ambiguous/unmapped，4 个 successor 待重新审核，
+不继承 done。完整结果见[窗口11出版证据](evidence/quality/repair-window-11-20260923/PUBLICATION.md)。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成，不得提前宣称完成。
+随后继续审核258（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

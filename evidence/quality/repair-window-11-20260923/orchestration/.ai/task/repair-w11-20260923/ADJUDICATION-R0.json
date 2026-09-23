@@ -1,0 +1,23 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 1,
+  "decision": "no_fix_cycle_proceed_to_FINAL_REVIEW(1)",
+  "host_attribution": "r0a1 mis-echoed revision_key for ebcb3ef071 (duplicated 17-char segment, native log confirms); corrected to frozen envelope key, original bytes kept in r0a1-original.raw",
+  "findings": [
+    {
+      "id": "R0-TORMENT-PER-TALENT-ROLL",
+      "revision_key": "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3",
+      "status": "pending",
+      "disposition": "pending_user_review",
+      "reason": "torment.lua:144–148（624a6732）对每个冷却中且非 fixed_cooldown 的技能分别掷 rng.percent(c)，逐个判定；英文原文 \"you have a %d%% chance to reduce the remaining cooldown of all your talents by 1\" 与现译“你有 %d%% 概率降低所有技能 1 回合冷却时间”都写成一次判定作用于全部技能。译文忠实于英文，但与实现不符；是否按实现改写上游描述属策略决定（此前实践只判过“译文贴合实现”的情形）。按用户2026-09-23指示列 pending 待集中审阅，不在本窗口修改。建议选项：保持忠实英文 / 改为“每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间”。",
+      "superseded": {
+        "at": "2026-09-23T09:11:40.179643+00:00",
+        "by": "ADJUDICATION-F1.json F1-TORMENT-PER-TALENT-ROLL (confirmed)",
+        "note": "宿主更正：R0 时把“译文忠实英文但与实现不符”判为策略 pending 过于保守。AGENTS.md 校对判定依据规定对游戏机制描述以固定源码实际行为为最终依据，FINAL(1) 独立复核同一结论；改判 confirmed，不列入 pending。"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-23T09:09:47.634928+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "ebc837780344f493663f77584fce3427e1246afecec3705e4e6f824d1d15aae6"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/trollmire.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "3d96be3e96e5c33f30ede28f2e991766a7afdf5d292a87f238db2837f54a84ac",
+      "start_line": 36,
+      "end_line": 47,
+      "excerpt": "36: newLore{\n37: \tid = \"trollmire-note-2\",\n38: \tcategory = \"trollmire\",\n39: \tname = _t\"tattered paper scrap (trollmire)\",\n40: \tlore = _t[[You find a tattered page scrap. Perhaps this is part of a diary entry.\n41: \"...ack again, but he's just a stupid old troll. It'll be easy to not let him get wind of me.\n42: \n43: ...\n44: \n45: ...initely found his treasure stash further on, but had to turn back. If you get this, HELP!\"]],\n46: }\n47: "
+    },
+    {
+      "revision_keys": [
+        "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/corruptions/torment.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "bcb7d6b5c1c154dbe8844de4ad32fd7b3084424ff84d9e2d6ddeafbba98c2418",
+      "start_line": 120,
+      "end_line": 162,
+      "excerpt": "120: \tmode = \"sustained\",\n121: \tcooldown = 20,\n122: \tgetPower = function(self, t) return self:combatTalentLimit(t, 5, 15, 8), self:combatLimit(self:combatTalentSpellDamage(t, 10, 90), 100, 20, 0, 50, 61.3) end, -- Limit threshold > 5%, chance < 100%\n123: \tsustain_vim = 22,\n124: \ttactical = { BUFF = 2 },\n125: \tactivate = function(self, t)\n126: \t\tlocal ret = {}\n127: \t\tgame:playSoundNear(self, \"talents/flame\")\n128: \t\tif core.shader.active(4) then\n129: \t\t\tself:effectParticles(ret, {type=\"shader_ring_rotating\", args={rotation=0, radius=1.1, img=\"blood_vengeance_lightningshield\"}, shader={type=\"lightningshield\"}})\n130: \t\tend\n131: \t\treturn ret\n132: \tend,\n133: \tdeactivate = function(self, t, p)\n134: \t\treturn true\n135: \tend,\n136: \tcallbackPriorities={callbackOnHit = -1},  -- Before Bone Shield but after Rot\n137: \tcallbackOnHit = function(self, t, cb)\n138: \t\tlocal eff = self:hasEffect(self.EFF_BLOOD_GRASP)\n139: \t\tlocal max_life = self.max_life - (eff and eff.life or 0)\n140: \t\tlocal l, c = t.getPower(self, t)\n141: \t\tif cb.value >= max_life * l  / 100 then\n142: \t\t\n143: \t\tlocal alt = {}\n144: \t\tfor tid, cd in pairs(self.talents_cd) do\n145: \t\t\tif rng.percent(c) and not self:getTalentFromId(tid).fixed_cooldown then alt[tid] = true end\n146: \t\tend\n147: \t\tfor tid, cd in pairs(alt) do\n148: \t\t\tself:alterTalentCoolingdown(tid, -1)\n149: \t\tend\n150: \t\tgame.logSeen(self, \"#RED#The powerful blow energizes %s reducing their cooldowns!#LAST#\", self:getName())\n151: \t\tend\n152: \t\treturn cb.value\n153: \n154: \tend,\n155: \tinfo = function(self, t)\n156: \t\tlocal l, c = t.getPower(self, t)\n157: \t\treturn ([[When you are dealt a blow that reduces your life by at least %d%%, you have a %d%% chance to reduce the remaining cooldown of all your talents by 1.\n158: \t\tTemporary life from Sanguine Infusion will not count against the damage threshold.\n159: \t\tThe chance will increase with your Spellpower.]]):\n160: \t\ttformat(l, c)\n161: \tend,\n162: }"
+    },
+    {
+      "revision_keys": [
+        "ec13c4e923325038bfd4900bf725f7d7fd1df53b9c73baafaba3787affc1b5d4"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/events/rat-lich.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e37b3c460b9e2cc727c245d078dbc78f7340fad5557aa412051fe96a4c6dccd3",
+      "start_line": 44,
+      "end_line": 58,
+      "excerpt": "44: \tobjects.RATLICH_SKULL = mod.class.Object.new{\n45: \t\tdefine_as = \"RATLICH_SKULL\",\n46: \t\tpower_source = {arcane=true},\n47: \t\tunique = true,\n48: \t\tslot = \"TOOL\",\n49: \t\ttype = \"tool\", subtype=\"skull\", image = \"object/artifact/skull_of_the_rat_lich.png\",\n50: \t\tunided_name = _t\"dusty rat skull\",\n51: \t\tname = _t\"Skull of the Rat Lich\",\n52: \t\tdisplay = \"*\", color=colors.BLACK,\n53: \t\tlevel_range = {10, 25},\n54: \t\tcost = 150,\n55: \t\tencumber = 1,\n56: \t\tmaterial_level = 3,\n57: \t\tdesc = _t[[This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.]],\n58: "
+    },
+    {
+      "revision_keys": [
+        "eccfcfca31053195a67592051cc6d3444160027936f780df84a8d90e641ce269"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/dialogs/CharacterSheet.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "d6c8555c085249893e02be80b079079f6c6a98f2533ac35e2085c724ea5f2582",
+      "start_line": 1275,
+      "end_line": 1300,
+      "excerpt": "1275: \t\tend\n1276: \n1277: \t\t-- Status Immunities\n1278: \t\th = 0\n1279: \t\tw = self.w * 0.52\n1280: \t\tself:mouseTooltip(self.TOOLTIP_STATUS_IMMUNE, s:drawColorStringBlended(self.font, _t\"#LIGHT_BLUE#Effect resistances:\", w, h, 255, 255, 255, true)) h = h + self.font_h\n1281: \n1282: \t\t-- list the status immunities in pre-sorted order\n1283: \t\tfor i, immune_type in ipairs(self.immune_order) do\n1284: \t\t\tlocal immune_attr = self.immune_types[immune_type]\n1285: \t\t\t-- print(\"character sheet checking immune_type\", immune_type, immune_attr)\n1286: \t\t\tif player:attr(immune_attr) or actor_to_compare and actor_to_compare:attr(immune_attr) then\n1287: \t\t\t\tlocal std = mod.class.Actor.StatusTypes[immune_type]\n1288: \t\t\t\ttext = compare_fields(player, actor_to_compare, function(actor, ...)\n1289: \t\t\t\t\tlocal ok, chance\n1290: \t\t\t\t\tif std then\n1291: \t\t\t\t\t\tlocal ok, chance = actor:canBe(immune_type)\n1292: \t\t\t\t\t\treturn util.bound(100-(chance or 100), 0, 100)\n1293: \t\t\t\t\telse\n1294: \t\t\t\t\t\treturn util.bound((actor:attr(immune_attr) or 0) * 100, 0, 100)\n1295: \t\t\t\t\tend\n1296: \t\t\t\tend,\n1297: \t\t\t\t\"%3d%%\", \"%+.0f%%\", 1, false, false, self.immune_labels[immune_type] or immune_type:bookCapitalize())\n1298: \t\t\t\tself:mouseTooltip(self[self.immune_tooltips[immune_attr] or \"TOOLTIP_SPECIFIC_IMMUNE\"], s:drawColorStringBlended(self.font, (\"%-14s: #00ff00#%s\"):format(self.immune_labels[immune_type] or immune_type:bookCapitalize(), text), w, h, 255, 255, 255, true))\n1299: \t\t\t\th = h + self.font_h\n1300: \t\t\tend"
+    }
+  ]
+}

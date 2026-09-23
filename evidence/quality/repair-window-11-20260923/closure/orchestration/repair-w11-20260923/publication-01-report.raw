@@ -1,0 +1,21 @@
+修复窗口11的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK 快照：167 个文件、1,487,057 字节，并逐字复制 [orchestration-pack-manifest.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-11-20260923/orchestration-pack-manifest.json)。
+- 安装候选 catalog 5 文件；实际产生差异的是 `entries.jsonl` 和 `manifest.json`，其余三个目标原本已是相同字节。
+- 安装 migration `5033b3e3…176.json`。
+- 安装 16 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-11-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确宿主仍需执行证据提交、第二次 queue rebuild 和 push，之后审核258。
+
+验证结果：
+
+- PACK：167/167 文件，SHA、字节数全部匹配。
+- Manifest：与源文件逐字一致。
+- Catalog、migration、publication：22 组逐字副本，0 差异。
+- UTF-8、尾随空白、本地链接：全部通过。
+- `ai_state_check ... --target DONE`：`DONE_VERIFIED: DONE predicate verified`。
+- `git diff --check -- handoff.md`：通过。
+
+未修改 Lua、术语、规则、工具、旧证据、`.ai` 或 pending 清单；未创建 agent，未运行 `verify_pack.py`、queue/catalog/migration/门禁，未 stage、commit 或 push。已有无关未跟踪文件保持不动。

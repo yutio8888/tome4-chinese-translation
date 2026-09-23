@@ -1,0 +1,32 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-TORMENT-PER-TALENT-ROLL",
+      "revision_key": "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "torment.lua:144–149（624a6732）callbackOnHit 中 for tid, cd in pairs(self.talents_cd) do if rng.percent(c) and not fixed_cooldown then alt[tid]=true 对每个冷却中技能分别判定，仅判定成功者冷却 -1；译文“你有 %d%% 概率降低所有技能 1 回合冷却时间”读作单次判定全体生效，与实现不符。REVIEW(0) 与 FINAL(1) 两个独立 reviewer 结论一致；按 AGENTS.md 以源码实际行为为准，确认修复（英文原文措辞同样模糊，译文按实现表述）。",
+      "replacements": [
+        {
+          "old": "你有 %d%% 概率降低所有技能 1 回合冷却时间。",
+          "new": "每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间。",
+          "basis": "torment.lua:144–149 per-talent rng.percent(c)"
+        }
+      ]
+    }
+  ],
+  "supersedes_r0_pending": "R0-TORMENT-PER-TALENT-ROLL",
+  "next_stages": [
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "conflict_assessment": "与 R0 观察一致，无冲突。",
+  "senior_scope_audit_required": false,
+  "recorded_at": "2026-09-23T09:11:40.179643+00:00"
+}

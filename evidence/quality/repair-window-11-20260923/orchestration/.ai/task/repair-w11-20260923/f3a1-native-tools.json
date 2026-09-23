@@ -1,0 +1,44 @@
+{
+  "dispatch_id": "f3a1",
+  "native_session": "bf684c67-5978-4112-96e3-d6a491842cc6",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/bf684c67-5978-4112-96e3-d6a491842cc6.jsonl",
+  "native_sha256": "c255e83bf8a8823efa75c30b4f59e8bc54cca949fd615fe90c1d8710e251c42f",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01DKwTJDhc2AFbZWHh1aVVp6",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w11-20260923/CONTEXTUAL-ENVELOPE-f3a1.json; cat .ai/task/repair-w11-20260923/CONTEXTUAL-ENVELOPE-f3a1.json | head -c 20000",
+        "description": "Read the frozen review envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NCkZPDMcwbp4TszwCgn1tZ",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md; awk '/^## 6/,/^## 7/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6 output format"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_016WLxFw3Z66XqNGyT8WcLgC",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Print contract section 6"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

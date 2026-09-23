@@ -1,0 +1,16 @@
+修复窗口 11 已完成实际修改。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)：恰有 4 个 target 变化，Trollmire 两处空行已恢复。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-11-20260923/IMPLEMENTATION.md)：记录实施范围及固定源码核对。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-11-20260923/VALIDATION.json)：记录真实检查结果。
+- `PREFLIGHT-BATCH257.json`、`HOST-WORKSET.json`、`SOURCE-ANCHORS.json` 均已保存并通过逐字节比对。
+
+检查全部通过：
+
+- 窗口验证：22,989 条记录，恰有 4 个 target 变化
+- 严格 lint：30,308 条，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+- evidence JSON、冻结副本及新增文件空白审计：通过
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 均保留。完整门禁、严格构建、独立复审及 `DONE_VERIFIED` 由宿主继续。

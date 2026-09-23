@@ -1,0 +1,14 @@
+已完成 FINAL_REVIEW(1) 后的 F1 有界修复。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:23038)：按要求替换为“每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间。”
+- 第一处 `%d%%` 前的句段、第二/三句、TAB/LF、占位符及其余 3 条 target 均未改动。
+- [FIX-F1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-11-20260923/FIX-F1.md:1)：已记录固定源码依据、修改前后和检查结果。
+
+检查全部通过：
+
+- 窗口 `verify.py`：22989 条记录，仍恰为既定 4 个 revision 变化
+- 严格 lint：30308 条，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 已保留。
