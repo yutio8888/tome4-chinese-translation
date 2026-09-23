@@ -1,0 +1,19 @@
+窗口 14 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK-MANIFEST 冻结快照：171 个文件、1,441,111 bytes，并保存 [orchestration-pack-manifest.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-14-20260923/orchestration-pack-manifest.json)。
+- 逐字安装候选 catalog；其中 exclusions、schema、policy 与现有文件字节一致，实际 Git 变更为 entries 与 manifest。
+- 安装 migration `a3f47a5e…632d1d`。
+- 归档 16 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-14-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md:3)，明确宿主尚需提交证据、第二次 queue rebuild、push，之后审核 261。
+
+验证结果：
+
+- 171/171 manifest 文件字节数及 SHA-256 通过。
+- catalog、migration、manifest 和全部 publication 附件逐字比较通过。
+- UTF-8、尾随空白、文档链接及 `git diff --check` 通过。
+- `ai_state_check --target DONE`：`DONE_VERIFIED`。
+- 未修改 Lua、术语、规则、工具、`.ai`、旧证据或 pending 清单。
+- 未运行 queue/catalog/migration/完整门禁或 `verify_pack.py`；未 stage、commit、push。

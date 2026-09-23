@@ -1,0 +1,14 @@
+已完成 RE_REVIEW(1) 有界修复。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:5227)：仅将“霜华的一部分”替换为“霜华之月的一部分”。
+- 其余文字、颜色标记、换行及另外两条 target 未动。
+- 已记录 [FIX-R1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-14-20260923/FIX-R1.md)。
+
+检查全部通过：
+
+- 窗口 `verify.py`：22989 条记录，冻结 workset 的 3 个 revision 符合预期
+- 严格 lint：30308 translations，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未修改 `.ai`、规则、工具、术语库或 handoff/catalog/migration；未 stage、commit、push；无关 untracked 均保留。

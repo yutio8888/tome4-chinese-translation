@@ -1,0 +1,30 @@
+{
+  "cycle": 1,
+  "stage": "RE_REVIEW",
+  "raw_ok_count": 2,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "R1-WINTERTIDE-MOON-SENSE",
+      "revision_key": "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "completeness/cross-entry consistency",
+      "reason": "r1a1 指出裸“霜华”丢失 Moon 含义（jewelry-store.lua:169 坠落的是该月亮的一部分；lore/elvala.lua:429 crescent Wintertide moon）。宿主核验：本库“霜华”同时是日历月份名（mod-tome.lua:3891 calendar allied）与卫星实体名（39973 “霜华（埃亚尔的卫星）”），裸用有歧义；同一月亮在 elvala 传说中已译为“霜华之月”（“霜华之月的月牙微光”）。采纳，改为“霜华之月的一部分”，与既有语料一致。与 R0 宿主发现同向细化，不构成相互矛盾的实质分歧。",
+      "replacements": [
+        {
+          "old": "霜华的一部分",
+          "new": "霜华之月的一部分",
+          "basis": "elvala lore rendering 霜华之月; calendar/entity dual use of 霜华"
+        }
+      ]
+    }
+  ],
+  "next_stages": [
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "structure_note": "cycle 3 = max_cycles；若 FINAL(3) 出现一级 confirmed finding 则交回用户。",
+  "recorded_at": "2026-09-23T12:54:35.763675+00:00"
+}

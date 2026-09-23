@@ -1,0 +1,18 @@
+{
+  "title": "W14 execute-02 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行修复窗口14 REVIEW(0) 后的有界修复（fresh run）。先读 .ai/roles/executor.md、.ai/task/repair-w14-20260923/SPEC.md 与 ADJUDICATION-R0.json（只执行 status=confirmed 的一项）。只改 mod-tome.lua 中珠宝师对话条（revision ef7d5a43a1）target 的一处：把“冬潮之月的一部分”逐字替换为“霜华的一部分”（游戏内 Wintertide 卫星既定名为“霜华”，见 mod-tome.lua 中 t(\"Wintertide (Moon of Eyal)\", \"霜华（埃亚尔的卫星）\", \"entity name\")）；该条其余文字、颜色标记与换行不动，其余2条 target 不动。修改后运行 python3 -B .ai/task/repair-w14-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict 与 git diff --check，并在 evidence/quality/repair-window-14-20260923/FIX-R0.md 记录修改前后与检查结果。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w14-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

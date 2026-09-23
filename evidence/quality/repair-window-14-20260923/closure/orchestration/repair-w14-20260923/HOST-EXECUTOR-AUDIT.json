@@ -1,0 +1,65 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "f156212c65d14a284c8ebc41d2c75d8eb5b482d23d877da67d37ca2268362621",
+      "writes": [
+        "mod-tome.lua (3 targets via apply_patch, verify.py PASS)",
+        "evidence/quality/repair-window-14-20260923/* (cp of frozen inputs, host cmp verified; apply_patch add of IMPLEMENTATION.md/VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "prior repair-window evidence format"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "git_status": [
+        " M mod-tome.lua",
+        "?? .ai/consult/",
+        "?? evidence/quality/production-batches/batch-0e235b796c17c97b2863-source-workset.json",
+        "?? evidence/quality/production-batches/batch-0fcb7931742e08786da0-source-workset.json"
+      ],
+      "host_note": "jewelry-store target renders Wintertide Moon as 冬潮之月, following wording in the host-written SPEC; the established in-game name is 霜华 (mod-tome.lua:3891/9206/39973). Host records this as a confirmed finding at REVIEW(0) adjudication."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "5efcb60385da998fc3fb875bf7f62526adcbdbe8513079ad8ebf14aa110a0e1c",
+      "writes": [
+        "mod-tome.lua (ef7d5a43a1 one phrase 冬潮之月的一部分→霜华的一部分, verify.py PASS)",
+        "evidence/quality/repair-window-14-20260923/FIX-R0.md"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua (rg of Wintertide rows)",
+        "own window evidence"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    },
+    {
+      "dispatch_id": "execute-03",
+      "status": "PASS",
+      "tool_calls": 7,
+      "native_calls_sha256": "a63207bca60d55ee64259682342ec5df4989b46139acddcacc02fd2851a7cfd7",
+      "writes": [
+        "mod-tome.lua (ef7d5a43a1 one phrase 霜华的一部分→霜华之月的一部分, verify.py PASS)",
+        "evidence/quality/repair-window-14-20260923/FIX-R1.md"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R1",
+        "mod-tome.lua (rg of target phrase)",
+        "own window evidence"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

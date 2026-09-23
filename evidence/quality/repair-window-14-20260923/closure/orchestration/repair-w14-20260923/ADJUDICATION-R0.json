@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 0,
+  "decision": "host_confirmed_finding_bounded_fix_then_RE_REVIEW(1)_then_FINAL_REVIEW(2)",
+  "findings": [
+    {
+      "id": "R0-HOST-WINTERTIDE-NAME",
+      "source": "host",
+      "revision_key": "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology/cross-entry consistency",
+      "reason": "execute-01 把 Wintertide Moon 译为“冬潮之月”，该措辞来自宿主所写 SPEC；游戏内该卫星的既定名称为“霜华”：mod-tome.lua:39973 t(\"Wintertide (Moon of Eyal)\", \"霜华（埃亚尔的卫星）\", \"entity name\")，另 3891 calendar allied 与 9206 entity name 均为 Wintertide=霜华，全库“冬潮之月”仅此 1 处。reviewer r0a1 未报（术语快照不含该词），宿主独立核验确认为一级跨条一致性缺陷。",
+      "replacements": [
+        {
+          "old": "冬潮之月的一部分",
+          "new": "霜华的一部分",
+          "basis": "mod-tome.lua:39973/9206/3891 Wintertide=霜华"
+        }
+      ]
+    }
+  ],
+  "next_stages": [
+    "RE_REVIEW(1)",
+    "FINAL_REVIEW(2)"
+  ],
+  "recorded_at": "2026-09-23T12:49:05.063693+00:00"
+}

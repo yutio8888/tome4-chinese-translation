@@ -1,0 +1,32 @@
+{
+  "dispatch_id": "r2a1",
+  "native_session": "01a0ce60-9d03-74c2-80b8-a8bd79ccb69c",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/23/rollout-2026-09-23T13-07-13-01a0ce60-9d03-74c2-80b8-a8bd79ccb69c.jsonl",
+  "native_sha256": "ea31dcc3e784ed36857c48823437575856444c29a444f6e348247d706b2f135d",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0d8c90a8286ce05b016ab3cf07722887d192abd5880ad8e874",
+      "status": "completed",
+      "call_id": "call_lxjXmGwbJdAfqiEffzxzoTv4",
+      "name": "exec",
+      "input": "const r = await Promise.allSettled([\n  tools.exec_command({cmd:\"cat .ai/task/repair-w14-20260923/CONTEXTUAL-ENVELOPE-r2a1.json\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:20000}),\n  tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:20000})\n]); for (let i=0;i<r.length;i++) text(JSON.stringify({i,result:r[i]}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ce60-9d40-7f53-aacc-40d02dfe23bf",
+        "create_time": 1790168837.468684
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0d8c90a8286ce05b016ab3cf0c34e087d199999a221ff034e7",
+      "status": "completed",
+      "call_id": "call_SvOLUPxpl6EhqN30TWKAdAoD",
+      "name": "exec",
+      "input": "const r=await tools.exec_command({cmd:\"cat .ai/task/repair-w14-20260923/CONTEXTUAL-ENVELOPE-r2a1.json docs/paseo-translation-context-review-v2-contract.md\",workdir:\"/workspace/tome4-chinese-translation\",sandbox_permissions:\"require_escalated\",justification:\"May I read the two explicitly authorized review inputs after the sandbox mount failed?\",max_output_tokens:30000}); text(r);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ce60-9d40-7f53-aacc-40d02dfe23bf",
+        "create_time": 1790168842.46455
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核260已完成；下一步修复窗口14，仅处理260的3条）
+更新时间：2026-09-23（修复窗口14已完成；待宿主发布收尾，随后审核261）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -183,6 +183,26 @@ contextual `claude/claude-opus-5-5` 首次 full-000 在 JSON 前多一句英文�
 下一步按 1:1 节奏开修复窗口14，仅处理 260 的 3 条：珠宝师对话冬潮之月传说（漏“融化”、增添“融入大地”、“更强大”）、
 Guided Shot 念力导引（telekinetic nudges、“精确地”）、巨狼描述 snaps at you（“咆哮”）。
 范围见 `.ai/task/batch-6b8acfddd3cc0c11f471/WINDOW14-REPAIR-DECISION.json`；可复用窗口13 模板，失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口14已完成。任务 `repair-w14-20260923` 的 `execute-01`（`codex/gpt-5.6-sol`）实施审核260的
+3条确认项：珠宝师对话中的 Wintertide Moon 传说补回“融化”，删除增添的“融入大地”，将“更强大”改为
+“强力”；Guided Shot 补回 `telekinetic nudges` 的“念力微调”与“精确地”；巨狼描述中的
+`snaps at you` 改为“朝你猛咬”。`REVIEW(0)/full`（`codex/gpt-6-sol`）为 3 OK；宿主另立
+`R0-HOST-WINTERTIDE-NAME`，确认“冬潮之月”沿用了宿主 SPEC 措辞，而本库既有名为“霜华”，
+`execute-02` 修为“霜华的一部分”。`RE_REVIEW(1)`（`gpt-6-sol`）为 2 OK / 1 ISSUE，确认
+`R1-WINTERTIDE-MOON-SENSE`：裸“霜华”兼作日历月份名，丢失“月亮”义，且 elvala 传说已用
+“霜华之月”；`execute-03` 改为“霜华之月的一部分”。`RE_REVIEW(2)` 为 3 OK；
+`FINAL(3)/full`（`claude-opus-5-5`）为 3 OK，任务收敛。完整门禁 17/17 通过并含严格构建，任务
+`DONE_VERIFIED`。3 个 executor 与 3 个 reviewer 均已归档确认；本 publication child 待宿主归档。
+
+译文提交为 `5babfdaf1c331e52df1efc5480794457449f4c99`；新 catalog 为
+`fb1a42e597f4bcec63cb05b5ed0d66aa29272e60581584c31f96ea6acb8f7c50`，migration 为
+`a3f47a5e5f30a66b9a56b4ba416a571a91a906ea9562229f4e4c52d5c8632d1d`。迁移结果为
+3 条 revision changed、29,825 条 unchanged、0 ambiguous/unmapped，3 个 successor 待重新审核，
+不继承 done。完整结果见[窗口14出版证据](evidence/quality/repair-window-14-20260923/PUBLICATION.md)。
+
+下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；这些步骤尚未完成。宿主收尾后继续
+审核261（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

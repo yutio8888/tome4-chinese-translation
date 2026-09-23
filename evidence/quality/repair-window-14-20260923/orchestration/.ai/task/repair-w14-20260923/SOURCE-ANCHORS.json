@@ -1,0 +1,41 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/chats/jewelry-store.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c85b00ec53460532b187bfc49b92c19cb4ffc3a1d904a4feb5d80a975b80b548",
+      "start_line": 160,
+      "end_line": 176,
+      "excerpt": "160: \tanswers = {\n161: \t\t{_t\"I need your services.\", action=artifact_imbue_amulet},\n162: \t\t{_t\"Not now, thanks.\"},\n163: \t}\n164: }\n165: \n166: newChat{ id=\"quest\",\n167: \ttext = _t[[#LIGHT_GREEN#*He quickly looks at the tome and looks amazed.*#WHITE# This is an amazing find! Truly amazing!\n168: With this knowledge I could create potent amulets. However, it requires a special place of power to craft such items.\n169: There are rumours about a site of power in the southern mountains. Old legends tell about a place where a part of the Wintertide Moon melted when it got too close to the Sun and fell from the sky.\n170: A lake formed in the crater of the crash. The water of this lake, soaked in intense Moonlight for eons, should be sufficient to forge powerful artifacts!\n171: Go to the lake and then summon me with this scroll. I will retire to study the tome, awaiting your summon.]],\n172: \tanswers = {\n173: \t\t{_t\"I will see if I can find it.\", action=function(npc, player)\n174: \t\t\tgame.level:removeEntity(npc)\n175: \t\t\tplayer:hasQuest(\"master-jeweler\"):remove_tome(player)\n176: \t\t\tplayer:hasQuest(\"master-jeweler\"):start_search(player)"
+    },
+    {
+      "revision_keys": [
+        "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/psi-archery.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e43019d76e48860b5d970fe9a4b89a4a9d1722ab21c2eb34729c9d77edbab062",
+      "start_line": 20,
+      "end_line": 52,
+      "excerpt": "20: newTalent{\n21: \tname = \"Guided Shot\",\n22: \ttype = {\"psionic/psi-archery\", 1},\n23: \trequire = psi_cun_high1,\n24: \tno_energy = \"fake\",\n25: \tpoints = 5,\n26: \trandom_ego = \"attack\",\n27: \tcooldown = 10,\n28: \tpsi = 10,\n29: \ttactical = { ATTACK = { PHYSICAL = 2 } },\n30: \trange = archery_range,\n31: \trequires_target = true,\n32: \ton_pre_use = function(self, t, silent) return archerPreUse(self, t, silent, \"bow\") end,\n33: \tshot_boost = function(self, t) return self:combatTalentScale(t, 40, 80, 0.75) end,\n34: \tuse_psi_archery = function(self, t)\n35: \t\tlocal pf_weapon = self:getInven(\"PSIONIC_FOCUS\")[1]\n36: \t\tif pf_weapon and pf_weapon.archery then\n37: \t\t\treturn true\n38: \t\telse\n39: \t\t\treturn false\n40: \t\tend\n41: \tend,\n42: \taction = function(self, t)\n43: \t\tlocal inc = t.shot_boost(self, t)\n44: \t\tlocal targets = self:archeryAcquireTargets(nil, {one_shot=true})\n45: \t\tif not targets then return end\n46: \t\tself:archeryShoot(targets, t, nil, {atk = inc, crit_chance = inc, use_psi_archery = t.use_psi_archery(self,t)})\n47: \t\treturn true\n48: \tend,\n49: \tinfo = function(self, t)\n50: \t\treturn ([[Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.]]):tformat(t.shot_boost(self, t))\n51: \tend,\n52: }"
+    },
+    {
+      "revision_keys": [
+        "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/npcs/canine.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "edbbc6bd1d02c92bf53b569e210e26cfb4eb25ecba1b077f90697f390cab5e7a",
+      "start_line": 55,
+      "end_line": 66,
+      "excerpt": "55: \tresolvers.talents{\n56: \t\t[Talents.T_RUSH]={base=0, every=10},\n57: \t},\n58: }\n59: \n60: newEntity{ base = \"BASE_NPC_CANINE\",\n61: \tname = \"great wolf\", color=colors.UMBER, image=\"npc/canine_gw.png\",\n62: \tdesc = _t[[Larger than a normal wolf, it prowls and snaps at you.]],\n63: \tlevel_range = {3, nil}, exp_worth = 1,\n64: \trarity = 3,\n65: \tmax_life = resolvers.rngavg(60,90),\n66: \tcombat_armor =2, combat_def = 4,"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+已完成修复窗口 14 的 3 条译文：
+
+- 珠宝师对话恢复“强力的项链”、冬潮之月融化坠落等完整原义。
+- Guided Shot 恢复以念力精确地微调、导引箭矢射向目标。
+- 巨狼恢复“潜行游荡时会朝你猛咬”，删除“咆哮”误译。
+
+变更文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:5221)
+- [实施记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-14-20260923/IMPLEMENTATION.md)
+- [真实检查结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-14-20260923/VALIDATION.json)
+- 同目录已保存逐字节一致的 `PREFLIGHT-BATCH260.json`、`HOST-WORKSET.json`、`SOURCE-ANCHORS.json`。
+
+检查全部通过：
+
+- 窗口验证：22,989 条记录中恰好 3 个 target 变化
+- strict lint：30,308 条，0 errors、0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+- 三份冻结副本 `cmp`：通过
+
+未修改 `.ai`、术语库、规则、工具、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 均保留。完整门禁、构建、独立 REVIEW／FINAL_REVIEW 和 `DONE_VERIFIED` 仍由宿主继续。

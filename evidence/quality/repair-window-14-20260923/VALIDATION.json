@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-14 unique EXECUTOR",
+  "scope": "3 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w14-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 3,
+        "changed_revisions": [
+          "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+          "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd",
+          "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T124424.262726Z-3477516-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w14-20260923/PREFLIGHT-BATCH260.json",
+      "path": "evidence/quality/repair-window-14-20260923/PREFLIGHT-BATCH260.json",
+      "sha256": "43ffd8a32ce8601ceb6a8c5c1c35c786c467d7027253612989430f87a25bc5c9",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w14-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-14-20260923/HOST-WORKSET.json",
+      "sha256": "4b3557dde918bfb518f2d45a3c3c8452005e5af0560cf900d2ec0bfb36b3f8ed",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w14-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-14-20260923/SOURCE-ANCHORS.json",
+      "sha256": "20f37686e94f4d5c63b88a53bf8e89dc8f552f95fe9c98e38e38a487fb08cb7a",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records only the unique EXECUTOR implementation and requested directed checks; full gates, strict build, independent REVIEW/FINAL_REVIEW, and DONE_VERIFIED remain for the host."
+}
