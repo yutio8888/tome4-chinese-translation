@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口17已完成；待宿主发布收尾，随后审核264）
+更新时间：2026-09-23（审核264已完成；下一步修复窗口18，仅处理264的4条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -284,7 +284,16 @@ surface 四组 `codex/gpt-6-sol` 为 67 OK / 13 ISSUE（harvest 前逐位比对 
 
 译文提交为 `8390dd69d6d3ea359ada0ea2ea838cd533e14aa4`；新 catalog 为 `78635878a70f7ff2d9a1d4e36e7ad9115ab8a80d906670ecff0fce7332abd239`；migration 为 `5168dcc75a66cf6b89dc5c5ee1f0753064d427cc9461ad4a7ca1680c0fb084ec`。迁移结果为5条 revision changed、29,823条 unchanged、0 ambiguous/unmapped，5个 successor 待重新审核且不继承 done。完整结果见[窗口17发布证据](evidence/quality/repair-window-17-20260923/PUBLICATION.md)。
 
-下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；完成后继续审核264（默认80条）。上述后续步骤尚未完成。
+窗口17的证据提交、queue rebuild 与 push 已完成（`7cf827e3`）。
+
+审核264（`batch-abb89c7e815afaa13bb2`）已闭合，结果为 **76 done / 4 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 70 OK / 10 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致）；contextual `claude/claude-opus-5-5` full-000 为 7 OK / 3 ISSUE。
+13 个观察裁决为 7 confirmed、4 refuted、2 advisory。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `7031c106`，
+详见[264宿主证据](evidence/quality/production-batches/batch-abb89c7e815afaa13bb2-host-evidence/summary.md)。本批无新增 pending。
+
+下一步按 1:1 节奏开修复窗口18，仅处理 264 的 4 条：“#Target# is being crushed”误译“被击碎”（改“正被碾压”）、队友行为菜单 Standby“乖乖站好”（改“待命”）、
+Offhand Jab 删去“以徒手突袭替代副手攻击”并多一处换行、Z’quikzshl 日记两处语义误译（trivial、corruption of his own name）与“它/他”混用及 Ruby of Eldoral 丢“红宝石”。
+范围见 `.ai/task/batch-abb89c7e815afaa13bb2/WINDOW18-REPAIR-DECISION.json`；可复用窗口17 helper（verify.py 的 LF/TAB 对照 source；verify_migration 有两处条数硬编码）。
 
 ### 窗口7闭合时的暂停记录（历史）
 
