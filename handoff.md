@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口19已完成；待宿主发布收尾，随后审核266）
+更新时间：2026-09-23（审核266已完成；下一步修复窗口20，仅处理266的7条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -316,7 +316,17 @@ Nightshade 陷阱（漏“中毒”，持续 4 回合应同时覆盖震慑与中
 
 译文提交为 `e602df35477fe2a6f2ffa9fd66029b51e83186a7`；新 catalog 为 `c5085a75a7796f11c91d64f39f454ac2f10dea491b28565222fdea5883057d35`；migration 为 `e5935d7e04f86d7d3a09d9a9e6d2afcc69c0f5e3a8c8b1ace3fac0e7a1649fec`。迁移结果为4条 revision changed、29,824条 unchanged、0 ambiguous/unmapped，4个 successor 待重新审核且不继承 done。完整结果见[窗口19发布证据](evidence/quality/repair-window-19-20260923/PUBLICATION.md)。范围外遗留为同一 source 的 `lore/misc` 段旧句；该行运行时被覆盖、不生效，本窗口未修改，留待后续审核。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。完成发布收尾后继续审核266（默认80条）。
+窗口19的证据提交（`601cb466`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核266（`batch-d0f6e929a87d869ee983`）已闭合，结果为 **73 done / 7 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个回显 identity 全部一致、均以原生日志收取；contextual `claude/claude-opus-5-5` full-000 为 2 OK / 7 ISSUE，与 surface 确认项同向。
+16 个观察裁决为 14 confirmed、1 refuted、1 advisory。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `bd5a0dfd`，
+详见[266宿主证据](evidence/quality/production-batches/batch-d0f6e929a87d869ee983-host-evidence/summary.md)。本批无新增 pending。
+冻结 MISS 两条：窗口19后继的 load.lua 段 lore 行（本批 OK），以及失落商人日志行 `The merchant carefully hands you: %s`——已登记于 known-dead-keys.json 的死键，译文正确按 done 闭合，死键迁移仍待维护者。
+
+下一步按 1:1 节奏开修复窗口20，仅处理 266 的 7 条：念力核心项圈外观（删“似乎”增“所有”）、邪眼 bloodshot、Utterly Destroyed 说明（thrill of the death 与 creature）、
+离线模式说明的“版本检查”、时空法术类别说明（学派）、梅琳达成就“落难少女”、蛛毒魔棒未鉴定名 wand＝魔杖。
+范围见 `.ai/task/batch-d0f6e929a87d869ee983/WINDOW20-REPAIR-DECISION.json`；setup 脚本 `setup_window20_task.py` 已生成，helper 从窗口19复制（verify/verify_catalog/verify_migration 的条数 4→7）。
 
 ### 窗口7闭合时的暂停记录（历史）
 
