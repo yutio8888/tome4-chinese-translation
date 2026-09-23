@@ -1,0 +1,122 @@
+{
+  "batch_id": "batch-13b90e85d842da2d4f41",
+  "observations": 11,
+  "observation_dispositions": {
+    "refuted": 4,
+    "advisory": 2,
+    "confirmed": 5
+  },
+  "repair_revision_keys": [
+    "ed8673e41a7d04e69012aca27620bd886c1712ff3aec6ece4efab8e8f801ead1",
+    "ed86ff05a4f099244e7dfde68a8a2d2c325860305f6b0ab71656467cf4330fbb",
+    "edc794ff9790e88861a4368d236f7fb2c49abe4a7ae8e706d3ed071218d6af4a"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "3572191ce781a3350a25c96c27b4e1a6412a0a4cf30febb15bb511f6087037c1",
+      "stage": "surface",
+      "observation": "原文是一次 %d%% 概率判定，成功后使所有技能的剩余冷却各减少 1 回合；译文变成每个冷却中的技能各自进行概率判定。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "corruptions/torment.lua:144–149（624a6732）对每个冷却中且非 fixed_cooldown 的技能分别 rng.percent(c)；“每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间”为修复窗口11经 REVIEW/FINAL 独立复核确认的按实现表述（AGENTS.md：机制以源码实际行为为准），英文原文措辞与实现不符。"
+    },
+    {
+      "revision_key": "ed3323c63dfed63f370909ea024a1022f153f8df4e3e33f659344c162c01143d",
+      "stage": "surface",
+      "observation": "原文 acid drake talents 指酸龙系技能，译文写成“毒龙系技能”，元素属性明显不符。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "gifts/venom-drake.lua:21–22、gifts.lua:35：Acidic Spray 属 wild-gift/venom-drake 技能树（venom drake aspect=毒龙形态，venom drake=毒龙）；acid drake talents 指该树，“毒龙系技能”与游戏内树名一致，并非元素误译。"
+    },
+    {
+      "revision_key": "ed41bdd6580f76a4f035d83daf2c50dfa58c2bf80bc92d9b447422de134cb71f",
+      "stage": "surface",
+      "observation": "原文说目标的精神受到动摇（shaken），译文写成“精神被支配”，改变了状态含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "timed_effects/mental.lua:220–229 DOMINANT_WILL_BOSS（desc Mental Domination=精神控制，subtype dominate，on_gain “mind is dominated”=精神被操控）：shaken 字面为“动摇”，“精神被支配”与效果机制一致，不构成机制误导；可选改“动摇”更贴字面。"
+    },
+    {
+      "revision_key": "ed521ffd82554fccb2e56865baaf9c4f480adf6bd23d4ff0403b6793f5430796",
+      "stage": "surface",
+      "observation": "原文“exposing ”末尾有空格，译文“暴露的”末尾没有；若与后续文本拼接，格式会受影响。冻结输入未提供拼接语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "general/objects/egos/shield.lua:224 ego 前缀 \"exposing \"；中文前缀同族约定不带尾空格（barbed →倒刺的、deadly →致命的等，mod-tome.lua:9568/9571），拼接后无显示问题。"
+    },
+    {
+      "revision_key": "ed8673e41a7d04e69012aca27620bd886c1712ff3aec6ece4efab8e8f801ead1",
+      "stage": "surface",
+      "observation": "原文分别列举 pit-fighter、boxer 和 amateur practitioner 三类人；译文只写职业拳手和业余门外汉，漏掉 pit-fighter。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "birth/classes/warrior.lua:343 Brawler 描述：列举 pit-fighter、boxer、amateur practitioner 三类，译文漏 pit-fighter（地下格斗士/角斗拳手），且 the Brawler's skills 被泛化为“格斗技能”丢失职业名“格斗家”（classes.tsv:23 Brawler=格斗家）。整句修复。"
+    },
+    {
+      "revision_key": "ed86ff05a4f099244e7dfde68a8a2d2c325860305f6b0ab71656467cf4330fbb",
+      "stage": "surface",
+      "observation": "原文称精灵的年龄无法判断；译文却明确称其为“中年精灵”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "zones/town-point-zero/npcs.lua:134：A timeless elf…his age is impossible to determine；译文“中年精灵”凭空断定年龄，与后句“不知道他活了多久”自相矛盾。修为“一位看不出年岁的精灵”一类。"
+    },
+    {
+      "revision_key": "edc13e8a271135c9fa780dcbb8b4b0b4e549aae2e3223c5bc005fe14bf0ceffe",
+      "stage": "surface",
+      "observation": "原文是“带着答案回来”，译文却是“回去寻找答案”，改变了动作和方向。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "chats/tannen.lua:153–157：Tannen 让玩家回去问精灵时空术士是 inverted 还是 reverted 概率场，玩家答 I'll return with the answer（会带着答案回来）；“我会回去寻找答案的”意图相近（回去问→带回），方向表述不同但不误导玩法；可选改“我会带着答案回来的”。"
+    },
+    {
+      "revision_key": "edc38802167d4a34ace1a868ce8c60a468d1b23f03dd0b2845311ed6d2b38e3d",
+      "stage": "surface",
+      "observation": "原文的“loses some focus”只表示失去部分专注，译文“不再集中意志”表示完全不再专注。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/mental.lua:2622–2629 HIDDEN_RESOURCES 的 on_lose 在效果结束时触发（on_gain “#Target#'s focuses.”），效果整体结束，“不再集中意志”与机制一致；原文 loses some focus 为上游措辞（且有语法错误），非漏译程度词的机制缺陷。"
+    },
+    {
+      "revision_key": "edc794ff9790e88861a4368d236f7fb2c49abe4a7ae8e706d3ed071218d6af4a",
+      "stage": "surface",
+      "observation": "原文的“huge fire dragon”在译文中只剩“火龙”，漏译了体型描述“huge”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests/starter-zones.lua:56 岱卡拉任务日志：the huge fire dragon that dwelled there，译文“这里的火龙”漏 huge（巨大的）且 there→“这里”视角偏差。修为“盘踞在那里的巨型火龙”一类。"
+    },
+    {
+      "revision_key": "ed8673e41a7d04e69012aca27620bd886c1712ff3aec6ece4efab8e8f801ead1",
+      "stage": "contextual",
+      "observation": "warrior.lua:343 源文列举三类人：pit-fighter（地下格斗场斗士）、boxer（拳击手）、amateur practitioner（业余习武者）。译文只剩两类，'无论是一个职业拳手还是个业余的门外汉'漏掉了 pit-fighter；'门外汉'意为外行，和 practitioner（实际练习者）意思相反。另外'Brawler's skills'（格斗家职业的技能）被泛化成了'格斗技能'。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向的独立语境复核：birth/classes/warrior.lua:343 漏 pit-fighter；“门外汉”（外行）与 practitioner（实际习练者）相反；the Brawler's skills 被泛化为“格斗技能”，丢职业名“格斗家”。整句修复。"
+    },
+    {
+      "revision_key": "ed86ff05a4f099244e7dfde68a8a2d2c325860305f6b0ab71656467cf4330fbb",
+      "stage": "contextual",
+      "observation": "town-point-zero/npcs.lua:134 Zemekkys 的描述是'A timeless elf... his age is impossible to determine'，即看不出年纪。译文加了源文没有的'中年'，给出一个确定年龄段，和下一句'不知道他活了多久'自相矛盾。'timeless'应译为'不显年岁'之类。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：town-point-zero/npcs.lua:134 A timeless elf…age is impossible to determine，“中年精灵”凭空断定年龄且与后句矛盾。修为“不显年岁的精灵”一类。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; all 80 surface identity echoes pre-checked exact against envelopes before harvest.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}
