@@ -1,0 +1,17 @@
+修复窗口 13 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:12226) 恰好修改 4 个冻结 target：Self-Judgement、Body of Stone、魔杖描述、Crushing Hold。
+- 保持 source/tag、参数顺序、占位符、markup、TAB 和 LF 基线不变。
+- 已生成逐字节一致的 `PREFLIGHT-BATCH259.json`、`HOST-WORKSET.json`、`SOURCE-ANCHORS.json`。
+- 实施记录：[IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-13-20260923/IMPLEMENTATION.md)
+- 检查记录：[VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-13-20260923/VALIDATION.json)
+
+检查全部通过：
+
+- `verify.py`：22,989 条记录中恰有 4 个 target 变化
+- strict lint：30,308 条，0 errors、0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+- 三份冻结副本 `cmp`：全部一致
+
+未修改 `.ai`、规则、工具、术语库或 handoff/catalog/migration；未 stage、commit、push，也保留了所有无关 untracked。完整门禁、严格构建、独立 REVIEW／FINAL_REVIEW 与 `DONE_VERIFIED` 仍由宿主继续。

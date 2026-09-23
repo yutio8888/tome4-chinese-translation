@@ -1,0 +1,65 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "ee3d073a2c9024bf0a974df77795c89fc8e9977304e69ff347378004d95854d1"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+      "start_line": 4160,
+      "end_line": 4188,
+      "excerpt": "4160: \n4161: newEffect{\n4162: \tname = \"SELF_JUDGEMENT\", image = \"talents/self_judgement.png\",\n4163: \tdesc = _t\"Self-Judgement\",\n4164: \tlong_desc = function(self, eff) return (\"Your body is bleeding, losing %0.2f life each turn.\"):tformat(eff.power) end,\n4165: \ttype = \"other\",\n4166: \tsubtype = { bleed=true },\n4167: \tstatus = \"detrimental\",\n4168: \tparameters = { power=10 },\n4169: \ton_gain = function(self, err) return _t\"#CRIMSON##Target# is torn open by the powerful blow!\", _t\"+Self-Judgement\" end,\n4170: \ton_lose = function(self, err) return _t\"#CRIMSON##Target#'s wound has closed.\", _t\"-Self-Judgement\" end,\n4171: \ton_merge = function(self, old_eff, new_eff)\n4172: \t\tlocal remaining = old_eff.dur*old_eff.power\n4173: \t\told_eff.dur = new_eff.dur\n4174: \t\told_eff.power = remaining/(new_eff.dur or 1) + new_eff.power\n4175: \t\treturn old_eff\n4176: \tend,\n4177: \tactivate = function(self, eff) end,\n4178: \tdeactivate = function(self, eff) end,\n4179: \ton_timeout = function(self, eff)\n4180: \t\tif eff.invulnerable then\n4181: \t\t\teff.dur = eff.dur + 1\n4182: \t\t\treturn\n4183: \t\tend\n4184: \t\tlocal dead, val = self:takeHit(eff.power, self, {special_death_msg=_t\"died a well-deserved death by exsanguination\"})\n4185: \t\t\n4186: \t\tlocal srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or \"Something\"\n4187: \t\tgame:delayedLogDamage(eff, self, val, (\"#CRIMSON#%d Bleed #LAST#\"):tformat(math.ceil(val)), false)\n4188: \tend,"
+    },
+    {
+      "revision_keys": [
+        "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/spells/stone.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "588e7571be426b3b2daeb3e16128c8ea37c177cd3d7904aa6fd52d937b590a74",
+      "start_line": 79,
+      "end_line": 132,
+      "excerpt": "79: \tsustain_mana = 70,\n80: \tcooldown = 12,\n81: \tno_energy = true,\n82: \tno_npc_use = true,\n83: \ttactical = { BUFF = 2 },\n84: \tgetFireRes = function(self, t) return self:combatTalentSpellDamage(t, 5, 80) end,\n85: \tgetLightningRes = function(self, t) return self:combatTalentSpellDamage(t, 5, 50) end,\n86: \tgetAcidRes = function(self, t) return self:combatTalentSpellDamage(t, 5, 20) end,\n87: \tgetStunRes = function(self, t) return self:getTalentLevel(t)/10 end,\n88: \tgetCooldownReduction = function(self, t) return self:combatTalentLimit(t, 50, 18, 40) end,  -- Limit to < 50%\n89: \tactivate = function(self, t)\n90: \t\tlocal cdr = t.getCooldownReduction(self, t)\n91: \t\tgame:playSoundNear(self, \"talents/earth\")\n92: \n93: \t\tlocal cd_recution = {}\n94: \t\tfor cdtid, _ in pairs(self.talents) do\n95: \t\t\tlocal cdt = self:getTalentFromId(cdtid)\n96: \t\t\tif cdt.is_body_of_stone_affected then\n97: \t\t\t\tcd_recution[cdtid] = math.floor(cdr*(self:getTalentCooldown(cdt) or 0)/100)\n98: \t\t\tend\n99: \t\tend\n100: \n101: \t\treturn {\n102: \t\t\tparticle = self:addParticles(Particles.new(\"stone_skin\", 1)),\n103: \t\t\tmove = self:addTemporaryValue(\"never_move\", 1),\n104: \t\t\tstun = self:addTemporaryValue(\"stun_immune\", t.getStunRes(self, t)),\n105: \t\t\tcdred = self:addTemporaryValue(\"talent_cd_reduction\", cd_recution),\n106: \t\t\t\n107: \t\t\tres = self:addTemporaryValue(\"resists\", {\n108: \t\t\t\t[DamageType.FIRE] = t.getFireRes(self, t),\n109: \t\t\t\t[DamageType.LIGHTNING] = t.getLightningRes(self, t),\n110: \t\t\t\t[DamageType.ACID] = t.getAcidRes(self, t),\n111: \t\t\t}),\n112: \t\t}\n113: \tend,\n114: \tdeactivate = function(self, t, p)\n115: \t\tself:removeParticles(p.particle)\n116: \t\tself:removeTemporaryValue(\"never_move\", p.move)\n117: \t\tself:removeTemporaryValue(\"stun_immune\", p.stun)\n118: \t\tself:removeTemporaryValue(\"talent_cd_reduction\", p.cdred)\n119: \t\tself:removeTemporaryValue(\"resists\", p.res)\n120: \t\treturn true\n121: \tend,\n122: \tinfo = function(self, t)\n123: \t\tlocal fireres = t.getFireRes(self, t)\n124: \t\tlocal lightningres = t.getLightningRes(self, t)\n125: \t\tlocal acidres = t.getAcidRes(self, t)\n126: \t\tlocal cooldownred = t.getCooldownReduction(self, t)\n127: \t\tlocal stunres = t.getStunRes(self, t)\n128: \t\treturn ([[You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect.\n129: \t\tYour stone form and your affinity with the earth while the spell is active has the following effects:\n130: \t\t* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%.\n131: \t\t* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.\n132: \t\tResistances scale with your Spellpower.]])"
+    },
+    {
+      "revision_keys": [
+        "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Actor.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start_line": 1484,
+      "end_line": 1488,
+      "excerpt": "1484: \tend\n1485: \n1486: \tif moved and self:isTalentActive(self.T_BODY_OF_STONE) and not self:attr(\"preserve_body_of_stone\") then\n1487: \t\tself:forceUseTalent(self.T_BODY_OF_STONE, {ignore_energy=true})\n1488: \tend"
+    },
+    {
+      "revision_keys": [
+        "ee7affcb576ec9570085b729563ced5da745a971dd3cbb42ce573f47cbc08f6f"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/wands.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "a89789597cff75eb7df934393980236b26afe808c39429a1248db74218b6a2fb",
+      "start_line": 25,
+      "end_line": 35,
+      "excerpt": "25: \tdisplay = \"-\", color=colors.WHITE, image = resolvers.image_material(\"wand\", \"wood\"),\n26: \tencumber = 2,\n27: \trarity = 12,\n28: \tadd_name = \"#CHARM# #CHARGES#\",\n29: \tuse_sound = \"talents/spell_generic\",\n30: \tdesc = _t[[Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.]],\n31: \tegos = \"/data/general/objects/egos/wands.lua\", egos_chance = { prefix=resolvers.mbonus(20, 5), },\n32: \taddons = \"/data/general/objects/egos/wands-powers.lua\",\n33: \tpower_source = {arcane=true},\n34: \trandart_able = \"/data/general/objects/random-artifacts/generic.lua\",\n35: \ttalent_cooldown = \"T_GLOBAL_CD\","
+    },
+    {
+      "revision_keys": [
+        "eea3b16de500ec86097d123eb5e29ef9d0214c71d34a8fd0f509c5db758a51ba"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/techniques/grappling.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "673d746fc2eeec72962afaa52d4e00f644b3d855a0ebb749c30af2ac9ff752eb",
+      "start_line": 118,
+      "end_line": 147,
+      "excerpt": "118: \trequires_target = true,\n119: \tgetDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 5, 50) * getUnarmedTrainingBonus(self) end, -- this function shouldn't be used any more but I left it in to be safe, Clinch now handles the damage\n120: \tgetSlow = function(self, t)\n121: \t\tif self:getTalentLevel(self.T_CRUSHING_HOLD) >= 5 then\n122: \t\t\treturn self:combatTalentPhysicalDamage(t, 0.05, 0.45)\n123: \t\telse\n124: \t\t\treturn 0\n125: \t\tend\n126: \tend,\n127: \tgetDamageReduction = function(self, t)\n128: \t\treturn self:combatTalentPhysicalDamage(t, 10, 30)\n129: \tend,\n130: \tgetSilence = function(self, t) -- this is a silence without an immunity check by design, if concerned about NPC use this is the talent to block\n131: \t\tif self:getTalentLevel(self.T_CRUSHING_HOLD) >= 3 then\n132: \t\t\treturn 1\n133: \t\telse\n134: \t\t\treturn 0\n135: \t\tend\n136: \tend,\n137: \tgetBonusEffects = function(self, t) -- used by startGrapple in Combat.lua, essentially merges these properties and the Clinch bonuses\n138: \t\treturn {silence = t.getSilence(self, t), slow = t.getSlow(self, t), reduce = t.getDamageReduction(self, t)}\n139: \tend,\n140: \tinfo = function(self, t)\n141: \t\tlocal reduction = t.getDamageReduction(self, t)\n142: \t\tlocal slow = t.getSlow(self, t)\n143: \n144: \t\treturn ([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.\n145: \t\t#RED#Talent Level 1:  Reduces physical power by %d\n146: \t\tTalent Level 3:  Silences\n147: \t\tTalent Level 5:  Reduces global action speed by %d%%]])"
+    }
+  ]
+}

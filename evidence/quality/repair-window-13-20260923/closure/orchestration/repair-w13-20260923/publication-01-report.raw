@@ -1,0 +1,24 @@
+窗口 13 的证据发布与交接已完成。
+
+实际产出：
+
+- 写入 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-13-20260923/PUBLICATION.md)。
+- 安装 orchestration 快照：98 个文件，共 805,659 字节。
+- 逐字复制 `orchestration-pack-manifest.json`。
+- 安装 5 个候选 catalog 文件；其中 3 个与现有文件相同，实际 diff 仅涉及 `entries.jsonl` 和 `manifest.json`。
+- 安装 migration `52c71f8d…aff.json`。
+- 安装 14 个 publication 附件。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，记录窗口 13 结果及宿主后续步骤。
+
+验证结果：
+
+- PACK 全部文件数量、字节数及逐项 SHA-256：通过。
+- PACK manifest SHA-256：`bcf745eceec002910cfd9baf96428b2bf365ac1ce01de75db9d65325672e1420`。
+- Catalog ID：`e3b869612116e4b4c4f837e0f0a35017d85f9793fdf80a1109226edf075df753`。
+- Catalog、migration、publication 附件逐字比较：通过。
+- UTF-8、尾随空白、CR 字符及 38 个本地文档链接：通过。
+- `git diff --check`：通过。
+- 指定 `ai_state_check`：`DONE_VERIFIED: DONE predicate verified`。
+- 最终 tracked diff 仅为授权的 catalog 文件和 `handoff.md`。
+
+未修改 Lua、术语、规则、工具、旧证据、`.ai` 或 `pending-user-review.md`；未运行 queue/catalog/migration/完整门禁或 `verify_pack.py`，也未 stage、commit、push 或创建 agent。无计划偏差或遗留问题。

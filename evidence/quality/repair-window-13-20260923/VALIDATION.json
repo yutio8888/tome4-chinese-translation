@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-13 unique EXECUTOR",
+  "scope": "4 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w13-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 4,
+        "changed_revisions": [
+          "ee7affcb576ec9570085b729563ced5da745a971dd3cbb42ce573f47cbc08f6f",
+          "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159",
+          "eea3b16de500ec86097d123eb5e29ef9d0214c71d34a8fd0f509c5db758a51ba",
+          "ee3d073a2c9024bf0a974df77795c89fc8e9977304e69ff347378004d95854d1"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T113343.059436Z-3097066-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w13-20260923/PREFLIGHT-BATCH259.json",
+      "path": "evidence/quality/repair-window-13-20260923/PREFLIGHT-BATCH259.json",
+      "sha256": "58c51dfba5f2f5b99e70d342f5dba300b295e88e0013f5efa158ccea9090663a",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w13-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-13-20260923/HOST-WORKSET.json",
+      "sha256": "eb0c3c05b1c25a8d9f651cc2a18001c49bd2265e943108538dec2e5b1eda6b59",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w13-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-13-20260923/SOURCE-ANCHORS.json",
+      "sha256": "46f0991360131984113fa0f420cddd2c3c6950c5cb25ce574c835b70cb01cf21",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records only the unique EXECUTOR implementation and requested directed checks; full gates, strict build, independent REVIEW/FINAL_REVIEW, and DONE_VERIFIED remain for the host."
+}

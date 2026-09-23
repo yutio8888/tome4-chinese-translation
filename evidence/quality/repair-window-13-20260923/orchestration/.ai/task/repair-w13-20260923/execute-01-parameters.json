@@ -1,0 +1,18 @@
+{
+  "title": "W13 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口13的4条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w13-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中4个target及evidence/quality/repair-window-13-20260923/。所有LF/TAB、source/tag/args_order/printf占位符/markup保持基线。按SOURCE-CLAIMS整句核对并恢复原义：Self-Judgement 流血死亡信息 well-deserved death 写成“罪有应得”一类，不得写“死得其所”；Body of Stone 描述中 transform your flesh into stone 为“化为石头”，保留 forced（仅强制位移会结束效果），冷却缩减按百分比表述、不得写“回合数”，其余各行逐句对照；魔杖类型描述写明由强大的炼金术师和大法师制造、用于储存法术，任何人都可以用它释放其中的法术；Crushing Hold 用术语“全局速度”（如“降低目标 %d%% 全局速度”），首句补“每次抓取”，删去 #RED# 后多余空格，三行等级写法一致。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w13-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check。报告只写允许evidence目录；保存PREFLIGHT-BATCH259.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w13-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

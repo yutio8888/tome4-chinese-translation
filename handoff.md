@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核259已完成；下一步修复窗口13，仅处理259的4条）
+更新时间：2026-09-23（修复窗口13已完成；待宿主发布收尾，随后审核260）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -156,6 +156,24 @@ contextual `claude/claude-opus-5-5` 为 10 OK / 2 ISSUE；14 个观察裁决为 
 下一步按 1:1 节奏开修复窗口13，仅处理 259 的 4 条：Self-Judgement 流血死亡信息（“死得其所”→罪有应得）、
 Body of Stone 描述（化为石头、强制位移、冷却缩减百分比）、魔杖类型描述（漏制造者）、Crushing Hold 全局速度术语。
 范围见 `.ai/task/batch-73136994056fb59bf591/WINDOW13-REPAIR-DECISION.json`；可复用窗口12 模板，失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口13已完成。任务 `repair-w13-20260923` 的 `execute-01`（`codex/gpt-5.6-sol`）实施审核259的
+4条确认项：Self-Judgement 流血死亡信息由“死得其所”改为“罪有应得”；Body of Stone 描述改为
+“化为石头”，恢复“强制位移”，并明确冷却缩减按百分比计算；魔杖类型描述补回“由强大的炼金术师
+和大法师制造”；Crushing Hold 使用术语“全局速度”，补回“每次抓取”，并删除 `#RED#` 后的多余空格。
+`REVIEW(0)/full`（`codex/gpt-6-sol`）为 3 OK / 1 ISSUE：魔杖 `Archmagi` 与职业名“元素法师”不一致；
+宿主驳回，因为 `classes.tsv:22` 仅约束职业名 birth descriptor name，非职业语境本库一致使用“大法师”。
+`FINAL(1)/full`（`claude-opus-5-5`）为 4 OK，任务收敛。完整门禁 17/17 通过并含严格构建，任务
+`DONE_VERIFIED`。1 个 executor 与 2 个 reviewer 均已归档确认；本 publication child 待宿主归档。
+
+译文提交为 `88dd316752e399c6d42957a7424bec1629773c23`；新 catalog 为
+`e3b869612116e4b4c4f837e0f0a35017d85f9793fdf80a1109226edf075df753`，migration 为
+`52c71f8d968c2229e1d67f931e2585a4f32069ae74a26315acd0210ce9341aff`。迁移结果为
+4 条 revision changed、29,824 条 unchanged、0 ambiguous/unmapped，4 个 successor 待重新审核，
+不继承 done。完整结果见[窗口13出版证据](evidence/quality/repair-window-13-20260923/PUBLICATION.md)。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。完成后继续审核260
+（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 
