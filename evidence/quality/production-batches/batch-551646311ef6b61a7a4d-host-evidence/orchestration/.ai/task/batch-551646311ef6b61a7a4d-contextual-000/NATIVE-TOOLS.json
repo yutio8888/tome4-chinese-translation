@@ -1,0 +1,86 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01T6yEKjq36wTaTsXyxHeWkP",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-551646311ef6b61a7a4d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check envelope size and contract sections"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01DsRTfhdC9qhqAXmJYRe5UG",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-551646311ef6b61a7a4d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'));print(json.dumps(d,ensure_ascii=False,indent=1))\"",
+      "description": "Read contract section 6 and envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_0143BiWju19vNs77v4FwhsYV",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-551646311ef6b61a7a4d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d.keys())\nfor k,v in d.items():\n  if not isinstance(v,(list,dict)): print(k,v)\n\" ; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-551646311ef6b61a7a4d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(json.dumps(d,ensure_ascii=False,indent=0)[:30000])\" | head -c 31000",
+      "description": "Dump envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01KXx5hAgbyFWNYyqYVa2sXo",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/techniques/agility.lua | sed -n 40,90p; git show $C:game/modules/tome/data/talents/psionic/charged-mastery.lua | sed -n 70,118p; git grep -n \"death_message\" $C -- game/modules/tome/class game/engines | head",
+      "description": "Inspect pinned source for agility, static net, death_message"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_0125b7DUnpah67gZFySwRn1u",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/techniques/agility.lua | sed -n 30,40p; git show $C:game/modules/tome/class/interface/PartyDeath.lua | sed -n 60,100p; git show $C:game/modules/tome/data/damage_types.lua | grep -n \"STATIC_NET\" ; ",
+      "description": "Check talent name, death msg usage, static net damage"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Po3XkuQsfLM5JiWborgxLH",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/interface/PartyDeath.lua | sed -n 100,130p; git show $C:game/modules/tome/data/damage_types.lua | sed -n 3935,3965p",
+      "description": "Check death msg format and static net per-turn logic"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01CXt6LBwHdYTJfeWrgjnS6v",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -A18 'name = \"STATIC_CHARGE\"' $C -- game/modules/tome/data/timed_effects | head -30",
+      "description": "Check static charge effect stacking"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]

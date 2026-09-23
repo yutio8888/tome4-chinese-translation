@@ -1,0 +1,65 @@
+{
+  "workset": "evidence/quality/production-batches/batch-551646311ef6b61a7a4d-source-workset.json",
+  "decisions": {
+    "f6a545d079|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/celestial/sunlight.lua:69 技能名 Sun Flare（光系球形爆发，致盲并造成光伤）；flare 为“耀斑”，现译“日珥闪耀”的日珥（prominence）是另一种太阳现象。全库“日珥”“耀斑”各仅此一处，无引用同步与冲突，改为“太阳耀斑”一类属单条纠错而非全局重命名。"
+    },
+    "f6cc31f278|surface": {
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "damage_types.lua:909 枯萎伤害 death_message 列表中的 debilitated by noxious blight before falling；现译“死前吸入过多剧毒瘴气”增出“吸入/过量”。死亡描述词表整族已由用户 2026-09-16 裁定继续 pending（pending-user-review 第 13 项先例），单改一条会造成族内不一致，列入待用户审阅。"
+    },
+    "f6e111a3a1|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/techniques/agility.lua:71 盾牌敏捷格挡：delayedLogDamage 显示被抵消的伤害量 (\"%s(%d deflected)#LAST#\"，lastdam - dam)；现译“(%d 敏捷防御)”把偏转量说成防御名称。改为“(%d 被偏转)”一类，%s/%d 与 #LAST# 保持。"
+    },
+    "f6e9cd9b73|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "dialogs/CharacterSheet.lua:225 免疫表列标题：英文末尾空格仅为与 Physical Status 等宽对齐；同族 All Status/Mental Status 的英文填充空格在中文译文中同样去掉（mod-tome.lua:41361–41363），中文标签等宽，不存在拼接失距。"
+    },
+    "f6eae8d3af|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/blighted-ruins.lua:27 原文为单段连续文本（0 个 LF），现译在首段后插入 \\n\\t（一级换行不变量）。整条修复：删去该换行与制表符，其余逐句对照。"
+    },
+    "f6f9c01056|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "birth/classes/psionic.lua:139 Solipsist 职业说明引语：the world is the collective dream of those that live in it（世界是其居民共同的梦）；unlock the potential of your dreams（发掘你梦境的潜能）。现译“由许多个梦境组成”“打开通往梦境之门”偏离原意。整条修复。"
+    },
+    "f72ac3de1c|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/psionic/charged-mastery.lua:119–122 静电网：add %0.1f additional Lightning damage to your next attack for each turn you spend within its area——每在网中停留一回合累加一次；现译漏“每停留一回合”，读作固定一次加成（删限定词类缺陷）。整条修复，%d/%0.1f/%d%% 顺序与 \\n\\t\\t 保持。"
+    },
+    "f6cc31f278|contextual": {
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "与 surface 同向（contextual 另指 blight 为腐化/枯萎伤害而非气体，PartyDeath.lua:71,107 代入“was %s to death by %s”）。死亡描述词表整族由用户 2026-09-16 裁定继续 pending，本条作为该族新证据列入 pending-user-review，不单改。"
+    },
+    "f6e111a3a1|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：agility.lua:69–71 %d 为 lastdam-dam 即被盾牌偏转抵消的伤害量；现译“敏捷防御”读作技能名。整条修复为“(%d 被偏转)”一类。"
+    },
+    "f6eae8d3af|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：blighted-ruins.lua:27 单段无换行，现译插入 \\n\\t（一级换行不变量）。整条修复。"
+    },
+    "f6f9c01056|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向，并补充：下一行 psionic.lua:141 讲“the collective vision of those that experience it”，现译“许多个梦境”与之矛盾；unlock the potential of your dreams 被改为“打开通往梦境之门”。整条修复。"
+    },
+    "f72ac3de1c|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：damage_types.lua:3935–3946 每回合在网中给予 STATIC_CHARGE，mental.lua:2812–2813 on_merge 叠加 power，故加成按停留回合累加；现译漏 for each turn you spend within its area。整条修复。"
+    }
+  }
+}

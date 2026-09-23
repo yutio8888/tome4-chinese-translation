@@ -1,0 +1,3 @@
+lane-000-1 (agent a3e3d6ff, gpt-6-sol) final JSON echoed one entry_revision_identity wrongly, at a position judged OK with no observation:
+- results[16]: f6d9b27003984870ffe547aa7bf125d6e8fe7913e1f18fde4cda29bd45273b689 (65 chars; first 29 chars match, tail does not belong to any entry in this lane). Envelope value: f6d9b27003984870ffe547aa7bf1255296606ad1dd26fc46693176c8231eef52.
+All other 19 identities match the envelope exactly in order. Host replaced only that identity string, kept verdict OK, and harvested with --raw. Original final message bytes: lane1-original.raw; corrected: lane1-corrected.raw.

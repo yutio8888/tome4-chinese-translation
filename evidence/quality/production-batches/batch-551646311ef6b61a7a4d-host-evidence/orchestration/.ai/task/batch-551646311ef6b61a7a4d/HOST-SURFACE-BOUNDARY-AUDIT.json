@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (lanes 0,2,3 native-log harvest; lane 1 --raw with one host-corrected identity echo; all 80 identities pre-checked against envelopes)",
+  "host_prep_note": "prepare_review267.py ran cleanly before any dispatch. freeze_workset matched 80/80 (no MISS); all 80 entries source-verified pinned/confirmed. First close attempt refused (CLOSE_FAILED: unarchived task history) because lane-000-3 archive-confirm and the native-tools audit had not yet run; both completed, then close re-run.",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "9a28d47a2ecd0c65f5a9176eef47e8855f889e5b0e1353c3e140d0b4e4969ea5",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; escalated re-read of the same authorized files (read-only cat)"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "111bfddf58fccc9a4b1343054dad45b6a8df7dc99936b47ce44ebc9da2286402",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; escalated re-read of the same authorized files (read-only cat). Host hand-attribution: results[16] identity echo wrong (65 chars, first 29 match, tail belongs to no entry) at an OK position; corrected before harvest, original bytes kept in captures267/lane1-original.raw, see lane1-attribution.md"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "be1f1e89657589076d76bd391f7a210de90ec957daef1befc01cadc5a93cc670",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; escalated re-read of the same authorized files (read-only cat)"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "e4131927b1a86d9f5df628e5e9093e69cfb324793c4c499c2cc7c409d16a0192",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; escalated re-read of the same authorized files (read-only cat); one pwd; one ALL_TOOLS listing (tool discovery, no I/O)"
+    }
+  ]
+}
