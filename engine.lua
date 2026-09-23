@@ -1705,13 +1705,13 @@ This includes, but is not limited to:
 
 #{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#
 
-If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
+If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求。
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
-- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 插件版本检查：插件将不再检查新版本。
 - Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
@@ -1783,7 +1783,7 @@ t([[#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#
 #LIGHT_UMBER#New artifacts, lore, zones, events...#WHITE# For your demonic delight!
 
 ]], [[#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#很多马基·埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
@@ -1806,12 +1806,12 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
-#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方灾星”的人所带来的灾难中拯救出来。
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
 #LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。
 #LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
@@ -1838,7 +1838,7 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
 #LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
 #LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
-#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
+#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……

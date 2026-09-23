@@ -100,9 +100,9 @@ section "mod-tome/class/Actor.lua"
 t("drowned to death", "淹死", "_t")
 t("%s has been disrupted by #ORCHID#anti-magic forces#LAST#!", "%s被#ORCHID#反魔法力量#LAST#打断了！", "logSeen")
 t("%s temporarily fights the paralyzation.", "%s 暂时在瘫痪中挣扎。", "logSeen")
-t("#VIOLET#Following build order %s; increasing %s by 1.", "#VIOLET#遵循加点顺序%s;增加一点%s。", "log")
-t("#VIOLET#Following build order %s; learning talent category %s.", "#VIOLET#遵循加点顺序%s;学会技能树%s。", "log")
-t("#VIOLET#Following build order %s; learning talent %s.", "#VIOLET#遵循加点顺序%s;学会技能%s。", "log")
+t("#VIOLET#Following build order %s; increasing %s by 1.", "#VIOLET#遵循加点顺序%s；增加一点%s。", "log")
+t("#VIOLET#Following build order %s; learning talent category %s.", "#VIOLET#遵循加点顺序%s；学会技能树%s。", "log")
+t("#VIOLET#Following build order %s; learning talent %s.", "#VIOLET#遵循加点顺序%s；学会技能%s。", "log")
 t("You are asleep and unable to move!", "你睡着了无法移动！", "logPlayer")
 t("You are unable to move!", "你无法移动！", "logPlayer")
 t("#F53CBE#Your movements fuel your rampage! (+1 duration)", "#F53CBE#你的移动提升了你的暴走！（+1持续时间）", "logPlayer")
@@ -246,7 +246,7 @@ t("#00FF00#You are no longer encumbered.", "#00FF00#你不再超重。", "logPla
 t("-ENCUMBERED!", "-超重！", "_t")
 t("You cannot switch equipment while sleeping!", "你不能在睡眠中切换装备！", "logPlayer")
 t("unarmed", "徒手", "_t")
-t("%s warps space-time to equip: %s.", "%s扭曲空间，切换武器至：%s。", "logSeen")
+t("%s warps space-time to equip: %s.", "%s扭曲时空，切换武器至：%s。", "logSeen")
 t("%s switches %s weapons to: %s.", "%s切换%s武器至%s。", "logSeen")
 t("%s wears %s%s.", "%s穿上了%s%s。", "logSeen")
 t("antimagic", "反魔法", "_t")
@@ -274,7 +274,7 @@ t("do not have enough uncommitted", "太低，无法", "_t")
 t("You do not have enough feedback to use %s.", "你的反馈值不足，无法使用%s。", "logPlayer")
 t("You do not have enough fortress energy to use %s.", "你的堡垒能量不足，无法使用%s。", "logPlayer")
 t("You have too much %s to use %s.", "你的%s过高，无法使用%s。", "logPlayer")
-t("You do not have enough %s to use %s.", "你没有足够的%s施展：%s。", "logPlayer")
+t("You do not have enough %s to use %s.", "你没有足够的%s来施展%s。", "logPlayer")
 t("You fail to use %s due to your equilibrium!", "由于你的失衡值过高你使用 %s 失败！", "logPlayer")
 t("%s's %s has been disrupted by #ORCHID#anti-magic forces#LAST#!", "%s的%s被#ORCHID#反魔法力量#LAST#打断了！", "logSeen")
 t("%s's %s has been disrupted by #ORCHID#anti-nature forces#LAST#!", "%s的%s被#ORCHID#反自然力量#LAST#打断了！", "logSeen")
@@ -350,7 +350,7 @@ t("#ORANGE#%s shrugs off %s '%s'!", "#ORANGE#%s豁免了%s“%s”！", "logComb
 t("#Target#'s", "#Target#的", "_t")
 t("the effect", "效果", "_t")
 t("#LIGHT_UMBER#%s resists %s '%s'!", "#LIGHT_UMBER#%s抵抗了%s“%s”！", "logCombat")
-t("but fumbles!", "但是失败了！", "_t")
+t("but fumbles!", "，但是失败了！", "_t")
 t("to the %s!", "到%s！", "tformat")
 t("#Source# deflects the projectile from #Target# %s", "#Source#偏移来自#Target#的抛射物%s", "logCombat")
 t("%s reflects the spell!", "%s反射了法术！", "logSeen")
@@ -498,7 +498,7 @@ t(" #LIGHT_GREEN#[%0.0f healing]#LAST#", " #LIGHT_GREEN#[%0.0f 治疗]#LAST#", "
 t("#Source# hits #Target# for %s damage.", "#Source#击中#Target#造成%s伤害。", "logMessage")
 t("#Source# receives %s.", "#Source#受到%s。", "logMessage")
 t("#Target# receives %s from #Source#.", "#Target#受到来自#Source#的%s。", "logMessage")
-t("Kill (%d)!", "杀死 (%d)！", "tformat")
+t("Kill (%d)!", "杀死（%d）！", "tformat")
 t("#{bold}##Source# killed #Target#!#{normal}#", "#{bold}##Source#击杀了#Target#!#{normal}#", "_t")
 t("Showing big healthbars and tactical borders.", "显示大血条+边框。", "log")
 t("Showing healthbars only.", "只显示血条信息。", "log")
@@ -507,7 +507,7 @@ t("Showing small healthbars and tactical borders.", "显示小血条+边框。",
 t("You cannot do that on the world map.", "你在世界地图上不能这样做。", "logPlayer")
 t("Run in which direction?", "朝哪个方向跑？", "log")
 t("You may not auto-explore this level.", "你不能自动探索这一层。", "log")
-t("You may not auto-explore with enemies in sight (%s to the %s%s)!", "当有敌人在视野里时，你不能自动探索！(%s 在 %s方%s)！", "log")
+t("You may not auto-explore with enemies in sight (%s to the %s%s)!", "当有敌人在视野里时，你不能自动探索（%s位于%s%s）！", "log")
 t("There is nowhere left to explore.", "这一层没有地方可以探索了。", "log")
 t("Hotkey page %d is now displayed.", "当前显示快捷键第%d页。", "log")
 t("You cannot currently leave the level.", "你现在不能离开本层。", "log")
@@ -716,7 +716,7 @@ t("%s%0.2f/turn", "%s%0.2f/回合", "tformat")
 t("%s, %s apr", "%s, %s 护甲穿透", "tformat")
 t("%d/%d, %s, %s apr", "%d/%d, %s, %s 护甲穿透", "tformat")
 t("%s, %d apr, %s damage", "%s, %d 护甲穿透，%s 伤害", "tformat")
-t("%s, %d apr, %s element", "%s, %d 护甲穿透，%s 伤害", "tformat")
+t("%s, %d apr, %s element", "%s，%d 护甲穿透，%s 伤害", "tformat")
 t("%s, %s block", "%s, %s 格挡", "tformat")
 t("%s block", "%s 格挡", "tformat")
 t("%s def, %s armour", "%s 闪避，%s 护甲", "tformat")
@@ -983,9 +983,9 @@ t("Latent Damage Type: ", "潜在伤害类型：", "_t")
 t("When inscribed on your body:", "当铭刻在你的皮肤上时：", "_t")
 t("Talent level: %+d %s.", "技能等级：%+d %s。", "tformat")
 t("Talent level: %s.", "技能等级：%s。", "tformat")
-t("Talent on hit(spell): %s (%d%% chance level %d).", "技能（法术）命中后释放：%s (%d%% 几率等级 %d)。", "tformat")
+t("Talent on hit(spell): %s (%d%% chance level %d).", "技能（法术）命中后释放：%s（%d%% 几率等级 %d）。", "tformat")
 t("Talent on hit(nature): %s (%d%% chance level %d).", "技能（自然）命中后释放：%s (%d%% 几率等级 %d)。", "tformat")
-t("Talent on hit(mindpower): %s (%d%% chance level %d).", "技能（精神）命中后释放：%s (%d%% 几率等级 %d)。", "tformat")
+t("Talent on hit(mindpower): %s (%d%% chance level %d).", "技能（精神）命中后释放：%s（%d%% 几率等级 %d）。", "tformat")
 t("Activating this item is instant.", "使用该物品不需要时间。", "_t")
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
 t("all charms", "所有护符", "_t")
@@ -1028,7 +1028,7 @@ t([[Powered by #CRIMSON#unknown forces#LAST#
 ]], [[装备力量来源 #CRIMSON#未知力量#LAST#
 ]], "_t")
 t("%0.2f Encumbrance.", "%0.2f 负重。", "tformat")
-t("This object's appearance was changed to %s", "这个物品的外观被改变为 %s。", "tformat")
+t("This object's appearance was changed to %s", "这个物品的外观被改变为 %s", "tformat")
 t("Press <control> to compare", "按住 Ctrl 键比较", "_t")
 -- untranslated text
 --[==[
@@ -1112,8 +1112,8 @@ t("You cannot pick up items from the floor while asleep!", "你不能在睡眠�
 t("Drop object", "扔下物品", "_t")
 t("Wield/wear object", "穿戴物品", "_t")
 t("Take off object", "脱下物品", "_t")
-t("Your antimagic disrupts %s.", "你的反魔法技能打断了 %s。", "logPlayer")
-t("Your antimagic disrupts %s.", "你的反魔法技能打断了 %s。", "tformat")
+t("Your antimagic disrupts %s.", "你的反魔法干扰了 %s。", "logPlayer")
+t("Your antimagic disrupts %s.", "你的反魔法干扰了 %s。", "tformat")
 t("You have no more %s.", "你不再拥有%s。", "log")
 t("You have %s.", "你拥有%s。", "log")
 t("You cannot use items on the world map.", "你不能在世界地图中使用物品。", "logPlayer")
@@ -1220,7 +1220,7 @@ t("simply ignore", "轻松无视了", "_t")
 t("carefully avoid", "小心避开了", "_t")
 t("somehow avoid", "不知怎么避开了", "_t")
 t("dodge", "躲开了", "_t")
-t("#CADET_BLUE#You %s a trap (%s).", "#CADET_BLUE#你%s了一个陷阱(%s)。", "log")
+t("#CADET_BLUE#You %s a trap (%s).", "#CADET_BLUE#你%s一个陷阱（%s）。", "log")
 t("#CADET_BLUE#%s %ss %s.", "#CADET_BLUE#%s%s%s。", "logSeen")
 t("a trap (%s)", "一个陷阱 (%s)", "tformat")
 t("something on the floor", "地板上的某物", "_t")
@@ -1376,7 +1376,7 @@ section "mod-tome/class/interface/Combat.lua"
 t("%s is too afraid to attack.", "%s由于恐惧而无法攻击。", "logSeen")
 t("%s is too terrified to attack.", "%s由于恐惧而无法攻击。", "logSeen")
 t("#Target# notices you at the last moment!", "#Target#在最后时刻注意到了你！", "logCombat")
-t("#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", "#ORCHID#%s用%s的盾牌机智地偏转了这次攻击！#LAST#", "logSeen")
+t("#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", "#ORCHID#%s用%s盾牌机智地偏转了这次攻击！#LAST#", "logSeen")
 t("#ORCHID#%s parries the attack with %s dual weapons!#LAST#", "#ORCHID#%s用%s双持武器使这次攻击发生偏斜！#LAST#", "logSeen")
 t("#ORCHID#%s instinctively hardens %s skin and ignores the attack!#LAST#", "#ORCHID#%s本能地硬化%s皮肤，无视了这次攻击！#LAST#", "logSeen")
 t("#Target# repels an attack from #Source#.", "#Target#击退了#Source#的进攻。", "logCombat")
@@ -1425,7 +1425,7 @@ t("#{bold}#", "#{bold}#", "_t")
 section "mod-tome/class/interface/PartyIngredients.lua"
 
 t("You collect a new ingredient: #LIGHT_GREEN#%s%s#WHITE#.", "你搜集了一个新的材料：#LIGHT_GREEN#%s%s#WHITE#。", "log")
-t("You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#.", "你搜集了一个新的材料：#LIGHT_GREEN#%s%s(%d)#WHITE#。", "log")
+t("You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#.", "你搜集了一个新的材料：#LIGHT_GREEN#%s%s（%d）#WHITE#。", "log")
 
 ------------------------------------------------
 section "mod-tome/class/interface/PartyLore.lua"
@@ -1581,7 +1581,7 @@ Equilibrium reflects your standing in the grand balance of nature and how easily
 The closer it is to 0 the more in-balance you are.
 Being too far out of balance may cause your Wild Gifts to fail when called upon.
 ]], [[#GOLD#失衡值#LAST#
-失衡值是你保持自然平衡的能力，决定了你使用野性系技能的难易程度。
+失衡值反映了你在自然大平衡中所处的状态，以及你使用野性系技能的难易程度。
 失衡值越接近于0你破坏自然平衡的量越少。
 当你的失衡值过高时，你使用野性系技能时可能会失败。
 ]], "_t")
@@ -1690,7 +1690,7 @@ t([[#GOLD#Passive Talents#LAST#
 When learned, passive talents permanently alter the user in some way.
 The effects are always present and are usually not dispellable or removable, though other effects may counteract or negate them.
 Specific information on each talent appears its tooltip.]], [[#GOLD#被动技能#LAST#
-当你学会被动技能之后，它会以某种方式永久性的给玩家带来改变。
+当你学会被动技能之后，它会以某种方式永久地改变技能的使用者。
 这些效果始终存在，通常不会被解除或移除，但是有些特殊效果可能会抵消或消除它们。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Sustained Talents#LAST#
@@ -1771,8 +1771,8 @@ Constitution defines your character's ability to withstand and resist damage. It
 ]], "_t")
 t([[#GOLD#Magic#LAST#
 Magic defines your character's ability to manipulate the magical energy of the world. It increases your Spellpower, Spell Save, and the effect of spells and other magic items.
-]], [[#GOLD#魔法#LAST#
-魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，提升法术豁免，并提高法术和其他魔法物品的效果。
+]], [[#GOLD#魔力#LAST#
+魔力属性影响你驾驭魔法能量的能力，提升魔力可以提高你的法术强度，提升法术豁免，并提高法术和其他魔法物品的效果。
 ]], "_t")
 t([[#GOLD#Willpower#LAST#
 Willpower defines your character's ability to concentrate. It increases your mana, stamina, psi capacity, Mindpower, Spell Save, and Mental Save.
@@ -2280,12 +2280,12 @@ section "mod-tome/class/interface/WorldAchievements.lua"
 t("Maj'Eyal", "马基·埃亚尔", "_t")
 t("%s (Roguelike)", "%s（永久死亡模式）", "tformat")
 t("%s (Exploration mode)", "%s（探索模式）", "tformat")
-t("%s (Nightmare (Adventure) difficulty)", "%s (噩梦难度（冒险模式）)", "tformat")
-t("%s (Nightmare (Roguelike) difficulty)", "%s (噩梦难度（永久死亡模式）)", "tformat")
-t("%s (Insane (Adventure) difficulty)", "%s (疯狂难度（冒险模式）)", "tformat")
-t("%s (Insane (Roguelike) difficulty)", "%s (疯狂难度（永久死亡模式）)", "tformat")
-t("%s (Madness (Adventure) difficulty)", "%s (绝望难度（冒险模式）)", "tformat")
-t("%s (Madness (Roguelike) difficulty)", "%s (绝望难度（永久死亡模式）)", "tformat")
+t("%s (Nightmare (Adventure) difficulty)", "%s（噩梦难度（冒险模式））", "tformat")
+t("%s (Nightmare (Roguelike) difficulty)", "%s（噩梦难度（永久死亡模式））", "tformat")
+t("%s (Insane (Adventure) difficulty)", "%s（疯狂难度（冒险模式））", "tformat")
+t("%s (Insane (Roguelike) difficulty)", "%s（疯狂难度（永久死亡模式））", "tformat")
+t("%s (Madness (Adventure) difficulty)", "%s（绝望难度（冒险模式））", "tformat")
+t("%s (Madness (Roguelike) difficulty)", "%s（绝望难度（永久死亡模式））", "tformat")
 
 ------------------------------------------------
 section "mod-tome/class/uiset/Classic.lua"
@@ -2691,7 +2691,7 @@ t("Killed all four bosses of the Slime Tunnels.", "杀死史莱姆通道的4个b
 t("Well trained", "训练有素", "achievement name")
 t("Deal one million damage to training dummies in a single training session.", "在一次训练中对训练假人造成一百万点伤害。", "_t")
 t("I meant to do that...", "我就是故意的……", "achievement name")
-t("Avoid death 50 times with a life-saving talent.", "使用技能躲避50次死亡。", "_t")
+t("Avoid death 50 times with a life-saving talent.", "借助保命技能避免死亡50次。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/lore.lua"
@@ -2785,7 +2785,7 @@ t("Fought the two Sorcerers and closed three invocation portals.", "在关闭3�
 t("Portal master", "传送门主宰者", "achievement name")
 t("Fought the two Sorcerers and closed four invocation portals.", "在关闭4扇传送门的情况下，杀死2名巫师。", "_t")
 t("Never Look Back And There Again", "从未回头", "achievement name")
-t("Win the game without ever setting foot on Maj'Eyal.", "在没有去过旧大陆的情况下通关游戏。", "_t")
+t("Win the game without ever setting foot on Maj'Eyal.", "在从未踏足马基·埃亚尔的情况下通关游戏。", "_t")
 t("Bikining along!", "比基尼胜利！", "achievement name")
 t("Won the game without ever taking off her bikini.", "在没有脱下比基尼的情况下获得胜利。", "_t")
 t("Mankining it happen!", "兄贵的胜利！", "achievement name")
