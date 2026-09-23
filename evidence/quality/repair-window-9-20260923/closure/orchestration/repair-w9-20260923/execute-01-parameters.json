@@ -1,0 +1,18 @@
+{
+  "title": "W9 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口9的5条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w9-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中5个target及evidence/quality/repair-window-9-20260923/。所有LF/TAB、source/tag/args_order/printf占位符/markup保持基线。按SOURCE-CLAIMS恢复局部原义：高阶奇术师解锁文本只把Flame的“火球术”改为现行技能名“火焰”，其余技能名不动；潜行说明只修两处——“如果敌人在半径 %d %s 内”补足in sight（视野内能看见你的敌人），“任何非瞬间非移动技能”改为“行动”；“有 %d 个符文”改为体现生效（如“%d 个符文生效中”）；夏之眼灵晶把“微光”改为明亮温暖的光；回归之杖描述把“这个法杖”改为魔杖/杖类（不得用武器类“法杖”，物品名“回归之杖”不改），“撕裂空间”改为“扭曲空间”，并体现raw（原始）魔法能量。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w9-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check。报告只写允许evidence目录；保存PREFLIGHT-BATCH255.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w9-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

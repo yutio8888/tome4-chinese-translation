@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核255已完成；下一步修复窗口9，仅处理255的5条）
+更新时间：2026-09-23（修复窗口9已完成；待宿主发布收尾，随后审核256）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
@@ -44,6 +44,20 @@ surface 四组 `codex/gpt-6-sol` 为 69 OK / 11 ISSUE（无错位），contextua
 `Flame` 技能名、潜行说明（in sight 与 action）、`%d runes active`、夏之眼 bright、回归之杖描述。
 裁决与范围见 `.ai/task/batch-448e3278fde3f8dfbea2/WINDOW9-EARLY-REPAIR-DECISION.json`。窗口9可复用
 `.ai/task/repair-w8-20260923/` 的通用 helper。
+
+修复窗口9已完成。首轮 `repair-w9-20260923` 经 `REVIEW/full` 4 OK / 1 ISSUE、三轮 `FINAL`
+（F1 4 OK / 1 ISSUE、F2 4 OK / 1 ISSUE、F3 5 OK / 0 ISSUE）收敛并通过 17/17 门禁；但宿主在
+`FINAL` 失败后没有按 `translation_v2_convergence` 返回 `RE_REVIEW`，因此该任务以
+`STOP_VERIFIED` 关闭。重跑任务 `repair-w9b-20260923` 逐字应用已收敛文本，
+`REVIEW(0)/full` 与 `FINAL(1)/full` 均为 5 OK，完整门禁 `run.hna9wv8w` 17/17 通过并含严格构建，
+任务 `DONE_VERIFIED`。译文提交为 `78be6b5a752cb5a24d0ef1e8337f0ba301180f21`；新 catalog 为
+`0e554a74d6738064f4245525bed6f1be8a8463ea3df7f683ab2327e0fe0de510`，migration 为
+`bdf355b65bef33ded7ac24e48c577770f33d67312fed83ab8de9d1f4c4a538d1`，5 个 successor 待重新审核，
+不继承 done。`Flame` 名称争议恢复基线“火球术”并登记为 pending。完整结果见
+[窗口9出版证据](evidence/quality/repair-window-9-20260923/PUBLICATION.md)。
+
+下一步由宿主完成本证据提交、第二次 queue rebuild 与 push；完成后继续审核 256（默认 80 条）。
+上述后续步骤尚未执行。
 
 ### 窗口7闭合时的暂停记录（历史）
 

@@ -1,0 +1,27 @@
+{
+  "cycle": 0,
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "single_bounded_fix_then_final_full",
+  "findings": [
+    {
+      "id": "R0-THAUM-NOTHING-ELSE",
+      "revision_key": "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "spells/thaumaturgy.lua:305–327 THAUMATURGIST_UNLOCK_CHECKER：对首领的任何伤害若 death_note.source_talent 不是主动射线法术（含普通攻击等非技能伤害）即标记 __invalid_for_thaumaturgy_unlock。原文 only using beam spells and nothing else 指不借助任何其他手段，译文“不使用其他技能”缩窄为只排除技能，确认修复。",
+      "resolution": "首句“不使用其他技能”改为“不借助其他任何手段”类表述。"
+    },
+    {
+      "id": "R0-THAUM-FLAME-NAME",
+      "revision_key": "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968",
+      "status": "pending",
+      "disposition": "pending_user_review",
+      "reason": "Flame 的术语库条目 terminology/talents.tsv:117 为“火球术”（status=existing），同族职业说明 mod-tome.lua:31623 亦用“火球术”；而运行时技能名 mod-tome.lua:28850/mod-boot.lua:208/engine.lua:1623 为“火焰”。255批宿主以技能名为准改为“火焰”，本轮 reviewer 依术语库判为不一致。统一方向（改技能名为火球术，或改说明与术语库为火焰）属未授权的术语/跨条目决定，按用户指示列 pending；本窗口将该处恢复为基线“火球术”，不改术语库与其他条目。",
+      "resolution": "恢复基线“火球术”；列入 evidence/quality/pending-user-review.md。"
+    }
+  ],
+  "conflict_assessment": "Flame 名称为术语库与运行时技能名的既有不一致，非本窗口可单方面裁定；nothing else 为源码可判的一级忠实度问题。",
+  "senior_scope_audit_required": false
+}

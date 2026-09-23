@@ -1,0 +1,18 @@
+{
+  "title": "W9 execute-04 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行修复窗口9 FINAL_REVIEW 第2轮后的单条有界修复（fresh run）。先读 .ai/roles/executor.md、.ai/task/repair-w9-20260923/SPEC.md 与 ADJUDICATION-F2.json。只改 mod-tome.lua 中 ea047c36a0 条（cunning/stealth.lua 潜行说明）target 的两行：①第二行“敌人将不会知道你在哪里，或者根本不会注意到你”改为体现 exactly 与 may 的“敌人将无法确切知道你的位置，甚至可能根本注意不到你”类表述；②第六行“即使不知道你位置的敌人，仍然会猜测你可能在的位置”改为体现 uncertain 与 educated guesses 的“不确定你位置的敌人仍会有根据地推测你的位置”类表述。其余各行（含已修的“能看见你的敌人”与“行动”）、%d/%s 占位符、LF/TAB 完全不变；其他4条保持。可在 evidence/quality/repair-window-9-20260923/ 追加 FIX-F2.md 与更新 VALIDATION.json。不改其他译文、规则、工具、术语库、handoff，不stage/commit/push、不写.ai、不创建agent。修改后运行 python3 -B .ai/task/repair-w9-20260923/verify.py、python3 -B tools/i18n lint --strict、git diff --check，报告实际结果。",
+  "labels": {
+    "task_id": "repair-w9-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-04",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

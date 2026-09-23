@@ -48,3 +48,11 @@
    - 建议选项：保持“宝石能量” / 改为“物质即能量”（需同步引用处）。
 
 - 审核 255 advisory：巫妖外观名 `Lich Regalia` 译作“巫妖王冠”；召唤触手描述 `Ewwww..` 译作“额……”，语气偏迟疑。
+
+## 修复窗口 9 待审阅
+
+7. `e9e627f60c`（高阶奇术师解锁文本中的 Flame 名称）
+   - 英文要点：`Flame, Manathrust, Lightning, Pulverizing Auger and Ice Shards permanently become 3-wide beam spells`。
+   - 现译：“火球术”（基线，窗口 9 保持不变）。
+   - 争议理由：术语库 `terminology/talents.tsv:117` 记录 `Flame=火球术`（`status=existing`），职业说明 `mod-tome.lua` 亦用“火球术”；但运行时技能名（`mod-tome.lua` / `mod-boot.lua` / `engine.lua` 的 talent name 行）为“火焰”。统一方向属术语决定。
+   - 建议选项：改技能名为“火球术”并同步术语 / 改说明与术语库为“火焰”。

@@ -1,0 +1,19 @@
+{
+  "cycle": 1,
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "single_bounded_fix_then_final_full",
+  "findings": [
+    {
+      "id": "F1-ROD-NEWLINE",
+      "revision_key": "ea4c9e1c8864a99ca4cc2ed45bc09fae542786feef2058485672125a1d8089da",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "newline_invariant",
+      "reason": "quest-artifacts.lua:319–320 回归之杖 desc 原文在 bend space itself. 后有 1 个 LF，另起一行 You have heard of such items before…；基线译文即为 0 个 LF（非本窗口引入），属客观换行不变量缺陷，本条在窗口范围内，确认修复。",
+      "resolution": "仅在“……原始魔法能量。”与“你以前曾听说过此类物品。”之间插入一个换行，其他文字不变。"
+    }
+  ],
+  "notes": "其余 4 条（含 e9e627f60c 修复后文本）FINAL 判 OK。R0-THAUM-FLAME-NAME 维持 pending。",
+  "senior_scope_audit_required": false
+}

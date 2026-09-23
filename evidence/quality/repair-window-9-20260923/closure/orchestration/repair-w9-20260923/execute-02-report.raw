@@ -1,0 +1,19 @@
+已完成修复窗口 9 第 1 轮有界修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:34346)
+  - “不使用其他技能”改为“不借助其他任何手段”。
+  - 宽射线名称恢复为基线“火球术”。
+  - 其余 4 条既有修改保持不变。
+- 新增 [FIX-R0.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-9-20260923/FIX-R0.md)。
+- 更新 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-9-20260923/VALIDATION.json)。
+
+验证结果：
+
+- `python3 -B .ai/task/repair-w9-20260923/verify.py`：通过，`verified=true`，恰有 5 个既定 revision 变更。
+- `python3 -B tools/i18n lint --strict`：通过，30308 条翻译，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- `VALIDATION.json` JSON 校验通过。
+
+未修改 `.ai`、其他译文、术语库、规则、工具或 handoff；未 stage、commit、push。`R0-THAUM-FLAME-NAME` 仍为待用户裁决事项。

@@ -1,0 +1,19 @@
+{
+  "cycle": 2,
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "single_bounded_fix_then_final_full",
+  "findings": [
+    {
+      "id": "F2-STEALTH-UNCERTAINTY",
+      "revision_key": "ea047c36a0657e519501133b15798bef74ae09817c7773a8b199353147f7b53f",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity_dropped_qualifier",
+      "reason": "stealth.lua:143–153 info 第二行 enemies will not know exactly where you are, or may not notice you at all：译文“敌人将不会知道你在哪里，或者根本不会注意到你”删去 exactly 与 may，把“无法确切定位/可能察觉不到”说成确定结论，并与同条 Enemies uncertain of your location will still make educated guesses 相矛盾（删限定词缺陷类，一级）。宿主整句复核同条第六行：uncertain of your location 译“不知道你位置”同样把不确定说成不知道，一并纳入。",
+      "resolution": "第二行改为“敌人将无法确切知道你的位置，甚至可能根本注意不到你”类；第六行改为“不确定你位置的敌人仍会有根据地推测你的位置”类。其余各行（含已修的 in sight 与行动两处）不动。"
+    }
+  ],
+  "notes": "cycle 2 仍产生一级 confirmed，按一级缺陷任何 cycle 可 reopen；本轮为 max_cycles=3 的最后一轮修复。",
+  "senior_scope_audit_required": false
+}

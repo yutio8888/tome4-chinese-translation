@@ -1,0 +1,13 @@
+已完成单条有界修复。
+
+- 修改 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:11628)：在指定两句之间加入 `\n`，Lua 加载后的 target 恰含 1 个 LF。
+- 其余文字及既有 4 条修改保持不变。
+- 未修改 evidence、`.ai`、术语库或 handoff；未 stage、commit、push，也未创建 agent。
+
+验证结果：
+
+- `python3 -B .ai/task/repair-w9-20260923/verify.py`：通过，`verified: true`
+- `python3 -B tools/i18n lint --strict`：通过，30308 条译文，0 errors、0 warnings
+- `git diff --check`：通过，退出码 0
+
+无计划偏差，无未解决问题。

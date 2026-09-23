@@ -1,0 +1,20 @@
+修复窗口 9 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 259 项 orchestration 快照，共 1,987,893 bytes。
+- 逐字复制 PACK-MANIFEST、5 个 catalog 文件、migration 和 18 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-9-20260923/PUBLICATION.md)。
+- 在 [pending-user-review.md](/workspace/tome4-chinese-translation/evidence/quality/pending-user-review.md) 追加第 7 项 Flame 术语争议。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，记录 STOP+重跑结果及宿主后续步骤。
+- 安装 migration `bdf355…json`，内部 migration ID 与目标名一致。
+
+验证结果：
+
+- 259 项逐项大小及 SHA-256：全部通过。
+- 25 组逐字副本比较：全部一致。
+- Migration 文件 SHA-256：`8e267fb000e309e835a6429149c9fd1c097ffb0470ed45a40b7cb4dbe690e368`。
+- UTF-8、尾随空白、`git diff --check`：通过。
+- 28 个 Markdown 相对链接：全部存在。
+- `ai_state_check --target DONE`：`DONE_VERIFIED`。
+- 未修改 Lua、术语、规则、工具、旧证据或 `.ai`；未 stage、commit、push，也未重跑 queue/catalog/migration/门禁。

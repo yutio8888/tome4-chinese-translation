@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-9 unique EXECUTOR",
+  "scope": "5 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w9-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 5,
+        "changed_revisions": [
+          "ea4c9e1c8864a99ca4cc2ed45bc09fae542786feef2058485672125a1d8089da",
+          "ea36045fbab0929ca94dcd7a2f9dc421a790973db338e21d20c68b3e0ec38bfb",
+          "ea047c36a0657e519501133b15798bef74ae09817c7773a8b199353147f7b53f",
+          "ea2d3aa57011e9743a3535843861954ee6eb75ef085b8d3ff18ff76f1e4cfa3a",
+          "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T034635.440849Z-923948-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w9-20260923/PREFLIGHT-BATCH255.json",
+      "path": "evidence/quality/repair-window-9-20260923/PREFLIGHT-BATCH255.json",
+      "sha256": "457c1e4797600b340f525e84a5cb343a21982a95cde9d9d6497964cccae505a5",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w9-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-9-20260923/HOST-WORKSET.json",
+      "sha256": "d3bac39b1e20ef178c6a5e4447252f75bb32ec21823d5868108c5502c8cecacc",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w9-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-9-20260923/SOURCE-ANCHORS.json",
+      "sha256": "cd4b09110b7907f3c75ea162a23ffab7ddcabcaf094a102b924aca4f9b4aae9b",
+      "byte_identical": true
+    }
+  ],
+  "r0_bounded_fix": {
+    "revision": "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968",
+    "confirmed_finding": "R0-THAUM-NOTHING-ELSE",
+    "pending_finding_restored_to_baseline": "R0-THAUM-FLAME-NAME",
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w9-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 5
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260923T035416.536808Z-937625-lint/lint.json"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ]
+  },
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

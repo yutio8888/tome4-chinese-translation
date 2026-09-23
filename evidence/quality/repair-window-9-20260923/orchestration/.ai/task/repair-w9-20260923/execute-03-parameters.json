@@ -1,0 +1,18 @@
+{
+  "title": "W9 execute-03 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行修复窗口9 FINAL_REVIEW 第1轮后的单条有界修复（fresh run）。先读 .ai/roles/executor.md、.ai/task/repair-w9-20260923/SPEC.md 与 ADJUDICATION-F1.json。只改 mod-tome.lua 中 ea4c9e1c88 条（quest-artifacts 回归之杖 desc）target：在“……原始魔法能量。”与“你以前曾听说过此类物品。”之间插入一个换行（F1-ROD-NEWLINE，使译文 LF 数与原文一致为 1）；该条文字不改，其他4条已完成的修改保持。注意该 t() 的原文是 [[...]] 长字符串，译文若为普通双引号字符串须用 \\n 转义，或改为与原文一致的长字符串形式，确保 LuaJIT 加载后 target 恰含 1 个 LF。可在 evidence/quality/repair-window-9-20260923/ 追加 FIX-F1.md 与更新 VALIDATION.json。不改其他译文、规则、工具、术语库、handoff，不stage/commit/push、不写.ai、不创建agent。修改后运行 python3 -B .ai/task/repair-w9-20260923/verify.py、python3 -B tools/i18n lint --strict、git diff --check，报告实际结果。",
+  "labels": {
+    "task_id": "repair-w9-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}
