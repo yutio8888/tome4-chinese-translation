@@ -1,0 +1,15 @@
+修复窗口 19 第 1 轮已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:27731)：改为“来决定命中与伤害”。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:43263)：按裁决修正永恒精灵研究对理论的支持关系。
+- [lore/misc 重复条目](/workspace/tome4-chinese-translation/mod-tome.lua:18142) 未改，原子串仍仅保留于此。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-19-20260923/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-19-20260923/VALIDATION.json)；JSON 解析有效。
+
+验证全部通过：
+
+- `verify.py`：退出码 0，`verified: true`，确认 4 个冻结 revision。
+- 严格 lint：退出码 0，30308 条，0 errors、0 warnings。
+- 严格 claims check：退出码 0。
+- `git diff --check`：退出码 0；evidence 落盘后复跑仍通过。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未创建 agent，未 stage/commit/push；无关 untracked 均保留。无计划偏差或未解决问题。

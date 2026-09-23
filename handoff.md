@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核265已完成；下一步修复窗口19，仅处理265的4条）
+更新时间：2026-09-23（修复窗口19已完成；待宿主发布收尾，随后审核266）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -311,6 +311,12 @@ surface 四组 `codex/gpt-6-sol` 为 72 OK / 8 ISSUE；lane-000-0 两处判 OK �
 下一步按 1:1 节奏开修复窗口19，仅处理 265 的 4 条：念动弓说明（漏“每回合”“伤害”与一个行首 TAB）、Burrow 说明（第三行空格代替 TAB、漏“土质”）、
 Nightshade 陷阱（漏“中毒”，持续 4 回合应同时覆盖震慑与中毒）、野蛮种族记载（mod-tome.lua:43247 位于 load.lua 段但因后写覆盖而实际生效的重复行：首句、speech、几百年、烈火纪末期、恶魔释放酸液/黑暗之云）。
 范围见 `.ai/task/batch-2a0994cfc83862de29c3/WINDOW19-REPAIR-DECISION.json`；可复用窗口18 helper；PUBLICATION-SCOPE 要写明 pack manifest 副本放在窗口根目录。
+
+修复窗口19已完成审核265确认的4条修复：念动弓说明补“每回合”、将 `attack` 译为“命中”并恢复行首 TAB；`Burrow` 第三行恢复 TAB 并补“土质墙壁”；`Nightshade` 补“中毒”且明确4回合覆盖震慑与中毒；野蛮种族记载仅改 `mod-tome.lua` 中 `section mod-tome/load.lua` 下因后写覆盖而实际生效的那一行，完成首句、言语能力、时间、烈火纪、恶魔能力、理论支持及最终4处子串修正。`REVIEW(0)` 的2项 ISSUE、`FINAL(1)` 的1项 ISSUE均确认并修复；`RE_REVIEW(2)` 为4 OK；`FINAL(3)` 首次 `f3a1` 因英文导语判无效、不入账，重试 `f3a2` 为4 OK并收敛。完整门禁17/17通过且含严格构建，状态为 `DONE_VERIFIED`。3 个 executor、4 个有效 reviewer 及无效 `f3a1` 均已归档确认；publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `e602df35477fe2a6f2ffa9fd66029b51e83186a7`；新 catalog 为 `c5085a75a7796f11c91d64f39f454ac2f10dea491b28565222fdea5883057d35`；migration 为 `e5935d7e04f86d7d3a09d9a9e6d2afcc69c0f5e3a8c8b1ace3fac0e7a1649fec`。迁移结果为4条 revision changed、29,824条 unchanged、0 ambiguous/unmapped，4个 successor 待重新审核且不继承 done。完整结果见[窗口19发布证据](evidence/quality/repair-window-19-20260923/PUBLICATION.md)。范围外遗留为同一 source 的 `lore/misc` 段旧句；该行运行时被覆盖、不生效，本窗口未修改，留待后续审核。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。完成发布收尾后继续审核266（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

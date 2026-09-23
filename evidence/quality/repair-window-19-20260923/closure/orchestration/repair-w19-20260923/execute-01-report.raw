@@ -1,0 +1,20 @@
+修复窗口 19 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰好修改 4 个冻结 target。
+- 念动弓、Burrow 的 LF/TAB 均与原文一致。
+- 仅修改 `section "mod-tome/load.lua"` 下的野蛮种族记载，未改 lore/misc 重复条目。
+- source、tag、参数顺序、占位符、`%%` 与 markup 均保持基线。
+- 未修改 `.ai`、规则、工具、术语库或其他 repair；未创建 agent、stage、commit 或 push。
+- 无关 untracked 文件均保留。
+
+检查全部通过：
+
+- 窗口 verify：`verified: true`，22989 条记录，恰 4 个 revision 变化
+- strict lint：30308 条，0 errors，0 warnings
+- claims strict：OK
+- `git diff --check`：通过
+- 三份冻结 JSON 已确认逐字节一致
+
+证据见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-19-20260923/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-19-20260923/VALIDATION.json)。
+
+完整门禁、构建、独立 REVIEW/FINAL_REVIEW、DONE_VERIFIED 与发布流程仍由宿主继续。

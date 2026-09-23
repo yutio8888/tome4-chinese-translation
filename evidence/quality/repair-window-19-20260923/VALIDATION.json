@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-19 unique EXECUTOR",
+  "scope": "4 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w19-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 4,
+        "changed_revisions": [
+          "f5651a163a271ec1f85b8fa30f051438e433501110c1e640ad4d13df34e0e4b7",
+          "f4d315f2149baa7490569bbc71b3f14c4931c490889ae1e8fb85eeed4c5c9b5d",
+          "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+          "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T205110.693010Z-1709665-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w19-20260923/PREFLIGHT-BATCH265.json",
+      "path": "evidence/quality/repair-window-19-20260923/PREFLIGHT-BATCH265.json",
+      "sha256": "6a7ebc149b287f3bd2a2108a7162b7a9f79284b86eacc99efe50141d39fd7bd5",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w19-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-19-20260923/HOST-WORKSET.json",
+      "sha256": "bbef3bb1dd45854a7e5bd71eefd84f0cd72b8d7e5eeefc2683431a4cb6d53593",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w19-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-19-20260923/SOURCE-ANCHORS.json",
+      "sha256": "ee3c246f577f38a1b7262cf6d5fbb2c5a58c1105701a5cd8bb98417acbd71dc4",
+      "byte_identical": true
+    }
+  ],
+  "cycle_1_bounded_correction": {
+    "basis": ".ai/task/repair-w19-20260923/ADJUDICATION-R0.json",
+    "replacement_count": 2,
+    "replacements": [
+      {
+        "revision_key": "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+        "old": "来决定攻击与伤害",
+        "new": "来决定命中与伤害"
+      },
+      {
+        "revision_key": "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8",
+        "scope": "section mod-tome/load.lua row only",
+        "old": "最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界",
+        "new": "最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界"
+      }
+    ],
+    "lore_misc_duplicate_unchanged": true,
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w19-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 4,
+          "changed_revisions": [
+            "f5651a163a271ec1f85b8fa30f051438e433501110c1e640ad4d13df34e0e4b7",
+            "f4d315f2149baa7490569bbc71b3f14c4931c490889ae1e8fb85eeed4c5c9b5d",
+            "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+            "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8"
+          ]
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260923T205838.779310Z-1720927-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ]
+  },
+  "cycle_2_bounded_correction": {
+    "basis": ".ai/task/repair-w19-20260923/ADJUDICATION-F1.json",
+    "revision_key": "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8",
+    "scope": "section mod-tome/load.lua row only",
+    "replacement_count": 4,
+    "replacements": [
+      {
+        "old": "或者说岩石和森林巨魔，因为这更加通俗地为人所知。",
+        "new": "俗称岩石巨魔和森林巨魔。"
+      },
+      {
+        "old": "众所周知，他们是由某种魔法仪式召唤而来，",
+        "new": "众所周知，某些魔法仪式可以召唤他们，"
+      },
+      {
+        "old": "但是截至目前为止我们发现与他们沟通几乎是不可能的。",
+        "new": "但是迄今为止，与他们沟通已被证明是不可能的。"
+      },
+      {
+        "old": "有着金色的头发和苗条的身段，",
+        "new": "有着金色的头发和极为瘦削的身材，"
+      }
+    ],
+    "lore_misc_duplicate_unchanged": true,
+    "lore_misc_old_substring_counts": [1, 1, 1, 1],
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w19-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 4,
+          "changed_revisions": [
+            "f5651a163a271ec1f85b8fa30f051438e433501110c1e640ad4d13df34e0e4b7",
+            "f4d315f2149baa7490569bbc71b3f14c4931c490889ae1e8fb85eeed4c5c9b5d",
+            "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+            "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8"
+          ]
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260923T210557.091637Z-1732071-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ]
+  },
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, build, DONE_VERIFIED, publication, and lifecycle closure were not run and are not claimed. The host must continue them."
+}

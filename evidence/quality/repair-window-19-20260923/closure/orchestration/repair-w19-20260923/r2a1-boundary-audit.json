@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "dispatch_id": "r2a1",
+  "tool_calls": 18,
+  "reads": [
+    "own frozen envelope",
+    "full contextual-v2 contract"
+  ],
+  "writes": [],
+  "note": "first parallel read failed on sandbox init; pwd; two ALL_TOOLS listings (tool discovery, no I/O). Instead of require_escalated, the reviewer created a Paseo terminal (mcp__paseo__create_terminal, name review-readonly, id 311dc0e5) and sent 6 commands via send_terminal_keys: cat of the contract, cat of its own envelope, and four python3 -c read-only json.load/print/hash of its own envelope; the rest were capture_terminal reads. No writes, no other files, no git, no other tasks. Host reviewed every send_terminal_keys input in r2a1-native-tools.json; read boundary held. The terminal is a side effect (sandbox bypass via host MCP tools); host captured and killed it after harvest (still open at harvest time).",
+  "side_effects": [
+    "paseo terminal 311dc0e5 review-readonly created by reviewer; killed by host"
+  ],
+  "native_call_inputs_manually_reviewed": true
+}

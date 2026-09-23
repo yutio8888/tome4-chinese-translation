@@ -1,0 +1,65 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/psi-archery.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e43019d76e48860b5d970fe9a4b89a4a9d1722ab21c2eb34729c9d77edbab062",
+      "start_line": 214,
+      "end_line": 246,
+      "excerpt": "214: \tinfo = function(self, t)\n215: \t\tlocal duration = t.duration(self, t)\n216: \t\tlocal atk = 0\n217: \t\tlocal dam = 0\n218: \t\tlocal apr = 0\n219: \t\tlocal crit = 0\n220: \t\tlocal speed = 1\n221: \t\tlocal inven = self:getInven(\"PSIONIC_FOCUS\")\n222: \t\tlocal o = inven and inven[1]\n223: \t\tif type(o) == \"boolean\" then o = nil end\n224: \t\tif not o then\n225: \t\t\treturn ([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack the nearest target each turn for %d turns.\n226: \t\t\tThe telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.\n227: \t\t\tYou are not telekinetically wielding anything right now.]]):tformat(duration)\n228: \t\tend\n229: \t\tif o.type == \"weapon\" then\n230: \t\t\tself:attr(\"use_psi_combat\", 1)\n231: \t\t\tatk = self:combatAttack(o.combat)\n232: \t\t\tdam = self:combatDamage(o.combat)\n233: \t\t\tapr = self:combatAPR(o.combat)\n234: \t\t\tcrit = self:combatCrit(o.combat)\n235: \t\t\tspeed = self:combatSpeed(o.combat)\n236: \t\t\tself:attr(\"use_psi_combat \", -1)\n237: \t\tend\n238: \t\treturn ([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack a target each turn for %d turns.\n239: \t\t\tThe telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.\n240: \t\tCombat stats:\n241: \t\tAccuracy: %d\n242: \t\tDamage: %d\n243: \t\tAPR: %d\n244: \t\tCrit: %0.2f\n245: \t\tSpeed: %0.2f]]):\n246: \t\ttformat(duration, atk, dam, apr, crit, speed)"
+    },
+    {
+      "revision_keys": [
+        "f4d315f2149baa7490569bbc71b3f14c4931c490889ae1e8fb85eeed4c5c9b5d"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/gifts/sand-drake.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "9a5d56c6a573db6b453176555ec60683990c4f064752939e732ff9703a4929d1",
+      "start_line": 150,
+      "end_line": 167,
+      "excerpt": "150: \tcooldown = function(self, t) return math.ceil(self:combatTalentLimit(t, 10, 40, 15)) end,\n151: \trange = 10,\n152: \tno_energy = function(self, t) if self:getTalentLevel(t) >= 5 then return true else return false end end,\n153: \ttactical = { CLOSEIN = 0.5, ESCAPE = 0.5 },\n154: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 7, 0.5, 0, 2)) end,\n155: \tgetPenetration = function(self, t) return 10 + self:combatTalentMindDamage(t, 15, 30) end,\n156: \ton_learn = function(self, t) self.resists[DamageType.PHYSICAL] = (self.resists[DamageType.PHYSICAL] or 0) + 0.5 end,\n157: \ton_unlearn = function(self, t) self.resists[DamageType.PHYSICAL] = (self.resists[DamageType.PHYSICAL] or 0) - 0.5 end,\n158: \taction = function(self, t)\n159: \t\tself:setEffect(self.EFF_BURROW, t.getDuration(self, t), {power=t.getPenetration(self, t)})\n160: \t\treturn true\n161: \tend,\n162: \tinfo = function(self, t)\n163: \t\treturn ([[Allows you to burrow into earthen walls for %d turns.\n164: \t\tYour powerful digging abilities also allow you to exploit and smash through enemy defensive weaknesses; You ignore %d of target armor and %d%% of enemy physical damage resistance while this is in effect.\n165: \t\tAt Talent Level 5, this talent can be used instantly, and the cooldown will reduce with levels.\n166: \t\tEach point in sand drake talents also increases your physical resistance by 0.5%%.]]):tformat(t.getDuration(self, t), t.getPenetration(self, t), t.getPenetration(self, t) / 2)\n167: \tend,"
+    },
+    {
+      "revision_keys": [
+        "f5651a163a271ec1f85b8fa30f051438e433501110c1e640ad4d13df34e0e4b7"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+      "start_line": 2178,
+      "end_line": 2217,
+      "excerpt": "2178: \t\tif not (x and y) then return nil end\n2179: \n2180: \t\tlocal dam = t.getDamage(self, t)\n2181: \t\tlocal trap = trapping_CreateTrap(self, t, nil, {\n2182: \t\t\ttype = \"nature\", name = _t\"nightshade trap\", color=colors.LIGHT_BLUE, image = \"trap/poison_vines01.png\",\n2183: \t\t\tdam = dam,\n2184: \t\t\tstamina = t.stamina,\n2185: \t\t\tcheck_hit = self:combatAttack(),\n2186: \t\t\tunlock_talent_on_disarm = {tid=t.id, chance=50},\n2187: \t\t\ttriggered = function(self, x, y, who)\n2188: \t\t\t\tself:project({type=\"hit\", x=x,y=y}, x, y, engine.DamageType.NATURE, self.dam, {type=\"slime\"})\n2189: \t\t\t\tif who:canBe(\"stun\") then\n2190: \t\t\t\t\twho:setEffect(who.EFF_STUNNED, 4, {src=self.summoner, apply_power=self.check_hit})\n2191: \t\t\t\tend\n2192: \t\t\t\tif who:canBe(\"poison\") then\n2193: \t\t\t\t\twho:setEffect(who.EFF_POISONED, 4, {src=self.summoner, apply_power=self.check_hit, power=self.dam/10})\n2194: \t\t\t\tend\n2195: \t\t\t\treturn true, true\n2196: \t\t\tend,\n2197: \t\t})\n2198: \t\ttrap:identify(true)\n2199: \n2200: \t\ttrap:resolve() trap:resolve(nil, true)\n2201: \t\ttrap:setKnown(self, true)\n2202: \t\tgame.level:addEntity(trap)\n2203: \t\tgame.zone:addEntity(game.level, trap, \"trap\", x, y)\n2204: \t\tgame.level.map:particleEmitter(x, y, 1, \"summon\")\n2205: \n2206: \t\treturn true\n2207: \tend,\n2208: \tshort_info = function(self, t)\n2209: \t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))\n2210: \t\treturn ([[Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.]]):\n2211: \t\ttformat(dam, dam/10)\n2212: \tend,\n2213: \tinfo = function(self, t)\n2214: \t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))\n2215: \t\treturn ([[Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.]]):\n2216: \t\ttformat(dam, dam/10)\n2217: \tend,"
+    },
+    {
+      "revision_keys": [
+        "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/misc.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "start_line": 490,
+      "end_line": 500,
+      "excerpt": "490: \n491: What caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration.]]}\n492: \n493: newLore{\n494: \tid = \"races-9\",\n495: \tcategory = \"races\",\n496: \tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races\",\n497: \tlore = _t[[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.\n498: \n499: Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.\n500: "
+    },
+    {
+      "revision_keys": [
+        "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/engines/default/engine/I18N.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "a099d023bcf9c91d83592331666aeaa86c901a469eadf59346bcbd279c7ef31d",
+      "start_line": 95,
+      "end_line": 150,
+      "excerpt": "95: function _M:loadLocale(file)\n96: \tif not fs.exists(file) then print(\"[I18N] Warning, localization file does not exists:\", file) return end\n97: \tlocal lc = nil\n98: \tlocal env = setmetatable({\n99: \t\tlocale = function(s) lc = s; locales[lc] = locales[lc] or {} locales_args[lc] = locales_args[lc] or {} end,\n100: \t\tsection = function(s) end, -- Not used ingame\n101: \t\tt = function(src, dst, tag, args_order, special) self:t(lc, src, dst, tag, args_order, special) end,\n102: \t\tsetFlag = function(flag, data) \n103: \t\t\tself.setFlag(lc, flag, data)\n104: \t\tend,\n105: \t\tforceFontPackage = function(id)\n106: \t\t\tlocal FontPackage = require \"engine.FontPackage\"\n107: \t\t\tFontPackage:forceId(id)\n108: \t\tend,\n109: \t}, {__index=getfenv(2)})\n110: \tlocal f, err = util.loadfilemods(file, env)\n111: \tif not f and err then\n112: \t\tif config.settings.cheat then\n113: \t\t\terror(err)\n114: \t\telse\n115: \t\t\tprint(\"[I18N] ERROR, localization file \", file, \"not loaded due to error:\", err)\n116: \t\t\treturn\n117: \t\tend\n118: \tend\n119: \tf()\n120: \tprint(\"[I18N] Loaded locale file:\", file)\n121: end\n122: \n123: function _M:resetBreakTextAllCharacter()\n124: \tif _getFlagI18N(\"break_text_all_character\") then\n125: \t\tcore.display.breakTextAllCharacter(true)\n126: \tend\n127: end\n128: \n129: function _M:setLocale(lc)\n130: \tcur_locale_name = lc\n131: \tif not locales[lc] then locales[lc] = {} end\n132: \tif not locales_args[lc] then locales_args[lc] = {} end\n133: \tif not locales_special[lc] then locales_special[lc] = {} end\n134: \tif not flags[lc] then flags[lc] = {} end\n135: \tcur_locale = locales[lc] or {}\n136: \tcur_locale_args = locales_args[lc] or {}\n137: \tcur_locale_special = locales_special[lc] or {}\n138: \tcur_flags = flags[lc] or {}\n139: end\n140: \n141: function _M:t(lc, src, dst, tag, args_order, special)\n142: \tlocales[lc] = locales[lc] or {}\n143: \tset(locales[lc], src, tag, dst)\n144: \tif args_order then\n145: \t\tlocales_args[lc] = locales_args[lc] or {}\n146: \t\tset(locales_args[lc], src, tag, args_order)\n147: \telseif locales_args[lc] and locales_args[lc][tag] then\n148: \t\tlocales_args[lc][tag] = {}\n149: \tend\n150: \tif special then"
+    }
+  ]
+}

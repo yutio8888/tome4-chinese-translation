@@ -1,0 +1,45 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 2,
+  "raw_issue_count": 2,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-PSIBOW-ATTACK-IS-ACCURACY",
+      "revision_key": "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology/mechanism",
+      "reason": "宿主核对 psi-archery.lua:229–245（624a673）：determine attack and damage 中 attack 指 combatAttack（说明中标为 Accuracy=命中）；同族三处现行译文均为“决定命中和伤害”（mod-tome.lua:27629/27721/27936）。execute-01 写成“攻击与伤害”易读作攻击行为。",
+      "replacements": [
+        {
+          "scope": "substring in this entry only",
+          "old": "来决定攻击与伤害",
+          "new": "来决定命中与伤害"
+        }
+      ]
+    },
+    {
+      "id": "R0-SHALOREN-SUPPORTED-NOT-DERIVED",
+      "revision_key": "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "宿主核对 lore/misc.lua:497（624a673）：The main theory, which is supported by certain studies by Shaloren archmages 意为某些永恒精灵魔导师的研究支持该理论；现译“由永恒精灵魔导师们得出的”把支持关系改成了提出者。只改 section mod-tome/load.lua 下那一行（lore/misc 段同 source 行不在范围）。",
+      "replacements": [
+        {
+          "scope": "substring in the load.lua-section row only",
+          "old": "最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界",
+          "new": "最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 2 条 OK 与宿主 diff 核对一致。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-23T20:56:20.676623+00:00"
+}

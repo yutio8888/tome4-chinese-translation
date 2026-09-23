@@ -1,0 +1,46 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-BRUTISH-RACES-RESIDUAL-FIDELITY",
+      "revision_key": "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity (dropped modal / added causation / weakened certainty)",
+      "reason": "宿主核对 lore/misc.lua:497（624a673，races-9 正文）：It is known that they can be summoned by certain magical rites 被译成“他们是由某种魔法仪式召唤而来”，删去 can 把能力说成来历（删限定词缺陷类，并与“起源尚未完全清楚”矛盾）；or stone and forest trolls as they are colloquially known 被加成因果“因为这更加通俗地为人所知”；communication with them so far has proved impossible 被弱化为“几乎是不可能的”。宿主另逐句复核全行，补一处 an extremely thin build 被弱化为“苗条的身段”。execute-01 按“不重写已忠实句子”保留了这些旧句，属漏修。只改 section mod-tome/load.lua 下那一行；lore/misc 段同 source 行含相同旧句，不在本窗口范围（其自身 revision 待后续审核）。",
+      "replacements": [
+        {
+          "scope": "substring in the load.lua-section row only",
+          "old": "或者说岩石和森林巨魔，因为这更加通俗地为人所知。",
+          "new": "俗称岩石巨魔和森林巨魔。"
+        },
+        {
+          "scope": "substring in the load.lua-section row only",
+          "old": "众所周知，他们是由某种魔法仪式召唤而来，",
+          "new": "众所周知，某些魔法仪式可以召唤他们，"
+        },
+        {
+          "scope": "substring in the load.lua-section row only",
+          "old": "但是截至目前为止我们发现与他们沟通几乎是不可能的。",
+          "new": "但是迄今为止，与他们沟通已被证明是不可能的。"
+        },
+        {
+          "scope": "substring in the load.lua-section row only",
+          "old": "有着金色的头发和苗条的身段，",
+          "new": "有着金色的头发和极为瘦削的身材，"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 3 条 OK 与宿主核对一致；f1a1 读取冻结信封与固定源码。",
+  "next_stages": [
+    "FIX",
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "recorded_at": "2026-09-23T21:02:45.843973+00:00"
+}

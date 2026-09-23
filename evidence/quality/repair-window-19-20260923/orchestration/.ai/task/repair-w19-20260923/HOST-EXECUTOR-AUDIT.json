@@ -1,0 +1,59 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 23,
+      "native_calls_sha256": "de13f63880d4ac33d7b2bde4f98415c88604af901a151fc03d3564f9e2e95ad0",
+      "writes": [
+        "mod-tome.lua (4 targets)",
+        "evidence/quality/repair-window-19-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "TERMINOLOGY.md",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 4 targets: psi-archery adds each turn and attack+damage with 3-TAB second line; Burrow earthen walls and \\n\\t\\t third line; nightshade stun+poison for 4 turns; load.lua-section lore row rewritten sentence by sentence (lore/misc row untouched); LF/TAB equal to source."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 7,
+      "native_calls_sha256": "d5223691a23ed247eee6349d8523fd6afb0ac8d0e9f1d21b922944fc7784f550",
+      "writes": [
+        "mod-tome.lua (two substrings: psi-bow 攻击→命中; load.lua-section lore row Shaloren sentence; host diffed against frozen R0 candidate, lore/misc row untouched)",
+        "evidence/quality/repair-window-19-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    },
+    {
+      "dispatch_id": "execute-03",
+      "status": "PASS",
+      "tool_calls": 9,
+      "native_calls_sha256": "0dabb3fcd5f8461bc73bab9c352df7aea52f1e45580b5f66916107b5998bcae5",
+      "writes": [
+        "mod-tome.lua (four substrings in the load.lua-section lore row only; host diffed against frozen F1 candidate; lore/misc row untouched)",
+        "evidence/quality/repair-window-19-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "after execute-03: verify.py PASS, exactly 4 targets changed vs baseline, LF/TAB equal to source"
+}

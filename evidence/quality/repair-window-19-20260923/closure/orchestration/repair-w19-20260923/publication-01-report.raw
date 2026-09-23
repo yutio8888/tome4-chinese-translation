@@ -1,0 +1,23 @@
+修复窗口19的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK 快照：165 个文件，1,389,736 字节，逐项字节数与 SHA-256 均匹配。
+- PACK-MANIFEST 已逐字复制到窗口根目录。
+- 候选 catalog 的 5 个文件均精确复制；其中 `entries.jsonl`、`manifest.json` 产生实际变更，其余3个原本相同。
+- migration 已复制到指定目标。
+- publication 目录已安装16个指定附件。
+- 已新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-19-20260923/PUBLICATION.md)。
+- 已更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md:3)，明确宿主尚需执行证据提交、第二次 queue rebuild 与 push，之后审核266。
+- 根据冻结 STATE，将角色数量准确记录为3个 executor、4个有效 reviewer，另有无效并已归档的 `f3a1`。
+
+验证结果：
+
+- PACK 逐字/SHA：通过（165/165）
+- catalog、migration、publication 附件逐字比对：通过
+- UTF-8、尾随空白、文档链接：通过
+- `git diff --check`：通过
+- 禁止路径变更检查：未修改 Lua、术语、规则、工具、`.ai` 或 `pending-user-review.md`
+- `ai_state_check`：`DONE_VERIFIED: DONE predicate verified`
+
+未运行 `verify_pack.py`、queue/catalog/migration/完整门禁；未 stage、commit、push，也未创建 agent。
