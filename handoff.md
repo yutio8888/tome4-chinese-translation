@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口8已完成；待宿主发布收尾，随后审核255）
+更新时间：2026-09-23（审核255已完成；下一步修复窗口9，仅处理255的5条）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
@@ -31,8 +31,19 @@
 `518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f`；6 条 revision changed、
 29,822 条 unchanged、0 ambiguous/unmapped，6 个 successor 待重新审核，不继承 done。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 和 push，随后继续审核255（默认80条）。
-这些后续步骤尚未完成，不得提前宣称完成。
+窗口8的证据提交、queue rebuild 与 push 已完成（`d218e886`）。
+
+审核255（`batch-448e3278fde3f8dfbea2`）已闭合，结果为 **72 done / 5 repair_required / 3 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 69 OK / 11 ISSUE（无错位），contextual `claude/claude-opus-5-5`
+为 8 OK / 3 ISSUE；14 个观察裁决为 8 confirmed、1 refuted、2 advisory、3 pending。17/17 门禁含严格构建通过，
+两任务快照重放 `DONE_VERIFIED`，五个 reviewer 均已归档确认。证据提交 `7b45aad4ac05a7ffb38797145fb00d4904293f89`，
+详见[255宿主证据](evidence/quality/production-batches/batch-448e3278fde3f8dfbea2-host-evidence/summary.md)。
+3 条 pending（blocked）已登记到待审阅清单。
+
+潜行说明为已确认机制缺陷，按提前修复规则下一步开修复窗口9，仅处理 255 的 5 条：高阶奇术师解锁文本
+`Flame` 技能名、潜行说明（in sight 与 action）、`%d runes active`、夏之眼 bright、回归之杖描述。
+裁决与范围见 `.ai/task/batch-448e3278fde3f8dfbea2/WINDOW9-EARLY-REPAIR-DECISION.json`。窗口9可复用
+`.ai/task/repair-w8-20260923/` 的通用 helper。
 
 ### 窗口7闭合时的暂停记录（历史）
 
