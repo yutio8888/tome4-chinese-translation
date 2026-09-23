@@ -1,0 +1,20 @@
+修复窗口 8 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 109 项 PACK 快照，共 999,605 bytes，并生成逐字一致的 [orchestration-pack-manifest.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/orchestration-pack-manifest.json)。
+- 逐字安装 5 个候选 catalog 文件及 migration `518ce6ed…`。
+- 逐字安装 14 个 [publication 附件](/workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/publication)。
+- 新建 [pending-user-review.md](/workspace/tome4-chinese-translation/evidence/quality/pending-user-review.md)。
+- 新建 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确宿主后续为证据提交、第二次 queue rebuild、push 和审核 255。
+
+验证结果：
+
+- PACK 109/109 项字节数和 SHA-256 全部匹配；归档 `STATE.json` 确认来自 immutable checkpoint。
+- catalog、migration、14 个附件均与来源逐字一致。
+- `mod-tome.lua` 与译文提交 `9b71efd…` 一致，SHA-256 为 `94d4d4af…889d70`。
+- UTF-8、相对链接和空白检查均通过。
+- 指定的只读状态检查通过：`DONE_VERIFIED: DONE predicate verified`。
+- `.ai`、Lua、术语、规则、工具和旧证据未改；暂存区为空。
+- 未创建 agent，未重跑 queue/catalog/migration/门禁，未 stage、commit 或 push。

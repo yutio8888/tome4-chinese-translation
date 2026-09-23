@@ -1,0 +1,18 @@
+{
+  "title": "W8 execute-02 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行修复窗口8第1轮复审后的单项有界修复（fresh run）。先读 .ai/roles/executor.md、.ai/task/repair-w8-20260923/SPEC.md 与 ADJUDICATION-R0.json（只执行 status=confirmed 的 R0-POEM-YEW-THRUSH；pending 项一律不改）。只改 mod-tome.lua 中 e9253668 条（lore misc Thalore 诗）target 的两行：“挂满鲜亮浆果紫衫之地”中紫衫→紫杉；“曾经欢快的鸟儿泣血啼鸣”还原 Once thrush and owl did screech and cry 的鸫鸟与猫头鹰尖啸哀鸣之意。其余诗句、LF/TAB、markup 不变；上一轮已完成的6条修改保持。可在 evidence/quality/repair-window-8-20260923/ 追加 FIX-R0.md 与更新 VALIDATION.json。不改其他译文、规则、工具、术语库、handoff，不stage/commit/push、不写.ai、不创建agent。修改后运行 python3 -B .ai/task/repair-w8-20260923/verify.py、python3 -B tools/i18n lint --strict、git diff --check，报告实际结果。",
+  "labels": {
+    "task_id": "repair-w8-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,17 @@
+窗口 8 的 6 条译文已实际修复完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰有冻结工作集中的 6 个 target 变化。
+- Yeek 条目恢复为原文 12 个 LF，`cunning=灵巧` 保持。
+- 其余条目的 LF/TAB、source/tag、参数顺序、printf 和 markup 均未改变。
+- 固定源码已通过指定 commit 只读补查。
+- 三份冻结输入已逐字节复制；实施记录和真实结果见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/IMPLEMENTATION.md) 与 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/VALIDATION.json)。
+
+检查结果：
+
+- 窗口验证：通过，22,989 条记录中恰有 6 个 target 变化
+- strict lint：30,308 条，0 errors、0 warnings
+- semantic claims：通过
+- `git diff --check`：通过
+- 三份冻结副本 `cmp`：全部逐字节相同
+
+未修改 `.ai`、规则、工具、术语库或 handoff/catalog/migration；未 stage、commit、push；既有无关 untracked 均保留。完整门禁、独立 REVIEW/FINAL_REVIEW、严格构建及 `DONE_VERIFIED` 仍由宿主继续。

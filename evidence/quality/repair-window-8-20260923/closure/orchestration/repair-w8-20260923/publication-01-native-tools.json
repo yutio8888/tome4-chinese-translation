@@ -1,0 +1,188 @@
+{
+  "dispatch_id": "publication-01",
+  "native_session": "01a0cc27-a952-7a82-8b1b-49754361f6be",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/23/rollout-2026-09-23T02-45-46-01a0cc27-a952-7a82-8b1b-49754361f6be.jsonl",
+  "native_sha256": "1c580d41170fa24e7babf1ed28af4c93c9a6d47e2496a7f128fd8234962ef60d",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33d64055887d28d0305495b80a0c0",
+      "status": "completed",
+      "call_id": "call_s0CEIz5iynzyigyWb7SOxFu4",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,240p' .ai/roles/executor.md && sed -n '1,320p' .ai/task/repair-w8-20260923/PUBLICATION-SCOPE.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131550.784933
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33d69360887d2ad3192f1f2c319e1",
+      "status": "completed",
+      "call_id": "call_3w4y2Wp7DY2Qv9a6nRGVj10m",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,240p' .ai/roles/executor.md && sed -n '1,320p' .ai/task/repair-w8-20260923/PUBLICATION-SCOPE.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我读取仓库内的 EXECUTOR 角色契约和发布范围文件，以便按你指定的步骤执行吗？\",\"prefix_rule\":[\"sed\",\"-n\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131560.024054
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33d7a887487d28d61e0f8a4a0de24",
+      "status": "completed",
+      "call_id": "call_hhlLIgdsxMg6sAfJBdHu7H8A",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git status --short && printf '\\\\n[workflow headings]\\\\n' && rg -n '^#{1,4} ' docs/agent-workflow.md && printf '\\\\n[manifest]\\\\n' && sed -n '1,220p' .ai/task/repair-w8-20260923/PACK-MANIFEST.json && printf '\\\\n[source files]\\\\n' && find .artifacts/i18n/repair-window/window8-20260923-candidate-catalog -type f -print | sort && find .artifacts/i18n/repair-window -maxdepth 1 -type f -name 'window8-20260923*' -print | sort && printf '\\\\n[task files]\\\\n' && find .ai/task/repair-w8-20260923 -maxdepth 2 -type f -print | sort && printf '\\\\n[handoff top]\\\\n' && sed -n '1,220p' handoff.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读检查工作树、冻结清单、候选发布文件和交接文档，以精确执行证据发布吗？\",\"prefix_rule\":[\"git\",\"status\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131571.113792
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33d966d2087d291131b7f7fb9c17b",
+      "status": "completed",
+      "call_id": "call_NIybj8vctmhXeFTOBH3s8jzK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,90p' docs/agent-workflow.md && sed -n '238,282p' docs/agent-workflow.md && printf '\\\\n[prior publication]\\\\n' && sed -n '1,260p' evidence/quality/repair-window-7-20260922/PUBLICATION.md && printf '\\\\n[adjudication r0]\\\\n' && sed -n '1,260p' .ai/task/repair-w8-20260923/ADJUDICATION-R0.json && printf '\\\\n[translation commit]\\\\n' && sed -n '1,200p' .ai/task/repair-w8-20260923/TRANSLATION-COMMIT.json && printf '\\\\n[native parser summary]\\\\n' && sed -n '1,220p' evidence/quality/native-parser-versions-20260923/summary.md && printf '\\\\n[current repair dir]\\\\n' && find evidence/quality/repair-window-8-20260923 -type f -print | sort\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读查看工作流相关章节、上一窗口发布格式及窗口8裁决/提交证据，用于准确编写本次发布文档吗？\",\"prefix_rule\":[\"sed\",\"-n\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131593.566618
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33dadb5ec87d28f00d6e842c83e9b",
+      "status": "completed",
+      "call_id": "call_Lp6h1DiO04lCPjCyfaoKbYwZ",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 -c 'import json,hashlib,pathlib; m=json.load(open(\\\".ai/task/repair-w8-20260923/PACK-MANIFEST.json\\\")); root=pathlib.Path(\\\"evidence/quality/repair-window-8-20260923/orchestration\\\"); bad=[]; same=[]; diff=[]; missing=[]; total=0\\nfor x in m[\\\"files\\\"]:\\n p=pathlib.Path(x[\\\"source\\\"]); b=p.read_bytes() if p.exists() else None; total+=x[\\\"bytes\\\"]\\n if b is None: missing.append(str(p)); continue\\n if len(b)!=x[\\\"bytes\\\"] or hashlib.sha256(b).hexdigest()!=x[\\\"sha256\\\"]: bad.append(str(p))\\n d=root/x[\\\"relative_destination\\\"]\\n if d.exists(): (same if d.read_bytes()==b else diff).append(str(d))\\nprint({\\\"files\\\":len(m[\\\"files\\\"]),\\\"bytes\\\":total,\\\"missing_sources\\\":missing,\\\"bad_sources\\\":bad,\\\"existing_identical\\\":len(same),\\\"existing_different\\\":diff})' && printf '\\\\n[catalog source hashes]\\\\n' && find .artifacts/i18n/repair-window/window8-20260923-candidate-catalog -type f -print0 | sort -z | xargs -0 sha256sum && printf '\\\\n[migration summary]\\\\n' && python3 -m json.tool .artifacts/i18n/repair-window/window8-20260923-migration.json | sed -n '1,220p' && printf '\\\\n[timings]\\\\n' && for f in .artifacts/i18n/repair-window/window8-20260923-*-timing.json; do echo \\\"$f\\\"; python3 -m json.tool \\\"$f\\\"; done && printf '\\\\n[final review and gates]\\\\n' && sed -n '1,220p' .ai/task/repair-w8-20260923/ADJUDICATION-FINAL.json && sed -n '1,220p' .ai/task/repair-w8-20260923/HOST-GATES-VERIFIED.json && sed -n '1,220p' .ai/task/repair-w8-20260923/DONE-check.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读校验109项PACK来源和现有目标冲突，并提取catalog、migration、计时与最终验证事实吗？\",\"prefix_rule\":[\"python3\",\"-c\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131621.058829
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33ddcd30487d294a8934bcc086666",
+      "status": "completed",
+      "call_id": "call_dugisgBUHoUitwuanz52Cbmy",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /tmp/repair-w8-publish-copy.sh\\n+#!/bin/bash\\n+set -euo pipefail\\n+\\n+pack_root=\\\"evidence/quality/repair-window-8-20260923/orchestration\\\"\\n+manifest=\\\".ai/task/repair-w8-20260923/PACK-MANIFEST.json\\\"\\n+\\n+while IFS=$'\\\\t' read -r source destination; do\\n+  target=\\\"$pack_root/$destination\\\"\\n+  mkdir -p \\\"$(dirname \\\"$target\\\")\\\"\\n+  cp -- \\\"$source\\\" \\\"$target\\\"\\n+done < <(jq -r '.files[] | [.source, .relative_destination] | @tsv' \\\"$manifest\\\")\\n+\\n+cp -- \\\"$manifest\\\" \\\"evidence/quality/repair-window-8-20260923/orchestration-pack-manifest.json\\\"\\n+\\n+candidate_root=\\\".artifacts/i18n/repair-window/window8-20260923-candidate-catalog\\\"\\n+while IFS= read -r source; do\\n+  destination=\\\"${source#\\\"$candidate_root/\\\"}\\\"\\n+  mkdir -p \\\"$(dirname \\\"$destination\\\")\\\"\\n+  cp -- \\\"$source\\\" \\\"$destination\\\"\\n+done < <(find \\\"$candidate_root\\\" -type f -print | sort)\\n+\\n+migration_id=\\\"518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f\\\"\\n+migration_target=\\\"evidence/production-review-v2-lite/migrations/$migration_id.json\\\"\\n+mkdir -p \\\"$(dirname \\\"$migration_target\\\")\\\"\\n+cp -- \\\".artifacts/i18n/repair-window/window8-20260923-migration.json\\\" \\\"$migration_target\\\"\\n+\\n+publication=\\\"evidence/quality/repair-window-8-20260923/publication\\\"\\n+mkdir -p \\\"$publication\\\"\\n+for name in PUBLICATION-SCOPE.md CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json ADJUDICATION-R0.json ADJUDICATION-FINAL.json; do\\n+  cp -- \\\".ai/task/repair-w8-20260923/$name\\\" \\\"$publication/$name\\\"\\n+done\\n+for name in queue-1.log queue-1-timing.json catalog.log catalog-timing.json migration.json migration-timing.json migration-run.log migration-run-timing.json; do\\n+  cp -- \\\".artifacts/i18n/repair-window/window8-20260923-$name\\\" \\\"$publication/$name\\\"\\n+done\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131653.635609
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33dfb356087d281d87a819db4f988",
+      "status": "completed",
+      "call_id": "call_HKGAJuF86uCpCJ3PCZZVEDj6",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"bash /tmp/repair-w8-publish-copy.sh\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我按已核验清单逐字复制窗口8的PACK、catalog、migration和publication附件到授权目标吗？\",\"prefix_rule\":[\"bash\",\"/tmp/repair-w8-publish-copy.sh\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131704.009734
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33e0d159c87d28360d999fad4b067",
+      "status": "completed",
+      "call_id": "call_QorSDcqNxH0xeRaAs2bbo1gK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,260p' evidence/quality/repair-window-8-20260923/IMPLEMENTATION.md && sed -n '1,220p' evidence/quality/repair-window-8-20260923/FIX-R0.md && sed -n '1,260p' evidence/quality/repair-window-8-20260923/VALIDATION.json && sed -n '1,260p' .ai/task/repair-w8-20260923/CATALOG-CHANGE-VERIFICATION.json && sed -n '1,260p' .ai/task/repair-w8-20260923/MIGRATION-HOST-VERIFICATION.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读提取窗口8实施、修复和catalog/migration核验中的精确事实，用于编写PUBLICATION.md吗？\",\"prefix_rule\":[\"sed\",\"-n\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131717.81428
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33e22e35c87d2bbbdda5b305c8661",
+      "status": "completed",
+      "call_id": "call_cGDv5SQdt4Yv27VSnnVLY1Nn",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/pending-user-review.md\\n+# 待用户集中审阅的争议条目\\n+\\n+以下条目依据用户 2026-09-23 指示集中记录：有争议的条目列入 pending，不在当前修复窗口修改，也不阻塞窗口收束。前三条均来自窗口 8 的 `ADJUDICATION-R0.json`。\\n+\\n+## 窗口 8 待审阅\\n+\\n+1. `e92433bcba`（unlock-yeek）\\n+   - 英文要点：叙事文本中的 `cunning`。\\n+   - 现译：“灵巧”。术语库记录 `Cunning=灵巧`，类别为 stat name，`status=existing`。\\n+   - 争议理由：宿主此前依据术语记录判定保持；surface、Opus contextual 与本轮 reviewer 共三个模型认为叙事语境应译为“机敏”或“狡黠”，且 `existing` 不代表覆盖所有语境。\\n+   - 建议选项：保持“灵巧” / 叙事语境改“机敏”。\\n+\\n+2. `e951739433`（毒素风暴）\\n+   - 英文要点：`Each possible effect is equally likely`。\\n+   - 现译：“中毒几率在可能的毒素效果中平分”。\\n+   - 争议理由：源码 `damage_types.lua` 先等概率抽取效果，再判断目标能否中毒；宿主曾判现译与等概率语义等价，reviewer 认为现译把“效果等概率”写成了“中毒几率分配”。\\n+   - 建议选项：保持 / 改为“各种可能的效果出现几率相同”。\\n+\\n+3. `e988482539`（龙族传说）\\n+   - 英文要点：“嘲笑将龙作为单独列出的智慧种族”的说法。\\n+   - 现译：“嘲笑我把龙作为单独列出的智慧种族”，含原文没有的第一人称。\\n+   - 争议理由：reviewer 两次指出原文没有“我”；宿主认为该系列是 Loremaster Greynot 的第一人称著作，语境允许这一增译。\\n+   - 建议选项：保持 / 改为“嘲笑将龙归为智慧种族的想法”。\\n+\\n+## 审核 254 的其他观察\\n+\\n+- 宿主补充观察 `e923d2b8d0`：`The target is using talents without consuming resources` 现译为“不再消耗能量”，将 `resources` 窄化为“能量”。\\n+- 审核 254 advisory：`ALL_DREAMS` 以外无其他同类项；另保留 `rogues do it from behind` 标题双关，以及 `SPELLSHOCKED` 省略 `temporarily` 两项建议。\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/PUBLICATION.md\\n+# 修复窗口 8 出版证据与交接\\n+\\n+## 范围与成果\\n+\\n+- 窗口 8 仅处理审核 254 冻结的六个 target：无尽狩猎描述、`ALL_DREAMS` 成就名、Yeek 解锁文本换行、Thalore 诗句、麻痹毒素伤害方向和《龙族传说》四处语义。\\n+- 译文提交为 `9b71efd8714678d10419f9522a93a25c92f3e841`，只修改 `mod-tome.lua`；没有修改术语库、规则或工具。\\n+- R0 确认诗句中的“紫衫”应为“紫杉”，并恢复鸫鸟与猫头鹰两个主体及其叫声含义；该项经单轮有界修复后进入最终复审。\\n+- publication EXECUTOR 没有修改 Lua、术语、规则、工具、旧证据或 `.ai`，也没有重跑 queue、catalog、migration-chain、复审或完整门禁。\\n+\\n+## 独立复审、裁决与 pending\\n+\\n+- `REVIEW/full`（`codex/gpt-6-sol`）原始结果为 2 `OK` / 4 `ISSUE`。诗句 finding 为一级 confirmed，完成一轮有界修复；Yeek `cunning`、毒素风暴等概率表述和龙族传说第一人称三项转为 pending，不在本窗口修改。\\n+- `FINAL_REVIEW/full`（`claude/claude-opus-5-5`）原始结果为 6 `OK` / 0 `ISSUE`，决定为 `converged`。历轮原始 finding 与裁决均保留，没有被最终结果改写。\\n+- 三项争议及审核 254 的补充观察集中列于[待用户集中审阅的争议条目](../pending-user-review.md)，不阻塞本窗口收束。\\n+- 四个实施/复审 child 均已归档；本 publication child 待宿主在收获本次结果后归档。\\n+\\n+## 门禁、冻结归档与重放\\n+\\n+- 最终完整门禁 `.artifacts/i18n/ci-gates/run.2f4mryxp/results.json` 为 17/17 通过，包含严格 addon build；最终译文 SHA-256 为 `94d4d4afeae685dd435dfab0b25ad66655f7a782f75441ad3b6c93c6da889d70`。\\n+- [orchestration-pack-manifest.json](orchestration-pack-manifest.json) 与 producer 的 `PACK-MANIFEST.json` 逐字节相同。109 个目标均按声明的 SHA-256 和字节数复制，合计 999,605 bytes；归档 `STATE.json` 来自 immutable `STATE-review-validation-checkpoint.json`，冻结输入的 literal 空白保持原样。\\n+- 本出版阶段对受跟踪归档只读运行 `ai_state_check.py`，目标为 `DONE`；结果为 `DONE_VERIFIED: DONE predicate verified`。\\n+\\n+## Catalog、迁移与计时\\n+\\n+- 第一次 queue rebuild：RC 0，`221.73383699299302` 秒。\\n+- 单次候选 catalog build：RC 0，`3.5409652779926546` 秒。\\n+- 单次 migration-chain：成功，总计 `233.8068169449689` 秒；plan 为 RC 0、`225.9491630020202` 秒，check 为 RC 0、`3.2508091630297713` 秒，apply 为 RC 0、`4.5657484289840795` 秒；投影调用一次。\\n+- catalog 从 `0fece77f6c05306c2706b263729cc1a3b5fcdf1dc29f58bd41af380204595696` 迁移到 `8580c7207ae19005bb206138eabe0daf3fb00a7eb0513c113b64c922adbc5cf2`。6 条 revision changed、29,822 条 unchanged，0 ambiguous、0 unmapped；6 个 successor 已入队，必须重新审核，不能继承旧 revision 的完成态。\\n+- migration ID 为 `518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f`。catalog entries、exclusions、manifest 的 SHA-256 依次为 `1cfec8d197c1c97cce779a174fb1687858037350646cfb47123366be65221cab`、`1288283aa25ae95c3bf311850e168ecb04d25cd09370e02fb84e5fb9110a7da0`、`0b6c7cbf6b4eea2954eda907740d9aab6347866d1fdf80250215b217f93ebb47`。\\n+- 五个候选 catalog 文件、migration 以及 [publication/](publication/) 中 14 个附件均从冻结来源逐字节安装。\\n+\\n+## 宿主后续\\n+\\n+本 publication EXECUTOR 未 stage、commit 或 push。证据提交、提交后的第二次 queue rebuild、push、本 publication child 的归档，以及随后继续审核 255（默认 80 条），均由宿主继续执行；本文不提前宣称这些步骤完成。\\n+\\n+旧 pending、旧 blocked、范围外 advisory、`.ai/consult/`、`recipe` 和 15 个旧 source-workset 均保持不变，不因本次发布而清零、扩大或清理。\\n*** Update File: /workspace/tome4-chinese-translation/handoff.md\\n@@\\n-更新时间：2026-09-23（审核254已finalize；下一步为修复窗口8）\\n+更新时间：2026-09-23（修复窗口8已完成；待宿主发布收尾，随后审核255）\\n@@\\n-用户于2026-09-23指示“阅读handoff文档，继续推进翻译审核工作”，解除窗口7后的暂停；同日指示\\n-审核模型改为 **surface `codex/gpt-6-sol`（medium，auto-review）**、**contextual\\n-`claude/claude-opus-5-5`（medium，auto）**。live `list_profiles` 中没有这两个模型的 profile，\\n-按用户指示直接选择；profiles 快照仍按每次 create 留档。\\n-\\n-审核254（`batch-f740e6898e8b430ca79f`）已finalize：**74 done / 6 repair_required**，证据提交\\n-`919542a70e788a0255a83b2a5b7bdac926bdf09b`。surface 68 OK / 12 ISSUE（lane-000-1 三条\\n-observation 错位一格，已逐条比对处理），contextual 6 OK / 6 ISSUE；18 项观察裁决 9 confirmed /\\n-6 refuted / 3 advisory。17/17 门禁含严格构建通过，两任务及 117 文件快照重放 DONE_VERIFIED，\\n-5 个 child 均确认归档。详见[254宿主证据](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/summary.md)。\\n-\\n-**工具版本偏差：**Codex CLI 已升至 0.156.0、Claude Code 已升至 2.1.280，高于\\n-`review_lifecycle.py` 原生 parser 固定的 0.153.0 / 2.1.259，`harvest --native-log` 会拒绝。\\n-本批用 `.artifacts/i18n/continuation-20260923/native_extract_v156.py`（在临时副本中仅替换版本\\n-字面量、运行同一 `_parse_native_final`）提取原文 bytes，再走严格 `harvest --raw`；仓库工具未改。\\n-Codex 归档后会话日志移至 `~/.codex/archived_sessions/`。后续可做一次有界工具维护正式支持新版本。\\n-\\n-**下一步：修复窗口8**（因 unlock-yeek 换行不变量与麻痹毒素伤害方向提前进入），仅处理\\n-[WINDOW8决定](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/orchestration/.ai/task/batch-f740e6898e8b430ca79f/WINDOW8-EARLY-REPAIR-DECISION.json)\\n-列出的6条：无尽狩猎技能树描述、ALL_DREAMS成就名、unlock-yeek多余换行、自然精灵诗句两行、\\n-麻痹毒素“目标造成的全部伤害”、龙族传说四处限定词/地名。`e923d2b8…` 资源→能量为错位漏报，\\n-仅记宿主补充建议，不入窗口。\\n+用户于2026-09-23指示先做工具维护，然后持续推进审核，无需手动确认；有争议条目列入 pending\\n+集中审阅，不修、不阻塞。当前清单见[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)。\\n+审核模型仍为 **surface `codex/gpt-6-sol`（medium，auto-review）**、**contextual\\n+`claude/claude-opus-5-5`（medium，auto）**；live profile 缺失时按用户指示直接选择并保留快照。\\n+\\n+工具维护已提交为 `b626eaf1c30ed389dff0b0a633e393225ea46843`：原生 parser 已支持 Codex 0.156.0\\n+与 Claude Code 2.1.280（含归档末尾 `cost-state` 记录），并以 10 份真实会话验证。原“工具版本偏差”\\n+已经解决，详见[原生 parser 版本维护](evidence/quality/native-parser-versions-20260923/summary.md)。\\n+\\n+已核实：活动批次从 batch start 到 finalize 期间不能插入任何提交；\\n+`production_review_v2_lite_batch.py:1084` 会检查 base commit drift，`:1909` 会检查 finalize parent。\\n+修复窗口中 preflight 后插入提交会使 preflight 失效，必须重跑；每次提交后都需 queue rebuild。\\n+因此工具维护只能放在批次或修复窗口之间。\\n+\\n+修复窗口8已完成，译文提交为 `9b71efd8714678d10419f9522a93a25c92f3e841`。六条目标为无尽狩猎\\n+描述、`ALL_DREAMS`、Yeek 换行、Thalore 诗句（含紫杉及鸫鸟/猫头鹰行）、麻痹毒素伤害方向和\\n+《龙族传说》四处语义。`REVIEW/full`（`codex/gpt-6-sol`）原始结果为 2 OK / 4 ISSUE：诗句\\n+确认后追加一轮有界修复，其余三条转 pending；`FINAL_REVIEW/full`（`claude/claude-opus-5-5`）\\n+为 6 OK / 0 ISSUE。完整门禁 `run.2f4mryxp` 17/17 通过并含严格构建，任务 `DONE_VERIFIED`；\\n+四个实施/复审 child 均已归档，本 publication child 待宿主归档。完整结果见\\n+[窗口8出版证据](evidence/quality/repair-window-8-20260923/PUBLICATION.md)。\\n+\\n+新 catalog 为 `8580c7207ae19005bb206138eabe0daf3fb00a7eb0513c113b64c922adbc5cf2`，migration 为\\n+`518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f`；6 条 revision changed、\\n+29,822 条 unchanged、0 ambiguous/unmapped，6 个 successor 待重新审核，不继承 done。\\n+\\n+下一步由宿主执行本证据提交、第二次 queue rebuild 和 push，随后继续审核255（默认80条）。\\n+这些后续步骤尚未完成，不得提前宣称完成。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131736.883544
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33eb9d77c87d290a4af87c0c86925",
+      "status": "completed",
+      "call_id": "call_2VgGGwz6GQ6BWrvru2853WMi",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Delete File: /tmp/repair-w8-publish-copy.sh\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131870.699038
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33ebdbff887d29b80511103a0fc7c",
+      "status": "completed",
+      "call_id": "call_dddvWIkYosAWCgdS6IKCoda5",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"rm -- /tmp/repair-w8-publish-copy.sh\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":1000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我删除本次任务创建且已使用完的单个临时复制脚本吗？\"}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131899.650492
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33ed2cea887d2930a0c272101c730",
+      "status": "completed",
+      "call_id": "call_RoTvUagr7tvJkfiCAesmluOa",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 -c 'import json,hashlib,pathlib,re,sys\\nroot=pathlib.Path(\\\".\\\"); m=json.loads((root/\\\".ai/task/repair-w8-20260923/PACK-MANIFEST.json\\\").read_text()); out=root/\\\"evidence/quality/repair-window-8-20260923/orchestration\\\"; bad=[]\\nfor x in m[\\\"files\\\"]:\\n s=root/x[\\\"source\\\"]; d=out/x[\\\"relative_destination\\\"]; sb=s.read_bytes(); db=d.read_bytes() if d.exists() else None\\n if db!=sb or len(db or b\\\"\\\")!=x[\\\"bytes\\\"] or hashlib.sha256(db or b\\\"\\\").hexdigest()!=x[\\\"sha256\\\"]: bad.append(x[\\\"relative_destination\\\"])\\nassert not bad,bad\\nassert (root/\\\"evidence/quality/repair-window-8-20260923/orchestration-pack-manifest.json\\\").read_bytes()==(root/\\\".ai/task/repair-w8-20260923/PACK-MANIFEST.json\\\").read_bytes()\\nassert (out/\\\".ai/task/repair-w8-20260923/STATE.json\\\").read_bytes()==(root/\\\".ai/task/repair-w8-20260923/STATE-review-validation-checkpoint.json\\\").read_bytes()\\ncroot=root/\\\".artifacts/i18n/repair-window/window8-20260923-candidate-catalog\\\"; cbad=[]\\nfor s in croot.rglob(\\\"*\\\"):\\n if s.is_file():\\n  d=root/s.relative_to(croot)\\n  if d.read_bytes()!=s.read_bytes(): cbad.append(str(d))\\nassert not cbad,cbad\\nmid=\\\"518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f\\\"; assert (root/f\\\"evidence/production-review-v2-lite/migrations/{mid}.json\\\").read_bytes()==(root/\\\".artifacts/i18n/repair-window/window8-20260923-migration.json\\\").read_bytes()\\npub=root/\\\"evidence/quality/repair-window-8-20260923/publication\\\"; task_names=[\\\"PUBLICATION-SCOPE.md\\\",\\\"CATALOG-CHANGE-VERIFICATION.json\\\",\\\"MIGRATION-HOST-VERIFICATION.json\\\",\\\"TRANSLATION-COMMIT.json\\\",\\\"ADJUDICATION-R0.json\\\",\\\"ADJUDICATION-FINAL.json\\\"]; art_names=[\\\"queue-1.log\\\",\\\"queue-1-timing.json\\\",\\\"catalog.log\\\",\\\"catalog-timing.json\\\",\\\"migration.json\\\",\\\"migration-timing.json\\\",\\\"migration-run.log\\\",\\\"migration-run-timing.json\\\"]\\nfor n in task_names: assert (pub/n).read_bytes()==(root/\\\".ai/task/repair-w8-20260923\\\"/n).read_bytes(),n\\nfor n in art_names: assert (pub/n).read_bytes()==(root/f\\\".artifacts/i18n/repair-window/window8-20260923-{n}\\\").read_bytes(),n\\nutf=[root/\\\"handoff.md\\\",root/\\\"evidence/quality/pending-user-review.md\\\",root/\\\"evidence/quality/repair-window-8-20260923/PUBLICATION.md\\\"]\\nfor p in utf: p.read_text(encoding=\\\"utf-8\\\")\\nlinks=[(root/\\\"handoff.md\\\",\\\"evidence/quality/pending-user-review.md\\\"),(root/\\\"handoff.md\\\",\\\"evidence/quality/native-parser-versions-20260923/summary.md\\\"),(root/\\\"handoff.md\\\",\\\"evidence/quality/repair-window-8-20260923/PUBLICATION.md\\\"),(root/\\\"evidence/quality/repair-window-8-20260923/PUBLICATION.md\\\",\\\"orchestration-pack-manifest.json\\\"),(root/\\\"evidence/quality/repair-window-8-20260923/PUBLICATION.md\\\",\\\"../pending-user-review.md\\\"),(root/\\\"evidence/quality/repair-window-8-20260923/PUBLICATION.md\\\",\\\"publication\\\")]\\nfor doc,target in links:\\n assert target in doc.read_text(encoding=\\\"utf-8\\\"),(doc,target)\\n assert (doc.parent/target).exists(),(doc,target)\\nprint(json.dumps({\\\"pack_files\\\":len(m[\\\"files\\\"]),\\\"pack_bytes\\\":sum(x[\\\"bytes\\\"] for x in m[\\\"files\\\"]),\\\"pack_sha_verified\\\":True,\\\"state_from_checkpoint\\\":True,\\\"catalog_files\\\":sum(1 for p in croot.rglob(\\\"*\\\") if p.is_file()),\\\"migration_exact\\\":True,\\\"publication_attachments\\\":len(task_names)+len(art_names),\\\"utf8_docs\\\":len(utf),\\\"new_links_verified\\\":len(links)},ensure_ascii=False))' && git diff --quiet 9b71efd8714678d10419f9522a93a25c92f3e841 -- mod-tome.lua && sha256sum mod-tome.lua && git diff --check\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":10000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读执行逐字/SHA、STATE来源、catalog/migration/附件、Lua提交一致性、UTF-8、链接和已跟踪文件空白验证吗？\",\"prefix_rule\":[\"python3\",\"-c\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131909.160907
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33f060ac487d2a33021e2c241ba43",
+      "status": "completed",
+      "call_id": "call_FcyLsGu7puO4CJW057crO3LF",
+      "name": "exec",
+      "input": "const results = await Promise.all([\n  tools.exec_command({\"cmd\":\"git diff --no-index --check -- /dev/null evidence/quality/pending-user-review.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":3000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读检查新建 pending 文档的空白错误吗？\",\"prefix_rule\":[\"git\",\"diff\",\"--no-index\",\"--check\"]}),\n  tools.exec_command({\"cmd\":\"git diff --no-index --check -- /dev/null evidence/quality/repair-window-8-20260923/PUBLICATION.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":3000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我只读检查新建 PUBLICATION 文档的空白错误吗？\",\"prefix_rule\":[\"git\",\"diff\",\"--no-index\",\"--check\"]})\n]);\nfor (const r of results) text(JSON.stringify({exit_code:r.exit_code, output:r.output}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131966.177591
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33f14206c87d288e5edde91c41d19",
+      "status": "completed",
+      "call_id": "call_cdyTKN8TxGa2gikc12Cs9YNv",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 -B tools/ai_state_check.py .ai/task/repair-w8-20260923/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-8-20260923/orchestration --target DONE\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":30000,\"max_output_tokens\":5000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我运行发布范围指定的只读 ai_state_check，验证归档快照达到 DONE 吗？\",\"prefix_rule\":[\"python3\",\"-B\",\"tools/ai_state_check.py\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131986.949034
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_095d63894d64275a016ab33f3e828087d29cfe058099171269",
+      "status": "completed",
+      "call_id": "call_0dM8DMWUuuXtaOgiw7BLbpl9",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"printf '[tracked changes]\\\\n' && git diff --name-status && printf '\\\\n[staged changes]\\\\n' && git diff --cached --name-status && printf '\\\\n[task ai status]\\\\n' && git status --short -- .ai/task/repair-w8-20260923 .ai/roles/executor.md && printf '\\\\n[authorized outputs]\\\\n' && git status --short -- handoff.md evidence/quality/pending-user-review.md evidence/quality/repair-window-8-20260923 evidence/production-review-v2-lite/catalog evidence/production-review-v2-lite/migrations/518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f.json i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json && printf '\\\\n[repair output counts]\\\\n' && find evidence/quality/repair-window-8-20260923/orchestration -type f | wc -l && find evidence/quality/repair-window-8-20260923/publication -type f | wc -l && printf '\\\\n[publication files]\\\\n' && find evidence/quality/repair-window-8-20260923/publication -maxdepth 1 -type f -printf '%f\\\\n' | sort\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"允许我做最终只读范围审计，确认只有授权输出发生变化且没有暂存内容吗？\",\"prefix_rule\":[\"git\",\"diff\",\"--name-status\"]}); text(r.output); if (r.exit_code !== 0) text(`EXIT_CODE=${r.exit_code}`);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0cc27-a99b-70d0-951a-543bbbde9bfe",
+        "create_time": 1790131998.082063
+      }
+    }
+  ]
+}

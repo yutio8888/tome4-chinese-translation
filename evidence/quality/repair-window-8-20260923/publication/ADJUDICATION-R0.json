@@ -1,0 +1,40 @@
+{
+  "cycle": 0,
+  "raw_ok_count": 2,
+  "raw_issue_count": 4,
+  "decision": "single_bounded_fix_then_final_full",
+  "findings": [
+    {
+      "id": "R0-POEM-YEW-THRUSH",
+      "revision_key": "e9253668295a71c738227e4186efa5e9fa86c30ccc629240168490030d584083",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "misc.lua:531 berried yews：库内 yew 一律“紫杉”（mod-tome.lua 9430/12160 等），“紫衫”为衣物错字；misc.lua:538 Once thrush and owl did screech and cry 被译为“曾经欢快的鸟儿泣血啼鸣”，丢失鸫鸟与猫头鹰并新增“欢快/泣血”。",
+      "resolution": "仅改这两行：紫衫→紫杉；第三句还原为鸫鸟与猫头鹰尖啸哀鸣之意。其他诗句不动。"
+    },
+    {
+      "id": "R0-YEEK-CUNNING",
+      "revision_key": "e92433bcbaf2d4dc438a1651a4cb5214c7e4c8dae5438f8418253e0e829740af",
+      "status": "pending",
+      "disposition": "pending_user_review",
+      "reason": "宿主曾依 combat.tsv Cunning=灵巧（stat name, status=existing）判不改；surface、Opus contextual 与本轮 gpt-6-sol 均认为叙事语境 cunning 应为机敏/狡黠。existing 不是背书，属术语使用范围争议，交用户集中审阅，本窗口不改。"
+    },
+    {
+      "id": "R0-BLIGHT-EQUALLY-LIKELY",
+      "revision_key": "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041",
+      "status": "pending",
+      "disposition": "pending_user_review",
+      "reason": "damage_types.lua:4019–4038 先 rng.range 选效果、再判 canBe(\"poison\")。宿主254裁决认为“中毒几率在可能的毒素效果中平分”与等概率等价而驳回；本轮 reviewer 认为把效果等概率说成中毒几率分配。表述精确度分歧，交用户审阅；本窗口只修麻痹毒素伤害方向（已完成）。"
+    },
+    {
+      "id": "R0-DRAGON-FIRST-PERSON",
+      "revision_key": "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989",
+      "status": "pending",
+      "disposition": "pending_user_review",
+      "reason": "races-10 为 Loremaster Greynot 第一人称系列，宿主254判“我把龙列为”为语境增译 advisory；surface 与本轮 reviewer 两次指出原文无“我”。属忠实度/风格分歧，交用户审阅，本窗口不改。"
+    }
+  ],
+  "conflict_assessment": "三条 pending 均为宿主既有 advisory/refuted 与独立 reviewer 的实质分歧，按用户2026-09-23指示列 pending 待集中审阅，不在本窗口修改，也不阻塞收束。",
+  "senior_scope_audit_required": false
+}

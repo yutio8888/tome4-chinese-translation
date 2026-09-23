@@ -1,32 +1,38 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核254已finalize；下一步为修复窗口8）
+更新时间：2026-09-23（修复窗口8已完成；待宿主发布收尾，随后审核255）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户于2026-09-23指示“阅读handoff文档，继续推进翻译审核工作”，解除窗口7后的暂停；同日指示
-审核模型改为 **surface `codex/gpt-6-sol`（medium，auto-review）**、**contextual
-`claude/claude-opus-5-5`（medium，auto）**。live `list_profiles` 中没有这两个模型的 profile，
-按用户指示直接选择；profiles 快照仍按每次 create 留档。
+用户于2026-09-23指示先做工具维护，然后持续推进审核，无需手动确认；有争议条目列入 pending
+集中审阅，不修、不阻塞。当前清单见[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)。
+审核模型仍为 **surface `codex/gpt-6-sol`（medium，auto-review）**、**contextual
+`claude/claude-opus-5-5`（medium，auto）**；live profile 缺失时按用户指示直接选择并保留快照。
 
-审核254（`batch-f740e6898e8b430ca79f`）已finalize：**74 done / 6 repair_required**，证据提交
-`919542a70e788a0255a83b2a5b7bdac926bdf09b`。surface 68 OK / 12 ISSUE（lane-000-1 三条
-observation 错位一格，已逐条比对处理），contextual 6 OK / 6 ISSUE；18 项观察裁决 9 confirmed /
-6 refuted / 3 advisory。17/17 门禁含严格构建通过，两任务及 117 文件快照重放 DONE_VERIFIED，
-5 个 child 均确认归档。详见[254宿主证据](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/summary.md)。
+工具维护已提交为 `b626eaf1c30ed389dff0b0a633e393225ea46843`：原生 parser 已支持 Codex 0.156.0
+与 Claude Code 2.1.280（含归档末尾 `cost-state` 记录），并以 10 份真实会话验证。原“工具版本偏差”
+已经解决，详见[原生 parser 版本维护](evidence/quality/native-parser-versions-20260923/summary.md)。
 
-**工具版本偏差：**Codex CLI 已升至 0.156.0、Claude Code 已升至 2.1.280，高于
-`review_lifecycle.py` 原生 parser 固定的 0.153.0 / 2.1.259，`harvest --native-log` 会拒绝。
-本批用 `.artifacts/i18n/continuation-20260923/native_extract_v156.py`（在临时副本中仅替换版本
-字面量、运行同一 `_parse_native_final`）提取原文 bytes，再走严格 `harvest --raw`；仓库工具未改。
-Codex 归档后会话日志移至 `~/.codex/archived_sessions/`。后续可做一次有界工具维护正式支持新版本。
+已核实：活动批次从 batch start 到 finalize 期间不能插入任何提交；
+`production_review_v2_lite_batch.py:1084` 会检查 base commit drift，`:1909` 会检查 finalize parent。
+修复窗口中 preflight 后插入提交会使 preflight 失效，必须重跑；每次提交后都需 queue rebuild。
+因此工具维护只能放在批次或修复窗口之间。
 
-**下一步：修复窗口8**（因 unlock-yeek 换行不变量与麻痹毒素伤害方向提前进入），仅处理
-[WINDOW8决定](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/orchestration/.ai/task/batch-f740e6898e8b430ca79f/WINDOW8-EARLY-REPAIR-DECISION.json)
-列出的6条：无尽狩猎技能树描述、ALL_DREAMS成就名、unlock-yeek多余换行、自然精灵诗句两行、
-麻痹毒素“目标造成的全部伤害”、龙族传说四处限定词/地名。`e923d2b8…` 资源→能量为错位漏报，
-仅记宿主补充建议，不入窗口。
+修复窗口8已完成，译文提交为 `9b71efd8714678d10419f9522a93a25c92f3e841`。六条目标为无尽狩猎
+描述、`ALL_DREAMS`、Yeek 换行、Thalore 诗句（含紫杉及鸫鸟/猫头鹰行）、麻痹毒素伤害方向和
+《龙族传说》四处语义。`REVIEW/full`（`codex/gpt-6-sol`）原始结果为 2 OK / 4 ISSUE：诗句
+确认后追加一轮有界修复，其余三条转 pending；`FINAL_REVIEW/full`（`claude/claude-opus-5-5`）
+为 6 OK / 0 ISSUE。完整门禁 `run.2f4mryxp` 17/17 通过并含严格构建，任务 `DONE_VERIFIED`；
+四个实施/复审 child 均已归档，本 publication child 待宿主归档。完整结果见
+[窗口8出版证据](evidence/quality/repair-window-8-20260923/PUBLICATION.md)。
+
+新 catalog 为 `8580c7207ae19005bb206138eabe0daf3fb00a7eb0513c113b64c922adbc5cf2`，migration 为
+`518ce6ed86c6d746184ff38b10a45cd9755ff56c2c57a0af650d7aa03252552f`；6 条 revision changed、
+29,822 条 unchanged、0 ambiguous/unmapped，6 个 successor 待重新审核，不继承 done。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 和 push，随后继续审核255（默认80条）。
+这些后续步骤尚未完成，不得提前宣称完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

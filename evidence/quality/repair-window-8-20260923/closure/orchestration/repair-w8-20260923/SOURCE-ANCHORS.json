@@ -1,0 +1,113 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "e8fc5b0a4a9d6c3e85ebcbf79ddc5b41a7e1b2c8d28b1a47d34440af8167e8a2"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/cursed.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "081fa9faaf3c22df4d6212def6b5b2d60fe0cb89a102e881aeba444f90e0f6cc",
+      "start_line": 18,
+      "end_line": 26,
+      "excerpt": "18: -- darkgod@te4.org\n19: \n20: -- Cursed\n21: newTalentType{ allow_random=true, type=\"cursed/slaughter\", name = _t(\"slaughter\", \"talent type\"), description = _t\"Your weapon yearns for its next victim.\" }\n22: newTalentType{ allow_random=true, type=\"cursed/endless-hunt\", name = _t(\"endless hunt\", \"talent type\"), description = _t\"Each day, you lift your weary body and begin the unending hunt.\" }\n23: newTalentType{ allow_random=true, type=\"cursed/strife\", name = _t(\"strife\", \"talent type\"), description = _t\"The battlefield is your home; death and confusion, your comfort.\" }\n24: newTalentType{ allow_random=true, is_mind=true, type=\"cursed/gloom\", name = _t(\"gloom\", \"talent type\"), description = _t\"All those in your sight must share your despair.\" }\n25: newTalentType{ allow_random=true, type=\"cursed/rampage\", name = _t(\"rampage\", \"talent type\"), description = _t\"Let loose the hate that has grown within.\" }\n26: newTalentType{ allow_random=false, type=\"cursed/predator\", name = _t(\"predator\", \"talent type\"), description = _t\"Track and kill your prey with single-minded focus.\" }"
+    },
+    {
+      "revision_keys": [
+        "e90949f9259fbaa1b4aeb7bbdef559ace4df0d4539c8c53e005c3d8c9dd5d43c"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/achievements/quests.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "ee4ebea3d2aedaaba26aee21a4f8ceec0c265eb8cb71aee307e3d63d436cd470",
+      "start_line": 330,
+      "end_line": 346,
+      "excerpt": "330: \ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 30\"} end,\n331: }\n332: newAchievement{\n333: \tname = \"Lost in translation\", id = \"SUNWALL_LOST\",\n334: \tshow = \"name\",\n335: \tdesc = _t[[Destroyed the naga portal in the slazish fens and got caught in the after-effect.]],\n336: }\n337: newAchievement{\n338: \tname = \"Dreaming my dreams\", id = \"ALL_DREAMS\",\n339: \tshow = \"full\",\n340: \tdesc = _t[[Experienced and completed all the dreams in the Dogroth Caldera.]],\n341: \tmode = \"world\",\n342: \tcan_gain = function(self, who, kind)\n343: \t\tself[kind] = true\n344: \t\tif self.mice and self.lost then return true end\n345: \tend,\n346: \ttrack = function(self)"
+    },
+    {
+      "revision_keys": [
+        "e92433bcbaf2d4dc438a1651a4cb5214c7e4c8dae5438f8418253e0e829740af"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/texts/unlock-yeek.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "52563fcb7c94fb8f6f2a09d848887ade9a80dd5a1d20f25389ca27dd3d78ac3a",
+      "start_line": 20,
+      "end_line": 34,
+      "excerpt": "20: return _t\"New Race: #LIGHT_GREEN#Yeek\",\n21: _t[[\n22: Yeeks are a mysterious race of small humanoids native to the tropical island of Rel.\n23: Their body is covered with white fur and their disproportionate heads give them a ridiculous look, yet they are a cunning and willful race.\n24: Although they are now nearly unheard of in Maj'Eyal, they spent many centuries as secret slaves to the Halfling nation of Nargol.\n25: They gained their freedom during the Age of Pyre and have since then followed 'The Way' - a unity of minds enforced by their powerful psionics.\n26: \n27: You have helped a Yeek Wayist and can now create a new character with the #LIGHT_GREEN#Yeek race#WHITE#.\n28: \n29: Race features:#YELLOW#\n30: - Mental domination racial power\n31: - Confusion resistance\n32: - Fast leveling\n33: - Frail body#WHITE#\n34: ]]"
+    },
+    {
+      "revision_keys": [
+        "e9253668295a71c738227e4186efa5e9fa86c30ccc629240168490030d584083"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/misc.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "start_line": 524,
+      "end_line": 548,
+      "excerpt": "524: --------------------------------------------------------------\n525: \n526: newLore{\n527: \tid = \"thaloren-lament\",\n528: \tcategory = \"shatur\",\n529: \tname = _t\"Lament for Lands now Lost\", always_pop = true,\n530: \tlore = _t[[You see a moss covered statue of a Thalore reciting a poem, over and over.\n531: #{italic}#\"Where bright and berried yews did stand,\n532: Where the eldest oaks grew so grand,\n533: Where singing birds once flew to land,\n534: All is dust, all is dead.\n535: \n536: Once flowers rose to reach the sky,\n537: Once blossoms fell from beech on high,\n538: Once thrush and owl did screech and cry,\n539: Now all lost, now all fled.\n540: \n541: Oaths from Shaloren mages sworn,\n542: Yet spells of fiery rages born,\n543: Our lands of bygone ages torn,\n544: Gone is trust, wrath is red.#{normal}#\n545: ]] }\n546: \n547: newLore{\n548: \tid = \"eden-guile\","
+    },
+    {
+      "revision_keys": [
+        "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/corruptions/blight.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "ef262a77f0a27f826412d273af6b3f61a1f3f8eccfaa97f58b8b8a5f1f6b7d7b",
+      "start_line": 152,
+      "end_line": 219,
+      "excerpt": "152: newTalent{\n153: \tname = \"Poison Storm\",\n154: \ttype = {\"corruption/blight\", 4},\n155: \trequire = corrs_req4,\n156: \tpoints = 5,\n157: \tvim = 28,\n158: \tcooldown = 24,\n159: \trange = 0,\n160: \tradius = 4,\n161: \ttactical = { ATTACKAREA = {BLIGHT = 3}, DISABLE = 2 },\n162: \ttarget = function(self, t)\n163: \t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t)}\n164: \tend,\n165: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 6, 10)) end,\n166: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 12, 130) end,\n167: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 6, 10)) end,\n168: \tgetEffects = function(self, t)\n169: \t\tlocal power = self:combatTalentScale(t, 15, 40)\n170: \t\tlocal heal_factor = 150*power/(power + 50) -- Limit < 150%\n171: \t\tlocal fail = 50*power/(power + 26) -- Limit < 50% chance\n172: \t\treturn power, heal_factor, fail\n173: \tend,\n174: \tgetPoison = function(self,t) \n175: \t\tif self:getTalentLevel(t) >= 6 then return 4\n176: \t\telseif self:getTalentLevel(t) >= 4 then return 3\n177: \t\telseif self:getTalentLevel(t) >= 2 then return 2\n178: \t\telse return 1 end\n179: \tend,\n180: \taction = function(self, t)\n181: \t\tlocal duration = t.getDuration(self, t)\n182: \t\tlocal radius = self:getTalentRadius(t)\n183: \t\tlocal dam = self:spellCrit(t.getDamage(self,t))\n184: \t\tlocal poison = t.getPoison(self,t)\n185: \t\tlocal power, heal_factor, fail = t.getEffects(self, t)\n186: \t\tlocal actor = self\n187: \t\t-- Add a lasting map effect\n188: \t\tgame.level.map:addEffect(self,\n189: \t\t\tself.x, self.y, duration,\n190: \t\t\tDamageType.BLIGHT_POISON, {dam=dam, power=power, heal_factor=heal_factor, fail=fail, penetration=0, poison=t.getPoison(self,t), apply_power=actor:combatSpellpower()},\n191: \t\t\tradius,\n192: \t\t\t5, nil,\n193: \t\t\tMapEffect.new{\n194: \t\t\t\tcolor_br=20, color_bg=220, color_bb=70, effect_shader=\"shader_images/poison_effect.png\",\n195: \t\t\t\toverlay_particle = { zdepth=6, only_one=true, type=\"perfect_strike\", args={img=\"spinningwinds_poison_storm\", radius=radius}},\n196: \t\t\t},\n197: \t\t\tfunction(e)\n198: \t\t\t\te.x = e.src.x\n199: \t\t\t\te.y = e.src.y\n200: \t\t\t\treturn true\n201: \t\t\tend,\n202: \t\t\tfalse\n203: \t\t)\n204: \t\tgame:playSoundNear(self, \"talents/slime\")\n205: \t\treturn true\n206: \tend,\n207: \tinfo = function(self, t)\n208: \t\tlocal dam = damDesc(self, DamageType.BLIGHT, t.getDamage(self,t))\n209: \t\tlocal power, heal_factor, fail = t.getEffects(self, t)\n210: \t\treturn ([[A furious storm of blighted poison rages around the caster in a radius of %d for %d turns.  Each creature hit by the storm takes %0.2f blight damage and is poisoned for %0.2f blight damage over 4 turns.\n211: \t\tAt talent level 2 you have a chance to inflict Insidious Blight, which reduces healing by %d%%.\n212: \t\tAt talent level 4 you have a chance to inflict Numbing Blight, which reduces all damage dealt by %d%%.\n213: \t\tAt talent level 6 you have a chance to inflict Crippling Blight, which causes talents to have a %d%% chance of failure.\n214: \t\tEach possible effect is equally likely.\n215: \t\tThe poison damage dealt is capable of a critical strike.\n216: \t\tThe damage will increase with your Spellpower.]]):\n217: \t\ttformat(self:getTalentRadius(t), t.getDuration(self, t), dam/4, dam, heal_factor, power, fail)\n218: \tend,\n219: }"
+    },
+    {
+      "revision_keys": [
+        "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 4258,
+      "end_line": 4285,
+      "excerpt": "4258: newEffect{\n4259: \tname = \"NUMBING_BLIGHT\", image = \"effects/numbing_poison.png\",\n4260: \tdesc = _t\"Numbing Blight\",\n4261: \tlong_desc = function(self, eff) return (\"The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.\"):tformat(eff.power, eff.reduce) end,\n4262: \ttype = \"magical\",\n4263: \tsubtype = { poison=true, blight=true }, no_ct_effect = true,\n4264: \tstatus = \"detrimental\",\n4265: \tparameters = {power=10, reduce=5},\n4266: \ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,\n4267: \ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,\n4268: \t-- Damage each turn\n4269: \ton_timeout = function(self, eff)\n4270: \t\tif self:attr(\"purify_poison\") then self:heal(eff.power, eff.src)\n4271: \t\telse DamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, eff.power)\n4272: \t\tend\n4273: \tend,\n4274: \t-- There are situations this matters, such as copyEffect\n4275: \ton_merge = function(self, old_eff, new_eff)\n4276: \t\told_eff.dur = math.max(old_eff.dur, new_eff.dur)\n4277: \t\treturn old_eff\n4278: \tend,\n4279: \tactivate = function(self, eff)\n4280: \t\teff.tmpid = self:addTemporaryValue(\"numbed\", eff.reduce)\n4281: \tend,\n4282: \tdeactivate = function(self, eff)\n4283: \t\tself:removeTemporaryValue(\"numbed\", eff.tmpid)\n4284: \tend,\n4285: }"
+    },
+    {
+      "revision_keys": [
+        "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start_line": 4012,
+      "end_line": 4042,
+      "excerpt": "4012: \n4013: newDamageType{\n4014: \tname = _t(\"blight poison\", \"damage type\"), type = \"BLIGHT_POISON\", text_color = \"#DARK_GREEN#\",\n4015: \tprojector = function(src, x, y, t, dam, poison, state)\n4016: \t\tstate = initState(state)\n4017: \t\tuseImplicitCrit(src, state)\n4018: \t\tlocal realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam / 4)\n4019: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n4020: \t\tlocal chance = 0\n4021: \t\tif dam.poison == 4 then\n4022: \t\t\tchance = rng.range(1, 4)\n4023: \t\telseif dam.poison == 3 then\n4024: \t\t\tchance = rng.range(1, 3)\n4025: \t\telseif dam.poison == 2 then\n4026: \t\t\tchance = rng.range(1, 2)\n4027: \t\telse chance = 1\n4028: \t\tend\n4029: \t\tif target and (target:canBe(\"poison\") or rng.percent(dam.penetration or 0)) then\n4030: \t\t\tlocal apply = dam.apply_power or (src.combatAttack and src:combatAttack()) or 0\n4031: \t\t\tif chance == 1 then\n4032: \t\t\t\ttarget:setEffect(target.EFF_BLIGHT_POISON, 4, {src=src, power=dam.dam / 4, apply_power=apply})\n4033: \t\t\telseif chance == 2 then\n4034: \t\t\t\ttarget:setEffect(target.EFF_INSIDIOUS_BLIGHT, 4, {src=src, power=dam.dam / 4, heal_factor=dam.heal_factor or 150*dam.power/(dam.power + 100), apply_power=apply})\n4035: \t\t\telseif chance == 3 then\n4036: \t\t\t\ttarget:setEffect(target.EFF_NUMBING_BLIGHT, 4, {src=src, power=dam.dam / 4, reduce=dam.power, apply_power=apply})\n4037: \t\t\telseif chance == 4 then\n4038: \t\t\t\ttarget:setEffect(target.EFF_CRIPPLING_BLIGHT, 4, {src=src, power=dam.dam / 4, fail=dam.fail or 50*dam.power/(dam.power+100), apply_power=apply})\n4039: \t\t\tend\n4040: \t\tend\n4041: \t\treturn realdam\n4042: \tend,"
+    },
+    {
+      "revision_keys": [
+        "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/misc.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "start_line": 503,
+      "end_line": 522,
+      "excerpt": "503: Nagas were once believed to be mere myth, but reliable reports and even the capturing of dead physical samples has shown them to be real creatures. The upper half of their body is humanoid in form, with blonde hair and an extremely thin build, but the lower half is like that of a giant snake's tail. They stand around 6' tall on land, though their tails extend several feet further. They have been encountered off the eastern and south-eastern coasts of Maj'Eyal, which seems to indicate some exotic civilisation beneath the waves. Records of them exist only from the last few hundred years, and only more recently have they been interpreted as more than just the wild fantasies of inebriated sailors. They can breathe in air and underwater, possessing both lungs and gills, and have been reported to move with surprising speed on the ground. One might think them simply odd monsters, but they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail formed from layers of thick shark-hide. This would suggest an advanced culture, but communication with them so far has proved impossible. It is not known if they are capable of complex speech, but to date their only response to those who encounter them has been extreme violence, and fishermen in the east are always wary of coming across these vicious creatures.\n504: \n505: The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]]}\n506: \n507: newLore{\n508: \tid = \"races-10\",\n509: \tcategory = \"races\",\n510: \tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons\",\n511: \tlore = _t[[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.\n512: \n513: Dragons come in many shapes and sizes, normally growing from 5' long hatchlings to 20' long mature drakes, with some of the greatest wyrms growing to over 40' in length. They are generally winged, with large lizard-like maws and sharp talons on both their fore and hind legs. They are often noted for the lustrous colour of their scales, normally representing an attunement to one of the key Elements of Eyal. This attunement is unseen in any other race, and some philosophers believe that dragons predate all other races, being formed as raw representations of the elements of nature at the beginning of the world. However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long.\n514: \n515: All corners of Maj'Eyal show some trace of different types of dragons. The Daikara Pass and surrounding mountain chains are home to a great number of ice and storm dragons. Numerous sand and red dragons can be found in the western desert and hills, and many have been the reports of gigantic sea dragons in the deepest oceans, especially to the south.\n516: \n517: Attacks from dragons on humans and halfling settlements are fairly rare, but when they occur they can be truly devastating. Usually they are to feed on livestock, but now and then come attacks from newly matured drakes, seeking out precious metals and gemstones to build up a hoard. Dragon hoards have become a thing of legend, with the greatest wyrms rumoured to protect literal mountains of gold, but in modern times truly sizeable hoards are rare. The dwarves farmed hoarding dragons almost to extinction in the Age of Allure, and most dragons these days retain only modest treasures in their lairs.\n518: \n519: Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for \"naturally harvested\" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]]}\n520: \n521: \n522: --------------------------------------------------------------"
+    },
+    {
+      "revision_keys": [
+        "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/zones/daikara/zone.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "af1507b2cfdd0e86a29c4e412b457e1ea2b9fab3203d527c2b323035b8393de9",
+      "start_line": 1,
+      "end_line": 40,
+      "excerpt": "1: -- ToME - Tales of Maj'Eyal\n2: -- Copyright (C) 2009 - 2019 Nicolas Casalini\n3: --\n4: -- This program is free software: you can redistribute it and/or modify\n5: -- it under the terms of the GNU General Public License as published by\n6: -- the Free Software Foundation, either version 3 of the License, or\n7: -- (at your option) any later version.\n8: --\n9: -- This program is distributed in the hope that it will be useful,\n10: -- but WITHOUT ANY WARRANTY; without even the implied warranty of\n11: -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n12: -- GNU General Public License for more details.\n13: --\n14: -- You should have received a copy of the GNU General Public License\n15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n16: --\n17: -- Nicolas Casalini \"DarkGod\"\n18: -- darkgod@te4.org\n19: \n20: local layout = game.state:alternateZone(short_name, {\"VOLCANO\", 2})\n21: local is_volcano = layout == \"VOLCANO\"\n22: \n23: return {\n24: \tname = _t\"Daikara\",\n25: \tlevel_range = {7, 16},\n26: \tlevel_scheme = \"player\",\n27: \tmax_level = 4,\n28: \tdecay = {300, 800},\n29: \tactor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,\n30: \twidth = 50, height = 50,\n31: --\tall_remembered = true,\n32: \tall_lited = true,\n33: \tday_night = true,\n34: \tpersistent = \"zone\",\n35: \tambient_music = \"World of Ice.ogg\",\n36: \tmin_material_level = function() return game.state:isAdvanced() and 3 or 1 end,\n37: \tmax_material_level = function() return game.state:isAdvanced() and 5 or 2 end,\n38: \tis_volcano = is_volcano,\n39: \tgenerator =  {\n40: \t\tmap = {"
+    }
+  ]
+}
