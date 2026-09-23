@@ -1,0 +1,85 @@
+{
+  "workset": "evidence/quality/production-batches/batch-d0f6e929a87d869ee983-source-workset.json",
+  "decisions": {
+    "f58a8172af|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts.lua:5010 Telekinetic Core desc：This heavy torque appears to draw nearby matter towards it——“似乎”吸引附近物质；该物品被动并不牵引物体（仅 use_talent T_PSIONIC_PULL 主动使用），现译“将周围的所有物体拉向它”删去 appears 并增“所有”，把外观描述说成确定的机制。整条修复。"
+    },
+    "f5928e3331|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/npcs/horror.lua:264 eldritch eye desc：bloodshot eye 为“充血/布满血丝的眼睛”（本库同族 a bloodshot eye=充血的眼球、Small and bloodshot=小而充血）；现译“带血的小眼睛”误作沾血。整条修复。"
+    },
+    "f5d4f8ef89|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/spells/death.lua:241–242：At level 3 the thrill of the death invigorates you（击杀触发 EFF_DEATH_RUSH）指杀戮/死亡带来的快感；现译“对死亡的渴望”意为渴求死亡，语义相反。整条修复，%0.1f/%d/50%% 与 \\n\\t\\t 保持。"
+    },
+    "f5f90d5b06|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "dialogs/GameOptions.lua:672：Version checks: Addons will not be checked for new versions——只是不再检查插件新版本；现译“插件版本更新：无法更新插件的版本”误称插件不能更新（上一条明言仍可手动安装）。整条逐句核对后修复。"
+    },
+    "f603e1fbc9|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/spells/spells.lua:32 spell/temporal 类别说明 The school of time manipulation. 指操控时间的法术学派；现译“学习操控时间。”误作学习行为。整条修复（同族 Conveyance is the school of travel 现译“学习传送”属另一条，本批不扩）。"
+    },
+    "f603f43258|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/mindstars.lua:745 hungering 心灵之星：who 以取自 target 的精神能量喂养自己的心灵之星（随后对 target 造成精神伤害并回复 psi/hate）；现译“%s用%s%s吸收%s的精神力量”表达能量从目标流入心灵之星，方向一致，占位符顺序与原文相同，不构成反向。"
+    },
+    "f6060b573a|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "achievements/quests.lua:267 成就 Savior of the damsels in distress（MELINDA_SAVED：Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan）；Melinda 是被邪教掳去献祭，不是迷路；damsel in distress 为“落难少女”，现译“迷路少女拯救者”误导。整条修复。"
+    },
+    "f62d40cfde|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "zones/ardhungol/objects.lua:43 Rod of Spydric Poison 未鉴定名 poison dripping wand；本库 wand 统一译“魔杖”（entity subtype wand=魔杖，榆木/白蜡/紫杉魔杖等），现译“枝条”不符物品类别。整条修复。"
+    },
+    "f66c15e3de|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/cursed/shadows.lua:410：Call Shadows 在已有阴影未达上限时每次尝试再召唤一个，仇恨不足 5 时记此日志；现译“无法召唤阴影”未写“再/另一个”，语境中仍可理解，不误导机制，记 advisory。"
+    },
+    "f58a8172af|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：world-artifacts.lua:5002–5022 Telekinetic Core 的 wielder 无被动牵引，仅 use_talent T_PSIONIC_PULL 主动使用；现译删 appears 并增“所有”，把外观描述写成确定的被动效果。整条修复。"
+    },
+    "f5928e3331|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：horror.lua:264 bloodshot 为“布满血丝/充血”，现译“带血的”误作沾血。整条修复。"
+    },
+    "f5d4f8ef89|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向，并补充：death.lua:229–234 callbackOnKill/callbackOnSummonKill 对任何被杀生物触发，原文为 creature，现译缩为“敌人”。整条修复：thrill of the death 译为击杀/死亡带来的快感，creature 译为“生物”。"
+    },
+    "f5f90d5b06|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：GameOptions.lua:672 Version checks 为不再检查插件新版本，现译“无法更新插件的版本”与上一条“仍可手动安装”矛盾。整条修复（其余各条 contextual 判一致）。"
+    },
+    "f603e1fbc9|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：spells.lua:32 spell/temporal 类别说明是名词短语“操控时间的法术学派”，现译“学习操控时间。”误作动作。整条修复。"
+    },
+    "f6060b573a|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：quests.lua:267–269 MELINDA_SAVED，damsels in distress 为“落难少女”，与迷路无关。整条修复。"
+    },
+    "f62d40cfde|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：ardhungol/objects.lua:40–45 BASE_ROD，由巨型蜘蛛獠牙雕成；wand 本库统一“魔杖”（entity subtype wand=魔杖），现译“枝条”错。contextual 称冻结术语快照无 wand 条目，宿主以本库现行译名“魔杖”补足。整条修复。"
+    }
+  }
+}

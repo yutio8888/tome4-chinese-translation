@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (all four lanes native-log harvest; all 80 identities pre-checked against envelopes, exact match)",
+  "host_prep_note": "prepare_review266.py ran cleanly before any dispatch. freeze_workset reported 2 MISS: the load.lua-section lore row (window 19 successor, runtime-effective duplicate) and the last-hope-lost-merchant log line, which is a registered known dead key (known-dead-keys.json); all 80 entries source-verified pinned/confirmed.",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "669848733b9ebfac2c2dc3abedf28c3524a9911e6fbb9f661c3866148546664e",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat); two python3 heredoc reads that print own envelope entries (read-only)"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "7c97225fb564b7bb0b12620b3d626a8ed0a298e417e48e973b8bca6c242defd6",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat)"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "cdc5a236913e5141f8c6eba4599690d27904595e452a2276e497e18413d8eef4",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat); two python3 -c reads that print own envelope entries (read-only)"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "1a59127a08f4073109c0361fa021d8cb9c49aa8f892db7108a18eaf603e373fd",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat). Paseo display showed a \"---\" line before the JSON, but the native final assistant message starts with \"{\" and was harvested unchanged via --native-log"
+    }
+  ]
+}
