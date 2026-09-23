@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-17 unique EXECUTOR",
+  "scope": "5 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w17-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 5,
+        "changed_revisions": [
+          "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2",
+          "f2d8717e52063cdc50c2878f0b77090b02de36be04eb819137e4c12fc1d0ae42",
+          "f2b2afecaf9b406b4e16fe70ea531f9eff43b3afe927d07705718d424ee5aeb8",
+          "f33c065ae56bb68f1a4146a8e6b75e23e7d1dab1bf0f7432472bc6f036e083a5",
+          "f30327e69ff63cfcd23683b56cd58db5f07ea2989ca040b3bc04d4e017d8dcdb"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T175025.563286Z-820328-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w17-20260923/PREFLIGHT-BATCH263.json",
+      "path": "evidence/quality/repair-window-17-20260923/PREFLIGHT-BATCH263.json",
+      "sha256": "728b288e1e2e465db3636939dab01921cae0e4a62363c1c6e9f4713ed1d35fed",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w17-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-17-20260923/HOST-WORKSET.json",
+      "sha256": "fc6e8b0cf9f11cafca377e32b0ef2aaab1f6907df10b67a652c7ec2318389873",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w17-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-17-20260923/SOURCE-ANCHORS.json",
+      "sha256": "44f8ae8fdd9971e203b239473f23be7b6061f5430394ad524fb9b169104024cd",
+      "byte_identical": true
+    }
+  ],
+  "repair_rounds": [
+    {
+      "round": 1,
+      "session": "fresh retry after execute-01 archive",
+      "adjudication": ".ai/task/repair-w17-20260923/ADJUDICATION-R0.json",
+      "finding": "R0-HEADHUNTER-OVERSTATE",
+      "changed_revision": "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2",
+      "old_target": "#ORCHID#你取下了 %s 的首级，令本层所有敌人迟疑，失去对你的锁定。",
+      "new_target": "#ORCHID#你取下了 %s 的首级，令本层所有敌人为之迟疑。",
+      "commands": [
+        {
+          "command": "python3 -B .ai/task/repair-w17-20260923/verify.py",
+          "exit_code": 0,
+          "result": {
+            "verified": true,
+            "records": 22989,
+            "changed_count": 5,
+            "changed_revisions": [
+              "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2",
+              "f2d8717e52063cdc50c2878f0b77090b02de36be04eb819137e4c12fc1d0ae42",
+              "f2b2afecaf9b406b4e16fe70ea531f9eff43b3afe927d07705718d424ee5aeb8",
+              "f33c065ae56bb68f1a4146a8e6b75e23e7d1dab1bf0f7432472bc6f036e083a5",
+              "f30327e69ff63cfcd23683b56cd58db5f07ea2989ca040b3bc04d4e017d8dcdb"
+            ]
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T175525.418365Z-888378-lint/lint.json\n"
+        },
+        {
+          "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+          "exit_code": 0,
+          "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

@@ -1,0 +1,18 @@
+{
+  "title": "W17 execute-02 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，修复窗口17第1轮修复（execute-01已归档；本次是新会话）。先读 .ai/roles/executor.md、.ai/task/repair-w17-20260923/SPEC.md 与 ADJUDICATION-R0.json。只把猎头者播报（source “#ORCHID#You claim the head of %s, giving pause to all foes on the level.”）的 target 从“#ORCHID#你取下了 %s 的首级，令本层所有敌人迟疑，失去对你的锁定。”逐字改为“#ORCHID#你取下了 %s 的首级，令本层所有敌人为之迟疑。”，不改其他任何条目。只改mod-tome.lua这一处及evidence/quality/repair-window-17-20260923/（在IMPLEMENTATION.md与VALIDATION.json追加本次说明与结果）。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。修改后运行python3 -B .ai/task/repair-w17-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check，报告真实结果与实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w17-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

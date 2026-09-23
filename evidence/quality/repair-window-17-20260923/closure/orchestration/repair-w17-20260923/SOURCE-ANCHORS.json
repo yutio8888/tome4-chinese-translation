@@ -1,0 +1,101 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/GameState.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "98fa5672db560a0965a4d2e38de37cd9a2fe933271a93da46b73fc74190eaf7a",
+      "start_line": 3660,
+      "end_line": 3680,
+      "excerpt": "3660: \t\t\t\t\tlocal quest = self:makeChallengeQuest(level, _t\"Headhunter\", (\"Kill %d spawns of Urh'Rok on the level before killing any elite creatures.\"):tformat(#mlist), {\n3661: \t\t\t\t\t\tdynamic_desc = function(self, desc)\n3662: \t\t\t\t\t\t\tdesc[#desc+1] = (\"%d / %d demon spawn killed.\"):tformat(self.nb_killed, self.to_kill)\n3663: \t\t\t\t\t\tend,\n3664: \t\t\t\t\t\tnb_killed = 0, to_kill = #mlist, mlist = mlist,\n3665: \t\t\t\t\t\ton_kill_foe = function(self, who, target)\n3666: \t\t\t\t\t\t\tif self:isEnded() then return end\n3667: \t\t\t\t\t\t\tif target.is_headhunter_npc then -- killed target spawn\n3668: \t\t\t\t\t\t\t\tself.nb_killed = self.nb_killed + 1\n3669: \t\t\t\t\t\t\t\tgame.bignews:say(60, \"#ORCHID#You claim the head of %s, giving pause to all foes on the level.\", target:getName())\n3670: \t\t\t\t\t\t\t\tif self.nb_killed >= self.to_kill then\n3671: \t\t\t\t\t\t\t\t\twho:setQuestStatus(self.id, self.COMPLETED)\n3672: \t\t\t\t\t\t\t\tend\n3673: \t\t\t\t\t\t\t\tfor uid, e in pairs(game.level.entities) do -- other enemies pause, untarget player\n3674: \t\t\t\t\t\t\t\t\tif e ~= who and table.get(e, \"ai_target\", \"actor\") == who then\n3675: \t\t\t\t\t\t\t\t\te:setTarget()\n3676: \t\t\t\t\t\t\t\t\te.energy.value = -game.energy_per_tick\n3677: \t\t\t\t\t\t\t\t\tend\n3678: \t\t\t\t\t\t\t\tend\n3679: \t\t\t\t\t\t\telseif target.rank >= 3 and (not target.summoner or not target.summoner.is_headhunter_npc) then -- killed forbidden target\n3680: \t\t\t\t\t\t\t\twho:setQuestStatus(self.id, self.FAILED)"
+    },
+    {
+      "revision_keys": [
+        "f2b2afecaf9b406b4e16fe70ea531f9eff43b3afe927d07705718d424ee5aeb8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/tactical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c16b9d714f494e9bdd6297069814d401138700b63e5b1169cd4c798940302e1f",
+      "start_line": 150,
+      "end_line": 174,
+      "excerpt": "150: \tmode = \"sustained\",\n151: \tpoints = 5,\n152: \tcooldown = 30,\n153: \tsustain_stamina = 30,\n154: \ttactical = { BUFF = 2 },\n155: \tspeed = \"combat\",\n156: \tgetReductionMax = function(self, t) return 5 * math.floor(self:combatTalentLimit(t, 20, 3.5, 10)) end, -- Limit to 95%\n157: \tdo_weakness = function(self, t, target)\n158: \t\ttarget:setEffect(target.EFF_WEAKENED_DEFENSES, 3, {inc = - 5, max = - t.getReductionMax(self, t)})\n159: \tend,\n160: \tactivate = function(self, t)\n161: \t\treturn {\n162: \t\t\tdam = self:addTemporaryValue(\"inc_damage\", {[DamageType.PHYSICAL]=-10}),\n163: \t\t}\n164: \tend,\n165: \tdeactivate = function(self, t, p)\n166: \t\tself:removeTemporaryValue(\"inc_damage\", p.dam)\n167: \t\treturn true\n168: \tend,\n169: \tinfo = function(self, t)\n170: \t\tlocal reduction = t.getReductionMax(self, t)\n171: \t\treturn ([[Systematically find the weaknesses in your opponents' physical resists, at the cost of 10%% of your physical damage.  Each time you hit an opponent with a melee attack, you reduce their physical resistance by 5%%, up to a maximum of %d%%.\n172: \t\t]]):tformat(reduction)\n173: \tend,\n174: }"
+    },
+    {
+      "revision_keys": [
+        "f2b2afecaf9b406b4e16fe70ea531f9eff43b3afe927d07705718d424ee5aeb8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start_line": 970,
+      "end_line": 980,
+      "excerpt": "970: \t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, eff.power)\n971: \t\tself:removeEffect(self.EFF_STATIC_CHARGE)\n972: \tend\n973: \n974: \t-- Exploit Weakness\n975: \tif hitted and not target.dead and self:knowTalent(self.T_EXPLOIT_WEAKNESS) and self:isTalentActive(self.T_EXPLOIT_WEAKNESS) then\n976: \t\tlocal t = self:getTalentFromId(self.T_EXPLOIT_WEAKNESS)\n977: \t\tt.do_weakness(self, t, target)\n978: \tend\n979: \n980: \t-- Special weapon effects  (passing the special definition to facilitate encapsulating multiple special effects)"
+    },
+    {
+      "revision_keys": [
+        "f2d8717e52063cdc50c2878f0b77090b02de36be04eb819137e4c12fc1d0ae42"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "3c271d59fba32a0ba3c5749c86fbf431970b17b48a6292f8ff3d2a4f744c7139",
+      "start_line": 430,
+      "end_line": 445,
+      "excerpt": "430: ]]\n431: TOOLTIP_AFFINITY = _t[[#GOLD#Damage affinity: specific#LAST#\n432: All damage of this type that you receive, through any means, also heals you for this percentage of the damage.\n433: Important: Affinity healing happens after damage has been taken, it can not prevent death.\n434: ]]\n435: TOOLTIP_STATUS_IMMUNE = _t[[#GOLD#Status resistance#LAST#\n436: Most bad status effects can be avoided by having an appropriate immunity, represented by a percent chance to completely avoid the effect in question.  This chance is applied in addition to any saving throws or other checks that may apply.\n437: ]]\n438: TOOLTIP_SPECIFIC_IMMUNE = _t[[#GOLD#Effect resistance chance#LAST#\n439: This represents your chance to completely resist this specific effect.\n440: ]]\n441: TOOLTIP_STUN_IMMUNE = _t[[#GOLD#Stun immunity chance#LAST#\n442: This represents your chance to completely avoid being stunned, dazed, or frozen.\n443: ]]\n444: TOOLTIP_ANOMALY_IMMUNE = _t[[#GOLD#Anomaly immunity chance#LAST#\n445: This represents your chance to avoid most chronomatic anomaly effects."
+    },
+    {
+      "revision_keys": [
+        "f2d8717e52063cdc50c2878f0b77090b02de36be04eb819137e4c12fc1d0ae42"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/dialogs/CharacterSheet.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "d6c8555c085249893e02be80b079079f6c6a98f2533ac35e2085c724ea5f2582",
+      "start_line": 1290,
+      "end_line": 1310,
+      "excerpt": "1290: \t\t\t\t\tif std then\n1291: \t\t\t\t\t\tlocal ok, chance = actor:canBe(immune_type)\n1292: \t\t\t\t\t\treturn util.bound(100-(chance or 100), 0, 100)\n1293: \t\t\t\t\telse\n1294: \t\t\t\t\t\treturn util.bound((actor:attr(immune_attr) or 0) * 100, 0, 100)\n1295: \t\t\t\t\tend\n1296: \t\t\t\tend,\n1297: \t\t\t\t\"%3d%%\", \"%+.0f%%\", 1, false, false, self.immune_labels[immune_type] or immune_type:bookCapitalize())\n1298: \t\t\t\tself:mouseTooltip(self[self.immune_tooltips[immune_attr] or \"TOOLTIP_SPECIFIC_IMMUNE\"], s:drawColorStringBlended(self.font, (\"%-14s: #00ff00#%s\"):format(self.immune_labels[immune_type] or immune_type:bookCapitalize(), text), w, h, 255, 255, 255, true))\n1299: \t\t\t\th = h + self.font_h\n1300: \t\t\tend\n1301: \t\tend\n1302: \t\t\n1303: --[[ -- debugging previous immunity display\n1304: \t\tfor immune_type, immune_name in pairs(self.status_immunities) do\n1305: \t\t\ttext = compare_fields(player, actor_to_compare, function(actor, ...) return util.bound((actor:attr(...) or 0) * 100, 0, 100) end, \"%3d%%\", \"%+.0f%%\", 1, false, false, immune_type)\n1306: \t\t\tif text ~= \"  0%\" then\n1307: \t\t\t\tself:mouseTooltip(self[self.immune_tooltips[immune_type] or \"TOOLTIP_SPECIFIC_IMMUNE\"], s:drawColorStringBlended(self.font, (\"%s: #00ff00#%s\"):format(immune_name, text), w, h, 255, 255, 255, true))\n1308: \t\t\t\th = h + self.font_h\n1309: \t\t\tend\n1310: \t\tend"
+    },
+    {
+      "revision_keys": [
+        "f30327e69ff63cfcd23683b56cd58db5f07ea2989ca040b3bc04d4e017d8dcdb"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/texts/tutorial/done.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4e9334c3cef2dfc185ffaa15cd16acebc7c4dc604dfec8328498b2b4bae30e41",
+      "start_line": 18,
+      "end_line": 31,
+      "excerpt": "18: -- darkgod@te4.org\n19: \n20: return _t[[#GOLD#Congratulations !#WHITE#\n21: \n22: You have completed this small tutorial, and should now know the basics of ToME4. You are ready to step forward into the world to find glory, treasures and be mercilessly slaughtered by hordes of creatures you thought you could handle!\n23: During this tutorial some creatures were adjusted to the need of the teachings, beware, in the real world trolls are not usually this nice!\n24: \n25: If you need a reminder of which key does what, you can access the game menu by pressing #GOLD#Escape#WHITE# and checking the key binds (you can also adjust them to your needs).\n26: \n27: As this is probably your first time with the game you will find there is a limited number of races and classes available to play, many many more do exist but you will unlock them while playing.\n28: \n29: Now go boldly and remember: #GOLD#Have fun!#WHITE#\n30: Press Escape, save & exit and create a new character!\n31: ]]"
+    },
+    {
+      "revision_keys": [
+        "f33c065ae56bb68f1a4146a8e6b75e23e7d1dab1bf0f7432472bc6f036e083a5"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/thought-forms.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "7cbcd6ff95fb4427c3b1ff3fcd486851aad8a690b75ac763853fe1f00a31188d",
+      "start_line": 470,
+      "end_line": 512,
+      "excerpt": "470: }\n471: \n472: newTalent{\n473: \tname = \"Thought-Forms\",\n474: \tshort_name = \"THOUGHT_FORMS\",\n475: \ttype = {\"psionic/thought-forms\", 1},\n476: \tpoints = 5, \n477: \trequire = psi_wil_req1,\n478: \tmode = \"passive\",\n479: \trange = 10,\n480: \tunlearn_on_clone = true,\n481: \tgetStatBonus = function(self, t) return self:combatTalentMindDamage(t, 5, 50) end,\n482: \ton_learn = function(self, t)\n483: \t\tif self:getTalentLevel(t) >= 1 and not self:knowTalent(self.T_TF_BOWMAN) then\n484: \t\t\tself:learnTalent(self.T_TF_BOWMAN, true)\n485: \t\tend\n486: \t\tif self:getTalentLevel(t) >= 3 and not self:knowTalent(self.T_TF_WARRIOR) then\n487: \t\t\tself:learnTalent(self.T_TF_WARRIOR, true)\n488: \t\tend\n489: \t\tif self:getTalentLevel(t) >= 5 and not self:knowTalent(self.T_TF_DEFENDER) then\n490: \t\t\tself:learnTalent(self.T_TF_DEFENDER, true)\n491: \t\tend\n492: \tend,\t\n493: \ton_unlearn = function(self, t)\n494: \t\tif self:getTalentLevel(t) < 1 and self:knowTalent(self.T_TF_BOWMAN) then\n495: \t\t\tself:unlearnTalent(self.T_TF_BOWMAN)\n496: \t\tend\n497: \t\tif self:getTalentLevel(t) < 3 and self:knowTalent(self.T_TF_WARRIOR) then\n498: \t\t\tself:unlearnTalent(self.T_TF_WARRIOR)\n499: \t\tend\n500: \t\tif self:getTalentLevel(t) < 5 and self:knowTalent(self.T_TF_DEFENDER) then\n501: \t\t\tself:unlearnTalent(self.T_TF_DEFENDER)\n502: \t\tend\n503: \tend,\n504: \tinfo = function(self, t)\n505: \t\tlocal bonus = t.getStatBonus(self, t)\n506: \t\tlocal range = self:getTalentRange(t)\n507: \t\treturn([[Forge a guardian from your thoughts alone.  Your guardian's primary stat will be improved by %d, its two secondary stats by %d, and it will have Magic, Cunning, and Willpower equal to your own.\n508: \t\tAt talent level one, you may forge a mighty bowman clad in leather armor; at level three a powerful warrior wielding a two-handed weapon; and at level five a strong defender using a sword and shield.\n509: \t\tThought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.\n510: \t\tOnly one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]]):tformat(bonus, bonus/2, range)\n511: \tend,\n512: }"
+    },
+    {
+      "revision_keys": [
+        "f33c065ae56bb68f1a4146a8e6b75e23e7d1dab1bf0f7432472bc6f036e083a5"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/thought-forms.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "7cbcd6ff95fb4427c3b1ff3fcd486851aad8a690b75ac763853fe1f00a31188d",
+      "start_line": 265,
+      "end_line": 300,
+      "excerpt": "265: \n266: newTalent{\n267: \tname = \"Thought-Form: Warrior\",\n268: \tshort_name = \"TF_WARRIOR\",\n269: \ttype = {\"psionic/other\", 1},\n270: \tpoints = 5, \n271: \trequire = psi_wil_req1,\n272: \tsustain_psi = 20,\n273: \tmode = \"sustained\",\n274: \tno_sustain_autoreset = true,\n275: \tcooldown = 24,\n276: \trange = 10,\n277: \tno_unlearn_last = true,\n278: \tgetStatBonus = function(self, t) \n279: \t\tlocal t = self:getTalentFromId(self.T_THOUGHT_FORMS)\n280: \t\treturn t.getStatBonus(self, t)\n281: \tend,\n282: \tactivate = function(self, t)\n283: \t\tcancelThoughtForms(self, t.id)\n284: \t\t\n285: \t\t-- Find space\n286: \t\tlocal x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})\n287: \t\tif not x then\n288: \t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n289: \t\t\treturn\n290: \t\tend\n291: \t\t\n292: \t\t-- Do our stat bonuses here so we only roll for crit once\t\t\n293: \t\tlocal stat_bonus = math.floor(self:mindCrit(t.getStatBonus(self, t)))\n294: \t\n295: \t\tlocal NPC = require \"mod.class.NPC\"\n296: \t\tlocal m = NPC.new{ _no_upvalues_check=true,\n297: \t\t\tname = _t\"thought-forged warrior\", summoner = self, \n298: \t\t\tcolor=colors.ORANGE, shader = \"shadow_simulacrum\",\n299: \t\t\tshader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },\n300: \t\t\tdesc = _t[[A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.]],"
+    }
+  ]
+}

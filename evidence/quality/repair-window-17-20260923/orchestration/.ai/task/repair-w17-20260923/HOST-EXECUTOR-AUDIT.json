@@ -1,0 +1,41 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 17,
+      "native_calls_sha256": "5c6b317a2ba0e89d5308c8d0d57fa780243ccf86a8eafd17ed6b753640673b9f",
+      "writes": [
+        "mod-tome.lua (5 targets)",
+        "evidence/quality/repair-window-17-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 5 targets: LF/TAB now equal to source (tutorial 14->11, thought-forms 7->3, Exploit Weakness trailing \\n\\t\\t restored); warrior=战士 matches Thought-Form: Warrior."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "3e79d723ceee0a6f16de09fc6ae00eae941a54565e658d24ed2c0ab5878f76b1",
+      "writes": [
+        "mod-tome.lua (headhunter target only; host diffed against frozen R0 candidate: single change, added clause removed)",
+        "evidence/quality/repair-window-17-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "verify.py PASS, exactly 5 targets changed, LF/TAB equal to source"
+}

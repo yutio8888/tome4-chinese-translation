@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-HEADHUNTER-OVERSTATE",
+      "revision_key": "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity/added content",
+      "reason": "宿主核对 GameState.lua:3671–3677（624a673）：仅对 ai_target 为玩家的实体 setTarget() 并扣能量，并非本层所有敌人都失去锁定；execute-01 新增的“失去对你的锁定”把实现细节写进播报且扩大范围。原文只说 giving pause to all foes on the level，按原文译为“令本层所有敌人为之迟疑”，删去增译分句。",
+      "replacements": [
+        {
+          "scope": "whole target",
+          "old": "#ORCHID#你取下了 %s 的首级，令本层所有敌人迟疑，失去对你的锁定。",
+          "new": "#ORCHID#你取下了 %s 的首级，令本层所有敌人为之迟疑。"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 4 条 OK 与宿主 diff 核对一致。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-23T17:54:04.745126+00:00"
+}

@@ -1,0 +1,7 @@
+{
+  "f277b46e7f": "class/GameState.lua:3669–3675 猎头者挑战：击杀目标后 bignews 播报，随后遍历关卡实体，凡以玩家为 ai_target 的敌人 setTarget() 清除目标（“other enemies pause, untarget player”）；giving pause 意为令敌人迟疑、失去对你的锁定，现译“楼层上所有的敌人都被暂停了”误述为暂停/冻结；claim the head of 译“杀死了”丢失“取下首级”。整条修复。",
+  "f2b2afecaf": "talents/cunning/tactical.lua:171 Exploit Weakness：Combat.lua:975 仅在近战攻击命中（attackTargetWith 的 hitted 分支）时调用 do_weakness；现译“每次你击中对手时”删去 with a melee attack 限定，远程/法术命中也读作会触发（删限定词缺陷类）。另原文结尾 \n\t\t 未保留。整条修复。\n与 surface 同向：Combat.lua:975 Exploit Weakness 只在近战攻击命中流程中触发，现译删去 with a melee attack 限定。整条修复（含结尾 \\n\\t\\t）。",
+  "f2d8717e52": "class/interface/TooltipsData.lua:438 TOOLTIP_SPECIFIC_IMMUNE，CharacterSheet.lua:1298/1307 作为各单项免疫（无专属提示时）的回退提示；原文“完全抵抗这一特定效果的几率”，现译标题“状态异常免疫几率”与正文“完全免疫状态异常的几率”泛化为全部状态异常，且与上一条 Status resistance（状态免疫）混同。整条修复。\n与 surface 同向：TOOLTIP_SPECIFIC_IMMUNE 为单项免疫行的回退提示（CharacterSheet.lua:1298/1307），应为“完全抵抗该特定效果的几率”，标题勿与 Status resistance 混同。",
+  "f30327e69f": "texts/tutorial/done.lua:20–31 教程完成文本：原文 11 个 LF，现译 14 个，在“不\n会”“(你也可以\n根据”“还存\n在”处插入硬换行拆开词语（一级换行不变量）。整条修复，LF 与原文一致。\n与 surface 同向：done.lua:20–31 无对应断行，现译在词中插入 3 处硬换行，违反换行不变量。",
+  "f33c065ae5": "talents/psionic/thought-forms.lua:507–510 Thought-Forms 说明：原文 3 个 LF，现译 7 个（首句后与三级列表处额外换行，一级换行不变量）；warrior 译“精英狂战士”与本库技能名 Thought-Form: Warrior=思维形态：战士、thought-forged warrior=精神体战士（27997–27998）不一致，且 mighty/powerful/strong 被改写为“大师/精英”。距离单位“码”为本库多数用法（%d 码 152 处），不是缺陷。整条修复，LF 与原文一致。"
+}

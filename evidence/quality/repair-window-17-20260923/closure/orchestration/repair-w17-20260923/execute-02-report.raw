@@ -1,0 +1,16 @@
+已完成窗口 17 第 1 轮修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:624)：猎头者播报已逐字改为“`#ORCHID#你取下了 %s 的首级，令本层所有敌人为之迟疑。`”
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-17-20260923/IMPLEMENTATION.md:21)：追加本轮实施说明。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-17-20260923/VALIDATION.json:58)：追加本轮真实验证结果，JSON 解析通过。
+
+验证结果：
+
+- `verify.py`：通过；22989 条记录，相对冻结基线恰有 5 个 target 变化。
+- `tools/i18n lint --strict`：通过；30308 条翻译，0 errors、0 warnings。
+- `tools/i18n claims check ... --strict`：通过。
+- `git diff --check`：通过。
+
+未修改其他条目或越界文件；无计划偏差、无未解决问题。未创建 agent，未写 `.ai`，未 stage、commit 或 push；无关 untracked 已保留。

@@ -1,0 +1,16 @@
+已完成修复窗口 17。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰好修改 5 个冻结 target。
+- 猎头者、Exploit Weakness、单项效果抵抗、教程换行、思维形态说明均按 SPEC 修复。
+- source/source_tag/args_order、占位符、`%%`、markup、LF/TAB 不变量通过验证。
+- Evidence 已写入 [repair-window-17-20260923](/workspace/tome4-chinese-translation/evidence/quality/repair-window-17-20260923)，包含三份逐字节冻结副本、实施说明和真实验证结果。
+
+检查结果：
+
+- 窗口验证：通过，22,989 条记录中恰有 5 条 target 变化
+- 严格 lint：30,308 条，0 errors，0 warnings
+- claims strict：通过
+- `git diff --check`：通过
+- Evidence JSON、逐字节副本和新文件空白检查：通过
+
+未修改 `.ai`、规则、工具、术语库或 handoff；未 stage、commit、push；既有无关 untracked 均已保留。独立 REVIEW、FINAL_REVIEW、完整门禁、严格构建及 `DONE_VERIFIED` 仍由宿主继续。

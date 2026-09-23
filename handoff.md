@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核263已完成；下一步修复窗口17，仅处理263的5条）
+更新时间：2026-09-23（修复窗口17已完成；待宿主发布收尾，随后审核264）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -277,6 +277,14 @@ surface 四组 `codex/gpt-6-sol` 为 67 OK / 13 ISSUE（harvest 前逐位比对 
 单项效果抵抗提示泛化、教程结束文本词中硬换行、思维形态说明多余换行与“狂战士”名不一致。
 范围见 `.ai/task/batch-8963e835a427bdbf7ae1/WINDOW17-REPAIR-DECISION.json`；可复用窗口16 helper（verify.py 的 LF/TAB 对照 source；verify_migration 有两处条数硬编码），
 失败的 FINAL 之后必须接 RE_REVIEW；FINAL 中任何 ISSUE（即使宿主判 advisory）都会让 DONE 检查失败。
+
+修复窗口17已完成审核263确认的5条：猎头者挑战播报改为“你取下了 %s 的首级，令本层所有敌人为之迟疑”，不再误述为“暂停”；Exploit Weakness 写明近战攻击命中并恢复结尾 `\n\t\t`；单项效果抵抗提示改为“效果抵抗几率/完全抵抗该特定效果的几率”；教程完成文本删去3处词中硬换行（LF 14→11）；思维形态说明恢复原文换行结构（LF 7→3），并将 `warrior` 按本库术语译为“战士”。
+
+`execute-01`（`codex/gpt-5.6-sol`）实施5条；`REVIEW(0)/full`（`codex/gpt-6-sol`）为4 OK / 1 ISSUE，确认 `R0-HEADHUNTER-OVERSTATE`：增译“失去对你的锁定”扩大了 `setTarget` 的实际范围；`execute-02` 仅删去该分句。`FINAL(1)/full`（`claude-opus-5-5`）为5 OK并收敛。完整门禁17/17通过且含严格构建，状态为 `DONE_VERIFIED`。两个 executor、两个 reviewer child 均已归档确认；publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `8390dd69d6d3ea359ada0ea2ea838cd533e14aa4`；新 catalog 为 `78635878a70f7ff2d9a1d4e36e7ad9115ab8a80d906670ecff0fce7332abd239`；migration 为 `5168dcc75a66cf6b89dc5c5ee1f0753064d427cc9461ad4a7ca1680c0fb084ec`。迁移结果为5条 revision changed、29,823条 unchanged、0 ambiguous/unmapped，5个 successor 待重新审核且不继承 done。完整结果见[窗口17发布证据](evidence/quality/repair-window-17-20260923/PUBLICATION.md)。
+
+下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；完成后继续审核264（默认80条）。上述后续步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 
