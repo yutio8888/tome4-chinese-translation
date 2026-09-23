@@ -1,0 +1,98 @@
+{
+  "batch_id": "batch-88cfb30f797898ed8ef5",
+  "observations": 8,
+  "observation_dispositions": {
+    "confirmed": 7,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "ebc837780344f493663f77584fce3427e1246afecec3705e4e6f824d1d15aae6",
+    "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3",
+    "ec13c4e923325038bfd4900bf725f7d7fd1df53b9c73baafaba3787affc1b5d4",
+    "eccfcfca31053195a67592051cc6d3444160027936f780df84a8d90e641ce269"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "ebc837780344f493663f77584fce3427e1246afecec3705e4e6f824d1d15aae6",
+      "stage": "surface",
+      "observation": "原文“not let him get wind of me”意为不让他察觉自己；译文“掩住气味、不让他循迹找到我”误作嗅觉和追踪。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/trollmire.lua:40–45（624a6732）trollmire-note-2：get wind of me 是习语“察觉到我”，译文“掩住气味、不让他循迹找到我”按字面误作嗅觉追踪；且原文 \"...ack again…\" 段后与 \"...\" 前后各有一个空行（41/42/43/44/45 行），译文删去两处空行，属换行不变量缺陷。整条有界修复（保留两处空行，译为“不让他察觉到我”一类）。"
+    },
+    {
+      "revision_key": "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3",
+      "stage": "surface",
+      "observation": "原文“at least %d%%”包含等于阈值的情况；译文“超过至少 %d%%”语义矛盾，且“超过”排除了等于阈值的情况。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "corruptions/torment.lua:132–159：callbackOnHit 判定 cb.value >= max_life * l / 100（含等于，基数为扣除 Blood Grasp 临时生命后的最大生命值）；译文“超过至少 %d%%”自相矛盾且“超过”排除等于。修为“至少 %d%% 最大生命值”一类。"
+    },
+    {
+      "revision_key": "ec13c4e923325038bfd4900bf725f7d7fd1df53b9c73baafaba3787affc1b5d4",
+      "stage": "surface",
+      "observation": "原文“dusty rat skull”指落灰的鼠头骨，译文“肮脏的鼠骷髅”将头骨误译为整具骷髅。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/events/rat-lich.lua:44–51：RATLICH_SKULL（subtype=\"skull\"）未鉴定名 dusty rat skull，鉴定名 Skull of the Rat Lich 现译“鼠巫妖头骨”；“鼠骷髅”把头骨误作整具骷髅且与鉴定名不一致，dusty 为“落满灰尘的”而非“肮脏的”。修为“落满灰尘的鼠头骨”一类。"
+    },
+    {
+      "revision_key": "eccfcfca31053195a67592051cc6d3444160027936f780df84a8d90e641ce269",
+      "stage": "surface",
+      "observation": "原文为“Effect resistances”（状态效果抗性），译文写成“状态效果免疫”，将抗性误译为免疫。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "dialogs/CharacterSheet.lua:1277–1300：Effect resistances 标题下每项显示 100-canBe 概率或 attr×100 的 0–100% 抵抗百分比，并非绝对免疫；译文“状态效果免疫”把部分抗性说成免疫，属保真缺陷。修为“状态效果抗性”。"
+    },
+    {
+      "revision_key": "ecd909818de44d7590f67746c5c38732242ac40432ac896024938d693904e95c",
+      "stage": "surface",
+      "observation": "原文在冒号后有两个尾随空格，译文删除了这些空格；若后续直接拼接数值，显示间距会改变，输入未提供拼接语境。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua:2128 tooltip 中 \"#0080FF#P. save#FFFFFF#:  \" 后接数值；译文用全角冒号“：”本身提供视觉间距，同族 S. save / M. save（mod-tome.lua:157/159）同一约定，Accuracy/Defense 以全角空格对齐。属排版风格，无功能影响，记 advisory。"
+    },
+    {
+      "revision_key": "ebc837780344f493663f77584fce3427e1246afecec3705e4e6f824d1d15aae6",
+      "stage": "contextual",
+      "observation": "Newline problem: the source (tome, game/modules/tome/data/lore/trollmire.lua L40-45, commit 624a6732) has a blank line on each side of the middle \"...\", so the three fragments are separated by blank lines. The target removes both blank lines, so it has 3 newlines where the source has 5 and the lore text no longer separates the fragments. Also, \"get wind of me\" is an idiom meaning \"find out about me\". The target renders it literally as masking my scent (要掩住气味、不让他循迹找到我). This adds hiding a smell, which the source does not say. Suggested reading: 不让他察觉到我.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向的独立语境复核：lore/trollmire.lua:40–45 两处空行被删（换行不变量），get wind of me 为“察觉”习语却被字面译作掩盖气味。确认整条修复。"
+    },
+    {
+      "revision_key": "ebcb3ef07162cd324a09d6a79dd7c76e4eb4ed2e7ef04b4c5121c6056309f6b3",
+      "stage": "contextual",
+      "observation": "The source says \"reduces your life by at least %d%%\". In the pinned source (torment.lua callbackOnHit, L136-140), the trigger is cb.value >= max_life*l/100, which is greater than or equal to. The target writes 超过至少 (\"more than at least\"). Those two words conflict, and 超过 on its own reads as strictly greater than. Suggest 至少达到 %d%% 总生命值. On the second sentence: max_life is computed as self.max_life - (eff and eff.life or 0), where eff is EFF_BLOOD_GRASP. So the temporary life is left out when computing the threshold. The target's 不会影响该技能的伤害阈值 (\"does not affect the threshold\") conveys this roughly and can stay.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：torment.lua:136–140 判定 cb.value >= max_life*l/100（含等于），“超过至少”自相矛盾。确认修为“至少”；第二句 Blood Grasp 临时生命不计入阈值的译法可保留。"
+    },
+    {
+      "revision_key": "ec13c4e923325038bfd4900bf725f7d7fd1df53b9c73baafaba3787affc1b5d4",
+      "stage": "contextual",
+      "observation": "\"dusty\" means covered in dust (an old relic that has sat untouched for a long time). The target 肮脏的 means \"dirty\", which is a change in meaning. Source: rat-lich.lua L50 unided_name, the unidentified name of the Skull of the Rat Lich. Suggest 积满灰尘的鼠骷髅 or 布满尘土的鼠头骨.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：rat-lich.lua:50 dusty 为“落满灰尘”，“肮脏”改变语义；同条 skull 与鉴定名“鼠巫妖头骨”应一致。确认修复。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; all 80 surface identity echoes pre-checked exact against envelopes before harvest.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}

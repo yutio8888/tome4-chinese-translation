@@ -1,0 +1,45 @@
+{
+  "workset": "evidence/quality/production-batches/batch-88cfb30f797898ed8ef5-source-workset.json",
+  "decisions": {
+    "ebc8377803|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/trollmire.lua:40–45（624a6732）trollmire-note-2：get wind of me 是习语“察觉到我”，译文“掩住气味、不让他循迹找到我”按字面误作嗅觉追踪；且原文 \"...ack again…\" 段后与 \"...\" 前后各有一个空行（41/42/43/44/45 行），译文删去两处空行，属换行不变量缺陷。整条有界修复（保留两处空行，译为“不让他察觉到我”一类）。"
+    },
+    "ebcb3ef071|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "corruptions/torment.lua:132–159：callbackOnHit 判定 cb.value >= max_life * l / 100（含等于，基数为扣除 Blood Grasp 临时生命后的最大生命值）；译文“超过至少 %d%%”自相矛盾且“超过”排除等于。修为“至少 %d%% 最大生命值”一类。"
+    },
+    "ec13c4e923|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/events/rat-lich.lua:44–51：RATLICH_SKULL（subtype=\"skull\"）未鉴定名 dusty rat skull，鉴定名 Skull of the Rat Lich 现译“鼠巫妖头骨”；“鼠骷髅”把头骨误作整具骷髅且与鉴定名不一致，dusty 为“落满灰尘的”而非“肮脏的”。修为“落满灰尘的鼠头骨”一类。"
+    },
+    "eccfcfca31|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "dialogs/CharacterSheet.lua:1277–1300：Effect resistances 标题下每项显示 100-canBe 概率或 attr×100 的 0–100% 抵抗百分比，并非绝对免疫；译文“状态效果免疫”把部分抗性说成免疫，属保真缺陷。修为“状态效果抗性”。"
+    },
+    "ecd909818d|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua:2128 tooltip 中 \"#0080FF#P. save#FFFFFF#:  \" 后接数值；译文用全角冒号“：”本身提供视觉间距，同族 S. save / M. save（mod-tome.lua:157/159）同一约定，Accuracy/Defense 以全角空格对齐。属排版风格，无功能影响，记 advisory。"
+    },
+    "ebc8377803|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向的独立语境复核：lore/trollmire.lua:40–45 两处空行被删（换行不变量），get wind of me 为“察觉”习语却被字面译作掩盖气味。确认整条修复。"
+    },
+    "ebcb3ef071|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：torment.lua:136–140 判定 cb.value >= max_life*l/100（含等于），“超过至少”自相矛盾。确认修为“至少”；第二句 Blood Grasp 临时生命不计入阈值的译法可保留。"
+    },
+    "ec13c4e923|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：rat-lich.lua:50 dusty 为“落满灰尘”，“肮脏”改变语义；同条 skull 与鉴定名“鼠巫妖头骨”应一致。确认修复。"
+    }
+  }
+}
