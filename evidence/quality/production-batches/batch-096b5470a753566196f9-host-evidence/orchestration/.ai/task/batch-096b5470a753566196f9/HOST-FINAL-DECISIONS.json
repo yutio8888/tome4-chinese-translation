@@ -1,0 +1,225 @@
+{
+  "batch_id": "batch-096b5470a753566196f9",
+  "observations": 23,
+  "observation_dispositions": {
+    "refuted": 6,
+    "confirmed": 10,
+    "pending": 4,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "eaacc62b76fcf99259afd5a9503a5d781d019aabbd5a574b060dd0ab83d4372b",
+    "eafab19df4d889cb91ad909c639f97ff4190bd602bf5e7dbf40e08a8781f293a",
+    "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+    "eb509ae5feddd122d38bc3d5582be3bebe229872cf02b5a7e613395661b2f98f",
+    "eb5c2ab3aa8096189932ae157832e572e2feb4932de587f716702ce8c9e03c81"
+  ],
+  "pending_revision_keys": [
+    "eab2ffb632242ae0051f25fb8845e8f7fdd417184aa7604e3c758bf7f2d96046",
+    "eb6bf55a9134e6939fd5f9046d760203c8292e63b35bca878396a85fcf417d8f",
+    "eb71935d6c743fce81707486714505e0509769f853937c8395f61d724bc78399"
+  ],
+  "expected_final_states": {
+    "done": 72,
+    "repair_required": 5,
+    "blocked": 3
+  },
+  "rows": [
+    {
+      "revision_key": "540fd31057b08048aeb8ebb2c2b6290ba219f6397e217cc55da960ea64260c75",
+      "stage": "surface",
+      "observation": "原文法术名为 Flames，译文写作“暗影之火”；冻结输入未提供该法术的名称依据，需核对是否错译。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "shadows.lua:139/229/601（624a6732）：Shadow Mages 描述中的 Flames 是阴影学会的 SHADOW_FLAMES 技能（name=\"Shadow Flames\"，现行技能名“暗影之火”），不是法术 Flame；译作“暗影之火”与实际技能一致（2026-09-23 Flame 改名裁决同步修订）。"
+    },
+    {
+      "revision_key": "cd2bba07ee9126449fb3ed0aff3862cd96e4050475177cd3d1be6c18bed5f93d",
+      "stage": "surface",
+      "observation": "原文“foes in sight”指视野内的敌人，译文“能看见你的敌人”把可见关系反向表述。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "cunning/stealth.lua:24–36 stealthDetection 只累计半径内敌对、未致盲且 act.fov.actors[self]（该敌人能看见你）的角色；“能看见你的敌人”贴合实现，为窗口9已确认的修复文本，不是方向反转。"
+    },
+    {
+      "revision_key": "eaacc62b76fcf99259afd5a9503a5d781d019aabbd5a574b060dd0ab83d4372b",
+      "stage": "surface",
+      "observation": "原文形容沉睡的力量“primal, yet aware”，译文省略这两项特征，另写成“邪恶的力量”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "world-artifacts.lua:5135 Plate of the Blackened Mind 描述：primal, yet aware 被省略并另加原文没有的“邪恶的”；absorbs all light that touches it 被译成“吸收了附近的所有光线”，deep black 被弱化。完整性缺陷，整句有界修复。"
+    },
+    {
+      "revision_key": "eab2ffb632242ae0051f25fb8845e8f7fdd417184aa7604e3c758bf7f2d96046",
+      "stage": "surface",
+      "observation": "原文“Thrust”是刺击，译文“挥击”变成挥动攻击。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "spells/staff-combat.lua:141 Blunt Thrust 为法杖近战单体攻击并眩晕；Thrust 为刺击/戳击，现名“钝器挥击”把动作译成挥击。属技能名改名（需同步技能引用与日志文本），按用户指示列入 pending 集中裁定，不在本批修复。"
+    },
+    {
+      "revision_key": "eab82680229d4748c54fac2770c5dab2ec6a8443b492b930d4f3105cd29003ba",
+      "stage": "surface",
+      "observation": "原文“movement into creeping darkness”限定为进入黑暗区域时的移动，译文“在黑暗之雾中增加……移动速度”改成了区域内移动。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Combat.lua:2395–2399 combatMovementSpeed 仅当目标格含 creepingDark 时加算 Dark Vision 移速，即“移动进入黑暗之雾的格子”；“在黑暗之雾中增加移动速度”在实际移动（格内→格内）上基本等价，仅“从外部进入”语感略窄，记 advisory。"
+    },
+    {
+      "revision_key": "eae1dd4605bfcaa55ab296624006b9a91b37c56fc12342ce42486dc990a6a532",
+      "stage": "surface",
+      "observation": "原文“woodsman's ”末尾有空格，译文“樵夫的”未保留；作为名称前缀拼接时可能缺少分隔。冻结输入没有拼接语境，需核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/digger.lua:69 woodsman's 为 prefix 词缀；中文词缀全库惯例不保留尾随空格（如“倒刺的”“致命的”“燃烧的”），与中文名称直接拼接，非格式缺陷。"
+    },
+    {
+      "revision_key": "eafab19df4d889cb91ad909c639f97ff4190bd602bf5e7dbf40e08a8781f293a",
+      "stage": "surface",
+      "observation": "原文明确说此处魔法会反射传送魔法，译文写成“可能干扰传送法术”，改变了效果及确定性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/other.lua:3333–3342 ZONE_AURA_SPELLBLAZE：原文为确定语气 reflects teleportation magic（反射传送魔法），译文“可能干扰传送法术”既把 reflects 弱化为“干扰”又添加原文没有的“可能”。activate 仅改抗性、未实现传送逻辑，源码无法支持更弱或更强的说法，故以原文为准；独立语境复核同向。忠实度缺陷，有界修复警告句。"
+    },
+    {
+      "revision_key": "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+      "stage": "surface",
+      "observation": "原文“cheat at a few lotteries”指在几次彩票抽奖中作弊，译文“和概率开个玩笑”遗漏彩票与作弊；原文“a few decades”指几十年，译文“一些时代”改变了时长。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/misc.lua:725/729：a few decades in the Age of Dusk 被译成“黄昏纪的一些时代”（几十年→时代，时长错误）；cheat at a few lotteries 被译成“和概率开个玩笑”，丢失彩票作弊。忠实度缺陷，两处有界修复。"
+    },
+    {
+      "revision_key": "eb14aef1f55e2e46ba9c5486539385e82266af3c56c474c55fce7d0e21d6ee3d",
+      "stage": "surface",
+      "observation": "原文“timebroken ”末尾有空格，译文“时空破碎的”未保留；作为名称前缀拼接时可能缺少分隔。冻结输入没有拼接语境，需核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/robe.lua:284 timebroken 为 prefix 词缀；中文词缀惯例不保留尾随空格，非格式缺陷。"
+    },
+    {
+      "revision_key": "eb3a77b239316805dcc0d9b3c52e299ed3b8dd188ae0f9f425b8506fa0e0f308",
+      "stage": "surface",
+      "observation": "原文冒号后有尾随空格，译文没有；若后接动态文本，分隔格式会改变。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/physical.lua:3543 \"Caught in a bear trap: \"..table.concat(desc)，中文全角冒号后直接接内容为既有排版惯例，非格式缺陷。"
+    },
+    {
+      "revision_key": "eb47fec6c0c4e3316c491d2fb5395eda3fd6b13a68827ce11713a27a0cceffa6",
+      "stage": "surface",
+      "observation": "原文要求每个 tile 按现有 tileset 正确命名；译文写成所有“材质”的文件名必须与现有默认材质文件名相同，改变了命名要求。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "dialogs/GraphicMode.lua:81：“每个贴图须按现有贴图集命名”与“所有材质的文件名必须和已存在的默认材质文件名相同”实义一致（按现有贴图集同名），仅 tile 用“材质”用词不一，记 advisory。"
+    },
+    {
+      "revision_key": "eb509ae5feddd122d38bc3d5582be3bebe229872cf02b5a7e613395661b2f98f",
+      "stage": "surface",
+      "observation": "原文攻击对象是所有相邻敌人，译文写成“周围生物”，遗漏“所有”并将敌人扩大为生物。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "cunning/traps.lua:391–425 bladestorm construct on_act 仅对 reactionToward<0 的相邻敌人 attackTarget；译文“每回合攻击周围生物”把敌人扩大为所有生物并删去“所有”，主语“构造体”也缺失。机制描述缺陷，整句修复。"
+    },
+    {
+      "revision_key": "eb5c2ab3aa8096189932ae157832e572e2feb4932de587f716702ce8c9e03c81",
+      "stage": "surface",
+      "observation": "原文“crushing hold”指压制或抓持状态，译文“击碎效果”将 hold 误作击碎效果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/physical.lua:1494–1502 CRUSHING_HOLD（现行效果名“碾压擒抱”，grapple/pin）；on_lose 文本“脱离了击碎效果”把 crushing hold 误作击碎效果，与效果名不一致，确认修复为挣脱碾压擒抱。"
+    },
+    {
+      "revision_key": "eb6bf55a9134e6939fd5f9046d760203c8292e63b35bca878396a85fcf417d8f",
+      "stage": "surface",
+      "observation": "原文是“如果我在醒来之前死去”，译文改成“从噩梦中惊醒，还是在梦魇中永眠？”，条件和含义明显不同。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "lore/misc.lua:623 传说标题 If I Should Die Before I Wake（睡前祷词句式）；现译“从噩梦中惊醒，还是在梦魇中永眠？”为意译改写，非机制内容，是否直译属风格取舍，列入 pending 待用户集中裁定。"
+    },
+    {
+      "revision_key": "eb71935d6c743fce81707486714505e0509769f853937c8395f61d724bc78399",
+      "stage": "surface",
+      "observation": "“Crystal Shard”中的 Shard 是碎片，译文“水晶之杖”将其译成了杖。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "boss-artifacts-maj-eyal.lua:643–648 Crystal Shard 为 BASE_STAFF magestaff 唯一神器（未鉴定名 crystalline tree branch）；现译“水晶之杖”以物品类型替换 Shard（碎片），属神器专名改名；surface 与 contextual 均提出，是否改为“水晶碎片”等属命名决定，列入 pending 待用户集中裁定。"
+    },
+    {
+      "revision_key": "eb71ffb93087245079755ba682d61adeb634efb9bd1f463f54ceac3b238cd8fc",
+      "stage": "surface",
+      "observation": "“Loitering”表示徘徊或闲逛，译文“流浪的”改变了精灵的状态。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "zones/tutorial-combat-stats/npcs.lua:495 教程 NPC BORED_ELF_3；Loitering（闲逛）译“流浪的”语义接近，不影响教程理解，记 advisory。"
+    },
+    {
+      "revision_key": "eb7b7fc80b377d83536dcdeb6996ccea5fdfe50ea6af2dc113f0b1306cbc62da",
+      "stage": "surface",
+      "observation": "原文“Resists: ”末尾有空格，译文“抗性：”没有末尾空格；是否影响后续内容的拼接，冻结输入未提供调用语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua:2095 ts:add(color, \"Resists: \") 后追加抗性列表；中文全角冒号后不留空格为既有排版惯例，非格式缺陷。"
+    },
+    {
+      "revision_key": "eaacc62b76fcf99259afd5a9503a5d781d019aabbd5a574b060dd0ab83d4372b",
+      "stage": "contextual",
+      "observation": "world-artifacts.lua:5135 Plate of the Blackened Mind 描述：『A dark power sleeps within, primal, yet aware』被译为『其中沉睡着一股邪恶的力量』，删去了 primal（原始的）与 yet aware（尚有意识），而这件神器的设定正是寄宿着有意识的力量；dark 也被改成了『邪恶』。『absorbs all light that touches it』（吸收触及它的光）被译为『吸收了附近的所有光线』，改变了原意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷的独立语境复核：world-artifacts.lua:5135 Plate of the Blackened Mind，primal, yet aware 被删、dark 改“邪恶”、absorbs all light that touches it 误作“吸收附近的所有光线”。确认整句修复。"
+    },
+    {
+      "revision_key": "eafab19df4d889cb91ad909c639f97ff4190bd602bf5e7dbf40e08a8781f293a",
+      "stage": "contextual",
+      "observation": "other.lua:3336 ZONE_AURA_SPELLBLAZE：原文『reflects teleportation magic!』是确定语气的『反射／弹回传送魔法』，译文作『可能干扰传送法术』，既把 reflects 弱化成了泛泛的『干扰』，又加了原文没有的『可能』。该 effect 的 activate 只设置抗性，没有实现传送逻辑，因此无法从源码证明实际行为，但译文与原文的语义不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同向：other.lua:3336 reflects teleportation magic 被弱化为“可能干扰传送法术”；activate 不实现传送逻辑，以原文为准。确认修复警告句。"
+    },
+    {
+      "revision_key": "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+      "stage": "contextual",
+      "observation": "lore/misc.lua:721-735（Galsamae 的入职须知）：『a few decades in the Age of Dusk we and a few other squads recognize as \"fair game\"』中的 fair game 是习语，意为『可以随意下手的对象／无禁区』，这里被直译成『公平竞赛』的区域，与后文『随便做什么实验、施加什么恐怖』的意思相悖；a few decades（几十年）也被改成了『一些时代』。另外，『what is, quite literally, the best roast-yeti restaurant』被误译为『只有我们可以毫不客气地说』，把 quite literally（字面意义上）错理解成了只有我们才能这么说。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "独立语境复核补充并经宿主核验 lore/misc.lua:725–735：除 surface 键的 a few decades→“一些时代”与 cheat at a few lotteries 丢失外，fair game 习语被直译为“公平竞赛”（原意为可以随意下手、不受约束的时段），what is, quite literally, the best roast-yeti restaurant 被误译为“只有我们可以毫不客气地说”。四处一并有界修复。"
+    },
+    {
+      "revision_key": "eb509ae5feddd122d38bc3d5582be3bebe229872cf02b5a7e613395661b2f98f",
+      "stage": "contextual",
+      "observation": "traps.lua:1299 是 short_info，原句主语是 Construct（刀刃风暴构装体），译文把主语丢了，读起来像是玩家自己在攻击。『all adjacent enemies』被译为『周围生物』，会被理解成连友方也打；而 summon_bladestorm 的攻击逻辑是 traps.lua 约 425 行起 `if target and self:reactionToward(target) < 0 then self:attackTarget`，只攻击敌对目标。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷：traps.lua bladestorm construct on_act 仅 attackTarget reactionToward<0 的相邻目标；译文缺主语“构造体”，“周围生物”扩大对象并删“所有”。确认整句修复。"
+    },
+    {
+      "revision_key": "eb5c2ab3aa8096189932ae157832e572e2feb4932de587f716702ce8c9e03c81",
+      "stage": "contextual",
+      "observation": "physical.lua:1493-1516 的 CRUSHING_HOLD 是 subtype={grapple,pin} 的擒抱／压制效果：每回合造成挤压伤害并设置 never_move；施放者离开相邻格即解除。译文『脱离了击碎效果』用『击碎』（粉碎、打碎）翻译 crushing hold，丢掉了『钳制、紧箍』的含义，也和『脱离』的语义对不上；同条的 on_gain『is being crushed』也属于这个效果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷：physical.lua:1494–1502 CRUSHING_HOLD（grapple/pin，现行效果名“碾压擒抱”），“脱离了击碎效果”误译，确认修复为挣脱碾压擒抱。"
+    },
+    {
+      "revision_key": "eb71935d6c743fce81707486714505e0509769f853937c8395f61d724bc78399",
+      "stage": "contextual",
+      "observation": "boss-artifacts-maj-eyal.lua:646 的唯一法杖名是『Crystal Shard』（水晶碎片），未鉴定名为 crystalline tree branch。译名『水晶之杖』把 Shard（碎片）替换成了物品类型『杖』，专名语义不忠实。冻结输入里没有这个名字的术语条目，是否另有既定译名需要核实。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "与 surface 键同一命名问题：Crystal Shard（magestaff 唯一神器）现译“水晶之杖”，Shard 未保留；属神器专名改名，列入 pending 待用户集中裁定。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; surface lane-000-0 re-harvested via --raw after host hand-attribution of one mis-echoed identity (original bytes in captures256/lane0-original.raw).",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}

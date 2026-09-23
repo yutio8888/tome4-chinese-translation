@@ -1,0 +1,58 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/archived_sessions (moved there on archive)",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "fd8991fd9aa1e5c06b504ee78177b9707f96751c915f3c98e945bd3cfb8c9de5",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files; host hand-attribution: result[13] echoed identity eab0330532…21b6c9d8… (17 hex chars wrong, verdict OK); agent native log confirms the error; corrected to frozen envelope identity eab0330532…21a1dbf4…, original bytes kept at captures256/lane0-original.raw"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "2c4e15a3815aece891510b4014c1b044823909b571cea96773d573e0d68f6814",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "call 3 is python3 -c printing its own envelope fields to stdout; call 4 sed -n of the contract; read after sandbox init failure used require_escalated with read-only cat of the same authorized files"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 15,
+      "native_calls_sha256": "07fa84f078e98f830204798ff1b68f8017cc82941faa51e7579d42712a540953",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "sandbox init failed; lane listed its tool catalog, created a Paseo terminal (dc3107df, cwd repo root) and sent only read-only keystrokes: cat of the contract and its own envelope, then four python3 -c one-liners printing fields/lengths/trailing chars of its own envelope; captured output via capture_terminal. No file writes, no other paths. Host killed the leftover terminal after harvest."
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 3,
+      "native_calls_sha256": "1f709ffdd1b713ac14580cb2211bbfc79b46d567808c04aed6066e98c691c562",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "call 2 lists tool catalog; read after sandbox init failure used require_escalated with read-only cat of the same authorized files"
+    }
+  ]
+}

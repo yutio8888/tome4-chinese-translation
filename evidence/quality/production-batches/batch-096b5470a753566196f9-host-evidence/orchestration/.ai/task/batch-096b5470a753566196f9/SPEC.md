@@ -1,0 +1,1 @@
+审核256，修复窗口10第一批。用户2026-09-23授权工具维护后持续审核、修复与push，无需逐批确认；争议条目列pending。surface codex/gpt-6-sol，contextual claude/claude-opus-5-5。基线d87514e978570c87454134480c2e388190df5574，范围为SCOPE.json和checkpoint冻结的80个revision。只读审核；主代理按固定公开源码裁决，不改译文、术语、规则或旧冻结输入。确认项汇总至窗口10。既有Archmage策略和旧blocked保持排除，不扩大历史pending/advisory。独立reviewer仅按envelope及完整对应契约读取。
