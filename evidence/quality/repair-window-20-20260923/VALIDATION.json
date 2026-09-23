@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-20 unique EXECUTOR",
+  "scope": "7 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w20-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 7,
+        "changed_revisions": [
+          "f6060b573a570e17af892b2ecf917991b2c00828470098f1d3e08ab35791d76a",
+          "f5928e33316fa455cae001b918290d8ac971a759be6ec5081c38c3baa9606184",
+          "f58a8172afcac3ee54724029a89988aa3975dcabb34eb6db66961bc00cbd89eb",
+          "f5d4f8ef890c28cd90cd1022f602d757efedb53fc5422e446de4eef0e01c1571",
+          "f603e1fbc9c5fcc7b1df41a04254b66e5289160054dad1bc902356e2f04ee9e2",
+          "f62d40cfde7997845ae5616afa05939d61ee76acb37ad9d2549f140322df2bba",
+          "f5f90d5b06df70f3bbbc22c37c682688c33eb0b3f1d565300f278099f856bc8f"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T222724.209282Z-2125530-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "repair_rounds": [
+    {
+      "round": 1,
+      "session": "fresh EXECUTOR session after execute-01 archive",
+      "adjudication": ".ai/task/repair-w20-20260923/ADJUDICATION-R0.json",
+      "finding": "R0-OFFLINE-CHARVAULT-SHOWCASE",
+      "change": "Replaced only the Characters vault target line with: - 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。",
+      "commands": [
+        {
+          "command": "python3 -B .ai/task/repair-w20-20260923/verify.py",
+          "exit_code": 0,
+          "result": {
+            "verified": true,
+            "records": 22989,
+            "changed_count": 7,
+            "offline_target_contains_adjudicated_replacement": true
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "output": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260923T223419.351836Z-2136161-lint/lint.json"
+        },
+        {
+          "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+          "exit_code": 0,
+          "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "session": "fresh EXECUTOR session after execute-01/02 archive",
+      "adjudication": ".ai/task/repair-w20-20260923/ADJUDICATION-F1.json",
+      "finding": "F1-OFFLINE-BLANKLINE-AND-NEWS",
+      "change": "Within the offline-mode target only, replaced the news line with: - 游戏内新闻：主菜单将不再显示有关游戏更新的信息。; moved one blank line from before #{bold}##CRIMSON# to after that news line, preserving 16 LF total.",
+      "line_comparison": {
+        "source_lines": 17,
+        "source_lf_count": 16,
+        "source_blank_indices_zero_based": [11, 14],
+        "target_lines": 17,
+        "target_lf_count": 16,
+        "target_blank_indices_zero_based": [11, 14],
+        "matches_required_structure": true
+      },
+      "commands": [
+        {
+          "command": "python3 -B .ai/task/repair-w20-20260923/verify.py",
+          "exit_code": 0,
+          "result": {
+            "verified": true,
+            "records": 22989,
+            "changed_count": 7,
+            "offline_target_lf_count": 16,
+            "offline_target_contains_adjudicated_replacements": true
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "output": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260923T223837.292234Z-2143119-lint/lint.json"
+        },
+        {
+          "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+          "exit_code": 0,
+          "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w20-20260923/PREFLIGHT-BATCH266.json",
+      "path": "evidence/quality/repair-window-20-20260923/PREFLIGHT-BATCH266.json",
+      "sha256": "69dfd74936515591d47ba685500d01128560a386caad412a2029e7f0c2e82a21",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w20-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-20-20260923/HOST-WORKSET.json",
+      "sha256": "69877059cd5cf5245ef3e24e94de0e42477192cae8fbfe3d855e5e181735fdf3",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w20-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-20-20260923/SOURCE-ANCHORS.json",
+      "sha256": "66a283542831cb1a929824768533d73a6f10f6d3560f553450e11f55a0fd17a5",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

@@ -1,0 +1,61 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 15,
+      "native_calls_sha256": "435f083c000a7b2900700f108edad0a3e53a1f544e1812476291645bda337cf4",
+      "writes": [
+        "mod-tome.lua (7 targets)",
+        "evidence/quality/repair-window-20-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 7 targets: torque keeps appears (似乎) without 所有; bloodshot=布满血丝; Utterly Destroyed creature=生物 and thrill=击杀带来的快感 with \\n\\t\\t kept; offline-mode only the Version checks line changed, all markup/LF kept; temporal school=操控时间的法术学派; 落难少女拯救者; wand=魔杖."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 12,
+      "native_calls_sha256": "1c5a7967d26c742ecf55ed5860c7230895a219a52867aecfbb138ff0420069b6",
+      "writes": [
+        "mod-tome.lua (offline-mode Characters vault line only; host diffed against frozen R0 candidate: single substring change)",
+        "evidence/quality/repair-window-20-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    },
+    {
+      "dispatch_id": "execute-03",
+      "status": "PASS",
+      "tool_calls": 10,
+      "native_calls_sha256": "8fb48fe429e953599990ea31e6da41048b5bf72a518cada7790eea34a8d4bbef",
+      "writes": [
+        "mod-tome.lua (offline-mode entry only: 游戏内新闻 line + blank-line positions; host diffed against frozen F1 candidate and compared blank-line indices: source [11,14] == target [11,14])",
+        "evidence/quality/repair-window-20-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "after execute-03: verify.py PASS, exactly 7 targets changed vs baseline; offline-mode blank-line indices match source"
+}

@@ -1,0 +1,36 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 6,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-OFFLINE-BLANKLINE-AND-NEWS",
+      "revision_key": "f5f90d5b06df70f3bbbc22c37c682688c33eb0b3f1d565300f278099f856bc8f",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "newline_invariant+completeness",
+      "reason": "宿主逐行比对 GameOptions.lua:664–680（624a673）：源文 17 行中第 11 行为空行（Ingame game news 与 Note that… 之间），第 14 行为空行（…update the game. 与 #{bold}##CRIMSON# 之间）；现译在“游戏内新闻”后直接接“注意”，而在“是用来更新游戏的。”后连用两个空行——LF 总数相同但空行位置错位（一级换行不变量）。另 Ingame game news: The main menu will stop showing you info about new updates to the game 现译“不再显示新闻”漏“关于游戏更新”。仅改这两处。",
+      "replacements": [
+        {
+          "scope": "substring",
+          "old": "- 游戏内新闻：主菜单将不再显示新闻。\n注意",
+          "new": "- 游戏内新闻：主菜单将不再显示有关游戏更新的信息。\n\n注意"
+        },
+        {
+          "scope": "substring",
+          "old": "是用来更新游戏的。\n\n\n#{bold}##CRIMSON#",
+          "new": "是用来更新游戏的。\n\n#{bold}##CRIMSON#"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 6 条 OK。verify.py 只比对 LF/TAB 计数，未能发现空行错位；本轮修复后宿主逐行比对空行位置。",
+  "next_stages": [
+    "FIX",
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "recorded_at": "2026-09-23T22:36:58.265702+00:00"
+}

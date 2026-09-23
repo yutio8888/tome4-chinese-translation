@@ -1,0 +1,18 @@
+修复窗口 20 第 1 轮修复已完成。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:41840)：仅替换指定“角色仓库”一行，其余文字、换行、空行和标记未动。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/IMPLEMENTATION.md:33)：追加本轮实施说明。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/VALIDATION.json:42)：追加真实验证结果。
+
+验证全部通过：
+
+- `verify.py`：`verified: true`，22989 条记录，仍为冻结工作集的 7 个 target 变化。
+- 严格 lint：30308 条，0 errors，0 warnings。
+- claims strict：通过。
+- `git diff --check`：通过。
+- `VALIDATION.json`：JSON 解析通过。
+- 旧字符串已不存在，新字符串唯一出现一次。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关未跟踪文件均保留。

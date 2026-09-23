@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核266已完成；下一步修复窗口20，仅处理266的7条）
+更新时间：2026-09-23（修复窗口20已完成；待宿主发布收尾，随后审核267）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -327,6 +327,12 @@ surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个回显 identity 全
 下一步按 1:1 节奏开修复窗口20，仅处理 266 的 7 条：念力核心项圈外观（删“似乎”增“所有”）、邪眼 bloodshot、Utterly Destroyed 说明（thrill of the death 与 creature）、
 离线模式说明的“版本检查”、时空法术类别说明（学派）、梅琳达成就“落难少女”、蛛毒魔棒未鉴定名 wand＝魔杖。
 范围见 `.ai/task/batch-d0f6e929a87d869ee983/WINDOW20-REPAIR-DECISION.json`；setup 脚本 `setup_window20_task.py` 已生成，helper 从窗口19复制（verify/verify_catalog/verify_migration 的条数 4→7）。
+
+修复窗口20已完成审核266确认的7条修复：念力核心项圈外观保留“似乎”并去掉增译的“所有”；邪眼 `bloodshot` 改为“布满血丝”；`Utterly Destroyed` 说明将 `creature` 改为“生物”、`thrill of the death` 改为“击杀带来的快感”；离线模式说明修正版本检查、角色仓库、游戏更新信息及错位空行；时空法术类别改为“操控时间的法术学派”；梅琳达成就改为“落难少女拯救者”；蛛毒魔棒未鉴定名改为“魔杖”。`REVIEW(0)` 的1项 ISSUE 与 `FINAL(1)` 的1项 ISSUE均确认并分别由 `execute-02`、`execute-03` 修复；`RE_REVIEW(2)` 与 `FINAL(3)` 均为7 OK。完整门禁17/17通过且含严格构建，状态为 `DONE_VERIFIED`。3 个 executor、4 个 reviewer child 均已归档确认；publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `ffa53351b8e490c859ec029fdc655bd4c8f3bab5`；新 catalog 为 `e97aaf89de5fca113d500beccb80df23b2c5731eb3f8215495e93805b6c4c76c`；migration 为 `99c7ebd419a3f9ceebf2bba12de24d4561cbba3805972d941cda1f7fa83c6def`。迁移结果为7条 revision changed、29,821条 unchanged、0 ambiguous/unmapped，7个 successor 待重新审核且不继承 done。完整结果见[窗口20发布证据](evidence/quality/repair-window-20-20260923/PUBLICATION.md)。本窗口的空行教训：`verify.py` 只比较 LF/TAB 数量，发现不了空行挪位；多段 target 必须逐行比较空行下标。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成，不得提前宣称。发布收尾后继续审核267（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

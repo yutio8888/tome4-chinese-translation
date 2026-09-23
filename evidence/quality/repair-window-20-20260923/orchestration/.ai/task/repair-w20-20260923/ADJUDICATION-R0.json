@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 6,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-OFFLINE-CHARVAULT-SHOWCASE",
+      "revision_key": "f5f90d5b06df70f3bbbc22c37c682688c33eb0b3f1d565300f278099f856bc8f",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "宿主核对 dialogs/GameOptions.lua:667（624a673）：Characters vault: You will not be able to upload any character to the online vault to show your glory 说的是不能把角色上传到在线仓库展示；现译“角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）”把仓库说成备份、增出原文没有的 te4.org，且标题与同条下一行“物品仓库”不一致。仅改该行。",
+      "replacements": [
+        {
+          "scope": "substring",
+          "old": "- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。",
+          "new": "- 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 6 条 OK 与宿主 diff 核对一致。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-23T22:31:38.145756+00:00"
+}

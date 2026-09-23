@@ -1,0 +1,22 @@
+窗口20证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK 快照：151 个文件、1,056,545 字节，逐项 SHA/字节/内容一致。
+- PACK manifest 已逐字复制至[窗口根目录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/orchestration-pack-manifest.json)，SHA-256 为 `a3d58c857a28ee6b6fa0fe1c815750804def1c5e9467f944754448335c350642`。
+- 候选 catalog 的 5 个文件均已精确复制；catalog ID 为 `e97aaf89de5fca113d500beccb80df23b2c5731eb3f8215495e93805b6c4c76c`。其中 exclusions/schema/policy 与现有文件相同。
+- migration 已逐字安装至[目标文件](/workspace/tome4-chinese-translation/evidence/production-review-v2-lite/migrations/99c7ebd419a3f9ceebf2bba12de24d4561cbba3805972d941cda1f7fa83c6def.json)，内容 SHA-256 为 `bead0c7ea359a16e3aae9412e744e781cb78182cb380ae0526abeb47b4424f28`。
+- 16 份 publication 附件全部逐字复制。
+- 已新增[PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/PUBLICATION.md)。
+- 已更新[handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确宿主后续执行证据提交、第二次 queue rebuild、push，再继续审核267。
+
+验证结果：
+
+- 逐字副本、SHA、字节数、catalog/migration：全部通过。
+- UTF-8、尾随空白、末尾换行和5个新增链接：全部通过。
+- `ai_state_check --target DONE`：`DONE_VERIFIED`。
+- 无 `.ai`、Lua、术语、规则、工具或 `pending-user-review.md` 跟踪变更。
+- 未运行 `verify_pack.py`、queue/catalog/migration 或完整门禁。
+- 未 stage、commit、push，也未创建 agent。
+
+无计划偏差。宿主发布收尾仍待执行，未提前宣称完成。

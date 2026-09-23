@@ -1,0 +1,15 @@
+第 2 轮修复已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:41847)：仅执行指定两处替换。
+- Target 保持 16 个换行；source/target 均为空行索引 `11,14`（0 起计）。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/IMPLEMENTATION.md:37) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-20-20260923/VALIDATION.json:78)。
+
+验证全部通过：
+
+- `verify.py`：通过，22989 条记录，窗口预期 7 个 target 变化。
+- 严格 lint：30308 条，0 errors、0 warnings。
+- claims check：通过。
+- `git diff --check`：通过。
+- `VALIDATION.json` 语法校验：通过。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 均保留。无计划偏差或未解决问题。

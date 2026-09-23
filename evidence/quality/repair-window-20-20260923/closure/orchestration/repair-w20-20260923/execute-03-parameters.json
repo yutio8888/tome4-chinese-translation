@@ -1,0 +1,18 @@
+{
+  "title": "W20 execute-03 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，修复窗口20第2轮修复（execute-01/02已归档；本次是新会话）。先读 .ai/roles/executor.md、.ai/task/repair-w20-20260923/SPEC.md 与 ADJUDICATION-F1.json。只在离线模式说明条目（source 以“Disables all connectivity to the network.”开头）target 内做两处逐字替换，不改其他任何文字或条目：(1) 把“- 游戏内新闻：主菜单将不再显示新闻。”及其后的一个换行改为“- 游戏内新闻：主菜单将不再显示有关游戏更新的信息。”后接两个换行（即在该行与“注意这个设置……”之间加一个空行）；(2) 把“是用来更新游戏的。”之后的三个换行减为两个（即“#{bold}##CRIMSON#”前只保留一个空行）。改后该条换行总数不变（16 个），逐行结构须与原文一致：第 11 行与第 14 行（0 起计）为空行。只改mod-tome.lua这一条及evidence/quality/repair-window-20-20260923/（在IMPLEMENTATION.md与VALIDATION.json追加本次说明与结果）。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。修改后运行python3 -B .ai/task/repair-w20-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check，并逐行比对该条 source 与 target 的空行位置，报告真实结果与实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w20-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}
