@@ -2848,7 +2848,7 @@ t("Thralless", "奴隶救星！", "achievement name")
 t("Freed at least 30 enthralled slaves in the slavers' compound.", "在奴隶贩子的营地中解救了至少 30 名受奴役的奴隶。", "_t")
 t("Lost in translation", "迷失", "achievement name")
 t("Destroyed the naga portal in the slazish fens and got caught in the after-effect.", "在斯拉伊什沼泽摧毁娜迦传送门，并被带回旧大陆。", "_t")
-t("Dreaming my dreams", "我的梦就是你的梦", "achievement name")
+t("Dreaming my dreams", "做着我的梦", "achievement name")
 t("Experienced and completed all the dreams in the Dogroth Caldera.", "经历并完成达格罗斯火山的全部梦境。", "_t")
 t("Oozemancer", "软泥使", "achievement name")
 t("Destroyed the corrupted oozemancer.", "杀死堕落的软泥使。", "_t")
@@ -18164,11 +18164,11 @@ Attacks from dragons on humans and halfling settlements are fairly rare, but whe
 
 Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是另人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。
 
-龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。
+龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能超过40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论可能只是源于某些研究龙族太久的龙战士的狂热妄想。
 
-马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。
+马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉隘口及周边山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。
 
-龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪大肆猎捕囤积财宝的龙，使这一类龙几乎绝迹，现在的大部分龙族在巢穴里只有适量的财富。
+龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自刚成年的龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪大肆猎捕囤积财宝的龙，使这一类龙几乎绝迹，现在的大部分龙族在巢穴里只有适量的财富。
 
 龙族经常由于它们厚实的鳞片和蕴含元素之力的骨头而被狩猎。龙皮革是护甲制作者们珍视的材料，因为经过适当处理后它既轻便又坚韧，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然采集”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。尽管如此，各类龙族材料的需求依然旺盛，价格也高得惊人，每年都有许多贪婪之徒丧生于这些壮丽生物的尖牙利爪之下。]], "_t")
 t("shatur", "夏特尔", "newLore category")
@@ -18189,15 +18189,15 @@ Yet spells of fiery rages born,
 Our lands of bygone ages torn,
 Gone is trust, wrath is red.#{normal}#
 ]], [[你看见，长满青苔的自然精灵雕像，叙述一首诗，一遍又一遍。
-#{italic}#“挂满鲜亮浆果紫衫之地
+#{italic}#“挂满鲜亮浆果紫杉之地
 古老橡木生长之地
 欢唱鸟儿飞落之地
 皆为尘土，皆为虚无
 
-曾经炽热的复仇火焰染红天空
+曾经鲜花高耸，直抵天际
 曾经怒放的花儿跌落枝头
-曾经欢快的鸟儿泣血啼鸣
-今为尘土，今为虚无
+曾经鸫鸟与猫头鹰尖啸哀鸣
+如今一切尽失，一切消逝
 
 尽管永恒精灵法师们誓言在先
 但法术的怒火仍撕裂尘世
@@ -22681,7 +22681,7 @@ t([[A furious storm of blighted poison rages around the caster in a radius of %d
 		The poison damage dealt is capable of a critical strike.
 		The damage will increase with your Spellpower.]], [[一股强烈的剧毒风暴围绕着施法者，半径 %d 持续 %d 回合。风暴内的生物将进入中毒状态，受到 %0.2f 枯萎伤害并中毒 4 回合受到额外 %0.2f 枯萎伤害。
 		技能等级 2 时有几率触发阴险毒素效果，降低 %d%% 治疗系数。
-		技能等级 4 时有几率触发麻痹毒素效果，降低 %d%% 伤害。
+		技能等级 4 时有几率触发麻痹毒素效果，使目标造成的全部伤害降低 %d%%。
 		技能等级 6 时有几率触发致残毒素效果，%d%% 几率使用技能失败。
 		中毒几率在可能的毒素效果中平分。
 		毒素伤害可以暴击。
@@ -24034,7 +24034,7 @@ t("cursed", "诅咒", "talent category")
 t("slaughter", "杀戮", "talent type")
 t("Your weapon yearns for its next victim.", "你的武器渴望着下一个牺牲者。", "_t")
 t("endless hunt", "无尽狩猎", "talent type")
-t("Each day, you lift your weary body and begin the unending hunt.", "你不知疲倦无时无刻狩猎你的下一个目标。", "_t")
+t("Each day, you lift your weary body and begin the unending hunt.", "每天，你拖起疲惫的身体，开始无尽的狩猎。", "_t")
 t("strife", "冲突", "talent type")
 t("The battlefield is your home; death and confusion, your comfort.", "战场就是你的最终归宿，死亡和混乱是你仅有的慰藉。", "_t")
 t("gloom", "黑暗光环", "talent type")
@@ -34861,8 +34861,7 @@ Race features:#YELLOW#
 - Fast leveling
 - Frail body#WHITE#
 ]], [[夺心魔是热带小岛瑞尔岛上比较神秘的人形原住民种族。
-他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。
-不过他们是非常灵巧而且意志强大的种族。
+他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。不过他们是非常灵巧而且意志强大的种族。
 尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
 他们在烈火纪元获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。
 
