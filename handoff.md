@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口15已完成；待宿主发布收尾，随后审核262）
+更新时间：2026-09-23（审核262已完成；下一步修复窗口16，仅处理262的7条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -231,8 +231,20 @@ surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；harvest 前逐位比对�
 2 条 revision changed、29,826 条 unchanged、0 ambiguous/unmapped，2 个 successor 待重新审核，
 不继承 done。完整结果见[窗口15出版证据](evidence/quality/repair-window-15-20260923/PUBLICATION.md)。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 和 push；完成后继续审核262（默认80条）。
-这些后续步骤尚未完成。
+窗口15的证据提交、queue rebuild 与 push 已完成（`f56aa48f`）。
+
+审核262（`batch-cdef103673c1cf6a37ae`）已闭合，结果为 **71 done / 7 repair_required / 2 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 67 OK / 13 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致；lane-000-3 经 MCP 建终端只读，宿主核验后已关闭）；
+contextual `claude/claude-opus-5-5` 首次 full-000 在 JSON 前多一句英文导语被判无效，归档确认后以 full-001 重派，8 OK / 5 ISSUE。
+18 个观察裁决为 11 confirmed、3 refuted、2 advisory、2 pending。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，六个 reviewer child 均已归档确认。证据提交 `8200412298bc92f9a3dbdbbc5eb50ba0c868bd0c`，
+详见[262宿主证据](evidence/quality/production-batches/batch-cdef103673c1cf6a37ae-host-evidence/summary.md)。
+2 条 pending（blocked）已登记到[待审阅清单](evidence/quality/pending-user-review.md)第 14、15 项：神器 Exiler“放逐”、技能系 Crimson Templar“赤红守卫”。
+宿主准备脚本新增 lowercased-entity-name 证据分支（gem.lua lapis lazuli），首次失败被管道吞掉但在派发前已补跑。
+
+下一步按 1:1 节奏开修复窗口16，仅处理 262 的 7 条：50级祝贺空行、星辰契约 bond/光辉引力拉向目标/缩进、
+不死猎人指南多处增译夸大、矮人加料与宿醉玩笑、虚空传送门成就 closing、牺牲死讯 %s 反身代词、剧毒弹自然伤害。
+范围见 `.ai/task/batch-cdef103673c1cf6a37ae/WINDOW16-REPAIR-DECISION.json`；`setup_window16_task.py` 已写好（continuation-20260923），
+可复用窗口15 helper（verify_migration 有两处条数硬编码），失败的 FINAL 之后必须接 RE_REVIEW。
 
 ### 窗口7闭合时的暂停记录（历史）
 
