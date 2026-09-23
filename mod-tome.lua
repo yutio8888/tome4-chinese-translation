@@ -2861,7 +2861,7 @@ section "mod-tome/data/achievements/talents.lua"
 t("Pyromancer", "烈焰术士", "achievement name")
 t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁元素法师职业并造成超过100万火焰伤害（使用任意物品/技能/职业）。", "_t")
 t("Cryomancer", "冰霜术士", "achievement name")
-t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁元素法师职业并造成超过100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
+t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁元素法师职业并造成超过100万寒冷伤害（使用任意物品/技能/职业）。", "_t")
 t("Lichform", "巫妖转生", "achievement name")
 t("Achieved your wild dreams of power and eternal life: you turned into a Lich!", "成就你的野心并获得永恒的生命，你终于成为了巫妖！", "_t")
 t("Best album ever!", "最佳唱片", "achievement name")
@@ -2883,7 +2883,7 @@ t("Wanderer", "流浪者", "birth descriptor name")
 t("Wanderers are adventurers who embrace the chaotic nature of the world. They start the game with the Combat Training talent tree, 3 random class trees and 1 random generic tree.", "流浪者是拥抱世界混乱本质的冒险家。进入游戏时，他们初始拥有战斗训练系，3个随机职业技能系以及1个随机通用技能系。", "_t")
 t("#{bold}##PURPLE#Every 5 levels they gain a new unlocked class tree, at random.#{normal}##LAST#", "#{bold}##PURPLE#每升5级，获得一系解锁的随机职业技能树。#{normal}##LAST#", "_t")
 t("#{bold}##PURPLE#Every 10 levels starting at level 2 they gain a new unlocked generic tree, at random.#{normal}##LAST#", "#{bold}##PURPLE#从2级开始，每升10级获得一系解锁的随机通用技能树。#{normal}##LAST#", "_t")
-t("#{bold}##GOLD#This is a bonus class for the chaotically inclined. It is by no means balanced, fun or winnable, it is most of all #{italic}#RANDOM#{bold}#.#WHITE##{normal}#", "#{bold}##GOLD#这是倾向混乱的奖励职业。显然，他并不平衡，也不保证有趣或者能通关。一切为了 #{italic}#随机#{bold}#。#WHITE##{normal}#", "_t")
+t("#{bold}##GOLD#This is a bonus class for the chaotically inclined. It is by no means balanced, fun or winnable, it is most of all #{italic}#RANDOM#{bold}#.#WHITE##{normal}#", "#{bold}##GOLD#这是为倾向混乱者准备的奖励职业。它绝不平衡，也不保证有趣或能通关；最重要的是，它完全#{italic}#随机#{bold}#。#WHITE##{normal}#", "_t")
 t("Their most important stats depend on what they get to do.", "他们的随机技能决定了他们的主属性。", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("#GOLD#As you level up you learn the talent tree: #LIGHT_BLUE#%s", "#GOLD#在你升级的同时，你学会了新的技能树：#LIGHT_BLUE#%s", "say")
@@ -2929,7 +2929,7 @@ t("Most draw their powers from the Sun and the Moons.", "大部分都是从太�
 t("Sun Paladin", "太阳骑士", "birth descriptor name")
 t("The sun rises in the east in full glory, but you must look for it first amidst the darkest places.", "东方升起的太阳充满荣耀，但你首先得从黑暗之地寻找到它。", "_t")
 t("Sun Paladins hail from the Gates of Morning, the last bastion of the free people in the Far East.", "太阳骑士出生于晨曦之门，那是遥远东方自由生活的人们的最后堡垒。", "_t")
-t("Their way of life is well represented by their motto 'The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.'", "他们的生活方式集中体现在他们的座右铭中：太阳是我们的赐予者、我们的纯洁、我们的本质。我们为黑暗带去光明，任何反抗我们的力量都休想通过。", "_t")
+t("Their way of life is well represented by their motto 'The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.'", "他们的生活方式集中体现在他们的座右铭中：太阳是我们的赐予者、我们的纯洁、我们的本质。我们为黑暗带去光明，在我们的力量面前，谁也休想通过。", "_t")
 t("They can channel the power of the Sun to smite all who seek to destroy the Sunwall.", "他们能施展太阳之力将任何试图破坏太阳堡垒的力量击退。", "_t")
 t("Competent in both weapon and shield combat and magic, they usually burn their foes from afar before bashing them in melee.", "他们同时精通武器和盾战术并熟悉魔法，在近身猛击对手之前他们通常在远处就可以灼烧敌人。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
@@ -2940,7 +2940,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_
 t("Anorithil", "星月术士", "birth descriptor name")
 t("The balance of the heavens' powers is a daunting task. Mighty are those that stand in the twilight places, wielding both light and darkness in their mind.", "平衡天空的力量是一件令人望而生畏的任务。强大的是那些驻足于暮光之境的人，心中同时驾驭着光明与黑暗的力量。", "_t")
 t("Anorithils hail from the Gates of Morning, the last bastion of the free people in the Far East.", "星月术士出生于晨曦之门，那是遥远东方自由生活的人们的最后堡垒。", "_t")
-t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的生活方式集中体现在他们的座右铭中：我们站在太阳与月亮之间，光暗交替之界。在灰色的黎明中寻找我们的使命。", "_t")
+t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的生活方式集中体现在他们的座右铭中：我们站在太阳与月亮之间，光暗交替之界。在灰色的暮光中寻找我们的命运。", "_t")
 t("They can channel the power of the Sun and the Moons to burn and tear apart all who seek to destroy the Sunwall.", "他们可以施展太阳、月亮的法术将任何试图破坏太阳堡垒的人消灭。", "_t")
 t("Masters of Sun and Moon magic, they usually burn their foes with Sun rays before calling the fury of the stars.", "他们掌握日月魔法，可以使用灼热的太阳射线和群星的愤怒毁灭对手。", "_t")
 t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔法和灵巧。", "_t")
@@ -3043,7 +3043,7 @@ t("Your race cannot select a class; it has its own powers.", "你的种族不能
 section "mod-tome/data/birth/classes/psionic.lua"
 
 t("Psionic", "灵能系", "birth descriptor name")
-t("Weakness of flesh can be overcome by mental prowess. Find the way and fight for the way to open the key to your mind.", "肉体的软弱可以被精神的强大所克服。寻找道路，并为之奋战，以打开通往你精神世界的钥匙。", "_t")
+t("Weakness of flesh can be overcome by mental prowess. Find the way and fight for the way to open the key to your mind.", "肉体的软弱可以被精神的强大所克服。寻找道路，为这条道路而战，以取得开启你心灵的钥匙。", "_t")
 t("Psionics find their power within themselves. Their highly trained minds can harness energy from many different sources and manipulate it to produce physical effects.", "灵能力者发掘自身的潜在力量。他们经过高度开发的精神力能够利用许多不同的能量源吸收能量，并对现实世界产生影响。", "_t")
 t("Mindslayer", "心灵杀手", "birth descriptor name")
 t("A thought can inspire; a thought can kill. After centuries of oppression, years of imprisonment, a thought shall break us free and vengeance will strike from our darkest dreams.", "思想可以鼓舞人，思想也能杀人。历经数个世纪的压迫、数年的囚禁，一个念头终将使我们挣脱束缚，而复仇将从我们最黑暗的梦境中降临。", "_t")
@@ -3133,7 +3133,7 @@ t("Arcane Blade", "奥术之刃", "birth descriptor name")
 t("The Arcane Blade is a warrior who has been touched by the gift of magic.", "奥术之刃是一个拥有魔法的战士。", "_t")
 t("Their use of magic is innate and not really studied; as such they do not naturally regenerate mana and must use external means of recharging.", "他们的魔法并非习得而是与生俱来的，因此他们不能依靠自然的法力恢复而必须依靠额外的方法来恢复法力值。", "_t")
 t("They can cast spells from a limited selection but have the unique capacity to 'channel' their attack spells through their melee attacks.", "他们能施展一些有限的法术，并且独有将攻击法术「导引」进近战攻击的能力。", "_t")
-t("They are adept with two-handed weapons, for the sheer destruction they can bring.", "他们擅长使用双手武器，造成最大的伤害。", "_t")
+t("They are adept with two-handed weapons, for the sheer destruction they can bring.", "他们擅长使用双手武器，看重的是其所能带来的纯粹破坏力。", "_t")
 t("Their most important stats are: Strength, Cunning and Magic", "他们最重要的属性是：力量、灵巧和魔法。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+3 灵巧", "_t")
@@ -3745,7 +3745,7 @@ t("Runes 2", "符文2", "_t")
 t("Skeleton", "骷髅", "birth descriptor name")
 t("The marching bones, each step we rattle; but servants no more, we march to battle!", "行进之骨，咯吱有声；奴役不再，出征迎战！", "_t")
 t("Skeletons are animated bones, undead creatures both strong and dexterous.", "骷髅是由有灵性的骨头组成的强壮而敏捷的不死生物。", "_t")
-t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有#GOLD#特殊骷髅技能#WHITE#和一系列不死系技能：", "_t")
+t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有#GOLD#特殊骷髅技能#WHITE#和一系列不死系能力：", "_t")
 t("- poison immunity", "- 毒素免疫", "_t")
 t("- no need to breathe", "- 不需要呼吸", "_t")
 t("- special skeleton talents: bone armour, resilient bones, re-assemble", "- 特殊骷髅技能：骨质盔甲、坚韧骨骼、重组", "_t")
@@ -4089,7 +4089,7 @@ t("[Wait]", "[等待]", "_t")
 t("GIVE ME AN HOUR, AND THINK UNPLEASANT THOUGHTS ABOUT THE BROTHERHOOD. IF ANYTHING EXPLODES, COME RESCUE ME, EVEN IF IT LOOKS LIKE THE BUILDING IS AN INFERNO OF POISONOUS SMOKE AND POLKA-DOT FLAMES.", "给我一小时，好好想想那帮兄弟会的可恨之处。要是有什么东西爆炸了，快来救我，哪怕整栋楼已经变成毒烟弥漫、火焰乱舞的炼狱。", "_t")
 t([[#LIGHT_GREEN#*Disaster fails to occur. The halfling finally returns and hands you a small vial of sooty glass.*#WHITE#
 ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WON YET. THE LONGER YOU WAIT, THE MORE LIKELY IT IS THAT YOU'LL RETURN TO A SMOKING CRATER AND ONE TRULY IRATE HALFLING.]], [[#LIGHT_GREEN#*还好，没发生任何不幸的事，那个半身人终于回来了，递给你一个黑乎乎的玻璃瓶。*#WHITE#
-喝吧！你要是喜欢这份工作的话随时可以回来找我。我还没赢呢！最好快点，你在这儿待的时间太长，下次迎接你的可就是一个冒着黑烟怒不可遏的半身人了。]], "_t")
+喝吧！你要是对类似的工作感兴趣，随时可以回来找我。我还没赢呢！你拖得越久，回来时就越有可能只看到一个冒着黑烟的大坑，外加一个怒不可遏的半身人。]], "_t")
 t("THANK YOU. I'LL BE OFF.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The halfling finally returns with a vial and a small pouch.*#WHITE#
 YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HELL, SO DON'T GO WASTING IT.]], [[#LIGHT_GREEN#*那个半身人终于拿着一个瓶子和一个袋子回来了。*#WHITE#
@@ -4115,7 +4115,7 @@ t("I propose that I give you a list of monster parts to fetch, then you go and f
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
 t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "我做计划可是一流的。还有配药——加入兄弟会之后他们肯定会让我改口叫“药剂”的。我会照做，因为他们总有办法达成自己的目的。那么……我们说到哪儿了？", "_t")
 t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你加入那个什么什么兄弟会……我能得到什么回报？", "_t")
-t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基·埃亚尔唯一的堕落印记——清除印记哦。", "_t")
+t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，说不定连眼皮和指甲上都会长。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：也许是马基·埃亚尔仅存的最后一枚“堕落印记：清除”哦。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们可不会闲着等我们慢慢来，所以你越快动身越好。现在，你选择帮我完成哪个吧：蛮牛佳酿？石肤佳酿？还是领悟佳酿？哦，应该说药剂才对。不是佳酿。最好现在就开始改口，我想。", "_t")
@@ -4678,7 +4678,7 @@ t("[leave]", "[离开]", "_t")
 section "mod-tome/data/chats/assassin-lord.lua"
 
 t("#LIGHT_GREEN#You and the Lord discuss your new relationship at some length, including the merits of assassination by proxy and some additional trapping techniques.", "#LIGHT_GREEN#你与刺客领主详谈了你们的新关系，包括借刀杀人的益处以及一些额外的陷阱技巧。", "log")
-t("As you depart the assassin lord says: 'And do not forget, I own you now.'", "当你离开时，刺客领主说道：”别忘了，你现在归我所有了。”", "log")
+t("As you depart the assassin lord says: 'And do not forget, I own you now.'", "当你离开时，刺客领主说道：“别忘了，你现在归我所有了。”", "log")
 t([[#LIGHT_GREEN#*Before you stands a menacing man clothed in black.*#WHITE#
 Ahh, the intruder at last... And what shall we do with you? Why did you kill my men?]], [[#LIGHT_GREEN#*在你面前站着一个身穿黑衣的凶恶男人。*#WHITE#
 啊，入侵者终于现身了……我们该怎么处置你呢？你为什么杀我的人？]], "_t")
@@ -5072,7 +5072,7 @@ He is a mage who resides here in the Sunwall, eccentric but skilled, who believe
 Aside from a few early attempts with questionable results, he hasn't had much luck. Still, it's gladdening to hear that the volunteers for his experiments live, regardless of their location. We are all still under the same Sun, after all.
 
 Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是泽梅基斯关于远行传送门实验的志愿者。
-他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以创造一个远行传送门达到马基·埃亚尔。
+他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以建造一座通往马基·埃亚尔的新远行传送门。
 除了他早期的一些尝试获得了一点可疑的结论外，他并不算走运。不过还是很高兴听到他的实验对象还活着，无论他们身在何方。毕竟我们都生活在同一片阳光下。
 
 事实上……也许去见见泽梅基斯对你有好处。他一定会对你手上的多元水晶球感兴趣。他就住在北边的小屋里。]], "_t")
@@ -5975,8 +5975,8 @@ However, I will need to use 25 energy to do this.]], [[啊，是的，你似乎�
 不过，我需要消耗 25 点能量来完成改造。]], "_t")
 t("Maybe sometime later.", "以后再说。", "_t")
 t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以调整堡垒的全息投影矩阵，使我的外形符合你的种族审美。不过，这需要消耗 60 点能量。", "_t")
-t("Can you try for a human female appearance please?", "请试着变成人类女性的外形？", "_t")
-t("Can you try for a human male appearance please?", "请试着变成人类男性的外形？", "_t")
+t("Can you try for a human female appearance please?", "能请你试着变成人类女性的外形吗？", "_t")
+t("Can you try for a human male appearance please?", "能请你试着变成人类男性的外形吗？", "_t")
 t("Please revert to your default appearance.", "请变回原来默认的样子。", "_t")
 t("Well, you do not look so bad actually. Let it be for now.", "好吧，其实你看上去没那么糟，就保持这个样子吧。", "_t")
 t([[Yes Master. I can use 10 energy to infuse your cloak. When you take it off the effect should still persist.
@@ -6434,7 +6434,7 @@ Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a 
 
 如果你第一次接触这个游戏，你会发现可供选择的种族和职业很有限。别担心，随着你在冒险中不断解锁，更多种族和职业将可供选择。
 
-现在，勇敢的前进吧，并且记住：#GOLD#玩的开心！#WHITE#
+现在，勇敢地前进吧，并且记住：#GOLD#玩得开心！#WHITE#
 按下 #GOLD#Esc 键#WHITE#，选择 #GOLD#保存并退出#WHITE#，然后创建一个新的角色吧！]], "_t")
 t("Thank you.", "谢谢。", "_t")
 
@@ -6469,7 +6469,7 @@ t("I shall do as you say, but how do I find him?", "我会照着你的话去做�
 t("That seems... unwise. My apologies, but I must refuse.", "这似乎不是明智之举，很抱歉，我必须拒绝。", "_t")
 t("I can open a portal to his lair, far away in the western sea, but be warned: this is one-way only. I cannot bring you back. You will have to find your own way.", "我可以为你打开一道传送门，抵达他在西部海洋的巢穴，不过我提醒你：传送是单程的，我没法带你回来，你必须自己去想办法找到返回的路。", "_t")
 t("I will.", "好的。", "_t")
-t("This is a death trap! Goodbye.", "这是个陷阱！再见。", "_t")
+t("This is a death trap! Goodbye.", "这是个死亡陷阱！再见。", "_t")
 t("Yes?", "嗯？", "_t")
 t("[attack]", "[攻击]", "_t")
 t("TREACHERY!", "背叛！", "_t")
@@ -6554,7 +6554,7 @@ t("At your service. I have been gone for months, but I can feel it, at last this
 t([[I am an Anorithil, a mage of the Sun and Moons; we fight all that is evil. I was with a group of Sun Paladins; we came from the Gates of Morning to the east.
 My companions were... were slaughtered by orcs, and I nearly died as well. Thank you again for your help.]], [[我是借用太阳和月亮力量的星月术士，来自东面的晨曦之门，同太阳骑士一起对抗邪恶。
 我的伙伴们…都被兽人杀死了，我也差点丧命，再次感谢你的帮助。]], "_t")
-t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人，使用了钢铁王座地下深处，被兽人保护的远行传送门，然后就到了这里。", "_t")
+t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人。我使用了钢铁王座地下深处一座由兽人把守的远行传送门，然后就被带到了这里。", "_t")
 t([[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.
 Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人。晨曦之门是兽人领地中仅存的自由堡垒，将是你的唯一希望。离开洞穴后往东南走；你绝不会错过它。
 告诉高阶太阳骑士艾琳你遇到了我，我会传信让他们放行。]], "_t")
@@ -7045,13 +7045,13 @@ t("stop", "静止", "damage type")
 t("%s has not been stopped!", "%s没有被阻止！", "logSeen")
 t("debilitating temporal", "时空虚弱", "damage type")
 t("%s resists the blindness!", "%s抵抗了致盲！", "logSeen")
-t("draining physical", "物理汲取", "damage type")
+t("draining physical", "生命汲取", "damage type")
 t("#Source# consumes %d life from #Target#!", "#Source#从#Target#身上吸取了%d生命！", "logCombat")
 t("temporal slow", "时空减速", "damage type")
 t("molten rock", "熔岩", "damage type")
 t("entangle", "纠缠", "damage type")
 t("%s resists entanglement!", "%s抵抗了纠缠！", "logSeen")
-t("manaworm arcane", "法力蠕虫奥术", "damage type")
+t("manaworm arcane", "奥术法力蠕虫", "damage type")
 t("%s has no mana to burn.", "%s没有法力可供燃烧。", "logSeen")
 t("arcane blast", "奥术爆炸", "damage type")
 t("circle of death", "死亡法阵", "damage type")
@@ -7156,7 +7156,7 @@ t("Entrance to an underwater cave", "水下洞穴入口", "_t")
 t("#LIGHT_BLUE#You notice an entrance to an underwater cave.", "#LIGHT_BLUE#你发现了一个水下洞穴的入口。", "logPlayer")
 t("Shadow Crypt", "阴影地宫", "entity name")
 t("hostile", "敌对", "entity type")
-t("Entrance to a dark crypt", "通向阴影地宫之路", "_t")
+t("Entrance to a dark crypt", "阴影地宫入口", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/encounters/maj-eyal-npcs.lua"
@@ -7190,7 +7190,7 @@ t("Leave carefully", "悄悄离开", "_t")
 t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
 You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地宫的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
-你听到了里面传来了陌生女人的哭声。]], "_t")
+你听到里面隐约传来一个女人沉闷的哭喊声。]], "_t")
 t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你小心翼翼地打开门，进入了地下的地宫……", "logPlayer")
 t("#LIGHT_RED#As you enter you notice the door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入后，你发现这扇门的里侧没有门把，你被困在这了！", "logPlayer")
 t("Enter the crypt", "进入地宫", "_t")
@@ -7390,8 +7390,8 @@ t("Skull of the Rat Lich", "鼠巫妖头骨", "_t")
 t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这枚古老的头骨是鼠巫妖仅存于世的东西，上面残留了鼠巫妖的部分精华能量，眼窝中仍闪烁着微弱的红光。", "_t")
 t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为你作战", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 令 %s %s站了起来，一道红光从它眼中闪过！", "logSeen")
-t("From the dust of decay a %s forms!", "从灰烬中诞生了一只%s！", "logSeen")
+t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 举起了%s%s，一道红光从它的眼窝中闪过！", "logSeen")
+t("From the dust of decay a %s forms!", "一只%s从腐朽的尘埃中成形了！", "logSeen")
 t("Forsaken Crypt", "废弃地宫", "_t")
 t("stairway leading downwards", "向下的楼梯", "_t")
 t("Stairs seem to lead into some kind of crypt.", "这道楼梯似乎通向某种地宫。", "_t")
@@ -7982,7 +7982,7 @@ t("A snake-like being, radiating electricity.", "一个辐射出电流的蛇形�
 t("dragon turtle", "龙龟", "entity name")
 t("A huge, elongated sea-green reptile.", "一只巨大、细长且泛着海绿色的爬行动物。", "_t")
 t("ancient dragon turtle", "远古龙龟", "entity name")
-t("A huge, elongated sea-green reptile, it looks old and impenetrable.", "一只巨大、细长且泛着海绿色的爬行动物。看上去苍老而结实。", "_t")
+t("A huge, elongated sea-green reptile, it looks old and impenetrable.", "一只巨大、细长且泛着海绿色的爬行动物。看上去苍老而坚不可摧。", "_t")
 t("squid", "乌贼", "entity name")
 t("Darting its many tentacles toward you, it tries to lock you down.", "它向你伸出触手，试图把你困住。", "_t")
 t("ink squid", "喷墨乌贼", "entity name")
@@ -8006,7 +8006,7 @@ t("bear", "熊", "entity subtype")
 t("brown bear", "棕熊", "entity name")
 t("The weakest of bears, covered in brown shaggy fur.", "熊中最弱的一种，浑身覆盖着棕色蓬乱的皮毛。", "_t")
 t("black bear", "黑熊", "entity name")
-t("Do you smell like honey? 'Cause this bear wants honey.", "你闻起来像蜂蜜吗？这只熊喜欢蜂蜜哦～。", "_t")
+t("Do you smell like honey? 'Cause this bear wants honey.", "你闻起来像蜂蜜吗？因为这只熊想要蜂蜜。", "_t")
 t("cave bear", "穴居熊", "entity name")
 t("It has come down from its cave foraging for food. Unfortunately, it found you.", "它从洞穴中下来觅食。不幸的是，它找到了你。", "_t")
 t("war bear", "战熊", "entity name")
@@ -8180,11 +8180,11 @@ t("ghost", "幽灵", "entity subtype")
 t("dread", "噩灵", "entity name")
 t("It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.", "它的可怕形象冲击着你的双眼。它是死亡的化身，它那丑恶的黑色躯体似乎正与现实相抗争，而宇宙本身竭力要将它放逐。", "_t")
 t("dreadmaster", "噩灵之王", "entity name")
-t("It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.", "它是一种几乎无可匹敌的非生命力量。它是对存在本身的冒犯，它的触碰本身便会侵害并扰乱生命的流动，它那纯粹的不可思议的黑色肢体能够轻松地使岩石崩解，血肉成灰。", "_t")
+t("It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.", "它是一个力量几乎无可匹敌的非生命体。它是对存在本身的冒犯，它的触碰本身便会侵害并扰乱生命的流动，它那非尘世的纯黑肢体能够轻易使岩石崩解、血肉枯萎。", "_t")
 t("banshee", "哀嚎女妖", "entity name")
 t("It is a ghostly woman's form that wails mournfully.", "一个发出凄惨尖叫的女妖。", "_t")
 t("ruin banshee", "毁灭女妖", "entity name")
-t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。恶魔空间的气息不断从她次元扭曲的身体中渗出，不断灼烧和腐蚀着周围的一切。", "_t")
+t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。恶魔空间的气息不断从她次元扭曲的身体中渗出，令周围的一切枯萎、焦灼。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/ghoul.lua"
@@ -8255,7 +8255,7 @@ t("eldritch", "骇异", "entity subtype")
 t("worm that walks", "蠕虫合体", "entity name")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
 Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍似乎要从接缝处裂开，成团浮肿的蠕虫从这移动的躯体四周向外涌出。两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的战斧。\n每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
-t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来！", "logSeen")
+t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一个腐肉虫群从%s的伤口中孵化了出来！", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
