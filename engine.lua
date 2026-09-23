@@ -996,8 +996,8 @@ t("#GOLD##{bold}#OpenGL Shaders: Advanced#WHITE##{normal}#", "#GOLD##{bold}#Open
 t([[Activates distorting shaders.
 This option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.
 
-#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果，
-这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）
+#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果。
+这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。
 关闭它可以提升运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
@@ -1035,7 +1035,7 @@ Note: This value will automatically revert after ten seconds if not confirmed by
 
 默认原点：(0,0)。
 
-注意：如果用户在十秒后不进行确认，这一数值将会自动恢复原值#WHITE#]], "_t")
+注意：如果用户在十秒内未确认，这一数值将会自动恢复原值。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", "#GOLD##{bold}#设置窗口位置#WHITE##{normal}#", "_t")
 t("Window Origin: X-Coordinate", "窗口原点：X坐标", "_t")
 t("Enter the x-coordinate", "输入X坐标", "_t")
@@ -1207,7 +1207,7 @@ t("cannot use currently due to an other worn object", "由于目前穿戴的其�
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）。", "logSeen")
-t("%s wears: %s.", "%s 装备了：%s。", "logSeen")
+t("%s wears: %s.", "%s装备了：%s。", "logSeen")
 t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
 t("%s wears (replacing %s): %s.", "%s装备（替换%s）了：%s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
@@ -1232,7 +1232,7 @@ t("%s %s %s.", "%s%s%s。", "logSeen")
 t("deactivates", "关闭了", "_t")
 t("activates", "启用了", "_t")
 t("%s uses %s.", "%s使用了%s。", "logSeen")
-t("not enough stat: %s", "属性点不足：%s", "tformat")
+t("not enough stat: %s", "属性不足：%s", "tformat")
 t("not enough levels", "等级不足", "_t")
 t("missing dependency", "未满足前置条件", "_t")
 t("is not %s", "不是%s", "tformat")
@@ -1266,7 +1266,7 @@ section "engine/engine/interface/ObjectActivable.lua"
 
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
 t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
-t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s (等级 %d)。", "tformat")
+t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s（等级 %d）。", "tformat")
 t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
@@ -1426,7 +1426,7 @@ Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 
-玩的开心！]], "_t")
+玩得开心！]], "_t")
 t("Upgrade to 1.0.5", "升级到 v1.0.5 版本", "_t")
 t([[The way the engine manages saving has been reworked for v1.0.5.
 
@@ -1460,7 +1460,7 @@ Check out the following folder on your computer:
 %s
 %s
 ]], [[糟糕！好像你安装了多份同一个插件/DLC。
-这种情况不被支持的，会引发很多BUG。请你移除掉多余的文件。
+这种情况不受支持，会引发很多BUG。请你移除掉多余的文件。
 
 插件名称：#YELLOW#%s#LAST#
 
@@ -1496,8 +1496,8 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及玩得最多的职业…
 * 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
-* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/捐赠者独享权益
+* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
 这一切都是可选的，你可以自愿使用或者关闭这些功能。如果你愿意开启它们，开发者会感谢你的，因为这会让平衡调整变得更简单。]], "_t")

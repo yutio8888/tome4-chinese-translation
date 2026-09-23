@@ -14,7 +14,7 @@ Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 
-玩的开心！]], "_t")
+玩得开心！]], "_t")
 t("Upgrade to 1.0.5", "升级到 v1.0.5 版本", "_t")
 t([[The way the engine manages saving has been reworked for v1.0.5.
 
@@ -48,7 +48,7 @@ Check out the following folder on your computer:
 %s
 %s
 ]], [[糟糕！好像你安装了多份同一个插件/DLC。
-这种情况不被支持的，会引发很多BUG。请你移除掉多余的文件。
+这种情况不受支持，会引发很多BUG。请你移除掉多余的文件。
 
 插件名称：#YELLOW#%s#LAST#
 
@@ -84,8 +84,8 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及玩得最多的职业…
 * 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
-* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/捐赠者独享权益
+* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
 这一切都是可选的，你可以自愿使用或者关闭这些功能。如果你愿意开启它们，开发者会感谢你的，因为这会让平衡调整变得更简单。]], "_t")

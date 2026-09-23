@@ -60,7 +60,7 @@ This option allows for distortion effects (like spell effects doing a visual dis
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00002 | HUMAN-REVIEW | cross-batch-001 | confirmed | 是否修正标点、整理换行 |  |  |
+| hrq-00002 | HUMAN-REVIEW | cross-batch-001 | confirmed | 是否修正标点、整理换行 |  | fix_punctuation_only |
 
 <details><summary>hrq-00002 · HUMAN-REVIEW 详情</summary>
 
@@ -95,7 +95,7 @@ Note: This value will automatically revert after ten seconds if not confirmed by
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00003 | HUMAN-REVIEW | cross-batch-002 | confirmed | 是否改为「十秒内未确认」并补句号 |  |  |
+| hrq-00003 | HUMAN-REVIEW | cross-batch-002 | confirmed | 是否改为「十秒内未确认」并补句号 |  | fix |
 
 <details><summary>hrq-00003 · HUMAN-REVIEW 详情</summary>
 
@@ -118,7 +118,7 @@ raw verdict: 缺少句号→confirmed; 十秒确认时间条件→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00004 | HUMAN-REVIEW | cross-batch-002 | advisory | 可选排版整理，不强制修改 |  |  |
+| hrq-00004 | HUMAN-REVIEW | cross-batch-002 | advisory | 可选排版整理，不强制修改 |  | no_change |
 
 <details><summary>hrq-00004 · HUMAN-REVIEW 详情</summary>
 
@@ -141,7 +141,7 @@ raw verdict: 快捷键点号与括号→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00005 | HUMAN-REVIEW | cross-batch-002 | confirmed | 是否删除空格 |  |  |
+| hrq-00005 | HUMAN-REVIEW | cross-batch-002 | confirmed | 是否删除空格 |  | fix |
 
 <details><summary>hrq-00005 · HUMAN-REVIEW 详情</summary>
 
@@ -164,7 +164,7 @@ raw verdict: 角色名后空格→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00006 | HUMAN-REVIEW | cross-batch-002 | confirmed | 「属性值不足」或「属性不足」的选择 |  |  |
+| hrq-00006 | HUMAN-REVIEW | cross-batch-002 | confirmed | 「属性值不足」或「属性不足」的选择 |  | fix |
 
 <details><summary>hrq-00006 · HUMAN-REVIEW 详情</summary>
 
@@ -187,7 +187,7 @@ raw verdict: 属性点与属性值→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00007 | HUMAN-REVIEW | cross-batch-002 | advisory | 可选统一中文括号 |  |  |
+| hrq-00007 | HUMAN-REVIEW | cross-batch-002 | advisory | 可选统一中文括号 |  | fix |
 
 <details><summary>hrq-00007 · HUMAN-REVIEW 详情</summary>
 
@@ -222,7 +222,7 @@ Now go and have some fun!`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00008 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 是否修改这处语病 |  |  |
+| hrq-00008 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 是否修改这处语病 |  | fix |
 
 <details><summary>hrq-00008 · HUMAN-REVIEW 详情</summary>
 
@@ -261,7 +261,7 @@ Check out the following folder on your computer:
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00009 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 是否改写句法 |  |  |
+| hrq-00009 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 是否改写句法 |  | fix |
 
 <details><summary>hrq-00009 · HUMAN-REVIEW 详情</summary>
 
@@ -312,7 +312,7 @@ This is all optional, you are not forced to use this feature at all, but the dev
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00010 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | pending | 核对术语记录适用范围；是否统一列表标点 |  |  |
+| hrq-00010 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | pending | 核对术语记录适用范围；是否统一列表标点 |  | fix |
 
 <details><summary>hrq-00010 · HUMAN-REVIEW 详情</summary>
 
@@ -335,7 +335,7 @@ raw verdict: `donator` 使用“赞助者”而非报告所称 preferred“捐�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00011 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 核对术语记录；不要仅凭名称改译文 |  |  |
+| hrq-00011 | HUMAN-REVIEW | cross-batch-003-004 entry-0… | confirmed | 核对术语记录；不要仅凭名称改译文 |  | defer |
 
 <details><summary>hrq-00011 · HUMAN-REVIEW 详情</summary>
 
