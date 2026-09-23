@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口16已完成；待宿主发布收尾，随后审核263）
+更新时间：2026-09-23（审核263已完成；下一步修复窗口17，仅处理263的5条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -266,7 +266,17 @@ contextual `claude/claude-opus-5-5` 首次 full-000 在 JSON 前多一句英文�
 不继承 done。pending 新增第 16 项（Eyal 全库译法）和第 17 项（lore 标题“不死猎人指南”两处），
 由宿主在证据提交中写入。完整结果见[窗口16出版证据](evidence/quality/repair-window-16-20260923/PUBLICATION.md)。
 
-下一步由宿主完成本证据提交、第二次 queue rebuild 与 push，随后继续审核263（默认80条）；这些步骤尚未完成。
+窗口16的证据提交、queue rebuild 与 push 已完成（`95070219`）。
+
+审核263（`batch-8963e835a427bdbf7ae1`）已闭合，结果为 **75 done / 5 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 67 OK / 13 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致）；contextual `claude/claude-opus-5-5` full-000 为 10 OK / 3 ISSUE。
+16 个观察裁决为 8 confirmed、6 refuted、2 advisory。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `07d04ea8`，
+详见[263宿主证据](evidence/quality/production-batches/batch-8963e835a427bdbf7ae1-host-evidence/summary.md)。本批无新增 pending。
+
+下一步按 1:1 节奏开修复窗口17，仅处理 263 的 5 条：猎头者挑战“暂停敌人”误述（实为敌人失去对你的锁定）、Exploit Weakness 删近战限定、
+单项效果抵抗提示泛化、教程结束文本词中硬换行、思维形态说明多余换行与“狂战士”名不一致。
+范围见 `.ai/task/batch-8963e835a427bdbf7ae1/WINDOW17-REPAIR-DECISION.json`；可复用窗口16 helper（verify.py 的 LF/TAB 对照 source；verify_migration 有两处条数硬编码），
+失败的 FINAL 之后必须接 RE_REVIEW；FINAL 中任何 ISSUE（即使宿主判 advisory）都会让 DONE 检查失败。
 
 ### 窗口7闭合时的暂停记录（历史）
 
