@@ -1,0 +1,24 @@
+import pathlib,json
+P=pathlib.Path('.ai/task/batch-448e3278fde3f8dfbea2')
+D={
+'14568237':('pending',False,'mod-tome.lua 种族解锁叙事 yet they are a cunning and willful race，现译“非常灵巧”。与窗口8待审阅第1项（e92433bcba，同一 cunning=灵巧 语境争议）同源：术语库 Cunning=灵巧 为 stat name/existing，叙事语境是否改“机敏/狡黠”属跨条目术语策略，列入 pending 待用户集中裁定，不在本批修复。'),
+'a1e95a2f':('pending',False,'毒素风暴 Each possible effect is equally likely，现译“中毒几率在可能的毒素效果中平分”。与窗口8待审阅第2项（e951739433）为同一措辞争议的另一副本，按用户指示列入 pending，随第2项一并裁定。'),
+'e9e627f6':('confirmed',True,'spells/fire.lua:21 技能 Flame 的现行技能名译为“火焰”（mod-tome.lua talent name 行），高阶奇术师解锁文本写作“火球术”，与实际技能名不一致，确认为术语缺陷，改为“火焰”。同条 Ice Shards（water.lua:21）技能名现译即“寒冰箭”，与解锁文本一致，该部分驳回。'),
+'ea047086':('advisory',False,'birth/races/undead.lua:330 为巫妖外观选项 {name=_t"Lich Regalia 1", file="face_lich_regalia_01"}，纯外观名称，无机制影响；regalia 泛指王权饰物，“王冠”为其常见部件，能否更准确需看贴图，记为建议不修复。'),
+'ea047c36':('confirmed',True,'潜行打破不限于技能：class/Actor.lua:6535 使用技能时 breakStealth，同时 interface/Combat.lua:121、258 攻击时、class/Object.lua:340 使用物品时也会打破潜行。原文 action 泛指行动，译文“技能”缩小了机制范围，确认修复为“行动”。'),
+'ea2d3aa5':('confirmed',True,'spells/necrosis.lua:138 仅在 nb>0（无自然纹身、效果生效）时显示 ("%d runes active")，与另两分支“效果因……失效”对照。译文“有 %d 个符文”丢失“生效”这一对照要点，确认有界修复为“%d 个符文生效中”。'),
+'ea36045f':('confirmed',True,'general/objects/world-artifacts.lua:8068 灵晶描述 glows with a bright warm light；译文“温暖的微光”把 bright（明亮）反转为微弱，确认修复。'),
+'ea4c9e1c':('confirmed',True,'general/objects/quest-artifacts.lua:319 回归之杖描述 This rod…bend space itself。本库 rod 子类型译“魔杖”、物品名“回归之杖”，而“法杖”是 staff 武器类型的译名，译文“这个法杖”与物品类型冲突；bend（扭曲）被译成“撕裂”亦偏离。确认整句有界修复。'),
+'ea4e693b':('refuted',False,'corruptions/vim.lua:81 被传送生物落点为 util.findFreeGrid(self.x, self.y, 20, …)，即施法者周围最近空格，施法者本格已被占用；:91 施法者 teleportRandom(x, y, 0) 落到目标中心。译文“传送到你的位置附近／你被传送到目标地点”贴合实现，驳回。'),
+'ea6c4129':('advisory',False,'misc/npcs.lua:1434 召唤触手描述 m.desc = _t"Ewwww.."，表达嫌恶；“额……”偏迟疑，属语气层二级问题，无机制影响，记为建议（如“呃，恶……”），不开修复。'),
+'ea75bd36':('pending',False,'psionic/finer-energy-manipulations.lua:126 技能 Matter is Energy（消耗宝石转化为超能力值）。现名“宝石能量”按功能意译，未体现原名“物质即能量”；技能名改名涉及跨条目引用与命名策略，列入 pending 待用户裁定（候选：物质即能量）。'),
+}
+rows=[]
+for f in sorted(pathlib.Path('.artifacts/i18n/continuation-20260923/review255-surface-raw').glob('*.json')):
+ for r in json.loads(f.read_text())['results']:
+  if r['verdict']=='ISSUE':
+   m=[v for k,v in D.items() if r['entry_revision_identity'].startswith(k)];assert len(m)==1,r['entry_revision_identity']
+   d,rep,why=m[0];rows.append(dict(revision_key=r['entry_revision_identity'],stage='surface',observation=r['observation'],disposition=d,repair_required=rep,conclusion=why))
+assert len(rows)==11
+(P/'HOST-SURFACE-DECISIONS.json').write_text(json.dumps(dict(status='host adjudicated surface observations; contextual observations adjudicated separately',slid_observations=None,slide_check='each of 11 observations compared against its own entry source/target; none slid',rows=rows),ensure_ascii=False,indent=2)+'\n')
+print({d:sum(r['disposition']==d for r in rows) for d in ('confirmed','refuted','advisory','pending')})

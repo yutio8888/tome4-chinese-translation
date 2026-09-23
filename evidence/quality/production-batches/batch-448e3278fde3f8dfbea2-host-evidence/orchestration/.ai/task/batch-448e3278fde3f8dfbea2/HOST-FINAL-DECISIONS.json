@@ -1,0 +1,153 @@
+{
+  "batch_id": "batch-448e3278fde3f8dfbea2",
+  "observations": 14,
+  "observation_dispositions": {
+    "pending": 3,
+    "confirmed": 8,
+    "advisory": 2,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968",
+    "ea047c36a0657e519501133b15798bef74ae09817c7773a8b199353147f7b53f",
+    "ea2d3aa57011e9743a3535843861954ee6eb75ef085b8d3ff18ff76f1e4cfa3a",
+    "ea36045fbab0929ca94dcd7a2f9dc421a790973db338e21d20c68b3e0ec38bfb",
+    "ea4c9e1c8864a99ca4cc2ed45bc09fae542786feef2058485672125a1d8089da"
+  ],
+  "pending_revision_keys": [
+    "14568237c4cd3f617cf347511e5e4ab3f6e799a1c577b6b60a9862b5404f304b",
+    "a1e95a2f4c1fa0095c67018139caec58ce490222378df48b121c497e72c83134",
+    "ea75bd3673366c98ebcd2b5c04c61ca4c71eeeca7158e856d70e27d8473622b0"
+  ],
+  "expected_final_states": {
+    "done": 72,
+    "repair_required": 5,
+    "blocked": 3
+  },
+  "rows": [
+    {
+      "revision_key": "14568237c4cd3f617cf347511e5e4ab3f6e799a1c577b6b60a9862b5404f304b",
+      "stage": "surface",
+      "observation": "原文 cunning 指机敏或狡黠，译文“非常灵巧”误作身体灵活。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "mod-tome.lua 种族解锁叙事 yet they are a cunning and willful race，现译“非常灵巧”。与窗口8待审阅第1项（e92433bcba，同一 cunning=灵巧 语境争议）同源：术语库 Cunning=灵巧 为 stat name/existing，叙事语境是否改“机敏/狡黠”属跨条目术语策略，列入 pending 待用户集中裁定，不在本批修复。"
+    },
+    {
+      "revision_key": "a1e95a2f4c1fa0095c67018139caec58ce490222378df48b121c497e72c83134",
+      "stage": "surface",
+      "observation": "原文“Each possible effect is equally likely”指各附加效果出现的可能性相同；译文“中毒几率在可能的毒素效果中平分”改变了概率所指。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "毒素风暴 Each possible effect is equally likely，现译“中毒几率在可能的毒素效果中平分”。与窗口8待审阅第2项（e951739433）为同一措辞争议的另一副本，按用户指示列入 pending，随第2项一并裁定。"
+    },
+    {
+      "revision_key": "e9e627f60c131071a84d6a2ee2644e754f57692e5b2aa7f79b470b176e6e6968",
+      "stage": "surface",
+      "observation": "技能列表中的 Flame 译为“火球术”、Ice Shards 译为“寒冰箭”；原文分别是火焰与冰片，译文改变了技能名称的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "spells/fire.lua:21 技能 Flame 的现行技能名译为“火焰”（mod-tome.lua talent name 行），高阶奇术师解锁文本写作“火球术”，与实际技能名不一致，确认为术语缺陷，改为“火焰”。同条 Ice Shards（water.lua:21）技能名现译即“寒冰箭”，与解锁文本一致，该部分驳回。"
+    },
+    {
+      "revision_key": "ea047086c8ac5490c56b659db66c36f78c967dbc8f13334b77d9af84a5f05561",
+      "stage": "surface",
+      "observation": "Lich Regalia 译为“巫妖王冠”；Regalia 指礼服或权杖等王室服饰与标志，原文没有限定为王冠。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "birth/races/undead.lua:330 为巫妖外观选项 {name=_t\"Lich Regalia 1\", file=\"face_lich_regalia_01\"}，纯外观名称，无机制影响；regalia 泛指王权饰物，“王冠”为其常见部件，能否更准确需看贴图，记为建议不修复。"
+    },
+    {
+      "revision_key": "ea047c36a0657e519501133b15798bef74ae09817c7773a8b199353147f7b53f",
+      "stage": "surface",
+      "observation": "原文说任何非瞬间、非移动的 action 都会打破潜行，译文写成“技能”，缩小了动作范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "潜行打破不限于技能：class/Actor.lua:6535 使用技能时 breakStealth，同时 interface/Combat.lua:121、258 攻击时、class/Object.lua:340 使用物品时也会打破潜行。原文 action 泛指行动，译文“技能”缩小了机制范围，确认修复为“行动”。"
+    },
+    {
+      "revision_key": "ea2d3aa57011e9743a3535843861954ee6eb75ef085b8d3ff18ff76f1e4cfa3a",
+      "stage": "surface",
+      "observation": "原文“%d runes active”表示有 %d 个符文处于激活状态；译文“有 %d 个符文”遗漏了“激活”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "spells/necrosis.lua:138 仅在 nb>0（无自然纹身、效果生效）时显示 (\"%d runes active\")，与另两分支“效果因……失效”对照。译文“有 %d 个符文”丢失“生效”这一对照要点，确认有界修复为“%d 个符文生效中”。"
+    },
+    {
+      "revision_key": "ea36045fbab0929ca94dcd7a2f9dc421a790973db338e21d20c68b3e0ec38bfb",
+      "stage": "surface",
+      "observation": "原文是“bright warm light”（明亮而温暖的光），译文“温暖的微光”将明亮译成了微弱。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts.lua:8068 灵晶描述 glows with a bright warm light；译文“温暖的微光”把 bright（明亮）反转为微弱，确认修复。"
+    },
+    {
+      "revision_key": "ea4c9e1c8864a99ca4cc2ed45bc09fae542786feef2058485672125a1d8089da",
+      "stage": "surface",
+      "observation": "原文“rod”译为“法杖”，物品类型不符；“bend space itself”（扭曲空间）译为“撕裂空间”，动作含义也不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/quest-artifacts.lua:319 回归之杖描述 This rod…bend space itself。本库 rod 子类型译“魔杖”、物品名“回归之杖”，而“法杖”是 staff 武器类型的译名，译文“这个法杖”与物品类型冲突；bend（扭曲）被译成“撕裂”亦偏离。确认整句有界修复。"
+    },
+    {
+      "revision_key": "ea4e693b3bda8a455daf2cd7ed829f6d80bda6635e41b9c510ebd7d8db3276aa",
+      "stage": "surface",
+      "observation": "原文称区域内生物被传送到“your location”，译文改成“你的位置附近”；原文“you to theirs”指传送到它们的位置，译文仅称“目标地点”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "corruptions/vim.lua:81 被传送生物落点为 util.findFreeGrid(self.x, self.y, 20, …)，即施法者周围最近空格，施法者本格已被占用；:91 施法者 teleportRandom(x, y, 0) 落到目标中心。译文“传送到你的位置附近／你被传送到目标地点”贴合实现，驳回。"
+    },
+    {
+      "revision_key": "ea6c412976ef678c4bc12566203f3c0c5661af9c1313ea7b0ee0f6e72c470a1c",
+      "stage": "surface",
+      "observation": "Ewwww 表达厌恶，译文“额……”表达迟疑，语气明显不符。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "misc/npcs.lua:1434 召唤触手描述 m.desc = _t\"Ewwww..\"，表达嫌恶；“额……”偏迟疑，属语气层二级问题，无机制影响，记为建议（如“呃，恶……”），不开修复。"
+    },
+    {
+      "revision_key": "ea75bd3673366c98ebcd2b5c04c61ca4c71eeeca7158e856d70e27d8473622b0",
+      "stage": "surface",
+      "observation": "Matter is Energy 指“物质即能量”，译文“宝石能量”将物质限定为宝石，并遗漏原文的判断关系。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "psionic/finer-energy-manipulations.lua:126 技能 Matter is Energy（消耗宝石转化为超能力值）。现名“宝石能量”按功能意译，未体现原名“物质即能量”；技能名改名涉及跨条目引用与命名策略，列入 pending 待用户裁定（候选：物质即能量）。"
+    },
+    {
+      "revision_key": "ea047c36a0657e519501133b15798bef74ae09817c7773a8b199353147f7b53f",
+      "stage": "contextual",
+      "observation": "两处机制限定失真（engine@624a6732 game/modules/tome/data/talents/cunning/stealth.lua）。①源文 'foes in sight within range %d%s' 译成「如果敌人在半径 %d %s 内」，漏掉 in sight。on_pre_use 调用的 stealthDetection（第 24-36 行）只统计半径内满足 act.fov.actors[self]、非致盲且敌对的角色，并非半径内有任何敌人就禁止进入潜行。②源文 'Any non-instant, non-movement action will break stealth' 译成「任何非瞬间非移动技能」，把 action 缩成了技能。实际上普通攻击（class/interface/Combat.lua:121、:258）和使用物品（class/Object.lua:340）也会调用 breakStealth，技能只是其中一类（Actor.lua:6535）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "独立语境复核补充并经宿主核验：cunning/stealth.lua:24–36 stealthDetection 仅累计半径内敌对、未致盲且 act.fov.actors[self]（能看见你）的角色，原文 foes in sight within range 的 in sight 被译文“敌人在半径内”漏掉；action→技能的缩窄与 surface 键同一缺陷（Combat.lua:121/258、Object.lua:340 亦打破潜行）。确认整句有界修复两处。"
+    },
+    {
+      "revision_key": "ea36045fbab0929ca94dcd7a2f9dc421a790973db338e21d20c68b3e0ec38bfb",
+      "stage": "contextual",
+      "observation": "源文 'glows with a bright warm light'（world-artifacts.lua:8068，Eye of Summer 的描述）意为明亮温暖的光，译文「散发着温暖的微光」把 bright 译成了「微光」（微弱的光），语义相反。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷的独立语境复核：world-artifacts.lua:8068 bright warm light 被译作“微光”，语义相反，确认修复。"
+    },
+    {
+      "revision_key": "ea4c9e1c8864a99ca4cc2ed45bc09fae542786feef2058485672125a1d8089da",
+      "stage": "contextual",
+      "observation": "源文 'raw magical energies that can bend space itself'（quest-artifacts.lua:319，Rod of Recall）意为能扭曲／弯折空间，译文「可以撕裂空间」把 bend 改成了撕裂，语义偏移。raw 也漏译了（「奥术能量」未体现未经提炼、原始的能量）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷的独立语境复核：quest-artifacts.lua:319 bend space 被译作“撕裂空间”，raw magical energies 的“原始”亦未体现；与 surface 所指 rod→法杖 合并为整句有界修复。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}
