@@ -1,0 +1,19 @@
+# Calibrated pilot40 — frozen reviewer input v1
+
+This is bounded read-only research, not production verification. Review exactly the 40 entries in entries.json, in frozen order. Return a complete table plus atomic observations; do not edit any file or spawn children. Do not read prior reports, scope proposals, host findings, or the other arm. Only INPUT.md, entries.json, context.lua, terms.json, source-access.json, FREEZE.json and expressly allowed source files may be read. No repository-wide search. Primary files may be searched locally; additional single files require an explicit symbol/call from a read file. Missing Possessors source cannot be replaced with similarly named code from another component. Source hashes must match. Engine commit is separate from unpinned DLC snapshots.
+
+Task-specific rules below prevail over generic formatting guidance. Do not import full terminology writing guidance as extra defect criteria.
+
+1. Judge full paragraph and runtime consumption, not word-by-word omission. For every claim quote exact frozen source and target, identify meaning change, strongest equivalent interpretation or contextual repair, evidence path/line, impact. Simple nonliteral translation is not a defect.
+2. Check terminology status AND scope AND source_tag AND category/context. existing does not force rename. global/multi apply all components; dlc applies ashes-urhrok,cults,items-vault,orcs,possessors; core excludes those five; addon applies addon-dev,items-vault,possessors. No scope changes in this pilot. Shared mechanism alone does not override current scope. Inapplicable glossary does not prove semantic correctness.
+3. Bare Chinese 增加伤害 can express all-damage increase. inc_damage.all proves implementation, not translation error. Confirm lost scope only with a substantive restriction or contrast lost in context.
+4. Formatting: preserve argument consumption, valid markup and information structure. Do not mechanically count whitespace, blank lines or punctuation. Dynamic suffix claims must consider empty and nonempty alternatives. Static rendering is not a game test.
+5. User calibration: ambiguity of first attacked vs first hit when main sentence already requires damage; 文明人→普通人; and 受到熵能反冲 covering application/increase: list as needs clarification/advisory, NOT confirmed mistranslation. This does not remove separate objectively supported defects in the same entry.
+6. Distinguish text_status, snapshot_fact, target_applicability, impact. Pure text defects need not become pending just because DLC commit is unpinned. A conclusion depending on implementation/target identity keeps target applicability pending. Record upstream inherited error separately from translation-introduced error. Code/translation/English discrepancies require actual call-chain evidence, not guessed variables.
+7. Merely possible wrong interpretation is insufficient for confirmed. Reasonable unresolved alternatives => PENDING; preference without substantive unresolved fact => ADVISORY. No quotas or pressure to find issues.
+
+Output in Chinese: all40 entry table with ISSUE/PENDING/OK (OK may include advisory), then C01... atomic claims. Each claim: entry, exact quotes, strongest counterargument, conclusion confirmed/pending/advisory, text_status, snapshot_fact, target_applicability, impact, source proof. Finish actual files read and source/version limits. Do not claim DONE_VERIFIED. Return report in final answer, no files.
+
+The two arms use identical input. Review findings are observations, not gold truth. Host adjudication and all joint-negative audit occur after each independent observation is frozen.
+
+Entries and exact texts: entries.json. Full adjacent section translations: context.lua. Applicable term candidates: terms.json. Source paths/hashes: source-access.json.

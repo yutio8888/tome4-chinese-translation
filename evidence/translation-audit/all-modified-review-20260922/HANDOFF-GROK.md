@@ -40,3 +40,5 @@
 当前两批和全部3次 Sol 交叉复核已完成；本 session 的6个 child dispatch（含1次启动失败）均已确认归档。已核对全部 locale 冻结哈希、候选输入哈希和原始报告哈希；仅提交审核证据，不运行不适用于只读报告的译文构建门禁。剩余4054条从003批接续。HUMAN-REVIEW.md 已汇总6个含 confirmed 意见的条目及2个仅 advisory 条目，语义结论作者均是 Sol，等待人工决定，禁止据此自动修复。
 
 本交接由 paseo-handoff skill 执行。Grok 4.7 没有匹配现有 profile，已通过 live provider/model metadata 确认可用，按用户指定使用 grok/grok-4.7、medium、auto_accept=true。你启动后成为唯一后续记录者；旧宿主停止写入。
+
+暂停后的进度见 [HANDOFF-PAUSE.md](HANDOFF-PAUSE.md)。用户要求完成当前在跑的一轮后停止，不要从 batch-021 继续派发。

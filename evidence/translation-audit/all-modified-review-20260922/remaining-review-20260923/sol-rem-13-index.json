@@ -1,0 +1,63 @@
+{
+  "entries": [],
+  "claims": [
+    {
+      "claim_id": "C01",
+      "entry_id": "entry-03939",
+      "reported_status": "advisory",
+      "original_text": "### C01 | entry-03939 | advisory\n\n原译“`%s抵抗了震慑打击！`”与紧邻的 *stunning blow* 共用“打击”，未体现此处 *shock* 是扩散冲击。最强等价读法是两句都在报告抵抗震慑，玩家仍能理解结果；故仅建议改为“震慑冲击”。证据：`S:5183–5195`；`D/talents/steam/heavy-weapons.lua:720–738`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 13
+    },
+    {
+      "claim_id": "C02",
+      "entry_id": "entry-03940",
+      "reported_status": "confirmed",
+      "original_text": "### C02 | entry-03940 | confirmed\n\n原译“`%s击中了某物`”容易读成主动击打，且丢失 *solid*。这里 `%s` 是被击退后撞上障碍物的目标。最强等价读法是“击中”也可宽泛表示碰撞，但在该战斗日志中仍不足以交代撞墙情境。建议“`%s撞上了坚固的物体`”。证据：`S:5208–5217`；`D/talents/steam/heavy-weapons.lua:965–990`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 17
+    },
+    {
+      "claim_id": "C03",
+      "entry_id": "entry-03946",
+      "reported_status": "advisory",
+      "original_text": "### C03 | entry-03946 | advisory\n\n原译“`所有技能冷却时间减半`”可通俗表达冷却更快；源码实际是在驾驶效果期间每回合额外减少一次冷却值，并跳过 `fixed_cooldown` 技能，不是改写基础冷却时间。为避免误读，建议“技能冷却速度加快一倍”。英文自身的 *all* 也比实现宽泛，不把这部分算作中文新增错误。证据：`S:5318–5320`；`D/talents/steam/mecharachnid.lua:690–700`；`D/timed_effects/other.lua:442–452`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 21
+    },
+    {
+      "claim_id": "C04",
+      "entry_id": "entry-03950",
+      "reported_status": "confirmed",
+      "original_text": "### C04 | entry-03950 | confirmed\n\n原译“`使用灵晶射击`”未沿用同节技能名“金属灵晶”；“`与灵晶碎片建立……联系`”遗漏碎片仍留在目标体内；“`范围（当前 %d）的两倍`”又把已经乘二的显示值写成还需再乘二。等价读法可把“灵晶射击”理解为动作描述，却无法消除后两处信息损失。建议按“发射金属灵晶”“残留在目标体内的碎片”“两倍半径（当前 %d 格）”改写。证据：`S:5369–5381`；`D/talents/steam/mechstar.lua:22–45,64–81`。另须区分源码行为：状态在距离**达到**阈值时即断开，而英文及中文都写“超过”；这是沿袭英文的机制描述问题，不计中文新增错译。证据：`D/timed_effects/physical.lua:742–750`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 25
+    },
+    {
+      "claim_id": "C05",
+      "entry_id": "entry-03951",
+      "reported_status": "advisory",
+      "original_text": "### C05 | entry-03951 | advisory\n\n原译“`制造药剂、附着物等道具`”以例子解释 *tinkers*，没有必然错误；但它将类别名改成不完整的举例。冻结术语记录为“蒸汽工具”，状态是 `existing`，不强制统一。建议如需明确类别，写“制造蒸汽工具”。证据：`S:5402–5403`；`D/talents/steam/other.lua:125–142`；`T:1521`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 29
+    },
+    {
+      "claim_id": "C06",
+      "entry_id": "entry-03953",
+      "reported_status": "confirmed",
+      "original_text": "### C06 | entry-03953 | confirmed\n\n原译“`射击是远程攻击将会触发弹药特效`”遗漏 *melee*，使特殊的远程近战攻击看似普通远程攻击，也抹去了“虽属近战攻击，仍触发弹药远程特效”的转折。建议明确写“远程近战攻击，但也会触发弹药的远程特效”。原译“沃瑞钽钢”也与本次 `preferred` 术语“沃瑞钽”不符，可在同条修正。证据：`S:5414–5417`；`D/talents/steam/other.lua:332–360`；`T:1609`。源码按技能等级决定额外射击，英文却称由沃瑞钽材质决定；中文沿袭英文，此机制不一致**不计中文新增错误**。证据：`D/talents/steam/other.lua:315–320,344–359`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 33
+    },
+    {
+      "claim_id": "C07",
+      "entry_id": "entry-03960",
+      "reported_status": "confirmed",
+      "original_text": "### C07 | entry-03960 | confirmed\n\n原译“`修复机械生物`”漏掉 *other*。最强等价读法是读者会从施法语境推知治疗别人，但文字仍未排除自身；源码明确要求 `act ~= self`。建议“修复**其他**机械生物”。证据：`S:5482–5485`；`D/talents/steam/other.lua:839–840,853–864,907–912`。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 37
+    }
+  ],
+  "report_sha256": "d4b69ebf60b6ff8c5d4d5aed66eb7ebbbec50732d15c83e59794721d9a7fc9db",
+  "coverage_validated": true
+}

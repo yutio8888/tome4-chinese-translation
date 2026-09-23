@@ -1,0 +1,172 @@
+{
+  "entries": [
+    {
+      "entry_id": "entry-03906",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03906 | 未发现问题 | 雪人种族技能数值、抗性与豁免占位符匹配无误 |"
+    },
+    {
+      "entry_id": "entry-03910",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03910 | 未发现问题 | 战斗日志占位符与动词匹配，标点正确 |"
+    },
+    {
+      "entry_id": "entry-03912",
+      "status": "存在问题",
+      "original_table_row": "| entry-03912 | 存在问题 | C01：漏译持续dot的“每回合”（each turn）关键机制修饰 |"
+    },
+    {
+      "entry_id": "entry-03913",
+      "status": "仅建议",
+      "original_table_row": "| entry-03913 | 仅建议 | C02：回蓝机制省略“最大值的”，建议补充避免歧义 |"
+    },
+    {
+      "entry_id": "entry-03914",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03914 | 未发现问题 | 披风恢复日志主客体代词与标点一致 |"
+    },
+    {
+      "entry_id": "entry-03916",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03916 | 未发现问题 | 治疗系数、生命恢复与定身抗性翻译准确 |"
+    },
+    {
+      "entry_id": "entry-03918",
+      "status": "仅建议",
+      "original_table_row": "| entry-03918 | 仅建议 | C03：斜体风味句存在语法错别字（地/的）及句式简化 |"
+    },
+    {
+      "entry_id": "entry-03919",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03919 | 未发现问题 | 参数重排 args_order=[2, 1, 3, 4] 准确对应，机制完整 |"
+    },
+    {
+      "entry_id": "entry-03921",
+      "status": "存在问题",
+      "original_table_row": "| entry-03921 | 存在问题 | C04：主客体反转，将主动“狩猎的快感”误译为“被猎杀的危险” |"
+    },
+    {
+      "entry_id": "entry-03922",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03922 | 未发现问题 | 翻转击退减速数值与位移格数匹配一致 |"
+    },
+    {
+      "entry_id": "entry-03924",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03924 | 未发现问题 | 灵巧（Cunning）、物理豁免及抗暴减伤翻译准确 |"
+    },
+    {
+      "entry_id": "entry-03925",
+      "status": "存在问题",
+      "original_table_row": "| entry-03925 | 存在问题 | C05：漏译被动减伤的前提激活条件“While Furnace is on” |"
+    },
+    {
+      "entry_id": "entry-03926",
+      "status": "仅建议",
+      "original_table_row": "| entry-03926 | 仅建议 | C06：风味致敬台词“皮肉烫伤”误译为“肉体在燃烧” |"
+    },
+    {
+      "entry_id": "entry-03927",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03927 | 未发现问题 | 蒸汽枪/重武器/格挡装弹机制及常量加成对应无误 |"
+    },
+    {
+      "entry_id": "entry-03930",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03930 | 未发现问题 | 武器伤害百分比与常数物理强度顺序对应正确 |"
+    },
+    {
+      "entry_id": "entry-03931",
+      "status": "存在问题",
+      "original_table_row": "| entry-03931 | 存在问题 | C07：遗漏定身无法位移限制，装弹判定依据被篡改为消耗弹药 |"
+    },
+    {
+      "entry_id": "entry-03933",
+      "status": "存在问题",
+      "original_table_row": "| entry-03933 | 存在问题 | C08：灵巧敏捷双属性被合并不清，遗漏落空终端与撞墙弹射机制 |"
+    },
+    {
+      "entry_id": "entry-03934",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03934 | 未发现问题 | 喷火器伤害周期与破甲必中属性一致 |"
+    },
+    {
+      "entry_id": "entry-03937",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03937 | 未发现问题 | 抵抗缴械日志格式与专名匹配 |"
+    },
+    {
+      "entry_id": "entry-03938",
+      "status": "未发现问题",
+      "original_table_row": "| entry-03938 | 未发现问题 | 抵抗震慑打击日志格式与专名匹配 |"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C01",
+      "entry_id": "entry-03912",
+      "reported_status": "confirmed",
+      "original_text": "### C01 | entry-03912 | confirmed\n- **短引**：`造成 %0.2f 物理伤害并沉默敌人，持续 4 回合。`\n- **差异**：原文为 `dealing %0.2f physical damage each turn for 4 turns and silencing it`，译文遗漏了核心修饰 `each turn`（每回合）。在游戏机制中，代码 `t.getDamP` 为单回合伤害，该负面状态每回合均会触发物理伤害；漏译“每回合”会导致玩家误解为 4 回合内总计造成该数值伤害或首击伤害后持续沉默。\n- **最强合理等价读法与处置**：虽然“持续4回合”紧随其后，但中文缺少“每回合”即缺失周期性伤害频率定义。应补全为“每回合造成 %0.2f 物理伤害并沉默敌人，持续 4 回合”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:4559`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/automated-butchery.lua:125-144`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 30
+    },
+    {
+      "claim_id": "C02",
+      "entry_id": "entry-03913",
+      "reported_status": "advisory",
+      "original_text": "### C02 | entry-03913 | advisory\n- **短引**：`直接恢复 %d%% 蒸汽值。`\n- **差异**：原文明确为 `instantly increases your steam level by %d%% of the maximum`，译文表述为“直接恢复 %d%% 蒸汽值”，省略了“最大值的”。此外前句 `override all security measures of your tinkers` 意译为“开启全部插件的超频模式”。\n- **最强合理等价读法与处置**：在 RPG 语境中“恢复 %d%% 蒸汽”常默认指最大上限比例，且底层机制为 `self:getMaxSteam() * eff.regen`，意图大体传递；但为消除是否按当前缺口/当前值恢复的歧义，建议明确润色为“直接恢复最大值的 %d%% 蒸汽值”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:4573`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/automated-butchery.lua:164-184`；`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:409-413`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 38
+    },
+    {
+      "claim_id": "C03",
+      "entry_id": "entry-03918",
+      "reported_status": "advisory",
+      "original_text": "### C03 | entry-03918 | advisory\n- **短引**：`#{italic}#无尽地痛苦#{normal}#`\n- **差异**：原文斜体短句为完整陈述句 `The pain shall never stop!`（痛苦永不停歇！），译文将其简化为偏正短语，并出现了助词错别字“无尽地痛苦”（副词“地”应为结构助词“的”）。\n- **最强合理等价读法与处置**：该行属技能说明末尾的风味短句，不涉及战斗机制运算；但错别字与句意扭曲明显，建议修正为“痛苦永不停歇！”或“无尽的痛苦！”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:4796`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/butchery.lua:112-120`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 46
+    },
+    {
+      "claim_id": "C04",
+      "entry_id": "entry-03921",
+      "reported_status": "confirmed",
+      "original_text": "### C04 | entry-03921 | confirmed\n- **短引**：`被猎杀的危险令你激动不已。`\n- **差异**：原文首句为 `The thrill of the hunt invigorates you.`（狩猎的快感令你振奋精神）。译文主客体完全颠倒，将主动出击追捕敌人的成语惯用语“thrill of the hunt”误译为被动承受的“被猎杀的危险”。\n- **最强合理等价读法与处置**：尽管该系为逃脱/机动技能（Elusiveness），但技能原设将周遭聚集敌人视为进入狂热狩猎状态的刺激感，译文擅自脑补主被动反转，属于确凿叙事偏差。处置应修正为“追猎的刺激令你精神焕发。”或“狩猎的快感使你精神振奋。”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:4930`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/elusiveness.lua:67-75`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 54
+    },
+    {
+      "claim_id": "C05",
+      "entry_id": "entry-03925",
+      "reported_status": "confirmed",
+      "original_text": "### C05 | entry-03925 | confirmed\n- **短引**：`你的护甲温度极高，能驱散部分能量攻击。`\n- **差异**：原文首句首要条件为 `While Furnace is on your armour is so hot from the furnace it dissipates parts of all energy based attacks against you.`，译文漏掉了关键生效前提 `While Furnace is on`（当熔炉处于激活状态时）。\n- **最强合理等价读法与处置**：源码明确判断 `if not self:isTalentActive(self.T_FURNACE) then return end`，该被动减伤与融化点数积攒完全依赖一技能“熔炉”（Furnace）的持续开启；译文吃掉该条件导致玩家误认为学了被动即可常驻减伤。必须补全前置条件“当熔炉开启时，你的护甲……”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:4985`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/furnace.lua:41-65`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 62
+    },
+    {
+      "claim_id": "C06",
+      "entry_id": "entry-03926",
+      "reported_status": "advisory",
+      "original_text": "### C06 | entry-03926 | advisory\n- **短引**：`#{italic}#只是肉体在燃烧！#{normal}#`\n- **差异**：原文为 `#{italic}#It's only a flesh burn!#{normal}#`。这是对经典名句“It's only a flesh wound!”（皮肉轻伤罢了）的化用调侃，意指过热仅造成微不足道的皮肉烫伤；译文“只是肉体在燃烧！”将其严重化为全身被烈火焚烧，失去了原文的戏谑嘲讽基调。\n- **最强合理等价读法与处置**：作为技能末尾的斜体风味文本，不影响实际物理效果驱散与反击机制，故归为建议类。建议优化为“区区皮肉烫伤罢了！”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:5007`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/furnace.lua:110-120`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 70
+    },
+    {
+      "claim_id": "C07",
+      "entry_id": "entry-03931",
+      "reported_status": "confirmed",
+      "original_text": "### C07 | entry-03931 | confirmed\n- **短引**：`在射击（100%% 武器伤害，射程 -1）的同时你能移动到相邻的一格。 ... 扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。`\n- **差异**：存在两处严重机制偏差：\n  1. 遗漏关键限制条件：原文明确规定 `(unless pinned to the ground or immobilized)`（除非处于定身或无法移动状态）以及 `double steamguns`（双持蒸汽枪），译文完全漏掉定身限制；\n  2. 篡改弹药恢复基准：原文为 `(based on the number of strafes you performed and your ammo capacity)`，源码 `t.getReload(self, t, turns)` 仅根据执行扫射的回合数（turns）计算装填量，译文错译为“取决于扫射期间你消耗的弹药”。\n- **最强合理等价读法与处置**：位移限制关乎实战保命机制，弹药回充判定逻辑被篡改直接误导玩家配装与控弹思路。处置必须补全定身限制，并将结算依据订正为“取决于你执行扫射的次数与弹药容量”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:5089`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/gunslinging.lua:26-33, 62-72`",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 78
+    },
+    {
+      "claim_id": "C08",
+      "entry_id": "entry-03933",
+      "reported_status": "confirmed",
+      "original_text": "### C08 | entry-03933 | confirmed\n- **短引**：`你的灵敏让你能射出同时击中多个敌人的子弹。你精确地瞄准敌人，子弹命中后将弹射至其他目标上。子弹最多弹射 %d 次，只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。`\n- **差异**：\n  1. 属性混淆：原文 `cunning and dexterity` 为灵巧与敏捷双主属性，译文简并为模糊的“你的灵敏”；\n  2. 漏译跳弹载体机制：原文 `whenever it hits something solid (creature or solid wall), it will bounce towards the next closest foe` 明确指出可击中坚固墙壁发生跳弹且优先弹向最近的敌人，译文省略了撞墙跳弹及寻敌规则；\n  3. 遗漏链条中断条件：原文 `(or until it misses)` 声明未命中时跳弹链条提前终止，译文完全吃掉此致命判定限制。\n- **最强合理等价读法与处置**：未命中中断与撞墙弹射均为该技能核心打法机制，非可忽略的细节。处置应补齐灵巧与敏捷属性名，补充撞墙弹射说明，并明确注明“（或直到未命中为止）”。\n- **证据路径与行号**：\n  - 译文：`snapshots/tome-orcs.lua:5112`\n  - 源码：`.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/gunslinging.lua:140-160`\n\n---",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/gemini-rem-12.md",
+      "line": 88
+    }
+  ],
+  "report_sha256": "11bad11b8444220fd480b908eda0a7df93be5c170fd1a54aacbd767ed3702628",
+  "coverage_validated": true
+}

@@ -1,0 +1,451 @@
+{
+  "reference_status": "provisional_model_adjudicated_not_human_gold",
+  "source_observation_count": 34,
+  "confirmed_defects": [
+    {
+      "defect_id": "D01",
+      "entry_id": "entry-03255",
+      "evidence": "**翻译新增，显示形式错误。** `Values plot` →“技能数值属性表”。`debug/PlotTalent.lua:78–84、94–100`采集不同等级下的技能函数值，`:114–137`连接数值点并绘制标注，`:149–159`显示图形。确认“图”变“表”；不把“属性”另计一个对象错误。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "sol-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O001"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O002"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O003"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D02",
+      "entry_id": "entry-03258",
+      "evidence": "**翻译新增，操作目标遗漏。** `Mouse over controls` →“鼠标移动”。`debug/RandomActor.lua:94、177`将预览绑定至角色文本控件焦点，`:279–287`按按钮的 `_actor_field`显示对应角色。译文未交代应把鼠标移到控件上。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "sol-01",
+          "claim_id": "C02",
+          "original_assertion": "ISSUE",
+          "observation_id": "O005"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C02",
+          "original_assertion": "ISSUE",
+          "observation_id": "O006"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C02",
+          "original_assertion": "ISSUE",
+          "observation_id": "O007"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D03",
+      "entry_id": "entry-03263",
+      "evidence": "**翻译新增，条件行为信息弱化。** `will use a random actor if needed` →“如果需要的话，也可以用随机角色作为基础”。`debug/RandomActor.lua:180–184`的生成按钮直接调用 `generateBoss`；`:353–358`在没有基础角色时直接生成随机基础角色。译文保留了能力和条件，却未保留需要时由生成流程执行回退的确定行为。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C03",
+          "original_assertion": "ISSUE",
+          "observation_id": "O009"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C03",
+          "original_assertion": "ISSUE",
+          "observation_id": "O010"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C04",
+          "original_assertion": "ADVISORY",
+          "observation_id": "O011"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D04",
+      "entry_id": "entry-03270",
+      "evidence": "**沿袭上游，失败阶段／对象误述。** 英文和中文均称“基础角色”。`debug/RandomActor.lua:354–360`已经取得基础角色，`:374–383`检查的是 `createRandomBoss`返回结果，参数为 Boss 数据。`game/modules/tome/class/GameState.lua:2368–2397、2475、2536`克隆基础角色、加工为随机 Boss 并返回。确认日志的对象描述错误；不声称正常实现会触发这一空返回防御分支。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C02",
+          "original_assertion": "ISSUE",
+          "observation_id": "O015"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C04",
+          "original_assertion": "ISSUE",
+          "observation_id": "O016"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C05",
+          "original_assertion": "ISSUE",
+          "observation_id": "O017"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D05",
+      "entry_id": "entry-03271",
+      "evidence": "**翻译新增，数值含义错误。** `line: %s` →“行数：%s”。`debug/RandomObject.lua:44–55`将 `functionHelp`第三个返回值填入该参数；`game/engines/default/engine/DebugConsole.lua:462–495`返回 `info.linedefined`。这是定义所在行号，不是行的数量。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C03",
+          "original_assertion": "ISSUE",
+          "observation_id": "O018"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C05",
+          "original_assertion": "ISSUE",
+          "observation_id": "O019"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C06",
+          "original_assertion": "ISSUE",
+          "observation_id": "O020"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C07",
+          "original_assertion": "ISSUE",
+          "observation_id": "O021"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D06",
+      "entry_id": "entry-03272",
+      "evidence": "**翻译新增，功能信息遗漏。** `context sensitive help` →“查看帮助”。`debug/RandomObject.lua:339–347、519–531`随控件焦点或解析器选择更新 `help_display`，`:475、509–512`由 F1 显示相应内容。译文遗漏了获得不同帮助内容所依赖的上下文关系。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "sol-01",
+          "claim_id": "C06",
+          "original_assertion": "ISSUE",
+          "observation_id": "O022"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C07",
+          "original_assertion": "ISSUE",
+          "observation_id": "O023"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O025"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D07",
+      "entry_id": "entry-03272",
+      "evidence": "**翻译新增，函数来源关系丢失。** `ToME and engine` →“ToME游戏引擎”。`debug/RandomObject.lua:54–61`分别收集 `game.zone.checkFilter`和三个 `game.state.entityFilter*`函数的帮助；实现分别见 `game/engines/default/engine/Zone.lua:294–319`及 `game/modules/tome/class/GameState.lua:1357、1460、1583`。原文明确并列模块与引擎两层来源，译文将其合成一个名称。“generation”译为“处理”不另计缺陷。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "opus-01",
+          "claim_id": "C08",
+          "original_assertion": "ISSUE",
+          "observation_id": "O024"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D08",
+      "entry_id": "entry-03285",
+      "evidence": "**翻译新增，诊断字段归属歧义。** `with filter [%s]` →“发生错误[%s]”。`debug/RandomObject.lua:580–605`表明两个参数依次为 `_M._random_filter`和异常值 `o`。译文将筛选器内容直接附于“错误”，下一行再列真实错误；原文明确的筛选器字段关系因此丢失。并非占位符顺序错误。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C08",
+          "original_assertion": "ISSUE",
+          "observation_id": "O029"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C12",
+          "original_assertion": "ISSUE",
+          "observation_id": "O030"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D09",
+      "entry_id": "entry-03287",
+      "evidence": "**翻译新增，诊断字段归属歧义。** `with filter [%s]` →“发生错误 [%s]”。`debug/RandomObject.lua:611–625`传入 `_M._base_filter, o`。与 D08 同类，但属于另一独立条目，分别计数。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O031"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C13",
+          "original_assertion": "ISSUE",
+          "observation_id": "O032"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    }
+  ],
+  "observation_decisions": {
+    "O001": {
+      "status": "confirmed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "PlotTalent.lua:114–137、149–159实际绘制并显示曲线，不是属性表。"
+    },
+    "O002": {
+      "status": "confirmed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "标题与逐级绘图实现相符；mastery 参数未见缺陷。"
+    },
+    "O003": {
+      "status": "mixed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "**confirmed**：“曲线图”被称为“表”。**advisory**：“属性”可泛指技能参数，不能据此另立对象错误。技能树系数有 ActorTalents.lua:941–944、Actor.lua:5091–5097支持。"
+    },
+    "O004": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "同段及基础输入框均可明确对应同一筛选器；同义词不统一未改变功能。"
+    },
+    "O005": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "RandomActor.lua:94、177、284–287明确将预览关联于具体控件。"
+    },
+    "O006": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "同 D02；遗漏的是操作目标，不是要求译文逐字保留英文。"
+    },
+    "O007": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "控件焦点／选中回调支持其核心观察；不将其扩大为“只能用鼠标触发”。"
+    },
+    "O008": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "RandomActor.lua:74、141及冻结上下文足以对应“基础过滤器／基础筛选器”。"
+    },
+    "O009": {
+      "status": "confirmed",
+      "defects": [
+        "D03"
+      ],
+      "rationale": "RandomActor.lua:353–358直接执行缺省基础角色生成；“可以”未交代该确定回退行为。"
+    },
+    "O010": {
+      "status": "confirmed",
+      "defects": [
+        "D03"
+      ],
+      "rationale": "缺少基础角色时无需另一次用户选择，代码直接调用 `makeEntity`。"
+    },
+    "O011": {
+      "status": "mixed",
+      "defects": [
+        "D03"
+      ],
+      "rationale": "**confirmed**：源码存在自动回退、中文带可选意味。**refuted**：“只有措辞差异、没有信息损失”的结论；保留“如果需要”不能替代执行行为。"
+    },
+    "O012": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "Boss 的大小写及空格未改变所指数据或转换对象。"
+    },
+    "O013": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "RandomActor.lua:347确实传入筛选器和异常；但整句“以下筛选器”仍前指随后唯一的括号内容，不能仅凭紧邻“角色”认定参数已成为角色标识。"
+    },
+    "O014": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "同 O013；当前文本保有明确的前指词，属于参数摆放不够顺畅。"
+    },
+    "O015": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "RandomActor.lua:360、374–383显示该分支属于 Boss 转换阶段；错误沿袭英文。"
+    },
+    "O016": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "基础角色获取与 Boss 转换是先后两步，日志误指前一步。"
+    },
+    "O017": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "核心对象误述成立；GameState.lua:2536正常返回 Boss，观察中的可达性限制也成立。"
+    },
+    "O018": {
+      "status": "confirmed",
+      "defects": [
+        "D05"
+      ],
+      "rationale": "RandomObject.lua:44–55与 DebugConsole.lua:495闭合参数链，值为定义行号。"
+    },
+    "O019": {
+      "status": "confirmed",
+      "defects": [
+        "D05"
+      ],
+      "rationale": "“行数”改变了该位置数值的含义。"
+    },
+    "O020": {
+      "status": "confirmed",
+      "defects": [
+        "D05"
+      ],
+      "rationale": "`info.linedefined`直接支持观察，不依赖变量名猜测。"
+    },
+    "O021": {
+      "status": "confirmed",
+      "defects": [
+        "D05"
+      ],
+      "rationale": "与 RandomActor 的“第%s行”语境一致；根本证据仍为返回值实现。"
+    },
+    "O022": {
+      "status": "confirmed",
+      "defects": [
+        "D06"
+      ],
+      "rationale": "F1 根据当前 `help_display`显示帮助，中文遗漏动态上下文信息。"
+    },
+    "O023": {
+      "status": "confirmed",
+      "defects": [
+        "D06"
+      ],
+      "rationale": "RandomObject.lua:339–347、509–520支持不同控件／解析器对应不同帮助。"
+    },
+    "O024": {
+      "status": "confirmed",
+      "defects": [
+        "D07"
+      ],
+      "rationale": "原文的并列来源有两层实现支持；“处理”过宽不单独计数。"
+    },
+    "O025": {
+      "status": "confirmed",
+      "defects": [
+        "D06"
+      ],
+      "rationale": "RandomObject.lua:475、509–512、531形成帮助选择和显示链。"
+    },
+    "O026": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "同一段“使用的角色／工作角色”仍指同一对象，未造成对象切换。"
+    },
+    "O027": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "RandomObject.lua:598分别传入解析器括注和物品名；主要问题是语序。"
+    },
+    "O028": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "无解析器时首参数为空，额外空格不影响信息或参数消费。"
+    },
+    "O029": {
+      "status": "confirmed",
+      "defects": [
+        "D08"
+      ],
+      "rationale": "RandomObject.lua:605的首参数是筛选器，译文却将其附在“发生错误”之后。"
+    },
+    "O030": {
+      "status": "mixed",
+      "defects": [
+        "D08"
+      ],
+      "rationale": "**confirmed**：筛选器字段与“错误”的附着关系造成歧义。**refuted**：“该筛选器完全没有所指”；RandomObject.lua:240–249提供当前筛选器输入语境，但这未恢复括号字段的明确标签。"
+    },
+    "O031": {
+      "status": "confirmed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "RandomObject.lua:625的首参数是基础筛选器，第二个才是异常值。观察所附自述不作为核验证据。"
+    },
+    "O032": {
+      "status": "mixed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "**confirmed**：同 D09 的字段归属问题。**refuted**：“该筛选器没有所指”；基础筛选器控件在 RandomObject.lua:310–321明确存在。"
+    },
+    "O033": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "RandomObject.lua:667–692表明这是解析器接收／加入物品阶段；“接受”生硬但未改变阶段或参数。观察所附读取声明不作为证据。"
+    },
+    "O034": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "与 O033 合并为同一措辞建议，不计确认缺陷。"
+    }
+  }
+}

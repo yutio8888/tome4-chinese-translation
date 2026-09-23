@@ -1,0 +1,358 @@
+{
+  "prompt": "你是只读 REVIEWER，执行用户已授权的40条三模型对比试验。唯一入口 evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-20260923/INPUT.md；只可读取其中明确列出的冻结材料与固定版本源码。完整逐条覆盖40条，使用中文自然语言，不强制JSON。不得读取本实验其他文件或其他模型输出；不得写文件、创建子agent或修复译文。以 INPUT 的同一评分分类返回最终报告。这是原campaign自然语言审核旁路，沿用其用户授权例外，不输出生产contract JSON，不声称 DONE_VERIFIED。",
+  "model_discovery": {
+    "claude": [
+      {
+        "provider": "claude",
+        "id": "claude-opus-5-5",
+        "label": "Opus 5.5",
+        "description": "Opus 5.5 · Latest release",
+        "isDefault": true,
+        "contextWindowMaxTokens": 1000000,
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "Low"
+          },
+          {
+            "id": "medium",
+            "label": "Medium",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "High"
+          },
+          {
+            "id": "xhigh",
+            "label": "Extra High"
+          },
+          {
+            "id": "max",
+            "label": "Max"
+          },
+          {
+            "id": "ultracode",
+            "label": "Ultra Code"
+          }
+        ],
+        "defaultThinkingOptionId": "medium"
+      }
+    ],
+    "codex": [
+      {
+        "provider": "codex",
+        "id": "gpt-6-astra",
+        "label": "GPT-6-Astra",
+        "description": "Frontier intelligence for the most demanding work.",
+        "isDefault": true,
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "low",
+            "description": "Fast responses with lighter reasoning",
+            "isDefault": false
+          },
+          {
+            "id": "medium",
+            "label": "medium",
+            "description": "Balances speed and reasoning depth for everyday tasks",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "high",
+            "description": "Greater reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "xhigh",
+            "label": "xhigh",
+            "description": "Extra high reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "max",
+            "label": "max",
+            "description": "Maximum reasoning depth for the hardest problems",
+            "isDefault": false
+          },
+          {
+            "id": "ultra",
+            "label": "ultra",
+            "description": "Maximum reasoning with automatic task delegation",
+            "isDefault": false
+          }
+        ],
+        "defaultThinkingOptionId": "medium",
+        "metadata": {
+          "model": "gpt-6-astra",
+          "defaultReasoningEffort": "medium",
+          "supportedReasoningEfforts": [
+            {
+              "reasoningEffort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "reasoningEffort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "reasoningEffort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "reasoningEffort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ]
+        }
+      },
+      {
+        "provider": "codex",
+        "id": "gpt-6-sol",
+        "label": "GPT-6-Sol",
+        "description": "Workhorse model for coding and everyday work.",
+        "isDefault": false,
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "low",
+            "description": "Fast responses with lighter reasoning",
+            "isDefault": false
+          },
+          {
+            "id": "medium",
+            "label": "medium",
+            "description": "Balances speed and reasoning depth for everyday tasks",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "high",
+            "description": "Greater reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "xhigh",
+            "label": "xhigh",
+            "description": "Extra high reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "max",
+            "label": "max",
+            "description": "Maximum reasoning depth for the hardest problems",
+            "isDefault": false
+          },
+          {
+            "id": "ultra",
+            "label": "ultra",
+            "description": "Maximum reasoning with automatic task delegation",
+            "isDefault": false
+          }
+        ],
+        "defaultThinkingOptionId": "medium",
+        "metadata": {
+          "model": "gpt-6-sol",
+          "defaultReasoningEffort": "medium",
+          "supportedReasoningEfforts": [
+            {
+              "reasoningEffort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "reasoningEffort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "reasoningEffort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "reasoningEffort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "reasoningEffort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ]
+        }
+      }
+    ],
+    "pi": [
+      {
+        "provider": "pi",
+        "id": "cpa/gemini-3.8-flash-high",
+        "label": "Gemini 3.8 Flash High (CPA)",
+        "description": "cpa/gemini-3.8-flash-high",
+        "metadata": {
+          "provider": "cpa",
+          "modelId": "gemini-3.8-flash-high"
+        },
+        "thinkingOptions": [
+          {
+            "id": "off",
+            "label": "Off",
+            "description": "No extra reasoning"
+          },
+          {
+            "id": "minimal",
+            "label": "Minimal",
+            "description": "Light reasoning"
+          },
+          {
+            "id": "low",
+            "label": "Low",
+            "description": "Faster reasoning"
+          },
+          {
+            "id": "medium",
+            "label": "Medium",
+            "description": "Balanced reasoning",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "High",
+            "description": "Deeper reasoning"
+          },
+          {
+            "id": "xhigh",
+            "label": "XHigh",
+            "description": "Very deep reasoning"
+          },
+          {
+            "id": "max",
+            "label": "Max",
+            "description": "Extreme reasoning"
+          }
+        ],
+        "defaultThinkingOptionId": "medium"
+      }
+    ]
+  },
+  "provider_inspections": {
+    "claude": {
+      "provider": "claude",
+      "label": "Claude",
+      "description": "Anthropic's multi-tool assistant with MCP support, streaming, and deep reasoning",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "plan",
+          "label": "Plan Mode",
+          "description": "Analyze the codebase without executing tools or edits",
+          "icon": "ShieldEllipsis",
+          "colorTier": "planning"
+        },
+        {
+          "id": "default",
+          "label": "Always Ask",
+          "description": "Prompts for permission the first time a tool is used",
+          "icon": "Shield",
+          "colorTier": "safe"
+        },
+        {
+          "id": "acceptEdits",
+          "label": "Accept File Edits",
+          "description": "Automatically approves edit-focused tools without prompting",
+          "icon": "ShieldPlus",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto",
+          "label": "Auto mode",
+          "description": "Uses a model classifier to review permission prompts automatically",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "bypassPermissions",
+          "label": "Bypass",
+          "description": "Skip all permission prompts (use with caution)",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "claude-opus-5-5",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "fast_mode",
+          "label": "Fast",
+          "description": "Lower latency Opus responses at higher token cost",
+          "tooltip": "Toggle fast mode",
+          "icon": "zap",
+          "value": false
+        }
+      ]
+    },
+    "codex": {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6-sol",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    },
+    "pi": {
+      "provider": "pi",
+      "label": "Pi",
+      "description": "Minimal terminal-based coding agent with multi-provider LLM support",
+      "enabled": true,
+      "status": "available",
+      "modes": [],
+      "selectedModel": "cpa/gemini-3.8-flash-high",
+      "features": []
+    }
+  }
+}

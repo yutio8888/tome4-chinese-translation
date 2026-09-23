@@ -1,0 +1,55 @@
+{
+  "request": {
+    "title": "Process AB40 P shared full independent",
+    "provider": "codex/gpt-5.6-sol",
+    "workspaceId": "wks_ac28b30c4bf45d5b",
+    "notifyOnFinish": true,
+    "settings": {
+      "modeId": "auto-review",
+      "thinkingOptionId": "medium"
+    },
+    "labels": {
+      "task": "process-ab40-20260923",
+      "role": "reviewer",
+      "purpose": "translation_contextual_v1",
+      "stage": "P"
+    },
+    "initialPrompt": "你是只读 REVIEWER，purpose=translation_contextual_v1。本次用户授权 A/B 流程研究旁路，非正式生产 contract 验收，按指定自然语言研究输入返回报告。禁止写文件、创建子agent、读其他任务或报告。唯一入口：/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/process-ab40-20260923/INPUT-P.md。必须先读 RULES.md，再按冻结顺序核对全部40条。请直接执行，最终一次返回完整报告。"
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "availableModes_count=3\navailableModes_ids=auto,auto-review,full-access\n\n{\n  \"agentId\": \"d972406b-219e-41b5-bf57-70d45ce7e421\",\n  \"type\": \"codex\",\n  \"status\": \"running\",\n  \"cwd\": \"/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921\",\n  \"workspaceId\": \"wks_ac28b30c4bf45d5b\",\n  \"currentModeId\": \"auto-review\",\n  \"availableModes\": [\n    {\n      \"id\": \"auto\",\n      \"label\": \"Default Permissions\",\n      \"description\": \"Edit files and run commands with Codex's default approval flow.\"\n    },\n    {\n      \"id\": \"auto-review\",\n      \"label\": \"Auto-review\",\n      \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\"\n    },\n    {\n      \"id\": \"full-access\",\n      \"label\": \"Full Access\",\n      \"description\": \"Edit files, run commands, and access the network without additional prompts.\"\n    }\n  ],\n  \"lastMessage\": null,\n  \"permission\": null,\n  \"guidance\": \"You will get notified when the created agent finishes, errors, or needs permission. Do not poll for status; continue with other work until the notification arrives.\"\n}"
+      }
+    ],
+    "structuredContent": {
+      "agentId": "d972406b-219e-41b5-bf57-70d45ce7e421",
+      "type": "codex",
+      "status": "running",
+      "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+      "workspaceId": "wks_ac28b30c4bf45d5b",
+      "currentModeId": "auto-review",
+      "availableModes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow."
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts."
+        }
+      ],
+      "lastMessage": null,
+      "permission": null,
+      "guidance": "You will get notified when the created agent finishes, errors, or needs permission. Do not poll for status; continue with other work until the notification arrives."
+    }
+  }
+}

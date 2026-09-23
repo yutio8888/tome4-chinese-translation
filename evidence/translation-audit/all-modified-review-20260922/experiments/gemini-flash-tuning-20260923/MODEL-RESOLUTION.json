@@ -1,0 +1,101 @@
+{
+  "profile_route": "antigravity/gemini-3.8-flash",
+  "profile_error": "Authentication required: By continuing, you agree to https://antigravity.google/terms",
+  "fallback": "pi/cpa/gemini-3.8-flash-high",
+  "thinking": "high",
+  "discovered_models": [
+    {
+      "provider": "pi",
+      "id": "cpa/gemini-3.8-flash-high",
+      "label": "Gemini 3.8 Flash High (CPA)",
+      "description": "cpa/gemini-3.8-flash-high",
+      "metadata": {
+        "provider": "cpa",
+        "modelId": "gemini-3.8-flash-high"
+      },
+      "thinkingOptions": [
+        {
+          "id": "off",
+          "label": "Off",
+          "description": "No extra reasoning"
+        },
+        {
+          "id": "minimal",
+          "label": "Minimal",
+          "description": "Light reasoning"
+        },
+        {
+          "id": "low",
+          "label": "Low",
+          "description": "Faster reasoning"
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "description": "Balanced reasoning",
+          "isDefault": true
+        },
+        {
+          "id": "high",
+          "label": "High",
+          "description": "Deeper reasoning"
+        },
+        {
+          "id": "xhigh",
+          "label": "XHigh",
+          "description": "Very deep reasoning"
+        },
+        {
+          "id": "max",
+          "label": "Max",
+          "description": "Extreme reasoning"
+        }
+      ],
+      "defaultThinkingOptionId": "medium"
+    },
+    {
+      "provider": "pi",
+      "id": "commandcode/google/gemini-3.8-flash",
+      "label": "Gemini 3.8 Flash",
+      "description": "commandcode/google/gemini-3.8-flash",
+      "metadata": {
+        "provider": "commandcode",
+        "modelId": "google/gemini-3.8-flash"
+      },
+      "thinkingOptions": [
+        {
+          "id": "off",
+          "label": "Off",
+          "description": "No extra reasoning"
+        },
+        {
+          "id": "minimal",
+          "label": "Minimal",
+          "description": "Light reasoning"
+        },
+        {
+          "id": "low",
+          "label": "Low",
+          "description": "Faster reasoning"
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "description": "Balanced reasoning",
+          "isDefault": true
+        },
+        {
+          "id": "high",
+          "label": "High",
+          "description": "Deeper reasoning"
+        }
+      ],
+      "defaultThinkingOptionId": "medium"
+    }
+  ],
+  "note": "User requested Gemini Flash; available exact-series CPA fallback. No same-model paired production review: this is a prompt experiment, not independent model diversity validation. Upstream identity is provider-advertised and terminal-observed, not independently attested.",
+  "user_reported_login_complete": true,
+  "planned_route": "antigravity/gemini-3.8-flash",
+  "inspection_result": "available; separate list_models endpoint still returned authentication required",
+  "fallback_used": false
+}

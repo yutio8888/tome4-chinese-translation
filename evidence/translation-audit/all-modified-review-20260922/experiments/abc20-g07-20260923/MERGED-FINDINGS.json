@@ -1,0 +1,791 @@
+{
+  "reference_status": "provisional_model_adjudicated_not_human_gold",
+  "source_observation_count": 69,
+  "confirmed_defects": [
+    {
+      "defect_id": "D01",
+      "entry_id": "entry-03413",
+      "evidence": "**漏译宿主的恶魔类型限定，翻译新增。** `unique demons` 变为“史诗生物（Unique）”。后面的“有对应的恶魔种子”是另一个条件，未译出宿主类型。`D/data/talents/corruptions/demonic-pact.lua:364–369` 按 `host.type == \"demon\"` 分支决定是否按宿主名称匹配种子。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O002"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O003"
+        },
+        {
+          "origin": "gemini-01",
+          "claim_id": "C01",
+          "original_assertion": "ISSUE",
+          "observation_id": "O004"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D02",
+      "entry_id": "entry-03416",
+      "evidence": "**距离上限信息丢失，翻译新增。** `up to %d grids` 变为“%d 码外”；“误差”不能表达可选距离的上限。`D/data/talents/corruptions/demonic-pact.lua:855–875、888–895` 分别消费选点范围和落点散布半径。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C02",
+          "original_assertion": "ISSUE",
+          "observation_id": "O010"
+        },
+        {
+          "origin": "gemini-01",
+          "claim_id": "C03",
+          "original_assertion": "ADVISORY",
+          "observation_id": "O011"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C03",
+          "original_assertion": "ISSUE",
+          "observation_id": "O012"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C05",
+          "original_assertion": "ISSUE",
+          "observation_id": "O016"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D03",
+      "entry_id": "entry-03416",
+      "evidence": "**随机选择的种子来源集合遗漏，翻译新增。** `from your seeds` 未译出。装备种子是施法前提，不能替代“从这些种子中选择恶魔”的来源信息。`D/data/talents/corruptions/demonic-pact.lua:326–343、851、879–882` 构造穿戴种子列表并从中抽取。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C03",
+          "original_assertion": "ISSUE",
+          "observation_id": "O013"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C06",
+          "original_assertion": "ISSUE",
+          "observation_id": "O017"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D04",
+      "entry_id": "entry-03419",
+      "evidence": "**乘算叠加限定遗漏，翻译新增。** `multiplicatively` 未译出。`D/data/timed_effects.lua:805、813–820` 使用 `100 × (1 − 0.92^stacks)`；两层为 15.36%，不是 16%。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C04",
+          "original_assertion": "ISSUE",
+          "observation_id": "O019"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C05",
+          "original_assertion": "ISSUE",
+          "observation_id": "O020"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C05",
+          "original_assertion": "ISSUE",
+          "observation_id": "O021"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C08",
+          "original_assertion": "ISSUE",
+          "observation_id": "O022"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D05",
+      "entry_id": "entry-03431",
+      "evidence": "**回血的近战限定遗漏，翻译新增。** `in melee` 被泛化为“攻击”。`D/data/timed_effects.lua:683–686` 使用 `callbackOnMeleeHit`；`E/game/modules/tome/class/interface/Combat.lua:643` 为近战命中调用点。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C07",
+          "original_assertion": "ISSUE",
+          "observation_id": "O037"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O039"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C10",
+          "original_assertion": "ISSUE",
+          "observation_id": "O040"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C15",
+          "original_assertion": "ISSUE",
+          "observation_id": "O043"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D06",
+      "entry_id": "entry-03431",
+      "evidence": "**回血的伤害条件遗漏，翻译新增。** 原文为 `damage this foe`，译文只要求“攻击”。`D/data/timed_effects.lua:684` 排除空或非正的伤害参数。注意这不是“目标最终必须扣血”：`E/game/modules/tome/class/interface/Combat.lua:627–643` 传入的是近战计算参数，未接收伤害投射器的最终扣血返回值。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C07",
+          "original_assertion": "ISSUE",
+          "observation_id": "O037"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O039"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C10",
+          "original_assertion": "ISSUE",
+          "observation_id": "O040"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D07",
+      "entry_id": "entry-03433",
+      "evidence": "**惊吓效果的近战限定遗漏，翻译新增。** `melee hits` 变为泛指攻击。`D/data/talents/corruptions/oppression.lua:72–81` 仅通过近战攻击回调施加效果。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O045"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C10",
+          "original_assertion": "ISSUE",
+          "observation_id": "O046"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C12",
+          "original_assertion": "ISSUE",
+          "observation_id": "O047"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C17",
+          "original_assertion": "ISSUE",
+          "observation_id": "O048"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D08",
+      "entry_id": "entry-03433",
+      "evidence": "**成功命中的条件遗漏，翻译新增。** `successful` 未译出，且“每次攻击会刷新”也未保留该条件。`D/data/talents/corruptions/oppression.lua:75` 明确排除 `not hitted`。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C09",
+          "original_assertion": "ISSUE",
+          "observation_id": "O045"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C10",
+          "original_assertion": "ISSUE",
+          "observation_id": "O046"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C12",
+          "original_assertion": "ISSUE",
+          "observation_id": "O047"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C17",
+          "original_assertion": "ISSUE",
+          "observation_id": "O048"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D09",
+      "entry_id": "entry-03437",
+      "evidence": "**指定落点的操作信息遗漏，翻译新增。** `specific location` 未译出。“传送半径”表达距离，却没有表达可指定位置。`D/data/talents/misc/races.lua:55–68` 获取玩家坐标、检查空位后以半径零传送。并不据此认定“半径”必然表示随机。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C10",
+          "original_assertion": "ISSUE",
+          "observation_id": "O050"
+        },
+        {
+          "origin": "sol-01",
+          "claim_id": "C11",
+          "original_assertion": "ISSUE",
+          "observation_id": "O051"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C13",
+          "original_assertion": "ISSUE",
+          "observation_id": "O052"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C19",
+          "original_assertion": "ISSUE",
+          "observation_id": "O053"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D10",
+      "entry_id": "entry-03437",
+      "evidence": "**明确适用的状态名未沿用，翻译新增。** 第二段“停留在相位外 5 回合”明确指向状态，而冻结术语要求 Out of Phase 使用 preferred“脱离现实”、沿用效果定义。`D/data/talents/misc/races.lua:73–77` 设置该效果；`E/game/modules/tome/data/timed_effects/magical.lua:2582–2598` 核实状态身份及加成。缺陷限于明确指称该状态的部分，不强制逐字替换所有叙事性 phase 表述。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "opus-01",
+          "claim_id": "C20",
+          "original_assertion": "ISSUE",
+          "observation_id": "O054"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D11",
+      "entry_id": "entry-03438",
+      "evidence": "**重置对象“冷却时间”遗漏，翻译新增。** 原文明确重置两个技能的 `cooldowns`，译文只写重置技能；该句没有其他冷却说明。`D/data/talents/misc/races.lua:133–134` 对两个技能执行 `alterTalentCoolingdown(..., -1000)`。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "gemini-01",
+          "claim_id": "C11",
+          "original_assertion": "ADVISORY",
+          "observation_id": "O056"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C14",
+          "original_assertion": "ISSUE",
+          "observation_id": "O057"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D12",
+      "entry_id": "entry-03440",
+      "evidence": "**武器所属对象丢失，翻译新增。** 武器看起来不再危险变为角色“危险度”降低。`D/data/timed_effects.lua:51–52` 为武器附魔的获得／结束日志；`context.lua:466–469` 保留完整成对语境。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "sol-01",
+          "claim_id": "C12",
+          "original_assertion": "ISSUE",
+          "observation_id": "O060"
+        },
+        {
+          "origin": "gemini-01",
+          "claim_id": "C12",
+          "original_assertion": "ISSUE",
+          "observation_id": "O061"
+        },
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C17",
+          "original_assertion": "ISSUE",
+          "observation_id": "O062"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C22",
+          "original_assertion": "ISSUE",
+          "observation_id": "O063"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    },
+    {
+      "defect_id": "D13",
+      "entry_id": "entry-03441",
+      "evidence": "**火焰燃烧含义丢失，翻译新增。** `blazing` 仅译为“闪耀”。`D/data/timed_effects.lua:156–178` 的两个使用处分别对应武器火焰和包围生物的吞噬火焰，均不是普通发光。英文 `'s` 的缺词／病句来自上游，不能据此统一指定“武器”。",
+      "status": "confirmed_provisional",
+      "sources": [
+        {
+          "origin": "reference-blind-01",
+          "claim_id": "C18",
+          "original_assertion": "ISSUE",
+          "observation_id": "O065"
+        },
+        {
+          "origin": "opus-01",
+          "claim_id": "C23",
+          "original_assertion": "ADVISORY",
+          "observation_id": "O066"
+        }
+      ],
+      "action": "recorded_for_later_translation_or_upstream_fix_no_change_applied"
+    }
+  ],
+  "observation_decisions": {
+    "O001": {
+      "status": "refuted",
+      "defects": [],
+      "rationale": "“级别”后明确列出普通、精英、稀有等 rank，未变为数值等级；“存活”结合成熟种子语境未引入另一概率。`demonic-pact.lua:665` 先施加种子，`timed_effects.lua:515–518` 才按概率取得成熟种子。"
+    },
+    "O002": {
+      "status": "confirmed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "恶魔类型限定确实未译出；`demonic-pact.lua:364–369` 支持该区分。"
+    },
+    "O003": {
+      "status": "confirmed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "与 O002 为同一遗漏，不重复计缺陷。"
+    },
+    "O004": {
+      "status": "confirmed",
+      "defects": [
+        "D01"
+      ],
+      "rationale": "类型分支及文本遗漏成立；不扩大为所有史诗宿主都会实际产出专属种子的断言。"
+    },
+    "O005": {
+      "status": "mixed",
+      "defects": [],
+      "rationale": "**refuted**：不能把概率直接认作植入动作失败概率，快照在宿主死亡时抽取；**advisory**：多余空格及更清楚的概率措辞。见 `demonic-pact.lua:665`、`timed_effects.lua:515–518`。"
+    },
+    "O006": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P01；`:655` 确有首次例外，但目标 DLC 版本未固定。"
+    },
+    "O007": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "“此外”另起回复／复活陈述，不能确定其受高等级条件约束；已有种子“提升等级”也已表达更新对象。`:438–467、495–536` 支持更新与治疗分开理解，现有表述可澄清但不确认两项缺陷。"
+    },
+    "O008": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P02；`:467、605、701` 确有点数参数与百分比文本差异；沿袭上游不构成豁免，版本适用性仍缺失。"
+    },
+    "O009": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "空格不改变参数或句义。"
+    },
+    "O010": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "最大可选距离没有保留；`:858、864、895` 区分范围和散布。"
+    },
+    "O011": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "所指出的上限遗漏成立；玩家随后能选点不能补回说明中的距离信息，“仅建议”分档不成立。"
+    },
+    "O012": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "同一距离上限缺陷；无需把“码外”唯一解释为确定距离才能成立。"
+    },
+    "O013": {
+      "status": "confirmed",
+      "defects": [
+        "D03"
+      ],
+      "rationale": "`availableDemonSeed` 的来源集合与施法所需种子条件是不同信息。"
+    },
+    "O014": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P03；`:867–882` 支持回退随机传送，但不能据快照确定目标版本。"
+    },
+    "O015": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P03；观察对源码事实及版本缺口的区分成立。"
+    },
+    "O016": {
+      "status": "confirmed",
+      "defects": [
+        "D02"
+      ],
+      "rationale": "与 O010 为同一上限遗漏。"
+    },
+    "O017": {
+      "status": "confirmed",
+      "defects": [
+        "D03"
+      ],
+      "rationale": "`:879` 从穿戴种子列表选择，冻结英文已明确来源。"
+    },
+    "O018": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P03；英文和中文都有描述缺口，不能因来自英文而直接排除。"
+    },
+    "O019": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "`timed_effects.lua:805、817–820` 与冻结英文共同支持乘算限定。"
+    },
+    "O020": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "同一叠加算法遗漏。"
+    },
+    "O021": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "层数上限不能替代叠加算法。"
+    },
+    "O022": {
+      "status": "confirmed",
+      "defects": [
+        "D04"
+      ],
+      "rationale": "同一遗漏；不要求证明所有玩家都会误算。"
+    },
+    "O023": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "darkness 记录为 existing，非所声称的强制标准；`timed_effects.lua:853` 只能证明伤害类型。与邻文统一可建议，不能据此确认术语错误。"
+    },
+    "O024": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "“黑暗／暗影”一致性和“开启”的自然程度可改善；上下文已有层数，不足以判为另一机制。"
+    },
+    "O025": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P04；`:185` 的基础赋值 10 成立，最终时长还经过本体效果处理，且 DLC 版本未固定。"
+    },
+    "O026": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P04；对基础时长与豁免后时长的区分成立。"
+    },
+    "O027": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P04；不能把调用参数直接概括成所有目标实际持续 10 回合，也不能豁免上游误述。"
+    },
+    "O028": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P05；`:75` 赋值 4，不能仅按英文 3 判译文错。"
+    },
+    "O029": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P05；效果定义和持续时间接口已核实，目标 DLC 版本对应关系仍缺失。"
+    },
+    "O030": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P05；快照支持译文，但不足以直接结案为目标版本无问题；倒计时函数也不是完整行动时序证明。"
+    },
+    "O031": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P06；`:107` 排除 other 和 cross tier 的事实成立，版本适用性未定。"
+    },
+    "O032": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P06；过滤条件与随后按清除数量计伤害已核实。"
+    },
+    "O033": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "两种称呼均指第二个选择对象；`infernal-combat.lua:120–128` 未显示对象混淆。"
+    },
+    "O034": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "`timed_effects.lua:715–731` 确为另加伤害；但完整译句先说源生物受到伤害，没有说减去或转移。“由”不足以独立证明排他的伤害分担机制。"
+    },
+    "O035": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "`Actor.lua:3013–3014` 支持回调未扣减原值；文本可消歧，但不能由“由……承受”必然推出源生物减伤。"
+    },
+    "O036": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "同 O034；不确认其“暗示”已构成另一明确机制承诺。"
+    },
+    "O037": {
+      "status": "mixed",
+      "defects": [
+        "D05",
+        "D06"
+      ],
+      "rationale": "**confirmed**：近战及伤害条件遗漏；**refuted**：将回调参数解释为最终有效扣血。`Combat.lua:627–643` 没有把投射器最终结果赋回 `dam`。"
+    },
+    "O038": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "`DamageType.DARKNESS` 已核实；术语 existing 不支持“不得译为黑暗”的强制结论。"
+    },
+    "O039": {
+      "status": "mixed",
+      "defects": [
+        "D05",
+        "D06"
+      ],
+      "rationale": "**confirmed**：近战及正伤害参数条件；**refuted**：把译文必然解释为对“曾被刺穿”目标永久有效。前句已提供刺穿、流血 5 回合的局部语境。"
+    },
+    "O040": {
+      "status": "mixed",
+      "defects": [
+        "D05",
+        "D06"
+      ],
+      "rationale": "**confirmed**：近战及伤害条件遗漏；**refuted**：最终扣血门槛及必然延伸到流血结束后的说法。见 `timed_effects.lua:683–701`、`Combat.lua:627–643`。"
+    },
+    "O041": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P07；效果回调及本体派发中未见该治疗的每回合限制，目标加载组合未固定。"
+    },
+    "O042": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "同一段紧接盾击伤害写“额外 50%”，有明确局部参照；`:168` 的基数与此吻合。可表达得更明确，但不因存在理论上的其他读法确认遗漏。"
+    },
+    "O043": {
+      "status": "confirmed",
+      "defects": [
+        "D05"
+      ],
+      "rationale": "仅就近战限定，断言成立。"
+    },
+    "O044": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P07；本地没有 turn_procs 尚需结合调用链，已补核本体派发；最终仍受版本缺口限制。"
+    },
+    "O045": {
+      "status": "confirmed",
+      "defects": [
+        "D07",
+        "D08"
+      ],
+      "rationale": "`oppression.lua:72–81` 同时限定近战和命中，拆为两个条件缺陷。"
+    },
+    "O046": {
+      "status": "confirmed",
+      "defects": [
+        "D07",
+        "D08"
+      ],
+      "rationale": "同上。"
+    },
+    "O047": {
+      "status": "confirmed",
+      "defects": [
+        "D07",
+        "D08"
+      ],
+      "rationale": "叠加和刷新均通过同一命中条件，不能写成每次任意攻击。"
+    },
+    "O048": {
+      "status": "confirmed",
+      "defects": [
+        "D07",
+        "D08"
+      ],
+      "rationale": "同上。"
+    },
+    "O049": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "已写“角度增加”，数值及角度语境保留；`wrath.lua:206`、`fearfire.lua:186` 支持角度值。单位补全属建议。"
+    },
+    "O050": {
+      "status": "mixed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "**confirmed**：指定落点信息遗漏；**refuted**：“半径”必然表示随机传送。`:55–68` 证明精确选点，但并不证明中文“半径”自带随机含义。"
+    },
+    "O051": {
+      "status": "confirmed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "指定坐标、空位检查及零散布已核实。"
+    },
+    "O052": {
+      "status": "confirmed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "冻结文本未表达 `specific location`。"
+    },
+    "O053": {
+      "status": "mixed",
+      "defects": [
+        "D09"
+      ],
+      "rationale": "**confirmed**：指定落点遗漏；**advisory**：避免读者把范围和散布混淆；不另计“随机传送误述”。"
+    },
+    "O054": {
+      "status": "confirmed",
+      "defects": [
+        "D10"
+      ],
+      "rationale": "明确状态段落适用 preferred 效果名要求；已核实 `EFF_OUT_OF_PHASE` 与本体定义。"
+    },
+    "O055": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "All Resists 术语行针对面板标签；“全体抗性”在本句语义等价。"
+    },
+    "O056": {
+      "status": "mixed",
+      "defects": [
+        "D11"
+      ],
+      "rationale": "**advisory**：紧接触发伤害的“额外 50%”已有局部基数；**confirmed**：冷却这一重置对象遗漏。两项不合并判建议。"
+    },
+    "O057": {
+      "status": "confirmed",
+      "defects": [
+        "D11"
+      ],
+      "rationale": "`races.lua:133–134` 的对象是冷却，冻结译句没有保留该对象。"
+    },
+    "O058": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P08；`timed_effects.lua:1051` 排除 `dead`，版本适用性未定。"
+    },
+    "O059": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P09；`:1051` 使用 `<` 排除，等于阈值可通过；沿袭英文，目标版本未定。"
+    },
+    "O060": {
+      "status": "confirmed",
+      "defects": [
+        "D12"
+      ],
+      "rationale": "武器变成角色整体危险度，成对日志明确。"
+    },
+    "O061": {
+      "status": "confirmed",
+      "defects": [
+        "D12"
+      ],
+      "rationale": "同一所属对象缺陷；不采纳“严重”作为事实依据。"
+    },
+    "O062": {
+      "status": "confirmed",
+      "defects": [
+        "D12"
+      ],
+      "rationale": "文本及武器附魔结束语境直接可证。"
+    },
+    "O063": {
+      "status": "confirmed",
+      "defects": [
+        "D12"
+      ],
+      "rationale": "同上。"
+    },
+    "O064": {
+      "status": "refuted",
+      "defects": [],
+      "rationale": "只考察 RAGING_FLAMES 后要求统一恢复“武器”，遗漏同字符串在 CURSED_FLAMES 的使用。`:177–178` 指生物周围火焰。该错误对象判断不借用 D13。"
+    },
+    "O065": {
+      "status": "confirmed",
+      "defects": [
+        "D13"
+      ],
+      "rationale": "两个使用处都具有明确火焰语义，“闪耀”未保留燃烧含义。"
+    },
+    "O066": {
+      "status": "confirmed",
+      "defects": [
+        "D13"
+      ],
+      "rationale": "`-Revel／-Devoured` 及邻近日志不能替代当前句丢失的火焰语义；仅建议分档不成立。"
+    },
+    "O067": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "空格不对称不改变酸性抗性、亲和或参数。"
+    },
+    "O068": {
+      "status": "pending",
+      "defects": [],
+      "rationale": "P10；固定本体确在 `life <= die_at` 进入死亡处理；DLC 显示与设置的目标版本适用性未定。"
+    },
+    "O069": {
+      "status": "advisory",
+      "defects": [],
+      "rationale": "`timed_effects.lua:861、866–869` 显示当前层数，白名单 `demon-seeds.lua:773–774` 消耗该层数。“叠加次数”可改得更清楚，但未显示错误数值或机制。"
+    }
+  }
+}

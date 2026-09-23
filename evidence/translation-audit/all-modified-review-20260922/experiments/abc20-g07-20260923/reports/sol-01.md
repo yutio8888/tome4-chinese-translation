@@ -1,0 +1,101 @@
+我已核对完 40 条对应的冻结源码位置。发现的主要偏差集中在恶魔种子的触发条件、痛苦链接的伤害关系，以及几处技能范围和状态日志；我正在把译文新增的偏差与英文原文自身沿袭的机制误述分别标明。
+---
+
+| 完整entry-ID | 四类判定 | claim编号或简短依据 |
+|---|---|---|
+| entry-03413 | 存在问题 | C01、C02 |
+| entry-03414 | 未发现问题 | 召唤失败日志含义相符 |
+| entry-03415 | 未发现问题 | 传送位置提示相符 |
+| entry-03416 | 存在问题 | C03、C04 |
+| entry-03417 | 未发现问题 | 数值及作用相符 |
+| entry-03418 | 未发现问题 | 护甲、近战反击及减伤相符 |
+| entry-03419 | 存在问题 | C05 |
+| entry-03420 | 未发现问题 | 生命代价、转伤及资源获得相符 |
+| entry-03421 | 未发现问题 | 护甲与法术强度相符 |
+| entry-03422 | 存在问题 | C06 |
+| entry-03423 | 未发现问题 | 失败日志相符 |
+| entry-03424 | 未发现问题 | 译文的感知时长与源码行为相符 |
+| entry-03425 | 存在问题 | C07 |
+| entry-03426 | 未发现问题 | 锥形范围与源码行为相符 |
+| entry-03427 | 未发现问题 | 治疗及伤害分摊相符 |
+| entry-03428 | 未发现问题 | 来源生物选择提示相符 |
+| entry-03429 | 未发现问题 | 受害者选择提示相符 |
+| entry-03430 | 存在问题 | C08 |
+| entry-03431 | 存在问题 | C09 |
+| entry-03432 | 未发现问题 | 尸傀名称相符 |
+| entry-03433 | 存在问题 | C10 |
+| entry-03434 | 未发现问题 | 命中、抗性及后续伤害相符 |
+| entry-03435 | 未发现问题 | 使用条件相符 |
+| entry-03436 | 未发现问题 | 变身与技能加成相符 |
+| entry-03437 | 存在问题 | C11 |
+| entry-03438 | 未发现问题 | 触发、形态及爆炸描述相符 |
+| entry-03439 | 未发现问题 | 武器附魔日志相符 |
+| entry-03440 | 存在问题 | C12 |
+| entry-03441 | 存在问题 | C13 |
+| entry-03442 | 未发现问题 | 受折磨日志相符 |
+| entry-03443 | 未发现问题 | 伤害来源提示相符 |
+| entry-03444 | 未发现问题 | 种子死亡回收描述相符 |
+| entry-03445 | 未发现问题 | 酸性抗性与亲和相符 |
+| entry-03446 | 未发现问题 | 链接日志及标记相符 |
+| entry-03447 | 未发现问题 | 亲和与死亡阈值相符 |
+| entry-03448 | 未发现问题 | 层数作为充能数显示，含义相符 |
+| entry-03449 | 未发现问题 | 火焰亲和与枯萎抗性相符 |
+| entry-03450 | 未发现问题 | 死亡触发条件相符 |
+| entry-03451 | 未发现问题 | 效果子类型可表达为伤害亲和 |
+| entry-03452 | 未发现问题 | 全伤害亲和数值相符 |
+
+以下源码路径均以冻结包的 `sources/dlc/ashes-urhrok/` 为前缀。
+
+### C01 | entry-03413 | 存在问题
+
+原文为“chance for the seed to take hold … creatures rank”，译文为“种子的存活几率基于宿主的级别”。这里把**寄生成功几率**写成了存活几率，并把生物的 **rank** 写成等级。`tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:647–665` 按 `target.rank` 设定几率；`tome-ashes-urhrok/data/timed_effects.lua:515–518` 在宿主死亡时用该几率决定是否生成种子。两项均为译文新增的信息偏差。状态：**已证实，限所给 DLC 快照**。
+
+### C02 | entry-03413 | 存在问题
+
+原文及译文都把几率概括为依生物阶级而定，但 `demonic-pact.lua:654–655` 将首次使用的几率强制设为 100%。这是**英文原文已有、译文沿袭**的例外遗漏，不归因于译者。状态：**已证实，限所给 DLC 快照**。
+
+### C03 | entry-03416 | 存在问题
+
+原文“up to %d grids with %d precision”，译文“传到 %d 码外的一个位置，误差 %d”。“%d 码外”把**最大可选距离**写成了确定距离。`demonic-pact.lua:855–864、888–895` 将第一参数用作选点范围，将第二参数用作目标附近的随机传送范围。状态：**已证实，限所给 DLC 快照**。
+
+### C04 | entry-03416 | 存在问题
+
+译文说视线外目标“有一定几率失败”；英文的 “fizzle” 也有此歧义。`demonic-pact.lua:866–875` 显示触发该分支时，法术改为从施法者位置进行随机传送，并非没有传送效果。此项主要是**英文原文沿袭的机制误述**，译文的“失败”未说明实际后果。状态：**已证实，限所给 DLC 快照**。
+
+### C05 | entry-03419 | 存在问题
+
+原文明确为“stacks multiplicatively”，译文仅说“能叠加至最多 %d 层”，丢失了**乘法叠加方式**。`tome-ashes-urhrok/data/timed_effects.lua:805、813–820` 以每层乘以 `0.92` 计算总亲和。状态：**已证实，限所给 DLC 快照**。
+
+### C06 | entry-03422 | 存在问题
+
+原文和译文均称诅咒持续 **5 回合**，而 `tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua:177–185` 调用 `setEffect(...EFF_CURSE_IMPOTENCE, 10, ...)`，传入时长为 **10**。这是**原文已有、译文沿袭**的数值差异；本包未提供该效果定义及目标版本源码，最终显示时长的适用性仍需核对。状态：**快照内调用参数已证实；目标版本适用性待确认**。
+
+### C07 | entry-03425 | 存在问题
+
+原文与译文都称移除“所有”负面效果。`tome-ashes-urhrok/data/talents/corruptions/fearfire.lua:104–117` 实际只移除 `status == "detrimental"`、`type ~= "other"` 且非 `cross tier` 的效果。“所有”遗漏了这些排除条件，属于**原文已有、译文沿袭**的范围误述。状态：**已证实，限所给 DLC 快照**。
+
+### C08 | entry-03430 | 存在问题
+
+原文“victim takes %d%% of the damage”，译文“%d%% 伤害由牺牲生物承受”容易表示伤害从源生物**转移**给受害者。`tome-ashes-urhrok/data/timed_effects.lua:715–724` 在源生物受击后，另对受害者调用 `takeHit`；源生物原伤害并未由此转移。状态：**已证实，限所给 DLC 快照**。
+
+### C09 | entry-03431 | 存在问题
+
+原文限定“damage this foe **in melee while it bleeds**”，译文写成“每次你**攻击**被恶魔角刺穿的目标”。它遗漏近战、造成伤害及流血仍有效三个触发条件。`tome-ashes-urhrok/data/timed_effects.lua:673–686` 的 `DEMONIC_CUT.callbackOnMeleeHit` 只在该效果存在、来源相同且伤害大于零时治疗。状态：**已证实，限所给 DLC 快照**。
+
+### C10 | entry-03433 | 存在问题
+
+原文“successful melee hits”，译文“你的攻击能够惊吓目标”，遗漏**近战命中**条件。`tome-ashes-urhrok/data/talents/corruptions/oppression.lua:72–81` 的 `callbackOnMeleeAttack` 在 `hitted` 为假时直接返回。状态：**已证实，限所给 DLC 快照**。
+
+### C11 | entry-03437 | 存在问题
+
+原文说传送到距离内的“specific location”，译文仅说“传送半径 %d”，丢失了**由玩家指定落点**的信息。`tome-ashes-urhrok/data/talents/misc/races.lua:58–69` 先获取并检查目标坐标，再以随机半径 `0` 传送至该坐标。状态：**已证实，限所给 DLC 快照**。
+
+### C12 | entry-03440 | 存在问题
+
+原文“#Target#’s **weapon** looks less threatening”，译文“#Target#的危险度看起来降低了”，把变化对象从**武器**换成了角色。`tome-ashes-urhrok/data/timed_effects.lua:43–56` 将此句用作 `DEMON_BLADE` 消失日志，前一句获得日志也明确指向武器。状态：**已证实，限所给 DLC 快照**。
+
+### C13 | entry-03441 | 存在问题
+
+译文“#Target#不再闪耀”没有说明熄灭的是**武器的火光**。英文消失日志本身有缺词（“#Target#’s is no longer blazing”），但同一效果的获得日志写明“weapon surges with fire”；`tome-ashes-urhrok/data/timed_effects.lua:148–163` 也显示这是武器攻击相关效果。此项包含**上游缺词**与译文未恢复可由同一语境确认的对象。状态：**已证实，限所给 DLC 快照**。
+
+**读取范围与来源：**读取了指定目录的 `INPUT.md`、`entries.json`、`context.lua`、`source-access.json`，以及 `source-access.json.sections` 列出的 13 个 `sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/` 下的 Lua 单文件：`talents/corruptions/` 中的 `demonic-pact.lua`、`demonic-strength.lua`、`doom-covenant.lua`、`doom-shield.lua`、`fearfire.lua`、`heart-of-fire.lua`、`infernal-combat.lua`、`npcs.lua`、`oppression.lua`、`torture.lua`、`wrath.lua`，以及 `talents/misc/races.lua`、`timed_effects.lua`。13 个文件的 SHA-256 均与 `source-access.json` 相符。未读取额外源码，故无额外调用链路径；未读取引擎仓库、其他报告或实验输出，未创建临时文件，未发现越界。DLC 快照的仓库和 commit 未固定；上述机制结论只证明该哈希快照内的行为，**目标版本适用性待确认**。这份结果是只读审核观察，不是生产 `DONE_VERIFIED`。

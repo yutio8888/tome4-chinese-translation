@@ -1,0 +1,197 @@
+我已按冻结规则只读复核了全部 40 条。结果：12 条 ISSUE、1 条 PENDING、27 条 OK（部分附 advisory）。原子判断共 18 条（C01–C18），其中 11 条 confirmed、2 条 pending、3 条 advisory，另有 2 条是英文上游与代码不符、译文照实转述的记录。本报告只是独立观察，不是 DONE_VERIFIED，没有写文件，也没有创建子 agent。
+
+# Calibrated pilot40 独立复核报告（translation_contextual_v1，只读研究旁路）
+
+## 一、40 条逐条结论
+
+| # | audit_id | 结论 | 摘要 |
+|---|---|---|---|
+| 1 | entry-03778 | OK | `die_at` 减 140 对应「生命值下限 -140」，与代码一致 |
+| 2 | entry-03788 | **ISSUE** | C01：原文 enemies 译成「周围生物」，丢了只混乱敌人的限制 |
+| 3 | entry-03814 | OK | 占位符完整；「向外割去」较生硬（advisory） |
+| 4 | entry-03817 | OK | 走 1 格后再击退 2 格，共 3 格，与代码一致 |
+| 5 | entry-03824 | OK | 译文忠实；英文与代码不符属上游问题（C17） |
+| 6 | entry-03830 | OK | 「延龄草」是本地化意译，与同文件 entity name 一致；名称用「植物」、类型用「草药」有出入（advisory） |
+| 7 | entry-03844 | **ISSUE** | C02：pinaciphobia 误译为「尖端恐惧症」；C03：Steam Quarry 译法待定 |
+| 8 | entry-03846 | **PENDING** | C03（Steam Quarry 译法）；C16 数量限定词弱化（advisory） |
+| 9 | entry-03847 | **ISSUE** | C04：「...thing on?」误译为「什么事？」；另有若干 advisory |
+| 10 | entry-03848 | **ISSUE** | C05：for posterity 误译为「为了繁荣」 |
+| 11 | entry-03855 | OK | 「我的屁股」直译 my entire ass，读者可能看不懂是「胡扯」（advisory） |
+| 12 | entry-03863 | **ISSUE** | C06：帕拉奎一句里，「谁向谁提供支持」被颠倒 |
+| 13 | entry-03869 | **ISSUE** | C07：凭空加入「魔法大爆炸」；C08：invasive 被反译；C09 为 advisory |
+| 14 | entry-03876 | OK | 术语与语义都对 |
+| 15 | entry-03880 | OK | 2200 tick 即 220 回合，正确；略去「否则会被炸死」，但语义已隐含（advisory） |
+| 16 | entry-03885 | OK | 省略了「投射物持续飞行」这个主语，句子略残缺（advisory） |
+| 17 | entry-03886 | OK | 与代码一致 |
+| 18 | entry-03895 | **ISSUE** | C10：把回程距离上限误作去程距离 |
+| 19 | entry-03907 | **ISSUE** | C11：两处 foes 译成「单位」，丢了不伤友方的限制 |
+| 20 | entry-03928 | OK | 「他也会修复」中的「他」应为「它」（advisory） |
+| 21 | entry-03929 | OK | args_order [1,3,2] 与目标占位符类型、顺序匹配；daze 译「眩晕」符合 preferred 术语 |
+| 22 | entry-03945 | OK | 术语正确 |
+| 23 | entry-03947 | OK | — |
+| 24 | entry-03948 | OK | 译文忠实；英文说的嘲讽半径与代码不符属上游问题（C18） |
+| 25 | entry-03964 | OK | C12：「致痒强度受蒸汽强度加成」有歧义（advisory） |
+| 26 | entry-03982 | OK | — |
+| 27 | entry-03988 | OK | 8 个参数顺序正确；「获得 %d%% 最大生命值」少了「增加」、targets 译为「所有敌人」（advisory） |
+| 28 | entry-03989 | OK | 「进入守备模式」是意译；「具有 %0.2f 蒸汽枪精通技能」少了「级」（advisory） |
+| 29 | entry-03999 | OK | — |
+| 30 | entry-04031 | OK | — |
+| 31 | entry-04036 | OK | 按规则 3，「受到额外 %d%% 伤害」可以表达对所有来源生效，不算问题 |
+| 32 | entry-04067 | OK | affinity 的 dlc 术语「伤害吸收」属 Urh'Rok effect subtype 语境，不适用于此；「光系」「医疗注射器植入体」符合术语 |
+| 33 | entry-04068 | OK | 同上 |
+| 34 | entry-04073 | OK | 术语正确 |
+| 35 | entry-04103 | OK | 符合术语「蒸汽强度：」 |
+| 36 | entry-04113 | OK | `canBe("worldport")` 对应所有召回手段，译文收窄为「回归之杖」（advisory） |
+| 37 | entry-04120 | OK | 与 context 一致（Possessors 源码不可用） |
+| 38 | entry-04128 | **ISSUE** | C13：整句风味文字被漏译 |
+| 39 | entry-04133 | **ISSUE** | C14：「may only」误译为「可能只会…尸体」；C15 待定 |
+| 40 | entry-04144 | OK | 标记正确；「技能 等级 不足」有多余空格（advisory，不按空白计数判缺陷） |
+
+## 二、原子判断
+
+**C01｜entry 2（Rogue's Gallery）**
+- 原文：「confusing nearby enemies and giving you stealth and a chance to avoid incoming damage」
+- 译文：「混乱周围生物，令你潜行并有一定几率免疫伤害」
+- 语义变化：限定词 enemies 变成「生物」，读者会以为友方也会被混乱。
+- 最强反驳：「周围生物」在语境里可以宽松理解为敌人。但代码里敌我处理明确对立：友方得到的是烟幕掩护（增益），不是混乱。这是规则 3 所说的实质限制。
+- 结论：**confirmed**（一级 fidelity）
+- text_status：英文本身就写 enemies，属纯文本缺陷。
+- snapshot_fact：`chemistry.lua:302-318` 的 callback 施放 `SMOKE_CLOUD`；`damage_types.lua:295-312` 中，`reactionToward<0` 的目标被混乱，其余目标获得 `SMOKE_COVER`。
+- target_applicability：文本缺陷本身直接适用；机制佐证只来自未固定的 DLC 快照。
+- 影响：低到中（误导对友方安全性的判断）。
+- 源码证据：`damage_types.lua` 是通过符号 `DamageType.SMOKE_CLOUD` 追到的附加文件，哈希已核对。
+
+**C02｜entry 7**
+- 原文：「pinaciphobia」；译文：「尖端恐惧症」
+- 语义变化：pinaciphobia 意为「恐惧清单」，尖端恐惧是 aichmophobia。「在一长串清单里恐惧清单」的笑点丢了。
+- 最强反驳：这是生僻词，又只是整串恶搞症状中的一项，不影响机制。
+- 结论：**confirmed**（词义误译）
+- text_status：confirmed；snapshot_fact：不涉及；target_applicability：直接适用。
+- 影响：低（风味文字）。
+
+**C03｜entry 7、8**
+- 原文：「THE PUREST MINERALS FROM THE STEAM QUARRY」和「the geothermal vents of the Steam Quarry」；译文均为「蒸汽矿场」。
+- 术语：Steam Quarry→蒸汽采石场（preferred/dlc/entity name/T.PN.PLACE），steam quarry→蒸汽采石场（existing/dlc/newLore category）。scope 覆盖 orcs，指的也是同一地点。
+- 最强反驳：这两条的 source_tag 是 entity name 和 newLore category，而本条是 `_t` 叙事正文。按规则 2，不能只因共享同一地点就把 entity-name 术语强加到 `_t` 上；本轮也不改 scope。
+- 结论：**pending**（专名一致性需主持人裁定 entity name 术语是否覆盖 `_t` 叙事引用）
+- text_status：两处都与术语表不一致。snapshot_fact：`emporium.lua:28` 与 `:77` 确实指该地点。target_applicability：pending。
+- 影响：低到中（专名前后不一）。
+
+**C04｜entry 9**
+- 原文：「"...thing on? Okay, good."」；译文：「“……什么事？好，好的。”」
+- 语义变化：原意是录音开头试麦（Is this thing on?），译成了「什么事？」。
+- 最强反驳：原句被截断，本身有歧义。但紧接的「Okay, good」和结尾「End log」都指向录音日志语境。
+- 结论：**confirmed**；text_status：confirmed；target_applicability：直接适用；影响：低。
+
+**C05｜entry 10**
+- 原文：「"...for posterity! Let's make sure future generations can hear...」；译文：「“……为了繁荣！让我们用声音记录下…」
+- 语义变化：posterity（后世）被误作 prosperity（繁荣）。
+- 最强反驳：后半句「子孙后代铭记」补回了部分含义，但开头的误译仍在。
+- 结论：**confirmed**；影响：低。
+
+**C06｜entry 12**
+- 原文：「Neither can afford direct intervention, but some form of support will assuredly be available.」
+- 译文：「不论是那种，我们都没法直接介入，不过确实可以提供某种支持。」
+- 语义变化：无法直接介入的主体本是半身人的两派，被改成「我们」（气之部族），读起来变成气之部族向对方提供支持。这与下一句「we can get these tinies… to assist us」相反。「那种」还应为「哪种」。
+- 最强反驳：「提供某种支持」没有明写主语，读者可能自行调和。但「我们都没法直接介入」已经明确改了主体。
+- 结论：**confirmed**（叙事关系改变）；影响：低到中（剧情理解）。
+
+**C07｜entry 13**
+- 原文：「The damage left in the Scintillating Caverns, in Norgos' Lair … has only now become clear」
+- 译文：「人们终于开始正视魔法大爆炸对那里所造成的伤害」
+- 语义变化：原文没有交代损伤由谁造成。宣传册的潜台词恰恰是英雄造成的破坏（下文说英雄的战斗「took their unfortunate toll」），译文却凭空把原因归给魔法大爆炸。
+- 最强反驳：玩家可能觉得这是合理的背景补充。但这在源码中没有依据，还改变了讽刺指向。
+- 结论：**confirmed**（增译改义）；影响：低到中。
+
+**C08｜entry 13**
+- 原文：「if one becomes endangered or invasive」；译文：「如果有一种生物濒临灭绝或受到入侵」
+- 语义变化：「成为入侵物种」被反译为「受到入侵」。
+- 最强反驳：无。
+- 结论：**confirmed**；影响：低。
+
+**C09｜entry 13**
+- 原文：「the balance may once more tip towards ruin」；译文：「自然和魔法之间的平衡被渐渐破坏，世界濒临毁灭的边缘」
+- 语义变化：「可能再次」变成既成断言，并加了「自然和魔法之间」。
+- 最强反驳：宣传口吻本就夸张，核心警示没变。
+- 结论：**advisory**（语气与限定词的夸大，不涉机制）。
+
+**C10｜entry 18（Solar Orb）**
+- 原文：「The ball will travel at most %d distance to return to you.」；译文：「球体最多飞行 %d 然后折回你。」
+- 语义变化：%d 是回程追踪弹的最大步数（range×4＝28），译文让人以为去程最多飞行 %d 格后才折返。实际去程射程是 7。
+- 最强反驳：技能界面另外显示射程 7，可以部分纠正误解；英文本身也不够清楚。
+- 结论：**confirmed**（机制描述）
+- text_status：按英文「to return to you」已足以判定。
+- snapshot_fact：`sol.lua:52` 有 `newrange = getTalentRange*4`；`sol.lua:59-66` 调用 `makeHoming(…, tg._newrange, …)`。引擎 624a673 的 `engine/Projectile.lua:336` 把该参数作为 homing count。
+- target_applicability：文本层面直接适用；机制佐证来自未固定的 DLC 快照加已固定的引擎。
+- 影响：中（机制理解）。
+
+**C11｜entry 19**
+- 原文：「propagates to all foes in radius %d」「All affected foes are seared」
+- 译文：「对半径 %d 码内的所有单位造成同样的伤害」「所有被劈中的单位都会被烧焦」
+- 语义变化：「单位」包括友方和中立，原文限定为敌人。
+- 最强反驳：「单位」是常见游戏泛称，有些读者会默认只指敌人。但原文和实现都明确不伤友方，这是实质限制。
+- 结论：**confirmed**
+- snapshot_fact：`action-at-a-distance.lua:184` 用 `friendlyfire=false`。引擎 624a673 的 `ActorProject.lua:255` 会跳过 `reactionToward>=0` 的目标。
+- target_applicability：文本缺陷直接适用；机制佐证来自未固定快照加固定引擎。
+- 影响：低到中。
+
+**C12｜entry 25**
+- 原文：「The itchiness effect is applied with your Steampower.」；译文：「致痒强度受蒸汽强度加成。」
+- 疑点：实现中蒸汽强度只作 apply_power（命中强度，对抗精神豁免），失败率由技能等级决定（`other.lua:1114-1119`），译文可能被理解成失败率随蒸汽强度提高。
+- 最强反驳：同族 Flash Powder 和 Thunder Grenade 统一用「X强度受蒸汽强度加成」表示施加强度，致盲本身也没有数值可以加成，属于既有惯例。
+- 结论：**advisory**（建议写明是「施加强度／命中」，不列为误译）。
+
+**C13｜entry 38（Possessors）**
+- 原文：「Your mere presence is a blight in your foes minds. Using this link you are able to reach out and steal a talent from a target.」
+- 译文：「链接目标，偷取目标一个技能。」
+- 语义变化：首句风味整句漏译，「this link」的指代也随之丢失。
+- 最强反驳：机制信息完整，只是压缩了风味文字。
+- 结论：**confirmed**（completeness）
+- text_status：confirmed。snapshot_fact：Possessors 源码不可用，按规则没有用其他组件代替。target_applicability：纯文本判断，不依赖实现。
+- 影响：低。
+
+**C14｜entry 39**
+- 原文：「You may only steal the body of creatures of the following types」
+- 译文：「你可能只会偷走以下类型的生物的尸体」
+- 语义变化：表示规则限制的「只能」被误作推测「可能只会」；body 前文译「身体」，此处成了「尸体」。
+- 最强反驳：结合后面的列表，读者大概能读出限制。
+- 结论：**confirmed**（情态误译）；target_applicability：纯文本；影响：低到中。
+
+**C15｜entry 39**
+- 原文：「you may learn this type permanently」；译文：「你可以永久学习此类型」
+- 疑点：「may」可能指概率，也可能指由玩家选择。无法核对源码，不能确定「可以」是否漏掉了几率含义。
+- 结论：**pending**；target_applicability：pending（Possessors 源码不可用）。
+
+**C16｜entry 8**
+- 原文：「by over 40%」和「up to four years in prison」
+- 译文：「减少40%」和「并处四年监禁」
+- 语义变化：「超过」「最高」这两个限定被丢掉。
+- 最强反驳：这是纯风味告示，不影响剧情或机制。
+- 结论：**advisory**
+
+**C17｜entry 5（上游问题，不是翻译引入）**
+- 英文写「teleports away all nearby creatures」，代码只传送敌对目标（`world-artifacts.lua:2246` 的 `projectCollect(..., "hostile")`）。
+- 译文「周围的所有生物」忠实于英文。记为上游英文与实现不符，不算译文缺陷。
+
+**C18｜entry 24（上游问题）**
+- 英文写「taunting enemies within radius %d」，但 `mecharachnid.lua:762-763` 构造了 `tg2`（球形）却用 bolt 型的 `tg` 执行 project，嘲讽实际上可能只作用于单一目标。
+- 译文忠实于英文，记为上游问题。
+
+其他未单列的 advisory（不构成缺陷）：
+- entry 9：「his previous terms of agreement」处理成「我们之前在协议中许诺的东西」；un-kick hornet's nest 那句被改写；「journey… underway」译成「正在准备前往」；「这篇混乱」应为「这片混乱」。
+- entry 10：「I assume」译成「我保证」；全大写的神秘声音没有保留视觉强调；「纪录」应为「记录」。
+- entry 13：最后一句「我们向你介绍」有语病。
+
+## 三、实际读取的文件与来源／版本限制
+
+- **冻结输入**：INPUT.md、entries.json、terms.json、source-access.json、FREEZE.json 全文读取；context.lua 按需 grep 或局部读取。
+- **哈希核对说明**：核对 FREEZE 时，脚本对 SAMPLING-PREREG.json、SAMPLE.json、SPEC.md、PLAN.md、SCOPE.json 读了字节算 SHA-256，没有查看或使用内容。目录列表显示过 BASELINE-GUARD.json、prepare.py、reports/ 等文件名，未打开。
+- **哈希结果**：FREEZE 与 source-access 中的全部哈希均匹配。
+- **orcs 主源文件**（均在 sources/dlc/orcs/ 下，快照 7c38a53 未固定）：generic-world-artifacts、tinkers/chemistry、world-artifacts、ingredients、lore/emporium、gem、misc、palace-fumes、primal-forest、quests/kruk-invasion、talents/celestial/cosmic、sol、psionic/action-at-a-distance、steam/gadgets、mecharachnid、other、steam、turrets、uber/str、timed_effects/physical、tinkers/therapeutics、superload/mod/class/Actor.lua。
+  - amakthel.lua、gates-of-morning/grids.lua、OrcCampaign.lua 只做了本地字符串定位，没有读取更多上下文。
+- **附加文件（1 个）**：abc20 orcs 树中的 `tome-orcs/data/damage_types.lua`，由符号 `DamageType.SMOKE_CLOUD` 追到，哈希已核对。
+- **引擎文件**（`/workspace/t-engine4`，固定 commit 624a67329fe2，用 `git show` 读取）：`engine/interface/ActorProject.lua`（由 `self:project` 调用追到）和 `engine/Projectile.lua`（由 `makeHoming` 调用追到），均只读了相关片段。
+- **来源限制**：
+  - orcs DLC 源码是未固定的快照。凡依赖实现的结论，其 target_applicability 按规则保持 pending 或只标为快照佐证；纯文本缺陷不受影响。
+  - Possessors 源码不可用（entry 37–40），机制相关判断标为 pending，没有用其他组件的同名代码代替。
+- **未做的事**：没有做全仓库搜索，没有读其他报告、主持人 findings、另一组的结果，也没有读 locale 答案。

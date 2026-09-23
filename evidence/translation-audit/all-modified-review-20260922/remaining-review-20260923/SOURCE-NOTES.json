@@ -1,0 +1,104 @@
+{
+  "records": [
+    {
+      "note_id": "rem-13:C03:entry-03946:upstream_note",
+      "entry_id": "entry-03946",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 23,
+      "parent_claim": "C03",
+      "category": "upstream_note",
+      "original_text": "原译“`所有技能冷却时间减半`”可通俗表达冷却更快；源码实际是在驾驶效果期间每回合额外减少一次冷却值，并跳过 `fixed_cooldown` 技能，不是改写基础冷却时间。为避免误读，建议“技能冷却速度加快一倍”。英文自身的 *all* 也比实现宽泛，不把这部分算作中文新增错误。证据：`S:5318–5320`；`D/talents/steam/mecharachnid.lua:690–700`；`D/timed_effects/other.lua:442–452`。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-13:C04:entry-03950:upstream_note",
+      "entry_id": "entry-03950",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 27,
+      "parent_claim": "C04",
+      "category": "upstream_note",
+      "original_text": "原译“`使用灵晶射击`”未沿用同节技能名“金属灵晶”；“`与灵晶碎片建立……联系`”遗漏碎片仍留在目标体内；“`范围（当前 %d）的两倍`”又把已经乘二的显示值写成还需再乘二。等价读法可把“灵晶射击”理解为动作描述，却无法消除后两处信息损失。建议按“发射金属灵晶”“残留在目标体内的碎片”“两倍半径（当前 %d 格）”改写。证据：`S:5369–5381`；`D/talents/steam/mechstar.lua:22–45,64–81`。另须区分源码行为：状态在距离**达到**阈值时即断开，而英文及中文都写“超过”；这是沿袭英文的机制描述问题，不计中文新增错译。证据：`D/timed_effects/physical.lua:742–750`。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-13:C06:entry-03953:upstream_note",
+      "entry_id": "entry-03953",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-13.md",
+      "line": 35,
+      "parent_claim": "C06",
+      "category": "upstream_note",
+      "original_text": "原译“`射击是远程攻击将会触发弹药特效`”遗漏 *melee*，使特殊的远程近战攻击看似普通远程攻击，也抹去了“虽属近战攻击，仍触发弹药远程特效”的转折。建议明确写“远程近战攻击，但也会触发弹药的远程特效”。原译“沃瑞钽钢”也与本次 `preferred` 术语“沃瑞钽”不符，可在同条修正。证据：`S:5414–5417`；`D/talents/steam/other.lua:332–360`；`T:1609`。源码按技能等级决定额外射击，英文却称由沃瑞钽材质决定；中文沿袭英文，此机制不一致**不计中文新增错误**。证据：`D/talents/steam/other.lua:315–320,344–359`。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-14:C18:entry-03977:upstream_note",
+      "entry_id": "entry-03977",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-14.md",
+      "line": 100,
+      "parent_claim": "C18",
+      "category": "upstream_note",
+      "original_text": "原译“伤害受蒸汽强度加成”可能概括流血伤害增幅与喷血伤害，不能直接断言玩家只会理解为后者；写明两项更清楚。初审报告称 `getDamageInc` 是实际流血增幅函数，但冻结源码的效果执行处调用的是 `getDamage`，`getDamageInc` 只出现在说明的格式化参数中。因此其“两项独立函数分别驱动两种实际效果”的论证**不成立**；源码与英文说明之间的这一差异应另行记录，不能算中文新增错误。证据：`S:5742–5750`、`M:64–66,79–86,92–98`。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-15:C02:entry-03996:upstream_note",
+      "entry_id": "entry-03996",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 36,
+      "parent_claim": "C02",
+      "category": "upstream_note",
+      "original_text": "同一源码的运行计算为 **130%**，而此条英文 NPC 描述及其中文均写 **160%**（[mag.lua:34](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:34>)、[mag.lua:82](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:82>)）。这是英文描述与冻结行为的差异，**不计为中文新增错译**。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-16:C05:entry-04022:upstream_note",
+      "entry_id": "entry-04022",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-16.md",
+      "line": 48,
+      "parent_claim": "C05",
+      "category": "upstream_note",
+      "original_text": "原译“烈火光环”与该句英文 *frost aura* 字面不同。等价反证更强：同一效果名为 `FIERY_SALVE`，赋予火焰、光系、闪电亲和；相邻道具说明也写 *fiery aura*。这是有证据支持的上游文案修正，不判中文错译。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6346)、[关联道具说明](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6780)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:181)。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-16:C06:entry-04023:upstream_note",
+      "entry_id": "entry-04023",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-16.md",
+      "line": 52,
+      "parent_claim": "C06",
+      "category": "upstream_note",
+      "original_text": "原译“静水光环”与该句英文 *frost aura* 字面不同。等价反证是效果名 `WATER_SALVE`、水子类型、枯萎／精神／酸性亲和，以及相邻道具说明的 *water aura*；可判为上游文案沿用错误的合理修正。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6352)、[关联道具说明](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6784)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:205)。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-17:C07:entry-04056:upstream_note",
+      "entry_id": "entry-04056",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-17.md",
+      "line": 56,
+      "parent_claim": "C07",
+      "category": "upstream_note",
+      "original_text": "原译“`可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果`”与英文“每回合发射”明显不同。冻结源码显示效果赋予 `Rocket Barrage` 技能，使用其他技能后移除效果；技能说明也写明可主动再次发射。故中文是有源码依据的机制澄清，本项只备案英文表述差异，不计中文错译。证据：[快照第 6573–6574 行](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6573)、[效果源码第 1502–1535 行](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:1502)、[技能源码第 175–182、187–218 行](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/artillery.lua:175)。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-20:source-limitation:entry-04115:source_mapping_pending",
+      "entry_id": "entry-04115",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-20.md",
+      "line": 52,
+      "parent_claim": "source-limitation",
+      "category": "source_mapping_pending",
+      "original_text": "来源登记将 **orcs DLC 标为 unpinned**（`source-access.json:376-377`）：哈希固定了本次所读文件，仓库 commit 与目标游戏版本未固定，故本报告不声称核验了 1.7.4。`entry-04115` 的快照 section 标为 `DebugMain.lua`，而所引英文长文实际见冻结的 `data/lore/palace-fumes.lua:88-112`；`DebugMain.lua:29-31` 仅见“Learn all schematics”菜单项。此处的提取归属与实际消费路径仍待核实，不影响以上逐句文本对照。`Archery.lua:76-80` 在施加眩晕的分支也调用了英文“is knocked back!”日志；这是冻结英文源码自身的调用疑点，译文“被击退”忠实对应所给英文，未计为中文新增问题。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    },
+    {
+      "note_id": "rem-20:source-limitation:entry-04114:upstream_note",
+      "entry_id": "entry-04114",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-20.md",
+      "line": 52,
+      "parent_claim": "source-limitation",
+      "category": "upstream_note",
+      "original_text": "来源登记将 **orcs DLC 标为 unpinned**（`source-access.json:376-377`）：哈希固定了本次所读文件，仓库 commit 与目标游戏版本未固定，故本报告不声称核验了 1.7.4。`entry-04115` 的快照 section 标为 `DebugMain.lua`，而所引英文长文实际见冻结的 `data/lore/palace-fumes.lua:88-112`；`DebugMain.lua:29-31` 仅见“Learn all schematics”菜单项。此处的提取归属与实际消费路径仍待核实，不影响以上逐句文本对照。`Archery.lua:76-80` 在施加眩晕的分支也调用了英文“is knocked back!”日志；这是冻结英文源码自身的调用疑点，译文“被击退”忠实对应所给英文，未计为中文新增问题。",
+      "qualification": "Explicit reviewer source note, mechanically indexed; no new host semantic adjudication or confirmed translation defect."
+    }
+  ]
+}

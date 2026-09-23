@@ -1,0 +1,222 @@
+{
+  "reference_status": "provisional model-adjudicated reference, not human gold",
+  "primary_eligibility": {
+    "opus": false,
+    "sol": true,
+    "gemini": true
+  },
+  "formal_three_arm_comparison_available": false,
+  "ineligible_arm_metrics": "diagnostic only; exclude from compliant-arm rankings",
+  "total": 40,
+  "resolved_reference": 40,
+  "reference_pending": [],
+  "common_denominator": 40,
+  "arms": {
+    "opus": {
+      "eligible_for_primary": false,
+      "common_accuracy": {
+        "numerator": 38,
+        "denominator": 40,
+        "rate": 0.95
+      },
+      "all_resolved_accuracy_abstention_not_correct": {
+        "numerator": 38,
+        "denominator": 40,
+        "rate": 0.95
+      },
+      "issue_entry_precision_with_correct_reason": {
+        "numerator": 5,
+        "denominator": 5,
+        "rate": 1.0
+      },
+      "issue_entry_recall": {
+        "numerator": 5,
+        "denominator": 7,
+        "rate": 0.7142857142857143
+      },
+      "false_positive_entries": [],
+      "wrong_reason_positive_entries": [],
+      "false_negative_entries": [
+        "entry-03199",
+        "entry-03206"
+      ],
+      "model_abstentions": [],
+      "verdict_counts_all40": {
+        "ADVISORY": 6,
+        "ISSUE": 5,
+        "MISSING": 0,
+        "OK": 29,
+        "PENDING": 0
+      },
+      "all40_unresolved_reference_bounds_not_confidence_interval": {
+        "lower": 0.95,
+        "upper": 0.95
+      },
+      "claim_precision_resolved_only": {
+        "numerator": 10,
+        "denominator": 11,
+        "rate": 0.9090909090909091
+      },
+      "claim_recall": {
+        "numerator": 10,
+        "denominator": 13,
+        "rate": 0.7692307692307693
+      },
+      "pending_claim_count": 0
+    },
+    "sol": {
+      "eligible_for_primary": true,
+      "common_accuracy": {
+        "numerator": 34,
+        "denominator": 40,
+        "rate": 0.85
+      },
+      "all_resolved_accuracy_abstention_not_correct": {
+        "numerator": 34,
+        "denominator": 40,
+        "rate": 0.85
+      },
+      "issue_entry_precision_with_correct_reason": {
+        "numerator": 4,
+        "denominator": 9,
+        "rate": 0.4444444444444444
+      },
+      "issue_entry_recall": {
+        "numerator": 4,
+        "denominator": 7,
+        "rate": 0.5714285714285714
+      },
+      "false_positive_entries": [
+        "entry-03183",
+        "entry-03195",
+        "entry-03209"
+      ],
+      "wrong_reason_positive_entries": [
+        "entry-03174",
+        "entry-03210"
+      ],
+      "false_negative_entries": [
+        "entry-03174",
+        "entry-03199",
+        "entry-03210"
+      ],
+      "model_abstentions": [],
+      "verdict_counts_all40": {
+        "ADVISORY": 1,
+        "ISSUE": 9,
+        "MISSING": 0,
+        "OK": 30,
+        "PENDING": 0
+      },
+      "all40_unresolved_reference_bounds_not_confidence_interval": {
+        "lower": 0.85,
+        "upper": 0.85
+      },
+      "claim_precision_resolved_only": {
+        "numerator": 5,
+        "denominator": 10,
+        "rate": 0.5
+      },
+      "claim_recall": {
+        "numerator": 5,
+        "denominator": 13,
+        "rate": 0.38461538461538464
+      },
+      "pending_claim_count": 1
+    },
+    "gemini": {
+      "eligible_for_primary": true,
+      "common_accuracy": {
+        "numerator": 36,
+        "denominator": 40,
+        "rate": 0.9
+      },
+      "all_resolved_accuracy_abstention_not_correct": {
+        "numerator": 36,
+        "denominator": 40,
+        "rate": 0.9
+      },
+      "issue_entry_precision_with_correct_reason": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      },
+      "issue_entry_recall": {
+        "numerator": 3,
+        "denominator": 7,
+        "rate": 0.42857142857142855
+      },
+      "false_positive_entries": [],
+      "wrong_reason_positive_entries": [],
+      "false_negative_entries": [
+        "entry-03174",
+        "entry-03199",
+        "entry-03206",
+        "entry-03210"
+      ],
+      "model_abstentions": [],
+      "verdict_counts_all40": {
+        "ADVISORY": 3,
+        "ISSUE": 3,
+        "MISSING": 0,
+        "OK": 34,
+        "PENDING": 0
+      },
+      "all40_unresolved_reference_bounds_not_confidence_interval": {
+        "lower": 0.9,
+        "upper": 0.9
+      },
+      "claim_precision_resolved_only": {
+        "numerator": 3,
+        "denominator": 5,
+        "rate": 0.6
+      },
+      "claim_recall": {
+        "numerator": 3,
+        "denominator": 13,
+        "rate": 0.23076923076923078
+      },
+      "pending_claim_count": 0
+    }
+  },
+  "paired": {
+    "opus_vs_sol": {
+      "eligible_for_primary": false,
+      "left_only_correct": [
+        "entry-03174",
+        "entry-03183",
+        "entry-03195",
+        "entry-03209",
+        "entry-03210"
+      ],
+      "right_only_correct": [
+        "entry-03206"
+      ],
+      "both_correct": 33,
+      "both_incorrect": 1
+    },
+    "opus_vs_gemini": {
+      "eligible_for_primary": false,
+      "left_only_correct": [
+        "entry-03174",
+        "entry-03210"
+      ],
+      "right_only_correct": [],
+      "both_correct": 36,
+      "both_incorrect": 2
+    },
+    "sol_vs_gemini": {
+      "eligible_for_primary": true,
+      "left_only_correct": [
+        "entry-03206"
+      ],
+      "right_only_correct": [
+        "entry-03183",
+        "entry-03195",
+        "entry-03209"
+      ],
+      "both_correct": 33,
+      "both_incorrect": 3
+    }
+  }
+}

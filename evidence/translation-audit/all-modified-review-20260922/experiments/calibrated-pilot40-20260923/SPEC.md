@@ -1,0 +1,2 @@
+# Scope
+40 new entries only, two independent arms Opus5.5 and GPT6Sol, high reasoning. Host makes a provisional full40 pass before reading model findings, then adjudicates claim union and checks every joint negative. No production translation or term mutation; no group15 continuation. Stop after report and confirmed child archival. No claim of accuracy improvement from different samples or model consensus as human gold.

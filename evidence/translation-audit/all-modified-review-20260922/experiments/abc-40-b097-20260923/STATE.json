@@ -1,0 +1,1163 @@
+{
+  "task_id": "abc-40-b097-20260923",
+  "series_group": 3,
+  "mode": "review_only",
+  "state": "DONE_research_only",
+  "orchestration_transport": "mcp",
+  "workspace_id": "wks_ac28b30c4bf45d5b",
+  "orchestrator_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+  "strict_contract_completion_claimed": false,
+  "user_authorization": "持续直到累计20组；本组40条；后续临时文件允许",
+  "child_dispatches": [
+    {
+      "dispatch_id": "opus-01",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "requested_provider": "claude/claude-opus-5-5",
+      "requested_settings": {
+        "modeId": "auto",
+        "thinkingOptionId": "high",
+        "features": {
+          "fast_mode": false
+        }
+      },
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/dispatches/common-prompt.txt",
+      "prompt_sha256": "c014fc2f785c4f56a947101eeb4246a73f01fe845466631ab30873a20f103042",
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/INPUT.md",
+      "input_sha256": "4fd27d5f0eda040530651aa9511c12fd60ca1307197e3d11ceca7b0b6b1f3778",
+      "lifecycle": "archived",
+      "archive_attempts_started": 1,
+      "archive_confirmed": true,
+      "created_request_at": "2026-09-23T01:24:27.745283+00:00",
+      "agent_id": "740351e9-4cff-45ee-b6aa-65856012ec64",
+      "runtime_observation": {
+        "id": "740351e9-4cff-45ee-b6aa-65856012ec64",
+        "provider": "claude",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "claude-opus-5-5",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "claude",
+          "sessionId": null,
+          "model": null,
+          "modeId": "auto"
+        },
+        "createdAt": "2026-09-23T01:24:27.781Z",
+        "updatedAt": "2026-09-23T01:24:52.910Z",
+        "lastUserMessageAt": "2026-09-23T01:24:28.827Z",
+        "status": "running",
+        "activeTurn": {
+          "turnId": "foreground-turn-1",
+          "startedAt": "2026-09-23T01:24:28.825Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": true,
+          "supportsRewindBoth": true
+        },
+        "currentModeId": "auto",
+        "availableModes": [
+          {
+            "id": "plan",
+            "label": "Plan Mode",
+            "description": "Analyze the codebase without executing tools or edits"
+          },
+          {
+            "id": "default",
+            "label": "Always Ask",
+            "description": "Prompts for permission the first time a tool is used"
+          },
+          {
+            "id": "acceptEdits",
+            "label": "Accept File Edits",
+            "description": "Automatically approves edit-focused tools without prompting"
+          },
+          {
+            "id": "auto",
+            "label": "Auto mode",
+            "description": "Uses a model classifier to review permission prompts automatically"
+          },
+          {
+            "id": "bypassPermissions",
+            "label": "Bypass",
+            "description": "Skip all permission prompts (use with caution)"
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Lower latency Opus responses at higher token cost",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "claude",
+          "sessionId": "a2834a11-15da-49d8-944d-a0ff9b62ad22",
+          "nativeHandle": "a2834a11-15da-49d8-944d-a0ff9b62ad22",
+          "metadata": {
+            "provider": "claude",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "modeId": "auto",
+            "model": "claude-opus-5-5",
+            "thinkingOptionId": "high",
+            "featureValues": {
+              "fast_mode": false
+            },
+            "title": "ABC20 group03 Opus5.5 independent"
+          }
+        },
+        "title": "ABC20 group03 Opus5.5 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "opus-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "lastUsage": {
+          "contextWindowMaxTokens": 1000000,
+          "contextWindowUsedTokens": 50656
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      },
+      "lineage_verified": true,
+      "terminal_observation": {
+        "id": "740351e9-4cff-45ee-b6aa-65856012ec64",
+        "provider": "claude",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "claude-opus-5-5",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "claude",
+          "sessionId": "a2834a11-15da-49d8-944d-a0ff9b62ad22",
+          "model": "claude-opus-5-5",
+          "modeId": "auto",
+          "extra": {
+            "runtimeModel": "claude-opus-5-5"
+          }
+        },
+        "createdAt": "2026-09-23T01:24:27.781Z",
+        "updatedAt": "2026-09-23T01:27:55.324Z",
+        "lastUserMessageAt": "2026-09-23T01:24:28.827Z",
+        "status": "idle",
+        "activeTurn": null,
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": true,
+          "supportsRewindBoth": true
+        },
+        "currentModeId": "auto",
+        "availableModes": [
+          {
+            "id": "plan",
+            "label": "Plan Mode",
+            "description": "Analyze the codebase without executing tools or edits"
+          },
+          {
+            "id": "default",
+            "label": "Always Ask",
+            "description": "Prompts for permission the first time a tool is used"
+          },
+          {
+            "id": "acceptEdits",
+            "label": "Accept File Edits",
+            "description": "Automatically approves edit-focused tools without prompting"
+          },
+          {
+            "id": "auto",
+            "label": "Auto mode",
+            "description": "Uses a model classifier to review permission prompts automatically"
+          },
+          {
+            "id": "bypassPermissions",
+            "label": "Bypass",
+            "description": "Skip all permission prompts (use with caution)"
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Lower latency Opus responses at higher token cost",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "claude",
+          "sessionId": "a2834a11-15da-49d8-944d-a0ff9b62ad22",
+          "nativeHandle": "a2834a11-15da-49d8-944d-a0ff9b62ad22",
+          "metadata": {
+            "provider": "claude",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "modeId": "auto",
+            "model": "claude-opus-5-5",
+            "thinkingOptionId": "high",
+            "featureValues": {
+              "fast_mode": false
+            },
+            "title": "ABC20 group03 Opus5.5 independent"
+          }
+        },
+        "title": "ABC20 group03 Opus5.5 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "opus-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "lastUsage": {
+          "inputTokens": 32,
+          "cachedInputTokens": 891668,
+          "outputTokens": 20864,
+          "totalCostUsd": 1.2732056,
+          "contextWindowMaxTokens": 1000000,
+          "contextWindowUsedTokens": 107151
+        },
+        "requiresAttention": true,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-09-23T01:27:55.323Z"
+      },
+      "coverage": 40,
+      "table_coverage_valid": true,
+      "report_sha256": "7ec39b08fef8d5fa3caba1914d02825efe2832c0983bcb1bab03f186d4eee3fb",
+      "archived_at": "2026-09-23T01:32:27.925Z"
+    },
+    {
+      "dispatch_id": "sol-01",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "requested_provider": "codex/gpt-6-sol",
+      "requested_settings": {
+        "modeId": "auto-review",
+        "thinkingOptionId": "high"
+      },
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/dispatches/common-prompt.txt",
+      "prompt_sha256": "c014fc2f785c4f56a947101eeb4246a73f01fe845466631ab30873a20f103042",
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/INPUT.md",
+      "input_sha256": "4fd27d5f0eda040530651aa9511c12fd60ca1307197e3d11ceca7b0b6b1f3778",
+      "lifecycle": "archived",
+      "archive_attempts_started": 1,
+      "archive_confirmed": true,
+      "created_request_at": "2026-09-23T01:24:53.995883+00:00",
+      "agent_id": "e70330be-ac38-46dc-8f06-ddee64dc5c6c",
+      "runtime_observation": {
+        "id": "e70330be-ac38-46dc-8f06-ddee64dc5c6c",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+          "model": "gpt-6-sol",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:24:54.169Z",
+        "updatedAt": "2026-09-23T01:24:54.234Z",
+        "lastUserMessageAt": null,
+        "status": "running",
+        "activeTurn": {
+          "turnId": "codex-turn-0",
+          "startedAt": "2026-09-23T01:24:54.234Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+          "metadata": {
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921"
+          }
+        },
+        "title": "ABC20 group03 sol-01 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "sol-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      },
+      "lineage_verified": true,
+      "terminal_observation": {
+        "id": "e70330be-ac38-46dc-8f06-ddee64dc5c6c",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+          "model": "gpt-6-sol",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:24:54.169Z",
+        "updatedAt": "2026-09-23T01:29:47.329Z",
+        "lastUserMessageAt": "2026-09-23T01:24:57.715Z",
+        "status": "idle",
+        "activeTurn": null,
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+          "nativeHandle": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+          "metadata": {
+            "provider": "codex",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "title": "ABC20 group03 sol-01 independent",
+            "threadId": "01a0cbdd-9f1b-7cf2-9378-7f6437fe18fc",
+            "modeId": "auto-review",
+            "model": "gpt-6-sol",
+            "thinkingOptionId": "high",
+            "asyncQuestions": []
+          }
+        },
+        "title": "ABC20 group03 sol-01 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "sol-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "lastUsage": {
+          "inputTokens": 78774,
+          "cachedInputTokens": 77184,
+          "outputTokens": 2360,
+          "contextWindowMaxTokens": 258400,
+          "contextWindowUsedTokens": 81134
+        },
+        "requiresAttention": true,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-09-23T01:29:47.328Z"
+      },
+      "coverage": 40,
+      "table_coverage_valid": true,
+      "report_sha256": "e5bfffdbd9d942949c660389329e81f17023628684c00e0ec7644736ef56ad3b",
+      "archived_at": "2026-09-23T01:32:28.597Z"
+    },
+    {
+      "dispatch_id": "gemini-01",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "requested_provider": "antigravity/gemini-3.8-flash",
+      "requested_settings": {
+        "modeId": "dangerously-skip-permissions",
+        "thinkingOptionId": "high",
+        "features": {
+          "auto_accept": true
+        }
+      },
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/dispatches/common-prompt.txt",
+      "prompt_sha256": "c014fc2f785c4f56a947101eeb4246a73f01fe845466631ab30873a20f103042",
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/INPUT.md",
+      "input_sha256": "4fd27d5f0eda040530651aa9511c12fd60ca1307197e3d11ceca7b0b6b1f3778",
+      "lifecycle": "archived",
+      "archive_attempts_started": 1,
+      "archive_confirmed": true,
+      "created_request_at": "2026-09-23T01:24:54.321783+00:00",
+      "agent_id": "818b6906-74a8-47a2-b52b-86de066d171c",
+      "runtime_observation": {
+        "id": "818b6906-74a8-47a2-b52b-86de066d171c",
+        "provider": "antigravity",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gemini-3.8-flash",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "antigravity",
+          "sessionId": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "model": "gemini-3.8-flash",
+          "thinkingOptionId": "high",
+          "modeId": "dangerously-skip-permissions",
+          "extra": {
+            "title": "ABC20 group03 gemini-01 independent",
+            "updatedAt": null
+          }
+        },
+        "createdAt": "2026-09-23T01:24:59.111Z",
+        "updatedAt": "2026-09-23T01:24:59.116Z",
+        "lastUserMessageAt": "2026-09-23T01:24:59.114Z",
+        "status": "running",
+        "activeTurn": {
+          "turnId": "5830b0a7-ce32-4009-8503-d258d2d85f58",
+          "startedAt": "2026-09-23T01:24:59.113Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": false,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "dangerously-skip-permissions",
+        "availableModes": [
+          {
+            "id": "default",
+            "label": "Default",
+            "description": "Request review before file writes (agy default; omits --mode)."
+          },
+          {
+            "id": "accept-edits",
+            "label": "Accept Edits",
+            "description": "Apply file edits without interactive write review (agy --mode accept-edits)."
+          },
+          {
+            "id": "plan",
+            "label": "Plan",
+            "description": "Plan-oriented execution (agy --mode plan)."
+          },
+          {
+            "id": "dangerously-skip-permissions",
+            "label": "Dangerously Skip Permissions",
+            "description": "Auto-approve all tool permission requests without prompting (agy --dangerously-skip-permissions)."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "auto_accept",
+            "label": "Auto Accept",
+            "description": "Automatically approves ACP permission prompts.",
+            "tooltip": "Auto accept permission prompts",
+            "icon": "shield-check",
+            "value": true
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "antigravity",
+          "sessionId": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "nativeHandle": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "metadata": {
+            "provider": "acp",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "modeId": "dangerously-skip-permissions",
+            "model": "gemini-3.8-flash",
+            "thinkingOptionId": "high",
+            "featureValues": {
+              "auto_accept": true
+            },
+            "title": "ABC20 group03 gemini-01 independent"
+          }
+        },
+        "title": "ABC20 group03 gemini-01 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "gemini-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      },
+      "lineage_verified": true,
+      "terminal_observation": {
+        "id": "818b6906-74a8-47a2-b52b-86de066d171c",
+        "provider": "antigravity",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gemini-3.8-flash",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "antigravity",
+          "sessionId": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "model": "gemini-3.8-flash",
+          "thinkingOptionId": "high",
+          "modeId": "dangerously-skip-permissions",
+          "extra": {
+            "title": "ABC20 group03 gemini-01 independent",
+            "updatedAt": null
+          }
+        },
+        "createdAt": "2026-09-23T01:24:59.111Z",
+        "updatedAt": "2026-09-23T01:27:41.674Z",
+        "lastUserMessageAt": "2026-09-23T01:24:59.114Z",
+        "status": "idle",
+        "activeTurn": null,
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": false,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "dangerously-skip-permissions",
+        "availableModes": [
+          {
+            "id": "default",
+            "label": "Default",
+            "description": "Request review before file writes (agy default; omits --mode)."
+          },
+          {
+            "id": "accept-edits",
+            "label": "Accept Edits",
+            "description": "Apply file edits without interactive write review (agy --mode accept-edits)."
+          },
+          {
+            "id": "plan",
+            "label": "Plan",
+            "description": "Plan-oriented execution (agy --mode plan)."
+          },
+          {
+            "id": "dangerously-skip-permissions",
+            "label": "Dangerously Skip Permissions",
+            "description": "Auto-approve all tool permission requests without prompting (agy --dangerously-skip-permissions)."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "auto_accept",
+            "label": "Auto Accept",
+            "description": "Automatically approves ACP permission prompts.",
+            "tooltip": "Auto accept permission prompts",
+            "icon": "shield-check",
+            "value": true
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "antigravity",
+          "sessionId": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "nativeHandle": "8abf589e-fa24-42eb-b25a-da56b61dbd4f",
+          "metadata": {
+            "provider": "acp",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "modeId": "dangerously-skip-permissions",
+            "model": "gemini-3.8-flash",
+            "thinkingOptionId": "high",
+            "featureValues": {
+              "auto_accept": true
+            },
+            "title": "ABC20 group03 gemini-01 independent"
+          }
+        },
+        "title": "ABC20 group03 gemini-01 independent",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "gemini-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "requiresAttention": true,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-09-23T01:27:40.980Z"
+      },
+      "coverage": 40,
+      "table_coverage_valid": true,
+      "report_sha256": "0c85733b4bdf26cb329915760b7dbcf3d024802be4791490b8abd7203a4554fc",
+      "archived_at": "2026-09-23T01:32:22.154Z"
+    },
+    {
+      "dispatch_id": "reference-blind-01",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "requested_provider": "codex/gpt-6-astra",
+      "requested_settings": {
+        "modeId": "auto-review",
+        "thinkingOptionId": "high"
+      },
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/dispatches/common-prompt.txt",
+      "prompt_sha256": "c014fc2f785c4f56a947101eeb4246a73f01fe845466631ab30873a20f103042",
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/INPUT.md",
+      "input_sha256": "4fd27d5f0eda040530651aa9511c12fd60ca1307197e3d11ceca7b0b6b1f3778",
+      "lifecycle": "archived",
+      "archive_attempts_started": 1,
+      "archive_confirmed": true,
+      "created_request_at": "2026-09-23T01:32:57.812970+00:00",
+      "agent_id": "a0c449b1-2514-4642-ba16-35ef4391bb3f",
+      "runtime_observation": {
+        "id": "a0c449b1-2514-4642-ba16-35ef4391bb3f",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-astra",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbe5-011f-7d80-a90c-80796358073d",
+          "model": "gpt-6-astra",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:32:58.013Z",
+        "updatedAt": "2026-09-23T01:32:58.092Z",
+        "lastUserMessageAt": null,
+        "status": "running",
+        "activeTurn": {
+          "turnId": "codex-turn-0",
+          "startedAt": "2026-09-23T01:32:58.087Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Priority inference at increased usage",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          },
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbe5-011f-7d80-a90c-80796358073d",
+          "metadata": {
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921"
+          }
+        },
+        "title": "ABC20 group03 independent blind reference",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "reference-blind-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      },
+      "lineage_verified": true,
+      "terminal_observation": {
+        "id": "a0c449b1-2514-4642-ba16-35ef4391bb3f",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-astra",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbe5-011f-7d80-a90c-80796358073d",
+          "model": "gpt-6-astra",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:32:58.013Z",
+        "updatedAt": "2026-09-23T01:37:38.814Z",
+        "lastUserMessageAt": "2026-09-23T01:33:01.533Z",
+        "status": "idle",
+        "activeTurn": null,
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Priority inference at increased usage",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          },
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbe5-011f-7d80-a90c-80796358073d",
+          "nativeHandle": "01a0cbe5-011f-7d80-a90c-80796358073d",
+          "metadata": {
+            "provider": "codex",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "title": "ABC20 group03 independent blind reference",
+            "threadId": "01a0cbe5-011f-7d80-a90c-80796358073d",
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "thinkingOptionId": "high",
+            "asyncQuestions": []
+          }
+        },
+        "title": "ABC20 group03 independent blind reference",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "reference-blind-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "lastUsage": {
+          "inputTokens": 103720,
+          "cachedInputTokens": 101888,
+          "outputTokens": 3704,
+          "contextWindowMaxTokens": 258400,
+          "contextWindowUsedTokens": 107424
+        },
+        "requiresAttention": true,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-09-23T01:37:38.813Z"
+      },
+      "coverage": 40,
+      "table_coverage_valid": true,
+      "report_sha256": "c54feca05275cec6a15139b9d77d7b78bfb2c1a2cc6ed67941d581007d8b20dd",
+      "archived_at": "2026-09-23T01:37:50.670Z"
+    },
+    {
+      "dispatch_id": "adjudication-01",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v1",
+      "requested_provider": "codex/gpt-6-astra",
+      "requested_settings": {
+        "modeId": "auto-review",
+        "thinkingOptionId": "high"
+      },
+      "workspace_id": "wks_ac28b30c4bf45d5b",
+      "parent_agent_id": "3a99ff56-6868-4533-b3d5-755e411f9159",
+      "prompt_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/dispatches/adjudication-prompt.txt",
+      "prompt_sha256": "8198b236210c3221469f661cf7d59e0531283f172d482769665cfc5a13e2e17a",
+      "input_path": "evidence/translation-audit/all-modified-review-20260922/experiments/abc-40-b097-20260923/ADJUDICATION-INPUT.md",
+      "input_sha256": "9b880f1a72d5d667b0a3efdd809126984c49118c2feba2166862ba54ae1aa347",
+      "lifecycle": "archived",
+      "archive_attempts_started": 1,
+      "archive_confirmed": true,
+      "created_request_at": "2026-09-23T01:37:50.982638+00:00",
+      "agent_id": "3b7fea8f-f7d4-43c5-b033-6465a849fd4c",
+      "runtime_observation": {
+        "id": "3b7fea8f-f7d4-43c5-b033-6465a849fd4c",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-astra",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+          "model": "gpt-6-astra",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:37:51.176Z",
+        "updatedAt": "2026-09-23T01:37:51.246Z",
+        "lastUserMessageAt": null,
+        "status": "running",
+        "activeTurn": {
+          "turnId": "codex-turn-0",
+          "startedAt": "2026-09-23T01:37:51.246Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Priority inference at increased usage",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          },
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+          "metadata": {
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921"
+          }
+        },
+        "title": "ABC20 group03 anonymous adjudication",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "adjudication-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      },
+      "lineage_verified": true,
+      "terminal_observation": {
+        "id": "3b7fea8f-f7d4-43c5-b033-6465a849fd4c",
+        "provider": "codex",
+        "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+        "workspaceId": "wks_ac28b30c4bf45d5b",
+        "model": "gpt-6-astra",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+          "model": "gpt-6-astra",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-09-23T01:37:51.176Z",
+        "updatedAt": "2026-09-23T01:44:00.687Z",
+        "lastUserMessageAt": "2026-09-23T01:37:54.632Z",
+        "status": "idle",
+        "activeTurn": null,
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "fast_mode",
+            "label": "Fast",
+            "description": "Priority inference at increased usage",
+            "tooltip": "Toggle fast mode",
+            "icon": "zap",
+            "value": false
+          },
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+          "nativeHandle": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+          "metadata": {
+            "provider": "codex",
+            "cwd": "/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921",
+            "title": "ABC20 group03 anonymous adjudication",
+            "threadId": "01a0cbe9-7a4a-7782-8f4d-ec030853408c",
+            "modeId": "auto-review",
+            "model": "gpt-6-astra",
+            "thinkingOptionId": "high",
+            "asyncQuestions": []
+          }
+        },
+        "title": "ABC20 group03 anonymous adjudication",
+        "labels": {
+          "task": "abc-40-b097-20260923",
+          "role": "REVIEWER",
+          "purpose": "translation_contextual_v1",
+          "dispatch": "adjudication-01",
+          "paseo.parent-agent-id": "3a99ff56-6868-4533-b3d5-755e411f9159"
+        },
+        "lastUsage": {
+          "inputTokens": 112323,
+          "cachedInputTokens": 110464,
+          "outputTokens": 5562,
+          "contextWindowMaxTokens": 258400,
+          "contextWindowUsedTokens": 117885
+        },
+        "requiresAttention": true,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-09-23T01:44:00.686Z"
+      },
+      "coverage": 40,
+      "table_coverage_valid": true,
+      "report_sha256": "c6d425be732e37babd71d1a1e2c83a5788f038d52d5db0fda10638580f590fc1",
+      "archived_at": "2026-09-23T01:44:09.532Z"
+    }
+  ],
+  "reference_plan": "blind full40 then fresh anonymous adjudication; provisional model reference",
+  "verification": "VERIFICATION.json",
+  "results": "RESULT.md"
+}
