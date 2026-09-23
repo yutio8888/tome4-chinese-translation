@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口10已完成；待宿主发布收尾，随后审核257）
+更新时间：2026-09-23（审核257已完成；下一步修复窗口11，仅处理257的4条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -89,8 +89,17 @@ pending 新增第 8–10 项（Blunt Thrust、传说标题、Crystal Shard）。
 publication child 待宿主归档。完整结果见
 [窗口10出版证据](evidence/quality/repair-window-10-20260923/PUBLICATION.md)。
 
-下一步由宿主完成本证据提交、第二次 queue rebuild 和 push；这些步骤尚未完成。随后继续审核257
-（默认80条）。
+窗口10的证据提交、queue rebuild 与 push 已完成（`d5905f2d`）。
+
+审核257（`batch-88cfb30f797898ed8ef5`）已闭合，结果为 **76 done / 4 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 75 OK / 5 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致），
+contextual `claude/claude-opus-5-5` 为 2 OK / 3 ISSUE；8 个观察裁决为 7 confirmed、1 advisory。17/17 门禁含严格构建通过，
+两任务快照重放 `DONE_VERIFIED`，五个 reviewer 均已归档确认。证据提交 `cd70d0cd20c79ef76fe72b2de01c6d6f7eb99469`，
+详见[257宿主证据](evidence/quality/production-batches/batch-88cfb30f797898ed8ef5-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口11，仅处理 257 的 4 条：Trollmire 日记残页（两处空行与 get wind of 习语）、
+Torment 伤害阈值“超过至少”、鼠巫妖头骨未鉴定名 dusty rat skull、角色面板 Effect resistances 标题（免疫→抗性）。
+范围见 `.ai/task/batch-88cfb30f797898ed8ef5/WINDOW11-REPAIR-DECISION.json`；可复用窗口10b 模板，失败的 FINAL 之后必须接 RE_REVIEW。
 
 ### 窗口7闭合时的暂停记录（历史）
 
