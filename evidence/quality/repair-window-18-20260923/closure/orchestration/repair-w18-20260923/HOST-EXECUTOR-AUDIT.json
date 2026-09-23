@@ -1,0 +1,43 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 13,
+      "native_calls_sha256": "75192ef6d6ad100f5de482fae9fb6cb15a5bd088577f7b0ad175b575b96a2ab8",
+      "writes": [
+        "mod-tome.lua (4 targets)",
+        "evidence/quality/repair-window-18-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "TERMINOLOGY.md",
+        "mod-tome.lua",
+        "pinned upstream sources via git show",
+        "prior repair-window evidence layout (read-only listing)"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 4 targets: crushed=正被碾压 (progressive), Standby=待命, Offhand Jab first line states surprise unarmed strike replacing offhand attack and LF 3->2 matches source with \\t\\t indents, Z’quikzshl lore fixes trivial/ruby/pronoun/name-corruption; all markup and LF preserved."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "439ee90cde05a352fd1f2c0f52488c9e86cab97e210c62cd7661df6556e91211",
+      "writes": [
+        "mod-tome.lua (Z’quikzshl lore substring only; host diffed against frozen R0 candidate: single substring change)",
+        "evidence/quality/repair-window-18-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "verify.py PASS, exactly 4 targets changed, LF/TAB equal to source"
+}

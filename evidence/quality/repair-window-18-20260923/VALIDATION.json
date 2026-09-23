@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-18 unique EXECUTOR",
+  "scope": "4 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w18-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 4,
+        "changed_revisions": [
+          "f431fee2ffd961fecdeb4c05a240d52dc59c1201ea6d081aa237d22dcb21c418",
+          "f3bf7c41d4567349f7f4e239a7d8a6af82f2c66ffa2bcd12f5b5db4e73fa1ecf",
+          "f36a77c67030a4ae4a985497a95f1efd368e8e9b5215ff60a484473f5c279299",
+          "f3756e2f2d7f9cf289f5d069c1921b1c338a6f919c993b75ae50ed92f8b46de7"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T190923.161420Z-1268936-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w18-20260923/PREFLIGHT-BATCH264.json",
+      "path": "evidence/quality/repair-window-18-20260923/PREFLIGHT-BATCH264.json",
+      "sha256": "2c001f079d19aa6c887df7b16885165754b4038ab1ddb4a58e094a038d286e8d",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w18-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-18-20260923/HOST-WORKSET.json",
+      "sha256": "c599a07b7ead85665420b5fbca2bbdbbea1233cfafd37f2cc78c3823c1a66307",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w18-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-18-20260923/SOURCE-ANCHORS.json",
+      "sha256": "49b3b6a9f72f48b195715236bfe1e8cd6b88137123229f7017b137a91660da0b",
+      "byte_identical": true
+    }
+  ],
+  "repair_cycle_1": {
+    "finding": "R0-ZQUIK-RITES-READINESS",
+    "revision": "f431fee2ffd961fecdeb4c05a240d52dc59c1201ea6d081aa237d22dcb21c418",
+    "scope": "exact substring replacement in the Z'quikzshl diary target only",
+    "replacement": {
+      "old": "我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注",
+      "new": "我愚蠢的主人说我还没准备好接受巫妖仪式，说我会引来不必要的关注"
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w18-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 4,
+          "changed_revisions": [
+            "f431fee2ffd961fecdeb4c05a240d52dc59c1201ea6d081aa237d22dcb21c418",
+            "f3bf7c41d4567349f7f4e239a7d8a6af82f2c66ffa2bcd12f5b5db4e73fa1ecf",
+            "f36a77c67030a4ae4a985497a95f1efd368e8e9b5215ff60a484473f5c279299",
+            "f3756e2f2d7f9cf289f5d069c1921b1c338a6f919c993b75ae50ed92f8b46de7"
+          ]
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260923T191611.319648Z-1279619-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "constraints": "No other text in the diary target or any other entry was changed during cycle 1; no staging, commit, push, .ai write, or agent creation was performed; unrelated untracked files were preserved."
+  },
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, DONE_VERIFIED, publication, and lifecycle closure were not run and are not claimed. The host must continue them."
+}

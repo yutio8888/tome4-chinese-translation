@@ -1,0 +1,21 @@
+窗口18证据发布与交接已完成。
+
+- 安装冻结编排包：109 项、847,633 字节，并逐字复制 PACK manifest。
+- 安装候选 catalog 5 个文件及 migration：
+  - catalog：`2cd472deee7159e35cb53656b3311a9232752be19817adb5edee7e5db494b7c2`
+  - migration：`4847d321cc828a85d29b12b3c05a399eee35a700288d9ade838f8b84a443f58f`
+- 归档 14 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-18-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，记录窗口18结果及宿主后续工作。
+
+验证结果：
+
+- PACK 逐项 SHA-256、字节数：通过
+- catalog、migration、publication 附件逐字 `cmp`：通过
+- UTF-8、尾随空白、文档链接：通过
+- `git diff --check`：通过
+- `ai_state_check --target DONE`：`DONE_VERIFIED`
+- 未修改 Lua、术语、规则、工具、`.ai`、旧证据或 pending 清单
+- 未 stage、commit、push，也未重跑 queue/catalog/migration/门禁
+
+宿主仍需提交本证据、执行第二次 queue rebuild 并 push，随后继续审核265（默认80条）。

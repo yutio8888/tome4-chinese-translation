@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-ZQUIK-RITES-READINESS",
+      "revision_key": "f431fee2ffd961fecdeb4c05a240d52dc59c1201ea6d081aa237d22dcb21c418",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "宿主核对 lore/misc.lua:773（624a673）：My fool of a master said I was not ready for the rites of lichdom 说的是尚未准备好接受巫妖仪式（时机/准备程度），现译“没有做巫妖的条件”改成了资格判断。仅改该分句，其余已修内容保持。",
+      "replacements": [
+        {
+          "scope": "substring",
+          "old": "我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注",
+          "new": "我愚蠢的主人说我还没准备好接受巫妖仪式，说我会引来不必要的关注"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 3 条 OK 与宿主 diff 核对一致。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-23T19:14:22.473668+00:00"
+}

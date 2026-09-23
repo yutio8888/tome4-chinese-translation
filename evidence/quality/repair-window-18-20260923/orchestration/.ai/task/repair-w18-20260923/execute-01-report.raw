@@ -1,0 +1,23 @@
+窗口 18 的 4 条译文已实际修复：
+
+- 进行态改为“`#Target#正被碾压。`”
+- `Standby` 改为“待命”
+- `Offhand Jab` 补全突袭及替代副手攻击的含义，并删除多余换行
+- Z’quikzshl 日记修正材料、红宝石、代词、名字走音及逐句明显错漏
+
+修改文件：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:18499)
+
+Evidence 已生成：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-18-20260923/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-18-20260923/VALIDATION.json)
+- `PREFLIGHT-BATCH264.json`、`HOST-WORKSET.json`、`SOURCE-ANCHORS.json` 均已验证为逐字节副本
+
+检查结果全部通过：
+
+- 窗口 `verify.py`：22989 条记录，恰好 4 个 target 变化
+- strict lint：30308 条，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未修改 `.ai`、术语库或其他任务文件；未 stage、commit、push，未创建 agent，无关 untracked 均保留。完整门禁、独立 REVIEW/FINAL_REVIEW、构建及 `DONE_VERIFIED` 仍由宿主继续。
