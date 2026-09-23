@@ -1,0 +1,95 @@
+{
+  "workset": "evidence/quality/production-batches/batch-f740e6898e8b430ca79f-source-workset.json",
+  "decisions": {
+    "12ff2c09d3|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "discharge.lua:69–81 超额飞弹循环 for i=1,min(p.overcharge,getTargetCount) 每次 rng.table(tgts_oc) 后 table.remove，同一目标本回合至多一枚，总数受目标数上限约束。译文“每个目标至多 1 枚、总数不超过 %d”与实现一致，并非新增限制。"
+    },
+    "e00b2a8b68|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "dirge.lua:165 callbackOnTemporaryEffectAdd 仅在 e_def.status==\"detrimental\" and e_def.type~=\"other\" and eff.src~=self 时触发。译文的“非自身施加、且不属于其他类型”与固定源码实现一致，属窗口7修复后贴合实现的表述。"
+    },
+    "e8fc5b0a4a|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "cursed.lua:22 endless-hunt 技能树描述：Each day, you lift your weary body and begin the unending hunt。译文“你不知疲倦无时无刻狩猎你的下一个目标”把疲惫的身体反转为不知疲倦，并丢失每天起身开始无尽狩猎的意象，意义相反，需修复。"
+    },
+    "e90949f925|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests.lua:337–340 ALL_DREAMS 成就名 Dreaming my dreams，desc 为体验并完成 Dogroth Caldera 全部梦境。译文我的梦就是你的梦新增第二人称并改成两人梦境等同的断言，偏离原名含义；surface 与独立 contextual 均指出，宿主据源码确认，应恢复为做着我的梦类表述。"
+    },
+    "e92433bcba|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（资源被缩窄为能量）与本条 unlock-yeek 文本无关，是同 lane 上一条 e923d2b8 的错位。本条 cunning 译灵巧与术语库 combat.tsv Cunning=灵巧（stat name）一致，不构成错误。错位目标另见 HOST additional observation。"
+    },
+    "e925366829|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "所附 observation（cunning 译灵巧）属上一条 yeek 的错位；但本条 misc.lua:530–545 Thalore 诗句自身有独立缺陷：Once flowers rose to reach the sky 被译为曾经炽热的复仇火焰染红天空，把花朵高耸误写成复仇火焰，改变诗意与意象（与下句 blossoms、thrush and owl 同为昔日繁盛），经宿主独立核验确认需修复。"
+    },
+    "e928ce2cd0|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation 描述 Thalore 诗句，与本条 blighted-ruins objects.lua:67 A paper scrap, left by the Necromancer 无关，为错位；本条译文一张死灵法师留下的纸片准确。"
+    },
+    "e951739433|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "damage_types.lua:4012–4040 BLIGHT_POISON 按 dam.poison 取 rng.range(1,n)，在基础毒与已解锁的阴险/麻痹/致残毒素中等概率选一施加。译文中毒几率在可能的毒素效果中平分，表达各效果机会均等，与实现一致。"
+    },
+    "e988482539|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "misc.lua:505–509 races-10 为 Loremaster Greynot 的种族分析第11章，作者以第一人称撰写分类（同系列 Demons 章 I feel the need to describe）。译文补我把龙列为智慧种族在该语境可成立；单独列出为轻微增译，只记建议。"
+    },
+    "e992e87196|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "daikara/npcs.lua:34–37 RANTHA_THE_WORM type=\"dragon\" subtype=\"ice\"，desc 称 Dragons are not all extinct；Worm 即 wyrm 龙称，巨龙兰莎符合实体身份。"
+    },
+    "e99aa6d60f|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "lore/fun.lua:37 rogue-poem 随机传说物品名，为双关玩笑标题。译文盗贼在你身后传达背后偷袭意象，未译出 do it 的双关，属标题风格建议，不影响机制。"
+    },
+    "e9a9aef25b|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "magical.lua:2172–2185 SPELLSHOCKED 为有持续时间的 detrimental 状态，addTemporaryValue 全抗性 -power。译文省略 temporarily，但状态本身带时限显示，不构成永久化误导；可补暂时，记建议。"
+    },
+    "e8fc5b0a4a|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷的独立语境复核：cursed.lua:22 weary 被反转为不知疲倦，丢失 each day 与起身意象并新增下一个目标；确认修复整句。"
+    },
+    "e90949f925|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "独立语境复核与 surface 一致：成就名新增你的梦、改变含义；确认有界修复标题。"
+    },
+    "e92433bcba|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "unlock-yeek.lua:22–34 原文 12 个换行，译文 13 个：原第 23 行一句被拆成“……有点滑稽。\\n不过他们是……”两行，违反 newline 不变量，确认修复（合并为一行）。cunning 译灵巧与术语库 Cunning=灵巧（stat name）一致，不作修复。"
+    },
+    "e925366829|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "misc.lua:530–545 诗句 Once flowers rose to reach the sky 被虚构为复仇火焰，Now all lost, now all fled 被复写成首节的尘土/虚无；确认修复该两行。blossoms/beech 细节属建议，可在修复同句时顺带贴合但不扩大范围。"
+    },
+    "e951739433|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "magical.lua:4259–4261 NUMBING_BLIGHT long_desc: All damage it does is reduced by %d%%；blight.lua:212 reduces all damage dealt。译文降低 %d%% 伤害未说明是目标造成的全部伤害，可被读为受到伤害降低，方向歧义属机制描述缺陷，确认修复该行。"
+    },
+    "e988482539|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "misc.lua:509–519 races-10：may be borne purely from the fanatical delusions 被改为只有信徒才会相信（删 may 并改变主张）；The Daikara Pass and surrounding mountain chains 被缩为岱卡拉山脉；over 40' 丢失 over；newly matured drakes 丢失 newly。确认有界修复这四处；surface 所提第一人称增译仍只记建议。"
+    }
+  }
+}

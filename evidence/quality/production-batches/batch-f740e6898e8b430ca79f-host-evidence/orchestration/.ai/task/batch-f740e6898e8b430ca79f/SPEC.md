@@ -1,0 +1,1 @@
+审核254，修复窗口8第一批。用户2026-09-23授权继续审核（解除窗口7后的暂停）；surface改用codex/gpt-6-sol，contextual改用claude/claude-opus-5-5。基线da29dbd3190d8e011d2d0a43d5c90d874d575f02，范围为SCOPE.json和checkpoint冻结的80个revision。只读审核；主代理按固定公开源码裁决，不改译文、术语、规则或旧冻结输入。确认项汇总至窗口7。既有Archmage策略和旧blocked保持排除，不扩大历史pending/advisory。独立reviewer仅按envelope及完整对应契约读取。

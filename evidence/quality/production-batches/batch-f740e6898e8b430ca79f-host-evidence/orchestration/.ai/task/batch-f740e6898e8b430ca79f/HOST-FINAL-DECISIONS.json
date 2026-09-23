@@ -1,0 +1,187 @@
+{
+  "batch_id": "batch-f740e6898e8b430ca79f",
+  "observations": 18,
+  "observation_dispositions": {
+    "refuted": 6,
+    "confirmed": 9,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "e8fc5b0a4a9d6c3e85ebcbf79ddc5b41a7e1b2c8d28b1a47d34440af8167e8a2",
+    "e90949f9259fbaa1b4aeb7bbdef559ace4df0d4539c8c53e005c3d8c9dd5d43c",
+    "e92433bcbaf2d4dc438a1651a4cb5214c7e4c8dae5438f8418253e0e829740af",
+    "e9253668295a71c738227e4186efa5e9fa86c30ccc629240168490030d584083",
+    "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041",
+    "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989"
+  ],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6
+  },
+  "rows": [
+    {
+      "revision_key": "12ff2c09d3bbb8e88b78439e0cdea8bf0652d9ffc9866add320012f2524a954d",
+      "stage": "surface",
+      "observation": "原文说超出上限的反馈值每达到 %d 点，可为每个目标产生一枚额外飞弹；译文写成“每个目标至多 1 枚”，增加了原文没有的单目标上限。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "discharge.lua:69–81 超额飞弹循环 for i=1,min(p.overcharge,getTargetCount) 每次 rng.table(tgts_oc) 后 table.remove，同一目标本回合至多一枚，总数受目标数上限约束。译文“每个目标至多 1 枚、总数不超过 %d”与实现一致，并非新增限制。"
+    },
+    {
+      "revision_key": "e00b2a8b68e9b6787d6fc7a22b4b62a97c32ec7146ec7b71575097516df05ce7",
+      "stage": "surface",
+      "observation": "原文仅说每次受到负面效果时获得护盾；译文增加了“非自身施加、且不属于‘其他’类型”两项触发限制。冻结输入没有支持这些限制的证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "dirge.lua:165 callbackOnTemporaryEffectAdd 仅在 e_def.status==\"detrimental\" and e_def.type~=\"other\" and eff.src~=self 时触发。译文的“非自身施加、且不属于其他类型”与固定源码实现一致，属窗口7修复后贴合实现的表述。"
+    },
+    {
+      "revision_key": "e8fc5b0a4a9d6c3e85ebcbf79ddc5b41a7e1b2c8d28b1a47d34440af8167e8a2",
+      "stage": "surface",
+      "observation": "原文是每天拖起疲惫的身体开始无尽狩猎；译文写成“不知疲倦”“无时无刻狩猎”，改变了疲惫和每天的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "cursed.lua:22 endless-hunt 技能树描述：Each day, you lift your weary body and begin the unending hunt。译文“你不知疲倦无时无刻狩猎你的下一个目标”把疲惫的身体反转为不知疲倦，并丢失每天起身开始无尽狩猎的意象，意义相反，需修复。"
+    },
+    {
+      "revision_key": "e90949f9259fbaa1b4aeb7bbdef559ace4df0d4539c8c53e005c3d8c9dd5d43c",
+      "stage": "surface",
+      "observation": "原文只有“我的梦”，译文加入“你的梦”，改变了所指。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests.lua:337–340 ALL_DREAMS 成就名 Dreaming my dreams，desc 为体验并完成 Dogroth Caldera 全部梦境。译文我的梦就是你的梦新增第二人称并改成两人梦境等同的断言，偏离原名含义；surface 与独立 contextual 均指出，宿主据源码确认，应恢复为做着我的梦类表述。"
+    },
+    {
+      "revision_key": "e92433bcbaf2d4dc438a1651a4cb5214c7e4c8dae5438f8418253e0e829740af",
+      "stage": "surface",
+      "observation": "原文说使用技能不消耗资源；译文限定为不消耗能量，缩窄了资源范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（资源被缩窄为能量）与本条 unlock-yeek 文本无关，是同 lane 上一条 e923d2b8 的错位。本条 cunning 译灵巧与术语库 combat.tsv Cunning=灵巧（stat name）一致，不构成错误。错位目标另见 HOST additional observation。"
+    },
+    {
+      "revision_key": "e9253668295a71c738227e4186efa5e9fa86c30ccc629240168490030d584083",
+      "stage": "surface",
+      "observation": "原文 cunning 指狡黠、机敏；译文写成“灵巧”，变成身体敏捷。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "所附 observation（cunning 译灵巧）属上一条 yeek 的错位；但本条 misc.lua:530–545 Thalore 诗句自身有独立缺陷：Once flowers rose to reach the sky 被译为曾经炽热的复仇火焰染红天空，把花朵高耸误写成复仇火焰，改变诗意与意象（与下句 blossoms、thrush and owl 同为昔日繁盛），经宿主独立核验确认需修复。"
+    },
+    {
+      "revision_key": "e928ce2cd082f9a66e9a1d8953272766ee8fd25a91db43afaeb15c4ce337e6a4",
+      "stage": "surface",
+      "observation": "诗句“Once flowers rose to reach the sky”被译成“曾经炽热的复仇火焰染红天空”，把花朵误写成复仇火焰。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation 描述 Thalore 诗句，与本条 blighted-ruins objects.lua:67 A paper scrap, left by the Necromancer 无关，为错位；本条译文一张死灵法师留下的纸片准确。"
+    },
+    {
+      "revision_key": "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041",
+      "stage": "surface",
+      "observation": "原文“Each possible effect is equally likely”指各种可能效果出现的概率相同；译文“中毒几率在可能的毒素效果中平分”误将其表述为中毒几率的分配。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "damage_types.lua:4012–4040 BLIGHT_POISON 按 dam.poison 取 rng.range(1,n)，在基础毒与已解锁的阴险/麻痹/致残毒素中等概率选一施加。译文中毒几率在可能的毒素效果中平分，表达各效果机会均等，与实现一致。"
+    },
+    {
+      "revision_key": "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989",
+      "stage": "surface",
+      "observation": "原文说一般人可能嘲笑“把龙归为智慧种族的想法”，译文加入了原文没有的第一人称“我把龙作为单独列出的智慧种族”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "misc.lua:505–509 races-10 为 Loremaster Greynot 的种族分析第11章，作者以第一人称撰写分类（同系列 Demons 章 I feel the need to describe）。译文补我把龙列为智慧种族在该语境可成立；单独列出为轻微增译，只记建议。"
+    },
+    {
+      "revision_key": "e992e87196f4977ed94fb973b203336fc1e2c3a1c570d4380c61bd752bbcbfea",
+      "stage": "surface",
+      "observation": "原文称 Rantha the Worm，译文称“巨龙兰莎”；冻结输入没有说明 Worm 在此是否指龙，需语境证据确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "daikara/npcs.lua:34–37 RANTHA_THE_WORM type=\"dragon\" subtype=\"ice\"，desc 称 Dragons are not all extinct；Worm 即 wyrm 龙称，巨龙兰莎符合实体身份。"
+    },
+    {
+      "revision_key": "e99aa6d60fabd45212faca9eaa0c90069769b53990cd1ae3c1e33d34f99c28a5",
+      "stage": "surface",
+      "observation": "原文“rogues do it from behind”说盗贼从背后做某事，译文“盗贼在你身后”遗漏了动作，并加入原文没有的“你”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "lore/fun.lua:37 rogue-poem 随机传说物品名，为双关玩笑标题。译文盗贼在你身后传达背后偷袭意象，未译出 do it 的双关，属标题风格建议，不影响机制。"
+    },
+    {
+      "revision_key": "e9a9aef25b302395915d645f4b01ba831bcc065cafeaddc1b171b8d5a7fef53a",
+      "stage": "surface",
+      "observation": "原文明确说魔法只是“temporarily”干扰所有伤害抗性，译文遗漏了暂时性。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "magical.lua:2172–2185 SPELLSHOCKED 为有持续时间的 detrimental 状态，addTemporaryValue 全抗性 -power。译文省略 temporarily，但状态本身带时限显示，不构成永久化误导；可补暂时，记建议。"
+    },
+    {
+      "revision_key": "e8fc5b0a4a9d6c3e85ebcbf79ddc5b41a7e1b2c8d28b1a47d34440af8167e8a2",
+      "stage": "contextual",
+      "observation": "The source (cursed.lua:22, description of the endless hunt talent type) says \"Each day, you lift your weary body and begin the unending hunt\": every day you drag your worn-out body up and start the hunt again. The translation 「你不知疲倦无时无刻狩猎你的下一个目标」 means \"you tirelessly hunt your next target at every moment\". That turns weary (exhausted) into its opposite (tireless). It also drops \"each day\" and the image of lifting a tired body, and it adds \"your next target\", which is not in the source.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 键同一缺陷的独立语境复核：cursed.lua:22 weary 被反转为不知疲倦，丢失 each day 与起身意象并新增下一个目标；确认修复整句。"
+    },
+    {
+      "revision_key": "e90949f9259fbaa1b4aeb7bbdef559ace4df0d4539c8c53e005c3d8c9dd5d43c",
+      "stage": "contextual",
+      "observation": "The source is the achievement name \"Dreaming my dreams\" (quests.lua:338). Its desc at line 340 is \"Experienced and completed all the dreams in the Dogroth Caldera\", so the name means the player dreamed their own dreams. The translation 「我的梦就是你的梦」 means \"my dreams are your dreams\". It changes the statement into an equation between two people and adds a \"you\" that the source does not have, so the achievement's meaning drifts. A rendering along the lines of 「做着我的梦」 would keep it.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "独立语境复核与 surface 一致：成就名新增你的梦、改变含义；确认有界修复标题。"
+    },
+    {
+      "revision_key": "e92433bcbaf2d4dc438a1651a4cb5214c7e4c8dae5438f8418253e0e829740af",
+      "stage": "contextual",
+      "observation": "Line-break mismatch: the source has 12 newlines and the translation has 13. Source line 23 (unlock-yeek.lua) is a single sentence, but the translation splits it into two lines at 「……样子有点滑稽。\\n不过他们是……」, which changes the paragraph layout. Minor, in the same sentence: \"cunning\" is rendered 「灵巧」 (nimble, deft), which is not the same as the source's meaning of shrewd or crafty.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "unlock-yeek.lua:22–34 原文 12 个换行，译文 13 个：原第 23 行一句被拆成“……有点滑稽。\\n不过他们是……”两行，违反 newline 不变量，确认修复（合并为一行）。cunning 译灵巧与术语库 Cunning=灵巧（stat name）一致，不作修复。"
+    },
+    {
+      "revision_key": "e9253668295a71c738227e4186efa5e9fa86c30ccc629240168490030d584083",
+      "stage": "contextual",
+      "observation": "Second stanza of the poem (misc.lua:536-539). \"Once flowers rose to reach the sky\" is rendered 「曾经炽热的复仇火焰染红天空」 (\"the once-blazing fire of revenge stained the sky red\"), which has nothing to do with the source. The flowers-reaching-the-sky image is gone, and an image of vengeful fire is invented. \"Now all lost, now all fled\" is rendered 「今为尘土，今为虚无」 (\"now dust, now nothingness\"), which just repeats the first stanza's \"All is dust, all is dead\" and loses the meaning of lost and fled. Minor: \"Once blossoms fell from beech on high\" says nothing about the flowers being in full bloom, and it drops the beech tree.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "misc.lua:530–545 诗句 Once flowers rose to reach the sky 被虚构为复仇火焰，Now all lost, now all fled 被复写成首节的尘土/虚无；确认修复该两行。blossoms/beech 细节属建议，可在修复同句时顺带贴合但不扩大范围。"
+    },
+    {
+      "revision_key": "e95173943342a9e768bab3bcbc0709b0fdc636b0973da55b20e3435d18206041",
+      "stage": "contextual",
+      "observation": "The source (blight.lua:212) says Numbing Blight \"reduces all damage dealt by %d%%\": the target deals less damage. The translation 「降低 %d%% 伤害」 drops both \"dealt\" and \"all\", so the reader cannot tell whether the damage the target deals goes down or the damage it takes goes down. Read the second way, the debuff could be mistaken for damage reduction on the target. It should say explicitly that the damage the target deals, i.e. all damage it deals, is reduced by %d%%.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "magical.lua:4259–4261 NUMBING_BLIGHT long_desc: All damage it does is reduced by %d%%；blight.lua:212 reduces all damage dealt。译文降低 %d%% 伤害未说明是目标造成的全部伤害，可被读为受到伤害降低，方向歧义属机制描述缺陷，确认修复该行。"
+    },
+    {
+      "revision_key": "e9884825395b8560158bbeb0af351556ef369bf2154122ad9c0b7ef1a035f989",
+      "stage": "contextual",
+      "observation": "misc.lua:513: \"However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long\" means the theory may have come purely from the fanatical delusions of some wyrmics. The translation 「然而这个理论只有那些……龙战士信徒们才会相信」 (\"only those wyrmic devotees would believe this theory\") drops the \"may\" and changes the claim from where the theory came from to who believes it. Also in the same text (line 515), \"The Daikara Pass and surrounding mountain chains\" becomes 「岱卡拉山脉」 (\"the Daikara Mountains\"), which changes the pass into a mountain range and drops the surrounding mountain chains. At line 517, \"newly matured drakes\" becomes 「成年巨龙」 (\"adult great dragons\"), losing \"newly\". At line 513, \"over 40'\" becomes 「能达到40英尺」 (\"can reach 40 feet\"), losing \"over\".",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "misc.lua:509–519 races-10：may be borne purely from the fanatical delusions 被改为只有信徒才会相信（删 may 并改变主张）；The Daikara Pass and surrounding mountain chains 被缩为岱卡拉山脉；over 40' 丢失 over；newly matured drakes 丢失 newly。确认有界修复这四处；surface 所提第一人称增译仍只记建议。"
+    }
+  ],
+  "additional_host_observations": [
+    {
+      "revision_key": "e923d2b8d0b9da723ca5a9accc6bdaec2314e3b10deeea0fd4d8dd258ff711fe",
+      "source": "The target is using talents without consuming resources.",
+      "target": "目标使用技能时不再消耗能量。",
+      "disposition": "advisory",
+      "note": "surface lane-000-1 的 observation 错位挂到下一条；本条 surface 判 OK、无 accepted observation，不能加裁决键。resources 被译为能量略窄（能量非资源通称术语），记为宿主补充建议，本批按 done，后续批次或维护者可重新覆盖。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser_deviation": "Codex CLI 0.156.0 and Claude Code 2.1.280 are newer than the repo native parser pins (0.153.0 / 2.1.259). Raw bytes were extracted by running the repo _parse_native_final from a temp copy with only the version literals substituted, then harvested via the strict --raw path; proofs in review254-*-native/*.proof.json. Repo tools unmodified.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "lane-000-1 observations slid by one entry for three rows; handled per slid-observation procedure.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}
