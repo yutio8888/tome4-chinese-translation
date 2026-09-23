@@ -7385,7 +7385,7 @@ section "mod-tome/data/general/events/rat-lich.lua"
 
 t("way up to %s", "向上到%s的路", "tformat")
 t("#VIOLET# As you leave the crypt, the stairway collapses in upon itself.", "#VIOLET# 当你离开地宫的时候，楼梯崩塌了。", "log")
-t("dusty rat skull", "肮脏的鼠骷髅", "_t")
+t("dusty rat skull", "落满灰尘的鼠头骨", "_t")
 t("Skull of the Rat Lich", "鼠巫妖头骨", "_t")
 t("This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eye sockets.", "这枚古老的头骨是鼠巫妖仅存于世的东西，上面残留了鼠巫妖的部分精华能量，眼窝中仍闪烁着微弱的红光。", "_t")
 t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为你作战", "_t")
@@ -19753,8 +19753,10 @@ t([[You find a tattered page scrap. Perhaps this is part of a diary entry.
 ...
 
 ...initely found his treasure stash further on, but had to turn back. If you get this, HELP!"]], [[你找到了一片破烂的纸页残片。也许这是某篇日记的一部分。
-“……又回来了，不过他只是那只又老又蠢的巨魔。要掩住气味、不让他循迹找到我，轻而易举。
+“……又回来了，不过他只是那只又老又蠢的巨魔。不让他察觉到我，轻而易举。
+
 ……
+
 ……肯定在更前面找到了他的藏宝处，可我不得不折回来。如果你看到这些，救命！”]], "_t")
 t([[You find a tattered page scrap. Perhaps this is part of a diary entry.
 "...writing this in a tree and he's at the bottom of it. Waiting. His club is the size of a tall dwarf. Don't think I'm going to make it..."
@@ -23033,7 +23035,7 @@ t("Blood Vengeance", "血之复仇", "talent name")
 t("#RED#The powerful blow energizes %s reducing their cooldowns!#LAST#", "#RED#强大的攻击使 %s 获得能量，技能冷却时间缩短了！#LAST#", "logSeen")
 t([[When you are dealt a blow that reduces your life by at least %d%%, you have a %d%% chance to reduce the remaining cooldown of all your talents by 1.
 		Temporary life from Sanguine Infusion will not count against the damage threshold.
-		The chance will increase with your Spellpower.]], [[当你遭受到超过至少 %d%% 总生命值的伤害时，你有 %d%% 概率降低所有技能 1 回合冷却时间。
+		The chance will increase with your Spellpower.]], [[当你受到的单次打击造成至少 %d%% 最大生命值的伤害时，每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间。
 		鲜血灌注带来的额外生命值，不会影响该技能的伤害阈值。
 		概率受法术强度加成。]], "tformat")
 
@@ -41497,7 +41499,7 @@ t("Speed Res", "速度抗性", "_t")
 t("#ORANGE#vs %-11s#LAST#: #00ff00#%3s %s", "#ORANGE#对%-11s#LAST#：#00ff00#%3s %s", "tformat")
 t("#LIGHT_BLUE#Damage affinities:", "#LIGHT_BLUE#伤害亲和：", "_t")
 t("#LIGHT_BLUE#Flat resistances:", "#LIGHT_BLUE#固定数值伤害减免：", "_t")
-t("#LIGHT_BLUE#Effect resistances:", "#LIGHT_BLUE#状态效果免疫：", "_t")
+t("#LIGHT_BLUE#Effect resistances:", "#LIGHT_BLUE#状态效果抗性：", "_t")
 t("#LIGHT_BLUE#Damage when hit:", "#LIGHT_BLUE#被击中后反击伤害：", "_t")
 t("race/.*", "种族技能/.*", "_t")
 t("Inscriptions", "刻印", "_t")
