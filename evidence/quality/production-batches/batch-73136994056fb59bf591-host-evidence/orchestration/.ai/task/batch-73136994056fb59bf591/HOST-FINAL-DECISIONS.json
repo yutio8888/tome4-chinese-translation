@@ -1,0 +1,147 @@
+{
+  "batch_id": "batch-73136994056fb59bf591",
+  "observations": 14,
+  "observation_dispositions": {
+    "refuted": 4,
+    "advisory": 4,
+    "confirmed": 6
+  },
+  "repair_revision_keys": [
+    "ee3d073a2c9024bf0a974df77795c89fc8e9977304e69ff347378004d95854d1",
+    "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159",
+    "ee7affcb576ec9570085b729563ced5da745a971dd3cbb42ce573f47cbc08f6f",
+    "eea3b16de500ec86097d123eb5e29ef9d0214c71d34a8fd0f509c5db758a51ba"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "ee26d955d14ae59c157742259e7fdcfb56bed936a4ef8a221fd2e572f49ff1a8",
+      "stage": "surface",
+      "observation": "source_tag 为 entity name；“Rich merchant”指富商，译文“富商的家”却指一处住所。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "zones/town-last-hope/traps.lua:111–115：Rich merchant 是 BASE_STORE 地图入口实体（MELINDA_FATHER，chatfeature last-hope-melinda-father，门图 shop_door_barred），与同文件 \"Home of Ungrol the Alchemist\" 同类，指富商宅邸门；“富商的家”贴合地图实体语境。"
+    },
+    {
+      "revision_key": "ee27cabc3f8bf64a867c74f68ae0adf40ecae597ad6f89e7e87e5a4dcdb1cb1e",
+      "stage": "surface",
+      "observation": "“item acid corrode”未提及护甲，译文增加“护甲”；冻结输入缺少判断该伤害类型是否专指护甲的机制依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "damage_types.lua:2202–2230 ITEM_ACID_CORRODE：tdesc “chance to reduce armor by %d%%”，projector 施加 EFF_ITEM_ACID_CORRODE 降低护甲；“物品腐蚀护甲”与机制一致。"
+    },
+    {
+      "revision_key": "ee32b1868af098fb3e54a74a2f979ab13e0996d1963fa2ca38348e7a92d56643",
+      "stage": "surface",
+      "observation": "“dream-forge hammer”中的“forge”在“梦之巨锤”中没有体现；冻结输入缺少判断其是否为固定专名的依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/psionic/psionic.lua:44 psionic/dream-smith 技能树描述；梦境锻造树召唤的锤即“梦之巨锤”，未体现 forge 属风格取舍，不误导；可选改“召唤梦境熔铸的巨锤”。"
+    },
+    {
+      "revision_key": "ee3d073a2c9024bf0a974df77795c89fc8e9977304e69ff347378004d95854d1",
+      "stage": "surface",
+      "observation": "“well-deserved death”指应得的死亡；“死得其所”表示死得有价值，含义相反。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/other.lua:4184 Self-Judgement 流血致死的 special_death_msg：well-deserved death 意为“罪有应得的死”，译文“死得其所”（死得有价值）语义评价相反。改“因失血过多而死，罪有应得”一类；不涉及死亡描述词表的增添意象问题。"
+    },
+    {
+      "revision_key": "ee4b54c6aaba46ca4f712365e5f60cb1d9991cc5958545d30a39d06cd2511562",
+      "stage": "surface",
+      "observation": "“do not go after that... that thing”是劝对方别去追那东西；译文“不要回去和那东西战斗”增加了原文没有的“回去”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "lore/misc.lua:156 Rolf 致 Weisman 信：do not go after that... that thing 为“别去追/找那东西”，译文“不要回去和那东西战斗”加了“回去”、略去吞吐语气；主旨（劝其别去对付那东西）未误导。"
+    },
+    {
+      "revision_key": "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159",
+      "stage": "surface",
+      "observation": "原文是将肉体化为石头，译文写成融入石头；原文仅强制位移会结束效果，译文写成任何移动都会打断。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/spells/stone.lua:79–132 Body of Stone：transform your flesh into stone 译成“融入石头”偏义；“Reduces the cooldown … by %d%%” 译为“冷却时间回合数：%d%%”把百分比缩减写成回合数（getCooldownReduction 为百分比，cd_recution=cdr*cooldown/100）。移动打断部分：never_move 下仅可能被强制移动，Actor.lua:1486 任一 moved 即关闭，译文“任何移动会打断”功能等价，但宜随整句修回“任何强制移动都会终止此效果”。整句修复。"
+    },
+    {
+      "revision_key": "ee6fdad710e0706dc185a6681200ce8cc9807117ca5140aa56401d265ec55c25",
+      "stage": "surface",
+      "observation": "原文是向瓶子发射火球（at the vial），译文写成往瓶子里放火球。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "lore/misc.lua:682 召唤凤凰卷轴：A few fireballs at the vial 为“朝瓶子放几个火球（加热）”，译文“往瓶子里放几个小火球”方向偏差、“小”为增添；风味文本，不影响玩法。"
+    },
+    {
+      "revision_key": "ee7affcb576ec9570085b729563ced5da745a971dd3cbb42ce573f47cbc08f6f",
+      "stage": "surface",
+      "observation": "原文说明魔杖由强大的炼金术师和大法师制造，译文遗漏制造这一信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/wands.lua:30 魔杖类型描述：made by powerful Alchemists and Archmagi to store spells，译文“被炼金术师和大法师用来储存法术”漏 made（制造者）与 powerful，改写为使用者，信息错位。改“魔杖由强大的炼金术师和大法师制造，用来储存法术。任何人都可以用它释放其中的法术。”一类。"
+    },
+    {
+      "revision_key": "eea3b16de500ec86097d123eb5e29ef9d0214c71d34a8fd0f509c5db758a51ba",
+      "stage": "surface",
+      "observation": "原文明确说明额外效果适用于每次抓取，译文遗漏“每次抓取”；末项的“global action speed”仅译为“目标减速”，丢失具体属性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "techniques/grappling.lua:120–147 Crushing Hold：slow 经 startGrapple 合并为抓取附加效果，GRAPPLED 效果以 global_speed_add -eff.slow 实现（physical.lua:1475）；“Reduces global action speed” 译为“目标减速”丢失机制名，冻结术语 combat.tsv:137 global action speed=全局速度（preferred，tformat）。与 contextual 同向，宿主由 advisory 改判 confirmed 一级术语缺陷；随整句补“每次抓取”，并修 #RED# 后多余空格。"
+    },
+    {
+      "revision_key": "eeb95697188e824d8672c6988a9da63a9fecc72addc64ab2c71f28dc31a65dbc",
+      "stage": "surface",
+      "observation": "原文是“感觉更接近深渊”，译文“堕入了深渊”将接近误写成已经进入。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "timed_effects/magical.lua:2105–2106 ABYSSAL_SHROUD on_gain/on_lose：feels closer to the abyss 为“感到更接近深渊”，“堕入了深渊”稍过，但与 on_lose “逃离了深渊”（mod-tome.lua:35276）成对，战斗日志风味，不误导。"
+    },
+    {
+      "revision_key": "eecb4b05c5a827b5f65728c2b5920a7404d7e88d802bc06a67195e1481e5b244",
+      "stage": "surface",
+      "observation": "原文以冒号和空格结尾，译文以冒号结尾；若后续文本直接拼接，可能缺少分隔空格，冻结输入不足以确认实际用法。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Object.lua:1859 compare_fields 标签：中文标签以全角冒号结尾不带空格是本库惯例（同形 \"…: \"→\"…：\" 共 251 条），全角冒号自带视觉间隔，显示无问题。"
+    },
+    {
+      "revision_key": "eef71452393d85fd1a005bd0dd61511153d9eaf66894a0d935ddbd47f3e99e82",
+      "stage": "surface",
+      "observation": "原文提示按小写 'x'，译文写成大写 X；按键大小写可能影响操作。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "load.lua:135–136 第二武器套装 inventory 描述：键名写作大写 X 是中文键位惯例，指同一按键，不暗示 Shift；不改变操作。"
+    },
+    {
+      "revision_key": "ee646924bb32857001e8cb881dc72f6ba79c70b0712b0ea50699baa11ef6e159",
+      "stage": "contextual",
+      "observation": "原文“any forced movement will end the effect”，译文却写成“任何移动会打断此技能效果”，把限定词 forced（强制）删掉了。在固定 commit 624a673 中，Body of Stone 激活时会设置 never_move（stone.lua activate），主动移动本来就被禁止；只有 Actor.lua:1486 中移动实际发生（moved 为真）时，才会通过 forceUseTalent 结束效果，所以能结束效果的只有强制位移。现在的译文会让人误以为尝试移动就会结束效果，应改为“任何强制位移都会结束此效果”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向的独立语境复核：stone.lua activate 设 never_move，Actor.lua:1486 仅在实际发生移动（只能是强制位移）时 forceUseTalent 关闭 Body of Stone；译文删 forced 易让人以为尝试移动即结束。随整句修复（化为石头、强制位移、冷却缩减百分比）。"
+    },
+    {
+      "revision_key": "eea3b16de500ec86097d123eb5e29ef9d0214c71d34a8fd0f509c5db758a51ba",
+      "stage": "contextual",
+      "observation": "原文“Reduces global action speed by %d%%”被译成“目标减速 %d%%”，丢了“全局速度”这个机制名。冻结术语（combat.tsv:137，status=preferred，source_tag=tformat）规定 global action speed 译为“全局速度”。源码 physical.lua:1475 中，GRAPPLED 效果以 global_speed_add -eff.slow 实现，即确实降低全局速度。建议改为“降低目标 %d%% 全局速度”一类表述，与术语保持一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：GRAPPLED 以 global_speed_add -eff.slow 实现（physical.lua:1475），冻结术语 combat.tsv:137 global action speed=全局速度（preferred）；“目标减速”丢机制名。改“降低目标 %d%% 全局速度”一类。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; all 80 surface identity echoes pre-checked exact against envelopes before harvest.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}

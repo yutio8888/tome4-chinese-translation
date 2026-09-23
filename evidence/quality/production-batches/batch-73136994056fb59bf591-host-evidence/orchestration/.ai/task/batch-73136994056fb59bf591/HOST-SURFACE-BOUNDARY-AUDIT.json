@@ -1,0 +1,58 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (native-log harvest; identity echo pre-checked against envelopes, all 80 exact)",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 15,
+      "native_calls_sha256": "ffbd48ee00d34186a60a5d95f54054285e7c1104d645a06c654ca1ebc25a8c33",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first cat failed in sandbox; lane ran pwd, listed its tool catalog, created a Paseo terminal (8154ee95, cwd repo root) and sent only read-only keystrokes: cat of the contract and its own envelope, sed/rg of contract sections, and one python3 -c printing its own envelope fields; captured output via capture_terminal. No file writes, no other paths. Host killed the leftover terminal after harvest."
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "17294ce02189dc4b18088b2d648f91a892b8923e9e3ba2796de52a81ad46dc82",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files; call 4 is python3 -c reading its own envelope and printing the result JSON to stdout (no writes)"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "9821102fb25c34269f9e86270bcce8aa6e3166ac95cb3662b1b61d28fbe7419f",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "b849ed7af62ab41049e0746a7189266956da1edd9ebfb22f3b7064a87f153579",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files"
+    }
+  ]
+}

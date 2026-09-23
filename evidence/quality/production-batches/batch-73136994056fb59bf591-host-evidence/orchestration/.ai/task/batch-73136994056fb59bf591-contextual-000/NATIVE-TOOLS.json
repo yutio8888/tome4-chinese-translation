@@ -1,0 +1,86 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_016i9LKYuVrKdYL27PEgdymn",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-73136994056fb59bf591-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json docs/paseo-translation-context-review-v2-contract.md; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check sizes and contract headings"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01DxKwLQaJgpb864ThobdxUy",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01TXQxnGjsv86GuP5XmToj5p",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-73136994056fb59bf591-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(d['candidate_identity'])\nprint(p['fixed_source_identity']); print(p['terminology_snapshot'])\nprint(p['rendered_briefing'])\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k); print(json.dumps(t,ensure_ascii=False)); print(json.dumps(c,ensure_ascii=False)[:3000])\n\"",
+      "description": "Dump envelope contents"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01LKvxyH9tvwLdZX17K13oKY",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-73136994056fb59bf591-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k[:8]); print('S:',repr(t['source'])); print('T:',repr(t['target']))\n  ctx=c['context']\n  first,rest=ctx.split('\\n',1)\n  print('CTXFILE:',first)\n  for line in rest.split('\\n'):\n    if line.startswith('source_facts_v1:'):\n      f=json.loads(line[len('source_facts_v1:'):])['fact']\n      print(json.dumps(f,ensure_ascii=False))\n    else: print('L:',line)\n\"",
+      "description": "Dump entries compactly"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_018XiZZZ1CUk4gdNwMrSjbKq",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-73136994056fb59bf591-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k[:8]); print('S:',repr(t['source'])); print('T:',repr(t['target']))\n  ctx=c['context']\n  first,rest=ctx.split('\\n',1)\n  print('CTXFILE:',first)\n  for line in rest.split('\\n'):\n    if line.startswith('source_facts_v1:'):\n      f=json.loads(line[len('source_facts_v1:'):])['fact']\n      print('term:',json.dumps(f.get('terminology'),ensure_ascii=False), 'ph:',f.get('placeholders'),f.get('placeholders_in_target'),'miss:',f.get('missing_evidence'))\n      for a in f.get('anchors') or []:\n        print(' @',a.get('public_source_path'),a.get('matching_lines'))\n        for s in a.get('snippet',[]): print('   ',s['line'],s['text'])\n    else: print('L:',line)\n\"",
+      "description": "Dump entries with snippets"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01AWsX1sC657c66mHHhjCFiL",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | sed -n 2200,2240p; git show $C:game/modules/tome/data/talents/spells/stone.lua | sed -n 60,127p; git show $C:game/modules/tome/data/talents/techniques/grappling.lua | sed -n 110,143p",
+      "description": "Inspect pinned source for three entries"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_0165mscLvhEpn4RdwR4G4TMm",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -i \"body_of_stone\\|BODY_OF_STONE\" $C -- game/modules/tome | head -20; git grep -n \"slow\" $C -- game/modules/tome/data/timed_effects/physical.lua | grep -i -n \"grap\\|global_speed\" | head; git show $C:game/modules/tome/data/timed_effects/physical.lua | grep -n -A40 'name = \"GRAPPLED\"' | grep -n -i \"slow\\|speed\" ",
+      "description": "Check forced movement and grapple slow mechanism"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]
