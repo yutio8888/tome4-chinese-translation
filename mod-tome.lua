@@ -18509,12 +18509,12 @@ Oh, look. He is trying to harm me with spells, but all he can manage is a corrup
 
 #{bold}#烈火纪603年，厄流月53日#{normal}#
 
-我完成了！我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注……说什么蠢话。我已经感觉到了身上的变化，并且我确信这虚弱只是暂时的。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一根魔法生物的骨头，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都太次，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！
+我完成了！我愚蠢的主人说我还没准备好接受巫妖仪式，说我会引来不必要的关注……说什么蠢话。我已经感觉到了身上的变化，并且我确信这虚弱只是暂时的。我的主人竟然愚蠢到把《死亡转化禁书》摊开后无人看管！我需要的只是一根魔法生物的骨头，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其余材料都不难弄到，而且主人手里就有……他肯定会大吃一惊：我，不朽的兹基克，将会超越生死！
 
 （这段文字下面还写着另一段记录，笔迹更加优雅工整。）
 
-不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而讨厌的是，这个年轻的傻小子在制作他的命匣时用光了艾德瑞尔之石，所以我也必须为我自己做一只命匣。从好的一面来说，我那不成器的学徒从反面说明了为什么我们应该使用亲手杀死的生物的骨架作为死亡转化的道具：他所选择的那具龙骨正在发霉溃烂，并且附在上面的霉菌似乎利用了骨头内的魔法能量，改变了咒语的魔法组成。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并把他丢到一个肯定会被人找到的地方。
-哦，看呐，它正在试图用法术攻击我，不过他所能做的只是拥有一个堕落的名字：兹基克茨。]], "_t")
+不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而这个年轻的傻小子在制作命匣时用掉了艾德瑞尔红宝石；我必须给自己另寻一只命匣。从好的一面来说，我那不成器的学徒倒是说明了为何使用我亲手杀死的生物的骨头十分重要：他选的那根龙骨久置后感染了霉菌，霉菌不知怎的融入了骨头本身的魔法属性，改变了咒语的魔法组成。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并把他丢到一个肯定会被人找到的地方。
+哦，看呐，他正在试图用法术攻击我，但他只能挤出自己名字走了样的读音：兹基克茨。]], "_t")
 t("Walrog", "乌尔罗格", "_t")
 t([[Dirge of the Naloren
 
@@ -30367,10 +30367,9 @@ t("You must dual wield to perform an Offhand Jab!", "你只有在双持状态下
 t("%s resists the surprise strike!", "%s抵抗了这次打击！", "logSeen")
 t([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.
 		This allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.
-		The chance to confuse increases with your Accuracy.]], [[你迅速移动，用徒手攻击敌人。
-		造成 %d%% 主手武器伤害，%d%% 徒手伤害。
-		若徒手攻击命中，敌人将被混乱（%d%% 强度）%d 回合。
-		混乱几率受命中加成。]], "tformat")
+		The chance to confuse increases with your Accuracy.]], [[你迅速变换发力方式，以出其不意的徒手攻击替代通常的副手攻击。
+		这使你能以主手武器造成 %d%% 伤害，并以徒手攻击造成 %d%% 伤害。若徒手攻击命中，目标将陷入混乱（%d%% 强度），持续 %d 回合。
+		混乱几率随命中提高。]], "tformat")
 t("Dual Strike", "双持打击", "talent name")
 t("You cannot use Dual Strike without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t("%s resists the stunning strike!", "%s抵抗了震慑打击！", "logSeen")
@@ -37228,7 +37227,7 @@ t("#Target# is free from the grapple.", "#Target#脱离抓取。", "_t")
 t("-Grappled", "-被抓取", "_t")
 t("Crushing Hold", "碾压擒抱", "_t")
 t("The target is being crushed and suffers %d damage each turn", "目标正被碾压，每回合受到 %d 伤害。", "tformat")
-t("#Target# is being crushed.", "#Target#被击碎。", "_t")
+t("#Target# is being crushed.", "#Target#正被碾压。", "_t")
 t("+Crushing Hold", "+碾压擒抱", "_t")
 t("#Target# has escaped the crushing hold.", "#Target#挣脱了碾压擒抱。", "_t")
 t("-Crushing Hold", "-碾压擒抱", "_t")
@@ -42830,7 +42829,7 @@ t("Default", "默认", "_t")
 t("Melee", "近战", "_t")
 t("Ranged", "远程", "_t")
 t("Tank", "肉盾", "_t")
-t("Standby", "乖乖站好", "_t")
+t("Standby", "待命", "_t")
 
 ------------------------------------------------
 section "mod-tome/dialogs/orders/Talents.lua"
