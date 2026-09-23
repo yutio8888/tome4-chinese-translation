@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口20已完成；待宿主发布收尾，随后审核267）
+更新时间：2026-09-23（审核267已完成；下一步修复窗口21，仅处理267的5条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -332,7 +332,17 @@ surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个回显 identity 全
 
 译文提交为 `ffa53351b8e490c859ec029fdc655bd4c8f3bab5`；新 catalog 为 `e97aaf89de5fca113d500beccb80df23b2c5731eb3f8215495e93805b6c4c76c`；migration 为 `99c7ebd419a3f9ceebf2bba12de24d4561cbba3805972d941cda1f7fa83c6def`。迁移结果为7条 revision changed、29,821条 unchanged、0 ambiguous/unmapped，7个 successor 待重新审核且不继承 done。完整结果见[窗口20发布证据](evidence/quality/repair-window-20-20260923/PUBLICATION.md)。本窗口的空行教训：`verify.py` 只比较 LF/TAB 数量，发现不了空行挪位；多段 target 必须逐行比较空行下标。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成，不得提前宣称。发布收尾后继续审核267（默认80条）。
+窗口20的证据提交（`11b3e963`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核267（`batch-551646311ef6b61a7a4d`）已闭合，结果为 **74 done / 5 repair_required / 1 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；lane-000-1 一处判 OK 的 identity 回显错误，harvest 前逐位比对发现并由宿主手工归因（原字节留档）。contextual `claude/claude-opus-5-5` full-000 为 2 OK / 5 ISSUE。
+12 个观察裁决为 9 confirmed、1 refuted、2 pending（同一条的 surface 与 contextual 两个观察）。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `86a4257a`，
+详见[267宿主证据](evidence/quality/production-batches/batch-551646311ef6b61a7a4d-host-evidence/summary.md)。
+新增 pending 第 18 项：枯萎死亡描述“死前吸入过多剧毒瘴气”，随死亡描述词表整族待用户裁定（见 `evidence/quality/pending-user-review.md`）。
+
+下一步按 1:1 节奏开修复窗口21，仅处理 267 的 5 条：Sun Flare 技能名改“太阳耀斑”（维护者 2026-09-23 批准）、盾牌敏捷格挡日志“(%d deflected)”、
+枯萎遗迹 lore 多出的换行与制表符、Solipsist 职业引语（共同之梦、发掘梦境潜能）、静电网漏“每停留一回合”累加。
+范围见 `.ai/task/batch-551646311ef6b61a7a4d/WINDOW21-REPAIR-DECISION.json`；setup 脚本 `setup_window21_task.py` 已生成，helper 从窗口20复制（条数 7→5）。
 
 ### 窗口7闭合时的暂停记录（历史）
 
