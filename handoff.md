@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口14已完成；待宿主发布收尾，随后审核261）
+更新时间：2026-09-23（审核261已完成；下一步修复窗口15，仅处理261的2条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -201,8 +201,18 @@ Guided Shot 念力导引（telekinetic nudges、“精确地”）、巨狼描�
 3 条 revision changed、29,825 条 unchanged、0 ambiguous/unmapped，3 个 successor 待重新审核，
 不继承 done。完整结果见[窗口14出版证据](evidence/quality/repair-window-14-20260923/PUBLICATION.md)。
 
-下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；这些步骤尚未完成。宿主收尾后继续
-审核261（默认80条）。
+窗口14的证据提交、queue rebuild 与 push 已完成（`9dedbbc9`）。
+
+审核261（`batch-b1809d747f471912638d`）已闭合，结果为 **76 done / 2 repair_required / 2 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；harvest 前逐位比对回显 identity，lane-000-2 第17条（判 OK）回显漏“199”，
+宿主手工归因并以更正 raw 收取（原字节留档于宿主证据 captures261/）。contextual `claude/claude-opus-5-5` 为 4 OK / 3 ISSUE。
+10 个观察裁决为 3 confirmed、3 advisory、4 pending。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `c79806c35598879d3b4285ce6d6e97a950ceb809`，
+详见[261宿主证据](evidence/quality/production-batches/batch-b1809d747f471912638d-host-evidence/summary.md)。
+2 条 pending（blocked）已登记到[待审阅清单](evidence/quality/pending-user-review.md)第 12、13 项：Virulent Strike 技能名“撕裂”、死亡描述 grandfathered 人称错位（归入死亡描述词表族）。
+
+下一步按 1:1 节奏开修复窗口15，仅处理 261 的 2 条：半身人创世论（other gods were responsible / ridiculous ideals / entitlement）、
+半身人遗迹紧急召回提示多出“救他”。范围见 `.ai/task/batch-b1809d747f471912638d/WINDOW15-REPAIR-DECISION.json`；
+`setup_window15_task.py` 已写好（continuation-20260923），可复用窗口14 helper，失败的 FINAL 之后必须接 RE_REVIEW。
 
 ### 窗口7闭合时的暂停记录（历史）
 
