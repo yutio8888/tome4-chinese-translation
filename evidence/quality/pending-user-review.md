@@ -56,3 +56,4 @@
    - 现译：“火球术”（基线，窗口 9 保持不变）。
    - 争议理由：术语库 `terminology/talents.tsv:117` 记录 `Flame=火球术`（`status=existing`），职业说明 `mod-tome.lua` 亦用“火球术”；但运行时技能名（`mod-tome.lua` / `mod-boot.lua` / `engine.lua` 的 talent name 行）为“火焰”。统一方向属术语决定。
    - 建议选项：改技能名为“火球术”并同步术语 / 改说明与术语库为“火焰”。
+   - **已裁决（2026-09-23，维护者）**：经 gpt-6-astra / opus-5.5 / gemini-3.8-flash 三方一致推荐，统一为“火焰术”（术语库改为 preferred），技能名与全部技能引用同步；Shadow Mages 描述中的 Flames 实指 Shadow Flames，改为“暗影之火”。

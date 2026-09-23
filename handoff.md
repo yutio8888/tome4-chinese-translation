@@ -1,6 +1,8 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口9已完成；待宿主发布收尾，随后审核256）
+更新时间：2026-09-23（修复窗口9已发布；Flame→火焰术改名已提交；下一步审核256）
+
+**Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
