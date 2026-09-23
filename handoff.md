@@ -1,13 +1,36 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-22（修复窗口7已闭合并推送；按用户要求暂停）
+更新时间：2026-09-23（审核254已finalize；下一步为修复窗口8）
 移交对象：Paseo / Codex / GPT-6-Astra
 
 ## 当前授权与实测状态
 
-用户于2026-09-22明确要求“这轮修复完成后暂停并撰写handoff文档”。修复窗口7已闭合，当前进入
-**STOP**：不得自动启动审核254，继续新批次必须取得新的用户授权；此前连续审核授权不覆盖本次
-暂停后的工作。
+用户于2026-09-23指示“阅读handoff文档，继续推进翻译审核工作”，解除窗口7后的暂停；同日指示
+审核模型改为 **surface `codex/gpt-6-sol`（medium，auto-review）**、**contextual
+`claude/claude-opus-5-5`（medium，auto）**。live `list_profiles` 中没有这两个模型的 profile，
+按用户指示直接选择；profiles 快照仍按每次 create 留档。
+
+审核254（`batch-f740e6898e8b430ca79f`）已finalize：**74 done / 6 repair_required**，证据提交
+`919542a70e788a0255a83b2a5b7bdac926bdf09b`。surface 68 OK / 12 ISSUE（lane-000-1 三条
+observation 错位一格，已逐条比对处理），contextual 6 OK / 6 ISSUE；18 项观察裁决 9 confirmed /
+6 refuted / 3 advisory。17/17 门禁含严格构建通过，两任务及 117 文件快照重放 DONE_VERIFIED，
+5 个 child 均确认归档。详见[254宿主证据](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/summary.md)。
+
+**工具版本偏差：**Codex CLI 已升至 0.156.0、Claude Code 已升至 2.1.280，高于
+`review_lifecycle.py` 原生 parser 固定的 0.153.0 / 2.1.259，`harvest --native-log` 会拒绝。
+本批用 `.artifacts/i18n/continuation-20260923/native_extract_v156.py`（在临时副本中仅替换版本
+字面量、运行同一 `_parse_native_final`）提取原文 bytes，再走严格 `harvest --raw`；仓库工具未改。
+Codex 归档后会话日志移至 `~/.codex/archived_sessions/`。后续可做一次有界工具维护正式支持新版本。
+
+**下一步：修复窗口8**（因 unlock-yeek 换行不变量与麻痹毒素伤害方向提前进入），仅处理
+[WINDOW8决定](evidence/quality/production-batches/batch-f740e6898e8b430ca79f-host-evidence/orchestration/.ai/task/batch-f740e6898e8b430ca79f/WINDOW8-EARLY-REPAIR-DECISION.json)
+列出的6条：无尽狩猎技能树描述、ALL_DREAMS成就名、unlock-yeek多余换行、自然精灵诗句两行、
+麻痹毒素“目标造成的全部伤害”、龙族传说四处限定词/地名。`e923d2b8…` 资源→能量为错位漏报，
+仅记宿主补充建议，不入窗口。
+
+### 窗口7闭合时的暂停记录（历史）
+
+用户于2026-09-22明确要求“这轮修复完成后暂停并撰写handoff文档”；该暂停已由2026-09-23指示解除。
 
 审核253（`batch-ba766c90924912867b02`）已完全闭合，结果为 **72 done / 8 repair_required**。
 证据提交`3927ca05a43daee81bb2a2fadaf77d2b3b881d0b`、收尾提交
@@ -44,7 +67,7 @@ immutable快照均`DONE_VERIFIED`。实施/复审22个child及publication child�
 提交/队列/push证明，与基础快照合并后独立重放为`DONE_VERIFIED`。
 见[增量重放结果](evidence/quality/repair-window-7-20260922/closure/replay-verification.json)。
 本交接和收尾证明随最终文档提交保存，提交后仅同步queue并push，不再产生译文或新批次。
-**当前STOP；审核254未启动，只有新的用户授权才能继续。**
+（当时为STOP；已于2026-09-23由用户新授权解除，审核254已完成。）
 
 旧Archmage、旧回忆录pending、`RW1-SIB-01/02`、旧blocked及范围外兄弟条目保持原状态。
 `.ai/consult/`、recipe和15个旧source-workset继续保留。
