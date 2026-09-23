@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核258已完成；下一步修复窗口12，仅处理258的3条）
+更新时间：2026-09-23（修复窗口12已完成；待宿主发布收尾，随后审核259）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -130,6 +130,23 @@ contextual `claude/claude-opus-5-5` 为 7 OK / 2 ISSUE；11 个观察裁决为 5
 下一步按 1:1 节奏开修复窗口12，仅处理 258 的 3 条：格斗家职业描述（漏 pit-fighter、“门外汉”、职业名）、
 零点城镇 NPC timeless elf（“中年精灵”）、岱卡拉任务日志 huge fire dragon。
 范围见 `.ai/task/batch-13b90e85d842da2d4f41/WINDOW12-REPAIR-DECISION.json`；可复用窗口11 模板，失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口12已完成。任务 `repair-w12-20260923` 的 `execute-01`（`codex/gpt-5.6-sol`）实施审核258的
+3条确认项：格斗家职业描述补回 `pit-fighter`、`boxer`、`amateur practitioner` 与“格斗家的技能”；
+零点城镇 NPC 的 `timeless elf` 改为“不显年岁的精灵”；岱卡拉任务日志补回 `huge`，改为
+“盘踞在那里的巨型火龙”。同族冰龙条目在 `mod-tome.lua` 中同样漏译 `huge`，不在本窗口范围。
+`REVIEW(0)/full`（`codex/gpt-6-sol`）与 `FINAL(1)/full`（`claude-opus-5-5`）均为 3 OK，
+完整门禁 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。1 个 executor 与 2 个 reviewer 均已归档确认；
+本 publication child 待宿主归档。
+
+译文提交为 `c48bc78cb518d99cc1d00b9b21bcb88398eff8f4`；新 catalog 为
+`832d278c51b49423331e1dde7102c1204e064924b82965456c432d013470a77a`，migration 为
+`7b4b4ec774313a86d7d5c7af3fed5c62dc4acdf527fd0d546bc829bba58e2566`。迁移结果为
+3 条 revision changed、29,825 条 unchanged、0 ambiguous/unmapped，3 个 successor 待重新审核，
+不继承 done。完整结果见[窗口12出版证据](evidence/quality/repair-window-12-20260923/PUBLICATION.md)。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成，不得提前宣称完成。
+宿主收尾后继续审核259（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

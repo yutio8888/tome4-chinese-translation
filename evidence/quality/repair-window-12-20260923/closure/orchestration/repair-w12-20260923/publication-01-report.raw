@@ -1,0 +1,22 @@
+修复窗口 12 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 99 项 orchestration 快照，共 751,394 bytes，并复制 [PACK manifest](/workspace/tome4-chinese-translation/evidence/quality/repair-window-12-20260923/orchestration-pack-manifest.json)。
+- 精确安装 5 个候选 catalog 文件；catalog ID 为 `832d278c51b49423331e1dde7102c1204e064924b82965456c432d013470a77a`。
+- 安装 [migration](/workspace/tome4-chinese-translation/evidence/production-review-v2-lite/migrations/7b4b4ec774313a86d7d5c7af3fed5c62dc4acdf527fd0d546bc829bba58e2566.json)，migration ID 为 `7b4b4ec7…e2566`。
+- 逐字复制 14 份 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-12-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确宿主收尾后继续审核 259。
+
+验证结果：
+
+- 99 项快照逐字、SHA-256、字节数：通过
+- catalog、migration、publication 附件精确副本：通过
+- UTF-8、空白、文档链接、`git diff --check`：通过
+- `ai_state_check --target DONE`：`DONE_VERIFIED`
+- staged 文件：0
+- 未修改 `.ai`、Lua、术语、规则、工具、旧证据或 pending 清单
+- 未重跑 queue、catalog、migration 或门禁；未 commit/push
+
+待宿主执行的后续步骤仍为：证据提交、第二次 queue rebuild、push，随后审核 259。

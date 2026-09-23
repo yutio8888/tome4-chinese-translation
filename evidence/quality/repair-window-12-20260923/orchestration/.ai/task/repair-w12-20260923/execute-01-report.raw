@@ -1,0 +1,17 @@
+窗口 12 修复已实际完成。
+
+- `mod-tome.lua` 恰有 3 个 target 变更：
+  - 格斗家描述补全地下拳场斗士、拳击手、业余习武者，并明确“格斗家的技能”及“直到今天依然十分有用”。
+  - Zemekkys 改为“不显年岁的精灵”，删除“中年”和无原文依据的增译。
+  - 岱卡拉火龙补为“盘踞在那里的巨型火龙”；冰龙条未改。
+- source/tag/args_order/占位符/markup/LF/TAB 保持基线。
+- 已保存逐字节冻结副本及实施、验证记录：[窗口 12 evidence](/workspace/tome4-chinese-translation/evidence/quality/repair-window-12-20260923/IMPLEMENTATION.md)。
+
+检查全部通过：
+
+- `verify.py`：22989 条记录，恰有 3 个指定 target 变化
+- strict lint：30308 条，0 errors，0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未修改 `.ai`、规则、工具、术语库或其他 repair；未 stage、commit、push，无关 untracked 均保留。完整门禁、严格构建、独立 REVIEW／FINAL_REVIEW 与 `DONE_VERIFIED` 仍由宿主继续。
