@@ -1,0 +1,74 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01UJ9snjrvcK93X1y91vGi2n",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-b1809d747f471912638d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input size and contract sections"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_016UBEaLtbBgAaq7iJd4qm1Q",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-b1809d747f471912638d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint([k for k in d]);\nfor k,v in d.items():\n  if k!='entries' and k!='candidates': print(k, json.dumps(v,ensure_ascii=False)[:600])\n\"",
+      "description": "Read contract section 6 and envelope metadata"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_0137pym1znz5XYMB8tfV4fsT",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-b1809d747f471912638d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nprint([k for k in d])\nfor k,v in d.items():\n  if k not in ('bounded_context','translation_snapshot'): print(k, json.dumps(v,ensure_ascii=False)[:1500])\nprint(json.dumps(d['translation_snapshot'],ensure_ascii=False,indent=0))\n\"",
+      "description": "Print payload keys and translation snapshot"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_019PWBX6bzhB1PyfhMPjBNrp",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-b1809d747f471912638d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor b in d['bounded_context']:\n  c=b['context']; print('=====',{k:v for k,v in b.items() if k!='context'}); \n  i=c.find('source_facts_v1:'); print(c[:i]); \n  j=json.loads(c[i+16:].split('\\n')[0]) if i>=0 else None\n  if j: print(json.dumps({k:v for k,v in j.items() if k!='binding'},ensure_ascii=False,indent=0)[:5000])\n  rest=c[i+16:].split('\\n',1); print(rest[1][:3000] if len(rest)>1 else '')\n\"",
+      "description": "Print bounded context entries"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01FurDfv4pcBtUJJaxrvBAvL",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/corruptions/vile-life.lua | sed -n 170,216p; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/corruptions/scourge.lua | sed -n 24,80p; git grep -n \"death_message\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class | head",
+      "description": "Inspect pinned source for talents and death message usage"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01KzqvZyJeF5eVZVudCqHUvC",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/PartyDeath.lua | sed -n 60,110p",
+      "description": "Inspect PartyDeath death message composition"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]

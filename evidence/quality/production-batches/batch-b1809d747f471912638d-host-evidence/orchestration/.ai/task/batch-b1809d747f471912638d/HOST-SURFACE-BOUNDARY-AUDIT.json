@@ -1,0 +1,58 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (lanes 0,1,3 native-log harvest; lane 2 --raw with host-corrected identity echo; all 80 identities pre-checked against envelopes)",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 3,
+      "native_calls_sha256": "139c386791f334efd61c83b4d70575d1c3171a56899bc33621b390cb1c7dd087",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files; one ALL_TOOLS listing (tool discovery, no I/O)"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "9222ed7ad47626036c9a2da9b563a2980eff310ecaac0cae6739916e6ae04609",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 5,
+      "native_calls_sha256": "e23b29f3cc60554d1c3dfcbed9a25ae28f65e659e44daed0c95804f73d838d86",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files; one ALL_TOOLS listing; two python3 -c json.load/print of own envelope to assemble output (read-only). Host hand-attribution: results[16] identity echo dropped \"199\" (verdict OK), corrected before harvest, original bytes kept in captures261/lane2-original.raw, see lane2-attribution.md"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 3,
+      "native_calls_sha256": "9f3fbafac36d2ccd2d6566f1a65536ed6ee5f881d61e3971fa5ecf356ec18231",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read after sandbox init failure used require_escalated with read-only cat of the same authorized files; one python3 -c json.load/print of own envelope to assemble output (read-only)"
+    }
+  ]
+}

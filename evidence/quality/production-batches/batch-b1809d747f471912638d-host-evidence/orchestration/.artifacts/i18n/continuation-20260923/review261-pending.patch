@@ -1,0 +1,22 @@
+diff --git a/evidence/quality/pending-user-review.md b/evidence/quality/pending-user-review.md
+index 3898ed8f..ce10e3d7 100644
+--- a/evidence/quality/pending-user-review.md
++++ b/evidence/quality/pending-user-review.md
+@@ -87,3 +87,17 @@
+    - 现译：“能够在你失败时不断重试”。
+    - 争议理由：w10b `REVIEW(0)` 认为遗漏 reset（重置时间）；宿主认为该句紧接“有关时间的终极力量”，语境已含借时间重来之意，属措辞精度分歧而非机制错误。
+    - 建议选项：保持 / 改为“能够在失败时重置时间、再来一次”。
++
++## 审核 261 待审阅
++
++12. `f09f7b5baf`（技能名 `Virulent Strike`）
++   - 源码：`talents/corruptions/scourge.lua:25–26`，显示名 Virulent Strike，short_name 仍为 `REND`；实现为双持两击，每次命中延长目标身上持续时间最短的一种疾病。
++   - 现译：“撕裂”（沿用旧名 Rend），未体现 virulent（致病、剧毒），也不对应疾病延长的效果。
++   - 争议理由：改技能名需要同步日志 `You cannot use Virulent Strike without two weapons!`（mod-tome.lua:22961），“撕裂”族另有 Lacerating Strikes=撕裂挥击 等；属于命名决定。
++   - 建议选项：保持“撕裂” / 改为“瘟毒打击”“剧毒打击”一类（需同步引用处）。
++
++13. `f009c2b19b`（死亡描述 `grandfathered`，时间伤害）
++   - 源码：`damage_types.lua:1006` 的时间伤害 death_message 列表；`PartyDeath.lua:71` 随机取一项代入死讯模板“was %s to death”，中文模板为“玩家%s……%s而死”（mod-tome.lua:1412）。
++   - 现译：“因弹指间度过了无数美好的青葱岁月，转瞬间你已白发苍苍”，把祖父悖论梗改成衰老致死；句中含“你”，代入第三人称死讯后人称和句法错位。
++   - 争议理由：死亡描述词表整族已由用户 2026-09-16 裁定继续 pending；本条是该族的新证据（人称错位，而不只是增添意象），单独修改会造成族内不一致。
++   - 建议选项：保持并随整族处理 / 单独改为“被祖父悖论抹去”一类短语。
