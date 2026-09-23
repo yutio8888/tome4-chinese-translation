@@ -1,0 +1,111 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "each of 7 observations compared against its own entry source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "f1403b3e60a7cfd6f41e5e7e29577ca63db5276fffd5eb69a1d84080e78b5cb7",
+      "stage": "surface",
+      "observation": "实体名 Exiler 指放逐者，译文“放逐”变成了动作。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "objects/world-artifacts.lua:6833 独特戒指神器 Exiler（时空术士 Solith 的戒指，unided_name insignia ring）；现译“放逐”把施事名词译成动作。神器专名改名属命名决定（先例：Crystal Shard 列 pending），列入待用户审阅；建议“放逐者”。"
+    },
+    {
+      "revision_key": "f14a476f19489b0f6a79876e7004c6a59a54d9b0e78e967691071d34b66990ed",
+      "stage": "surface",
+      "observation": "原文两段之间有空行，译文删除了该空行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "50 级祝贺提示：原文首句与第二段之间有空行（\\n\\n），译文只保留一个换行，丢失段间空行；按换行不变量整句修复，其余内容一致。"
+    },
+    {
+      "revision_key": "f1598310a16d9d4f3cccd57260ee7c285f4b5b9ded25f59d80705a6c124adb62",
+      "stage": "surface",
+      "observation": "原文末尾的空格在译文中消失；该句可能与后续文字拼接，冻结输入未提供调用语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "lore/shertul.lua:50 壁画 There is some text beneath 后以 .. 拼接 which you do not understand:…（mod-tome.lua:19361 起“不明意义的文字：…”）；中文“下方写着”+“不明意义的文字”无需空格，末尾空格不是缺陷。"
+    },
+    {
+      "revision_key": "f15aa79a0c04cf987f73c96cb296ab7b5c19c3d5cd39cd8746a5a02ce502ce9c",
+      "stage": "surface",
+      "observation": "原文“starlit ”末尾有空格，译文“星光的”没有；冻结输入未提供是否拼接后续名称的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/amulets.lua:196 前缀 ego starlit （prefix=true）与物品名拼接；中文前缀直接连写（“星光的项链”），不需保留英文分词空格。"
+    },
+    {
+      "revision_key": "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16",
+      "stage": "surface",
+      "observation": "“The strength of your bond”被译为“你的力量”，遗漏羁绊含义；多处原文行首制表符在译文中变为空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "星辰契约说明（tformat）：The strength of your bond is so strong 指与恒星化身的羁绊之强使你能同持双手武器与盾，现译“你的力量如此强大”丢失 bond 且改变因由；另多行前导 \\t\\t 被改成 8 个空格而其余行保留 \\t\\t，缩进不一致。整条对照修复，恢复与原文一致的 \\t\\t。"
+    },
+    {
+      "revision_key": "f181f499b62e746193ae0ef49fd16d4a14876a82aa7cb034dfe457a3c680c13b",
+      "stage": "surface",
+      "observation": "“Templar”译为“守卫”，丢失了“圣殿骑士”的含义。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "talents/cursed/cursed.lua:46 技能系 Crimson Templar（堕落圣骑士，由 Guardian=守卫 转化而来，wil.lua:399 / unlock-paladin_fallen.lua:36）；现译“赤红守卫”未体现 Templar（圣殿骑士）。技能系改名需同步引用处，属命名决定，列入待用户审阅。"
+    },
+    {
+      "revision_key": "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+      "stage": "surface",
+      "observation": "第1节末尾的“a wild infusion also works splendidly”译为“用野性纹身也很有效”；原文是 infusion，并非纹身。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "lore/fun.lua:227 wild infusion 为物品/纹身名，术语表 items.tsv:20 preferred “野性纹身”，与 Wild infusion 技能名统一；现译正确。"
+    },
+    {
+      "revision_key": "f19cec2641cd74c4c3020f07432b8402ddc8f9efc02c378e785fd4a3668a339f",
+      "stage": "surface",
+      "observation": "“I put a bit of the good stuff in this one”说的是在这瓶东西里加了一点好料，译文“这里面我给你带来个好东西”误述了动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/alchemist-last-hope.lua:405–406 矮人送药对话：I put a bit of the good stuff in this one, though it won’t do you any favors tomorrow morning 意为“我往这瓶里加了点好料（烈酒），不过明早可有你受的（宿醉）”；现译“这里面我给你带来个好东西，尽管也许明天早上对你没什么用”把“往里加料”误为“带来好东西”、把“会让你难受”误为“没用”并增“也许”。与 contextual 独立复核同向，宿主由 advisory 改判 confirmed（语义）。整条对照修复。"
+    },
+    {
+      "revision_key": "f1a593dee51a1ce43abda7f3fe4c5636ebb84c51248a0d8247269dd8ac56b275",
+      "stage": "surface",
+      "observation": "“My soul for her!”表达愿以自己的灵魂换取她，译文“我的灵魂属于她”改变了意思。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "events/cultists.lua:105 邪教徒随机喊话 My soul for her!（献身黑暗女王）；“我的灵魂属于她”与原意（以灵魂献给她）相近，属喊话风味；可选改“我的灵魂献给她！”。"
+    },
+    {
+      "revision_key": "f1e389dfae61e9e641ad6118c5b582f3ebbc6ebd99b27bc67e514b415781fe89",
+      "stage": "surface",
+      "observation": "原文是牺牲自己来关闭虚空传送门，译文“阻止虚空传送门”未译出关闭这一动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "成就说明 Won ToME by closing the Void portal using yourself as a sacrifice：closing 为“关闭”，现译“阻止虚空传送门”误述动作（本库 closing the void farportal=关闭虚空传送门，mod-tome.lua:16039）。"
+    },
+    {
+      "revision_key": "f20e44ef63bf290de8b5b00aaf83cc4009d914cd52d517dd2f94051892ef77e6",
+      "stage": "surface",
+      "observation": "原文“sacrificing %s”中%s是被牺牲的对象；译文“%s牺牲自己”把%s改成施事。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/sorcerer-end.lua:146/161 special_death_msg (\"sacrificing %s to bring the Way to all\"):tformat(string.his_her_self(player))，%s 运行时为“他自己/她自己”（mod-tome.lua:1403–1404）；现译“%s牺牲自己，将维网带给众生”渲染为“他自己牺牲自己…”，%s 语义角色错置。同族 fiery wrath 句译“牺牲了%s，引来…”（mod-tome.lua:6142），按同式修复。"
+    },
+    {
+      "revision_key": "f22305679ecdc81c0b2ea179ae3a753148e5fbfa642c29acd3be9976241fd18c",
+      "stage": "surface",
+      "observation": "原文为“nature damage”，译文写作“毒素伤害”，伤害类型不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/techniques/munitions.lua:414 强化弹药 Venomous：leeching poison 造成 nature damage，本库伤害类型统一译“自然伤害”；现译“毒素伤害”误述伤害类型（机制术语）。整条对照修复。"
+    },
+    {
+      "revision_key": "f22e755ae07250f21aa228f6719c2f770cd44886dd3fe988c796370b10e8ddc4",
+      "stage": "surface",
+      "observation": "原文“Assail”意为袭击，译文“暗影笼罩”含义不符。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "timed_effects/other.lua:857 SHADOW_VEIL on_gain 浮动提示 +Assail（配 -Assail）；“+暗影笼罩”为描述性译名，与效果一致，不误导；可选改“+暗影突袭”一类，需与 -Assail 同步。"
+    }
+  ]
+}

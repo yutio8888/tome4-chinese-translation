@@ -1,0 +1,186 @@
+{
+  "batch_id": "batch-cdef103673c1cf6a37ae",
+  "observations": 18,
+  "observation_dispositions": {
+    "pending": 2,
+    "confirmed": 11,
+    "refuted": 3,
+    "advisory": 2
+  },
+  "repair_revision_keys": [
+    "f14a476f19489b0f6a79876e7004c6a59a54d9b0e78e967691071d34b66990ed",
+    "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16",
+    "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+    "f19cec2641cd74c4c3020f07432b8402ddc8f9efc02c378e785fd4a3668a339f",
+    "f1e389dfae61e9e641ad6118c5b582f3ebbc6ebd99b27bc67e514b415781fe89",
+    "f20e44ef63bf290de8b5b00aaf83cc4009d914cd52d517dd2f94051892ef77e6",
+    "f22305679ecdc81c0b2ea179ae3a753148e5fbfa642c29acd3be9976241fd18c"
+  ],
+  "pending_revision_keys": [
+    "f1403b3e60a7cfd6f41e5e7e29577ca63db5276fffd5eb69a1d84080e78b5cb7",
+    "f181f499b62e746193ae0ef49fd16d4a14876a82aa7cb034dfe457a3c680c13b"
+  ],
+  "expected_final_states": {
+    "done": 71,
+    "repair_required": 7,
+    "blocked": 2
+  },
+  "rows": [
+    {
+      "revision_key": "f1403b3e60a7cfd6f41e5e7e29577ca63db5276fffd5eb69a1d84080e78b5cb7",
+      "stage": "surface",
+      "observation": "实体名 Exiler 指放逐者，译文“放逐”变成了动作。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "objects/world-artifacts.lua:6833 独特戒指神器 Exiler（时空术士 Solith 的戒指，unided_name insignia ring）；现译“放逐”把施事名词译成动作。神器专名改名属命名决定（先例：Crystal Shard 列 pending），列入待用户审阅；建议“放逐者”。"
+    },
+    {
+      "revision_key": "f14a476f19489b0f6a79876e7004c6a59a54d9b0e78e967691071d34b66990ed",
+      "stage": "surface",
+      "observation": "原文两段之间有空行，译文删除了该空行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "50 级祝贺提示：原文首句与第二段之间有空行（\\n\\n），译文只保留一个换行，丢失段间空行；按换行不变量整句修复，其余内容一致。"
+    },
+    {
+      "revision_key": "f1598310a16d9d4f3cccd57260ee7c285f4b5b9ded25f59d80705a6c124adb62",
+      "stage": "surface",
+      "observation": "原文末尾的空格在译文中消失；该句可能与后续文字拼接，冻结输入未提供调用语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "lore/shertul.lua:50 壁画 There is some text beneath 后以 .. 拼接 which you do not understand:…（mod-tome.lua:19361 起“不明意义的文字：…”）；中文“下方写着”+“不明意义的文字”无需空格，末尾空格不是缺陷。"
+    },
+    {
+      "revision_key": "f15aa79a0c04cf987f73c96cb296ab7b5c19c3d5cd39cd8746a5a02ce502ce9c",
+      "stage": "surface",
+      "observation": "原文“starlit ”末尾有空格，译文“星光的”没有；冻结输入未提供是否拼接后续名称的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/amulets.lua:196 前缀 ego starlit （prefix=true）与物品名拼接；中文前缀直接连写（“星光的项链”），不需保留英文分词空格。"
+    },
+    {
+      "revision_key": "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16",
+      "stage": "surface",
+      "observation": "“The strength of your bond”被译为“你的力量”，遗漏羁绊含义；多处原文行首制表符在译文中变为空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "星辰契约说明（tformat）：The strength of your bond is so strong 指与恒星化身的羁绊之强使你能同持双手武器与盾，现译“你的力量如此强大”丢失 bond 且改变因由；另多行前导 \\t\\t 被改成 8 个空格而其余行保留 \\t\\t，缩进不一致。整条对照修复，恢复与原文一致的 \\t\\t。"
+    },
+    {
+      "revision_key": "f181f499b62e746193ae0ef49fd16d4a14876a82aa7cb034dfe457a3c680c13b",
+      "stage": "surface",
+      "observation": "“Templar”译为“守卫”，丢失了“圣殿骑士”的含义。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "talents/cursed/cursed.lua:46 技能系 Crimson Templar（堕落圣骑士，由 Guardian=守卫 转化而来，wil.lua:399 / unlock-paladin_fallen.lua:36）；现译“赤红守卫”未体现 Templar（圣殿骑士）。技能系改名需同步引用处，属命名决定，列入待用户审阅。"
+    },
+    {
+      "revision_key": "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+      "stage": "surface",
+      "observation": "第1节末尾的“a wild infusion also works splendidly”译为“用野性纹身也很有效”；原文是 infusion，并非纹身。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "lore/fun.lua:227 wild infusion 为物品/纹身名，术语表 items.tsv:20 preferred “野性纹身”，与 Wild infusion 技能名统一；现译正确。"
+    },
+    {
+      "revision_key": "f19cec2641cd74c4c3020f07432b8402ddc8f9efc02c378e785fd4a3668a339f",
+      "stage": "surface",
+      "observation": "“I put a bit of the good stuff in this one”说的是在这瓶东西里加了一点好料，译文“这里面我给你带来个好东西”误述了动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/alchemist-last-hope.lua:405–406 矮人送药对话：I put a bit of the good stuff in this one, though it won’t do you any favors tomorrow morning 意为“我往这瓶里加了点好料（烈酒），不过明早可有你受的（宿醉）”；现译“这里面我给你带来个好东西，尽管也许明天早上对你没什么用”把“往里加料”误为“带来好东西”、把“会让你难受”误为“没用”并增“也许”。与 contextual 独立复核同向，宿主由 advisory 改判 confirmed（语义）。整条对照修复。"
+    },
+    {
+      "revision_key": "f1a593dee51a1ce43abda7f3fe4c5636ebb84c51248a0d8247269dd8ac56b275",
+      "stage": "surface",
+      "observation": "“My soul for her!”表达愿以自己的灵魂换取她，译文“我的灵魂属于她”改变了意思。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "events/cultists.lua:105 邪教徒随机喊话 My soul for her!（献身黑暗女王）；“我的灵魂属于她”与原意（以灵魂献给她）相近，属喊话风味；可选改“我的灵魂献给她！”。"
+    },
+    {
+      "revision_key": "f1e389dfae61e9e641ad6118c5b582f3ebbc6ebd99b27bc67e514b415781fe89",
+      "stage": "surface",
+      "observation": "原文是牺牲自己来关闭虚空传送门，译文“阻止虚空传送门”未译出关闭这一动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "成就说明 Won ToME by closing the Void portal using yourself as a sacrifice：closing 为“关闭”，现译“阻止虚空传送门”误述动作（本库 closing the void farportal=关闭虚空传送门，mod-tome.lua:16039）。"
+    },
+    {
+      "revision_key": "f20e44ef63bf290de8b5b00aaf83cc4009d914cd52d517dd2f94051892ef77e6",
+      "stage": "surface",
+      "observation": "原文“sacrificing %s”中%s是被牺牲的对象；译文“%s牺牲自己”把%s改成施事。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/sorcerer-end.lua:146/161 special_death_msg (\"sacrificing %s to bring the Way to all\"):tformat(string.his_her_self(player))，%s 运行时为“他自己/她自己”（mod-tome.lua:1403–1404）；现译“%s牺牲自己，将维网带给众生”渲染为“他自己牺牲自己…”，%s 语义角色错置。同族 fiery wrath 句译“牺牲了%s，引来…”（mod-tome.lua:6142），按同式修复。"
+    },
+    {
+      "revision_key": "f22305679ecdc81c0b2ea179ae3a753148e5fbfa642c29acd3be9976241fd18c",
+      "stage": "surface",
+      "observation": "原文为“nature damage”，译文写作“毒素伤害”，伤害类型不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/techniques/munitions.lua:414 强化弹药 Venomous：leeching poison 造成 nature damage，本库伤害类型统一译“自然伤害”；现译“毒素伤害”误述伤害类型（机制术语）。整条对照修复。"
+    },
+    {
+      "revision_key": "f22e755ae07250f21aa228f6719c2f770cd44886dd3fe988c796370b10e8ddc4",
+      "stage": "surface",
+      "observation": "原文“Assail”意为袭击，译文“暗影笼罩”含义不符。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "timed_effects/other.lua:857 SHADOW_VEIL on_gain 浮动提示 +Assail（配 -Assail）；“+暗影笼罩”为描述性译名，与效果一致，不误导；可选改“+暗影突袭”一类，需与 -Assail 同步。"
+    },
+    {
+      "revision_key": "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16",
+      "stage": "contextual",
+      "observation": "首条增益 'The strength of your bond is so strong that you can now wield...' 指与遥远恒星的契约/羁绊之强，译为「你的力量如此强大」丢失 bond（与恒星的结盟关系），把原因改成了玩家自身力量；语义关系错误。其余机制已核：str.lua:292-300 becomeAvatar 设 all_damage_convert_percent=50、allow_mainhand_2h_in_1h；magical.lua:2876 WEIGHT_OF_THE_SUN 用 resists_cap 把火/光抗性上限压到 0，「降低为 0%%」与实现一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：星辰契约说明 The strength of your bond 被译成“你的力量”，丢失与恒星化身的羁绊。宿主另核 celestial/combat.lua:99–104：光辉引力以被击中目标为中心收集半径 5 内敌人并 pull(target.x,target.y,5)，即拉向被击中的目标；现译“将5格范围内的敌人拉过来”易读作拉向施法者，一并明确。Eyal=“埃亚尔大陆”为本库既有用法（23 处），不在本条改动范围。整条修复，恢复 \\t\\t 缩进。"
+    },
+    {
+      "revision_key": "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+      "stage": "contextual",
+      "observation": "fun.lua:217-289 多处语义偏离/增译：(1) 骸骨巨人段 'all screaming for your blood to be spilt as it thrashes spinal columns like whips' 译成「因为你的每滴鲜血都令其饥渴无比。它用畸形的双手挥舞脊柱作鞭！」，头颅尖叫要你流血的主语关系被改写成因果，且拆句；(2) 'Ever fought a snow giant?' 增译「一向被视为力量象征的」；(3) 吸血鬼段 'treat them as you would a necromancer - with cold steel' 增译「刺穿他们的喉咙」；(4) 巫妖段原文说传说与之不符是因为巫妖“超越”传说，译文「关于它的无数传奇和神话也的确有所失实」暗示传说夸大，与下句「他的恐怖远超于此」自相矛盾；(5) 'usually armed and sometimes even armoured' 译为「大多都是持有武器或是全副武装的」，丢掉 sometimes 限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/fun.lua:217–289 不死猎人指南（宿主逐句核对固定源码）：usually armed and sometimes even armoured 被夸大为“大多都是持有武器或是全副武装的”；treat them as you would a necromancer - with cold steel 增译“刺穿他们的喉咙”；Ever fought a snow giant? 增译“一向被视为力量象征的”；all screaming for your blood to be spilt 被改成因果“因为你的每滴鲜血都令其饥渴无比”；I always receive the same answer 弱化为“几乎都是同样的原因”；巫妖段“传说与之不符是因为它超越传说”被译成传说“有所失实”，与下句自相矛盾。忠实性缺陷，整条逐句对照修复（wild infusion=野性纹身保持）。"
+    },
+    {
+      "revision_key": "f19cec2641cd74c4c3020f07432b8402ddc8f9efc02c378e785fd4a3668a339f",
+      "stage": "contextual",
+      "observation": "alchemist-last-hope.lua:405-406：'I put a bit of the good stuff in this one, though it won't do you any favors tomorrow morning' 是说加了烈酒类“好料”，明早会让你难受（宿醉）；译文「尽管也许明天早上对你没什么用」把“会让你不好受”误解为“没用”，且把“我往这瓶里加了点好料”误译为「给你带来个好东西」，语义错误。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：alchemist-last-hope.lua:405–406 往瓶里加了好料/明早宿醉难受被误译为“带来个好东西/也许明早没什么用”。整条修复。"
+    },
+    {
+      "revision_key": "f20e44ef63bf290de8b5b00aaf83cc4009d914cd52d517dd2f94051892ef77e6",
+      "stage": "contextual",
+      "observation": "sorcerer-end.lua:146/161 中 %s 填入 string.his_her_self(player)（engine/utils.lua:953-957 返回 _t\"himself\"/\"herself\"/\"itself\"），即 %s 是宾语反身代词，不是主语。译文「%s牺牲自己」把 %s 当主语并另加「自己」，本地化后会变成类似「他自己牺牲自己」的重复；此串再拼入 PartyDeath.lua:123-131 的 '%s the level %d ... %s on level %s of %s' 死亡消息中，主语已是玩家名。反身代词的中文译法不在冻结输入内，具体呈现为证据不足，但结构错位可由源码确认。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：%s 为 string.his_her_self 反身代词（utils.lua:953–957），special_death_msg 再嵌入 PartyDeath.lua:123–131 以玩家名为主语的死讯；按同族“牺牲了%s，引来…”式修复。"
+    },
+    {
+      "revision_key": "f22305679ecdc81c0b2ea179ae3a753148e5fbfa642c29acd3be9976241fd18c",
+      "stage": "contextual",
+      "observation": "munitions.lua:414,418：Venomous 的伤害是 damDesc(self, DamageType.NATURE, poison)，原文 'dealing %0.2f nature damage'，译文写成「毒素伤害」，伤害类型错误，应为自然伤害。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：munitions.lua:418 damDesc(self, DamageType.NATURE, poison)，应为“自然伤害”。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-001; full-000 rejected for prose prefix, archived, superseded)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; all 80 surface identity echoes pre-checked exact against envelopes before harvest; no hand attribution in this batch.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}

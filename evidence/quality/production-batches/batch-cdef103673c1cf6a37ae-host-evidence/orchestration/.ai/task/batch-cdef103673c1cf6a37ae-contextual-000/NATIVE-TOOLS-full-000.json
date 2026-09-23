@@ -1,0 +1,134 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_019NLmH9HGgc3icRvGoBpKho",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check envelope size and contract sections"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Ny1dDBQhfESNDvBWFRzHaq",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'));print(list(d.keys()));\nfor k,v in d.items():\n  if not isinstance(v,list): print(k, json.dumps(v,ensure_ascii=False)[:1500])\n  else: print(k,len(v), json.dumps(v[0],ensure_ascii=False)[:2500])\n\"",
+      "description": "Read contract section 6 and envelope structure"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01FvnQsPYr3VeBZdcG1Mk1o8",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload'];print(list(d.keys()));\nfor k,v in d.items():\n  if k=='bounded_context': continue\n  print('==',k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+      "description": "Print payload fields except bounded_context"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01N8DDhSfUFkHPW6YSeqTgF2",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor i,t in enumerate(d['translation_snapshot']):\n  if i in (0,1,2,3,4,5): continue\n  print('#####',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n\"",
+      "description": "Print remaining translation entries"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Y7ihhkSTX1XzqJKz9PRstQ",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nbc=d['bounded_context'];print(len(bc))\nfor i,b in enumerate(bc):\n  print(i,list(b.keys()),len(b['context']))\n  c=b['context']; j=c.find('source_facts_v1:')\n  print(c[:j][:300])\n  try:\n    f=json.loads(c[j+16:].split('\\n')[0]); print(json.dumps(f['fact'],ensure_ascii=False)[:3000])\n  except Exception as e: print('ERR',e, c[j:j+200])\n\"",
+      "description": "Print bounded context facts"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01GodimmkB6sPCuhhnrVfe6n",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-cdef103673c1cf6a37ae-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nbc=d['bounded_context']\nfor i,b in enumerate(bc):\n  c=b['context']; j=c.find('source_facts_v1:')\n  f=json.loads(c[j+16:].split('\\n')[0])['fact']\n  print('=====',i,c[:j].strip())\n  for a in f['anchors']:\n    print(' ',a.get('public_source_path'),a.get('matching_lines'),a.get('source_pinning'))\n    for s in a.get('snippet',[]): print('   ',s['line'],s['text'][:220])\n  print('  term:',json.dumps(f['terminology'],ensure_ascii=False)[:1500])\n  print('  ph:',f.get('placeholders'),f.get('placeholder_order_matches'),f.get('missing_evidence'))\n\" > /tmp/bc_facts.txt; wc -l /tmp/bc_facts.txt; sed -n 1,200p /tmp/bc_facts.txt",
+      "description": "Extract anchors and terminology per entry"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01T5nLk7UaHmnVqBDECSkzZ5",
+    "name": "Bash",
+    "input": {
+      "command": "sed -n 200,240p /tmp/bc_facts.txt",
+      "description": "View remaining extracted facts"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01N8DYsLgR7vAsfRHrQcNMKF",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git show 624a6732:game/modules/tome/data/timed_effects/other.lua | sed -n 845,885p; git show 624a6732:game/modules/tome/data/talents/techniques/munitions.lua | sed -n 360,408p; git grep -n \"Gravitic Effulgence\\|gravitic\\|uber_distant_sun\\|Distant Sun\" 624a6732 -- game/modules/tome | head -20",
+      "description": "Check pinned source for Assail, munitions, Distant Sun"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01XFrh1AbG6DfRJuzK54t8QY",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git grep -n \"LEECHING_POISON\\|leeching\" 624a6732 -- game/modules/tome/data | grep -v locales | head; git grep -n \"Enhanced Munitions\\|T_ENHANCED_MUNITIONS\" 624a6732 -- game/modules/tome | grep -v locales | head; git grep -n \"gravitic\\|GRAVITIC\" 624a6732 -- game/modules/tome | grep -v locales | head",
+      "description": "Find leeching poison and gravitic effect code"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01JwGKP8zqjNzyTVup2Jac9A",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a6732:game/modules/tome/data/talents/celestial/combat.lua | sed -n 95,115p; git grep -n \"newEffect{\" 624a6732 -- game/modules/tome/data/timed_effects | grep -n LEECHING; git grep -n -A12 'name = \"LEECHING_POISON\"' 624a6732 -- game/modules/tome/data/timed_effects | head -30; git show 624a6732:game/engine/utils.lua | grep -n -A6 \"function string.his_her_self\"; git grep -n \"special_death_msg\" 624a6732 -- game/modules/tome/class | head",
+      "description": "Check gravitic pull, leeching poison type, his_her_self"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01WR1EEQiEgGXdwzZV8t1AHa",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a6732:game/modules/tome/class/interface/PartyDeath.lua | sed -n 118,135p; git grep -n -A8 \"function string.his_her_self\" 624a6732 -- game | head -12; git show 624a6732:game/modules/tome/data/lore/shertul.lua | sed -n 60p | cut -c1-600",
+      "description": "Check death message formatting and mural concatenation"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]

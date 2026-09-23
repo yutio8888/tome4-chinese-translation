@@ -1,0 +1,50 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "dispatch_id": "full-000",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "5eb9c58dc42188b8a3fed10008c755729c04077f2d94b3667f4ffcae9e3083a4",
+      "reads": [
+        "own frozen contextual envelope",
+        "contextual-v2 contract (headings + sed 92-140)",
+        "pinned-commit public source via git show/grep 624a673 (other.lua, munitions.lua, celestial/combat.lua, PartyDeath.lua, utils.lua)"
+      ],
+      "writes": [
+        "/tmp/bc_facts.txt (scratch outside repo: python print of facts extracted from its own envelope, sha256 b8cb50f797443e1058bd32f5bd836e1d73095e8495f66a5fa59cddf5d79ef272; no repo or tracked file written)"
+      ],
+      "manually_reviewed": true,
+      "runtime": {
+        "provider": "claude",
+        "model": "claude-opus-5-5",
+        "claude_code_version": "2.1.280",
+        "mode": "auto",
+        "thinking": "medium"
+      },
+      "note": "rejected attempt: final message had an English prose prefix before the JSON (output_valid=False); archived and confirmed; superseded by full-001 (attempt 2, retry_of full-000); its observations are not used as reviewer conclusions (host used them only as leads and verified independently against pinned source)"
+    },
+    {
+      "dispatch_id": "full-001",
+      "status": "PASS",
+      "tool_calls": 12,
+      "native_calls_sha256": "ca486e22d90d94d34fdf0de6d318ea847bc70deb01777851334739faffcf18db",
+      "reads": [
+        "own frozen contextual envelope",
+        "contextual-v2 contract (sed 1-140)",
+        "its own spilled tool-result file under the session dir",
+        "pinned-commit public source via git show/grep 624a673 (str.lua, magical.lua, sorcerer-end.lua, utils.lua, PartyDeath.lua, other.lua, related)"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "runtime": {
+        "provider": "claude",
+        "model": "claude-opus-5-5",
+        "claude_code_version": "2.1.280",
+        "mode": "auto",
+        "thinking": "medium"
+      },
+      "note": "accepted attempt; all calls read-only"
+    }
+  ]
+}
