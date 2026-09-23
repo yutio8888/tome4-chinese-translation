@@ -764,6 +764,10 @@ class Journal:
 # Provider-native logs are an observation source, never a lifecycle transport.
 NATIVE_MAX_BYTES = 16 * 1024 * 1024
 NATIVE_MAX_LINES = 10000
+# Record dialects verified against real archived sessions; any other version fails closed.
+# 0.156.0 / 2.1.280 verified on batch 254 (four Codex surface lanes, one Claude contextual).
+CODEX_NATIVE_VERSIONS = ('0.153.0', '0.156.0')
+CLAUDE_NATIVE_VERSIONS = ('2.1.259', '2.1.280')
 
 
 def native_identity(s, *, required=True):
@@ -814,7 +818,7 @@ def _native_text(content, kind):
 def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_success=False):
     """Pure bounded parser: no filesystem, journal, agent calls or hidden-text output.
 
-    Only the two verified version/record dialects are supported. Returned bytes
+    Only the verified version/record dialects listed above are supported. Returned bytes
     encode the selected original string directly, including all whitespace.
     """
     require(type(natural_success) is bool, 'natural_success must be explicit boolean')
@@ -830,10 +834,10 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
         raise LifecycleError('invalid native JSONL (no partial recovery)') from None
     require(all(isinstance(r, dict) for r in records), 'invalid native record')
     if provider == 'codex':
-        version = '0.153.0'
         require(records[0].get('type') == 'session_meta', 'missing initial session_meta')
         meta = records[0].get('payload', {})
-        require(meta.get('cli_version') == version and meta.get('id') == session_id
+        version = meta.get('cli_version')
+        require(version in CODEX_NATIVE_VERSIONS and meta.get('id') == session_id
                 and meta.get('session_id', session_id) == session_id and meta.get('cwd') == cwd,
                 'unsupported Codex version or session/cwd mismatch')
         starts, completes, contexts, users, finals = [], [], [], [], []
@@ -905,12 +909,21 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
         proof = dict(turn_id=turn, message_id=message['id'], prompt_line=prompt_index + 1,
                      final_line=final + 1, complete_line=end + 1)
     elif provider == 'claude':
-        version = '2.1.259'
+        tagged = [r['version'] for r in records if isinstance(r, dict) and 'version' in r]
+        require(all(isinstance(v, str) for v in tagged), 'unsupported Claude version')
+        versions = set(tagged)
+        require(len(versions) == 1, 'missing or mixed Claude version')
+        version, = versions
+        require(version in CLAUDE_NATIVE_VERSIONS, 'unsupported Claude version')
         nodes, users, ends = {}, [], []
         allowed = {'queue-operation', 'file-history-snapshot', 'user', 'assistant', 'attachment',
-                   'atis-latch', 'last-prompt', 'ai-title'}
+                   'atis-latch', 'last-prompt', 'ai-title', 'cost-state'}
         for i, r in enumerate(records):
             require(r.get('type') in allowed, 'unsupported Claude record')
+            # 2.1.280 appends one session cost summary when the agent is closed.
+            require(r['type'] != 'cost-state' or (i == len(records) - 1 and r.get('sessionId') == session_id
+                    and not {'message', 'content', 'text', 'uuid', 'parentUuid'} & set(r)),
+                    'unexpected Claude cost-state record')
             if 'sessionId' in r: require(r['sessionId'] == session_id, 'Claude session mismatch')
             if 'cwd' in r: require(r['cwd'] == cwd, 'Claude cwd mismatch')
             if 'version' in r: require(r['version'] == version, 'unsupported Claude version')
@@ -945,6 +958,8 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
                 and all(i >= prompt_index for i, r in nodes.values())
                 and sum(r['parentUuid'] is None for i, r in nodes.values()) == 1, 'ambiguous Claude root')
         tail_index = len(records) - 1
+        if records[tail_index]['type'] == 'cost-state':
+            tail_index -= 1
         if records[tail_index]['type'] == 'atis-latch':
             latch = records[tail_index]
             require(set(latch) == {'type', 'atis', 'sessionId'}

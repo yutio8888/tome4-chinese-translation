@@ -127,7 +127,8 @@ PYCODE
 
 如果首个 live 尚无 session，保持首次观测原样，在首次 finish 通知后捕获完整 `terminal.json`，
 从其 `snapshot.persistence.sessionId` 取得 session。宿主用该 session 的已知会话日志路径
-显式设置 `NATIVE_LOG`：Codex 日志是会话日期目录内带 session ID 的 rollout JSONL，Claude
+显式设置 `NATIVE_LOG`：Codex 日志是会话日期目录内带 session ID 的 rollout JSONL（child 归档后
+Codex 0.156.0 会把它移到 `archived_sessions/` 根下），Claude
 日志是项目会话目录内以 session ID 命名的 JSONL。目录根由运行环境提供，不能把另一安装的路径
 或 ID 写进脚本；路径不明就补充该 child 的路径，不扫描所有会话或用 prompt 搜索其他日志。
 parser 始终只打开 `--native-log` 指定的一个普通文件。session/cwd/prompt 的核验由内容完成，
@@ -148,7 +149,7 @@ python3 -B tools/orchestration/review_lifecycle.py harvest children.json "$KEY" 
   --capture terminal.json --raw "native-export/$TASK/$DISPATCH/terminal.raw" --outdir raw-diagnostics --notified
 ```
 
-只支持已实际核验的 **Codex 0.153.0** 与 **Claude Code 2.1.259** 结构。入口先核对已登记
+只支持已实际核验的 **Codex 0.153.0／0.156.0** 与 **Claude Code 2.1.259／2.1.280** 结构（白名单见 `CODEX_NATIVE_VERSIONS`／`CLAUDE_NATIVE_VERSIONS`；Claude 会话内版本必须一致，2.1.280 归档后末尾追加的单条 `cost-state` 仅在最后一行被接受）。入口先核对已登记
 STATE/journal direct child、通知、完整终态、root/workspace/parent/role/purpose/labels、首次
 provider/session 和冻结创建 prompt SHA；同层与 persistence/runtimeInfo/metadata 的身份冲突拒绝。
 新 create intent 保存 prompt SHA；缺少该冻结字段的旧 journal 不自动补写，应走纯解析审计。
@@ -396,7 +397,7 @@ archive 异常仍回读；若 finally
 不会对人读前缀盲目 json.loads，也不会忽略前缀后与 structuredContent 冲突的 JSON。
 错误终态停在 harvest，需宿主以真实证据执行上述 explicit reject 后再归档；`--raw` 不能接受错误终态。
 
-Claude 2.1.259 的纯 parser 默认仍要求 last-prompt；显式 `natural_success=True` 支持最终 assistant
+Claude 纯 parser 默认仍要求 last-prompt；显式 `natural_success=True` 支持最终 assistant
 结束、真实 last-prompt、以及其后一个 `{type, aiTitle, sessionId}`。生产仅在完整成功终态和
 首次 live/STATE 身份核验后启用。missing/null 可选 session 别名表示未知，非空已知值必须一致。
 proof 保留完整 source SHA、原样 raw SHA、final 位置与尾部形态；不会补写 last-prompt。

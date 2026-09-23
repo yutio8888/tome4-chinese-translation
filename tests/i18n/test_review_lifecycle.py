@@ -934,6 +934,41 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
                     with self.assertRaises(life.contextual.ContractError):
                         life.contextual.validate_result_bytes(env, raw)
 
+    def test_native_accepts_each_verified_version_and_rejects_others(self):
+        for version in life.CODEX_NATIVE_VERSIONS:
+            rows = self.native_records('codex', '{}')
+            rows[0]['payload']['cli_version'] = version
+            raw, proof = self.parse_native('codex', rows)
+            self.assertEqual((raw, proof['version']), (b'{}', version))
+        for version in life.CLAUDE_NATIVE_VERSIONS:
+            rows = self.native_records('claude', '{}')
+            for r in rows:
+                if 'version' in r: r['version'] = version
+            raw, proof = self.parse_native('claude', rows)
+            self.assertEqual((raw, proof['version']), (b'{}', version))
+        for version in ('0.155.0', '0.157.0', '', None, ['0.156.0']):
+            rows = self.native_records('codex', '{}')
+            rows[0]['payload']['cli_version'] = version
+            with self.subTest(codex=version), self.assertRaises(life.LifecycleError):
+                self.parse_native('codex', rows)
+        for version in ('2.1.260', '2.1.281', ['2.1.280']):
+            rows = self.native_records('claude', '{}')
+            for r in rows:
+                if 'version' in r: r['version'] = version
+            with self.subTest(claude=version), self.assertRaises(life.LifecycleError):
+                self.parse_native('claude', rows)
+        # A closed 2.1.280 session may end with exactly one cost summary; nowhere else.
+        rows = self.native_records('claude', '{}')
+        cost = dict(type='cost-state', sessionId='session', totalCostUSD=0.1)
+        self.assertEqual(self.parse_native('claude', rows + [cost])[0], b'{}')
+        for bad in (rows + [cost, cost], rows[:-1] + [cost, rows[-1]],
+                    rows + [dict(cost, sessionId='other')], rows + [dict(cost, message={})]):
+            with self.assertRaises(life.LifecycleError): self.parse_native('claude', bad)
+        # Two individually verified Claude versions in one session are still rejected.
+        rows = self.native_records('claude', '{}')
+        rows[1]['version'] = life.CLAUDE_NATIVE_VERSIONS[-1]
+        with self.assertRaises(life.LifecycleError): self.parse_native('claude', rows)
+
     def test_native_codex_rejects_unproven_boundaries_and_identity(self):
         original = self.native_records('codex', '{}')
         variants = []
