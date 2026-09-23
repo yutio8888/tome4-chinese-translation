@@ -24525,7 +24525,7 @@ t([[Infuse magic into your shadows to give them fearsome spells. Your shadows re
 		At level 3 your shadows can sear their enemies from a distance with Flames (level %d, %d%% chance at range 2 to 6).
 		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[灌输魔力给你的阴影使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。
 		你的阴影可以用闪电术攻击附近的目标（等级 %d，%d%% 几率 1 码范围）。
-		等级 3 时你的阴影可以远距离使用火焰术灼烧你的敌人（等级 %d，%d%% 几率 2 到 6 码范围）。
+		等级 3 时你的阴影可以远距离使用暗影之火灼烧你的敌人（等级 %d，%d%% 几率 2 到 6 码范围）。
 		等级 5 时你的阴影在被击倒时有一定几率重组并重新加入战斗（50%% 几率）。]], "tformat")
 t("Focus Shadows", "聚集阴影", "talent name")
 t("#PINK#The shadows converge on #Target#!", "#PINK#阴影被集中至 #Target#！", "logCombat")
@@ -28847,7 +28847,7 @@ t([[Turn your body into pure flame, increasing your fire resistance by %d%%, bur
 ------------------------------------------------
 section "mod-tome/data/talents/spells/fire.lua"
 
-t("Flame", "火焰", "talent name")
+t("Flame", "火焰术", "talent name")
 t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
 		At level 5, it will create a beam of flames.
 		The damage will increase with your Spellpower.]], [[制造一道火焰弹，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。
@@ -29881,7 +29881,7 @@ t([[A wave of fire emanates from you with a radius of %d, knocking back anything
 		伤害受法术强度加成。]], "tformat")
 t("Burning Wake", "无尽之焰", "talent name")
 t([[Your Flame, Flameshock, Fireflash and Blastwave spells leave a burning wake on the ground, burning all within for %0.2f fire damage for 4 turns.
-		The damage will increase with your Spellpower.]], [[你的火焰、火焰冲击、爆裂火球和火焰新星都会在地上留下燃烧的火焰，每回合对范围内的所有单位造成 %0.2f 火焰伤害，持续 4 回合。
+		The damage will increase with your Spellpower.]], [[你的火焰术、火焰冲击、爆裂火球和火焰新星都会在地上留下燃烧的火焰，每回合对范围内的所有单位造成 %0.2f 火焰伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Cleansing Flames", "净化之焰", "talent name")
 t([[When you stand in your Burning Wake or Inferno ground effect, you can self immolate to trigger Cleansing Flames for %d turns.
@@ -31620,7 +31620,7 @@ t([[Thaumaturgists have unlocked a deeper understanding of their spells, allowin
 		- Slipstream: Allows movement when casting beams
 		- Elemental Array Burst: a powerful, multi-elemental beam spell that can inflict all elemental ailments and can not be resisted
 		#CRIMSON#The fine spellcasting required for wide beams and all thaumaturgy spells can only happen while wearing cloth. Anything heavier will hinder the casting too much.]], [[奇术师是对元素法术有着深入理解的人，他们可以用新的方法融合元素，释放更强大的力量。
-		火球术、奥术射线、闪电术、粉碎钻击和寒冰箭被永久转化为宽度为3的射线技能。
+		火焰术、奥术射线、闪电术、粉碎钻击和寒冰箭被永久转化为宽度为3的射线技能。
 		此外，你获得独有的奇术师技能：
 		- 奇术之球：召唤一个限时存在的球，可以复制你释放的射线类法术
 		- 多重施法：当你释放射线类法术的时候，有一定几率追加释放一个其他的元素法师法术。
@@ -34348,7 +34348,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 你解锁了元素法师的#LIGHT_GREEN#高阶奇术师#WHITE#职业进阶。
 
 职业特性：
-- #YELLOW#宽射线#WHITE#: 火球术，奥术射线，闪电术，粉碎钻击和寒冰箭永久成为宽度为3的射线技能。
+- #YELLOW#宽射线#WHITE#: 火焰术，奥术射线，闪电术，粉碎钻击和寒冰箭永久成为宽度为3的射线技能。
 - 获得奇术系技能，拥有以下能力：
   - #YELLOW#奇术之球#WHITE#: 在地上放置奇术之球，会复制你释放的射线类法术。
   - #YELLOW#多重施法#WHITE#: 你可以在释放射线类法术的同时交织释放随机非射线法术。
