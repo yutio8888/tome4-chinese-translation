@@ -23816,7 +23816,7 @@ t([[Deploy a hidden spring-loaded catapult that will trigger (by pressure) for a
 t("Nightshade Trap", "颠茄陷阱", "talent name")
 t("You have learned how to create Nightshade traps!", "你学会了如何制作颠茄陷阱！", "_t")
 t("nightshade trap", "颠茄陷阱", "_t")
-t("Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.", "造成 %0.1f 自然伤害，震慑且每回合造成 %0.1f 自然伤害，持续4 回合。", "tformat")
+t("Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.", "造成 %0.1f 自然伤害，并使目标震慑且中毒（每回合 %0.1f 自然伤害），持续 4 回合。", "tformat")
 t("Lay a trap armed with potent venom.  A creature passing over it will be dealt %0.2f nature damage and be stunned and poisoned for %0.2f nature damage per turn for 4 turns.", "放置一个涂了颠茄毒素的陷阱，经过的生物会受到 %0.2f 自然伤害，并被震慑和中毒 4 回合，中毒每回合造成 %0.2f 自然伤害。", "tformat")
 -- untranslated text
 --[==[
@@ -25388,9 +25388,9 @@ t("Burrow", "土遁", "talent name")
 t([[Allows you to burrow into earthen walls for %d turns.
 		Your powerful digging abilities also allow you to exploit and smash through enemy defensive weaknesses; You ignore %d of target armor and %d%% of enemy physical damage resistance while this is in effect.
 		At Talent Level 5, this talent can be used instantly, and the cooldown will reduce with levels.
-		Each point in sand drake talents also increases your physical resistance by 0.5%%.]], [[允许你钻进墙里，持续 %d 回合。
+		Each point in sand drake talents also increases your physical resistance by 0.5%%.]], [[允许你钻进土质墙壁，持续 %d 回合。
 		你强大的挖掘能力让你能挖掘敌人的防御弱点；处于该状态下时你获得 %d 护甲穿透和 %d%% 物理抗性穿透。
-     在技能等级 5 时，这个技能变成瞬间。冷却时间随技能等级升高而降低。
+		在技能等级 5 时，这个技能变成瞬间。冷却时间随技能等级升高而降低。
 		每点土龙系的天赋可以使你增加物理抗性 0.5%%。]], "tformat")
 t("Sand Breath", "沙瀑吐息", "talent name")
 t("@Source@ breathes sand!", "@Source@呼出流沙！", "_t")
@@ -27727,8 +27727,8 @@ t([[You temporarily set aside a part of you mind to direct your telekinetically-
 		Damage: %d
 		APR: %d
 		Crit: %0.2f
-		Speed: %0.2f]], [[你暂时分出一部分精神去控制念动之弓。它会在 %d 回合内自动攻击1个目标。
-		念动弓使用意志和灵巧来代替力量和敏捷决定攻击。
+		Speed: %0.2f]], [[你暂时分出一部分精神去控制念动之弓。它会在 %d 回合内每回合自动攻击一个目标。
+			念动弓使用意志代替力量、灵巧代替敏捷来决定命中与伤害。
 		战斗属性：
 		命中：%d
 		伤害：%d
@@ -43252,15 +43252,15 @@ t([[No text would be complete without at least a brief note of some of the more 
 
  Nagas were once believed to be mere myth, but reliable reports and even the capturing of dead physical samples has shown them to be real creatures. The upper half of their body is humanoid in form, with blonde hair and an extremely thin build, but the lower half is like that of a giant snake's tail. They stand around 6' tall on land, though their tails extend several feet further. They have been encountered off the eastern and south-eastern coasts of Maj'Eyal, which seems to indicate some exotic civilisation beneath the waves. Records of them exist only from the last few hundred years, and only more recently have they been interpreted as more than just the wild fantasies of inebriated sailors. They can breathe in air and underwater, possessing both lungs and gills, and have been reported to move with surprising speed on the ground. One might think them simply odd monsters, but they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail formed from layers of thick shark-hide. This would suggest an advanced culture, but communication with them so far has proved impossible. It is not known if they are capable of complex speech, but to date their only response to those who encounter them has been extreme violence, and fishermen in the east are always wary of coming across these vicious creatures.
 
- The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[没有任何文字可以诠释那些影响我们世界的野蛮种族。他们没有任何文化遗留，也没有任何先进的智慧或文化，但是他们仍能激起大家研究原始种族的兴趣。
+ The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何著述都少不了对肆虐于我们世界的野蛮种族作至少一番简要记述。这些种族没有任何值得一提的文明社会，一般来说似乎也不具备任何高等思维或文化，但对于热衷于分析低等智慧生物的人而言，他们仍值得研究。
 
- 巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
+ 巨魔主要分为两大类——科兹拉克和马提普，俗称岩石巨魔和森林巨魔。岩石巨魔盘踞于东北部的许多山脉，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极其发达的肌肉和厚实坚固、外观如煤炭或花岗岩的皮肤。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们的言语能力比居于山地的同族更发达，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。他们出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们过去被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
- 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
+ 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来像体形巨大而畸形的人类，面部肿胀，摆动的四肢也长得多。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以野鹿和山羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者幼崽受到威胁时才会变的具有攻击性。有报道称，巨人们有时会来到低地，偷走农场动物或者袭击聚落，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的成熟文化和语言，但有记载表明他们会展现出有限的智慧，也擅长在群体中交流。
 
- 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只有近一百年的，并且越来越多的证据表明他们并不是喝醉水手们的幻觉。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
+ 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和极为瘦削的身材，但是下半身却极像一只巨蛇的尾巴。他们在陆地上大约身高6英尺，而他们的尾巴还要向后延伸数英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只见于近几百年，而且直到最近人们才开始认为这些记载不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料制作武器和护甲，例如用多层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是迄今为止，与他们沟通已被证明是不可能的。现在还不知道他们是否有复杂的语言，但到目前为止，他们对遇到的人只会以极端暴力回应，东部的渔民们也时刻提防着碰上这些凶恶的生物。
 
- 恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属化的血肉，可以表现出超乎我们想象的形态——有些绽放在火焰中，有的藏在酸雾里或是可怕的黑暗中。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+ 恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，某些魔法仪式可以召唤他们，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属般的血肉，这些部位常会与我们的空气发生奇异反应——有的被火焰环绕，有的释放可怕的酸液或喷吐黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
  Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.
