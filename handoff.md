@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口9已发布；Flame→火焰术改名已提交；下一步审核256）
+更新时间：2026-09-23（审核256已完成；下一步修复窗口10，仅处理256的5条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -58,8 +58,18 @@ surface 四组 `codex/gpt-6-sol` 为 69 OK / 11 ISSUE（无错位），contextua
 不继承 done。`Flame` 名称争议恢复基线“火球术”并登记为 pending。完整结果见
 [窗口9出版证据](evidence/quality/repair-window-9-20260923/PUBLICATION.md)。
 
-下一步由宿主完成本证据提交、第二次 queue rebuild 与 push；完成后继续审核 256（默认 80 条）。
-上述后续步骤尚未执行。
+窗口9的证据提交、queue rebuild 与 push 已完成（`9b3112f9`）；随后 Flame→火焰术改名（`829a9368`/`d87514e9`）已推送。
+
+审核256（`batch-096b5470a753566196f9`）已闭合，结果为 **72 done / 5 repair_required / 3 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 63 OK / 17 ISSUE（lane-000-0 一条 OK 结果回显 identity 错 17 位，经原生日志核实后宿主 hand-attribution 恢复；
+lane-000-2 因 sandbox 失败经 Paseo 终端只读读取，终端已关闭），contextual `claude/claude-opus-5-5` 为 10 OK / 7 ISSUE；
+23 个观察裁决为 10 confirmed、6 refuted、3 advisory、4 pending。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，
+五个 reviewer 均已归档确认。证据提交 `db20fa9a2ada06317cd8ba90d7721d23bf651e3b`。
+
+下一步按 1:1 节奏开修复窗口10，仅处理 256 的 5 条：Plate of the Blackened Mind 描述、魔法大爆炸区域效果传送警告、
+时空特工入职信（几十年 / fair game / 彩票 / quite literally 四处）、刀刃风暴构造体 short_info、碾压擒抱解除提示。
+范围见 `.ai/task/batch-096b5470a753566196f9/WINDOW10-REPAIR-DECISION.json`；可复用窗口9b 模板，注意失败的 FINAL 之后必须接 RE_REVIEW。
+pending 新增第 8–10 项（Blunt Thrust、传说标题、Crystal Shard）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

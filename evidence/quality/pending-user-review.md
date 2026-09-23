@@ -49,6 +49,28 @@
 
 - 审核 255 advisory：巫妖外观名 `Lich Regalia` 译作“巫妖王冠”；召唤触手描述 `Ewwww..` 译作“额……”，语气偏迟疑。
 
+## 审核 256 待审阅
+
+8. `eab2ffb632`（技能名 `Blunt Thrust`）
+   - 源码：`spells/staff-combat.lua:141`，法杖近战单体攻击并眩晕。
+   - 现译：“钝器挥击”；Thrust 为刺击/戳击，现名把动作译成挥击。
+   - 争议理由：改技能名需同步技能引用与日志文本（如 `You cannot use Blunt Thrust without a staff weapon!`）。
+   - 建议选项：保持“钝器挥击” / 改为“钝击突刺”或“法杖突刺”等（需同步引用处）。
+
+9. `eb6bf55a91`（传说标题 `If I Should Die Before I Wake`）
+   - 源码：`lore/misc.lua:623`，标题借用睡前祷词句式。
+   - 现译：“从噩梦中惊醒，还是在梦魇中永眠？”，为意译改写。
+   - 争议理由：非机制内容，是否直译属风格取舍。
+   - 建议选项：保持意译 / 改为“若我在醒来前死去”。
+
+10. `eb71935d6c`（神器名 `Crystal Shard`）
+    - 源码：`boss-artifacts-maj-eyal.lua:643–648`，magestaff 唯一神器，未鉴定名 crystalline tree branch。
+    - 现译：“水晶之杖”，以物品类型替换 Shard（碎片）；surface 与 contextual 均提出。
+    - 争议理由：神器专名改名属命名决定。
+    - 建议选项：保持“水晶之杖” / 改为“水晶碎片”。
+
+- 审核 256 advisory：Dark Vision “在黑暗之雾中”移速（实现为移入含黑暗之雾的格子）；贴图说明 tile 译“材质”；教程 NPC `Loitering elf` 译“流浪的精灵”。
+
 ## 修复窗口 9 待审阅
 
 7. `e9e627f60c`（高阶奇术师解锁文本中的 Flame 名称）
