@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口13已完成；待宿主发布收尾，随后审核260）
+更新时间：2026-09-23（审核260已完成；下一步修复窗口14，仅处理260的3条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -172,8 +172,17 @@ Body of Stone 描述（化为石头、强制位移、冷却缩减百分比）、
 4 条 revision changed、29,824 条 unchanged、0 ambiguous/unmapped，4 个 successor 待重新审核，
 不继承 done。完整结果见[窗口13出版证据](evidence/quality/repair-window-13-20260923/PUBLICATION.md)。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。完成后继续审核260
-（默认80条）。
+窗口13的证据提交、queue rebuild 与 push 已完成（`6b212707`）。
+
+审核260（`batch-6b8acfddd3cc0c11f471`）已闭合，结果为 **77 done / 3 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致）；
+contextual `claude/claude-opus-5-5` 首次 full-000 在 JSON 前多一句英文导语被判无效，归档确认后以 full-001（attempt 2，retry_of full-000）重派，4 OK / 3 ISSUE。
+10 个观察裁决为 5 confirmed、2 refuted、3 advisory。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，六个 reviewer child 均已归档确认。证据提交 `b686e1f33b9fbb73fc4e965771b8c01db7645a78`，
+详见[260宿主证据](evidence/quality/production-batches/batch-6b8acfddd3cc0c11f471-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口14，仅处理 260 的 3 条：珠宝师对话冬潮之月传说（漏“融化”、增添“融入大地”、“更强大”）、
+Guided Shot 念力导引（telekinetic nudges、“精确地”）、巨狼描述 snaps at you（“咆哮”）。
+范围见 `.ai/task/batch-6b8acfddd3cc0c11f471/WINDOW14-REPAIR-DECISION.json`；可复用窗口13 模板，失败的 FINAL 之后必须接 RE_REVIEW。
 
 ### 窗口7闭合时的暂停记录（历史）
 
