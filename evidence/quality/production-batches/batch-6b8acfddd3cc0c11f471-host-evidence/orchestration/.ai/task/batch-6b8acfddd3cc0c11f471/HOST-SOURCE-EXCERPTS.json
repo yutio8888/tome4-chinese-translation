@@ -1,0 +1,3034 @@
+[
+  {
+    "entry_revision_identity": "3bd07907e1cbfc9aedf239f5efdfb403b6e5ad1b97b4479c04c56d106b8c02fc",
+    "public_source_path": "game/modules/tome/data/general/objects/wands.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": "\tadd_name = \"#CHARM# #CHARGES#\","
+      },
+      {
+        "line": 29,
+        "text": "\tuse_sound = \"talents/spell_generic\","
+      },
+      {
+        "line": 30,
+        "text": "\tdesc = _t[[Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.]],"
+      },
+      {
+        "line": 31,
+        "text": "\tegos = \"/data/general/objects/egos/wands.lua\", egos_chance = { prefix=resolvers.mbonus(20, 5), },"
+      },
+      {
+        "line": 32,
+        "text": "\taddons = \"/data/general/objects/egos/wands-powers.lua\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ae45ec51d39e48ceac7f7e943c0155f8798b6b6b16d628b659eaccc34bf3d6a1",
+    "public_source_path": "game/modules/tome/data/talents/spells/stone.lua",
+    "lines": [
+      {
+        "line": 126,
+        "text": "\t\tlocal cooldownred = t.getCooldownReduction(self, t)"
+      },
+      {
+        "line": 127,
+        "text": "\t\tlocal stunres = t.getStunRes(self, t)"
+      },
+      {
+        "line": 128,
+        "text": "\t\treturn ([[You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect."
+      },
+      {
+        "line": 129,
+        "text": "\t\tYour stone form and your affinity with the earth while the spell is active has the following effects:"
+      },
+      {
+        "line": 130,
+        "text": "\t\t* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%."
+      },
+      {
+        "line": 131,
+        "text": "\t\t* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance."
+      },
+      {
+        "line": 132,
+        "text": "\t\tResistances scale with your Spellpower.]])"
+      },
+      {
+        "line": 133,
+        "text": "\t\t:tformat(cooldownred, fireres, lightningres, acidres, stunres*100)"
+      },
+      {
+        "line": 134,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b4dfb493d9bc222398e81c6208f4b56e48a744516cbe2054a2ed7a7584aaace7",
+    "public_source_path": "game/modules/tome/data/talents/techniques/grappling.lua",
+    "lines": [
+      {
+        "line": 142,
+        "text": "\t\tlocal slow = t.getSlow(self, t)"
+      },
+      {
+        "line": 143,
+        "text": ""
+      },
+      {
+        "line": 144,
+        "text": "\t\treturn ([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check."
+      },
+      {
+        "line": 145,
+        "text": "\t\t#RED#Talent Level 1:  Reduces physical power by %d"
+      },
+      {
+        "line": 146,
+        "text": "\t\tTalent Level 3:  Silences"
+      },
+      {
+        "line": 147,
+        "text": "\t\tTalent Level 5:  Reduces global action speed by %d%%]])"
+      },
+      {
+        "line": 148,
+        "text": "\t\t:tformat(reduction, slow*100)"
+      },
+      {
+        "line": 149,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ec949b2c4323498e4e51e129de700a151d2e68db817b8eb5b0de3d46e7a71a6b",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 4182,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 4183,
+        "text": "\t\tend"
+      },
+      {
+        "line": 4184,
+        "text": "\t\tlocal dead, val = self:takeHit(eff.power, self, {special_death_msg=_t\"died a well-deserved death by exsanguination\"})"
+      },
+      {
+        "line": 4185,
+        "text": "\t\t"
+      },
+      {
+        "line": 4186,
+        "text": "\t\tlocal srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or \"Something\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef0bf37a04b13fa04a224c450228bf96f02fe41747f33a7b447bd7b124507fa1",
+    "public_source_path": "game/modules/tome/class/Game.lua",
+    "lines": [
+      {
+        "line": 1389,
+        "text": "\t\tif self.zone.level_adjust_level then lev = self.zone:level_adjust_level(self.level) end"
+      },
+      {
+        "line": 1390,
+        "text": "\t\tlocal diff = lev - self.player.level"
+      },
+      {
+        "line": 1391,
+        "text": "\t\tif diff >= 5 then feeling = _t\"You feel a thrill of terror and your heart begins to pound in your chest. You feel terribly threatened upon entering this area.\""
+      },
+      {
+        "line": 1392,
+        "text": "\t\telseif diff >= 2 then feeling = _t\"You feel mildly anxious, and walk with caution.\""
+      },
+      {
+        "line": 1393,
+        "text": "\t\telseif diff >= -2 then feeling = nil"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef0c2e5e04757681b16c9e43624f2cbf3ebb73d3120327e025b9de117c878aa5",
+    "public_source_path": "game/modules/tome/data/general/objects/quest-artifacts.lua",
+    "lines": [
+      {
+        "line": 170,
+        "text": "\ttype = \"orb\", subtype=\"orb\","
+      },
+      {
+        "line": 171,
+        "text": "\tunided_name = _t\"orb of command\","
+      },
+      {
+        "line": 172,
+        "text": "\tname = \"Orb of Undeath (Orb of Command)\","
+      },
+      {
+        "line": 173,
+        "text": "\tlevel_range = {50, 50},"
+      },
+      {
+        "line": 174,
+        "text": "\tdisplay = \"*\", color=colors.VIOLET, image = \"object/artifact/orb_undeath.png\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef103cef3f610d4bc101ea17e26c23bab5ac7e367b11192093d11fce9878ab04",
+    "public_source_path": "game/modules/tome/data/chats/tannen.lua",
+    "lines": [
+      {
+        "line": 72,
+        "text": "\ttext = _t[[Astonishing! I have heard tell of this Orb in ancient texts and legends. Might I see it?]],"
+      },
+      {
+        "line": 73,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 74,
+        "text": "\t\t{_t\"[Show him the Orb of Many Ways]\", jump=\"east_portal2\"},"
+      },
+      {
+        "line": 75,
+        "text": "\t}"
+      },
+      {
+        "line": 76,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef12eff3496186682a883fff44ae2f15cfb56e0e1bcfd7443eeb2da9436ed990",
+    "public_source_path": "game/modules/tome/data/quests/starter-zones.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": "\t\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#\""
+      },
+      {
+        "line": 34,
+        "text": "\t\telse"
+      },
+      {
+        "line": 35,
+        "text": "\t\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#\""
+      },
+      {
+        "line": 36,
+        "text": "\t\tend"
+      },
+      {
+        "line": 37,
+        "text": "\telse"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef1e85bcde200d35eb815f1184bd828652f89949c627d65815122799a7defa2c",
+    "public_source_path": "game/modules/tome/data/general/npcs/xorn.lua",
+    "lines": [
+      {
+        "line": 80,
+        "text": ""
+      },
+      {
+        "line": 81,
+        "text": "newEntity{ base = \"BASE_NPC_XORN\","
+      },
+      {
+        "line": 82,
+        "text": "\tname = \"xaren\", color=colors.SLATE,"
+      },
+      {
+        "line": 83,
+        "text": "\tdesc = _t[[It is a tougher relative of the Xorn. Its hide glitters with metal ores.]],"
+      },
+      {
+        "line": 84,
+        "text": "\tlevel_range = {15, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef21328527959af7aac60fe977435f9d0158eb8dd4e3804296a24763f5acb297",
+    "public_source_path": "game/modules/tome/data/birth/descriptors.lua",
+    "lines": [
+      {
+        "line": 240,
+        "text": "\t\t_t\"Rare creatures are far more frequent and random bosses start to appear\","
+      },
+      {
+        "line": 241,
+        "text": "\t\t_t\"Stairs can not be used for 5 turns after a kill.\","
+      },
+      {
+        "line": 242,
+        "text": "\t\t_t\"Player can earn Insane version of achievements if also playing in Roguelike or Adventure permadeath mode.\","
+      },
+      {
+        "line": 243,
+        "text": "\t},"
+      },
+      {
+        "line": 244,
+        "text": "\tdescriptor_choices ="
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef29accdc2f303c12bb7b42e727e8e79fa6530ebc80dd26443889003ae5a199a",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/cloak.lua",
+    "lines": [
+      {
+        "line": 227,
+        "text": "newEntity{"
+      },
+      {
+        "line": 228,
+        "text": "\tpower_source = {technique=true},"
+      },
+      {
+        "line": 229,
+        "text": "\tname = \"battlemaster's \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 230,
+        "text": "\tkeywords = {battlemaster=true},"
+      },
+      {
+        "line": 231,
+        "text": "\tlevel_range = {40, 50},"
+      },
+      {
+        "line": 232,
+        "text": "\tgreater_ego = 1,"
+      },
+      {
+        "line": 376,
+        "text": "newEntity{"
+      },
+      {
+        "line": 377,
+        "text": "\tpower_source = {technique=true},"
+      },
+      {
+        "line": 378,
+        "text": "\tname = \" of battle\", suffix=true, instant_resolve=true,"
+      },
+      {
+        "line": 379,
+        "text": "\tkeywords = {battle=true},"
+      },
+      {
+        "line": 380,
+        "text": "\tlevel_range = {1, 50},"
+      },
+      {
+        "line": 381,
+        "text": "\trarity = 15,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef2ba704495b39e9a0749209681bfa22171269706c69eaa585d4d23493f2669b",
+    "public_source_path": "game/modules/tome/data/chats/arena.lua",
+    "lines": [
+      {
+        "line": 67,
+        "text": ""
+      },
+      {
+        "line": 68,
+        "text": "newChat{ id=\"fryjia-defeat\","
+      },
+      {
+        "line": 69,
+        "text": "text = _t[[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*"
+      },
+      {
+        "line": 70,
+        "text": "#LIGHT_GREEN#*She awkwardly stands up, but doesn't seem critically injured*"
+      },
+      {
+        "line": 71,
+        "text": "#WHITE# I...I admit defeat."
+      },
+      {
+        "line": 72,
+        "text": "#LIGHT_GREEN#*The audience \"oooohs\" in awe. Fryjia has turned her back to you*"
+      },
+      {
+        "line": 73,
+        "text": "#WHITE# @playerdescriptor.race@. You are not the person I am looking for..."
+      },
+      {
+        "line": 74,
+        "text": "#LIGHT_GREEN#*Leaving you wondering what she was talking about, the young girl walks"
+      },
+      {
+        "line": 75,
+        "text": "#LIGHT_GREEN#towards the gate. As it closes, you realize her eyes are wet with tears."
+      },
+      {
+        "line": 76,
+        "text": "]],"
+      },
+      {
+        "line": 77,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 78,
+        "text": "\t\t{_t\"...\", action=entershop},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef2eb7d8b56e9bb86f8224a5226c6c2ea10ddcebe2c374dcea53aa96de1b6191",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/other.lua",
+    "lines": [
+      {
+        "line": 180,
+        "text": ""
+      },
+      {
+        "line": 181,
+        "text": "newTalent{"
+      },
+      {
+        "line": 182,
+        "text": "\tname = \"Spacetime Mastery\","
+      },
+      {
+        "line": 183,
+        "text": "\ttype = {\"chronomancy/other\", 1},"
+      },
+      {
+        "line": 184,
+        "text": "\tmode = \"passive\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef33932b46fb5d9d1aa8cca5b28f80fbe5745d3b4dbaaf6af0d1949c5159164a",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 3264,
+        "text": ""
+      },
+      {
+        "line": 3265,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 3266,
+        "text": "\tname = _t(\"temporal slow\", \"damage type\"), type = \"CHRONOSLOW\","
+      },
+      {
+        "line": 3267,
+        "text": "\tprojector = function(src, x, y, type, dam, state)"
+      },
+      {
+        "line": 3268,
+        "text": "\t\tstate = initState(state)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef34a097305919ae26461e250c2203fa1fab181e7507b05a033bfc1b77161f57",
+    "public_source_path": "game/modules/tome/data/chats/eidolon-plane.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "As for your probable many questions, they will stay unanswered. I may help, but I am not here to explain why.]],"
+      },
+      {
+        "line": 44,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 45,
+        "text": "\t\t{_t\"Thank you. I will rest for a while.\"},"
+      },
+      {
+        "line": 46,
+        "text": "\t\t{_t\"Thank you. I am ready to go back!\", "
+      },
+      {
+        "line": 47,
+        "text": "\t\t\tcond=function() return game.level.source_level and not game.level.source_level.no_return_from_eidolon end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef35dc1331ae8103b28c317807fd898c925edaa0c644cfd66fc71dd2099d64ca",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 548,
+        "text": "\tid = \"eden-guile\","
+      },
+      {
+        "line": 549,
+        "text": "\tcategory = \"artifacts\","
+      },
+      {
+        "line": 550,
+        "text": "\tname = _t\"Running man\","
+      },
+      {
+        "line": 551,
+        "text": "\tlore = _t[[Running man, running man"
+      },
+      {
+        "line": 552,
+        "text": "Your time is ending soon"
+      },
+      {
+        "line": 553,
+        "text": "Running man, running man"
+      },
+      {
+        "line": 554,
+        "text": "Will not save sun nor moons"
+      },
+      {
+        "line": 555,
+        "text": ""
+      },
+      {
+        "line": 556,
+        "text": "Running man, running man"
+      },
+      {
+        "line": 557,
+        "text": "Survival growing slim"
+      },
+      {
+        "line": 558,
+        "text": "Running man, running man"
+      },
+      {
+        "line": 559,
+        "text": "You know your fate is grim"
+      },
+      {
+        "line": 560,
+        "text": ""
+      },
+      {
+        "line": 561,
+        "text": "Running man, running man"
+      },
+      {
+        "line": 562,
+        "text": "Now's the time to choose"
+      },
+      {
+        "line": 563,
+        "text": "Running man, running man"
+      },
+      {
+        "line": 564,
+        "text": "Your honour or your shoes!]] }"
+      },
+      {
+        "line": 565,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3620b84230d36d9b622561c9ec84e3d0fd6767235f026fade0d55dc65bec6c",
+    "public_source_path": "game/modules/tome/data/texts/message-last-hope.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "if delivered_staff then"
+      },
+      {
+        "line": 23,
+        "text": "return _t[[@playername@, this message is of utmost importance."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "The staff you left at Last Hope is gone. A raid of orcs ambushed the guards that were transporting it to a secret vault."
+      },
+      {
+        "line": 26,
+        "text": "Our troops managed to capture one of the orcs and made him talk."
+      },
+      {
+        "line": 27,
+        "text": "He did not know much, but he did speak about \"masters\" in the Far East."
+      },
+      {
+        "line": 28,
+        "text": "He spoke about Golbug -- this seems to be a warmaster in Reknor -- leading a raid to send a \"package\" through a portal."
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "This calls for urgency; should you find this Golbug or the portal, please investigate."
+      },
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "               #GOLD#-- Tolak, King of the Allied Kingdoms]]"
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "else"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3670bfb5321159671d10621c3dade24cc02741d97ba7e7b7da3e36ba38bb9d",
+    "public_source_path": "game/modules/tome/data/general/objects/quest-artifacts.lua",
+    "lines": [
+      {
+        "line": 232,
+        "text": "\ttype = \"orb\", subtype=\"orb\","
+      },
+      {
+        "line": 233,
+        "text": "\tunided_name = _t\"orb of command\","
+      },
+      {
+        "line": 234,
+        "text": "\tname = \"Elemental Orb (Orb of Command)\","
+      },
+      {
+        "line": 235,
+        "text": "\tlevel_range = {50, 50},"
+      },
+      {
+        "line": 236,
+        "text": "\tdisplay = \"*\", color=colors.VIOLET, image = \"object/artifact/elemental_orb.png\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3874ceff8dd8ac20e34e8c21f35772ab4ce6065bb63f6bc96319970c3f4a58",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 1380,
+        "text": "\t\t\t\t\tif bestX then"
+      },
+      {
+        "line": 1381,
+        "text": "\t\t\t\t\t\tself:move(bestX, bestY, false)"
+      },
+      {
+        "line": 1382,
+        "text": "\t\t\t\t\t\tgame.logPlayer(self, \"#F53CBE#You panic and flee from %s.\", eff.src:getName())"
+      },
+      {
+        "line": 1383,
+        "text": "\t\t\t\t\telse"
+      },
+      {
+        "line": 1384,
+        "text": "\t\t\t\t\t\tself:logCombat(eff.src, \"#F53CBE##Source# panics but fails to flee from #Target#.\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3c591366f6268faf4b8127683b1adb2b5300d7974380ab596e387fe892ec9e",
+    "public_source_path": "game/modules/tome/data/general/objects/random-artifacts/staves.lua",
+    "lines": [
+      {
+        "line": 41,
+        "text": "\twielder = { inc_damage = { [DamageType.ACID] = resolvers.randartmax(3, 15),  }, },"
+      },
+      {
+        "line": 42,
+        "text": "}"
+      },
+      {
+        "line": 43,
+        "text": "newEntity{ theme={lightning=true}, name=\"stave inc damage lightning\", points = 1, rarity = 11, level_range = {1, 50},"
+      },
+      {
+        "line": 44,
+        "text": "\twielder = { inc_damage = { [DamageType.LIGHTNING] = resolvers.randartmax(3, 15),  }, },"
+      },
+      {
+        "line": 45,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3ca50787a59d01bd8385545610cabbc5a802d43a4cfcd7dbbbf7a17a7403cc",
+    "public_source_path": "game/modules/tome/class/uiset/Minimalist.lua",
+    "lines": [
+      {
+        "line": 1885,
+        "text": "\t\tlocal desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)"
+      },
+      {
+        "line": 1886,
+        "text": "\t\t\tif event == \"out\" then self.tbbuttons.talents = 0.6 return else self.tbbuttons.talents = 1 end"
+      },
+      {
+        "line": 1887,
+        "text": "\t\t\tgame.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, _t\"Left mouse to show known talents\")"
+      },
+      {
+        "line": 1888,
+        "text": "\t\t\tif button == \"left\" and not xrel and not yrel and event == \"button\" then game.key:triggerVirtual(\"USE_TALENTS\") end"
+      },
+      {
+        "line": 1889,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3cbb08ad1ae065d20a91128dd4f0d6c2030822772ec3adc61b4c59bf75a2f8",
+    "public_source_path": "game/modules/tome/data/talents/cursed/rampage.lua",
+    "lines": [
+      {
+        "line": 167,
+        "text": "\ton_pre_use = function(self, t, silent)"
+      },
+      {
+        "line": 168,
+        "text": "\t\tif not self:hasEffect(self.EFF_RAMPAGE) then "
+      },
+      {
+        "line": 169,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You must be rampaging to use this talant.\") end"
+      },
+      {
+        "line": 170,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 171,
+        "text": "\t\tend"
+      },
+      {
+        "line": 175,
+        "text": "\t\tlocal eff = self:hasEffect(self.EFF_RAMPAGE)"
+      },
+      {
+        "line": 176,
+        "text": "\t\tif not eff then "
+      },
+      {
+        "line": 177,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You must be rampaging to use this talant.\") end"
+      },
+      {
+        "line": 178,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 179,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef3dcead3d0d1a7363776dcee8a52c7e56ed58f92ed671d65c31c97da01f59e0",
+    "public_source_path": "game/modules/tome/data/birth/races/human.lua",
+    "lines": [
+      {
+        "line": 132,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 133,
+        "text": "\t\t_t\"Highers are a special branch of Humans that have been imbued with latent magic since the Age of Allure.\","
+      },
+      {
+        "line": 134,
+        "text": "\t\t_t\"They usually do not breed with other Humans, trying to keep their blood 'pure'.\","
+      },
+      {
+        "line": 135,
+        "text": "\t\t_t\"They possess the #GOLD#Wrath of the Highborn#WHITE# which allows them to increase damage dealt and decrease damage taken once in a while.\","
+      },
+      {
+        "line": 136,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef412030842b80d8241738de04ed01d1e20af7ba3b6f5b51deb49eb429c1c80c",
+    "public_source_path": "game/modules/tome/data/talents/spells/spells.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/ice\", name = _t(\"ice\", \"talent type\"), min_lev = 10, description = _t\"Harness the power of ice to freeze and shatter your foes.\" }"
+      },
+      {
+        "line": 29,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/air\", name = _t(\"air\", \"talent type\"), description = _t\"Harness the power of the air to fry your foes.\" }"
+      },
+      {
+        "line": 30,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/storm\", name = _t(\"storm\", \"talent type\"), min_lev = 10, description = _t\"Harness the power of the storm to incinerate your foes.\" }"
+      },
+      {
+        "line": 31,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/meta\", name = _t(\"meta\", \"talent type\"), description = _t\"Meta spells alter the working of magic itself.\" }"
+      },
+      {
+        "line": 32,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/temporal\", name = _t(\"temporal\", \"talent type\"), description = _t\"The school of time manipulation.\" }"
+      },
+      {
+        "line": 333,
+        "text": "load(\"/data/talents/spells/ice.lua\")"
+      },
+      {
+        "line": 334,
+        "text": "load(\"/data/talents/spells/air.lua\")"
+      },
+      {
+        "line": 335,
+        "text": "load(\"/data/talents/spells/storm.lua\")"
+      },
+      {
+        "line": 336,
+        "text": "load(\"/data/talents/spells/conveyance.lua\")"
+      },
+      {
+        "line": 337,
+        "text": "load(\"/data/talents/spells/aegis.lua\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef4433afc34703d312344f35bbe1398dbdb658c56bc7a5760b0921d09e488f58",
+    "public_source_path": "game/modules/tome/class/Actor.lua",
+    "lines": [
+      {
+        "line": 2038,
+        "text": "\tts:add(_t\"Rank: \") ts:merge(rank_color:toTString()) ts:add(rank, {\"color\", \"WHITE\"}, true)"
+      },
+      {
+        "line": 2039,
+        "text": "\tif self.hide_level_tooltip then ts:add({\"color\", 0, 255, 255}, _t\"Level: unknown\", {\"color\", \"WHITE\"}, true)"
+      },
+      {
+        "line": 2040,
+        "text": "\telse ts:add({\"color\", 0, 255, 255}, (\"Level: %d\"):tformat(self.level), {\"color\", \"WHITE\"}, true) end"
+      },
+      {
+        "line": 2041,
+        "text": "\tif self:attr(\"invulnerable\") then ts:add({\"color\", \"PURPLE\"}, _t\"INVULNERABLE!\", true) end"
+      },
+      {
+        "line": 2042,
+        "text": "\tts:add({\"color\", 255, 0, 0}, (\"HP: %d (%d%%) #GREEN#+%0.2f#LAST#\"):tformat(self.life, self.life * 100 / self.max_life, self.life_regen * util.bound(self.healing_factor or 1)), {\"color\", \"WHITE\"})"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef44b577210aaf5e4f80da14f49cbc1b984e1504b6bb9bda79a1fd12ba1fae74",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 4038,
+        "text": "newEffect{"
+      },
+      {
+        "line": 4039,
+        "text": "\tname = \"CONCEALMENT\", image = \"talents/concealment.png\","
+      },
+      {
+        "line": 4040,
+        "text": "\tdesc = _t\"Concealment\","
+      },
+      {
+        "line": 4041,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is concealed, increasing sight and attack range by %d and chance to avoid damage by %d%%.\"):tformat(eff.sight, eff.power*eff.charges) end,"
+      },
+      {
+        "line": 4042,
+        "text": "\ttype = \"physical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef45a6cb80428ef2a95475dc7b3f634c34c5d3a801b1d41c14f407e5a814c1a0",
+    "public_source_path": "game/modules/tome/data/general/npcs/canine.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": "newEntity{ base = \"BASE_NPC_CANINE\","
+      },
+      {
+        "line": 90,
+        "text": "\tname = \"white wolf\", color=colors.WHITE, image=\"npc/canine_ww.png\","
+      },
+      {
+        "line": 91,
+        "text": "\tdesc = _t[[A large and muscled wolf from the northern wastes. Its breath is cold and icy, and its fur coated in frost.]],"
+      },
+      {
+        "line": 92,
+        "text": "\tlevel_range = {4, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef45a79c01e4615c20c2ae8e2db075db7cd5ab2bfd5f7d1dd9c3a910a89e8381",
+    "public_source_path": "game/modules/tome/dialogs/shimmer/ShimmerOutfits.lua",
+    "lines": [
+      {
+        "line": 71,
+        "text": "\t\tif item.id == \"current\" then"
+      },
+      {
+        "line": 72,
+        "text": "\t\t\tlocal set = table.clone(self.true_actor.shimmer_current_outfit, true)"
+      },
+      {
+        "line": 73,
+        "text": "\t\t\tlocal d = GetText.new(_t\"Save Outfit\", _t\"Outfit name?\", 1, 100, function(text)"
+      },
+      {
+        "line": 74,
+        "text": "\t\t\t\tset.name = text"
+      },
+      {
+        "line": 75,
+        "text": "\t\t\t\tworld.shimmer_sets[set.name] = set"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef45caffc70b0c8c8ae0568f2d9311efa9c48211d1b3920500049e511a4bc0b8",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 167,
+        "text": "\tname = \"Glory of the Pride\", unique=true, image=\"object/artifact/glory_of_the_pride.png\","
+      },
+      {
+        "line": 168,
+        "text": "\tdesc = _t[[The most prized treasure of the Battlemaster of the Pride, Grushnak. This gold ring is inscribed in the now lost orc tongue.]],"
+      },
+      {
+        "line": 169,
+        "text": "\tunided_name = _t\"deep black ring\","
+      },
+      {
+        "line": 170,
+        "text": "\tlevel_range = {40, 50},"
+      },
+      {
+        "line": 171,
+        "text": "\trarity = 280,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef4d33edb13c3d47e72a2db28331251d123679abfbbcd388e01d8363b70fc086",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 280,
+        "text": "newEffect{"
+      },
+      {
+        "line": 281,
+        "text": "\tname = \"TREE_OF_LIFE\", image = \"shockbolt/object/artifact/tree_of_life.png\","
+      },
+      {
+        "line": 282,
+        "text": "\tdesc = _t\"You have taken root!\","
+      },
+      {
+        "line": 283,
+        "text": "\tlong_desc = function(self, eff) return _t\"You have taken root becoming one with nature.  Or at least the ground.  Your health, armor, and armor hardiness are improved but you cannot move.\" end,"
+      },
+      {
+        "line": 284,
+        "text": "\ttype = \"other\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef53c7842016d76c633882a27a55e6cf6a23b31f2a207d49f020057cd56dc9aa",
+    "public_source_path": "game/modules/tome/data/birth/classes/wilder.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\t\t\t__ALL__ = \"disallow\","
+      },
+      {
+        "line": 36,
+        "text": "\t\t\tSummoner = \"allow\","
+      },
+      {
+        "line": 37,
+        "text": "\t\t\tWyrmic = \"allow\","
+      },
+      {
+        "line": 38,
+        "text": "\t\t\tOozemancer = \"allow\","
+      },
+      {
+        "line": 39,
+        "text": "\t\t\t[\"Stone Warden\"] = \"allow\","
+      },
+      {
+        "line": 108,
+        "text": "newBirthDescriptor{"
+      },
+      {
+        "line": 109,
+        "text": "\ttype = \"subclass\","
+      },
+      {
+        "line": 110,
+        "text": "\tname = \"Wyrmic\","
+      },
+      {
+        "line": 111,
+        "text": "\tlocked = function() return profile.mod.allow_build.wilder_wyrmic end,"
+      },
+      {
+        "line": 112,
+        "text": "\tlocked_desc = _t\"Sleek, majestic, powerful... In the path of dragons we walk, and their breath is our breath. See their beating hearts with your eyes and taste their majesty between your teeth.\","
+      },
+      {
+        "line": 113,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 114,
+        "text": "\t\t_t\"Wyrmics are fighters who have learnt how to mimic some of the aspects of the dragons.\","
+      },
+      {
+        "line": 115,
+        "text": "\t\t_t\"They have access to talents normally belonging to the various kind of drakes.\","
+      },
+      {
+        "line": 116,
+        "text": "\t\t_t\"Their most important stats are: Strength and Willpower\","
+      },
+      {
+        "line": 156,
+        "text": "\t\tdrake_touched = 2,"
+      },
+      {
+        "line": 157,
+        "text": "\t\tmax_life = 110,"
+      },
+      {
+        "line": 158,
+        "text": "\t\tresolvers.auto_equip_filters{  -- This could be improved to check learned trees since Wyrmics can use a lot of weapons"
+      },
+      {
+        "line": 159,
+        "text": "\t\t\tMAINHAND = {type=\"weapon\", properties={\"twohanded\"}},"
+      },
+      {
+        "line": 160,
+        "text": "\t\t\tOFFHAND = {special=function(e, filter) -- only allow if there is already a weapon in MAINHAND"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef564e5ff265697929e9ecbd8c1cc3234066641470176b8dd6841a8586154003",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 327,
+        "text": "\tname = \"ETHEREAL\", image = \"effects/invisibility.png\","
+      },
+      {
+        "line": 328,
+        "text": "\tdesc = _t\"Ethereal\","
+      },
+      {
+        "line": 329,
+        "text": "\tlong_desc = function(self, eff) return (\"Invisible (power %d), damage dealt reduced by %d%%, all resistances increased by %d%%, movement speed increased by %d%%.\"):"
+      },
+      {
+        "line": 330,
+        "text": "\t\ttformat(eff.power, eff.reduction * 100, eff.resist, eff.move) end,"
+      },
+      {
+        "line": 331,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 339,
+        "text": "\t\teff.penaltyid = self:addTemporaryValue(\"invisible_damage_penalty\", eff.reduction)"
+      },
+      {
+        "line": 340,
+        "text": "\t\teff.damid = self:addTemporaryValue(\"resists\", {all = eff.resist})"
+      },
+      {
+        "line": 341,
+        "text": "\t\teff.moveid = self:addTemporaryValue(\"movement_speed\", eff.move / 100)"
+      },
+      {
+        "line": 342,
+        "text": ""
+      },
+      {
+        "line": 343,
+        "text": "\t\tif not self.shader then"
+      },
+      {
+        "line": 357,
+        "text": "\t\tself:removeTemporaryValue(\"invisible_damage_penalty\", eff.penaltyid)"
+      },
+      {
+        "line": 358,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.damid)"
+      },
+      {
+        "line": 359,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", eff.moveid)"
+      },
+      {
+        "line": 360,
+        "text": "\t\tself:resetCanSeeCacheOf()"
+      },
+      {
+        "line": 361,
+        "text": "\tend,"
+      },
+      {
+        "line": 1924,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      },
+      {
+        "line": 1925,
+        "text": "\t\t-- remove the old value"
+      },
+      {
+        "line": 1926,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", old_eff.tmpid)"
+      },
+      {
+        "line": 1927,
+        "text": ""
+      },
+      {
+        "line": 1928,
+        "text": "\t\t-- add a charge"
+      },
+      {
+        "line": 1930,
+        "text": ""
+      },
+      {
+        "line": 1931,
+        "text": "\t\t-- and apply the current values"
+      },
+      {
+        "line": 1932,
+        "text": "\t\told_eff.tmpid = self:addTemporaryValue(\"movement_speed\", old_eff.speed * old_eff.charges)"
+      },
+      {
+        "line": 1933,
+        "text": ""
+      },
+      {
+        "line": 1934,
+        "text": "\t\told_eff.dur = new_eff.dur"
+      },
+      {
+        "line": 1936,
+        "text": "\tend,"
+      },
+      {
+        "line": 1937,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1938,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"movement_speed\", eff.speed * eff.charges)"
+      },
+      {
+        "line": 1939,
+        "text": "\tend,"
+      },
+      {
+        "line": 1940,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 1941,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", eff.tmpid)"
+      },
+      {
+        "line": 1942,
+        "text": "\tend,"
+      },
+      {
+        "line": 1943,
+        "text": "}"
+      },
+      {
+        "line": 2091,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less fast.\", true end,"
+      },
+      {
+        "line": 2092,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2093,
+        "text": "\t\tself:effectTemporaryValue(eff, \"movement_speed\", eff.power)"
+      },
+      {
+        "line": 2094,
+        "text": "\tend,"
+      },
+      {
+        "line": 2095,
+        "text": "}"
+      },
+      {
+        "line": 3368,
+        "text": "\tname = \"LIGHT_BURST_SPEED\","
+      },
+      {
+        "line": 3369,
+        "text": "\tdesc = _t\"Light Burst Speed\", image = \"effects/light_burst_speed.png\","
+      },
+      {
+        "line": 3370,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is invigorated from Searing Sight, increasing movement speed by %d%%.\"):tformat(eff.charges * 10) end,"
+      },
+      {
+        "line": 3371,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 3372,
+        "text": "\tsubtype = { sun=true },"
+      },
+      {
+        "line": 3381,
+        "text": ""
+      },
+      {
+        "line": 3382,
+        "text": "\t\tnew_eff.charges = math.min(old_eff.charges + 1, p.max)"
+      },
+      {
+        "line": 3383,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", old_eff.tmpid)"
+      },
+      {
+        "line": 3384,
+        "text": "\t\tnew_eff.tmpid = self:addTemporaryValue(\"movement_speed\", new_eff.charges * 0.1)"
+      },
+      {
+        "line": 3385,
+        "text": "\t\treturn new_eff"
+      },
+      {
+        "line": 3386,
+        "text": "\tend,"
+      },
+      {
+        "line": 3387,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 3388,
+        "text": "\t\teff.charges = 1"
+      },
+      {
+        "line": 3389,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"movement_speed\", eff.charges * 0.1)"
+      },
+      {
+        "line": 3390,
+        "text": "\tend,"
+      },
+      {
+        "line": 3391,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 3392,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", eff.tmpid)"
+      },
+      {
+        "line": 3393,
+        "text": "\tend,"
+      },
+      {
+        "line": 3394,
+        "text": "}"
+      },
+      {
+        "line": 4729,
+        "text": "\tname = \"LICH_FEAR\", image = \"talents/lichform.png\","
+      },
+      {
+        "line": 4730,
+        "text": "\tdesc = _t\"Frightening Presence\","
+      },
+      {
+        "line": 4731,
+        "text": "\tlong_desc = function(self, eff) return (\"The mere sight of a Lich sent you into a frightened state, reducing all saves by %d, all damage by %d%% and movement speed by %d%%.\"):tformat(eff.saves, eff.dam, eff.speed) end,"
+      },
+      {
+        "line": 4732,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 4733,
+        "text": "\tsubtype = { lich=true, fear=true},"
+      },
+      {
+        "line": 4741,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_physresist\", -eff.saves)"
+      },
+      {
+        "line": 4742,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_spellresist\", -eff.saves)"
+      },
+      {
+        "line": 4743,
+        "text": "\t\tself:effectTemporaryValue(eff, \"movement_speed\", -eff.speed / 100)"
+      },
+      {
+        "line": 4744,
+        "text": "\tend,"
+      },
+      {
+        "line": 4745,
+        "text": "}"
+      },
+      {
+        "line": 5146,
+        "text": "\tname = \"FROST_CUT\", image = \"effects/crumbling_earth.png\","
+      },
+      {
+        "line": 5147,
+        "text": "\tdesc = _t\"Frost Cut\","
+      },
+      {
+        "line": 5148,
+        "text": "\tlong_desc = function(self, eff) return (\"Magically frozen wound that deals %0.2f cold damage per turn and movement speed reduced by %d%%.\"):tformat(eff.power, eff.speed) end,"
+      },
+      {
+        "line": 5149,
+        "text": "\tcharges = function(self, eff) return (math.floor(eff.power)) end,"
+      },
+      {
+        "line": 5150,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 5169,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})"
+      },
+      {
+        "line": 5170,
+        "text": "\t\tend"
+      },
+      {
+        "line": 5171,
+        "text": "\t\tself:effectTemporaryValue(eff, \"movement_speed\", -eff.speed/100)"
+      },
+      {
+        "line": 5172,
+        "text": "\tend,"
+      },
+      {
+        "line": 5173,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 5317,
+        "text": "\tname = \"HOARFROST_BAD\", image = \"talents/permafrost.png\","
+      },
+      {
+        "line": 5318,
+        "text": "\tdesc = _t\"Hoarfrost\","
+      },
+      {
+        "line": 5319,
+        "text": "\tlong_desc = function(self, eff) return (\"Cold resistance reduced by %d%%, movement speed reduced by %d%%.\"):tformat(eff.resists, eff.slow) end,"
+      },
+      {
+        "line": 5320,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 5321,
+        "text": "\tsubtype = { necrotic=true, cold=true },"
+      },
+      {
+        "line": 5326,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 5327,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.COLD]=-eff.resists})"
+      },
+      {
+        "line": 5328,
+        "text": "\t\tself:effectTemporaryValue(eff, \"movement_speed\", -eff.slow/100)"
+      },
+      {
+        "line": 5329,
+        "text": "\t\tif eff.permafrost then"
+      },
+      {
+        "line": 5330,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"combat_spellresist\", -eff.permafrost)"
+      },
+      {
+        "line": 5411,
+        "text": "\tlong_desc = function(self, eff) return _t\"Can move once for free, this turn only.\" end,"
+      },
+      {
+        "line": 5412,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 5413,
+        "text": "\tsubtype = { thaumaturgy=true, movement=true },"
+      },
+      {
+        "line": 5414,
+        "text": "\tstatus = \"beneficial\", decrease = 0,"
+      },
+      {
+        "line": 5415,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 5416,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 5417,
+        "text": "\t\tself:effectTemporaryValue(eff, \"free_movement\", 1)"
+      },
+      {
+        "line": 5418,
+        "text": "\t\teff.setup = true"
+      },
+      {
+        "line": 5419,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef569fd39f8dbe961427d4c76fb8be64fd957a7838d0d98df881d7b0277a973a",
+    "public_source_path": "game/modules/tome/data/talents/psionic/psychic-assault.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": ""
+      },
+      {
+        "line": 60,
+        "text": "newTalent{"
+      },
+      {
+        "line": 61,
+        "text": "\tname = \"Psychic Lobotomy\","
+      },
+      {
+        "line": 62,
+        "text": "\ttype = {\"psionic/psychic-assault\", 2},"
+      },
+      {
+        "line": 63,
+        "text": "\trequire = psi_wil_req2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef587ec75582e7eae99fe7f9958d73a4139c7d843d91112ccbff03fac5750617",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 1217,
+        "text": "\tshort_info = function(self, t)"
+      },
+      {
+        "line": 1218,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 1219,
+        "text": "\t\treturn ([[Range %d telepathy for %d turns]]):tformat(self:getTalentRange(t), data.dur)"
+      },
+      {
+        "line": 1220,
+        "text": "\tend,"
+      },
+      {
+        "line": 1221,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef608e1de8bba12f2e236f598c5869d3946e92ee5ebf7e0855e81acb2538c1a6",
+    "public_source_path": "game/modules/tome/data/talents/gifts/mucus.lua",
+    "lines": [
+      {
+        "line": 268,
+        "text": ""
+      },
+      {
+        "line": 269,
+        "text": "newTalent{"
+      },
+      {
+        "line": 270,
+        "text": "\tname = \"Oozewalk\","
+      },
+      {
+        "line": 271,
+        "text": "\ttype = {\"wild-gift/mucus\", 4},"
+      },
+      {
+        "line": 272,
+        "text": "\trequire = gifts_req4,"
+      },
+      {
+        "line": 297,
+        "text": "\t\tif not self:canMove(x, y) then return nil end"
+      },
+      {
+        "line": 298,
+        "text": "\t\tif not isOnMucus(game.level.map, x, y) then"
+      },
+      {
+        "line": 299,
+        "text": "\t\t\tgame.logPlayer(self, \"You can only Oozewalk from one area of mucus to another.\")"
+      },
+      {
+        "line": 300,
+        "text": "\t\t\treturn nil "
+      },
+      {
+        "line": 301,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef65faaf4fa40b91323ee875d501f28609b000098cfe24e72642384827c73d47",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 1970,
+        "text": "\t\t\t\teff.damageShieldBonus = nil"
+      },
+      {
+        "line": 1971,
+        "text": ""
+      },
+      {
+        "line": 1972,
+        "text": "\t\t\t\tgame.logPlayer(self, \"#F53CBE#Your rampage is invigorated by the intense onslaught! (+1 duration)\")"
+      },
+      {
+        "line": 1973,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 1974,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef6b3691a39c509defbe1aeab534f232b3f841e98f512fe9752c07218a55fd53",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 6789,
+        "text": "\tpower_source = {psionic=true},"
+      },
+      {
+        "line": 6790,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 6791,
+        "text": "\tname = \"Crimson Robe\", color = colors.RED, image = \"object/artifact/crimson_robe.png\","
+      },
+      {
+        "line": 6792,
+        "text": "\tunided_name = _t\"blood-stained robe\","
+      },
+      {
+        "line": 6793,
+        "text": "\tdesc = _t[[This robe was formerly owned by Callister the Psion, a powerful Psionic that pioneered many Psionic abilities. After his wife was murdered, Callister became obsessed with finding her killer, using his own hatred as a fuel for new and disturbing arts. After forcing the killer to torture himself to death, Callister walked the land, forcing any he found to kill themselves - his way of releasing them from the world's horrors. One day, he simply disappeared. This robe, soaked in blood, was the only thing he left behind.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef6d8a4677592ae60d3d7e53eafe6dd87ae6824ddf09d31223ab3c3e0606d2bf",
+    "public_source_path": "game/modules/tome/data/talents/techniques/techniques.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "newTalentType{ allow_random=true, type=\"technique/warcries\", name = _t(\"warcries\", \"talent type\"), no_silence = true, min_lev = 10, description = _t\"Master the warcries to improve yourself and weaken others.\" }"
+      },
+      {
+        "line": 38,
+        "text": "newTalentType{ allow_random=true, type=\"technique/bloodthirst\", name = _t(\"bloodthirst\", \"talent type\"), min_lev = 10, description = _t\"Delight in the act of battle and the spilling of blood.\" }"
+      },
+      {
+        "line": 39,
+        "text": "newTalentType{ allow_random=true, type=\"technique/field-control\", name = _t(\"field control\", \"talent type\"), generic = true, description = _t\"Control the battlefield using various techniques.\" }"
+      },
+      {
+        "line": 40,
+        "text": "newTalentType{ allow_random=true, type=\"technique/combat-techniques-active\", name = _t(\"combat techniques\", \"talent type\"), description = _t\"Generic combat oriented techniques.\" }"
+      },
+      {
+        "line": 41,
+        "text": "newTalentType{ allow_random=true, type=\"technique/combat-techniques-passive\", name = _t(\"combat veteran\", \"talent type\"), description = _t\"Generic combat oriented techniques.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef7056a91b076cd1d72a9126a8b98345a55713f728d1485f1db917d82d3593c8",
+    "public_source_path": "game/modules/tome/data/chats/melinda-beach-end.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 35,
+        "text": "newChat{ id=\"next_am\","
+      },
+      {
+        "line": 36,
+        "text": "\ttext = _t[[This is terrible! I assure you I had no idea this would happen. You must trust me!]],"
+      },
+      {
+        "line": 37,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 38,
+        "text": "\t\t{_t\"I do. The Ziguranth are not raving zealots, you know. We will look for a way to cure you, as long as you reject the blight.\", jump=\"next2\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef726eee1a61bfa8d3d290f569f35a9155dad17a98c398b60b4c131a54f871f3",
+    "public_source_path": "game/modules/tome/data/talents/undeads/ghoul.lua",
+    "lines": [
+      {
+        "line": 212,
+        "text": "\t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"slime\")"
+      },
+      {
+        "line": 213,
+        "text": "\t\tgame:playSoundNear(target, \"talents/slime\")"
+      },
+      {
+        "line": 214,
+        "text": "\t\tghoul:logCombat(target, \"A #GREY##Source##LAST# rises from the corpse of #Target#.\")"
+      },
+      {
+        "line": 215,
+        "text": ""
+      },
+      {
+        "line": 216,
+        "text": "\t\tif game.party:hasMember(self) then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef7c0c0334439deb968f88e1b0f5ac2c0c040036abc6691d8ce88337b4fd5e1e",
+    "public_source_path": "game/modules/tome/data/zones/heart-gloom/npcs.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\t\t\t\te[#e+1] = resolvers.talents{[ Talents[rng.table(list)] ] = {base=1, every=5, max=6}}"
+      },
+      {
+        "line": 32,
+        "text": "\t\t\t\te.rarity = math.ceil(e.rarity * mult + add)"
+      },
+      {
+        "line": 33,
+        "text": "\t\t\t\te.name = rng.table{_t\"gloomy \", _t\"deformed \", _t\"sick \"}..e:getName()"
+      },
+      {
+        "line": 34,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 35,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef7c1addc77cbcb6f8f8c7446791838cba7f505e6dce0915841b226800385d7f",
+    "public_source_path": "game/modules/tome/data/general/npcs/feline.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "\tinfravision = 10,"
+      },
+      {
+        "line": 30,
+        "text": "\tglobal_speed_base = 1.25,"
+      },
+      {
+        "line": 31,
+        "text": "\ttype = \"animal\", subtype=\"feline\","
+      },
+      {
+        "line": 32,
+        "text": "\tai = \"dumb_talented_simple\", ai_state = { ai_move=\"move_complex\", talent_in=2, },"
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "newEntity{ base = \"BASE_NPC_CAT\","
+      },
+      {
+        "line": 41,
+        "text": "\tname = \"snow cat\", color=colors.GRAY,"
+      },
+      {
+        "line": 42,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/animal_feline_snow_cat.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 43,
+        "text": "\tdesc = _t[[A large cat with a grey fur matted with black.]],"
+      },
+      {
+        "line": 44,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef7c727f8da7047f1401b6b960f65dd28a7e4b0adc4ea1a0b75e57f6a53e393e",
+    "public_source_path": "game/modules/tome/data/talents/misc/horrors.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": ""
+      },
+      {
+        "line": 70,
+        "text": "newTalent{"
+      },
+      {
+        "line": 71,
+        "text": "\tname = \"Frenzied Leap\", -- modified ghoulish leap, only usable while in a frenzy"
+      },
+      {
+        "line": 72,
+        "text": "\ttype = {\"technique/horror\", 1},"
+      },
+      {
+        "line": 73,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+    "public_source_path": "game/modules/tome/data/chats/jewelry-store.lua",
+    "lines": [
+      {
+        "line": 165,
+        "text": ""
+      },
+      {
+        "line": 166,
+        "text": "newChat{ id=\"quest\","
+      },
+      {
+        "line": 167,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*He quickly looks at the tome and looks amazed.*#WHITE# This is an amazing find! Truly amazing!"
+      },
+      {
+        "line": 168,
+        "text": "With this knowledge I could create potent amulets. However, it requires a special place of power to craft such items."
+      },
+      {
+        "line": 169,
+        "text": "There are rumours about a site of power in the southern mountains. Old legends tell about a place where a part of the Wintertide Moon melted when it got too close to the Sun and fell from the sky."
+      },
+      {
+        "line": 170,
+        "text": "A lake formed in the crater of the crash. The water of this lake, soaked in intense Moonlight for eons, should be sufficient to forge powerful artifacts!"
+      },
+      {
+        "line": 171,
+        "text": "Go to the lake and then summon me with this scroll. I will retire to study the tome, awaiting your summon.]],"
+      },
+      {
+        "line": 172,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 173,
+        "text": "\t\t{_t\"I will see if I can find it.\", action=function(npc, player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef805bf057ab112c3462ac62962818d8f5d0bc31aea2338c8aa73eee0b9863b5",
+    "public_source_path": "game/modules/tome/data/general/objects/random-artifacts/generic.lua",
+    "lines": [
+      {
+        "line": 313,
+        "text": "\twielder = { inc_damage = { [DamageType.ARCANE] = resolvers.randartmax(3, 30),  }, },"
+      },
+      {
+        "line": 314,
+        "text": "}"
+      },
+      {
+        "line": 315,
+        "text": "newEntity{ theme={nature=true}, name=\"generic inc damage nature\", points = 1, rarity = 11, level_range = {1, 50},"
+      },
+      {
+        "line": 316,
+        "text": "\twielder = { inc_damage = { [DamageType.NATURE] = resolvers.randartmax(3, 30),  }, },"
+      },
+      {
+        "line": 317,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef88e6a80185db3dbd603f80b5fcd33bf1f70360777c5a989fa8bc9ca1c88ec7",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/anomalies.lua",
+    "lines": [
+      {
+        "line": 1636,
+        "text": "\tend,"
+      },
+      {
+        "line": 1637,
+        "text": "\tgetHaste = function(self, t) return 1 - 1 / (1 + (getAnomalyEffectPower(self, t)) / 100) end,"
+      },
+      {
+        "line": 1638,
+        "text": "\tmessage = _t\"The odds have tilted.\","
+      },
+      {
+        "line": 1639,
+        "text": "\tdoAction = function(self, t, cancellable)"
+      },
+      {
+        "line": 1640,
+        "text": "\t\tlocal tg = self:getTalentTarget(t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef89ccdc98ecc50d85e61cd67684f20348fac1d29cb850ddec0c1833cad25662",
+    "public_source_path": "game/modules/tome/data/zones/town-angolwen/grids.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": ""
+      },
+      {
+        "line": 44,
+        "text": "newEntity{ base = \"DEEP_WATER\", define_as = \"FOUNTAIN\","
+      },
+      {
+        "line": 45,
+        "text": "\tname=\"fountain\","
+      },
+      {
+        "line": 46,
+        "text": "\tdoes_block_move = true,"
+      },
+      {
+        "line": 47,
+        "text": "\tblock_move=function(self, x, y, e, act, couldpass)"
+      },
+      {
+        "line": 48,
+        "text": "\t\tif e and e.player and act then game.party:learnLore(\"angolwen-fountain\") end"
+      },
+      {
+        "line": 49,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 50,
+        "text": "\tend,"
+      },
+      {
+        "line": 52,
+        "text": ""
+      },
+      {
+        "line": 53,
+        "text": "newEntity{ base = \"DEEP_WATER\", define_as = \"FOUNTAIN_MAIN\","
+      },
+      {
+        "line": 54,
+        "text": "\tname=\"fountain\","
+      },
+      {
+        "line": 55,
+        "text": "\tdoes_block_move = true,"
+      },
+      {
+        "line": 56,
+        "text": "\tadd_displays = {class.new{"
+      },
+      {
+        "line": 57,
+        "text": "\t\tz = 17,"
+      },
+      {
+        "line": 58,
+        "text": "\t\timage = \"terrain/statues/angolwen_fountain.png\","
+      },
+      {
+        "line": 59,
+        "text": "\t\tdisplay_w = 6, display_h = 5,"
+      },
+      {
+        "line": 60,
+        "text": "\t\tdisplay_x = -2.5, display_y = -2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef8f919bf382668c38daaf2ea2dbe08c23131afe78d72e09386a7d0f43ed3ab3",
+    "public_source_path": "game/modules/tome/data/zones/heart-gloom/npcs.lua",
+    "lines": [
+      {
+        "line": 61,
+        "text": "\tname = \"The Withering Thing\", tint=colors.PURPLE,"
+      },
+      {
+        "line": 62,
+        "text": "\tcolor=colors.VIOLET,"
+      },
+      {
+        "line": 63,
+        "text": "\tdesc = _t[[This deformed beast might have been a wolf before, but now it is just... terrible.]],"
+      },
+      {
+        "line": 64,
+        "text": "\tkiller_message = _t\"and corrupted into a pile of writhing worms\","
+      },
+      {
+        "line": 65,
+        "text": "\tlevel_range = {7, nil}, exp_worth = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef9189014fb1a40a2feb4a2965c2063aa1d415ffab58f860428ddfcda9880996",
+    "public_source_path": "game/modules/tome/data/chats/sorcerer-end.lua",
+    "lines": [
+      {
+        "line": 132,
+        "text": "if p.descriptor.race == \"Yeek\" then"
+      },
+      {
+        "line": 133,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 134,
+        "text": "\ttext = ([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#"
+      },
+      {
+        "line": 135,
+        "text": "#LIGHT_GREEN#*Their bodies vanish in a small cloud of mist, quickly fading away.*#WHITE#"
+      },
+      {
+        "line": 136,
+        "text": "#LIGHT_GREEN#*You feel the Way reaching out to you, the whole yeek race speaks to you.*#WHITE#"
+      },
+      {
+        "line": 137,
+        "text": "You have done something incredible %s! You also have created a unique opportunity for the yeek race!"
+      },
+      {
+        "line": 138,
+        "text": "The energies of those farportals are incredible, using them we could make the Way radiate all over Eyal, forcing it down on the other races, bringing them the same peace and happiness we feel in the Way."
+      },
+      {
+        "line": 139,
+        "text": "You must go through the farportal and willingly sacrifice yourself inside. Your mind will embed itself into the farportal network, spreading the Way far and wide!"
+      },
+      {
+        "line": 140,
+        "text": "Even though you will die you will bring the world, and the yeeks, ultimate peace."
+      },
+      {
+        "line": 141,
+        "text": "The Way will never forget you. Now go and make history!"
+      },
+      {
+        "line": 142,
+        "text": "]]):tformat(p.female and _t\"sister\" or _t\"brother\"),"
+      },
+      {
+        "line": 143,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 144,
+        "text": "\t\t{_t\"#LIGHT_GREEN#[sacrifice yourself to bring the Way to every sentient creature.]\", action=function(npc, player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef93aa92ccee297d882f64c39f1a50b83749e5f1ab8ade421b2565b8f21fb2a1",
+    "public_source_path": "game/modules/tome/data/chats/alchemist-hermit.lua",
+    "lines": [
+      {
+        "line": 483,
+        "text": ""
+      },
+      {
+        "line": 484,
+        "text": "newChat{ id=\"list\","
+      },
+      {
+        "line": 485,
+        "text": "\ttext = _t[[TAKE THIS LIST OF INGREDIENTS, AND HURRY THE HELL UP.]],"
+      },
+      {
+        "line": 486,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 487,
+        "text": "\t\t{_t\"I'LL BE OFF.\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d",
+    "public_source_path": "game/modules/tome/data/talents/psionic/psi-archery.lua",
+    "lines": [
+      {
+        "line": 48,
+        "text": "\tend,"
+      },
+      {
+        "line": 49,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 50,
+        "text": "\t\treturn ([[Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.]]):tformat(t.shot_boost(self, t))"
+      },
+      {
+        "line": 51,
+        "text": "\tend,"
+      },
+      {
+        "line": 52,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efada989cc7a393b3c6369a390cafcb79dafbc0fd666055207892833606d3577",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/cloak.lua",
+    "lines": [
+      {
+        "line": 266,
+        "text": "newEntity{"
+      },
+      {
+        "line": 267,
+        "text": "\tpower_source = {psionic=true},"
+      },
+      {
+        "line": 268,
+        "text": "\tname = \" of mindcraft\", suffix=true, instant_resolve=true,"
+      },
+      {
+        "line": 269,
+        "text": "\tkeywords = {mindcraft=true},"
+      },
+      {
+        "line": 270,
+        "text": "\tlevel_range = {30, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efae1bf28a7d0c7d2abeb6656503a5e07b303589b0ea9dc7b9b4f3602173b3da",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 3323,
+        "text": "\tend,"
+      },
+      {
+        "line": 3324,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 3325,
+        "text": "\t\treturn ([[You have learned to hit the right spot, increasing your armor penetration by %d when dual wielding."
+      },
+      {
+        "line": 3326,
+        "text": "\t\tThe Armour penetration bonus will increase with your Dexterity.]]):tformat(t.getApr(self, t))"
+      },
+      {
+        "line": 3327,
+        "text": "\tend,"
+      },
+      {
+        "line": 3328,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efae3d0b98ca29bc095c1d130542e9c954e5d401256161027bb7920d43223297",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 147,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 148,
+        "text": "\tunided_name = _t\"unearthly black stone\","
+      },
+      {
+        "line": 149,
+        "text": "\tname = \"Goedalath Rock\", subtype = \"demonic\", image = \"object/artifact/goedalath_rock.png\","
+      },
+      {
+        "line": 150,
+        "text": "\tdefine_as = 'GOEDALATH_ROCK',"
+      },
+      {
+        "line": 151,
+        "text": "\tcolor = colors.PURPLE,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efaf9b0f43989b1d9b1e0ddbcf3faa070ee1df3d02c5b2ed229cafab5ae8d809",
+    "public_source_path": "game/modules/tome/data/chats/sorcerer-end.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": "\t\t{_t\"#LIGHT_GREEN#[slip peacefully into death.]\", action=function(npc, player)"
+      },
+      {
+        "line": 89,
+        "text": "\t\t\tplayer.no_resurrect = true"
+      },
+      {
+        "line": 90,
+        "text": "\t\t\tplayer:die(player, {special_death_msg=(\"sacrificing %s to stop the mad sun's plans\"):tformat(string.his_her_self(player))})"
+      },
+      {
+        "line": 91,
+        "text": "\t\t\tplayer:setQuestStatus(\"high-peak\", engine.Quest.COMPLETED, \"distant-sun-stab\")"
+      },
+      {
+        "line": 92,
+        "text": "\t\t\tplayer:hasQuest(\"high-peak\"):win(\"distant-sun-selfless\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efb1df7db5820f9d944c689fe535dff843b2e4bec37473d6acb066bb4c889f84",
+    "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+    "lines": [
+      {
+        "line": 227,
+        "text": "\tid = \"spellblaze-chronicles-4\","
+      },
+      {
+        "line": 228,
+        "text": "\tcategory = \"spellblaze\","
+      },
+      {
+        "line": 229,
+        "text": "\tname = _t\"The Spellblaze Chronicles(4): Before the Dawn\","
+      },
+      {
+        "line": 230,
+        "text": "\tlore = _t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#"
+      },
+      {
+        "line": 231,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efb3685bedeb150eb20e650ccd2ef850b7f24739cbfc428cf6b63650e406d2c4",
+    "public_source_path": "game/modules/tome/data/talents/spells/fire-alchemy.lua",
+    "lines": [
+      {
+        "line": 236,
+        "text": "\t\tlocal insightdam = t.getFireDamageInSight(self, t)"
+      },
+      {
+        "line": 237,
+        "text": "\t\tlocal res = t.getResistance(self, t)"
+      },
+      {
+        "line": 238,
+        "text": "\t\treturn ([[Turn your body into pure flame, increasing your fire resistance by %d%%, burning any creatures striking you in melee for %0.2f fire damage, and randomly launching up to %d slow-moving fire bolt(s) per turn at targets in sight, each dealing %0.2f fire damage."
+      },
+      {
+        "line": 239,
+        "text": "\t\tThe projectiles safely go through your friends without harming them."
+      },
+      {
+        "line": 240,
+        "text": "\t\tThe damage and resistance will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 241,
+        "text": "\t\ttformat(res,onhitdam, t.getNumber(self, t), insightdam)"
+      },
+      {
+        "line": 242,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efc423264011f26dd88b00e59ef5c26c835a256f2962bd256cba7bd6a744b0da",
+    "public_source_path": "game/modules/tome/data/lore/spellhunt.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "\tcategory = \"age of dusk\","
+      },
+      {
+        "line": 39,
+        "text": "\tname = _t\"Spellhunter's Guide part 1: How to Detect a Spellweaver\","
+      },
+      {
+        "line": 40,
+        "text": "\tlore = _t[[Those who partake in the profane sorcery can oft be marked by their appearance, their mannerisms, their personal keeping and their effect on the environment around them. Keep close watch on all you meet, for they are deceptive creatures that can take on many guises. Even women, children and cripples may be clever disguises of demon-communers and necromancers."
+      },
+      {
+        "line": 41,
+        "text": ""
+      },
+      {
+        "line": 42,
+        "text": "In their appearance you should be wary of the following:"
+      },
+      {
+        "line": 43,
+        "text": "* Particular grossness in complexion"
+      },
+      {
+        "line": 44,
+        "text": "* Unnatural or \"elven\" beauty"
+      },
+      {
+        "line": 45,
+        "text": "* Extreme thinness, with prominent bones"
+      },
+      {
+        "line": 46,
+        "text": "* Pointed or sharp-tipped ears - beware indeed of those with long hair or hats covering their ears"
+      },
+      {
+        "line": 47,
+        "text": "* Hunched backs and distorting limps"
+      },
+      {
+        "line": 48,
+        "text": "* Peculiar eye colour"
+      },
+      {
+        "line": 49,
+        "text": ""
+      },
+      {
+        "line": 50,
+        "text": "In their behaviour you should be wary of the following:"
+      },
+      {
+        "line": 51,
+        "text": "* Tiredness during daylight hours and heavy activity at night"
+      },
+      {
+        "line": 52,
+        "text": "* Social aversion and fear of crowded places"
+      },
+      {
+        "line": 53,
+        "text": "* A questioning and probing attitude, in particular if challenging the precepts and set morals of society"
+      },
+      {
+        "line": 54,
+        "text": "* Quick-wittedness, especially where used for guile"
+      },
+      {
+        "line": 55,
+        "text": "* Furtiveness or a secretive attitude"
+      },
+      {
+        "line": 56,
+        "text": ""
+      },
+      {
+        "line": 57,
+        "text": "In their effect on their environment you should be wary of the following:"
+      },
+      {
+        "line": 58,
+        "text": "* Causing grass to wilt and flowers to close as they pass"
+      },
+      {
+        "line": 59,
+        "text": "* Animals are alarmed by their presence, particularly dogs"
+      },
+      {
+        "line": 60,
+        "text": "* Crops wilt and cows' milk turns sour"
+      },
+      {
+        "line": 61,
+        "text": "* Arguments are stirred within their presence"
+      },
+      {
+        "line": 62,
+        "text": "* Women's moontide flow becomes more effluent"
+      },
+      {
+        "line": 63,
+        "text": "* Apparitions and unexplained events occur in their surroundings"
+      },
+      {
+        "line": 64,
+        "text": ""
+      },
+      {
+        "line": 65,
+        "text": "Note that a spellweaver will doubtless deny any accusation against them, and will show great emotion when evidence is laid before them. But one should not delay in bringing swift judgement, lest they try to cast a hex or escape by arcane means.]],"
+      },
+      {
+        "line": 66,
+        "text": "}"
+      },
+      {
+        "line": 67,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efc4ac1ee55772e3420d04221a386a19d4c9019fd0e0b71c8f2c02ffbbc4c177",
+    "public_source_path": "game/modules/tome/init.lua",
+    "lines": [
+      {
+        "line": 126,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/demon_major_duathedlen.png\", text=[[Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.]]},"
+      },
+      {
+        "line": 127,
+        "text": "\t{image=\"/data/gfx/shockbolt/object/elixir_of_mysticism.png\", text=[[The art of potion making fell into decline after the Spellhunt, and only a rare few now master the gift.]]},"
+      },
+      {
+        "line": 128,
+        "text": "\t{image=\"/data/gfx/shockbolt/object/artifact/jewelry_ring_of_the_dead.png\", text=[[It's said that some rare powers can save your soul from the edge of death.]]},"
+      },
+      {
+        "line": 129,
+        "text": "\t{image=\"/data/gfx/shockbolt/terrain/woman_naked_altar.png\", text=[[Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.]]},"
+      },
+      {
+        "line": 130,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_slave_combatant.png\", text=[[Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efc643a4cc6dc4b10d31d29d1d9da440faa0a4479616f5a140ac4b191331678e",
+    "public_source_path": "game/modules/tome/data/talents/gifts/eyals-fury.lua",
+    "lines": [
+      {
+        "line": 157,
+        "text": "\tend,"
+      },
+      {
+        "line": 158,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 159,
+        "text": "\t\treturn ([[You call upon the earth to create a blinding, corrosive cloud in an area of radius %d for %d turns."
+      },
+      {
+        "line": 160,
+        "text": "\t\tEach turn, this cloud deals %0.1f acid damage to each foe with a 25%% chance to blind and a %d%% chance of burning away one magical sustain or beneficial magical effect."
+      },
+      {
+        "line": 161,
+        "text": "\t\tThe damage increases with your Mindpower.]]):"
+      },
+      {
+        "line": 162,
+        "text": "\t\ttformat(self:getTalentRadius(t), t.getDuration(self, t), damDesc(self, DamageType.ACID, t.getDamage(self, t)), t.getChance(self, t))"
+      },
+      {
+        "line": 163,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efcb667b030d0d8a0d171a1350c52cb782d97e2f64e9dd914d20635b75a354f0",
+    "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+    "lines": [
+      {
+        "line": 770,
+        "text": "\t\t\t\t\tuntil is_corner_blocked or not lx or not ly or game.level.map:checkAllEntities(lx, ly, \"block_move\")"
+      },
+      {
+        "line": 771,
+        "text": "\t\t\t\t\tif not tx or core.fov.distance(self.x, self.y, tx, ty) <= 1 then"
+      },
+      {
+        "line": 772,
+        "text": "\t\t\t\t\t\tgame.logPlayer(self, \"You need more room to swing your hook effectively.\")"
+      },
+      {
+        "line": 773,
+        "text": "\t\t\t\t\t\tok = false return"
+      },
+      {
+        "line": 774,
+        "text": "\t\t\t\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efcbdbd21a98feb832e98e28be839b26d1c0c73afa6ab12a129639a74cf36830",
+    "public_source_path": "game/modules/tome/data/achievements/kills.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "}"
+      },
+      {
+        "line": 45,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 46,
+        "text": "\tname = \"Overpowered!\", id = \"DAMAGE_6000\","
+      },
+      {
+        "line": 47,
+        "text": "\tshow = \"full\", huge=true,"
+      },
+      {
+        "line": 48,
+        "text": "\tdesc = _t[[Did over 6000 damage in one attack.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efd01cf77c42076ad9a583a37ad94ab70760f5c17c2fad5b51cd66f23b8e33ae",
+    "public_source_path": "game/modules/tome/data/lore/infinite-dungeon.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": "\tcategory = \"ruined dungeon\","
+      },
+      {
+        "line": 70,
+        "text": "\tname = _t\"clue (ruined dungeon)\", always_pop = true,"
+      },
+      {
+        "line": 71,
+        "text": "\tlore = _t[[There is an inscription here:"
+      },
+      {
+        "line": 72,
+        "text": "#{italic}#...Unleash dark thoughts."
+      },
+      {
+        "line": 73,
+        "text": "Upon this blighted land!#{normal}#]],"
+      },
+      {
+        "line": 74,
+        "text": "}"
+      },
+      {
+        "line": 75,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efd24b689fd0e40742da49559ce28652c004821e0103205b7da96850662e208b",
+    "public_source_path": "game/modules/tome/data/achievements/quests.lua",
+    "lines": [
+      {
+        "line": 182,
+        "text": "\tname = \"Poisonous\", id = \"LOST_MERCHANT_EVIL\","
+      },
+      {
+        "line": 183,
+        "text": "\tshow = \"name\","
+      },
+      {
+        "line": 184,
+        "text": "\tdesc = _t[[Sided with the assassin lord.]],"
+      },
+      {
+        "line": 185,
+        "text": "}"
+      },
+      {
+        "line": 186,
+        "text": "newAchievement{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efd8f598c9de87c37808ffbe2299acf28baa3ad904d1e46983e903c963ca2e0f",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 2825,
+        "text": "\tparameters = { atk=5, armor=5, defense=10 }, no_ct_effect = true,"
+      },
+      {
+        "line": 2826,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is corroded.\" end,"
+      },
+      {
+        "line": 2827,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# has shook off the effects of their corrosion.\" end,"
+      },
+      {
+        "line": 2828,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2829,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_atk\", -eff.atk)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efd902564714353c9d3a3ff158131a8aace035cdf8a1a309d6eaec5c707c8392",
+    "public_source_path": "game/modules/tome/data/chats/lumberjack-quest.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": "#LIGHT_GREEN#*He points his finger at the nearby forest.*#WHITE#]],"
+      },
+      {
+        "line": 24,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 25,
+        "text": "\t\t{_t\"I will go there and see what I can do.\", action=function(npc, player) player:grantQuest(\"lumberjack-cursed\") end},"
+      },
+      {
+        "line": 26,
+        "text": "\t\t{_t\"This is not my problem. Go away!\"},"
+      },
+      {
+        "line": 27,
+        "text": "\t}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efdbbbb2535e61ed5d48da1429a3535f58fde5323823d1f9d8e79b49e73e2cc6",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1111,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1112,
+        "text": "\tname = \"BURROW\", image = \"talents/burrow.png\","
+      },
+      {
+        "line": 1113,
+        "text": "\tdesc = _t\"Burrow\","
+      },
+      {
+        "line": 1114,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is able to burrow into walls, and additionally has %d more APR and %d%% more physical resistance penetration.\"):tformat(eff.power, eff.power / 2) end,"
+      },
+      {
+        "line": 1115,
+        "text": "\ttype = \"physical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efdc45019e123cac3c826c6a78ce11b972ff0ea82c60d6fa9d384c04096f9fc4",
+    "public_source_path": "game/modules/tome/data/general/stores/basic.lua",
+    "lines": [
+      {
+        "line": 73,
+        "text": "newEntity{"
+      },
+      {
+        "line": 74,
+        "text": "\tdefine_as = \"SWORD_WEAPON\","
+      },
+      {
+        "line": 75,
+        "text": "\tname = \"sword smith\","
+      },
+      {
+        "line": 76,
+        "text": "\tdisplay = '3', color=colors.UMBER,"
+      },
+      {
+        "line": 77,
+        "text": "\tstore = {"
+      },
+      {
+        "line": 449,
+        "text": "newEntity{"
+      },
+      {
+        "line": 450,
+        "text": "\tdefine_as = \"ZIGUR_SWORD_WEAPON\","
+      },
+      {
+        "line": 451,
+        "text": "\tname = \"sword smith\","
+      },
+      {
+        "line": 452,
+        "text": "\tdisplay = '3', color=colors.UMBER,"
+      },
+      {
+        "line": 453,
+        "text": "\tstore = {"
+      },
+      {
+        "line": 688,
+        "text": "newEntity{"
+      },
+      {
+        "line": 689,
+        "text": "\tdefine_as = \"GATES_SWORD_WEAPON\","
+      },
+      {
+        "line": 690,
+        "text": "\tname = \"sword smith\","
+      },
+      {
+        "line": 691,
+        "text": "\tdisplay = '3', color=colors.UMBER,"
+      },
+      {
+        "line": 692,
+        "text": "\tstore = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efdc813470845e96964f936d92aeaf25bba16ccea15c825fb6f65beb5ade39d2",
+    "public_source_path": "game/modules/tome/data/talents/uber/wil.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "uberTalent{"
+      },
+      {
+        "line": 21,
+        "text": "\tname = \"Draconic Will\","
+      },
+      {
+        "line": 22,
+        "text": "\tcooldown = 15,"
+      },
+      {
+        "line": 23,
+        "text": "\tno_energy = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efdca52b4f4a46c7c9e7a0f0b7e7db5706898f3ed199606f83dc424539000acd",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 5491,
+        "text": "newEffect{"
+      },
+      {
+        "line": 5492,
+        "text": "\tname = \"DIRGE_OF_FAMINE\", image = \"talents/dirge_of_famine.png\","
+      },
+      {
+        "line": 5493,
+        "text": "\tdesc = _t\"Dirge of Famine\","
+      },
+      {
+        "line": 5494,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is regenerating health\"):tformat() end,"
+      },
+      {
+        "line": 5495,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efe1c5f81757126193182fc5ed7237826d448e9f28c995ff2f371f23fd0623e9",
+    "public_source_path": "game/modules/tome/data/talents/gifts/venom-drake.lua",
+    "lines": [
+      {
+        "line": 186,
+        "text": ""
+      },
+      {
+        "line": 187,
+        "text": "newTalent{"
+      },
+      {
+        "line": 188,
+        "text": "\tname = \"Corrosive Breath\","
+      },
+      {
+        "line": 189,
+        "text": "\ttype = {\"wild-gift/venom-drake\", 4},"
+      },
+      {
+        "line": 190,
+        "text": "\trequire = gifts_req4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd",
+    "public_source_path": "game/modules/tome/data/general/npcs/canine.lua",
+    "lines": [
+      {
+        "line": 60,
+        "text": "newEntity{ base = \"BASE_NPC_CANINE\","
+      },
+      {
+        "line": 61,
+        "text": "\tname = \"great wolf\", color=colors.UMBER, image=\"npc/canine_gw.png\","
+      },
+      {
+        "line": 62,
+        "text": "\tdesc = _t[[Larger than a normal wolf, it prowls and snaps at you.]],"
+      },
+      {
+        "line": 63,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 64,
+        "text": "\trarity = 3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efe3de1c62cc4c31fda4a7918a7d19a97650638ffe9bc83b83f9ce8cdde63f42",
+    "public_source_path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+    "lines": [
+      {
+        "line": 36,
+        "text": "\tend,"
+      },
+      {
+        "line": 37,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 38,
+        "text": "\t\treturn ([[Induces a killing rage in all your summons within a radius of 5 when a summon is killed, increasing all their stats by %d for 5 turns. "
+      },
+      {
+        "line": 39,
+        "text": "\t\tThe bonus will increase with your mindpower.]]):tformat(t.incStats(self, t))"
+      },
+      {
+        "line": 40,
+        "text": "\tend,"
+      },
+      {
+        "line": 41,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efe9908b8c38207269e69ecb779735081e70424b0f8456d0b4db20262374b189",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 1269,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 1270,
+        "text": "\tparameters = { },"
+      },
+      {
+        "line": 1271,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# casts a protective shield just in time!\", _t\"+Premonition Shield\" end,"
+      },
+      {
+        "line": 1272,
+        "text": "\ton_lose = function(self, err) return _t\"The protective shield of #Target# disappears.\", _t\"-Premonition Shield\" end,"
+      },
+      {
+        "line": 1273,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efebe7a2a619a1a03debdb891f20d651bd981c969d58bd8a85cb3ca4656df56f",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/spellbinding.lua",
+    "lines": [
+      {
+        "line": 49,
+        "text": "\t\tlocal power = t.getPower(self, t) * 100"
+      },
+      {
+        "line": 50,
+        "text": "\t\tlocal talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or _t\"None\""
+      },
+      {
+        "line": 51,
+        "text": "\t\treturn ([[Empowers the selected chronomancy spell, increasing spellpower when casting it by %d%%."
+      },
+      {
+        "line": 52,
+        "text": "\t\tEach spell can only be spellbound in one way at a time."
+      },
+      {
+        "line": 53,
+        "text": "\t\t"
+      },
+      {
+        "line": 54,
+        "text": "\t\tCurrent Empowered Spell: %s]]):"
+      },
+      {
+        "line": 55,
+        "text": "\t\ttformat(power, talent)"
+      },
+      {
+        "line": 56,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "eff43be4e408345566940b8e58e02172aa712e7ced53a680b4d67a6af1e43cbc",
+    "public_source_path": "game/modules/tome/data/general/stores/basic.lua",
+    "lines": [
+      {
+        "line": 259,
+        "text": "newEntity{"
+      },
+      {
+        "line": 260,
+        "text": "\tdefine_as = \"LITEDIGSTORE\","
+      },
+      {
+        "line": 261,
+        "text": "\tname = \"tool store\","
+      },
+      {
+        "line": 262,
+        "text": "\tdisplay = '8', color=colors.UMBER,"
+      },
+      {
+        "line": 263,
+        "text": "\tstore = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "effa06583896812089aa1a4c4b630ea6bd1e65452bbac310901da782d1c96b2e",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/robe.lua",
+    "lines": [
+      {
+        "line": 352,
+        "text": "newEntity{"
+      },
+      {
+        "line": 353,
+        "text": "\tpower_source = {arcane=true},"
+      },
+      {
+        "line": 354,
+        "text": "\tname = \"stargazer's \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 355,
+        "text": "\tkeywords = {stargazer=true},"
+      },
+      {
+        "line": 356,
+        "text": "\tlevel_range = {30, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "effc85fa08113ac990e4d0401025e185f44b059154c418ed04f73e6e4dac780d",
+    "public_source_path": "game/modules/tome/data/general/grids/psicave.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\tdefine_as = \"PSYCAVEFLOOR\","
+      },
+      {
+        "line": 25,
+        "text": "\ttype = \"floor\", subtype = \"psitech\","
+      },
+      {
+        "line": 26,
+        "text": "\tname = \"psitech floor\", image = \"terrain/psicave/psitech_floor_1_01.png\","
+      },
+      {
+        "line": 27,
+        "text": "\tdisplay = '.', color=colors.SANDY_BROWN, back_color=colors.DARK_UMBER,"
+      },
+      {
+        "line": 28,
+        "text": "\tgrow = \"PSYCAVEWALL\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "effdfde08a852741853be97a8da22ee2a2b0de195909bce129cfd0691b3fa727",
+    "public_source_path": "game/modules/tome/data/talents/uber/const.lua",
+    "lines": [
+      {
+        "line": 66,
+        "text": ""
+      },
+      {
+        "line": 67,
+        "text": "uberTalent{"
+      },
+      {
+        "line": 68,
+        "text": "\tname = \"Eternal Guard\","
+      },
+      {
+        "line": 69,
+        "text": "\tmode = \"passive\","
+      },
+      {
+        "line": 70,
+        "text": "\trequire = { special={desc=_t\"Know the Block talent\", fct=function(self) return self:knowTalent(self.T_BLOCK) end} },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f004640ec649ad46808a1b7e73aa977a7c71fa582ba5fbbaeac11c918e2cd19d",
+    "public_source_path": "game/modules/tome/data/chats/last-hope-lost-merchant.lua",
+    "lines": [
+      {
+        "line": 145,
+        "text": ""
+      },
+      {
+        "line": 146,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 147,
+        "text": "\ttext = _t[[*This store does not appear to be open yet*]],"
+      },
+      {
+        "line": 148,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 149,
+        "text": "\t\t{_t\"[leave]\"},"
+      }
+    ]
+  }
+]

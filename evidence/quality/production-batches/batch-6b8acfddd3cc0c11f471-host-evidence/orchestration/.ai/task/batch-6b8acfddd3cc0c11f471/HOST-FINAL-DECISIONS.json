@@ -1,0 +1,114 @@
+{
+  "batch_id": "batch-6b8acfddd3cc0c11f471",
+  "observations": 10,
+  "observation_dispositions": {
+    "refuted": 2,
+    "advisory": 3,
+    "confirmed": 5
+  },
+  "repair_revision_keys": [
+    "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+    "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d",
+    "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "ef21328527959af7aac60fe977435f9d0158eb8dd4e3804296a24763f5acb297",
+      "stage": "surface",
+      "observation": "原文要求在 Roguelike 或 Adventure 的永久死亡模式下游玩；译文“永久死亡或冒险模式”把冒险模式本身写成可满足条件，遗漏了其永久死亡限定。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "成就说明：本库 birth descriptor 译名 Roguelike=永久死亡模式、Adventure=冒险模式（mod-tome.lua:3260/3265），二者即两种 permadeath 设置；“永久死亡或冒险模式”与原文一致，不存在遗漏限定。"
+    },
+    {
+      "revision_key": "ef3dcead3d0d1a7363776dcee8a52c7e56ed58f92ed671d65c31c97da01f59e0",
+      "stage": "surface",
+      "observation": "原文是“其他人类”，译文改为“普通人类”，改变了所指人群；缺少语境证据确认两者相同。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "birth/races/human.lua:134 Higher 种族描述：other Humans 字面为“其他人类”，“普通人类”带出高等人自视高人一等的语气但所指相同（高等人以外的人类），不误导；可选改“其他人类”。"
+    },
+    {
+      "revision_key": "ef608e1de8bba12f2e236f598c5869d3946e92ee5ebf7e0855e81acb2538c1a6",
+      "stage": "surface",
+      "observation": "Oozewalk 中的 walk 表示行走，译文“探戈”表示舞蹈；缺少语境证据支持这一转义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/gifts/mucus.lua Oozewalk：在黏液上移动并清除负面效果；“粘液探戈”为既有技能名意译（全库 1 处），风格取舍，不影响机制；可选改“黏液行走”一类，属技能名族级决定，本批不改。"
+    },
+    {
+      "revision_key": "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+      "stage": "surface",
+      "observation": "原文 amulets 指护身符，译为“项链”改变了物品类别。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "chats/jewelry-store.lua:168 珠宝师对话：本库 amulet 物品类别统一译“项链”（mod-tome.lua:11310 entity subtype amulet=项链），与装备栏一致；改“护身符”反而与物品类型不一致。"
+    },
+    {
+      "revision_key": "ef88e6a80185db3dbd603f80b5fcd33bf1f70360777c5a989fa8bc9ca1c88ec7",
+      "stage": "surface",
+      "observation": "“The odds have tilted”说的是胜算或形势发生变化；“几率发生了倾斜”误译了 odds。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/chronomancy/anomalies.lua:1638 异常 message：随机目标获得加速、再生与痛苦抑制，odds have tilted 为“形势/胜算发生了倾斜”，“几率发生了倾斜”偏字面，但战斗日志风味文本，不误导；可选改“形势发生了倾斜”。"
+    },
+    {
+      "revision_key": "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d",
+      "stage": "surface",
+      "observation": "原文说明用 telekinetic nudges（念力推动）精确引导箭矢，译文只说“导引箭”，遗漏了引导方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/psionic/psi-archery.lua:50 Guided Shot（psionic/psi-archery）：with precise telekinetic nudges 是念力微调导引箭矢的心灵异能方式，译文“射出一支导引箭精确的飞向敌人”删去念力、改写成箭自带导引，且“精确的”应作“精确地”。与 contextual 独立复核同向，宿主由 advisory 改判 confirmed（完整性）；数值部分（atk 与 crit_chance 同加 shot_boost）无误。整句修复。"
+    },
+    {
+      "revision_key": "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd",
+      "stage": "surface",
+      "observation": "原文“snaps at you”指朝你猛咬，译文“咆哮”误写成吼叫。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/npcs/canine.lua:62 巨狼描述：snaps at you 是朝你猛咬、扑咬，译文“咆哮”把动作误译为吼叫；prowls 为潜行逡巡。与 contextual 独立复核同向，宿主由 advisory 改判 confirmed（动作误译）。整句修复。"
+    },
+    {
+      "revision_key": "ef7d5a43a10dc8eae43e1f4e8f15d7ca626123291c6d722daf5395cf2080324e",
+      "stage": "contextual",
+      "observation": "语义偏差（jewelry-store.lua:169 @624a673）：原文说冬潮之月的一部分在离太阳过近时“melted”（融化）并从天上坠落；译文写成“从空中掉落了下来并融入了大地”，丢掉了“融化”，还加了原文没有的“融入大地”。另外，“potent amulets”被译成“更强大的项链”，多出比较义“更”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/jewelry-store.lua:168–169 珠宝师对话：原文为冬潮之月的一部分因离太阳过近而 melted（融化）并从天空坠落，译文漏“融化”并凭空加“融入了大地，使那个地方充满能量”的因果；potent amulets 为“强力的项链”，译文“更强大的”多出比较义。忠实性缺陷，整段对照原文修复（amulet 仍用项链）。"
+    },
+    {
+      "revision_key": "ef9f97a2e35279283eb9a65b619c956c309c9fdce53a4f3b656da98956a54c4d",
+      "stage": "contextual",
+      "observation": "漏译（psi-archery.lua:50 @624a673，Guided Shot 属于 psionic/psi-archery）：原文“guide an arrow ... with precise telekinetic nudges”说明箭是靠念力（telekinetic）引导的，这是本技能的心灵异能机制；译文“射出一支导引箭精确的飞向敌人”漏掉了念力／心灵引导，“精确的”应为“精确地”。数值核对无误：shot_boost 同时加到 atk 和 crit_chance。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：psi-archery.lua:50 漏译 telekinetic nudges（念力微调导引），“精确的”应作“精确地”。"
+    },
+    {
+      "revision_key": "efe21d07a2bbc4c69fbb66e67a4ca2343455241783abe030016d3abfc2348cfd",
+      "stage": "contextual",
+      "observation": "语义偏差（canine.lua:62 @624a673，great wolf 描述）：“snaps at you”指朝你猛咬、扑咬，译文“咆哮”是吼叫，动作不对；“prowls”（潜行游荡）译成“在你面前徘徊”尚可接受。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：canine.lua:62 snaps at you 为猛咬/扑咬，“咆哮”误译动作。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-001; full-000 rejected for prose prefix, archived, superseded)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; harvested via --native-log directly, no bypass; all 80 surface identity echoes pre-checked exact against envelopes before harvest.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Pending per user 2026-09-23 instruction: disputed items go to evidence/quality/pending-user-review.md, state blocked, not repaired.",
+    "No glossary/global rename; old pending/blocked unchanged."
+  ]
+}
