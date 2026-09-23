@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口12已完成；待宿主发布收尾，随后审核259）
+更新时间：2026-09-23（审核259已完成；下一步修复窗口13，仅处理259的4条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -145,8 +145,17 @@ contextual `claude/claude-opus-5-5` 为 7 OK / 2 ISSUE；11 个观察裁决为 5
 3 条 revision changed、29,825 条 unchanged、0 ambiguous/unmapped，3 个 successor 待重新审核，
 不继承 done。完整结果见[窗口12出版证据](evidence/quality/repair-window-12-20260923/PUBLICATION.md)。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成，不得提前宣称完成。
-宿主收尾后继续审核259（默认80条）。
+窗口12的证据提交、queue rebuild 与 push 已完成（`6996b69b`）。
+
+审核259（`batch-73136994056fb59bf591`）已闭合，结果为 **76 done / 4 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 68 OK / 12 ISSUE（harvest 前逐位比对 80 个回显 identity 全部一致），
+contextual `claude/claude-opus-5-5` 为 10 OK / 2 ISSUE；14 个观察裁决为 6 confirmed、4 refuted、4 advisory。17/17 门禁含严格构建通过，
+两任务快照重放 `DONE_VERIFIED`，五个 reviewer 均已归档确认。证据提交 `61b6ce5a4a64e429612c05366330cca58bb2e54f`，
+详见[259宿主证据](evidence/quality/production-batches/batch-73136994056fb59bf591-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口13，仅处理 259 的 4 条：Self-Judgement 流血死亡信息（“死得其所”→罪有应得）、
+Body of Stone 描述（化为石头、强制位移、冷却缩减百分比）、魔杖类型描述（漏制造者）、Crushing Hold 全局速度术语。
+范围见 `.ai/task/batch-73136994056fb59bf591/WINDOW13-REPAIR-DECISION.json`；可复用窗口12 模板，失败的 FINAL 之后必须接 RE_REVIEW。
 
 ### 窗口7闭合时的暂停记录（历史）
 
