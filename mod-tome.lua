@@ -2827,7 +2827,7 @@ t("Squadmate", "一路有你", "achievement name")
 t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔甘从瑞库纳死里逃生。", "_t")
 t("Genocide", "兽人末日", "achievement name")
 t("Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.", "在繁衍地穴中杀死兽族王后，这对兽族来说不啻于一场灾难。", "_t")
-t("Savior of the damsels in distress", "迷路少女拯救者", "achievement name")
+t("Savior of the damsels in distress", "落难少女拯救者", "achievement name")
 t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "在克里尔·费扬地宫中把梅琳达从可怕的命运中拯救出来。", "_t")
 t("Impossible Death", "不可能的死亡", "achievement name")
 t("Got killed by your future self.", "被未来的自己杀死。", "_t")
@@ -8265,7 +8265,7 @@ t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
 t("eldritch eye", "骇异之眼", "entity name")
-t("A small bloodshot eye floats here.", "一只带血的小眼睛漂浮在这里。", "_t")
+t("A small bloodshot eye floats here.", "一只布满血丝的小眼睛漂浮在这里。", "_t")
 t("#AQUAMARINE#As #Source# falls #Target# seems to weaken!", "#AQUAMARINE#当#Source#倒下时，#Target#似乎被削弱了！", "logCombat")
 t("+Blind", "+致盲", "_t")
 t("%s is blinded by the loss of all its eyes.", "%s 失去了它所有的眼睛，无法看见东西。", "logSeen")
@@ -12981,7 +12981,7 @@ t("#DARK_GREEN#You feel a great power rise within you!", "#DARK_GREEN#你感到�
 t("torque", "项圈", "entity subtype")
 t("Telekinetic Core", "念力之核", "entity name")
 t("heavy torque", "沉重的项圈", "_t")
-t("This heavy torque appears to draw nearby matter towards it.", "这副沉重的项圈将周围的所有物体拉向它。", "_t")
+t("This heavy torque appears to draw nearby matter towards it.", "这副沉重的项圈似乎会把附近的物体吸向自己。", "_t")
 t("Spectral Blade", "幽灵之刃", "entity name")
 t("immaterial sword", "虚幻的剑", "_t")
 t("This sword appears weightless, and nearly invisible.", "这把剑飘渺无形。", "_t")
@@ -28472,8 +28472,8 @@ t([[Your body starts to radiate shadows, increasing your darkness resistance by 
 		伤害受法术强度提升。]], "tformat", {1,2,3,5,4})
 t("Utterly Destroyed", "彻底毁灭", "talent name")
 t([[Whenever a creature is killed by yourself or a minion you feast on its essence, gaining %0.1f mana.
-		At level 3 the thrill of the death invigorates you, granting a movement speed bonus of 50%% for %d turns.]], [[每当你或你的随从杀死一个敌人，你吞噬它的精华，获得 %0.1f 法力值。
-		技能等级 3 时，对死亡的渴望还会激励你，让你获得 50%% 移动速度加成，持续 %d 回合。]], "tformat")
+		At level 3 the thrill of the death invigorates you, granting a movement speed bonus of 50%% for %d turns.]], [[每当你或你的随从杀死一个生物，你吞噬它的精华，获得 %0.1f 法力值。
+		技能等级 3 时，击杀带来的快感会令你振奋，让你获得 50%% 移动速度加成，持续 %d 回合。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/deeprock.lua"
@@ -29527,7 +29527,7 @@ t("Harness the power of the storm to incinerate your foes.", "使用风暴的力
 t("meta", "超魔", "talent type")
 t("Meta spells alter the working of magic itself.", "超魔系法术能改变魔法的效能。", "_t")
 t("temporal", "时空", "talent type")
-t("The school of time manipulation.", "学习操控时间。", "_t")
+t("The school of time manipulation.", "操控时间的法术学派。", "_t")
 t("phantasm", "幻术", "talent type")
 t("Control the power of tricks and illusions.", "掌控诡计与幻象之力。", "_t")
 t("enhancement", "附魔", "talent type")
@@ -37835,7 +37835,7 @@ t("A page of a diary.", "日记的一页。", "_t")
 t("scrap of paper", "破纸片", "entity name")
 t("A scrap of paper.", "一张纸片。", "_t")
 t("Rod of Spydric Poison", "蜘蛛毒枝", "entity name")
-t("poison dripping wand", "滴着毒液的枝条", "_t")
+t("poison dripping wand", "滴着毒液的魔杖", "_t")
 t("This rod carved out of a giant spider fang continuously drips venom.", "这根法杖由巨大蜘蛛的毒牙雕刻而成，它往下不断的滴落毒液。", "_t")
 t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法），该伤害在%d回合内分次造成，期间目标无法移动", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
@@ -41837,17 +41837,17 @@ If you do not want that, simply run the game directly: the #{bold}#only#{normal}
 A full exit and restart of the game is neccessary to apply this setting.#{normal}#]], [[禁止所有网络请求
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
-- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
+- 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
 - 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
-- 插件版本更新：无法更新插件的版本。
+- 版本检查：不再检查插件是否有新版本。
 - Discord：无法同步到Discord的实时状态。
-- 游戏内新闻：主菜单将不再显示新闻。
+- 游戏内新闻：主菜单将不再显示有关游戏更新的信息。
+
 注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
 如果你不想这样，直接运行游戏即可。启动器#{bold}#只#{normal}#是用来更新游戏的。
-
 
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。
 应用这个选项必须退出重新进入游戏。#{normal}#]], "_t")
