@@ -1,0 +1,111 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "each of 13 observations compared against its own entry source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "f277b46e7f315b0f0cf6cc0c8429e7772f11050d0405de4a84f197e681b0cba2",
+      "stage": "surface",
+      "observation": "原文「giving pause to all foes」指令所有敌人迟疑或忌惮，译为「所有的敌人都被暂停了」误作暂停状态。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "class/GameState.lua:3669–3675 猎头者挑战：击杀目标后 bignews 播报，随后遍历关卡实体，凡以玩家为 ai_target 的敌人 setTarget() 清除目标（“other enemies pause, untarget player”）；giving pause 意为令敌人迟疑、失去对你的锁定，现译“楼层上所有的敌人都被暂停了”误述为暂停/冻结；claim the head of 译“杀死了”丢失“取下首级”。整条修复。"
+    },
+    {
+      "revision_key": "f28885b2b87d0a936ce07c4063f62854ce2af73adcb9b795fca05387413b4b3b",
+      "stage": "surface",
+      "observation": "原文「stops bleeding darkness」只表示不再流出黑暗，译文「黑暗伤口愈合了」额外表示伤口已经愈合。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/magical.lua:4608 SHADOW_CUT（subtype wound/cut/bleed）on_lose；效果结束即伤口不再流出黑暗，“黑暗伤口愈合了”准确描述效果移除，与 on_gain“开始流出黑暗”配对无误导。"
+    },
+    {
+      "revision_key": "f288bb30b1deb655d222bb8f857baafa82c442bf3c415f39fee6c683a4c6e598",
+      "stage": "surface",
+      "observation": "原文「Hunter!」是猎人称谓，译文「捕猎中！」变成正在进行的动作；缺少语境，尚不能确认具体用途。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/other.lua:2702 HUNTER_PLAYER 效果名 desc Hunter!（beneficial，施于怪物，long_desc Knows where you are!，activate 中 setTarget(eff.src) 追踪玩家）；“捕猎中！”作为怪物身上的状态名与效果一致。"
+    },
+    {
+      "revision_key": "f290c29a5d6d0505c448c783f48a62d486a9724e95754551f48bcdbde55075fc",
+      "stage": "surface",
+      "observation": "原文以冒号后的空格结尾，译文缺少该尾随空格，可能使后续拼接内容紧贴冒号。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Object.lua:923 compare_fields 标签 Crit. power: ；同族标签全部以全角冒号收尾不留空格（mod-tome.lua:749 命中：、751 暴击率：），全角冒号已提供间隔。"
+    },
+    {
+      "revision_key": "f29bad3702841dd5c3f4f1091c7f34464b95da86bb1c098eab216338ab118621",
+      "stage": "surface",
+      "observation": "原文以冒号后的空格结尾，译文缺少该尾随空格，可能使后续拼接内容紧贴冒号。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Object.lua:1893 compare_fields 标签，同上：同族（943、945 行）均以全角冒号收尾不留空格。"
+    },
+    {
+      "revision_key": "f2b2afecaf9b406b4e16fe70ea531f9eff43b3afe927d07705718d424ee5aeb8",
+      "stage": "surface",
+      "observation": "原文限定为近战攻击命中时降低抗性，译文写成每次击中对手，遗漏了近战限定；原文结尾的换行及两个制表符也未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/cunning/tactical.lua:171 Exploit Weakness：Combat.lua:975 仅在近战攻击命中（attackTargetWith 的 hitted 分支）时调用 do_weakness；现译“每次你击中对手时”删去 with a melee attack 限定，远程/法术命中也读作会触发（删限定词缺陷类）。另原文结尾 \n\t\t 未保留。整条修复。"
+    },
+    {
+      "revision_key": "f2d8717e52063cdc50c2878f0b77090b02de36be04eb819137e4c12fc1d0ae42",
+      "stage": "surface",
+      "observation": "原文指完全抵抗「这一特定效果」的几率；译文写成完全免疫状态异常的几率，遗漏了特定效果的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "class/interface/TooltipsData.lua:438 TOOLTIP_SPECIFIC_IMMUNE，CharacterSheet.lua:1298/1307 作为各单项免疫（无专属提示时）的回退提示；原文“完全抵抗这一特定效果的几率”，现译标题“状态异常免疫几率”与正文“完全免疫状态异常的几率”泛化为全部状态异常，且与上一条 Status resistance（状态免疫）混同。整条修复。"
+    },
+    {
+      "revision_key": "f30327e69ff63cfcd23683b56cd58db5f07ea2989ca040b3bc04d4e017d8dcdb",
+      "stage": "surface",
+      "observation": "译文在「不\\n会」「还存\\n在」处插入硬换行，拆开了词语；原文对应位置没有换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "texts/tutorial/done.lua:20–31 教程完成文本：原文 11 个 LF，现译 14 个，在“不\n会”“(你也可以\n根据”“还存\n在”处插入硬换行拆开词语（一级换行不变量）。整条修复，LF 与原文一致。"
+    },
+    {
+      "revision_key": "f307cad10cc9229f73902b04d278c8752dedc803065192bed99dc25566eb64ca",
+      "stage": "surface",
+      "observation": "原文为世界中各种实体的技能；译文将 entities 限定为「怪物」，缩小了范围。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/misc/npcs.lua:23–32 多个 */other 技能类型描述（多数 hide=true）；entities 含 NPC 与怪物，“怪物”略窄但不误导；可选改“各类生物”。"
+    },
+    {
+      "revision_key": "f324a9acf97e1007f4f3628ff7a8608e9e7751a129221d6c972de38b6afc1379",
+      "stage": "surface",
+      "observation": "原文末尾有空格，译文末尾没有；若此条与后续文本拼接，间隔可能丢失，需调用语境确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "objects/egos/gloves.lua:341 前缀 ego alchemist’s （prefix=true）与物品名拼接；中文前缀直接连写（“炼金术师的手套”），无需保留英文分词空格。"
+    },
+    {
+      "revision_key": "f325141ca127b19a83c616179c650aeb4432094e5f1c1c3dd2c97ffb90745109",
+      "stage": "surface",
+      "observation": "breeding pits 指坑穴，译为“育种棚”改变了地点类型。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "chats/gates-of-morning-main.lua:29 orc breeding pits；现译“兽人育种棚”与该区域正式名一致（mod-tome.lua:39288 Orc breeding pits=兽人育种棚），但成就说明另作“繁衍地穴”（2829）。属区域命名族内不一致，单改本条会与区域名不一致，记 advisory。"
+    },
+    {
+      "revision_key": "f33881a63ec9206d3032d2dbd50fc77e5e932c7eea3fbb1645825885d224bb7c",
+      "stage": "surface",
+      "observation": "译文“深色翻转胡”末尾多出“胡”字。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "birth/races/dwarf.lua:166 女性矮人胡须外观 Dark Flip（face_flip_01，与 Donut/Mustache/Beard 同列胡须款式）；“深色翻转胡”与同族 Blond Flip=金色翻转胡、Redhead Flip=红色翻转胡（3412–3413）一致，“胡”指胡须款式，不是多余字。"
+    },
+    {
+      "revision_key": "f33c065ae56bb68f1a4146a8e6b75e23e7d1dab1bf0f7432472bc6f036e083a5",
+      "stage": "surface",
+      "observation": "原文以同一段列出三个等级，译文额外插入两处换行；原文只说 warrior 和 defender，译文却具体写成“狂战士”和“盾战士”，还给距离 %d 添加了原文没有的“码”单位。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/psionic/thought-forms.lua:507–510 Thought-Forms 说明：原文 3 个 LF，现译 7 个（首句后与三级列表处额外换行，一级换行不变量）；warrior 译“精英狂战士”与本库技能名 Thought-Form: Warrior=思维形态：战士、thought-forged warrior=精神体战士（27997–27998）不一致，且 mighty/powerful/strong 被改写为“大师/精英”。距离单位“码”为本库多数用法（%d 码 152 处），不是缺陷。整条修复，LF 与原文一致。"
+    }
+  ]
+}

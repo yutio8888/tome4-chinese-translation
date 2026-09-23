@@ -1,0 +1,26 @@
+import pathlib,json
+P=pathlib.Path('.ai/task/batch-8963e835a427bdbf7ae1')
+D={
+'f277b46e':('confirmed',True,'class/GameState.lua:3669–3675 猎头者挑战：击杀目标后 bignews 播报，随后遍历关卡实体，凡以玩家为 ai_target 的敌人 setTarget() 清除目标（“other enemies pause, untarget player”）；giving pause 意为令敌人迟疑、失去对你的锁定，现译“楼层上所有的敌人都被暂停了”误述为暂停/冻结；claim the head of 译“杀死了”丢失“取下首级”。整条修复。'),
+'f28885b2':('refuted',False,'timed_effects/magical.lua:4608 SHADOW_CUT（subtype wound/cut/bleed）on_lose；效果结束即伤口不再流出黑暗，“黑暗伤口愈合了”准确描述效果移除，与 on_gain“开始流出黑暗”配对无误导。'),
+'f288bb30':('refuted',False,'timed_effects/other.lua:2702 HUNTER_PLAYER 效果名 desc Hunter!（beneficial，施于怪物，long_desc Knows where you are!，activate 中 setTarget(eff.src) 追踪玩家）；“捕猎中！”作为怪物身上的状态名与效果一致。'),
+'f290c29a':('refuted',False,'class/Object.lua:923 compare_fields 标签 Crit. power: ；同族标签全部以全角冒号收尾不留空格（mod-tome.lua:749 命中：、751 暴击率：），全角冒号已提供间隔。'),
+'f29bad37':('refuted',False,'class/Object.lua:1893 compare_fields 标签，同上：同族（943、945 行）均以全角冒号收尾不留空格。'),
+'f2b2afec':('confirmed',True,'talents/cunning/tactical.lua:171 Exploit Weakness：Combat.lua:975 仅在近战攻击命中（attackTargetWith 的 hitted 分支）时调用 do_weakness；现译“每次你击中对手时”删去 with a melee attack 限定，远程/法术命中也读作会触发（删限定词缺陷类）。另原文结尾 \n\t\t 未保留。整条修复。'),
+'f2d8717e':('confirmed',True,'class/interface/TooltipsData.lua:438 TOOLTIP_SPECIFIC_IMMUNE，CharacterSheet.lua:1298/1307 作为各单项免疫（无专属提示时）的回退提示；原文“完全抵抗这一特定效果的几率”，现译标题“状态异常免疫几率”与正文“完全免疫状态异常的几率”泛化为全部状态异常，且与上一条 Status resistance（状态免疫）混同。整条修复。'),
+'f30327e6':('confirmed',True,'texts/tutorial/done.lua:20–31 教程完成文本：原文 11 个 LF，现译 14 个，在“不\n会”“(你也可以\n根据”“还存\n在”处插入硬换行拆开词语（一级换行不变量）。整条修复，LF 与原文一致。'),
+'f307cad1':('advisory',False,'talents/misc/npcs.lua:23–32 多个 */other 技能类型描述（多数 hide=true）；entities 含 NPC 与怪物，“怪物”略窄但不误导；可选改“各类生物”。'),
+'f324a9ac':('refuted',False,'objects/egos/gloves.lua:341 前缀 ego alchemist’s （prefix=true）与物品名拼接；中文前缀直接连写（“炼金术师的手套”），无需保留英文分词空格。'),
+'f325141c':('advisory',False,'chats/gates-of-morning-main.lua:29 orc breeding pits；现译“兽人育种棚”与该区域正式名一致（mod-tome.lua:39288 Orc breeding pits=兽人育种棚），但成就说明另作“繁衍地穴”（2829）。属区域命名族内不一致，单改本条会与区域名不一致，记 advisory。'),
+'f33881a6':('refuted',False,'birth/races/dwarf.lua:166 女性矮人胡须外观 Dark Flip（face_flip_01，与 Donut/Mustache/Beard 同列胡须款式）；“深色翻转胡”与同族 Blond Flip=金色翻转胡、Redhead Flip=红色翻转胡（3412–3413）一致，“胡”指胡须款式，不是多余字。'),
+'f33c065a':('confirmed',True,'talents/psionic/thought-forms.lua:507–510 Thought-Forms 说明：原文 3 个 LF，现译 7 个（首句后与三级列表处额外换行，一级换行不变量）；warrior 译“精英狂战士”与本库技能名 Thought-Form: Warrior=思维形态：战士、thought-forged warrior=精神体战士（27997–27998）不一致，且 mighty/powerful/strong 被改写为“大师/精英”。距离单位“码”为本库多数用法（%d 码 152 处），不是缺陷。整条修复，LF 与原文一致。'),
+}
+rows=[]
+for f in sorted(pathlib.Path('.artifacts/i18n/continuation-20260923/review263-surface-raw').glob('*.json')):
+ for r in json.loads(f.read_text())['results']:
+  if r['verdict']=='ISSUE':
+   m=[v for k,v in D.items() if r['entry_revision_identity'].startswith(k)];assert len(m)==1,r['entry_revision_identity']
+   d,rep,why=m[0];rows.append(dict(revision_key=r['entry_revision_identity'],stage='surface',observation=r['observation'],disposition=d,repair_required=rep,conclusion=why))
+assert len(rows)==13,len(rows)
+(P/'HOST-SURFACE-DECISIONS.json').write_text(json.dumps(dict(status='host adjudicated surface observations; contextual observations adjudicated separately',slid_observations=None,slide_check='each of 13 observations compared against its own entry source/target; none slid',rows=rows),ensure_ascii=False,indent=2)+'\n')
+print({d:sum(r['disposition']==d for r in rows) for d in ('confirmed','refuted','advisory','pending')})

@@ -1,0 +1,98 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01F9HPtYcNSK9FGdT9zhicRy",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-8963e835a427bdbf7ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check envelope size and contract headings"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01PzwyuUJCrkFWaZ8UuYGafZ",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section six and seven"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01NDxuGPbVpXGLWZokEfJUD6",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-8963e835a427bdbf7ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint({k:(v if not isinstance(v,(list,dict)) else type(v).__name__+str(len(v))) for k,v in d.items()})\n\"",
+      "description": "Inspect envelope top-level keys"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01CyBz14t32Ed6rgzxdv5iWz",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-8963e835a427bdbf7ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor k,v in d.items(): print(k, type(v).__name__, len(v) if hasattr(v,'__len__') else v)\nprint(d.get('rendered_briefing','')[:3000] if isinstance(d.get('rendered_briefing'),str) else '')\n\"",
+      "description": "Inspect payload structure"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01A8FJzA6p455SjpJ5Z1xjfz",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-8963e835a427bdbf7ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nprint(d['fixed_source_identity'])\nfor i,(t,c) in enumerate(zip(d['translation_snapshot'],d['bounded_context'])):\n  print('=====',i,d['ordered_revision_keys'][i][:12])\n  print(json.dumps(t,ensure_ascii=False))\n  print(json.dumps(c,ensure_ascii=False)[:3500])\n\"",
+      "description": "Dump translations and context"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01EbWwpozJdKZsJ7jFMF8bbd",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-8963e835a427bdbf7ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor i,(t,c) in enumerate(zip(d['translation_snapshot'],d['bounded_context'])):\n  print('=====',i)\n  print('S:',t['source']); print('T:',t['target'])\n  ctx=c['context']; hdr,_,rest=ctx.partition('source_facts_v1:')\n  print('H:',hdr.strip())\n  try:\n    f=json.loads(rest)['fact']\n    for a in f.get('anchors',[]):\n      print(' @',a.get('public_source_path'),a.get('matching_lines'))\n      for s in a.get('snippet',[]): print('   ',s.get('line'),('>' if s.get('is_match') else ' '),s.get('text'))\n    print(' TERM:',json.dumps(f.get('terminology'),ensure_ascii=False)[:1500])\n    print(' OTHER:',[k for k in f if k not in('anchors','terminology')])\n  except Exception as e: print('ERR',e, rest[:300])\n\"",
+      "description": "Pretty print translations with source snippets"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01ByXpH2y6Hwq6zSTp32ybuX",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cunning/tactical.lua | sed -n 140,168p; git show $C:game/modules/tome/class/GameState.lua | sed -n 3655,3680p; git grep -n \"SPECIFIC_IMMUNE\\|HUNTER_PLAYER\" $C -- game/modules/tome | head; git show $C:game/modules/tome/data/timed_effects/other.lua | sed -n 2700,2730p",
+      "description": "Verify source mechanics for flagged entries"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01MU1PzsbWCvckxU9tQX3ChV",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"T_EXPLOIT_WEAKNESS\" $C -- game/modules/tome | head; git show $C:game/modules/tome/data/talents/misc/misc.lua | sed -n 245,262p",
+      "description": "Check Exploit Weakness trigger and hunter effect"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]
