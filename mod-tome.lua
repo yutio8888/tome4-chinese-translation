@@ -621,7 +621,7 @@ t("Kill %d spawns of Urh'Rok on the level before killing any other elite (or hig
 t("Headhunter", "猎头者", "_t")
 t("Kill %d spawns of Urh'Rok on the level before killing any elite creatures.", "在杀死任何精英怪物之前，杀死楼层里 %d 个乌鲁洛克的子嗣。", "tformat")
 t("%d / %d demon spawn killed.", "已杀死 %d/%d 个恶魔子嗣。", "tformat")
-t("#ORCHID#You claim the head of %s, giving pause to all foes on the level.", "#ORCHID#你杀死了 %s，楼层上所有的敌人都被暂停了。", "say")
+t("#ORCHID#You claim the head of %s, giving pause to all foes on the level.", "#ORCHID#你取下了 %s 的首级，令本层所有敌人为之迟疑。", "say")
 t("Random Artifact", "随机神器", "_t")
 t("Random Artifact: %s", "随机神器：%s", "tformat")
 t("+3 Stat Points", "+3 属性点", "_t")
@@ -2090,8 +2090,8 @@ Most bad status effects can be avoided by having an appropriate immunity, repres
 ]], "_t")
 t([[#GOLD#Effect resistance chance#LAST#
 This represents your chance to completely resist this specific effect.
-]], [[#GOLD#状态异常免疫几率#LAST#
-表示你完全免疫状态异常的几率。
+]], [[#GOLD#效果抵抗几率#LAST#
+表示你完全抵抗该特定效果的几率。
 ]], "_t")
 t([[#GOLD#Stun immunity chance#LAST#
 This represents your chance to completely avoid being stunned, dazed, or frozen.
@@ -23607,7 +23607,8 @@ t([[Increases Defense by %d for %d turns.  When you avoid a melee blow, you set 
 		受灵巧影响，效果按比例加成。]], "tformat")
 t("Exploit Weakness", "弱点感知", "talent name")
 t([[Systematically find the weaknesses in your opponents' physical resists, at the cost of 10%% of your physical damage.  Each time you hit an opponent with a melee attack, you reduce their physical resistance by 5%%, up to a maximum of %d%%.
-		]], "感知对手的物理弱点，代价是你减少 10%% 物理伤害。每次你击中对手时，你会减少它们 5%% 物理伤害抗性，最多减少 %d%%。", "tformat")
+		]], [[系统性地找出对手物理抗性的弱点，代价是你的物理伤害降低 10%%。每次你的近战攻击命中对手时，你会使其物理抗性降低 5%%，最多降低 %d%%。
+		]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cunning/traps.lua"
@@ -28014,14 +28015,10 @@ t("Thought-Forms", "思维形态", "talent name")
 t([[Forge a guardian from your thoughts alone.  Your guardian's primary stat will be improved by %d, its two secondary stats by %d, and it will have Magic, Cunning, and Willpower equal to your own.
 		At talent level one, you may forge a mighty bowman clad in leather armor; at level three a powerful warrior wielding a two-handed weapon; and at level five a strong defender using a sword and shield.
 		Thought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.
-		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位强大的守护者。
-		你的守护者主属性会增加 %d，他的两项副属性会增加 %d，同时他的魔力、灵巧和意志属性等同于你的属性值。
-		在等级 1 时，你会召唤出身着皮甲的弓箭手大师；
-		在等级 3 时，你会召唤出手持双手武器的精英狂战士；
-		在等级 5 时，你会召唤出手持剑盾的精英盾战士。
-		精神体只能存在于 %d 码范围内，若超出此范围，则精神体会回到你身边。
-		同一时间只能维持一种思维形态。
-		属性增益受精神强度加成。]], "tformat")
+		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]], [[仅凭思维塑造一名守护者。守护者的主属性会增加 %d，两项副属性各增加 %d，并且其魔力、灵巧和意志将分别等同于你的相应属性。
+		技能等级 1 时，你可以塑造一名身着皮甲的威猛弓箭手；等级 3 时，塑造一名手持双手武器的强大战士；等级 5 时，塑造一名使用剑盾的强健盾战士。
+		思维形态只能维持在 %d 码范围内，超出此范围时会在你身边重新实体化。
+		同一时间只能有一种思维形态处于激活状态，属性加成会随你的精神强度提高。]], "tformat")
 t("Transcendent Thought-Forms", "卓越思维形态", "talent name")
 t("Your thought-forms now know Lucid Dreamer, Biofeedback, and Psychometry at talent level %d.", "你的精神体习得技能等级为 %d 的清晰梦境、生物反馈和共鸣之心。", "tformat")
 t("Over Mind", "思维支配", "talent name")
@@ -32410,14 +32407,11 @@ Press Escape, save & exit and create a new character!
 ]], [[#GOLD#恭喜你！#WHITE#
 
 你完成了这个简单教程，应该已经了解 ToME4 的基础。现在你已准备好踏入这个世界，寻找荣耀与财富，并被一群你自以为能对付的怪物无情屠杀！
-在教程中，一些生物为了配合教学进行了调整；记住，在真实世界里，巨魔通常不
-会这么友善！
+在教程中，一些生物为了配合教学进行了调整；记住，在真实世界里，巨魔通常不会这么友善！
 
-如果你想知道快捷键的功能，你可以按 #GOLD#Esc#WHITE#键进入游戏菜单检查按键设定(你也可以
-根据你的需要改变设置)。
+如果你想知道快捷键的功能，你可以按 #GOLD#Esc#WHITE#键进入游戏菜单检查按键设定(你也可以根据你的需要改变设置)。
 
-也许这是你第一次玩这个游戏，你会发现可供游玩的种族和职业数量有限；游戏中还存
-在许多其他种族和职业，你会在游戏过程中解锁它们。
+也许这是你第一次玩这个游戏，你会发现可供游玩的种族和职业数量有限；游戏中还存在许多其他种族和职业，你会在游戏过程中解锁它们。
 
 现在，勇敢前进并记住：#GOLD#好好享受游戏的乐趣！#WHITE#
 请按下 Esc 键，保存并退出游戏，建立一个新的角色吧！
