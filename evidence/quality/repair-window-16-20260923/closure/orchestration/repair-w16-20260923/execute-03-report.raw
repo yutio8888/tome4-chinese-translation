@@ -1,0 +1,15 @@
+已完成第 2 轮修复。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:15948)：署名改为“`一名不死生物猎人的指南`”，标记、空格、换行及其余正文未变。
+- 窗口外两处 lore 标题保持不变。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/IMPLEMENTATION.md) 与 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/VALIDATION.json)。
+
+验证全部通过：
+
+- `verify.py`：退出 0，22,989 条记录，仍恰为冻结 workset 的 7 个 target。
+- 严格 lint：退出 0，30,308 条，0 errors、0 warnings。
+- claims check：退出 0。
+- `git diff --check`：退出 0。
+- `VALIDATION.json` 解析通过。
+
+未 stage、commit、push，未写 `.ai`，未修改禁改文件；既有无关改动和 untracked 文件均已保留。

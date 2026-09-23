@@ -1,0 +1,21 @@
+修复窗口 16 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK-MANIFEST 全部 194 项，共 2,569,000 字节。
+- 逐字复制清单为 [orchestration-pack-manifest.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/orchestration-pack-manifest.json)。
+- 安装 5 个候选 catalog 文件及指定 migration。
+- 安装 16 个 publication 附件。
+- 新建 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确宿主提交、queue rebuild、push 尚未完成。
+
+验证结果：
+
+- PACK 逐项 `cmp`、SHA256、字节数：通过。
+- Catalog、migration、publication 附件逐字比较：通过。
+- UTF-8、空白及文档链接：通过。
+- `ai_state_check --target DONE`：`DONE_VERIFIED`。
+- 暂存区为空；未 stage、commit 或 push。
+- 未运行 queue/catalog/migration、完整门禁或 `verify_pack.py`。
+- 未修改 Lua、术语、规则、工具、原 `.ai` 文件或 `pending-user-review.md`；后者已有的工作树改动保持原样。
+- 计划偏差及未解决问题：无。

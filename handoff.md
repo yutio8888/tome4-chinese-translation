@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核262已完成；下一步修复窗口16，仅处理262的7条）
+更新时间：2026-09-23（修复窗口16已完成；待宿主发布收尾，随后审核263）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -245,6 +245,28 @@ contextual `claude/claude-opus-5-5` 首次 full-000 在 JSON 前多一句英文�
 不死猎人指南多处增译夸大、矮人加料与宿醉玩笑、虚空传送门成就 closing、牺牲死讯 %s 反身代词、剧毒弹自然伤害。
 范围见 `.ai/task/batch-cdef103673c1cf6a37ae/WINDOW16-REPAIR-DECISION.json`；`setup_window16_task.py` 已写好（continuation-20260923），
 可复用窗口15 helper（verify_migration 有两处条数硬编码），失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口16已完成。任务 `repair-w16-20260923` 的 `execute-01`（`codex/gpt-5.6-sol`）实施审核262的
+7条确认项：50级祝贺段间空行与“勇敢地”；星辰契约 `bond` 改为“羁绊”，明确光辉引力拉向被击中目标并恢复 `\t\t` 缩进；
+不死猎人指南修正六处增译、夸大、因果错置、弱化和巫妖段反义，将多拆出的段落并回，LF 86→72 与原文一致；
+矮人送药改为“加了点好料，明早可有你受的”；成就改为“以自身为祭品关闭虚空传送门”；牺牲死讯改为
+“牺牲了%s，将维网带给众生”；强化弹药 Venomous 改为“自然伤害”。宿主 verify 暴露 lore 段落拆分，
+`execute-02` 只合并段落。`REVIEW(0)/full`（`codex/gpt-6-sol`）为 6 OK / 1 ISSUE：Eyal 被译为
+“埃亚尔大陆”（Eyal 实为世界名），裁决为 advisory 并列入 pending #16；`FINAL(1)/full`（`claude-opus-5-5`）为
+6 OK / 1 ISSUE：署名“不死猎人”存在歧义，宿主初判 advisory，但 DONE 检查要求最新 FINAL 无 ISSUE，
+故改判二级并有界修复；`execute-03` 只将署名改为“一名不死生物猎人的指南”。`RE_REVIEW(2)`
+（`gpt-6-sol`）为 6 OK / 1 ISSUE（同一 Eyal 观察，advisory）；`FINAL(3)/full`
+（`claude-opus-5-5`）为 7 OK，任务收敛。完整门禁 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。
+3 个 executor、4 个 reviewer 与 publication child 均已归档确认。
+
+译文提交为 `3a21f17035b51c61f592858e2b5ca7a6e9c51d6d`；新 catalog 为
+`9b4f2e06ce73c07cc0ca9810db96caba529a5f15b175558803b21f1313fb2b4e`，migration 为
+`456baa4ae824b48ffdd8c7ec72c1c93055e8fb4c51077e79eab0852d8c2747a0`。迁移结果为
+7 条 revision changed、29,821 条 unchanged、0 ambiguous/unmapped，7 个 successor 待重新审核，
+不继承 done。pending 新增第 16 项（Eyal 全库译法）和第 17 项（lore 标题“不死猎人指南”两处），
+由宿主在证据提交中写入。完整结果见[窗口16出版证据](evidence/quality/repair-window-16-20260923/PUBLICATION.md)。
+
+下一步由宿主完成本证据提交、第二次 queue rebuild 与 push，随后继续审核263（默认80条）；这些步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

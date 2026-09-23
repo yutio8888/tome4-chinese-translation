@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-16 unique EXECUTOR",
+  "scope": "7 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w16-20260923/verify.py",
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/tome4-chinese-translation/.ai/task/repair-w16-20260923/verify.py\", line 22, in <module>\n    assert re.findall(pattern,expected)==re.findall(pattern,y['target']),pattern\nAssertionError: \\n\n",
+      "diagnosis": "The verifier requires target LF/TAB equality with the old target, conflicting with SPEC-required restoration of one paragraph-break LF and double-TAB indentation. The forbidden .ai verifier was not modified and the required translation fixes were not reverted."
+    },
+    {
+      "command": "bounded inline LocaleLoader invariant diagnostic with explicit SPEC exceptions",
+      "exit_code": 0,
+      "result": {
+        "verified_with_authorized_exceptions": true,
+        "records": 22989,
+        "changed_count": 7,
+        "changed_revisions": [
+          "f14a476f19489b0f6a79876e7004c6a59a54d9b0e78e967691071d34b66990ed",
+          "f1e389dfae61e9e641ad6118c5b582f3ebbc6ebd99b27bc67e514b415781fe89",
+          "f19cec2641cd74c4c3020f07432b8402ddc8f9efc02c378e785fd4a3668a339f",
+          "f20e44ef63bf290de8b5b00aaf83cc4009d914cd52d517dd2f94051892ef77e6",
+          "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+          "f22305679ecdc81c0b2ea179ae3a753148e5fbfa642c29acd3be9976241fd18c",
+          "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16"
+        ],
+        "exceptions": {
+          "f14a476f19": "target LF +1: required paragraph break",
+          "f15f5593c7": "target LF count unchanged; every nonempty continuation line restored to two leading TABs"
+        }
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T160440.780256Z-273479-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w16-20260923/PREFLIGHT-BATCH262.json",
+      "path": "evidence/quality/repair-window-16-20260923/PREFLIGHT-BATCH262.json",
+      "sha256": "5bc8dc89fa6882b7de5a33711b0940bfe73ff1521058506e2285d876bd3319d2",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w16-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-16-20260923/HOST-WORKSET.json",
+      "sha256": "e89e742e6b2f2d7f860dc1b713005ede99e9236e7466a13b1313c8f010abae9f",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w16-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-16-20260923/SOURCE-ANCHORS.json",
+      "sha256": "4f0f5a18b7ededb6133aacad42213e4fe2cdef4ab186941671ed3e7ae50c27dd",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only. The task verifier has a documented SPEC conflict; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed.",
+  "followup_execution": {
+    "reason": "Host-confirmed tier-1 LF invariant defect in the undead hunter guide target",
+    "scope": "Only f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c paragraph boundaries plus this evidence update",
+    "result": {
+      "merged_extra_paragraph_boundaries": 7,
+      "removed_extra_lf": 14,
+      "source_lf": 72,
+      "target_lf": 72,
+      "separator_lines_aligned": true,
+      "translation_text_changed": false,
+      "other_targets_changed_in_followup": 0
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w16-20260923/verify.py",
+        "exit_code": 0,
+        "result": "verified=true; records=22989; changed_count=7; all changed records are frozen WORKSET targets; LF/TAB, printf, markup and at-token invariants passed"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T161403.070879Z-286762-lint/lint.json\n"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "supersedes": "The earlier verifier exit 1 and verifier-conflict diagnosis in this file are historical pre-followup results; the host-updated verifier now passes after this bounded LF correction."
+  },
+  "second_followup_execution": {
+    "reason": "Host-confirmed tier-2 wording ambiguity in the undead hunter guide byline (F1-UNDEAD-HUNTER-BYLINE)",
+    "scope": "Only the first target line of f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c plus IMPLEMENTATION.md and VALIDATION.json in this evidence directory",
+    "result": {
+      "before": "#{italic}#一名不死猎人的指南 作者：阿斯拉伯·波利斯#{normal}#",
+      "after": "#{italic}#一名不死生物猎人的指南 作者：阿斯拉伯·波利斯#{normal}#",
+      "markup_preserved": true,
+      "spacing_preserved": true,
+      "newline_changed": false,
+      "other_text_in_target_changed": false,
+      "other_workset_targets_changed_in_followup": 0,
+      "out_of_scope_lore_titles_changed": false
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w16-20260923/verify.py",
+        "exit_code": 0,
+        "result": "verified=true; records=22989; changed_count=7; all changed records are frozen WORKSET targets; LF/TAB, printf, markup and at-token invariants passed"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T162837.292303Z-428645-lint/lint.json\n"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "constraints": "No stage, commit, push, .ai write, agent creation, terminology/rules/tools/handoff/catalog/migration/pending-user-review.md edit, or unrelated untracked-file cleanup."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "W16 execute-02 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，继续修复窗口16（上一次execute-01已完成7条修改且已归档；本次是新会话）。先读 .ai/roles/executor.md、.ai/task/repair-w16-20260923/SPEC.md 与 WORKSET.json，以及当前 git diff -- mod-tome.lua。宿主确认一处一级换行不变量缺陷：不死猎人指南（section mod-tome/data/lore/fun.lua，source 以“#{italic}#An undead hunter's guide, by Aslabor Borys”开头）原文恰有72个LF，当前译文有86个——译文把若干原文段落拆成了多段（尸妖段、吸血鬼段、幽灵段、巫妖段等处可见，如“巫妖远比传说更加可怖。”单独成段）。只改这一条target：按原文逐段对齐，把多拆出的段并回对应的原文段落，使段落数、空行和“    * * *”分隔行位置与原文完全一致，LF总数恰为72；合并时只做必要的衔接，不改写已忠实的文字、不改execute-01已修正的含义。其余6条及其他任何条目不得改动。只改mod-tome.lua这一条及evidence/quality/repair-window-16-20260923/（在IMPLEMENTATION.md与VALIDATION.json追加本次说明与结果）。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/fun.lua。修改后运行python3 -B .ai/task/repair-w16-20260923/verify.py（宿主已改为LF/TAB对照原文，应当通过）、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check，报告真实结果与实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w16-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

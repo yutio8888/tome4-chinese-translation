@@ -1,0 +1,15 @@
+已完成窗口 16 换行补修。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:15876)：仅合并“不死猎人指南”中 7 个多余段落边界，删除 14 个额外 LF；未改动译文字词或其余 6 条 target。
+- 原文与译文现均为 72 个 LF，段落、空行及 `    * * *` 分隔行位置完全一致。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/VALIDATION.json)。
+
+验证全部通过：
+
+- `verify.py`：通过，22,989 条记录，仍恰有冻结的 7 个 target 变化。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- claims check：通过。
+- `git diff --check`：通过。
+- `VALIDATION.json`：JSON 解析通过。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未创建 agent，未 stage、commit 或 push；无关 untracked 均保留。

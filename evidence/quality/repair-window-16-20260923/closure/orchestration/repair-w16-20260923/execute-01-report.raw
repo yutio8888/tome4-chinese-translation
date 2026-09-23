@@ -1,0 +1,12 @@
+7 条译文已实际修复，证据已写入 [repair-window-16-20260923](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/IMPLEMENTATION.md)。
+
+验证结果：
+
+- 严格 lint：通过，30,308 条，0 errors / 0 warnings
+- claims check：通过
+- `git diff --check`：通过
+- 有界全记录诊断：通过，22,989 条中恰 7 个 target 改变
+- 三份冻结副本逐字节一致
+- 专用 `verify.py`：退出 1。其 LF/TAB 绝对相等断言与 SPEC 要求的“增加段间空行、恢复双 TAB”直接冲突；未修改禁止写入的 `.ai`，真实结果已记录于 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-16-20260923/VALIDATION.json)。
+
+未 stage、commit、push，未创建 agent；无关 untracked 均保留。完整门禁、严格构建、独立复审和 `DONE_VERIFIED` 由宿主继续。

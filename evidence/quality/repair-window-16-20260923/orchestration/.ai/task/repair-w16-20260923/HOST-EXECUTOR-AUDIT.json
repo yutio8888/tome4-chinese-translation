@@ -1,0 +1,60 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 20,
+      "native_calls_sha256": "9a3daea4b9f7b92b90a061aba9389c78e05da0e361fe5c3b54fee72776038002",
+      "writes": [
+        "mod-tome.lua (7 targets via apply_patch)",
+        "evidence/quality/repair-window-16-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show",
+        "prior window evidence format"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "host_note": "verify.py exit 1 reported truthfully: host helper compared LF/TAB to baseline target, which conflicts with the SPEC-required blank line (Actor.lua) and \\t\\t restoration (str.lua). Host corrected verify.py to compare LF/TAB to source; rerun then exposed pre-existing 86 vs 72 LF paragraph splitting in the lore/fun.lua target (in-scope entry, tier-1 newline invariant) -> execute-02. Taint of Purging=堕落印记：清除 matches entity name at mod-tome.lua:9511."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 12,
+      "native_calls_sha256": "d1b6669c236ddc162f96b9f9ee801ec80270f4f52f1348d9909ca764caafce18",
+      "writes": [
+        "mod-tome.lua (lore/fun.lua target only: merged 7 extra paragraph boundaries, 14 LF removed, wording unchanged; host inspected apply_patch hunks)",
+        "evidence/quality/repair-window-16-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, WORKSET",
+        "mod-tome.lua diff",
+        "pinned lore/fun.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    },
+    {
+      "dispatch_id": "execute-03",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "c6e28348839ab5d31a090c84b773fefe923b7dfe6d5577e65428e712f266d872",
+      "writes": [
+        "mod-tome.lua (lore/fun.lua byline only: 不死猎人→不死生物猎人; host diffed against frozen F1 candidate, single-line change)",
+        "evidence/quality/repair-window-16-20260923/IMPLEMENTATION.md and VALIDATION.json appended"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "after execute-03: verify.py PASS, exactly 7 targets changed vs baseline, LF/TAB equal to source"
+}

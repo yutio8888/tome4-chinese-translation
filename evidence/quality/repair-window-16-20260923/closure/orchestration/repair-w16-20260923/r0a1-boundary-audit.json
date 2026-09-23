@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "dispatch_id": "r0a1",
+  "tool_calls": 4,
+  "reads": [
+    "own frozen envelope",
+    "full contextual-v2 contract"
+  ],
+  "writes": [],
+  "note": "first call failed (sandbox bubblewrap init) and the next three re-read the same two authorized files with require_escalated; fourth call printed a compact view of the own envelope via python (read-only). Coverage caveat: the escalated cat of the envelope was truncated by output limits and the compact view cut target to 1800 chars, so the OK verdict for f18f9a4e90 (long lore) is not relied on; host read the full frozen lore target paragraph by paragraph instead.",
+  "native_call_inputs_manually_reviewed": true
+}

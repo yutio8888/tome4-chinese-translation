@@ -1,0 +1,22 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 6,
+  "raw_issue_count": 1,
+  "decision": "converged_no_tier1_confirmed_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-EYAL-CONTINENT",
+      "revision_key": "f15f5593c718735620a18ddf5948ac4c1b17670950691754aaf89d449e936d16",
+      "status": "advisory",
+      "tier": null,
+      "category": "terminology/global naming",
+      "reason": "str.lua:311 far beyond Eyal；Eyal 是世界名（mod-tome.lua:6013 源文 \"the world of Eyal\"），“埃亚尔大陆”确有把世界限定为大陆之嫌。但该译法为全库既有用法（mod-tome.lua 23 处、tome-ashes-urhrok.lua 23 处、engine/mod-boot 各 1 处），术语库无 Eyal 记录；改动属未授权的跨批次全局改名，SPEC 已明确本窗口不改。记 advisory，登记待用户审阅第 16 项。"
+    }
+  ],
+  "host_check": "R0 对 f18f9a4e90（长篇 lore）的 OK 不作为覆盖依据：其读取被输出上限截断且紧凑视图 target 截到 1800 字。宿主逐段通读冻结 target 全文对照原文，未见一级缺陷；execute-02 仅合并段落，LF=72 与原文一致。其余 6 条宿主对照 SOURCE-CLAIMS 核对修复到位。",
+  "next_stages": [
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-23T16:19:38.437605+00:00"
+}

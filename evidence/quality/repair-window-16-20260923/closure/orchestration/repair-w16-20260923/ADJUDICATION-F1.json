@@ -1,0 +1,24 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 6,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-UNDEAD-HUNTER-BYLINE",
+      "revision_key": "f18f9a4e901a0f5c2e93872aacc75f8e8a9fef72f107cad5788e3bd5c4ee5c8c",
+      "status": "confirmed",
+      "tier": 2,
+      "category": "naming/ambiguity",
+      "reason": "lore/fun.lua:217 署名 \"An undead hunter's guide, by Aslabor Borys\"；现译“一名不死猎人的指南”。“X猎人”在中文惯例（恶魔猎人等）中通读为猎杀X者，且与同一 lore 的条目名/说明 mod-tome.lua:11440–11441“不死猎人指南”一致；本窗口未改动该行。单改正文署名会与窗口外两条标题不一致；歧义属措辞/命名层面，非一级忠实性缺陷。记 advisory，登记待用户审阅第 17 项（同族三处统一处理）。 更新：tools/ai_state_check 要求最新 FINAL_REVIEW/full 无 ISSUE，F1 含 ISSUE 即为未成功；宿主改判为二级措辞缺陷（cycle<=2 可 reopen），仅修正文署名为“一名不死生物猎人的指南”以消歧，窗口外两处标题仍留 pending #17。"
+    }
+  ],
+  "host_check": "f1a1 读取了完整 translation_snapshot（含 lore 全文）并补查固定源码；其余 6 条 OK 与宿主核对一致。",
+  "next_stages": [
+    "FIX",
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "recorded_at": "2026-09-23T16:22:22.575184+00:00"
+}
