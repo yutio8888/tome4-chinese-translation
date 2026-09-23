@@ -5223,10 +5223,10 @@ With this knowledge I could create potent amulets. However, it requires a specia
 There are rumours about a site of power in the southern mountains. Old legends tell about a place where a part of the Wintertide Moon melted when it got too close to the Sun and fell from the sky.
 A lake formed in the crater of the crash. The water of this lake, soaked in intense Moonlight for eons, should be sufficient to forge powerful artifacts!
 Go to the lake and then summon me with this scroll. I will retire to study the tome, awaiting your summon.]], [[#LIGHT_GREEN#*他快速浏览了那本手册，露出了惊讶的表情。*#WHITE# 这真是神奇的发现！太神奇了！
-有了这些知识我就能制造更强大的项链了。不过这需要一个特殊的地方来完成制作过程。
-传言在南部山脉之中有个地方充满能量。有个古老的传说，当冬月与太阳距离太接近的时候它的一部分从空中掉落了下来并融入了大地，使那个地方充满能量。
-在坠落的地方形成了一个湖泊，湖水吸收了万年月光的力量，应该足以锻造出强大的神器。
-去找到那个湖泊，然后使用这个卷轴将我召唤过去，从现在开始我要潜心研修你的这本手册，等待你召唤我的那一刻。]], "_t")
+有了这些知识，我就能制造强力的项链了。不过，制作这样的物品需要一个特殊的力量之地。
+传言南部山脉中有一处力量之地。古老传说称，霜华之月的一部分因离太阳过近而融化，并从天空坠落。
+坠落形成的陨坑中出现了一座湖泊。这座湖的湖水经万古强烈月光浸润，应该足以锻造强大的神器！
+前往那座湖，然后用这张卷轴召唤我。我会回去研究这本手册，等待你的召唤。]], "_t")
 t("I will see if I can find it.", "我看看能不能找到那个地方。", "_t")
 
 ------------------------------------------------
@@ -8047,7 +8047,7 @@ t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
 t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "它精瘦、凶悍、皮毛蓬松，正用饥饿的眼神盯着你。", "_t")
 t("great wolf", "巨狼", "entity name")
-t("Larger than a normal wolf, it prowls and snaps at you.", "它比普通的狼更大，在你面前徘徊咆哮。", "_t")
+t("Larger than a normal wolf, it prowls and snaps at you.", "它比普通的狼更大，潜行游荡时会朝你猛咬。", "_t")
 t("dire wolf", "狂狼", "entity name")
 t("Easily as big as a horse, this wolf menaces you with its claws and fangs.", "这只狼像马一样大，用它的爪子和獠牙来威胁你。", "_t")
 t("white wolf", "白狼", "entity name")
@@ -27720,7 +27720,7 @@ t([[Overcharge your psionic focus with energy for %d turns, producing a differen
 section "mod-tome/data/talents/psionic/psi-archery.lua"
 
 t("Guided Shot", "导引箭", "talent name")
-t("Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.", "射出一支导引箭精确的飞向敌人。造成普通伤害，但是命中和暴击率提高 %d。", "tformat")
+t("Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.", "射出一支箭，以念力精确地微调箭矢，导引它射向目标。造成普通伤害，但命中和暴击率提高 %d。", "tformat")
 t("Augmented Shot", "强力射击", "talent name")
 t("Use telekinetic forces to greatly augment the durability and tension of your bow in order to fire an arrow with velocity unmatched by even the mightiest mundane archers. Increases armor penetration by %d, and deals %d%% damage.", "使用精神灵能以增强弓的耐久和张力，使射出的箭矢拥有连最强大的普通弓手都无法企及的飞行速度。增加 %d 点护甲穿透并造成 %d%% 伤害。", "tformat")
 t("Thought-quick Shot", "意念射击", "talent name")
