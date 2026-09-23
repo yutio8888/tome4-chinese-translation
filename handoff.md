@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（修复窗口18已完成；待宿主发布收尾，随后审核265）
+更新时间：2026-09-23（审核265已完成；下一步修复窗口19，仅处理265的4条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -301,7 +301,16 @@ Offhand Jab 删去“以徒手突袭替代副手攻击”并多一处换行、Z�
 
 译文提交为 `8f71effdeded7b84df4fa5d9625289d0d10a0b4b`；新 catalog 为 `2cd472deee7159e35cb53656b3311a9232752be19817adb5edee7e5db494b7c2`；migration 为 `4847d321cc828a85d29b12b3c05a399eee35a700288d9ade838f8b84a443f58f`。迁移结果为4条 revision changed、29,824条 unchanged、0 ambiguous/unmapped，4个 successor 待重新审核且不继承 done。完整结果见[窗口18发布证据](evidence/quality/repair-window-18-20260923/PUBLICATION.md)。
 
-下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；这些发布收尾尚未完成。完成后继续审核265（默认80条）。
+窗口18的证据提交（`ad68e95b`）、queue rebuild 与 push 已完成；首次证据提交在 verify_pack 未通过时被推送（publication 把 pack manifest 副本放进了 orchestration/），已由更正提交 `47283341` 移回窗口根目录并记录 verify_pack 通过。
+
+审核265（`batch-2a0994cfc83862de29c3`）已闭合，结果为 **76 done / 4 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 72 OK / 8 ISSUE；lane-000-0 两处判 OK 的 identity 回显错误，harvest 前逐位比对发现并由宿主手工归因（原字节留档）。contextual `claude/claude-opus-5-5` full-000 为 5 OK / 3 ISSUE。
+11 个观察裁决为 7 confirmed、2 refuted、2 advisory。17/17 门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `1fc4af85`，
+详见[265宿主证据](evidence/quality/production-batches/batch-2a0994cfc83862de29c3-host-evidence/summary.md)。本批无新增 pending。
+
+下一步按 1:1 节奏开修复窗口19，仅处理 265 的 4 条：念动弓说明（漏“每回合”“伤害”与一个行首 TAB）、Burrow 说明（第三行空格代替 TAB、漏“土质”）、
+Nightshade 陷阱（漏“中毒”，持续 4 回合应同时覆盖震慑与中毒）、野蛮种族记载（mod-tome.lua:43247 位于 load.lua 段但因后写覆盖而实际生效的重复行：首句、speech、几百年、烈火纪末期、恶魔释放酸液/黑暗之云）。
+范围见 `.ai/task/batch-2a0994cfc83862de29c3/WINDOW19-REPAIR-DECISION.json`；可复用窗口18 helper；PUBLICATION-SCOPE 要写明 pack manifest 副本放在窗口根目录。
 
 ### 窗口7闭合时的暂停记录（历史）
 
