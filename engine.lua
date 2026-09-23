@@ -362,9 +362,6 @@ section "engine/engine/Chat.lua"
 t("???", "???", "_t")
 --]==]
 
--- old translated text
-t("following chain...", "追踪链接…", "log")
-
 ------------------------------------------------
 section "engine/engine/DebugConsole.lua"
 

@@ -30,7 +30,7 @@ Sol 原始 verdict 挂接，不新增语义裁决。每条的模型状态原样�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00001 | HUMAN-REVIEW | cross-batch-001 | confirmed | 是否整理此失效键译文 |  |  |
+| hrq-00001 | HUMAN-REVIEW | cross-batch-001 | confirmed | 是否整理此失效键译文 |  | delete_dead_key |
 
 <details><summary>hrq-00001 · HUMAN-REVIEW 详情</summary>
 

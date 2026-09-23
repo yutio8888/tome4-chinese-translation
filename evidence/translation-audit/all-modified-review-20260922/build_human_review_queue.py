@@ -475,6 +475,8 @@ def main():
         r["human_note"] = None
         r["human_decided_at"] = None
 
+    apply_decisions(records)
+
     layers = {}
     for r in records:
         L = layers.setdefault(r["source_layer"], {"records": 0, "entries": set(), "status": {}})
@@ -500,6 +502,7 @@ def main():
                  "reconciled-20260923 canonical claims are not merged (separate experiment ledger)."),
         "schema_version": 1,
         "total_records": len(records),
+        "decided_records": sum(1 for r in records if r.get("human_decision")),
         "distinct_entries": len({r["entry_id"] for r in records if r.get("entry_id")}),
         "records_missing_entry": sum(1 for r in records if not r.get("entry_id")),
         "raw_campaign_verdict_count": len(raw_campaign),
@@ -522,6 +525,35 @@ def main():
     # checks
     print(json.dumps(summary, ensure_ascii=False, indent=1))
     return 0
+
+
+def apply_decisions(records):
+    """Overlay durable human decisions from HUMAN-DECISIONS.jsonl (keyed by queue_id,
+    with claim_id/entry_id as fallback identity)."""
+    path = os.path.join(OUT_DIR, "HUMAN-DECISIONS.jsonl")
+    if not os.path.exists(path):
+        return
+    by_qid, by_claim = {}, {}
+    with open(path, "r", encoding="utf-8") as fh:
+        for ln in fh:
+            ln = ln.strip()
+            if not ln or ln.startswith("#"):
+                continue
+            try:
+                d = json.loads(ln)
+            except json.JSONDecodeError:
+                continue
+            if d.get("queue_id"):
+                by_qid[d["queue_id"]] = d
+            if d.get("claim_id"):
+                by_claim[d["claim_id"]] = d
+    for r in records:
+        d = by_qid.get(r["queue_id"]) or (by_claim.get(r.get("claim_id")) if r.get("claim_id") else None)
+        if not d:
+            continue
+        r["human_decision"] = d.get("decision")
+        r["human_note"] = d.get("note")
+        r["human_decided_at"] = d.get("decided_at")
 
 
 LAYER_LABEL = {
@@ -596,7 +628,7 @@ def write_md(records, summary):
             L.append(
                 f"| {r['queue_id']} | {LAYER_LABEL.get(r['source_layer'], r['source_layer'])} "
                 f"| {cell(tag, 28)} | {cell(r.get('status'), 24)} "
-                f"| {cell(key, 300)} |  |  |")
+                f"| {cell(key, 300)} |  | {cell(r.get('human_decision'), 40)} |")
         L.append("")
         for r in recs:
             extras = []
