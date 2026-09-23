@@ -79,3 +79,11 @@
    - 争议理由：术语库 `terminology/talents.tsv:117` 记录 `Flame=火球术`（`status=existing`），职业说明 `mod-tome.lua` 亦用“火球术”；但运行时技能名（`mod-tome.lua` / `mod-boot.lua` / `engine.lua` 的 talent name 行）为“火焰”。统一方向属术语决定。
    - 建议选项：改技能名为“火球术”并同步术语 / 改说明与术语库为“火焰”。
    - **已裁决（2026-09-23，维护者）**：经 gpt-6-astra / opus-5.5 / gemini-3.8-flash 三方一致推荐，统一为“火焰术”（术语库改为 preferred），技能名与全部技能引用同步；Shadow Mages 描述中的 Flames 实指 Shadow Flames，改为“暗影之火”。
+
+## 修复窗口 10 待审阅
+
+11. `eb0868d54c`（时空术士 Galsamae 入门笔记长信 `Warden-Master Galsamae's Orientation Notes`）
+   - 源码：`lore/misc.lua:721`，`The ultimate power of time - the ability to reset and try again if you fail`。
+   - 现译：“能够在你失败时不断重试”。
+   - 争议理由：w10b `REVIEW(0)` 认为遗漏 reset（重置时间）；宿主认为该句紧接“有关时间的终极力量”，语境已含借时间重来之意，属措辞精度分歧而非机制错误。
+   - 建议选项：保持 / 改为“能够在失败时重置时间、再来一次”。

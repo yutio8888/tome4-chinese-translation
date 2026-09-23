@@ -1,0 +1,55 @@
+{
+  "cycle": 2,
+  "stage": "RE_REVIEW",
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "R2-CHRONO-SHERTUL-SHIELD",
+      "revision_key": "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "RE_REVIEW(2) 指出 misc.lua:729 something ever cracks that Sher'Tul shield 被译为“有人摧毁了”，改变事件条件，经宿主核验确认。宿主再次对照 misc.lua:719–736 全文复核，补充同条原文未有的增译/推测语气/丢失 culture 等缺陷，一并精确替换。",
+      "replacements": [
+        {
+          "old": "当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。",
+          "new": "一旦有什么东西让夏·图尔防护罩出现裂缝，或者Greigu找到了绕过传送门过滤器的方法，我们是真的有正事要做的。",
+          "basis": "misc.lua:729 if something ever cracks that Sher'Tul shield or the Greigu find a way to bypass a portal-filter：RE_REVIEW(2) 指出“有人摧毁了”把不确定的事物改为人、把出现裂缝改为被摧毁；bypass a portal-filter 同句一并忠实为“绕过传送门过滤器”。"
+        },
+        {
+          "old": "无论是你受到了时空的邀请，",
+          "new": "无论是你受到了邀请，",
+          "basis": "misc.lua:721 Whether by invitation：“时空的”为原文没有的增译（宿主全文复核补充）。"
+        },
+        {
+          "old": "或者远远超出我们自己的东西",
+          "new": "或者远远凌驾于我们之上的某种存在",
+          "basis": "misc.lua:735 or something far above ourselves：随同条修复（宿主全文复核补充，二级）。"
+        },
+        {
+          "old": "是某个竞争对手的武器",
+          "new": "是某个与我们竞争的文明的武器",
+          "basis": "misc.lua:735 a competing culture's weapon：原译丢失 culture（宿主全文复核补充）。"
+        },
+        {
+          "old": "而它似乎一般只会对那些",
+          "new": "而它往往只会对那些",
+          "basis": "misc.lua:733 it tends to only do that to people who...：原译“似乎”为原文没有的推测语气（宿主全文复核补充）。"
+        },
+        {
+          "old": "\n\n看。这就是问题的关键。",
+          "new": "\n\n听着。关键在于，",
+          "basis": "misc.lua:725 Look. The point is, ...：“看。”直译语病（二级，随同条修复）。"
+        }
+      ]
+    }
+  ],
+  "next_stages": [
+    "FINAL_REVIEW(3)"
+  ],
+  "structure_note": "RE_REVIEW 可为任意结果的中间阶段（ai_state_check.py:1003）；FINAL(1) 失败后已有更晚的 RE_REVIEW(2)，最终 FINAL(3) 成功即满足 v2 收敛；cycle 3 = max_cycles，若 FINAL(3) 出现一级 confirmed finding 则交回用户。",
+  "conflict_assessment": "与 F1 结论一致，无冲突。",
+  "senior_scope_audit_required": false
+}

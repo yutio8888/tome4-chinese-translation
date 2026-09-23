@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-10 fresh unique EXECUTOR R0, F1, and R2",
+  "scope": "5 frozen targets plus bounded executor evidence",
+  "repair_round": 2,
+  "confirmed_findings_applied": [
+    "R0-CHRONO-OMNIPOTENCE-TYRANNIES",
+    "R0-BLADESTORM-CONSTRUCT-TERM",
+    "F1-CHRONO-LETTER-WHOLE-ENTRY",
+    "R2-CHRONO-SHERTUL-SHIELD"
+  ],
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w10-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 5,
+        "changed_revisions": [
+          "eaacc62b76fcf99259afd5a9503a5d781d019aabbd5a574b060dd0ab83d4372b",
+          "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+          "eb509ae5feddd122d38bc3d5582be3bebe229872cf02b5a7e613395661b2f98f",
+          "eafab19df4d889cb91ad909c639f97ff4190bd602bf5e7dbf40e08a8781f293a",
+          "eb5c2ab3aa8096189932ae157832e572e2feb4932de587f716702ce8c9e03c81"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T062039.783607Z-1701371-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "manifest-compatible LuaJIT tools/lua/load_locale.lua mod-tome.lua, then inspect eb0868d5 target against ADJUDICATION-R2.json",
+      "exit_code": 0,
+      "result": {
+        "loaded_records": 22989,
+        "translation_records": 21688,
+        "matched_targets": 1,
+        "section": "mod-tome/data/lore/misc.lua",
+        "source_tag": "_t",
+        "newline_count": 14,
+        "tab_count": 0,
+        "markup_i_open_count": 1,
+        "markup_i_close_count": 1,
+        "new_counts": [1, 1, 1, 1, 1, 1],
+        "old_counts": [0, 0, 0, 0, 0, 0]
+      }
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w10-20260923/PREFLIGHT-BATCH256.json",
+      "path": "evidence/quality/repair-window-10-20260923/PREFLIGHT-BATCH256.json",
+      "sha256": "9fc392bf40eb32177dc7947ab8daf80501b1da0b0bf85bd95b99a7dafb4bfac8",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w10-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-10-20260923/HOST-WORKSET.json",
+      "sha256": "f68b095a9a491cdbcd71cd35880acefc55e8f4b2543299beddc8ab7a49566e02",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w10-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-10-20260923/SOURCE-ANCHORS.json",
+      "sha256": "9fb198ee41bb1d8a2d61c37dacfc2e15b619468ef59e02de974683697ada87fe",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the fresh unique EXECUTOR R0, F1, and R2 bounded-fix checks only; FINAL_REVIEW(3), full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

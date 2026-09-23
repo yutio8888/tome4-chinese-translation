@@ -1,0 +1,21 @@
+已完成 FINAL_REVIEW(1) 后的 F1 有界修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:18446)：仅对 `eb0868d5…` target 应用裁决中的 8 项精确替换。
+- [FIX-F1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/FIX-F1.md)：新增本轮记录。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/VALIDATION.json)：更新实际验证结果。
+
+验证全部通过：
+
+- `verify.py`：22,989 条记录，仅冻结 workset 的既有 5 个 target 相对基线变化。
+- strict lint：30,308 条翻译，0 errors、0 warnings。
+- strict claims：通过，`numeric=1 briefings=1 compositions=1 pending=1`。
+- `git diff --check`：通过。
+- LuaJIT 加载：成功；唯一匹配该 target。
+  - 8 个 `new`：各出现 1 次。
+  - 8 个 `old`：各出现 0 次。
+  - 换行数：14。
+  - TAB 数：0。
+
+其余四个 target 及前两轮内容保持不变。未修改 `.ai`、术语库、handoff 或其他译文；未创建 agent，未 stage、commit 或 push。无计划偏差或未解决问题。

@@ -1,0 +1,65 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "bounded_whole_entry_fix_then_RE_REVIEW_then_FINAL",
+  "findings": [
+    {
+      "id": "F1-CHRONO-LETTER-WHOLE-ENTRY",
+      "revision_key": "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity+newline",
+      "reason": "FINAL(1) reviewer 指出空行缺失、lucky enough 误译、status to maintain 泛化；宿主按 repair-whole-sentence 原则对照 misc.lua:719–736 全文逐句复核，另确认 non-existence、how many (if any)/how it works、as you see fit/when you actually conduct them、mostly cooperative 等同条忠实度缺陷与一处语病，一次性以精确替换修复，避免在最后一轮 FINAL 再出现同条遗漏。",
+      "replacements": [
+        {
+          "old": "一会儿谢。\n[i]-加尔萨麦[/i]",
+          "new": "回头再谢我吧。\n\n[i]-加尔萨麦[/i]",
+          "basis": "misc.lua:731–733 Thank me later. 与 [i]-Galsamae[/i] 之间为空行（\\n\\n），译文只有一个换行（源14/译13）；newline 不变量，同时 Thank me later 译为“回头再谢我吧”。"
+        },
+        {
+          "old": "你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。",
+          "new": "而你很幸运，你的上司懂得你需要的灵活性远超理想主义所能容许的程度。",
+          "basis": "misc.lua:725 you're lucky enough to be working for someone who understands that you need more flexibility than idealism allows：原译“同样的幸运”无据，主语关系错。"
+        },
+        {
+          "old": "我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。",
+          "new": "我们小队明白，想保持理智，就得知道什么时候“时间以每秒一秒的速度向前流逝”并不是我们唯一需要打破的规则。",
+          "basis": "misc.lua:725 同段：to stay sane, we have to know when ... isn't the only rule we have to break；原译句式杂糅、丢失“知道何时”。"
+        },
+        {
+          "old": "如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，",
+          "new": "而且，如果你已经预见到有罪判决，通常可以跳过审判，按你认为合适的方式处置那个危害时间线的混蛋——只要你真正着手调查时证据确凿就行（你也确实得偶尔亲自干活，否则你只会看到自己在拖延）。另外，",
+          "basis": "misc.lua:725 it's generally okay to skip the trial and just deal with a temporally hazardous jackass as you see fit, if you've foreseen a guilty verdict - as long as your investigations are solid when you actually conduct them：原译“潜在的罪犯”“可以被证明”偏离，丢 as you see fit 与 when you actually conduct them，且括号后缺句号。"
+        },
+        {
+          "old": "但他也有他要维持的东西。",
+          "new": "但他得维护自己的威望。",
+          "basis": "misc.lua:727 he has status to maintain：原译泛化为“要维持的东西”。"
+        },
+        {
+          "old": "如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，",
+          "new": "如果你仍不收手，终有一天他会不得不拿你杀一儆百，严厉到整个宇宙都会注意到你的不复存在。显然，我们没法确定他对我们中多少人这样做过（如果真有的话），也不知道这是怎么做到的，",
+          "basis": "misc.lua:727 If you do not stop, there will come a point where he will be forced to make an example of you so severe that the entire cosmos will notice your non-existence. Obviously we can't be sure how many of us he's done this to (if any) or how it works：原译添加“很快”、non-existence 误作“灭亡”、丢失 how many (if any) 与 how it works。"
+        },
+        {
+          "old": "尽管我们的能力被限制在于魔法大爆炸后的埃亚尔",
+          "new": "尽管我们的能力被限制在魔法大爆炸后的埃亚尔",
+          "basis": "misc.lua:721 bound to post-Spellblaze Eyal：“限制在于”为语病（二级，随整句修复）。"
+        },
+        {
+          "old": "到目前为止，它一直是……处在合作的状态。",
+          "new": "到目前为止，它……大体上还算合作。",
+          "basis": "misc.lua:735 So far it's been... mostly cooperative：原译丢失 mostly。"
+        }
+      ]
+    }
+  ],
+  "next_stages": [
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "conflict_assessment": "均为可对固定源码客观判定的一级缺陷（fidelity/newline），与 R0 结论不冲突。",
+  "senior_scope_audit_required": false
+}

@@ -1,0 +1,18 @@
+{
+  "title": "W10 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口10的5条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w10-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中5个target及evidence/quality/repair-window-10-20260923/。所有LF/TAB、source/tag/args_order/printf占位符/markup保持基线。按SOURCE-CLAIMS整句核对并恢复原义：Plate of the Blackened Mind 描述须体现 deep black、absorbs all light that touches it（吸收触及它的一切光线）、dark power（黑暗力量，不写“邪恶”）、primal, yet aware（原始却有意识），物品名不改；魔法大爆炸区域效果只把警告句改为确定语气“此地强大的魔法会反射传送魔法”，“区域效果：”前缀与抗性数值不动；时空特工入职信只修四处——a few decades（黄昏纪中的几十年）、\"fair game\"（可以随意下手、不受约束的时段，勿译“公平竞赛”）、cheat at a few lotteries（在几次彩票上作弊）、what is, quite literally, the best roast-yeti restaurant（字面意义上可能存在的最好的烤雪人餐厅），其余段落不动；刀刃风暴构造体 short_info 补主语“构造体”并写明每回合攻击所有相邻敌人；碾压擒抱解除提示改为“#Target#挣脱了碾压擒抱。”（现行效果名）。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w10-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check。报告只写允许evidence目录；保存PREFLIGHT-BATCH256.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w10-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,20 @@
+修复窗口 10 的证据发布与交接已完成。
+
+- 安装 265 项 orchestration 快照，共 2,180,474 字节，并逐项核验 SHA-256。
+- 逐字复制 5 个 catalog 文件及 migration；其中 3 个 catalog 文件与原文件相同。
+- 复制 18 个 publication 原始附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/PUBLICATION.md)。
+- 在 [pending-user-review.md](/workspace/tome4-chinese-translation/evidence/quality/pending-user-review.md) 追加第 11 项。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，记录 STOP、w10b 重跑结果及宿主后续步骤。
+- 新增 migration `dd5ed9ce…fc81.json`。
+
+验证结果：
+
+- 快照数量、总字节和逐项 SHA：通过
+- manifest、catalog、migration、publication 附件逐字比较：通过
+- UTF-8、空白和新增链接：通过
+- `git diff --check`：通过
+- `ai_state_check --target DONE`：`DONE_VERIFIED`
+- 暂存区为空
+
+未修改 Lua、术语、规则、工具、旧证据或 `.ai`；未重跑 queue/catalog/migration/门禁，未 stage、commit 或 push。原有无关未跟踪文件保持不变。

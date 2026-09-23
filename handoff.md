@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核256已完成；下一步修复窗口10，仅处理256的5条）
+更新时间：2026-09-23（修复窗口10已完成；待宿主发布收尾，随后审核257）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -70,6 +70,27 @@ lane-000-2 因 sandbox 失败经 Paseo 终端只读读取，终端已关闭）�
 时空特工入职信（几十年 / fair game / 彩票 / quite literally 四处）、刀刃风暴构造体 short_info、碾压擒抱解除提示。
 范围见 `.ai/task/batch-096b5470a753566196f9/WINDOW10-REPAIR-DECISION.json`；可复用窗口9b 模板，注意失败的 FINAL 之后必须接 RE_REVIEW。
 pending 新增第 8–10 项（Blunt Thrust、传说标题、Crystal Shard）。
+
+修复窗口10已完成。首轮 `repair-w10-20260923` 的 `REVIEW(0)/full`（`codex/gpt-6-sol`）为
+3 OK / 2 ISSUE，`FINAL(1)`（`claude/claude-opus-5-5`）为 4 OK / 1 ISSUE，
+`RE_REVIEW(2)` 为 4 OK / 1 ISSUE，`FINAL(3)` 为 4 OK / 1 ISSUE；确认修复长信的增译与遗漏、
+构装体术语、长信整条问题、Sher'Tul 护盾条件及“被我和”主语错误。因 `max_cycles=3` 用尽仍未
+收敛，任务按停止条件交回用户；用户选择以 `repair-w10b-20260923` 重跑，首轮以
+`STOP_VERIFIED` 关闭，原因保存在其 `STATE.last_error`。重跑由唯一 EXECUTOR 逐字应用
+`FINAL-TARGETS`（与 `CANDIDATE-FINAL` 逐字节一致），`REVIEW(0)/full` 为 4 OK / 1 ISSUE，
+其中长信 `reset and try again` 措辞观察由宿主判为 pending 并登记为第 11 项，不开启修复轮；
+`FINAL(1)/full` 为 5 OK。完整门禁 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。
+
+译文提交为 `a317634cd1be2102dce66e73a51cb36890b5068f`；新 catalog 为
+`0cec1688df3ca1c26258e28198f3716e5f380f00ece6024f5a30a369c83aeb5d`，migration 为
+`dd5ed9cefe8b85e6c255c7cfa49431e9b8d17e4b7e8774347123b62b25dbfc81`。迁移结果为
+5 条 revision_changed、29,823 条 unchanged、0 ambiguous/unmapped，5 个 successor 待重新审核，
+不继承 done。首轮 executor 与 reviewer、重跑 executor 与 2 个 reviewer 均已归档确认；本
+publication child 待宿主归档。完整结果见
+[窗口10出版证据](evidence/quality/repair-window-10-20260923/PUBLICATION.md)。
+
+下一步由宿主完成本证据提交、第二次 queue rebuild 和 push；这些步骤尚未完成。随后继续审核257
+（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

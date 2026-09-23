@@ -1,0 +1,18 @@
+修复完成，仅对 `eb0868d5` 的 target 应用 R2 裁决中的 6 项精确替换。
+
+变更文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:18460)
+- [FIX-R2.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/FIX-R2.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/VALIDATION.json)
+
+验证结果全部通过：
+
+- 窗口 verifier：22,989 records，仍仅基线中的 5 个冻结 target 有变化
+- strict lint：30,308 translations，0 errors，0 warnings
+- strict claims：numeric=1、briefings=1、compositions=1、pending=1
+- `git diff --check`：通过
+- LuaJIT：唯一命中目标；6 个 new 各 1 次、6 个 old 均 0 次；换行数 14、TAB 0、`[i]`/`[/i]` 各 1
+- `VALIDATION.json`：JSON 校验通过
+
+其余四条 target 和前轮内容未改。未修改 `.ai`、规则、工具、术语库或 handoff；未创建 agent，未 stage、commit 或 push。无计划偏差或未解决问题。

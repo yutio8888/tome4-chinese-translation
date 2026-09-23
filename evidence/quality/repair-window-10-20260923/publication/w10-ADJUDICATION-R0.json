@@ -1,0 +1,28 @@
+{
+  "cycle": 0,
+  "raw_ok_count": 3,
+  "raw_issue_count": 2,
+  "decision": "single_bounded_fix_then_final_full",
+  "findings": [
+    {
+      "id": "R0-CHRONO-OMNIPOTENCE-TYRANNIES",
+      "revision_key": "eb0868d54cceb1fe91ec45de453b482ca64cb324c275e44b48ac5a8bf812cdc1",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "lore/misc.lua:721–723（624a6732）：they are those of nigh-omnipotence with enough patience 被译为“我们将可以无所不知，无所不能”，添加原文没有的“无所不知”并删去 nigh（接近）；an Age of Dusk-era house-of-cards system of causally interdependent tyrannies 被译为“黄昏纪暴君你方唱罢我登场的政治游戏”，丢失各暴政因果相互依存、牵一发而动全身的纸牌屋结构。同条整句核对遗漏，确认修复。",
+      "resolution": "只改这两处：“无所不知，无所不能”→接近全能（如“近乎无所不能”）；“暴君你方唱罢我登场的政治游戏”→体现黄昏纪时代由因果相互依存的暴政构成、如纸牌屋般脆弱的体系。窗口10首轮已改的四处保持。"
+    },
+    {
+      "id": "R0-BLADESTORM-CONSTRUCT-TERM",
+      "revision_key": "eb509ae5feddd122d38bc3d5582be3bebe229872cf02b5a7e613395661b2f98f",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "traps.lua:392–395 bladestorm construct 为 type=\"construct\"；terminology/creatures.tsv:4 construct=构装体（T.GAME.ENTITY，preferred，global），本轮新增主语“构造体”与术语不一致。",
+      "resolution": "“构造体”→“构装体”，其余不变。"
+    }
+  ],
+  "conflict_assessment": "两条均为可对固定源码/术语库客观判定的一级缺陷，无冲突。",
+  "senior_scope_audit_required": false
+}

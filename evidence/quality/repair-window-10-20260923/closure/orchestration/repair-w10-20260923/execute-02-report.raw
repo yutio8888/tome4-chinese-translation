@@ -1,0 +1,22 @@
+已完成窗口 10 第 1 轮有界修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:18460)
+  - 改为“近乎无所不能”，删除“无所不知”。
+  - 改为“黄昏纪那套由因果相互依存的暴政搭成的纸牌屋体系”，并调整句子衔接。
+  - 首轮四处修复保持不变。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:23739)
+  - “构造体”改为术语库 preferred 译名“构装体”，其余不变。
+- 新增 [FIX-R0.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/FIX-R0.md)。
+- 更新 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-10-20260923/VALIDATION.json)。
+
+固定 commit 源码已只读核对。验证结果：
+
+- `verify.py`：通过，`verified=true`，22989 条记录，仍恰好 5 个冻结 revision 变化。
+- `tools/i18n lint --strict`：通过，30308 条，0 errors、0 warnings。
+- `tools/i18n claims check ... --strict`：通过。
+- `git diff --check`：通过。
+- `VALIDATION.json` 语法检查：通过。
+
+未修改 `.ai`、术语库、规则、工具或 handoff；未创建 agent，未 stage、commit 或 push。既有无关未跟踪文件保持未动。无计划偏差或遗留问题。
