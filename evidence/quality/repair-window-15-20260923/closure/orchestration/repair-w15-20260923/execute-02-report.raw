@@ -1,0 +1,17 @@
+已完成 FINAL_REVIEW(1) 后的有界修复。
+
+- 修改 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:17823)：
+  - 修正夏·图尔段的推测范围。
+  - 修正众神冲突及两种结局的逻辑关系。
+  - 补回“如今所见”，并修正后续推定语气和受事关系。
+  - 前七段、另一条 target、段落换行均未改动。
+- 新增 [FIX-F1.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-15-20260923/FIX-F1.md)，记录源码依据、修改前后和检查结果。
+
+检查全部通过：
+
+- `verify.py`：`verified: true`，22989 条记录，仍恰有冻结 workset 的 2 个 revision 变更。
+- 严格 lint：30308 条翻译，0 errors，0 warnings。
+- claims strict：通过。
+- `git diff --check`：通过。
+
+未修改 `.ai`、规则、工具、术语库或 handoff/catalog/migration；未 stage、commit、push；无关 untracked 文件保持原状。无未解决问题。

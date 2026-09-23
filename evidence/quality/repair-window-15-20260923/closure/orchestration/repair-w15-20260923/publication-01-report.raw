@@ -1,0 +1,19 @@
+修复窗口 15 的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK-MANIFEST 的 160 个冻结快照，并复制清单。
+- 逐字安装 5 个 catalog 候选文件；其中 `entries.jsonl`、`manifest.json` 产生变更，其余与现有文件相同。
+- 安装 migration `de68e389…25d71.json`。
+- 复制 16 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-15-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，记录窗口 15 结果，并明确证据提交、第二次 queue rebuild、push 尚待宿主执行。
+
+验证结果：
+
+- 160 个快照逐项 `cmp`、SHA-256、字节数全部匹配。
+- PACK-MANIFEST、catalog、migration、16 个附件均逐字一致。
+- UTF-8、尾随空白、最终换行和本地链接检查通过。
+- 只读状态检查返回：`DONE_VERIFIED: DONE predicate verified`。
+- 未修改 Lua、术语、规则、工具、`.ai`、旧证据或 `pending-user-review.md`。
+- 未运行 queue/catalog/migration/门禁，未 stage、commit 或 push。

@@ -1,0 +1,18 @@
+{
+  "title": "W15 execute-02 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，执行修复窗口15 FINAL_REVIEW(1) 后的有界修复（fresh run）。先读 .ai/roles/executor.md、.ai/task/repair-w15-20260923/SPEC.md 与 ADJUDICATION-F1.json（只执行 status=confirmed 的一项）。只改 mod-tome.lua 中半身人创世论条（revision f0d4b3e8f3）target 的最后两段（对应 lore/misc.lua:232 夏·图尔段与 234 众神去向段）：232 段 One must presume that our god made this race before us, but was somehow unhappy with them, and so removed them and made us instead 写成“只能推测我们的神在我们之前创造了这个种族，却不知为何对他们不满，于是将其移除、改而创造了我们”之意（推测语气，不满是推测内容中的事实，不写“肯定”“可能不满”）；234 段 One must presume strife between them, and that they killed themselves, or took their battle away from the world 写成“推定众神之间发生了冲突，结局要么同归于尽，要么把战斗带离了这个世界”之意（冲突是前提，后两者二选一）。这两段其余句子也逐句对照原文（git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua），凡把推测说成断言、把断言说成推测、增删原文信息之处一并修正；已忠实的句子不改。前七段与另一条 target 不动，段落换行保持，专名沿用本库现有译名。修改后运行 python3 -B .ai/task/repair-w15-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict 与 git diff --check，并在 evidence/quality/repair-window-15-20260923/FIX-F1.md 记录修改前后与检查结果。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w15-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

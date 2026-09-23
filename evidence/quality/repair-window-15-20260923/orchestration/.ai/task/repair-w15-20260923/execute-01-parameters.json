@@ -1,0 +1,18 @@
+{
+  "title": "W15 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口15的2条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w15-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中2个target及evidence/quality/repair-window-15-20260923/。所有LF/TAB、段落换行、source/tag/args_order/printf占位符/markup保持基线。专名沿用本库现有译名（先在mod-tome.lua查证），不自行新造。按SOURCE-CLAIMS整句核对并恢复原义：半身人创世论中 other gods were responsible, lesser gods than our own which copied his grand design 写成“是别的神明造了他们——比我们的神低等、模仿其宏伟设计的次等神明”之意，不得写“负责/尽职”；fudging fingers and inelegant touches 句保持手法拙劣、远逊于造就我们的精妙与完美之意；ridiculous ideals 为“可笑的理想/观念”而非“形象”；our natural feelings of entitlement to all there is in Maj'Eyal must stem from this 写成“我们天生觉得马基·埃亚尔的一切理应归我们所有，这种感受必定源于此”之意（心态而非既成权利，保留讽刺）；其余段落逐句对照，发现明显增删一并修正，但不重写已忠实的句子。紧急召回提示 vowing to come back later 写成“发誓日后再回来”一类，删去原文没有的“救他”，保留 #GOLD#。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w15-20260923/verify.py、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check。报告只写允许evidence目录；保存PREFLIGHT-BATCH261.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w15-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

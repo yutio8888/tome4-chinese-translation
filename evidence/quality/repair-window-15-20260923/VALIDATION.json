@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-15 unique EXECUTOR",
+  "scope": "2 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w15-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 2,
+        "changed_revisions": [
+          "f0d4b3e8f3bbab1a94fc6884d4dbc22c33995f7299f5c2d2a6d633bb2d439db1",
+          "f0fdd62c2dc20a721d69dfee55933eee707f797a78591ff961797ae99a5e61c6"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260923T142609.181278Z-3974922-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w15-20260923/PREFLIGHT-BATCH261.json",
+      "path": "evidence/quality/repair-window-15-20260923/PREFLIGHT-BATCH261.json",
+      "sha256": "676ca1a50ad4bd2b6ffd4955d6943bb693fe1784d22122a2c35fd342810ad6f9",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w15-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-15-20260923/HOST-WORKSET.json",
+      "sha256": "78b09fc8e98c9d9fef71965aff9c2b5a3a7517594b12f54cf9c70621e803da69",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w15-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-15-20260923/SOURCE-ANCHORS.json",
+      "sha256": "59d2dd363cf0163fc798cf27ad1419cbf9e01611863b6bd9ac8e88c8d8612bf9",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

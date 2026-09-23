@@ -1,0 +1,16 @@
+修复窗口 15 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:17793)：修复半身人创世论指定误译及逐句核对出的明显增删，保持 9 个段落边界与专名。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:38666)：改为“发誓日后再回来”，删除无原文依据的“救他”，保留 `#GOLD#`。
+- 已生成 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-15-20260923/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-15-20260923/VALIDATION.json)。
+- `PREFLIGHT-BATCH261.json`、`HOST-WORKSET.json`、`SOURCE-ANCHORS.json` 均为逐字节一致副本。
+
+检查全部通过：
+
+- 专用验证：22,989 条记录中恰有 2 个 target 变化。
+- 严格 lint：30,308 条，0 errors、0 warnings。
+- 严格 claims check：通过。
+- `git diff --check`：通过。
+- 未 stage、commit 或 push；未触碰 `.ai`、规则、工具、术语库、handoff/catalog/migration，无关 untracked 均保留。
+
+完整门禁、独立 REVIEW/FINAL_REVIEW、严格构建及 `DONE_VERIFIED` 仍由宿主继续。

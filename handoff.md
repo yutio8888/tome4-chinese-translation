@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核261已完成；下一步修复窗口15，仅处理261的2条）
+更新时间：2026-09-23（修复窗口15已完成；待宿主发布收尾，随后审核262）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -213,6 +213,26 @@ surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；harvest 前逐位比对�
 下一步按 1:1 节奏开修复窗口15，仅处理 261 的 2 条：半身人创世论（other gods were responsible / ridiculous ideals / entitlement）、
 半身人遗迹紧急召回提示多出“救他”。范围见 `.ai/task/batch-b1809d747f471912638d/WINDOW15-REPAIR-DECISION.json`；
 `setup_window15_task.py` 已写好（continuation-20260923），可复用窗口14 helper，失败的 FINAL 之后必须接 RE_REVIEW。
+
+修复窗口15已完成。任务 `repair-w15-20260923` 的 `execute-01`（`codex/gpt-5.6-sol`）实施审核261的
+2条确认项：半身人创世论逐句修正 `other gods were responsible`、漏译的
+`lesser gods copied his grand design`、`ridiculous ideals`、`entitlement` 及其余明显增删；
+半身人遗迹紧急召回提示删除原文没有的“救他”，改为“发誓日后再回来”。
+`REVIEW(0)/full`（`codex/gpt-6-sol`）为 2 OK；`FINAL(1)/full`
+（`claude-opus-5-5`）为 1 OK / 1 ISSUE，确认 `F1-LORE-PRESUME-LOGIC`：第 232 行夏·图尔段
+推测语气颠倒、第 234 行众神冲突前提被降为并列选项；`execute-02` 有界修复末两段。
+`RE_REVIEW(2)`（`gpt-6-sol`）与 `FINAL(3)/full`（`claude-opus-5-5`）均为 2 OK，任务收敛。
+完整门禁 17/17 通过并含严格构建，任务 `DONE_VERIFIED`。2 个 executor 与 4 个 reviewer 均已归档确认；
+本 publication child 待宿主归档。
+
+译文提交为 `a039ff12c97f0c2f5071f7111442b17b465166f3`；新 catalog 为
+`f4d10da25eb9e968b74997635ef6bcb09cdaf25095caef96a3f220db494c660b`，migration 为
+`de68e389782940517c064da7cdaaa19d6207e7dc1da4c1ca4dc5728b05e25d71`。迁移结果为
+2 条 revision changed、29,826 条 unchanged、0 ambiguous/unmapped，2 个 successor 待重新审核，
+不继承 done。完整结果见[窗口15出版证据](evidence/quality/repair-window-15-20260923/PUBLICATION.md)。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 和 push；完成后继续审核262（默认80条）。
+这些后续步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

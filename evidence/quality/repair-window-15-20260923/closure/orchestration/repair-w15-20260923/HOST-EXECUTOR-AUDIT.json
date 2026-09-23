@@ -1,0 +1,42 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 21,
+      "native_calls_sha256": "afc9d14acd85f9cbba1b5e68a442b4dc90d3b232f5a56294ace36743d3cb10c9",
+      "writes": [
+        "mod-tome.lua (2 targets via apply_patch, verify.py PASS)",
+        "evidence/quality/repair-window-15-20260923/* (cp of frozen inputs, one truncate to restore byte-exact copy after an apply_patch attempt, host sha verified; apply_patch add of IMPLEMENTATION.md/VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream lore/misc.lua and halfling-ruins/npcs.lua via git show",
+        "window 9 evidence format"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true,
+      "host_note": "lore rewrite keeps established names (夏·图尔, 马基·埃亚尔, 永恒精灵/自然精灵, 远行传送门 = library preferred farportal term); also corrected elves/humans/gods paragraphs and Sher'Tul farportal sentence found by whole-entry comparison, within SPEC scope"
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "f6c508ff9574a9859143b716bde620f6d2d3444839a54ed15eadf5d94949c0c0",
+      "writes": [
+        "mod-tome.lua (f0d4b3e8f3 last two paragraphs: presume scope at lore 232, strife premise + two outcomes at 234, verify.py PASS)",
+        "evidence/quality/repair-window-15-20260923/FIX-F1.md"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua target and diff",
+        "own window evidence"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}
