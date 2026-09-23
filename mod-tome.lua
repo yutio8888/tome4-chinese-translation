@@ -11625,7 +11625,7 @@ t("This orb will automatically identify items you find.", "这颗水晶球会自
 t("Rod of Recall", "回归之杖", "entity name")
 t("unstable rod", "不稳定的魔杖", "_t")
 t([[This rod is made entirely of voratun, infused with raw magical energies that can bend space itself.
-You have heard of such items before. They are very useful to adventurers, allowing faster travel.]], "这个法杖通体用沃瑞钽打造，充满了可以撕裂空间的奥术能量。你以前曾听说过此类物品。它们对于冒险者的快速旅行非常有帮助。", "_t")
+You have heard of such items before. They are very useful to adventurers, allowing faster travel.]], "这根魔杖通体用沃瑞钽打造，充满了可以扭曲空间的原始魔法能量。\n你以前曾听说过此类物品。它们对于冒险者的快速旅行非常有帮助。", "_t")
 t("recall the user to the worldmap after 40 turns", "传送至世界地图（等待40回合）", "_t")
 t("The rod emits a strange noise, glows briefly and returns to normal.", "法杖发出奇怪的响声，闪了下光又恢复了正常。", "logPlayer")
 t("Space around you starts to dissolve...", "你周围的空间开始消解……", "logPlayer")
@@ -13311,7 +13311,7 @@ t("The blade glows faintly blue, and reflects a sky full of stormy clouds.", "�
 t("inflicts either shocked or wet, chosen at random", "随机造成震撼或浸湿效果。", "_t")
 t("Eye of Summer", "夏日之眼", "entity name")
 t("warm mindstar", "温暖的灵晶", "_t")
-t("This mindstar glows with a bright warm light, but seems somehow incomplete.", "这个灵晶散发着温暖的微光，但似乎有点残缺。", "_t")
+t("This mindstar glows with a bright warm light, but seems somehow incomplete.", "这个灵晶散发着明亮温暖的光，但似乎有点残缺。", "_t")
 t("Nature requires balance in these matters.", "自然在这些事上需要平衡。", "_t")
 t("#GREEN#You feel the seasons in perfect balance.", "#GREEN#你感受到四季进入了完美的平衡。", "logSeen")
 t("#GREEN#The seasons no longer feel balanced.", "#GREEN#四季不再平衡。", "logPlayer")
@@ -23528,12 +23528,12 @@ t([[Enters stealth mode (power %d, based on Cunning), making you harder to detec
 
 		Enemies uncertain of your location will still make educated guesses at it.
 		While stealthed, enemies cannot share information about your location with each other and will be delayed in telling their allies that you exist at all.]], [[进入潜行模式（潜行点数 %d，基于灵巧），让你更难被侦测到。
-		如果成功（每回合都重新检查），敌人将不会知道你在哪里，或者根本不会注意到你。
+		如果成功（每回合都重新检查），敌人将无法确切知道你的位置，甚至可能根本注意不到你。
 		潜行将光照半径减小至 0，增加3点夜视能力，并且不能在装备重甲或板甲时使用。
-		如果敌人在半径 %d %s 内，你不能进入潜行。
-		除非特别说明，任何非瞬间非移动技能均会打破潜行。
+		如果半径 %d %s 内有能看见你的敌人，你不能进入潜行。
+		除非特别说明，任何非瞬间非移动行动均会打破潜行。
 
-		即使不知道你位置的敌人，仍然会猜测你可能在的位置。
+		不确定你位置的敌人仍会有根据地推测你的位置。
 		潜行时，敌人无法彼此分享有关你所在位置的信息，并且会延迟向盟友通报你的存在。]], "tformat")
 t("Shadowstrike", "影袭", "talent name")
 t([[You know how to make the most out of being unseen.
@@ -29361,7 +29361,7 @@ t([[As you learn to tiptoe across the veil of death you learn to master the dark
 t("Runeskin", "符文皮肤", "talent name")
 t("effects disabled because of an infusion", "由于纹身，效果被禁用", "_t")
 t("effects disabled because of no rune", "由于没有符文，效果被禁用", "_t")
-t("%d runes active", "有 %d 个符文", "tformat")
+t("%d runes active", "%d 个符文生效中", "tformat")
 t([[As you continue to attune your body to undeath you reject nature as a whole.
 		As long as you have no natural infusion on your skin, each rune on it increases your minimum negative life by -%d and your spells critical chance by %0.1f%%.
 
@@ -34343,7 +34343,7 @@ Features:
 
 
 Class evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class.
-]], [[你仅用射线法术、不使用其他技能杀死了一个boss，展示了你对这类法术的深入理解。
+]], [[你仅用射线法术、不借助其他任何手段杀死了一个boss，展示了你对这类法术的深入理解。
 
 你解锁了元素法师的#LIGHT_GREEN#高阶奇术师#WHITE#职业进阶。
 
