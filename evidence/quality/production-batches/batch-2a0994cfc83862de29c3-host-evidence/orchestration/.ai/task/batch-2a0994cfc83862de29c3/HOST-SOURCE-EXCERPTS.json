@@ -1,0 +1,5037 @@
+[
+  {
+    "entry_revision_identity": "43d066173b29e7b6b99478f53b6dc39461ae904a1ac51e97b7927660c7475ba1",
+    "public_source_path": "game/modules/tome/dialogs/orders/Behavior.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": "\t\t{name=_t\"Ranged\", set=\"ranged\"},"
+      },
+      {
+        "line": 60,
+        "text": "\t\t{name=_t\"Tank\", set=\"tank\"},"
+      },
+      {
+        "line": 61,
+        "text": "\t\t{name=_t\"Standby\", set=\"standby\"},"
+      },
+      {
+        "line": 62,
+        "text": "\t}"
+      },
+      {
+        "line": 63,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "95936a9e6ac6280251a9f8b259bbfb0ffd1421e1d57875bdb90442258bd05659",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 767,
+        "text": "\tcategory = \"boss\","
+      },
+      {
+        "line": 768,
+        "text": "\tname = _t\"Z'quikzshl\","
+      },
+      {
+        "line": 769,
+        "text": "\tlore = _t[[#{italic}#(The handwriting of this diary entry is poor at best. Whoever wrote this was in poor health.)"
+      },
+      {
+        "line": 770,
+        "text": ""
+      },
+      {
+        "line": 771,
+        "text": "#{bold}#53rd Allure, Year 603 of the Age of Pyre#{normal}#"
+      },
+      {
+        "line": 772,
+        "text": ""
+      },
+      {
+        "line": 773,
+        "text": "I have done it! My fool of a master said I was not ready for the rites of lichdom, that I would attract undue attention... what utter idiocy. Already I can feel the transformation taking place, and I am certain that this weakness will only be momentary. My master was foolish to leave the Grimoire of Mortality Transcended open and unattended! All I needed was a bone from a magical creature, and as luck would have it, I had found a skeletal corpse of a dragon not far from our tower. The other ingredients were trivial and in possession of my master... surely he will be astounded that I, Zilquick the Eternal, will have transcended mortality!"
+      },
+      {
+        "line": 774,
+        "text": ""
+      },
+      {
+        "line": 775,
+        "text": "(Another entry is written beneath this one, in a much more elegant and controlled script.)"
+      },
+      {
+        "line": 776,
+        "text": ""
+      },
+      {
+        "line": 777,
+        "text": "Zilquick the Eternal, hah! What an unbearable buffoon, and I am glad his pride was his undoing. The young fool used up the Ruby of Eldoral in creating his phylactery, however; I must acquire a new phylactery for myself. On the bright side, my incompetent apprentice did illustrate why a bone from a creature slain by my own hand is important: the dragon bone he chose had left to fester a mold infection, and the mold somehow infused itself with the bone's inherent magical properties, altering the magical composition of the spell. I do hope whoever finds this note shall kill this \"lich\" using the most painful means available, and shall deposit him someplace where he is sure to be found."
+      },
+      {
+        "line": 778,
+        "text": "Oh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl.]]"
+      },
+      {
+        "line": 779,
+        "text": "}"
+      },
+      {
+        "line": 780,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ee05a647f739b27548162676ad25000a504130985ae20d6a8708c3e2311fdc19",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1499,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 1500,
+        "text": "\tparameters = { power=1 },"
+      },
+      {
+        "line": 1501,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is being crushed.\", _t\"+Crushing Hold\" end,"
+      },
+      {
+        "line": 1502,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# has escaped the crushing hold.\", _t\"-Crushing Hold\" end,"
+      },
+      {
+        "line": 1503,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 1874,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 1875,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 1876,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is being crushed.\", _t\"+Imploding\" end,"
+      },
+      {
+        "line": 1877,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# shakes off the crushing forces.\", _t\"-Imploding\" end,"
+      },
+      {
+        "line": 1878,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f46ac022cf9d60e5eaf456df8a03b4e0ca648f4355200fa261501017d51c9f84",
+    "public_source_path": "game/modules/tome/data/zones/dreams/zone.lua",
+    "lines": [
+      {
+        "line": 296,
+        "text": "\t\tgame.paused = true"
+      },
+      {
+        "line": 297,
+        "text": "\t\tgame.player:updateMainShader()"
+      },
+      {
+        "line": 298,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Deep slumber...\", t.msg, 600)"
+      },
+      {
+        "line": 299,
+        "text": "\tend,"
+      },
+      {
+        "line": 300,
+        "text": "\tleave_dreams = function(self, msg, dream)"
+      },
+      {
+        "line": 314,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 315,
+        "text": "\t\t\tif self.success and danger then"
+      },
+      {
+        "line": 316,
+        "text": "\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Deep slumber...\", msg, 600)"
+      },
+      {
+        "line": 317,
+        "text": "\t\t\t\tgame.logPlayer(game.player, msg:gsub(\"\\n\", \" \"))"
+      },
+      {
+        "line": 318,
+        "text": "\t\t\t\tgame.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})"
+      },
+      {
+        "line": 321,
+        "text": "Poisonous fumes take their toll on your body!]]"
+      },
+      {
+        "line": 322,
+        "text": "\t\t\t\tgame.logPlayer(game.player)"
+      },
+      {
+        "line": 323,
+        "text": "\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Deep slumber...\", msg, 600)"
+      },
+      {
+        "line": 324,
+        "text": "\t\t\t\tlocal hit = math.max(0, game.player.life * 2 / 3)"
+      },
+      {
+        "line": 325,
+        "text": "\t\t\t\tgame:onTickEnd(game.player:setEffect(game.player.EFF_DEATH_DREAM, 4, {power=hit/4}))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f46e198b357092e939aa9765e685b367bf0f70842d31ebc4908010f29caa897d",
+    "public_source_path": "game/modules/tome/dialogs/CharacterSheet.lua",
+    "lines": [
+      {
+        "line": 768,
+        "text": "\t\ttext = compare_fields(player, actor_to_compare, function(actor) return actor:combatSeeStealth() end, \"%.1f\", \"%+.1f\")"
+      },
+      {
+        "line": 769,
+        "text": "\t\tif text then"
+      },
+      {
+        "line": 770,
+        "text": "\t\t\tself:mouseTooltip(self.TOOLTIP_VISION_SEE_STEALTH,  s:drawColorStringBlended(self.font, (\"See stealth    : #00ff00#%s\"):tformat(text), w, h, 255, 255, 255, true)) h = h + self.font_h"
+      },
+      {
+        "line": 771,
+        "text": "\t\tend"
+      },
+      {
+        "line": 772,
+        "text": "\t\ttext = compare_fields(player, actor_to_compare, \"invisible\", \"%.1f\", \"%+.1f\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f471c037a2afba6c79d5a02631a012e998e9b0cab8caab6485033b9a4a723312",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/cloak.lua",
+    "lines": [
+      {
+        "line": 319,
+        "text": "newEntity{"
+      },
+      {
+        "line": 320,
+        "text": "\tpower_source = {technique=true},"
+      },
+      {
+        "line": 321,
+        "text": "\tname = \"murderer's \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 322,
+        "text": "\tkeywords = {murderer=true},"
+      },
+      {
+        "line": 323,
+        "text": "\tlevel_range = {10, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f472f00868d579e20cdcdbfd5f5c98ea2f93f596c7c57a9c7e7ad5068247292a",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/anomalies.lua",
+    "lines": [
+      {
+        "line": 1369,
+        "text": "\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t)}"
+      },
+      {
+        "line": 1370,
+        "text": "\tend,"
+      },
+      {
+        "line": 1371,
+        "text": "\tmessage = _t\"@Source@ crumbles the resistances of several targets.\","
+      },
+      {
+        "line": 1372,
+        "text": "\tdoAction = function(self, t, cancellable)"
+      },
+      {
+        "line": 1373,
+        "text": "\t\tlocal tg = self:getTalentTarget(t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4754d3cfb3fe41979a96ea2fa4fad855be7ec6539af94a434ed0dd221cc4ebe",
+    "public_source_path": "game/modules/tome/data/talents/psionic/psi-archery.lua",
+    "lines": [
+      {
+        "line": 236,
+        "text": "\t\t\tself:attr(\"use_psi_combat \", -1)"
+      },
+      {
+        "line": 237,
+        "text": "\t\tend"
+      },
+      {
+        "line": 238,
+        "text": "\t\treturn ([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack a target each turn for %d turns."
+      },
+      {
+        "line": 239,
+        "text": "\t\t\tThe telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage."
+      },
+      {
+        "line": 240,
+        "text": "\t\tCombat stats:"
+      },
+      {
+        "line": 241,
+        "text": "\t\tAccuracy: %d"
+      },
+      {
+        "line": 242,
+        "text": "\t\tDamage: %d"
+      },
+      {
+        "line": 243,
+        "text": "\t\tAPR: %d"
+      },
+      {
+        "line": 244,
+        "text": "\t\tCrit: %0.2f"
+      },
+      {
+        "line": 245,
+        "text": "\t\tSpeed: %0.2f]]):"
+      },
+      {
+        "line": 246,
+        "text": "\t\ttformat(duration, atk, dam, apr, crit, speed)"
+      },
+      {
+        "line": 247,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4765ec95527516db4bb3413af3a7dc1e8bd44837acad5302b4ddf0395e4ca2a",
+    "public_source_path": "game/modules/tome/data/talents/gifts/gifts.lua",
+    "lines": [
+      {
+        "line": 32,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/fire-drake\", name = _t(\"fire drake aspect\", \"talent type\"), description = _t\"Take on the defining aspects of a Fire Drake.\" }"
+      },
+      {
+        "line": 33,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/cold-drake\", name = _t(\"cold drake aspect\", \"talent type\"), description = _t\"Take on the defining aspects of a Cold Drake.\" }"
+      },
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/storm-drake\", name = _t(\"storm drake aspect\", \"talent type\"), description = _t\"Take on the defining aspects of a Storm Drake.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/venom-drake\", name = _t(\"venom drake aspect\", \"talent type\"), description = _t\"Take on the defining aspects of a Venom Drake.\" }"
+      },
+      {
+        "line": 36,
+        "text": "newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/higher-draconic\", name = _t(\"higher draconic abilities\", \"talent type\"), description = _t\"Take on the aspects of aged and powerful dragons.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f476bba35841a5262746fa4f5a723839ce2ac5f1a9a35593a45ac72d46e5fba0",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/belt.lua",
+    "lines": [
+      {
+        "line": 454,
+        "text": "newEntity{"
+      },
+      {
+        "line": 455,
+        "text": "\tpower_source = {technique=true},"
+      },
+      {
+        "line": 456,
+        "text": "\tname = \"noble's \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 457,
+        "text": "\tkeywords = {noble=true},"
+      },
+      {
+        "line": 458,
+        "text": "\tlevel_range = {10, 50},"
+      },
+      {
+        "line": 459,
+        "text": "\tgreater_ego = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f477bd1b90a1f0334bc7203fd0acb8542632a46b333cfd5ff0840fa8fbe96383",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/weapon.lua",
+    "lines": [
+      {
+        "line": 333,
+        "text": "\tpower_source = {arcane=true},"
+      },
+      {
+        "line": 334,
+        "text": "\tname = \" of phasing\", suffix=true, instant_resolve=true,"
+      },
+      {
+        "line": 335,
+        "text": "\tkeywords = {phase=true},"
+      },
+      {
+        "line": 336,
+        "text": "\tlevel_range = {1, 50},"
+      },
+      {
+        "line": 337,
+        "text": "\trarity = 15,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4807dcf9fdf7d0cce5e80fd38a4e2e8db0713620a4cfaa4b4fad69dc7398b44",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 51,
+        "text": "newEffect{"
+      },
+      {
+        "line": 52,
+        "text": "\tname = \"ITEM_NUMBING_DARKNESS\", image = \"effects/bane_blinded.png\","
+      },
+      {
+        "line": 53,
+        "text": "\tdesc = _t\"Numbing Darkness\","
+      },
+      {
+        "line": 54,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is losing hope, all damage it does is reduced by %d%%.\"):tformat(eff.reduce) end,"
+      },
+      {
+        "line": 55,
+        "text": "\tcharges = function(self, eff) return (tostring(math.floor(eff.reduce))) end,"
+      },
+      {
+        "line": 58,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 59,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 60,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is weakened by the darkness!\", _t\"+Numbing Darkness\" end,"
+      },
+      {
+        "line": 61,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# regains their energy.\", _t\"-Numbing Darkness\" end,"
+      },
+      {
+        "line": 62,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 63,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f481a3f5d43b2b862fd338dd8c8ce1ce8d99639ed792c50e2fdb440456a9dc9b",
+    "public_source_path": "game/modules/tome/data/general/npcs/plant.lua",
+    "lines": [
+      {
+        "line": 27,
+        "text": "\tdisplay = \"#\", color=colors.WHITE,"
+      },
+      {
+        "line": 28,
+        "text": "\tblood_color = colors.GREEN,"
+      },
+      {
+        "line": 29,
+        "text": "\tdesc = _t\"A not-so-strange growth on the dungeon floor.\","
+      },
+      {
+        "line": 30,
+        "text": "\tbody = { INVEN = 10 },"
+      },
+      {
+        "line": 31,
+        "text": "\tautolevel = \"warrior\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4883a6cb5669caea73a21dc23fe6218e9aa959fd2824395311cc14f41cfbbcf",
+    "public_source_path": "game/modules/tome/dialogs/debug/RandomActor.lua",
+    "lines": [
+      {
+        "line": 311,
+        "text": "\t\t\t\td.changed = true"
+      },
+      {
+        "line": 312,
+        "text": "\t\t\telse"
+      },
+      {
+        "line": 313,
+        "text": "\t\t\t\tgame.log(\"#LIGHT_BLUE#No actor to Lua inspect\")"
+      },
+      {
+        "line": 314,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 315,
+        "text": "\t\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f48892f819356d2ab670ff78e14df012f263a4d95ef37a16fddc1a1bd29bbcad",
+    "public_source_path": "game/modules/tome/data/texts/tutorial/stats-scale/scale1.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[["
+      },
+      {
+        "line": 21,
+        "text": "As you can see, the #GOLD#combat stat#WHITE# scores are displayed in two columns with offensive #GOLD#combat stats#WHITE# to the left and defensive #GOLD#combat stats#WHITE# to the right. "
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "The displayed numbers are color coded according to their value."
+      },
+      {
+        "line": 24,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f48cba410cd5683d163cd0b1d775fd09add533b7bff27b00f9526c6e2438d045",
+    "public_source_path": "game/modules/tome/data/zones/tutorial-combat-stats/grids.lua",
+    "lines": [
+      {
+        "line": 288,
+        "text": "\t\t\tactor:learnTalent(game.player.T_TUTORIAL_MIND_KB, true, 1)"
+      },
+      {
+        "line": 289,
+        "text": "\t\t\tgame.level.map:particleEmitter(x, y, 1, \"teleport\")"
+      },
+      {
+        "line": 290,
+        "text": "\t\t\tgame.logPlayer(actor, \"#VIOLET#You have learned the talent Telekinetic Punt.\")"
+      },
+      {
+        "line": 291,
+        "text": "\t\t\tif actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then"
+      },
+      {
+        "line": 292,
+        "text": "\t\t\t\tactor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f48e19869edc2d51086d0c25d0f2c440a7eb378cc13728f6d54125da217ea83a",
+    "public_source_path": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+    "lines": [
+      {
+        "line": 81,
+        "text": "\t\tcond=function(npc, player) return not (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end"
+      },
+      {
+        "line": 82,
+        "text": "\t\t},"
+      },
+      {
+        "line": 83,
+        "text": "\t\t{_t\"Thanks, my lady. I will look for the tunnel and venture inside the Peak.\", "
+      },
+      {
+        "line": 84,
+        "text": "\t\tcond=function(npc, player) return (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end,"
+      },
+      {
+        "line": 85,
+        "text": "\t\taction=function(npc, player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f49286f1149bc20ebf595837814870ddeb565764bb8c092615455206aa17508c",
+    "public_source_path": "game/modules/tome/data/zones/telmur/npcs.lua",
+    "lines": [
+      {
+        "line": 90,
+        "text": ""
+      },
+      {
+        "line": 91,
+        "text": "\ton_die = function(self, who)"
+      },
+      {
+        "line": 92,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Back and there again\", _t'As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.', 400)"
+      },
+      {
+        "line": 93,
+        "text": "\tend,"
+      },
+      {
+        "line": 94,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4950aa1b9bdd89825403faaaba500b6b16fa14d0d2794465aafc35cc2d79627",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 3452,
+        "text": "\tsubtype = { water=true, ice=true },"
+      },
+      {
+        "line": 3453,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 3454,
+        "text": "\ton_gain = function(self, err) return nil, _t\"+Wet\" end,"
+      },
+      {
+        "line": 3455,
+        "text": "\ton_lose = function(self, err) return nil, _t\"-Wet\" end,"
+      },
+      {
+        "line": 3456,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f49a0e2701fdd5af9baebc940d50a16460d76d96c4416a7cb86f430e298d6c4e",
+    "public_source_path": "game/modules/tome/class/Store.lua",
+    "lines": [
+      {
+        "line": 182,
+        "text": "\tif nb then"
+      },
+      {
+        "line": 183,
+        "text": "\t\tlocal avg = nb > 1 and (\" (%0.2f each)\"):tformat(price/nb) or \"\""
+      },
+      {
+        "line": 184,
+        "text": "\t\tDialog:yesnoPopup(_t\"Buy\", (\"Buy %d %s for %0.2f gold%s?\"):tformat(nb, o:getName{do_color=true, no_count=true}, price, avg), function(ok) if ok then"
+      },
+      {
+        "line": 185,
+        "text": "\t\t\tself:onBuy(who, o, item, nb, true)"
+      },
+      {
+        "line": 186,
+        "text": "\t\t\t-- Learn lore ?"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f49e5ee0837e3d5a4efa1fb517fc2cb1d7755f18333446e7159bdca862d2ce82",
+    "public_source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 898,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 899,
+        "text": "\t\t\telse"
+      },
+      {
+        "line": 900,
+        "text": "\t\t\t\tgame.logSeen(target, \"%s resists the mental assault!\", target:getName():capitalize())"
+      },
+      {
+        "line": 901,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 902,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4a23dfee72a07e6b0bf188e40bf8269792b9c83fa5ff51ff685f56f6a5d7b8d",
+    "public_source_path": "game/modules/tome/data/quests/temple-of-creation.lua",
+    "lines": [
+      {
+        "line": 52,
+        "text": "\tlocal g = mod.class.Grid.new{"
+      },
+      {
+        "line": 53,
+        "text": "\t\tshow_tooltip=true,"
+      },
+      {
+        "line": 54,
+        "text": "\t\tname=_t\"Portal to the Temple of Creation\","
+      },
+      {
+        "line": 55,
+        "text": "\t\tdisplay='>', color=colors.VIOLET,"
+      },
+      {
+        "line": 56,
+        "text": "\t\tnotice = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4a28e8132718eae870e5c3a7c9c4ee755e42c919e42676cb60bf301d52b73d5",
+    "public_source_path": "game/modules/tome/data/lore/shertul.lua",
+    "lines": [
+      {
+        "line": 58,
+        "text": "\timage = \"shertul_fortress_lore4.png\","
+      },
+      {
+        "line": 59,
+        "text": "\tlore = function() return _t[[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky."
+      },
+      {
+        "line": 60,
+        "text": "There is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#]] or _t[[#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#]])"
+      },
+      {
+        "line": 61,
+        "text": "\tend,"
+      },
+      {
+        "line": 62,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4a64fb9af4318d440f09b223366591d2e5dbe0a1539fa41fd9c83734b0e8661",
+    "public_source_path": "game/modules/tome/data/general/grids/bone.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "local sand_editer = { method=\"borders_def\", def=\"sand\"}"
+      },
+      {
+        "line": 21,
+        "text": "local bone_wall_editer = { method=\"sandWalls_def\", def=\"bonewall\"}"
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "newEntity{"
+      },
+      {
+        "line": 24,
+        "text": "\tdefine_as = \"BONEFLOOR\","
+      },
+      {
+        "line": 25,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 26,
+        "text": "\tname = \"sand\", image = \"terrain/sandfloor.png\","
+      },
+      {
+        "line": 27,
+        "text": "\tdisplay = '.', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},"
+      },
+      {
+        "line": 32,
+        "text": "newEntity{"
+      },
+      {
+        "line": 33,
+        "text": "\tdefine_as = \"BONEWALL\","
+      },
+      {
+        "line": 34,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 35,
+        "text": "\tname = \"bone walls\", image = \"terrain/bone/bonewall_5_1.png\","
+      },
+      {
+        "line": 36,
+        "text": "\tdisplay = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},"
+      },
+      {
+        "line": 37,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 41,
+        "text": "\tair_level = -10,"
+      },
+      {
+        "line": 42,
+        "text": "\tdig = \"BONEFLOOR\","
+      },
+      {
+        "line": 43,
+        "text": "\tnice_editer = bone_wall_editer,"
+      },
+      {
+        "line": 44,
+        "text": "\tnice_tiler = { method=\"replace\", base={\"BONEWALL\", 20, 1, 6}},"
+      },
+      {
+        "line": 45,
+        "text": "}"
+      },
+      {
+        "line": 46,
+        "text": "for i = 1, 6 do newEntity{ base = \"BONEWALL\", define_as = \"BONEWALL\"..i, image = \"terrain/bone/bonewall_5_\"..i..\".png\"} end"
+      },
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newEntity{"
+      },
+      {
+        "line": 49,
+        "text": "\tdefine_as = \"HARDBONEWALL\","
+      },
+      {
+        "line": 50,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 51,
+        "text": "\tname = \"bone walls\", image = \"terrain/bone/bonewall_5_1.png\","
+      },
+      {
+        "line": 52,
+        "text": "\tdisplay = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},"
+      },
+      {
+        "line": 53,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 59,
+        "text": "\tblock_esp = true,"
+      },
+      {
+        "line": 60,
+        "text": "\tair_level = -15,"
+      },
+      {
+        "line": 61,
+        "text": "\tnice_editer = bone_wall_editer,"
+      },
+      {
+        "line": 62,
+        "text": "\tnice_tiler = { method=\"replace\", base={\"HARDBONEWALL\", 20, 1, 6}},"
+      },
+      {
+        "line": 63,
+        "text": "}"
+      },
+      {
+        "line": 64,
+        "text": "for i = 1, 6 do newEntity{ base = \"HARDBONEWALL\", define_as = \"HARDBONEWALL\"..i, image = \"terrain/bone/bonewall_5_\"..i..\".png\"} end"
+      },
+      {
+        "line": 65,
+        "text": ""
+      },
+      {
+        "line": 66,
+        "text": "-----------------------------------------"
+      },
+      {
+        "line": 69,
+        "text": "newEntity{"
+      },
+      {
+        "line": 70,
+        "text": "\tdefine_as = \"BONE_DOOR\","
+      },
+      {
+        "line": 71,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 72,
+        "text": "\tname = \"door\", image=\"terrain/bone/bone_door1.png\","
+      },
+      {
+        "line": 73,
+        "text": "\tdisplay = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,"
+      },
+      {
+        "line": 74,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"BONE_DOOR_VERT\", west_east=\"BONE_DOOR_HORIZ\" },"
+      },
+      {
+        "line": 82,
+        "text": "newEntity{"
+      },
+      {
+        "line": 83,
+        "text": "\tdefine_as = \"BONE_DOOR_OPEN\","
+      },
+      {
+        "line": 84,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 85,
+        "text": "\tname = \"open door\", image=\"terrain/bone/bone_door1_open.png\","
+      },
+      {
+        "line": 86,
+        "text": "\tdisplay = \"'\", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,"
+      },
+      {
+        "line": 87,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 89,
+        "text": "\tdoor_closed = \"BONE_DOOR\","
+      },
+      {
+        "line": 90,
+        "text": "}"
+      },
+      {
+        "line": 91,
+        "text": "newEntity{ base = \"BONE_DOOR\", define_as = \"BONE_DOOR_HORIZ\", z=3, image = \"terrain/sandfloor.png\", add_mos={{image=\"terrain/bone/bone_door1.png\"}}, add_displays = {class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_opened = \"BONE_DOOR_HORIZ_OPEN\"}"
+      },
+      {
+        "line": 92,
+        "text": "newEntity{ base = \"BONE_DOOR_OPEN\", define_as = \"BONE_DOOR_HORIZ_OPEN\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open.png\", z=17}, class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_closed = \"BONE_DOOR_HORIZ\"}"
+      },
+      {
+        "line": 93,
+        "text": "newEntity{ base = \"BONE_DOOR\", define_as = \"BONE_DOOR_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_vert.png\", z=17}, class.new{image=\"terrain/bone/bone_door1_vert_north.png\", z=18, display_y=-1}}, door_opened = \"BONE_DOOR_OPEN_VERT\", dig = \"BONE_DOOR_OPEN_VERT\"}"
+      },
+      {
+        "line": 94,
+        "text": "newEntity{ base = \"BONE_DOOR_OPEN\", define_as = \"BONE_DOOR_OPEN_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open_vert.png\", z=17}, class.new{image=\"terrain/bone/bone_door1_open_vert_north.png\", z=18, display_y=-1}}, door_closed = \"BONE_DOOR_VERT\"}"
+      },
+      {
+        "line": 95,
+        "text": ""
+      },
+      {
+        "line": 96,
+        "text": "newEntity{"
+      },
+      {
+        "line": 97,
+        "text": "\tdefine_as = \"BONE_VAULT_DOOR\","
+      },
+      {
+        "line": 98,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 99,
+        "text": "\tname = \"door\", image=\"terrain/bone/bone_door1.png\","
+      },
+      {
+        "line": 100,
+        "text": "\tdisplay = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,"
+      },
+      {
+        "line": 101,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"BONE_VAULT_DOOR_VERT\", west_east=\"BONE_VAULT_DOOR_HORIZ\" },"
+      },
+      {
+        "line": 112,
+        "text": "newEntity{"
+      },
+      {
+        "line": 113,
+        "text": "\tdefine_as = \"BONE_VAULT_DOOR_OPEN\","
+      },
+      {
+        "line": 114,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 115,
+        "text": "\tname = \"open door\", image=\"terrain/bone/bone_door1_open.png\","
+      },
+      {
+        "line": 116,
+        "text": "\tdisplay = \"'\", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,"
+      },
+      {
+        "line": 117,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 119,
+        "text": "\tdoor_closed = \"BONE_VAULT_DOOR\","
+      },
+      {
+        "line": 120,
+        "text": "}"
+      },
+      {
+        "line": 121,
+        "text": "newEntity{ base = \"BONE_VAULT_DOOR\", define_as = \"BONE_VAULT_DOOR_HORIZ\", z=3, image = \"terrain/sandfloor.png\", add_mos={{image=\"terrain/bone/bone_door1.png\"}}, add_displays = {class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_opened = \"BONE_VAULT_DOOR_HORIZ_OPEN\"}"
+      },
+      {
+        "line": 122,
+        "text": "newEntity{ base = \"BONE_VAULT_DOOR_OPEN\", define_as = \"BONE_VAULT_DOOR_HORIZ_OPEN\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open.png\", z=17}, class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_closed = \"BONE_VAULT_DOOR_HORIZ\"}"
+      },
+      {
+        "line": 123,
+        "text": "newEntity{ base = \"BONE_VAULT_DOOR\", define_as = \"BONE_VAULT_DOOR_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_vert.png\", z=17}, class.new{image=\"terrain/bone/bone_door1_vert_north.png\", z=18, display_y=-1}}, door_opened = \"BONE_VAULT_DOOR_OPEN_VERT\", dig = \"BONE_VAULT_DOOR_OPEN_VERT\"}"
+      },
+      {
+        "line": 124,
+        "text": "newEntity{ base = \"BONE_VAULT_DOOR_OPEN\", define_as = \"BONE_VAULT_DOOR_OPEN_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open_vert.png\", z=17}, class.new{image=\"terrain/bone/bone_door1_open_vert_north.png\", z=18, display_y=-1}}, door_closed = \"BONE_VAULT_DOOR_VERT\"}"
+      },
+      {
+        "line": 125,
+        "text": ""
+      },
+      {
+        "line": 126,
+        "text": "-----------------------------------------"
+      },
+      {
+        "line": 129,
+        "text": "newEntity{"
+      },
+      {
+        "line": 130,
+        "text": "\tdefine_as = \"BONE_GENERIC_LEVER_DOOR\","
+      },
+      {
+        "line": 131,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 132,
+        "text": "\tname = \"sealed door\", image=\"terrain/bone/bone_door1.png\","
+      },
+      {
+        "line": 133,
+        "text": "\tdisplay = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,"
+      },
+      {
+        "line": 134,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"BONE_GENERIC_LEVER_DOOR_VERT\", west_east=\"BONE_GENERIC_LEVER_DOOR_HORIZ\" },"
+      },
+      {
+        "line": 152,
+        "text": "\tend,"
+      },
+      {
+        "line": 153,
+        "text": "}"
+      },
+      {
+        "line": 154,
+        "text": "newEntity{ base = \"BONE_GENERIC_LEVER_DOOR\", define_as = \"BONE_GENERIC_LEVER_DOOR_HORIZ\", z=3, image = \"terrain/sandfloor.png\", add_mos={{image=\"terrain/bone/bone_door1.png\", add_mos={{image=\"terrain/padlock2.png\", display_x=0.2, display_y=-0.4}}}}, add_displays = {class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_opened = \"BONE_DOOR_HORIZ_OPEN\"}"
+      },
+      {
+        "line": 155,
+        "text": "newEntity{ base = \"BONE_GENERIC_LEVER_DOOR\", define_as = \"BONE_GENERIC_LEVER_DOOR_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_vert.png\", z=17, add_mos={{image=\"terrain/padlock2.png\", display_x=0.2, display_y=-0.4}}}, class.new{image=\"terrain/bone/bone_door1_vert_north.png\", z=18, display_y=-1}}, door_opened = \"BONE_DOOR_OPEN_VERT\"}"
+      },
+      {
+        "line": 156,
+        "text": ""
+      },
+      {
+        "line": 157,
+        "text": "newEntity{"
+      },
+      {
+        "line": 158,
+        "text": "\tdefine_as = \"BONE_GENERIC_LEVER_DOOR_OPEN\","
+      },
+      {
+        "line": 159,
+        "text": "\ttype = \"wall\", subtype = \"bone\","
+      },
+      {
+        "line": 160,
+        "text": "\tname = \"open door\", image=\"terrain/bone/bone_door1_open.png\","
+      },
+      {
+        "line": 161,
+        "text": "\tdisplay = \"'\", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,"
+      },
+      {
+        "line": 162,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"BONE_GENERIC_LEVER_DOOR_OPEN_VERT\", west_east=\"BONE_GENERIC_LEVER_DOOR_HORIZ_OPEN\" },"
+      },
+      {
+        "line": 175,
+        "text": "\tend,"
+      },
+      {
+        "line": 176,
+        "text": "}"
+      },
+      {
+        "line": 177,
+        "text": "newEntity{ base = \"BONE_GENERIC_LEVER_DOOR_OPEN\", define_as = \"BONE_GENERIC_LEVER_DOOR_HORIZ_OPEN\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open.png\", z=17}, class.new{image=\"terrain/bone/bonewall_8_1.png\", z=18, display_y=-1}}, door_closed = \"BONE_GENERIC_LEVER_DOOR_HORIZ\"}"
+      },
+      {
+        "line": 178,
+        "text": "newEntity{ base = \"BONE_GENERIC_LEVER_DOOR_OPEN\", define_as = \"BONE_GENERIC_LEVER_DOOR_OPEN_VERT\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_door1_open_vert.png\", z=17}, class.new{image=\"terrain/bone/bone_door1_open_vert_north.png\", z=18, display_y=-1}}, door_closed = \"BONE_GENERIC_LEVER_DOOR_VERT\"}"
+      },
+      {
+        "line": 179,
+        "text": ""
+      },
+      {
+        "line": 180,
+        "text": "newEntity{"
+      },
+      {
+        "line": 181,
+        "text": "\tdefine_as = \"BONE_GENERIC_LEVER\","
+      },
+      {
+        "line": 182,
+        "text": "\ttype = \"lever\", subtype = \"bone\","
+      },
+      {
+        "line": 183,
+        "text": "\tname = \"huge lever\", image = \"terrain/sandfloor.png\", add_mos = {{image=\"terrain/lever1_state1.png\"}},"
+      },
+      {
+        "line": 184,
+        "text": "\tdisplay = '&', color=colors.UMBER, back_color=colors.DARK_UMBER,"
+      },
+      {
+        "line": 243,
+        "text": "newEntity{"
+      },
+      {
+        "line": 244,
+        "text": "\tdefine_as = \"BONE_UP_WILDERNESS\","
+      },
+      {
+        "line": 245,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 246,
+        "text": "\tname = \"exit to the worldmap\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/worldmap.png\"}},"
+      },
+      {
+        "line": 247,
+        "text": "\tdisplay = '<', color_r=255, color_g=0, color_b=255,"
+      },
+      {
+        "line": 255,
+        "text": "newEntity{"
+      },
+      {
+        "line": 256,
+        "text": "\tdefine_as = \"BONE_UP8\","
+      },
+      {
+        "line": 257,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 258,
+        "text": "\tname = \"way to the previous level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_8.png\"}},"
+      },
+      {
+        "line": 259,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 265,
+        "text": "newEntity{"
+      },
+      {
+        "line": 266,
+        "text": "\tdefine_as = \"BONE_UP2\","
+      },
+      {
+        "line": 267,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 268,
+        "text": "\tname = \"way to the previous level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_2.png\"}},"
+      },
+      {
+        "line": 269,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 275,
+        "text": "newEntity{"
+      },
+      {
+        "line": 276,
+        "text": "\tdefine_as = \"BONE_UP4\","
+      },
+      {
+        "line": 277,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 278,
+        "text": "\tname = \"way to the previous level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_4.png\"}},"
+      },
+      {
+        "line": 279,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 285,
+        "text": "newEntity{"
+      },
+      {
+        "line": 286,
+        "text": "\tdefine_as = \"BONE_UP6\","
+      },
+      {
+        "line": 287,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 288,
+        "text": "\tname = \"way to the previous level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_6.png\"}},"
+      },
+      {
+        "line": 289,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 296,
+        "text": "newEntity{"
+      },
+      {
+        "line": 297,
+        "text": "\tdefine_as = \"BONE_DOWN8\","
+      },
+      {
+        "line": 298,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 299,
+        "text": "\tname = \"way to the next level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_8.png\"}},"
+      },
+      {
+        "line": 300,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 306,
+        "text": "newEntity{"
+      },
+      {
+        "line": 307,
+        "text": "\tdefine_as = \"BONE_DOWN2\","
+      },
+      {
+        "line": 308,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 309,
+        "text": "\tname = \"way to the next level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_2.png\"}},"
+      },
+      {
+        "line": 310,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 316,
+        "text": "newEntity{"
+      },
+      {
+        "line": 317,
+        "text": "\tdefine_as = \"BONE_DOWN4\","
+      },
+      {
+        "line": 318,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 319,
+        "text": "\tname = \"way to the next level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_4.png\"}},"
+      },
+      {
+        "line": 320,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 326,
+        "text": "newEntity{"
+      },
+      {
+        "line": 327,
+        "text": "\tdefine_as = \"BONE_DOWN6\","
+      },
+      {
+        "line": 328,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 329,
+        "text": "\tname = \"way to the next level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/way_next_6.png\"}},"
+      },
+      {
+        "line": 330,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 337,
+        "text": "newEntity{"
+      },
+      {
+        "line": 338,
+        "text": "\tdefine_as = \"BONE_LADDER_DOWN\","
+      },
+      {
+        "line": 339,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 340,
+        "text": "\tname = \"ladder to the next level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_stairs_down_1_01.png\"}},"
+      },
+      {
+        "line": 341,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 342,
+        "text": "\tnotice = true,"
+      },
+      {
+        "line": 347,
+        "text": "newEntity{"
+      },
+      {
+        "line": 348,
+        "text": "\tdefine_as = \"BONE_LADDER_UP\","
+      },
+      {
+        "line": 349,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 350,
+        "text": "\tname = \"ladder to the previous level\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_stairs_up_1_01.png\"}},"
+      },
+      {
+        "line": 351,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 352,
+        "text": "\tnotice = true,"
+      },
+      {
+        "line": 357,
+        "text": "newEntity{"
+      },
+      {
+        "line": 358,
+        "text": "\tdefine_as = \"BONE_LADDER_UP_WILDERNESS\","
+      },
+      {
+        "line": 359,
+        "text": "\ttype = \"floor\", subtype = \"bone\","
+      },
+      {
+        "line": 360,
+        "text": "\tname = \"ladder to worldmap\", image = \"terrain/sandfloor.png\", add_displays = {class.new{image=\"terrain/bone/bone_stairs_exit_1_01.png\"}},"
+      },
+      {
+        "line": 361,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 362,
+        "text": "\tnotice = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4ab687a7318bda981c157443d9775d909f1a83cb538502024b9821af2016fa3",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 3419,
+        "text": ""
+      },
+      {
+        "line": 3420,
+        "text": "newTalent{"
+      },
+      {
+        "line": 3421,
+        "text": "\tname = \"Roundhouse Kick\","
+      },
+      {
+        "line": 3422,
+        "text": "--\ttype = {\"technique/unarmed-discipline\", 4},"
+      },
+      {
+        "line": 3423,
+        "text": "\ttype = {\"technique/other\", 1},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4af24f1d2ab2391ec95369a076074625ba45e069bc33c602d8b7307489ef745",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 2640,
+        "text": "\tparameters = { dam=20 },"
+      },
+      {
+        "line": 2641,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is suffocating.\", _t\"+SUFFOCATING\" end,"
+      },
+      {
+        "line": 2642,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# can breathe again.\", _t\"-Suffocating\" end,"
+      },
+      {
+        "line": 2643,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 2644,
+        "text": "\t\tif not self.is_suffocating then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4b12d85d42065af54139a5df199707a883e721af83d25099d5a1aea84b28d74",
+    "public_source_path": "game/modules/tome/data/talents/spells/advanced-golemancy.lua",
+    "lines": [
+      {
+        "line": 121,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 122,
+        "text": "\t\tlocal regen, turns, life = t.getPower(self, t)"
+      },
+      {
+        "line": 123,
+        "text": "\t\treturn ([[You activate a special mode of your golem, boosting its regeneration rate by %0.2f life per turn for %d turns."
+      },
+      {
+        "line": 124,
+        "text": "\t\tIf your golem was dead, it is instantly brought back to life with %d%% life."
+      },
+      {
+        "line": 125,
+        "text": "\t\tWhile supercharged, your golem is enraged and deals 25%% more damage.]]):"
+      },
+      {
+        "line": 126,
+        "text": "\t\ttformat(regen, turns, life)"
+      },
+      {
+        "line": 127,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4b236306159a27d9ef36f66fa9a7373b4b5a3e7b287331925ddbabca042ec59",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 2466,
+        "text": "\tname = \"RESTLESS_NIGHT\", image = \"talents/restless_night.png\","
+      },
+      {
+        "line": 2467,
+        "text": "\tdesc = _t\"Restless Night\","
+      },
+      {
+        "line": 2468,
+        "text": "\tlong_desc = function(self, eff) return (\"Fatigue from poor sleep, dealing %0.2f mind damage per turn.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2469,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 2470,
+        "text": "\tsubtype = { psionic=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4ba3bc23d946e5b7e170c8685d138a338b14056cbf9dc67fc1f79671f11cbf9",
+    "public_source_path": "game/modules/tome/data/talents/spells/phantasm.lua",
+    "lines": [
+      {
+        "line": 65,
+        "text": ""
+      },
+      {
+        "line": 66,
+        "text": "newTalent{"
+      },
+      {
+        "line": 67,
+        "text": "\tname = \"Phantasmal Shield\","
+      },
+      {
+        "line": 68,
+        "text": "\ttype = {\"spell/phantasm\", 2},"
+      },
+      {
+        "line": 69,
+        "text": "\tmode = \"sustained\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4c3f23615d8492c8afa912144380295cdd28bc728bf5367f06e71391b1aa31f",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 675,
+        "text": "\tdefine_as = \"ROGUE_PLIGHT\","
+      },
+      {
+        "line": 676,
+        "text": "\tunided_name = _t\"blackened leather armour\","
+      },
+      {
+        "line": 677,
+        "text": "\tdesc = _t[[No rogue blades shall incapacitate the wearer of this armour.]],"
+      },
+      {
+        "line": 678,
+        "text": "\tlevel_range = {25, 40},"
+      },
+      {
+        "line": 679,
+        "text": "\trarity = 270,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4c740734bbca95f48de0e2950b8d70e171273aca6cc84659f3a4d0a27e62d00",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 1679,
+        "text": "\tparameters = { power = 1 },"
+      },
+      {
+        "line": 1680,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# has found the present moment!\", _t\"+Prescience\" end,"
+      },
+      {
+        "line": 1681,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s awareness returns to normal.\", _t\"-Prescience\" end,"
+      },
+      {
+        "line": 1682,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1683,
+        "text": "\t\teff.defid = self:addTemporaryValue(\"combat_def\", eff.power)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4d06aeabc05f60dddb640826b13d571397d90fef9e2f27b2dfccba63338b731",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 1195,
+        "text": ""
+      },
+      {
+        "line": 1196,
+        "text": "newInscription{"
+      },
+      {
+        "line": 1197,
+        "text": "\tname = \"Taint: Telepathy\","
+      },
+      {
+        "line": 1198,
+        "text": "\ttype = {\"inscriptions/taints\", 1},"
+      },
+      {
+        "line": 1199,
+        "text": "\tpoints = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4d315f2149baa7490569bbc71b3f14c4931c490889ae1e8fb85eeed4c5c9b5d",
+    "public_source_path": "game/modules/tome/data/talents/gifts/sand-drake.lua",
+    "lines": [
+      {
+        "line": 161,
+        "text": "\tend,"
+      },
+      {
+        "line": 162,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 163,
+        "text": "\t\treturn ([[Allows you to burrow into earthen walls for %d turns."
+      },
+      {
+        "line": 164,
+        "text": "\t\tYour powerful digging abilities also allow you to exploit and smash through enemy defensive weaknesses; You ignore %d of target armor and %d%% of enemy physical damage resistance while this is in effect."
+      },
+      {
+        "line": 165,
+        "text": "\t\tAt Talent Level 5, this talent can be used instantly, and the cooldown will reduce with levels."
+      },
+      {
+        "line": 166,
+        "text": "\t\tEach point in sand drake talents also increases your physical resistance by 0.5%%.]]):tformat(t.getDuration(self, t), t.getPenetration(self, t), t.getPenetration(self, t) / 2)"
+      },
+      {
+        "line": 167,
+        "text": "\tend,"
+      },
+      {
+        "line": 168,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4d7f4e39b9c1470f3734aa5dc71635063469a6f6da3c7382473182c72aac5a0",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 7251,
+        "text": "\t\t\tnum=6"
+      },
+      {
+        "line": 7252,
+        "text": "\t\tend"
+      },
+      {
+        "line": 7253,
+        "text": "\t\treturn (\"Increases all damage by %d%% of current vim \\nCurrent Bonus: %d%%\"):tformat(num, num*0.01*(game.player:getVim() or 0))"
+      },
+      {
+        "line": 7254,
+        "text": "\tend,"
+      },
+      {
+        "line": 7255,
+        "text": "\twielder = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4db102beb00cba42cea640f45510d079f54c4df193778bfaa0ca3dfa731ac11",
+    "public_source_path": "game/modules/tome/class/Object.lua",
+    "lines": [
+      {
+        "line": 214,
+        "text": ""
+      },
+      {
+        "line": 215,
+        "text": "\tlocal reduce = 100 - util.bound(who:attr(\"use_object_cooldown_reduce\") or 0, 0, 100)"
+      },
+      {
+        "line": 216,
+        "text": "\tif self:attr(\"unaffected_device_mastery\") then reduce = 100 end"
+      },
+      {
+        "line": 217,
+        "text": "\tlocal usepower = function(power) return math.ceil(power * reduce / 100) end"
+      },
+      {
+        "line": 218,
+        "text": ""
+      },
+      {
+        "line": 432,
+        "text": "\tif attr == \"MASTERY\" then"
+      },
+      {
+        "line": 433,
+        "text": "\t\tlocal tms = {}"
+      },
+      {
+        "line": 434,
+        "text": "\t\tfor ttn, i in pairs(self.wielder.talents_types_mastery) do"
+      },
+      {
+        "line": 435,
+        "text": "\t\t\tlocal tt = Talents.talents_types_def[ttn]"
+      },
+      {
+        "line": 436,
+        "text": "\t\t\tlocal cat = tt.type:gsub(\"/.*\", \"\")"
+      },
+      {
+        "line": 1559,
+        "text": "\t\tend)"
+      },
+      {
+        "line": 1560,
+        "text": ""
+      },
+      {
+        "line": 1561,
+        "text": "\t\tcompare_table_fields(w, compare_with, field, \"talents_mastery_bonus\", \"+%0.2f \", _t\"Talent category bonus: \", function(item)"
+      },
+      {
+        "line": 1562,
+        "text": "\t\tlocal _, _, t, st = item:find(\"^([^/]+)/?(.*)$\")"
+      },
+      {
+        "line": 1563,
+        "text": "\t\t\tif st and st ~= \"\" then"
+      },
+      {
+        "line": 1627,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1628,
+        "text": ""
+      },
+      {
+        "line": 1629,
+        "text": "\t\tlocal any_mastery = 0"
+      },
+      {
+        "line": 1630,
+        "text": "\t\tlocal masteries = {}"
+      },
+      {
+        "line": 1631,
+        "text": "\t\tfor i, v in ipairs(compare_with or {}) do"
+      },
+      {
+        "line": 1632,
+        "text": "\t\t\tif v[field] and v[field].talents_types_mastery then"
+      },
+      {
+        "line": 1633,
+        "text": "\t\t\t\tfor ttn, mastery in pairs(v[field].talents_types_mastery) do"
+      },
+      {
+        "line": 1634,
+        "text": "\t\t\t\t\tmasteries[ttn] = masteries[ttn] or {}"
+      },
+      {
+        "line": 1635,
+        "text": "\t\t\t\t\tmasteries[ttn][1] = mastery"
+      },
+      {
+        "line": 1636,
+        "text": "\t\t\t\t\tany_mastery = any_mastery + 1"
+      },
+      {
+        "line": 1637,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 1638,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 1639,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1640,
+        "text": "\t\tfor ttn, i in pairs(w.talents_types_mastery or {}) do"
+      },
+      {
+        "line": 1641,
+        "text": "\t\t\tmasteries[ttn] = masteries[ttn] or {}"
+      },
+      {
+        "line": 1642,
+        "text": "\t\t\tmasteries[ttn][2] = i"
+      },
+      {
+        "line": 1643,
+        "text": "\t\t\tany_mastery = any_mastery + 1"
+      },
+      {
+        "line": 1644,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1645,
+        "text": "\t\tif any_mastery > 0 then"
+      },
+      {
+        "line": 1646,
+        "text": "\t\t\tdesc:add((\"Talent %s: \"):tformat(any_mastery > 1 and _t\"masteries\" or _t\"mastery\"))"
+      },
+      {
+        "line": 1647,
+        "text": "\t\t\tfor ttn, ttid in pairs(masteries) do"
+      },
+      {
+        "line": 1648,
+        "text": "\t\t\t\tlocal tt = Talents.talents_types_def[ttn]"
+      },
+      {
+        "line": 2459,
+        "text": "\t\tif w.convert_damage then for t, v in pairs(w.convert_damage) do price = price + v * 1 end end"
+      },
+      {
+        "line": 2460,
+        "text": ""
+      },
+      {
+        "line": 2461,
+        "text": "\t\t--talent mastery"
+      },
+      {
+        "line": 2462,
+        "text": "\t\tif w.talent_types_mastery then for t, v in pairs(w.talent_types_mastery) do price = price + v * 100 end end"
+      },
+      {
+        "line": 2463,
+        "text": ""
+      },
+      {
+        "line": 2464,
+        "text": "\t\t--talent cooldown reduction"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4df3eefc6d55db75d3feffcc2b8560e94b7b4684c776e893068a3378dc70763",
+    "public_source_path": "game/modules/tome/data/talents/cursed/cursed.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"cursed/gloom\", name = _t(\"gloom\", \"talent type\"), description = _t\"All those in your sight must share your despair.\" }"
+      },
+      {
+        "line": 25,
+        "text": "newTalentType{ allow_random=true, type=\"cursed/rampage\", name = _t(\"rampage\", \"talent type\"), description = _t\"Let loose the hate that has grown within.\" }"
+      },
+      {
+        "line": 26,
+        "text": "newTalentType{ allow_random=false, type=\"cursed/predator\", name = _t(\"predator\", \"talent type\"), description = _t\"Track and kill your prey with single-minded focus.\" }"
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "-- Doomed"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4df67a887c04eb866a2c7e74f2e57c3d6d3aea958a8d526a561baa7c4115d56",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/spacetime-weaving.lua",
+    "lines": [
+      {
+        "line": 293,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 294,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 295,
+        "text": "\t\treturn ([[When you teleport you fire a pulse that jolts enemies out of phase in a radius of %d around both the start and the destination point. "
+      },
+      {
+        "line": 296,
+        "text": "\t\tEach target has a %d%% chance per tile you travelled to be stunned, blinded, confused, or pinned for %d turns.]]):"
+      },
+      {
+        "line": 297,
+        "text": "\t\ttformat(radius, chance, duration)"
+      },
+      {
+        "line": 298,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4e1b84c5bd25199b29c64c390129a2df1cf15e47899c12d740ec053c3345bdc",
+    "public_source_path": "game/modules/tome/class/Object.lua",
+    "lines": [
+      {
+        "line": 1778,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"cut_immune\", \"%+d%%\", _t\"Cut immunity: \", 100)"
+      },
+      {
+        "line": 1779,
+        "text": ""
+      },
+      {
+        "line": 1780,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"silence_immune\", \"%+d%%\", _t\"Silence immunity: \", 100)"
+      },
+      {
+        "line": 1781,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"disarm_immune\", \"%+d%%\", _t\"Disarm immunity: \", 100)"
+      },
+      {
+        "line": 1782,
+        "text": "\t\tcompare_fields(w, compare_with, field, \"confusion_immune\", \"%+d%%\", _t\"Confusion immunity: \", 100)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4eaab95decaa176505c990c48dedff9675e72968d46bf1e73a73bf97f7ba1f1",
+    "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+    "lines": [
+      {
+        "line": 129,
+        "text": "]]"
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "TOOLTIP_FEEDBACK = _t[[#GOLD#Feedback#LAST#"
+      },
+      {
+        "line": 132,
+        "text": "Feedback represents using pain as a means of psionic grounding and it can be used to power feedback abilities."
+      },
+      {
+        "line": 133,
+        "text": "Feedback decays at the rate of 10% or 1 per turn (which ever is greater) depending on talents."
+      },
+      {
+        "line": 134,
+        "text": "All damage you take from an outside source will increase your Feedback based on to how much of your health is lost and your level.  First level characters gain 100 Feedback when losing 50% health, while 50th level characters gain the same amount when losing 20% health."
+      },
+      {
+        "line": 135,
+        "text": "]]"
+      },
+      {
+        "line": 136,
+        "text": ""
+      },
+      {
+        "line": 137,
+        "text": "TOOLTIP_NECROTIC_AURA = _t[[#GOLD#Necrotic Aura#LAST#"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4f1a7cfccef34c08c5b014a80a9b1f249ab108cd9c9b5f9c1ce6d11abd351ad",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is gaining tempo.\", _t\"+Tempo\" end,"
+      },
+      {
+        "line": 58,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# loses their tempo.\", _t\"-Tempo\" end,"
+      },
+      {
+        "line": 59,
+        "text": "\tparameters = { stamina = 0, defense = 0, damage = 0, stacks = 0, resists = 0 },"
+      },
+      {
+        "line": 60,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      },
+      {
+        "line": 61,
+        "text": "\t\told_eff.dur =3"
+      },
+      {
+        "line": 62,
+        "text": ""
+      },
+      {
+        "line": 63,
+        "text": "\t\tif old_eff.stacks >= 5 then"
+      },
+      {
+        "line": 64,
+        "text": "\t\t\tif old_eff.resists ~= 20 then"
+      },
+      {
+        "line": 65,
+        "text": "\t\t\t\told_eff.resists = 20"
+      },
+      {
+        "line": 66,
+        "text": "\t\t\t\told_eff.resid = self:addTemporaryValue(\"resists\", {all=old_eff.resists})"
+      },
+      {
+        "line": 67,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 68,
+        "text": "\t\t\treturn old_eff"
+      },
+      {
+        "line": 99,
+        "text": "\t\tself:removeTemporaryValue(\"combat_def\", eff.defenseid)"
+      },
+      {
+        "line": 100,
+        "text": "\t\tself:removeTemporaryValue(\"inc_damage\", eff.damageid)"
+      },
+      {
+        "line": 101,
+        "text": "\t\tif eff.resid then self:removeTemporaryValue(\"resists\", eff.resid) end"
+      },
+      {
+        "line": 102,
+        "text": "\tend,"
+      },
+      {
+        "line": 103,
+        "text": "}"
+      },
+      {
+        "line": 144,
+        "text": "\t\tif eff.src and eff.src:knowTalent(self.T_BLOODY_BUTCHER) then"
+      },
+      {
+        "line": 145,
+        "text": "\t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_BLOODY_BUTCHER)"
+      },
+      {
+        "line": 146,
+        "text": "\t\t\tlocal resist = math.min(t.getResist(eff.src, t), math.max(0, self:combatGetResist(DamageType.PHYSICAL)))"
+      },
+      {
+        "line": 147,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})"
+      },
+      {
+        "line": 148,
+        "text": "\t\tend"
+      },
+      {
+        "line": 149,
+        "text": "\tend,"
+      },
+      {
+        "line": 168,
+        "text": "\t\tif eff.src and eff.src:knowTalent(self.T_BLOODY_BUTCHER) then"
+      },
+      {
+        "line": 169,
+        "text": "\t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_BLOODY_BUTCHER)"
+      },
+      {
+        "line": 170,
+        "text": "\t\t\tlocal resist = math.min(t.getResist(eff.src, t), math.max(0, self:combatGetResist(DamageType.PHYSICAL)))"
+      },
+      {
+        "line": 171,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})"
+      },
+      {
+        "line": 172,
+        "text": "\t\tend"
+      },
+      {
+        "line": 173,
+        "text": "\tend,"
+      },
+      {
+        "line": 386,
+        "text": "\t\t\tself:setEffect(self.EFF_STONED, math.floor(eff.stone*chance/100), {})"
+      },
+      {
+        "line": 387,
+        "text": "\t\telse"
+      },
+      {
+        "line": 388,
+        "text": "\t\t\tgame.logSeen(self, \"#GREY#%s looks stony for a moment, but resists the transformation.\", self:getName():capitalize())"
+      },
+      {
+        "line": 389,
+        "text": "\t\tend"
+      },
+      {
+        "line": 390,
+        "text": "\tend,"
+      },
+      {
+        "line": 819,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 820,
+        "text": "\t\teff.pid1 = self:addTemporaryValue(\"inc_damage\", {all=eff.power})"
+      },
+      {
+        "line": 821,
+        "text": "\t\teff.pid2 = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      },
+      {
+        "line": 822,
+        "text": "\tend,"
+      },
+      {
+        "line": 823,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 824,
+        "text": "\t\tself:removeTemporaryValue(\"inc_damage\", eff.pid1)"
+      },
+      {
+        "line": 825,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid2)"
+      },
+      {
+        "line": 826,
+        "text": "\tend,"
+      },
+      {
+        "line": 827,
+        "text": "}"
+      },
+      {
+        "line": 839,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 840,
+        "text": "\t\teff.pid1 = self:addTemporaryValue(\"inc_damage\", {all=eff.power})"
+      },
+      {
+        "line": 841,
+        "text": "\t\teff.pid2 = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      },
+      {
+        "line": 842,
+        "text": "\tend,"
+      },
+      {
+        "line": 843,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 844,
+        "text": "\t\tself:removeTemporaryValue(\"inc_damage\", eff.pid1)"
+      },
+      {
+        "line": 845,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid2)"
+      },
+      {
+        "line": 846,
+        "text": "\tend,"
+      },
+      {
+        "line": 847,
+        "text": "}"
+      },
+      {
+        "line": 850,
+        "text": "\tname = \"SHELL_SHIELD\", image = \"talents/shell_shield.png\","
+      },
+      {
+        "line": 851,
+        "text": "\tdesc = _t\"Shell Shield\","
+      },
+      {
+        "line": 852,
+        "text": "\tlong_desc = function(self, eff) return (\"The target takes cover in its shell, gaining %d%% all resist.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 853,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 854,
+        "text": "\tsubtype = { nature=true },"
+      },
+      {
+        "line": 858,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# leaves the cover of its shell.\", _t\"-Shell Shield\" end,"
+      },
+      {
+        "line": 859,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 860,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      },
+      {
+        "line": 861,
+        "text": "\tend,"
+      },
+      {
+        "line": 862,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 863,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 864,
+        "text": "\tend,"
+      },
+      {
+        "line": 865,
+        "text": "}"
+      },
+      {
+        "line": 894,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# feels pain again.\", _t\"-Pain Suppression\" end,"
+      },
+      {
+        "line": 895,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 896,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      },
+      {
+        "line": 897,
+        "text": "\tend,"
+      },
+      {
+        "line": 898,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 899,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 900,
+        "text": "\tend,"
+      },
+      {
+        "line": 901,
+        "text": "}"
+      },
+      {
+        "line": 938,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is susceptible to blight again.\", _t\"-Purge\" end,"
+      },
+      {
+        "line": 939,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 940,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {[DamageType.BLIGHT]=eff.power})"
+      },
+      {
+        "line": 941,
+        "text": "\t\teff.spell_save = self:addTemporaryValue(\"combat_spellresist\", eff.power)"
+      },
+      {
+        "line": 942,
+        "text": "\t\teff.disease = self:addTemporaryValue(\"disease_immune\", 1)"
+      },
+      {
+        "line": 943,
+        "text": "\tend,"
+      },
+      {
+        "line": 944,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 945,
+        "text": "\t\tself:removeTemporaryValue(\"combat_spellresist\", eff.spell_save)"
+      },
+      {
+        "line": 946,
+        "text": "\t\tself:removeTemporaryValue(\"disease_immune\", eff.disease)"
+      },
+      {
+        "line": 947,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 948,
+        "text": "\tend,"
+      },
+      {
+        "line": 949,
+        "text": "}"
+      },
+      {
+        "line": 1003,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1004,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_armor\", -eff.power)"
+      },
+      {
+        "line": 1005,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_physresist\", -eff.power)"
+      },
+      {
+        "line": 1006,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_spellresist\", -eff.power)"
+      },
+      {
+        "line": 1007,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", -eff.power)"
+      },
+      {
+        "line": 1008,
+        "text": "\tend,"
+      },
+      {
+        "line": 1009,
+        "text": "}"
+      },
+      {
+        "line": 1112,
+        "text": "\tname = \"BURROW\", image = \"talents/burrow.png\","
+      },
+      {
+        "line": 1113,
+        "text": "\tdesc = _t\"Burrow\","
+      },
+      {
+        "line": 1114,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is able to burrow into walls, and additionally has %d more APR and %d%% more physical resistance penetration.\"):tformat(eff.power, eff.power / 2) end,"
+      },
+      {
+        "line": 1115,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 1116,
+        "text": "\tsubtype = { earth=true },"
+      },
+      {
+        "line": 1121,
+        "text": "\t\teff.dig = self:addTemporaryValue(\"move_project\", {[DamageType.DIG]=1})"
+      },
+      {
+        "line": 1122,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_apr\", eff.power)"
+      },
+      {
+        "line": 1123,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists_pen\", {[DamageType.PHYSICAL]=eff.power / 2 })"
+      },
+      {
+        "line": 1124,
+        "text": "\t\tself:effectTemporaryValue(eff, \"ai_spread_add\", 5)  -- Reduce accuracy of AI position guesses so we don't track straight to players that moved out of LOS"
+      },
+      {
+        "line": 1125,
+        "text": "\tend,"
+      },
+      {
+        "line": 1163,
+        "text": "\t\tlocal type_str"
+      },
+      {
+        "line": 1164,
+        "text": "\t\tif #list >= 1 then type_str = table.concatNice(list, \", \", _t\" and \") else type_str = \"\" end"
+      },
+      {
+        "line": 1165,
+        "text": "\t\treturn (\"You gain %d%% resistance against %s.\"):tformat(eff.res, type_str) "
+      },
+      {
+        "line": 1166,
+        "text": "\tend,"
+      },
+      {
+        "line": 1167,
+        "text": "\tcharges = function(self, eff) return table.count(eff.types) end,"
+      },
+      {
+        "line": 1174,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1175,
+        "text": "\t\teff.types = {}"
+      },
+      {
+        "line": 1176,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {[eff.damtype] = eff.res})"
+      },
+      {
+        "line": 1177,
+        "text": "\t\teff.types[eff.damtype] = true"
+      },
+      {
+        "line": 1178,
+        "text": "\tend,"
+      },
+      {
+        "line": 1183,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1184,
+        "text": ""
+      },
+      {
+        "line": 1185,
+        "text": "\t\tself:effectTemporaryValue(old_eff, \"resists\", {[new_eff.damtype] = new_eff.res})"
+      },
+      {
+        "line": 1186,
+        "text": "\t\told_eff.types[new_eff.damtype] = true"
+      },
+      {
+        "line": 1187,
+        "text": "\t\told_eff.dur = new_eff.dur"
+      },
+      {
+        "line": 1308,
+        "text": "\tname = \"LIGHTNING_SPEED\", image = \"talents/lightning_speed.png\","
+      },
+      {
+        "line": 1309,
+        "text": "\tdesc = _t\"Lightning Speed\","
+      },
+      {
+        "line": 1310,
+        "text": "\tlong_desc = function(self, eff) return (\"Turn into pure lightning, moving %d%% faster. It also increases your lightning resistance by 100%% and your physical resistance by 30%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 1311,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 1312,
+        "text": "\tsubtype = { lightning=true, speed=true },"
+      },
+      {
+        "line": 1324,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"lightning_speed\", 1)"
+      },
+      {
+        "line": 1325,
+        "text": "\t\teff.moveid = self:addTemporaryValue(\"movement_speed\", eff.power/100)"
+      },
+      {
+        "line": 1326,
+        "text": "\t\teff.resistsid = self:addTemporaryValue(\"resists\", {"
+      },
+      {
+        "line": 1327,
+        "text": "\t\t\t[DamageType.PHYSICAL]=30,"
+      },
+      {
+        "line": 1328,
+        "text": "\t\t\t[DamageType.LIGHTNING]=100,"
+      },
+      {
+        "line": 1329,
+        "text": "\t\t})"
+      },
+      {
+        "line": 1330,
+        "text": "\t\teff.capresistsid = self:addTemporaryValue(\"resists_cap\", {"
+      },
+      {
+        "line": 1331,
+        "text": "\t\t\t[DamageType.LIGHTNING]=100,"
+      },
+      {
+        "line": 1332,
+        "text": "\t\t})"
+      },
+      {
+        "line": 1338,
+        "text": "\t\tself:removeParticles(eff.particle)"
+      },
+      {
+        "line": 1339,
+        "text": "\t\tself:removeTemporaryValue(\"lightning_speed\", eff.tmpid)"
+      },
+      {
+        "line": 1340,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.resistsid)"
+      },
+      {
+        "line": 1341,
+        "text": "\t\tself:removeTemporaryValue(\"resists_cap\", eff.capresistsid)"
+      },
+      {
+        "line": 1342,
+        "text": "\t\tif eff.aiid then self:removeTemporaryValue(\"ai_state\", eff.aiid) end"
+      },
+      {
+        "line": 1343,
+        "text": "\t\tself:removeTemporaryValue(\"movement_speed\", eff.moveid)"
+      },
+      {
+        "line": 1577,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_apr\", eff.apr)"
+      },
+      {
+        "line": 1578,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_atk\", eff.accuracy)"
+      },
+      {
+        "line": 1579,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists_pen\", {all=eff.penetration})"
+      },
+      {
+        "line": 1580,
+        "text": "\tend,"
+      },
+      {
+        "line": 1581,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 1639,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# has survived the set up.\", _t\"-Set Up\" end,"
+      },
+      {
+        "line": 1640,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1641,
+        "text": "\t\teff.mental = self:addTemporaryValue(\"combat_mentalresist\", -eff.power)"
+      },
+      {
+        "line": 1642,
+        "text": "\t\teff.spell = self:addTemporaryValue(\"combat_spellresist\", -eff.power)"
+      },
+      {
+        "line": 1643,
+        "text": "\t\teff.physical = self:addTemporaryValue(\"combat_physresist\", -eff.power)"
+      },
+      {
+        "line": 1644,
+        "text": "\t\tself:effectParticles(eff, {type=\"circle\", args={oversize=1, a=220, base_rot=180, shader=true, appear=12, img=\"set_up_debuff_aura\", speed=0, radius=0}})"
+      },
+      {
+        "line": 1645,
+        "text": "\tend,"
+      },
+      {
+        "line": 1646,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 1647,
+        "text": "\t\tself:removeTemporaryValue(\"combat_mentalresist\", eff.mental)"
+      },
+      {
+        "line": 1648,
+        "text": "\t\tself:removeTemporaryValue(\"combat_spellresist\", eff.spell)"
+      },
+      {
+        "line": 1649,
+        "text": "\t\tself:removeTemporaryValue(\"combat_physresist\", eff.physical)"
+      },
+      {
+        "line": 1650,
+        "text": "\tend,"
+      },
+      {
+        "line": 1651,
+        "text": "}"
+      },
+      {
+        "line": 1697,
+        "text": "\tname = \"WEAKENED_DEFENSES\", image = \"talents/exploit_weakness.png\","
+      },
+      {
+        "line": 1698,
+        "text": "\tdesc = _t\"Weakened Defenses\","
+      },
+      {
+        "line": 1699,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's physical resistance has been reduced by %d%%.\"):tformat(eff.cur_inc) end,"
+      },
+      {
+        "line": 1700,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 1701,
+        "text": "\tsubtype = { sunder=true },"
+      },
+      {
+        "line": 1703,
+        "text": "\tparameters = { inc=1, max=5 },"
+      },
+      {
+        "line": 1704,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      },
+      {
+        "line": 1705,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", old_eff.tmpid)"
+      },
+      {
+        "line": 1706,
+        "text": "\t\told_eff.cur_inc = math.max(old_eff.cur_inc + new_eff.inc, new_eff.max)"
+      },
+      {
+        "line": 1707,
+        "text": "\t\told_eff.tmpid = self:addTemporaryValue(\"resists\", {[DamageType.PHYSICAL] = old_eff.cur_inc})"
+      },
+      {
+        "line": 1708,
+        "text": ""
+      },
+      {
+        "line": 1709,
+        "text": "\t\told_eff.dur = new_eff.dur"
+      },
+      {
+        "line": 1712,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1713,
+        "text": "\t\teff.cur_inc = eff.inc"
+      },
+      {
+        "line": 1714,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"resists\", {"
+      },
+      {
+        "line": 1715,
+        "text": "\t\t\t[DamageType.PHYSICAL] = eff.inc,"
+      },
+      {
+        "line": 1716,
+        "text": "\t\t})"
+      },
+      {
+        "line": 1718,
+        "text": "\tend,"
+      },
+      {
+        "line": 1719,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 1720,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.tmpid)"
+      },
+      {
+        "line": 1721,
+        "text": "\tend,"
+      },
+      {
+        "line": 1722,
+        "text": "}"
+      },
+      {
+        "line": 1748,
+        "text": "\t\telseif eff.type == DamageType.LIGHTNING then return (\"Increases all stats by %d.\"):tformat(self:callTalent(self.T_ELEMENTAL_HARMONY, \"lightningStats\"))"
+      },
+      {
+        "line": 1749,
+        "text": "\t\telseif eff.type == DamageType.ACID then return (\"Increases life regen by %0.2f.\"):tformat(self:callTalent(self.T_ELEMENTAL_HARMONY, \"acidRegen\"))"
+      },
+      {
+        "line": 1750,
+        "text": "\t\telseif eff.type == DamageType.NATURE then return (\"Increases all resists by %d%%.\"):tformat(self:callTalent(self.T_ELEMENTAL_HARMONY, \"natureRes\"))"
+      },
+      {
+        "line": 1751,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1752,
+        "text": "\tend,"
+      },
+      {
+        "line": 1775,
+        "text": "\t\t\teff.tmpid = self:addTemporaryValue(\"life_regen\", self:callTalent(self.T_ELEMENTAL_HARMONY, \"coldArmor\"))"
+      },
+      {
+        "line": 1776,
+        "text": "\t\telseif eff.type == DamageType.NATURE then"
+      },
+      {
+        "line": 1777,
+        "text": "\t\t\teff.tmpid = self:addTemporaryValue(\"resists\", {all=self:callTalent(self.T_ELEMENTAL_HARMONY, \"natureRes\")})"
+      },
+      {
+        "line": 1778,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1779,
+        "text": "\tend,"
+      },
+      {
+        "line": 1788,
+        "text": "\t\t\tself:removeTemporaryValue(\"life_regen\", eff.tmpid)"
+      },
+      {
+        "line": 1789,
+        "text": "\t\telseif eff.type == DamageType.NATURE then"
+      },
+      {
+        "line": 1790,
+        "text": "\t\t\tself:removeTemporaryValue(\"resists\", eff.tmpid)"
+      },
+      {
+        "line": 1791,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1792,
+        "text": "\tend,"
+      },
+      {
+        "line": 2020,
+        "text": "newEffect{"
+      },
+      {
+        "line": 2021,
+        "text": "\tname = \"LOWER_FIRE_RESIST\","
+      },
+      {
+        "line": 2022,
+        "text": "\tdesc = _t\"Lowered fire resistance\","
+      },
+      {
+        "line": 2023,
+        "text": "\tlong_desc = function(self, eff) return (\"The target fire resistance is reduced by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2024,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 2025,
+        "text": "\tsubtype = { nature=true },"
+      },
+      {
+        "line": 2026,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 2027,
+        "text": "\tparameters = { power=20 },"
+      },
+      {
+        "line": 2028,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes more vulnerable to fire.\", _t\"+Low. fire resist\" end,"
+      },
+      {
+        "line": 2029,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less vulnerable to fire.\", _t\"-Low. fire resist\" end,"
+      },
+      {
+        "line": 2030,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2031,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {[DamageType.FIRE]=-eff.power})"
+      },
+      {
+        "line": 2032,
+        "text": "\tend,"
+      },
+      {
+        "line": 2033,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2034,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 2035,
+        "text": "\tend,"
+      },
+      {
+        "line": 2036,
+        "text": "}"
+      },
+      {
+        "line": 2037,
+        "text": "newEffect{"
+      },
+      {
+        "line": 2038,
+        "text": "\tname = \"LOWER_COLD_RESIST\","
+      },
+      {
+        "line": 2039,
+        "text": "\tdesc = _t\"Lowered cold resistance\","
+      },
+      {
+        "line": 2040,
+        "text": "\tlong_desc = function(self, eff) return (\"The target cold resistance is reduced by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2041,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 2042,
+        "text": "\tsubtype = { nature=true },"
+      },
+      {
+        "line": 2043,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 2044,
+        "text": "\tparameters = { power=20 },"
+      },
+      {
+        "line": 2045,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes more vulnerable to cold.\", _t\"+Low. cold resist\" end,"
+      },
+      {
+        "line": 2046,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less vulnerable to cold.\", _t\"-Low. cold resist\" end,"
+      },
+      {
+        "line": 2047,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2048,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {[DamageType.COLD]=-eff.power})"
+      },
+      {
+        "line": 2049,
+        "text": "\tend,"
+      },
+      {
+        "line": 2050,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2051,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 2052,
+        "text": "\tend,"
+      },
+      {
+        "line": 2053,
+        "text": "}"
+      },
+      {
+        "line": 2054,
+        "text": "newEffect{"
+      },
+      {
+        "line": 2055,
+        "text": "\tname = \"LOWER_NATURE_RESIST\","
+      },
+      {
+        "line": 2056,
+        "text": "\tdesc = _t\"Lowered nature resistance\","
+      },
+      {
+        "line": 2057,
+        "text": "\tlong_desc = function(self, eff) return (\"The target nature resistance is reduced by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2058,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 2059,
+        "text": "\tsubtype = { nature=true },"
+      },
+      {
+        "line": 2060,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 2061,
+        "text": "\tparameters = { power=20 },"
+      },
+      {
+        "line": 2062,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes more vulnerable to nature.\", _t\"+Low. nature resist\" end,"
+      },
+      {
+        "line": 2063,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less vulnerable to nature.\", _t\"-Low. nature resist\" end,"
+      },
+      {
+        "line": 2064,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2065,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {[DamageType.NATURE]=-eff.power})"
+      },
+      {
+        "line": 2066,
+        "text": "\tend,"
+      },
+      {
+        "line": 2067,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2068,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 2069,
+        "text": "\tend,"
+      },
+      {
+        "line": 2070,
+        "text": "}"
+      },
+      {
+        "line": 2071,
+        "text": "newEffect{"
+      },
+      {
+        "line": 2072,
+        "text": "\tname = \"LOWER_PHYSICAL_RESIST\","
+      },
+      {
+        "line": 2073,
+        "text": "\tdesc = _t\"Lowered physical resistance\","
+      },
+      {
+        "line": 2074,
+        "text": "\tlong_desc = function(self, eff) return (\"The target physical resistance is reduced by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2075,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 2076,
+        "text": "\tsubtype = { nature=true },"
+      },
+      {
+        "line": 2077,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 2078,
+        "text": "\tparameters = { power=20 },"
+      },
+      {
+        "line": 2079,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes more vulnerable to physical.\", _t\"+Low. physical resist\" end,"
+      },
+      {
+        "line": 2080,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less vulnerable to physical.\", _t\"-Low. physical resist\" end,"
+      },
+      {
+        "line": 2081,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2082,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {[DamageType.PHYSICAL]=-eff.power})"
+      },
+      {
+        "line": 2083,
+        "text": "\tend,"
+      },
+      {
+        "line": 2084,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2085,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 2086,
+        "text": "\tend,"
+      },
+      {
+        "line": 2087,
+        "text": "}"
+      },
+      {
+        "line": 2362,
+        "text": "\t\t\t\t\t\tsrc:setEffect(src.EFF_DISARMED, 3, {apply_power=self:combatPhysicalpower()})"
+      },
+      {
+        "line": 2363,
+        "text": "\t\t\t\t\telse"
+      },
+      {
+        "line": 2364,
+        "text": "\t\t\t\t\t\tgame.logSeen(src, \"%s resists the disarming attempt!\", src:getName():capitalize())"
+      },
+      {
+        "line": 2365,
+        "text": "\t\t\t\t\tend"
+      },
+      {
+        "line": 2366,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 2378,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2379,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"block\", eff.power)"
+      },
+      {
+        "line": 2380,
+        "text": "\t\tif eff.properties.sp then eff.spell = self:addTemporaryValue(\"combat_spellresist\", eff.power) end"
+      },
+      {
+        "line": 2381,
+        "text": "\t\tself:effectParticles(eff, {type=\"block\"})"
+      },
+      {
+        "line": 2382,
+        "text": "\tend,"
+      },
+      {
+        "line": 2383,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2384,
+        "text": "\t\tself:removeTemporaryValue(\"block\", eff.tmpid)"
+      },
+      {
+        "line": 2385,
+        "text": "\t\tif eff.properties.sp then self:removeTemporaryValue(\"combat_spellresist\", eff.spell) end"
+      },
+      {
+        "line": 2386,
+        "text": "\tend,"
+      },
+      {
+        "line": 2387,
+        "text": "}"
+      },
+      {
+        "line": 2584,
+        "text": "\tname = \"DISTORTION\", image = \"talents/maelstrom.png\","
+      },
+      {
+        "line": 2585,
+        "text": "\tdesc = _t\"Distortion\","
+      },
+      {
+        "line": 2586,
+        "text": "\tlong_desc = function(self, eff) return (\"The target has recently taken distortion damage, is vulnerable to distortion effects, and has its physical resistance decreased by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2587,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 2588,
+        "text": "\tsubtype = { distortion=true },"
+      },
+      {
+        "line": 2592,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer distorted.\" or nil, _t\"-Distortion\" end,"
+      },
+      {
+        "line": 2593,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2594,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL]=-eff.power})"
+      },
+      {
+        "line": 2595,
+        "text": "\tend,"
+      },
+      {
+        "line": 2596,
+        "text": ""
+      },
+      {
+        "line": 2863,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2864,
+        "text": "\t\teff.particle = self:addParticles(Particles.new(\"stone_skin\", 1, {density=4}))"
+      },
+      {
+        "line": 2865,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL]=eff.power})"
+      },
+      {
+        "line": 2866,
+        "text": "\t\tself:effectTemporaryValue(eff, \"ignore_direct_crits\", eff.crits)"
+      },
+      {
+        "line": 2867,
+        "text": "\tend,"
+      },
+      {
+        "line": 3043,
+        "text": "\ton_lose = function(self, err) return nil, _t\"-Eternal Warrior\" end,"
+      },
+      {
+        "line": 3044,
+        "text": "\tlong_desc = function(self, eff)"
+      },
+      {
+        "line": 3045,
+        "text": "\t\treturn (\"The target stands strong, increasing all resistances by %0.1f%% and resistance caps by %0.1f%%.\"):"
+      },
+      {
+        "line": 3046,
+        "text": "\t\ttformat(eff.res, eff.cap)"
+      },
+      {
+        "line": 3047,
+        "text": "\tend,"
+      },
+      {
+        "line": 3048,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 3049,
+        "text": "\t\teff.res_id = self:addTemporaryValue(\"resists\", {all = eff.res})"
+      },
+      {
+        "line": 3050,
+        "text": "\t\teff.cap_id = self:addTemporaryValue(\"resists_cap\", {all = eff.cap})"
+      },
+      {
+        "line": 3051,
+        "text": "\tend,"
+      },
+      {
+        "line": 3052,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      },
+      {
+        "line": 3053,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", old_eff.res_id)"
+      },
+      {
+        "line": 3054,
+        "text": "\t\t\tself:removeTemporaryValue(\"resists_cap\", old_eff.cap_id)"
+      },
+      {
+        "line": 3055,
+        "text": "\t\tnew_eff.res = math.min(new_eff.res + old_eff.res, new_eff.res * new_eff.max)"
+      },
+      {
+        "line": 3056,
+        "text": "\t\tnew_eff.cap = math.min(new_eff.cap + old_eff.cap, new_eff.cap * new_eff.max)"
+      },
+      {
+        "line": 3057,
+        "text": "\t\tnew_eff.res_id = self:addTemporaryValue(\"resists\", {all = new_eff.res})"
+      },
+      {
+        "line": 3058,
+        "text": "\t\tnew_eff.cap_id = self:addTemporaryValue(\"resists_cap\", {all = new_eff.cap})"
+      },
+      {
+        "line": 3059,
+        "text": "\t\treturn new_eff"
+      },
+      {
+        "line": 3060,
+        "text": "\tend,"
+      },
+      {
+        "line": 3061,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 3062,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.res_id)"
+      },
+      {
+        "line": 3063,
+        "text": "\t\tself:removeTemporaryValue(\"resists_cap\", eff.cap_id)"
+      },
+      {
+        "line": 3064,
+        "text": "\tend,"
+      },
+      {
+        "line": 3065,
+        "text": "}"
+      },
+      {
+        "line": 3138,
+        "text": "\tname = \"ANTI_GRAVITY\", image = \"talents/gravity_locus.png\","
+      },
+      {
+        "line": 3139,
+        "text": "\tdesc = _t\"Anti-Gravity\","
+      },
+      {
+        "line": 3140,
+        "text": "\tlong_desc = function(self, eff) return (\"Target is caught in an anti-gravity field, halving its knockback resistance.\"):tformat() end,"
+      },
+      {
+        "line": 3141,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 3142,
+        "text": "\tsubtype = { spacetime=true },"
+      },
+      {
+        "line": 3280,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the deathmark.\", _t\"-Marked for Death\" end,"
+      },
+      {
+        "line": 3281,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 3282,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {all=-eff.power})"
+      },
+      {
+        "line": 3283,
+        "text": "\t\tself:effectParticles(eff, {type=\"circle\", args={toback=true, oversize=1.8, base_rot=180, a=255, shader=true, appear=12, img=\"marked_death_aura\", speed=0, radius=0}})"
+      },
+      {
+        "line": 3284,
+        "text": "\tend,"
+      },
+      {
+        "line": 3424,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"pin_immune\", -self:attr(\"pin_immune\") / 2)"
+      },
+      {
+        "line": 3425,
+        "text": "\t\tend"
+      },
+      {
+        "line": 3426,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_physresist\", -eff.power)"
+      },
+      {
+        "line": 3427,
+        "text": "\tend,"
+      },
+      {
+        "line": 3428,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 3436,
+        "text": "\t\tlocal desc = (\"The target is wreathed in shadows, increasing life regeneration by %0.1f\"):tformat(eff.life)"
+      },
+      {
+        "line": 3437,
+        "text": "\t\tif eff.shadowguard > 0 then"
+      },
+      {
+        "line": 3438,
+        "text": "\t\t\tdesc = desc..(\", stamina regeneration by %0.1f and all damage resistance by %d%%.\"):tformat(eff.stamina, eff.shadowguard)"
+      },
+      {
+        "line": 3439,
+        "text": "\t\telse"
+      },
+      {
+        "line": 3440,
+        "text": "\t\t\tdesc = desc..(\" and stamina regeneration by %0.1f.\"):tformat(eff.stamina) end"
+      },
+      {
+        "line": 3448,
+        "text": "\t\teff.lifeid = self:addTemporaryValue(\"life_regen\", eff.life)"
+      },
+      {
+        "line": 3449,
+        "text": "\t\teff.staid = self:addTemporaryValue(\"stamina_regen\", eff.stamina)"
+      },
+      {
+        "line": 3450,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {all = eff.shadowguard})"
+      },
+      {
+        "line": 3451,
+        "text": "\tend,"
+      },
+      {
+        "line": 3452,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 3565,
+        "text": "\t\tif cut and eff.src and eff.src:knowTalent(self.T_BLOODY_BUTCHER)then"
+      },
+      {
+        "line": 3566,
+        "text": "\t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_BLOODY_BUTCHER)"
+      },
+      {
+        "line": 3567,
+        "text": "\t\t\tlocal resist = math.min(t.getResist(eff.src, t), math.max(0, self:combatGetResist(DamageType.PHYSICAL)))"
+      },
+      {
+        "line": 3568,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})"
+      },
+      {
+        "line": 3569,
+        "text": "\t\tend"
+      },
+      {
+        "line": 3570,
+        "text": "\tend,"
+      },
+      {
+        "line": 3643,
+        "text": "\t\teff.aid = self:addTemporaryValue(\"combat_armor\", eff.armor)"
+      },
+      {
+        "line": 3644,
+        "text": "\t\teff.hid = self:addTemporaryValue(\"combat_armor_hardiness\", eff.armor_hardiness)"
+      },
+      {
+        "line": 3645,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"combat_physresist\", eff.physical)"
+      },
+      {
+        "line": 3646,
+        "text": "\t\teff.sid = self:addTemporaryValue(\"combat_spellresist\", eff.spell)"
+      },
+      {
+        "line": 3647,
+        "text": "\t\tif self:knowTalent(self.T_STONE_FORTRESS) then"
+      },
+      {
+        "line": 3648,
+        "text": "\t\t\tlocal ac = self:combatArmor() * self:callTalent(self.T_STONE_FORTRESS, \"getPercent\")/ 100"
+      },
+      {
+        "line": 3655,
+        "text": "\t\tself:removeTemporaryValue(\"combat_armor\", eff.aid)"
+      },
+      {
+        "line": 3656,
+        "text": "\t\tself:removeTemporaryValue(\"combat_armor_hardiness\", eff.hid)"
+      },
+      {
+        "line": 3657,
+        "text": "\t\tself:removeTemporaryValue(\"combat_physresist\", eff.pid)"
+      },
+      {
+        "line": 3658,
+        "text": "\t\tself:removeTemporaryValue(\"combat_spellresist\", eff.sid)"
+      },
+      {
+        "line": 3659,
+        "text": "\t\tif eff.mid then self:removeTemporaryValue(\"flat_damage_armor\", eff.mid) end"
+      },
+      {
+        "line": 3660,
+        "text": "\tend,"
+      },
+      {
+        "line": 3853,
+        "text": "\t\teff.daze = self:addTemporaryValue(\"daze_immune\", 1)"
+      },
+      {
+        "line": 3854,
+        "text": "\t\teff.pin = self:addTemporaryValue(\"pin_immune\", 1)"
+      },
+      {
+        "line": 3855,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      },
+      {
+        "line": 3856,
+        "text": "\t\teff.staid = self:addTemporaryValue(\"stamina_regen\", eff.stamina)"
+      },
+      {
+        "line": 3857,
+        "text": "\tend,"
+      },
+      {
+        "line": 3863,
+        "text": "\t\tself:removeTemporaryValue(\"daze_immune\", eff.daze)"
+      },
+      {
+        "line": 3864,
+        "text": "\t\tself:removeTemporaryValue(\"pin_immune\", eff.pin)"
+      },
+      {
+        "line": 3865,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.pid)"
+      },
+      {
+        "line": 3866,
+        "text": "\t\tself:removeTemporaryValue(\"stamina_regen\", eff.staid)"
+      },
+      {
+        "line": 3867,
+        "text": "\tend,"
+      },
+      {
+        "line": 3908,
+        "text": "\tname = \"STICKY_PITCH\", image = \"talents/sticky_smoke.png\","
+      },
+      {
+        "line": 3909,
+        "text": "\tdesc = _t\"Sticky Pitch\","
+      },
+      {
+        "line": 3910,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's global speed is reduced by %d%% and fire resistance by %d%%.\"):tformat(eff.slow, eff.resist) end,"
+      },
+      {
+        "line": 3911,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 3912,
+        "text": "\tsubtype = { slow=true },"
+      },
+      {
+        "line": 3913,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 3914,
+        "text": "\tparameters = { slow=0.1, resist=10 },"
+      },
+      {
+        "line": 3915,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is covered in sticky, flammable pitch.\", _t\"+Pitch\" end,"
+      },
+      {
+        "line": 3916,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the pitch.\", _t\"-Pitch\" end,"
+      },
+      {
+        "line": 3917,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 3918,
+        "text": "\t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.slow)"
+      },
+      {
+        "line": 3919,
+        "text": "\t\teff.resid = self:addTemporaryValue(\"resists\", {[DamageType.FIRE] = -eff.resist})"
+      },
+      {
+        "line": 3920,
+        "text": "\t\tif core.shader.active() then"
+      },
+      {
+        "line": 3921,
+        "text": "\t\t\tself:effectParticles(eff, {type=\"shader_shield\", args={toback=false, size_factor=2, img=\"sticky_pitch_debuff_tentacles\"}, shader={type=\"tentacles\", backgroundLayersCount=-4, appearTime=0.3, time_factor=500, noup=0.0}})"
+      },
+      {
+        "line": 3924,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 3925,
+        "text": "\t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)"
+      },
+      {
+        "line": 3926,
+        "text": "\t\tself:removeTemporaryValue(\"resists\", eff.resid)"
+      },
+      {
+        "line": 3927,
+        "text": "\tend,"
+      },
+      {
+        "line": 3928,
+        "text": "}"
+      },
+      {
+        "line": 3940,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s armour is more intact.\", _t\"-Punctured Armour\" end,"
+      },
+      {
+        "line": 3941,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 3942,
+        "text": "\t\tself:effectTemporaryValue(eff, \"resists\", {all=-eff.power})"
+      },
+      {
+        "line": 3943,
+        "text": "\t\tself:effectParticles(eff, {type=\"circle\", args={oversize=1, a=220, base_rot=180, shader=true, appear=12, img=\"pierced_armour_debuff_aura\", speed=0, radius=0}})"
+      },
+      {
+        "line": 3944,
+        "text": "\tend,"
+      },
+      {
+        "line": 4109,
+        "text": "}"
+      },
+      {
+        "line": 4110,
+        "text": ""
+      },
+      {
+        "line": 4111,
+        "text": "-- Premptive Chromatic resistance"
+      },
+      {
+        "line": 4112,
+        "text": "newEffect{"
+      },
+      {
+        "line": 4113,
+        "text": "\tname = \"CHROMATIC_RESONANCE\", image = \"shockbolt/object/artifact/ureslaks_molted_scales.png\","
+      },
+      {
+        "line": 4115,
+        "text": "\tlong_desc = function(self, eff)"
+      },
+      {
+        "line": 4116,
+        "text": "\t\tlocal dt_descs = table.concatNice(eff.type_descs, \", \", \", or \")"
+      },
+      {
+        "line": 4117,
+        "text": "\t\treturn (\"Preemptively reacts to %s damage, increasing the appropriate resistance by %d for 5 turns.\"):tformat(dt_descs, eff.power)"
+      },
+      {
+        "line": 4118,
+        "text": "\tend,"
+      },
+      {
+        "line": 4119,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 4120,
+        "text": "\tsubtype = { nature=true, resist=true },"
+      },
+      {
+        "line": 4121,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 4122,
+        "text": "\tparameters = {power=15, resist_types={\"FIRE\", \"COLD\", \"LIGHTNING\", \"NATURE\", \"DARKNESS\"} },"
+      },
+      {
+        "line": 4123,
+        "text": "\ton_gain = function(self, err) return _t\"#Target##OLIVE_DRAB# shimmers in multiple hues.\", true end,"
+      },
+      {
+        "line": 4124,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s#OLIVE_DRAB# multi-hued shimmer fades.\", true end,"
+      },
+      {
+        "line": 4125,
+        "text": "\tcallbackOnTakeDamageBeforeResists = function(self, eff, src, x, y, type, dam, state)"
+      },
+      {
+        "line": 4126,
+        "text": "\t\tif dam > 0 and src ~= self and not self:hasEffect(self.EFF_CHROMATIC_RESISTANCE) then"
+      },
+      {
+        "line": 4127,
+        "text": "\t\t\tfor i, r_type in ipairs(eff.resist_types) do"
+      },
+      {
+        "line": 4128,
+        "text": "\t\t\t\tif type == r_type then"
+      },
+      {
+        "line": 4129,
+        "text": "\t\t\t\t\tself:setEffect(self.EFF_CHROMATIC_RESISTANCE, 5, {type=type, power=eff.power})"
+      },
+      {
+        "line": 4136,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 4137,
+        "text": "\t\teff.type_descs = {}"
+      },
+      {
+        "line": 4138,
+        "text": "\t\tfor i = #eff.resist_types, 1, -1 do"
+      },
+      {
+        "line": 4139,
+        "text": "\t\t\tlocal dt = DamageType[eff.resist_types[i]] and DamageType:get(eff.resist_types[i])"
+      },
+      {
+        "line": 4140,
+        "text": "\t\t\tif dt then"
+      },
+      {
+        "line": 4141,
+        "text": "\t\t\t\ttable.insert(eff.type_descs, (dt.text_color or \"#aaaaaa#\")..dt.name:capitalize()..\"#LAST#\")"
+      },
+      {
+        "line": 4142,
+        "text": "\t\t\telse table.remove(eff.resist_types, i)"
+      },
+      {
+        "line": 4143,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 4144,
+        "text": "\t\tend"
+      },
+      {
+        "line": 4155,
+        "text": "\t\tlocal dt = DamageType[eff.type] and DamageType:get(eff.type)"
+      },
+      {
+        "line": 4156,
+        "text": "\t\tlocal type_desc = dt and ((dt.text_color or \"#aaaaaa#\")..dt.name:capitalize()..\"#LAST# \") or \"\""
+      },
+      {
+        "line": 4157,
+        "text": "\t\treturn (\"%sresistance increased by %d%%.\"):tformat(type_desc, eff.power)"
+      },
+      {
+        "line": 4158,
+        "text": "\tend,"
+      },
+      {
+        "line": 4159,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 4160,
+        "text": "\tsubtype = { nature=true, resist=true },"
+      },
+      {
+        "line": 4161,
+        "text": "\tcharges = function(self, eff) return eff.dtype.name:capitalize() end,"
+      },
+      {
+        "line": 4162,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 4177,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 4178,
+        "text": "\t\tif eff.type then"
+      },
+      {
+        "line": 4179,
+        "text": "\t\t\tself:effectTemporaryValue(eff, \"resists\", {[eff.type] = eff.power})"
+      },
+      {
+        "line": 4180,
+        "text": "\t\telse"
+      },
+      {
+        "line": 4181,
+        "text": "\t\t\tself:removeEffect(eff.effect_id)"
+      },
+      {
+        "line": 4340,
+        "text": "\tname = \"Brutalized\", image = \"effects/stunned.png\","
+      },
+      {
+        "line": 4341,
+        "text": "\tdesc = _t\"Brutalized\","
+      },
+      {
+        "line": 4342,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is brutalized, reducing bleed resist by 50%%.\"):tformat() end,"
+      },
+      {
+        "line": 4343,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 4344,
+        "text": "\tsubtype = { },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4f3970a7c540e36cebd2f60cddad73544b1b246c1ea3e81c668a375bbc6f47b",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/chronomancer.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newTalentType{ no_silence=true, is_spell=true, type=\"chronomancy/age-manipulation\", name = _t(\"Age Manipulation\", \"talent type\"), description = _t\"Manipulate the age of creatures you encounter.\" }"
+      },
+      {
+        "line": 49,
+        "text": "newTalentType{ no_silence=true, is_spell=true, type=\"chronomancy/temporal-archery\", name = _t(\"Temporal Archery\", \"talent type\"), description = _t\"A blend of chronomancy and ranged combat.\" }"
+      },
+      {
+        "line": 50,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"chronomancy/paradox\", name = _t(\"paradox\", \"talent type\"), description = _t\"Break the laws of spacetime.\" }"
+      },
+      {
+        "line": 51,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4f453a2fd45ea64b3e23b0ee983cacf1f5ab3cf8d8e716c77da7de5701089e9",
+    "public_source_path": "game/modules/tome/data/chats/lumberjack-quest-done.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "#LIGHT_GREEN#*he coughs one last time and dies, a smile on his face as his curse is gone.*#WHITE#]],"
+      },
+      {
+        "line": 25,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 26,
+        "text": "\t\t{_t\"Rest in peace.\", action=function(npc, player) player:setQuestStatus(\"lumberjack-cursed\", engine.Quest.COMPLETED) end},"
+      },
+      {
+        "line": 27,
+        "text": "\t}"
+      },
+      {
+        "line": 28,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4fdd79ff9aea8636d37f9d68ee3f0c581198f16fddab1b1357357b5cac3e723",
+    "public_source_path": "game/modules/tome/data/general/objects/bows.lua",
+    "lines": [
+      {
+        "line": 150,
+        "text": ""
+      },
+      {
+        "line": 151,
+        "text": "newEntity{ base = \"BASE_ARROW\","
+      },
+      {
+        "line": 152,
+        "text": "\tname = \"quiver of yew arrows\", short_name = \"yew\","
+      },
+      {
+        "line": 153,
+        "text": "\tlevel_range = {20, 30},"
+      },
+      {
+        "line": 154,
+        "text": "\trequire = { stat = { dex=24 }, },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f50d201a51dff6d985e50dca67ad5acfa7d5c42762ba57d9b4491d22e1649f92",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/anomalies.lua",
+    "lines": [
+      {
+        "line": 468,
+        "text": ""
+      },
+      {
+        "line": 469,
+        "text": "newTalent{"
+      },
+      {
+        "line": 470,
+        "text": "\tname = \"Anomaly Blink\","
+      },
+      {
+        "line": 471,
+        "text": "\ttype = {\"chronomancy/anomalies\", 1},"
+      },
+      {
+        "line": 472,
+        "text": "\tanomaly_type = \"warp\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f512ba833eeb4b47b5728e68f9b4c96705e7ec2e0c9ea5f73a291c002ad981be",
+    "public_source_path": "game/modules/tome/data/chats/shertul-fortress-training-orb.lua",
+    "lines": [
+      {
+        "line": 83,
+        "text": "\t\t{_t\"[Create three target dummy]\", action=dummies(3)},"
+      },
+      {
+        "line": 84,
+        "text": "\t\t{_t\"[Create five target dummy]\", action=dummies(5)},"
+      },
+      {
+        "line": 85,
+        "text": "\t\t{_t\"[Create ten target dummy]\", action=dummies(10)},"
+      },
+      {
+        "line": 86,
+        "text": "\t\t{_t\"[Change dummies armour]\", action=armor_dummies},"
+      },
+      {
+        "line": 87,
+        "text": "\t\t{_t\"[Change dummies resistances]\", action=resist_dummies},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f516b840c3088ad53579662b987647866d441c0c68d426a50fede63a68256f17",
+    "public_source_path": "game/modules/tome/class/EscortRewards.lua",
+    "lines": [
+      {
+        "line": 538,
+        "text": "\t\t\t\tend) end"
+      },
+      {
+        "line": 539,
+        "text": "\t\t\t\tanswers[#answers+1] = {"
+      },
+      {
+        "line": 540,
+        "text": "\t\t\t\t\t(\"[%s talent %s (+%d level(s))]\"):tformat(who:knowTalent(tid) and _t\"Improve\" or _t\"Learn\", t.name, level),"
+      },
+      {
+        "line": 541,
+        "text": "\t\t\t\t\t\tjump=jump_to or \"done\","
+      },
+      {
+        "line": 542,
+        "text": "\t\t\t\t\t\taction=doit,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5170c581aa1273d131f67a3172774350821e0d49050568de228bf65eb8875de",
+    "public_source_path": "game/modules/tome/data/zones/tutorial-combat-stats/traps.lua",
+    "lines": [
+      {
+        "line": 101,
+        "text": ""
+      },
+      {
+        "line": 102,
+        "text": "newEntity{ define_as = \"TRAP_TUTORIAL6\","
+      },
+      {
+        "line": 103,
+        "text": "\ttype = \"tutorial\", subtype=\"tutorial6\", id_by_type=true, unided_name = _t\"tutorial\","
+      },
+      {
+        "line": 104,
+        "text": "\tdetect_power = 999999, disarm_power = 999999,"
+      },
+      {
+        "line": 105,
+        "text": "\tdesc=_t[[A tutorial]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5196c1cb53feba470506697a69e5e350c9a97e5b25b2e75aaa4c3a8a1f37976",
+    "public_source_path": "game/modules/tome/class/Actor.lua",
+    "lines": [
+      {
+        "line": 6782,
+        "text": "\tif t.mode ~= \"passive\" then"
+      },
+      {
+        "line": 6783,
+        "text": "\t\tif self:getTalentRange(t) > 1 then d:add({\"color\",0x6f,0xff,0x83}, _t\"Range: \", {\"color\",0xFF,0xFF,0xFF}, (\"%d\"):format(self:getTalentRange(t)), true)"
+      },
+      {
+        "line": 6784,
+        "text": "\t\telse d:add({\"color\",0x6f,0xff,0x83}, _t\"Range: \", {\"color\",0xFF,0xFF,0xFF}, _t\"melee/personal\", true)"
+      },
+      {
+        "line": 6785,
+        "text": "\t\tend"
+      },
+      {
+        "line": 6786,
+        "text": "\t\tif not config.ignore_ressources then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f51d1dffaf94260ca17a3165f82b4d4af14813b2bf474dd6abe791f6e13817c1",
+    "public_source_path": "game/modules/tome/data/talents/techniques/warcries.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": "\t\t\t\tgame.level:removeEntity(proj, true)"
+      },
+      {
+        "line": 47,
+        "text": "\t\t\t\tproj.dead = true"
+      },
+      {
+        "line": 48,
+        "text": "\t\t\t\tself:logCombat(proj, \"#Source# shatters '#Target#'.\")"
+      },
+      {
+        "line": 49,
+        "text": "\t\t\tend)"
+      },
+      {
+        "line": 50,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f51e046c05a996e9be0761fb7ad9ae7c45bbfadf4b4a0f4fdc798a980e14b0a1",
+    "public_source_path": "game/modules/tome/data/birth/descriptors.lua",
+    "lines": [
+      {
+        "line": 321,
+        "text": "\t{"
+      },
+      {
+        "line": 322,
+        "text": "\t\t_t\"#GOLD##{bold}#Exploration mode#WHITE#\","
+      },
+      {
+        "line": 323,
+        "text": "\t\t_t\"Provides you with infinite lives.#{normal}#\","
+      },
+      {
+        "line": 324,
+        "text": "\t\t_t\"This is not the way the game is meant to be played, but it allows you to have a more forgiving experience.\","
+      },
+      {
+        "line": 325,
+        "text": "\t\t_t\"Remember though that dying is an integral part of the game and helps you become a better player.\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f52045b772be0fb53c4484eb050edb2f1392e754db37c73dfe0e2d8991c24cf6",
+    "public_source_path": "game/modules/tome/dialogs/ShowIngredients.lua",
+    "lines": [
+      {
+        "line": 40,
+        "text": "\t\t{name=_t\"Ingredient\", width=50, display_prop=\"name\", sort=\"name\"},"
+      },
+      {
+        "line": 41,
+        "text": "\t\t{name=_t\"Category\", width=30, display_prop=\"cat\", sort=\"cat\"},"
+      },
+      {
+        "line": 42,
+        "text": "\t\t{name=_t\"Quantity\", width=20, display_prop=\"nb\", sort=\"nb\"},"
+      },
+      {
+        "line": 43,
+        "text": "\t}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}"
+      },
+      {
+        "line": 44,
+        "text": ""
+      },
+      {
+        "line": 73,
+        "text": "function _M:select(item)"
+      },
+      {
+        "line": 74,
+        "text": "\tif item then"
+      },
+      {
+        "line": 75,
+        "text": "\t\tself.c_desc:switchItem(item, (\"#GOLD#Category:#AQUAMARINE# %s\\n#GOLD#Ingredient:#0080FF# %s\\n#GOLD#Quantity:#0080FF# %s\\n#GOLD#Text:#ANTIQUE_WHITE# %s\"):tformat(item.cat, item.name:toString(), item.nb, item.desc))"
+      },
+      {
+        "line": 76,
+        "text": "\tend"
+      },
+      {
+        "line": 77,
+        "text": "end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f529ec33ab8a71ee87821ab1053a58d4f722d8ae25b15c630f034341a7711ba1",
+    "public_source_path": "game/modules/tome/data/talents/celestial/sun.lua",
+    "lines": [
+      {
+        "line": 123,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 124,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 125,
+        "text": "\t\treturn ([[A path of sunlight appears in front of you for 5 turns. All foes standing inside take %0.1f Light damage per turn."
+      },
+      {
+        "line": 126,
+        "text": "\t\tWhile standing in the path, your movement takes no time and can not trigger traps."
+      },
+      {
+        "line": 127,
+        "text": "\t\tThe damage done will increase with your Spellpower.]]):tformat(damDesc(self, DamageType.LIGHT, damage / 5), radius)"
+      },
+      {
+        "line": 128,
+        "text": "\tend,"
+      },
+      {
+        "line": 129,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f52a7a9fc5de99802a2d7f4108ee414e21e9c32854ab7bc3aa32353f5a3a9f0b",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 470,
+        "text": "\tname = \"TIME_DOT\","
+      },
+      {
+        "line": 471,
+        "text": "\tdesc = _t\"Temporal Restoration Field\","
+      },
+      {
+        "line": 472,
+        "text": "\tlong_desc = function(self, eff) return (\"The time distortion has created a restoration field, healing the target for %d each turn.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 473,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 474,
+        "text": "\tsubtype = { time=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f52f924e44e80972b4b00c21041e829c652e28e43a3a8316a44b940556e62da5",
+    "public_source_path": "game/modules/tome/data/general/npcs/troll.lua",
+    "lines": [
+      {
+        "line": 146,
+        "text": "\tname = \"Forest Troll Hedge-Wizard\", color=colors.YELLOW_GREEN, "
+      },
+      {
+        "line": 147,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 148,
+        "text": "\tdesc = _t[[This old-looking troll glares at you with malice. His muscles appear atrophied, but a certain power surrounds him nonetheless.]],"
+      },
+      {
+        "line": 149,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 2,"
+      },
+      {
+        "line": 150,
+        "text": "\trank=3.5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5318eee7537d7b96e491c2d3280e7defb3014038711f3e77567182edd9475a0",
+    "public_source_path": "game/modules/tome/data/achievements/quests.lua",
+    "lines": [
+      {
+        "line": 220,
+        "text": "}"
+      },
+      {
+        "line": 221,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 222,
+        "text": "\tname = \"Antimagic!\", id = \"ANTIMAGIC\","
+      },
+      {
+        "line": 223,
+        "text": "\tshow = \"name\","
+      },
+      {
+        "line": 224,
+        "text": "\tdesc = _t[[Completed antimagic training in the Ziguranth camp.]],"
+      },
+      {
+        "line": 225,
+        "text": "}"
+      },
+      {
+        "line": 226,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 227,
+        "text": "\tname = \"Anti-Antimagic!\", id = \"ANTI_ANTIMAGIC\","
+      },
+      {
+        "line": 228,
+        "text": "\tshow = \"name\","
+      },
+      {
+        "line": 229,
+        "text": "\tdesc = _t[[Destroyed the Ziguranth camp with your Rhaloren allies.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f537484699877a3d878e96967af3d0455ead52f99faf42c9b1f6b9dbc04be480",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 2487,
+        "text": "-- Physical + Blind"
+      },
+      {
+        "line": 2488,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 2489,
+        "text": "\tname = _t(\"blinding physical\", \"damage type\"), type = \"SAND\","
+      },
+      {
+        "line": 2490,
+        "text": "\tprojector = function(src, x, y, type, dam, state)"
+      },
+      {
+        "line": 2491,
+        "text": "\t\tstate = initState(state)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f53fe15ae2e765aabdb57386081cb2e631cbdba4d3e30c90a801a3bcb0e236cd",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 1855,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1856,
+        "text": "\tname = \"REDUX\", image = \"talents/redux.png\","
+      },
+      {
+        "line": 1857,
+        "text": "\tdesc = _t\"Redux\","
+      },
+      {
+        "line": 1858,
+        "text": "\tlong_desc = function(self, eff) return (\"Chronomancy spells with cooldown less than %d will not go on cooldown when cast.\"):tformat(eff.max_cd) end,"
+      },
+      {
+        "line": 1859,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f545fcc4610b25c9291fe3ad6c37a2ed346844d9e5cc1f61daaa5a9653e90110",
+    "public_source_path": "game/modules/tome/class/Game.lua",
+    "lines": [
+      {
+        "line": 1118,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1119,
+        "text": "\telseif params.temporary_zone_shift_back then -- We switch back"
+      },
+      {
+        "line": 1120,
+        "text": "\t\tpopup = Dialog:simpleWaiter(_t\"Loading level\", _t\"Please wait while loading the level...\", nil, 10000)"
+      },
+      {
+        "line": 1121,
+        "text": "\t\tcore.display.forceRedraw()"
+      },
+      {
+        "line": 1122,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f546302053ae9dbb0a893413e9baf930386f53c88c1d52bd48ce71cb12da8e3e",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 544,
+        "text": "\tdefine_as = \"LUNAR_SHIELD\","
+      },
+      {
+        "line": 545,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 546,
+        "text": "\tname = \"Lunar Shield\", image = \"object/artifact/shield_lunar_shield.png\","
+      },
+      {
+        "line": 547,
+        "text": "\tmoddable_tile = \"special/%s_lunar_shield\","
+      },
+      {
+        "line": 548,
+        "text": "\tmoddable_tile_big = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f54dc2ef2a3dedaac363dcb54f2f253fcb70a9433e6a83e116c3b0f9334d8987",
+    "public_source_path": "game/modules/tome/data/chats/ward.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 35,
+        "text": "\ttext = _t[[Call forth which ward?]],"
+      },
+      {
+        "line": 36,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 37,
+        "text": "\t\t{(\"Fire [%d]\"):tformat(src.wards[DamageType.FIRE] or 0), "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f54fb57fa2ab9914e7c81ef0eead379b0677c32dcd18d1a88ab588893ff362b9",
+    "public_source_path": "game/modules/tome/data/zones/arena/objects.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "}"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "newEntity{ define_as = \"ARENA_BOOTS_DISE\", name = \"a pair of leather boots of disengagement\","
+      },
+      {
+        "line": 32,
+        "text": "\tslot = \"FEET\","
+      },
+      {
+        "line": 33,
+        "text": "\ttype = \"armor\", subtype=\"feet\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f557fe4f0e2d00e770a1ab867d8920ef5652a61f032c329596ccaae1e5fb9e58",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/helm.lua",
+    "lines": [
+      {
+        "line": 338,
+        "text": "\tpower_source = {psionic=true},"
+      },
+      {
+        "line": 339,
+        "text": "\tname = \"mindcaging \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 340,
+        "text": "\tkeywords = {mindcage=true},"
+      },
+      {
+        "line": 341,
+        "text": "\tlevel_range = {30, 50},"
+      },
+      {
+        "line": 342,
+        "text": "\tgreater_ego = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f55d650057ed98a9c631eb536d9afae4c8f45ab6201f8c08004d07068e7df3ae",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 2490,
+        "text": "\tname = \"INSOMNIA\", image = \"effects/insomnia.png\","
+      },
+      {
+        "line": 2491,
+        "text": "\tdesc = _t\"Insomnia\","
+      },
+      {
+        "line": 2492,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is wide awake and has %d%% resistance to sleep effects.\"):tformat(eff.cur_power) end,"
+      },
+      {
+        "line": 2493,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 2494,
+        "text": "\tsubtype = { psionic=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f55d6fedad8c16a88f95f5f2bc2216640aedb5b0898ec3a0ef367931566979b4",
+    "public_source_path": "game/modules/tome/data/talents/misc/misc.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "-- race & classes"
+      },
+      {
+        "line": 21,
+        "text": "newTalentType{ type=\"base/class\", name = _t(\"class\", \"talent type\"), hide = true, description = _t\"The basic talents defining a class.\" }"
+      },
+      {
+        "line": 22,
+        "text": "newTalentType{ type=\"base/race\", name = _t(\"race\", \"talent type\"), hide = true, description = _t\"The various racial bonuses a character can have.\" }"
+      },
+      {
+        "line": 23,
+        "text": "newTalentType{ is_nature = true, type=\"inscriptions/infusions\", name = _t(\"infusions\", \"talent type\"), hide = true, description = _t\"Infusions are not class abilities, you must find them or learn them from other people.\" }"
+      },
+      {
+        "line": 24,
+        "text": "newTalentType{ is_spell=true, no_silence=true, type=\"inscriptions/runes\", name = _t(\"runes\", \"talent type\"), hide = true, description = _t\"Runes are not class abilities, you must find them or learn them from other people.\" }"
+      },
+      {
+        "line": 30,
+        "text": "load(\"/data/talents/misc/npcs.lua\")"
+      },
+      {
+        "line": 31,
+        "text": "load(\"/data/talents/misc/horrors.lua\")"
+      },
+      {
+        "line": 32,
+        "text": "load(\"/data/talents/misc/races.lua\")"
+      },
+      {
+        "line": 33,
+        "text": "load(\"/data/talents/misc/tutorial.lua\")"
+      },
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 399,
+        "text": "\tshort_name = \"SHERTUL_FORTRESS_GETOUT\","
+      },
+      {
+        "line": 400,
+        "text": "\tname = \"Teleport to the ground\","
+      },
+      {
+        "line": 401,
+        "text": "\ttype = {\"base/race\", 1},"
+      },
+      {
+        "line": 402,
+        "text": "\tno_npc_use = true,"
+      },
+      {
+        "line": 403,
+        "text": "\tno_unlearn_last = true,"
+      },
+      {
+        "line": 420,
+        "text": "\tshort_name = \"SHERTUL_FORTRESS_BEAM\","
+      },
+      {
+        "line": 421,
+        "text": "\tname = \"Fire a blast of energy\","
+      },
+      {
+        "line": 422,
+        "text": "\ttype = {\"base/race\", 1},"
+      },
+      {
+        "line": 423,
+        "text": "\tfortress_energy = 10,"
+      },
+      {
+        "line": 424,
+        "text": "\tno_npc_use = true,"
+      },
+      {
+        "line": 451,
+        "text": "\tshort_name = \"SHERTUL_FORTRESS_ORBIT\","
+      },
+      {
+        "line": 452,
+        "text": "\tname = \"High Planetary Orbit\","
+      },
+      {
+        "line": 453,
+        "text": "\ttype = {\"base/race\", 1},"
+      },
+      {
+        "line": 454,
+        "text": "\tfortress_energy = 100,"
+      },
+      {
+        "line": 455,
+        "text": "\tno_npc_use = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f55e6d875b166eea7cc42efda0eeb7ba90c0cd3c742e9d47bcc6ed309b4c7e0b",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 327,
+        "text": "\tcategory = \"valley of the moon\","
+      },
+      {
+        "line": 328,
+        "text": "\tname = _t\"Rassir's journal part 3\","
+      },
+      {
+        "line": 329,
+        "text": "\tlore = _t[[I fell asleep in a dark hollow, but my sleep was troubled by terrible dreams. The dreams are so vivid in my mind!"
+      },
+      {
+        "line": 330,
+        "text": ""
+      },
+      {
+        "line": 331,
+        "text": "I saw the red star, and it became a land of fire floating in the night sky, full of black creatures with yellow eyes and hungry red mouths. And beyond the red star, far beyond was a dim world, but fractured and split all about its surface. As the world spun the split continents crushed against each other, and lava spilled up, and lands sunk into the ground. Demonic mouths screamed up as they disappeared into fiery death. It was if the world was tearing itself apart, but some force of will was desperately trying to keep it held together."
+      },
+      {
+        "line": 332,
+        "text": ""
+      },
+      {
+        "line": 333,
+        "text": "And I saw then in the centre of the world, as it spun and crumpled and crunched, a vast figure with a horned head and outstretched limbs and shining white eyes. It held tight to the innards of the world, holding it together against forces threatening to pull the whole planet apart. The giant face contorted and screamed in pain and fury."
+      },
+      {
+        "line": 334,
+        "text": ""
+      },
+      {
+        "line": 335,
+        "text": "“Urh'Rok,” a deep voice spoke within my head. “Our god, our saviour, holder of our world. In the name of Urh'Rok we seek vengeance against Amakthel and the Sher'Tul. The petty world of Eyal shall fall!” And then I woke up, and I felt sure something was nearby, looking for me. I fled instantly."
+      },
+      {
+        "line": 336,
+        "text": ""
+      },
+      {
+        "line": 337,
+        "text": "Am I going mad? The name “Urh'Rok” still rebounds through my skull and my vision is dimmed. Perhaps I have been wearing this ring too long..."
+      },
+      {
+        "line": 338,
+        "text": ""
+      },
+      {
+        "line": 339,
+        "text": "Yes, yes, this is all clearly an illusion! A strange nightmare that I shall wake up from. I shall take the ring off, and go visit the lovely moonstone again. Once I see the stars all shall be well...]],"
+      },
+      {
+        "line": 340,
+        "text": "}"
+      },
+      {
+        "line": 341,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f55e71247ec3c136cb5bbe0d2f3e21d0ec8f9b3fd03c1bef4271faa151d80d13",
+    "public_source_path": "game/modules/tome/data/quests/strange-new-world.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "use_ui = \"quest-main\""
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "name = _t\"Strange new world\""
+      },
+      {
+        "line": 23,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 24,
+        "text": "\tlocal desc = {}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5602828e2fa5ce224f553541c5dfc9ce90e3495caa2a0dc9712e05fbd0e0609",
+    "public_source_path": "game/modules/tome/data/talents/uber/mag.lua",
+    "lines": [
+      {
+        "line": 163,
+        "text": "\tend,"
+      },
+      {
+        "line": 164,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 165,
+        "text": "\t\treturn ([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns."
+      },
+      {
+        "line": 166,
+        "text": "\t\tWhile in this form you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, 50%% of the damage you deal becomes temporal, and you gain 20%% temporal resistance penetration."
+      },
+      {
+        "line": 167,
+        "text": "\t\tYou also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]])"
+      },
+      {
+        "line": 168,
+        "text": "\t\t:tformat()"
+      },
+      {
+        "line": 169,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5640e9fcf85428988ecb6330a79342cec240534417de236b2701099dd030fc9",
+    "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+    "lines": [
+      {
+        "line": 328,
+        "text": "Saving throws represent your ability to shrug off, partially or fully, detrimental effects applied to you.  Most detrimental effects will check their power (physical, spell, mental) vs your corresponding save type to determine if they take effect or not.  The chance is usually ~50% when power and save are equal."
+      },
+      {
+        "line": 329,
+        "text": "]]"
+      },
+      {
+        "line": 330,
+        "text": "TOOLTIP_PHYS_SAVE = _t[[#GOLD#Physical saving throw#LAST#"
+      },
+      {
+        "line": 331,
+        "text": "Increases chance to shrug off physically-induced effects.  Also reduces duration of detrimental physical effects by up to 5% per point, depending on the power of the opponent's effect."
+      },
+      {
+        "line": 332,
+        "text": "]]"
+      },
+      {
+        "line": 333,
+        "text": "TOOLTIP_SPELL_SAVE = _t[[#GOLD#Spell saving throw#LAST#"
+      },
+      {
+        "line": 334,
+        "text": "Increases chance to shrug off magically-induced effects.  Also reduces duration of detrimental magical effects by up to 5% per point, depending on the power of the opponent's effect."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5651a163a271ec1f85b8fa30f051438e433501110c1e640ad4d13df34e0e4b7",
+    "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "lines": [
+      {
+        "line": 2208,
+        "text": "\tshort_info = function(self, t)"
+      },
+      {
+        "line": 2209,
+        "text": "\t\tlocal dam = damDesc(self, DamageType.NATURE, t.getDamage(self, t))"
+      },
+      {
+        "line": 2210,
+        "text": "\t\treturn ([[Deals %0.1f nature damage, stuns and poisons for %0.1f nature/turn for 4 turns.]]):"
+      },
+      {
+        "line": 2211,
+        "text": "\t\ttformat(dam, dam/10)"
+      },
+      {
+        "line": 2212,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f569042c247bb58cf570f79b322e1772639279aa0c414c84faf24d440e7d4e69",
+    "public_source_path": "game/modules/tome/data/chats/alchemist-hermit.lua",
+    "lines": [
+      {
+        "line": 136,
+        "text": "\ttext = _t[[SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!]],"
+      },
+      {
+        "line": 137,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 138,
+        "text": "\t\t{_t\"I SAID, MAYBE THERE'S SOMETHING THAT I CAN HELP YOU WITH!\", jump=\"proposal\"},"
+      },
+      {
+        "line": 139,
+        "text": "\t}"
+      },
+      {
+        "line": 140,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f569cd153ca23485c91eb8b20fa961047090ea08206755427a25f2dd3ffce76e",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 892,
+        "text": "\tparameters = { power=20 },"
+      },
+      {
+        "line": 893,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# lessens the pain.\", _t\"+Pain Suppression\" end,"
+      },
+      {
+        "line": 894,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# feels pain again.\", _t\"-Pain Suppression\" end,"
+      },
+      {
+        "line": 895,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 896,
+        "text": "\t\teff.pid = self:addTemporaryValue(\"resists\", {all=eff.power})"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f56b4cb9fb38d308c8e5d82c4de8ca7bb4a3cf629ba0d030e68cd25155dad76b",
+    "public_source_path": "game/modules/tome/data/general/objects/egos/staves.lua",
+    "lines": [
+      {
+        "line": 413,
+        "text": "newEntity{"
+      },
+      {
+        "line": 414,
+        "text": "\tpower_source = {nature=true},"
+      },
+      {
+        "line": 415,
+        "text": "\tname = \"lifebinding \", prefix=true, instant_resolve=true,"
+      },
+      {
+        "line": 416,
+        "text": "\tkeywords = {lifebinding=true},"
+      },
+      {
+        "line": 417,
+        "text": "\tlevel_range = {20, 50},"
+      },
+      {
+        "line": 418,
+        "text": "\tgreater_ego = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f56c2311c6dda700af0a7770c231d149e2e580d419e9a45686d5946a464aed3f",
+    "public_source_path": "game/modules/tome/class/uiset/ClassicPlayerDisplay.lua",
+    "lines": [
+      {
+        "line": 273,
+        "text": ""
+      },
+      {
+        "line": 274,
+        "text": "\t--Display attack, defense, spellpower, mindpower, and saves."
+      },
+      {
+        "line": 275,
+        "text": "\tlocal attack_stats = {{\"combatAttack\", \"TOOLTIP_COMBAT_ATTACK\", _t\"Accuracy:\"}, {\"combatPhysicalpower\", \"TOOLTIP_COMBAT_PHYSICAL_POWER\", _t\"P. power:\"}, {\"combatSpellpower\", \"TOOLTIP_SPELL_POWER\", _t\"S. power:\"}, {\"combatMindpower\", \"TOOLTIP_MINDPOWER\", _t\"M. power:\"}, {\"combatDefense\", \"TOOLTIP_DEFENSE\", _t\"Defense:\"}, {\"combatPhysicalResist\", \"TOOLTIP_PHYS_SAVE\",_t\"P. save:\"}, {\"combatSpellResist\", \"TOOLTIP_SPELL_SAVE\", _t\"S. save:\"}, {\"combatMentalResist\", \"TOOLTIP_MENTAL_SAVE\", _t\"M. save:\"}}"
+      },
+      {
+        "line": 276,
+        "text": ""
+      },
+      {
+        "line": 277,
+        "text": "\tlocal attack_stat_color = \"#FFD700#\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f56e57b65f02b9e8ca224b62b093ab11cefa9d7101b3e9459ecc25a7437cf8b8",
+    "public_source_path": "game/modules/tome/load.lua",
+    "lines": []
+  },
+  {
+    "entry_revision_identity": "f56fc387d6b45e2f95d429fd27383c3832f8d08107d96025e6c4d738db2145e7",
+    "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+    "lines": [
+      {
+        "line": 225,
+        "text": "-- !H/Shield could conceivably reactivate this in the same fight with Crusade spam if it triggers with Suncloak up, 2H never will without running"
+      },
+      {
+        "line": 226,
+        "text": "newTalent{"
+      },
+      {
+        "line": 227,
+        "text": "\tname = \"Second Life\","
+      },
+      {
+        "line": 228,
+        "text": "\ttype = {\"celestial/combat\", 4},"
+      },
+      {
+        "line": 229,
+        "text": "\trequire = divi_req4, no_sustain_autoreset = true,"
+      },
+      {
+        "line": 249,
+        "text": "\tend,"
+      },
+      {
+        "line": 250,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 251,
+        "text": "\t\treturn ([[Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.]]):"
+      },
+      {
+        "line": 252,
+        "text": "\t\ttformat(t.getLife(self, t))"
+      },
+      {
+        "line": 253,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f573879d9c7860a40db212fdf55b27c83c5399246b044d4e736957032b0970ce",
+    "public_source_path": "game/modules/tome/dialogs/Birther.lua",
+    "lines": [
+      {
+        "line": 422,
+        "text": ""
+      },
+      {
+        "line": 423,
+        "text": "\tlocal d = Dialog.new(_t\"Tutorials\", 280, 100)"
+      },
+      {
+        "line": 424,
+        "text": "\tlocal basic = Button.new{text=_t\"Basic Gameplay (recommended)\", fct=function() run(\"Basic\") d.key:triggerVirtual(\"EXIT\") end}"
+      },
+      {
+        "line": 425,
+        "text": "--\tlocal stats = Button.new{text=_t\"Stats and effects (advanced players)\", fct=function() run(\"Stats\") d.key:triggerVirtual(\"EXIT\") end}"
+      },
+      {
+        "line": 426,
+        "text": "\tlocal cancel = Button.new{text=_t\"Cancel\", fct=function() d.key:triggerVirtual(\"EXIT\") end}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5749d1b3313b7884fab2b30160e92d8d3cd38b3a341cccfa19f5646b1fbe42b",
+    "public_source_path": "game/modules/tome/data/zones/orc-breeding-pit/npcs.lua",
+    "lines": [
+      {
+        "line": 83,
+        "text": ""
+      },
+      {
+        "line": 84,
+        "text": "newEntity{ base = \"BASE_NPC_ORC\","
+      },
+      {
+        "line": 85,
+        "text": "\tname = \"young orc\", color=colors.TEAL,"
+      },
+      {
+        "line": 86,
+        "text": "\tdesc = _t[[This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.]],"
+      },
+      {
+        "line": 87,
+        "text": "\tresolvers.generic(function(e) if rng.percent(50) then e.female = true end end),"
+      },
+      {
+        "line": 88,
+        "text": "\tlevel_range = {25, nil}, exp_worth = 0,"
+      },
+      {
+        "line": 104,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_orc_orc_mother.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 105,
+        "text": "\tdesc = _t[[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch."
+      },
+      {
+        "line": 106,
+        "text": "Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]],"
+      },
+      {
+        "line": 107,
+        "text": "\tlevel_range = {25, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 108,
+        "text": "\tfemale = true,"
+      },
+      {
+        "line": 137,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_orc_orc_greatmother.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 138,
+        "text": "\tdesc = _t[[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch."
+      },
+      {
+        "line": 139,
+        "text": "Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]],"
+      },
+      {
+        "line": 140,
+        "text": "\tkiller_message = _t\"and given to the children as a plaything\","
+      },
+      {
+        "line": 141,
+        "text": "\tlevel_range = {40, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f577d5cc704fb02713219abeb9ba196741287418b57072ad063fb25c70b4db58",
+    "public_source_path": "game/modules/tome/data/general/npcs/minor-demon.lua",
+    "lines": [
+      {
+        "line": 121,
+        "text": ""
+      },
+      {
+        "line": 122,
+        "text": "newEntity{ base = \"BASE_NPC_DEMON\","
+      },
+      {
+        "line": 123,
+        "text": "\tname = \"quasit\", color=colors.LIGHT_GREY,"
+      },
+      {
+        "line": 124,
+        "text": "\tdesc = _t\"A small, heavily armoured demon, rushing toward you.\","
+      },
+      {
+        "line": 125,
+        "text": "\tlevel_range = {20, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5794ea6d6f94ca81574de693bc1da8f1ce238c4a38785377057e2c2aa541f25",
+    "public_source_path": "game/modules/tome/data/zones/slazish-fen/grids.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": "\tdefine_as = \"PORTAL\","
+      },
+      {
+        "line": 75,
+        "text": "\tdisplay = \"&\", color = colors.VIOLET,"
+      },
+      {
+        "line": 76,
+        "text": "\tname = \"coral portal\","
+      },
+      {
+        "line": 77,
+        "text": "\tadd_displays = {class.new{z=18, image=\"terrain/naga_portal.png\", display_h=2, display_y=-1, embed_particles = {"
+      },
+      {
+        "line": 78,
+        "text": "\t\t{name=\"naga_portal_smoke\", rad=2, args={smoke=\"particles_images/smoke_whispery_bright\"}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f57da4305ee8b3a7b0ec1768f8884fc98b21a5b6642b6e56dd22043306bb9bf6",
+    "public_source_path": "game/modules/tome/data/talents/gifts/ooze.lua",
+    "lines": [
+      {
+        "line": 48,
+        "text": "\t\tlocal x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})"
+      },
+      {
+        "line": 49,
+        "text": "\t\tif not x then"
+      },
+      {
+        "line": 50,
+        "text": "\t\t\tgame.logPlayer(self, \"You try to split, but there is no free space close enough to summon!\")"
+      },
+      {
+        "line": 51,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 52,
+        "text": "\t\tend"
+      }
+    ]
+  }
+]

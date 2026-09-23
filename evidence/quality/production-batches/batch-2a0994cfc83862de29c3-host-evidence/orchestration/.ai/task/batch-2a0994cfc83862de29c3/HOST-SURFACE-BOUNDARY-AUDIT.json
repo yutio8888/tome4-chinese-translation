@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (lanes 1,2,3 native-log harvest; lane 0 --raw with host-corrected identity echoes; all 80 identities pre-checked against envelopes)",
+  "host_prep_note": "prepare_review265.py ran cleanly before any dispatch. First batch start attempt was refused with queue meta/evidence-head drift (queue rebuilt before the window-18 correction commit 47283341); host rebuilt the queue at HEAD and restarted; attempt-1 logs kept as review265-start-attempt1-drift.*. freeze_workset reported 1 MISS (lore text rowed under section mod-tome/load.lua); all 80 entries source-verified pinned/confirmed.",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "da7a32848dc0fd7a11a3b6eb85268beb4c441570cb4417b3804988366ec03d49",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat). Host hand-attribution: results[3] identity echo truncated/mixed with results[5] tail and results[15] dropped one \"b\" (both verdict OK), corrected before harvest, original bytes kept in captures265/lane0-original.raw, see lane0-attribution.md"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "6b6178835ba89fd5bc399a3c5174959cf2b2e43583030e0a88842074de92801f",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat); one ALL_TOOLS listing (tool discovery, no I/O); one in-memory JS array of own envelope identities to assemble output (no I/O)"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 3,
+      "native_calls_sha256": "9db72d2c337bdc5b7ce2c61d4d802aaf5e1f80d104b8bddbadedde2e0d4a14df",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat); one ALL_TOOLS listing (tool discovery, no I/O)"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 5,
+      "native_calls_sha256": "bbb65fac73963d116d3975d3367c68ca3a4af02120733076361e5557d7d789d4",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "first read failed on sandbox init; re-read of the same two authorized files with require_escalated (read-only cat); one ALL_TOOLS listing (tool discovery, no I/O); one python3 -c json.load/print of own envelope (read-only); one escalated re-read of the contract"
+    }
+  ]
+}
