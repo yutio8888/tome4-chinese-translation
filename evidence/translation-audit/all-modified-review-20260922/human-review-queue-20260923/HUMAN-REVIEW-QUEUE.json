@@ -14,7 +14,7 @@
   "note": "Curated human-decision rows from HUMAN-REVIEW.md plus the sources missing from it (batch-092 cross, batch-093/094 primary, remaining-review). Sol status labels copied verbatim; no semantic adjudication. reconciled-20260923 canonical claims are not merged (separate experiment ledger).",
   "schema_version": 1,
   "total_records": 601,
-  "decided_records": 451,
+  "decided_records": 491,
   "distinct_entries": 559,
   "records_missing_entry": 0,
   "raw_campaign_verdict_count": 1103,
@@ -40664,9 +40664,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "25c71036bd70c5cf5904e82ed5543729daa9ca98fe525a2c480c0284e0722904"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：宿主 physical.lua:2531-2533 为 (\"...taking %0.2f physical damage %s\"):tformat(eff.dam, ravaged)，本地化宿主 mod-tome.lua:37433 以 {2,1} 把片段置于“受到”之前，自带句号使界面显示“目标被疯狂扭曲，每回合。受到 X 物理伤害”，句中断句是客观拼接缺陷。删去片段句号即修复；句末句号应由宿主模板（冻结外 mod-tome.",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40780,9 +40780,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "111e18e8ae4a62c27fe38c60f60d59cb92c2bc7c94feb75c496093e6e4df29ed"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "逐条回应：①“无依据加入每回合”refuted 同意驳回——on_timeout（physical.lua:2541-2566）每回合执行一次 dispel，“每回合”符合实现且原文 turn 即此义；②未涵盖维持战技 advisory 驳回——英文原文亦只说 physical effect，译文忠于原文，扩写属上游文本问题；③缺句末标点成立，但本片段被宿主以 {2,1} 重排到句中（mod-tome.lua:37433），片段不能自带",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40823,9 +40823,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e3cc9812818deb63ad667b479f21daf16d2ee0fb3b4baebf0c68d1907963d79e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳 defiantly 漏译：physical.lua:2881 on_gain 原文带 defiantly，补“倔强地”。Gemini“语序顺畅”判断驳回，但 %s 由 string.his_her 提供（engine utils.lua:939-944），zh 下 his→“他的”、its→“它的”、her→“她”（engine.lua:1405-1407，her 与宾格共用键无“的”），任何把 %s 挪到“与自然的联系”前的重排",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40866,9 +40866,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "30d688d4ea1fa7cd89858d4e1a1aee3db695942cf2b0fa790eb1fa486c99972e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：physical.lua:3045 原文 stands strong 指挺立不倒，“十分强大”语义偏移；两个 %0.1f%% 依次对应全体抗性与抗性上限，顺序无误保持；半角逗号改全角。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40909,9 +40909,9 @@
     "source_tag": "logSeen",
     "snapshot_sha256": "6e43a2ddeef80a8b8138048d7c89cfe978ecc3e95d255ec3b49e0222ee7db8d4"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：同效果 PARASITIC_LEECHES 名称与描述均译“寄生水蛭”（mod-tome.lua:37553-37557），本条“寄生虫”同族不一致；Some 在源码中对应脱落的一堆水蛭（physical.lua:3190-3200,3210-3223），补“一些”；%s 为角色名，“从%s身上脱落”更准确。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40952,9 +40952,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "4099856925e24317642a3f04467eb59e7dd7dd837fa632296adf51b3d989125b"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：#OLIVE_DRAB# 后空格源自英文原文，属纯静态排版，按用户策略不整理；两个 %s 与 #LAST# 结构完好（physical.lua:4174）。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -40995,9 +40995,9 @@
     "source_tag": "log",
     "snapshot_sha256": "db91c3a73156a5ca472183ad2d4f0ed51395e26741c3d550f86aa8c79eb5a6ad"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：arena/zone.lua:405 game.log 四项奖励同构，现译前三处半角“! ”末处全角“！”，同一中文句中标点混用属标点错误，统一为全角“！”（去掉仅为半角惯例而加的空格）；13 个 %s 与颜色参数顺序不变。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41038,9 +41038,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "10f10e4c3538c7fcda388e3dc1cafefc9c6c75f3d7b4da7a5b1273d7d2b18f8c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：charred-scar/npcs.lua:107 doEmote 以玩家名填 %s；“去吧%s!”半角叹号与后半全角混用，改“去吧，%s！”（补呼语逗号），%s 位置功能不变。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41081,9 +41081,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "460983a8f9cd022e6ef125a2a2ec3fbb4240800fa0c47d6da0b6b94202f982ca"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：conclave-vault/npcs.lua:62-63 同实体描述为 huge mass of deformed flesh，本仓描述译“这团巨大的畸形血肉”（mod-tome.lua:38123）；“碎肉”（本仓用于 gore/guts）与一整团活体血肉形态不符，改“肉团”；degenerated→“退化的”保留。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41124,9 +41124,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "6736398e467d5b91040be692ed85e8f1e768a91876ddac64b786dbfbe3e3c525"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：BOOM! 为 daikara 火山喷发弹窗标题，“火山喷发！”与紧随正文一致，仅损拟声感，属文风，非缺陷。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41167,9 +41167,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "dc4b99556c2da8eb2d530e92a4639759f129f2f40b5c27f504a6b7adbf705da9"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：现译“??？”两半角一全角混用属标点错误。本仓其余 ??? 条目均保持半角（mod-tome.lua:20245、36919、42833），统一为半角“???”以与原文及族内一致。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41210,9 +41210,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "130ba928bb43fe4c93fcb534e064596d18df8b9b9769750303ef0c1157520bf7"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：PAIN GIVING SUBMODULES 为“施加痛苦的子模块”，“痛苦强化”把施痛改成强化，语义偏移且丢 sub-；改“致痛子模块”。纯喊话无机制影响。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41253,9 +41253,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "205ec1e189a8de207ec98aea3abb4f3dc818aacf6244aea66a57784fc29f3514"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：原文 managed to deal a crippling blow by killing their leader，现译只剩“使首领走向死亡”，漏掉对兽人的重创这一结果；补“给了对方沉重一击”，并把“使…走向死亡”改为直接的“杀死了”。首行与 \\n 保持不变；Garkul、Age of Pyre 沿用本仓译名。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41296,9 +41296,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "da428786c8c7744bffb2a97e43ec09f08b25521f67cf1e0f5e72e6ce47074c83"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "专名不一致成立但不可单改：原文 A farportal is a way… 这一描述族在本仓约 10 处（mod-tome.lua:38072、38486、38725、38730、38735、39362、39720、39793、40331、tome-orcs.lua:6936）统一以“传送门是…”起句，仅改本条会制造族内不一致，按判据 7 记 defer，需整族统一为“远行传送门”。连续“似乎”advisory 驳回：源自原文 seem",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41340,9 +41340,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "5d4f21ce11ad6fe83499e36b7cb941e57b65c522bb8860451110c2e173af8f10"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：terminology/society.tsv:30 Epoch→亚伯契 为 preferred（T.PN.PERSON，注明同名天赋与神器 Epoch's Curve 均沿用音译，不按“纪元”处理），必须采用；同仓天赋名 mod-tome.lua:22102 已为“亚伯契”。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41384,9 +41384,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "b347cdb62b5912f24a3dc349febfb2576c20a8acf30fc1898219e213f16b195d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：同 society.tsv:30 preferred 注释点名 Epoch's Curve 沿用音译，“纪元之弧”违反 preferred。改“亚伯契之弧”，只替换专名、保留现译“之弧”，“的弧线/之弧”措辞属文风。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -41428,9 +41428,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "a1382697c9cd5bbfe5150d4086e0a564627bc07925848eb0fff31e80b45b48b6"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：描述正文复述神器名，必须与 entry-03025 同步为“亚伯契之弧”，否则名称与说明不一致；其余正文不动。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "cross_092",
@@ -41467,9 +41467,9 @@
     "source_tag": "log",
     "snapshot_sha256": "e99665459cc390bc29f8da7ece8e33859951f2fb7ae52e228c7ff904c5bebec3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；两条 claim 均采纳：shertul-fortress/grids.lua:120-124 传送至 Caldizar 堡垒，原文 strangely familiar；后续 shertul-fortress-caldizar/zone.lua:74 又写“熟悉却又不同”，strangely 是铺垫的反差，现译只剩“熟悉”漏掉。补“莫名”→“一个莫名熟悉的地方”；hrq-00469（漏译）与 hrq-00470（弱化反差）以同一处修改",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "cross_092",
@@ -41506,9 +41506,9 @@
     "source_tag": "log",
     "snapshot_sha256": "e99665459cc390bc29f8da7ece8e33859951f2fb7ae52e228c7ff904c5bebec3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；两条 claim 均采纳：shertul-fortress/grids.lua:120-124 传送至 Caldizar 堡垒，原文 strangely familiar；后续 shertul-fortress-caldizar/zone.lua:74 又写“熟悉却又不同”，strangely 是铺垫的反差，现译只剩“熟悉”漏掉。补“莫名”→“一个莫名熟悉的地方”；hrq-00469（漏译）与 hrq-00470（弱化反差）以同一处修改",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41544,9 +41544,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "8708e1f6cf029e4e555b722d320e3a784b064d1015330423bcafd945dc81b705"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：同 section mod-tome.lua:40037、40046、40048 均将 Telos 译“泰勒斯”，本仓“泰勒斯”共 18 处；本条“泰勒”同节专名不一致，改“泰勒斯”。“旧日的力量之所”保留。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41582,9 +41582,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "4e2bdcdd17bdb2f9133435917601b832772cf2ea130f2e38e93ccccba6576dd5"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；驳回：terminology/places.tsv:7 Swordsmith→长剑铁匠铺 仅为 existing，不强制改名；本仓 mod-tome.lua 5 处与 tome-cults.lua 2 处 Swordsmith 实体名全部统一为“铸剑铺”，单改本条反而制造不一致。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41620,9 +41620,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "e0f245f1c14e3c3ec140b571a1c5dd790d83a85c8a3ee6b68361bb39619b53ae"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一，单改会制造不一致。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41658,9 +41658,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "dd70e77823746da0f81f12d40c5ec14998e92cf5cc454367cc761333cee2c34c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；细微观察同意保留：店名为字面招牌（实售纹身，源码 store 绑定），“萨拉的草药浸剂店”直译招牌，与 mod-tome.lua:40509、tome-orcs.lua:6994 同名店一致；无术语条目，不改。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41696,9 +41696,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "41be905ad6e3de0f0d649ac3a79c2f5a069ff204f4e5a5faaea544257fb760e3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_093",
@@ -41734,9 +41734,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "932443070cc120ee4f0df9335c5bee5709a8ec1e7d2497393c885281c0d5b5d8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；细微观察同意保留：同 entry-03118，招牌直译且与同名店一致。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_094",
@@ -41772,9 +41772,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "8df38e8a236e9f8c186f5315125f7f0c90096e9cb9eccb347aa3ad251ef21005"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；细微观察同意保留：“铸剑铺”全库 7 处统一，术语仅 existing。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_094",
@@ -41810,9 +41810,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "e3438c3d17158bf6e895d7626cb4df7949dc2b21f9fa6c5cf8d836f7ba1385f0"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；细微观察同意保留：同 entry-03137。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_094",
@@ -41848,9 +41848,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "aef129fe6fcf09f47bb51168582285afd2e98d7fff633ff1cfb14d15917bf14a"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "本条“推挤”与相邻日志 mod-tome.lua:40782“你学会了技能推挤”一致，但与冻结外技能名 mod-tome.lua:27003 “击退攻击”及符文名 40780“启蒙符文：冲撞”三处不一致；无术语条目，单改本条会破坏与日志的一致。记 defer，需统一 27003/40780/40781/40782 的 Shove 译名。句号与引号已正确。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "batch_094",
@@ -41886,9 +41886,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "8f289f7c552cb0977e1697670afa242e482d3482005af0284aceceae210bf018"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳：原文 ruled by King Tolak，现译漏“国王”头衔；同节 mod-tome.lua:41146、41148 两条首都描述均为“……的首都，由……统治”句式，改“联合王国首都，由托拉克国王统治”，同时去掉与族内不一致的括号。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -41925,9 +41925,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "d36233c84c4d30f47aadce219c3c5a699d8eb83ffe9bf4cf36c740173a20957e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定）：destructicus.lua:44-50 已写面板显示飞船内部，73 行原文并列“透过窗户看见导弹远去”与“在探知面板上看见它迎面冲向画面和惊恐乘客”两视角；现译合成窗外远眺并漏 on the scrying panel。改为“你透过窗户看见导弹离你远去，同时又在面板上看见它迎面冲向画面，冲向那些惊恐的乘客。”，“面板”沿用同 chat 上文译法；其余段落、颜色与 #{italic}# 标记不动。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -41964,9 +41964,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "c9b0980c9d9347e1962f6c5bcbfa919946239fb32430b9af1706016cf2a97e67"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定）：john-surrender.lua:97-103 选项原文 alive and broken，现译漏 broken；改“一个活着却已崩溃的你对我更有用”，不限定具体折磨方式；颜色码与方括号不变。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42003,9 +42003,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "cbaf5c8e395444ba7e53f33c1244e5cbc9f7f21eb1268eea984df770f2209324"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；advisory 部分采纳（来源未固定，john-worldmap.lua:25-33）：原文 Give it back! DIE!，“拿出来”未表达“归还”且“受死吧！！”多出一个叹号（冗余标点）；改“还给我！受死吧！”。其余标记、@playername@ 与前文不动。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42042,9 +42042,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "25073898f91ac08afd4026943293f5f0ee9d1ae1403d5c8cce27b52b89e5495e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；advisory 驳回（来源未固定，kaltor-shop.lua:24-31、40-45、66-69）：选项含看货、攻击、不购物，“你要做什么呢？”可覆盖，措辞不改。另修中文句中半角“@playername@! ”为全角“！”（标点错误）；海报内引号与 markup 不动。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42081,9 +42081,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "2b07fae5760d06be0c3ce21f392fcc84dd1c5b4bae302d9bf625e06f5b0c7749"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定，kaltor-shop.lua:48-51）：bird's-eye view 与 front-row seat 对比远观与近处目睹，现译“坐在椅子上”丢失 front-row；改“我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏”。\\t、颜色码与 @playername@ 不变。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42120,9 +42120,9 @@
     "source_tag": "entity name",
     "snapshot_sha256": "16c384082ff9e649f2e5ada16a6712d8812e1b7baab1f546c30373a072e93744"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回（来源未固定，sunwall-mage.lua:114-131）：“魔术师”在奇幻语境可泛指施法者，未误指职业或机制；无术语条目，改名属命名风格。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42159,9 +42159,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "59a4e6ab679eca4ecc6628301751e88dd1004013ddc15c6426975d508600aa29"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定，world-artifacts.lua:142-151,174）：“These boots”指本物品 Anti-Gravity Boots（本仓译“反重力鞋”，描述用“这套鞋子”），“火箭靴”与工匠插件名“%s 火箭靴”（tome-orcs.lua:1381）冲突易误指；fail to operate properly 亦非单纯“失败”。改“这套鞋子有%d%%几率无法正常运作（随灵巧降低）。”",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42198,9 +42198,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "9bb26111560e54c963614bfe06175a7a1ba1010ba81229abf241556e49a6401d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定，world-artifacts.lua:275-280）：“导致目标被致残毒素”缺谓语，改“使目标感染致残毒素”；args_order {1,2,3,5,4} 与 tformat(range, damage/dur, fail, damage, dur) 对应正确，不动。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42237,9 +42237,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "fdb806d1e2472419a5e399e876375a88a9926ad9b50b1c2c0a101c8b1498d373"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回（来源未固定，world-artifacts.lua:579-582）：传入 maxp - self.power 为剩余回合，“冷却时间：%d 回合”作状态标签可接受，“冷却中”属精度偏好；括号在本条内一致，不整理。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42276,9 +42276,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "c3866e3a65036b953a4ec6096d024eccf22bb3b84c3ffd62427cc4618b9fdd38"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回（来源未固定，world-artifacts.lua:641-646）：“从天空引导”已保留空中方位，airborne 未丢失语义，“空中探针”属措辞偏好。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -42315,9 +42315,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "82e86d4f37630c75e371ee8cdf3e812bae96086c806768369f780671a9ab1021"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；采纳（来源未固定，world-artifacts.lua:714-720）：tg 以 start_x/start_y=target 为锥形起点，原文 from the target 漏译影响范围理解；shrapnel 为弹片而非“榴弹”。改“从目标处向外迸射弹片，在半径4的锥形范围内…”。",
+   "human_decided_at": "2026-09-24T03:00:00Z"
   },
   {
    "source_layer": "remaining_review",

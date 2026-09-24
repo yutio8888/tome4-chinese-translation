@@ -13822,7 +13822,7 @@ raw verdict: “再次遭受被诅咒的创伤”可接受意译，但弱化 wou
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00452 | HUMAN-REVIEW | cross-batch-086 | confirmed | **与宿主、02850 整体裁决** |  |  |
+| hrq-00452 | HUMAN-REVIEW | cross-batch-086 | confirmed | **与宿主、02850 整体裁决** |  | fix |
 
 <details><summary>hrq-00452 · HUMAN-REVIEW 详情</summary>
 
@@ -13845,7 +13845,7 @@ raw verdict: `每回合。` 被插入宿主句中间产生错误断句（须与�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00453 | HUMAN-REVIEW | cross-batch-086 | confirmed | 宿主统一承担句号 |  |  |
+| hrq-00453 | HUMAN-REVIEW | cross-batch-086 | confirmed | 宿主统一承担句号 |  | defer |
 
 <details><summary>hrq-00453 · HUMAN-REVIEW 详情</summary>
 
@@ -13868,7 +13868,7 @@ raw verdict: 无依据加入“每回合”（`on_timeout` 逐回合路径，有
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00454 | HUMAN-REVIEW | cross-batch-087 | confirmed | 是否补语气；结合本地化 `his/her/its` 重定句式 |  |  |
+| hrq-00454 | HUMAN-REVIEW | cross-batch-087 | confirmed | 是否补语气；结合本地化 `his/her/its` 重定句式 |  | fix |
 
 <details><summary>hrq-00454 · HUMAN-REVIEW 详情</summary>
 
@@ -13888,7 +13888,7 @@ Sol 分档：confirmed：`defiantly` 漏译（语气丢失，机制/占位符无
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00455 | HUMAN-REVIEW | cross-batch-087 | confirmed | 改“屹立不倒”类表达；标点统一 |  |  |
+| hrq-00455 | HUMAN-REVIEW | cross-batch-087 | confirmed | 改“屹立不倒”类表达；标点统一 |  | fix |
 
 <details><summary>hrq-00455 · HUMAN-REVIEW 详情</summary>
 
@@ -13908,7 +13908,7 @@ Sol 分档：confirmed：两个 `%0.1f%%` 顺序与 `resists.all`/`resists_cap.a
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00456 | HUMAN-REVIEW | cross-batch-087 | confirmed | 统一为“部分寄生水蛭……”；`%s` 搭配“身上/处” |  |  |
+| hrq-00456 | HUMAN-REVIEW | cross-batch-087 | confirmed | 统一为“部分寄生水蛭……”；`%s` 搭配“身上/处” |  | fix |
 
 <details><summary>hrq-00456 · HUMAN-REVIEW 详情</summary>
 
@@ -13928,7 +13928,7 @@ Sol 分档：confirmed：`leeches`→“寄生虫”与同效果 02861–02865�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00457 | HUMAN-REVIEW | cross-batch-087 | advisory | 中文排版惯例取舍（改 02891 或同时给 02890 保留） |  |  |
+| hrq-00457 | HUMAN-REVIEW | cross-batch-087 | advisory | 中文排版惯例取舍（改 02891 或同时给 02890 保留） |  | no_change |
 
 <details><summary>hrq-00457 · HUMAN-REVIEW 详情</summary>
 
@@ -13948,7 +13948,7 @@ Sol 分档：advisory：`#OLIVE_DRAB#` 后半角空格（02890 已删、02891 �
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00458 | HUMAN-REVIEW | cross-batch-088 | confirmed | 是否统一为全角（或保留 ASCII 分隔） |  |  |
+| hrq-00458 | HUMAN-REVIEW | cross-batch-088 | confirmed | 是否统一为全角（或保留 ASCII 分隔） |  | fix |
 
 <details><summary>hrq-00458 · HUMAN-REVIEW 详情</summary>
 
@@ -13968,7 +13968,7 @@ Sol 分档：confirmed：四项奖励分句前三处半角 `! `、末处全角 `
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00459 | HUMAN-REVIEW | cross-batch-088 | confirmed | 至少首处改全角；可选更自然呼语语序 |  |  |
+| hrq-00459 | HUMAN-REVIEW | cross-batch-088 | confirmed | 至少首处改全角；可选更自然呼语语序 |  | fix |
 
 <details><summary>hrq-00459 · HUMAN-REVIEW 详情</summary>
 
@@ -13988,7 +13988,7 @@ Sol 分档：confirmed：`去吧%s!我们会坚守防线！` 标点不一致、�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00460 | HUMAN-REVIEW | cross-batch-088 | confirmed | `mass` 改“血肉团/聚合体”；`degenerated` 命名策略 |  |  |
+| hrq-00460 | HUMAN-REVIEW | cross-batch-088 | confirmed | `mass` 改“血肉团/聚合体”；`degenerated` 命名策略 |  | fix |
 
 <details><summary>hrq-00460 · HUMAN-REVIEW 详情</summary>
 
@@ -14008,7 +14008,7 @@ Sol 分档：confirmed：`degenerated ogric mass`→“退化的食人魔碎肉�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00461 | HUMAN-REVIEW | cross-batch-089 | advisory | 是否统一保留拟声（“轰！”类） |  |  |
+| hrq-00461 | HUMAN-REVIEW | cross-batch-089 | advisory | 是否统一保留拟声（“轰！”类） |  | no_change |
 
 <details><summary>hrq-00461 · HUMAN-REVIEW 详情</summary>
 
@@ -14028,7 +14028,7 @@ Sol 分档：advisory：`BOOM!`→“火山喷发！”与正文语境一致，�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00462 | HUMAN-REVIEW | cross-batch-089 | confirmed | 统一为“？？？”或保留“???” |  |  |
+| hrq-00462 | HUMAN-REVIEW | cross-batch-089 | confirmed | 统一为“？？？”或保留“???” |  | fix |
 
 <details><summary>hrq-00462 · HUMAN-REVIEW 详情</summary>
 
@@ -14048,7 +14048,7 @@ Sol 分档：confirmed：`Dream ???`→“梦境 ??？”确为两个半角 `?` 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00463 | HUMAN-REVIEW | cross-batch-089 | confirmed | 改“致痛子模块”类表达 |  |  |
+| hrq-00463 | HUMAN-REVIEW | cross-batch-089 | confirmed | 改“致痛子模块”类表达 |  | fix |
 
 <details><summary>hrq-00463 · HUMAN-REVIEW 详情</summary>
 
@@ -14070,7 +14070,7 @@ It is said it was made by the halflings during the Age of Pyre as a weapon again
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00464 | HUMAN-REVIEW | cross-batch-090 | confirmed | 是否补“给对方以重创” |  |  |
+| hrq-00464 | HUMAN-REVIEW | cross-batch-090 | confirmed | 是否补“给对方以重创” |  | fix |
 
 <details><summary>hrq-00464 · HUMAN-REVIEW 详情</summary>
 
@@ -14092,7 +14092,7 @@ This one seems to go to an unknown place, seemingly out of this world. You dare 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00465 | HUMAN-REVIEW | cross-batch-090 | confirmed | 正文是否统一专用名；可选合并重复 |  |  |
+| hrq-00465 | HUMAN-REVIEW | cross-batch-090 | confirmed | 正文是否统一专用名；可选合并重复 |  | defer |
 
 <details><summary>hrq-00465 · HUMAN-REVIEW 详情</summary>
 
@@ -14112,7 +14112,7 @@ Sol 分档：confirmed：正文 `A farportal` 简称“传送门”，与同 sec
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00466 | HUMAN-REVIEW | cross-batch-091 | confirmed | 以“亚伯契”为规范还是废弃旧译统一“纪元”（需术语策略裁决并全链同步） |  |  |
+| hrq-00466 | HUMAN-REVIEW | cross-batch-091 | confirmed | 以“亚伯契”为规范还是废弃旧译统一“纪元”（需术语策略裁决并全链同步） |  | fix |
 
 <details><summary>hrq-00466 · HUMAN-REVIEW 详情</summary>
 
@@ -14132,7 +14132,7 @@ Sol 分档：confirmed：`Epoch` 为悖论位面唯一实体名；本批冻结�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00467 | HUMAN-REVIEW | cross-batch-091 | confirmed | 后半“的弧线/之弧”中文措辞可另行润色 |  |  |
+| hrq-00467 | HUMAN-REVIEW | cross-batch-091 | confirmed | 后半“的弧线/之弧”中文措辞可另行润色 |  | fix |
 
 <details><summary>hrq-00467 · HUMAN-REVIEW 详情</summary>
 
@@ -14154,7 +14154,7 @@ According to legend it was made from the first ash sapling to sprout after the S
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00468 | HUMAN-REVIEW | cross-batch-091 | confirmed | 随 03025 一并处理 |  |  |
+| hrq-00468 | HUMAN-REVIEW | cross-batch-091 | confirmed | 随 03025 一并处理 |  | fix |
 
 <details><summary>hrq-00468 · HUMAN-REVIEW 详情</summary>
 
@@ -14174,8 +14174,8 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00469 | cross-092 | cross-batch-092 | confirmed | 原文中的 `strangely` 漏译 |  |  |
-| hrq-00470 | cross-092 | cross-batch-092 | confirmed | 遗漏 `strangely` 弱化了“熟悉但异样”的叙事反差 |  |  |
+| hrq-00469 | cross-092 | cross-batch-092 | confirmed | 原文中的 `strangely` 漏译 |  | fix |
+| hrq-00470 | cross-092 | cross-batch-092 | confirmed | 遗漏 `strangely` 弱化了“熟悉但异样”的叙事反差 |  | fix |
 
 <details><summary>hrq-00469 · cross-092 详情</summary>
 
@@ -14244,7 +14244,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00471 | batch-093(待交叉) |  | 存在疑点 |  |  |  |
+| hrq-00471 | batch-093(待交叉) |  | 存在疑点 |  |  | fix |
 
 <details><summary>hrq-00471 · batch-093(待交叉) 详情</summary>
 
@@ -14265,7 +14265,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00472 | batch-093(待交叉) |  | 存在疑点 |  |  |  |
+| hrq-00472 | batch-093(待交叉) |  | 存在疑点 |  |  | no_change |
 
 <details><summary>hrq-00472 · batch-093(待交叉) 详情</summary>
 
@@ -14286,7 +14286,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00473 | batch-093(待交叉) |  | 存在疑点 |  |  |  |
+| hrq-00473 | batch-093(待交叉) |  | 存在疑点 |  |  | no_change |
 
 <details><summary>hrq-00473 · batch-093(待交叉) 详情</summary>
 
@@ -14307,7 +14307,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00474 | batch-093(待交叉) |  | 细微观察 |  |  |  |
+| hrq-00474 | batch-093(待交叉) |  | 细微观察 |  |  | no_change |
 
 <details><summary>hrq-00474 · batch-093(待交叉) 详情</summary>
 
@@ -14328,7 +14328,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00475 | batch-093(待交叉) |  | 存在疑点 |  |  |  |
+| hrq-00475 | batch-093(待交叉) |  | 存在疑点 |  |  | no_change |
 
 <details><summary>hrq-00475 · batch-093(待交叉) 详情</summary>
 
@@ -14349,7 +14349,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00476 | batch-093(待交叉) |  | 细微观察 |  |  |  |
+| hrq-00476 | batch-093(待交叉) |  | 细微观察 |  |  | no_change |
 
 <details><summary>hrq-00476 · batch-093(待交叉) 详情</summary>
 
@@ -14370,7 +14370,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00477 | batch-094(待交叉) |  | 细微观察 |  |  |  |
+| hrq-00477 | batch-094(待交叉) |  | 细微观察 |  |  | no_change |
 
 <details><summary>hrq-00477 · batch-094(待交叉) 详情</summary>
 
@@ -14394,7 +14394,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00478 | batch-094(待交叉) |  | 细微观察 |  |  |  |
+| hrq-00478 | batch-094(待交叉) |  | 细微观察 |  |  | no_change |
 
 <details><summary>hrq-00478 · batch-094(待交叉) 详情</summary>
 
@@ -14418,7 +14418,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00479 | batch-094(待交叉) |  | 细微观察 |  |  |  |
+| hrq-00479 | batch-094(待交叉) |  | 细微观察 |  |  | defer |
 
 <details><summary>hrq-00479 · batch-094(待交叉) 详情</summary>
 
@@ -14442,7 +14442,7 @@ Sol 分档：confirmed：描述正文重复同一神器名，必须与 03025 同
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00480 | batch-094(待交叉) |  | 存在疑点 |  |  |  |
+| hrq-00480 | batch-094(待交叉) |  | 存在疑点 |  |  | fix |
 
 <details><summary>hrq-00480 · batch-094(待交叉) 详情</summary>
 
@@ -14486,7 +14486,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00481 | remaining | remaining:rem-01:C01 | confirmed |  |  |  |
+| hrq-00481 | remaining | remaining:rem-01:C01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00481 · remaining 详情</summary>
 
@@ -14507,7 +14507,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00482 | remaining | remaining:rem-01:C02 | confirmed |  |  |  |
+| hrq-00482 | remaining | remaining:rem-01:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00482 · remaining 详情</summary>
 
@@ -14532,7 +14532,7 @@ You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00483 | remaining | remaining:rem-01:C03 | advisory |  |  |  |
+| hrq-00483 | remaining | remaining:rem-01:C03 | advisory |  |  | fix |
 
 <details><summary>hrq-00483 · remaining 详情</summary>
 
@@ -14559,7 +14559,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00484 | remaining | remaining:rem-01:C04 | advisory |  |  |  |
+| hrq-00484 | remaining | remaining:rem-01:C04 | advisory |  |  | fix |
 
 <details><summary>hrq-00484 · remaining 详情</summary>
 
@@ -14582,7 +14582,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00485 | remaining | remaining:rem-01:C05 | confirmed |  |  |  |
+| hrq-00485 | remaining | remaining:rem-01:C05 | confirmed |  |  | fix |
 
 <details><summary>hrq-00485 · remaining 详情</summary>
 
@@ -14603,7 +14603,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00486 | remaining | remaining:rem-01:C06 | advisory |  |  |  |
+| hrq-00486 | remaining | remaining:rem-01:C06 | advisory |  |  | no_change |
 
 <details><summary>hrq-00486 · remaining 详情</summary>
 
@@ -14624,7 +14624,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00487 | remaining | remaining:rem-02:C01 | advisory |  |  |  |
+| hrq-00487 | remaining | remaining:rem-02:C01 | advisory |  |  | fix |
 
 <details><summary>hrq-00487 · remaining 详情</summary>
 
@@ -14643,7 +14643,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00488 | remaining | remaining:rem-02:C02 | confirmed |  |  |  |
+| hrq-00488 | remaining | remaining:rem-02:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00488 · remaining 详情</summary>
 
@@ -14662,7 +14662,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00489 | remaining | remaining:rem-02:C03 | advisory |  |  |  |
+| hrq-00489 | remaining | remaining:rem-02:C03 | advisory |  |  | no_change |
 
 <details><summary>hrq-00489 · remaining 详情</summary>
 
@@ -14681,7 +14681,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00490 | remaining | remaining:rem-02:C04 | advisory |  |  |  |
+| hrq-00490 | remaining | remaining:rem-02:C04 | advisory |  |  | no_change |
 
 <details><summary>hrq-00490 · remaining 详情</summary>
 
@@ -14700,7 +14700,7 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00491 | remaining | remaining:rem-02:C05 | confirmed |  |  |  |
+| hrq-00491 | remaining | remaining:rem-02:C05 | confirmed |  |  | fix |
 
 <details><summary>hrq-00491 · remaining 详情</summary>
 

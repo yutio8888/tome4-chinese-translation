@@ -37428,7 +37428,7 @@ t("Grappling Defensively", "反击投技", "_t")
 t("Has a %d%% chance to counter attack with a defensive throw when avoiding a melee attack, possibly throwing the target to the ground and stunning it. (%0.1f throws remaining)", "闪避近战攻击时，有 %d%% 概率以闪身投掷自动反击，可能将目标摔倒并使其震慑。（剩余投掷次数：%0.1f）", "tformat")
 t("distortion", "扭曲", "effect subtype")
 t("Ravage", "疯狂扭曲", "_t")
-t("each turn.", "每回合。", "_t")
+t("each turn.", "每回合", "_t")
 t("and is losing one physical effect turn.", "每回合失去一个物理效果并", "_t")
 t("The target is being ravaged by distortion, taking %0.2f physical damage %s", "目标被疯狂扭曲，%s受到 %0.2f 物理伤害", "tformat", {2,1})
 t("+Ravage", "+疯狂扭曲", "_t")
@@ -37511,7 +37511,7 @@ t("#Target#'s skin returns to normal.", "#Target#的皮肤恢复了正常状态�
 t("-Juggernaut", "-战场主宰", "_t")
 t("Natural Replenishment", "自然充能", "_t")
 t("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn.", "目标被奥术力量伤害，重新联系自然，每回合回复 %0.1f 失衡值。", "tformat")
-t("#Target# defiantly reasserts %s connection to nature!", "#Target#重新和自然建立%s联系！", "tformat")
+t("#Target# defiantly reasserts %s connection to nature!", "#Target#倔强地重新和自然建立%s联系！", "tformat")
 t("+Nature Replenishment", "+自然充能", "_t")
 t("#Target# stops restoring Equilibrium.", "#Target#不再回复失衡值。", "_t")
 t("-Nature Replenishment", "-自然充能", "_t")
@@ -37529,7 +37529,7 @@ t("morale", "士气", "effect subtype")
 t("Eternal Warrior", "永恒战士", "_t")
 t("+Eternal Warrior", "+永恒战士", "_t")
 t("-Eternal Warrior", "-永恒战士", "_t")
-t("The target stands strong, increasing all resistances by %0.1f%% and resistance caps by %0.1f%%.", "目标十分强大，增加全体抗性 %0.1f%%, 全体抗性上限 %0.1f%%。", "tformat")
+t("The target stands strong, increasing all resistances by %0.1f%% and resistance caps by %0.1f%%.", "目标屹立不倒，全体抗性提高 %0.1f%%，全体抗性上限提高 %0.1f%%。", "tformat")
 t("Tactical Position", "策略走位", "_t")
 t("The target has relocated to a favorable position, giving them +%d%% physical critical chance.", "目标移动到了一个有利的位置，物理暴击率提高 %d%%。", "tformat")
 t("#Target# is poised to strike!", "#Target#准备作战！", "_t")
@@ -37555,7 +37555,7 @@ t("Parasitic Leeches: %d masses", "寄生水蛭：%d堆", "tformat")
 t("The target is being fed upon by %d masses of parasitic leeches for %0.2f physical and %0.2f acid damage each turn.  After a %d turn feeding period, one mass will drop off and multiply.", "目标被 %d 堆寄生水蛭寄生，每回合受到 %0.2f 物理和 %0.2f 酸性伤害。每隔 %d 回合，一堆寄生水蛭将脱落并繁殖。", "tformat")
 t("#Target# is #GREEN#INFESTED#LAST# with parasitic leeches!", "#Target#被寄生水蛭#GREEN#寄生#LAST#了！", "_t")
 t("+Parasitic Leeches", "+寄生水蛭", "_t")
-t("Some leeches drop off %s!", "寄生虫从%s处脱落！", "logSeen")
+t("Some leeches drop off %s!", "一些寄生水蛭从%s身上脱落！", "logSeen")
 t("Garrote", "绞杀", "_t")
 t("  It is silenced for the next %d turn(s), preventing it from casting spells and using some vocal talents.", "  目标还会被沉默 %d 回合，无法施放法术或使用部分发声类技能。", "tformat")
 t("The target is being garrotted by %s, rendering it unable to move and subject to an automatic unarmed attack (at %d%% damage) each turn.%s", "目标被 %s 绞杀，无法移动，每回合会受到一次自动的徒手打击（造成 %d%% 武器伤害）。%s", "tformat")
@@ -37975,7 +37975,7 @@ t("#GOLD#Miniboss round!", "#GOLD#小Boss轮！", "log")
 t("#LIGHT_RED#Final round!!!", "#LIGHT_RED#最终轮！！！", "log")
 t("Round Clear! +%s EXP!", "全清！+%s 经验！", "tformat")
 t("%sWave clear!", "%s波次已全清！", "log")
-t("%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!", "%s全清奖励：%s%s%s! 分数奖励：%s%s%s! 危险度奖励：%s%s%s! 级别奖励：%s%s%s！", "log")
+t("%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!", "%s全清奖励：%s%s%s！分数奖励：%s%s%s！危险度奖励：%s%s%s！级别奖励：%s%s%s！", "log")
 t("%sYour experience increases by %s%d%s!", "%s你的经验值增加了%s%d%s！", "log")
 t("%sYou earn %s gold for your victory!", "%s你胜利了，你赢得了%s金币！", "log")
 t("Arena mode", "竞技场模式", "_t")
@@ -38080,7 +38080,7 @@ t("human", "人类", "entity subtype")
 t("human sun-paladin", "人类太阳骑士", "entity name")
 t("A Human in shiny plate armour.", "一位穿着闪耀板甲的人类。", "_t")
 t("High Sun-Paladin Rodmour", "高阶太阳骑士罗德莫", "entity name")
-t("Go %s! We will hold the line!", "去吧%s!我们会坚守防线！", "tformat")
+t("Go %s! We will hold the line!", "去吧，%s！我们会坚守防线！", "tformat")
 t("orc", "兽人", "entity subtype")
 t("orc warrior", "兽人战士", "entity name")
 t("A fierce soldier-orc.", "一个勇猛的兽人士兵。", "_t")
@@ -38119,7 +38119,7 @@ section "mod-tome/data/zones/conclave-vault/npcs.lua"
 t("old vats", "古老的培养槽", "entity name")
 t("structure", "结构", "entity type")
 t("vat", "槽", "entity subtype")
-t("degenerated ogric mass", "退化的食人魔碎肉", "entity name")
+t("degenerated ogric mass", "退化的食人魔肉团", "entity name")
 t("This huge mass of deformed flesh was probably once an ogre, but something had gone wrong.", "这团巨大的畸形血肉很可能曾经是一个食人魔，但出了什么差错。", "_t")
 t("ogric abomination", "憎恶食人魔", "entity name")
 t("This ogre seems to have tried to graft golem parts on its own body. To various interresting results.", "这个食人魔似乎试图把傀儡的部件嫁接在自己身上。结果多种多样，颇为有趣。", "_t")
@@ -38419,7 +38419,7 @@ section "mod-tome/data/zones/dreams/zone.lua"
 t("Dreams", "梦境", "_t")
 t("Dream of vulnerability", "脆弱之梦", "_t")
 t("Dream of loss", "迷失之梦", "_t")
-t("Dream ???", "梦境 ??？", "_t")
+t("Dream ???", "梦境 ???", "_t")
 t("frail mouse", "脆弱的老鼠", "_t")
 t([[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
 ... you feel weak ...
@@ -38554,7 +38554,7 @@ t("DESTROY!", "毁灭一切！", "_t")
 t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动！", "_t")
 t("GLORY TO THE HALFLINGS!", "半身人万岁！", "_t")
 t("YOUR DEATH IS NECESSARY", "你的死亡必不可少", "_t")
-t("ACTIVATING PAIN GIVING SUBMODULES!", "启动痛苦强化模组！", "_t")
+t("ACTIVATING PAIN GIVING SUBMODULES!", "启动致痛子模块！", "_t")
 t("YOUR LIFE WILL END, PLEASE DO NOT RESIST!", "你的生命即将终结，不要试图抵抗！", "_t")
 t("RESISTANCE IS FUTILE, YOUR WILL BE EXTERMINATED!", "抵抗无用，你将被彻底毁灭！", "_t")
 t("PLEASE STAY STEADY AS YOU ARE ERASED FROM THE WORLD!", "请你坐稳扶好，等待被移除出这个世界！", "_t")
@@ -38567,7 +38567,7 @@ t("red", "红色", "entity subtype")
 t("Atamathon's Ruby Eye", "阿塔玛森的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
 It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨型傀儡阿塔玛森的红宝石眼睛之一。
-据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。]], "_t")
+据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但它仍杀死了兽人的首领吞噬者加库尔，给了对方沉重一击。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/zone.lua"
@@ -39309,16 +39309,16 @@ section "mod-tome/data/zones/paradox-plane/npcs.lua"
 
 t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
-t("Epoch", "纪元", "entity name")
+t("Epoch", "亚伯契", "entity name")
 t("A huge being composed of sparking blue and yellow energy stands before you.  It shifts and flows as it moves, at once erratic and graceful.", "一个由噼啪作响的蓝黄双色能量构成的巨大存在站在你面前。它在移动时不断变形、流动，既飘忽不定又优雅。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/objects.lua"
 
-t("Epoch's Curve", "纪元之弧", "entity name")
+t("Epoch's Curve", "亚伯契之弧", "entity name")
 t("white ash longbow", "白蜡长弓", "_t")
 t([[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
-According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在纪元之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
+According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
 根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。]], "_t")
 
 ------------------------------------------------
@@ -39722,7 +39722,7 @@ This farportal is not connected to any other portal. It is made for exploration;
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远行传送门旁边……", "log")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个莫名熟悉的地方，在另一个远行传送门旁边……", "log")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
 t("Exploratory Farportal", "探索用远行传送门", "_t")
 t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
@@ -40035,7 +40035,7 @@ section "mod-tome/data/zones/telmur/npcs.lua"
 t("undead", "亡灵", "entity type")
 t("ghost", "幽灵", "entity subtype")
 t("The Shade of Telos", "泰勒斯之影", "entity name")
-t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。", "_t")
+t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒斯已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。", "_t")
 t("and was savagely mutilated, a show of his rage towards all living things", "并被残忍肢解，作为他对所有生物的无尽怒火的体现", "_t")
 t("Back and there again", "归而复往", "_t")
 t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《反转与复原概率场》标题的文本。你必须回到泰恩那。", "_t")
@@ -41135,7 +41135,7 @@ t("oasis", "绿洲", "entity name")
 t("Derth (Town)", "德斯镇（城镇）", "entity name")
 t("A quiet town at the crossroads of the north", "一个位于北方十字要道的宁静村庄。", "_t")
 t("Last Hope (Town)", "最后的希望（城镇）", "entity name")
-t("Capital city of the Allied Kingdoms ruled by King Tolak", "联合王国首都（托拉克统治）", "_t")
+t("Capital city of the Allied Kingdoms ruled by King Tolak", "联合王国首都，由托拉克国王统治", "_t")
 t("Angolwen, the hidden city of magic", "安格利文，隐藏的魔法之城", "entity name")
 t([[Secret place of magic, set apart from the world to protect it.
 Lead by the Supreme Archmage Linaniil.]], [[魔法的隐藏圣地，隔绝于世。

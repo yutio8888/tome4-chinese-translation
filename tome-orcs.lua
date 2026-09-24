@@ -355,7 +355,7 @@ The Steam Giants are no more.
  
 The secondary charges from the warhead detonate, as burning debris falls into the sea, and the ongoing display serves as a signal to all the Orcs of Var'Eyal, and anyone else who may be watching: This is the fate of all who would try to eradicate the Orcs.  The previous millennia of oppression, genocide, and bullying are over: your people will never be pushed around like this again.
  
-A nagging thought in the back of your head insists that you now know how the Sun Paladins felt, how King Toknor felt, how the halflings felt, how everyone that has always committed such atrocities against the Orcs felt.  It can keep whining all it wants - your people are finally safe.*#WHITE#]], [[#LIGHT_GREEN#*让蒸汽巨人们逃离太过危险 - 你不能允许他们这样简单的离开，然后将来某日再实现其图谋，消灭你的部落。你按下#{italic}#"上一名目标"#{normal}# 按钮，朝飞船开火。一阵巨大的轰鸣声和一道强烈的火光闪过，你从窗户里看见导弹朝目标飞去，飞向你视线远处，拥挤的飞船里惊恐的乘客那边。
+A nagging thought in the back of your head insists that you now know how the Sun Paladins felt, how King Toknor felt, how the halflings felt, how everyone that has always committed such atrocities against the Orcs felt.  It can keep whining all it wants - your people are finally safe.*#WHITE#]], [[#LIGHT_GREEN#*让蒸汽巨人们逃离太过危险 - 你不能允许他们这样简单的离开，然后将来某日再实现其图谋，消灭你的部落。你按下#{italic}#"上一名目标"#{normal}# 按钮，朝飞船开火。一阵巨大的轰鸣声和一道强烈的火光闪过，你透过窗户看见导弹离你远去，同时又在面板上看见它迎面冲向画面，冲向那些惊恐的乘客。
 
 导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，面板随之变暗。
 
@@ -407,7 +407,7 @@ t([[#LIGHT_GREEN#*The Crimson Templar looks exhausted, nearly dead. You feel the
 Go on kill me @playername@! My life is destroyed, my friends are dead, my dear Aeryn is dead. All dead by your murderous hands! Finish me, let me have some #{italic}#rest#{normal}#.]], [[#LIGHT_GREEN#*深红圣武士看上去极其疲惫，濒临死亡。你感觉戒指在和他共鸣，突然你意识到你能吸收他的力量来强化戒指。*#WHITE#
 来杀了我吧@playername@! 我的一切都毁了，我的朋友被你们杀了，我的爱人艾琳也死了。都被你无情而残忍的双手杀死了！干掉我吧，让我就这样 #{italic}#安息#{normal}#吧。]], "_t")
 t("#LIGHT_GREEN#[destroy him to power the ring]#WHITE# So be it!", "#LIGHT_GREEN#[杀死他来强化戒指]#WHITE# 如你所愿！", "_t")
-t("#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!", "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，你活着对我更有用！", "_t")
+t("#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!", "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，一个活着却已崩溃的你对我更有用！", "_t")
 t([[#LIGHT_GREEN#*The malevolent energies around you condensate into the ring, absorbing the last remains of John.
 The ring is now much more powerful.*#WHITE#
 Aeryn... my love...]], [[#LIGHT_GREEN#*你周围的邪恶能量凝聚到戒指中，吸收了约翰的剩余力量。
@@ -427,7 +427,7 @@ t([[#LIGHT_GREEN#*As you approach you recognize Outpost Leader John. But there i
 @playername@. You malevolent creature! #{bold}#YOU KILLED HER! YOU MURDEROUS DOG!#{normal}#
 You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it on you. Give it back! DIE!]], [[#LIGHT_GREEN#*当你靠近时，你认出了那是前哨站首领约翰。但他身边环绕着可怕的黑暗，你能感受到他的仇恨令空气结晶。*#WHITE#
 @playername@ 你这个残忍的畜生！#{bold}#你杀了她！你这条残忍的狗！#{normal}#
-你 #{italic}#竟敢#{normal}# 带着她的戒指作为战利品！我能感觉到它在你身上。拿出来，受死吧！！]], "_t")
+你 #{italic}#竟敢#{normal}# 带着她的戒指作为战利品！我能感觉到它在你身上。还给我！受死吧！]], "_t")
 t("Oh you liked that paladin lady? I loved killing her!", "你喜欢那个女圣骑士？我爱死杀她的感觉了", "_t")
 t("She left me no choice; I had to protect #{bold}#my#{normal}# people.", "她令我别无选择；我必须保护 #{bold}#我的#{normal}# 族民。", "_t")
 t("Whatever.", "还行吧。", "_t")
@@ -467,13 +467,13 @@ Well, I'm not one to turn down anyone with gold, and seeing as you've already ma
 t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!
 #LIGHT_GREEN#*He points to a new poster on the wall next to him, showing your face and the caption #{bold}#"KALTOR: THE CHOICE OF DESTROYERS!"#{normal}#*#WHITE#
 
-So, what'll it be?]], [[欢迎回来，@playername@! 来看看这个，顾客们？这位可怕而野蛮的战斗大师也对我的产品印象深刻，现在他又回来买东西了！
+So, what'll it be?]], [[欢迎回来，@playername@！来看看这个，顾客们？这位可怕而野蛮的战斗大师也对我的产品印象深刻，现在他又回来买东西了！
 #LIGHT_GREEN#*他指向墙上贴着的新海报，上面是你的脸和一行大字 #{bold}#"卡托尔：破坏者的选择！"#{normal}#*#WHITE#
 
 那么，你要做什么呢？]], "_t")
 t([[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#
 	Make it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]], [[#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#
-	快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我更想站在上面鸟瞰你要做的事情，而不是坐在椅子上。]], "_t")
+	快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏。]], "_t")
 t([[#LIGHT_GREEN#*He frowns in mock disappointment, as he presses a button on his stylish coat; it hisses, and you hear motors whirring*#WHITE#
 Oh, what a pity.  Guards?  Ten thousand gold to whoever gets the killing blow.  Store credit, of course.]], [[#LIGHT_GREEN#*他假装失望地皱起眉头，按下外套上的按钮。它发出嘶嘶声，你听见引擎的轰鸣。*#WHITE#
 真遗憾。警卫？谁杀了他，就有一万金的赏钱。当然，记在商店账上。]], "_t")
@@ -1496,7 +1496,7 @@ If you're very careful.]], [[这套鞋子似乎是被一位具有……创造力
 看上去这套鞋子能用，大概。
 确实有可能。
 只要你非常非常小心。]], "_t")
-t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "火箭靴有%d%%几率失败（随灵巧降低）。", "tformat")
+t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "这套鞋子有%d%%几率无法正常运作（随灵巧降低）。", "tformat")
 t("jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)", "跳向半径%d码范围内的地点，轰炸起跳点附近半径2码范围内的所有敌人 (%d 火焰燃烧伤害，击退2格)以及落地点附近半径3码范围的所有敌人 (%d 火焰燃烧伤害，击退3格)（伤害随灵巧值提升）", "tformat")
 t("#LIGHT_RED#You see no place to land near there.", "#LIGHT_RED#附近没有可以着陆的地点。", "logPlayer")
 t("#Source# ignites %s %s, creating a #LIGHT_RED#blast of fire#LAST# that %s!", "#Source#点燃了%s%s，创造出一股#LIGHT_RED#火焰爆炸#LAST#%s！", "logCombat")
@@ -1506,7 +1506,7 @@ t("#Source# lands in a #LIGHT_RED#firey explosion#LAST#!", "#Source#引发了#LI
 t("Assassin's Surprise", "暗杀奇袭", "entity name")
 t("glistening steel gauntlets", "闪耀光辉的铁手套", "_t")
 t("These steel gauntlets feature a hidden contraption embedded in the left index finger that fires poisonous bolts.", "这对钢铁手套的左手食指中藏有一个能发射毒箭的精巧机关。", "_t")
-t("fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)", "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并导致目标被致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）", "tformat", {1,2,3,5,4})
+t("fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)", "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）", "tformat", {1,2,3,5,4})
 t("#Source# fires a bolt of #GREEN#poison#LAST# at #target# from %s %s!", "#Source#使用%s%s朝#target#发射#GREEN#毒液#LAST#！", "logCombat")
 t("something", "某物", "_t")
 t("Nacrush's Decimator", "纳克拉什的屠杀者", "entity name")
@@ -1566,7 +1566,7 @@ t("release a burst of light dealing damage equal to your cunning plus your magic
 t("Overburst", "强力爆裂", "entity name")
 t("wide barreled steamgun", "粗管蒸汽枪", "_t")
 t("\"Have you ever fired a shot into a group of monsters and thought 'there must be a better way?' Well now, there is!\"", "你曾经试过向一群怪兽中发射一粒粒弹药，然后觉得一定有更好的方法？好了，这就是了。", "_t")
-t("Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4.", "释放榴弹，在半径4锥形范围内造成等于蒸汽强度的物理伤害。", "_t")
+t("Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4.", "从目标处向外迸射弹片，在半径4的锥形范围内造成等于蒸汽强度的物理伤害。", "_t")
 t("Murderfang's Surekill", "屠牙的必杀", "entity name")
 t([["Murderfang came over yesterday, raving about this idea for a steamgun he had. He described it in great detail, everything, except for how it would actually work.
 What do you even grip it by? Insisted I make it though, left some design notes.
