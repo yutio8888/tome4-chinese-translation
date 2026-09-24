@@ -30,7 +30,7 @@ AGENTS = Path(os.path.expanduser(
 ORCH = "eb0f2a87-8369-4e5b-b953-63159b37061b"
 WORKSPACE = "wks_ac28b30c4bf45d5b"
 PURPOSE = "translation_contextual_v2"
-GEMINI = "pi/cliproxyapi/gemini-3.8-flash-high"
+GEMINI = "pi/cpa/gemini-3.8-flash-high"
 CODEX = "codex/gpt-6-sol"
 
 
@@ -291,7 +291,16 @@ def main():
     pending = []
     done = []
     for task in tasks:
-        if (REPO / ".ai" / "reviews" / task / "full-01.json").exists():
+        # A task counts as done when its STATE is DONE, regardless of which
+        # attempt (full-01, full-02, ...) produced the accepted record.
+        state_path = REPO / ".ai" / "task" / task / "STATE.json"
+        is_done = False
+        if state_path.exists():
+            try:
+                is_done = json.loads(state_path.read_text(encoding="utf-8")).get("state") == "DONE"
+            except Exception:
+                is_done = False
+        if is_done:
             done.append(task)
         else:
             pending.append(task)

@@ -9,7 +9,7 @@ REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 ORCH = "eb0f2a87-8369-4e5b-b953-63159b37061b"
 WORKSPACE = "wks_ac28b30c4bf45d5b"
 PURPOSE = "translation_contextual_v2"
-PROVIDER = "pi/cliproxyapi/gemini-3.8-flash-high"
+PROVIDER = "pi/cpa/gemini-3.8-flash-high"
 
 
 def record(task_id, agent_id, provider=PROVIDER, model=None):
