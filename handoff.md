@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（修复窗口23已完成；待宿主发布收尾，随后审核270）
+更新时间：2026-09-24（审核270已完成；下一步修复窗口24，仅处理270的6条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -374,7 +374,16 @@ surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个 identity 回显逐
 
 修复窗口23已完成审核269确认的3条修复：夺心魔任务开场补回“至少”，改为“你被派去至少清除一个对夺心魔的威胁。”并保留末尾换行；埃亚尔之怒说明补回“你周围的”；奥术漩涡说明改为射线射向视野内随机敌人，对附着目标与射线路径上所有目标造成伤害；无敌人时，本回合漩涡对附着目标造成的伤害提高 50%；目标死亡时，残余伤害转化为半径 2 的奥术爆炸。`execute-01`（`codex/gpt-5.6-sol`）实施3条；`REVIEW(0)/full`（`codex/gpt-6-sol`）为 2 OK / 1 ISSUE，宿主核对 `timed_effects/magical.lua:2686-2687`（`624a673`）确认无敌人分支是一次 `eff.dam * 1.5` 伤害，而非目标易伤；`execute-02` 修复该句；`FINAL(1)/full`（`claude-opus-5-5`）为 3 OK，任务收敛。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。2个 executor 与2个 reviewer child 均已归档确认；本 publication child 待宿主归档。本窗口无新增 pending。
 
-译文提交为 `78c3562727a947c49dd8ec65daff61707920b893`；新 catalog 为 `c975ad861660d866b62f8d2530be93926af2977852846d6367216e28e5d9e480`；migration 为 `d2075cb1e0938d0607405e8d8d85400e38b06f9245584e5838e455993014585f`。迁移结果为3条 `revision_changed`、29,825条 `unchanged`、0条 `ambiguous/unmapped`，3个 successor 待重新审核且不继承 `done`。完整结果见[窗口23发布证据](evidence/quality/repair-window-23-20260923/PUBLICATION.md)。本证据提交、第二次 queue rebuild 与 push 由宿主执行，完成后继续审核270（默认80条）；上述后续步骤尚未完成。
+译文提交为 `78c3562727a947c49dd8ec65daff61707920b893`；新 catalog 为 `c975ad861660d866b62f8d2530be93926af2977852846d6367216e28e5d9e480`；migration 为 `d2075cb1e0938d0607405e8d8d85400e38b06f9245584e5838e455993014585f`。迁移结果为3条 `revision_changed`、29,825条 `unchanged`、0条 `ambiguous/unmapped`，3个 successor 待重新审核且不继承 `done`。完整结果见[窗口23发布证据](evidence/quality/repair-window-23-20260923/PUBLICATION.md)。窗口23的证据提交（`62e2c555`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核270（`batch-b7ce18a7bdce48ba8086`）已闭合，结果为 **74 done / 6 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 66 OK / 14 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 因 JSON 前带英文导语被判无效并归档，重派 full-001 为 12 OK / 2 ISSUE。
+16 个观察裁决为 7 confirmed、5 refuted、4 advisory，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，六个 reviewer child 均已归档确认。证据提交 `0480131c`，
+详见[270宿主证据](evidence/quality/production-batches/batch-b7ce18a7bdce48ba8086-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口24，仅处理 270 的 6 条：飞镖发射器抵抗日志“睡眠”改与效果名“被镇静”一致；敏锐直觉说明去“直觉”并恢复 3 行；
+狂热 4 次快速攻击（each 指每次攻击、always 总是攻击被追踪猎物、盾牌句前空行）；奥术至上法杖描述恢复换行并改“单独一件似乎并不完整”；
+吸食抗性说明删多余换行；意志属性说明删增译“精神力”。范围见 `.ai/task/batch-b7ce18a7bdce48ba8086/WINDOW24-REPAIR-DECISION.json`。
 
 ### 窗口7闭合时的暂停记录（历史）
 
