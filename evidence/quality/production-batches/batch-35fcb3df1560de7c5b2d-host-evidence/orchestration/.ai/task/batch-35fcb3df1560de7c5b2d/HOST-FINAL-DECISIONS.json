@@ -1,0 +1,134 @@
+{
+  "batch_id": "batch-35fcb3df1560de7c5b2d",
+  "observations": 12,
+  "observation_dispositions": {
+    "confirmed": 10,
+    "refuted": 2
+  },
+  "repair_revision_keys": [
+    "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af",
+    "f78b208ac1339275462eccbe631bfdb774062c7b7176b047b072786b7987612e",
+    "f7bd4de1f91451ebe16d1927f0b5ce047318d81002068752738c63bd9ff08cf8",
+    "f8180dfe1116080a85bf70f93352e02f2f613a4f0d5d83fc1d58e13f6d509456",
+    "f83a8191e966db8ebd1c7b88f3c053c38d1c05394b20452aef239ec110f28195",
+    "f894de79df6d2ecec361043978ae052e31f288ef0034c595ee979ae68db2af8d"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af",
+      "stage": "surface",
+      "observation": "source 的 appear human 是“看起来像人类”，target 的“看起来像活着一样”改变了所呈现的外观含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/other.lua:2614 CLOAK_OF_DECEPTION on_gain：斗篷在不死族身上制造幻象使其 appear human（看起来像人类，从而能进入人类城镇）；现译“看起来像活着一样”把“人类”换成“活着”，外观含义改变。整条修复为“看起来像人类”一类，#LIGHT_BLUE#/#Target#/%s 保持。"
+    },
+    {
+      "revision_key": "f78b208ac1339275462eccbe631bfdb774062c7b7176b047b072786b7987612e",
+      "stage": "surface",
+      "observation": "原文“It doesn't much matter”意为这并不重要，译文“没有确切的答案”改变了意思。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "ingredients.lua 电鳗尾 desc：It doesn't much matter 意为“其实没多大关系”（紧接“最后十英寸左右就行”）；现译“没有确切的答案”语义改变。整条逐句核对后修复。"
+    },
+    {
+      "revision_key": "f7bd4de1f91451ebe16d1927f0b5ce047318d81002068752738c63bd9ff08cf8",
+      "stage": "surface",
+      "observation": "原文“mad Tempest”中的“mad”在译文中缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "achievements/quests.lua:219：Freed Derth from the onslaught of the mad Tempest, Urkis.——现译“从风暴魔导师厄奇斯手里成功解救德斯镇”漏译 mad（疯狂的）与 onslaught（猛攻）。整条修复，Tempest 沿用本条现有“风暴魔导师”，不扩大为族内统一。"
+    },
+    {
+      "revision_key": "f7dcde0d27809868efd0e42641715902f2c9657933cfdfc32d22ad4f0a7b5871",
+      "stage": "surface",
+      "observation": "原文只说本回合已尝试使用瞬间技能且失败，译文增加了“这回合无法再次使用”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua:5754–5756：该日志仅在 turn_procs.forbid_instant_talents[ab.id] 已置位时输出，随后 return false 拒绝本次使用；译文补出“这回合无法再次使用”正是实现行为，不构成增译误导。"
+    },
+    {
+      "revision_key": "f8180dfe1116080a85bf70f93352e02f2f613a4f0d5d83fc1d58e13f6d509456",
+      "stage": "surface",
+      "observation": "source 的“hematite moon”指赤铁矿之月，target 的“红月”遗漏了材质信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts-far-east.lua:58 挂坠 desc：a hematite moon eclipsing a golden sun——赤铁矿（材质）之月遮蔽金色太阳；现译“红月吞日”丢失 hematite 材质与 golden。整条修复。"
+    },
+    {
+      "revision_key": "f82b87605f65a02291c279b768b9722fa89d0461a67a573a5054e6a62e3bff3c",
+      "stage": "surface",
+      "observation": "source 表示有 %d%% 几率免受直接暴击，target 却表示暴击额外伤害降低 %d%%，改变了效果。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "talents/gifts/ooze.lua:250–270 Indiscernible Anatomy：passives 设 ignore_direct_crits=critResist；damage_types.lua:130–153 该属性按百分比削减暴击的额外倍率（reduce=(crit_power-1)*pct），并非按几率完全免疫。英文 info 与实现不符，现译“直接暴击的额外伤害降低 %d%%”贴合实现，判 refuted。"
+    },
+    {
+      "revision_key": "f83a8191e966db8ebd1c7b88f3c053c38d1c05394b20452aef239ec110f28195",
+      "stage": "surface",
+      "observation": "原文的“Corrupted vapour”（腐化蒸汽）在译文中缺失，且“rises at the target location”被译为“蒸腾目标区域”，改变了句意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/misc/npcs.lua 腐化蒸汽 info：Corrupted vapour rises at the target location——现译“蒸腾目标区域”漏主语“腐化蒸汽”且把 rises at 误成及物“蒸腾”。整条修复，%0.2f/%d 与 \\n\\t\\t 保持。"
+    },
+    {
+      "revision_key": "f894de79df6d2ecec361043978ae052e31f288ef0034c595ee979ae68db2af8d",
+      "stage": "surface",
+      "observation": "译文遗漏分裂出的软泥怪须位于视线内、数量受技能等级与召唤上限限制，以及伤害均摊仅在该技能生效期间适用；还将“take damage”缩窄为“受到攻击”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/gifts/ooze.lua Mitosis info：现译漏 within your line of sight（在视线内生成）、(limited by talent level and the summoning limit)、so long as this talent is active（仅在技能生效期间均摊），并把 take damage 缩窄为“受到攻击”。整条逐句核对后修复，占位符顺序与 \\n\\t\\t 保持。"
+    },
+    {
+      "revision_key": "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af",
+      "stage": "contextual",
+      "observation": "源文“appear human”在 target 中被译成“看起来像活着一样”，把“像人类”改成了“像活人”。依据 engine@624a673 的 game/modules/tome/data/timed_effects/other.lua:2604-2621：CLOAK_OF_DECEPTION 的 long_desc 写的是“making it look human”；activate 把阵营设为 allied-kingdoms，并在不死族身上设置 fake_race=\"Human\"、fake_subrace=\"Cornac\"。所以这个效果是伪装成人类，不是让目标看起来还活着，应译为“看起来像人类”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：timed_effects/other.lua:2604–2621 CLOAK_OF_DECEPTION long_desc 为 making it look human，activate 设 fake_race=\"Human\"、fake_subrace=\"Cornac\" 并改阵营为 allied-kingdoms；是伪装成人类而非“像活着”。整条修复为“看起来像人类”。"
+    },
+    {
+      "revision_key": "f8180dfe1116080a85bf70f93352e02f2f613a4f0d5d83fc1d58e13f6d509456",
+      "stage": "contextual",
+      "observation": "target 把“hematite moon eclipsing a golden sun”译成“红月吞日”：hematite 被译成“红”，golden 被删掉了。依据 engine@624a673 的 world-artifacts-far-east.lua:57，这件物品的 unided_name 是“a gray and gold pendant”，说明赤铁矿月亮是灰色、太阳是金色。“红月”与这一灰金配色矛盾，应改为“赤铁矿（灰色）之月遮蔽金色太阳”这一类表述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：world-artifacts-far-east.lua:57 unided_name 为 a gray and gold pendant，赤铁矿月亮为灰色；“红月”与灰金配色矛盾且丢失 golden。整条修复为“赤铁矿之月遮蔽金色太阳”一类。"
+    },
+    {
+      "revision_key": "f83a8191e966db8ebd1c7b88f3c053c38d1c05394b20452aef239ec110f28195",
+      "stage": "contextual",
+      "observation": "源文主语“Corrupted vapour rises at the target location”（堕落蒸汽在目标位置升起）在 target 中被译成“蒸腾目标区域”：主语“堕落蒸汽”丢失，“蒸腾”被当成及物动词，意思变成“使目标区域蒸腾”，句子不通，也没说明造成伤害的是蒸汽（参见 npcs.lua:1386）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：npcs.lua:1386 Corrupted vapour rises at the target location；现译丢主语、把“蒸腾”作及物。整条修复。"
+    },
+    {
+      "revision_key": "f894de79df6d2ecec361043978ae052e31f288ef0034c595ee979ae68db2af8d",
+      "stage": "contextual",
+      "observation": "target 删掉了三处机制限定。一是分裂出的软泥怪出现在“nearby within your line of sight”（附近且在视线内）。二是数量上限“(limited by talent level and the summoning limit)”：依据 ooze.lua:36，getMax 同时受 checkMaxSummon 的召唤上限和技能等级限制。三是伤害均摊只在“so long as this talent is active”期间成立。删掉后，上限和均摊都读成无条件的，与 ooze.lua:112-119 不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：ooze.lua:36 getMax 受 checkMaxSummon 召唤上限与技能等级双重限制；ooze.lua:112–119 伤害均摊只在技能生效期间成立；另漏 within your line of sight。整条修复。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000, single accepted attempt)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; all 80 surface identity echoes pre-checked exact against envelopes before harvest; all 4 lanes and the contextual child harvested via --native-log.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Contextual passed f78b208a (eel tail) and f7bd4de1 (Urkis achievement); host keeps both confirmed on direct source comparison: “It doesn't much matter” is not “没有确切的答案”, and “mad”/“onslaught” are dropped.",
+    "Contextual passed f7dcde0d and f82b8760, matching host refuted (both translations follow the implementation).",
+    "freeze_workset 1 MISS: “Oh well, maybe later then.” rowed under chats/last-hope-lost-merchant.lua while the string lives in chats/artifact-maker.lua:89; translation effective by string lookup, entry passed review.",
+    "No pending, no glossary/global rename; old pending/blocked unchanged."
+  ]
+}

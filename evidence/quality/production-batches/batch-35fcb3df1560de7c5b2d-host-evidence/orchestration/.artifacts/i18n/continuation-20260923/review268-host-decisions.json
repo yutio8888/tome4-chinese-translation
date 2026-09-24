@@ -1,0 +1,65 @@
+{
+  "workset": "evidence/quality/production-batches/batch-35fcb3df1560de7c5b2d-source-workset.json",
+  "decisions": {
+    "f7641a73ef|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/other.lua:2614 CLOAK_OF_DECEPTION on_gain：斗篷在不死族身上制造幻象使其 appear human（看起来像人类，从而能进入人类城镇）；现译“看起来像活着一样”把“人类”换成“活着”，外观含义改变。整条修复为“看起来像人类”一类，#LIGHT_BLUE#/#Target#/%s 保持。"
+    },
+    "f78b208ac1|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "ingredients.lua 电鳗尾 desc：It doesn't much matter 意为“其实没多大关系”（紧接“最后十英寸左右就行”）；现译“没有确切的答案”语义改变。整条逐句核对后修复。"
+    },
+    "f7bd4de1f9|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "achievements/quests.lua:219：Freed Derth from the onslaught of the mad Tempest, Urkis.——现译“从风暴魔导师厄奇斯手里成功解救德斯镇”漏译 mad（疯狂的）与 onslaught（猛攻）。整条修复，Tempest 沿用本条现有“风暴魔导师”，不扩大为族内统一。"
+    },
+    "f7dcde0d27|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua:5754–5756：该日志仅在 turn_procs.forbid_instant_talents[ab.id] 已置位时输出，随后 return false 拒绝本次使用；译文补出“这回合无法再次使用”正是实现行为，不构成增译误导。"
+    },
+    "f8180dfe11|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts-far-east.lua:58 挂坠 desc：a hematite moon eclipsing a golden sun——赤铁矿（材质）之月遮蔽金色太阳；现译“红月吞日”丢失 hematite 材质与 golden。整条修复。"
+    },
+    "f82b87605f|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "talents/gifts/ooze.lua:250–270 Indiscernible Anatomy：passives 设 ignore_direct_crits=critResist；damage_types.lua:130–153 该属性按百分比削减暴击的额外倍率（reduce=(crit_power-1)*pct），并非按几率完全免疫。英文 info 与实现不符，现译“直接暴击的额外伤害降低 %d%%”贴合实现，判 refuted。"
+    },
+    "f83a8191e9|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/misc/npcs.lua 腐化蒸汽 info：Corrupted vapour rises at the target location——现译“蒸腾目标区域”漏主语“腐化蒸汽”且把 rises at 误成及物“蒸腾”。整条修复，%0.2f/%d 与 \\n\\t\\t 保持。"
+    },
+    "f894de79df|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/gifts/ooze.lua Mitosis info：现译漏 within your line of sight（在视线内生成）、(limited by talent level and the summoning limit)、so long as this talent is active（仅在技能生效期间均摊），并把 take damage 缩窄为“受到攻击”。整条逐句核对后修复，占位符顺序与 \\n\\t\\t 保持。"
+    },
+    "f7641a73ef|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：timed_effects/other.lua:2604–2621 CLOAK_OF_DECEPTION long_desc 为 making it look human，activate 设 fake_race=\"Human\"、fake_subrace=\"Cornac\" 并改阵营为 allied-kingdoms；是伪装成人类而非“像活着”。整条修复为“看起来像人类”。"
+    },
+    "f8180dfe11|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：world-artifacts-far-east.lua:57 unided_name 为 a gray and gold pendant，赤铁矿月亮为灰色；“红月”与灰金配色矛盾且丢失 golden。整条修复为“赤铁矿之月遮蔽金色太阳”一类。"
+    },
+    "f83a8191e9|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：npcs.lua:1386 Corrupted vapour rises at the target location；现译丢主语、把“蒸腾”作及物。整条修复。"
+    },
+    "f894de79df|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：ooze.lua:36 getMax 受 checkMaxSummon 召唤上限与技能等级双重限制；ooze.lua:112–119 伤害均摊只在技能生效期间成立；另漏 within your line of sight。整条修复。"
+    }
+  }
+}

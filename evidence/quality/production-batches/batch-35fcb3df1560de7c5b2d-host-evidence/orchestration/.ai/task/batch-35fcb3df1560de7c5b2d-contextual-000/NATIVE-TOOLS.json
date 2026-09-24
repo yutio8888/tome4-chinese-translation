@@ -1,0 +1,110 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01Bi3vGw7tNTryJZrcDrGpbm",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input size and contract sections"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_012pmUxcjC8kU7ohX57pDAJX",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 92,140p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'));print(json.dumps(d,ensure_ascii=False,indent=1))\"",
+      "description": "Read contract section six and envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Kc3wCbrQUxsiPrPUMA7aXK",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'));print(list(d.keys()))\nfor k,v in d.items():\n  if not isinstance(v,(list,dict)): print(k,'=',v)\n\"",
+      "description": "Inspect envelope top-level structure"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_013WuyPZNGkxDEZ3ooA4CWVs",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nprint(list(d.keys()))\nfor k,v in d.items():\n  if k not in ('translation_snapshot','bounded_context','rendered_briefing'): print(k,json.dumps(v,ensure_ascii=False)[:1500])\nprint(d.get('rendered_briefing','')[:20000])\n\"",
+      "description": "Print envelope payload fields"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_014dujpYq3mYo7xPNfcz6jXC",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nprint(json.dumps(d['translation_snapshot'],ensure_ascii=False,indent=1))\nprint('=====')\nprint(json.dumps(d['bounded_context'],ensure_ascii=False,indent=1))\n\"",
+      "description": "Print translation snapshot and context"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_013n1oU3CHiWJVRHV9NvSLt2",
+    "name": "Bash",
+    "input": {
+      "command": "sed -n 1,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/2137cbf8-90d1-435e-ac27-7092150151e1/tool-results/b9o5cdeof.txt | cut -c1-1500 | head -c 32000 | tail -c 30500",
+      "description": "Read rest of snapshot and context"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01LrBb7Jw5qnMRBFHuFqzfuS",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-35fcb3df1560de7c5b2d-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor b in d['bounded_context']:\n  c=b['context']; i=c.index('source_facts_v1:'); f=json.loads(c[i+16:].split('\\n')[0])['fact']\n  print('#####',b['revision_key'][:8], c[:i].strip())\n  for a in f.get('anchors',[]):\n    print(a['public_source_path'])\n    for s in a['snippet']: print(s['line'],s['text'])\n  for k,v in f.items():\n    if k!='anchors': print(k,json.dumps(v,ensure_ascii=False)[:3000])\n  rest=c[i+16:].split('\\n',1)\n  if len(rest)>1: print('REST',rest[1][:2000])\n\"",
+      "description": "Decode source facts per entry"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01CTDQj7PerU2gf9ErUFz5zz",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n \"ignore_direct_crits\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head; git grep -n \"CLOAK_OF_DECEPTION\\|old_faction_cloak\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/timed_effects/other.lua | head",
+      "description": "Grep pinned engine for crit mechanic"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_011KfV46TxVqdjG5R2rCTpDo",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n 2604,2628p; git grep -n \"getMax\\b\\|getMax =\\|getOozeResist\\|summon_limit\\|MITOSIS\\|shared\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents/gifts/ooze.lua | head -30; git grep -n \"Urkis\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/general/npcs game/modules/tome/data/zones | head -5; git grep -n \"CORRUPTED_VAPOUR\\|Corrupted vapour\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents/misc/npcs.lua",
+      "description": "Check cloak, ooze, Urkis and vapour sources"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]
