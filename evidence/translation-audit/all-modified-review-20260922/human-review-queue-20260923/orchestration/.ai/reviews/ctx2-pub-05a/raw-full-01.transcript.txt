@@ -1,0 +1,246 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=1b3d80b01b3182cc909381d201791e2c7b02893232a3782f316e8db582cf12e4；input_path=.ai/task/ctx2-pub-05a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] The task involves reviewing a frozen revision of a specified input file, seeking inconsistencies in semantics, mechanisms, terminology, relationships, or cross-item consistency. The review must operate in read-only mode, using the input file, referenced content, and documentation as sources. The goal is to identify and report only verified issues, or classify as "OK" if none are found.
+[Read] .ai/task/ctx2-pub-05a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git show -s --oneline 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] find . -maxdepth 2 -name "*manifest*" -o -name "*tome*"
+[Read] i18n/README.md
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] echo "TOME_ENGINE_ROOT=$TOME_ENGINE_ROOT" ls -la ../t-engine4 || ls -la ../
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] Confirmed the source identity and the revisions' association with the pinned engine repo. This establishes the context for interpreting the terminology rules within a specific, consistent codebase. Proceeding to analyze these rules within this fixed environment.
+
+
+Analyzing the embedded terminology snapshot directly, since `TERMINOLOGY.md` is inaccessible. The snapshot provides specific translations and usage contexts for terms like "physical," "light," "arcane," "manaburn arcane," and "shield" within the game context. This information clarifies how these terms are used and preferred.
+
+
+Analyzing term distinctions based on context: "physical" as effect subtype versus damage type; "light" as light-element versus armor; "mag" as a short stat name. "Draining physical" is established as "生命汲取" for damage type and effect is "强度" but as an entity keyword remains "能量." Determined specific entity types such as "elf," "orc," "reptile," "flesh," and "trap," confirming translations.
+
+
+Revised translations are based on context and existing conventions. "Power" translates to "能量" when referring to entity subtypes (specifically "orcs") and distinct from the effect subtype "intensity" which is "强度". "Trance" is translated to "入定," referring to a focused, mental state within a psionic skill type.
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/ukllmswwik.lua
+[Thought] The agent's statement presents a dangerous scenario, a one-way portal with no return. The options provided highlight a choice between accepting the risk or rejecting the offer as a trap. The target translation accurately reflects the negative sentiment of the source sentence.
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/unremarkable-cave-fillarel.lua
+[Thought] The source text mentions "farportal" and "Iron Throne". The target uses "远行传送门" and "钢铁王座", respectively. These appear to be appropriate translations for the specified terms.
+[Read] /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] grep -n -C 5 "stabbed" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] grep -rn "death_message" /workspace/t-engine4/game/
+[Read] /workspace/t-engine4/game/modules/tome/class/interface/PartyDeath.lua
+[Shell] grep -n -C 5 "to death by" mod-tome.lua
+[Shell] grep -n -C 2 -E "disembowelled|decapitated|torn limb from limb" mod-tome.lua
+[Thought] Examining the phrase mappings, it appears "stabbed" needs a more nuanced translation than initially assumed. The direct mapping "被刺杀" might not be universally accurate, especially in constructions like "玩家等级...被刺杀而死". Considering that "被刺伤" could be a more precise translation in certain contexts. Further refinement of the translation is required.
+[Shell] grep -n -C 10 "frightening sight" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] grep -n -C 2 "resists the frightening" mod-tome.lua
+[Shell] grep -rn "FEARKNOCKBACK" /workspace/t-engine4/game/
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/gifts/summon-utility.lua
+[Thought] Checking if the `checkHit` function's conditions and the game log's message align regarding "fear" and "sight". The log indicates a resistance to "frightening sight", but the Chinese translation uses just "恐惧" (fear). Investigating if this is an omission or an equivalent phrase.
+[Shell] grep -n -C 15 "cannot be extended" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] grep -rn "EFF_DAMAGE_SHIELD" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] grep -n "newEffect.*DAMAGE_SHIELD" /workspace/t-engine4/game/modules/tome/data/timed_effects/*
+[Shell] grep -rn "DAMAGE_SHIELD" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/magical.lua
+[Shell] grep -n -C 5 "Your damage shield cannot be extended" mod-tome.lua
+[Thought] The English text describes the shield as having "exploded," while the Chinese translation uses "finally shattered." This discrepancy warrants investigation to determine if "shattered" accurately captures the intended meaning of "exploded" in the context of a damage shield. The code related to the shield's behavior will be examined to understand the event's precise nature.
+[Shell] grep -rn "cannot be extended any farther" /workspace/t-engine4/game/
+[Thought] Analyzing translations of the error message reveals a concept of reaching a limit and subsequently failing. The phrase "终于破碎了" in Chinese raises a question regarding the nuance; "finally broken" suggests a complete state change. This implies the damage shield's extension has reached its peak, resulting in its destruction.
+[Shell] grep -n -C 5 "manaworm" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Thought] The target translation for `manaworm arcane` appears to be "奥术法力蠕虫". Comparing with the established pattern for `manaburn arcane`, which translates to "奥术法力燃烧", the current translation is consistent.
+[Shell] grep -n -C 10 "Entrance to a dark crypt" /workspace/t-engine4/game/modules/tome/data/general/encounters/fareast.lua
+[Thought] Found an encounter definition in a Far East encounter file. The definition includes an `on_encounter` function, which suggests a custom action when the encounter is triggered. It appears to clone the current level's terrain to create the encounter. The encounter's name is "Shadow Crypt."
+[Shell] grep -rn "Entrance to a dark crypt" /workspace/t-engine4/game/
+[Shell] grep -n -C 5 "Entrance to a dark crypt" mod-tome.lua
+[Thought] The goal is to ensure consistency in-game by matching translations across encounter, zone, and terrain grid entries. "Entrance to a dark crypt" should be translated to "阴影地宫入口" to match the "Shadow Crypt" encounter and zone name "阴影地宫". This matching ensures a unified and coherent player experience.
+[Shell] grep -n -C 15 "muffled cries" /workspace/t-engine4/game/modules/tome/data/general/encounters/maj-eyal.lua
+[Thought] A crypt entrance is discovered, radiating a palpable aura of evil, causing immediate unease. Muffled cries of a woman are heard emanating from within the crypt. The situation is immediately perceived as dangerous, prompting a need to assess further risks.
+[Shell] grep -n -C 15 "raises" /workspace/t-engine4/game/modules/tome/data/general/events/rat-lich.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/general/events/rat-lich.lua
+[Thought] A visual cue will appear when the wielder raises the object. The displayed message will announce the action. It will state the wielder's name and the item's name.
+[Read] /workspace/t-engine4/game/modules/tome/data/general/events/rat-lich.lua
+[Thought] Line 91 of the script uses a logging function. There is uncertainty whether this specific logging call includes a particular variable. Further investigation of the script's logging calls is required. The relevant script lines are being examined to confirm the existence of this variable.
+[Shell] grep -rn "function.*logSeen" /workspace/t-engine4/
+[Read] /workspace/t-engine4/game/modules/tome/class/Game.lua
+[Shell] grep -n "举起" mod-tome.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/general/npcs/undead-rat.lua
+[Thought] Initial translation of "From the dust of decay a %s forms!" to "一只%s从腐朽的尘埃中成形了！" appears correct; a skeletal rat would translate to "一只骷髅鼠". Now focusing on entries 14 through 18.
+[Shell] grep -n -C 10 "A huge, elongated sea-green reptile" /workspace/t-engine4/game/modules/tome/data/general/npcs/aquatic_critter.lua
+[Thought] Analyzing descriptions for "dragon turtle" and "ancient dragon turtle," noting the shared core description of a "huge, elongated sea-green reptile." The "ancient" variant adds "it looks old and impenetrable." These entries might represent distinct entities or possibly different stages of the same entity. The translated descriptions corroborate the original descriptions.
+[Shell] grep -n -C 10 "Do you smell like honey" /workspace/t-engine4/game/modules/tome/data/general/npcs/bear.lua
+[Thought] The source describes a red crystal formation emitting scorching light. The target translates this, emphasizing the formation as a "creature" made of red crystal that radiates intense, burning red light. The emphasis on the intensity of the light is appropriate.
+[Shell] grep -n -C 15 "formation of red crystal" /workspace/t-engine4/game/modules/tome/data/general/npcs/crystal.lua
+[Thought] The descriptions of red and white crystals in `crystal.lua` are consistent: both are described as "formations" and their light emissions are distinct but parallel ("scorching" vs. "chilling"). Examining `entry-00722` and `entry-00` might reveal how this consistency is used elsewhere.
+[Shell] grep -n -C 15 "breath of Urh'Rok" /workspace/t-engine4/game/modules/tome/data/general/npcs/ghost.lua
+[Shell] grep -n -C 15 "unlife of power" /workspace/t-engine4/game/modules/tome/data/general/npcs/ghost.lua
+[Thought] This entry describes a being of immense, destructive power, specifically highlighting its ability to corrupt and harm life through physical contact. Its nature is characterized as an "unlife," suggesting it is fundamentally antithetical to the natural order and life. This description implies a potent threat that could be biological, metaphysical, or even technological.
+[Shell] grep -n -C 2 "Fearscape" mod-tome.lua | head -n 30
+[Shell] grep -n "乌鲁洛克" mod-tome.lua
+[Shell] sed -n '6800,6840p' mod-tome.lua
+[Thought] These entries represent humorous death messages, specifically physical descriptions. The pairing of English actions with humorous Chinese transformations suggests a creative localization of death messages. "被刺杀" functions acceptably as "was stabbed to death" within this framework.
+
+
+Initial suspicion was that the Chinese translation of "exploded" should be "爆炸了", but a code check reveals the effect's removal doesn't inherently cause damage. The English source uses "exploded", while the Chinese uses "破碎了", suggesting a potential semantic difference or creative translation choice in the humorous context. The effect simply "crumbles" upon removal.
+
+
+The term "终于" ("finally") suggests the shield reaches its limit. The original translation might use "破碎了" ("shattered") to capture the overloaded shield's state, after being extended to 20 times, which is the cap. A complete review of all entries is necessary to identify potential translation errors or inconsistencies.
+
+
+These are accurate translations; no errors are present. The dialogues are faithful to their original English counterparts. This pattern continues, suggesting accurate localization.
+
+
+Examining the translation of "stabbed" as "被刺杀" revealed a potential issue regarding accuracy, particularly when considering the context of common enemies inflicting physical damage. Considered if "刺伤 / 被刺穿 / 被刺" might be more appropriate. A comparative review of other death message translations commenced to determine the level of detail and accuracy across all entries.
+
+
+The "被" pattern in death messages continues, aiming for a consistent structure like "was %s to death by...". Considering "被刺杀" for "stabbed to death", recognized it's a common Chinese phrase for this, and began to investigate whether this usage is a semantic bug or simply an acceptable translation. The review process outlined in AGENTS.md was reviewed.
+
+Checked `entry-00644` with source `"%s resists the frightening sight!"` and target `"%s抵抗了恐惧！"`, and confirmed the translation's validity based on the provided context in `game/modules/tome/data/damage_types.lua`.
+[Shell] grep -rn "resists.*fear" /workspace/t-engine4/game/
+[Thought] `%s resists the fear!` is consistently translated as `%s抵抗了恐惧！`. However, the phrase `%s resists the frightening sight!` also translates to the identical string, indicating a potential translation issue. This suggests an oversight in the translation process where the distinction between "fear" and "frightening sight" has been lost.
+
+
+The code checks for fear resistance via `canBe("fear")`, confirming the initial understanding. The target resisting fear or failing `checkHit` triggers a "frightening sight" message, which may be a translation error given the earlier observation. Examining a different entry suggests that exceeding damage shield extension limits triggers a message that the shield "has exploded," followed by its removal. The mechanism for this "explosion" requires investigation: is the explosion the result of removing the shield?
+
+
+The `on_lose` function of the damage shield effect causes it to "crumble," but a separate message indicates it "has exploded" when the extension limit is reached. The Chinese translation of "has exploded" uses "shattered/broken" and adds "finally/at last," suggesting a possible translation discrepancy. Both Japanese and Korean translations, however, use "exploded," aligning with the original English. This suggests the English text is accurate and that the Chinese translation requires review for fidelity.
+
+
+Analyzing the translation of "has exploded" to "终于破碎了" in Chinese, I'm unsure if it's strictly an error or an acceptable phrasing. To assess further, examining other translation entries could reveal more critical issues.
+
+Reviewing the entries confirms no immediate errors. Entry 00634's translation of "stabbed" appears natural. Entry 00644 exhibits the same "frightening sight" translation discrepancy as the initial observation, confirming a pattern. No other clear issues emerge from the initial entries.
+
+
+The translation of "resists the frightening sight!" as "抵抗了恐惧！" appears to stem from the underlying code's use of `canBe("fear")` to check for fear resistance. The translator likely interpreted this to mean "fear" in both instances, leading to an inaccurate translation of "frightening sight." This discrepancy requires further investigation. The issue is that the message in the game log does not accurately reflect what is being resisted. Analyzing entry 5 confirms `manaburn arcane` is correctly translated. Entry 6 uses "shattered/broken" for the translated "exploded."
+
+
+Analyzing additional entries, "draining physical," "manaworm arcane," and "manaburn arcane" translations align with existing terminology. Entry 00657, "Entrance to a dark crypt," is correctly translated and linked to the corresponding code within `fareast.lua`.  Further investigation of the "exploded" translation is still warranted to ensure accurate representation. I'm noting the script usage of `_t"Entrance to a dark crypt"` to derive the target text.
+
+
+The game's zone is confirmed as `shadow-crypt` in `fareast.lua`, and `g.name = _t"Entrance to a dark crypt"` correctly resolves to "阴影地宫入口". Entry `entry-00660` shows an accurate translation for an encounter description. I will now examine `entry-00683` and `entry-00684`.
+[Shell] grep -rn "function.*his_her" /workspace/t-engine4/game/
+[Read] /workspace/t-engine4/game/engines/default/engine/utils.lua
+[Thought] I'm thinking through how to approach this.
+
+
+Initial translation of "From the dust of decay a %s forms!" with a rat entity, resolved to "一只骷髅鼠从腐朽的尘埃中成形了！" which appears valid given the entity type. Examined the source "A huge, elongated sea-green reptile, it looks old and impenetrable." and confirmed "爬行动物" for "reptile" and determined this translation accurate by comparing against existing terminology and surrounding text. For "Do you smell like honey? 'Cause this bear wants honey." the source appears correct.
+
+
+"你闻起来像蜂蜜吗？因为这只熊想要蜂蜜。" appears to be accurate. The translation of "A formation of red crystal. It emits bright red, scorching light." seems inconsistent. Observing the neighboring white crystal translation, the target should be "一个红色水晶体". The "power" translation requires contextual clarification; "强度" is used for effects, while "能量" suits entities.
+
+
+The dreadmaster description translations are accurate. Examining entry-00723, the translation includes "她" ("she"), but the source uses "its". Investigating the ghost.lua file, it appears that "banshee" is considered a "ghostly woman's form," which explains the gendered pronoun in the target translation. Thus, the use of "她" is contextually correct.
+
+
+Examining `entry-00647` reveals a discrepancy in how damage shields are handled. The original text describes an explosion, whereas the target seems more about breaking point or fading. This leads to the hypothesis that the original game mechanic may involve a different concept for shield expiration. Reviewing damage type definitions to understand shield mechanics is needed.
+
+
+The English text indicates an explosive failure for exceeding shield extension limits, while the translated Chinese uses "finally broken", which might misrepresent the mechanic. The English term "exploded" suggests an overload, whereas the Chinese term "破碎" might lose the sense of dramatic overcharge and explosion that signifies reaching the extension limit. The word "finally" in the Chinese version feels out of place for what is effectively a penalty for abuse of a mechanic, rather than a natural conclusion. The literal translation should be something like "爆炸了" or "炸裂了" instead of 破碎了
+
+
+Re-evaluating the translation discrepancies against the contract, the focus shifts to identifying issues with semantics, mechanics, terminology, relationships, or cross-entry consistency backed by evidence. The previous finding on damage shield explosion is flagged, requiring further verification. The complete set of entries must now undergo scrutiny per the defined criteria. Entry `entry-00634` warrants scrutiny; its translation uses "被刺杀," but further context is required to determine its accuracy.
+
+
+Analyzing entry `entry-00634`, the use of "被刺杀" ("stabbed") is checked by referencing `PartyDeath.lua` and `mod-tome.lua` which confirms this is an intended translation for "stabbed to death". The translation distinction in `mod-tome.lua` between "被刺杀," "被刺穿," and "被刺穿要害" supports this conclusion. Therefore, `entry-00634` is considered correct.
+
+Examining `entry-00644`, the source is “%s resists the frightening sight!” and the target is “%s抵抗了恐惧！”. The `game/modules/tome/data/damage_types.lua` file shows a fear-based mechanic, which can result in either knockback or resistance, where "resists" is a valid outcome. The translation appears accurate.
+
+
+The "frightening sight" originates from a spider's detonation, causing a fear-inducing explosion.  The game logs "resists the frightening sight!" if the target resists the mind power check or is immune to fear. While the direct translation of "frightening sight" is "可怕的景象," the target translation of "抵抗了恐惧！" (resists fear) is used.  Analysis reveals multiple instances in the game's code where "frightening sight" and "fear" are treated as equivalent from a player experience and gameplay perspective. Thus the translation is considered acceptable because the player's log shows they are resisting fear.
+
+
+"item manaburn arcane" translates correctly to "物品奥术法力燃烧" based on the terminology snapshot, and is confirmed by the game's global damage type definitions. Reviewing the code in `damage_types.lua` reveals the damage shield explosion occurs when `shield.dur_extended` reaches 20, which is accurately reflected in the English source text, but the Chinese target text may have some conceptual slippage with "终于破碎了"
+
+
+The code forcibly detonates the shield after 20 extensions to prevent infinite duration. The English message reflects this as an "explosion," whereas the Chinese translation uses "finally broken," potentially misrepresenting the mechanic. Analysis of related talents like Aegis and Sun Paladin confirms this is a mechanic limitation. The direct Chinese translation of "exploded" should be something more like "爆炸了" or "炸裂了".
+
+
+"终于破碎了" misrepresents the shield's explosive detonation upon exceeding extension limits; it implies gradual failure, not sudden overload. The source text describes an explosion ("has exploded"), suggesting "爆炸了" or "炸裂了" as a more accurate translation. The Chinese target's "终于" ("finally") is inappropriate for a mechanic's consequence. Entry-00621 is checked.
+[Shell] grep -rn "name.*=.*_t" /workspace/t-engine4/game/modules/tome/data/zones/shadow-crypt/
+[Thought] The game's internal name for the location is "Shadow Crypt." Its Far East translation is "阴影地宫". On the world map, this location is presented to the player as "阴影地宫入口", which directly indicates the player is entering it.
+
+
+Examined the alternative Far East translation, "黑暗地宫入口", and determined that "阴影地宫入口" is intentional and consistent with the game's zone naming. Analyzed specific translation examples, including `entry-00660`, to confirm the consistency and accuracy of the translation. Spotted and noted a typo in the original English text within another entry (`entry-00683`).
+
+
+Checked placeholder usage in a target string; it correctly utilizes all three placeholders in the expected order. Reviewed a single-placeholder entry and confirmed the placeholder's correct implementation within its context.
+
+Examined descriptions of a reptile and a bear; the translations are accurate and consistent with the intended meaning. Verified the translation of a crystal formation; the translation is also consistent.
+
+
+Analyzed the Far East translation of a white crystal creature and a red crystal formation; the translations maintain consistency in description and tone. Examined `entry-00722`, a Dreadmaster description, and confirmed a strong match between source and target language. Focused on a deeper review of `entry-00723` due to its complex description, comparing source to target for nuanced accuracy.
+
+
+Examined the Far East translation of a phrase describing an entity's creation; the translation is accurate and idiomatic. Analyzed another description involving a Fearscape and its effects; the translation is faithful to the source's intent.
+
+Re-evaluated entry-00647, considering "exploded" versus "破碎了" and the game's standard terminology for shield expiration, which is "crumble". Investigated a specific code segment that potentially handles the case where the shield *explodes*.
+
+
+The Far East translation uses "finally broke" for "has exploded," which seems inaccurate because "exploded" implies a forced termination, not a breaking after a process. The code indicates the shield explodes upon reaching the extension limit. The translation's use of "finally" introduces a misleading connotation of relief or expectation. Considering the contract, this constitutes a semantic issue. Therefore, classifying `entry-00647` as an ISSUE seems appropriate.
+
+
+Analyzed the game's log output regarding damage shields; the translation "finally broke" for "has exploded" is inaccurate because "exploded" represents a limit breach, not natural expiration. Determined that the Far East translation of the text for the "FEARKNOCKBACK" damage type, "抵抗了恐惧！", correctly conveys the concept of resistance to the effect based on the game's logic. Identified a code block that handles the "frightening sight" effect and its resistance mechanism, verifying that the log message is triggered when a fear-based knockback is resisted.
+
+
+Investigated the Far East translation of "resists the frightening sight" as "抵抗了恐惧！", comparing it to other instances of "resists the fear." Determined that, while the translation loses "sight," the underlying game mechanism checks for fear immunity, so the translation is functionally accurate. Considered whether it is advisory or an issue based on this observation.
+
+Re-examined `entry-00634` where "stabbed" is translated to "被刺杀" within a death message context. Noted the context of the translation and that the message appears when a player dies by physical attack from an NPC.
+
+
+Re-examined the death message translation in `entry-00634`, specifically focusing on "stabbed" as "被刺杀". The Chinese translation "被刺杀而死" is considered natural and appropriate within the context of the game.
+
+Investigated the humor and variety in death messages; the game randomly selects from a table of descriptors. Noticed that the Far East translation of the death message placeholder correctly integrates within the death message.
+
+Considered whether a giant white wolf "stabs" and determined that, within the game's mechanics, this pairing is possible. Further investigation needed on `entry-00657`, the "Entrance to a dark crypt."
+
+
+Analyzed the translation of "Entrance to a dark crypt" as "阴影地宫入口," determining it is consistent with the zone and encounter names. Confirmed this consistency by examining corresponding Far East translations in the codebase, particularly `mod-tome.lua`. Reviewed `entry-00660` to further validate the accuracy of the translation within context.
+
+
+Analyzed the Far East translation of "an old crypt" finding "一个古老地宫" is consistent with earlier translations of "地宫." Examined another entry involving placeholders and grammatical structure, confirming the translation's correctness and placeholder usage accuracy. Reviewed an entry with a creature forming from decay; the translation aligns with the placeholder and intended meaning. Evaluated a description of a reptile and assessed the translation's accuracy regarding its characteristics.
+
+
+Confirmed "坚不可摧" as a suitable translation of "impenetrable". Examined a red crystal description and the associated translation, noting the addition of "生物" (creature). Verified the consistency of this pattern by checking a white crystal translation. Determined the translation of "A formation of... crystal" to "由...水晶构成的生物" is consistent and appropriate across crystal entity descriptions.
+
+
+Analyzed the translation of an entity description involving the breath of Urh'Rok. Determined the omission of "在" in the Far East translation is acceptable within the literary style. Re-examined the translation of "Your damage shield cannot be extended any farther and has exploded." compared with "你的伤害护盾不能再被延长，终于破碎了."
+
+Observed that the Far East translation uses "finally broke" instead of "has exploded." Considered that the term "exploded" signifies a specific mechanic related to a limit breach, not a natural process of breaking or expiration. Concluded that the "finally" introduces an unnecessary connotation, making the translation less accurate. This is now classified as a translation issue.
+
+
+Analyzed the discrepancy between "exploded" and "破碎了," highlighting the distinction between forced termination (explosion) and natural expiration (crumbling). Verified that the game uses "explode" for a specific game mechanic, not general shield decay. Determined the addition of "finally" in the translation introduces a misleading implication, therefore the entry warrants issue classification.
+
+
+Reviewed `entry-00621`, finding the dialogue translation accurate and appropriate in the context of a death trap. Confirmed the accuracy of the dialogue translation in `entry-00623`, noting correct terminology for "farportal," "Iron Throne," and "orcs." Re-examined `entry-00634` and determined that "被刺杀" accurately conveys "stabbed" in the context of a death message.
+
+
+Analyzed the translation of "resists the frightening sight" as "抵抗了恐惧！", focusing on its implication within the "FEARKNOCKBACK" mechanic, concluding it accurately represents resisting fear immunity. Compared the log message to a similar message about resisting physical knockback within the same file. Determined that the Far East translation accurately reflects the mechanical check for fear resistance and thus, classified as OK.
+
+
+Analyzed the Fear Knockback effect's Far East translation; the direct translation of "frightening sight" to "恐惧" accurately reflects the fear resistance mechanic. Assessed that this simplification is acceptable, as it aligns with the game's fear immunity check and doesn't affect gameplay. Determined that the "item manaburn arcane" translation is consistent with preferred terminology.
+
+Evaluated translation of shield "exploded" as "finally broke." Reviewed the code where the message originates and confirmed the shield's explosion is a forced outcome. Determined the use of "finally" in the translation introduces an inappropriate connotation of a delayed outcome. Reclassified `entry-00647` as an issue due to this semantic inaccuracy.
+
+
+Identified a mistranslation of "exploded" as "crumbled" within `entry-00647`, confirming a semantic error. Determined that the inclusion of "finally" in the translation introduces a misleading nuance inconsistent with the game's mechanics. Classified `entry-00647` as an issue because of the change of meaning.
+
+Reviewed `entry-00650`; the translation of "draining physical" as "生命汲取" aligns with preferred terminology. The analysis classified as "OK."
+
+Examined `entry-00652` and `entry-00653`, finding the translations for "manaworm arcane" and "manaburn arcane" consistent with established terminology. The assessment confirmed these as "OK."
+
+
+Examined `entry-00657`, confirming the Far East translation "阴影地宫入口" accurately reflects the zone and encounter identity. Verified the accuracy and tone of `entry-00660`. Assessed the formatting correctness of `entry-00683`, confirming proper placeholder usage. Reviewed `entry-00684` and assessed the meaning and translation for correctness.
+
+
+Analyzed several Far East translations, confirming accuracy and consistency. Verified the Far East translation of creature descriptions, including a rat, reptile, and bear; translations are natural. Examined a crystal formation description and found the Far East translation consistent, noting the addition of "生物". Reviewed a more complex description of a dreadmaster and ruin banshee; the translations are faithful and accurate.
+
+
+Observed that the Far East translation of "exploded" as "finally broke" is a semantic inaccuracy within `entry-00647`. The game mechanic represents a forced shield termination upon reaching an extension limit, which "exploded" accurately signifies. The translation's added connotation of "finally" introduces misleading nuance. As the result, this constituted an ISSUE. Determined that the `observation` section requires `component`, `source path`, `commit`, `relevant code`, and a description.
+
+```json
+{"contract":"translation_contextual_v2","candidate_identity":"<6)","observation": {"component": "tome", "source_path": "game/modules/tome/data/damage_types.lua", "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63", "relevant_code": "2728-2736", "description": "The Far East translation of 'Your damage shield cannot be extended any farther and has exploded.' is '你的伤害护盾不能再被延长，终于破碎了.' The translation 'finally broke' introduces a misleading connotation. The original meaning of 'exploded' refers to a shield limit breach in the game mechanic. The recommended translation is: '#DARK_ORCHID#你的伤害护盾无法再被延长，爆炸了。'"}}
+```
+[Shell] python3 -B -c ' import json candidate_identity = "1b3d80b01b3182cc909381d201791e2c7b02893232a3782f316e8db582cf12e4" obs_647 = "组件=tome；公开源码路径=game/modules/tome/data/damage_types.lua；固定commit=624a67...
+[Shell] python3 -B -c ' import json candidate_identity = "1b3d80b01b3182cc909381d201791e2c7b02893232a3782f316e8db582cf12e4" obs_647 = "组件=tome；公开源码路径=game/modules/tome/data/damage_types.lua；固定commit=624a67...
+{"contract":"translation_contextual_v2","candidate_identity":"1b3d80b01b3182cc909381d201791e2c7b02893232a3782f316e8db582cf12e4","verdicts":[{"revision_key":"entry-00621","verdict":"OK"},{"revision_key":"entry-00623","verdict":"OK"},{"revision_key":"entry-00634","verdict":"OK"},{"revision_key":"entry-00644","verdict":"OK"},{"revision_key":"entry-00646","verdict":"OK"},{"revision_key":"entry-00647","verdict":"ISSUE","observation":"组件=tome；公开源码路径=game/modules/tome/data/damage_types.lua；固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63；第2728-2736行HEALING_POWER护盾延长时间上限逻辑：if shield.dur_extended >= 20 then game.logPlayer(target, \"#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.\") target:removeEffect(target.EFF_DAMAGE_SHIELD) end。此处为护盾延长达20次上限时的过载引爆，英文原文为has exploded，译文误译为“终于破碎了”，既将机制上的过载爆炸误作破碎（游戏内护盾常规破损使用crumbles/碎裂），又添枝加叶加入“终于”扭曲语境。"},{"revision_key":"entry-00650","verdict":"OK"},{"revision_key":"entry-00652","verdict":"OK"},{"revision_key":"entry-00653","verdict":"OK"},{"revision_key":"entry-00657","verdict":"OK"},{"revision_key":"entry-00660","verdict":"OK"},{"revision_key":"entry-00683","verdict":"OK"},{"revision_key":"entry-00684","verdict":"OK"},{"revision_key":"entry-00712","verdict":"OK"},{"revision_key":"entry-00713","verdict":"OK"},{"revision_key":"entry-00719","verdict":"OK"},{"revision_key":"entry-00722","verdict":"OK"},{"revision_key":"entry-00723","verdict":"OK"}]}

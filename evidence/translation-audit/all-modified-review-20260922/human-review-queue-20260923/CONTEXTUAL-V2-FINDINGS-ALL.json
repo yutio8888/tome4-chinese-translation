@@ -155,5 +155,258 @@
   }
  ],
  "concurrency_rule": "user 2026-09-24: at most 3 concurrent Gemini agents",
- "note": "v1 was infeasible (it requires echoing every frozen source/target; ~440KB for the 497-revision public run). v2 returns only revision_key+verdict."
+ "note": "v1 was infeasible (it requires echoing every frozen source/target; ~440KB for the 497-revision public run). v2 returns only revision_key+verdict.",
+ "adjudication": {
+  "method": "ORCHESTRATOR independent verification against the pinned-commit (or snapshot-recorded DLC) source and in-repo usage; reviewer severity is not taken as fact",
+  "waves": [
+   "public wave 1 (ctx2-pub-01/02/03, 54 revisions)",
+   "public wave 2 (ctx2-pub-04a, ctx2-pub-07a; 36 revisions)",
+   "public wave 3 (ctx2-pub-05a, ctx2-pub-06a; 36 revisions)"
+  ],
+  "confirmed": 15,
+  "pending": 0,
+  "needs_user_decision": [
+   "entry-00866/entry-00873 (restorative rendering + terminology registration)",
+   "entry-00873 (restorative rendering + terminology registration)"
+  ],
+  "confirmed_entries": [
+   "entry-00111",
+   "entry-00112",
+   "entry-00145",
+   "entry-00146",
+   "entry-00184",
+   "entry-00221",
+   "entry-00492",
+   "entry-00560",
+   "entry-00579",
+   "entry-00581",
+   "entry-00647",
+   "entry-00746",
+   "entry-00866",
+   "entry-00873",
+   "entry-00984"
+  ],
+  "detail": [
+   {
+    "revision_key": "entry-00111",
+    "bundle": "ctx2-pub-01",
+    "class": "terminology",
+    "issue": "the Embers of Rage menu renders the Tinker system / crafted tinkers as 嵌件",
+    "decision": "confirmed",
+    "authority": [
+     "terminology/items.tsv:24 tinker=蒸汽工具 (T.GAME.ENTITY, entity type, existing, Embers of Rage 实体类型)",
+     "tome-orcs.lua:1145/1235/1809 t(\"tinker\", \"蒸汽工具\", \"entity type\"/\"entity name\")",
+     "tome-orcs.lua:681 t(\"tinkers\", \"蒸汽工具\", \"_t\"); 10 in-repo uses of 蒸汽工具 vs 2 of 嵌件"
+    ],
+    "carriers": [
+     "engine.lua:1815"
+    ],
+    "scope_note": "the sibling Alchemy menu string (engine.lua:1816 药剂系统…#嵌件系统) belongs to a different revision outside the frozen workset; it is recorded as a follow-up, not edited here"
+   },
+   {
+    "revision_key": "entry-00112",
+    "bundle": "ctx2-pub-01",
+    "class": "terminology",
+    "issue": "the Forgotten Cults menu renders New class: Writhing Ones as 扭动者",
+    "decision": "confirmed",
+    "authority": [
+     "terminology/classes.tsv:43 Writhing One=蜿蜒怪人 (birth descriptor name, existing, Cults of Entropy 职业)",
+     "tome-cults.lua:4972 要想开始你半恐魔的旅程，请选择#LIGHT_GREEN#蜿蜒怪人 — the only other in-repo carrier uses 蜿蜒怪人"
+    ],
+    "carriers": [
+     "engine.lua:1837"
+    ]
+   },
+   {
+    "revision_key": "entry-00145",
+    "bundle": "ctx2-pub-01",
+    "class": "terminology",
+    "issue": "same Embers of Rage menu text in the boot module carrier",
+    "decision": "confirmed",
+    "authority": [
+     "identical to entry-00111"
+    ],
+    "carriers": [
+     "mod-boot.lua:403"
+    ],
+    "scope_note": "same sibling note as entry-00111 (mod-boot.lua:404)"
+   },
+   {
+    "revision_key": "entry-00146",
+    "bundle": "ctx2-pub-01",
+    "class": "terminology",
+    "issue": "same Forgotten Cults menu text in the boot module carrier",
+    "decision": "confirmed",
+    "authority": [
+     "identical to entry-00112"
+    ],
+    "carriers": [
+     "mod-boot.lua:425"
+    ]
+   },
+   {
+    "revision_key": "entry-00184",
+    "bundle": "ctx2-pub-01",
+    "class": "newline invariant + fidelity",
+    "issue": "the blank line between the congratulations sentence and the second paragraph is lost (\\n\\n collapsed to \\n) and it granted you became 你可以得到",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/class/Actor.lua:3968-3974 — unused_stats/talents/generics are granted before Dialog:simpleLongPopup, so the English is a completed fact",
+     "source contains 3 \\n, the target 2"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00221",
+    "bundle": "ctx2-pub-01",
+    "class": "fidelity (mechanic)",
+    "issue": "You may not change level without your own body! is rendered 你只能用自己的身体离开地图！, confusing change level (楼层) with leave the zone (区域) and reversing the restriction",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/class/Game.lua changeLevelCheck: not self.player.can_change_level → 'You may not change level without your own body!'; the separate 'You may not leave the zone with this character!' belongs to not can_change_zone"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00492",
+    "bundle": "ctx2-pub-04a",
+    "class": "completeness + fidelity",
+    "issue": "Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today. renders as 无论是一个职业拳手还是个业余的门外汉，格斗技能…",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/birth/classes/warrior.lua:341-344 (desc) — three distinct callings, and the Brawler is a named subclass",
+     "terminology/classes.tsv:23 Brawler=格斗家 (T.GAME.CLASS, existing)",
+     "pit-fighter is dropped; amateur practitioner (业余习练者) became 门外汉, which inverts the meaning; the Brawler's skills became the generic 格斗技能"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00560",
+    "bundle": "ctx2-pub-04a",
+    "class": "cross-entry consistency",
+    "issue": "the alchemist's own word brew is rendered 药剂, the word the Brotherhood uses for elixir",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/chats/alchemist-last-hope.lua:146-149 and :161-164 — the speaker insists on brew and corrects himself to elixir",
+     "mod-tome.lua:4116 renders the sibling node as 配药…改口叫“药剂”; mod-tome.lua:4121 contrasts 佳酿 against 药剂",
+     "using 药剂 for brew erases the brew/elixir contrast the dialogue turns on"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00579",
+    "bundle": "ctx2-pub-04a",
+    "class": "fidelity (proper group name)",
+    "issue": "Sorcerers? I have never heard of them. renders the capitalised group name as the common noun 法师",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/chats/gates-of-morning-main.lua:222-229 and :231-238",
+     "game/modules/tome/data/quests/charred-scar.lua:33,37,72,74 — the orcs shout 'The Sorcerers have departed!', i.e. a specific group",
+     "mod-tome.lua:20180-20181 render that same group as 巫师; 法师 is the generic caster noun and makes Aeryn's line contradict the Sunwall"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00581",
+    "bundle": "ctx2-pub-04a",
+    "class": "fidelity (proper group name)",
+    "issue": "same group name in the charred-scar-fail node",
+    "decision": "confirmed",
+    "authority": [
+     "identical to entry-00579"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00647",
+    "bundle": "ctx2-pub-05a",
+    "class": "fidelity (mechanic)",
+    "issue": "Your damage shield cannot be extended any farther and has exploded. renders has exploded as 终于破碎了",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/damage_types.lua:2728-2736 — after 20 extensions the shield is removed by an overload ('has exploded'); a normal break uses different wording",
+     "the target also adds 终于, which the English does not carry"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00746",
+    "bundle": "ctx2-pub-06a",
+    "class": "terminology",
+    "issue": "the mana of arcane users is rendered 魔力, which is the stat mag, not the resource mana",
+    "decision": "confirmed",
+    "authority": [
+     "terminology/resources.tsv:3 Mana=法力值 (T.GAME.RESOURCE, _t, existing, core)",
+     "terminology/combat.tsv:127 mag=魔力 (T.GAME.STAT, stat short_name, existing)",
+     "fixed commit 624a6732 game/modules/tome/data/general/npcs/losgoroth.lua:75 desc and damage_types.lua MANAWORM / EFF_MANAWORM drain the mana resource (incMana)"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   },
+   {
+    "revision_key": "entry-00866",
+    "bundle": "ctx2-pub-06a",
+    "class": "fidelity (ego name)",
+    "issue": "same restorative ego keyword as entry-00873",
+    "decision": "confirmed, rendering choice pending user decision",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/boots.lua:204-214 (healing_factor, life_regen) — restorative restores, while the neighbouring invigorating at :218 is 精力充沛的",
+     "identical to the entry-00873 adjudication"
+    ],
+    "carriers": [
+     "mod-tome.lua:9857",
+     "mod-tome.lua:9858"
+    ]
+   },
+   {
+    "revision_key": "entry-00873",
+    "bundle": "ctx2-pub-07a",
+    "class": "fidelity (ego name)",
+    "issue": "the ego restorative is rendered 振奋 (rousing), although the ego raises healing_factor and life_regen",
+    "decision": "confirmed, rendering choice pending user decision",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/cloak.lua:193-205 and boots.lua:204 (healing_factor, life_regen)",
+     "mod-tome.lua:9763 renders rejuvenating as 回复的 and :9859 renders invigorating as 精力充沛的, so 振奋 collides with invigorating rather than restoring",
+     "the same English string has 4 carriers in 2 workset revisions (entry-00866 in ctx2-pub-06a, entry-00873 in ctx2-pub-07a)"
+    ],
+    "carriers": [
+     "mod-tome.lua:9857",
+     "mod-tome.lua:9858",
+     "mod-tome.lua:9972",
+     "mod-tome.lua:9973"
+    ],
+    "open_question": "a new terminology entry (restorative => ?) and a family-wide rendering are needed; registering a high-reuse term is a user decision"
+   },
+   {
+    "revision_key": "entry-00984",
+    "bundle": "ctx2-pub-07a",
+    "class": "fidelity",
+    "issue": "an other place became 那个地方 and old Sher'Tul places of power became the singular 某处…力量之地",
+    "decision": "confirmed",
+    "authority": [
+     "fixed commit 624a6732 game/modules/tome/data/general/objects/quest-artifacts.lua:378 and :441 — 'transported to an other place' is a different place, not the place named in the first sentence",
+     "the target's 那个地方 asserts the destination is the place just named, inverting the sentence"
+    ],
+    "carriers": [
+     "mod-tome.lua"
+    ]
+   }
+  ]
+ },
+ "findings_total_raw": 21
 }
