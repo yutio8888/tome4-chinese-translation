@@ -1,0 +1,31 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 4,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-AGILE-DEFENSE-DEFLECT-TERM",
+      "revision_key": "f6e111a3a18ec5cc0950dad5670f848fb3f7e10be1e165b158d14a7635e0c096",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "宿主核验 tome game/modules/tome/data/talents/techniques/agility.lua@624a6732:50–79：callbackOnTakeDamage（l.71）的 \"%s(%d deflected)#LAST#\" 与同一技能 info（l.77）\"a %d%% chance to deflect any incoming damage\" 描述的是同一机制；同技能 info 现译（mod-tome.lua:30006–30008）为“有 %d%% 几率抵挡攻击”。本窗口 execute-01 按 SPEC 写成“(%d 被偏转)”，与同技能说明的“抵挡”不一致，玩家难以把日志与技能对应。同技能内部术语统一属客观一致性问题（一级 terminology）。改为“(%d 被抵挡)”，保留 %s、%d 顺序与 #LAST#，与同类日志“(%d 被传送)”“(%d 被守护)”句式一致。Actor.lua:2626 的 \"#SLATE#(%d deflected)#LAST#\" 属于另一技能 Deflection（心灵系，现译“念力折射”），不在本窗口，保持不动。SPEC 原写“被偏转一类”，本裁决以同技能一致性为准修订。",
+      "replacements": [
+        {
+          "scope": "whole_target",
+          "old": "%s(%d 被偏转)#LAST#",
+          "new": "%s(%d 被抵挡)#LAST#"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 4 条 OK（太阳耀斑、荒芜遗迹 lore 0 LF、Solipsist、静电网说明 3 LF/6 TAB 保持）。",
+  "next_stages": [
+    "FIX",
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "recorded_at": "2026-09-24T00:00:56.345153+00:00"
+}

@@ -1,0 +1,19 @@
+已完成第 2 轮有界修复。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:30005)：`%s(%d 被偏转)#LAST#` → `%s(%d 被抵挡)#LAST#`
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-21-20260923/IMPLEMENTATION.md)：追加本轮实施说明
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-21-20260923/VALIDATION.json)：追加真实验证结果
+
+确认第 191 行 `#SLATE#(%d deflected)#LAST#` 未修改，其余四条既有修复保持不变。
+
+验证全部通过：
+
+- `verify.py`：通过，22989 条记录，仍为冻结的 5 条变更
+- `tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `claims check --strict`：通过
+- `git diff --check`：通过
+- `VALIDATION.json` JSON 解析：通过
+
+未修改 `.ai`、规则、工具、术语库或其他禁止范围；未创建 agent，未 stage、commit 或 push；无关 untracked 文件均保留。

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-21 unique EXECUTOR",
+  "scope": "5 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w21-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 5,
+        "changed_revisions": [
+          "f6f9c01056769d4ee1c33b21364ce5189614c942cdcba107930cf4ce5c138ce4",
+          "f6eae8d3af4e8b950b4458502bc97789ad577070d04ea09f8d7f439c58289462",
+          "f6a545d079ceafc869ce383b0a85a769f06125cc6ee7d85e92bda7016ad346aa",
+          "f72ac3de1cbba4a5ace7e3e532c6f8df16b4eba09fab16a1d0f942059c8b31c9",
+          "f6e111a3a18ec5cc0950dad5670f848fb3f7e10be1e165b158d14a7635e0c096"
+        ],
+        "invariants": {
+          "source_tag_and_non_target_fields_unchanged": true,
+          "printf_placeholders_and_order_match_baseline": true,
+          "markup_and_at_tokens_match_baseline": true,
+          "blighted_ruins_source_target_lf_count": 0,
+          "blighted_ruins_source_target_tab_count": 0,
+          "static_net_source_target_lf_count": 3,
+          "static_net_source_target_tab_sequence": [2, 2, 2]
+        }
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260923T235430.592614Z-2544745-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w21-20260923/PREFLIGHT-BATCH267.json",
+      "path": "evidence/quality/repair-window-21-20260923/PREFLIGHT-BATCH267.json",
+      "sha256": "eee8745890a8ac3f686f83b453bf01c3cd4fb3a70376fbf4b1ee90832a80e825",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w21-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-21-20260923/HOST-WORKSET.json",
+      "sha256": "fd70f35134484ff6653a388f15f09c5fec64c34fee3167b1314b6f641301960d",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w21-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-21-20260923/SOURCE-ANCHORS.json",
+      "sha256": "6a353b33bf64fdb22f4522eaabea694d245d15c5f339a5240a3fdde207b1558f",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, build, and DONE_VERIFIED were not run and are not claimed.",
+  "round_2": {
+    "generated_by": "repair-window-21 round-2 unique EXECUTOR",
+    "scope": "one adjudicated target replacement plus bounded executor evidence append",
+    "replacement": {
+      "section": "mod-tome/data/talents/techniques/agility.lua",
+      "source": "%s(%d deflected)#LAST#",
+      "old_target": "%s(%d 被偏转)#LAST#",
+      "new_target": "%s(%d 被抵挡)#LAST#"
+    },
+    "excluded_entry_unchanged": {
+      "source": "#SLATE#(%d deflected)#LAST#",
+      "target": "#SLATE#(%d 念力折射)#LAST#"
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w21-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 5,
+          "adjudicated_revision": "f6e111a3a18ec5cc0950dad5670f848fb3f7e10be1e165b158d14a7635e0c096",
+          "adjudicated_target": "%s(%d 被抵挡)#LAST#",
+          "other_round_1_targets_preserved": true
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260924T000310.138055Z-2561337-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "note": "Round 2 changed only the adjudicated Agile Defense target and appended IMPLEMENTATION.md and VALIDATION.json; no independent review, full gates, build, DONE_VERIFIED, stage, commit, or push is claimed."
+  }
+}

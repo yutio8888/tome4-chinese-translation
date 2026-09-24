@@ -1,0 +1,18 @@
+{
+  "title": "W21 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口21的5条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w21-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中5个target及evidence/quality/repair-window-21-20260923/。source/tag/args_order/printf占位符/%%/markup保持基线；LF 与 TAB 必须与原文逐处一致（枯萎遗迹 lore 原文 0 个换行，删去译文中多出的 \\n\\t 使全文为一段；静电网保持 3 个 \\n\\t\\t）。专名、技能名沿用本库现有译名（先在mod-tome.lua查证），不自行新造。按SPEC“范围约束”与SOURCE-CLAIMS逐条整句修复：Sun Flare 技能名改为“太阳耀斑”（维护者已批准）；盾牌格挡日志写成“%s(%d 被偏转)#LAST#”一类；枯萎遗迹 lore 去掉多余换行与制表符；Solipsist 引语写“世界是其居民共同的梦……找到并唤醒沉睡者，你就能发掘梦境的潜能”一类；静电网写出“在网中每停留一回合，下一次攻击就额外增加 %0.1f 闪电伤害”一类的按回合累加。每条其余句子逐句对照，发现明显增删一并修正，但不重写已忠实的句子。不得扩展advisory、pending或其他repair（死亡描述等 pending 条目不改）。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w21-20260923/verify.py（LF/TAB 对照原文）、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check。报告只写允许evidence目录；保存PREFLIGHT-BATCH267.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w21-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

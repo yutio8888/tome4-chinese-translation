@@ -1,0 +1,23 @@
+已实际完成修复窗口 21 的 5 条译文：
+
+- Sun Flare →“太阳耀斑”
+- 格挡日志 → `%s(%d 被偏转)#LAST#`
+- 枯萎遗迹 lore 删除多余 LF/TAB，恢复单段
+- Solipsist 引语修正“共同的梦”与“发掘梦境的潜能”
+- 静电网补足每停留一回合累加伤害的机制
+
+验证全部通过：
+
+- 窗口验证：`verified: true`，恰好 5 个 target
+- strict lint：30308 条，0 errors，0 warnings
+- claims check：通过
+- `git diff --check`：通过
+- 三份冻结证据均逐字节一致
+
+文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- [实施记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-21-20260923/IMPLEMENTATION.md)
+- [验证结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-21-20260923/VALIDATION.json)
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 已保留。完整门禁、构建、独立 REVIEW/FINAL_REVIEW 与 `DONE_VERIFIED` 仍由宿主继续。

@@ -1,0 +1,65 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "f6a545d079ceafc869ce383b0a85a769f06125cc6ee7d85e92bda7016ad346aa"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/celestial/sunlight.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "41215a37c807d42e22106d4a41b47075cc90237b409411cc44b2dd12e1cad221",
+      "start_line": 66,
+      "end_line": 112,
+      "excerpt": "66: \n67: -- High end Light damage nuke, synergy with Darkest Light via resists mid/late game\n68: newTalent{\n69: \tname = \"Sun Flare\",\n70: \ttype = {\"celestial/sunlight\", 2},\n71: \trequire = divi_req2,\n72: \tpoints = 5,\n73: \trandom_ego = \"attack\",\n74: \tcooldown = 12,\n75: \tpositive = 30,\n76: \ttactical = { DISABLE = 2,\n77: \t\tATTACKAREA = function(self, t, aitarget)\n78: \t\t\tif self:getTalentLevel(t) >= 3 then return {light = 1} end\n79: \t\tend, },\n80: \tdirect_hit = true,\n81: \trange = 0,\n82: \tradius = function(self, t) return math.min(8, math.floor(self:combatTalentScale(t, 2.5, 4.5))) end,\n83: \ttarget = function(self, t)\n84: \t\treturn {type=\"ball\", range=self:getTalentRange(t), friendlyfire=false, selffire=false, radius=self:getTalentRadius(t), talent=t}\n85: \tend,\n86: \trequires_target = true,\n87: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 10, 250) end,\n88: \tgetDuration = function(self, t) return 4 end,\n89: \tgetRes = function(self, t) return self:combatTalentSpellDamage(t, 15, 50) end,\n90: \tgetResDuration = function(self, t) return 4 end,\n91: \n92: \taction = function(self, t)\n93: \t\tlocal tg = self:getTalentTarget(t)\n94: \t\t-- Temporarily turn on \"friendlyfire\" to lite all tiles\n95: \t\ttg.friendlyfire, tg.selffire = true\n96: \t\tself:project(tg, self.x, self.y, DamageType.LITE, 1)\n97: \t\ttg.friendlyfire, tg.selffire = false\n98: \t\tlocal grids = self:project(tg, self.x, self.y, DamageType.BLIND, t.getDuration(self, t))\n99: \t\tself:project(tg, self.x, self.y, DamageType.LIGHT, self:spellCrit(t.getDamage(self, t)))\n100: \t\tif self:getTalentLevel(t) >= 3 then\n101: \t\t\tself:setEffect(self.EFF_SOLAR_INFUSION, t.getResDuration(self, t), {resist=t.getRes(self, t)})\n102: \t\tend\n103: \t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"sunburst\", {radius=tg.radius, grids=grids, tx=self.x, ty=self.y, max_alpha=80})\n104: \t\tgame:playSoundNear(self, \"talents/flame\")\n105: \t\treturn true\n106: \tend,\n107: \tinfo = function(self, t)\n108: \t\tlocal radius = self:getTalentRadius(t)\n109: \t\tlocal damage = t.getDamage(self, t)\n110: \t\tlocal duration = t.getDuration(self, t)\n111: \t\tlocal res = t.getRes(self, t)\n112: \t\tlocal resdur = t.getResDuration(self, t)"
+    },
+    {
+      "revision_keys": [
+        "f6e111a3a18ec5cc0950dad5670f848fb3f7e10be1e165b158d14a7635e0c096"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/techniques/agility.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+      "start_line": 30,
+      "end_line": 80,
+      "excerpt": "30: end\n31: \n32: archery_range = Talents.main_env.archery_range\n33: \n34: newTalent{\n35: \tname = \"Agile Defense\",\n36: \ttype = {\"technique/agility\", 1},\n37: \trequire = techs_dex_req_high1,\n38: \tpoints = 5,\n39: \tno_unlearn_last = true,\n40: \tmode = \"passive\",\n41: \tgetChance = function(self, t) return math.floor(self:combatTalentScale(t, 15, 45)) end,\n42: \ton_learn = function(self, t)\n43: \t\tself:attr(\"allow_wear_shield\", 1)\n44: \t\tself:attr(\"show_shield_combat\", 1)\n45: \tend,\n46: \ton_unlearn = function(self, t)\n47: \t\tself:attr(\"allow_wear_shield\", -1)\n48: \t\tself:attr(\"show_shield_combat\", 1)\n49: \tend,\n50: \tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, tmp)\n51: \t\tlocal chance = t.getChance(self, t)\n52: \t\tif not rng.percent(chance) then return end\n53: \t\t--this might be worth doing later, but for now let it block DoTs\n54: \t\t--local psrc = src.__project_source\n55: \t\t--if psrc then\n56: \t\t--\tlocal kind = util.getval(psrc.getEntityKind)\n57: \t\t--\tif kind == \"projectile\" or kind == \"trap\" or kind == \"object\" then\n58: \t\t--\telse\n59: \t\t--\t\treturn\n60: \t\t--\tend\n61: \t\t--end\n62: \t\tlocal lastdam = dam\n63: \t\tlocal shield = self:hasShield()\n64: \t\tif not shield then return end\n65: \t\tlocal t = self:getTalentFromId(self.T_BLOCK)\n66: \t\tif self:isTalentCoolingDown(t) then return end\n67: \t\tlocal reduce = t.getBlockValue(self,t)/2\n68: \n69: \t\tdam = math.max(dam - reduce, 0)\n70: \t\tprint(\"[PROJECTOR] after static reduction dam\", dam)\n71: \t\tgame:delayedLogDamage(src or self, self, 0, (\"%s(%d deflected)#LAST#\"):tformat(DamageType:get(type).text_color or \"#aaaaaa#\", lastdam - dam), false)\n72: \t\treturn {dam=dam}\n73: \tend,\n74: \tinfo = function(self, t)\n75: \t\tlocal chance = t.getChance(self, t)\n76: \t\treturn ([[You are trained in an agile, mobile fighting technique combining sling and shield. This allows shields to be equipped, using Dexterity instead of Strength as a requirement.\n77: While you have a shield equip and your Block talent is not on cooldown, you have a %d%% chance to deflect any incoming damage, reducing it by 50%% of your shield’s block value.]])\n78: \t\t\t:tformat(chance)\n79: \tend,\n80: }"
+    },
+    {
+      "revision_keys": [
+        "f6eae8d3af4e8b950b4458502bc97789ad577070d04ea09f8d7f439c58289462"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/blighted-ruins.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "065eb40a7f85eebc9f524577d1c090d0400cda33b9261647ddfb30c53f5e5cb1",
+      "start_line": 20,
+      "end_line": 34,
+      "excerpt": "20: --------------------------------------------------------------------------\n21: -- Blighted Ruins\n22: --------------------------------------------------------------------------\n23: newLore{\n24: \tid = \"blighted-ruins-note-1\",\n25: \tcategory = \"blighted ruins\",\n26: \tname = _t\"note from the Necromancer\",\n27: \tlore = _t[[Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...]],\n28: }\n29: \n30: newLore{\n31: \tid = \"blighted-ruins-note-2\",\n32: \tcategory = \"blighted ruins\",\n33: \tname = _t\"note from the Necromancer\",\n34: \tlore = _t[[The cloak of deception is complete! Truly my finest work, not counting my project of course, it allows my minions to walk amongst the living without arousing their suspicions at all. Already I have taken a stroll to a nearby town alongside a ghoulish thrall, wrapped in the cloak... hah! The fools didn't even bat an eyelid! With this item, acquisition of components for my project shall be all the more simple.]],"
+    },
+    {
+      "revision_keys": [
+        "f6f9c01056769d4ee1c33b21364ce5189614c942cdcba107930cf4ce5c138ce4"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/birth/classes/psionic.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c9a1942ca431cc4535c2fe02b836e3214b76326eeb0c55700ea2cb71422b0c14",
+      "start_line": 130,
+      "end_line": 146,
+      "excerpt": "130: \tcopy_add = {\n131: \t\tlife_rating = -2,\n132: \t},\n133: }\n134: \n135: newBirthDescriptor{\n136: \ttype = \"subclass\",\n137: \tname = \"Solipsist\",\n138: \tlocked = function() return profile.mod.allow_build.psionic_solipsist end,\n139: \tlocked_desc = _t\"Some believe that the world is the collective dream of those that live in it.  Find and wake the sleeper and you'll unlock the potential of your dreams.\",\n140: \tdesc = {\n141: \t\t_t\"The Solipsist believes that reality is malleable and nothing more than the collective vision of those that experience it.\",\n142: \t\t_t\"They wield this knowledge to both create and destroy, to invade the minds of others, and to manipulate the dreams of those around them.\",\n143: \t\t_t\"This knowledge comes with a heavy price and the Solipsist must guard his thoughts, lest he come to believe that the world exists only within his own mind.\",\n144: \t\t_t\"Their most important stats are: Willpower and Cunning\",\n145: \t\t_t\"#GOLD#Stat modifiers:\",\n146: \t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+    },
+    {
+      "revision_keys": [
+        "f72ac3de1cbba4a5ace7e3e532c6f8df16b4eba09fab16a1d0f942059c8b31c9"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/psionic/charged-mastery.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "bb66a96e051a649f6eaf9adc2a259d35d85b599ba1bb0df2ee37ed35d33edc01",
+      "start_line": 95,
+      "end_line": 125,
+      "excerpt": "95: \tgetSlow = function(self, t) return self:combatLimit(self:combatTalentMindDamage(t, 5, 50), 50, 4, 4, 34, 34) end, -- Limit < 50%\n96: \tgetDamage = function(self, t) return self:combatTalentMindDamage(t, 20, 100) end,\n97: \tgetWeaponDamage = function(self, t) return self:combatTalentMindDamage(t, 10, 50) end,\n98: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 6)) end,\n99: \taction = function(self, t)\n100: \t\tlocal tg = self:getTalentTarget(t)\n101: \t\tlocal x, y = self:getTarget(tg)\n102: \t\tif not x or not y then return nil end\n103: \t\tlocal _ _, _, _, x, y = self:canProject(tg, x, y)\n104: \t\t-- Add a lasting map effect\n105: \t\tgame.level.map:addEffect(self,\n106: \t\t\tx, y, t.getDuration(self, t),\n107: \t\t\tDamageType.STATIC_NET, {dam=t.getDamage(self, t), slow=t.getSlow(self, t), weapon=t.getWeaponDamage(self, t)},\n108: \t\t\tself:getTalentRadius(t),\n109: \t\t\t5, nil,\n110: \t\t\tMapEffect.new{color_br=30, color_bg=100, color_bb=160, effect_shader=\"shader_images/retch_effect.png\"},\n111: \t\t\tnil, true\n112: \t\t)\n113: \t\tgame:playSoundNear(self, \"talents/lightning\")\n114: \t\treturn true\n115: \tend,\n116: \tinfo = function(self, t)\n117: \t\tlocal damage = t.getDamage(self, t)\n118: \t\tlocal duration = t.getDuration(self, t)\n119: \t\treturn ([[Cast a net of static electricity in a radius of %d for %d turns.\n120: \t\tEnemies standing in the net will take %0.1f Lightning damage and be slowed by %d%%.\n121: \t\tWhen you move through the net, a static charge will accumulate on your weapon which will add %0.1f additional Lightning damage to your next attack for each turn you spend within its area.\n122: \t\tThese effects scale with your Mindpower.]]):\n123: \t\ttformat(self:getTalentRadius(t), duration, damDesc(self, DamageType.LIGHTNING, damage), t.getSlow(self, t), damDesc(self, DamageType.LIGHTNING, t.getWeaponDamage(self, t)))\n124: \tend,\n125: }"
+    }
+  ]
+}

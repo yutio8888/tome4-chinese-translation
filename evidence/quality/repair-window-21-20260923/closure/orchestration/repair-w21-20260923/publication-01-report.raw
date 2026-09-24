@@ -1,0 +1,22 @@
+修复窗口21证据发布与交接已完成。
+
+实际产出：
+
+- 安装 PACK-MANIFEST 全部 142 个文件，共 993,625 字节。
+- 写入 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-21-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)。
+- 精确复制 5 个候选 catalog 文件；其中 `entries.jsonl`、`manifest.json`产生差异，其余3个与原文件相同。
+- 安装 [migration](/workspace/tome4-chinese-translation/evidence/production-review-v2-lite/migrations/e0b1d6770808ef8df692f46880076b2b792443a54134343b39bd72edf34400c2.json)。
+- 安装16个 publication 附件及根目录 PACK-MANIFEST 快照。
+
+验证结果：
+
+- PACK 142/142 项逐字、SHA256、字节数全部吻合。
+- Catalog、migration 和 publication 附件逐字复制验证通过。
+- UTF-8、文档链接及 `git diff --check` 通过。
+- `ai_state_check`：`DONE_VERIFIED: DONE predicate verified`。
+- 未修改 Lua、术语、规则、工具、旧证据、`.ai` 或 pending 清单。
+- 未运行 queue/catalog/migration/完整门禁或 `verify_pack.py`。
+- 未 stage、commit、push，也未创建 agent。
+
+待宿主执行：证据提交、第二次 queue rebuild、push，随后审核268（默认80条）。

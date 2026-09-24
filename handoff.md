@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-23（审核267已完成；下一步修复窗口21，仅处理267的5条）
+更新时间：2026-09-24（修复窗口21已完成；待宿主发布收尾，随后审核268）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -343,6 +343,12 @@ surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；lane-000-1 一处判 OK �
 下一步按 1:1 节奏开修复窗口21，仅处理 267 的 5 条：Sun Flare 技能名改“太阳耀斑”（维护者 2026-09-23 批准）、盾牌敏捷格挡日志“(%d deflected)”、
 枯萎遗迹 lore 多出的换行与制表符、Solipsist 职业引语（共同之梦、发掘梦境潜能）、静电网漏“每停留一回合”累加。
 范围见 `.ai/task/batch-551646311ef6b61a7a4d/WINDOW21-REPAIR-DECISION.json`；setup 脚本 `setup_window21_task.py` 已生成，helper 从窗口20复制（条数 7→5）。
+
+修复窗口21已完成审核267确认的5条修复：`Sun Flare` 技能名按维护者2026-09-23批准由“日珥闪耀”改为“太阳耀斑”；敏捷防御格挡日志由“(%d 敏捷防御)”经复审最终改为“(%d 被抵挡)”，与同技能说明“抵挡攻击”一致；荒芜遗迹 lore 删去原文没有的换行与制表符；`Solipsist` 引言改为“世界是其居民共同的梦……发掘梦境的潜能”；静电网说明补出“每停留一回合”的累加机制，并保持3个换行与制表符。`REVIEW(0)` 为4 OK / 1 ISSUE，技能名“静电网络”与说明“静电捕网”不一致因技能名行不在窗口内而裁决为 advisory，留作后续修复候选；`FINAL(1)` 为4 OK / 1 ISSUE，确认“被偏转”与说明“抵挡”不一致；`execute-02` 改为“被抵挡”后，`RE_REVIEW(2)` 与 `FINAL(3)` 均为5 OK。完整门禁全部通过且含严格构建，状态为 `DONE_VERIFIED`。2个 executor、3个 reviewer child 均已归档确认；publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `5342f1b06943cefb1d9f393d2a186c9c6cc8a6e6`；新 catalog 为 `b7389c85c66e7e755fd3904f3072ca0d5688901a6bb548f8e662f4c11a9f77ae`；migration 为 `e0b1d6770808ef8df692f46880076b2b792443a54134343b39bd72edf34400c2`。迁移结果为5条 `revision_changed`、29,823条 `unchanged`、0条 `ambiguous/unmapped`，5个 successor 待重新审核且不继承 `done`。完整结果见[窗口21发布证据](evidence/quality/repair-window-21-20260923/PUBLICATION.md)。本窗口的流程教训是：SPEC 指定替换词前必须先检查同技能相邻条目（尤其 `info`）已经使用的译法。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。随后继续审核268（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 

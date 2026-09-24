@@ -1,0 +1,44 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 14,
+      "native_calls_sha256": "719cdd17fa5306ad5990496930e4a7c70c98a952662f68a32f017d461d609a27",
+      "writes": [
+        "mod-tome.lua (5 targets)",
+        "evidence/quality/repair-window-21-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 5 targets and compared per-line layout with source: Sun Flare=太阳耀斑 (maintainer-approved); (%d 被偏转) with %s/#LAST# kept; blighted-ruins lore now 0 LF like source; Solipsist quote 共同的梦/发掘梦境的潜能; static net per-turn accumulation, 3 LF with \\t\\t kept."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "3980b751e9cfdb25f9fa8792cdf12c20a4c679963de8e9d14b3ea63eb76ba4fb",
+      "writes": [
+        "mod-tome.lua (agility deflect log target only: 被偏转→被抵挡)",
+        "evidence/quality/repair-window-21-20260923/IMPLEMENTATION.md, VALIDATION.json (appended)"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host confirmed line 30005 = %s(%d 被抵挡)#LAST#, line 191 unchanged, verify.py PASS"
+    }
+  ],
+  "host_verify_after": "after execute-02: verify.py PASS, exactly 5 targets changed vs baseline; deflect log = %s(%d 被抵挡)#LAST#"
+}

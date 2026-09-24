@@ -1,0 +1,32 @@
+{
+  "dispatch_id": "r2a1",
+  "native_session": "01a0d0bb-3098-76e2-b990-70a5b8777751",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/24/rollout-2026-09-24T00-05-23-01a0d0bb-3098-76e2-b990-70a5b8777751.jsonl",
+  "native_sha256": "f0bba01c815624daf40d44d336248dc78e601727e220dc0100539c6aacf8b67d",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_020c6498a13f0511016ab46949bea087d1bb336aa40821da8e",
+      "status": "completed",
+      "call_id": "call_dpygoZsY9csC1tyKXad1nmP9",
+      "name": "exec",
+      "input": "const r=await Promise.allSettled([tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",max_output_tokens:30000}),tools.exec_command({cmd:\"cat .ai/task/repair-w21-20260923/CONTEXTUAL-ENVELOPE-r2a1.json\",max_output_tokens:30000})]); for(let i=0;i<r.length;i++) text(JSON.stringify({i,result:r[i]}))\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d0bb-30d2-7912-8630-1e4bcd5cdea6",
+        "create_time": 1790208328.276847
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_020c6498a13f0511016ab4694d8c0087d1a133b0917723c11f",
+      "status": "completed",
+      "call_id": "call_kOUK8poBFxtJkiL9RuLt3zBg",
+      "name": "exec",
+      "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w21-20260923/CONTEXTUAL-ENVELOPE-r2a1.json\",sandbox_permissions:\"require_escalated\",justification:\"Read the two explicitly authorized frozen review inputs after sandbox mount failure.\",max_output_tokens:30000});text(r)\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d0bb-30d2-7912-8630-1e4bcd5cdea6",
+        "create_time": 1790208332.442004
+      }
+    }
+  ]
+}
