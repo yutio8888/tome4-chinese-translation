@@ -1,0 +1,373 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 6）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 6,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json
+[Thought] Now, the full set of items within Packet 6 is confirmed. The twenty entries are enumerated to ensure complete data integrity. This list provides a structured reference for further processing.
+[Shell] echo $PI_MODEL
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] grep -rn "titanic double-helical arrows" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "focuses time flows through" /workspace/t-engine4/game/modules/tome/
+[Thought] Investigating the log output at line 6897 to understand how artifacts are named and referenced in game events. The function `game.logSeen`'s arguments indicate that the first argument is the actor's capitalized name, the second is a possessive pronoun, and the third is the artifact's name. This information helps in tracking who is interacting with which artifact.
+[Shell] rg -i "time flow" terminology/
+[Shell] grep -rn "This surreal dagger crackles" /workspace/t-engine4/game/modules/tome/
+[Thought] The original translation misinterprets "crackles with the intensity" as a surrounding effect instead of an inherent characteristic. "Crackles" necessitates a more dynamic translation reflecting sound and power. The revised translation now uses "噼啪作响" (crackling) to capture the auditory and energetic aspect of "crackles," while also adding "蕴含着狂暴风暴般的强烈力量" (containing intense power like a violent storm).
+[Shell] rg -i "^vim" terminology/
+[Thought] The terminology mapping confirms the association of "Vim" with "活力值". The detected punctuation correction from semicolon to Chinese full-width semicolon is standard. This confirms the validity of the terminology translation.
+[Shell] rg -i "fearscape" terminology/
+[Shell] grep -rn "leaves a burning trail behind you" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '7645,7680p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '7681,7700p'
+[Thought] The source text specifies "to foes who enter it," indicating a target of "foes" (enemies), not "all creatures." The translation accurately reflects this nuance. Placeholder `%d` for damage values is preserved, and Chinese punctuation is correct. The update is suitable.
+[Shell] grep -rn "The blade glows faintly blue" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n '8010,8035p'
+[Thought] Examining the item data reveals it's a battle axe; its base type confirms this. The Chinese translation appears to have incorrectly rendered "blade" as "sword blade" ("剑身"), which is a misinterpretation. The correct translation should be "axe blade" ("斧刃").
+[Shell] rg -i "mindstar" terminology/
+[Shell] rg "灵晶" terminology/
+[Thought] The original translation appears incomplete. The directive "Keep a firm grip on it" requires a direct imperative translation. The existing translation "牢牢的抓住" captures the core meaning. Verdict: ok.
+
+
+Grammatical correction applied; the adverb "牢牢地" now correctly modifies the verb "抓住". The previous translation missed the nuance of "It doesn't much matter," opting for "没有确切的答案" which implies a definite lack of answer. "这其实无关紧要" is a more precise reflection of the source's meaning.
+
+
+"保险起见穿的暖和点……" (Dress warmly just in case) was improved by adding "but" to provide context and grammatical correction: "穿的" to "穿得", which is now "不过保险起见，还是穿得暖和点。" (But dress warm just in case).
+
+Grammatical review of the second statement identified an error: the original translation of "Keep this stuff well away..." used incorrect syntax. The "把...离...远一些" structure is ungrammatical; thus, replaced with "让...远离..." for correctness. The phrase "this stuff" also needed specification.
+[Shell] grep -rn "Try to get any knots out" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/ingredients.lua | sed -n '260,270p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/elixir-ingredients.lua | sed -n '335,348p'
+[Shell] rg "Try to get any knots out" mod-tome.lua
+[Shell] python3 -c ' import json, difflib with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json") as f: data = json.load(f) item = [x for x in data["items"] if x["entry_id"] == "entry...
+[Thought] Experiment results A-C consistently show implosion during transmission. D explodes. E exhibits partial success with separation. Further investigation is needed for F through N, to identify factors leading to varying outcomes and potential causes of failure.
+[Shell] python3 -c ' import json, difflib with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json") as f: data = json.load(f) item = [x for x in data["items"] if x["entry_id"] == "entry...
+[Shell] grep -rn "It were some years now since twain" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/angolwen.lua | head -n 40
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/locales/ja_JP.lua | sed -n '14212,14216p'
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/locales/ja_JP.lua") as f: text = f.read() idx = text.find("twain of our brightest students") print("JA:", text[idx:idx+400]) with...
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/locales/ja_JP.lua") as f: text = f.read() idx = text.find("twain of our brightest students") end_idx = text.find("\", \"_t\")", i...
+[Shell] grep -rn "left Angolwen" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "Angolwen" /workspace/t-engine4/game/modules/tome/data/lore/
+[Thought] Considering Elandar and Argoniel, once Angolwen's brightest, left due to secrecy. Analyzing the sentence: "It were some years now since twain of our brightest students left Angolwen, sullied by our veil of secrecy and our silent duty." Comparing its translations shows a key difference. The original implies weariness while the other implies being caused by the veil.
+
+
+"Sullied" does not equate to "wearied," the initial Chinese translation likely misinterprets the term. "Sullied" signifies tarnishment or defilement; the veil of secrecy and silent duty "tarnished" the students. The original translation might have confused "sullied" with related concepts like "weary."
+
+
+The first change appears accurate; "sullied" accurately reflects damage, not just weariness, aligning with "被玷污" (tarnished/defiled). The idiom "戛然而止" is confirmed as correct. The translation from singular "you" to plural "you" is essential for accurately conveying the original intent, making it a critical correction.
+[Shell] python3 -c ' import json, difflib with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json") as f: data = json.load(f) item = [x for x in data["items"] if x["entry_id"] == "entry...
+[Thought] The source describes a view of the world centered on its base material components, much like a chemical decomposition. It suggests this is a limited perspective. There is a need to also consider the forces and energies that cause motion.
+
+
+Revised translation clarifies the contrast between physical material "components" and the "Elements." The original translation of "components" as "basic elements" caused confusion. Changing "相互影响" to "相互反应" captures the alchemical process more accurately. This ensures alignment with the concept of elemental forces.
+[Shell] python3 -c ' import json, difflib with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json") as f: data = json.load(f) item = [x for x in data["items"] if x["entry_id"] == "entry...
+[Shell] python3 -c ' import json, difflib with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-6.json") as f: data = json.load(f) item = [x for x in data["items"] if x["entry_id"] == "entry...
+[Thought] Identified and corrected a redundant comma outside a quote. Also, observed an opportunity to improve the flow of dialogue attribution by inserting a more natural phrase. These adjustments enhance readability.
+
+
+Further refined the Chinese text by correcting punctuation, adjusting word order for natural flow, and fixing grammatical elements like the possessive particle. The aim is to ensure both grammatical accuracy and naturalness in the dialogue.
+
+
+Analyzing the items sequentially for potential issues or ambiguities. Item 1 appears straightforward; the added word clarifies the scope. Item 2's translation of "focuses time flows through" is being verified against the source code to ensure accuracy of the revised Chinese phrasing.
+
+
+The revised translation of Item 2 accurately reflects the intended meaning related to manipulating the flow of time. Item 3's new translation is deemed superior because it accurately conveys the "crackling" and "intensity" aspects from the source text, which the original translation missed. Examining Item 4, there appears to be no significant difference between the old and new translations, the changes seem to be negligible.
+
+
+The semicolon replacement from half-width to full-width was performed. The terminology mapping "Vim" to "活力值" was also implemented, as indicated in the resources. The changes related to special characters and the verdict "ok" are confirmed.
+
+The translation of Item 5 is being compared to the original text. The "old" and "new" texts are analyzed for potential discrepancies in meaning or fluency.
+[Shell] grep -rn "protects you from biting colds" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "This mindstar glows with a bright warm light" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "Keep a firm grip on it" /workspace/t-engine4/game/modules/tome/
+[Thought] The source material emphasizes that the exact demarcation of the eel's tail is inconsequential. The provided translation focuses on the practical point that "the last ten inches or so should do nicely" for the described task. The key takeaway is the irrelevance of a precise definition and the sufficiency of the suggested measurement.
+
+
+"It doesn't much matter" is accurately translated as "这其实无关紧要." The previous version was not a precise equivalent.
+
+The translation of the ice wyrm text was improved by adding "不过" to introduce the precaution, correcting "穿的" to "穿得," and adding a standard period. The original had a missing conjunction and an incorrect grammatical particle.
+
+
+The first translation correction addressed grammatical errors and an invented element ("tomorrow") while also restoring the original clause structure. The second addressed an invented phrase and accurately translated the concept of being unlikely to see something and live. The changes preserve the original meaning.
+[Shell] grep -rn "Hompalan's Log" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "What is Magic" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "Relle, Cornac Fighter" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "Chapter Two: A Night to Remember" /workspace/t-engine4/game/modules/tome/
+[Thought] Initial assessment of the lore entry's content is complete. The first item appears correct after review: replacing "most foes" with "大多数敌人".
+
+Double-checking all items for potential issues. The second item contains a string with formatting placeholders.
+
+
+All remaining items are individually verified and appear correct; various minor phrasing adjustments and corrections are confirmed. Specific translations of weapon descriptions and minor grammatical adjustments have been validated as accurate improvements. These updates enhance clarity and accuracy.
+
+
+All remaining items are individually verified and appear correct; minor phrasing and punctuation updates enhance the overall accuracy and flow.  Corrections address potential ambiguity and ensure consistent terminology. Dialogue formatting adheres to established conventions for improved readability.
+
+
+Analyzing the provided data structure. The entry is marked "ok". The observation field indicates "OK" or a brief explanation when no issues are found. Evidence should point to verifiable paths, or be empty when the verdict is "ok". Validating the example's format, the evidence path looks correct given the "ok" verdict.
+
+
+Ensuring the observation field adheres to the "OK" value when the verdict is "ok", while providing specific defects or counterexamples otherwise. Confirming the evidence field's requirement for a non-empty array of verifiable paths, or an empty array when the verdict is "ok." Validating each listed path as a correct reference for the "ok" verdict.
+[Shell] python3 -c ' checks = [ ("game/modules/tome/data/general/objects/world-artifacts.lua", 6742, "These titanic double-helical arrows"), ("game/modules/tome/data/general/objects/world-artifacts.lua", 6...
+[Shell] grep -n -E "Where does the eel stop|Ice Wyrms lose teeth|Keep this stuff well away|Yes, sandworms have teeth|Try to get any knots out" /workspace/t-engine4/game/modules/tome/data/ingredients.lua
+[Shell] grep -n -E "Hompalan's Log Entry 6|It were some years now since twain|What is Magic|Relle, Cornac Fighter and Expedition Leader|Chapter Two: A Night to Remember" /workspace/t-engine4/game/modules/t...
+[Shell] sed -n '68,95p' /workspace/t-engine4/game/modules/tome/data/lore/daikara.lua
+[Shell] grep -n "Vim" terminology/resources.tsv
+[Shell] grep -n "fearscape" terminology/narrative.tsv
+[Shell] python3 -c ' items = [ ("entry-01127", "game/modules/tome/data/general/objects/world-artifacts.lua:6742"), ("entry-01132", "game/modules/tome/data/general/objects/world-artifacts.lua:6897"), ("entr...
+[Thought] Confirmed that the assigned role restricts modifications, ensuring read-only access and disallowing file operations or commits. Each translation change within the packet requires independent review to assess correctness and potential new issues, operating independently from the executor's path.
+[Shell] python3 -c ' import json output = { "contract": "applied-change-review-v1", "packet_number": 6, "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high", "items": [ { "entry_id": "entry-01127", "verdict"...
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 6,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-01127",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:6742"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01132",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:6897"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01137",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:6960"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01149",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/resources.tsv:5 Vim=活力值"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01155",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/narrative.tsv:12 fearscape=恶魔空间"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01156",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:7656"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01160",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:7919"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01162",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:8027"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01163",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/general/objects/world-artifacts.lua:8068"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01193",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:138"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01194",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:156"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01196",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:183"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01198",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:201"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01201",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:228"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01205",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/ingredients.lua:264"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01210",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/lore/age-allure.lua:67"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01214",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/lore/angolwen.lua:27"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01215",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/lore/angolwen.lua:50"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01216",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/lore/daikara.lua:70"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01218",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/lore/elvala.lua:82"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
