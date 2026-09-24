@@ -1,0 +1,21 @@
+修复窗口26的证据发布与交接已完成。
+
+实际产出：
+
+- 安装 113 项编排快照，共 888,473 字节，并写入逐字副本 [orchestration-pack-manifest.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-26-20260923/orchestration-pack-manifest.json)。
+- 逐字安装候选 catalog/policy 共 5 个文件；其中 `entries.jsonl`、`manifest.json` 有变化，其余3个原本已同字节。
+- 安装 migration `6f8736fb…4302.json`。
+- 安装 publication 附件14项。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-26-20260923/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，明确后续提交证据、第二次 queue rebuild、push 均仍待宿主执行，随后审核273。
+
+验证结果：
+
+- PACK：113/113 逐字、字节数及 SHA-256 全部匹配。
+- Catalog：5/5 逐字匹配。
+- Migration：逐字匹配；文件 SHA-256 为 `86c85d65f11faa89dcbc1943a2189847255d2844ea38df9a67b83817e5984104`。
+- Publication 附件：14/14 逐字匹配。
+- UTF-8、CR、行尾空白、文档链接及 `git diff --check`：全部通过。
+- 指定只读状态检查：`DONE_VERIFIED: DONE predicate verified`。
+
+未修改 Lua、术语、规则、工具、旧证据、`.ai` 或 `pending-user-review.md`；未创建 agent，未重跑 queue/catalog/migration/完整门禁，也未 stage、commit 或 push。原有无关未跟踪文件均保持不动。

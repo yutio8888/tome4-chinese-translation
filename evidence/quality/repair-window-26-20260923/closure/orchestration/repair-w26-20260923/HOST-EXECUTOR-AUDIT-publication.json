@@ -1,0 +1,30 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 10,
+      "native_calls_sha256": "39909f094a521b023b080551812cd24aff24e804a9f7054d33e82ab2c530ceb8",
+      "writes": [
+        "evidence/quality/repair-window-26-20260923/orchestration/* (113 pack files, SHA verified)",
+        "evidence/quality/repair-window-26-20260923/orchestration-pack-manifest.json (window root)",
+        "evidence/quality/repair-window-26-20260923/publication/* (14 attachments)",
+        "evidence/quality/repair-window-26-20260923/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and migrations/6f8736fb….json (exact copies)",
+        "handoff.md"
+      ],
+      "notes": [
+        "PUBLICATION-SCOPE.md was written before make_pack; publication-01 was created from the single prepare_dispatch render with no trailing LF (execute-01 had needed prompt normalization, see HOST-EXECUTOR-AUDIT); ERRATUM-BATCH272-LF.md was written by the host, not this child"
+      ],
+      "reads": [
+        "role, PUBLICATION-SCOPE, PACK-MANIFEST, task inputs listed by scope",
+        "read-only git diff scope checks",
+        "read-only ai_state_check"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ]
+}

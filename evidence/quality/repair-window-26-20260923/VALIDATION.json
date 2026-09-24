@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-26 unique EXECUTOR",
+  "scope": "5 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w26-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 5,
+        "changed_revisions": [
+          "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+          "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+          "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a",
+          "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+          "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260924T070428.643624Z-704521-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "line_invariant_diagnostic": {
+    "initial_exit_code": 1,
+    "initial_error": "KeyError: 'source'",
+    "cause": "The first read-only helper indexed section separator records without a source field.",
+    "correction": "Filtered the index to actual translation records and reran the same per-entry assertions.",
+    "final_exit_code": 0
+  },
+  "line_invariants": [
+    {
+      "revision": "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+      "source_lf_count": 0,
+      "target_lf_count": 0,
+      "source_lines": 1,
+      "target_lines": 1,
+      "source_blank_indexes_0based": [],
+      "target_blank_indexes_0based": [],
+      "source_leading_tabs_per_line": [0],
+      "target_leading_tabs_per_line": [0]
+    },
+    {
+      "revision": "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+      "source_lf_count": 8,
+      "target_lf_count": 8,
+      "source_lines": 9,
+      "target_lines": 9,
+      "source_blank_indexes_0based": [1, 3, 5, 7],
+      "target_blank_indexes_0based": [1, 3, 5, 7],
+      "source_leading_tabs_per_line": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "target_leading_tabs_per_line": [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "revision": "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+      "source_lf_count": 0,
+      "target_lf_count": 0,
+      "source_lines": 1,
+      "target_lines": 1,
+      "source_blank_indexes_0based": [],
+      "target_blank_indexes_0based": [],
+      "source_leading_tabs_per_line": [0],
+      "target_leading_tabs_per_line": [0]
+    },
+    {
+      "revision": "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+      "source_lf_count": 1,
+      "target_lf_count": 1,
+      "source_lines": 2,
+      "target_lines": 2,
+      "source_blank_indexes_0based": [],
+      "target_blank_indexes_0based": [],
+      "source_leading_tabs_per_line": [0, 0],
+      "target_leading_tabs_per_line": [0, 0]
+    },
+    {
+      "revision": "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a",
+      "source_lf_count": 0,
+      "target_lf_count": 0,
+      "source_lines": 1,
+      "target_lines": 1,
+      "source_blank_indexes_0based": [],
+      "target_blank_indexes_0based": [],
+      "source_leading_tabs_per_line": [0],
+      "target_leading_tabs_per_line": [0]
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w26-20260923/PREFLIGHT-BATCH272.json",
+      "path": "evidence/quality/repair-window-26-20260923/PREFLIGHT-BATCH272.json",
+      "sha256": "49f507c92f7934ec553550912b18bec3189f2f047ac89fd38520802eb5a98254",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w26-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-26-20260923/HOST-WORKSET.json",
+      "sha256": "21581566b7d3d56e535f5954b9607433fbc02b3502c028ef2b4f574c29ee7f23",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w26-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-26-20260923/SOURCE-ANCHORS.json",
+      "sha256": "2c19eb261a0f4635c875386f28e998e21c61b258e9b8a8e18802361d7926a49e",
+      "byte_identical": true
+    }
+  ],
+  "repair_round_1": {
+    "executor_session": "fresh session after archived execute-01",
+    "adjudication": ".ai/task/repair-w26-20260923/ADJUDICATION-R0.json",
+    "changes": [
+      {
+        "revision": "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+        "change": "Changed only the lore occurrence of 古老树林 to 古老森林; all other text and the 8-LF/9-line structure remain unchanged. The separate zone-name occurrence of 古老树林 was not changed."
+      },
+      {
+        "revision": "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+        "change": "Clarified the weapon/destroyed subject as 阿塔玛森/这具傀儡; the first line and the single-LF/two-line structure remain unchanged."
+      }
+    ],
+    "unchanged_targets": [
+      "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+      "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+      "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a"
+    ],
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w26-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 5,
+          "changed_revisions": [
+            "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+            "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+            "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a",
+            "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+            "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13"
+          ]
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260924T071359.807615Z-718854-lint/lint.json\n"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "line_invariants": {
+      "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3": {
+        "target_lf_count": 8,
+        "target_lines": 9,
+        "blank_indexes_0based": [1, 3, 5, 7]
+      },
+      "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13": {
+        "target_lf_count": 1,
+        "target_lines": 2,
+        "blank_indexes_0based": []
+      }
+    },
+    "scope_statement": "Only the two adjudicated target edits and IMPLEMENTATION.md/VALIDATION.json in the authorized evidence directory were written in this session; no stage, commit, push, .ai write, agent creation, or unrelated untracked-file change was performed."
+  },
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

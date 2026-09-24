@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核272已完成；下一步修复窗口26，仅处理272的5条）
+更新时间：2026-09-24（修复窗口26已完成；待宿主发布收尾，随后审核273）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -412,6 +412,12 @@ surface 四组 `codex/gpt-6-sol` 为 75 OK / 5 ISSUE，80 个 identity 回显逐
 下一步按 1:1 节奏开修复窗口26，仅处理 272 的 5 条：思维形态技能系说明“灵能召唤术”改“灵能召唤物”；罗尔夫致威斯曼信逐段重译（巨蚁母体、嘲讽、勇气，段落与空行对齐原文，地名用古老树林、德斯）；
 泰坦的箭袋描述补“锋利”“几乎无法折断”等分句；阿塔玛森红宝石眼睛描述删多余换行并补“重创”；梅琳达任务日志补“袭击队”（夺魂魔保持）。注意：Weisman 本库有“魏斯曼”（mod-tome.lua:11443）与“威斯曼”（信件标题）两种写法，窗口内信件正文沿用标题的“威斯曼”，统一与否另议。
 范围见 `.ai/task/batch-54be748f9582a3f09434/WINDOW26-REPAIR-DECISION.json`。
+
+修复窗口26已完成审核272确认的5条修复：思维形态技能系说明将“灵能召唤术”改为“灵能召唤物”；《写给威斯曼的信 (1)》逐段重译，补回轻蔑、胆识与豪侠气概、巨蚁始祖、愚蠢等原意，地名采用“古老森林”“德斯”，并恢复原文8个换行及署名前空行；泰坦的箭袋描述补回“磨得锋利无比”“几乎无法折断”“比任何箭都更像长钉”；阿塔玛森丢失的红宝石眼睛描述删除多余换行，明确被毁的武器是阿塔玛森这具傀儡，并补回“给兽人以重创”；梅琳达任务日志补回“袭击队”。`execute-01`（`codex/gpt-5.6-sol`）实施5条，宿主逐条逐行核对行数、空行下标与行首 TAB；其冻结 prompt 因宿主写文件多一个尾换行，与 Paseo 实际投递文本相差一个 LF，宿主核实后将冻结 prompt 对齐投递文本并保留原件，详见 `HOST-EXECUTOR-AUDIT.json`。`REVIEW(0)/full`（`codex/gpt-6-sol`）为 3 OK / 2 ISSUE，宿主均判 confirmed：威斯曼信中的 Old Forest 应采用“古老森林”，而非窗口 SPEC 误取的“古老树林”；阿塔玛森眼睛描述中的“它”易被读作眼睛。`execute-02` 定点修复两处；`FINAL(1)/full`（`claude-opus-5-5`）为 5 OK，任务收敛。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。2个 executor 与2个 reviewer child 均已归档确认；本 publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `df937b894d02a01ff4ca0c1b2d7ccfd22918b2c4`；新 catalog 为 `2a349020c440d5766776ac1396bd949c94f99c0c97852b314543776fc9acf280`；migration 为 `6f8736fb807babfeda9ddd927ffc5958251ddd23bba538dc87f6ee40d6314302`。迁移结果为5条 `revision_changed`、29,823条 `unchanged`、0条 `ambiguous/unmapped`，5个 successor 待重新审核且不继承 `done`。审核272 surface 裁决记载的“LF 10→9”实测应为 8→9，裁决结论不变，详见[勘误](evidence/quality/repair-window-26-20260923/ERRATUM-BATCH272-LF.md)与[窗口26发布证据](evidence/quality/repair-window-26-20260923/PUBLICATION.md)。
+
+下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；完成后继续审核273（默认80条）。以上后续步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

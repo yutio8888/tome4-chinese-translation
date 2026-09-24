@@ -1,0 +1,45 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 3,
+  "raw_issue_count": 2,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-OLD-FOREST-NAME",
+      "revision_key": "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "宿主核验：术语库 terminology/narrative.tsv 第20行 old forest=古老森林（narrative/newLore category）；本库任务与 lore 条目（mod-tome.lua:18606–18636、20580、20772–20778）均用“古老森林”，仅区域文件 zones/old-forest/zone.lua 名称条目（39249）为“古老树林”。本信为 lore，按叙事惯例改“古老森林”。窗口 SPEC 误指“古老树林”，系宿主查名时只取了区域名条目。",
+      "replacements": [
+        {
+          "scope": "phrase",
+          "old": "我正徒步穿越古老树林（那可是在德斯外面",
+          "new": "我正徒步穿越古老森林（那可是在德斯外面"
+        }
+      ]
+    },
+    {
+      "id": "R0-ATAMATHON-REFERENT",
+      "revision_key": "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "relationship",
+      "reason": "宿主核验 lore/orc-prides.lua:235、254、260（624a673）：半身人制造、后被毁并杀死加库尔的是巨型傀儡阿塔玛森，不是这颗眼睛。原文 it 指代靠语境；中文“它”紧接“红宝石眼睛之一”，读作眼睛是武器。明确主语为阿塔玛森/这具傀儡，LF 结构不变。",
+      "replacements": [
+        {
+          "scope": "sentence",
+          "old": "据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但还是成功杀死兽人首领吞噬者加库尔，给兽人以重创。",
+          "new": "据说阿塔玛森是半身人在烈火纪为了对抗兽人所造的武器。这具傀儡虽然最终被毁，但还是成功杀死了兽人首领吞噬者加库尔，给兽人以重创。"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 3 条 OK（思维形态“灵能召唤物”；泰坦的箭袋三个分句；梅琳达“袭击队”）。威斯曼信 LF 8/9 行、空行 1/3/5/7 已与原文一致。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-24T07:12:03.519604+00:00"
+}

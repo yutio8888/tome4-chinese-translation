@@ -1,0 +1,48 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 20,
+      "native_calls_sha256": "e011e01ac7ff53a92b93e84faae0ccd1ba75e78fe7989394f14cd6ab04ffcf06",
+      "writes": [
+        "mod-tome.lua (5 targets)",
+        "evidence/quality/repair-window-26-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "TERMINOLOGY.md, docs/agent-workflow.md, i18n/README.md (read-only excerpts)",
+        "mod-tome.lua",
+        "pinned upstream sources via git show",
+        "repair-window-25 evidence layout (read-only)"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "prompt_note": "The prompt file was written by a heredoc with one trailing LF; Paseo delivered the same text without it, so the first harvest failed with \"frozen creation prompt mismatch\". Host verified native user prompt == frozen prompt minus exactly one trailing LF (1622 vs 1623 chars), then set execute-01-prompt.txt and parameters.initialPrompt to the delivered text. Originals kept as execute-01-prompt.pre-transport-trailing-lf.txt and execute-01-parameters.pre-transport-trailing-lf.json.",
+      "harvest_note": "Native log has one Codex wait function_call (cell 18) plus output; accepted by the repo parser since 5c2f8459.",
+      "host_note": "host compared all 5 targets line by line against source: Weisman letter 8 LF / 9 lines, blank-line indexes 1/3/5/7, signature 罗尔夫 after a blank line, scorn/pluck/derring-do/progenitor/folly rendered, 古老树林/德斯 used; Atamathon eye 1 LF with 重创; Titan quiver three clauses; Melinda 袭击队 with 夺魂魔; Thought-Forms 灵能召唤物."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "a0ad2b564e9ea72797c6bd9006f9fd10f71dc0cad080666587fdb1d0612fad12",
+      "writes": [
+        "mod-tome.lua (2 phrases in 2 already-changed targets)",
+        "evidence/quality/repair-window-26-20260923/IMPLEMENTATION.md, VALIDATION.json (appended)"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua (rg of the two anchors)"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host verified: letter now 古老森林 (library 古老树林 count 5->4, zone name untouched), 8 LF kept; Atamathon eye sentence now names 阿塔玛森/这具傀儡 as the weapon destroyed, 1 LF kept; verify.py still exactly 5 targets."
+    }
+  ],
+  "host_verify_after": "verify.py PASS after execute-02, exactly 5 targets changed, LF/TAB equal to source"
+}

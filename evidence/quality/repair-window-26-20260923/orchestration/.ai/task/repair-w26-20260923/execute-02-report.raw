@@ -1,0 +1,16 @@
+第 1 轮修复已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:17619)：仅将该 lore 中“古老树林”改为“古老森林”，8 个换行保持；区域名“古老树林”未改。
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:39639)：按裁决明确阿塔玛森/傀儡指代，第一行及唯一换行保持。
+- 另外三条既有修复未动。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-26-20260923/IMPLEMENTATION.md:41) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-26-20260923/VALIDATION.json:122)。
+
+验证全部通过：
+
+- `verify.py`：通过，22,989 条记录，仍恰为冻结的 5 个 target 变化。
+- `tools/i18n lint --strict`：通过，30,308 条，0 错误、0 警告。
+- `claims check --strict`：通过。
+- `git diff --check`：通过；写入 evidence 后复跑仍通过。
+- `VALIDATION.json`：`jq empty` 通过。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未创建 agent，未 stage/commit/push，无关 untracked 均保留。
