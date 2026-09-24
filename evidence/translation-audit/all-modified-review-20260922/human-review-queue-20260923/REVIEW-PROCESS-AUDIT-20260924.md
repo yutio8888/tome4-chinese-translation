@@ -83,7 +83,7 @@ v1 契约 §6 的 result schema **要求每条 revision 回显冻结字节**：
 
 | entry | 位置 | 问题 | 权威依据 |
 | --- | --- | --- | --- |
-| `entry-03853` | `tome-orcs.lua:2551` | `马基埃亚尔` 缺间隔号 | `terminology/places.tsv:46` preferred |
-| `entry-03856` | `tome-orcs.lua:2645` | `探险远行传送门` | `terminology/items.tsv:37` preferred |
-| `entry-04088` | `tome-orcs.lua` | `The light of the Amulet` → 「神的光辉」 | fidelity：Amulet=护符 |
-| `entry-04092` | `tome-orcs.lua` | `temporal` 伤害类型 → 「时间」 | `terminology/combat.tsv:12` temporal=时空 |
+| `entry-03853` | `tome-orcs.lua:2545` | `马基埃亚尔` 缺间隔号 | `terminology/places.tsv:46` preferred |
+| `entry-03856` | `tome-orcs.lua:2625` | `探险远行传送门` | `terminology/items.tsv:37` preferred |
+| `entry-04088` | `tome-orcs.lua:7455-7456` | `The light of the Amulet` → 「神的光辉」 | fidelity：Amulet=护符 |
+| `entry-04092` | `tome-orcs.lua:7901` | `temporal` 伤害类型 → 「时间」 | `terminology/combat.tsv:12` temporal=时空 |
