@@ -1,0 +1,294 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "purpose": "translation_text_drafting",
+ "author": "pi/cliproxyapi/gemini-3.8-flash-high",
+ "provenance_note": "This packet contains only facts (English source, current in-repo target, repo references, invariants) and a statement of WHAT must change. It contains no target text authored by the main agent.",
+ "output_schema": {
+  "items": [
+   {
+    "entry_id": "str",
+    "proposed_target": "str",
+    "rationale": "str",
+    "family_carriers": [
+     {
+      "file": "str",
+      "line": "int",
+      "target": "str"
+     }
+    ],
+    "invariants_checked": [
+     "str"
+    ]
+   }
+  ]
+ },
+ "items": [
+  {
+   "entry_id": "entry-00730",
+   "file": "mod-tome.lua",
+   "line": 8265,
+   "section": "mod-tome/data/general/npcs/horror.lua",
+   "source_tag": "logSeen",
+   "source": "#AQUAMARINE#As %s falls all its eyes fall to the ground!",
+   "current_target": "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！",
+   "what_must_change": "restore the dropped universal quantifier 'all' (all its eyes). Two carriers share this string and must be byte-identical: mod-tome.lua:8265 and mod-tome.lua:37898.",
+   "repo_references": [
+    {
+     "where": "mod-tome.lua:37898 (twin carrier, same source+key)",
+     "text": "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-01290",
+   "file": "mod-tome.lua",
+   "line": 17978,
+   "section": "mod-tome/data/lore/misc.lua",
+   "source_tag": "_t",
+   "source": "I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.\n\nCornacs are normally around 5'9\", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.\n\nSholtar are generally 5'11\", with dark skin, hair and eyes. They originate from the south-east of Maj'Eyal, and are few in number since the Cataclysm tore much of their land into the sea. Their affinity with nature is renowned, and they are often found employed as healers, infusion crafters or wyrmic huntsmen.\n\nMardrop humans are all but extinct, after the Spellhunt and the plagues during the Age of Dusk. They were known to be powerful spellcasters, and as such were prime targets by the spellhunters. However some trace of them can still be found, as their fiery hair and freckled skin oft can appear in those of distant descent. A few are rumoured to still possess citadels and towers in remote locations.\n\nHighers are on average 6'0\", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.\n\nAll human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.",
+   "current_target": "我从人类的研究开始，他们目前是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。此外，肖尔塔王国和马卓普王国以及高等人类这一血统支系也值得一提。最大的人类聚居地在最后的希望要塞周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。\n\n科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。\n\n肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。\n\n在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。\n\n高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。\n\n在烈火纪，勇者图库纳国王统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。",
+   "what_must_change": "replace the Cataclysm term so it stops colliding with Spellblaze, and align the spellhunter word. Two carriers share this lore string and must be byte-identical: mod-tome.lua:17978 and mod-tome.lua:43240.",
+   "repo_references": [
+    {
+     "where": "entry-01300, same section (Cataclysm)",
+     "text": "...他们的家园在大灾变中被卷入大海..."
+    },
+    {
+     "where": "mod-tome.lua:19537 (Spellhunter's Guide)",
+     "text": "魔法猎手指南第一部分：如何识别织法者"
+    },
+    {
+     "where": "mod-tome.lua:43240 (twin carrier, same source+key)",
+     "text": "(same current text as this carrier)"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-02982",
+   "file": "mod-tome.lua",
+   "line": 38735,
+   "section": "mod-tome/data/zones/high-peak/grids.lua",
+   "source_tag": "_t",
+   "source": "A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.\nThis one seems to go to an unknown place, seemingly out of this world. You dare not use it.",
+   "current_target": "传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。\n这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。",
+   "what_must_change": "use the farportal term so this carrier matches the term entry. The English family 'A farportal is a way...' is split 2:2 in-repo; the term entry decides the direction.",
+   "repo_references": [
+    {
+     "where": "entry-03070 (term: Farportal)",
+     "text": "远行传送门"
+    },
+    {
+     "where": "mod-tome.lua:40331 (same English family)",
+     "text": "远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-02791",
+   "file": "mod-tome.lua",
+   "line": 36742,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source_tag": "delayedLogMessage",
+   "source": "#STEEL_BLUE##Source# shares damage with %s fugue clones!",
+   "current_target": "#STEEL_BLUE##Source#和%s时空克隆共享伤害！",
+   "what_must_change": "align the fugue-clone wording with the same-section sibling line.",
+   "repo_references": [
+    {
+     "where": "mod-tome.lua:36741 (same section, same mechanic)",
+     "text": "目标将伤害和时空复制体共享。"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-03149",
+   "file": "mod-tome.lua",
+   "line": 40781,
+   "section": "mod-tome/data/zones/tutorial-combat-stats/grids.lua",
+   "source_tag": "_t",
+   "source": "Teaches the player 'Shove'.",
+   "current_target": "可习得技能“推挤”。",
+   "what_must_change": "align the talent name with the in-repo talent name. Two lines are affected: mod-tome.lua:40781 and mod-tome.lua:40782.",
+   "repo_references": [
+    {
+     "where": "mod-tome.lua:27003 (talent name: Shove)",
+     "text": "击退攻击"
+    },
+    {
+     "where": "mod-tome.lua:32976 (tutorial)",
+     "text": "你学会了“击退攻击”，一种较弱的击退效果。"
+    },
+    {
+     "where": "mod-tome.lua:40782 (second affected line)",
+     "text": "#VIOLET#你学会了技能推挤。"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-00216",
+   "file": "mod-tome.lua",
+   "line": 403,
+   "section": "mod-tome/class/EscortRewards.lua",
+   "source_tag": "_t",
+   "source": "%s, the lost defiler",
+   "current_target": "%s，迷路的腐化者",
+   "what_must_change": "produce the person title for the defiler escort. Note: the terminology entry Defiler=堕落系 is a class-category name, not a person title. This is a named NPC label '%s, the lost defiler'.",
+   "repo_references": [
+    {
+     "where": "terminology/classes.tsv (Defiler)",
+     "text": "堕落系（类别名，非人物称谓）"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-01262",
+   "file": "mod-tome.lua",
+   "line": 17299,
+   "section": "mod-tome/data/lore/last-hope.lua",
+   "source_tag": "_t",
+   "source": "#{bold}#\nHere rests Raymond Gaustadnes\n#{normal}#84 - 120#{italic}#\nThe Pixels finally got him...\n#{normal}#",
+   "current_target": "#{bold}#\n雷蒙德·加斯塔德在这里长眠\n#{normal}#84 - 120#{italic}#\n像素们终于还是逮到他了……\n#{normal}#",
+   "what_must_change": "produce the full Chinese rendering of the proper name Raymond Gaustadnes in this gravestone inscription.",
+   "repo_references": [
+    {
+     "where": "note",
+     "text": "no official pronunciation and no terminology entry; the gravestone text is a pixel-artist tribute"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-02456",
+   "file": "mod-tome.lua",
+   "line": 31266,
+   "section": "mod-tome/data/talents/uber/const.lua",
+   "source_tag": "tformat",
+   "source": "Thanks to your newfound knowledge of corruption, you've learned some tricks for toughening your body... but only if you are healthy enough to withstand the strain from the changes.\n\t\tImproves your life by 500, your defense by %d, your armour by %d, your armour hardiness by 20%% and your saves by %d as your natural toughness and reflexes are pushed beyond their normal limits.\n\t\tYour saves armour and defense will improve with your Constitution.",
+   "current_target": "多亏了你在枯萎能量上的新发现，你学到一些方法来增强你的体质。但是只有当你有一副强壮的体魄时方能承受这剧烈的变化。\n\t\t增加你 500 点生命上限，%d 点闪避，%d 护甲值，20%% 护甲强度，%d 所有豁免，你天生的韧性和反应能力突破了自然极限。\n\t\t豁免、护甲和闪避受体质值加成。",
+   "what_must_change": "the phrase 'knowledge of corruption' is currently rendered as 枯萎能量. Decide the wording that fits this talent description and its unlock condition.",
+   "repo_references": [
+    {
+     "where": "mod-tome.lua:31264 (same talent tree)",
+     "text": "Corrupted Shell -> 堕落之壳"
+    },
+    {
+     "where": "mod-tome.lua:31265 (unlock condition)",
+     "text": "Have received at least 3500 blight damage... -> 承受过至少 3500 点枯萎伤害..."
+    },
+    {
+     "where": "terminology/talents.tsv:7 (corruption)",
+     "text": "堕落（source_tag: talent category, status existing）"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-02850",
+   "file": "mod-tome.lua",
+   "line": 37432,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source_tag": "_t",
+   "source": "and is losing one physical effect turn.",
+   "current_target": "每回合失去一个物理效果并",
+   "what_must_change": "produce a sentence fragment that reads naturally when spliced mid-sentence before '受到 %0.2f 物理伤害'. The host reorders with args_order={2,1}; the fragment therefore cannot carry sentence-final punctuation. It must also work as the alternative to the sibling fragment 'each turn.'.",
+   "repo_references": [
+    {
+     "where": "mod-tome.lua:37433 (host)",
+     "text": "The target is being ravaged by distortion, taking %0.2f physical damage %s -> 目标被疯狂扭曲，%s受到 %0.2f 物理伤害 (args_order {2,1})"
+    },
+    {
+     "where": "mod-tome.lua:37431 (sibling fragment)",
+     "text": "each turn. -> 每回合"
+    },
+    {
+     "where": "source data/timed_effects/physical.lua:2532",
+     "text": "if eff.ravage then ravaged = _t\"and is losing one physical effect turn.\" end"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  },
+  {
+   "entry_id": "entry-04115",
+   "file": "tome-orcs.lua",
+   "line": 8341,
+   "section": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+   "source_tag": "_t",
+   "source": "The Steam Council has been called to order, with Chief Councilor Tantalos presiding.\n\nTANTALOS: \"Greetings, my fellow- heh, now [i]lesser[/i] Councilors!  It is my pleasure to finally lead the proceedings.  The agenda for today...\" Ruffles through papers. \"Is irrelevant, for I have a solution to every malady mentioned therein.  The first order--\"\n\nKASYROS: \"With all due respect, Chief Councilor, the agenda--\"\n\nTANTALOS: \"Is.  [i]Irrelevant.[/i]  Tormak?  You've been scrying on potential sources of geothermal energy, would you care to inform the others where you see the most potential?\"\n\nTORMAK: Sighs. \"Right under the Kruk orcs, unfortunately.  It's a promising source for sure, the magma powering it hasn't drained out like it has under us, but digging there would...  well, we all know how quickly they turned construction tools into weapons to rival our own.  If we went in there with the state-of-the-art mining equipment necessary to--\"\n\nTANTALOS: Laughter. \"Mining equipment!  What manner of fool do you take me for?  Palaquie, tell me what's going through the minds of those silly little waist-height warriors, rummaging through the mainland for Orcish rebels.\" Holds up hand to silence Councilor Emeritus Kasyros. \"This IS relevant, I assure you.\"\n\nPALAQUIE: \"Discontent...  revolving around hidden, long-fermented resentment. Some want the Kruk exterminated, others imprisoned.  Neither can afford direct intervention, but some form of support will assuredly be available.\"\n\nTANTALOS: \"So, with the right negotiation, we can get these tinies, who have [i]endless[/i] experience fighting Orcs, to assist us and make any sort of action in Kruk territory more manageable.  At a bare minimum, we can obtain weaponry that has long proved sufficient for slashing Orcish throats...  although we'll need it custom-fit for our size, naturally.\"\n\nPALAQUIE: \"They have a race whose armor would work.  A tight fit, but sufficient.\"\n\nTANTALOS: \"Even better!  And...  Kasyros, I'm going to let [i]you[/i] tell me what the people care about most.  I'm sure your bruises are adequate reminders of the citizens' will?\"\n\nKASYROS: [Statement was deemed excessively profane and stricken from the record by 4-2 vote.]\n\nTANTALOS: \"Such undignified conduct!  All because you can't accept that the public wants their steam back.  More than they want those filthy little greenskins around, more than they fear getting their hands dirty, more than they want [i]your[/i] way of doing things.  So!  It's resolved that we have much to gain from this, it's resolved that we have or can obtain the means to carry it out, and it's resolved that it is what the voting public desires.  I see no need for further debate.  Nashal, I'd like to speak to you after this about a wand.  Meeting adjourned.\"\n\n[At this time, Councilor Kasyros gave a lengthy speech before officially resigning from the Council.  It has been recorded in a separate document.] ",
+   "current_target": "在坦塔洛斯议长的主持下，蒸汽议会正式开会。\n\n坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！这是我的荣幸，能够终于主事。今日的议程……”翻动手中的文件。“无关紧要，因为我已经为所有要解决的问题有了一个对应的方案。首先————”\n\n卡西罗斯：“尊敬的议长，议程————”\n\n坦塔洛斯：“这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”\n\n托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆可不像我们地盘底下的都枯竭了，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”\n\n坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我保证，真的无关紧要。”\n\n帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。不论是哪种，我们都没法直接介入，不过确实可以提供某种支持。”\n\n坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”\n\n帕拉奎：“他们有个种族，护甲可以给我们用。穿起来有点紧，但是足够了。”\n\n坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”\n\n卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]\n\n坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些狡猾的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”\n\n[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ",
+   "what_must_change": "fix the confirmed mistranslations in this debug dialog. Confirmed items: (1) 'This IS relevant, I assure you.' is rendered as 我保证，真的无关紧要 — inverted; (2) 'Neither can afford direct intervention' is rendered as 不论是哪种，我们都没法直接介入 — the subject is shifted (Neither refers to the two orc-faction proposals, not to 'whichever'); (3) 'those filthy little greenskins' is rendered as 那些狡猾的小绿人们 — filthy is not 狡猾.",
+   "repo_references": [
+    {
+     "where": "note",
+     "text": "debug-only dialog; no terminology constraints apply"
+    }
+   ],
+   "invariants": [
+    "preserve every %s/%d/%.2f placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] markup token exactly",
+    "preserve every colour token (#AQUAMARINE#, #STEEL_BLUE#, #VIOLET#, #DARK_ORCHID#, #LAST#) exactly",
+    "preserve the exact \\n and \\t\\t newline/indent structure",
+    "do not touch source or source_tag"
+   ]
+  }
+ ]
+}

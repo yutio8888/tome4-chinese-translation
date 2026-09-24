@@ -9,8 +9,8 @@
 
 | verdict | 条数 |
 | --- | --- |
-| accepted | 38 |
-| deferred | 2 |
+| accepted | 39 |
+| deferred | 1 |
 
 ## 被驳回／未采纳的模型主张
 
@@ -42,7 +42,7 @@
 | hrq-00099 | entry-00768 | mod-tome.lua:8734 | fix | accepted | 是 | serviceable condition 的核心是仍然可用，译「值得信赖」语义漂移。 |
 | hrq-00100 | entry-00780 | mod-tome.lua:8953 | no_change | accepted | 否 | humanoid 为 entity type，散文自由描述用「类人生物」与同批「人形生物」并存不构成缺陷。不改。 |
 | hrq-00101 | entry-00781 | mod-tome.lua:8969 | fix | accepted | 是 | brothers and sisters 被概括为「集体行动」，且后半句由单数改复数；源码 make_escort 配置要求生成护卫。 |
-| hrq-00102 | entry-00804 | mod-tome.lua:9191 | fix | deferred | 是 | 实体名已为「腐烂泰坦」（mod-tome.lua:39335），本描述用「腐化泰坦」不一致。该 NPC 实体名条目不在本批冻结集合，单改制造不一致，故 defer。 |
+| hrq-00102 | entry-00804 | mod-tome.lua:9191 | fix | accepted | 是 | 实体名已为「腐烂泰坦」（mod-tome.lua:39335）；本条描述「腐化泰坦」不一致，executor 已改为「腐烂泰坦」。注：本条 target 可单改而不破坏族内一致，因为改的正是描述去对齐既有实体名；此前台账误记为 deferred，现按实际裁决与磁盘更正。 |
 | hrq-00103 | entry-00805 | mod-tome.lua:9194 | fix | accepted | 是 | 漏 other（其他生物）；within radius %d 被误作名词修饰。 |
 | hrq-00104 | entry-00820 | mod-tome.lua:9332 | fix | accepted | 是 | 「深渊咆哮的存在」为无据增译；corruption and power 被合并为「腐蚀力量」；blackened 译「被玷污」有误。 |
 | hrq-00105 | entry-00840 | mod-tome.lua:9487 | fix | accepted | 是 | 同族统一为「一瓶<颜色>液体」（mod-tome.lua:9450/9456/9461/9466），本条「黄色液体小瓶」句式不一致，改齐。 |

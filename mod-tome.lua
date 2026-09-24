@@ -400,7 +400,7 @@ t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("%s, the repented thief", "%s，忏悔的盗贼", "_t")
 t("%s, the lone alchemist", "%s，落单的炼金术师", "_t")
 t("%s, the lost sun paladin", "%s，迷路的太阳骑士", "_t")
-t("%s, the lost defiler", "%s，迷路的腐化者", "_t")
+t("%s, the lost defiler", "%s，迷路的堕落者", "_t")
 t("temporal portal", "时空传送门", "_t")
 t([[Oh but you are ... are you ?! ME?!
 		So I was right, this is not my original time-thread!
@@ -8262,7 +8262,7 @@ t("nightmare horror", "梦魇恐魔", "entity name")
 t("A shifting form of darkest night that seems to reflect your deepest fears.", "一团由最深沉的黑夜凝聚而成、不断变幻的形体，似乎映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
-t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
+t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它所有的眼睛都掉落在了地上！", "logSeen")
 t("eldritch eye", "艾尔德里奇之眼", "entity name")
 t("A small bloodshot eye floats here.", "一只带血的小眼睛漂浮在这里。", "_t")
 t("#AQUAMARINE#As #Source# falls #Target# seems to weaken!", "#AQUAMARINE#当#Source#倒下时，#Target#似乎被削弱了！", "logCombat")
@@ -17301,7 +17301,7 @@ Here rests Raymond Gaustadnes
 #{normal}#84 - 120#{italic}#
 The Pixels finally got him...
 #{normal}#]], [[#{bold}#
-雷蒙德·加斯塔德在这里长眠
+雷蒙德·加斯塔德内斯在这里长眠
 #{normal}#84 - 120#{italic}#
 像素们终于还是逮到他了……
 #{normal}#]], "_t")
@@ -17989,9 +17989,9 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。
 
-肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
+肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
 
-在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 
@@ -31265,7 +31265,7 @@ t("Corrupted Shell", "堕落之壳", "talent name")
 t("Have received at least 3500 blight damage and destroyed Zigur with the Grand Corruptor.", "承受过至少 3500 点枯萎伤害并和大腐化者一起摧毁伊格。", "_t")
 t([[Thanks to your newfound knowledge of corruption, you've learned some tricks for toughening your body... but only if you are healthy enough to withstand the strain from the changes.
 		Improves your life by 500, your defense by %d, your armour by %d, your armour hardiness by 20%% and your saves by %d as your natural toughness and reflexes are pushed beyond their normal limits.
-		Your saves armour and defense will improve with your Constitution.]], [[多亏了你在枯萎能量上的新发现，你学到一些方法来增强你的体质。但是只有当你有一副强壮的体魄时方能承受这剧烈的变化。
+		Your saves armour and defense will improve with your Constitution.]], [[多亏了你在堕落力量上的新发现，你学到一些方法来增强你的体质。但是只有当你有一副强壮的体魄时方能承受这剧烈的变化。
 		增加你 500 点生命上限，%d 点闪避，%d 护甲值，20%% 护甲强度，%d 所有豁免，你天生的韧性和反应能力突破了自然极限。
 		豁免、护甲和闪避受体质值加成。]], "tformat")
 
@@ -36739,7 +36739,7 @@ t("This target has retreated to a safe place.", "目标被传送至安全位置�
 t("#STEEL_BLUE#You are brought back from your repreive!", "#STEEL_BLUE#你从避难所回来了！", "logPlayer")
 t("Temporal Fugue", "时间复制", "_t")
 t("This target is splitting all damage with its fugue clones.", "目标将伤害和时空复制体共享。", "_t")
-t("#STEEL_BLUE##Source# shares damage with %s fugue clones!", "#STEEL_BLUE##Source#和%s时空克隆共享伤害！", "delayedLogMessage")
+t("#STEEL_BLUE##Source# shares damage with %s fugue clones!", "#STEEL_BLUE##Source#和%s时空复制体共享伤害！", "delayedLogMessage")
 t("#STEEL_BLUE#(%d shared)#LAST#", "#STEEL_BLUE#(%d 伤害共享)#LAST#", "tformat")
 t("Draconic Will", "龙族意志", "_t")
 t("The target is immune to all detrimental effects.", "目标免疫所有异常状态。", "_t")
@@ -37895,7 +37895,7 @@ t("reaver", "收割者", "entity name")
 t("A warrior of death.", "侍奉死亡的战士。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大而鼓胀的腹部。它被竞技场的第一任主人捕获并驯服。", "_t")
-t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
+t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它所有的眼睛都掉落在了地上！", "logSeen")
 t("Ryal", "瑞尔", "entity name")
 t("A gargantuan bone giant resembling a wingless wyrm. He is fully sentient and surprisingly fast.", "一只巨大的骨巨人，形似无翼巨龙。他完全具有自我意识，而且快得惊人。", "_t")
 t("Fryjia Loren", "弗里嘉·劳伦", "entity name")
@@ -40778,8 +40778,8 @@ t("Rune of Enlightenment: Summer Vacation", "启蒙符文：暑假", "entity nam
 t("Causes the player's brain to jettison all recently-acquired knowledge.", "可以净化玩家的大脑，使玩家遗忘所有最近所学的技能。", "_t")
 t("#VIOLET#You feel unenlightened.", "#VIOLET#你感到很无知。", "logPlayer")
 t("Rune of Enlightenment: Shove", "启蒙符文：冲撞", "entity name")
-t("Teaches the player 'Shove'.", "可习得技能“推挤”。", "_t")
-t("#VIOLET#You have learned the talent Shove.", "#VIOLET#你学会了技能推挤。", "logPlayer")
+t("Teaches the player 'Shove'.", "可习得技能“击退攻击”。", "_t")
+t("#VIOLET#You have learned the talent Shove.", "#VIOLET#你学会了技能击退攻击。", "logPlayer")
 t("#VIOLET#The sound of an ancient door grinding open echoes down the tunnel!", "#VIOLET#推开古老大门产生的吱呀声音回荡在通道里！", "logPlayer")
 t("Rune of Enlightenment: Mana Gale", "启蒙符文：法力风暴", "entity name")
 t("Teaches the player 'Mana Gale'.", "可习得技能“法力风暴”。", "_t")
@@ -43251,9 +43251,9 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。
 
- 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
+ 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
 
- 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+ 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
  高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 

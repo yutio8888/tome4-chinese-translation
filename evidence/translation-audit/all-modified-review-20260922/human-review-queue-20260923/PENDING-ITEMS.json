@@ -1,0 +1,178 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "count": 19,
+ "items": [
+  {
+   "batch": "batch-01",
+   "queue_id": "hrq-00020",
+   "entry_id": "entry-00184",
+   "file": "mod-tome.lua",
+   "line": 225,
+   "section": "mod-tome/class/Actor.lua",
+   "reason": "主工作区 HEAD 11b3e963 已修（恢复空行、勇敢地、去增译）；本 worktree 不改，待合并。"
+  },
+  {
+   "batch": "batch-01",
+   "queue_id": "hrq-00025",
+   "entry_id": "entry-00216",
+   "file": "mod-tome.lua",
+   "line": 403,
+   "section": "mod-tome/class/EscortRewards.lua",
+   "reason": "术语库 Defiler=堕落系（existing）；人物称谓名词化无 preferred，属未授权术语决定。"
+  },
+  {
+   "batch": "batch-02",
+   "queue_id": "hrq-00059",
+   "entry_id": "entry-00492",
+   "file": "mod-tome.lua",
+   "line": 3145,
+   "section": "mod-tome/data/birth/classes/warrior.lua",
+   "reason": "缺陷成立（漏 pit-fighter；amateur practitioner 误作「门外汉」；the Brawler's skills 未体现职业名）。但主工作区 HEAD 8e06944f 该条已修（已逐字核对）。按 SPEC 规则 8 defer，不在本 worktree 重复修改；本 worktree 曾试改后已还原。"
+  },
+  {
+   "batch": "batch-02",
+   "queue_id": "hrq-00075",
+   "entry_id": "entry-00634",
+   "file": "mod-tome.lua",
+   "line": 6817,
+   "section": "mod-tome/data/damage_types.lua",
+   "reason": "stabbed 属 PHYSICAL death_message 表（damage_types.lua:778）。该表已由用户于 2026-09-16 裁定「暂不处理，继续保持 pending」。独立核验：该裁定在 production-review-v2-lite 与 quality 证据中多处记载。按归属处置，不改。"
+  },
+  {
+   "batch": "batch-02",
+   "queue_id": "hrq-00077",
+   "entry_id": "entry-00646",
+   "file": "mod-tome.lua",
+   "line": 6986,
+   "section": "mod-tome/data/damage_types.lua",
+   "reason": "tdesc 为 arcane resource burn（damage_types.lua:2267-2281），「奥术」有源码依据，模型「增译」主张不成立。但术语库 manaburn arcane=法力燃烧（existing/global）与现译不一致；登记新译或回退属术语决定，未授权。与 00653 一并 defer，现两条内部一致。"
+  },
+  {
+   "batch": "batch-02",
+   "queue_id": "hrq-00081",
+   "entry_id": "entry-00653",
+   "file": "mod-tome.lua",
+   "line": 7071,
+   "section": "mod-tome/data/damage_types.lua",
+   "reason": "模型 refuted 主张成立：原文即 manaburn arcane，「奥术」非增译。但术语库条目（existing）与现译不一致，属未授权术语决定。与 00646 一并 defer。"
+  },
+  {
+   "batch": "batch-03",
+   "queue_id": "hrq-00092",
+   "entry_id": "entry-00730",
+   "file": "mod-tome.lua",
+   "line": 8265,
+   "section": null,
+   "reason": "all 的强调有遗漏，但固定源码同串还用于 arena/npcs.lua，仓内 mod-tome.lua:37898（entry-02906）共享同一运行时键。该载体不在本批冻结集合；只改本条会造成跨组件同键多译冲突。须与冻结外条目联动，故 defer。独立核验：entry-02906 确实存在且不在队列中。"
+  },
+  {
+   "batch": "batch-05",
+   "queue_id": "hrq-00176",
+   "entry_id": "entry-01262",
+   "file": "mod-tome.lua",
+   "line": 17299,
+   "section": "mod-tome/data/lore/last-hope.lua",
+   "reason": "Gaustadnes 现译“加斯塔德”没有译出末尾音节，但术语库与本仓均无该人名的既定完整译法；是否致敬像素画师也没有固定文本证据。专名须先确定读音及跨条目用法，不能凭模型推测补名。"
+  },
+  {
+   "batch": "batch-05",
+   "queue_id": "hrq-00190",
+   "entry_id": "entry-01290",
+   "file": "mod-tome.lua",
+   "line": 17978,
+   "section": "mod-tome/data/lore/misc.lua",
+   "reason": "Cataclysm 的“大爆炸”与 Spellblaze 混淆；spellhunters 也已有本仓“魔法猎手”的明晰同族用法。但 mod-tome.lua:43240 起另有同源活跃孪生载体，仍译“大爆炸／猎魔者”；本批未冻结该 target，只改本条会制造族内不一致，须把两条一同纳入后续冻结。"
+  },
+  {
+   "batch": "batch-08",
+   "queue_id": "hrq-00304",
+   "entry_id": "entry-01984",
+   "file": "mod-tome.lua",
+   "line": 25923,
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "reason": "固定源码 horrors.lua:671 已是 for 15 turns（summon_time=15），本条英文“10 turns”在固定版本不会命中，属历史陈旧键；其译文对自身英文准确，改成 15 会造成与 source 不符。清理需删除条目，超出本任务可编辑面（仅限 target），按 hint 单独清理。"
+  },
+  {
+   "batch": "batch-08",
+   "queue_id": "hrq-00305",
+   "entry_id": "entry-01988",
+   "file": "mod-tome.lua",
+   "line": 25973,
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "reason": "固定源码 inscriptions.lua:245-248 的 Heroism info 已含 to a maximum of 100%%…，本条旧英文不会命中（活条目为 entry-02000），属历史陈旧键，需删除而非改 target，超出可编辑面，留单独清理。括号拆行属排版、“致死的伤害”属措辞，均 advisory，不在陈旧键上投入修改。"
+  },
+  {
+   "batch": "batch-08",
+   "queue_id": "hrq-00323",
+   "entry_id": "entry-02067",
+   "file": "mod-tome.lua",
+   "line": 26898,
+   "section": "mod-tome/data/talents/misc/races.lua",
+   "reason": "固定源码 races.lua:692 为 tformat(duration, count)，与英文“Removes %d … for %d turns”顺序相反，属上游缺陷；现译忠实于英文。在中文中调换语序以适配实参属跨条目策略（上游修正后会反向出错），不得改 args_order，交维护者决定并记入上游问题清单。"
+  },
+  {
+   "batch": "batch-09",
+   "queue_id": "hrq-00349",
+   "entry_id": "entry-02212",
+   "file": "mod-tome.lua",
+   "line": 28848,
+   "section": "mod-tome/data/talents/spells/fire.lua",
+   "reason": "Flame→火球术只是 existing 术语，不是强制译名；本文件 Burning Wake（entry-02285，冻结外）称同一技能“火焰”，奇术师说明则称“火球术”。单改本技能名会制造同族不一致，需将 entry-02285 等引用纳入统一决策后处理；本次不改。"
+  },
+  {
+   "batch": "batch-10",
+   "queue_id": "hrq-00391",
+   "entry_id": "entry-02456",
+   "file": "mod-tome.lua",
+   "line": 31266,
+   "section": "mod-tome/data/talents/uber/const.lua",
+   "reason": "pending 保持：原文 knowledge of corruption 字面为堕落，技能名本仓译“堕落之壳”（mod-tome.lua:31264），与说明的“枯萎能量”存在同条不一致；但解锁条件是承受 BLIGHT 伤害，“枯萎”并非无据。terminology 中 corruption→堕落仅为 existing 且 source_tag 为 talent category，无 preferred 可依，且 human_hint"
+  },
+  {
+   "batch": "batch-11",
+   "queue_id": "hrq-00443",
+   "entry_id": "entry-02791",
+   "file": "mod-tome.lua",
+   "line": 36742,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "reason": "%s 填所有格短语时“和%s时空克隆”语法可成立；但同一效果说明在冻结外使用“时空复制体”。如统一专名须同时改该关联载体，当前仅改单条会制造族内不一致，留待扩展 workset。"
+  },
+  {
+   "batch": "batch-12",
+   "queue_id": "hrq-00453",
+   "entry_id": "entry-02850",
+   "file": "mod-tome.lua",
+   "line": 37432,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "reason": "逐条回应：①“无依据加入每回合”refuted 同意驳回——on_timeout（physical.lua:2541-2566）每回合执行一次 dispel，“每回合”符合实现且原文 turn 即此义；②未涵盖维持战技 advisory 驳回——英文原文亦只说 physical effect，译文忠于原文，扩写属上游文本问题；③缺句末标点成立，但本片段被宿主以 {2,1} 重排到句中（mod-tome.lua:37433），片段不能自带"
+  },
+  {
+   "batch": "batch-12",
+   "queue_id": "hrq-00465",
+   "entry_id": "entry-02982",
+   "file": "mod-tome.lua",
+   "line": 38735,
+   "section": "mod-tome/data/zones/high-peak/grids.lua",
+   "reason": "专名不一致成立但不可单改：原文 A farportal is a way… 这一描述族在本仓约 10 处（mod-tome.lua:38072、38486、38725、38730、38735、39362、39720、39793、40331、tome-orcs.lua:6936）统一以“传送门是…”起句，仅改本条会制造族内不一致，按判据 7 记 defer，需整族统一为“远行传送门”。连续“似乎”advisory 驳回：源自原文 seem"
+  },
+  {
+   "batch": "batch-12",
+   "queue_id": "hrq-00479",
+   "entry_id": "entry-03149",
+   "file": "mod-tome.lua",
+   "line": 40781,
+   "section": "mod-tome/data/zones/tutorial-combat-stats/grids.lua",
+   "reason": "本条“推挤”与相邻日志 mod-tome.lua:40782“你学会了技能推挤”一致，但与冻结外技能名 mod-tome.lua:27003 “击退攻击”及符文名 40780“启蒙符文：冲撞”三处不一致；无术语条目，单改本条会破坏与日志的一致。记 defer，需统一 27003/40780/40781/40782 的 Shove 译名。句号与引号已正确。"
+  },
+  {
+   "batch": "batch-15",
+   "queue_id": "hrq-00591",
+   "entry_id": "entry-04115",
+   "file": "tome-orcs.lua",
+   "line": 8341,
+   "section": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+   "reason": "C03：This IS relevant 与“无关紧要”相反，须改肯定；C04：Neither 承接前句两派，“我们”错置主体；C05：filthy 非“狡猾”；N01：profane 在记录中指粗俗发言，非宗教“亵渎”。C06：“这决定了”在议会语境仍可理解为决议，属文体建议；N02：“在辞职时”可宽泛指辞职过程，仅建议澄清。最强范围反证是 tome-orcs.lua:2757 另有同一议会文本的运行时载体，英文键仅空格不同：C03 "
+  }
+ ]
+}
