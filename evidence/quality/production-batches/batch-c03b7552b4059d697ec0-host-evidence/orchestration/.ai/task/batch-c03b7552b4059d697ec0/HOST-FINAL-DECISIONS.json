@@ -1,0 +1,153 @@
+{
+  "batch_id": "batch-c03b7552b4059d697ec0",
+  "observations": 14,
+  "observation_dispositions": {
+    "confirmed": 8,
+    "refuted": 6
+  },
+  "repair_revision_keys": [
+    "fd89fad0e8ec3640021b78b985babd87ee52ab2d142c87e961d61faf45ea735e",
+    "fd9c72bf32f198729cede9b435055adc761bcf5985bc58a84de23e0ac605a8d4",
+    "fda88c9668327a676dffe3451ca50e5ae9bc3b92c01a1c22d72b14198be541b6",
+    "fdff442a1e55fecae18f6dd9bb4761bb6c0572059c4f4a1706ef5d06fa3ff2d2",
+    "fe42c359a5490ee337c6eb5084fb0103ac39e17315c25f59ef278b2823eceae5"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 5,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "fd89fad0e8ec3640021b78b985babd87ee52ab2d142c87e961d61faf45ea735e",
+      "stage": "surface",
+      "observation": "原文规定每个目标每回合至多移除一项物理增益和一项魔法增益；译文写成总共只能移除一项，数量限制有误。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chronomancy/matter.lua Disintegration（624a673 matter.lua:271–306）：doStrip 按伤害类型分别以 p.physical[target] 与 p.magical[target] 记录，每目标每回合可各除去一项物理和一项魔法增益；现译“每个生物每回合只能被除去一项效果”把上限写错（一级 fidelity）。首句 respectively 亦丢失：物理伤害除去物理增益、时空伤害除去魔法增益（what = type == \"PHYSICAL\" and \"physical\" or \"magical\"）。整句修复，%d%%、两处 LF+制表符保持。"
+    },
+    {
+      "revision_key": "fd9c72bf32f198729cede9b435055adc761bcf5985bc58a84de23e0ac605a8d4",
+      "stage": "surface",
+      "observation": "“Unstoppable”意为势不可挡，译文“自然世界”遗漏了这一含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "gifts/oozing-blades.lua 技能名 Unstoppable Nature：现译“自然世界”完全丢失 Unstoppable；技能效果为无视目标自然抗性并令软泥吐射（oozing-blades.lua:179–180），本库 Unstoppable 统一作“势不可挡”（mod-tome.lua:2720、30187、36745）。改“势不可挡的自然”一类；该名只此一处出现。"
+    },
+    {
+      "revision_key": "fda88c9668327a676dffe3451ca50e5ae9bc3b92c01a1c22d72b14198be541b6",
+      "stage": "surface",
+      "observation": "“Reflex Defense”表示反射性的防御，译文“闪避神经”将“Defense”译成了“神经”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "techniques/unarmed-training.lua 技能名 Reflex Defense：效果是提高架势的固定伤害减免并降低受暴击倍率（unarmed-training.lua:128），与闪避无关；现译“闪避神经”既非原义又误导机制（且与 Reflexive Dodging=闪避反射 混淆）。改“反射防御”一类；该名只此一处出现。"
+    },
+    {
+      "revision_key": "fdd2fd4a0c2aba8c938ca85e5432bf357b380a674f41a587af055a23089455a0",
+      "stage": "surface",
+      "observation": "原文末尾有一个空格，译文末尾没有；若后接数值或文本，可能发生粘连，冻结输入未提供拼接语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Object.lua \"Hate per kill: \"：本库属性标签统一用全角冒号不留尾空格（既往冒号标签先例），显示无粘连，非缺陷。"
+    },
+    {
+      "revision_key": "fdd88aff431a88c2be7046d62a425695c2afd7f5e4f503537ba36af490a38b2b",
+      "stage": "surface",
+      "observation": "源文明确指出 Lightning Speed 的技能等级额外被动提高移动速度；译文写成“这个技能”，丢失了所指的技能名称。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "gifts/storm-drake.lua：此说明即 Lightning Speed 技能本身（storm-drake.lua:23、51），“这个技能”指代无误，本库技能名为“闪电加速”，非遗漏。"
+    },
+    {
+      "revision_key": "fdf0ae51ca0d9623dff18364f5f19899523429fd39f6ae64c591bd10d66fb6cb",
+      "stage": "surface",
+      "observation": "Bash and Smash 表示猛击、砸击，译文“击退射击”加入源文没有的射击，并改变了动作含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "techniques/buckler-training.lua 技能名 Bash and Smash：实现为盾击并击退后以投石索射击（buckler-training.lua:74–114，tactical knockback，getShieldMult/getSlingMult），“击退射击”概括实际机制，且本库该技能其余 2 处引用（30229、30230）一致，属意译命名，不改。"
+    },
+    {
+      "revision_key": "fdff442a1e55fecae18f6dd9bb4761bb6c0572059c4f4a1706ef5d06fa3ff2d2",
+      "stage": "surface",
+      "observation": "源文说其他友方单位处于你的粘液中时回复失衡值；译文写成“经过粘液”，改变了触发条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "gifts/mucus.lua：damage_types.lua:3704–3717 MUCUS 对每回合处于粘液格上的友方生效（按格上 actor 结算，turn_procs 每回合一次），原文 friendly creatures in your mucus；现译“每个经过粘液的友方单位”把条件改为经过（一级 fidelity）。改“处在你粘液中的其他友方单位”，保持“为你和其自身各回复 1 点”，其余不变。"
+    },
+    {
+      "revision_key": "fe0a08ed132568218d64a3ff30087af660b5831ad5222e0afdf7a63bfe687bf9",
+      "stage": "surface",
+      "observation": "原文称匕首能一击杀死已虚弱的目标，译文改为对虚弱敌人伤害更强。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "world-artifacts-maj-eyal.lua Mercy 描述：实现为按目标已损失生命提高伤害（world-artifacts-maj-eyal.lua:1211–1213 special_on_hit），并无一击必杀；现译“伤害虚弱的敌人威力更大”贴合实现（上游措辞与实现不一致先例），驳回。"
+    },
+    {
+      "revision_key": "fe0ab84198b37152b83d093a9ed7a4cc49bcd0188f3069738f64905e0036b508",
+      "stage": "surface",
+      "observation": "原文为 %d%% 目盲抗性，译文写成 %d%% 目盲免疫。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "celestial/radiance.lua blindness resistance：对应属性为 blind_immune 百分比，本库该属性统一作“免疫”（致盲免疫：854 行面板标签；同类技能 25315、26799 亦作“%d%% 目盲免疫”），非错译。"
+    },
+    {
+      "revision_key": "fe34bd07637ad4d599ba70ced5f6c672a7af3d8324935d53222a85bd3616e25c",
+      "stage": "surface",
+      "observation": "原文的 tell him 指男性，译文「告诉它」将对象改成了非人的「它」。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "chats/shertul-fortress-butler.lua：同一对话开篇以“那个生物…它”称呼堡垒之影（mod-tome.lua 5878 段），[告诉它梅琳达的事] 与本对话称谓一致，非缺陷。"
+    },
+    {
+      "revision_key": "fe42c359a5490ee337c6eb5084fb0103ac39e17315c25f59ef278b2823eceae5",
+      "stage": "surface",
+      "observation": "原文称等待越久，回来时越可能见到冒烟的弹坑和愤怒的半身人；译文改成在此停留太久，并把冒黑烟误写成半身人的状态。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "chats/alchemist-hermit.lua：THE LONGER YOU WAIT, THE MORE LIKELY … SMOKING CRATER AND ONE TRULY IRATE HALFLING——原意是越晚回来越可能看到冒烟的弹坑和暴怒的半身人；现译改为“你在这儿待的时间太长”，丢失弹坑并把冒黑烟挂到半身人身上（一级 fidelity）。整句修复末两句，#LIGHT_GREEN#/#WHITE# 与 LF 保持。"
+    },
+    {
+      "revision_key": "fd89fad0e8ec3640021b78b985babd87ee52ab2d142c87e961d61faf45ea735e",
+      "stage": "contextual",
+      "observation": "The translation says each target can have only one effect removed per turn (每个生物每回合只能被除去一项效果). The source says one physical AND one magical effect. In the pinned source (tome game/modules/tome/data/talents/chronomancy/matter.lua@624a6732, Disintegration doStrip around L271-296), physical and magical are tracked in separate tables, p.physical[target] and p.magical[target]. They are only reset in callbackOnActBase, so a target can lose up to two effects per turn. The translation also drops the mapping implied by '(respectively)': physical damage removes physical effects, temporal damage removes magical ones (what = type == \"PHYSICAL\" and \"physical\" or \"magical\"). It drops the qualifiers 'temporary' and 'While active' as well, which misrepresents the mechanic.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：While active 与 temporary 限定亦应保留；按 doStrip 实现整句修复（物理伤害除去物理增益、时空伤害除去魔法增益；每目标每回合各至多一项）。"
+    },
+    {
+      "revision_key": "fd9c72bf32f198729cede9b435055adc761bcf5985bc58a84de23e0ac605a8d4",
+      "stage": "contextual",
+      "observation": "The talent name 'Unstoppable Nature' is translated as 自然世界, which means 'the natural world'. It drops the core meaning of 'Unstoppable' completely. The talent (oozing-blades.lua@624a6732 L125-) is a sustained buff that grants nature resistance penetration and a chance to trigger free spits, and 自然世界 matches neither the English name nor the mechanic. The frozen input has no terminology entry for this name, so it is unclear whether this is an established name; a check of the talent-name entry's status is needed.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：自然世界 与英文名及机制（无视自然抗性、软泥免费吐射）均不符；本库 Unstoppable=势不可挡，改“势不可挡的自然”一类。"
+    },
+    {
+      "revision_key": "fe42c359a5490ee337c6eb5084fb0103ac39e17315c25f59ef278b2823eceae5",
+      "stage": "contextual",
+      "observation": "'THE LONGER YOU WAIT, THE MORE LIKELY IT IS THAT YOU'LL RETURN TO A SMOKING CRATER AND ONE TRULY IRATE HALFLING' means the longer the player waits before coming back, the more likely they will return to find a smoking crater (the alchemist blew himself up) and a truly irate halfling. The translation renders it as 你在这儿待的时间太长 ('you have stayed here too long'), which turns 'waiting before returning' into 'staying here', and it merges the crater and the halfling into 冒着黑烟怒不可遏的半身人, dropping the smoking crater. The causal meaning of the line is distorted (alchemist-hermit.lua@624a6732 L366-367).",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：越晚回来越可能见到冒烟的弹坑和暴怒的半身人；现译改成“在这儿待太久”并丢失弹坑。整句修复末两句。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000, single accepted attempt)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1 and Codex function_call items since 5c2f8459; all 80 surface identity echoes pre-checked exact against envelopes before harvest; all 4 lanes and the contextual child harvested via --native-log.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Contextual scope was the 11 surface-flagged revisions (envelope entries=11); the other 69 rest on the surface OK verdicts.",
+    "Contextual raised 3 ISSUE (fd89fad0 Disintegration, fd9c72bf Unstoppable Nature, fe42c359 alchemist chat), each agreeing with a host-confirmed surface row.",
+    "Contextual passed fda88c96 (Reflex Defense); host keeps it confirmed: unarmed-training.lua:128 is flat damage reduction plus lower incoming critical multiplier, not evasion, while 闪避神经 names dodging and collides with Reflexive Dodging=闪避反射.",
+    "Contextual passed fdff442a (Mucus); host keeps it confirmed: damage_types.lua MUCUS acts on actors standing on the mucus grid (friendly creatures in your mucus), while the target says 经过 (passing through).",
+    "Contextual passed the 6 host-refuted rows (colon-label space, Lightning Speed self-reference, Bash and Smash name, Mercy lore vs implementation, blind_immune convention, butler pronoun).",
+    "No advisories.",
+    "No pending, no glossary/global rename; old pending/blocked unchanged.",
+    "Repair cadence changed by user on 2026-09-24: the 5 repairs join the backlog (now 7) and no window is opened until it reaches >=20."
+  ]
+}
