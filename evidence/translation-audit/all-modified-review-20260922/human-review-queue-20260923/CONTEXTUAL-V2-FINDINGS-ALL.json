@@ -165,9 +165,25 @@
   ],
   "confirmed": 15,
   "pending": 0,
-  "needs_user_decision": [
-   "entry-00866/entry-00873 (restorative rendering + terminology registration)",
-   "entry-00873 (restorative rendering + terminology registration)"
+  "needs_user_decision": [],
+  "user_resolved": [
+   {
+    "entries": [
+     "entry-00866",
+     "entry-00873"
+    ],
+    "bundles": [
+     "ctx2-pub-06a",
+     "ctx2-pub-07a"
+    ],
+    "question": "restorative 词缀是否改译并登记术语",
+    "verbatim": "维持不改",
+    "decision": "no_change",
+    "authority": "user",
+    "decided_at": "2026-09-24T15:17:11Z",
+    "rationale": "沿用官方 zh_hans 译法 振奋的/振奋 (engine game/modules/tome/data/locales/zh_hans.lua:9879-9880, 9994-9995; pinned commit 624a6732)。语义观察保留在 detail 中，但不改 target、不新增/修改 terminology 条目。",
+    "effect": "不再阻断其余 confirmed finding 的修复"
+   }
   ],
   "confirmed_entries": [
    "entry-00111",
@@ -363,7 +379,7 @@
     "bundle": "ctx2-pub-06a",
     "class": "fidelity (ego name)",
     "issue": "same restorative ego keyword as entry-00873",
-    "decision": "confirmed, rendering choice pending user decision",
+    "decision": "confirmed (semantic); change declined by user 2026-09-24, keep 振奋 (official zh_hans)",
     "authority": [
      "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/boots.lua:204-214 (healing_factor, life_regen) — restorative restores, while the neighbouring invigorating at :218 is 精力充沛的",
      "identical to the entry-00873 adjudication"
@@ -378,7 +394,7 @@
     "bundle": "ctx2-pub-07a",
     "class": "fidelity (ego name)",
     "issue": "the ego restorative is rendered 振奋 (rousing), although the ego raises healing_factor and life_regen",
-    "decision": "confirmed, rendering choice pending user decision",
+    "decision": "confirmed (semantic); change declined by user 2026-09-24, keep 振奋 (official zh_hans)",
     "authority": [
      "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/cloak.lua:193-205 and boots.lua:204 (healing_factor, life_regen)",
      "mod-tome.lua:9763 renders rejuvenating as 回复的 and :9859 renders invigorating as 精力充沛的, so 振奋 collides with invigorating rather than restoring",
@@ -390,7 +406,8 @@
      "mod-tome.lua:9972",
      "mod-tome.lua:9973"
     ],
-    "open_question": "a new terminology entry (restorative => ?) and a family-wide rendering are needed; registering a high-reuse term is a user decision"
+    "open_question": null,
+    "user_resolution": "2026-09-24 user decision 「维持不改」: keep the official zh_hans rendering 振奋的/振奋; no target edit and no terminology registration"
    },
    {
     "revision_key": "entry-00984",

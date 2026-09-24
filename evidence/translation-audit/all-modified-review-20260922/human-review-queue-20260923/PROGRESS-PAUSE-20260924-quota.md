@@ -48,3 +48,16 @@
 3. `restorative`（restorative-ego）术语决定仍未由用户裁决，阻断对应修复条目
    （entry-00866／entry-00873）；其余确认 finding 可先行修复。
 4. 镜像 `.ai/` 快照到 `evidence/.../orchestration/.ai/`，提交 evidence。
+
+## 追加更新（2026-09-24 15:17 UTC）：restorative 阻断已解除
+
+用户对 `restorative` 词缀的裁决为「维持不改」：沿用官方 zh_hans 译法「振奋的/振奋」
+（`engine game/modules/tome/data/locales/zh_hans.lua:9879-9880, 9994-9995`，fixed commit
+`624a6732`），不修改 target，也不新增/修改 `terminology/` 条目。
+
+- `entry-00866` / `entry-00873` 以 `declined/no_change` 关闭（语义 observation 仍保留在
+  `CONTEXTUAL-V2-FINDINGS-ALL.json` 的 detail 中）。
+- 裁决逐字记录在 `USER-DECISIONS.jsonl`；`CONTEXTUAL-V2-FINDINGS-ALL.json` 的
+  `needs_user_decision` 已清空并移入 `user_resolved`。
+- 上述恢复步骤第 3 条的阻断不再成立；其余 13 条 public confirmed finding 可直接进入修复。
+
