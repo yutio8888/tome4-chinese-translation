@@ -19362,7 +19362,7 @@ t([[In this picture a huge god with glowing eyes towers above the land, and in h
 There is some text underneath ]], [[在这幅画上有一位铁塔一样的巨神，他目光如炬，右手高举着太阳。众神逃离他，害怕他手中的光芒。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "不明意义的文字：#{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "_t")
-t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的勇武震慑了众人，伪神们慑服于他的荣耀。他深呼吸后把太阳高举到了世界之上，说：“阳光所至，即我所至，这光芒将照亮全世界。”#{normal}#", "_t")
+t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的力量胜过一切，伪神们在他的荣耀面前纷纷逃散。他以自己的气息造出太阳，将其高举于世界之上，说道：“凡此光所照之处，皆归我所有；此光必将照耀整个世界。”#{normal}#", "_t")
 t("third mural painting", "第三幅壁画", "_t")
 t([[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
@@ -20172,11 +20172,11 @@ t("The Doom of the World!", "世界末日！", "_t")
 t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪元时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", "这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量！", "_t")
 t("Whatever their plan may be, they must be stopped at all cost.", "不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
-t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
+t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山正遭到兽人的攻击。几名太阳骑士与你一同赶到了这里，他们将不惜牺牲生命坚守防线，为你争取一些时间。", "_t")
 t("Honor their sacrifice; do not let the orcs finish their work!", "向他们的献身精神致敬！不要让兽人们达成所愿！", "_t")
-t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来的太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
-t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", "使用传送门到达远东大陆，你必须阻止他们，不惜一切代价。", "_t")
-t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你终于及时赶来阻止了仪式，法师们被驱散了。", "_t")
+t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来得太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
+t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", "使用传送门返回远东大陆，你*必须*阻止他们，不惜一切代价。", "_t")
+t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你及时赶到并打断了仪式，法师们已经离去。", "_t")
 t("#VIOLET#A portal activates in the distance. You hear the orcs shout, 'The Sorcerers have departed! Follow them!'", "#VIOLET#远处一个传送门被激活，你听到兽人们吼道：“巫师们已经离开！跟上他们！”", "logPlayer")
 t("#VIOLET#The Sorcerers flee through a portal. As you prepare to follow them, a huge faeros appears to block the way.", "#VIOLET#巫师们从传送门逃跑了，当你准备跟随他们时，一个巨大的法罗挡住了去路。", "logPlayer")
 -- untranslated text
@@ -20189,10 +20189,10 @@ t("", "", "_t")
 section "mod-tome/data/quests/deep-bellow.lua"
 
 t("From bellow, it devours", "地下吞噬者", "_t")
-t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～。", "_t")
+t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍。", "_t")
 t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个叫深渊咆哮的地下城。", "_t")
-t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。", "_t")
-t("None that you know of has come back yet, but you did survive Reknor. You are great.", "据你所知没有一个人能活着回来，不过你从瑞库纳幸存了下来，你比较牛 X。", "_t")
+t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封许久，但仍不时有冒险者前去寻找财宝。", "_t")
+t("None that you know of has come back yet, but you did survive Reknor. You are great.", "据你所知，至今还没有人回来过，不过你毕竟从瑞库纳幸存了下来。你很了不起。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/dreadfell.lua"
@@ -20213,7 +20213,7 @@ t("You kept the Orb of Many Ways despite Tannen's request to study it. You must 
 t("You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你去泰尔玛之塔寻找一本有关传送门的典籍，尽管他也不确定那里是否真有。他让你过几天再回来。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系泽梅基斯，询问一些敏感问题。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
-t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", "泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！", "_t")
+t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", "泰恩把你耍了！他用一个假水晶球掉了包，把你传送到了恶魔空间。找到出口，回去找他算账！", "_t")
 t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", "泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
 t("#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#", "#LIGHT_GREEN#* 通向远东的传送门开始运作了，你可以用它来回去。#WHITE#", "_t")
 t("Tannen points to the location of Telmur on your map.", "泰恩在你的地图上指出了泰尔玛的位置。", "logPlayer")
@@ -20260,9 +20260,9 @@ t("You have laid Celia to rest, putting an end to her failed experiments. You ha
 section "mod-tome/data/quests/high-peak.lua"
 
 t("Falling Toward Apotheosis", "坠向神化", "_t")
-t("You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak.", "你征服了兽人军团的最高领袖，现在你必须向这个世界最危险的地方挺进：巅峰。", "_t")
+t("You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak.", "你击败了兽人部落的首领们，现在你必须向这个世界最危险的地方挺进：巅峰。", "_t")
 t("Seek the Sorcerers and stop them before they bend the world to their will.", "找到那些妄图扭曲这个世界的法师并阻止他们。", "_t")
-t("To enter, you will need the four orbs of command to remove the shield over the peak.", "想要进去的话，你必须找到那四个指令水晶来移除塔顶的防护罩。", "_t")
+t("To enter, you will need the four orbs of command to remove the shield over the peak.", "想要进去的话，你必须找到那四个指令水晶球来移除峰顶的防护罩。", "_t")
 t("The entrance to the peak passes through a place called 'the slime tunnels', probably located inside or near Grushnak Pride.", "通往巅峰的入口要经过一个名为“史莱姆通道”的地方，它大概位于格鲁希纳克部落内部或附近。", "_t")
 t("You have reached the summit of the High Peak, entered the sanctum of the Sorcerers and destroyed them, freeing the world from the threat of evil.", "你已登上巅峰之巅，进入法师们的圣所并消灭了他们，将世界从邪恶的威胁中解放出来。", "_t")
 t("You have won the game!", "你通关了！", "_t")
@@ -20354,7 +20354,7 @@ t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
 t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
-t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地宫。", "_t")
+t("You failed to protect her when escorting her out of the crypt.", "你没能在护送她离开这个地宫时保护好她。", "_t")
 t("You failed to defeat the acolytes in time - the woman got torn apart by the demon growing inside her.", "你没能及时杀死那些侍僧，那个女人被在她体内成长的恶魔撕成了碎片。", "_t")
 
 ------------------------------------------------
@@ -20423,7 +20423,7 @@ t("Melinda was saved from the brink of death at the beach, by a strange wave of 
 t("Melinda died to a Yaech raiding party at the beach.", "梅琳达被沙滩上的夺魂魔杀死了。", "_t")
 t("The Fortress Shadow said she could be cured.", "堡垒之影说她有可能被治愈。", "_t")
 t("Melinda decided to come live with you in your Fortress.", "梅琳达决定和你一起在堡垒里生活。", "_t")
-t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，他让她能够自由来去。", "_t")
+t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，好让她能够自由来去。", "_t")
 t("After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.", "在你的胜利之后，你回到了最后的希望，并与梅琳达重聚，梅琳达在许多年后没有再受到恶魔腐化的影响。", "_t")
 t("You lived together and led a happy life. Melinda even learned a few adventurer's tricks and you both traveled Eyal, making new legends.", "你们住在一起，过着幸福的生活。梅琳达甚至学会了一些冒险家的技能，你们俩一起去旅行，创造了新的传奇。", "_t")
 t("Melinda", "梅琳达", "_t")
@@ -20460,7 +20460,7 @@ t("You receive: %s", "你收到：%s。", "logPlayer")
 section "mod-tome/data/quests/master-jeweler.lua"
 
 t("Lost Knowledge", "遗失的知识", "_t")
-t("You found an ancient tome about gems.", "你发现一本关于珠宝的旧书。", "_t")
+t("You found an ancient tome about gems.", "你发现了一本关于宝石的古籍。", "_t")
 t("You should bring it to the jeweler in the Gates of Morning.", "你应该把这本书带给晨曦之门的珠宝匠看看。", "_t")
 t("Limmir told you to look for the Valley of the Moon in the southern mountains.", "利米尔让你去南部山脉寻找新月峡谷。", "_t")
 t("#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.", "#VIOLET#这本册子似乎描述了关于宝石的力量。也许应该带给晨曦之门的珠宝匠看看。", "logPlayer")
@@ -20628,10 +20628,10 @@ section "mod-tome/data/quests/staff-absorption.lua"
 
 t("A mysterious staff", "奇怪的法杖", "_t")
 t("Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire.", "在恐惧王座深处你与领主——一个强大的吸血鬼——战斗并消灭了他。", "_t")
-t("On your way out of the Dreadfell you were ambushed by a band of orcs.", "当你走出恐惧王座的时候你受到了一队兽人小队的偷袭。", "_t")
+t("On your way out of the Dreadfell you were ambushed by a band of orcs.", "当你走出恐惧王座时，你遭到一队兽人伏击。", "_t")
 t("They asked about the staff.", "他们问起了法杖的事。", "_t")
 t("On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead.", "当你走出恐惧王座时，你遭到一队兽人伏击，并被他们丢下等死。", "_t")
-t("They asked about the staff and stole it from you.", "他们从你那里得知了法杖的消息，把法杖抢走了。", "_t")
+t("They asked about the staff and stole it from you.", "他们问起了法杖的事，并把它从你手中抢走了。", "_t")
 t("#LIGHT_GREEN#Go at once to Last Hope to report those events!", "#LIGHT_GREEN#立刻到最后的希望汇报所发生的情况！", "_t")
 t("You told them nothing and vanquished them.", "你什么也没告诉他们，并把他们全都消灭了。", "_t")
 t("In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself.", "在他的尸体上，你发现了一根奇怪的法杖，它辐射出的力量和危险使你不敢使用它。", "_t")
@@ -20688,7 +20688,7 @@ t("Reknor is lost!", "瑞库纳沦陷了！", "_t")
 t("You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor.", "你是被指派到瑞库纳王国去调查情况的一个矮人小分队的一员。", "_t")
 t("When you arrived there you found nothing but orcs, well organized and very powerful.", "当你到达那里时，你只发现了组织严密且非常强大的兽人。", "_t")
 t("Most of your team was killed there and now you and Norgan (the sole survivor besides you) must hurry back to the Iron Council to bring the news.", "你队伍中大多数人被杀死，现在你和诺尔甘（除你以外的唯一幸存者）必须赶紧回到钢铁议会去汇报这里的情况。", "_t")
-t("Let nothing stop you.", "不惜一切代价冲出去。", "_t")
+t("Let nothing stop you.", "别让任何东西阻挡你。", "_t")
 t("Both Norgan and you made it home.", "你和诺尔甘都回到了家。", "_t")
 t("Norgan", "诺尔甘", "_t")
 
@@ -20751,7 +20751,7 @@ section "mod-tome/data/quests/start-undead.lua"
 
 t("The rotting stench of the dead", "死者腐烂的恶臭", "_t")
 t("You have been resurrected as an undead by some dark powers.", "你被某种黑暗力量复活为不死生物。", "_t")
-t("However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world.", "不过，复活仪式似乎出了点问题，你保留了自己的意识，你必须离开这个黑暗地方并找到属于自己的栖息地。", "_t")
+t("However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world.", "不过，复活仪式似乎出了点问题，你保留了自己的意识。你必须离开这个黑暗的地方，设法在这个世界上为自己谋得一席之地。", "_t")
 t("You have found a very special cloak that will help you walk among the living without trouble.", "你发现了一个非常神奇的斗篷，可以使你在活人之中自由生活而不会陷入麻烦。", "_t")
 
 ------------------------------------------------
@@ -20778,7 +20778,7 @@ t("Into the darkness", "进入黑暗", "_t")
 t("It is time to explore some new places -- dark, forgotten and dangerous ones.", "是时候去一些新的地方探索一下了——那些黑暗、被遗忘和危险的地方。", "_t")
 t("The Old Forest is just south-east of the town of Derth.", "在德斯镇东南方向是古老森林。", "_t")
 t("The Maze is west of Derth.", "在德斯镇西面是迷宫。", "_t")
-t("The Sandworm Lair is to the far west of Derth, near the sea.", "在德斯镇远一点的西面，靠近海岸的地方是沙虫巢穴。", "_t")
+t("The Sandworm Lair is to the far west of Derth, near the sea.", "在德斯镇遥远的西面，靠近海岸的地方是沙虫巢穴。", "_t")
 t("The Daikara is on the eastern borders of the Thaloren forest.", "在自然精灵树林的东部边境那里是岱卡拉。", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了水晶树精。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了狂怒树精。#WHITE#", "_t")
@@ -20810,7 +20810,7 @@ section "mod-tome/data/quests/temple-of-creation.lua"
 
 t("The Temple of Creation", "造物者神庙", "_t")
 t("Ukllmswwik asked you to take his portal to the Temple of Creation and kill Slasul who has turned mad.", "乌克勒姆斯维奇请求你穿过他的传送门到造物者神庙去杀死发疯了的萨拉苏尔。", "_t")
-t("Slasul told you his side of the story. Now you must decide: which of them is corrupt?", "萨拉苏尔告诉了你关于他的故事，你现在必须决定：到底谁才是真正的堕落者？", "_t")
+t("Slasul told you his side of the story. Now you must decide: which of them is corrupt?", "萨拉苏尔向你讲述了他这一方的说法，你现在必须决定：到底谁才是真正的堕落者？", "_t")
 t("Slasul bound his lifeforce to yours and gave your a powerful trident in return.", "萨拉苏尔将自己的生命力与你的生命力绑定，并以一把强大的三叉戟作为回报。", "_t")
 t("#LIGHT_GREEN#* You have killed both Ukllmswwik and Slasul, betraying them both.#WHITE#", "#LIGHT_GREEN#* 你把乌克勒姆斯维奇和萨拉苏尔都杀掉了，同时背叛了他们两个。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have sided with Ukllmswwik and killed Slasul.#WHITE#", "#LIGHT_GREEN#* 你选择相信乌克勒姆斯维奇并杀死了萨拉苏尔。#WHITE#", "_t")
@@ -20854,7 +20854,7 @@ t("Tutorial Finished", "教程已完成", "_t")
 section "mod-tome/data/quests/tutorial.lua"
 
 t("Tutorial", "教程", "_t")
-t("You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers.", "你必须进入森林的中心地带并杀死孤狼——那个肆意屠杀村民的凶手。", "_t")
+t("You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers.", "你必须深入森林的中心地带，杀死那头会随机袭击村民的孤狼。", "_t")
 t("Tutorial: Movement", "教程：移动", "_t")
 
 ------------------------------------------------
@@ -20891,7 +20891,7 @@ t("", "", "_t")
 section "mod-tome/data/quests/wild-wild-east.lua"
 
 t("The wild wild east", "遥远的东方", "_t")
-t("There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues.", "在高尔布格巢穴内肯定有一条通往远东大陆的路，去寻找线索并找到它，然后探索那未知而遥远的东方。", "_t")
+t("There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues.", "在高尔布格的巢穴内肯定有一条通往远东大陆的路。找到它，然后探索那片未知的远东大陆，寻找线索。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/resources.lua"
@@ -21031,7 +21031,7 @@ t([[Your skill at Chanting now extends the cloak of light, increasing your light
 		Chant of Fortitude cures mental effects.
 		Chant of Fortress cures physical effects.
 		Chant of Resistance cures magical effects.]], [[咏唱赞歌的娴熟技艺让光明得以扩散，增加 %d 光照半径。
-		每次你咏唱新的赞歌时，你将解除自身的越层效果（失去平衡、法术冲击和思维封锁），并额外解除 %d 项相应类型的负面状态。
+		每次你咏唱新的赞歌时，你将解除所有相应类型的越层效果（失去平衡、法术冲击或思维封锁），并随机解除至多 %d 项相应类型的负面状态。
 		坚韧赞歌：解除精神负面状态
 		堡垒赞歌：解除物理负面状态
 		元素赞歌：解除魔法负面状态。]], "tformat")
@@ -21090,7 +21090,7 @@ t([[In a pure display of power, you project a ranged melee attack, doing %d%% we
 t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
-		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害，至多 %d 点，当前 %d 点
+		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。
 		然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
 		每回合最多触发一次额外伤害。]], "tformat")
 t("Second Life", "第二生命", "talent name")
@@ -21109,13 +21109,13 @@ t("Absorption Strike", "吸能一击", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
 t([[You strike your foe with your two handed weapon, dealing %d%% weapon damage.
 		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]], [[你用双手武器攻击敌人，造成 %d%% 武器伤害。
-		如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%，伤害下降 %d%% , 持续 5 回合。]], "tformat")
+		如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%，伤害下降 %d%%，持续 5 回合。]], "tformat")
 t("Mark of Light", "光之印记", "talent name")
 t("You mark a target with light for 3 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.", "你用光标记目标 3 回合，你对它近战攻击时，将受到相当于 %d%% 伤害的治疗。", "tformat")
 t("Righteous Strength", "光明之力", "talent name")
 t([[While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.
 		In addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.
-		The damage increases with your Spellpower.]], [[当装备双手武器时，你的暴击率增加 %d%% , 同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
+		The damage increases with your Spellpower.]], [[当装备双手武器时，你的暴击率增加 %d%%，同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
 		同时，你的近战暴击会在目标身上留下灼烧痕迹，5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。
 		伤害受法强加成。]], "tformat")
 t("Flash of the Blade", "闪光之刃", "talent name")
@@ -21124,7 +21124,7 @@ t([[Infuse your two handed weapon with light while spinning around.
 		In addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.
 		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[旋转一周，同时将光明之力充满武器。
 		半径 1 以内的敌人将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。
-		技能等级 4 或以上时，在旋转时你会制造一层护盾，吸收 1 回合内的所有攻击。]], "tformat")
+		技能等级 4 或以上时，在旋转时你会制造一层护盾，免疫 1 回合内的所有伤害。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/celestial/dark-sun.lua"
