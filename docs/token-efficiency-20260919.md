@@ -15,7 +15,7 @@ wc -c handoff.md
 ```
 
 结果为旧交接 `101711` bytes、当前交接 `3571` bytes，减少 `98140` bytes（约 96.49%）。
-旧正文已移入 `docs/handoff-history-through-20260919.md`；迁移只加存档声明并修复相对链接，
+旧正文已移入 `docs/handoff-history-through-20260919.md`（该文件已于 2026-09-24 删除，见 git 历史）；迁移只加存档声明并修复相对链接，
 历史正文不再作为当前授权载入。
 
 下列命令对同一个代表性四行 `host-event` state 同时序列化完整值和 compact 值：

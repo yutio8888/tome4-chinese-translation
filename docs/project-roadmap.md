@@ -1,7 +1,7 @@
 # ToME4 汉化项目 Roadmap
 
 > 状态：**历史阶段路线图**。当前操作入口已移至
-> [`基线批次 runbook`](baseline-batch-runbook-2026-09-06.md)，本文只保留早期阶段记录。
+> [`审核操作指南`](review-operations-guide.md)，本文只保留早期阶段记录。
 > 本文规定近期工作的优先级和阶段依赖，不替代质量 contract、审核契约、门禁或发布流程。
 > 事实或用户裁决变化时更新本文；不因长期阶段存在而默认启动 provider、Paseo task、push 或发布。
 
@@ -10,7 +10,7 @@
 当前按正式 WP2-Lite 队列以每批 80 条连续审核，已 finalize 至第 67 批；维护者已授权
 连续主持、逐批自动推进，不再以本文早期“下一候选”作为领取依据。
 每批的操作入口、命令顺序与生效裁决表见
-[`基线批次 runbook`](baseline-batch-runbook-2026-09-06.md)。
+[`审核操作指南`](review-operations-guide.md)。
 2026-09-05 的那份审核交接（其中“未恢复无界连续审核”的边界已被上述授权取代）
 已移入 [`deprecated/`](../deprecated/README.md)，仅供历史查证。
 

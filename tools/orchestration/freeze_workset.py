@@ -19,7 +19,7 @@
      与具名调用实参在源码里分处两地，两半都不是完整字面量）
   8. 运行期小写化实体名 lowercased_entity_name_verification（`name = name:lower()` 无前缀，
      实体名是同文件某次具名调用实参的小写形式，如 gem.lua 的 newGem("Fire Opal", ...)）
-详见 docs/baseline-batch-runbook-2026-09-06.md。
+操作说明见 docs/review-operations-guide.md；原 runbook §34 的推导过程见其删除前的 git 历史。
 """
 import json, hashlib, os, re, subprocess, sys
 

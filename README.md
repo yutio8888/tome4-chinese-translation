@@ -16,10 +16,10 @@
   其中核心覆盖 3,488 条、DLC 覆盖 5,461 条（Nullpack 464 条由独立文件加载）。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](deprecated/docs/translation-quality-facts-study-report-v1.md)。
-- 当前执行路线（2026-09-10）：正式 WP2-Lite 审核以每批 80 条持续推进，已完成并
-  finalize 至第 67 批；维护者授权连续主持，逐批自动推进。广泛的全库清扫作为独立的
-  有界维护窗口执行，不混入正常批次。当前操作入口、每步命令与生效裁决表见
-  [`基线批次 runbook`](docs/baseline-batch-runbook-2026-09-06.md)；编排脚本用法见
+- 当前执行路线（2026-09-24）：正式 WP2-Lite 审核以每批 80 条持续推进，已完成并
+  finalize 至第 275 批；维护者授权连续主持，逐批自动推进，修复项攒满 20 条后开合并修复窗口。
+  广泛的全库清扫作为独立的有界维护窗口执行，不混入正常批次。当前操作入口、每步命令与生效裁决表见
+  [`审核操作指南`](docs/review-operations-guide.md)；编排脚本用法见
   [`tools/orchestration/README.md`](tools/orchestration/README.md)；历史阶段见
   [`项目路线图`](docs/project-roadmap.md)。已被取代的设计稿、阶段计划与一次性交接
   统一收在 [`deprecated/`](deprecated/README.md)，不作为任何操作依据。

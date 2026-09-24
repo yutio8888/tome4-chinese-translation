@@ -9,7 +9,7 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 | 文档 | 用途 |
 |---|---|
 | [`AGENTS.md`](../AGENTS.md) | 最高规则与硬约束，与其他文档冲突时以本文为准 |
-| [`baseline-batch-runbook-2026-09-06.md`](baseline-batch-runbook-2026-09-06.md) | **当前操作入口**：逐批命令顺序、生效裁决表、已知陷阱 |
+| [`review-operations-guide.md`](review-operations-guide.md) | **当前操作入口**：审核批次与合并修复窗口的命令顺序、裁决判据、生效裁决表、已知陷阱 |
 | [`../tools/orchestration/README.md`](../tools/orchestration/README.md) | 编排脚本清单与每批流程；哪些脚本已废弃 |
 | [`agent-workflow.md`](agent-workflow.md) | 工作流与验证矩阵；门禁触发条件 |
 | [`lessons-learned.md`](lessons-learned.md) | 实际踩过的操作陷阱，按需查询 |
@@ -30,7 +30,7 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 |---|---|
 | [`translation-production-review-v2-lite-plan.md`](translation-production-review-v2-lite-plan.md) | WP2-Lite 管线设计：catalog、队列、批次、证据与修复边界 |
 | [`runtime-key-collisions.md`](runtime-key-collisions.md) | 运行时键冲突的成因与门禁 `06-runtime-collision-scan` 的依据 |
-| [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口已移至 runbook |
+| [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见审核操作指南 |
 
 ## 四、已过时但仍被代码引用（**勿作操作依据**）
 
