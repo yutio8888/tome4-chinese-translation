@@ -1,0 +1,132 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=e9e8c3f53f3e9031c8e3b6b416347aa05cde6c0724c8a2c8c96a3ebb7e62cc6b；input_path=.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git rev-parse HEAD
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] rg "624a6732"
+[Shell] ls -la /workspace
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] git -C /workspace/t-engine4 status --short
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Shell] rg "Chant of Resistance"
+[Shell] rg -i "Chant of Resistance" terminology/
+[Shell] rg -i "Chant of" terminology/
+[Shell] find . -name "mod-tome.lua"
+[Shell] rg -n "Chant of Resistance" ./mod-tome.lua
+[Shell] sed -n '20980,21040p' ./mod-tome.lua
+[Shell] rg -n "doCure" /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Shell] rg -n "silence effects while you remain" /workspace/t-engine4/game/modules/tome/data/talents/celestial/circles.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/circles.lua
+[Shell] rg -i "newline" docs/
+[Shell] rg -n "newline" tools/
+[Read] tools/i18nlib/quality.py
+[Shell] rg -n '"newlines"' tools/i18nlib/
+[Shell] rg -n "silencing and dealing %d light damage" ./mod-tome.lua
+[Shell] sed -n '21045,21070p' ./mod-tome.lua
+[Shell] python3 -B tools/i18n doctor
+[Shell] python3 -B tools/i18n lint
+[Shell] rg -n "SANCTITY" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] rg -n "Infuse your weapon with the power of the Sun" /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Shell] rg -n "Infuse your weapon with the power of the Sun" ./mod-tome.lua
+[Shell] sed -n '21075,21115p' ./mod-tome.lua
+[Shell] git -C /workspace/t-engine4 log -p -n 1 -S "and set its duration to 2" game/modules/tome/data/talents/celestial/combat.lua
+[Shell] rg -n "Weapon of Wrath" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Shell] rg -n "Absorption Strike" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/celestial/crusader.lua
+[Shell] rg -n "Flash of the Blade" -A 50 /workspace/t-engine4/game/modules/tome/data/talents/celestial/crusader.lua
+[Shell] rg -n "Destabilize Glyphs" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/celestial/glyphs.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/glyphs.lua
+[Shell] rg -n "You cannot use Crusade without a shield" /workspace/t-engine4/game/modules/tome/data/talents/celestial/guardian.lua
+[Shell] rg -n "A magical zone of Sunlight appears" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/celestial/light.lua
+[Shell] rg -n "affinity" ./mod-tome.lua
+[Shell] rg -n "blindness resistance" ./mod-tome.lua
+[Shell] sed -n '25650,25660p' ./mod-tome.lua
+[Shell] rg -n "blindness" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '21475,21500p' ./mod-tome.lua
+[Shell] rg -n "Not enough space to summon" /workspace/t-engine4/game/modules/tome/data/talents/celestial/twilight.lua
+[Shell] rg -n "Not enough space to summon" ./mod-tome.lua
+[Shell] rg "Not enough space to summon" terminology/
+[Shell] rg "Not enough space to summon" /workspace/t-engine4/game/
+[Shell] rg -n "Fire an arrow for" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/bow-threading.lua
+[Shell] sed -n '60,110p' /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/bow-threading.lua
+[Shell] sed -n '30,60p' /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/bow-threading.lua
+[Shell] head -n 30 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/bow-threading.lua
+[Shell] rg "bow-threading" ./mod-tome.lua
+[Shell] rg -i "bow threading" ./mod-tome.lua
+[Shell] rg -n "Create a second shadow jumpgate" -A 20 /workspace/t-engine4/game/modules/tome/data/talents/celestial/twilight.lua
+[Shell] rg -n "Weave the threads of fate" -B 5 -A 10 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/chronomancer.lua
+[Shell] rg -n "Current Contingency Spell" -B 20 -A 10 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/chronomancy.lua
+[Shell] rg -n "Foresight" -A 30 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/chronomancy.lua
+[Shell] rg -n "Sends out a blast wave of gravity" -A 20 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/gravity.lua
+[Shell] rg -n "blind_immune" /workspace/t-engine4/game/modules/tome/
+[Shell] rg -n "doWardenWeaponSwap" /workspace/t-engine4/game/modules/tome/
+[Shell] git log -n 3 -S "melee hits will increase its power by %d once per turn" mod-tome.lua
+[Compacted]
+[Compacted]
+[Shell] cd /workspace/t-engine4 && git log -S "and set its duration to 2 (if not already higher)" game/modules/tome/data/talents/celestial/combat.lua
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print('Number of revisions:', len(data['revisions'])) for r in data['revisions...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print(list(data.keys())) for k, v in list(data.items())[:5]: print(k, type(v)) "
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print('payload keys:', list(data['payload'].keys())) workset = data['payload']...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] print('ordered_revision_keys count:', len(payload.ge...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] ts = payload.get('translation_snapshot', []) print('...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] print('contract:', payload.get('contract')) print('f...
+[Shell] python3 -c " with open('docs/paseo-translation-context-review-v2-contract.md') as f: text = f.read() import re sec6 = text[text.find('## 6.'):text.find('## 8.')] print(sec6[:3000]) "
+[Shell] grep -n "^#" docs/paseo-translation-context-review-v2-contract.md
+[Shell] sed -n '92,150p' docs/paseo-translation-context-review-v2-contract.md
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] keys = payload['ordered_revision_keys'] ts = payload...
+[Shell] rg -n "Chant of Fortress cures" -B 15 -A 25 /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Shell] sed -n '340,375p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Shell] rg -n "Chant of Resistance" ./mod-tome.lua
+[Shell] sed -n '50,110p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/circles.lua
+[Shell] sed -n '111,155p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/circles.lua
+[Shell] rg -n "SANCTITY" -A 25 /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] rg -n "Weapon of Light" -A 40 /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Shell] sed -n '105,125p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Shell] rg -n "Infuse your weapon with the power of the Sun" -A 10 ./mod-tome.lua
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] bc = payload.get('bounded_context', {}) print('bound...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] bc = payload.get('bounded_context') print(type(bc)) ...
+[Shell] rg -n "Your weapon attacks burn with righteous fury" -B 20 -A 20 /workspace/t-engine4/game/modules/tome/data/talents/celestial/crusader.lua
+[Shell] rg "burn with righteous fury" /workspace/t-engine4/
+[Shell] sed -n '200,260p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/combat.lua
+[Shell] rg -i "martyrdom" terminology/ ./mod-tome.lua
+[Shell] rg -n "You strike your foe with your two handed weapon" -B 15 -A 25 /workspace/t-engine4/game/modules/tome/data/talents/celestial/crusader.lua
+[Shell] sed -n '110,170p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/crusader.lua
+[Shell] rg -n "Destabilize your glyphs" -B 10 -A 35 /workspace/t-engine4/game/modules/tome/data/talents/celestial/glyphs.lua
+[Shell] rg -n "You cannot use Crusade without a shield!" /workspace/t-engine4/
+[Shell] sed -n '190,210p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/guardian.lua
+[Shell] sed -n '175,195p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/guardian.lua
+[Shell] rg -n '"Crusade"' ./mod-tome.lua
+[Shell] rg -n "A magical zone of Sunlight appears around you" -B 10 -A 25 /workspace/t-engine4/game/modules/tome/data/talents/celestial/light.lua
+[Shell] sed -n '30,75p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/light.lua
+[Shell] rg -n "HEALING_POWER" -A 35 /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] rg -i "blindness resistance" terminology/ ./mod-tome.lua
+[Shell] rg "目盲" terminology/
+[Shell] ls terminology/
+[Shell] rg "immunity" terminology/
+[Shell] rg "Blindness immunity" ./mod-tome.lua
+[Shell] rg "blindness resistance" -A 2 ./mod-tome.lua
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] bc = payload.get('bounded_context') for item in bc: ...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] ts = payload.get('terminology_snapshot', {}) print(t...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print(data['payload']['terminology_snapshot']) "
+[Shell] sed -n '21600,21620p' ./mod-tome.lua
+[Shell] grep -n -C 3 "Not enough space to summon" terminology/combat.tsv
+[Shell] rg -n "Bow Threading talents will freely swap" -B 20 -A 20 /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/bow-threading.lua
+[Shell] sed -n '330,360p' /workspace/t-engine4/game/modules/tome/data/talents/celestial/twilight.lua
+[Shell] rg -n "See the Threads" ./mod-tome.lua
+[Shell] sed -n '21900,21935p' ./mod-tome.lua
+[Shell] sed -n '50,110p' /workspace/t-engine4/game/modules/tome/data/talents/chronomancy/gravity.lua
+[Shell] git log -n 5 -S "Not enough space to summon"
+[Shell] python3 -B tools/i18n doctor
+[Shell] python3 -c " import json candidate_identity = 'e9e8c3f53f3e9031c8e3b6b416347aa05cde6c0724c8a2c8c96a3ebb7e62cc6b' with open('.ai/task/ctx2-pub-14a/CONTEXTUAL-ENVELOPE-full-01.json') as f: env = json...
+[Shell] python3 -B tools/paseo_contract_check.py
+{"contract":"translation_contextual_v2","candidate_identity":"e9e8c3f53f3e9031c8e3b6b416347aa05cde6c0724c8a2c8c96a3ebb7e62cc6b","verdicts":[{"revision_key":"entry-01509","verdict":"OK"},{"revision_key":"entry-01510","verdict":"OK"},{"revision_key":"entry-01512","verdict":"ISSUE","observation":"固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 下组件 tome 的公开源码 game/modules/tome/data/talents/celestial/combat.lua:97,109-112 中，Weapon of Light 的机制包含近战命中护盾时将其持续时间重置为至少 2 回合（shield.dur = math.max(2, shield.dur)），原版 info 源码已包含 Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.。条目 entry-01512 对应旧版文本，缺失护盾持续时间重置机制描述，且 mod-tome.lua:21100 存在包含该机制的有效同义条目。"},{"revision_key":"entry-01514","verdict":"OK"},{"revision_key":"entry-01516","verdict":"OK"},{"revision_key":"entry-01517","verdict":"OK"},{"revision_key":"entry-01518","verdict":"OK"},{"revision_key":"entry-01528","verdict":"OK"},{"revision_key":"entry-01531","verdict":"OK"},{"revision_key":"entry-01534","verdict":"OK"},{"revision_key":"entry-01536","verdict":"OK"},{"revision_key":"entry-01543","verdict":"OK"},{"revision_key":"entry-01554","verdict":"OK"},{"revision_key":"entry-01544","verdict":"OK"},{"revision_key":"entry-01557","verdict":"OK"},{"revision_key":"entry-01563","verdict":"OK"},{"revision_key":"entry-01565","verdict":"OK"},{"revision_key":"entry-01576","verdict":"OK"}]}

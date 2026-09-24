@@ -1,0 +1,181 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=92682a4f1c55a84dc9bd4f63738aeab5bced5b0ca199c249e64f68b96aa6e59e；input_path=.ai/task/ctx2-pub-25a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-25a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Beginning the review process by examining the provided revisions in the specified order. The goal is to analyze the changes introduced within these revisions in the context of the provided input data and contract sections. The candidate identity is tracked to ensure appropriate context.
+[Shell] git rev-parse --show-toplevel
+[Read] i18n/manifest.json
+[Shell] find . -maxdepth 3 -not -path '*/.*'
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la ../t-engine4
+[Shell] find /home/paseo -name "*t-engine4*" 2>/dev/null
+[Shell] ls -la /workspace
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] Initial investigation suggests a potential conflict or misconfiguration related to context handling within the translation process, as outlined in the provided documentation. Further examination of the code is needed to pinpoint the exact location and nature of the issue. The goal is to identify how context is being managed and if there are any discrepancies in its application.
+[Shell] grep -n -C 5 "lifeline is being severed" /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Shell] grep -n -C 10 "Improves senses\|#Target# prepares\|re-opened a cursed wound\|losing one physical effect turn" /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Thought] Beginning a detailed examination of each of the 18 revisions. Will cross-reference translation snapshots (source vs. target), the fixed source code, the terminology snapshot, and general mechanics. The goal is a comprehensive understanding of each revision's specific impact.
+
+
+Entry 02747 analysis indicates the translation preserves the placeholder and accurately reflects the original meaning, including correct handling of punctuation. The source code confirms the phrase's usage and associated effect details. This translation appears accurate and consistent with neighboring entries.
+
+
+Investigating the translation of "Shroud of Weakness," the source text uses "a shroud" while the code defines the effect explicitly. The Chinese translation "虚弱帷幕" is being examined for contextual appropriateness in relation to "SHROUD_OF_WEAKNESS," given other shroud effects utilize different phrasing. Confirmed placeholder and parenthesis translation consistency, but the core terminology correspondence needs further scrutiny.
+
+
+Analyzing entry-02763, the translation includes placeholders and formatting codes that need to be verified for accurate rendering, paying attention to the context and placeholders usage and formatting consistency。The terminology snapshot suggests a potential issue with "damage" translation that needs verification in this entry's context, but will defer judgment until the complete analysis of all entries is complete。 The target translation seems to have a missing portion at the end, will check to see if that needs to be copied。
+
+
+Examining the effect description reveals a tiered system with increasing power levels, each tied to a specific "intensity." It seems the structure utilizes placeholders for dynamic values based on these intensity levels. The code defines the "long_desc" function which generates the detailed effect description based on the effect level.
+
+```
+
+The code generates a description for an effect with tiered levels, incorporating dynamic values. Placeholders are used to insert these dynamic values for chance, radius, and damage based on effect intensity. Analysis of the format specifiers indicates that `%d` is used for integer values, `%s` for strings, and `%+d` for signed integers. The function uses `tformat` to construct the final description string with these placeholders.
+
+
+The code utilizes level-based intensity to determine effect parameters like damage and chance, employing placeholders for dynamic insertion within the description. Placeholder mappings are being cross-referenced between source and target language descriptions.  The phrase "summon Terrors" in the source needs clarification, as "Terrors" may be a specific game mechanic or entity.
+
+```
+[Shell] grep -i "terror" terminology/creatures.tsv
+[Shell] grep -i "terror" terminology/*.tsv
+[Shell] grep -n '"terror"' mod-tome.lua
+[Read] mod-tome.lua
+[Shell] grep -n -C 5 "Horrible visions fill your mind" mod-tome.lua
+[Error] Provider retry (attempt 1): 500: {"code":500,"message":"Internal error encountered.","status":"INTERNAL"}
+[Error] Provider retry (attempt 2): 503: {"message":"auth_unavailable: no auth available (providers=antigravity, model=gemini-3.8-flash-high; last upstream error: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n})","type":"server_error","code":"internal_server_error"}
+[Read] mod-tome.lua
+[Thought] **Analyzing Nightmare's Curse**
+
+I'm currently delving into the specifics of `CURSE_OF_NIGHTMARES` Power 4+, focusing on its underlying mechanism. I'm examining the LUA script in `game/modules/tome/data/timed_effects/other.lua`, specifically lines 1559-1657. I'm trying to figure out how this implementation brings to life its "terror" effect on NPCs by analyzing its properties.
+
+
+**Dissecting Terror's Mechanics**
+
+I've examined the visual and descriptive elements associated with the nightmare effect. I am finding that the LUA script utilizes a combination of damage over time and NPC summoning to inflict terror. The code invokes a visual shader, specifically `darkness_effect.png`. Furthermore, there is also a secondary function on hit, calling on the combatMindpower() of the source to determine the damage of the attack.
+[Shell] grep -n -C 25 "NIGHTMARE" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Thought] The "NIGHTMARE" damage type is defined with associated effects of speed reduction, mind damage, and darkness damage. This damage type is then applied by a specific talent/curse effect called "Nightmare", creating a field of a certain radius. Inside this nightmare field, additional entities are spawned.
+[Shell] grep -i "evasion" terminology/*.tsv
+[Shell] grep -n -C 15 "Missplaced Endeavours\|Missed Opportunities" mod-tome.lua
+[Shell] grep -n -C 20 "Curse of Nightmares" mod-tome.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/cursed/cursed-aura.lua
+[Shell] grep -n -C 5 "his_her" /workspace/t-engine4/game/engines/default/modules/boot/class/Actor.lua 2>/dev/null || grep -rn "his_her" /workspace/t-engine4/game/ 2>/dev/null | head -n 20
+[Shell] sed -n '935,960p' /workspace/t-engine4/game/engines/default/engine/utils.lua
+[Shell] grep -n 't("his"' mod-tome.lua; grep -n 't("her"' mod-tome.lua; grep -n 't("its"' mod-tome.lua
+[Shell] grep -E 't\("(his|its)"' mod-tome.lua
+[Shell] grep -n -C 3 "shares damage with %s" mod-tome.lua
+[Shell] grep -rn "EFF_CURSED_WOUND" /workspace/t-engine4/game/modules/tome/
+[Thought] The effect application confirms that `self` within `CURSED_WOUND` refers to the target (victim). This is crucial context for understanding the English log message. The English log string "%s has re-opened a cursed wound!" uses the victim's name (capitalized). This aligns the context and confirms the interpretation of the code.
+
+
+The translator's choice of `"%s的诅咒伤口再次裂开！"` is correct; a literal translation could誤lead to misinterpretation of `%s` as the attacker. The original translation accurately reflects that the target's cursed wound re-opened. Terminology confirms that "Cursed Wound" is the effect name, and "创伤" (chuāngshāng) accurately represents "wound" in this context.
+
+
+The inconsistency in the "cursed wound" translation merits investigation; other instances within the same effect consistently use "诅咒创伤." Terminology defines "wound" as "创伤," confirming the preferred translation. The translation should be reviewed to determine if "伤口" in this specific case is intentional. Focusing on entry-02849, the translation `"每回合"` for `"each turn."` appears correct. Analysis will continue to see how `"each turn."` is used in the codebase.
+
+
+The English template indicates `ravaged` determines the suffix for physical damage, describing the ongoing effect of "distortion." Analyzing the Chinese translation reveals `%s`'s placement *before* the damage description in the template. When the effect is active, the value of `ravaged` is prepended to the damage string, thus creating a grammatically correct sentence in Chinese by including the clause '每回合失去一个物理效果并' before the numerical damage. This confirms the correct interpretation and application of the `%s` format specifier.
+[Shell] grep -n -C 5 "The target is being ravaged by distortion" mod-tome.lua
+[Thought] Analyzing the Lua code, the `tformat` function with the argument reordering `{2,1}` swaps the positions of the damage value and the "ravaged" string in the localized output. When `eff.ravage` is false, the "ravaged" string is "each turn," which, upon reordering, results in it appearing after the damage value in the translated message.
+
+
+The localization strategy appears deliberate: "每回合" avoids a period, allowing insertion into the parameterized sentence structure. This avoids unintended punctuation when combined with the damage string. The design ensures proper sentence construction in both cases with and without the "ravaged" effect.
+
+
+The new entries provide further evidence of localized string variations and game mechanics. The first shows a direct translation of an event. The second describes a debuff effect on the target's damage output. Finally, the third entry lists a series of effects triggered by specific power levels in the localized format.
+
+
+Examining the new entries, the first describes a retaliatory attack triggered by an enemy. The second entry shows a localized string comparing how an action is translated. The final entry details a cascading set of effects, triggered by power level, translating damage and debuff effects.
+
+
+Analyzing new entries reveals further details on game mechanics and localized string implementations. The first describes a damage increase if it results in a kill. The subsequent entries detail zone-wide effects, a suffocation mechanic, a resurrection event, shared damage, and environmental effects influencing stats such as magic, accuracy, and resistances.
+
+
+Zone effects are clearly defined, impacting resistances and inflicting damage types such as cold, nature, and lightning. Some effects include negative states. Other entries detail enhancements to perception and event text formatting, like enemy preparations and the re-opening of cursed wounds. The localization process continues, with direct string translations and parameter insertion.
+
+
+Analyzing `entry-02763`, the English text uses "summon Terrors," while the translation uses "召唤梦魇". The code indicates the summoned entity is a "Terror," with the translation of "terror" as "暗夜恐魔" or "恐魔." Further analysis suggests "Nightmare" might be an appropriate name. The difference requires reconciliation, as the translation may not be precisely reflecting the game's internal mechanics and terminology.
+
+
+The translation of "summon Terrors" as "召唤梦魇" seems incorrect; "召唤恐魔" or a similar term for "Terror" is likely more accurate, avoiding confusion with "Nightmare." The code reveals three probabilistic effects: slow, Mind damage, and Darkness damage, each with a 10% chance per turn. The Chinese translation incorrectly implies the damage is guaranteed.
+
+
+The Chinese translation in `entry-02763` incorrectly describes damage as guaranteed, contradicting the 10% chance mechanic. Further investigation reveals discrepancies in Power 4+ descriptions, which reinforce the issue.
+
+Additional review of `entry-02763` highlights a potential space issue in the Penalty description, but it's minor. A subsequent check, focusing on term translation, examines "cursed wound" in `entry-02846` and compares its translation to terminology data.
+
+
+The timed effect "CURSED_WOUND" consistently translates "wound" as "创伤," except in the merge log message where it's translated as "伤口." This violates a Level 1 terminology rule. The subject of the merge log, the target, is correctly identified in the English and Chinese versions. The inconsistency in term translation constitutes a terminology issue, which can be reopened at any cycle.
+
+
+Entry `02846` violates consistency by using "伤口" instead of "创伤," contradicting both the surrounding entries and the terminology rule (wound => 创伤).  Entry `02759` is correct, where "虚弱帷幕" accurately reflects "Shroud of Weakness," the specific effect name.
+
+
+Examined the effect description: "If the increased damage would kill the opponent, the damage is increased by %d%." Analyzed the terminology, ensuring correct term mappings for "Cunning," "Luck," "traps," "evasion," "Unfortunate End," "Missed Opportunities," "Missplaced Endeavours," and "Lost Fortune." Verified all placeholders. Found no errors. The terminology match is correct.
+
+
+The target uses "空气值" which is correct for "Air". Confirmed "震慑免疫" (stun immunity), "火焰伤害" (fire damage), and "寒冷伤害" (cold damage) are accurate translations.  The engine code confirms "stun resistance" corresponds to "stun immunity" (震慑免疫).  The translation is consistent with code. Further investigation will be performed on candidate entry F, `entry-02807`.
+
+
+The lightning damage bonus and stun immunity translation are accurate, confirmed by the game code. The colloquial phrasing "可以看到看不到的东西" in candidate G is semantically correct ("can see unseen things"). Examining the code confirms its function: detecting actors, objects, and traps.
+
+
+Examined candidate H, `entry-02830`: String translation "#Target# prepares %s!" to "#Target#正在做准备（%s）！" utilizes a standard template, incorporating dynamic parameters based on game state, which is a common pattern in this project. No issues detected.
+
+Analyzed candidate I, `entry-02849`: The English phrase "each turn." is correctly translated to "每回合" in code. This is consistent with earlier analysis of similar localized strings, and is properly integrated into the larger sentence structure. This entry also appears correct.
+
+
+Examining the effect string `"each turn."`, the intentional lack of a period in "每回合" prevents unintended sentence termination after parameter reordering. This confirms the localization's correct implementation for this case.
+
+Re-evaluating the entries, `entry-02763` is flagged as an issue due to discrepancies in the "summon Terrors" to "召唤梦魇" translation. The summoned entity's internal name is "terror," leading to potential inconsistency. The translation incorrectly describes damage as guaranteed.
+
+Reviewing `entry-02763` reveals a translation that might not accurately represent the intended effect; the code confirms probabilistic effects (slow, Mind damage, Darkness damage). The Power 4+ descriptions are discrepant.
+
+Further review of translations shows "cursed wound" in `entry-02846` inconsistent, with "wound" translated as "伤口" in the merge log instead of the standard "创伤". Entry `02759` is confirmed correct.
+
+
+Entry `02763`'s translation of "summon Terrors" as "召唤梦魇" is likely inaccurate; it could conflict with a zone effect named "Nightmare". The Chinese translation misrepresents probabilistic damage as guaranteed. Also, the term "cursed wound" in `02846` is inconsistently translated as "伤口" instead of "创伤" in one context. All other reviewed entries, including `02747` and `02759`, are correct. The analysis of entry 2763 indicates that all effects are probabilistically triggered. The translation's Power 4+ description introduces a space that should be removed. Entry `02764`, `entry-02765`, `entry-02775`, `entry-02789`, `entry-02790`, `entry-02791`, `entry-02798`, `entry-02801`, `entry-02805`, `entry-02806`, `entry-02807`, `entry-02828`, `entry-02830`, `entry-02846`, and `entry-02849` were checked and found to be fine, or marked as needing additional context.
+
+
+Entry `02764` reveals terminology and mechanic issues in the translation. The summoned entity "Terror" is mistranslated as "Nightmare," conflicting with a zone effect.  The translated damage description incorrectly states guaranteed damage instead of probabilistic.
+
+
+
+Examining `entry-02765`, the translation appears correct; terminology such as "Lost Fortune", "Missplaced Endeavours", and effects on Luck, Cunning, evasion, and "Unfortunate End" are accurately translated.
+
+Entry `02775` is a straightforward translation of a zone-wide effect; all terms and percentage values are accurately rendered.
+
+
+Analyzing `entry-02789`, the translation accurately reflects the source's meaning, describing increasing life loss due to suffocation. The translation of `entry-02790` is accurate, describing a resurrection event. `Entry-02791` is correctly localized, conveying shared damage with clones.
+
+`Entry-02798` precisely translates a zone-wide effect impacting magic, mana, accuracy, and stealth. `Entry-02801` accurately details a zone effect related to air depletion, stun resistance, fire damage, and cold damage. `Entry-02805` correctly translates another zone-wide effect, impacting resistances to fire, arcane, and blight.
+[Shell] grep -n 't("Evasion"' mod-tome.lua; grep -n 't("evasion"' mod-tome.lua
+[Thought] The presence of both "闪避" and "躲闪" under the umbrella of "Evasion" is noted, and the absence of "evasion" in the snapshot explains why "躲闪概率" is valid.
+
+A potential issue needs further examination. Entry 11, specifically `entry-02801`, requires review; the description of zone-wide effects impacting air, stun resistance, and damage needs to be analyzed.
+
+
+The code accurately reflects the text describing effects: stun immunity, cold damage increase, and fire damage reduction. Entry 12's translation of "power" to "火焰" (fire) appears potentially poetic; "力量" (power) or similar might be more precise, although "魔法大爆炸的火焰仍在燃烧" (the fire of the Spellblaze still burns) is also acceptable.
+
+
+Analysis focuses on identifying potential semantic or mechanistic translation errors. Entries `entry-02828`, `entry-02830`, and `entry-02849` appear correct, involving colloquial language, template usage, and basic time-based translations respectively. The "Spellblaze burns the Charred Scar" statement is a narrative translation and not a mechanistic error. Two potential issues remain: `entry-02763` and `entry-02846`. Section 7 requirements mandate component and source path information for identified issues; these are for the `tome` component.
+
+
+Examining `entry-02763`, the translation of "summon Terrors" as "召唤梦魇" is misleading, as it conflates the summoned entity "npcTerror" with the area effect "Nightmare". Additionally, DamageType.NIGHTMARE's probabilistic nature ("chances to slow...") is incorrectly translated as a guaranteed effect.
+
+`entry-02846` requires correction. The "cursed wound" within the timed effect CURSED_WOUND is mistranslated as "诅咒伤口" (cursed wound) in the on_merge message, which deviates from the consistent use of "诅咒创伤" (cursed wound) for this effect.
+[Shell] python3 -B -c " import json from tools.contextual_result_check import * print('imported successfully') "
+[Read] tools/contextual_result_check.py
+[Read] tools/contextual_result_check.py
+[Thought] **Analyzing JSON Encoding**
+
+I'm currently focused on line 179 within `tools/contextual_result_check.py`. Specifically, I'm examining how the `validated` object is being converted into a compact JSON string. I'm noting the use of `ensure_ascii=False`, `separators=(",", ":")`, and `allow_nan=False` and their implications for the output. I'm also considering the final encoding to UTF-8.
+[Shell] python3 -B -c ' import json from pathlib import Path from tools.contextual_result_check import validate_result_bytes env_bytes = Path(".ai/task/ctx2-pub-25a/CONTEXTUAL-ENVELOPE-full-01.json").read_...
+[Shell] git status --short
+{"contract":"translation_contextual_v2","candidate_identity":"92682a4f1c55a84dc9bd4f63738aeab5bced5b0ca199c249e64f68b96aa6e59e","verdicts":[{"revision_key":"entry-02747","verdict":"OK"},{"revision_key":"entry-02759","verdict":"OK"},{"revision_key":"entry-02763","verdict":"ISSUE","observation":"固定源码依据：组件 tome，路径 game/modules/tome/data/timed_effects/other.lua:1494-1625 与 game/modules/tome/data/damage_types.lua:3485-3505，固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。1) 机制与实体关系：CURSE_OF_NIGHTMARES 的 Power 4+ 召唤的实体为 npcTerror（name=\"terror\"，desc=\"A formless terror that seems to cut through the air...\"，对应实体译名“恐魔”），译文将 \"summon Terrors\" 译为“召唤梦魇”，与触发的区域效果名 Nightmare（噩梦）混淆。2) 机制偏差：DamageType.NIGHTMARE 的 projector 中精神伤害、暗影伤害与减速均为每回合独立概率触发（if rng.chance(10) then ...），对应原文 \"chances to slow, deal %d Mind damage, and deal %d Darkness damage\"；译文作“直接造成%d精神、%d暗影伤害”，将概率触发机制误译为必定直接造成伤害。"},{"revision_key":"entry-02764","verdict":"OK"},{"revision_key":"entry-02765","verdict":"OK"},{"revision_key":"entry-02775","verdict":"OK"},{"revision_key":"entry-02789","verdict":"OK"},{"revision_key":"entry-02790","verdict":"OK"},{"revision_key":"entry-02791","verdict":"OK"},{"revision_key":"entry-02798","verdict":"OK"},{"revision_key":"entry-02801","verdict":"OK"},{"revision_key":"entry-02805","verdict":"OK"},{"revision_key":"entry-02806","verdict":"OK"},{"revision_key":"entry-02807","verdict":"OK"},{"revision_key":"entry-02828","verdict":"OK"},{"revision_key":"entry-02830","verdict":"OK"},{"revision_key":"entry-02846","verdict":"ISSUE","observation":"固定源码依据：组件 tome，路径 game/modules/tome/data/timed_effects/physical.lua:2096-2114，固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63。术语与同条效果一致性：timed effect CURSED_WOUND 的 subtype 为 wound（术语快照明确规定 wound => 创伤 [T.GAME.EFFECT/effect subtype/existing/global]），效果名 Cursed Wound 及同效果 on_gain/on_lose 邻近译文均统一译为“诅咒创伤”（如“#Target#的诅咒创伤消失。”、“-诅咒创伤”）；此处 on_merge 日志将 \"cursed wound\" 译为“诅咒伤口”，偏离术语快照规范且与同状态效果其他提示文本不一致。"},{"revision_key":"entry-02849","verdict":"OK"}]}

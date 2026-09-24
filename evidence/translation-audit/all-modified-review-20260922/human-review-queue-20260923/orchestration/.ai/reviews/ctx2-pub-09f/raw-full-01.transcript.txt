@@ -1,0 +1,33 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=269fbb89a8c2e904f0edcfb639b498ae82fac582c2d948883835086cd15b2f4f；input_path=.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print('identity:', data.get('candidate_identity')) payload = data.get('payload...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] print('rendered_briefing:', payload.get('rendered_br...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) snap = data['payload']['translation_snapshot'][0] print('source:') print(snap[...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print(data['payload'].get('rendered_briefing')) "
+[Shell] git rev-parse --verify 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git show -s 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] python3 -c " import json with open('i18n/manifest.json') as f: m = json.load(f) print('manifest:', m) "
+[Shell] find . -maxdepth 3 -name "*manifest*"
+[Shell] find . -maxdepth 3 -name "elvala.lua"
+[Shell] find . -name "*elvala*"
+[Shell] git status
+[Shell] rg "624a67329fe2ad440c5b344785a9c73fcf22ae63"
+[Shell] ls -ld /workspace/t-engine4
+[Shell] git -C /workspace/t-engine4 rev-parse --verify 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/elvala.lua | grep -n "Chapter Six" -A 100
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) snap = data['payload']['translation_snapshot'][0] src = snap['source'] tgt = s...
+[Shell] grep -rn "Naloren" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "healing grounds" /workspace/t-engine4/
+[Shell] find . -name "mod-tome.lua"
+[Shell] grep -n "Chapter Six: A Changed Eyal" ./mod-tome.lua
+[Shell] sed -n '15165,15240p' ./mod-tome.lua
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-09f/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) snap = data['payload']['terminology_snapshot'] print('farportal' in snap) for ...
+[Shell] python3 -c ' import json candidate_identity = "269fbb89a8c2e904f0edcfb639b498ae82fac582c2d948883835086cd15b2f4f" rev_key = "entry-01223" obs = "组件：tome；公开源码路径：game/modules/tome/data/lore/elvala.lua...
+{"contract":"translation_contextual_v2","candidate_identity":"269fbb89a8c2e904f0edcfb639b498ae82fac582c2d948883835086cd15b2f4f","verdicts":[{"revision_key":"entry-01223","verdict":"ISSUE","observation":"组件：tome；公开源码路径：game/modules/tome/data/lore/elvala.lua；固定commit：624a67329fe2ad440c5b344785a9c73fcf22ae63；证据行范围：358-400。存在多处语义偏差与漏译：1) 第358-359行“giving her water during brief periods of waking”明确指在莱娜尼尔短暂清醒的间隙喂水，译文遗漏清醒间隙条件且错译为“不断给她水”，与重伤昏迷语境矛盾；2) 第362行“gave her to the doctors with the strictest instructions”为对医生下达最严厉嘱咐，被误译为“让最好的治疗师给她治疗”；3) 第400行“a bath of blood to wash over my sins”意为“一场冲刷我罪孽的血浴”，译文将wash over曲解为“那是我所犯下的罪恶的血雨”，扭曲了主人公借血浴洗刷罪愆的心理语义；4) 第380行“said he could not fight back”被过度脑补意译为“说他绝不会伤害自己的人民”。"}]}
+[Compacted]
+[Compacted]

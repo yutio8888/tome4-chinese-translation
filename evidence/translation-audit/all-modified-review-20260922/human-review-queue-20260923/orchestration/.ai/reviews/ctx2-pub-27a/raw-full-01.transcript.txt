@@ -1,0 +1,146 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=56da3a25213934aac299e1b1bdde6aaff9e0ae70480c9decd2fe2579e01cf703；input_path=.ai/task/ctx2-pub-27a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] Reviewing the input for potential issues related to semantics, mechanisms, terminology, relationships, or cross-item consistency. The task mandates a "OK" judgment unless evidence supports a flaw within the provided data. Considering the specified documentation for further guidance.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-27a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Candidate identity and contract details are present; there's a list of revision keys from a translation contract. The goal is to understand the context of this input. Proceeding to examine the contents associated with the revision keys.
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 --oneline
+[Thought] **Locating The Source**
+
+I'm now focusing on locating the source code repository. I'm exploring the `i18n/manifest.json` file and considering directory/manifest lookups as a method. I'm also considering `ls` as a basic check.
+[Shell] ls -la
+[Read] i18n/manifest.json
+[Shell] ls -la i18n
+[Shell] ls -la i18n/versions /home/paseo
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la /home/paseo/imports
+[Shell] find /home/paseo -name ".git" -type d 2>/dev/null
+[Read] .git
+[Shell] ls -la /workspace
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD && git -C /workspace/t-engine4 cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] **Analyzing Revision Keys Meticulously**
+
+I've checked out `/workspace/t-engine4` at commit `624a67329fe2ad440c5b344785a9c73fcf22ae63` and am meticulously reviewing the `ordered_revision_keys`. My focus is now on meticulously examining each of the 18 entries, and I plan to thoroughly check their respective source, target, context, source code, and terminology to understand how they all relate to each other.
+
+
+**Examining Cross-Entry Consistency**
+
+I'm now focusing on the cross-entry consistency within Group 1, particularly those entries where "Swordsmith" is the source. I'm carefully comparing the section, source tag, target, and even the terminology snapshot, especially the one present in entry-03112, to see if they hold the same standard and translation across these different town locations: Derth, Elvala, Irkkk, and Point-Zero. I'm looking for any discrepancies.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/town-derth/traps.lua \ 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/t...
+[Shell] grep -rn "Swordsmith" terminology/
+[Shell] grep -n -C 3 "Swordsmith" mod-tome.lua
+[Shell] grep -rn "Swordsmith" *.lua
+[Shell] git log -n 5 -p -S "Swordsmith" -- mod-tome.lua terminology/places.tsv
+[Thought] Analyzing the terminology snapshot, the entry for "Swordsmith" consistently translates to "铸剑铺" (Zhùjiànpù) across several entries. This suggests "铸剑铺" is a key term representing "Swordsmith" in this game context. Considering "con" translates to "体质", looking for more associations to refine this understanding.
+
+
+The "Swordsmith" entry now shows a discrepancy: it's translated as "长剑铁匠铺," but other instances consistently use "铸剑铺." Reviewing the broader context, the "铸剑铺" translation seems to be the correct one based on multiple consistent entries. This suggests an inconsistency that needs clarification and potentially correction in the terminology snapshot.
+[Shell] git -C /workspace/t-engine4 grep -rn "SWORD_WEAPON" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 sed -n '74,90p' game/modules/tome/data/general/stores/basic.lua
+[Shell] git -C /workspace/t-engine4 show HEAD:game/modules/tome/data/general/stores/basic.lua | sed -n '74,90p'
+[Shell] git log -p -n 3 -- terminology/places.tsv
+[Shell] git log -n 3 -p -L 40266,40266:mod-tome.lua
+[Thought] **Examining The Code**
+
+Okay, I've dug into that specific commit, `d1e089039f0b0abd84498ec25d12f7e2abe1442e`. It appears the Lua file `town-kroshkkur/traps.lua` defines a "Swordsmith" by name. The key part is that the name is followed by `resolvers.store("SWORD_WEAPON", ...)`. This confirms it's establishing a shop specifically selling swords.
+[Read] TERMINOLOGY.md
+[Thought] **Analyzing Terminology Status**
+
+I'm now focusing on the terminology workflow outlined in the documentation. I understand the importance of progressing terms from "existing" to "review" and finally to "preferred" status. I recognize the crucial point that unreviewed existing translations should not be automatically considered final. I must account for discrepancies between translation, terminology, review comments, or even the surface meaning of the English that describes game mechanics.
+
+
+**Verifying Code Accuracy**
+
+I'm now diving into the source code to validate the accuracy of specific terminology entries. For the term "Swordsmith" ("铸剑铺"), the code confirms its meaning covers both greatswords and longswords, making the existing translation accurate. The related entries (`entry-03112`, `entry-03114`, `entry-03122`, `entry-03137`, `entry-03139`) are all consistent and, importantly, correct. Next I'll be checking `entry-03118` and `entry-03129`.
+[Shell] git -C /workspace/t-engine4 grep -n -C 25 'define_as = "POTION"' game/modules/tome/data/general/stores/basic.lua && git -C /workspace/t-engine4 grep -n -C 25 'define_as = "GATES_POTION"' game/modul...
+[Shell] grep -rn "infusion" terminology/
+[Shell] grep -rn "Sarah's Herbal Infusions" *.lua
+[Thought] Observed that `萨拉的草药浸剂店` is consistently used as the translation for `Sarah's Herbal Infusions` across multiple entries, specifically `entry-03118` and `entry-03129`. This consistency confirms the established translation, with no contradictory entries or terminology issues. Proceeding to analyze `entry-03149`.
+[Shell] git -C /workspace/t-engine4 show HEAD:game/modules/tome/data/zones/tutorial-combat-stats/grids.lua
+[Shell] grep -n -C 5 "Rune of Enlightenment: Shove" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -rn "T_TUTORIAL_PHYS_KB" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 grep -rn "TUTORIAL_PHYS_KB" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show HEAD:game/modules/tome/data/talents/misc/tutorial.lua | head -n 40
+[Shell] grep -n -C 5 't("Shove"' mod-tome.lua
+[Thought] The key translation for "Shove" is confirmed as "击退攻击" based on line 26994. Both the talent description and the learned talent message consistently use this translation. This is separate from the rune item translation, indicating a distinct naming convention.
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "ruled by King Tolak" game/modules/tome/data/zones/wilderness/grids.lua
+[Shell] grep -n -C 5 "ruled by King Tolak" mod-tome.lua
+[Shell] grep -rn "Tolak" terminology/ mod-tome.lua
+[Thought] Analyzing Farportal descriptions from the specified locations to understand their structure and content. The goal is to identify patterns or inconsistencies within these entries. The focus is on finding any potential relevance to the current task.
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "A farportal is a way to travel" \ game/modules/tome/data/zones/charred-scar/grids.lua \ game/modules/tome/data/zones/eruan/grids.lua \ game/modules/tome/da...
+[Shell] sed -n '38720,38740p' mod-tome.lua
+[Shell] sed -n '38715,38730p' mod-tome.lua
+[Shell] grep -rn "Last Hope" terminology/
+[Shell] grep -rn "最后的希望城" mod-tome.lua
+[Thought] Investigating the possibility of a "Farportal" destination within `town-gates-of-morning/grids.lua`, specifically targeting "Farportal: 最后的希望城". The description indicates it's a method of long-distance travel, typically requiring an external item. This warrants further investigation into the item necessary for activation.
+
+
+The code confirms the farportal leads to the outskirts of Last Hope. The initial assessment is accurate: the portal goes near Last Hope. Re-examining related code blocks reveals similar descriptions, suggesting they function as long-distance transportation. The space before the target destination in other instances is notable.
+[Shell] python3 -B tools/i18n lint mod-tome.lua
+[Shell] python3 -B tools/i18n lint --help
+[Shell] python3 -B tools/i18n lint --component tome
+[Thought] The code passes linting, indicating no immediate syntax or style issues. The next step involves understanding the reviewer's instructions, specifically the criteria for identifying potential inconsistencies or errors within the provided input file, focusing on semantic and relational aspects.
+
+
+```json
+{
+  "revisions": [
+    {
+      "entry_id": "entry-03112",
+      "identity": "OK",
+      "details": "The translation 'Swordsmith' to '铸剑铺' is consistent with the established terminology snapshot entry: 'Swordsmith => 长剑铁匠铺'. The context indicates that the swordsmith sells related weapon, which is semantically appropriate. No identified inconsistencies."
+    }
+  ]
+}
+```
+
+Reviewing the `terminology_snapshot` reveals an entry for "Swordsmith => 长剑铁匠铺."  This indicates a pre-approved translation, relevant to the "铸剑铺" suggestion in the revision. The snapshot details the context as a town shop entity, confirming the translation's validity based on the provided data.
+
+
+The generated `terminology_snapshot` reflects a low-priority "existing" term, "长剑铁匠铺," which is not a preferred translation.  Commit `624a67329fe2ad440c5b344785a9c73fcf22ae63` confirms that "铸剑铺" is mechanistically and semantically correct, as the shop sells all types of swords, not just longswords. Entries 03112, 03114, 03122, 03137, and 03139 are therefore confirmed as acceptable.  Now checking the Farportal entries for any further review needs.
+[Shell] git -C /workspace/t-engine4 show HEAD:game/modules/tome/data/zones/shertul-fortress/grids.lua | sed -n '110,160p'
+[Thought] The code generates random zones for exploration. The phrase "it is made for exploring [specific location]" could be a semantic addition. However, it explores random zones within Eyal or random planes, not just the [specific location], so the initial translation is overly specific. The broader implication is the zone's purpose: exploration.
+
+
+A potential unwarranted addition ("增译") is suspected, requiring verification against the task contract. Analyzing "farportal" entries reveals inconsistent newline formatting. Specifically, entries 12 and 13 contain a leading space after the newline character, while entries 11, 14, and 15 do not.
+[Shell] git log -n 10 --oneline
+[Shell] git show --stat 1c18b947
+[Shell] git show 1c18b947
+[Shell] grep -rn -C 2 "空格" docs/
+[Shell] git log -S "farportal" --oneline
+[Shell] git show c863eebb
+[Thought] Examining commit `c863eebb`, which corresponds to scope-17. The revision keys within the envelope reveal nine distinct modifications within the scope. It's likely these revisions contain the changes related to the current issue.
+
+
+The commit unifies the translation of "farportal" to "远行传送门". Each scope-17 entry will be evaluated to verify the unified translation. Reviewing `scope17:mod-tome.lua:38072` confirms the update; the old translation split the concept.
+[Shell] git log -S "它只是用来探索异度空间的" -p mod-tome.lua
+[Shell] git log -n 5 -L 39719,39727:mod-tome.lua
+[Thought] Examining the commit history reveals the initial translation of "Exploratory Farportal" as "异度传送门" and its description. Further, the history reflects an update to "探索用远古传送门". This indicates a possible refinement in the terminology or a change in the understanding of the concept.
+
+
+The description "它只是用来探索异度空间的" aligns perfectly with the game's mechanics of the Sher'tul Exploratory Farportal, which sends players to explore randomly generated pocket dimensions. It is consistent with the lore and is semantically correct, as verified by examining multiple code entries. Therefore, there is no issue based on this consistency analysis.
+
+
+The translation for the farportal description is semantically accurate, matching the game's concept of instantaneous travel requiring external items. The translation includes the preferred term for Maj'Eyal and the correct town name, 'Last Hope'. Further verification confirms the consistency of this translation with related game entries.
+
+
+These translations consistently describe farportals as mechanisms for instantaneous travel across vast distances, often requiring external components for activation. The ambiguity regarding their two-way nature is also accurately reflected. Several destinations are indicated, suggesting this is a system for diverse location access.
+
+
+Several farportal translations accurately describe the ability to traverse vast distances instantly, often requiring an external component, with uncertainty regarding two-way travel. Some portals are described with unknown destinations, which introduces an element of risk, and suggests exploration is the intended use of some portals. It appears one type is meant specifically for exploration of uncharted dimensions.
+
+
+The initial translation's potential location mismatch is noted. Further investigation reveals a farportal's purpose for exploration, its connection to the Sher'tul race, and the potential for a return portal with an uncertain location. Another entry mentions a farportal's potential destination near a specific town, indicating diverse usage and mechanics. This prompts a re-evaluation of the translation against the defined contract requirements.
+
+
+The current verdict structure must adhere to strict rules: the root object contains exactly three keys ("contract", "candidate_identity", "verdicts"), with the "verdicts" key holding an array of verdict objects. Each verdict object must contain either "OK" and its "revision_key" or "ISSUE", its "revision_key", and a non-empty "observation". The number of verdict objects must match the frozen keys in the "verdicts" array. The use of any additional fields is forbidden. This structure ensures a defined format for representing audit results.
+[Shell] python3 -B -c ' import json keys = [ "entry-03112", "entry-03114", "entry-03118", "entry-03122", "entry-03129", "entry-03137", "entry-03139", "entry-03149", "entry-03167", "scope17:mod-tome.lua:380...
+[Shell] python3 -B tools/paseo_contract_check.py
+[Shell] grep -rn "translation_contextual_v2" tools/
+[Shell] python3 -B -c ' import json import sys from tools.contextual_result_check import validate_contextual_result keys = [ "entry-03112", "entry-03114", "entry-03118", "entry-03122", "entry-03129", "entr...
+[Shell] grep -E "^def " tools/contextual_result_check.py
+[Shell] python3 -B -c ' import json from tools.contextual_result_check import validate_result_bytes keys = [ "entry-03112", "entry-03114", "entry-03118", "entry-03122", "entry-03129", "entry-03137", "entry...
+[Shell] python3 -B -c ' import json envelope = json.load(open(".ai/task/ctx2-pub-27a/CONTEXTUAL-ENVELOPE-full-01.json")) keys = envelope["payload"]["ordered_revision_keys"] candidate_identity = envelope["c...
+{"contract":"translation_contextual_v2","candidate_identity":"56da3a25213934aac299e1b1bdde6aaff9e0ae70480c9decd2fe2579e01cf703","verdicts":[{"revision_key":"entry-03112","verdict":"OK"},{"revision_key":"entry-03114","verdict":"OK"},{"revision_key":"entry-03118","verdict":"OK"},{"revision_key":"entry-03122","verdict":"OK"},{"revision_key":"entry-03129","verdict":"OK"},{"revision_key":"entry-03137","verdict":"OK"},{"revision_key":"entry-03139","verdict":"OK"},{"revision_key":"entry-03149","verdict":"OK"},{"revision_key":"entry-03167","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38072","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38486","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38725","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38730","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38735","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:39362","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:39720","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:39793","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:40331","verdict":"OK"}]}

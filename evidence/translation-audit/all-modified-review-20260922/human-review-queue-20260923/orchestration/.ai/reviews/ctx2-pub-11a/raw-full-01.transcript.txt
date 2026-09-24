@@ -1,0 +1,52 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7；input_path=.ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("Candidate identity in file:", data.get("candidat...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("Rendered briefing:\n",...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("=== Rendered Briefing ...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("=== Rendered Briefing ...
+[Shell] git show -s 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git remote -v
+[Shell] find . -maxdepth 3 -name "*manifest*" -o -name "*tome*"
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] git -C ../t-engine4 rev-parse HEAD
+[Shell] env | grep -i -E "tome|engine"
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] git -C /workspace/t-engine4 grep -n "Eyal was raised" game/modules/tome/data/lore/misc.lua
+[Shell] git -C /workspace/t-engine4 grep -n "newLore" game/modules/tome/data/lore/misc.lua
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: content = f.read() import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json") as f: en...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = json.load(f) e = env["payload"]["translation_snapshot"][0] print("SOURCE:\n" + e["source"]) ...
+[Shell] git -C /workspace/t-engine4 grep -i "Time of Balance" game/
+[Shell] python3 -c ' with open("docs/agent-workflow.md") as f: text = f.read() # search for "一级" or "二级" or "fidelity" import re for m in re.finditer(r"(一级|二级|fidelity|completeness)", text): start = max(0,...
+[Shell] git -C /workspace/t-engine4 grep -i "holder of our world" game/
+[Shell] grep -rn "holder of our world" .
+[Shell] git -C /workspace/t-engine4 grep -i "Age of Allure" game/
+[Shell] git -C /workspace/t-engine4 grep -i "Aranion" game/
+[Shell] grep -rn "Thalore" terminology/
+[Shell] git -C /workspace/t-engine4 grep -rn "moons-human" game/
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: lines = f.readlines() for i in range(235, 275): print(lines[i], end="") '
+[Shell] python3 -B tools/paseo_contract_check.py
+[Shell] find . -name "*review*"
+[Compacted]
+[Compacted]
+[Read] tests/i18n/fixtures/paseo_state_v2/contextual_v2/review-lane-1.json
+[Read] tests/i18n/fixtures/paseo_state_v2/contextual_v2/review-final-full.json
+[Shell] python3 -c ' with open("docs/paseo-translation-context-review-v2-contract.md") as f: text = f.read() import re m = re.search(r"## 6\..*?(?=## 8\.|$)", text, re.DOTALL) if m: print(m.group(0)) '
+[Shell] grep "^#" docs/paseo-translation-context-review-v2-contract.md
+[Shell] python3 -c ' with open("docs/paseo-translation-context-review-v2-contract.md") as f: text = f.read() import re m = re.search(r"## 六、.*", text, re.DOTALL) if m: print(m.group(0)) '
+[Shell] python3 -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7", "verdicts": [ {"revision_key": "...
+[Shell] python3 -c ' from tools.i18nlib import * import importlib for modname in ["review", "translation_review", "production_review_v2_lite"]: try: mod = importlib.import_module("tools.i18nlib." + modname...
+[Shell] git grep "translation_contextual_v2" tools/
+[Shell] python3 -c ' import subprocess, json data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7", "verdicts": [ {"revi...
+[Shell] python3 -c ' import json from tools.contextual_result_check import validate_result_bytes data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c...
+[Shell] python3 -c ' with open("tools/contextual_result_check.py") as f: lines = f.readlines() for i in range(160, 185): print(lines[i], end="") '
+[Shell] python3 -c ' import json from tools.contextual_result_check import validate_result_bytes data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c...
+[Shell] python3 -B tools/contextual_result_check.py --help
+[Shell] python3 -c ' import json, subprocess data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7", "verdicts": [ {"revi...
+[Shell] python3 -c ' with open("tools/contextual_result_check.py") as f: text = f.read() import re m = re.search(r"def main.*", text, re.DOTALL) if m: print(m.group(0)) '
+[Shell] python3 -c ' import json, tempfile, subprocess data = { "contract": "translation_contextual_v2", "candidate_identity": "f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7", "verdicts"...
+[Shell] git status --short
+{"contract":"translation_contextual_v2","candidate_identity":"f9e2e8ea0972801c14bc3ac75e1c21b543c38ef1ad616877888289b6caaa22b7","verdicts":[{"revision_key":"entry-01283","verdict":"OK"},{"revision_key":"entry-01286","verdict":"OK"},{"revision_key":"entry-01290","verdict":"OK"},{"revision_key":"entry-01292","verdict":"OK"},{"revision_key":"entry-01294","verdict":"OK"},{"revision_key":"entry-01296","verdict":"OK"},{"revision_key":"entry-01298","verdict":"OK"}]}

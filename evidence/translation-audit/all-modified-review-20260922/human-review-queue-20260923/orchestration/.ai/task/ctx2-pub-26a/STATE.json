@@ -6,12 +6,12 @@
  "review_contracts": [
   "translation_contextual_v2"
  ],
- "state": "REVIEW",
+ "state": "DONE",
  "review_phase": "REVIEW",
- "pending_review_contracts": [
+ "pending_review_contracts": [],
+ "completed_review_contracts": [
   "translation_contextual_v2"
  ],
- "completed_review_contracts": [],
  "cycle": 0,
  "max_cycles": 3,
  "workspace_id": "wks_ac28b30c4bf45d5b",
@@ -23,15 +23,42 @@
   "copies_dir": null
  },
  "candidate_author_agent_id": null,
- "child_dispatches": [],
+ "child_dispatches": [
+  {
+   "dispatch_id": "full-01",
+   "agent_id": "bcd7509b-ac31-4d28-ad35-b94d9cebeb10",
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v2",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "eb0f2a87-8369-4e5b-b953-63159b37061b",
+   "lineage_verified": true,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
+   "provider_requested": "pi/cpa/gemini-3.8-flash-high",
+   "candidate_identity": "1063b9fb87757640ee0795cb7ef1d030a00789d99519522e364054ac21fbc168",
+   "input_path": ".ai/task/ctx2-pub-26a/CONTEXTUAL-ENVELOPE-full-01.json",
+   "labels": {
+    "task_id": "ctx2-pub-26a",
+    "role": "reviewer",
+    "purpose": "translation_contextual_v2",
+    "candidate_identity": "1063b9fb87757640ee0795cb7ef1d030a00789d99519522e364054ac21fbc168",
+    "dispatch_id": "full-01"
+   },
+   "record_path": ".ai/reviews/ctx2-pub-26a/full-01.json",
+   "verdict": "completed_valid_v2_record"
+  }
+ ],
  "open_accepted_findings": [],
  "deferred_findings": [],
- "review_records": [],
+ "review_records": [
+  ".ai/reviews/ctx2-pub-26a/full-01.json"
+ ],
  "senior_review_records": [],
- "final_validation_passed": false,
+ "final_validation_passed": true,
  "wait": null,
  "last_error": null,
- "updated_at": "2026-09-24T00:00:00+00:00",
+ "updated_at": "2026-09-24T16:26:06+00:00",
  "run_origin": {
   "parent_task": "human-review-adjudication-20260923",
   "run": "PUBLIC (engine/boot/tome)",
@@ -50,7 +77,9 @@
    "candidate_identity": "1063b9fb87757640ee0795cb7ef1d030a00789d99519522e364054ac21fbc168",
    "dispatch_id": "full-01",
    "input_path": ".ai/task/ctx2-pub-26a/CONTEXTUAL-ENVELOPE-full-01.json",
-   "agent_id": null
+   "agent_id": "bcd7509b-ac31-4d28-ad35-b94d9cebeb10"
   }
- ]
+ ],
+ "findings_artifact": "evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/CONTEXTUAL-V2-FINDINGS-ALL.json",
+ "findings_note": "review_only run: accepted findings are consolidated in the findings artifact and fixed by the parent task"
 }

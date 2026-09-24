@@ -1,0 +1,228 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=d51a9e682b5e41543ec803e1350df0d809c6d7364f1b47d2c0c408177f004901；input_path=.ai/task/ctx2-pub-19a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Error] Provider retry (attempt 1): 503: {"code":503,"message":"No capacity available for model gemini-3.8-flash-high on the server","status":"UNAVAILABLE","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"MODEL_CAPACITY_EXHAUSTED","domain":"cloudcode-pa.googleapis.com","metadata":{"model":"gemini-3.8-flash-high","OVERLOADED_TOO_MANY_RETRIES_PER_REQUEST":"true","error_number":"2010"}}]}
+[Error] Provider retry (attempt 2): 503: {"code":503,"message":"No capacity available for model gemini-3.8-flash-high on the server","status":"UNAVAILABLE","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"MODEL_CAPACITY_EXHAUSTED","domain":"cloudcode-pa.googleapis.com","metadata":{"error_number":"2010","model":"gemini-3.8-flash-high","OVERLOADED_TOO_MANY_RETRIES_PER_REQUEST":"true"}}]}
+[Thought] I'm thinking through how to approach this.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] Examining the contract and expected output. Revision r1 appears acceptable. Revision r2 indicates a confirmed issue due to it being non-empty and having evidence of a problem.
+[Read] .ai/task/ctx2-pub-19a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] ls -la
+[Read] i18n/manifest.json
+[Shell] ls -la i18n
+[Shell] ls -la i18n/versions
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la ../t-engine4
+[Shell] echo "TOME_ENGINE_ROOT=$TOME_ENGINE_ROOT"; find /home/paseo -name "focus.lua" 2>/dev/null
+[Shell] ls -la /workspace/t-engine4
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] git -C /workspace/t-engine4 status --porcelain
+[Thought] I'm thinking through how to approach this.
+[Shell] grep -n -C 10 "Focus energies into a beam" /workspace/t-engine4/game/modules/tome/data/talents/psionic/focus.lua
+[Shell] sed -n '20,55p' /workspace/t-engine4/game/modules/tome/data/talents/psionic/focus.lua
+[Shell] grep -n -C 5 "EFF_OFFBALANCE" /workspace/t-engine4/game/modules/tome/data/timed_effects/mental.lua
+[Shell] grep -rn "EFF_OFFBALANCE" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] grep -rn "OFFBALANCE" /workspace/t-engine4/game/
+[Shell] sed -n '1945,1970p' /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Shell] grep -rn "damage penalty" mod-tome.lua
+[Shell] sed -n '27410,27420p' mod-tome.lua
+[Thought] The source text describes a physical attack with a knockback effect and damage scaling with a specific attribute. The target text appears to be a translation of the source. Checking to confirm the translation accurately conveys the damage type, knockback duration, and damage scaling.
+[Shell] grep -n -C 20 "art of energy projection grows" /workspace/t-engine4/game/modules/tome/data/talents/psionic/mental-discipline.lua
+[Thought] Examining the translation snapshot for entries 02109 and 02110 reveals information regarding energy projection expertise. The source text describes aura cooldown reduction and slower energy drain for aura damage, while the target contains only the first line of the source text, "你在能量投射技艺上的专长提升了。" ("Your expertise in the art of energy projection grows."). This indicates a possible truncation or incomplete translation.
+
+
+The context for entry 02109 contains a more comprehensive source text describing both aura and shield effects. Entry 02110 is identical to a portion of the source from entry 02109, implying a possible data discrepancy. Investigating if both entries are meant to reflect the same information but with different scopes is important.
+[Shell] grep -n -C 10 "energy" /workspace/t-engine4/game/modules/tome/data/talents/psionic/absorption.lua
+[Thought] Shield absorption converts damage to Psi energy, gaining one Psi point and additional points based on damage absorbed, up to a turn limit. Aura Discipline reduces cooldowns and makes aura damage drain energy more slowly, strengthening energy projection. These mechanics suggest a system that rewards damage mitigation and enhances energy management for offensive abilities.
+[Shell] grep -rn "absorption" mod-tome.lua | head -n 30
+[Thought] Analyzing `entry-02109` and `entry-02110` reveals format specifiers. Both entries use `%d` for integer values (likely turns) and `%0.2f` for floating-point numbers (representing a damage adjustment). This confirms the expected data types for cooldown reductions and energy drain modifications.
+
+
+Investigating the target translations, "energy projection" becomes "能量投射" (nengliang toushe), and "energy absorption" is "灵能值吸收" (lingneng zhi xishou). The "art of" phrase appears to map to "技艺上的专长" (jiyi shang de zhuanzhang) in the context of skill improvement. The phrase "drains energy more slowly" in the source is equivalent to "消耗灵能值变得更慢" (xiaohao lingneng zhi biande gengman) in the target translation. Therefore the target translations appear accurate.
+
+
+The Chinese translation for "art of energy absorption" seems inconsistent with "energy projection." Investigating further, the parallel English phrases "Your expertise in the art of..." are confirmed by examining the Chinese translations. The phrase "护盾额外增加灵能值所需伤害值减少" appears to be describing a reduction in the damage absorption needed to gain energy as governed by `shieldMastery` in the code. The `shieldMastery` function determines the damage required for an additional Psi point, starting at a base of 100 which `Shield Discipline` mastery reduces.
+[Shell] grep -n -C 20 "Clears your mind of current mental effects" /workspace/t-engine4/game/modules/tome/data/talents/psionic/mentalism.lua
+[Shell] sed -n '85,127p' /workspace/t-engine4/game/modules/tome/data/talents/psionic/mentalism.lua
+[Shell] grep -n -C 15 "EFF_CLEAR_MIND" /workspace/t-engine4/game/modules/tome/data/timed_effects/mental.lua
+[Shell] grep -rn "CLEAR_MIND" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] sed -n '2190,2225p' /workspace/t-engine4/game/modules/tome/data/timed_effects/mental.lua
+[Thought] The source text describes a mechanism that removes existing mental effects and prevents new ones for a duration. The target text seems to offer an equivalent description in another language. Observing that "%d" represents the placeholder for a numerical value that specifies how many mental effects can be affected is important. The English version clarifies that the numerical value impacts the total number of mental states that are altered, clearing old ones and blocking new ones.
+
+
+"净化你当前所有的精神状态" (clears all current mental effects) appears to be a misleading translation because the code clarifies the ability only clears a limited number, not all, effects. The translation "净化你当前的精神状态" (clears your current mental effects) might be more accurate if the intent is to clear at most a specified amount. The term "所有的" ("all") creates a contradiction with the stated limitation, so further review of the translation is necessary, beginning with examining other similar entries to assess if this is an isolated instance.
+[Shell] grep -n -C 20 "ghost" /workspace/t-engine4/game/modules/tome/data/talents/psionic/mentalism.lua
+[Shell] grep -rn "is_psychic_projection" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '485,505p' /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Thought] The code condition checks if the target's subtype is "ghost". The terminology snapshot confirms that "ghost" translates to "幽灵" within the game's entity subtype definitions. The envelope entry specifies the ability to damage "ghost" type monsters, further confirming the "ghost" subtype's relevance.
+[Shell] grep -rn 't("ghost", ' mod-tome.lua
+[Thought] The term "ghost" is consistently `幽灵`. The translation in `entry-02115` uses `“鬼魂”类怪物` for "ghosts," which appears to be a terminology violation. Checking for other potential issues within entry-02115.
+
+
+Examining the phrase "through an active mind link," the translation "激活一种精神通道" requires closer scrutiny. The source text suggests a sustained or activated state for "Mind Link." The adjacent translation confirms "Mind Link" as "精神通道." The target translation needs to reflect this nuance, considering formatting in the overall sentence structure and the intent of "active."
+
+
+The added line "注：后一种情况下只能造成精神伤害" appears redundant, as the preceding sentence already specifies mind damage. The translation for "power" should also be assessed. "Invisible (+%d power)" translates to "隐形状态（+%d 强度）," and "can see invisible and stealthed creatures (+%d detection power)" translates to "并且可以看到隐形和潜行单位（+%d 侦查强度）".
+
+
+Confirmed terminology violation for "ghost" to `幽灵`. Proceeding to examine `entry-02125`.
+
+Investigating the source and target in `entry-02125` for consistency and accuracy. Comparing the source description of a telekinetically-wielded weapon to the target translation to ensure accurate representation of combat stats and attribute substitution.
+[Shell] grep -n -C 25 "The telekinetically-wielded ranged weapon" /workspace/t-engine4/game/modules/tome/data/talents/psionic/other.lua
+[Shell] grep -rn "use_psi_combat" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '1370,1400p' /workspace/t-engine4/game/modules/tome/class/interface/Combat.lua
+[Shell] sed -n '1655,1675p' /workspace/t-engine4/game/modules/tome/class/interface/Combat.lua
+[Thought] Dexterity typically dictates Accuracy in combat calculations, but the presence of a specific flag alters this; Cunning then becomes the Accuracy determinant. Similarly, damage calculation normally relies on Strength and Dexterity; however, this flag causes Willpower to replace Strength and Cunning to replace Dexterity in the damage formula.
+
+
+Accuracy calculation uses Cunning, not Dexterity, based on the code and a discrepancy in the English description of the ranged weapon. The English description for the melee weapon presents the correct order for determining damage and accuracy. This suggests an error in the ranged weapon description.
+
+
+The code indicates that Cunning is used for Accuracy when the specific flag is active. Examination of weapon damage modifiers confirms that Willpower replaces Strength and Cunning replaces Dexterity for damage calculation. The original English description appears to have inverted the roles of Accuracy and damage.
+
+
+The Chinese translation reflects the code's behavior:  Willpower and Cunning *do* replace Strength and Dexterity respectively, determining Accuracy and damage.  Examined the combat stats format confirms a match in terminology (命中, 护甲穿透, 暴击率, 攻击速度).  Further review focuses on verifying "Range" equivalence. The initial suspicion of an inaccuracy due to the description order, has been confirmed after checking the translation.
+
+
+Reviewing the documentation reveals a rule prioritizes source code over conflicting English descriptions regarding game mechanics. The English description uses "respectively," indicating Willpower influences Accuracy, and Cunning, damage. However, the game mechanics code explicitly confirms Willpower impacts DAMAGE, and Cunning dictates ACCURACY. The melee weapon description mirrors the accurate mechanics.
+
+
+The ranged weapon description incorrectly states that Willpower determines Accuracy and Cunning determines damage; the correct mechanics are inverted. The Chinese translation mirrors this error.  Analyzing entry-02125 reveals the error is a mechanism issue, likely propagated from the English source. To confirm the extent of the issue, other entries will be checked.
+
+
+Examining the third line of the source and target reveals discrepancies depending on whether a conventional weapon or a gem/crystal is equipped in the psionic slot. The source specifies an added lightning damage bonus to weapon hits for conventional weapons. The target describes the bonus applying to adjacent enemies if a gem or crystal is equipped. The target's text appears more complete, including the gem/crystal case.
+
+
+Examining the new text with the context entry, the source specifies added lightning damage for weapon hits when a conventional weapon is equipped. The adjacent translation similarly describes an effect when a weapon is equipped, confirming the translation's correctness regarding this specific scenario. The context entry also contains gem/mindstar related logic.
+
+
+The discrepancy between "每次命中" (per hit) and "每次攻击" (per attack) in aura descriptions warrants investigation. The code confirms the aura effect triggers only on a successful hit. This suggests the translation "每次攻击" is inaccurate, as the aura should only apply on hits. The English source uses "per hit," which aligns with the code.
+[Shell] grep -rn "EFF_DAZED" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] grep -n -C 5 'name = "DAZED"' /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Shell] grep -rn 't("Dazed", ' mod-tome.lua
+[Shell] grep -n -C 20 "Fills the air around you with crackling energy" /workspace/t-engine4/game/modules/tome/data/talents/psionic/projection.lua
+[Thought] Placeholder analysis confirms specific data types are used within the format string. Identified the placeholders and corresponding data type assignments: floating-point numbers (`%0.1f`) for damage and mastery values, and integers (`%d`) for spike cost and number values.
+
+Determined data type alignment between placeholders and provided values to confirm correct data formatting in a specific output string.
+[Shell] grep -n -C 10 "Nothing exists outside" /workspace/t-engine4/game/modules/tome/data/talents/psionic/psionic.lua
+[Thought] The code defines a "psionic/solipsism" talent. The description provided, "Nothing exists outside the mind's ability to perceive it," encapsulates the core philosophical concept of solipsism. It implies that only one's own mind is sure to exist, and that external reality is either unknown or dependent on perception. This is equivalent to saying, "In the absence of a perceiving mind, nothing exists."
+
+
+The Chinese translation drastically misrepresents the solipsistic concept. The original phrase describes existence dependent on perception, while the translation implies an all-encompassing psionic awareness, creating a semantic error. Examining a different talent, I need to analyze how its dream-based mechanics might interact.
+[Shell] grep -n -C 25 "Enter a sleeping target's dreams" /workspace/t-engine4/game/modules/tome/data/talents/psionic/slumber.lua
+[Shell] grep -n -C 20 "EFF_DREAMSCAPE" /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Shell] sed -n '2100,2140p' /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Shell] sed -n '2141,2180p' /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Shell] sed -n '2181,2210p' /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Thought] The code indicates that upon the Dreamscape's conclusion, the target's health is reduced proportionally to the number of destroyed projections. Specifically, each destroyed projection inflicts a 10% health reduction on the target. Furthermore, the target receives a brainlocked effect for a duration corresponding to the number of destroyed projections.
+
+
+Each destroyed projection from the Dreamscape inflicts 10% damage and a 1-turn brainlocked effect. The brainlocked duration stacks per projection destroyed; therefore, 3 kills result in 3 turns of brainlock. No issues were found with the previous entry's mechanics or terminology, and the placeholders align correctly.
+[Shell] grep -n -C 25 "You believe that your mind is the center of everything" /workspace/t-engine4/game/modules/tome/data/talents/psionic/solipsism.lua
+[Shell] sed -n '120,140p' /workspace/t-engine4/game/modules/tome/data/talents/psionic/solipsism.lua
+[Shell] sed -n '160,195p' /workspace/t-engine4/game/modules/tome/data/talents/psionic/solipsism.lua
+[Thought] Analyzing three entries reveals a consistent pattern: the initial talent point investment modifies stat gains. Specifically, investing the first point increases Psi from Willpower by a specific value while concurrently decreasing life gained from Constitution by another value. This suggests a trade-off mechanic tied to talent point allocation.
+
+
+The observed pattern extends beyond the initial talent point. Entry 02149 introduces a permanent stat modification: increased Psi gain per level accompanied by a life rating reduction. This suggests a broader mechanic where character attributes can be permanently altered, with the described talent point investment being one specific instance.
+
+
+
+Analyzing the placeholders in entry 02149, identified variables represent damage conversion to Psi, healing/regeneration to Psi, and Psi damage reduction. The system uses a multi-layered reduction system, applying percentage-based reductions to incoming damage conversion. The solipsism threshold, linked to global speed reduction dependent on Psi level, suggests a dynamic stat balancing mechanic.
+[Shell] grep -n -C 20 "You draw constant power from the souls" /workspace/t-engine4/game/modules/tome/data/talents/spells/animus.lua
+[Shell] grep -n -C 10 "getResists = function" /workspace/t-engine4/game/modules/tome/data/talents/spells/animus.lua
+[Thought] Resistance values in ToME are percentages, with "5" representing 5%. The English text uses "increased by %d.", while the Chinese uses "增加 %d%%." The addition of "%%" might be a deliberate clarification of the unit. Considering Lua's `tformat`, the extra "%%" in resistance translations should be checked for format string errors, but might be valid.
+[Shell] grep -rn "all your resistances are increased by" /workspace/t-engine4/game/modules/tome/
+[Thought] Investigating terminology inconsistencies within `entry-02181`, specifically "mana regeneration," "spellpower," and "resistances." Noticed a potential discrepancy with "resistances" needing further clarification. Expanding the review to include `entry-02187` and `entry-02189` to establish consistency.
+
+
+Comparing `entry-02187` and `entry-02189`, the key difference lies in the initial teleport range; one specifies "small" and the other "large." The core mechanics, and level-based enhancements appear identical. The minimum range for random teleports needs to be validated against how "large" and "small" are defined contextually.
+[Shell] grep -n -C 25 "Teleports you randomly within a small range" /workspace/t-engine4/game/modules/tome/data/talents/spells/conveyance.lua
+[Shell] sed -n '188,235p' /workspace/t-engine4/game/modules/tome/data/talents/spells/conveyance.lua
+[Shell] sed -n '236,270p' /workspace/t-engine4/game/modules/tome/data/talents/spells/conveyance.lua
+[Shell] sed -n '271,285p' /workspace/t-engine4/game/modules/tome/data/talents/spells/conveyance.lua
+[Thought] The ability teleports randomly within a small range, increasing with Spellpower. At higher levels, creature selection and area targeting become available. If the target area is out of sight, the teleport might fail and become random.
+
+
+Examining the translation of "minimum range" as "最小半径" (minimum radius). Confirming that a random teleport involves a distance between a minimum and maximum range, making "最小半径" a more accurate term for the inner radius of the annulus. The concept is consistent with how the teleport function handles random destinations.
+[Shell] grep -n -C 20 "When you hit a solid surface" /workspace/t-engine4/game/modules/tome/data/talents/spells/conveyance.lua
+[Thought] The previous entry successfully mapped the number formatting in the source code to the target output. Now, examining the subsequent entry to ensure consistent formatting handling across different contexts, specifically within the module related to death spells.
+[Shell] grep -n -C 25 "Press your advantage" /workspace/t-engine4/game/modules/tome/data/talents/spells/death.lua
+[Thought] Placeholder format verification suggests successful argument matching. Terminology cross-check confirms: `frostdusk` maps to `霜暮`, `global speed` maps to `全局速度`, and `Spellpower` maps to `法术强度`.
+
+
+Investigating potential issues in `entry-02192`, focusing on the translation's nuance. Initial concern over "痛楚" for "crumble" clarified as idiomatic. Examining the second sentence, the phrase "每个负面效果持续 1 回合" requires careful interpretation: it represents that each negative effect adds one turn to the speed reduction, capped by the maximum turns stated. Now I'll check entry-02207.
+[Shell] grep -n -C 25 "Infuse your body with lightning energy" /workspace/t-engine4/game/modules/tome/data/talents/spells/energy-alchemy.lua
+[Shell] sed -n '150,185p' /workspace/t-engine4/game/modules/tome/data/talents/spells/energy-alchemy.lua
+[Shell] grep -rn "of a turn" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '28625,28640p' /workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua
+[Shell] grep -n -C 10 "Infuse your body with lightning energy" mod-tome.lua
+[Shell] grep -rn "of a turn" mod-tome.lua
+[Shell] sed -n '21203,21215p' mod-tome.lua
+[Shell] sed -n '22475,22485p' mod-tome.lua
+[Shell] sed -n '30030,30040p' mod-tome.lua
+[Shell] sed -n '30404,30415p' mod-tome.lua
+[Thought] Identified a repeated string translation. This indicates a potential consistency issue across different entries. Proceeding with a detailed inspection of all eighteen entries to ensure uniformity and accuracy in translation. Reviewing the prompt requirements for clarity before commencing the audit.
+
+
+I'm thinking through how to approach this.
+
+
+The first entry translation appears correct, with accurate mapping of terms and formatting. Analyzing the second entry reveals a reduction in aura cooldowns and slower energy drain for aura damage, both of which are correctly translated.
+
+
+
+Investigating the "energy" term, it maps to "灵能值 (Psi)" in the game's core resource system. The original "energy drain" is correctly translated as "消耗灵能值" and "lose a point of energy" translates as "消耗每点灵能值", ensuring accuracy. The final translation reflects the intent that increasing mastery leads to a slower rate of psi depletion.
+[Shell] grep -n -C 5 'type="psionic/absorption"' /workspace/t-engine4/game/modules/tome/data/talents/psionic/psionic.lua
+[Thought] Initial assessment suggests "absorption" and "projection" are distinct psionic abilities, each linked to specific talents. These talents, in turn, are influenced by corresponding disciplines: Shield Discipline enhancing "absorption" and Aura Discipline enhancing "projection." The relationship between talents and disciplines appears to be direct and clearly defined within the code.
+
+
+The phrase "Clears your mind of current mental effects" appears to be mistranslated in the target text. The source code reveals that the ability does *not* clear all effects; it removes a maximum number of effects based on a calculated count. The translation of "current mental effects" to "所有的精神状态" (all mental states) is inaccurate, as the implementation does not guarantee removal of all effects. This discrepancy contradicts the phrase "最多一共（净化和免疫）能影响 %d 种精神状态" (at most %d mental effects will be affected) that follows.
+
+
+Analysis of item 5 identified an issue. The translation uses "鬼魂" for the entity subtype "ghost", contradicting the established terminology "幽灵" throughout the game code. This inconsistency will lead to confusion for players. Item 6's translation erroneously asserts Willpower determines Accuracy and Cunning determines damage, which conflicts with game mechanics. It should be reported as an issue, considering the established rule. Item 7 contains a translation that does not trigger energy cost or damage reduction on a missed attack, creating a cross-talent and mechanical inaccuracy. Item 8's translation of the "solipsism" talent tree description grossly mistranslates the philosophical concept, altering its meaning. Items 9, 10, 11, 12, 13, 14, and 15 are verified and deemed OK.
+
+
+Confirmed: Items 02113, 02115, 02125, and 02128 have identified translation issues. Item 02141 also presents a severe issue regarding semantic distortion.
+
+*   **entry-02113**: The translation "净化你当前所有的精神状态" (purifies all mental effects) contradicts the mechanic that a maximum number of effects is cleared. `game/modules/tome/data/talents/psionic/mentalism.lua:105-125` demonstrates that the skill does not clear all effects if there is a cap.
+
+*   **entry-02115**: The translation uses "鬼魂" (ghost) instead of the established terminology "幽灵" (ghost). Additionally, the translated text adds an unwarranted newline, alters the paragraph structure, and misrepresents "through an active mind link."
+
+*   **entry-02125**: The translation incorrectly states that Willpower determines Accuracy and Cunning determines damage, contradicting the mechanic in `game/modules/tome/class/interface/Combat.lua:1394,1660`, where Cunning determines Accuracy, and Willpower affects damage. The English source has an error that is carried over.
+
+*   **entry-02128**: The phrase "每次攻击" (each attack) incorrectly implies the lightning damage and energy cost is applied on every attack rather than weapon hits only, contradicting the mechanic in `game/modules/tome/class/interface/Combat.lua:961`.
+
+*   **entry-02141**: The translation "没有任何事物能逃脱精神力量的感知" (nothing can escape the detection of psionic power) misrepresents the philosophical concept of solipsism as a sensory ability. This alteration of the original meaning is critical.
+
+
+The analysis of entry-02128 reveals an issue: the translation uses "each attack" where "each weapon hit" is required, causing a functional and mechanical inaccuracy regarding damage and energy cost. The translation of entry-02141 incorrectly interprets the philosophical concept of solipsism as a form of detection. The remaining entries have been reviewed and verified as correct.
+
+
+The phrase "净化你当前所有的精神状态" (purifies all mental states) is inaccurate. The code prioritizes removing detrimental mental effects, but is capped by a skill-level defined `count`, contradicting the implication of clearing "all" effects. This is a translation issue needing correction.
+
+The initial translation does not specify that the ability targets *negative* mental effects, although the code implementation does, and it uses `t.getRemoveCount` to set the maximum. Thus the current translation misrepresents the game mechanic.
+
+
+The previous translation erroneously claims the ability removes *all* mental effects, misrepresenting the mechanic. The ability is capped at a set `count` and targets *negative* effects. Moreover, adding "all" to the phrase "current mental effects" is a distortion.
+
+Analysis of entry-02115 found multiple translation errors:  the term "ghost" is translated as "鬼魂" instead of "幽灵", paragraph structure is altered, and "through an active mind link" is misrepresented as an action instead of a state.
+
+Analysis of entry-02125 reveals the translation inverts the mechanics, incorrectly stating that Willpower determines Accuracy and Cunning determines damage.
+
+
+Combat mechanics are inconsistent: Cunning determines ranged attack accuracy (Combat.lua:1394) and Willpower affects damage (Combat.lua:1660) with psi combat, contradicting the translation stating Willpower determines accuracy and Cunning determines damage. The incorrect English source is mirrored in the translation (other.lua:312).
+
+The translation in entry-02128 has a functional discrepancy; The energy cost and damage from the aura should trigger on weapon hits (Combat.lua:961), but are translated to imply trigger on all attacks, creating a functional error. The original English is correct.
+
+
+The translation of entry-02128 incorrectly generalizes "weapon hits" to "each attack", leading to a functional error, where the translated text causes unintended energy consumption and damage calculation every attack rather than each weapon hit, which is a key mechanical change. Entry-02141's translation radically alters the meaning of "solipsism," misinterpreting the philosophical concept as a sensory ability instead of representing a core philosophical concept. All entries have been double checked and match the expected total.
+[Shell] python3 -B -c ' import json candidate_identity = "d51a9e682b5e41543ec803e1350df0d809c6d7364f1b47d2c0c408177f004901" with open(".ai/task/ctx2-pub-19a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = j...
+[Shell] python3 -B tools/paseo_contract_check.py
+[Shell] ls tools/
+[Shell] python3 -B tools/contextual_result_check.py --help
+[Shell] python3 -B -c ' import json, subprocess candidate_identity = "d51a9e682b5e41543ec803e1350df0d809c6d7364f1b47d2c0c408177f004901" envelope_path = ".ai/task/ctx2-pub-19a/CONTEXTUAL-ENVELOPE-full-01.js...
+[Shell] rm -f /tmp/test_raw.txt
+[Shell] git status --short
+{"contract":"translation_contextual_v2","candidate_identity":"d51a9e682b5e41543ec803e1350df0d809c6d7364f1b47d2c0c408177f004901","verdicts":[{"revision_key":"entry-02107","verdict":"OK"},{"revision_key":"entry-02109","verdict":"OK"},{"revision_key":"entry-02110","verdict":"OK"},{"revision_key":"entry-02113","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/talents/psionic/mentalism.lua:105-121,128-130; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。技能依据 getRemoveCount(self, t) 判定总影响上限 count（最多 %d 种），优先净化当前负面精神状态，循环最多执行 count 次，剩余配额转化为护盾 EFF_CLEAR_MIND。若当前负面状态数超过 %d，超出部分不会被净化。原译文擅自添加“所有的”译为“净化你当前所有的精神状态”，既脱离英文原文（current mental effects 无 all），又与技能配额上限机制及后文“最多一共能影响 %d 种”产生实质事实冲突与误导。"},{"revision_key":"entry-02115","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/talents/psionic/mentalism.lua:224-228，game/modules/tome/data/damage_types.lua:489; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。1. 术语违规：冻结术语快照规定 ghost 实体子类型译为“幽灵”（ghost => 幽灵 [T.GAME.ENTITY/entity subtype/existing/global]）。源码 damage_types.lua:489 明确判定 target.subtype == \"ghost\"，英文原文使用单引号指代该实体子类（'ghosts'），译文误译为““鬼魂”类怪物”；2. 段落结构：原文为 3 段，译文将第 2 段拆散并增设“注：后一种情况下只能造成精神伤害。”独立行段落，破坏原文结构；3. 语义偏离：“through an active mind link”为保持连接的状态条件，译为“通过激活一种精神通道”将持续状态误译为激活行为动作。"},{"revision_key":"entry-02125","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/talents/psionic/other.lua:312-320，game/modules/tome/class/interface/Combat.lua:1394,1660; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。机制冲突与跨条一致性：固定源码 Combat.lua:1394 判定远程念动攻击时由灵巧 Cunning 替代敏捷决定命中（combatAttackRanged），Combat.lua:1660 判定伤害时由意志 Willpower 替代力量（sub('str', 'wil')）。同文件 other.lua:329 近战武器对应条目正确表述为“determine damage and Accuracy respectively”（译为“以决定伤害和命中”）。other.lua:312 远程武器英文原文存在倒置笔误（Accuracy and damage respectively），现有译文机械沿袭表面错误译为“以决定命中和伤害”，违反“英文表面含义与底层机制冲突时以固定源码实际行为为准”规则，导致描述意志决定命中、灵巧决定伤害与实际机制相悖，且与近战条目产生跨条机制冲突。"},{"revision_key":"entry-02128","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/talents/psionic/projection.lua:535-543，game/modules/tome/class/interface/Combat.lua:961; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。机制与跨条一致性：固定源码 Combat.lua:961 证实充能光环的附加闪电伤害与灵能消耗仅在武器实际命中时触发（hitted and not target.dead），攻击未命中不触发也不消耗能量。英文原文明确为“all your weapon hits, costing %0.1f energy per hit”，同文件同系炽热光环（Thermal Aura，projection.lua:387）一致译为“每次武器命中时附加...每次命中消耗...”。现有译文漏译 weapon 且将 hits 泛化译为“每次攻击附加...每次攻击消耗...”，机制上扩大为攻击尝试即生效，且与同系光环译文不一致。"},{"revision_key":"entry-02141","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/talents/psionic/psionic.lua:48; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。严重语义曲解：源码该条为唯我论系（psionic/solipsism）的类别描述：“Nothing exists outside the minds ability to perceive it.”，表达唯心主义/唯我论的核心哲学命题（心灵感知之外无物存在 / 存在即被心灵感知）。现有译文将其完全曲解为雷达扫描/侦测机制：“没有任何事物能逃脱精神力量的感知。”，严重脱离原文哲学与语境涵义。"},{"revision_key":"entry-02148","verdict":"OK"},{"revision_key":"entry-02149","verdict":"OK"},{"revision_key":"entry-02150","verdict":"OK"},{"revision_key":"entry-02153","verdict":"OK"},{"revision_key":"entry-02181","verdict":"OK"},{"revision_key":"entry-02187","verdict":"OK"},{"revision_key":"entry-02189","verdict":"OK"},{"revision_key":"entry-02191","verdict":"OK"},{"revision_key":"entry-02192","verdict":"OK"},{"revision_key":"entry-02207","verdict":"OK"}]}

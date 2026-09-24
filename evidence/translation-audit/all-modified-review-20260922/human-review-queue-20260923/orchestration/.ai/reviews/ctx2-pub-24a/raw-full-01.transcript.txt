@@ -1,0 +1,231 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=0bec35e1524ef0826c38d164a1eba71acdbe8f61a5992d615227cae6b95e107b；input_path=.ai/task/ctx2-pub-24a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] Initial review focuses on identifying potential inconsistencies within the provided JSON data, specifically semantic errors, flawed mechanisms, terminology discrepancies, relationship issues, or cross-item inconsistencies, while adhering to the freezing revision constraint. Checking the documentation regarding the review process for additional guidance on acceptable errors. Will report only supported problems, otherwise proceed with a "OK" status.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-24a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Analyzing the provided envelope reveals a candidate identity and a sequence of revision keys. The revisions appear to be ordered, potentially representing a chronological history or a dependency chain. This data needs further processing to understand its significance.
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 --oneline || git status
+[Shell] git grep 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] python3 -B tools/i18n doctor
+[Thought] **Examining Engine Repository**
+
+I've located the engine repository at `/workspace/t-engine4`. My focus has shifted to analyzing the 18 entries within `.ai/task/ctx2-pub-24a/CONTEXTUAL-ENVELOPE-full-01.json`. I plan to correlate these entries with their respective source files in `/workspace/t-engine4` at the commit `62`. This is a vital next step.
+
+
+**Analyzing Source File Correlations**
+
+I'm now diving into the source files associated with `bounded_context` within the entries. I've identified specific files like `unlock-rogue_marauder.lua`, `unlock-wanderer.lua`, and `unlock-yeek.lua`. Additionally, several `timed_effects` files, particularly `floor.lua` and multiple `magical.lua` files are linked. I plan to understand how these files relate to the entries.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-rogue_marauder.lua echo "=== unlock-wanderer ===" git -C /workspace/t-engine4 show 624a...
+[Shell] git -C /workspace/t-engine4 grep -n -E "Improves senses|power of your Radiance|ghoul rot|warded against|arcane vortex|magical poison|remains of its fallen|The gloom has stunned|Stalking|deals.*ice ...
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '450,480p;905,940p;2425,2470p;2515,2565p;2665,2705p;2785,2825p;51...
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '340,365p;415,445p' echo "=== other.lua ===" git -C /workspace/t-e...
+[Thought] **Analyzing Each Entry**
+
+I'm now meticulously dissecting each of the eighteen entries, starting with a comprehensive review of `entry-02579`. My focus is on thoroughly assessing semantics, underlying mechanisms, specific terminology, and the intricate relationships within and across each of these entries. I am actively checking for any inconsistencies or ambiguities to maintain clarity.
+
+
+**Defining Marauder Class**
+
+I've just refined my understanding of "unlock-rogue\_marauder.lua." The key lies in the "Marauder" class definition within that file, including its gameplay mechanics and attributes. This character class emphasizes strength-based rogue traits. Specifically, it's about dual-wielding, close-range combat, mobility, and inflicting high damage, thus offering a unique rogue archetype. I've begun to consider the design implications.
+
+
+**Examining Gameplay Mechanics**
+
+I'm now diving into the interplay of stamina and techniques for the Marauder class. My understanding is that Marauders rely on stamina, which regenerates over time, to fuel their skills. This informs their strategic playstyle: efficient use of resources. I'm focusing on how the mechanics of dual-wielding, mobility, and high damage all connect.
+
+
+**Defining Marauder Narrative**
+
+I'm now integrating the narrative aspects, specifically the unlock text. I've noted "有些盗贼依靠力量而非诡计生存，以凶狠的攻击取代潜行与欺骗" to mean some rogues thrive on force. The text reinforces the Marauder's strengths: they prioritize force over stealth, wear light armor, and dual-wield. It also highlights their mobility.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/birth/classes/adventurer.lua
+[Thought] Investigating the unlock condition for the "流浪者" (Wanderer) class. The relevant text file seems to describe the unlock as related to travel from birth, confirmed by the English typo ("wanderer" instead of "wandered"). This suggests a gameplay trigger based on accumulated travel. The target text clarifies that unlocking allows the Wanderer class, starting with random skills.
+[Shell] git -C /workspace/t-engine4 grep -E "#\{bold\}#" game/modules/tome/data/locales/zh_hans.lua | head -10
+[Thought] **Analyzing Translation Nuances**
+
+I'm currently wrestling with nuanced translations, particularly around the phrase "也不保证技能可用." I'm questioning whether this highlights a general issue or a specific concern. I'm focusing on the subtle differences between "奖励职业" and the context it's being used in. Also, the phrase "甚至不保证所有可能的技能组合都能正常运作" might be a better phrasing.
+
+
+**Evaluating Translation Consistency**
+
+I'm now diving into review criteria and entry-02586, ensuring I only flag issues with clear semantic or mechanical errors. The nuance of simplification is a concern, but it does not seem to present a translation or mechanical error. Also, I am now assessing the meaning and context of the entry regarding Yeeks.
+[Shell] git -C /workspace/t-engine4 grep -n "equilibrium regeneration" game/modules/tome/data/locales/zh_hans.lua
+[Thought] The original translation erroneously excluded constructs and other non-living entities from benefiting. The revised translation correctly specifies that only living creatures receive the effect, aligning with the code's `checkClassification("living")` verification. The placeholders `%+0.2f` are used four times. The correct translation for "life regeneration" is "生命回复" and for equilibrium regeneration.
+[Shell] git -C /workspace/t-engine4 grep -n "Spellblaze Scar" game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/locales/zh_hans.lua | sed -n '34800,34810p'
+[Thought] **Analyzing the Arcane Mark**
+
+I'm currently dissecting the implications of the "Arcane Mark" entry. Specifically, I'm examining the trade-offs: the 25% spell crit, the 10% fire/decay damage boost, and the mana consumption penalty on crit. I am now trying to fully grasp how this impacts gameplay.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '950,975p'
+[Shell] git -C /workspace/t-engine4 grep -n "RADIANCE_DIM" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "EFF_RADIANCE_DIM" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -rn -i "radiance" game/modules/tome/data/talents/celestial/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/radiance.lua | sed -n '1,105p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/radiance.lua | sed -n '106,200p'
+[Shell] git -C /workspace/t-engine4 grep -n "radiance_aura" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] **Analyzing Radiance Mechanics**
+
+I've been examining the `Player.lua` file, specifically line 725, where the `radiance_aura` check occurs. The code seems to be handling how the player's glow radius is determined. I've also checked out the `Radiance` talent description. It implies a constant, persistent glow, which makes me think there might be an inconsistency, or perhaps an optimization that I need to clarify.
+[Shell] git -C /workspace/t-engine4 grep -n '"Radiance"' game/modules/tome/data/locales/zh_hans.lua
+[Thought] The source text describes reducing "its radius". The target translation aims to clarify this, but it requires linking "its" to a specific entity. "Its" refers to the "Radiance" in the context of the source sentence, and therefore the translation should reflect that.
+[Shell] git -C /workspace/t-engine4 grep -rn "RADIANCE_DIM" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -rn -i "radiance_dim" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 log -S "RADIANCE_DIM" -p 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The commit history reveals a key string `RADIANCE_DIM` linked to "Radiance Lost" in the code, used to describe an effect reducing Radiance's radius. The talent's name is "光辉". Examination of the translation file shows an incomplete source string related to the effect's description.
+
+
+Initial concern focused on whether "光照半径" (light radius) was the correct translation for the effect of reducing "Radiance", or if "光辉半径" (radiance radius) was more appropriate. Examining the English text ("reducing its radius") and the context of the "Radiance" talent, "光照半径" is accurate as the effect directly reduces the light radius provided by the talent. Further review of the specific translation `entry-02614` confirmed there are no errors in grammar or semantics.
+
+
+Analysis focuses on the translation of "Ghoul Rot" to "尸鬼腐蚀". Examining the code and neighboring translations confirms the consistency of the chosen term. The update replaces a previous, potentially less accurate translation with the currently validated phrase, matching the context of the timed effect. The verdict for this entry is "OK".
+[Shell] git -C /workspace/t-engine4 grep -n "warded against" game/modules/tome/data/locales/zh_hans.lua
+[Thought] **Confirming a Protection**
+
+I've confirmed that the translation `#Target#获得了对%s的防护！` accurately conveys the meaning of "Target warded against %s!" when the "on_gain" trigger fires. The phrasing uses the verb "warded" effectively.
+
+
+**Analyzing Textual Nuances**
+
+I've been examining the text related to "Arcane Vortex," specifically focusing on the phrase "is free from." I'm looking at how best to translate this to accurately reflect the cessation of the vortex's effects on the target, and how to make the flow smooth. I'm considering several options to ensure clarity for your target audience.
+
+
+**Verifying Translations for Accuracy**
+
+I've verified the translation for "Target is free from the arcane vortex" as "#Target#摆脱了奥术漩涡。" This completes the entry related to this effect. I'm satisfied that this wording accurately reflects the intended meaning and flows well within the context of the game.
+
+
+**Translating New Effects**
+
+I'm now working on the translation for the effects of magical poison. I've confirmed that "目标被魔法毒素感染！" translates "Target is magically poisoned!" correctly. I'm also ensuring the subsequent sentence about arcane damage and resistance reduction accurately reflects the game mechanics. I'm focusing on "and poison resistance is reduced by %s%%," to create a cohesive final translation.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '2790,2820p' echo "=== poisons.lua ===" git -C /workspace/t-engin...
+[Thought] **Analyzing Vulnerability Poison**
+
+Okay, I've started examining the `VULNERABILITY_POISON` timed effect in the game's Lua data, specifically line 2790 through 2815. I'm currently tracing the code to understand its implementation and dependencies. I'm focusing on the `desc` and `long_desc` functions, trying to identify how the poison's characteristics are determined.
+[Shell] git -C /workspace/t-engine4 grep -n -E "poison (resistance|immunity)" game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 grep -rn "SHATTERED_REMAINS" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/master-of-bones.lua | sed -n '280,320p'
+[Thought] **Analyzing Bone Mechanics**
+
+I've been examining the `master-of-bones.lua` script, specifically the mechanics of bone collection and dropping upon minion death. The aim is to understand how skeletons and bone giants interact with each other in regards to bone resources, specifically how they pick them up, and lose them.
+
+
+**Confirming GLOOM Interaction**
+
+I've just confirmed the accuracy of an earlier translation. I examined how the "GLOOM_STUNNED" effect works within the `game/modules/tome` files. The translation for "The gloom has stunned the target..." and related entries all check out.
+
+
+**Refining Gloom Effects**
+
+I'm now focusing on the specifics of the "GLOOM_STUNNED" effect. I'm digging deeper into the `activate` function to see how it manages particle effects, temporary values like "stunned", "movement_speed", and "half_talents_cooldown". I'm trying to see if there's any room for adjustment or optimization within the parameters.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/endless-hunt.lua | sed -n '1,110p'
+[Thought] The code aims to describe the "Stalking" effect.  It retrieves the relevant talent data and checks if the target already has the "Stalked" effect applied. A description string will be generated, detailing the target's name, bonus level, accuracy increase, melee damage multiplier, and hate generation.
+
+
+Analyzing the effect description string, the structure seems consistent. It takes two integer arguments for armor and ice damage, respectively. The initial hypothesis is that the translation should maintain this structure, replacing the numerical arguments with placeholders. The goal is to determine the correct target format.
+[Shell] git -C /workspace/t-engine4 grep -n "name=\"ice\"" game/modules/tome/class/DamageType.lua git -C /workspace/t-engine4 grep -n "name=\"cold\"" game/modules/tome/class/DamageType.lua
+[Shell] git -C /workspace/t-engine4 grep -n "type = \"ICE\"" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/damage_types.lua git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a...
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n '1350,1385p'
+[Shell] git -C /workspace/t-engine4 grep -rn "ELEMENTAL_SURGE_COLD" 624a67329fe2ad440c5b344785a9c73fcf22ae63 git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data...
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/uber/cun.lua | sed -n '310,360p'
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "Turns your skin into ice" game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/locales/zh_hans.lua | sed -n '31235,31265p'
+[Thought] Examining the `terminology_snapshot` reveals translations for various damage types within the game context, specifically focusing on how "ice" is rendered. This initial check will confirm existing definitions. Observed that the game utilizes a global scope for ice damage, while other types like fire, blight, light, mind, poison, and arcane are categorized as core.
+[Shell] find terminology/ -name "*ice*" -o -name "*damage*"
+[Shell] find terminology/ -type f
+[Shell] grep -E "^\s*(ice|cold)\t" terminology/combat.tsv
+[Shell] grep -i "ice" terminology/combat.tsv
+[Shell] grep -i "cold" terminology/combat.tsv
+[Thought] **Defining Cold Effects**
+
+I've clarified the relationship between "cold" and "ice" within the damage framework. It appears "ice" inherently includes "cold" damage, with an added freeze chance. I'm noting the specific damage types. I see "cold" is associated with `ELEMENTAL_SURGE_COLD` effects.
+
+
+**Analyzing Cold's Nuances**
+
+I'm now focusing on `ELEMENTAL_SURGE_COLD` more closely. I see that it increases armor and deals ice damage upon melee hit, but the translation uses the term '冰系' for 'ice', which is potentially confusing. It seems the code uses `DamageType.ICE`, which includes both `DamageType.COLD` and a 25% chance of `DamageType.FREEZE`, but the Chinese translation appears to conflate this distinction. I'm cross-referencing this with entry 18 to ensure consistency.
+[Shell] git -C /workspace/t-engine4 grep -rn "TAINT_COOLDOWN" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] **Analyzing Taint Terminology**
+
+I've been examining the `terminology_snapshot` file for the definition of "taints," specifically focusing on its representation as "污印." The associated notes highlight its connection to a "堕落系技能类型," or "corrupted skill type." I'm now cross-referencing this with `Actor.lua`, scrutinizing lines 6348 and 6881 to understand how these "taints" are implemented within the game's actor logic.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '6340,6360p;6875,6895p'
+[Thought] Cooldown mechanics are affected by "taints," "infusions," and "runes," all under the "inscriptions" umbrella. Specifically, "taints" increase cooldown duration. The relevant code at `Actor.lua:6881` shows that an effect's power value directly increases the cooldown. The entry `entry-02740` confirms that more frequent taint usage results in longer cooldowns.
+
+
+The terminology update successfully translates "taints" to "污印", and the cooldown wording aligns with the code's behavior. The current task is to re-examine all remaining entries for similar translation discrepancies. Initial review confirms entry-02740's correctness.
+
+
+Examining `entry-02700`, `entry-02735`, and `entry-02740` requires verifying the long descriptions for timed effects. The deep dive on `entry-02579` is a distinct task related to character classes, not timed effects, so it should be addressed separately. The primary focus now is on confirming the timed effect translations.
+[Shell] git -C /workspace/t-engine4 grep -rn "T_ARCANE_VORTEX" 624a67329fe2ad440c5b344785a9c73fcf22ae63 git -C /workspace/t-engine4 grep -rn "EFF_ARCANE_VORTEX" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/arcane.lua | sed -n '110,145p'
+{"contract":"translation_contextual_v2","candidate_identity":"0bec35e1524ef0826c38d164a1eba71acdbe8f61a5992d615227cae6b95e107b","verdicts":[{"revision_key":"entry-02579","verdict":"OK"},{"revision_key":"entry-02586","verdict":"OK"},{"revision_key":"entry-02598","verdict":"OK"},{"revision_key":"entry-02599","verdict":"OK"},{"revision_key":"entry-02601","verdict":"OK"},{"revision_key":"entry-02609","verdict":"OK"},{"revision_key":"entry-02614","verdict":"OK"},{"revision_key":"entry-02636","verdict":"OK"},{"revision_key":"entry-02637","verdict":"OK"},{"revision_key":"entry-02638","verdict":"OK"},{"revision_key":"entry-02640","verdict":"OK"},{"revision_key":"entry-02643","verdict":"OK"},{"revision_key":"entry-02644","verdict":"ISSUE","observation":"组件=tome；公开源码路径=game/modules/tome/data/timed_effects/magical.lua:2790-2813 及 game/modules/tome/data/talents/cunning/poisons.lua:575-578；固定 commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。EFF_VULNERABILITY_POISON 的 activate 依次调用 self:effectTemporaryValue(eff, \"resists\", {all=-10}) 与 self:effectTemporaryValue(eff, \"poison_immune\", -self:attr(\"poison_immune\")/2)，long_desc 读取 eff.__tmpvals[2][2]（即 poison_immune 临时值）并格式化到 \" and poison resistance is reduced by %s%%\"；对应技能 Vulnerability Poison 的 info 亦明确为 \"reduces all damage resistance by 10%% and poison immunity by 50%%\"。此处实际降低的是毒素免疫（poison_immune），译文作“，且毒素抗性下降 %s%%”并在 entry-02643“所有伤害抗性下降 10%%”之后拼接，将其混淆为毒素伤害抗性。"},{"revision_key":"entry-02688","verdict":"OK"},{"revision_key":"entry-02694","verdict":"OK"},{"revision_key":"entry-02700","verdict":"OK"},{"revision_key":"entry-02735","verdict":"ISSUE","observation":"组件=tome；公开源码路径=game/modules/tome/data/timed_effects/other.lua:116-125 及 game/modules/tome/data/damage_types.lua:1356-1376；固定 commit=624a67329fe2ad440c5b344785a9c73fcf22ae63。EFF_ELEMENTAL_SURGE_COLD 的 activate 调用 self:effectTemporaryValue(eff, \"on_melee_hit\", {[DamageType.ICE]=eff.dam})，DamageType.ICE（name = _t(\"ice\", \"damage type\")）在造成寒冷伤害外附带 25%（潮湿目标 50%）几率触发 DamageType.FREEZE 冰冻，且术语快照规定 ice => 寒冰 [T.GAME.DAMAGE/damage type/existing/global]；译文将 ice damage 译为“冰系”近战反伤，未按术语与机制区分“寒冰”伤害类型。"},{"revision_key":"entry-02740","verdict":"OK"}]}
+[Thought] **Analyzing Arcane Mechanics**
+
+I've been looking at the arcane vortex mechanics, specifically how they are created and how they interact with targets. I'm focusing on the code lines in `arcane.lua` and `magical.lua` and working out how this can be translated to a new language. I'm noting the differences in target interaction.
+
+
+**Revising Vulnerability Effects**
+
+I'm now diving into the specifics of `entry-02643`, `entry-02644`, and `entry-02735`, specifically focusing on how vulnerability effects work within the code. I'm taking a close look at `game/modules/tome/data/timed_effects/magical.lua:2790-2815` to see the logic for applying and calculating damage. It seems like the poison effect is also having an effect on resistance values, which is important.
+
+
+**Examining Poison Mechanics**
+
+I'm now focusing on `VULNERABILITY_POISON`. The `activate` function is where the key effects lie: all resistances are reduced by 10% and poison immunity by 50%. The `on_timeout` function shows the damage implementation, and the `deactivate` function is empty. I am investigating the implications of the resistance reduction and immunity effects in combination.
+
+
+**Clarifying Immune Mechanics**
+
+I've been looking deeper into the code that handles poison immunity and resistance reductions, specifically within `VULNERABILITY_POISON`. I've noted that `poison_immune` is the target, not `resists[DamageType.POISON]`, which caused confusion. I'm focusing on how `poison_effect` translates to percentage reductions and the interaction with the talent info and entry descriptions. The descriptions aren't fully matching the code.
+
+
+**Addressing Text Consistency**
+
+I'm now investigating potential inconsistencies in the text descriptions. Specifically, the translation of `entry-02644` appears misleading, implying a reduction in poison damage resistance rather than poison status immunity. Also, a space before `%s` in `entry-02643` has come to my attention. I'm checking if this warrants an issue report based on prompt rules and `AGENTS.md` guidelines.
+
+
+**Refining Text Descriptions**
+
+I've clarified the minor punctuation detail regarding the backtick mark, confirming it's a formatting issue, not a semantic concern with `entry-02643`. I'm now certain `entry-02644` has a cross-entry issue. The code reduces poison immunity by half and all resistances by 10%, but the text uses terms like "poison resistance is reduced" without explicitly addressing the immunity reduction, creating a potential misunderstanding. The talent description also needs review for consistency.
+
+
+**Verifying Entry Consistency**
+
+I'm now diving into `entry-02735` to refine my understanding. The text description of `Armor increased by %d, deals %d ice damage when hit in melee.` differs from the target description, which translates it. In `other.lua`, the code sets `on_melee_hit` with ice damage, and `DamageType.ICE` is a distinct damage type from cold. I'm noting potential mistranslations and inconsistencies for review.
+
+
+**Reviewing All Entries**
+
+I'm now embarking on a comprehensive review of all 18 entries, beginning with the specific instances of `DamageType.FREEZE`, and `ice` damage type terminology, along with their related target translations, for consistency. So far I've examined `entry-02579` and `entry-02586` and confirmed that they are consistent and do not present any issues. I'm focusing on ensuring accurate translations, matching code mechanics, and avoiding semantic discrepancies across all entries. I am checking the damage type and target translations very carefully.
+
+
+**Confirming Translations Accurately**
+
+I've carefully examined entries `entry-02598`, `entry-02599`, and `entry-02601`. The translation consistency is confirmed across all three entries. I've cross-referenced `unlock-yeek.lua`, `floor.lua:48-62`, and associated target translations, verifying that terminology is accurately represented and the mechanics are correctly described. I am satisfied with the findings so far.
+
+
+**Validating Translation Accuracy**
+
+I'm now checking the translation of `entry-02636`, which details the "ghoul" affliction, ensuring consistency with related code and the target. I've cross-referenced `magical.lua` and checked the target translation in the context of other entries. Also, I've checked the usage of "ghoul" within the system. All entries I've reviewed today have been accurate. I'm focusing now on identifying other entries with similar themes.
+
+
+**Evaluating Entry Consistency**
+
+I am now closely examining entries `entry-02637`, `entry-02638`, `entry-02640`, and `entry-02643`, comparing text descriptions to related code snippets and target translations. I've confirmed that the ghoul rot entries (`entry-02636` and `entry-02637`) are consistent with the code and neighboring translations. Similarly, the "warded" and "arcane vortex" entries align as well. I'm focusing on `entry-02643`, which describes a magical poison effect and the related resistance reduction.
+
+
+**Addressing Poison Vulnerability**
+
+I am now focusing on refining the text for `entry-02644` as it requires an update due to a critical misunderstanding, conflating poison resistance with immunity. The existing translation of `毒素抗性` does not accurately represent the code's action, and doesn't match the reduction in `poison_immune`. The text and code need to align.
+
+
+**Verifying Gloom Effects**
+
+I've examined `entry-02694` and can confirm the text accurately reflects the effects of "gloom," matching the code in `mental.lua:348`. I'm satisfied that this entry and its target translation are consistent. I am now checking `entry-02700`, focusing on the stalker effect and its relevant parameters in `mental.lua`.
+
+\n\nI can confirm `entry-02700` is accurate after checking `mental.lua:430` for the "stalker" effect. The translation and code align perfectly in terms of accuracy, melee damage bonus, and hate gain, thus the entry is considered verified.
+
+
+**Validating Melee Damage**
+
+I've carefully assessed `entry-02735`, cross-referencing its text description ("deals %d ice damage when hit in melee") with the target translation ("获得 %d 冰系近战反伤") and relevant code (`other.lua:116-125`). The code correctly specifies `DamageType.ICE` (ice) and the target translates it as `冰系` consistently, meaning it's a cold damage type with a 25% freeze chance, so I am marking it as `OK`. I then reviewed `entry-02740` related to taint cooldowns, which aligns perfectly with its code and terminology. I'm now proceeding to verify the next entry.
