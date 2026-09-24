@@ -13053,7 +13053,7 @@ t("massive sling", "巨型投石索", "_t")
 t("This powerful sling is said to have belonged to a warrior so strong his shots could knock down a brick wall...", "据说这个强大的投石索曾属于一位强壮的战士，他射出的弹丸能击倒砖墙……", "_t")
 t("The Titan's Quiver", "泰坦的箭袋", "entity name")
 t("gigantic ceramic arrows", "巨型陶制箭矢", "_t")
-t("These massive arrows are honed to a vicious sharpness, and appear to be nearly unbreakable. They seem more like spikes than any arrow you've ever seen.", "巨大而尖锐的箭矢，不，与其说是箭，不如说是长钉。", "_t")
+t("These massive arrows are honed to a vicious sharpness, and appear to be nearly unbreakable. They seem more like spikes than any arrow you've ever seen.", "这些巨箭被磨得锋利无比，看上去几乎无法折断。它们比你见过的任何箭都更像长钉。", "_t")
 t("pin the target to the nearest wall", "将目标钉在最近的墙上", "_t")
 t("%s is knocked back and pinned!", "%s被击退并定身！", "logSeen")
 t("Inertial Twine", "惯性编织之戒", "entity name")
@@ -17614,13 +17614,12 @@ And yet I live. Weisman, I sincerely hope that my letter has revealed to you you
 
 Rolf]], [[亲爱的威斯曼，
 
-哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我没能杀死一只狗。这真是充满勇气！
+啊！你上几封来信在我心中激起了怎样的感受啊……主要是好笑，外加不少轻蔑！你非得没完没了地用一则又一则挥舞木剑、纠缠没牙杂种狗的故事来烦我吗？且容我用简洁得多的方式复述你的“传奇”：有一天，我没能杀死一条狗。何等勇敢！何等胆识与豪侠气概！
 
-你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了远古丛林（这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！）在那里，我不幸的遭遇了世上最可怕、最犀利、最凶猛的生物！
+我自己最近经受并克服的考验，越发衬得你那些小打小闹微不足道。就在几天前，我正徒步穿越古老森林（那可是在德斯外面，威斯曼！恐惧一定已经攫住你了！），却不巧碰上了一只无比丑恶、臃肿、渗着黏液、吱吱作响的怪物！正是巨蚁那令人作呕的始祖！它驱使着成群狂躁的甲壳幼虫，仿佛大地本身正涌上前来要吞噬我！
 
-满地的史前巨型白蚁，它们在可怕的蚁王指挥下蜂拥而出，试图用那巨大的前颚将我碎尸万段！
+而我依然活着。威斯曼，我真心希望这封信已让你看清自己的愚蠢。只有面对过真正的危险，你才可以自称冒险家。别再用你的故事烦我了。
 
-即便如此我还是活下来了，威斯曼，我真心希望我的回信能让你知道世界如此巨大，你又如此渺小。只有当你真正经历过像我这样的生死考验后，才配真正称自己为冒险家。别再用你幼稚的故事来烦我了。
 罗尔夫]], "_t")
 t("letter to Rolf (2)", "写给罗尔夫的信 (2)", "_t")
 t([[Dear Rolf the Antslayer,
@@ -20414,7 +20413,7 @@ section "mod-tome/data/quests/love-melinda.lua"
 t("Melinda, lucky girl", "幸运女孩梅琳达", "_t")
 t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", "在你从克里尔·费扬和邪教徒手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
 t("Melinda was saved from the brink of death at the beach, by a strange wave of blight.", "在海滩上，一股奇异的枯萎能量将梅琳达从死亡边缘救了回来。", "_t")
-t("Melinda died to a Yaech raiding party at the beach.", "梅琳达被沙滩上的夺魂魔杀死了。", "_t")
+t("Melinda died to a Yaech raiding party at the beach.", "梅琳达在沙滩上死于夺魂魔袭击队之手。", "_t")
 t("The Fortress Shadow said she could be cured.", "堡垒之影说她有可能被治愈。", "_t")
 t("Melinda decided to come live with you in your Fortress.", "梅琳达决定和你一起在堡垒里生活。", "_t")
 t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，他让她能够自由来去。", "_t")
@@ -27820,7 +27819,7 @@ t("Force enemies into a deep sleep.", "使敌人进入昏睡。", "_t")
 t("solipsism", "唯我主义", "talent type")
 t("Nothing exists outside the minds ability to perceive it.", "没有任何事物能逃脱精神力量的感知。", "_t")
 t("Thought-Forms", "思维形态", "talent type")
-t("Manifest your thoughts as psionic summons.", "使你的思维具象化形成灵能召唤术。", "_t")
+t("Manifest your thoughts as psionic summons.", "使你的思维具象化为灵能召唤物。", "_t")
 t("Dream Forge", "梦之熔炉", "talent type")
 t("Master the dream forge to create powerful armor and effects.", "掌握梦之熔炉，创造强大的护甲和效果。", "_t")
 t("dreaming", "梦境", "talent type")
@@ -39637,8 +39636,7 @@ t("red", "红色", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
 It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨像阿塔玛森的红宝石眼睛之一。
-据说它是半身人在烈火纪为了对抗兽人所造的武器。
-虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。]], "_t")
+据说阿塔玛森是半身人在烈火纪为了对抗兽人所造的武器。这具傀儡虽然最终被毁，但还是成功杀死了兽人首领吞噬者加库尔，给兽人以重创。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/sandworm-lair/zone.lua"
