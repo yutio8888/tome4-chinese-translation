@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核271已完成；下一步修复窗口25，仅处理271的8条）
+更新时间：2026-09-24（修复窗口25已完成；待宿主发布收尾，随后审核272）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -397,6 +397,12 @@ surface 四组 `codex/gpt-6-sol` 为 65 OK / 15 ISSUE，80 个 identity 回显�
 下一步按 1:1 节奏开修复窗口25，仅处理 271 的 8 条：疲劳圣印说明补“敌人”限定；指令水晶球（亡灵）描述改“黑暗的幻象充满脑海”；血祭施法效果说明改指堕落系法术；
 减速（Speed Sap）说明补末尾换行；摄魂剑·莫瑞格日志改“汲取被困的灵魂，施展…”；第一滴血补“命中时”与“（若能标记）”；夏图尔壁画阿马克泰尔创世文本；盗匪日志（贵族迟早追杀、绑在柱上烧死）。
 范围见 `.ai/task/batch-ae5b45a9e4a7a8ffdb3e/WINDOW25-REPAIR-DECISION.json`。
+
+修复窗口25已完成审核271确认的8条修复：疲劳圣印改为“经过圣印的敌人会减速”；指令水晶球（亡灵）描述改为“黑暗的幻象充满你的脑海”；血祭施法效果改为“堕落系法术消耗生命值而非活力值”；减速说明恢复末尾换行与缩进；摄魂剑·莫瑞格日志改为“汲取了%s的被困灵魂，施展%s”；第一滴血补回“命中时”与“（若能标记）”；阿马克泰尔壁画 lore 逐句重译；盗匪首领日志恢复威胁语气与“绑在柱上烧死”。`execute-01`（`codex/gpt-5.6-sol`）实施8条，宿主逐条逐行核对行数、空行下标与行首 TAB；其原生日志含2次 Codex `wait` function_call，仓库解析器白名单未收录，宿主经仅增补这两类条目的临时解析器副本收取，详见 `HOST-EXECUTOR-AUDIT.json`。`REVIEW(0)/full`（`codex/gpt-6-sol`）为 7 OK / 1 ISSUE：血祭施法效果英文原句本身与 `incVim` 实现不符，实际仅在活力不足时以生命支付缺额；译文忠实原句，宿主判为 advisory，并登记 pending 第19项。`FINAL(1)/full`（`claude-opus-5-5`）为 8 OK，任务收敛，无修复轮。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。1个 executor 与2个 reviewer child 均已归档确认；本 publication child 待宿主归档。
+
+译文提交为 `805a9f155dff64cc18cf644b0af2856b0936e06f`；新 catalog 为 `38cb5f33c905a333728676e30a67692632830852be8790e532980702de21a18f`；migration 为 `f2ddf2cbd8e0610b40955d746594ed530f3dbadc05dee7153fff88b708434f38`。迁移结果为8条 `revision_changed`、29,820条 `unchanged`、0条 `ambiguous/unmapped`，8个 successor 待重新审核且不继承 `done`。本窗口新增 pending 第19项，pending 文件由宿主维护。完整结果见[窗口25发布证据](evidence/quality/repair-window-25-20260923/PUBLICATION.md)。
+
+下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；完成后继续审核272（默认80条）。以上后续步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

@@ -1,0 +1,18 @@
+{
+  "title": "W25 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口25的8条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w25-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中8个target及evidence/quality/repair-window-25-20260923/。source/tag/args_order/printf占位符/%%/markup保持基线；LF 与 TAB 必须与原文逐处一致（逐行比对，不只看总数）：减速（Speed Sap）原文以 \\n\\t\\t 结尾，现译没有，须在末尾补回；疲劳圣印 1 个 \\n\\t\\t、第一滴血 1 个 \\n（无 TAB）、盗匪日志 6 个 \\n（三处空行）保持；其余 0 个换行。专名、技能名沿用本库现有译名（先在mod-tome.lua查证），不自行新造：疲劳圣印、指令水晶球（亡灵）、血祭施法、活力值、减速、摄魂剑·莫瑞格、第一滴血、射击精通、射击、稳固射击、爆头、阿马克泰尔、伪神（petty gods，术语库 preferred）。按SPEC“范围约束”与SOURCE-CLAIMS逐条整句修复：疲劳圣印补“敌人”；水晶球“黑暗的幻象充满你的脑海”一类，不加“无尽”；血祭施法 Corruptions 指堕落系法术，不是“堕落者”；摄魂剑日志 taps 译“汲取”、manifesting 译“施展/显现”，不要“放出”“模仿”，两个 %s 先后顺序保持；第一滴血补“命中时”“（若能标记）”；阿马克泰尔文本按原文逐句（力量凌驾万物、伪神在其荣光前逃离、以气息造出太阳并高举于世界之上、光所照之处皆归我有、此光将照遍全世界），#{italic}# 与 #{normal}# 保持；盗匪日志第二段写贵族迟早听到风声来追杀（威胁）、本来即将用他女儿换来数不清的金子，第三段“绑在柱上烧死”而非“穿在柱子上”。SPEC 中的示例措辞只是方向，落笔时逐词对照原文，每条其余句子逐句对照，发现明显增删一并修正，但不重写已忠实的句子。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w25-20260923/verify.py（LF/TAB 对照原文）、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check，并逐条逐行比对 source 与 target 的行数、空行下标与每行开头 TAB。报告只写允许evidence目录；保存PREFLIGHT-BATCH271.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w25-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

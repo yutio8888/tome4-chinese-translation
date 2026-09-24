@@ -1,0 +1,22 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 7,
+  "raw_issue_count": 1,
+  "decision": "converged_no_tier1_confirmed_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-BLOODCASTING-MECHANISM",
+      "revision_key": "fad7958eaa422b8d9d53eb490a80607d612b61ce184afb3d0cb1e1ae097f8632",
+      "status": "advisory",
+      "tier": null,
+      "category": "upstream text vs implementation",
+      "reason": "宿主核实固定源码：timed_effects/magical.lua:2455–2470 仅 addTemporaryValue('bloodcasting',1)；class/Actor.lua:5576–5592 incVim 活力足够时走原逻辑扣活力，不足时扣光活力并按 (缺额×bloodcasting/100) 扣生命。reviewer 的机制描述属实，但它自己也指出英文原句与机制不符；译文“堕落系法术消耗生命值而非活力值”逐义对应英文原句，不构成 fidelity 缺陷。是否按实现改写上游说法属策略决定，登记待用户审阅第 19 项。"
+    }
+  ],
+  "host_check": "宿主逐条逐行比对 8 条：行数、空行下标、每行开头 TAB 均与原文一致；疲劳圣印减速、水晶球黑暗的幻象、血祭施法、减速末尾 \\n\\t\\t、莫瑞格日志汲取被困灵魂、第一滴血命中时/若能标记、阿马克泰尔壁画逐句、盗匪首领日志威胁语气与绑在柱上烧死。",
+  "next_stages": [
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-24T05:10:43.910497+00:00"
+}

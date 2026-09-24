@@ -1,0 +1,125 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "fab2d8a942a284b81276cb30db491f20589a92acebf8170dbd33a6adddc57222"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/celestial/other.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "a23e1716240c831103adaef4912428f406fc6c23e9078ca024756985fa0621ed",
+      "start_line": 355,
+      "end_line": 425,
+      "excerpt": "355: \tname = \"Glyph of Fatigue\",\n356: \ttype = {\"celestial/other\", 4},\n357: \trequire = divi_req_high4,\n358: \trandom_ego = \"attack\",\n359: \tpoints = 5,\n360: \tcooldown = 20,\n361: \tpositive = -10,\n362: \tno_energy = true,\n363: \ttactical = { DISABLE = {slow = 1.5} },\n364: --\trequires_target = true,\n365: \trange = function(self, t) return math.floor(self:combatTalentScale(t, 1, 5, \"log\")) end,\n366: \tgetSlow = function(self, t) return self:combatTalentLimit(t, 1, 0.20, 0.35) end, -- Limit <100% slow\n367: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 6, 10)) end, -- Duration of glyph\n368: \ttrapPower = function(self,t) return math.max(1,self:combatScale(self:getTalentLevel(t) * self:getMag(15, true), 0, 0, 75, 75)) end, -- Used to determine detection and disarm power, about 75 at level 50\n369: \ttarget = function(self, t) return {type=\"hit\", nowarning=true, range=self:getTalentRange(t), nolock=true, talent=t} end,\n370: \taction = function(self, t)\n371: \t\tlocal tg = self:getTalentTarget(t)\n372: \t\tlocal tx, ty = self:trapGetGrid(t, tg)\n373: \t\tif not (tx and ty) then return end\n374: \n375: \t\tlocal dam = t.getSlow(self, t)\n376: \t\tlocal trap = Trap.new{\n377: \t\t\tname = _t\"glyph of fatigue\",\n378: \t\t\ttype = \"elemental\", id_by_type=true, unided_name = _t\"trap\",\n379: \t\t\tdisplay = '^', color=colors.GOLD, image = \"trap/trap_glyph_fatigue_01_64.png\",\n380: \t\t\tfaction = self.faction,\n381: \t\t\tdam = dam,\n382: \t\t\tdesc = function(self)\n383: \t\t\t\treturn ([[Slows (%d%%) for 5 turns.]]):tformat(self.dam*100)\n384: \t\t\tend,\n385: \t\t\tcanTrigger = function(self, x, y, who)\n386: \t\t\t\tif who:reactionToward(self.summoner) < 0 then return mod.class.Trap.canTrigger(self, x, y, who) end\n387: \t\t\t\treturn false\n388: \t\t\tend,\n389: \t\t\ttriggered = function(self, x, y, who)\n390: \t\t\t\twho:setEffect(who.EFF_SLOW, 5, {power=self.dam})\n391: \t\t\t\treturn true\n392: \t\t\tend,\n393: \t\t\ttemporary = t.getDuration(self, t),\n394: \t\t\tx = tx, y = ty,\n395: \t\t\tdisarm_power = math.floor(t.trapPower(self,t)),\n396: \t\t\tdetect_power = math.floor(t.trapPower(self,t)),\n397: \t\t\tcanAct = false,\n398: \t\t\tenergy = {value=0},\n399: \t\t\tact = function(self)\n400: \t\t\t\tself:useEnergy()\n401: \t\t\t\tself.temporary = self.temporary - 1\n402: \t\t\t\tif self.temporary <= 0 then\n403: \t\t\t\t\tif game.level.map(self.x, self.y, engine.Map.TRAP) == self then game.level.map:remove(self.x, self.y, engine.Map.TRAP) end\n404: \t\t\t\t\tgame.level:removeEntity(self)\n405: \t\t\t\tend\n406: \t\t\tend,\n407: \t\t\tsummoner = self,\n408: \t\t\tsummoner_gain_exp = true,\n409: \t\t}\n410: \t\tgame.level:addEntity(trap)\n411: \t\ttrap:identify(true)\n412: \t\ttrap:setKnown(self, true)\n413: \t\tgame.zone:addEntity(game.level, trap, \"trap\", tx, ty)\n414: \t\tgame:playSoundNear(self, \"talents/heal\")\n415: \t\treturn true\n416: \tend,\n417: \tinfo = function(self, t)\n418: \t\tlocal slow = t.getSlow(self, t)\n419: \t\tlocal duration = t.getDuration(self, t)\n420: \t\treturn ([[You bind light in a glyph on the floor. All enemies walking over the glyph will be slowed by %d%% for 5 turns.\n421: \t\tThe glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]]):\n422: \t\ttformat(100 * slow, t.trapPower(self, t), t.trapPower(self, t), duration)\n423: \tend,\n424: }\n425: "
+    },
+    {
+      "revision_keys": [
+        "fac87ff044dcfd8d35e72789dd64285dccfe2e548abe6521205cf8925f1047a4"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/quest-artifacts.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "6d0ee65f69325f9836bc2193fa048f4ed171771fed3dec8b34ee4c7a396470de",
+      "start_line": 170,
+      "end_line": 185,
+      "excerpt": "170: \ttype = \"orb\", subtype=\"orb\",\n171: \tunided_name = _t\"orb of command\",\n172: \tname = \"Orb of Undeath (Orb of Command)\",\n173: \tlevel_range = {50, 50},\n174: \tdisplay = \"*\", color=colors.VIOLET, image = \"object/artifact/orb_undeath.png\",\n175: \tencumber = 1,\n176: \tplot = true, quest = true,\n177: \tdesc = _t[[Dark visions fill your mind as you lift the orb. It is cold to the touch.]],\n178: \n179: \ton_drop = function(self, who)\n180: \t\tif who == game.player then\n181: \t\t\tgame.logPlayer(who, \"You cannot bring yourself to drop the %s\", self:getName())\n182: \t\t\treturn true\n183: \t\tend\n184: \tend,\n185: "
+    },
+    {
+      "revision_keys": [
+        "fad7958eaa422b8d9d53eb490a80607d612b61ce184afb3d0cb1e1ae097f8632"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 2454,
+      "end_line": 2470,
+      "excerpt": "2454: \n2455: newEffect{\n2456: \tname = \"BLOODCASTING\", image = \"talents/bloodcasting.png\",\n2457: \tdesc = _t\"Bloodcasting\",\n2458: \tlong_desc = function(self, eff) return (_t\"Corruptions consume health instead of vim.\") end,\n2459: \ttype = \"magical\",\n2460: \tsubtype = {corruption=true},\n2461: \tstatus = \"beneficial\",\n2462: \tparameters = {},\n2463: \tactivate = function(self, eff)\n2464: \t\teff.tmpid = self:addTemporaryValue(\"bloodcasting\", 1)\n2465: \t\tself:effectParticles(eff, {type=\"circle\", args={oversize=1, a=220, base_rot=180, shader=true, appear=12, img=\"bloodcasting_aura\", speed=0, radius=0}})\n2466: \tend,\n2467: \tdeactivate = function(self, eff)\n2468: \t\tself:removeTemporaryValue(\"bloodcasting\", eff.tmpid)\n2469: \tend,\n2470: }"
+    },
+    {
+      "revision_keys": [
+        "fad7958eaa422b8d9d53eb490a80607d612b61ce184afb3d0cb1e1ae097f8632"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/Actor.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start_line": 5575,
+      "end_line": 5602,
+      "excerpt": "5575: -- Overwrite incVim to set up Bloodcasting\n5576: local previous_incVim = _M.incVim\n5577: function _M:incVim(v)\n5578: \tif v < 0 then\n5579: \t\tlocal mult = 2\n5580: \t\tif self:attr(\"bloodcasting\") then mult = self:attr(\"bloodcasting\") / 100 end\n5581: \n5582: \t\tlocal cost = math.abs(v)\n5583: \t\tif self.vim - cost < 0 then\n5584: \t\t\tlocal damage = (cost - (self.vim or 0)) * mult\n5585: \t\t\tself:incVim(-self.vim or 0)\n5586: \t\t\tself.life = self.life - damage  -- die_at life can't be used\n5587: \t\telse\n5588: \t\t\treturn previous_incVim(self, v)\n5589: \t\tend\n5590: \telse\n5591: \t\treturn previous_incVim(self, v)\n5592: \tend\n5593: end\n5594: \n5595: -- Overwrite getVim to set up Bloodcasting\n5596: local previous_getVim = _M.getVim\n5597: function _M:getVim()\n5598: \tif self.on_preuse_checking_resources then\n5599: \t\tlocal mult = 2\n5600: \t\tif self:attr(\"bloodcasting\") then mult = self:attr(\"bloodcasting\") / 100 end\n5601: \t\treturn math.max(self.vim, self.life / mult)\n5602: \telse"
+    },
+    {
+      "revision_keys": [
+        "fae2367217e9ad3f2c4600823b78cd7c700e270df7f9ec30f3b4e7353aa88f28"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "start_line": 1620,
+      "end_line": 1656,
+      "excerpt": "1620: newTalent{\n1621: \tname = \"Speed Sap\",\n1622: \ttype = {\"chronomancy/other\", 1},\n1623: \tpoints = 5,\n1624: \tparadox = function (self, t) return getParadoxCost(self, t, 10) end,\n1625: \tcooldown = 8,\n1626: \ttactical = {\n1627: \t\tATTACK = { TEMPORAL = 1 },\n1628: \t\tDISABLE = 2,\n1629: \t\tBUFF = 2,\n1630: \t},\n1631: \trange = 3,\n1632: \tdirect_hit = true,\n1633: \treflectable = true,\n1634: \trequires_target = true,\n1635: \ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t), talent=t} end,\n1636: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 20, 220, getParadoxSpellpower(self, t)) end,\n1637: \taction = function(self, t)\n1638: \t\tlocal tg = self:getTalentTarget(t)\n1639: \t\tlocal x, y = self:getTarget(tg)\n1640: \t\tif not x or not y then return nil end\n1641: \t\tself:project(tg, x, y, DamageType.WASTING, self:spellCrit(t.getDamage(self, t)))\n1642: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n1643: \t\tif target then\n1644: \t\t\ttarget:setEffect(target.EFF_SLOW, 3, {power=0.3})\n1645: \t\t\tself:setEffect(self.EFF_SPEED, 3, {power=0.3})\n1646: \t\tend\n1647: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n1648: \t\tgame:playSoundNear(self, \"talents/arcane\")\n1649: \t\treturn true\n1650: \tend,\n1651: \tinfo = function(self, t)\n1652: \t\tlocal damage = t.getDamage(self, t)\n1653: \t\treturn ([[Saps 30%% of the target's speed (increasing yours by the same amount) and inflicts %0.2f temporal damage for three turns.\n1654: \t\t]]):tformat(damDesc(self, DamageType.TEMPORAL, damage))\n1655: \tend,\n1656: }"
+    },
+    {
+      "revision_keys": [
+        "fae9336cfe64b12bcb35426b508459203f8c93edb9ea5919fa75ba816741503c"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+      "start_line": 3615,
+      "end_line": 3646,
+      "excerpt": "3615: \t\t\t\twho:project(tg, target.x, target.y, engine.DamageType.ARCANE, damage)\n3616: \t\t\t\twho:project(tg, target.x, target.y, engine.DamageType.DARKNESS, damage)\n3617: \t\t\tend},\n3618: \t\tspecial_on_kill = {desc=_t\"swallows the victim's soul, gaining a new power\", fct=function(combat, who, target)\n3619: \t\t\tlocal o, item, inven_id = who:findInAllInventoriesBy(\"define_as\", \"MORRIGOR\")\n3620: \t\t\tif o.use_talent then return end\n3621: \t\t\tgame:chronoCancel(_t\"#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.\")\n3622: \t\t\tlocal got_talent = false\n3623: \t\t\tlocal tids = {}\n3624: \t\t\tfor tid, _ in pairs(target.talents) do\n3625: \t\t\t\tlocal t = target:getTalentFromId(tid)\n3626: \t\t\t\tif t.mode == \"activated\" and not t.uber and not t.on_pre_use and not t.no_npc_use and not t.is_object_use and not t.hide and not t.is_nature and not t.type[1]:find(\"/other\") and not t.type[1]:find(\"horror\") and not t.type[1]:find(\"race/\") and not t.type[1]:find(\"inscriptions/\") and t.id ~= who.T_HIDE_IN_PLAIN_SIGHT then\n3627: \t\t\t\t\ttids[#tids+1] = tid\n3628: \t\t\t\t\tgot_talent = true\n3629: \t\t\t\tend\n3630: \t\t\tend\n3631: \t\t\tif got_talent == true then\n3632: \t\t\t\tlocal get_talent = rng.table(tids)\n3633: \t\t\t\tlocal t = target:getTalentFromId(get_talent)\n3634: \t\t\t\to.use_talent = {}\n3635: \t\t\t\to.use_talent.id = t.id\n3636: \t\t\t\to.use_talent.level = 3\n3637: \t\t\t\tget_talent = target.talents[t.id]\n3638: \t\t\t\ttarget.talents[t.id] = o.use_talent.level\n3639: \t\t\t\to.use_talent.power = (target:getTalentCooldown(t, true) or 5)\n3640: \t\t\t\ttarget.talents[t.id] = get_talent\n3641: \t\t\t\to.use_talent.name = ((t.display_entity and t.display_entity:getDisplayString() or \"\")..t.name):toString()\n3642: \t\t\t\to.use_talent.message = (\"@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!\"):tformat(target:getName(), o.use_talent.name)\n3643: \t\t\t\to.power = 1\n3644: \t\t\t\to.max_power = o.use_talent.power\n3645: \t\t\t\to.power_regen = 1\n3646: \t\t\t\tgame.logSeen(who, \"%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!\", who:getName():capitalize(), o:getName({no_add_name = true, do_color = true}), target:getName(), o.use_talent.name)"
+    },
+    {
+      "revision_keys": [
+        "fb0879a6f7942a8f6921e058b5ea72611279254880e329100ee7c4cc32240741"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/techniques/marksmanship.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "9da4430ce4e071d05f4419777216117b7f975bbbdf78df974666b076f8e18f6f",
+      "start_line": 56,
+      "end_line": 72,
+      "excerpt": "56: newTalent{\n57: \tname = \"First Blood\",\n58: \ttype = {\"technique/marksmanship\", 2},\n59: \tpoints = 5,\n60: \tmode = \"passive\",\n61: \trequire = techs_dex_req2,\n62: \tgetBleed = function(self, t) return self:combatTalentScale(t, 0.3, 1.0) end,\n63: \tgetStamina = function(self, t) return self:combatTalentScale(t, 1.5, 4.5) end,\n64: \tinfo = function(self, t)\n65: \t\tlocal bleed = t.getBleed(self,t)*100\n66: \t\tlocal sta = t.getStamina(self,t)\n67: \t\treturn ([[You take advantage of unwary foes (those at or above 90%% life). Against these targets, Shoot, Steady Shot and Headshot bleed targets for %d%% additional damage over 5 turns and have a 50%% increased chance to mark (if capable of marking).\n68: In addition, your Steady Shot, Shoot and Headshot now restore %0.1f stamina on hit.]])\n69: \t\t:tformat(bleed, sta)\n70: \tend,\n71: }\n72: "
+    },
+    {
+      "revision_keys": [
+        "fb0879a6f7942a8f6921e058b5ea72611279254880e329100ee7c4cc32240741"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/techniques/archery.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "4c26268cd967d35171d9854350db863fa31306bb2c90ae324ed7dfad644f11ea",
+      "start_line": 60,
+      "end_line": 88,
+      "excerpt": "60: \t\tif target:hasEffect(target.EFF_PIN_DOWN) then self.turn_procs.auto_phys_crit = nil end\n61: \t\tif self.mark_steady then self.mark_steady = nil end\n62: \tend,\n63: \tarchery_onhit = function(self, t, target, x, y)\n64: \t\tif self:knowTalent(self.T_MASTER_MARKSMAN) or self.mark_steady then\n65: \t\t\tlocal chance = (self:knowTalent(self.T_MASTER_MARKSMAN) and 15 or 0) + (self.mark_steady or 0)\n66: \t\t\tif self:hasEffect(self.EFF_TRUESHOT) then chance = chance + (chance * self:callTalent(self.T_TRUESHOT, \"getMarkChance\")/100) end\n67: \t\t\tif self:isTalentActive(self.T_AIM) then\t\n68: \t\t\t\tchance = chance + self:callTalent(self.T_AIM, \"getMarkChance\") \n69: \t\t\tend\n70: \t\t\tif target:hasEffect(target.EFF_PIN_DOWN) then \n71: \t\t\t\tlocal eff = target:hasEffect(target.EFF_PIN_DOWN)\n72: \t\t\t\tchance = 100\n73: \t\t\t\tself.turn_procs.auto_phys_crit = nil\n74: \t\t\t\ttarget:removeEffect(target.EFF_PIN_DOWN)\n75: \t\t\tend\n76: \t\t\tif self.turn_procs.first_blood_shoot then chance = chance + 50 end\n77: \t\t\tif rng.percent(chance) then target:setEffect(target.EFF_MARKED, 5, {src=self}) end\n78: \t\tend\n79: \t\tif self.turn_procs.first_blood_shoot then\n80: \t\t\tlocal life_diff = self.turn_procs.first_blood_shoot - target.life\n81: \t\t\tlocal scale = self:callTalent(self.T_FIRST_BLOOD, \"getBleed\")\n82: \t\t\tif life_diff > 0 and target:canBe('cut') and scale then\n83: \t\t\t\ttarget:setEffect(target.EFF_CUT, 5, {power=life_diff * scale / 5, src=self, apply_power=self:combatPhysicalpower(), no_ct_effect=true})\n84: \t\t\tend\n85: \t\tend\n86: \t\tif self.mark_steady then self.mark_steady = nil end\n87: \t\tif self:knowTalent(self.T_FIRST_BLOOD) then self:incStamina(self:callTalent(self.T_FIRST_BLOOD, \"getStamina\")) end\n88: \tend,"
+    },
+    {
+      "revision_keys": [
+        "fb643ca9df6b45f4d8fccf7748e6c66d889cd668fcccb030929706f2d2c55766"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/shertul.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "5e2c74eb697a0468d01cd0318e8bb9192201b3b652cb83fdf278e1354a72692a",
+      "start_line": 36,
+      "end_line": 42,
+      "excerpt": "36: \tcategory = \"sher'tul\",\n37: \tname = _t\"second mural painting\", always_pop = true,\n38: \timage = \"shertul_fortress_lore2.png\",\n39: \tlore = function() return _t[[In this picture a huge god with glowing eyes towers above the land, and in his right hand he holds high the sun. The other gods are running from him, wincing from the light.\n40: There is some text underneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#]] or _t[[#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#]])\n41: \tend,\n42: }"
+    },
+    {
+      "revision_keys": [
+        "fb817eecf922f889b58208f1c1736399b82c752873b7f8a7e39037bc79b1ed40"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/lore/misc.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "start_line": 650,
+      "end_line": 664,
+      "excerpt": "650: }\n651: \n652: newLore{\n653: \tid = \"bandit-vault-boss\",\n654: \tcategory = \"vault\",\n655: \tname = _t\"Boss's Journal\",\n656: \tlore = _t[[The best haul we ever got, gone. We could have been set for life, the most legendary outlaws in all the lands! Villages would tremble at the thought of us roaming the woods.\n657: \n658: Only a matter of time until that nobleman catches wind and comes after us. We were about to get more gold than we could count for his lassie back, and that dirt farmer set her on fire. Of all the skullbrained things to do for fun!\n659: \n660: Ordered my men to kill any who pass by and been running triple guard. We need all the time we can get before they come for us, can't let any word out. Once we find somewhere new, I'll leave that idiot burnt on a stake as tribute and hope we don't catch chase. \n661: \n662: I'm going to enjoy hearing his screams, a log on the pyre a gold he cost us. Nice and slow, need to make sure he doesn't die easy.]]\n663: }\n664: "
+    }
+  ]
+}

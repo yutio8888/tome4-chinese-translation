@@ -1,0 +1,27 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 18,
+      "native_calls_sha256": "24f4f72431012f20057cd5ea520e49864018783308b6c4bebf5665c0a9ba55d4",
+      "writes": [
+        "mod-tome.lua (8 targets)",
+        "evidence/quality/repair-window-25-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show",
+        "repair-window-24 evidence layout (read-only)"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "harvest_note": "repo parser (review_lifecycle.py:858) rejects Codex response_item types function_call/function_call_output; this log has 2 wait calls (cell 8, same turn_id) polling a read-only git show exec cell plus their outputs. Harvested via /tmp copy whose only diff is adding those two types to the allowed set; all other single-turn, prompt, final and session checks unchanged. Repo tool fix deferred to post-window maintenance.",
+      "host_note": "host compared all 8 targets line by line against source (line count, blank-line index, leading TAB per line all equal): 疲劳圣印 经过圣印的敌人减速; 指令水晶球（亡灵）黑暗的幻象; 血祭施法 堕落系法术消耗生命值而非活力值; 减速 trailing \\n\\t\\t restored; 摄魂剑·莫瑞格 log 汲取被困灵魂; 第一滴血 命中时/若能标记; 阿马克泰尔 lore rewritten line by line; 盗匪首领日志 threat framing and 绑在柱上烧死."
+    }
+  ],
+  "host_verify_after": "verify.py PASS, exactly 8 targets changed, LF/TAB equal to source"
+}

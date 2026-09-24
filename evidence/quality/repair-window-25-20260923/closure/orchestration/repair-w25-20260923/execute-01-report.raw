@@ -1,0 +1,17 @@
+窗口 25 的 8 条译文已全部实际修复，修改位于 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:11615)。
+
+已完成：
+
+- 修复疲劳圣印、水晶球、血祭施法、减速、摄魂剑日志、第一滴血、阿马克泰尔壁画及盗匪日志。
+- 恰有 8 个 target 变化；source、tag、占位符、`%%`、markup 均保持。
+- LF/TAB、行数及空行下标逐条一致，包括减速末尾 `\n\t\t` 和盗匪日志三处空行。
+- 保存三份逐字节冻结副本、[实施记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-25-20260923/IMPLEMENTATION.md:1) 和 [真实验证结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-25-20260923/VALIDATION.json:1)。
+
+检查全部通过：
+
+- `verify.py`：22,989 条记录，恰好 8 条变化
+- strict lint：30,308 条，0 errors、0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未 stage、commit、push，未修改 `.ai`、术语库、规则、工具或 handoff；无关未跟踪文件保持原样。完整门禁、严格构建、独立 REVIEW/FINAL_REVIEW 和 `DONE_VERIFIED` 留给宿主继续。
