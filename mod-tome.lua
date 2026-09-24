@@ -30442,7 +30442,7 @@ section "mod-tome/data/talents/techniques/excellence.lua"
 t("Shoot Down", "强制击落", "talent name")
 t("#Source# shoots down '#Target#'!", "#Source#击落了'#Target#'！", "logCombat")
 t([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spell, ...) you can instantly shoot at it without taking a turn to take it down.
-		You can shoot down up to %d projectiles.]], [[你的反射神经像闪电一样快。当你瞄准抛射物（箭矢、弹药、法术等）时，你能马上击落它而不消耗时间。
+		You can shoot down up to %d projectiles.]], [[你的反射神经像闪电一样快。当你发现抛射物（箭矢、弹药、法术等）时，你能立即向它射击将其击落，且不消耗回合。
 		你最多能击落 %d 个目标。]], "tformat")
 t("Bull Shot", "冲锋射击", "talent name")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
@@ -30527,7 +30527,7 @@ t([[Enhances your grapples with additional effects. All additional effects will 
 		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，获得额外效果，所有效果不需通过其他豁免或抵抗鉴定。
 		#RED# 等级 1：减少 %d 物理强度
 		等级 3：沉默
-		等级 5：目标减速 %d%%]], "tformat")
+		等级 5：全局速度降低 %d%%]], "tformat")
 t("Take Down", "关节技：抱摔", "talent name")
 t("You cannot move!", "你无法移动！", "logPlayer")
 t([[Rushes forward and attempts to take the target to the ground, making a melee attack for %d%% damage then attempting to grapple them. If you're already grappling the target you'll instead slam them into the ground creating a radius 5 shockwave for %d physical damage and breaking your grapple.
@@ -30683,7 +30683,7 @@ t([[Fires a special shot based on your currently loaded ammo:
 Incendiary - Fire a shot that deals %d%% weapon damage as fire and covers targets in radius %d in sticky pitch for %d turns, reducing global speed by %d%% and increasing fire damage taken by %d%%.
 Venomous - Fire a shot that deals %d%% weapon damage as nature and explodes into a radius %d cloud of crippling poison for %d turns, dealing %0.2f nature damage each turn and giving affected targets a %d%% chance to fail talent usage.
 Piercing - Fire a shot that explodes into a radius %d burst of shredding shrapnel, dealing %d%% weapon damage as physical and removing %d beneficial physical effects or sustains.
-The poison damage dealt increases with your Physical Power, and status chance increases with your Accuracy.]], [[根据当前装填的弹药进行一次特殊的射击
+The poison damage dealt increases with your Physical Power, and status chance increases with your Accuracy.]], [[根据当前装填的弹药进行一次特殊的射击：
 燃烧弹- %d%% 火焰武器伤害。在半径 %d 码范围内用粘稠的沥青包裹敌人 %d 回合，减少 %d%% 全局速度并增加其受到的火焰伤害 %d%%。
 剧毒弹- %d%% 自然武器伤害。爆炸会形成半径 %d 的致残毒气云，持续 %d 回合，每回合造成 %0.2f 自然伤害并使目标使用技能有 %d%% 几率失败。
 穿甲弹- 在半径 %d 码范围内爆炸，造成 %d%% 物理武器伤害，并移除 %d 个有益的物理效果或持续技能。
@@ -30695,8 +30695,8 @@ Venomous - Inflicts leeching poison, dealing %0.2f nature damage over 3 turns an
 Piercing - Punctures the target’s armor, increasing all damage they take by %d%% for 3 turns.
 You only have a limited amount of this ammo, causing this talent to have a cooldown.
 The damage dealt will increase with your Physical Power, and status chance increases with your Accuracy.]], [[你制造出强化版弹药，获得额外效果：
-燃烧弹- 爆炸范围增加 1, 点燃地面每回合额外造成 %0.2f 火焰伤害持续 3 回合。
-剧毒弹- 感染吸血毒素，3 回合内造成 %0.2f 毒素伤害，毒素造成的 100%% 伤害会治疗你。
+燃烧弹- 爆炸范围增加 1，点燃地面每回合额外造成 %0.2f 火焰伤害持续 3 回合。
+剧毒弹- 感染吸血毒素，3 回合内造成 %0.2f 自然伤害，毒素造成的 100%% 伤害会治疗你。
 穿甲弹- 击穿目标护甲，目标受到的所有伤害增加 %d%% 持续 3 回合。
 你的强化版弹药有限，所以技能有冷却时间。
 伤害受物理强度加成，状态触发几率受命中加成。]], "tformat")
@@ -30811,20 +30811,20 @@ t("Concealment", "隐匿", "talent name")
 t("You are being observed too closely to enter Concealment!", "你被近距离观察，不能进入 隐匿 状态！", "logPlayer")
 t([[Enter a concealed sniping stance, increasing your weapon's attack range and vision range by %d, giving all incoming damage a %d%% chance to miss you, and causing your Headshot, Volley and Called Shots to behave as if the target was marked.
 Any non-instant, non-movement action will break concealment, but the increased range and vision and damage avoidance will persist for 3 turns, with the damage avoidance decreasing in power by 33%% each turn.
-This requires a bow to use, and cannot be used if there are foes in sight within range %d.]], [[进入隐匿的狙击状态，增加武器攻击范围和视野 %d 格，所有受到的伤害有 %d%% 几率被完全抵消，爆头、齐射和精巧射击视为目标已被标记。
+This requires a bow to use, and cannot be used if there are foes in sight within range %d.]], [[进入隐匿的狙击状态，增加武器攻击范围和视野 %d 格，所有受到的伤害有 %d%% 几率被完全抵消，爆头、齐射和精准射击视为目标已被标记。
 所有非瞬时非移动行为将打破隐匿状态，攻击范围与视野的加成和伤害回避效果将额外持续 3 回合，伤害回避效果每回合减少 33%%。
 该技能需要弓来使用；如果视野内 %d 格范围内有敌人，则不能使用。]], "tformat")
 t("Shadow Shot", "暗影射击", "talent name")
 t([[Fire an arrow tipped with a smoke bomb inflicting %d%% damage and creating a radius %d cloud of thick, disorientating smoke. Those caught within will have their vision range reduced by %d for 5 turns.
 The distraction caused by this effect reduces the cooldown of your Concealment by %d turns. If the cooldown is reduced to 0, you instantly activate Concealment regardless of whether foes are too close.
-The chance for the smoke bomb to affect your targets increases with your Accuracy. This requires a bow to use.]], [[发射一个带着烟雾弹的箭头造成 %d%% 伤害并制造一个半径为 %d 的烟雾。被困在内的人将减少视野 %d 格 5 回合。
-此效果将减少你隐匿技能 %d 回合冷却时间。如果冷却时间减到 0, 无论敌人是否太近，都可立即激活隐匿。
+The chance for the smoke bomb to affect your targets increases with your Accuracy. This requires a bow to use.]], [[发射一个带着烟雾弹的箭头造成 %d%% 伤害并制造一片半径为 %d 的浓密烟雾，令人迷失方向。被困在内的人将减少视野 %d 格 5 回合。
+此效果将减少你隐匿技能 %d 回合冷却时间。如果冷却时间减到 0，无论敌人是否太近，都可立即激活隐匿。
 烟雾弹影响目标的几率受命中值加成。该技能需要弓来使用。]], "tformat")
 t("Aim", "瞄准姿态", "talent name")
 t([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.
 This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.
 The physical power and accuracy increase with your Dexterity. This requires a bow to use.]], [[进入一个平静，专注的姿态，增加 %d 物理强度和命中，抛射物速度增加 %d%% 并且标记目标的几率增加 %d%%。
-这让你在射程内射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格距离时达到最大值（%0.1f%%）。
+这让你的远距离射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格距离时达到最大值（%0.1f%%）。
 物理强度和命中受敏捷值加成。该技能需要弓来使用。]], "tformat")
 t("Snipe", "狙击", "talent name")
 t([[Take aim for 1 turn, preparing a deadly shot. During the next turn, this talent will be replaced with the ability to fire a lethal shot dealing %d%% damage and marking the target.
@@ -30937,7 +30937,7 @@ t("Teaches to use various armours, weapons and improves health.", "使你学会�
 t("magical combat", "魔法格斗", "talent type")
 t("The blending together of magic and melee prowess.", "结合魔法和近身格斗的技巧。", "_t")
 t("mobility", "移动", "talent type")
-t("Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount.", "强化闪避和移动能力，确保你始终处于战斗的上风。", "_t")
+t("Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount.", "提升机动性与闪避敌人的训练和技巧。在战场上，站位至关重要。", "_t")
 t("thuggery", "暴徒手段", "talent type")
 t("Whatever wins the day, wins the day.", "只要能赢，什么手段都行。", "_t")
 t("assassination", "暗杀", "talent type")
@@ -30965,15 +30965,15 @@ t("Slings! Pow Pow!", "投石索！投石！", "_t")
 t("Tireless Combatant", "不倦战斗", "talent type")
 t("Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.", "你的意志支撑你熬过最艰难的苦战，让你在别人早已因精疲力竭而倒下时仍能继续战斗。", "_t")
 t("pugilism", "拳术", "talent type")
-t("Unarmed Boxing techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "徒手拳击格斗技术，你不能装备板甲、武器和盾牌。", "_t")
+t("Unarmed Boxing techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "徒手拳击格斗技术；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("finishing moves", "终结技", "talent type")
-t("Finishing moves that use combo points and may not be practiced in massive armor or while a weapon or shield is equipped.", "使用你累积的连击点数发动致命的终结一击，你不能装备板甲、武器和盾牌。", "_t")
+t("Finishing moves that use combo points and may not be practiced in massive armor or while a weapon or shield is equipped.", "使用你累积的连击点数发动致命的终结一击；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("grappling", "关节技", "talent type")
-t("Grappling techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "抓取敌人的技巧，你不能装备板甲、武器和盾牌。", "_t")
+t("Grappling techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "抓取敌人的技巧；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("unarmed discipline", "徒手格斗", "talent type")
 t("Advanced unarmed techniques including kicks and blocks that may not be practiced in massive armor or while a weapon or shield is equipped.", "高级徒手格斗技巧，包括踢技和格挡；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("unarmed training", "徒手训练", "talent type")
-t("Teaches various martial arts techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "高级徒手格斗技能，不能装备板甲、武器和盾牌。", "_t")
+t("Teaches various martial arts techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "传授各种武术技巧；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("conditioning", "体质强化", "talent type")
 t("Physical conditioning.", "强化你的体质。", "_t")
 t("unarmed other", "其他格斗技能", "talent type")
@@ -31032,7 +31032,7 @@ In addition, your critical strikes with throwing knives have a %d%% chance to ra
 t("Quickdraw", "快速投掷", "talent name")
 t("Quickdraw Knife", "快速投掷飞刀", "_t")
 t([[You can throw knives with lightning speed, increasing your attack speed with them by %d%% and giving you a %d%% chance when striking a target in melee to throw a knife at a random foe within 7 tiles for 100%% damage. 
-		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀。增加 %d%% 攻击速度，近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。
+		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%，近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。
 		每回合仅触发 1 次，不会被投掷飞刀触发。]], "tformat")
 t("Venomous Throw", "剧毒飞刀", "talent name")
 t("Venomous Throw", "剧毒飞刀", "_t")
@@ -31198,7 +31198,7 @@ t([[Enter a protective battle stance allowing you to defend yourself more profic
 		The Armor and Block bonuses increase equally with your Dexterity and Strength.]], [[进入一个保护性的战斗姿态，让你在使用盾牌的同时更熟练地保护自己。
 		提升护甲值 %d，格挡值 %d，减少格挡冷却 2 回合。
 		提升眩晕和击退抗性 %d%%。
-		护甲和格挡值加成受你的敏捷和力量值影响。]], "tformat")
+		护甲和格挡值加成受你的敏捷和力量值同等影响。]], "tformat")
 t("Repulsion", "盾牌排斥", "talent name")
 t("You cannot use Repulsion without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
@@ -31319,7 +31319,7 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
 t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "找到泰勒斯法杖的上半部，下半部和宝石。", "_t")
-t("#VIOLET#%s assembles %s!", "#VIOLET#%s 重组为 %s！", "logSeen")
+t("#VIOLET#%s assembles %s!", "#VIOLET#%s 组装出了 %s！", "logSeen")
 t("You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.", "你已获得泰勒斯法杖的三个部件并仔细研究过。你相信自己能将它们重新合成为一根威力强大的法杖。", "tformat")
 t("Elemental Surge", "元素狂潮", "talent name")
 t("Have dealt over 10000 arcane, fire, cold, lightning, light or nature damage", "曾造成超过 10000 点奥术、火焰、冰冷、闪电、光系或自然伤害", "_t")
@@ -31347,12 +31347,12 @@ t([[Surround yourself with an elemental aura that stores damage you deal.
 		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对你自己附加以下的附加效果：
 
 		物理：清除 1 个物理负面特效并给予 2 回合物理负面特效豁免。
-		#PURPLE#奥术 :#LAST# 增加你的精神和施法速度 30%%，持续 3 回合。
-		#LIGHT_RED#火焰 :#LAST# 增加你所造成的所有伤害 %d%%，持续 3 回合。
-		#1133F3#寒冷 :#LAST# 将你的皮肤变成冰，增加护甲 %d，对攻击者造成 %d 冰冻伤害，持续 3 回合
-		#ROYAL_BLUE#闪电 :#LAST# 你的移动速度提升 %d%%，持续 2 回合。
-		#YELLOW#光系 :#LAST# 技能冷却时间减少 20%%，持续 3 回合。
-		#LIGHT_GREEN#自然 :#LAST# 清除 1 个魔法负面特效并给予 2 回合魔法负面特效豁免。
+		#PURPLE#奥术：#LAST# 增加你的精神和施法速度 30%%，持续 3 回合。
+		#LIGHT_RED#火焰：#LAST# 增加你所造成的所有伤害 %d%%，持续 3 回合。
+		#1133F3#寒冷：#LAST# 将你的皮肤变成冰，增加护甲 %d，对攻击者造成 %d 冰冻伤害，持续 3 回合。
+		#ROYAL_BLUE#闪电：#LAST# 你的移动速度提升 %d%%，持续 2 回合。
+		#YELLOW#光系：#LAST# 技能冷却时间减少 20%%，持续 3 回合。
+		#LIGHT_GREEN#自然：#LAST# 清除 1 个魔法负面特效并给予 2 回合魔法负面特效豁免。
 
 		同种效果最多每 10 回合触发一次。这不是普通的技能冷却。
 		伤害和效果强度受灵巧值加成，伤害阈值受等级加成。
@@ -31550,7 +31550,7 @@ t([[You infuse blighted energies into all of your summons, granting them Bone Sh
 		- 骷髅战士：毁伤
 		- 骨巨人：白骨尖刺和 毁伤
 		- 食尸鬼：剧毒瘟疫
-		- 梦魇：沉睡
+		- 噩灵：沉睡
 		%s
 		]], "tformat")
 t("Revisionist History", "修正历史", "talent name")
@@ -31713,7 +31713,7 @@ t([[During your studies of celestial forces you came in contact with an entity f
         与它结盟，你将获得它的力量。
 
         增益：
-        - 你的力量如此强大，你可以#GOLD#同时装备双手武器和盾牌#LAST#
+        - 你与它的羁绊如此牢固，你可以#GOLD#同时装备双手武器和盾牌#LAST#
         - 50%% 伤害转化为 #GOLD#光系伤害#LAST#
         - #GOLD#光辉引力#LAST#：光明之刃变成半径2的球形伤害，且可以将5格范围内的敌人拉过来（你可以开关此效果）。
 		- #GOLD#灼热之视#LAST# 的伤害和触发概率翻倍
@@ -32388,7 +32388,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 我们没法阻止他们，不过我们抓了他们中的一个。
 
 他知道的不多，但他提到了远东大陆的“主人”。
-他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个”包裹”送过传送门。
+他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包裹”送过传送门。
 
 事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
 
@@ -32421,8 +32421,8 @@ Press Escape, save & exit and create a new character!
 在教程中，一些生物为了配合教学进行了调整；记住，在真实世界里，巨魔通常不
 会这么友善！
 
-如果你想知道快捷键的功能，你可以按 #GOLD#Esc#WHITE#键进入游戏菜单检查按键设定(你也可以
-根据你的需要改变设置)。
+如果你想知道快捷键的功能，你可以按 #GOLD#Esc#WHITE#键进入游戏菜单检查按键设定（你也可以
+根据你的需要改变设置）。
 
 也许这是你第一次玩这个游戏，你会发现可供游玩的种族和职业数量有限；游戏中还存
 在许多其他种族和职业，你会在游戏过程中解锁它们。
@@ -33290,7 +33290,7 @@ Ahead are a series of bored elves who will happily blast you with whatever spell
 
 ]], [[让我们再仔细研究一下这些新的持续效果的机制。最简单的方法就是让这些效果作用在你自己身上。
 
-前面有几个无聊的精灵，他们会很高兴在你身上施展各种他们所学会的法术，测试一下这些持续效果在你身上的作用，注意查看鼠标提示。
+前面有几个无聊的精灵，他们会很乐意用手头的任何法术轰击你。查看他们施加在你身上的每一种效果的鼠标提示。
 
 ]], "_t")
 
@@ -33624,7 +33624,7 @@ Most of their talents are more effective with high hate.
 更可怕的是，任何接近被诅咒者的人都会受其可怕光环影响而发狂。
 不过其中的一些人努力弥补过错，用自己的被诅咒之力与邪恶战斗。
 
-你战胜了本·克鲁塞达尔的诅咒，现在你创建角色时可以选择一个新的职业 #LIGHT_GREEN#被诅咒者#WHITE#。
+你“解除”了本·克鲁塞达尔的诅咒，现在你创建角色时可以选择一个新的职业 #LIGHT_GREEN#被诅咒者#WHITE#。
 
 被诅咒者是重型近战战士，将所有仇恨倾注于自己的攻击。
 职业特点：#YELLOW#
@@ -33721,7 +33721,7 @@ Campaign features:#YELLOW#
 - Pure hack and slash MAYHEM!
 - Your champion becomes the new master of the arena, allowing you to challenge your own champions!
 ]], [[竞技场是一种暴力娱乐方式。
-为了取悦观众，获得财富和荣耀的地方。在那里，有志之士、以前的冒险家和那些受永远战斗之诅咒的人互相厮杀。
+它令观众欣喜，是财富与荣耀之源。在那里，有志之士、以前的冒险家和那些受永远战斗之诅咒的人互相厮杀。
 
 你解锁了竞技场，现在你可以创建一个新人物进行新的战役模式：#LIGHT_GREEN#竞技场#WHITE#。
 
@@ -33851,7 +33851,7 @@ Class features:#YELLOW#
 Corruptors use "vim" to power their special abilities.
 Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.
 ]], [[所有的力量都有其黑暗的一面，包括奥术。
-腐化者是使用黑暗、枯萎和恶魔法术来达到目的法师。
+腐化者是使用黑暗、枯萎和恶魔法术来达到目的的法师。
 并非所有的腐化者都是邪恶的，有些人只是单纯自私地只关心其个人力量而已。
 
 大腐化者教会了你堕落系法术，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#腐化者#WHITE#。
@@ -34033,12 +34033,12 @@ Madness features:#YELLOW#
 - Player can earn Madness version of achievements if also playing in Roguelike or Adventure permadeath mode.
 
 #WHITE#May you suffer many fun and unfair deaths!
-]], [[你在疯狂模式下通关了游戏。你是最好的玩家之一 !
+]], [[你在疯狂模式下通关了游戏。你是最好的玩家之一！
 不过，别害怕，因为游戏会变得更加不公平！
 
 欢迎来到绝望模式！
 
-绝望模式的特点 :#YELLOW#
+绝望模式的特点：#YELLOW#
 - 所有区域等级提高 150% + 6
 - 所有怪物的技能等级增加 170%
 - 稀有怪产生频率大幅增加，同时出现随机 Boss
@@ -34046,7 +34046,7 @@ Madness features:#YELLOW#
 - 玩家成为了猎物！随机地，一定半径内的所有敌人都会感知到你所在的位置
 - 如果同时在永久死亡模式或冒险模式下游玩，玩家可以获得绝望难度版本的成就
 
-#WHITE# 祝你玩的愉快，死的开心！
+#WHITE# 祝你玩得愉快，死得开心！
 ]], "_t")
 
 ------------------------------------------------
@@ -34073,7 +34073,7 @@ These are filled by some of their spells and depleted by others, making them alt
 ]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。
 
 星月术士是接受过聚集太阳与月亮神力的特殊魔法训练的法师。
-他们在与兽人部落的战斗中学会了如何同时掌控光与影的能量方法。
+他们在与兽人部落的战斗中学会了如何同时掌控光与影的能量。
 他们的座右铭是：“我们站在太阳与月亮之间，光明与黑暗交汇的地方，在灰色的暮光中寻找我们的命运。”
 
 你帮助了他们中的一位，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#星月术士#WHITE#。

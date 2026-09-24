@@ -11282,7 +11282,7 @@ raw verdict: 条目结论属风格/排版（advisory）→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00372 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  |  |
+| hrq-00372 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00372 · HUMAN-REVIEW 详情</summary>
 
@@ -11306,7 +11306,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00373 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  |  |
+| hrq-00373 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  | no_change |
 
 <details><summary>hrq-00373 · HUMAN-REVIEW 详情</summary>
 
@@ -11335,7 +11335,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00374 | HUMAN-REVIEW | cross-batch-074 | confirmed | 补机制限定；术语核对 |  |  |
+| hrq-00374 | HUMAN-REVIEW | cross-batch-074 | confirmed | 补机制限定；术语核对 |  | fix |
 
 <details><summary>hrq-00374 · HUMAN-REVIEW 详情</summary>
 
@@ -11366,7 +11366,7 @@ The poison damage dealt increases with your Physical Power, and status chance in
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00375 | HUMAN-REVIEW | cross-batch-074 | advisory | 文风取舍 |  |  |
+| hrq-00375 | HUMAN-REVIEW | cross-batch-074 | advisory | 文风取舍 |  | fix |
 
 <details><summary>hrq-00375 · HUMAN-REVIEW 详情</summary>
 
@@ -11399,7 +11399,7 @@ The damage dealt will increase with your Physical Power, and status chance incre
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00376 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  |  |
+| hrq-00376 | HUMAN-REVIEW | cross-batch-074 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00376 · HUMAN-REVIEW 详情</summary>
 
@@ -11422,7 +11422,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00377 | HUMAN-REVIEW | cross-batch-075 | confirmed | 排版取舍 |  |  |
+| hrq-00377 | HUMAN-REVIEW | cross-batch-075 | confirmed | 排版取舍 |  | no_change |
 
 <details><summary>hrq-00377 · HUMAN-REVIEW 详情</summary>
 
@@ -11449,7 +11449,7 @@ This requires a bow to use, and cannot be used if there are foes in sight within
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00378 | HUMAN-REVIEW | cross-batch-075 | confirmed | 局部对齐 |  |  |
+| hrq-00378 | HUMAN-REVIEW | cross-batch-075 | confirmed | 局部对齐 |  | fix |
 
 <details><summary>hrq-00378 · HUMAN-REVIEW 详情</summary>
 
@@ -11476,7 +11476,7 @@ The chance for the smoke bomb to affect your targets increases with your Accurac
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00379 | HUMAN-REVIEW | cross-batch-075 | confirmed | 标点直修；完整性取舍 |  |  |
+| hrq-00379 | HUMAN-REVIEW | cross-batch-075 | confirmed | 标点直修；完整性取舍 |  | fix |
 
 <details><summary>hrq-00379 · HUMAN-REVIEW 详情</summary>
 
@@ -11503,7 +11503,7 @@ The physical power and accuracy increase with your Dexterity. This requires a bo
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00380 | HUMAN-REVIEW | cross-batch-075 | confirmed | 改写措辞 |  |  |
+| hrq-00380 | HUMAN-REVIEW | cross-batch-075 | confirmed | 改写措辞 |  | fix |
 
 <details><summary>hrq-00380 · HUMAN-REVIEW 详情</summary>
 
@@ -11526,7 +11526,7 @@ raw verdict: `at range` 误写成“在射程内”→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00381 | HUMAN-REVIEW | cross-batch-075 | advisory | 术语清晰度 |  |  |
+| hrq-00381 | HUMAN-REVIEW | cross-batch-075 | advisory | 术语清晰度 |  | no_change |
 
 <details><summary>hrq-00381 · HUMAN-REVIEW 详情</summary>
 
@@ -11549,7 +11549,7 @@ raw verdict: 括号内省略“混乱”（50% confusion power）→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00382 | HUMAN-REVIEW | cross-batch-075 | confirmed | 文风选择 |  |  |
+| hrq-00382 | HUMAN-REVIEW | cross-batch-075 | confirmed | 文风选择 |  | fix |
 
 <details><summary>hrq-00382 · HUMAN-REVIEW 详情</summary>
 
@@ -11572,7 +11572,7 @@ raw verdict: “站位/走位至关重要”泛化为“始终处于战斗的上
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00383 | HUMAN-REVIEW | cross-batch-075 | confirmed | 改为施展限制 |  |  |
+| hrq-00383 | HUMAN-REVIEW | cross-batch-075 | confirmed | 改为施展限制 |  | fix |
 
 <details><summary>hrq-00383 · HUMAN-REVIEW 详情</summary>
 
@@ -11595,7 +11595,7 @@ raw verdict: 施展限制误写成“不能装备”板甲/武器/盾牌→confi
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00384 | HUMAN-REVIEW | cross-batch-075 | confirmed | 后半必修；前半文风 |  |  |
+| hrq-00384 | HUMAN-REVIEW | cross-batch-075 | confirmed | 后半必修；前半文风 |  | fix |
 
 <details><summary>hrq-00384 · HUMAN-REVIEW 详情</summary>
 
@@ -11618,7 +11618,7 @@ raw verdict: 后半句同样把“无法施展”误写成“不能装备”→c
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00385 | HUMAN-REVIEW | cross-batch-075 | confirmed | 可能涉及类别名一致性，需裁定 |  |  |
+| hrq-00385 | HUMAN-REVIEW | cross-batch-075 | confirmed | 可能涉及类别名一致性，需裁定 |  | fix |
 
 <details><summary>hrq-00385 · HUMAN-REVIEW 详情</summary>
 
@@ -11641,7 +11641,7 @@ raw verdict: 后半句装备禁令误译同上→confirmed; `Grappling technique
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00386 | HUMAN-REVIEW | cross-batch-075 | confirmed | 按本条原文重译 |  |  |
+| hrq-00386 | HUMAN-REVIEW | cross-batch-075 | confirmed | 按本条原文重译 |  | fix |
 
 <details><summary>hrq-00386 · HUMAN-REVIEW 详情</summary>
 
@@ -11666,7 +11666,7 @@ raw verdict: 前半句把 `Teaches various martial arts techniques` 错写成“
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00387 | HUMAN-REVIEW | cross-batch-076 | confirmed | 补“飞刀”限定 |  |  |
+| hrq-00387 | HUMAN-REVIEW | cross-batch-076 | confirmed | 补“飞刀”限定 |  | fix |
 
 <details><summary>hrq-00387 · HUMAN-REVIEW 详情</summary>
 
@@ -11689,7 +11689,7 @@ raw verdict: 飞刀专属攻速加成被泛指为“攻击速度”→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00388 | HUMAN-REVIEW | cross-batch-076 | refuted | 可选可读性优化，非必修 |  |  |
+| hrq-00388 | HUMAN-REVIEW | cross-batch-076 | refuted | 可选可读性优化，非必修 |  | refuted |
 
 <details><summary>hrq-00388 · HUMAN-REVIEW 详情</summary>
 
@@ -11713,7 +11713,7 @@ raw verdict: 遗漏 “when Breathing Room is active” 触发前提→refuted
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00389 | HUMAN-REVIEW | cross-batch-076 | confirmed | 是否保留括注 |  |  |
+| hrq-00389 | HUMAN-REVIEW | cross-batch-076 | confirmed | 是否保留括注 |  | no_change |
 
 <details><summary>hrq-00389 · HUMAN-REVIEW 详情</summary>
 
@@ -11742,7 +11742,7 @@ raw verdict: 括注“冷却中仍可获得”有源码依据，不构成机制�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00390 | HUMAN-REVIEW | cross-batch-076 | confirmed | 可补等权表述 |  |  |
+| hrq-00390 | HUMAN-REVIEW | cross-batch-076 | confirmed | 可补等权表述 |  | fix |
 
 <details><summary>hrq-00390 · HUMAN-REVIEW 详情</summary>
 
@@ -11769,7 +11769,7 @@ raw verdict: 遗漏力量与敏捷等权贡献的细节→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00391 | HUMAN-REVIEW | cross-batch-076 | pending | **需术语负责人裁定** |  |  |
+| hrq-00391 | HUMAN-REVIEW | cross-batch-076 | pending | **需术语负责人裁定** |  | defer |
 
 <details><summary>hrq-00391 · HUMAN-REVIEW 详情</summary>
 
@@ -11792,7 +11792,7 @@ raw verdict: `corruption` 译作“枯萎能量”是否混淆 corruption/blight
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00392 | HUMAN-REVIEW | cross-batch-076 | confirmed | 标点/界面文风 |  |  |
+| hrq-00392 | HUMAN-REVIEW | cross-batch-076 | confirmed | 标点/界面文风 |  | no_change |
 
 <details><summary>hrq-00392 · HUMAN-REVIEW 详情</summary>
 
@@ -11815,7 +11815,7 @@ raw verdict: 规整原文双感叹号→advisory; 颜色标签前多余空格→
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00393 | HUMAN-REVIEW | cross-batch-076 | confirmed | 按参数顺序重写 |  |  |
+| hrq-00393 | HUMAN-REVIEW | cross-batch-076 | confirmed | 按参数顺序重写 |  | fix |
 
 <details><summary>hrq-00393 · HUMAN-REVIEW 详情</summary>
 
@@ -11864,7 +11864,7 @@ raw verdict: `assembles` 译作“重组为”，主宾关系颠倒→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00394 | HUMAN-REVIEW | cross-batch-077 | confirmed | 排版直修 |  |  |
+| hrq-00394 | HUMAN-REVIEW | cross-batch-077 | confirmed | 排版直修 |  | fix |
 
 <details><summary>hrq-00394 · HUMAN-REVIEW 详情</summary>
 
@@ -11929,7 +11929,7 @@ raw verdict: 冒号前多余空格、寒冷效果缺句号→confirmed; 8 个占
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00395 | HUMAN-REVIEW | cross-batch-077 | confirmed | **需术语条目裁定 Dread** |  |  |
+| hrq-00395 | HUMAN-REVIEW | cross-batch-077 | confirmed | **需术语条目裁定 Dread** |  | fix |
 
 <details><summary>hrq-00395 · HUMAN-REVIEW 详情</summary>
 
@@ -11976,7 +11976,7 @@ raw verdict: `Dread` 译作“梦魇”存在对象识别错误→confirmed; 正
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00396 | HUMAN-REVIEW | cross-batch-077 | confirmed | 补语义；需术语输入 |  |  |
+| hrq-00396 | HUMAN-REVIEW | cross-batch-077 | confirmed | 补语义；需术语输入 |  | fix |
 
 <details><summary>hrq-00396 · HUMAN-REVIEW 详情</summary>
 
@@ -12007,7 +12007,7 @@ raw verdict: `strength of your bond` 误译为“你的力量如此强大”→c
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00397 | HUMAN-REVIEW | cross-batch-077 | confirmed | **术语一致性决定** |  |  |
+| hrq-00397 | HUMAN-REVIEW | cross-batch-077 | confirmed | **术语一致性决定** |  | no_change |
 
 <details><summary>hrq-00397 · HUMAN-REVIEW 详情</summary>
 
@@ -12054,7 +12054,7 @@ Now press #LIGHT_BLUE#escape#LAST# or #LIGHT_BLUE#click outside#LAST# this dialo
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00398 | HUMAN-REVIEW | cross-batch-078 | confirmed | 品牌风格；如需升级需另供对照 |  |  |
+| hrq-00398 | HUMAN-REVIEW | cross-batch-078 | confirmed | 品牌风格；如需升级需另供对照 |  | no_change |
 
 <details><summary>hrq-00398 · HUMAN-REVIEW 详情</summary>
 
@@ -12095,7 +12095,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00399 | HUMAN-REVIEW | cross-batch-078 | confirmed | 缩进需游戏内截图 |  |  |
+| hrq-00399 | HUMAN-REVIEW | cross-batch-078 | confirmed | 缩进需游戏内截图 |  | no_change |
 
 <details><summary>hrq-00399 · HUMAN-REVIEW 详情</summary>
 
@@ -12142,7 +12142,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00400 | HUMAN-REVIEW | cross-batch-078 | confirmed | 引号可直接修 |  |  |
+| hrq-00400 | HUMAN-REVIEW | cross-batch-078 | confirmed | 引号可直接修 |  | fix |
 
 <details><summary>hrq-00400 · HUMAN-REVIEW 详情</summary>
 
@@ -12190,7 +12190,7 @@ Press Escape, save & exit and create a new character!
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00401 | HUMAN-REVIEW | cross-batch-078 | confirmed | 版面确认后清理换行 |  |  |
+| hrq-00401 | HUMAN-REVIEW | cross-batch-078 | confirmed | 版面确认后清理换行 |  | fix |
 
 <details><summary>hrq-00401 · HUMAN-REVIEW 详情</summary>
 
@@ -12242,7 +12242,7 @@ Now open the levelup screen and assign your points.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00402 | HUMAN-REVIEW | cross-batch-078 | confirmed | 需提供术语条目 |  |  |
+| hrq-00402 | HUMAN-REVIEW | cross-batch-078 | confirmed | 需提供术语条目 |  | no_change |
 
 <details><summary>hrq-00402 · HUMAN-REVIEW 详情</summary>
 
@@ -12280,7 +12280,7 @@ The spell will also attempt to stun the target. Stunning, you recall, is a physi
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00403 | HUMAN-REVIEW | cross-batch-078 | confirmed | 是否允许偏离英文补条件 |  |  |
+| hrq-00403 | HUMAN-REVIEW | cross-batch-078 | confirmed | 是否允许偏离英文补条件 |  | no_change |
 
 <details><summary>hrq-00403 · HUMAN-REVIEW 详情</summary>
 
@@ -12310,7 +12310,7 @@ These subintervals of twenty we'll call #GOLD#tiers#WHITE# from now on.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00404 | HUMAN-REVIEW | cross-batch-078 | confirmed | 是否统一清理折行 |  |  |
+| hrq-00404 | HUMAN-REVIEW | cross-batch-078 | confirmed | 是否统一清理折行 |  | no_change |
 
 <details><summary>hrq-00404 · HUMAN-REVIEW 详情</summary>
 
@@ -12347,7 +12347,7 @@ raw verdict: 区间与 tier 定义翻译正确→confirmed; 存在额外硬换�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00405 | HUMAN-REVIEW | cross-batch-078 | confirmed | 统一留空格或都去 |  |  |
+| hrq-00405 | HUMAN-REVIEW | cross-batch-078 | confirmed | 统一留空格或都去 |  | no_change |
 
 <details><summary>hrq-00405 · HUMAN-REVIEW 详情</summary>
 
@@ -12378,7 +12378,7 @@ Ahead are a series of bored elves who will happily blast you with whatever spell
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00406 | HUMAN-REVIEW | cross-batch-079 | confirmed | 文风取舍 |  |  |
+| hrq-00406 | HUMAN-REVIEW | cross-batch-079 | confirmed | 文风取舍 |  | fix |
 
 <details><summary>hrq-00406 · HUMAN-REVIEW 详情</summary>
 
@@ -12433,7 +12433,7 @@ Most of their talents are more effective with high hate.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00407 | HUMAN-REVIEW | cross-batch-079 | confirmed | 补反讽 |  |  |
+| hrq-00407 | HUMAN-REVIEW | cross-batch-079 | confirmed | 补反讽 |  | fix |
 
 <details><summary>hrq-00407 · HUMAN-REVIEW 详情</summary>
 
@@ -12479,7 +12479,7 @@ Campaign features:#YELLOW#
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00408 | HUMAN-REVIEW | cross-batch-079 | confirmed | 修句；文风 |  |  |
+| hrq-00408 | HUMAN-REVIEW | cross-batch-079 | confirmed | 修句；文风 |  | fix |
 
 <details><summary>hrq-00408 · HUMAN-REVIEW 详情</summary>
 
@@ -12532,7 +12532,7 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00409 | HUMAN-REVIEW | cross-batch-079 | confirmed | 直修语病 |  |  |
+| hrq-00409 | HUMAN-REVIEW | cross-batch-079 | confirmed | 直修语病 |  | fix |
 
 <details><summary>hrq-00409 · HUMAN-REVIEW 详情</summary>
 
@@ -12583,7 +12583,7 @@ Madness features:#YELLOW#
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00410 | HUMAN-REVIEW | cross-batch-079 | confirmed | 直修 |  |  |
+| hrq-00410 | HUMAN-REVIEW | cross-batch-079 | confirmed | 直修 |  | fix |
 
 <details><summary>hrq-00410 · HUMAN-REVIEW 详情</summary>
 
@@ -12640,7 +12640,7 @@ These are filled by some of their spells and depleted by others, making them alt
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00411 | HUMAN-REVIEW | cross-batch-079 | confirmed | 改句式 |  |  |
+| hrq-00411 | HUMAN-REVIEW | cross-batch-079 | confirmed | 改句式 |  | fix |
 
 <details><summary>hrq-00411 · HUMAN-REVIEW 详情</summary>
 
