@@ -1,0 +1,122 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01BqWdsUQeEGAyvU1e5e5YvU",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-ae5b45a9e4a7a8ffdb3e-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input size and contract sections"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_011yR193cwJGzKoUK2p46s1y",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 1,140p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01QYFhreUiNV36E9Wx7NexFb",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-ae5b45a9e4a7a8ffdb3e-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(d['candidate_identity'])\nprint(p['fixed_source_identity']); print(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:500])\nprint(p['rendered_briefing'])\nprint(len(p['ordered_revision_keys']))\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k); print(json.dumps(t,ensure_ascii=False)); print(json.dumps(c,ensure_ascii=False))\n\"",
+      "description": "Dump envelope content"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01A9MkAqEEyF1sxR9pUHEDAU",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-ae5b45a9e4a7a8ffdb3e-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i+1,t['revision_key'][:8]); print('S:',t['source']); print('T:',t['target'])\n  ctx=c['context']; first,_,rest=ctx.partition('\\nsource_facts_v1:')\n  print('FILE:',first)\n  f=json.loads(rest)\n  print(json.dumps(f.get('fact'),ensure_ascii=False))\n\"",
+      "description": "Print entries with facts"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_017Ac7vtCYNcwnZPsGnLJbrZ",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-ae5b45a9e4a7a8ffdb3e-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i+1,t['revision_key'][:8]); print('S:',t['source']); print('T:',t['target'])\n  ctx=c['context']; first,_,rest=ctx.partition('\\nsource_facts_v1:')\n  f=json.loads(rest)['fact']\n  for a in f.get('anchors',[]):\n    print('  @',a.get('public_source_path'),a.get('matching_lines'))\n    for s in a.get('snippet',[]): print('   ',s['line'],s['text'][:200])\n  print('  TERM:',json.dumps(f.get('terminology'),ensure_ascii=False)[:1500])\n  print('  KEYS:',[k for k in f if k not in ('anchors','terminology')])\n\"",
+      "description": "Print entries with snippet and terminology"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01XwQUVt5rDLDmPdnjYnConr",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/misc/npcs.lua | sed -n 1615,1656p; echo ----; git show $C:game/modules/tome/data/talents/techniques/marksmanship.lua | sed -n 20,70p; echo ----; git show $C:game/modules/tome/data/talents/celestial/other.lua | sed -n 370,420p",
+      "description": "Inspect pinned upstream source for entries"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_014Q5ZkuS8xY6GVGcRz9foWm",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | grep -n -A22 'name = _t\"wasting\"\\|\"WASTING\"' | head -40; git show $C:game/modules/tome/data/talents/techniques/marksmanship.lua | grep -n -i \"first_blood\\|FIRST_BLOOD\\|0.9\\|1.5\" | head; git grep -n \"T_FIRST_BLOOD\" $C -- game/modules/tome | head",
+      "description": "Check wasting damage and first blood usage"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_011q4ao8AuMEc2aKn6pm3Nmk",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/techniques/archery.lua | sed -n 45,90p; git grep -n \"BLOODCASTING\\|bloodcasting\" $C -- game/modules/tome/class game/modules/tome/data/talents | head",
+      "description": "Check First Blood and Bloodcasting implementation"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_011fJxjrKDA5CrLyrfN37CkY",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n 3600,3642p",
+      "description": "Check trapped soul artifact context"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01GJ51kqQTqyhWHuai94DEB1",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\np=json.load(open('.ai/task/batch-ae5b45a9e4a7a8ffdb3e-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nprint(p['ordered_revision_keys'])\"",
+      "description": "Print ordered revision keys"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]
