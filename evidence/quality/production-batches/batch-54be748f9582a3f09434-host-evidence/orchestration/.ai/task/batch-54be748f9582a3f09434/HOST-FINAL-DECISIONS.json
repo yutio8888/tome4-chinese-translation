@@ -1,0 +1,116 @@
+{
+  "batch_id": "batch-54be748f9582a3f09434",
+  "observations": 10,
+  "observation_dispositions": {
+    "confirmed": 10
+  },
+  "repair_revision_keys": [
+    "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+    "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+    "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+    "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+    "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 5,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+      "stage": "surface",
+      "observation": "原文 psionic summons 指灵能召唤物，译文「灵能召唤术」变成了召唤技能。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/psionic/psionic.lua:49（624a673）技能系 Thought-Forms（思维形态）说明：Manifest your thoughts as psionic summons.——该系技能召唤思维形态实体，psionic summons 指灵能召唤物；现译“灵能召唤术”把召唤物写成召唤技能（一级 fidelity）。修复为“使你的思维具象化为灵能召唤物”一类。"
+    },
+    {
+      "revision_key": "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+      "stage": "surface",
+      "observation": "原文遭遇的是巨蚁的母体，译文改成「史前巨型白蚁」及「蚁王」；原文臃肿、渗液、吱叫的外貌描述也被改写为凶猛形象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/misc.lua:86–90 起 letter to Weisman (1)：现译把 bloated, oozing and chittering horror / the giant ants' repulsive progenitor 改写为“最犀利最凶猛的生物”“史前巨型白蚁…蚁王”，漏 Such pluck and derring-do，并把第三段拆成两段、末尾署名前少一个空行，LF 10→9（一级 fidelity + 换行不变量）。整条逐段重译，段落与空行对齐原文；地名用本库译名 Old Forest=古老树林、Derth=德斯。"
+    },
+    {
+      "revision_key": "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+      "stage": "surface",
+      "observation": "原文称箭矢似乎几乎无法折断，译文遗漏了这一特性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts.lua:5675–5683 The Titan's Quiver（泰坦的箭袋）描述：现译漏 honed to a vicious sharpness 与 appear to be nearly unbreakable 两个分句，并把 They seem more like spikes than any arrow you've ever seen 压成“不，与其说是箭，不如说是长钉”（一级 completeness）。整条逐句修复。"
+    },
+    {
+      "revision_key": "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+      "stage": "surface",
+      "observation": "原文称杀死兽人首领给兽人造成了沉重打击；译文只保留了首领死亡，遗漏了这一结果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "zones/sandworm-lair/objects.lua 阿塔玛森的红宝石眼睛描述：原文 1 个 LF，现译在第二、三句之间多加 1 个 LF（一级换行不变量）；且漏 managed to deal a crippling blow（给兽人以重创）。修复：恢复 1 个 LF，末句补“重创兽人”，阿塔玛森、吞噬者加库尔、烈火纪保持。"
+    },
+    {
+      "revision_key": "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a",
+      "stage": "surface",
+      "observation": "原文指杀死梅琳达的是一支 Yaech 袭击队伍；译文遗漏了“袭击队伍”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests/love-melinda.lua 任务结局日志 Melinda died to a Yaech raiding party at the beach.——现译漏 raiding party（袭击队伍），读作零星遭遇（一级 completeness）。修复为“梅琳达在沙滩上死于夺魂魔袭击队之手”一类；Yaech 保持本库既定“夺魂魔”（mod-tome.lua:9037、39138）。"
+    },
+    {
+      "revision_key": "fc0f5daae4c09f990685aa7af2d68b51aae3177e24b6e1ae8807e332585f6d41",
+      "stage": "contextual",
+      "observation": "psionic.lua:49 is the description of the talent type psionic/thought-forms. There, 'psionic summons' means the psionic creatures that get summoned. The target renders it as 灵能召唤术, which means summoning spells or techniques, not the summoned creatures. It should be 灵能召唤物 or equivalent.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：psionic/thought-forms 技能系召唤思维形态实体，psionic summons 是召唤物而非召唤术。并入同条修复。"
+    },
+    {
+      "revision_key": "fc3dc9f6fba548a879b0c4f236efc65a6a170219fdd925e5fa4b667386026cc3",
+      "stage": "contextual",
+      "observation": "misc.lua:90-98, adventurer-letter-2. Several fidelity and completeness problems. (1) 'with a good amount of scorn' and 'Such pluck and derring-do!' are dropped. (2) 'a most hideous, bloated, oozing and chittering horror' becomes 最可怕、最犀利、最凶猛的生物; 犀利 and 凶猛 do not match bloated, oozing or chittering. (3) 'the giant ants' repulsive progenitor' is split into 史前巨型白蚁 plus 蚁王. That changes ants to termites and adds 史前 ('prehistoric'), which the source does not have. The swarm's 'frenzied chitinous young' is also rewritten with an added 巨大的前颚将我碎尸万段. (4) 'revealed to you your folly' is freely rewritten as 世界如此巨大，你又如此渺小, and 'trials I have overcome' becomes 可怕梦魇. (5) The layout does not match. The source has four blank-line paragraph breaks and a blank line before Rolf. The target splits the Old Forest paragraph into an extra paragraph and has only a single line break before 罗尔夫.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：还漏 with a good amount of scorn；revealed to you your folly 被改写为“世界如此巨大，你又如此渺小”，trials 被改写为“可怕梦魇”；署名前应为空行。并入同条逐段重译。"
+    },
+    {
+      "revision_key": "fc5311ffa7bfbf69181aa62d6d9f8828d3d2cd4faad811e5a5fca534b08ca356",
+      "stage": "contextual",
+      "observation": "world-artifacts.lua:5678, desc of The Titan's Quiver. The target leaves out 'appear to be nearly unbreakable' and 'than any arrow you've ever seen'. 'honed to a vicious sharpness' shrinks to 尖锐. The target is only a summary of the source.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：than any arrow you've ever seen 也被省略。并入同条修复。"
+    },
+    {
+      "revision_key": "fc60ee27ed6e5a51d5c2c42ee7dbec2d6be13a3c47733cb84e1add55b5d6cf13",
+      "stage": "contextual",
+      "observation": "sandworm-lair/objects.lua:109-110. The source has one line break, between the first line and 'It is said...'. The target adds a second line break before 虽然, so the line structure does not match. Also, 'managed to deal a crippling blow by killing their leader' is weakened to 使对方的首领…走向死亡, which drops the meaning of 'crippling blow'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：多出的换行与 crippling blow 缺失。并入同条修复。"
+    },
+    {
+      "revision_key": "fc7538838d83158ca7a44e0fd8df58d4148e41965915015a634192c0c895df2a",
+      "stage": "contextual",
+      "observation": "love-melinda.lua:28. Source: 'died to a Yaech raiding party'. The target drops 'raiding party' and says only 被沙滩上的夺魂魔杀死, so the attackers are no longer a raiding party. The frozen input contains no terminology for Yaech, so this review cannot confirm whether 夺魂魔 is the established name.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：raiding party 缺失。reviewer 对 Yaech 译名证据不足的保留由宿主核实：本库 mod-tome.lua:9037（Yaeches 条目）与 39138（Murgol, the Yaech Lord）均译“夺魂魔”，保持。并入同条修复。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000, single accepted attempt)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1 and Codex function_call items since 5c2f8459; all 80 surface identity echoes pre-checked exact against envelopes before harvest; all 4 lanes and the contextual child harvested via --native-log.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Contextual raised 5 ISSUEs, all on the 5 host-confirmed surface rows, adding detail (scorn/folly/trials rewrites in the Weisman letter, the Titan arrows comparison clause).",
+    "Contextual scope was the 5 surface-flagged revisions only (envelope entries=5); the other 75 rest on the surface OK verdicts.",
+    "No advisories.",
+    "No pending, no glossary/global rename; old pending/blocked unchanged."
+  ]
+}
