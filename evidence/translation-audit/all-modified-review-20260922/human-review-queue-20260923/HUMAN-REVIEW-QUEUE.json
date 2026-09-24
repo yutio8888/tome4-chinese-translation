@@ -14,7 +14,7 @@
   "note": "Curated human-decision rows from HUMAN-REVIEW.md plus the sources missing from it (batch-092 cross, batch-093/094 primary, remaining-review). Sol status labels copied verbatim; no semantic adjudication. reconciled-20260923 canonical claims are not merged (separate experiment ledger).",
   "schema_version": 1,
   "total_records": 601,
-  "decided_records": 531,
+  "decided_records": 571,
   "distinct_entries": 559,
   "records_missing_entry": 0,
   "raw_campaign_verdict_count": 1103,
@@ -43914,9 +43914,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "bf2cbb339be897abcfaa528448109a3012c83ce774ac71a2f68b4baa88484f9e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00532：最强反证是“最多弹射 %d 次”与“弹射至其他目标”已概括主要效果；但冻结源码 on_stop_check 在未命中生物时区分撞上阻挡地形（照常弹射）与落空（直接终止），这两项条件和“你能看到的敌人”（canSee 过滤）均为原文明确且源码实现的条件，现译缺失，属完整性缺陷。cunning and dexterity 按术语库 Cunning=灵巧、Dexterity=敏捷补全。按模型提醒，不写“距当前撞击点最近”，",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -43953,9 +43953,9 @@
     "source_tag": "logSeen",
     "snapshot_sha256": "d31841b506f12a3b7678a547c0db8aaf5a4591dcbf0de16aa7ff62968f915eed"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00533：最强反证是两句都报告抵抗震慑、结果可理解；但冻结源码中 blow 是对主目标的日志，shock 是半径 3 冲击波波及的次要目标日志，两条不同原文现译完全相同，丢失了冲击波来源信息。改为“震慑冲击”，与同族 blow=打击 区分，成本低且不影响其他条目。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -43992,9 +43992,9 @@
     "source_tag": "logSeen",
     "snapshot_sha256": "399754ebb5004fec82ca1d4a8385374cb714c8de694bcaef574d9016753fe5aa"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00534：最强反证是“击中”可宽泛表示碰撞；但冻结源码该日志在 knockback 回调中、检测到 block_move 后输出，%s 是被击退后撞上障碍的目标，“击中了某物”把被动撞击写成主动攻击且丢失 solid。改为“撞上了坚固的物体”；pulse 与同节说明“静电脉冲”对齐为“脉冲”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44031,9 +44031,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "eb06b9463c04874f4edaf8e6bef7f2b8d8fbd68ab252867901375728f409d5e1"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00535：最强反证是“冷却时间减半”在多数情况下结果等价；但冻结源码 MECHARACHNID_PILOTING_BUFF 的 on_timeout 是每回合对已有冷却额外再减 1（跳过 fixed_cooldown），并非改写基础冷却时长，“冷却时间减半”会被读成使用技能时冷却值减半。改为“冷却速度加倍”，并与 mod-tome 既有“刻印冷却速度加倍”（cooldown twice as fast）同族一致。英文 all ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44070,9 +44070,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "70c36ae7af2edb2da30c530e866ca881def88229cf1eff298af0e7475f9043ae"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00536：①“灵晶射击”不是同节技能名，冻结源码技能名 Metalstar 本仓译“金属灵晶”（tome-orcs.lua 同节 talent name），改为“发射金属灵晶”；②shrapnel still inside 被略成“灵晶碎片”，补“仍残留在目标体内的弹片”（同节 Metalstar 说明亦用“弹片”）；③冻结源码 free=getTalentRadius(mt)*2，格式化参数同样已乘 2，现译“范围（当前 %",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44109,9 +44109,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "868564d14a86b20eb0e9407c5a5e56b001f3a1e9003f647f3895924697cacae4"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；hrq-00537：模型自标 advisory。tinker 术语记录“蒸汽工具”为 existing（非 preferred），不强制改名；现译“制造药剂、附着物等道具”与同节技能名“制造道具”一致，所举药剂与附着物均为冻结源码中可制造的 tinker 类别，未失义。仅记表达建议。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44148,9 +44148,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "8f10976e4f984d8fc37d0df0a875759a1862012c6c729a08139e674785594996"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00538：冻结源码明确把弹药的 ranged_project 转为 melee_project 后调用 attackTargetWith，即“远程近战攻击，但也触发弹药远程特效”；现译“射击是远程攻击将会触发弹药特效”丢失 melee 与转折，属机制性缺失。voratun 术语库 preferred=沃瑞钽，“沃瑞钽钢”不符，同条修正。额外射击实际由技能等级≥5 决定而非材质，属英文原文与实现不一致，中文沿袭英文，不计中文错误",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44187,9 +44187,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "1226909c7d1b7abf447a6cd18cfe7f7e605727f1f2489572f60cf487e251bc3d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00539：最强反证是施法语境可推知治疗他人；但冻结源码 heal_check 明确要求 act ~= self，且 cone 设 selffire=false，原文 other 是实际限制，现译“修复机械生物”未排除自身。补“其他”，其余文字与换行不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44226,9 +44226,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7ab4354297182522c01b06843889fd13cbd1b1c43f4d3d5ca29f45495d559b1e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00540：冻结源码 action 先 archeryAcquireTargets/archeryShoot，archery_onhit 再在命中点 project 爆炸，“每一个弹片”把 each shot 写成爆炸后碎片，顺序颠倒，改为“每发子弹抵达目标时”。hrq-00541：as it is the ammo 的因果被省略，按同节其他三条爆炸弹／钩索弹已用的“这个技能本身就是弹药，因此不消耗弹药”补全。hrq-00542",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44265,9 +44265,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7ab4354297182522c01b06843889fd13cbd1b1c43f4d3d5ca29f45495d559b1e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00540：冻结源码 action 先 archeryAcquireTargets/archeryShoot，archery_onhit 再在命中点 project 爆炸，“每一个弹片”把 each shot 写成爆炸后碎片，顺序颠倒，改为“每发子弹抵达目标时”。hrq-00541：as it is the ammo 的因果被省略，按同节其他三条爆炸弹／钩索弹已用的“这个技能本身就是弹药，因此不消耗弹药”补全。hrq-00542",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44304,9 +44304,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7ab4354297182522c01b06843889fd13cbd1b1c43f4d3d5ca29f45495d559b1e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00540：冻结源码 action 先 archeryAcquireTargets/archeryShoot，archery_onhit 再在命中点 project 爆炸，“每一个弹片”把 each shot 写成爆炸后碎片，顺序颠倒，改为“每发子弹抵达目标时”。hrq-00541：as it is the ammo 的因果被省略，按同节其他三条爆炸弹／钩索弹已用的“这个技能本身就是弹药，因此不消耗弹药”补全。hrq-00542",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44343,9 +44343,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "51ad83fbf5fc17f476954b9c9e270507b14565e69c66f3a388c4b71eb6a83077"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00543：冻结源码 pull(x,y,distance) 以数值为上限，受阻挡时移动不足额，两处补“至多”。hrq-00544：补“技能本身就是弹药”因果，同 hrq-00541。hrq-00545（advisory）：hook shot 的钩索特征与“打击”暗示伤害的问题成立，源码 action 只拉动不造成伤害，顺带改为“发射特殊的钩索弹”，不引入新机制。各行无句末标点的原样式保持。兽人 DLC 来源未固定（仅核冻结快照）",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44382,9 +44382,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "51ad83fbf5fc17f476954b9c9e270507b14565e69c66f3a388c4b71eb6a83077"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00543：冻结源码 pull(x,y,distance) 以数值为上限，受阻挡时移动不足额，两处补“至多”。hrq-00544：补“技能本身就是弹药”因果，同 hrq-00541。hrq-00545（advisory）：hook shot 的钩索特征与“打击”暗示伤害的问题成立，源码 action 只拉动不造成伤害，顺带改为“发射特殊的钩索弹”，不引入新机制。各行无句末标点的原样式保持。兽人 DLC 来源未固定（仅核冻结快照）",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44421,9 +44421,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "51ad83fbf5fc17f476954b9c9e270507b14565e69c66f3a388c4b71eb6a83077"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00543：冻结源码 pull(x,y,distance) 以数值为上限，受阻挡时移动不足额，两处补“至多”。hrq-00544：补“技能本身就是弹药”因果，同 hrq-00541。hrq-00545（advisory）：hook shot 的钩索特征与“打击”暗示伤害的问题成立，源码 action 只拉动不造成伤害，顺带改为“发射特殊的钩索弹”，不引入新机制。各行无句末标点的原样式保持。兽人 DLC 来源未固定（仅核冻结快照）",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44460,9 +44460,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7df5281a3403271e0c839666b93c79ae7cd1f56ed0712c3d723d8803d921087f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44499,9 +44499,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7df5281a3403271e0c839666b93c79ae7cd1f56ed0712c3d723d8803d921087f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44538,9 +44538,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7df5281a3403271e0c839666b93c79ae7cd1f56ed0712c3d723d8803d921087f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44577,9 +44577,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7df5281a3403271e0c839666b93c79ae7cd1f56ed0712c3d723d8803d921087f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44616,9 +44616,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "14a3ade818b8f955ec98bdfafce396b7202fbed0dc38ffc3c899bf6eccd952f5"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00550：冻结源码 addEffect 使用 DamageType.NOURISHING_MOSS，Nourishing Moss 为具名效果；本仓 mod-tome 已有同名技能译“生命苔藓”，按既有译名补全，不新造译名。hrq-00551：补“技能本身就是弹药”因果。hrq-00552：“造成…伤害对…每一个敌人”语序不通，改为“对…造成…伤害”；botanical 顺带补为“植物弹”。占位符顺序（半径、回合）不变。兽人 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44655,9 +44655,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "14a3ade818b8f955ec98bdfafce396b7202fbed0dc38ffc3c899bf6eccd952f5"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00550：冻结源码 addEffect 使用 DamageType.NOURISHING_MOSS，Nourishing Moss 为具名效果；本仓 mod-tome 已有同名技能译“生命苔藓”，按既有译名补全，不新造译名。hrq-00551：补“技能本身就是弹药”因果。hrq-00552：“造成…伤害对…每一个敌人”语序不通，改为“对…造成…伤害”；botanical 顺带补为“植物弹”。占位符顺序（半径、回合）不变。兽人 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44694,9 +44694,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "14a3ade818b8f955ec98bdfafce396b7202fbed0dc38ffc3c899bf6eccd952f5"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00550：冻结源码 addEffect 使用 DamageType.NOURISHING_MOSS，Nourishing Moss 为具名效果；本仓 mod-tome 已有同名技能译“生命苔藓”，按既有译名补全，不新造译名。hrq-00551：补“技能本身就是弹药”因果。hrq-00552：“造成…伤害对…每一个敌人”语序不通，改为“对…造成…伤害”；botanical 顺带补为“植物弹”。占位符顺序（半径、回合）不变。兽人 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44733,9 +44733,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7c47ade4ca388460661cd7a6fb021b253248ea3928cc6fa863a4fd803474ed36"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。h",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44772,9 +44772,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7c47ade4ca388460661cd7a6fb021b253248ea3928cc6fa863a4fd803474ed36"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。h",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44811,9 +44811,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7c47ade4ca388460661cd7a6fb021b253248ea3928cc6fa863a4fd803474ed36"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。h",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44850,9 +44850,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7c47ade4ca388460661cd7a6fb021b253248ea3928cc6fa863a4fd803474ed36"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。h",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44889,9 +44889,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7db4c24aeaf98bc1c9cd8c25f216d6f0be4f25ca173f11ac9b4a78c957a58466"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00557（advisory）：原文 The power and damage 两项，现译只写“伤害”，删去一项属完整性缺失，补“强化效果与伤害”；接受模型更正：冻结源码实际流血增幅调用 getDamage，getDamageInc 仅用于说明格式化，这是英文与实现差异，不计中文错误，译文仅对齐原文两项。hrq-00558（advisory）：“放在伤口上”丢失 slam into 的猛烈动作与反讽，改为“猛插进”；按判据 5 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44928,9 +44928,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7db4c24aeaf98bc1c9cd8c25f216d6f0be4f25ca173f11ac9b4a78c957a58466"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00557（advisory）：原文 The power and damage 两项，现译只写“伤害”，删去一项属完整性缺失，补“强化效果与伤害”；接受模型更正：冻结源码实际流血增幅调用 getDamage，getDamageInc 仅用于说明格式化，这是英文与实现差异，不计中文错误，译文仅对齐原文两项。hrq-00558（advisory）：“放在伤口上”丢失 slam into 的猛烈动作与反讽，改为“猛插进”；按判据 5 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -44967,9 +44967,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7db4c24aeaf98bc1c9cd8c25f216d6f0be4f25ca173f11ac9b4a78c957a58466"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00557（advisory）：原文 The power and damage 两项，现译只写“伤害”，删去一项属完整性缺失，补“强化效果与伤害”；接受模型更正：冻结源码实际流血增幅调用 getDamage，getDamageInc 仅用于说明格式化，这是英文与实现差异，不计中文错误，译文仅对齐原文两项。hrq-00558（advisory）：“放在伤口上”丢失 slam into 的猛烈动作与反讽，改为“猛插进”；按判据 5 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45006,9 +45006,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "845359f4e328ee81ed376e893d301fb89d8e9a9b5562c6298cd8a10882e5ce22"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00560（advisory）：最强反证是“进入其大脑”已传达侵入与干扰；但 latch on 与 bore into its skull 的附着、钻入动作被合并省略，且需与同批 entry-04008（bores into→钻入）同族一致，故补为“附着其上并钻入其头骨”。模型所述 -%d%% 双重负号不可照译、现译“减少 %d%%”正确，予以确认不改（冻结源码 fear_immune/sleep_immune 为减值）。兽人 ",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45045,9 +45045,9 @@
     "source_tag": "logPlayer",
     "snapshot_sha256": "b43d0be20279082ddd3302f26effe8edf4beab09c1013060010ed51f18217215"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "refuted",
+   "human_note": "驳回模型主张；hrq-00561：模型结论已为 refuted。现译“没有足够的空间召唤！”与原文语义、感叹号一致；初审所引 preferred 记录 source_tag 为 logSeen，本条为 logPlayer，不构成必须逐字匹配依据；该原文在多组件（mod-tome/cults/ashes）存在同源孪生，单改本条反会制造族内不一致。无缺陷。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45084,9 +45084,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "5a1322b592715a6225c58fe07d6a76099ce48050956f1eb819a6ac9ab1df2a51"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00562（advisory）：最强反证是“（或任何其他目标）”位于施加动作主语位置，可读作施加方；但“目标”在本句同时指承受效果的生物，容易被读成受害方。冻结源码 superload Combat.lua 的 crossTierEffect 在受效果者身上判定 INCOMING_DISASTERS，未限定施加者，any others 即任意施加方，改为“其他任何人”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45123,9 +45123,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "571ae0fa9bd6f5d36d283723cf28383356a03b2796546e78ededc30e46b16e37"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00563：冻结源码 callbackOnTakeDamage 首行 src ~= self.summoner 即返回，只有召唤者造成的法术伤害才触发；现译“其受到的法术伤害”扩大了触发来源，补“你对其造成的”。源码实际倍率 1.3 而英文描述 160%，属英文与实现差异，中文沿袭英文，不改数值。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45162,9 +45162,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e41466d527204c95bd91d8d0332fcbfc3a536547e6986a2d21f01376826673d7"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00564：C03.1 冻结源码 electricity.lua 奥术发电机为 tinker，需装入长袍（衣物槽）而非玩家“装备长袍”，末段“装备在长袍中”不能消除本句前提偏差，改为“将奥术发电机装入长袍后”；C03.2 冻结源码 getSpellpower 读取 getSteam()/100，是当前蒸汽量，改“当前蒸汽量”。hrq-00565：dabble in 为涉猎、尝试，现译“精通于”提升了程度，改“涉猎”；同句“他”与",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45201,9 +45201,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e41466d527204c95bd91d8d0332fcbfc3a536547e6986a2d21f01376826673d7"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00564：C03.1 冻结源码 electricity.lua 奥术发电机为 tinker，需装入长袍（衣物槽）而非玩家“装备长袍”，末段“装备在长袍中”不能消除本句前提偏差，改为“将奥术发电机装入长袍后”；C03.2 冻结源码 getSpellpower 读取 getSteam()/100，是当前蒸汽量，改“当前蒸汽量”。hrq-00565：dabble in 为涉猎、尝试，现译“精通于”提升了程度，改“涉猎”；同句“他”与",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45240,9 +45240,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "40a7886e42bb78096beac48a7c8157442d713c425de96e71b8b898e12a5f0b29"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00566（advisory）：最强反证是“启动时”可理解为自启动起持续；但冻结源码该技能 mode=sustained，疲劳在持续开启期间生效，while active 更精确对应“开启期间”，改为“开启期间会增加 20%% 疲劳”，其余不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45279,9 +45279,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "cd654e06303cce1ebb2f0aa39ad17be462f55c9993183d8ae942bffff6bf83da"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；hrq-00567：模型自标 advisory 并承认等价读法。冻结源码为 steam_regen/stamina_regen 等回复属性，回复值在游戏中按回合结算，“蒸汽回复 +6”“体力回复 + 4”数值与效果无偏差；“+ 4”空格属纯静态排版，按判据 6 不改。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45318,9 +45318,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "112ed0e14bbc2c3fec2f8a928701082b5f42f76ec073a5156d976b8d1c0ababc"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00568：冻结源码 MIND_DRONE 的 on_gain 日志在效果施加时输出，对应技能说明“附着并钻入头骨”，而非飞行过程；“飞入”只表达移动，改“钻进”。量词“一个”改“一只”，与同族“5 只精神雄蜂”一致。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45357,9 +45357,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e40a5aa49b56b5c2486d19d2bd963980c7e0abeaae1ad991ffed899ef8cb6e57"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；hrq-00569：模型自标 advisory。“目标被化学药剂注射”语序略生硬，但被动句主体仍是目标、三类豁免（冻结源码 combat_mentalresist/spellresist/physresist）降低含义无偏差，属二级语感问题，仅记 advisory。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45396,9 +45396,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "a1ee557393a439a0ae3c1b06f35f1ac982121ff0d72a28fa9c13c2c8aaa8eb14"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00570：最强反证是冻结源码 on_timeout 确在 life==max_life 时移除效果，现译的增补有依据；但 on_timeout 在定时效果每回合结算时才检查（固定 engine ActorTemporaryEffects.lua timedEffects），并非生命回满当刻，“立即”给出源码未保证的时序，改为“回满后结束”。三个占位符顺序不变。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",
@@ -45435,9 +45435,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e52ad8ff785ec7c44458e74c835a553c39d6ebf5133548592415a289eb7c2bdc"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；hrq-00571（advisory）：最强反证是句首已限定为射出的子弹，可自然理解为命中时判定；但 When striking 是原文明确的触发条件，冻结源码 superload Archery.lua 亦仅在命中挂钩中判定，补“命中时有”成本低且不改占位符顺序。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "human_decided_at": "2026-09-24T03:20:00Z"
   },
   {
    "source_layer": "remaining_review",

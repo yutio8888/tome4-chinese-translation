@@ -25016,7 +25016,7 @@ t("Take on the aspects of aged and powerful dragons.", "继承远古真龙的力
 t("mindstar mastery", "灵晶掌握", "talent type")
 t("Learn to channel your mental power through mindstars, forming powerful psionic blades.", "学会将你的精神能量灌注于灵晶中，产生心灵利刃。", "_t")
 t("mucus", "粘液", "talent type")
-t("Cover the floor with natural mucus.", "用天然粘液覆盖地面。", "_t")
+t("Cover the floor with natural mucus.", "用自然粘液覆盖地面。", "_t")
 t("ooze", "软泥", "talent type")
 t("Your body and internal organs are becoming more ooze-like in nature, allowing you to spawn more of you.", "你的身体和内脏正变得越来越像软泥怪，使你能够分裂出更多的自己。", "_t")
 t("moss", "苔藓", "talent type")

@@ -5112,9 +5112,9 @@ t("Trick Shot", "魔术射击", "talent name")
 t([[Your cunning and dexterity allow you to fire incredible trick shots that can hit multiple targets.
 		You precisely aim your trick shot to ricochet amongst foes you can see so that whenever it hits something solid (creature or solid wall), it will bounce towards the next closest foe.
 		It may ricochet up to %d times (or until it misses) within range 5 of your first target and will not target the same foe twice.
-		Your shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]], [[你的灵敏让你能射出同时击中多个敌人的子弹。
-		你精确地瞄准敌人，子弹命中后将弹射至其他目标上。
-		子弹最多弹射 %d 次，只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。
+		Your shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]], [[你的灵巧与敏捷让你能射出同时击中多个敌人的子弹。
+		你精确瞄准，让子弹在你能看到的敌人之间弹射：每当子弹击中坚固之物（生物或坚固的墙壁），都会按与第一个目标的距离由近及远弹向下一个敌人。
+		子弹最多弹射 %d 次（未命中则终止），只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。
 		第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （%d%%）命中。]], "tformat")
 
 ------------------------------------------------
@@ -5183,7 +5183,7 @@ t("Fire two chemical flechettes, dealing %d%% weapon damage as acid and generati
 t("Heavy Weapon Expertise", "重装武器精通", "talent name")
 t("You require heavy ammunition and a heavy weapon to use this talent.", "你需要重装武器弹药和重装武器才能使用这一技能。", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
-t("%s resists the stunning shock!", "%s抵抗了震慑打击！", "logSeen")
+t("%s resists the stunning shock!", "%s抵抗了震慑冲击！", "logSeen")
 t([[Your advanced training unlocks specialised techniques, triggering an effect based on your current heavy weapon at the cost of 1 heavy weapon ammunition.
 #AQUAMARINE#Flamethrower#LAST#: Sweep your flamethrower across the ground, dealing %d%% steamgun damage as fire and raising a length 7 wall of fire for 5 turns. Those inside the wall take %0.2f fire damage and have their fire resistance reduced by %d%% for 2 turns.
 #AQUAMARINE#Shockstaff#LAST#: Slam your staff into the target, creating a radius 3 shockwave that deals %d%% shockstaff damage as lightning and stuns those within for %d turns.
@@ -5207,7 +5207,7 @@ The chance to silence will increase with your Steampower.]], [[你使用重装�
 沉默几率受蒸汽强度加成。]], "tformat")
 t("Safety Override", "武器过载", "talent name")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
-t("%s slams into something solid, emitting a pulse of stunning lightning!", "%s击中了某物，放出一股震慑闪电冲击！", "logSeen")
+t("%s slams into something solid, emitting a pulse of stunning lightning!", "%s撞上了坚固的物体，释放出一道震慑闪电脉冲！", "logSeen")
 t([[Push your heavy weapon beyond its normal limits to trigger a powerful effect. This will immediately disable your heavy weapon and expends all remaining ammunition.
 #AQUAMARINE#Flamethrower#LAST#: Detonate your fuel tanks, creating a radius 4 explosion that launches you to a chosen tile in range %d. Enemies caught within the explosion take %0.2f fire damage, and further fire damage equal to %d%% of their current burning damage from the volatile fuel.
 #AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns.
@@ -5317,7 +5317,7 @@ t([[You craft a new chassis for your mecharachnid, allowing you to tailor it to 
 		尾部武器默认不会自动攻击，而是用于施展特殊技能。]], "tformat")
 t("Mecharachnid Piloting", "驾驶机械蜘蛛", "talent name")
 t("You require your mecharachnid to be adjacent.", "你需要你的机械蜘蛛在你身边。", "logPlayer")
-t("Leap into your mecharachnid, assuming direct control of it for %d turns. While piloting it, all damage dealt is increased by %d%%, resistances are increased by %d%%, and all of its talents cooldown twice as fast.", "跳入机械蜘蛛，直接控制它 %d 回合。当控制它的时候，它所造成的所有伤害增加 %d%%，抗性增加 %d%%，所有技能冷却时间减半。", "tformat")
+t("Leap into your mecharachnid, assuming direct control of it for %d turns. While piloting it, all damage dealt is increased by %d%%, resistances are increased by %d%%, and all of its talents cooldown twice as fast.", "跳入机械蜘蛛，直接控制它 %d 回合。当控制它的时候，它所造成的所有伤害增加 %d%%，抗性增加 %d%%，所有技能冷却速度加倍。", "tformat")
 t("steamtech", "蒸汽科技", "talent category")
 t("armament", "武装", "talent type")
 t("Ranged combat mecharachnid abilities.", "机械蜘蛛的远程战斗技能。", "_t")
@@ -5374,10 +5374,10 @@ t("Bloodstar", "血液灵晶", "talent name")
 t([[When you fire your metalstar, your also establish a psionic bloodlink with the shrapnel still inside for %d turns.
 		Each turn the victims are drained for %0.2f physical damage, half of which heals you (each additional victim healing is reduced by half).
 		If the victim move more than twice away from the radius of Metalstar (currently %d) the effect stops.
-		This damage does not break daze and increases with your Steampower.]], [[每次你使用灵晶射击时，你将与灵晶碎片建立血液灵能联系，持续 %d 回合。
+		This damage does not break daze and increases with your Steampower.]], [[每次你发射金属灵晶时，你还会与仍残留在目标体内的弹片建立血液灵能联系，持续 %d 回合。
 		每回合目标将受到 %0.2f 物理伤害，一半伤害值将转化为治疗。
 		每增加一名额外目标，其带来的治疗量进一步减半。
-		当目标距离超过金属灵晶范围（当前 %d）的两倍时，效果中止。
+		当目标与你的距离超过金属灵晶半径的两倍（当前 %d 格）时，效果中止。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Steamstar", "蒸汽灵晶", "talent name")
 t([[Your bloodstar effect also burns part of your victim's flesh, dealing %0.2f fire damage.
@@ -5414,7 +5414,7 @@ t([[Deploy a Weapon Automaton based on a selected one handed melee item.  The Au
 t("Hand Cannon", "手炮", "talent name")
 t("You have no ammo!", "你没有子弹！", "logPlayer")
 t([[Fires your ammo at an enemy in range %d for %d%% weapon damage.  If this tinker is made of voratun you will fire an additional shot.
-			This shot is a ranged melee attack but will use the ranged procs of your ammo as well.]], [[向在 %d 码范围内的一个敌人开火造成 %d%% 的武器伤害。如果手炮是由沃瑞钽钢制作的，你能多一次额外的射击。射击是远程攻击将会触发弹药特效。]], "tformat")
+			This shot is a ranged melee attack but will use the ranged procs of your ammo as well.]], [[向 %d 码范围内的一个敌人发射弹药，造成 %d%% 的武器伤害。如果手炮由沃瑞钽制成，你将额外射击一次。这次射击属于远程近战攻击，但也会触发弹药的远程特效。]], "tformat")
 t("Fatal Attractor", "致命诱饵", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("fatal attractor", "致命诱敌装置", "_t")
@@ -5481,7 +5481,7 @@ t([[Throw a cone of flame with radius %d
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
-		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物（蒸汽蜘蛛）%d 生命值。
+		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复其他机械生物（蒸汽蜘蛛）%d 生命值。
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
@@ -5551,9 +5551,9 @@ t("Explosive Shell", "爆炸弹", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which does %0.2f physical damage.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪在射程内制造一场特殊的爆炸。
-　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害，
-　　这个技能不使用弹药。]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。
+　　每发子弹抵达目标时，造成正常蒸汽枪伤害，并在半径 %d 码内爆炸，造成 %0.2f 的物理伤害。
+　　这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Flare Shell", "闪光弹", "talent name")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which lights up the area and blinds for %d turns.
@@ -5594,10 +5594,10 @@ t("%s resists the pull!", "%s抵抗了拖动！", "logSeen")
 t([[You fire a special hook shot with your steamgun(s) at a target creature or location.
 		If you target a creature, they are pulled up to %d tiles towards you.
 		If you target an empty tile, you are pulled up to %d tiles towards it.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊弹药打击目标或某处
-如果你的目标是一个生物，他们被拉向你 %d 码
-如果你的目标是一个空地，你会被拉向空地 %d 码
-这个技能不使用弹药。]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向一个生物或地点发射特殊的钩索弹
+如果你的目标是一个生物，他们会被拉向你至多 %d 码
+如果你的目标是一个空地，你会被拉向空地至多 %d 码
+这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Magnetic Shell", "磁性弹", "talent name")
 t([[You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage.
 		The shot will magnetise the target for %d turns. This lowers their defense and increases fatigue by %d.
@@ -5611,11 +5611,11 @@ t([[You fire a special voltaic shot with your steamgun(s) at a target for 100%% 
 		The shot will release powerful electrical currents at up to %d nearby enemies. 
 		Each bolt does %0.2f lightning damage.
 		This talent does not use ammo as it is the ammo.
-		Bolt damage scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 闪电武器伤害。
-这将释放强大的电流，打击周围 %d 的敌人。
-每个闪电球造成 %0.2f 的闪电伤害
-这个技能不使用弹药
-闪电球伤害受蒸汽强度加成。]], "tformat")
+		Bolt damage scales with Steampower.]], [[你用蒸汽枪发射特殊的电能弹打击目标，造成 100%% 闪电武器伤害。
+这将释放强大的电流，打击附近至多 %d 名敌人。
+每道闪电造成 %0.2f 的闪电伤害
+这个技能本身就是弹药，因此不消耗弹药
+闪电伤害受蒸汽强度加成。]], "tformat")
 t("Antimagic Shell", "反魔弹", "talent name")
 t([[You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.
 		The shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.
@@ -5630,11 +5630,11 @@ t([[You fire a special botanical shot with your steamgun(s) at a target for 100%
 		Each turn the moss deals %0.2f nature damage to each foe within its radius.
 		This moss has vampiric properties and heals the user for %d%% of the damage done.
 		This talent does not use ammo as it is the ammo.
-		Moss damage scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 自然武器伤害。
-将释放孢子生长成半径 %d 的苔藓 %d 回合。
-每回合苔藓造成 %0.2f 自然伤害对半径内的每一个敌人。
+		Moss damage scales with Steampower.]], [[你用蒸汽枪发射特殊的植物弹打击目标，造成 100%% 自然武器伤害。
+子弹将释放孢子，在半径 %d 内生长成生命苔藓，持续 %d 回合。
+每回合苔藓对半径内的每一个敌人造成 %0.2f 自然伤害。
 这种苔藓有吸血特性，伤害的 %d%% 治愈使用者。
-这个技能不使用弹药
+这个技能本身就是弹药，因此不消耗弹药
 苔藓伤害受蒸汽强度加成。]], "tformat")
 t("Corrosive Shell", "腐蚀弹", "talent name")
 t([[You fire a special corrosive shot with your steamgun(s) at a target for %d%% weapon damage as acid.
@@ -5649,10 +5649,10 @@ t("%s resists the toxin!", "%s 抵抗了剧毒！", "logSeen")
 t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
 		This talent does not use ammo as it is the ammo.
-		Toxin strength scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 枯萎武器伤害。
-向目标释放重金属，造成每回合 %0.2f 枯萎伤害，并且降低整体速度 %d%% %d 回合。
-这个技能不使用弹药。
-枯萎伤害受蒸汽强度加成。]], "tformat")
+		Toxin strength scales with Steampower.]], [[你用蒸汽枪发射特殊的剧毒弹打击目标，造成 100%% 枯萎武器伤害。
+向目标体内释放重金属，每回合造成 %0.2f 枯萎伤害，并降低其全局速度 %d%%，持续 %d 回合。
+这个技能本身就是弹药，因此不消耗弹药。
+毒素强度受蒸汽强度加成。]], "tformat")
 t("Moss Tread", "苔藓之踏", "talent name")
 t([[For %d turns, you lay down Grasping Moss where you walk or stand.
 		The moss is placed automatically every step and lasts %d turns.
@@ -5743,11 +5743,11 @@ t([[You "gently" slam your saws into the wounds of a creature, dealing %d%% weap
 		All bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).
 		When this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.
 		The power and damage improves with your Steampower.
-		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你 " 轻柔 " 地将链锯放在目标的伤口上，造成 %d%% 武器伤害并加深伤口。
+		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你“轻柔”地将链锯猛插进目标的伤口，造成 %d%% 武器伤害并加深伤口。
 		所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。
-		效果触发时，血流将喷射而出，对 4 码锥形范围内所有生物造成 %0.2f 物理伤害。
-		伤害受蒸汽强度加成。
-		#{italic}#一切技术，皆为屠杀 !#{normal}#]], "tformat")
+		效果触发时，血流将喷射而出，对 4 码狭窄锥形范围内所有生物造成 %0.2f 物理伤害。
+		强化效果与伤害受蒸汽强度加成。
+		#{italic}#一切技术，皆为屠杀！#{normal}#]], "tformat")
 t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
@@ -5853,7 +5853,7 @@ t("Mind Drones", "精神雄蜂", "talent name")
 t([[Melding psionics with steamtech you create 5 mind drones at your sides that fly towards your target.
 		If they encounter a creature they will latch on it and bore into its skull for 6 turns, disrupting its thoughts.
 		Disrupted creatures have %d%% chances to fail to use talents and suffer a -%d%% reduction to fear and sleep immunity.]], [[将灵能和蒸汽科技结合，你在身边制造 5 只精神雄蜂飞向目标。
-		雄蜂接触到生物时，将进入其大脑 6 回合，干扰思考能力。
+		雄蜂遇到生物时，会附着其上并钻入其头骨，持续 6 回合，干扰其思维。
 		受影响的生物有 %d%% 几率使用技能失败，同时恐惧和睡眠免疫减少 %d%%。]], "tformat")
 t("Psionic Mirror", "灵能之镜", "talent name")
 t([[You cleanse your mind of %d mental debuffs.
@@ -5954,7 +5954,7 @@ t([[You are adept at wreaking havoc onto your foes!
 		In addition your physical, steam, spell and mind powers are increased by %d.
 		The powers increase scales of your Cunning.]], [[你很擅长给你的敌人带来灾难！
 		任何时候你对一个生物造成伤害，你会对它施加灾难临近效果，持续20回合。
-		每次你（或任何其他目标）尝试对这个生物施加越层效果时，也将尝试施加其他两个越层效果。
+		每次你（或其他任何人）尝试对这个生物施加越层效果时，也将尝试施加其他两个越层效果。
 		此外，你的物理，蒸汽，法术和精神强度增加 %d。
 		强度增加值受灵巧值加成。]], "tformat")
 t("Rak'Shor's Cunning", "拉克·肖的狡诈", "talent name")
@@ -5999,7 +5999,7 @@ t("Arcane Amplification Drone", "奥术增幅装置", "talent name")
 t("Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.", "当前或之前的角色在当前难度与模式下解锁过 #{italic}#大灾变的故事#{normal}# 这个成就。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("arcane amplification drone", "奥术增幅装置", "_t")
-t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "其受到的法术伤害转化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。", "_t")
+t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。", "_t")
 t([[You create an Arcane Amplification Drone at the selected location for 3 turns.
 		When you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]], [[你在目标地点放置一个持续 3 回合的奥术增幅装置。
 		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的所有目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
@@ -6030,7 +6030,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 
 		Once put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.
 
-		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是一些特殊的元素法师，他精通于蒸汽科技，用科技的力量来强化他们已经足够强大的法术力量。
+		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是一些特殊的元素法师，他们涉猎蒸汽科技，用科技的力量来强化他们已经足够强大的法术力量。
 		当你选择这一项进阶职业的时候，你获得以下能力：
 		- 奥术发电机插件配方
 		- 蒸汽/物理系 （已解锁）
@@ -6042,7 +6042,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 		- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术
 		- 你可以免费解锁三个科技法术系的其中之一。
 
-		当你装备长袍的时候，奥术发电机会在你消耗法力值的时候自动产生蒸汽，并根据蒸汽等级提升法术强度。
+		将奥术发电机装入长袍后，每当你消耗法力值，它都会产生蒸汽，并根据当前蒸汽量提升法术强度。
 		#{bold}#当你完成这职业进阶的时候，你应该尽快制造一个奥术发电机，装备在长袍中，以使用科技法术的力量。#{normal}#]], "tformat")
 
 ------------------------------------------------
@@ -6059,7 +6059,7 @@ t("Range Amplification Device", "射程增幅装置", "talent name")
 t("Have a light radius of 10 or more", "光照范围为10或以上", "_t")
 t([[Activate a special focusing device that extends all your ranged spells and psionic powers range by 3 (only works on those with range 2 or more and up to 10 max).
 		The use of this device is very strenuous, increasing fatigue by 20%% while active.]], [[启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。
-		使用这个装置非常的费力，启动时会增加 20%% 疲劳。]], "tformat")
+		使用这个装置非常的费力，开启期间会增加 20%% 疲劳。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents.lua"
@@ -6164,7 +6164,7 @@ t("steam", "蒸汽", "effect subtype")
 t("disrupt", "干扰", "effect subtype")
 t("Mind Drone", "精神雄蜂", "_t")
 t("Talents fail chance %d%%, fear and sleep immunity reduced by %d%%.", "技能失败率 %d%%, 恐惧和睡眠免疫下降 %d%%。", "tformat")
-t("A mind drone bores into #Target#!", "一个精神雄蜂飞入#Target#！", "_t")
+t("A mind drone bores into #Target#!", "一只精神雄蜂钻进了#Target#！", "_t")
 t("#Target# is free from the mind drone.", "#Target#脱离精神雄蜂影响。", "_t")
 t("biologic", "生物", "effect subtype")
 t("physical", "物理", "effect subtype")
@@ -6269,7 +6269,7 @@ t("Catalyst", "催化剂", "_t")
 t("The target has been injected with chemicals, reducing all saves by %d.", "目标被化学药剂注射，降低所有豁免 %d。", "tformat")
 t("healing", "治疗", "effect subtype")
 t("Automated Repair System", "自动修复系统", "_t")
-t("Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.", "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满时立即结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。", "tformat")
+t("Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.", "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满后结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。", "tformat")
 t("#Target# shuts down and engages its automated repair system.", "#Target#关机，启动自动修复系统。", "_t")
 t("+Automated Repair System", "+自动修复系统", "_t")
 t("#Target#'s repairs are complete.", "#Target#修复完成。", "_t")
@@ -6315,7 +6315,7 @@ t("+Bullet Mastery", "+子弹掌握", "_t")
 t("Bullet Mastery: Supercharged", "子弹掌握：超速", "_t")
 t("Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.", "子弹处于超速状态：能够穿透多个目标，同时提高护甲穿透 %d 点。", "tformat")
 t("Bullet Mastery: Percussive", "子弹掌握：冲击", "_t")
-t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：%d%% 概率击退，%d%% 概率震慑。", "tformat")
+t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：命中时有 %d%% 概率击退，%d%% 概率震慑。", "tformat")
 t("Bullet Mastery: Combustive", "子弹掌握：爆炸", "_t")
 t("Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage.", "子弹处于爆炸状态：对 2 码范围内的敌人造成 %d 火焰伤害。", "tformat")
 t("Uncanny Reload", "神秘装填", "_t")

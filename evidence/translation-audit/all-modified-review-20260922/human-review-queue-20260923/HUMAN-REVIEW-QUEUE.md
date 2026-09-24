@@ -15712,7 +15712,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00532 | remaining | remaining:rem-12:C08 | confirmed |  |  |  |
+| hrq-00532 | remaining | remaining:rem-12:C08 | confirmed |  |  | fix |
 
 <details><summary>hrq-00532 · remaining 详情</summary>
 
@@ -15731,7 +15731,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00533 | remaining | remaining:rem-13:C01 | advisory |  |  |  |
+| hrq-00533 | remaining | remaining:rem-13:C01 | advisory |  |  | fix |
 
 <details><summary>hrq-00533 · remaining 详情</summary>
 
@@ -15750,7 +15750,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00534 | remaining | remaining:rem-13:C02 | confirmed |  |  |  |
+| hrq-00534 | remaining | remaining:rem-13:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00534 · remaining 详情</summary>
 
@@ -15769,7 +15769,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00535 | remaining | remaining:rem-13:C03 | advisory |  |  |  |
+| hrq-00535 | remaining | remaining:rem-13:C03 | advisory |  |  | fix |
 
 <details><summary>hrq-00535 · remaining 详情</summary>
 
@@ -15795,7 +15795,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00536 | remaining | remaining:rem-13:C04 | confirmed |  |  |  |
+| hrq-00536 | remaining | remaining:rem-13:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00536 · remaining 详情</summary>
 
@@ -15814,7 +15814,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00537 | remaining | remaining:rem-13:C05 | advisory |  |  |  |
+| hrq-00537 | remaining | remaining:rem-13:C05 | advisory |  |  | no_change |
 
 <details><summary>hrq-00537 · remaining 详情</summary>
 
@@ -15834,7 +15834,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00538 | remaining | remaining:rem-13:C06 | confirmed |  |  |  |
+| hrq-00538 | remaining | remaining:rem-13:C06 | confirmed |  |  | fix |
 
 <details><summary>hrq-00538 · remaining 详情</summary>
 
@@ -15855,7 +15855,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00539 | remaining | remaining:rem-13:C07 | confirmed |  |  |  |
+| hrq-00539 | remaining | remaining:rem-13:C07 | confirmed |  |  | fix |
 
 <details><summary>hrq-00539 · remaining 详情</summary>
 
@@ -15878,9 +15878,9 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00540 | remaining | remaining:rem-14:C01 | confirmed |  |  |  |
-| hrq-00541 | remaining | remaining:rem-14:C02 | confirmed |  |  |  |
-| hrq-00542 | remaining | remaining:rem-14:C03 | confirmed |  |  |  |
+| hrq-00540 | remaining | remaining:rem-14:C01 | confirmed |  |  | fix |
+| hrq-00541 | remaining | remaining:rem-14:C02 | confirmed |  |  | fix |
+| hrq-00542 | remaining | remaining:rem-14:C03 | confirmed |  |  | fix |
 
 <details><summary>hrq-00540 · remaining 详情</summary>
 
@@ -15923,9 +15923,9 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00543 | remaining | remaining:rem-14:C04 | confirmed |  |  |  |
-| hrq-00544 | remaining | remaining:rem-14:C05 | confirmed |  |  |  |
-| hrq-00545 | remaining | remaining:rem-14:C06 | advisory |  |  |  |
+| hrq-00543 | remaining | remaining:rem-14:C04 | confirmed |  |  | fix |
+| hrq-00544 | remaining | remaining:rem-14:C05 | confirmed |  |  | fix |
+| hrq-00545 | remaining | remaining:rem-14:C06 | advisory |  |  | fix |
 
 <details><summary>hrq-00543 · remaining 详情</summary>
 
@@ -15970,10 +15970,10 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00546 | remaining | remaining:rem-14:C07 | confirmed |  |  |  |
-| hrq-00547 | remaining | remaining:rem-14:C08 | confirmed |  |  |  |
-| hrq-00548 | remaining | remaining:rem-14:C09 | confirmed |  |  |  |
-| hrq-00549 | remaining | remaining:rem-14:C10 | advisory |  |  |  |
+| hrq-00546 | remaining | remaining:rem-14:C07 | confirmed |  |  | fix |
+| hrq-00547 | remaining | remaining:rem-14:C08 | confirmed |  |  | fix |
+| hrq-00548 | remaining | remaining:rem-14:C09 | confirmed |  |  | fix |
+| hrq-00549 | remaining | remaining:rem-14:C10 | advisory |  |  | fix |
 
 <details><summary>hrq-00546 · remaining 详情</summary>
 
@@ -16029,9 +16029,9 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00550 | remaining | remaining:rem-14:C11 | confirmed |  |  |  |
-| hrq-00551 | remaining | remaining:rem-14:C12 | confirmed |  |  |  |
-| hrq-00552 | remaining | remaining:rem-14:C13 | confirmed |  |  |  |
+| hrq-00550 | remaining | remaining:rem-14:C11 | confirmed |  |  | fix |
+| hrq-00551 | remaining | remaining:rem-14:C12 | confirmed |  |  | fix |
+| hrq-00552 | remaining | remaining:rem-14:C13 | confirmed |  |  | fix |
 
 <details><summary>hrq-00550 · remaining 详情</summary>
 
@@ -16074,10 +16074,10 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00553 | remaining | remaining:rem-14:C14 | confirmed |  |  |  |
-| hrq-00554 | remaining | remaining:rem-14:C15 | confirmed |  |  |  |
-| hrq-00555 | remaining | remaining:rem-14:C16 | confirmed |  |  |  |
-| hrq-00556 | remaining | remaining:rem-14:C17 | advisory |  |  |  |
+| hrq-00553 | remaining | remaining:rem-14:C14 | confirmed |  |  | fix |
+| hrq-00554 | remaining | remaining:rem-14:C15 | confirmed |  |  | fix |
+| hrq-00555 | remaining | remaining:rem-14:C16 | confirmed |  |  | fix |
+| hrq-00556 | remaining | remaining:rem-14:C17 | advisory |  |  | fix |
 
 <details><summary>hrq-00553 · remaining 详情</summary>
 
@@ -16131,9 +16131,9 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00557 | remaining | remaining:rem-14:C18 | advisory |  |  |  |
-| hrq-00558 | remaining | remaining:rem-14:C19.1 | advisory |  |  |  |
-| hrq-00559 | remaining | remaining:rem-14:C19.2 | confirmed |  |  |  |
+| hrq-00557 | remaining | remaining:rem-14:C18 | advisory |  |  | fix |
+| hrq-00558 | remaining | remaining:rem-14:C19.1 | advisory |  |  | fix |
+| hrq-00559 | remaining | remaining:rem-14:C19.2 | confirmed |  |  | fix |
 
 <details><summary>hrq-00557 · remaining 详情</summary>
 
@@ -16174,7 +16174,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00560 | remaining | remaining:rem-14:C20 | advisory |  |  |  |
+| hrq-00560 | remaining | remaining:rem-14:C20 | advisory |  |  | fix |
 
 <details><summary>hrq-00560 · remaining 详情</summary>
 
@@ -16193,7 +16193,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00561 | remaining | remaining:rem-14:C21 | refuted |  |  |  |
+| hrq-00561 | remaining | remaining:rem-14:C21 | refuted |  |  | refuted |
 
 <details><summary>hrq-00561 · remaining 详情</summary>
 
@@ -16220,7 +16220,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00562 | remaining | remaining:rem-15:C01 | advisory |  |  |  |
+| hrq-00562 | remaining | remaining:rem-15:C01 | advisory |  |  | fix |
 
 <details><summary>hrq-00562 · remaining 详情</summary>
 
@@ -16239,7 +16239,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00563 | remaining | remaining:rem-15:C02 | confirmed |  |  |  |
+| hrq-00563 | remaining | remaining:rem-15:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00563 · remaining 详情</summary>
 
@@ -16287,8 +16287,8 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00564 | remaining | remaining:rem-15:C03 | confirmed |  |  |  |
-| hrq-00565 | remaining | remaining:rem-15:N01 | confirmed |  |  |  |
+| hrq-00564 | remaining | remaining:rem-15:C03 | confirmed |  |  | fix |
+| hrq-00565 | remaining | remaining:rem-15:N01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00564 · remaining 详情</summary>
 
@@ -16320,7 +16320,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00566 | remaining | remaining:rem-15:C04 | advisory |  |  |  |
+| hrq-00566 | remaining | remaining:rem-15:C04 | advisory |  |  | fix |
 
 <details><summary>hrq-00566 · remaining 详情</summary>
 
@@ -16339,7 +16339,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00567 | remaining | remaining:rem-15:C05 | advisory |  |  |  |
+| hrq-00567 | remaining | remaining:rem-15:C05 | advisory |  |  | no_change |
 
 <details><summary>hrq-00567 · remaining 详情</summary>
 
@@ -16358,7 +16358,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00568 | remaining | remaining:rem-15:C06 | confirmed |  |  |  |
+| hrq-00568 | remaining | remaining:rem-15:C06 | confirmed |  |  | fix |
 
 <details><summary>hrq-00568 · remaining 详情</summary>
 
@@ -16377,7 +16377,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00569 | remaining | remaining:rem-16:C01 | advisory |  |  |  |
+| hrq-00569 | remaining | remaining:rem-16:C01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00569 · remaining 详情</summary>
 
@@ -16396,7 +16396,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00570 | remaining | remaining:rem-16:C02 | confirmed |  |  |  |
+| hrq-00570 | remaining | remaining:rem-16:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00570 · remaining 详情</summary>
 
@@ -16415,7 +16415,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00571 | remaining | remaining:rem-16:C03 | advisory |  |  |  |
+| hrq-00571 | remaining | remaining:rem-16:C03 | advisory |  |  | fix |
 
 <details><summary>hrq-00571 · remaining 详情</summary>
 

@@ -1,0 +1,398 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 12）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-12.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 12,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-12.json
+[Shell] git -C /workspace/t-engine4 log -1 --oneline 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Cover the floor with natural mucus" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] rg -i "mucus" terminology/
+[Shell] rg -i "natural" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/mucus.lua
+[Shell] sed -n '25010,25035p' mod-tome.lua
+[Shell] rg "natural" mod-tome.lua | head -n 30
+[Shell] rg -n "natural mucus" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "natural mucus" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The game uses `DamageType.MUCUS` to define the damage type, with its name as "natural mucus." This aligns with the description of the `wild-gift/mucus` talent.
+[Shell] rg "自然粘液" mod-tome.lua
+[Shell] rg "天然" mod-tome.lua
+[Thought] Initial observation: there's a talent type defined as "wild-gift/mucus" related to covering the floor with mucus. There is also a damage type "MUCUS". The link between the talent and damage type needs confirmation to understand the mechanic.
+
+
+The talent description, "natural mucus," directly refers to the "DamageType.MUCUS," which is translated as "自然粘液". The new translation, "天然粘液," introduces an inconsistency. It appears the addition of "天然" aimed to correct an omission, however, it is at odds with the explicit damage type definition. This discrepancy likely constitutes a semantic issue.
+
+
+The "天然粘液" translation is suspect, potentially introducing an inconsistency with "自然粘液" and the nature magic theme. Further investigation is warranted to determine the impact. The second item shows a successful translation update, accurately reflecting the source text and talent mechanics, so no issue found there.
+[Shell] rg -i "resistance" terminology/
+[Thought] The game text describes an ooze-like character that can split into another creature upon taking damage. The new creature, a "Bloated Ooze," is created nearby and within the player's line of sight. The game text continues by describing the attributes and abilities of the new Ooze.
+
+
+The new Ooze's health is calculated as twice the damage taken, capped by the player's Mindpower and maximum life. Splitting chance is tied to health lost percentage. There's a limit to how many Bloated Oozes can be active simultaneously, and damage is shared between the player and active Oozes.
+Bloated Oozes persist for a set number of turns, possess high damage resistance (excluding shared damage), and have rapid life regeneration. The splitting chance is also improved by Cunning.
+[Shell] git -C /workspace/t-engine4 grep -n "Bloated Oozes active" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The translation accurately reflects the intended effect: increasing Nature resistance and providing a Nature damage bonus upon dealing Acid damage. The condition of the bonus improvement, limited to four times with a once-per-instance cap, is correctly restored. Verdict: The translation is correct.
+[Shell] git -C /workspace/t-engine4 grep -n "bonus to Nature damage" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/oozing-blades.lua | sed -n '40,90p'
+[Thought] Initial assessment: The `getNatureDamage` function calculates nature damage, with a level input that caps at 5. The nature damage improvement can trigger up to four times, but only once per turn, based on later acid damage. This understanding informs the translation of the phrase about improving acid damage. The invariant uses placeholders for integer values.
+
+
+The tornado's movement is slow, following the target and damaging foes within radius 2 with lightning and knockback each time it moves. The final explosion on contact applies lightning and physical damage, and has a radius, along with knockback, defined by a placeholder. This damage scales with Mindpower and provides lightning resistance based on storm drake talents.
+
+
+A period was added to the damage description, confirming only a punctuation change. Further investigation included comparing English source lines to the translated text. The initial assessment was correct; only a single Chinese period was added, so all placeholders remain valid. The change is considered acceptable.
+[Shell] git -C /workspace/t-engine4 grep -n "Summon a storm of swirling blades" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/horrors.lua | sed -n '370,415p'
+[Thought] The `t.getDuration` function dictates the map effect's duration, which represents the storm's lifespan. Further examination reveals that the `duration` value from this function is passed as the second parameter to `tformat` within the `info` function. This `duration` value is crucial in describing the storm damage.
+[Shell] sed -n '25975,25990p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "claws sharp and ready" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Start to sever the lifeline" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/misc/npcs.lua | sed -n '1715,1750p'
+[Thought] The ability applies a delayed effect (`EFF_SEVER_LIFELINE`) for four turns, not a channeled ability. Damage calculation involves `combatTalentSpellDamage()` multiplied by 10000, indicating immense temporal damage, likely lethal. This aligns with the previous translation's description of severing the target's lifeline, causing instant death if the target remains in sight after four turns.
+[Shell] rg -i "cold" terminology/
+[Thought] The "cold" damage type corresponds to **寒冷** in the terminology data, not "冰冷", even though "冰" relates to ice. The previous version used "冰冷伤害", but the update correctly changed it to "寒冷伤害". The update aligns with the established terminology data, preserving all placeholders.
+[Shell] rg -i "daze" terminology/
+[Thought] The translation of `daze` to `眩晕` appears correct. A missing period `。` was identified and added as the fix. The changes are confirmed as valid.
+
+
+Examining the translation differences, it appears the old version inadequately conveyed the concept of "cunning" and the ability to "outthink and outwit." The new version uses "灵巧" which corresponds to "Cunning" in the game's stat system, offering a more accurate translation of the ability's function. The original's loose translation lost critical meaning; the update significantly improves clarity and faithfulness.
+[Shell] rg "Sweep" terminology/
+[Shell] rg -n "Sweep" mod-tome.lua
+[Shell] sed -n '26610,26620p' mod-tome.lua
+[Thought] The analysis focuses on consistent and accurate translation within the game's text. Observed that "Precision," a talent name, is correctly translated as "弱点打击." Verification confirms that instances referencing the generic "this skill" can accurately be replaced with the specific talent name "弱点打击" for consistency. The replacement maintains accuracy and is thus deemed acceptable.
+[Shell] rg -i "orc" terminology/
+[Thought] Terminology indicates "Orc" translates to "兽人". The previous version used "兽族", creating an inconsistency. Updated "兽族" to "兽人" to maintain consistency. Placeholders: `50%%`, `%d`, `%d`, `%d` intact. Verdict: `ok`.
+
+
+Line one of the target translation was missing a trailing period. The period was added to maintain correct sentence structure in the translated text. The placeholders within the string remain unchanged, confirming the core message is intact.
+
+
+The entry in `mod-tome.lua:25019` translates "Cover the floor with natural mucus" to "用天然粘液覆盖地面". Examining surrounding lines and related files, the source string originates from a talent description within a "wild-gift/mucus" talent tree. This talent's mechanics consistently involve "natural mucus" (DamageType.MUCUS) as the damage or effect type. The translation update reflects this consistency by including "natural" in the target string.
+
+
+Examining the "natural mucus" translation reveals a potential inconsistency. The term "natural" within the game's context of wild-gifts and nature generally translates as "自然". However, the target string uses "天然".
+
+The game's definition for "natural mucus" (DamageType.MUCUS) consistently uses "自然粘液". The talent's core function is coating the floor with this "自然粘液". Using "天然粘液" introduces inconsistency with existing game terminology and theme. This is an `issue`.
+[Shell] rg "天然粘液" mod-tome.lua engine.lua mod-boot.lua
+[Shell] rg -i "mucus" terminology/
+[Shell] rg -n "damage type" terminology/combat.tsv
+[Thought] The game data defines "natural mucus" as a damage type identified as "MUCUS". Further investigation reveals this "MUCUS" identifier is used in talent definitions related to wild gifts, indicating a connection between the damage and talent systems. It is also localized for the natural language of the game.
+
+
+"自然粘液" is the correct translation for "natural mucus" in the game's context due to the consistent use of "自然" (nature) for related terms. The use of "天然" is inconsistent and introduces a conflict. A systematic review of items 2-20 is warranted to check for similar translation discrepancies. Re-examining item `entry-01899`.
+[Shell] git -C /workspace/t-engine4 grep -n "Your original self has the original ooze aspect" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/malleable-body.lua | head -n 45
+[Thought] Analyzing the duration calculation: the combat talent's mind damage is a key component, determining the base duration along with a constant value. The placeholders indicate that the formatted output requires an integer and an integer percentage. The new_target's text explains the mechanics of the "Slime Split" ability: the target splits into two entities with shared life and distinct properties; notably, the "Slime Blade" skill tree is replaced with the "Corrosive Blade" tree if learned.
+[Shell] rg "Bloated Ooze" mod-tome.lua
+[Shell] rg -i "bloated ooze" mod-tome.lua
+[Thought] Nature resistance is gained, and dealing Acid damage triggers a stacking Nature damage bonus for a duration. This bonus increases with subsequent Acid damage, capping at a maximum value, improving up to a limited number of times.
+
+
+The "自然抗性" (Nature resistance) increases by a percentage, and dealing "酸性伤害" (Acid damage) triggers a "自然伤害" (Nature damage) bonus for a duration. This bonus can be stacked and has a maximum value, and the bonus is improved up to a number of times. The magnitude of the resistance and damage increase is enhanced by "精神强度" (Mindpower).
+
+The summoned tornado moves slowly to the target, dealing damage and knockback on movement. Upon reaching the target, it explodes, dealing lightning and physical damage and also causes knockback. The tornado's damage increases with "精神强度".
+
+
+The tornado's explosion deals lightning and physical damage, influenced by "精神强度". Also, each point in the Lightning Dragon talent increases lightning resistance by 1%. The current check of another skill requires an examination of the damage calculation and talent effects.
+
+
+The first item defines a rotating blade storm effect; the duration parameter, `%d`, correctly represents the storm's duration, not bleeding duration, confirmed by code analysis. Item 9 involved replacing a full-width semicolon with a half-width one for consistency with the source format, the change is confirmed. Item 10 involved an NPC's attack message. Item 11 checks a spell that severs the target's lifeline after a duration.
+
+
+Item 11's translation was reviewed, correcting "引导法术" and ensuring accurate representation of the effect. Item 12 replaced a non-standard damage type with a standard term based on established terminology. Item 13's translation is being analyzed.
+
+
+Item 13's translation was reviewed, and the missing "闪电" (lightning) was inserted before the damage description, confirming the change. Item 14 involved adding a missing period at the end of a translated sentence, the change is confirmed.
+Item 15 involves checking an entry that grants bonuses to defense and mental save, and this bonus scales with a stat, currently reviewing the original code and translations.
+
+
+Item 15's translation was reviewed, and the accuracy of the scaling stat relationship is confirmed. Item 16's translation was improved, resolving an imprecise phrase and ensuring accuracy to "you feel a surge of power". Item 17 is being examined to see that the translation accurately reflects the source restriction on skill usage.
+
+
+The generic phrase "这个技能" was replaced with the specific talent name "横扫" in the translation. The change ensures accuracy by reflecting the correct talent. Another entry was updated, replacing "这个技能" with "弱点打击" to match the intended talent, "Precision," which is only usable with dual wielding. I'm now reviewing item 19, focusing on the translation of the effects of an orc's ability to resist mental debuffs.
+
+
+Orc terminology was reviewed, with "兽族" replaced by the standard "兽人." Item 19 confirms this change. Item 20 involved a force field description; I added a missing period and verified that all placeholders were preserved. Item 1's translation was reviewed, and "天然" was added to modify "粘液."
+
+
+The "natural mucus" talent, defined as "wild-gift" and associated with "自然" (nature) themes, uses "自然粘液" in the game and damage type descriptions. The translation of "natural mucus" uses "天然粘液", implying artificiality, creating an inconsistency with the game's nature theme. The evidence references `game/modules/tome/data/damage_types.lua` and `mod-tome.lua` to identify this translation discrepancy. I'm checking if the evidence can reference `mod-tome.lua` or only `game/...` or `terminology/...`.
+[Shell] git -C /workspace/t-engine4 grep -n 'natural mucus' 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] Investigating the term "mucus" across different data files to understand its context. Initial findings reveal its association with a damage type ("natural mucus") and a talent ("mucus"), both linked to nature-related attributes. These preliminary observations suggest "mucus" represents a specific game mechanic or element.
+
+
+"Natural mucus" is consistently translated as "自然粘液" in the damage type definition and talent descriptions; the new translation uses "天然粘液", creating an inconsistency. Confirmed the inconsistency by cross-referencing files. The problem lies in the direct translation. Further checking of related entries revealed several other issues requiring further revision.
+
+
+Verified several text entries, confirming correct translations or making minor adjustments to punctuation and formatting. Cross-referenced talent descriptions with the underlying game mechanics to validate accuracy and resolve potential misinterpretations, specifically clarifying the duration of a certain effect. Finally, standardized the terminology and ensured consistent adherence to the source material.
+[Shell] env | grep PI_
+[Thought] Contract and packet number are correctly identified. Data structure conforms to the expected format, validating the input's integrity. Each item within the array will require individual assessment based on its verdict and observation.
+[Shell] git -C /workspace/t-engine4 grep -n "Summon a tornado that moves very slowly" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Bites the target for" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "die at -%d; dur %d; cd %d" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Engulfs your hands" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Calls forth a powerful beam of lightning" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "A punch to the body that deals" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Superior cunning and training allows" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "bites the dust" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "You cannot use Sweep without dual wielding!" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "You cannot use Precision without dual wielding!" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Orcs have been the prey of the other races" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Surround yourself with a forcefield" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 12,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-01891",
+      "verdict": "issue",
+      "observation": "“natural mucus”在此指代 wild-gift/mucus 系技能铺设的 DamageType.MUCUS 伤害类型（源码中命名为 natural mucus，中文本地化固定为“自然粘液”）。改动译为“天然粘液”，不仅将自然力量（Nature）误译为与人工相对的“天然”，还与游戏既有伤害类型译名“自然粘液”产生不一致。",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/gifts.lua:38",
+        "game/modules/tome/data/damage_types.lua:3704",
+        "game/modules/tome/data/locales/zh_hans.lua:7099"
+      ],
+      "new_issue_introduced": true
+    },
+    {
+      "entry_id": "entry-01895",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/gifts.lua:53"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01899",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/malleable-body.lua:37",
+        "terminology/combat.tsv:Resistances"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01913",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/ooze.lua:116"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01919",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/oozing-blades.lua:76"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01924",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/storm-drake.lua:194"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01976",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/horrors.lua:173"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01980",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/horrors.lua:394"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01989",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/inscriptions.lua:252"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02015",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:970"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02022",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:1737"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02023",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:1986",
+        "terminology/combat.tsv:cold"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02024",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:2134"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02025",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:2331"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02027",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:2364"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02028",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:2438"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02032",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:2757"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02043",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/npcs.lua:3312"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02069",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/misc/races.lua:765",
+        "terminology/creatures.tsv:orc"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02074",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/absorption.lua:388"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
+[Thought] Investigating the specified code file, the reasoning proceeds to verify evidence across related files. Examining the cross-references for entry-01891, the lines cited in the provided paths are confirmed to be within the expected game directory. Next, the focus is to confirm this finding across twenty entries.

@@ -1,0 +1,627 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-14",
+ "packet_sha256": "23f6041a24b497f74746ffcfcdd939c25ecaa2be6db8f08a71a50e22bb540234",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 25,
+ "verdict_counts": {
+  "accepted": 25
+ },
+ "model_disposition_counts": {
+  "fix": 21,
+  "no_change": 3,
+  "refuted": 1
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00532",
+   "entry_id": "entry-03933",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5112,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00532：最强反证是“最多弹射 %d 次”与“弹射至其他目标”已概括主要效果；但冻结源码 on_stop_check 在未命中生物时区分撞上阻挡地形（照常弹射）与落空（直接终止），这两项条件和“你能看到的敌人”（canSee 过滤）均为原文明确且源码实现的条件，现译缺失，属完整性缺陷。cunning and dexterity 按术语库 Cunning=灵巧、Dexterity=敏捷补全。按模型提醒，不写“距当前撞击点最近”，而依源码 table.sort(target_list,\"dist\")（距首个目标）写成“按与第一个目标的距离由近及远”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/gunslinging.lua",
+    "terminology/combat.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00532：最强反证是“最多弹射 %d 次”与“弹射至其他目标”已概括主要效果；但冻结源码 on_stop_check 在未命中生物时区分撞上阻挡地形（照常弹射）与落空（直接终止），这两项条件和“你能看到的敌人”（canSee 过滤）均为原文明确且源码实现的条件，现译缺失，属完整性缺陷。cunning and dexterity 按术语库 Cunning=灵巧、Dexterity=敏捷补全。按模型提醒，不写“距当前撞击点最近”，",
+   "applied": true,
+   "old_target": "你的灵敏让你能射出同时击中多个敌人的子弹。\n\t\t你精确地瞄准敌人，子弹命中后将弹射至其他目标上。\n\t\t子弹最多弹射 %d 次，只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。\n\t\t第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （%d%%）命中。",
+   "new_target": "你的灵巧与敏捷让你能射出同时击中多个敌人的子弹。\n\t\t你精确瞄准，让子弹在你能看到的敌人之间弹射：每当子弹击中坚固之物（生物或坚固的墙壁），都会按与第一个目标的距离由近及远弹向下一个敌人。\n\t\t子弹最多弹射 %d 次（未命中则终止），只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。\n\t\t第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （%d%%）命中。",
+   "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+   "source": "Your cunning and dexterity allow you to fire incredible trick shots that can hit multiple targets.\n\t\tYou precisely aim your trick shot to ricochet amongst foes you can see so that whenever it hits something solid (creature or solid wall), it will bounce towards the next closest foe.\n\t\tIt may ricochet up to %d times (or until it misses) within range 5 of your first target and will not target the same foe twice.\n\t\tYour shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce."
+  },
+  {
+   "queue_id": "hrq-00533",
+   "entry_id": "entry-03939",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5186,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00533：最强反证是两句都报告抵抗震慑、结果可理解；但冻结源码中 blow 是对主目标的日志，shock 是半径 3 冲击波波及的次要目标日志，两条不同原文现译完全相同，丢失了冲击波来源信息。改为“震慑冲击”，与同族 blow=打击 区分，成本低且不影响其他条目。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00533：最强反证是两句都报告抵抗震慑、结果可理解；但冻结源码中 blow 是对主目标的日志，shock 是半径 3 冲击波波及的次要目标日志，两条不同原文现译完全相同，丢失了冲击波来源信息。改为“震慑冲击”，与同族 blow=打击 区分，成本低且不影响其他条目。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "%s抵抗了震慑打击！",
+   "new_target": "%s抵抗了震慑冲击！",
+   "section": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+   "source": "%s resists the stunning shock!"
+  },
+  {
+   "queue_id": "hrq-00534",
+   "entry_id": "entry-03940",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5210,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00534：最强反证是“击中”可宽泛表示碰撞；但冻结源码该日志在 knockback 回调中、检测到 block_move 后输出，%s 是被击退后撞上障碍的目标，“击中了某物”把被动撞击写成主动攻击且丢失 solid。改为“撞上了坚固的物体”；pulse 与同节说明“静电脉冲”对齐为“脉冲”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00534：最强反证是“击中”可宽泛表示碰撞；但冻结源码该日志在 knockback 回调中、检测到 block_move 后输出，%s 是被击退后撞上障碍的目标，“击中了某物”把被动撞击写成主动攻击且丢失 solid。改为“撞上了坚固的物体”；pulse 与同节说明“静电脉冲”对齐为“脉冲”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "%s击中了某物，放出一股震慑闪电冲击！",
+   "new_target": "%s撞上了坚固的物体，释放出一道震慑闪电脉冲！",
+   "section": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+   "source": "%s slams into something solid, emitting a pulse of stunning lightning!"
+  },
+  {
+   "queue_id": "hrq-00535",
+   "entry_id": "entry-03946",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5320,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00535：最强反证是“冷却时间减半”在多数情况下结果等价；但冻结源码 MECHARACHNID_PILOTING_BUFF 的 on_timeout 是每回合对已有冷却额外再减 1（跳过 fixed_cooldown），并非改写基础冷却时长，“冷却时间减半”会被读成使用技能时冷却值减半。改为“冷却速度加倍”，并与 mod-tome 既有“刻印冷却速度加倍”（cooldown twice as fast）同族一致。英文 all 比实现宽，属原文问题，不计中文错误。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/mecharachnid.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/other.lua",
+    "mod-tome.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00535：最强反证是“冷却时间减半”在多数情况下结果等价；但冻结源码 MECHARACHNID_PILOTING_BUFF 的 on_timeout 是每回合对已有冷却额外再减 1（跳过 fixed_cooldown），并非改写基础冷却时长，“冷却时间减半”会被读成使用技能时冷却值减半。改为“冷却速度加倍”，并与 mod-tome 既有“刻印冷却速度加倍”（cooldown twice as fast）同族一致。英文 all ",
+   "applied": true,
+   "old_target": "跳入机械蜘蛛，直接控制它 %d 回合。当控制它的时候，它所造成的所有伤害增加 %d%%，抗性增加 %d%%，所有技能冷却时间减半。",
+   "new_target": "跳入机械蜘蛛，直接控制它 %d 回合。当控制它的时候，它所造成的所有伤害增加 %d%%，抗性增加 %d%%，所有技能冷却速度加倍。",
+   "section": "tome-orcs/data/talents/steam/mecharachnid.lua",
+   "source": "Leap into your mecharachnid, assuming direct control of it for %d turns. While piloting it, all damage dealt is increased by %d%%, resistances are increased by %d%%, and all of its talents cooldown twice as fast."
+  },
+  {
+   "queue_id": "hrq-00536",
+   "entry_id": "entry-03950",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5374,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00536：①“灵晶射击”不是同节技能名，冻结源码技能名 Metalstar 本仓译“金属灵晶”（tome-orcs.lua 同节 talent name），改为“发射金属灵晶”；②shrapnel still inside 被略成“灵晶碎片”，补“仍残留在目标体内的弹片”（同节 Metalstar 说明亦用“弹片”）；③冻结源码 free=getTalentRadius(mt)*2，格式化参数同样已乘 2，现译“范围（当前 %d）的两倍”使玩家再乘一次，属数值误导，改为“半径的两倍（当前 %d 格）”。源码 on_timeout 以 >= 判断断开，英文亦写 more than，属原文问题不计中文错误。换行结构保持不变。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/mechstar.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00536：①“灵晶射击”不是同节技能名，冻结源码技能名 Metalstar 本仓译“金属灵晶”（tome-orcs.lua 同节 talent name），改为“发射金属灵晶”；②shrapnel still inside 被略成“灵晶碎片”，补“仍残留在目标体内的弹片”（同节 Metalstar 说明亦用“弹片”）；③冻结源码 free=getTalentRadius(mt)*2，格式化参数同样已乘 2，现译“范围（当前 %",
+   "applied": true,
+   "old_target": "每次你使用灵晶射击时，你将与灵晶碎片建立血液灵能联系，持续 %d 回合。\n\t\t每回合目标将受到 %0.2f 物理伤害，一半伤害值将转化为治疗。\n\t\t每增加一名额外目标，其带来的治疗量进一步减半。\n\t\t当目标距离超过金属灵晶范围（当前 %d）的两倍时，效果中止。\n\t\t该伤害不会打断眩晕效果，受蒸汽强度加成。",
+   "new_target": "每次你发射金属灵晶时，你还会与仍残留在目标体内的弹片建立血液灵能联系，持续 %d 回合。\n\t\t每回合目标将受到 %0.2f 物理伤害，一半伤害值将转化为治疗。\n\t\t每增加一名额外目标，其带来的治疗量进一步减半。\n\t\t当目标与你的距离超过金属灵晶半径的两倍（当前 %d 格）时，效果中止。\n\t\t该伤害不会打断眩晕效果，受蒸汽强度加成。",
+   "section": "tome-orcs/data/talents/steam/mechstar.lua",
+   "source": "When you fire your metalstar, your also establish a psionic bloodlink with the shrapnel still inside for %d turns.\n\t\tEach turn the victims are drained for %0.2f physical damage, half of which heals you (each additional victim healing is reduced by half).\n\t\tIf the victim move more than twice away from the radius of Metalstar (currently %d) the effect stops.\n\t\tThis damage does not break daze and increases with your Steampower."
+  },
+  {
+   "queue_id": "hrq-00537",
+   "entry_id": "entry-03951",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5403,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "hrq-00537：模型自标 advisory。tinker 术语记录“蒸汽工具”为 existing（非 preferred），不强制改名；现译“制造药剂、附着物等道具”与同节技能名“制造道具”一致，所举药剂与附着物均为冻结源码中可制造的 tinker 类别，未失义。仅记表达建议。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "terminology/items.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；hrq-00537：模型自标 advisory。tinker 术语记录“蒸汽工具”为 existing（非 preferred），不强制改名；现译“制造药剂、附着物等道具”与同节技能名“制造道具”一致，所举药剂与附着物均为冻结源码中可制造的 tinker 类别，未失义。仅记表达建议。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": false,
+   "old_target": "使用该技能来制造药剂、附着物等道具。",
+   "new_target": null,
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "Allows you to create tinkers."
+  },
+  {
+   "queue_id": "hrq-00538",
+   "entry_id": "entry-03953",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5416,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00538：冻结源码明确把弹药的 ranged_project 转为 melee_project 后调用 attackTargetWith，即“远程近战攻击，但也触发弹药远程特效”；现译“射击是远程攻击将会触发弹药特效”丢失 melee 与转折，属机制性缺失。voratun 术语库 preferred=沃瑞钽，“沃瑞钽钢”不符，同条修正。额外射击实际由技能等级≥5 决定而非材质，属英文原文与实现不一致，中文沿袭英文，不计中文错误。原 target 无换行，保持。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "terminology/items.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00538：冻结源码明确把弹药的 ranged_project 转为 melee_project 后调用 attackTargetWith，即“远程近战攻击，但也触发弹药远程特效”；现译“射击是远程攻击将会触发弹药特效”丢失 melee 与转折，属机制性缺失。voratun 术语库 preferred=沃瑞钽，“沃瑞钽钢”不符，同条修正。额外射击实际由技能等级≥5 决定而非材质，属英文原文与实现不一致，中文沿袭英文，不计中文错误",
+   "applied": true,
+   "old_target": "向在 %d 码范围内的一个敌人开火造成 %d%% 的武器伤害。如果手炮是由沃瑞钽钢制作的，你能多一次额外的射击。射击是远程攻击将会触发弹药特效。",
+   "new_target": "向 %d 码范围内的一个敌人发射弹药，造成 %d%% 的武器伤害。如果手炮由沃瑞钽制成，你将额外射击一次。这次射击属于远程近战攻击，但也会触发弹药的远程特效。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "Fires your ammo at an enemy in range %d for %d%% weapon damage.  If this tinker is made of voratun you will fire an additional shot.\n\t\t\tThis shot is a ranged melee attack but will use the ranged procs of your ammo as well."
+  },
+  {
+   "queue_id": "hrq-00539",
+   "entry_id": "entry-03960",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5483,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00539：最强反证是施法语境可推知治疗他人；但冻结源码 heal_check 明确要求 act ~= self，且 cone 设 selffire=false，原文 other 是实际限制，现译“修复机械生物”未排除自身。补“其他”，其余文字与换行不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00539：最强反证是施法语境可推知治疗他人；但冻结源码 heal_check 明确要求 act ~= self，且 cone 设 selffire=false，原文 other 是实际限制，现译“修复机械生物”未排除自身。补“其他”，其余文字与换行不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "释放一片锥形半径 %d 码的修理器，修复机械生物（蒸汽蜘蛛）%d 生命值。\n　　治疗量受蒸汽强度加成。",
+   "new_target": "释放一片锥形半径 %d 码的修理器，修复其他机械生物（蒸汽蜘蛛）%d 生命值。\n　　治疗量受蒸汽强度加成。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.\n\t\tThe healing will increase with your Steampower."
+  },
+  {
+   "queue_id": "hrq-00540",
+   "entry_id": "entry-03967",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5552,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00540：冻结源码 action 先 archeryAcquireTargets/archeryShoot，archery_onhit 再在命中点 project 爆炸，“每一个弹片”把 each shot 写成爆炸后碎片，顺序颠倒，改为“每发子弹抵达目标时”。hrq-00541：as it is the ammo 的因果被省略，按同节其他三条爆炸弹／钩索弹已用的“这个技能本身就是弹药，因此不消耗弹药”补全。hrq-00542：“在射程内制造一场特殊的爆炸”丢失向一处地点发射爆炸弹的动作，改为“向射程内的一处地点发射特殊爆炸弹”，与同节孪生描述（照明弹/燃烧弹）首句一致。换行与全角缩进保持。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00540：冻结源码 action 先 archeryAcquireTargets/archeryShoot，archery_onhit 再在命中点 project 爆炸，“每一个弹片”把 each shot 写成爆炸后碎片，顺序颠倒，改为“每发子弹抵达目标时”。hrq-00541：as it is the ammo 的因果被省略，按同节其他三条爆炸弹／钩索弹已用的“这个技能本身就是弹药，因此不消耗弹药”补全。hrq-00542",
+   "applied": true,
+   "old_target": "你使用蒸汽枪在射程内制造一场特殊的爆炸。\n　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害，\n　　这个技能不使用弹药。",
+   "new_target": "你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。\n　　每发子弹抵达目标时，造成正常蒸汽枪伤害，并在半径 %d 码内爆炸，造成 %0.2f 的物理伤害。\n　　这个技能本身就是弹药，因此不消耗弹药。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "You fire a special explosive shot with your steamgun(s) at a spot within range.\n\t\tWhen each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which does %0.2f physical damage.\n\t\tThis talent does not use ammo as it is the ammo."
+  },
+  {
+   "queue_id": "hrq-00543",
+   "entry_id": "entry-03970",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5594,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00543：冻结源码 pull(x,y,distance) 以数值为上限，受阻挡时移动不足额，两处补“至多”。hrq-00544：补“技能本身就是弹药”因果，同 hrq-00541。hrq-00545（advisory）：hook shot 的钩索特征与“打击”暗示伤害的问题成立，源码 action 只拉动不造成伤害，顺带改为“发射特殊的钩索弹”，不引入新机制。各行无句末标点的原样式保持。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00543：冻结源码 pull(x,y,distance) 以数值为上限，受阻挡时移动不足额，两处补“至多”。hrq-00544：补“技能本身就是弹药”因果，同 hrq-00541。hrq-00545（advisory）：hook shot 的钩索特征与“打击”暗示伤害的问题成立，源码 action 只拉动不造成伤害，顺带改为“发射特殊的钩索弹”，不引入新机制。各行无句末标点的原样式保持。兽人 DLC 来源未固定（仅核冻结快照）",
+   "applied": true,
+   "old_target": "你使用蒸汽枪发射特殊弹药打击目标或某处\n如果你的目标是一个生物，他们被拉向你 %d 码\n如果你的目标是一个空地，你会被拉向空地 %d 码\n这个技能不使用弹药。",
+   "new_target": "你用蒸汽枪向一个生物或地点发射特殊的钩索弹\n如果你的目标是一个生物，他们会被拉向你至多 %d 码\n如果你的目标是一个空地，你会被拉向空地至多 %d 码\n这个技能本身就是弹药，因此不消耗弹药。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "You fire a special hook shot with your steamgun(s) at a target creature or location.\n\t\tIf you target a creature, they are pulled up to %d tiles towards you.\n\t\tIf you target an empty tile, you are pulled up to %d tiles towards it.\n\t\tThis talent does not use ammo as it is the ammo."
+  },
+  {
+   "queue_id": "hrq-00546",
+   "entry_id": "entry-03971",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5610,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00546：冻结源码续发效果为 type=\"beam\" 投射配 lightning 粒子，不是球体，“闪电球”给出错误形状，改为“每道闪电”“闪电伤害”。hrq-00547：循环上限为 floor(技能等级)，敌人不足即 return，补“附近至多 %d 名敌人”。hrq-00548：补“技能本身就是弹药”因果。hrq-00549（advisory）：voltaic 被泛化，补“电能弹”使首句完整。兽人 DLC 来源未固定（仅核",
+   "applied": true,
+   "old_target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 闪电武器伤害。\n这将释放强大的电流，打击周围 %d 的敌人。\n每个闪电球造成 %0.2f 的闪电伤害\n这个技能不使用弹药\n闪电球伤害受蒸汽强度加成。",
+   "new_target": "你用蒸汽枪发射特殊的电能弹打击目标，造成 100%% 闪电武器伤害。\n这将释放强大的电流，打击附近至多 %d 名敌人。\n每道闪电造成 %0.2f 的闪电伤害\n这个技能本身就是弹药，因此不消耗弹药\n闪电伤害受蒸汽强度加成。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "You fire a special voltaic shot with your steamgun(s) at a target for 100%% weapon damage as lightning.\n\t\tThe shot will release powerful electrical currents at up to %d nearby enemies. \n\t\tEach bolt does %0.2f lightning damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tBolt damage scales with Steampower."
+  },
+  {
+   "queue_id": "hrq-00550",
+   "entry_id": "entry-03972",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5628,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00550：冻结源码 addEffect 使用 DamageType.NOURISHING_MOSS，Nourishing Moss 为具名效果；本仓 mod-tome 已有同名技能译“生命苔藓”，按既有译名补全，不新造译名。hrq-00551：补“技能本身就是弹药”因果。hrq-00552：“造成…伤害对…每一个敌人”语序不通，改为“对…造成…伤害”；botanical 顺带补为“植物弹”。占位符顺序（半径、回合）不变。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "mod-tome.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00550：冻结源码 addEffect 使用 DamageType.NOURISHING_MOSS，Nourishing Moss 为具名效果；本仓 mod-tome 已有同名技能译“生命苔藓”，按既有译名补全，不新造译名。hrq-00551：补“技能本身就是弹药”因果。hrq-00552：“造成…伤害对…每一个敌人”语序不通，改为“对…造成…伤害”；botanical 顺带补为“植物弹”。占位符顺序（半径、回合）不变。兽人 ",
+   "applied": true,
+   "old_target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 自然武器伤害。\n将释放孢子生长成半径 %d 的苔藓 %d 回合。\n每回合苔藓造成 %0.2f 自然伤害对半径内的每一个敌人。\n这种苔藓有吸血特性，伤害的 %d%% 治愈使用者。\n这个技能不使用弹药\n苔藓伤害受蒸汽强度加成。",
+   "new_target": "你用蒸汽枪发射特殊的植物弹打击目标，造成 100%% 自然武器伤害。\n子弹将释放孢子，在半径 %d 内生长成生命苔藓，持续 %d 回合。\n每回合苔藓对半径内的每一个敌人造成 %0.2f 自然伤害。\n这种苔藓有吸血特性，伤害的 %d%% 治愈使用者。\n这个技能本身就是弹药，因此不消耗弹药\n苔藓伤害受蒸汽强度加成。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "You fire a special botanical shot with your steamgun(s) at a target for 100%% weapon damage as nature.\n\t\tThe shot will release spores which grow into Nourishing Moss in a radius of %d for %d turns.\n\t\tEach turn the moss deals %0.2f nature damage to each foe within its radius.\n\t\tThis moss has vampiric properties and heals the user for %d%% of the damage done.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tMoss damage scales with Steampower."
+  },
+  {
+   "queue_id": "hrq-00553",
+   "entry_id": "entry-03973",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5649,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。hrq-00556（advisory）：补“剧毒弹”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "terminology/combat.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00553：global speed 术语库 tformat/global 为 preferred=全局速度，notes 明确不写“整体速度”，必须采用。hrq-00554：冻结源码 getPower 同时作为 METAL_POISONING 的 power 与 speed（-10），Toxin strength 涵盖伤害与减速，“枯萎伤害受…加成”限缩为伤害，改为“毒素强度”。hrq-00555：补“技能本身就是弹药”因果。h",
+   "applied": true,
+   "old_target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 枯萎武器伤害。\n向目标释放重金属，造成每回合 %0.2f 枯萎伤害，并且降低整体速度 %d%% %d 回合。\n这个技能不使用弹药。\n枯萎伤害受蒸汽强度加成。",
+   "new_target": "你用蒸汽枪发射特殊的剧毒弹打击目标，造成 100%% 枯萎武器伤害。\n向目标体内释放重金属，每回合造成 %0.2f 枯萎伤害，并降低其全局速度 %d%%，持续 %d 回合。\n这个技能本身就是弹药，因此不消耗弹药。\n毒素强度受蒸汽强度加成。",
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source": "You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.\n\t\tThe shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tToxin strength scales with Steampower."
+  },
+  {
+   "queue_id": "hrq-00557",
+   "entry_id": "entry-03977",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5742,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00557（advisory）：原文 The power and damage 两项，现译只写“伤害”，删去一项属完整性缺失，补“强化效果与伤害”；接受模型更正：冻结源码实际流血增幅调用 getDamage，getDamageInc 仅用于说明格式化，这是英文与实现差异，不计中文错误，译文仅对齐原文两项。hrq-00558（advisory）：“放在伤口上”丢失 slam into 的猛烈动作与反讽，改为“猛插进”；按判据 5 把半角带空格引号 \" 轻柔 \" 改为中文引号“轻柔”。hrq-00559：冻结源码 cone_angle=25，narrow 为实际范围特征，补“狭窄”。句末“屠杀 !”半角叹号改为“！”（标点修正）。换行与 italic 标记不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/sawmaiming.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00557（advisory）：原文 The power and damage 两项，现译只写“伤害”，删去一项属完整性缺失，补“强化效果与伤害”；接受模型更正：冻结源码实际流血增幅调用 getDamage，getDamageInc 仅用于说明格式化，这是英文与实现差异，不计中文错误，译文仅对齐原文两项。hrq-00558（advisory）：“放在伤口上”丢失 slam into 的猛烈动作与反讽，改为“猛插进”；按判据 5 ",
+   "applied": true,
+   "old_target": "你 \" 轻柔 \" 地将链锯放在目标的伤口上，造成 %d%% 武器伤害并加深伤口。\n\t\t所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。\n\t\t效果触发时，血流将喷射而出，对 4 码锥形范围内所有生物造成 %0.2f 物理伤害。\n\t\t伤害受蒸汽强度加成。\n\t\t#{italic}#一切技术，皆为屠杀 !#{normal}#",
+   "new_target": "你“轻柔”地将链锯猛插进目标的伤口，造成 %d%% 武器伤害并加深伤口。\n\t\t所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。\n\t\t效果触发时，血流将喷射而出，对 4 码狭窄锥形范围内所有生物造成 %0.2f 物理伤害。\n\t\t强化效果与伤害受蒸汽强度加成。\n\t\t#{italic}#一切技术，皆为屠杀！#{normal}#",
+   "section": "tome-orcs/data/talents/steam/sawmaiming.lua",
+   "source": "You \"gently\" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds.\n\t\tAll bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).\n\t\tWhen this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.\n\t\tThe power and damage improves with your Steampower.\n\t\t#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00560",
+   "entry_id": "entry-03984",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5853,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00560（advisory）：最强反证是“进入其大脑”已传达侵入与干扰；但 latch on 与 bore into its skull 的附着、钻入动作被合并省略，且需与同批 entry-04008（bores into→钻入）同族一致，故补为“附着其上并钻入其头骨”。模型所述 -%d%% 双重负号不可照译、现译“减少 %d%%”正确，予以确认不改（冻结源码 fear_immune/sleep_immune 为减值）。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/thoughts-of-iron.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/mental.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00560（advisory）：最强反证是“进入其大脑”已传达侵入与干扰；但 latch on 与 bore into its skull 的附着、钻入动作被合并省略，且需与同批 entry-04008（bores into→钻入）同族一致，故补为“附着其上并钻入其头骨”。模型所述 -%d%% 双重负号不可照译、现译“减少 %d%%”正确，予以确认不改（冻结源码 fear_immune/sleep_immune 为减值）。兽人 ",
+   "applied": true,
+   "old_target": "将灵能和蒸汽科技结合，你在身边制造 5 只精神雄蜂飞向目标。\n\t\t雄蜂接触到生物时，将进入其大脑 6 回合，干扰思考能力。\n\t\t受影响的生物有 %d%% 几率使用技能失败，同时恐惧和睡眠免疫减少 %d%%。",
+   "new_target": "将灵能和蒸汽科技结合，你在身边制造 5 只精神雄蜂飞向目标。\n\t\t雄蜂遇到生物时，会附着其上并钻入其头骨，持续 6 回合，干扰其思维。\n\t\t受影响的生物有 %d%% 几率使用技能失败，同时恐惧和睡眠免疫减少 %d%%。",
+   "section": "tome-orcs/data/talents/steam/thoughts-of-iron.lua",
+   "source": "Melding psionics with steamtech you create 5 mind drones at your sides that fly towards your target.\n\t\tIf they encounter a creature they will latch on it and bore into its skull for 6 turns, disrupting its thoughts.\n\t\tDisrupted creatures have %d%% chances to fail to use talents and suffer a -%d%% reduction to fear and sleep immunity."
+  },
+  {
+   "queue_id": "hrq-00561",
+   "entry_id": "entry-03985",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5890,
+   "source_tag": "logPlayer",
+   "model_disposition": "refuted",
+   "model_reason": "hrq-00561：模型结论已为 refuted。现译“没有足够的空间召唤！”与原文语义、感叹号一致；初审所引 preferred 记录 source_tag 为 logSeen，本条为 logPlayer，不构成必须逐字匹配依据；该原文在多组件（mod-tome/cults/ashes）存在同源孪生，单改本条反会制造族内不一致。无缺陷。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/turrets.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "驳回模型主张；hrq-00561：模型结论已为 refuted。现译“没有足够的空间召唤！”与原文语义、感叹号一致；初审所引 preferred 记录 source_tag 为 logSeen，本条为 logPlayer，不构成必须逐字匹配依据；该原文在多组件（mod-tome/cults/ashes）存在同源孪生，单改本条反会制造族内不一致。无缺陷。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": false,
+   "old_target": "没有足够的空间召唤！",
+   "new_target": null,
+   "section": "tome-orcs/data/talents/steam/turrets.lua",
+   "source": "Not enough space to summon!"
+  },
+  {
+   "queue_id": "hrq-00562",
+   "entry_id": "entry-03990",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 5951,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00562（advisory）：最强反证是“（或任何其他目标）”位于施加动作主语位置，可读作施加方；但“目标”在本句同时指承受效果的生物，容易被读成受害方。冻结源码 superload Combat.lua 的 crossTierEffect 在受效果者身上判定 INCOMING_DISASTERS，未限定施加者，any others 即任意施加方，改为“其他任何人”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Combat.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00562（advisory）：最强反证是“（或任何其他目标）”位于施加动作主语位置，可读作施加方；但“目标”在本句同时指承受效果的生物，容易被读成受害方。冻结源码 superload Combat.lua 的 crossTierEffect 在受效果者身上判定 INCOMING_DISASTERS，未限定施加者，any others 即任意施加方，改为“其他任何人”。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "你很擅长给你的敌人带来灾难！\n\t\t任何时候你对一个生物造成伤害，你会对它施加灾难临近效果，持续20回合。\n\t\t每次你（或任何其他目标）尝试对这个生物施加越层效果时，也将尝试施加其他两个越层效果。\n\t\t此外，你的物理，蒸汽，法术和精神强度增加 %d。\n\t\t强度增加值受灵巧值加成。",
+   "new_target": "你很擅长给你的敌人带来灾难！\n\t\t任何时候你对一个生物造成伤害，你会对它施加灾难临近效果，持续20回合。\n\t\t每次你（或其他任何人）尝试对这个生物施加越层效果时，也将尝试施加其他两个越层效果。\n\t\t此外，你的物理，蒸汽，法术和精神强度增加 %d。\n\t\t强度增加值受灵巧值加成。",
+   "section": "tome-orcs/data/talents/uber/cun.lua",
+   "source": "You are adept at wreaking havoc onto your foes!\n\t\tAny time you deal damage to a creature you apply the Incoming Disasters effect for 20 turns.\n\t\tEach time you (or any others) would try to apply a cross-tier effect to this creature, you also try to apply the other two.\n\t\tIn addition your physical, steam, spell and mind powers are increased by %d.\n\t\tThe powers increase scales of your Cunning."
+  },
+  {
+   "queue_id": "hrq-00563",
+   "entry_id": "entry-03996",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6002,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00563：冻结源码 callbackOnTakeDamage 首行 src ~= self.summoner 即返回，只有召唤者造成的法术伤害才触发；现译“其受到的法术伤害”扩大了触发来源，补“你对其造成的”。源码实际倍率 1.3 而英文描述 160%，属英文与实现差异，中文沿袭英文，不改数值。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00563：冻结源码 callbackOnTakeDamage 首行 src ~= self.summoner 即返回，只有召唤者造成的法术伤害才触发；现译“其受到的法术伤害”扩大了触发来源，补“你对其造成的”。源码实际倍率 1.3 而英文描述 160%，属英文与实现差异，中文沿袭英文，不改数值。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "其受到的法术伤害转化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。",
+   "new_target": "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。",
+   "section": "tome-orcs/data/talents/uber/mag.lua",
+   "source": "Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage."
+  },
+  {
+   "queue_id": "hrq-00564",
+   "entry_id": "entry-03997",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6019,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00564：C03.1 冻结源码 electricity.lua 奥术发电机为 tinker，需装入长袍（衣物槽）而非玩家“装备长袍”，末段“装备在长袍中”不能消除本句前提偏差，改为“将奥术发电机装入长袍后”；C03.2 冻结源码 getSpellpower 读取 getSteam()/100，是当前蒸汽量，改“当前蒸汽量”。hrq-00565：dabble in 为涉猎、尝试，现译“精通于”提升了程度，改“涉猎”；同句“他”与后文“他们”指代不一，一并改“他们”。Archmage=元素法师 为术语库既有译名，不动。其余列表与 bold 标记不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/tinkers/electricity.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua",
+    "terminology/classes.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00564：C03.1 冻结源码 electricity.lua 奥术发电机为 tinker，需装入长袍（衣物槽）而非玩家“装备长袍”，末段“装备在长袍中”不能消除本句前提偏差，改为“将奥术发电机装入长袍后”；C03.2 冻结源码 getSpellpower 读取 getSteam()/100，是当前蒸汽量，改“当前蒸汽量”。hrq-00565：dabble in 为涉猎、尝试，现译“精通于”提升了程度，改“涉猎”；同句“他”与",
+   "applied": true,
+   "old_target": "科技法师是一些特殊的元素法师，他精通于蒸汽科技，用科技的力量来强化他们已经足够强大的法术力量。\n\t\t当你选择这一项进阶职业的时候，你获得以下能力：\n\t\t- 奥术发电机插件配方\n\t\t- 蒸汽/物理系 （已解锁）\n\t\t- 蒸汽/化学系 （未解锁）\n\t\t- 一个便携式自动材料提取仪。\n\t\t- 1级铁匠技能，2级机械和电子技能。\n\t\t- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电\n\t\t- 法术/科技法术：寒岩系 （未解锁）- 使用土和水\n\t\t- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术\n\t\t- 你可以免费解锁三个科技法术系的其中之一。\n\n\t\t当你装备长袍的时候，奥术发电机会在你消耗法力值的时候自动产生蒸汽，并根据蒸汽等级提升法术强度。\n\t\t#{bold}#当你完成这职业进阶的时候，你应该尽快制造一个奥术发电机，装备在长袍中，以使用科技法术的力量。#{normal}#",
+   "new_target": "科技法师是一些特殊的元素法师，他们涉猎蒸汽科技，用科技的力量来强化他们已经足够强大的法术力量。\n\t\t当你选择这一项进阶职业的时候，你获得以下能力：\n\t\t- 奥术发电机插件配方\n\t\t- 蒸汽/物理系 （已解锁）\n\t\t- 蒸汽/化学系 （未解锁）\n\t\t- 一个便携式自动材料提取仪。\n\t\t- 1级铁匠技能，2级机械和电子技能。\n\t\t- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电\n\t\t- 法术/科技法术：寒岩系 （未解锁）- 使用土和水\n\t\t- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术\n\t\t- 你可以免费解锁三个科技法术系的其中之一。\n\n\t\t将奥术发电机装入长袍后，每当你消耗法力值，它都会产生蒸汽，并根据当前蒸汽量提升法术强度。\n\t\t#{bold}#当你完成这职业进阶的时候，你应该尽快制造一个奥术发电机，装备在长袍中，以使用科技法术的力量。#{normal}#",
+   "section": "tome-orcs/data/talents/uber/mag.lua",
+   "source": "Technomancers are Archmages that dabble in steam technology to enhance their already formidable arsenal of spells.\n\t\tOnce this class evolution is taken, you gain the following:\n\t\t- Arcane Dynamo tinker schematic\n\t\t- Steamtech/Physics category (unlocked)\n\t\t- Steamtech/Chemistry category (locked)\n\t\t- An Automated Portable Extractor (A.P.E.)\n\t\t- One point in the Physics talent Smith and two in Mechanical and Electricity\n\t\t- Spell/Galvanic Technomancy category (locked) - deals with fire and lightning\n\t\t- Spell/Terrene Technomancy category (locked) - deals with earth and water\n\t\t- Spell/Occult Technomancy category (locked) - deals with time and arcane\n\t\t- The ability to unlock one of the three Technomancy categories for free\n\n\t\tOnce put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.\n\n\t\t#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00566",
+   "entry_id": "entry-04000",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6060,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00566（advisory）：最强反证是“启动时”可理解为自启动起持续；但冻结源码该技能 mode=sustained，疲劳在持续开启期间生效，while active 更精确对应“开启期间”，改为“开启期间会增加 20%% 疲劳”，其余不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/wil.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00566（advisory）：最强反证是“启动时”可理解为自启动起持续；但冻结源码该技能 mode=sustained，疲劳在持续开启期间生效，while active 更精确对应“开启期间”，改为“开启期间会增加 20%% 疲劳”，其余不动。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。\n\t\t使用这个装置非常的费力，启动时会增加 20%% 疲劳。",
+   "new_target": "启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。\n\t\t使用这个装置非常的费力，开启期间会增加 20%% 疲劳。",
+   "section": "tome-orcs/data/talents/uber/wil.lua",
+   "source": "Activate a special focusing device that extends all your ranged spells and psionic powers range by 3 (only works on those with range 2 or more and up to 10 max).\n\t\tThe use of this device is very strenuous, increasing fatigue by 20%% while active."
+  },
+  {
+   "queue_id": "hrq-00567",
+   "entry_id": "entry-04001",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6074,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "hrq-00567：模型自标 advisory 并承认等价读法。冻结源码为 steam_regen/stamina_regen 等回复属性，回复值在游戏中按回合结算，“蒸汽回复 +6”“体力回复 + 4”数值与效果无偏差；“+ 4”空格属纯静态排版，按判据 6 不改。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/floor.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；hrq-00567：模型自标 advisory 并承认等价读法。冻结源码为 steam_regen/stamina_regen 等回复属性，回复值在游戏中按回合结算，“蒸汽回复 +6”“体力回复 + 4”数值与效果无偏差；“+ 4”空格属纯静态排版，按判据 6 不改。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": false,
+   "old_target": "目标被营火温暖。蒸汽回复 +6，震慑免疫 +30%，体力回复 + 4。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/floor.lua",
+   "source": "The target is warm from the campfire. Increasing steam regeneration by 6/turn, stun immunity by 30% and stamina regeneration by 4/turn."
+  },
+  {
+   "queue_id": "hrq-00568",
+   "entry_id": "entry-04008",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6167,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00568：冻结源码 MIND_DRONE 的 on_gain 日志在效果施加时输出，对应技能说明“附着并钻入头骨”，而非飞行过程；“飞入”只表达移动，改“钻进”。量词“一个”改“一只”，与同族“5 只精神雄蜂”一致。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/mental.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/thoughts-of-iron.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00568：冻结源码 MIND_DRONE 的 on_gain 日志在效果施加时输出，对应技能说明“附着并钻入头骨”，而非飞行过程；“飞入”只表达移动，改“钻进”。量词“一个”改“一只”，与同族“5 只精神雄蜂”一致。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "一个精神雄蜂飞入#Target#！",
+   "new_target": "一只精神雄蜂钻进了#Target#！",
+   "section": "tome-orcs/data/timed_effects/mental.lua",
+   "source": "A mind drone bores into #Target#!"
+  },
+  {
+   "queue_id": "hrq-00569",
+   "entry_id": "entry-04014",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6269,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "hrq-00569：模型自标 advisory。“目标被化学药剂注射”语序略生硬，但被动句主体仍是目标、三类豁免（冻结源码 combat_mentalresist/spellresist/physresist）降低含义无偏差，属二级语感问题，仅记 advisory。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/other.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；hrq-00569：模型自标 advisory。“目标被化学药剂注射”语序略生硬，但被动句主体仍是目标、三类豁免（冻结源码 combat_mentalresist/spellresist/physresist）降低含义无偏差，属二级语感问题，仅记 advisory。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": false,
+   "old_target": "目标被化学药剂注射，降低所有豁免 %d。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/other.lua",
+   "source": "The target has been injected with chemicals, reducing all saves by %d."
+  },
+  {
+   "queue_id": "hrq-00570",
+   "entry_id": "entry-04015",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6272,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00570：最强反证是冻结源码 on_timeout 确在 life==max_life 时移除效果，现译的增补有依据；但 on_timeout 在定时效果每回合结算时才检查（固定 engine ActorTemporaryEffects.lua timedEffects），并非生命回满当刻，“立即”给出源码未保证的时序，改为“回满后结束”。三个占位符顺序不变。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/other.lua",
+    "game/engines/default/engine/interface/ActorTemporaryEffects.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00570：最强反证是冻结源码 on_timeout 确在 life==max_life 时移除效果，现译的增补有依据；但 on_timeout 在定时效果每回合结算时才检查（固定 engine ActorTemporaryEffects.lua timedEffects），并非生命回满当刻，“立即”给出源码未保证的时序，改为“回满后结束”。三个占位符顺序不变。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满时立即结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。",
+   "new_target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满后结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。",
+   "section": "tome-orcs/data/timed_effects/other.lua",
+   "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life."
+  },
+  {
+   "queue_id": "hrq-00571",
+   "entry_id": "entry-04018",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6318,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "hrq-00571（advisory）：最强反证是句首已限定为射出的子弹，可自然理解为命中时判定；但 When striking 是原文明确的触发条件，冻结源码 superload Archery.lua 亦仅在命中挂钩中判定，补“命中时有”成本低且不改占位符顺序。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Archery.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；hrq-00571（advisory）：最强反证是句首已限定为射出的子弹，可自然理解为命中时判定；但 When striking 是原文明确的触发条件，冻结源码 superload Archery.lua 亦仅在命中挂钩中判定，补“命中时有”成本低且不改占位符顺序。兽人 DLC 来源未固定（仅核冻结快照）。",
+   "applied": true,
+   "old_target": "子弹处于冲击状态：%d%% 概率击退，%d%% 概率震慑。",
+   "new_target": "子弹处于冲击状态：命中时有 %d%% 概率击退，%d%% 概率震慑。",
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun."
+  }
+ ]
+}
