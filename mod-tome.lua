@@ -12434,7 +12434,8 @@ t("#LIGHT_BLUE#You feel a great hero watching over you!", "#LIGHT_BLUE#你感到
 t("Staff of Arcane Supremacy", "奥术至上法杖", "entity name")
 t("silver-runed staff", "银色符文法杖", "_t")
 t([[A long slender staff, made of ancient dragon-bone, with runes emblazoned all over its surface in bright silver.
-It hums faintly, as if great power is locked within, yet alone it seems incomplete.]], "一根又细又长的法杖，由远古龙骨制成，它通体铭刻着银色的符文。它会发出微弱的嗡嗡声，似乎有一股强大的力量被锁在了里面，整体来看，它似乎是不完整的。", "_t")
+It hums faintly, as if great power is locked within, yet alone it seems incomplete.]], [[一根又细又长的法杖，由远古龙骨制成，它通体铭刻着亮银色的符文。
+它会发出微弱的嗡嗡声，仿佛有一股强大的力量被锁在其中，但单独一件时似乎并不完整。]], "_t")
 t("A true understanding of the arcane is needed to release its full power.", "只有理解奥术才能完全使用它的力量。", "_t")
 t("#STEEL_BLUE#You feel a swell of arcane energy.", "#STEEL_BLUE#你感受到一股奥术能量在膨胀。", "logSeen")
 t("Hat of Arcane Understanding", "奥术理解之帽", "entity name")
@@ -23217,7 +23218,7 @@ t("Smokescreen Mastery", "烟雾弹精通", "talent name")
 t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
 t("You infuse your smoke bomb with chokedust. Each turn, enemies in the smoke take %0.2f nature damage and are 50%% likely to be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有 50%% 几率被沉默。", "tformat")
 t("Dart Launcher", "飞镖发射器", "talent name")
-t("%s resists the sedation!", "%s抵抗了睡眠！", "logSeen")
+t("%s resists the sedation!", "%s抵抗了镇静！", "logSeen")
 t("Fire a poisoned dart dealing %0.2f physical damage that puts the target to sleep for 4 turns. 10 turn cooldown.", "发射毒镖，造成 %0.2f 物理伤害，沉睡 4 回合。10 回合冷却时间。", "tformat")
 t([[Fire a poisoned dart from a silent, concealed launcher on your person that deals %0.2f physical damage and puts the target (living only) to sleep for 4 turns, rendering them unable to act. Every %d points of damage the target takes brings it closer to waking by 1 turn.
 This can be used without breaking stealth.
@@ -24100,8 +24101,7 @@ t([[Enhances your feeding by reducing your targeted foe's damage by %d%%, and in
 		效果受精神强度加成。]], "tformat")
 t("Feed Strengths", "吸食抗性", "talent name")
 t([[Enhances your feeding by reducing your targeted foe's resistances, multiplying them by %0.2f and increasing your resistances by the amount drained. Resistance to "all" is not affected.
-		Improves with your Mindpower.]], [[提高你的吸食能力，将目标的伤害抗性降低到原来的 %0.2f 倍，并将你自身相应的伤害抗性提高相同数值。
-		对“所有”抗性无效。
+		Improves with your Mindpower.]], [[提高你的吸食能力，将目标的伤害抗性降低到原来的 %0.2f 倍，并将你自身相应的伤害抗性提高相同数值。对“所有”抗性无效。
 		效果受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -24547,9 +24547,10 @@ t([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100
 		At level 3 the intensity of your assault overwhelms anyone who is struck, reducing their Defense by %d for 4 turns.
 		The damage multiplier and Defense reduction increase with your Strength.
 
-		This talent will also attack with your shield, if you have one equipped.]], [[对附近目标进行 4 次攻击每个目标造成 %d%% （0仇恨值）至 %d%% （100+仇恨值）。附近被追踪的目标会被优先攻击。
-		等级 3 时你的猛烈攻击会同时降低目标 %d 的闪避，持续 4 回合。
-		伤害加成和闪避减值受力量值加成。
+		This talent will also attack with your shield, if you have one equipped.]], [[对附近目标发动 4 次快速攻击，每次造成 %d%%（0 仇恨值时）至 %d%%（100+ 仇恨值时）伤害。若附近有被追踪的猎物，则总是攻击它。
+		等级 3 时，猛烈攻击会压倒每个被命中的目标，使其闪避降低 %d，持续 4 回合。
+		伤害倍率和闪避减值受力量值加成。
+
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Reckless Charge", "鲁莽冲撞", "talent name")
 t("#Source# knocks back #Target#!", "#Source#击退了#Target#！", "logCombat")
@@ -28525,10 +28526,8 @@ t([[Summons an ethereal magical eye at the designated location that lasts for %d
 t("Keen Senses", "敏锐直觉", "talent name")
 t([[You focus your senses, getting information from moments in the future.
 		Improves your capacity to see invisible foes by +%d, to see through stealth by +%d, and to perform a critical spell cast by +%d%%.
-		The effects will improve with your Spellpower.]], [[你集中精神，通过直觉获取未来的信息。
-		增加侦测隐形等级 +%d
-		增加侦测潜行等级 +%d
-		增加法术暴击几率 +%d%%
+		The effects will improve with your Spellpower.]], [[你集中感官，从未来的片刻中获取信息。
+		侦测隐形等级提高 +%d，侦测潜行等级提高 +%d，法术暴击几率提高 +%d%%。
 		此效果受法术强度加成。]], "tformat")
 t("Vision", "探测", "talent name")
 t("Form a map of your surroundings in your mind in a radius of %d", "通过意念探测周围地形，有效范围：%d 码。", "tformat")
@@ -43203,7 +43202,7 @@ t("mag", "魔力", "stat short_name")
 t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，法术的效果和其他魔法物品的使用效果。", "_t")
 t("Willpower", "意志", "stat name")
 t("wil", "意志", "stat short_name")
-t("Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.", "意志属性是你的专注能力，提升意志可以提升你的法力值、体力值、灵能值、精神力和精神豁免。", "_t")
+t("Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.", "意志属性决定你的角色集中精神的能力。它会提高你的法力值、体力值与灵能值上限，并提高精神豁免。", "_t")
 t("Cunning", "灵巧", "stat name")
 t("cun", "灵巧", "stat short_name")
 t("Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.", "灵巧属性提升你学习、思考和反应能力。提升灵巧可以让你学习更多的技能，提升精神能力和暴击几率。", "_t")
