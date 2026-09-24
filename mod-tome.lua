@@ -20752,7 +20752,7 @@ section "mod-tome/data/quests/start-yeek.lua"
 
 t("Following The Way", "追随维网", "_t")
 t([[You have been tasked to remove at least one of the threats to the yeeks.
-]], [[你被派去清除对夺心魔的两大威胁之一。
+]], [[你被派去至少清除一个对夺心魔的威胁。
 ]], "_t")
 t([[Protect the Way, and vanquish your foes.
 ]], [[守护维网，征服你的敌人。
@@ -25021,7 +25021,7 @@ t("You channel ooze through your psiblades.", "你向心灵利刃里灌注软泥
 t("corrosive blades", "腐蚀利刃", "talent type")
 t("You channel acid through your psiblades.", "你向心灵利刃里灌注酸性能量。", "_t")
 t("eyal's fury", "埃亚尔之怒", "talent type")
-t("Unleash nature's fury against foes around you.", "向敌人释放自然的愤怒。", "_t")
+t("Unleash nature's fury against foes around you.", "向你周围的敌人释放自然的愤怒。", "_t")
 t("earthen power", "大地力量", "talent type")
 t("Dwarves have learned to imbue their shields with the power of stone itself.", "矮人学会将岩石力量赋予给盾牌。", "_t")
 t("earthen vines", "岩石藤蔓", "talent type")
@@ -35359,7 +35359,7 @@ t("Reduces global action speed by %d%% and all outgoing projectiles speed by %d%
 t("+Congeal Time", "+时间凝固", "_t")
 t("-Congeal Time", "-时间凝固", "_t")
 t("Arcane Vortex", "奥术漩涡", "_t")
-t("An arcane vortex follows the target. Each turn a manathrust fires from it to a random foe in sight doing %0.2f arcane damage to all. If no foes are found the main target takes 50%% more arcane damage this turn. If the target dies the remaining damage is dealt as a radius 2 ball of arcane.", "一个奥术漩涡跟随着目标。每回合一发奥术射线从它身上释放出来，随机对附近视野内的目标造成 %0.2f 奥术伤害。如果视野内没有任何其他目标，则该回合会对初始目标附加额外的 50%%奥术伤害。如果目标死亡，残余伤害引发半径为 2 的奥术爆炸。", "tformat")
+t("An arcane vortex follows the target. Each turn a manathrust fires from it to a random foe in sight doing %0.2f arcane damage to all. If no foes are found the main target takes 50%% more arcane damage this turn. If the target dies the remaining damage is dealt as a radius 2 ball of arcane.", "一个奥术漩涡跟随着目标。每回合，一发奥术射线从漩涡处射向视野内随机一名敌人，对漩涡附着的目标和射线路径上的所有目标造成 %0.2f 奥术伤害。如果没有找到敌人，本回合漩涡对其附着的目标造成的奥术伤害提高 50%%。如果目标死亡，剩余伤害将转化为半径 2 的奥术爆炸。", "tformat")
 t("#Target# is focused by an arcane vortex!", "#Target#被奥术漩涡围绕！", "_t")
 t("+Arcane Vortex", "+奥术漩涡", "_t")
 t("#Target# is free from the arcane vortex.", "#Target#摆脱了奥术漩涡。", "_t")
