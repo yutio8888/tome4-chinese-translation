@@ -1,0 +1,567 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "adjudicated_at": "2026-09-24T17:05:00Z",
+ "method": "ORCHESTRATOR independent verification against the pinned-commit public source (624a6732) or the recorded DLC snapshot, the terminology library and in-repo usage; reviewer severity is not taken as fact",
+ "scope": "the 39 findings produced by the v2 contextual review of the public bundles after wave 1-3, plus the one finding from the DLC post-fix review (ctx2-dlc-fix-01)",
+ "counts": {
+  "confirmed": 22,
+  "advisory": 17
+ },
+ "records": [
+  {
+   "revision_key": "entry-01221",
+   "bundle": "ctx2-pub-09d",
+   "task": "ctx2-pub-09d",
+   "cls": "fidelity",
+   "decision": "confirmed",
+   "issue": "elvala.lua:280 \"as if it were warding against a dark and dangerous threat\" rendered 仿佛要警告我提防某种黑暗而危险的威胁",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/elvala.lua:280 @624a6732 — the subject \"it\" wards against the threat (防护/抵御); the next line (282) separately says \"something trying to give me a direct warning\", so the author distinguishes warding from warning",
+    "the target adds both 警告 and the object 我, which the English does not carry"
+   ],
+   "carriers": [
+    "mod-tome.lua (elvala.lua section)"
+   ],
+   "fix_note": "replace 仿佛要警告我提防… with a 抵御/防备-the-threat wording; keep the following line unchanged"
+  },
+  {
+   "revision_key": "entry-01223",
+   "bundle": "ctx2-pub-09f",
+   "task": "ctx2-pub-09f",
+   "cls": "completeness + fidelity",
+   "decision": "confirmed",
+   "issue": "elvala.lua:358-400 four defects: brief periods of waking dropped and inverted to 不断给她水; gave her to the doctors with the strictest instructions became 让最好的治疗师; a bath of blood to wash over my sins misread; he could not fight back over-interpreted",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/elvala.lua:360 \"giving her water during brief periods of waking\"; :362 \"gave her to the doctors with the strictest instructions\"; :400 \"a bath of blood to wash over my sins\"; :380 \"he shook his head and said he could not fight back\"",
+    "four independent source-verifiable deviations; the first is a completeness loss and the second a mistranslation of a noun phrase"
+   ],
+   "carriers": [
+    "mod-tome.lua (elvala.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01228",
+   "bundle": "ctx2-pub-09i",
+   "task": "ctx2-pub-09i",
+   "cls": "completeness (+ register)",
+   "decision": "confirmed",
+   "issue": "lore/fun.lua skeleton/wight/lich sections: \"fragile that a stiff breeze could break them apart\" dropped; \"a peculiar sense of exhaustion\" dropped; \"be a dear\" idiom mis-rendered",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/fun.lua:234 and :247 @624a6732",
+    "two main clauses with no Chinese counterpart (一级 completeness); the \"be a dear\" rendering and the inserted vulgar 那还算个屁 are 二级 register"
+   ],
+   "carriers": [
+    "mod-tome.lua (lore/fun.lua section)"
+   ],
+   "scope_note": "honor the frozen newline structure; do not add or remove \\n"
+  },
+  {
+   "revision_key": "entry-01256",
+   "bundle": "ctx2-pub-10a",
+   "task": "ctx2-pub-10a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "\"the accursed undead\" rendered 可憎不死族 (race term) instead of the entity-type term 亡灵",
+   "authority": [
+    "terminology/creatures.tsv:12 undead=亡灵 [T.GAME.ENTITY/entity type/existing/global]",
+    "terminology/creatures.tsv:54 Undead=不死族 is the race term (T.PN.RACE/core); the source here is the generic entity type",
+    "in-repo 亡灵 used 73x"
+   ],
+   "carriers": [
+    "mod-tome.lua:16687"
+   ],
+   "scope_note": "the accompanying extra newline is static typography (user policy; prior dispositions hrq-00174) — record as advisory, do not edit"
+  },
+  {
+   "revision_key": "entry-01275",
+   "bundle": "ctx2-pub-10b",
+   "task": "ctx2-pub-10b",
+   "cls": "fidelity",
+   "decision": "confirmed",
+   "issue": "\"How can creation itself tolerate such an aberration?!\" rendered 造物主 (creator) not 受造界/天地万物; and \"think of what else it could have taken\" truncated",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/misc.lua:131 and :135 @624a6732",
+    "creation itself is parallel to nature above it (受造界), not the creator; the second sentence is a complete object clause with a consoling meaning"
+   ],
+   "carriers": [
+    "mod-tome.lua (lore/misc.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01282",
+   "bundle": "ctx2-pub-10b",
+   "task": "ctx2-pub-10b",
+   "cls": "fidelity + completeness",
+   "decision": "confirmed",
+   "issue": "misc.lua:230 \"lesser gods than our own which copied his grand design ... the works of their design\" — the copying clause is dropped and the sentence is rewritten as a comparison of handmade artworks",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/misc.lua:230 @624a6732",
+    "the relative clause \"which copied his grand design\" has no Chinese counterpart; \"the works of their design\" (the lesser gods’ creations = the other races) is replaced by 手工制作的\"艺术品\"",
+    "same string is also raised by bundle ctx2-pub-28b (scope17:mod-tome.lua:17791) — adjudicated once here"
+   ],
+   "carriers": [
+    "mod-tome.lua:17791"
+   ],
+   "scope_note": "deduplicated with scope17:mod-tome.lua:17791"
+  },
+  {
+   "revision_key": "entry-01302",
+   "bundle": "ctx2-pub-11b",
+   "task": "ctx2-pub-11b",
+   "cls": "terminology + fidelity",
+   "decision": "confirmed",
+   "issue": "misc.lua:461 inscriptions rendered 符文 (subordinate concept) instead of the category term 刻印; regimen of runic inscription rendered 复杂的整体",
+   "authority": [
+    "terminology/talents.tsv:8 inscriptions=刻印 [T.GAME.TALENT_CATEGORY/preferred/global] \"统一核心和兽人战役的技能类别译法；具体类型仍使用纹身/符文\"",
+    "in-repo 刻印 used 39x",
+    "fixed source game/modules/tome/data/lore/misc.lua:461"
+   ],
+   "carriers": [
+    "mod-tome.lua (lore/misc.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01308",
+   "bundle": "ctx2-pub-11b",
+   "task": "ctx2-pub-11b",
+   "cls": "fidelity",
+   "decision": "confirmed",
+   "issue": "misc.lua:503 \"to commune well in groups\" rendered 团结一致的精神; \"developed culture\" rendered 优越文化",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/misc.lua:503 @624a6732 — commune = 交流/沟通, not 团结一致; developed culture is a degree (发达/成熟) not a value judgement",
+    "the target also changes the objective observation \"have been noted to show\" into a subjective 向我们揭示了"
+   ],
+   "carriers": [
+    "mod-tome.lua (lore/misc.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01605",
+   "bundle": "ctx2-pub-15a",
+   "task": "ctx2-pub-15a",
+   "cls": "terminology + completeness",
+   "decision": "confirmed",
+   "issue": "chronomancy/spacetime-folding.lua Warp Mines info: Magic rendered 魔法; Warp Mines shortened to 地雷 (loses 时空)",
+   "authority": [
+    "terminology/combat.tsv:120 Magic=魔力 [T.GAME.STAT/stat name/existing/global]",
+    "in-repo talent name t(\"Warp Mines\",\"时空地雷\",\"talent name\") (mod-tome.lua:22291) and 8 uses of 时空地雷; the sibling entry at :22280 uses 时空地雷",
+    "fixed source game/modules/tome/data/talents/chronomancy/spacetime-folding.lua:201-204"
+   ],
+   "carriers": [
+    "mod-tome.lua (spacetime-folding.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01625",
+   "bundle": "ctx2-pub-15a",
+   "task": "ctx2-pub-15a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "chronomancy/temporal-hounds.lua info: Magic rendered 魔法 twice (as a stat name)",
+   "authority": [
+    "terminology/combat.tsv:120 Magic=魔力",
+    "fixed source game/modules/tome/data/talents/chronomancy/temporal-hounds.lua:237-238; the six stats are str/dex/con/mag/wil/cun, all stat names"
+   ],
+   "carriers": [
+    "mod-tome.lua (temporal-hounds.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01689",
+   "bundle": "ctx2-pub-15a",
+   "task": "ctx2-pub-15a",
+   "cls": "completeness",
+   "decision": "confirmed",
+   "issue": "cunning/artifice.lua smoke bomb: the clause \"even if their proximity would normally forbid it\" is absent",
+   "authority": [
+    "fixed source game/modules/tome/data/talents/cunning/artifice.lua:582-585 @624a6732 — the talent’s core effect is the exemption from the proximity rule (stealth.lua:74 stealthDetection)",
+    "the target ends at 不能阻止你潜行 and states no exemption condition"
+   ],
+   "carriers": [
+    "mod-tome.lua (artifice.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01740",
+   "bundle": "ctx2-pub-15a",
+   "task": "ctx2-pub-15a",
+   "cls": "completeness (mechanic)",
+   "decision": "confirmed",
+   "issue": "cunning/stealth.lua:148 \"if there are foes in sight within range %d%s\" — \"in sight\" is absent, turning it into any foe within range",
+   "authority": [
+    "fixed source game/modules/tome/data/talents/cunning/stealth.lua:148 and the :24-37 stealthDetection test (fov/actors/self and canSee)",
+    "the target 如果敌人在半径 %d%s 内 drops the line-of-sight precondition"
+   ],
+   "carriers": [
+    "mod-tome.lua (stealth.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-01976",
+   "bundle": "ctx2-pub-17a",
+   "task": "ctx2-pub-17a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "frenzy rendered 狂热状态; the effect subtype is 狂乱",
+   "authority": [
+    "terminology/combat.tsv:56 frenzy=狂乱 [T.GAME.EFFECT/effect subtype/existing/global] \"与技能名 Frenzy 的译法区分\"",
+    "terminology/talents.tsv:119 Frenzy=狂热 is the talent name (a different concept)",
+    "fixed source game/modules/tome/data/talents/misc/horrors.lua:149 sets EFF_FRENZY (timed_effects/mental.lua:1746, subtype={frenzy=true,speed=true})"
+   ],
+   "carriers": [
+    "mod-tome.lua (horrors.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-02128",
+   "bundle": "ctx2-pub-19a",
+   "task": "ctx2-pub-19a",
+   "cls": "completeness (mechanic)",
+   "decision": "confirmed",
+   "issue": "psionic/projection.lua:535-543 \"on all your weapon hits, costing … per hit\" rendered 每次攻击附加/每次攻击消耗 — drops 武器命中 and broadens to any attack",
+   "authority": [
+    "fixed source game/modules/tome/data/talents/psionic/projection.lua:535-543 and Combat.lua:961 (hitted and not target.dead)",
+    "the sibling Thermal Aura (projection.lua:387) is already rendered 每次武器命中时附加…每次命中消耗…, so the current text is also cross-entry inconsistent"
+   ],
+   "carriers": [
+    "mod-tome.lua (projection.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-02451",
+   "bundle": "ctx2-pub-22a",
+   "task": "ctx2-pub-22a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "techniques/weaponshield.lua Shield Wall \"stun and knockback resistance\" rendered 眩晕; stun is 震慑 (daze is 眩晕)",
+   "authority": [
+    "terminology/combat.tsv:40 stun=震慑 [T.GAME.EFFECT/effect subtype/existing/core]",
+    "fixed source game/modules/tome/data/talents/techniques/weaponshield.lua:210-211 raises stun_immune (not daze)"
+   ],
+   "carriers": [
+    "mod-tome.lua (weaponshield.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-02474",
+   "bundle": "ctx2-pub-22a",
+   "task": "ctx2-pub-22a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "\"dealing %d ice damage to attackers\" rendered 冰冻伤害",
+   "authority": [
+    "terminology/combat.tsv:24 ice=寒冰 [T.GAME.DAMAGE/damage type/existing/global]",
+    "fixed source game/modules/tome/data/timed_effects/other.lua:116-126 sets on_melee_hit={[DamageType.ICE]=eff.dam}; DamageType.ICE name is _t(\"ice\",\"damage type\")"
+   ],
+   "carriers": [
+    "mod-tome.lua (timed_effects/other.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-02565",
+   "bundle": "ctx2-pub-23a",
+   "task": "ctx2-pub-23a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "unlock-mage_necromancer.lua features: darkness rendered 黑暗, ice rendered 冰系, undead rendered 不死",
+   "authority": [
+    "terminology/combat.tsv:10 darkness=暗影 [T.GAME.DAMAGE/damage type/existing/core]; :24 ice=寒冰; terminology/creatures.tsv:12 undead=亡灵",
+    "fixed source game/modules/tome/data/texts/unlock-mage_necromancer.lua:15-16"
+   ],
+   "carriers": [
+    "mod-tome.lua:34252",
+    "mod-tome.lua:34253"
+   ]
+  },
+  {
+   "revision_key": "entry-02576",
+   "bundle": "ctx2-pub-23b",
+   "task": "ctx2-pub-23b",
+   "cls": "fidelity",
+   "decision": "confirmed",
+   "issue": "unlock-psionic_solipsist.lua:34 \"Solipsists use their mind to manipulate the world around them.\" is replaced by a copy of the :26 sentence, dropping their mind",
+   "authority": [
+    "fixed source game/modules/tome/data/texts/unlock-psionic_solipsist.lua:26 vs :34 @624a6732 (the two sentences differ)",
+    "the parallel sentence in unlock-psionic_mindslayer.lua:33 is rendered 心灵杀手用心灵操纵世界, so the repo already distinguishes the two forms"
+   ],
+   "carriers": [
+    "mod-tome.lua:34252",
+    "mod-tome.lua:34253"
+   ]
+  },
+  {
+   "revision_key": "entry-02763",
+   "bundle": "ctx2-pub-25a",
+   "task": "ctx2-pub-25a",
+   "cls": "fidelity (mechanic)",
+   "decision": "confirmed",
+   "issue": "nightmares curse: \"summon Terrors\" rendered 召唤梦魇; and \"chances to slow, deal %d Mind damage, and deal %d Darkness damage\" rendered as unconditional 直接造成",
+   "authority": [
+    "fixed source game/modules/tome/data/timed_effects/other.lua:1565-1575 npcTerror (name=\"terror\", type=\"horror\", subtype=\"eldritch\"); in-repo t(\"horror\",\"恐魔\")",
+    "game/modules/tome/data/damage_types.lua:3485-3510 DamageType.NIGHTMARE uses independent if rng.chance(10) for mind, darkness and slow",
+    "the area effect Nightmare is a different entity from the summoned terror"
+   ],
+   "carriers": [
+    "mod-tome.lua (timed_effects/other.lua section)"
+   ]
+  },
+  {
+   "revision_key": "entry-02846",
+   "bundle": "ctx2-pub-25a",
+   "task": "ctx2-pub-25a",
+   "cls": "terminology",
+   "decision": "confirmed",
+   "issue": "CURSED_WOUND on_merge log renders cursed wound as 诅咒伤口 while the rest of the effect uses 诅咒创伤",
+   "authority": [
+    "terminology/combat.tsv:74 wound=创伤 [T.GAME.EFFECT/effect subtype/existing/global]",
+    "fixed source game/modules/tome/data/timed_effects/physical.lua:2096-2114; the same effect’s on_gain/on_lose strings already use 诅咒创伤"
+   ],
+   "carriers": [
+    "mod-tome.lua (timed_effects/physical.lua section)"
+   ]
+  },
+  {
+   "revision_key": "mod-tome.lua:14630",
+   "bundle": "ctx2-pub-28a",
+   "task": "ctx2-pub-28a",
+   "cls": "fidelity + completeness",
+   "decision": "confirmed",
+   "issue": "elvala.lua spellblaze-chronicles-1 (mod-tome.lua:14630): \"if I judge right I see no mere impudent lass before me, but…\" rendered 如果由我来说，我还从没见过如此失礼的姑娘，同时还是…; \"to the east of here\" dropped; \"Alas\" rendered 当然 with the subject of scaring inverted",
+   "authority": [
+    "fixed source game/modules/tome/data/lore/elvala.lua:46, :56, :64 @624a6732",
+    "\"if I judge right\" = 如果我没有看错; \"no mere A, but B\" is not 从没见过如此A同时还是B; \"and a weaver of threads\" is also dropped",
+    ":64 \"Alas, legends and myths still abound to scare people away from anything to do with the Sher’Tul\" — Alas = 遗憾的是, and the myths scare other people away, not 阻止我们探索",
+    "no entry_id in the change ledger; identified by carrier line (scope17 synthetic key)"
+   ],
+   "carriers": [
+    "mod-tome.lua:14630"
+   ],
+   "scope_note": "the extra paragraph break is static typography — advisory only"
+  },
+  {
+   "revision_key": "entry-03856",
+   "bundle": "ctx2-dlc-fix-01",
+   "task": "ctx2-dlc-fix-01",
+   "cls": "terminology + fidelity",
+   "decision": "confirmed",
+   "issue": "orcs lore: constructs rendered 装置; and \"most of our contact with the Atmos is still done via constructs dropped from airships\" mistranslated",
+   "authority": [
+    "terminology/creatures.tsv:4 construct=构装体 [T.GAME.ENTITY/entity type/preferred/global] \"不作机关\"",
+    "DLC source not pinned; verified against the frozen snapshot c49975dd… and the recorded path tome-orcs/data/lore/misc.lua:147"
+   ],
+   "carriers": [
+    "tome-orcs.lua"
+   ],
+   "scope_note": "DLC source_pinning: unpinned — note the provenance"
+  },
+  {
+   "revision_key": "entry-01272",
+   "bundle": "ctx2-pub-10a",
+   "task": "ctx2-pub-10a",
+   "cls": "static typography",
+   "decision": "advisory",
+   "issue": "paragraph split only",
+   "authority": [
+    "prior hrq-00181: 分段本身仅排版且换行受冻结保护；user policy treats pure static typography as non-defect"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-01273",
+   "bundle": "ctx2-pub-10a",
+   "task": "ctx2-pub-10a",
+   "cls": "static typography",
+   "decision": "advisory",
+   "issue": "paragraph splits (9→13 newlines)",
+   "authority": [
+    "same static-typography policy; prior hrq-00182/00183"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-01318",
+   "bundle": "ctx2-pub-11c",
+   "task": "ctx2-pub-11c",
+   "cls": "register + static typography",
+   "decision": "advisory",
+   "issue": "Thank me later idiom and a lost blank line",
+   "authority": [
+    "prior hrq-00205: “一会儿谢”仅口吻生硬，非一级错误"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-01409",
+   "bundle": "ctx2-pub-13a",
+   "task": "ctx2-pub-13a",
+   "cls": "fidelity (style)",
+   "decision": "advisory",
+   "issue": "bend the world to their will rendered 妄图扭曲这个世界",
+   "authority": [
+    "prior batch-06: model self-marked advisory; 用户提示为文风取舍，不构成一级缺陷"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-01512",
+   "bundle": "ctx2-pub-14a",
+   "task": "ctx2-pub-14a",
+   "cls": "stale key",
+   "decision": "advisory",
+   "issue": "frozen English lacks the shield-duration clause",
+   "authority": [
+    "prior batch-06: 该句在冻结英文源串中本就不存在，不是译文遗漏，不能凭其他版本补入"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-01742",
+   "bundle": "ctx2-pub-15a",
+   "task": "ctx2-pub-15a",
+   "cls": "wording",
+   "decision": "advisory",
+   "issue": "outside of light radius → 阴影区域; power → 能力",
+   "authority": [
+    "prior batch-15: “能力增加 %d”已表达数值方向；power 由“能力”承接"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02028",
+   "bundle": "ctx2-pub-18a",
+   "task": "ctx2-pub-18a",
+   "cls": "register",
+   "decision": "advisory",
+   "issue": "bites the dust rendered 扑街",
+   "authority": [
+    "prior batch-08: 属俚语风格 advisory，保留"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02113",
+   "bundle": "ctx2-pub-19a",
+   "task": "ctx2-pub-19a",
+   "cls": "fidelity (minor)",
+   "decision": "advisory",
+   "issue": "净化你当前所有的精神状态 adds 所有的",
+   "authority": [
+    "prior batch-08 no_change: 后句已限定前句“所有”的实际配额，孤立截取前句不足以确认缺陷"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02115",
+   "bundle": "ctx2-pub-19a",
+   "task": "ctx2-pub-19a",
+   "cls": "terminology (existing only) + typography",
+   "decision": "advisory",
+   "issue": "ghost → 鬼魂; added 注: paragraph; through an active mind link",
+   "authority": [
+    "prior batch-08 no_change: ghost=幽灵 仅为 existing 术语，不强制改名"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02125",
+   "bundle": "ctx2-pub-19a",
+   "task": "ctx2-pub-19a",
+   "cls": "upstream defect",
+   "decision": "advisory",
+   "issue": "English itself swaps Accuracy/damage for the ranged entry",
+   "authority": [
+    "prior batch-08 no_change: 原文说明本身次序写反，译文忠实承接英文；上游失准不计为中文新增错误"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02141",
+   "bundle": "ctx2-pub-19a",
+   "task": "ctx2-pub-19a",
+   "cls": "fidelity (philosophy)",
+   "decision": "advisory",
+   "issue": "Nothing exists outside the mind’s ability to perceive it rendered 没有任何事物能逃脱精神力量的感知",
+   "authority": [
+    "prior batch-08 no_change: 现译表达同一全称关系；NOTE: the v2 reviewer reads this differently — recorded advisory, not reopened"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02212",
+   "bundle": "ctx2-pub-20a",
+   "task": "ctx2-pub-20a",
+   "cls": "terminology (family)",
+   "decision": "advisory",
+   "issue": "Flame talent rendered 火焰",
+   "authority": [
+    "user decision 2026-09-24: A 组 Flame 暂不修改；family unification (entry-02285 etc.) not authorized"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02269",
+   "bundle": "ctx2-pub-20a",
+   "task": "ctx2-pub-20a",
+   "cls": "wording",
+   "decision": "advisory",
+   "issue": "imbue rendered 安装 vs 镶嵌",
+   "authority": [
+    "prior batch-08 no_change: “安装”可描述置入，“附魔/镶嵌”并存，无唯一规范词"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02520",
+   "bundle": "ctx2-pub-22a",
+   "task": "ctx2-pub-22a",
+   "cls": "proper noun",
+   "decision": "advisory",
+   "issue": "Welcome to Tales of Maj’Eyal rendered 欢迎你来到 ToME 4",
+   "authority": [
+    "prior batch-10 no_change: ToME 4 是通行缩写；NOTE in-repo elsewhere uses 马基·埃亚尔的传说 — recorded advisory, not reopened"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02644",
+   "bundle": "ctx2-pub-24a",
+   "task": "ctx2-pub-24a",
+   "cls": "upstream defect",
+   "decision": "advisory",
+   "issue": "poison resistance vs the poison_immune mechanic",
+   "authority": [
+    "fixed source magical.lua:2794 itself says \"poison resistance is reduced\"; the mechanic is poison_immune (poisons.lua:576). English/behaviour mismatch is upstream; target is faithful — record as upstream issue"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "entry-02735",
+   "bundle": "ctx2-pub-24a",
+   "task": "ctx2-pub-24a",
+   "cls": "terminology (wording)",
+   "decision": "advisory",
+   "issue": "ice rendered 冰系",
+   "authority": [
+    "prior batch-08 no_change: ice 对应寒冰的既有术语记录与现译一致"
+   ],
+   "carriers": []
+  },
+  {
+   "revision_key": "scope17:mod-tome.lua:17791",
+   "bundle": "ctx2-pub-28b",
+   "task": "ctx2-pub-28b",
+   "cls": "duplicate",
+   "decision": "advisory",
+   "issue": "same source string as entry-01282 (ctx2-pub-10b)",
+   "authority": [
+    "adjudicated once under entry-01282; duplicate key kept for traceability"
+   ],
+   "carriers": []
+  }
+ ],
+ "policy_notes": [
+  "pure static typography (spaces, paragraph splits, newline counts) is not a defect (user policy; batch-01/05/06/08/09/10 precedents) — newline-only observations are recorded advisory",
+  "claims already adjudicated in the earlier 601-row round are recorded advisory (\"prior disposition stands\") rather than re-opened, per the re-raised-observation rule"
+ ]
+}
