@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（窗口27已完成；待宿主证据提交、关闭后 queue rebuild 与 push；随后安全暂停）
+更新时间：2026-09-24（窗口27已关闭；安全暂停，未启动第278批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -10,8 +10,9 @@
 
 - 审核已闭合至第 **277** 批（`batch-a2538cac10c65873a661`，证据及 stage 修复 `35fe994e`，finalize 通过）。
   当前没有 active batch；按用户要求不得启动第 278 批。
-- 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交与
-  catalog/migration 发布准备；当前只待宿主提交本窗证据、执行关闭后的 queue rebuild 并 push。
+- 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
+  catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
+  queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
 - 窗口 27 译文提交为 `defcc44d6d01a1329d83b37b0dcbb83c56e4b631`；新 catalog 为
   `cdc76147d080c57a246273344897b397c53eded5051d701a3d7974dcb1f9e0f8`，migration 为
   `b8289b4f700157310fc4a583dab34cbd726be7c2a55895b4d24a942b607f8c63`。28 个 successor 必须重新审核，
@@ -94,10 +95,8 @@
 
 ## 五、下一步
 
-1. 宿主提交窗口 27 的 publication 与 evidence，确认 publication child 已归档。
-2. 宿主执行窗口关闭后的 queue rebuild 并 push。
-3. 完成上述闭合动作后安全暂停，**不得启动第 278 批**，等待用户明确解除暂停。
-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 22 项）。
+1. 当前安全暂停，**不得启动第 278 批**，等待用户明确解除暂停；恢复时以当前 catalog 的待审核队列为准。
+2. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 22 项）。
 
 ## 六、环境备忘
 
