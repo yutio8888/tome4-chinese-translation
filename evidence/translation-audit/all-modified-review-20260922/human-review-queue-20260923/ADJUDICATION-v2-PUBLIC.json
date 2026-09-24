@@ -5,8 +5,8 @@
  "method": "ORCHESTRATOR independent verification against the pinned-commit public source (624a6732) or the recorded DLC snapshot, the terminology library and in-repo usage; reviewer severity is not taken as fact",
  "scope": "the 39 findings produced by the v2 contextual review of the public bundles after wave 1-3, plus the one finding from the DLC post-fix review (ctx2-dlc-fix-01)",
  "counts": {
-  "confirmed": 22,
-  "advisory": 17
+  "confirmed": 20,
+  "advisory": 19
  },
  "records": [
   {
@@ -60,18 +60,18 @@
    "revision_key": "entry-01256",
    "bundle": "ctx2-pub-10a",
    "task": "ctx2-pub-10a",
-   "cls": "terminology",
-   "decision": "confirmed",
-   "issue": "\"the accursed undead\" rendered 可憎不死族 (race term) instead of the entity-type term 亡灵",
+   "cls": "terminology (existing only)",
+   "decision": "advisory",
+   "issue": "undead rendered 不死族 (lore narrative)",
    "authority": [
-    "terminology/creatures.tsv:12 undead=亡灵 [T.GAME.ENTITY/entity type/existing/global]",
-    "terminology/creatures.tsv:54 Undead=不死族 is the race term (T.PN.RACE/core); the source here is the generic entity type",
-    "in-repo 亡灵 used 73x"
+    "terminology/creatures.tsv:12 undead=亡灵 is status=existing (not preferred); terminology/creatures.tsv:54 Undead=不死族 is the race/birth-descriptor term",
+    "the source \"the accursed undead that plague this nefarious dungeon\" is a generic plural in a first-person lore note; the repo itself mixes 亡灵 and 不死族 in this same lore file (mod-tome.lua:15964/15994 use 不死族)",
+    "user challenge 2026-09-24: 不死族 is acceptable here; existing terms are not mandatory -> recorded advisory, no edit"
    ],
    "carriers": [
     "mod-tome.lua:16687"
    ],
-   "scope_note": "the accompanying extra newline is static typography (user policy; prior dispositions hrq-00174) — record as advisory, do not edit"
+   "scope_note": "the extra newline is static typography — advisory as well"
   },
   {
    "revision_key": "entry-01275",
@@ -142,15 +142,17 @@
    "task": "ctx2-pub-15a",
    "cls": "terminology + completeness",
    "decision": "confirmed",
-   "issue": "chronomancy/spacetime-folding.lua Warp Mines info: Magic rendered 魔法; Warp Mines shortened to 地雷 (loses 时空)",
+   "issue": "Warp Mines shortened to 地雷 (loses 时空); *and* \"(based on your Magic)\" rendered 基于魔法",
    "authority": [
-    "terminology/combat.tsv:120 Magic=魔力 [T.GAME.STAT/stat name/existing/global]",
-    "in-repo talent name t(\"Warp Mines\",\"时空地雷\",\"talent name\") (mod-tome.lua:22291) and 8 uses of 时空地雷; the sibling entry at :22280 uses 时空地雷",
-    "fixed source game/modules/tome/data/talents/chronomancy/spacetime-folding.lua:201-204"
+    "in-repo talent name t(\"Warp Mines\",\"时空地雷\",\"talent name\") (mod-tome.lua:22291); 8 uses of 时空地雷; the sibling entry :22280 uses 时空地雷",
+    "fixed source game/modules/tome/data/talents/chronomancy/spacetime-folding.lua:201-204",
+    "Magic as a stat name is 魔力 (terminology/combat.tsv:120; t(\"Magic\",\"魔力\",\"stat name\")); BUT the repo free-text \"based on Magic\" is rendered 基于魔法 in 21 places vs 基于魔力 in 3 (（基于魔法）11 vs （基于魔力）2)"
    ],
    "carriers": [
     "mod-tome.lua (spacetime-folding.lua section)"
-   ]
+   ],
+   "fix_note": "confirmed scope: restore 时空地雷 (埋设时空地雷 / 时空地雷造成的伤害)",
+   "scope_note": "the 基于魔法 part is a FAMILY/CONVENTION question (stat name 魔力 vs free-text 魔法 majority) — recorded advisory, not fixed in this batch"
   },
   {
    "revision_key": "entry-01625",
@@ -158,14 +160,17 @@
    "task": "ctx2-pub-15a",
    "cls": "terminology",
    "decision": "confirmed",
-   "issue": "chronomancy/temporal-hounds.lua info: Magic rendered 魔法 twice (as a stat name)",
+   "issue": "temporal-hounds.lua: the six-stat enumeration and \"based on your Magic stat\" render Magic as 魔法",
    "authority": [
-    "terminology/combat.tsv:120 Magic=魔力",
-    "fixed source game/modules/tome/data/talents/chronomancy/temporal-hounds.lua:237-238; the six stats are str/dex/con/mag/wil/cun, all stat names"
+    "stat NAME is t(\"Magic\",\"魔力\",\"stat name\") (mod-tome.lua:43206) and t(\"Magic\",\"魔力\",\"_t\") (:42163); official zh_hans.lua:43130 is 魔力 too",
+    "terminology/combat.tsv:120 Magic=魔力 [T.GAME.STAT/stat name/existing/global]; :127 mag=魔力",
+    "fixed source game/modules/tome/data/talents/chronomancy/temporal-hounds.lua:237-238 — the enumerated values are incStats.str/dex/con/mag/wil/cun, i.e. the stat block, and \"based on your Magic stat\" names the stat explicitly"
    ],
    "carriers": [
     "mod-tome.lua (temporal-hounds.lua section)"
-   ]
+   ],
+   "fix_note": "%d 魔法 -> %d 魔力; 基于你的魔法 -> 基于你的魔力",
+   "scope_note": "CONFIRMED for the stat-block enumeration and \"Magic stat\"; the loose free-text \"based on Magic\" pattern below (entry-01605) is a separate family-convention question"
   },
   {
    "revision_key": "entry-01689",
@@ -201,17 +206,19 @@
    "revision_key": "entry-01976",
    "bundle": "ctx2-pub-17a",
    "task": "ctx2-pub-17a",
-   "cls": "terminology",
-   "decision": "confirmed",
-   "issue": "frenzy rendered 狂热状态; the effect subtype is 狂乱",
+   "cls": "terminology (conflicting in-repo usage)",
+   "decision": "advisory",
+   "issue": "frenzy rendered 狂热状态 (EFF_FRENZY)",
    "authority": [
-    "terminology/combat.tsv:56 frenzy=狂乱 [T.GAME.EFFECT/effect subtype/existing/global] \"与技能名 Frenzy 的译法区分\"",
-    "terminology/talents.tsv:119 Frenzy=狂热 is the talent name (a different concept)",
-    "fixed source game/modules/tome/data/talents/misc/horrors.lua:149 sets EFF_FRENZY (timed_effects/mental.lua:1746, subtype={frenzy=true,speed=true})"
+    "the state is EFF_FRENZY, set by the Devourer talent (game/modules/tome/data/talents/misc/horrors.lua:149) and Bloodrage (misc/npcs.lua:1692) and an artifact — NOT by the Cursed talent \"Frenzy\" (cursed/slaughter.lua:86), which applies EFF_OVERWHELMED/EFF_CURSED_WOUND",
+    "the effect’s own display name is 狂热: t(\"Frenzy\",\"狂热\",\"_t\") (mod-tome.lua:36143), on_gain #Target# goes into a killing frenzy -> 陷入杀戮狂热 (:36147), on_lose 狂热状态消失 (:36068)",
+    "terminology/combat.tsv:56 frenzy=狂乱 (effect subtype, existing) with the note \"与技能名 Frenzy 的译法区分\"; but the repo uses 狂乱 for the talent names 狂乱撕咬/狂乱跳跃 and the \"Only usable while frenzied\" line, and 狂热 for the effect’s own strings",
+    "=> the terminology entry conflicts with the effect’s own in-repo rendering; this needs a family/terminology decision, not a single-entry edit"
    ],
    "carriers": [
     "mod-tome.lua (horrors.lua section)"
-   ]
+   ],
+   "scope_note": "user question 2026-09-24 confirmed the state is not from the Frenzy talent; recorded advisory pending a family decision on 狂乱/狂热"
   },
   {
    "revision_key": "entry-02128",
@@ -563,5 +570,17 @@
  "policy_notes": [
   "pure static typography (spaces, paragraph splits, newline counts) is not a defect (user policy; batch-01/05/06/08/09/10 precedents) — newline-only observations are recorded advisory",
   "claims already adjudicated in the earlier 601-row round are recorded advisory (\"prior disposition stands\") rather than re-opened, per the re-raised-observation rule"
+ ],
+ "revision_notes": [
+  {
+   "at": "2026-09-24T17:20:00Z",
+   "by": "user challenge + ORCHESTRATOR re-verification",
+   "changes": [
+    "entry-01256: confirmed -> advisory (undead entity-type term is existing, not mandatory; 不死族 acceptable in lore)",
+    "entry-01976: confirmed -> advisory (EFF_FRENZY is not from the Frenzy talent; the effect’s own strings use 狂热)",
+    "entry-01605: confirmed narrowed to the Warp Mines name; the 基于魔法/基于魔力 convention moved to advisory (family question)",
+    "entry-01625: stays confirmed (stat-block enumeration + \"Magic stat\")"
+   ]
+  }
  ]
 }
