@@ -2808,7 +2808,7 @@ t("Killed Ben Cruthdar the Cursed.", "杀死被诅咒者本·克鲁塞达尔。"
 t("Fast Curse Dispel", "快速除咒", "achievement name")
 t("Killed Ben Cruthdar the Cursed while saving all the lumberjacks.", "杀死被诅咒者本·克鲁塞达尔并拯救所有伐木工。", "_t")
 t("Eye of the storm", "风暴之眼", "achievement name")
-t("Freed Derth from the onslaught of the mad Tempest, Urkis.", "从风暴魔导师厄奇斯手里成功解救德斯镇。", "_t")
+t("Freed Derth from the onslaught of the mad Tempest, Urkis.", "从疯狂的风暴魔导师厄奇斯的猛攻中解救了德斯镇。", "_t")
 t("Antimagic!", "反魔法训练", "achievement name")
 t("Completed antimagic training in the Ziguranth camp.", "在伊格兰斯训练营完成反魔法训练。", "_t")
 t("Anti-Antimagic!", "摧毁反魔法！", "achievement name")
@@ -12265,7 +12265,7 @@ t("Scroll of Summoning (Limmir the Jeweler)", "召唤卷轴（召唤珠宝匠利
 t("summon Limmir the jeweler at the center of the lake of the moon", "在月之湖中心召唤珠宝匠利米尔", "_t")
 t("Pendant of the Sun and Moons", "日月垂饰", "entity name")
 t("a gray and gold pendant", "一个灰金相间的垂饰", "_t")
-t("This small pendant depicts a hematite moon eclipsing a golden sun and according to legend was worn by one of the Sunwall's founders.", "一个小小的垂饰，雕刻着红月吞日的图案。传说其主人是太阳堡垒的建立者之一。", "_t")
+t("This small pendant depicts a hematite moon eclipsing a golden sun and according to legend was worn by one of the Sunwall's founders.", "一个小小的垂饰，雕刻着赤铁矿之月遮蔽金色太阳的图案。传说它曾由太阳堡垒的建立者之一佩戴。", "_t")
 t("All your damage is converted and split into light and darkness.", "你造成的所有伤害被转化均分为光系和暗影伤害。", "_t")
 t("Unsetting Sun", "永恒光辉", "entity name")
 t("shimmering gold shield", "闪耀着金色光芒的盾牌", "_t")
@@ -13639,7 +13639,7 @@ t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变
 t("Don't worry if it dissolves. Just don't get any on you.", "别担心它会溶解，只要别让它沾到你身上。", "_t")
 t("electric eel tail", "电鳗尾巴", "entity name")
 t("Slimy, wriggling, and crackling with electricity.", "黏滑、蠕动的尾巴，还闪着噼啪作响的电火花。", "_t")
-t("I know, I know. Where does the eel stop and the tail start? It doesn't much matter. The last ten inches or so should do nicely.", "我知道，我知道。你想问电鳗的尾巴是哪一段？没有确切的答案。最后 10 英寸或许是最合适的。", "_t")
+t("I know, I know. Where does the eel stop and the tail start? It doesn't much matter. The last ten inches or so should do nicely.", "我知道，我知道。电鳗到哪儿为止、尾巴又从哪儿开始？其实没多大关系。最后十英寸左右就够了。", "_t")
 t("vial of squid ink", "一瓶乌贼墨汁", "entity name")
 t("Thick, black and opaque.", "粘稠、黑色且不透明。", "_t")
 t("However annoying this will be for you to gather, I promise that the reek it produces in my lab will prove even more annoying.", "不管采集它会让你多么恼火，我保证它在我实验室里散发的恶臭会更令人受不了。", "_t")
@@ -25284,12 +25284,13 @@ t([[Your body is more like that of an ooze.
 		The chance to split equals the percent of your health lost times %0.2f.
 		You may have up to %d Bloated Oozes active at any time (limited by talent level and the summoning limit), and all damage you take will be split equally between you and them so long as this talent is active.
 		Bloated Oozes last for %d turns, are very resilient (%d%% all damage resistance to damage not coming through your shared link), and regenerate life quickly.
-		%sThe chance to split increases with your Cunning.]], [[你的身体构造变的像软泥怪一样。
-		当你受到攻击时，你有几率分裂出一个浮肿软泥怪，其生命值为你所承受的伤害值的两倍（最大 %d，基于你的精神强度和最大生命值）。
-		分裂几率为你损失生命百分比的 %0.2f 倍。
-		你同时最多只能拥有 %d 只浮肿软泥怪，你所承受的所有伤害会在你和浮肿软泥怪间均摊。
-		每只浮肿软泥怪存在 %d 回合，对非均摊的伤害的抗性很高（%d%% 对全部伤害的抗性），同时生命回复快。
-		%s几率受灵巧加成。]], "tformat")
+		%sThe chance to split increases with your Cunning.]], [[你的身体构造变得更像软泥怪。
+		当你受到伤害时，你有几率分裂，并在附近视线内生成一个浮肿软泥怪。
+		该软泥怪的生命值为你所受伤害的两倍（最大 %d，基于你的精神强度和最大生命值）。
+		分裂几率等于你损失的生命值百分比乘以 %0.2f。
+		你同时最多可以拥有 %d 只浮肿软泥怪（受技能等级与召唤上限限制）；只要本技能处于激活状态，你受到的所有伤害就会在你和它们之间平均分摊。
+		每只浮肿软泥怪存在 %d 回合，极为坚韧（对并非通过共享连接传来的伤害拥有 %d%% 全伤害抗性），并能快速恢复生命。
+		%s分裂几率随灵巧提升。]], "tformat")
 t("Reabsorb", "再吸收", "talent name")
 t([[You randomly merge with an adjacent bloated ooze, granting you 40%% all damage resistance for %d turns.
 		This process releases a burst of antimagic, dealing %0.1f Manaburn damage in radius %d.
@@ -26375,7 +26376,7 @@ t([[Sends a telekinetic attack, knocking back the target up to 3 grids and doing
 		伤害受精神强度加成。]], "tformat")
 t("Blightzone", "枯萎区域", "talent name")
 t([[Corrupted vapour rises at the target location (radius 4) doing %0.2f blight damage every turn for %d turns.
-		The damage increases with Spellpower.]], [[蒸腾目标区域（4码范围）造成每回合 %0.2f 枯萎伤害持续 %d 回合。
+		The damage increases with Spellpower.]], [[腐化的蒸汽在目标位置升起（半径 4），每回合造成 %0.2f 枯萎伤害，持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Invoke Tentacle", "召唤触须", "talent name")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
@@ -36681,7 +36682,7 @@ t("The target is protected by the Eidolon, no creature may harm it (except self-
 t("undead", "亡灵", "effect subtype")
 t("Cloak of Deception", "欺诈斗篷", "_t")
 t("The target is under the effect of the cloak of deception, making it look human.", "目标受到欺诈斗篷的效果影响，使它看上去像人类一样。", "_t")
-t("#LIGHT_BLUE#An illusion appears around #Target# making %s appear human.", "#LIGHT_BLUE##Target#周围的幻影让%s看起来像活着一样。", "tformat")
+t("#LIGHT_BLUE#An illusion appears around #Target# making %s appear human.", "#LIGHT_BLUE#一层幻影出现在#Target#周围，让%s看起来像人类。", "tformat")
 t("+CLOAK OF DECEPTION", "+欺诈斗篷", "_t")
 t("#LIGHT_BLUE#The illusion covering #Target# disappears.", "#LIGHT_BLUE##Target#周围的幻影消失了。", "_t")
 t("-CLOAK OF DECEPTION", "-欺诈斗篷", "_t")
