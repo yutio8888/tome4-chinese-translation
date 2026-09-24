@@ -11612,7 +11612,7 @@ t("Demonic Orb of Many Ways", "恶魔多元水晶球", "_t")
 t("It felt nothing like your previous uses of the Orb of Many Ways. Tannen must have switched the Orb out for a fake!", "这和之前你使用多元水晶球时的情形完全不同，泰恩肯定用假水晶球掉了包！", "_t")
 t("Orb of Undeath (Orb of Command)", "指令水晶球（亡灵）", "entity name")
 t("orb of command", "指令水晶球", "_t")
-t("Dark visions fill your mind as you lift the orb. It is cold to the touch.", "当你拿起这个水晶球时，无尽的黑暗扑面而来。这个球摸上去冰凉。", "_t")
+t("Dark visions fill your mind as you lift the orb. It is cold to the touch.", "当你拿起这个水晶球时，黑暗的幻象充满你的脑海。这个球摸上去冰凉。", "_t")
 t("use the orb", "使用水晶球", "_t")
 t("Dragon Orb (Orb of Command)", "指令水晶球（巨龙）", "entity name")
 t("This orb is warm to the touch.", "这个水晶球摸起来很暖和。", "_t")
@@ -12856,7 +12856,7 @@ t("This heavy, ridged blade emanates magical power, yet as you grasp the handle 
 t("deal %0.2f arcane and %0.2f darkness damage (based on Magic) in a radius 1 around the target", "在目标周围1码范围内，造成%0.2f奥术和%0.2f暗影伤害（基于魔法）", "tformat")
 t("swallows the victim's soul, gaining a new power", "吞噬目标的灵魂，获得新的能力。", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Source@放出了%s#SALMON#被束缚的灵魂#LAST#，模仿了%s！", "tformat")
+t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Source@汲取了%s的#SALMON#被困灵魂#LAST#，施展%s！", "tformat")
 t("%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!", "%s的%s #SALMON#吞噬了%s的灵魂#LAST#，获得了%s的能力！", "logSeen")
 t("Hydra's Bite", "三头龙之牙", "entity name")
 t("triple headed flail", "有三个头的连枷", "_t")
@@ -18353,13 +18353,13 @@ Only a matter of time until that nobleman catches wind and comes after us. We we
 
 Ordered my men to kill any who pass by and been running triple guard. We need all the time we can get before they come for us, can't let any word out. Once we find somewhere new, I'll leave that idiot burnt on a stake as tribute and hope we don't catch chase. 
 
-I'm going to enjoy hearing his screams, a log on the pyre a gold he cost us. Nice and slow, need to make sure he doesn't die easy.]], [[我们费了九牛二虎之力才钓到大鱼，没了！我们本来可以因此扬名立万，成为被整个大陆传颂的不法之徒的传奇，我们的传说会在绿林中传颂，村庄会在我们的面前颤抖，现在全完了！
+I'm going to enjoy hearing his screams, a log on the pyre a gold he cost us. Nice and slow, need to make sure he doesn't die easy.]], [[我们有史以来最好的一票，没了！我们本来可以一辈子衣食无忧，成为全大陆最具传奇色彩的不法之徒！只要想到我们在林中游荡，村民们就会瑟瑟发抖。
 
-我们本来只要再等一些时间，让那位贵族听到风声之后过来找我们，就可以从那位大小姐身上榨取一大笔钱，结果那个土老帽村炮居然把她烧死了！这个傻逼还说是为了找乐子！
+那个贵族迟早会听到风声，来追杀我们。我们本来就要用他女儿换来数也数不清的金子，那个泥腿子却把她烧死了。为了找乐子竟干出这种蠢到家的事！
 
-很好，叫我的人杀掉任何胆敢闯进来的人，守卫的密度增加三倍。我们需要尽可能在他们过来之前抓紧时间，绝对不能泄露任何消息。在我们找到新的藏身地之后，我要把那个蠢货穿在柱子上作为祭品，希望我们不会被他们抓到。
+我已下令手下杀掉所有过路人，并安排了三倍人手守卫。在他们来找我们之前，我们得尽量争取时间，不能让任何消息走漏。找到新的藏身地后，我会把那个蠢货绑在柱上烧死，作为祭品，希望我们不会被追上。
 
-我要好好品尝他的哀嚎，他让我们每损失一枚金币，火堆上就多一根木柴。把这家伙文火慢烤，可别便宜他，让他死的太快了。]], "_t")
+我要好好听听他的惨叫；他每害我们损失一枚金币，柴堆上就添一根木头。慢慢来，得确保他不会死得太轻松。]], "_t")
 t("How to Summon a Phoenix", "如何召唤凤凰", "_t")
 t([[#{bold}#How to Summon a Phoenix#{normal}#
 	  10 pouches faeros ash
@@ -19352,7 +19352,7 @@ t([[In this picture a huge god with glowing eyes towers above the land, and in h
 There is some text underneath ]], [[在这幅画上有一位铁塔一样的巨神，他目光如炬，右手高举着太阳。众神逃离他，害怕他手中的光芒。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "不明意义的文字：#{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "_t")
-t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的勇武震慑了众人，伪神们慑服于他的荣耀。他深呼吸后把太阳高举到了世界之上，说：“阳光所至，即我所至，这光芒将照亮全世界。”#{normal}#", "_t")
+t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的力量凌驾万物，伪神在其荣光前逃离。他以气息造出太阳，将它高举于世界之上，说：“光所照之处皆归我有，此光将照遍全世界。”#{normal}#", "_t")
 t("third mural painting", "第三幅壁画", "_t")
 t([[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
@@ -21467,7 +21467,7 @@ t("Glyph of Fatigue", "疲劳圣印", "talent name")
 t("glyph of fatigue", "疲劳圣印", "_t")
 t("Slows (%d%%) for 5 turns.", "减速 (%d%%) 5 回合。", "tformat")
 t([[You bind light in a glyph on the floor. All enemies walking over the glyph will be slowed by %d%% for 5 turns.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过的目标会减速 %d%%，持续 5 回合。
+		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过圣印的敌人会减速 %d%%，持续 5 回合。
 		圣印视为隐藏陷阱（%d 侦查强度，%d 点解除强度，基于魔法）持续 %d 回合。]], "tformat")
 
 ------------------------------------------------
@@ -26403,7 +26403,8 @@ t([[Summons a small raging volcano for %d turns. Every turn, it will fire a molt
 		伤害受法术强度加成。]], "tformat")
 t("Speed Sap", "减速", "talent name")
 t([[Saps 30%% of the target's speed (increasing yours by the same amount) and inflicts %0.2f temporal damage for three turns.
-		]], "降低目标 30%% 速度，增加你等量的速度，并在 3 回合内造成 %0.2f 时空伤害。", "tformat")
+		]], [[降低目标 30%% 速度，增加你等量的速度，并在 3 回合内造成 %0.2f 时空伤害。
+		]], "tformat")
 t("Dredge Frenzy", "挖掘魔狂乱", "talent name")
 t([[Sends Dredges in a radius of %d into a frenzy for %d turns.
 		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[使半径 %d 格内的挖掘魔陷入狂乱，持续 %d 回合。
@@ -30584,8 +30585,8 @@ The mark lasts for 5 turns, grants you visibility of the target (even through wa
 		标记持续 5 回合，使你即使隔着墙壁或其他遮蔽物也能看见目标，并使其更容易受到爆头、齐射和精巧射击的影响。]], "tformat")
 t("First Blood", "第一滴血", "talent name")
 t([[You take advantage of unwary foes (those at or above 90%% life). Against these targets, Shoot, Steady Shot and Headshot bleed targets for %d%% additional damage over 5 turns and have a 50%% increased chance to mark (if capable of marking).
-In addition, your Steady Shot, Shoot and Headshot now restore %0.1f stamina on hit.]], [[你趁敌人尚未防备（90%% 血量以上）施展攻击，射击、稳固射击和爆头使敌人流血 5 回合造成额外 %d%% 伤害，标记概率增加 50%%。
-此外，你的射击、稳固射击和爆头回复 %0.1f 体力。]], "tformat")
+In addition, your Steady Shot, Shoot and Headshot now restore %0.1f stamina on hit.]], [[你会利用毫无戒备的敌人（生命值不低于 90%% 的目标）。仅对这些目标，射击、稳固射击和爆头会使其流血，在 5 回合内造成额外 %d%% 伤害，并使标记概率提高 50%%（若能标记）。
+此外，你的稳固射击、射击和爆头现在会在命中时回复 %0.1f 体力。]], "tformat")
 t("Flare", "闪光弹", "talent name")
 t([[Fire a shot at the target tile that blinds enemies for %d turns, marks them for 2 turns and illuminates the area within radius %d for %d turns. Enemies within the illuminated area lose %d defence and stealth power and cannot benefit from concealment.
 		The status chance increases with your Accuracy, and the defense reduction with your Dexterity.]], [[发射闪光弹，致盲敌人 %d 回合，标记他们 2 回合并照亮 %d 格范围 %d 回合。范围内的敌人降低 %d 闪避和潜行强度，不能从隐匿技能得到任何加成。
@@ -35314,7 +35315,7 @@ t("The target is infected by a disease doing %0.2f blight damage per turn.%s", "
 t("#Target# is afflicted by ghoul rot!", "#Target#被食尸鬼的疾病感染！", "_t")
 t("#Target# is free from the ghoul rot.", "#Target#摆脱了食尸鬼的疾病。", "_t")
 t("Bloodcasting", "血祭施法", "_t")
-t("Corruptions consume health instead of vim.", "堕落者消耗生命值来取代活力值。", "_t")
+t("Corruptions consume health instead of vim.", "堕落系法术消耗生命值而非活力值。", "_t")
 t("Sanguine Infusion", "鲜血充能", "_t")
 t("Maximum life increased by %d.", "最大生命值提升 %d。", "tformat")
 t("Arcane Supremacy", "奥术至尊", "_t")
