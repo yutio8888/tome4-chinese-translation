@@ -34252,7 +34252,7 @@ It slowly replenishes over time.
 在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。
 这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。
 死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。这个时代是他们荣耀的时代。
-那些所谓的”高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
+那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
 
 你已经学会了死灵法术的基础，并且杀死了一个死灵法师，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#死灵法师#WHITE#。
 
@@ -34351,7 +34351,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
   - #YELLOW#奇术之球#WHITE#: 在地上放置奇术之球，会复制你释放的射线类法术。
   - #YELLOW#多重施法#WHITE#: 你可以在释放射线类法术的同时交织释放随机非射线法术。
   - #YELLOW#能量滑流#WHITE#: 在战场上自由行动，当你使用射线类法术的时候可以不消耗回合移动一格。
-  - #YELLOW#元素阵爆发#WHITE#: 终极射线法术，是你对魔法理解的精华。这一宽度为3的纯粹奇术能量永远无法被抵抗。
+  - #YELLOW#元素阵爆发#WHITE#: 终极射线法术，是你对魔法理解的精华。这道宽度为3的纯粹奇术能量射线永远无法被抵抗。
 
 
 职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。
@@ -34879,9 +34879,9 @@ section "mod-tome/data/timed_effects/floor.lua"
 t("Icy Floor", "冰面", "floorEffect desc")
 t("The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.", "目标行走在冰面上。增加 20%移动速度，提供 20%的冰冷伤害穿透，同时减少 30%的震慑免疫。", "_t")
 t("Font of Life", "生命之泉", "floorEffect desc")
-t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)", "目标靠近生命之泉，增加 %+0.2f 生命回复，%+0.2f 失衡值回复，%+0.2f 体力回复和 %+0.2f 灵能回复。不死族无法获得此效果。", "tformat")
+t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)", "目标靠近生命之泉，增加 %+0.2f 生命回复，%+0.2f 失衡值回复，%+0.2f 体力回复和 %+0.2f 灵能回复。只有活体生物能获得此效果。", "tformat")
 t("Spellblaze Scar", "魔法大爆炸伤痕", "floorEffect desc")
-t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗法力值。", "_t")
+t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗魔法资源。", "_t")
 t("Blighted Soil", "荒芜之地", "floorEffect desc")
 t("The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).", "目标行走在荒芜之地上，减少 60%疾病抵抗并且对目标的所有攻击有 40%的几率使其感染某种疾病（每回合只能触发一次）。", "_t")
 t("Glimmerstone", "闪光石", "floorEffect desc")
@@ -35328,8 +35328,8 @@ t("#LIGHT_RED#A carrion worm mass bursts out of %s!", "#LIGHT_RED#腐肉虫群�
 t("Ghoul Rot", "尸鬼腐蚀", "_t")
 t("  If the target dies while ghoul rot is active it will rise as a ghoul.", "  如果目标在尸鬼腐蚀期间死亡，它将作为食尸鬼复活。", "_t")
 t("The target is infected by a disease doing %0.2f blight damage per turn.%s", "目标感染疾病，每回合造成 %0.2f 点枯萎伤害。%s", "tformat")
-t("#Target# is afflicted by ghoul rot!", "#Target#被食尸鬼的疾病感染！", "_t")
-t("#Target# is free from the ghoul rot.", "#Target#摆脱了食尸鬼的疾病。", "_t")
+t("#Target# is afflicted by ghoul rot!", "#Target#受到了尸鬼腐蚀！", "_t")
+t("#Target# is free from the ghoul rot.", "#Target#摆脱了尸鬼腐蚀。", "_t")
 t("Bloodcasting", "血祭施法", "_t")
 t("Corruptions consume health instead of vim.", "堕落者消耗生命值来取代活力值。", "_t")
 t("Sanguine Infusion", "鲜血充能", "_t")
@@ -35344,7 +35344,7 @@ t("Ward", "守护", "_t")
 t("Fully absorbs %d %s %s.", "完全吸收 %d次%s%s。", "tformat")
 t("attacks", "攻击", "_t")
 t("attack", "攻击", "_t")
-t("#Target# warded against %s!", "#Target#吸收了%s的攻击！", "tformat")
+t("#Target# warded against %s!", "#Target#获得了对%s的防护！", "tformat")
 t("+Ward", "+守护", "_t")
 t("#Target#'s %s ward fades", "#Target#不再守护自己免受%s伤害。", "tformat")
 t("-Ward", "-守护", "_t")
@@ -35925,7 +35925,7 @@ t("#Target# overcomes the gloom.", "#Target#战胜了黑暗。", "_t")
 t("-Slow", "-减速", "_t")
 t("stun", "震慑", "effect subtype")
 t("Stunned by the gloom", "黑暗震慑", "_t")
-t("The gloom has stunned the target, reducing damage by 50%%, putting 4 random talents on cooldown and reducing movement speed by 50%%.  While stunned talents cooldown twice as slow.", "目标被黑暗光环震慑，伤害降低 50%%，随机 4 个技能进入 CD，移动速度降低 50%%。在震慑时技能冷却速度变慢一倍。", "tformat")
+t("The gloom has stunned the target, reducing damage by 50%%, putting 4 random talents on cooldown and reducing movement speed by 50%%.  While stunned talents cooldown twice as slow.", "目标被黑暗光环震慑，伤害降低 50%%，随机 4 个技能进入冷却，移动速度降低 50%%。在震慑时技能冷却所需时间翻倍。", "tformat")
 t("#F53CBE##Target# is stunned with fear!", "#F53CBE##Target#被恐惧所震慑！", "_t")
 t("+Stunned", "+震慑", "_t")
 t("#Target# overcomes the gloom", "#Target#克服了黑暗光环的影响。", "_t")
@@ -36438,7 +36438,7 @@ t("Runic Saturation", "符文饱和", "_t")
 t("The more you use runes, the longer they will take to recharge (+%d cooldowns).", "你使用符文的次数越多，符文冷却时间越长 (+%d 冷却时间)。", "tformat")
 t("taint", "堕落印记", "effect subtype")
 t("Tainted", "印记饱和", "_t")
-t("The more you use taints, the longer they will take to recharge (+%d cooldowns).", "你使用堕落印记的次数越多，堕落印记的冷却时间越长 (+%d 冷却时间)。", "tformat")
+t("The more you use taints, the longer they will take to recharge (+%d cooldowns).", "你使用污印的次数越多，污印的冷却时间越长 (+%d 冷却时间)。", "tformat")
 t("Path of the Sun", "阳光大道", "_t")
 t("The target is able to instantly travel alongside Sun Paths.", "目标可以在阳光大道上瞬间行走。", "tformat")
 t("time", "时间", "effect subtype")
@@ -36502,7 +36502,7 @@ t("Militant Mind", "好斗精神", "_t")
 t("Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d.", "提高你 %d 点物理强度、物理豁免、法术强度、法术豁免、精神强度和精神豁免。", "tformat")
 t("Sever Lifeline", "生命离断", "_t")
 t("The target's lifeline is being cut. When the effect ends %d temporal damage will hit the target.", "目标的生命线被切断，效果结束时对目标造成 %d 时空伤害。", "tformat")
-t("#Target#'s lifeline is being severed!", "#Target#的生命线被收割了！", "_t")
+t("#Target#'s lifeline is being severed!", "#Target#的生命线正被切断！", "_t")
 t("+Sever Lifeline", "+生命离断", "_t")
 t("Fade From Time", "时光凋零", "_t")
 t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标被部分移出时间线，造成的伤害减少 %d%%，受到的伤害减少 %d%%，所有不良效果的持续时间缩短 %d%%。", "tformat")
@@ -36571,7 +36571,7 @@ t([[A shroud of darkness seems to fall across your path.
 #CRIMSON# 强度 3+：%s 消逝帷幕：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
 #CRIMSON# 强度 4+：%s 死亡帷幕：每一次杀死目标可以让你笼罩在帷幕中，减少 %d%% 所受伤害持续 3 回合。]], "tformat")
 t("Shroud of Weakness", "虚弱帷幕", "_t")
-t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在虚弱帷幕中（造成的伤害降低 %d%%）。", "tformat")
+t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在虚弱帷幕中，仿佛背负着沉重的负担（造成的伤害降低 %d%%）。", "tformat")
 t("Shroud of Passing", "消逝帷幕", "_t")
 t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在帷幕中使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
 t("Shroud of Death", "死亡帷幕", "_t")
@@ -36585,12 +36585,12 @@ t([[Horrible visions fill your mind.
 #CRIMSON#Power 2+: %s%+d Luck, %+d Willpower
 #CRIMSON#Power 3+: %sHarrow: When a foe attempts to inflict a detrimental effect upon you, your harrowing aura retaliates against a random foe in range 10, dealing %d mind and %d darkness damage.
 #CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (summon Terrors and chances to slow, deal %d Mind damage, and deal %d Darkness damage) for 8 turns. The chance grows each time you are struck but fades over time.]], [[你的脑海中充斥恐怖景象。
-#CRIMSON# 惩罚：#WHITE# 扰乱幻象：受检定时，你的精神豁免有 20%%概率减少 %d%%
+#CRIMSON# 惩罚：#WHITE# 幻象缠身：受检定时，你的精神豁免有 20%%概率减少 %d%%
 #CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志
 #CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。
 #CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。]], "tformat")
-t("#F53CBE#%s harrows %s!", "#F53CBE#%s惊扰%s！", "logSeen")
+t("#F53CBE#%s harrows %s!", "#F53CBE#%s折磨%s！", "logSeen")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
 t("Nightmare", "梦魇", "_t")
 t("#F53CBE#The air around %s grows cold and terrifying shapes begin to coalesce. A nightmare has begun.", "#F53CBE#%s周围的空气开始变得冰冷并形成了一种令人恐怖的形状，噩梦开始了。", "logSeen")
@@ -36604,10 +36604,10 @@ t([[Mayhem and destruction seem to follow you.
 #CRIMSON#Power 3+: %sMissed Opportunities: Opportunities are fleeting, and those close to you begin to miss them (+%d%% evasion).
 #CRIMSON#Power 4+: %sUnfortunate End: The damage you deal will increase by %d%% if the increase would be enough to kill your opponent.]], [[混乱与毁灭似乎追随着你。
 #CRIMSON# 惩罚：#WHITE# 霉运：在你的旅途中找到的金币减少。
-#CRIMSON# 强度 1+：%s 失败的努力：围绕你的努力都会失败  (+%d%% 避开陷阱的几率)。
+#CRIMSON# 强度 1+：%s 失败的努力：你身边的人所做的事开始失败  (+%d%% 避开陷阱的几率)。
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 灵巧
 #CRIMSON# 强度 3+：%s 错失良机：机会转瞬即逝，你身边的人会错失良机 (+%d%% 躲闪概率)。
-#CRIMSON# 强度 4+：%s 厄运终结：如果提高后的伤害足够杀死对手的话，你将可以提高 %d%% 的伤害。]], "tformat")
+#CRIMSON# 强度 4+：%s 厄运终结：如果提高后的伤害足够杀死对手的话，你造成的伤害将提高 %d%%。]], "tformat")
 t("#F53CBE#%s suffers an unfortunate end.", "#F53CBE#%s遭遇了厄运终结。", "logSeen")
 t("#F53CBE#%s suffers an unfortunate blow.", "#F53CBE#%s遭受了一记厄运之击。", "logSeen")
 t("space", "空间", "effect subtype")
@@ -36659,7 +36659,7 @@ t("aura", "光环", "effect subtype")
 t("Oil mist", "油雾", "_t")
 t("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.", "区域效果：+10% 火焰伤害，-10% 火焰抗性，-10% 护甲值，-2 可视范围。", "_t")
 t("Grave chill", "墓地深寒", "_t")
-t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "区域效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱免疫。", "_t")
+t("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.", "区域效果：+10% 寒冷伤害，-10% 寒冷抗性，-10% 物理豁免，-20% 混乱免疫。", "_t")
 t("Static discharge", "静电放射", "_t")
 t("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.", "区域效果：+10% 闪电伤害，-10% 闪电抗性，-10% 物理强度，-20% 震慑免疫。", "_t")
 t("Noxious fumes", "毒性气体", "_t")
@@ -36704,7 +36704,7 @@ t("#LIGHT_BLUE#The illusion covering #Target# disappears.", "#LIGHT_BLUE##Target
 t("-CLOAK OF DECEPTION", "-欺诈斗篷", "_t")
 t("suffocating", "窒息", "effect subtype")
 t("Suffocating", "窒息", "_t")
-t("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)", "你正在窒息！每回合按比例损失生命，且越来越多（现在 %d%%）", "tformat")
+t("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)", "你正在窒息！每回合按最大生命值的一定比例损失生命，且越来越多（现在 %d%%）", "tformat")
 t("#Target# is suffocating.", "#Target#进入窒息状态。", "_t")
 t("+SUFFOCATING", "+窒息", "_t")
 t("#Target# can breathe again.", "#Target#可以呼吸了。", "_t")
@@ -36736,7 +36736,7 @@ t("Time Stop", "时间停止", "_t")
 t("The target has stopped time and is dealing %d%% less damage.", "目标停止了时间，期间造成的伤害减少 %d%%。", "tformat")
 t("Temporal Reprieve", "时空避难所", "_t")
 t("This target has retreated to a safe place.", "目标被传送至安全位置。", "tformat")
-t("#STEEL_BLUE#You are brought back from your repreive!", "#STEEL_BLUE#被从避难所带了回去！", "logPlayer")
+t("#STEEL_BLUE#You are brought back from your repreive!", "#STEEL_BLUE#你从避难所回来了！", "logPlayer")
 t("Temporal Fugue", "时间复制", "_t")
 t("This target is splitting all damage with its fugue clones.", "目标将伤害和时空复制体共享。", "_t")
 t("#STEEL_BLUE##Source# shares damage with %s fugue clones!", "#STEEL_BLUE##Source#和%s时空克隆共享伤害！", "delayedLogMessage")
@@ -36785,7 +36785,7 @@ t("killed in a dream", "梦中被杀", "_t")
 t("Natural Aura", "自然光环", "_t")
 t("Zone-wide effect: +20 mindpower, +2 life regen, -1 equilibrium per turn, -20% resistance penetration.", "区域效果：+20 精神强度，+2 生命恢复，-1 失衡值 / 回合，-20% 抗性穿透。", "_t")
 t("Sorcerous Aura", "魔法光环", "_t")
-t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "区域效果：+20 魔法，+2 法力回复，-20 命中，-20 潜行强度。", "_t")
+t("Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power.", "区域效果：+20 魔力，+2 法力回复，-20 命中，-20 潜行强度。", "_t")
 t("Disciplined Aura", "纪律光环", "_t")
 t("Zone-wide effect: +20 defense, +20 all saves, -20 spell power.", "区域效果：+20 闪避，+20 全豁免，-20 法术强度。", "_t")
 t("Sinister Aura", "危险光环", "_t")
@@ -36797,9 +36797,9 @@ t("Zone-wide effect: The flames of the Fearscape increase all fire and blight da
 t("Out of Time Zone", "异常时空", "_t")
 t("Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.", "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性，-20% 传送抗性。", "_t")
 t("Spellblaze Aura", "魔法大爆炸光环", "_t")
-t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！", "_t")
+t("Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!", "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：这里强大的魔法能量会反射传送法术！", "_t")
 t("Heady Scent", "催眠区域", "_t")
-t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
+t("Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage.", "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将陷入梦境中的沉睡状态。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。", "_t")
 t("Thunderstorm", "闪电风暴", "_t")
 t("Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance.", "区域效果： 强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。", "_t")
 t("Abashed Expanse", "次元浮岛", "_t")
@@ -37189,7 +37189,7 @@ t("+Wild Speed", "+狂暴加速", "_t")
 t("-Wild Speed", "-狂暴加速", "_t")
 t("Hunter", "猎手", "_t")
 t("Movement is %d%% faster.  Any action other than movement will end this effect.", "移动速度提高 %d%%。任何非移动动作都会结束此效果。", "tformat")
-t("#Target# prepares %s!", "#Target#准备了%s！", "tformat")
+t("#Target# prepares %s!", "#Target#正在做准备（%s）！", "tformat")
 t("to escape", "逃跑", "_t")
 t("for the next kill", "为下一次击杀", "_t")
 t("+Hunter", "+猎手", "_t")
@@ -37380,7 +37380,7 @@ t("#Target# has a cursed wound!", "#Target#遭受了被诅咒的创伤！", "_t"
 t("+Cursed Wound", "+诅咒创伤", "_t")
 t("#Target# no longer has a cursed wound.", "#Target#的诅咒创伤消失。", "_t")
 t("-Cursed Wound", "-诅咒创伤", "_t")
-t("%s has re-opened a cursed wound!", "%s再次遭受被诅咒的创伤！", "logSeen")
+t("%s has re-opened a cursed wound!", "%s的诅咒伤口再次裂开！", "logSeen")
 t("light", "光系", "effect subtype")
 t("Luminescence ", "冷光", "_t")
 t("The target has been revealed, reducing its stealth power by %d.", "目标被显形，降低潜行等级 %d。", "tformat")

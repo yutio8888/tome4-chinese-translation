@@ -1,0 +1,902 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-11",
+ "packet_sha256": "4bfd535961e783822d07158f14251fe671f5070edf339abcafc5f8756e20ec3d",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 40,
+ "verdict_counts": {
+  "accepted": 39,
+  "deferred": 1
+ },
+ "model_disposition_counts": {
+  "defer": 1,
+  "fix": 22,
+  "no_change": 17
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00412",
+   "entry_id": "entry-02559",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34096,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "后段已明确“特殊能力”由正能量驱动，前段增补并未造成错误；晨曦之门和正能量沿用仓内译名，后者有 preferred 记录。",
+   "model_evidence": [
+    "terminology/places.tsv",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；后段已明确“特殊能力”由正能量驱动，前段增补并未造成错误；晨曦之门和正能量沿用仓内译名，后者有 preferred 记录。",
+   "applied": false,
+   "old_target": "在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。\n\n太阳骑士是受过特殊魔法训练的战士，他们学会聚焦太阳的力量施展他们的特殊能力。\n他们是一切善的典范，但在与兽人部落的战斗中依然可怕。\n他们的座右铭是：“太阳是我们的赐予者、我们的纯洁、我们的本质。我们将光明带入黑暗之地，凭借我们的力量，无人能够通过。”\n\n你发现了晨曦之门，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#太阳骑士#WHITE#。\n\n太阳骑士是以法术辅助的重型近战职业。\n职业特点：#YELLOW#\n- 用太阳的光与火灼烧远处的敌人\n- 使用太阳赞歌在战斗中强化你的力量\n- 将太阳之力灌注进你的武器\n- 成为一座移动的堡垒，使用你的盾牌进行防御#WHITE#\n\n太阳骑士使用正能量来施展他们的特殊能力。\n某些法术会充满正能量，而另一些法术会消耗它，因此他们需要交替使用技能。\n",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-divine_sun_paladin.lua",
+   "source": "In the uttermost east, on the continent known only as the Far East, dwell the last remnants of Elves and Humans, fighting the Orc Pride and the many perils of the Far East.\n\nSun Paladins are warriors who are trained in special magic to focus the powers of the Sun.\nParagons of all that is good, they are nonetheless terrible in their battle against the Pride.\nTheir motto is: \"The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.\"\n\nYou have discovered the Gates of Morning and can now create new characters with the #LIGHT_GREEN#Sun Paladin class#WHITE#.\n\nSun Paladins are heavy melee with spellcasting support.\nClass features:#YELLOW#\n- Burn your foes from afar with the light and fire of the Sun\n- Head into battle enhanced by your powerful Chants\n- Channel the power of the Sun through your weapon\n- Become a walking fortress, protected by your shield#WHITE#\n\nSun Paladins use \"positive energy\" to power their special abilities.\nIt is filled by some of their spells and depleted by others, making them alternate their talents.\n"
+  },
+  {
+   "queue_id": "hrq-00413",
+   "entry_id": "entry-02565",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34230,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文 noble 带引号，现译首个右引号确属标点错误；“黑暗的时代／混乱的时代”重复只是文风。Age of Pyre 在本仓及 preferred 术语中为烈火纪，故不能据被撤回主张改作派尔纪元。",
+   "model_evidence": [
+    "terminology/narrative.tsv",
+    "game/modules/tome/data/texts/unlock-mage_necromancer.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 noble 带引号，现译首个右引号确属标点错误；“黑暗的时代／混乱的时代”重复只是文风。Age of Pyre 在本仓及 preferred 术语中为烈火纪，故不能据被撤回主张改作派尔纪元。",
+   "applied": true,
+   "old_target": "死灵法术，被禁忌的魔法。\n死灵法术，黑暗的魔法。\n\n在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。\n这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。\n死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。这个时代是他们荣耀的时代。\n那些所谓的”高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。\n\n你已经学会了死灵法术的基础，并且杀死了一个死灵法师，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#死灵法师#WHITE#。\n\n死灵法师专精于黑暗魔法和死亡本身。他们的终极目标是获得永生，通常以成为巫妖的形式实现。\n职业特点：#YELLOW#\n- 施放黑暗和冰系魔法摧毁你的目标\n- 召唤一支不死随从大军听候你的命令\n- 将你的随从当作棋子，以各种残酷而奇特的方式牺牲他们\n- 踏上你一生的追求：成为巫妖#WHITE#\n\n所有的法师使用法力值来释放他们的法术。\n法力值会随着时间缓慢恢复。\n",
+   "new_target": "死灵法术，被禁忌的魔法。\n死灵法术，黑暗的魔法。\n\n在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。\n这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。\n死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。这个时代是他们荣耀的时代。\n那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。\n\n你已经学会了死灵法术的基础，并且杀死了一个死灵法师，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#死灵法师#WHITE#。\n\n死灵法师专精于黑暗魔法和死亡本身。他们的终极目标是获得永生，通常以成为巫妖的形式实现。\n职业特点：#YELLOW#\n- 施放黑暗和冰系魔法摧毁你的目标\n- 召唤一支不死随从大军听候你的命令\n- 将你的随从当作棋子，以各种残酷而奇特的方式牺牲他们\n- 踏上你一生的追求：成为巫妖#WHITE#\n\n所有的法师使用法力值来释放他们的法术。\n法力值会随着时间缓慢恢复。\n",
+   "section": "mod-tome/data/texts/unlock-mage_necromancer.lua",
+   "source": "Necromancy, the forbidden art.\nNecromancy, the black art.\n\nDuring the Age of Dusk and the Age of Pyre the world went through a tortured era. Kingdoms were shattered, whole races suppressed, and diseases ran wild, killing millions.\nIt was a dark time and amidst the chaos came the bringers of terror: the necromancers.\nThough they always existed, and will always exist whilst our souls are open to temptation, this was their true age of glory.\nThe so-called 'noble' archmages regard necromancers as fallen brothers that must be corrected... or removed. But necromancers consider themselves misunderstood practitioners of an art that others are too scared or too feeble to touch. And oh, what great powers those arts do bring....\n\nYou have learnt the basics of necromancy, killed a real one, and can now create new characters with the #LIGHT_GREEN#Necromancer class#WHITE#.\n\nNecromancers are dark spellcasters, attuned to death itself. Their ultimate goal is their own eternal life, often as a Lich.\nClass features:#YELLOW#\n- Cast darkness and ice infused spells to destroy your foes\n- Summon an army of undead minions to do your bidding\n- Use your minions as pawns, sacrificing them in various cruel and unusual ways\n- Embark on the quest of your life: Lichdom#WHITE#\n\nAll mages use mana to cast their spells.\nIt slowly replenishes over time.\n"
+  },
+  {
+   "queue_id": "hrq-00414",
+   "entry_id": "entry-02568",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34302,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "颜色码完整，码后空格属纯静态排版；列表句末标点可统一但属二级语法意见。自始以来属文风。固定仓内 Hurricane 技能名为飓风，眩晕亦保留原句 daze 的控制含义，撤回的风暴之怒主张不成立。",
+   "model_evidence": [
+    "mod-tome.lua",
+    "game/modules/tome/data/texts/unlock-mage_tempest.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；颜色码完整，码后空格属纯静态排版；列表句末标点可统一但属二级语法意见。自始以来属文风。固定仓内 Hurricane 技能名为飓风，眩晕亦保留原句 daze 的控制含义，撤回的风暴之怒主张不成立。",
+   "applied": false,
+   "old_target": "自始以来法师们进行着各种元素试验。\n大多数法师满足于使用大气系魔法，少数人则深入研究，创造出了风暴魔法。\n其核心是“无尽风暴”，其威力甚至足以伤害通常免疫闪电的生物。\n\n你掌握了风暴系魔法，现在你可以创建一个新的可以学习 #LIGHT_GREEN#风暴系技能#WHITE# 的元素法师角色。\n\n技能：\n- #YELLOW# 闪电新星：#WHITE# 对你的四周施放闪电新星，对周围生物造成闪电伤害并带有眩晕效果。\n- #YELLOW# 闪电之击：#WHITE# 发射一道快速的闪电箭，眩晕目标\n- #YELLOW# 飓风：#WHITE# 召唤风暴攻击你眩晕的目标，产生围绕他们的闪电对其造成伤害。\n- #YELLOW# 无尽风暴：#WHITE# 掌握无尽风暴，甚至能穿透目标的闪电免疫。\n",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-mage_tempest.lua",
+   "source": "Since the dawn of time mages have experimented with the elements.\nWhile most mages are content using the Air school, a few of them took their research deeper and created Storm magic.\nAt its core lies the Tempest, a storm so powerful it can even damage creatures normally immune.\n\nYou have mastered storm magic and can now create new Archmage characters that can learn the #LIGHT_GREEN#Storm talents#WHITE#.\n\nTalents:\n- #YELLOW#Nova: #WHITE#Unleash a lightning nova around you, dazing and damaging creatures caught inside\n- #YELLOW#Shock: #WHITE#Fire a fast bolt of lightning, dazing the target\n- #YELLOW#Hurricane: #WHITE#Call down a Hurricane on any creatures you daze, creating a lightning storm around each of them\n- #YELLOW#Tempest: #WHITE#Master the Tempest and pierce even through lightning immunities\n"
+  },
+  {
+   "queue_id": "hrq-00415",
+   "entry_id": "entry-02570",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34330,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文末项明确为 3-wide beam，现译末句遗漏射线这一中心词；其余法术、技能及觉醒技译名沿用本仓，boss 英文留存属低影响本地化意见。",
+   "model_evidence": [
+    "game/modules/tome/data/texts/unlock-mage_thaumaturgist.lua",
+    "mod-tome.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文末项明确为 3-wide beam，现译末句遗漏射线这一中心词；其余法术、技能及觉醒技译名沿用本仓，boss 英文留存属低影响本地化意见。",
+   "applied": true,
+   "old_target": "你仅用射线法术、不使用其他技能杀死了一个boss，展示了你对这类法术的深入理解。\n\n你解锁了元素法师的#LIGHT_GREEN#高阶奇术师#WHITE#职业进阶。\n\n职业特性：\n- #YELLOW#宽射线#WHITE#: 火球术，奥术射线，闪电术，粉碎钻击和寒冰箭永久成为宽度为3的射线技能。\n- 获得奇术系技能，拥有以下能力：\n  - #YELLOW#奇术之球#WHITE#: 在地上放置奇术之球，会复制你释放的射线类法术。\n  - #YELLOW#多重施法#WHITE#: 你可以在释放射线类法术的同时交织释放随机非射线法术。\n  - #YELLOW#能量滑流#WHITE#: 在战场上自由行动，当你使用射线类法术的时候可以不消耗回合移动一格。\n  - #YELLOW#元素阵爆发#WHITE#: 终极射线法术，是你对魔法理解的精华。这一宽度为3的纯粹奇术能量永远无法被抵抗。\n\n\n职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。\n",
+   "new_target": "你仅用射线法术、不使用其他技能杀死了一个boss，展示了你对这类法术的深入理解。\n\n你解锁了元素法师的#LIGHT_GREEN#高阶奇术师#WHITE#职业进阶。\n\n职业特性：\n- #YELLOW#宽射线#WHITE#: 火球术，奥术射线，闪电术，粉碎钻击和寒冰箭永久成为宽度为3的射线技能。\n- 获得奇术系技能，拥有以下能力：\n  - #YELLOW#奇术之球#WHITE#: 在地上放置奇术之球，会复制你释放的射线类法术。\n  - #YELLOW#多重施法#WHITE#: 你可以在释放射线类法术的同时交织释放随机非射线法术。\n  - #YELLOW#能量滑流#WHITE#: 在战场上自由行动，当你使用射线类法术的时候可以不消耗回合移动一格。\n  - #YELLOW#元素阵爆发#WHITE#: 终极射线法术，是你对魔法理解的精华。这道宽度为3的纯粹奇术能量射线永远无法被抵抗。\n\n\n职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。\n",
+   "section": "mod-tome/data/texts/unlock-mage_thaumaturgist.lua",
+   "source": "You have killed a boss by only using beam spells and nothing else, showing a deeper understanding of this type of spells.\n\nYou have unlocked the #LIGHT_GREEN#High Thaumaturgist class evolution#WHITE# for Archmages.\n\nFeatures:\n- #YELLOW#Wide Beams#WHITE#: Flame, Manathrust, Lightning, Pulverizing Auger and Ice Shards permanently become 3-wide beam spells.\n- Access to the Thaumaturgy spell category containing the spells:\n  - #YELLOW#Orb of Thaumaturgy#WHITE#: By placing a thaumaturgy orb on the ground you can duplicate all beam spells you cast.\n  - #YELLOW#Multicaster#WHITE#: Casting beams becomes so easy for you that you can weave in random non-beam spells when you cast one.\n  - #YELLOW#Slipstream#WHITE#: Flow through the battlefield with ease, when you cast a beam spell you can move one tile for free.\n  - #YELLOW#Elemental Array Burst#WHITE#: The ultimate beam spell, the culmination of your deep understanding of magic. A 3-wide beam of pure thaumic energy that can never be resisted.\n\n\nClass evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class.\n"
+  },
+  {
+   "queue_id": "hrq-00416",
+   "entry_id": "entry-02576",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34475,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "完整段落中梦境既是织梦者的信念也是力量来源，末段复述未新增原文不支持的机制；灵能转化与资源回复保留。无冒号及列表末句标点差异不影响语义，属二级意见。",
+   "model_evidence": [
+    "game/modules/tome/data/texts/unlock-psionic_solipsist.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；完整段落中梦境既是织梦者的信念也是力量来源，末段复述未新增原文不支持的机制；灵能转化与资源回复保留。无冒号及列表末句标点差异不影响语义，属二级意见。",
+   "applied": false,
+   "old_target": "织梦者是强大的灵能力者，他们相信世界是由思想和人们的梦境组成的。\n这种力量并非毫无代价，织梦者必须不断与自己的自我抗争，以保持对现实的清晰认识，以免陷入唯我论状态，认为世界和生活在其中的人们不过是自己心灵的幻象。\n\n你先前已经体验过梦境的力量了，现在你可以在创建人物时选择新的职业 #LIGHT_GREEN#织梦者#WHITE#。\n\n织梦者利用思想和梦境的力量掌控身边的天地。\n职业特点：#YELLOW#\n- 能够扭曲现实位面\n- 可储存并释放反馈能量\n- 从意识中召唤强大的战士\n- 将你受到的伤害转化为灵能值损失，并用精神储备维持自己的生命\n- 使你的敌人陷入沉睡，进入它们的梦境，成为对方的梦魇。#WHITE#\n\n织梦者利用思想和梦境的力量掌控身边的天地。\n他们需要灵能来做这一切，而他们的灵能既可以通过自然回复，也可以通过其他人恢复生命值的方法来回复。\n",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-psionic_solipsist.lua",
+   "source": "Solipsists are powerful psionicists that believe that the world is made up of nothing more than the thoughts and dreams of those that live in it.\nThis power does not come without a price, however.  The Solipsist must constantly fight with their own ego in order to keep a clear view of reality, lest they fall into a state of solipsism, the belief that the world and those that live in it are nothing more than figments of their own mind.\n\nYou've experienced the power of dreams first hand and may now create characters with the #LIGHT_GREEN#Solipsist class#WHITE#.\n\nSolipsists use the power of thought and dreams to manipulate the world around them.\nClass features:#YELLOW#\n- Distort the fabric of reality\n- Store and discharge psionic feedback\n- Summon powerful warriors birthed from your own consciousness\n- Convert damage you take into Psi damage and keep yourself alive with your mental reserves\n- Put your foes to sleep, enter their dreams, and become their worst nightmare#WHITE#\n\nSolipsists use their mind to manipulate the world around them.\nThey require energy to do so, which they recover naturally over time, and through methods others use to heal the body.\n"
+  },
+  {
+   "queue_id": "hrq-00417",
+   "entry_id": "entry-02579",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34541,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "颜色标记、职业特征、体力资源与解锁句均完整；Class features 独立成行只改变排版，解锁句不用冒号仍是成立的中文句子。",
+   "model_evidence": [
+    "game/modules/tome/data/texts/unlock-rogue_marauder.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；颜色标记、职业特征、体力资源与解锁句均完整；Class features 独立成行只改变排版，解锁句不用冒号仍是成立的中文句子。",
+   "applied": false,
+   "old_target": "有些盗贼依靠力量而非诡计生存，以凶狠的攻击取代潜行与欺骗。这些强盗身着轻甲、双持武器，横行各地，以武力夺取一切。\n\n你已经明白在战斗中造成巨大伤害的价值，现在你在创建人物时可以选择新的职业 #LIGHT_GREEN#掠夺者#WHITE#。\n\n掠夺者是机动性极高的盗贼，掌握着各种灵巧的技术与战术。\n职业特点：#YELLOW#\n- 轻松穿行战场，在敌人之间起舞并避开他们的攻击。\n- 双持武器，对敌人施展毁灭性的技法。\n- 依靠纯粹的暴力重创敌人，再将其击倒。#WHITE#\n\n掠夺者使用体力值来施放他们的技能，体力值会随时间缓慢恢复。\n",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-rogue_marauder.lua",
+   "source": "Some rogues live by strength rather than cunning, relying on vicious attacks instead of stealth and subterfuge. These bandits maraud the land, lightly armoured and wielding dual weapons, taking what they can by force.\n\nYou have learned the value in causing sheer damage in combat and can now create characters with the #LIGHT_GREEN#Marauder class#WHITE#.\n\nMarauders are highly mobile rogues with a range of dextrous techniques and tactics at their disposal. Class features:#YELLOW#\n- Move with ease around the battlefield, dancing around your foes and avoiding their attacks\n- Wield dual weapons and unleash devastating techniques on your opponents\n- Rely on pure thuggery to cripple your enemies before taking them down#WHITE#\n\nMarauders use stamina to fuel their techniques, which replenishes slowly over time.\n"
+  },
+  {
+   "queue_id": "hrq-00418",
+   "entry_id": "entry-02586",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34673,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "原文 wanderer 与 the 的笔误已合理理解，粗体码成对；标签旁空格及五级／10级的数字体例都是纯静态排版，不据此改 target。",
+   "model_evidence": [
+    "game/modules/tome/data/texts/unlock-wanderer.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；原文 wanderer 与 the 的笔误已合理理解，粗体码成对；标签旁空格及五级／10级的数字体例都是纯静态排版，不据此改 target。",
+   "applied": false,
+   "old_target": "从出生以来，你已旅行过许多地方！\n现在你在创建人物时可以选择新的职业：#LIGHT_GREEN#流浪者#WHITE#。\n\n流浪者开始游戏时拥有三系随机职业技能，一系随机通用技能，以及战斗训练系。\n每升五级将获得额外一系随机职业技能，每升10级将获得额外一系随机通用技能。\n他们是一种 #{bold}# 奖励 #{normal}# 职业，没有经过任何的平衡测试，也不保证技能可用。\n风险自负，游戏愉快。",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-wanderer.lua",
+   "source": "You have wanderer quite a lot since your birth!\nYou can now create new characters with the #LIGHT_GREEN#Wanderer class#WHITE#.\n\nWanderers start the game with 3 randomly selected class trees, 1 randomly selected generic tree and Combat Training.\nEvery 5 levels the gain a new random class tree and every 10 levels they gain a new generic tree.\nThey are a #{bold}#bonus#{normal}# class, in no way meant to be balanced or even working with all possible talent combos.\nUse at your own risk, and have fun."
+  },
+  {
+   "queue_id": "hrq-00419",
+   "entry_id": "entry-02598",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34849,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "原文先叙述数世纪受奴役，再说烈火纪获得自由，现译“之前”由时间顺序直接承接且未改变史实；硬换行没有分隔新段，专名及颜色码与仓内一致。",
+   "model_evidence": [
+    "game/modules/tome/data/texts/unlock-yeek.lua",
+    "terminology/narrative.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；原文先叙述数世纪受奴役，再说烈火纪获得自由，现译“之前”由时间顺序直接承接且未改变史实；硬换行没有分隔新段，专名及颜色码与仓内一致。",
+   "applied": false,
+   "old_target": "夺心魔是热带小岛瑞尔岛上比较神秘的人形原住民种族。\n他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。\n不过他们是非常灵巧而且意志强大的种族。\n尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。\n他们在烈火纪元获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。\n\n你帮助了一名夺心魔维网信徒，现在你可以在创建人物时选择新的种族：#LIGHT_GREEN#夺心魔#WHITE#。\n\n种族特点：#YELLOW#\n- 拥有精神控制的种族能力\n- 混乱抗性\n- 升级较快\n- 脆弱的身躯#WHITE#\n",
+   "new_target": null,
+   "section": "mod-tome/data/texts/unlock-yeek.lua",
+   "source": "Yeeks are a mysterious race of small humanoids native to the tropical island of Rel.\nTheir body is covered with white fur and their disproportionate heads give them a ridiculous look, yet they are a cunning and willful race.\nAlthough they are now nearly unheard of in Maj'Eyal, they spent many centuries as secret slaves to the Halfling nation of Nargol.\nThey gained their freedom during the Age of Pyre and have since then followed 'The Way' - a unity of minds enforced by their powerful psionics.\n\nYou have helped a Yeek Wayist and can now create a new character with the #LIGHT_GREEN#Yeek race#WHITE#.\n\nRace features:#YELLOW#\n- Mental domination racial power\n- Confusion resistance\n- Fast leveling\n- Frail body#WHITE#\n"
+  },
+  {
+   "queue_id": "hrq-00420",
+   "entry_id": "entry-02599",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34882,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "四个数值占位符顺序正确，但源码用 living 分类检查，非活体并不限于不死族；现译把适用排除范围缩窄。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/floor.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；四个数值占位符顺序正确，但源码用 living 分类检查，非活体并不限于不死族；现译把适用排除范围缩窄。",
+   "applied": true,
+   "old_target": "目标靠近生命之泉，增加 %+0.2f 生命回复，%+0.2f 失衡值回复，%+0.2f 体力回复和 %+0.2f 灵能回复。不死族无法获得此效果。",
+   "new_target": "目标靠近生命之泉，增加 %+0.2f 生命回复，%+0.2f 失衡值回复，%+0.2f 体力回复和 %+0.2f 灵能回复。只有活体生物能获得此效果。",
+   "section": "mod-tome/data/timed_effects/floor.lua",
+   "source": "The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)"
+  },
+  {
+   "queue_id": "hrq-00421",
+   "entry_id": "entry-02601",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 34884,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "反证是现译法力值确为其中一种消耗；但 activate 同时设置 mana、vim、paradox、正负能量的暴击消耗，故“只消耗法力值”缩窄了资源范围。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/floor.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；反证是现译法力值确为其中一种消耗；但 activate 同时设置 mana、vim、paradox、正负能量的暴击消耗，故“只消耗法力值”缩窄了资源范围。",
+   "applied": true,
+   "old_target": "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗法力值。",
+   "new_target": "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗魔法资源。",
+   "section": "mod-tome/data/timed_effects/floor.lua",
+   "source": "The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces."
+  },
+  {
+   "queue_id": "hrq-00422",
+   "entry_id": "entry-02609",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35003,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“看到看不到的东西”口语化，但原文 detection of unseen things 的发现能力仍被表达，未证实机制反转；本行只有二级意见。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“看到看不到的东西”口语化，但原文 detection of unseen things 的发现能力仍被表达，未证实机制反转；本行只有二级意见。",
+   "applied": false,
+   "old_target": "强化感知，可以看到看不到的东西。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "Improves senses, allowing the detection of unseen things."
+  },
+  {
+   "queue_id": "hrq-00423",
+   "entry_id": "entry-02614",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35068,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "原文明确 Radiance radius 暂降至 1，现译光照半径 1 码保留该机制；技能名不够鲜明仅是表达建议。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；原文明确 Radiance radius 暂降至 1，现译光照半径 1 码保留该机制；技能名不够鲜明仅是表达建议。",
+   "applied": false,
+   "old_target": "你消耗了光辉之力，暂时把光照半径降低到 1 码。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "You have expended the power of your Radiance temporarily reducing its radius to 1."
+  },
+  {
+   "queue_id": "hrq-00424",
+   "entry_id": "entry-02636",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35331,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "GHOUL_ROT 的效果名及说明均用“尸鬼腐蚀”，本条疾病泛称虽描述了感染却遮蔽同一状态名；与移除日志一起对齐。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua",
+    "mod-tome.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；GHOUL_ROT 的效果名及说明均用“尸鬼腐蚀”，本条疾病泛称虽描述了感染却遮蔽同一状态名；与移除日志一起对齐。",
+   "applied": true,
+   "old_target": "#Target#被食尸鬼的疾病感染！",
+   "new_target": "#Target#受到了尸鬼腐蚀！",
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "#Target# is afflicted by ghoul rot!"
+  },
+  {
+   "queue_id": "hrq-00425",
+   "entry_id": "entry-02637",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35332,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "同一 GHOUL_ROT 的 on_lose 与 on_gain 成对；改用效果名后两条同步一致，且保留摆脱状态的原意。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua",
+    "mod-tome.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；同一 GHOUL_ROT 的 on_lose 与 on_gain 成对；改用效果名后两条同步一致，且保留摆脱状态的原意。",
+   "applied": true,
+   "old_target": "#Target#摆脱了食尸鬼的疾病。",
+   "new_target": "#Target#摆脱了尸鬼腐蚀。",
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "#Target# is free from the ghoul rot."
+  },
+  {
+   "queue_id": "hrq-00426",
+   "entry_id": "entry-02638",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35347,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "on_gain 仅建立针对某伤害类型的 ward，真正吸收在 absorb 回调发生；现译在获得状态时宣称已经吸收攻击，时间与动作均错。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；on_gain 仅建立针对某伤害类型的 ward，真正吸收在 absorb 回调发生；现译在获得状态时宣称已经吸收攻击，时间与动作均错。",
+   "applied": true,
+   "old_target": "#Target#吸收了%s的攻击！",
+   "new_target": "#Target#获得了对%s的防护！",
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "#Target# warded against %s!"
+  },
+  {
+   "queue_id": "hrq-00427",
+   "entry_id": "entry-02640",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35379,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "focused by arcane vortex 在状态获得日志里表示受到漩涡作用，现译“围绕”保留空间关系；无证据表明机制条件因此错误。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；focused by arcane vortex 在状态获得日志里表示受到漩涡作用，现译“围绕”保留空间关系；无证据表明机制条件因此错误。",
+   "applied": false,
+   "old_target": "#Target#被奥术漩涡围绕！",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "#Target# is focused by an arcane vortex!"
+  },
+  {
+   "queue_id": "hrq-00428",
+   "entry_id": "entry-02643",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35393,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "10%% 后与可选后缀 %s 之间空格只影响静态排版，数值及占位符不变；按本批纯空格不改规则不修。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；10%% 后与可选后缀 %s 之间空格只影响静态排版，数值及占位符不变；按本批纯空格不改规则不修。",
+   "applied": false,
+   "old_target": "目标被魔法毒素感染，每回合受到 %0.2f 奥术伤害，所有伤害抗性下降 10%% %s。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "The target is afflicted with a magical poison and is suffering %0.2f arcane damage per turn.  All resistances are reduced by 10%%%s."
+  },
+  {
+   "queue_id": "hrq-00429",
+   "entry_id": "entry-02644",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35394,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "本条是拼接后缀，开头中文逗号可接前条；争议的半角空格在另一条，当前 target 无独立语义缺陷。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；本条是拼接后缀，开头中文逗号可接前条；争议的半角空格在另一条，当前 target 无独立语义缺陷。",
+   "applied": false,
+   "old_target": "，且毒素抗性下降 %s%%",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": " and poison resistance is reduced by %s%%"
+  },
+  {
+   "queue_id": "hrq-00430",
+   "entry_id": "entry-02688",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35800,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "源码效果是骷髅拾取死去同伴的遗骨，on_lose 又称 additional bones；“骨头”有直接上下文依据，死亡已由骷髅遗骨语境承接。改作遗骸属文风偏好。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码效果是骷髅拾取死去同伴的遗骨，on_lose 又称 additional bones；“骨头”有直接上下文依据，死亡已由骷髅遗骨语境承接。改作遗骸属文风偏好。",
+   "applied": false,
+   "old_target": "#Target# 捡起了同伴的骨头。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source": "#Target# picks up the remains of its fallen comrade."
+  },
+  {
+   "queue_id": "hrq-00431",
+   "entry_id": "entry-02694",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35928,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "两个 50%% 与四技能均正确，但 CD 为未本地化缩写，且“冷却速度变慢一倍”含混；原文 twice as slow 是冷却所需时间翻倍。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/mental.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；两个 50%% 与四技能均正确，但 CD 为未本地化缩写，且“冷却速度变慢一倍”含混；原文 twice as slow 是冷却所需时间翻倍。",
+   "applied": true,
+   "old_target": "目标被黑暗光环震慑，伤害降低 50%%，随机 4 个技能进入 CD，移动速度降低 50%%。在震慑时技能冷却速度变慢一倍。",
+   "new_target": "目标被黑暗光环震慑，伤害降低 50%%，随机 4 个技能进入冷却，移动速度降低 50%%。在震慑时技能冷却所需时间翻倍。",
+   "section": "mod-tome/data/timed_effects/mental.lua",
+   "source": "The gloom has stunned the target, reducing damage by 50%%, putting 4 random talents on cooldown and reducing movement speed by 50%%.  While stunned talents cooldown twice as slow."
+  },
+  {
+   "queue_id": "hrq-00432",
+   "entry_id": "entry-02700",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 35945,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "五个占位符及其顺序正确，“攻击目标时”承接猎物受击条件；%s 后英文句点照原文保留。“Bonus level”简作等级在本状态加成说明中仍可理解为加成等级。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/mental.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；五个占位符及其顺序正确，“攻击目标时”承接猎物受击条件；%s 后英文句点照原文保留。“Bonus level”简作等级在本状态加成说明中仍可理解为加成等级。",
+   "applied": false,
+   "old_target": "追踪 %s. 等级 %d：+%d 命中，+%d%% 近战伤害，攻击目标时 +%0.2f 仇恨/回合。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/mental.lua",
+   "source": "Stalking %s. Bonus level %d: +%d accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit."
+  },
+  {
+   "queue_id": "hrq-00433",
+   "entry_id": "entry-02735",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36391,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "近战受击反伤及参数顺序准确；ice 对应寒冰的既有术语记录与现译一致。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；近战受击反伤及参数顺序准确；ice 对应寒冰的既有术语记录与现译一致。",
+   "applied": false,
+   "old_target": "护甲增加 %d，获得 %d 冰系近战反伤。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Armor increased by %d, deals %d ice damage when hit in melee."
+  },
+  {
+   "queue_id": "hrq-00434",
+   "entry_id": "entry-02740",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36441,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "冷却参数与“使用越多、冷却越长”的机制完整；但 taints 对应本仓 preferred 技能类别“污印”，堕落印记是旧称，应对齐。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua",
+    "terminology/talents.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；冷却参数与“使用越多、冷却越长”的机制完整；但 taints 对应本仓 preferred 技能类别“污印”，堕落印记是旧称，应对齐。",
+   "applied": true,
+   "old_target": "你使用堕落印记的次数越多，堕落印记的冷却时间越长 (+%d 冷却时间)。",
+   "new_target": "你使用污印的次数越多，污印的冷却时间越长 (+%d 冷却时间)。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "The more you use taints, the longer they will take to recharge (+%d cooldowns)."
+  },
+  {
+   "queue_id": "hrq-00435",
+   "entry_id": "entry-02747",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36505,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "生命线是受事且 severed 指被切断，收割隐含另一动作；原译不能由同句或日志宿主反证。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；生命线是受事且 severed 指被切断，收割隐含另一动作；原译不能由同句或日志宿主反证。",
+   "applied": true,
+   "old_target": "#Target#的生命线被收割了！",
+   "new_target": "#Target#的生命线正被切断！",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "#Target#'s lifeline is being severed!"
+  },
+  {
+   "queue_id": "hrq-00436",
+   "entry_id": "entry-02759",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36574,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "效果名 Shroud of Weakness 支持“虚弱帷幕”；但原文像沉重负担般压在身上的描写在整句均未出现，是明确遗漏。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；效果名 Shroud of Weakness 支持“虚弱帷幕”；但原文像沉重负担般压在身上的描写在整句均未出现，是明确遗漏。",
+   "applied": true,
+   "old_target": "目标笼罩在虚弱帷幕中（造成的伤害降低 %d%%）。",
+   "new_target": "目标笼罩在虚弱帷幕中，仿佛背负着沉重的负担（造成的伤害降低 %d%%）。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%)."
+  },
+  {
+   "queue_id": "hrq-00437",
+   "entry_id": "entry-02763",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36582,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "15 个参数及 20%% 保持原序；Harrow 在本段译折磨而关联日志译惊扰，应成对对齐。双空格只属排版，术语全规范的概括无独立证据；Plagued by Visions 的受扰者是本人，现译“扰乱幻象”倒置关系。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；15 个参数及 20%% 保持原序；Harrow 在本段译折磨而关联日志译惊扰，应成对对齐。双空格只属排版，术语全规范的概括无独立证据；Plagued by Visions 的受扰者是本人，现译“扰乱幻象”倒置关系。",
+   "applied": true,
+   "old_target": "你的脑海中充斥恐怖景象。\n#CRIMSON# 惩罚：#WHITE# 扰乱幻象：受检定时，你的精神豁免有 20%%概率减少 %d%%\n#CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志\n#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。\n#CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。",
+   "new_target": "你的脑海中充斥恐怖景象。\n#CRIMSON# 惩罚：#WHITE# 幻象缠身：受检定时，你的精神豁免有 20%%概率减少 %d%%\n#CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志\n#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。\n#CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Horrible visions fill your mind.\n#CRIMSON#Penalty : #WHITE#Plagued by Visions: Your mental save has a 20%% chance to be reduced by %d%% when tested.\n#CRIMSON#Power 1+: %sRemoved from Reality: %+d Physical Resistance, %+d Maximum Physical Resistance\n#CRIMSON#Power 2+: %s%+d Luck, %+d Willpower\n#CRIMSON#Power 3+: %sHarrow: When a foe attempts to inflict a detrimental effect upon you, your harrowing aura retaliates against a random foe in range 10, dealing %d mind and %d darkness damage.\n#CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (summon Terrors and chances to slow, deal %d Mind damage, and deal %d Darkness damage) for 8 turns. The chance grows each time you are struck but fades over time."
+  },
+  {
+   "queue_id": "hrq-00438",
+   "entry_id": "entry-02764",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36593,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "两个 %s 与颜色码完整；同一 Harrow 在状态长描述中为折磨，日志“惊扰”削弱同一机制识别，成对改为折磨。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；两个 %s 与颜色码完整；同一 Harrow 在状态长描述中为折磨，日志“惊扰”削弱同一机制识别，成对改为折磨。",
+   "applied": true,
+   "old_target": "#F53CBE#%s惊扰%s！",
+   "new_target": "#F53CBE#%s折磨%s！",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "#F53CBE#%s harrows %s!"
+  },
+  {
+   "queue_id": "hrq-00439",
+   "entry_id": "entry-02765",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36600,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原文共有九个格式参数，译文类型与顺序保持；双空格属排版，闪避术语不据泛称断言。Power 1 those around you 是你身边的人而非围绕你的努力；Power 4 will increase 是自动生效而非玩家可选择。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文共有九个格式参数，译文类型与顺序保持；双空格属排版，闪避术语不据泛称断言。Power 1 those around you 是你身边的人而非围绕你的努力；Power 4 will increase 是自动生效而非玩家可选择。",
+   "applied": true,
+   "old_target": "混乱与毁灭似乎追随着你。\n#CRIMSON# 惩罚：#WHITE# 霉运：在你的旅途中找到的金币减少。\n#CRIMSON# 强度 1+：%s 失败的努力：围绕你的努力都会失败  (+%d%% 避开陷阱的几率)。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 灵巧\n#CRIMSON# 强度 3+：%s 错失良机：机会转瞬即逝，你身边的人会错失良机 (+%d%% 躲闪概率)。\n#CRIMSON# 强度 4+：%s 厄运终结：如果提高后的伤害足够杀死对手的话，你将可以提高 %d%% 的伤害。",
+   "new_target": "混乱与毁灭似乎追随着你。\n#CRIMSON# 惩罚：#WHITE# 霉运：在你的旅途中找到的金币减少。\n#CRIMSON# 强度 1+：%s 失败的努力：你身边的人所做的事开始失败  (+%d%% 避开陷阱的几率)。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 灵巧\n#CRIMSON# 强度 3+：%s 错失良机：机会转瞬即逝，你身边的人会错失良机 (+%d%% 躲闪概率)。\n#CRIMSON# 强度 4+：%s 厄运终结：如果提高后的伤害足够杀死对手的话，你造成的伤害将提高 %d%%。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Mayhem and destruction seem to follow you.\n#CRIMSON#Penalty : #WHITE#Lost Fortune: You seem to find less gold in your journeys.\n#CRIMSON#Power 1+: %sMissplaced Endeavours: The endeavours of those around you begin to fail (+%d%% chance to avoid traps).\n#CRIMSON#Power 2+: %s%+d Luck, %+d Cunning\n#CRIMSON#Power 3+: %sMissed Opportunities: Opportunities are fleeting, and those close to you begin to miss them (+%d%% evasion).\n#CRIMSON#Power 4+: %sUnfortunate End: The damage you deal will increase by %d%% if the increase would be enough to kill your opponent."
+  },
+  {
+   "queue_id": "hrq-00440",
+   "entry_id": "entry-02775",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36662,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源文 cold 与本批同类区域效果的寒冷伤害／寒冷抗性一致；当前寒冰在同族内构成属性名不一致，数字不变。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源文 cold 与本批同类区域效果的寒冷伤害／寒冷抗性一致；当前寒冰在同族内构成属性名不一致，数字不变。",
+   "applied": true,
+   "old_target": "区域效果：+10% 寒冰伤害，-10% 寒冰抗性，-10% 物理豁免，-20% 混乱免疫。",
+   "new_target": "区域效果：+10% 寒冷伤害，-10% 寒冷抗性，-10% 物理豁免，-20% 混乱免疫。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity."
+  },
+  {
+   "queue_id": "hrq-00441",
+   "entry_id": "entry-02789",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36707,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "现译“按比例损失生命”未指出基数，源码按 max_life*dam/100 计算；补明最大生命值，同时保留逐回合递增及当前比例。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；现译“按比例损失生命”未指出基数，源码按 max_life*dam/100 计算；补明最大生命值，同时保留逐回合递增及当前比例。",
+   "applied": true,
+   "old_target": "你正在窒息！每回合按比例损失生命，且越来越多（现在 %d%%）",
+   "new_target": "你正在窒息！每回合按最大生命值的一定比例损失生命，且越来越多（现在 %d%%）",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)"
+  },
+  {
+   "queue_id": "hrq-00442",
+   "entry_id": "entry-02790",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36739,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "日志在从 reprieve 地图返回原地点后出现，省略主语可以成立；但“被从避难所带了回去”方向和施动表达含混，改明你已返回。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；日志在从 reprieve 地图返回原地点后出现，省略主语可以成立；但“被从避难所带了回去”方向和施动表达含混，改明你已返回。",
+   "applied": true,
+   "old_target": "#STEEL_BLUE#被从避难所带了回去！",
+   "new_target": "#STEEL_BLUE#你从避难所回来了！",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "#STEEL_BLUE#You are brought back from your repreive!"
+  },
+  {
+   "queue_id": "hrq-00443",
+   "entry_id": "entry-02791",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36742,
+   "source_tag": "delayedLogMessage",
+   "model_disposition": "defer",
+   "model_reason": "%s 填所有格短语时“和%s时空克隆”语法可成立；但同一效果说明在冻结外使用“时空复制体”。如统一专名须同时改该关联载体，当前仅改单条会制造族内不一致，留待扩展 workset。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua",
+    "mod-tome.lua"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "%s 填所有格短语时“和%s时空克隆”语法可成立；但同一效果说明在冻结外使用“时空复制体”。如统一专名须同时改该关联载体，当前仅改单条会制造族内不一致，留待扩展 workset。",
+   "applied": false,
+   "old_target": "#STEEL_BLUE##Source#和%s时空克隆共享伤害！",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "#STEEL_BLUE##Source# shares damage with %s fugue clones!"
+  },
+  {
+   "queue_id": "hrq-00444",
+   "entry_id": "entry-02798",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36788,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "此处 +20 magic 是核心属性而非魔法系统泛称；本仓 Magic 属性既有译名“魔力”，应与属性栏对齐，其他数值不变。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；此处 +20 magic 是核心属性而非魔法系统泛称；本仓 Magic 属性既有译名“魔力”，应与属性栏对齐，其他数值不变。",
+   "applied": true,
+   "old_target": "区域效果：+20 魔法，+2 法力回复，-20 命中，-20 潜行强度。",
+   "new_target": "区域效果：+20 魔力，+2 法力回复，-20 命中，-20 潜行强度。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: +20 magic, +2 mana regen, -20 accuracy, -20 stealth power."
+  },
+  {
+   "queue_id": "hrq-00445",
+   "entry_id": "entry-02801",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36794,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "冒号后空格属纯静态排版；两次“同时”显得重复，但水减两项、增一项的机制与数值完整，属二级语法建议。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；冒号后空格属纯静态排版；两次“同时”显得重复，但水减两项、增一项的机制与数值完整，属二级语法建议。",
+   "applied": false,
+   "old_target": "区域效果： 空气值随时间损失，空气用光后将损失生命。寻找气泡来回复空气值。水同时令震慑免疫和火焰伤害下降 10%，同时增加 10% 寒冷伤害。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: Air decreases over time. If you run out of air you will start losing life. Look for bubbles to recover air. The water also reduces stun resistance by 10% and fire damage is reduced by 10%, however cold damage is increased by 10%."
+  },
+  {
+   "queue_id": "hrq-00446",
+   "entry_id": "entry-02805",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36800,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "power burns 的火焰隐喻可支持现译，不单独据此判错；但源码明确 reflects teleportation magic，现译“可能干扰”改变确定性和作用性质。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；power burns 的火焰隐喻可支持现译，不单独据此判错；但源码明确 reflects teleportation magic，现译“可能干扰”改变确定性和作用性质。",
+   "applied": true,
+   "old_target": "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：强大的魔法能量可能干扰传送法术！",
+   "new_target": "区域效果：魔法大爆炸的火焰仍在燃烧，-10% 火焰、枯萎、奥术抗性，+10% 寒冷抗性。警告：这里强大的魔法能量会反射传送法术！",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: The power of the Spellblaze still burns here. -10% resistance to fire, arcane and blight damage, but +10% cold resistance. WARNING: The powerful magic here reflects teleportation magic!"
+  },
+  {
+   "queue_id": "hrq-00447",
+   "entry_id": "entry-02806",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36802,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "冒号后空格仅属排版；源文明确 dreaming sleep state，现译只说进入梦境，遗漏睡眠状态，数值虽正确也不能弥补。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；冒号后空格仅属排版；源文明确 dreaming sleep state，现译只说进入梦境，遗漏睡眠状态，数值虽正确也不能弥补。",
+   "applied": true,
+   "old_target": "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将进入梦境。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。",
+   "new_target": "区域效果： 强烈的气味充满了空气，让你感觉困倦。倒计时结束时，你将陷入梦境中的沉睡状态。-10% 精神抗性，-20% 睡眠免疫，+10% 自然伤害。",
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: Strong scents fill the air and make you feel drowsy. If the timer reaches 0 you will fall into a dreaming sleep state. -10% mind resistance, -20% sleep resistance, +10% nature damage."
+  },
+  {
+   "queue_id": "hrq-00448",
+   "entry_id": "entry-02807",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 36804,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "冒号后半角空格是纯静态排版；尽管英文少写百分号，固定源码 inc_damage[LIGHTNING]=10 是百分比增伤，中文 +10% 准确反映运行机制。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/other.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；冒号后半角空格是纯静态排版；尽管英文少写百分号，固定源码 inc_damage[LIGHTNING]=10 是百分比增伤，中文 +10% 准确反映运行机制。",
+   "applied": false,
+   "old_target": "区域效果： 强大的雷暴在你头顶轰鸣。+10% 闪电伤害，-10% 震慑免疫。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source": "Zone-wide effect: A huge thunderstorm rages above you. +10 lightning damage, -10% stun resistance."
+  },
+  {
+   "queue_id": "hrq-00449",
+   "entry_id": "entry-02828",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37132,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "与魔法效果同文；“看到看不到的东西”偏口语，但仍表达感知不可见事物，detection 的范围差别不足证明机制误译。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/physical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；与魔法效果同文；“看到看不到的东西”偏口语，但仍表达感知不可见事物，detection 的范围差别不足证明机制误译。",
+   "applied": false,
+   "old_target": "强化感知，可以看到看不到的东西。",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "Improves senses, allowing the detection of unseen things."
+  },
+  {
+   "queue_id": "hrq-00450",
+   "entry_id": "entry-02830",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37192,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码在 on_gain 插入“逃跑”或“为下一次击杀”；现译“准备了为下一次击杀”不成句。括注使两种已冻结填充值都可作准备事项，且无需改孪生条目。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/physical.lua",
+    "mod-tome.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码在 on_gain 插入“逃跑”或“为下一次击杀”；现译“准备了为下一次击杀”不成句。括注使两种已冻结填充值都可作准备事项，且无需改孪生条目。",
+   "applied": true,
+   "old_target": "#Target#准备了%s！",
+   "new_target": "#Target#正在做准备（%s）！",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "#Target# prepares %s!"
+  },
+  {
+   "queue_id": "hrq-00451",
+   "entry_id": "entry-02846",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37383,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "on_merge 说明此日志是旧诅咒伤口重新裂开，并可能提高治疗削减；“再次遭受创伤”弱化重新裂开的动作，修复该叙述而不额外宣称每次必加深。",
+   "model_evidence": [
+    "game/modules/tome/data/timed_effects/physical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；on_merge 说明此日志是旧诅咒伤口重新裂开，并可能提高治疗削减；“再次遭受创伤”弱化重新裂开的动作，修复该叙述而不额外宣称每次必加深。",
+   "applied": true,
+   "old_target": "%s再次遭受被诅咒的创伤！",
+   "new_target": "%s的诅咒伤口再次裂开！",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "%s has re-opened a cursed wound!"
+  }
+ ]
+}

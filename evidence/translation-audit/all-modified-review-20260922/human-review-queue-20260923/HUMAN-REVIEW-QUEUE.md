@@ -12697,7 +12697,7 @@ It is filled by some of their spells and depleted by others, making them alterna
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00412 | HUMAN-REVIEW | cross-batch-079 | confirmed | 是否删增补 |  |  |
+| hrq-00412 | HUMAN-REVIEW | cross-batch-079 | confirmed | 是否删增补 |  | no_change |
 
 <details><summary>hrq-00412 · HUMAN-REVIEW 详情</summary>
 
@@ -12758,7 +12758,7 @@ It slowly replenishes over time.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00413 | HUMAN-REVIEW | cross-batch-079 | confirmed | **专名对齐** |  |  |
+| hrq-00413 | HUMAN-REVIEW | cross-batch-079 | confirmed | **专名对齐** |  | fix |
 
 <details><summary>hrq-00413 · HUMAN-REVIEW 详情</summary>
 
@@ -12803,7 +12803,7 @@ Talents:
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00414 | HUMAN-REVIEW | cross-batch-079 | confirmed | **专名对齐**；统一空格 |  |  |
+| hrq-00414 | HUMAN-REVIEW | cross-batch-079 | confirmed | **专名对齐**；统一空格 |  | no_change |
 
 <details><summary>hrq-00414 · HUMAN-REVIEW 详情</summary>
 
@@ -12854,7 +12854,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00415 | HUMAN-REVIEW | cross-batch-079 | confirmed | 补译；本地化收尾 |  |  |
+| hrq-00415 | HUMAN-REVIEW | cross-batch-079 | confirmed | 补译；本地化收尾 |  | fix |
 
 <details><summary>hrq-00415 · HUMAN-REVIEW 详情</summary>
 
@@ -12907,7 +12907,7 @@ They require energy to do so, which they recover naturally over time, and throug
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00416 | HUMAN-REVIEW | cross-batch-080 | confirmed | 文风取舍 |  |  |
+| hrq-00416 | HUMAN-REVIEW | cross-batch-080 | confirmed | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00416 · HUMAN-REVIEW 详情</summary>
 
@@ -12951,7 +12951,7 @@ Marauders use stamina to fuel their techniques, which replenishes slowly over ti
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00417 | HUMAN-REVIEW | cross-batch-080 | confirmed | 排版取舍 |  |  |
+| hrq-00417 | HUMAN-REVIEW | cross-batch-080 | confirmed | 排版取舍 |  | no_change |
 
 <details><summary>hrq-00417 · HUMAN-REVIEW 详情</summary>
 
@@ -12986,7 +12986,7 @@ Use at your own risk, and have fun.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00418 | HUMAN-REVIEW | cross-batch-080 | confirmed | 去空格；体例 |  |  |
+| hrq-00418 | HUMAN-REVIEW | cross-batch-080 | confirmed | 去空格；体例 |  | no_change |
 
 <details><summary>hrq-00418 · HUMAN-REVIEW 详情</summary>
 
@@ -13034,7 +13034,7 @@ Race features:#YELLOW#
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00419 | HUMAN-REVIEW | cross-batch-080 | confirmed | 文风取舍 |  |  |
+| hrq-00419 | HUMAN-REVIEW | cross-batch-080 | confirmed | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00419 · HUMAN-REVIEW 详情</summary>
 
@@ -13057,7 +13057,7 @@ raw verdict: 专名与颜色标签对应完整（无缺陷）→confirmed; 复�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00420 | HUMAN-REVIEW | cross-batch-080 | confirmed | 补机制限定 |  |  |
+| hrq-00420 | HUMAN-REVIEW | cross-batch-080 | confirmed | 补机制限定 |  | fix |
 
 <details><summary>hrq-00420 · HUMAN-REVIEW 详情</summary>
 
@@ -13080,7 +13080,7 @@ raw verdict: 四个 `%+0.2f` 数量、顺序、资源对应正确（无缺陷）
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00421 | HUMAN-REVIEW | cross-batch-080 | confirmed | 改译 |  |  |
+| hrq-00421 | HUMAN-REVIEW | cross-batch-080 | confirmed | 改译 |  | fix |
 
 <details><summary>hrq-00421 · HUMAN-REVIEW 详情</summary>
 
@@ -13103,7 +13103,7 @@ raw verdict: `arcane forces` 单独译成“法力值”错误缩窄资源范围
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00422 | HUMAN-REVIEW | cross-batch-080 | advisory | 润色与否 |  |  |
+| hrq-00422 | HUMAN-REVIEW | cross-batch-080 | advisory | 润色与否 |  | no_change |
 
 <details><summary>hrq-00422 · HUMAN-REVIEW 详情</summary>
 
@@ -13126,7 +13126,7 @@ raw verdict: Gemini“口语化但机制基本准确”判断成立→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00423 | HUMAN-REVIEW | cross-batch-081 | advisory | 是否复现技能专名 |  |  |
+| hrq-00423 | HUMAN-REVIEW | cross-batch-081 | advisory | 是否复现技能专名 |  | no_change |
 
 <details><summary>hrq-00423 · HUMAN-REVIEW 详情</summary>
 
@@ -13149,7 +13149,7 @@ raw verdict: “光照半径”机制准确，非误译（最多技能名指代�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00424 | HUMAN-REVIEW | cross-batch-081 | confirmed | 统一策略 |  |  |
+| hrq-00424 | HUMAN-REVIEW | cross-batch-081 | confirmed | 统一策略 |  | fix |
 
 <details><summary>hrq-00424 · HUMAN-REVIEW 详情</summary>
 
@@ -13172,7 +13172,7 @@ raw verdict: 同一 GHOUL_ROT 效果命名不一致（“食尸鬼的疾病” v
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00425 | HUMAN-REVIEW | cross-batch-081 | confirmed | 与 02636 一并 |  |  |
+| hrq-00425 | HUMAN-REVIEW | cross-batch-081 | confirmed | 与 02636 一并 |  | fix |
 
 <details><summary>hrq-00425 · HUMAN-REVIEW 详情</summary>
 
@@ -13195,7 +13195,7 @@ raw verdict: 移除提示同样不一致（需与 02636 同策略，不能单边
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00426 | HUMAN-REVIEW | cross-batch-081 | confirmed | 句式重写 |  |  |
+| hrq-00426 | HUMAN-REVIEW | cross-batch-081 | confirmed | 句式重写 |  | fix |
 
 <details><summary>hrq-00426 · HUMAN-REVIEW 详情</summary>
 
@@ -13218,7 +13218,7 @@ raw verdict: “吸收了%s的攻击”把 on_gain 误写成已承受攻击（�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00427 | HUMAN-REVIEW | cross-batch-081 | refuted | 无 |  |  |
+| hrq-00427 | HUMAN-REVIEW | cross-batch-081 | refuted | 无 |  | no_change |
 
 <details><summary>hrq-00427 · HUMAN-REVIEW 详情</summary>
 
@@ -13241,7 +13241,7 @@ raw verdict: “被奥术漩涡围绕”准确表达实际空间关系（无需�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00428 | HUMAN-REVIEW | cross-batch-081 | confirmed | 删空格 |  |  |
+| hrq-00428 | HUMAN-REVIEW | cross-batch-081 | confirmed | 删空格 |  | no_change |
 
 <details><summary>hrq-00428 · HUMAN-REVIEW 详情</summary>
 
@@ -13264,7 +13264,7 @@ raw verdict: `10%% %s` 在 %s 前多加半角空格（确定的可见排版缺�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00429 | HUMAN-REVIEW | cross-batch-081 | refuted | 无（修复归 02643） |  |  |
+| hrq-00429 | HUMAN-REVIEW | cross-batch-081 | refuted | 无（修复归 02643） |  | no_change |
 
 <details><summary>hrq-00429 · HUMAN-REVIEW 详情</summary>
 
@@ -13287,7 +13287,7 @@ raw verdict: 异常空格责任在 02643；本条开头全角逗号拼接正确�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00430 | HUMAN-REVIEW | cross-batch-082 | confirmed |  |  |  |
+| hrq-00430 | HUMAN-REVIEW | cross-batch-082 | confirmed |  |  | no_change |
 
 <details><summary>hrq-00430 · HUMAN-REVIEW 详情</summary>
 
@@ -13319,7 +13319,7 @@ raw verdict: `fallen` 未被明确译出（轻微完整性）→confirmed; “�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00431 | HUMAN-REVIEW | cross-batch-083 | confirmed | 术语裁定；改写表述 |  |  |
+| hrq-00431 | HUMAN-REVIEW | cross-batch-083 | confirmed | 术语裁定；改写表述 |  | fix |
 
 <details><summary>hrq-00431 · HUMAN-REVIEW 详情</summary>
 
@@ -13342,7 +13342,7 @@ raw verdict: “CD”与既有术语不一致→pending; “技能冷却速度�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00432 | HUMAN-REVIEW | cross-batch-083 | confirmed | 句点/术语体例 |  |  |
+| hrq-00432 | HUMAN-REVIEW | cross-batch-083 | confirmed | 句点/术语体例 |  | no_change |
 
 <details><summary>hrq-00432 · HUMAN-REVIEW 详情</summary>
 
@@ -13365,7 +13365,7 @@ raw verdict: 占位符数量、顺序和数值来源正确→confirmed; “攻�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00433 | HUMAN-REVIEW | cross-batch-084 | confirmed | 术语裁定 |  |  |
+| hrq-00433 | HUMAN-REVIEW | cross-batch-084 | confirmed | 术语裁定 |  | no_change |
 
 <details><summary>hrq-00433 · HUMAN-REVIEW 详情</summary>
 
@@ -13388,7 +13388,7 @@ raw verdict: “近战受击反伤”是机制准确的压缩表达，参数顺�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00434 | HUMAN-REVIEW | cross-batch-084 | confirmed | 术语裁定 |  |  |
+| hrq-00434 | HUMAN-REVIEW | cross-batch-084 | confirmed | 术语裁定 |  | fix |
 
 <details><summary>hrq-00434 · HUMAN-REVIEW 详情</summary>
 
@@ -13411,7 +13411,7 @@ raw verdict: TAINT_COOLDOWN 占位符与机制含义完整→confirmed; `taints`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00435 | HUMAN-REVIEW | cross-batch-084 | confirmed | 改译 |  |  |
+| hrq-00435 | HUMAN-REVIEW | cross-batch-084 | confirmed | 改译 |  | fix |
 
 <details><summary>hrq-00435 · HUMAN-REVIEW 详情</summary>
 
@@ -13434,7 +13434,7 @@ raw verdict: `severed`→“被收割了”词义偏差（源码为 lifeline 被
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00436 | HUMAN-REVIEW | cross-batch-084 | confirmed | 补译 |  |  |
+| hrq-00436 | HUMAN-REVIEW | cross-batch-084 | confirmed | 补译 |  | fix |
 
 <details><summary>hrq-00436 · HUMAN-REVIEW 详情</summary>
 
@@ -13467,7 +13467,7 @@ raw verdict: `like a heavy burden` 完整描写成分漏译→confirmed; `a shro
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00437 | HUMAN-REVIEW | cross-batch-084 | confirmed | 统一策略；改译 |  |  |
+| hrq-00437 | HUMAN-REVIEW | cross-batch-084 | confirmed | 统一策略；改译 |  | fix |
 
 <details><summary>hrq-00437 · HUMAN-REVIEW 详情</summary>
 
@@ -13490,7 +13490,7 @@ raw verdict: 15 个格式参数类型与顺序均相符（`20%%` 为字面）→
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00438 | HUMAN-REVIEW | cross-batch-084 | confirmed | 统一策略 |  |  |
+| hrq-00438 | HUMAN-REVIEW | cross-batch-084 | confirmed | 统一策略 |  | fix |
 
 <details><summary>hrq-00438 · HUMAN-REVIEW 详情</summary>
 
@@ -13523,7 +13523,7 @@ raw verdict: 同一 Harrow 触发日志，颜色码与两个 `%s` 完整保留�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00439 | HUMAN-REVIEW | cross-batch-084 | confirmed | 改译×2；术语核验 |  |  |
+| hrq-00439 | HUMAN-REVIEW | cross-batch-084 | confirmed | 改译×2；术语核验 |  | fix |
 
 <details><summary>hrq-00439 · HUMAN-REVIEW 详情</summary>
 
@@ -13546,7 +13546,7 @@ raw verdict: Gemini“7 处占位符”计数错误（实际 9 个）→refuted;
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00440 | HUMAN-REVIEW | cross-batch-085 | advisory | 批内统一 |  |  |
+| hrq-00440 | HUMAN-REVIEW | cross-batch-085 | advisory | 批内统一 |  | fix |
 
 <details><summary>hrq-00440 · HUMAN-REVIEW 详情</summary>
 
@@ -13569,7 +13569,7 @@ raw verdict: “寒冰”与本批次“寒冷”批内不一致（同一 COLD�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00441 | HUMAN-REVIEW | cross-batch-085 | confirmed | 补“最大生命” |  |  |
+| hrq-00441 | HUMAN-REVIEW | cross-batch-085 | confirmed | 补“最大生命” |  | fix |
 
 <details><summary>hrq-00441 · HUMAN-REVIEW 详情</summary>
 
@@ -13592,7 +13592,7 @@ raw verdict: 未明确损失的是最大生命比例（按 `max_life*dam/100` �
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00442 | HUMAN-REVIEW | cross-batch-085 | confirmed | 改“带了回来” |  |  |
+| hrq-00442 | HUMAN-REVIEW | cross-batch-085 | confirmed | 改“带了回来” |  | fix |
 
 <details><summary>hrq-00442 · HUMAN-REVIEW 详情</summary>
 
@@ -13615,7 +13615,7 @@ raw verdict: 缺“你”致句式生硬（日志语境可省主语，非语法�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00443 | HUMAN-REVIEW | cross-batch-085 | pending | 需另供对照条目 |  |  |
+| hrq-00443 | HUMAN-REVIEW | cross-batch-085 | pending | 需另供对照条目 |  | defer |
 
 <details><summary>hrq-00443 · HUMAN-REVIEW 详情</summary>
 
@@ -13638,7 +13638,7 @@ raw verdict: 占位符形成不通顺句子（`%s` 为所有格代词，本地�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00444 | HUMAN-REVIEW | cross-batch-085 | confirmed | 术语裁定 |  |  |
+| hrq-00444 | HUMAN-REVIEW | cross-batch-085 | confirmed | 术语裁定 |  | fix |
 
 <details><summary>hrq-00444 · HUMAN-REVIEW 详情</summary>
 
@@ -13661,7 +13661,7 @@ raw verdict: 核心属性 `Magic` 译作“魔法”（应为核心属性名，�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00445 | HUMAN-REVIEW | cross-batch-085 | advisory | 润色 |  |  |
+| hrq-00445 | HUMAN-REVIEW | cross-batch-085 | advisory | 润色 |  | no_change |
 
 <details><summary>hrq-00445 · HUMAN-REVIEW 详情</summary>
 
@@ -13684,7 +13684,7 @@ raw verdict: 冒号后多余半角空格、连续两次“同时”→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00446 | HUMAN-REVIEW | cross-batch-085 | confirmed | 恢复确定语气；机制另行核查 |  |  |
+| hrq-00446 | HUMAN-REVIEW | cross-batch-085 | confirmed | 恢复确定语气；机制另行核查 |  | fix |
 
 <details><summary>hrq-00446 · HUMAN-REVIEW 详情</summary>
 
@@ -13707,7 +13707,7 @@ raw verdict: “反射传送魔法”被改成“可能干扰传送法术”（�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00447 | HUMAN-REVIEW | cross-batch-085 | advisory | 润色 |  |  |
+| hrq-00447 | HUMAN-REVIEW | cross-batch-085 | advisory | 润色 |  | fix |
 
 <details><summary>hrq-00447 · HUMAN-REVIEW 详情</summary>
 
@@ -13730,7 +13730,7 @@ raw verdict: 冒号后多余半角空格→advisory; “进入梦境”弱化“
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00448 | HUMAN-REVIEW | cross-batch-085 | advisory | 只清空格 |  |  |
+| hrq-00448 | HUMAN-REVIEW | cross-batch-085 | advisory | 只清空格 |  | no_change |
 
 <details><summary>hrq-00448 · HUMAN-REVIEW 详情</summary>
 
@@ -13753,7 +13753,7 @@ raw verdict: 冒号后多余半角空格→advisory; 补出英文遗漏的 `%` �
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00449 | HUMAN-REVIEW | cross-batch-086 | advisory | 润色 |  |  |
+| hrq-00449 | HUMAN-REVIEW | cross-batch-086 | advisory | 润色 |  | no_change |
 
 <details><summary>hrq-00449 · HUMAN-REVIEW 详情</summary>
 
@@ -13776,7 +13776,7 @@ raw verdict: “看到看不到的东西”偏口语，且 detection 范围比�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00450 | HUMAN-REVIEW | cross-batch-086 | confirmed | 联合两短语重定句型 |  |  |
+| hrq-00450 | HUMAN-REVIEW | cross-batch-086 | confirmed | 联合两短语重定句型 |  | fix |
 
 <details><summary>hrq-00450 · HUMAN-REVIEW 详情</summary>
 
@@ -13799,7 +13799,7 @@ raw verdict: `准备了%s` 与运行时插入短语结合后语法生硬（“�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00451 | HUMAN-REVIEW | cross-batch-086 | advisory | 文风 |  |  |
+| hrq-00451 | HUMAN-REVIEW | cross-batch-086 | advisory | 文风 |  | fix |
 
 <details><summary>hrq-00451 · HUMAN-REVIEW 详情</summary>
 
