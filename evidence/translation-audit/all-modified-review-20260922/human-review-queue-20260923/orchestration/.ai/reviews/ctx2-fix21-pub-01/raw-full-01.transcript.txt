@@ -1,0 +1,161 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=5cc2159853bc3c26db01f0d1b990710114b752bf11ac31cd74e16cce0750b605；input_path=.ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] **Reviewing The Prompt**
+
+I've carefully read the prompt and understand the need for strict adherence to the instructions. I am acting as a read-only reviewer for `translation_contextual_v2`. I am now focusing on the specified sections (6 and 7, or the pertinent parts) of `docs/paseo-translation-context-review-v2-contract.md`.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] **Inspecting JSON Contents**
+
+I'm now focusing on the `.ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json` file. It's a single-line JSON document, clocking in at 265.9KB. My plan is to use `bash` with `python3` for a read-only inspection of the file's contents, giving me a solid understanding of its structure and data.
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("candidate_identity:", data["candidate_id...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("candidate_identity:", data["candidate_id...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("candidate_identity:", data["candidate_id...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for i, (k, ts, bc) in enume...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for i in range(11): k = p["...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for i in range(6): k = p["o...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for i in range(2): k = p["o...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for i in range(3): k = p["o...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] ts = p["translation_snapsho...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] ts = p["translation_snapsho...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] ts = p["translation_snapsho...
+[Thought] **Analyzing All Entries**
+
+I've finished reviewing all eighteen entries. Now, I'm carefully cross-referencing each with the source text, target text, terminology snapshot, and bounded context. It's a meticulous process, but I'm getting a clearer picture.
+
+
+**Locating Relevant Repository**
+
+I'm now focused on pinpointing the exact location of the ToME4 source repository for commit `624a673`. I'm cross-referencing documentation, specifically section 7 of the context review contract, to understand the authorized scope of my search and ensure I'm compliant. My goal is to find the relevant code without exceeding the prescribed boundaries.
+[Shell] python3 -B -c ' import os, glob for k, v in sorted(os.environ.items()): if "TOME" in k or "SOURCE" in k or "GIT" in k: print(k, "=", v) ' && ls -la .. /home/paseo/.cache /tmp 2>/dev/null | head -n 60
+[Thought] **Verifying Code Location**
+
+I'm confirming the `TOME_ENGINE_ROOT` path, which is defined as `/workspace/t-engine4`. My next step is to run `git -C /workspace/t-engine4 rev-parse HEAD` to validate the commit. I'm checking that the current commit is indeed `624a67329fe2ad440c5b344785a9c73fcf22ae63` or has this exact commit.
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD && python3 -B -c ' import subprocess commit = "624a67329fe2ad440c5b344785a9c73fcf22ae63" paths = [ "game/modules/tome/data/talents/chronomancy/spacetime-f...
+[Shell] python3 -B -c ' import subprocess commit = "624a67329fe2ad440c5b344785a9c73fcf22ae63" paths = [ ("game/modules/tome/data/talents/chronomancy/spacetime-folding.lua", 1, 200), ("game/modules/tome/dat...
+[Thought] **Analyzing Related Files**
+
+I'm now examining several Lua files for related mechanics. Specifically, I'm checking lines 350+ of `artifice.lua`, 250+ of `projection.lua`, and specific sections in `timed_effects/other.lua` (Curse of Nightmares) and `timed_effects/physical.lua` (cursed wound). The goal is to cross-reference and connect all of these points.
+[Shell] python3 -B -c ' import subprocess commit = "624a67329fe2ad440c5b344785a9c73fcf22ae63" paths = [ ("game/modules/tome/data/talents/cunning/artifice.lua", 351, 500), ("game/modules/tome/data/talents/p...
+[Shell] python3 -B -c ' import subprocess commit = "624a67329fe2ad440c5b344785a9c73fcf22ae63" paths = [ ("game/modules/tome/data/talents/cunning/artifice.lua", 500, 600), ("game/modules/tome/data/talents/p...
+[Thought] **Analyzing Entries Detail**
+
+I'm now diving deep into each of the eighteen entries, individually. My focus remains strictly on identifying verifiable semantic, mechanistic, terminological, relationship, or cross-item consistency issues. Otherwise, I'm considering the entry as OK. If I find something, I am documenting the component, the public source code path, the specific commit (or frozen snapshot), the critical calls, and snippets of evidence.
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for idx in [0, 1, 2, 3, 4, ...
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for idx in [0, 1, 17]: ts =...
+[Thought] **Refining Paragraph Splitting**
+
+I've made a crucial discovery: some entries contain extraneous spaces within newline sequences. To rectify this, I'm now implementing `re.split(r'\n\s*\n', ...)` to handle paragraph splitting more accurately. I'm actively running the script across entries 0 through 4 to ensure this method's effectiveness.
+[Shell] python3 -B -c ' import json, re with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] for idx in [0, 2, 3, 4,...
+[Shell] python3 -B -c ' import json, re with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) p = data["payload"] ts = p["translation_sna...
+[Thought] **Examining The Entry**
+
+I'm now carefully examining the first entry, `entry-01221`, dissecting each paragraph of "The Spellblaze Chronicles(4): Before the Dawn." My focus is on thoroughly scrutinizing every single sentence, aiming for a complete analysis.
+
+
+**Analyzing The Memoir**
+
+I'm now deep in the first paragraph, comparing the original English with its translated counterpart. I'm noting the consistent use of "艾伦尼恩·加威尔" for "Aranion Gawaeil," which matches prior entries. The bolded title translation appears spot-on too. Currently, I am cataloging the consistent rendering of proper nouns, such as "埃尔瓦拉" for "Elvala" and "莱娜尼尔" for "Linaniil," ensuring semantic accuracy. I've noted the initial descriptions involving horses, lieutenants, and spellrangers are accurate.
+
+
+**Charting The Narrative Flow**
+
+I'm now tracing the unfolding events. We have scouts observing orc deployments, followed by the main offensive lines and battlemages. I've noted a low hill camp and the looming Kar'Krul army to the north. I've logged the burning villages and the arrival of Linaniil, the ominous dream Neira experienced, and Aranion's rallying speech and the ensuing clandestine conversation. I'm focusing on the ominous implications.
+
+
+**Reviewing Key Events**
+
+I've just finished reviewing `entry-01221`. The final details align with earlier chapters, and all terminology is consistent and faithful. I'm now moving to `entry-01223`, scrutinizing the opening paragraphs to verify accurate translations. I am making sure the rendering of character names, locations, and technical terms are accurate.
+
+
+**Cataloging Names & Locations**
+
+I'm now cataloging the proper nouns in this new entry. I've noted "水晶塔" for Thaloren, and "夏特尔" for Shatur. I am continuing to check the rendering of the names Maj'Eyal, Cornac, and Korhek against past translations, and Lake Nur, Darafel, and Naloren too. I'm verifying the consistency of elemental terms and celestial references. I am now proceeding to verify the accuracy of the final sections.
+
+
+**Verifying Translations**
+
+I've moved on to examining `entry-01228`. The initial title translation appears accurate, and I've confirmed that "Toknor" translates to "图库纳" and "Mirvenia" to "米雯尼雅," consistent with other entries. I've noted that "食尸鬼" is the standard translation of "Ghoul," "死灵法师" for "necromancers," and "死灵法术" for "necromancy." I also confirmed the accurate rendering of "Skeleton => 骷髅." I am proceeding to analyze the remaining details and technical terms.
+
+
+**Confirming Lore Translations**
+
+I'm now diving into the latest entry and carefully reviewing the translation of various undead creatures. I've verified the accurate rendering of "Wights" as "尸妖," and "gestalt" as "集合意识." I've also confirmed that "Vampires" is correctly translated as "吸血鬼," and "Spirits" as "幽灵," with "Dread" rendered as "噩灵." I am also noting the rendering of "Bone Giants" as "骸骨巨人." I'm also confirming "golems" translates to "傀儡," and "snow giant" translates to "雪巨人," and "Daikara" as "岱卡拉." I'll continue reviewing all the undead lore.
+
+
+**Verifying Terminology Accuracy**
+
+I've just finished reviewing `entry-01228`, confirming that Lich translates to "巫妖", and "ghouls and skeletons" as "食尸鬼与骷髅". I've also verified that "dreads" is rendered as "噩灵", and "bone giants" as "骸骨巨人," all are now verified and consistent. Then I'm moving on to `entry-01275` and confirmed all the names match bounded context, namely Weisman as 威斯曼, and Rolf as 罗尔夫. I'm satisfied everything is accurate so far.
+
+
+**Analyzing New Translations**
+
+I've just concluded an analysis of the provided terms in `entry-01308`. I've confirmed accurate translations for "brutish races," "Trolls," "Orcs," "Giants," and more. The provided context and translation for "Trollmire" as "巨魔沼泽" and "Age of Pyre" as "烈火纪" are also verified. I'm now proceeding to refine my data.
+
+
+**Verifying Spell Translations**
+
+I'm now carefully examining the translation for `entry-01605`, specifically the "Warp Mine" ability. I've verified that the technical terms match the bounded context for all the previous entries. The accuracy of "时空地雷" for "Warp Mines" and "传送" for "teleport" are verified. All other terms match perfectly.
+
+
+**Confirming Spell Accuracy**
+
+I'm now cross-referencing the translation for "Smokescreen" within `entry-01689`. I've analyzed the lua source code and verified that the radius and duration parameters are correctly rendered. The key phrases I am confirming match are "volatile liquid" and "cloud of smoke". I'm making sure all the technical terms are consistent with prior translations.
+
+
+**Verifying Code Consistency**
+
+I'm now carefully examining the `Smokescreen` code in `artifice.lua` and comparing it to the translated text in `entry-01689`. I've confirmed that the numerical parameters for radius, duration, and sight loss in the code align perfectly with the corresponding values in the translated description. The mechanics and semantics are all consistent with the original description. I am satisfied that all technical terms are correctly rendered.
+
+
+**Examining Stealth Mechanics**
+
+I'm now carefully examining the translation for `entry-01740`, focusing on the stealth mechanics. I'm verifying the correspondence of "stealth mode" as "潜行模式," and the translation of the various stealth-related parameters. I'm ensuring all numerical values (power, light radius, infravision, range) are accurately translated. I'm checking that the conditions for breaking stealth (non-instant actions, heavy armor) are correctly rendered.
+
+
+**Verifying Stealth Parameters**
+
+I'm now cross-referencing the Lua code `stealth.lua` with the translated text in `entry-01740`, specifically focusing on the stealth radius calculations and the visual indicators in the game. I'm confirming that the numerical values for stealth range and the 'unlit grid' range modifiers are accurately rendered. The analysis now extends to ensure consistent use of placeholders and terminology within the code.
+
+
+**Verifying Aura Translations**
+
+I am now meticulously verifying the translation of the "Charged Aura" ability within `entry-02128`. I've confirmed that the core concept of the ability, its effects based on the psionically wielded item, and the energy cost are accurately rendered. I am now confirming the translation of the deactivation mechanics to guarantee semantic and syntactic accuracy.
+
+
+**Confirming Aura Accuracy**
+
+I'm now cross-referencing the translation of "Charged Aura" with the Lua code in `projection.lua`, specifically lines 529-544. I'm verifying the numerical parameters for damage and energy cost, confirming that the placeholders used in the translated text accurately reflect the corresponding values and mechanics in the source code. The accuracy of the formatting and placeholder alignment is fully confirmed.
+
+
+**Assessing Technical Accuracy**
+
+I'm now carefully examining the translation for `entry-02451`, focusing on the mechanics of the "Shield Wall" ability. I've verified the accuracy of terms like "护甲值," "格挡值," "震慑和击退抗性," and their corresponding numerical values and modifiers. I'm cross-referencing this against the Lua code for 'weaponshield.lua' to ensure consistency.
+
+
+**Validating Terminology Accuracy**
+
+I'm now deep in `entry-02474`, meticulously analyzing the translation of the "Elemental Surge" ability. I've focused on ensuring the accurate rendering of elemental damage types (Physical, Arcane, Fire, Cold, Lightning) and their corresponding effects.  I am checking the consistency of placeholders and numerical values for damage, duration, and modifiers within the translated text. The mechanics and semantics are currently being validated.
+
+
+**Analyzing Elemental Translation**
+
+I'm now carefully examining `entry-02488`, specifically focusing on the "Elemental Surge" ability and its interaction with elemental damage types and status effects. I'm cross-referencing this against the Lua code and ensuring that numerical values for damage, duration, and modifiers are accurate. The accurate translation of terms like "护甲值," "格挡值," and "震慑和击退抗性" are a top priority.
+
+
+**Validating Surge Accuracy**
+
+I'm now cross-referencing the Lua code `uber/cun.lua` against the translated text, focusing on the numerical parameters and placeholders for the "Elemental Surge" ability. I've confirmed that the numerical values for damage, effects, and cooldown align accurately, including damage thresholds and elemental damage types, such as "物理," "奥术," "火焰," "寒冷," "闪电," and "光系." I'm also confirming that the place holders are in the correct order and type.
+
+
+**Confirming Narrative Consistency**
+
+I'm now carefully examining the translation for `entry-02565` and its implications for the narrative arc, specifically regarding necromancy. I've confirmed that "禁术" is an appropriate translation for "forbidden art" and that the distinction between "black art" and "禁术" is maintained. I am currently verifying that names and technical terms match past translations, and that the story context is accurately rendered.
+
+
+**Verifying Curse Translations**
+
+I am now meticulously verifying the translation of curse-related terms within `entry-02576`, confirming that "Curse" translates to "诅咒" accurately, and ensuring semantic consistency within the game data. I am focusing on reviewing various curse effects, particularly those related to mental and physical states, and cross-referencing this against the Lua code for 'physical.lua'. I have now completed a review of the timed effect translations.
+[Shell] python3 -B -c ' import json with open(".ai/task/ctx2-fix21-pub-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) out = { "contract": "translation_contextual_v2"...
+{"contract":"translation_contextual_v2","candidate_identity":"5cc2159853bc3c26db01f0d1b990710114b752bf11ac31cd74e16cce0750b605","verdicts":[{"revision_key":"entry-01221","verdict":"OK"},{"revision_key":"entry-01223","verdict":"OK"},{"revision_key":"entry-01228","verdict":"OK"},{"revision_key":"entry-01275","verdict":"OK"},{"revision_key":"entry-01282","verdict":"OK"},{"revision_key":"entry-01302","verdict":"OK"},{"revision_key":"entry-01308","verdict":"OK"},{"revision_key":"entry-01605","verdict":"OK"},{"revision_key":"entry-01689","verdict":"OK"},{"revision_key":"entry-01740","verdict":"OK"},{"revision_key":"entry-02128","verdict":"OK"},{"revision_key":"entry-02451","verdict":"OK"},{"revision_key":"entry-02474","verdict":"OK"},{"revision_key":"entry-02565","verdict":"OK"},{"revision_key":"entry-02576","verdict":"OK"},{"revision_key":"entry-02763","verdict":"OK"},{"revision_key":"entry-02846","verdict":"OK"},{"revision_key":"mod-tome.lua:14630","verdict":"OK"}]}
