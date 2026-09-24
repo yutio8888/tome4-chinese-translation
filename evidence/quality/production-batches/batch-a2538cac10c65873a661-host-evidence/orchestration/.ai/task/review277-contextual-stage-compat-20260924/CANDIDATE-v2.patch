@@ -1,0 +1,231 @@
+diff --git a/tests/i18n/test_review_prompts.py b/tests/i18n/test_review_prompts.py
+index 69dbd367..065e58b1 100644
+--- a/tests/i18n/test_review_prompts.py
++++ b/tests/i18n/test_review_prompts.py
+@@ -319,6 +319,148 @@ class ReviewPromptTests(unittest.TestCase):
+             finally:
+                 os.chdir(previous)
+ 
++    def test_ordinary_stage_accepts_only_verified_prebuilt_draft(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            batch_id = 'batch-test'
++            task = f'{batch_id}-contextual-000'
++            task_dir = root / '.ai/task' / task
++            task_dir.mkdir(parents=True)
++            payload = {'contract': 'translation_contextual_v2', 'enabled': True,
++                       'ordered_revision_keys': ['one'], 'bounded_context': []}
++            envelope = {'candidate_identity': 'c' * 64, 'payload': payload}
++            raw = json.dumps(envelope, ensure_ascii=False, sort_keys=True,
++                             separators=(',', ':')).encode()
++            input_path = root / 'input.json'
++            input_path.write_bytes(raw)
++            checkpoint = root / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
++            checkpoint.parent.mkdir(parents=True)
++            checkpoint.write_text(json.dumps({'batch_id': batch_id, 'base_commit': 'base',
++                'contextual': [{'task_id': task, 'input_path': str(input_path),
++                                'input_sha256': hashlib.sha256(raw).hexdigest(),
++                                'candidate_identity': 'c' * 64}]}))
++            draft = task_dir / 'CONTEXTUAL-INPUT-DRAFT.json'
++            scope = task_dir / 'SCOPE.json'
++            draft.write_text(json.dumps(payload, indent=2))
++            scope.write_text('{}')
++            (task_dir / 'SPEC.md').write_text('spec')
++            (task_dir / 'PLAN.md').write_text('plan')
++            receipt_path = task_dir / 'ANCHOR-PREFLIGHT.json'
++            receipt = {'argv': ['python3', '-B', 'tools/contextual_anchor_preflight.py',
++                                str(scope.resolve()), str(draft.resolve())],
++                       'exit_code': 0, 'stdout': 'PREFLIGHT_VERIFIED\n', 'stderr': ''}
++            receipt_path.write_text(json.dumps(receipt))
++            originals = {p.name: p.read_bytes() for p in task_dir.iterdir()}
++            report = root / 'report.json'
++            argv = [str(ORCHESTRATION / 'stage_contextual.py'), batch_id,
++                    '--out', str(report)]
++            previous = Path.cwd()
++            try:
++                os.chdir(root)
++                with mock.patch('contextual_anchor_preflight.run_preflight',
++                                return_value=mock.Mock(status='PREFLIGHT_VERIFIED')) as preflight:
++                    with mock.patch.object(sys, 'argv', argv):
++                        runpy.run_path(argv[0], run_name='__main__')
++                    preflight.assert_called_once_with(
++                        Path('.ai/task') / task / 'SCOPE.json',
++                        Path('.ai/task') / task / 'CONTEXTUAL-INPUT-DRAFT.json')
++                self.assertEqual({p.name: p.read_bytes() for p in task_dir.iterdir()
++                                  if p.name in originals}, originals)
++                self.assertEqual((task_dir / 'CONTEXTUAL-ENVELOPE-final-full.json').read_bytes(), raw)
++                self.assertTrue((task_dir / 'STATE.json').is_file())
++                self.assertTrue(report.is_file())
++                (task_dir / 'CONTEXTUAL-ENVELOPE-final-full.json').unlink()
++                (task_dir / 'STATE.json').unlink()
++                report.unlink()
++
++                def rejected(message):
++                    before = {p.name: p.read_bytes() for p in task_dir.iterdir()
++                              if p.is_file() and not p.is_symlink()}
++                    with mock.patch.object(sys, 'argv', argv), self.assertRaisesRegex(ValueError, message):
++                        runpy.run_path(argv[0], run_name='__main__')
++                    self.assertFalse(report.exists())
++                    self.assertEqual({p.name: p.read_bytes() for p in task_dir.iterdir()
++                                      if p.is_file() and not p.is_symlink()}, before)
++
++                draft.write_text('{}')
++                rejected('frozen draft differs')
++                draft.write_bytes(originals[draft.name])
++                draft.write_text(json.dumps({**payload, 'enabled': 1}))
++                rejected('frozen draft differs')
++                draft.write_bytes(originals[draft.name])
++                receipt['exit_code'] = 1
++                receipt_path.write_text(json.dumps(receipt))
++                rejected('preflight is not verified')
++                receipt_path.write_bytes(originals[receipt_path.name])
++                with mock.patch('contextual_anchor_preflight.run_preflight',
++                                return_value=mock.Mock(status='PREFLIGHT_FAILED')):
++                    rejected('no longer verifies')
++                for forbidden in ('STATE.json', 'CONTEXTUAL-ENVELOPE-final-full.json',
++                                  'raw.txt', 'review.json'):
++                    path = task_dir / forbidden
++                    path.write_text('sentinel')
++                    with self.subTest(forbidden=forbidden):
++                        rejected('non-draft contents')
++                    path.unlink()
++                scope.unlink()
++                rejected('non-draft contents')
++                scope.symlink_to(draft)
++                rejected('non-draft contents')
++                scope.unlink()
++                scope.write_bytes(originals[scope.name])
++                (root / '.ai').rename(root / 'actual-ai')
++                (root / '.ai').symlink_to(root / 'actual-ai', target_is_directory=True)
++                rejected('task parent is not ordinary directory')
++            finally:
++                os.chdir(previous)
++
++    def test_unfrozen_refreeze_rejects_existing_prebuilt_task(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            batch_id, token = 'batch-test', 'retry'
++            task = f'{batch_id}-contextual-000-refreeze-{token}'
++            task_dir = root / '.ai/task' / task
++            task_dir.mkdir(parents=True)
++            for name in ('CONTEXTUAL-INPUT-DRAFT.json', 'SCOPE.json', 'SPEC.md',
++                         'PLAN.md', 'ANCHOR-PREFLIGHT.json'):
++                (task_dir / name).write_text('{}')
++            originals = {p.name: p.read_bytes() for p in task_dir.iterdir()}
++            payload = {'ordered_revision_keys': ['one'], 'bounded_context': []}
++            envelope = {'candidate_identity': 'c' * 64, 'payload': payload}
++            raw = json.dumps(envelope, sort_keys=True, separators=(',', ':')).encode()
++            input_path = root / 'input.json'
++            input_path.write_bytes(raw)
++            checkpoint = root / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
++            checkpoint.parent.mkdir(parents=True)
++            checkpoint.write_text(json.dumps({'batch_id': batch_id, 'base_commit': 'base',
++                                              'contextual': []}))
++            checkout = root / 'ashes'
++            checkout.mkdir()
++            workset = root / 'workset.json'
++            workset.write_text('{}')
++            report = root / 'report.json'
++            argv = [str(ORCHESTRATION / 'stage_contextual.py'), batch_id,
++                    '--refreeze-id', token, '--source-workset', str(workset),
++                    '--ashes-checkout', str(checkout), '--out', str(report)]
++
++            def export(*args, **kwargs):
++                checkpoint.write_text(json.dumps({'batch_id': batch_id, 'base_commit': 'base',
++                    'contextual': [{'task_id': task, 'input_path': str(input_path),
++                                    'input_sha256': hashlib.sha256(raw).hexdigest(),
++                                    'candidate_identity': 'c' * 64}]}))
++
++            previous = Path.cwd()
++            try:
++                os.chdir(root)
++                with mock.patch.object(batch, 'contextual_export', side_effect=export):
++                    with mock.patch.object(sys, 'argv', argv), self.assertRaisesRegex(
++                            FileExistsError, 'task already exists'):
++                        runpy.run_path(argv[0], run_name='__main__')
++                self.assertEqual({p.name: p.read_bytes() for p in task_dir.iterdir()}, originals)
++                self.assertFalse(report.exists())
++            finally:
++                os.chdir(previous)
++
+     def test_dispatch_entrypoints_use_the_shared_builders(self):
+         self.assertIs(dispatch_contextual.build_prompt, review_prompts.build_contextual_prompt)
+         self.assertIs(dispatch_surface.build_prompt, review_prompts.build_surface_prompt)
+diff --git a/tools/orchestration/stage_contextual.py b/tools/orchestration/stage_contextual.py
+index 9edfb8b4..053c7a3c 100644
+--- a/tools/orchestration/stage_contextual.py
++++ b/tools/orchestration/stage_contextual.py
+@@ -102,6 +102,39 @@ def _existing_stage(d, envelope_raw, expected_state):
+     return candidate.exists(), state_path.exists()
+ 
+ 
++def _validate_task_ancestors(d):
++    for parent in d.absolute().parents:
++        if parent.is_symlink() or (parent.exists() and not parent.is_dir()):
++            raise ValueError(f'contextual task parent is not ordinary directory: {parent}')
++
++
++def _prebuilt_draft(d, payload):
++    """Accept only the complete, untouched task preparation for an ordinary stage."""
++    if d.is_symlink() or not d.is_dir():
++        raise ValueError(f'contextual task is not ordinary directory: {d}')
++    names = {'CONTEXTUAL-INPUT-DRAFT.json', 'SCOPE.json', 'SPEC.md',
++             'PLAN.md', 'ANCHOR-PREFLIGHT.json'}
++    children = list(d.iterdir())
++    if ({p.name for p in children} != names or
++        any(p.is_symlink() or not p.is_file() for p in children)):
++        raise ValueError(f'contextual task has non-draft contents: {d}')
++    draft = d / 'CONTEXTUAL-INPUT-DRAFT.json'
++    if canon(json.loads(draft.read_bytes())) != canon(payload):
++        raise ValueError(f'contextual frozen draft differs: {draft}')
++    scope = d / 'SCOPE.json'
++    receipt = json.loads((d / 'ANCHOR-PREFLIGHT.json').read_bytes())
++    expected_argv = ['python3', '-B', 'tools/contextual_anchor_preflight.py',
++                     str(scope.resolve()), str(draft.resolve())]
++    if (not isinstance(receipt, dict) or receipt.get('argv') != expected_argv or
++        receipt.get('exit_code') != 0 or receipt.get('stdout') != 'PREFLIGHT_VERIFIED\n' or
++        receipt.get('stderr') != ''):
++        raise ValueError(f'contextual anchor preflight is not verified: {d}')
++    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
++    from contextual_anchor_preflight import run_preflight
++    if run_preflight(scope, draft).status != 'PREFLIGHT_VERIFIED':
++        raise ValueError(f'contextual anchor preflight no longer verifies: {d}')
++
++
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('batch')
+@@ -127,6 +160,7 @@ def main():
+             raise ValueError(f'contextual stage report parent is not ordinary directory: {parent}')
+     if not report.parent.is_dir():
+         raise ValueError(f'contextual stage report parent does not exist: {report.parent}')
++    _validate_task_ancestors(pathlib.Path('.ai/task') / f'{batch}-contextual-000')
+     if args.refreeze_id:
+         if args.source_workset is None or args.ashes_checkout is None:
+             parser.error('refreeze requires --source-workset and --ashes-checkout')
+@@ -154,8 +188,7 @@ def main():
+         if task != expected_task:
+             raise ValueError('invalid contextual task binding')
+         d = pathlib.Path('.ai/task') / task
+-        if (d.exists() or d.is_symlink()) and not already_frozen:
+-            raise FileExistsError(f'contextual task already exists: {d}')
++        _validate_task_ancestors(d)
+         input_path = pathlib.Path(r['input_path'])
+         raw = input_path.read_bytes()
+         env = json.loads(raw)
+@@ -164,7 +197,14 @@ def main():
+             raise ValueError('contextual candidate identity drift')
+         envelope_raw = canon(env)
+         expected_state = _initial_state(cp, task, '')
+-        present = _existing_stage(d, envelope_raw, expected_state) if d.exists() or d.is_symlink() else (False, False)
++        present = (False, False)
++        if d.exists() or d.is_symlink():
++            if already_frozen:
++                present = _existing_stage(d, envelope_raw, expected_state)
++            elif not args.refreeze_id:
++                _prebuilt_draft(d, env['payload'])
++            else:
++                raise FileExistsError(f'contextual task already exists: {d}')
+         staged.append((d, env, envelope_raw, present))
+     rows = [{'task_id': r['task_id'], 'dispatch_id': f'full-{i:03d}',
+              'candidate_identity': r['candidate_identity'],

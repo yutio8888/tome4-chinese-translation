@@ -1,0 +1,163 @@
+{
+  "batch_id": "batch-a2538cac10c65873a661",
+  "observations": 15,
+  "observation_dispositions": {
+    "confirmed": 13,
+    "pending": 1,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "10419e2ec39499a69cf40dcc495d2c80d426c0390f5413e98031f4e6693a26cf",
+    "119af89312a36d7600832a7efc3ccad32e9fd116d081ded65cff5166411e63f0",
+    "120d3d48def6138fa01a3c4bcfd8a0951444c4c840f8a23638c3ba39c9ee38f0",
+    "12c3c45f81bdf4d981fef66a1e7df1fcef2e3da1d42e153350b255b078ed4a84",
+    "1be82f2f199d6d783d5293ac49acef643b763a0bc1a5ef1fabb39d94cd53aefe",
+    "218c180b3f864dac59b93985e4631c2d6b566b1417cfa81b297286c57a8c2e0e",
+    "21d89ecd3e11c60fe85d124c2f93d5d0b6724bd13211828528f1d6ffca4c11a7",
+    "28ea98973ddf0d08e7eb5940be2d71fac43c10cbe3fc628304267189dd3945e2",
+    "295b84f066bb5e2610c84354d9f94de40a32ef9ded864d97373d29cbf3df47c5"
+  ],
+  "pending_revision_keys": [
+    "1dafd3a72823fbe74c63a3cb17629a8694d6bb6d50e54be3cc0ec89c87a2191f"
+  ],
+  "expected_final_states": {
+    "done": 70,
+    "repair_required": 9,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "10419e2ec39499a69cf40dcc495d2c80d426c0390f5413e98031f4e6693a26cf",
+      "stage": "surface",
+      "observation": "原文是“black flame”（黑色火焰），译文写成“邪恶火焰”，改变了颜色信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 源码本批 SHA 匹配，来源/commit 未固定：black flame 是黑色火焰，现译“邪恶火焰”改变颜色信息。"
+    },
+    {
+      "revision_key": "119af89312a36d7600832a7efc3ccad32e9fd116d081ded65cff5166411e63f0",
+      "stage": "surface",
+      "observation": "原文斜体分别标记“extracting”和“willing”，译文斜体却分别标记“志愿者”和“获取”，强调对象对调。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes searing-halls/npcs.lua:99 的 italic 标记分别强调 extracting 与 willing；现译把标记放到“志愿者”和“获取”，对应关系颠倒。修复标记附着位置并保持原意。"
+    },
+    {
+      "revision_key": "120d3d48def6138fa01a3c4bcfd8a0951444c4c840f8a23638c3ba39c9ee38f0",
+      "stage": "surface",
+      "observation": "原文要求“step on the plate”并摆好手臂以安放“bindings”；译文写成“站在那里别动……把它放好”，遗漏了踏上板子的动作和束缚装置。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 记忆对白原文要求踏上 plate、摆好手臂，以便安置 bindings；现译“站在那里别动……把它放好”遗漏板子和束缚装置。"
+    },
+    {
+      "revision_key": "12c3c45f81bdf4d981fef66a1e7df1fcef2e3da1d42e153350b255b078ed4a84",
+      "stage": "surface",
+      "observation": "原文“3 arms”指三条手臂，译文“三只手”指三只手掌，身体部位译错。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 源文 3 arms 是三条手臂，现译“三只手”误作手掌；本批文件 SHA 匹配，来源/commit 未固定。"
+    },
+    {
+      "revision_key": "1be82f2f199d6d783d5293ac49acef643b763a0bc1a5ef1fabb39d94cd53aefe",
+      "stage": "surface",
+      "observation": "原文的 primary ambush 指主要或最初的伏击，译文“面前伏击”改变了修饰含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "primary ambush 指主要/最初的伏击，现译“面前伏击”改为位置关系；应恢复伏击的阶段或主次含义。"
+    },
+    {
+      "revision_key": "1dafd3a72823fbe74c63a3cb17629a8694d6bb6d50e54be3cc0ec89c87a2191f",
+      "stage": "surface",
+      "observation": "“Corruption of the Doomed”译为“腐化形态”，漏掉了“Doomed”的含义。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "timed_effects.lua:1045–1052 将 Corruption of the Doomed 用作效果名及 +/- 日志，同族现译统一“腐化形态”。改为含 Doomed 的新专名须同步四处，交用户集中决定。Ashes 来源/commit 未固定。"
+    },
+    {
+      "revision_key": "218c180b3f864dac59b93985e4631c2d6b566b1417cfa81b297286c57a8c2e0e",
+      "stage": "surface",
+      "observation": "“mind given his direct, enthusiastic approval”译成“精神受到父的指引”，把对其头脑的认可误作指引。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 叙事原文是父 Urh'Rok 直接而热情地认可 Khulmanar 的头脑，现译“精神受到父的指引”把认可改成指引。"
+    },
+    {
+      "revision_key": "21d89ecd3e11c60fe85d124c2f93d5d0b6724bd13211828528f1d6ffca4c11a7",
+      "stage": "surface",
+      "observation": "原文说堡垒停在兵工厂和人口中心上方、且没有一座未武装；译文改成“所有的武器系统都瞄准了”这些地点，改变了所述情形。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 叙事原文说全副武装的堡垒停在兵工厂与人口中心上方；现译“所有武器系统都瞄准了”增添主动瞄准，改变威胁方式。"
+    },
+    {
+      "revision_key": "28ea98973ddf0d08e7eb5940be2d71fac43c10cbe3fc628304267189dd3945e2",
+      "stage": "surface",
+      "observation": "原文为“fiery display”，译文写成“闪电般”，将火焰意象误作闪电。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demon-seeds.lua:737 写 fiery display of speed，现译“闪电般”把火焰意象换成闪电。"
+    },
+    {
+      "revision_key": "295b84f066bb5e2610c84354d9f94de40a32ef9ded864d97373d29cbf3df47c5",
+      "stage": "surface",
+      "observation": "原文每个后续段落以两个制表符缩进，译文改为一个；“Increases range by %d”译为“增加半径 %d”，将射程误作半径。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "wrath.lua:186–195 源文各后续行以两个制表符缩进，译文改成一个，影响多行技能说明结构。Obliterating Smash 的 range 实际赋给圆锥 radius（wrath.lua:32–37），因此“增加半径”本身有机制依据，不作为修复原因。"
+    },
+    {
+      "revision_key": "296765c04dd18b827507eb5e75e9d99280a590ea2208e9c1ada218a001d627f0",
+      "stage": "surface",
+      "observation": "译文增加了原文没有的“对周围敌方生物施加持续 3 回合的灼烧”，改变了伤害对象和方式；冻结输入没有支持这些附加机制的证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects.lua:420–470 的 FIRE_SHIELD 移除时确实以 friendlyfire=false 投射 FIREBURN，dur=3、radius=eff.radius、dam=eff.power；译文补充的是实际机制，不是错误附加效果。本批文件 SHA 匹配，来源/commit 未固定。"
+    },
+    {
+      "revision_key": "120d3d48def6138fa01a3c4bcfd8a0951444c4c840f8a23638c3ba39c9ee38f0",
+      "stage": "contextual",
+      "observation": "demon.lua:135 原文“Just step on the plate here, and hold your arms like this so I can get the bindings in place...”：看管者是在把“bindings”（束缚）套到主角身上，译文“站在那里别动，举起胳膊，这样我就能把它放好”把束缚错成了“把它”，“plate”也漏掉了，这层被操控的含义因此丢失。另有几处偏离：“standard-issue alteration”被加成“标准化思维修改”（原文没有“思维”）；开头多出原文没有的“记住，”；第137行把“escape their notice for the first time since you arrived here”里的“自你来到这里后第一次”删掉了。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：公开 Ashes demon.lua:135–137 的 plate 与 bindings 在译文中遗漏；“standard-issue alteration”被加成思维修改，“自抵达以来第一次避开监视”也被删。按本批文件 SHA 匹配的公开源码修复；来源/commit 未固定。"
+    },
+    {
+      "revision_key": "1be82f2f199d6d783d5293ac49acef643b763a0bc1a5ef1fabb39d94cd53aefe",
+      "stage": "contextual",
+      "observation": "re-abducted.lua:29-30 只在 isCompleted(\"ambush\") 后显示这一行，所以它是“已经脱出伏击”的完成状态。“found your way out of”的意思是已经逃出去了，译文“你找到摆脱面前伏击的方法”却变成“找到了方法”，读起来像还没逃出。“primary”是首轮／主要伏击，不是“面前”。建议改作“你已从首轮伏击中脱身”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：公开 Ashes re-abducted.lua:29–30 在 ambush 完成后显示，found your way out 表已脱身；现译只找到方法且 primary 误作“面前”。来源/commit 未固定。"
+    },
+    {
+      "revision_key": "218c180b3f864dac59b93985e4631c2d6b566b1417cfa81b297286c57a8c2e0e",
+      "stage": "contextual",
+      "observation": "同一条目里 Urh'Rok 先译“乌尔洛克”，后面又译“乌鲁洛克”。同批 21d89ecd 和 295b84f0（乌鲁洛克之口）都用“乌鲁洛克”，专名前后不一致。“Divine Tournament of Tactics”的“锦标赛”被错写成“竞标赛”。“a mind given his direct, enthusiastic approval”的意思是其心智得到父亲直接而热切的认可，译成“精神受到父的指引”偏了原意。句首把“under the command and inspiration of Urh'Rok”从修饰“我们获救”改成了修饰“举办锦标赛”，关系挂错。“physical endurance”译“物理耐受”不妥，应为“体能耐力”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：公开 Ashes demon.lua 对父亲的 direct, enthusiastic approval 误作“指引”；本条 Urh'Rok 译名先“乌尔洛克”后“乌鲁洛克”，锦标赛错成竞标赛，physical endurance 也误作物理耐受。来源/commit 未固定。"
+    },
+    {
+      "revision_key": "21d89ecd3e11c60fe85d124c2f93d5d0b6724bd13211828528f1d6ffca4c11a7",
+      "stage": "contextual",
+      "observation": "demon.lua:83-89 有两处错别字改变了字义：“心中还坏着背叛父亲的深深愧疚”应为“怀着”；“赠予给我们他们所有用的科技”应为“所拥有的”。另外“prevent him from waking up unless disturbed”被译成“除非被强大的力量打扰”，原文没有“强大”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：公开 Ashes demon.lua 的堡垒位置误作主动瞄准；译文还把“怀”错成“坏”、“所拥有”错成“所有用”，且增添“强大的力量”限定。来源/commit 未固定。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, 80 entries)",
+    "contextual": "claude/claude-opus-5-5 (1 refrozen DLC run, 11 entries)",
+    "selection": "user authorized continuous review and specified models"
+  },
+  "notes": [
+    "Surface and contextual observations independently adjudicated against frozen source/target and matching public DLC source files.",
+    "An initial contextual child enumerated /workspace and was rejected and archived; its output was not imported or adjudicated.",
+    "Refrozen contextual input explicitly names the Ashes local evidence checkout; source repository/commit remain unpinned.",
+    "Contextual OK does not override objective source evidence behind surface confirmed findings.",
+    "Corruption of the Doomed naming remains pending as a cross-entry term decision.",
+    "Backlog rises from 19 to 28; combined repair window 27 opens after this batch closes."
+  ]
+}

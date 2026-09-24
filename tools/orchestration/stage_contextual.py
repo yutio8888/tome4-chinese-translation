@@ -102,6 +102,39 @@ def _existing_stage(d, envelope_raw, expected_state):
     return candidate.exists(), state_path.exists()
 
 
+def _validate_task_ancestors(d):
+    for parent in d.absolute().parents:
+        if parent.is_symlink() or (parent.exists() and not parent.is_dir()):
+            raise ValueError(f'contextual task parent is not ordinary directory: {parent}')
+
+
+def _prebuilt_draft(d, payload):
+    """Accept only the complete, untouched task preparation for an ordinary stage."""
+    if d.is_symlink() or not d.is_dir():
+        raise ValueError(f'contextual task is not ordinary directory: {d}')
+    names = {'CONTEXTUAL-INPUT-DRAFT.json', 'SCOPE.json', 'SPEC.md',
+             'PLAN.md', 'ANCHOR-PREFLIGHT.json'}
+    children = list(d.iterdir())
+    if ({p.name for p in children} != names or
+        any(p.is_symlink() or not p.is_file() for p in children)):
+        raise ValueError(f'contextual task has non-draft contents: {d}')
+    draft = d / 'CONTEXTUAL-INPUT-DRAFT.json'
+    if canon(json.loads(draft.read_bytes())) != canon(payload):
+        raise ValueError(f'contextual frozen draft differs: {draft}')
+    scope = d / 'SCOPE.json'
+    receipt = json.loads((d / 'ANCHOR-PREFLIGHT.json').read_bytes())
+    expected_argv = ['python3', '-B', 'tools/contextual_anchor_preflight.py',
+                     str(scope.resolve()), str(draft.resolve())]
+    if (not isinstance(receipt, dict) or receipt.get('argv') != expected_argv or
+        receipt.get('exit_code') != 0 or receipt.get('stdout') != 'PREFLIGHT_VERIFIED\n' or
+        receipt.get('stderr') != ''):
+        raise ValueError(f'contextual anchor preflight is not verified: {d}')
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from contextual_anchor_preflight import run_preflight
+    if run_preflight(scope, draft).status != 'PREFLIGHT_VERIFIED':
+        raise ValueError(f'contextual anchor preflight no longer verifies: {d}')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('batch')
@@ -127,6 +160,7 @@ def main():
             raise ValueError(f'contextual stage report parent is not ordinary directory: {parent}')
     if not report.parent.is_dir():
         raise ValueError(f'contextual stage report parent does not exist: {report.parent}')
+    _validate_task_ancestors(pathlib.Path('.ai/task') / f'{batch}-contextual-000')
     if args.refreeze_id:
         if args.source_workset is None or args.ashes_checkout is None:
             parser.error('refreeze requires --source-workset and --ashes-checkout')
@@ -154,8 +188,7 @@ def main():
         if task != expected_task:
             raise ValueError('invalid contextual task binding')
         d = pathlib.Path('.ai/task') / task
-        if (d.exists() or d.is_symlink()) and not already_frozen:
-            raise FileExistsError(f'contextual task already exists: {d}')
+        _validate_task_ancestors(d)
         input_path = pathlib.Path(r['input_path'])
         raw = input_path.read_bytes()
         env = json.loads(raw)
@@ -164,7 +197,14 @@ def main():
             raise ValueError('contextual candidate identity drift')
         envelope_raw = canon(env)
         expected_state = _initial_state(cp, task, '')
-        present = _existing_stage(d, envelope_raw, expected_state) if d.exists() or d.is_symlink() else (False, False)
+        present = (False, False)
+        if d.exists() or d.is_symlink():
+            if already_frozen:
+                present = _existing_stage(d, envelope_raw, expected_state)
+            elif not args.refreeze_id:
+                _prebuilt_draft(d, env['payload'])
+            else:
+                raise FileExistsError(f'contextual task already exists: {d}')
         staged.append((d, env, envelope_raw, present))
     rows = [{'task_id': r['task_id'], 'dispatch_id': f'full-{i:03d}',
              'candidate_identity': r['candidate_identity'],

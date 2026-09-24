@@ -1,0 +1,29 @@
+{
+  "candidate_sha256": "7c277cc90961bc89e3f7ae58568cc9610503c40fc30c7b5144eb14f676ecd69f",
+  "reviewers": {
+    "normal": "claude/claude-opus-5-5: PASS with two advisories",
+    "cross": "codex/gpt-6-sol: two reported blockers"
+  },
+  "findings": [
+    {
+      "id": "ancestor_symlink",
+      "disposition": "confirmed",
+      "reason": "The new prebuilt path admits a task whose .ai/task parent is a symlink; SPEC requires symlinks to be rejected. Validate every ancestor before any stage write."
+    },
+    {
+      "id": "strict_draft_equality",
+      "disposition": "confirmed",
+      "reason": "Python JSON equality treats true and 1 as equal; the frozen draft binding must distinguish canonical JSON types. Compare canonical encoded payload bytes."
+    },
+    {
+      "id": "refreeze_scope",
+      "disposition": "confirmed",
+      "reason": "The new prebuilt branch also admits a not-yet-frozen refreeze event; SPEC only authorizes ordinary stage. Retain the previous refusal for that branch."
+    },
+    {
+      "id": "ordinary_partial_retry",
+      "disposition": "refuted_as_out_of_scope",
+      "reason": "SPEC explicitly requires an existing candidate or STATE in ordinary stage to be rejected. The reported inability to resume after those writes follows that safety requirement and predates this patch; it is not a defect in this bounded repair."
+    }
+  ]
+}

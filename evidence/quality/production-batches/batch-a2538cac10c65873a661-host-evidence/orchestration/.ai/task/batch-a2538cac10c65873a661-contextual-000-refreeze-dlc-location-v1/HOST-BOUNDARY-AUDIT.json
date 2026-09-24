@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "session_id": "94059aec-1a13-494e-97cc-55fc2a641b0e",
+  "native_log_sha256": "3797b9e17618d0da6d1534c71529d39636d6e0504c5b30a874b0fc9f1a9059d7",
+  "candidate_identity": "a65522f8adf49064c9e818e43c618c0798a30f2b0730b06118ada81de6ba2432",
+  "ordered_revisions": 11,
+  "issue_count": 4,
+  "tool_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=.ai/task/batch-a2538cac10c65873a661-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; wc -c $f; python3 -c \"\nimport json;d=json.load(open('$f'));print(list(d.keys()))\"; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Inspect envelope and contract headings"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; f=.ai/task/batch-a2538cac10c65873a661-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$f'));print(d['candidate_identity']);p=d['payload'];print(json.dumps(p,ensure_ascii=False,indent=1)[:6000])\"",
+        "description": "Read contract and envelope head"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=.ai/task/batch-a2538cac10c65873a661-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$f'));p=d['payload']\nprint(p['contract'],p['fixed_source_identity']);print(p['terminology_snapshot']);print(p['rendered_briefing'])\nfor i,(k,t,c) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i,k[:8]);print(json.dumps(t,ensure_ascii=False))\n  ctx=c['context'];h,_,js=ctx.partition('source_facts_v1:');print(h.strip())\n  try:\n    fa=json.loads(js)['fact']\n    for a in fa['anchors']:\n      print(' path',a['public_source_path'],a['matching_lines'])\n      for s in a['snippet']: print('  ',s['line'],'*' if s['is_match'] else ' ',s['text'])\n    print(' term',json.dumps(fa['terminology'],ensure_ascii=False)); print(' ph',fa['placeholders'],fa['placeholders_in_target'],fa['missing_evidence'])\n  except Exception as e: print('ERR',e,ctx[:500])\n\"",
+        "description": "Dump envelope entries readably"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok && sha256sum data/talents/corruptions/wrath.lua data/timed_effects.lua 2>/dev/null; ls; grep -n \"4c2c23\\|wrath.lua\\|timed_effects\" /workspace/tome4-chinese-translation/evidence/quality/production-batches/batch-a2538cac10c65873a661-source-workset.json | head",
+        "description": "Locate DLC checkout and verify hashes"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok && sha256sum data/talents/corruptions/wrath.lua data/timed_effects.lua data/talents/corruptions/demon-seeds.lua; sed -n 120,215p data/talents/corruptions/wrath.lua",
+        "description": "Read Demonic Blood / wrath source"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;p=json.load(open('.ai/task/batch-a2538cac10c65873a661-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json'))['payload']\nfor c in p['bounded_context']:\n  print(json.loads(c['context'].partition('source_facts_v1:')[2])['fact']['main_source']['source_file_sha256'])\"; cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; grep -rn \"destroyer_level\\|DESTROYER_FORM\" data | head -30; grep -n \"fiery_aegis\\|FIRE_SHIELD\" -r data | head; sed -n 388,425p data/timed_effects.lua",
+        "description": "Verify hashes and trace mechanics"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 425,470p data/timed_effects.lua; grep -rn \"is_destroyer\" data | head -20",
+        "description": "Read Fiery Aegis deactivate and destroyer uses"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 24,40p data/talents/corruptions/wrath.lua; sed -n 91,115p data/timed_effects.lua",
+        "description": "Check Obliterating Smash range and Destroyer form"
+      }
+    }
+  ],
+  "checked_scopes": [
+    "frozen envelope",
+    "v2 contract",
+    "batch source workset",
+    "specified Ashes checkout and relevant call chain"
+  ],
+  "prohibited_scan_calls": 0
+}

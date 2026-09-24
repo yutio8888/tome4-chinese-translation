@@ -1,0 +1,17 @@
+{
+  "status": "rejected",
+  "reason": "reviewer enumerated /workspace and /workspace/* to discover DLC checkout, outside the frozen input named locations",
+  "session_id": "5062f4da-94ab-4605-8fd2-efce9d678e9e",
+  "native_log_sha256": "47b8f2d80039ff1adda1ccff873616da0244e287d13f22171725962b1ef5a41c",
+  "tool_call_count": 13,
+  "violating_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "ls /workspace; ls /workspace/*/ 2>/dev/null | grep -i ashes",
+        "description": "List workspace directories for DLC checkout"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-24T14:52:15.365957+00:00"
+}
