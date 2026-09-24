@@ -2548,7 +2548,7 @@ Got a proposal, though.  With a few little tweaks, I could make one that doesn't
 
 Say the word, and I'll send over the temporary rune design so you can set the nexus to recognize it.  No charge from me - if you accept it, it'll pay for itself.
 
-[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测水晶真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
+[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测水晶真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基·埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
 
 现在，我现在有一个想法。只要稍微整一下，我就可以让这玩意儿不需要使用者的意愿就能工作。你不是唯一一个从我这里买奴隶的人，要是有别的买家想把他们直接带回西部去的话，我们可得好好做点反侦测的准备。我不知道你有没有注意到，但合格的法师如今还是很难请到——上次，我差点把老本都给赔光了。
 
@@ -2642,7 +2642,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，[b]也[/b]可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
-唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
+唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探索用远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
 t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "（当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。）", "_t")
 
@@ -7452,8 +7452,8 @@ t([["#{italic}#When Amakthel arrived, he created the Sun and brought life to thi
 You carry a piece of His Sun with you now. Do not forget who gave it to you, lest you become like those wretched fools who would forsake Him.#{normal}#"]], [["#{italic}#阿马克泰尔降临，他创造了太阳，为世界带来生命。
 现在，你带着他的一片太阳。不要忘了是谁将它给予你，以免让你变成和那些抛弃他的可怜虫一样。#{normal}#"]], "_t")
 t("When worn, gives you an additional prodigy point.", "装备时，获得一点觉醒技能点。", "_t")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#护符的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#护符的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/slumbering-caves/zone.lua"
@@ -7922,7 +7922,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 你解锁了元素法师的#LIGHT_GREEN#科技法师 职业进阶#WHITE#。
 
 职业特性：#YELLOW#
-- 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时间的力量撕碎敌人。
+- 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时空的力量撕碎敌人。
 - 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。
 - 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
 - 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。
