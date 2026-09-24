@@ -1,0 +1,95 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "each of 11 observations compared against its own entry source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "fe5a84a1b4161500b909f7c7cccf4ff56e0c0f33c004784dbe94c0364943c4d4",
+      "stage": "surface",
+      "observation": "原文说明双手及武器被火焰包裹，译文遗漏“及武器”；原文“Each hit”指每次命中回复体力，译文写成每次攻击。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "spells/enhancement.lua 燃烧之手（Fiery Hands）：enhancement.lua:83–85（624a673）melee_project 火焰伤害作用于近战命中（含武器），体力回复为 stamina_regen_on_hit，仅命中时触发；现译第二行“每次攻击同时也会回复”把命中写成攻击（未命中也回复，一级 fidelity），首句亦漏“（及武器）”。修复：第一行补“双手（及武器）”，第二行改“每次命中”，%0.2f/%d%%、两处 LF+制表符保持。"
+    },
+    {
+      "revision_key": "fe6310c9f8a1a5d1f2bd9098851b31fc90ee85c9223f7874b727921737412a9e",
+      "stage": "surface",
+      "observation": "原文“bladed ”末尾有空格，译文“刀刃的”末尾没有空格；作为词缀拼接时格式不一致。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "egos/helm.lua ego 前缀 \"bladed \"：尾随空格用于英文拼接，中文 ego 译名“刀刃的”按本库拼接不保留空格（既往 ego 空格先例）。"
+    },
+    {
+      "revision_key": "fe90619ef2e1e48cab53d9352846971ad10ff1dfb3bbff4bfc27a5f58bea47f6",
+      "stage": "surface",
+      "observation": "原文明确说明火焰伤害每回合发生，译文遗漏“每回合”；原文“When the spell ends”涵盖法术结束，译文“当技能中断时”将其缩窄为中断。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "corruptions/shadowflame.lua 恶魔空间（Fearscape）：原文 burn both of you … each turn，灼烧是持续每回合结算的光环（shadowflame.lua:219 设 level.demonfire_dam，zones/demon-plane-spell/grids.lua:23–26 熔岩地面 on_stand 每回合对站立者结算 DEMONFIRE）；现译“造成 %0.2f 火焰伤害”删去“每回合”，读作一次性伤害（删量词缺陷类，一级 fidelity）。另 When the spell ends 涵盖主动结束、目标死亡与活力耗尽，现译“当技能中断时”收窄，同句修为“法术结束时”。其余行与 LF+制表符不变。"
+    },
+    {
+      "revision_key": "feba8a653c48d907381a69ae33c445ee31aa1a8d8f55fc666debaa6f5a4a7e28",
+      "stage": "surface",
+      "observation": "原文为“destroyed Rak'shor”，译文改为“击败了拉克·肖部落”：将摧毁弱化为击败，并增添了“部落”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "quests/orc-pride.lua：同组四条 You have destroyed Rak'shor/Vor/Grushnak/Gorbat 本库一致作“你击败了X部落”（mod-tome.lua:20499–20505），部落名与目标行“拉克·肖部落”（20500）一致；指的是摧毁该部落据点/首领，“击败”可接受，属同族一致，不单改。"
+    },
+    {
+      "revision_key": "fec0939b43c92583f4d00aeb244393a5348b9d4d9d20be01e6b3cb39ceaa0d35",
+      "stage": "surface",
+      "observation": "原文诗句“In this bright age / Of new adventures”和“You are not forgotten”分行，译文合并了前两行，换行格式未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "lore/last-hope.lua 黑暗者古尔莫特墓志铭：原文斜体诗三行（In this bright age / Of new adventures / You are not forgotten），现译合并前两行为一行，LF 由 6 变 5（换行不变量，一级）。修复：拆回三行，例如“在这光明的时代\\n在崭新的冒险中\\n你不会被遗忘”，#{bold}#/#{normal}#/#{italic}# 与其余 LF 保持。"
+    },
+    {
+      "revision_key": "fec33d861518d5ce6e2040cf74aadeafe7dc3850b4facc8d66b886ea4780c648",
+      "stage": "surface",
+      "observation": "原文“Max life: ”末尾有空格，译文“最大生命：”末尾没有空格，可能影响后续内容的间隔。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "dialogs/LevelupDialog.lua \"Max life: \"：本库属性标签统一用全角冒号不留尾空格（既往冒号标签先例），非缺陷。"
+    },
+    {
+      "revision_key": "fede357f5d4fef66dfe5b57df64d0e8f188542309b3b05f8e0c2dd8114afcae9",
+      "stage": "surface",
+      "observation": "原文“horrifying ”末尾有空格，译文“恐惧的”末尾没有空格，可能影响与后续名称拼接时的间隔。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "egos/mindstars.lua ego 前缀 \"horrifying \"：同 ego 空格先例，“恐惧的”按本库拼接，不保留空格。"
+    },
+    {
+      "revision_key": "ff084e54304a7fde58908b7939a7bbbb5b5612d9236bb7cf46e1f2d6382c7fdc",
+      "stage": "surface",
+      "observation": "原文表示暴击可以延长法阵的持续时间，译文“持续时间可以暴击”改变了这一关系。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "cursed/crimson-templar.lua：crimson-templar.lua:106 持续时间经 self:spellCrit(t.getDuration(...)) 计算，“持续时间可以暴击”正是实现所述（暴击即延长持续时间），非错译。"
+    },
+    {
+      "revision_key": "ff47fb8608636c14b4edd992f2f91eb3cfefc2eeab07857e8bc51adbffa7457b",
+      "stage": "surface",
+      "observation": "原文强调可预判将承受的伤害并提前准备；译文漏掉这一信息，改为描述每回合恢复生命值。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "init.lua 加载提示：原意是回复纹身效果持续数回合，因此可预判即将承受的伤害并提前使用；现译删去“预判伤害、提前准备”这一要点，改写成泛泛的“更加从容”（一级 fidelity），且物品名本库为“回复纹身”（mod-tome.lua:12070 entity name）而非“恢复纹身”。整句修复。"
+    },
+    {
+      "revision_key": "ff585d0b17d2092a15ee66c669828233c547008396dfa8f6e1aa4adefd8af6a7",
+      "stage": "surface",
+      "observation": "原文是带有“它吞噬”动作的短语；译文改成“地下吞噬者”这一名词称谓。原文的 bellow 含义或上下文未提供，无法进一步判定方位。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests/deep-bellow.lua 任务名 From bellow, it devours：同一短语在本库另一处作“来自深渊，吞噬四方。”（mod-tome.lua:38225，Deep Bellow=深渊咆哮），任务名却改成名词“地下吞噬者”，同一英文句两种不相容译法（跨条一致性/术语，一级）。修复为“来自深渊，吞噬四方”（任务名不带句号），与 38225 对齐。"
+    },
+    {
+      "revision_key": "ff658fab2952efff6ddacb8a31c9598d2d5337642bdd2fa7d640b496bf77f6ee",
+      "stage": "surface",
+      "observation": "wispy 描述斗篷轻薄、飘忽；“脆弱”表示容易损坏，改变了原文描述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "world-artifacts.lua unided_name wispy purple cloak：wispy 指轻薄缥缈（同物系靴子 12911 行 wispy purple aura 作“紫色光环”），“脆弱的”义为易损，错译（一级 fidelity）。改“缥缈的紫色斗篷”一类。"
+    }
+  ]
+}
