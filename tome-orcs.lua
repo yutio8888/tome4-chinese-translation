@@ -1610,7 +1610,7 @@ t("Titan", "泰坦", "entity name")
 t("A gun sure to turn all to ash. As long as its nearby.", "一把只要出现在附近，就会把一切化为灰烬的枪。", "_t")
 t("Golden Gun", "金枪", "entity name")
 t("golden gun", "金色的枪", "_t")
-t("every third hit always crits.", "第三下攻击必定暴击。", "_t")
+t("every third hit always crits.", "每累计命中三次，下一次攻击的物理暴击率变为 100%。", "_t")
 t("Cautery Sword", "灼烧之剑", "entity name")
 t("searing sword", "炽热的剑", "_t")
 t("This sword is equipped with a heated core to add a bit of extra pain to the wounds.", "这把剑的炽热核心可以让敌人的伤口感到更加疼痛。", "_t")
@@ -1742,8 +1742,8 @@ t([[There is an attached note.
 'I've spilt the heartsblood of my work, feeling it pound, like a heart, in my palms.
 Some people just can't let go until they've bled dry.']], [[上面粘着一页笔记。
 
-'我将我的心血之作分离，感受它的跳动，像心脏一样跳动，在我的手心里。
-总有些人不到血流尽，不撒手。']], "_t")
+“我倾洒了作品的心血，感受它在掌心如心脏般搏动。
+有些人非得流尽鲜血才肯放手。”]], "_t")
 t([[All damage dealt by or to you (that is over 1% of max life) bleeds for an additional 20% of the damage as physical damage (ignores most status resistances).
 While you are bleeding, Heartrend's damage increases and it gains lifesteal.]], [[你受到与造成的所有超过1%总生命的伤害将触发流血效果，无视大部分状态免疫，造成额外20%物理伤害。
 当你处于流血状态时，心脏切割伤害增加并具有吸血效果。]], "_t")
@@ -2196,7 +2196,7 @@ t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sou
 
 "Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#（你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。）#{normal}#
 
-“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远行传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
+“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要搭上第一个能离开这片大陆的远行传送门，不管那些小矮子乐不乐意！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
 t("why is it down there why is it ANYWHERE", "它为什么会在下面？它为什么会出现在任何地方？", "_t")
 t("If anyone finds this, tell the Jarsovi brothers their father lov", "如果有人能找到这张纸，请告诉贾索维兄弟，他们的父亲爱…", "_t")
@@ -2246,7 +2246,7 @@ Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 来自：管理员夸洛普#{normal}#
 
 
-很高兴看到你和你的随从已经安全抵达！感谢你的光临，也感谢埃尔瓦拉的外交官能在这么短的时间内联系到你过来，希望你能在这里安顿下来。我希望这将会成为你们一族——当然，不仅是你们食人魔，也包括派遣你们过来的永恒精灵——与联合王国的合作部队的良好的第一步。
+很高兴看到你和你的随从已经安全抵达！感谢你的光临，也感谢埃尔瓦拉的外交官能在这么短的时间内联系到你过来，希望你能在这里安顿下来。我希望这将会成为你们一族——当然，不仅是你们食人魔，也包括派遣你们过来的永恒精灵——与联合王国携手合作的良好第一步。
 
 在远东这里没有伊格兰斯。得益于意念之墙精巧的幻象技术，关押在这里的兽人都十分顺从。到目前为止，这是我们找到的和他们打交道的最人道的方法——我们希望，随着时间流逝，他的能力最终可以对这些兽人起到永久的镇定效果。不过，在那之前，他们都会这样傻乎乎地，温顺而快乐生活在梦中的小小世界里。你所需要的就是守住这里的围墙，不能让外部的游荡的兽人进来救走他们的同族。同时，还要巡逻这里的大厅，确保那些成功脱离幻象的兽人被我们迅速逮捕和解决。这应该会是一件非常容易的工作——但是，如果你需要任何特别帮助或补给的话，请立刻告诉我，我将尽我所能帮助你！
 
@@ -2524,7 +2524,7 @@ t([[I'm not going to lie to you: things aren't going great.  Between the Doomelf
 
 And regarding the First Duathedlen - quit your murmuring right now.  I've seen his track record, and I know most of you know it too, which is why we can safely say that despite his... nature, his loyalty is [b]not[/b] in question - we can assume his abrupt cessation of communication is a necessary part of his investigations, and not him going rogue.  If you see him, tell us of his whereabouts, but do not interfere.
 
-[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]], [[我准备实话实说：事情的进展并不顺利。除了魔化精灵的逃亡事件之外，还有库马纳的死，我们众多精英卫兵在那场异常中的牺牲，以及第一位多瑟顿的失踪…我们今年的损失已经够严重了。所以，给你们的命令很简单：保持低调。远离敌人的视线，进行被动的观察，直到我们可以获得一个新的立足点，开展新的计划。
+[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]], [[我准备实话实说：事情的进展并不顺利。除了魔化精灵的逃亡事件之外，还有库马纳和我们许多代价高昂的战斗人员死于那个“异常”之手，以及第一位多瑟顿的失踪…我们今年的损失已经够严重了。所以，给你们的命令很简单：保持低调。远离敌人的视线，进行被动的观察，直到我们可以获得一个新的立足点，开展新的计划。
 
 还有，有关第一位多瑟顿的事情——你现在就别抱怨这些了。我看到过他的记录，我知道你们大部分人也都看过，这就是为什么我可以放心的说，尽管他的…本性如此，但他的忠诚是[b]无可挑剔[/b]的——我们可以假定，他的突然失联是他进行的调查的一个重要组成部分，而并不是他叛逃了。如果你看到了他，请告诉我们他的位置，但千万不要干涉他的行动。
 
@@ -2550,7 +2550,7 @@ Say the word, and I'll send over the temporary rune design so you can set the ne
 
 [i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测水晶真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
 
-现在，我现在有一个想法。只要稍微整一下，我就可以让这玩意儿不需要使用者的意愿就能工作。你不是唯一一个从我这里买奴隶的人，要是你想把他们带回西部去的话，我们可得好好做点反侦测的准备。我不知道你有没有注意到，但合格的法师如今还是很难请到——上次，我差点把老本都给赔光了。
+现在，我现在有一个想法。只要稍微整一下，我就可以让这玩意儿不需要使用者的意愿就能工作。你不是唯一一个从我这里买奴隶的人，要是有别的买家想把他们直接带回西部去的话，我们可得好好做点反侦测的准备。我不知道你有没有注意到，但合格的法师如今还是很难请到——上次，我差点把老本都给赔光了。
 
 只要你一句话，我就把这个临时的符文设计发给你，你设置好水晶就能用了。我不收你的钱——只要你愿意用，这笔投入很快就能回本。
 
@@ -2568,7 +2568,7 @@ PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't u
 
 与此同时：我们的邮递系统仍然会丢失几封信，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十英尺以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
 
-我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“大力药”吗？别再讨论使用“奴隶”的安全设施了，可以用“私人仆人”这词吗？还有，拜托，为了莱娜尼尔的爱，[i]别再把远行传送门叫做远行传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
+我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“强效药物”吗？别再讨论供“奴隶”使用的安全安排了，可以用“私人仆人”这词吗？还有，拜托，看在莱娜尼尔的份上，[i]别再把远行传送门叫做远行传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
 
 ——库贝克
 
@@ -2634,11 +2634,11 @@ While this isolation has given them peace to let their society develop, it has a
 
 Alas, I was not able to study them for long enough to learn more than this.  Kasyros tells me he cannot accompany me any longer, for he has arranged a meeting with the Hero of Maj'Eyal - something about using an exploratory farportal for disposal purposes?  Whatever the case, although most of our contact with the Atmos is still done via constructs dropped from airships, we will soon gain the opportunity to meet more of them in person, and perhaps outsiders other than myself will soon be allowed to see their cities for themselves.  Their help in crushing the Kruk Rebellion and thwarting their leader's attempts to commandeer [b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b] has ensured that they will be enduring allies with us for an age to come.]], [[想想看吧，就在我们的眼皮底下，竟然藏着这样一个高度发达的文明！然而，我们之间这样的接近，并没有给我的研究提供什么方便——除非你是太阳堡垒的公民，托拉克国王本人的亲戚，或者是腰缠万贯的富商，能用足够的钱贿赂卫兵网开一面。否则，像我这样的平民，几乎没有任何使用远行传送门通往远东的机会。幸运的是，卡西罗斯议长本人曾经读过我的书，用以了解这个世界上他的族人所不熟悉的那些众多种族。现在，他邀请我亲自研究他的族人。
 
-蒸汽巨人看起来与人类惊人地相似，他们身高8-10英尺，身材稍显矮胖，这与岱卡拉那些瘦高但出人意料地强壮的巨人形成了鲜明的对比。他们最具标志性的外貌特征是他们身上的蒸汽，这就是他们被命名为蒸汽巨人的原因——他们的皮肤上有许多毛孔和通风口，可以从中排出高压的蒸汽。他们可以对排气的行为进行有限的主动控制；在休息的时候，他们的排气行为通常是不可见的，只能依稀看到轻柔的薄雾，或者干脆什么也看不到。但是，他们也可以主动封闭或扩张排气口，放出一股气流或一团高压蒸汽，这样的场景看起来颇为令人不安。
+蒸汽巨人看起来与人类惊人地相似，他们身高8-10英尺，身材稍显矮胖，这与岱卡拉那些瘦高但出人意料地强壮的巨人形成了鲜明的对比。他们最具标志性的外貌特征是他们身上的蒸汽，这就是他们被命名为蒸汽巨人的原因——他们的皮肤上有许多毛孔和通风口，可以从中排出高压的蒸汽。他们可以对排气的行为进行有限的主动控制；在休息的时候，这些毛孔和通风口通常几乎看不见，只能依稀看到轻柔的薄雾，或者干脆什么也看不到。但是，他们也可以主动封闭或扩张排气口，放出一股气流或一团高压蒸汽，这样的场景看起来颇为令人不安。
 
 他们相当巧妙地想到了使用这股蒸汽来驱动和操纵各种各样的金属装置的方法。尽管这些巨人们最早的文字记录被偶然的火灾和其他的灾害摧毁了，他们声称，最早的“蒸汽科技”只是一种简单的哨子。在此之后，他们发明了使用加压蒸汽清洁物体表面的方法，然后逐渐发明了一系列越来越复杂的装置。原理上，使用炉子来加热水也可以产生蒸汽，达到类似的效果，不过这种需要操作者仔细关注、控制蒸汽，而这一切对于蒸汽巨人来说都如同呼吸一样简单。或许，正是因为这种直观的感觉，让他们可以如此轻松地用蒸汽实现这样多的东西。
 
-气之部族的蒸汽巨人在克拉克山脉中藏匿了几个世纪；幸运的是，他们从未受到魔法大爆炸的影响，考虑到他们的生存环境如此集中，人口又是这么稀少，这样的灾害恐怕会完全灭绝他们。他们尽力将与其他种族之间的互动降低到最低限度。按照卡西罗斯议长的说法，这是因为他们既害怕外部世界可能对它们造成的威胁，也害怕他们不谨慎的发明可能会给外面世界的人带来怎样的影响，但按照我从其他气之部族的人的说法，他们只是觉得那些“下等种族”又粗野又令人不快而已。（考虑到直到不久之前，他们唯一的邻居就是兽人，我完全可以理解他们的这种看法）
+气之部族的蒸汽巨人在克拉克山脉中藏匿了几个世纪；幸运的是，他们从未受到魔法大爆炸的影响，考虑到他们的生存环境如此集中，人口又是这么稀少，这样的灾害恐怕会完全灭绝他们。他们尽力将与其他种族之间的互动降低到最低限度。按照卡西罗斯议长的说法，这是因为他们既害怕外部世界可能对它们造成的威胁，也害怕他们轻率的介入可能会给外面世界的人带来怎样的影响，但按照我从其他气之部族的人的说法，他们只是觉得那些“下等种族”又粗野又令人不快而已。（考虑到直到不久之前，他们唯一的邻居就是兽人，我完全可以理解他们的这种看法）
 
 按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，[b]也[/b]可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
@@ -2699,11 +2699,11 @@ The consumer edition of this game, v6.0, has won countless awards for its engagi
 
 又一次，我们面临着选举议长的比赛了。这是政府中最有名望的职位，但也别忘了它可以说是最复杂的职位，承担着我们人民命运的最大责任。一个议长不仅需要谨慎而理性的远见，也需要在短期内解决紧急事态的急智；并且，他或她必须明白这些决定的先例以及非预期后果，行动既不冒进也不出于心血来潮。否则，这样的领袖会像是一个醉鬼拿着玻璃瓶那样，轻率地对待我们的人民和军队，而不关心那武器是否会破碎。他或她必须能创造性地解决问题，同时包容外界的建议，还要做一个知人者，能选出他或她身边最具价值的人才，以及一个说客，能说服这些人去做他们最适合的工作……可以说，成为议长需要很多精神上的技能。因此，这个竞赛必须要考验所有这些技能。
 
-这次选举，我们隆重推出桌面游戏[i]汽车与机器人第9.8版[/i]，一款去年曾用于选出城市卫兵团长的游戏的改良版。它基于“石油朋克”的科幻设定，或许会被认为与现实不符而被人忽略，但它有着它严谨的内部规则，会迫使其玩家学习新的环境并掌握它，就像我们的领袖们也必须愿意从正在进行的事件中学习并迅速适应它们；并且，由于这个游戏已经推出了一年，有无数关于游戏策略的书已经被出版，玩这个游戏也能测试候选人的长时记忆，因为我们的领袖必须得以史为鉴知兴衰。9.8版本的规则和之前的版本略有不同，但却并非完全不同。这样，那些策略书籍仅仅是部分准确的，就像我们祖先的智慧只能反映他们所处的时代，而不是面临巨变的今日。
+这次选举，我们正式推荐桌面游戏[i]汽车与机器人第9.8版[/i]，一款去年曾用于选出城市卫兵团长的游戏的改良版。它基于“石油朋克”的科幻设定，或许会被认为与现实不符而被人忽略，但它有着它严谨的内部规则，会迫使其玩家学习新的环境并掌握它，就像我们的领袖们也必须愿意从正在进行的事件中学习并迅速适应它们；并且，由于这个游戏已经推出了一年，有无数关于游戏策略的书已经被出版，玩这个游戏也能测试候选人的长时记忆，因为我们的领袖必须得以史为鉴知兴衰。9.8版本的规则和之前的版本略有不同，但却并非完全不同。这样，那些策略书籍仅仅是部分准确的，就像我们祖先的智慧只能反映他们所处的时代，而不是面临巨变的今日。
 
-9.8版本使用“破碎两极”地图，地图中有一个结界，这消除了那些具有侵略性的玩家获得快速胜利的可能性，测试了玩家们长期谋划的能力，而且因为两侧都有非玩家敌人，他们仍然要有短期计划，以保证生存，并在结界消散后占据优势。非玩家的敌人遵循可预测的规则，排除了运气因素，我们的通灵师也找出了一个把相同意识复制到两个模型中的办法，这意味着双方玩家都会使用相同的谈判者模型来体现他们的外交手腕。（和往常一样，这个模型被设计成在使用后一个月内解放里面的灵魂，以确保这一过程对于亡者来说尽量人道。）
+9.8版本使用“破碎两极”地图，地图中有一个结界，这消除了那些具有侵略性的玩家获得快速胜利的可能性，测试了玩家们长期谋划的能力，而且因为两侧都有非玩家敌人，他们仍然要有短期计划，以保证生存，并在结界消散后占据优势。非玩家的敌人遵循可预测的规则，排除了运气因素，我们的通灵师也找出了一个把相同意识复制到两个模型中的办法，这意味着双方玩家都会使用相同的谈判者模型来体现他们的外交手腕。（和往常一样，这个模型被设计成在不超过一个月内释放其中的灵魂，以确保这一过程对于亡者来说尽量人道。）
 
-这一游戏的消费者版本，6.0版，以它令人沉浸又富于挑战的游戏性已获得了无数奖项，尤其因它不同类型的多变策略，以及其对多种技能的综合考验备受瞩目。在1.0版本的游戏用于选出卫兵队长时，双方都同意游戏是公平的；作为选出我们下一个领袖的方式，9.8版本绝对不会令人失望。今年，投[i]汽车与机器人第9.8版[/i]一票吧，你不会为它的胜者而失望的。]], "_t")
+这一游戏的消费者版本，6.0版，以它令人沉浸又富于挑战的游戏性已获得了无数奖项，尤其因它不同类型的多变策略，以及其对多种技能的综合考验备受瞩目。在1.0版本的游戏用于选出城市卫兵团长时，双方都同意游戏是公平的；作为选出我们下一个领袖的方式，9.8版本绝对不会令人失望。今年，投[i]汽车与机器人第9.8版[/i]一票吧，你不会为它的胜者而失望的。]], "_t")
 t("a fading poster", "一个发旧的海报", "_t")
 t([[Councilor Tantalos, unlike that cowardly wimp Chief Councilor Kasyros, knows just what to do to solve the steam shortages, and isn't afraid to do it!  Even though he can't reveal his plan yet for security reasons, the Geothermal Authority and our military's highest generals have assured us that his plan would work, without requiring us to ration steam usage or regulate our appliances; let's see Tantalos show that old geezer what-for, and end this drought for good!
 
@@ -2853,19 +2853,19 @@ TANTALOS: "The meeting has been adjourned.  You should be training our necropsyc
 
 记录下“托马克议员的长袍闻起来有苦艾酒和流浪汉的味道”的表述的动议以3比1的投票通过，议员坦塔洛斯弃权。
 
-进行官方调查的动议以3比1的投票通过，议员坦塔洛斯弃权。接下来进行调查的第一部分，将会决定是否纳沙尔议员的最新式采矿和提取工具能够将她的头从她的————
+进行官方调查的动议以3比1的投票通过，议员坦塔洛斯弃权。下次会议的首项议程，将会决定是否纳沙尔议员的最新式采矿和提取工具能够将她的头从她的————
 
 [……]
 
-坦塔洛斯：“如果你们都闹够了……到底情况有多糟糕？我想要细节和事实，而不是抱怨。”
+坦塔洛斯：“如果你们都闹够了……到底情况有多糟糕？我想要细节和事实，而不是指责。”
 
-托马克：“你不想要抱怨是因为整件事都是你的主意！这是你的错所以我们————”
+托马克：“你不想听指责，是因为整件事都是你的主意！这是你的错所以我们————”
 
 谴责坦塔洛斯议员把托马克议员扔出窗外的动议未被通过（1比1，平局被议长否决），议员帕拉奎、纳沙尔和潘多尔弃权。
 
 [……]
 
-坦塔洛斯：“所以，商场里的那些饭桶死了，克鲁克兽人已经开始在大陆行动。据我所知，这目前不是我们应当担心的————那些“联合王国”和“太阳堡垒”的家伙们可以对付。多亏了潘多尔的斥候，我们有了一个武器，可以作为一个威慑力量对准克鲁克部落的老家，这会给我们争取更多的时间。我们应该用这段时间加强守备……并考虑其他方案。散会。”
+坦塔洛斯：“所以，商场里的那些饭桶死了，克鲁克兽人已经开始在大陆行动。在我看来，他们目前不归我们负责————那些“联合王国”和“太阳堡垒”的家伙们可以对付。多亏了潘多尔的斥候，我们有了一个武器，可以作为一个威慑力量对准克鲁克部落的老家，这会给我们争取更多的时间。我们应该用这段时间加强守备……并考虑其他方案。散会。”
 
 帕拉奎：“其他方案？”
 
@@ -2917,9 +2917,9 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 潘多尔：“那群废物们吓得不轻，尊敬的议长，但是他们进步得很快。我从卡尔托剩下的货物中收集了一些新式的喷火步枪，而我们的复仇者部队处在巅峰状态。”
 
-坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁天灭地、无礼的贯穿者————#{normal}#”
+坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁灭号、无礼的贯穿者————#{normal}#”
 
-托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形咒语不准。兽人们找到了他们……若这算是一点安慰，他们似乎还没意识到钥匙是做什么用的，也不知道那些武器能做什么。我……我很抱歉。”
+托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形法术没能瞒过兽人。兽人们找到了他们……若这算是一点安慰，他们似乎还没意识到钥匙是做什么用的，也不知道那件武器能做什么。我……我很抱歉。”
 
 漫长的沉默。
 
@@ -3580,7 +3580,7 @@ t([[If you would indulge us...  Next to you is a tablet that was just carved by 
 
 #{italic}#(You look to your right, and see a tablet which has been broken into fragments.  The fragments are still arranged roughly in the right shape, and you can read a single word; another, larger fragment bears a sentence.)#{normal}#
 
-]], [[如果你还愿意继续听下去的话……在你身边，是一块石板，是在你过来时前刚刚由我们的机器雕刻完成的。如果我们的诅咒还在持续下去，上面的字将会是完全无法辨认的，而如果诅咒被解除，这上面会刻着我们的名字。那是一个显眼、独特的名字，是我们存在的无可否认的标志。一个表明，宇宙也忘不了我们。往你右边看，看看我们这个群体的名字，这一群体比你们远远更有权利存在，却不得不为了那权利比你们都努力地斗争，他们奋力将钩子扎入最深的现实，让现实不得不要么将他们连根拔起，要不被他们一道拖进深渊。看吧，这个被存在本身畏惧的名字！
+]], [[如果你还愿意继续听下去的话……在你身边，是一块石板，是在你到来前刚刚由我们的机器雕刻完成的。如果我们的诅咒还在持续下去，上面的字将会是完全无法辨认的，而如果诅咒被解除，这上面会刻着我们的名字。那是一个显眼、独特的名字，是我们存在的无可否认的标志。一个表明，宇宙也忘不了我们。往你右边看，看看我们这个群体的名字，这一群体比你们远远更有权利存在，却不得不为了那权利比你们都努力地斗争，他们奋力将钩子扎入最深的现实，迫使现实要么托起他们，要么与他们一道坠入深渊。看吧，这个被存在本身畏惧的名字！
 
 #{italic}#（你往右看，看到一块破裂成碎片的石板。石板仍然按照正确的形状排列，你可以读到一个词；另一个大一些的碎片上有个句子。）#{normal}#
 
@@ -3962,7 +3962,7 @@ Dark damage creates an effect at the tile for %d turns which deals %d%% of the d
 section "tome-orcs/data/talents/celestial/energies.lua"
 
 t("Celestial Acceleration", "天体加速", "talent name")
-t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%. 持续能量仍然算向最大值。", "tformat")
+t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%。维持技能占用的能量仍计入上限。", "tformat")
 t("Polarization", "偏振", "talent name")
 t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值 (%d 正能量，%d 负能量)。你的正能量和负能量恢复/ 消退速度增加至 %0.2f。", "tformat")
 t("Magnetic Inversion", "磁反转", "talent name")
@@ -3974,7 +3974,7 @@ t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damag
 section "tome-orcs/data/talents/celestial/reflection.lua"
 
 t("Diffraction Pulse", "衍射脉冲", "talent name")
-t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标所在地创造一个地块，击退所有的飞行物如果可能的话还会改变他们的方向。", "_t")
+t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标地块制造一处扭曲，击退所有投射物，并尽可能使它们转向外侧。", "_t")
 t("Mirror Wall", "反射镜墙", "talent name")
 t("mirror wall", "镜像之墙", "_t")
 t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵墙长 %d 持续 %d 回合，反射所有击中此墙的飞行物并且阻挡视线。", "tformat")
@@ -4558,7 +4558,7 @@ t([[You attune your saws to a specific target for 5 turns.
 t("Explosive Saw", "爆炸飞锯", "talent name")
 t([[You send a saw mounted on an automated steam propulsor to assault a foe, dealing %0.2f physical damage each turn for 4 turns and silencing it.
 		At the end of the duration, the saw explodes for %0.2f fire damage and flies back, pulling the target up to %d tiles towards you.
-		The damage will increase with your Steampower.]], [[你用自动蒸汽弹射器向敌人发射一把链锯，造成 %0.2f 物理伤害并沉默敌人，持续 4 回合。
+		The damage will increase with your Steampower.]], [[你用自动蒸汽弹射器向敌人发射一把链锯，每回合造成 %0.2f 物理伤害，并沉默敌人，持续 4 回合。
 		持续时间结束后，链锯爆炸，造成 %0.2f 的火焰伤害并飞回，将目标向你的位置拉扯 %d 格。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mow Down", "肢解", "talent name")
@@ -4572,9 +4572,9 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，直接恢复 %d%% 蒸汽值。
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，立即恢复最大蒸汽值的 %d%%。
 		在 6 回合内，蒸汽值最大值翻倍，但是恢复值减半。
-		#{italic}#科技至尊、死亡之主！！#{normal}#]], "tformat")
+		#{italic}#科技至尊、死亡之主！#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/automation.lua"
@@ -4795,7 +4795,7 @@ t([[Continuously swing your steamsaws around you, dealing %d%% weapon damage to 
 t("Overcharge Saws", "链锯过载", "talent name")
 t([[You temporarily overcharge the saw motors, increasing the effective talent level of all saw talents by %d%% for %d turns.
 		#{italic}#The pain shall never stop!#{normal}#]], [[链锯引擎临时进入过载模式，增加 %d%% 的链锯相关技能有效等级，持续 %d 回合。
-		#{italic}#无尽地痛苦#{normal}#]], "tformat")
+		#{italic}#痛苦永不停歇！#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/chemical-warfare.lua"
@@ -4928,7 +4928,7 @@ t([[Using small steam motors to enhance your movements, you are able to slip pas
 	穿越后，会急速前进 %d 码。]], "tformat")
 t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
-		Current bonus: %d%%.]], [[被猎杀的危险令你激动不已。
+		Current bonus: %d%%.]], [[狩猎的快感令你精神振奋。
 		半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
 		当前加成：%d%%。]], "tformat")
 t("Awesome Toss", "致命翻转", "talent name")
@@ -4967,7 +4967,7 @@ t([[Using a huge amount of steam, you temporarily supercharge your tinkers and o
 		超频期间，你获得 %d 蒸汽强度和 %d%% 蒸汽技能暴击率。]], "tformat")
 t("Last Engineer Standing", "背水一战", "talent name")
 t([[Sometimes, being a master tinker requires taking risks; yours are more calculated than others.
-		Gain %d cunning, %d physical save, %d%% resistance to self-inflicted damage, and %d%% chance to avoid being critically hit.]], [[成为大师意味着你经历了更多危险，你的计算力也超越凡人。
+		Gain %d cunning, %d physical save, %d%% resistance to self-inflicted damage, and %d%% chance to avoid being critically hit.]], [[技艺大师有时必须冒险，而你比别人更懂得权衡风险。
 		增加 %d 灵巧，%d 物理豁免，%d%% 自身伤害抗性，%d%% 几率避免暴击。]], "tformat")
 
 ------------------------------------------------
@@ -4987,7 +4987,7 @@ t([[While Furnace is on your armour is so hot from the furnace it dissipates par
 		Each turn this happens you gain a molten point (up to 10), decreasing the efficiency of the reduction by 25%%.
 		Molten points are removed upon running or resting.
 		#{italic}#Hot liquid metal, the fun!#{normal}#
-		]], [[你的护甲温度极高，能驱散部分能量攻击。
+		]], [[熔炉开启时，你的护甲温度极高，能驱散部分能量攻击。
 		所有非物理、非精神伤害降低 %d 点（当前 %d）。
 		每回合该效果触发时，你获得 1 点融化点数（最多 10 点），使减伤效率降低 25%%。
 		奔跑或休息时会清除融化点数。
@@ -5009,11 +5009,11 @@ t([[When you reach 10 molten points your armour overheats, reaching temperatures
 		When this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point.
 		This effect drains 15 steam when triggered, and will not trigger if steam is too low.
 		#{italic}#It's only a flesh burn!#{normal}#
-		]], [[当你达到 10 点融化点数时，你的护甲过热，温度极高，以至于 %d 个负面物理状态被高温驱散。
+		]], [[当你达到 10 点融化点数时，你的护甲过热，温度极高，以至于 最多 %d 个负面物理状态被高温驱散。
 		同时，一个特殊的医疗注射器会为你注射火焰免疫血清，令你免疫烧伤效果。
 		该效果触发时，消耗所有融化点数，并自动对最后一次提供融化点数的生物触发一次通风孔效果。
 		该效果将消耗 15 点蒸汽。蒸汽不足时不能触发。
-		#{italic}#只是肉体在燃烧！#{normal}#
+		#{italic}#不过是皮肉烫伤！#{normal}#
 		]], "tformat")
 
 ------------------------------------------------
@@ -5090,9 +5090,9 @@ t([[You have learned to fire while moving.
 		In one motion, you fire your double steamguns (100%% weapon damage, 1 tile range penalty) and may then move to an adjacent tile (unless pinned to the ground or immobilized).
 		This talent can be activated for up to %d consecutive turns before it goes on cooldown, and takes time according to your steamtech speed or movement speed (if you move), whichever is slower.
 		When Strafe ends you may instantly reload between %d and %d ammo (based on the number of strafes you performed and your ammo capacity).]], [[你学会如何在移动中射击。
-		在射击（100%% 武器伤害，射程 -1）的同时你能移动到相邻的一格。
-		该技能在冷却前能激活连续 %d 个回合，消耗时间取决于蒸汽速度和移动速度较慢者。
-		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
+		你用双持蒸汽枪射击（100%% 武器伤害，射程惩罚 1 格），然后可以移动到相邻的一格（被定身或无法移动时除外）。
+		该技能在冷却前能激活连续 %d 个回合，消耗时间取决于蒸汽科技速度，若移动则与移动速度相比取较慢者。
+		扫射结束后，你可以立即装填 %d 到 %d 发弹药（取决于扫射次数和弹药容量）。]], "tformat")
 t("Startling Shot", "惊艳射击", "talent name")
 t("Something", "某物", "_t")
 t("%s misses %s shot.", "%s故意射偏了，%s那一枪没有命中目标。", "logSeen")

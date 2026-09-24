@@ -14719,8 +14719,8 @@ So, what'll it be?`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00492 | remaining | remaining:rem-02:C06 | confirmed |  |  |  |
-| hrq-00493 | remaining | remaining:rem-02:N01 | upstream |  |  |  |
+| hrq-00492 | remaining | remaining:rem-02:C06 | confirmed |  |  | fix |
+| hrq-00493 | remaining | remaining:rem-02:N01 | upstream |  |  | fix |
 
 <details><summary>hrq-00492 · remaining 详情</summary>
 
@@ -14752,7 +14752,7 @@ Some people just can't let go until they've bled dry.'`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00494 | remaining | remaining:rem-02:C07 | confirmed |  |  |  |
+| hrq-00494 | remaining | remaining:rem-02:C07 | confirmed |  |  | fix |
 
 <details><summary>hrq-00494 · remaining 详情</summary>
 
@@ -14771,7 +14771,7 @@ Some people just can't let go until they've bled dry.'`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00495 | remaining | remaining:rem-02:C08 | advisory |  |  |  |
+| hrq-00495 | remaining | remaining:rem-02:C08 | advisory |  |  | no_change |
 
 <details><summary>hrq-00495 · remaining 详情</summary>
 
@@ -14800,7 +14800,7 @@ Even if you have no fear of the orcish tribes, ritch swarms, and other assorted 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00496 | remaining | remaining:rem-03:C01 | advisory |  |  |  |
+| hrq-00496 | remaining | remaining:rem-03:C01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00496 · remaining 详情</summary>
 
@@ -14823,7 +14823,7 @@ Even if you have no fear of the orcish tribes, ritch swarms, and other assorted 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00497 | remaining | remaining:rem-03:C02 | confirmed |  |  |  |
+| hrq-00497 | remaining | remaining:rem-03:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00497 · remaining 详情</summary>
 
@@ -14897,7 +14897,7 @@ Administrator Quellop`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00498 | remaining | remaining:rem-03:C03 | confirmed |  |  |  |
+| hrq-00498 | remaining | remaining:rem-03:C03 | confirmed |  |  | fix |
 
 <details><summary>hrq-00498 · remaining 详情</summary>
 
@@ -14924,7 +14924,7 @@ And regarding the First Duathedlen - quit your murmuring right now.  I've seen h
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00499 | remaining | remaining:rem-03:C04 | confirmed |  |  |  |
+| hrq-00499 | remaining | remaining:rem-03:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00499 · remaining 详情</summary>
 
@@ -14955,7 +14955,7 @@ Say the word, and I'll send over the temporary rune design so you can set the ne
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00500 | remaining | remaining:rem-03:C05 | confirmed |  |  |  |
+| hrq-00500 | remaining | remaining:rem-03:C05 | confirmed |  |  | fix |
 
 <details><summary>hrq-00500 · remaining 详情</summary>
 
@@ -14990,8 +14990,8 @@ PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't u
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00501 | remaining | remaining:rem-03:C06 | confirmed |  |  |  |
-| hrq-00502 | remaining | remaining:rem-03:N01 | confirmed |  |  |  |
+| hrq-00501 | remaining | remaining:rem-03:C06 | confirmed |  |  | fix |
+| hrq-00502 | remaining | remaining:rem-03:N01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00501 · remaining 详情</summary>
 
@@ -15039,7 +15039,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00503 | remaining | remaining:rem-03:C07 | confirmed |  |  |  |
+| hrq-00503 | remaining | remaining:rem-03:C07 | confirmed |  |  | fix |
 
 <details><summary>hrq-00503 · remaining 详情</summary>
 
@@ -15074,10 +15074,10 @@ The consumer edition of this game, v6.0, has won countless awards for its engagi
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00504 | remaining | remaining:rem-04:C01 | confirmed |  |  |  |
-| hrq-00505 | remaining | remaining:rem-04:C02 | advisory |  |  |  |
-| hrq-00506 | remaining | remaining:rem-04:C03 | advisory |  |  |  |
-| hrq-00507 | remaining | remaining:rem-04:N01 | confirmed |  |  |  |
+| hrq-00504 | remaining | remaining:rem-04:C01 | confirmed |  |  | fix |
+| hrq-00505 | remaining | remaining:rem-04:C02 | advisory |  |  | fix |
+| hrq-00506 | remaining | remaining:rem-04:C03 | advisory |  |  | fix |
+| hrq-00507 | remaining | remaining:rem-04:N01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00504 · remaining 详情</summary>
 
@@ -15127,8 +15127,8 @@ VOTE FISTICUFFS`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00508 | remaining | remaining:rem-04:C04 | confirmed |  |  |  |
-| hrq-00509 | remaining | remaining:rem-04:C05 | advisory |  |  |  |
+| hrq-00508 | remaining | remaining:rem-04:C04 | confirmed |  |  | no_change |
+| hrq-00509 | remaining | remaining:rem-04:C05 | advisory |  |  | no_change |
 
 <details><summary>hrq-00508 · remaining 详情</summary>
 
@@ -15220,9 +15220,9 @@ TANTALOS: "The meeting has been adjourned.  You should be training our necropsyc
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00510 | remaining | remaining:rem-04:C06 | confirmed |  |  |  |
-| hrq-00511 | remaining | remaining:rem-04:C07 | confirmed |  |  |  |
-| hrq-00512 | remaining | remaining:rem-04:C08 | confirmed |  |  |  |
+| hrq-00510 | remaining | remaining:rem-04:C06 | confirmed |  |  | fix |
+| hrq-00511 | remaining | remaining:rem-04:C07 | confirmed |  |  | fix |
+| hrq-00512 | remaining | remaining:rem-04:C08 | confirmed |  |  | fix |
 
 <details><summary>hrq-00510 · remaining 详情</summary>
 
@@ -15327,10 +15327,10 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00513 | remaining | remaining:rem-04:C09 | confirmed |  |  |  |
-| hrq-00514 | remaining | remaining:rem-04:C10 | confirmed |  |  |  |
-| hrq-00515 | remaining | remaining:rem-04:C11 | advisory |  |  |  |
-| hrq-00516 | remaining | remaining:rem-04:N02 | confirmed |  |  |  |
+| hrq-00513 | remaining | remaining:rem-04:C09 | confirmed |  |  | fix |
+| hrq-00514 | remaining | remaining:rem-04:C10 | confirmed |  |  | fix |
+| hrq-00515 | remaining | remaining:rem-04:C11 | advisory |  |  | fix |
+| hrq-00516 | remaining | remaining:rem-04:N02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00513 · remaining 详情</summary>
 
@@ -15392,7 +15392,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00517 | remaining | remaining:rem-04:C12 | refuted |  |  |  |
+| hrq-00517 | remaining | remaining:rem-04:C12 | refuted |  |  | refuted |
 
 <details><summary>hrq-00517 · remaining 详情</summary>
 
@@ -15419,8 +15419,8 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00518 | remaining | remaining:rem-11:C01 | confirmed |  |  |  |
-| hrq-00519 | remaining | remaining:rem-11:N01 | advisory |  |  |  |
+| hrq-00518 | remaining | remaining:rem-11:C01 | confirmed |  |  | fix |
+| hrq-00519 | remaining | remaining:rem-11:N01 | advisory |  |  | fix |
 
 <details><summary>hrq-00518 · remaining 详情</summary>
 
@@ -15446,7 +15446,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00520 | remaining | remaining:rem-11:C02 | advisory |  |  |  |
+| hrq-00520 | remaining | remaining:rem-11:C02 | advisory |  |  | no_change |
 
 <details><summary>hrq-00520 · remaining 详情</summary>
 
@@ -15465,7 +15465,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00521 | remaining | remaining:rem-11:C03 | advisory |  |  |  |
+| hrq-00521 | remaining | remaining:rem-11:C03 | advisory |  |  | fix |
 
 <details><summary>hrq-00521 · remaining 详情</summary>
 
@@ -15484,7 +15484,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00522 | remaining | remaining:rem-11:C04 | confirmed |  |  |  |
+| hrq-00522 | remaining | remaining:rem-11:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00522 · remaining 详情</summary>
 
@@ -15507,7 +15507,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00523 | remaining | remaining:rem-12:C01 | confirmed |  |  |  |
+| hrq-00523 | remaining | remaining:rem-12:C01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00523 · remaining 详情</summary>
 
@@ -15530,7 +15530,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00524 | remaining | remaining:rem-12:C02 | advisory |  |  |  |
+| hrq-00524 | remaining | remaining:rem-12:C02 | advisory |  |  | fix |
 
 <details><summary>hrq-00524 · remaining 详情</summary>
 
@@ -15551,7 +15551,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00525 | remaining | remaining:rem-12:C03 | advisory |  |  |  |
+| hrq-00525 | remaining | remaining:rem-12:C03 | advisory |  |  | fix |
 
 <details><summary>hrq-00525 · remaining 详情</summary>
 
@@ -15573,7 +15573,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00526 | remaining | remaining:rem-12:C04 | confirmed |  |  |  |
+| hrq-00526 | remaining | remaining:rem-12:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00526 · remaining 详情</summary>
 
@@ -15594,7 +15594,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00527 | remaining | remaining:rem-12:N01 | confirmed |  |  |  |
+| hrq-00527 | remaining | remaining:rem-12:N01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00527 · remaining 详情</summary>
 
@@ -15623,7 +15623,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00528 | remaining | remaining:rem-12:C05 | confirmed |  |  |  |
+| hrq-00528 | remaining | remaining:rem-12:C05 | confirmed |  |  | fix |
 
 <details><summary>hrq-00528 · remaining 详情</summary>
 
@@ -15652,8 +15652,8 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00529 | remaining | remaining:rem-12:C06 | advisory |  |  |  |
-| hrq-00530 | remaining | remaining:rem-12:N02 | confirmed |  |  |  |
+| hrq-00529 | remaining | remaining:rem-12:C06 | advisory |  |  | fix |
+| hrq-00530 | remaining | remaining:rem-12:N02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00529 · remaining 详情</summary>
 
@@ -15687,7 +15687,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00531 | remaining | remaining:rem-12:C07 | confirmed |  |  |  |
+| hrq-00531 | remaining | remaining:rem-12:C07 | confirmed |  |  | fix |
 
 <details><summary>hrq-00531 · remaining 详情</summary>
 
