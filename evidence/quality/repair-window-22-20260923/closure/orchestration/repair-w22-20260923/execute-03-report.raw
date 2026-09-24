@@ -1,0 +1,16 @@
+第 2 轮修复已完成。
+
+变更：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:13642)：仅将指定子串替换为“电鳗到哪儿为止、尾巴又从哪儿开始？”，该条其余文字未变。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-22-20260923/IMPLEMENTATION.md)：追加第 2 轮实施说明。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-22-20260923/VALIDATION.json)：追加真实验证结果，JSON 解析通过。
+
+验证全部通过：
+
+- `verify.py`：退出码 0，`verified=true`，22989 条记录，仍恰好 6 个冻结 revision 发生 target 变更。
+- strict lint：退出码 0，30308 条，0 errors、0 warnings。
+- claims check：退出码 0。
+- `git diff --check`：退出码 0，无输出。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未创建 agent，未 stage、commit 或 push；无关 untracked 均已保留。

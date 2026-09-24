@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 5,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-CLOAK-ILLUSION-APPEARS",
+      "revision_key": "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "completeness",
+      "reason": "宿主核验 timed_effects/other.lua:2614（624a673）：on_gain 返回的获得提示 \"An illusion appears around #Target# making %s appear human.\"，描述幻象此刻出现；现译“#Target#周围的幻影让%s看起来像人类。”把事件写成既有状态，漏译 appears。本条本窗口已整句改写，按整句核对原则一并补全。",
+      "replacements": [
+        {
+          "scope": "whole_target",
+          "old": "#LIGHT_BLUE##Target#周围的幻影让%s看起来像人类。",
+          "new": "#LIGHT_BLUE#一层幻影出现在#Target#周围，让%s看起来像人类。"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 5 条 OK（电鳗尾、厄奇斯成就、挂坠、腐化蒸汽 1 LF、分裂 7 行）。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-24T01:15:37.271935+00:00"
+}

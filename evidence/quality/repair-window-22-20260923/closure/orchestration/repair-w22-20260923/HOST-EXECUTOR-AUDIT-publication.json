@@ -1,0 +1,27 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 9,
+      "native_calls_sha256": "230d572c1f25f160b2b9acb8dd85622011b816c9daca7fbb80aa57164c75cf07",
+      "writes": [
+        "evidence/quality/repair-window-22-20260923/orchestration/* (158 pack files; a first pack built before PUBLICATION-SCOPE.md existed was discarded unconsumed and rebuilt after the scope was written, SHA verified)",
+        "evidence/quality/repair-window-22-20260923/orchestration-pack-manifest.json (window root)",
+        "evidence/quality/repair-window-22-20260923/publication/* (16 attachments)",
+        "evidence/quality/repair-window-22-20260923/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and migrations/1cd5583d….json (exact copies)",
+        "handoff.md"
+      ],
+      "reads": [
+        "role, PUBLICATION-SCOPE, PACK-MANIFEST, task inputs listed by scope",
+        "read-only git diff scope checks",
+        "read-only ai_state_check"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ]
+}

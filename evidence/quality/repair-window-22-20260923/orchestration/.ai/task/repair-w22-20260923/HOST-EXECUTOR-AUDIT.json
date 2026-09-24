@@ -1,0 +1,61 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 12,
+      "native_calls_sha256": "b363cf20786073dcbefb0cdea82eb13af6bce47d0bca2c5eeec52f63a79a5ad2",
+      "writes": [
+        "mod-tome.lua (6 targets)",
+        "evidence/quality/repair-window-22-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 6 targets: 看起来像人类; 电鳗尾“其实没多大关系”; 厄奇斯成就补“疯狂的”“猛攻”; 赤铁矿之月遮蔽金色太阳; 腐化的蒸汽在目标位置升起（1 LF, \\t\\t kept); Mitosis restored to 7 lines (6 LF, lines 2-7 start with \\t\\t) with line of sight, summon limit and while-active qualifiers."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "5d77a41bb2885b6d4cc0b095960769df6f2084f7aec1f88f66ee944bafa353b6",
+      "writes": [
+        "mod-tome.lua (cloak of deception log only: 一层幻影出现在#Target#周围，让%s看起来像人类。)",
+        "evidence/quality/repair-window-22-20260923/IMPLEMENTATION.md, VALIDATION.json (appended)"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    },
+    {
+      "dispatch_id": "execute-03",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "f46a8dba0d1bdee98f866abecad7674b970648a09bbac01999571099d52d4d49",
+      "writes": [
+        "mod-tome.lua (eel entry only: 电鳗到哪儿为止、尾巴又从哪儿开始？)",
+        "evidence/quality/repair-window-22-20260923/IMPLEMENTATION.md, VALIDATION.json (appended)"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-F1",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "after execute-03: verify.py PASS, exactly 6 targets changed vs baseline"
+}

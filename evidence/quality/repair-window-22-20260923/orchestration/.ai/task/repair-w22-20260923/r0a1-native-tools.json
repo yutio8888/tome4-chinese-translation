@@ -1,0 +1,32 @@
+{
+  "dispatch_id": "r0a1",
+  "native_session": "01a0d0fa-6f75-7d52-b79d-39a1a4e9b374",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/24/rollout-2026-09-24T01-14-28-01a0d0fa-6f75-7d52-b79d-39a1a4e9b374.jsonl",
+  "native_sha256": "ce33a41ac3704c85430c072d75299f88c4d1759330c6a7571bd5a4d8996d8290",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_073e68d6d2e41cb9016ab4797cf46487d1a3b099f33ccdb43b",
+      "status": "completed",
+      "call_id": "call_fAZijvFlZDmFbfrUPuWhRgVY",
+      "name": "exec",
+      "input": "const r=await Promise.allSettled([\n  tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:16000}),\n  tools.exec_command({cmd:\"cat .ai/task/repair-w22-20260923/CONTEXTUAL-ENVELOPE-r0a1.json\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:30000})\n]); for(const x of r) text(x);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d0fa-6fb1-7350-b9c0-bdc9f2fa656d",
+        "create_time": 1790212475.266344
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_073e68d6d2e41cb9016ab47980fcd087d184295ad133346c40",
+      "status": "completed",
+      "call_id": "call_ORL4LcfZ66x2a0vVp6EMPwmu",
+      "name": "exec",
+      "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md .ai/task/repair-w22-20260923/CONTEXTUAL-ENVELOPE-r0a1.json\",workdir:\"/workspace/tome4-chinese-translation\",sandbox_permissions:\"require_escalated\",justification:\"Need to read the two explicitly authorized frozen review inputs; sandbox mount isolation failed.\",max_output_tokens:40000});text(r);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d0fa-6fb1-7350-b9c0-bdc9f2fa656d",
+        "create_time": 1790212479.573817
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+第 1 轮修复已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:36685)：指定 target 已改为 `#LIGHT_BLUE#一层幻影出现在#Target#周围，让%s看起来像人类。`
+- `#LIGHT_BLUE#`、`#Target#`、`%s` 保持不变，其余五条既有修改未动。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-22-20260923/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-22-20260923/VALIDATION.json)；后者 JSON 语法有效。
+
+验证全部通过：
+
+- `verify.py`：`verified=true`，22989 条记录，恰有 6 个冻结 target 变更。
+- `lint --strict`：30308 条，0 errors、0 warnings。
+- `claims check --strict`：OK。
+- `git diff --check`：通过，无输出。
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；无关 untracked 文件均保留。

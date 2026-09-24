@@ -1,0 +1,18 @@
+{
+  "title": "W22 execute-01 executor",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是唯一EXECUTOR，实际完成修复窗口22的6条译文。先读 .ai/roles/executor.md 和 .ai/task/repair-w22-20260923/ 的 SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-CLAIMS.json、SOURCE-ANCHORS.json、TERM-SNAPSHOT.json。只改mod-tome.lua中6个target及evidence/quality/repair-window-22-20260923/。source/tag/args_order/printf占位符/%%/markup保持基线；LF 与 TAB 必须与原文逐处一致：前四条原文 0 个换行；腐化蒸汽保持 1 个 \\n\\t\\t；分裂（Mitosis）原文 7 行（6 个 \\n、每行前 \\t\\t），现译只有 5 个换行（把“在视线内生成”那一行并进了上一行），修复后必须逐行与原文 7 行一一对应。专名、技能名沿用本库现有译名（先在mod-tome.lua查证，并查同技能/同物品相邻条目已用译法），不自行新造。按SPEC“范围约束”与SOURCE-CLAIMS逐条整句修复：欺诈斗篷日志写“看起来像人类”；电鳗尾写“其实没多大关系”一类；厄奇斯成就补“疯狂的”与“猛攻”（风暴魔导师、厄奇斯、德斯镇沿用）；挂坠写“赤铁矿之月遮蔽金色太阳”一类（不要“红月”）；腐化蒸汽补主语“腐化的蒸汽在目标位置升起”；分裂补“在附近视线内”“（受技能等级与召唤上限限制）”“只要本技能处于激活状态”，take damage 译“受到伤害”。每条其余句子逐句对照，发现明显增删一并修正，但不重写已忠实的句子。不得扩展advisory、pending或其他repair。不改规则、工具、术语库、handoff/catalog/migration，不stage/commit/push、不写.ai、不创建agent；保留无关untracked。补查源码只读git -C /workspace/t-engine4 show固定624a67329fe2ad440c5b344785a9c73fcf22ae63。实际修改后运行python3 -B .ai/task/repair-w22-20260923/verify.py（LF/TAB 对照原文）、python3 -B tools/i18n lint --strict、python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict及git diff --check，并逐行比对分裂条目 source 与 target 的行数与每行开头 TAB。报告只写允许evidence目录；保存PREFLIGHT-BATCH268.json逐字节副本、HOST-WORKSET.json、SOURCE-ANCHORS.json、实施说明和真实检查结果，明确完整门禁/独立复审由宿主继续。最后报告实际成果，不只回计划。",
+  "labels": {
+    "task_id": "repair-w22-20260923",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "22f7efd0-680f-4c7c-b12b-727ea788ef5c"
+  },
+  "notifyOnFinish": true
+}

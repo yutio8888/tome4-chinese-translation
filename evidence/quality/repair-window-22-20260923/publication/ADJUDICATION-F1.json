@@ -1,0 +1,31 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "raw_ok_count": 5,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_RE_REVIEW(2)_then_FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "id": "F1-EEL-STOP-VS-START",
+      "revision_key": "f78b208ac1339275462eccbe631bfdb774062c7b7176b047b072786b7987612e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "宿主核验 ingredients.lua:156（624a673）：Where does the eel stop and the tail start? 问的是电鳗本体到哪里为止、尾巴从哪里开始（分界）；execute-01 按 SPEC 写成“电鳗从哪儿算起”，把 stop 译成起点，两分句都在问起点。SPEC 措辞由宿主提供，本裁决修正。仅改前半问句。",
+      "replacements": [
+        {
+          "scope": "substring",
+          "old": "电鳗从哪儿算起、尾巴从哪儿开始？",
+          "new": "电鳗到哪儿为止、尾巴又从哪儿开始？"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 5 条 OK（欺诈斗篷新译“一层幻影出现在#Target#周围”通过）。",
+  "next_stages": [
+    "FIX",
+    "RE_REVIEW(2)",
+    "FINAL_REVIEW(3)"
+  ],
+  "recorded_at": "2026-09-24T01:18:59.988734+00:00"
+}

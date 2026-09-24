@@ -1,0 +1,30 @@
+{
+  "dispatch_id": "f1a1",
+  "native_session": "fa8e5ad6-eb2b-4b65-8ea2-d71ac7a2f5c4",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fa8e5ad6-eb2b-4b65-8ea2-d71ac7a2f5c4.jsonl",
+  "native_sha256": "88c0f15cb749613ea80f60cab4efe18db5ae28b313f00faad32501628c71e8be",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01VAh9nhKLYKpc88Me9dxPvy",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/repair-w22-20260923/CONTEXTUAL-ENVELOPE-f1a1.json; echo; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01L3cfy4h1agoLRNHbpBr2iH",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 92,126p docs/paseo-translation-context-review-v2-contract.md"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

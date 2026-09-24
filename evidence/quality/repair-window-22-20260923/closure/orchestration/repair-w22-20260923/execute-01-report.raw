@@ -1,0 +1,17 @@
+修复窗口 22 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰好修改冻结 WORKSET 的 6 个 target。
+- 分裂条目已恢复为 7 行、6 个 LF；首行 0 TAB，其余每行 2 TAB，与原文逐行一致。
+- source、source_tag、参数顺序、占位符、`%%`、markup 均保持不变。
+- 已保存冻结副本、实施说明及真实结果至 [repair-window-22-20260923](/workspace/tome4-chinese-translation/evidence/quality/repair-window-22-20260923)；三份副本均通过逐字节比较。
+- 已用指定 commit `624a67329fe2ad440c5b344785a9c73fcf22ae63` 补查源码。
+
+检查全部通过：
+
+- 专用 `verify.py`：22989 条记录，恰好 6 条变化
+- 严格 lint：30308 条，0 errors、0 warnings
+- claims check：通过
+- `git diff --check`：通过
+- evidence JSON：均可解析
+
+未修改 `.ai`、规则、工具、术语库、handoff、catalog 或 migration；未 stage、commit、push；既有无关 untracked 已保留。独立 REVIEW、FINAL_REVIEW、完整门禁、构建及 `DONE_VERIFIED` 由宿主继续。

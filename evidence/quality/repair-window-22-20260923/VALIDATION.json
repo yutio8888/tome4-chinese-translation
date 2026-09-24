@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-22 unique EXECUTOR",
+  "scope": "6 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w22-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 6,
+        "changed_revisions": [
+          "f7bd4de1f91451ebe16d1927f0b5ce047318d81002068752738c63bd9ff08cf8",
+          "f8180dfe1116080a85bf70f93352e02f2f613a4f0d5d83fc1d58e13f6d509456",
+          "f78b208ac1339275462eccbe631bfdb774062c7b7176b047b072786b7987612e",
+          "f894de79df6d2ecec361043978ae052e31f288ef0034c595ee979ae68db2af8d",
+          "f83a8191e966db8ebd1c7b88f3c053c38d1c05394b20452aef239ec110f28195",
+          "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af"
+        ],
+        "invariants": {
+          "source_tag_and_non_target_fields_unchanged": true,
+          "printf_placeholders_and_order_match_baseline": true,
+          "markup_and_at_tokens_match_baseline": true,
+          "first_four_source_target_lf_count": 0,
+          "corrupted_vapour_source_target_lf_count": 1,
+          "corrupted_vapour_continuation_tab_count": 2,
+          "mitosis_source_target_line_count": 7,
+          "mitosis_source_target_lf_count": 6,
+          "mitosis_source_target_leading_tab_counts": [0, 2, 2, 2, 2, 2, 2]
+        }
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260924T011214.013063Z-2955275-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "bounded Mitosis source/target line and leading-TAB comparison",
+      "exit_code": 0,
+      "output": "source_lines=7 target_lines=7 source_lf=6 target_lf=6 leading_tabs=[0,2,2,2,2,2,2] for both"
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w22-20260923/PREFLIGHT-BATCH268.json",
+      "path": "evidence/quality/repair-window-22-20260923/PREFLIGHT-BATCH268.json",
+      "sha256": "d15a80e42ad8eba77d66f95eea18ae0c3a1981d9d0176e85c89a6b81368028af",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w22-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-22-20260923/HOST-WORKSET.json",
+      "sha256": "1c996318ef6fd6d156fd30634e3b2a3ea5226083c0a5718b13947d702bcc562d",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w22-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-22-20260923/SOURCE-ANCHORS.json",
+      "sha256": "209f297eb2423effbf9fa39660be66269522fad4309277ff23cf62d4fc49f787",
+      "byte_identical": true
+    }
+  ],
+  "repair_round_1": {
+    "finding": "R0-CLOAK-ILLUSION-APPEARS",
+    "change": {
+      "source": "#LIGHT_BLUE#An illusion appears around #Target# making %s appear human.",
+      "old_target": "#LIGHT_BLUE##Target#周围的幻影让%s看起来像人类。",
+      "new_target": "#LIGHT_BLUE#一层幻影出现在#Target#周围，让%s看起来像人类。",
+      "preserved": [
+        "#LIGHT_BLUE#",
+        "#Target#",
+        "%s",
+        "source",
+        "source_tag",
+        "the other five repaired targets"
+      ]
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w22-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 6,
+          "cloak_revision": "f7641a73ef53957fb0485b33b1aa7d135467409f556f72c351b6150f004e95af",
+          "cloak_line": 36685,
+          "cloak_target_matches_adjudication": true
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260924T011649.966715Z-2963434-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "scope_result": "Only the adjudicated cloak target was changed in this round; the other five repaired targets were preserved. No rules, tools, terminology, handoff, catalog, migration, or .ai files were modified; no stage, commit, or push was performed; unrelated untracked files were preserved."
+  },
+  "repair_round_2": {
+    "finding": "F1-EEL-STOP-VS-START",
+    "change": {
+      "source": "I know, I know. Where does the eel stop and the tail start? It doesn't much matter. The last ten inches or so should do nicely.",
+      "old_substring": "电鳗从哪儿算起、尾巴从哪儿开始？",
+      "new_substring": "电鳗到哪儿为止、尾巴又从哪儿开始？",
+      "preserved": [
+        "the rest of this target",
+        "source",
+        "source_tag",
+        "the other five repaired targets"
+      ]
+    },
+    "commands": [
+      {
+        "command": "python3 -B .ai/task/repair-w22-20260923/verify.py",
+        "exit_code": 0,
+        "result": {
+          "verified": true,
+          "records": 22989,
+          "changed_count": 6,
+          "eel_revision": "f78b208ac1339275462eccbe631bfdb774062c7b7176b047b072786b7987612e",
+          "eel_line": 13642,
+          "eel_target_matches_adjudication": true
+        }
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "exit_code": 0,
+        "output": "Checked 30308 translations: 0 errors, 0 warnings",
+        "report": ".artifacts/i18n/runs/20260924T012040.304702Z-2973152-lint/lint.json"
+      },
+      {
+        "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+        "exit_code": 0,
+        "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "scope_result": "Only the adjudicated eel target substring was changed in this round; all other target text was preserved. No rules, tools, terminology, handoff, catalog, migration, or .ai files were modified; no stage, commit, or push was performed; unrelated untracked files were preserved."
+  },
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, build, and DONE_VERIFIED were not run and are not claimed."
+}
