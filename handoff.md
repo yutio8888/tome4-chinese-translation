@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核274已完成；修复改为攒批，积压7条，达20条后开合并修复窗口27）
+更新时间：2026-09-24（审核275已完成；修复攒批中，积压13条，达20条后开合并修复窗口27）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -434,7 +434,14 @@ surface 四组 `codex/gpt-6-sol` 为 69 OK / 11 ISSUE，80 个 identity 回显�
 
 274 的 5 条修复计入积压（`.ai/task/batch-c03b7552b4059d697ec0/REPAIR-BACKLOG-DECISION.json`）：“裂解”每目标每回合可各除去一项物理和一项魔法增益（补回物理伤害对物理、时空伤害对魔法的对应关系）；技能名 Unstoppable Nature“自然世界”改“势不可挡的自然”一类；技能名 Reflex Defense“闪避神经”改“反射防御”一类（机制为减伤与降低受暴击倍率，contextual 判 OK，宿主按源码维持）；粘液说明中友方单位条件“经过”改为处在粘液中（contextual 判 OK，宿主按 MUCUS 实现维持）；半身人炼金术士对话末句恢复“越晚回来”与“冒烟的弹坑”。
 
-当前修复积压共 7 条（273 两条 + 274 五条）；下一步继续审核275（默认80条），积压达 20 条后开合并修复窗口27。
+审核275（`batch-54d2d16b94c511082107`）已闭合，结果为 **74 done / 6 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 69 OK / 11 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 复核这 11 条，为 7 OK / 4 ISSUE。
+15 个观察裁决为 10 confirmed、5 refuted，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `b76cf091`，
+详见[275宿主证据](evidence/quality/production-batches/batch-54d2d16b94c511082107-host-evidence/summary.md)。本批在 adjudication chain 之后按用户要求暂停过一次（系统重启），恢复后从 commit_ready 继续收口。
+
+275 的 6 条修复计入积压（`.ai/task/batch-54d2d16b94c511082107/REPAIR-BACKLOG-DECISION.json`）：燃烧之手补“（及武器）”并把体力回复改为“每次命中”；恶魔空间补“每回合”、持续光环与“法术结束时”；黑暗者古尔莫特墓志铭拆回三行（LF 6→5 实测）；回复纹身加载提示整句修复（预判伤害、提前准备，物品名统一“回复纹身”）；任务名 From bellow, it devours 对齐“来自深渊，吞噬四方”；wispy purple cloak“脆弱的”改“缥缈的”。
+
+当前修复积压共 13 条（273 两条 + 274 五条 + 275 六条）；下一步继续审核276（默认80条），积压达 20 条后开合并修复窗口27。
 
 ### 窗口7闭合时的暂停记录（历史）
 
