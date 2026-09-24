@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（修复窗口22已完成；待宿主发布收尾，随后审核269）
+更新时间：2026-09-24（审核269已完成；下一步修复窗口23，仅处理269的3条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -362,7 +362,15 @@ surface 四组 `codex/gpt-6-sol` 为 72 OK / 8 ISSUE，80 个 identity 回显逐
 
 修复窗口22已完成审核268确认的6条修复：欺诈斗篷生效日志改为“一层幻影出现在#Target#周围，让%s看起来像人类”；电鳗尾炼金说明改为“电鳗到哪儿为止、尾巴又从哪儿开始？其实没多大关系”；厄奇斯成就补回“疯狂的”与“猛攻”；太阳堡垒创建者挂坠改为“赤铁矿之月遮蔽金色太阳”；腐化蒸汽补回主语，改为“腐化的蒸汽在目标位置升起”；分裂（Mitosis）补回视线内、召唤上限、技能激活期间三处限定，并恢复为与原文一致的7行。`REVIEW(0)/full` 为5 OK / 1 ISSUE，确认欺诈斗篷漏译“出现”；`execute-02` 修复。`FINAL(1)/full` 为5 OK / 1 ISSUE，确认电鳗句将 `stop` 译成起点（源于宿主 SPEC 措辞）；`execute-03` 修复。`RE_REVIEW(2)/full` 为5 OK / 1 ISSUE，宿主因 `Cunning=灵巧` 为本库属性名而驳回；`FINAL(3)/full` 为6 OK，任务收敛。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。3个 executor、4个 reviewer child 均已归档确认；本 publication child 待宿主归档。本窗口无新增 pending。流程教训是：SPEC 中给出的示例译文本身也必须逐词对照原文。
 
-译文提交为 `e3ad691d2819f29598d974d99d0139a3b373de20`；新 catalog 为 `b239aafd8d5887f41de2065795f6913737ac9847cac1725c390e2fc2a421a197`；migration 为 `1cd5583de937a86439dcbc7ae0c2953e201574c2c53aa687ab592d39a5479508`。迁移结果为6条 `revision_changed`、29,822条 `unchanged`、0条 `ambiguous/unmapped`，6个 successor 待重新审核且不继承 `done`。完整结果见[窗口22发布证据](evidence/quality/repair-window-22-20260923/PUBLICATION.md)。本证据提交、第二次 queue rebuild 与 push 由宿主执行，当前尚未完成；完成发布收尾后继续审核269（默认80条）。
+译文提交为 `e3ad691d2819f29598d974d99d0139a3b373de20`；新 catalog 为 `b239aafd8d5887f41de2065795f6913737ac9847cac1725c390e2fc2a421a197`；migration 为 `1cd5583de937a86439dcbc7ae0c2953e201574c2c53aa687ab592d39a5479508`。迁移结果为6条 `revision_changed`、29,822条 `unchanged`、0条 `ambiguous/unmapped`，6个 successor 待重新审核且不继承 `done`。完整结果见[窗口22发布证据](evidence/quality/repair-window-22-20260923/PUBLICATION.md)。窗口22的证据提交（`d5d6e0aa`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核269（`batch-cfd398e96c387cc31dc0`）已闭合，结果为 **77 done / 3 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 为 8 OK / 1 ISSUE。
+10 个观察裁决为 4 confirmed、3 refuted、3 advisory，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `de307884`，
+详见[269宿主证据](evidence/quality/production-batches/batch-cfd398e96c387cc31dc0-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口23，仅处理 269 的 3 条：夺心魔任务“至少清除一个威胁”（漏 at least）、埃亚尔之怒（eyal's fury）技能类别说明漏“周围的”、
+奥术漩涡说明漏射线贯穿路径上全部目标与本体同时受伤。范围见 `.ai/task/batch-cfd398e96c387cc31dc0/WINDOW23-REPAIR-DECISION.json`。
 
 ### 窗口7闭合时的暂停记录（历史）
 
