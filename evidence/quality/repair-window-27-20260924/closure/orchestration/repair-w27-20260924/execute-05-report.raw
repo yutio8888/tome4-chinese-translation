@@ -1,0 +1,14 @@
+已完成 RE_REVIEW(2) 定点修复。
+
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1391)：仅将“缴械和震慑抗性增加 %d%%”改为“缴械和震慑免疫率提高 %d%%”。
+- 保持 9 LF / 18 TAB、七个 `-` 列表前缀及全部占位符不变。
+- 已更新本窗口 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-27-20260924/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-27-20260924/VALIDATION.json)。
+
+验证结果：
+
+- `verify.py`：退出 0，`verified=true`，加载 23889 条记录，恰有 28 个允许的 target 变化。
+- strict lint：退出 0，30308 条翻译，0 errors、0 warnings。
+- `git diff --check`：退出 0。
+- `VALIDATION.json`：`jq empty` 通过。
+
+未修改其他 Lua 记录、术语、`.ai/task` 或旧证据；未 stage、commit、push，也未创建 agent。无计划偏差或遗留问题。

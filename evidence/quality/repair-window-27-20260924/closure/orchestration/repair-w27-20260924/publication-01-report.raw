@@ -1,0 +1,18 @@
+窗口 27 的证据发布与安全暂停交接已完成。
+
+- 安装 186 项 PACK-MANIFEST 快照，逐项 SHA-256 和字节数一致，路径集合无缺漏或多余。
+- 精确复制 5 个候选 catalog 文件及 migration。
+- 精确复制 13 个 publication 附件。
+- 新增 [PUBLICATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-27-20260924/PUBLICATION.md)。
+- 更新 [handoff.md](/workspace/tome4-chinese-translation/handoff.md)，窗口27的28条现标为已修历史；下一步限定为宿主证据提交、queue rebuild、push，随后暂停，明确不得启动第278批。
+- Catalog ID 与 migration ID 均符合冻结范围。
+
+验证结果：
+
+- `PACK_CHECK checked=186 bad=0`
+- 所有 catalog、migration、publication 附件均为逐字副本
+- Markdown 链接、UTF-8、行尾和空白检查通过
+- `git diff --check` 通过
+- 指定状态回放：`DONE_VERIFIED: DONE predicate verified`
+
+未运行 queue/catalog/migration/门禁生成命令或 `verify_pack.py`；未修改 Lua、术语、规则、工具、`.ai` 或旧证据；未 stage、commit、push，也未创建 agent。publication child 仍待宿主归档。

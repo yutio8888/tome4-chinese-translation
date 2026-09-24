@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核277已 finalize；修复积压28条；窗口27待开启）
+更新时间：2026-09-24（窗口27已完成；待宿主证据提交、关闭后 queue rebuild 与 push；随后安全暂停）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -9,8 +9,13 @@
 ## 一、当前状态
 
 - 审核已闭合至第 **277** 批（`batch-a2538cac10c65873a661`，证据及 stage 修复 `35fe994e`，finalize 通过）。
-  当前没有 active batch；修复积压已达到开窗阈值。
-- 修复窗口已闭合至 **26**（证据 `b2ebc16d`）。下一个窗口是 27，积压已达 28 条，按授权开启合并修复。
+  当前没有 active batch；按用户要求不得启动第 278 批。
+- 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交与
+  catalog/migration 发布准备；当前只待宿主提交本窗证据、执行关闭后的 queue rebuild 并 push。
+- 窗口 27 译文提交为 `defcc44d6d01a1329d83b37b0dcbb83c56e4b631`；新 catalog 为
+  `cdc76147d080c57a246273344897b397c53eded5051d701a3d7974dcb1f9e0f8`，migration 为
+  `b8289b4f700157310fc4a583dab34cbd726be7c2a55895b4d24a942b607f8c63`。28 个 successor 必须重新审核，
+  不继承旧 revision 的 done 状态。
 - 2026-09-24 早些时候已提交并推送工具维护与文档整理，内容见第四节。
 - 近五批结果：
 
@@ -30,10 +35,14 @@
 - 2026-09-24：修复先记录，**积压达到 20 条或以上再一并修复**，取代原来每批审核后接一个小修复窗口的 1:1 节奏。
 - 每批（或每个窗口）完全收口后 push；批次进行期间不得提交任何东西。
 - 用户随后明确要求推进新批次，暂停已解除。第 276 批的 DLC reviewer 边界修复与按原模型重派也已获明确授权。
+- 用户现已明确要求窗口 27 修复完成后安全暂停；完成本窗宿主闭合动作后不得启动第 278 批。
+- 后续恢复时，无需再次询问审核外发或 push 授权；现有授权继续有效，但恢复连续审核须以用户解除本次暂停为准。
 - 审核模型：surface `codex/gpt-6-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
   修复 EXECUTOR `codex/gpt-5.6-sol`。
 
-## 三、修复积压（28 条，窗口 27 的范围）
+## 三、窗口 27 已修历史（28 条）
+
+下表是窗口 27 已完成的冻结修复范围，仅作历史记录，不再是当前待修积压。
 
 | 来源批次 | revision（前 8 位） | 修复内容 |
 | --- | --- | --- |
@@ -68,8 +77,7 @@
 
 范围与源码依据：273 见 `.ai/task/batch-5e69946bed52ed5a5cbc/WINDOW27-REPAIR-DECISION.json`，274–277 见各自
 `.ai/task/<batch>/REPAIR-BACKLOG-DECISION.json` 与 `HOST-FINAL-DECISIONS.json`。
-宿主目录里的 `setup_window27_task.py` 只按 273 的 2 条生成、**未运行**；开窗时要改成多来源批次版本
-（preflight 一次最多 3 个 batch id，现有 5 个来源批次；开窗时分组运行并改写脚本，不可直接运行旧脚本）。
+本窗发布记录见 [`evidence/quality/repair-window-27-20260924/PUBLICATION.md`](evidence/quality/repair-window-27-20260924/PUBLICATION.md)。
 
 ## 四、本轮工具维护与文档整理（2026-09-24）
 
@@ -86,9 +94,10 @@
 
 ## 五、下一步
 
-1. 在 `35fe994e` 及本次 closure 提交的 HEAD 上，按指南第五节将 273–277 的 28 条积压拆成两组来源批次做 repair preflight（每次最多 3 个 batch id）；建立合并修复窗口 27 的有界 SPEC/SCOPE，禁止直接运行只含 273 两条的旧脚本。
-2. 窗口 27 完整修复、复审、门禁、提交和发布闭合后，恢复连续审核第 278 批。
-3. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 22 项）。
+1. 宿主提交窗口 27 的 publication 与 evidence，确认 publication child 已归档。
+2. 宿主执行窗口关闭后的 queue rebuild 并 push。
+3. 完成上述闭合动作后安全暂停，**不得启动第 278 批**，等待用户明确解除暂停。
+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 22 项）。
 
 ## 六、环境备忘
 

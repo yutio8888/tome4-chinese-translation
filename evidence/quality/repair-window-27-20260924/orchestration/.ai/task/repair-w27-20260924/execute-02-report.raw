@@ -1,0 +1,13 @@
+已完成本次 FIX，仅修改 [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:637) 的两个指定 target：
+
+- `0523b49940c…`：补回“世界之间”和恶魔视角的“正义复仇”；删除“降临/大举/入侵/无形”；保留灼热平台正在分裂。
+- `218c180b3f8…`：同条 4 处全部统一为“乌鲁洛克”，未全局改名。
+
+验证通过：
+
+- LuaJIT exact verifier：23,889 条记录，恰 28 个原窗口允许 target 有差异，其余记录及字段不变。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 定向断言：禁用增译均不存在；4/4 处均为“乌鲁洛克”。
+
+未修改任务记录、其他译文、术语或旧证据；未 stage、commit、push，也未创建 agent。无计划偏差或遗留问题。

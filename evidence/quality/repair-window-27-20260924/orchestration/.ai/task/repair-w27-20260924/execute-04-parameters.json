@@ -1,0 +1,18 @@
+{
+  "title": "W27 evidence verifier repair",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w27-20260924 的证据一致性修复。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F1.json，以及 evidence/quality/repair-window-27-20260924/verify.py 与 VALIDATION.json。两条 target 已由 execute-03 修好，禁止修改任何 Lua。当前 verify.py 第98行仍断言 MUCUS 为6 LF，第101行仍断言 WRATH 为10 LF，导致实际运行失败；VALIDATION.json 却称 exit 0。只修改本窗口证据目录下 verify.py 和必要的 VALIDATION.json/IMPLEMENTATION.md：让两条与源码 LF/TAB 一致（MUCUS 5/10、WRATH 9/18）并校验 WRATH 七个“-”列表前缀，运行 verify.py 并记录真实结果。不得修改 .ai/task、译文、术语、旧证据；不 stage/commit/push、不创建 agent。完成后报告两份 Lua 文件 SHA-256 前后相同及验证结果。",
+  "labels": {
+    "task_id": "repair-w27-20260924",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-04",
+    "paseo.parent-agent-id": "ea131864-51e5-4e99-87fc-90e131bd6480"
+  },
+  "notifyOnFinish": true
+}
