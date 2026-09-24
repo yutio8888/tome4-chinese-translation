@@ -1,0 +1,594 @@
+diff --git a/.ai/roles/reviewer.md b/.ai/roles/reviewer.md
+index f490533b..530fa573 100644
+--- a/.ai/roles/reviewer.md
++++ b/.ai/roles/reviewer.md
+@@ -28,6 +28,8 @@ File / Location / Problem / Evidence / Impact / Recommended fix`，复审轮标
+ 
+ ## translation_contextual_v2
+ 
++源码定位仅使用 envelope 明确给出的路径和与当前 revision 相关的调用链；不得从 `/` 或无关目录发起全盘搜索。DLC 本机 checkout 只是取证位置，须逐文件核对冻结 workset 的 SHA-256，不能据此声称来源或 commit 已固定。
++
+ 只读取精确 input_path、其中精确范围的引用内容及完整
+ `docs/paseo-translation-context-review-v2-contract.md`；不得读取其他 `.ai/task/`、
+ `.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope
+diff --git a/docs/paseo-translation-context-review-v2-contract.md b/docs/paseo-translation-context-review-v2-contract.md
+index 5ffe6c8a..ec807773 100644
+--- a/docs/paseo-translation-context-review-v2-contract.md
++++ b/docs/paseo-translation-context-review-v2-contract.md
+@@ -75,6 +75,23 @@ lane_group identity 是 group identity。reason 词表沿用 v1；禁止 v1 的
+ direct `parent_agent_id` lineage、
+ archive 状态和完整 group，不得把 partial publication 当完成。
+ 
++WP2-Lite 的已归档无效 full dispatch 若需要补充本机 DLC 取证位置，使用新的显式 refreeze event，
++生成新 input path、candidate identity 与 task ID。入口仅在旧 checkpoint 处于 `deep_ready`、
++旧 refs 均为 prepared、旧 task 无已接受 review record 且全部 child 确认归档时开放。
++旧 envelope、candidate、raw 和 diagnostics 保持原字节；新冻结前逐项核对受跟踪 source workset
++与本机 checkout 的 SHA-256。checkout 只作为这次 envelope 的取证位置，来源／commit 继续标为
++unpinned。新 task 仍须重新执行 anchor preflight、stage 和 dispatch，旧输出不得进入新 task。
++
++操作入口：`python3 -B tools/orchestration/stage_contextual.py <batch-id> --refreeze-id <fresh-token> --source-workset evidence/quality/production-batches/<batch-id>-source-workset.json --ashes-checkout <absolute-checkout>`。
++若 export 已发布新 checkpoint，但 stage 在建立 task 或 report 时中断，使用**相同** batch、
++`--refreeze-id`、`--source-workset`、`--ashes-checkout` 和 `--out` 原命令重试。入口识别 checkpoint
++中同一 event 的 refs，逐项验证冻结 input 的 SHA-256、candidate identity、task 绑定、已有
++candidate 字节、未启动 STATE 和 report 内容，随后只补齐缺失的 task 文件或 report；不覆盖已有
++candidate、raw、review 或 report。已有 task 含 raw／review、状态已启动、冻结输入或 report
++漂移时失败关闭，交回 ORCHESTRATOR 核验，不得手改 checkpoint 或改用新 event 绕过。
++若 export 尚未发布 checkpoint，且入口已确认没有该 event 的 task/report，原命令可重试；
++不同内容的已有 input 会由 export 拒绝。这个命令只冻结和建立 task，不执行 reviewer。
++
+ ## 五、raw evidence 与 DONE
+ 
+ 解析前把 exact returned bytes 保存为 `.ai/reviews/<task_id>/raw-<dispatch_id>.txt`。每个接受的
+@@ -104,9 +121,9 @@ provenance，不等于术语条目正文，也不授权读取或搜索当前译
+ 固定三行 prompt：
+ 
+ ```text
+-任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。
+-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
+-输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。
++任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。
++输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。
++输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。
+ ```
+ 
+ 模板和每次实例化 UTF-8 bytes 都必须 `<= 800`；路径较长时仍按实际实例拒绝超限，且 full、closure、lane 和
+@@ -128,7 +145,7 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
+ 根据维护者 2026-09-12 授权，REVIEWER 可沿调用链补查冻结版本中与当前 revision 相关的公开源码，
+ 不要求所有调用文件事先列入输入。2026-09-22 的流程修订另行授权读取精确 input_path、其中精确
+ 范围的引用内容和完整本契约，并规定第六节的冻结译文／术语边界；两次授权不得互相追溯归因。
+-为定位该版本源码仓库，可作必要的目录和 Git 对象元数据查询；不扫描无关资料。
++为定位该版本源码仓库，可在 envelope 明确指定的源码位置作必要的目录和 Git 对象元数据查询；不得从 `/` 或其他无关目录作全盘搜索。DLC checkout 的本机位置只用于本批取证定位，不等于来源、commit 或版本固定；每个实际引用文件仍须与受跟踪 workset 的 SHA-256 匹配。
+ 不得读其他 `.ai/task/`、`.ai/reviews/` 或先前 finding，也不据此扩大译文候选或取得写入权限。
+ 
+ 补查应记录组件、公开源码路径、固定 commit（或冻结快照）、关键调用及证据摘录或行范围。
+diff --git a/tests/i18n/test_review_prompts.py b/tests/i18n/test_review_prompts.py
+index b0b544f6..030e56f6 100644
+--- a/tests/i18n/test_review_prompts.py
++++ b/tests/i18n/test_review_prompts.py
+@@ -1,8 +1,16 @@
+ from pathlib import Path
+ import ast
++import copy
++import hashlib
++import json
++import os
+ import re
++import runpy
+ import sys
++import tempfile
+ import unittest
++from contextlib import nullcontext
++from unittest import mock
+ 
+ 
+ ROOT = Path(__file__).resolve().parents[2]
+@@ -16,6 +24,7 @@ import dispatch_contextual
+ import dispatch_surface
+ import review_prompts
+ import surface_screen_result_check
++from i18nlib import production_review_v2_lite_batch as batch
+ 
+ 
+ def contract_prompt(relative: str, marker: str) -> str:
+@@ -46,6 +55,216 @@ class ReviewPromptTests(unittest.TestCase):
+             ),
+         )
+ 
++    def test_contextual_search_scope_is_bounded(self):
++        prompt = review_prompts.build_contextual_prompt(self.CI, '.ai/task/new/CONTEXTUAL-ENVELOPE-final-full.json')
++        self.assertIn('禁从 / 或无关目录全盘搜索', prompt)
++        self.assertIn('仅限输入指定位置', prompt)
++        self.assertIn('可沿调用链查冻结版相关源码', prompt)
++        self.assertNotIn('禁从 /', review_prompts.SURFACE_PROMPT_TEMPLATE)
++
++    def test_refreeze_requires_archived_invalid_input_and_preserves_bytes(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            task = 'old-contextual'
++            source = root / 'old-input.json'
++            source.write_bytes(b'old frozen envelope')
++            state_path = root / 'task/STATE.json'
++            state_path.parent.mkdir()
++            state = {'task_id': task, 'review_records': [], 'child_dispatches': [
++                {'archive_confirmed': True, 'lifecycle': 'archived', 'role': 'REVIEWER',
++                 'purpose': 'translation_contextual_v2', 'candidate_identity': 'c' * 64,
++                 'input_path': 'task/CONTEXTUAL-ENVELOPE-final-full.json',
++                 'output_valid': True}]}
++            state_path.write_text(json.dumps(state))
++            checkpoint = {'phase': 'deep_ready', 'contextual': [{
++                'task_id': task, 'task_state_path': 'task/STATE.json',
++                'validator_status': 'prepared', 'output_path': None,
++                'candidate_identity': 'c' * 64,
++                'input_path': str(source), 'input_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
++            }]}
++            original = source.read_bytes()
++            batch._validate_refreeze_old_refs(root, checkpoint)
++            self.assertEqual(source.read_bytes(), original)
++            for key, invalid in [('role', 'SCOUT'), ('purpose', 'other'),
++                                 ('candidate_identity', 'd' * 64), ('input_path', 'other.json')]:
++                old = state['child_dispatches'][0][key]
++                state['child_dispatches'][0][key] = invalid
++                state_path.write_text(json.dumps(state))
++                with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'not fully archived'):
++                    batch._validate_refreeze_old_refs(root, checkpoint)
++                state['child_dispatches'][0][key] = old
++            state['child_dispatches'][0]['archive_confirmed'] = False
++            state_path.write_text(json.dumps(state))
++            with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'not fully archived'):
++                batch._validate_refreeze_old_refs(root, checkpoint)
++            state['child_dispatches'][0]['archive_confirmed'] = True
++            state['review_records'] = ['accepted-record.json']
++            state_path.write_text(json.dumps(state))
++            with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'not fully archived'):
++                batch._validate_refreeze_old_refs(root, checkpoint)
++            self.assertEqual(source.read_bytes(), original)
++
++    def test_refreeze_export_resumes_only_identical_precheckpoint_input(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            checkpoint_path = batch.queue.checkpoint_path(root)
++            checkpoint_path.parent.mkdir(parents=True)
++            old = {'batch_id': 'batch-test', 'phase': 'deep_ready', 'contextual': [{
++                'task_id': 'batch-test-contextual-000',
++            }]}
++            old_raw = batch._checkpoint_bytes(old)
++            checkpoint_path.write_bytes(old_raw)
++            checkout = root / 'ashes'
++            checkout.mkdir()
++            workset = root / 'workset.json'
++            workset.write_bytes(b'{}')
++            run = {'run_index': 0, 'parent_indexes': [0]}
++            input_path = checkpoint_path.parent / 'contextual/run-000-refreeze-retry-input.json'
++            original_atomic = batch._atomic
++            checkpoint_state = old
++
++            def interrupted(path, raw):
++                if path == checkpoint_path:
++                    raise batch._err('simulated interruption before checkpoint publication')
++                original_atomic(path, raw)
++
++            with (mock.patch.object(batch.queue, 'writer_lock', return_value=nullcontext()),
++                  mock.patch.object(batch, 'preflight', side_effect=lambda root: copy.deepcopy(checkpoint_state)),
++                  mock.patch.object(batch, '_validate_refreeze_old_refs'),
++                  mock.patch.object(batch, 'partition_contextual_entries', return_value=[run]),
++                  mock.patch.object(batch, '_contextual_payload', return_value={'bounded_context': []}),
++                  mock.patch.object(batch.contextual, 'canonical_payload_bytes', return_value=b'payload'),
++                  mock.patch('orchestration.build_evidence_pack.validate_workset',
++                             return_value=({'source_verification': []}, None)),
++                  mock.patch('orchestration.build_evidence_pack.build_source_facts',
++                             return_value={0: {'entries': []}})):
++                options = {'source_workset': workset, 'source_checkout': checkout,
++                           'refreeze_id': 'retry'}
++                with mock.patch.object(batch, '_atomic', side_effect=interrupted):
++                    with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'simulated interruption'):
++                        batch.contextual_export(root, **options)
++                frozen_input = input_path.read_bytes()
++                self.assertEqual(checkpoint_path.read_bytes(), old_raw)
++
++                self.assertTrue(batch.contextual_export(root, **options)['ok'])
++                self.assertEqual(input_path.read_bytes(), frozen_input)
++                published = checkpoint_path.read_bytes()
++                self.assertEqual(json.loads(checkpoint_path.read_bytes())['contextual'][0]['input_sha256'],
++                                 hashlib.sha256(frozen_input).hexdigest())
++
++                checkpoint_path.write_bytes(old_raw)
++                input_path.write_bytes(frozen_input + b'drift')
++                with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'input differs'):
++                    batch.contextual_export(root, **options)
++                self.assertEqual(checkpoint_path.read_bytes(), old_raw)
++                self.assertEqual(input_path.read_bytes(), frozen_input + b'drift')
++
++                input_path.write_bytes(frozen_input)
++                task_dir = root / '.ai/task/batch-test-contextual-000-refreeze-retry'
++                task_dir.mkdir(parents=True)
++                with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'task already exists'):
++                    batch.contextual_export(root, **options)
++                self.assertEqual(checkpoint_path.read_bytes(), old_raw)
++                task_dir.rmdir()
++
++                input_path.unlink()
++                input_path.symlink_to(workset)
++                with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'input path is symlink'):
++                    batch.contextual_export(root, **options)
++                self.assertEqual(checkpoint_path.read_bytes(), old_raw)
++                input_path.unlink()
++                input_path.write_bytes(frozen_input)
++                checkpoint_state = copy.deepcopy(old)
++                checkpoint_state['contextual'][0]['task_id'] += '-refreeze-other'
++                checkpoint_path.write_bytes(batch._checkpoint_bytes(checkpoint_state))
++                with self.assertRaisesRegex(batch.wp1.ProductionReviewError, 'different checkpoint event'):
++                    batch.contextual_export(root, **options)
++                self.assertEqual(checkpoint_path.read_bytes(), batch._checkpoint_bytes(checkpoint_state))
++                self.assertNotEqual(checkpoint_path.read_bytes(), published)
++
++    def test_refreeze_report_conflict_preserves_checkpoint_and_new_input(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            checkpoint = root / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
++            checkpoint.parent.mkdir(parents=True)
++            checkpoint.write_text('{"batch_id":"batch-test","phase":"deep_ready"}')
++            original_checkpoint = checkpoint.read_bytes()
++            new_input = root / 'new-input.json'
++            new_input.write_bytes(b'existing input sentinel')
++            original_input = new_input.read_bytes()
++            checkout = root / 'ashes'
++            checkout.mkdir()
++            report = root / 'report.json'
++            report.write_bytes(b'existing report')
++
++            def export_if_called(*args, **kwargs):
++                checkpoint.write_bytes(b'changed checkpoint')
++                new_input.write_bytes(b'changed input')
++
++            script = ORCHESTRATION / 'stage_contextual.py'
++            argv = [str(script), 'batch-test', '--refreeze-id', 'retry',
++                    '--source-workset', str(root / 'workset.json'),
++                    '--ashes-checkout', str(checkout), '--out', str(report)]
++            previous = Path.cwd()
++            try:
++                os.chdir(root)
++                with mock.patch.object(sys, 'argv', argv), mock.patch.object(
++                    batch, 'contextual_export', side_effect=export_if_called
++                ) as export:
++                    with self.assertRaisesRegex(FileExistsError, 'stage report already exists'):
++                        runpy.run_path(str(script), run_name='__main__')
++                    export.assert_not_called()
++            finally:
++                os.chdir(previous)
++            self.assertEqual(checkpoint.read_bytes(), original_checkpoint)
++            self.assertEqual(new_input.read_bytes(), original_input)
++            self.assertEqual(report.read_bytes(), b'existing report')
++
++    def test_refreeze_stage_resumes_partial_task_and_report_without_replacing_candidate(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            root = Path(temporary)
++            batch_id, token = 'batch-test', 'retry'
++            task = f'{batch_id}-contextual-000-refreeze-{token}'
++            envelope = {'candidate_identity': 'c' * 64, 'payload': {'ordered_revision_keys': ['one']}}
++            raw = json.dumps(envelope, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
++            input_path = root / 'input.json'
++            input_path.write_bytes(raw)
++            checkpoint = root / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
++            checkpoint.parent.mkdir(parents=True)
++            checkpoint.write_text(json.dumps({'batch_id': batch_id, 'phase': 'deep_ready', 'base_commit': 'base',
++                'contextual': [{'task_id': task, 'input_path': str(input_path),
++                                'input_sha256': hashlib.sha256(raw).hexdigest(),
++                                'candidate_identity': 'c' * 64}]}))
++            task_dir = root / '.ai/task' / task
++            task_dir.mkdir(parents=True)
++            candidate = task_dir / 'CONTEXTUAL-ENVELOPE-final-full.json'
++            candidate.write_bytes(raw)
++            report = root / 'report.json'
++            script = ORCHESTRATION / 'stage_contextual.py'
++            argv = [str(script), batch_id, '--refreeze-id', token, '--out', str(report)]
++            previous = Path.cwd()
++            try:
++                os.chdir(root)
++                with mock.patch.object(sys, 'argv', argv):
++                    runpy.run_path(str(script), run_name='__main__')
++                    first_state = (task_dir / 'STATE.json').read_bytes()
++                    first_report = report.read_bytes()
++                    runpy.run_path(str(script), run_name='__main__')
++                self.assertEqual(candidate.read_bytes(), raw)
++                self.assertEqual((task_dir / 'STATE.json').read_bytes(), first_state)
++                self.assertEqual(report.read_bytes(), first_report)
++                self.assertEqual(json.loads(first_report)[0]['task_id'], task)
++                report.unlink()
++                with mock.patch.object(sys, 'argv', argv):
++                    runpy.run_path(str(script), run_name='__main__')
++                self.assertEqual(report.read_bytes(), first_report)
++                (task_dir / 'raw.txt').write_text('do not touch')
++                with mock.patch.object(sys, 'argv', argv), self.assertRaisesRegex(ValueError, 'non-stage contents'):
++                    runpy.run_path(str(script), run_name='__main__')
++                self.assertEqual(candidate.read_bytes(), raw)
++            finally:
++                os.chdir(previous)
++
+     def test_dispatch_entrypoints_use_the_shared_builders(self):
+         self.assertIs(dispatch_contextual.build_prompt, review_prompts.build_contextual_prompt)
+         self.assertIs(dispatch_surface.build_prompt, review_prompts.build_surface_prompt)
+diff --git a/tools/i18nlib/production_review_v2_lite_batch.py b/tools/i18nlib/production_review_v2_lite_batch.py
+index d1659fdb..97812818 100644
+--- a/tools/i18nlib/production_review_v2_lite_batch.py
++++ b/tools/i18nlib/production_review_v2_lite_batch.py
+@@ -581,11 +581,59 @@ def partition_contextual_entries(checkpoint):
+     return result
+ 
+ 
+-def contextual_export(root, *, task_ids=None, source_workset=None):
++def _validate_refreeze_old_refs(root, checkpoint):
++    old_refs = checkpoint.get("contextual")
++    if checkpoint["phase"] != "deep_ready" or not old_refs:
++        raise _err("refreeze requires deep_ready with old refs")
++    for old in old_refs:
++        if old["validator_status"] != "prepared" or old["output_path"] is not None:
++            raise _err("cannot refreeze accepted contextual results")
++        old_path = Path(old["input_path"])
++        if not old_path.is_file() or old_path.is_symlink() or _sha(old_path.read_bytes()) != old["input_sha256"]:
++            raise _err("old contextual input drift")
++        state_path = root / old["task_state_path"]
++        if not state_path.is_file() or state_path.is_symlink():
++            raise _err("old task state missing")
++        state = json.loads(state_path.read_bytes())
++        children = state.get("child_dispatches")
++        expected_input = old["task_state_path"].replace("STATE.json", "CONTEXTUAL-ENVELOPE-final-full.json")
++        if (state.get("task_id") != old["task_id"] or state.get("review_records") or
++            not isinstance(children, list) or not children or
++            any(child.get("archive_confirmed") is not True or child.get("lifecycle") != "archived" or
++                child.get("role") != "REVIEWER" or child.get("purpose") != "translation_contextual_v2" or
++                child.get("candidate_identity") != old["candidate_identity"] or
++                child.get("input_path") != expected_input
++                for child in children)):
++            raise _err("old contextual task is not fully archived without accepted records")
++
++
++def contextual_export(root, *, task_ids=None, source_workset=None, refreeze_id=None,
++                      source_checkout=None):
+     with queue.writer_lock(root):
+         checkpoint = preflight(root)
+         if checkpoint is None or checkpoint["phase"] not in {"surface_collected", "deep_ready"}:
+             raise _err("contextual export requires collected surface results")
++        if refreeze_id is not None:
++            import re
++            if not isinstance(refreeze_id, str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,31}", refreeze_id):
++                raise _err("refreeze_id must be a bounded path-safe token")
++            if task_ids:
++                raise _err("refreeze task IDs are generated from the freeze event")
++            if source_workset is None or source_checkout is None:
++                raise _err("refreeze requires source workset and checkout")
++            _validate_refreeze_old_refs(root, checkpoint)
++            from orchestration import build_evidence_pack as source_facts
++            ws, _ = source_facts.validate_workset(source_facts.ordinary_bytes(source_workset), checkpoint)
++            checkout = Path(source_checkout)
++            if not checkout.is_absolute() or not checkout.is_dir() or checkout.is_symlink():
++                raise _err("source checkout must be an absolute ordinary directory")
++            for ver in ws["source_verification"]:
++                if ver["component"] == "ashes-urhrok":
++                    path = checkout / source_facts.public_path(ver["public_source_path"])
++                    if _sha(source_facts.ordinary_bytes(path)) != ver["source_file_sha256"]:
++                        raise _err(f"Ashes workset source SHA mismatch: {path}")
++        elif source_checkout is not None:
++            raise _err("source checkout is only valid for an explicit refreeze")
+         runs = partition_contextual_entries(checkpoint)
+         if not runs:
+             raise _err("there are no deep_required entries")
+@@ -606,16 +654,22 @@ def contextual_export(root, *, task_ids=None, source_workset=None):
+             if packages is not None:
+                 package = packages[run["run_index"]]
+                 for context, fact in zip(payload["bounded_context"], package["entries"]):
++                    if refreeze_id is not None and fact["source_component"] == "ashes-urhrok":
++                        context["context"] += f" source_checkout={source_checkout} (local evidence location; source/commit unpinned)"
+                     context["context"] += source_facts.bound_context(package, fact)
+             raw = contextual.canonical_payload_bytes(payload)
+             identity = _sha(raw)
+             envelope = {"candidate_identity": identity, "payload": payload}
+             input_raw = json.dumps(envelope, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
+-            path = runtime / f"run-{run['run_index']:03d}-input.json"
+-            task_id = task_ids.get(run["run_index"], f"{checkpoint['batch_id']}-contextual-{run['run_index']:03d}")
++            suffix = f"-refreeze-{refreeze_id}" if refreeze_id is not None else ""
++            path = runtime / f"run-{run['run_index']:03d}{suffix}-input.json"
++            task_id = task_ids.get(run["run_index"], f"{checkpoint['batch_id']}-contextual-{run['run_index']:03d}{suffix}")
+             if not isinstance(task_id, str) or not task_id:
+                 raise _err("contextual task_id must be a non-empty string")
+             state_path = f".ai/task/{task_id}/STATE.json"
++            task_dir = (root / state_path).parent
++            if refreeze_id is not None and (task_dir.exists() or task_dir.is_symlink()):
++                raise _err("refreeze task already exists; choose a fresh refreeze_id")
+             # Check every path and candidate before writing any run. An enriched
+             # freeze is immutable, including when a retry omits --source-workset.
+             for ancestor in (path, *path.parents):
+@@ -627,6 +681,13 @@ def contextual_export(root, *, task_ids=None, source_workset=None):
+             if temporary.is_symlink() or (temporary.exists() and not temporary.is_file()):
+                 raise _err(f"contextual temporary is not ordinary file: {temporary}")
+             if path.exists():
++                if refreeze_id is not None:
++                    if any("-refreeze-" in old["task_id"] for old in checkpoint["contextual"]):
++                        raise _err("refreeze input exists under a different checkpoint event")
++                    if not path.is_file() or path.is_symlink():
++                        raise _err(f"refreeze input is not ordinary file: {path}")
++                    if path.read_bytes() != input_raw:
++                        raise _err("refreeze input differs from this freeze event")
+                 if not path.is_file():
+                     raise _err(f"contextual input is not ordinary file: {path}")
+                 existing = path.read_bytes()
+diff --git a/tools/orchestration/review_prompts.py b/tools/orchestration/review_prompts.py
+index a6061cc5..cf5c7dc1 100644
+--- a/tools/orchestration/review_prompts.py
++++ b/tools/orchestration/review_prompts.py
+@@ -11,9 +11,9 @@ _SHA256 = re.compile(r"^[0-9a-f]{64}$")
+ _LINE_SEPARATORS = frozenset("\n\r\v\f\x1c\x1d\x1e\x85\u2028\u2029")
+ 
+ CONTEXTUAL_PROMPT_TEMPLATE = (
+-    "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n"
+-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n"
+-    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。"
++    "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n"
++    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n"
++    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。"
+ )
+ 
+ SURFACE_PROMPT_TEMPLATE = (
+diff --git a/tools/orchestration/stage_contextual.py b/tools/orchestration/stage_contextual.py
+index 875d4482..130c93b3 100644
+--- a/tools/orchestration/stage_contextual.py
++++ b/tools/orchestration/stage_contextual.py
+@@ -4,7 +4,7 @@
+ 
+ 用法：python3 -B tools/orchestration/stage_contextual.py <batch-id> [--out /tmp/ctx.json]
+ """
+-import json, sys, pathlib, datetime
++import json, sys, pathlib, datetime, argparse, os, hashlib, tempfile
+ import pathlib as _pl, sys as _sys
+ _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+ import _orch
+@@ -17,23 +17,123 @@ def canon(o):
+     return json.dumps(o, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
+ 
+ 
++def _write_new(path, raw):
++    # Publish a complete file without replacing an existing candidate, state, or report.
++    # Task file temporaries live beside the task directory, so an interrupted write
++    # cannot make an otherwise recoverable partial task appear to contain raw output.
++    parent = path.parent.parent if path.name in {'STATE.json', 'CONTEXTUAL-ENVELOPE-final-full.json'} else path.parent
++    fd, name = tempfile.mkstemp(prefix=f'.{path.name}.stage-', dir=parent)
++    try:
++        with os.fdopen(fd, 'wb') as handle:
++            handle.write(raw)
++        os.link(name, path)
++    finally:
++        os.unlink(name)
++
++
++def _existing_stage(d, envelope_raw, task, identity):
++    """Only continue an untouched, unstarted stage for the same frozen input."""
++    if d.is_symlink() or not d.is_dir():
++        raise ValueError(f'contextual task is not ordinary directory: {d}')
++    allowed = {'CONTEXTUAL-ENVELOPE-final-full.json', 'STATE.json'}
++    if any(p.name not in allowed or p.is_symlink() or not p.is_file() for p in d.iterdir()):
++        raise ValueError(f'contextual task has non-stage contents: {d}')
++    candidate = d / 'CONTEXTUAL-ENVELOPE-final-full.json'
++    if candidate.exists() and candidate.read_bytes() != envelope_raw:
++        raise ValueError(f'contextual staged candidate differs: {candidate}')
++    state_path = d / 'STATE.json'
++    if state_path.exists():
++        state = json.loads(state_path.read_bytes())
++        if (state.get('task_id') != task or state.get('state') != 'REVIEW' or
++            state.get('review_contracts') != ['translation_contextual_v2'] or
++            state.get('child_dispatches') != [] or state.get('review_records') != [] or
++            state.get('senior_review_records') != [] or state.get('completed_review_contracts') != [] or
++            state.get('candidate_identity') not in (None, identity)):
++            raise ValueError(f'contextual task has started or drifted: {d}')
++        if not candidate.exists():
++            raise ValueError(f'contextual state exists without candidate: {d}')
++    return candidate.exists(), state_path.exists()
++
++
+ def main():
+-    batch = sys.argv[1]
+-    out = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else '/tmp/ctx.json'
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('batch')
++    parser.add_argument('--out', default='/tmp/ctx.json')
++    parser.add_argument('--refreeze-id')
++    parser.add_argument('--source-workset', type=pathlib.Path)
++    parser.add_argument('--ashes-checkout', type=pathlib.Path)
++    args = parser.parse_args()
++    batch = args.batch
++    out = args.out if args.out != '/tmp/ctx.json' or not args.refreeze_id else f'/tmp/ctx-{batch}-refreeze-{args.refreeze_id}.json'
++    current = json.loads(CKPT.read_text())
++    if current['batch_id'] != batch:
++        raise ValueError(f'active batch differs: {current["batch_id"]}')
++    report = pathlib.Path(out)
++    suffix = f'-refreeze-{args.refreeze_id}' if args.refreeze_id else None
++    already_frozen = bool(suffix and current.get('contextual') and all(
++        r.get('task_id') == f'{batch}-contextual-{i:03d}{suffix}'
++        for i, r in enumerate(current['contextual'])))
++    if (report.exists() or report.is_symlink()) and not already_frozen:
++        raise FileExistsError(f'contextual stage report already exists: {out}')
++    for parent in report.parents:
++        if parent.is_symlink() or (parent.exists() and not parent.is_dir()):
++            raise ValueError(f'contextual stage report parent is not ordinary directory: {parent}')
++    if not report.parent.is_dir():
++        raise ValueError(f'contextual stage report parent does not exist: {report.parent}')
++    if args.refreeze_id and not already_frozen:
++        if args.source_workset is None or args.ashes_checkout is None:
++            parser.error('refreeze requires --source-workset and --ashes-checkout')
++        checkout = args.ashes_checkout.resolve(strict=True)
++        if checkout != args.ashes_checkout or not checkout.is_dir():
++            parser.error('Ashes checkout must be a canonical absolute directory')
++        os.environ['TOME_DLC_ASHES_ROOT'] = str(checkout)
++        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
++        from i18nlib import production_review_v2_lite_batch as batch_module
++        batch_module.contextual_export(
++            pathlib.Path.cwd(), source_workset=args.source_workset,
++            refreeze_id=args.refreeze_id, source_checkout=checkout)
+     cp = json.loads(CKPT.read_text())
+     assert cp['batch_id'] == batch, cp['batch_id']
+-    rows = []
++    if already_frozen and (cp['phase'] != 'deep_ready' or not cp['contextual']):
++        raise ValueError('refreeze checkpoint is not ready')
++    staged = []
+     for i, r in enumerate(cp['contextual']):
+-        run = f'{i:03d}'
+-        task = f'{batch}-contextual-{run}'
++        task = r['task_id']
++        expected_task = f'{batch}-contextual-{i:03d}{suffix or ""}'
++        if task != expected_task:
++            raise ValueError('invalid contextual task binding')
+         d = pathlib.Path('.ai/task') / task
+-        d.mkdir(parents=True, exist_ok=True)
+-        env = json.loads(pathlib.Path(r['input_path']).read_text())
++        if (d.exists() or d.is_symlink()) and not already_frozen:
++            raise FileExistsError(f'contextual task already exists: {d}')
++        input_path = pathlib.Path(r['input_path'])
++        raw = input_path.read_bytes()
++        env = json.loads(raw)
++        if (hashlib.sha256(raw).hexdigest() != r['input_sha256'] or
++            env['candidate_identity'] != r['candidate_identity']):
++            raise ValueError('contextual candidate identity drift')
++        envelope_raw = canon(env)
++        present = _existing_stage(d, envelope_raw, task, r['candidate_identity']) if d.exists() or d.is_symlink() else (False, False)
++        staged.append((d, env, envelope_raw, present))
++    rows = [{'task_id': r['task_id'], 'dispatch_id': f'full-{i:03d}',
++             'candidate_identity': r['candidate_identity'],
++             'input_path': str(staged[i][0] / 'CONTEXTUAL-ENVELOPE-final-full.json'),
++             'entries': len(staged[i][1]['payload']['ordered_revision_keys'])}
++            for i, r in enumerate(cp['contextual'])]
++    if report.exists() or report.is_symlink():
++        if report.is_symlink() or not report.is_file() or json.loads(report.read_bytes()) != rows:
++            raise ValueError(f'contextual stage report differs: {report}')
++    for i, r in enumerate(cp['contextual']):
++        run = f'{i:03d}'
++        task = r['task_id']
++        d, env, envelope_raw, (candidate_exists, state_exists) = staged[i]
++        if not d.exists():
++            d.mkdir(parents=True, exist_ok=False)
+         p = d / 'CONTEXTUAL-ENVELOPE-final-full.json'
+-        p.write_bytes(canon(env))
++        if not candidate_exists:
++            _write_new(p, envelope_raw)
+         n = len(env['payload']['ordered_revision_keys'])
+         now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+-        (d / 'STATE.json').write_text(json.dumps({
++        state_raw = json.dumps({
+             'schema_version': 5, 'task_id': task, 'mode': 'review_only', 'state': 'REVIEW',
+             'review_phase': 'REVIEW', 'cycle': 0, 'max_cycles': 3,
+             'review_contracts': ['translation_contextual_v2'],
+@@ -44,12 +144,12 @@ def main():
+             'workspace_id': _orch.workspace_id(), 'final_validation_passed': False,
+             'last_error': None, 'wait': None, 'updated_at': now, 'change_class': 'standard',
+             'candidate_author_agent_id': None, 'orchestrator_agent_id': None,
+-        }, ensure_ascii=False, indent=1, sort_keys=True))
+-        rows.append({'task_id': task, 'dispatch_id': f'full-{run}',
+-                     'candidate_identity': r['candidate_identity'],
+-                     'input_path': str(p), 'entries': n})
++        }, ensure_ascii=False, indent=1, sort_keys=True).encode('utf-8')
++        if not state_exists:
++            _write_new(d / 'STATE.json', state_raw)
+         print(task, 'entries=', n)
+-    json.dump(rows, open(out, 'w'), ensure_ascii=False, indent=1)
++    if not report.exists():
++        _write_new(report, json.dumps(rows, ensure_ascii=False, indent=1).encode('utf-8'))
+ 
+ 
+ main()

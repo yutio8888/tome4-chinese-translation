@@ -28,6 +28,8 @@ File / Location / Problem / Evidence / Impact / Recommended fix`，复审轮标�
 
 ## translation_contextual_v2
 
+源码定位仅使用 envelope 明确给出的路径和与当前 revision 相关的调用链；不得从 `/` 或无关目录发起全盘搜索。DLC 本机 checkout 只是取证位置，须逐文件核对冻结 workset 的 SHA-256，不能据此声称来源或 commit 已固定。
+
 只读取精确 input_path、其中精确范围的引用内容及完整
 `docs/paseo-translation-context-review-v2-contract.md`；不得读取其他 `.ai/task/`、
 `.ai/reviews/`、lane raw、先前 finding 或当前译文／术语库，也不得写文件。译文只取 envelope

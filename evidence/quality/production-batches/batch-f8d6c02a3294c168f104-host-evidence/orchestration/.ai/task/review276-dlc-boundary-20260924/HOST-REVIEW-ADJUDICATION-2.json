@@ -1,0 +1,18 @@
+{
+  "task_id": "review276-dlc-boundary-20260924",
+  "candidate_patch_sha256": "273f6b473c227d9db5a381e87736e0f99daa9feb0082503474fa8de4f09387c4",
+  "finding": "export_precheckpoint_resume",
+  "sources": [
+    {
+      "model": "claude-opus-5-5",
+      "verdict": "advisory"
+    },
+    {
+      "model": "gpt-6-sol",
+      "verdict": "blocking"
+    }
+  ],
+  "host_disposition": "confirmed",
+  "evidence": "contextual_export writes new input paths before checkpoint; if interrupted, same-event retry hits unconditional refreeze input exists error. Contract explicitly promises same-command retry before checkpoint with matching bytes.",
+  "repair": "Permit existing same-event input only if ordinary, non-symlink, and byte-identical while old checkpoint is still active; reject drift or existing task/report. Add interrupted-export test."
+}

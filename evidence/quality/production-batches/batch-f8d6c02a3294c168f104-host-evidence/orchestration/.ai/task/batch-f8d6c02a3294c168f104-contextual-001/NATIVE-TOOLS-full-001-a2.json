@@ -1,0 +1,74 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01SsdMjN6676g1NGyoXnhjK3",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-f8d6c02a3294c168f104-contextual-001/CONTEXTUAL-ENVELOPE-final-full.json docs/paseo-translation-context-review-v2-contract.md; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input sizes and contract headings"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_013h7EbkyuheUSbh6RWVPEsY",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; echo ======; cat .ai/task/batch-f8d6c02a3294c168f104-contextual-001/CONTEXTUAL-ENVELOPE-final-full.json",
+      "description": "Read contract and envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01QnPSnLmkU2SnNrm457jAAK",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 40,200p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read rest of contract"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_016aJG74XhMropeAa7tG3Mj3",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-f8d6c02a3294c168f104-contextual-001/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(d['candidate_identity'])\nfor k in ['contract','fixed_source_identity','terminology_snapshot','rendered_briefing']: print(k, json.dumps(p[k],ensure_ascii=False))\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k); print(json.dumps(t,ensure_ascii=False,indent=0)); print(json.dumps(c,ensure_ascii=False,indent=0))\n\"",
+      "description": "Pretty print envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_017Bd2LcNQG6CHeXsMVMDXx7",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace; ls; d=$(find / -path /proc -prune -o -type d -name 'tome-ashes-urhrok' -print 2>/dev/null | head -5); echo \"$d\"",
+      "description": "Locate Ashes DLC source"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01QoxJYFPw24j9h7cVeAx71W",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sha256sum data/general/objects/world-artifacts.lua data/talents/corruptions/demon-seeds.lua data/timed_effects.lua; sed -n 680,730p data/general/objects/world-artifacts.lua; sed -n 820,866p data/talents/corruptions/demon-seeds.lua; sed -n 625,650p data/timed_effects.lua; grep -n 'Armoured Leviathan' -r data | head",
+      "description": "Check Ashes source for boots, hex talent, effect"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]

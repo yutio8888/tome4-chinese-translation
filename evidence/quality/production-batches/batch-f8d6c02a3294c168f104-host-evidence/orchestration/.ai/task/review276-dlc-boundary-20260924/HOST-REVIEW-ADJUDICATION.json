@@ -1,0 +1,26 @@
+{
+  "task_id": "review276-dlc-boundary-20260924",
+  "candidate_patch_sha256": "be838443f4d021e03b8774b23cd0bae339a6586cee9e91ba578f0962793cb324",
+  "findings": [
+    {
+      "id": "partial_stage_recovery",
+      "sources": [
+        "Opus 5.5 normal_review",
+        "GPT-6 Sol cross_review"
+      ],
+      "disposition": "confirmed",
+      "reason": "Both independent reviewers identify a reachable interruption after refreeze checkpoint publication that cannot recover via current stage or refreeze entrypoints; contract's suggested new event is false.",
+      "repair": "Add validated continuation/cleanup for unstarted or partial stage, or make stage transaction recoverable without overwriting accepted records; update contract and tests."
+    },
+    {
+      "id": "old_child_binding",
+      "sources": [
+        "GPT-6 Sol cross_review"
+      ],
+      "disposition": "confirmed_narrowed",
+      "reason": "Current gate verifies archive and absence of accepted record but not each child role/purpose/candidate/input binding. However task 000 has a valid harvested result with no published review record; requiring output_valid=false would incorrectly block this authorized refreeze.",
+      "repair": "Validate archived child role REVIEWER, purpose translation_contextual_v2, candidate_identity and input_path equal old ref; allow harvested unaccepted output and forbid accepted review records."
+    }
+  ],
+  "status": "repair_required_before_production_refreeze"
+}

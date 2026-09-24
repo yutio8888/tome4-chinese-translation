@@ -11,9 +11,9 @@ _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _LINE_SEPARATORS = frozenset("\n\r\v\f\x1c\x1d\x1e\x85\u2028\u2029")
 
 CONTEXTUAL_PROMPT_TEMPLATE = (
-    "任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。\n"
-    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。\n"
-    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。"
+    "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n"
+    "输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n"
+    "输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。"
 )
 
 SURFACE_PROMPT_TEMPLATE = (

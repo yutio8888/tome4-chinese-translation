@@ -581,11 +581,59 @@ def partition_contextual_entries(checkpoint):
     return result
 
 
-def contextual_export(root, *, task_ids=None, source_workset=None):
+def _validate_refreeze_old_refs(root, checkpoint):
+    old_refs = checkpoint.get("contextual")
+    if checkpoint["phase"] != "deep_ready" or not old_refs:
+        raise _err("refreeze requires deep_ready with old refs")
+    for old in old_refs:
+        if old["validator_status"] != "prepared" or old["output_path"] is not None:
+            raise _err("cannot refreeze accepted contextual results")
+        old_path = Path(old["input_path"])
+        if not old_path.is_file() or old_path.is_symlink() or _sha(old_path.read_bytes()) != old["input_sha256"]:
+            raise _err("old contextual input drift")
+        state_path = root / old["task_state_path"]
+        if not state_path.is_file() or state_path.is_symlink():
+            raise _err("old task state missing")
+        state = json.loads(state_path.read_bytes())
+        children = state.get("child_dispatches")
+        expected_input = old["task_state_path"].replace("STATE.json", "CONTEXTUAL-ENVELOPE-final-full.json")
+        if (state.get("task_id") != old["task_id"] or state.get("review_records") or
+            not isinstance(children, list) or not children or
+            any(child.get("archive_confirmed") is not True or child.get("lifecycle") != "archived" or
+                child.get("role") != "REVIEWER" or child.get("purpose") != "translation_contextual_v2" or
+                child.get("candidate_identity") != old["candidate_identity"] or
+                child.get("input_path") != expected_input
+                for child in children)):
+            raise _err("old contextual task is not fully archived without accepted records")
+
+
+def contextual_export(root, *, task_ids=None, source_workset=None, refreeze_id=None,
+                      source_checkout=None):
     with queue.writer_lock(root):
         checkpoint = preflight(root)
         if checkpoint is None or checkpoint["phase"] not in {"surface_collected", "deep_ready"}:
             raise _err("contextual export requires collected surface results")
+        if refreeze_id is not None:
+            import re
+            if not isinstance(refreeze_id, str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,31}", refreeze_id):
+                raise _err("refreeze_id must be a bounded path-safe token")
+            if task_ids:
+                raise _err("refreeze task IDs are generated from the freeze event")
+            if source_workset is None or source_checkout is None:
+                raise _err("refreeze requires source workset and checkout")
+            _validate_refreeze_old_refs(root, checkpoint)
+            from orchestration import build_evidence_pack as source_facts
+            ws, _ = source_facts.validate_workset(source_facts.ordinary_bytes(source_workset), checkpoint)
+            checkout = Path(source_checkout)
+            if not checkout.is_absolute() or not checkout.is_dir() or checkout.is_symlink():
+                raise _err("source checkout must be an absolute ordinary directory")
+            for ver in ws["source_verification"]:
+                if ver["component"] == "ashes-urhrok":
+                    path = checkout / source_facts.public_path(ver["public_source_path"])
+                    if _sha(source_facts.ordinary_bytes(path)) != ver["source_file_sha256"]:
+                        raise _err(f"Ashes workset source SHA mismatch: {path}")
+        elif source_checkout is not None:
+            raise _err("source checkout is only valid for an explicit refreeze")
         runs = partition_contextual_entries(checkpoint)
         if not runs:
             raise _err("there are no deep_required entries")
@@ -606,16 +654,22 @@ def contextual_export(root, *, task_ids=None, source_workset=None):
             if packages is not None:
                 package = packages[run["run_index"]]
                 for context, fact in zip(payload["bounded_context"], package["entries"]):
+                    if refreeze_id is not None and fact["source_component"] == "ashes-urhrok":
+                        context["context"] += f" source_checkout={source_checkout} (local evidence location; source/commit unpinned)"
                     context["context"] += source_facts.bound_context(package, fact)
             raw = contextual.canonical_payload_bytes(payload)
             identity = _sha(raw)
             envelope = {"candidate_identity": identity, "payload": payload}
             input_raw = json.dumps(envelope, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
-            path = runtime / f"run-{run['run_index']:03d}-input.json"
-            task_id = task_ids.get(run["run_index"], f"{checkpoint['batch_id']}-contextual-{run['run_index']:03d}")
+            suffix = f"-refreeze-{refreeze_id}" if refreeze_id is not None else ""
+            path = runtime / f"run-{run['run_index']:03d}{suffix}-input.json"
+            task_id = task_ids.get(run["run_index"], f"{checkpoint['batch_id']}-contextual-{run['run_index']:03d}{suffix}")
             if not isinstance(task_id, str) or not task_id:
                 raise _err("contextual task_id must be a non-empty string")
             state_path = f".ai/task/{task_id}/STATE.json"
+            task_dir = (root / state_path).parent
+            if refreeze_id is not None and (task_dir.exists() or task_dir.is_symlink()):
+                raise _err("refreeze task already exists; choose a fresh refreeze_id")
             # Check every path and candidate before writing any run. An enriched
             # freeze is immutable, including when a retry omits --source-workset.
             for ancestor in (path, *path.parents):
@@ -627,6 +681,13 @@ def contextual_export(root, *, task_ids=None, source_workset=None):
             if temporary.is_symlink() or (temporary.exists() and not temporary.is_file()):
                 raise _err(f"contextual temporary is not ordinary file: {temporary}")
             if path.exists():
+                if refreeze_id is not None:
+                    if any("-refreeze-" in old["task_id"] for old in checkpoint["contextual"]):
+                        raise _err("refreeze input exists under a different checkpoint event")
+                    if not path.is_file() or path.is_symlink():
+                        raise _err(f"refreeze input is not ordinary file: {path}")
+                    if path.read_bytes() != input_raw:
+                        raise _err("refreeze input differs from this freeze event")
                 if not path.is_file():
                     raise _err(f"contextual input is not ordinary file: {path}")
                 existing = path.read_bytes()

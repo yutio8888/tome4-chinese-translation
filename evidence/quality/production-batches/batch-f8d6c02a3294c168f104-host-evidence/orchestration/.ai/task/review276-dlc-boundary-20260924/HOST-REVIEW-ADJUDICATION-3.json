@@ -1,0 +1,27 @@
+{
+  "task_id": "review276-dlc-boundary-20260924",
+  "candidate_patch_sha256": "4e41ac9da81023758c1b4ca92cecbb40dbdf01ee5b25a4753b09e35b1c1cf322",
+  "findings": [
+    {
+      "id": "output_valid_gate",
+      "source": "GPT-6 Sol cross_final_2",
+      "disposition": "refuted",
+      "reason": "The actual batch has run 000 with output_valid=true at harvest but no accepted review record. Refreeze changes both run tasks as one event; requiring false would block authorized refreeze. Completion authority is accepted review_records, already required empty."
+    },
+    {
+      "id": "retry_arguments",
+      "source": "GPT-6 Sol cross_final_2",
+      "disposition": "confirmed",
+      "reason": "Refreeze stage retry currently accepts missing or altered --source-workset/--ashes-checkout, while contract requires same original command and frozen source location.",
+      "repair": "Require both args on every refreeze invocation and validate against frozen candidate/source workset and checkout location before continuing."
+    },
+    {
+      "id": "state_binding",
+      "source": "GPT-6 Sol cross_final_2",
+      "disposition": "confirmed",
+      "reason": "Existing STATE resume check leaves mode, review_phase, baseline, workspace_id and other immutable initial fields unchecked, so drift can be silently accepted.",
+      "repair": "Compare all relevant initial fields to expected task state, allowing only nonsemantic timestamp drift; reject started or mutated state."
+    }
+  ],
+  "cycle_limit": "one final repair cycle; if not converged stop per max_cycles"
+}

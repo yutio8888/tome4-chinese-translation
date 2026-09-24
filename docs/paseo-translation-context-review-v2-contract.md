@@ -75,6 +75,23 @@ lane_group identity 是 group identity。reason 词表沿用 v1；禁止 v1 的
 direct `parent_agent_id` lineage、
 archive 状态和完整 group，不得把 partial publication 当完成。
 
+WP2-Lite 的已归档无效 full dispatch 若需要补充本机 DLC 取证位置，使用新的显式 refreeze event，
+生成新 input path、candidate identity 与 task ID。入口仅在旧 checkpoint 处于 `deep_ready`、
+旧 refs 均为 prepared、旧 task 无已接受 review record 且全部 child 确认归档时开放。
+旧 envelope、candidate、raw 和 diagnostics 保持原字节；新冻结前逐项核对受跟踪 source workset
+与本机 checkout 的 SHA-256。checkout 只作为这次 envelope 的取证位置，来源／commit 继续标为
+unpinned。新 task 仍须重新执行 anchor preflight、stage 和 dispatch，旧输出不得进入新 task。
+
+操作入口：`python3 -B tools/orchestration/stage_contextual.py <batch-id> --refreeze-id <fresh-token> --source-workset evidence/quality/production-batches/<batch-id>-source-workset.json --ashes-checkout <absolute-checkout>`。
+若 export 已发布新 checkpoint，但 stage 在建立 task 或 report 时中断，使用**相同** batch、
+`--refreeze-id`、`--source-workset`、`--ashes-checkout` 和 `--out` 原命令重试。入口识别 checkpoint
+中同一 event 的 refs，逐项验证冻结 input 的 SHA-256、candidate identity、task 绑定、已有
+candidate 字节、未启动 STATE 和 report 内容，随后只补齐缺失的 task 文件或 report；不覆盖已有
+candidate、raw、review 或 report。已有 task 含 raw／review、状态已启动、冻结输入或 report
+漂移时失败关闭，交回 ORCHESTRATOR 核验，不得手改 checkpoint 或改用新 event 绕过。
+若 export 尚未发布 checkpoint，且入口已确认没有该 event 的 task/report，原命令可重试；
+不同内容的已有 input 会由 export 拒绝。这个命令只冻结和建立 task，不执行 reviewer。
+
 ## 五、raw evidence 与 DONE
 
 解析前把 exact returned bytes 保存为 `.ai/reviews/<task_id>/raw-<dispatch_id>.txt`。每个接受的
@@ -104,9 +121,9 @@ provenance，不等于术语条目正文，也不授权读取或搜索当前译�
 固定三行 prompt：
 
 ```text
-任务：审核冻结 revision；仅报有据的语义/机制/术语/关系/跨条一致性问题，否则 OK。
-输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读禁写；可读该输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码；禁读其他 .ai/task/、.ai/reviews/、先前 finding、当前译文/术语库。
-输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；证据不足仅写 observation；首{末}，无文字/Markdown/围栏。
+任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。
+输入：candidate_identity=<candidate_identity>；input_path=<input_path>。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。
+输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。
 ```
 
 模板和每次实例化 UTF-8 bytes 都必须 `<= 800`；路径较长时仍按实际实例拒绝超限，且 full、closure、lane 和
@@ -128,7 +145,7 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
 根据维护者 2026-09-12 授权，REVIEWER 可沿调用链补查冻结版本中与当前 revision 相关的公开源码，
 不要求所有调用文件事先列入输入。2026-09-22 的流程修订另行授权读取精确 input_path、其中精确
 范围的引用内容和完整本契约，并规定第六节的冻结译文／术语边界；两次授权不得互相追溯归因。
-为定位该版本源码仓库，可作必要的目录和 Git 对象元数据查询；不扫描无关资料。
+为定位该版本源码仓库，可在 envelope 明确指定的源码位置作必要的目录和 Git 对象元数据查询；不得从 `/` 或其他无关目录作全盘搜索。DLC checkout 的本机位置只用于本批取证定位，不等于来源、commit 或版本固定；每个实际引用文件仍须与受跟踪 workset 的 SHA-256 匹配。
 不得读其他 `.ai/task/`、`.ai/reviews/` 或先前 finding，也不据此扩大译文候选或取得写入权限。
 
 补查应记录组件、公开源码路径、固定 commit（或冻结快照）、关键调用及证据摘录或行范围。
