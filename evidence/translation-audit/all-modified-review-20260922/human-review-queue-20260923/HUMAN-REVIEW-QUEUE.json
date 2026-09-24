@@ -14,7 +14,7 @@
   "note": "Curated human-decision rows from HUMAN-REVIEW.md plus the sources missing from it (batch-092 cross, batch-093/094 primary, remaining-review). Sol status labels copied verbatim; no semantic adjudication. reconciled-20260923 canonical claims are not merged (separate experiment ledger).",
   "schema_version": 1,
   "total_records": 601,
-  "decided_records": 291,
+  "decided_records": 331,
   "distinct_entries": 559,
   "records_missing_entry": 0,
   "raw_campaign_verdict_count": 1103,
@@ -27847,9 +27847,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "1e5375b4304297f5281899dec5aa1425289b3a36958e5f2d9198583e91be2cd4"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；源码 gifts.lua 该天赋类别描述为 foes around you；现译“向敌人”丢失空间限定，补“你周围的”。无其他反证：该串为类别说明，不承接前文。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -27927,9 +27927,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "df7bafeb3a73af28f1fbfbc1f1c9cf184ac5fd7997d91e810d16c06156c353e3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；术语 Resistances=抗性（preferred），“所有抵抗”“抵抗受…加成”改为抗性，本仓“所有抗性”已有 8 处。原 pending 的树名 claim 可由本仓核验：同节 mod-tome.lua:25026/25028 的 talent type 为“软泥利刃”“腐蚀利刃”，本条“软泥之刃/腐蚀之刃”与之不一致，按同节树名对齐；同时补 all the talents inside are exchanged 的“其中所有",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28007,9 +28007,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "1c1a3ec77478a4ff02d54758fcaa03eea287c98cd6721711f2919fc8fdc39b72"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：avoid any damaging attack 以 %d%% 几率完全不受伤害，“完全免疫任何伤害”在带几率限定下与原义等价，属措辞偏好；avoidance 译“免疫几率”与上句一致。refuted claim（数值后未重复“流血伤害”）同意驳回：“流血，每回合受到 %0.2f 点伤害”已表达。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28069,9 +28069,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e04cccf873e0ab6572c1810008c9a63793f4a1dd55c2d80b8cd86c5b1a88de13"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；唯一 claim 为前两句换行被合并，属纯静态排版；SPEC 规定不改换行序列与硬换行，不整理。其余占位符与机制（几率、持续、上限、暴击延长 2 回合）正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28167,9 +28167,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "e433590136e71b3d9b3aa87924a62d9deaf1e4f91dfc7c044c0ec96edb10eb1a"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；三处均经固定源码核验成立：Actor.lua onTakeHit 在 value>0（受到伤害）时触发，“受到攻击”改为“受到伤害”并保留 may 为“可能会”，同时补 nearby within your line of sight（findFreeGrid 带视线参数）；getMax 取 checkMaxSummon 上限与技能等级的较小值，补“受技能等级和召唤上限限制”并补 so long as this talent is ac",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28261,9 +28261,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "b7b57f9ee1c5429f905a0425a4c2013f6f8d03a8672ef10c20447041d3b3d525"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；暴击机制 refuted 成立：ignore_direct_crits 在 damage_types.lua:130-151 按比例削减暴击额外伤害，现译“额外伤害降低”准确。wounds→cut_immune，“流血”正确。blindness/目盲 claim 不采纳：passives 为 blind_immune，术语 blind=致盲 仅为 existing 不强制；本仓“目盲免疫”与“致盲免疫”并存（3/4），batch-07 ",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28323,9 +28323,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "1c9ba622bcf954298f3cbc3be03e320872416d3a2fee80baa4815e275f2b3cc2"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；getNatureDamage 为 base*min(5,level)^0.5/2.23，level 最多 5，即加成最多提升 4 次、最大值约为初始值的 2.24 倍而非 4 倍；“最多4倍”误译次数为倍率，改为“最多提升 4 次”，并补 to a creature 与 with later Acid damage。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28403,9 +28403,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "64ca1cfb96e49d89e44139f60012c557007dde44f460013ad13398d9e7a474f0"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；补“伤害受精神强度加成”句末句号（漏句末标点）。refuted claim 同意驳回：“最多移动20次”并入首句属排版，不拆句。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28465,9 +28465,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "846d3c929bee291b7932ec0e063fbc5229dcad7d03c0d715067195d873fc7d51"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：burn and crush your foes to death 概括为“摧毁敌人”，下一句“从很远的地方烧毁敌人”已承接烧灼意象，无机制缺失；补两层动作属文风。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28527,9 +28527,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "c13131ddd3773fe0b0d656975ee9644b123804823c1f15998c94a7f889b587e6"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；claim 自标 advisory：“25 %%几率”仅为数字与百分号间空格，属纯静态排版／数字格式，按用户策略不整理；占位符与机制（25%% 缴械 3 回合）正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28589,9 +28589,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "3ddfee2df1420de11a87663a564f5c53bd43c1770b56d147c9adca7fe18324c3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；末行两处“%d%% ,”为带前置空格的英文半角逗号，属中文标点错误，改为全角逗号。其余占位符顺序与 info tformat 相符。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28651,9 +28651,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "5854cfc8b6b7a1099a52ad69cbb5d1c9e81814d3b2cbba469d9f6766b89ac425"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；固定源码 Knife Storm：getDuration 用于 map:addEffect 的效果持续时间（风暴存在时间），PHYSICALBLEED 的流血时长不由 %d 决定；原译“流血 %d 回合”错置。改为“使其流血，风暴持续 %d 回合”，末句“流血持续时间”改为“风暴持续时间”（getDuration 含 combatMindpower）。approaches 改“靠近的任何人”以贴合 anyone who approach",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28749,9 +28749,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "bdcf92bccc98f30f4140785807eafaba32c0a02e26e3ae1bbe107173ed6d08b9"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "固定源码 horrors.lua:671 已是 for 15 turns（summon_time=15），本条英文“10 turns”在固定版本不会命中，属历史陈旧键；其译文对自身英文准确，改成 15 会造成与 source 不符。清理需删除条目，超出本任务可编辑面（仅限 target），按 hint 单独清理。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28847,9 +28847,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "3787277fd0885ba4eff06eb0fa53f24c1bb75139a6d7bafb97dda144289edffb"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "固定源码 inscriptions.lua:245-248 的 Heroism info 已含 to a maximum of 100%%…，本条旧英文不会命中（活条目为 entry-02000），属历史陈旧键，需删除而非改 target，超出可编辑面，留单独清理。括号拆行属排版、“致死的伤害”属措辞，均 advisory，不在陈旧键上投入修改。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28909,9 +28909,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "04b5281768a753bcf0ff27506e57e5e28364bac725e93b2423c78ed324b4c3e4"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；中英文分号混用属标点错误。同节 inscription short_info 族（如 mod-tome.lua 周边“治疗 %d; 冷却 %d”“伤害 %d; 持续 %d; 冷却 %d”）统一用半角“; ”，故将全角“；”改为半角以与族内一致，不制造新不一致。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -28971,9 +28971,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "004eb5e560aed8f7b8f2b31b8e39db3c7d45ec1f1facb752e10549e44554940c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：原文 stay out of phase 为小写描述性短语而非效果名引用，“脱离相位”准确；孪生条目 Rune: Phase Door（mod-tome.lua:26107，冻结外）同样用“脱离相位”，单改本条会制造族内不一致。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29033,9 +29033,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "03cf9379fb42d98d64cae5e81ad93ce5b943453b30c9bd6eb7e971ea6ae8c861"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；括号数值拆行属纯静态排版且涉及换行序列，SPEC 禁止改；其余内容与固定源码 inscriptions.lua:245-248 一致，占位符顺序正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29095,9 +29095,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "c8f3e9e54118dc4c362e83779f1dc002bb11856d707bd136df865bca304c3d8d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 驳回：beam down 本身是科幻传送俚语，“哔的一下”的拟声口语化保留了传送下降含义，属文风取舍，无机制偏差。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29157,9 +29157,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "ceef37f61d2a87fc0e335fa6bc1b0299fb600e13ce201167be8c1155a4701f2f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；固定源码 Rushing Claws 的 message 在使用时显示；action 只移动并在相邻时施加 EFF_PINNED，无攻击伤害。“用尖利的爪子攻击”把 claws sharp and ready 动作化为攻击，与实现不符，改为“利爪蓄势待发”。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29255,9 +29255,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "1a3784d0acf1669218fbcfbbe52043661dc1a9ddf674cb043aab590fd1f967fb"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；固定源码 Sever Lifeline 的 action 为一次性 setEffect(EFF_SEVER_LIFELINE, 4)，不是引导法术，施法者不受束缚；效果结算为时空伤害（info 以 damDesc TEMPORAL 显示），并非无条件立即死亡。三处 claim 成立，改为“开始离断目标的生命线。4 回合后，如果目标仍在你的视线内，它的存在将被终结（%d 时空伤害）。”，括号按 bracket_fullwidth 改全角。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29317,9 +29317,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "1e54f81f92ea5148c13c307d7089b1cb07528e179dd9618100ea48050e122467"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；术语 cold=寒冷（damage type）；本仓“寒冷伤害”71 处、“冰冷伤害”10 处，两处改为“寒冷伤害”。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29379,9 +29379,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "a45ef7d8a16161c668f338a146a0ce15e8be6b9f5ad61168175736e34e84003f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；原文 lightning damage 的伤害类型被漏译，补“闪电伤害”（术语 lightning=闪电）。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29441,9 +29441,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "8afd730d99d3d3f639ffc12c6db7af85eda87656a84eaf9d1cc4de8c6b98e30f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；第二行缺句末句号，补“。”。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29503,9 +29503,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "86934062a411395dd10fd35624f675885a6df8387999f12e6bf325023fbee0d2"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；claim 为概率与“额外获得”之间的硬换行；SPEC 明确硬换行属纯静态排版且不得改换行序列，不并句。语义与占位符正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29565,9 +29565,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "4667d139ca9ac52d64107d68f53eb0106ebcc2d53422bec68db02754240e05e1"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；Steady Mind 的背景句 Superior cunning and training…outthink and outwit your opponents' physical and mental assaults 被压缩为“大量的训练使你能保持清醒的头脑”，丢失灵巧、智取与肉体／精神攻击三层信息，补全。“近身闪避”为本仓 Defense 的既有译名（mod-tome.lua:1910），保留。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29645,9 +29645,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "9771ffb2a353619599adb96e6a08191934cf90c4047141d1661000fda34b322e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；feel a surge of power 是自身感到力量涌起，“漏出一股汹涌的霸气”改变了方向（向外漏出）并夸张 power，改为“感到一股力量涌起”。bites the dust 的“扑街”属俚语风格 advisory，保留。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29707,9 +29707,9 @@
     "source_tag": "logPlayer",
     "snapshot_sha256": "6b94d4aabc0f1ad28d518cdd1188e43128d27417b5f3a2e80813c03dcffacc66"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；原文点名 Sweep，现译“这个技能”丢失技能名；同族 Momentum 日志（mod-tome.lua:26621）点名“急速切割”，按本节天赋名“横扫”（mod-tome.lua:26537）补回。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29769,9 +29769,9 @@
     "source_tag": "logPlayer",
     "snapshot_sha256": "0baa1cfc4cedd16424dea1d628bc0408352d79903212e11af0f1bcc12d15b034"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；原文点名 Precision，现译“这个技能”丢失技能名；按本节天赋名“弱点打击”（mod-tome.lua:26614）补回，与 Momentum 同族日志一致。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29831,9 +29831,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "b65ff8eb380186b330a390d12e5746a8a817db84dece354607e98ac96f7ea4d8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；claim 为排版性（The circle lasts %d turns 拆为独立行），属纯静态排版且涉及换行序列，不改。占位符与机制正确。另注：同条“法阵／阵法”用词不一属二级 advisory，本行无 claim 覆盖，不扩大修改。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -29929,9 +29929,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "065af5b1db7f8659401a6a4e725a7078b87c2fc06225710aed9e3550d24a0617"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "refuted",
+   "human_note": "驳回模型主张；固定源码 action 施加 EFF_BLOCKING，d_types 为物理类型，效果不区分近战与远程；英文 melee 与实现矛盾。现译“减少所有物理伤害”贴合实现，按 hint 不补“近战”，上游文本问题另行记录。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30009,9 +30009,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "2fcfa000495f5594bd3ea3b6bdb680995f93f00744d050efcc5bfe085eff309c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；六项为物理强度、物理豁免、法术强度、法术豁免、精神豁免、精神强度，恰为全部三种强度与三种豁免，“所有强度和豁免”归纳无信息丢失；refuted claim 成立。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30071,9 +30071,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "330754dbda853a60f2b932d626be186752700989a30194236837ce1b8655d733"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "defer",
+   "human_note": "固定源码 races.lua:692 为 tformat(duration, count)，与英文“Removes %d … for %d turns”顺序相反，属上游缺陷；现译忠实于英文。在中文中调换语序以适配实参属跨条目策略（上游修正后会反向出错），不得改 args_order，交维护者决定并记入上游问题清单。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30169,9 +30169,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "22ec8ffc9df8c66f1fab3952ab29970a75fd04be0ee3b169641c9ce2c487fc2b"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；Orcs 按术语 Orc=兽人（creatures.tsv）且本仓“兽人”402 处、“兽族”7 处，改为“兽人”。They→“你们”属视角 advisory，本条为玩家种族天赋，保留。占位符与机制正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30249,9 +30249,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "ee06926a73d1a92d52f85a6866d5cf9e65618a5cdca279eea476cc9996fa9f14"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；首行缺句末句号，补“。”。机制与占位符正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30347,9 +30347,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "f6652aa3e0fcc5840be82c62e76e41f34ad821df2487fd73086dcdc9b8e4316a"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；bolts 为 Mind Storm 射出的 bolt 投射物（target type=bolt），“灵能值球”误作 psi 资源，五处改为“飞弹”。每枚消耗 5 点反馈值及四个占位符正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30427,9 +30427,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "4178edd692024225e43f220a9ed09b53a90a73d3671230a7cf6d22aa4d0c409d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；“震慑几率受精神强度加成”缺句末句号，补“。”。参数正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30507,9 +30507,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "69a757866056b804916a376995359f1fba7189abcea0fb0391114bbae693d7ed"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；stamina 术语为“体力值”（resources.tsv，UI Stamina=体力值，mod-tome.lua:20901），“耐力”改为“体力值”。八个参数与资源对应正确。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30623,9 +30623,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "7426402da685a0250a4be7e71f8b3f1ae4a1a913b0813923cdb1a454b3572d9b"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；标点：第一行缺句号补“。”，第二行半角“.”改“。”；同时修“小心的同步”→“小心地同步”（的/地混用）。refuted 的正号 claim 驳回：“提升 %d%%”已表达增量。“全属性”符合实现，保留。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30739,9 +30739,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "bda855df281b6e95d302bcb12ae7ffa6568611677454d624e737ae44cf74927d"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；for 2 turns 译“两轮”不符回合单位，改“2 回合”。penalty 省略 refuted：“（-15%% 伤害）”已表达惩罚方向，不补。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -30837,9 +30837,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "baeba979be92606667ab789911d257f850917f95f12d9e3862eb078a5030a2df"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；energy projection 指能量投射技艺，“灵能值运用”偏离原意，改为“你在能量投射技艺上的专长提升了。”；“变的更慢”→“变得更慢”。%d、%0.2f 与 tformat(cooldown, mast) 相符。",
+   "human_decided_at": "2026-09-24T02:00:00Z"
   },
   {
    "source_layer": "human_review_md",

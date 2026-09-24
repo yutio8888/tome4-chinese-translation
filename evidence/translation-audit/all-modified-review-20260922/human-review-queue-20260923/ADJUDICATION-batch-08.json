@@ -1,0 +1,908 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-08",
+ "packet_sha256": "64717f88c6ac9ac5d41808042dafd34dfa9dba4c3bd2e533fcebed743b682d77",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 40,
+ "verdict_counts": {
+  "accepted": 37,
+  "deferred": 3
+ },
+ "model_disposition_counts": {
+  "defer": 3,
+  "fix": 25,
+  "no_change": 11,
+  "refuted": 1
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00292",
+   "entry_id": "entry-01895",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25031,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源码 gifts.lua 该天赋类别描述为 foes around you；现译“向敌人”丢失空间限定，补“你周围的”。无其他反证：该串为类别说明，不承接前文。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/gifts.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码 gifts.lua 该天赋类别描述为 foes around you；现译“向敌人”丢失空间限定，补“你周围的”。无其他反证：该串为类别说明，不承接前文。",
+   "applied": true,
+   "old_target": "向敌人释放自然的愤怒。",
+   "new_target": "向你周围的敌人释放自然的愤怒。",
+   "section": "mod-tome/data/talents/gifts/gifts.lua",
+   "source": "Unleash nature's fury against foes around you."
+  },
+  {
+   "queue_id": "hrq-00293",
+   "entry_id": "entry-01899",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25114,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "术语 Resistances=抗性（preferred），“所有抵抗”“抵抗受…加成”改为抗性，本仓“所有抗性”已有 8 处。原 pending 的树名 claim 可由本仓核验：同节 mod-tome.lua:25026/25028 的 talent type 为“软泥利刃”“腐蚀利刃”，本条“软泥之刃/腐蚀之刃”与之不一致，按同节树名对齐；同时补 all the talents inside are exchanged 的“其中所有技能替换”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/malleable-body.lua",
+    "terminology/combat.tsv",
+    "mod-tome.lua:25026",
+    "mod-tome.lua:25028"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；术语 Resistances=抗性（preferred），“所有抵抗”“抵抗受…加成”改为抗性，本仓“所有抗性”已有 8 处。原 pending 的树名 claim 可由本仓核验：同节 mod-tome.lua:25026/25028 的 talent type 为“软泥利刃”“腐蚀利刃”，本条“软泥之刃/腐蚀之刃”与之不一致，按同节树名对齐；同时补 all the talents inside are exchanged 的“其中所有",
+   "applied": true,
+   "old_target": "你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。\n\t\t你的本体获得原始的软泥特性，而分裂体则获得酸性特性。\n\t\t如果你习得软泥之刃系技能树，则该技能树会变为腐蚀之刃技能树。\n\t\t你和分裂体共享生命。\n\t\t当你分裂时，你和分裂体增加 %d%% 所有抵抗。\n\t\t抵抗受精神强度加成。",
+   "new_target": "你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。\n\t\t你的本体获得原始的软泥特性，而分裂体则获得酸性特性。\n\t\t如果你习得软泥利刃技能树，则其中所有技能会替换为腐蚀利刃技能树的技能。\n\t\t你和分裂体共享生命。\n\t\t当你分裂时，你和分裂体增加 %d%% 所有抗性。\n\t\t抗性受精神强度加成。",
+   "section": "mod-tome/data/talents/gifts/malleable-body.lua",
+   "source": "Your body is more like that of an ooze, you can split into two for %d turns.\n\t\tYour original self has the original ooze aspect while your mitosis gains the acid aspect.\n\t\tIf you know the Oozing Blades tree all the talents inside are exchanged for those of the Corrosive Blades tree.\n\t\tYour two selves share the same healthpool.\n\t\tWhile you are split both of you gain %d%% all resistances.\n\t\tResistances will increase with Mindpower."
+  },
+  {
+   "queue_id": "hrq-00294",
+   "entry_id": "entry-01905",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25165,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：avoid any damaging attack 以 %d%% 几率完全不受伤害，“完全免疫任何伤害”在带几率限定下与原义等价，属措辞偏好；avoidance 译“免疫几率”与上句一致。refuted claim（数值后未重复“流血伤害”）同意驳回：“流血，每回合受到 %0.2f 点伤害”已表达。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/mindstar-mastery.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：avoid any damaging attack 以 %d%% 几率完全不受伤害，“完全免疫任何伤害”在带几率限定下与原义等价，属措辞偏好；avoidance 译“免疫几率”与上句一致。refuted claim（数值后未重复“流血伤害”）同意驳回：“流血，每回合受到 %0.2f 点伤害”已表达。",
+   "applied": false,
+   "old_target": "将你的心灵利刃砸入地面，在你周围 3 码半径范围内形成一圈盘旋的结晶树叶，持续 7 回合。\n\t\t被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。\n\t\t所有被树叶覆盖的同伴，获得 %d%% 概率完全免疫任何伤害。\n\t\t伤害和免疫几率受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %0.2f）。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/gifts/mindstar-mastery.lua",
+   "source": "Smash your psiblades into the ground, creating a tide of crystallized leaves circling you in a radius of 3 for 7 turns.\n\t\tAll foes hit by the leaves will start bleeding for %0.2f per turn (cumulative).\n\t\tAll allies hit will be covered in leaves, granting them %d%% chance to completely avoid any damaging attack.\n\t\tDamage and avoidance will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %0.2f)."
+  },
+  {
+   "queue_id": "hrq-00295",
+   "entry_id": "entry-01911",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25260,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "唯一 claim 为前两句换行被合并，属纯静态排版；SPEC 规定不改换行序列与硬换行，不整理。其余占位符与机制（几率、持续、上限、暴击延长 2 回合）正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/mucus.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；唯一 claim 为前两句换行被合并，属纯静态排版；SPEC 规定不改换行序列与硬换行，不整理。其余占位符与机制（几率、持续、上限、暴击延长 2 回合）正确。",
+   "applied": false,
+   "old_target": "你的粘液有了自己的感知。每回合有 %d%% 几率，随机一个滴有你的粘液的格子会产生一只粘液软泥怪。\n\t\t粘液软泥怪会存在 %d 回合，会向任何附近的敌人释放史莱姆喷吐。\n\t\t同时场上可存在 %d 只粘液软泥怪。（基于你的灵巧值）\n\t\t每当你造成一次精神暴击，你的所有粘液软泥怪的存在时间会延长 2 回合。\n\t\t生成概率受精神强度加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/gifts/mucus.lua",
+   "source": "Your mucus is brought to near sentience.\n\t\tEach turn, there is a %d%% chance that a random spot of your mucus will spawn a Mucus Ooze.\n\t\tMucus Oozes last %d turns and will attack any of your foes by spitting slime at them.\n\t\tYou may have up to %d Mucus Oozes active at any time (based on your Cunning).\n\t\tAny time you deal a mental critical, the remaining time on all of your Mucus Oozes will increase by 2.\n\t\tThe spawn chance increases with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00296",
+   "entry_id": "entry-01913",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25288,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "三处均经固定源码核验成立：Actor.lua onTakeHit 在 value>0（受到伤害）时触发，“受到攻击”改为“受到伤害”并保留 may 为“可能会”，同时补 nearby within your line of sight（findFreeGrid 带视线参数）；getMax 取 checkMaxSummon 上限与技能等级的较小值，补“受技能等级和召唤上限限制”并补 so long as this talent is active；末句 %s 为 Reabsorb 附加句，其后的 The chance to split 补“分裂”。顺带修正“变的”→“变得”。换行结构保持原样。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/ooze.lua",
+    "game/modules/tome/class/Actor.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；三处均经固定源码核验成立：Actor.lua onTakeHit 在 value>0（受到伤害）时触发，“受到攻击”改为“受到伤害”并保留 may 为“可能会”，同时补 nearby within your line of sight（findFreeGrid 带视线参数）；getMax 取 checkMaxSummon 上限与技能等级的较小值，补“受技能等级和召唤上限限制”并补 so long as this talent is ac",
+   "applied": true,
+   "old_target": "你的身体构造变的像软泥怪一样。\n\t\t当你受到攻击时，你有几率分裂出一个浮肿软泥怪，其生命值为你所承受的伤害值的两倍（最大 %d，基于你的精神强度和最大生命值）。\n\t\t分裂几率为你损失生命百分比的 %0.2f 倍。\n\t\t你同时最多只能拥有 %d 只浮肿软泥怪，你所承受的所有伤害会在你和浮肿软泥怪间均摊。\n\t\t每只浮肿软泥怪存在 %d 回合，对非均摊的伤害的抗性很高（%d%% 对全部伤害的抗性），同时生命回复快。\n\t\t%s几率受灵巧加成。",
+   "new_target": "你的身体构造变得像软泥怪一样。\n\t\t当你受到伤害时，你可能会分裂，在附近视线内生成一个浮肿软泥怪，其生命值为你所承受的伤害值的两倍（最大 %d，基于你的精神强度和最大生命值）。\n\t\t分裂几率为你损失生命百分比的 %0.2f 倍。\n\t\t你同时最多只能拥有 %d 只浮肿软泥怪（受技能等级和召唤上限限制），只要此技能处于激活状态，你所承受的所有伤害会在你和浮肿软泥怪间均摊。\n\t\t每只浮肿软泥怪存在 %d 回合，对非均摊的伤害的抗性很高（%d%% 对全部伤害的抗性），同时生命回复快。\n\t\t%s分裂几率受灵巧加成。",
+   "section": "mod-tome/data/talents/gifts/ooze.lua",
+   "source": "Your body is more like that of an ooze.\n\t\tWhen you take damage, you may split and create a Bloated Ooze nearby within your line of sight.\n\t\tThis ooze has as much health as twice the damage you took (up to a maximum of %d, based on your Mindpower and maximum life).\n\t\tThe chance to split equals the percent of your health lost times %0.2f.\n\t\tYou may have up to %d Bloated Oozes active at any time (limited by talent level and the summoning limit), and all damage you take will be split equally between you and them so long as this talent is active.\n\t\tBloated Oozes last for %d turns, are very resilient (%d%% all damage resistance to damage not coming through your shared link), and regenerate life quickly.\n\t\t%sThe chance to split increases with your Cunning."
+  },
+  {
+   "queue_id": "hrq-00297",
+   "entry_id": "entry-01917",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25317,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "暴击机制 refuted 成立：ignore_direct_crits 在 damage_types.lua:130-151 按比例削减暴击额外伤害，现译“额外伤害降低”准确。wounds→cut_immune，“流血”正确。blindness/目盲 claim 不采纳：passives 为 blind_immune，术语 blind=致盲 仅为 existing 不强制；本仓“目盲免疫”与“致盲免疫”并存（3/4），batch-07 已接受同一属性的“目盲免疫”（entry-01536），单改本条不解决族内不一致，留维护者统一。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/ooze.lua",
+    "game/modules/tome/data/damage_types.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；暴击机制 refuted 成立：ignore_direct_crits 在 damage_types.lua:130-151 按比例削减暴击额外伤害，现译“额外伤害降低”准确。wounds→cut_immune，“流血”正确。blindness/目盲 claim 不采纳：passives 为 blind_immune，术语 blind=致盲 仅为 existing 不强制；本仓“目盲免疫”与“致盲免疫”并存（3/4），batch-07 ",
+   "applied": false,
+   "old_target": "你体内的器官模糊难辨，掩盖了你的要害部位。\n\t\t你受到的直接暴击（物理、精神、法术）的额外伤害降低 %d%%。\n\t\t你将额外获得 %d%% 的疾病、毒素、流血和目盲免疫。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/gifts/ooze.lua",
+   "source": "Your body's internal organs are indistinct, disguising your vital areas.\n\t\tYou have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).\n\t\tIn addition you gain %d%% resistance to disease, poison, wounds and blindness."
+  },
+  {
+   "queue_id": "hrq-00298",
+   "entry_id": "entry-01919",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25331,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "getNatureDamage 为 base*min(5,level)^0.5/2.23，level 最多 5，即加成最多提升 4 次、最大值约为初始值的 2.24 倍而非 4 倍；“最多4倍”误译次数为倍率，改为“最多提升 4 次”，并补 to a creature 与 with later Acid damage。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/oozing-blades.lua",
+    "game/modules/tome/data/timed_effects/physical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；getNatureDamage 为 base*min(5,level)^0.5/2.23，level 最多 5，即加成最多提升 4 次、最大值约为初始值的 2.24 倍而非 4 倍；“最多4倍”误译次数为倍率，改为“最多提升 4 次”，并补 to a creature 与 with later Acid damage。",
+   "applied": true,
+   "old_target": "你的自然抗性增加 %d%%。\n\t\t当你造成酸性伤害时，你的自然伤害增加 %0.1f%%，持续 %d 回合。\n\t\t伤害加成能够积累到最多4倍（1回合至多触发1次），最大值 %0.1f%%。\n\t\t抗性和伤害加成受精神强度加成。",
+   "new_target": "你的自然抗性增加 %d%%。\n\t\t当你对生物造成酸性伤害时，你的自然伤害增加 %0.1f%%，持续 %d 回合。\n\t\t此后你造成的酸性伤害可使该伤害加成最多提升 4 次（每回合至多 1 次），最大值 %0.1f%%。\n\t\t抗性和伤害加成受精神强度加成。",
+   "section": "mod-tome/data/talents/gifts/oozing-blades.lua",
+   "source": "You gain %d%% Nature resistance.\n\t\tWhen you deal Acid damage to a creature, you gain a %0.1f%% bonus to Nature damage for %d turns. \n\t\tThis damage bonus will improve up to 4 times (no more than once each turn) with later Acid damage you do, up to a maximum of %0.1f%%.\n\t\tThe resistance and damage increase improve with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00299",
+   "entry_id": "entry-01924",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25467,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "补“伤害受精神强度加成”句末句号（漏句末标点）。refuted claim 同意驳回：“最多移动20次”并入首句属排版，不拆句。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/storm-drake.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；补“伤害受精神强度加成”句末句号（漏句末标点）。refuted claim 同意驳回：“最多移动20次”并入首句属排版，不拆句。",
+   "applied": true,
+   "old_target": "召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标，最多移动20次。\n\t\t每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。\n\t\t当它碰到目标的时候，会在 %d 码范围内引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。\n\t\t伤害受精神强度加成\n\t\t每点雷龙系的天赋可以使你增加闪电抗性 1%%。",
+   "new_target": "召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标，最多移动20次。\n\t\t每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。\n\t\t当它碰到目标的时候，会在 %d 码范围内引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。\n\t\t伤害受精神强度加成。\n\t\t每点雷龙系的天赋可以使你增加闪电抗性 1%%。",
+   "section": "mod-tome/data/talents/gifts/storm-drake.lua",
+   "source": "Summon a tornado that moves very slowly towards the target, following it if it changes position.\n\t\tEach time it moves every foes within radius 2 takes %0.2f lightning damage and is knocked back 2 spaces.\n\t\tWhen it reaches the target it explodes in a radius of %d, knocking back targets and dealing %0.2f lightning and %0.2f physical damage.\n\t\tThe tornado will move a maximum of 20 times.\n\t\tDamage will increase with your Mindpower.\n\t\tEach point in storm drake talents also increases your lightning resistance by 1%%."
+  },
+  {
+   "queue_id": "hrq-00300",
+   "entry_id": "entry-01945",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25683,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：burn and crush your foes to death 概括为“摧毁敌人”，下一句“从很远的地方烧毁敌人”已承接烧灼意象，无机制缺失；补两层动作属文风。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/summon-distance.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：burn and crush your foes to death 概括为“摧毁敌人”，下一句“从很远的地方烧毁敌人”已承接烧灼意象，无机制缺失；补两层动作属文风。",
+   "applied": false,
+   "old_target": "召唤一只火龙来摧毁敌人，持续 %d 回合。\n\t\t火龙是可以从很远的地方烧毁敌人的强大生物。\n\t\t它拥有 %d 点力量，%d 点体质和 38 点意志。\n\t\t你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。\n\t\t火龙的力量和体质受精神强度加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/gifts/summon-distance.lua",
+   "source": "Summon a Fire Drake for %d turns to burn and crush your foes to death. Fire Drakes are behemoths that can burn foes from afar with their fiery breath.\n\t\tIt will get %d Strength, %d Constitution and 38 Willpower.\n\t\tYour summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.\n\t\tTheir Strength and Constitution will increase with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00301",
+   "entry_id": "entry-01970",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25806,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "claim 自标 advisory：“25 %%几率”仅为数字与百分号间空格，属纯静态排版／数字格式，按用户策略不整理；占位符与机制（25%% 缴械 3 回合）正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/venom-drake.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；claim 自标 advisory：“25 %%几率”仅为数字与百分号间空格，属纯静态排版／数字格式，按用户策略不整理；占位符与机制（25%% 缴械 3 回合）正确。",
+   "applied": false,
+   "old_target": "向你的敌人喷出一团酸液。\n\t\t目标会受到 %0.2f 点基于精神强度的酸性伤害。\n\t\t受到攻击的敌人有 25 %%几率被缴械 3 回合，因为酸液将他们的武器给腐蚀了。\n\t\t在技能等级 5 时，这道酸液可以穿透一条线上的敌人。\n\t\t每点技能等级被动地增加精神强度 4 点。\n\t\t每一点毒龙系技能同时也能增加你的酸性抗性 1%%。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/gifts/venom-drake.lua",
+   "source": "Spray forth a glob of acidic moisture at your enemy.\n\t\tThe target will take %0.2f Mindpower-based acid damage.\n\t\tEnemies struck have a 25%% chance to be Disarmed for three turns, as their weapon is rendered useless by an acid coating.\n\t\tAt Talent Level 5, this becomes a piercing line of acid.\n\t\tEvery level in Acidic Spray additionally raises your Mindpower by 4, passively.\n\t\tEach point in acid drake talents also increases your acid resistance by 1%%."
+  },
+  {
+   "queue_id": "hrq-00302",
+   "entry_id": "entry-01976",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25875,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "末行两处“%d%% ,”为带前置空格的英文半角逗号，属中文标点错误，改为全角逗号。其余占位符顺序与 info tformat 相符。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/horrors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；末行两处“%d%% ,”为带前置空格的英文半角逗号，属中文标点错误，改为全角逗号。其余占位符顺序与 info tformat 相符。",
+   "applied": true,
+   "old_target": "咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。\n\t\t如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。\n\t\t狂热状态会增加全局速度 %d%% , 物理暴击率 %d%% , 同时降至 -%d%% 生命时才会死去。",
+   "new_target": "咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。\n\t\t如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。\n\t\t狂热状态会增加全局速度 %d%%，物理暴击率 %d%%，同时降至 -%d%% 生命时才会死去。",
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "source": "Bites the target for %d%% weapon damage, potentially causing it to bleed for %d%% weapon damage over five turns.\n\t\tIf the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).\n\t\tThe frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life."
+  },
+  {
+   "queue_id": "hrq-00303",
+   "entry_id": "entry-01980",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25892,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码 Knife Storm：getDuration 用于 map:addEffect 的效果持续时间（风暴存在时间），PHYSICALBLEED 的流血时长不由 %d 决定；原译“流血 %d 回合”错置。改为“使其流血，风暴持续 %d 回合”，末句“流血持续时间”改为“风暴持续时间”（getDuration 含 combatMindpower）。approaches 改“靠近的任何人”以贴合 anyone who approaches。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/horrors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码 Knife Storm：getDuration 用于 map:addEffect 的效果持续时间（风暴存在时间），PHYSICALBLEED 的流血时长不由 %d 决定；原译“流血 %d 回合”错置。改为“使其流血，风暴持续 %d 回合”，末句“流血持续时间”改为“风暴持续时间”（getDuration 含 combatMindpower）。approaches 改“靠近的任何人”以贴合 anyone who approach",
+   "applied": true,
+   "old_target": "召唤旋转剑刃风暴将敌人切成碎片，对进入风暴的敌人造成 %d 点物理伤害并令其流血 %d 回合。\n\t\t伤害和流血持续时间受精神强度加成。",
+   "new_target": "召唤旋转剑刃风暴将敌人切成碎片，对靠近的任何人造成 %d 点物理伤害并使其流血，风暴持续 %d 回合。\n\t\t伤害和风暴持续时间受精神强度加成。",
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "source": "Summon a storm of swirling blades to slice your foes, inflicting %d physical damage and bleeding to anyone who approaches for %d turns.\n\t\tThe damage and duration will increase with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00304",
+   "entry_id": "entry-01984",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25923,
+   "source_tag": "tformat",
+   "model_disposition": "defer",
+   "model_reason": "固定源码 horrors.lua:671 已是 for 15 turns（summon_time=15），本条英文“10 turns”在固定版本不会命中，属历史陈旧键；其译文对自身英文准确，改成 15 会造成与 source 不符。清理需删除条目，超出本任务可编辑面（仅限 target），按 hint 单独清理。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/horrors.lua"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "固定源码 horrors.lua:671 已是 for 15 turns（summon_time=15），本条英文“10 turns”在固定版本不会命中，属历史陈旧键；其译文对自身英文准确，改成 15 会造成与 source 不符。清理需删除条目，超出本任务可编辑面（仅限 target），按 hint 单独清理。",
+   "applied": false,
+   "old_target": "在空间中打开一个孔洞，召唤一把活化之剑 10 回合。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "source": "Open a hole in space, summoning an animated blade for 10 turns."
+  },
+  {
+   "queue_id": "hrq-00305",
+   "entry_id": "entry-01988",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25973,
+   "source_tag": "tformat",
+   "model_disposition": "defer",
+   "model_reason": "固定源码 inscriptions.lua:245-248 的 Heroism info 已含 to a maximum of 100%%…，本条旧英文不会命中（活条目为 entry-02000），属历史陈旧键，需删除而非改 target，超出可编辑面，留单独清理。括号拆行属排版、“致死的伤害”属措辞，均 advisory，不在陈旧键上投入修改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/inscriptions.lua"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "固定源码 inscriptions.lua:245-248 的 Heroism info 已含 to a maximum of 100%%…，本条旧英文不会命中（活条目为 entry-02000），属历史陈旧键，需删除而非改 target，超出可编辑面，留单独清理。括号拆行属排版、“致死的伤害”属措辞，均 advisory，不在陈旧键上投入修改。",
+   "applied": false,
+   "old_target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。\n\t\t（目前 %d 生命值，%d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1."
+  },
+  {
+   "queue_id": "hrq-00306",
+   "entry_id": "entry-01989",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25981,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "中英文分号混用属标点错误。同节 inscription short_info 族（如 mod-tome.lua 周边“治疗 %d; 冷却 %d”“伤害 %d; 持续 %d; 冷却 %d”）统一用半角“; ”，故将全角“；”改为半角以与族内一致，不制造新不一致。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "mod-tome.lua:25949-26111"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；中英文分号混用属标点错误。同节 inscription short_info 族（如 mod-tome.lua 周边“治疗 %d; 冷却 %d”“伤害 %d; 持续 %d; 冷却 %d”）统一用半角“; ”，故将全角“；”改为半角以与族内一致，不制造新不一致。",
+   "applied": true,
+   "old_target": "-%d 死亡底线；持续 %d; 冷却 %d",
+   "new_target": "-%d 死亡底线; 持续 %d; 冷却 %d",
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source": "die at -%d; dur %d; cd %d"
+  },
+  {
+   "queue_id": "hrq-00307",
+   "entry_id": "entry-01994",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26029,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：原文 stay out of phase 为小写描述性短语而非效果名引用，“脱离相位”准确；孪生条目 Rune: Phase Door（mod-tome.lua:26107，冻结外）同样用“脱离相位”，单改本条会制造族内不一致。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "game/modules/tome/data/timed_effects/magical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：原文 stay out of phase 为小写描述性短语而非效果名引用，“脱离相位”准确；孪生条目 Rune: Phase Door（mod-tome.lua:26107，冻结外）同样用“脱离相位”，单改本条会制造族内不一致。",
+   "applied": false,
+   "old_target": "激活符文，传送到视野内 %d 格内的指定位置。之后，你会脱离相位 %d 回合。在这种状态下，所有新的负面效果的持续时间减少 %d%%，你的闪避增加 %d，你的全体伤害抗性增加 %d%%。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source": "Activate the rune to teleport up to %d spaces within line of sight.  Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%."
+  },
+  {
+   "queue_id": "hrq-00308",
+   "entry_id": "entry-02000",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26137,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "括号数值拆行属纯静态排版且涉及换行序列，SPEC 禁止改；其余内容与固定源码 inscriptions.lua:245-248 一致，占位符顺序正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/inscriptions.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；括号数值拆行属纯静态排版且涉及换行序列，SPEC 禁止改；其余内容与固定源码 inscriptions.lua:245-248 一致，占位符顺序正确。",
+   "applied": false,
+   "old_target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%。\n\t\t（目前 %d 生命值，%d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1."
+  },
+  {
+   "queue_id": "hrq-00309",
+   "entry_id": "entry-02004",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26213,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：beam down 本身是科幻传送俚语，“哔的一下”的拟声口语化保留了传送下降含义，属文风取舍，无机制偏差。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/misc.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：beam down 本身是科幻传送俚语，“哔的一下”的拟声口语化保留了传送下降含义，属文风取舍，无机制偏差。",
+   "applied": false,
+   "old_target": "使用堡垒自带的短程传送装置“哔”的一下回到地面。\n\t需要在某个星球的空中飞行。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/misc.lua",
+   "source": "Use the onboard short-range teleport of the Fortress to beam down to the surface.\n\tRequires being in flight above the ground of a planet."
+  },
+  {
+   "queue_id": "hrq-00310",
+   "entry_id": "entry-02015",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26343,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "固定源码 Rushing Claws 的 message 在使用时显示；action 只移动并在相邻时施加 EFF_PINNED，无攻击伤害。“用尖利的爪子攻击”把 claws sharp and ready 动作化为攻击，与实现不符，改为“利爪蓄势待发”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码 Rushing Claws 的 message 在使用时显示；action 只移动并在相邻时施加 EFF_PINNED，无攻击伤害。“用尖利的爪子攻击”把 claws sharp and ready 动作化为攻击，与实现不符，改为“利爪蓄势待发”。",
+   "applied": true,
+   "old_target": "@Source@冲了出去，用尖利的爪子攻击！",
+   "new_target": "@Source@冲了出去，利爪蓄势待发！",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "@Source@ rushes out, claws sharp and ready!"
+  },
+  {
+   "queue_id": "hrq-00311",
+   "entry_id": "entry-02022",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26417,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码 Sever Lifeline 的 action 为一次性 setEffect(EFF_SEVER_LIFELINE, 4)，不是引导法术，施法者不受束缚；效果结算为时空伤害（info 以 damDesc TEMPORAL 显示），并非无条件立即死亡。三处 claim 成立，改为“开始离断目标的生命线。4 回合后，如果目标仍在你的视线内，它的存在将被终结（%d 时空伤害）。”，括号按 bracket_fullwidth 改全角。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码 Sever Lifeline 的 action 为一次性 setEffect(EFF_SEVER_LIFELINE, 4)，不是引导法术，施法者不受束缚；效果结算为时空伤害（info 以 damDesc TEMPORAL 显示），并非无条件立即死亡。三处 claim 成立，改为“开始离断目标的生命线。4 回合后，如果目标仍在你的视线内，它的存在将被终结（%d 时空伤害）。”，括号按 bracket_fullwidth 改全角。",
+   "applied": true,
+   "old_target": "引导法术离断目标的生命线，如果 4 回合之后目标仍然在视线内则会立即死亡(%d 时空伤害)。",
+   "new_target": "开始离断目标的生命线。4 回合后，如果目标仍在你的视线内，它的存在将被终结（%d 时空伤害）。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Start to sever the lifeline of the target. After 4 turns, if the target is still in line of sight of you, its existance will be ended (%d temporal damage)."
+  },
+  {
+   "queue_id": "hrq-00312",
+   "entry_id": "entry-02023",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26441,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "术语 cold=寒冷（damage type）；本仓“寒冷伤害”71 处、“冰冷伤害”10 处，两处改为“寒冷伤害”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；术语 cold=寒冷（damage type）；本仓“寒冷伤害”71 处、“冰冷伤害”10 处，两处改为“寒冷伤害”。",
+   "applied": true,
+   "old_target": "将你的双手（及武器）笼罩在寒冰之中，每次近战攻击造成 %0.2f 冰冷伤害，并提高 %d%% 冰冷伤害。\n\t\t效果受法术强度加成。",
+   "new_target": "将你的双手（及武器）笼罩在寒冰之中，每次近战攻击造成 %0.2f 寒冷伤害，并提高 %d%% 寒冷伤害。\n\t\t效果受法术强度加成。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Engulfs your hands (and weapons) in a sheath of frost, dealing %0.2f cold damage per melee attack and increasing all cold damage by %d%%.\n\t\tThe effects will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00313",
+   "entry_id": "entry-02024",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26456,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原文 lightning damage 的伤害类型被漏译，补“闪电伤害”（术语 lightning=闪电）。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 lightning damage 的伤害类型被漏译，补“闪电伤害”（术语 lightning=闪电）。",
+   "applied": true,
+   "old_target": "召唤一股强烈的闪电束造成 %0.2f 至 %0.2f 伤害（平均 %0.2f）。\n\t\t伤害受精神强度加成。",
+   "new_target": "召唤一股强烈的闪电束造成 %0.2f 至 %0.2f 闪电伤害（平均 %0.2f）。\n\t\t伤害受精神强度加成。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Calls forth a powerful beam of lightning doing %0.2f to %0.2f lightning damage (%0.2f average).\n\t\tThe damage will increase with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00314",
+   "entry_id": "entry-02025",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26476,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "第二行缺句末句号，补“。”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；第二行缺句末句号，补“。”。",
+   "applied": true,
+   "old_target": "对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。\n\t\t眩晕概率受物理强度加成\n\t\t使用此技能会消耗当前所有连击点。",
+   "new_target": "对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。\n\t\t眩晕概率受物理强度加成。\n\t\t使用此技能会消耗当前所有连击点。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.\n\t\tThe daze chance will increase with your Physical Power.\n\t\tUsing this talent removes your combo points."
+  },
+  {
+   "queue_id": "hrq-00315",
+   "entry_id": "entry-02026",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26482,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "claim 为概率与“额外获得”之间的硬换行；SPEC 明确硬换行属纯静态排版且不得改换行序列，不并句。语义与占位符正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；claim 为概率与“额外获得”之间的硬换行；SPEC 明确硬换行属纯静态排版且不得改换行序列，不并句。语义与占位符正确。",
+   "applied": false,
+   "old_target": "当获得 1 个连击点时有 %d%% 概率\n\t\t额外获得 1 个连击点。\n\t\t此外你的连击点持续时间会延长 %d 回合。\n\t\t额外连击点获得概率受灵巧加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "When gaining a combo point, you have a %d%% chance to gain an extra combo point.  Additionally, your combo points will last %d turns longer before expiring.\n\t\tThe chance of building a second combo point will improve with your Cunning."
+  },
+  {
+   "queue_id": "hrq-00316",
+   "entry_id": "entry-02027",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26488,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Steady Mind 的背景句 Superior cunning and training…outthink and outwit your opponents' physical and mental assaults 被压缩为“大量的训练使你能保持清醒的头脑”，丢失灵巧、智取与肉体／精神攻击三层信息，补全。“近身闪避”为本仓 Defense 的既有译名（mod-tome.lua:1910），保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua",
+    "mod-tome.lua:1910"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；Steady Mind 的背景句 Superior cunning and training…outthink and outwit your opponents' physical and mental assaults 被压缩为“大量的训练使你能保持清醒的头脑”，丢失灵巧、智取与肉体／精神攻击三层信息，补全。“近身闪避”为本仓 Defense 的既有译名（mod-tome.lua:1910），保留。",
+   "applied": true,
+   "old_target": "大量的训练使你能保持清醒的头脑，增加 %d 近身闪避和 %d 精神豁免。\n\t\t受敏捷影响，闪避按比例加成；\n\t\t受灵巧影响，精神豁免按比例加成。",
+   "new_target": "卓越的灵巧与训练使你能以智取胜，看穿并化解对手的肉体和精神攻击。增加 %d 近身闪避和 %d 精神豁免。\n\t\t受敏捷影响，闪避按比例加成；\n\t\t受灵巧影响，精神豁免按比例加成。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.\n\t\tThe Defense bonus will scale with your Dexterity, and the save bonus with your Cunning."
+  },
+  {
+   "queue_id": "hrq-00317",
+   "entry_id": "entry-02028",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26499,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "feel a surge of power 是自身感到力量涌起，“漏出一股汹涌的霸气”改变了方向（向外漏出）并夸张 power，改为“感到一股力量涌起”。bites the dust 的“扑街”属俚语风格 advisory，保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；feel a surge of power 是自身感到力量涌起，“漏出一股汹涌的霸气”改变了方向（向外漏出）并夸张 power，改为“感到一股力量涌起”。bites the dust 的“扑街”属俚语风格 advisory，保留。",
+   "applied": true,
+   "old_target": "每当你让一个敌人扑街，你会漏出一股汹涌的霸气，增加你 2 点力量，上限 %d，持续 %d 回合。",
+   "new_target": "每当你让一个敌人扑街，你会感到一股力量涌起，增加你 2 点力量，上限 %d，持续 %d 回合。",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 (stacking up to a maximum of %d) for %d turns."
+  },
+  {
+   "queue_id": "hrq-00318",
+   "entry_id": "entry-02032",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26539,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "原文点名 Sweep，现译“这个技能”丢失技能名；同族 Momentum 日志（mod-tome.lua:26621）点名“急速切割”，按本节天赋名“横扫”（mod-tome.lua:26537）补回。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua",
+    "mod-tome.lua:26537",
+    "mod-tome.lua:26621"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文点名 Sweep，现译“这个技能”丢失技能名；同族 Momentum 日志（mod-tome.lua:26621）点名“急速切割”，按本节天赋名“横扫”（mod-tome.lua:26537）补回。",
+   "applied": true,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": "你只有在双持状态下才能使用横扫！",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "You cannot use Sweep without dual wielding!"
+  },
+  {
+   "queue_id": "hrq-00319",
+   "entry_id": "entry-02043",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26615,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "原文点名 Precision，现译“这个技能”丢失技能名；按本节天赋名“弱点打击”（mod-tome.lua:26614）补回，与 Momentum 同族日志一致。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua",
+    "mod-tome.lua:26614"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文点名 Precision，现译“这个技能”丢失技能名；按本节天赋名“弱点打击”（mod-tome.lua:26614）补回，与 Momentum 同族日志一致。",
+   "applied": true,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": "你只有在双持状态下才能使用弱点打击！",
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "You cannot use Precision without dual wielding!"
+  },
+  {
+   "queue_id": "hrq-00320",
+   "entry_id": "entry-02050",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26667,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "claim 为排版性（The circle lasts %d turns 拆为独立行），属纯静态排版且涉及换行序列，不改。占位符与机制正确。另注：同条“法阵／阵法”用词不一属二级 advisory，本行无 claim 覆盖，不扩大修改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；claim 为排版性（The circle lasts %d turns 拆为独立行），属纯静态排版且涉及换行序列，不改。占位符与机制正确。另注：同条“法阵／阵法”用词不一属二级 advisory，本行无 claim 覆盖，不扩大修改。",
+   "applied": false,
+   "old_target": "在你的脚下制造一个 %d 码半径的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。\n\t\t阵法持续 %d 回合。\n\t\t伤害受法术强度加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/npcs.lua",
+   "source": "Creates a circle of radius %d at your feet; the circle lights up affected tiles, increases your positive energy by %d each turn and deals %0.2f light damage and %0.2f fire damage per turn to everyone else within its radius.  The circle lasts %d turns.\n\t\tThe damage will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00321",
+   "entry_id": "entry-02058",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26777,
+   "source_tag": "tformat",
+   "model_disposition": "refuted",
+   "model_reason": "固定源码 action 施加 EFF_BLOCKING，d_types 为物理类型，效果不区分近战与远程；英文 melee 与实现矛盾。现译“减少所有物理伤害”贴合实现，按 hint 不补“近战”，上游文本问题另行记录。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/objects.lua",
+    "game/modules/tome/data/timed_effects/physical.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "驳回模型主张；固定源码 action 施加 EFF_BLOCKING，d_types 为物理类型，效果不区分近战与远程；英文 melee 与实现矛盾。现译“减少所有物理伤害”贴合实现，按 hint 不补“近战”，上游文本问题另行记录。",
+   "applied": false,
+   "old_target": "举起你的匕首来格挡攻击一回合，减少所有物理伤害 %d 点。如果你完全格挡了一次攻击的伤害，攻击者将进入致命的被反击状态（对其进行的下一次武器攻击伤害增加到 200%%）一回合并被缴械三回合。\n\t\t格挡值受敏捷值和灵巧值加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/objects.lua",
+   "source": "Raise your dagger into blocking position for one turn, reducing the damage of all physical melee attacks against you by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn and be left disarmed for 3 turns.\n\t\tThe blocking value will increase with your Dexterity and Cunning."
+  },
+  {
+   "queue_id": "hrq-00322",
+   "entry_id": "entry-02066",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26894,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "六项为物理强度、物理豁免、法术强度、法术豁免、精神豁免、精神强度，恰为全部三种强度与三种豁免，“所有强度和豁免”归纳无信息丢失；refuted claim 成立。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/races.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；六项为物理强度、物理豁免、法术强度、法术豁免、精神豁免、精神强度，恰为全部三种强度与三种豁免，“所有强度和豁免”归纳无信息丢失；refuted claim 成立。",
+   "applied": false,
+   "old_target": "半身人向来是一个有组织、有条理的种族，敌人越多他们越团结。\n\t\t如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f（最多 5 个敌人）。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/races.lua",
+   "source": "Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.\n\t\tIf two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes)."
+  },
+  {
+   "queue_id": "hrq-00323",
+   "entry_id": "entry-02067",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26898,
+   "source_tag": "tformat",
+   "model_disposition": "defer",
+   "model_reason": "固定源码 races.lua:692 为 tformat(duration, count)，与英文“Removes %d … for %d turns”顺序相反，属上游缺陷；现译忠实于英文。在中文中调换语序以适配实参属跨条目策略（上游修正后会反向出错），不得改 args_order，交维护者决定并记入上游问题清单。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/races.lua"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "固定源码 races.lua:692 为 tformat(duration, count)，与英文“Removes %d … for %d turns”顺序相反，属上游缺陷；现译忠实于英文。在中文中调换语序以适配实参属跨条目策略（上游修正后会反向出错），不得改 args_order，交维护者决定并记入上游问题清单。",
+   "applied": false,
+   "old_target": "半身人拥有已知世界最强大的军事力量之一，数千年来一直与大多数其他种族交战。\n\t\t移除 %d 个震慑、眩晕或定身效果，并使你对震慑、眩晕和定身免疫 %d 回合。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/misc/races.lua",
+   "source": "Halflings have one of the most powerful military forces in the known world and have been at war with most other races for thousands of years.\n\t\tRemoves %d stun, daze, or pin effects and grants immunity to stuns, dazes and pins for %d turns."
+  },
+  {
+   "queue_id": "hrq-00324",
+   "entry_id": "entry-02069",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 26910,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Orcs 按术语 Orc=兽人（creatures.tsv）且本仓“兽人”402 处、“兽族”7 处，改为“兽人”。They→“你们”属视角 advisory，本条为玩家种族天赋，保留。占位符与机制正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/misc/races.lua",
+    "terminology/creatures.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；Orcs 按术语 Orc=兽人（creatures.tsv）且本仓“兽人”402 处、“兽族”7 处，改为“兽人”。They→“你们”属视角 advisory，本条为玩家种族天赋，保留。占位符与机制正确。",
+   "applied": true,
+   "old_target": "其他种族对兽族的猎杀持续了上千年，不管是否正义。你们已经学会忍受那些会摧毁弱小种族的灾难。\n\t\t当你的生命值降低到 50%% 以下，你强大的意志移除你身上最多 %d 个精神负面效果（基于技能等级和意志）。该效果每 %d 回合最多触发一次。\n\t\t额外增加 %d 物理豁免。",
+   "new_target": "其他种族对兽人的猎杀持续了上千年，不管是否正义。你们已经学会忍受那些会摧毁弱小种族的灾难。\n\t\t当你的生命值降低到 50%% 以下，你强大的意志移除你身上最多 %d 个精神负面效果（基于技能等级和意志）。该效果每 %d 回合最多触发一次。\n\t\t额外增加 %d 物理豁免。",
+   "section": "mod-tome/data/talents/misc/races.lua",
+   "source": "Orcs have been the prey of the other races for thousands of years, with or without justification. They have learnt to withstand things that would break weaker races.\n\t\tWhen your life goes below 50%% your sheer determination cleanses you of %d mental debuff(s) based on talent level and Willpower.  This can only happen once every %d turns.\n\t\tAlso increases physical save by %d."
+  },
+  {
+   "queue_id": "hrq-00325",
+   "entry_id": "entry-02074",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27062,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "首行缺句末句号，补“。”。机制与占位符正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/absorption.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；首行缺句末句号，补“。”。机制与占位符正确。",
+   "applied": true,
+   "old_target": "用力场环绕自己，减少受到的所有伤害 %d%%\n\t\t维持这样的护盾代价非常昂贵：初始每回合消耗你 5%% 的最大灵能值，此后每多维持一回合再额外增加 5%%。例如第 2 回合会消耗 10%%。\n\t\t目前的灵能值消耗：每回合 %0.1f 灵能值",
+   "new_target": "用力场环绕自己，减少受到的所有伤害 %d%%。\n\t\t维持这样的护盾代价非常昂贵：初始每回合消耗你 5%% 的最大灵能值，此后每多维持一回合再额外增加 5%%。例如第 2 回合会消耗 10%%。\n\t\t目前的灵能值消耗：每回合 %0.1f 灵能值",
+   "section": "mod-tome/data/talents/psionic/absorption.lua",
+   "source": "Surround yourself with a forcefield, reducing all incoming damage by %d%%.\n\t\tSuch a shield is very expensive to maintain, draining 5%% of your maximum psi per turn initially plus an addition 5%% for each turn it has been maintained. For example, on turn 2 it will drain 10%%.\n\t\tCurrent drain rate: %0.1f psi/turn"
+  },
+  {
+   "queue_id": "hrq-00326",
+   "entry_id": "entry-02081",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27179,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "bolts 为 Mind Storm 射出的 bolt 投射物（target type=bolt），“灵能值球”误作 psi 资源，五处改为“飞弹”。每枚消耗 5 点反馈值及四个占位符正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/discharge.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；bolts 为 Mind Storm 射出的 bolt 投射物（target type=bolt），“灵能值球”误作 psi 资源，五处改为“飞弹”。每枚消耗 5 点反馈值及四个占位符正确。",
+   "applied": true,
+   "old_target": "将你的潜意识释放到周围的世界。当此技能激活时，每回合你最多射出 %d 个灵能值球（每个敌方目标一个），造成 %0.2f 精神伤害。每个灵能值球消耗 5 点反馈值。\n\t\t当获得的反馈值超出最大值时，你会产生额外的灵能值球（每个目标每超出 %d 反馈值产生 1 个灵能值球），但是每回合产生的额外灵能值球数量不会超过 %d。\n\t\t此技能运用了灵能通道，所以当你移动时会中断此技能。\n\t\t特别地，当你开启此技能时，心灵灼烧、心灵脑叶切除和碾碎心灵的攻击范围将变为10格。\n\t\t受精神强度影响，伤害按比例加成。",
+   "new_target": "将你的潜意识释放到周围的世界。当此技能激活时，每回合你最多射出 %d 个飞弹（每个敌方目标一个），造成 %0.2f 精神伤害。每个飞弹消耗 5 点反馈值。\n\t\t当获得的反馈值超出最大值时，你会产生额外的飞弹（每个目标每超出 %d 反馈值产生 1 个飞弹），但是每回合产生的额外飞弹数量不会超过 %d。\n\t\t此技能运用了灵能通道，所以当你移动时会中断此技能。\n\t\t特别地，当你开启此技能时，心灵灼烧、心灵脑叶切除和碾碎心灵的攻击范围将变为10格。\n\t\t受精神强度影响，伤害按比例加成。",
+   "section": "mod-tome/data/talents/psionic/discharge.lua",
+   "source": "Unleash your subconscious on the world around you.  While active, you fire up to %d bolts each turn (one per hostile target) that deal %0.2f mind damage.  Each bolt consumes 5 Feedback.\n\t\tFeedback gains beyond your maximum allowed amount may generate extra bolts (one bolt per %d excess Feedback per target), but no more than %d extra bolts per turn. \n\t\tThis effect is a psionic channel, increasing the range of Mind Sear, Psychic Lobotomy, and Sunder Mind to 10 but will break if you move.\n\t\tThe damage will scale with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00327",
+   "entry_id": "entry-02097",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27318,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“震慑几率受精神强度加成”缺句末句号，补“。”。参数正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/dream-smith.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“震慑几率受精神强度加成”缺句末句号，补“。”。参数正确。",
+   "applied": true,
+   "old_target": "用你的梦之巨锤碾碎敌人，造成 %d%% 武器伤害。如果攻击命中，则目标会被震慑 %d 回合。\n\t\t震慑几率受精神强度加成\n\t\t学习此技能会增加 %d 点你使用梦之巨锤时的物理强度，同时使梦之巨锤造成的所有伤害提升 %d%%。",
+   "new_target": "用你的梦之巨锤碾碎敌人，造成 %d%% 武器伤害。如果攻击命中，则目标会被震慑 %d 回合。\n\t\t震慑几率受精神强度加成。\n\t\t学习此技能会增加 %d 点你使用梦之巨锤时的物理强度，同时使梦之巨锤造成的所有伤害提升 %d%%。",
+   "section": "mod-tome/data/talents/psionic/dream-smith.lua",
+   "source": "Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If the attack hits, the target is stunned for %d turns.\n\t\tStun chance improves with your Mindpower.  Learning this talent increases your Physical Power for Dream Hammer damage calculations by %d and all damage with Dream Hammer attacks by %d%%.\n\t\t"
+  },
+  {
+   "queue_id": "hrq-00328",
+   "entry_id": "entry-02103",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27380,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "stamina 术语为“体力值”（resources.tsv，UI Stamina=体力值，mod-tome.lua:20901），“耐力”改为“体力值”。八个参数与资源对应正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/feedback.lua",
+    "terminology/resources.tsv",
+    "mod-tome.lua:20901"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；stamina 术语为“体力值”（resources.tsv，UI Stamina=体力值，mod-tome.lua:20901），“耐力”改为“体力值”。八个参数与资源对应正确。",
+   "applied": true,
+   "old_target": "使用反馈值来补充自己。治疗 %d 生命值并回复 %d 点耐力，%d 点法力，%d 点失衡值，%d 点活力，%d 点正能量和负能量，%d 点灵能值及 %d 点仇恨值。\n\t\t增益效果受精神强度加成。",
+   "new_target": "使用反馈值来补充自己。治疗 %d 生命值并回复 %d 点体力值，%d 点法力，%d 点失衡值，%d 点活力，%d 点正能量和负能量，%d 点灵能值及 %d 点仇恨值。\n\t\t增益效果受精神强度加成。",
+   "section": "mod-tome/data/talents/psionic/feedback.lua",
+   "source": "Use Feedback to replenish yourself.  This heals you for %d life, and restores %d stamina, %d mana, %d equilibrium, %d vim, %d positive and negative energies, %d psi energy, and %d hate.\n\t\tThe heal and resource gain will improve with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00329",
+   "entry_id": "entry-02106",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27408,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "标点：第一行缺句号补“。”，第二行半角“.”改“。”；同时修“小心的同步”→“小心地同步”（的/地混用）。refuted 的正号 claim 驳回：“提升 %d%%”已表达增量。“全属性”符合实现，保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/finer-energy-manipulations.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；标点：第一行缺句号补“。”，第二行半角“.”改“。”；同时修“小心的同步”→“小心地同步”（的/地混用）。refuted 的正号 claim 驳回：“提升 %d%%”已表达增量。“全属性”符合实现，保留。",
+   "applied": true,
+   "old_target": "通过小心的同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果\n\t\t对于武器，提升你的意志和灵巧来代替力量和敏捷的百分比，从 60%% 到 %d%%.\n\t\t对于灵晶，提升 %d%% 将敌人抓取过来的几率。\n\t\t对于宝石，提升 %d 额外全属性。",
+   "new_target": "通过小心地同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果。\n\t\t对于武器，提升你的意志和灵巧来代替力量和敏捷的百分比，从 60%% 到 %d%%。\n\t\t对于灵晶，提升 %d%% 将敌人抓取过来的几率。\n\t\t对于宝石，提升 %d 额外全属性。",
+   "section": "mod-tome/data/talents/psionic/finer-energy-manipulations.lua",
+   "source": "By carefully synchronizing your mind to the resonant frequencies of your psionic focus, you strengthen its effects.\n\t\tFor conventional weapons, this increases the percentage of your willpower and cunning that is used in place of strength and dexterity for all weapon attacks, from 60%% to %d%%.\n\t\tFor mindstars, this increases the chance to pull enemies to you by +%d%%.\n\t\tFor gems, this increases the bonus stats by %d."
+  },
+  {
+   "queue_id": "hrq-00330",
+   "entry_id": "entry-02107",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27420,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "for 2 turns 译“两轮”不符回合单位，改“2 回合”。penalty 省略 refuted：“（-15%% 伤害）”已表达惩罚方向，不补。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/focus.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；for 2 turns 译“两轮”不符回合单位，改“2 回合”。penalty 省略 refuted：“（-15%% 伤害）”已表达惩罚方向，不补。",
+   "applied": true,
+   "old_target": "汇聚能量形成一道光束，鞭笞一条直线上的所有生物，造成 %d 点物理伤害并使它们失去平衡两轮（-15%% 伤害）。\n\t\t伤害受精神强度加成。",
+   "new_target": "汇聚能量形成一道光束，鞭笞一条直线上的所有生物，造成 %d 点物理伤害并使它们失去平衡 2 回合（-15%% 伤害）。\n\t\t伤害受精神强度加成。",
+   "section": "mod-tome/data/talents/psionic/focus.lua",
+   "source": "Focus energies into a beam to lash all creatures in a line with physical force, doing %d Physical damage and knocking them off balance (-15%% damage penalty) for 2 turns.\n\t\tThe damage will scale with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00331",
+   "entry_id": "entry-02109",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27517,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "energy projection 指能量投射技艺，“灵能值运用”偏离原意，改为“你在能量投射技艺上的专长提升了。”；“变的更慢”→“变得更慢”。%d、%0.2f 与 tformat(cooldown, mast) 相符。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/mental-discipline.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；energy projection 指能量投射技艺，“灵能值运用”偏离原意，改为“你在能量投射技艺上的专长提升了。”；“变的更慢”→“变得更慢”。%d、%0.2f 与 tformat(cooldown, mast) 相符。",
+   "applied": true,
+   "old_target": "你增加了在灵能值运用方面的知识。\n\t\t所有光环的冷却时间减少 %d 回合。光环消耗灵能值变的更慢（消耗每点灵能值所需伤害值 +%0.2f）。",
+   "new_target": "你在能量投射技艺上的专长提升了。\n\t\t所有光环的冷却时间减少 %d 回合。光环消耗灵能值变得更慢（消耗每点灵能值所需伤害值 +%0.2f）。",
+   "section": "mod-tome/data/talents/psionic/mental-discipline.lua",
+   "source": "Your expertise in the art of energy projection grows.\n\t\tAura cooldowns are all reduced by %d turns. Aura damage drains energy more slowly (+%0.2f damage required to lose a point of energy)."
+  }
+ ]
+}
