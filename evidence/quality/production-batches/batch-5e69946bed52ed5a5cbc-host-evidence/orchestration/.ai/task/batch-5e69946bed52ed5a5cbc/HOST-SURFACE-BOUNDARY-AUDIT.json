@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "native_log_location": "~/.codex/sessions (all 4 lanes native-log harvest; all 80 identities pre-checked against envelopes)",
+  "host_prep_note": "prepare_review273.py ran cleanly before any dispatch. freeze_workset matched 80/80 (no MISS); all 80 entries source-verified pinned/confirmed.",
+  "rows": [
+    {
+      "dispatch_id": "lane-000-0",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "d123a949d3e7af7511806dc3a32b42a3397a31c40ad2949437a768b307a733a8",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read-only cat of own envelope and contract (one escalated re-read each after sandbox failure); one ALL_TOOLS listing (tool discovery, no I/O, no terminal tool invoked)"
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "status": "PASS",
+      "tool_calls": 5,
+      "native_calls_sha256": "761af2200ddb4c60ece32bf3eef77d86780834a804b1f65189154cd59cf4a65c",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read-only cat of contract and own envelope (escalated re-reads after sandbox failure); one ALL_TOOLS listing (tool discovery, no I/O, no terminal tool invoked)"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "status": "PASS",
+      "tool_calls": 2,
+      "native_calls_sha256": "2f6927dd3cc736da529d7593d35de6d7bf257c068686ed01ba05e14323c4ae30",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "two read-only cat calls of contract and own envelope (second an escalated re-read)"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "status": "PASS",
+      "tool_calls": 4,
+      "native_calls_sha256": "4c4a98f3d1995f3eee2918aab80f0fb14b0111ff9a8febcf4688f71e42a12cfa",
+      "reads": [
+        "own frozen surface envelope",
+        "full surface-v1 contract"
+      ],
+      "writes": [],
+      "manually_reviewed": true,
+      "note": "read-only cat of contract and own envelope (one with pwd; escalated re-read); one ALL_TOOLS listing (tool discovery, no I/O, no terminal tool invoked); host list_terminals(all) returned no terminals"
+    }
+  ]
+}

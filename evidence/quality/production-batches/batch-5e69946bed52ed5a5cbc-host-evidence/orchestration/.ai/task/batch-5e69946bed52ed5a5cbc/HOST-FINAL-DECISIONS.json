@@ -1,0 +1,116 @@
+{
+  "batch_id": "batch-5e69946bed52ed5a5cbc",
+  "observations": 10,
+  "observation_dispositions": {
+    "refuted": 7,
+    "confirmed": 3
+  },
+  "repair_revision_keys": [
+    "fcb8219fb8c88087dac87b64051d6e829b43affe9c13dacd2c8e9844eef9b78e",
+    "fd267689be1e30a3bf2673d23f3bcd4548acbbdd5785bce4dd9b21ff17466b80"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "fc87595080476d55716ef4ca1f876057c70a71aff50cc4a264ca319417a1df6d",
+      "stage": "surface",
+      "observation": "creative 是形容词，译文“创造力”是名词；缺少该 entity keyword 的具体显示语境，无法确认这里是否需要名词化。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "egos/mindstars.lua entity keyword creative：同族 keyword 译法本就混用名词（horrifying=恐惧、hateful=仇恨、clarity=清晰），“创造力”与同族一致，非错译。"
+    },
+    {
+      "revision_key": "fcb8219fb8c88087dac87b64051d6e829b43affe9c13dacd2c8e9844eef9b78e",
+      "stage": "surface",
+      "observation": "原文说无法使用法术或奥术驱动的装备，译文将无法使用法术写成“拒绝使用法术”，把能力限制误写为主动选择。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "class/interface/TooltipsData.lua Antimagic User 说明：The use of spells or arcane-powered equipment is impossible.——class/Actor.lua:5059、5139（624a673）反魔法技能设 forbid_arcane，奥术装备与法术被禁用，是硬性限制；现译“拒绝使用法术”把不能写成主动拒绝（一级 fidelity）。修复第三行为“无法使用法术，也无法使用奥术驱动的装备”一类，#GOLD#…#LAST#、3 个 LF 保持。"
+    },
+    {
+      "revision_key": "fcf3c2b88c7ab961e8f948bbf60cb56946dd4c271852b04a8bbc56d6ca7cd5eb",
+      "stage": "surface",
+      "observation": "原文以空格开头，译文未保留；该条可能与前文拼接，冻结输入未提供拼接语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "egos/wizard-hat.lua ego 后缀 \" of the sentry\"：前导空格用于英文拼接，中文 ego 译名“警卫之”按本库前缀式拼接，不保留空格（既往 ego 空格裁决先例）。"
+    },
+    {
+      "revision_key": "fd22f1b0549562d216c7da3dee1673c0aba201f048a725af7aff3b914153e09a",
+      "stage": "surface",
+      "observation": "原文冒号后有一个尾随空格，译文未保留；冻结输入未提供后续拼接语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Object.lua \"Life regen: \"：本库同类属性标签统一用全角冒号且不留尾空格（如“生命回复：”），显示无粘连，非缺陷。"
+    },
+    {
+      "revision_key": "fd267689be1e30a3bf2673d23f3bcd4548acbbdd5785bce4dd9b21ff17466b80",
+      "stage": "surface",
+      "observation": "原文说许多人失踪，译文改为“这些人大部分都……消失了”，将数量扩大为大部分。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "world-artifacts.lua:1134 领袖的皇冠（Crown of Command）描述：many disappeared without a trace into his numerous prisons——现译“这些人大部分都…消失了”把 many 夸大为“大部分”（一级 fidelity，数量限定被改）；另 ruled over the Nargol lands 译“纳格尔大陆”不当，Nargol 是半身人王国（本库 3794、3848 行“纳格尔半身人王国”）。整条修复：数量改“许多人”，“纳格尔大陆”改“纳格尔的领土/国土”一类，其余逐句对照。"
+    },
+    {
+      "revision_key": "fd2afcd1f7684deaf6a721eab8016d123e53fbb46bed1927f47500d7a7930337",
+      "stage": "surface",
+      "observation": "Cunning 译为“灵巧”有属性混淆疑点；冻结输入没有术语条目或属性定义，无法确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "birth/classes/rogue.lua Cunning：本库属性名 Cunning=灵巧（mod-tome.lua:42158、43205），与属性面板一致，非错译。"
+    },
+    {
+      "revision_key": "fd2e4f524ddebdb6370548c48033fa775c01733e2fd58869a1bebc8a7a2759bf",
+      "stage": "surface",
+      "observation": "“Rime Wraith”译为“远古冰魂”，原文没有“远古”之意，且“霜”与“鬼灵”之意未准确体现。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/magical.lua Host of a Rime Wraith (Gelid Host)：Rime Wraith 本库技能名为“远古冰魂”（29441、35785），Gelid Host=霜寒宿主（29465），效果文本沿用技能名；改名属跨条命名决定，不在本批范围。"
+    },
+    {
+      "revision_key": "fd365b0bca80d04224b21405805b22924ed8ef4fcd55adc6fe9efc880601283b",
+      "stage": "surface",
+      "observation": "原文在冒号后有两个尾随空格，译文均未保留，可能使后续拼接内容紧贴冒号。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/Actor.lua #0080FF#M. save#FFFFFF#:  ：同组 P. save/S. save（155、157 行）均为全角冒号不留空格，面板对齐一致，非缺陷。"
+    },
+    {
+      "revision_key": "fd635c58e3bd0c2380da8e497d5db879da63f3e775f4130f2a9b9a61c8ca2a73",
+      "stage": "surface",
+      "observation": "“%d%% weapon damage as nature”译为“%d%% 自然武器伤害”，易误解为天然武器伤害；末句“armor penetration”译成“护甲”，遗漏“穿透”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "techniques/munitions.lua Alloyed Munitions：“%d%% 自然武器伤害”为本库同类写法（共 4 处）；末句 armor penetration 在 munitions.lua:432–446 实为 getArmorSaveReduction（护甲与豁免削减），现译“护甲和豁免削减”贴合实现（上游措辞与实现不一致的先例），驳回。"
+    },
+    {
+      "revision_key": "fd267689be1e30a3bf2673d23f3bcd4548acbbdd5785bce4dd9b21ff17466b80",
+      "stage": "contextual",
+      "observation": "This is the Crown of Command desc at world-artifacts.lua:1134, commit 624a6732. There are three fidelity problems. (1) 'enforced order and discipline under the harshest of terms' is rendered as「通过最残暴的手段执行他的命令和法律」. That turns order and discipline (秩序/纪律) into commands and laws (命令和法律). (2) 'many disappeared without a trace into his numerous prisons' becomes「这些人大部分都…消失了」. The source says many people disappeared, not most of those just mentioned. (3)「表示忠诚」drops the object 'to the crown'. The object is itself called 王冠 at the start but 皇冠 at the end, which is inconsistent within the same text. 'Nargol lands' is also rendered as 纳格尔大陆 (continent), which is not in the source.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向并补充：enforced order and discipline 被写成“执行他的命令和法律”；loyal to the crown 漏宾语；同条前称“王冠”后称“皇冠”不一致（物品名为“领袖的皇冠”，统一为“皇冠”）；Nargol lands 非“大陆”。并入同条整句修复。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-000, single accepted attempt)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1 and Codex function_call items since 5c2f8459; all 80 surface identity echoes pre-checked exact against envelopes before harvest; all 4 lanes and the contextual child harvested via --native-log.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations.",
+    "Contextual scope was the 9 surface-flagged revisions (envelope entries=9); the other 71 rest on the surface OK verdicts.",
+    "Contextual raised 1 ISSUE (fd267689 Crown of Command), agreeing with the host-confirmed surface row and adding detail (order/discipline, loyal to the crown, 王冠/皇冠 inconsistency).",
+    "Contextual passed fcb8219f (Antimagic User); host keeps it confirmed: source says spells and arcane equipment are impossible and class/Actor.lua:5059/5139 forbid_arcane is a hard block, while the target says 拒绝使用法术 (refuse), turning a restriction into a choice.",
+    "Contextual passed the 7 host-refuted rows (keyword family, ego-affix space, colon-label spaces, Cunning, Rime Wraith name, munitions wording).",
+    "No advisories.",
+    "No pending, no glossary/global rename; old pending/blocked unchanged."
+  ]
+}
