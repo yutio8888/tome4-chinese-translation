@@ -1,0 +1,113 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "8a1d55511ff0273bfc9f4193b98de2269372475ffafc5c8185257d59bb7ad4d3",
+      "start_line": 604,
+      "end_line": 650,
+      "excerpt": "604: newTalent{\n605: \tname = \"Dart Launcher\",\n606: \ttype = {\"cunning/tools\", 1},\n607: \tpoints = 1,\n608: \ttactical = { ATTACK = {PHYSICAL = 1},\n609: \t\tDISABLE = function(self, t, target)\n610: \t\t\treturn self:knowTalent(self.T_DART_LAUNCHER_MASTERY) and 2 or {sleep = 1, poison = 1}\n611: \t\tend\n612: \t},\n613: \trange = 5,\n614: \tno_energy = true,\n615: \tcooldown = 10,\n616: \tstamina = 5,\n617: \trequires_target = true,\n618: \tno_break_stealth = true,\n619: \tgetDollImage = function(self, t) return self:knowTalent(self.T_DART_LAUNCHER_MASTERY) and \"artifices/mastery_dart_launcher\" or \"artifices/dart_launcher\" end,\n620: \tgetDamage = function(self, t) return 15 + self:combatTalentStatDamage(t, \"cun\", 12, 150) end,\n621: \tgetSleepPower = function(self, t) return 15 + self:combatTalentStatDamage(t, \"cun\", 15, 180) end,\n622: \ttarget = function(self, t)\n623: \t\treturn {type=\"bolt\", range=self:getTalentRange(t)}\n624: \tend,\n625: \taction = function(self, t)\n626: \t\tlocal tg = self:getTalentTarget(t)\n627: \t\tlocal x, y = self:getTarget(tg)\n628: \t\tif not x or not y then return nil end\n629: \t\tif not tg then return nil end\n630: \t\t\n631: \t\tlocal slow = 0\n632: \t\t\n633: \t\tif self:knowTalent(self.T_DART_LAUNCHER_MASTERY) then slow = self:callTalent(self.T_DART_LAUNCHER_MASTERY, \"getSlow\") end\n634: \n635: \t\tself:project(tg, x, y, function(px, py)\n636: \t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n637: \t\t\tif not target then return nil end\n638: \t\t\tself:project(tg, x, y, DamageType.PHYSICAL, self:physicalCrit(t.getDamage(self,t)))\n639: \t\t\tif (self:knowTalent(self.T_DART_LAUNCHER_MASTERY) or target:canBe(\"sleep\") and target:canBe(\"poison\")) then\n640: \t\t\t\ttarget:setEffect(target.EFF_SEDATED, 4, {src=self, power=t.getSleepPower(self,t), slow=slow, insomnia=20, no_ct_effect=true, apply_power=self:combatAttack()})\n641: \t\t\t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"generic_charge\", {rm=180, rM=200, gm=100, gM=120, bm=30, bM=50, am=70, aM=180})\n642: \t\t\telse\n643: \t\t\t\tgame.logSeen(self, \"%s resists the sedation!\", target:getName():capitalize())\n644: \t\t\tend\n645: \n646: \t\tend)\n647: \n648: \t\treturn true\n649: \tend,\n650: \tshort_info = function(self, t, slot_talent)"
+    },
+    {
+      "revision_keys": [
+        "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start_line": 3477,
+      "end_line": 3490,
+      "excerpt": "3477: newEffect{\n3478: \tname = \"SEDATED\", image = \"talents/dart_launcher.png\",\n3479: \tdesc = _t\"Sedated\",\n3480: \tlong_desc = function(self, eff) return (\"The target is in a deep sleep and unable to act.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.power) end,\n3481: \ttype = \"physical\",\n3482: \tsubtype = { sleep=true, poison=true },\n3483: \tstatus = \"detrimental\",\n3484: \tparameters = { power=10, insomnia=10, slow=0 },\n3485: \ton_gain = function(self, eff)\n3486: \t\t-- check non-poison immunities if this is being applied by Toxic Death\n3487: \t\tif eff._from_toxic_death and not (self:checkClassification(\"living\") and self:canBe(\"sleep\")) then\n3488: \t\t\teff.cancel = true\n3489: \t\t\treturn\n3490: \t\tend"
+    },
+    {
+      "revision_keys": [
+        "f9b4a1d58a20ced35e1f12e04dc703344d5b311f94d1374b580371ae719c5dc6"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/spells/divination.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "f72685aca51901e204b23fc738a87ccfa3752f9b1c4c01918029bcc643a8b8af",
+      "start_line": 58,
+      "end_line": 94,
+      "excerpt": "58: newTalent{\n59: \tname = \"Keen Senses\",\n60: \ttype = {\"spell/divination\", 2},\n61: \trequire = spells_req2,\n62: \tmode = \"sustained\",\n63: \tpoints = 5,\n64: \tsustain_mana = 40,\n65: \ttactical = { BUFF = 2 },\n66: \tcooldown = 30,\n67: \tgetSeeInvisible = function(self, t) return self:combatTalentSpellDamage(t, 2, 45) end,\n68: \tgetSeeStealth = function(self, t) return self:combatTalentSpellDamage(t, 2, 20) end,\n69: \tgetCriticalChance = function(self, t) return self:combatTalentSpellDamage(t, 2, 12) end,\n70: \tactivate = function(self, t)\n71: \t\tgame:playSoundNear(self, \"talents/spell_generic\")\n72: \t\treturn {\n73: \t\t\tinvis = self:addTemporaryValue(\"see_invisible\", t.getSeeInvisible(self, t)),\n74: \t\t\tstealth = self:addTemporaryValue(\"see_stealth\", t.getSeeStealth(self, t)),\n75: \t\t\tcrit = self:addTemporaryValue(\"combat_spellcrit\", t.getCriticalChance(self, t)),\n76: \t\t}\n77: \tend,\n78: \tdeactivate = function(self, t, p)\n79: \t\tself:removeTemporaryValue(\"see_invisible\", p.invis)\n80: \t\tself:removeTemporaryValue(\"see_stealth\", p.stealth)\n81: \t\tself:removeTemporaryValue(\"combat_spellcrit\", p.crit)\n82: \t\treturn true\n83: \tend,\n84: \tinfo = function(self, t)\n85: \t\tlocal seeinvisible = t.getSeeInvisible(self, t)\n86: \t\tlocal seestealth = t.getSeeStealth(self, t)\n87: \t\tlocal criticalchance = t.getCriticalChance(self, t)\n88: \t\treturn ([[You focus your senses, getting information from moments in the future.\n89: \t\tImproves your capacity to see invisible foes by +%d, to see through stealth by +%d, and to perform a critical spell cast by +%d%%.\n90: \t\tThe effects will improve with your Spellpower.]]):\n91: \t\ttformat(seeinvisible, seestealth, criticalchance)\n92: \tend,\n93: }\n94: "
+    },
+    {
+      "revision_keys": [
+        "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/slaughter.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "614eaedd3ec4d3528192aca4a2e9f502eaffbe7ca050152c7336ddecac9b8ee9",
+      "start_line": 85,
+      "end_line": 160,
+      "excerpt": "85: newTalent{\n86: \tname = \"Frenzy\",\n87: \ttype = {\"cursed/slaughter\", 2},\n88: \trequire = cursed_str_req2,\n89: \tpoints = 5,\n90: \ttactical = { ATTACKAREA = { PHYSICAL = 2 } },\n91: \tis_melee = true,\n92: \trandom_ego = \"attack\",\n93: \tcooldown = 12,\n94: \thate = 2,\n95: \tgetDamageMultiplier = function(self, t, hate)\n96: \t\treturn self:combatTalentIntervalDamage(t, \"str\", 0.25, 0.8, 0.4) * getHateMultiplier(self, 0.5, 1, false, hate)\n97: \tend,\n98: \tgetDefenseChange = function(self, t)\n99: \t\treturn self:combatTalentIntervalDamage(t, \"str\", 6, 45)\n100: \tend,\n101: \trange = 0,\n102: \tradius = 1,\n103: \ttarget = function(self, t)\n104: \t\treturn {type=\"ball\", range=self:getTalentRange(t), selffire=false, radius=self:getTalentRadius(t)}\n105: \tend,\n106: \ton_pre_use = function(self, t, silent) if not self:hasMHWeapon() then if not silent then game.logPlayer(self, \"You require a mainhand weapon to use this talent.\") end return false end return true end,\n107: \taction = function(self, t)\n108: \t\tlocal tg = self:getTalentTarget(t)\n109: \n110: \t\tlocal targets = {}\n111: \t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n112: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n113: \t\t\tif target and self:reactionToward(target) < 0 then\n114: \t\t\t\ttargets[#targets+1] = target\n115: \t\t\tend\n116: \t\tend)\n117: \n118: \t\tif #targets <= 0 then return nil end\n119: \n120: \t\tlocal damageMultiplier = t.getDamageMultiplier(self, t)\n121: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n122: \n123: \t\tlocal effStalker = self:hasEffect(self.EFF_STALKER)\n124: \t\tif effStalker and core.fov.distance(self.x, self.y, effStalker.target.x, effStalker.target.y) > 1 then effStalker = nil end\n125: \t\tfor i = 1, 4 do\n126: \t\t\tlocal target\n127: \t\t\tif effStalker and not effStalker.target.dead then\n128: \t\t\t\ttarget = effStalker.target\n129: \t\t\telse\n130: \t\t\t\ttarget = rng.table(targets)\n131: \t\t\tend\n132: \n133: \t\t\t-- We need to alter behavior slightly to accomodate shields since they aren't used in attackTarget\n134: \t\t\tlocal shield, shield_combat = self:hasShield()\n135: \t\t\tlocal weapon = self:hasMHWeapon() and self:hasMHWeapon().combat or self.combat\n136: \t\t\tlocal hit = false\n137: \t\t\tif not shield then\n138: \t\t\t\thit = self:attackTarget(target, nil, damageMultiplier, true)\n139: \t\t\telse\n140: \t\t\t\thit = self:attackTargetWith(target, weapon, nil, damageMultiplier)\n141: \t\t\t\tif self:attackTargetWith(target, shield_combat, nil, damageMultiplier) or hit then hit = true end\n142: \t\t\tend\n143: \n144: \t\t\tif hit and self:getTalentLevel(t) >= 3 and not target:hasEffect(target.EFF_OVERWHELMED) then\n145: \t\t\t\ttarget:setEffect(target.EFF_OVERWHELMED, 4, {src=self, defenseChange=defenseChange})\n146: \t\t\tend\n147: \t\tend\n148: \n149: \t\treturn true\n150: \tend,\n151: \tinfo = function(self, t)\n152: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n153: \t\treturn ([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Stalked prey are always targeted if nearby.\n154: \t\tAt level 3 the intensity of your assault overwhelms anyone who is struck, reducing their Defense by %d for 4 turns.\n155: \t\tThe damage multiplier and Defense reduction increase with your Strength.\n156: \n157: \t\tThis talent will also attack with your shield, if you have one equipped.]]):tformat(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, -defenseChange)\n158: \tend,\n159: }\n160: "
+    },
+    {
+      "revision_keys": [
+        "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "53adf36d7d2819930227f9dbb9fd7aa7b13905dcaf45496bf164f15bcf737cfa",
+      "start_line": 1018,
+      "end_line": 1060,
+      "excerpt": "1018: newEntity{ base = \"BASE_STAFF\", define_as = \"SET_STAFF_CHANNELERS\",\n1019: \tpower_source = {arcane=true},\n1020: \tunique = true,\n1021: \tname = \"Staff of Arcane Supremacy\",\n1022: \tunided_name = _t\"silver-runed staff\",\n1023: \tflavor_name = \"magestaff\",\n1024: \tlevel_range = {20, 40},\n1025: \tcolor=colors.BLUE, image = \"object/artifact/staff_of_arcane_supremacy.png\",\n1026: \trarity = 300,\n1027: \tdesc = _t[[A long slender staff, made of ancient dragon-bone, with runes emblazoned all over its surface in bright silver.\n1028: It hums faintly, as if great power is locked within, yet alone it seems incomplete.]],\n1029: \tcost = 200,\n1030: \tmaterial_level = 3,\n1031: \trequire = { stat = { mag=24 }, },\n1032: \tcombat = {\n1033: \t\tdam = 20,\n1034: \t\tapr = 4,\n1035: \t\tdammod = {mag=1.5},\n1036: \t\tdamtype = DamageType.ARCANE,\n1037: \t},\n1038: \twielder = {\n1039: \t\tcombat_spellpower = 20,\n1040: \t\tinc_damage={\n1041: \t\t\t[DamageType.ARCANE] = 20,\n1042: \t\t},\n1043: \t\ttalent_cd_reduction = {\n1044: \t\t\t[Talents.T_MANATHRUST] = 1,\n1045: \t\t},\n1046: \t\ttalents_types_mastery = {\n1047: \t\t\t[\"spell/arcane\"]=0.2,\n1048: \t\t},\n1049: \t},\n1050: \tmax_power = 20, power_regen = 1,\n1051: \tuse_talent = { id = Talents.T_ARCANE_SUPREMACY, level = 3, power = 20 },\n1052: \tset_list = { {\"define_as\", \"SET_HAT_CHANNELERS\"} },\n1053: \tset_desc = {\n1054: \t\tchannelers = _t\"A true understanding of the arcane is needed to release its full power.\",\n1055: \t},\n1056: \ton_set_complete = function(self, who)\n1057: \t\tself:specialSetAdd({\"wielder\",\"max_mana\"}, 100)\n1058: \t\tgame.logSeen(who, \"#STEEL_BLUE#You feel a swell of arcane energy.\")\n1059: \tend,\n1060: }"
+    },
+    {
+      "revision_keys": [
+        "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "53adf36d7d2819930227f9dbb9fd7aa7b13905dcaf45496bf164f15bcf737cfa",
+      "start_line": 1062,
+      "end_line": 1090,
+      "excerpt": "1062: newEntity{ base = \"BASE_WIZARD_HAT\", define_as = \"SET_HAT_CHANNELERS\",\n1063: \tpower_source = {arcane=true},\n1064: \tunique = true,\n1065: \tname = \"Hat of Arcane Understanding\",\n1066: \tunided_name = _t\"silver-runed hat\",\n1067: \tdesc = _t[[A traditional pointed wizard's hat, made of fine purple elven-silk and decorated with bright silver runes. You sense it has been passed from ancient times, and has been born on the heads of great mages.\n1068: Touching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.]],\n1069: \tcolor = colors.BLUE, image = \"object/artifact/wizard_hat_of_arcane_understanding.png\",\n1070: \tlevel_range = {20, 40},\n1071: \trarity = 300,\n1072: \tcost = 100,\n1073: \tmaterial_level = 3,\n1074: \twielder = {\n1075: \t\tcombat_def = 2,\n1076: \t\tmana_regen = 2,\n1077: \t\tresists = {\n1078: \t\t\t[DamageType.ARCANE] = 20,\n1079: \t\t},\n1080: \t\ttalent_cd_reduction = {\n1081: \t\t\t[Talents.T_DISRUPTION_SHIELD] = 10,\n1082: \t\t},\n1083: \t\ttalents_types_mastery = {\n1084: \t\t\t[\"spell/meta\"]=0.2,\n1085: \t\t},\n1086: \t},\n1087: \tmax_power = 40, power_regen = 1,\n1088: \tset_list = { {\"define_as\", \"SET_STAFF_CHANNELERS\"} },\n1089: \tset_desc = {\n1090: \t\tchannelers = _t\"Only supremacy of the arcane can release its full power.\","
+    },
+    {
+      "revision_keys": [
+        "fa46681a109915eadaeb8a5f74146c0e687ad7709a4f3c15ca0be7472136ada1"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/cursed/dark-sustenance.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "d4aeee3a3af35aad4576eadb78e716ab026f62c61dcbb878056042ad1295d02e",
+      "start_line": 182,
+      "end_line": 196,
+      "excerpt": "182: newTalent{\n183: \tname = \"Feed Strengths\",\n184: \ttype = {\"cursed/dark-sustenance\", 4},\n185: \tmode = \"passive\",\n186: \trequire = cursed_wil_req4,\n187: \tpoints = 5,\n188: \tgetResistGain = function(self, t)\n189: \t\treturn self:combatLimit(self:getTalentLevel(t)^0.5 * 14 + self:combatMindpower() * 0.15, 100, 0, 0, 40, 40) -- Limit < 100%\n190: \tend,\n191: \tinfo = function(self, t)\n192: \t\tlocal resistGain = t.getResistGain(self, t)\n193: \t\treturn ([[Enhances your feeding by reducing your targeted foe's resistances, multiplying them by %0.2f and increasing your resistances by the amount drained. Resistance to \"all\" is not affected.\n194: \t\tImproves with your Mindpower.]]):tformat((1-(resistGain/100)))\n195: \tend,\n196: }"
+    },
+    {
+      "revision_keys": [
+        "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/load.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e8ed64f78cfab8e5091ca6c6b64fa7dfe759dc1ba7e43c4bd191a329052703eb",
+      "start_line": 180,
+      "end_line": 192,
+      "excerpt": "180: dofile(\"/data/resources.lua\")\n181: \n182: -- Actor stats\n183: ActorStats:defineStat(\"Strength\",\t\"str\", 10, 1, 100, _t\"Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.\")\n184: ActorStats:defineStat(\"Dexterity\",\t\"dex\", 10, 1, 100, _t\"Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.\")\n185: ActorStats:defineStat(\"Magic\",\t\t\"mag\", 10, 1, 100, _t\"Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.\")\n186: ActorStats:defineStat(\"Willpower\",\t\"wil\", 10, 1, 100, _t\"Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.\")\n187: ActorStats:defineStat(\"Cunning\",\t\"cun\", 10, 1, 100, _t\"Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.\")\n188: ActorStats:defineStat(\"Constitution\",\t\"con\", 10, 1, 100, _t\"Constitution defines your character's ability to withstand and resist damage. It increases your maximum life and physical resistance.\")\n189: -- Luck is hidden and starts at half max value (50) which is considered the standard\n190: ActorStats:defineStat(\"Luck\",\t\t\"lck\", 50, 1, 100, _t\"Luck defines your character's fortune when dealing with unknown events. It increases your critical strike chance, your chance of random encounters, ...\")\n191: \n192: -- Actor leveling, player is restricted to 50 but npcs can go higher"
+    },
+    {
+      "revision_keys": [
+        "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "3c271d59fba32a0ba3c5749c86fbf431970b17b48a6292f8ff3d2a4f744c7139",
+      "start_line": 240,
+      "end_line": 246,
+      "excerpt": "240: Magic defines your character's ability to manipulate the magical energy of the world. It increases your Spellpower, Spell Save, and the effect of spells and other magic items.\n241: ]]\n242: TOOLTIP_WIL = _t[[#GOLD#Willpower#LAST#\n243: Willpower defines your character's ability to concentrate. It increases your mana, stamina, psi capacity, Mindpower, Spell Save, and Mental Save.\n244: ]]\n245: TOOLTIP_CUN = _t[[#GOLD#Cunning#LAST#\n246: Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your Mindpower, Mental Save, and critical chance."
+    }
+  ]
+}

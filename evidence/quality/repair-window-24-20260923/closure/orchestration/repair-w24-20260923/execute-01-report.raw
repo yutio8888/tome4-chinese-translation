@@ -1,0 +1,16 @@
+修复窗口 24 已实际完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 恰好修改 6 个冻结 target：飞镖日志、敏锐直觉、狂热、奥术至上法杖、吸食抗性、意志说明。
+- 逐行 LF/TAB 核对全部一致；狂热第 4 行为空行，敏锐直觉恢复 3 行，吸食抗性恢复 2 行。
+- source、tag、args_order、占位符、`%%`、markup 均保持不变。
+- evidence 已保存至 [repair-window-24-20260923](/workspace/tome4-chinese-translation/evidence/quality/repair-window-24-20260923)，包含逐字节冻结副本、[实施说明](/workspace/tome4-chinese-translation/evidence/quality/repair-window-24-20260923/IMPLEMENTATION.md) 和 [真实验证结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-24-20260923/VALIDATION.json)。
+
+检查全部通过：
+
+- 窗口验证：22989 条记录，恰好 6 个 target 变化
+- strict lint：30308 条，0 errors，0 warnings
+- semantic claims：通过
+- `git diff --check`：通过
+- 三份冻结副本 `cmp`：全部逐字节一致
+
+未修改 `.ai`、规则、工具、术语库、handoff/catalog/migration；未 stage、commit 或 push；既有无关 untracked 均保留。完整门禁、独立 REVIEW/FINAL_REVIEW、严格构建及 `DONE_VERIFIED` 由宿主继续。

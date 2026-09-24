@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-window-24 unique EXECUTOR",
+  "scope": "6 frozen targets plus bounded executor evidence",
+  "commands": [
+    {
+      "command": "python3 -B .ai/task/repair-w24-20260923/verify.py",
+      "exit_code": 0,
+      "result": {
+        "verified": true,
+        "records": 22989,
+        "changed_count": 6,
+        "changed_revisions": [
+          "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8",
+          "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201",
+          "fa46681a109915eadaeb8a5f74146c0e687ad7709a4f3c15ca0be7472136ada1",
+          "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04",
+          "f9b4a1d58a20ced35e1f12e04dc703344d5b311f94d1374b580371ae719c5dc6",
+          "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260924T034812.882290Z-3768615-lint/lint.json\n"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "output": "OK  semantic claims numeric=1 briefings=1 compositions=1 pending=1\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "line_invariants": [
+    {
+      "revision": "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201",
+      "source_lines": 1,
+      "target_lines": 1,
+      "source_blank_line_indexes_1based": [],
+      "target_blank_line_indexes_1based": [],
+      "source_leading_tabs_per_line": [0],
+      "target_leading_tabs_per_line": [0]
+    },
+    {
+      "revision": "f9b4a1d58a20ced35e1f12e04dc703344d5b311f94d1374b580371ae719c5dc6",
+      "source_lines": 3,
+      "target_lines": 3,
+      "source_blank_line_indexes_1based": [],
+      "target_blank_line_indexes_1based": [],
+      "source_leading_tabs_per_line": [0, 2, 2],
+      "target_leading_tabs_per_line": [0, 2, 2]
+    },
+    {
+      "revision": "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04",
+      "source_lines": 5,
+      "target_lines": 5,
+      "source_blank_line_indexes_1based": [4],
+      "target_blank_line_indexes_1based": [4],
+      "source_leading_tabs_per_line": [0, 2, 2, 0, 2],
+      "target_leading_tabs_per_line": [0, 2, 2, 0, 2]
+    },
+    {
+      "revision": "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8",
+      "source_lines": 2,
+      "target_lines": 2,
+      "source_blank_line_indexes_1based": [],
+      "target_blank_line_indexes_1based": [],
+      "source_leading_tabs_per_line": [0, 0],
+      "target_leading_tabs_per_line": [0, 0]
+    },
+    {
+      "revision": "fa46681a109915eadaeb8a5f74146c0e687ad7709a4f3c15ca0be7472136ada1",
+      "source_lines": 2,
+      "target_lines": 2,
+      "source_blank_line_indexes_1based": [],
+      "target_blank_line_indexes_1based": [],
+      "source_leading_tabs_per_line": [0, 2],
+      "target_leading_tabs_per_line": [0, 2]
+    },
+    {
+      "revision": "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727",
+      "source_lines": 1,
+      "target_lines": 1,
+      "source_blank_line_indexes_1based": [],
+      "target_blank_line_indexes_1based": [],
+      "source_leading_tabs_per_line": [0],
+      "target_leading_tabs_per_line": [0]
+    }
+  ],
+  "frozen_copies": [
+    {
+      "source": ".ai/task/repair-w24-20260923/PREFLIGHT-BATCH270.json",
+      "path": "evidence/quality/repair-window-24-20260923/PREFLIGHT-BATCH270.json",
+      "sha256": "4bbf76b98beb5a5bdfd04de7d71774affeada44c021042673c20599c3808122f",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w24-20260923/WORKSET.json",
+      "path": "evidence/quality/repair-window-24-20260923/HOST-WORKSET.json",
+      "sha256": "42920fed3f175dfc903fbc85e05de5b6a49703ab307a08c321b6bf8fcb93ddb9",
+      "byte_identical": true
+    },
+    {
+      "source": ".ai/task/repair-w24-20260923/SOURCE-ANCHORS.json",
+      "path": "evidence/quality/repair-window-24-20260923/SOURCE-ANCHORS.json",
+      "sha256": "af315186bd3137bdec96dd521b15719c60f1e0f4d54cf5c3a577815ec17b903c",
+      "byte_identical": true
+    }
+  ],
+  "note": "This records the unique EXECUTOR implementation checks only; independent REVIEW/FINAL_REVIEW, full gates, strict build, and DONE_VERIFIED were not run and are not claimed."
+}

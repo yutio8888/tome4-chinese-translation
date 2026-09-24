@@ -1,0 +1,30 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 10,
+      "native_calls_sha256": "6a22ed158081bd8bef12f06c12c0e40fe904ec7bf766f43330b589063f23024e",
+      "writes": [
+        "evidence/quality/repair-window-24-20260923/orchestration/* (100 pack files, SHA verified)",
+        "evidence/quality/repair-window-24-20260923/orchestration-pack-manifest.json (window root)",
+        "evidence/quality/repair-window-24-20260923/publication/* (14 attachments)",
+        "evidence/quality/repair-window-24-20260923/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and migrations/534b8e86….json (exact copies)",
+        "handoff.md"
+      ],
+      "notes": [
+        "publication-01 prompt/parameters/model-selection were regenerated before create_agent: the first render had a sed-mangled task path (repair-w24-20260924); no agent was created from it; the recorded intent was byte-identical after regeneration; the discarded files are kept outside the repo"
+      ],
+      "reads": [
+        "role, PUBLICATION-SCOPE, PACK-MANIFEST, task inputs listed by scope",
+        "read-only git diff scope checks",
+        "read-only ai_state_check"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ]
+}

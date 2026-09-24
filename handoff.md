@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核270已完成；下一步修复窗口24，仅处理270的6条）
+更新时间：2026-09-24（修复窗口24已完成；待宿主发布收尾，随后审核271）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -384,6 +384,10 @@ surface 四组 `codex/gpt-6-sol` 为 66 OK / 14 ISSUE，80 个 identity 回显�
 下一步按 1:1 节奏开修复窗口24，仅处理 270 的 6 条：飞镖发射器抵抗日志“睡眠”改与效果名“被镇静”一致；敏锐直觉说明去“直觉”并恢复 3 行；
 狂热 4 次快速攻击（each 指每次攻击、always 总是攻击被追踪猎物、盾牌句前空行）；奥术至上法杖描述恢复换行并改“单独一件似乎并不完整”；
 吸食抗性说明删多余换行；意志属性说明删增译“精神力”。范围见 `.ai/task/batch-b7ce18a7bdce48ba8086/WINDOW24-REPAIR-DECISION.json`。
+
+修复窗口24已完成审核270确认的6条修复：飞镖发射器抵抗日志“睡眠”改为“镇静”，与效果名“被镇静”一致；敏锐直觉说明去掉增译的“直觉”并恢复原文3行；狂热说明改为4次快速攻击、每次攻击造成伤害、附近有被追踪的猎物时总是攻击它，并恢复盾牌句前的空行；奥术至上法杖描述恢复两句间换行，末句改为“单独一件时似乎并不完整”（该法杖与奥术理解之帽成套）；吸食抗性说明删去多余换行恢复2行；意志属性说明删去增译的“精神力”。`execute-01`（`codex/gpt-5.6-sol`）实施6条，宿主逐条逐行核对行数、空行下标与行首 TAB；`REVIEW(0)/full`（`codex/gpt-6-sol`）为 6 OK，`FINAL(1)/full`（`claude-opus-5-5`）为 6 OK，任务收敛，无修复轮。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。1个 executor 与2个 reviewer child 均已归档确认；本 publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `fc091427e93c42cd73fad1b49cd450580e9778e8`；新 catalog 为 `6870324089f8919e8cef200a38011d2493e276ac717690655f2abede3c1b7b3c`；migration 为 `534b8e86c940f0be3dedb147e8e3381b12ec2a101b5b70958e3181b7ad8d41cd`。迁移结果为6条 `revision_changed`、29,822条 `unchanged`、0条 `ambiguous/unmapped`，6个 successor 待重新审核且不继承 `done`。完整结果见[窗口24发布证据](evidence/quality/repair-window-24-20260923/PUBLICATION.md)。本证据提交、第二次 queue rebuild 与 push 由宿主执行，尚未完成；随后继续审核271（默认80条）。
 
 ### 窗口7闭合时的暂停记录（历史）
 
