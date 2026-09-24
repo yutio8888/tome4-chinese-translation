@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（修复窗口25已完成；待宿主发布收尾，随后审核272）
+更新时间：2026-09-24（审核272已完成；下一步修复窗口26，仅处理272的5条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -402,7 +402,16 @@ surface 四组 `codex/gpt-6-sol` 为 65 OK / 15 ISSUE，80 个 identity 回显�
 
 译文提交为 `805a9f155dff64cc18cf644b0af2856b0936e06f`；新 catalog 为 `38cb5f33c905a333728676e30a67692632830852be8790e532980702de21a18f`；migration 为 `f2ddf2cbd8e0610b40955d746594ed530f3dbadc05dee7153fff88b708434f38`。迁移结果为8条 `revision_changed`、29,820条 `unchanged`、0条 `ambiguous/unmapped`，8个 successor 待重新审核且不继承 `done`。本窗口新增 pending 第19项，pending 文件由宿主维护。完整结果见[窗口25发布证据](evidence/quality/repair-window-25-20260923/PUBLICATION.md)。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；完成后继续审核272（默认80条）。以上后续步骤尚未完成。
+窗口25的证据提交（`27141793`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。随后以 `5c2f8459` 把 Codex `function_call`/`function_call_output` 加入原生解析白名单（附回归测试），此后不再需要临时解析器副本。
+
+审核272（`batch-54be748f9582a3f09434`）已闭合，结果为 **75 done / 5 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 75 OK / 5 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 仅复核这 5 条，5 条均为 ISSUE 且与 surface 同向。
+10 个观察全部 confirmed，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `594fbd4f`，
+详见[272宿主证据](evidence/quality/production-batches/batch-54be748f9582a3f09434-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口26，仅处理 272 的 5 条：思维形态技能系说明“灵能召唤术”改“灵能召唤物”；罗尔夫致威斯曼信逐段重译（巨蚁母体、嘲讽、勇气，段落与空行对齐原文，地名用古老树林、德斯）；
+泰坦的箭袋描述补“锋利”“几乎无法折断”等分句；阿塔玛森红宝石眼睛描述删多余换行并补“重创”；梅琳达任务日志补“袭击队”（夺魂魔保持）。注意：Weisman 本库有“魏斯曼”（mod-tome.lua:11443）与“威斯曼”（信件标题）两种写法，窗口内信件正文沿用标题的“威斯曼”，统一与否另议。
+范围见 `.ai/task/batch-54be748f9582a3f09434/WINDOW26-REPAIR-DECISION.json`。
 
 ### 窗口7闭合时的暂停记录（历史）
 
