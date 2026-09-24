@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（修复窗口21已完成；待宿主发布收尾，随后审核268）
+更新时间：2026-09-24（审核268已完成；下一步修复窗口22，仅处理268的6条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -348,7 +348,17 @@ surface 四组 `codex/gpt-6-sol` 为 73 OK / 7 ISSUE；lane-000-1 一处判 OK �
 
 译文提交为 `5342f1b06943cefb1d9f393d2a186c9c6cc8a6e6`；新 catalog 为 `b7389c85c66e7e755fd3904f3072ca0d5688901a6bb548f8e662f4c11a9f77ae`；migration 为 `e0b1d6770808ef8df692f46880076b2b792443a54134343b39bd72edf34400c2`。迁移结果为5条 `revision_changed`、29,823条 `unchanged`、0条 `ambiguous/unmapped`，5个 successor 待重新审核且不继承 `done`。完整结果见[窗口21发布证据](evidence/quality/repair-window-21-20260923/PUBLICATION.md)。本窗口的流程教训是：SPEC 指定替换词前必须先检查同技能相邻条目（尤其 `info`）已经使用的译法。
 
-下一步由宿主执行本证据提交、第二次 queue rebuild 与 push；这些步骤尚未完成。随后继续审核268（默认80条）。
+窗口21的证据提交（`460fd473`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核268（`batch-35fcb3df1560de7c5b2d`）已闭合，结果为 **74 done / 6 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 72 OK / 8 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 为 4 OK / 4 ISSUE。
+12 个观察裁决为 10 confirmed、2 refuted，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `d6bed738`，
+详见[268宿主证据](evidence/quality/production-batches/batch-35fcb3df1560de7c5b2d-host-evidence/summary.md)。
+驳回两条：瞬间技能失败日志补出的“本回合无法再次使用”即实现行为；难辨构造（Indiscernible Anatomy）英文写“几率免疫暴击”，实现为按比例削减暴击倍率，现译贴合实现。
+
+下一步按 1:1 节奏开修复窗口22，仅处理 268 的 6 条：欺诈斗篷“看起来像人类”、电鳗尾“其实没多大关系”、厄奇斯成就漏 mad/onslaught、
+太阳堡垒创建者挂坠的赤铁矿之月与金色太阳、腐化蒸汽主语缺失、分裂（Mitosis）漏视线内/召唤上限/技能生效期间三处限定。
+范围见 `.ai/task/batch-35fcb3df1560de7c5b2d/WINDOW22-REPAIR-DECISION.json`。
 
 ### 窗口7闭合时的暂停记录（历史）
 
