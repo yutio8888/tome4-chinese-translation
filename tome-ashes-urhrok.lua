@@ -35,7 +35,7 @@ t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+0 意志，+1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Demonologist", "恶魔使者", "birth descriptor name")
-t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "人们常畏惧，但我了解真实：遥远的星球，被厄运所折磨；燃烧的造物们，如今渴望复仇；乌鲁洛克之烬，驱动战争机器。捕获并征服！驾驭他们的力量！在此召唤——恶魔们，释放你们的烈焰！", "_t")
+t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "多数人只会逃跑，但我明白：遥远的星球，饱受蹂躏，深陷诅咒。焦灼的造物寻求正义的复仇，乌鲁洛克的余烬，如今已成毁灭的工具。驾驭他们的力量！捕获并驯服他们！我召唤你们，恶魔——释放烈焰！", "_t")
 t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
 t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成所愿，无论善恶，亦有少数人以此反击恶魔。", "_t")
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
@@ -222,7 +222,7 @@ t("\"All the better to pierce the heart of the world.\"", "世界之心，终将
 t("Increases all damage penetration by 1% for each point of your Shadow Power.", "每点“阴影强度”增加1%抗性穿透。", "_t")
 t("The Black Boots", "黑之靴", "entity name")
 t("pair of pitch black boots", "黑色的靴子", "_t")
-t("\"It's a treacherous road to the top of the world.\"", "背叛之路，直通天际", "_t")
+t("\"It's a treacherous road to the top of the world.\"", "“这是一条通往世界之巅的险途。”", "_t")
 t("Grants 2.5% movement speed for each point of Shadow Power.", "每点“阴影强度”增加2.5%移动速度。", "_t")
 t("The Black Ring", "黑之戒", "entity name")
 t("obsidian ring", "黑曜石戒指", "_t")
@@ -344,11 +344,11 @@ They were powerful - very powerful. Although their proposal was phrased as a gen
 We did this, and came to the Sher'Tul. They begrudgingly accepted our treacherous act as a pledge of loyalty to them, and came through with their end of the bargain, giving us knowledge and artifacts beyond our wildest dreams. They built powerful portals all over our planet, allowing us to travel through them not only within our world, but within every world the Sher'Tul had visited before. We saw wonderful new worlds, met and traded with peaceful species from across the universe, enjoyed all kinds of new, alien food, music, magic, and inventions, and generally could not have been happier with how things turned out - if not for the pangs of guilt we felt for betraying our Father. The Sher'Tul eventually stopped visiting us, but we kept trading with new people we met through the portal, and did not notice their absence.
 
 Then everything broke.
-]], [[他们乘着巨大的飞行堡垒前来，上面装满了各种武器，即使在远处也可以感受到它放射出来的强大魔法力量。他们没有直接威胁我们，但是他们和我们的领袖会面，向我们提出了一个交易——同时也是一个最后通牒：他们将动手杀掉父亲，或者选择我们自己动手干掉他，这样他们将会赠予给我们他们所有用的科技和魔法。
+]], [[他们乘着巨大的飞行堡垒前来，上面遍布武器，充盈着魔法。他们没有直接威胁我们，而是与我们的领袖会面，提出了一个既像提议又像最后通牒的条件：要么让他们杀死父亲，要么由我们亲手杀死他，作为回报，我们将得到与他们所拥有的一样宏伟的科技和魔法。
 
-他们很强大——十分强大。尽管他们的交易看上去是一个慷慨的赠予，我们也情不自禁地发现，他们的堡垒全都全副武装，所有的武器系统都瞄准了我们的兵工厂和人口中心。我们觉得我们无法击败他们；我们曾想过叫醒父亲来帮助我们，但是我们害怕即使是父亲或许也无法击败他们。在绝望之中，我们最终确定了一个计划：我们将会把乌鲁洛克封印起来，让他除非被强大的力量打扰否则不会醒来，并告诉夏·图尔人我们所做的事。父亲不会被这样的封印所伤害——他甚至不知道之后发生了什么。
+他们很强大——极其强大。尽管这项提议被说成一份慷慨的馈赠，我们却无法不注意到，他们的堡垒已经停在我们的兵工厂和人口中心上空，而且没有一座未配备武器。我们认为自己无法与他们交战；我们曾考虑唤醒父亲求助，却不确定连他是否也能战胜他们。绝望之中，我们共同制定了一个计划：封印乌鲁洛克，使他除非受到打扰便不会醒来，然后告诉夏·图尔人我们所做的一切。父亲不会因此受伤——他只会对正在发生的事情一无所知。
 
-我们做了这些，并且告知了夏·图尔人。他们勉强同意把我们背叛的行为当作是对他们忠诚的象征，按照约定，他们给了我们许多的知识和充满奥术力量的神器——这些东西超越了我们最狂野的梦想。他们在我们星球的各处建造了强大的传送门，让我们不仅可以在我们的星球随处穿行，还可以到达夏·图尔人所访问过的任何一个地方。我们看到了美好的新世界，与宇宙各处友好的生物互相会面，互相交易，享受来自各个星球的食物、音乐、魔法和各种发明。这几乎是我们最快乐的日子——如果不是我们心中还坏着背叛父亲的深深愧疚之情的话。夏·图尔人最终停止了对我们的访问，但我们仍然继续着利用传送门和其他地方的人联络交易，并没有注意到它们突然消失了。
+我们照计划行事，随后去见了夏·图尔人。他们不情愿地接受了我们的背叛之举，将其视为对他们效忠的证明，并履行了交易中的承诺，赐予我们超乎最狂野梦想的知识和神器。他们在我们星球各处建造了强大的传送门，让我们不仅能穿行于自己的世界，还能前往夏·图尔人曾造访过的每一个世界。我们见识了奇妙的新世界，与宇宙各处的和平种族相遇并贸易，享用种种新奇的异域食物、音乐、魔法和发明。若非心中还怀着背叛父亲的阵阵愧疚，我们简直不能对这样的结果更加满意。夏·图尔人最终不再造访，但我们仍与通过传送门结识的新朋友继续贸易，甚至没有察觉他们已经离去。
 
 然而，就在此时，美好的生活突然破碎了。
 ]], "_t")
@@ -403,9 +403,9 @@ t([[#{italic}#More memories rush into your mind...#{normal}#
 
 That crystal.  That crystal is how they're keeping track of you, and it has most of what you helped them discover trapped within it.  If you break it, you'll be able to escape their notice for the first time since you arrived here, allowing you to get away without them finding you again, and as an added bonus you'll undo most of what you helped them accomplish.  You need to destroy it, then flee for your life!]], [[#{italic}#更多记忆涌入了你的脑海……#{normal}#
 
-“记住，这是你的幸运日，<?=player.name?>，”你的“主人”带着你到一块巨大的闪耀水晶面前，“你非常合作，因此你将从一般实验中解放。现在你被提升为研究助理！”闻言，你欣喜若狂！“好了，现在我们需要先做一些事情。火焰防护在这，忠诚强化在那，标准化思维修改，呃，不过主要还是将你的意识链接到这里，”他一边说，一边指着水晶体，“有了这个，你看到的、听到的、嗅到的、尝到的、感觉到的全都能体现在这块美丽精巧的水晶里。不仅如此，不管你去哪，不管你想什么，都能记录下来，以供研究。”你突然发现自己能帮助他们研究如此之多！“站在那里别动，举起胳膊，这样我就能把它放好……”
+“今天是你的幸运日，<?=player.name?>，”你的“主人”领着你走向一块巨大而闪耀的水晶时说道，“你太配合了，不能再留在实验环节。今天，你将晋升为研究助理！”你简直欣喜若狂！“好了，首先还要做个小小的流程。这里加上防火结界，那里强化忠诚，再做些标准配发的改造，不过主要还是把你的意识连接到这个东西上，”他指着水晶说道，“有了它，你看到、听到、闻到、尝到或感觉到的一切，都会直接传进这个小宝贝里。不仅如此——无论你去了哪里，又想了什么，我们都会保存下来，以供日后参考。”你将帮助他们学到这么多东西！“踏上这里的板子，把手臂这样摆好，让我把束缚装置固定到位……”
 
-那块水晶，对，那就是他们追踪你的方式，同时也封存着你帮助他们取得的大部分发现。如果你摧毁了它，你就能避开他们的注意，逃出这里，不被他们发现，并抵消你帮助他们完成的大部分成果。你必须要摧毁它，然后逃跑！]], "_t")
+那块水晶。就是那块水晶让他们能够追踪你，其中还封存着你帮助他们取得的大部分发现。如果摧毁它，你就能自抵达这里以来第一次避开他们的监视，逃走后也不会再被他们找到；此外，你还能毁掉自己协助他们取得的大部分成果。你必须摧毁它，然后拼命逃走！]], "_t")
 t("orbital base: battle plan (doombringer)", "轨道基地：战斗计划（毁灭使者）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
 
@@ -634,7 +634,7 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 
 —S。]], "_t")
 t("demon statue: Khulmanar, General of Urh'Rok", "恶魔雕像：库马纳，乌鲁洛克将军", "_t")
-t("Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.", [[自从我们被从尘埃法师的控制之下解放后，在乌尔洛克的命令和鼓动下，我们开始举办锦标赛。这个比赛，不像很多人想的那样，仅仅是为了测试直接的战斗。除此之外我们还有学术工作、专注、物理耐受、哲学等诸多其他领域的竞赛。或许，这其中最著名的当属神圣战术竞标赛，我们的军事领导人正是通过这个赛事选拔出来的。比赛包括一系列试炼，评估我们对战况进行分析和处理的能力，包括速度、伤亡、部署效率以及一些其他的因素。库马纳，缟玛瑙之子，是这些项目的冠军，并且在等待我们的大陆到达埃亚尔的大部分时间里，他都维持了统治地位。通过我们竞赛所筛选出的最杰出的战略大师，库马纳被乌鲁洛克亲自召见以获准统御我们的入侵部队。库马纳给乌鲁洛克留下了很深的印象，于是后者从他维持我们世界的力量以外的部分中抽取了很大一部分，为库马纳创造了一个全新的肉身，让他能够在前线无所畏惧的指引战斗。拥有我们的父所赐予的武器与躯壳，精神受到父的指引，库马纳被视作乌鲁洛克的化身，他在战场上的指令受到如同父一般的尊敬。]], "_t")
+t("Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.", [[自乌鲁洛克率领并鼓舞我们摆脱尘埃法师以来，我们便一直举办锦标赛。这些赛事并不像许多人以为的那样，只是直接战斗的考验。战斗项目当然存在，但我们也会在学术研究、专注力、体能、哲学以及无数其他领域展开竞赛。其中最负盛名的或许是神圣战术锦标赛，我们的军事领袖正是由此选出。参赛者要经历一系列试炼，比较评估战局并迅速应对的能力，并按速度、伤亡、部署效率等多种因素评分。库马纳是一名缟玛瑙之子，也是这些赛事的卫冕冠军；在我们等待大陆抵达埃亚尔的大部分时间里，冠军都属于他。我们的选拔认定他是族人中最睿智的战术家，因此他获选觐见乌鲁洛克本人，以取得率领入侵军队的许可。乌鲁洛克对库马纳印象极深，甚至从维系我们世界之外所剩无几的力量中拿出相当一部分，为他打造了一具新的躯体，使他足以毫无畏惧地在前线指挥战斗。库马纳拥有父亲赐予的身躯与武器，其才智又得到父亲直接而热烈的认可，因此被视为乌鲁洛克的化身；他在战斗中的命令，也应当像父亲亲口说出的话一样受到敬重。]], "_t")
 t("demon statue: Lithfengel", "恶魔雕像：里斯丰格", "_t")
 t("Lithfengel, mentor of Draebor and child of emerald, was one of our finest scholars.  When most of us were still too afraid to go near a portal, he recovered an intact one and began to pry apart its secrets, in hopes of reaching Eyal.  His data showed that although this portal was still technically connected to Eyal, the link between the two worlds was still fluctuating far too much to make it safe for travel, the still-raging flames threatening to tear any prospective passengers apart before they reached their destination.  Rather than try to repair the link directly, he went into his lab and didn't emerge for a few days; when he came out, he glowed with a strange new enchantment, proclaiming it would adaptively mutate him to endure whatever damage the portal would otherwise inflict.  Saying that the consequences of failure were too awful to risk inflicting on other test subjects, he entered the portal himself, promising to return immediately after he arrived; he has not been seen since.  May he rest in peace for his selfless devotion.", [[里斯丰格，小恶魔德瑞宝的导师，绿翡翠之子，是最杰出的学者之一。当我们大部分人还畏惧接近传送门的时候，他早已找到了一个未被人使用过的，并且开始窥探其中的秘密，希望能够达到埃亚尔。他的数据显示，尽管这个传送门与埃亚尔连接，但是两个世界之间的波动使得前往另一个世界的旅行太过危险，肆虐的火焰会在你到达目的之前将你撕碎。比起直接修复连接，里斯丰格躲入他的实验室里好几天。当他出来的时候，他浑身笼罩着一层奇异的新符咒散发的光芒，宣称这道符咒将会使他产生适应性突变来抵御传送门将会造成的任何伤害。由于他说实施其他实验的失败后果太过危险，他独自一人进入了传送门，并且承诺在到达之后会立即返回，从那以后再也没有人见到他。看在他无私奉献的份上，愿他能够安息。]], "_t")
 t("demon statue: Rogroth, Eater of Souls", "恶魔雕像：罗格洛斯·灵魂吞噬者", "_t")
@@ -659,7 +659,7 @@ You must find a way to escape, again.
 你必须要逃离，再一次。
 
 ]], "_t")
-t("#LIGHT_GREEN#* You have found your way out of the primary ambush.#WHITE#", "#LIGHT_GREEN#* 你找到摆脱面前伏击的方法。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have found your way out of the primary ambush.#WHITE#", "#LIGHT_GREEN#* 你已从第一场伏击中脱身。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have destroyed Rogroth the Eater of Souls and made your escape possible. Flee!#WHITE#", "#LIGHT_GREEN#* 你已经消灭了罗格洛斯灵魂吞噬者，趁现在赶快逃！#WHITE#", "_t")
 t("#SLATE#* Find a way back to Eyal.#WHITE#", "#SLATE#* 寻找回到埃亚尔大陆的路。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have escaped the Anteroom of Agony.#WHITE#", "#LIGHT_GREEN#* 你已逃离痛苦前厅。#WHITE#", "_t")
@@ -678,11 +678,11 @@ t([[You do not remember much of your life before you were on this burning contin
 You are being taken by your handler to the torture-pits to help them figure out how to cause the most pain to those on Eyal, when you hear a roaring above you; you look up and see a burning meteor, flying closer, and the demons' spells failing to divert its course!  It lands near you, knocking you off your feet with its shockwave and killing your handler instantly.
 
 As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you.
-]], [[你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔降临大举复仇入侵埃亚尔的无形屏障。
+]], [[你已经不太记得来到这片漂浮在世界之间虚空中的燃烧大陆之前的生活了。你一直在帮助恶魔，愉快地参与他们的实验，试图打破某种阻止他们向埃亚尔展开正义复仇的屏障。
 
 你被你的“主人”带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
 
-当你醒来后，你发现你身处一个和主大陆分离的平台，而你旧时的记忆渐渐涌来。你立刻惊醒——恶魔们要毁灭你的故乡！你必须逃离……同时别忘了摧毁他们用以追踪你的水晶体。
+当你逐渐恢复意识、脚下这块灼热土地构成的平台正从主大陆分裂时，旧日的记忆涌入脑海。你终于清醒过来——恶魔们要毁灭你的故乡！你必须逃离……但在此之前，别忘了摧毁他们用来追踪你的水晶体。
 ]], "_t")
 t("#LIGHT_GREEN#* You have destroyed the controlling crystal. The demons can no track you down anymore.#WHITE#", "#LIGHT_GREEN#* 你摧毁了控制水晶，恶魔们不能再追踪你了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have destroyed the Planar Controller. Flee now!#WHITE#", "#LIGHT_GREEN#* 你摧毁了空间控制者。趁现在逃跑吧！#WHITE#", "_t")
@@ -865,7 +865,7 @@ t("Armoured Leviathan", "重装上阵", "talent name")
 t([[You enchant your shield to grant you power for %d turns.
 		While the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]], "你利用盾牌来强化自身，力量和魔法增加 10%% 格挡值，持续 %d 回合。", "tformat")
 t("Flash Block", "瞬间格挡", "talent name")
-t("In a fiery display of speed you raise your shield to block instantly.", "在闪电般的速度中，你瞬间举起盾牌格挡。", "tformat")
+t("In a fiery display of speed you raise your shield to block instantly.", "你带着一阵火光迅速举起盾牌，瞬间完成格挡。", "tformat")
 t("Blackice", "黑冰", "talent name")
 t([[Each time your kill a creature with non-fire damage you gain a blackice charge for 20 turns (stacking to %d).
 		At any moment you can use a charge to infect a creature with blackice, reducing its fire and physical resistance by %d%% for 7 turns.]], [[每次你用非火焰伤害杀死生物时，你获得一次黑冰充能，持续 20 回合，最多累计 %d 次。
@@ -1388,17 +1388,16 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.
 		-Incinerating Blows: Increases chance of bonus damage to %d%%.
 		-Fearfeast: Gain %0.1f vim per stack.
-		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。
-	变身期间，体力恢复和物理强度增加 %d，缴械和震慑抗性增加 %d%%。
-	物理强度、体力恢复和状态抗性加值受法术强度加成。
-	变身期间，其他技能也受到强化：
-	汲魂痛击：冷却时间减少 %d。
-	舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
-	歼灭挥斩：增加半径 %d。
-	锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
-	焚尽强击：增加额外伤害几率至 %d%%。
-	恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。
-	乌鲁洛克之口：角度增加 %d。]], "tformat")
+		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d，缴械和震慑免疫率提高 %d%%。
+		物理强度、体力恢复和状态抗性加值受法术强度加成。
+		变身期间，其他技能也受到强化：
+		-汲魂痛击：冷却时间减少 %d。
+		-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
+		-歼灭挥斩：增加半径 %d。
+		-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
+		-焚尽强击：增加额外伤害几率至 %d%%。
+		-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。
+		-乌鲁洛克之口：角度增加 %d。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/misc/races.lua"
@@ -1455,7 +1454,7 @@ t("Fiery Torment", "灼魂之罚", "_t")
 t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。", "tformat")
 t("#Target# is surrounded by a vile flame!", "#Target#被邪恶的火焰包围", "_t")
 t("+Fiery Torment", "+灼魂之罚", "_t")
-t("The black flame around #Target# dies down", "#Target#周围的邪恶火焰熄灭了", "_t")
+t("The black flame around #Target# dies down", "#Target#周围的黑色火焰熄灭了", "_t")
 t("-Fiery Torment", "-灼魂之罚", "_t")
 t("fire", "火焰", "effect subtype")
 t("Destroyer", "毁灭者", "_t")
@@ -1726,9 +1725,9 @@ t("minor", "小恶魔", "entity subtype")
 t("demonic clerk", "恶魔职员", "entity name")
 t("A small demon, he looks alarmed at your seeming freedom.", "一个小恶魔，他对你的自由感到非常惊惶。", "_t")
 t("mutilator", "恶魔切割者", "entity name")
-t("A demon with 3 arms, ready to mutilate you. For experiment. Not for fun. Nope.", "一个长着三只手的恶魔，准备切割你。不是娱乐，而是实验。", "_t")
+t("A demon with 3 arms, ready to mutilate you. For experiment. Not for fun. Nope.", "一个长着三条手臂的恶魔，准备肢解你。为了实验，不是为了取乐。才不是。", "_t")
 t("investigator", "恶魔调查者", "entity name")
-t("This demon is dedicated to #{italic}#extracting#{normal}# information from #{italic}#willing#{normal}# subjects.", "这个恶魔专心于从#{italic}#志愿者#{normal}#手里#{italic}#获取#{normal}#资料。", "_t")
+t("This demon is dedicated to #{italic}#extracting#{normal}# information from #{italic}#willing#{normal}# subjects.", "这个恶魔致力于从受试者身上#{italic}#提取#{normal}#信息——当然，他们都是#{italic}#自愿#{normal}#的。", "_t")
 t("Planar Controller", "空间控制者", "entity name")
 t("major", "大恶魔", "entity subtype")
 t("A huge demon towers above you, it is obviously in control of all the portals in the nearby Fearscape area.", "一个巨大的恶魔朝你走来，显然他控制着附近所有的传送门。", "_t")

@@ -2244,7 +2244,7 @@ Dedicated to opposing and destroying magical and arcane influence in the world.
 The use of spells or arcane-powered equipment is impossible.
 ]], [[#GOLD#反魔法#LAST#
 你决心反对并摧毁世界上的魔法与奥术力量。
-拒绝使用法术，不能装备力量来源为奥术的装备。
+无法使用法术，也无法使用奥术驱动的装备。
 ]], "_t")
 
 ------------------------------------------------
@@ -4090,7 +4090,7 @@ t("[Wait]", "[等待]", "_t")
 t("GIVE ME AN HOUR, AND THINK UNPLEASANT THOUGHTS ABOUT THE BROTHERHOOD. IF ANYTHING EXPLODES, COME RESCUE ME, EVEN IF IT LOOKS LIKE THE BUILDING IS AN INFERNO OF POISONOUS SMOKE AND POLKA-DOT FLAMES.", "给我一小时，好好想想那帮兄弟会的可恨之处。要是有什么东西爆炸了，快来救我，哪怕整栋楼已经变成毒烟弥漫、火焰乱舞的炼狱。", "_t")
 t([[#LIGHT_GREEN#*Disaster fails to occur. The halfling finally returns and hands you a small vial of sooty glass.*#WHITE#
 ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WON YET. THE LONGER YOU WAIT, THE MORE LIKELY IT IS THAT YOU'LL RETURN TO A SMOKING CRATER AND ONE TRULY IRATE HALFLING.]], [[#LIGHT_GREEN#*还好，没发生任何不幸的事，那个半身人终于回来了，递给你一个黑乎乎的玻璃瓶。*#WHITE#
-喝吧！你要是喜欢这份工作的话随时可以回来找我。我还没赢呢！最好快点，你在这儿待的时间太长，下次迎接你的可就是一个冒着黑烟怒不可遏的半身人了。]], "_t")
+尽情享用吧！如果你还对类似的工作感兴趣，随时可以回来找我。我还没赢呢！你等得越久，再回来时越可能看到一个冒烟的弹坑和一个真正暴怒的半身人。]], "_t")
 t("THANK YOU. I'LL BE OFF.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The halfling finally returns with a vial and a small pouch.*#WHITE#
 YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HELL, SO DON'T GO WASTING IT.]], [[#LIGHT_GREEN#*那个半身人终于拿着一个瓶子和一个袋子回来了。*#WHITE#
@@ -12606,7 +12606,7 @@ t("#GOLD#As the helm of Kroltar approaches the scale armour, they begin to fume 
 t("#GOLD#The fumes and fire fade away.", "#GOLD#烟和火消失了。", "logPlayer")
 t("Crown of Command", "领袖的皇冠", "entity name")
 t("unblemished silver crown", "无瑕的纯银王冠", "_t")
-t("This crown was worn by the Halfling king Roupar, who ruled over the Nargol lands in the Age of Dusk.  Those were dark times, and the king enforced order and discipline under the harshest of terms.  Any who deviated were punished, any who disagreed were repressed, and many disappeared without a trace into his numerous prisons.  All must be loyal to the crown or suffer dearly.  When he died without heir the crown was lost and his kingdom fell into chaos.", "半身人国王洛帕曾佩戴这顶王冠，他曾于黄昏纪统治着纳格尔大陆。那是黑暗的年代，国王通过最残暴的手段执行他的命令和法律。任何违背他思想的人都被严厉的惩罚，任何反对他的人都被无情的镇压，这些人大部分都无声无息的消失了——被关进了国王那不计其数的监狱里。所有人都必须表示忠诚或者付出昂贵的代价。他在没有子嗣的情况下死去，皇冠失踪的同时他的国家也陷入了混乱。", "_t")
+t("This crown was worn by the Halfling king Roupar, who ruled over the Nargol lands in the Age of Dusk.  Those were dark times, and the king enforced order and discipline under the harshest of terms.  Any who deviated were punished, any who disagreed were repressed, and many disappeared without a trace into his numerous prisons.  All must be loyal to the crown or suffer dearly.  When he died without heir the crown was lost and his kingdom fell into chaos.", "半身人国王洛帕曾佩戴这顶皇冠，他在黄昏纪统治着纳格尔的国土。那是黑暗的时代，国王以最严苛的手段推行秩序和纪律。任何偏离正轨者都会受罚，任何持异议者都会遭到镇压，许多人消失得无影无踪，被投入他众多的监狱。所有人都必须忠于皇冠，否则便会付出惨重代价。他死后无嗣，皇冠随之失落，王国也陷入混乱。", "_t")
 t("#LIGHT_BLUE#As you don the %s, you gain understanding of the might of your race.", "#LIGHT_BLUE#当你戴上%s，你感受到了你种族的力量。", "logPlayer")
 t("Gloves of the Firm Hand", "铁腕之手套", "entity name")
 t("heavy gloves", "沉重的手套", "_t")
@@ -13144,7 +13144,7 @@ t(" (cooling down: %d turns)", " (冷却时间：%d 回合)", "tformat")
 t("Attempt to devour a low HP enemy, striking again and possibly killing it instantly.", "试图吞噬一个低生命的敌人，再次攻击并有几率秒杀目标。", "_t")
 t("Enter a Rampage (Shared cooldown).", "进入暴走（共享冷却时间）。", "_t")
 t("Ethereal Embrace", "以太之拥", "entity name")
-t("wispy purple cloak", "脆弱的紫色斗篷", "_t")
+t("wispy purple cloak", "缥缈的紫色斗篷", "_t")
 t("This cloak waves and bends with shimmering light, reflecting the depths of space and the heart of the Aether.", "这件斗篷漂浮弯曲，发出闪耀的光芒，折射出空间深处、以太核心。", "_t")
 t("Damage shields have +1 duration and +15% power", "伤害护盾增加一回合持续时间和15%强度", "_t")
 t("Boots of the Hunter", "猎人之靴", "entity name")
@@ -17156,7 +17156,8 @@ You are not forgotten
 #{normal}#]], [[#{bold}#
 黑暗者古尔莫特
 #{normal}#0 - 97#{italic}#
-在这个充满崭新冒险的光明时代
+在这光明的时代
+在崭新的冒险中
 你不会被遗忘
 #{normal}#]], "_t")
 t([[#{bold}#
@@ -19914,7 +19915,7 @@ t("Teleport", "传送", "_t")
 t("Cancel", "取消", "_t")
 t("#YELLOW#Nothing happens when you use the Portal.", "#YELLOW#当你使用传送门的时候，什么事也没有发生。", "logPlayer")
 t("Portal", "传送门", "_t")
-t("A strange portal to some place else.", "通向其他地方的传送门。", "_t")
+t("A strange portal to some place else.", "一座通向其他地方的奇异传送门。", "_t")
 t("A portal out of this place.", "离开这里的传送门。", "_t")
 
 ------------------------------------------------
@@ -20181,7 +20182,7 @@ t("", "", "_t")
 ------------------------------------------------
 section "mod-tome/data/quests/deep-bellow.lua"
 
-t("From bellow, it devours", "地下吞噬者", "_t")
+t("From bellow, it devours", "来自深渊，吞噬四方", "_t")
 t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～。", "_t")
 t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个叫深渊咆哮的地下城。", "_t")
 t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。", "_t")
@@ -22125,8 +22126,8 @@ t("Disintegration", "裂解", "talent name")
 t("#CRIMSON#%s's beneficial effect was stripped!#LAST#", "#CRIMSON#%s的有益效果被除去了！#LAST#", "logSeen")
 t([[While active your physical and temporal damage has a %d%% chance to remove one beneficial physical or magical temporary effect (respectively) from targets you hit.
 		Only one physical and one magical effect may be removed per turn from each target.
-		Additionally your Dust to Dust spell now digs up to %d tiles into walls.]], [[你造成物理和时空伤害时，有 %d%% 几率除去一项物理或魔法增益效果。
-		每个生物每回合只能被除去一项效果。
+		Additionally your Dust to Dust spell now digs up to %d tiles into walls.]], [[此技能激活期间，你的物理伤害有 %d%% 几率从命中的目标身上移除一项物理临时增益效果，时空伤害则有同样几率移除一项魔法临时增益效果。
+		每个目标每回合至多各被移除一项物理效果和一项魔法效果。
 		同时，你的土归土技能能挖至多 %d 格内的墙壁。]], "tformat")
 
 ------------------------------------------------
@@ -22996,9 +22997,9 @@ t([[Summon a part of the Fearscape to intersect with the current level.
 		This powerful spell drains 5 vim per turn initially, increasing by +1 for each turn it has been active, and ends when your vim is depleted.
 		It has no effect if cast from within the Fearscape.
 		The damage will increase with your Spellpower.]], [[召唤一部分恶魔空间与现有空间交叉。
-		你的目标和你自己都会被带入恶魔空间，只有当你中断技能或目标死亡时，限制解除。
-		在恶魔空间内，永恒之焰会燃烧你和目标，造成 %0.2f 火焰伤害，对恶魔则会改为进行治疗。
-		当技能中断时，你和目标（如果还活着），以及所有掉落物品会被带回原来空间；所有召唤物都会留在恶魔空间。
+		你和目标都会被带入恶魔空间，并受困其中，直到你结束法术或目标死亡。
+		在恶魔空间内，持续的火焰光环每回合会灼烧你和目标，造成 %0.2f 火焰伤害；恶魔则会得到治疗。
+		法术结束时，只有你、目标（如果还活着）和所有掉落物品会被带回原来的位面；所有召唤物都会留在恶魔空间。
 		这个强大的法术最初每回合消耗 5 点活力，活力值消耗每回合增加 1 点，当活力值归零时技能终止。
 		当你已处于恶魔空间时，此技能施放无效果。
 		伤害受法术强度加成。]], "tformat")
@@ -25234,8 +25235,7 @@ t([[For %d turns, you lay down mucus where you walk or stand.
 		粘液每回合自动放置，持续 %d 回合。
 		技能等级达到 4 级或以上时，粘液会从放置位置扩展到半径 1 的范围。
 		粘液会使所有经过的敌人中毒，每回合造成 %0.1f 自然伤害，持续 5 回合（可叠加）。
-		站在自己的粘液上时，你每回合回复 %0.1f 失衡值。
-		每个经过粘液的友方单位，每回合将和你一起回复 1 点失衡值。
+		站在自己的粘液上时，你每回合回复 %0.1f 失衡值；每个处在你粘液中的其他友方单位，每回合都会为你和其自身各回复 1 点失衡值。
 		毒素伤害和失衡值回复受精神强度加成；在同一位置铺设更多粘液会强化其效果，并刷新持续时间。]], "tformat")
 t("Acid Splash", "酸液飞溅", "talent name")
 t([[Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.
@@ -25337,7 +25337,7 @@ t([[You use your psiblades to fire a small worm at a foe.
 		当攻击击中时，它会进入目标大脑，并在那里待 6 回合，干扰对方使用技能的能力。
 		每次对方使用技能时，有 %d%% 概率 %d 个技能被打入 %d 个回合的冷却。
 		概率受精神强度加成。]], "tformat")
-t("Unstoppable Nature", "自然世界", "talent name")
+t("Unstoppable Nature", "势不可挡的自然", "talent name")
 t([[Surround yourself with natural forces, ignoring %d%% nature resistance of your targets.
 		In addition, any time you deal damage with a wild gift there is a %d%% chance that one of your mucus oozes will spit at the target as a free action.]], [[你的周围充满了自然力量，忽略目标 %d%% 的自然伤害抗性。
 		同时，每次你使用自然力量造成伤害时，有 %d%% 概率你的一个粘液软泥怪会向目标释放喷吐，这个攻击不消耗时间。]], "tformat")
@@ -25738,7 +25738,7 @@ t("It is a massive animated statue.", "一座巨型的活化雕像。", "_t")
 t([[Summon a Stone Golem for %d turns to attack your foes. Stone golems are formidable foes that can become unstoppable.
 		It will get %d Strength, %d Constitution and %d Dexterity.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		The golem's Strength and Dexterity will increase with your Mindpower.]], [[召唤一只岩石傀儡来攻击敌人，持续 %d 回合。岩石傀儡是可怕的敌人并且不可阻挡。
+		The golem's Strength and Dexterity will increase with your Mindpower.]], [[召唤一只岩石傀儡来攻击敌人，持续 %d 回合。岩石傀儡是可怕的敌人，并有可能变得不可阻挡。
 		它有 %d 点力量，%d 点体质和 %d 点敏捷。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		傀儡的力量和敏捷受精神强度加成。]], "tformat")
@@ -28721,8 +28721,8 @@ t([[Strike twice with your mainhand weapon dealing %d%% Arcane damage.
 t("Fiery Hands", "燃烧之手", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of fire, dealing %0.2f fire damage per melee attack and increasing all fire damage dealt by %d%%.
 		Each hit will also regenerate %0.2f stamina.
-		The effects will increase with your Spellpower.]], [[你的双手笼罩在火焰中，每次近战攻击会造成 %0.2f 火焰伤害并提高所有火焰伤害 %d%%。
-		每次攻击同时也会回复 %0.2f 体力值。
+		The effects will increase with your Spellpower.]], [[你的双手（及武器）笼罩在火焰中，每次近战攻击会造成 %0.2f 火焰伤害并提高所有火焰伤害 %d%%。
+		每次命中同时也会回复 %0.2f 体力值。
 		效果受法术强度加成。]], "tformat")
 t("Shock Hands", "闪电之触", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of lightning, dealing %d lightning damage with a chance to daze (25%%) per melee attack and increasing all lightning damage dealt by %d%%.
@@ -31124,7 +31124,7 @@ t("Your mastery of unarmed combat unifies your body. Increases your Strength by 
 t("Heightened Reflexes", "高度反射", "talent name")
 t("When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn.  Taking any action other than movement will break the effect.", [[当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合。
 		除了移动外的任何动作均会打破此效果。]], "tformat")
-t("Reflex Defense", "闪避神经", "talent name")
+t("Reflex Defense", "反射防御", "talent name")
 t("Your understanding of physiology allows you to apply your reflexes in new ways, increasing the flat damage reduction granted by Striking Stance by %d%% and causing direct critical hits (physical, mental, spells) against you to have a %d%% lower Critical multiplier (but always do at least normal damage).", [[你对生理结构的理解使你能以新的方式运用反射神经，使攻击姿态提供的固定伤害减免提高 %d%%，并使针对你的直接暴击（物理、精神或法术）的暴击倍率降低 %d%%（但伤害不会低于普通命中）。]], "tformat")
 
 ------------------------------------------------
@@ -35007,7 +35007,7 @@ t("Supercharge Golem", "超载傀儡", "_t")
 t("The target is supercharged, increasing life regen by %0.2f and damage done by 20%%.", "目标被超载，增加 %0.2f 生命回复并增加 20%%伤害。", "tformat")
 t("#Target# is overloaded with power.", "#Target#能量过载。", "_t")
 t("+Supercharge", "+超载傀儡", "_t")
-t("#Target# seems less dangerous.", "#Target#平静了下来。", "_t")
+t("#Target# seems less dangerous.", "#Target#看起来没那么危险了。", "_t")
 t("-Supercharge", "-超载傀儡", "_t")
 t("Power Overload", "力量超载", "_t")
 t("The target radiates incredible power, increasing all damage done by %d%%.", "目标辐射出超强的力量，提升 %d%% 所有伤害。", "tformat")
@@ -43110,7 +43110,7 @@ t("Wild infusions call upon the powers of nature to protect the flesh and rid on
 t("Shield runes act instantly, letting one protect oneself quickly whilst also preparing to flee or launch a counter attack.", "护盾符文为瞬发技能，可以在你准备逃跑或者反击的同时提供防护。", "init.lua load_tips")
 t("Greater training in the use of armour lets it be used more effectively, blocking more damage and reducing the chance of an enemy hitting a critical spot.", "高级的护甲训练可以有效提高你的防护能力，使你格挡更多伤害并降低你受到致命一击的几率。", "init.lua load_tips")
 t("The Thick Skin talent reduces all incoming damage, letting you survive for longer before needing to heal.", "硬化皮肤技能可以降低所有受到的伤害，让你在需要治疗前存活更久。", "init.lua load_tips")
-t("Regeneration infusions act over several turns, letting you anticipate damage that will be taken and prepare for it.", "恢复纹身的效果持续数个回合，开启后每回合会恢复一定的生命值，使你的战斗更加从容不迫。", "init.lua load_tips")
+t("Regeneration infusions act over several turns, letting you anticipate damage that will be taken and prepare for it.", "回复纹身会在数个回合内生效，让你得以预判将要承受的伤害并提前准备。", "init.lua load_tips")
 t("In the most dire circumstances teleportation can be the best escape, but is not without risk.", "在最危急的时刻，传送可能是最好的逃生手段，但也并非没有风险。", "init.lua load_tips")
 t("The Ziguranth are an ancient order vehemently opposed to magic. Some have become so attuned to nature they can resist arcane forces with their will alone.", "伊格兰斯是一个古老的反魔阵营，他们中的一些人可以依靠自身的意志力来抵抗奥术能量。", "init.lua load_tips")
 t("Records say that giants once lived civilised lives, with mastery of many crafts and sciences. Now, though, they have adopted nomadic cultures, turning hostile against those that encroach on their lands.", "据史书记载，巨人族曾经也有高度发达的文明，掌握着许多手工和科学技术。不过现在他们已经适应了游牧生活，他们会攻击任何试图侵略的敌人。", "init.lua load_tips")
