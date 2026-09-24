@@ -1,0 +1,295 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=e4553c5871adff2b2fefcc3f331c472b71d44cd810676578e582580a739f0ade；input_path=.ai/task/ctx2-pub-04a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] The task requires a thorough review of the provided input, focusing only on identifying concrete issues related to semantics, mechanism, terminology, relationships, or cross-item consistency; otherwise, the review should be marked as "OK." The input is read-only, and I have access to external documentation for context and reference. Now, I need to understand the implications of "全部冻结 revision" and its relation to the review process.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] Requirements from sections 6 and 7 regarding the output format and root JSON structure are reviewed. The output must strictly adhere to the specified JSON format with three keys. Values for `contract` and `candidate_identity` are confirmed.
+[Read] .ai/task/ctx2-pub-04a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] The provided `candidate_identity` string matches the user's input. The task involves examining a sequence of ordered revision keys. The next step is to process these keys.
+[Shell] git rev-parse HEAD
+[Shell] ls -la
+[Shell] ls -la i18n
+[Shell] ls -la i18n/versions
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la ../t-engine4
+[Shell] env | grep -i tome
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] The provided context identifies a specific source code version. The goal is to understand how to handle the given problem within that constrained context. This indicates that the reasoning must be specific to this identified version.
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/classes/psionic.lua
+[Thought] The provided text describes overcoming physical weakness through mental strength. The key is to find and fight for a specific "way" to unlock the mind. This suggests a pursuit of self-improvement or a method to access hidden potential. The goal is to translate this concept into another language.
+[Shell] git -C /workspace/t-engine4 grep "allow_build.psionic "
+[Shell] git -C /workspace/t-engine4 grep "psionic ="
+[Read] /workspace/t-engine4/game/modules/tome/class/GameState.lua
+[Thought] The `psionic` class descriptor likely signifies a class unlock condition tied to either the Mindslayer or Solipsist classes, or it might relate to a broader class category lock. The descriptive text suggests a theme of overcoming physical limitations through mental strength, implying a search for a method to unlock a hidden mental potential.
+[Shell] git -C /workspace/t-engine4 grep -n "when using slings" game/modules/tome/data/birth/classes/warrior.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/classes/warrior.lua
+[Thought] Examining the terminology snapshot clarifies the translation of key game stats: Strength is 力量, Dexterity is 敏捷, and Cunning is 灵巧. The target phrase indicates that either "装备弓时" or "使用投石索时" should be used. "using bows" translates to "装备弓时". Determining if "装备投石索" is equivalent to "使用投石索时".
+
+
+"装备投石索" might be omitting "时", but is common colloquially. The phrase appears correct within the context of game mechanics where slings use Cunning, while bows use Strength. The translation "弓箭手可以专精于长弓或投石索" uses "专精" for "become good", which is a valid choice. No demonstrable error has been identified; the contract's reporting requirements are not met.
+[Shell] git -C /workspace/t-engine4 grep -n "sheer destruction" game/modules/tome/data/birth/classes/warrior.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/classes/warrior.lua
+[Thought] Two-handed weapons proficiency signifies a focus on devastating power. The provided translation accurately reflects this emphasis on destruction.
+
+
+The source describes a Brawler's skills. The target sentence captures the source's general point about the usefulness of these skills. The translation maintains the essence, irrespective of the Brawler's experience level, whether professional or amateur.
+[Shell] git -C /workspace/t-engine4 grep -n "pit-fighter" game/modules/tome/data/birth/classes/warrior.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/classes/warrior.lua
+[Thought] The locked description references fighting in a "ring of blood" and learning that "a pair of fists can face the world." Unlocking the "Brawler" class involves fighting in the Derth arena. This strongly suggests a combat-focused class, linked to a pit-fighting or boxing background. The description of the Brawler reinforces this association with pit fighters, boxers, or similar practitioners.
+[Shell] git -C /workspace/t-engine4 grep -n "Stone Wardens are dwarves" game/modules/tome/data/birth/classes/wilder.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/classes/wilder.lua
+[Thought] Analyzing the provided text snippet, it appears to be a description or flavor text associated with a game class named "Stone Wardens." The `locked_desc` suggests a backstory relating to conflict and reconciliation, perhaps hinting at class lore or starting conditions. The `desc` variable clarifies that Stone Wardens combine arcane and nature-based abilities, likely representing a unique class archetype.
+[Shell] grep -n "eldritch-stone" mod-tome.lua
+[Read] mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep "newTalentType" game/modules/tome/data/talents/spells/eldritch-stone.lua
+[Shell] git -C /workspace/t-engine4 grep "eldritch-stone" game/modules/tome/data/talents/spells/
+[Shell] grep -n "eldritch stone" mod-tome.lua
+[Thought] The provided terminology mapping defines "eldritch" as "骇异" within the "T.GAME.ENTITY / entity subtype" context. This suggests a preferred translation for the term "eldritch" specifically when referring to entities within the game's context, with special names remaining in transliterated form. This mapping appears to be global in scope.
+[Shell] git -C /workspace/t-engine4 grep -n "Player is being hunted" game/modules/tome/data/birth/descriptors.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/descriptors.lua
+[Shell] git -C /workspace/t-engine4 grep "T_HUNTED_PLAYER" game/modules/tome/data/talents/
+[Shell] git -C /workspace/t-engine4 grep "HUNTED_PLAYER" game/
+[Shell] git -C /workspace/t-engine4 grep -A 20 'name = "Hunted!"' game/modules/tome/data/talents/misc/misc.lua
+[Thought] The phrase accurately represents the game mechanic. The player is in a hunted state, triggering a random radius scan by enemies to locate the player. This is a correct interpretation of the original text.
+[Shell] grep -n "ghoulish leap" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep "name =" game/modules/tome/data/talents/undead/ghoul.lua
+[Shell] find /workspace/t-engine4 -name "*ghoul*.lua"
+[Shell] git -C /workspace/t-engine4 grep "name =" game/modules/tome/data/talents/undeads/ghoul.lua
+[Shell] grep -E 't\("(Ghoulish Leap|Retch|Gnaw)"' mod-tome.lua
+[Thought] The provided translations for ghoul talents, specifically "Ghoulish Leap," "Retch," and "Gnaw," are accurate and consistent with the source text. The Chinese equivalents "食尸鬼跳跃," "腐秽呕吐," and "啃噬" precisely represent the English talent names.
+[Shell] git -C /workspace/t-engine4 grep -n "special skeleton talents" game/modules/tome/data/birth/races/undead.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/birth/races/undead.lua
+[Thought] Examining the translations, I see key features of skeletons highlighted: their nature as animated undead, strength, dexterity, and immunity to poison. Also, they do not need to breathe. These characteristics provide insights into their potential capabilities.
+[Shell] grep -rn "undead" terminology/
+[Shell] git -C /workspace/t-engine4 grep -n "undead abilities" game/modules/tome/data/birth/races/undead.lua
+[Shell] grep -n -C 3 "special ghoul talents" mod-tome.lua
+[Shell] grep -n -C 5 "special skeleton talents" mod-tome.lua
+[Thought] Initial assessment focuses on "天生具有" versus "They have access to". Investigating the nuance, observing a similar phrase ("他们能使用") for another undead type suggests that "天生具有" is appropriate. This implies that "skeleton talents" represent a skill that can develop or level up.
+[Shell] git -C /workspace/t-engine4 grep -n "Disaster fails to occur" game/modules/tome/data/chats/alchemist-hermit.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/alchemist-hermit.lua
+[Thought] The alchemist delivered the vial without incident, hinting at a future, possibly explosive, opportunity. The halfling's words suggest the current task was incomplete, with potential for further, riskier work.
+[Shell] git -C /workspace/t-engine4 grep -n "Taint of Purging" game/modules/tome/data/chats/alchemist-last-hope.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/alchemist-last-hope.lua
+[Thought] The speaker highlights his proficiency in planning and brewing. He anticipates that the Brotherhood will re-label his "brews" as "elixirs" upon his entry. The context of a "competition" reveals that the "brews" are to be sampled.
+
+
+The translation of "brew" as "药剂" appears inconsistent with the alchemist's established character trait: his insistence on calling them "brews" despite the Brotherhood's expected preference for "elixirs." The translation of "brew" as "配药" in a prior line might indicate a more accurate understanding of the character's intent. Analyzing how "brew" is being translated and the context to resolve this potential discrepancy and understand the character's use of language is key.
+[Shell] grep -n "Taint of Purging" mod-tome.lua
+[Read] mod-tome.lua
+[Thought] Planning abilities are recognized as strong. Acknowledging that adaptability is key, especially when dealing with groups like "the Brotherhood." The current task needs immediate attention.
+
+
+Examining the translation for consistency in terminology; the word "brew" translates inconsistently as "配药", "药剂", and "佳酿". Determining if this inconsistency constitutes a significant error requires further investigation of other entries for similar issues. The next step is to examine additional translation examples.
+[Shell] git -C /workspace/t-engine4 grep -n "I own you now" game/modules/tome/data/chats/assassin-lord.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/assassin-lord.lua
+[Thought] The game log records a spoken line from the Assassin Lord upon the player's departure. This confirms the successful completion of the interaction where the player sided with him. The translation accurately reflects the ominous tone of the dialogue, reinforcing the narrative consequence of the player's choice.
+[Shell] git -C /workspace/t-engine4 grep -n "Zemekkys' early experiments" game/modules/tome/data/chats/gates-of-morning-main.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/gates-of-morning-main.lua
+[Thought] Entry-00574 shows accurate translation across all listed terms. Considering entries 00579 and 00581 together is the next step.
+[Shell] grep -n "Sorcerer" mod-tome.lua
+[Thought] Angolwen's renegade mages, referred to as Sorcerers, have established themselves in the Far East and are becoming corrupt. This group of mages poses a threat that must be addressed. I'll need to understand their operations and the nature of their corruption to determine the appropriate response.
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/gates-of-morning-main.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/gates-of-morning-main.lua
+[Shell] grep -rn -i "sorcerer" terminology/
+[Thought] No definition for "sorcerer" exists in the primary terminology. Investigating a potential alternative, examining the terminology snapshot for related terms. The snapshot contains several class names and ability descriptors that might provide insight.
+[Shell] git -C /workspace/t-engine4 grep -n "appearance please" game/modules/tome/data/chats/shertul-fortress-butler.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/shertul-fortress-butler.lua
+[Thought] The system accurately translates requests for human appearances into Chinese, correctly identifying "human" as "人类" within the designated entity context. Further analysis of the revision is needed to assess how this translation is used.
+
+
+Orcs likely left key items in Maj'Eyal if their portal restricts passage. Search of Reknor, beginning near the portal, is indicated, given the likely close proximity of the items to its point of creation. I should retain the Orb of Many Ways for further study, since the expertise required exceeds my current understanding.
+[Shell] grep -rn "Chronomancer" terminology/
+[Shell] grep -n "Chronomancer" mod-tome.lua
+[Thought] The Chronomancer seems to possess most of the required information, but some specifics remain unclear. Returning to the Elven Chronomancer appears necessary to clarify these outstanding details.
+[Shell] git -C /workspace/t-engine4 grep -n "completed all the tutorials" game/modules/tome/data/chats/tutorial-start.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/chats/tutorial-start.lua
+[Thought] The tutorials are complete; basic game mechanics are understood. The next step is entering the full game world. It's important to remember that tutorial adjustments to creatures won't reflect the regular gameplay's difficulty.
+[Shell] grep -n "Save and Exit" mod-tome.lua engine.lua
+[Shell] grep -i "Save and Exit" engine.lua mod-boot.lua
+[Shell] grep -i 'Save' engine.lua | head -n 30
+[Shell] git -C /workspace/t-engine4 grep "Save and [eE]xit" game/
+[Shell] git -C /workspace/t-engine4 grep -n "save" game/modules/tome/dialogs/GameMenu.lua
+[Shell] find /workspace/t-engine4/game/engines/default/engine -name "*GameMenu*"
+[Read] /workspace/t-engine4/game/engines/default/engine/dialogs/GameMenu.lua
+[Read] /workspace/t-engine4/game/engines/default/engine/dialogs/GameMenu.lua
+[Read] /workspace/t-engine4/game/engines/default/engine/dialogs/GameMenu.lua
+[Thought] The `GameMenu.lua` and `tutorial-start.lua` files contain the necessary strings and game functions. The objective is to translate the English instructions into Chinese. The translation should accurately convey the English instructions for quitting and creating a new character.
+[Shell] grep -n "Their most important stats are" mod-tome.lua
+[Thought] The translated text might have a minor grammatical issue. Need to re-examine the contract rules regarding defects.
+
+
+The phrase "（装备弓时）或灵巧（装备投石索）" lacks grammatical parallelism due to the missing "时" after "装备投石索". However, the meaning is clear and understood. This potential issue is not semantically significant, but it prompted a review of other entries for more impactful errors, focusing on entry-00492 for further scrutiny.
+
+
+The translation merged "pit-fighter" and "boxer" into "职业拳手" (professional boxer), which is inaccurate as "pit-fighter" implies a different context. "业余的门外汉" (layman) misrepresents "amateur practitioner"; a practitioner has skill, a layman does not. The intended meaning is a spectrum of skill levels, from pit-fighter to amateur practitioner.
+
+The text should convey that "whether a pit-fighter, a boxer, or an amateur, the brawler skills remain useful."
+
+
+"Practitioner" was incorrectly translated as "layman," contradicting the implied skill level. The phrase "pit-fighter, boxer" was merged into "professional boxer," losing distinction. The class name "Brawler" (格斗家) was translated into "格斗技能" instead of "格斗家的技能", losing the possessive. The other usages in that block use the "格斗家" form.
+[Shell] git -C /workspace/t-engine4 grep -rn "eldritch arts" game/
+[Thought] Stone Wardens blend arcane and natural forces, a harmony unique to dwarves, as indicated by their description and `power_source`. The `locked_desc` suggests bridging the divide between nature and arcane abilities.
+
+
+"Eldritch arts" aligns with "arcane forces," suggesting "奥术技艺" is appropriate for translation based on in-game mechanics. Reviewing the terminology table, the "eldritch" entry applies to entity subtypes, not talents or lore. The previous translation for "Player is being hunted!" is accurate. The translation of "special ghoul talents: ghoulish leap, gnaw and retch" also appears correct.
+
+
+Examining "undead abilities", it's unclear if "一系列不死系能力" is the best translation compared to "亡灵能力". The term "undead" translates to "亡灵" in both entity and talent categories. The source text describes racial passives and talents, which might suggest a different nuance. Checking other instances of "undead" in the game files reveals "不死生物" is used for creatures, while "亡灵" appears in the talent category.
+
+
+The translation of "They have access to" differs between Ghoul and Skeleton descriptions. "他们能使用..." (Ghouls) versus "它们天生具有..." (Skeletons) is inconsistent. Skeletons possess inherent talents, and "天生具有" might misrepresent their ability to access or learn them. However, since the skeletons *do* begin with talents and have access to talent trees, "天生具有" may be acceptable as it describes the initial state, not the acquisition process. This warrants further investigation to clarify whether the initial talent state is what is being translated.
+
+
+"天生具有" accurately describes innate abilities like immunity or no need to breathe; thus, entry-00527 is acceptable. "不死系能力" is used consistently for "undead abilities" in the code, so it's likely a suitable translation, although "亡灵能力" is also a possibility. Checking entry-00553 confirms accurate translation and proper formatting, including the halfling terminology.
+
+
+Analyzing entry-00560 within the dialogue context in `alchemist-last-hope.lua`, the reward involves consuming brews and, potentially, obtaining the "Taint of Purging." The dialogue suggests a trade-off, where the player's aid grants access to the reward. The "Taint of Purging" appears to be a valuable item. Further analysis is needed to determine the best translation of "Taint of Purging" given its in-game function.
+
+
+The dialogue reveals a key distinction between "brews" and "elixirs", reflecting the alchemist's unrefined style versus the Brotherhood's pretension.  "Brews" translates to "佳酿" (jiāniàng) within the context of "Brew of...". The alchemist's self-correction from "Brews" to "Elixirs" suggests a shift in terminology, where "Elixirs" should be translated as "药剂" (yàojì), and "brews" as "配药" (pèiyào) or possibly "佳酿". This warrants careful consideration when translating the alchemist's dialogue and item descriptions.
+
+
+The translation of "brew" as "药剂" is inconsistent with the alchemist's character and the dialogue's intended humor. The alchemist intentionally uses "brew" (佳酿, 配药) as opposed to "elixir" (药剂), which is what the Brotherhood forces him to say. Translating "brew" to "药剂" removes this contrast. The translation needs to preserve this distinction. The correct translation should retain a different term for "brew" than "药剂."
+
+
+The previous translation of "brew" as "药剂" in entry-00560 contradicts the established distinction between "brews" and "elixirs" within the alchemist's dialogue, where "brews" should translate to "配药" (pèiyào). The alchemist's intent and the humorous contrast are lost.
+
+
+The translation of "swig" in entry-00560 doesn't match the intended meaning of a small taste, and the use of "药剂" for "brew" is inconsistent with the alchemist's character and the prior distinction. "Brews" should be translated differently from "elixirs." Reviewing related entries, discrepancies between entry-00579 and entry-00581 were discovered; those entries must be re-evaluated.
+
+
+"Sorcerers?" needs context. Checking relevant entries reveals a dialogue in `gates-of-morning-main.lua`. The dialogue mentions rumors of a "master of the Pride" and the existence of two. The context of "Sorcerers" likely refers to this "master of the Pride" or related entities. The entries must be cross-referenced for an accurate translation.
+[Shell] git -C /workspace/t-engine4 grep -rn "Sorcerer" game/modules/tome/data/quests/charred-scar.lua game/modules/tome/data/zones/charred-scar/
+[Read] /workspace/t-engine4/game/modules/tome/data/zones/charred-scar/npcs.lua
+[Shell] grep -n '"sorcerers"' mod-tome.lua
+[Shell] grep -i 't("sorcerers' mod-tome.lua
+[Shell] grep -E 't\(".*[sS]orcerer' mod-tome.lua
+[Thought] "Sorcerers" in one file has two translations: "法师" and "巫师". A different file states "法师？我从来没听说过他们。" (Mages? I've never heard of them.) This suggests a potential inconsistency in the translation or understanding of the term "Sorcerers." The characters' dialogue might be incorrect given these translation variations.
+
+
+Examining the dialogue reveals a crucial distinction: "mage" versus "Sorcerers." The Chinese translation appears to conflate these terms, leading to Aeryn's seemingly contradictory statement. The inconsistency lies in the translation's failure to differentiate between a general "mage" and the specific "Sorcerers" faction. The player's use of "Sorcerers" likely refers to a specific group, and Aeryn, familiar with mages generally, is unfamiliar with this specific group.
+
+
+The character's statement, "法师？我从来没听说过他们。" ("Mages? I've never heard of them.") appears inconsistent, given the established context. The term "法师" (mages) is known within the world; Aeryn even interacts with them. The issue may stem from an attempted translation, since the "Sorcerers" (巫师) are a specific, clandestine group, and Aeryn's surprise could be specific to that group. Further investigation across all revisions is necessary to determine if this is an isolated translation anomaly or part of a broader pattern.
+
+
+The translation of "when using slings" omits the particle "时", creating an inconsistency with "when using bows" which is translated with "时." This omission breaks parallel structure. The adjacent translation reveals a more accurate rendering of "using" as "使用" instead of "装备" in the first translation. The current translation uses the more general "装备" (equip), which is a less specific word than "使用" (use), and is therefore a less accurate translation.
+
+
+The missing "时" in "装备投石索" is a potential stylistic inconsistency. The contract requires demonstrable semantic, mechanical, terminological, relational, or cross-entry inconsistency for an issue to be reported. Reviewing entry-00492 for semantic errors is needed. The "just an amateur practitioner" phrase requires further analysis.
+
+
+The translation of "practitioner" as "layman" introduces a semantic contradiction; a layman lacks the skills being discussed. The term "Brawler" is a specific class name, but the translation omits it, generalizing "Brawler's skills" to "fighting skills," which is a loss of specificity. The original text includes three specific roles, which are omitted.
+
+
+The translation conflates distinct concepts, merging "pit-fighter" and "amateur practitioner" into "professional boxer," losing nuance and accuracy. This represents a significant terminological error, especially given the game's lore. Further analysis will focus on entry-00560 within the "alchemist-last-hope.lua" context, beginning with the source and target strings. The source's reference to "brews" being called "elixirs" by the Brotherhood will be compared with the target translation.
+
+
+The dwarf NPC consistently refers to his concoctions as "brews," but anticipates being forced to call them "elixirs" by the Brotherhood. The initial translation in entry-00560 immediately uses "药剂" (elixirs) for "brews," contradicting the NPC's initial statement. The subsequent dialogue shows the NPC correcting himself, reinforcing the intended term switch.
+
+
+The translation of "brew" as "药剂" in the initial dialogue node creates internal contradictions. The character's established pattern is to use "brew," and the Brotherhood prefers "elixir."  Node 2's translation uses "药剂" which is the opposite of the character's initial term and his subsequent correction; it also results in the subsequent nodes being mis-aligned. The translation's use of "药剂" instead of "佳酿" for "brews" in the second sentence is inconsistent with other translations within the chain, also altering the semantic meaning of the words in the sentence. These inconsistencies are evident in the context of the alchemist-last-hope.lua file.
+
+
+Analyzing entry-00581 within its context, the translation of "Sorcerers? I have never heard of them" remains inconsistent. The context points to an existing knowledge of "mages" by Aeryn. The issue is more complex. The target translation says that there is a rumor about a new leader of the Pride, and now there seem to be two. This reveals a new leader is now leading the Pride.
+
+The dialogue's inconsistency originates from the translation's conflation of "mages" and "Sorcerers." The original text establishes that "Sorcerers" refers to a specific group, and Aeryn, knowledgeable about mages, expresses unfamiliarity with this particular group, creating a narrative inconsistency. The Chinese translation omits the nuance, making the statement appear contradictory. The reference to two leaders of the Pride is new.
+
+
+The translator's casual use of "法师" for "Sorcerers" (巫师) creates an inconsistency. Aeryn's statement becomes nonsensical because "Sorcerers" here is the specific title of Elandar and Argoniel, not mages in general. This error is present in both entry-00579 and entry-00581. "巫师" appears to be the preferred term for "The Sorcerers" within the game's lore.
+
+
+The dialogue's context necessitates a distinction between "mages" and "Sorcerers". The player's report to Aeryn refers to "Sorcerers" encountered in the "Charred Scar" quest, consistently translated as "巫师们". Aeryn's response appears to misunderstand or misinterpret this specific group's identity. Entry-00574, immediately preceding, calls Zemekkys a "法师" (mage) in the dialogue.
+
+
+The phrase "法师？我从来没听说过他们。" ("Mages? I've never heard of them.") is a potential point of inconsistency. The analysis must shift to entry-00615.
+
+The term "Chronomancer Zemekkys" translates to "时空法师泽梅基斯".  Terminology defines `Chronomancer => 时空系` as the "birth descriptor name."
+
+The terminology's note clarifies that "时空系" functions as the class category.  "Chronomancer Zemekkys" is a valid translation.
+
+
+The addition of "并加以研究" in the target text appears to be an insertion not present in the source, but the meaning of the source is retained. The translation maintains narrative fidelity in entry 00484.
+
+The "时" particle is omitted in the translation of "when using slings", creating an inconsistency with the translation of "when using bows". The absence of "时" in "装备投石索" deviates from the parallel structure observed in the translation of the phrase "装备弓时". This omission could be stylistic.
+
+
+The missing "时" in "装备投石索" presents a completeness and grammar concern. Player comprehension of the stat descriptions (Dex/Str with bows, Dex/Cun with slings) appears unaffected by the omission. Terminology is consistent with the contract. Comparison to entry-00492 requires further investigation to discern the severity of this inconsistency.
+
+
+The term "格斗家" ("Brawler") has been identified as a significant issue. Re-examining entry-00560 within `alchemist-last-hope.lua` reveals an inconsistency. The source uses "brew," while the translation immediately employs "药剂" ("elixir"), contradicting the character's stated preference for "brew." The character anticipates being forced to use "elixirs" later. This initial substitution of "brew" for "elixir" in the translation creates an inconsistency with the anticipated change.
+
+
+The NPC's internal monologue reveals a conflict: he makes "brews" but must call them "elixirs" to align with the Brotherhood's terminology. The initial translation in the sequence fails to reflect this distinction. The third node of the dialogue, the NPC self corrects in this sequence, showing his reluctance to use the terminology. This highlights a terminological discrepancy within the dialogue.
+
+
+The initial translation of "brew" as "药剂" disrupts the established characterization in the "alchemist-last-hope.lua" file. This direct substitution creates a contradiction because the character is depicted as using "brew" and struggling to adopt the Brotherhood's preferred term, "elixir." Furthermore, the use of "先喝个痛快" distorts the meaning of "swig." The subsequent correction to "elixir" further emphasizes this inconsistency.
+
+The dialogue's translation continues to exhibit inconsistencies. The NPC should use "佳酿", but the target text already uses "药剂," directly contradicting the character's line. The translation misses the humor where the NPC anticipates having to use "elixir" and so, this shows a fundamental misunderstanding of the context.
+
+Analyzing "Sorcerers? I have never heard of them" reveals a potential issue. The translated text claims the player has not heard of this new leader.
+
+
+The analysis of "法师？我从来没听说过他们。" shows a significant semantic inconsistency. Aeryn's statement contradicts her established knowledge of mages within the game world due to the translation's conflation of the general term "mages" and the specific faction "Sorcerers."  The translation's use of "法师" is incorrect. The text requires a differentiation between "法师" (mages) and "巫师" (Sorcerers). This error is most critical in dialogues 00579 and 00581. The use of “巫师” is more consistent with lore, since "Sorcerers" are a specific group.
+
+
+The omission of "时" in "装备投石索" is a grammatical inconsistency compared to "装备弓时," affecting fidelity. The translation uses "装备" (equip) instead of "使用" (use) which further complicates the issue. The missing "时" creates grammatical asymmetry, making the parenthetical phrase an action rather than a conditional statement.
+
+
+The analysis continues, focusing on identifying entries with clear and substantiated issues based on contractual requirements. The previous analysis revealed several potential issues.
+
+
+The "Brawler" subclass description has semantic errors, specifically with "amateur practitioner" mistranslated to "layman", merging distinct roles into a "professional boxer," and omitting the class name. This results in lost specificity.  The "brew" and "elixir" distinction is broken because the translation uses "药剂" for the character's "brews" from the start. The characters' dialogue shows inconsistency within the alchemist chat file. The translation of "Sorcerers" as "法师" (mages) causes Aeryn's inconsistent dialogue in entries 00579 and 00581; it appears the group "Sorcerers" is incorrectly referred to as a general group of mages.
+
+
+The initial assessment identifies a significant semantic error and terminological inconsistency. Aeryn's statement contradicts established lore due to the incorrect translation of "Sorcerers" as "mages." This is a narrative inconsistency. However, further review is required for entry-00486.
+
+Entry-00486 has been re-evaluated. The issue concerns the phrase "when using slings" being translated as "装备投石索," omitting the particle "时." Although grammatically incomplete, the meaning is preserved; the mechanics are clear. No contractually relevant semantic error is present.
+
+
+Entry 00486 is assessed as OK. The translation's omission of the "时" particle is a minor grammatical ellipsis with no semantic, mechanical, or terminological impact based on the contract's criteria, and the game mechanics are clearly understood. The 18 revisions are being re-verified to ensure that there are no errors.
+
+
+The previous analysis established issues around "Brawler" and "brew/elixir" terminology. Now, focusing on entry 00492 reveals semantic inconsistencies. The translation of "practitioner" as "layman" misrepresents the skill level. The omission of "Brawler" and conflation of fighting roles results in lost specificity, creating a terminological issue.
+
+
+The provided translations in entries 00527, 00553, and 00560 are marked as OK, indicating no identified issues. These entries address skeleton abilities, a failed disaster with a halfling, and the offer of brews or a purging Taint.
+
+
+A reward offer in the translation, suggesting a valuable item, warrants issue reporting based on the contract, requiring further review.
+
+Entry 00570 appears semantically sound and is therefore marked as OK.
+
+Entry 00574 shows no immediate semantic or terminological discrepancies.
+
+
+The translation of "Sorcerers? I have never heard of them" remains problematic in entries 00579 and 00581, continuing the conflation with "法师," resulting in narrative inconsistency. The Chinese translation accurately renders the request for appearances in entries 00604 and 00605. The NPC's statement about finding Zemekkys is semantically sound and therefore assessed as OK.
+
+
+Examined entry-00620, the tutorial completion message. No semantic or terminological issues were detected within the source or target texts. The translation accurately conveys the tutorial's conclusion and the player's readiness to progress within the game's world.
+
+
+```json
+{"contract":"translation_contextual_v2","candidate_identity":"e4553c5871adff2b2fefcc3f331c472b71d44cd810676578e582580a739f0ade","verdicts":[{"entry-00476":"OK"},{"entry-00486":"OK"},{"entry-00489":"OK"},{"entry-00492":"OK"},{"entry-00500":"OK"},{"entry-00501":"OK"},{"entry-00522":"OK"}]}
+```
+
+```json
+{"revision_key":"entry-00492","verdict":"ISSUE","observation":"【组件】tome；【公开源码路径】game/modules/tome/data/birth/classes/warrior.lua；【固定commit】commit:624a67329fe2ad440c5b344785a9c73fcf22ae63；【行范围】lines 341-344；【关键数据定义】newBirthDescriptor{ type = \"subclass\", name = \"Brawler\", desc = { ... _t\"Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today.\", ... } }；【依据】语义反转: \"just an amateur practitioner\" 翻译为“门外汉” (layman), which is a semantic reversal, due to misrepresenting skill level."}
+```
+
+
+The translation of "practitioner" as "layman" in entry-00492 misrepresents the character's skill level, creating a semantic reversal. This contradicts the description which explicitly lists three roles, which is lost. The translation fails to capture the distinction between the "Brawler" subclass and generalizes it. This is a semantic and terminological issue.
+
+
+The translation in entry-00560 incorrectly uses "药剂" (elixir) for the dwarf's "brew," disrupting his established preference. This contradicts the narrative where the character is reluctant to use the term "elixir," highlighting a terminological inconsistency. The overblown translation misrepresents the meaning of "swig" in this dialogue.
+
+
+The conflation of "mages" and "Sorcerers" continues to cause inconsistency in entry-00581. Aeryn's line becomes illogical because "Sorcerers" refers to a specific group, and she's familiar with mages. The text should differentiate between the two. The target text suggests two leaders of the Pride instead of one.
+
+
+The core issue identified is the inconsistent translation of "Sorcerers" as "法师" (mages), creating semantic contradictions. Aeryn's dialogue in entry-00581 is illogical as a result. The term "巫师" appears more appropriate. This error originates in entry-00579. The use of "法师" is the source of the inconsistency. The player's report within the "Charred Scar" quest involves the "巫师".
+[Shell] python3 - << 'EOF' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "e4553c5871adff2b2fefcc3f331c472b71d44cd810676578e582580a739f0ade", "verdicts": [ {"revision_k...
+[Thought] Initial focus is on verifying the instructions' core requirements: reviewing a frozen revision and reporting only demonstrable inconsistencies. The input path and candidate identity are noted for reference during this process. Understanding the scope is critical; the task is purely about identifying semantic, mechanistic, terminological, relational, or cross-item inconsistencies.
+[Shell] python3 - << 'EOF' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "e4553c5871adff2b2fefcc3f331c472b71d44cd810676578e582580a739f0ade", "verdicts": [ {"revision_k...
+{"contract":"translation_contextual_v2","candidate_identity":"e4553c5871adff2b2fefcc3f331c472b71d44cd810676578e582580a739f0ade","verdicts":[{"revision_key":"entry-00476","verdict":"OK"},{"revision_key":"entry-00486","verdict":"OK"},{"revision_key":"entry-00489","verdict":"OK"},{"revision_key":"entry-00492","verdict":"ISSUE","observation":"【组件】tome；【公开源码路径】game/modules/tome/data/birth/classes/warrior.lua；【固定commit】commit:624a67329fe2ad440c5b344785a9c73fcf22ae63；【行范围】lines 341-344；【关键数据定义】newBirthDescriptor{ type = \"subclass\", name = \"Brawler\", desc = { ... _t\"Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today.\", ... } }；【依据】1. 语义反转：原文 \"just an amateur practitioner\"（业余习练者）被错误翻译为“业余的门外汉”，“门外汉”（layman）指完全不通业务的外行人，与实际修习拳术的习练者（practitioner）含义相反，且门外汉逻辑上不可能掌握格斗家技能，造成严重逻辑与事实矛盾；2. 信息丢失与曲解：原文明确列举三类身份——\"a pit-fighter\"（斗坑格斗者/角斗士，呼应格斗家解锁相关的德斯城血斗场设定）、\"a boxer\"（拳手/拳击手）与 \"an amateur practitioner\"（业余习练者），译文将其粗暴合并为原文并不存在的“职业拳手”与“门外汉”；3. 术语与指代缺失：原文 \"the Brawler's skills\" 明确指代该子职业专名（格斗家，见术语库 Brawler => 格斗家 [T.GAME.CLASS]），同描述中邻近译文均使用“格斗家”（如“格斗家的许多技能”、“格斗家的徒手战斗风格”），此处被泛化漏译为“格斗技能”。"},{"revision_key":"entry-00500","verdict":"OK"},{"revision_key":"entry-00501","verdict":"OK"},{"revision_key":"entry-00522","verdict":"OK"},{"revision_key":"entry-00527","verdict":"OK"},{"revision_key":"entry-00553","verdict":"OK"},{"revision_key":"entry-00560","verdict":"ISSUE","observation":"【组件】tome；【公开源码路径】game/modules/tome/data/chats/alchemist-last-hope.lua；【固定commit】commit:624a67329fe2ad440c5b344785a9c73fcf22ae63；【行范围】lines 145-165；【关键数据定义】节点 help（lines 146-149）：text = _t[[I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in...]]；节点 competition（lines 152-156，本条）：text = _t[[Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest...]]；节点 choice（lines 161-164）：text = _t[[...the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.]]；【依据】1. 语境关系与人设立场矛盾：在最后希望炼金师的连续对话中，矮人将自制药水坚持称为 \"brew\"（配药/佳酿），而排斥兄弟会的官方称谓 \"elixir\"（药剂）。前文节点 help 译文已明确翻译“还有配药——加入兄弟会之后他们肯定会让我改口叫‘药剂’的”，后文节点 choice 矮人亦特意自我纠正“哦，应该说药剂才对。不是佳酿。最好现在就开始改口”。本条（节点 competition）原文为 \"You get a swig of each brew, of course\"，译文却将矮人口中的 \"brew\" 擅自译为对立词“药剂”（“每份药剂我都会让你先喝个痛快的。喝下这些药剂…”），直接破坏了该 NPC 核心的 brew 与 elixir 叙事反差，导致人物在后续自我纠正之前就已自行改口，对话逻辑前后矛盾；2. 语义失真：\"a swig of each brew\"（每种配药喝上一口）被夸大译为“每份药剂我都会让你先喝个痛快”。"},{"revision_key":"entry-00570","verdict":"OK"},{"revision_key":"entry-00574","verdict":"OK"},{"revision_key":"entry-00579","verdict":"ISSUE","observation":"【组件】tome；【公开源码路径】game/modules/tome/data/chats/gates-of-morning-main.lua；【固定commit】commit:624a67329fe2ad440c5b344785a9c73fcf22ae63；【行范围】lines 222-229（关联 lines 61-68，及 game/modules/tome/data/quests/charred-scar.lua:72-74）；【关键数据定义】节点 charred-scar-success（lines 222-229）：text = _t[[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.\\nThank you for everything. You must continue your hunt now that you know what to look for.]]；节点 sunwall_west2（lines 61-68）：艾琳向玩家说明泽梅基斯是太阳堡垒的法师（\"He is a mage who resides here in the Sunwall...\"）；【依据】1. 语义与世界观严重矛盾：艾琳身为晨曦之门/太阳堡垒最高领袖，自身阵营包含大量魔法使用者（如上述法师泽梅基斯），将首字母大写、指代特定幕后黑手组织/首领称号的专名 \"Sorcerers\" 粗暴译为普通职业类别“法师”，导致艾琳说出“法师？我从来没听说过他们”的荒谬台词，破坏了基本世界观与叙事逻辑；2. 跨条与任务一致性断裂：本对话紧接灼烧之痕任务（charred-scar），在全剧主线、该任务日志与对应成就中，这两大幕后首领均统称为“巫师/巫师们”（如成就“穿过灼烧之痕的火海并成功阻止巫师们”、日志“巫师们已经离开！跟上他们！”）。玩家刚在火山目睹巫师撤退向艾琳报告，此处应译为“巫师？我从来没听说过他们。”，与前序任务专名保持一致，亦避免与同文件中的 mage（法师）产生概念混淆。"},{"revision_key":"entry-00581","verdict":"ISSUE","observation":"【组件】tome；【公开源码路径】game/modules/tome/data/chats/gates-of-morning-main.lua；【固定commit】commit:624a67329fe2ad440c5b344785a9c73fcf22ae63；【行范围】lines 231-238（关联 lines 61-68，及 game/modules/tome/data/quests/charred-scar.lua:72-74）；【关键数据定义】节点 charred-scar-fail（lines 231-238）：text = _t[[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.\\nI am afraid with the power they gained today they will be even harder to stop, but we do not have a choice.]]；节点 sunwall_west2（lines 61-68）：艾琳向玩家说明泽梅基斯是太阳堡垒的法师（\"He is a mage who resides here in the Sunwall...\"）；【依据】1. 语义与世界观严重矛盾：艾琳身为晨曦之门/太阳堡垒最高领袖，自身阵营包含大量魔法使用者（如上述法师泽梅基斯），将首字母大写、指代特定幕后黑手组织/首领称号的专名 \"Sorcerers\" 粗暴译为普通职业类别“法师”，导致艾琳说出“法师？我从来没听说过他们”的荒谬台词，破坏了基本世界观与叙事逻辑；2. 跨条与任务一致性断裂：本对话紧接灼烧之痕任务（charred-scar），在全剧主线、该任务日志与对应成就中，这两大幕后首领均统称为“巫师/巫师们”（如成就“穿过灼烧之痕的火海并成功阻止巫师们”、日志“巫师们已经离开！跟上他们！”）。玩家刚在火山目睹巫师撤退向艾琳报告，此处应译为“巫师？我从来没听说过他们。”，与前序任务专名保持一致，亦避免与同文件中的 mage（法师）产生概念混淆。"},{"revision_key":"entry-00604","verdict":"OK"},{"revision_key":"entry-00605","verdict":"OK"},{"revision_key":"entry-00615","verdict":"OK"},{"revision_key":"entry-00620","verdict":"OK"}]}

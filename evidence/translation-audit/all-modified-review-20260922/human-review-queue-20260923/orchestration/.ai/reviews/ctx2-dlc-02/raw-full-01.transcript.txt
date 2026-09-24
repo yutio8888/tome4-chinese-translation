@@ -1,0 +1,285 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=f336c868d973132bb49415f052fb7a4489cafcc1be71b0dea0fb17dcc98b3433；input_path=.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] Beginning the review of frozen revisions. The instruction is to identify semantic, mechanical, terminological, relational, or cross-revision consistency problems; otherwise, the revision is marked as OK. The input is a specific file and a candidate identity.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] I'm thinking through how to approach this.
+[Read] .ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print('Envelope keys:', list(data.keys())) print('Candidate identity:', data.ge...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] print('=== Rendered Briefing ===') print(payload.get(...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] t_snap = payload.get('translation_snapshot', []) b_ct...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] keys = payload['ordered_revision_keys'] t_snap = payl...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] keys = payload['ordered_revision_keys'] print('Number...
+[Shell] ls -la
+[Shell] cat i18n/manifest.json
+[Shell] ls -la i18n/
+[Shell] ls -la i18n/versions && cat i18n/policy.json
+[Shell] head -n 40 i18n/versions/tome-1.7.6.json
+[Shell] head -n 80 i18n/versions/tome-1.7.6.json | tail -n 45
+[Shell] env | grep TOME || true
+[Shell] ls -la /workspace/tome4-dlcs /workspace/t-engine4
+[Shell] ls -la /workspace/tome4-dlcs/orcs
+[Thought] DLC source documentation is present. Reviewing contract and briefing instructions regarding DLC source usage is necessary. The briefing states DLC source code ("tome-orcs/tome-possessors") is not fixed, and citation is required. Contract section 7 mandates logging of components, source paths, commits, and critical calls for unfixed sources, along with evidence.
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] keys = payload['ordered_revision_keys'] t_snap = payl...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] terms = payload.get('terminology_snapshot', {}) for k...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] terms = payload.get('terminology_snapshot') print(typ...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] terms = payload.get('terminology_snapshot', '') print...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) print(data['payload']['terminology_snapshot']) "
+[Shell] python3 -c " import os, glob for p in glob.glob('terminology/*.csv') + glob.glob('terminology/**/*.csv'): with open(p) as f: for line in f: if 'tinker' in line.lower() or 'destructicus' in line.low...
+[Shell] ls -la terminology/
+[Thought] Reviewing the contract instructions, confirming the allowed scope: reading the input, cited content, and specified sections of the contract document. Restricted from accessing other `.ai` directories and previous findings. The focus is on the authorized content only.
+
+
+The terminology snapshot reveals 6000 characters of terms for analysis. Each of the 18 entries requires careful examination. This begins with analyzing `entry-03853`.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua') as f: text = f.read() import re m = re.search(r'anti-scrying.*?\)', text, re.DOTALL) if m: print(m.group(0)[:500]) "
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua') as f: text = f.read() import re m = re.search(r'newLore.*?anti-scrying.*?\n\}\)', text, re.DOTALL) if m: print(m.gr...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua') as f: lines = f.readlines() for i, line in enumerate(lines): if 'anti-scrying' in line: for j in range(max(0, i-5),...
+[Thought] The anti-scrying nexus and the time-release rune are highly effective; their function ensures escape from the West portal and prevents tracking by the A.K. I must consider the implications of their effectiveness, and formulate a suitable proposal, based on this advantage.
+[Shell] grep -rn "nexus" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] grep -in "nexus" terminology/*.tsv
+[Shell] grep -in "nexus" mod-tome.lua | head -n 30
+[Thought] Investigating the remaining entries to identify prevalent issues across the set; entry-03853 warrants continued review. Analyzing entry-03854 suggests ongoing problems with the farportal mailing system, specifically related to restrictions on non-living matter transport. A prior flawed configuration remains a concern.
+
+
+Lost correspondence poses a significant risk due to unpredictable teleportation outcomes; letters could materialize in undesirable locations, including enemy hands or sensitive areas. Secure messaging necessitates employing deceptive terminology to obfuscate the farportal's true nature and the sensitive content of communications. The focus must shift to maintaining secrecy through ambiguous wording to avoid detection.
+
+
+The farportal mailing system, while functional, presents inherent risks: lost letters can appear unpredictably, potentially in enemy possession. Precise communication demands strict operational security; explicit references to the farportal or its capabilities should be replaced with vague terminology. Direct language regarding sensitive items or personnel must also be replaced with euphemisms to maintain discretion.
+[Shell] grep -in "uruivellas" mod-tome.lua tome-*.lua engine.lua
+[Thought] "乌尔维拉斯" accurately translates "uruivellas." Considering "pack golem," potential translations include "邮递傀儡," "驮运傀儡," or "行囊傀儡," depending on the nuance. The name "Urh'Rok" translates to "乌鲁洛克," and "Korbek" to "库贝克." Potential next step is to examine the implications of transporting objects near a portal, considering both proximity and the destination's security.
+
+
+"据我所知" at the start of the sentence for "for all we know" seems slightly odd, but acceptable in the context of the translation. Entry `entry-03856` describes the Steam Giants, their steam-based technology, and their isolationist culture. The entry also mentions their government structure and recent opening to trade with other kingdoms, hinting at a potential expansion in their interactions.
+
+
+The target entry reveals that the Steam Giants, despite their advanced civilization, are relatively isolated due to strict access controls. Their physical characteristics and steam-based technology are detailed, highlighting their distinct traits. The entry also mentions a recent shift towards increased interaction with other kingdoms, presenting a new factor.
+
+
+The scene's description raises concerns. The Steam Giants' technology, based on harnessing steam, appears sophisticated despite the destruction of their early records. Their natural affinity for steam manipulation might explain their technological advancement.
+
+Their isolationist history and fear of outside interference, as well as possible disdain for other races (particularly considering their proximity to orcs), could influence their current openness. The motivation for recent increased interactions with other kingdoms is worth exploring further.
+[Shell] grep -in "IMMOLATUS" mod-tome.lua tome-*.lua engine.lua terminology/*.tsv
+[Shell] grep -rin "immolatus" /workspace/tome4-dlcs/orcs/ /workspace/t-engine4/
+[Shell] grep -ri "destructicus" /workspace/tome4-dlcs/orcs/
+[Thought] Analyzing different entries suggests a pattern for translating a specific entity name. The English versions present variations of a common theme: an "impolite ravager" of the skies or heavens. The Chinese translations offer parallel meanings for this character, indicating the need to capture this specific nuance consistently. A possible translation for "IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS" would be `撼天`.
+[Shell] grep -rn "撼天动地" .
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua') as f: lines = f.readlines() for i in range(120, 160): if i < len(lines): print(f'{i+1}: {lines[i]}', end='') "
+[Thought] Graynot's lore file reveals mirrored text, indicating a connection to the mirror world; this mirrors the Graynot entry's content. Assessment of the Species mentions "Steam Giants" and an entity described as "IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS." This suggests a potential link between Graynot, the mirror world, and a specific hostile entity.
+
+
+Access to advanced civilizations is limited, requiring high status or wealth, but a rare opportunity for research arose through personal invitation. The described Steam Giants present an intriguing subject due to their unique physiology; they resemble humans in size but utilize steam for propulsion and operation of metallic devices. Observing their controlled release of steam, from subtle wisps to forceful blasts, is striking.
+
+
+Steam Giants' history begins with simple steam technology, evolving into complex applications due to their innate understanding. Their isolation within the Clark Mountains, spared from the magical cataclysm, led to a preference for minimal interaction with other races, potentially rooted in fear or disdain.
+
+Their society values physical prowess equally to intellect, possibly linked to the mechanics of their steam-powered technology, influencing their governmental structure. Insufficient time limits a deeper understanding, although their exceptional absinthe production is noteworthy.
+
+
+An upcoming meeting between Graynot and the Steam Giants is planned, potentially concerning farportal-based waste management. The Steam Giants' actions against the Croak rebellion and a figure described as "[b]撼天动地，无耻的天空肆虐者[/b]" suggest alliance potential.
+Previously flagged translation discrepancies were reviewed and corrected. The unresolved issue involves ensuring "[b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b]" is properly identified as a proper noun, translated as "[b]撼天动地，无耻的天空肆虐者[/b]".
+
+
+DESTRUCTICUS's translation was previously incorrect, leading to a flawed pairing with IMMOLATUS. IMMOLATUS, upon investigation, is revealed as a mirrored counterpart to DESTRUCTICUS in the main story and alternate timelines. The original misinterpretation caused a translation mismatch for IMMOLATUS. The identified entity IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS, is confirmed as the mirrored weapon counterpart.
+
+
+The previous translation of `IMMOLATUS` as a common idiom is problematic as it obscures the entity's identity as a weapon. Further investigation is required to determine if this impacts other entries. Entry `entry-03860` has been selected for review.
+
+
+The "Automobiles and Automatons v9.8" game simulation presents a model for adaptability and strategic thinking, specifically in response to a changing environment. This tests both long-term memory of prior strategies and short-term adaptation to new conditions. The game's "Crumbling Divide" map forces long-term planning alongside short-term survival tactics due to the presence of unpredictable non-player foes.
+
+
+The simulation's design emphasizes the testing of diverse strategies and skills. The selection of Automobiles and Automatons v9.8 as a method is reasonable because both sides deemed v1.0 fair in the previous election. The improved version, v9.8, is expected to provide an equally effective, if not superior, assessment of leadership qualities.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/palace-fumes.lua') as f: text = f.read() print(text[:1500]) "
+[Thought] Atmos society's Chief Councilor is chosen through a unique process: primaries narrow candidates, then citizens vote for the *type* of competition to decide the winner. A competition proposal, "Automobiles and Automatons v9.8", exists, but a strong opposing entry, entry-03861, advocates for "VOTE FISTICUFFS," critiquing the current Chief Councilor.
+[Shell] grep -rin "necropsych" /workspace/tome4-dlcs/orcs/
+[Thought] The term `necropsych` definitively corresponds to `通灵师`, aligning perfectly with the established game lore and translation of game entities. This confirmation warrants closer inspection of the new entry. Entry `entry-03861` contains a reference to Councilor Tantalos and the steam shortages.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/palace-fumes.lua') as f: lines = f.readlines() for i in range(50, 75): if i < len(lines): print(f'{i+1}: {lines[i]}', end='') "
+[Thought] Examining the lore file `palace-fumes.lua` reveals the absence of `[b]...[/b]` formatting. Initially, this suggested potential incompatibility with the game's UI formatting. However, another lore entry, `entry-03856`, contains the `[b]...[/b]` formatting in the English source. This indicates that ToME4 lore files DO support the formatting.
+
+
+The Chinese target introduces `[b]...[/b]` markup where the English source lacks it, confirming a markup defect. This violates the "markup invariant" rule established in the review guidelines. Also, reviewed the content of the target, and found no translation issues other than that one.
+
+
+The new entry exhibits several translation discrepancies. The Chinese introduces markup absent in the original, impacting text presentation. Also, the original single sentence is broken into two, creating a fragment. Finally, an idiomatic expression is translated literally, altering its meaning.
+
+
+The council's internal conflicts and petty squabbles obscure the actual crisis, which appears to involve the displacement of a group, the Kruk, from a marketplace and into a broader region. The council has decided to deflect responsibility onto neighboring factions, while focusing on defensive measures. There is a secondary objective of preparing a deterrent.
+```
+
+Council discussions are filled with accusations and personal attacks, obscuring the root cause: a crashed ship and potential military strategy disagreements. It appears that the council is deflecting blame and focusing on internal squabbles. The political infighting is hindering any productive action toward addressing the actual situation.
+
+
+The council vote results show a tied motion defeated by the Chief Councilor. This confirms Tantalos's position and influence. The council's focus is shifting to preparing a deterrent and strengthening defenses against the Kruk, blaming external entities.
+[Shell] grep -rin "marketplace" /workspace/tome4-dlcs/orcs/
+[Thought] "A few wastrels in the marketplace are gone" strongly suggests an Orcish attack, recalling player actions within the campaign. This likely refers to the Orcs' assault on the marketplace located in the Steam Giants' realm. The phrase "商场里的那些饭桶死了" ("those wastrels in the marketplace are dead") reinforces this interpretation, confirming the marketplace's destruction.
+
+
+The dialogue details the dire situation: the Sunwall is collapsing under Orcish attack. The council is discussing resource allocation and the loss of a powerful weapon. The final statement signals a critical decision is about to be made, likely regarding the contents of the briefcase.
+
+
+The council's reaction to the object held indicates its significance and potential danger, leading to a vote to suppress information about it. The councilor's reasoning highlights desperation, viewing a potentially dangerous "Loyalist" as the last hope, despite potential catastrophic consequences. This decision reflects a shift towards extreme measures, acknowledging the failure of previous strategies.
+
+
+The conversation indicates the council is arming itself, despite acknowledging potential setbacks. A powerful, lost weapon is confirmed, hinting at a failed operation. They are now moving forward with a risky plan involving an item they are desperate to use.
+
+The council's secrecy and desperate actions point to a critical turning point and reliance on something of questionable value. Their decision suggests accepting extreme risks in the face of imminent defeat, possibly using something dangerous that even they do not fully understand.
+[Shell] grep -rin "kaltor" /workspace/tome4-dlcs/orcs/tome-orcs/data/locales/zh_hans.lua mod-tome.lua tome-orcs.lua
+[Thought] Observed that the translation of "Kaltor" to Chinese is consistent as "卡托尔" across the codebase, with exceptions in `zh_hans.lua` and `tome-orcs.lua`. This suggests a potential localization inconsistency.
+The instances using the correct translation are noted: "Arch-Merchant Kaltor", "Kaltor", "Kaltor's Shop", and "Huge door to Kaltor's Shop".
+These instances need further investigation within `zh_hans.lua` and `tome-orcs.lua` to ensure consistent localization.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/quests/yeti-abduction.lua') as f: text = f.read() print(text) "
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/energies.lua') as f: text = f.read() import re m = re.search(r'Celestial Acceleration.*?info\s*=\s*function\(.*?\...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/reflection.lua') as f: text = f.read() for line in text.splitlines(): if 'distortion' in line or 'projectiles' in...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/automated-butchery.lua') as f: text = f.read() import re m = re.search(r'Explosive Saw.*?\n\tend,', text, re.DOTALL) ...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/automated-butchery.lua') as f: text = f.read() import re m = re.search(r'Explosive Saw.*?info\s*=\s*function\(.*?\n\t...
+[Thought] Analyzing damage and range parameters for the chain saw attack. Considering both physical and fire damage components, along with the effective range in tiles. The target description specifies physical damage per turn, silence duration, and a final explosion after the silence duration.
+[Shell] python3 -c " with open('mod-tome.lua') as f: text = f.read() import re matches = re.findall(r't\(.*?[Tt]inker.*?\)', text) print(f'Matches in mod-tome.lua: {len(matches)}') for m in matches[:10]: p...
+[Shell] python3 -c " with open('tome-orcs.lua') as f: text = f.read() import re matches = re.findall(r't\(.*?[Tt]inker.*?\)', text) print(f'Matches in tome-orcs.lua: {len(matches)}') for m in matches[:10]:...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/automated-butchery.lua') as f: text = f.read() import re m = re.search(r'Tech Overload.*?\n\tend,', text, re.DOTALL) ...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/automated-butchery.lua') as f: text = f.read() import re m = re.search(r'Tech Overload.*?info\s*=\s*function\(.*?\n\t...
+[Thought] The `info` indicates a steamtech talent system override. The action resets talent cooldowns and increases steam level. Parameters determine the number of talents, the maximum talent tier affected, and the steam level increase percentage.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects.lua') as f: text = f.read() import re m = re.search(r'newEffect.*?EFF_TECH_OVERLOAD.*?\n\}\)', text, re.DOTALL) if m:...
+[Shell] grep -rn "TECH_OVERLOAD" /workspace/tome4-dlcs/orcs/
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua') as f: lines = f.readlines() for i in range(400, 430): if i < len(lines): print(f'{i+1}: {lines[i]}', e...
+[Thought] Halving steam regeneration suggests a temporary effect. Reviewing the target entry provides details of an overclock mode. This mode doubles the maximum steam value for six turns but also reduces the recovery rate to half, aligning with the observed regeneration change.
+
+
+Terminology clarification is needed: "tinkers" translates to "插件" (plugin), "配件" (accessory), or "蒸汽工具" (steam tool), with the latter being the technical item classification. "Override all security measures" is likely a direct translation for the desired "超频模式" (overclock mode). Analyzing the code reveals the talent targets steam-related abilities, implying interaction with tinkers/plugins that generate or consume steam.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/butchery.lua') as f: text = f.read() import re m = re.search(r'Overcharge Saws.*?\n\tend,', text, re.DOTALL) if m: pr...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/butchery.lua') as f: text = f.read() import re m = re.search(r'Overcharge Saws.*?info\s*=\s*function\(.*?\n\tend,', t...
+[Thought] Analyzing `entry-03921`, the effect grants movement speed based on the number of foes within a radius. The effect has a cap, as well as a current bonus value that will need to be updated. It seems likely that the radius value is a variable based on character stats and equipment.
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/elusiveness.lua') as f: text = f.read() import re m = re.search(r'thrill of the hunt.*?\n\tend,', text, re.DOTALL) if...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/elusiveness.lua') as f: lines = f.readlines() for i, line in enumerate(lines): if 'thrill' in line.lower(): for j in ...
+[Thought] Analyzing the provided code snippet, it appears to define the descriptive text for a game talent related to movement speed. The text dynamically updates based on the number of nearby foes. The function `tformat` suggests the script substitutes placeholder values representing the radius, the maximum bonus percentage, and the current bonus percentage into the text string.
+[Shell] python3 -B tools/i18n lint --help || true
+[Shell] grep -rn "newline" tools/ i18n/quality/
+[Shell] python3 -c " with open('tools/i18nlib/quality.py') as f: text = f.read() idx = text.find('newlines') print(text[idx-200:idx+300]) "
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/engineering.lua') as f: text = f.read() import re m = re.search(r'master tinker.*?\n\tend,', text, re.DOTALL) if m: p...
+[Thought] Analyzing talent level impact: calculating and formatting derived statistics. Converting internal data structures into user-facing terminology. Specifically, translating "cunning" to "灵巧," "physical save" to "物理豁免," "resistance to self-inflicted damage" to "自身伤害抗性," and finally, "chance to avoid being critically hit" to "几率避免暴击."
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua') as f: text = f.read() import re m = re.search(r'While Furnace is on.*?\n\tend,', text, re.DOTALL) if m:...
+[Shell] python3 -c " with open('/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua') as f: lines = f.readlines() for i, line in enumerate(lines): if 'While Furnace is on' in line: for j in...
+[Thought] Molten points influence reduction efficiency, decreasing it by 25% with each point. The observed format utilizes a calculation involving resistance and reduction, expressed as a formatted string with placeholders for numerical values. This implies a system where molten points directly affect the final displayed resistance value.
+
+
+Analyzing the provided text reveals a proposal regarding a modified anti-scrying mechanism. This new version would function without the bearer's consent, addressing the need for covert transportation of individuals. The offer is to provide the rune design, with the potential of financial benefit.
+
+
+The text describes a powerful anti-scrying "nexus," which is clearly linked to the "水晶" (crystal) the agent is referencing. The nexus appears to be a physical object used for anti-scrying, and the agent offers a modified rune design to enhance its capabilities, suggesting it interacts directly with the nexus/crystal.
+
+
+The translation of "nexus" as "crystal" seems incorrect, as "nexus" implies a central point, not necessarily a crystal. The translation omitted "to recognize it," drastically altering the meaning of the original sentence, which highlights the crucial action of setting the nexus to recognize the rune. The translator's error obscured the core function of the anti-scrying device and the manipulative intent of the slaver. The translation twice substituted the term for "crystal", confirming the issue.
+
+
+The communication highlights the unreliability of a transportation system and the potential for intercepted or misdirected messages. It emphasizes the need for discretion in written communication to avoid unwanted attention or revealing sensitive information. Subtle language substitutions are advised to obscure the true nature of requests.
+
+
+This message acknowledges the fallibility of the transportation system and the likelihood of interception. It stresses the necessity of extreme discretion in communications, suggesting using subtle language to prevent sensitive information from being understood if intercepted. The sender explicitly disregards expected rules to emphasize the importance of this point.
+
+
+The message explicitly requests code substitutions for sensitive terms like "illegal potions," "slave," and "teleportation gate," suggesting specific replacements. It reveals concern over potential interception and detection by an external entity, likely the "United Kingdom." The sender also anticipates (and preemptively scorns) cleverness.
+
+
+`IMMOLATUS` is identified as a proper name, like `DESTRUCTICUS`, and the translation of `IMMOLATUS` to a 4-character idiom is a defect, mirroring the defect found in the original translation of `DESTRUCTICUS`. The name `DESTRUCTICUS` is correctly translated as `毁灭号` (Hui-Mie-Hao). However, `IMMOLATUS` is mistranslated as `撼天动地` (Han-Tian-Dong-Di). The next step is to check for related entries.
+
+
+The term "exploratory farportal" is correctly translated in `entry-03856`. The focus now shifts to `entry-03860`, specifically reviewing its source text for further analysis. The previous issue of `IMMOLATUS` to `撼天动地` remains unresolved in `entry-03856`.
+
+
+This board game endorsement assesses adaptability, long-term memory, and strategic planning skills in leaders. The game's setting requires learning new rules, mirroring the need for leaders to adapt to events. Its mechanics test long-term planning, short-term survival tactics, and the ability to apply imperfect historical strategies.
+
+
+The game uses identical negotiator figurines with copied consciousnesses to test diplomatic skills. The figurines are designed for humane spirit release within a month.
+
+The consumer version (v6.0) is award-winning, testing diverse strategies. The v9.8 version, used in a prior election, is recommended for selecting the next leader.
+
+
+`entry-03861` contains a markup error; `VOTE FISTICUFFS` is rendered with added `[b]` tags in the target text. The first sentence is grammatically incomplete in the target translation.
+
+`entry-03864` shows the source with illegible portions due to ink spillage. The target text mirrors this with placeholder characters for the illegible sections.
+
+
+The initial translation `[……]怪我！` might misinterpret the intended negative form. The English "[...]ame me for this!" clearly implies "Don't blame me!" or "You can't blame me!". Without a negative prefix like `别`, the Chinese version would directly mean "[…] blame me!". The context reveals the original intent. The current entry in `tome-orcs.lua` confirms the potential ambiguity, suggesting a semantic issue with the translation's negativity.
+
+
+The translation's ambiguity requires closer examination. The Chinese equivalent `[……]怪我！` can express both accepting and deflecting blame.  Entry `tome-orcs.lua` should confirm the intended sentiment.
+
+Entry `03865` now demands line-by-line review of the source text to ascertain its content.
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) payload = data['payload'] keys = payload['ordered_revision_keys'] t_snap = payl...
+[Shell] python3 -c " with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) t = data['payload']['translation_snapshot'][2] print('=== SRC tags ===') import re for m in...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: data = json.load(f) t = data['payload']['translation_snapshot'][2] print('=== SRC tags ===') import...
+[Thought] The source text capitalizes "OR," suggesting an emphasis on the alternative possibility. The target translation includes "[b]也[/b]" to indicate "also," which correctly captures the contrast between efficient design and physical power. This suggests the translator understood the intended emphasis in the source's structure.
+
+
+Markup inconsistencies are observed: added `[b]` tags where they shouldn't be, and also noticed idiom substitution (`IMMOLATUS` to `撼天动地`). Potential terminology errors detected with `Kaltor` translating to `卡尔托` instead of `卡托尔`, and a mistranslation of "scrapless". Furthermore, "trained" is missing in one translation.
+[Shell] luajit -e ' local src = "Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%...
+[Thought] The `entry-03890` formatting is successful in LuaJIT.
+
+Examining `entry-03921`, the source and target strings are printed. The source text describes a game mechanic: movement speed bonus based on nearby enemies. The target appears to be a translated version of the same text.
+[Shell] grep -rn "var-eyal-misc-4" /workspace/tome4-dlcs/orcs/
+[Shell] grep -rn "var'eyal" /workspace/tome4-dlcs/orcs/tome-orcs/data/zones/
+[Shell] grep -rn "misc.lua" /workspace/tome4-dlcs/orcs/
+[Thought] The anti-detection crystals and the delayed-release pseudo-runes are remarkably effective; even after returning to Maj'Eyal, the effect will last for days. This provides security from immediate detection and tracking by the United Kingdom, ensuring safe passage through the western portal. Considering a modification to enhance this existing framework.
+
+
+A new rune design is offered, promising quick return on investment with minimal effort; it's suggested the design has a purpose akin to a signature within the ogre culture. The design appears functional with an anti-scrying crystal. Understanding the nuances of this design is critical. I should analyze it further.
+
+
+Analyzing discrepancies in the translated text reveals several issues: unnecessary markup insertion, proper noun mistranslations, and grammatical errors. Specifically, proper nouns like a weapon's name are replaced with unrelated idioms, and a merchant's name is inconsistently translated. The added markup appears unwarranted. These inconsistencies require further review.
+
+
+Translation quality varies across entries; a key mistranslation uses an idiom for a literal meaning, and important modifiers like "trained" are omitted, impacting game mechanics consistency. Formatting inconsistencies, such as newline insertions, further degrade the output. Further analysis of more entries is needed.
+
+
+Re-examining all entries to ensure no subtle bugs were overlooked, specifically entries `03854`, `03860`, `03864`, `03871`, `03875`, `03890`, `03892`, `03912`, `03913`, `03918`, `03924`, and `03925`. Initial assessment of `entry-03854` is underway.
+
+
+Reviewing the translation, the directive focuses on maintaining operational security via linguistic obfuscation. Direct requests are made to avoid specific terminology ("farportal", "illegal potions", "slaves") in favor of less revealing alternatives ("courier," "strong medicine," "private servants"). The note explicitly acknowledges the irony of the communication's potential compromise.
+
+
+Translation checks continue on entries `03860`, `03864`, `03871`, `03875`, and `03890`, focusing on term replacements, newline consistency, and formatting. The initial entries demonstrate accurate tag translation and perfect proper noun and faction name matching. Further examinations confirm placeholder consistency and accurate tag rendering and also successful Lua string formatting with term equivalencies across the entries.
+
+
+Term equivalencies are confirmed for "positive energy" to "negative energy," and "sustained energy" to "skill energy cost." Entries `03892`, `03912`, `03913`, `03918`, `03924`, and `03925` show consistent formatting, term translation, and indentation. The focus shifts to reviewing entry `03853` for potential translation issues.
+
+
+The translation of "anti-scrying nexus" as "anti-detection crystal" is incorrect; "nexus" refers to a hub or core, not a crystal, which alters the core meaning. The omission of "to recognize it" in the translation's purpose clause further distorts the original intent. The proper noun "IMMOLATUS" is idiomatically mistranslated. Unexpected markup insertion is observed in an entry where there was no source markup.
+
+
+[b]Analyzing entry-03865, the proper name "Kaltor" is inconsistently translated. Also, "scared scrapless" is incorrectly translated.[/b]
+
+[b]Entry-03883 lacks the "trained" modifier, which is crucial for the item's functionality and consistency with related game mechanics. [/b]
+
+[b]The fragment with punctuation errors and layout defects in entry-03921 needs review.[/b]
+
+
+Formatting discrepancies are identified in entry `03853`; the translation introduces an unnecessary newline and indentation, changing the line count of the talent description. This violates a formatting invariant and requires correction. Further analysis of this entry focuses on confirming the severity of each identified issue.
+
+
+The "anti-scrying nexus" translation is semantically flawed, using "crystal" instead of "nexus," and omits a key phrase regarding recognition, thus altering the original meaning. Furthermore, the proper noun "IMMOLATUS" is mistranslated into an idiom, misrepresenting the weapon's identity, and unnecessary markup insertion is noted.
+
+
+The translation introduces markup not present in the original source, specifically adding bold formatting to the final line. The initial sentence structure is grammatically flawed.
+
+
+Analyzing entry `03865`, the translation of "Kaltor's surplus" is inconsistent with other instances, and "scared scrapless" is semantically inaccurate.  The original modifier "trained" is omitted in entry `03883`, impacting its intended game functionality.
+
+
+The "trained" modifier is missing in entry `03883`, leading to a functional inconsistency with the game's mechanics. Entry `03921` introduces an unnecessary newline and indentation, changing the original line count of the talent description. The translation of entry `03921` introduces unnecessary line breaks and inconsistent indentation. "怪我" is not an objective error, but a representation of obscured text and therefore acceptable in `entry-03864`. The phrase "一个表明，宇宙也忘不了我们" has minor translationese and does not warrant an issue in `entry-03875`.
+
+
+`entry-03853` introduces unnecessary newline and indentation, altering the original line count, violating formatting invariants.
+
+In `entry-03856`, a critical modifier is omitted, impacting the functionality and mechanical consistency of the game.
+
+The translation in `entry-03861` misses a key qualifier, leading to a semantic shift in meaning.
+
+In `entry-03865`, proper noun "Kaltor" is translated inconsistently, and "scared scrapless" is semantically inaccurate.
+
+The original modifier "trained" is omitted from `entry-03883`, affecting its intended gameplay function.
+
+`entry-03921` introduces unnecessary line breaks and indentation, inconsistent with the source format.
+[Shell] python3 -c " import json candidate_identity = 'f336c868d973132bb49415f052fb7a4489cafcc1be71b0dea0fb17dcc98b3433' with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: env = json....
+[Thought] Initial task understanding: The goal is to review a frozen revision file, identifying and reporting only proven inconsistencies in semantics, mechanisms, terminology, relationships, or cross-item agreement; otherwise, the revision is marked as OK. The input is a specific JSON file.
+[Shell] python3 -c " import json candidate_identity = 'f336c868d973132bb49415f052fb7a4489cafcc1be71b0dea0fb17dcc98b3433' with open('.ai/task/ctx2-dlc-02/CONTEXTUAL-ENVELOPE-full-01.json') as f: env = json....
+{"contract":"translation_contextual_v2","candidate_identity":"f336c868d973132bb49415f052fb7a4489cafcc1be71b0dea0fb17dcc98b3433","verdicts":[{"revision_key":"entry-03853","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/lore/misc.lua:74-78，DLC 源码未固定）1. 术语与语义偏差：原文“anti-scrying nexus”两处被误译为“反侦测水晶”（nexus 应为枢纽/核心/结点，非水晶 crystal）。2. 语义漏译：第三段“so you can set the nexus to recognize it”意为“以便你们对枢纽进行设置以识别该符文”，译文“你设置好水晶就能用了”完全漏译了“to recognize it”（让枢纽识别新符文），导致食人魔向对方提供符文设计以供调整反侦测枢纽识别机制的关键交代丢失。"},{"revision_key":"entry-03854","verdict":"OK"},{"revision_key":"entry-03856","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/lore/misc.lua:145-147，DLC 源码未固定）1. 专名实体误译：末段“IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS”系镜中平行世界对应的终极武器实体专名（对照主世界线武器“DESTRUCTICUS / 毁灭号”），译文将专名“IMMOLATUS”臆译为四字成语“撼天动地”，抹杀了武器专名。2. 标记不变量漂移：第四段原文“efficient construction OR simply”为纯文本大写强调，译文无对应地引入了加粗标记“[b]也[/b]”。"},{"revision_key":"entry-03860","verdict":"OK"},{"revision_key":"entry-03861","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/lore/palace-fumes.lua:52，DLC 源码未固定）1. 标记不变量违规：末行原文为纯文本标语“VOTE FISTICUFFS”，译文无中生有引入了加粗标记“[b]请投肉搏战[/b]”。2. 语法断裂：首句原文“Councilor Tantalos, unlike that cowardly wimp Chief Councilor Kasyros, knows just what to do...”为一个完整复合句，译文在“窝囊废。”处使用句号断开，导致前半句成为无谓语的残缺碎片。"},{"revision_key":"entry-03864","verdict":"OK"},{"revision_key":"entry-03865","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/lore/palace-fumes.lua:107，DLC 源码未固定）1. 跨条专名一致性：原文“Kaltor's surplus”中“Kaltor”在 tome-orcs 中已统一译为“卡托尔”（如 kaltor-shop 的大商人卡托尔、卡托尔的商店、卡托尔的钥匙等多处），此处误译为“卡尔托”。2. 语义误译：原文“Scared scrapless”意为“吓破了胆/魂飞魄散”，译文误将 -less 当作名词 scraps（废料/垃圾）译作“那群废物们吓得不轻”。"},{"revision_key":"entry-03871","verdict":"OK"},{"revision_key":"entry-03875","verdict":"OK"},{"revision_key":"entry-03883","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/quests/yeti-abduction.lua:42，DLC 源码未固定）完整性与跨条一致性：原文“Call a trained yeti to your side.”漏译关键限定词“trained”（受训的/受过训练的）。任务机制为捕获8只野生雪人送回部落驯化后方可召唤，且同文件中该道具主动技能名“call a trained yeti for help”明确译为“召唤受训练的雪人来帮助你”，描述漏译“trained”造成机制与同实体文本不一致。"},{"revision_key":"entry-03890","verdict":"OK"},{"revision_key":"entry-03892","verdict":"OK"},{"revision_key":"entry-03912","verdict":"OK"},{"revision_key":"entry-03913","verdict":"OK"},{"revision_key":"entry-03918","verdict":"OK"},{"revision_key":"entry-03921","verdict":"ISSUE","observation":"（组件=orcs，公开源码路径=tome-orcs/data/talents/steam/elusiveness.lua:97-99，DLC 源码未固定）换行不变量违规：原文 info 仅有 1 处换行（首段与当前加成行），译文在首句“狩猎的快感令你精神振奋。”后额外插入“\n\t\t”强制断行，将原本连续的首段拆分成两行，违反技能描述换行格式不变量。"},{"revision_key":"entry-03924","verdict":"OK"},{"revision_key":"entry-03925","verdict":"OK"}]}

@@ -1,0 +1,202 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7；input_path=.ai/task/ctx2-dlc-04/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-dlc-04/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] find . -maxdepth 3 -not -path '*/.*'
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -d ../*
+[Shell] env | grep -i tome
+[Shell] ls -la /workspace
+[Shell] ls -la /workspace/tome4-dlcs
+[Thought] Initial assessment points to `/workspace/tome4-dlcs/orcs`. However, the instruction explicitly prohibits reading any other `.ai/` directory content, including tasks, reviews, and previous findings. The focus should strictly be on reading input, referenced content, and permitted source code.
+[Shell] git -C /workspace/tome4-dlcs/orcs status || ls -la /workspace/tome4-dlcs/orcs
+[Shell] ls -la /workspace/tome4-dlcs/orcs/tome-orcs
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] I'm thinking through how to approach this.
+[Shell] grep -n -C 15 "Master of Disasters" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/cun.lua
+[Shell] sed -n '30,60p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/cun.lua
+[Shell] grep -n -C 5 "INCOMING_DISASTERS" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/other.lua || grep -rn "Incoming Disasters" /workspace/tome4-dlcs/orcs/
+[Shell] grep -n -C 5 "Incoming Disasters" tome-orcs.lua
+[Shell] grep -rn "cross-tier" terminology/ || grep -rn "cross tier" terminology/
+[Shell] grep -rn "cross-tier" mod-tome.lua || grep -rn "cross tier" mod-tome.lua
+[Shell] sed -n '33300,33335p' mod-tome.lua
+[Shell] sed -n '6280,6300p' tome-orcs.lua
+[Thought] The timed effect name "Incoming Disasters" in the data file translates to "灾祸临近." The "Master of Disasters" talent description reinforces this naming convention, clearly linking the English name to the Chinese display. This confirms that the game consistently uses the translated name when the effect is applied.
+[Shell] grep -n -C 15 "160%" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Shell] sed -n '30,65p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Thought] The talent description uses 130% damage, while the drone description states 160%. Source text entry-03996 appears to contain incomplete information regarding the damage radius. The discrepancy between the damage percentages warrants further investigation to determine the correct value and origin.
+[Shell] grep -n -C 25 "Technomancers are Archmages" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Shell] grep -rn "tinker" terminology/
+[Shell] grep -rn "tinker schematic" tome-orcs.lua
+[Shell] grep -rn "插件" tome-orcs.lua | head -n 20
+[Shell] grep -rn "Technomancy" tome-orcs.lua
+[Shell] grep -rn "Smith" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/
+[Shell] grep -n -C 5 "Smith" tome-orcs.lua | head -n 30
+[Shell] grep -rn "Automated Portable Extractor" tome-orcs.lua || grep -rn "A.P.E." tome-orcs.lua
+[Shell] grep -rn "Steamtech" tome-orcs.lua
+[Thought] Examining the terminology snapshot reveals the game uses "steam" as a talent category, translating to "蒸汽." The display often combines "steamtech" with "physics" as "蒸汽/物理" in talent trees. Need to determine the relationship between "法术/科技法术：放电" (magic/tech magic: discharge) and the existing "steam" category.
+[Shell] grep -rn "psionic" terminology/
+[Shell] grep -n -C 20 "Range Amplification Device" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/wil.lua
+[Shell] grep -rn "spell_psionic_range_increase" /workspace/t-engine4/ /workspace/tome4-dlcs/
+[Thought] Examining the `Actor.lua` file, line 250 reveals a conditional check that modifies range values for spells or mind-based abilities. The condition incorporates `t.is_spell` and `t.is_mind`, confirming that the system differentiates between spell and psionic abilities for the range increase. This logic suggests a mechanic where certain attributes increase the range of specific ability types.
+[Shell] grep -n -C 15 "campfire" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/floor.lua
+[Shell] grep -rn "regeneration by.*turn" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] grep -rn "stamina regeneration by" /workspace/t-engine4/ || grep -rn "steam regeneration by" /workspace/tome4-dlcs/
+[Shell] grep -n -C 15 "bores into" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/mental.lua
+[Thought] The text translations appear accurate: "Mind Drone" becomes "精神雄蜂", and the associated gain/lose effect descriptions are appropriately translated while preserving the "#Target#" placeholder. Grammar and term consistency appear sound.
+[Shell] grep -n -C 15 "injected with chemicals" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/other.lua
+[Thought] Examining the Chinese translation, the original English source uses a passive construction, "has been injected," which corresponds to an active construction in Chinese ("被注射"). The direct translation, while understandable, would idiomatically prefer the active form, "目标被注入了化学物质" or similar.
+[Shell] grep -n -C 30 "Engaged in automated repairs" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/other.lua
+[Thought] The `on_timeout` function removes the "Automated Repair System" effect if life is at maximum, suggesting the repair system deactivates when fully healed. Examining the English string clarifies that this effect increases life regeneration, all resistances, and prevents death below a negative life threshold, which aligns with an automated repair function. The translation of `生命值回` specifically refers to life regeneration confirming the function's life regen component.
+[Shell] grep -n -C 20 "Bullets shot are percussive" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] Examining the revisions reveals distinct bullet behaviors: percussive bullets have knockback and stun chances, while combustive bullets explode upon impact. This suggests a translation focusing on conveying distinct bullet impact effects rather than literal explosive properties. The target language accurately captures the intended meaning of percussive impact mechanics.
+[Shell] grep -n -C 20 "Bullets shot are combustive" tome-orcs.lua
+[Thought] Overheated bullets inflict fire damage over time upon impact. Supercharged bullets penetrate multiple targets and have increased armor penetration. This indicates distinct bullet modifications with different tactical advantages: sustained damage versus enhanced penetration.
+
+
+Examining the translation of "Combustive," the leading phrase "子弹处于爆炸/燃烧状态：" seems omitted, unlike other bullet modifiers. The translation appears to implicitly convey the "combustive" state through the verb "爆炸" (explode). This deviation warrants further investigation to understand if it's an intentional stylistic choice or a potential inconsistency. Checking if other entries consistently use the prefix or omit it is critical.
+[Shell] grep -n -C 20 "Provides a frost aura" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] Examining the Lua code, lines 163-165 define "FROST_SALVE," describing its effects and displaying a specific image. Lines 182-184 likely define a corresponding "FIERY_SALVE." It's essential to understand the overall structure of how these effects are implemented and used within the game.
+[Shell] grep -rn "affinity" terminology/
+[Shell] grep -rn "affinity" mod-tome.lua | head -n 30
+[Thought] Observed consistent translation of "damage affinity" as "伤害亲和". Examining entries 04022 and 04023 to verify the consistent pattern in translating the concept of "affinity". The target language uses "伤害亲和" for different elemental affinities.
+
+
+Examining the source code reveals the English text contains a copy-paste error; the Chinese translation correctly reflects the items' intended effects. The source code's behavior dictates the definitive interpretation per established guidelines, making the Chinese translation accurate. The translation is not a discrepancy but a correction of an English source code error.
+
+
+Investigating `FIERY_SALVE` and `WATER_SALVE`, the English descriptions contain a clear copy-paste error regarding "frost aura"; the code confirms different elemental affinities. The Chinese translations correctly reflect the intended effects, aligning with the source code behavior which is the determining factor. The discrepancy arises from the English text, not the translation.
+[Shell] grep -n -C 20 "flies back" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] grep -n -C 20 "somehow catches" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] The `#Target#` successfully catches the falling `蒸汽枪`. The placeholder and translation are accurate and natural in Chinese.
+[Shell] grep -n -C 20 "fails to concentrate on dealing damage" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] grep -n -C 20 "crackling web of lightning" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] grep -n -C 20 "surges with power" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] grep -n -C 20 "strikes down at" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] The combat log message is correctly formatted to indicate a strike, including source, color, action, last action and target, and its Chinese translation. The tags for source, color, last action, and target remain intact. No issues were found in the revision.
+
+
+"Incoming Disasters" appears to be an existing effect. Terminology verification confirms the correct translation and meaning for all powers and the Cunning stat. The effect's behavior, trigger, and duration are understood.
+[Shell] sed -n '20,55p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Shell] sed -n '55,90p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Thought] Damage calculation involves an arcane damage ripple effect with a 130% multiplier, observed in multiple code sections. The description text confirms the mechanic, though a full radius value isn't specified in the line. The damage type is explicitly defined as arcane, and the ripple behavior has a radius of 4.
+[Shell] grep -n -C 15 "160%" tome-orcs.lua
+[Thought] Analyzing talent descriptions reveals two similar effects: one triggers on *damage done to it*, the other on *damage dealt by the player*. The difference in arcane damage percentage (130% vs. 160%) is significant. Investigating how these effects interact and where they are used could expose a critical gameplay imbalance or a bug.
+[Shell] grep -rn "is_mind = true" /workspace/t-engine4/game/modules/tome/data/talents/psionic/ | head -n 10
+[Shell] grep -rn "is_mind" /workspace/t-engine4/game/modules/tome/data/talents/ | head -n 10
+[Shell] cat /workspace/t-engine4/game/modules/tome/data/talents/psionic/psionic.lua
+[Thought] `psionic/` talent trees consistently use `is_mind=true`, correlating with the ToME UI's `灵能` translation for `psionic` talent categories. The `spell` category is correctly translated to `法术`. `terminology_snapshot` confirms the `法术` translation for `spell` and `灵能` for `psionic`, extending to effect subtypes.
+
+
+Incorrectly translated "ranged spells and psionic powers" as "远程魔法和精神技能" contains two errors: "spells" requires "法术", and "psionic powers" needs "灵能技能". Examining entry-04049 reveals an outdated neighboring translation, requiring correction based on the current source. The current source corresponds to the target `#target#力量强化！`.
+
+
+Examining entry-04049's translation of `#target# surges with power!` reveals a correct corresponding translation. The `OVERCLOCK` effect definition confirms the `#target#` string's capitalization, validating the translation. Now carefully reviewing every entry from 1 to 18 is necessary. The analysis begins with revision 1, entry-03990.
+
+
+The talent description uses "灾难临近效果" for "Incoming Disasters" while the effect itself is named "灾祸临近" in the game, creating potential user confusion. This discrepancy appears to be an inconsistency, as per the translation guidelines. The source of the inconsistency likely stems from "Disaster" being translated as "灾难" in the talent's name "灾难之主" but as "灾祸" in the effect name. Determining whether the effect name or talent description should be modified to achieve consistency is next.
+
+
+The code indicates the damage is 130%, contradicting the 160% in the entity description and its translation.  The discrepancy is between the game's implementation (130%) and the description. According to guidelines, the actual code behavior (130%) is the determining factor. The translation correctly reflects the source, therefore the source (the English description) needs correction.
+
+
+The English description stating 160% damage contradicts the code which uses 130%, and this inconsistency is reflected in the translation. The translation should not alter accurate upstream source values even when there is an upstream numerical error. This is a source (upstream) issue, because the description is incorrect in the English source. Revision history is being reviewed for context. Revisions 11 and 12 show that an English phrase (`frost aura`) was translated to two different Chinese phrases, indicating a possible pattern.
+
+
+Translations for entries 04022 and 04023 are correct despite apparent discrepancies, as they reflect the actual game mechanism based on verified code, according to guidelines.  Entry 04015's translation accurately explains the mechanism's termination condition, missing in the English source.  Entry 03996 presents a conflict, as the English description and its translation state 160% damage, while the code and related descriptions show 130%. This is an upstream error and therefore is a source issue.
+
+
+The English source contradicts the game's code regarding damage percentage; the code specifies 130% while the source claims 160%.  The agent needs to check if this warrants a report. The translation accurately reflects the incorrect English source. According to established guidelines, source inaccuracies should be flagged and an observation is needed, because the root problem is in the source.
+[Shell] grep -n -C 5 "newTalent" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/physics.lua
+[Thought] The talent mappings show "Smith" corresponds to "铁匠", "Mechanical" to "机械", and "Electricity" to "电子". The instructions specify one point in "Smith" and two in "Mechanical" and "Electricity". The code snippet in `mag.lua` confirms the correct learning actions are being performed for these talents.
+
+
+The phrase "two in Mechanical and Electricity" confirms the instruction for 2 points in both. The translation "2级机械和电子技能" is accurate. The term "tinker" translates to "插件" consistently in the codebase, despite the terminology specifying "蒸汽工具." The terminology snapshot lists `tinker => 蒸汽工具`. However, `terminology/items.tsv` correctly identifies the entity type for `tinker` as `蒸汽工具`.
+
+
+Examining the translation of "`tinker schematic`" as "`插件配方`" raises a potential terminology inconsistency, despite "`tinker`" being defined as "`蒸汽工具`." Checking `terminology/items.tsv`, `tinker` is an entity type, while items of this type are displayed as `蒸汽工具`, potentially conflicting with the usage of "`插件`" in other contexts. Investigating entry-03997, the translation of "`Arcane Dynamo tinker schematic`" as "`奥术发电机插件配方`" requires further verification given the apparent terminology. Comparing to entry-04000 also highlights inconsistencies: specifically with how `spell` is translated, which should be `法术`.
+
+
+The translation of "`spell`" and "`psionic`" as `精神技能` in the current context is incorrect, violating established terminology. This violates multiple existing translation mappings. Examining entries 04018 and 04019 reveals potential issues related to consistent terminology, with entry 04019 displaying a concrete example in code. Revisiting entry 04019 and looking at the associated code suggests it is part of a larger, systemic mapping issue.
+[Shell] grep -rn "EFF_ENHANCED_BULLETS_COMBUSTIVE" /workspace/tome4-dlcs/orcs/
+[Shell] sed -n '44,70p' /workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Archery.lua
+[Shell] sed -n '70,90p' /workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Archery.lua
+[Thought] The code creates a projectile with `selffire=false` and `friendlyfire=false`. This indicates the projectile is designed to only damage hostile targets and will not harm the user's allies or the user themselves. Therefore, the description "对目标周围 2 码范围内的敌人造成 %d 火焰伤害" is accurate.
+
+
+Line 79 in `Archery.lua` shows "is knocked back" is used in the log for stuns, which doesn't directly contradict any entry. Examining entries 04022 and 04023, the translation seems semantically consistent with the described affinities: fire/light/lightning vs. blight/mind/acid. Re-reading the prompt, the focus is on semantic, mechanical or terminological issues, not superficial word choices; based on the observed data and prompt re-reading, I tentatively judge these OK.
+
+
+Considering entries 04022 and 04023, the Chinese translation aligns with the actual game mechanics, despite the English description's discrepancy; therefore, no correction is required for these entries. Entry 03996 presents an inconsistency; the source and target in the entry itself state 160% damage, but the game's code and talent descriptions utilize 130%.
+
+
+The English description in entry-03996 states 160% damage, but the code and other descriptions within the talent consistently use 130%.  Reviewing the guidance, the discrepancy between the surface meaning and the actual game mechanism (130% in the code) necessitates marking this as an issue. The reviewer's reported issue aligns with the code evidence.
+
+
+Analyzing code references and translation context for damage calculations.  Examined `mag.lua` and observed consistent 130% damage values. The provided source code supports a 130% multiplier for Arcane damage, contradicting the 160% specified in entry-03996. Marking this as an issue since the code evidence contradicts the provided description.
+
+
+Examined entry-04000: Identified terminology violations. "Spells and psionic powers" is translated as "魔法和精神技能", while the terminology snapshot requires "法术" and "灵能技能" respectively.
+
+Analyzed entry-03996 for potential issues. The bounded context deliberately included the neighboring translation specifying 130% damage, which is consistent with the code and contradicts the entry's stated 160% damage. Based on this discrepancy and the code evidence, entry-03996 is marked as an ISSUE.
+
+
+Confirmed a discrepancy between code and descriptions. The code consistently uses a 1.3 (130%) damage multiplier for the ripple effect, which is stated in the talent description. However, the drone entity description (entry-03996) states 160%.  The source code and talent descriptions are consistent, but the entry description contradicts them; therefore, entry-03996 is inconsistent.
+
+
+Investigating entry-03990 regarding the "Incoming Disasters" effect.  Observed the timed effect is named "INCOMING_DISASTERS", and displays as "灾祸临近" in-game.  The talent description uses "灾难临近效果", which might mislead players to expect an effect named "灾难临近".  This discrepancy between the description and the in-game display needs further evaluation.
+
+
+
+Examining "Incoming Disasters" effect translations; the talent description uses "灾难临近效果", while the timed effect uses "灾祸临近." Checking for cross-entry consistency.
+
+Identified that the `cun.lua` talent sets the "INCOMING_DISASTERS" effect, which is translated as "灾祸临近" in `other.lua`. The entry description uses "灾难临近效果", creating a translation inconsistency.
+
+The effect name's inconsistency ("灾难临近效果" vs "灾祸临近") warrants marking this as a cross-entry consistency issue. Proceeding to re-examine all remaining entries to ensure no further inconsistencies are present.
+
+
+Examined entry-04001, verifying accurate translation of "steam regeneration," "stun immunity," and "stamina regeneration." Checked entry-04008, confirming accurate preservation of the placeholder `#Target#` and correct translation of "mind drone". Assessed entry-04014, ensuring correct handling of the `%d` placeholder and accurate semantic translation. Verified entry-04015 for translation of "automated repairs" and correctly handled placeholders and semantics.
+
+
+Analyzed entry-04018; the translation accurately reflects the intended mechanics: "knock back" translated to "击退," and "stun" to "震慑." Placeholders and probabilities are preserved, confirming accuracy.
+
+Verified entry-04019; the translation "火焰伤害" accurately captures "fire damage" with the correct radius specification, and placeholders preserved.
+
+Assessed entry-04022; the translation accurately reflects the game effect `FIERY_SALVE` and the damage types are consistent: fire, light, and lightning. The `+%d%%` placeholder is maintained.
+
+Checked entry-04023; the terms "blight," "mind," and "acid" are accurately represented. The `+%d%%` placeholder is preserved.
+
+
+Entries 04028, 04035, 04046, 04047, 04049, and 04053 are all accurate based on term mappings, placeholder preservation, and consistent semantic translation.
+
+
+Identified terminology violations in entry-04000: "spells" translated as "魔法" instead of "法术," and "psionic powers" as "精神技能" instead of "灵能技能." Also, "psionic" is conflated with "mind."
+Confirmed entry-03996 presents a contradiction: The description and the translation in the entry state 160% damage, while the code consistently implements and describes 130%. The code evidence contradicts the entry's specification; this constitutes an issue.
+Investigated and confirmed an inconsistency in entry-03990 regarding the "Incoming Disasters" effect; the timed effect is named "INCOMING_DISASTERS," displayed in-game as "灾祸临近," but described as "灾难临近效果," creating a discrepancy.
+
+
+Examining entry-03990 for a cross-entry consistency problem. The talent describes applying "Incoming Disasters effect," translated to "灾难临近效果". The actual effect, as defined in the code, is named "灾祸临近." This discrepancy marks entry-03990 as an ISSUE.
+Entry-04000 is an ISSUE due to terminology violations. "Spells" is translated as "魔法" instead of "法术," and "psionic powers" as "精神技能" instead of "灵能." The term "psionic" is also conflated with "mind."
+Entry-03996 is an ISSUE because the entry describes 160% damage, conflicting with the code's 130% implementation. The code's calculation is dam * 1.3, while surrounding descriptions in the same file confirm the 130% value.
+
+
+Examining entry-03990 for a cross-entry consistency problem, noting the timed effect uses "INCOMING_DISASTERS," translated as "灾祸临近." The entry description uses "灾难临近效果" for the same effect. This is flagged as an ISSUE. Another inconsistency noted is with the "cross-tier effect" terminology ("跨层效果" vs. "越层效果"). Entry-04000 requires fixing for terminology: "spells" and "psionic powers" require correction to "法术" and "灵能技能." "Psionic" also needs to be separated from "mind." The drone entity description (entry-03996) states 160% damage, but the code implements 130%; marked as an ISSUE.
+
+
+Entry-03990 is marked as an ISSUE due to the conflicting names used for the "Incoming Disasters" effect, displaying as "灾祸临近" in-game, yet described in the talent as "灾难临近效果."
+
+Entry-04000 is an ISSUE; "spells" is translated as "魔法" instead of "法术," and "psionic powers" is "精神技能" instead of "灵能技能," violating terminology rules.
+
+Entry-03996 is an ISSUE. The entity description states 160% damage, while the code and related talent information consistently use 130%, representing a contradiction. The code clearly implements a 130% damage multiplier.
+[Shell] grep -rn "Incoming Disasters" docs/ terminology/ || grep -rn "Master of Disasters" docs/ terminology/
+[Thought] The goal is to identify all occurrences of "Incoming Disasters" within the specified file. Lines 5952 and 6292 have already been observed. Now examining lines 5950-5960 to check if additional instances exist.
+
+
+Observed a naming inconsistency: `Incoming Disasters` is translated as `灾难临近效果` in one file and `灾祸临近` in another, while the associated "cross tier effect" is also variably translated. The talent triggers `EFF_INCOMING_DISASTERS`, which is labeled inconsistently in different parts of the code. This translation discrepancy could lead to a misunderstanding of the talent's effect.
+[Shell] python3 -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7", "verdicts": [ { "revision_key": ...
+[Shell] python3 -B tools/contextual_result_check.py --help || cat tools/contextual_result_check.py
+[Shell] python3 -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7", "verdicts": [ { "revision_key": ...
+[Shell] rm -f /tmp/test_raw_output.txt
+{"contract":"translation_contextual_v2","candidate_identity":"3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7","verdicts":[{"revision_key":"entry-03990","verdict":"ISSUE","observation":"跨条一致性问题：技能 Master of Disasters（灾难之主）描述中 Incoming Disasters effect 译为“灾难临近效果”，但公开源码 data/timed_effects/other.lua（组件 orcs，DLC 源码未固定）第627行定义的该状态效果 desc（tome-orcs.lua 第6292行）译为“灾祸临近”，技能描述引用的状态效果名与实际施加的效果显示名不一致。"},{"revision_key":"entry-03996","verdict":"ISSUE","observation":"机制与跨条一致性问题：公开源码 data/talents/uber/mag.lua（组件 orcs，DLC 源码未固定）第33行实际机制伤害倍率关键调用为 dam * 1.3（130%），且同文件第41行技能信息与第131行技能描述均明确为 130%；第82行召唤物 desc 英文原文与译文此处写作 160%，与实际机制和相邻条目描述冲突。"},{"revision_key":"entry-03997","verdict":"OK"},{"revision_key":"entry-04000","verdict":"ISSUE","observation":"术语错误：ranged spells and psionic powers 译为“远程魔法和精神技能”，其中 spells 译为“魔法”违反术语规范（统一术语为“法术”，见 T.GAME.TALENT_CATEGORY: spell => 法术），psionic 译为“精神”违反术语规范（统一术语为“灵能”，见 T.GAME.TALENT_CATEGORY: psionic => 灵能）且混淆了 psionic（灵能）与 mind（精神）；公开源码 data/talents/uber/wil.lua（组件 orcs，DLC 源码未固定）及 superload/mod/class/Actor.lua 第250行机制亦表明对应法术与灵能。"},{"revision_key":"entry-04001","verdict":"OK"},{"revision_key":"entry-04008","verdict":"OK"},{"revision_key":"entry-04014","verdict":"OK"},{"revision_key":"entry-04015","verdict":"OK"},{"revision_key":"entry-04018","verdict":"OK"},{"revision_key":"entry-04019","verdict":"OK"},{"revision_key":"entry-04022","verdict":"OK"},{"revision_key":"entry-04023","verdict":"OK"},{"revision_key":"entry-04028","verdict":"OK"},{"revision_key":"entry-04035","verdict":"OK"},{"revision_key":"entry-04046","verdict":"OK"},{"revision_key":"entry-04047","verdict":"OK"},{"revision_key":"entry-04049","verdict":"OK"},{"revision_key":"entry-04053","verdict":"OK"}]}

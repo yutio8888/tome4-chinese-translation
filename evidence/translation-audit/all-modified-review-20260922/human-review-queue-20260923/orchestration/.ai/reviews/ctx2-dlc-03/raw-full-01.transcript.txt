@@ -1,0 +1,172 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=54ebe33a7c783eb6e048105cbfe9c6e4db0551c4a4036c01c0655df18b765845；input_path=.ai/task/ctx2-dlc-03/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] Reviewing the provided JSON file for potential inconsistencies or errors related to semantics, mechanisms, terminology, relationships, or cross-item coherence. Focused on identifying any issues within the "frozen revision" based on the task description. If no such issues are identified, the review will conclude with an "OK" judgment.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-dlc-03/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] find . -maxdepth 3 -name "*orcs*"
+[Shell] git status --short
+[Shell] ls -la i18n
+[Shell] ls -la i18n/versions
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la ..
+[Shell] env | grep -E "TOME|LUA"
+[Shell] ls -la /workspace/tome4-dlcs
+[Shell] ls -la /workspace/tome4-dlcs/orcs
+[Shell] git -C /workspace/tome4-dlcs/orcs status
+[Thought] The DLC source code for "tome-orcs/tome-possessors" is not fixed, requiring explicit source documentation. Existing translations, terminology databases, or model findings are insufficient. Any supplementary investigation must document the component, publicly verifiable source path, and commit (if fixed), as well as key calls or data definitions; if the source or commit is unfixed, this must be explicitly noted.
+
+
+**待确认**。Reviewing contract Section 7 to understand requirements for investigation and documentation. Determined the need to record component, source path, fixed commit (or snapshot), key calls, and evidence excerpts for any supplementary findings. Confirmed the contract's strict read-only access and the availability of relevant terminology.
+
+
+Identifying and categorizing game mechanics elements: damage types, effects, and stats, distinguishing between core, global, and DLC specific scope. Noted the potential for homonyms and contextual ambiguity, especially when "damage type" and "effect subtype" share the same name. Considering the application of these categories within the documentation process.
+
+
+Categorizing and assigning preferred translations for game statistics and entity types, including attributes (敏捷, 体质, etc.) and global mechanics (全局速度, 强度). Explicitly noting the translation of "Not enough space to summon!" for runtime logs. Considering the contextual usage of terms like "power" (强度) and ensuring consistency in translations for DLC-specific entities like "mechanical," "steamtech," and "mech."
+
+
+Differentiating between plural "weapons" and individual entries. Mapping specific entity types and subtypes to preferred translations, considering context like DLC source and existing terminology. Noted and resolved potential ambiguities by establishing clear categorizations for "light," "power," and other homonyms. Established preferred translation rules.
+[Shell] ls -la /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam
+[Shell] grep -n -C 10 "When you reach 10 molten points" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua
+[Shell] sed -n '120,160p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua
+[Shell] grep -n -C 5 "Furnace Vent" tome-orcs.lua
+[Shell] grep -n -C 10 "You have learned to fire while moving" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua
+[Thought] The agent calculates the action's energy cost based on the higher of combat steam speed or movement speed, considering if a direction is set. Energy consumption is tied to this calculated speed value. The steam speed or movement speed determines the time required for an action.
+
+
+Higher steam speed multipliers increase energy cost, making actions slower; this means that the action time is determined by whichever speed (steam or movement) is slower. Several terms need verification: "Strafe" should be "扫射," "pinned to the ground" should be "被定身," "ammo" should be "弹药," and "double steamguns" is "双持蒸汽枪". Entry-03931 warrants closer review, as does entry-03933.
+[Shell] grep -n -C 30 "bounce towards the next closest foe" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua
+[Shell] grep -n -C 20 "target_list" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua
+[Shell] grep -n -C 5 "stunning shock" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua
+[Shell] grep -n -C 5 "slams into something solid" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua
+[Thought] The weapon's impact triggers a lightning pulse effect; translation confirms this. Talent information indicates that striking a wall with this weapon releases a static pulse causing lightning damage and a stun.
+[Shell] grep -n -C 10 "Leap into your mecharachnid" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua
+[Shell] grep -n -C 10 "EFF_MECHARACHNID_PILOTING_BUFF" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua
+[Shell] grep -rn "EFF_MECHARACHNID_PILOTING" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Thought] "所有技能冷却速度加倍" appears to be the correct translation of "all of its talents cooldown twice as fast". The term "cooldown" functions here as a verb, aligning with the meaning of the target phrase.
+[Shell] grep -n -C 20 "When you fire your metalstar" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mechstar.lua
+[Shell] grep -n -C 5 "Allows you to create tinkers" tome-orcs.lua
+[Shell] grep -rn "tinker" terminology/
+[Shell] grep -n -C 10 "Allows you to create tinkers" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '115,145p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] grep -rn "Allows you to create tinkers" .
+[Thought] The input data includes "PASEO" terminology. Examining the provided context documents related to "PASEO" translation might reveal the root cause of the observed issues. Investigating possible translation errors or incorrect contextual handling could be the key.
+[Shell] grep -n -C 10 "Fires your ammo at an enemy" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '325,350p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '310,325p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '290,310p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] grep -n -C 10 "Throw a cone of healing" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '880,905p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Thought] The ability is a "Mass Repair" cone, healing mechanical units. The Chinese translation confirms this; specifically, the key phrase "释放一片锥形半径...的修理器" translates to "throw a cone of repairer," which is the healing effect.
+[Shell] grep -n -C 10 "Voltaic Shell" tome-orcs.lua
+[Shell] grep -n -C 20 "Nourishing Moss" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] grep -rn "NOURISHING_MOSS" /workspace/tome4-dlcs/orcs/
+[Shell] grep -rn "NOURISHING_MOSS" /workspace/t-engine4/ /workspace/tome4-dlcs/
+[Shell] grep -n "Nourishing Moss" tome.lua
+[Shell] find . -maxdepth 2 -name "*.lua"
+[Shell] grep -n -C 3 "Nourishing Moss" mod-tome.lua
+[Thought] The weapon's special shot appears to inflict a toxic effect.  This warrants verification that the "toxic" damage type translates correctly in the target language. Confirming the translation's accuracy is essential to prevent unintended gameplay consequences.
+
+
+The translations for "枯萎" (blight), "全局速度" (global speed), and "蒸汽强度" (Steampower) appear accurate based on the current terminology snapshot. No immediate adjustments are required. The talent description's core mechanics are also reflected in the target language.
+[Shell] grep -n -C 25 "gently" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/sawmaiming.lua
+[Shell] sed -n '40,65p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/sawmaiming.lua
+[Shell] grep -n -C 20 "Melding psionics" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/thoughts-of-iron.lua
+[Shell] sed -n '55,80p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/thoughts-of-iron.lua
+[Thought] The English phrase "-X% reduction" translates to "减少 X%" in Chinese, effectively avoiding a double negative. This seems correct. No issues are apparent with this standard translation pattern. Proceeding to examine the context of `entry-03985` to analyze how this pattern is applied.
+[Shell] grep -rn "Not enough space to summon" terminology/
+[Shell] grep -n -C 5 "source_tag" TERMINOLOGY.md
+[Shell] grep -n -C 5 "Not enough space to summon" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/turrets.lua
+[Shell] grep -n -C 3 "Not enough space to summon" tome-orcs.lua
+[Thought] Four separate instances of "Not enough space to summon!" are logged within the game file. These consistent messages, originating from the player log, suggest a recurring issue related to spatial constraints during summoning actions. Further investigation is needed to identify the specific circumstances triggering this space-related error within the game mechanics.
+
+
+The terminology snapshot's entry standardization of  `Not enough space to summon!` to `没有足够的空间召唤。` applies specifically to `logSeen`.  Examining the code, the use of `logPlayer` with the exclamation point at the end, `没有足够的空间召唤！`, seems acceptable despite the `logSeen` standardization. Further review of all revisions is needed to confirm the consistent usage. Other entries, like 03926 and 03931, were checked for placeholder and terminology consistency, revealing no immediate issues. The phrasing of entry-03931, specifically the "whichever is slower" translation, appears accurate in the context of the game mechanics.
+
+
+Analysis reveals a placeholder discrepancy; the source used `%d(%d%%)` while the target used `%d （%d%%）`. Examining the corresponding code confirmed all placeholders and their associated arguments align. Terminology consistency was verified across `cunning`, `dexterity`, and `weapon`. Additionally, entries 03939, 03940, and 03946 were checked, revealing correct placeholder usage and consistent terminology, including `stun`, and `lightning`.
+
+
+Analysis of the text concerning the "mechanical spider" reveals all translations are accurate: damage increase, resistance increase, and cooldown speed match the code's implementation and existing terminology. Placeholder consistency is confirmed, with each placeholder type mapping correctly.
+
+The text for entry 03950 is now under review.
+
+
+Entry 03951's translation deviates from the original. Although "existing" terminology doesn't mandate changes, the expansion in the translation presents a potential issue. The source tag is `_t` while it's `entity type` in the terminology. However, since the status is `existing` and there's a previous advisory, it might still be OK. I need to consider if it expands the meaning.
+[Shell] sed -n '860,915p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '830,860p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '800,830p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Thought] Analyzing two talent descriptions. The first describes a cone-shaped flame attack with damage scaling from Steampower, the second a cone-shaped healing ability. Focus is now on distinguishing function between offensive and supportive abilities.
+
+
+The translation of "cone of healing" as "修理器" (repair device) appears incorrect; the context clearly indicates a healing function, not a repair tool. The in-game talent "Mass Repair" which emits a healing cone further confirms this. "修理器" is semantically wrong. Now looking at a different entry to check if "锥形" has any other issue.
+[Shell] grep -rn "MIND_DRONE" /workspace/tome4-dlcs/orcs/ /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '78,105p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/mental.lua
+[Shell] python3 -B tools/i18n lint --component orcs
+[Thought] Initial i18n linting passed with no errors or warnings. Proceeding to verify the specific entry `entry-03931`. This entry describes a talent that allows firing and moving in one turn. The focus is on ensuring the translation accurately reflects the functionality, specifically the simultaneous firing and movement, including conditions like being pinned or immobilized.
+
+
+The English description indicates time is determined by the slower of steam tech or movement speed. The Chinese translation appears semantically equivalent. Code confirms this by selecting the greater value between combatSteamSpeed and combatMovementSpeed (or zero if not moving). The critical check is that the translation accurately captures "whichever is slower" as the determining factor.
+
+
+The energy multiplier and the time relationship are confirmed; the translation accurately reflects the "whichever is slower" logic. Examining entry-03933, the range and accuracy loss translations appear correct. The stunning shock resistance in entry-03939 and lightning pulse in entry-03940 are also correctly translated. Finally, the "cooldown twice as fast" in entry-03946 looks correct.
+[Shell] grep -rn "EFF_MECHARACHNID_PILOTING" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/ /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/
+[Shell] sed -n '220,245p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua
+[Shell] grep -rn "EFF_MECHARACHNID_PILOTING" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/
+[Shell] sed -n '420,460p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/other.lua
+[Thought] Examining the cooldown reduction logic, it appears that, under specific conditions, a base reduction of 1 is applied. Further observation reveals that `on_timeout` is also decrementing the cooldown, leading to a total reduction of 2 per turn. This confirms that talents are cooling down twice as fast.
+
+
+The Chinese translation uses "修理器" which translates to "repairer/repair device", but the source describes a healing cone. The game's talent `Mass Repair` implies a cone-shaped healing area, not deploying a physical repairer. The translator's confusion likely stems from the talent's location under "tinkers" in the game files. It appears that the action does not deploy "repairers".
+
+
+The "repairer" translation likely stems from the "tinkers" category, but "cone of healing" is semantically different. Punctuation inconsistencies appear across several entries, but this is unlikely to be a critical error given the prompt's focus on semantic, mechanistic, or terminology issues, and the common nature of this in legacy translations. The target descriptions within the `Shells` entries are being compared for cross-entry consistency.
+
+
+Analyzing `entry-03970`, the target description uses "特殊的钩索弹" ("special hook shot"), while the talent and item are named "钩链弹" ("hook chain shot"). The source text uses "hook shot", implying "钩索弹" ("hook shot") is the correct translation.
+
+Comparing `entry-03971` with its source reveals consistent terminology for "Voltaic Shell" (伏特弹) regarding lightning damage and ammo mechanics. Similarly, `entry-03972`'s source and target descriptions use "Botanical Shell" (植物弹).
+
+
+Comparing "Botanical Shell" in entry 03972 with "Toxic Shell" in entry 03973 reveals similar descriptions for the effects released by the special shots, except for the damage type (nature vs. blight) and specific effects. Checking "Nourishing Moss" in entry 03972 shows consistent description details within source and target entries. The "Shell" entries are examined for comparative consistency.
+
+
+Analyzing `entry-03972`, the target uses "治愈使用者" which means "heals the user," which is synonymous with "治疗使用者". This is a minor terminological difference, but not an issue. `entry-03960`'s translation of "cone of healing" as "锥形半径 %d 码的修理器" ("cone of repairer") is a semantic error because the source doesn't imply the deployment of a repair device, but a healing projection. This appears to be a misinterpretation of the term based on the talent's categorization. The grammar of the translation is also broken. This suggests that `entry-03960` is an issue.
+
+
+"Furnace Vent" ("通风孔") correctly triggers the effect. The check confirms the translations "医疗注射器", "烧伤效果", "负面物理状态", and "蒸汽" are valid. The double-checked `entry-03931` translations for "steamgun" as "蒸汽枪", "pinned" as "定身", and "steamtech" as "蒸汽科技" are also correct.
+
+
+Analyzing `entry-03933`, the translations for "cunning", "dexterity", and "weapon" are all correct. Also, in entries 03939 and 03940, the term "stun" consistently translates to "震慑." These translations are validated.
+[Shell] grep -n -C 10 "一级" docs/agent-workflow.md
+[Thought] Considering the document's classification of review criteria. The first level focuses on objective, checkable attributes of fixed source code, where independent reviewers should reach the same conclusions. This suggests a need to identify those aspects of the code amenable to objective, repeatable checks for things like fidelity, completeness, terminology, runtime, and the handling of placeholders, markup, and newlines. The second level's scope is within cycles.
+
+
+Analyzing entry-03960 reveals a fidelity issue where "cone of healing" is incorrectly translated as "repair devices." This misrepresents the skill's mechanics. Investigating entry-03970, which describes "Hook Shell," is the next step to look for similar potential fidelity or terminology inaccuracies.
+
+
+The "Hook Shell" translation uses "钩链弹," consistent with the talent name, while "hook shot" is translated as "钩索弹". Further analysis confirms that the "特殊的X弹" pattern is consistently applied to all shells, so entry-03970 is not a terminology issue. Subsequent entries (03971, 03972, 03973, 03977, 03984) exhibit matching terminology and mechanics. Entry-03985 ("Not enough space to summon!") is acceptable because its `source_tag` differs from the preferred term's tag in the terminology snapshot, adhering to rule 1 in TERMINOLOGY.md. Entry-03960, previously identified as an issue, will now be re-evaluated.
+
+
+Analyzing the translation of "cone of healing," the phrase "释放一片锥形半径 %d 码的修理器" appears incorrect. Examining similar "cone of" phrases like "cone of cold" and "cone of flame" suggests the correct translation should be related to a cone-shaped healing effect, not a repair device. Internal inconsistency exists as "healing" is translated differently within the same entry ("修理器" vs. "治疗量"). The translation appears to have misinterpreted the concept of a healing area as the deployment of a physical repair object.
+
+
+Detailed investigation of entry-03960 identified a misinterpretation of "cone of healing," incorrectly rendering it as "repair devices." Analysis revealed that the skill projects a cone-shaped mechanical repair, not a deployable device. This discrepancy stems from a semantic error in translating "healing" as a noun, and necessitates clarification due to the source code's unfixed nature.  A review of the following entries (revisions) will be conducted.
+
+
+Examining entry-03939 and entry-03940, the translations appear accurate in conveying the effects of resisting a stunning impact and emitting stunning lightning. Entry-03946 correctly reflects increased damage, resistance, and cooldown speed during mecharachnid control. Entry-03950 is under investigation.
+
+
+Examined entry-03951, where "Allows you to create tinkers" is translated.  The term "tinker" has a potential inconsistency. The existing terminology snapshot defines "tinker" as "蒸汽工具," but the translation uses "制造道具." The talent name "Create Tinker" is also translated as "制造道具."  The current translation may be more helpful for players, as per the existing terminology rule.
+
+
+Entry-03951, where "Allows you to create tinkers" is translated as "制造道具," is verified as OK; the existing term "tinker" translates to "蒸汽工具," and this context aligns with the existing terminology rules. Entry-03953 is also OK, as the translation accurately conveys the effect of firing ammo and the additional shot. The earlier ISSUE identified with entry-03960, specifically the "cone of healing" misinterpretation, remains unresolved.
+
+
+The "cone of healing" misinterpretation in entry-03960 stems from the code's mechanism: a cone-shaped mechanical healing wave (DamageType.REPAIR_MECHANICAL) projected from the player, not a deployable construct. The source code path for the Orc DLC feature is uncertain. Revision 11 (entry-03967) and revision 12 (entry-03970) are checked as OK.
+[Shell] python3 -B -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "54ebe33a7c783eb6e048105cbfe9c6e4db0551c4a4036c01c0655df18b765845", "verdicts": [ {"revision_key"...
+[Shell] python3 -B tools/paseo_contract_check.py
+[Shell] python3 -B -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "54ebe33a7c783eb6e048105cbfe9c6e4db0551c4a4036c01c0655df18b765845", "verdicts": [ {"revision_key"...
+{"contract":"translation_contextual_v2","candidate_identity":"54ebe33a7c783eb6e048105cbfe9c6e4db0551c4a4036c01c0655df18b765845","verdicts":[{"revision_key":"entry-03926","verdict":"OK"},{"revision_key":"entry-03931","verdict":"OK"},{"revision_key":"entry-03933","verdict":"OK"},{"revision_key":"entry-03939","verdict":"OK"},{"revision_key":"entry-03940","verdict":"OK"},{"revision_key":"entry-03946","verdict":"OK"},{"revision_key":"entry-03950","verdict":"OK"},{"revision_key":"entry-03951","verdict":"OK"},{"revision_key":"entry-03953","verdict":"OK"},{"revision_key":"entry-03960","verdict":"ISSUE","observation":"组件=orcs（DLC 源码未固定，标记证据不足，以可核验公开源码为准）；公开源码路径=tome-orcs/data/talents/steam/other.lua:902-912；关键调用=DamageType.REPAIR_MECHANICAL与particleEmitter(\"cogstorm\")。机制为直接向锥形区域内友方机械生物投射范围修复/治疗，而非部署实体装置。原文“Throw a cone of healing with radius %d”被误译为“释放一片锥形半径 %d 码的修理器”，将 healing 误作实体名词“修理器”导致语义和机制扭曲（易误解为在地面部署修理器道具/构装），且与条内第二句“治疗量”前后术语不一致。"},{"revision_key":"entry-03967","verdict":"OK"},{"revision_key":"entry-03970","verdict":"OK"},{"revision_key":"entry-03971","verdict":"OK"},{"revision_key":"entry-03972","verdict":"OK"},{"revision_key":"entry-03973","verdict":"OK"},{"revision_key":"entry-03977","verdict":"OK"},{"revision_key":"entry-03984","verdict":"OK"},{"revision_key":"entry-03985","verdict":"OK"}]}

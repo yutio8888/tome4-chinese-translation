@@ -1,0 +1,27 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=bef92f306f0f246b21b094180794cddd7c6589b619d2a1616b93889e78bdfd14；input_path=.ai/task/ctx2-pub-07a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+我会按冻结输入逐条核对，并只读取允许的契约章节和必要的引用或源码。
+[Shell] sed -n '/"'^## 六/,/''^## 八/p'"' docs/paseo-translation-context-review-v2-contract.md
+[Shell] pwd
+[Shell] sed -n '/"'^## 六/,/''^## 八/p'"' docs/paseo-translation-context-review-v2-contract.md
+[Shell] cat .ai/task/ctx2-pub-07a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] rg -n -C 5 'restorative|natural|conjuration|corrupted losgoroth|cure up to %d diseases|destructive wail|tendrils. pull|Transfers a bleed|xmanifesting|intensifying the burning|memories of Artelia|dr...
+[Shell] ls -d .. ../* /home/paseo/* 2>/dev/null
+[Shell] find /home/paseo/imports -maxdepth 3 -type d -name 'tome*' -o -name 'game' 2>/dev/null
+[Shell] ls -la /home/paseo/imports /home/paseo/tools
+[Shell] find /home/paseo -maxdepth 5 -type d \\( -name 't-engine4' -o -name 'tome4' -o -name 'tome' \\) 2>/dev/null
+[Shell] find /home /tmp /opt -type f -path '*/game/modules/tome/data/general/objects/egos/cloak.lua' 2>/dev/null
+[Shell] git rev-parse HEAD
+[Shell] git rev-parse HEAD
+[Shell] git rev-parse HEAD
+[Shell] rg -n -C 6 'restorative|natural|conjuration|corrupted losgoroth|cure up to %d diseases|destructive wail|tendrils. pull|Transfers a bleed|xmanifesting|intensifying the burning|memories of Artelia|dr...
+---
+
+已定位并核对到 envelope 指定的源码 commit。正在沿几处可能改变机制含义的物品效果和日志调用继续核验。
+[Shell] sed -n '191,210p' game/modules/tome/data/general/objects/egos/cloak.lua; sed -n '90,125p' game/modules/tome/data/general/objects/egos/wands-powers.lua; sed -n '70,110p' game/modules/tome/data/gener...
+[Shell] rg -n -C 10 'CORRUPT_LOSGOROTH_FORM|name = \"conjurer|name = \"natural\"|Not enough space to summon"'!'"' game/modules/tome/data/general/objects game/modules/tome/data/timed_effects game/modules/to...
+[Shell] sed -n '675,705p' game/modules/tome/data/general/objects/world-artifacts.lua; sed -n '2948,2970p' game/modules/tome/data/timed_effects/magical.lua; sed -n '390,410p' game/modules/tome/data/general/...
+---
+
+{"contract":"translation_contextual_v2","candidate_identity":"bef92f306f0f246b21b094180794cddd7c6589b619d2a1616b93889e78bdfd14","verdicts":[{"revision_key":"entry-00873","verdict":"ISSUE","observation":"“restorative”译为“振奋”偏离恢复含义。固定源码 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/general/objects/egos/cloak.lua:191-205 定义该词缀提高 healing_factor 和 life_regen，指向治疗与生命恢复。"},{"revision_key":"entry-00881","verdict":"OK"},{"revision_key":"entry-00899","verdict":"OK"},{"revision_key":"entry-00914","verdict":"OK"},{"revision_key":"entry-00918","verdict":"OK"},{"revision_key":"entry-00972","verdict":"OK"},{"revision_key":"entry-00980","verdict":"OK"},{"revision_key":"entry-00984","verdict":"ISSUE","observation":"原文将宝箱称为古老夏·图尔复数处力量之地的延伸，并说物品被送往“an other place”；译文“某处……那个地方”将多处改成单处，还断定目的地就是前述地点。依据：固定源码 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/general/objects/quest-artifacts.lua 中该宝箱的 desc。"},{"revision_key":"entry-00992","verdict":"OK"},{"revision_key":"entry-00997","verdict":"OK"},{"revision_key":"entry-01000","verdict":"OK"},{"revision_key":"entry-01001","verdict":"OK"},{"revision_key":"entry-01002","verdict":"OK"},{"revision_key":"entry-01029","verdict":"OK"},{"revision_key":"entry-01032","verdict":"OK"},{"revision_key":"entry-01038","verdict":"OK"},{"revision_key":"entry-01068","verdict":"OK"},{"revision_key":"entry-01074","verdict":"OK"}]}

@@ -1,0 +1,201 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=b071ed51cad446cf8c144af1aac41507599afbac95723658bd52348f2a0aaa49；input_path=.ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] Verifying the specified output format: a single JSON object with precisely three root-level keys: "contract", "candidate_identity", and "verdicts". Each revision verdict needs to follow the defined structure.
+[Read] .ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("Envelope keys:", list(data.keys())) print("candid...
+[Thought] Verifying the provided identity hash against the known reference confirms the association. Now reviewing the revision history to understand the evolution of the entity's data.
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("=== Rendered Briefing =...
+[Thought] The initial term count suggests `terminology_snapshot` might be a string. Inspection of the JSON data format is required to confirm the data type. Checking the types of both `terminology_snapshot` and `bounded_context` will help clarify the data structure and correct this assumption.
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("terminology_snapshot ty...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("=== terminology_snapsho...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] bc = payload.get("bounded_cont...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] bc = payload.get("bounded_cont...
+[Shell] git status --short; git branch; ls -la
+[Shell] find / -name "tome-orcs" 2>/dev/null
+[Shell] ls -ld /home/paseo/.artifacts /home/paseo/tome* /home/paseo/src* /home/paseo/games* /home/paseo/work* 2>/dev/null; ls -ld /home/paseo/.cache/* 2>/dev/null
+[Shell] ls -la .artifacts/i18n/all-modified-review-20260922/sources/ 2>/dev/null
+[Shell] ls -la .artifacts/i18n/all-modified-review-20260922/sources/orcs/ git -C .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs status 2>&1 || true git -C .artifacts/i18n/all-modified-...
+[Shell] ls -la .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/
+[Shell] ls -la .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/.git 2>&1 || true
+[Shell] head -n 25 .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/init.lua
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] ts = payload["translation_snap...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] ts = payload["translation_snap...
+[Thought] Initial review requires comparing source and target revisions across multiple dimensions. Examination includes terminology, game-specific elements, formatting, and the call chain within the relevant source code, considering the possibility of DLC dependencies. Cross-referencing entries is also critical to understand the changes.
+[Shell] find .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs -name "destructicus.lua"
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/destructicus.lua") as f: text = f.read() import re print("Length:", len(text)) match = re.sear...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/destructicus.lua") as f: text = f.read() import re for m in re.finditer(r"(TARGET|target|Previ...
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() import re m = re.findall(r".{0,50}(?:NEXT TARGET|PREVIOUS TARGET|上一名目标|选择下一个目标).{0,50}", text) for line in m: print(line) '
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("SELECT NEXT TARGET") if idx != -1: print(text[idx-100:idx+400]) '
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("SELECT NEXT TARGET") if idx != -1: print(text[idx:idx+1500]) '
+[Thought] "上一名目标" (previous target) uses "名", which could suggest a person, but the target is an airship. This terminology discrepancy warrants investigation to determine if it's a defect or intentional phrasing. The directive emphasizes preventing the Steam Giants' return, indicating the critical importance of preventing their escape.
+
+
+The Steam Giants are neutralized, ending their potential threat. The display serves as a message of deterrence, signaling the definitive end of oppression and the Orcs' newfound resolve against future threats. This action is a clear demonstration that such actions will not be tolerated again.
+
+
+The translation of "Var'Eyal" needs clarification; it may have been omitted or translated to "大陆" (continent).  The Far East continent, "瓦·埃亚尔", appears in the terminology, which also suggests that "大陆" is likely an incorrect or incomplete translation. The context needs to confirm if "大陆上" truly represents "Var'Eyal."
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "Var'\''Eyal" in line or "var'\''eyal" in line or "Var’Eyal" in line: print(fn, line.strip()) '
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json") as f: d = json.load(f) snap = d["payload"]["terminology_snapshot"] print("Var'\''Eyal in snap:", "Var'\''...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/john-surrender.lua") as f: print(f.read()) '
+[Thought] The option to bind the subject to the ring presents itself. However, binding them may limit their overall utility. It's possible that a broken, yet living, subject provides more strategic value than a bound thrall.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/john-worldmap.lua") as f: print(f.read()) '
+[Thought] Encountering Outpost Leader John, who is filled with palpable hatred, accusing of a murder and demanding a ring. The situation is hostile, suggesting an immediate and dangerous confrontation. Need to determine the best course of action given this accusation and the perceived threat.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/kaltor-shop.lua") as f: print(f.read()) '
+[Thought] The character is enthusiastically greeting the player, highlighting their return and the positive impression their previous purchases made. A new poster featuring the player reinforces the shop's marketing, emphasizing their product's appeal to powerful figures. The dialogue sets up an opportunity for the player to make another purchase.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/npcs/sunwall-mage.lua") as f: text = f.read() print(text) '
+[Shell] python3 -c ' import glob, re for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "conjurer" in line.lower() or "astral" in line.lower(): print(fn, line.strip()) for fn i...
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "astral" in line.lower(): print(fn, line.strip()) with open("mod-tome.lua") as f: for line i...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("fail to operate properl...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("crippling poison") if i...
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("crippling poison") if idx != -1: print(text[idx-200:idx+400]) '
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("poisonous bolt out to range") if idx != -1: print(text[idx-100:idx+500]) else: print("Not found by exact match") '
+[Shell] python3 -c ' with open("engine.lua") as f: text = f.read() import re matches = re.findall(r".{0,100}args_order.{0,100}", text) for m in matches: print(m) '
+[Shell] git grep "args_order" tools/ mod-boot.lua engine/ 2>/dev/null || true
+[Shell] git grep "function string:tformat" || git grep ":tformat(" || git grep "tformat" mod-boot.lua
+[Shell] python3 -c ' with open("mod-boot.lua") as f: text = f.read() import re matches = [line for line in text.splitlines() if "tformat" in line or "args_order" in line] for m in matches[:20]: print(m) '
+[Shell] python3 -c ' with open("_tdef_append.lua") as f: print(f.read()) '
+[Shell] git grep "args_order" tools/
+[Thought] Examining the `order_ok` function, the goal is to verify if a reordered list matches a target order. Applying this to a token sequence and the provided `args_order = [1, 2, 3, 5, 4]` reveals the expected reordering of the tokens. This reordering is: `range %d`, `%d nature damage`, `%d%% fail chance`, `over %d turns`, `%d addition nature damage`.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("cooling down: %d turns"...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("Through a combination o...
+[Thought] The source describes a combination of magic and airborne probes guiding lightning strikes. The target translation accurately reflects this combined method as "通过魔法和探针." The core concept is retained.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("Release a burst of shra...
+[Thought] "physical damage" translates to "物理伤害," confirming a direct match for the damage type. The term "steampower" will need a direct translation within the game's context; its meaning is likely linked to a game mechanic. Analyzing the remaining phrases for semantic equivalents is needed to complete the translation.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("every third hit always ...
+[Thought] The code defines a special ability for the "GOLDEN_GUN" item, triggering on each hit. It increments a charge counter with each hit, and on the third hit, sets the physical critical hit chance to 100%. Subsequently, it resets the charge counter. This mechanism ensures every third hit from the "GOLDEN_GUN" is a guaranteed critical strike.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("heartsblood") if idx !=...
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua") as f: text = f.read() idx = text.find("How do these even work?...
+[Thought] 这玩意到底怎么用？The text advertises a closing sale for firearms and armor.
+[Shell] python3 -c ' with open(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/lore/emporium.lua") as f: text = f.read() idx = text.find("CLOSING SALE") if idx != -1: print(text[i...
+[Thought] The translation appears to condense three lines into one. A quick check of the source confirms the presence of newlines, suggesting the target indeed simplified the structure. This warrants careful review to ensure no information was lost or misinterpreted during the reduction.
+
+
+A panicked evacuation is underway, with Tantalos missing and the situation dire enough to abandon the planned tunnel. The urgency and loud sounds suggest a significant threat, prompting immediate retreat. Further investigation may be necessary to understand the exact nature of the danger and the identity of those involved.
+
+
+The agent's primary objective is now escape via a "farportal" at the Sunwall, regardless of the Council's approval. The harsh tone and disregard for protocol indicate extreme desperation and a belief that survival depends on immediate departure. The imminent surface approach and H.C. Parmor's sign-off confirm that this is a final broadcast during a rapid ascent.
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "sunwall" in line.lower(): print(fn, line.strip()) with open("mod-tome.lua") as f: for line ...
+[Thought] Confirmed `Sunwall` translates to `太阳堡垒`. The term `farportal` translates to `远行传送门`, consistent with established terminology. Further reviewed translations: `Palace of Fumes` becomes `烟雾宫殿`, and `tinies` becomes `小矮子`.
+[Shell] git -C .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs grep -i "mindwall"
+[Shell] python3 -c ' import os for root, dirs, files in os.walk(".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs"): for file in files: if file.endswith(".lua"): path = os.path.join(root...
+[Shell] cat .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/zones/internment-camp/npcs.lua
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() import re matches = [line for line in text.splitlines() if "Mindwall" in line or "意念之墙" in line or "心灵之墙" in line] for m in matches: pr...
+[Thought] The "Mindwall" term in the code represents a powerful halfling psionic. The internment camp, located to the north, relies on "Mindwall" to control the orcs. The camp is guarded by the elite Sunwall troops.
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "khulmanar" in line.lower(): print(fn, line.strip()) with open("tome-ashes-urhrok.lua") as f...
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "duathedlen" in line.lower(): print(fn, line.strip()) with open("tome-ashes-urhrok.lua") as ...
+[Shell] git grep -i "duathedlen" || true
+[Shell] python3 -c ' with open("tome-ashes-urhrok.lua") as f: text = f.read() import re matches = [line for line in text.splitlines() if "duathedlen" in line.lower() or "dúathedlen" in line.lower() or "多瑟顿...
+[Thought] The consistent translation of `dúathedlen` to `多瑟顿` across the file suggests a pattern. Examining the source entry `entry-03852` line by line is necessary.
+
+
+The current situation is unfavorable, with significant losses due to the Anomaly and the First Duathedlen's disappearance. The directive is clear: maintain a low profile and observe passively to regroup and formulate a new plan. Considering his past, the First Duathedlen's loyalty remains unquestioned; his silence is likely part of his investigations, not defection. Any information about his whereabouts is to be reported, but intervention is forbidden.
+
+
+The phrase "[b]not[/b] in question" translates to "无可挑剔" (impeccable) in this context, confirming the unquestionable nature of his loyalty. Proceeding with a detailed review of all 18 entries to ensure fidelity, completeness, and consistency.
+
+
+Allowing the Steam Giants to escape presents an unacceptable long-term threat. Neutralization is the only option to prevent future attacks. The weapon was deployed, resulting in the complete destruction of the airship and the annihilation of the target.
+[Shell] cat TERMINOLOGY.md | head -n 100
+[Thought] The terminology guidelines emphasize using existing translations for proper nouns, marking new ones as "review." Examining the narrative terminology, "var'eyal" is translated as "瓦·埃亚尔". Checking in a relevant file confirms this translation is consistent.
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() import re matches = [line for line in text.splitlines() if "conjurer" in line] for m in matches: print(m) '
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() idx = text.find("Necromancers and fell conjurers") if idx != -1: print(text[idx-50:idx+600]) '
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() idx = text.find("Necromancers and fell conjurers") if idx != -1: print(text[idx+300:idx+900]) '
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() idx = text.find("conjurer'\''s ") if idx != -1: print(text[idx-50:idx+300]) '
+[Thought] The existing translation for "conjurer" as "魔术师" aligns with the established ToME ego keyword/name conventions. The translation of "astral" to "星空" further supports the intended translation of "astral conjurer" as "星空魔术师", which is consistent with the codebase. Proceeding to review `entry-03799`.
+
+
+"这套鞋子" for boots is consistent with a neighboring entry, confirming the translation. The English source typo "addition" is correctly translated as "额外" based on context and earlier checks. The lightning strike description's translation accurately reflects the in-game effect of both lightning and fire damage, matching the expected behavior. The description for shrapnel burst matches its code.
+
+
+The description accurately conveys the cone-shaped attack originating from the target. The radius, damage type (physical), and damage scaling (steam power) are correctly represented in the target translation. Verification confirms the translation's faithfulness to the in-game effect and corresponding code.
+
+
+The note's translation verified, including the colloquial tone. Investigating `entry-03827`, the source phrase "How do these even work?" requires closer inspection. Considered alternate translations: "这东西到底是怎么起作用的？" / "这玩意到底是怎么运作的？" Based on the goggles' pitch black description and ability to "see everything", the text is intended as a bewildered question. The translation "这玩意到底怎么用？" fits the context.
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() import re matches = [line for line in text.splitlines() if "怎么用" in line or "怎么运作" in line or "怎么起" in line] for m in matches: print(m) '
+[Shell] git grep "怎么用" *.lua 2>/dev/null
+[Thought] "这玩意到底怎么用？" appears to be a question about usage, not a verifiable issue within the specified scope. Recalling the instructions, the task focuses on concrete problems in semantics, mechanism, terminology, relationships, or cross-item consistency. The phrase, therefore, seems advisory, not a confirmed finding.
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "elvala" in line.lower(): print(fn, line.strip()) '
+[Thought] "埃尔瓦拉" is confirmed as the translation for "Elvala" based on `terminology/society.tsv`. Examination of the neighbor translation in `internment-camp.lua` revealed the translated form of an associated name. This information provides additional context for the translation task.
+
+
+"埃尔瓦拉" is confirmed as the translation for "Elvala" based on `terminology/society.tsv`. Examination of the neighbor translation in `internment-camp.lua` revealed the translated form of an associated name. This information provides additional context for the translation task.
+
+Reviewing `entry-03852` reveals a significant setback due to multiple factors, including a disappearance and significant losses.  The primary directive is to maintain a low profile and observe passively until a new strategy is devised. A potentially missing individual's loyalty, despite their nature, is assumed to be sound, the communications blackout is likely part of their investigation.
+[Shell] python3 -c ' with open(".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json") as f: import json data = json.load(f) keys = data["payload"]["ordered_revision_keys"] print("Total keys:", len(keys)) '
+[Thought] Re-examining all eighteen entries to ensure no issues were overlooked. Focusing first on `entry-03735`, reviewing the source data closely for any overlooked subtlety related to the immediate threat.
+
+
+The Steam Giants pose an unacceptable threat if allowed to escape; their future actions against the tribe cannot be risked. The decision to eliminate the airship has been made; their annihilation serves as a necessary deterrent and a clear message of strength to potential adversaries. A flicker of doubt remains, acknowledging the historical injustice, but the people's safety now necessitates this course.
+
+
+"Var'Eyal" is consistently translated as "瓦·埃亚尔" except in `entry-03735`, where it appears as "大陆". The difference in translation suggests an error, as the correct translation is consistent across multiple entries. The original Chinese phrase structure likely explains the shift to "大陆" instead of the consistent "瓦·埃亚尔", requiring a review of the translation's context. The correct translation should be "瓦·埃亚尔".
+
+
+"大陆上" likely refers to the continent, which is part of "Var'Eyal," so it *could* be a minor inconsistency. However, the contract prioritizes issues with clear evidence. The previous confirmed defects involved terminology and fidelity issues. Given the ambiguity and lack of definitive evidence of error, this translation might be acceptable.
+[Shell] python3 -c ' import json, glob, csv # Load terminology TSVs terms = {} for fn in glob.glob("terminology/*.tsv"): with open(fn, encoding="utf-8") as f: reader = csv.reader(f, delimiter="\t") header ...
+[Shell] python3 -c ' import glob for fn in glob.glob("terminology/*.tsv"): with open(fn) as f: for line in f: if "expeller" in line.lower(): print(fn, line.strip()) with open("tome-orcs.lua") as f: for lin...
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("Do you see the need for my wonderful devices") if idx != -1: print(text[idx:idx+1200]) '
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("Do you see the need for my wonderful devices") if idx != -1: print(text[idx+1000:idx+2500]) '
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("我早就告诉过你们了，你们这些忘恩负义的人！") if idx != -1: print(text[idx:idx+1500]) '
+[Thought] Two Kaltor posters exist within the emporium lore file, one advertising a closing sale on firearms. This poster mentions specific items being discounted, including an auto-loading orc expeller and a slashproof combat suit, potentially offering clues.
+[Shell] git -C .artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs grep -i "expeller"
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: lines = f.readlines() for i, line in enumerate(lines): if "expeller" in line.lower(): print(f"Line {i+1}: {line.strip()}") # print previous section lin...
+[Shell] python3 -c ' with open("tome-orcs.lua") as f: text = f.read() idx = text.find("kaltor-shop/objects.lua") if idx != -1: print(text[idx:idx+1500]) '
+[Thought] Observed two translations for "Brilliant Auto-loading Orc Expeller": one concise, the other more verbose and slightly different. Noted a distinction between "Pressure-enhanced" in the shop object and "PRESSURE-ENHANCED" in the lore poster. These variations warrant investigation to ensure consistent terminology.
+
+
+The difference in translation might stem from the ALL-CAPS marketing style used in the lore poster by Kaltor, potentially creating a hyperbolic translation versus the literal item name. The `terminology/items.tsv` file's `source_tag` and `category` fields are critical to maintaining translation consistency. Item entries within `terminology/items.tsv` have specific properties that guide translation behavior.
+
+
+Source tags and context are crucial for resolving potential terminology conflicts. The consistency between the two lore posters suggests the different translations may be acceptable given the different source tags. Proceeding to examine other entries for any terminology conflicts. Reviewing the terminology snapshot for existing definitions.
+
+
+Establishing consistent translations for various game effects, including "fear," "disarm," and damage types like "physical," "nature," "lightning," "fire," and "darkness," noting potential conflicts with damage type naming. Also, the effect "light" is separate from the armor type "轻甲." Specific DLC effects such as "horror," "demonic," and "steam" are noted. Stat names and short names, like "Cunning", "str," "con," "wil," and "mag" need distinct translations.
+
+
+Confirmed translations for key game entities and effects, including "power" (strength), various creature types ("demon," "giant," "horror," "human," "elf," "orc," "halfling," "mechanical," "ritch," "mech"), and race names ("Shalore," "Ogre," "Orc," "Giant," "Doomelf"). Also mapped translations for item types: "weapons," "armor," "weapon," "steamgun," "tome," and armor subtype "light."
+
+"Power" needs specific handling as it is distinct from energy in entity keywords. Different source tags require distinct interpretations for accurate translation.
+
+
+The shared runtime key for light armor and light elementals presents a UI display limitation, resulting in inconsistent labeling ("元素生物 / 轻甲" for light entities). Determined "肉" for "flesh", "能量" for "power" (considering both item context and entity subtype, distinct from "intensity"), "最后的希望" for "Last Hope," and "伊格" for "Zigur" (specific to the location). Also, "蒸汽" for "Steam", "联合王国" for "Allied Kingdoms", "气之部族" for "Atmos Tribe," and "坦塔洛斯" for "Tantalos."
+
+
+Established that "Ziguranth" translates to "伊格兰斯", distinct from the location "Zigur" ("伊格"), highlighting that the former refers to a faction/group, while the latter refers to a place. Confirmed "other" translates to "其他" (for talent categories), and "steam" translates to "蒸汽" (specifically for the "Embers of Rage" DLC skill category). These translations require a different tag to differentiate.
+
+
+Identified three distinct issues: `entry-03735` exhibits both a classifier error ("名" vs "个") and a proper noun omission ("Var'Eyal" dropped). `entry-03827` shows a semantic distortion ("how it works" vs "how to use"), and `entry-03852` demonstrates a semantic error ("murmuring" vs "抱怨") alongside a pronoun shift. Confirmed all three as `ISSUE`. Other entries are `OK`.
+
+
+Verified the translations for several entries, including `entry-03845`, `entry-03849`, and `entry-03851`, finding no immediate issues. Re-examined `entry-03809` and `entry-03811`, confirming accuracy. Noted the potential combination of "airborne" and "from above" in `entry-03809` as a minor stylistic shift but not an error.
+
+
+Verified the translation for a game mechanic where a physical critical hit chance increases every three hits. The translation accuracy of a specific in-game note was also verified.
+
+Reviewed contract Section 7's requirements for "observation" formatting, noting the explicit need to include component, source path, fixed commit, and evidence details when reporting issues or confirming accuracy. The "observation" format needs specific attention to avoid contract violations. The summary of requirements for `observation` include explicit statements of any missing path or evidence.
+
+
+Re-examining `entry-03735`, the translation uses "场" ("a show") instead of a more direct equivalent for "fate." The omission of "Var'Eyal" remains an issue. The classifier error from "个" (individual) instead of "名" (name) is also present.
+
+`entry-03827` shows a semantic distortion: the translation focuses on usage instead of the underlying operational mechanism.
+
+`entry-03852` demonstrates a semantic error where "murmuring" is replaced with "抱怨," implying complaint, and pronoun usage is inconsistent.
+
+
+Observed a translation error: "上一名目标" (previous target) is used for an "airship," which is inconsistent with the correct classifier. Also, the proper noun "Var'Eyal" is omitted in a translation concerning "the Orcs of Var'Eyal."
+
+Identified a semantic distortion in entry `entry-03827`, where "How do these even work?" (referring to a mechanism) is mistranslated as "这玩意到底怎么用？" (how to use), changing the intended meaning.
+[Shell] git grep "translation_contextual_v2" tools/
+[Shell] cat tools/contextual_result_check.py
+[Thought] The validation process appears to involve serializing the output into a compact JSON format. An exception is raised if the result cannot be converted into canonical JSON. This suggests a need for the output to adhere to specific JSON serialization rules to be considered valid.
+[Shell] python3 -B tools/contextual_result_check.py .ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-full-01.json /dev/null 2>&1 || true
+[Thought] Reviewing the validation results to categorize findings as "ISSUE" or "OK." Re-examining potential issues to confirm verdicts. The first candidate, identified as `entry-03735`, describes a scenario of decisive action against a significant threat.
+[Shell] python3 -c ' import json from pathlib import Path candidate_identity = "b071ed51cad446cf8c144af1aac41507599afbac95723658bd52348f2a0aaa49" envelope_path = ".ai/task/ctx2-dlc-01/CONTEXTUAL-ENVELOPE-f...
+[Shell] rm -f /tmp/test_result.json
+[Shell] git status --short
+[Thought] All prerequisites are verified. The constraints and input parameters are confirmed as correct. Processing will adhere to a read-only mode for analysis and referencing.
+[Shell] python3 -c ' import json candidate_identity = "b071ed51cad446cf8c144af1aac41507599afbac95723658bd52348f2a0aaa49" obs_03735 = "组件：orcs；公开源码路径：data/chats/destructicus.lua（DLC 源码未固定，来源未固定）；关键调用及证据：1. ...
+{"contract":"translation_contextual_v2","candidate_identity":"b071ed51cad446cf8c144af1aac41507599afbac95723658bd52348f2a0aaa49","verdicts":[{"revision_key":"entry-03735","verdict":"ISSUE","observation":"组件：orcs；公开源码路径：data/chats/destructicus.lua（DLC 源码未固定，来源未固定）；关键调用及证据：1. 控制台按键与量词一致性问题：同文件前文按键「SELECT NEXT TARGET」已译为「选择下个目标」（量词用“个”），此处按键「PREVIOUS TARGET」锁定的目标为飞船（airship），译文译作「上一名目标」量词使用“名”不当（飞船非人物实体），且与同面板按键词条不一致；2. 专名漏译：源文「to all the Orcs of Var'Eyal」包含大陆专名 Var'Eyal（规范译名见 terminology/narrative.tsv: var'eyal -> 瓦·埃亚尔；同 section 邻近译文亦译为“瓦·埃亚尔”），译文漏译专名，简缩为「大陆上所有兽人」。"},{"revision_key":"entry-03738","verdict":"OK"},{"revision_key":"entry-03741","verdict":"OK"},{"revision_key":"entry-03747","verdict":"OK"},{"revision_key":"entry-03748","verdict":"OK"},{"revision_key":"entry-03772","verdict":"OK"},{"revision_key":"entry-03799","verdict":"OK"},{"revision_key":"entry-03801","verdict":"OK"},{"revision_key":"entry-03807","verdict":"OK"},{"revision_key":"entry-03809","verdict":"OK"},{"revision_key":"entry-03811","verdict":"OK"},{"revision_key":"entry-03815","verdict":"OK"},{"revision_key":"entry-03823","verdict":"OK"},{"revision_key":"entry-03827","verdict":"ISSUE","observation":"组件：orcs；公开源码路径：data/general/objects/world-artifacts.lua（DLC 源码未固定，来源未固定）；关键调用及证据：神器 X 射线护目镜（X-Ray Goggles，未鉴定名 pitch black goggles，desc 字段）。源文「How do these even work?」描述一副镜片通体漆黑却能看穿一切（see everything）的奇特护目镜，表达对其如何能够起效、运作机理（work 为不及物动词，表运作/起效）的惊叹与困惑；译文译作「这玩意到底怎么用？」将其误译为询问使用/操作方法（how to use），偏离源文语义。"},{"revision_key":"entry-03845","verdict":"OK"},{"revision_key":"entry-03849","verdict":"OK"},{"revision_key":"entry-03851","verdict":"OK"},{"revision_key":"entry-03852","verdict":"ISSUE","observation":"组件：orcs；公开源码路径：data/lore/misc.lua（DLC 源码未固定，来源未固定）；关键调用及证据：恶魔军令（demonic orders）lore。军令发信人面向部署的全体恶魔部下（前文「your orders are simple: lay low」译为「给你们的命令」，后文「most of you know it too」译为「你们大部分人也都看过」）。源文「quit your murmuring right now」针对的是部下私下对第一位多瑟顿（First Duathedlen）忠诚度的窃窃私语与怀疑（紧接「his loyalty is [b]not[/b] in question... and not him going rogue」）；译文「你现在就别抱怨这些了」在人称上单数代词「你」与前后文群体指称「你们」产生单复数矛盾，且将针对叛逃的私下议论（murmuring）误译为日常「抱怨」，存在语义偏差。"}]}

@@ -1,0 +1,105 @@
+{
+ "schema_version": 5,
+ "task_id": "ctx2-dlc-04",
+ "mode": "review_only",
+ "change_class": "standard",
+ "review_contracts": [
+  "translation_contextual_v2"
+ ],
+ "state": "DONE",
+ "review_phase": "REVIEW",
+ "pending_review_contracts": [],
+ "completed_review_contracts": [
+  "translation_contextual_v2"
+ ],
+ "cycle": 0,
+ "max_cycles": 3,
+ "workspace_id": "wks_ac28b30c4bf45d5b",
+ "orchestrator_agent_id": "330b8a33-ca74-4ea2-b931-89133e5edad1",
+ "orchestration_transport": "cli",
+ "baseline": {
+  "commit": "cc48e16eaa82ea3efc06ca1cfa96a9f1e5752b12",
+  "patch": null,
+  "copies_dir": null
+ },
+ "candidate_author_agent_id": null,
+ "child_dispatches": [
+  {
+   "dispatch_id": "full-01",
+   "agent_id": "5ba254ef-ee7c-4877-8e7a-233c41a3cc29",
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v2",
+   "workspace_id": "wks_ac28b30c4bf45d5b",
+   "parent_agent_id": "330b8a33-ca74-4ea2-b931-89133e5edad1",
+   "lineage_verified": true,
+   "lifecycle": "archived",
+   "archive_confirmed": true,
+   "archive_attempts_started": 1,
+   "provider_requested": "pi/cliproxyapi/gemini-3.8-flash-high",
+   "runtime_observation": {
+    "schema_version": 1,
+    "source": "live_agent_metadata",
+    "captured_at": "2026-09-24T11:10:00+00:00",
+    "capture_status": "captured",
+    "provider": {
+     "presence": "present",
+     "value": "pi"
+    },
+    "model": {
+     "presence": "present",
+     "value": "cliproxyapi/gemini-3.8-flash-high"
+    },
+    "mode": {
+     "presence": "present",
+     "value": "default"
+    },
+    "thinking": {
+     "presence": "present",
+     "value": "high"
+    }
+   },
+   "record_path": ".ai/reviews/ctx2-dlc-04/full-01.json",
+   "verdict": "completed_valid_v2_record",
+   "candidate_identity": "3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7",
+   "input_path": ".ai/task/ctx2-dlc-04/CONTEXTUAL-ENVELOPE-full-01.json",
+   "labels": {
+    "task_id": "ctx2-dlc-04",
+    "role": "reviewer",
+    "purpose": "translation_contextual_v2",
+    "candidate_identity": "3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7",
+    "dispatch_id": "full-01"
+   }
+  }
+ ],
+ "open_accepted_findings": [],
+ "deferred_findings": [],
+ "review_records": [
+  ".ai/reviews/ctx2-dlc-04/full-01.json"
+ ],
+ "senior_review_records": [],
+ "final_validation_passed": true,
+ "wait": "findings await ORCHESTRATOR adjudication",
+ "last_error": null,
+ "updated_at": "2026-09-24T11:10:00+00:00",
+ "run_origin": {
+  "parent_task": "human-review-adjudication-20260923",
+  "run": "DLC (orcs/possessors)",
+  "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+  "bundle_index": 4,
+  "bundle_revisions": 18,
+  "split_reason": "v1 requires echoing frozen source/target for every revision, which is infeasible at this scale; v2 returns only revision_key+verdict. review_only v2 allows a single full, so the bundle is the task.",
+  "carrier_note": "tome-orcs.lua / tome-possessors.lua source is UNPINNED (protected DLC)"
+ },
+ "contextual_reviewers": [
+  {
+   "role": "REVIEWER",
+   "purpose": "translation_contextual_v2",
+   "candidate_identity": "3499d7701eb25e174c363a4d538c0cfaf53bb1b418f04d69655579669d7c25e7",
+   "dispatch_id": "full-01",
+   "input_path": ".ai/task/ctx2-dlc-04/CONTEXTUAL-ENVELOPE-full-01.json",
+   "agent_id": "5ba254ef-ee7c-4877-8e7a-233c41a3cc29"
+  }
+ ],
+ "findings_artifact": "evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/CONTEXTUAL-V2-FINDINGS-ALL.json",
+ "findings_note": "review_only run: accepted findings are consolidated in the findings artifact and fixed by the parent task, so no open finding remains on this review task"
+}
