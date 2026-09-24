@@ -969,6 +969,22 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
         rows[1]['version'] = life.CLAUDE_NATIVE_VERSIONS[-1]
         with self.assertRaises(life.LifecycleError): self.parse_native('claude', rows)
 
+    def test_native_codex_accepts_function_call_items_before_final(self):
+        rows = self.native_records('codex', '{}')
+        call = dict(type='response_item', payload=dict(type='function_call', name='wait', call_id='c1',
+                    arguments='{"cell_id":"8"}', internal_chat_message_metadata_passthrough=dict(turn_id='turn')))
+        output = dict(type='response_item', payload=dict(type='function_call_output', call_id='c1',
+                      output=[dict(type='input_text', text='{"tool":"not final"}')]))
+        rows[7:7] = [call, output]
+        for i, r in enumerate(rows): r['ordinal'] = i
+        self.assertEqual(self.parse_native('codex', rows)[0], b'{}')
+        bad = deepcopy(rows)
+        bad[7]['payload']['type'] = 'local_shell_call'
+        with self.assertRaises(life.LifecycleError): self.parse_native('codex', bad)
+        bad = deepcopy(rows)
+        bad[7]['payload']['internal_chat_message_metadata_passthrough']['turn_id'] = 'other'
+        with self.assertRaises(life.LifecycleError): self.parse_native('codex', bad)
+
     def test_native_codex_rejects_unproven_boundaries_and_identity(self):
         original = self.native_records('codex', '{}')
         variants = []

@@ -855,7 +855,9 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
                 if q['type'] == 'task_complete': completes.append(i)
             if r['type'] == 'turn_context': contexts.append(i)
             if r['type'] == 'response_item':
-                require(q.get('type') in ('message', 'reasoning', 'custom_tool_call', 'custom_tool_call_output'),
+                # function_call/_output: native tools such as `wait` polling an exec cell.
+                require(q.get('type') in ('message', 'reasoning', 'custom_tool_call', 'custom_tool_call_output',
+                                          'function_call', 'function_call_output'),
                         'unsupported Codex response item')
                 if q['type'] == 'message':
                     require(q.get('role') in ('developer', 'user', 'assistant'), 'unknown Codex message role')
