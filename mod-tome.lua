@@ -3056,7 +3056,7 @@ t("#LIGHT_BLUE# * +1 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -2", "#GOLD#每等级生命加值：#LIGHT_BLUE# -2", "_t")
 t("Solipsist", "织梦者", "birth descriptor name")
-t("Some believe that the world is the collective dream of those that live in it.  Find and wake the sleeper and you'll unlock the potential of your dreams.", "有些人认为世界由许多个梦境组成，而我们生活在这些梦境里。寻找并唤醒沉睡者，你可以打开通往梦境之门。", "_t")
+t("Some believe that the world is the collective dream of those that live in it.  Find and wake the sleeper and you'll unlock the potential of your dreams.", "有些人认为，世界是其居民共同的梦。找到并唤醒沉睡者，你就能发掘梦境的潜能。", "_t")
 t("The Solipsist believes that reality is malleable and nothing more than the collective vision of those that experience it.", "织梦者们相信现实是可以塑造的，它不过是体验它的人们集体想象的产物。", "_t")
 t("They wield this knowledge to both create and destroy, to invade the minds of others, and to manipulate the dreams of those around them.", "他们依靠此理论进行创造和毁灭，侵入他人的思维并操纵他人的梦境。", "_t")
 t("This knowledge comes with a heavy price and the Solipsist must guard his thoughts, lest he come to believe that the world exists only within his own mind.", "使用此理论需要付出巨大的代价，织梦者必须对自己的思维有很强的控制力，否则他会渐渐相信这世界只存在于他自己的心智之中。", "_t")
@@ -14417,8 +14417,7 @@ section "mod-tome/data/lore/blighted-ruins.lua"
 
 t("blighted ruins", "荒芜废墟", "newLore category")
 t("note from the Necromancer", "死灵法师的笔记", "_t")
-t("Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...", [[我伟大的计划被耽搁了。这令我很不悦。
-	附近村庄里的傻瓜开始怀疑我的存在，严密守卫起他们的坟地和墓园。我能偷走的少量遗骸往往腐烂得太厉害或残缺得无法用于计划，因此只得把它们制成次等仆从。或许这些仆从能制造足够多的冲突和混乱，让我得到更新鲜的遗骸……]], "_t")
+t("Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...", [[我伟大的计划被耽搁了。这令我很不悦。附近村庄里的傻瓜开始怀疑我的存在，严密守卫起他们的坟地和墓园。我能偷走的少量遗骸往往腐烂得太厉害或残缺得无法用于计划，因此只得把它们制成次等仆从。或许这些仆从能制造足够多的冲突和混乱，让我得到更新鲜的遗骸……]], "_t")
 t("The cloak of deception is complete! Truly my finest work, not counting my project of course, it allows my minions to walk amongst the living without arousing their suspicions at all. Already I have taken a stroll to a nearby town alongside a ghoulish thrall, wrapped in the cloak... hah! The fools didn't even bat an eyelid! With this item, acquisition of components for my project shall be all the more simple.", "欺诈斗篷已经完成！当然不算我的计划，这确实是我最杰出的作品。它能让我的仆从行走于活人之间而不引起丝毫怀疑。我已经带着一名裹在斗篷里的食尸鬼奴仆到附近城镇散过步了……哈！那些傻瓜连眼皮都没抬一下！有了这件物品，取得计划所需的材料就简单多了。", "_t")
 t("Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.", "命运向我微笑。今天我竟遇上了一具倒霉的%s的尸体。对其而言确实不幸，对我而言却相当幸运。这具尸体几乎没有腐烂……它再完美不过！有了这名新仆从和欺诈斗篷，我的计划几乎必定能够完成。我必须准备仪式……我的黑暗兽群很快就会迎来新成员。", "tformat")
 t("My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!", "我的杰作走起来了！它壮丽而美妙。虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命。没有哪个自诩英雄的人能够击败它；等到它完全完成，更将近乎无敌！现在只剩唤醒我最新的仆从、使其屈从于我的意志……到时他们就会明白。他们全都会明白。我倒要问，如今还有什么能阻止我？什么？！", "_t")
@@ -21560,7 +21559,7 @@ t("Searing Light", "灼热之矛", "talent name")
 t([[Calls the power of the Sun into a searing lance, doing %d damage to the target and leaving a radius 1 area of searing light on the ground for 4 turns that does %d light damage to all foes within it.
 		The damage dealt will increase with your Spellpower.]], [[你祈祷太阳之力形成一束灼热的长矛，对目标造成 %d 点伤害，并在地上半径为 1 的范围内留下灼热光斑，每回合对其中的敌人造成 %d 光系伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
-t("Sun Flare", "日珥闪耀", "talent name")
+t("Sun Flare", "太阳耀斑", "talent name")
 t([[Invokes the Sun to cause a flare within radius %d, blinding your foes for %d turns and lighting up the area.
 		All enemies effected will take %0.2f light damage.
 		At talent level 3 you gain %d%% light, darkness, and fire resistance for %d turns.
@@ -27157,7 +27156,7 @@ t([[Cast a net of static electricity in a radius of %d for %d turns.
 		When you move through the net, a static charge will accumulate on your weapon which will add %0.1f additional Lightning damage to your next attack for each turn you spend within its area.
 		These effects scale with your Mindpower.]], [[在半径 %d 范围中散布一个持续 %d 回合的静电捕网。
 		站在网中的敌人受到 %0.1f 的闪电伤害并被减速 %d%%。
-		当你在网中穿梭，你的武器上会逐渐累加静电充能，让你的下一次攻击造成额外 %0.1f 的闪电伤害。
+		当你在网中穿梭，你的武器上会逐渐累加静电充能；你在网中每停留一回合，下一次攻击就额外增加 %0.1f 闪电伤害。
 		技能效果受精神强度加成。]], "tformat")
 t("Heartstart", "心跳复苏", "talent name")
 t([[Store an electric charge for saving your life at a later time.
@@ -30003,7 +30002,7 @@ t([[You gain greater facility with your acrobatic moves, lowering the cooldowns 
 section "mod-tome/data/talents/techniques/agility.lua"
 
 t("Agile Defense", "敏捷防御", "talent name")
-t("%s(%d deflected)#LAST#", "%s(%d 敏捷防御)#LAST#", "tformat")
+t("%s(%d deflected)#LAST#", "%s(%d 被抵挡)#LAST#", "tformat")
 t([[You are trained in an agile, mobile fighting technique combining sling and shield. This allows shields to be equipped, using Dexterity instead of Strength as a requirement.
 While you have a shield equip and your Block talent is not on cooldown, you have a %d%% chance to deflect any incoming damage, reducing it by 50%% of your shield’s block value.]], [[你学会了在战斗中灵敏使用投石索和盾牌的技巧。允许你装备盾牌，用敏捷代替力量需求。
 当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率抵挡攻击，减免 50%% 格挡值的伤害。]], "tformat")
