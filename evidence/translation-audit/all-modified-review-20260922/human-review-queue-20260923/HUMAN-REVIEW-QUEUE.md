@@ -10169,7 +10169,7 @@ raw verdict: `energy projection` 译“灵能值运用”偏离原意→confirme
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00332 | HUMAN-REVIEW | cross-batch-068 | confirmed | 统一“每回合可获能量上限”表述与译名 |  |  |
+| hrq-00332 | HUMAN-REVIEW | cross-batch-068 | confirmed | 统一“每回合可获能量上限”表述与译名 |  | fix |
 
 <details><summary>hrq-00332 · HUMAN-REVIEW 详情</summary>
 
@@ -10192,7 +10192,7 @@ raw verdict: “最大能量吸收量”易被读成护盾吸收上限（译文�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00333 | HUMAN-REVIEW | cross-batch-068 | confirmed | 依赖后句限定即可，低优先 |  |  |
+| hrq-00333 | HUMAN-REVIEW | cross-batch-068 | confirmed | 依赖后句限定即可，低优先 |  | no_change |
 
 <details><summary>hrq-00333 · HUMAN-REVIEW 详情</summary>
 
@@ -10220,7 +10220,7 @@ raw verdict: “净化和免疫共享最多 %d 次配额”符合代码→confir
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00334 | HUMAN-REVIEW | cross-batch-068 | confirmed | 术语核对后定 pending |  |  |
+| hrq-00334 | HUMAN-REVIEW | cross-batch-068 | confirmed | 术语核对后定 pending |  | no_change |
 
 <details><summary>hrq-00334 · HUMAN-REVIEW 详情</summary>
 
@@ -10257,7 +10257,7 @@ raw verdict: 判定对象是 subtype "== ghost"（“鬼魂”无对象错认）
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00335 | HUMAN-REVIEW | cross-batch-068 | confirmed | 记入上游问题，不在中文改 |  |  |
+| hrq-00335 | HUMAN-REVIEW | cross-batch-068 | confirmed | 记入上游问题，不在中文改 |  | no_change |
 
 <details><summary>hrq-00335 · HUMAN-REVIEW 详情</summary>
 
@@ -10292,7 +10292,7 @@ raw verdict: 英文说明自身把 Accuracy 与 damage 顺序写反，中文忠�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00336 | HUMAN-REVIEW | cross-batch-068 | confirmed | 改 `spiking` 措辞 |  |  |
+| hrq-00336 | HUMAN-REVIEW | cross-batch-068 | confirmed | 改 `spiking` 措辞 |  | fix |
 
 <details><summary>hrq-00336 · HUMAN-REVIEW 详情</summary>
 
@@ -10315,7 +10315,7 @@ raw verdict: `spiking` 译“发射射线”不够准确→confirmed; `daze` 由
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00337 | HUMAN-REVIEW | cross-batch-068 | confirmed | 文风取舍 |  |  |
+| hrq-00337 | HUMAN-REVIEW | cross-batch-068 | confirmed | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00337 · HUMAN-REVIEW 详情</summary>
 
@@ -10346,7 +10346,7 @@ raw verdict: 译文确有意译造成的语义重心变化→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00338 | HUMAN-REVIEW | cross-batch-069 | confirmed | 统一为“梦境投影”；括号说明可留 |  |  |
+| hrq-00338 | HUMAN-REVIEW | cross-batch-069 | confirmed | 统一为“梦境投影”；括号说明可留 |  | fix |
 
 <details><summary>hrq-00338 · HUMAN-REVIEW 详情</summary>
 
@@ -10378,7 +10378,7 @@ raw verdict: `dream projection` 译“梦境守卫”，与实体名“梦境投
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00339 | HUMAN-REVIEW | cross-batch-069 | confirmed | 按源码补计算关系；增补数值待核 |  |  |
+| hrq-00339 | HUMAN-REVIEW | cross-batch-069 | confirmed | 按源码补计算关系；增补数值待核 |  | fix |
 
 <details><summary>hrq-00339 · HUMAN-REVIEW 详情</summary>
 
@@ -10405,7 +10405,7 @@ raw verdict: `global speed` 译“所有速度”→confirmed; 遗漏“对剩�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00340 | HUMAN-REVIEW | cross-batch-069 | confirmed | 删空格；增补是否保留 |  |  |
+| hrq-00340 | HUMAN-REVIEW | cross-batch-069 | confirmed | 删空格；增补是否保留 |  | no_change |
 
 <details><summary>hrq-00340 · HUMAN-REVIEW 详情</summary>
 
@@ -10432,7 +10432,7 @@ raw verdict: 三个 `%d%%` 占位符正确→confirmed; 基础值10及负体质�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00341 | HUMAN-REVIEW | cross-batch-069 | confirmed | 改“检定”；增补取舍 |  |  |
+| hrq-00341 | HUMAN-REVIEW | cross-batch-069 | confirmed | 改“检定”；增补取舍 |  | fix |
 
 <details><summary>hrq-00341 · HUMAN-REVIEW 详情</summary>
 
@@ -10461,7 +10461,7 @@ raw verdict: 占位符正确→confirmed; “鉴定”应为“检定/判定”�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00342 | HUMAN-REVIEW | cross-batch-069 | advisory | 是否统一数值格式 |  |  |
+| hrq-00342 | HUMAN-REVIEW | cross-batch-069 | advisory | 是否统一数值格式 |  | no_change |
 
 <details><summary>hrq-00342 · HUMAN-REVIEW 详情</summary>
 
@@ -10492,7 +10492,7 @@ raw verdict: 译文给抗性数值补上 `%`→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00343 | HUMAN-REVIEW | cross-batch-069 | confirmed | 收窄或删除括注 |  |  |
+| hrq-00343 | HUMAN-REVIEW | cross-batch-069 | confirmed | 收窄或删除括注 |  | fix |
 
 <details><summary>hrq-00343 · HUMAN-REVIEW 详情</summary>
 
@@ -10525,7 +10525,7 @@ raw verdict: 两个 `%d` 占位符正确→confirmed; “（怪物或被护送�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00344 | HUMAN-REVIEW | cross-batch-070 | confirmed | 删括注；最小半径质疑不采纳 |  |  |
+| hrq-00344 | HUMAN-REVIEW | cross-batch-070 | confirmed | 删括注；最小半径质疑不采纳 |  | fix |
 
 <details><summary>hrq-00344 · HUMAN-REVIEW 详情</summary>
 
@@ -10554,7 +10554,7 @@ raw verdict: 增译“（怪物或被护送者）”缺乏依据并缩窄可选�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00345 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按语境重译触发条件 |  |  |
+| hrq-00345 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按语境重译触发条件 |  | fix |
 
 <details><summary>hrq-00345 · HUMAN-REVIEW 详情</summary>
 
@@ -10595,7 +10595,7 @@ raw verdict: “当你击中一个固体表面时”带字面直译造成的触�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00346 | HUMAN-REVIEW | cross-batch-070 | confirmed | 补 per effect 限定 |  |  |
+| hrq-00346 | HUMAN-REVIEW | cross-batch-070 | confirmed | 补 per effect 限定 |  | fix |
 
 <details><summary>hrq-00346 · HUMAN-REVIEW 详情</summary>
 
@@ -10626,7 +10626,7 @@ raw verdict: 漏译 `one turn per effect`，现译易被理解成固定持续一
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00347 | HUMAN-REVIEW | cross-batch-070 | advisory | 文风取舍 |  |  |
+| hrq-00347 | HUMAN-REVIEW | cross-batch-070 | advisory | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00347 · HUMAN-REVIEW 详情</summary>
 
@@ -10651,7 +10651,7 @@ raw verdict: “获得 %d%% 个额外回合”大致保留数值但不够精确�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00348 | HUMAN-REVIEW | cross-batch-070 | confirmed | 补保护对象；引用不入证据链 |  |  |
+| hrq-00348 | HUMAN-REVIEW | cross-batch-070 | confirmed | 补保护对象；引用不入证据链 |  | fix |
 
 <details><summary>hrq-00348 · HUMAN-REVIEW 详情</summary>
 
@@ -10674,7 +10674,7 @@ raw verdict: 第二句只写“保护你”，遗漏傀儡与其他友方生物�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00349 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按术语改 |  |  |
+| hrq-00349 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按术语改 |  | defer |
 
 <details><summary>hrq-00349 · HUMAN-REVIEW 详情</summary>
 
@@ -10709,7 +10709,7 @@ raw verdict: 技能名「Flame」与冻结术语快照冲突（应为“火球�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00350 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按术语改 |  |  |
+| hrq-00350 | HUMAN-REVIEW | cross-batch-070 | confirmed | 按术语改 |  | fix |
 
 <details><summary>hrq-00350 · HUMAN-REVIEW 详情</summary>
 
@@ -10732,7 +10732,7 @@ raw verdict: `dazed` 译“茫然”与冻结术语及实际效果身份冲突�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00351 | HUMAN-REVIEW | cross-batch-071 | confirmed | 按原报告修 |  |  |
+| hrq-00351 | HUMAN-REVIEW | cross-batch-071 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00351 · HUMAN-REVIEW 详情</summary>
 
@@ -10755,7 +10755,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00352 | HUMAN-REVIEW | cross-batch-071 | confirmed | **优先处理连接词**（and→或），再润色的/地 |  |  |
+| hrq-00352 | HUMAN-REVIEW | cross-batch-071 | confirmed | **优先处理连接词**（and→或），再润色的/地 |  | fix |
 
 <details><summary>hrq-00352 · HUMAN-REVIEW 详情</summary>
 
@@ -10778,7 +10778,7 @@ raw verdict: “更快的旅行”应为“更快地旅行”（动词结构）�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00353 | HUMAN-REVIEW | cross-batch-071 | confirmed | 按原报告修 |  |  |
+| hrq-00353 | HUMAN-REVIEW | cross-batch-071 | confirmed | 按原报告修 |  | no_change |
 
 <details><summary>hrq-00353 · HUMAN-REVIEW 详情</summary>
 
@@ -10801,7 +10801,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00354 | HUMAN-REVIEW | cross-batch-071 | advisory | 文风取舍 |  |  |
+| hrq-00354 | HUMAN-REVIEW | cross-batch-071 | advisory | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00354 · HUMAN-REVIEW 详情</summary>
 
@@ -10828,7 +10828,7 @@ raw verdict: 条目结论属排版/风格（advisory）→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00355 | HUMAN-REVIEW | cross-batch-071 | confirmed | 补句号；改“近战伤害” |  |  |
+| hrq-00355 | HUMAN-REVIEW | cross-batch-071 | confirmed | 补句号；改“近战伤害” |  | fix |
 
 <details><summary>hrq-00355 · HUMAN-REVIEW 详情</summary>
 
@@ -10851,7 +10851,7 @@ raw verdict: 第二行缺少句号→confirmed; `melee damage` 译“近程伤�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00356 | HUMAN-REVIEW | cross-batch-072 | confirmed | 统一“附魔”或“镶嵌” |  |  |
+| hrq-00356 | HUMAN-REVIEW | cross-batch-072 | confirmed | 统一“附魔”或“镶嵌” |  | no_change |
 
 <details><summary>hrq-00356 · HUMAN-REVIEW 详情</summary>
 
@@ -10883,7 +10883,7 @@ raw verdict: 两个 `%s` 含义和顺序正确→confirmed; “安装”与同�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00357 | HUMAN-REVIEW | cross-batch-072 | confirmed | 位移句按英文保留“强制位移”或按源码改写；不要采用 Gemini 解释 |  |  |
+| hrq-00357 | HUMAN-REVIEW | cross-batch-072 | confirmed | 位移句按英文保留“强制位移”或按源码改写；不要采用 Gemini 解释 |  | fix |
 
 <details><summary>hrq-00357 · HUMAN-REVIEW 详情</summary>
 
@@ -10911,7 +10911,7 @@ raw verdict: 新增换行属实（仅排版）→advisory; `affinity with the ea
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00358 | HUMAN-REVIEW | cross-batch-072 | confirmed | 按快照统一“时间盾”；决定是否恢复完整时空概念 |  |  |
+| hrq-00358 | HUMAN-REVIEW | cross-batch-072 | confirmed | 按快照统一“时间盾”；决定是否恢复完整时空概念 |  | fix |
 
 <details><summary>hrq-00358 · HUMAN-REVIEW 详情</summary>
 
@@ -10939,7 +10939,7 @@ raw verdict: 原文四段被合并中间两段→advisory; 省略“将伤害送
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00359 | HUMAN-REVIEW | cross-batch-072 | confirmed | 无必办 |  |  |
+| hrq-00359 | HUMAN-REVIEW | cross-batch-072 | confirmed | 无必办 |  | no_change |
 
 <details><summary>hrq-00359 · HUMAN-REVIEW 详情</summary>
 
@@ -10968,7 +10968,7 @@ raw verdict: 两句被拆成两段（多一处换行）→advisory; 机制表述
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00360 | HUMAN-REVIEW | cross-batch-072 | confirmed | 是否补“残余能量”属风味 |  |  |
+| hrq-00360 | HUMAN-REVIEW | cross-batch-072 | confirmed | 是否补“残余能量”属风味 |  | no_change |
 
 <details><summary>hrq-00360 · HUMAN-REVIEW 详情</summary>
 
@@ -10996,7 +10996,7 @@ raw verdict: 补充“消耗法力补满充能，否则解除持续”有直接�
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00361 | HUMAN-REVIEW | cross-batch-072 | confirmed | 仅格式 |  |  |
+| hrq-00361 | HUMAN-REVIEW | cross-batch-072 | confirmed | 仅格式 |  | no_change |
 
 <details><summary>hrq-00361 · HUMAN-REVIEW 详情</summary>
 
@@ -11022,7 +11022,7 @@ raw verdict: 末句被拆为两行→advisory; 三个占位符顺序正确且覆
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00362 | HUMAN-REVIEW | cross-batch-072 | confirmed | 统一“翻筋斗” |  |  |
+| hrq-00362 | HUMAN-REVIEW | cross-batch-072 | confirmed | 统一“翻筋斗” |  | fix |
 
 <details><summary>hrq-00362 · HUMAN-REVIEW 详情</summary>
 
@@ -11045,7 +11045,7 @@ raw verdict: `Tumble` 译“翻滚”与术语快照“翻筋斗”不一致→c
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00363 | HUMAN-REVIEW | cross-batch-072 | confirmed | 改为“需要装备投石索”；技能名不用 `Rapid Fire` |  |  |
+| hrq-00363 | HUMAN-REVIEW | cross-batch-072 | confirmed | 改为“需要装备投石索”；技能名不用 `Rapid Fire` |  | fix |
 
 <details><summary>hrq-00363 · HUMAN-REVIEW 详情</summary>
 
@@ -11071,7 +11071,7 @@ Only usable against marked targets, and consumes the mark on hit.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00364 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  |  |
+| hrq-00364 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00364 · HUMAN-REVIEW 详情</summary>
 
@@ -11094,7 +11094,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00365 | HUMAN-REVIEW | cross-batch-073 | advisory | 文风取舍 |  |  |
+| hrq-00365 | HUMAN-REVIEW | cross-batch-073 | advisory | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00365 · HUMAN-REVIEW 详情</summary>
 
@@ -11121,7 +11121,7 @@ raw verdict: 条目结论属风格/排版（advisory）→advisory
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00366 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  |  |
+| hrq-00366 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00366 · HUMAN-REVIEW 详情</summary>
 
@@ -11149,7 +11149,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00367 | HUMAN-REVIEW | cross-batch-073 | pending | 主代理按术语库核对后再定 |  |  |
+| hrq-00367 | HUMAN-REVIEW | cross-batch-073 | pending | 主代理按术语库核对后再定 |  | fix |
 
 <details><summary>hrq-00367 · HUMAN-REVIEW 详情</summary>
 
@@ -11183,7 +11183,7 @@ raw verdict: 条目主张证据不足（pending）→pending
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00368 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  |  |
+| hrq-00368 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00368 · HUMAN-REVIEW 详情</summary>
 
@@ -11206,7 +11206,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00369 | HUMAN-REVIEW | cross-batch-073 entry-02343… | advisory | 统一由编辑决定 |  |  |
+| hrq-00369 | HUMAN-REVIEW | cross-batch-073 entry-02343… | advisory | 统一由编辑决定 |  | no_change |
 
 <details><summary>hrq-00369 · HUMAN-REVIEW 详情</summary>
 
@@ -11234,7 +11234,7 @@ raw verdict: 条目结论属风格/排版（advisory）→advisory; 条目结论
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00370 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  |  |
+| hrq-00370 | HUMAN-REVIEW | cross-batch-073 | confirmed | 按原报告修 |  | fix |
 
 <details><summary>hrq-00370 · HUMAN-REVIEW 详情</summary>
 
@@ -11257,7 +11257,7 @@ raw verdict: 条目结论成立（confirmed）→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00371 | HUMAN-REVIEW | cross-batch-074 | advisory | 文风取舍 |  |  |
+| hrq-00371 | HUMAN-REVIEW | cross-batch-074 | advisory | 文风取舍 |  | no_change |
 
 <details><summary>hrq-00371 · HUMAN-REVIEW 详情</summary>
 

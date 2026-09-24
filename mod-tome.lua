@@ -27518,7 +27518,7 @@ t([[Your expertise in the art of energy projection grows.
 		Aura cooldowns are all reduced by %d turns. Aura damage drains energy more slowly (+%0.2f damage required to lose a point of energy).]], [[你在能量投射技艺上的专长提升了。
 		所有光环的冷却时间减少 %d 回合。光环消耗灵能值变得更慢（消耗每点灵能值所需伤害值 +%0.2f）。]], "tformat")
 t("Shield Discipline", "护盾训练", "talent name")
-t("Your expertise in the art of energy absorption grows. Shield cooldowns are all reduced by %d turns, the amount of damage absorption required to gain a point of energy is reduced by %0.1f, and the maximum energy you can gain from each shield is increased by %0.1f per turn.", "你增加了在灵能值吸收方面的知识。所有护盾的冷却时间减少 %d 回合。护盾额外增加灵能值所需伤害值减少 %0.1f，每个护盾的最大能量吸收量增加 %0.1f 每回合。", "tformat")
+t("Your expertise in the art of energy absorption grows. Shield cooldowns are all reduced by %d turns, the amount of damage absorption required to gain a point of energy is reduced by %0.1f, and the maximum energy you can gain from each shield is increased by %0.1f per turn.", "你增加了在灵能值吸收方面的知识。所有护盾的冷却时间减少 %d 回合。护盾额外增加灵能值所需伤害值减少 %0.1f，每个护盾每回合可获得的灵能值上限增加 %0.1f。", "tformat")
 t("Iron Will", "钢铁意志", "talent name")
 t("Improves Mental Saves by %d, and stun immunity by %d%%.", "精神豁免提高 %d，震慑免疫提高 %d%%。", "tformat")
 t("Highly Trained Mind", "精神训练", "talent name")
@@ -27700,7 +27700,7 @@ t([[Fills the air around you with crackling energy.
 		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的闪电伤害，每次攻击消耗 %0.1f 能量。
 		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
-		如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。
+		如果要关闭光环且不释放这股电能，关闭它并选择你自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
 t("Frenzied Focus", "灵能狂热", "talent name")
 t([[Overcharge your psionic focus with energy for %d turns, producing a different effect depending on what it is.
@@ -27893,9 +27893,9 @@ t([[Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you
 		Projections inflict 50%% less damage than the original, unless the target has Lucid Dreamer active.
 		When the Dreamscape ends, for each projection destroyed, the target's life will be reduced by 10%% and it will be brainlocked for one turn.
 		In the Dreamscape, your damage will be improved by %d%%.
-		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境守卫来保护它的心灵。
-		除非目标激活了清晰梦境，否则梦境守卫造成的伤害比本体低 50%%。
-		当梦境空间的效果结束时，你每摧毁一个梦境守卫，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。
+		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境投影来保护它的心灵。
+		除非目标激活了清晰梦境，否则梦境投影造成的伤害比本体低 50%%。
+		当梦境空间的效果结束时，你每摧毁一个梦境投影，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。
 		在梦境空间中时，你的伤害会提高 %d%%。
 		伤害增益受精神强度加成。]], "tformat")
 
@@ -27908,11 +27908,11 @@ t([[You believe that your mind is the center of everything.  Permanently increas
 		Converted Psi damage you take will be further reduced by %0.1f%% (%0.1f%% from character level with the remainder further reduced by %0.1f%% from talent level).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
 		The first talent point also increases your solipsism threshold by 20%% (currently %d%%), reducing your global speed by 1%% for each percentage your current Psi falls below this threshold.]], [[你相信你的心灵是世间万物的中心。
-		每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）
+		每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）。
 		同时你学会用心灵来承受伤害，转化 %d%% 生命削减为灵能值削减，并且 %d%% 的治疗值和回复值会转化为灵能值的增长。
-		转化成的灵能值削减将进一步被减少 %0.1f%% （%0.1f%% 来自于人物等级，%0.1f%% 来自于技能等级。）
+		转化成的灵能值削减将进一步被减少 %0.1f%% （%0.1f%% 来自于人物等级，剩余部分再受技能等级提供的 %0.1f%% 减免。）
 		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
-		学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%），你的灵能值每低于这个临界点 1 %%，你的所有速度减少 1 %%。]], "tformat")
+		学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%），你的灵能值每低于这个临界点 1 %%，你的全局速度减少 1 %%。]], "tformat")
 t("Balance", "唯我论：均衡", "talent name")
 t([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Spell Saves throws (so at 100%%, you would effectively use mental save for all saving throw rolls).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
@@ -27928,7 +27928,7 @@ t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免
 t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat")
 t([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
-		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]], [[每当你受到伤害时，你会使用 %d%% 精神豁免来鉴定。鉴定时精神豁免可能暴击，至少减少 50%% 的伤害。
+		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]], [[每当你受到伤害时，你会使用 %d%% 精神豁免进行检定。检定成功时可能暴击，且至少减少 50%% 的伤害。
 		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
 		学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。]], "tformat")
 
@@ -28408,7 +28408,7 @@ t([[Teleports you randomly within a small range of up to %d grids.
 		At level 5, it allows you to choose the target area (radius %d).
 		If the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly.
 		The range will increase with your Spellpower.]], [[在 %d 码范围内随机传送你自己。
-		在等级 4 时，你可以传送指定生物（怪物或被护送者）。
+		在等级 4 时，你可以传送指定生物。
 		在等级 5 时，你可以选择传送位置（半径 %d）。
 		如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。
 		影响范围受法术强度加成。]], "tformat")
@@ -28420,7 +28420,7 @@ t([[Teleports you randomly within a large range (%d).
 		If the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly.
 		Random teleports have a minimum range of %d.
 		The range will increase with your Spellpower.]], [[在 %d 码范围内随机传送。
-		在等级 4 时，你可以传送指定生物（怪物或被护送者）。
+		在等级 4 时，你可以传送指定生物。
 		在等级 5 时，你可以选择传送位置（半径 %d）。
 		如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。
 		随机传送的最小半径为 %d。
@@ -28437,7 +28437,7 @@ t("Probability Travel", "次元移动", "talent name")
 t([[When you hit a solid surface, this spell tears down the laws of probability to make you instantly appear on the other side.
 		Teleports up to %d grids.
 		After a successful probability travel you are left unstable, unable to do it again for a number of turns equal to %d%% of the number of tiles you blinked through.
-		The range will improve with your Spellpower.]], [[当你击中一个固体表面时，此法术撕碎概率法则，令你瞬间出现在另一面。
+		The range will improve with your Spellpower.]], [[当你移动碰到固体障碍时，此法术撕碎概率法则，令你瞬间出现在另一面。
 		传送最大距离为 %d 码。
 		成功穿越后，你会陷入不稳定状态，在相当于穿越码数 %d%% 的回合内无法再次穿越。
 		传送距离受法术强度加成。]], "tformat")
@@ -28457,7 +28457,7 @@ t([[Press your advantage when your foes are starting to crumble.
 		And so on...
 		Damage increases with your Spellpower.
 		]], [[利用敌人的痛楚打击敌人。
-		目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%% 1回合（最大 %d 回合）。
+		目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。
 		伤害加成的收益衰减如下面所示：
 		- 2 个效果：%0.2f 伤害
 		- 5 个效果：%0.2f 伤害
@@ -28796,7 +28796,7 @@ t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 t("Alchemist Protection", "炼金保护", "talent name")
 t([[Grants %d%% protection to you, your golem and other friendly creatures against the elemental damage of your own bombs, and against external elemental damage (fire, cold, lightning and acid) by %d%%.
 		At talent level 5 it also protects against all side effects of your bombs.]], [[提高你、你的傀儡和其他友好生物对自己炸弹 %d%% 的元素伤害抗性，并增加 %d%% 对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性。
-		在技能等级 5 时它同时会保护你免疫你的炸弹所带来的特殊效果。]], "tformat")
+		在技能等级 5 时，它还会保护你、你的傀儡和其他友好生物免受你的炸弹所带来的特殊效果。]], "tformat")
 t("Explosion Expert", "爆破专家", "talent name")
 t([[Your alchemist bombs now affect a radius of %d around them.
 		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在为 %d 码。
@@ -29151,7 +29151,7 @@ t([[Sends out a surge of undeath energies into your aura.
 		所有非食尸鬼的随从被治疗 %d%%。
 		如果你掌握陵墓召唤技能，到下一个免费食尸鬼的时间降低 %d。
 		如果你掌握夺命尸爆或腐烂液化技能，这些效果的持续时间延长 %d。
-		范围内所有非不死生物的敌人都会被茫然 %d 回合。
+		范围内所有非不死生物的敌人都会被眩晕 %d 回合。
 		此外，你的所有随从（在学会该法术后制造的）获得额外被动生命回复。]], "tformat")
 t("Recall Minions", "召回随从", "talent name")
 t([[Tighten the ethereal leash to some of your minions currently within your aura of undeath, pulling them to you and swapping place with any eventual foes in the way.
@@ -29534,7 +29534,7 @@ t("Harness the power of ice to freeze and shatter your foes.", "使用冰的力�
 t("air", "大气", "talent type")
 t("Harness the power of the air to fry your foes.", "操纵大气的力量轰击你的目标。", "_t")
 t("storm", "风暴", "talent type")
-t("Harness the power of the storm to incinerate your foes.", "使用风暴的力量打击你的目标。", "_t")
+t("Harness the power of the storm to incinerate your foes.", "使用风暴的力量焚毁你的敌人。", "_t")
 t("meta", "超魔", "talent type")
 t("Meta spells alter the working of magic itself.", "超魔系法术能改变魔法的效能。", "_t")
 t("temporal", "时空", "talent type")
@@ -29546,7 +29546,7 @@ t("Magical enhancement of your body.", "用魔法强化你的身体。", "_t")
 t("thaumaturgy", "奇术", "talent type")
 t("The pinacle of spellcasting.", "施放法术的巅峰。", "_t")
 t("conveyance", "传送", "talent type")
-t("Conveyance is the school of travel. It allows you to travel faster and to track others.", "学习传送，使你能更快的旅行或者追踪目标。", "_t")
+t("Conveyance is the school of travel. It allows you to travel faster and to track others.", "学习传送，使你能更快地旅行并追踪他人。", "_t")
 t("divination", "侦查", "talent type")
 t("Divination allows the caster to sense its surroundings, and find hidden things.", "侦查技能可以使施放者能侦查周围环境，搜寻隐藏的东西。", "_t")
 t("aegis", "防护", "talent type")
@@ -29639,8 +29639,8 @@ t("You cannot use Blunt Thrust without a staff weapon!", "你需要一把法杖�
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hit a target for %d%% melee damage and stun it for %d turns.
 		Stun chance will improve with Spellpower.
-		At level 5, this attack cannot miss.]], [[挥动法杖对目标造成 %d%% 近程伤害并震慑目标 %d 回合。
-		震慑概率受法术强度加成
+		At level 5, this attack cannot miss.]], [[挥动法杖对目标造成 %d%% 近战伤害并震慑目标 %d 回合。
+		震慑概率受法术强度加成。
 		在等级 5 时，此攻击必中。]], "tformat")
 
 ------------------------------------------------
@@ -29696,9 +29696,9 @@ t([[You root yourself into the earth, and transform your flesh into stone.  Whil
 		* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%.
 		* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.
 		Resistances scale with your Spellpower.]], [[你将自己扎根于土壤并使你的肉体融入石头。
-		当此技能被激活时你不能移动并且任何移动会打断此技能效果。
-		当此技能激活时，受你的石化形态和土壤相关影响，会产生以下效果：
-		* 减少岩石飞弹、粉碎钻击、地震和山崩地裂冷却时间回合数：%d%%
+		当此技能被激活时你不能移动并且任何强制位移都会结束此技能效果。
+		当此技能激活时，你的石化形态和与大地的亲和会产生以下效果：
+		* 岩石飞弹、粉碎钻击、地震和山崩地裂的冷却时间减少 %d%%
 		* 获得 %d%% 火焰抗性，%d%% 闪电抗性，%d%% 酸性抗性和 %d%% 震慑抵抗。
 		受法术强度影响，抗性按比例加成。]], "tformat")
 t("Earthquake", "地震", "talent name")
@@ -29743,8 +29743,8 @@ t("Temporal Shield", "时光之盾", "talent name")
 t([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
 		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
 		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).
-		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术在施法者周围立刻制造一个时间屏障，吸收你受到的伤害。
-		一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，存储的能量会治疗你，持续 5 回合，每回合回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。
+		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术在施法者周围立刻制造一个时间盾，阻止你受到的伤害并将其送往未来。
+		一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，储存的伤害会以时间回复力场的形式返还，持续 5 回合，每回合回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。
 		最大吸收值受法术强度加成。]], "tformat")
 t("Time Prison", "时光牢笼", "talent name")
 t([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
@@ -30006,7 +30006,7 @@ t([[While this talent is sustained, you anticipate deadly attacks against you.
 		你需要 %0.1f 体力和相邻的无人空地来触发技能效果（尽管你不会因为躲避而移动）。]], "tformat")
 t("Superb Agility", "身轻如燕", "talent name")
 t([[You gain greater facility with your acrobatic moves, lowering the cooldowns of Vault, Tumble, and Trained Reactions by %d, and their stamina costs by %0.1f.
-		At Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.]], [[你使用杂耍系技能更加得心应手，降低撑杆跳、翻滚和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。
+		At Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.]], [[你使用杂耍系技能更加得心应手，降低撑杆跳、翻筋斗和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。
 		在等级 3 时，每当受训反应触发，你获得 10%% 的全局速度 1 回合。
 		在等级 5 时，速度加成变为 20%%，持续 2 回合。]], "tformat")
 
@@ -30036,7 +30036,7 @@ t([[You rush toward your foe, readying your shot. If you reach the enemy, you re
 		每次你移动时，该技能的冷却时间减少 1 回合。
 		该技能需要投石索。]], "tformat")
 t("Rapid Shot", "速射姿态", "talent name")
-t("You cannot use Rapid Fire without a bow or sling!", "你需要一把弓或者投石索来施放这个技能！", "logPlayer")
+t("You cannot use Rapid Fire without a bow or sling!", "你需要装备投石索才能使用这个技能！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
 Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
@@ -30076,7 +30076,7 @@ t([[Fires a wave of projectiles in a radius %d cone, dealing %d%% weapon damage.
 t("Headshot", "爆头", "talent name")
 t([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.
 Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目标头部发射穿透性弹药，造成 %d%% 武器伤害。
-此次攻击额外获得 100 命中，且能穿透目标以外单位。
+此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。
 只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
@@ -30194,7 +30194,7 @@ t("Bloody Butcher", "血之屠夫", "talent name")
 t([[You delight in the inflicting of wounds, providing %d physical power.
 		In addition when you make a creature bleed its physical damage resistance is reduced by %d%% (but never below 0%%).
 		Physical power depends on your Strength stat.]], [[你沉醉于撕裂伤口的兴奋中，增加 %d 物理强度。
-		同时，每次你让敌人流血时，它的物理抗性下降 %d%% （但不会小于 0%%）
+		同时，每次你让敌人流血时，它的物理抗性下降 %d%% （但不会小于 0%%）。
 		物理强度加成受力量影响。]], "tformat")
 t("Unstoppable", "势不可挡", "talent name")
 t([[You enter a battle frenzy for %d turns. During that time, you can not use items, healing has no effect, and your health cannot drop below 1.
@@ -30202,7 +30202,7 @@ t([[You enter a battle frenzy for %d turns. During that time, you can not use it
 		While Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death.]], [[你进入疯狂战斗状态 %d 回合。
 		在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。
 		状态期间你每杀死一个敌人，都会在状态结束时回复 %d%% 最大生命值。
-		当进入无双状态时，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。]], "tformat")
+		势不可挡激活期间，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/bow.lua"
@@ -30293,7 +30293,7 @@ t([[You become better at using your armour to deflect blows and protect your vit
 		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。
 		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 近战和远程攻击的暴击几率。
 		（这项技能只对重甲或板甲提供加成。）
-		在等级 1 时，能使你装备锁甲、金属手套、头盔和重靴。
+		在等级 1 时，能使你装备重甲、金属手套、头盔和重靴。
 		在等级 2 时，能使你装备盾牌。
 		在等级 3 时，能使你装备板甲。
 		%s]], "tformat")
@@ -30378,7 +30378,7 @@ t("You must dual wield to perform an Offhand Jab!", "你只有在双持状态下
 t("%s resists the surprise strike!", "%s抵抗了这次打击！", "logSeen")
 t([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.
 		This allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.
-		The chance to confuse increases with your Accuracy.]], [[你迅速移动，用徒手攻击敌人。
+		The chance to confuse increases with your Accuracy.]], [[你迅速转移重心，以出其不意的徒手攻击取代通常的副手攻击。
 		造成 %d%% 主手武器伤害，%d%% 徒手伤害。
 		若徒手攻击命中，敌人将被混乱（%d%% 强度）%d 回合。
 		混乱几率受命中加成。]], "tformat")
