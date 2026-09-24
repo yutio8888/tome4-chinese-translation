@@ -1,0 +1,79 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "each of 9 observations compared against its own entry source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "f8a2eb717bd42399a91b33e384e4318e6e5104d892940d44b4807c99a3d81939",
+      "stage": "surface",
+      "observation": "源文“starseers”指观星者，译文“观星”未体现所指的人；冻结输入未提供术语正文以确认专名译法。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "general/objects/egos/wizard-hat.lua:62–64 ego 名 starseer's（现译“观星者的”）的检索关键词 keywords={starseers=true}；现译关键词“观星”与另一文件 keyword starseer=“观星者”不一致，但关键词仅作简短标签、不误导机制，记 advisory。"
+    },
+    {
+      "revision_key": "f8a393e313adfeab02c028ebb2e35f44f1ddb1557a8fea34db2b0f1b23da41a0",
+      "stage": "surface",
+      "observation": "源文仅说清除“at least one of the threats to the yeeks”，译文增添了“两大”这一威胁总数；“yeeks”译为“夺心魔”的依据也未见于冻结输入。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "quests/start-yeek.lua:23：You have been tasked to remove at least one of the threats to the yeeks.——任务列出两处威胁（Murgol 水下巢穴、ritch 隧道），完成任一即可；现译“清除……两大威胁之一”删去 at least，读作只需且只清除其中一个（删限定词类）。整条修复为“至少清除一个”一类；yeek 保持“夺心魔”（用户 2026-09-16 裁定）。"
+    },
+    {
+      "revision_key": "f8b95de7ac6ced5ff80a5243f1988f0193116ebee6f3d91b1f140e4f149027eb",
+      "stage": "surface",
+      "observation": "源文“Imploding”表示向内坍缩，译文“碎骨压制”改成碎骨和压制；冻结输入没有可解释这一技能名译法的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/physical.lua:1868–1876 效果 IMPLODING 来自技能 Implode，本库技能名译“碎骨压制”（mod-tome.lua:27501），效果名“碎骨压制（减速）”、失去提示“-碎骨压制”同族一致；“+碎骨压制”沿用技能名，不构成错译。"
+    },
+    {
+      "revision_key": "f8f18f9470ee9132598ded6a7b56fe64bb66357e323b82d5c3937ac6db3a5592",
+      "stage": "surface",
+      "observation": "原文限定敌人在自身周围（around you），译文遗漏了这一范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/gifts/gifts.lua:44 技能类别 eyal's fury 说明：Unleash nature's fury against foes around you.——现译“向敌人释放自然的愤怒”漏 around you（周围的敌人）。整条修复。"
+    },
+    {
+      "revision_key": "f8f3b8de5f3c9b6f43b4982e07c64d5c448c9dfe391adfc303c46103e5fc4fb4",
+      "stage": "surface",
+      "observation": "原文说对目标发动远程攻击即可获得额外回合，译文写成“命中敌人的远程攻击”，增加了命中条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "talents/techniques/agility.lua:265–272 callbackOnArcheryAttack 仅在 hitted 为真时给予回合（if hitted and not target.turn_procs.rapid_fire and dist < 5）；英文未写命中条件，现译“命中敌人的远程攻击”贴合实现，驳回。"
+    },
+    {
+      "revision_key": "f8f6be5a29af31327cf6a9ca51b895a3455c23aaff4991a472908899d6be09db",
+      "stage": "surface",
+      "observation": "原文写奥术伤害作用于所有对象（to all），译文只写对随机目标造成伤害，遗漏了这一范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "timed_effects/magical.lua:2672–2692 ARCANE_VORTEX：每回合从漩涡向视野内随机敌人发射 beam（eff.src:project type=\"beam\"），路径上所有目标都受 %0.2f 奥术伤害（to all）；现译“随机对附近视野内的目标造成伤害”漏掉射线贯穿、对路径上全部目标生效。整条修复。"
+    },
+    {
+      "revision_key": "f95b1ff435202ca7f954916847a88b41f02beaf214fbd8f29d310a3a8ee38a97",
+      "stage": "surface",
+      "observation": "原文限定玩家须在 Roguelike 或 Adventure 的永久死亡模式下，译文“永久死亡模式或冒险模式”遗漏了冒险模式也须永久死亡的条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "birth/descriptors.lua：Roguelike or Adventure permadeath mode 指永久死亡设置中的 Roguelike 或 Adventure 两档；本库 birth descriptor 名 Roguelike=“永久死亡模式”、Adventure=“冒险模式”（mod-tome.lua:3261/3266），现译按两档名称并列，含义一致，驳回。"
+    },
+    {
+      "revision_key": "f9686ee9bfdaa02580ff305e9c934ccd38117dcc73ab04279506cefda056251e",
+      "stage": "surface",
+      "observation": "原文的“gloves or gauntlets”是二选一，译文“手套和臂铠”表达为同时装备。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "talents/techniques/unarmed-training.lua:54：(or with gloves or gauntlets)——手部栏只能装备一件，现译“手套和臂铠”不致误读为同时装备；“仅装备”略有增译但不改机制，记 advisory。"
+    },
+    {
+      "revision_key": "f96caa476acde83d7688e43696572ba1bfa4a6c839dd906299a357acb24c58e4",
+      "stage": "surface",
+      "observation": "原文“You do not plan to fail”表达不打算失败，译文“你相信你不会重蹈她的覆辙”改成了相信不会失败。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "quests/grave-necromancer.lua:33：You do not plan to fail as she did——“不打算重蹈覆辙”与现译“相信不会重蹈覆辙”为意图/信念的语感差异，二级措辞，记 advisory。"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_04b7cf04119204e9016ab482713fe487d2887b71fcc32eefed",
+    "status": "completed",
+    "call_id": "call_qoUr67R9AzCzEJl7v7SKk2e9",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-cfd398e96c387cc31dc0/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:30000});text(r.output)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d11d-728b-7811-8eac-8dd0e3ca2f31",
+      "create_time": 1790214766.979234
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_04b7cf04119204e9016ab48276ad7087d2a92a6c48dbe2d316",
+    "status": "completed",
+    "call_id": "call_6qcVALLbUIiPerw3zPjWQk8t",
+    "name": "exec",
+    "input": "const x=ALL_TOOLS.filter(x=>/read.*file|file.*read|terminal|shell/.test(x.name+\" \"+x.description));text(x.map(y=>y.name+\" \"+y.description.slice(0,120)).join(\"\\n\"))\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d11d-728b-7811-8eac-8dd0e3ca2f31",
+      "create_time": 1790214771.037933
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_04b7cf04119204e9016ab4827a67f087d2b476e48e1b107650",
+    "status": "completed",
+    "call_id": "call_Kdtz2Q5TxclN6NqdVo2i1O06",
+    "name": "exec",
+    "input": "text(ALL_TOOLS.filter(x=>/mcp__paseo__(create_terminal|capture_terminal|send_terminal_keys)/.test(x.name)))\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d11d-728b-7811-8eac-8dd0e3ca2f31",
+      "create_time": 1790214776.468524
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_04b7cf04119204e9016ab4827dca9c87d2aa532e7072769c26",
+    "status": "completed",
+    "call_id": "call_4GyDDXSngNVP90x6yYOUZLIG",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-cfd398e96c387cc31dc0/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",workdir:\"/workspace/tome4-chinese-translation\",sandbox_permissions:\"require_escalated\",justification:\"May I read the two explicitly authorized local files outside the broken sandbox mount?\",max_output_tokens:30000});text(r.output)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d11d-728b-7811-8eac-8dd0e3ca2f31",
+      "create_time": 1790214779.486609
+    }
+  }
+]
