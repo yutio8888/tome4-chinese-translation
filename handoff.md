@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核269已完成；下一步修复窗口23，仅处理269的3条）
+更新时间：2026-09-24（修复窗口23已完成；待宿主发布收尾，随后审核270）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -371,6 +371,10 @@ surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个 identity 回显逐
 
 下一步按 1:1 节奏开修复窗口23，仅处理 269 的 3 条：夺心魔任务“至少清除一个威胁”（漏 at least）、埃亚尔之怒（eyal's fury）技能类别说明漏“周围的”、
 奥术漩涡说明漏射线贯穿路径上全部目标与本体同时受伤。范围见 `.ai/task/batch-cfd398e96c387cc31dc0/WINDOW23-REPAIR-DECISION.json`。
+
+修复窗口23已完成审核269确认的3条修复：夺心魔任务开场补回“至少”，改为“你被派去至少清除一个对夺心魔的威胁。”并保留末尾换行；埃亚尔之怒说明补回“你周围的”；奥术漩涡说明改为射线射向视野内随机敌人，对附着目标与射线路径上所有目标造成伤害；无敌人时，本回合漩涡对附着目标造成的伤害提高 50%；目标死亡时，残余伤害转化为半径 2 的奥术爆炸。`execute-01`（`codex/gpt-5.6-sol`）实施3条；`REVIEW(0)/full`（`codex/gpt-6-sol`）为 2 OK / 1 ISSUE，宿主核对 `timed_effects/magical.lua:2686-2687`（`624a673`）确认无敌人分支是一次 `eff.dam * 1.5` 伤害，而非目标易伤；`execute-02` 修复该句；`FINAL(1)/full`（`claude-opus-5-5`）为 3 OK，任务收敛。完整门禁全部通过并含严格构建，状态为 `DONE_VERIFIED`。2个 executor 与2个 reviewer child 均已归档确认；本 publication child 待宿主归档。本窗口无新增 pending。
+
+译文提交为 `78c3562727a947c49dd8ec65daff61707920b893`；新 catalog 为 `c975ad861660d866b62f8d2530be93926af2977852846d6367216e28e5d9e480`；migration 为 `d2075cb1e0938d0607405e8d8d85400e38b06f9245584e5838e455993014585f`。迁移结果为3条 `revision_changed`、29,825条 `unchanged`、0条 `ambiguous/unmapped`，3个 successor 待重新审核且不继承 `done`。完整结果见[窗口23发布证据](evidence/quality/repair-window-23-20260923/PUBLICATION.md)。本证据提交、第二次 queue rebuild 与 push 由宿主执行，完成后继续审核270（默认80条）；上述后续步骤尚未完成。
 
 ### 窗口7闭合时的暂停记录（历史）
 

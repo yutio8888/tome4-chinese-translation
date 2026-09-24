@@ -1,0 +1,43 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "status": "PASS",
+      "tool_calls": 12,
+      "native_calls_sha256": "4f8ae4a6d4bc476331161cfdd47f632ca37ee2ba5b99247f7bab029097c88192",
+      "writes": [
+        "mod-tome.lua (3 targets)",
+        "evidence/quality/repair-window-23-20260923/* (frozen input copies, HOST-WORKSET, IMPLEMENTATION.md, VALIDATION.json)"
+      ],
+      "reads": [
+        "role/task inputs",
+        "mod-tome.lua",
+        "pinned upstream sources via git show"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true,
+      "host_note": "host diffed all 3 targets: yeek quest 至少清除一个对夺心魔的威胁 (trailing LF kept); 埃亚尔之怒 description 向你周围的敌人; Arcane Vortex manathrust to random foe in sight, damages attached target and all in beam path, no-foe case +50% to attached target, radius 2 ball on death."
+    },
+    {
+      "dispatch_id": "execute-02",
+      "status": "PASS",
+      "tool_calls": 8,
+      "native_calls_sha256": "f24c65d203cea206a65083751a18ec7124b4fa9c70ef84974a29d4a1a9fccf1d",
+      "writes": [
+        "mod-tome.lua (Arcane Vortex no-foe sentence only: 如果没有找到敌人，本回合漩涡对其附着的目标造成的奥术伤害提高 50%%。)",
+        "evidence/quality/repair-window-23-20260923/IMPLEMENTATION.md, VALIDATION.json (appended)"
+      ],
+      "reads": [
+        "role, SPEC, ADJUDICATION-R0",
+        "mod-tome.lua"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "no_paseo_terminal": true,
+      "manually_reviewed": true
+    }
+  ],
+  "host_verify_after": "after execute-02: verify.py PASS, exactly 3 targets changed vs baseline"
+}

@@ -1,0 +1,30 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "raw_ok_count": 2,
+  "raw_issue_count": 1,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "id": "R0-VORTEX-NOFOE-SINGLE-HIT",
+      "revision_key": "f8f6be5a29af31327cf6a9ca51b895a3455c23aaff4991a472908899d6be09db",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "宿主核验 game/modules/tome/data/timed_effects/magical.lua:2686-2687（624a673）：on_timeout 中 #l==0 时只对漩涡附着目标调用一次 ARCANE projector，伤害 eff.dam*1.5；不是目标本回合受到的全部奥术伤害提高。现译“漩涡附着的目标本回合受到的奥术伤害提高 50%%”可读成易伤状态，与实现不符；改为以漩涡本回合造成的伤害为主语。",
+      "replacements": [
+        {
+          "scope": "sentence",
+          "old": "如果没有找到敌人，漩涡附着的目标本回合受到的奥术伤害提高 50%%。",
+          "new": "如果没有找到敌人，本回合漩涡对其附着的目标造成的奥术伤害提高 50%%。"
+        }
+      ]
+    }
+  ],
+  "host_check": "其余 2 条 OK（夺心魔任务“至少”，1 LF 保持；埃亚尔之怒“你周围的敌人”）。",
+  "next_stages": [
+    "FIX",
+    "FINAL_REVIEW(1)"
+  ],
+  "recorded_at": "2026-09-24T02:33:39.120522+00:00"
+}

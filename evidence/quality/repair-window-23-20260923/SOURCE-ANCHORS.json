@@ -1,0 +1,41 @@
+{
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "queries": [
+    {
+      "revision_keys": [
+        "f8a393e313adfeab02c028ebb2e35f44f1ddb1557a8fea34db2b0f1b23da41a0"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/quests/start-yeek.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c32234e04c27cd0682286fad06be9b2ba5d3e8e9b466436b626f204f86748791",
+      "start_line": 18,
+      "end_line": 40,
+      "excerpt": "18: -- darkgod@te4.org\n19: \n20: name = _t\"Following The Way\"\n21: desc = function(self, who)\n22: \tlocal desc = {}\n23: \tdesc[#desc+1] = _t\"You have been tasked to remove at least one of the threats to the yeeks.\\n\"\n24: \tdesc[#desc+1] = _t\"Protect the Way, and vanquish your foes.\\n\"\n25: \tif self:isCompleted(\"murgol\") then\n26: \t\tif self:isCompleted(\"murgol-invaded\") then\n27: \t\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the underwater zone and vanquished the naga invader, Lady Nashva.#WHITE#\"\n28: \t\telse\n29: \t\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the underwater zone and vanquished Murgol.#WHITE#\"\n30: \t\tend\n31: \telse\n32: \t\tdesc[#desc+1] = _t\"#SLATE#* You must explore the underwater lair of Murgol.#WHITE#\"\n33: \tend\n34: \tif self:isCompleted(\"ritch\") then\n35: \t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the ritch tunnels and vanquished their queen.#WHITE#\"\n36: \telse\n37: \t\tdesc[#desc+1] = _t\"#SLATE#* You must explore the ritch tunnels.#WHITE#\"\n38: \tend\n39: \treturn table.concat(desc, \"\\n\")\n40: end"
+    },
+    {
+      "revision_keys": [
+        "f8f18f9470ee9132598ded6a7b56fe64bb66357e323b82d5c3937ac6db3a5592"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/talents/gifts/gifts.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "99adc44487cb958bccd8d8698c0d42e192c4c0fe4d81d60c95bd41fd0c3d33c6",
+      "start_line": 40,
+      "end_line": 48,
+      "excerpt": "40: newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/moss\", name = _t(\"moss\", \"talent type\"), description = _t\"You learn to control moss, making it grow at will to help you on the battlefield.\" }\n41: newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/malleable-body\", name = _t(\"malleable body\", \"talent type\"), description = _t\"Your body's anatomy is starting to blur.\" }\n42: newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/oozing-blades\", name = _t(\"oozing blades\", \"talent type\"), description = _t\"You channel ooze through your psiblades.\" }\n43: newTalentType{ allow_random=true, is_mind=true, is_nature=true, type=\"wild-gift/corrosive-blades\", name = _t(\"corrosive blades\", \"talent type\"), description = _t\"You channel acid through your psiblades.\" }\n44: newTalentType{ allow_random=true, is_mind=true, is_nature=true, is_antimagic=true, type=\"wild-gift/eyals-fury\", name = _t(\"eyal's fury\", \"talent type\"), description = _t\"Unleash nature's fury against foes around you.\" }\n45: newTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/earthen-power\", name = _t(\"earthen power\", \"talent type\"), description = _t\"Dwarves have learned to imbue their shields with the power of stone itself.\" }\n46: newTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/earthen-vines\", name = _t(\"earthen vines\", \"talent type\"), description = _t\"Control the stone itself and bring it alive in the form of dreadful vines.\" }\n47: newTalentType{ allow_random=true, is_nature=true, type=\"wild-gift/dwarven-nature\", name = _t(\"dwarven nature\", \"talent type\"), description = _t\"Learn to harness the innate power of your race.\" }\n48: "
+    },
+    {
+      "revision_keys": [
+        "f8f6be5a29af31327cf6a9ca51b895a3455c23aaff4991a472908899d6be09db"
+      ],
+      "component": "tome",
+      "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start_line": 2668,
+      "end_line": 2702,
+      "excerpt": "2668: \n2669: newEffect{\n2670: \tname = \"ARCANE_VORTEX\", image = \"talents/arcane_vortex.png\",\n2671: \tdesc = _t\"Arcane Vortex\",\n2672: \tlong_desc = function(self, eff) return (\"An arcane vortex follows the target. Each turn a manathrust fires from it to a random foe in sight doing %0.2f arcane damage to all. If no foes are found the main target takes 50%% more arcane damage this turn. If the target dies the remaining damage is dealt as a radius 2 ball of arcane.\"):tformat(eff.dam) end,\n2673: \ttype = \"magical\",\n2674: \tsubtype = { arcane=true },\n2675: \tstatus = \"detrimental\",\n2676: \tparameters = { dam=10 },\n2677: \ton_gain = function(self, err) return _t\"#Target# is focused by an arcane vortex!\", _t\"+Arcane Vortex\" end,\n2678: \ton_lose = function(self, err) return _t\"#Target# is free from the arcane vortex.\", _t\"-Arcane Vortex\" end,\n2679: \ton_timeout = function(self, eff)\n2680: \t\tif not self.x then return end\n2681: \t\tlocal l = {}\n2682: \t\tself:project({type=\"ball\", x=self.x, y=self.y, radius=7, selffire=false}, self.x, self.y, function(px, py)\n2683: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n2684: \t\t\tif target and target ~= self and eff.src:reactionToward(target) < 0 then l[#l+1] = target end\n2685: \t\tend)\n2686: \n2687: \t\tif #l == 0 then\n2688: \t\t\tDamageType:get(DamageType.ARCANE).projector(eff.src, self.x, self.y, DamageType.ARCANE, eff.dam * 1.5)\n2689: \t\telse\n2690: \t\t\tDamageType:get(DamageType.ARCANE).projector(eff.src, self.x, self.y, DamageType.ARCANE, eff.dam)\n2691: \t\t\tlocal act = rng.table(l)\n2692: \t\t\teff.src:project({type=\"beam\", x=self.x, y=self.y}, act.x, act.y, DamageType.ARCANE, eff.dam, nil)\n2693: \t\t\tgame.level.map:particleEmitter(self.x, self.y, math.max(math.abs(act.x-self.x), math.abs(act.y-self.y)), \"mana_beam\", {tx=act.x-self.x, ty=act.y-self.y})\n2694: \t\tend\n2695: \n2696: \t\tgame:playSoundNear(self, \"talents/arcane\")\n2697: \tend,\n2698: \ton_die = function(self, eff)\n2699: \t\tlocal tg = {type=\"ball\", radius=2, selffire=false, x=self.x, y=self.y}\n2700: \t\teff.src:project(tg, self.x, self.y, DamageType.ARCANE, eff.dam * eff.dur)\n2701: \t\tif core.shader.active(4) then\n2702: \t\t\tgame.level.map:particleEmitter(self.x, self.y, 2, \"shader_ring\", {radius=4, life=12}, {type=\"sparks\", zoom=1, time_factor=400, hide_center=0, color1={0.6, 0.3, 0.8, 1}, color2={0.8, 0, 0.8, 1}})"
+    }
+  ]
+}

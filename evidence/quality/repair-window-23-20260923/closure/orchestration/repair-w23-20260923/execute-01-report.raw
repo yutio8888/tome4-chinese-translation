@@ -1,0 +1,20 @@
+窗口 23 的 3 条译文已完成：
+
+- 夺心魔任务补出“至少”，并保留末尾 1 个换行。
+- 埃亚尔之怒补出“你周围的敌人”。
+- 奥术漩涡补全随机敌人、射线路径全部目标及附着目标受伤机制。
+
+修改文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- [实施记录](/workspace/tome4-chinese-translation/evidence/quality/repair-window-23-20260923/IMPLEMENTATION.md)
+- [检查结果](/workspace/tome4-chinese-translation/evidence/quality/repair-window-23-20260923/VALIDATION.json)
+
+三份冻结输入已逐字节复制并核验。检查全部通过：
+
+- 专用 `verify.py`：恰好 3 个 target 变更
+- strict lint：30308 条，0 errors、0 warnings
+- strict claims：通过
+- `git diff --check`：通过
+
+未修改 `.ai`、术语库、规则、工具或其他译文；未 stage、commit、push；无关 untracked 均保留。完整门禁、独立复审、构建和 `DONE_VERIFIED` 留给宿主继续。
