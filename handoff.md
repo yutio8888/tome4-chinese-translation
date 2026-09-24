@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（审核276已 finalize；修复积压19条；连续审核已恢复）
+更新时间：2026-09-24（审核277已 finalize；修复积压28条；窗口27待开启）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,11 +8,11 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **276** 批（`batch-f8d6c02a3294c168f104`，证据及规则修复 `f4caea17`，finalize 通过）。
-  下一批是 277，默认 80 条。没有 active batch。
-- 修复窗口已闭合至 **26**（证据 `b2ebc16d`）。下一个窗口是 27，等积压达到 20 条再开。
-- 2026-09-24 已提交并推送工具维护与文档整理（本交接所在提交），内容见第四节。
-- 近四批结果：
+- 审核已闭合至第 **277** 批（`batch-a2538cac10c65873a661`，证据及 stage 修复 `35fe994e`，finalize 通过）。
+  当前没有 active batch；修复积压已达到开窗阈值。
+- 修复窗口已闭合至 **26**（证据 `b2ebc16d`）。下一个窗口是 27，积压已达 28 条，按授权开启合并修复。
+- 2026-09-24 早些时候已提交并推送工具维护与文档整理，内容见第四节。
+- 近五批结果：
 
 | 批次 | batch id | 结果 | surface（gpt-6-sol） | contextual（opus-5-5） | 裁决 |
 | --- | --- | --- | --- | --- | --- |
@@ -20,6 +20,7 @@
 | 274 | `batch-c03b7552b4059d697ec0` | 75 done / 5 repair | 69 OK / 11 ISSUE | 8 OK / 3 ISSUE | 8 confirmed / 6 refuted |
 | 275 | `batch-54d2d16b94c511082107` | 74 done / 6 repair | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 10 confirmed / 5 refuted |
 | 276 | `batch-f8d6c02a3294c168f104` | 72 done / 6 repair / 2 blocked | 69 OK / 11 ISSUE | 6 OK / 5 ISSUE | 10 confirmed / 3 refuted / 3 pending observations |
+| 277 | `batch-a2538cac10c65873a661` | 70 done / 9 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 13 confirmed / 1 refuted / 1 pending observation |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -32,7 +33,7 @@
 - 审核模型：surface `codex/gpt-6-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
   修复 EXECUTOR `codex/gpt-5.6-sol`。
 
-## 三、修复积压（19 条，窗口 27 的范围）
+## 三、修复积压（28 条，窗口 27 的范围）
 
 | 来源批次 | revision（前 8 位） | 修复内容 |
 | --- | --- | --- |
@@ -55,11 +56,20 @@
 | 276 | `0523b499` | Ashes 灼热土地平台分裂的时序与意象，避免写成醒后已分离 |
 | 276 | `0c22616d` | `treacherous road` 改为险途，保留世界之巅与引号 |
 | 276 | `0ed56881` | `Most simply run` 改回逃跑，`destruction's engines` 不添战争机器 |
+| 277 | `10419e2e` | black flame 恢复黑色，避免误作邪恶火焰 |
+| 277 | `119af893` | extracting / willing 的斜体强调位置与原文对齐 |
+| 277 | `120d3d48` | 水晶记忆对白恢复踏板、束缚装置及被删时序，不添“思维”限定 |
+| 277 | `12c3c45f` | 3 arms 改“三条手臂”，非“三只手” |
+| 277 | `1be82f2f` | primary ambush 改首轮伏击，并写明已脱身 |
+| 277 | `218c180b` | 乌鲁洛克认可库马纳的心智、同条专名一致、锦标赛错字及体能耐力 |
+| 277 | `21d89ecd` | 堡垒停在兵工厂上方而非主动瞄准；修复“怀着／所拥有”等错字和增译 |
+| 277 | `28ea9897` | fiery display 恢复炽烈/火焰意象，不用闪电 |
+| 277 | `295b84f0` | 恶魔形态说明后续行恢复两个制表符缩进；“半径”有机制依据，保留 |
 
-范围与源码依据：273 见 `.ai/task/batch-5e69946bed52ed5a5cbc/WINDOW27-REPAIR-DECISION.json`，274–276 见各自
+范围与源码依据：273 见 `.ai/task/batch-5e69946bed52ed5a5cbc/WINDOW27-REPAIR-DECISION.json`，274–277 见各自
 `.ai/task/<batch>/REPAIR-BACKLOG-DECISION.json` 与 `HOST-FINAL-DECISIONS.json`。
 宿主目录里的 `setup_window27_task.py` 只按 273 的 2 条生成、**未运行**；开窗时要改成多来源批次版本
-（preflight 一次最多 3 个 batch id，现有 4 个来源批次；开窗时需按指南处理输入分组，不可直接运行旧脚本）。
+（preflight 一次最多 3 个 batch id，现有 5 个来源批次；开窗时分组运行并改写脚本，不可直接运行旧脚本）。
 
 ## 四、本轮工具维护与文档整理（2026-09-24）
 
@@ -74,14 +84,11 @@
 - 尚未实施的提速项：把 `surface-import` 与 `contextual-export` 合成一次调用（需放宽 `prepare_contextualN.py`
   的 phase 断言到 `deep_ready`），见指南 4.3 节。
 
-## 五、下一步（恢复后）
+## 五、下一步
 
-1. 审核277：`python3 -B tools/orchestration/run_batch_steps.py rollover-chain --limit 80` 可直接开批（首次使用，
-   留意输出里的 batch id 与 rebuild 报告）；或沿用 `production batch start --limit 80`。
-   脚本从本批已闭合的 `*276.py` 生成，见指南第三节。
-2. 继续攒批；积压达到 20 条后开合并修复窗口 27（指南第五节，首次使用 `publish-chain`）。
-3. 用户集中审阅 pending：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 21 项，含
-   `cunning` 叙事语境、若干技能／神器命名、死亡描述表等）。
+1. 在 `35fe994e` 及本次 closure 提交的 HEAD 上，按指南第五节将 273–277 的 28 条积压拆成两组来源批次做 repair preflight（每次最多 3 个 batch id）；建立合并修复窗口 27 的有界 SPEC/SCOPE，禁止直接运行只含 273 两条的旧脚本。
+2. 窗口 27 完整修复、复审、门禁、提交和发布闭合后，恢复连续审核第 278 批。
+3. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 22 项）。
 
 ## 六、环境备忘
 
@@ -92,5 +99,6 @@
 - 未跟踪文件 `.ai/consult/`、`recipe` 与旧的 `evidence/quality/production-batches/*-source-workset.json`（15 个）
   是既有遗留，保持不动。
 - 历史保留边界：Archmage `8b977dd836…` 仍为范围外 pending；`RW1-SIB-01`、`RW1-SIB-02` 永久排除，不计阈值。
+- 第 277 批 contextual 首轮 Opus 为找 DLC checkout 枚举 `/workspace`，输出被拒收并确认归档；重冻后单个 Opus run 读取边界通过并 DONE_VERIFIED。
 - 第 276 批 contextual 原本按主游戏 6 条、Ashes DLC 5 条拆成两个 Opus run；DLC 两次旧输出因 `find /` 越界被拒收并归档。
   规则 prompt 与契约现明确禁止从 `/` 或无关目录扫描，并在新 envelope 中给出本批 DLC checkout；同 event 重冻后两路 reviewer 均通过读取边界检查与 `DONE_VERIFIED`。
