@@ -1,0 +1,362 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 19）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-19.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 19,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Thought] Initial focus is on reviewing packet 19, starting with file inspection. The review involves examining data within the specified file, adhering to the given review instructions. A read-only approach is essential, avoiding any modification or deletion of files.
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-19.json
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-19.json
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-19.json
+[Thought] Packet 19 holds a list of entries; the first few are from batch 13 and 14, originating from a specific Lua file. The structure suggests this packet might represent a data grouping or a processing sequence of some kind. Need to examine each entry to understand the nature of the list and how it's being used.
+[Shell] ls -la .ai/task/human-review-adjudication-20260923/
+[Shell] rg -n "applied-change-review-v1" .ai/
+[Shell] ls -la .ai/reviews/human-review-adjudication-20260923/
+[Read] .ai/task/human-review-adjudication-20260923/harvest_review_packet.py
+[Read] .ai/reviews/human-review-adjudication-20260923/raw-review-1.json
+[Shell] rg -n '"verdict": "(issue|unclear)"' .ai/reviews/
+[Shell] rg -n '"verdict": "(issue|unclear)"' evidence/
+[Shell] sed -n '205,225p' evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/raw-review-12.txt
+[Shell] find /workspace -maxdepth 3
+[Shell] ls -d /workspace/*
+[Shell] ls /workspace/tome4-dlcs
+[Shell] git -C /workspace/tome4-dlcs/orcs status || ls /workspace/tome4-dlcs/orcs
+[Shell] rg -n "tome-orcs" evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/
+[Thought] The task requires correlating entries from `REVIEW-PACKET-19.json` with the entries in `HUMAN-REVIEW-QUEUE.json`. The goal is to establish the mapping between these two datasets. Identified the specific items from `REVIEW-PACKET-19.json` as the starting point.
+[Shell] python3 -c ' import json with open("evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/HUMAN-REVIEW-QUEUE.json") as f: data = json.load(f) qids = {"hrq-00528", "hrq...
+[Shell] python3 -c ' import json with open("evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/HUMAN-REVIEW-QUEUE.json") as f: data = json.load(f) print(data.keys()) '
+[Shell] python3 -c ' import json with open("evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/HUMAN-REVIEW-QUEUE.json") as f: data = json.load(f) qids = {"hrq-00528", "hrq...
+[Shell] find /workspace/tome4-dlcs/orcs/ -name "*.lua" | head -n 30
+[Shell] ls -d .artifacts/i18n/all-modified-review-20260922/sources/orcs/ 2>/dev/null
+[Thought] Analyzing each entry in the review packet. Will cross-reference the proposed changes against the codebase, terminology files, and existing game logic for consistency. Checking for potential conflicts and unexpected side effects introduced by these modifications. The primary focus is on ensuring semantic correctness and adherence to established game mechanics.
+[Shell] grep -rn "Hot liquid metal, the fun!" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '70,110p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua
+[Shell] sed -n '40,70p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua
+[Shell] grep -i "Furnace" terminology/*.tsv
+[Shell] grep -n '"Furnace"' tome-orcs.lua
+[Shell] rg -n '"evidence":' evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/raw-review-*
+[Thought] The goal is to understand the acceptable formatting of "evidence" when the verdict is "ok". Examining several examples suggests that an empty array for "evidence" is valid in these cases. The prompt's requirement is that "evidence" be a non-empty array, but allows for an empty array if the verdict is "ok".
+
+
+Initial assessment indicates the prompt's rules are understood. The task requires evaluating items based on specified criteria (`ok`, `issue`, `unclear`). "Evidence" formatting varies depending on the verdict. Now, item 1 analysis begins.
+
+
+Analyzing item 2, the primary effect describes armor overheating at 10 molten points, cauterizing physical effects, and injecting fire immunity. The effect also consumes all molten points and triggers a Furnace Vent. The previous version likely omitted a precondition. It needs to be checked and addressed.
+[Shell] grep -rn "It's only a flesh burn" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '150,185p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua
+[Thought] The `removeEffectsFilter` function's purpose is to eliminate a specified number of detrimental physical status effects, linking "最多 %d 个负面物理状态" directly to its functionality. A mistranslation of "It's only a flesh burn!" was successfully corrected. Now, the new target focuses on something related to reaching 10 melting points.
+[Shell] grep -rn "You have learned to fire while moving" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '50,110p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua
+[Thought] Initial assessment of the "old_target" descriptions reveals omissions and inaccuracies. Specifically, the description of the action involving shooting and moving is incomplete, missing the detail about using "double steamguns" and the constraint of immobility. The description of time consumption also lacks the "if you move" condition and incorrectly states "steam speed" instead of "steam tech speed." The statement regarding ammunition gain post-sweep, depending on how much was spent, is partially complete, with the "%d to %d" part representing that it changes.
+[Shell] grep -rn "Your cunning and dexterity allow you to fire incredible trick shots" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '180,265p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua
+[Thought] Analyzing `gunslinging.lua`, the code iterates through visible actors within the field of view, looking for targets. It checks if an actor is not itself, has a negative reaction (implying hostility), and is visible. A distance check further filters actors within a range of 1 to 5 units, suggesting a close-quarters targeting condition.
+[Shell] grep -rn "resists the stunning shock" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '720,750p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua
+[Shell] grep -rn "slams into something solid" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '970,1005p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua
+[Shell] grep -rn "cooldown twice as fast" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] grep -rn "MECHARACHNID_PILOTING" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '435,465p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/other.lua
+[Thought] Examining the cooldown mechanism, it appears talents without fixed cooldowns decrease their remaining time by an additional one turn per turn, on top of the default recovery. This suggests a total cooldown reduction of two turns per turn for eligible talents.
+[Shell] grep -rn "establish a psionic bloodlink" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '50,90p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mechstar.lua
+[Thought] The `info` string directly utilizes `self:getTalentRadius(mt) * 2`. Examining the context, the relevant phrase explicitly refers to "twice %d". It appears the radius is already correctly doubled; the parameter passed to the format specifier `%d` in `old_target` is `self:getTalentRadius(mt) * 2`, aligning with the stated requirement for twice the talent radius.
+[Shell] grep -rn "ranged melee attack" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '320,365p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Thought] This attack is intended as a ranged melee attack. The code uses a melee attack function, but surprisingly, it utilizes an "ammo weapon" and copies "ranged\_project" into "melee\_project." The structure indicates a design to leverage ranged attributes within a melee context.
+[Shell] grep -rn "healing other mechanical creatures" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '880,920p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] grep -rn "special explosive shot with your steamgun" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '5540,5570p' tome-orcs.lua
+[Thought] The text describes a skill that creates an explosion, not firing a bullet. The translation mistakenly used "bullet fragments" when describing each instance of the explosion. This suggests a misunderstanding of the skill's mechanics, where the action is creating an explosion and not shooting projectiles.
+[Shell] grep -rn "special hook shot with your steamgun" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '1580,1615p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Thought] The talent "Hook Shell" is translated to "钩索弹". The description indicates it's a hook shot fired from a steamgun, pulling either the target creature or the user, depending on the target. Notably, this talent uses no ammo, as it *is* the ammo.
+[Shell] grep -rn "special voltaic shot with your steamgun" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '1660,1700p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Thought] The particle emitter confirms lightning beams, not spheres, are the intended effect. Examining the old target's descriptions reveals translation inaccuracies. Specifically, "发射特殊弹药" misses "voltaic", "打击周围 %d 的敌人" misses "up to" and "nearby," and "每个闪电球造成 %0.2f 的闪电伤害" erroneously introduces "闪电球."
+[Shell] grep -rn "Nourishing Moss" mod-tome.lua terminology/
+[Thought] The talent name "生命苔藓" requires verification against the English name "Nourishing Moss." Found inconsistencies in the translation for "Botanical Shell" and the description of "生命苔藓". The description needs grammatical revision for clarity and accurate damage representation.
+[Shell] grep -rn "global speed" terminology/
+[Shell] grep -rn "slam your saws into the wounds" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '50,110p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/sawmaiming.lua
+[Thought] The previous translation omitted "The power and" and replaced "slam your saws into" with "placing on the wound," altering the meaning. `getDamageInc` and `getDamage` both scale with steampower; therefore, the translation must reflect that both the power/bleeding damage boost and the blood gush damage are related to the steampower. The translation should accurately convey the action of forcefully inserting the saws.
+[Shell] grep -rn "latch on it and bore into its skull" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] grep -rn "cross-tier" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '20,50p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/cun.lua
+[Shell] sed -n '20,45p' /workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Combat.lua
+[Shell] grep -rn "Any spell damage you deal to it will ripple around" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '15,90p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Thought] The damage trigger relies on the source of the damage, explicitly requiring the summoner to be the origin based on the code condition `src ~= self.summoner`. The English description of the ability's effect confirms that the summoner's spell damage is the intended trigger for the ripple effect. Therefore, only damage originating from the summoner will cause the drone's ability to activate.
+
+
+The original description lacked a crucial qualifier ("you deal to it"), leading to misinterpretation. The revised description accurately reflects the intended trigger: damage inflicted *by the player* activates the effect. This ensures the ability functions as designed, matching the code's behavior.
+
+
+The core concept highlights the Technomancer's use of technology to enhance elemental magic, emphasizing the crafting of the Arcane Dynamo for robe integration. The updated text clarifies the Technomancer's focus on steam technology and maintains the critical need to build and equip the Dynamo for power enhancement.
+[Shell] grep -rn "Arcane Dynamo" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '1899,1930p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua
+[Shell] sed -n '52,75p' /workspace/tome4-dlcs/orcs/tome-orcs/data/tinkers/electricity.lua
+[Shell] grep -rn "TINKER_ARCANE_DYNAMO" /workspace/tome4-dlcs/orcs/tome-orcs/
+[Shell] sed -n '100,120p' /workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/tinkers/electricity.lua
+[Thought] #{bold}# The tinkered item is cloth armor, specifically a robe, clarifying the previous misconception. Installing the arcane generator *after* it's equipped is the correct interpretation. The effect "boosts spell strength based on current steam" replaces the inaccurate "steam level." This confirms a rudimentary grasp of steam technology.
+
+
+Reviewing the translation list, all items appear correctly translated and updated. No further issues or inconsistencies were identified during the review of the twenty items.
+
+
+The updated skill grants the ability to shoot while moving, specifying dual steamguns with a range penalty. The movement is now restricted, clarifying it excludes cases of immobilization. Cooldown and reload mechanics are now clarified, linking reload amount to the number of strafes performed and ammo capacity.
+
+
+The updated description now correctly specifies "cunning and dexterity" instead of just "agility," improving accuracy. The bouncing projectile's mechanics are also clarified, explicitly stating it targets the closest available enemy, bouncing off solid objects, and terminating if it misses. No issues were found with this revised translation.
+
+The next entry involves differentiating "stunning shock" from "stunning blow."
+
+
+The first entry accurately describes a collision with a stunning lightning effect. The second correctly translates "cooldown twice as fast" and addresses the previous inaccuracy. The final entry concerns a psionic bloodlink and damage transfer.
+
+
+The first entry describes a new mechanic with blood-psionic links and damage over time, including distance and steam-based damage scaling. The skill name and terminology have also been corrected.
+
+The second entry focuses on an ammo-based attack, clarifying that a Voratun-made weapon fires an extra shot and correcting the description of the "ranged melee" interaction with ammo effects.
+
+
+The translation for the healing skill correctly adds "other" to specify the target as "other mechanical creatures." The explosive shot description was updated to clarify the shot's nature and ammo consumption.
+
+
+The first entry indicates an update to a grappling ability, restoring specific terminology and clarifying it functions as ammo. The second entry describes an offensive lightning ability, updating the translation to maintain accuracy. No outstanding issues were found with either update.
+
+
+The lightning ability now correctly specifies "special voltaic shot" and limits the number of affected enemies. The description clarifies that each lightning bolt deals damage and the skill functions as ammo, not consuming it. The moss ability's radius and duration are correctly defined, and its damage is clarified.
+
+
+The "Nourishing Moss" skill description has been reviewed.  The description fixes grammatical issues, restores the intended phrasing for ammo consumption, and confirms accurate translation of "special botanical shot." No issues remain.
+
+The next entry focuses on "special toxic shot" description. The translation now uses the correct terminology, "全局速度" (global speed), clarifies the phrasing related to ammo mechanics, and corrects the phrase regarding "Toxin strength scales with Steampower".
+
+
+The "ammo" check confirms the translation correctly indicates no ammo consumption. The skill description has been reviewed, restoring "slam into", "narrow", and "power and damage".
+
+
+The translation restores "latch on it and bore into its skull", which clarifies the mind drones' attack method. This addresses a previous deficiency in the description.
+
+
+
+The phrase "（或任何其他目标）" was updated to "（或其他任何人）" for clarity regarding who can trigger the effect. The phrase "你对其造成的" was restored in a subsequent entry. No issues were detected.
+
+
+Review of the translation confirms adjustments: "dabble in" replaces "精通", and "Once put in a robe" refines the phrasing. "Current steam level" replaces the previous terminology for accuracy.
+[Shell] python3 -c ' import json data = { "contract": "applied-change-review-v1", "packet_number": 19, "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high", "items": [ { "entry_id": "entry-03925", "verdict":...
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 19,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-03925",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03926",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03931",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03933",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03939",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03940",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03946",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03950",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03953",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03960",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03967",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03970",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03971",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03972",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03973",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03977",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03984",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03990",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03996",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03997",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    }
+  ]
+}

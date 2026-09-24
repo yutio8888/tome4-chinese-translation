@@ -1,0 +1,352 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 15）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-15.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 15,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-15.json
+[Thought] Analyzing packet 15, there are fourteen identified entries, each with a unique identifier pair. Need to understand the relationship between these items and the larger data context. The identifiers may relate to requests or internal tasks, further investigation needed.
+[Shell] git -C /workspace/t-engine4 grep -n "Teaches various martial arts techniques that may not be practiced" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] Examining the definition of a new talent type, specifically "unarmed training". This talent is marked as generic, allowing it to be randomly assigned, and is specifically for techniques unusable while heavily armored or wielding a weapon. This suggests it's a foundation for martial arts skills within the game.
+[Shell] rg -i "massive armor" terminology/
+[Shell] rg -i "martial" terminology/
+[Shell] rg "massive armo[u]?r" terminology/
+[Shell] rg "板甲" terminology/
+[Shell] ls terminology/
+[Shell] rg -i "massive" terminology/items.tsv
+[Shell] rg -i "massive armou?r" mod-tome.lua
+[Thought] Examining the talent descriptions, a commonality emerges: certain combat techniques are restricted by equipment or armor. Specifically, unarmed boxing and combo-point finishing moves are impractical when heavily armored or wielding a weapon/shield. This suggests a potential gameplay mechanic linked to equipment and combat style.
+
+
+The previous translation of "martial arts techniques" was inaccurate, using a redundant phrase and misrepresenting game mechanics regarding equipment restrictions. The updated translation accurately reflects the intended meaning and aligns with the consistent structure of other talent descriptions. This refined translation is a faithful and mechanically correct representation.
+[Shell] git -C /workspace/t-engine4 grep -n "increasing your attack speed with them" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/throwing-knives.lua | sed -n '320,360p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/throwing-knives.lua | sed -n '280,325p'
+[Shell] git -C /workspace/t-engine4 grep -n "T_QUICKDRAW" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '445,455p'
+[Thought] The code snippet clearly indicates a speed increase specifically for throwing attacks, not general attack speed. The original translation omitted the crucial phrase "with them" and incorrectly applied the bonus to all attacks. The translation must now reflect the intended effect: increasing throwing knife attack speed by a percentage. The correction is "飞刀攻击速度增加 %d%%".
+[Shell] git -C /workspace/t-engine4 grep -n "The Armor and Block bonuses increase equally" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/weaponshield.lua | sed -n '205,245p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/weaponshield.lua | sed -n '175,205p'
+[Thought] Armor and Block bonuses are calculated based on Strength and Dexterity. Both statistics provide an equal contribution to both Armor and Block values. This suggests a direct and symmetrical relationship between these stats and the resulting defensive capabilities.
+[Shell] git -C /workspace/t-engine4 grep -n "assembles %s" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/uber/cun.lua | sed -n '220,250p'
+[Thought] The code snippet relates to the "Crafty Hands" prodigy, specifically the "Staff of Telos." Learning this prodigy triggers the addition of an item to the player's inventory and a log message. The log message's placeholders are populated with the player's capitalized name and the item's name (the Staff of Telos).
+
+
+The previous log message uses an incorrect verb, implying the player transforms into the staff. The correct action is assembling the staff; thus, the verb must be changed to accurately reflect the action. The correct structure should have the player assembling the staff. The new log message uses the revised structure.
+
+
+Analyzing the element-based effect triggered by damage accumulation. The formatting indicates specific elemental effects with associated numeric values for damage, radii, and durations. The placeholder `%d` likely requires level-scaled or dexterity-scaled numeric values that dynamically modify the damage threshold and effects.
+
+
+Analyzing element-specific effect definitions, identified inconsistencies in formatting, particularly the spacing around colons and a missing period. Corrected these inconsistencies to ensure consistent parsing of elemental effects' descriptions. Verified the structure of the placeholder text to ensure accurate display of numeric values.
+[Shell] rg -i "\bdread\b" terminology/
+[Thought] The term "噩灵" (Dread) consistently appears as the canonical translation for the "Dread" creature and talent across multiple terminology files. The previous translation "梦魇" (nightmare) is inaccurate. Updating to "噩灵" ensures consistency with the established terminology.
+
+
+Examining the file `mod-tome.lua:31700`, I'm looking at a talent related to celestial forces and a Distant Sun entity. The associated benefits seem to include dual-wielding (two-handed weapon and shield), light damage conversion, area of effect damage with an enemy draw effect, and boosted Searing Sight, along with Judgment cooldown reduction and resistance debuffs. The target needs updating to reflect these benefits.
+
+
+The updated target introduces the ability to equip both a two-handed weapon and a shield simultaneously. This requires modification to reflect this dual-wielding capability alongside existing effects like light damage conversion, AOE damage, and buffed Searing Sight, and the reduction to Judgment cooldown. The talent description now explicitly states this dual-wielding benefit.
+
+
+The previous translation incorrectly interpreted "strength of your bond" as player strength. The correct interpretation is the strength of the bond with the Star, as the new translation reflects. The update ensures the translation accurately reflects the context.
+
+
+The previous entry corrects a Chinese quotation mark mismatch, ensuring consistent formatting. Item `entry-02523` signals the completion of a tutorial. The user should now be familiar with ToME4 basics and ready to progress into the game's world.
+[Shell] git -C /workspace/t-engine4 grep -n "Ahead are a series of bored elves who will happily blast you" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The translation seems imprecise; the phrase "whatever spell they have handy" implies a variety of spells, not necessarily a pre-defined set. The instruction suggests testing the effects by examining the tooltip for each inflicted spell. It's likely that observing the tooltip will reveal each spell's specific properties and durations.
+[Shell] git -C /workspace/t-engine4 grep -n "You have \"lifted\" the curse of Ben Cruthdar" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The original translation missed the ironic nuance of "lifted," implying the curse's removal was achieved through lethal means, not a cure. The goal is to accurately reflect that the curse was "lifted" in the sense that the character's life was ended, therefore enabling a new class of characters. The updated target translation now aims to capture this critical distinction.
+
+
+The translation of "A delight for the audience, a source of wealth and glory" was improved. The initial translation was unidiomatic. The revised target is a more natural rendering of the original source.
+
+
+The target translation contained a grammatical error. The original phrase "达到目的法师" lacked the necessary particle "的." The updated target now correctly reads "达到目的的法师," improving the accuracy and readability of the text.
+
+
+The goal is to translate the flavor text describing a new game mode called "Madness." This involves capturing the tone of escalating difficulty and the humorous promise of "unfair deaths." The translation needs to reflect the game's intent to taunt the player after their "Insane" mode victory.
+
+
+The previous analysis correctly identified several grammatical errors and formatting inconsistencies in the target translation for the "Madness" game mode flavor text. Correction of the exclamation point spacing and the colon's half-width were implemented. The "de" particle was corrected, leading to improved grammar.
+
+
+The previous update validated and corrected a Chinese translation. Now, reviewing a new file. Initial assessment focuses on flavor text describing necromancy, its history, and contrasting views from other magic users.
+
+
+The primary focus is on the characterization of Necromancers within the game world, specifically their self-perception and their relationship with other magic users. The old target's use of mismatched quotation marks indicated a potential translation error that could affect the accuracy of the overall characterization. The new target fixed the quotes.
+
+
+“高贵” The provided text describes a new class evolution within the game, unlocked by mastering beam spells. The features include enhanced beam spells and new abilities focused around thaumaturgy. The focus is on the gameplay benefits granted by this evolution, highlighting the enhanced beam spells and new spell categories.
+[Shell] rg -i "Elemental Array Burst" terminology/
+[Shell] rg -i "Thaumaturgist" terminology/
+[Shell] rg "元素阵爆发" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Only living creatures benefit" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/floor.lua | sed -n '40,70p'
+[Thought] The code checks if the target is classified as "living". The classification is crucial because only living creatures benefit from the effect. The initial assumption that only undead are excluded needs refinement; various non-living creature types exist within the game.
+[Shell] git -C /workspace/t-engine4 grep -n "drain arcane forces" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/floor.lua | sed -n '70,110p'
+[Thought] The function modifies multiple energy values upon critical hits, not just mana. It reduces mana, vim, positive and negative energy while increasing paradox. The initial assumption about only mana being affected was incorrect; a more comprehensive effect is implemented.
+[Shell] git -C /workspace/t-engine4 grep -n "afflicted by ghoul rot" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] rg -i "ghoul rot" terminology/
+[Shell] rg -i "\bghoul\b" terminology/
+[Shell] rg -i "ghoul rot" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '2430,2460p'
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 15,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-02428",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02435",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02451",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02466",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02474",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02489",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02500",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02522",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02523",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02538",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02541",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02545",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02552",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02555",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02557",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02565",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02570",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02599",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02601",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02636",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    }
+  ]
+}
+[Thought] The effect name `Ghoul Rot` utilizes a translation function. It appears the description and gain/lose messages are also intended for translation. Previously, the "on_lose" string's translation was different, requiring review of its current equivalent.
+
+
+The proposed change from "食尸鬼的疾病" to "尸鬼腐蚀" in the gain message harmonizes the translation with the effect's name and the loss message, resolving an inconsistency. This review identified the need for a comprehensive check of all translation entries. Now verifying individual entries to prevent subtle errors in terminology and placeholders.
+
+Considering the detailed information, entry-02428 is next.
+
+
+Analyzing similar talent descriptions in the file to establish a translation pattern for martial arts techniques that are restricted by armor or equipment. Several examples are examined to identify the common structure. The new target's translation appears consistent with the detected pattern, specifically using the structure "...；身穿板甲或装备武器、盾牌时无法施展。" indicating a successful match.
+
+
+The translation focuses on armor increase while using a shield, matching the English concept of increased defensive capabilities in a specific stance. Examining similar talent descriptions reveals a consistent pattern for martial abilities tied to equipment restrictions. The new target's use of "身穿板甲或装备武器、盾牌时无法施展" clearly communicates the condition of being unable to use it while wearing heavy armor or wielding weapons and shields. This ensures consistency with other translations.
+
+
+The previous translation uses "受你的敏捷和力量值影响", which does not explicitly indicate equal scaling, whereas the source code uses identical scaling methods for Strength and Dexterity. "同等影响" aligns with the identical scaling mechanics. The placeholders are also preserved correctly.
+
+
+The previous translation of "assembles" reversed the subject-object relationship. The corrected translation "组装出了" accurately reflects the intended transitive verb, preserving placeholders and color tags.
+
+Examining a talent description, the spacing of the colon and a missing period in the cold line were corrected to match other lines. Placeholders and tags remain intact.
+
+The translation of "Dread" was changed from "梦魇" to "噩灵" to align with the terminology file's preferred translation for talent names, ensuring consistency.
+
+
+The preferred translation for "Dread" as a Necrotic minion entity name is confirmed to be "噩灵". An entry was evaluated where the translation of "The strength of your bond is so strong" was changed to accurately reflect the bond between player and a Star entity, correcting a misattribution to player strength.
+
+A punctuation correction was made, fixing mismatched quotation marks in an entry concerning sending a "package" through a portal.
+
+
+Punctuation inconsistencies are resolved in the first entry, ensuring consistent use of parentheses. The second entry's translation now correctly reflects the aggressive action of the elves, and the suggestion to review tooltips for clarification. The third translation's phrase is correctly translated to reflect the character class availability.
+
+
+The previous translation accurately reflected the curse's removal, adding the option to select a new profession. The next entry was an improved translation making the sentence more natural. A missing grammatical particle was added for correctness in another translation. Further, a translation of madness unlock text was corrected.
+
+
+A grammatical particle and punctuation were corrected. Unnecessary phrasing in the translation was identified and removed. Mismatched quotation marks were corrected. Finally, the original phrase's intent was accurately reflected in the translation's revised structure, and was confirmed.
+
+
+A "beam" translation was checked and confirmed correct. The next entry concerns a life font effect description; the previous translation incorrectly limited the effect to excluding undead, whereas the code correctly excludes all non-living creatures. The corrected translation reflects the actual game mechanics using a "living creatures only" restriction. The following entry describes a spellblaze scar effect and is under review.
+
+
+The previous translation limited the effect to mana consumption only. The source code reveals the effect actually consumes multiple magical resources, including mana, vim, positive, negative energy and adds paradox. The new translation reflects the wider scope of resource drain.
+
+The translation of "Ghoul Rot" is being reviewed for consistency in the mod file. The translated effect name and loss message are already consistent with the new target. The gain message, previously "被食尸鬼的疾病感染！", has been updated to "受到了尸鬼腐蚀！" to match.

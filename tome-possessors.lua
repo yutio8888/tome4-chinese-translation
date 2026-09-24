@@ -2,7 +2,7 @@
 section "tome-possessors/data/achievements/possessors.lua"
 
 t("Bill Kill!", "比尔杀死！", "achievement name")
-t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子。", "_t")
+t("Kill your own Doomed Shade in the body of Bill.", "附身于比尔时，杀死你自己的末日使者之影。", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用克里尔·费扬的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死克里尔·费扬。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
@@ -118,8 +118,8 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 t("Spectral Dash", "幽灵冲锋", "talent name")
 t([[For a brief moment your whole body becomes etheral and you dash into a nearby creature and all those in straight line behind it (in range %d).
 		You reappear on the other side, with %d more psi and having dealt %0.2f mind damage to your targets.
-		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d)。
-		你再次出现在另一边，获得 %d 灵能值并对目标造成 %0.2f 精神伤害。
+		]], [[短暂的一瞬间，你的整个身体变得飘渺，你向附近一个生物及其身后直线上的所有生物冲去（范围 %d）。
+		你再次出现在另一边，获得 %d 灵能值并对这些目标造成 %0.2f 精神伤害。
 		]], "tformat")
 t("Writhing Psionic Mass", "扭动灵能团", "talent name")
 t([[Your physical form is but a mere extension of your mind, you can bend it at will for %d turns.
@@ -354,7 +354,7 @@ t([[As long as you have at least a stack of Sadist whenever you take damage you 
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
-		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
+		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以向半径 %d 内所有可见的、生命值 80%% 或更低的敌人散播痛苦。
 		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.

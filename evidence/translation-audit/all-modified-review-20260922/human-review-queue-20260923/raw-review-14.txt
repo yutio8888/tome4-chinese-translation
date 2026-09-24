@@ -1,0 +1,471 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 14）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-14.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 14,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-14.json
+[Shell] git -C /workspace/t-engine4 status
+[Thought] The entry describes a spell that transforms the caster into stone, granting specific effects while immobile. The effects include reduction of something, with details missing. Need to examine this further.
+[Shell] git -C /workspace/t-engine4 grep -n "You root yourself into the earth" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/stone.lua | sed -n '110,160p'
+[Shell] rg -i "Earthen Missiles|Pulverizing Auger|Mudslide|Earthquake" terminology/
+[Shell] rg -n 't\("Earthen Missiles"' mod-tome.lua; rg -n 't\("Pulverizing Auger"' mod-tome.lua; rg -n 't\("Earthquake"' mod-tome.lua; rg -n 't\("Mudslide"' mod-tome.lua
+[Thought] Analyzing the `old_target` and `new_target` entries for `entry-02273`, focusing on the descriptions related to the spell. The "old" entry describes the immobility and effects related to the spell's activation with a focus on stone and earth. Now, the goal is to see if the new version is functionally equivalent, and the next step is to examine the source text.
+
+
+The translation of "forced movement" as "强制位移" is correct, reflecting knockback or similar effects. The old phrasing for stone form's effects was poor; the new one accurately captures the meaning. Cooldown reduction percentage is correctly translated; the previous version used an incorrect unit.
+[Shell] git -C /workspace/t-engine4 grep -n "This intricate spell instantly erects a time shield" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] rg -n "This intricate spell instantly erects a time shield" mod-tome.lua
+[Shell] sed -n '22420,22430p' mod-tome.lua
+[Shell] rg -i "Time Shield" terminology/
+[Shell] rg -n 't\("Shielding"' mod-tome.lua
+[Thought] "强化护盾" is confirmed as a relevant factor, aligning with line 28172. The term "时间盾" is also correctly identified via the terminology file. The placeholders `%d`, `%d`, `10%%` remain intact. Verdict for `entry-02277` is `ok`.
+[Shell] rg -i "Tumble" terminology/
+[Shell] rg -n 't\("Tumble"' mod-tome.lua
+[Thought] `Tumble` translates to "翻筋斗," confirming the initial association. Further investigation identifies `Tumble` as a talent within the acrobatics tree, linked with similar talents. The relevant description references "Vault, Tumble, and Trained Reactions." The translation aligns with the older target, indicating consistency in the talent's intended meaning.
+[Shell] git -C /workspace/t-engine4 grep -n "You cannot use Rapid Fire without" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/agility.lua | sed -n '260,300p'
+[Shell] git -C /workspace/t-engine4 grep -n "function archerPreUse" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "archerPreUse" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/agility.lua | sed -n '240,290p'
+[Thought] The code defines a talent with two `on_pre_use` handlers. Lua table keys are overridden, therefore the second declaration of `on_pre_use` effectively replaces the first. The second handler calls an `archerPreUse` function, now with an additional `"sling"` argument. This suggests that the talent's behavior is likely altered by the second definition.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/techniques.lua | sed -n '345,395p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/techniques.lua | sed -n '320,345p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/agility.lua | sed -n '295,330p'
+[Thought] The talent description explicitly requires a sling, confirmed by the `on_pre_use` handler checking for "sling". However, the `activate` function checks only for a generic "ArcheryWeapon," which includes bows. This inconsistency suggests a potential logic error or incomplete implementation regarding sling usage. The talent name may have changed from "Rapid Fire" to "Rapid Shot."
+
+
+The `activate` function's check for "ArcheryWeapon" contradicts the `on_pre_use` check for *only* a sling. Attempting Rapid Shot with a bow fails `on_pre_use`. The error message is correct regarding a missing weapon or sling. However, the game will also fail in the activate function, regardless of passing on_pre_use. The original source explicitly permits bow use, while the new target specifies "sling" only, raising a concern about fidelity.
+[Shell] git log -n 5 -p -S "你需要装备投石索才能使用这个技能"
+[Thought] Initial hypothesis: the change to the Rapid Shot message likely reflects a refinement in the skill's requirements. Examination of the agility talent definition may clarify the exact condition that triggers this message. The goal is to understand the precise equipment dependency for the Rapid Shot ability.
+
+```
+
+
+The code explicitly checks for a sling using `archerPreUse` and states the talent *requires* a sling. The message within `activate` seems to include an error, as having a bow prevents the ability's use, contrary to the message's implication. According to game mechanism rules, source code behavior overrides inconsistent English text; the sling requirement is definitive. Therefore, the "bow or" should be "bow and" with no bow.
+[Shell] rg -n "You cannot use Rapid Fire" mod-tome.lua
+[Thought] Initial target language might have contained an error. Examining the previous target ("你需要一把弓或者投石索来施放这个技能！") reveals a potential issue. The skill "Rapid Shot" requires a sling according to the game data (specifically, a file related to agility techniques). Thus, the target language was modified to accurately reflect this game mechanic.
+[Shell] git -C /workspace/t-engine4 grep -n "This shot will bypass other enemies" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The previous translation of "穿透目标以外单位" was inaccurate; "bypass" more accurately reflects the shot's ability to ignore intervening enemies, not pierce through those beyond the main target. The revised target description now accurately conveys the effect of the shot bypassing enemies between the shooter and the intended target, along with bonus accuracy.
+
+
+The previous translation of "穿透目标以外单位" was inaccurate; "bypass" more accurately reflects the shot's ability to ignore intervening enemies, not pierce through those beyond the main target. The revised target description now accurately conveys the effect of the shot bypassing enemies between the shooter and the intended target, along with bonus accuracy.
+
+The translation "越过你与目标之间的其他敌人" accurately represents "bypass other enemies between you and your target." The missing Chinese period was added to the end of the sentence.
+[Shell] rg -i "Unstoppable" terminology/
+[Shell] rg -n 't\("Unstoppable"' mod-tome.lua
+[Thought] The translation for "Unstoppable" used "无双状态," which created an inconsistency with the talent's name, "势不可挡." To maintain consistency, replacing "当进入无双状态时" with "势不可挡激活期间" is the proper course of action. This ensures the text accurately reflects the talent's name and activation state.
+
+
+The change involves the translation of "heavy mail armour" to "重甲". Previously, it was translated as "锁甲". This aligns the translation with the character's level 1 equipment.
+[Shell] rg -i "heavy mail" terminology/
+[Shell] rg -i "heavy" terminology/
+[Shell] rg -n "heavy mail" mod-tome.lua
+[Thought] Observed the translation of "heavy mail and massive armours" to "重甲和板甲". Noted the consistent translation: "heavy mail" to "重甲" and "massive plate armour" to "板甲". This suggests a direct mapping between the English and the target language terms for these specific armor types. This supports the hypothesis of consistent terminology.
+
+
+Identified a discrepancy where "锁甲" (chain armor) was used instead of "重甲" (heavy armor) in the translation, despite both referring to "heavy mail armour."  The correction aligns the translation with other instances and the internal game mechanics, improving consistency. The second change involves a more natural phrasing for describing an unarmed strike.
+
+
+The original translation significantly truncated the meaning of the "Offhand Jab" talent's action, omitting crucial details about momentum shift and replacing the offhand attack. The revised translation now accurately reflects the talent's mechanics, fully conveying the intended meaning. This is a significant improvement in capturing the source text's nuance. The previous translation failed to include important phrases, therefore did not capture the whole context of the text.
+[Shell] git -C /workspace/t-engine4 grep -n "Your reflexes are lightning-fast" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] rg -n "Your reflexes are lightning-fast" mod-tome.lua
+[Shell] sed -n '30745,30755p' mod-tome.lua
+[Thought] The language used consistently employs "发现" (discover/find) instead of the previously used "瞄准" (aim/target) when describing the action of intercepting projectiles. This suggests a refinement in the condition for taking the action, shifting from a deliberate aiming process to a reactive discovery. This correction also adds detail: projectiles can be arrows, ammunition, or spells.
+
+
+Examining the changes, the "目标减速" (target slow) phrase has been updated to "全局速度降低" (reduces global speed). This is a precision enhancement; the original text lacked specificity regarding the type of speed being reduced, while the updated version clarifies that it affects global action speed. Placeholders and color tags are correctly preserved in this adjustment.
+
+
+Examining the code, the descriptions for different ammunition types have been translated. It appears the changes involve translating the description of the special shot based on currently loaded ammo, including effects for Incendiary, Venomous, and Piercing rounds. Specifically, the damage types, ranges, durations, and effects like speed reduction, fire damage increase, poison damage over time, and talent failure chance have been preserved. Also, the scaling of poison damage with Physical Power and status chance with Accuracy is retained.
+
+
+Analyzing the new content, translations of ammunition effects are present. Incendiary now includes fire damage over time; Venomous has a poison damage over time effect with life steal; Piercing increases damage taken by the target. Placeholders for damage, durations, and effects appear to be consistent with the translated descriptions.
+[Shell] git -C /workspace/t-engine4 grep -n "Inflicts leeching poison" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] Examining `munitions.lua:414`, the venomous ammo description specifies nature damage. The game code confirms `DamageType.NATURE` is used. Replacing "毒素伤害" with "自然伤害" aligns with the source text and game mechanics. Placeholders such as `%0.2f` and `100%%` will be retained.
+[Shell] rg -i "Called Shots|Called Shot" terminology/
+[Shell] rg -n "Called Shots" mod-tome.lua; rg -n "精巧射击" mod-tome.lua; rg -n "精准射击" mod-tome.lua
+[Thought] "Called Shots" consistently translates to "精准射击," appearing in multiple contexts: as a direct translation, a talent name, and within a talent family name. There's a revision from "精巧射击" to "精准射击," confirming the intended translation. Further, a line describing a "标记" effect, allowing vision through cover, has been noted for its mechanics.
+
+
+Examining line 30812, the translation of "精巧射击" to "精准射击" seems correct, aligning with the "精准射击" talent name found in line 30085. The change maintains consistency, as the talent has always been "精准射击."
+
+
+Examining the revised text, the wording for creating smoke has been updated for clarity: "制造一个半径为 %d 的烟雾" (create a radius %d smoke) is changed to "制造一片半径为 %d 的浓密烟雾，令人迷失方向" (create a radius %d cloud of thick, disorientating smoke), adding key descriptive details. A Chinese comma was also updated.
+
+Line 30824 focuses on the translation and meaning changes between old and new targets.
+```
+[Shell] git -C /workspace/t-engine4 grep -n "positioning is paramount" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The description for the 'mobility' technique category appears incorrectly translated. The phrase "positioning is paramount" was altered and the core meaning was lost. "Positioning" translates directly to "站位/走位", which accurately reflects the original intent.
+[Shell] git -C /workspace/t-engine4 grep -n "may not be practiced in massive armor" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] sed -n '30960,30985p' mod-tome.lua
+[Thought] Identified five talent types within the specified file, all sharing an identical restriction: these techniques cannot be used while wearing heavy armor or wielding a weapon/shield. This common clause suggests a shared underlying mechanic or design principle for these particular talents.
+
+
+The updated translations consistently and accurately describe the restriction as inability to *use* the techniques while equipped with heavy armor, weapons, or shields, in contrast to the prior misleading translation. Verified that items 18, 19, and 20 are correct. Performing a final, meticulous review of all twenty items for potential issues.
+
+
+Examining the translation of the first item, the nuance of "forced movement" terminating the effect requires careful consideration, replacing "any movement" with the more precise "any forced displacement". The revised translation maintains accuracy in describing the spell's effects, ensuring the correct implications. Checking that the other translations follow the same pattern of exactness.
+
+
+Examining the translation of the second item, the initial comparison shows the key mechanics are captured accurately, including damage absorption and duration. The original text requires more precision on the healing mechanic; I will verify this translation matches the original meaning. Checking the other translations for similar degree of faithfulness to the original text and that all the placeholders are correctly handled.
+
+
+The revised translation maintains accuracy in describing the damage absorption and recovery mechanics, correctly handling placeholders for values and percentages, ensuring faithfulness to the original description. Considering that, I will check the next item.
+
+The translated description of acrobatic skills updates the terminology to match the original text and correctly substitutes placeholders. Evaluating the overall consistency of all translations.
+[Shell] git -C /workspace/t-engine4 log -S "You cannot use Rapid Fire without a bow or sling" --oneline
+[Shell] git -C /workspace/t-engine4 show 71f1db8599 -- game/modules/tome/data/talents/techniques/agility.lua
+[Shell] git -C /workspace/t-engine4 log -p -S "Requires a sling to use" -- game/modules/tome/data/talents/techniques/agility.lua
+[Thought] The code now requires a sling, confirmed by the addition of the "sling" check. The pre-use function was correctly updated to incorporate the sling requirement. However, the error message in the activation function remains unchanged, referencing "Rapid Fire" instead of the corrected "Rapid Shot" and still mentioning bows when slings are now also valid. This inconsistency must be addressed to reflect the updated functionality and provide accurate feedback to the user.
+
+
+The previous summary addressed the inconsistency between the corrected pre-use function and the unchanged activation error message. The provided information regarding the Chinese translation confirms that the original English message is inaccurate because the skill requires a sling, not a bow or sling. This inaccuracy is being addressed in the revised translation.
+
+
+The updated text specifies "forced movement" as a condition that ends the spell, clarifying the original intent. The effects of the stone form, which include cooldown reduction and resistance bonuses, are also explicitly detailed. The text accurately reflects how the spell's mechanics function and the impact of spell power.
+
+
+The translation of the "stone" spell effects, including skill names and placeholder text, appears accurate. The updated Chinese text correctly reflects the spell's functionality, including the condition to end the effect. The placeholders are also correctly used for cooldown reduction percentages. The translated description of the Aegis Shielding spell needs to be updated. It must incorporate the duration of the restoration field.
+
+
+The updated Chinese translation accurately reflects the function of the "Time Shield" spell, replacing "时间屏障" with the preferred "时间盾".  The translation accurately incorporates the damage absorption, duration, and the restoration field with its effects. Placeholder values and the spell power scaling are correctly preserved.
+
+
+The updated text for the acrobatics skill correctly uses "翻筋斗" (tumble) instead of the previous incorrect term. The placeholder values and percentage values remain unchanged and intact. This confirms the translation of the acrobatic skill has been improved.
+
+The translation accurately reflects the sling requirement for the "Rapid Fire" skill. The translated text states the need to equip a sling. This fixes the previous text that included both bows and slings.
+
+
+The updated translation now accurately renders the skill's effect as bypassing enemies between the user and the target, correcting the previous mistranslation. The placeholders remain correct. The project rule prioritizes the fixed commit's source code if the translation, terminology, or English meaning conflict with the game mechanics.
+
+
+The Chinese translation now includes accurate punctuation and preserves all placeholders. The translation reflects a character's increased physical power from inflicted wounds, along with a reduction of the target's physical resistance when bleeding. The physical power increase is correctly specified to be related to the character's strength.
+
+The translated text accurately details the battle frenzy state, including the inability to use items or heal, and the minimum health of 1. It specifies health restoration based on the number of foes slain during the frenzy. Critical bonus is disabled during "Unstoppable" status.
+
+
+The Chinese translation of the battle frenzy state now correctly uses "势不可挡激活期间" instead of the inconsistent "无双状态". The placeholders are intact. The heavy mail armor translation has been unified to "重甲" to match other translations, resolving the prior inconsistency. Placeholders remain intact.
+
+
+The updated translation of the unarmed strike ability now includes the crucial detail of "shifting momentum" to execute a "surprise" attack, replacing the previous, less descriptive wording. This accurately reflects the mechanics and provides a more complete description of the skill's execution. All placeholders and percentage values remain correctly translated and intact.
+
+
+The updated translation now accurately renders the skill description, correcting the previous mistranslation of "spot a projectile." The corrected text accurately conveys the meaning of "instantly shoot at it without taking a turn." Placeholders are correctly handled.
+
+The talent description is updated to accurately detail grapple enhancements. It accurately reflects the application of additional effects and preserves the placeholder values for talent levels. The translation correctly includes the physical power reduction and action speed decrease.
+
+
+The updated talent description accurately translates "global speed reduction" instead of the original's vaguer phrasing, resolving a potential ambiguity. The core mechanics of the talent and its level-based effects, including placeholder values, remain consistent with the original description. This ensures accuracy.
+
+
+The updated text presents a special shot based on the currently loaded ammunition. It details three ammunition types: Incendiary, Toxic, and Armor-Piercing, along with their respective damage types, area of effect, debuffs, and status effects. The text includes placeholders for variable numerical values.
+
+
+Three distinct ammunition types are now available, each providing unique effects: Incendiary increases explosion radius and applies burning. Venomous inflicts leeching poison, causing damage and healing the user. Piercing reduces the target's armor, increasing incoming damage. These effects have a limited quantity and trigger a cooldown.
+
+
+The updated translation clarifies that skills have a cooldown because resources are limited. Damage now correctly scales with physical power, and status effect chance scales with hit chance. A comma was fixed. The damage type was corrected from "poison" to "nature."
+
+
+The new skill description for the sniper talent is accurate, with correct placeholder values and alignment with the "Called Shots" talent name. The revised skill description accurately reflects its mechanics, including the conditions for use and the duration of its effects.
+
+The updated smoke bomb skill text correctly details its effects, including damage, smoke radius, vision reduction, and cooldown reduction of "Concealment." The skill requires a bow for use, and the accuracy scaling is also accurately described.
+
+
+The smoke bomb skill's description was updated to include the effects of the smoke cloud: damage dealt, the radius of the smoke, the reduction in vision, and the reduction in the cooldown time of the concealment skill. The updated text also indicates that the skill necessitates the use of a bow.
+
+
+The text describing the "Sniper" skill was updated to accurately reflect the damage scaling with distance, replacing the inaccurate wording "within range" with "远距离射击". The placeholders and skill mechanics remain intact.
+
+The text describing the "acrobatics" skill was updated with improved wording. The placeholders remain unchanged and intact.
+
+
+The first translation accurately reflects the need to train mobility and dodging. The second correctly renders the importance of positioning on the battlefield. The original mistranslation has been successfully addressed.
+
+The updated text correctly describes the limitations on using Unarmed Boxing techniques when armor, weapons, or shields are equipped. The new translation clarifies that equipping those items does not prevent their use, but rather the *practice* of the techniques.
+
+The text for finishing moves is now accurately translated, including the condition regarding armor, weapons, and shields during their practice. The updated text reflects game mechanics for combo point use and restrictions.
+[Shell] find .ai/ -name "*review*packet*" -o -name "*PACKET*"
+[Shell] find evidence/ .ai/task/ -name "*13*"
+[Read] evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/raw-review-13.txt
+[Read] evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/raw-review-13.txt
+[Read] evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/raw-review-13.txt
+[Shell] git -C /workspace/t-engine4 grep -n "You root yourself into the earth" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/stone.lua
+[Shell] git -C /workspace/t-engine4 grep -n "This intricate spell instantly erects a time shield" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/temporal.lua
+[Shell] grep -n "^Time Shield" terminology/talents.tsv
+[Shell] git -C /workspace/t-engine4 grep -n "You gain greater facility with your acrobatic moves" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/acrobatics.lua
+[Shell] grep -n "^Tumble" terminology/talents.tsv
+[Shell] git -C /workspace/t-engine4 grep -n "You cannot use Rapid Fire without" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/agility.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Fire a precise shot dealing" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/archery.lua
+[Shell] git -C /workspace/t-engine4 grep -n "You delight in the inflicting of wounds" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/bloodthirst.lua
+[Shell] git -C /workspace/t-engine4 grep -n "You enter a battle frenzy for" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/bloodthirst.lua
+[Shell] git -C /workspace/t-engine4 grep -n "You become better at using your armour to deflect" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua
+[Shell] git -C /workspace/t-engine4 grep -n "With a quick shift of your momentum" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/dualweapon.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Your reflexes are lightning-fast" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/excellence.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Enhances your grapples with additional effects" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/grappling.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Fires a special shot based on your currently loaded ammo" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/munitions.lua
+[Shell] git -C /workspace/t-engine4 grep -n "You create enhanced versions of your ammunition" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/munitions.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Enter a concealed sniping stance" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/sniper.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Fire an arrow tipped with a smoke bomb" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/sniper.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Enter a calm, focused stance" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/sniper.lua
+[Shell] git -C /workspace/t-engine4 grep -n "positioning is paramount" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/techniques.lua
+[Shell] python3 - << 'EOF' import json with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-14.json") as f: packet = json.load(f) print("Packet items count:", len(packet["items"])) for i, i...
+[Shell] python3 - << 'EOF' import json data = { "contract": "applied-change-review-v1", "packet_number": 14, "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high", "items": [ { "entry_id": "entry-02273", "ver...
+[Shell] git status
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 14,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-02273",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/stone.lua:128"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02277",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/talents.tsv:189 Time Shield=时间盾",
+        "game/modules/tome/data/talents/spells/temporal.lua:79"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02303",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/talents.tsv:129 Tumble=翻筋斗",
+        "game/modules/tome/data/talents/techniques/acrobatics.lua:270"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02306",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/agility.lua:263",
+        "game/modules/tome/data/talents/techniques/agility.lua:281"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02312",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/archery.lua:485"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02326",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/bloodthirst.lua:87"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02327",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/bloodthirst.lua:122"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02337",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/combat-training.lua:106"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02345",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/dualweapon.lua:205"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02354",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/excellence.lua:64"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02360",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/grappling.lua:144"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02380",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/munitions.lua:388"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02381",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/munitions.lua:412"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02392",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/sniper.lua:93"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02393",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/sniper.lua:146"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02394",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/sniper.lua:194"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02422",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/techniques.lua:44"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02425",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/techniques.lua:86"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02426",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/techniques.lua:87"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02427",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/techniques/techniques.lua:88"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
