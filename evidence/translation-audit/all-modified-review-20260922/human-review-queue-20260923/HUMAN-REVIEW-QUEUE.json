@@ -14,7 +14,7 @@
   "note": "Curated human-decision rows from HUMAN-REVIEW.md plus the sources missing from it (batch-092 cross, batch-093/094 primary, remaining-review). Sol status labels copied verbatim; no semantic adjudication. reconciled-20260923 canonical claims are not merged (separate experiment ledger).",
   "schema_version": 1,
   "total_records": 601,
-  "decided_records": 131,
+  "decided_records": 171,
   "distinct_entries": 559,
   "records_missing_entry": 0,
   "raw_campaign_verdict_count": 1103,
@@ -11100,9 +11100,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "78a97aac3e6ba5087464c326b4ec8f7b26621c4bc2c4ef90d4e359510b0e82a5"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；反证：「迅速干掉敌人」可视为泛指，但 most foes 是明确范围限定，省略后把「大多数」说成「全部」，属删限定词；补「大多数」。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11162,9 +11162,9 @@
     "source_tag": "logSeen",
     "snapshot_sha256": "af0231644b133b4b28c2d9e76476b61bdcdc3e6fec54c1347adee2ac89115f14"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；反证：无。源码 logSeen 参数依次为使用者名、his_her、物品名；原文是「通过自己的某物聚焦时间流」，现译把 time flows 写成「时间线」、把 through 的媒介物品写成聚焦位置。改为以物品为媒介；占位符顺序不变。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11224,9 +11224,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "a7d050ffdf5415b74409eb8d0b5b712141acdfcd5098a2e310ad363527e01a75"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；反证：「环绕有强大的风暴」传达了风暴主题；但 crackles（噼啪作响的电气动态）完全漏译，vicious 被弱化为「强大」，且把 with the intensity of（比喻）写成实际环绕风暴。补译 crackles 与比喻关系。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11286,9 +11286,9 @@
     "source_tag": "logPlayer",
     "snapshot_sha256": "4a3a4c4e7bf6558cd8c321f97f648104d2c3dbe6e145c937c7669f9b4fdab5ce"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory 且模型自承需维护者定统一译法。源码为给物品镶入宝石后的日志（gem:getName），「安装」虽偏机械但未改变机制含义；imbue 统一为「镶嵌」或「灌注」属跨条目用词策略，不在本条单独改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11348,9 +11348,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "b280c6e714d400db755aedae7f5eeeecc6c40a5a592a8e27d5e1c2b163edbb4c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；标点错误：中文句中混入半角分号，按用户「标点错误修正」策略改为全角分号。其余语义（取较低者、消耗被抵消伤害 5% 的活力）核对无误，%d/%%/换行不变。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11410,9 +11410,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "08a201aee31a1165f23954a5b21b205ac699d2104289e9681213cfe21c38a4bc"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；「自命不凡的认为」状语应用「地」，确认修正。增饰：the fire followed his footsteps 只说「火焰」，「地狱之焰」为增饰，改回「火焰」；「恶魔的老巢高达勒斯」对 Goedalath（恶魔母星）为事实性同位说明，不改变语义，保留（hint 所问的整体意译风格不作重写）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11472,9 +11472,9 @@
     "source_tag": "tformat",
     "snapshot_sha256": "84ed49e451aa261a7d21d78e36fba5f6eb326bb2367cbcfece6571bf1c05c099"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；机制核验：act() 中 game.level.map:addEffect(who, x, y, 6, FIRE, dam, 0, 5, nil, {type=\"inferno\"}, nil, false, false)，末两参 selffire=false、friendlyfire=false，只伤敌人。现译「所有经过的生物」暗示伤及自身与友方，属一级机制误导；改为「进入其中的敌人」。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11534,9 +11534,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "1a47bd8b267258f44ff7da3a48f7ad211d1fdf7fdc32ac96ba8cb962dac048c3"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；biting colds 指刺骨寒冷，「呼啸的寒风」把寒冷换成风声意象；物品描述称谓全库以「你」为主（「您」仅 20 处），统一为「你」。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11596,9 +11596,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "1b2a36651e8643edcbcfe0d3c4c5c99d907f21cb32c20b047665efcdf73d3d29"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；advisory：tingly 译「刺痛」略重、「增强了你的思考」略生硬，但未改变含义，属二级文风偏好，不改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11658,9 +11658,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "fbac0280c71b70791080b999014029753269ea5b1882e7c746737cae2d4ac29a"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；源码：该 desc 属 Stormfront，base = \"BASE_BATTLEAXE\"（战斧），blade 指斧刃；「剑身」错指武器类型，改「斧刃」。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11720,9 +11720,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "8eb59967f39551f271a23770cde973cdb52798cc62b34b6ea8a40051e8cda76b"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；bright warm light 译「微光」亮度方向相反；且与姊妹灵晶 dim cool light（「寒冷的微光」，world-artifacts.lua:8124）的明暗对照被抹平。改「明亮而温暖的光芒」。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11800,9 +11800,9 @@
     "source_tag": "logSeen",
     "snapshot_sha256": "e350cff057c0f44c9300f11ad6b83c6c0604037764ab119bbb82d0df1cea40a0"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；「%s 抵抗传送！」中占位符后的半角空格属纯静态排版差异，按用户策略（空格差异不处理）不改；语义与占位符正确。Gemini 行号主张 refuted，不影响结论（实际源码 teleport.lua:43）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -11916,9 +11916,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "ac25936d385357f22e0d9b0a135563c645a3402f02f4fe842d5d2cfe8baa8978"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；「牢牢的抓住」状语应为「地」，确认修正。advisory：两句并为逗号句、「挖地逃走」对 dig themselves back into the ground 的处理均未改变含义，不改。行号主张 refuted（实际 ingredients.lua:138）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12014,9 +12014,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "2145768b76909aac4248dec384d93f12bcc416238f1f3bd5b37ce5cc6b593cc6"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；It doesn't much matter 是「无所谓」，现译「没有确切的答案」改写了语义；恢复原意。advisory（对任务指引无影响）不影响结论；行号 refuted（实际 ingredients.lua:156）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12130,9 +12130,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "50c26a402be76d3c0c8ec35fbd49b08f9e813e290d25d1d63df3617495766358"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；「穿的暖和点」补语应为「得」；原文为句号，现译改省略号，恢复句号；But 转折一并补出。「冰龙常换牙完全准确」的模型主张 refuted，不作依据；行号 refuted（实际 ingredients.lua:183）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12246,9 +12246,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "8b5be98a02ceda3d4468f3f7a6fcba4957a550561a1fb1b21ca88b4c8571154c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；「把这个瓶子离……远一些」把字句杂糅；「明天」无原文依据；unless 条件关系被改成「我可不想」。重写为条件句。advisory：stuff 译「瓶子」——物品为 vial，改「这瓶东西」兼顾两者。行号 refuted（实际 ingredients.lua:201）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12362,9 +12362,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "9bde04ab8e94f6c4b4ae05e377db5cb526fdf5536174c59e1d9a3eb82a337b8f"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；后半句「把头伸进去找它」为无据扩写；原文是「位置远在你能看见它们并活下来的地方之后」。收束到原信息量，并修正「它们/它」混用。advisory（Gemini 称生动）不影响结论；行号 refuted（实际 ingredients.lua:228）。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12460,9 +12460,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "fb34446c8219f207795a03331890365db148fd0b5a0c4de25d0e0e51b120dbcb"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；「其他蠕虫」为增译；get any knots out 只说解开缠结，不锁定是自身打结还是与同伴缠结（pending 主张不作依据）。按 hint 改为不锁定意象的「把缠结都解开」，与物品 desc「从一团同伴中分离出的单条蠕虫」兼容；refuted 的「矛盾」主张不采纳。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12540,9 +12540,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "4a9979382a2a191fea3b759a9390463e3256160bdeb70af6e19aa4a31bb5ee63"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；同一测试列表首项「实验品」与其余「试验品」不一致，统一为「试验品」。另一条 confirmed（格式标签与语义完整）为正面结论，无需修改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12638,9 +12638,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3014c332d6bb1102581400cdba8ae30708f1e63214b0cc86967f338698a79fbb"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；refuted：X 条「传送回来时」已表达第二次（返程）传送，second 未漏译。confirmed 与 advisory 均为正面评价。无需修改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12754,9 +12754,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "d346cb51611d6405bd69b74dd25922d454a5efed77915f6509bba238863dd6bb"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；(1)「截然而止」误字，改「戛然而止」。(2) sullied by 是「被……玷污」，现译「厌倦了」语义偏移，改正。(3) 全文听众为复数 young acolytes（前文已用「你们」），末段改单数「你」，统一为「你们」。(4) 专名（安格利文、夏·图尔、永恒精灵、魔法大爆炸、埃亚尔）与术语库一致，正面结论，不改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12888,9 +12888,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "dc72a08ed8174d55ede133bac916f6c5cc13f647fad73c964c8e5e2d44f584ab"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；(1) base materials/components 译「基本元素」，与后文「埃亚尔元素」（Elements of Eyal）混淆，且以「他们」指无生命组分；改「基本成分」「它们」。(2)「明智的使用」应为「地」。(3)「作为……学生我假定」缺停顿，补逗号并还原原文感叹语气。(4) advisory「双刃剑」替换 good or ill：意义等价，不改。(5) pending：控制码 #{b",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -12968,9 +12968,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "0cb28ab6d2a4908c5984b897a3a9c1fec5a42e0a7134d8d8dd3a0d4e2bb269fd"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；开引号误用右双引号 U+201D，改为左双引号。另一 confirmed（解锁龙火陷阱，叙事与机制相符）为正面结论。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -13102,9 +13102,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3f506d6e53d17956fce80a61ae75e6950df50191825ce938cfa2c34fc1b4984e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；(1) 四处对话以右双引号 ” 开引（还是说你不够男人／快来吧／别抢了我的乐子／我已经记不清了），全部改为左引号 “。(2) 引号外重复标点：「？”，」「。”，」「”，」「？”。」「…”。」等共 6 处删去引号外多余逗号／句号，缺句末标点的引语补标点并改为规范的「引语＋说明」结构；顺带「杀的更多」→「杀得更多」、单个「…」→「……」。(3)「舞会开始了」缺句末标点，补句号。另拆成段一项成立（原文 ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -13560,9 +13560,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "57bb800aa303a60665259d2b23d5a802755b98aebd41df1b7f1d350266b312ca"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；逐条：(1) be no match to this 是「无法与之相比」，现译「宝剑干不了这种事情」曲解，改正并去掉原文无的「先生」。(2) Expecting someone else? 是「在等别人吗」（承接他误以为是莱娜尼尔），改正，并补 seeing the surprised look。(3) I wonder 在此表怀疑保留（后句说记录并不像神话那样结论分明），改「那可不好说」；「反转",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -13910,9 +13910,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "e224faf851e0fb616fac8af2b731bfb5bd41b2e4ed54bca2da0f42aa1859f25e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；逐条：(1) no normal day 被译反为「没有一天不处在危险之中」，并漏 day of reckoning，改为「绝非寻常的一天……清算之日」。(2)「希望的缰绳／扼住命运的咽喉／真正的和平」均无原文依据，收束为 hold the reins of fate in our palms 与 steady hand；同时补回被替换的 Our actions today will decide",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -14188,9 +14188,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "6267fb27198e9b74dfb893e14fc73fd6db645e0b6edf8529118434e239af8457"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；逐条：(1) 格式与控制字符配对正确，正面结论。(2)「已知依赖着」错别字，改「一直依赖着」。(3) 两处「！”，」冗余引号外逗号，删去。(4) head in my lap 译「抱着……脸庞」，改「把垂死爱人的头捧在膝上」。(5) crisis 译「毁灭」并加「瞬间」，改「希望已化为危机」。(6) burns 泛化为「创口」，改「烧伤处」；seeping freely 的「反向表达」refute",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -14520,9 +14520,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "e90d361686357a05a88d633e1600e998cdb3b4aa3b3dc3425bf73a8b5a7f220e"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；逐条：(1) 格式控制符与段落结构正确，正面结论，换行数 65 未变。(2) this human 指 Cuilan 本人（If this human's tale / From what this human says），现译成「有关人类的事情」「那些人类说」，两处指代均改为「这个人类」。(3) none of this I knew 指当时对上述后续浩劫一无所知，现译「还不知道之后所发生的那些",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -14618,9 +14618,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "4507037a085aed0805d9bc4b95788a7a31d3772fbf0d416bdd09dfd274ef6095"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00160／hrq-00161／hrq-00162 三行共同引用，三行 claim 集合相同，逐条回应：(a)「床位」应为「床尾」——confirmed，源码 near the end of my bed，同回忆录第二章亦用 at the foot of my bed，改「床尾附近」（hrq-00162 主张，hrq-00160／00161 同列）。(b) 眼周皱纹特写被泛化且「",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -14716,9 +14716,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "4507037a085aed0805d9bc4b95788a7a31d3772fbf0d416bdd09dfd274ef6095"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00160／hrq-00161／hrq-00162 三行共同引用，三行 claim 集合相同，逐条回应：(a)「床位」应为「床尾」——confirmed，源码 near the end of my bed，同回忆录第二章亦用 at the foot of my bed，改「床尾附近」（hrq-00162 主张，hrq-00160／00161 同列）。(b) 眼周皱纹特写被泛化且「",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -14814,9 +14814,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "4507037a085aed0805d9bc4b95788a7a31d3772fbf0d416bdd09dfd274ef6095"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00160／hrq-00161／hrq-00162 三行共同引用，三行 claim 集合相同，逐条回应：(a)「床位」应为「床尾」——confirmed，源码 near the end of my bed，同回忆录第二章亦用 at the foot of my bed，改「床尾附近」（hrq-00162 主张，hrq-00160／00161 同列）。(b) 眼周皱纹特写被泛化且「",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -15200,9 +15200,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "dc8d921ab5e5225a0c177db33009787333e4652a4919eb6246d6f0ac48b83e9c"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；逐条：(1)「长着六肢的长而厚的身体之上」断裂病句，补出「头部连着一具……身体」。(2)「我面对着背后的怪物」方位矛盾、(3)「顺便跳进了我背后的门中」动作失真：原文 With my back to the opening... as I leapt backwards through the door，重写为背对门口、向后跃过门。(4) blade 译「刀片」，改「挥剑」。(5)「她冲破了她分开",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -15406,9 +15406,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -15612,9 +15612,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -15818,9 +15818,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -16024,9 +16024,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -16230,9 +16230,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -16436,9 +16436,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "3e5a8e0f7cd5f0fc1e9eeadbde9fae6eed646113ed398498d2b6bcb25280deb8"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "fix",
+   "human_note": "独立核验通过；本修订由 hrq-00164–hrq-00169 六行共同引用，六行 claim 集合相同，逐条回应：(a) 吸血鬼段增译与因果改写（hrq-00167 主线）——confirmed：It is for this reason 承接前文的氏族网络，「借助团体的力量」「自己的奴隶」「用钢剑刺穿喉咙」均为改写，按 hint 改为「正因如此……统治者……以冰冷的钢铁相待」，并补 in turn。(b) ",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -16534,9 +16534,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "be5a0ffa7310bfb67586a6a1fdc98fd7ac36819b0b62f4a68528fde99ba1c046"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；(1) 对应 elandar-1，正文与专名（生命之血、夏·图尔、安格利文、泰恩、盖里克）含义相符，正面结论。(2) 控制标签闭合、标点合理，正面结论。(3) advisory：#{italic}# 范围由 too 扩大到「理智得过了头」——中文无法只给「过」加斜体而不割裂词语，属排版取舍；调整标记范围亦触及 markup，本批不改。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
@@ -16614,9 +16614,9 @@
     "source_tag": "_t",
     "snapshot_sha256": "a330d42ad05e0fd926d4d7c705431b96a470769ac6ea0b12e1650b2e31a5be58"
    },
-   "human_decision": null,
-   "human_note": null,
-   "human_decided_at": null
+   "human_decision": "no_change",
+   "human_note": "无需修改；(1) 对应 keepsake-kyless-journal-2，正文、标签与心灵操控叙事准确，正面结论。(2) advisory：「发现了什么——」有不定代词直译痕迹，但 something...a dead man 的悬念语气由破折号保留，属二级文风偏好，不改。凯勒斯（Kyless）译名本身另有术语讨论，本条不涉。",
+   "human_decided_at": "2026-09-24T01:00:00Z"
   },
   {
    "source_layer": "human_review_md",
