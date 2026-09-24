@@ -12272,7 +12272,7 @@ t("When Elmio Panason, captain of the Vanguard, first sought shelter for his shi
 t("Glows brightly in the light of dawn.", "在黎明下闪耀光芒。", "_t")
 t("Scorched Boots", "烧焦的长靴", "entity name")
 t("pair of blackened boots", "一双熏黑的靴子", "_t")
-t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是烈火纪第一个使用夏·图尔远程传送门进行试验的兽人。试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。", "_t")
+t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是烈火纪第一个使用夏·图尔远行传送门进行试验的兽人。试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。", "_t")
 t("Goedalath Rock", "高达勒斯之石", "entity name")
 t("demonic", "恶魔", "entity subtype")
 t("unearthly black stone", "神秘的黑色石头", "_t")
@@ -14685,7 +14685,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 几乎没有精灵能理解，为什么精灵种族中的一员，会对一个人类深深地着迷。那只是因为他们不了解莱娜尼尔，不像我这般了解她。她就像一团活着的火焰，一团燃烧的情感和欲望。她热诚的意志不容任何反对，她的机智与言辞能令周围所有人着迷或屈服。美貌、闪光，像夏日般耀眼，同时也会变得冰冷遥远、不可触碰，除非她意愿如此。长久的岁月以来，这一点，她一直保持不变。
 
-我几乎错过尼耶拉走过大门时对我的热情问候。莱娜尼尔只对我点了点头。我们的领袖和客人们走入了主会所入座，我也紧跟了进去。这次会议是对一项新计划的讨论——我们最伟大的法师们将从夏·图尔传送门中提取能量。长久以来，那个古老种族的遗迹被埋藏在土壤之下，连同它们的力量一起，不见天日。一旦这股强大的力量被我们发掘利用，我们将能够迅速结束同兽人的战争。他们称这个大计划为“魔法大爆炸”——一个我们至今仍旧敬畏着的名字。
+我几乎错过尼耶拉走过大门时对我的热情问候。莱娜尼尔只对我点了点头。我们的领袖和客人们走入了主会所入座，我也紧跟了进去。这次会议是对一项新计划的讨论——我们最伟大的法师们将从夏·图尔远行传送门中提取能量。长久以来，那个古老种族的遗迹被埋藏在土壤之下，连同它们的力量一起，不见天日。一旦这股强大的力量被我们发掘利用，我们将能够迅速结束同兽人的战争。他们称这个大计划为“魔法大爆炸”——一个我们至今仍旧敬畏着的名字。
 
 我们的国王伊菲尼亚斯主持了会议，先介绍来客，再介绍身边众人。“这是我的将军，”他指向我说道，“永恒精灵军队指挥官加威尔。”莱娜尼尔立刻望向我，目瞪口呆。
 
@@ -14701,7 +14701,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 伊菲尼亚斯清了清喉咙，靠回椅背。“我们面前有一项宏伟的计划，”他开口说道，“多年以来，我们一直饱受兽人侵袭。起初，厄流战争削弱了我们；如今力量渐渐恢复，是时候彻底解决我们共同的敌人了。他们太多次险些将我们尽数吞没、令文明永远毁灭。我们都已失去太多。特塞尔，我深切理解你个人的丧失。”兽皮披身的男人神色未变，但我看见他的两个女儿都在沉痛中低下了头。
 
-“我一直在领导着我们的法师团体，探索夏·图尔传送门的秘密。我们相信，我们有能力激发其内部封印着的强大力量，来制造一股毁灭性的冲击波，直指向兽人大军。如果各个种族能联合起来，将兽人大军引诱出来，我们将会以一次快速的打击终结这场旷日已久的战争。兽人将会被彻底打垮，再无重来之日，而我们赖以生息的埃亚尔大陆也将得到净化。”
+“我一直在领导着我们的法师团体，探索夏·图尔远行传送门的秘密。我们相信，我们有能力激发其内部封印着的强大力量，来制造一股毁灭性的冲击波，直指向兽人大军。如果各个种族能联合起来，将兽人大军引诱出来，我们将会以一次快速的打击终结这场旷日已久的战争。兽人将会被彻底打垮，再无重来之日，而我们赖以生息的埃亚尔大陆也将得到净化。”
 
 “我已经同其他种族的首领接触过了，半身人非常支持这项计划，纳格尔的摄政王甚至同意将他们历史上对夏·图尔遗迹的部分研究成果同我们分享。”
 
@@ -15145,7 +15145,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。现在，我不得不和我经受多年的魔法训练所抗争。我过去一直依赖着那些已知的魔法流动，然而现在我却必须奋力寻找新的能量源。我用尽全力，把自己仅存的力量试图用于启动侦查系魔法，在那一刻，我发现的一切让我深深感到震惊。
 
-兽人看到我们混乱不堪的样子，下令全军突击。然而我的注意力很快从兽人所在的东面转移到了西面，试图望向埃尔瓦拉和我们的领袖用来操纵夏·图尔传送门的水晶塔。然而，我感觉水晶塔已经消失——它向内坍缩、碎入大地，一股白热的火焰浪潮正从那里扩散开来。兽人几乎没有遇到抵抗便杀入我们的军队，武器撕裂精灵兵士，但他们很快便遭遇了远为强大的毁灭性能量浪潮。
+兽人看到我们混乱不堪的样子，下令全军突击。然而我的注意力很快从兽人所在的东面转移到了西面，试图望向埃尔瓦拉和我们的领袖用来操纵夏·图尔远行传送门的水晶塔。然而，我感觉水晶塔已经消失——它向内坍缩、碎入大地，一股白热的火焰浪潮正从那里扩散开来。兽人几乎没有遇到抵抗便杀入我们的军队，武器撕裂精灵兵士，但他们很快便遭遇了远为强大的毁灭性能量浪潮。
 
 那一刻，天空化为了鲜血般的炽红。“打开护盾！”我试图大喊出声，然而灼热空气的震耳轰鸣迅速盖过了我的声音。当然，即使我能喊出声来也没有多少意义，因为我的军队失去了惯常的魔力来源，几乎毫无防备。烈焰长矛从天而降，瞬间贯穿血肉与钢铁，深深没入大地。地面剧烈震动，岩浆从岩层中被撕开的深孔里喷涌而出。
 
@@ -17818,7 +17818,7 @@ So what happened to these gods after they had made the races which we see today?
 
 现在从逻辑上来说已经很清楚了，必须考证其他种族的起源。因为他们不可能由同一位神明所创造——真的不可能。是什么神奇的存在创造了我们的种族，使我们如此全面而有天赋，然后再创造那些畸形扭曲的生物，比如矮人和人类？不，很显然，其他种族是由别的神明创造的，但比起我们的创造者来差了一些。只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美。
 
-然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们移除，另外创造了我们。虽然我们没有夏·图尔人那么强大——至少目前还没有——但是我们有自己的天赋，显然在我们伟大的创造者心中占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔传送门的种族。因为我们和我们的兄弟种族有着天然的联系。
+然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们移除，另外创造了我们。虽然我们没有夏·图尔人那么强大——至少目前还没有——但是我们有自己的天赋，显然在我们伟大的创造者心中占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔远行传送门的种族。因为我们和我们的兄弟种族有着天然的联系。
 
 那么在那些神创造了这些种族后又发生了什么？肯定是他们之间发生了纠葛，或者他们同归于尽，亦或是他们的战场远离了这个世界。我们的创造者，看到其他众神，或是被杀或是离开，肯定是将这个世界委托给了我们半身人，因为他知道我们将代替他掌管这个世界。这就是为何在历史的每一个节点上，我们都在世界的塑造中扮演了关键角色。这是我们当之无愧的继承权，治理好这个世界也是我们的职责。]], "_t")
 t("eyal", "埃亚尔", "newLore category")
@@ -18128,7 +18128,7 @@ What caused them to become extinct is unknown, though many theories abound. The 
 
 夏·图尔生活在距今一万多年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度无可匹敌地统治过整个世界。
 
-传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。
+远行传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的远行传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的远行传送门，至今无人敢碰。
 
 关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
 
@@ -19404,8 +19404,8 @@ t("Yiilkgur raising toward the sky", "伊克格，飞向天空", "_t")
 t("Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.", "伊克格——夏·图尔要塞——被重新激活，从纳尔湖深处升向天空。", "_t")
 t("a living Sher'Tul?!", "活着的夏·图尔人？！", "_t")
 t("You somehow got teleported to an other Sher'Tul Fortress, in a very alien location. There you saw a living Sher'Tul.", "你不知怎么地被传送到了另一座夏·图尔要塞，位于一个非常陌生的地方。在那里，你看到了一位活着的夏·图尔人。", "_t")
-t("lost farportal", "失落的传送门", "_t")
-t("%s boldly entering a Sher'Tul farportal.", "%s勇敢地进入了一个夏·图尔传送门。", "tformat")
+t("lost farportal", "失落的远行传送门", "_t")
+t("%s boldly entering a Sher'Tul farportal.", "%s勇敢地进入了一个夏·图尔远行传送门。", "tformat")
 -- untranslated text
 --[==[
 t("#{italic}#'Meas Abar.'#{normal}#", "#{italic}#'Meas Abar.'#{normal}#", "_t")
@@ -20287,7 +20287,7 @@ t("Through an incredible display of willpower you resisted long enough to ask Ae
 t("She sadly agreed and ran her sword through you, enabling you to do the last sacrifice you could for the world.", "她怀着悲痛的心情用长剑刺穿了你的身躯，你终于为这个世界做出了最后的贡献。", "_t")
 t("Through an incredible display of willpower you resisted for a few decisive seconds. During this time a Sher'tul appeared, took the Staff and killed you.", "你以惊人的意志力抵抗了关键的数秒，夏图尔人出现了，取走了法杖并杀死了你。", "_t")
 t("Though you succumbed to the fight, your mind was already gone, burnt to ashes by your mad patron sun. But the world was saved.", "虽然你最终屈服了，思维消散，被疯狂的太阳烧成灰烬。但世界被拯救了。", "_t")
-t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
+t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远行传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
 t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")
 t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵制住这道精神冲击，从而他们成为了仅存的危险人类，不过他们又能对强大的维网怎么样呢？", "_t")
 t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你用你的身躯作为通道将维网传输到所有知觉生物的身体中。", "_t")
@@ -25920,7 +25920,6 @@ t("Slime Roots", "史莱姆根须", "talent name")
 t("You extend slimy roots into the ground, follow them, and re-appear somewhere else in a range of %d with error margin of %d.", "你将史莱姆根须伸入地下，沿着根须移动，并在最远 %d 格外重新现身，位置误差为 %d 格。", "tformat")
 t("Animate Blade", "活化利刃", "talent name")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
-t("Open a hole in space, summoning an animated blade for 10 turns.", "在空间中打开一个孔洞，召唤一把活化之剑 10 回合。", "tformat")
 t("Drench", "浸湿", "talent name")
 t([[Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.
 		The damage will increase with your Spellpower.]], [[在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。
@@ -25970,14 +25969,6 @@ t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		注意：由于你的速度非常快，游戏回合会相对很慢。]], "tformat")
 t("speed %d%%; cd %d", "%d%% 加速 ; %d 冷却", "tformat")
 t("Infusion: Heroism", "纹身：英勇", "talent name")
-t([[Activate the infusion to endure even the most grievous of wounds for %d turns.
-		While Heroism is active, you will only die when reaching -%d life.
-		The duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)
-		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
-		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
-		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。
-		（目前 %d 生命值，%d 持续时间）
-		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
 t("die at -%d; dur %d; cd %d", "-%d 死亡底线; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
 t([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.
@@ -38069,7 +38060,7 @@ section "mod-tome/data/zones/charred-scar/grids.lua"
 t("floor", "地板", "entity type")
 t("lava", "岩浆", "entity subtype")
 t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
-t("A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.", "传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。", "_t")
+t("A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.", "远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to the far east.", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你回到了远东大陆。", "_t")
 
 ------------------------------------------------
@@ -38482,9 +38473,9 @@ t("#LIGHT_RED#You are sent back to the material plane!", "#LIGHT_RED#你被传�
 ------------------------------------------------
 section "mod-tome/data/zones/eruan/grids.lua"
 
-t("Farportal: Charred Scar", "远距传送门：灼烧之痕", "entity name")
+t("Farportal: Charred Scar", "远行传送门：灼烧之痕", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山……]], "_t")
 t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了正在消逝的传送漩涡，转瞬间便踏上了地狱般的土地——一座火山的腹地……", "_t")
 
@@ -38723,17 +38714,17 @@ section "mod-tome/data/zones/high-peak/grids.lua"
 
 t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go to the Far East.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
  这道门似乎通向远东。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the Far East, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了远东大陆，此间毫无传送门的痕迹……", "_t")
 t("Farportal: Iron Throne", "远行传送门：钢铁王座", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Iron Throne in the West.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go to the Iron Throne in the West.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
  这道门似乎通向西方的钢铁王座。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，转瞬间便踏上钢铁王座的山坡，此间已不见传送门的踪迹……", "_t")
 t("Farportal: the Void", "远行传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s（已禁用）", "tformat")
@@ -39360,7 +39351,7 @@ section "mod-tome/data/zones/reknor/grids.lua"
 
 t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Far East, a continent of which only rumours are known...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go to the Far East, a continent of which only rumours are known...]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这道门似乎通向远东大陆，一块传说中的大陆……]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫便来到一个陌生的洞穴，此间已不见传送门的踪迹……", "_t")
 t("Iron Throne Edict", "钢铁王座布告", "entity name")
@@ -39383,7 +39374,7 @@ t("#LIGHT_RED#You hear a death cry. '%s I have a messag... ARG!'", "#LIGHT_RED#�
 t("demon", "恶魔", "entity type")
 t("major", "大恶魔", "entity subtype")
 t("Lithfengel", "里斯丰格", "entity name")
-t("A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!", "一只缠绕着枯萎和衰竭的可怕恶魔，他被传送门的能量吸引而来。这只瘟神！", "_t")
+t("A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!", "一只缠绕着枯萎和衰竭的可怕恶魔，他被远行传送门的能量吸引而来。这只瘟神！", "_t")
 t("Back and there again", "归而复往", "_t")
 t("A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", "仔细检查恶魔的尸体，你发现了一把血符仪式匕首和一块共鸣钻石。两者都沾满烟尘和血污，但除此之外仍完好无损。", "_t")
 
@@ -39719,7 +39710,7 @@ t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
 t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
+It should automatically create a portal back, but it might not be near your arrival zone.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个莫名熟悉的地方，在另一个远行传送门旁边……", "log")
@@ -39792,7 +39783,7 @@ t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
 t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
+It should automatically create a portal back, but it might not be near your arrival zone.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
 t("Farportal", "远行传送门", "_t")
@@ -40329,7 +40320,7 @@ t("floor", "地板", "entity subtype")
 t("old road", "古老的路", "entity name")
 t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你甚至不知道它是否能双向通行。
+This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了最后的希望的郊外，传送的踪迹再不可寻……", "_t")
 t("rockwall", "岩石墙", "entity type")
@@ -40459,7 +40450,7 @@ t("floor", "地板", "entity subtype")
 t("old road", "古老的路", "entity name")
 t("Farportal: Gates of Morning", "远行传送门：晨曦之门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the Gates of Morning in the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
+This one seems to go near the Gates of Morning in the Far East.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这扇门似乎通向远东的晨曦之门附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经来到了能望见晨曦之门的地方，此间毫无传送门的痕迹……", "_t")
 
