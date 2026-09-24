@@ -361,7 +361,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 
 蒸汽巨人消失了。
 
-弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：
+弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为瓦·埃亚尔大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：
 这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。
 
 无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有曾对兽人施以暴行的人的感受。
@@ -1788,7 +1788,7 @@ t("classy goggles", "经典的护目镜", "_t")
 t("No self respecting craftsman would be caught without them!", "没有任何一个自爱的工匠会被人发现没有佩戴它！", "_t")
 t("X-Ray Goggles", "X射线护目镜", "entity name")
 t("pitch black goggles", "漆黑的护目镜", "_t")
-t("How do these even work?", "这玩意到底怎么用？", "_t")
+t("How do these even work?", "这玩意到底是怎么运作的？", "_t")
 t("see everything. EVERYTHING. For 5 turns, anyway", "看到所有东西。*所有东西*。当然，只有5回合。", "_t")
 t("Laser Powered Giant Smasher", "激光驱动巨型粉碎器", "entity name")
 t("radiant hammer", "光辉的锤子", "_t")
@@ -2526,7 +2526,7 @@ And regarding the First Duathedlen - quit your murmuring right now.  I've seen h
 
 [i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]], [[我准备实话实说：事情的进展并不顺利。除了魔化精灵的逃亡事件之外，还有库马纳和我们许多代价高昂的战斗人员死于那个“异常”之手，以及第一位多瑟顿的失踪…我们今年的损失已经够严重了。所以，给你们的命令很简单：保持低调。远离敌人的视线，进行被动的观察，直到我们可以获得一个新的立足点，开展新的计划。
 
-还有，有关第一位多瑟顿的事情——你现在就别抱怨这些了。我看到过他的记录，我知道你们大部分人也都看过，这就是为什么我可以放心的说，尽管他的…本性如此，但他的忠诚是[b]无可挑剔[/b]的——我们可以假定，他的突然失联是他进行的调查的一个重要组成部分，而并不是他叛逃了。如果你看到了他，请告诉我们他的位置，但千万不要干涉他的行动。
+还有，有关第一位多瑟顿的事情——你们现在就别私下议论了。我看到过他的记录，我知道你们大部分人也都看过，这就是为什么我可以放心的说，尽管他的…本性如此，但他的忠诚是[b]无可挑剔[/b]的——我们可以假定，他的突然失联是他进行的调查的一个重要组成部分，而并不是他叛逃了。如果你看到了他，请告诉我们他的位置，但千万不要干涉他的行动。
 
 [i]（这封信是用一个难以辨认，但看起来很正式的恶魔印章签署的。）[/i] ]], "_t")
 t("bootlegger's complaint letter", "私酒贩的抱怨信", "_t")
@@ -2548,11 +2548,11 @@ Got a proposal, though.  With a few little tweaks, I could make one that doesn't
 
 Say the word, and I'll send over the temporary rune design so you can set the nexus to recognize it.  No charge from me - if you accept it, it'll pay for itself.
 
-[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测水晶真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基·埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
+[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测枢纽真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基·埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
 
 现在，我现在有一个想法。只要稍微整一下，我就可以让这玩意儿不需要使用者的意愿就能工作。你不是唯一一个从我这里买奴隶的人，要是有别的买家想把他们直接带回西部去的话，我们可得好好做点反侦测的准备。我不知道你有没有注意到，但合格的法师如今还是很难请到——上次，我差点把老本都给赔光了。
 
-只要你一句话，我就把这个临时的符文设计发给你，你设置好水晶就能用了。我不收你的钱——只要你愿意用，这笔投入很快就能回本。
+只要你一句话，我就把这个临时的符文设计发给你，好让你设置枢纽来识别它。我不收你的钱——只要你愿意用，这笔投入很快就能回本。
 
 [i]（你猜想，下面画着的这个精心设计的，闪闪发光的图案，在食人魔文化里有着和签名一样的用途。）[/i] ]], "_t")
 t("STOP BLOWING OUR COVER", "别再暴露我们的身份了！", "_t")
@@ -2640,9 +2640,9 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 气之部族的蒸汽巨人在克拉克山脉中藏匿了几个世纪；幸运的是，他们从未受到魔法大爆炸的影响，考虑到他们的生存环境如此集中，人口又是这么稀少，这样的灾害恐怕会完全灭绝他们。他们尽力将与其他种族之间的互动降低到最低限度。按照卡西罗斯议长的说法，这是因为他们既害怕外部世界可能对它们造成的威胁，也害怕他们轻率的介入可能会给外面世界的人带来怎样的影响，但按照我从其他气之部族的人的说法，他们只是觉得那些“下等种族”又粗野又令人不快而已。（考虑到直到不久之前，他们唯一的邻居就是兽人，我完全可以理解他们的这种看法）
 
-按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，[b]也[/b]可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
+按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，也可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
-唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探索用远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
+唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探索用远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]焚灭号，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
 t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "（当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。）", "_t")
 
@@ -2707,9 +2707,9 @@ The consumer edition of this game, v6.0, has won countless awards for its engagi
 t("a fading poster", "一个发旧的海报", "_t")
 t([[Councilor Tantalos, unlike that cowardly wimp Chief Councilor Kasyros, knows just what to do to solve the steam shortages, and isn't afraid to do it!  Even though he can't reveal his plan yet for security reasons, the Geothermal Authority and our military's highest generals have assured us that his plan would work, without requiring us to ration steam usage or regulate our appliances; let's see Tantalos show that old geezer what-for, and end this drought for good!
 
-VOTE FISTICUFFS]], [=[坦塔洛斯议员，不像卡西罗斯议长那位懦弱的窝囊废。他知道该如何解决蒸汽短缺的问题，也不怕去执行这一方案！即使由于安全原因，他现在还不能公布计划，地热局和我们军队高级将领已经向我们保证，他的计划一定会奏效，我们再也无需节省蒸汽用量或是管控我们的器具；让我们看看坦塔洛斯怎样让那个老东西难堪，并永远结束蒸汽枯竭！
+VOTE FISTICUFFS]], [=[坦塔洛斯议员不像卡西罗斯议长那位懦弱的窝囊废，他知道该如何解决蒸汽短缺的问题，也不怕去执行这一方案！即使由于安全原因，他现在还不能公布计划，地热局和我们军队高级将领已经向我们保证，他的计划一定会奏效，我们再也无需节省蒸汽用量或是管控我们的器具；让我们看看坦塔洛斯怎样让那个老东西难堪，并永远结束蒸汽枯竭！
 
-[b]请投肉搏战[/b]]=], "_t")
+请投肉搏战]=], "_t")
 t("Kasyros' resignation speech", "卡西罗斯的辞职演说", "_t")
 t([[My fellow councilors,
 
@@ -2915,7 +2915,7 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 坦塔洛斯：“真不走运，不过一切结束后我们一定能定他叛国罪。潘多尔，你最近在训练我们的枪手吧————他们怎样了？”
 
-潘多尔：“那群废物们吓得不轻，尊敬的议长，但是他们进步得很快。我从卡尔托剩下的货物中收集了一些新式的喷火步枪，而我们的复仇者部队处在巅峰状态。”
+潘多尔：“吓得魂飞魄散，尊敬的议长，但是他们进步得很快。我从卡托尔剩下的货物中收集了一些新式的喷火步枪，而我们的复仇者部队处在巅峰状态。”
 
 坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁灭号、无礼的贯穿者————#{normal}#”
 
@@ -3890,7 +3890,7 @@ t("Wild yetis are mostly found in yeti's caves.", "野生雪人主要出现在�
 t("#LIGHT_GREEN#* Captured eight yetis (will be available to summon at level 20).#WHITE#", "#LIGHT_GREEN#* 抓住了八只雪人（你至少需要20级才能召唤他们）#WHITE#", "_t")
 t("#LIGHT_GREY#* Captured %d/8 yetis.#WHITE#", "#LIGHT_GREY#* 捕获了 %d/8 个雪人。#WHITE#", "tformat")
 t("Yeti's Psychoportation Beacon", "雪人精神传送信标", "_t")
-t("Call a trained yeti to your side.", "召唤雪人来协助你。", "_t")
+t("Call a trained yeti to your side.", "召唤受训练的雪人来协助你。", "_t")
 t("Yetis left to call: %d", "剩余可召唤的雪人：%d", "tformat")
 t("call a trained yeti for help", "召唤受训练的雪人来帮助你", "_t")
 t("The yetis are not ready yet.", "雪人还没有准备好。", "log")
@@ -5481,7 +5481,7 @@ t([[Throw a cone of flame with radius %d
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
-		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复其他机械生物（蒸汽蜘蛛）%d 生命值。
+		The healing will increase with your Steampower.]], [[释放一片半径 %d 码的锥形治疗波，修复其他机械生物（蒸汽蜘蛛）%d 生命值。
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
@@ -5953,7 +5953,7 @@ t([[You are adept at wreaking havoc onto your foes!
 		Each time you (or any others) would try to apply a cross-tier effect to this creature, you also try to apply the other two.
 		In addition your physical, steam, spell and mind powers are increased by %d.
 		The powers increase scales of your Cunning.]], [[你很擅长给你的敌人带来灾难！
-		任何时候你对一个生物造成伤害，你会对它施加灾难临近效果，持续20回合。
+		任何时候你对一个生物造成伤害，你会对它施加灾祸临近效果，持续20回合。
 		每次你（或其他任何人）尝试对这个生物施加越层效果时，也将尝试施加其他两个越层效果。
 		此外，你的物理，蒸汽，法术和精神强度增加 %d。
 		强度增加值受灵巧值加成。]], "tformat")
@@ -5999,7 +5999,7 @@ t("Arcane Amplification Drone", "奥术增幅装置", "talent name")
 t("Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.", "当前或之前的角色在当前难度与模式下解锁过 #{italic}#大灾变的故事#{normal}# 这个成就。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("arcane amplification drone", "奥术增幅装置", "_t")
-t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。", "_t")
+t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
 t([[You create an Arcane Amplification Drone at the selected location for 3 turns.
 		When you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]], [[你在目标地点放置一个持续 3 回合的奥术增幅装置。
 		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的所有目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
@@ -6058,7 +6058,7 @@ section "tome-orcs/data/talents/uber/wil.lua"
 t("Range Amplification Device", "射程增幅装置", "talent name")
 t("Have a light radius of 10 or more", "光照范围为10或以上", "_t")
 t([[Activate a special focusing device that extends all your ranged spells and psionic powers range by 3 (only works on those with range 2 or more and up to 10 max).
-		The use of this device is very strenuous, increasing fatigue by 20%% while active.]], [[启动一个特殊的聚焦装置来使你的所有远程魔法和精神技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。
+		The use of this device is very strenuous, increasing fatigue by 20%% while active.]], [[启动一个特殊的聚焦装置来使你的所有远程法术和灵能技能射程延长 3 （仅对射程至少为 2 的技能生效，且上限为 10）。
 		使用这个装置非常的费力，开启期间会增加 20%% 疲劳。]], "tformat")
 
 ------------------------------------------------

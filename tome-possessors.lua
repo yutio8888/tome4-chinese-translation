@@ -56,9 +56,9 @@ t("Psionic Block", "灵能格挡", "talent name")
 t([[You concentrate to create a psionic block field all around you for 5 turns.
 		While the effect holds all damage against you have a %d%% chance to be fully ignored.
 		When damage is cancelled you instinctively make a retaliation mind strike against the source, dealing %0.2f mind damage. (The retaliation may only happen 2 times per turn.)
-		]], [[创造一个持续 5 回合的灵能盾牌围绕你。
+		]], [[创造一个持续 5 回合的灵能格挡力场围绕你。
 		技能生效时有 %d%% 几率会无视伤害。
-		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）
+		如果伤害被无视，你会对伤害来源进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）
 		]], "tformat")
 
 ------------------------------------------------
@@ -271,7 +271,7 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 		The target will take %d%% of the life it already lost as mind damage.
 		On targets of rank boss or higher the damage is limited to %d.
 		If the target dies from the Finger and is of a type you can already absorb it is directly absorbed into your bodies reserve.
-		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。
+		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用可怕的手指指向受到恐怖嚎叫效果影响的敌人，发送一道灵能脉冲令其直接受死。
 		目标将受到相当于其已损失生命值 %d%% 的精神伤害。
 		对 boss 或者更高阶级的目标伤害最高为 %d。
 		如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。
