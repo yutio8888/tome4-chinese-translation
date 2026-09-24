@@ -5383,7 +5383,7 @@ I guess I threaten his authority. Not sure what I'll have to do about that...
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00172 | HUMAN-REVIEW | cross-batch-040 | confirmed | 是否按规范改“待在”，属用字规范决定 |  |  |
+| hrq-00172 | HUMAN-REVIEW | cross-batch-040 | confirmed | 是否按规范改“待在”，属用字规范决定 |  | fix |
 
 <details><summary>hrq-00172 · HUMAN-REVIEW 详情</summary>
 
@@ -5416,7 +5416,7 @@ You feel as if the room itself is coming to bear upon you. Kyless smiles and the
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00173 | HUMAN-REVIEW | cross-batch-041 | confirmed | 无必办项 |  |  |
+| hrq-00173 | HUMAN-REVIEW | cross-batch-041 | confirmed | 无必办项 |  | no_change |
 
 <details><summary>hrq-00173 · HUMAN-REVIEW 详情</summary>
 
@@ -5448,7 +5448,7 @@ Diamonds are my favourite, so sparkly.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00174 | HUMAN-REVIEW | cross-batch-041 | confirmed | 并回段落、去重标点 |  |  |
+| hrq-00174 | HUMAN-REVIEW | cross-batch-041 | confirmed | 并回段落、去重标点 |  | fix |
 
 <details><summary>hrq-00174 · HUMAN-REVIEW 详情</summary>
 
@@ -5529,7 +5529,7 @@ By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty ti
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00175 | HUMAN-REVIEW | cross-batch-041 | confirmed | 专名与职业双关待术语核对；序号统一 |  |  |
+| hrq-00175 | HUMAN-REVIEW | cross-batch-041 | confirmed | 专名与职业双关待术语核对；序号统一 |  | fix |
 
 <details><summary>hrq-00175 · HUMAN-REVIEW 详情</summary>
 
@@ -5560,7 +5560,7 @@ The Pixels finally got him...
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00176 | HUMAN-REVIEW | cross-batch-041 | pending | 需专名/彩蛋依据才能定 |  |  |
+| hrq-00176 | HUMAN-REVIEW | cross-batch-041 | pending | 需专名/彩蛋依据才能定 |  | defer |
 
 <details><summary>hrq-00176 · HUMAN-REVIEW 详情</summary>
 
@@ -5595,7 +5595,7 @@ The joke was over
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00177 | HUMAN-REVIEW | cross-batch-041 | confirmed | 无必办项 |  |  |
+| hrq-00177 | HUMAN-REVIEW | cross-batch-041 | confirmed | 无必办项 |  | no_change |
 
 <details><summary>hrq-00177 · HUMAN-REVIEW 详情</summary>
 
@@ -5630,7 +5630,7 @@ The Nalorën received no answer.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00178 | HUMAN-REVIEW | cross-batch-041 | confirmed | 统一系列译名，标题按 `Tract` 更正 |  |  |
+| hrq-00178 | HUMAN-REVIEW | cross-batch-041 | confirmed | 统一系列译名，标题按 `Tract` 更正 |  | fix |
 
 <details><summary>hrq-00178 · HUMAN-REVIEW 详情</summary>
 
@@ -5655,7 +5655,7 @@ raw verdict: 正文标题把 `Tract` 错成“治”并与系列译法冲突→c
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00179 | HUMAN-REVIEW | cross-batch-042 | confirmed | 术语对齐 + 改“得” |  |  |
+| hrq-00179 | HUMAN-REVIEW | cross-batch-042 | confirmed | 术语对齐 + 改“得” |  | fix |
 
 <details><summary>hrq-00179 · HUMAN-REVIEW 详情</summary>
 
@@ -5696,7 +5696,7 @@ Weisman`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00180 | HUMAN-REVIEW | cross-batch-042 | confirmed | 补地名、按原文结构重写 |  |  |
+| hrq-00180 | HUMAN-REVIEW | cross-batch-042 | confirmed | 补地名、按原文结构重写 |  | fix |
 
 <details><summary>hrq-00180 · HUMAN-REVIEW 详情</summary>
 
@@ -5736,7 +5736,7 @@ Rolf`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00181 | HUMAN-REVIEW | cross-batch-042 | confirmed | 专名与句法按源码回改 |  |  |
+| hrq-00181 | HUMAN-REVIEW | cross-batch-042 | confirmed | 专名与句法按源码回改 |  | fix |
 
 <details><summary>hrq-00181 · HUMAN-REVIEW 详情</summary>
 
@@ -5781,7 +5781,7 @@ Weisman`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00182 | HUMAN-REVIEW | cross-batch-042 | confirmed | 删增饰与粗口，口吻取舍 |  |  |
+| hrq-00182 | HUMAN-REVIEW | cross-batch-042 | confirmed | 删增饰与粗口，口吻取舍 |  | fix |
 
 <details><summary>hrq-00182 · HUMAN-REVIEW 详情</summary>
 
@@ -5826,7 +5826,7 @@ Rolf`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00183 | HUMAN-REVIEW | cross-batch-042 | confirmed | 重译该句、代词回正 |  |  |
+| hrq-00183 | HUMAN-REVIEW | cross-batch-042 | confirmed | 重译该句、代词回正 |  | fix |
 
 <details><summary>hrq-00183 · HUMAN-REVIEW 详情</summary>
 
@@ -5861,7 +5861,7 @@ Rolf.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00184 | HUMAN-REVIEW | cross-batch-042 | pending | 双关需彩蛋/设定依据 |  |  |
+| hrq-00184 | HUMAN-REVIEW | cross-batch-042 | pending | 双关需彩蛋/设定依据 |  | fix |
 
 <details><summary>hrq-00184 · HUMAN-REVIEW 详情</summary>
 
@@ -5890,7 +5890,7 @@ I have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00185 | HUMAN-REVIEW | cross-batch-042 | confirmed | 改回客观旁注、收束程度词 |  |  |
+| hrq-00185 | HUMAN-REVIEW | cross-batch-042 | confirmed | 改回客观旁注、收束程度词 |  | fix |
 
 <details><summary>hrq-00185 · HUMAN-REVIEW 详情</summary>
 
@@ -5937,7 +5937,7 @@ In all those centuries I still searched for the woman and found no trace. I know
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00186 | HUMAN-REVIEW | cross-batch-042 | confirmed | 改问句与助词；专名与反转程度按收窄意见处理 |  |  |
+| hrq-00186 | HUMAN-REVIEW | cross-batch-042 | confirmed | 改问句与助词；专名与反转程度按收窄意见处理 |  | fix |
 
 <details><summary>hrq-00186 · HUMAN-REVIEW 详情</summary>
 
@@ -5992,7 +5992,7 @@ So what happened to these gods after they had made the races which we see today?
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00187 | HUMAN-REVIEW | cross-batch-043 | confirmed | 改动词结构、补“我们半身人” |  |  |
+| hrq-00187 | HUMAN-REVIEW | cross-batch-043 | confirmed | 改动词结构、补“我们半身人” |  | fix |
 
 <details><summary>hrq-00187 · HUMAN-REVIEW 详情</summary>
 
@@ -6069,7 +6069,7 @@ Aye, and Gerlyk did walk abroad that night, into Darkness beyond, and has ne'er 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00188 | HUMAN-REVIEW | cross-batch-043 | confirmed | 补月相与叹词，`moonsister` 回到“月 Sister/月姊妹”一类 |  |  |
+| hrq-00188 | HUMAN-REVIEW | cross-batch-043 | confirmed | 补月相与叹词，`moonsister` 回到“月 Sister/月姊妹”一类 |  | fix |
 
 <details><summary>hrq-00188 · HUMAN-REVIEW 详情</summary>
 
@@ -6112,7 +6112,7 @@ Yes, yes, this is all clearly an illusion! A strange nightmare that I shall wake
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00189 | HUMAN-REVIEW | cross-batch-043 | confirmed | 逐句按源码回改，删除两处增译 |  |  |
+| hrq-00189 | HUMAN-REVIEW | cross-batch-043 | confirmed | 逐句按源码回改，删除两处增译 |  | fix |
 
 <details><summary>hrq-00189 · HUMAN-REVIEW 详情</summary>
 
@@ -6155,7 +6155,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00190 | HUMAN-REVIEW | cross-batch-043 | confirmed | 事件名回“大灾变”；猎称按术语统一 |  |  |
+| hrq-00190 | HUMAN-REVIEW | cross-batch-043 | confirmed | 事件名回“大灾变”；猎称按术语统一 |  | defer |
 
 <details><summary>hrq-00190 · HUMAN-REVIEW 详情</summary>
 
@@ -6195,7 +6195,7 @@ The most famous of all halflings is Queen Mirvenia, most famed for her saving of
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00191 | HUMAN-REVIEW | cross-batch-044 | confirmed | 与第一章逐条对照 + 术语核对 |  |  |
+| hrq-00191 | HUMAN-REVIEW | cross-batch-044 | confirmed | 与第一章逐条对照 + 术语核对 |  | fix |
 
 <details><summary>hrq-00191 · HUMAN-REVIEW 详情</summary>
 
@@ -6234,7 +6234,7 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00192 | HUMAN-REVIEW | cross-batch-044 | confirmed | 修措辞；术语待核 |  |  |
+| hrq-00192 | HUMAN-REVIEW | cross-batch-044 | confirmed | 修措辞；术语待核 |  | fix |
 
 <details><summary>hrq-00192 · HUMAN-REVIEW 详情</summary>
 
@@ -6273,7 +6273,7 @@ They deal with other races seldom, preferring to keep a low profile, and most of
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00193 | HUMAN-REVIEW | cross-batch-044 | confirmed | 补 `or`、统一引号风格 |  |  |
+| hrq-00193 | HUMAN-REVIEW | cross-batch-044 | confirmed | 补 `or`、统一引号风格 |  | fix |
 
 <details><summary>hrq-00193 · HUMAN-REVIEW 详情</summary>
 
@@ -6308,7 +6308,7 @@ The Thaloren do business very rarely with the outside world, but when they do it
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00194 | HUMAN-REVIEW | cross-batch-044 | confirmed | 分支指称需全库核对后再定 |  |  |
+| hrq-00194 | HUMAN-REVIEW | cross-batch-044 | confirmed | 分支指称需全库核对后再定 |  | no_change |
 
 <details><summary>hrq-00194 · HUMAN-REVIEW 详情</summary>
 
@@ -6347,7 +6347,7 @@ Due to the safety and comfort of Elvala, and their mistrust of much of the outsi
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00195 | HUMAN-REVIEW | cross-batch-045 | confirmed | 逐句按源码回改；埃尔瓦拉查术语记录 |  |  |
+| hrq-00195 | HUMAN-REVIEW | cross-batch-045 | confirmed | 逐句按源码回改；埃尔瓦拉查术语记录 |  | fix |
 
 <details><summary>hrq-00195 · HUMAN-REVIEW 详情</summary>
 
@@ -6386,7 +6386,7 @@ What caused them to become extinct is unknown, though many theories abound. The 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00196 | HUMAN-REVIEW | cross-batch-045 | confirmed | 补谓语、放宽学界范围；`crucible` 译法定夺 |  |  |
+| hrq-00196 | HUMAN-REVIEW | cross-batch-045 | confirmed | 补谓语、放宽学界范围；`crucible` 译法定夺 |  | fix |
 
 <details><summary>hrq-00196 · HUMAN-REVIEW 详情</summary>
 
@@ -6425,7 +6425,7 @@ The origin of Demons is not wholly known, but it is clear that they are capable 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00197 | HUMAN-REVIEW | cross-batch-046 | confirmed | 逐句回改 |  |  |
+| hrq-00197 | HUMAN-REVIEW | cross-batch-046 | confirmed | 逐句回改 |  | fix |
 
 <details><summary>hrq-00197 · HUMAN-REVIEW 详情</summary>
 
@@ -6464,7 +6464,7 @@ Dragons are regularly hunted for their thick scales and their elementally imbued
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00198 | HUMAN-REVIEW | cross-batch-046 | confirmed | 改错别字、恢复指代 |  |  |
+| hrq-00198 | HUMAN-REVIEW | cross-batch-046 | confirmed | 改错别字、恢复指代 |  | fix |
 
 <details><summary>hrq-00198 · HUMAN-REVIEW 详情</summary>
 
@@ -6583,7 +6583,7 @@ Now to Nature you are dust"`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00199 | HUMAN-REVIEW | cross-batch-046 | confirmed | 逐句回改 |  |  |
+| hrq-00199 | HUMAN-REVIEW | cross-batch-046 | confirmed | 逐句回改 |  | fix |
 
 <details><summary>hrq-00199 · HUMAN-REVIEW 详情</summary>
 
@@ -6614,7 +6614,7 @@ Free now to face this nightmare, you turn to find your foe. While you have a sen
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00200 | HUMAN-REVIEW | cross-batch-046 | confirmed | 补漏译；不要把“被动天赋”写进裁决依据 |  |  |
+| hrq-00200 | HUMAN-REVIEW | cross-batch-046 | confirmed | 补漏译；不要把“被动天赋”写进裁决依据 |  | fix |
 
 <details><summary>hrq-00200 · HUMAN-REVIEW 详情</summary>
 
@@ -6645,7 +6645,7 @@ Love, #{italic}#Eden#{normal}#`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00201 | HUMAN-REVIEW | cross-batch-046 | confirmed | 修主客关系 |  |  |
+| hrq-00201 | HUMAN-REVIEW | cross-batch-046 | confirmed | 修主客关系 |  | fix |
 
 <details><summary>hrq-00201 · HUMAN-REVIEW 详情</summary>
 
@@ -6700,7 +6700,7 @@ Take 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00202 | HUMAN-REVIEW | cross-batch-046 | confirmed | 删臆造物件；查“法罗”术语记录 |  |  |
+| hrq-00202 | HUMAN-REVIEW | cross-batch-046 | confirmed | 删臆造物件；查“法罗”术语记录 |  | fix |
 
 <details><summary>hrq-00202 · HUMAN-REVIEW 详情</summary>
 
@@ -6727,7 +6727,7 @@ Eyal is a torn world, and the forces of nature can react strongly to the arcane 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00203 | HUMAN-REVIEW | cross-batch-046 | confirmed | 视术语决定是否改 |  |  |
+| hrq-00203 | HUMAN-REVIEW | cross-batch-046 | confirmed | 视术语决定是否改 |  | fix |
 
 <details><summary>hrq-00203 · HUMAN-REVIEW 详情</summary>
 
@@ -6774,7 +6774,7 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00204 | HUMAN-REVIEW | cross-batch-047 | confirmed | 扩写与范围词回改；身份解释不要写进修复理由 |  |  |
+| hrq-00204 | HUMAN-REVIEW | cross-batch-047 | confirmed | 扩写与范围词回改；身份解释不要写进修复理由 |  | fix |
 
 <details><summary>hrq-00204 · HUMAN-REVIEW 详情</summary>
 
@@ -6824,7 +6824,7 @@ PS: You might encounter a... benefactor of sorts in your travels. You'll know it
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00205 | HUMAN-REVIEW | cross-batch-047 | confirmed | 六处按源码回改 |  |  |
+| hrq-00205 | HUMAN-REVIEW | cross-batch-047 | confirmed | 六处按源码回改 |  | fix |
 
 <details><summary>hrq-00205 · HUMAN-REVIEW 详情</summary>
 
@@ -6879,7 +6879,7 @@ they've done what they could but Spydrë is [b]ours.[/b] `
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00206 | HUMAN-REVIEW | cross-batch-047 | confirmed | 诗文本身不判错；一致性另取冻结样本 |  |  |
+| hrq-00206 | HUMAN-REVIEW | cross-batch-047 | confirmed | 诗文本身不判错；一致性另取冻结样本 |  | fix |
 
 <details><summary>hrq-00206 · HUMAN-REVIEW 详情</summary>
 
@@ -6920,7 +6920,7 @@ Oh, look. He is trying to harm me with spells, but all he can manage is a corrup
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00207 | HUMAN-REVIEW | cross-batch-047 | confirmed | 改末句与指代；剧情解释不写成事实 |  |  |
+| hrq-00207 | HUMAN-REVIEW | cross-batch-047 | confirmed | 改末句与指代；剧情解释不写成事实 |  | fix |
 
 <details><summary>hrq-00207 · HUMAN-REVIEW 详情</summary>
 
@@ -6973,7 +6973,7 @@ that drowned her at last.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00208 | HUMAN-REVIEW | cross-batch-047 | confirmed | 保留专名；标点按体例统一 |  |  |
+| hrq-00208 | HUMAN-REVIEW | cross-batch-047 | confirmed | 保留专名；标点按体例统一 |  | no_change |
 
 <details><summary>hrq-00208 · HUMAN-REVIEW 详情</summary>
 
@@ -7038,7 +7038,7 @@ In time! Bah! This will be my ruin if it comes to that. If there is any appearan
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00209 | HUMAN-REVIEW | cross-batch-048 | confirmed | 是否要求三处分段严格统一，低优先级 |  |  |
+| hrq-00209 | HUMAN-REVIEW | cross-batch-048 | confirmed | 是否要求三处分段严格统一，低优先级 |  | no_change |
 
 <details><summary>hrq-00209 · HUMAN-REVIEW 详情</summary>
 
@@ -7077,7 +7077,7 @@ It's on the wyrmic path I go!`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00210 | HUMAN-REVIEW | cross-batch-048 | confirmed | 改“巨型沙虫”；附加论据需主流程另取冻结文本 |  |  |
+| hrq-00210 | HUMAN-REVIEW | cross-batch-048 | confirmed | 改“巨型沙虫”；附加论据需主流程另取冻结文本 |  | fix |
 
 <details><summary>hrq-00210 · HUMAN-REVIEW 详情</summary>
 
@@ -7100,7 +7100,7 @@ raw verdict: `giant worms` 译“巨型沙龙”混淆 worm 与 wyrm→confirmed
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00211 | HUMAN-REVIEW | cross-batch-048 | advisory | 若要统一引号，作为整个 section 的独立排版决策 |  |  |
+| hrq-00211 | HUMAN-REVIEW | cross-batch-048 | advisory | 若要统一引号，作为整个 section 的独立排版决策 |  | no_change |
 
 <details><summary>hrq-00211 · HUMAN-REVIEW 详情</summary>
 

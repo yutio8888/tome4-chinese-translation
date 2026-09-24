@@ -1,0 +1,940 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-05",
+ "packet_sha256": "e9548f9d181540946c930fac5d11a2cd4d97e82b07ced6b52dc1c13e1bf55f70",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 40,
+ "verdict_counts": {
+  "accepted": 38,
+  "deferred": 2
+ },
+ "model_disposition_counts": {
+  "defer": 2,
+  "fix": 32,
+  "no_change": 6
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00172",
+   "entry_id": "entry-01247",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 16562,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "整段确实交代凯勒斯抢强盗黄金并藏入洞穴；priceless 在他享受袭击的语境中译作“无比快意”成立，误译指控被反证推翻。“呆在一起”此处指停留，应写“待在一起”。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/keepsake.lua",
+    "mod-tome.lua:16562"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；整段确实交代凯勒斯抢强盗黄金并藏入洞穴；priceless 在他享受袭击的语境中译作“无比快意”成立，误译指控被反证推翻。“呆在一起”此处指停留，应写“待在一起”。",
+   "applied": true,
+   "old_target": "#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#\n\n在过去一年内我进步神速。现在其他商人都愿意听从我了。他们认为我真的有商业天赋。\n那些跟我们做买卖的农民意志薄弱，实在太容易控制了。他们简直是在把钱白送给我。\n但是真正的钱财与力量却掌握在那些强盗手里。上次那两个偷袭我的人已经得到了他们应有的惩罚。他们营地里的其他人也一样。\n我攻击他们时，他们脸上惊恐的表情令我感到无比快意。他们的黄金想必比商队一年赚的还多！\n我叫了些帮手帮我把战利品抬到附近的洞穴里。再有几次这样的遭遇，我就能发财了！\n在那之前，我还会和商队呆在一起。眼下只有一个问题，那就是贾克。他并不信任我。\n我猜是因为我对他的权威构成了威胁。我还不知道该怎么处理这件事……\n",
+   "new_target": "#{italic}#你感觉这应该是凯勒斯日记中的一页。#{normal}#\n\n在过去一年内我进步神速。现在其他商人都愿意听从我了。他们认为我真的有商业天赋。\n那些跟我们做买卖的农民意志薄弱，实在太容易控制了。他们简直是在把钱白送给我。\n但是真正的钱财与力量却掌握在那些强盗手里。上次那两个偷袭我的人已经得到了他们应有的惩罚。他们营地里的其他人也一样。\n我攻击他们时，他们脸上惊恐的表情令我感到无比快意。他们的黄金想必比商队一年赚的还多！\n我叫了些帮手帮我把战利品抬到附近的洞穴里。再有几次这样的遭遇，我就能发财了！\n在那之前，我还会和商队待在一起。眼下只有一个问题，那就是贾克。他并不信任我。\n我猜是因为我对他的权威构成了威胁。我还不知道该怎么处理这件事……\n",
+   "section": "mod-tome/data/lore/keepsake.lua",
+   "source": "#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#\n\nI've come so far in the last year. The other merchants listen to me now. They think I have a real gift for trade.\nThe weak-minded peasants we trade with are so easy to control though. They practically give me their money.\nBut the real money and power rests with the bandits. Those two that ambushed me got what they deserved. So did the rest of their camp.\nThe fear on their faces when I struck was priceless. They must have had more gold than the caravan makes in a year!\nI got some help carrying it off to a nearby cave. A few more encounters like that and I'll be rich.\nUntil then, I'll stay with the caravan. The only prolem is Jak. He doesn't trust me.\nI guess I threaten his authority. Not sure what I'll have to do about that...\n"
+  },
+  {
+   "queue_id": "hrq-00173",
+   "entry_id": "entry-01252",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 16622,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "全段人物、空气变化与攻击动作均已表达；末句原文虽用句号，译文省略号仅营造悬念，尚不足以证明情节或动作被改变。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/keepsake.lua",
+    "mod-tome.lua:16622"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；全段人物、空气变化与攻击动作均已表达；末句原文虽用句号，译文省略号仅营造悬念，尚不足以证明情节或动作被改变。",
+   "applied": false,
+   "old_target": "黑暗中蹲伏着一个面朝你的人。一开始，你无法确认凯勒斯是否认出了你。\n他的面容仿佛因饥饿与疯狂而扭曲。但很快，他的神情缓和下来，渐渐恢复了昔日的模样。\n他一动不动，叫出了你的名字。慢慢地，你发觉这个空间里的空气发生了几不可察的变化。\n你感到四周仿佛充满了某种能量。阵阵微风吹起，卷散了地面上的尘土。\n你感到整个空间似乎都压向了你。凯勒斯嘴角扬起一抹微笑，向你发起了攻击……\n",
+   "new_target": null,
+   "section": "mod-tome/data/lore/keepsake.lua",
+   "source": "A figure squats in the darkness with his face turned your way. At first you're not sure if Kyless recognizes you.\nHis face seems twisted by hunger and madness. But soon it softens and he begins to look more like the Kyless of old.\nHe speaks your name in recognition but doesn't move. Slowly, almost imperceptibly, the air in the room begins to change.\nA charge seems to fill the space around you. Small gusts of wind pick up and scatter dust across the floor.\nYou feel as if the room itself is coming to bear upon you. Kyless smiles and then attacks.\n"
+  },
+  {
+   "queue_id": "hrq-00174",
+   "entry_id": "entry-01256",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 16683,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "第二段增加的单换行是纯静态分段，而且本批禁止改换行序列；末句“～。”叠用标点不合中文句末写法，删去波浪号。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/kor-pul.lua",
+    "mod-tome.lua:16683"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；第二段增加的单换行是纯静态分段，而且本批禁止改换行序列；末句“～。”叠用标点不合中文句末写法，删去波浪号。",
+   "applied": true,
+   "old_target": "啊哈，我总算找到了占据这邪恶地牢的可憎不死族！谢天谢地，那个骷髅蠢货根本不是我的对手！不过我想，它没有双臂大概也帮了点忙……\n\n我在这找到了一面老旧的盾牌，它虽有几处凹痕但仍堪用。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。\n我还发现了一些宝石——看来我得继续四处搜寻更多宝石。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源，好打败这里和故乡的强大邪恶势力！\n\n我最喜欢钻石了，一闪一闪亮晶晶～。",
+   "new_target": "啊哈，我总算找到了占据这邪恶地牢的可憎不死族！谢天谢地，那个骷髅蠢货根本不是我的对手！不过我想，它没有双臂大概也帮了点忙……\n\n我在这找到了一面老旧的盾牌，它虽有几处凹痕但仍堪用。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。\n我还发现了一些宝石——看来我得继续四处搜寻更多宝石。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源，好打败这里和故乡的强大邪恶势力！\n\n我最喜欢钻石了，一闪一闪亮晶晶。",
+   "section": "mod-tome/data/lore/kor-pul.lua",
+   "source": "Aha, I have found the accursed undead that plague this nefarious dungeon! The skeletal fool was thankfully no match for me! I suppose it helped that he had no arms...\n\nI've found myself an old shield that in spite of a few dents seems serviceable enough. Some of these rats are BIG, and giving them a strong bash with the shield helps to stop their poisonous bites before I get my sword to their necks. I also found a few gems - I may have to hunt round for more. Not out of any personal greed of course, but my noble quest requires that I gather resources to defeat the great evils in this land and back home!\n\nDiamonds are my favourite, so sparkly."
+  },
+  {
+   "queue_id": "hrq-00175",
+   "entry_id": "entry-01259",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 16826,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "前文已经写明半身人撤军，所以“欢庆胜利”有语境依据，但 peace 所指的和平状态仍未表达；“新建的游击力量”缩窄 military might。Army of Rogues 是引号中的军队名，“游击军”只说明战术，未传达 rogues；改其两次出现。职业双关没有固定源码证据，不以此定案；序号与二十／30 是纯格式差异。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/last-hope.lua",
+    "mod-tome.lua:16826"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；前文已经写明半身人撤军，所以“欢庆胜利”有语境依据，但 peace 所指的和平状态仍未表达；“新建的游击力量”缩窄 military might。Army of Rogues 是引号中的军队名，“游击军”只说明战术，未传达 rogues；改其两次出现。职业双关没有固定源码证据，不以此定案；序号与二十／30 是纯格式差异。",
+   "applied": true,
+   "old_target": "#{italic}#对南晶岛不同寻常统治者的研究报告#{normal}#\n\n你可能从未听说过南晶岛。\n\n为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它坐落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与大陆上的人类王国保持着良好的贸易关系，最幸运的是，整个王国坐落的这个岛屿拥有丰富的斯莱特矿脉。\n\n尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个行事笨拙、年逾八旬且老糊涂的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多斯莱特矿，便利用这个国王去开采并将斯莱特以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王仍执意把能召集到的军队派去援助大陆上的人类王国，参与他们与半身人的多场战争；在此之前，半身人甚至几乎不知道南晶岛的存在。他们训练不足、装备落后的部队不但在半身人强大的军事力量下如害虫般被碾碎，这些莽撞的进攻还成功吸引了半身人对偏僻岛屿的注意。袭击几乎随即开始。\n\n从现存的记录来看，国王对国家的衰落困惑不已，直到最后仍坚信自己的每一步都是正确的。在半身人开始袭击后不久，他便去世了。不管这是自杀、暗杀或者老死，都成了一个谜。老国王从未结婚，没有子女，他的家族剩下的只有他的远房表亲——一位叫德瑞克的少年人。\n\n所以德瑞克继承了王位，南晶岛也由此进入了黄金时代。\n\n#{bold}#1、德瑞克和半身人部落。#{normal}#\n\n对于新加冕的德瑞克，最大也最明显的威胁来自半身人日益频繁的袭击和出击。为此，他下令彻底重建南晶岛的军队，将一群乌合之众般的民兵改造成规模虽小却极其高效的战争机器。德瑞克知道，己方对半身人唯一的优势就是熟悉岛上地形。因此，他命令部队隐秘行动，携带小巧而能破甲的斯莱特匕首，不用长矛和刀剑，并且只在对己方有利的条件下与半身人交战。南晶岛新建的“游击军”取得了成功。半身人虽人数众多，德瑞克的军队一次次精准打击却沉重挫伤了他们的士气；最后，半身人恼怒地宣称南晶岛“不值得费事”，撤军而去。\n\n南晶岛欢庆胜利和它新建的游击力量。但是对德瑞克来说，这番庆祝没有持续多久。他用于打造游击军匕首和护甲的斯莱特没有落入矮人的口袋，他们为此十分不满。德瑞克已经拟定了一个计划——等计划完成，矮人们会更加恼火。\n\n#{bold}#2、德瑞克和斯莱特战略。#{normal}#\n\n矮人一直是个神秘的种族。即便如今，也只有极少数人知道他们的“钢铁议会”位于何处；而在南晶岛存在的年代，仍有人认为矮人不过是神话。然而，一位拥有大量斯莱特的国王，就连最隐蔽的大门也能敲开……德瑞克请求钢铁议会接见。矮人们以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应斯莱特，于是爽快地答应了。\n\n但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是一位年轻、目光冷硬的人类——这位年轻人甚至要求矮人们把南晶岛斯莱特的收购价提高到原来的二十倍。\n\n说矮人对此嗤之以鼻都算轻了；他们分明是在放声讥笑。尽管南晶岛不久前才击退半身人，钢铁王座的矮人仍认为以武力夺取岛上的斯莱特毫无困难。德瑞克心里清楚他们确实做得到，正为威慑他们，他才把颈间的小口袋带到了议会。\n\n德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的斯莱特——这种斯莱特无法使用且毫无价值。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的斯莱特矿都会变成这样。\n\n当德瑞克离开钢铁议会时，矮人们以30倍的价钱签订了协议。\n",
+   "new_target": "#{italic}#对南晶岛不同寻常统治者的研究报告#{normal}#\n\n你可能从未听说过南晶岛。\n\n为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它坐落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与大陆上的人类王国保持着良好的贸易关系，最幸运的是，整个王国坐落的这个岛屿拥有丰富的斯莱特矿脉。\n\n尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个行事笨拙、年逾八旬且老糊涂的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多斯莱特矿，便利用这个国王去开采并将斯莱特以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王仍执意把能召集到的军队派去援助大陆上的人类王国，参与他们与半身人的多场战争；在此之前，半身人甚至几乎不知道南晶岛的存在。他们训练不足、装备落后的部队不但在半身人强大的军事力量下如害虫般被碾碎，这些莽撞的进攻还成功吸引了半身人对偏僻岛屿的注意。袭击几乎随即开始。\n\n从现存的记录来看，国王对国家的衰落困惑不已，直到最后仍坚信自己的每一步都是正确的。在半身人开始袭击后不久，他便去世了。不管这是自杀、暗杀或者老死，都成了一个谜。老国王从未结婚，没有子女，他的家族剩下的只有他的远房表亲——一位叫德瑞克的少年人。\n\n所以德瑞克继承了王位，南晶岛也由此进入了黄金时代。\n\n#{bold}#1、德瑞克和半身人部落。#{normal}#\n\n对于新加冕的德瑞克，最大也最明显的威胁来自半身人日益频繁的袭击和出击。为此，他下令彻底重建南晶岛的军队，将一群乌合之众般的民兵改造成规模虽小却极其高效的战争机器。德瑞克知道，己方对半身人唯一的优势就是熟悉岛上地形。因此，他命令部队隐秘行动，携带小巧而能破甲的斯莱特匕首，不用长矛和刀剑，并且只在对己方有利的条件下与半身人交战。南晶岛新建的“游荡者军”取得了成功。半身人虽人数众多，德瑞克的军队一次次精准打击却沉重挫伤了他们的士气；最后，半身人恼怒地宣称南晶岛“不值得费事”，撤军而去。\n\n南晶岛欢庆来之不易的和平与新获得的军事实力。但是对德瑞克来说，这番庆祝没有持续多久。他用于打造游荡者军匕首和护甲的斯莱特没有落入矮人的口袋，他们为此十分不满。德瑞克已经拟定了一个计划——等计划完成，矮人们会更加恼火。\n\n#{bold}#2、德瑞克和斯莱特战略。#{normal}#\n\n矮人一直是个神秘的种族。即便如今，也只有极少数人知道他们的“钢铁议会”位于何处；而在南晶岛存在的年代，仍有人认为矮人不过是神话。然而，一位拥有大量斯莱特的国王，就连最隐蔽的大门也能敲开……德瑞克请求钢铁议会接见。矮人们以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应斯莱特，于是爽快地答应了。\n\n但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是一位年轻、目光冷硬的人类——这位年轻人甚至要求矮人们把南晶岛斯莱特的收购价提高到原来的二十倍。\n\n说矮人对此嗤之以鼻都算轻了；他们分明是在放声讥笑。尽管南晶岛不久前才击退半身人，钢铁王座的矮人仍认为以武力夺取岛上的斯莱特毫无困难。德瑞克心里清楚他们确实做得到，正为威慑他们，他才把颈间的小口袋带到了议会。\n\n德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的斯莱特——这种斯莱特无法使用且毫无价值。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的斯莱特矿都会变成这样。\n\n当德瑞克离开钢铁议会时，矮人们以30倍的价钱签订了协议。\n",
+   "section": "mod-tome/data/lore/last-hope.lua",
+   "source": "#{italic}#A study into Southspar's most unusual ruler.#{normal}#\n\nChances are you haven't heard of Southspar.\n\nAnd why would you have? It was naught but a tiny, provincial island kingdom off the coast of Tar'Eyal that existed within the Ages of Allure and Dusk. By all accounts, Southspar was a pleasant place to live; temperate climate, healthy trade relations with mainland human kingdoms, and by great luck, the island upon which the kingdom sat held great deposits of the much-valued metal stralite.\n\nDespite this good fortune though, Southspar was doomed to mediocrity. Why? The actions of its ruler. By all accounts a bumbling, octogenarian dotard, his name lost to the mists of time, this mouldy monarch mismanaged Southspar almost to its demise. The Dwarves of the Iron Throne, having heard of the stralite beneath the island, manipulated the king into mining it and selling it to them for a fraction of its true worth. Also, despite Southspar's decidedly puny military power, the king saw fit to send whatever troops he could muster to aid mainland human kingdoms in their great and many wars against the halflings, who up to this point had barely registered Southspar's existence. Not only were the undertrained, ill-equipped troops crushed like vermin before the superior halfling forces, but also these foolhardy attacks succeeded in attracting the halflings' attention to their secluded island. Almost immediately, the raids began.\n\nFrom what records remain, the king was mystified by the decline of his nation, believing to the end that every action he took had been the right one. He passed away soon after the halfling raids began. Whether it was suicide, assassination, or simple old age is unknown. The king never married and had no children, the only remaining member of his family being a distant cousin, a young man named Drake.\n\nAnd so it was that Drake ascended to the throne, and Southspar entered a golden age.\n\n#{bold}#1. Drake and the Halfling Horde.#{normal}#\n\nTo the newly crowned Drake, the most obvious and immediate threat to Southspar was the growing raids and sorties being held by the halflings. To this end, he ordered a complete and total reconstruction of Southspar's military, turning them from a ragtag bunch of militia into a small yet devastatingly efficient engine of war. Drake knew that the only advantage his forces held over the halflings was their knowledge of the island, and so bade them to travel stealthily, carry small, armour-defeating stralite knives rather than spears and swords, and only engage with the halflings strictly on their own terms. Southspar's newly assembled \"Army of Rogues\" was a success. Although the halflings were great in number, strike after surgical strike from Drake's army weighed heavily on their morale, and finally, grumpily declaring Southspar \"not worth the bother\", the halfling forces withdrew.\n\nSouthspar celebrated its peace and its newly found military might, but for Drake, the celebration was short-lived. The stralite he had used to craft his Army of Rogues' knives and armour was stralite that wasn't going into the Dwarves' pockets, and they were far from happy. Drake formulated a plan - by the time he was through, the Dwarves would be even further from happy.\n\n#{bold}#2. Drake and the Stralite Stratagem.#{normal}#\n\nThe Dwarves have always been a secretive race. Even now only a select few know the location of their \"Iron Council\", and in the days of Southspar there were still those who considered Dwarves nothing but myth. Being a monarch in possession of large amounts of stralite can open even the most concealed of doors, however... Drake had requested an audience with the Iron Council, and the Dwarves, expecting said audience to be a humble apology and promises of further stralite for the gold they were paying, readily accepted.\n\nWhat they got, in reality, was quite different. Gone was the ineffectual king of Southspar's past, and now the Dwarves found themselves facing a young, hard-eyed human who was demanding that the amount of gold that the Dwarves were paying for Southspar's stralite be increased twenty-fold.\n\nTo say the Dwarves scoffed at this would be an understatement; open, derisive laughter hits nearer the mark. Despite Southspar's recent repulsion of the halflings, the Dwarves of the Iron Throne saw no problem in taking Southspar's stralite by force. In his heart, Drake knew they could accomplish this, and it was to this end that he had brought the small pouch around his neck to the Council.\n\nDrake held the small, drakeskin pouch high, opened it and emptied its contents onto the floor: Stralite, ground to dust, muddied with dirt and base metals, made unusable and worthless. The Dwarves of the Council gasped in horror at this waste, one (if rumours are to be believed) even fainting on the spot. Drake went on to say that, if his demands were not met, the entirety of the stralite beneath his island would meet the same fate as the stralite cast upon the chamber's floor.\n\nBy the time Drake left the Iron Council, the Dwarves had agreed to pay thirty times the previous amount.\n"
+  },
+  {
+   "queue_id": "hrq-00176",
+   "entry_id": "entry-01262",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17299,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "Gaustadnes 现译“加斯塔德”没有译出末尾音节，但术语库与本仓均无该人名的既定完整译法；是否致敬像素画师也没有固定文本证据。专名须先确定读音及跨条目用法，不能凭模型推测补名。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/last-hope.lua",
+    "mod-tome.lua:17299"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "Gaustadnes 现译“加斯塔德”没有译出末尾音节，但术语库与本仓均无该人名的既定完整译法；是否致敬像素画师也没有固定文本证据。专名须先确定读音及跨条目用法，不能凭模型推测补名。",
+   "applied": false,
+   "old_target": "#{bold}#\n雷蒙德·加斯塔德在这里长眠\n#{normal}#84 - 120#{italic}#\n像素们终于还是逮到他了……\n#{normal}#",
+   "new_target": null,
+   "section": "mod-tome/data/lore/last-hope.lua",
+   "source": "#{bold}#\nHere rests Raymond Gaustadnes\n#{normal}#84 - 120#{italic}#\nThe Pixels finally got him...\n#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00177",
+   "entry_id": "entry-01263",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17473,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "年份、样式和行序与原文相符；“先觉／察觉”保存 Foursaw／saw 的双关，不需修改。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/last-hope.lua",
+    "mod-tome.lua:17473"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；年份、样式和行序与原文相符；“先觉／察觉”保存 Foursaw／saw 的双关，不需修改。",
+   "applied": false,
+   "old_target": "#{bold}#\n小丑先觉\n#{normal}#82 - 114#{italic}#\n我们笑着\n直到察觉\n笑话已经结束\n#{normal}#",
+   "new_target": null,
+   "section": "mod-tome/data/lore/last-hope.lua",
+   "source": "#{bold}#\nFoursaw the Clown\n#{normal}#82 - 114#{italic}#\nWe laughed\nUntil we saw\nThe joke was over\n#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00178",
+   "entry_id": "entry-01267",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17570,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "条目名已译“无序之卷”，正文标题却用“无序之治”；tract 为篇章或小册，“治”既失词义也造成同一文本内不一致。“拾取变标题”的说法没有源码消费证据，但本条标题与条目名本身足以确认修复。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17570",
+    "mod-tome.lua:17569"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；条目名已译“无序之卷”，正文标题却用“无序之治”；tract 为篇章或小册，“治”既失词义也造成同一文本内不一致。“拾取变标题”的说法没有源码消费证据，但本条标题与条目名本身足以确认修复。",
+   "applied": true,
+   "old_target": "#{bold}#无序之治#{normal}#\n\n大灾难之后的那些年里，混乱当道。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体形神俱扭的境况中勉强求生。\n\n面对自己这个伟大种族行将覆灭的前景——沦为魔法大爆炸的又一个牺牲品，史书上的一个脚注——他们向兄弟种族永恒精灵与自然精灵发出了恳切的求援。他们甚至向彼时正深陷自家琐碎内斗的人类和半身人求助。\n\n纳鲁精灵没有收到任何回应。",
+   "new_target": "#{bold}#无序之卷#{normal}#\n\n大灾难之后的那些年里，混乱当道。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体形神俱扭的境况中勉强求生。\n\n面对自己这个伟大种族行将覆灭的前景——沦为魔法大爆炸的又一个牺牲品，史书上的一个脚注——他们向兄弟种族永恒精灵与自然精灵发出了恳切的求援。他们甚至向彼时正深陷自家琐碎内斗的人类和半身人求助。\n\n纳鲁精灵没有收到任何回应。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "#{bold}#Tract of Anarchy#{normal}#\n\nFor the years following the cataclysm, chaos reigned. Their culture, their way of life, it was as broken and fractured as the land itself. Nalorë civilisation was reduced to a few isolated and feeble settlements, scratching out meagre existences as land, mind and body was warped in both shape and spirit.\n\nFaced with the idea of their great race failing – another victim of the Spellblaze, a footnote in the annals of history – impassioned pleas were sent to their elven brothers: The Shalorën, the Thalorën. Aid was even requested from human and halfling, embroiled in their own petty squabbles as they were.\n\nThe Nalorën received no answer."
+  },
+  {
+   "queue_id": "hrq-00179",
+   "entry_id": "entry-01270",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17594,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文 nature could not have hoped to create such a race 是赞叹而非反问；现译“大自然怎么会创造”反转语气。Temple of Creation 在本仓同族译作“造物主神庙”，术语记录为 existing 而非 preferred，现译保持族内一致；“变的”应为“变得”。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17594",
+    "terminology/narrative.tsv:30",
+    "mod-tome.lua:17554"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 nature could not have hoped to create such a race 是赞叹而非反问；现译“大自然怎么会创造”反转语气。Temple of Creation 在本仓同族译作“造物主神庙”，术语记录为 existing 而非 preferred，现译保持族内一致；“变的”应为“变得”。",
+   "applied": true,
+   "old_target": "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然怎么会创造出娜迦这样的种族？不管怎样，当造物主神庙之门为我打开，我们可以变的更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n",
+   "new_target": "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然也无法奢望创造出娜迦这般出众的种族。不管怎样，当造物主神庙之门为我打开，我们可以变得更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.\n"
+  },
+  {
+   "queue_id": "hrq-00180",
+   "entry_id": "entry-01271",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17598,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "德斯镇在后段狼毛句已经出现，不能说整篇完全漏译；但遭遇地点“德斯周围”在前段确实缺失。现译另加赤眼、吞噬生命和挥舞獠牙，删改了由普通狼、座狼到熊般巨狼的递进；末段 legends 指故事而非让野兽繁衍。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17598"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；德斯镇在后段狼毛句已经出现，不能说整篇完全漏译；但遭遇地点“德斯周围”在前段确实缺失。现译另加赤眼、吞噬生命和挥舞獠牙，删改了由普通狼、座狼到熊般巨狼的递进；末段 legends 指故事而非让野兽繁衍。",
+   "applied": true,
+   "old_target": "亲爱的罗尔夫，\n\n我希望这封信可以安全的到达你手。我必须为我们最近这段时间疏于联系道歉：最近，我在马基·埃亚尔各地的冒险经历又有了许多惊险刺激的转折。你问我说的是什么转折？我知道你很喜欢阅读我的冒险事迹，所以客套话我就不多说了。\n\n想像一下，一只庞大如熊的饿狼，赤眼如炙，饥渴的吞噬着它周围一切的生命。这只暴君所带来的威胁远超一整群它弱小的同类。你也许亦曾对付一些当地人口中所谓的座狼，但想象一下这只如同熊一般巨大的“好家伙”。事实上，当我在周围的旅行时，不巧就遭遇到了这样一只令人生畏的贪婪怪物，它挥舞的獠牙比我的剑还要长。于是我与这只座狼王和它的狼子狼孙们展开了激烈的搏斗。可惜的是我最终并没有杀死这只野兽，但我能自豪的说，能从这场战斗中存活就已经是值得称道的了。\n\n再说，杀死这样的生物又能有多大荣耀呢？对，我确实会得到一大堆狼毛，多到足以给德斯镇每双靴子和每顶帽子做毛皮衬里，但我的内心告诉自己这种传说中的生物必须让其繁衍下去。因为正是它们，赋予了这个世界真正的灵魂！\n\n殷切的期盼着你的回信，\n威斯曼",
+   "new_target": "亲爱的罗尔夫，\n\n我希望这封信可以安全的到达你手。我必须为我们最近这段时间疏于联系道歉：最近，我在马基·埃亚尔各地的冒险经历又有了许多惊险刺激的转折。你问我说的是什么转折？我知道你很喜欢阅读我的冒险事迹，所以客套话我就不多说了。\n\n想象一只狼，一只凶猛的狼：它的力量、凶性和嗜肉欲望抵得上一整群较弱的同类。你也许亦曾对付一些当地人口中所谓的座狼，但想象一下这只如同熊一般巨大的“好家伙”。事实上，当我在德斯镇周围旅行时，不巧就遭遇到了这样一只令人生畏的贪婪怪物，它的獠牙几乎和我的剑一样长。于是我与这只座狼王和它的狼子狼孙们展开了激烈的搏斗。可惜的是我最终并没有杀死这只野兽，但我能自豪的说，能从这场战斗中存活就已经是值得称道的了。\n\n再说，杀死这样的生物又能有多大荣耀呢？对，我确实会得到一大堆狼毛，多到足以给德斯镇每双靴子和每顶帽子做毛皮衬里，但传奇必须流传下去。正是这些传奇赋予了世界灵魂！\n\n殷切的期盼着你的回信，\n威斯曼",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Dear Rolf,\n\nI hope this letter finds you well. I must apologise for this recent dry spell in our communication; my adventures across Maj'Eyal have taken many exciting and perilous turns as of late. What turns do I speak of, you ask? I know how you delight in reading the accounts of my exploits, so I shall waste no further time on this pre-amble.\n\nImagine, if you will, a wolf. Imagine a beastly wolf, a wolf with strength, ferocity and a lust for flesh matching that of an entire pack of its lesser kind. You too may have some small experience with these \"wargs\" as the locals are wont to call them. Now... imagine one the size of a bear. Truly, as I travelled the lands surrounding Derth did I come across such a monstrous, awe-inspiring, lupine adversary. With fangs of a length to match my own blade, I entered combat against this lupine lord and its skulking brood. To my regret I failed in slaying the beast, but I assure you - simply surviving against such feral rage is an honour worthy of recognition and renown.\n\nAnd indeed, would there have been much glory in killing such a creature? True, I would have had enough to fur to line each and every boot and hat in Derth, but legends must live on. They are what give this world its very spirit!\n\nWith eager anticipation for your reply,\nWeisman"
+  },
+  {
+   "queue_id": "hrq-00181",
+   "entry_id": "entry-01272",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17618,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "本仓 old forest 有 existing“古老森林”，现译“远古丛林”并非必改术语但本条可与同族对齐。原文是巨蚁始祖指挥甲壳幼虫，现译变成史前白蚁与蚁王，并臆造前颚碎尸；外观的臃肿、渗液与啁叫也失去。Such pluck and derring-do 漏了果敢讽刺。分段本身仅排版且换行受冻结保护。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17618",
+    "terminology/narrative.tsv:20"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本仓 old forest 有 existing“古老森林”，现译“远古丛林”并非必改术语但本条可与同族对齐。原文是巨蚁始祖指挥甲壳幼虫，现译变成史前白蚁与蚁王，并臆造前颚碎尸；外观的臃肿、渗液与啁叫也失去。Such pluck and derring-do 漏了果敢讽刺。分段本身仅排版且换行受冻结保护。",
+   "applied": true,
+   "old_target": "亲爱的威斯曼，\n\n哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我没能杀死一只狗。这真是充满勇气！\n\n你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了远古丛林（这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！）在那里，我不幸的遭遇了世上最可怕、最犀利、最凶猛的生物！\n\n满地的史前巨型白蚁，它们在可怕的蚁王指挥下蜂拥而出，试图用那巨大的前颚将我碎尸万段！\n\n即便如此我还是活下来了，威斯曼，我真心希望我的回信能让你知道世界如此巨大，你又如此渺小。只有当你真正经历过像我这样的生死考验后，才配真正称自己为冒险家。别再用你幼稚的故事来烦我了。\n罗尔夫",
+   "new_target": "亲爱的威斯曼，\n\n哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我没能杀死一只狗。多么勇敢！多么果敢无畏！\n\n你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了古老森林（这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！）在那里，我不幸遇见了一头丑陋、臃肿、渗着黏液又吱吱作响的可怖生物！\n\n那正是巨蚁令人作呕的始祖！它指挥成群狂乱的甲壳幼虫，仿佛地面本身正蜂拥而来，要将我吞噬！\n\n即便如此我还是活下来了，威斯曼，我真心希望我的回信能让你知道世界如此巨大，你又如此渺小。只有当你真正经历过像我这样的生死考验后，才配真正称自己为冒险家。别再用你幼稚的故事来烦我了。\n罗尔夫",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Dear Weisman,\n\nAh! What feelings your last letters inspired within me... primarily mirth, with a good amount of scorn! Must you continuously assail me with tale after tale of your waving of wooden swords and pestering of toothless mongrels? Allow me to recount your \"legends\" in a much more succinct manner: One day, I failed to kill a dog. Such bravery! Such pluck and derring-do!\n\nYour petty escapades are made ever more insignificant by the trials I myself have recently overcome. Mere days ago I was trekking through the Old Forest (that's outside Derth, Weisman! Terror must already grip you!) when, by unfortunate happenstance, I came across a most hideous, bloated, oozing and chittering horror! No less than the giant ants' repulsive progenitor! Such hordes of frenzied chitinous young it had at its command, it was as though the ground itself was swarming forward to devour me!\n\nAnd yet I live. Weisman, I sincerely hope that my letter has revealed to you your folly. Only when you have faced true danger can you call yourself an adventurer. Bore me with your tales no longer.\n\nRolf"
+  },
+  {
+   "queue_id": "hrq-00182",
+   "entry_id": "entry-01273",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17637,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“尽快告知最后的希望”已有加急之意，“加急快递”只是现代口吻，单独不构成一级缺陷；但原文没有粗口，也没有指明巨鸟，且“煽动”误用为动作词。两处段落拆分属纯排版。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17637"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“尽快告知最后的希望”已有加急之意，“加急快递”只是现代口吻，单独不构成一级缺陷；但原文没有粗口，也没有指明巨鸟，且“煽动”误用为动作词。两处段落拆分属纯排版。",
+   "applied": true,
+   "old_target": "亲爱的弑蚁者罗尔夫，\n\n哈！你克服了何等的艰难险阻！去他妈的巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用加急快递将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！\n\n我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。\n\n请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途径一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。\n\n真是难以言喻的壮丽景象！巨鸟煽动着烈焰之翼，所过之处空气本身都嘶嘶作响、余烟袅袅。\n\n我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦在那灼人的高热下扭曲变形。就在此时，我总算明白了成为一名冒险家的真正意义，我们这个世界上，总还有更多令人惊叹、令人震撼的事物。\n\n希望你能从我的经验里学到些什么。\n威斯曼",
+   "new_target": "亲爱的弑蚁者罗尔夫，\n\n哈！你克服了何等的艰难险阻！先别提巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用最快速度将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！\n\n我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。\n\n请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途径一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。\n\n真是难以言喻的壮丽景象！它扇动着烈焰之翼，所过之处空气本身都嘶嘶作响、余烟袅袅。\n\n我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦在那灼人的高热下扭曲变形。就在此时，我总算明白了成为一名冒险家的真正意义，我们这个世界上，总还有更多令人惊叹、令人震撼的事物。\n\n希望你能从我的经验里学到些什么。\n威斯曼",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Dear Rolf the Antslayer,\n\nHa! Such trials you have overcome! Forget dragons and demons, here we have a hero who has survived against ants! I shall deliver this joyous news to Last Hope with all haste - perhaps there shall be a parade in your honour!\n\nI hope you registered the sarcasm in my previous words, but I obviously cannot expect much from one who struggles with insects. Allow me to share with you knowledge of a beast rather more fitting for a true adventurer to behold. My travels had taken me south, and as I walked one night along an abandoned mountain pass, imagining what treasures and trials the next day may bring, a brilliant light filled my vision! I stood in its radiance, the land around me illuminated so that it almost appeared to be in broad daylight, and that was when I saw it.\n\nSuch a magnificent sight! With wings of fire, leaving the air itself hissing and smouldering in its wake, I could only watch with rapt amazement as it alighted on a rocky outcrop mere yards away from me, the stone beneath its talons warping from its tremendous heat. It was at that moment, Rolf, that I realised that this was what being an adventurer was about - there is always more in this world of ours to amaze and astonish us.\n\nLearn from my experiences,\nWeisman"
+  },
+  {
+   "queue_id": "hrq-00183",
+   "entry_id": "entry-01275",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17677,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "nice and big 修饰下封信的字是否足够大，不表示字美；触手非人，用“他们”错误，lashed 指鞭打而非插入。独白拆段不改变内容且换行冻结。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17677"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；nice and big 修饰下封信的字是否足够大，不表示字美；触手非人，用“他们”错误，lashed 指鞭打而非插入。独白拆段不改变内容且换行冻结。",
+   "applied": true,
+   "old_target": "威斯曼，\n\n该死的触须，我仍然记得他们。他们插入我血肉的同时也侵入了我的思维。大自然怎能忍受这样的……怪物……存在于自己的领域？这可怕的生物究竟来自何等黑暗的位面？造物主本身是如何忍受这样恐怖存在的？！\n\n我完全不记得我们是如何幸存下来的。残存的记忆里只有痛苦、惊慌与恐惧。依稀记得当时大脑里唯一的念头就是我必须立刻逃走，远离这个鬼地方……惭愧的是，当时其它所有的想法都离我而去。\n\n对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是不停劈砍挡在我与自由之间的……那些东西。\n\n也许这就是为什么它没有……不！也许我不应该再想它了。既然这野兽一定会在我今晚的噩梦中出现，至少清醒时我不能允许它再充斥我的大脑。\n\n好好休息吧，兄弟，它虽然夺走了你的眼睛，但想想最坏的情况下它本会夺走……不管怎么说，我马上就要前往酒馆了，希望麦芽酒能让我从恐惧中缓解出来。\n\n希望你下封信上的字又大又美，\n罗尔夫",
+   "new_target": "威斯曼，\n\n该死的触须，我仍然记得它们。它们鞭打我的血肉，也像鞭打血肉一样抽打着我的思维。大自然怎能忍受这样的……怪物……存在于自己的领域？这可怕的生物究竟来自何等黑暗的位面？造物主本身是如何忍受这样恐怖存在的？！\n\n我完全不记得我们是如何幸存下来的。残存的记忆里只有痛苦、惊慌与恐惧。依稀记得当时大脑里唯一的念头就是我必须立刻逃走，远离这个鬼地方……惭愧的是，当时其它所有的想法都离我而去。\n\n对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是不停劈砍挡在我与自由之间的……那些东西。\n\n也许这就是为什么它没有……不！也许我不应该再想它了。既然这野兽一定会在我今晚的噩梦中出现，至少清醒时我不能允许它再充斥我的大脑。\n\n好好休息吧，兄弟，它虽然夺走了你的眼睛，但想想最坏的情况下它本会夺走……不管怎么说，我马上就要前往酒馆了，希望麦芽酒能让我从恐惧中缓解出来。\n\n希望你下封信上的字写得又大又清楚，\n罗尔夫",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Weisman,\n\nThe tentacles. I still remember them. They have lashed into my mind as they lashed into my flesh. How can nature abide such a... a... being in her realm? What dark plane of existence could it have been born from? How can creation itself tolerate such an aberration?!\n\nHow did we survive? I have no clue. All I can remember is pain, and panic, and fear. All I could think of was getting away, fleeing... to my shame, all other thoughts left me. Thoughts of you, home, the world... all I could do was keep hacking away at the... things between myself and freedom. Perhaps that is why it didn't... no. I shall not think on it. The beast is certain to fill my nightmares tonight, I won't allow it to fill my waking thoughts.\n\nRest easy, brother. It may have taken your eye, but think of what else it could have taken. Anyway, I shall be leaving for the tavern soon. Maybe I can drown the images of that monster in a sea of ale.\n\nMake sure you write the words on your next letter nice and big,\nRolf"
+  },
+  {
+   "queue_id": "hrq-00184",
+   "entry_id": "entry-01277",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17714,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "profits 确是“收益／利润”的意象，单译“祖先保佑”抹掉了财运口吻；与 prophets 是否双关、罗尔夫是否矮人都缺固定证据，不作为修复依据。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17714"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；profits 确是“收益／利润”的意象，单译“祖先保佑”抹掉了财运口吻；与 prophets 是否双关、罗尔夫是否矮人都缺固定证据，不作为修复依据。",
+   "applied": true,
+   "old_target": "威斯曼，\n\n祖先保佑，你接到这封信时身体安康。老朋友，你没必要向我证明你的勇武，我已完全了解你是多么的勇敢。请千万不要回去和那东西战斗！如果非得我亲自把你拖走，那我就这么做。但我还是求你，换个战斗的对手吧！\n\n你的朋友，\n\n罗尔夫。",
+   "new_target": "威斯曼，\n\n愿祖先的财运保佑你收到信时身体安康。老朋友，你没必要向我证明你的勇武，我已完全了解你是多么的勇敢。请千万不要回去和那东西战斗！如果非得我亲自把你拖走，那我就这么做。但我还是求你，换个战斗的对手吧！\n\n你的朋友，\n\n罗尔夫。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Weisman,\n\nBy my ancestors' profits I hope you receive this message in good health and spirits. Please, old friend - there is no need to impress upon me your valour, I know full well how courageous you are. Please, do not go after that... that thing! If I must drag you away physically, that is what I shall do, but I beg of you, please, consider another foe to fight!\n\nYour friend,\n\nRolf."
+  },
+  {
+   "queue_id": "hrq-00185",
+   "entry_id": "entry-01278",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17728,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "正文已写威斯曼被腐化为怪物，因此“完全抹掉怪物”不是事实；但旁注 one-half of that abomination 明说老友成了怪物的另一半，现译“永远团聚”确实抹掉这一关键信息。“神智尽失”比 half-gone 更绝对。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17728"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；正文已写威斯曼被腐化为怪物，因此“完全抹掉怪物”不是事实；但旁注 one-half of that abomination 明说老友成了怪物的另一半，现译“永远团聚”确实抹掉这一关键信息。“神智尽失”比 half-gone 更绝对。",
+   "applied": true,
+   "old_target": "双斧罗尔夫的遗嘱\n\n我失败了。啊，以巨龙之巨口起誓，我失败了！威斯曼此行本要猎杀的那头野兽，早已死在他人之手，但它的腐化仍然残留于此。当我赶到它的巢穴时，威斯曼已经神智尽失；他正朝着只有他自己看得见的敌人挥斧乱砍。我想要阻止他，可他把斧头转向了我……我遍体鳞伤、心力交瘁，只能躲进某道裂隙中，躲开……躲开我自己的朋友，他已被此地的腐化扭曲成我的双斧无法放倒的骇人怪物。我毫不怀疑这是我最后一次提笔，因为此刻我已能听见老友那扭曲的声音……在呼唤着我……我之财物将赠予任何能杀死…\n#{italic}#（这点点污渍似乎叙说着威斯曼最终抓住了他的老朋友，他们以这种怪物的形式永远地团聚在了一起）#{normal}#",
+   "new_target": "双斧罗尔夫的遗嘱\n\n我失败了。啊，以巨龙之巨口起誓，我失败了！威斯曼此行本要猎杀的那头野兽，早已死在他人之手，但它的腐化仍然残留于此。当我赶到它的巢穴时，威斯曼已经迷失了大半心智；他正朝着只有他自己看得见的敌人挥斧乱砍。我想要阻止他，可他把斧头转向了我……我遍体鳞伤、心力交瘁，只能躲进某道裂隙中，躲开……躲开我自己的朋友，他已被此地的腐化扭曲成我的双斧无法放倒的骇人怪物。我毫不怀疑这是我最后一次提笔，因为此刻我已能听见老友那扭曲的声音……在呼唤着我……我之财物将赠予任何能杀死…\n#{italic}#（这点点污渍似乎叙说着威斯曼追上了老友，而老友成了那怪物的另一半）#{normal}#",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Last Will and Testament of Rolf Two-Axes\n\nI have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set out to slay was dead already by another's hand, but its corruption remained still. When I arrived in its chamber, Weisman was already half-gone; he was hacking away at foes only he could see. When I tried to stop him, he turned his axe on me... I am beaten and broken, hiding in some crevasse away from... from my own friend, who through the corruption in this place has been perverted into a monstrosity my axes were unable to fell. I hold no doubt that this is the last time I shall put quill to parchment, as even now I can hear my old friend's perverted voice.. calling to me. I bequeathe my belongings to any who slay ...\n#{italic}#(the ink blotch seems to indicate Weisman had caught up to his old friend, one-half of that abomination)#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00186",
+   "entry_id": "entry-01280",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17737,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“一瞬”是原译的主观时间停滞，并未断言真实时间极短，因此“极长反转为极短”说法过强；但 a century 的具体意象确实消失。后文“没有其它的人像你一样”保留了独一无二的解释，却未保留 Am I alone 的独处发问；改为“只有我一个人吗”。Alor? 无既定官方读音，保留既有阿洛。两处状语“温情的／大声的”改“地”。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17737"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“一瞬”是原译的主观时间停滞，并未断言真实时间极短，因此“极长反转为极短”说法过强；但 a century 的具体意象确实消失。后文“没有其它的人像你一样”保留了独一无二的解释，却未保留 Am I alone 的独处发问；改为“只有我一个人吗”。Alor? 无既定官方读音，保留既有阿洛。两处状语“温情的／大声的”改“地”。",
+   "applied": true,
+   "old_target": "#{italic}#这个卷轴看起来十分古老，也许它的历史能追溯到千年之前，但其保存的完好程度却令人吃惊。#{normal}#\n\n我依稀记得自己第一次醒来，第一次呼吸，这个世界新鲜的空气使我充满了活力。当我睁开双眼，便看见一尊美丽的身躯静候在我身旁。她高挑而纤瘦，一袭及地的银色秀发如丝般柔顺。她雪白的肌肤似乎散发着莹莹的光芒，双眸如晨星般闪耀。\n\n看到她的一瞬几乎让我的时间停滞，她也温情的望着我，我隐约看到她两眼流出了泪水。虽然这时的我还没有办法发出声音，但是我在想为何她看起来如此悲伤，突然我的脑海里感觉到她的呢喃，“你是这么的美丽，比世上任何东西都要美丽。但这世界却充满了痛苦和悲伤，我怎能忍受我所创造之物被这世界所侵害。我将赐予你力量来忍受时间的流逝，赋予你声音来表达自身的所有欲望，但沉重的悲伤却将伴随你到永远，我为此哭泣……”\n\n我感到力量涌入了四肢，声音从咽喉中奔放而出。我站起来环顾四周，发现了广袤的世界与耀眼的星空，我大声的歌唱着欢乐。这女人听到了我的歌唱，她笑了，她不再流泪。所以我继续歌唱了一会儿来取悦她。但随后我说，“我是独一无二的吗？” 她点了点头，说：“没有其它的人像你一样了。” 听到这句话，我感到很悲伤，而她似乎看穿了我心中的孤寂。女人犹豫了一会，说：“虽然这会让我痛苦，但我绝不会否定你的欲望，你将再次沉睡，当你醒来时，将会被许许多多和你一样的人所包围，而你的宿命将是走进这个破碎的世界并修复它。”\n\n她一说完我便立刻再次陷入沉睡，当我醒来时发现世界变了，空中燃起了一道耀眼的光芒——这就是新生的太阳。接着我看到周围许许多多和我一样的人们，还有一些人虽然长相相同却有着迥异的能力与个性。我将他们唤醒并聚集起来，我们都为有同伴而感到高兴，并决定称呼自己为阿洛。但是那个女人已经离去了，除了我没有任何人见过她，我对她踪迹的一切搜寻都徒劳无果。\n\n时光如水，岁月如梭，我们发现了其它生物，但它们往往邪恶而凶残，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们艺术之道。在随后的战争中，我们某些人想在他们的战斗中给予帮助，但很快我们发现在这些大师身旁，我们只是累赘而已。于是我们退回丛林，直到战争出现了灾难性的结果。\n\n在数个世纪里我都在不停的寻找那个女人，但却一无所获。我知道所有的神明都已经被猎杀，也记得夏·图尔在圣战中的彻底搜捕。现在我也老了，与我一同醒来的人中，有些已经逝去，每个夜晚都是那么的清冷孤寂，但每每在我沉睡之时我仍能看到她的面容，听到她的声音，总有一天我会再次见到她。",
+   "new_target": "#{italic}#这个卷轴看起来十分古老，也许它的历史能追溯到千年之前，但其保存的完好程度却令人吃惊。#{normal}#\n\n我依稀记得自己第一次醒来，第一次呼吸，这个世界新鲜的空气使我充满了活力。当我睁开双眼，便看见一尊美丽的身躯静候在我身旁。她高挑而纤瘦，一袭及地的银色秀发如丝般柔顺。她雪白的肌肤似乎散发着莹莹的光芒，双眸如晨星般闪耀。\n\n我凝视着她，仿佛过了一个世纪，她也温情地望着我，我隐约看到她两眼流出了泪水。虽然这时的我还没有办法发出声音，但是我在想为何她看起来如此悲伤，突然我的脑海里感觉到她的呢喃，“你是这么的美丽，比世上任何东西都要美丽。但这世界却充满了痛苦和悲伤，我怎能忍受我所创造之物被这世界所侵害。我将赐予你力量来忍受时间的流逝，赋予你声音来表达自身的所有欲望，但沉重的悲伤却将伴随你到永远，我为此哭泣……”\n\n我感到力量涌入了四肢，声音从咽喉中奔放而出。我站起来环顾四周，发现了广袤的世界与耀眼的星空，我大声地歌唱着欢乐。这女人听到了我的歌唱，她笑了，她不再流泪。所以我继续歌唱了一会儿来取悦她。但随后我说，“只有我一个人吗？” 她点了点头，说：“没有其它的人像你一样了。” 听到这句话，我感到很悲伤，而她似乎看穿了我心中的孤寂。女人犹豫了一会，说：“虽然这会让我痛苦，但我绝不会否定你的欲望，你将再次沉睡，当你醒来时，将会被许许多多和你一样的人所包围，而你的宿命将是走进这个破碎的世界并修复它。”\n\n她一说完我便立刻再次陷入沉睡，当我醒来时发现世界变了，空中燃起了一道耀眼的光芒——这就是新生的太阳。接着我看到周围许许多多和我一样的人们，还有一些人虽然长相相同却有着迥异的能力与个性。我将他们唤醒并聚集起来，我们都为有同伴而感到高兴，并决定称呼自己为阿洛。但是那个女人已经离去了，除了我没有任何人见过她，我对她踪迹的一切搜寻都徒劳无果。\n\n时光如水，岁月如梭，我们发现了其它生物，但它们往往邪恶而凶残，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们艺术之道。在随后的战争中，我们某些人想在他们的战斗中给予帮助，但很快我们发现在这些大师身旁，我们只是累赘而已。于是我们退回丛林，直到战争出现了灾难性的结果。\n\n在数个世纪里我都在不停的寻找那个女人，但却一无所获。我知道所有的神明都已经被猎杀，也记得夏·图尔在圣战中的彻底搜捕。现在我也老了，与我一同醒来的人中，有些已经逝去，每个夜晚都是那么的清冷孤寂，但每每在我沉睡之时我仍能看到她的面容，听到她的声音，总有一天我会再次见到她。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "#{italic}#This scroll looks ancient, possibly going back millennia, but has been incredibly well-preserved.#{normal}#\n\nI remember when I first woke, and I drew my first breath, and the fresh young air of the world filled me with vitality. I opened my eyes, and above me stood a figure of outstanding radiance. She was tall and slim, crowned in silver hair that fell to the ground in silken tresses. Her skin was pale to the point of luminance, and her eyes were brighter than the stars.\n\nI watched her for what felt like a century, and she watched me, and I saw tears form in her eyes. I did not have a voice yet, but I thought, \"Why does she look so sad?\" And I felt then her reply in my thoughts, \"For you are beautiful, and far more beautiful than all else in the world. But this is a world of pain and sorrow, and I cannot bear to think of my creation come to harm. I will give you strength to endure many years, and a voice to express all desires, but the burden of sadness will follow you forever. At that thought I weep...\"\n\nI felt then strength come into my limbs, and a voice rise in my throat. I rose to the ground and I looked around, and in awe of the world around me and the stars above me I sang loudly for joy. And the woman smiled as she heard my voice, and her tears stopped, so I continued to sing for a while to entertain her. But then I said, \"Am I alone?\" She nodded, and said, \"There are no others like you.\" At this I felt sad, and she could see the loneliness in my heart. She seemed to hesitate a moment, and said, \"Though it pains me, I cannot deny your desires. You will sleep now, and when you awaken you will be among people like yourself, and you will walk out into this broken world and try to mend it.\"\n\nAs she finished speaking I instantly fell into a trance, and when I awoke I saw the world had changed, and there was now a blazing light in the sky - it was the new-born Sun. And I saw all around dozens more people like me, and others similar in appearance but varying in traits and abilities. I woke them up, and gathered them together, and we all expressed delight in each other's being, and named ourselves Alor?. But the woman was gone, and no others knew anything about her, and my searches for any trace of her were in vain.\n\nTimes passed and changed, and other creatures were found, and oft they were fell and vile and we did war with them. Then we found the Sher'Tul, and they delighted in our beauty, and taught us the ways of the Arts. And then the War came, and some of us helped them in their battles, but soon we saw we had no place beside such masters, and we retreated to the woods as the War raged to its catastrophic conclusion.\n\nIn all those centuries I still searched for the woman and found no trace. I know that the gods were all hunted down, and I remember the thorough searches of the Sher'Tul in their holy war. I grow old now, and some of those who first woke with me have passed away, and each passing night seem ever colder and lonelier. But still at times when I lie asleep I see her face or I hear her voice, and I know that one day, somehow, I will see her again."
+  },
+  {
+   "queue_id": "hrq-00187",
+   "entry_id": "entry-01282",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17791,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "叙述者前文已经表明是半身人，“我们”可由语境承接，故并非种族彻底失踪；仍可明确主体。same god 的“同一个上帝”引入特定宗教语感；other gods were responsible 指别的神创造其他种族，不是“其他创造者也很负责”。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17791"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；叙述者前文已经表明是半身人，“我们”可由语境承接，故并非种族彻底失踪；仍可明确主体。same god 的“同一个上帝”引入特定宗教语感；other gods were responsible 指别的神创造其他种族，不是“其他创造者也很负责”。",
+   "applied": true,
+   "old_target": "关于这个创世的故事有许多版本，有的荒诞不经，有的浪漫无比，有的则令人恐惧。但他们都只不过是神话而已，即使其中最可信的也只包含些许真相的种子。我们的种族历史悠久，但是与其它种族有交集前的历史记载较为稀少。事实上，唯有通过与其它种族的战争，我们才留下了这些古老的记载。\n\n精灵们可能拥有关于古代历史最多的知识，但他们对此沉默寡言。一种普遍的推测是真正的历史要么就并不为其所知，要么就是会让其蒙羞而被故意隐藏了起来。而后者一点都不会让我们感到奇怪。\n\n人类稀奇古怪的传说比他们的脑细胞还多，他们的每个村庄都有数个版本的创世故事，这些故事通常都是经由祖祖辈辈们一代代口述而流传下来。很明显，这些故事都没有根据，毫不可信。\n\n矮人们则对他们的起源保持着奇怪的沉默。他们宣称讨论历史“不能盈利”。但在进一步施压（与贿赂）后，这些家伙也是会透露一点细节的。他们的种族内普遍认为自身是马基·埃亚尔里最后被创造出的——被称为“最终之作”。在他们的语言中其他的种族被称为“原型”。这个观点真是荒诞，而且我们只需一眼就能发现矮人的本质，他们本就是个有着可笑形象的荒诞社会，如果他们真是神最完美的作品，那感谢神明在我身上创造的缺陷！\n\n对于神明的研究当然是道难题，苦于今日并没有发现什么神圣力量残存于世。可是世界并不是凭空创造出来的，就算是伟大的夏·图尔也只是凭着自己的意愿改造世界而已，他们并没有创世。\n\n先从理论上来看，只能推测出是一种伟大的存在创造了这个世界。他一定亲切又和蔼，因为很明显他创造了大陆上繁荣的生命，而我们半身人正是他伟大的产物。我们可以说是唯一真正能够欣赏这个世界的种族。我们不会像永恒精灵一样用奇怪的魔法力量扭曲这个世界，亦不会像自然精灵一样消极避世。我们不会像兽人一样带来无尽的破坏，也不会像矮人一样贪婪无度。而且，我们所理解和掌握的知识比起人类来实在先进太多，真不明白为何要和他们分享同一个世界。我们半身人一定是现存种族里最先被创造出来的，这显然赋予了我们对马基·埃亚尔天然的所有权。\n\n现在从逻辑上来说已经很清楚了，必须考证其他种族的起源。因为他们不可能由同一个上帝所创造——真的不可能。是什么神奇的存在创造了我们的种族，使我们如此全面而有天赋，然后再创造那些畸形扭曲的生物，比如矮人和人类？不，很显然其他创造者也很负责，但比起我们的创造者来差了一些。只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美。\n\n然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们移除，另外创造了我们。虽然我们没有夏·图尔人那么强大——至少目前还没有——但是我们有自己的天赋，显然在我们伟大的创造者心中占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔传送门的种族。因为我们和我们的兄弟种族有着天然的联系。\n\n那么在那些神创造了这些种族后又发生了什么？肯定是他们之间发生了纠葛，或者他们同归于尽，亦或是他们的战场远离了这个世界。我们的创造者，看到其他众神，或是被杀或是离开，肯定是将这个世界委托给了我们半身人，因为他知道我们将代替他掌管这个世界。这就是为何在历史的每一个节点上，我们都在世界的塑造中扮演了关键角色。这是我们当之无愧的继承权，治理好这个世界也是我们的职责。",
+   "new_target": "关于这个创世的故事有许多版本，有的荒诞不经，有的浪漫无比，有的则令人恐惧。但他们都只不过是神话而已，即使其中最可信的也只包含些许真相的种子。我们的种族历史悠久，但是与其它种族有交集前的历史记载较为稀少。事实上，唯有通过与其它种族的战争，我们半身人才留下了这些古老的记载。\n\n精灵们可能拥有关于古代历史最多的知识，但他们对此沉默寡言。一种普遍的推测是真正的历史要么就并不为其所知，要么就是会让其蒙羞而被故意隐藏了起来。而后者一点都不会让我们感到奇怪。\n\n人类稀奇古怪的传说比他们的脑细胞还多，他们的每个村庄都有数个版本的创世故事，这些故事通常都是经由祖祖辈辈们一代代口述而流传下来。很明显，这些故事都没有根据，毫不可信。\n\n矮人们则对他们的起源保持着奇怪的沉默。他们宣称讨论历史“不能盈利”。但在进一步施压（与贿赂）后，这些家伙也是会透露一点细节的。他们的种族内普遍认为自身是马基·埃亚尔里最后被创造出的——被称为“最终之作”。在他们的语言中其他的种族被称为“原型”。这个观点真是荒诞，而且我们只需一眼就能发现矮人的本质，他们本就是个有着可笑形象的荒诞社会，如果他们真是神最完美的作品，那感谢神明在我身上创造的缺陷！\n\n对于神明的研究当然是道难题，苦于今日并没有发现什么神圣力量残存于世。可是世界并不是凭空创造出来的，就算是伟大的夏·图尔也只是凭着自己的意愿改造世界而已，他们并没有创世。\n\n先从理论上来看，只能推测出是一种伟大的存在创造了这个世界。他一定亲切又和蔼，因为很明显他创造了大陆上繁荣的生命，而我们半身人正是他伟大的产物。我们可以说是唯一真正能够欣赏这个世界的种族。我们不会像永恒精灵一样用奇怪的魔法力量扭曲这个世界，亦不会像自然精灵一样消极避世。我们不会像兽人一样带来无尽的破坏，也不会像矮人一样贪婪无度。而且，我们所理解和掌握的知识比起人类来实在先进太多，真不明白为何要和他们分享同一个世界。我们半身人一定是现存种族里最先被创造出来的，这显然赋予了我们对马基·埃亚尔天然的所有权。\n\n现在从逻辑上来说已经很清楚了，必须考证其他种族的起源。因为他们不可能由同一位神明所创造——真的不可能。是什么神奇的存在创造了我们的种族，使我们如此全面而有天赋，然后再创造那些畸形扭曲的生物，比如矮人和人类？不，很显然，其他种族是由别的神明创造的，但比起我们的创造者来差了一些。只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美。\n\n然而夏·图尔的存在又该如何解释。很显然那是比我们更加强大的种族，尽管他们已经消失了。可以肯定我们的创造者在我们之前制造了他们，但是可能不满意他们，于是将他们移除，另外创造了我们。虽然我们没有夏·图尔人那么强大——至少目前还没有——但是我们有自己的天赋，显然在我们伟大的创造者心中占有着更重要的位置。这样就可以解释为什么我们是第一个打开夏·图尔传送门的种族。因为我们和我们的兄弟种族有着天然的联系。\n\n那么在那些神创造了这些种族后又发生了什么？肯定是他们之间发生了纠葛，或者他们同归于尽，亦或是他们的战场远离了这个世界。我们的创造者，看到其他众神，或是被杀或是离开，肯定是将这个世界委托给了我们半身人，因为他知道我们将代替他掌管这个世界。这就是为何在历史的每一个节点上，我们都在世界的塑造中扮演了关键角色。这是我们当之无愧的继承权，治理好这个世界也是我们的职责。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Many are the tales of how our world was made, from the absurd to the romantic to the horrific. But they are all mere myths, with no more than seeds of truth to even the most reliable. The history of our race goes back far, but it is tantalisingly scant in details from before we met the other races. Indeed, it is only through our battles with the others that we halflings have any ancient records at all.\n\nThe elves one would suspect of having the greatest knowledge of elder times, but they are aloof and silent. One must judge from this that either they do not know, or that the truth ashames them. The latter would certainly not surprise me.\n\nThe humans have more myths than they have brain cells. It seems that each village has several versions of their own local tales, usually passed down orally over the ages. It is clear that not a single element of any of their myths can be construed to contain any essence of the truth.\n\nThe dwarves are reticent about the subject of how they were made. They say that such talk is \"not profitable\". However upon further pressing (and bribing) they will open up a little further. They as a race are of the most fervent belief that they were the last people to be made in Maj'Eyal. They say they are the \"final product\". Their word for all other races in fact translates directly to \"prototype\". This mostly singular outlook does of course seem absurd, but one need only look at the rest of dwarven society to see that they are an absurd race with ridiculous ideals. If they are what they consider perfection then I thank whatever god made me that I am flawed!\n\nThe subject of gods is of course a difficult one. Clearly there are no divine forces at work in the world today. But the world as we know it did not come from nothing, and even the great Sher'Tul clearly did naught more than manipulate the world - they did not make it.\n\nBy logical conjecture one can only presume that some great being made the world. This must have been a benevolent being, for it is clear that \"He\" created creatures separate from himself to walk the earth. Clearly this is we halflings. We are the only race that truly appreciates the world. We do not warp it with magic experiments like the Shaloren, nor hide from it like the Thaloren. We do not bring destruction like the orcs, or petty greed like the dwarves. And our understanding and knowledge is so far advanced than the humans that it is hard to understand why we share the same world with them at all. We were quite clearly the first of the current races to be created, and our natural feelings of entitlement to all there is in Maj'Eyal must stem from this.\n\nNow that this has been clearly analysed in logical terms, one must consider the source of the other races. It is impossible that they were made by the same god - truly impossible. What strange being could create our race, so gifted and rounded, and yet make such warped and twisted creatures as the dwarves and humans? No, clearly other gods were responsible, lesser gods than our own which copied his grand design. But with fudging fingers and inelegant touches the works of their design were clearly far inferior to the subtleties and perfection which crafted us.\n\nHowever there remains the matter of the Sher'Tul. Clearly these were of greater power than us, and yet they disappeared. One must presume that our god made this race before us, but was somehow unhappy with them, and so removed them and made us instead. We are not as powerful as the Sher'Tul - not yet at least - but we have our own gifts that evidently give us a greater place in our creator's heart. This would explain why we were the first race to unlock the powers of the Sher'Tul farportals. We had a natural affinity to the works of our elder brethren.\n\nSo what happened to these gods after they had made the races which we see today? One must presume strife between them, and that they killed themselves, or took their battle away from the world. Our creator, seeing the other gods killed or left, must have then entrusted the world to us halflings, knowing that we would rule over it in his stead. This is why at every point in history we have played a pivotal role in the shaping of our world. It is our rightful inheritance, and it is our duty to rule it well."
+  },
+  {
+   "queue_id": "hrq-00188",
+   "entry_id": "entry-01283",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17826,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“在埃亚尔两端”已保留位置，却未写姐妹仅隐约可见的月相；walk abroad 的外出禁令与盖里克外出动作大体承接前文，非核心完全漏译。两处 Aye 是叙事叹词，可补入以保留吟诵口吻；moonsister 只说明月亮姐妹而非女神，现译增设神格。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17826"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“在埃亚尔两端”已保留位置，却未写姐妹仅隐约可见的月相；walk abroad 的外出禁令与盖里克外出动作大体承接前文，非核心完全漏译。两处 Aye 是叙事叹词，可补入以保留吟诵口吻；moonsister 只说明月亮姐妹而非女神，现译增设神格。",
+   "applied": true,
+   "old_target": "埃亚尔从黑暗中升起，\n创造者制造了一团耀眼的光叫做太阳，\n但是埃亚尔认为这团光过于刺目，\n于是盖里克让埃亚尔自转起来；这样它的面孔一半时间沐浴光明，一半时间沉入黑暗，\n但是埃亚尔黑暗的那面感觉很孤单并伤心的哭泣。\n\n所以盖里克为他造了两个妹妹，她们围绕着埃亚尔起舞，\n让他保持好心情。\n但是月亮姐妹开始争风吃醋，妒忌对方得到哥哥的宠爱，\n以武力威胁并大声嚷嚷。\n于是盖里克将她们分开这样埃亚尔只能和其中一位跳舞。\n\n夏天埃亚尔和月亮女神亚缇娅共舞。\n她笑着唱着快乐的歌，\n让朋友和家人欢聚，\n她闪耀着欢乐的金色。\n冬天埃亚尔和月亮女神菲莉娅共舞。\n她讲述着往昔的故事，\n使人们独自行走在沉思中，\n她闪耀着肃穆的蓝色。\n\n但在交替之时，\n两姐妹只能在埃亚尔两端，\n隔着哥哥的身躯互相怒视。\n世界在这一刻静止了，清风不再吹拂，大海也不再掀起波澜。\n这就是平衡日，是黑暗最深的时刻，万物都处在危险之中。\n盖里克说：“没有人能走入今晚的黑夜，否则黑暗将抓住他并使他永坠黑暗。”\n然后，盖里克走入了这样的黑夜，进入了无尽的黑暗，并再也没出现过。",
+   "new_target": "埃亚尔从黑暗中升起，\n创造者制造了一团耀眼的光叫做太阳，\n但是埃亚尔认为这团光过于刺目，\n于是盖里克让埃亚尔自转起来；这样它的面孔一半时间沐浴光明，一半时间沉入黑暗，\n但是埃亚尔黑暗的那面感觉很孤单并伤心的哭泣。\n\n所以盖里克为他造了两个妹妹，她们围绕着埃亚尔起舞，\n让他保持好心情。\n但是月亮姐妹开始争风吃醋，妒忌对方得到哥哥的宠爱，\n以武力威胁并大声嚷嚷。\n于是盖里克将她们分开这样埃亚尔只能和其中一位跳舞。\n\n夏天埃亚尔和月亮姐妹亚缇娅共舞。\n她笑着唱着快乐的歌，\n让朋友和家人欢聚，\n她闪耀着欢乐的金色。\n冬天埃亚尔和月亮姐妹菲莉娅共舞。\n她讲述着往昔的故事，\n使人们独自行走在沉思中，\n她闪耀着肃穆的蓝色。\n\n但在交替之时，\n两姐妹只能在埃亚尔两侧隐约可见，\n隔着哥哥的身躯互相怒视。\n世界在这一刻静止了，清风不再吹拂，大海也不再掀起波澜。\n这就是平衡日，是黑暗最深的时刻，万物都处在危险之中。\n是啊，盖里克说：“今夜无人可外出，否则黑暗将抓住他并使他永坠黑暗。”\n是啊，盖里克却在那夜外出，进入了无尽的黑暗，并再也没出现过。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Eyal was raised from Darkness,\nAnd One came who made a blinding light called Sun,\nBut Eyal flinched and said, \"It is too bright!\"\nSo Gerlyk spun Eyal around; thus his face was half-time in light and half-time in shadow,\nBut in shadow Eyal became lonely and cried.\n\nAnd so Gerlyk made him two younger sisters who danced around Eyal\nAnd kept him in good spirits.\nBut the moonsisters became jealous of their brother's affection,\nThreatening to fight and scream.\nThus Gerlyk separated them so that Eyal would only ever dance with one at a time.\n\nIn the summer Eyal dances with the moonsister Altia.\nShe sings songs of joy and laughter,\nAnd brings friends and family together,\nAnd she glows yellow with mirth.\nIn the winter Eyal dances with the moonsister Felia.\nShe tells tales of times begone,\nAnd makes men walk alone in thought,\nAnd she glows blue with solemness.\n\nBut in the time between,\nWhen both sisters are slimly seen on each side of Eyal,\nGlaring at each other from behind their brother's belly,\nThen the world goes still, and the winds hold their breath, and the oceans lie flat.\nFor this is the Time of Balance, when the Darkness rises deepest, and all life is in peril.\nAye, and Gerlyk did say, \"Let no man walk abroad this night, lest Darkness catch him and take him forever.\"\nAye, and Gerlyk did walk abroad that night, into Darkness beyond, and has ne'er since been seen."
+  },
+  {
+   "queue_id": "hrq-00189",
+   "entry_id": "entry-01286",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17921,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "梦境确实清晰，但“刚睡醒脑袋一团浆糊”无原文依据；beyond 是在红星更远处，不是上方。held together 指维系这个世界，非“他们”。moonstone 单数且无“该死的”；shall wake up from 表未来醒来，非“早该”；lava spilled up 是岩浆向上涌出，非浮沉。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17921"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；梦境确实清晰，但“刚睡醒脑袋一团浆糊”无原文依据；beyond 是在红星更远处，不是上方。held together 指维系这个世界，非“他们”。moonstone 单数且无“该死的”；shall wake up from 表未来醒来，非“早该”；lava spilled up 是岩浆向上涌出，非浮沉。",
+   "applied": true,
+   "old_target": "我在一片黑暗的山洞中渐渐睡去，但是我的睡眠被一个可怕的梦吵醒了。即使刚睡醒的脑袋仍然一团浆糊，那个梦仍然在我的脑海中异常清晰。\n\n我看到眼前红色的星星越来越大，原来，那是一片在夜空中漂浮着的燃烧的大陆，上面满是有着黄色眼睛和贪婪的红色大嘴的黑色生物。在红色星星的上方遥远的地方是一片黑暗的世界，但是那个世界似乎被某种力量切得支离破碎。在这个世界旋转的过程中，破碎的大陆互相撞击，岩浆的波浪浮浮沉沉，陆地沉入地底。我听到恶魔般的吼叫，那是大陆上的生物被烈火吞没时的绝望呻吟。似乎这个世界被完全撕裂开来，但是某种意志的力量努力试图将他们固定在一起。\n\n视野中，随着这个世界逐渐旋转，逐渐被挤压碎裂，我隐约能看到那个世界的中心。在那里，是一个拥有闪烁的白色眼睛，头上长角的巨大影像。它向外伸展而出的强壮四肢紧紧抓着世界的核心，试图将它连结在一起，来对抗那些不断将这颗星球撕裂的可怕力量。在剧烈的痛苦和愤怒中，巨人的表情被其扭曲，发出怒吼。\n\n“乌鲁洛克，”一个深沉的声音在我的脑海中响起。“我们的神，我们的救世主，保护世界之人。以乌鲁洛克的名义，我们将向阿马克泰尔和夏·图尔人复仇。渺小的埃亚尔世界终将陨落！”我被噩梦所惊醒，直觉告诉我有什么东西就在附近，正在搜寻着我。我立刻拔腿就跑。\n\n是我的脑子出了什么问题吗？那个奇怪的名字，“乌鲁洛克”仍然在我的心头回响，我的视野也变得昏暗起来。大概是我戴了这个戒指太久了的副作用的缘故……\n\n唉，对，这一定是我的幻觉！我早该从这个怪梦里醒来了。我应该赶紧脱下这个该死的戒指，回去看看我可爱的月亮石们。只要能让我看见美丽的星空，一切都一定会好起来的……",
+   "new_target": "我在一片黑暗的山洞中渐渐睡去，但是我的睡眠被一个可怕的梦吵醒了。那个梦至今仍在我脑海中异常清晰。\n\n我看到眼前红色的星星越来越大，原来，那是一片在夜空中漂浮着的燃烧的大陆，上面满是有着黄色眼睛和贪婪的红色大嘴的黑色生物。在红色星星后方极遥远的地方是一片黑暗的世界，但是那个世界似乎被某种力量切得支离破碎。在这个世界旋转的过程中，破碎的大陆互相撞击，岩浆向上喷涌，陆地沉入地底。我听到恶魔般的吼叫，那是大陆上的生物被烈火吞没时的绝望呻吟。似乎这个世界被完全撕裂开来，但是某种意志的力量努力试图维系这个世界不致崩裂。\n\n视野中，随着这个世界逐渐旋转，逐渐被挤压碎裂，我隐约能看到那个世界的中心。在那里，是一个拥有闪烁的白色眼睛，头上长角的巨大影像。它向外伸展而出的强壮四肢紧紧抓着世界的核心，试图将它连结在一起，来对抗那些不断将这颗星球撕裂的可怕力量。在剧烈的痛苦和愤怒中，巨人的表情被其扭曲，发出怒吼。\n\n“乌鲁洛克，”一个深沉的声音在我的脑海中响起。“我们的神，我们的救世主，保护世界之人。以乌鲁洛克的名义，我们将向阿马克泰尔和夏·图尔人复仇。渺小的埃亚尔世界终将陨落！”我被噩梦所惊醒，直觉告诉我有什么东西就在附近，正在搜寻着我。我立刻拔腿就跑。\n\n是我的脑子出了什么问题吗？那个奇怪的名字，“乌鲁洛克”仍然在我的心头回响，我的视野也变得昏暗起来。大概是我戴了这个戒指太久了的副作用的缘故……\n\n唉，对，这一定是我的幻觉！我终会从这个怪梦里醒来。我应该赶紧脱下这个戒指，回去看看我可爱的月亮石。只要能让我看见美丽的星空，一切都一定会好起来的……",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "I fell asleep in a dark hollow, but my sleep was troubled by terrible dreams. The dreams are so vivid in my mind!\n\nI saw the red star, and it became a land of fire floating in the night sky, full of black creatures with yellow eyes and hungry red mouths. And beyond the red star, far beyond was a dim world, but fractured and split all about its surface. As the world spun the split continents crushed against each other, and lava spilled up, and lands sunk into the ground. Demonic mouths screamed up as they disappeared into fiery death. It was if the world was tearing itself apart, but some force of will was desperately trying to keep it held together.\n\nAnd I saw then in the centre of the world, as it spun and crumpled and crunched, a vast figure with a horned head and outstretched limbs and shining white eyes. It held tight to the innards of the world, holding it together against forces threatening to pull the whole planet apart. The giant face contorted and screamed in pain and fury.\n\n“Urh'Rok,” a deep voice spoke within my head. “Our god, our saviour, holder of our world. In the name of Urh'Rok we seek vengeance against Amakthel and the Sher'Tul. The petty world of Eyal shall fall!” And then I woke up, and I felt sure something was nearby, looking for me. I fled instantly.\n\nAm I going mad? The name “Urh'Rok” still rebounds through my skull and my vision is dimmed. Perhaps I have been wearing this ring too long...\n\nYes, yes, this is all clearly an illusion! A strange nightmare that I shall wake up from. I shall take the ring off, and go visit the lovely moonstone again. Once I see the stars all shall be well..."
+  },
+  {
+   "queue_id": "hrq-00190",
+   "entry_id": "entry-01290",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 17978,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "Cataclysm 的“大爆炸”与 Spellblaze 混淆；spellhunters 也已有本仓“魔法猎手”的明晰同族用法。但 mod-tome.lua:43240 起另有同源活跃孪生载体，仍译“大爆炸／猎魔者”；本批未冻结该 target，只改本条会制造族内不一致，须把两条一同纳入后续冻结。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:17978",
+    "mod-tome.lua:43240",
+    "mod-tome.lua:19537",
+    "terminology/places.tsv:48"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "Cataclysm 的“大爆炸”与 Spellblaze 混淆；spellhunters 也已有本仓“魔法猎手”的明晰同族用法。但 mod-tome.lua:43240 起另有同源活跃孪生载体，仍译“大爆炸／猎魔者”；本批未冻结该 target，只改本条会制造族内不一致，须把两条一同纳入后续冻结。",
+   "applied": false,
+   "old_target": "我从人类的研究开始，他们目前是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。此外，肖尔塔王国和马卓普王国以及高等人类这一血统支系也值得一提。最大的人类聚居地在最后的希望要塞周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。\n\n科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。\n\n肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。\n\n在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。\n\n高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。\n\n在烈火纪，勇者图库纳国王统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。",
+   "new_target": null,
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.\n\nCornacs are normally around 5'9\", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.\n\nSholtar are generally 5'11\", with dark skin, hair and eyes. They originate from the south-east of Maj'Eyal, and are few in number since the Cataclysm tore much of their land into the sea. Their affinity with nature is renowned, and they are often found employed as healers, infusion crafters or wyrmic huntsmen.\n\nMardrop humans are all but extinct, after the Spellhunt and the plagues during the Age of Dusk. They were known to be powerful spellcasters, and as such were prime targets by the spellhunters. However some trace of them can still be found, as their fiery hair and freckled skin oft can appear in those of distant descent. A few are rumoured to still possess citadels and towers in remote locations.\n\nHighers are on average 6'0\", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.\n\nAll human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document."
+  },
+  {
+   "queue_id": "hrq-00191",
+   "entry_id": "entry-01292",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18000,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "段落与末尾换行、占位符均完整；图库纳／托拉克称号有本仓现译支持，术语 claim 仅有部分可核。“雇佣”擅自加入付款关系，enlisted the aid of 只说请求协助；改成“请来”。与第一章完全一致的主张缺逐项证据，不据此裁断。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18000"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；段落与末尾换行、占位符均完整；图库纳／托拉克称号有本仓现译支持，术语 claim 仅有部分可核。“雇佣”擅自加入付款关系，enlisted the aid of 只说请求协助；改成“请来”。与第一章完全一致的主张缺逐项证据，不据此裁断。",
+   "applied": true,
+   "old_target": "主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人身高都略低于4英尺，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着浅色的头发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。\n\n半身人曾经是马基·埃亚尔最具统治地位的种族，他们控制着许多具有战略价值的夏·图尔废墟，并统治着广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖与其他种族的贸易往来，尤其是与人类。\n\n艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍拥有许多如德斯镇这样的农业聚居地，尽管是与其他种族共居。艾德瑞尔人以出色的治疗师和农夫著称，并且他们的投石者被认为是世界上最优秀的。\n\n纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人以出色的珠宝匠、炼金术师和符文师著称，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。\n\n在半身人中最著名的则是米雯尼雅女王，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。",
+   "new_target": "主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人身高都略低于4英尺，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着浅色的头发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。\n\n半身人曾经是马基·埃亚尔最具统治地位的种族，他们控制着许多具有战略价值的夏·图尔废墟，并统治着广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖与其他种族的贸易往来，尤其是与人类。\n\n艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍拥有许多如德斯镇这样的农业聚居地，尽管是与其他种族共居。艾德瑞尔人以出色的治疗师和农夫著称，并且他们的投石者被认为是世界上最优秀的。\n\n纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人以出色的珠宝匠、炼金术师和符文师著称，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。\n\n在半身人中最著名的则是米雯尼雅女王，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她请来了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "There are two main kingdoms of halflings, the Eldoral and the Nargol, though both mix often. All halflings are just under 4' tall, and are generally noted for their large feet and curly hair. Eldoral are usually fair-haired and blue-eyed. Nargol tend to be darker in hair and complexion, with hazel eyes, and oft slightly shorter than their cousins. Halflings are known for their intelligence and quick wit, but also their arrogance in dealing with other races - something they do not deny, for they say it is well-deserved.\n\nHalflings used to be the most dominant race in Maj'Eyal, with control of many strategic Sher'Tul ruins and rule over great swathes of land. The recorded wars between humans and halflings are numerous, and the halflings were the most often victors. However the Age of Pyre brought them great ruin, for the orcs seemed to target them more fiercely than any other race, and many of their communities were wiped out. This has forced them to rely more on trade with other races in modern times, especially with the humans.\n\nThe Eldorals used to have a kingdom in the north of the continent, but most of it was destroyed during the wars with the orcs, and not much has been rebuilt. However they do still have many agricultural settlements such as Derth, albeit shared with other races. The Eldoral are known for their great healers and farmers, and their slingers are considered the best in all the lands.\n\nThe Nargols once had many strong fortifications in the south of Maj'Eyal, but though they suffered less than the Eldoral in the Age of Pyre they still lost great numbers, and much of their centres of population dwindled. The rise of Last Hope has accelerated this process, as many communities are subsumed into the city's suburbs. Nargols are known as great jewellers, alchemists and rune-crafters, and possess some of the best tactical minds of all the races. Many generals and military advisers are employed from their kingdom.\n\nThe most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair.\n"
+  },
+  {
+   "queue_id": "hrq-00192",
+   "entry_id": "entry-01294",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18019,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "钢铁王座、斯莱特和沃瑞钽已符合既有用法，段落引号完整；physical suffering 是肉体苦痛的承受，不是游戏机制的“物理抵抗能力”。halls of stone 是石造厅堂，“石头洞穴”改掉意象。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18019",
+    "terminology/items.tsv:44",
+    "terminology/items.tsv:52"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；钢铁王座、斯莱特和沃瑞钽已符合既有用法，段落引号完整；physical suffering 是肉体苦痛的承受，不是游戏机制的“物理抵抗能力”。halls of stone 是石造厅堂，“石头洞穴”改掉意象。",
+   "applied": true,
+   "old_target": "矮人是非常神秘且低调的种族，一般来说，除非付出重金贿赂，否则他们不会谈论任何与己有关的事。历史上，他们曾多次因不为人知的缘由切断与外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领交谈。\n\n矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。\n\n矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。\n\n他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。\n\n在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。",
+   "new_target": "矮人是非常神秘且低调的种族，一般来说，除非付出重金贿赂，否则他们不会谈论任何与己有关的事。历史上，他们曾多次因不为人知的缘由切断与外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领交谈。\n\n矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以极强的忍受肉体痛苦的能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。\n\n矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。\n\n他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。\n\n在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于走出他们的石砌厅堂去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.\n\nDwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.\n\nDwarves are known especially for their smithwork and artificing, which is unrivalled amongst all the other races. They also make cunning merchants, known to drive a hard bargain. Their society consists of a fairly strict caste system, with families belonging to guilds of miners, smelters, craftsmen, and so on, and deviance into work outside of one's guild of birth is almost unheard of. However there is no perceived inequality between guilds, with each having equal representation on their ruling Committee of Guilds. Who actually acts as figurehead is unknown to outsiders though, and no amount of bribing will encourage any dwarf to speak on the subject. When it is mentioned in passing their allusions to a leader are normally marked by an almost religious reverence.\n\nTheir skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.\n\nAs well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being \"smithed upon the anvil of the world\". In private though some senior dwarves admit that this activity is promoted to help with their \"market research strategy\"."
+  },
+  {
+   "queue_id": "hrq-00193",
+   "entry_id": "entry-01296",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18037,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "同段已用“永恒精灵”指 Shaloren，Shalore 原名写在括号里并不凭空丢掉种族信息；但 or 的“又称”关系未译，可直接补出。arcane arts 在长生研究语境中“魔法造诣”已含秘法，不判失义；引号体例差异仅风格。主要事件与段落完整，不等于不存在上述小遗漏。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18037",
+    "terminology/creatures.tsv:51"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；同段已用“永恒精灵”指 Shaloren，Shalore 原名写在括号里并不凭空丢掉种族信息；但 or 的“又称”关系未译，可直接补出。arcane arts 在长生研究语境中“魔法造诣”已含秘法，不判失义；引号体例差异仅风格。主要事件与段落完整，不等于不存在上述小遗漏。",
+   "applied": true,
+   "old_target": "虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征则差异极大。必须说的是，他们称自己为整体的“Elore”，意即“兄弟姐妹”，然而这些兄弟姐妹间的关系通常是比较紧张的。\n\n永恒精灵（Shalore，字面意为“优雅的兄弟姐妹”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝色或紫色的眼睛。他们身材苗条，体格轻盈，更以精神智慧而非体格强健著称。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。\n\n很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵正是发动魔法大爆炸的元凶，虽然他们很快便设法让此事被人遗忘，但是归咎于他们的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭城门并用一层薄雾笼罩着整片区域，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。\n\n他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。其中最年长的那些不死者组成了由精灵王艾伦尼恩·加威尔为首的长老会。永恒精灵对死亡尤为痴迷，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。\n\n他们很少与其他种族直接往来，一直过着低调的生活，大部分的贸易是通过半身人中间人来完成的。少数符文师和附魔师有时会前往其他主要城市做生意，另外还有一些莽撞的年轻人去更远的地方闯荡。",
+   "new_target": "虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征则差异极大。必须说的是，他们称自己为整体的“Elore”，意即“兄弟姐妹”，然而这些兄弟姐妹间的关系通常是比较紧张的。\n\n永恒精灵（又称 Shalore，字面意为“优雅的兄弟姐妹”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝色或紫色的眼睛。他们身材苗条，体格轻盈，更以精神智慧而非体格强健著称。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。\n\n很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵正是发动魔法大爆炸的元凶，虽然他们很快便设法让此事被人遗忘，但是归咎于他们的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭城门并用一层薄雾笼罩着整片区域，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。\n\n他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。其中最年长的那些不死者组成了由精灵王艾伦尼恩·加威尔为首的长老会。永恒精灵对死亡尤为痴迷，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。\n\n他们很少与其他种族直接往来，一直过着低调的生活，大部分的贸易是通过半身人中间人来完成的。少数符文师和附魔师有时会前往其他主要城市做生意，另外还有一些莽撞的年轻人去更远的地方闯荡。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole \"Elore\", which means \"siblings\", yet the interactions between these brothers and sisters are oft strained.\n\nShaloren (or Shalore - lit \"siblings of grace\") are on average 6'2\", with bright hair and blue or purple eyes. They are usually slim and lightly built, more marked for their mental prowess than their physical strengths. They are however known to be extremely swift of movement and light of foot. But of particular note is their magical affinity, which is far stronger than any other race, and their intense powers of will.\n\nThe Shaloren have a long history of magic-use which continues to this day. Though other races shun the dangers of magic to a large degree, the Shaloren embrace it, and it is still widely used throughout their society. However they are careful to hide this in their dealings with other races. The Shaloren were the ones that began the Spellblaze, though they would soon have it forgotten, and the memories of blame run deep amongst many. During the Spellhunt in the Age of Dusk they locked their city doors and shrouded the whole region in mist, only coming out in secrecy. It took many centuries before they were accepted again in wider society, and still they are treated with intense distrust.\n\nTheir capital city is Elvala, in the south-west peninsula, and they have very few settlements outside of this. They have naturally long lives, and their mastery of the arcane arts has allowed them to extend their lives indefinitely. The eldest immortals make up their Council of Elders, which is headed by their King Aranion Gayaeil. Death is a particular fascination amongst the Shaloren, and early kings of their race were said to build great tombs for themselves whilst experimenting in flesh preservation and necromancy. The Shaloren of course deny this.\n\nThey deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield."
+  },
+  {
+   "queue_id": "hrq-00194",
+   "entry_id": "entry-01298",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18055,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "原文明确把 Thaloren 与 Thalore 放在同一括号作别称，现译“自然精灵（或木精灵）”仍清楚指同一种族；“木精灵”是否全库仅一处不足以证明读者会误认第二分支。术语表将 Thalore 记为 existing 而非 preferred，不强制改名；其余专名与段落无明确缺陷。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18055"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；原文明确把 Thaloren 与 Thalore 放在同一括号作别称，现译“自然精灵（或木精灵）”仍清楚指同一种族；“木精灵”是否全库仅一处不足以证明读者会误认第二分支。术语表将 Thalore 记为 existing 而非 preferred，不强制改名；其余专名与段落无明确缺陷。",
+   "applied": false,
+   "old_target": "自然精灵（或木精灵——字面意为「愤怒的同胞」）平均身高约 6 英尺 4 英寸，有着深棕色的头发和淡褐色或绿色的眼睛。他们大多体格健硕，以强悍的体魄闻名。他们以喜怒无常的性情著称——既会骤然陷入狂暴的杀戮，也会同样迅捷地放声欢歌。他们与永恒精灵的关系尤为紧张，因为他们强烈反对同族对魔法的使用。\n\n他们的首都是夏特尔，深藏于北方的丛林之中；他们厌恶任何外来者，甚至不容外人接近周围的森林。弓箭手与战士小心地巡守边界，随时准备从树上向任何入侵者倾泻死亡。他们的领袖是女王奈希拉·坦泰兰，据说他们居住在雕凿于巨树之中的宽敞居所里，但外界对他们的社会所知甚少。\n\n那些选择离开这片森林堡垒的精灵，往往性情独特、态度与秉性异于常人。他们常是乐师、弓术大师或身手不凡的战士。不过他们有时也备受猜忌，因为传言说许多离开夏特尔的人其实是因最恶劣的罪行而被放逐的罪犯。无论如何，他们大多是天生的独行者，为着各自的个人追寻而浪迹世界。\n\n自然精灵极少与外界通商，一旦通商，通常是为了换取他们无法自给的金属和某些食物。他们通常出售木制品和上等丝绸。这是精灵木的唯一合法来源——那是一种珍稀商品，常被用于制箭。黑市货源则依赖偷猎者从夏特尔森林中盗伐树木——这是一桩极其危险的营生，但也利润丰厚，因为永恒精灵法师愿为一根精灵木法杖付出高价。",
+   "new_target": null,
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "The Thaloren (or Thalore - lit \"siblings of wrath\") are on average 6'4\", with dark brown hair and hazel or green eyes. They are generally of muscular build, and known for their physical prowess. They are renowned to be of a fey mindset - as quick to furious violence as they are to joyous song. Their relations with the Shaloren are particularly strained, as they strongly oppose their brethren's use of magic.\n\nTheir capital city is Shatur, hidden deep within the northern woods, and they are loathe to let any outsiders even approach the surrounding forest. Archers and fighters carefully patrol their borders, ready to rain down death from the trees on any who encroach. Their leader is Queen Nessilla Tantaelen, and they are said to live in extensive dwellings carved into giant trees, but little else is known about their society.\n\nThose who choose to leave the fastness of the forest tend to be of unique disposition with unusual attitudes and traits. Oft they are musicians, bowmasters or skilled warriors. However they are sometimes mistrusted heavily, as rumour has it that many of those who leave Shatur are actually criminals expelled for the very worst crimes. In any case they tend to be natural loners who wander the world on their own personal quests.\n\nThe Thaloren do business very rarely with the outside world, but when they do it is normally for metals and certain foodstuffs that they cannot get themselves. Usually in trade they sell woodcraft and fine silks. This is the only legal source of elven-wood, a rare commodity that is often sought after for fletchwork. Black market sources rely on poachers to cut trees from the Shatur forest - an immensely risky business, but also very profitable for the high prices paid by Shaloren mages for an elven-wood staff."
+  },
+  {
+   "queue_id": "hrq-00195",
+   "entry_id": "entry-01302",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18083,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文指精细铭刻促成手指灵巧，非“管理符文”；patient study 的耐心研习与 if properly motivated 的“有足够动机”都被泛化成技术水平和需要。“长老会”不是 Overseers 的监督职称；grain shipment 未说货船。段落和占位符完整；埃尔瓦拉无本批强制 preferred，不能以“全部专名合规”概括。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18083"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文指精细铭刻促成手指灵巧，非“管理符文”；patient study 的耐心研习与 if properly motivated 的“有足够动机”都被泛化成技术水平和需要。“长老会”不是 Overseers 的监督职称；grain shipment 未说货船。段落和占位符完整；埃尔瓦拉无本批强制 preferred，不能以“全部专名合规”概括。",
+   "applied": true,
+   "old_target": "食人魔从来不是一个昌盛的种族。在厄流纪的长期征战中，这个种族突然出现在世人的视线里，作为孔克雷夫的工人和士兵。孔克雷夫的长老会宣称他们是在崇山峻岭中找到了隐藏于世间许久的食人魔，然而这个故事难以置信，漏洞百出，使得目前食人魔的产生仍然原因不明。在旷日持久的战争结束后，流离失所的他们无家可归，也没有接受过系统化的符文训练，只能被迫重新建立起自己的部落，自行重新摸索出符文与纹身的制作之道。尽管这一过程伴随着大规模的人口减员，他们作为游牧的符文商人度过了一段相对成功的日子，基本没有受到魔法大爆炸的影响。接踵而来的魔法狩猎几乎让这个种族就此灭绝。因为他们怪异的体格和满身符文的皮肤，他们迅速成为猎魔者的首要目标。几乎所有人都认为这个种族已经灭绝，直到近几年埃尔瓦拉城才透露，当年曾有一批食人魔在此避难。他们的后代仍然生活在今天，尽管仍然畏惧着外人的迫害，他们中的少数仍然尝试着向埃尔瓦拉以外的区域前去探索。\n\n食人魔们最引人注目的特征是他们高大的体格，目前是所有智慧种族中体格最为硕大的一个。他们通常身高在8英尺4英寸左右，大多数人浑身的肌肉使他们的宽度几乎达到身高的一半。就像人类一样，他们也有各种类似的不同肤色，但总体而言比较偏灰色。它们的头发趋向于呈黑色或深褐色，眼睛的颜色分布在从黑色到湖蓝色到紫色的广泛色域内，想必是符文转录错误引发的副作用。他们面部的棱角引发了一些与野蛮的兽人族的令人不快的比较，连同强壮的下颌，不成比例地巨大的嘴巴和牙齿，以及方形的头。然而在其他方面，他们十分类似于人类。当然，最为不得不提的是，错综复杂地闪烁着的符文遍布于他们全身，从头到脚，尽管确切的图案和颜色各不相同。\n\n他们一眼看上去就很适合体力任务，并且对于管理符文的重要性使他们手指变得十分灵巧，就连写出来的书法也令人印象深刻。然而，由于他们的庞大体型，他们的肢体动作往往显得缓慢而笨拙。并且，他们如果在艰苦的劳动中透支体力就会很快变得无比疲倦。他们语速缓慢，胃口令人难以置信的大，对艺术和科学基本没有兴趣，引发了广泛的误解，让人们往往趋向于认为这是一个低智商的种族。然而事实上，即便是被迫从事学术工作的食人魔，也表现得令人钦佩。只需要看看他们所制的符文图案，就能了解到他们只要需要的情况下就能发挥出多么伟大的艺术造诣和技术水平。这可能与一种谦卑而尽责的心态有关，这种心态似乎是该种族与生俱来的属性——大部分食人魔对领导他人或者给他人留下深刻的印象毫无兴趣，只一心关注于用最可靠的方式完成他们所做的事，而这种方式往往是最简单而毫不花哨的一种。\n\n或许即使是永恒精灵也有可能放弃魔法的力量，但是食人魔可没有这样的奢侈。他们身上的符文对他们的健康和身体结构的完整性而言，其重要性不亚于任何一个内脏器官。伊格兰斯曾试着“净化”所捕获食人魔身上的符文，结果导致他们先因自身重量而瘫倒，随后器官一个接一个停止工作。可以假定，他们身上的纹身也相当重要。因此，食人魔的生育是一个十分复杂的过程。婴儿们可以保持没有符文的状态几个月，在此之后父母必须在他的身上铭刻一套包含各种符文和纹身的复杂的整体。父母们通常一起完成这项铭刻工作，使用彼此的符文作为参考，并且在这个转录的过程中的任何错误都会影响孩子的健康和发育。通常这一影响是不利的，然而因祸得福，似乎也正是转录错误缓解了食人魔们过去火爆的脾气。因此，孩子们身上所铭刻的符文和纹身对它们未来的发展，和父母本身的身心特质同样重要。\n\n由于埃尔瓦拉的安逸舒适以及食人魔对外部世界根深蒂固的不信任，绝大多数离开家园的食人魔仅仅是为了一些商业目的。不再需要永恒精灵作为他们的中介人，一些人已经开始进入纹身和符文这一不断增长的市场，他们在这方面的天赋使他们在这一领域大获成功。而那些少数可以被视为冒险家的人，往往只是收拾好自己的东西突然离开，不为荣耀和财富，只为消除世界上不断出现的苦难与不幸而为他人奉献。经常听到这样的故事，一个食人魔偶尔听到有满载粮食的货船被劫的消息，立即出发。几天之后，他带着狼牙棒上那伙长期为患的强盗的血回来，然后继续回到乡间照料他的庄稼。",
+   "new_target": "食人魔从来不是一个昌盛的种族。在厄流纪的长期征战中，这个种族突然出现在世人的视线里，作为孔克雷夫的工人和士兵。孔克雷夫的监督者宣称他们是在崇山峻岭中找到了隐藏于世间许久的食人魔，然而这个故事难以置信，漏洞百出，使得目前食人魔的产生仍然原因不明。在旷日持久的战争结束后，流离失所的他们无家可归，也没有接受过系统化的符文训练，只能被迫重新建立起自己的部落，自行重新摸索出符文与纹身的制作之道。尽管这一过程伴随着大规模的人口减员，他们作为游牧的符文商人度过了一段相对成功的日子，基本没有受到魔法大爆炸的影响。接踵而来的魔法狩猎几乎让这个种族就此灭绝。因为他们怪异的体格和满身符文的皮肤，他们迅速成为猎魔者的首要目标。几乎所有人都认为这个种族已经灭绝，直到近几年埃尔瓦拉城才透露，当年曾有一批食人魔在此避难。他们的后代仍然生活在今天，尽管仍然畏惧着外人的迫害，他们中的少数仍然尝试着向埃尔瓦拉以外的区域前去探索。\n\n食人魔们最引人注目的特征是他们高大的体格，目前是所有智慧种族中体格最为硕大的一个。他们通常身高在8英尺4英寸左右，大多数人浑身的肌肉使他们的宽度几乎达到身高的一半。就像人类一样，他们也有各种类似的不同肤色，但总体而言比较偏灰色。它们的头发趋向于呈黑色或深褐色，眼睛的颜色分布在从黑色到湖蓝色到紫色的广泛色域内，想必是符文转录错误引发的副作用。他们面部的棱角引发了一些与野蛮的兽人族的令人不快的比较，连同强壮的下颌，不成比例地巨大的嘴巴和牙齿，以及方形的头。然而在其他方面，他们十分类似于人类。当然，最为不得不提的是，错综复杂地闪烁着的符文遍布于他们全身，从头到脚，尽管确切的图案和颜色各不相同。\n\n他们一眼看上去就很适合体力任务，并且精细铭刻符文的需要使他们的手指变得十分灵巧，就连写出来的书法也令人印象深刻。然而，由于他们的庞大体型，他们的肢体动作往往显得缓慢而笨拙。并且，他们如果在艰苦的劳动中透支体力就会很快变得无比疲倦。他们语速缓慢，胃口令人难以置信的大，对艺术和科学基本没有兴趣，引发了广泛的误解，让人们往往趋向于认为这是一个低智商的种族。然而事实上，即便是被迫从事学术工作的食人魔，也表现得令人钦佩。只需要看看他们所制的符文图案，就能了解到只要有足够的动机，他们便能展现多么耐心的钻研和艺术构思。这可能与一种谦卑而尽责的心态有关，这种心态似乎是该种族与生俱来的属性——大部分食人魔对领导他人或者给他人留下深刻的印象毫无兴趣，只一心关注于用最可靠的方式完成他们所做的事，而这种方式往往是最简单而毫不花哨的一种。\n\n或许即使是永恒精灵也有可能放弃魔法的力量，但是食人魔可没有这样的奢侈。他们身上的符文对他们的健康和身体结构的完整性而言，其重要性不亚于任何一个内脏器官。伊格兰斯曾试着“净化”所捕获食人魔身上的符文，结果导致他们先因自身重量而瘫倒，随后器官一个接一个停止工作。可以假定，他们身上的纹身也相当重要。因此，食人魔的生育是一个十分复杂的过程。婴儿们可以保持没有符文的状态几个月，在此之后父母必须在他的身上铭刻一套包含各种符文和纹身的复杂的整体。父母们通常一起完成这项铭刻工作，使用彼此的符文作为参考，并且在这个转录的过程中的任何错误都会影响孩子的健康和发育。通常这一影响是不利的，然而因祸得福，似乎也正是转录错误缓解了食人魔们过去火爆的脾气。因此，孩子们身上所铭刻的符文和纹身对它们未来的发展，和父母本身的身心特质同样重要。\n\n由于埃尔瓦拉的安逸舒适以及食人魔对外部世界根深蒂固的不信任，绝大多数离开家园的食人魔仅仅是为了一些商业目的。不再需要永恒精灵作为他们的中介人，一些人已经开始进入纹身和符文这一不断增长的市场，他们在这方面的天赋使他们在这一领域大获成功。而那些少数可以被视为冒险家的人，往往只是收拾好自己的东西突然离开，不为荣耀和财富，只为消除世界上不断出现的苦难与不幸而为他人奉献。经常听到这样的故事，一个食人魔偶尔听到有一批粮食货物被劫的消息，立即出发。几天之后，他带着狼牙棒上那伙长期为患的强盗的血回来，然后继续回到乡间照料他的庄稼。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Ogres have never been a thriving race, starting from their abrupt appearance as soldiers and laborers for the Conclave during the Allure Wars (unexplained aside from a highly implausible story from the Conclave's Overseers about a lost mountain tribe).  Left without homes or proper runic training after the war's end, they were forced to found their own tribes and rediscover the fields of rune and infusion creation for themselves, and though their numbers dropped rapidly, they enjoyed a brief period of relative success as nomadic rune-traders, virtually unaffected by the Spellblaze.  The Spellhunt nearly proved to be their undoing, as their monstrous size and rune-covered skin made them popular targets; they were thought to be extinct, and only in recent years has the city of Elvala revealed that some Ogres took refuge there during this time.  Their descendants still live today, fearful of persecution but gradually beginning to explore outside Elvala for the first time in ages.\n\nOgres' most striking feature is their size, by far the largest of any intelligent race; they average at roughly 8'4\" tall, and most are nearly half as wide with muscle.  They have a similar range of skin tones to humans, although slightly grayer on the whole; their hair tends to be dark brown or black, and their eyes run the gamut from black to bright blue to purple, presumably a side-effect of runic mis-transcription.  Their angular facial features invite some impolite comparisons to Orcs, with strong jawlines, disproportionately large mouths and teeth, and squarish heads, but otherwise resemble those of humans.  It would be remiss of me to describe Ogres' appearance without mentioning the intricate, glowing pattern of runes covering their skin from head to toe, although the exact patterns and colors vary.  \n\nAlthough they excel at physical tasks for obvious reasons, and the necessity of careful inscription has made their finger dexterity (and penmanship) rather impressive, their limb movements tend to be slow and clumsy due to their size, and they tire quickly if they over-exert themselves during strenuous labor.  Their slow speech, incredible appetites, and lack of interest in arts or most scholarly concerns has led to a misconception that they are dim-witted; however, Ogres forced into studious tasks have performed admirably, and one needs only look at their runic patterns to know the patient study and artistic vision they are capable of, if properly motivated.  This may tie into the humble, duty-bound mindset that seems to be an inherent property of the species - most Ogres show absolutely no interest in leadership or impressing others, only completing tasks in the most reliable manner possible, and such strategies tend to be rather simple.\n\nWhile Shalore use of magic is (arguably) a choice, Ogres have no such luxury.  Their inscriptions are as crucial to their well-being and structural integrity as any internal organ, and attempts by Ziguranth to \"cleanse\" captured Ogres of their runes invariably lead to them first collapsing under their own weight, then their organs shutting down one by one; one can assume that their natural infusions are just as vital.  As such, Ogre reproduction is a careful task; a newborn can live for a few months unaltered, but after this the parents must give their child a thorough regimen of runic inscription and herbal infusions.  The parents typically perform this task together, using each others' runes as a reference, and any mistakes made in the transcription will affect the child's health and development (usually adversely, though it is believed that transcription errors are responsible for mitigating Ogres' once-uncontrollable tempers).  As such, the inscribed patterns are as much of an influence on the child's development as the physical and mental traits of his or her parents.\t\n\nDue to the safety and comfort of Elvala, and their mistrust of much of the outside world, most Ogres who leave their home do so for trade purposes; no longer using Shaloren as couriers, some have begun to enter the growing market of runes and infusions, and have proven very successful thanks to their natural talent in this area.  Those few who could be considered \"adventurers\" tend to pack up their things and leave abruptly, not for glory or riches, but because they see a recurring source of misery in the world and wish to dispose of it themselves as a public service.  It is not uncommon for an Ogre to sigh in frustration after hearing about a hijacked shipment of grain, head out, return a few days later with the blood of a once-persistent bandit clan stuck to his club, and go right back to tending his crops."
+  },
+  {
+   "queue_id": "hrq-00196",
+   "entry_id": "entry-01306",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18119,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“其他理论——”已经引出后续说法，但未交代这些理论也有一定说服力；academic circles 泛指学界，非仅考古界。crucible race 的修饰在现译确未体现，但词义依上下文可能是关键历史种族，缺可核的专指依据，不猜定某种熔炉含义；先改前两项。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18119"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“其他理论——”已经引出后续说法，但未交代这些理论也有一定说服力；academic circles 泛指学界，非仅考古界。crucible race 的修饰在现译确未体现，但词义依上下文可能是关键历史种族，缺可核的专指依据，不猜定某种熔炉含义；先改前两项。",
+   "applied": true,
+   "old_target": "啊，传奇的夏·图尔！学者们是多么爱研究他们啊。事实上，相关的文献很多，但有事实根据的很少，所以有关该种族的信息也较少。最权威的研究是基于知名探险家和考古学家达沃德·欧卡顿的发现，但遗憾的是，截至本文写就之时，他已失踪好几个月了。在此，我将总结下他关键性的几个发现。\n\n夏·图尔生活在距今一万多年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度无可匹敌地统治过整个世界。\n\n传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。\n\n关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。\n\n他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。在考古界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中。其他理论——阿奇曼·加里伯德，恶魔研究教授则相信，夏·图尔人大量使用奥术能量，可能因此引来了异界的扭曲力量，最终导致整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。",
+   "new_target": "啊，传奇的夏·图尔！学者们是多么爱研究他们啊。事实上，相关的文献很多，但有事实根据的很少，所以有关该种族的信息也较少。最权威的研究是基于知名探险家和考古学家达沃德·欧卡顿的发现，但遗憾的是，截至本文写就之时，他已失踪好几个月了。在此，我将总结下他关键性的几个发现。\n\n夏·图尔生活在距今一万多年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度无可匹敌地统治过整个世界。\n\n传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。\n\n关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。\n\n他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。在学界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中。其他理论也有其分量——阿奇曼·加里伯德，恶魔研究教授则相信，夏·图尔人大量使用奥术能量，可能因此引来了异界的扭曲力量，最终导致整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries.\n\nThe Sher'Tul lived over ten thousand years ago, during what is referred to as the Age of Haze. The name of the race we know from the elves, who speak of the ancient beings with awe and reverence, yet know little else about them. Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal, and some have been observed in sunken lands off the coasts, implying that in their time the Sher'Tul must have ruled unopposed all across the world.\n\nThe farportals were first discovered by the halflings during the Age of Allure, and after much experimentation they were found to be able to transport items and creatures over vast distances. The arcane powers behind these incredible artifacts are still far beyond the understanding of the greatest minds of our time. The one attempt to truly tap into these powers ended in disaster - the Shaloren moved all known farportals to a remote spot near their capital, and their most powerful mages were overwhelmed as they unleashed the Spellblaze, killing them instantly and tearing apart the continent. What remains of farportals are left in the world have since been left untouched.\n\nOf their physical appearance we know almost nothing, as there is no surviving artwork or records which depict themselves. However they must have been of similar form to other common races, as their ruins contain stairs, doorways and rooms not unfit for humans. Oakton estimates from his studies of their tools and artifacts that they would have stood around 5'4\" tall, with uncommonly long limbs and fingers.\n\nWhat caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration."
+  },
+  {
+   "queue_id": "hrq-00197",
+   "entry_id": "entry-01308",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18137,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“攻击市民”把 communities 的聚居群体缩为城市居民；“更为敏捷的速度”与后文“移动迅速”重复 move faster，只留后者。towards the end of 是烈火纪末期，现译少时间限定；swinging limbs 失去摆动特征。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18137"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“攻击市民”把 communities 的聚居群体缩为城市居民；“更为敏捷的速度”与后文“移动迅速”重复 move faster，只留后者。towards the end of 是烈火纪末期，现译少时间限定；swinging limbs 失去摆动特征。",
+   "applied": true,
+   "old_target": "任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。\n\n巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。\n\n巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。\n\n娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。\n\n恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。",
+   "new_target": "任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。\n\n巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比山地同类有着更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。\n\n巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长、摆动着的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者袭击聚居地，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。\n\n娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。\n\n恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.\n\nTrolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.\n\nGiants live mostly around the mountainous peaks surrounding the Daikara Pass. They vary greatly in size, but are normally at least 10' tall. They look somewhat like large, deformed humans, with swollen or distended facial features and much longer, swinging limbs. They live in nomadic tribes, moving from peak to peak with the seasons, feeding on wild deer and goats. They are usually peaceful creatures, only turning violent when their territory is encroached or their young are threatened. There are sometimes reports of giants coming to lowlands and stealing farm animals or attacking communities, but these are rare and normally isolated to particularly harsh winters. Giants seem to have no developed culture or language worth mentioning, but have been noted to show interactions of limited intelligence and to commune well in groups.\n\nNagas were once believed to be mere myth, but reliable reports and even the capturing of dead physical samples has shown them to be real creatures. The upper half of their body is humanoid in form, with blonde hair and an extremely thin build, but the lower half is like that of a giant snake's tail. They stand around 6' tall on land, though their tails extend several feet further. They have been encountered off the eastern and south-eastern coasts of Maj'Eyal, which seems to indicate some exotic civilisation beneath the waves. Records of them exist only from the last few hundred years, and only more recently have they been interpreted as more than just the wild fantasies of inebriated sailors. They can breathe in air and underwater, possessing both lungs and gills, and have been reported to move with surprising speed on the ground. One might think them simply odd monsters, but they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail formed from layers of thick shark-hide. This would suggest an advanced culture, but communication with them so far has proved impossible. It is not known if they are capable of complex speech, but to date their only response to those who encounter them has been extreme violence, and fishermen in the east are always wary of coming across these vicious creatures.\n\nThe origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use."
+  },
+  {
+   "queue_id": "hrq-00198",
+   "entry_id": "entry-01310",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18155,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“另人”确是“令人”的错字。原文 those 指部分研究过久的龙战士，现译“那些……信徒”大体可追溯，但“只有……才会相信”把理论成因改成排他性信念；borne purely from 指理论可能纯由狂热妄想产生，需改回不确定语气。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18155"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“另人”确是“令人”的错字。原文 those 指部分研究过久的龙战士，现译“那些……信徒”大体可追溯，但“只有……才会相信”把理论成因改成排他性信念；borne purely from 指理论可能纯由狂热妄想产生，需改回不确定语气。",
+   "applied": true,
+   "old_target": "一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是另人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。\n\n龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论只有那些狂热的研究了龙族太久的龙战士信徒们才会相信。\n\n马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。\n\n龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪大肆猎捕囤积财宝的龙，使这一类龙几乎绝迹，现在的大部分龙族在巢穴里只有适量的财富。\n\n龙族经常由于它们厚实的鳞片和蕴含元素之力的骨头而被狩猎。龙皮革是护甲制作者们珍视的材料，因为经过适当处理后它既轻便又坚韧，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然采集”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。尽管如此，各类龙族材料的需求依然旺盛，价格也高得惊人，每年都有许多贪婪之徒丧生于这些壮丽生物的尖牙利爪之下。",
+   "new_target": "一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是令人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。\n\n龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能达到40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而，这种理论也许完全出自某些钻研龙族过久的狂热龙战士的妄想。\n\n马基·埃亚尔的每一个角落都能发现不同类型的龙族。岱卡拉山脉聚集了很多的冰龙和风龙。大量的沙龙和赤龙可以在西部沙漠和丘陵中找到，并且还有许多报道提到在大洋深处有着巨大的海龙，尤其是在南部地区。\n\n龙族攻击人类和半身人聚居地的事情是少见的，但一旦出现这种情况，通常是毁灭性的灾难。通常它们是为了找牲畜吃，但有时也有来自成年巨龙的攻击，是为了寻找贵金属和宝石来作储藏。龙族的财富已经成为了一种传奇，传说那些最伟大的巨龙守护着真正成山的黄金，但是现在如此多的宝藏几乎没有。矮人们在厄流纪大肆猎捕囤积财宝的龙，使这一类龙几乎绝迹，现在的大部分龙族在巢穴里只有适量的财富。\n\n龙族经常由于它们厚实的鳞片和蕴含元素之力的骨头而被狩猎。龙皮革是护甲制作者们珍视的材料，因为经过适当处理后它既轻便又坚韧，并且通常保留着原龙的一丝力量。龙骨是法杖制作者们最喜爱的材料，因为它与元素力量的天然亲和极高，有时也被用于制造纤薄且柔韧的弓箭。然而，对龙族的不断狩猎引起了许多龙战士们的强烈不满，并且交易“自然采集”的龙族材料的市场也日益增多——那些人只取自然死亡的龙族身上的材料。尽管如此，各类龙族材料的需求依然旺盛，价格也高得惊人，每年都有许多贪婪之徒丧生于这些壮丽生物的尖牙利爪之下。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.\n\nDragons come in many shapes and sizes, normally growing from 5' long hatchlings to 20' long mature drakes, with some of the greatest wyrms growing to over 40' in length. They are generally winged, with large lizard-like maws and sharp talons on both their fore and hind legs. They are often noted for the lustrous colour of their scales, normally representing an attunement to one of the key Elements of Eyal. This attunement is unseen in any other race, and some philosophers believe that dragons predate all other races, being formed as raw representations of the elements of nature at the beginning of the world. However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long.\n\nAll corners of Maj'Eyal show some trace of different types of dragons. The Daikara Pass and surrounding mountain chains are home to a great number of ice and storm dragons. Numerous sand and red dragons can be found in the western desert and hills, and many have been the reports of gigantic sea dragons in the deepest oceans, especially to the south.\n\nAttacks from dragons on humans and halfling settlements are fairly rare, but when they occur they can be truly devastating. Usually they are to feed on livestock, but now and then come attacks from newly matured drakes, seeking out precious metals and gemstones to build up a hoard. Dragon hoards have become a thing of legend, with the greatest wyrms rumoured to protect literal mountains of gold, but in modern times truly sizeable hoards are rare. The dwarves farmed hoarding dragons almost to extinction in the Age of Allure, and most dragons these days retain only modest treasures in their lairs.\n\nDragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for \"naturally harvested\" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures."
+  },
+  {
+   "queue_id": "hrq-00199",
+   "entry_id": "entry-01312",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18235,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原诗说孩童染病，不是患病孩童数量增长；renowned 是著名而非臭名昭著；zeal 指热忱，非问心无愧；末句 to Nature 指归于自然，现译只剩尘土。诗行和段序保持不变。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18235"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原诗说孩童染病，不是患病孩童数量增长；renowned 是著名而非臭名昭著；zeal 指热忱，非问心无愧；末句 to Nature 指归于自然，现译只剩尘土。诗行和段序保持不变。",
+   "applied": true,
+   "old_target": "厄流纪崛起一位大法师\n有着无与伦比的能力\n贫苦百姓不敢靠近\n他黑暗而可怕的巢穴\n\n当作物死于干旱和枯萎\n感染疾病的孩童增长\n巫师在夜里偷偷的潜入\n来掠夺他想要的一切\n\n但是来了一位英雄，他手持宝剑\n并且他拥有磐石般的意志\n不求名利与荣耀\n但求问心无愧\n\n“来自伊格我肩负着使命\n打败邪恶巫师是我的义务\n我不会屈服于可怕的魔法\n我将结束这邪恶的统治”\n\n于是他骑着一匹骏马\n向巫师的巢穴前进\n幽暗的洞穴吞噬着一切\n他却凛然不惧\n\n战斗之激烈难以想象\n那是剑与魔法的火花\n战斗伴随着鲜血的绽放\n怒吼声与尖叫声此起彼伏\n\n一束纯净的奥术射线\n撕裂了护甲与盾牌\n但他仍坚定信念\n英雄永不屈服\n\n刀光划过了巫师的衣袍\n他的帽子掉在了地上\n法杖也因失去控制而落下\n臭名昭著的法师终于陨落\n\n如今赤身裸体、手无寸铁\n这里只躺着一个凡人\n奥术之罪再也无法弥补\n那自由流淌的鲜血\n\n“愚蠢的术士已死，你太过自负\n未将信任交给自然的恩赐\n你的信念转向了奥术之器\n如今你已归于尘土”",
+   "new_target": "厄流纪崛起一位大法师\n有着无与伦比的能力\n贫苦百姓不敢靠近\n他黑暗而可怕的巢穴\n\n当作物死于干旱和枯萎\n孩童也染上疾病\n巫师在夜里偷偷的潜入\n来掠夺他想要的一切\n\n但是来了一位英雄，他手持宝剑\n并且他拥有磐石般的意志\n不求名利与荣耀\n唯凭心中热忱\n\n“来自伊格我肩负着使命\n打败邪恶巫师是我的义务\n我不会屈服于可怕的魔法\n我将结束这邪恶的统治”\n\n于是他骑着一匹骏马\n向巫师的巢穴前进\n幽暗的洞穴吞噬着一切\n他却凛然不惧\n\n战斗之激烈难以想象\n那是剑与魔法的火花\n战斗伴随着鲜血的绽放\n怒吼声与尖叫声此起彼伏\n\n一束纯净的奥术射线\n撕裂了护甲与盾牌\n但他仍坚定信念\n英雄永不屈服\n\n刀光划过了巫师的衣袍\n他的帽子掉在了地上\n法杖也因失去控制而落下\n那位著名法师终于陨落\n\n如今赤身裸体、手无寸铁\n这里只躺着一个凡人\n奥术之罪再也无法弥补\n那自由流淌的鲜血\n\n“愚蠢的术士已死，你太过自负\n未将信任交给自然的恩赐\n你的信念转向了奥术之器\n如今你已化为尘土，归于自然”",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "In Age of Allure rose an archmage high\nWith power beyond compare\nAnd the people poor would not come nigh\nHis dark and terrible lair\n\nWhilst crops fell dead in drought and blight\nAnd children grew diseased\nThe wizard dread stole in the night\nTo pillage what he pleased\n\nBut a hero came with shining sword\nAnd a will of solid steel\nNot seeking fame or high reward\nHe followed but his zeal\n\n\"From Zigur I come on righteous quest\nTo battle foes arcane\nI will not succumb to magic detest\nI will end this evil reign\"\n\nAnd so he rode on pure-white steed\nTo the warlock's hold\nThat dank abode of dark misdeed\nHe entered brave and bold\n\nThere battle blazed beyond all sight\nSword clashed with spell\nBlood was razed in fearsome fight\nScream followed yell\n\nA beam was cast of arcane pure\nPiercing mail and shield\nBut still steadfast with flesh secure\nThe hero did not yield\n\nA slash tore through the wizard's cloth\nHis hat dropped to the ground\nFrom loose grip flew his staff so wroth\nThus fell the mage renowned\n\nNow bare of skin and weaponless\nHere lay but a man\nNo arcane sin could now redress\nThe blood that freely ran\n\n\"Fool warlock dead, you were too vain\nTo gifts of Nature trust\nYour faith instead in tools arcane\nNow to Nature you are dust\""
+  },
+  {
+   "queue_id": "hrq-00200",
+   "entry_id": "entry-01313",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18334,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文完整场景并未在别处补出异界色彩、余光边缘、阴影忽隐忽现、清醒梦中的清醒意识和心血来潮；“飞舞”只写运动不写隐现。省略号是修辞，不单列缺陷；Lucid Dreamer 是否被动天赋不能从此文推出，拒用该机制主张。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18334"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文完整场景并未在别处补出异界色彩、余光边缘、阴影忽隐忽现、清醒梦中的清醒意识和心血来潮；“飞舞”只写运动不写隐现。省略号是修辞，不单列缺陷；Lucid Dreamer 是否被动天赋不能从此文推出，拒用该机制主张。",
+   "applied": true,
+   "old_target": "你从意料外的沉睡中骤然醒来，试图尽快辨明自己身在何处。然而，你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，各色阴影在视野中飞舞……\n当你的眼睛渐渐习惯这幅奇怪的场景时，你惊恐地发觉你动不了了！你的身体似乎完全没有重量，任你如何挣扎也移动不了一寸。更奇怪的是，当你回想起麻痹的噩梦时，有种似曾相识的感觉，正当此时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你突然注意到奇怪的现象，让你更加确信这一点：你自己的镜像正在逐渐从你站的位置产生，并自主行动。\n他们似乎都集中精神于某个东西，但那个是什么？正在你思考你的梦中自我在关注什么时，你感觉到了它。你惊恐地意识到，这里不止你一个人。\n你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，但你的大脑也开始思考如何在这疯狂而恐怖的处境下存活。当你试着集中精神到你的梦中自我上时，你发现你能够控制它。\n终于能自由行动去面对这场噩梦，你转身寻找你的敌人，虽然你感觉到让你的一个梦中自我被摧毁似乎不会成为灾难，但如果有数个乃至许多个梦中自我相继被摧毁呢？那会发生什么，你不愿去探究，于是下定决心终结这场对你心灵的侵犯。",
+   "new_target": "你从意料外的沉睡中骤然醒来，试图尽快辨明自己身在何处。然而，你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，异界般的色彩和阴影在你的余光中忽隐忽现。\n当你的眼睛渐渐习惯这幅奇怪的场景时，你惊恐地发觉你动不了了！你的身体似乎完全没有重量，任你如何挣扎也移动不了一寸。更奇怪的是，当你回想起麻痹的噩梦时，有种似曾相识的感觉，正当此时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你突然注意到奇怪的现象，让你更加确信这一点：你自己的镜像正在逐渐从你站的位置产生，并自主行动。\n他们似乎都集中精神于某个东西，但那个是什么？正在你思考你的梦中自我在关注什么时，你感觉到了它。你惊恐地意识到，这里不止你一个人。\n你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，但你清醒的意识飞速思考如何应对这疯狂而恐怖的处境。你一时心血来潮，把注意力集中在一个梦中投影上，你发现你能够控制它。\n终于能自由行动去面对这场噩梦，你转身寻找你的敌人，虽然你感觉到让你的一个梦中自我被摧毁似乎不会成为灾难，但如果有数个乃至许多个梦中自我相继被摧毁呢？那会发生什么，你不愿去探究，于是下定决心终结这场对你心灵的侵犯。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. \nAs you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.\nThey all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. \nSomehow, your foe has invaded your very subconcious and is attacking you in your dreams. Still unable to move, your lucid mind races on how to handle such an insane and horrible situation. On a whim you concentrate on one of your projections and you find that you can control it. \nFree now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind."
+  },
+  {
+   "queue_id": "hrq-00201",
+   "entry_id": "entry-01314",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18345,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "样式标签与三行换行均完整；Love, Eden 是艾登在信尾向收信人致意，现译“你钟爱的艾登”把爱慕方向改成收信人钟爱艾登。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18345"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；样式标签与三行换行均完整；Love, Eden 是艾登在信尾向收信人致意，现译“你钟爱的艾登”把爱慕方向改成收信人钟爱艾登。",
+   "applied": true,
+   "old_target": "亲爱的盗墓贼，\n\n下次记得快一点。\n\n你钟爱的#{italic}#艾登#{normal}#",
+   "new_target": "亲爱的盗墓贼，\n\n下次记得快一点。\n\n爱你的#{italic}#艾登#{normal}#",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Dear graverobber,\n\nTry to be a little faster next time.\n\nLove, #{italic}#Eden#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00202",
+   "entry_id": "entry-01315",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18375,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "flame secure bindings 只要求耐火的束缚物，没有指定胶布；删去臆造材质。破折号截断在原文中已表示未完成句，双侧包裹是排版建议；luminous horror 已按 preferred 译金色恐魔；“法罗”无固定术语或读音证据，保留待专名核定；清单缩进与样式未见破坏。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18375",
+    "terminology/creatures.tsv:30"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；flame secure bindings 只要求耐火的束缚物，没有指定胶布；删去臆造材质。破折号截断在原文中已表示未完成句，双侧包裹是排版建议；luminous horror 已按 preferred 译金色恐魔；“法罗”无固定术语或读音证据，保留待专名核定；清单缩进与样式未见破坏。",
+   "applied": true,
+   "old_target": "#{bold}#如何召唤凤凰#{normal}#\n\t  10袋法罗的灰烬\n\t  5瓶火龙涎\n\t  3块红色水晶碎片\n\t  3袋骨巨人骨灰\n\t  1瓶大恶魔胆汁\n\t  1个骷髅法师头骨\n\t  一小撮金色恐魔的粉尘\n\n这是一个漫长而复杂的仪式，如果你想要成功的话，就必须严格遵循所有的步骤。要知道，自视过高的蠢材如果冒险进行自己没有能力掌控的仪式，一定会迎来自己应得的下场。如果你高估了自己掌控火焰的力量，那么等待你的只有玩火自焚的结局。\n\n仪式需要一份祭品，随便哪个人都可以。用防火胶布把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫会让人相当分心，几天下来容易让你在仪式中出错。\n\n取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——\n\n#{italic}#卷轴的剩余部分已经被烧焦了，无法辨认。当你抓到这份卷轴的时候，那些残存的纸页就化为了灰烬#{normal}#\n\t",
+   "new_target": "#{bold}#如何召唤凤凰#{normal}#\n\t  10袋法罗的灰烬\n\t  5瓶火龙涎\n\t  3块红色水晶碎片\n\t  3袋骨巨人骨灰\n\t  1瓶大恶魔胆汁\n\t  1个骷髅法师头骨\n\t  一小撮金色恐魔的粉尘\n\n这是一个漫长而复杂的仪式，如果你想要成功的话，就必须严格遵循所有的步骤。要知道，自视过高的蠢材如果冒险进行自己没有能力掌控的仪式，一定会迎来自己应得的下场。如果你高估了自己掌控火焰的力量，那么等待你的只有玩火自焚的结局。\n\n仪式需要一份祭品，随便哪个人都可以。用耐火的束缚物把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫会让人相当分心，几天下来容易让你在仪式中出错。\n\n取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——\n\n#{italic}#卷轴的剩余部分已经被烧焦了，无法辨认。当你抓到这份卷轴的时候，那些残存的纸页就化为了灰烬#{normal}#\n\t",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "#{bold}#How to Summon a Phoenix#{normal}#\n\t  10 pouches faeros ash\n\t  5 vials fire wyrm saliva\n\t  3 red crystal shards\n\t  3 pouches bone giant dust\n\t  1 vial greater demon bile\n\t  1 skeleton mage skull\n\t  pinch of luminous horror dust\n\nThis is a long and complex ceremony, and all steps must be followed precisely if you wish to succeed. Heed well that for the errant fool who takes on what they cannot finish, there will be consequences. To play with fire and assert your dominance over the flames comes with risks if you overestimate your power. \n\t\nThe ritual begins with a vessel; any man will do. Bind them in place with flame secure bindings, and give a sound gag. The gag isn't strictly necessary, but the screams of agony tend to be quite distracting and inspirit mistakes after a few days.\n\nTake 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure to dissolve completely. A few fireballs at the vial can do the trick if they're stubborn. Using one of the prepared vials, begin to etch the saliva in the skin of the vessel, heating it so that it brands the shape of --- \n\n#{italic}#The remainder of the scroll has been singed into a pile of char, illegible and scattering into a cloud of ash as you grasp it#{normal}#\n\t"
+  },
+  {
+   "queue_id": "hrq-00203",
+   "entry_id": "entry-01316",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18410,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "其余句子对反魔自然能量及警告的主要含义与排版均吻合；标题的 arcane abilities 指施法能力，现译“奥术能量”变成资源或能量，客观改变对象。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18410"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；其余句子对反魔自然能量及警告的主要含义与排版均吻合；标题的 arcane abilities 指施法能力，现译“奥术能量”变成资源或能量，客观改变对象。",
+   "applied": true,
+   "old_target": "你的奥术能量被干扰了！\n\n埃亚尔是一个被撕裂的世界，自然力量会对试图操纵它们的奥术能量产生强烈反应。某些物品和地方被灌输了反魔力量，这是一种能干扰魔法能力和效果的自然能量。甚至还有一些人学会了驾驭反魔力量，将其融入自身的野性能力中，用于猎捕并摧毁魔法使用者。小心，施法者！你漫游的世界并不友好。",
+   "new_target": "你的奥术能力受到了干扰！\n\n埃亚尔是一个被撕裂的世界，自然力量会对试图操纵它们的奥术能量产生强烈反应。某些物品和地方被灌输了反魔力量，这是一种能干扰魔法能力和效果的自然能量。甚至还有一些人学会了驾驭反魔力量，将其融入自身的野性能力中，用于猎捕并摧毁魔法使用者。小心，施法者！你漫游的世界并不友好。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Your arcane abilities have been interfered with!\n\nEyal is a torn world, and the forces of nature can react strongly to the arcane energies that seek to manipulate them. Some items and areas are imbued with anti-magic, a natural energy that disrupts magical abilities and effects. There are even those who have learned to harness anti-magic into their own wild abilities, and who use them to hunt down and destroy those who practise magic. So beware, caster! It is a hostile world ye wander in."
+  },
+  {
+   "queue_id": "hrq-00204",
+   "entry_id": "entry-01317",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18417,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“他的主人”承接英雄装备所有者，未凭空引入另一主人；“亲眼所见的大半都当作神话”也保留了主观怀疑。其余有客观偏差：原文并列列举地宫、邪教与恶魔、饥饿森林和超时空力量，现译加具体剧情；most 被缩为年轻人，before all 是首要危险，too many 是泛指太多人而非直接指责读者。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18417"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“他的主人”承接英雄装备所有者，未凭空引入另一主人；“亲眼所见的大半都当作神话”也保留了主观怀疑。其余有客观偏差：原文并列列举地宫、邪教与恶魔、饥饿森林和超时空力量，现译加具体剧情；most 被缩为年轻人，before all 是首要危险，too many 是泛指太多人而非直接指责读者。",
+   "applied": true,
+   "old_target": "我必须说，随着漫长的冒险岁月，我似乎与那些在你们眼中的“冒险家”，也就是那群在乡间小路上的流浪者们渐行渐远。我想，或许是那些流浪英雄的神话使得那些金钱和荣誉的诱惑蒙蔽了你的双眼，让你们忽视了真正的财富就在我们的身边。\n\n诸君啊，敬请听我一言。\n\n现在，许多年轻人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。若非我亲身在场，我多半会把自己亲眼所见的大半都当作神话；纵然亲历，有时我仍不免怀疑自己的眼睛。\n\n或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——那是前所未有的危险，无时无刻不伴随着死亡的威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃的远古地宫里巨岩崩碎跌落；疯狂的邪教徒将恶魔从异次元唤来；随着远处猛兽的咆哮，外表平和的森林展露了它嗜血的本性；还有，与之伴随的，超越时空约束的强大力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。\n\n那么，最终传到我们手上的并不是人，而是物：那是身怀强大力量的神器，是往昔留下的遗产。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。\n\n要记住重要的是，每一件神器的背后都有其意义，都代表着曾经手持它们的那些强大而重要的存在。然而他们的故事如今正渐渐被人淡忘。这就是为什么说，成就一个冒险家的并不是神器，而是他的伟大事迹，是敢为天下先的勇气。你的功绩是否为人所知并不重要——毕竟，如果你真的足够伟大，或许你也会留下属于自己的传奇。\n\n——#{italic}#科斯汀·赫菲因#{normal}#",
+   "new_target": "我必须说，随着漫长的冒险岁月，我似乎与那些在你们眼中的“冒险家”，也就是那些在乡间游荡的人渐行渐远。我想，或许是那些流浪英雄的神话使得轻易获取名利的承诺蒙蔽了太多人，使他们忽视了另一种财富。\n\n诸君啊，敬请听我一言。\n\n现在，大多数人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。我向你们中任何一人保证，亲爱的读者啊，无论是在你脑海中多么狂野的梦想，在那无比瑰丽的真实世界面前都是那么渺小，这就是真正奇迹的恢弘气势。若非我亲身在场，我多半会把自己亲眼所见的大半都当作神话；纵然亲历，有时我仍不免怀疑自己的眼睛。\n\n或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——冒险首先意味着危险，意味着始终伴随的死亡威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃而崩塌的墓穴、邪教与恶魔、遍布怪物的饥饿森林，以及超越时间与空间的力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。\n\n那么，最终传到我们手上的并不是人，而是物：那是身怀强大力量的神器，是往昔留下的遗产。当然，在灌下一两杯之后任何一个醉鬼都能够信口开河，胡诌一通；然而，一把灌注着强大魔力的利刃从来不会说谎，它们是冒险史诗的诚实记录者，然而始终保持缄默，从不多言。所以说，一个伟大的英雄往往在装备上就引人注目。他们如同活动着的历史，身上的每一件物品都诉说着宏大的史诗，其中至少有一半连他的主人都没有丝毫了解。\n\n要记住重要的是，每一件神器的背后都有其意义，都代表着曾经手持它们的那些强大而重要的存在。然而他们的故事如今正渐渐被人淡忘。这就是为什么说，成就一个冒险家的并不是神器，而是他的伟大事迹，是敢为天下先的勇气。你的功绩是否为人所知并不重要——毕竟，如果你真的足够伟大，或许你也会留下属于自己的传奇。\n\n——#{italic}#科斯汀·赫菲因#{normal}#",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.\n\nHear me out on this.\n\nNowadays most don't really recognize how fascinating the world we live in truly is. It is vast, more than you can imagine. I can safely promise, any wild thought you can muster up, dear reader, will not come close to the truth. Such is the breadth of wonders, I would probably dismiss most of what I have seen as myth, be I not there myself. And even then sometimes, I had to wonder whether I could trust my eyes.\n\nPerhaps I'm being too vague, or maybe these promises leave much to be desired. After all, adventuring is not all fun and exotics, it is before all danger and a constant threat of death, or worse. So then if you wish me to be more concrete, think of derelict, crumbling crypts, cults and demons, hungry forests full of monsters and forces beyond time and place. True, there is overwhelming awe, thrill even, but the reason that so little detail reaches you, is because so little live to tell.\n\nWhat does reach us then, are not people, but objects. Artifacts of great power, legacy of the past. Surely, any drunkard might like to tell tales after a pint or two, but a magical sword is a proof of its own and it keeps quiet of what it has seen. So, a great hero is usually easy to recognize, being practically a walking history book. Clad in half the age of important events which he probably has no idea about.\n\nIt is important to remember, that every artifact has a meaning, beings of great power and importance behind them. Stories, that now slowly wane into nothing. This is why it is not artifacts that make an adventurer. It is his great deeds, the will to dare where nobody did before. It is not important if you get known in the process or not, after all, if you were truly great, maybe you will leave behind a legacy of your own.\n\n-#{italic}#Kestin Highfin#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00205",
+   "entry_id": "entry-01318",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18444,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "现译整段已保留违规可获自由裁量的语境，但 fair game 不是“公平竞赛”，是可随意作为试验场的时段；a few decades 为几十年，once in a while 为偶尔。餐厅句“只有我们”增排他义；benefactor 单数；“被限制在于”句法杂糅。“一会儿谢”仅口吻生硬，非一级错误。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18444"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；现译整段已保留违规可获自由裁量的语境，但 fair game 不是“公平竞赛”，是可随意作为试验场的时段；a few decades 为几十年，once in a while 为偶尔。餐厅句“只有我们”增排他义；benefactor 单数；“被限制在于”句法杂糅。“一会儿谢”仅口吻生硬，非一级错误。",
+   "applied": true,
+   "old_target": "女士们先生们，恭喜你。无论是你受到了时空的邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在你失败时不断重试，能够通过预知结果来节约时间，甚至在调查发生前就看到结果。尽管我们的能力被限制在于魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将可以无所不知，无所不能。\n\n不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，还不能让矮人一族因此灭绝；结果就在一切眼看近乎完美的时候，一场瘟疫偏偏爆发了，毁掉你满盘的计划——而且这已经是第六次了——很快你也会丧失耐心的。\n\n看。这就是问题的关键。那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。\n\n不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。\n\n这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，和概率开个玩笑——但是我们有要维持的掩护身份，并且，理论上来说，当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。别人帮了你的忙，你也要记得还回去；但别把动静弄得太大，免得整个系统在你头顶崩塌。如此这般的话，你就能享受这份永恒。\n\n欢迎来到零点圣域，特工。这里面装的时空坐标指向的东西，只有我们可以毫不客气地说，是有史以来可能存在的最好的烤雪人餐厅——我的小队会在那时那地等你。一会儿谢。\n[i]-加尔萨麦[/i]\n\n注：你可能会在旅途中遇到一些……某种意义上的恩人。当你看见它时就会认出它——它正笨拙地把它的傀儡从死亡边缘拽回来。如果你亲眼见证了这一切，我们很遗憾地通知你，你已经踏上一条单程旅途，离开了作为主时间线的E4-RL辖域，落入一条注定灭亡的支线——除非“他”愿意把你重新编织回来。而它似乎一般只会对那些凭借惊人的力量或运气、堪堪躲过它一手策划的末日的人这么做。如果你已被它的算计选中，那就顺着演下去，你或许能从E4-EXPADV时间轴子网络那座时间坟场里被带回来。我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。",
+   "new_target": "女士们先生们，恭喜你。无论是你受到了时空的邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在你失败时不断重试，能够通过预知结果来节约时间，甚至在调查发生前就看到结果。尽管我们的能力局限于魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将可以无所不知，无所不能。\n\n不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，还不能让矮人一族因此灭绝；结果就在一切眼看近乎完美的时候，一场瘟疫偏偏爆发了，毁掉你满盘的计划——而且这已经是第六次了——很快你也会丧失耐心的。\n\n看。这就是问题的关键。那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且你得时不时亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，黄昏纪有几十年被我和其他几个小队视为可以放手行事的时段——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。\n\n不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。\n\n这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，和概率开个玩笑——但是我们有要维持的掩护身份，并且，理论上来说，当有人摧毁了夏·图尔防护罩或者Greigu找到了一个方法穿越传送门屏障之类的事情发生时，我们是真的有事可做的。别人帮了你的忙，你也要记得还回去；但别把动静弄得太大，免得整个系统在你头顶崩塌。如此这般的话，你就能享受这份永恒。\n\n欢迎来到零点圣域，特工。这里面装的时空坐标指向的东西，毫不夸张地说，那是可能存在的最好的烤雪人餐厅——我的小队会在那时那地等你。一会儿谢。\n[i]-加尔萨麦[/i]\n\n注：你可能会在旅途中遇到一位……某种意义上的恩人。当你看见它时就会认出它——它正笨拙地把它的傀儡从死亡边缘拽回来。如果你亲眼见证了这一切，我们很遗憾地通知你，你已经踏上一条单程旅途，离开了作为主时间线的E4-RL辖域，落入一条注定灭亡的支线——除非“他”愿意把你重新编织回来。而它似乎一般只会对那些凭借惊人的力量或运气、堪堪躲过它一手策划的末日的人这么做。如果你已被它的算计选中，那就顺着演下去，你或许能从E4-EXPADV时间轴子网络那座时间坟场里被带回来。我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Congratulations, sir and/or madam. Whether by invitation, discovering it on your own, or simply being enough of a thorn in our side to recruit rather than dispose of, you have gained the secrets of chronomancy. The ultimate power of time - the ability to reset and try again if you fail, the ability to save time by seeing the results of investigations before they happen. Though our powers are bound to post-Spellblaze Eyal, they are those of nigh-omnipotence with enough patience.\n\nBut trust me - \"enough patience\" is one nasty limiting reagent. You're going to be running out of that fast when you've spent the last week trying to dismantle an Age of Dusk-era house-of-cards system of causally interdependent tyrannies without causing dwarven extinction, and a plague just broke out right when you had things almost perfect, for the sixth time--\n\nLook. The point is, there's a reason the person who writes the invitations and the mission statements isn't someone out in the field - and you're lucky enough to be working for someone who understands that you need more flexibility than idealism allows. Our squad knows that to stay sane, we have to know when \"time flows forward at a rate of one second per second\" isn't the only rule we have to break. That it's generally okay to skip the trial and just deal with a temporally hazardous jackass as you see fit, if you've foreseen a guilty verdict - as long as your investigations are solid when you actually conduct them (and you do have to do the work once in a while, or you'll only be capable of seeing yourself procrastinating). And if you just need to not be watched, you should know that there are a few decades in the Age of Dusk we and a few other squads recognize as \"fair game\" - whatever experiments you've wondered about or horrors you want to inflict, just keep it to the time period of infinite forgotten evils and it doesn't hurt anything in the grand scheme. Trust me, we've checked - nothing in that time period matters unless you've got another Spellblaze to set off.\n\nBut most importantly, you should know: Zemekkys is even lazier than I am, but he has status to maintain. If you continually violate his will, there will come a point at which you will be informed that you have been caught and should stop resisting. Accept whatever fate he doles out for you. If you do not stop, there will come a point where he will be forced to make an example of you so severe that the entire cosmos will notice your non-existence. Obviously we can't be sure how many of us he's done this to (if any) or how it works, but we're pretty sure that the result looks like something starting with a W.\n\nEveryone here wants the same thing - keep spacetime stable, have fun with your powers, cheat at a few lotteries - but we've got cover to maintain and, in theory, an actual job to do if something ever cracks that Sher'Tul shield or the Greigu find a way to bypass a portal-filter. Scratch backs when yours gets scratched, don't make so much noise that the system comes crashing down on your head, and you'll enjoy your stay in eternity.\n\nWelcome to Point Zero, agent. Enclosed are timespace coordinates to what is, quite literally, the best roast-yeti restaurant that could possibly exist - I'll have the squad meet you there and then. Thank me later.\n\n[i]-Galsamae[/i]\n\nPS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless \"he\" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition."
+  },
+  {
+   "queue_id": "hrq-00206",
+   "entry_id": "entry-01319",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18474,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "粗体句点位置与诗歌标点体例只是排版风格，斯派德与同 section 的装备译名相符，但全库完整一致性未核定。won’t claim me today 是说今天陷阱休想夺命，现译“仍未能”变成事后结果，丢掉决意。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18474",
+    "mod-tome.lua:12594"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；粗体句点位置与诗歌标点体例只是排版风格，斯派德与同 section 的装备译名相符，但全库完整一致性未核定。won’t claim me today 是说今天陷阱休想夺命，现译“仍未能”变成事后结果，丢掉决意。",
+   "applied": true,
+   "old_target": "每个清晨醒来都庆幸自己还活着\n这座墓穴的陷阱今天仍未能索我的命\n尽管它饥饿的诅咒啃噬着我的脏腑\n我却以活得比它更久回敬了这道诅咒\n\n诅咒哥布林留下的那些酷刑\n诅咒窃走半个世界的神祇\n诅咒抽干魔力的严寒\n诅咒旋转着黯淡下去的星辰\n\n但最要紧的是记住\n纵使命运偏私，唯有我们幸存\n尽情诅咒亡者吧，我们却依然屹立\n唯有我们被赋予了兴盛的本事\n\n我们的智慧、力量与协作胜过宇宙伟力\n它们已尽其所能，但斯派德[b]属于我们[/b]。 ",
+   "new_target": "每个清晨醒来都庆幸自己还活着\n这座墓穴的陷阱今天休想索我的命\n尽管它饥饿的诅咒啃噬着我的脏腑\n我却以活得比它更久回敬了这道诅咒\n\n诅咒哥布林留下的那些酷刑\n诅咒窃走半个世界的神祇\n诅咒抽干魔力的严寒\n诅咒旋转着黯淡下去的星辰\n\n但最要紧的是记住\n纵使命运偏私，唯有我们幸存\n尽情诅咒亡者吧，我们却依然屹立\n唯有我们被赋予了兴盛的本事\n\n我们的智慧、力量与协作胜过宇宙伟力\n它们已尽其所能，但斯派德[b]属于我们[/b]。 ",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Each morning I wake, happy I'm alive;\nthe traps of this tomb won't claim me today.\nThough its curse of hunger eats at my insides,\nI curse it one better by having outstayed.\n\nSay a curse for the goblins' tortures that remained,\nand a curse for the gods who stole half the world.\nSay a curse for the chill that leaves magic drained,\nand a curse for the star that grew dark as it swirled\n\nBut most important of all is to note,\nin spite of fate's bias, only we survived.\nCurse the dead all you want, but we've stayed afloat;\nwe're the only ones blessed with the skillset to thrive.\n\nOur wit, strength, and teamwork outweigh cosmic powers;\nthey've done what they could but Spydrë is [b]ours.[/b] "
+  },
+  {
+   "queue_id": "hrq-00207",
+   "entry_id": "entry-01320",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18509,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "前文确写它试图施法，但没有说“只能发出名字的声音”，不采这种额外剧情解释。末句 all he can manage is a corruption of his own name 指他施出的结果只是名字的扭曲，非“拥有堕落名字”；同一句“它／他”指代不统一。trivial 指其余材料容易取得而非品质太次；与红宝石价值的直接矛盾缺证据，不作理由。 原文明确称 Ruby of Eldoral，现译“艾德瑞尔之石”漏了红宝石材质，也一并补正；这只依据本行源码，不宣称跨条目固定译名。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18509"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；前文确写它试图施法，但没有说“只能发出名字的声音”，不采这种额外剧情解释。末句 all he can manage is a corruption of his own name 指他施出的结果只是名字的扭曲，非“拥有堕落名字”；同一句“它／他”指代不统一。trivial 指其余材料容易取得而非品质太次；与红宝石价值的直接矛盾缺证据，不作理由。 原文明确称 Ruby of Eldoral，现译“艾德瑞尔之石”漏了红宝石材质，也一并补正；",
+   "applied": true,
+   "old_target": "#{italic}#（这篇日记的字迹很差。写日记之人似乎健康状况不佳。）\n\n#{bold}#烈火纪603年，厄流月53日#{normal}#\n\n我完成了！我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注……说什么蠢话。我已经感觉到了身上的变化，并且我确信这虚弱只是暂时的。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一根魔法生物的骨头，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都太次，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！\n\n（这段文字下面还写着另一段记录，笔迹更加优雅工整。）\n\n不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而讨厌的是，这个年轻的傻小子在制作他的命匣时用光了艾德瑞尔之石，所以我也必须为我自己做一只命匣。从好的一面来说，我那不成器的学徒从反面说明了为什么我们应该使用亲手杀死的生物的骨架作为死亡转化的道具：他所选择的那具龙骨正在发霉溃烂，并且附在上面的霉菌似乎利用了骨头内的魔法能量，改变了咒语的魔法组成。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并把他丢到一个肯定会被人找到的地方。\n哦，看呐，它正在试图用法术攻击我，不过他所能做的只是拥有一个堕落的名字：兹基克茨。",
+   "new_target": "#{italic}#（这篇日记的字迹很差。写日记之人似乎健康状况不佳。）\n\n#{bold}#烈火纪603年，厄流月53日#{normal}#\n\n我完成了！我愚蠢的主人说我没有做巫妖的条件，我会引来不必要的关注……说什么蠢话。我已经感觉到了身上的变化，并且我确信这虚弱只是暂时的。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一根魔法生物的骨头，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都很容易取得，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！\n\n（这段文字下面还写着另一段记录，笔迹更加优雅工整。）\n\n不朽的兹基克，哈！多么愚蠢的小丑。我很高兴他的骄傲最终毁掉了自己。然而讨厌的是，这个年轻的傻小子在制作他的命匣时用光了艾德瑞尔红宝石，所以我也必须为我自己做一只命匣。从好的一面来说，我那不成器的学徒从反面说明了为什么我们应该使用亲手杀死的生物的骨架作为死亡转化的道具：他所选择的那具龙骨正在发霉溃烂，并且附在上面的霉菌似乎利用了骨头内的魔法能量，改变了咒语的魔法组成。我真心希望任何发现这篇手稿的人能以最残忍的方式杀死这只“巫妖”并把他丢到一个肯定会被人找到的地方。\n哦，看呐，他正试图用法术伤我，可他所能施出的只有自己名字的扭曲形态：兹基克茨。",
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "#{italic}#(The handwriting of this diary entry is poor at best. Whoever wrote this was in poor health.)\n\n#{bold}#53rd Allure, Year 603 of the Age of Pyre#{normal}#\n\nI have done it! My fool of a master said I was not ready for the rites of lichdom, that I would attract undue attention... what utter idiocy. Already I can feel the transformation taking place, and I am certain that this weakness will only be momentary. My master was foolish to leave the Grimoire of Mortality Transcended open and unattended! All I needed was a bone from a magical creature, and as luck would have it, I had found a skeletal corpse of a dragon not far from our tower. The other ingredients were trivial and in possession of my master... surely he will be astounded that I, Zilquick the Eternal, will have transcended mortality!\n\n(Another entry is written beneath this one, in a much more elegant and controlled script.)\n\nZilquick the Eternal, hah! What an unbearable buffoon, and I am glad his pride was his undoing. The young fool used up the Ruby of Eldoral in creating his phylactery, however; I must acquire a new phylactery for myself. On the bright side, my incompetent apprentice did illustrate why a bone from a creature slain by my own hand is important: the dragon bone he chose had left to fester a mold infection, and the mold somehow infused itself with the bone's inherent magical properties, altering the magical composition of the spell. I do hope whoever finds this note shall kill this \"lich\" using the most painful means available, and shall deposit him someplace where he is sure to be found.\nOh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl."
+  },
+  {
+   "queue_id": "hrq-00208",
+   "entry_id": "entry-01321",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 18529,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "前文明确 Shellsea 是村庄，现译“贝壳之海”是该村专名的语义译法；诗中“记住她”“将她淹没”承接村庄拟人，未误认普通海域。无官方读音或术语 preferred，不凭模型改名；诗句标点不齐属风格。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua",
+    "mod-tome.lua:18529"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；前文明确 Shellsea 是村庄，现译“贝壳之海”是该村专名的语义译法；诗中“记住她”“将她淹没”承接村庄拟人，未误认普通海域。无官方读音或术语 preferred，不凭模型改名；诗句标点不齐属风格。",
+   "applied": false,
+   "old_target": "纳鲁精灵的挽歌\n\n从前有一个村庄\n为纳鲁人所珍爱\n可当乌尔罗格前来劫掠\n他们只能在恐惧中颤抖\n\n他践踏村庄的人民\n不放过初生的孩童\n眼见此事已了\n他唤起一场风暴\n\n所以，请记住贝壳之海\n记住她昔日的模样\n因为乌尔罗格放出的飓风\n终究将她淹没。",
+   "new_target": null,
+   "section": "mod-tome/data/lore/misc.lua",
+   "source": "Dirge of the Naloren\n\nThere once was a village\nthe Nalore held dear,\nbut when Ol' Walrog came t'pillage,\nthey cowered in fear.\n\nHe trampled their men\nand their babes newly born,\nand seeing it finished,\nhe summoned a storm.\n\nSo remember old Shellsea\nas she was in the past,\nfor Ol' Walrog sent the gale\nthat drowned her at last."
+  },
+  {
+   "queue_id": "hrq-00209",
+   "entry_id": "entry-01326",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19079,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "两处省略号后确比第三处多一个静态空行，原文段落相同结构；但这是纯静态排版差异，本批又禁止改变换行序列，不据此改 target。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/orc-prides.lua",
+    "mod-tome.lua:19079"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；两处省略号后确比第三处多一个静态空行，原文段落相同结构；但这是纯静态排版差异，本批又禁止改变换行序列，不据此改 target。",
+   "applied": false,
+   "old_target": "夏·图尔废墟与最高统帅部的描述完全一致。调查已经展开，但进展缓慢。看起来它在很久以前就坠毁到了地面上——许多区域都难以进入。统帅部将目标物品描述为一根法杖。不知道为何一根法杖会如此重要。最强的终极兵器难道不该是剑或战斧吗，就像伟大的加库尔所挥舞的那样？\n\n最近听到了许多针对最高统帅部的流言——确实是些古怪的流言。或许通过完成这次任务，我能更接近他们，从而探寻真相……\n\n……\n\n\n该死！诅咒降临！不知哪个天杀的烈焰杂种盗贼洗劫了废墟！而且竟然是个半身人，一条该死的半身人杂种狗！我真是怒火中烧！\n\n不知怎的，他趁着黄昏潜入了进去，爬过了一条连我的劳工都进不去的狭窄地道。他从废墟里夺走了一根法杖，竟然从我的兽人身边偷偷溜了出去！这个肮脏阴险的潜行者逃之夭夭了，我的前程也随之搭了进去！我已派斥候追踪他，但这厮极其狡猾。但我决不能让他逃脱！这绝对不可饶恕！\n\n……\n\n\n我们循着那个无赖的踪迹一路追踪。看来他在一个叫德斯镇的地方与一名矮人和一名人类会合，随后一同向东南进发。跟踪他们三个人比跟踪单独一个潜行者容易得多，但我们仍必须格外谨慎以保持隐蔽。最高统帅部的指令严禁我们暴露行踪，且必须尽可能避免战斗。我随身带领着一支训练有素的弓箭手与战士小队，他们懂得如何在林中隐匿。\n\n那个盗贼和他该死的同党已经进入了一座名为恐惧王座的古老废弃高塔。那是一处古老的地方，地牢中素以塞满不死亡灵而著称。如果我们强行闯入必将引起骚动，况且此处离东面的人类大城镇又是如此之近……我拿不准该如何行事，已向统帅部发信请示指令。眼下我们潜伏在林中，密切注视着入口处的动静。若是有人带着那根法杖从塔里出来，定要承受我的滔天怒火！\n\n……\n\n统帅部终于传回了回信——坚守阵地，等待法杖现身。若是近期内仍未出现，他们届时会派出自己的密探。\n\n届时！呸！真到了那个地步我就彻底完了。一旦那根法杖露面，我必须一把抢下它，以最快的速度返回远东……",
+   "new_target": null,
+   "section": "mod-tome/data/lore/orc-prides.lua",
+   "source": "Sher'Tul ruin matches description from high command. Investigation begun, but slow. Looks like it crashed into the ground long ago - hard to access many areas. Target item has been described by command as a staff. Do not know why a staff so important. Surely the ultimate weapon should be a sword or axe, like that wielded by the great Garkul?\n\nHave heard many rumours against high command lately - strange rumours, indeed. Perhaps by completing this mission I shall get closer to them so that I might seek the truth...\n\n...\n\nCurses and banes! Some bastard blaze-born THIEF has raided the ruins! And a halfling no less, a curr-damned halfling! I am pyred with rage!\n\nHe got in during dusk somehow, crawling through a tunnel too narrow for my workers to reach. He grabbed a staff from the ruins and snuck out past my orcs! The dirty, treacherous sneak has run away, and my career with him! I have sent scouts to track him, but he is proving elusive. But I will not let him escape! This is unforgiveable!\n\n...\n\nWe've followed the tracks of the wretch. It seems as if he met up with a dwarf and a human near a town called Derth, and they travelled south-east from there. Following the three of them was much easier than the sneak alone, but we still must take care to remain hidden. Our orders from high command strictly forbid showing ourselves, and we must avoid battle as much as possible. I have a trained team of archers and fighters with me that know how to stay hidden in the woods.\n\nThe thief and his cursed allies have entered an old ruined tower called Dreadfell. It an ancient place, known to be filled with undead in its dungeons. If we break in we're bound to cause a stir, and so close to the big human town east of here... I am not sure how to proceed, and have sent a message to command requesting instructions. For now we wait in the woods, keeping an eye on the entrance for any change. If anyone comes out from the tower with that staff they will face my wrath!\n\n...\n\nWord is finally back from command - hold position and wait for the staff to emerge. If it doesn't happen soon then they will send their own agents in time.\n\nIn time! Bah! This will be my ruin if it comes to that. If there is any appearance of the staff I must snatch it and get back East as soon as possible..."
+  },
+  {
+   "queue_id": "hrq-00210",
+   "entry_id": "entry-01328",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19211,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "诗中前半写 wyrms 与 drakes，后半改说在沙下隧道循 giant worms；把虫译成“沙龙”混同龙类，破坏两组意象对照。即使不采同节另两处的未经冻结引文，词义和本诗上下文已足够判定。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/sandworm.lua",
+    "mod-tome.lua:19211"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；诗中前半写 wyrms 与 drakes，后半改说在沙下隧道循 giant worms；把虫译成“沙龙”混同龙类，破坏两组意象对照。即使不采同节另两处的未经冻结引文，词义和本诗上下文已足够判定。",
+   "applied": true,
+   "old_target": "我曾凝视赤红巨龙的巨口深处\n也曾领教矫健幼龙利爪\n可穿过干旱荒漠与沙暴\n我所追寻的另有其物\n\n我循着巨型沙龙的踪迹\n穿行在地下沙土隧道\n休要再提那些奥术器具\n我走的是龙战士之道！",
+   "new_target": "我曾凝视赤红巨龙的巨口深处\n也曾领教矫健幼龙利爪\n可穿过干旱荒漠与沙暴\n我所追寻的另有其物\n\n我循着巨型沙虫的踪迹\n穿行在地下沙土隧道\n休要再提那些奥术器具\n我走的是龙战士之道！",
+   "section": "mod-tome/data/lore/sandworm.lua",
+   "source": "I have stared in the mouths of crimson wyrms\nAnd felt the claws of drakes so sleek\nBut through deserts dry and sandy storms\nThere is something else I seek\n\nIn the trail of giant worms I walk\nThrough tunnels of sand below\nOf arcane tools let there be no talk\nIt's on the wyrmic path I go!"
+  },
+  {
+   "queue_id": "hrq-00211",
+   "entry_id": "entry-01331",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19358,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "外层直单引号换中文双引号只改变引文呈现，异语音节、内部直单引号和样式标签均保留；本 section 引号体例混杂，单行不能建立必须统一的规范。",
+   "model_evidence": [
+    "/workspace/t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/shertul.lua",
+    "mod-tome.lua:19358"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；外层直单引号换中文双引号只改变引文呈现，异语音节、内部直单引号和样式标签均保留；本 section 引号体例混杂，单行不能建立必须统一的规范。",
+   "applied": false,
+   "old_target": "不明意义的文字：#{italic}#“Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.”#{normal}#",
+   "new_target": null,
+   "section": "mod-tome/data/lore/shertul.lua",
+   "source": "which you do not understand: #{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#"
+  }
+ ]
+}
