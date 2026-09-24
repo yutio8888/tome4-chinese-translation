@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-24（修复窗口26已完成；待宿主发布收尾，随后审核273）
+更新时间：2026-09-24（审核273已完成；下一步修复窗口27，仅处理273的2条）
 
 **Flame 改名（2026-09-23 维护者批准）**：三方讨论一致推荐，技能名统一为「火焰术」，术语库 preferred；Shadow Mages 的 Flames 实指暗影之火。7 条 revision_changed 已入队待重审；详见 [terminology-flame-20260923](evidence/quality/terminology-flame-20260923/DECISION.md)。pending 第 7 项已裁决。
 移交对象：Paseo / Codex / GPT-6-Astra
@@ -417,7 +417,16 @@ surface 四组 `codex/gpt-6-sol` 为 75 OK / 5 ISSUE，80 个 identity 回显逐
 
 译文提交为 `df937b894d02a01ff4ca0c1b2d7ccfd22918b2c4`；新 catalog 为 `2a349020c440d5766776ac1396bd949c94f99c0c97852b314543776fc9acf280`；migration 为 `6f8736fb807babfeda9ddd927ffc5958251ddd23bba538dc87f6ee40d6314302`。迁移结果为5条 `revision_changed`、29,823条 `unchanged`、0条 `ambiguous/unmapped`，5个 successor 待重新审核且不继承 `done`。审核272 surface 裁决记载的“LF 10→9”实测应为 8→9，裁决结论不变，详见[勘误](evidence/quality/repair-window-26-20260923/ERRATUM-BATCH272-LF.md)与[窗口26发布证据](evidence/quality/repair-window-26-20260923/PUBLICATION.md)。
 
-下一步由宿主提交本证据、执行第二次 queue rebuild 并 push；完成后继续审核273（默认80条）。以上后续步骤尚未完成。
+窗口26的证据提交（`b2ebc16d`）、queue rebuild 与 push 已完成，提交前 verify_pack 通过。
+
+审核273（`batch-5e69946bed52ed5a5cbc`）已闭合，结果为 **78 done / 2 repair_required / 0 blocked**。
+surface 四组 `codex/gpt-6-sol` 为 71 OK / 9 ISSUE，80 个 identity 回显逐位一致；contextual `claude/claude-opus-5-5` full-000 复核这 9 条，为 8 OK / 1 ISSUE。
+10 个观察裁决为 3 confirmed、7 refuted，无新增 pending。门禁含严格构建通过，两任务快照重放 `DONE_VERIFIED`，五个 reviewer child 均已归档确认。证据提交 `5aef7d5a`，
+详见[273宿主证据](evidence/quality/production-batches/batch-5e69946bed52ed5a5cbc-host-evidence/summary.md)。
+
+下一步按 1:1 节奏开修复窗口27，仅处理 273 的 2 条：“反魔法”提示说明第三行“拒绝使用法术”改为无法使用法术与奥术驱动的装备（forbid_arcane 是硬限制；contextual 判 OK，宿主按源码维持 confirmed）；
+领袖的皇冠描述整句修复（许多人而非大部分、秩序与纪律、效忠皇冠、称呼统一为“皇冠”、纳格尔领土而非大陆）。另：窗口11 的 r2a1 reviewer（`4e9cc148`）曾因在界面中打开 tab 被取消归档，已于本批期间重新归档，与 w11 记录一致。
+范围见 `.ai/task/batch-5e69946bed52ed5a5cbc/WINDOW27-REPAIR-DECISION.json`。
 
 ### 窗口7闭合时的暂停记录（历史）
 
