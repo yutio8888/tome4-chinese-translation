@@ -6317,7 +6317,7 @@ t("Bullets shot are supercharged:  They can pass through multiple targets and ha
 t("Bullet Mastery: Percussive", "子弹掌握：冲击", "_t")
 t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：命中时有 %d%% 概率击退，%d%% 概率震慑。", "tformat")
 t("Bullet Mastery: Combustive", "子弹掌握：爆炸", "_t")
-t("Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage.", "子弹处于爆炸状态：对 2 码范围内的敌人造成 %d 火焰伤害。", "tformat")
+t("Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage.", "子弹命中目标时爆炸，对目标周围 2 码范围内的敌人造成 %d 火焰伤害。", "tformat")
 t("Uncanny Reload", "神秘装填", "_t")
 t("Firing steamguns does not consume shots.", "蒸汽枪不消耗子弹。", "tformat")
 t("#Target# is focuses on firing.", "#Target# 集中精力开火。", "_t")
@@ -6442,7 +6442,7 @@ t("awesome", "惊人", "effect subtype")
 t("Awesome Toss", "致命翻转", "_t")
 t("All resistances increased by %d%%, randomly attacks two foes each turn at random.", "全部抗性提高 %d%%，两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械。", "tformat")
 t("#Target# tosses steamguns in the air, awesome!", "#Target#将蒸汽枪抛向空中，太帅了！", "_t")
-t("#Target# somehow catches the falling steamguns.", "#Target# 接住了蒸汽枪。", "_t")
+t("#Target# somehow catches the falling steamguns.", "#Target# 不知怎么接住了落下的蒸汽枪。", "_t")
 t("Marked for Death", "死亡标记", "_t")
 t("Ranged defense reduced by %d, takes %d%% extra damage from all sources.", "远程闪避减少 %d，受到额外 %d%% 伤害。", "tformat")
 t("#Target# is marked!", "#Target# 被标记了！", "_t")
@@ -7924,7 +7924,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 职业特性：#YELLOW#
 - 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时间的力量撕碎敌人。
 - 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。
-- 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量毁灭敌人。
+- 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
 - 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。
 - 获得物理学和化学技术：所有科技法师都掌握创造插件的技术。
 #WHITE#
@@ -8085,7 +8085,7 @@ All Tinker classes use Steam for their powers.
 灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。
 职业特色：#YELLOW#
 - 将灵晶的攻击投射到你发射的子弹中。
-- 激发敌人的恐惧，让敌人在你的枪法前无处遁形。
+- 激发敌人的恐惧，削弱敌人，使他们难以抵挡你的枪法。
 - 操纵你的受害者身边的空气。
 - 与你的蒸汽发生器进入灵能格式塔，从而强化它们。#WHITE#
 

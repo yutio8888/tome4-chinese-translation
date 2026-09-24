@@ -1,0 +1,619 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-15",
+ "packet_sha256": "e23cf3f3f07e9b4a4c5b8855c06019083aef2fffe990284f653e6a70909853c1",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 25,
+ "verdict_counts": {
+  "accepted": 24,
+  "deferred": 1
+ },
+ "model_disposition_counts": {
+  "defer": 1,
+  "fix": 7,
+  "no_change": 14,
+  "refuted": 3
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00572",
+   "entry_id": "entry-04019",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6320,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“爆炸状态”和 2 码伤害虽提示范围攻击，却没有说明命中目标才爆炸及爆点；冻结 Archery.lua 在命中坐标触发爆炸，补明触发与中心。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Archery.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“爆炸状态”和 2 码伤害虽提示范围攻击，却没有说明命中目标才爆炸及爆点；冻结 Archery.lua 在命中坐标触发爆炸，补明触发与中心。Orcs DLC 来源未固定。",
+   "applied": true,
+   "old_target": "子弹处于爆炸状态：对 2 码范围内的敌人造成 %d 火焰伤害。",
+   "new_target": "子弹命中目标时爆炸，对目标周围 2 码范围内的敌人造成 %d 火焰伤害。",
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage."
+  },
+  {
+   "queue_id": "hrq-00573",
+   "entry_id": "entry-04022",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6348,
+   "source_tag": "tformat",
+   "model_disposition": "refuted",
+   "model_reason": "英文 frost aura 与“烈火光环”字面不符，但 FIERY_SALVE 效果及火焰、光系、闪电亲和，与相邻道具 fiery aura 一致；现译纠正了上游误写，无需改。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/tinkers/therapeutics.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "驳回模型主张；英文 frost aura 与“烈火光环”字面不符，但 FIERY_SALVE 效果及火焰、光系、闪电亲和，与相邻道具 fiery aura 一致；现译纠正了上游误写，无需改。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "提供烈火光环，使你获得 +%d%% 火焰、光系和闪电伤害亲和。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Provides a frost aura, giving you +%d%% fire, light, and lightning affinity."
+  },
+  {
+   "queue_id": "hrq-00574",
+   "entry_id": "entry-04023",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6354,
+   "source_tag": "tformat",
+   "model_disposition": "refuted",
+   "model_reason": "英文 frost aura 与“静水光环”字面不符，但 WATER_SALVE 效果和相邻道具 water aura 均支持静水；现译符合效果身份。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/tinkers/therapeutics.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "驳回模型主张；英文 frost aura 与“静水光环”字面不符，但 WATER_SALVE 效果和相邻道具 water aura 均支持静水；现译符合效果身份。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "提供静水光环，使你获得 +%d%% 枯萎、精神和酸性伤害亲和。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Provides a frost aura, giving you +%d%% blight, mind and acid affinity."
+  },
+  {
+   "queue_id": "hrq-00575",
+   "entry_id": "entry-04028",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6404,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“主人”可由战斗语境理解为飞锯的施加者；冻结源码将飞回方向指向 eff.src，并未译反。“施加者”更精确但属措辞澄清。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“主人”可由战斗语境理解为飞锯的施加者；冻结源码将飞回方向指向 eff.src，并未译反。“施加者”更精确但属措辞澄清。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "#Target#身上的链锯飞回主人的方向。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "The saw embedded in #Target# flies back its source."
+  },
+  {
+   "queue_id": "hrq-00576",
+   "entry_id": "entry-04035",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6445,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "前句抛起蒸汽枪能补足下落背景，却不能表达 somehow 的意外感；现句也省略落下动作，补出两处叙事信息。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；前句抛起蒸汽枪能补足下落背景，却不能表达 somehow 的意外感；现句也省略落下动作，补出两处叙事信息。Orcs DLC 来源未固定。",
+   "applied": true,
+   "old_target": "#Target# 接住了蒸汽枪。",
+   "new_target": "#Target# 不知怎么接住了落下的蒸汽枪。",
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "#Target# somehow catches the falling steamguns."
+  },
+  {
+   "queue_id": "hrq-00577",
+   "entry_id": "entry-04046",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6500,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“忍受痛苦，不能集中精力制造伤害”已表达受苦导致输出受限；“遭受”“造成”较自然，属于二级措辞建议。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“忍受痛苦，不能集中精力制造伤害”已表达受苦导致输出受限；“遭受”“造成”较自然，属于二级措辞建议。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "#Target# 忍受痛苦，不能集中精力制造伤害。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "#Target# is suffering and fails to concentrate on dealing damage."
+  },
+  {
+   "queue_id": "hrq-00578",
+   "entry_id": "entry-04047",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6515,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "闪电之网“覆盖”可作环绕式防护理解，所有伤害减免数值已保留；crackling 的声响属风味描写润色，尚不足以重开。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；闪电之网“覆盖”可作环绕式防护理解，所有伤害减免数值已保留；crackling 的声响属风味描写润色，尚不足以重开。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "目标被闪电之网覆盖，减少所受到的所有伤害 %d。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "The target is surrounded by a crackling web of lightning, reducing all damage taken by %d."
+  },
+  {
+   "queue_id": "hrq-00579",
+   "entry_id": "entry-04049",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6525,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“力量强化”已表达力量增强，与解除提示相承；涌动感的取舍是措辞建议。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“力量强化”已表达力量增强，与解除提示相承；涌动感的取舍是措辞建议。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "#target#力量强化！",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "#target# surges with power!"
+  },
+  {
+   "queue_id": "hrq-00580",
+   "entry_id": "entry-04053",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6557,
+   "source_tag": "logCombat",
+   "model_disposition": "no_change",
+   "model_reason": "“打击”保留攻击者、目标及颜色标记；strikes down at 的力度可润色，但冻结源码仅表明自动攻击，不能据此强制写空间方向。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“打击”保留攻击者、目标及颜色标记；strikes down at 的力度可润色，但冻结源码仅表明自动攻击，不能据此强制写空间方向。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "#Source# #LIGHT_RED#打击#LAST# #Target#！",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "#Source# #LIGHT_RED#strikes down at#LAST# #Target#!"
+  },
+  {
+   "queue_id": "hrq-00581",
+   "entry_id": "entry-04054",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6568,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "“被困在其中”可作处在毒云中的叙事用语；冻结效果仅见范围施加而不见定身，现译可能引起歧义但尚无充分证据证明玩家会读为无法离开。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“被困在其中”可作处在毒云中的叙事用语；冻结效果仅见范围施加而不见定身，现译可能引起歧义但尚无充分证据证明玩家会读为无法离开。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "目标被半径为 %d 的瘴气毒云包围。被困在其中的敌人会有 %d%% 的技能失败几率，降低%d%% 治疗效果，并且在受到近战和远程攻击的时候受到 %0.2f 额外酸性伤害。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "The target is surrounded by a toxic cloud or radius %d. Enemies within will suffer %d%% talent failure, %d%% reduced healing, and take %0.2f additional acid damage from melee and ranged attacks."
+  },
+  {
+   "queue_id": "hrq-00582",
+   "entry_id": "entry-04055",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6572,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "中文多出的武器类型与每回合第一次限定有 callbackOnHit 的 weapon_type 和 turn_procs.miasma 条件支持；未穷尽全部攻击消费路径，故不采纳绝对的“100%吻合”说法。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；中文多出的武器类型与每回合第一次限定有 callbackOnHit 的 weapon_type 和 turn_procs.miasma 条件支持；未穷尽全部攻击消费路径，故不采纳绝对的“100%吻合”说法。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "被有毒化学物质影响。%d%% 技能失败率，降低 %d%% 治疗效果，每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Affected by toxic chemicals. Has %d%% talent failure, %d%% reduced healing, and takes %0.2f additional acid damage from melee and ranged attacks."
+  },
+  {
+   "queue_id": "hrq-00583",
+   "entry_id": "entry-04056",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6574,
+   "source_tag": "tformat",
+   "model_disposition": "refuted",
+   "model_reason": "英文说每回合发射，但冻结效果赋予 Rocket Barrage，技能可手动再次发射，使用其他技能则结束效果；现译与消费机制吻合，差异来自英文概述。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/artillery.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "驳回模型主张；英文说每回合发射，但冻结效果赋予 Rocket Barrage，技能可手动再次发射，使用其他技能则结束效果；现译与消费机制吻合，差异来自英文概述。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "目标悬浮在空中，获得 %d%% 躲闪概率，%d%% 移动速度；可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果。",
+   "new_target": null,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source": "Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn."
+  },
+  {
+   "queue_id": "hrq-00584",
+   "entry_id": "entry-04066",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 6777,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "药剂与“你身上”“需通过注射器使用”连读时，获得光环者仍是使用者；改为“使你获得”更清楚，但尚非机制错译。所引源码描述在 55–56 行而非模型所称 51–53 行。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/tinkers/therapeutics.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；药剂与“你身上”“需通过注射器使用”连读时，获得光环者仍是使用者；改为“使你获得”更清楚，但尚非机制错译。所引源码描述在 55–56 行而非模型所称 51–53 行。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "一个可以清除你身上的负面物理效果并获得一个寒霜光环（增加寒冷、暗影和自然伤害亲和）的强大药剂。\n需通过医疗注射器植入体使用。",
+   "new_target": null,
+   "section": "tome-orcs/data/tinkers/therapeutics.lua",
+   "source": "A powerful salve that can clean physical detrimental effects from your body and grant a frost aura (cold, darkness and nature affinity).\nTo be used with the medical injector implant."
+  },
+  {
+   "queue_id": "hrq-00585",
+   "entry_id": "entry-04088",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 7456,
+   "source_tag": "saySimple",
+   "model_disposition": "no_change",
+   "model_reason": "英文 Amulet 是护符，但物品名含 Light of God，“神的光辉”可借代护符之光；没有把施法主体确定为神的充分依据。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/zones/slumbering-caves/objects.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；英文 Amulet 是护符，但物品名含 Light of God，“神的光辉”可借代护符之光；没有把施法主体确定为神的充分依据。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）",
+   "new_target": null,
+   "section": "tome-orcs/data/zones/slumbering-caves/objects.lua",
+   "source": "#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)"
+  },
+  {
+   "queue_id": "hrq-00586",
+   "entry_id": "entry-04092",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 7901,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“毁灭敌人”概括伤害，却未表达 damage and debilitate 并列的削弱作用；职业特性列表需要保留两项作用。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/overload/data/texts/unlock-mage_technomancer.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“毁灭敌人”概括伤害，却未表达 damage and debilitate 并列的削弱作用；职业特性列表需要保留两项作用。Orcs DLC 来源未固定。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#我发现了！#LAST##{normal}#\n\n作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。然后有一天，你突然发现了！\n#{italic}#你掌握了把魔法和科技结合起来的技术！#{normal}#\n\n你解锁了元素法师的#LIGHT_GREEN#科技法师 职业进阶#WHITE#。\n\n职业特性：#YELLOW#\n- 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时间的力量撕碎敌人。\n- 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。\n- 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量毁灭敌人。\n- 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。\n- 获得物理学和化学技术：所有科技法师都掌握创造插件的技术。\n#WHITE#\n\n职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。\n",
+   "new_target": "#{bold}##GOLD#我发现了！#LAST##{normal}#\n\n作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。然后有一天，你突然发现了！\n#{italic}#你掌握了把魔法和科技结合起来的技术！#{normal}#\n\n你解锁了元素法师的#LIGHT_GREEN#科技法师 职业进阶#WHITE#。\n\n职业特性：#YELLOW#\n- 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时间的力量撕碎敌人。\n- 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。\n- 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。\n- 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。\n- 获得物理学和化学技术：所有科技法师都掌握创造插件的技术。\n#WHITE#\n\n职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。\n",
+   "section": "tome-orcs/overload/data/texts/unlock-mage_technomancer.lua",
+   "source": "#{bold}##GOLD#EUREKA!#LAST##{normal}#\n\nAs an archmage you are trained into the intricacies of the arcane forces, but as a tinker you know how to build and create. And suddently it hit you!\n#{italic}#You now understand how to combine magic and technology!#{normal}#\n\nYou have unlocked the #LIGHT_GREEN#Technomancer class evolution#WHITE# for Archmages.\n\nFeatures:#YELLOW#\n- Occult Technomancy: Use a rapidly spinning steamsaw to rip appart reality itself and project arcane and temporal onslaughts\n- Galvanic Technomancy: Create galvanic rods that link up to create deadly fields of fire and lightning to burn down your foes\n- Terrene Technomancy: Craft and control swarms of micro spiderbots to damage and debilitate your foes with water and earth forces\n- Arcane Dynamo: Casting spells generates steam and steam increases spellpower\n- Access to physics and chemistry: All Technomancers know the basics of crafting tinkers\n#WHITE#\n\nClass evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class.\n"
+  },
+  {
+   "queue_id": "hrq-00587",
+   "entry_id": "entry-04101",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 8071,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“无处遁形”可修辞性表达难敌枪法，却没有保留 weaken 的削弱效果；只补“削弱敌人”，不采用缺乏证据的“降低枪击抗性”窄化解释。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua",
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/dread.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“无处遁形”可修辞性表达难敌枪法，却没有保留 weaken 的削弱效果；只补“削弱敌人”，不采用缺乏证据的“降低枪击抗性”窄化解释。Orcs DLC 来源未固定。",
+   "applied": true,
+   "old_target": "你找到了一些由先进灵能与科技驱动的极其古老的机器。没有生命心智的灵能从未被认为可能存在。\n现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#灵能射手#WHITE#。\n\n灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。\n职业特色：#YELLOW#\n- 将灵晶的攻击投射到你发射的子弹中。\n- 激发敌人的恐惧，让敌人在你的枪法前无处遁形。\n- 操纵你的受害者身边的空气。\n- 与你的蒸汽发生器进入灵能格式塔，从而强化它们。#WHITE#\n\n所有工匠系职业使用蒸汽作为能量。\n",
+   "new_target": "你找到了一些由先进灵能与科技驱动的极其古老的机器。没有生命心智的灵能从未被认为可能存在。\n现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#灵能射手#WHITE#。\n\n灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。\n职业特色：#YELLOW#\n- 将灵晶的攻击投射到你发射的子弹中。\n- 激发敌人的恐惧，削弱敌人，使他们难以抵挡你的枪法。\n- 操纵你的受害者身边的空气。\n- 与你的蒸汽发生器进入灵能格式塔，从而强化它们。#WHITE#\n\n所有工匠系职业使用蒸汽作为能量。\n",
+   "section": "tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua",
+   "source": "You have found extremely old machines powered by advanced psionics and technology. Psionics without a living mind was never thought possible.\nYou can now create new characters with the #LIGHT_GREEN#Psyshot class#WHITE#.\n\nPsyshots are Tinkers that merge psionics and steamtech in a lethal blend, wielding a steamgun in one hand and a mindstar in the other.\nClass features:#YELLOW#\n- Project mindstar attacks with each bullet you fire\n- Inspire dread to weaken your foes to your gunslinging\n- Manipulate the very air around your victims\n- Enter a psionic gestalt with your steam generators, boosting them#WHITE#\n\nAll Tinker classes use Steam for their powers.\n"
+  },
+  {
+   "queue_id": "hrq-00588",
+   "entry_id": "entry-04106",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 8143,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“实验的工匠”在称号语境可理解为做实验的工匠；事件叙述证实其正在试验，改“进行实验的”仅使语法更顺。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/overload/mod/class/OrcCampaign.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“实验的工匠”在称号语境可理解为做实验的工匠；事件叙述证实其正在试验，改“进行实验的”仅使语法更顺。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "%s，实验的工匠",
+   "new_target": null,
+   "section": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+   "source": "%s, the experimenting tinker"
+  },
+  {
+   "queue_id": "hrq-00589",
+   "entry_id": "entry-04109",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 8177,
+   "source_tag": "saySimple",
+   "model_disposition": "no_change",
+   "model_reason": "“创造插件”已表达制作完成的结果；“制作”更贴切但只是措辞。“tinker→蒸汽工具”是 existing 且为实体类型，不强制覆盖本日志的“插件”。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/overload/mod/class/interface/PartyTinker.lua",
+    "terminology/items.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“创造插件”已表达制作完成的结果；“制作”更贴切但只是措辞。“tinker→蒸汽工具”是 existing 且为实体类型，不强制覆盖本日志的“插件”。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "创造插件：%s",
+   "new_target": null,
+   "section": "tome-orcs/overload/mod/class/interface/PartyTinker.lua",
+   "source": "Created tinker: %s"
+  },
+  {
+   "queue_id": "hrq-00590",
+   "entry_id": "entry-04110",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 8178,
+   "source_tag": "log",
+   "model_disposition": "no_change",
+   "model_reason": "此系统的配方与随后显示的名称已让 tinker 限定可从语境恢复；补“插件”可更明晰，但“配方”符合 preferred schematic 条目，未构成确认漏义。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/overload/mod/class/interface/PartyTinker.lua",
+    "terminology/items.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；此系统的配方与随后显示的名称已让 tinker 限定可从语境恢复；补“插件”可更明晰，但“配方”符合 preferred schematic 条目，未构成确认漏义。Orcs DLC 来源未固定。",
+   "applied": false,
+   "old_target": "已学习新的配方：#LIGHT_GREEN#%s",
+   "new_target": null,
+   "section": "tome-orcs/overload/mod/class/interface/PartyTinker.lua",
+   "source": "Learnt new tinker schematic: #LIGHT_GREEN#%s"
+  },
+  {
+   "queue_id": "hrq-00591",
+   "entry_id": "entry-04115",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 8341,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "C03：This IS relevant 与“无关紧要”相反，须改肯定；C04：Neither 承接前句两派，“我们”错置主体；C05：filthy 非“狡猾”；N01：profane 在记录中指粗俗发言，非宗教“亵渎”。C06：“这决定了”在议会语境仍可理解为决议，属文体建议；N02：“在辞职时”可宽泛指辞职过程，仅建议澄清。最强范围反证是 tome-orcs.lua:2757 另有同一议会文本的运行时载体，英文键仅空格不同：C03 已修正，但 C04、C05、N01 仍有同样旧译。单改冻结的 entry-04115 会制造同段双载体不一致；需将 2757 处条目一并纳入后续有界工作集。Orcs DLC 来源未固定。",
+   "model_evidence": [
+    ".artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/lore/palace-fumes.lua",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json",
+    "tome-orcs.lua"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "C03：This IS relevant 与“无关紧要”相反，须改肯定；C04：Neither 承接前句两派，“我们”错置主体；C05：filthy 非“狡猾”；N01：profane 在记录中指粗俗发言，非宗教“亵渎”。C06：“这决定了”在议会语境仍可理解为决议，属文体建议；N02：“在辞职时”可宽泛指辞职过程，仅建议澄清。最强范围反证是 tome-orcs.lua:2757 另有同一议会文本的运行时载体，英文键仅空格不同：C03 ",
+   "applied": false,
+   "old_target": "在坦塔洛斯议长的主持下，蒸汽议会正式开会。\n\n坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！这是我的荣幸，能够终于主事。今日的议程……”翻动手中的文件。“无关紧要，因为我已经为所有要解决的问题有了一个对应的方案。首先————”\n\n卡西罗斯：“尊敬的议长，议程————”\n\n坦塔洛斯：“这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”\n\n托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆可不像我们地盘底下的都枯竭了，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”\n\n坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我保证，真的无关紧要。”\n\n帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。不论是哪种，我们都没法直接介入，不过确实可以提供某种支持。”\n\n坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”\n\n帕拉奎：“他们有个种族，护甲可以给我们用。穿起来有点紧，但是足够了。”\n\n坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”\n\n卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]\n\n坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些狡猾的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”\n\n[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ",
+   "new_target": null,
+   "section": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+   "source": "The Steam Council has been called to order, with Chief Councilor Tantalos presiding.\n\nTANTALOS: \"Greetings, my fellow- heh, now [i]lesser[/i] Councilors!  It is my pleasure to finally lead the proceedings.  The agenda for today...\" Ruffles through papers. \"Is irrelevant, for I have a solution to every malady mentioned therein.  The first order--\"\n\nKASYROS: \"With all due respect, Chief Councilor, the agenda--\"\n\nTANTALOS: \"Is.  [i]Irrelevant.[/i]  Tormak?  You've been scrying on potential sources of geothermal energy, would you care to inform the others where you see the most potential?\"\n\nTORMAK: Sighs. \"Right under the Kruk orcs, unfortunately.  It's a promising source for sure, the magma powering it hasn't drained out like it has under us, but digging there would...  well, we all know how quickly they turned construction tools into weapons to rival our own.  If we went in there with the state-of-the-art mining equipment necessary to--\"\n\nTANTALOS: Laughter. \"Mining equipment!  What manner of fool do you take me for?  Palaquie, tell me what's going through the minds of those silly little waist-height warriors, rummaging through the mainland for Orcish rebels.\" Holds up hand to silence Councilor Emeritus Kasyros. \"This IS relevant, I assure you.\"\n\nPALAQUIE: \"Discontent...  revolving around hidden, long-fermented resentment. Some want the Kruk exterminated, others imprisoned.  Neither can afford direct intervention, but some form of support will assuredly be available.\"\n\nTANTALOS: \"So, with the right negotiation, we can get these tinies, who have [i]endless[/i] experience fighting Orcs, to assist us and make any sort of action in Kruk territory more manageable.  At a bare minimum, we can obtain weaponry that has long proved sufficient for slashing Orcish throats...  although we'll need it custom-fit for our size, naturally.\"\n\nPALAQUIE: \"They have a race whose armor would work.  A tight fit, but sufficient.\"\n\nTANTALOS: \"Even better!  And...  Kasyros, I'm going to let [i]you[/i] tell me what the people care about most.  I'm sure your bruises are adequate reminders of the citizens' will?\"\n\nKASYROS: [Statement was deemed excessively profane and stricken from the record by 4-2 vote.]\n\nTANTALOS: \"Such undignified conduct!  All because you can't accept that the public wants their steam back.  More than they want those filthy little greenskins around, more than they fear getting their hands dirty, more than they want [i]your[/i] way of doing things.  So!  It's resolved that we have much to gain from this, it's resolved that we have or can obtain the means to carry it out, and it's resolved that it is what the voting public desires.  I see no need for further debate.  Nashal, I'd like to speak to you after this about a wand.  Meeting adjourned.\"\n\n[At this time, Councilor Kasyros gave a lengthy speech before officially resigning from the Council.  It has been recorded in a separate document.] "
+  },
+  {
+   "queue_id": "hrq-00597",
+   "entry_id": "entry-04116",
+   "is_row_primary": true,
+   "file": "tome-possessors.lua",
+   "line": 5,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“你自己的被诅咒的影子”可泛指遭诅咒的分身，但固定本体源码命名 Doomed Shade of %s，现有 Doomed 职业译名为“末日使者”；“使用比尔的身体”也易误把比尔当成被使用的工具，按附身视角明确。该本体实体证据只支持名称，不证明 Possessors 成就触发机制；Possessors DLC 来源未固定。",
+   "model_evidence": [
+    "/workspace/t-engine4/game/modules/tome/data/zones/shadow-crypt/npcs.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "terminology/classes.tsv",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-possessors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“你自己的被诅咒的影子”可泛指遭诅咒的分身，但固定本体源码命名 Doomed Shade of %s，现有 Doomed 职业译名为“末日使者”；“使用比尔的身体”也易误把比尔当成被使用的工具，按附身视角明确。该本体实体证据只支持名称，不证明 Possessors 成就触发机制；Possessors DLC 来源未固定。",
+   "applied": true,
+   "old_target": "使用比尔的身体杀死你自己的被诅咒的影子。",
+   "new_target": "附身于比尔时，杀死你自己的末日使者之影。",
+   "section": "tome-possessors/data/achievements/possessors.lua",
+   "source": "Kill your own Doomed Shade in the body of Bill."
+  },
+  {
+   "queue_id": "hrq-00598",
+   "entry_id": "entry-04123",
+   "is_row_primary": true,
+   "file": "tome-possessors.lua",
+   "line": 56,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "“目标”在反击句中可承接造成该次伤害的攻击者，未证明错误指向；明确写“伤害来源”会更清楚，属于指代澄清。Possessors DLC 来源未固定，未据未固定源码断言运行行为。",
+   "model_evidence": [
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-possessors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“目标”在反击句中可承接造成该次伤害的攻击者，未证明错误指向；明确写“伤害来源”会更清楚，属于指代澄清。Possessors DLC 来源未固定，未据未固定源码断言运行行为。",
+   "applied": false,
+   "old_target": "创造一个持续 5 回合的灵能盾牌围绕你。\n\t\t技能生效时有 %d%% 几率会无视伤害。\n\t\t如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）\n\t\t",
+   "new_target": null,
+   "section": "tome-possessors/data/talents/psionic/battle-psionics.lua",
+   "source": "You concentrate to create a psionic block field all around you for 5 turns.\n\t\tWhile the effect holds all damage against you have a %d%% chance to be fully ignored.\n\t\tWhen damage is cancelled you instinctively make a retaliation mind strike against the source, dealing %0.2f mind damage. (The retaliation may only happen 2 times per turn.)\n\t\t"
+  },
+  {
+   "queue_id": "hrq-00599",
+   "entry_id": "entry-04129",
+   "is_row_primary": true,
+   "file": "tome-possessors.lua",
+   "line": 119,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“直线冲锋”暗示沿线移动，却未交代首个生物身后的所有生物也受招；后句单数“目标”亦未承接 targets 复数。补出沿线对象及复数指代，仅依据冻结英汉文本，不宣称核实 Possessors 运行机制；DLC 来源未固定。",
+   "model_evidence": [
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-possessors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“直线冲锋”暗示沿线移动，却未交代首个生物身后的所有生物也受招；后句单数“目标”亦未承接 targets 复数。补出沿线对象及复数指代，仅依据冻结英汉文本，不宣称核实 Possessors 运行机制；DLC 来源未固定。",
+   "applied": true,
+   "old_target": "短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d)。\n\t\t你再次出现在另一边，获得 %d 灵能值并对目标造成 %0.2f 精神伤害。\n\t\t",
+   "new_target": "短暂的一瞬间，你的整个身体变得飘渺，你向附近一个生物及其身后直线上的所有生物冲去（范围 %d）。\n\t\t你再次出现在另一边，获得 %d 灵能值并对这些目标造成 %0.2f 精神伤害。\n\t\t",
+   "section": "tome-possessors/data/talents/psionic/deep-horror.lua",
+   "source": "For a brief moment your whole body becomes etheral and you dash into a nearby creature and all those in straight line behind it (in range %d).\n\t\tYou reappear on the other side, with %d more psi and having dealt %0.2f mind damage to your targets.\n\t\t"
+  },
+  {
+   "queue_id": "hrq-00600",
+   "entry_id": "entry-04137",
+   "is_row_primary": true,
+   "file": "tome-possessors.lua",
+   "line": 270,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "“射出一道冲击波”保留向敌人施加力量的动作，后续伤害、上限和吸收条件也齐全；ghastly finger 与命其死去的意象是风味描写建议，未证明机制失义。Possessors DLC 来源未固定。",
+   "model_evidence": [
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-possessors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“射出一道冲击波”保留向敌人施加力量的动作，后续伤害、上限和吸收条件也齐全；ghastly finger 与命其死去的意象是风味描写建议，未证明机制失义。Possessors DLC 来源未固定。",
+   "applied": false,
+   "old_target": "用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。\n\t\t目标将受到相当于其已损失生命值 %d%% 的精神伤害。\n\t\t对 boss 或者更高阶级的目标伤害最高为 %d。\n\t\t如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。\n\t\t如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。",
+   "new_target": null,
+   "section": "tome-possessors/data/talents/psionic/psionic-menace.lua",
+   "source": "You point your ghastly finger at a foe affected by Ghastly Wail and send a psionic impulse to tell it to simply die.\n\t\tThe target will take %d%% of the life it already lost as mind damage.\n\t\tOn targets of rank boss or higher the damage is limited to %d.\n\t\tIf the target dies from the Finger and is of a type you can already absorb it is directly absorbed into your bodies reserve.\n\t\tIf you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades."
+  },
+  {
+   "queue_id": "hrq-00601",
+   "entry_id": "entry-04141",
+   "is_row_primary": true,
+   "file": "tome-possessors.lua",
+   "line": 356,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“分享痛苦”可表示传递，却无根据地写成“自己的”，与下一句敌人专注于他们自己的痛苦冲突；移除所有格并保留施加动作。仅依冻结英汉文本判定，不宣称核实 Possessors 运行机制；DLC 来源未固定。",
+   "model_evidence": [
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-possessors.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“分享痛苦”可表示传递，却无根据地写成“自己的”，与下一句敌人专注于他们自己的痛苦冲突；移除所有格并保留施加动作。仅依冻结英汉文本判定，不宣称核实 Possessors 运行机制；DLC 来源未固定。",
+   "applied": true,
+   "old_target": "当你至少有一层虐待狂效果时，你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。\n\t\t持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。",
+   "new_target": "当你至少有一层虐待狂效果时，你可以向半径 %d 内所有可见的、生命值 80%% 或更低的敌人散播痛苦。\n\t\t持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。",
+   "section": "tome-possessors/data/talents/psionic/ravenous-mind.lua",
+   "source": "As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.\n\t\tFor 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you."
+  }
+ ]
+}

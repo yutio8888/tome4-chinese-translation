@@ -16434,7 +16434,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00572 | remaining | remaining:rem-16:C04 | confirmed |  |  |  |
+| hrq-00572 | remaining | remaining:rem-16:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00572 · remaining 详情</summary>
 
@@ -16453,7 +16453,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00573 | remaining | remaining:rem-16:C05 | advisory |  |  |  |
+| hrq-00573 | remaining | remaining:rem-16:C05 | advisory |  |  | refuted |
 
 <details><summary>hrq-00573 · remaining 详情</summary>
 
@@ -16472,7 +16472,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00574 | remaining | remaining:rem-16:C06 | advisory |  |  |  |
+| hrq-00574 | remaining | remaining:rem-16:C06 | advisory |  |  | refuted |
 
 <details><summary>hrq-00574 · remaining 详情</summary>
 
@@ -16491,7 +16491,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00575 | remaining | remaining:rem-16:C07 | advisory |  |  |  |
+| hrq-00575 | remaining | remaining:rem-16:C07 | advisory |  |  | no_change |
 
 <details><summary>hrq-00575 · remaining 详情</summary>
 
@@ -16514,7 +16514,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00576 | remaining | remaining:rem-17:C01 | confirmed |  |  |  |
+| hrq-00576 | remaining | remaining:rem-17:C01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00576 · remaining 详情</summary>
 
@@ -16533,7 +16533,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00577 | remaining | remaining:rem-17:C02 | advisory |  |  |  |
+| hrq-00577 | remaining | remaining:rem-17:C02 | advisory |  |  | no_change |
 
 <details><summary>hrq-00577 · remaining 详情</summary>
 
@@ -16552,7 +16552,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00578 | remaining | remaining:rem-17:C03 | advisory |  |  |  |
+| hrq-00578 | remaining | remaining:rem-17:C03 | advisory |  |  | no_change |
 
 <details><summary>hrq-00578 · remaining 详情</summary>
 
@@ -16571,7 +16571,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00579 | remaining | remaining:rem-17:C04 | advisory |  |  |  |
+| hrq-00579 | remaining | remaining:rem-17:C04 | advisory |  |  | no_change |
 
 <details><summary>hrq-00579 · remaining 详情</summary>
 
@@ -16590,7 +16590,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00580 | remaining | remaining:rem-17:C05 | advisory |  |  |  |
+| hrq-00580 | remaining | remaining:rem-17:C05 | advisory |  |  | no_change |
 
 <details><summary>hrq-00580 · remaining 详情</summary>
 
@@ -16609,7 +16609,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00581 | remaining | remaining:rem-17:N01 | advisory |  |  |  |
+| hrq-00581 | remaining | remaining:rem-17:N01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00581 · remaining 详情</summary>
 
@@ -16630,7 +16630,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00582 | remaining | remaining:rem-17:C06 | advisory |  |  |  |
+| hrq-00582 | remaining | remaining:rem-17:C06 | advisory |  |  | no_change |
 
 <details><summary>hrq-00582 · remaining 详情</summary>
 
@@ -16649,7 +16649,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00583 | remaining | remaining:rem-17:C07 | advisory |  |  |  |
+| hrq-00583 | remaining | remaining:rem-17:C07 | advisory |  |  | refuted |
 
 <details><summary>hrq-00583 · remaining 详情</summary>
 
@@ -16670,7 +16670,7 @@ To be used with the medical injector implant.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00584 | remaining | remaining:rem-18:C01 | advisory |  |  |  |
+| hrq-00584 | remaining | remaining:rem-18:C01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00584 · remaining 详情</summary>
 
@@ -16693,7 +16693,7 @@ To be used with the medical injector implant.`
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00585 | remaining | remaining:rem-19:C01 | advisory |  |  |  |
+| hrq-00585 | remaining | remaining:rem-19:C01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00585 · remaining 详情</summary>
 
@@ -16744,7 +16744,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00586 | remaining | remaining:rem-19:C02 | confirmed |  |  |  |
+| hrq-00586 | remaining | remaining:rem-19:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00586 · remaining 详情</summary>
 
@@ -16785,7 +16785,7 @@ All Tinker classes use Steam for their powers.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00587 | remaining | remaining:rem-19:C03 | confirmed |  |  |  |
+| hrq-00587 | remaining | remaining:rem-19:C03 | confirmed |  |  | fix |
 
 <details><summary>hrq-00587 · remaining 详情</summary>
 
@@ -16804,7 +16804,7 @@ All Tinker classes use Steam for their powers.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00588 | remaining | remaining:rem-19:C04 | advisory |  |  |  |
+| hrq-00588 | remaining | remaining:rem-19:C04 | advisory |  |  | no_change |
 
 <details><summary>hrq-00588 · remaining 详情</summary>
 
@@ -16827,7 +16827,7 @@ All Tinker classes use Steam for their powers.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00589 | remaining | remaining:rem-20:C01 | advisory |  |  |  |
+| hrq-00589 | remaining | remaining:rem-20:C01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00589 · remaining 详情</summary>
 
@@ -16846,7 +16846,7 @@ All Tinker classes use Steam for their powers.
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00590 | remaining | remaining:rem-20:C02 | advisory |  |  |  |
+| hrq-00590 | remaining | remaining:rem-20:C02 | advisory |  |  | no_change |
 
 <details><summary>hrq-00590 · remaining 详情</summary>
 
@@ -16913,12 +16913,12 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00591 | remaining | remaining:rem-20:C03 | confirmed |  |  |  |
-| hrq-00592 | remaining | remaining:rem-20:C04 | confirmed |  |  |  |
-| hrq-00593 | remaining | remaining:rem-20:C05 | confirmed |  |  |  |
-| hrq-00594 | remaining | remaining:rem-20:C06 | advisory |  |  |  |
-| hrq-00595 | remaining | remaining:rem-20:N01 | confirmed |  |  |  |
-| hrq-00596 | remaining | remaining:rem-20:N02 | advisory |  |  |  |
+| hrq-00591 | remaining | remaining:rem-20:C03 | confirmed |  |  | defer |
+| hrq-00592 | remaining | remaining:rem-20:C04 | confirmed |  |  | defer |
+| hrq-00593 | remaining | remaining:rem-20:C05 | confirmed |  |  | defer |
+| hrq-00594 | remaining | remaining:rem-20:C06 | advisory |  |  | defer |
+| hrq-00595 | remaining | remaining:rem-20:N01 | confirmed |  |  | defer |
+| hrq-00596 | remaining | remaining:rem-20:N02 | advisory |  |  | defer |
 
 <details><summary>hrq-00591 · remaining 详情</summary>
 
@@ -16982,7 +16982,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00597 | remaining | remaining:rem-10:C01 | confirmed |  |  |  |
+| hrq-00597 | remaining | remaining:rem-10:C01 | confirmed |  |  | fix |
 
 <details><summary>hrq-00597 · remaining 详情</summary>
 
@@ -17007,7 +17007,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00598 | remaining | remaining:rem-10:N01 | advisory |  |  |  |
+| hrq-00598 | remaining | remaining:rem-10:N01 | advisory |  |  | no_change |
 
 <details><summary>hrq-00598 · remaining 详情</summary>
 
@@ -17030,7 +17030,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00599 | remaining | remaining:rem-10:C02 | confirmed |  |  |  |
+| hrq-00599 | remaining | remaining:rem-10:C02 | confirmed |  |  | fix |
 
 <details><summary>hrq-00599 · remaining 详情</summary>
 
@@ -17057,7 +17057,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00600 | remaining | remaining:rem-10:C03 | advisory |  |  |  |
+| hrq-00600 | remaining | remaining:rem-10:C03 | advisory |  |  | no_change |
 
 <details><summary>hrq-00600 · remaining 详情</summary>
 
@@ -17078,7 +17078,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 | queue_id | 来源 | cross/claim | 状态 | 要点 / 人工待决 | 译名全文比对 | 决定 |
 |---|---|---|---|---|---|---|
-| hrq-00601 | remaining | remaining:rem-10:C04 | confirmed |  |  |  |
+| hrq-00601 | remaining | remaining:rem-10:C04 | confirmed |  |  | fix |
 
 <details><summary>hrq-00601 · remaining 详情</summary>
 

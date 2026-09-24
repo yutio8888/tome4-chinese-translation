@@ -1,0 +1,423 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 13）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-13.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 13,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Thought] I'm thinking through how to approach this.
+[Shell] env | grep PI_
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-13.json
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] ls terminology
+[Thought] The item describes a game mechanic where exceeding a feedback threshold generates additional bolts. The bolts deal mind damage to hostile targets and consume feedback. I will now examine item 2.
+[Shell] git -C /workspace/t-engine4 grep "Unleash your subconscious" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/discharge.lua | grep -B 10 -A 20 "Unleash your subconscious"
+[Shell] grep -i "bolt" terminology/*.tsv
+[Thought] Initial translation of `Polarity Bolt` should be `极性飞弹`. The original translation, "灵能值球", is misleading because "灵能值" represents the resource "Psi", and "飞弹" accurately reflects "bolt" as a projectile attack in this context, avoiding the terminology clash. The substitution clarifies the meaning.
+[Shell] python3 -c ' import json with open(".ai/task/human-review-adjudication-20260923/REVIEW-PACKET-13.json") as f: d = json.load(f) item = d["items"][1] print("OLD:", repr(item["old_target"])) print("NE...
+[Shell] git -C /workspace/t-engine4 grep -n "Crush your enemy with your Dream Hammer" game/modules/tome/
+[Thought] The text requires a period at the end of the sentence. Adding the missing punctuation resolves the error. The fix maintains all placeholders.
+[Shell] grep -i "stamina" terminology/*.tsv
+[Shell] grep -i -E "^stamina" terminology/*.tsv
+[Shell] git -C /workspace/t-engine4 grep -n "Use Feedback to replenish yourself" game/modules/tome/
+[Thought] Strengthening the effects of a psionic focus involves synchronizing the mind with its resonant frequencies. The relationship between the mind and the focus directly influences its efficacy. This synchronization is key to optimizing the focus's power.
+[Shell] git -C /workspace/t-engine4 grep -n "resonant frequencies of your psionic focus" game/modules/tome/
+[Thought] The task involves formatting text to describe a psionic ability. The provided text fragment likely details the effects of focusing energy into a beam to inflict physical damage in a line, so the formatting should reflect this.
+Verdict: `ok`.
+Evidence: `game/modules/tome/data/talents/psionic/finer-energy-manipulations.lua:178`.
+[Shell] git -C /workspace/t-engine4 grep -n "knocking them off balance" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 grep -n "Your expertise in the art of energy projection grows" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/mental-discipline.lua
+[Thought] Item 6 describes the "Aura Discipline" talent from the Mindslayer tree, focusing on improved energy projection. This talent reduces aura cooldowns and slows energy drain from aura damage. Item 7 seems to be another related entry.
+
+
+Examining the provided data, I see a clear pattern: each entry describes the enhancement of a specific Mindslayer talent. Item 7 focuses on "energy absorption". The key changes center around the reduction of shield cooldowns and how energy is gained from shields. The new target correctly uses the term for "energy absorption." The placeholders seem to have been preserved.
+
+
+The initial assessment incorrectly equated "maximum energy gained" with "maximum energy absorbed." Examination of the underlying code clarifies that the talent modifies the cap on energy generation from shields, not the absorption capacity. The new target, using "灵能值上限" (energy limit), accurately reflects this function. The original source files confirm the revised wording's appropriateness and the preservation of numerical placeholders.
+
+
+The current focus is on translating a Mindslayer talent that creates an electrical aura. The descriptions address damage output based on equipped item, energy cost, and a secondary effect upon deactivation. The initial assessment indicated no changes are needed.
+
+The key aspects requiring preservation are the damage types, energy costs per creature/hit, the minimum energy threshold for the secondary effect, target count, and the damage output. The deactivation time cost is also relevant.
+[Shell] grep -n -C 5 "To turn off an aura without spiking it" mod-tome.lua
+[Thought] Investigating the deactivation behavior of the kinetic and thermal auras. Found that deactivation triggers energy releases dependent on available energy reserves. There's also an instruction about deactivating without a release. This suggests a mechanism to self-target the deactivation, potentially preventing the outward energy emission.
+[Shell] sed -n '27670,27706p' mod-tome.lua
+[Thought] All three aura descriptions share a common mechanism for deactivation without unwanted effects: targeting self during the deactivation. This suggests a consistent control pattern across different aura types to prevent specific discharges or emissions tied to the aura shutdown. Specifically, the Kinetic Aura's discharge manifests as a beam.
+[Shell] git -C /workspace/t-engine4 grep -n "Enter a sleeping target's dreams" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/slumber.lua | grep -B 10 -A 30 "Enter a sleeping target's dreams"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/slumber.lua | grep -E "name =|cloneActor" -C 5
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/slumber.lua | grep -A 40 'name = "Dreamscape"'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/slumber.lua | grep -A 40 'projections_killed'
+[Shell] git -C /workspace/t-engine4 grep -n "EFF_DREAMSCAPE" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | grep -n "DREAMSCAPE" -C 10
+[Shell] grep -i "projection" terminology/*.tsv
+[Thought] I'm thinking through how to approach this.
+
+
+This ability focuses on Psi gain and damage conversion. It provides a significant Psi increase per level but reduces life rating. Damage taken is converted to Psi damage, with healing also shifting to Psi recovery. There's also a solipsism threshold impacting speed based on Psi levels.
+[Shell] git -C /workspace/t-engine4 grep -n "with the remainder further reduced" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/solipsism.lua | head -n 80
+[Thought] The formula describes a multiplicative damage reduction. Character level provides a base reduction, specifically `1 - 1/lifemod`. The remaining damage is then further reduced by talent level, represented as `(100 - talentmod)/lifemod` multiplied by `talentmod`. This aligns with the English description of reductions from character and talent levels.
+[Shell] grep -i "save" terminology/*.tsv
+[Thought] The initial translation omitted a crucial phrase, "A successful saving throw." Correcting this, the updated translation now accurately represents the original meaning. It reflects that a critical success on a saving throw will reduce damage by at least 50%.
+
+
+The phrase "（怪物或被护送者）" (monster or escort) appears redundant. The English source simply states "creature," which covers both monsters and escorts. Removing the phrase streamlines the translation without altering its meaning.
+[Shell] git -C /workspace/t-engine4 grep -n "At level 4, it allows you to specify which creature to teleport" game/modules/tome/
+[Thought] Examining the code for Phase Door and Teleport, specifically lines 163 and 278 respectively, reveals a shared characteristic: at level 4, both talents permit specifying a target creature for teleportation. The older translations added a parenthetical note that seems overly restrictive regarding the possible targets. The original source text doesn't contain the restrictive note, which could limit the scope of targets to only monsters or escorts. Removing the note seems appropriate.
+
+
+Analyzing another instance of the translation, identified as Item 13, confirms the removal of the restrictive parenthetical note regarding teleport targets, maintaining consistency with previous edits. The format strings and placeholders, specifically `%d`, align correctly between the original and modified texts, preserving the original intent and functionality. This suggests the change is faithful to the source and maintains consistency with the game mechanics.
+Verdict: `ok`.
+Evidence: `game/modules/tome/data/talents/spells/conveyance.lua:163`.
+[Shell] git -C /workspace/t-engine4 grep -n "Probability Travel" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/conveyance.lua | grep -A 40 'name = "Probability Travel"'
+[Thought] The game's travel behavior seems to involve "blinking" through solid objects upon collision. The initial translation used "hitting," which implied an attack, not a passive encounter. A more accurate phrasing clarifies that movement into a solid obstacle triggers the teleportation effect.
+
+
+The updated phrasing clearly communicates that the "blinking" effect is passive, occurring when the character attempts to move into an obstacle, avoiding the misleading implication of requiring an active attack on the wall. The revision correctly identifies the trigger for the travel mechanism. The placeholders `%d`, `%d%%` are correctly preserved.
+Verdict: `ok`.
+Evidence: `game/modules/tome/data/talents/spells/conveyance.lua:342`.
+[Shell] git -C /workspace/t-engine4 grep -n "Press your advantage when your foes are starting to crumble" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 grep -n "elemental damage of your own bombs" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/explosives.lua | grep -B 25 -A 20 "elemental damage of your own bombs"
+[Shell] git -C /workspace/t-engine4 grep -n "ALCHEMIST_PROTECTION" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/explosives.lua | sed -n '65,90p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/explosives.lua | sed -n '91,135p'
+[Thought] When the talent level is 5 (`prot == 1`), damage `d` becomes 0 due to the formula `d = dam * (1 - 1)`. The conditional `if d <= 0 then return end` prevents side effects like splash, stun, or daze from being applied if damage is zero. This early return impacts the agent, the golem, and friendly NPCs.
+
+
+The initial translation missed the inclusion of the golem and friendly creatures in the protection effect description. The updated translation correctly includes these entities and aligns with the game mechanics, accurately reflecting the impact of talent level 5. The placeholders for percentage values are correctly preserved.
+[Shell] grep -i -E "daze|stun" terminology/*.tsv
+[Shell] grep -E "眩晕|茫然" terminology/*.tsv
+[Shell] git -C /workspace/t-engine4 grep -n "Sends out a surge of undeath energies" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 grep -n "Harness the power of the storm to incinerate your foes" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 grep -n "Conveyance is the school of travel" game/modules/tome/
+[Shell] grep -n -C 5 "学习传送" mod-tome.lua
+[Thought] The talent type "conveyance" is now correctly labeled as "传送". The updated description refines grammar, replacing "更快的" with "更快地," changing "或者" (or) to "并" (and), and correcting "目标" (target) to "他人" (others). This suggests improved clarity and accuracy in the talent's description, making it more precise about the ability to travel and track others.
+[Shell] grep -i "melee" terminology/*.tsv
+[Shell] grep "近战" terminology/*.tsv
+[Shell] grep -E "近战伤害|近程伤害" mod-tome.lua | head -n 20
+[Shell] git -C /workspace/t-engine4 grep -n "Hit a target for %d%% melee damage and stun it for %d turns" game/modules/tome/
+[Thought] Examined the specified data file and confirmed the talent is correctly identified as "Blunt Thrust." Placeholders are preserved as expected. Rigorous verification across all twenty items is imperative to ensure comprehensive accuracy.
+
+
+Analyzing the translation change from "灵能值球" to "飞弹." The semantic and mechanistic implications require scrutiny, particularly concerning the number, timing, conditions, and subject. Must verify consistency with the fixed version's behavior and cross-reference the term against the preferred entries and related translations.
+[Shell] grep -n "灵能值球" mod-tome.lua engine.lua mod-boot.lua
+[Shell] sed -n '27175,27195p' mod-tome.lua
+[Shell] sed -n '27315,27330p' mod-tome.lua
+[Shell] sed -n '27375,27390p' mod-tome.lua
+[Shell] sed -n '27405,27415p' mod-tome.lua
+[Shell] sed -n '27415,27425p' mod-tome.lua
+[Shell] sed -n '27515,27525p' mod-tome.lua
+[Thought] Item 7 suggests improvements related to energy absorption: shield cooldown reductions, a decrease in the damage absorption threshold for energy gain, and an increase in the maximum energy attainable per shield. This indicates a progression in the character's energy management abilities, directly impacting shield effectiveness and energy accumulation efficiency.
+
+
+The initial translation misinterprets "最大能量吸收量" (maximum energy absorption) as shield capacity, when it actually refers to the energy gained from absorbing damage. The correction accurately reflects the game mechanics by changing the wording to "灵能值上限" (maximum psi energy). Item 8 requires a further correction in wording, I see the spike as "释放这股电能" (releasing this energy) and not "发射射线"(launching rays).
+
+
+"释放这股电能" (releasing this energy) accurately describes the chain lightning effect, correcting the previous "发射射线" (launching rays) translation which implied a beam. Item 9, "梦境投影" (dream projections) replaces "梦境守卫" (dream guardian) to faithfully represent the source material and internal game references. Item 10 introduces the concept of converting damage and healing into psi energy.
+
+
+Psi reduction calculations need clarification: character level provides the initial reduction, with remaining reduction influenced by talent level. Solipsism threshold increase impacts global speed based on the degree Psi falls below the threshold. First talent point modifies Psi gain from Willpower and Life gain from Constitution.
+
+Item 11's translation requires an adjustment to use the RPG term "检定" (saving throw) instead of "鉴定". Mental save mechanics determine damage reduction, with potential for critical success and at least 50% damage reduction. The first talent point changes Psi gain from Willpower and Life from Constitution, and the solipsism threshold.
+
+
+"检定成功时" accurately translates "A successful saving throw." Item 12 and Item 13 both modify translations to remove unnecessary clarifications, ensuring consistency in describing creature teleportation: "在等级 4 时，你可以传送指定生物" (At level 4, you can teleport a specified creature). Item 14's trigger condition for probability travel is modified to "当你移动碰到固体障碍时" (when you move into a solid obstacle), to accurately reflect the game mechanic.
+
+
+Item 15 requires restoration of "for one turn per effect," which was missing from the previous translation of speed reduction. Item 16's level 5 bomb protection now includes golems and friendly creatures, aligning the code with the text. Item 17's description requires a detailed analysis of its impact on the player's aura.
+
+
+Item 17's translation requires careful examination of its effect on the player's aura and minions, and includes an effect to daze non-undead foes. Item 18 corrects the translation of "incinerate" and "foes." Item 19 fixes grammar and word choice to improve the clarity of "Conveyance".
+
+Item 20 accurately translates a melee attack that stuns a target.
+
+
+Item 20 now translates "近程伤害" (short-range damage) to "近战伤害" (melee damage) for accuracy and includes a missing period. The process then verified the accuracy of all 20 items, focusing on specific elements of item 19 and 16 before determining their correctness. The "Conveyance" translation refinement was evaluated and determined to be accurate.
+[Shell] grep -i "global speed" terminology/*.tsv
+[Thought] Examining the terminology file for combat terms, identified the preferred translation for 'global speed' as '全局速度'. The previous implementation used '所有速度', which was inconsistent. The target has been corrected from '所有速度' to '全局速度'. Checking the `verdict` field constraint, the change is `ok`.
+
+
+```json
+{
+  "entry_id": "entry-00001",
+  "verdict": "ok",
+  "observation": "OK",
+  "evidence": [],
+  "new_issue_introduced": false
+}
+```
+
+Confirmed the `ok` verdict for multiple entries. Each entry reflects a state where no issues were detected, based on associated evidence. Validated the 'OK' observation against the given constraints, confirming no defects were identified.
+
+
+Further entries were evaluated, confirming the 'ok' verdict.  The evidence files, including those related to talents and combat terminology, were reviewed to support the 'OK' status. The absence of new issues introduced was also verified across the entries.
+[Shell] python3 -c ' import subprocess checks = [ ("game/modules/tome/data/talents/psionic/discharge.lua", 67, "Unleash your subconscious"), ("game/modules/tome/data/talents/psionic/dream-smith.lua", 229, ...
+[Shell] git -C /workspace/t-engine4 grep -n "Charged Aura" game/modules/tome/
+[Shell] python3 -c ' import subprocess checks = [ ("game/modules/tome/data/talents/psionic/discharge.lua", "Unleash your subconscious"), ("game/modules/tome/data/talents/psionic/dream-smith.lua", "Crush yo...
+[Thought] The identified paths and associated line numbers within the game engine data are now verified. These entries relate to specific talent files and resources linked to psionic abilities. Specifically, the confirmed files involve "discharge", "dream-smith", "feedback" and "finer energy manipulation" mechanics and also the related terminology for stamina.
+[Shell] python3 -c ' terms = [ ("terminology/resources.tsv", "Stamina"), ("terminology/combat.tsv", "global speed"), ("terminology/combat.tsv", "Mental Save"), ("terminology/combat.tsv", "daze\t眩晕"), ] for...
+[Shell] grep -n "Mental Save" terminology/combat.tsv
+[Thought] Analyzing combat terminology; "Mental Save" translates to "精神豁免", "daze" means "眩晕", and "Global speed" refers to "全局速度". Also, "Stamina" is "体力值." Now examining the JSON structure to ensure all relevant combat-related definitions are accurately captured.
+[Shell] python3 -c ' import json data = { "contract": "applied-change-review-v1", "packet_number": 13, "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high", "items": [ { "entry_id": "entry-02081", "verdict":...
+[Shell] git status
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 13,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-02081",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/discharge.lua:104"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02097",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/dream-smith.lua:229"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02103",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/resources.tsv:2 Stamina=体力值",
+        "game/modules/tome/data/talents/psionic/feedback.lua:139"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02106",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/finer-energy-manipulations.lua:178"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02107",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/focus.lua:61"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02109",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/mental-discipline.lua:34"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02110",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/mental-discipline.lua:51"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02128",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/projection.lua:535"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02148",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/psionic/slumber.lua:243",
+        "game/modules/tome/data/timed_effects/other.lua:2078"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02149",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:133 Global speed=全局速度",
+        "game/modules/tome/data/talents/psionic/solipsism.lua:61"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02153",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:143 Mental Save=精神豁免",
+        "game/modules/tome/data/talents/psionic/solipsism.lua:193"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02187",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/conveyance.lua:163"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02189",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/conveyance.lua:281"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02191",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/conveyance.lua:349"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02192",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/death.lua:66"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02210",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/explosives.lua:165"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02227",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:41 daze=眩晕",
+        "game/modules/tome/data/talents/spells/master-necromancer.lua:58"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02252",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/spells.lua:30"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02258",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/spells.lua:36"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02267",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/spells/staff-combat.lua:186"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
