@@ -3,6 +3,7 @@ from __future__ import annotations
 import fcntl
 import io
 import os
+import shutil
 import sqlite3
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
@@ -316,6 +317,76 @@ class RepairStepTests(migration_fixture.MigrationFixture):
         self.assertTrue(report["success"])
         self.assertEqual(report["projection_calls"], 1)
         self.assertEqual([row["exit_code"] for row in report["steps"]], [0, 0, 0])
+
+    def test_publish_chain_matches_rebuild_build_and_migration_and_replays_once(self):
+        reference = self.candidate([
+            self.replace(self.entries[0], target="published target"), *self.entries[1:]])
+        files = {path.relative_to(reference).as_posix(): path.read_bytes()
+                 for path in reference.rglob("*") if path.is_file()}
+        published = self.root / ".artifacts" / "published-candidate"
+        direct_artifact = self.root / ".artifacts" / "direct-migration.json"
+        wrapped_artifact = self.root / ".artifacts" / "wrapped-migration.json"
+        timing = self.root / ".artifacts" / "publish-timing.json"
+        database = queue.database_path(self.root)
+        database_before = database.read_bytes()
+
+        # Standalone reference: the same candidate bytes at the same path,
+        # followed by the three ordinary migration commands.
+        catalog.write_candidate(files, published, repository_root=self.root)
+        commands = [
+            ["production", "migration", "plan", "--candidate-catalog", str(published),
+             "--output", str(direct_artifact), "--recorded-at", STAMP],
+            ["production", "migration", "check", "--input", str(direct_artifact),
+             "--candidate-catalog", str(published)],
+            ["production", "migration", "apply", "--input", str(direct_artifact),
+             "--candidate-catalog", str(published)],
+        ]
+        with mock.patch.dict(os.environ, {"I18N_REPOSITORY_ROOT": str(self.root)}), \
+                mock.patch.object(catalog, "utc_now", return_value=STAMP), \
+                redirect_stdout(_CapturedStdout()), redirect_stderr(io.StringIO()):
+            self.assertEqual([tools_cli.main(command) for command in commands], [0, 0, 0])
+        direct_rows = queue.business_rows(database)
+        direct_bytes = direct_artifact.read_bytes()
+
+        shutil.rmtree(published)
+        database.write_bytes(database_before)
+        summary = {"catalog_id": "fixture", "occurrence_count": len(self.entries),
+                   "entry_count": len(self.entries), "exclusion_count": 0}
+        with mock.patch.object(cli_production, "_manifest", return_value=None), \
+                mock.patch.object(catalog, "build_catalog", return_value=files) as build, \
+                mock.patch.object(catalog, "check_catalog_tree", return_value=summary), \
+                mock.patch.object(catalog, "utc_now", return_value=STAMP):
+            code, _stdout, stderr = self._run(
+                "publish-chain", "--candidate-catalog", str(published),
+                "--migration-output", str(wrapped_artifact),
+                "--timing-output", str(timing), "--recorded-at", STAMP,
+                "--catalog-recorded-by", "fixture ORCHESTRATOR")
+        self.assertEqual(code, 0, stderr)
+        self.assertEqual(build.call_args.kwargs,
+                         {"recorded_at": STAMP, "recorded_by": "fixture ORCHESTRATOR"})
+        self.assertEqual({path.relative_to(published).as_posix(): path.read_bytes()
+                          for path in published.rglob("*") if path.is_file()}, files)
+        self.assertEqual(wrapped_artifact.read_bytes(), direct_bytes)
+        self.assertEqual(queue.business_rows(database), direct_rows)
+        report = self._timing(timing)
+        self.assertTrue(report["success"])
+        self.assertEqual(report["command"], "publish-chain")
+        self.assertEqual(report["projection_calls"], 1)
+        self.assertEqual([row["step"] for row in report["steps"]],
+                         ["queue:rebuild", "catalog:build", "migration:plan",
+                          "migration:check", "migration:apply"])
+
+    def test_publish_chain_requires_a_fresh_candidate_before_cli(self):
+        existing = self.write_catalog(self.entries, self.root / ".artifacts" / "existing-candidate")
+        with mock.patch.object(steps, "cli_main") as cli:
+            code, _stdout, stderr = self._run(
+                "publish-chain", "--candidate-catalog", str(existing),
+                "--migration-output", str(self.root / ".artifacts" / "m.json"),
+                "--timing-output", str(self.root / ".artifacts" / "t.json"),
+                "--catalog-recorded-by", "fixture")
+        self.assertNotEqual(code, 0)
+        self.assertIn("candidate-catalog must be fresh", stderr)
+        cli.assert_not_called()
 
     def test_candidate_and_sqlite_drift_fail_before_apply_and_keep_artifact(self):
         for drift in ("candidate", "sqlite"):

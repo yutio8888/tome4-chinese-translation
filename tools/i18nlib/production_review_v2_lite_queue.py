@@ -1254,6 +1254,11 @@ def rebuild(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
         progress: dict[str, Any] = {}
         projection = _projection(root, treeish, progress=progress)
         report = _replace(root, projection)
+        # A rebuild always replays in full; inside a carry scope it then hands
+        # that replay to later steps, which re-resolve the commit before reuse.
+        slot = _carry_slot.get()
+        if slot is not None:
+            slot[:] = [(root.resolve(), projection)]
         report["progress"] = progress
         report["override_basis"] = "sqlite_state_codes"
         return report

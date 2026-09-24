@@ -45,6 +45,16 @@ def _parser() -> argparse.ArgumentParser:
     chain.add_argument("--timing-output", required=True, type=Path)
     chain.add_argument("--recorded-at")
     chain.add_argument("--recorded-by", default="WP2L-5 EXECUTOR")
+
+    # Queue rebuild, candidate catalog build and the migration chain all run
+    # at the translation commit; the rebuild's replay serves the plan.
+    publish = subparsers.add_parser("publish-chain", allow_abbrev=False)
+    publish.add_argument("--candidate-catalog", required=True, type=Path)
+    publish.add_argument("--migration-output", required=True, type=Path)
+    publish.add_argument("--timing-output", required=True, type=Path)
+    publish.add_argument("--recorded-at")
+    publish.add_argument("--recorded-by", default="WP2L-5 EXECUTOR")
+    publish.add_argument("--catalog-recorded-by", required=True)
     return parser
 
 
@@ -134,7 +144,10 @@ def _precheck(root: Path, args: argparse.Namespace) -> list[tuple[str, list[str]
             "--output", str(output), *common,
         ]) for batch_id, output in zip(args.batch_id, args.output)]
 
-    if args.candidate_catalog.is_symlink() or not args.candidate_catalog.is_dir():
+    publishing = args.command == "publish-chain"
+    if publishing:
+        _fresh_output(root, args.candidate_catalog, "candidate-catalog")
+    elif args.candidate_catalog.is_symlink() or not args.candidate_catalog.is_dir():
         raise SystemExit(
             f"ERROR: candidate catalog is not an ordinary directory: {args.candidate_catalog}")
     outputs = [("migration-output", args.migration_output),
@@ -154,9 +167,17 @@ def _precheck(root: Path, args: argparse.Namespace) -> list[tuple[str, list[str]
         plan.extend(["--recorded-at", args.recorded_at])
     shared = ["--input", str(args.migration_output), "--candidate-catalog",
               str(args.candidate_catalog)]
-    return [("migration:plan", plan),
-            ("migration:check", ["production", "migration", "check", *shared]),
-            ("migration:apply", ["production", "migration", "apply", *shared])]
+    steps = [("migration:plan", plan),
+             ("migration:check", ["production", "migration", "check", *shared]),
+             ("migration:apply", ["production", "migration", "apply", *shared])]
+    if publishing:
+        build = ["production", "authoritative-catalog", "build", "--output",
+                 str(args.candidate_catalog), "--recorded-by", args.catalog_recorded_by]
+        if args.recorded_at is not None:
+            build.extend(["--recorded-at", args.recorded_at])
+        steps = [("queue:rebuild", ["production", "queue", "rebuild"]),
+                 ("catalog:build", build), *steps]
+    return steps
 
 
 @contextmanager

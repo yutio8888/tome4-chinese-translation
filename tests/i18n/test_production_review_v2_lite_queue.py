@@ -3263,6 +3263,54 @@ class ProjectionChainTests(QueueFixture):
             self.assertTrue(report["ok"])
             self.assertEqual(report["progress"], progress_separate)
 
+    def test_rebuild_hands_its_replay_to_a_carry_scope(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            with self._count_projections() as calls:
+                with queue.carry_projection():
+                    rebuilt = queue.rebuild(self.root)
+                    self.assertTrue(rebuilt["progress"])
+                    carried = queue.projection_for(self.root, "HEAD")
+                    self.assertEqual(len(calls), 1)
+                    (self.root / "moved.txt").write_text("moved\n", encoding="utf-8")
+                    moved = self._commit("moved head")
+                    self.assertEqual(queue.projection_for(self.root, "HEAD")[0], moved)
+                    self.assertNotEqual(carried[0], moved)
+                self.assertIsNone(queue._carry_slot.get())
+                queue.rebuild(self.root)
+            self.assertEqual(len(calls), 3)
+
+    def test_rollover_chain_projects_once_and_matches_separate_calls(self):
+        with self._repo_env(), self._fixed_clock():
+            self._resize_and_init(1)
+            with self._count_projections() as separate:
+                stdout, stderr = io.StringIO(), io.StringIO()
+                with redirect_stdout(stdout), redirect_stderr(stderr):
+                    rebuilt = self._tools_cli.main(["production", "queue", "rebuild"])
+                started = self._run_cli("start", "--limit", "1")
+            self.assertEqual(rebuilt, 0, stderr.getvalue())
+            self.assertEqual(started[0], 0, started[2])
+            checkpoint_separate = queue.checkpoint_path(self.root).read_bytes()
+            rows_separate = queue.business_rows(queue.database_path(self.root))
+
+            batch.abandon(self.root, discard_uncommitted_results=True)
+            with self._count_projections() as wrapped:
+                code, _stdout, stderr_text = self._run_wrapper("rollover-chain", "--limit", "1")
+            self.assertEqual(code, 0, stderr_text)
+            self.assertEqual(len(wrapped), 1)
+            self.assertLess(len(wrapped), len(separate))
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), checkpoint_separate)
+            self.assertEqual(queue.business_rows(queue.database_path(self.root)), rows_separate)
+
+    def test_rollover_chain_stops_when_rebuild_is_refused(self):
+        with self._repo_env():
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)
+            before = queue.checkpoint_path(self.root).read_bytes()
+            code, _stdout, _stderr = self._run_wrapper("rollover-chain", "--limit", "1")
+            self.assertNotEqual(code, 0)
+            self.assertEqual(queue.checkpoint_path(self.root).read_bytes(), before)
+
     def test_all_ok_import_then_second_chain_matches_separate_calls(self):
         with self._repo_env(), self._fixed_clock():
             self._resize_and_init(1)

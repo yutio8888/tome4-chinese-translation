@@ -42,7 +42,9 @@ git diff --name-status
 去重 revision 及获准的同族附属范围；经既有独立复审和完整门禁后，操作顺序固定为：提交译文 → 计时运行
 queue rebuild 使 SQLite `meta.evidence_head` 与新 HEAD 同步 → 构建一次候选 catalog → 运行一次 migration-chain →
 提交全部必要 repair evidence（含 catalog/migration）→ 再次计时运行 queue rebuild。两次 rebuild 都是真实边界同步，
-不能由一次 catalog/migration 构建替代。successor 仍须重新审核；窗口不会放宽 source/term 授权、writer 串行、
+不能由一次 catalog/migration 构建替代。提交译文后的 rebuild、catalog 构建与 migration-chain 同在译文提交 HEAD，
+可用 `run_repair_steps.py publish-chain` 在一个进程内依次执行，rebuild 仍完整重放并把结果交给 plan 复用；
+批次闭合后的 rebuild 若紧接下一批 start（同一 closure HEAD），可用 `run_batch_steps.py rollover-chain --limit N`。successor 仍须重新审核；窗口不会放宽 source/term 授权、writer 串行、
 失败恢复或正式任务契约。
 
 历史 pending／待维护者术语另列并在每个窗口报告，不计入 20 条、不得擅自修复或清零。一个旧

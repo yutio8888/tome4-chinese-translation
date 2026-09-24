@@ -272,13 +272,18 @@ MCP 手动调用的耗时只有调用者使用上述计时接口包裹时才有 
 
 `freeze_workset.py`、`stage_surface.py`、`stage_contextual.py`、`build_import_index.py`
 仍承担原有职责；源码输入配置见 [工具文档](../../i18n/README.md)。正式操作步骤见
-[原 runbook](../../docs/baseline-batch-runbook-2026-09-06.md)，其中旧 harvest/CLI 示例以本文限制为准。
+[审核操作指南](../../docs/review-operations-guide.md)。
 旧 `dispatch_reviewers.py`、`harvest_reviewers.py`、`harvest_contextual.py` 不用于新批次。
 
 `run_batch_steps.py` 的两条已有串联保持：有 ISSUE 时 `surface-import=<index> contextual-export`，
 以及 `adjudicate=<decisions> prepare-evidence`。各动作仍各自验证输入、锁、checkpoint 和事务，
 同一 root/HEAD 的投影可复用；HEAD 改变重新投影。无 ISSUE 只运行 surface-import。
-queue check/rebuild/status、batch start/finalize/recover、migration 不可串联；本次未扩充白名单。
+queue check/rebuild/status、batch start/finalize/recover、migration 不可串联进上述白名单。
+
+唯一例外是独立入口 `run_batch_steps.py rollover-chain --limit <N>`：在没有 active batch 的 closure HEAD 上
+依次执行 `production queue rebuild` 与 `production batch start --limit <N>`。rebuild 仍完整重放，
+并把结果放进同进程 carry scope，start 重新解析 HEAD 后复用；rebuild 失败（例如仍有 checkpoint）时不运行 start。
+只在批次关闭后紧接开新批时使用；暂停或交接时仍单独运行 queue rebuild。
 
 ### Repair preflight 与 migration 有界串联
 
@@ -316,6 +321,20 @@ migration/repair evidence，并计时运行第二次 queue rebuild，同步 evid
 rebuild 都不能省略。候选目录、migration 输出和 timing 输出必须显式给出，输出不得位于候选目录内，也不得
 位于 `.artifacts/i18n/production-review-v2-lite/` 可变状态目录内（包括 queue、checkpoint、lock、sidecar 及其
 子路径）。
+
+`publish-chain` 把译文提交后同一 HEAD 上的三段合成一个进程：`queue rebuild → authoritative-catalog build →
+migration plan → check → apply`。rebuild 完整重放后把结果交给 plan 复用，整条链只重放一次历史：
+
+```bash
+python3 -B tools/orchestration/run_repair_steps.py publish-chain \
+  --candidate-catalog .artifacts/i18n/repair-window/candidate-catalog \
+  --migration-output .artifacts/i18n/repair-window/migration.json \
+  --timing-output .artifacts/i18n/repair-window/publish-timing.json \
+  --catalog-recorded-by "repair-wNN ORCHESTRATOR"
+```
+
+候选目录必须 fresh（尚不存在），由链内的 catalog build 写入；其余路径规则与 migration-chain 相同。
+evidence 提交之后的第二次 queue rebuild 不在链内，仍单独运行。
 fresh 是入口开始和最终 timing 写入前的拒绝检查；底层普通输出仍使用既有临时文件加替换协议，不宣称能阻止
 另一个未授权进程在两次检查之间抢占路径。
 

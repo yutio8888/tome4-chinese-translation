@@ -15,6 +15,12 @@ that fails here leaves exactly the state it would leave on its own.
 Usage:
   run_batch_steps.py surface-import=/tmp/idx.json contextual-export
   run_batch_steps.py adjudicate=/tmp/adj.json prepare-evidence
+  run_batch_steps.py rollover-chain --limit 80
+
+`rollover-chain` is the one sanctioned exception to the no-closing-steps rule:
+a queue rebuild followed by the next batch start, both at the closure HEAD with
+no active batch in between.  The rebuild hands its replay to the start, which
+re-resolves the commit before reusing it.
 """
 from __future__ import annotations
 
@@ -117,10 +123,32 @@ def contextual_adjudication_chain(tokens):
     return 0
 
 
+def rollover_chain(tokens):
+    parser = argparse.ArgumentParser(prog='run_batch_steps.py rollover-chain', allow_abbrev=False)
+    parser.add_argument('--limit', required=True, type=int)
+    args = parser.parse_args(tokens)
+    if args.limit < 1:
+        raise SystemExit('ERROR: --limit must be positive')
+    steps = (('queue-rebuild', ['production', 'queue', 'rebuild']),
+             ('batch-start', ['production', 'batch', 'start', '--limit', str(args.limit)]))
+    with queue.carry_projection():
+        for label, step in steps:
+            started = time.monotonic()
+            code = cli_main(step)
+            print(f"--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s",
+                  file=sys.stderr)
+            if code != 0:
+                print(f"ERROR: {label} failed; remaining steps not run", file=sys.stderr)
+                return code
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     tokens = list(sys.argv[1:] if argv is None else argv)
     if tokens and tokens[0] == "contextual-adjudication-chain":
         return contextual_adjudication_chain(tokens[1:])
+    if tokens and tokens[0] == "rollover-chain":
+        return rollover_chain(tokens[1:])
     steps = parse(tokens)
     with queue.carry_projection():
         for step in steps:
