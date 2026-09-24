@@ -1,0 +1,169 @@
+{
+  "batch_id": "batch-b7ce18a7bdce48ba8086",
+  "observations": 16,
+  "observation_dispositions": {
+    "refuted": 5,
+    "confirmed": 7,
+    "advisory": 4
+  },
+  "repair_revision_keys": [
+    "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201",
+    "f9b4a1d58a20ced35e1f12e04dc703344d5b311f94d1374b580371ae719c5dc6",
+    "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04",
+    "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8",
+    "fa46681a109915eadaeb8a5f74146c0e687ad7709a4f3c15ca0be7472136ada1",
+    "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "dc8e68d2481368f60c4081f6ecc4545d4f719c1577e4e649ab96776a456997cc",
+      "stage": "surface",
+      "observation": "原文只说射向视野内随机敌人并造成伤害；译文额外断言漩涡附着的目标及射线路径上的所有目标都会受伤，冻结原文不足以支持这些具体对象。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "timed_effects/magical.lua:2677–2693（624a673）ARCANE_VORTEX on_timeout：有敌人时先对附着目标调用 ARCANE projector（eff.dam），再以 type=\"beam\" 向随机敌人投射，路径上所有单位受伤（to all）；无敌人时仅对附着目标造成 eff.dam*1.5。现译即窗口23按源码收敛的版本，附着目标与射线路径全体受伤均有实现依据，驳回。"
+    },
+    {
+      "revision_key": "e246982cd2ad8e5c76ec7958839c2c83f341d9f5a94ba7fefadbd3ee18d2abce",
+      "stage": "surface",
+      "observation": "原文的 yeeks 被译为“夺心魔”，指向了不同种族。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "yeek 译“夺心魔”为用户 2026-09-16 裁定保留的本库专名；quests/start-yeek.lua:23 其余“至少清除一个威胁”与原文一致（窗口23已修复），驳回。"
+    },
+    {
+      "revision_key": "f99ebf3aa31971c0fe288ed01ecb2f56e42155e9832ca192b83b48e197376201",
+      "stage": "surface",
+      "observation": "原文是抵抗 sedation（镇静），译文写成抵抗“睡眠”，改变了所述效果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/cunning/artifice.lua:639–643（624a673）：Dart Launcher（飞镖发射器）睡眠飞镖命中后施加 EFF_SEDATED，否则记录 \"%s resists the sedation!\"；本库该效果名 Sedated=“被镇静”（mod-tome.lua:37588）。现译“抵抗了睡眠”与效果名不一致（术语一级），改为“抵抗了镇静”一类，%s 保持。"
+    },
+    {
+      "revision_key": "f9b40904e64d6cefc3afefadd1466d647d3f9f0f6f15a303417ec33b924d2956",
+      "stage": "surface",
+      "observation": "原文要求少于 %d 回合，译文“在%d回合内”通常包含第 %d 回合，改变了时间界限。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "class/GameState.lua:3451–3469（624a673）fast-exit 挑战：turns_left 从 turns 递减，<0 才失败、>=0 离开即完成，实现允许用满 %d 回合；现译“在%d回合内”贴合实现，驳回。"
+    },
+    {
+      "revision_key": "f9b4a1d58a20ced35e1f12e04dc703344d5b311f94d1374b580371ae719c5dc6",
+      "stage": "surface",
+      "observation": "原文明确说从未来的片刻获取信息；译文改为“通过直觉获取未来的信息”，凭空加入了“直觉”这一获取方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/spells/divination.lua:88–92（624a673）Keen Senses（敏锐直觉）说明：原文 2 个 LF（3 行），现译 4 个 LF，把第二行拆成三行（一级换行不变量，与既往 blighted-ruins/Thought-Forms 裁决一致）；且“通过直觉获取未来的信息”增添原文没有的“直觉”，原文为 getting information from moments in the future。整条修复：恢复 3 行、\\t\\t 缩进，首句按原文译出“从未来的片刻中获取信息”一类，侦测隐形/潜行/法术暴击三项并回一行。"
+    },
+    {
+      "revision_key": "f9d418c4382d60f5463aab293479179a0fb9d93a0660a0ec975e6cdef423b979",
+      "stage": "surface",
+      "observation": "原文“balanced ”以空格结尾，译文“平衡的”缺少该尾随空格，可能使拼接后的名称黏连。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "ego 前缀 balanced（prefix，与物品名拼接）；中文前缀全库惯例不保留尾随空格（与既往 exposing/starlit/timebroken 裁决一致），非格式缺陷。"
+    },
+    {
+      "revision_key": "f9d570766c6921e35d8fbac8b9b3c0dc759acbc06bd7bc9f03c405a337833dfa",
+      "stage": "surface",
+      "observation": "原文说此模式会授予探索模式版本的成就，译文变成玩家可以完成探索模式成就，授予与完成的含义不同。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "birth/descriptors.lua:326（624a673）Exploration 模式说明：granted 与“可以完成探索模式成就”语感差异，玩家在此模式获得的就是探索版成就，不误导机制，记 advisory。"
+    },
+    {
+      "revision_key": "f9e031e8ecd39a5af7e022b1fc9120ca96b5c7c0e0ed6b8f287fdba5294cc743",
+      "stage": "surface",
+      "observation": "原文“And now for a grave”含有“And now for”且没有“绝望”；译文“绝望的坟墓”增添了原文没有的含义，并遗漏原句结构。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "quests/grave-necromancer.lua:20 任务名 And now for a grave；“绝望的坟墓”为意译标题，增添“绝望”但不涉机制，任务名为短标签专名，改名需全库一致性评估，记 advisory。"
+    },
+    {
+      "revision_key": "f9f9997480bd8c19b85184cb33b5034a28ccd1656af205766dbb324e1881b503",
+      "stage": "surface",
+      "observation": "原文“temporal ”末尾有空格，译文“时空的”末尾没有空格；若该条目与后续文本拼接，会丢失分隔。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "ego 前缀 temporal（prefix）；中文前缀不保留尾随空格为全库惯例，同 f9d418c4，驳回。"
+    },
+    {
+      "revision_key": "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04",
+      "stage": "surface",
+      "observation": "原文为快速攻击附近敌人 4 次，每次造成相应伤害；译文遗漏“快速”，且“每个目标造成”将每次攻击的伤害误写成每个目标的伤害。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "talents/cursed/slaughter.lua:125–156（624a673）Frenzy（狂热）：for i=1,4 每次攻击各自选目标（有被追踪猎物则总是它，否则 rng.table 随机），damageMultiplier 作用于每次攻击；原文 4 fast attacks … damage each。现译“进行 4 次攻击每个目标造成”把 each 误作“每个目标”并漏 fast；原文盾牌句前为 \\n\\n\\t\\t（空行），现译只剩 \\n\\t\\t（一级换行不变量）。整条修复，Stalked prey are always targeted 译“总是”。"
+    },
+    {
+      "revision_key": "fa465502e545e8daab7e688c0cadc77fc113384d23abfce5bda0d700e99300d8",
+      "stage": "surface",
+      "observation": "原文两句之间有换行，译文删除了该换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "general/objects/world-artifacts-maj-eyal.lua:1018–1028（624a673）Staff of Arcane Supremacy（奥术至上法杖）描述：原文两句间 1 个 \\n，现译 0 个 LF 并成一段（一级换行不变量，与既往裁决一致）。宿主另核（线索来自已作废的 contextual 首次尝试，结论由宿主独立核验）：该法杖 set_list 与 SET_HAT_CHANNELERS 成套（同文件 1052/1088 行），yet alone it seems incomplete 意为“单独一件似乎并不完整”，现译“整体来看，它似乎是不完整的”意思相反（一级 fidelity）。整条修复：恢复换行，末句译为“单独一件时似乎并不完整”一类，其余逐句对照。"
+    },
+    {
+      "revision_key": "fa46681a109915eadaeb8a5f74146c0e687ad7709a4f3c15ca0be7472136ada1",
+      "stage": "surface",
+      "observation": "原文只有一处换行，译文在“所有”抗性句前又增加一处换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "dark-sustenance.lua Feed Strengths（吸食抗性）说明：原文 1 个 LF（\\n\\t\\t 在 Improves with your Mindpower 前），现译 2 个，在“对‘所有’抗性无效”前额外换行（一级换行不变量）。整条修复：并回首段，只保留原位置一处 \\n\\t\\t。"
+    },
+    {
+      "revision_key": "fa5648e8eccfceb3f514371f037fc3db8dff5cc509baf225c26bc3f3c02892ca",
+      "stage": "surface",
+      "observation": "原文的 %d%% 是目标所造成伤害的比例；译文未说明以该伤害为基数，易读成对自身造成固定的 %d%% 伤害。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "timed_effects/magical.lua:892–907 MARTYRDOM：martyrdom 值使目标造成的伤害按比例反噬自身；英文 hurt it for %d%% 同样简省，现译“造成伤害的同时对自身造成 %d%% 伤害”可理解为按所造成伤害的比例，记 advisory。"
+    },
+    {
+      "revision_key": "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727",
+      "stage": "surface",
+      "observation": "原文列出 mana、stamina、PSI capacity 及抵抗精神攻击的几率；译文在对应的法力值、体力值、灵能值之外又加入“精神力”，多出一项能力值。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "load.lua:186 Willpower 属性说明未列 Mindpower，但 class/interface/TooltipsData.lua:243 同属性说明明确 increases … Mindpower，现译多出的“精神力”贴合实现（源文可能与实现矛盾类）；用词与本库“精神强度”不统一，记 advisory。"
+    },
+    {
+      "revision_key": "fa2a8ff2837f8b980c322619eca7a3917f0dafa7754a02dc8d84ebeb5e94cb04",
+      "stage": "contextual",
+      "observation": "tome slaughter.lua@624a6732 action L118-146：for i=1,4 每次攻击从 targets 随机取一个目标，若附近有 EFF_STALKER 目标则四次全部打它；源文 'damage each' 指每次攻击。译文「对附近目标进行 4 次攻击每个目标造成 %d%%」把 each 误挂到每个目标上（暗示每个目标各受 4 次/各受该伤害），且把 'always targeted' 弱化为「优先攻击」，与实现的必定全部攻击被追踪目标不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同向：slaughter.lua:125–146 Frenzy（狂热）for i=1,4 每次攻击各自选目标，附近有被追踪猎物时四次都打它；damage each 指每次攻击，现译“每个目标造成”误挂，“优先攻击”弱化 always。并入同条整句修复（含 fast 与盾牌句前空行）。"
+    },
+    {
+      "revision_key": "fa9d429c2df842ba7888976927b58a0bd6d198f251995c016354229009062727",
+      "stage": "contextual",
+      "observation": "tome load.lua@624a6732 L186 源文只列 mana、stamina、PSI capacity 与 chance to resist mental attacks；译文多出「精神力」一项，源文没有这一项。冻结术语（dark-sustenance 条目）规定 Mindpower=精神强度，并注明须与 Willpower「意志」区分，所以「精神力」不但是新增内容，这个说法也有歧义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "升级 surface advisory：本条源串为 load.lua:186 属性定义，只列 mana/stamina/PSI capacity 与抗精神攻击几率，不含 Mindpower；TooltipsData.lua:243 是另一条字符串。现译多出“精神力”既是增译，又与本库 Mindpower=“精神强度”不一致（术语一级）。整条修复：去掉“精神力”，按原文四项译出，“抵抗精神攻击的几率”可沿用“精神豁免”一类本库说法。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol medium auto-review (4 lanes)",
+    "contextual": "claude/claude-opus-5-5 medium auto (full-001 accepted; full-000 rejected for a prose prefix before the JSON, archived and confirmed)",
+    "selection": "user instruction 2026-09-23"
+  },
+  "native_parser": "repo review_lifecycle.py accepts Codex 0.156.0 / Claude Code 2.1.280 since b626eaf1; all 80 surface identity echoes pre-checked exact against envelopes before harvest; all 4 lanes and the contextual child harvested via --native-log.",
+  "notes": [
+    "Surface and contextual observations adjudicated independently.",
+    "No slid surface observations; lane 2 built its result JSON in memory and its observations land on the correct entries.",
+    "Contextual full-000 was rejected by harvest (English prose sentence before the JSON); per procedure it was archived and a fresh attempt full-001 (retry_of full-000, attempt 2) produced the accepted result. The rejected output is not counted; its staff set-item lead was independently verified by the host from pinned source.",
+    "Contextual passed f99ebf3a, f9b4a1d5, fa465502, fa46681a; host keeps them confirmed on objective grounds (effect name 被镇静; newline invariant; added 直觉; set-item alone reversed).",
+    "Contextual raised fa9d429c; host upgrades surface advisory to confirmed (addition plus nonstandard term 精神力 vs 精神强度).",
+    "Four surface advisories not repaired: exploration achievements wording, quest title 绝望的坟墓, martyrdom wording (fa9d429c advisory superseded by contextual confirm).",
+    "dc8e68d2 (Arcane Vortex) and e246982c (yeek) are window 23 successors; both refuted as source-backed / user-decided.",
+    "No pending, no glossary/global rename; old pending/blocked unchanged."
+  ]
+}

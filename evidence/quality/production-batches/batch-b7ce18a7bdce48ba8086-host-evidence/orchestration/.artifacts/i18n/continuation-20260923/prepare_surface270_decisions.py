@@ -1,0 +1,27 @@
+import pathlib,json
+P=pathlib.Path('.ai/task/batch-b7ce18a7bdce48ba8086')
+D={
+'dc8e68d2':('refuted',False,'timed_effects/magical.lua:2677–2693（624a673）ARCANE_VORTEX on_timeout：有敌人时先对附着目标调用 ARCANE projector（eff.dam），再以 type="beam" 向随机敌人投射，路径上所有单位受伤（to all）；无敌人时仅对附着目标造成 eff.dam*1.5。现译即窗口23按源码收敛的版本，附着目标与射线路径全体受伤均有实现依据，驳回。'),
+'e246982c':('refuted',False,'yeek 译“夺心魔”为用户 2026-09-16 裁定保留的本库专名；quests/start-yeek.lua:23 其余“至少清除一个威胁”与原文一致（窗口23已修复），驳回。'),
+'f99ebf3a':('confirmed',True,'talents/cunning/artifice.lua:639–643（624a673）：Dart Launcher（飞镖发射器）睡眠飞镖命中后施加 EFF_SEDATED，否则记录 "%s resists the sedation!"；本库该效果名 Sedated=“被镇静”（mod-tome.lua:37588）。现译“抵抗了睡眠”与效果名不一致（术语一级），改为“抵抗了镇静”一类，%s 保持。'),
+'f9b40904':('refuted',False,'class/GameState.lua:3451–3469（624a673）fast-exit 挑战：turns_left 从 turns 递减，<0 才失败、>=0 离开即完成，实现允许用满 %d 回合；现译“在%d回合内”贴合实现，驳回。'),
+'f9b4a1d5':('confirmed',True,'talents/spells/divination.lua:88–92（624a673）Keen Senses（敏锐直觉）说明：原文 2 个 LF（3 行），现译 4 个 LF，把第二行拆成三行（一级换行不变量，与既往 blighted-ruins/Thought-Forms 裁决一致）；且“通过直觉获取未来的信息”增添原文没有的“直觉”，原文为 getting information from moments in the future。整条修复：恢复 3 行、\\t\\t 缩进，首句按原文译出“从未来的片刻中获取信息”一类，侦测隐形/潜行/法术暴击三项并回一行。'),
+'f9d418c4':('refuted',False,'ego 前缀 balanced（prefix，与物品名拼接）；中文前缀全库惯例不保留尾随空格（与既往 exposing/starlit/timebroken 裁决一致），非格式缺陷。'),
+'f9d57076':('advisory',False,'birth/descriptors.lua:326（624a673）Exploration 模式说明：granted 与“可以完成探索模式成就”语感差异，玩家在此模式获得的就是探索版成就，不误导机制，记 advisory。'),
+'f9e031e8':('advisory',False,'quests/grave-necromancer.lua:20 任务名 And now for a grave；“绝望的坟墓”为意译标题，增添“绝望”但不涉机制，任务名为短标签专名，改名需全库一致性评估，记 advisory。'),
+'f9f99974':('refuted',False,'ego 前缀 temporal（prefix）；中文前缀不保留尾随空格为全库惯例，同 f9d418c4，驳回。'),
+'fa2a8ff2':('confirmed',True,'talents/cursed/slaughter.lua:125–156（624a673）Frenzy（狂热）：for i=1,4 每次攻击各自选目标（有被追踪猎物则总是它，否则 rng.table 随机），damageMultiplier 作用于每次攻击；原文 4 fast attacks … damage each。现译“进行 4 次攻击每个目标造成”把 each 误作“每个目标”并漏 fast；原文盾牌句前为 \\n\\n\\t\\t（空行），现译只剩 \\n\\t\\t（一级换行不变量）。整条修复，Stalked prey are always targeted 译“总是”。'),
+'fa465502':('confirmed',True,'general/objects/world-artifacts-maj-eyal.lua:1018–1028（624a673）Staff of Arcane Supremacy（奥术至上法杖）描述：原文两句间 1 个 \\n，现译 0 个 LF 并成一段（一级换行不变量，与既往裁决一致）。宿主另核（线索来自已作废的 contextual 首次尝试，结论由宿主独立核验）：该法杖 set_list 与 SET_HAT_CHANNELERS 成套（同文件 1052/1088 行），yet alone it seems incomplete 意为“单独一件似乎并不完整”，现译“整体来看，它似乎是不完整的”意思相反（一级 fidelity）。整条修复：恢复换行，末句译为“单独一件时似乎并不完整”一类，其余逐句对照。'),
+'fa46681a':('confirmed',True,'dark-sustenance.lua Feed Strengths（吸食抗性）说明：原文 1 个 LF（\\n\\t\\t 在 Improves with your Mindpower 前），现译 2 个，在“对‘所有’抗性无效”前额外换行（一级换行不变量）。整条修复：并回首段，只保留原位置一处 \\n\\t\\t。'),
+'fa5648e8':('advisory',False,'timed_effects/magical.lua:892–907 MARTYRDOM：martyrdom 值使目标造成的伤害按比例反噬自身；英文 hurt it for %d%% 同样简省，现译“造成伤害的同时对自身造成 %d%% 伤害”可理解为按所造成伤害的比例，记 advisory。'),
+'fa9d429c':('advisory',False,'load.lua:186 Willpower 属性说明未列 Mindpower，但 class/interface/TooltipsData.lua:243 同属性说明明确 increases … Mindpower，现译多出的“精神力”贴合实现（源文可能与实现矛盾类）；用词与本库“精神强度”不统一，记 advisory。'),
+}
+rows=[]
+for f in sorted(pathlib.Path('.artifacts/i18n/continuation-20260923/review270-surface-raw').glob('*.json')):
+ for r in json.loads(f.read_text())['results']:
+  if r['verdict']=='ISSUE':
+   m=[v for k,v in D.items() if r['entry_revision_identity'].startswith(k)];assert len(m)==1,r['entry_revision_identity']
+   d,rep,why=m[0];rows.append(dict(revision_key=r['entry_revision_identity'],stage='surface',observation=r['observation'],disposition=d,repair_required=rep,conclusion=why))
+assert len(rows)==14,len(rows)
+(P/'HOST-SURFACE-DECISIONS.json').write_text(json.dumps(dict(status='host adjudicated surface observations; contextual observations adjudicated separately',slid_observations=None,slide_check='each of 14 observations compared against its own entry source/target; none slid',rows=rows),ensure_ascii=False,indent=2)+'\n')
+print({d:sum(r['disposition']==d for r in rows) for d in ('confirmed','refuted','advisory','pending')})
