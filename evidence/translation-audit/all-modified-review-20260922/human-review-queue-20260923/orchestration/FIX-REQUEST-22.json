@@ -1,0 +1,295 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "phase": "scope-22 wave 1-3 confirmed fix",
+ "purpose": "translation_text_drafting",
+ "text_provenance_rule": "facts only; no target text authored by the main agent",
+ "items": [
+  {
+   "entry_id": "entry-00111",
+   "file": "engine.lua",
+   "section": "engine/modules/boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#One year has passed since the one the Orcs call the \"Scourge from the West\" came and single-handedly crushed the Orc Prides of Grushnak, Vor, Gorbat, and Rak'Shor.  The Allied Kingdoms, now linked by farportal to their distant, long-lost Sunwall allies, have helped them conquer most of Var'Eyal.  The few remnants of the ravaged Prides are caged...  but one Pride remains.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#A whole new campaign:#WHITE# Set one year after the events of the main game, the final destiny of the Orc Prides is up to you. Discover the Far East like you never knew it. \n#LIGHT_UMBER#New classes:#WHITE# Sawbutchers, Gunslingers, Psyshots, Annihilators and Technomanchers. Harness the power of steam to power deadly contraptions to lay waste to all those that oppose the Pride!  \n#LIGHT_UMBER#New races:#WHITE# Orcs, Yetis, Whitehooves. Discover the orcs and their unlikely 'allies' as you try to save your Pride from the disasters caused by the one you call 'The Scourge from the West'.\n#LIGHT_UMBER#Tinker system:#WHITE# Augment your items with powerful crafted tinkers. Attach rockets to your boots, gripping systems to your gloves and many more.\n#LIGHT_UMBER#Salves:#WHITE# Bound to the tinker system, create powerful medical salves to inject into your skin, replacing the infusions§runes system.\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... \n\n",
+   "current_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "confirmed_defects": [
+    {
+     "class": "terminology",
+     "authority": [
+      "terminology/items.tsv:24 tinker=蒸汽工具 (T.GAME.ENTITY, entity type, existing, Embers of Rage 实体类型)",
+      "tome-orcs.lua:1145/1235/1809 t(\"tinker\", \"蒸汽工具\", \"entity type\"/\"entity name\")",
+      "tome-orcs.lua:681 t(\"tinkers\", \"蒸汽工具\", \"_t\"); 10 in-repo uses of 蒸汽工具 vs 2 of 嵌件"
+     ]
+    }
+   ],
+   "what_must_change": "the Tinker system and crafted tinkers must use the recorded terminology tinker=蒸汽工具 (terminology/items.tsv:24, T.GAME.ENTITY/entity type, existing; in-repo tome-orcs.lua uses 蒸汽工具 10x). The target renders 嵌件系统/嵌件 four times inside this same string (the 'Tinker system' line and the 'Salves' line). Replace them with the recorded term. Keep markup, colour tokens and newlines byte-identical.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00145",
+   "file": "mod-boot.lua",
+   "section": "mod-boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#One year has passed since the one the Orcs call the \"Scourge from the West\" came and single-handedly crushed the Orc Prides of Grushnak, Vor, Gorbat, and Rak'Shor.  The Allied Kingdoms, now linked by farportal to their distant, long-lost Sunwall allies, have helped them conquer most of Var'Eyal.  The few remnants of the ravaged Prides are caged...  but one Pride remains.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#A whole new campaign:#WHITE# Set one year after the events of the main game, the final destiny of the Orc Prides is up to you. Discover the Far East like you never knew it. \n#LIGHT_UMBER#New classes:#WHITE# Sawbutchers, Gunslingers, Psyshots, Annihilators and Technomanchers. Harness the power of steam to power deadly contraptions to lay waste to all those that oppose the Pride!  \n#LIGHT_UMBER#New races:#WHITE# Orcs, Yetis, Whitehooves. Discover the orcs and their unlikely 'allies' as you try to save your Pride from the disasters caused by the one you call 'The Scourge from the West'.\n#LIGHT_UMBER#Tinker system:#WHITE# Augment your items with powerful crafted tinkers. Attach rockets to your boots, gripping systems to your gloves and many more.\n#LIGHT_UMBER#Salves:#WHITE# Bound to the tinker system, create powerful medical salves to inject into your skin, replacing the infusions§runes system.\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... \n\n",
+   "current_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "confirmed_defects": [
+    {
+     "class": "terminology",
+     "authority": [
+      "identical to entry-00111"
+     ]
+    }
+   ],
+   "what_must_change": "identical string to entry-00111 in the boot-module carrier; same defect and same fix (tinker=蒸汽工具).",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00112",
+   "file": "engine.lua",
+   "section": "engine/modules/boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Not all adventurers seek fortune, not all that defend the world have good deeds in mind. Lately the number of sightings of horrors have grown tremendously. People wander off the beaten paths only to be found years later, horribly mutated and partly insane, if they are found at all. It is becoming evident something is stirring deep below Maj'Eyal. That something is you.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Writhing Ones. Give in to the corrupting forces and turn yourself gradually into an horror, summon horrors to do your bidding, shed your skin and melt your face to assault your foes. With your arm already turned into a tentacle, what creature can stop you?\n#LIGHT_UMBER#New class:#WHITE# Cultists of Entropy. Using its insanity and control of entropic forces to unravel the normal laws of physic this caster class can turn healing into attacks and call upon the forces of the void to reduce its foes to dust.\n#LIGHT_UMBER#New race:#WHITE# Drems. A corrupt subrace of dwarves, that somehow managed to keep a shred of sanity to not fully devolve into mindless horrors. They can enter a frenzy and even learn to summon horrors.\n#LIGHT_UMBER#New race:#WHITE# Krogs. Ogres transformed by the very thing that should kill them. Their powerful attacks can stun their foes and they are so strong they can dual wield any one handed weapons.\n#LIGHT_UMBER#Many new zones:#WHITE# Explore the Scourge Pits, fight your way out of a giant worm (don't ask how you get *in*), discover the wonders of the Occult Egress and many more strange and tentacle-filled zones!\n#LIGHT_UMBER#New horrors:#WHITE# You liked radiant horrors? You'll love searing horrors! And Nethergames. And Entropic Shards. And ... more\n#LIGHT_UMBER#Sick of your own head:#WHITE#  Replace it with a nice cozy horror!\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, events... \n\n",
+   "current_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "confirmed_defects": [
+    {
+     "class": "terminology",
+     "authority": [
+      "terminology/classes.tsv:43 Writhing One=蜿蜒怪人 (birth descriptor name, existing, Cults of Entropy 职业)",
+      "tome-cults.lua:4972 要想开始你半恐魔的旅程，请选择#LIGHT_GREEN#蜿蜒怪人 — the only other in-repo carrier uses 蜿蜒怪人"
+     ]
+    }
+   ],
+   "what_must_change": "'New class: Writhing Ones' must use the recorded terminology Writhing One=蜿蜒怪人 (terminology/classes.tsv:43, birth descriptor name, existing; the only other in-repo carrier tome-cults.lua:4972 uses 蜿蜒怪人). The target says 扭动者. Keep everything else byte-identical.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00146",
+   "file": "mod-boot.lua",
+   "section": "mod-boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Not all adventurers seek fortune, not all that defend the world have good deeds in mind. Lately the number of sightings of horrors have grown tremendously. People wander off the beaten paths only to be found years later, horribly mutated and partly insane, if they are found at all. It is becoming evident something is stirring deep below Maj'Eyal. That something is you.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Writhing Ones. Give in to the corrupting forces and turn yourself gradually into an horror, summon horrors to do your bidding, shed your skin and melt your face to assault your foes. With your arm already turned into a tentacle, what creature can stop you?\n#LIGHT_UMBER#New class:#WHITE# Cultists of Entropy. Using its insanity and control of entropic forces to unravel the normal laws of physic this caster class can turn healing into attacks and call upon the forces of the void to reduce its foes to dust.\n#LIGHT_UMBER#New race:#WHITE# Drems. A corrupt subrace of dwarves, that somehow managed to keep a shred of sanity to not fully devolve into mindless horrors. They can enter a frenzy and even learn to summon horrors.\n#LIGHT_UMBER#New race:#WHITE# Krogs. Ogres transformed by the very thing that should kill them. Their powerful attacks can stun their foes and they are so strong they can dual wield any one handed weapons.\n#LIGHT_UMBER#Many new zones:#WHITE# Explore the Scourge Pits, fight your way out of a giant worm (don't ask how you get *in*), discover the wonders of the Occult Egress and many more strange and tentacle-filled zones!\n#LIGHT_UMBER#New horrors:#WHITE# You liked radiant horrors? You'll love searing horrors! And Nethergames. And Entropic Shards. And ... more\n#LIGHT_UMBER#Sick of your own head:#WHITE#  Replace it with a nice cozy horror!\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, events... \n\n",
+   "current_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "confirmed_defects": [
+    {
+     "class": "terminology",
+     "authority": [
+      "identical to entry-00112"
+     ]
+    }
+   ],
+   "what_must_change": "identical string to entry-00112 in the boot-module carrier; same defect and same fix (Writhing One=蜿蜒怪人).",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00221",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/class/Game.lua",
+   "source": "#LIGHT_RED#You may not change level without your own body!",
+   "current_target": "#LIGHT_RED#你只能用自己的身体离开地图！",
+   "confirmed_defects": [
+    {
+     "class": "fidelity (mechanic)",
+     "authority": [
+      "fixed commit 624a6732 game/modules/tome/class/Game.lua changeLevelCheck: not self.player.can_change_level → 'You may not change level without your own body!'; the separate 'You may not leave the zone with this character!' belongs to not can_change_zone"
+     ]
+    }
+   ],
+   "what_must_change": "'change level' means switching floors (楼层), not leaving the zone/map. The separate message 'You may not leave the zone with this character!' belongs to a different check (can_change_zone) in the same function. The target 你只能用自己的身体离开地图 conflates the two and reverses the restriction's meaning. Keep the placeholder-free string and the colour token.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00560",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/chats/alchemist-last-hope.lua",
+   "source": "Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.",
+   "current_target": "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，说不定连眼皮和指甲上都会长。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：也许是马基·埃亚尔仅存的最后一枚“堕落印记：清除”哦。",
+   "confirmed_defects": [
+    {
+     "class": "cross-entry consistency",
+     "authority": [
+      "fixed commit 624a6732 game/modules/tome/data/chats/alchemist-last-hope.lua:146-149 and :161-164 — the speaker insists on brew and corrects himself to elixir",
+      "mod-tome.lua:4116 renders the sibling node as 配药…改口叫“药剂”; mod-tome.lua:4121 contrasts 佳酿 against 药剂",
+      "using 药剂 for brew erases the brew/elixir contrast the dialogue turns on"
+     ]
+    }
+   ],
+   "what_must_change": "in this dialogue the speaker insists on his own word brew and later corrects himself to elixir (药剂). Rendering brew as 药剂 erases the brew/elixir contrast the scene depends on; use a distinct word for brew, consistent with the sibling nodes of the same chat (配药 / 佳酿).",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00579",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/chats/gates-of-morning-main.lua",
+   "source": "Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.\nThank you for everything. You must continue your hunt now that you know what to look for.",
+   "current_target": "法师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。\n感谢你所做的一切。既然你已经知道要找的是什么，就必须继续你的追猎。",
+   "confirmed_defects": [
+    {
+     "class": "fidelity (proper group name)",
+     "authority": [
+      "fixed commit 624a6732 game/modules/tome/data/chats/gates-of-morning-main.lua:222-229 and :231-238",
+      "game/modules/tome/data/quests/charred-scar.lua:33,37,72,74 — the orcs shout 'The Sorcerers have departed!', i.e. a specific group",
+      "mod-tome.lua:20180-20181 render that same group as 巫师; 法师 is the generic caster noun and makes Aeryn's line contradict the Sunwall"
+     ]
+    }
+   ],
+   "what_must_change": "the capitalised 'Sorcerers' is a specific group, not the common noun 法师: the quest and achievement render the same group as 巫师, and mod-tome.lua:20180-20181 already use 巫师. Use 巫师 and keep the rest byte-identical.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00581",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/chats/gates-of-morning-main.lua",
+   "source": "Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.\nI am afraid with the power they gained today they will be even harder to stop, but we do not have a choice.",
+   "current_target": "法师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。\n恐怕依他们现在所具有的力量我们更难阻止他们了，不过我们别无选择。",
+   "confirmed_defects": [
+    {
+     "class": "fidelity (proper group name)",
+     "authority": [
+      "identical to entry-00579"
+     ]
+    }
+   ],
+   "what_must_change": "same group name as entry-00579 in the charred-scar-fail node; use 巫师.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00647",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/damage_types.lua",
+   "source": "#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.",
+   "current_target": "#DARK_ORCHID#你的伤害护盾不能再被延长，终于破碎了。",
+   "confirmed_defects": [
+    {
+     "class": "fidelity (mechanic)",
+     "authority": [
+      "fixed commit 624a6732 game/modules/tome/data/damage_types.lua:2728-2736 — after 20 extensions the shield is removed by an overload ('has exploded'); a normal break uses different wording",
+      "the target also adds 终于, which the English does not carry"
+     ]
+    }
+   ],
+   "what_must_change": "'has exploded' is an overload explosion after 20 extensions (damage_types.lua:2728-2736), not a normal break (破碎). Remove the added 终于 and use wording for 爆炸/引爆. Keep the colour token.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00746",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/general/npcs/losgoroth.lua",
+   "source": "Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.",
+   "current_target": "法力蠕虫是以奥术使用者的魔力为食的洛斯格罗斯。如果它们近距离接触到施法者，就会缠上去吸干对方的魔力。",
+   "confirmed_defects": [
+    {
+     "class": "terminology",
+     "authority": [
+      "terminology/resources.tsv:3 Mana=法力值 (T.GAME.RESOURCE, _t, existing, core)",
+      "terminology/combat.tsv:127 mag=魔力 (T.GAME.STAT, stat short_name, existing)",
+      "fixed commit 624a6732 game/modules/tome/data/general/npcs/losgoroth.lua:75 desc and damage_types.lua MANAWORM / EFF_MANAWORM drain the mana resource (incMana)"
+     ]
+    }
+   ],
+   "what_must_change": "'the mana of arcane users' is the resource Mana = 法力值 (terminology/resources.tsv:3, T.GAME.RESOURCE/existing), not the stat 魔力 (mag, terminology/combat.tsv:127). Both occurrences in this string.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  },
+  {
+   "entry_id": "entry-00984",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/general/objects/quest-artifacts.lua",
+   "source": "This chest is an extension of old Sher'Tul places of power. Any items dropped inside is transported to an other place, processed and destroyed to extract energy.\nThe byproduct of this effect is the creation of gold, which is useless to process, so it is sent back to you.\n\nWhen you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.\nTo take an item out, simply go to your inventory to move them out of the chest.\nItems in the chest will not encumber you.",
+   "current_target": "这只宝箱是某处古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。\n这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。\n\n当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。\n要从宝箱中取出物品，只需打开物品栏，将其从宝箱移出。\n在宝箱中的物品不会增加你的负重。",
+   "confirmed_defects": [
+    {
+     "class": "fidelity",
+     "authority": [
+      "fixed commit 624a6732 game/modules/tome/data/general/objects/quest-artifacts.lua:378 and :441 — 'transported to an other place' is a different place, not the place named in the first sentence",
+      "the target's 那个地方 asserts the destination is the place just named, inverting the sentence"
+     ]
+    }
+   ],
+   "what_must_change": "'transported to an other place' means a different place, not the place named in the first sentence; 'old Sher'Tul places of power' is plural. The target's 那个地方 asserts the destination is the place just named and singularises the places. Fix both. Keep markup/newlines byte-identical.",
+   "invariants": [
+    "preserve every %s/%d/%%.2f/%% placeholder exactly",
+    "preserve every #{...}# / [i]...[/i] / [b]...[/b] markup and colour token exactly",
+    "preserve the exact \\n newline structure",
+    "do not touch source or source_tag",
+    "change only what the confirmed defect requires; keep every other byte identical"
+   ],
+   "target_occurrences": 1,
+   "source_occurrences": 1
+  }
+ ]
+}

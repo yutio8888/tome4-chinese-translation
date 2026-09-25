@@ -466,7 +466,7 @@ Campaign: %s]], [[%s，%s %s。
 难度：%s / %s
 战役：%s]], "tformat")
 t("#LIGHT_RED#You may not change level so soon after a kill (%d game turns left to wait)!", "#LIGHT_RED#在完成一次杀戮后，你现在不能离开该层！（等待%d回合）", "logPlayer")
-t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你只能用自己的身体离开地图！", "logPlayer")
+t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你不能在没有自己身体的情况下切换楼层！", "logPlayer")
 t("#LIGHT_RED#You may not leave the zone with this character!", "#LIGHT_RED#你不能用这个角色离开地图！", "logPlayer")
 t("#LIGHT_RED#You cannot escape your fate by leaving the level!", "#LIGHT_RED#你不能离开地图以求逃避命运！", "logPlayer")
 t("Stay: level %s of %s", "待在：第%s层，%s地图", "tformat")
@@ -4115,7 +4115,7 @@ t("I propose that I give you a list of monster parts to fetch, then you go and f
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
 t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "我做计划可是一流的。还有配药——加入兄弟会之后他们肯定会让我改口叫“药剂”的。我会照做，因为他们总有办法达成自己的目的。那么……我们说到哪儿了？", "_t")
 t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你加入那个什么什么兄弟会……我能得到什么回报？", "_t")
-t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，说不定连眼皮和指甲上都会长。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：也许是马基·埃亚尔仅存的最后一枚“堕落印记：清除”哦。", "_t")
+t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份佳酿我都会让你先喝个痛快的。喝下这些佳酿会让你长出有男子汉气概的胸毛，说不定连眼皮和指甲上都会长。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：也许是马基·埃亚尔仅存的最后一枚“堕落印记：清除”哦。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们可不会闲着等我们慢慢来，所以你越快动身越好。现在，你选择帮我完成哪个吧：蛮牛佳酿？石肤佳酿？还是领悟佳酿？哦，应该说药剂才对。不是佳酿。最好现在就开始改口，我想。", "_t")
@@ -5134,11 +5134,11 @@ t("I have heard about that; good men lost their lives for this. I hope it was wo
 t("Yes, my lady, they delayed the orcs so that I could get to the heart of the volcano. *#LIGHT_GREEN#Tell her what happened#WHITE#*", "是的，我的女士。他们拖住了敌人，使我能够前进至火山中心。*#LIGHT_GREEN#告诉她发生的事。#WHITE#*", "_t")
 t("I am afraid I was too late, but I still have some valuable information. *#LIGHT_GREEN#Tell her what happened#WHITE#*", "恐怕我太迟了，不过我还是带来了有价值的消息。*#LIGHT_GREEN#告诉她发生的事。#WHITE#*", "_t")
 t([[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.
-Thank you for everything. You must continue your hunt now that you know what to look for.]], [[法师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。
+Thank you for everything. You must continue your hunt now that you know what to look for.]], [[巫师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。
 感谢你所做的一切。既然你已经知道要找的是什么，就必须继续你的追猎。]], "_t")
 t("I will avenge your men.", "我会替你的人报仇。", "_t")
 t([[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two.
-I am afraid with the power they gained today they will be even harder to stop, but we do not have a choice.]], [[法师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。
+I am afraid with the power they gained today they will be even harder to stop, but we do not have a choice.]], [[巫师？我从来没听说过他们。传说部落有了一个新的领袖，看样子现在应该有两个。
 恐怕依他们现在所具有的力量我们更难阻止他们了，不过我们别无选择。]], "_t")
 t("Ah! This is wonderful! Finally a ray of hope amidst the darkness. I will assign my best troops to this. Thank you, @playername@ - take this as a token of gratitude.", "太好了！一线希望的曙光终于穿过了黑暗。我会派我最好的军队去那里。多谢你了，@playername@——以此物来表示我们对你的感激。", "_t")
 t("Good luck.", "祝你们好运。", "_t")
@@ -7014,7 +7014,7 @@ t("purging blight", "枯萎净化", "damage type")
 t("holy light", "圣光", "damage type")
 t("healing", "治疗", "damage type")
 t("healing light", "治疗之光", "damage type")
-t("#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.", "#DARK_ORCHID#你的伤害护盾不能再被延长，终于破碎了。", "logPlayer")
+t("#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.", "#DARK_ORCHID#你的伤害护盾不能再被延长，爆炸了。", "logPlayer")
 t("judgement", "审判", "damage type")
 t("healing nature", "自然治疗", "damage type")
 t("infective blight", "枯萎感染", "damage type")
@@ -8415,7 +8415,7 @@ t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空元素生物，原生于群星之间的虚空。在星球表面几乎看不到这种生物。", "_t")
 t("losgoroth", "洛斯格罗斯", "entity name")
 t("manaworm", "法力蠕虫", "entity name")
-t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "法力蠕虫是以奥术使用者的魔力为食的洛斯格罗斯。如果它们近距离接触到施法者，就会缠上去吸干对方的魔力。", "_t")
+t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "法力蠕虫是以奥术使用者的法力值为食的洛斯格罗斯。如果它们近距离接触到施法者，就会缠上去吸干对方的法力值。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/major-demon.lua"
@@ -11660,7 +11660,7 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 To take an item out, simply go to your inventory to move them out of the chest.
-Items in the chest will not encumber you.]], [[这只宝箱是某处古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到那个地方，进行处理并摧毁，从里面提取能量。
+Items in the chest will not encumber you.]], [[这只宝箱是古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到另一个地方，进行处理并摧毁，从里面提取能量。
 这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
 当你有这只箱子时，所有你经过地面上的物品会被自动捡起，并且当你离开该层时会自动转化。
