@@ -1,0 +1,87 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "all 10 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "3bd78dce707cebe738f5e1e8c42a0bc5eda58b49ecf739320dbb1b4d8bc4969f",
+      "stage": "surface",
+      "observation": "原文换行后为两个制表符，译文只有一个制表符，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes talents/corruptions/wrath.lua:132–134 爆裂冲锋说明的两个后续行均以 \\n\\t\\t 缩进，现译两处改为 \\n\\t（一级 TAB 不变量，与窗口27 wrath.lua 同类修复一致）；文字内容本身无误，只恢复两个制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3c496fb546a23ba6ab3859ca273a3cbd6d4aca353915a340e483d5d8467e68b4",
+      "stage": "surface",
+      "observation": "原文“fire a bolt of plaguefire”明确表示发射疫火弹，译文“召唤出一团疫火”改变了动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:178–188 疫火权杖的使用效果是 type=\"bolt\"、range=5 的指向性弹道，命中后施加 BURNING_PLAGUE；现译“召唤出一团疫火”把发射弹道改成召唤，误导使用方式。本库同类 fire a bolt 均译“发射”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3d80f4a586f3325c118ecbc8852f333f0f14ab4a95e132d36f5b6ff29c528e41",
+      "stage": "surface",
+      "observation": "原文要求队伍中至少有 5 个恶魔，译文改为“同时召唤至少5个恶魔”；队伍组成与召唤数量不是同一条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes achievements/all.lua:59–66 的 can_gain 统计 game.party.m_list 中 type/subtype 为 demon 的成员不少于 5 个；条件是队伍组成，现译“同时召唤至少5个恶魔”改成一次召唤动作。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3ddfbf1e999ec832384e54e71e6d6dcc9087bb9f74ac5116139dc9c58e804df5",
+      "stage": "surface",
+      "observation": "原文写“until reaching %d life per stack”，译文写“每一层状态使你获得 -%d 生命底限”，额外加入负号；冻结文本不足以确认该负号是否符合实际机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes doom-covenant.lua:67 getDieAt 为正值，timed_effects.lua:805、822 以 -(stacks*die_at) 写入 die_at，效果说明亦显示为负生命；现译“-%d 生命底限”与实现一致，负号不是增译。两处 \\n\\t\\t 均保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4130b8095917def9977329ebfb98ad418775ad0a163d74ee11b26a5c22005369",
+      "stage": "surface",
+      "observation": "原文说巨大的恶魔高耸在你面前，且控制附近恶魔空间区域的所有传送门；译文改为“朝你走来”，并遗漏“恶魔空间区域”的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes zones/searing-halls/npcs.lua:126 空间控制者描述：towers above you 是高耸于你面前，现译“朝你走来”增添动作；in the nearby Fearscape area 被删，只剩“附近所有的传送门”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43134b3daeeadebcfd1217a934c0c39557788de65ac2b81370f384c7e4a91b1d",
+      "stage": "surface",
+      "observation": "原文说埃亚尔上的夏·图尔传送门偶尔会放出亡者幻影；译文改为亡者灵魂在传送门附近经常徘徊，改变了发生方式和频率。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:404（毁灭女妖雕像）：portals ... will occasionally emit a shade 是传送门偶尔放出亡魂，现译“附近经常徘徊着灵魂”把偶尔改成经常、把放出改成徘徊（删限定词缺陷类）；our scouting parties 亦被写成“埃亚尔探险队”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "435ca9b7490f81665c6737895a47d51412850a38267b937e5f24a942e94049ff",
+      "stage": "surface",
+      "observation": "原文要求诅咒之焰传播给半径 1 内其他正在燃烧的敌人；译文改为以 50%% 几率传播给此前是否燃烧均可的敌人，并增添伤害分期等原文没有的机制。原文换行后有两个制表符，译文只有一个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes heart-of-fire.lua:143–144 吞噬之焰说明第二行以 \\n\\t\\t 缩进，现译为 \\n\\t（一级 TAB 不变量），只恢复制表符。observation 的机制部分不成立：heart-of-fire.lua:116–137 实为 rng.percent(50)、跳过已受诅咒者、is_burning 计算后未使用，伤害走 FIREBURN（固定主游戏 624a673 damage_types.lua:1187–1201 首发 50%、余量 3 回合燃烧），现译贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "46fd21dfbecae5f9a1971d86939ade7ff66f85f85f001ebc4443ead6e5bcef90",
+      "stage": "surface",
+      "observation": "原文首尾有引号，译文均未保留。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:621 黑之核 desc 为带引号的格言；现译“锁住灵魂，死亡莫及。”语义完整。同文件同族格言（tome-ashes-urhrok.lua:213–241）八条中七条现译均不带引号，引号不是运行时标记；是否全族统一加引号属风格，不单条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4b928dc676ce78e4772e0a841731f9738daec86d1df89994fac64326c3b91249",
+      "stage": "surface",
+      "observation": "原文首尾有引号且句末有句号，译文均未保留。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:825 黑之墙 desc 为带引号的格言；现译“披坚持盾，众莫能伤”语义与盾牌物品相符。引号与句号的省略沿用同族格言惯例，不单条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4dd916e4cbcf28e4aec901cfe7240fb6ff481645fcf9643533396ba87a771432",
+      "stage": "surface",
+      "observation": "原文“convert ambient magic into caloric energy”指将魔力转化为维持生命所需的食物热量；译文“转化为热量能量”易被理解为供暖用的热能，与同段缺氧、灼烧的生存处境混淆。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua:52 的 convert ambient magic into caloric energy；“热量”在中文本就兼指食物热量，现译“把环境中的魔力转化为热量能量”不构成误译，属措辞偏好。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
