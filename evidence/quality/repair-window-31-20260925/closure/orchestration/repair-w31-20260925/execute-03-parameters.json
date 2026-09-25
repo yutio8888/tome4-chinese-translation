@@ -1,0 +1,18 @@
+{
+  "title": "W31 fix 03",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w31-20260925 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R2.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复两条 confirmed target（tome-cults.lua）：01bdde5133…（\"#Target# is bolstered at the sight of the horror!\"，HORRIFIC_FORTRESS 护甲类效果，on_lose 本库译“#Target#的护甲降低了。”）现译“#Target#目睹恐魔，士气大振！”改为“#Target#目睹恐魔，防护得到了强化！”；1a5b7fe508…（Amakthel 调谐恐魔技能 info）首句“增加恐魔 %d%% 伤害”补译 summoned horrors 的限定，改为“增加你召唤的恐魔 %d%% 伤害”。两条其余文字、占位符、LF/TAB 与两个文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 恰23条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w31-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（第289批已 finalize；窗口31积压 23 条达到阈值，开修复窗口31）
+更新时间：2026-09-25（修复窗口31已完成；待宿主证据提交与推送，随后继续审核第290批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -13,9 +13,9 @@
   contextual 首轮 run 执行 `ls ../t-engine4` 找源码 checkout，按边界拒收并归档；refreeze（dlc-location-v1）run 只读 envelope 与契约，接受；
   19 个观察逐条裁决。Cults 批 refreeze 不会写入 checkout 位置（工具只给 Ashes facts 写），envelope 与首轮逐字节相同，列为工具待办。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `fa4a42e96e8825dcddcf7a5a0998370dae0e8cbe` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **30**：第 284–286 批共 23 条确认问题已修复并发布，译文提交
-  `941824e9642823b8a3575eee10bea5217be2afc5`；migration `daf1db30…` 的 23 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 31 积压 23 条（第287–289批），已达阈值。
+- 修复窗口已闭合至 **31**：第 287–289 批共 23 条确认问题已修复，译文提交
+  `4259b5ff762152c3da3c4df44bdd8f669b1ba13e`；migration `bb2265e2…` 的 23 个 successor
+  须重新审核，不继承旧 revision 的 done 状态。积压已清零，从审核第 290 批重新累计。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -121,26 +121,11 @@
 
 ## 五、下一步
 
-1. 开修复窗口 **31**（23 条，第287–289批），以 `/tmp/w30-tr.sh`、`/tmp/w30-close.sh` 与 `.artifacts/i18n/repair-w30-20260925/setup_window30.py` 为模板；
-   max_cycles=5 且 STATE 须带 `max_cycles_user_authorized=true`；开窗时宿主先逐句预检长 lore 条目（本窗有两条菲·维莉欧斯的冒险长手记），
-   FINAL 在 RE_REVIEW 之后冻结用 attempt 2。窗口完成后继续审核第 **290** 批（prepare_review 模板已按组件写 SPEC；prepare_contextual 已自动声明章节标题锚点）。
-2. 窗口 31 范围 **23** 条（第287–289批）：`f6eee01b`（恶魔之角：近战/流血期间条件、所造成伤害的 50%、暗影伤害；即窗口30 记下的 1240 行）
-   `f746ce38`（战术简报：末尾空行、写死“他”、改造/韧性来源误译、unlikely 删限定）`f985ec15`（无情未来 up to）
-   `f9e45b5a`（燃烧献祭制表符）`fc65680a`（小水怪 lore：秘密行动、己方土地、斥候、致敬）`fc8cdfb2`（炙炎之牢制表符）
-   `00b0f993`（Cults 插件描述首处换行与 partly）`01bdde51`（Cults 恐魔鼓舞日志观看者颠倒）。
-   第288批 6 条（Cults）：`0545d032`（熵之化身 lore：manifestation、towering、多余视角）`055d7922`（撕裂目标的本质）
-   `0576002f`（远古洞穴开场：sometimes/to look at you、增译“整天”）`08ed9231`（Additionally 段前空行）
-   `0deeb818`（野心误作骄傲自满、增译撕裂的空间）`0f226fd7`（熵能反冲 info 两处空行）；依据见 `.ai/task/batch-fbefc4aef1a281aee013/HOST-FINAL-DECISIONS.json`。
-   第289批 9 条（Cults）：`11d34741`（触手 info 两处空行、标记内空格）`11ef5bb2`（菲·维莉欧斯的冒险长手记：话音渐弱、魔法大爆炸、解救者、转身、待在家里、夫妇、伸出）
-   `1260e07b`（部落几天的食物）`12c7900b`（菲·维莉欧斯的冒险长手记：plans、问句变陈述、惊讶对象、漏译一句）`12c97a3b`（德瑞姆 lore：进食、无法讲理、野生德瑞姆、德瑞莫）
-   `1594e62a`（纳格尔王国一节：领袖复数、被迫、地震增译）`192a8688`（ever ceasing 反译）`1a5b7fe5`（阿马克泰尔 info 制表符）`1cba11e4`（德瑞姆出生描述“出现”）；
-   依据见 `.ai/task/batch-69f00dcf5db5ae40631c/HOST-FINAL-DECISIONS.json`。
-   依据见 `.ai/task/batch-de7c2c3d32f752f42784/HOST-FINAL-DECISIONS.json`；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；
-   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。
-   第289批计时（实测，投影缓存 on）：start 1.7 s；contextual refreeze stage 91.9 s；adjudication chain（含 17 项门禁）163.0 s；finalize 93.8 s。
+1. 宿主完成本窗证据提交、关闭后 queue rebuild、push，然后继续审核第 **290** 批（默认 80 条，连续推进；`prepare_review` 模板按组件写 SPEC，`prepare_contextual` 自动声明章节标题锚点）。
+2. 窗口 31 已完成（3 个 cycle）。积压清零；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 已写明行尾空白 TAB 不计入 TAB 不变量（门禁 11 禁止行尾空白），新窗口派生时保留。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 29 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项）。
+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
 5. 全 DLC 批次的操作要点：adjudication chain 一开始就传 SHA 核验的 `reviewN-source-root`；首次 contextual envelope 不含 checkout
    位置（`--ashes-checkout` 只在 refreeze 路径生效），Opus 可能自行搜寻而越界（第277、280批各一次），届时拒收并按 refreeze 重派；
    surface 某 lane 判废须整组用 `tools/surface_screen_manifest.py build --attempt 2 --group-id group-000-retry-02` 重建（envelope 字节不变）。

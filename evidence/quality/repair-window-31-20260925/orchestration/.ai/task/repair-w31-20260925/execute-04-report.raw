@@ -1,0 +1,17 @@
+修复完成，仅改动：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1223)：木制路标→木招牌，路标旁→招牌旁。
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1267)：改为“我向房间窗外望去，看见……”。
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:2412)：改为“奇异、多半并非善类的生物”。
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:713)：句末补回两个 TAB，文字未动。
+
+验证结果：
+
+- LuaJIT 对比 HEAD：2892 条记录，恰 23 个冻结 target 改变，其他记录/字段 0 变动。
+- LF/TAB 与模板结构：23/23 通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- semantic claims strict：通过。
+- `git diff --cached --check`：通过，暂存区为空。
+- `git diff --check`：退出 2，仅报告指定保留的 `tome-ashes-urhrok.lua:713` 行尾两个 TAB；未发现其他空白问题。
+
+按本轮明确指令补回了 f985 TAB，覆盖 `ADJUDICATION-F2.json` 中较早的 advisory 更正。未 stage、commit、push、创建 agent 或修改 `.ai/task`；既有无关未跟踪文件未动。

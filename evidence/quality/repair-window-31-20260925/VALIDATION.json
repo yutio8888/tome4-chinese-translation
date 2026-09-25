@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-w31-20260925 unique EXECUTOR",
+  "scope": "23 frozen targets plus IMPLEMENTATION.md and VALIDATION.json",
+  "source_provenance": {
+    "repository_commit_pinned": false,
+    "anchored_files_checked": 18,
+    "anchored_files_sha256_matched": 18,
+    "bounded_paths_only": true
+  },
+  "record_comparison": {
+    "runtime": "manifest-compatible LuaJIT / Lua 5.1",
+    "records_compared": 2892,
+    "changed_target_count": 23,
+    "non_target_change_count": 0,
+    "line_invariants_passed": 23,
+    "template_expression_invariants_passed": 23,
+    "verified": true
+  },
+  "changed_revisions": [
+    "00b0f993a3f4d887fbfbd26855439c19f69f06da5b6de6d74f2fb1a4c8291b02",
+    "01bdde51339405bcee58587a7117c5a1a073e94ba4859f2080f4d1c322286bdd",
+    "0545d03281e8e5ab6575ea11ef07b0a8d84e564687c0a9484f0abaff23ed376f",
+    "055d79222e2b54f71bee2bfdfb127f2a051f5544003919af154cee564bf061e8",
+    "0576002f95b33bb7589ba501f7b80bfb37aaaf06c8cb8aeda8f4c1d4bf44ed29",
+    "08ed9231faef631c17c4e8e6a0e834247e19372c892c51379ccdd98394615510",
+    "0deeb818e5750ab247f86d6baf6130d28897d1a6cbfd52b03a6b4659f766eea8",
+    "0f226fd7a25fbbdf9db6e3ca8a8b48d0d111c9839b86bd5af4b30f55640058eb",
+    "11d347416ea9316fd0da876255d3ccc13ad8a0a55a308cf93b242f9c586ce921",
+    "11ef5bb25d0d7560adf4ddef845b4e973ccace3bf588d1471998e52a89f9c9d3",
+    "1260e07b9e42ed8321e52b50353ffcb3404305be36a45ef9a39681f956c631e0",
+    "12c7900b7be48d0fe17c5783a7b68791338671f55d74c683b32e58021da1b79e",
+    "12c97a3b71dfe4488ec4783e741c052763ef8d31f3700537082dd4eb7590d2dc",
+    "1594e62acddbe571ed525c4862061bb33c4af5aceb70df36b8859b4c37298b45",
+    "192a8688c5e11c480947778373a6090ebbdafd223628a24866c6aa8231e75487",
+    "1a5b7fe508b6fa2b49f61d485142bd396f81dcb22dd88ea384defe62c4a80220",
+    "1cba11e4fd779cf220edc88f2254a22339ba3a87fb7660a7223bbb368c734f3f",
+    "f6eee01b5c6cb1f271fc75d89a3eefae48c547688f74ce36c2436dd12b4c500b",
+    "f746ce383c99a894c47eae49642fea81e4e4eef6aa07ab9aeb3bb4c7851b6db6",
+    "f985ec15c0e74b000f2c53c446ae031863c5380c3c5571fecea61fc668bd8c22",
+    "f9e45b5a07f183a9cfc235c7c297bcae9241401501d525dcebf352a013529121",
+    "fc65680ae71975db706e553602b380b0367fb65908fa3eb1337972cdba325596",
+    "fc8cdfb222461f4a6e14e3f90d16a948aa1b5d0a1ce546453c04a3cfed733c98"
+  ],
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "runtime and dependencies OK; expected source-unpinned warnings for three public DLCs"
+    },
+    {
+      "command": "sha256sum <18 SOURCE-ANCHORS files>",
+      "exit_code": 0,
+      "result": "18/18 hashes matched"
+    },
+    {
+      "command": "manifest-compatible LuaJIT baseline/current full-record comparison",
+      "exit_code": 0,
+      "result": "total=2892 changed_targets=23 non_target_changes=0 line_invariants=23/23 template_invariants=23/23"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260925T165119.350568Z-3372396-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "result": "OK semantic claims numeric=1 briefings=1 compositions=1 pending=1"
+    },
+    {
+      "command": "python3 -B tools/scan_runtime_collisions.py",
+      "exit_code": 0,
+      "result": "runtime collisions: 0"
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py",
+      "exit_code": 0,
+      "result": "duplicate keys=1711; bucket A=1711, bucket B=0, bucket C=0"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null <each new evidence file>",
+      "exit_code": 1,
+      "expected_difference_exit": true,
+      "result": "no whitespace diagnostics for either new file"
+    }
+  ],
+  "risks": [
+    "Ashes and Cults source repositories and commits are unpinned; frozen file hashes matched the bounded public source checkouts."
+  ],
+  "not_claimed": [
+    "independent REVIEW or FINAL_REVIEW",
+    "full 17-gate receipt or strict build",
+    "DONE_VERIFIED",
+    "stage, commit, push, queue, catalog, or migration"
+  ]
+}

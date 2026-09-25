@@ -1,0 +1,152 @@
+{
+  "dispatch_id": "publication-01",
+  "native_session": "01a0d9a9-f179-7a21-92eb-d90ae6b6ab0a",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/25/rollout-2026-09-25T17-43-08-01a0d9a9-f179-7a21-92eb-d90ae6b6ab0a.jsonl",
+  "native_sha256": "54e621157500f3d2545f180859fa5e3928e320778c6ef75921ecd15d68cc74ff",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b2b40df087d2a58546ff3f8bb0a4",
+      "status": "completed",
+      "call_id": "call_NCK3xncGcJqmVzN9vJ4AN5OD",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' /home/paseo/.agents/skills/paseo/SKILL.md && sed -n '1,280p' .ai/roles/executor.md && sed -n '1,320p' .ai/task/repair-w31-20260925/PUBLICATION-SCOPE.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358192.821907
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b2b8043887d2b2605f0eaad6bb2c",
+      "status": "completed",
+      "call_id": "call_gTMmNwoqBfmae5kplfnbXFUr",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"sed -n '1,240p' /home/paseo/.agents/skills/paseo/SKILL.md && sed -n '1,280p' .ai/roles/executor.md && sed -n '1,320p' .ai/task/repair-w31-20260925/PUBLICATION-SCOPE.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我读取 Paseo 技能、EXECUTOR 角色契约和本批发布范围文件，以便按用户指定流程执行？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358198.859625
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b2c44d1487d2b76b4400b29df34a",
+      "status": "completed",
+      "call_id": "call_HRCfnBaVoz8Fp66Dwex2qnQK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"git status --short && python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('.ai/task/repair-w31-20260925/PACK-MANIFEST.json')\\nd=json.loads(p.read_text())\\nprint(json.dumps(d, ensure_ascii=False, indent=2))\\nPY\\nfind .artifacts/i18n/repair-window/window31-20260925-candidate-catalog -type f -print | sort\\nfind .ai/task/repair-w31-20260925 -maxdepth 1 -type f \\\\( -name 'ADJUDICATION-*.json' -o -name 'HOST-NOTE-*.json' -o -name 'CATALOG-CHANGE-VERIFICATION.json' -o -name 'MIGRATION-HOST-VERIFICATION.json' -o -name 'TRANSLATION-COMMIT.json' \\\\) -print | sort\\nls -l .artifacts/i18n/repair-window/window31-20260925-{publish-chain.log,publish-chain-timing.json,migration.json,migration-timing.json}\\nsed -n '1,280p' handoff.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我只读核对工作树、发布清单、候选附件及 handoff 精确编辑位置？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358208.265829
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b2d2f4a487d28c2f174b5e2e762e",
+      "status": "completed",
+      "call_id": "call_4stND2asuqIGRfm5qa203T1O",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport hashlib,json\\nfrom pathlib import Path\\nroot=Path('.')\\ntask=root/'.ai/task/repair-w31-20260925'\\nout=root/'evidence/quality/repair-window-31-20260925'\\nd=json.loads((task/'PACK-MANIFEST.json').read_bytes())\\ncounts={'absent':0,'same':0,'different':0}\\nerrors=[]\\nfor e in d['files']:\\n    s=root/e['source']; b=s.read_bytes(); h=hashlib.sha256(b).hexdigest()\\n    if h!=e['sha256'] or len(b)!=e['bytes']: errors.append((str(s),h,len(b),e['sha256'],e['bytes']))\\n    t=out/'orchestration'/e['relative_destination']\\n    k='absent' if not t.exists() else ('same' if t.read_bytes()==b else 'different')\\n    counts[k]+=1\\n    if k=='different': errors.append(('DEST_DIFF',str(t)))\\nprint('pack_files',len(d['files']),'total_bytes',sum(e['bytes'] for e in d['files']))\\nprint('pack_dest',counts)\\nprint('pack_errors',len(errors))\\nfor x in errors[:20]: print(x)\\nmanifest_target=out/'orchestration-pack-manifest.json'\\nprint('manifest_target', 'absent' if not manifest_target.exists() else ('same' if manifest_target.read_bytes()==(task/'PACK-MANIFEST.json').read_bytes() else 'different'))\\n\\ncand=root/'.artifacts/i18n/repair-window/window31-20260925-candidate-catalog'\\nfor s in sorted(p for p in cand.rglob('*') if p.is_file()):\\n    t=root/s.relative_to(cand)\\n    print('candidate',s.relative_to(cand),'->',('absent' if not t.exists() else ('same' if t.read_bytes()==s.read_bytes() else 'replace')))\\n\\npub=out/'publication'\\nsources=[task/'PUBLICATION-SCOPE.md',task/'CATALOG-CHANGE-VERIFICATION.json',task/'MIGRATION-HOST-VERIFICATION.json',task/'TRANSLATION-COMMIT.json']\\nsources+=sorted(task.glob('ADJUDICATION-*.json'))+sorted(task.glob('HOST-NOTE-*.json'))\\nfor s in sources:\\n    t=pub/s.name\\n    print('publication',t.name,('absent' if not t.exists() else ('same' if t.read_bytes()==s.read_bytes() else 'replace')))\\nfor name in ['publish-chain.log','publish-chain-timing.json','migration.json','migration-timing.json']:\\n    s=root/'.artifacts/i18n/repair-window'/('window31-20260925-'+name); t=pub/name\\n    print('publication',t.name,('absent' if not t.exists() else ('same' if t.read_bytes()==s.read_bytes() else 'replace')))\\nPY\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":10000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我只读逐项校验 PACK-MANIFEST 源文件 SHA/字节数，并检查目标冲突后再复制？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358222.228153
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b2f0554887d2b53e67675019e85e",
+      "status": "completed",
+      "call_id": "call_O6pcLr4LMcqZZaK5OuzSpOQD",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/repair-window-31-20260925/PUBLICATION.md\\n+# 修复窗口 31 发布记录\\n+\\n+## 范围与结果\\n+\\n+- 来源批次：第 287、288、289 批。\\n+- 共修复 23 条已确认问题：`tome-cults.lua` 17 条，`tome-ashes-urhrok.lua` 6 条。\\n+- Cults 与 Ashes 仅固定翻译文件 SHA；DLC 源码仓库及 commit 未固定。主游戏固定 commit 见本窗口 orchestration 快照中的 manifest。\\n+- 开窗前，宿主已对长 lore 逐句预检并将结果并入修复，记录见 [`publication/ADJUDICATION-HOST-PRECHECK-C0.json`](publication/ADJUDICATION-HOST-PRECHECK-C0.json)。\\n+\\n+## 复审与收敛\\n+\\n+复审路径如下：\\n+\\n+1. `REVIEW(0)` `r0a1`：`11d3` 的 numbed 问题判为 refuted；随后 `execute-01`。\\n+2. `FINAL(1)` `f1a1`：确认 2 条——艾德瑞尔是半身人王国而非人名；德瑞姆条目漏译 mindless；随后 `execute-02`。\\n+3. `RE_REVIEW(2)` `r2a1`：确认 2 条——恐怖堡垒日志“士气大振”应改为护甲／防护含义；阿马克泰尔技能应为“召唤的”恐魔；随后 `execute-03`。\\n+4. `FINAL(2)` `f2a2`：确认 3 条——应为向窗外望而非开窗、`not particularly wholesome` 含义缺失、酒馆招牌并非路标。`f985` 行尾两个 TAB 先由宿主判为 confirmed，后依第 `2812a8e5` 批先例及门禁 11（`git diff --check`）更正为 advisory；`execute-04` 已按原 prompt 补回，`execute-05` 撤回，详见 [`publication/HOST-NOTE-execute-04-f985-withdrawal.json`](publication/HOST-NOTE-execute-04-f985-withdrawal.json)。\\n+5. `RE_REVIEW(3)` `r3a1`：确认 1 条——attune 改为“相协调”；`f985` 的效果／层数问题及 `11d3` 问题判为 refuted；随后 `execute-06`。\\n+6. `FINAL(3)` `f3a2`：23/23 OK，复审收敛。\\n+\\n+`11d3` 的 numbed→麻痹问题四次被 GPT-6 Sol 提出，已由宿主登记为 `pending-user-review.md` 第 30 项，交由用户裁决。\\n+\\n+## 验证与发布标识\\n+\\n+- 17 项门禁全部通过，包含严格构建；任务状态为 `DONE_VERIFIED`。\\n+- 全部 reviewer 与修复 executor 均已归档。\\n+- 译文提交：`4259b5ff762152c3da3c4df44bdd8f669b1ba13e`。\\n+- 新 catalog：`537aef5ca467c11995bb2405b5b1b8b7e2b8268469d00262509769e3c4d3fc53`。\\n+- migration：`bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a`。\\n+- 23 个 successor 必须重新审核，不继承旧 revision 的 done 状态。\\n+- 本 publication child 尚待宿主归档；宿主的证据提交、关闭后 queue rebuild 与 push 尚未在本文中宣称完成。\\n+\\n+发布附件位于 [`publication/`](publication/)，完整审核验证快照位于 [`orchestration/`](orchestration/)，快照清单为 [`orchestration-pack-manifest.json`](orchestration-pack-manifest.json)。\\n*** Update File: /workspace/tome4-chinese-translation/handoff.md\\n@@\\n-更新时间：2026-09-25（第289批已 finalize；窗口31积压 23 条达到阈值，开修复窗口31）\\n+更新时间：2026-09-25（修复窗口31已完成；待宿主证据提交与推送，随后继续审核第290批）\\n@@\\n-- 修复窗口已闭合至 **30**：第 284–286 批共 23 条确认问题已修复并发布，译文提交\\n-  `941824e9642823b8a3575eee10bea5217be2afc5`；migration `daf1db30\\u2026` 的 23 个 successor\\n-  须重新审核，不继承旧 revision 的 done 状态。窗口 31 积压 23 条（第287–289批），已达阈值。\\n+- 修复窗口已闭合至 **31**：第 287–289 批共 23 条确认问题已修复，译文提交\\n+  `4259b5ff762152c3da3c4df44bdd8f669b1ba13e`；migration `bb2265e2\\u2026` 的 23 个 successor\\n+  须重新审核，不继承旧 revision 的 done 状态。积压已清零，从审核第 290 批重新累计。\\n@@\\n-1. 开修复窗口 **31**（23 条，第287–289批），以 `/tmp/w30-tr.sh`、`/tmp/w30-close.sh` 与 `.artifacts/i18n/repair-w30-20260925/setup_window30.py` 为模板；\\n-   max_cycles=5 且 STATE 须带 `max_cycles_user_authorized=true`；开窗时宿主先逐句预检长 lore 条目（本窗有两条菲\\u00b7维莉欧斯的冒险长手记），\\n-   FINAL 在 RE_REVIEW 之后冻结用 attempt 2。窗口完成后继续审核第 **290** 批（prepare_review 模板已按组件写 SPEC；prepare_contextual 已自动声明章节标题锚点）。\\n-2. 窗口 31 范围 **23** 条（第287–289批）：`f6eee01b`（恶魔之角：近战/流血期间条件、所造成伤害的 50%、暗影伤害；即窗口30记下的1240行）\\n-   `f746ce38`（战术简报：末尾空行、写死“他”、改造/韧性来源误译、unlikely 删限定）`f985ec15`（无情未来 up to）\\n-   `f9e45b5a`（燃烧献祭制表符）`fc65680a`（小水怪 lore：秘密行动、己方土地、斥候、致敬）`fc8cdfb2`（炙炎之牢制表符）\\n-   `00b0f993`（Cults 插件描述首处换行与 partly）`01bdde51`（Cults 恐魔鼓舞日志观看者颠倒）。\\n-   第288批 6 条（Cults）：`0545d032`（熵之化身 lore：manifestation、towering、多余视角）`055d7922`（撕裂目标的本质）\\n-   `0576002f`（远古洞穴开场：sometimes/to look at you、增译“整天”）`08ed9231`（Additionally 段前空行）\\n-   `0deeb818`（野心误作骄傲自满、增译撕裂的空间）`0f226fd7`（熵能反冲 info 两处空行）；依据见 `.ai/task/batch-fbefc4aef1a281aee013/HOST-FINAL-DECISIONS.json`。\\n-   第289批 9 条（Cults）：`11d34741`（触手 info 两处空行、标记内空格）`11ef5bb2`（菲\\u00b7维莉欧斯的冒险长手记：话音渐弱、魔法大爆炸、解救者、转身、待在家里、夫妇、伸出）\\n-   `1260e07b`（部落几天的食物）`12c7900b`（菲\\u00b7维莉欧斯的冒险长手记：plans、问句变陈述、惊讶对象、漏译一句）`12c97a3b`（德瑞姆 lore：进食、无法讲理、野生德瑞姆、德瑞莫）\\n-   `1594e62a`（纳格尔王国一节：领袖复数、被迫、地震增译）`192a8688`（ever ceasing 反译）`1a5b7fe5`（阿马克泰尔 info 制表符）`1cba11e4`（德瑞姆出生描述“出现”）；\\n-   依据见 `.ai/task/batch-69f00dcf5db5ae40631c/HOST-FINAL-DECISIONS.json`。\\n-   依据见 `.ai/task/batch-de7c2c3d32f752f42784/HOST-FINAL-DECISIONS.json`；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；\\n-   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。\\n-   第289批计时（实测，投影缓存 on）：start 1.7 s；contextual refreeze stage 91.9 s；adjudication chain（含 17 项门禁）163.0 s；finalize 93.8 s。\\n+1. 宿主完成本窗证据提交、关闭后 queue rebuild、push，然后继续审核第 **290** 批（默认 80 条，连续推进；`prepare_review` 模板按组件写 SPEC，`prepare_contextual` 自动声明章节标题锚点）。\\n+2. 窗口 31 已完成（3 个 cycle）。积压清零；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 已写明行尾空白 TAB 不计入 TAB 不变量（门禁 11 禁止行尾空白），新窗口派生时保留。\\n@@\\n-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 29 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项）。\\n+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed\\u2192麻痹（Numbing 族））。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358244.936864
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b323b9e887d2866893bfa925653b",
+      "status": "completed",
+      "call_id": "call_Az3C03MrIXcsdqZxecpgrW6J",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"test ! -e evidence/quality/repair-window-31-20260925/PUBLICATION.md && echo publication-not-created\\nnl -ba handoff.md | sed -n '1,35p;128,180p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我只读定位 handoff 的精确行文，以便重做未落盘的补丁？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358306.356321
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b32a053487d2abfa056b4e314f0e",
+      "status": "completed",
+      "call_id": "call_t8sFj5sXf5OLDkoncwGB5hiY",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"nl -ba handoff.md | sed -n '115,145p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":8000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我继续只读查看 handoff 第五节完整边界，确保只改指定的第 1、2、4 项？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358312.944314
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b32fbec487d28449299c6dddfe69",
+      "status": "completed",
+      "call_id": "call_7JfnOnTRD7zBOOMiWPhifMhN",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/repair-window-31-20260925/PUBLICATION.md\\n+# 修复窗口 31 发布记录\\n+\\n+## 范围与结果\\n+\\n+- 来源批次：第 287、288、289 批。\\n+- 共修复 23 条已确认问题：`tome-cults.lua` 17 条，`tome-ashes-urhrok.lua` 6 条。\\n+- Cults 与 Ashes 仅固定翻译文件 SHA；DLC 源码仓库及 commit 未固定。主游戏固定 commit 见本窗口 orchestration 快照中的 manifest。\\n+- 开窗前，宿主已对长 lore 逐句预检并将结果并入修复，记录见 [`publication/ADJUDICATION-HOST-PRECHECK-C0.json`](publication/ADJUDICATION-HOST-PRECHECK-C0.json)。\\n+\\n+## 复审与收敛\\n+\\n+复审路径如下：\\n+\\n+1. `REVIEW(0)` `r0a1`：`11d3` 的 numbed 问题判为 refuted；随后 `execute-01`。\\n+2. `FINAL(1)` `f1a1`：确认 2 条——艾德瑞尔是半身人王国而非人名；德瑞姆条目漏译 mindless；随后 `execute-02`。\\n+3. `RE_REVIEW(2)` `r2a1`：确认 2 条——恐怖堡垒日志“士气大振”应改为护甲／防护含义；阿马克泰尔技能应为“召唤的”恐魔；随后 `execute-03`。\\n+4. `FINAL(2)` `f2a2`：确认 3 条——应为向窗外望而非开窗、`not particularly wholesome` 含义缺失、酒馆招牌并非路标。`f985` 行尾两个 TAB 先由宿主判为 confirmed，后依第 `2812a8e5` 批先例及门禁 11（`git diff --check`）更正为 advisory；`execute-04` 已按原 prompt 补回，`execute-05` 撤回，详见 [`publication/HOST-NOTE-execute-04-f985-withdrawal.json`](publication/HOST-NOTE-execute-04-f985-withdrawal.json)。\\n+5. `RE_REVIEW(3)` `r3a1`：确认 1 条——attune 改为“相协调”；`f985` 的效果／层数问题及 `11d3` 问题判为 refuted；随后 `execute-06`。\\n+6. `FINAL(3)` `f3a2`：23/23 OK，复审收敛。\\n+\\n+`11d3` 的 numbed→麻痹问题四次被 GPT-6 Sol 提出，已由宿主登记为 `pending-user-review.md` 第 30 项，交由用户裁决。\\n+\\n+## 验证与发布标识\\n+\\n+- 17 项门禁全部通过，包含严格构建；任务状态为 `DONE_VERIFIED`。\\n+- 全部 reviewer 与修复 executor 均已归档。\\n+- 译文提交：`4259b5ff762152c3da3c4df44bdd8f669b1ba13e`。\\n+- 新 catalog：`537aef5ca467c11995bb2405b5b1b8b7e2b8268469d00262509769e3c4d3fc53`。\\n+- migration：`bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a`。\\n+- 23 个 successor 必须重新审核，不继承旧 revision 的 done 状态。\\n+- 本 publication child 尚待宿主归档；宿主的证据提交、关闭后 queue rebuild 与 push 尚未在本文中宣称完成。\\n+\\n+发布附件位于 [`publication/`](publication/)，完整审核验证快照位于 [`orchestration/`](orchestration/)，快照清单为 [`orchestration-pack-manifest.json`](orchestration-pack-manifest.json)。\\n*** Update File: /workspace/tome4-chinese-translation/handoff.md\\n@@\\n-更新时间：2026-09-25（第289批已 finalize；窗口31积压 23 条达到阈值，开修复窗口31）\\n+更新时间：2026-09-25（修复窗口31已完成；待宿主证据提交与推送，随后继续审核第290批）\\n@@\\n-- 修复窗口已闭合至 **30**：第 284–286 批共 23 条确认问题已修复并发布，译文提交\\n-  `941824e9642823b8a3575eee10bea5217be2afc5`；migration `daf1db30…` 的 23 个 successor\\n-  须重新审核，不继承旧 revision 的 done 状态。窗口 31 积压 23 条（第287–289批），已达阈值。\\n+- 修复窗口已闭合至 **31**：第 287–289 批共 23 条确认问题已修复，译文提交\\n+  `4259b5ff762152c3da3c4df44bdd8f669b1ba13e`；migration `bb2265e2…` 的 23 个 successor\\n+  须重新审核，不继承旧 revision 的 done 状态。积压已清零，从审核第 290 批重新累计。\\n@@\\n-1. 开修复窗口 **31**（23 条，第287–289批），以 `/tmp/w30-tr.sh`、`/tmp/w30-close.sh` 与 `.artifacts/i18n/repair-w30-20260925/setup_window30.py` 为模板；\\n-   max_cycles=5 且 STATE 须带 `max_cycles_user_authorized=true`；开窗时宿主先逐句预检长 lore 条目（本窗有两条菲·维莉欧斯的冒险长手记），\\n-   FINAL 在 RE_REVIEW 之后冻结用 attempt 2。窗口完成后继续审核第 **290** 批（prepare_review 模板已按组件写 SPEC；prepare_contextual 已自动声明章节标题锚点）。\\n-2. 窗口 31 范围 **23** 条（第287–289批）：`f6eee01b`（恶魔之角：近战/流血期间条件、所造成伤害的 50%、暗影伤害；即窗口30 记下的 1240 行）\\n-   `f746ce38`（战术简报：末尾空行、写死“他”、改造/韧性来源误译、unlikely 删限定）`f985ec15`（无情未来 up to）\\n-   `f9e45b5a`（燃烧献祭制表符）`fc65680a`（小水怪 lore：秘密行动、己方土地、斥候、致敬）`fc8cdfb2`（炙炎之牢制表符）\\n-   `00b0f993`（Cults 插件描述首处换行与 partly）`01bdde51`（Cults 恐魔鼓舞日志观看者颠倒）。\\n-   第288批 6 条（Cults）：`0545d032`（熵之化身 lore：manifestation、towering、多余视角）`055d7922`（撕裂目标的本质）\\n-   `0576002f`（远古洞穴开场：sometimes/to look at you、增译“整天”）`08ed9231`（Additionally 段前空行）\\n-   `0deeb818`（野心误作骄傲自满、增译撕裂的空间）`0f226fd7`（熵能反冲 info 两处空行）；依据见 `.ai/task/batch-fbefc4aef1a281aee013/HOST-FINAL-DECISIONS.json`。\\n-   第289批 9 条（Cults）：`11d34741`（触手 info 两处空行、标记内空格）`11ef5bb2`（菲·维莉欧斯的冒险长手记：话音渐弱、魔法大爆炸、解救者、转身、待在家里、夫妇、伸出）\\n-   `1260e07b`（部落几天的食物）`12c7900b`（菲·维莉欧斯的冒险长手记：plans、问句变陈述、惊讶对象、漏译一句）`12c97a3b`（德瑞姆 lore：进食、无法讲理、野生德瑞姆、德瑞莫）\\n-   `1594e62a`（纳格尔王国一节：领袖复数、被迫、地震增译）`192a8688`（ever ceasing 反译）`1a5b7fe5`（阿马克泰尔 info 制表符）`1cba11e4`（德瑞姆出生描述“出现”）；\\n-   依据见 `.ai/task/batch-69f00dcf5db5ae40631c/HOST-FINAL-DECISIONS.json`。\\n-   依据见 `.ai/task/batch-de7c2c3d32f752f42784/HOST-FINAL-DECISIONS.json`；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；\\n-   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。\\n-   第289批计时（实测，投影缓存 on）：start 1.7 s；contextual refreeze stage 91.9 s；adjudication chain（含 17 项门禁）163.0 s；finalize 93.8 s。\\n+1. 宿主完成本窗证据提交、关闭后 queue rebuild、push，然后继续审核第 **290** 批（默认 80 条，连续推进；`prepare_review` 模板按组件写 SPEC，`prepare_contextual` 自动声明章节标题锚点）。\\n+2. 窗口 31 已完成（3 个 cycle）。积压清零；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 已写明行尾空白 TAB 不计入 TAB 不变量（门禁 11 禁止行尾空白），新窗口派生时保留。\\n@@\\n-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 29 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项）。\\n+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358318.620279
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b36aed1c87d2ac34679b996ea3ef",
+      "status": "completed",
+      "call_id": "call_gem2vdKV0ODEPtEPvldIzXa7",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"set -euo pipefail\\nsnapshot_root='evidence/quality/repair-window-31-20260925/orchestration'\\nwhile IFS=$'\\\\t' read -r source relative_destination; do\\n  destination=\\\"$snapshot_root/$relative_destination\\\"\\n  mkdir -p -- \\\"$(dirname -- \\\"$destination\\\")\\\"\\n  cp --no-clobber --preserve=mode,timestamps -- \\\"$source\\\" \\\"$destination\\\"\\ndone < <(jq -r '.files[] | [.source, .relative_destination] | @tsv' .ai/task/repair-w31-20260925/PACK-MANIFEST.json)\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/PACK-MANIFEST.json evidence/quality/repair-window-31-20260925/orchestration-pack-manifest.json\\ncandidate_root='.artifacts/i18n/repair-window/window31-20260925-candidate-catalog'\\nwhile IFS= read -r -d '' source; do\\n  relative_destination=\\\"${source#${candidate_root}/}\\\"\\n  mkdir -p -- \\\"$(dirname -- \\\"$relative_destination\\\")\\\"\\n  cp --preserve=mode,timestamps -- \\\"$source\\\" \\\"$relative_destination\\\"\\ndone < <(find \\\"$candidate_root\\\" -type f -print0)\\nmkdir -p -- evidence/production-review-v2-lite/migrations\\ncp --preserve=mode,timestamps -- .artifacts/i18n/repair-window/window31-20260925-migration.json evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json\\npublication_root='evidence/quality/repair-window-31-20260925/publication'\\nmkdir -p -- \\\"$publication_root\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/PUBLICATION-SCOPE.md \\\"$publication_root/PUBLICATION-SCOPE.md\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/CATALOG-CHANGE-VERIFICATION.json \\\"$publication_root/CATALOG-CHANGE-VERIFICATION.json\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/MIGRATION-HOST-VERIFICATION.json \\\"$publication_root/MIGRATION-HOST-VERIFICATION.json\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/TRANSLATION-COMMIT.json \\\"$publication_root/TRANSLATION-COMMIT.json\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/ADJUDICATION-*.json \\\"$publication_root/\\\"\\ncp --preserve=mode,timestamps -- .ai/task/repair-w31-20260925/HOST-NOTE-*.json \\\"$publication_root/\\\"\\ncp --preserve=mode,timestamps -- .artifacts/i18n/repair-window/window31-20260925-publish-chain.log \\\"$publication_root/publish-chain.log\\\"\\ncp --preserve=mode,timestamps -- .artifacts/i18n/repair-window/window31-20260925-publish-chain-timing.json \\\"$publication_root/publish-chain-timing.json\\\"\\ncp --preserve=mode,timestamps -- .artifacts/i18n/repair-window/window31-20260925-migration.json \\\"$publication_root/migration.json\\\"\\ncp --preserve=mode,timestamps -- .artifacts/i18n/repair-window/window31-20260925-migration-timing.json \\\"$publication_root/migration-timing.json\\\"\\nprintf 'copied snapshot, catalog, migration, and publication attachments\\\\n'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":2000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我按已验证清单安装 215 项快照，并精确复制获准的 catalog、migration 与 publication 附件？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358374.445715
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b38868bc87d29e7de097903ea4e4",
+      "status": "completed",
+      "call_id": "call_7Ur6W4tVipLH5uCZufiQL4DW",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"set -euo pipefail\\npython3 - <<'PY'\\nimport hashlib,json,re\\nfrom pathlib import Path\\nroot=Path('.')\\ntask=root/'.ai/task/repair-w31-20260925'\\nout=root/'evidence/quality/repair-window-31-20260925'\\nmanifest_path=task/'PACK-MANIFEST.json'\\nd=json.loads(manifest_path.read_bytes())\\nfor e in d['files']:\\n    source=root/e['source']\\n    target=out/'orchestration'/e['relative_destination']\\n    sb=source.read_bytes(); tb=target.read_bytes()\\n    assert sb == tb, f'pack copy differs: {target}'\\n    assert len(tb) == e['bytes'], f'pack bytes differ: {target}'\\n    assert hashlib.sha256(tb).hexdigest() == e['sha256'], f'pack sha differs: {target}'\\nassert (out/'orchestration-pack-manifest.json').read_bytes() == manifest_path.read_bytes()\\nprint(f'PACK_COPY_OK files={len(d[\\\"files\\\"])} bytes={sum(e[\\\"bytes\\\"] for e in d[\\\"files\\\"])}')\\n\\ncandidate=root/'.artifacts/i18n/repair-window/window31-20260925-candidate-catalog'\\ncandidate_files=sorted(p for p in candidate.rglob('*') if p.is_file())\\nfor source in candidate_files:\\n    target=root/source.relative_to(candidate)\\n    assert source.read_bytes() == target.read_bytes(), f'candidate differs: {target}'\\nprint(f'CATALOG_COPY_OK files={len(candidate_files)}')\\n\\nmigration_source=root/'.artifacts/i18n/repair-window/window31-20260925-migration.json'\\nmigration_target=root/'evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json'\\nassert migration_source.read_bytes() == migration_target.read_bytes()\\nprint('MIGRATION_COPY_OK')\\n\\npublication=out/'publication'\\npairs=[]\\nfor name in ['PUBLICATION-SCOPE.md','CATALOG-CHANGE-VERIFICATION.json','MIGRATION-HOST-VERIFICATION.json','TRANSLATION-COMMIT.json']:\\n    pairs.append((task/name,publication/name))\\nfor source in sorted(task.glob('ADJUDICATION-*.json'))+sorted(task.glob('HOST-NOTE-*.json')):\\n    pairs.append((source,publication/source.name))\\nartifact=root/'.artifacts/i18n/repair-window'\\nfor source_name,target_name in [\\n ('window31-20260925-publish-chain.log','publish-chain.log'),\\n ('window31-20260925-publish-chain-timing.json','publish-chain-timing.json'),\\n ('window31-20260925-migration.json','migration.json'),\\n ('window31-20260925-migration-timing.json','migration-timing.json')]:\\n    pairs.append((artifact/source_name,publication/target_name))\\nfor source,target in pairs:\\n    assert source.read_bytes() == target.read_bytes(), f'publication differs: {target}'\\nprint(f'PUBLICATION_ATTACHMENTS_OK files={len(pairs)}')\\n\\nfor md in [out/'PUBLICATION.md', root/'handoff.md', publication/'PUBLICATION-SCOPE.md']:\\n    text=md.read_text(encoding='utf-8')\\n    assert '\\\\ufffd' not in text\\n    assert all(not line.endswith((' ', '\\\\t')) for line in text.splitlines()), f'trailing whitespace: {md}'\\nprint('DOCUMENT_UTF8_WHITESPACE_OK files=3')\\n\\ntext=(out/'PUBLICATION.md').read_text(encoding='utf-8')\\nlinks=re.findall(r'\\\\[[^]]+\\\\]\\\\(([^)]+)\\\\)',text)\\nfor link in links:\\n    if '://' in link or link.startswith('#'): continue\\n    target=(out/link).resolve()\\n    assert target.exists(), f'broken local link: {link}'\\nprint(f'PUBLICATION_LINKS_OK links={len(links)}')\\nPY\\npython3 -B tools/ai_state_check.py .ai/task/repair-w31-20260925/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-31-20260925/orchestration --target DONE\\ngit diff --check -- handoff.md evidence/quality/repair-window-31-20260925/PUBLICATION.md evidence/production-review-v2-lite/catalog/entries.jsonl evidence/production-review-v2-lite/catalog/exclusions.jsonl evidence/production-review-v2-lite/catalog/manifest.json i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json\\ngit diff -- handoff.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":30000,\"max_output_tokens\":20000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我执行指定的只读 DONE 回放，并完成逐字副本、文档链接、UTF-8 与空白验收？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358399.218729
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b3abfd0c87d2afbd62ac3ec423f6",
+      "status": "completed",
+      "call_id": "call_8Yb95wOJKhN44lpM4N55A5fQ",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"set -euo pipefail\\nprintf '%s\\\\n' '--- tracked changes ---'\\ngit status --short\\nprintf '%s\\\\n' '--- in-scope diff stat ---'\\ngit diff --stat -- handoff.md evidence/production-review-v2-lite/catalog i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json\\nprintf '%s\\\\n' '--- catalog manifest identity ---'\\njq '{catalog_sha256,entries_sha256,exclusions_sha256,total_entries}' evidence/production-review-v2-lite/catalog/manifest.json\\nprintf '%s\\\\n' '--- migration summary ---'\\njq '{migration_id,from_catalog_sha256,to_catalog_sha256,summary}' evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json\\nprintf '%s\\\\n' '--- publication files ---'\\nfind evidence/quality/repair-window-31-20260925 -maxdepth 2 -type f -print | sort\\nprintf '%s\\\\n' '--- forbidden tracked paths changed by this publication scope ---'\\ngit diff --name-only -- '*.lua' 'terminology/**' 'tools/**' '.ai/**' 'evidence/quality/pending-user-review.md'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我做最后一次只读范围审计，核对发布标识并确认禁改路径未被本次发布触碰？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358433.885853
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0cda8db34f01511f016ab6b3bbccf487d2a8ed1a2a09ab6376",
+      "status": "completed",
+      "call_id": "call_w5qDi9jSo0cUgU4QSBusDxio",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"jq 'keys' evidence/production-review-v2-lite/catalog/manifest.json\\njq 'keys' evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json\\njq '.' evidence/production-review-v2-lite/catalog/manifest.json | sed -n '1,100p'\\njq '.' evidence/production-review-v2-lite/migrations/bb2265e211b14ef5fecfb33b606abdbb40d72aa83fe73d750a8f77cc3d52bd2a.json | sed -n '1,100p'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000,\"sandbox_permissions\":\"require_escalated\",\"justification\":\"是否允许我只读查看 catalog 与 migration 的实际字段结构，准确报告已发布标识和计数？\"}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0d9a9-f1b9-7a41-a6bf-36bb3acb1e93",
+        "create_time": 1790358454.080975
+      }
+    }
+  ]
+}

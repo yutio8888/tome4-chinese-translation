@@ -1,0 +1,127 @@
+{
+  "dispatch_id": "f3a2",
+  "native_session": "96a48011-119e-4496-b50a-9c058d2b2c5b",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/96a48011-119e-4496-b50a-9c058d2b2c5b.jsonl",
+  "native_sha256": "1985d131086f2a33c1e1a53abcc1af5806395dda88dffb90f10a4d28dd34e070",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01EAWga3ZtTTSn8cdoTweVzu",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w31-20260925/CONTEXTUAL-ENVELOPE-f3a2.json docs/paseo-translation-context-review-v2-contract.md; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Check input sizes and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01H4o9exEEnowMHwoLGq5gKg",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read the v2 review contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GW7AGtewCgHmQ3Dio45o9c",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w31-20260925/CONTEXTUAL-ENVELOPE-f3a2.json'))\np=e['payload']\nprint(e['candidate_identity'])\nfor k in p: print(k, type(p[k]).__name__, len(p[k]) if hasattr(p[k],'__len__') else p[k])\nprint(p['contract'],p['fixed_source_identity'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1000])\nprint(p['rendered_briefing'])\nprint(p['ordered_revision_keys'])\nEOF",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VYu9SfyayJmN2dX9VNG5pb",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w31-20260925/CONTEXTUAL-ENVELOPE-f3a2.json'))\np=e['payload']\nts=json.loads(p['terminology_snapshot'])\nfor r in ts['records']: print(r['record'])\nprint({k:v for k,v in ts.items() if k!='records'})\nprint(json.dumps(p['translation_snapshot'][0],ensure_ascii=False)[:3000])\nprint(json.dumps(p['bounded_context'][0],ensure_ascii=False)[:6000])\nEOF",
+        "description": "Show terminology and first item structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BXkV14fy34X3tAtmVAnUsU",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w31-20260925/CONTEXTUAL-ENVELOPE-f3a2.json'))\np=e['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    cx=json.loads(c['context']) if c['context'] else {}\n    se=cx.get('source_evidence',{})\n    print(f\"=== {i+1} {t['revision_key'][:8]} {cx.get('section')} | {cx.get('source_tag')} | {se.get('component')} {se.get('public_source_path')} lines={se.get('matching_lines')}\")\n    print(\"keys:\",[k for k in cx.keys()])\n    print(\"SRC:\",repr(t['source']))\n    print(\"TGT:\",repr(t['target']))\n    if cx.get('adjacent_translations'): print(\"ADJ:\",json.dumps(cx['adjacent_translations'],ensure_ascii=False)[:600])\nEOF",
+        "description": "Dump all 23 items source/target"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Tw1hxdpk3yW4MBPgACCAzp",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/96a48011-119e-4496-b50a-9c058d2b2c5b/tool-results/bztab5fsh.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VYvpBzoLiwrGWKqUK61jrm",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/96a48011-119e-4496-b50a-9c058d2b2c5b/tool-results/bztab5fsh.txt",
+        "offset": 92
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_015HN1MWDDohFeQx6xxykaBr",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs; ls; A=ashes-urhrok/data/talents/corruptions; ls ashes-urhrok cults | head; f=$(find ashes-urhrok -path '*talents/corruptions/brutality.lua'); echo $f; sed -n 70,125p $f",
+        "description": "Locate DLC source and read brutality talent"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017pqt6Pg1yocPv2AEDAMNTq",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs; sed -n 20,60p ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua; sed -n 280,325p cults/tome-cults/data/talents/demented/controlled-horrors.lua",
+        "description": "Read heart-of-fire and controlled-horrors talents"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BJrSZeT9fzw5MGLmgQznUc",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json,re\ne=json.load(open('.ai/task/repair-w31-20260925/CONTEXTUAL-ENVELOPE-f3a2.json'))\npat=re.compile(r'%[-0-9.]*[a-z%]|#[A-Z_]+#|<\\?.*?\\?>|\\[/?i\\]')\nfor i,t in enumerate(e['payload']['translation_snapshot']):\n    s,g=t['source'],t['target']\n    a=sorted(pat.findall(s));b=sorted(pat.findall(g))\n    if a!=b: print(i+1,'PH',set(a)^set(b), len(a),len(b))\n    if s.count('\\n')!=g.count('\\n'): print(i+1,'LF',s.count('\\n'),g.count('\\n'))\n    ls=[re.match(r'\\t*',l).group() for l in s.split('\\n')]; lg=[re.match(r'\\t*',l).group() for l in g.split('\\n')]\n    if ls!=lg: print(i+1,'TAB')\nEOF",
+        "description": "Check placeholders, newlines, tabs"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "cycle": 2,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f2a2",
+  "raw_ok_count": 19,
+  "raw_issue_count": 4,
+  "decision": "FINAL failed: bounded fix (execute-04, plus follow-up if needed to withdraw f985 trailing TABs) then RE_REVIEW(3) then FINAL_REVIEW(3) attempt 2",
+  "findings": [
+    {
+      "revision_key": "12c7900b7be48d0fe17c5783a7b68791338671f55d74c683b32e58021da1b79e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults lore/fay-willows.lua 手记末段 I looked out the window of my room to see fire and smoke：只是向窗外望，现译“打开了房间的窗户，发现”凭空增加开窗动作；改为“我向房间窗外望去，看见……”。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "12c97a3b71dfe4488ec4783e741c052763ef8d31f3700537082dd4eb7590d2dc",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults lore/misc.lua 德瑞姆 lore 首句 strange, and not particularly wholesome, creatures：wholesome 指良善/无害，not particularly 为弱化；现译“奇异而且很不健全的生物”既误义又加强语气；改为“各种奇异、多半并非善类的生物”一类。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1594e62acddbe571ed525c4862061bb33c4af5aceb70df36b8859b4c37298b45",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults lore/fay-willows.lua a wooden sign for a tavern lay on the ground ... the building next to the sign：指掉在地上的酒馆木招牌；现译“酒馆的木制路标”“路标旁边的房子”误作路标；改为“酒馆的木招牌”“招牌旁边的房子”。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f985ec15c0e74b000f2c53c446ae031863c5380c3c5571fecea61fc668bd8c22",
+      "status": "advisory",
+      "tier": null,
+      "category": "invariant",
+      "reason": "公开 Ashes data/talents/corruptions/black-magic.lua:110 源串第三行 While powered-up you can not apply new Bleak Outcome stacks. 后带两个行尾 TAB 再换行（本库 tome-ashes-urhrok.lua:710 source 亦为 stacks.\\t\\t\\n），现译“无法施加新的悲惨结局效果。”后直接换行，丢两个 TAB（源 8 / 译 6）；补回行尾两个 TAB，文字不动。Ashes 文件 SHA 已核验，仓库/commit 未固定。",
+      "original_status": "confirmed",
+      "correction": {
+        "corrected_at": "2026-09-25T17:21:02.824460+00:00",
+        "reason": "宿主更正：缺失的两个 TAB 紧邻换行符，属行尾空白，渲染零影响；与第 2812a8e5 批同型条目（源 %s\\t\\t\\n、译 %s\\n）裁决 advisory 的先例一致。补回会使门禁 11-worktree-whitespace/11-staged-whitespace（git diff --check）失败，故不修复，维持现译。execute-04 prompt 已按原 confirmed 下发该项，收取后若已补 TAB 须由后续有界 FIX 撤回。"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-25T17:19:49.327507+00:00"
+}

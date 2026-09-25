@@ -219,3 +219,11 @@
    - 现译：“腐化形态”，未表达 `Doomed`；surface 提出，contextual 判 OK。
    - 争议理由：与第 22、25 项同族，更名须同步效果名与 ±日志，属跨条命名决定。
    - 建议选项：保持“腐化形态” / 选定包含“厄运”或“受诅者”含义的新名并同步第 22、25、29 项同族条目。
+
+## 修复窗口 31 待审阅
+
+30. `11d347416e`（Cults 技能 info，`numbed` 的译法）
+   - 源码：公开 Cults DLC `data/talents/demented/tentacles.lua:228–234`（施加 `SLIMY_TENDRIL`），效果定义 `data/timed_effects.lua:113–125` 只设置 `numbed`，即目标造成的伤害降低；窗口 31 SOURCE-ANCHORS 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“被麻痹”，同句写明“5 回合内伤害降低 %d%%”；本库 Numbing 族一贯用“麻痹”（如 Numbing Poison“麻痹毒素”），均为降伤。
+   - 争议理由：GPT-6 Sol 复审在第 289 批与窗口 31 的 r0a1、r2a1、r3a1 中四次提出“麻痹”易被理解为无法行动；宿主按本库同族译法与同句定义判 refuted，Opus 终审均判 OK。改动须同步整个 Numbing 族，属跨条术语决定。
+   - 建议选项：保持“麻痹” / 全族改“麻木”等不暗示失能的词并同步 Numbing 族条目与术语库。

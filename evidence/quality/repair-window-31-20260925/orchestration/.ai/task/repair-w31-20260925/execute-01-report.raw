@@ -1,0 +1,47 @@
+已完成 `repair-w31-20260925`：仅修改 23 个冻结 target，并新增两份授权证据。未修改 `.ai/task`、术语库或其他记录，未 stage、commit、push，也未创建 agent。
+
+逐条修复：
+
+- `00b0f993a3…`：恢复描述换行，补回“神志也有些失常”。
+- `01bdde5133…`：纠正恐魔堡垒提示中的观看者方向。
+- `0545d03281…`：改为“高耸的熵之化身”，补回 `towering`。
+- `055d79222e…`：改为“撕裂目标的本质”；darkness 统一为“暗影”。
+- `0576002f95…`：补回“有时从天而降看你”，删除“整天”增译，修正单数解释者。
+- `08ed9231fa…`：恢复段前空行。
+- `0deeb818e5…`：修正“愚蠢的野心”、外界不可控制及不定指 `Something`。
+- `0f226fd7a2…`：恢复两处段间空行并移除多余 TAB；darkness 改“暗影”。
+- `11d347416e…`：恢复两处空行，清理颜色标签附近空格。
+- `11ef5bb25d…`：逐段修正魔法大爆炸时间范围、解救/囚禁、庆典引语、附魔师事件、话音渐弱、心理独白、庆典人数与永恒精灵指代等问题。
+- `1260e07b9e…`：补回“够部落吃几天”。
+- `12c7900b7b…`：修正矮人保密反事实、城门没收物品问句、平民危险说明、两个半身人、对付永恒精灵的计划，并统一“马基·埃亚尔”。
+- `12c97a3b71…`：修正德瑞姆 lore 中讲理、毛发、进食、thinking Drem、野生德瑞姆及专名一致性。
+- `1594e62acd…`：修正复数领袖、过河石块增译、人数、守卫指代、被迫离开的定居点、酒馆客人及“本来也打算这么干”。
+- `192a8688c5…`：改为“永在存续，永在消逝”。
+- `1a5b7fe508…`：移除 `[[ ]]` 长串两处多余 TAB。
+- `1cba11e4fd…`：改为 thinking Drem 最近才“出现”。
+- `f6eee01b5c…`：补回伤害比例基准、暗影伤害、流血期间及近战条件。
+- `f746ce383c…`：完整修正战术简报的改造机制、内脏避让、代词模板、毒素/火焰、熟悉度、伤亡限定及末尾空行。
+- `f985ec15c0…`：补回“至多消耗 %s 层”。
+- `f9e45b5a07…`：恢复燃烧献祭两条续行的双 TAB。
+- `fc65680ae7…`：修正秘密行动、本土实验、海底斥候与仆从及“致敬”。
+- `fc8cdfb222…`：恢复炙炎之牢两条续行的双 TAB。
+
+验证全部通过：
+
+- 18/18 个 SOURCE-ANCHORS 源码文件 SHA 匹配。
+- LuaJIT 加载并比较 2892 条 baseline/current 记录：恰 23 个 target 改动，其他记录变化 0。
+- LF、空行、行首 TAB、`<?=...?>`：23/23 一致。
+- Strict lint：30308 条，0 errors、0 warnings。
+- Semantic claims：通过。
+- Runtime collisions：0；重复键分类桶 B/C：0。
+- `git diff --check`：通过。
+- 两份新证据的 no-index 空白检查无诊断。
+
+文件：
+
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-31-20260925/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-31-20260925/VALIDATION.json)
+
+剩余风险：Ashes/Cults 源码仓库与 commit 未固定；本轮以冻结文件 SHA 和有界公开源码锚点约束输入。完整复审、17 项门禁、严格构建及 `DONE_VERIFIED` 留给宿主执行。

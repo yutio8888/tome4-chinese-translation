@@ -1,0 +1,14 @@
+已完成 `repair-w31-20260925` 本次 FIX，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 两条 confirmed target：
+
+- `01bdde5133…`：改为“`#Target#目睹恐魔，防护得到了强化！`”
+- `1a5b7fe508…`：首句改为“`增加你召唤的恐魔 %d%% 伤害`”
+
+验证结果：
+
+- LuaJIT 全记录比较：通过；baseline 与 HEAD `865c79c…` 一致，恰 23 条冻结 target 变化，其他记录及字段不变。
+- `python3 -B tools/i18n lint --strict`：通过；30308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- `.ai/task` 无改动，暂存区为空。
+- 未 stage、commit、push，未创建 agent。
+
+无计划偏差或未解决问题。

@@ -1,0 +1,11 @@
+已完成本次 FIX，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 两条 target：
+
+- `1594e62acd…`：改为“那个艾德瑞尔半身人蠢货”。
+- `1cba11e4fd…`：改为“德瑞姆是生存于地底深处、没有心智的异变种”。
+
+验证结果：
+
+- LuaJIT baseline/current 全记录比较：通过；恰 23 条 target 变动，其他字段与记录不变。
+- `python3 -B tools/i18n lint --strict`：通过；30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 未修改 `.ai/task`，未 stage、commit、push，未创建 agent。
