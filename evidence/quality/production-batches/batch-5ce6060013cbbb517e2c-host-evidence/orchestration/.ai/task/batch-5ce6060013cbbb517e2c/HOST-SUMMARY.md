@@ -1,0 +1,3 @@
+第286批：冻结80条，全部为 Ashes DLC，逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 4个 lane 审80条，identity 回显全部逐位一致，18个ISSUE，无错位；contextual Opus run 复核这18条，未越界，8个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决26个观察：{'pending': 2, 'confirmed': 18, 'advisory': 3, 'refuted': 3}；预计67条完成、11条待修复、2条 pending。修复 revision：Flame Bolts info 漏 foes in sight、夸塞魔 lore（漏译与缟玛瑙之子统一）、doom-covenant 三制表符、锻造巨人 lore（cannot be overstated 反译、模具、能耗）、里斯丰格 lore（intact、受试者动机）、恶魔种子植入（tries/unique demons/空行制表符）、恐惧之焰 unided_name 主体颠倒、demonic-strength 制表符、doom-shield 乌鲁洛克的能量、黑之锤描述增译与引号、灼魂之罚 info 换行。爆裂冲锋半径与击退、疫火死亡传播均贴合实现 refuted；±Revel“烈焰”与缺叹号记 advisory；-Osmosis Regen 与 Armoured Leviathan 技能名分别列待用户审阅第26、27项。修复窗口30积压从12增至23，达到20，本批闭合后开修复窗口30。

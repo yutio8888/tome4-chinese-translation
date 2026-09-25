@@ -191,3 +191,17 @@
    - 现译：“+腐化形态”，未表达 `of the Doomed`；与第 22 项同族效果名统一。
    - 争议理由：surface 提出，contextual 判 OK；单改一条日志会破坏同族一致性，须与第 22 项一并决定整族译名。
    - 建议选项：保持“腐化形态” / 选定包含“厄运”或“受诅者”含义的新名并同步第 22、25 项同族条目。
+
+## 审核 286 待审阅
+
+26. `dcfd031f93`（Ashes 效果日志 `-Osmosis Regen`）
+   - 源码：公开 Ashes DLC `data/timed_effects.lua:521–530`，效果 `OSMOSIS_REGEN` 的减益日志；本批 workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“-渗透吸收”；与第 23、24 项同族统一。
+   - 争议理由：surface 提出未表达 Regen，contextual 判 OK；单改会破坏同族一致性，须与第 23、24 项一并决定。
+   - 建议选项：保持“渗透吸收” / 改“渗透回复”或“渗透再生”并同步第 23、24、26 项同族条目。
+
+27. `df20e15744`（Ashes 技能名 `Armoured Leviathan`）
+   - 源码：公开 Ashes DLC `data/talents/corruptions/demon-seeds.lua:689`；本批 workset 文件 SHA 匹配，来源仓库与 commit 未固定。同名效果与日志见第 21 项。
+   - 现译：“重装上阵”，未表达 Leviathan 的巨兽意象；surface 提出，contextual 判 OK。
+   - 争议理由：更名须同步技能名、效果名及 +/- 日志，属跨条命名决定。
+   - 建议选项：保持“重装上阵” / 选定含巨兽意象的新名并同步第 21、27 项同族条目。
