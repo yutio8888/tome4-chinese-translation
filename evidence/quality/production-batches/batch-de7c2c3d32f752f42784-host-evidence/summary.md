@@ -1,0 +1,3 @@
+第287批：冻结80条（Ashes 61、Cults 19），逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 分两组共 8 个 lane，identity 回显全部逐位一致，15个ISSUE，无错位；contextual Opus 两个 run（Ashes 12、Cults 3）复核，未越界，6个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决21个观察：{'refuted': 4, 'advisory': 1, 'confirmed': 14, 'pending': 2}；预计70条完成、8条待修复、2条 pending。修复 revision：恶魔之角（近战/流血期间条件、伤害比例、暗影伤害）、战术简报（末尾空行、写死“他”、改造与韧性来源误译、unlikely 删限定）、无情未来 up to、燃烧献祭与炙炎之牢制表符、小水怪 lore（秘密行动、己方土地、斥候、致敬）、Cults 插件描述（首处换行、partly）、Cults 恐魔鼓舞日志观看者颠倒。唯余灰烬 4 格括注、Blackice charges、陨星火雨、链接伤害均贴合实现 refuted；达莱奇 lore 末句记 advisory；-Armoured Leviathan 与 Corruption of the Doomed 分别列待用户审阅第28、29项。修复窗口31积压为8（窗口30 记下的 1240 行即 f6eee01b，同一 revision 只计一次），未达20，继续审核第288批。

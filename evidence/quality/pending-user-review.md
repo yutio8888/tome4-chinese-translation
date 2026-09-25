@@ -205,3 +205,17 @@
    - 现译：“重装上阵”，未表达 Leviathan 的巨兽意象；surface 提出，contextual 判 OK。
    - 争议理由：更名须同步技能名、效果名及 +/- 日志，属跨条命名决定。
    - 建议选项：保持“重装上阵” / 选定含巨兽意象的新名并同步第 21、27 项同族条目。
+
+## 审核 287 待审阅
+
+28. `fb23faa260`（Ashes 效果日志 `-Armoured Leviathan`）
+   - 源码：公开 Ashes DLC `data/timed_effects.lua:638`，效果 `ARMOURED_LEVIATHAN` 的减益日志；本批 workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“-重装上阵”；与第 21、27 项同族统一。
+   - 争议理由：surface 提出丢失“巨兽”意象，contextual 判 OK；单改会破坏同族一致性，须与第 21、27 项一并决定。
+   - 建议选项：保持“重装上阵” / 选定含巨兽意象的新名并同步第 21、27、28 项同族条目。
+
+29. `fc9cbd5243`（Ashes 效果名 `Corruption of the Doomed`）
+   - 源码：公开 Ashes DLC `data/timed_effects.lua:1042`（效果 `CORRUPTION_OF_THE_DOOMED` 的 desc，±日志见 :1048–1049）；本批 workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“腐化形态”，未表达 `Doomed`；surface 提出，contextual 判 OK。
+   - 争议理由：与第 22、25 项同族，更名须同步效果名与 ±日志，属跨条命名决定。
+   - 建议选项：保持“腐化形态” / 选定包含“厄运”或“受诅者”含义的新名并同步第 22、25、29 项同族条目。

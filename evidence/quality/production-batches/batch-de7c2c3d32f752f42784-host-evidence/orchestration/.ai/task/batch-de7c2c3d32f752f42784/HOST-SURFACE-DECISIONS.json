@@ -1,0 +1,128 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 15 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "dff6969913cc5c367ca64ce3c17bac2c5a005c09014b08206c0377403a7017f1",
+      "stage": "surface",
+      "observation": "原文写触发范围为半径 %d；译文额外断言实际范围固定为 4 格、不随该数值变化。冻结输入没有支持这项机制断言的证据，需核验后判断。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes spellblaze.lua:92 唯余灰烬触发判定 core.fov.distance(...) > 4 then return（硬编码 4 格），info 的半径 %d 与实现不符；现译括注“实际触发范围固定为 4 格”贴合实现，与第284批裁决一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f684bba9951a31da00912e89b7128f36b41f3f9de9fb26a05c02a385aa7ec597",
+      "stage": "surface",
+      "observation": "原文说该样本会在埃亚尔地表发挥作用；译文写成它会前往埃亚尔大陆证明效果，增添了移动和证明效果的情节。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua:492 达莱奇 lore 末句 it will prove effective on the surface of Eyal；现译“它会前往埃亚尔大陆证明他的实际效果”略有增译（前往/证明）且以“他”指代样本，但未改变“将在埃亚尔地表发挥作用”的要义，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f6eee01b5c6cb1f271fc75d89a3eefae48c547688f74ce36c2436dd12b4c500b",
+      "stage": "surface",
+      "observation": "原文要求目标仍在流血且近战对其造成伤害时才回复生命；译文仅写攻击被恶魔角刺穿的目标即可回复，遗漏流血和造成伤害两个条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes infernal-combat.lua:171–184 恶魔之角：DEMONIC_CUT 每回合伤害 dam*0.5/5（即所造成伤害的 50%% 分 5 回合，DamageType.DARKNESS），治疗在 timed_effects.lua:683 callbackOnMeleeHit（近战命中流血中的目标）。现译“每次你攻击被恶魔角刺穿的目标时”丢近战与“流血期间”限定，“合计受到额外 50%% 黑暗伤害”丢“所造成伤害的”比例基准，且 darkness 应为本库伤害类型名“暗影”（mod-tome.lua:6894）。整句按原文修复，\\n\\t\\t 结构保持；此即窗口30 记下的 1240 行同条。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f746ce383c99a894c47eae49642fea81e4e4eef6aa07ab9aeb3bb4c7851b6db6",
+      "stage": "surface",
+      "observation": "原文说敌人的强化与永恒精灵天生的反应性魔法协同，译文却说调整了永恒精灵天赋的加速能力，并增添了传送后提升闪避能力；原文说韧性来自施加的改造，译文改为恶魔空间的试炼。原文末尾有两个换行，译文只有一个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:187–197 战术简报（template）：源文 10 个 LF、以 \\n\\n 结尾，现译 9 个 LF 缺末尾空行（一级 LF 不变量）；“他的隐身和暗影爆炸”写死“他”而本条其余均用 player 代词；Our standard alterations have synergized with this Shalore's natural reactive magic 误作“调整了永恒精灵天赋的加速能力…并在传送后大幅提升闪避能力”；the resilience alterations we gave him 误作“在恶魔空间的试炼增强了…韧性”；poisons, flames, and the like 泛化为“异常状态”；beat him until he stops moving 弱化为“直到其放弃移动”；末句 it is unlikely we will see any casualties 删限定作“不会受到什么损失”。整段对照修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f985ec15c0e74b000f2c53c446ae031863c5380c3c5571fecea61fc668bd8c22",
+      "stage": "surface",
+      "observation": "原文为消耗“最多 %s 层”，译文写成消耗“%s 层”，漏掉上限含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes black-magic.lua:96 无情未来 remove = math.min(eff.stacks, t:_getStack(self))，info consume up to %s stacks 为上限；现译“消耗 %s 层叠加效果”删“至多”，把上限写成定额（删限定词缺陷类），改“至多消耗 %s 层”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f9e45b5a07f183a9cfc235c7c297bcae9241401501d525dcebf352a013529121",
+      "stage": "surface",
+      "observation": "原文第二、三段均以两个制表符缩进，译文均只有一个，段落缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes heart-of-fire.lua:56–58 燃烧献祭源串续行 \\n\\t\\t（两处），现译 \\n\\t，一级 TAB 不变量，只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fb23faa260fe36060448347769b43adfb59c638b396e35d872e83d697f041b70",
+      "stage": "surface",
+      "observation": "原文“-Armoured Leviathan”指装甲巨兽，译文“-重装上阵”变成了行动描述，丢失了巨兽这一对象。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:638 ARMOURED_LEVIATHAN 的 -日志 -Armoured Leviathan；现译“-重装上阵”与待用户审阅第21、27项同族（技能/效果/±日志统一“重装上阵”），更名属跨条决定，列入待审第28项。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fb28924d4a15b046f9b7dc2e79e8d7a1be8115c3a7ef765ee9bda1699598cf59",
+      "stage": "surface",
+      "observation": "原文“charges”指可用次数，译文“叠加次数”改成了叠加层数。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:861 BLACKICE long_desc You have %d charges. 以 eff.stacks 填充（charges = eff.stacks，on_merge 叠加至 max_stacks 3），charges 即叠加层数；现译“叠加次数：%d。”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fc65680ae71975db706e553602b380b0367fb65908fa3eb1337972cdba325596",
+      "stage": "surface",
+      "observation": "原文“too dangerous to perform on our own soil”指在己方土地上进行实验过于危险，译文写成“对于我们的土壤来说过于危险”；“pay tribute”是致敬，译文写成“奉上礼物”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:309 小水怪 lore：a prime location for carrying out covert operations 被译成“我们的藏身的主要根据地”（丢秘密行动且不通），experiments too dangerous to perform on our own soil 误作“对于我们的土壤来说过于危险”，As our scouts and servants beneath the seas 只剩“使者”，pay tribute 误作“奉上礼物”（应为致敬/铭记）。整段对照修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fc8cdfb222461f4a6e14e3f90d16a948aa1b5d0a1ce546453c04a3cfed733c98",
+      "stage": "surface",
+      "observation": "原文两处换行后均有两个制表符，译文对应位置均只有一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes brutality.lua:120–122 炙炎之牢源串续行 \\n\\t\\t（两处），现译 \\n\\t，一级 TAB 不变量，只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fc9cbd524311de441f779442fd89649e3c0f6aeae513ee0bfe308b97c286df95",
+      "stage": "surface",
+      "observation": "原文名称中的“the Doomed”在译文“腐化形态”中缺失。",
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:1042 CORRUPTION_OF_THE_DOOMED 效果名 Corruption of the Doomed；现译“腐化形态”未表达 Doomed，但与待用户审阅第22、25项同族（效果名及 ±日志统一“腐化形态”），更名属跨条决定，列入待审第29项。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fdf0fd691326294033f7e2583c45117e795c0c37c517ae8818a68b78b69c1df5",
+      "stage": "surface",
+      "observation": "原文“Rain of Fire”没有陨星含义，译文“陨星火雨”增添了陨星。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes spellblaze.lua:21–58 Rain of Fire 实现以 \"meteor\" 粒子与 DamageType.METEOR 在周围随机落点投射（info：at most two meteors will fall near you per turn），“陨星火雨”贴合实现且为本库既定技能名。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "00b0f993a3f4d887fbfbd26855439c19f69f06da5b6de6d74f2fb1a4c8291b02",
+      "stage": "surface",
+      "observation": "原文首句后有换行，译文将首句与下一句连在同一段，段落格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults init.lua:28–31 插件描述三行，源文 3 个 LF（首句后换行），现译 2 个 LF 把前两段并成一行（一级 LF 不变量）；horribly mutated and partly insane 的 partly 被删成“进入了疯狂之中”（删限定词缺陷类）。恢复首处换行并译出“半疯/神志部分失常”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "00d110ae42be49a802e5c3493525644667729095017ac385c9117ab3b0923126",
+      "stage": "surface",
+      "observation": "原文只有“%d linked”，译文增加了“伤害”；冻结输入未提供可确认此处所指的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:1063–1072 Mark of Treason callbackOnHit：linked_damage = cb.value*eff.power/100 由链接源承受，日志 (%d linked) 的 %d 即经链接转移的伤害；现译“(%d 伤害链接)”点明伤害，贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "01bdde51339405bcee58587a7117c5a1a073e94ba4859f2080f4d1c322286bdd",
+      "stage": "surface",
+      "observation": "原文指#Target#看到恐魔时受到强化；译文“在恐魔的视线中”把看到恐魔的人与视线所属者颠倒了。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults timed_effects.lua:2330 on_gain #Target# is bolstered at the sight of the horror!：该效果 beneficial（护甲加成），看见恐魔的是 #Target#；现译“在恐魔的视线中被强化了”把观看者颠倒成恐魔，一级 fidelity，改“#Target#目睹恐魔，士气大振！”一类。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
