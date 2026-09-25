@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（工具优化合入后恢复连续审核；第279批已 finalize）
+更新时间：2026-09-25（第280批已 finalize；窗口28积压达24条，下一步开修复窗口28）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,11 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **279** 批（`batch-99f8a711d02012a6de19`）：80 条全为 Ashes DLC，73 done / 7 repair_required /
-  0 blocked。4 个 surface lane 审 80 条，1 个 contextual run 复核 10 条；16 个观察逐条裁决。
-  17 项门禁全过，两个审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `5508e82c7044596fb2a07482ed91e0c612cf19ac` 已 finalize。
-  当前无 active batch；连续审核进行中（见第二节）。
+- 审核已闭合至第 **280** 批（`batch-76f9078d25a218ccbe79`）：80 条全为 Ashes DLC，69 done / 11 repair_required /
+  0 blocked。surface 首组因 lane-000-0 回显 identity 错字判废，整组以 `group-000-retry-02` 重派后 4 lane 有效；
+  首个 contextual run 越界（枚举 `/workspace`、写 `/tmp`）被拒收，经 refreeze（显式 `--ashes-checkout`）重派后有效，
+  复核 19 条；25 个观察逐条裁决。17 项门禁全过，两个审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `4c8992bcc09be4e02a3cb8232f0b29dc69887944` 已 finalize。
+  当前无 active batch。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -31,6 +32,7 @@
 | 277 | `batch-a2538cac10c65873a661` | 70 done / 9 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 13 confirmed / 1 refuted / 1 pending observation |
 | 278 | `batch-2dd6d21e34b360ebb6d9` | 73 done / 6 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 10 confirmed / 4 refuted / 1 pending observation |
 | 279 | `batch-99f8a711d02012a6de19` | 73 done / 7 repair | 70 OK / 10 ISSUE | 4 OK / 6 ISSUE | 11 confirmed / 3 refuted / 2 advisory |
+| 280 | `batch-76f9078d25a218ccbe79` | 69 done / 11 repair | 61 OK / 19 ISSUE | 13 OK / 6 ISSUE | 16 confirmed / 6 refuted / 3 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -105,17 +107,24 @@
 
 ## 五、下一步
 
-1. 继续第280批：先核对 HEAD、queue evidence HEAD、无 active batch。
-2. 修复窗口 28 积压 **13** 条（未达 20）：第278批 `2b3e15fe` `2f11be50` `318a0c4d` `368ba81f` `37030231` `39754d31`；
+1. **开修复窗口 28**（积压 24 条 ≥ 20，按指南第五节）：来源批次 278、279、280 各跑一次 `run_repair_steps.py preflight`，
+   再建有界 IMPLEMENT 任务。先核对 HEAD、queue evidence HEAD、无 active batch。
+2. 窗口 28 范围（24 条）：第278批 `2b3e15fe` `2f11be50` `318a0c4d` `368ba81f` `37030231` `39754d31`；
    第279批 `3bd78dce`（爆裂冲锋制表符）`3c496fb5`（疫火权杖应为发射）`3d80f4a5`（恶魔狂欢！成就条件）
    `4130b809`（空间控制者描述）`43134b3d`（毁灭女妖雕像频率与动作）`435ca9b7`（吞噬之焰制表符，机制译文贴合实现须保留）
-   `4dd916e4`（玛·洛克历史末尾 LF）。依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   `4dd916e4`（玛·洛克历史末尾 LF）；第280批 `54a6a1b0`（乌尔罗格对白理由）`54ef1fbf`（恶魔之血制表符）
+   `55bb0228`（烈焰突袭“任何生物”）`55dedd24`（战术简报两处写死“他”等）`5666e9d8`（精英卫兵雕像传说）
+   `5b6924a7`（绝望碾压制表符）`5e4738cd`（克里尔·费扬雕像传说，含 Fearscape→恶魔空间、Mal'Rok）`614e1524`（乌尔罗格对白增译）
+   `620e36d2`（地狱吐息换行，保留“锥形”）`64193308`（罗格洛斯种子来源）`69b36890`（炼狱之门换行，保留“4 回合”）。
+   依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
 3. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项；第278批 Osmosis Regen 仍 pending）。
-4. 第279批计时（实测，投影缓存 on）：start 1.7 s、surface-export 1.7 s、surface-import 1.7 s、contextual-export 1.7 s，
-   均命中合入后 rebuild 发布的同 commit 缓存。adjudication chain 在 generate 步因 `--source-root` 指向主游戏而失败
-   （contextual-import 已成功）；按第278批做法建立 SHA 核验的 `review279-source-root` 后，用同一 strict `generate()` 续跑
-   （未设缓存变量，87.9 s，含一次投影），再以缓存 on 跑 adjudicate + prepare-evidence
-   161.4 s（17/17）；finalize 91.8 s。全 DLC 批次的 chain 必须一开始就传按第278批方式构建的 DLC source-root。
+4. 计时（实测，投影缓存 on）：第279批 start/surface-export/surface-import/contextual-export 各约 1.7 s；adjudicate + prepare-evidence
+   161.4 s（17/17）；finalize 91.8 s；关闭后 rebuild 88.5 s。第280批 start 1.7 s；refreeze stage 89.4 s；
+   adjudication chain（含 17 项门禁）163.6 s；finalize 92.0 s。
+5. 全 DLC 批次的操作要点：adjudication chain 一开始就传 SHA 核验的 `reviewN-source-root`；首次 contextual envelope 不含 checkout
+   位置（`--ashes-checkout` 只在 refreeze 路径生效），Opus 可能自行搜寻而越界（第277、280批各一次），届时拒收并按 refreeze 重派；
+   让首次 export 即写入 checkout 位置属工具待办；surface 某 lane 判废须整组用
+   `tools/surface_screen_manifest.py build --attempt 2 --group-id group-000-retry-02` 重建（envelope 字节不变）。
 
 ## 六、环境备忘
 
