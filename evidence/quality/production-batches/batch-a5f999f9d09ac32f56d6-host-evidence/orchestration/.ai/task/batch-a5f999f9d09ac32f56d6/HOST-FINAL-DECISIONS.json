@@ -1,0 +1,159 @@
+{
+  "batch_id": "batch-a5f999f9d09ac32f56d6",
+  "observations": 15,
+  "observation_dispositions": {
+    "confirmed": 12,
+    "refuted": 2,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "3aec4007097be45ca60755881406d9f94a8d24e90f35899587c6153ec3b31009",
+    "3b3a38f90dd7aa4ebbc5bcf4054b89ffcbeed424f89c5a388e6fc1ed30c4184c",
+    "3bdd721e24e93d4d4b7ec459bc9d648a57b7b25b2652c3011abb4ef5d9bd1d44",
+    "3c623f8392d37664f89e731f2c45ffbdc232582fd6ca3951e3c5c1413f1169f3",
+    "3cfa2ffbf95cae29067e1e5112fc006e23943cb92a5a50e2f66b6eda6f32998a",
+    "4003c28c70f884c41ea92562aa07bd29d54b1a622c1d20bcc03fbdea9e920ca3",
+    "4555f7111c53b6c0e80083bb8955fa94c4437290485284925c30ebb6f27b53aa"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "3aec4007097be45ca60755881406d9f94a8d24e90f35899587c6153ec3b31009",
+      "stage": "surface",
+      "observation": "原文将奥术使用者称为应被消灭的“污秽”，译文遗漏了“污秽”这一判断。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults timed_effects.lua:2185–2188 坚定意志效果描述 Convinced that arcane users are filth to be destroyed：现译“相信奥术使用者应该被消灭”漏译 filth（污秽）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3b3a38f90dd7aa4ebbc5bcf4054b89ffcbeed424f89c5a388e6fc1ed30c4184c",
+      "stage": "surface",
+      "observation": "原文说巨石会尝试使敌人眩晕，译文写成直接施加眩晕，遗漏了尝试这一限制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/void.lua:190–280 黑色巨石：巨石每半回合以 DamageType.MESMERIZE、apply_power=combatSpellpower 投射，受豁免与免疫判定；源串 will attempt to daze，现译“施加眩晕”删去“尝试”，把可抵抗的效果写成必然。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3bdd721e24e93d4d4b7ec459bc9d648a57b7b25b2652c3011abb4ef5d9bd1d44",
+      "stage": "surface",
+      "observation": "原文要求目标离开视线超过 2 回合，译文写成“在过去 2 回合里”消失，时间条件有误；原文换行后三个制表符，译文只有两个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/calamity.lua:71–72 厄运之触 info：源串第二段前为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量；timed_effects.lua:1580–1590 JINX on_timeout 在连续脱离视线计满 2 回合才移除，现译“如果在过去 2 回合里目标消失在你的视线中”改变了条件。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3c623f8392d37664f89e731f2c45ffbdc232582fd6ca3951e3c5c1413f1169f3",
+      "stage": "surface",
+      "observation": "原文换行后三个制表符，译文只有两个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/friend-of-the-worm.lua:443–514 污秽夹击 info 源串换行后为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量，只恢复缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3cfa2ffbf95cae29067e1e5112fc006e23943cb92a5a50e2f66b6eda6f32998a",
+      "stage": "surface",
+      "observation": "原文在克罗格身世段与反魔法段之间用两个换行分段，译文只有一个换行，段落分隔丢失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/intro-krog.lua:22–29 克罗格开场文本：源串段间均为空行（\\n\\n），现译第二段起三处并为单个 \\n，一级换行不变量。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3de06b73a0b51dbd28b38d04af799009669159c5cb8e7557d9e4aadd0dd5fba9",
+      "stage": "surface",
+      "observation": "原文只说缩短新有益效果、延长新负面效果的持续时间；译文增加了“非‘其他’类”及“不影响‘其他’类效果”的限制。冻结输入没有该限制的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:1096–1113 NIHIL 通过 increase_detrimental_status_effects_time/reduce_beneficial_status_effects_time 生效；superload/mod/class/Actor.lua:91–100 on_set_temporary_effect 对两者都有 e.type ~= \"other\" 判定，“其他”类效果不受影响；现译括注贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3ecc90f60d7381bbb8e1528445be11d2ebbe3196bcce4bb2a411218659f3a535",
+      "stage": "surface",
+      "observation": "source 的“natural infusions”在注射用混合物中被译为“纹身”，语义明显不符。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/birth/krog.lua:29 natural infusions 指纹身（infusion）类刻印；本库 infusion 统一译“纹身”（mod-tome.lua 刻印说明“草本纹身与符文”、伊格兰斯改造食人魔对白“复合纹身配方”），现译与之一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4003c28c70f884c41ea92562aa07bd29d54b1a622c1d20bcc03fbdea9e920ca3",
+      "stage": "surface",
+      "observation": "“corrupted beyond hope”被译为“被绝望所腐化”，误将无可挽救的程度译成腐化原因；原文第二段后有空行，译文仅有单个换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/unlock-wyrmic_scourge.lua:21–31 天谴之龙解锁文本：corrupted beyond hope 意为腐化到无可救药，现译“被绝望所腐化”误作原因；vanquished it. 与 You can now… 之间的空行被并为单个 \\n。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4469daf6ff47e15bb6600a53ddf436ca4b27195aa40bbfe1d71f54c68e30bb54",
+      "stage": "surface",
+      "observation": "原文“this set of properties”指一组属性，译文“这条物品属性”变成单条属性。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/dialogs/FontSacrifice.lua:52–60 按钮 Reroll properties set 针对单个 ego（界面列表每行一条属性组），“这条物品属性”指称同一对象，表述可更贴近“这组属性”，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4555f7111c53b6c0e80083bb8955fa94c4437290485284925c30ebb6f27b53aa",
+      "stage": "surface",
+      "observation": "原文擦掉桌椅上的蜘蛛网后是在那里吃东西；译文“擦去一些蜘蛛网，吃掉了它们”变成吃蜘蛛网。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:491–507 废弃定居点一节：I brushed away some cobwebs from a nearby chair and table to eat my fill 误作“擦去一些蜘蛛网，吃掉了它们”（变成吃蜘蛛网）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3b3a38f90dd7aa4ebbc5bcf4054b89ffcbeed424f89c5a388e6fc1ed30c4184c",
+      "stage": "contextual",
+      "observation": "tome-cults/data/talents/demented/void.lua:279 says the monolith 'will attempt to daze enemies ... using your spellpower'. The translation drops 'attempt' and renders it as 每半回合对…敌人施加眩晕2回合, which reads as a guaranteed daze. That makes an attempt that saves or immunity can resist sound certain. Restore the qualifier, e.g. 尝试以你的法术强度眩晕…. The source location is unpinned and the envelope gives no checkout location, so the implementation was not checked.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/void.lua:190–280 黑色巨石：巨石每半回合以 DamageType.MESMERIZE、apply_power=combatSpellpower 投射，受豁免与免疫判定；源串 will attempt to daze，现译“施加眩晕”删去“尝试”，把可抵抗的效果写成必然。 contextual 同指删去“尝试”，宿主已查 MESMERIZE 的 apply_power 判定，属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3bdd721e24e93d4d4b7ec459bc9d648a57b7b25b2652c3011abb4ef5d9bd1d44",
+      "stage": "contextual",
+      "observation": "calamity.lua:72 says the effect 'will fade entirely if you break line of sight with your target for more than 2 turns', which means the target stays out of sight for more than 2 consecutive turns. The translation 如果在过去 2 回合里目标消失在你的视线中 means it fades if sight was lost at any moment in the past 2 turns. That changes both the condition and the threshold. Suggested: 若目标脱离你的视线超过 2 回合，所有诅咒都会消退。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/calamity.lua:71–72 厄运之触 info：源串第二段前为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量；timed_effects.lua:1580–1590 JINX on_timeout 在连续脱离视线计满 2 回合才移除，现译“如果在过去 2 回合里目标消失在你的视线中”改变了条件。 contextual 同指脱离视线条件改变，宿主核对 JINX on_timeout 属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3cfa2ffbf95cae29067e1e5112fc006e23943cb92a5a50e2f66b6eda6f32998a",
+      "stage": "contextual",
+      "observation": "intro-krog.lua:22-29 separates every paragraph with a blank line. In the translation only the first paragraph keeps its blank line; the next three paragraphs are joined by single line breaks, so the paragraph layout no longer matches. Also, 'as a result of the changes made to their bodies by the Ziguranth' became 作为上面条件的附加作用, which loses that the anti-magic comes from the Ziguranth's changes to the Krog body. Suggested: 由于伊格兰斯对其身体的改造，所有克罗格都被灌注了反魔法力量.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/intro-krog.lua:22–29 克罗格开场文本：源串段间均为空行（\\n\\n），现译第二段起三处并为单个 \\n，一级换行不变量。 contextual 同指段落空行，另指 as a result of the changes made to their bodies by the Ziguranth 误作“作为上面条件的附加作用”，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4003c28c70f884c41ea92562aa07bd29d54b1a622c1d20bcc03fbdea9e920ca3",
+      "stage": "contextual",
+      "observation": "unlock-wyrmic_scourge.lua:21 'even they can be corrupted beyond hope' means even drakes can be corrupted past any hope of recovery. The translation 就连他们也能够被绝望所腐化 turns it into corrupted by despair. Suggested: 就连他们也可能被腐化到无可救药. Separately, source lines 22-24 have a blank line between 'vanquished it.' and 'You can now…'; the translation drops it and joins the two with a single line break.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/unlock-wyrmic_scourge.lua:21–31 天谴之龙解锁文本：corrupted beyond hope 意为腐化到无可救药，现译“被绝望所腐化”误作原因；vanquished it. 与 You can now… 之间的空行被并为单个 \\n。 contextual 同指两处，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4555f7111c53b6c0e80083bb8955fa94c4437290485284925c30ebb6f27b53aa",
+      "stage": "contextual",
+      "observation": "fay-willows.lua:491-507, three problems. (1) 'made we wonder as to just how long I was out' means how long the narrator was unconscious; the translation 他们在外面呆了多久 says how long they stayed outside. (2) 'brushed away some cobwebs from a nearby chair and table to eat my fill' became 擦去一些蜘蛛网，吃掉了它们, where 它们 reads as the cobwebs being eaten. Suggested: 然后坐下饱餐一顿. (3) The same 'the commander' switches between 指挥官 and 司令官 throughout the passage; the name should be consistent within the text.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:491–507 废弃定居点一节：I brushed away some cobwebs from a nearby chair and table to eat my fill 误作“擦去一些蜘蛛网，吃掉了它们”（变成吃蜘蛛网）。 contextual 同指吃蜘蛛网，另指 how long I was out（昏迷多久）误作“在外面呆了多久”、同一 the commander 在段内“指挥官/司令官”混用，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes of 20, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 10 entries)"
+  },
+  "notes": [
+    "Attempts 1-3 of this batch were abandoned for Codex authentication failures (refresh-token reuse, then 401 with a service-account key) before any lane produced output; artifacts and host notes are in review293-attempt-{1,2,3}. Attempt 4 reused the identical frozen workset and candidate identities.",
+    "Cults-only batch: surface ran as four lanes of 20; all four lanes echoed their identities exactly and no observation slid (lane-000-3 prefixed its JSON with a stray \"---\" line; the harvested output still validated).",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Nihil (3de06b73a0) keeps the \"other\"-type exclusion: the Cults Actor superload skips e.type == \"other\" for both duration modifiers. natural infusions (3ecc90f60d) keeps the library term 纹身.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Seven confirmed repair revisions raise the window 32 backlog from 19 to 26 (batches 290-293), reaching the 20 threshold: repair window 32 opens next."
+  ]
+}

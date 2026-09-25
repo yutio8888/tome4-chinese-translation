@@ -1,0 +1,80 @@
+{
+ "workset": "evidence/quality/production-batches/batch-a5f999f9d09ac32f56d6-source-workset.json",
+ "decisions": {
+  "3aec400709|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults timed_effects.lua:2185–2188 坚定意志效果描述 Convinced that arcane users are filth to be destroyed：现译“相信奥术使用者应该被消灭”漏译 filth（污秽）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3b3a38f90d|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/void.lua:190–280 黑色巨石：巨石每半回合以 DamageType.MESMERIZE、apply_power=combatSpellpower 投射，受豁免与免疫判定；源串 will attempt to daze，现译“施加眩晕”删去“尝试”，把可抵抗的效果写成必然。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3bdd721e24|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/calamity.lua:71–72 厄运之触 info：源串第二段前为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量；timed_effects.lua:1580–1590 JINX on_timeout 在连续脱离视线计满 2 回合才移除，现译“如果在过去 2 回合里目标消失在你的视线中”改变了条件。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3c623f8392|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/friend-of-the-worm.lua:443–514 污秽夹击 info 源串换行后为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量，只恢复缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3cfa2ffbf9|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/data/texts/intro-krog.lua:22–29 克罗格开场文本：源串段间均为空行（\\n\\n），现译第二段起三处并为单个 \\n，一级换行不变量。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3de06b73a0|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:1096–1113 NIHIL 通过 increase_detrimental_status_effects_time/reduce_beneficial_status_effects_time 生效；superload/mod/class/Actor.lua:91–100 on_set_temporary_effect 对两者都有 e.type ~= \"other\" 判定，“其他”类效果不受影响；现译括注贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3ecc90f60d|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/birth/krog.lua:29 natural infusions 指纹身（infusion）类刻印；本库 infusion 统一译“纹身”（mod-tome.lua 刻印说明“草本纹身与符文”、伊格兰斯改造食人魔对白“复合纹身配方”），现译与之一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4003c28c70|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/data/texts/unlock-wyrmic_scourge.lua:21–31 天谴之龙解锁文本：corrupted beyond hope 意为腐化到无可救药，现译“被绝望所腐化”误作原因；vanquished it. 与 You can now… 之间的空行被并为单个 \\n。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4469daf6ff|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults overload/mod/dialogs/FontSacrifice.lua:52–60 按钮 Reroll properties set 针对单个 ego（界面列表每行一条属性组），“这条物品属性”指称同一对象，表述可更贴近“这组属性”，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4555f7111c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:491–507 废弃定居点一节：I brushed away some cobwebs from a nearby chair and table to eat my fill 误作“擦去一些蜘蛛网，吃掉了它们”（变成吃蜘蛛网）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3b3a38f90d|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/void.lua:190–280 黑色巨石：巨石每半回合以 DamageType.MESMERIZE、apply_power=combatSpellpower 投射，受豁免与免疫判定；源串 will attempt to daze，现译“施加眩晕”删去“尝试”，把可抵抗的效果写成必然。 contextual 同指删去“尝试”，宿主已查 MESMERIZE 的 apply_power 判定，属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3bdd721e24|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/calamity.lua:71–72 厄运之触 info：源串第二段前为 \\n\\t\\t\\t，现译 \\n\\t\\t，一级 TAB 不变量；timed_effects.lua:1580–1590 JINX on_timeout 在连续脱离视线计满 2 回合才移除，现译“如果在过去 2 回合里目标消失在你的视线中”改变了条件。 contextual 同指脱离视线条件改变，宿主核对 JINX on_timeout 属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3cfa2ffbf9|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/data/texts/intro-krog.lua:22–29 克罗格开场文本：源串段间均为空行（\\n\\n），现译第二段起三处并为单个 \\n，一级换行不变量。 contextual 同指段落空行，另指 as a result of the changes made to their bodies by the Ziguranth 误作“作为上面条件的附加作用”，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4003c28c70|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/data/texts/unlock-wyrmic_scourge.lua:21–31 天谴之龙解锁文本：corrupted beyond hope 意为腐化到无可救药，现译“被绝望所腐化”误作原因；vanquished it. 与 You can now… 之间的空行被并为单个 \\n。 contextual 同指两处，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4555f7111c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:491–507 废弃定居点一节：I brushed away some cobwebs from a nearby chair and table to eat my fill 误作“擦去一些蜘蛛网，吃掉了它们”（变成吃蜘蛛网）。 contextual 同指吃蜘蛛网，另指 how long I was out（昏迷多久）误作“在外面呆了多久”、同一 the commander 在段内“指挥官/司令官”混用，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}

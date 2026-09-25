@@ -1,0 +1,28 @@
+{
+  "batch_id": "batch-a5f999f9d09ac32f56d6",
+  "attempt": 1,
+  "abandoned_at": "2026-09-25T23:03:29Z",
+  "cause": "Codex OAuth refresh token reuse: all three created surface lanes errored before producing output (\"Your access token could not be refreshed because your refresh token was already used\"). Host re-login refreshed ~/.codex/auth.json at 2026-09-25T22:59:02Z.",
+  "lanes": {
+    "lane-000-0": {
+      "agent_id": "2f73c78f-9cdb-46d6-b0ac-8f7c960af788",
+      "status": "error",
+      "note": "agent tab was opened (paseo.open-agent-tab label), attentionReason cleared to null, so lifecycle reject/archive-intent were impossible; archived directly via MCP archive_agent, readback status=closed archivedAt=2026-09-25T23:00:11.263Z"
+    },
+    "lane-000-1": {
+      "agent_id": "ecdfbca4-f7d2-4084-9cc3-ac29b57d5cdc",
+      "status": "error",
+      "lifecycle": "rejected + archive-confirmed (archivedAt 2026-09-25T23:00:03.129Z)"
+    },
+    "lane-000-2": {
+      "agent_id": "d561d980-ba6e-4173-b65a-048dabf314d9",
+      "status": "error",
+      "lifecycle": "rejected + archive-confirmed (archivedAt 2026-09-25T23:00:03.661Z)"
+    },
+    "lane-000-3": {
+      "agent_id": null,
+      "status": "prepared, never created"
+    }
+  },
+  "outcome": "no result accepted; batch abandoned and restarted with the same batch id (attempt artifacts moved here)"
+}
