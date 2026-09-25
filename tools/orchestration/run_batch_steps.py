@@ -28,7 +28,9 @@ import argparse
 import os
 import sys
 import time
+from contextlib import contextmanager
 from pathlib import Path
+from typing import Any, Iterator
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -42,6 +44,35 @@ from orchestration import make_adjudication as adjudication  # noqa: E402
 # absent — run those on their own.
 TAKES_INPUT = {"surface-import", "contextual-import", "adjudicate"}
 NO_INPUT = {"surface-export", "contextual-export", "prepare-evidence"}
+
+
+@contextmanager
+def _counted_projections() -> Iterator[list[float]]:
+    """Record each real replay's wall time; never replace or shortcut it.
+
+    Only the stderr step lines use this.  CLI stdout JSON is left untouched.
+    """
+    samples: list[float] = []
+    original = queue._projection
+
+    def measured(*args: Any, **kwargs: Any):
+        started = time.perf_counter()
+        try:
+            return original(*args, **kwargs)
+        finally:
+            samples.append(time.perf_counter() - started)
+
+    queue._projection = measured
+    try:
+        yield samples
+    finally:
+        queue._projection = original
+
+
+def _step_line(label: str, code: int, started: float, samples: list[float], first: int) -> str:
+    replays = samples[first:]
+    return (f"--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s "
+            f"projections={len(replays)} projection_elapsed={sum(replays):.1f}s")
 
 
 def parse(tokens: list[str]) -> list[list[str]]:
@@ -94,14 +125,14 @@ def contextual_adjudication_chain(tokens):
             inputs[Path(value)] = adjudication.facts.ordinary_bytes(value)
         frozen = adjudication.freeze_inputs(args.spec)
         adjudication.fresh_output(root, args.output)
-        with queue.carry_projection():
+        with _counted_projections() as samples, queue.carry_projection():
             for label, step in (
                 ('contextual-import', ['production', 'batch', 'contextual-import', '--input', str(args.input)]),
                 ('generate-adjudication', None),
                 ('adjudicate', ['production', 'batch', 'adjudicate', '--input', str(args.output)]),
                 ('prepare-evidence', ['production', 'batch', 'prepare-evidence']),
             ):
-                started = time.monotonic()
+                started, first = time.monotonic(), len(samples)
                 if label in {'contextual-import', 'generate-adjudication'}:
                     for path, raw in inputs.items():
                         if adjudication.facts.ordinary_bytes(path) != raw:
@@ -112,8 +143,7 @@ def contextual_adjudication_chain(tokens):
                     code = 0
                 else:
                     code = cli_main(step)
-                print(f'--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s',
-                      file=sys.stderr)
+                print(_step_line(label, code, started, samples, first), file=sys.stderr)
                 if code != 0:
                     print(f'ERROR: {label} failed; remaining steps not run', file=sys.stderr)
                     return code
@@ -131,12 +161,11 @@ def rollover_chain(tokens):
         raise SystemExit('ERROR: --limit must be positive')
     steps = (('queue-rebuild', ['production', 'queue', 'rebuild']),
              ('batch-start', ['production', 'batch', 'start', '--limit', str(args.limit)]))
-    with queue.carry_projection():
+    with _counted_projections() as samples, queue.carry_projection():
         for label, step in steps:
-            started = time.monotonic()
+            started, first = time.monotonic(), len(samples)
             code = cli_main(step)
-            print(f"--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s",
-                  file=sys.stderr)
+            print(_step_line(label, code, started, samples, first), file=sys.stderr)
             if code != 0:
                 print(f"ERROR: {label} failed; remaining steps not run", file=sys.stderr)
                 return code
@@ -150,13 +179,12 @@ def main(argv: list[str] | None = None) -> int:
     if tokens and tokens[0] == "rollover-chain":
         return rollover_chain(tokens[1:])
     steps = parse(tokens)
-    with queue.carry_projection():
+    with _counted_projections() as samples, queue.carry_projection():
         for step in steps:
             label = step[2]
-            started = time.monotonic()
+            started, first = time.monotonic(), len(samples)
             code = cli_main(step)
-            print(f"--- {label}: exit={code} elapsed={time.monotonic() - started:.1f}s",
-                  file=sys.stderr)
+            print(_step_line(label, code, started, samples, first), file=sys.stderr)
             if code != 0:
                 print(f"ERROR: {label} failed; remaining steps not run", file=sys.stderr)
                 return code

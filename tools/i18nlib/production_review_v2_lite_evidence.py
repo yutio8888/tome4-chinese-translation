@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Iterable
 
 from . import capacity_policy
+from . import git_evidence_reader
 from . import production_review as wp1
 
 CORE_FILES = ("manifest.json", "results.jsonl", "adjudications.jsonl", "gates.json")
@@ -87,6 +88,10 @@ def validate_source_evidence(root: Path, evidence_path: object,
             raise wp1.ProductionReviewError("source evidence commit/blob cannot be verified") from error
         if kind != b"commit" or blob != b"blob":
             raise wp1.ProductionReviewError("source evidence is not a commit/blob")
+        # These objects need not be reachable from the evidence commit, so a
+        # recorded replay names them for a projection-cache hit to recheck.
+        git_evidence_reader.note_object(commit)
+        git_evidence_reader.note_object(f"{commit}:{evidence_path}")
         if evidence_snapshot is not None:
             # A self-contained snapshot is safe alongside a public Git
             # locator only when it is the content of that exact blob.  A

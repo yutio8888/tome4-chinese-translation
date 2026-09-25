@@ -1,6 +1,7 @@
 """Rebuildable personal-scale SQLite projection for production-review WP2-Lite."""
 from __future__ import annotations
 
+import copy
 import errno
 import fcntl
 import hashlib
@@ -21,6 +22,7 @@ from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_evidence as evidence
 from . import git_evidence_reader
+from . import projection_cache
 from .production_review_v2_lite_progress import Progress
 import contextual_result_check as contextual_check
 
@@ -914,6 +916,27 @@ def _projection(root: Path, treeish: str, *, progress: dict[str, Any] | None = N
         return _projection_contents(root, treeish, progress=progress)
 
 
+def _replay(root: Path, treeish: str, progress: dict[str, Any] | None) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
+    """One complete independent replay, exactly as `_projection` computes it.
+
+    With the projection cache switched on, a replay that collected its
+    complete progress also records the Git objects it named and, only after it
+    returned successfully, offers itself to the cache.  Publication failures
+    are the cache's own business; a replay error propagates unchanged and is
+    never cached.
+    """
+    if progress is None:
+        return _projection(root, treeish)
+    if not projection_cache.enabled():
+        return _projection(root, treeish, progress=progress)
+    settings = projection_cache.replay_settings(root)
+    with git_evidence_reader.recording() as objects:
+        value = _projection(root, treeish, progress=progress)
+    projection_cache.store(root, value, progress, objects, settings=settings,
+                           environment_ok=_publication_git_environment)
+    return value
+
+
 def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] | None = None) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     evidence_head = _head(root, treeish)
     tree = _tree(root, evidence_head)
@@ -928,13 +951,14 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
     # carry a durable state to the current revision.  Validate every current
     # migration against the catalog bytes at its publication boundary before
     # composing the unique linear chain used for historical batches.
-    from . import production_review_v2_lite_migration as migration
-    migration_edges = _validated_migration_edges(root, tree, evidence_head)
+    migration_edges = _validated_migration_edges(
+        root, tree, evidence_head,
+        current_catalog=(manifest["catalog_id"], _catalog_identity(tree)))
     matching_edges = [edge for edge in migration_edges
                       if edge["new_catalog_id"] == manifest["catalog_id"]]
     if len(matching_edges) > 1:
         raise _error("more than one migration boundary targets the current catalog")
-    reconciliation = migration.reconciliation_rows_for_tree(root, tree, manifest, entries)
+    reconciliation = _current_reconciliation(root, tree, manifest, entries, matching_edges)
     batch_records: list[tuple[str, dict[str, Any], dict[str, Any], list[dict[str, Any]]]] = []
     for path in all_manifests:
         batch_root = path.rsplit("/", 1)[0]
@@ -1022,8 +1046,29 @@ def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] |
     return evidence_head, manifest, entries, overrides, reconciliation
 
 
+def _current_reconciliation(root: Path, tree: dict[str, tuple[str, str, str]],
+                            manifest: dict[str, Any], entries: list[dict[str, Any]],
+                            matching_edges: list[dict[str, Any]]) -> list[tuple[Any, ...]]:
+    """The current boundary's rows, from the edge validation when it has them.
+
+    That validation already expanded the one current boundary against these
+    exact catalog bytes.  No boundary means no rows, which is what the
+    independent function answers after the same record validation.  Any other
+    case still calls that function.
+    """
+    if not matching_edges:
+        return []
+    rows = matching_edges[0].get("reconciliation_rows")
+    if rows is not None:
+        return rows
+    from . import production_review_v2_lite_migration as migration
+    return migration.reconciliation_rows_for_tree(root, tree, manifest, entries)
+
+
 # A one-element slot, not a bare value: `None` means no scope is open, so a
 # single-action process never remembers anything and replays exactly as before.
+# The element is (resolved root, projection, progress or None); progress is
+# only ever the complete report of that same replay, never reconstructed.
 _carry_slot: ContextVar[list[Any] | None] = ContextVar("carry_projection_slot", default=None)
 
 
@@ -1044,19 +1089,45 @@ def carry_projection() -> Iterator[None]:
 
 def projection_for(root: Path, treeish: str = "HEAD") -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     """Replay `treeish`, reusing a carried replay only when it names this commit."""
+    return _carried(root, treeish, with_progress=False)[0]
+
+
+def projection_and_progress_for(root: Path, treeish: str = "HEAD") -> tuple[tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]], dict[str, Any]]:
+    """Like `projection_for`, plus the complete progress of that same replay.
+
+    A carried replay made without progress is not reused for progress: it is
+    replayed once with the collector.  The returned progress is a private copy.
+    """
+    projection, progress = _carried(root, treeish, with_progress=True)
+    return projection, copy.deepcopy(progress)
+
+
+def _carried(root: Path, treeish: str, *, with_progress: bool) -> tuple[tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]], dict[str, Any] | None]:
     slot = _carry_slot.get()
     resolved = root.resolve()
     if slot:
-        carried_root, carried = slot[0]
+        carried_root, carried, carried_progress = slot[0]
         # Pin the repository too, the way GitEvidenceReader does: a replay is a
         # pure function of its evidence commit, but keeping the root explicit
         # makes that an invariant this code states rather than one it assumes.
-        if carried_root == resolved and carried[0] == _head(root, treeish):
-            return carried
-    value = _projection(root, treeish)
+        if (carried_root == resolved and carried[0] == _head(root, treeish) and
+                (carried_progress is not None or not with_progress)):
+            return carried, carried_progress
+    # Only an ordinary historical-baseline entry opens a read scope; recovery,
+    # finalize and queue commands never reach a persisted replay from here.
+    if projection_cache.reads_allowed():
+        cached = projection_cache.load(root, _head(root, treeish),
+                                       environment_ok=_publication_git_environment)
+        if cached is not None:
+            if slot is not None:
+                slot[:] = [(resolved, cached[0], cached[1])]
+            return cached
+    # A replay that may be published always carries its complete progress.
+    progress: dict[str, Any] | None = {} if with_progress or projection_cache.enabled() else None
+    value = _replay(root, treeish, progress)
     if slot is not None:
-        slot[:] = [(resolved, value)]
-    return value
+        slot[:] = [(resolved, value, progress)]
+    return value, progress
 
 
 def _connect(path: Path) -> sqlite3.Connection:
@@ -1241,7 +1312,7 @@ def init(root: Path) -> dict[str, Any]:
             raise _error("queue database already exists; use queue rebuild")
         _no_checkpoint(root); _clean_evidence(root)
         progress: dict[str, Any] = {}
-        projection = _projection(root, "HEAD", progress=progress)
+        projection = _replay(root, "HEAD", progress)
         report = _replace(root, projection)
         report["progress"] = progress
         report["override_basis"] = "sqlite_state_codes"
@@ -1252,13 +1323,13 @@ def rebuild(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
     with writer_lock(root):
         _no_checkpoint(root); _clean_evidence(root)
         progress: dict[str, Any] = {}
-        projection = _projection(root, treeish, progress=progress)
+        projection = _replay(root, treeish, progress)
         report = _replace(root, projection)
         # A rebuild always replays in full; inside a carry scope it then hands
         # that replay to later steps, which re-resolve the commit before reuse.
         slot = _carry_slot.get()
         if slot is not None:
-            slot[:] = [(root.resolve(), projection)]
+            slot[:] = [(root.resolve(), projection, copy.deepcopy(progress))]
         report["progress"] = progress
         report["override_basis"] = "sqlite_state_codes"
         return report
@@ -1287,7 +1358,7 @@ def check(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
     active = writer_active(root)
     _clean_evidence(root)
     progress: dict[str, Any] = {}
-    projection = _projection(root, treeish, progress=progress)
+    projection = _replay(root, treeish, progress)
     try:
         report = _check_projection(root, treeish, projection, active_writer=active)
         report["override_basis"] = "sqlite_state_codes"
@@ -1304,7 +1375,7 @@ def status(root: Path, *, treeish: str = "HEAD", allow_missing: bool = False) ->
     active = writer_active(root)
     _clean_evidence(root)
     progress: dict[str, Any] = {}
-    projection = _projection(root, treeish, progress=progress)
+    projection = _replay(root, treeish, progress)
     try:
         report = _check_projection(root, treeish, projection, active_writer=active)
         report["override_basis"] = "sqlite_state_codes"
@@ -1384,8 +1455,14 @@ def _migration_publication_commit(root: Path, tree: dict[str, tuple[str, str, st
 
 
 def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]],
-                               treeish: str) -> list[dict[str, Any]]:
-    """Validate every current migration and bind it to its Git boundary."""
+                               treeish: str, *,
+                               current_catalog: tuple[str, str] | None = None) -> list[dict[str, Any]]:
+    """Validate every current migration and bind it to its Git boundary.
+
+    ``current_catalog`` is the current (catalog_id, content identity).  The one
+    edge whose publication catalog has exactly that identity also keeps its
+    complete ordered reconciliation rows; every other edge stays compact.
+    """
     from . import production_review_v2_lite_migration as migration
 
     edges: list[dict[str, Any]] = []
@@ -1411,7 +1488,8 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
             raise _error("migration base catalog exclusions hash drift")
 
         publication_commit = _migration_publication_commit(root, tree, treeish, path, value)
-        new_manifest, new_entries, new_manifest_sha256 = _catalog_view(root, _tree(root, publication_commit))
+        publication_tree = _tree(root, publication_commit)
+        new_manifest, new_entries, new_manifest_sha256 = _catalog_view(root, publication_tree)
         if new_manifest["catalog_id"] != value["new_catalog_id"]:
             raise _error("migration publication catalog identity drift")
         if new_manifest_sha256 != value["new_manifest_sha256"]:
@@ -1425,12 +1503,18 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
         # A replay needs exactly the chain inputs and the compact mapping.  The
         # expanded rows, both catalogs and both manifests die with this scope;
         # only after full validation is the mapping compressed at all.
-        edges.append({"path": path,
-                      "old_catalog_id": old_manifest["catalog_id"],
-                      "new_catalog_id": new_manifest["catalog_id"],
-                      "base_commit": value["base_commit"],
-                      "publication_commit": publication_commit,
-                      "rows_by_old": _compact_mapping_rows(root, normalized["rows"])})
+        edge = {"path": path,
+                "old_catalog_id": old_manifest["catalog_id"],
+                "new_catalog_id": new_manifest["catalog_id"],
+                "base_commit": value["base_commit"],
+                "publication_commit": publication_commit,
+                "rows_by_old": _compact_mapping_rows(root, normalized["rows"])}
+        # Same catalog bytes as the current tree: the independent
+        # reconciliation would expand this same record against these same
+        # validated entries, so keep its complete rows (reason, migration_id).
+        if current_catalog == (new_manifest["catalog_id"], _catalog_identity(publication_tree)):
+            edge["reconciliation_rows"] = migration._migration_rows(normalized)
+        edges.append(edge)
     return edges
 
 

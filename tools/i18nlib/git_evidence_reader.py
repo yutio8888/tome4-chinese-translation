@@ -16,6 +16,10 @@ The scope also owns the projection-local row and tuple pools used to reuse
 complete, equal canonical rows and compact migration mappings across catalogs.
 They are keyed by content, never by revision identity alone, and are dropped in
 ``projection_scope``'s ``finally`` together with the reader itself.
+
+``recording`` is the one addition for the disposable same-commit projection
+cache: it only notes which Git objects a replay named, so a later cache hit can
+recheck that they still exist.  It never changes what is read or returned.
 """
 from __future__ import annotations
 
@@ -101,6 +105,45 @@ class GitEvidenceReader:
 
 
 _active: ContextVar[GitEvidenceReader | None] = ContextVar("git_evidence_reader", default=None)
+_recording: ContextVar[set[str] | None] = ContextVar("git_evidence_recording", default=None)
+
+# Recorded in place of an object the recorder cannot name exactly (a non-SHA-1
+# repository, an unresolved expression).  A record holding it is incomplete and
+# must never be used to justify a cache hit.
+INCOMPLETE = "\0incomplete"
+_SHA1 = re.compile(r"[0-9a-f]{40}")
+
+
+@contextmanager
+def recording() -> Iterator[set[str]]:
+    """Collect the object names read or noted inside this block.
+
+    Entries are full SHA-1 object IDs or ``<commit>:<path>`` expressions that
+    ``git cat-file --batch-check`` resolves; anything else is ``INCOMPLETE``.
+    """
+    objects: set[str] = set()
+    token = _recording.set(objects)
+    try:
+        yield objects
+    finally:
+        _recording.reset(token)
+
+
+def note_object(name: str) -> None:
+    """Note an object that a caller verified with its own Git command."""
+    objects = _recording.get()
+    if objects is None:
+        return
+    if not isinstance(name, str) or not name or "\n" in name or "\r" in name or "\0" in name:
+        objects.add(INCOMPLETE)
+    else:
+        objects.add(name)
+
+
+def _note_read(object_id: str) -> None:
+    objects = _recording.get()
+    if objects is not None:
+        objects.add(object_id if _SHA1.fullmatch(object_id) else INCOMPLETE)
 
 
 def active_reader(root: Path) -> GitEvidenceReader | None:
@@ -133,6 +176,7 @@ def read(root: Path, kind: str, object_id: str, git: Callable[..., bytes],
          *args: str) -> bytes:
     reader = _active.get()
     if reader is None or reader.root != root.resolve():
+        _note_read(object_id)
         return git(root, *args, object_id)
     if re.fullmatch(r"[0-9a-f]{40}", object_id) is None:
         # Resolve the expression BEFORE peeling: in HEAD:path^{blob}, Git
@@ -140,8 +184,10 @@ def read(root: Path, kind: str, object_id: str, git: Callable[..., bytes],
         # Aliases are resolved every time, never stored as cache keys.
         resolved = git(root, "rev-parse", "--verify", object_id).decode("ascii").strip()
         if re.fullmatch(r"[0-9a-f]{40}", resolved) is None:
+            _note_read(object_id)
             return git(root, *args, object_id)
         object_id = git(root, "rev-parse", "--verify", f"{resolved}^{{{kind}}}").decode("ascii").strip()
+    _note_read(object_id)
     if re.fullmatch(r"[0-9a-f]{40}", object_id) is None:
         # Preserve the underlying Git/error contract for non-SHA1 repositories.
         return git(root, *args, object_id)

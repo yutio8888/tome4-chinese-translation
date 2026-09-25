@@ -203,6 +203,11 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   SQLite 与活动 checkpoint 位于 `.artifacts/i18n/production-review-v2-lite/`，可从 Git
   重建。无活动批次时以 `production queue rebuild` 同步当前提交，再执行 `queue check`；
   活动批次必须先按 `batch show` 和恢复契约处理，不能直接删 checkpoint。
+  可选同 commit 投影缓存以 `I18N_PROJECTION_CACHE=on` 显式启用（默认关闭），写入
+  `.artifacts/i18n/projection-cache-v1/`，可随时删除；只有普通 batch 步骤与 `repair preflight`
+  的历史基线读取会命中，`queue`、`finalize`、`recover`、`abandon` 与 migration 仍完整重放。
+  `I18N_PROJECTION_CACHE_TRACE=1` 在 stderr 逐次打印命中／未命中原因。布局与失效条件见
+  [WP2-Lite 方案 §2.2](../docs/translation-production-review-v2-lite-plan.md#22-唯一运行时数据)。
   `queue status --json` 分开报告当前表层／深审覆盖、待修复和历史失效，不把表层通过
   当作深审。当前操作入口见[审核交接](../deprecated/docs/production-review-handoff-2026-09-05.md)，
   正式设计见[WP2-Lite 方案](../docs/translation-production-review-v2-lite-plan.md)。

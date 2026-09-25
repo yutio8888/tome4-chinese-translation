@@ -90,6 +90,16 @@ evidence/production-review-v2-lite/
 - `repository.lock` 是唯一写锁：Linux/POSIX 下用 Python 标准库 `fcntl.flock(fd, LOCK_EX|LOCK_NB)`，从 writer preflight 一直持有同一 fd 到写入、fsync 和校验结束；争锁失败立即退出。锁只保护合作进程，不声称抵御恶意进程。
 - SQLite 自身短暂的 `-wal/-shm` 或 journal sidecar 只是数据库实现细节，必须位于同一 ignored 目录，不能成为第二个队列或长期事实来源。
 
+可选的同 commit 投影缓存位于独立的 ignored 目录，不属于上述运行时数据：
+
+```text
+.artifacts/i18n/projection-cache-v1/v1-<commit>-<key>.json
+```
+
+- 它只保存一次成功完整重放的已提交 projection、同次完整 progress 与命中时复查的 Git 对象清单；不从 SQLite 或 checkpoint 生成，不是第二个队列或 checkpoint，可随时整目录删除。
+- 由 `I18N_PROJECTION_CACHE=on` 显式启用，其他取值和未设置均为关闭；关闭时不读、不写、不建目录。只有 `batch start/surface-export/surface-import/contextual-export/contextual-import/adjudicate/prepare-evidence` 与 `repair preflight` 的历史基线读取可以命中；`queue init/rebuild/check/status`、`finalize`、`recover`、`abandon` 与 migration 始终独立完整重放。命中后 checkpoint、raw、phase、SQLite 与锁检查照常执行。
+- 键绑定 worktree/Git 目录、精确 commit、格式版本、`tools/**/*.py` 与 `i18n/quality/` 字节指纹及 Python/Git 运行信息；命中还要求 Git 环境符合发布快路径的同一白名单、记录对象仍存在且类型不变、commit 可达对象闭包连通。任何不确定都按未命中重放，缓存读写失败不改变命令结果。最多保留 3 个 commit、总计 512 MiB；清理只删除该目录内符合命名规则的普通文件。
+
 现有 surface/contextual 契约要求的 `.ai/task/...` envelope、manifest、STATE 与 `.ai/reviews/...` raw 输出保持原路径和 schema；它们是 Paseo task artifact，不是第二个 coordinator checkpoint。WP2-Lite 记录运行时 exact path/hash、调用现有 validator，并按第 7.2 节只复制 validator 实际接受的 adapter input/output bytes 到本批 tracked raw evidence；不改写 consumer 字段。
 
 ## 3. Authoritative catalog

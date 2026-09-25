@@ -1,6 +1,7 @@
 """Single active batch and exact current surface adapter for WP2-Lite."""
 from __future__ import annotations
 import copy
+import functools
 import hashlib, os, shutil, sqlite3, json, subprocess, stat
 from collections import defaultdict
 from pathlib import Path
@@ -11,11 +12,26 @@ from . import production_review_v2_lite_queue as queue
 from . import production_review_v2_lite_evidence as evidence
 from . import capacity_policy
 from . import gate_results
+from . import projection_cache
 import surface_screen_result_check as surface
 import surface_screen_manifest as surface_manifest
 import contextual_result_check as contextual
 
 MAX_BATCH = 80
+
+
+def _independent_replay(function):
+    """Abandon, finalize and recovery never read a persisted projection replay.
+
+    The CLI already opens no read scope for them; this also holds for direct
+    Python callers running inside an ordinary entry's scope.
+    """
+    @functools.wraps(function)
+    def wrapper(*args, **kwargs):
+        with projection_cache.independent():
+            return function(*args, **kwargs)
+    return wrapper
+
 # WP2L-3 owns only the reservation and surface adapter phases.  Later
 # contextual/adjudication/commit phases belong to WP2L-4 and must fail closed.
 PHASES = frozenset({"reserved", "surface_ready", "surface_collected", "deep_ready", "deep_collected", "adjudicated", "commit_ready"})
@@ -1412,6 +1428,7 @@ def record_host_block(root, input_path):
         return {"batch_id": checkpoint["batch_id"], "entry_revision_identity":
                 block["entry_revision_identity"], "host_blocks": len(candidate_blocks), "ok": True}
 
+@_independent_replay
 def abandon(root, *, discard_uncommitted_results=False, restore_evidence=False):
     with queue.writer_lock(root):
         # Validate the checkpoint-owned prospective tree before preflight can
@@ -1948,6 +1965,7 @@ def _committed_production_bytes(root, commit):
     return total
 
 
+@_independent_replay
 def finalize(root, commit):
     with queue.writer_lock(root):
         path = queue.checkpoint_path(root)
@@ -2004,6 +2022,7 @@ def _recover_committed_checkpoint(root, checkpoint):
             "recovered": True, "finalized": True, "ok": True}
 
 
+@_independent_replay
 def recover_from_head(root):
     """Direct CLI recovery alias: rebuild or finalize the current HEAD."""
     with queue.writer_lock(root):
@@ -2015,6 +2034,7 @@ def recover_from_head(root):
     return recover(root)
 
 
+@_independent_replay
 def recover(root):
     with queue.writer_lock(root):
         database = queue.database_path(root)

@@ -14,6 +14,7 @@ from . import production_review_v2_lite
 from . import production_review_v2_lite_queue
 from . import production_review_v2_lite_batch
 from . import production_review_v2_lite_migration
+from . import projection_cache
 from .runtime import LuaRuntime
 from .cli_common import _add_common_arguments, _manifest, _print_json
 
@@ -166,7 +167,11 @@ def register(subparsers: argparse._SubParsersAction) -> None:
 
 def dispatch(arguments: argparse.Namespace) -> int:
     if arguments.command == "production":
-        return _production(arguments)
+        # The one place a persisted same-commit replay may be read: only the
+        # listed ordinary entries; every other action is explicitly reset.
+        with projection_cache.entry_scope(arguments.production_command,
+                                          getattr(arguments, "production_action", None)):
+            return _production(arguments)
     raise AssertionError(f"unhandled command: {arguments.command}")
 
 
