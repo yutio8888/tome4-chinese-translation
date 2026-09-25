@@ -1,0 +1,167 @@
+{
+  "batch_id": "batch-41762084bcf428db6c44",
+  "observations": 16,
+  "observation_dispositions": {
+    "advisory": 2,
+    "refuted": 6,
+    "confirmed": 8
+  },
+  "repair_revision_keys": [
+    "1cd6be4130382fb4600a70db5bd81fd01f3de9b8d232909bed511369a0674318",
+    "1fa32c1a9c27fb3c20324855a8704a184e35158e5b981f1e6fcdf5c72ff2b9b8",
+    "207cee7b93c53c0d1d114b5acf6a4f0012a04d752b9caeb20e658688725a8672",
+    "226a7774f7f8984ce4e411fc50975328389966e9cc73092766ea094b911a172f",
+    "25d776f5875f708876021c3626d99d845f541749ad928d954527d0182acc818d",
+    "272a8bbc7c6639795af90a6d7118e71dc73cd63d32ebe0f1e01a5d13e2eb7111"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "3c9d70a5abaa9b0fd73c0b274d5281184d6a37d31da46a0c9ed1444650c68e9d",
+      "stage": "surface",
+      "observation": "原文的 %d%% weapon damage as fire damage 指按武器伤害百分比计算，并以火焰伤害造成；译文“%d%% 火焰武器伤害”误将“火焰”用于修饰“武器伤害”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes talents/corruptions/brutality.lua:120–122 火炎之爪 %d%% weapon damage as fire damage 译“%d%% 火焰武器伤害”，为本库既有简写（3 处同式），意义可辨；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "de404fc8f800fe4189382f06bfa44fedbdb814b1cf7ecd4a6a8b802a0dd32b95",
+      "stage": "surface",
+      "observation": "原文明确为 melee attack，译文仅写“一次攻击”，遗漏了近战限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes talents/corruptions/heart-of-fire.lua:56–58 deal a melee attack against a random adjacant enemy 译“对一个随机相邻敌对生物进行一次攻击”，未写“近战”，但目标限定相邻、按武器伤害结算，实为近战；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "023ddaba771a00c2c72c3d5f9ab1741306c2ccae4070db8f927c782bb486826b",
+      "stage": "surface",
+      "observation": "原文明确为半径 %d 的目标区域，译文只写“%d 码范围”，遗漏半径；原文 numbed 表示伤害降低，译文“麻痹”额外暗示无法行动。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/tentacles.lua:228–234（窗口31 修复后的 successor）：target zone of radius %d 译“%d 码范围的目标区域”，本库“%d 码范围/半径”两种写法并用（tome-cults.lua 与 mod-tome.lua 共 48/158 处），不改变区域大小含义；numbed→“麻痹”为本库 Numbing 族既定译法、同句写明伤害降低，已登记待用户审阅第30项，本批不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1cd6be4130382fb4600a70db5bd81fd01f3de9b8d232909bed511369a0674318",
+      "stage": "surface",
+      "observation": "原文说书的容纳量有限，译文改成“只能吸收书页上能画得下的那么多的东西”，凭空加入画在书页上的限制；“sacrifice a great treasure”也被译成损失财富中的很大一部分。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua:177–183 被诅咒城堡手记：the tome could only suck so much inside its covers 误作“只能吸收书页上能画得下的那么多的东西”（增译“画”）；Although I had to sacrifice a great treasure 指那本书本身（吸入城堡后再装不下别的东西），误作“牺牲了我的财富中很大的一部分”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1fa32c1a9c27fb3c20324855a8704a184e35158e5b981f1e6fcdf5c72ff2b9b8",
+      "stage": "surface",
+      "observation": "原文称玻璃管足以容纳队伍中的一人且仍有余地，译文写成足够整个小队在里面行走；原文附着在机器上的黑色生长物，译文写成吞噬机器的黑色怪物。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/dremwarves.lua:52–74 德瑞姆探险笔记：wide enough for one of our party to fit in with room to spare 误作“足够让我们的一个小队在里面行走”；judging by the black growth which engulfs the machine 误作“正如……吞噬着这些机器的黑色怪物一样”（growth 非怪物，且为推断依据非类比）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "207cee7b93c53c0d1d114b5acf6a4f0012a04d752b9caeb20e658688725a8672",
+      "stage": "surface",
+      "observation": "原文两句之间有换行及缩进，译文将两句接在同一行，丢失原有换行格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/misc/misc.lua:174–175 info 源串两句间 \\n\\t\\t（1 个 LF），现译并为一行（0 个 LF），一级换行不变量，只恢复换行缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "21736923b60a36f40db20f8cfa3aa88b803a99865400b15f8a049138cd41be23",
+      "stage": "surface",
+      "observation": "原文仅写击中敌人有 %d%% 几率震慑；译文额外宣称每回合首次符合条件的命中必定触发、后续命中另行判定及同一目标每回合最多震慑一次。冻结输入未提供这些机制的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:1937–1953 KROG_WRATH callbackOnDealDamage：turn_procs.krog_wrath 为空时不掷骰（每回合首次命中必定触发），之后按 rng.percent(eff.power) 判定，且 turn_procs.krog_wrath[target.uid] 使同一目标每回合只震慑一次；现译补充说明与实现逐项一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "226a7774f7f8984ce4e411fc50975328389966e9cc73092766ea094b911a172f",
+      "stage": "surface",
+      "observation": "原文“don't belong anywhere”意为无处有归属，译文“除了这里之外别无归处”却表示这里是归处。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/kroshkkur.lua:39–41 克诺什库尔 lore：we simply don't belong anywhere 是“我们在哪里都格格不入”，现译“除了这里之外别无归处”增出“这里是归处”，改变断言（下文 When we reside in Kroshkurr, however 才转折）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "25d776f5875f708876021c3626d99d845f541749ad928d954527d0182acc818d",
+      "stage": "surface",
+      "observation": "原文只有一处换行及制表缩进，译文在首句后额外加入一处，改变了段落格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/scourge-drake.lua:200–202 info 源串 2 个 LF（仅在第二句前），现译在首句后多插一处 \\n\\t\\t（3 个 LF），一级换行不变量，只删多余换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "26c8f29ece4e776ecdfdafa742502581e2c3a0e0541f236f3b08f033da2eec2d",
+      "stage": "surface",
+      "observation": "“forces of entropy”被译为“熵能力量”，出现明显错字。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/doom.lua:58–61 forces of entropy 译“熵能力量”：“熵能”为本库 Cults 通用词（tome-cults.lua 30 处，如 lore 2465 行“我掌握的熵能力量”），非错字。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "272a8bbc7c6639795af90a6d7118e71dc73cd63d32ebe0f1e01a5d13e2eb7111",
+      "stage": "surface",
+      "observation": "原文“organise anything in its interior”指整理城堡内部的东西，译文写成“安装什么家具”，明显改变了动作和对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua:190–194 城堡手记：Whenever I tried to decorate rooms or organise anything in its interior 的 organise anything 误作“安装什么家具”，改变动作与对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "274f704d648f1e5325feea40c9e93fefac8505b26bdc9850b1f4bfd579e736ce",
+      "stage": "surface",
+      "observation": "原文说“any new debuff”，译文额外加入“‘其他’类效果除外”；冻结原文未提供这一例外的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:2012–2045 TOTAL_COLLAPSE callbackOnTemporaryEffect：if e.status ~= \"detrimental\" then return end；if e.type == \"other\" then return end，“其他”类负面效果不延长；现译括注“（‘其他’类效果除外）”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1cd6be4130382fb4600a70db5bd81fd01f3de9b8d232909bed511369a0674318",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/zones.lua:183（来源未固定）：'Although I had to sacrifice a great treasure' 指的是那本书本身。书吸进城堡后再也装不下别的东西，所以这件宝物等于被牺牲了。译文写成「牺牲了我的财富中很大的一部分」，意思变成失去了一部分财产。同句 'the tome could only suck so much inside its covers' 被译成「只能吸收书页上能画得下的那么多的东西」，「画得下」是原文没有的内容。另外，第 179 行 'If I could just work out the logic behind how it shifted itself' 被译成「只要我能弄清楚，尽管它的结构不断的改变，这种改变的内部仍然蕴含了某种逻辑」，意思从「弄清变化背后的逻辑」偏成了「弄清变化中存在逻辑」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua:177–183 被诅咒城堡手记：the tome could only suck so much inside its covers 误作“只能吸收书页上能画得下的那么多的东西”（增译“画”）；Although I had to sacrifice a great treasure 指那本书本身（吸入城堡后再装不下别的东西），误作“牺牲了我的财富中很大的一部分”。 contextual 同指两处，另指 If I could just work out the logic behind how it shifted itself 误作“弄清……这种改变的内部仍然蕴含了某种逻辑”（应为弄清其变化背后的逻辑），宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1fa32c1a9c27fb3c20324855a8704a184e35158e5b981f1e6fcdf5c72ff2b9b8",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/dremwarves.lua:52-74（来源未固定）有多处语义错误。(1) 第 58 行 'wide enough for one of our party to fit in with room to spare' 是说宽到能容下队伍里的一个人，译文「足够让我们的一个小队在里面行走」写成了整个小队。(2) 第 68 行 'I am not the only one who has been infected' 是说不只我一人被感染，译文「其他人也都感染了」夸大成所有人都被感染。(3) 第 72 行 'judging by the black growth which engulfs the machine' 把黑色增生物当作判断的依据；译文「正如…吞噬着这些机器的黑色怪物一样」把 growth 错译成「怪物」，还改成了类比关系。(4) 第 72 行 'Feral Drem' 意为野生／野化的德瑞姆，译文「原生的德瑞姆」语义不符。(5) 第 56 行「根本不可能存在于埃亚尔集中出现」的句式残缺，把「存在于」和「集中出现」两种说法混在了一起。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/dremwarves.lua:52–74 德瑞姆探险笔记：wide enough for one of our party to fit in with room to spare 误作“足够让我们的一个小队在里面行走”；judging by the black growth which engulfs the machine 误作“正如……吞噬着这些机器的黑色怪物一样”（growth 非怪物，且为推断依据非类比）。 contextual 同指两处，另指 I am not the only one who has been infected 误作“其他人也都感染了”（夸大为全员）、Feral Drem 误作“原生的德瑞姆”（本库同族用“野生德瑞姆”）、such a concentration of these energies simply couldn't exist on Eyal 句式残缺（“不可能存在于埃亚尔集中出现”），宿主逐句核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "21736923b60a36f40db20f8cfa3aa88b803a99865400b15f8a049138cd41be23",
+      "stage": "contextual",
+      "observation": "tome-cults/data/timed_effects.lua:1940（来源未固定）的 KROG_WRATH long_desc 原文只有 '%d%% chance to stun any foes hit.'，传入的参数只有 eff.power。译文在此之外还加了三条机制：「每回合第一次符合条件的命中必定触发震慑，不受该几率限制」「之后的命中按该几率判定」「同一目标每回合最多被震慑一次」。其中「必定触发」和原文的几率表述正面矛盾。冻结 envelope 里只有 long_desc 这一行，没有给出该效果的触发回调，也没有提供 cults checkout 的位置，因此这些新增的机制主张无法在冻结证据内核验。需要补充相关的回调源码证据；在此之前应视为缺乏依据的新增内容。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:1937–1953 KROG_WRATH callbackOnDealDamage：turn_procs.krog_wrath 为空时不掷骰（每回合首次命中必定触发），之后按 rng.percent(eff.power) 判定，且 turn_procs.krog_wrath[target.uid] 使同一目标每回合只震慑一次；现译补充说明与实现逐项一致，保留。 contextual 因 envelope 未含回调而判证据不足；宿主已按公开源码补核，补充说明成立。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "274f704d648f1e5325feea40c9e93fefac8505b26bdc9850b1f4bfd579e736ce",
+      "stage": "contextual",
+      "observation": "tome-cults/data/timed_effects.lua:2022（来源未固定）的 TOTAL_COLLAPSE 原文是 'any new debuff on you lasts %d%% longer'，没有排除条件。译文加了「（“其他”类效果除外）」。冻结片段只到第 2019-2025 行的 long_desc、type 和 subtype，没有给出延长负面效果时长的回调代码，也没有提供 cults checkout 的位置，因此这条排除条件无法在冻结证据内核验。需要补充对应回调里判断 type~=\"other\" 的源码证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:2012–2045 TOTAL_COLLAPSE callbackOnTemporaryEffect：if e.status ~= \"detrimental\" then return end；if e.type == \"other\" then return end，“其他”类负面效果不延长；现译括注“（‘其他’类效果除外）”贴合实现，保留。 contextual 因 envelope 未含回调而判证据不足；宿主已按公开源码补核，括注成立。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (8 lanes: surface-000 Ashes 6, surface-001 Cults 74)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Ashes 2 entries, contextual-001 Cults 10 entries)"
+  },
+  "notes": [
+    "Mixed Ashes+Cults batch: surface ran as two lane groups (4 Ashes lanes of 2/2/1/1, 4 Cults lanes of 19/19/18/18); all eight lanes echoed their identities exactly and no observation slid.",
+    "Both contextual runs read only their own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "contextual-001 flagged KROG_WRATH (21736923b6) and TOTAL_COLLAPSE (274f704d64) only because the envelope lacked the callbacks; the host checked the public Cults callbacks and both translations match the implementation.",
+    "023ddaba77 is the window 31 successor of the Slimy Tendril info; its numbed wording stays with pending-user-review item 30.",
+    "prepare_contextual290.py now labels each run SPEC by its own component (Ashes / Cults).",
+    "Ashes and Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Six confirmed repair revisions start the window 32 backlog at 6 (from batch 290)."
+  ]
+}

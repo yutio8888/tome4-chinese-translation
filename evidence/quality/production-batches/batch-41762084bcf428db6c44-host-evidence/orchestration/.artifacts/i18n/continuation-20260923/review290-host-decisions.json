@@ -1,0 +1,85 @@
+{
+ "workset": "evidence/quality/production-batches/batch-41762084bcf428db6c44-source-workset.json",
+ "decisions": {
+  "023ddaba77|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults talents/demented/tentacles.lua:228–234（窗口31 修复后的 successor）：target zone of radius %d 译“%d 码范围的目标区域”，本库“%d 码范围/半径”两种写法并用（tome-cults.lua 与 mod-tome.lua 共 48/158 处），不改变区域大小含义；numbed→“麻痹”为本库 Numbing 族既定译法、同句写明伤害降低，已登记待用户审阅第30项，本批不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1cd6be4130|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/zones.lua:177–183 被诅咒城堡手记：the tome could only suck so much inside its covers 误作“只能吸收书页上能画得下的那么多的东西”（增译“画”）；Although I had to sacrifice a great treasure 指那本书本身（吸入城堡后再装不下别的东西），误作“牺牲了我的财富中很大的一部分”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1fa32c1a9c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/dremwarves.lua:52–74 德瑞姆探险笔记：wide enough for one of our party to fit in with room to spare 误作“足够让我们的一个小队在里面行走”；judging by the black growth which engulfs the machine 误作“正如……吞噬着这些机器的黑色怪物一样”（growth 非怪物，且为推断依据非类比）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "207cee7b93|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/misc/misc.lua:174–175 info 源串两句间 \\n\\t\\t（1 个 LF），现译并为一行（0 个 LF），一级换行不变量，只恢复换行缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "21736923b6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:1937–1953 KROG_WRATH callbackOnDealDamage：turn_procs.krog_wrath 为空时不掷骰（每回合首次命中必定触发），之后按 rng.percent(eff.power) 判定，且 turn_procs.krog_wrath[target.uid] 使同一目标每回合只震慑一次；现译补充说明与实现逐项一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "226a7774f7|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/kroshkkur.lua:39–41 克诺什库尔 lore：we simply don't belong anywhere 是“我们在哪里都格格不入”，现译“除了这里之外别无归处”增出“这里是归处”，改变断言（下文 When we reside in Kroshkurr, however 才转折）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "25d776f587|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/scourge-drake.lua:200–202 info 源串 2 个 LF（仅在第二句前），现译在首句后多插一处 \\n\\t\\t（3 个 LF），一级换行不变量，只删多余换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "26c8f29ece|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults talents/demented/doom.lua:58–61 forces of entropy 译“熵能力量”：“熵能”为本库 Cults 通用词（tome-cults.lua 30 处，如 lore 2465 行“我掌握的熵能力量”），非错字。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "272a8bbc7c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/zones.lua:190–194 城堡手记：Whenever I tried to decorate rooms or organise anything in its interior 的 organise anything 误作“安装什么家具”，改变动作与对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "274f704d64|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:2012–2045 TOTAL_COLLAPSE callbackOnTemporaryEffect：if e.status ~= \"detrimental\" then return end；if e.type == \"other\" then return end，“其他”类负面效果不延长；现译括注“（‘其他’类效果除外）”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3c9d70a5ab|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Ashes talents/corruptions/brutality.lua:120–122 火炎之爪 %d%% weapon damage as fire damage 译“%d%% 火焰武器伤害”，为本库既有简写（3 处同式），意义可辨；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "de404fc8f8|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Ashes talents/corruptions/heart-of-fire.lua:56–58 deal a melee attack against a random adjacant enemy 译“对一个随机相邻敌对生物进行一次攻击”，未写“近战”，但目标限定相邻、按武器伤害结算，实为近战；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1cd6be4130|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/zones.lua:177–183 被诅咒城堡手记：the tome could only suck so much inside its covers 误作“只能吸收书页上能画得下的那么多的东西”（增译“画”）；Although I had to sacrifice a great treasure 指那本书本身（吸入城堡后再装不下别的东西），误作“牺牲了我的财富中很大的一部分”。 contextual 同指两处，另指 If I could just work out the logic behind how it shifted itself 误作“弄清……这种改变的内部仍然蕴含了某种逻辑”（应为弄清其变化背后的逻辑），宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1fa32c1a9c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/dremwarves.lua:52–74 德瑞姆探险笔记：wide enough for one of our party to fit in with room to spare 误作“足够让我们的一个小队在里面行走”；judging by the black growth which engulfs the machine 误作“正如……吞噬着这些机器的黑色怪物一样”（growth 非怪物，且为推断依据非类比）。 contextual 同指两处，另指 I am not the only one who has been infected 误作“其他人也都感染了”（夸大为全员）、Feral Drem 误作“原生的德瑞姆”（本库同族用“野生德瑞姆”）、such a concentration of these energies simply couldn't exist on Eyal 句式残缺（“不可能存在于埃亚尔集中出现”），宿主逐句核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "21736923b6|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:1937–1953 KROG_WRATH callbackOnDealDamage：turn_procs.krog_wrath 为空时不掷骰（每回合首次命中必定触发），之后按 rng.percent(eff.power) 判定，且 turn_procs.krog_wrath[target.uid] 使同一目标每回合只震慑一次；现译补充说明与实现逐项一致，保留。 contextual 因 envelope 未含回调而判证据不足；宿主已按公开源码补核，补充说明成立。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "274f704d64|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:2012–2045 TOTAL_COLLAPSE callbackOnTemporaryEffect：if e.status ~= \"detrimental\" then return end；if e.type == \"other\" then return end，“其他”类负面效果不延长；现译括注“（‘其他’类效果除外）”贴合实现，保留。 contextual 因 envelope 未含回调而判证据不足；宿主已按公开源码补核，括注成立。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}
