@@ -25,7 +25,9 @@ from tools.i18nlib import production_review_v2_lite_batch as batch
 from tools.i18nlib import production_review_v2_lite_migration as migration
 from tools.i18nlib import git_evidence_reader as reader
 from tools.i18nlib import gate_results
+from tools.i18nlib import projection_cache
 import contextual_result_check
+from tests.i18n.test_production_review_v2_lite_migration import pin_projection_cache_default
 
 ROOT = Path(__file__).resolve().parents[2]
 STAMP = "2026-09-02T01:02:03Z"
@@ -56,6 +58,7 @@ class PublicationHistoryTests(unittest.TestCase):
     """Small real Git DAGs: compare the success optimization to the old oracle."""
 
     def setUp(self):
+        pin_projection_cache_default(self)
         environment = isolated_publication_git_environment()
         environment.__enter__()
         self.addCleanup(environment.__exit__, None, None, None)
@@ -534,6 +537,7 @@ class PublicationHistoryTests(unittest.TestCase):
 
 class QueueFixture(unittest.TestCase):
     def setUp(self):
+        pin_projection_cache_default(self)
         # Minimal repository fixture: inject execution in-process, never in production
         # through an environment marker or a missing-file fallback.
         self.real_actual_gates = batch._actual_gate_records
@@ -3567,6 +3571,51 @@ class ProjectionChainTests(QueueFixture):
             self.assertEqual(len(calls), 1)
             self.assertEqual(self.gate_runner.call_count, 1)
             self.assertEqual(batch.show(self.root)["phase"], "commit_ready")
+
+    def test_parent_cache_on_prepare_hits_history_keeps_gate_failure_and_retries_alone(self):
+        # The shell that runs the batch chain exports the cache switch; only
+        # the gate seam differs from production.  History reads must hit, the
+        # gate failure must still surface and keep ``adjudicated``, and the
+        # retry must be prepare-evidence alone (no second adjudication import).
+        with isolated_publication_git_environment(), self._repo_env(), self._fixed_clock(), \
+                mock.patch.dict(os.environ, {projection_cache.MODE_ENV: "on"}):
+            self._resize_and_init(1)
+            batch.start(self.root, limit=1)  # a complete replay; publishes this HEAD
+            self.assertTrue(list(projection_cache.cache_directory(self.root).glob("v1-*.json")), projection_cache.events)
+            batch.surface_export(self.root)
+            index_path = self._surface_index("OK")
+            self.assertEqual(self._run_cli("surface-import", "--input", str(index_path))[0], 0)
+            checkpoint = batch.show(self.root)
+            adjudication = self._adjudication_file(checkpoint["batch_id"], [])
+
+            projection_cache.events.clear()
+            with mock.patch.object(batch, "_actual_gate_records",
+                                   side_effect=self._failing_gate_records()) as failed, \
+                    mock.patch.object(self._steps, "cli_main", wraps=self._steps.cli_main) as steps, \
+                    self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper(f"adjudicate={adjudication}", "prepare-evidence")
+            self.assertNotEqual(code, 0)
+            self.assertIn("gate", stderr.lower())
+            self.assertEqual(failed.call_count, 1)
+            self.assertEqual([call.args[0][2] for call in steps.call_args_list],
+                             ["adjudicate", "prepare-evidence"])
+            self.assertEqual(calls, [])
+            self.assertIn("hit", [event["event"] for event in projection_cache.events])
+            self.assertEqual(batch.show(self.root)["phase"], "adjudicated")
+            adjudicated = batch.show(self.root)["adjudications"]
+
+            projection_cache.events.clear()
+            with mock.patch.object(self._steps, "cli_main", wraps=self._steps.cli_main) as steps, \
+                    self._count_projections() as calls:
+                code, _, stderr = self._run_wrapper("prepare-evidence")
+            self.assertEqual(code, 0, stderr)
+            self.assertEqual([call.args[0][2] for call in steps.call_args_list], ["prepare-evidence"])
+            self.assertEqual(calls, [])
+            self.assertIn("hit", [event["event"] for event in projection_cache.events])
+            self.assertEqual(self.gate_runner.call_count, 1)
+            shown = batch.show(self.root)
+            self.assertEqual(shown["phase"], "commit_ready")
+            self.assertEqual(shown["adjudications"], adjudicated)
 
 
 

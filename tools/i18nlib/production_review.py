@@ -211,17 +211,34 @@ class VerifiedRows(list):
             raise ProductionReviewError("verified rows do not have unique revision identities")
 
 
-def parse_jsonl(raw: bytes, label: str, *, digests: list[str] | None = None) -> list[dict[str, Any]]:
+def parse_jsonl(raw: bytes, label: str, *, digests: list[str] | None = None,
+                known: dict[bytes, tuple[str, dict[str, Any]]] | None = None,
+                lines: list[bytes] | None = None) -> list[dict[str, Any]]:
     """Parse canonical JSONL, optionally collecting each line's SHA-256.
 
     ``digests`` receives one hex digest per row in file order.  The canonical
     check on the line immediately above makes that the digest of the row's
     canonical bytes, so a later consumer can use it instead of serialising the
     row again.
+
+    ``known`` maps exact line bytes to the ``(digest, row)`` that this same
+    function already produced for those bytes; a hit reuses both instead of
+    parsing again.  Only a whole-line byte match hits, so the file-level LF
+    check and every other line are handled exactly as without it.  ``lines``
+    receives each line's bytes in file order.
     """
     if raw and not raw.endswith(b"\n"): raise ProductionReviewError(f"{label} JSONL must end in LF")
     result = []
     for number, line in enumerate(raw.splitlines(), 1):
+        if lines is not None:
+            lines.append(line)
+        if known is not None:
+            hit = known.get(line)
+            if hit is not None:
+                result.append(hit[1])
+                if digests is not None:
+                    digests.append(hit[0])
+                continue
         value = _parse_json(line, f"{label} line {number}")
         if not isinstance(value, dict) or canonical_bytes(value) != line:
             raise ProductionReviewError(f"{label} line {number} is not canonical")

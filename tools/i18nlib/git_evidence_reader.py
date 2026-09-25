@@ -15,7 +15,9 @@ magnitude smaller and are re-decoded by consumers.
 The scope also owns the projection-local row and tuple pools used to reuse
 complete, equal canonical rows and compact migration mappings across catalogs.
 They are keyed by content, never by revision identity alone, and are dropped in
-``projection_scope``'s ``finally`` together with the reader itself.
+``projection_scope``'s ``finally`` together with the reader itself.  The same
+holds for ``catalog_lines``: exact catalog entry line bytes that already passed
+per-line validation in this projection (see ``validate_catalog_files``).
 
 ``recording`` is the one addition for the disposable same-commit projection
 cache: it only notes which Git objects a replay named, so a later cache hit can
@@ -45,6 +47,8 @@ class GitEvidenceReader:
         self.rows: dict[str, tuple[str, dict]] = {}
         # Complete compact migration tuple -> the one pooled equal tuple.
         self.tuples: dict[tuple, tuple] = {}
+        # Exact entry line bytes -> (line digest, the row validated from them).
+        self.catalog_lines: dict[bytes, tuple[str, dict]] = {}
 
     def read(self, kind: str, object_id: str, load: Callable[[], bytes]) -> bytes:
         if kind == "blob":
@@ -170,6 +174,7 @@ def projection_scope(root: Path) -> Iterator[None]:
         reader.derived.clear()
         reader.rows.clear()
         reader.tuples.clear()
+        reader.catalog_lines.clear()
 
 
 def read(root: Path, kind: str, object_id: str, git: Callable[..., bytes],

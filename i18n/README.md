@@ -206,7 +206,13 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   可选同 commit 投影缓存以 `I18N_PROJECTION_CACHE=on` 显式启用（默认关闭），写入
   `.artifacts/i18n/projection-cache-v1/`，可随时删除；只有普通 batch 步骤与 `repair preflight`
   的历史基线读取会命中，`queue`、`finalize`、`recover`、`abandon` 与 migration 仍完整重放。
-  `I18N_PROJECTION_CACHE_TRACE=1` 在 stderr 逐次打印命中／未命中原因。布局与失效条件见
+  `I18N_PROJECTION_CACHE_TRACE=1` 在 stderr 逐次打印命中／未命中原因。开启缓存的 shell
+  可直接跑完整批次链与门禁，不需要先 unset：门禁子进程照常继承环境（回执绑定不变），
+  投影相关测试 fixture 在建库前自行固定默认关闭并在用例结束后恢复，缓存测试再显式开启。
+  `tools/orchestration/profile_projection.py` 对一次 cache-off 完整投影做函数级剖析（只读，
+  计时含 cProfile 开销，不能当基准）；加 `--no-profile` 则无剖析计时同一次调用，并列出实际加载的
+  实现文件哈希。单次投影内，已在前一个 catalog 完整校验通过的相同 entry 行只重查 manifest
+  相关字段，跨行与文件级检查照常每次执行。布局与失效条件见
   [WP2-Lite 方案 §2.2](../docs/translation-production-review-v2-lite-plan.md#22-唯一运行时数据)。
   `queue status --json` 分开报告当前表层／深审覆盖、待修复和历史失效，不把表层通过
   当作深审。当前操作入口见[审核交接](../deprecated/docs/production-review-handoff-2026-09-05.md)，

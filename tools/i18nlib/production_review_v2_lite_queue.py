@@ -242,7 +242,12 @@ def _intern_catalog_rows(root: Path, entries: list[dict[str, Any]]) -> list[dict
 
 
 def _validated_catalog(root: Path, files: dict[str, bytes]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], str]:
-    manifest, entries, exclusions = catalog.validate_catalog_files(files)
+    # Inside a projection, lines already validated by an earlier catalog skip
+    # only their manifest-independent per-line checks; the rows they yield are
+    # the same shared objects ``_intern_catalog_rows`` would pool anyway.
+    reader = git_evidence_reader.active_reader(root)
+    manifest, entries, exclusions = catalog.validate_catalog_files(
+        files, line_memo=None if reader is None else reader.catalog_lines)
     entries = _intern_catalog_rows(root, entries)
     manifest_sha256 = hashlib.sha256(files[f"{catalog.CATALOG_PREFIX}/manifest.json"]).hexdigest()
     return manifest, entries, exclusions, manifest_sha256

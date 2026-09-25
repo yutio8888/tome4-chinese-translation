@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import shutil
 import sqlite3
 import subprocess
@@ -17,10 +18,28 @@ from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_migration as migration
 from tools.i18nlib import production_review_v2_lite_queue as queue
 from tools.i18nlib import git_evidence_reader as reader
+from tools.i18nlib import projection_cache
+
+
+def pin_projection_cache_default(case: unittest.TestCase) -> None:
+    """Start ``case`` from the production default: projection cache off, no trace.
+
+    The shell running the tests may export ``I18N_PROJECTION_CACHE=on`` (the
+    gate runner passes its environment through unchanged).  Fixtures publish
+    and replay evidence in ``setUp`` and many tests count replays, so the switch
+    must be off before any fixture work; tests that exercise the cache still
+    turn it on explicitly.  The whole environment is restored at cleanup.
+    """
+    patcher = mock.patch.dict(os.environ)
+    patcher.start()
+    case.addCleanup(patcher.stop)
+    for name in (projection_cache.MODE_ENV, projection_cache.TRACE_ENV):
+        os.environ.pop(name, None)
 
 
 class MigrationFixture(unittest.TestCase):
     def setUp(self):
+        pin_projection_cache_default(self)
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
         self.addCleanup(self.temp.cleanup)

@@ -1093,6 +1093,70 @@ class TerminationProbeTests(unittest.TestCase):
         self.assertEqual(output.strip(), "code input contains a symlinked directory")
 
 
+class ParentEnvironmentTests(unittest.TestCase):
+    """A shell exporting the switch must not change what the fixtures test."""
+
+    # Each failed under a parent ``I18N_PROJECTION_CACHE=on`` before the
+    # fixtures pinned the production default: a setUp-time publication, or a
+    # disk hit turning a counted replay into zero.
+    SENSITIVE = (
+        "tests.i18n.test_projection_cache.SwitchAndEntryTests.test_off_never_reads_writes_or_creates",
+        "tests.i18n.test_repair_steps.RepairStepTests.test_two_preflights_match_standalone_bytes_and_replay_once",
+        "tests.i18n.test_production_review_v2_lite_queue.ProjectionChainTests."
+        "test_issue_chain_wrapper_projects_once_and_matches_separate_calls",
+    )
+
+    def test_pin_is_scoped_to_the_case_and_restores_the_parent(self):
+        seen = []
+
+        class Probe(unittest.TestCase):
+            def setUp(inner):
+                migration_tests.pin_projection_cache_default(inner)
+
+            def runTest(inner):
+                seen.append((os.environ.get(cache.MODE_ENV), os.environ.get(cache.TRACE_ENV)))
+
+        with mock.patch.dict(os.environ, {cache.MODE_ENV: "on", cache.TRACE_ENV: "1"}):
+            result = unittest.TestResult()
+            Probe().run(result)
+            self.assertTrue(result.wasSuccessful(), result.errors + result.failures)
+            self.assertEqual(seen, [(None, None)])
+            self.assertEqual(os.environ[cache.MODE_ENV], "on")
+            self.assertEqual(os.environ[cache.TRACE_ENV], "1")
+
+    def _parent_on(self, argv: list[str]) -> subprocess.CompletedProcess:
+        environment = {**os.environ, cache.MODE_ENV: "on"}
+        environment.pop(cache.TRACE_ENV, None)
+        return subprocess.run([sys.executable, "-B", *argv], cwd=REPO, env=environment,
+                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                              timeout=600)
+
+    def test_direct_unittest_entry_under_parent_on(self):
+        result = self._parent_on(["-m", "unittest", *self.SENSITIVE])
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn(f"Ran {len(self.SENSITIVE)} tests", result.stdout)
+
+    def test_test_groups_loader_entry_under_parent_on(self):
+        # The registry loader and runner used by the gate, restricted to the
+        # sensitive cases; the parent switch must be intact afterwards.
+        script = (
+            "import json, os, sys, unittest\n"
+            "from pathlib import Path\n"
+            "sys.path.insert(0, os.getcwd())\n"
+            "from tools import test_groups as g\n"
+            "config = g.validate_registry(Path.cwd(), json.loads(g.DEFAULT_CONFIG.read_text()))\n"
+            "suite = g.load_group(config, 'production-shadow-surface-ledger')\n"
+            "wanted = set(sys.argv[1:])\n"
+            "cases = [case for case in g.test_cases(suite) if case.id() in wanted]\n"
+            "assert len(cases) == len(wanted), cases\n"
+            "ok = unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite(cases)).wasSuccessful()\n"
+            f"print('PARENT', os.environ.get({cache.MODE_ENV!r}))\n"
+            "sys.exit(0 if ok else 1)\n")
+        result = self._parent_on(["-c", script, *self.SENSITIVE])
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn("PARENT on", result.stdout)
+
+
 def _edit(body: bytes, change) -> bytes:
     payload = json.loads(body)
     change(payload)

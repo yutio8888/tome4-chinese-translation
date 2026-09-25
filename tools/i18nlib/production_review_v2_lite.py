@@ -468,8 +468,21 @@ def _validate_migration_manifest(value: object, policy_raw: bytes) -> dict[str, 
     return row
 
 
-def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
-    """Validate exact frozen-v1 or current-v2 catalog bytes."""
+def validate_catalog_files(files: dict[str, bytes], *,
+                           line_memo: dict[bytes, tuple[str, dict[str, Any]]] | None = None,
+                           ) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Validate exact frozen-v1 or current-v2 catalog bytes.
+
+    ``line_memo`` is owned by one projection scope (``GitEvidenceReader``) and
+    maps exact entry line bytes to the ``(digest, row)`` of a line that already
+    passed every per-line check inside a catalog that validated completely.
+    For such a line only the checks that read this catalog's manifest (rules
+    version, fixed source identity, terminology snapshot) run again, in their
+    original order; every cross-row and file-level check always runs.  Lines
+    first validated here are added only after the whole catalog succeeds, so a
+    failed validation never records anything.  Without a memo every line is
+    checked in full, exactly as before.
+    """
     def exact(value: object, keys: frozenset[str], label: str) -> dict[str, Any]:
         if not isinstance(value, dict) or set(value) != keys:
             raise wp1.ProductionReviewError(f"{label} exact keys mismatch")
@@ -503,29 +516,41 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
         # memoizes by the exact catalog blob OIDs, so the digests and the rows
         # they belong to are two fields of one content-identified result.
         entry_digests: list[str] = []
-        entries = wp1.parse_jsonl(entries_raw, "formal catalog entries", digests=entry_digests)
+        entry_lines: list[bytes] | None = None if line_memo is None else []
+        entries = wp1.parse_jsonl(entries_raw, "formal catalog entries", digests=entry_digests,
+                                  known=line_memo, lines=entry_lines)
         exclusions = wp1.parse_jsonl(exclusions_raw, "formal catalog exclusions")
+        validated_lines: dict[bytes, tuple[str, dict[str, Any]]] = {}
         previous = ""
         seen_revisions: set[str] = set()
         seen_logical: set[str] = set()
         for index, item in enumerate(entries):
-            row = exact(item, ENTRY_KEYS, f"formal catalog entry {index}")
-            schema_one(row["schema_version"], f"formal catalog entry {index}")
+            known = None if line_memo is None else line_memo.get(entry_lines[index])
+            reused = known is not None and known[1] is item
+            if reused:
+                row = item
+            else:
+                row = exact(item, ENTRY_KEYS, f"formal catalog entry {index}")
+                schema_one(row["schema_version"], f"formal catalog entry {index}")
             if row["rules_version"] not in SUPPORTED_RULES_VERSIONS or row["rules_version"] != manifest["rules_version"]:
                 raise wp1.ProductionReviewError(f"formal catalog entry {index} rules mismatch")
-            risk_keys = RISK_KEYS_V2 if row["rules_version"] == RULES_VERSION else RISK_KEYS_V1
-            risk = exact(row["risk"], risk_keys, f"formal catalog entry {index} risk")
-            for key in ("component", "normalized_path", "section", "call_locator", "logical_entry_identity",
-                        "entry_revision_identity", "source", "target", "source_tag", "source_sha256",
-                        "target_sha256", "fixed_source_identity", "terminology_snapshot_sha256", "rules_version"):
-                if not isinstance(row[key], str):
-                    raise wp1.ProductionReviewError(f"formal catalog entry {index} {key} must be a string")
-            normalized = wp1.surface.normalize_relative_path(row["normalized_path"])
-            if normalized != row["normalized_path"]:
-                raise wp1.ProductionReviewError("formal catalog normalized path drift")
-            wp1.surface.validate_call_locator(row["call_locator"])
-            revision = sha(row["entry_revision_identity"], "formal entry revision identity")
-            logical = sha(row["logical_entry_identity"], "formal logical entry identity")
+            if reused:
+                revision = row["entry_revision_identity"]
+                logical = row["logical_entry_identity"]
+            else:
+                risk_keys = RISK_KEYS_V2 if row["rules_version"] == RULES_VERSION else RISK_KEYS_V1
+                risk = exact(row["risk"], risk_keys, f"formal catalog entry {index} risk")
+                for key in ("component", "normalized_path", "section", "call_locator", "logical_entry_identity",
+                            "entry_revision_identity", "source", "target", "source_tag", "source_sha256",
+                            "target_sha256", "fixed_source_identity", "terminology_snapshot_sha256", "rules_version"):
+                    if not isinstance(row[key], str):
+                        raise wp1.ProductionReviewError(f"formal catalog entry {index} {key} must be a string")
+                normalized = wp1.surface.normalize_relative_path(row["normalized_path"])
+                if normalized != row["normalized_path"]:
+                    raise wp1.ProductionReviewError("formal catalog normalized path drift")
+                wp1.surface.validate_call_locator(row["call_locator"])
+                revision = sha(row["entry_revision_identity"], "formal entry revision identity")
+                logical = sha(row["logical_entry_identity"], "formal logical entry identity")
             if revision <= previous or revision in seen_revisions:
                 raise wp1.ProductionReviewError("formal catalog entries are not strictly ordered and unique")
             if logical in seen_logical:
@@ -533,27 +558,30 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             previous = revision
             seen_revisions.add(revision)
             seen_logical.add(logical)
-            if not all(isinstance(risk[key], bool) for key in ("has_args_order", "has_special", "component_group_last")):
-                raise wp1.ProductionReviewError("formal catalog risk boolean mismatch")
-            args_order = None
-            if row["rules_version"] == RULES_VERSION:
-                args_order = wp1.surface.validate_args_order(
-                    risk["args_order"], source=row["source"],
-                    label=f"formal catalog entry {index} risk.args_order")
-                if risk["has_args_order"] != (args_order is not None):
-                    raise wp1.ProductionReviewError("formal catalog risk args_order flag mismatch")
-            for key in ("source_utf8_bytes", "target_utf8_bytes", "component_group_size"):
-                if not isinstance(risk[key], int) or isinstance(risk[key], bool) or risk[key] < 0:
-                    raise wp1.ProductionReviewError("formal catalog risk integer mismatch")
-            source_raw, target_raw = row["source"].encode("utf-8"), row["target"].encode("utf-8")
-            if hashlib.sha256(source_raw).hexdigest() != sha(row["source_sha256"], "formal source hash") or \
-                    hashlib.sha256(target_raw).hexdigest() != sha(row["target_sha256"], "formal target hash"):
-                raise wp1.ProductionReviewError("formal catalog source/target hash mismatch")
-            if risk["source_utf8_bytes"] != len(source_raw) or risk["target_utf8_bytes"] != len(target_raw):
-                raise wp1.ProductionReviewError("formal catalog UTF-8 risk length mismatch")
+            if not reused:
+                if not all(isinstance(risk[key], bool) for key in ("has_args_order", "has_special", "component_group_last")):
+                    raise wp1.ProductionReviewError("formal catalog risk boolean mismatch")
+                args_order = None
+                if row["rules_version"] == RULES_VERSION:
+                    args_order = wp1.surface.validate_args_order(
+                        risk["args_order"], source=row["source"],
+                        label=f"formal catalog entry {index} risk.args_order")
+                    if risk["has_args_order"] != (args_order is not None):
+                        raise wp1.ProductionReviewError("formal catalog risk args_order flag mismatch")
+                for key in ("source_utf8_bytes", "target_utf8_bytes", "component_group_size"):
+                    if not isinstance(risk[key], int) or isinstance(risk[key], bool) or risk[key] < 0:
+                        raise wp1.ProductionReviewError("formal catalog risk integer mismatch")
+                source_raw, target_raw = row["source"].encode("utf-8"), row["target"].encode("utf-8")
+                if hashlib.sha256(source_raw).hexdigest() != sha(row["source_sha256"], "formal source hash") or \
+                        hashlib.sha256(target_raw).hexdigest() != sha(row["target_sha256"], "formal target hash"):
+                    raise wp1.ProductionReviewError("formal catalog source/target hash mismatch")
+                if risk["source_utf8_bytes"] != len(source_raw) or risk["target_utf8_bytes"] != len(target_raw):
+                    raise wp1.ProductionReviewError("formal catalog UTF-8 risk length mismatch")
             fixed = manifest["source_identities"].get(row["component"])
             if fixed != row["fixed_source_identity"] or row["terminology_snapshot_sha256"] != manifest["terminology_snapshot_sha256"]:
                 raise wp1.ProductionReviewError("formal catalog source/terminology identity mismatch")
+            if reused:
+                continue
             core = {"component": row["component"], "duplicate_index": 0, "function_name": "t",
                     "normalized_source_tag": row["source_tag"], "section": row["section"],
                     "source": row["source"], "translation_path": row["normalized_path"]}
@@ -568,6 +596,8 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
                 rules_version=row["rules_version"], args_order=args_order)
             if expected_logical != logical or expected_revision != revision:
                 raise wp1.ProductionReviewError("formal catalog logical/revision identity mismatch")
+            if entry_lines is not None:
+                validated_lines[entry_lines[index]] = (entry_digests[index], row)
         exclusion_previous = ""
         for index, item in enumerate(exclusions):
             row = exact(item, wp1.EXCLUSION_KEYS, f"formal catalog exclusion {index}")
@@ -594,7 +624,10 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             raise wp1.ProductionReviewError("formal catalog policy identity mismatch")
         if manifest["rules_version"] != _validate_migration_policy(files[POLICY_PATH])["rules_version"]:
             raise wp1.ProductionReviewError("formal catalog prospective rules identity mismatch")
-        return manifest, wp1.VerifiedRows(entries, entry_digests), exclusions
+        verified = wp1.VerifiedRows(entries, entry_digests)
+        if line_memo is not None:
+            line_memo.update(validated_lines)
+        return manifest, verified, exclusions
     except wp1.ProductionReviewError:
         raise
     except (wp1.surface.ContractError, AttributeError, KeyError, TypeError, UnicodeError, ValueError) as error:
