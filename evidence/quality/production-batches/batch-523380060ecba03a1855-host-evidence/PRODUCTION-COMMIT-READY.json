@@ -1,0 +1,355 @@
+{
+  "batch_id": "batch-523380060ecba03a1855",
+  "base_commit": "c5035e03d38bed8d34004a30eb44df57ffde0a69",
+  "phase": "commit_ready",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "doctor"
+      ],
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:01:41.297932+00:00",
+      "id": "01-doctor",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/01-doctor.log",
+      "output_sha256": "32477ce56928ad19a8ef98f11248e11a3b481822e88ade96066612b10f08770d",
+      "started_at": "2026-09-25T12:01:41.206925+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "lint",
+        "--strict"
+      ],
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:01:42.014455+00:00",
+      "id": "02-strict-lint",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/02-strict-lint.log",
+      "output_sha256": "2648d1ed8e74c8cf9470dfbbba9641bf802f7c5e7d66b3a55d8881f530b17cd4",
+      "started_at": "2026-09-25T12:01:41.297958+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--check"
+      ],
+      "command": "python3 -B tools/test_groups.py --check",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:01:42.048831+00:00",
+      "id": "03-test-group-registration",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/03-test-group-registration.log",
+      "output_sha256": "876b7d75f5ca4d0af47530061d156242cf72572afd2c0d38bf7481dfdf7f39fd",
+      "started_at": "2026-09-25T12:01:42.014487+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--group",
+        "toolchain"
+      ],
+      "command": "python3 -B tools/test_groups.py --group toolchain",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:02:08.162512+00:00",
+      "id": "03-toolchain-unit-tests",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/03-toolchain-unit-tests.log",
+      "output_sha256": "48486f24135b53255ca4dbeb6a74a80b9cbf4b73b71a91d82df0aa229090d390",
+      "started_at": "2026-09-25T12:01:42.048856+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--group",
+        "quality-facts"
+      ],
+      "command": "python3 -B tools/test_groups.py --group quality-facts",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:02:19.524498+00:00",
+      "id": "04-quality-facts-unit-tests",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/04-quality-facts-unit-tests.log",
+      "output_sha256": "d137a97c743c436d13dfa58f68d1930294254d050357a7bc29395722b4bd6c6d",
+      "started_at": "2026-09-25T12:02:08.162542+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--group",
+        "semantic-claim"
+      ],
+      "command": "python3 -B tools/test_groups.py --group semantic-claim",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:02:19.683565+00:00",
+      "id": "04-semantic-claim-unit-tests",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/04-semantic-claim-unit-tests.log",
+      "output_sha256": "90b7abd1a40d21b650a6c1e95bbcd7d77ad11b8510de5383d4f1cd7d0dca0afe",
+      "started_at": "2026-09-25T12:02:19.524531+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "claims",
+        "check",
+        "--registry",
+        "evidence/quality/semantic-claim-regressions-v1.json",
+        "--strict"
+      ],
+      "command": "python3 -B tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:02:19.749910+00:00",
+      "id": "04-semantic-claims-strict-registry",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/04-semantic-claims-strict-registry.log",
+      "output_sha256": "883ebfd6aa5ee334dfddeac8e273e1357b3195c28ea6505dc5108efdefb354c7",
+      "started_at": "2026-09-25T12:02:19.683589+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--group",
+        "contract-suite"
+      ],
+      "command": "python3 -B tools/test_groups.py --group contract-suite",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:02:42.331391+00:00",
+      "id": "05-contract-suite-unit-tests",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/05-contract-suite-unit-tests.log",
+      "output_sha256": "b7ee0cad35f40632fe18c061dc9db0e52dd81e14bab6486f4ad1bba09dd830d4",
+      "started_at": "2026-09-25T12:02:19.749935+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/test_groups.py",
+        "--group",
+        "production-shadow-surface-ledger"
+      ],
+      "command": "python3 -B tools/test_groups.py --group production-shadow-surface-ledger",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:56.134450+00:00",
+      "id": "05-production-shadow-surface-ledger-tests",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/05-production-shadow-surface-ledger-tests.log",
+      "output_sha256": "aa4d4599b85d3664bfdbf047f97a09bb13db18b8dde463ea16ffe584a4f4324c",
+      "started_at": "2026-09-25T12:02:42.331417+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/scan_runtime_collisions.py"
+      ],
+      "command": "python3 -B tools/scan_runtime_collisions.py",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:56.662441+00:00",
+      "id": "06-runtime-collision-scan",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/06-runtime-collision-scan.log",
+      "output_sha256": "043dce74e940940cc230ae8746c8fa91d0ead572e9af5c126b7120461f9adb07",
+      "started_at": "2026-09-25T12:03:56.134481+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/classify_runtime_keys.py"
+      ],
+      "command": "python3 -B tools/classify_runtime_keys.py",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:57.185215+00:00",
+      "id": "07-runtime-key-classification",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/07-runtime-key-classification.log",
+      "output_sha256": "3b7c74b1c1ab6c6b10ba1a2d7811dca0bf01c2f619a0a3aa2c33787281957984",
+      "started_at": "2026-09-25T12:03:56.662471+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/audit_static.py"
+      ],
+      "command": "python3 -B tools/audit_static.py",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:57.231298+00:00",
+      "id": "08-terminology-static-audit",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/08-terminology-static-audit.log",
+      "output_sha256": "f55ffa00d237f541d253121252c7c7493b72b57eff80c708043fdd97a9c2c26c",
+      "started_at": "2026-09-25T12:03:57.185247+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/audit_dynamic.py"
+      ],
+      "command": "python3 -B tools/audit_dynamic.py",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:58.286558+00:00",
+      "id": "09-terminology-dynamic-audit",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/09-terminology-dynamic-audit.log",
+      "output_sha256": "f5ff3a709571d32a2889251ab4ea51ba1ba9107152d7602de2da350f7ad75f42",
+      "started_at": "2026-09-25T12:03:57.231322+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/annotate_domains.py"
+      ],
+      "command": "python3 -B tools/annotate_domains.py",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:58.329971+00:00",
+      "id": "10-domain-annotation",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/10-domain-annotation.log",
+      "output_sha256": "5defe689ff2139eaef51d789e1c9c3c7462c8941db06499b942985b5a4fb42a0",
+      "started_at": "2026-09-25T12:03:58.286590+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "command": "git diff --check",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:58.334756+00:00",
+      "id": "11-worktree-whitespace",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/11-worktree-whitespace.log",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_at": "2026-09-25T12:03:58.329993+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "command": "git diff --cached --check",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:58.336534+00:00",
+      "id": "11-staged-whitespace",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/11-staged-whitespace.log",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_at": "2026-09-25T12:03:58.334776+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "tome",
+        "--require-complete"
+      ],
+      "command": "python3 -B tools/i18n build --profile addon --component tome --require-complete",
+      "exit_code": 0,
+      "finished_at": "2026-09-25T12:03:59.459212+00:00",
+      "id": "12-core-addon-build",
+      "log_path": ".artifacts/i18n/ci-gates/run.xld2auj9/12-core-addon-build.log",
+      "output_sha256": "206153974efde3b5681d3df75685d8ce9593a9a68397011d268e4164ddbd9dad",
+      "started_at": "2026-09-25T12:03:58.336553+00:00"
+    }
+  ],
+  "production_files": [
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/adjudications.jsonl",
+      "sha256": "bd2696e8c5a4732698241593780caf5e0d2263a50171306c6b499b3c7218a6dd",
+      "bytes": 229898
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/gates.json",
+      "sha256": "36da7edd71a6ac065b19706d473349c47a258d66646ed001d6b17eea2e1bc397",
+      "bytes": 14224
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/manifest.json",
+      "sha256": "8f052551995d462f3f6c3a1c2b4b3bc1fde78ecf8c6ea3868b3a4c7b8df48858",
+      "bytes": 10101
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/contextual/004-input_path.json",
+      "sha256": "0aaf16a90293a8361f708c75b931e61f7c0e0e1462a241c28d478406d9101008",
+      "bytes": 74803
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/contextual/004-output_path.json",
+      "sha256": "04b27fd5f41c4edb5ea3181ae939926ebded6faf17fd145001a2cbab4efb31fc",
+      "bytes": 3495
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/000-input_path.json",
+      "sha256": "c2862915de57b75997b6c6b5bfecc4141eb23c16b889a143469b8e10e1ecf7b6",
+      "bytes": 15986
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/000-output_path.json",
+      "sha256": "c1ed1f25803db28d821be2f2b74f1d761c28a983e4b6655ab452b7196fe0720a",
+      "bytes": 3023
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/001-input_path.json",
+      "sha256": "e3b49e508c923c2dfb636d0c052db672b78484db8bb5d4a8411ea4d2938aa548",
+      "bytes": 11737
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/001-output_path.json",
+      "sha256": "2e4703e6ec87ada0e3aad99949e30a9209b1ca6f610f5559255bfdde18936a45",
+      "bytes": 2823
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/002-input_path.json",
+      "sha256": "0ff28020754747de791fd8c6a466008508a53ae3d0c4b3cefdd052b4357f2b8b",
+      "bytes": 9302
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/002-output_path.json",
+      "sha256": "996a9f411f9fa598f231bc397ee69c89379482ac3e2998c2008903994c37e14b",
+      "bytes": 2694
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/003-input_path.json",
+      "sha256": "1a1f32ffab2928edc555d4ae01c1d63fe8d115c3835e6e1fddc8497b756621bb",
+      "bytes": 10970
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/003-output_path.json",
+      "sha256": "62ee41272dd6a9ee876e89340c672bbe22c474582ebdeaef7fb5c38fc36cf2c5",
+      "bytes": 3025
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/raw/surface/group-d1ccbe1878eeff9be2630c9ba16e4a6c0db70138b4d70c39705dce924be228c4.json",
+      "sha256": "d1ccbe1878eeff9be2630c9ba16e4a6c0db70138b4d70c39705dce924be228c4",
+      "bytes": 47808
+    },
+    {
+      "path": "evidence/production-review-v2-lite/batches/batch-523380060ecba03a1855/results.jsonl",
+      "sha256": "825eeee67db122b298b26aa457a284bda7af13d1e7959acc92cc47b1afc712bf",
+      "bytes": 72867
+    }
+  ],
+  "installed_at": "2026-09-25T12:04:27.131926+00:00",
+  "selected": 80,
+  "final_states": {
+    "done": 72,
+    "repair_required": 8
+  },
+  "supplemental_repair_revisions": 0
+}

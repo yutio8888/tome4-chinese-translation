@@ -1,0 +1,207 @@
+{
+  "batch_id": "batch-523380060ecba03a1855",
+  "observations": 21,
+  "observation_dispositions": {
+    "confirmed": 13,
+    "refuted": 3,
+    "advisory": 5
+  },
+  "repair_revision_keys": [
+    "880a05d14dd0e1e2f2d677d7be7e7509ca30c757edee987b52130e013f716cad",
+    "89a4d5c92f7bfb07b70e633da61369d3eaa0590de614f5fc9766ad0afe8c039b",
+    "8d7b289755999deb531b03fdccfdd78457befa42639193acbe806c93dcd79397",
+    "8ead5856883742dd1b169b8f6b082084cab2b6267e17e0311a4bbfc6934dae5f",
+    "90ae8f40d2a08477d67d7ed14e25ed88e91a0ae157afbfebc4cc2d78631b314a",
+    "9ac85a7a89f1ebd76f9f78a9fb05df008a23bdd9b228b0ac3d118ceaa4b43205",
+    "9d7afbedda50e66336107bbedb083a220fc84cd3e62776304cbdcfe82ae5d793",
+    "9e25a17b1f561701bcaf00ec558056deef43d8ed17f80126826dd6ed08468c1b"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 72,
+    "repair_required": 8
+  },
+  "rows": [
+    {
+      "revision_key": "880a05d14dd0e1e2f2d677d7be7e7509ca30c757edee987b52130e013f716cad",
+      "stage": "surface",
+      "observation": "原文限定为成功的近战命中才施加效果，译文泛称“攻击”，遗漏触发条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes oppression.lua:72–81 骇人打击仅在 callbackOnMeleeAttack 且 hitted 时施加 EFF_INFERNAL_FEAR；现译“你的攻击能够惊吓目标”丢了“近战命中”限定。另宿主实测源 5 个 LF、5 处 \\n\\t\\t（含末尾 \\n\\t\\t），译 4 个 LF、均为 \\n\\t 且无末尾缩进，一级换行/TAB 不变量。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "886c20b244c332eb87da191b9a3bf3a4d334fc5a687f39a08ee89657b6206aff",
+      "stage": "surface",
+      "observation": "原文只说“purification”，译文增加了“火焰”，冻结条目未提供这一限定的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:288–295 PURIFIED_BY_FIRE，desc 为 Cleansing flames、subtype fire，on_lose 即本串；“火焰净化结束了”贴合效果本身，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "89a4d5c92f7bfb07b70e633da61369d3eaa0590de614f5fc9766ad0afe8c039b",
+      "stage": "surface",
+      "observation": "原文“For the demon who has everything”意为送给应有尽有的恶魔，译文“魔中之魔，加冕为王”改变了含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:589 黑之冠 desc 为带引号的俏皮话 \"For the demon who has everything.\"（送给应有尽有的恶魔），现译另起口号“魔中之魔，加冕为王”且丢引号，含义不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8c1bab1ad29bdca0dad216ec4ccd0002ff571f66185f4714b4dac13f35593b03",
+      "stage": "surface",
+      "observation": "技能名“Resilience of the Doomed”中的“of the Doomed”在译文“强韧”中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes races.lua:100 魔化精灵种族技能；本库 tome-ashes-urhrok.lua:1412 既定名“强韧”，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8cc43b0e6eb5adc24ad822b8109d48b9adbd4fe87dcc2666cefdd002cbe93c0f",
+      "stage": "surface",
+      "observation": "原文称头盔增强“Doomelf corruption”的效果，译文改成提高“魔化精灵的能力”，遗漏了腐化这一限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:555 实验头盔说明：“提高魔化精灵的能力”对 enhance the effects of the Doomelf corruption 概括偏松但不改变含义，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8d7b289755999deb531b03fdccfdd78457befa42639193acbe806c93dcd79397",
+      "stage": "surface",
+      "observation": "源文为单行，译文新增换行和制表缩进，改变显示格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes torture.lua:146 源串为单行（宿主实测 0 个 LF），现译在两句间插入 \\n\\t，一级换行不变量，只删多余换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8dcc6c29ec0a5c3df731b97815851977f1ca4156579c334fedbfef28057e3ed6",
+      "stage": "surface",
+      "observation": "源文说明酸液对所有敌人造成伤害，译文漏掉“所有敌人”这一作用对象。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon-seeds.lua:666 腐蚀锥 tg 未设 friendlyfire=false，固定主游戏 624a673 engine/Target.lua:682 默认 friendlyfire=true，锥形会波及友方；上游 info 的 all enemies 与实现不符，现译不写“所有敌人”反而贴合实现，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8ead5856883742dd1b169b8f6b082084cab2b6267e17e0311a4bbfc6934dae5f",
+      "stage": "surface",
+      "observation": "“Instant cast phase door”被译成“使用加速技能”，凭空加入加速技能；解锁魔化精灵角色的资格也被译成“应运而生”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes unlock-race_doomelf.lua:21–31：“烈火”为增译（honed by their rigorous training on the Fearscape）；the truth 被具体化为“有关埃亚尔大陆的真相”；have earned the right to make Doomelf characters 被改成“应运而生”丢了解锁含义；Instant cast phase door 被改成“使用加速技能，瞬间穿梭空间”。同条整句修复，换行与颜色标记保持。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "90ae8f40d2a08477d67d7ed14e25ed88e91a0ae157afbfebc4cc2d78631b314a",
+      "stage": "surface",
+      "observation": "“mottled”所表达的斑驳或杂色特征在译文中缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:430–435 小鬼之爪 unided_name “red, mottled claw”，现译“红色的爪子”丢 mottled（斑驳），补“斑驳”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "919188331c9705e5513c95c4ac838bb6784603b07ed4c98064b2fb24b0eba746",
+      "stage": "surface",
+      "observation": "“Smash”表示猛击，译文“挥斩”却表示斩击；同批技能名也采用“歼灭挥斩”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:80；“歼灭挥斩”为本库既定技能名（tome-ashes-urhrok.lua:1355），记 advisory 不改名。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "952fa9c1b8869a78fcf5b0cdc2b2a12b2770f674f72df625096c4d9c778f8d7a",
+      "stage": "surface",
+      "observation": "“Smash”表示猛击，译文“挥斩”却表示斩击。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes wrath.lua:23/191；本库 tome-ashes-urhrok.lua:1355 既定名“歼灭挥斩”，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "958319eb5e7461315b275db2517c2c0c18881434160ba7f249e8cf19c3ab155f",
+      "stage": "surface",
+      "observation": "原文包含“the Doomed”，译文“腐化形态”遗漏了这一对象，并增加了原文没有的“形态”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes races.lua:119；本库 tome-ashes-urhrok.lua:1416/1644 既定名“腐化形态”，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ac85a7a89f1ebd76f9f78a9fb05df008a23bdd9b228b0ac3d118ceaa4b43205",
+      "stage": "surface",
+      "observation": "原文首句后有换行，译文将首句与 #AQUAMARINE# 标记直接相连；原文“Your 'loyalty...' would give me their fate”所说的忠诚会使说话者落得他们的下场，被译成“还能骗得了谁”，含义改变。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes ashes-urhrok-walrog-pop.lua:49–53：%s 由 _t\"Traitor\"/_t\"Murderer\" 填入，“%s to the Naloren”应为“纳鲁精灵的%s”，现译“%s纳鲁精灵”缺“的”；Your 'loyalty...' would give me their fate 意为信你的“忠诚”只会落得他们的下场，现译“还能骗得了谁？”不符；“巨大的身形”为增译。另宿主实测源 4 个 LF、译 3 个 LF，scowl. 后换行被并掉，一级换行不变量。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9d7afbedda50e66336107bbedb083a220fc84cd3e62776304cbdcfe82ae5d793",
+      "stage": "surface",
+      "observation": "原文仅为“black hammer”（黑色战锤），译文指定为“黑曜石战锤”，增加了原文没有的材质信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:780–788 黑色巨锤 color=colors.BLACK，unided_name “massive black hammer” 无材质；“黑曜石”为增译（黑曜石属黑之冠 cracked obsidian crown），改回“黑色”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9e25a17b1f561701bcaf00ec558056deef43d8ed17f80126826dd6ed08468c1b",
+      "stage": "surface",
+      "observation": "原文“The chaos and death ends now”中的“death”被译为“邪恶”，死亡之意丢失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes ashes-urhrok-walrog-pop.lua:33 回答选项 The chaos and death ends now!，现译“邪恶与混沌”把 death 换成“邪恶”，改为“混沌与死亡”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9e32f9dfdf50858636c3279f5638c34f257df75e051ed6af5f5ecf3277695db5",
+      "stage": "surface",
+      "observation": "原文称重置“the item”的随机属性，译文改为“戒指属性”；冻结输入未提供该物品是戒指的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:450–492 命运之轮 base 为 BASE_RING，“重置戒指属性”中 item 具体化为戒指贴合实体，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "880a05d14dd0e1e2f2d677d7be7e7509ca30c757edee987b52130e013f716cad",
+      "stage": "contextual",
+      "observation": "原文“Your successful melee hits”限定为近战命中，oppression.lua Horrifying Blows 仅在 callbackOnMeleeAttack 且 hitted 时施加 EFF_INFERNAL_FEAR；译文“你的攻击能够惊吓目标”删去“近战/命中”限定，把触发范围扩大到任意攻击。（DLC 来源未固定）",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes oppression.lua:72–81 骇人打击仅在 callbackOnMeleeAttack 且 hitted 时施加 EFF_INFERNAL_FEAR；现译“你的攻击能够惊吓目标”丢了“近战命中”限定。另宿主实测源 5 个 LF、5 处 \\n\\t\\t（含末尾 \\n\\t\\t），译 4 个 LF、均为 \\n\\t 且无末尾缩进，一级换行/TAB 不变量。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "89a4d5c92f7bfb07b70e633da61369d3eaa0590de614f5fc9766ad0afe8c039b",
+      "stage": "contextual",
+      "observation": "The Black Crown 的 desc 为引号内俏皮话“For the demon who has everything.”（送给什么都不缺的恶魔的礼物），译文“魔中之魔，加冕为王”是另起的口号，含义不符，且丢掉了原文的引号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:589 黑之冠 desc 为带引号的俏皮话 \"For the demon who has everything.\"（送给应有尽有的恶魔），现译另起口号“魔中之魔，加冕为王”且丢引号，含义不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8ead5856883742dd1b169b8f6b082084cab2b6267e17e0311a4bbfc6934dae5f",
+      "stage": "contextual",
+      "observation": "unlock-race_doomelf.lua 第24行原文只说探险者本可以把“the truth”告诉恶魔，并说明玩家因此获得创建魔化精灵角色的资格；译文擅自把它具体化为“有关埃亚尔大陆的真相”，并把解锁资格改成含糊的“应运而生”。第22行译文还加入原文没有的“烈火”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes unlock-race_doomelf.lua:21–31：“烈火”为增译（honed by their rigorous training on the Fearscape）；the truth 被具体化为“有关埃亚尔大陆的真相”；have earned the right to make Doomelf characters 被改成“应运而生”丢了解锁含义；Instant cast phase door 被改成“使用加速技能，瞬间穿梭空间”。同条整句修复，换行与颜色标记保持。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ac85a7a89f1ebd76f9f78a9fb05df008a23bdd9b228b0ac3d118ceaa4b43205",
+      "stage": "contextual",
+      "observation": "1）换行不变量：原文“scowl.”后有换行，译文“皱了皱眉#AQUAMARINE#”把前两行并成一行，原文5行变成4行。2）%s 在 walrog-pop.lua 第53行由 _t\"Traitor\"/_t\"Murderer\" 填入，原句是“（纳鲁精灵的）叛徒/凶手”，译文“%s纳鲁精灵”缺了“to the”对应的“……的”，语句不通。3）“Your 'loyalty...' would give me their fate”意为“信了你的‘忠诚’，我就会落得和他们一样的下场”，译文“还能骗得了谁？”意思不对。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes ashes-urhrok-walrog-pop.lua:49–53：%s 由 _t\"Traitor\"/_t\"Murderer\" 填入，“%s to the Naloren”应为“纳鲁精灵的%s”，现译“%s纳鲁精灵”缺“的”；Your 'loyalty...' would give me their fate 意为信你的“忠诚”只会落得他们的下场，现译“还能骗得了谁？”不符；“巨大的身形”为增译。另宿主实测源 4 个 LF、译 3 个 LF，scowl. 后换行被并掉，一级换行不变量。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9d7afbedda50e66336107bbedb083a220fc84cd3e62776304cbdcfe82ae5d793",
+      "stage": "contextual",
+      "observation": "The Black Maul 的 unided_name 为“massive black hammer”，源码中没有黑曜石材质；译文“黑曜石战锤”添加了原文没有的材质（黑曜石出现在另一件神器 The Black Crown 的“cracked obsidian crown”），应为黑色。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:780–788 黑色巨锤 color=colors.BLACK，unided_name “massive black hammer” 无材质；“黑曜石”为增译（黑曜石属黑之冠 cracked obsidian crown），改回“黑色”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, 80 entries)",
+    "contextual": "claude/claude-opus-5-5 (refreeze dlc-location-v1 of full-000, 16 entries)"
+  },
+  "notes": [
+    "All four surface lanes echoed their 20 identities exactly; no group retry was needed.",
+    "The first contextual run (full-000) enumerated /workspace outside its boundary and was rejected (review282-contextual-0-rejection.json) and archived; the refreeze dlc-location-v1 run with the Ashes checkout was accepted and adjudicated here.",
+    "Surface and contextual observations independently adjudicated against their own frozen revisions.",
+    "On 8dcc6c29ec the translation matches the implementation (cone tg has no friendlyfire=false, so it can hit allies); upstream info text says all enemies.",
+    "Talent names 8c1bab1ad2, 952fa9c1b8, 958319eb5e and the 919188331c reference are established library names; advisory only.",
+    "Ashes public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Eight confirmed repair revisions raise the window 29 backlog from 7 to 15; threshold 20 not reached."
+  ]
+}

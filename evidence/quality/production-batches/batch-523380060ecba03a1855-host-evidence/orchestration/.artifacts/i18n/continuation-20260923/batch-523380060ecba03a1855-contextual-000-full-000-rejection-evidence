@@ -1,0 +1,38 @@
+{
+  "status": "rejected",
+  "reason": "reviewer enumerated /workspace (ls /workspace; ls -d /workspace/*/tome-ashes-urhrok) and probed /workspace/tome4-dlcs to discover the DLC checkout, which the frozen envelope does not name; outside the read-only named-location boundary (same class as batches 277 and 280)",
+  "session_id": "13fda36c-4b41-4ae6-a396-67f7eea247da",
+  "native_log_sha256": "656bbb090e119654703b61d7b0b4d9973e8ff65ebef1407f5c742ea04e1ac7be",
+  "tool_call_count": 10,
+  "violating_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "ls /workspace; ls -d /workspace/*/tome-ashes-urhrok 2>/dev/null; ls -d /workspace/tome-ashes-urhrok 2>/dev/null",
+        "description": "Locate ashes-urhrok DLC source checkout"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs && ls; D=$(ls -d */tome-ashes-urhrok tome-ashes-urhrok 2>/dev/null|head -1); echo $D; sha256sum $D/data/talents/corruptions/oppression.lua $D/data/talents/misc/races.lua $D/data/general/objects/world-artifacts.lua $D/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+        "description": "Find DLC dir and verify file hashes"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 20,100p data/talents/corruptions/oppression.lua; echo ----; sed -n 20,150p data/talents/misc/races.lua",
+        "description": "Read oppression talent and doomelf race talents"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 150,230p data/talents/misc/races.lua; echo ----; sed -n 425,500p data/general/objects/world-artifacts.lua; grep -n \"Doomelf\\|doomelf\\|Corruption of the Doomed\\|CORRUPTION_OF\" data/general/objects/world-artifacts.lua | head; sed -n 780,800p data/general/objects/world-artifacts.lua",
+        "description": "Read Pitiless, rerolling artifact, helm, maul"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-25T11:54:06.167997+00:00"
+}
