@@ -60,7 +60,7 @@ t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Drem", "德瑞姆", "birth descriptor name")
 t("Faceless, but not mindless.", "没有面孔，但并非无脑。", "_t")
-t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处的异变种，直到最近才发现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
+t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处、没有心智的异变种，直到最近才在其中出现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
 t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+1 体质", "_t")
@@ -1210,21 +1210,21 @@ Inside a motley collection of halflings, humans, and dwarves sat at various tabl
 
 I clenched my teeth a bit. I wondered if I might be in trouble. Again however the human made another quick statement, "Don't worry, I don't think you'll find anyone disagreeing with what you did to him and I was thinking of doing the same anyway. He would have eventually been lynched for saying things as he did. Someone would have silenced him sooner or later." Curious as to what the messenger just said I cautiously replied, "What do you mean?" To this the messenger raised an eyebrow before stating, "What? You think that any of the guards here would stop someone like that halfling from being killed? Such incidents have become common place nowadays."
 
-Soon smiling at me, the messenger began to gesture towards a nearby seat. I wasn't much interested in chatting with him, but thinking perhaps he may be able to inform me a bit of events I decided to accept his offer. I moved to sit down, ordering some food to eat. The messenger began making small talk, noting the devastation wrought from the Spellblaze, viciously attacking 'the mages' within each of his sentences, and lamenting the loss of some of his friends. For a time I let him talk as I ate my food. Oddly enough, the messenger didn't give me his name or ask for my own; perhaps being at least somewhat knowledgeable of Thaloren customs in that regard. I didn't actually notice this when I talked to him initially, only realizing it due to later events that would unfold.]], [[[i]表面上，纳格尔人的整体状况还在掌控之中，然而实际上，完全不是这样的。为了努力减少麻烦，他们尽全力去没收所有进城难民的魔法物品。同时，为了防止他们的领袖因为他们在魔法大爆炸中扮演的角色成为暗杀的目标，他们把他藏了起来。军队中的法师们也不得不地下活动，以防止受到危险，更希望不要进一步激怒那些已经愤怒的市民。[/i]
+Soon smiling at me, the messenger began to gesture towards a nearby seat. I wasn't much interested in chatting with him, but thinking perhaps he may be able to inform me a bit of events I decided to accept his offer. I moved to sit down, ordering some food to eat. The messenger began making small talk, noting the devastation wrought from the Spellblaze, viciously attacking 'the mages' within each of his sentences, and lamenting the loss of some of his friends. For a time I let him talk as I ate my food. Oddly enough, the messenger didn't give me his name or ask for my own; perhaps being at least somewhat knowledgeable of Thaloren customs in that regard. I didn't actually notice this when I talked to him initially, only realizing it due to later events that would unfold.]], [[[i]表面上，纳格尔人似乎完全掌控着局势，实际上却远非如此。为了减少麻烦，他们竭力没收进城难民身上一切能找到的魔法物品，并把他们的领袖们藏起来，以免这些人因在魔法大爆炸中所扮演的角色而遭到暗杀。军队中的施法者也被送到地下，既是顾虑自身处境的危险，也是不愿进一步激怒已经愤怒的市民。[/i]
 
-我慢慢潜行，小心翼翼走过被炸毁的山坡，踩着因地震而冒出的岩石度过河流。我穿过烧焦的草地，加入了向城门走去的难民队伍。我不得不等着，因为守卫不仅仔细检查马车，还要对进城的人进行盘问。但是看起来似乎没人被禁止进城。临近，我看到一个矮人正在抱怨，因为一个守卫没收了他的一件物品。即使士兵允许他进城的之后，他仍然不停抱怨，一路走一路发出一连串矮人的脏话。
+我沿着被炸毁的山坡缓慢而小心地走下去，又踩着露出水面的几块岩石过了河。我穿过烧焦的草地，加入了向城门走去的难民队伍。我等了很久，守卫缓慢地检查马车，盘问过关的人。看起来似乎没人被拒之门外；走近后，我看到一个矮人因为守卫没收了他的一件物品而大声叫嚷。即使获准进城，他仍不停叫嚷，每走一步都喷出一串矮人脏话。
 
-在等待若干人通过士兵检查之后，终于轮到我了。我立即上交了将军给我的手信，离我最近的士兵注意到信上的徽章之后，示意其他士兵都过来。他们一起看完了信件，小声地互相嘀咕，然后，其中一个士兵带着信件即刻启程，步履轻盈的奔向最近的塔楼。不久，那个士兵回来了，同行的还有另一个半身人。从他那完美无瑕的盔甲来看，我很快意识到这个人一定是他们的上级。
+等前面十来个人接受守卫检查后，终于轮到我了。我立即递出将军给我的文件，离我最近的守卫注意到上面的徽章，便示意另一名守卫过来。两人一起看过文件，低声交谈了几句，随后其中一人拿着文件快步跑向附近的塔楼。不久，那名守卫回来了，身后还跟着另一个半身人。从他那完美无瑕的盔甲来看，我很快意识到此人一定是他们的上级。
 
 他缓缓而有条不紊地走向我，他的目光似乎把我看穿了。他站在我面前，我低头看着他，他的眼睛向上看着我。然后，他突然转过身，示意其中一个士兵过来。那名士兵立即上前并伸出了双手，意味着我现在应该交出那个箱子了。我打开背包，把箱子交给了他。在拿到箱子之后他立即点头示意，然后迅速带着箱子离开。只看见他冲进大门，绕过墙之后，就消失在视野之外了。另一名士兵走向我，然后用礼貌的口吻说道，“欢迎来到纳格尔王国”。
 
-说着，我被领进了大门，卫兵们开始对我身后的难民进行搜查和询问。环顾四周，我看到很多帐篷和仓促搭建的棚屋，可能是用来安置涌入城市的难民的。难民们自己则无所事事地坐着，好像没有任何目标一样。一些人死气沉沉地盯着西方，那里是他们强迫离开的家乡所在的方向。其他人似乎是呆呆的看着天空，似乎在害怕有更多的死亡从空中降临，就像在魔法大爆炸时一样。
+说着，我被领进了大门，守卫们继续搜查并询问我身后的难民。环顾四周，我看到许多帐篷和仓促搭建的棚屋，很可能是用来安置涌入城市的难民。难民们无所事事地坐着，仿佛失去了所有目标。一些人死气沉沉地望向西方，很可能望着他们被迫离开的定居点；另一些人茫然地望着天空，仿佛还在等待更多死亡像魔法大爆炸时那样从天而降。
 
-我为这一切感到悲哀，也为弥漫在空气中的失落感感到悲伤，我决定继续前进。我朝着居民的房屋走去，毁坏的建筑物的废墟横躺在街道上，一些房子的屋顶和墙壁都倒塌了。我能从一幢损坏的房屋的石缝中看到一户半身人人家。再往前走，地上有一个酒馆的木制路标。这时我感到有点饿了，就朝路标旁边的房子走去，希望能够买些食物。
+我为这一切感到悲哀，也为弥漫在空气中的失落感感到悲伤，我决定继续前进。我朝着居民的房屋走去，毁坏的建筑物的废墟横躺在街道上，一些房子的屋顶和墙壁都倒塌了。我能从一幢损坏的房屋的石缝中看到一户半身人人家。再往前走，地上有一个酒馆的木招牌。这时我感到有点饿了，就朝招牌旁边的房子走去，希望能够买些食物。
 
-酒馆里充斥着各类种族，半身人，人类和矮人坐在桌旁。相比于外面的难民们，这里似乎更活跃一些。一些难民们在聊天，一些在赌博。当我进入酒馆的时候，一个人类立刻注意到了我，走了过来说，“嗨，你不就是以前的那个自然精灵吗？是的，就是你。”我不知道这个人类是谁，我也不知道他是不是疯了。他似乎感受到了这种异样的气氛，立刻说到，“哈，你可能没有认出我。我是北边酒馆的信使，兴许你还记得我和那个艾德瑞尔的蠢货争论过”
+酒馆里，形形色色的半身人、人类和矮人分坐在各张桌旁。这里比外面的难民营热闹一些，有人在交谈，有人在赌博。我走进酒馆时，一个人类立刻注意到我，走过来说：“嘿，你不就是之前那个自然精灵吗？没错，就是你。”我不知道这个人类是谁，不由得怀疑他是不是疯了。他似乎察觉到我的疑惑，赶紧说道：“啊，你大概不认识我了。我就是当时在北边那家酒馆里的信使。你或许还记得，我之前和那个艾德瑞尔半身人蠢货争论过。”
 
-我微微咬紧牙关，在想我是不是会遇到麻烦。然而，那个人类又做了一个简短的补充，“别担心，我觉得你不会找到任何一个反对你做过的事情的人，如果我是你，我也会这么做的。他最终一定会因为他说过的话而被人干掉。迟早会有人让他闭嘴的。”对于信使的话我很好奇，我谨慎的回应他说：“你是什么意思？” 信使挑了一下眉，说：“什么？你觉得这里的那些士兵能够阻止像那个半身人那样的人被杀吗？这样的事情现在已经很常见了。”
+我微微咬紧牙关，心想自己会不会惹上麻烦。然而，那个人类又赶紧补充道：“别担心，我觉得这里不会有人反对你对他做的事，反正我本来也打算这么干。他迟早会因为那些话被人处以私刑，早晚会有人让他闭嘴。”我对信使的话感到好奇，谨慎地问：“你是什么意思？”信使挑了挑眉，说：“怎么？你觉得这里的守卫会阻止别人杀掉那种半身人吗？如今这种事已经司空见惯了。”
 
 随后，信使微笑的看着我，对着附近的座位打手势。我不是很想和他聊天，但是考虑到他或许能够告诉我一些情报，我决定接受他的邀请。我走过来坐下，点了一些吃的充饥。信使开始闲聊起来，特别提到了魔法大爆炸造成的破坏，他的每一句话都恶毒的攻击“法师们”，然后又表现出失去朋友的悲伤。我一边吃饭，一边让他一直说，持续了整整一段时间。奇怪的是，这位信使并没有告诉我他的名字，也没有问我的，或许他至少在这方面对自然精灵的风俗有一定的了解。一开始我并没有意识到这一点，后来发生的事情中我才知道。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 2] - Exchange of Information", "菲·维莉欧斯的冒险 [第2卷，第2章] - 交换情报", "_t")
@@ -1246,25 +1246,25 @@ Cautiously I asked in as angry of a voice as I could muster, "Spellblaze, is tha
 
 Obviously the messenger was likely part of whatever group the shalore general had feared. I could tell that the messenger most definitely was in whatever schemes were being orchestrated too, and possibly ones that required secrecy as confirmed from the cloaked man from before. I considered going to his little gathering of friends, but I wasn't really interested in participating in whatever scheme they were going to partake in, and I could sense a feeling of danger as well. "I thank you for the offer, but I must decline" I finally said. To this I got a raised eyebrow as he quickly stated back, "Really, I would think a thalore such as yourself would jump at a chance to exact retribution against any who defile nature as has been done?"
 
-His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我极大程度上相信他还是那个煽动魔法狩猎的组织的成员。我很确信，他，以及其他追随那个穿着深色斗篷的人类的家伙，因为卷入一场我事后知道的邪恶的阴谋而死。但他是自愿死去的吗？这是我现在真正想知道的关于他的问题。[/i]
+His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我相信他或许还是那个煽动魔法狩猎的组织的成员。我很确信，他以及其他随那个黑袍人类离开的人，都因参与一场我次日才得知的邪恶阴谋而死。但他是自愿死去的吗？这是我如今想到他时真正思考的问题。[/i]
 
-吃完了饭，我决定向这个信使打探消息。在他结束最后的激情演说之后，我问道：“那么事情进展如何了？” 他叹了口气，说：“现在纳格尔人似乎控制了一切。他们正在设法为所有涌进城内的难民们搞到足够的食物，甚至为矮人们设法搞到一些酒水。不得不说，看到他们这样做，我有点惊讶。我不知道除了钢铁王座之外，他们在大陆的其他地方是否还有家园。然而，要想真正了解矮人们的隐秘程度是很难的。”
+吃完饭，我决定向这个信使打探消息。他结束最后一通激昂斥责后，我问道：“这里的情况怎么样？”那人叹了口气，回答说：“纳格尔人看起来把一切都控制住了。他们设法为不断涌入的所有难民弄到了足够的食物，甚至还给那些矮人弄了些酒。不得不说，在这里看到他们真让人意外。我不知道除了钢铁王座之外，他们在大陆其他地方是不是还有家园。不过矮人如此守口如瓶，实在很难弄清楚。”
 
-虽然我对矮人们并不是很感兴趣，但最后这句话与我对他们的了解有很大的出入。据我对于矮人的了解，他们全部都生活在钢铁王座，或者至少居住在距离那里很近的城市。我对信使的话表示疑问，他随后解释到：“你现在在这看到的矮人们都住在西边的山里。科纳克人完全不知道矮人们住的距离他们那么近，而且矮人似乎对此保密。不幸的是，他们被迫暴露了自己，因为法师制造的爆炸摧毁了他们的家园。”
+虽然我对矮人并不是很感兴趣，但最后那句话与我对他们的了解颇有出入。据我所知，矮人全都生活在钢铁王座，至少也住在附近的城市。我追问信使，他很快解释道：“你现在看到的这些矮人原本住在西边的山里。科纳克人完全不知道他们就住在那么近的地方，而矮人原本很可能会一直保守这个秘密。可惜，那些该死的法师让他们的家园在头顶坍塌，逼得他们不得不现身。”
 
-对于信使的回答我很满意，我突然会想起今早进城的时候遇到的那个骂骂咧咧的矮人。我在想，那个信使是不是知道一些什么东西。想到这一点，我问道：“你可能还不知道，士兵会没收矮人们携带的物品，知道吗？”信使耸了耸肩，回答道：“他们很可能携带某种，被那些该诅咒的法师很久以前附魔的，带有奥术力量的物品。在这方面，那些矮人们似乎受到了更糟糕的待遇，因为他们一点也不在乎这个物品是否被附魔过。”
+我对这个答案感到满意，又想起进城时那个大声叫嚷的矮人，不禁猜想信使是否知道内情。我提起此事，问道：“你是否碰巧知道，矮人可能携带的哪些物品会被城门守卫没收？”信使耸了耸肩，回答道：“大概是某件带有奥术性质、很久以前由可诅咒的法师附魔过的东西吧。那些矮人在这方面似乎受到了最糟的待遇，谁让他们根本不在乎物品是否被魔法污染。”
 
-他摇了摇头，若有所思的说道：“纳格尔人正积极的试图通过没收魔法物品，作为用来安抚居住在这里的半身人的一种手段。我个人认为任何人携带这样的物品都是非常危险的，包括他们自己。当然了，他们太过于傲慢，以至于他们不会去试图没收住在城里的半身人的魔法物品，指望着他们‘自愿’放弃。实际上，只有矮人、城市外面的半身人难民和我们人类的财产被夺走了。”那个人类说完这些话，就笑了起来。
+他摇摇头，继续自言自语道：“纳格尔人正积极没收魔法物品，想借此安抚住在这里的半身人。他们说，平民携带这种物品太危险了。我倒觉得任何人携带都太危险，包括他们自己。当然，他们傲慢得懒得要求城里原有的半身人交出这类东西，只指望那些人‘自愿’上缴。实际上，被夺走财物的只有矮人、城外来的半身人难民，还有我们人类。”那个人类说完便笑了起来。
 
-当一个披着深色斗篷的人走近并弯下身对他说话时，信使停止了大笑。信使对着他回答的人点了点头，并说道：“我随后就到，等我们准备好了之后，再把计划跟我复述一遍。”那个身穿深色斗篷的人鞠了一躬，匆匆地走到了另一张有一对半身人夫妇的桌子，然后又走到一个矮人的桌子旁，再然后就离开这里消失了。那一对半身人夫妇和矮人吃完东西，收拾好行李，也悄悄的离开了。我想知道这个信使到底是谁，我瞥了他一眼，看到他正在用审视的目光看着我。信使用轻松的语气说道：“别理他们，我们谈的这么愉快，别被这些小事打扰了。”
+一个披着深色斗篷的人走近，俯身对他说了些什么，信使便止住笑声，向那人点头答道：“我晚点赶上。等我们准备好时，把计划传回来给我。”黑袍人鞠了一躬，匆匆走到另一张坐着两个半身人的桌旁，又去了一个矮人的桌旁，随后离开酒馆，不见踪影。两个半身人和那个矮人吃完食物，收拾好东西，也悄悄离开了。我正琢磨这个信使究竟是什么人，瞥向他时却看到一双审视的眼睛也正望着我。信使用轻松的语气说道：“别管他们，我们聊得这么愉快，可别让别人搅了兴致。”
 
-在那一刻，我意识到这个信使比我最初想象的要复杂的多了。我想知道他是不是比我想象的还要危险一点。或许有一点鲁莽，我决定去了解这个男人到底知道多少，然后我轻声问道：“你对永恒精灵有什么想法？”那个信使的立场和姿态立马就变了，随后换了一种口吻继续说：“啊，要是能让把这群可悲的笨蛋彻底从埃亚尔扫除就好了。我想，你离开森林，恐怕就是因为知道他们才是罪魁祸首，准备让他们血债血偿。我们大多数人和你一样，他们终将会为在马基埃亚尔引发魔法大爆炸的行为付出代价。”
+那一刻，我意识到这个信使远不止我最初以为的那么简单，也许比我估计的更加危险。我有些冒失地决定试探他究竟知道多少，于是低声问道：“你们是否碰巧有对付永恒精灵的计划？”信使的站姿几乎立刻改变了，他换了种语气说道：“啊，要是能把那些可悲的混账从埃亚尔表面抹去，该有多好。我猜你离开森林，是因为知道他们才是罪魁祸首，只想沐浴在他们的鲜血里。我们大多数人不都如此吗？迟早他们要为在马基·埃亚尔引发魔法大爆炸付出全部代价。”
 
 我谨慎的尽可能地用愤怒的语气问道：“你们把那个叫做魔法大爆炸？”他快速的肯定了这一说法：“是的，别人都是这样告诉我的。”这个男人看起来很愿意聊天，我等着他吐露更多的消息。“我告诉你，或许你应该和我一起去参加那个小型的朋友聚会，一起讨论这个问题。我们已经有了一个计划，我们会尽快行动，确保大自然不会再遭受和魔法大爆炸一样糟糕的事情，我相信你这个自然精灵一定能够感受到大自然的痛苦不堪。你知道么，永恒精灵他们绝对要对那个事件负责，但是并非其他种族都不知道他们那个所谓的伟大的计划。或许除了矮人，每一个种族都对魔法大爆炸有一定了解。”
 
-很显然，这个信使很可能就是永恒精灵的将军所担心的那个组织的一员。我觉得那个信使一定参与了他们所说的那个计划，不管那个计划是什么。并且，从他与之前来过的穿斗篷的人的对话的反应来看，他们进行的计划还需要保密。我本来考虑去参加他的朋友聚会，但是我又对参与他们精心设计的计划不感兴趣，而且我能嗅到一丝危险的气息。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，然后快速回答我：“说真的，像你这样的自然精灵，难道不想抓住任何机会，对玷污自然的人进行报复吗？”
+很显然，这个信使很可能就是永恒精灵将军所担心的那个组织的一员。我看得出，信使也确实参与了正在筹划的某些阴谋，而且可能参与的是需要保密的阴谋——先前那个黑袍人的举动印证了这一点。我考虑过参加他的朋友聚会，但并不想卷入他们准备实施的任何阴谋，也感到一丝危险。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，立刻回答：“说真的，像你这样的自然精灵，难道不想抓住机会，报复任何像这样玷污自然的人吗？”
 
-他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声说道，如果我能改变主意，我会被“作为新成员而受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我睡得很沉，直到在清晨，太阳还没有升起的时候，我的耳朵里充满了尖叫声。我想知道发生了什么事情，打开了房间的窗户，发现远处的大楼燃起了大火，冒着浓烟。]], "_t")
+他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声说道，如果我能改变主意，我会被“作为新成员而受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我睡得很沉，直到在清晨，太阳还没有升起的时候，我的耳朵里充满了尖叫声。我想知道发生了什么事情，我向房间窗外望去，看见远处的大楼燃起了大火，冒着浓烟。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 3] - Blazing Madness", "菲·维莉欧斯的冒险 [第2卷，第3章] - 燃烧的疯狂", "_t")
 t([[[i]In the market I purchased several items to help me for when I forged my way back towards Thaloren lands. I bought about three weeks worth of rations for myself as I had planned to perhaps 'explore' a little bit before finally arriving home. I also procured a fine steel utility knife and a steel hatchet. I wasn't sure I would really need this much for my journey, I could likely have explored the entirety of Maj'Eyal with it, but I never imagined what role everything I bought in that market would soon come to play in the future.[/i]
 
@@ -1792,23 +1792,23 @@ Drawing closer to one of Elvala's main fields I could hear the voices and sounds
 
 As the ogres finished their dance, a couple shalore decided to step forward and entertain the crowds. One began to sing a pleasing chord and then stop, then the other began to sing the same chord but at a lower frequency. Upon finishing the second chord, both shalore began to sing their chords, harmonizing them to produce a beautiful melody that washed over the crowd. Within myself, it felt as if I could hear nothing but my own thoughts for once. As the performances continued I felt as if I was regaining pieces of myself that I had once lost. Without a doubt, the affliction that had taken a hold of me was still there, but with each moment it felt less and less significant. For the first time in a long while I felt happiness, and even as the festivities died down and ended I continued to feel happy.
 
-Making my way back to my dwelling I felt in control of myself and my actions. Whatever the enigma within me was, it did not and would not lord over me. As I came up to the guards I smiled and gave a friendly gesture. While I was heading back in for now, I knew that I would leave this dwelling again tomorrow. While the ogres are quick to note that I had saved them when conversation touches on past events, in reality I believe that they were the ones who had actually saved me. The ogres are quick to dismiss this as modesty, but since that time when I was at that festival I have been working to gain full control over my myself, to take a hold of my life once more. For that I say thank you to them.]], [[[i]值得注意的是，在我长期的隐居之后，埃尔瓦拉来了更多食人魔，甚至有数百人。显然，我所救的食人魔已经向大议会请愿，要求尽可能多地寻找他们的同类食人魔，并在他们全部被杀之前帮助他们。他们同意了这一要求，与纳格尔王国以及马基·埃亚尔西北部的一些人类王国取得了联系，秘密帮助将尽可能多的食人魔转移到被帷幕笼罩的永恒精灵土地上。[/i]
+Making my way back to my dwelling I felt in control of myself and my actions. Whatever the enigma within me was, it did not and would not lord over me. As I came up to the guards I smiled and gave a friendly gesture. While I was heading back in for now, I knew that I would leave this dwelling again tomorrow. While the ogres are quick to note that I had saved them when conversation touches on past events, in reality I believe that they were the ones who had actually saved me. The ogres are quick to dismiss this as modesty, but since that time when I was at that festival I have been working to gain full control over my myself, to take a hold of my life once more. For that I say thank you to them.]], [[[i]值得注意的是，在我长期隐居之后，埃尔瓦拉已有许多食人魔，甚至有数百之众。显然，我救下的食人魔曾向大议会请愿，要求他们尽可能寻找并帮助同族，免得所有食人魔都遭到杀害。大议会同意了请求，联系了纳格尔王国以及马基·埃亚尔西北部的一些人类王国，暗中帮助把尽可能多的食人魔转移到帷幕笼罩的永恒精灵领地。[/i]
 
-当我完全从伤病中恢复过来时，我真的感觉到自己正处在人生的最低谷。有了那么多的时间去思考，我无法阻止自己回忆起从那一天起发生的事情，那一天的一幕幕景象仿佛直到现在都在发生着。每一个醒着的时刻，无论我是睡着了还是醒着，我都仿佛在做梦，然而这场噩梦却是真实的，在我内心深处，我能感受到当我与那些狂热分子战斗时，我所感受到的那种折磨我的冲动正在时刻浮现。我处于一种无法形容的痛苦之中，似乎越来越讨厌我的生活，但却不知道如何从我的情绪和我被关在的笼子里解脱出来。
+当我终于完全从伤势中恢复时，才真正觉得自己已跌到人生最低谷。有大把时间思考，我无法阻止自己回想从魔法大爆炸发生的那一天直到此刻的一切。每一个清醒的时刻都像在做梦，无论我睡着还是醒着；然而这场噩梦是真实的，在内心深处，我能感觉到自己对抗那些试图爬到地表的狂热分子时折磨我的冲动，如今又在侵扰我。我陷入难以言喻的痛苦，似乎越来越憎恨自己的人生，却不知道如何摆脱自己的情绪，或逃出囚禁我的牢笼。
 
-直到几个月过去了，才有人来看我。我能听到外面的卫兵在跟人说话，从那明显较深的声音里，我猜出那一定是一位食人魔。过了一会儿，卫兵让我的访客进来，我立刻认出了进来的食人魔战略家。他严肃地说：“你怎么样，自然精灵？过了一段时间，我终于获准与你见面。如果不是你，我们食人魔现在肯定都死了，或者更糟。在你把我们带到埃尔瓦拉的安全地带之后，我们从未有机会感谢你救了我们，然而，我们获准解除监禁时，却可能把你带进了属于你的监禁之中。”
+几个月过去后，终于有人前来看我。我听见外面的守卫正在和某人交谈；从那明显更低沉的嗓音判断，我猜一定是食人魔。片刻后，守卫放访客进来，我立刻认出走进来的食人魔战略家。他神情肃穆地说道：“你现在怎么样，自然精灵？我等了些时候，终于获准来见你。若不是你，我们食人魔现在很可能全死了，或者遭遇更糟的命运。你把我们带到埃尔瓦拉的安全地带后，我们一直没能好好感谢你救了我们；可就在你将我们从囚禁中解救出来时，我们或许反而把你带进了自己的牢笼。”
 
-当战略家说出最后几句话时，他停下来低下头，我能感觉到他在那短暂的时刻的每一份悲伤。不过，这位战略家恢复了先前的镇定，再次抬起头说：“我们以为大家都会庆祝一下。在这一切发生之后，每个人都需要一场欢呼，来让我们忘却一切，你也需要一些东西来忘掉过去的事情。”我本来只希望得到战略家的感谢，但听到这句话，我意识到我被邀请参加一个聚会。
+战略家说完最后那句话，停下来低下了头；短短片刻间，我能感受到他全部的悲伤。不过他很快恢复先前的镇定，再次抬起头说道：“我们想着为大家办一场庆祝会。经历了这一切，每个人都需要好好振奋一下，暂时忘却一切。”说完第一句话，食人魔望向我，仿佛还要补充一点重要内容：“而且据我所知，你也需要找些事来暂时忘掉过去。”我几乎没意识到战略家带来的不只是感谢，直到听见这句话，才明白自己正受邀参加一场聚会。
 
-我在想，“我”真的会没事吗？我还会像之前一样，向某个人无端宣泄怒火吗？“我不知道这是否是一个好主意……”我拖着脚步走了，希望我的不安能被传达出来，而不是我内心涌起的愤怒或其他情绪。看到这是一个说话的机会，食人魔附和道：“因为你不知道你是否能控制自己，并且在那个女巫的身上，你遇到了同样的事情？”我被这件事弄得有点措手不及，眼睛睁大了。然而，这位战略家什么也没说，继续站在那里，脸上带着他进来时那副严肃的样子。从他的陈述中恢复过来，我拒绝了，说道：“我不想伤害任何人。我应该待在家里，和别人的接触越少越好。”
+我心想，“我”真的不会有事吗？我会不会再次对某个人发作？“我不知道这是不是个好主意……”我的话音渐弱，只希望传达出自己的不安，而不是内心翻涌的愤怒或其他情绪。食人魔却把这当作插话的机会，接着说道：“因为你不知道自己能否控制住，会不会再发生像那位女附魔师那样的事？”这话让我有些措手不及，双眼不由得睁大。战略家却没有再说什么，只是仍带着进门时那副肃穆神情站在那里。我从他的话带来的震动中回过神，转过身说道：“我不想伤害任何人。或许还是离远些为好，和别人接触得越少越好。”
 
-当我说这些话的时候，我才意识到这些话对我的打击。因为我一直忙着控制自己，直到那一刻，我才意识到这一点，我说的这些话好像在准备让我成为一个隐士。我在这里花了三个月的时间为我的处境感到惋惜，但现在，我却在放弃一个摆脱困境的机会？突然间，我开始感到仇恨，就像仇恨我曾经参与过的所有不幸事件一样。但这不像以前我把我的仇恨指向别人的时候，在这里，这些仇恨没有任何指向的对象——“除了你自己？”当食人魔说出这几个字时，我愣住了一会儿，似乎和我的思想一样完美地联系在一起。我不知道这是不是个好主意，但我内心的仇恨在一瞬间消失了。
+说出这些话时，或许受打击最深的正是我自己。此前我一直忙着控制自己，直到那一刻才意识到，我说话的口气仿佛已经准备好成为隐士。我在这里用了三个月哀叹自己的处境，如今却在推开一个摆脱困境的机会？一瞬间，我立刻感到仇恨，那种仇恨与我经历过的所有不幸事件中如出一辙。但与过去把恨意指向别人不同，此刻这里没有任何人可供我憎恨——“除了你自己？”食人魔说出那几个字时，我愣了片刻；那几个字仿佛与我的心思完全契合。我不知道这是不是个好主意，但有那么一瞬间，我心中的仇恨消退了。
 
-我站起身来，看着战略家，坚定地说：“我接受你的提议。”食人魔战略家似乎对此欣喜若狂，立即抓住我的胳膊，向门口走去。我不清楚该说，我是被这只过于热情的食人魔牵着，还是被它拖到了节日的各个地方，但我在那一刻确实感到比很久以前更快乐了。在我的脑海里，我想如果有机会让我的状况得到改善，也许是通过与他人的互动。至少这是我摆脱隐居的一条出路。也许，我可以忘掉许多过去一直萦绕在我心头的事情。
+我站起身看着战略家，坚定地说：“我接受你的提议。”食人魔战略家似乎欣喜若狂，立刻挽住我的手臂，朝门口走去。我分不清自己究竟是被这个过分热情的食人魔领着，还是干脆被拖向庆典举办的地方；但那一刻，我确实感到了很久以来未曾有过的快乐。我暗自想到，如果我的状况有机会好转，或许要靠与他人的交往。至少这能让我走出隐居，也许还能暂时忘掉那些如今仍纠缠着我的往事。
 
-走近埃尔瓦拉的中央广场，听到一阵有节奏的鼓点和旋律传来，那里聚集着一群永恒精灵和食人魔。人们专注着看着中央的一群正在表演的食人魔。看着这些食人魔，我注意到他们正在表演一种非常缓慢，同步，迷人的舞蹈。那些观看食人魔表演的人一开始似乎没有什么精神，但随着食人魔继续表演，他们的表演速度逐渐加快。一点一点地，食人魔的速度越来越快，鼓掌激励人群加入他们。慢慢地，周围的人也开始鼓掌，人群的情绪开始好转，直到我能看到他们脸上露出的笑容。
+走近埃尔瓦拉的一片主要场地时，我听见前方传来人声和有节奏的敲击声，也看见永恒精灵与食人魔聚成的人群。人们专注地望着场地中央十来个食人魔。仔细看去，我发现他们正在表演一种缓慢、整齐而迷人的舞蹈。观众一开始似乎兴致不高；随着食人魔继续表演，他们逐渐加快了节奏，一点一点越舞越快，又拍手鼓励人群加入。周围的人慢慢跟着鼓掌，人群的情绪也逐渐好转，直到我看见其中几个人脸上绽开笑容。
 
-当食人魔们完成了他们的舞蹈后，一对永恒精灵夫妇决定向前一步，用音乐给大家带来欢乐。一个开始唱悦耳的和弦，然后停下来，然后另一个开始唱同一个和弦，但频率较低。第二个和弦结束后，两个永恒精灵同时唱起他们的和弦，使之和谐起来，产生了一个优美的旋律，在人群中荡漾。刹那间，在我内心深处，我仿佛能够听到自己内心伸出的想法。随着表演的继续，我感觉自己好像在找回曾经失去的自我。毫无疑问，折磨着我的痛苦仍然存在，但每一刻都感觉不那么重要。很长一段时间以来，我第一次感到幸福，即使节日结束了，我仍然感到幸福。
+食人魔跳完舞后，两个永恒精灵走上前去为人群助兴。一个先唱出悦耳的和弦，随后停下；另一个又唱出同样的和弦，只是音调更低。第二个和弦结束后，两个永恒精灵同时唱起各自的和弦，彼此和声，汇成优美的旋律，流过整个人群。那一刻，我终于仿佛只能听见自己的心声。随着表演继续，我感觉自己正在拾回曾经失去的部分。毫无疑问，那种攫住我的折磨仍然存在，但每过一刻，它似乎都变得不那么重要。很长一段时间以来，我第一次感到快乐；即使庆典渐渐平息并结束，我的快乐仍未消退。
 
 回到我的住处，我感觉自己和我的行为都在控制之中。无论我内心的谜团是什么，它没有，也不会主宰我。当走到警卫面前时，我微笑着做了一个友好的手势。当我回去的时候，我相信自己明天会再次离开这所房子。虽然食人魔在谈论过去的事情时谈起我救了他们，但实际上我相信，他们才是真正救了我的人。食人魔们很快就把这当作是一种谦虚，但自从我参加那个节日以来，我一直在努力完全控制自己，重新掌控自己的生活。为此我向他们表示感谢。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 6] - Rebuilding Anew", "菲·维莉欧斯的冒险 [第4卷，第6章] - 焕然一新", "_t")
@@ -2376,9 +2376,9 @@ Please all focus your attention on the central target dummy. Hithre you will cas
 t("Lessons of Inevitability - Unravel Existence Failure", "有关必然性的课程——解构存在失败", "_t")
 t([[No, no! Your minds aren't focused enough! I told you that you must have a clear image in your head! Do not let your foolish ambition get the better of you! You can't control what's out there!
 
-...It is too late. Something is coming. Even I do not know what. I knew that this was a mistake.]], [[不，不！你们的精神还不够集中！我告诉过你们，一定要在头脑中有一个清晰的印象！千万不要因为愚蠢的骄傲自满占上风！你无法控制从撕裂的空间中出现的存在的！
+...It is too late. Something is coming. Even I do not know what. I knew that this was a mistake.]], [[不，不！你们的精神还不够集中！我告诉过你们，一定要在头脑中有一个清晰的印象！不要让愚蠢的野心冲昏头脑！你们控制不了外面的东西！
 
-……太迟了。那个东西即将降临了。那是连我也不知道的存在。我从一开始就知道这是个错误。]], "_t")
+……太迟了。有什么东西要来了。连我也不知道那是什么。我知道这是个错误。]], "_t")
 t("Lessons of Inevitability - Epilogue", "有关必然性的课程——尾声", "_t")
 t([[Only one person escaped alive from the summoning of the Unspeakable Thing. She believed that, despite the failure of her fellow students and the horror of what she saw, The Teacher's wisdom still had value in the apocalyptic world created by the Spellblaze. After all, is it not better to know about the horrors out there than it is to be ignorant of their existence? She began to pass on the power of entropy onto others, and they too passed it on. The ones who learned this forbidden lore became known as the Cultists of Entropy.
 
@@ -2409,9 +2409,9 @@ t([[Eyal's underground is abundant with strange, and not particularly wholesome,
 
 A Drem is roughly the same height as a Dwarf and has a vaguely similar facial structure as well. This is where the similarities between the two races tend to end. Drem have no distinguishing facial features and are incapable of growing beards like dwarves, instead growing wiry and unkempt patches of hair which vary greatly in thickness. Due to the lack of facial features such as eyes, ears, a mouth and a nose, it is not currently known how a Drem eats or how they sense things around them. The mental faculties of thinking Drem seems to vary wildly from each individual as well. Some are barely more capable of rational thought than feral Drem, while others have gained intellect comparable to the brightest minds of Eyal.
 
-As they have only recently come out of their previously mindless states, the Drem are a people who are completely disconnected with the world around them. They possess no cultural identity or history to fall back on and sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground. Many suspect that they possess some connection to the dwarves, the prevailing theory being that they are some sort of corrupted offshoot of that proud race. There has been little research into the subject and little evidence found to substantiate these claims, however. What impact the Drem will have on Eyal's future can only be speculated upon at this point.]], [[埃亚尔的地下有着各种各样的奇怪，而且不是特别健康的生物。他们中的大部分都是毫无心智的怪物，无法理解，最好不要和他们扯上关系。然而，这些生物中最不寻常的就是德瑞姆了。长期以来，德瑞姆被简单地认为，只是埃亚尔地下的一种恐魔。然而，最近出现了一些能思考的德瑞姆，这迫使学者们对这个种族开始了重新的评价。
+As they have only recently come out of their previously mindless states, the Drem are a people who are completely disconnected with the world around them. They possess no cultural identity or history to fall back on and sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground. Many suspect that they possess some connection to the dwarves, the prevailing theory being that they are some sort of corrupted offshoot of that proud race. There has been little research into the subject and little evidence found to substantiate these claims, however. What impact the Drem will have on Eyal's future can only be speculated upon at this point.]], [[埃亚尔地下有着各种奇异、多半并非善类的生物。它们大多是毫无心智、无法与之讲理的怪物，最好敬而远之。然而，这些生物中或许最不寻常的就是德瑞姆。长期以来，德瑞姆一直被认为只是栖息在埃亚尔地下的另一种恐魔。然而，近来有思维能力的德瑞姆出现，迫使许多学者重新评估整个种族。
 
-德瑞姆的身高与矮人差不多，并且有着大致相似的面部结构。这两个种族的相似点也就到此为止了。德瑞姆没有明显的面部特征，也没有矮人那样的胡须。相应的，他们有着厚度变化很大的蓬松毛发。由于缺乏诸如眼睛，耳朵，嘴巴或是鼻子这样的面部特征，目前既不知道德瑞姆吃什么，也不知道他们如何感知周围的事物。德瑞姆的智力似乎有着很大的个体差异。有的德瑞姆的智力不比野生的怪物好多少，而有的德瑞莫则获得了能够和埃亚尔最聪明的头脑们相媲美的智慧。
+德瑞姆的身高与矮人相仿，面部结构也有些相似；两个种族的相似之处大致到此为止。德瑞姆没有鲜明的面部特征，也无法像矮人那样长出胡须，取而代之的是一簇簇粗硬凌乱、疏密不一的毛发。由于缺少眼睛、耳朵、嘴巴和鼻子等面部器官，目前既不知道德瑞姆如何进食，也不知道他们怎样感知周围事物。有思维能力的德瑞姆，其心智能力似乎也因个体而有极大差异。有些只比野生德瑞姆稍具理性思考能力，有些却拥有足以媲美埃亚尔最聪慧头脑的智慧。
 
 由于他们才刚刚脱离过去那种毫无智慧的阶段，德瑞姆是与外部世界完全脱节的一群人。他们没有文化认同，也没有可供依凭的历史，处在埃亚尔地表的文明种族与地下的恐魔之间。许多人怀疑，他们和矮人有某种联系，普遍的理论是，他们是这种骄傲的种族的某种被腐化的后裔。对这个问题的研究很少，而且也很少有证据支持这种说法。目前还不知道德瑞姆会对埃亚尔的未来产生怎么样的影响。]], "_t")
 
@@ -2450,7 +2450,7 @@ As you get your bearings, you can sense that there is something in here with you
 
 在你重新取回你的感觉的瞬间，你感受到，有一种东西正支配着这里。它的存在笼罩着整个虚空，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
 t("hypostasis of entropy", "熵的本质", "_t")
-t("A towering manifestation of entropy stands before you. You feel tiny.", "熵的本质在你面前显现了。在它眼里，你是多么渺小。", "_t")
+t("A towering manifestation of entropy stands before you. You feel tiny.", "一个高耸的熵之化身矗立在你面前。你感到自己无比渺小。", "_t")
 t("a new threat (1)", "新的威胁 (1)", "_t")
 t([[Long have we dwelt in the earth, the light of the surface never touching our sanctuary. We have sought power which few can even guess at and learned to wield the power of the dark ones squirming in the void. But, after our long seclusion, a creature from the depths has come to destroy our fortress. This 'maggot' is a creature which consumes anything in front of it, sliding through the earth and carving a path of destruction. This shall be where it stops. With the power we have gathered, we shall slay this intruder.
 
@@ -2504,7 +2504,7 @@ t("Some puzzle this is! I finally enter the right combination and it dumps me in
 t("the truth beyond the veil (1)", "穿透纱幕的真相 (1)", "_t")
 t([[Thought is treasure. Treasure thoughts. Spin fates, tell tales, words of gods, smith into fables. All that is can be rewritten and all writing is defined by what is. Cascades upon cascades which blend into reality, ever altering, ever changing, ever being, ever ceasing.
 
-Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，神的语言，编织成传说。一切现实都可以被重写，一切的文字都关联着现实。层叠的层叠融入现实，不断变化，不断改变，永远存在，永不止息。
+Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，神的语言，编织成传说。一切现实都可以被重写，一切的文字都关联着现实。层叠的层叠融入现实，不断变化，不断改变，永在存续，永在消逝。
 
 言语就是力量。我的力量就是言语。我是无限，我是终结。一切皆有可能。]], "_t")
 t("the truth beyond the veil (2)", "穿透纱幕的真相 (2)", "_t")
@@ -2554,7 +2554,7 @@ t("A View From The Gallery", "画廊一瞥", "_t")
 t([[You are Grung, a halfling from the Age of Haze. You must gather food or die but outside there is a terrible war being fought.
 A war between incomprehensible beings for incomprehensible reasons. All you can hope to do is gather food while avoiding to get crushed.]], [[你是格朗格，一名来自混沌纪的半身人。你必须收集食物，否则你会死。但是外面正在激烈地交战。
 那是一场不能理解的存在为了不能理解的理由引发的战争。你唯一能做的，就是在收集食物的同时，避免被碾碎。]], "_t")
-t("#LIGHT_GREEN#* You have gathered enough food for a few day for your tribe, go back home now.#WHITE#", "#LIGHT_GREEN#* 你收集到了足够的食物，快回家去。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have gathered enough food for a few day for your tribe, go back home now.#WHITE#", "#LIGHT_GREEN#* 你已经收集到够部落吃上几天的食物，现在回家吧。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have came home with the food.#WHITE#", "#LIGHT_GREEN#* 你成功地带回了食物。#WHITE#", "_t")
 
 ------------------------------------------------
@@ -2699,9 +2699,9 @@ t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t([[You attune your horrors to the dead god Amakthel, increasing your summoned horrors damage by %d%%.
 At talent level 3, your Decaying Devourers spell will summon 4 additional Devourers adjacent to random enemies nearby and your Bloated Horror will learn the Agony talent.
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
-The damage increase is based on your Spellpower.]], [[你将你的恐魔和已死之神阿马克泰尔同化，增加恐魔 %d%% 伤害。
-		技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。
-		技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
+The damage increase is based on your Spellpower.]], [[你使你的恐魔与已死之神阿马克泰尔相协调，增加你召唤的恐魔 %d%% 伤害。
+技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。
+技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
 伤害加成受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -2846,8 +2846,10 @@ t([[Your unnatural existence causes the fabric of reality to reject your presenc
 You may activate this talent to channel your entropy onto a nearby enemy, removing all entropic backlash to inflict darkness and temporal damage equal to %d%% of your entropy over 4 turns.
 
 The damage dealt when applying this to an enemy will increase with your Spellpower.]], [[你作为非自然的存在被现实抗拒。你受到的直接治疗的 25%% 将以熵能反冲的形式在 8 回合内伤害自身，这种伤害不可抗拒、无视所有护盾，但不会致死。
-		你可以主动开启该技能，将你身上的熵转移给附近的一名敌人，除去所有熵能反冲并对其造成持续 4 回合的黑暗和时空伤害，伤害值等于你自身熵能的 %d%%。
-		伤害受法术强度加成。]], "tformat")
+
+你可以主动开启该技能，将你身上的熵转移给附近的一名敌人，除去所有熵能反冲并对其造成持续 4 回合的暗影和时空伤害，伤害值等于你自身熵能的 %d%%。
+
+伤害受法术强度加成。]], "tformat")
 t("Reverse Entropy", "熵能逆转", "talent name")
 t([[Your knowledge of entropy allows you to defy the laws of physics, allowing you to better endure your entropic energies.
 			You take %d%% less damage from your entropic backlash.
@@ -2919,6 +2921,7 @@ t([[While within range 3 of your Worm that Walks you can project an aura of terr
 
 		Additionally your Shared Insanity effect will cause enemies in radius 3 to lose %d spell save and %d defense for 3 turns.]], [[当你处于蠕虫合体 3 格范围内时，你可以制造恐怖光环。
 		看到两个疯狂恐魔并肩作战将令周围 %d 格的敌人震慑 %d 回合，除非它们的物理豁免成功对抗了你的法术强度。
+
 		此外，你的共享疯狂效果将令 3 格内的敌人在 3 回合里失去 %d 法术豁免和 %d 闪避。]], "tformat")
 
 ------------------------------------------------
@@ -3230,8 +3233,10 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 码范围的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
 		被触手击中的生物需要进行法术检定，检定失败将被麻痹，5 回合内伤害降低 %d%%。
+
 		如果有敌人被触手击中，你获得 %d 疯狂值。
-		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
+
+		#YELLOW_GREEN#当触手处于缠绕状态:#WHITE#触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
 t("Constrict", "缠绕", "talent name")
 t("You require a mutated hand!", "你需要异变之手！", "logPlayer")
 t("%s's tentacle fails to move %s!", "%s的触手无法移动%s！", "tformat")
@@ -3303,7 +3308,7 @@ t([[Consuming a void star, you use it to summon a void monolith at the targeted 
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
 t([[You rend the very essence of the target, drawing on their life and converting it to void stars. The target takes %0.2f darkness and %0.2f temporal damage, and you gain %d void star(s).
-		The damage will increase with your Spellpower.]], [[撕开目标的核心部位，汲取生命转化为虚空之星。目标受到 %0.2f 黑暗和 %0.2f 时空伤害，你获得 %d 虚空之星。
+		The damage will increase with your Spellpower.]], [[你撕裂目标的本质，汲取其生命并转化为虚空之星。目标受到 %0.2f 暗影和 %0.2f 时空伤害，你获得 %d 虚空之星。
 		伤害随法术强度升高。]], "tformat")
 
 ------------------------------------------------
@@ -3877,7 +3882,7 @@ t("#Target# is no longer enveloped by entropic forces.", "#Target#不再被熵�
 t("armor", "护甲", "effect subtype")
 t("Horrific Fortress", "恐怖堡垒", "_t")
 t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活，受到的所有非物理伤害降低 %d 点。", "tformat", {2,1})
-t("#Target# is bolstered at the sight of the horror!", "#Target#在恐魔的视线中被强化了！", "_t")
+t("#Target# is bolstered at the sight of the horror!", "#Target#目睹恐魔，防护得到了强化！", "_t")
 t("#Target# is less armoured.", "#Target#的护甲降低了。", "_t")
 -- untranslated text
 --[==[
@@ -4067,7 +4072,7 @@ t([[It's a cold night and you did not find anything to eat during the day. Your 
 
 The many tentacled ones who sometimes come down from the sky to look at you say that they are going to battle with themselves. You did not really understand why they would fight among themselves, even as it tried to explain it to you. You reconsider the idea of going outside when its warnings come across your mind, but the rumbling in your belly renews your resolve. Everyone in your tribe tonight must eat, no matter what.]], [[这是一个寒冷的夜晚，白天你没有找到任何可以果腹的东西，你的皮毛也不足以御寒。于是你决定外出狩猎，但其他人都警告你不要这样做。夜晚很危险，而且天空也闪烁着诡异的光芒，如此不祥的预兆。但近来食物已经越来越难得，每个人都和你一样饥饿。
 
-有许多长着触手的怪物从天而降，告诉你，他们将要相互交战。你不知道他们为什么要整天自相残杀，即使他们想要向你解释，你也无法听懂。当它的警告出现在你脑海中时，你有重新考虑是否要走出去的想法，但肚子里的隆隆声会让你重新下定决心。不管怎样，今晚你们部落的每个人都必须吃上东西。]], "_t")
+那些长着许多触手的存在有时会从天而降看你；它说它们将要彼此交战。即使它试着向你解释，你也不太明白它们为什么要自相残杀。它的警告浮现在你脑海中，让你重新考虑是否该出去，但肚子里的隆隆声又坚定了你的决心。不管怎样，今晚你们部落的每个人都必须吃上东西。]], "_t")
 t("Why is there a dead tentacled one here?", "为什么这里有一只死掉的触手怪？", "_t")
 t("Corpses are raining from the sky...", "大量的尸体在从天上掉下来…", "_t")
 t("The many tentacled ones are piling on the ground, forming mass graves.", "许多触手怪的尸体堆积在地上，形成了万人坑。", "_t")
@@ -4603,7 +4608,8 @@ t("Forbidden Cults", "禁忌邪教", "init.lua long_name")
 t([[Not all adventurers seek fortune, not all that defend the world have good deeds in mind.
 Lately the number of sightings of horrors have grown tremendously. People wander off the beaten paths only to be found years later, horribly mutated and partly insane, if they are found at all. It is becoming evident something is stirring deep below Maj'Eyal.
 That something is you.
-]], [[不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，进入了疯狂之中，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。
+]], [[不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。
+近来，恐魔的目击次数急剧增加。不断有人偏离常走的道路，若还能被找到，往往已是数年之后，身体严重变异、神志也有些失常；有些人则从此杳无踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。
 那种东西——就是你。
 ]], "init.lua description")
 

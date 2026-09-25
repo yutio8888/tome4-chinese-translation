@@ -464,13 +464,14 @@ Above all else, remember: despite <?=player:his_her()?> enhancements, this is a 
 
 ]], [[有关<?=player.name?>的战术简报：
 
-这个该死的小精灵目前是我们的眼中钉、肉中刺。我们已经加强了我们的防御，避免在发生类似于陨石冲击导致像<?=player:his_her()?>这样的犯人逃跑这样的意外。然而，由于<?=player:he_she()?>在<?=player:his_her()?>逃跑路上砸坏了水晶，我们无法直接跟踪到<?=player:his_her()?>当前的位置。不过这不要紧——尽管如此，我们在<?=player:him_her()?>的身上注入的魔法痕迹仍然让我们可以侦测到<?=player:him_her()?>身上的魔法能量信号。我们的占卜师已经发现<?=player:him_her()?>在使用某种特定的魔法传送自己——似乎是某种夏·图尔人的发明。我们发出了干扰的魔法信号，将传送落点重定向到我们的平台。在那里，<?=player:he_she()?>可以被“安全”地保护起来，惩罚<?=player:him_her()?>违抗命令的举动，并使用我们的启蒙石板来恢复<?=player:his_her()?>忠诚。
+这个狡猾难缠的小精灵至今一直是我们的眼中钉。我们已经加固结界，以更好地防范那种侥幸促成<?=player:his_her()?>逃脱的陨石冲击；然而，<?=player:he_she()?>在<?=player:his_her()?>逃跑途中砸碎的水晶使我们无法直接追踪<?=player:his_her()?>位置。不要紧——我们烙在<?=player:him_her()?>身上的印记仍让我们能够监测影响<?=player:him_her()?>的魔法能量信号；占卜师还发现，有某种特定的模式正在传送<?=player:him_her()?>，可能源自夏·图尔。我们已经发出自己的信号来拦截它，并把它重定向到我们的平台；在那里，<?=player:he_she()?>会被安全拘禁，因<?=player:his_her()?>不服从而受到惩罚，随后再次接触启蒙石板，恢复<?=player:his_her()?>服从。
 
-这就是说，由于<?=player:he_she()?>的实力从<?=player:his_her()?>上一次逃跑开始计算已经大幅增长，把明确的战略战术铭记在心对我们来说是极为重要的。我们调整了永恒精灵天赋的加速能力，让<?=player:him_her()?>可以像小恶魔德瑞宝那样使用短距离传送技能，并在传送后大幅提升闪避能力。就连<?=player:his_her()?>内部器官也受到了影响，使其可以自动把一些瞄准要害的攻击转移到其他并不那么重要的地方。与普通的永恒精灵相比，<?=player:he_she()?>并不能直接隐身，但似乎采用了某种多瑟顿魔法来隐藏自己。如果调集光明系防护的申请获批，他的隐身和暗影爆炸都将不再是问题。此外，<?=player:he_she()?>可以集中精力干扰我们集中精神，妨碍我们施展高阶战斗技巧，并且在恶魔空间的试炼增强了<?=player:his_her()?>的韧性，使其可以快速摆脱异常状态。
+话虽如此，鉴于<?=player:he_she()?>自<?=player:his_her()?>逃脱以来力量已大幅增长，我们务必牢记正确的战术。我们的标准改造与这个永恒精灵天生的反应性魔法产生了协同，让<?=player:him_her()?>获得了足以媲美德瑞宝的短距离传送能力，成了一个极难击中的目标。就连<?=player:his_her()?>内脏也受到了影响，会预判打向要害的攻击而自行挪开。与普通的永恒精灵相比，<?=player:he_she()?>无法直接隐身，却似乎采用了某种多瑟顿魔法，仍能藏身于视线之外；如果调集光系结界的申请获批，这种隐匿能力以及该形态赋予的暗影爆发都不足为患。最后，<?=player:his_her()?>干扰我们专注的能力会在一定程度上妨碍我们施展更高阶的战斗技巧，而我们赋予<?=player:him_her()?>的韧性改造会让<?=player:him_her()?>比平时更快地摆脱毒素、火焰之类的影响。
 
-这意味着什么？很显然，只需要先击伤<?=player:him_her()?>，等着<?=player:him_her()?>自己选择传送逃跑，然后乘胜追击将<?=player:him_her()?>堵在狭小的角落发动集中攻击直到其放弃移动。就是这么简单，接下来只要考虑我们对付<?=_t(player.descriptor.subclass, "birth descriptor name")?>的一般策略就可以了。记住，在<?=player:he_she()?>潜入黑暗的时候不要轻举妄动，保持阵型，很快我们就能将其击败。
+这一切意味着什么？只要击伤<?=player:him_her()?>，等<?=player:him_her()?>试图传送逃跑，再把<?=player:him_her()?>堵到角落里，痛揍<?=player:him_her()?>直到<?=player:he_she()?>再也动不了。就是这么简单。只需把这一步纳入我们应付<?=string.a_an(_t(player.descriptor.subclass, "birth descriptor name"):lower())?>的标准方法，并记住：如果<?=player:he_she()?>消失在暗影中，不要破坏阵型，我们很快就能收拾完这个烂摊子。
 
-最重要的是：请记住，尽管<?=player:his_her()?>获得了一些强化，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
+最重要的是，务必记住：尽管有<?=player:his_her()?>受到的强化，这也只是一个可怜、低劣的埃亚尔人，只凭<?=player:his_her()?>好运才获得了我们的一部分优越力量。<?=player:he_she():capitalize()?>不知道如何正确运用它，也没有我们无数年的使用经验。我们拥有数量、对其的了如指掌、战术，以及乌鲁洛克本人的祝福。把这当作一次演练；只要保持冷静与专注，我们就不太可能出现伤亡。
+
 ]], "_t")
 t("orbital base: battle info", "轨道基地：战斗情报", "_t")
 t([[#{italic}#This note is splattered with the blood of the demon who was carrying it.#{normal}#
@@ -516,7 +517,7 @@ t("Behold, the humble wretchling, a testament to our devotion to our Father!  Th
 t("demon statue: fire imp", "恶魔雕像：火魔婴", "_t")
 t("If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.", "如果说酸液树魔体现了我们的崇拜，那么火魔婴则体现了我们的投入与忠诚。当红宝石之子踏上战场时，她会把我们星球上被埃亚尔灼伤的土壤熔合到双手上；她已熟练掌握一种魔法，能利用土壤中蕴含的狂暴魔力，以敌人自己造成的火焰轰击他们。这种恰当的公正既令乌鲁洛克欣慰（正如他处置尘埃法师时所展示的），也体现了我们对事业的奉献：失去双手后，火魔婴若是叛逃或丧失斗志，几乎什么也做不了。我们为战斗与毁灭而活；让自己除战斗与毁灭外什么也做不了，还有什么方式能更好地表明这一点？虽然红宝石种族大多不走这条道路，而是专注于魔法研究并推进我们的改造项目，但火魔婴树立的榜样仍是所有乌鲁洛克之子投入奉献的光辉典范。", "_t")
 t("demon statue: water imp", "恶魔雕像：小水怪", "_t")
-t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧使用双手作战，这群变种的火魔婴做出了更加伟大的牺牲：他们放弃了呼吸空气的能力。大部分占据主导地位的埃亚尔种族生活在水上，让海洋和湖泊成为我们的藏身的主要根据地，实施那些对于我们的土壤来说过于危险的实验，同时为制造全面侵略的传送门做准备。作为我们在海里的使者，小水怪们放弃了同胞们使用火焰的能力，转而使用在水里同样有效的冰系法术。和酸液树魔类似，小水怪们并不指望能活到和平到来，因此没有必要在地表呼吸。请记得随时为小水怪们奉上礼物，不能因为他们没有同大家在地表作战，就轻易遗忘他们做出的无私牺牲，以及在收集情报和建立远方基地方面做出的巨大贡献。]], "_t")
+t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧能使用双手，这个火魔婴的变种分支却做出了更为重大的牺牲：呼吸空气的能力。埃亚尔多数占主导地位的种族都生活在水面之上，这使海洋和湖泊成了开展秘密行动、进行危险得无法在我们本土实施的实验，以及为全面入侵准备传送门的绝佳地点。作为我们在海底的斥候与仆从，小水怪放弃了其同胞共有的投掷火焰能力，转而专注于在水下同样有效的冰系魔法。与酸液树魔一样，小水怪不指望能活到和平年代，因而也无须在水面之上呼吸。只要有机会，就要记得向小水怪致敬；由于它们不与我们的陆地部队并肩作战，人们很容易遗忘它们所作的无私牺牲，以及它们在收集情报和建立偏远基地方面的巨大贡献。]], "_t")
 t("demon statue: quasit", "恶魔雕像：夸塞魔", "_t")
 t("Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.", [[我们一族的工程师与战士聪明而顽强，既为部队制造护甲，也在前线抵御埃亚尔的大军。红宝石之子为我们的武库研究新法术，绿翡翠之子研究让自身躯体变得更加致命的方法，而缟玛瑙之子则专注于从零打造新的构装体，把血肉、魔法与钢铁捆扎成令埃亚尔恐惧的高耸造物。前线战士并非自然出生，而是由工厂以半成熟状态批量制造，一“出生”就被铆上锻造巨人打造的护甲。尽管主要由血肉构成，被称作夸塞魔的缟玛瑙战士在很大程度上仍是机器：它们强化了肌肉，却没有失去源自原身的聪慧心智。夸塞魔既热切又聪慧，纪律严明且善于战斗；它们的护甲让它们能轻易承受足以重创酸液树魔或火魔婴的攻击。单靠奉献就能让我们走得很远，而夸塞魔则表明，当热忱与耐心携手并进时，我们还能做到更多。]], "_t")
 t("demon statue: onilug", "恶魔雕像：欧尼路格", "_t")
@@ -708,7 +709,7 @@ t([[The future looks grim indeed... for your foes.
 		You can target a creature affected by Bleak Outcome to consume up to %s stacks, dealing %0.2f darkness damage to it for every stack and increasing your Spellpower by 4 per stacks for 6 turns.
 		While powered-up you can not apply new Bleak Outcome stacks.		
 		Damage is based on your Spellpower.]], [[对你的敌人来说，未来非常无情。
-		你可以指定一个被悲惨结局影响的生物，消耗 %s 层叠加效果，每层造成 %0.2f 暗影伤害，并每层强化你法术强度 4 点，持续 6 回合。
+		你可以指定一个被悲惨结局影响的生物，至多消耗 %s 层叠加效果，每层造成 %0.2f 暗影伤害，并每层强化你法术强度 4 点，持续 6 回合。
 		当你处于强化状态下，无法施加新的悲惨结局效果。
 		伤害受法术强度加成。]], "tformat")
 t("Ominous Shadow", "不祥黑影", "talent name")
@@ -730,8 +731,8 @@ t("%s resists the grasp!", "%s 抵抗了抓取！", "logSeen")
 t([[Send out a claw of fire, striking in a line doing %0.2f damage leading to a target. The target is caught in the claw's grasp, taking %d%% weapon damage as fire damage and becoming unable to move for %d turns, while also taking %0.2f damage per turn.
 		Starting from talent level 4, it will also silence.
 		The beam damage and damage over time will increase with your Spellpower.]], [[对目标伸出一只火炎之爪，对直线上的生物造成 %0.2f 点火焰伤害。目标被火炎之爪抓住后，受到 %d%% 火焰武器伤害，并在 %d 回合不能移动，同时每回合受到 %0.2f 点火焰伤害。
-	技能等级 4 级以后，目标同时会被沉默。
-	射线伤害和持续伤害受法术强度加成。]], "tformat")
+		技能等级 4 级以后，目标同时会被沉默。
+		射线伤害和持续伤害受法术强度加成。]], "tformat")
 t("Reckless Strike", "舍身一击", "talent name")
 t("#CRIMSON#(%d reckless backlash)#LAST#", "#CRIMSON#(%d 舍身一击反伤)#LAST#", "tformat")
 t("Hits the target doing %d%% weapon damage. This attack cannot miss, and ignores all armor and resistances on the target. However, you take damage equal to %d%% of the damage dealt, or 30%% of your current HP, whichever is lower.", [[攻击目标，造成 %d%% 武器伤害。本次攻击必中，且无视目标护甲和抗性。
@@ -1189,8 +1190,8 @@ t("Burning Sacrifice", "燃烧献祭", "talent name")
 t([[Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. 
 		Additionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.
 		This can only trigger once every 5 turns.]], [[每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。
-	另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕，无视冷却时间。
-	此效果每 5 回合才能触发一次。]], "tformat")
+		另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕，无视冷却时间。
+		此效果每 5 回合才能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
 		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 回合、强度为 %d 的护盾，每移除一层燃烧效果，护盾强度增加 15%%。
@@ -1235,10 +1236,9 @@ t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d%% damage.
 		If the attack hits the creature is impaled by the horns, causing it to bleed black blood for 50%% of the damage done as darkness over 5 turns.
 		Any time you damage this foe in melee while it bleeds you get healed for %d (this can only happen once per turn).
-		The healing power increases with your spellpower.]], [[你的盾牌上长出临时的恶魔之角。
-		你盾击敌人造成 %d%% 伤害。
-		如果攻击命中，目标将被恶魔角刺穿，流血 5 回合，合计受到额外 50%% 黑暗伤害。
-		每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命（每回合至多 1 次）。
+		The healing power increases with your spellpower.]], [[你的盾牌上暂时长出恶魔之角，你用它猛击敌人，造成 %d%% 伤害。
+		如果攻击命中，目标将被恶魔之角刺穿，在 5 回合内以暗影伤害的形式流失黑血，总量相当于所造成伤害的 50%%。
+		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命（每回合至多 1 次）。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
