@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（用户已解除暂停；第278批审核证据准备中）
+更新时间：2026-09-25（第278批已 finalize；按用户要求安全暂停，交接 Opus 5.5）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **277** 批（`batch-a2538cac10c65873a661`）。用户 2026-09-25 已解除暂停，
-  当前第 **278** 批（`batch-2dd6d21e34b360ebb6d9`）活动中，80 条均已完成 surface，11 条经 contextual 复核。
-  宿主裁决预计 73 done / 6 repair / 1 blocked；须完成门禁、证据提交及 finalize 后才是持久结果。
+- 审核已闭合至第 **278** 批（`batch-2dd6d21e34b360ebb6d9`）：80 条中 73 done / 6 repair_required /
+  1 blocked。8 个有效 surface lane 审 80 条，2 个 contextual run 复核 11 条；15 个观察逐条裁决。
+  17 项门禁全过，四个审核任务的快照均重放为 `DONE_VERIFIED`，证据提交 `0ece410c624e79c49761459487c14bc419fd91fa`
+  已 finalize。当前无 active batch；**用户要求本轮完成后暂停，不启动第279批或修复窗口**。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -19,7 +20,7 @@
   `b8289b4f700157310fc4a583dab34cbd726be7c2a55895b4d24a942b607f8c63`。28 个 successor 必须重新审核，
   不继承旧 revision 的 done 状态。
 - 2026-09-24 早些时候已提交并推送工具维护与文档整理，内容见第四节。
-- 近五批结果：
+- 近六批结果：
 
 | 批次 | batch id | 结果 | surface（gpt-6-sol） | contextual（opus-5-5） | 裁决 |
 | --- | --- | --- | --- | --- | --- |
@@ -28,6 +29,7 @@
 | 275 | `batch-54d2d16b94c511082107` | 74 done / 6 repair | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 10 confirmed / 5 refuted |
 | 276 | `batch-f8d6c02a3294c168f104` | 72 done / 6 repair / 2 blocked | 69 OK / 11 ISSUE | 6 OK / 5 ISSUE | 10 confirmed / 3 refuted / 3 pending observations |
 | 277 | `batch-a2538cac10c65873a661` | 70 done / 9 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 13 confirmed / 1 refuted / 1 pending observation |
+| 278 | `batch-2dd6d21e34b360ebb6d9` | 73 done / 6 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 10 confirmed / 4 refuted / 1 pending observation |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -37,7 +39,8 @@
 - 2026-09-24：修复先记录，**积压达到 20 条或以上再一并修复**，取代原来每批审核后接一个小修复窗口的 1:1 节奏。
 - 每批（或每个窗口）完全收口后 push；批次进行期间不得提交任何东西。
 - 用户随后明确要求推进新批次，暂停已解除。第 276 批的 DLC reviewer 边界修复与按原模型重派也已获明确授权。
-- 用户此前要求的窗口 27 安全暂停已于 2026-09-25 明确解除，连续审核授权恢复。
+- 用户此前要求的窗口 27 安全暂停已于 2026-09-25 解除，授权完成第278批；随后又要求本轮闭合后暂停，
+  并将主持工作交给 Opus 5.5。此暂停优先于连续批次默认规则，须待用户再次指示才恢复。
 - 无需再次询问审核外发或 push 授权；现有授权继续有效。
 - 审核模型：surface `codex/gpt-6-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
   修复 EXECUTOR `codex/gpt-5.6-sol`。
@@ -96,8 +99,13 @@
 
 ## 五、下一步
 
-1. 完成第278批统一门禁、证据快照、提交与 finalize；本批6条已确认修复进入窗口28积压，未达20条时继续下一批。
-2. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项）。
+1. 目前安全暂停。第278批6条已确认修复进入窗口28积压，未达20条；待用户指示恢复时，先核对 HEAD、queue evidence HEAD、无 active batch，
+   再按连续审核规则选择第279批。不得因交接自动启动。
+2. 第278批原生计时见 `evidence/quality/production-batches/batch-2dd6d21e34b360ebb6d9-host-evidence/orchestration/.artifacts/i18n/continuation-20260923/`。
+   投影缓存使同 commit 的 surface-export/import、contextual-export 各约 2 秒；首次 rollover 约 253 秒。
+   一次门禁因缓存环境变量传入测试子进程失败，清除变量后重跑 `prepare-evidence` 403.7 秒且 17/17 通过；
+   finalize 255.6 秒。该异常与补跑均已保留在证据中，不可只报命中步骤耗时。
+3. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项）。
 
 ## 六、环境备忘
 
