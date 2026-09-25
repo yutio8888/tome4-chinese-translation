@@ -166,17 +166,17 @@ t("massive metallic gauntlets", "巨型金属手套", "_t")
 t("These massive gauntlets once belonged to a very powerful demon named Ul'Gruth. The behemoth was said to be able to level entire buildings with a single swing of his hands.", "这双巨大的手套曾经属于一个名叫乌尔格鲁斯的强大的恶魔。据说，这个庞然大物一挥手就能夷平整栋建筑。", "_t")
 t("Your Obliterating Smash can destroy walls.", "你的歼灭挥斩能摧毁墙壁。", "_t")
 t("Fearfire Mantle", "恐惧之焰", "entity name")
-t("cloak shaped flames", "火焰般的斗篷", "_t")
+t("cloak shaped flames", "斗篷状的火焰", "_t")
 t("Black fires born of a blackened heart.", "黑色的火焰从漆黑的心脏中涌出。", "_t")
 t("All enemies in radius 2 take 20 fire damage each turn and healing you for 10% of the damage dealt.", "附近2码范围的敌人每回合受到20火焰伤害。你受到10%伤害值的治疗。", "_t")
 t("Plague-Fire Sceptre", "疫火权杖", "entity name")
 t("darkness infused staff", "充满黑暗气息的法杖", "_t")
-t("The flames of Mal'Rok can be more stubborn than most. When they run out of fuel they have been known go out of their way to find more.", "玛·洛克的火焰比一般的火焰更加顽强。当它们无物可燃时，它们知道去哪里寻找。", "_t")
+t("The flames of Mal'Rok can be more stubborn than most. When they run out of fuel they have been known go out of their way to find more.", "玛·洛克的火焰比一般的火焰更加顽强。燃料耗尽时，它们甚至会特意去寻找更多燃料。", "_t")
 t("Plaguefire detonates when its victim dies, spreading to other enemies up to two times.", "疫火感染的生物死亡时，疫火将传播到附近的敌人。至多传播2次。", "_t")
 t("fire a bolt of plaguefire, dealing damage over time based on your magic stat", "发射一枚疫火弹，造成基于魔法属性的持续伤害。", "_t")
 t("Dethblyd", "死亡之刃", "entity name")
 t("pitch black sword", "黑色的剑", "_t")
-t("Grushgore the Destroyer was as famous for his incredible brutality as he was for his childlike intelligence. He wasn't known for his subtlety of naming, but there's no denying the power of his massive sword.", "毁灭者格鲁什戈尔以头脑简单四肢发达闻名。他从不擅长谋略，但他的力量无以伦比。", "_t")
+t("Grushgore the Destroyer was as famous for his incredible brutality as he was for his childlike intelligence. He wasn't known for his subtlety of naming, but there's no denying the power of his massive sword.", "毁灭者格鲁什戈尔既以惊人的残暴著称，也以孩童般的智力闻名。他给东西起名向来不讲究含蓄，但他那把巨剑的威力无与伦比。", "_t")
 t("Increases all damage dealt, and reduces all damage taken, by 1%, stacking up to 10 times. Resets after 10 turns without attacking.", "增加全部伤害并减少受到的伤害各 1%，最多叠加至 10 层。若 10 回合未攻击则重置。", "_t")
 t("Quasit's Skull", "夸塞魔之颅", "entity name")
 t("rocky helm", "岩石头盔", "_t")
@@ -230,11 +230,11 @@ t("\"An innocuous bauble. Until you look through the hole.\"", "“看似无害�
 t("Grants spell-crit equal to half of your Shadow Power.", "每点“阴影强度”增加0.5%法术暴击率。", "_t")
 t("The Black Plate", "黑之铠", "entity name")
 t("pitch black breastplate", "漆黑胸甲", "_t")
-t("\"Wreckage all about you. Is there anything left inside?\"", "己身若残，何物能存？", "_t")
+t("\"Wreckage all about you. Is there anything left inside?\"", "“你周围尽是残骸。里面还剩下什么吗？”", "_t")
 t("Grants physical power equal to your Shadow Power.", "每点“阴影强度”增加1点物理强度。", "_t")
 t("The Black Maul", "黑之锤", "entity name")
 t("massive black hammer", "巨大的黑色战锤", "_t")
-t("\"A fitting weapon for the Champion.\"", "冠军之锤，举重若轻", "_t")
+t("\"A fitting weapon for the Champion.\"", "“正配得上冠军的武器。”", "_t")
 t("Increases all damage by 1% for each point of your Shadow Power.", "每点“阴影强度”增加1%全体伤害加成。", "_t")
 t("The Black Wall", "黑之墙", "entity name")
 t("massive obsidian shield", "巨大的黑曜石盾牌", "_t")
@@ -257,7 +257,7 @@ t("", "", "_t")
 section "tome-ashes-urhrok/data/lore/demon.lua"
 
 t("Ashes of Urh'Rok", "乌鲁洛克之烬", "newLore category")
-t("history of Mal'Rok (mistranslated)", "有关玛·洛克历史的模糊印象", "_t")
+t("history of Mal'Rok (mistranslated)", "玛·洛克的历史（误译）", "_t")
 t([[(You see here a pile of strange tablets, all piled up in a nice, orderly stack.  You remove the top one, and study it; your finger slips across a square in one corner, and strange sentences start playing through your mind. You struggle to make sense of the unfamiliar words and concepts in your thoughts.)
 
 Many #{italic}##FIREBRICK#[moon-craters]#{normal}##LAST# after he #{italic}##FIREBRICK#[planted]#{normal}##LAST# us and #{italic}##FIREBRICK#[retired]#{normal}##LAST#, the #{italic}##FIREBRICK#[Father]#{normal}##LAST# awoke from his #{italic}##FIREBRICK#[cocoon]#{normal}##LAST# to see us #{italic}##FIREBRICK#[rattling]#{normal}##LAST#. He was shocked at our #{italic}##FIREBRICK#[wilted]#{normal}##LAST# state, asking us why we #{italic}##FIREBRICK#[rattled]#{normal}##LAST#; we told him about the #{italic}##FIREBRICK#[shaking]#{normal}##LAST# we had to suffer through, the way the planet was #{italic}##FIREBRICK#[jammed up]#{normal}##LAST# and how although our #{italic}##FIREBRICK#[peas in a pod]#{normal}##LAST# had #{italic}##FIREBRICK#[plugged the leaks]#{normal}##LAST# to keep the #{italic}##FIREBRICK#[beads]#{normal}##LAST# from #{italic}##FIREBRICK#[falling out]#{normal}##LAST#, the #{italic}##FIREBRICK#[brooms]#{normal}##LAST# kept sweeping our #{italic}##FIREBRICK#[dust bunnies]#{normal}##LAST# away, and there wasn't enough empty room to keep the #{italic}##FIREBRICK#[beads]#{normal}##LAST# from #{italic}##FIREBRICK#[cracking]#{normal}##LAST#.
@@ -385,15 +385,15 @@ You scream.  You scream harder than you have in your life, to the point where yo
 "All right, nice!  Pain blocks on!"  And just like that, the pain vanishes; your skin still bubbles, but that horrible pain is gone, and even your throat isn't sore.  "Clean him and patch him up.  Pain-amplifying qualities...  significant improvement...  recommend breeding with low-pain high-corrosion specimens."  A shower of unidentifiable goo washes over you, and your skin stops bubbling; your handler takes your arm and leads you away, muttering a healing spell under his breath, and your scars slowly start to fade into smooth skin once again.  You hope they aren't too harsh on you for screaming, but the way that imp spoke...  you must've helped them learn something!  You grin from ear to ear as you leave the room, hearing the red imp yell "Next!" as the door closes behind you.
 
 #{italic}#You shudder.#{normal}#
-]], [[#{italic}#你紧紧地抱住自己的头，一踏入下一层，被囚禁的记忆如潮水般涌来……#{normal}#
+]], [[#{italic}#你抱住脑袋。踏入下一层时，被囚禁的记忆如潮水般涌来……#{normal}#
 
-"很好，下一个。"红宝石色皮肤的指挥道。一小群矮小的、黑绿的东西正在清理曾是一个矮人的一滩残渣，你走到队首，站在那个矮人刚才的位置。在房间的另一边，另一个同族站在同样的平台上。这让你有些激动——你被选中为实验对象！你希望你能对他们的研究有所助益，希望能找到更加有效、更加“痛苦”的方法，同时期望着痛苦的降临。一只绿色的小恶魔——形态似乎有些变异，比你通常见到的骨节更加突出——站在你身边，充满期待地微笑着。另一边，一只较为正常的小恶魔走向你的伙伴。“控制组准备……开始”那只正常的小恶魔踩在他脸上，紧紧地按住，同时一股酸液从皮肤中涌出。红色的小恶魔看了看他融化的肉体，略记了些什么，然后小声说道“痛苦阻断关闭……”他脸上的笑容突然消失了，他抓着自己的脸，然后发出痛苦地哀嚎，倒在地上，不停翻滚着。红色小恶魔再次低下头看了看，厌倦地叹了口气，继续写着。“好吧，痛苦阻断打开，把他带走。”他停止了翻滚，站了起来，再度微笑，酸液继续吞噬着他的血肉，直到房间里的管子朝他喷洒了药剂。另一只红色小恶魔咕哝了几句，摆摆手，带着他离开了。同时，你看见他身上可怕的伤害渐渐愈合。
+“好，下一个，”红宝石色皮肤的首领说道。几个黑绿色的小东西清理着那堆原本是矮人的污物；你走到队伍最前方，站上他刚才的位置。房间另一边，另一个<?=_t(player.descriptor.subrace, "birth descriptor name")?>站在相同的平台上。这真令人兴奋——你被特意选作实验对象！你希望自己能帮他们找到既有效又痛苦的办法，满怀期待地等候即将到来的疼痛。一只绿色小恶魔站在你这边，形态比你见过的其他小恶魔更为变异、浑身疙瘩，正期待地冲你咧嘴笑；另一边，一只较为普通的小恶魔走近你的同伴。“对照组……开始。”那只普通的酸液树魔扑到<?=_t(player.descriptor.subrace, "birth descriptor name")?>脸上，紧紧抓住对方，皮肤渗出的酸液如洪流般涌出，然后才松开；红色小恶魔看着对方正在融化的血肉，记下几笔，接着低声说道：“痛觉阻断……关闭。”<?=_t(player.descriptor.subrace, "birth descriptor name")?>脸上的笑容消失了；他捂住脸，发出一声凄厉惨叫，倒在地上扭动。红色小恶魔又低头看了一眼，无聊地叹口气，继续做记录。“够了，痛觉阻断打开，给他疗伤。”<?=_t(player.descriptor.subrace, "birth descriptor name")?>停止扭动，站起来重新露出笑容；酸液仍在蚕食他的血肉，直到地板上的管道用某种药剂将他浇透。另一只红色小恶魔低声念叨着什么、挥动双手，随后牵着他离开；你看到那些可怕的伤口渐渐愈合。
 
-“实验组……开始”你还没反应过来，那只变异的小恶魔已经踩在你脸上了。当酸液滴落在你躯干上时，你并没有感到疼痛，只有一种古怪的皮肤消融的感觉。小恶魔再次跳开；显然他漏看了你的眼睛，因为你能看到他神色中的失望。“结构伤害……好的，痛苦阻断解除”你认为下一步骤里大家都期望着你不会发出尖叫。
+“实验组……开始。”快得让你根本来不及反应，那只变异的酸液树魔已经扑到你脸上。酸液流过你的躯干时，你感觉不到疼痛，却能感到皮肤各层开始溶解的古怪触感。小恶魔再次跳开；显然酸液没有溅到你的眼睛，因为你还能看到红色小恶魔略显失望的神情。“结构伤害低于预期……好，痛觉阻断关闭。”你知道接下来这一段你不该尖叫。
 
-你尖叫着，痛苦地尖叫着，发出你一生从未有过的哀嚎，你甚至以为自己的声带将被撕裂。这痛苦比以往的任何痛苦更加强烈，比任何感觉都要强烈。你跌倒在地，用手抓挠着皮肤，希望将酸液除去。你挣扎着，抓挠着，攥住手边任何东西，希望能解除痛苦，尽管你心里清楚这并不可能。
+你尖叫起来。你叫得比这辈子任何时候都更凄厉，甚至觉得声带快被撕裂。这种疼痛不只超过你经历过的一切痛楚，也超过你感受过的一切感觉。你倒在地上抓挠皮肤，试图弄掉酸液时撕下一块块皮肤。你挣扎着、胡乱挥动四肢，本能地抓向任何可能帮上忙的东西，尽管你知道伸手可及之处什么也没有。
 
-“很好，非常好！痛苦阻断打开！”刚听到这里，刚才的痛苦顿时消失了；你的皮肤仍在颤抖，但痛苦不再，甚至喉咙也不疼了。“洗干净，带下去。痛苦加倍……重要改进……建议同低痛高腐蚀型杂交。”一股不知名的液体朝你喷射，你的皮肤不再溶解。你的“主人”抓住你的胳膊，带着你离开，同时向你释放治疗法术。你的伤痕消褪了。你希望他们不会因为你的尖叫而对你加以惩处，不过，从你听到的只言片语，你应该对他们有所帮助。想到这里，你不禁咧嘴笑了，身后的门关闭时，回响着那只小恶魔叫喊“下一个”的声音。
+“好，很好！痛觉阻断打开！”转眼间，疼痛消失了；你的皮肤仍在冒泡，但那可怕的疼痛已经不见，连喉咙也不再酸痛。“把他洗干净并治好。疼痛放大特性……显著改善……建议与低疼痛、高腐蚀样本繁育。”一阵无法辨认的黏液冲刷过你，皮肤终于不再冒泡；看管你的恶魔抓住你的手臂，领你离开，同时低声念着治疗法术，你的伤疤渐渐褪去，皮肤重新变得光滑。你希望他们不会因为你的尖叫而对你太苛刻，可听那只小恶魔的语气……你一定帮他们学到了什么！离开房间时，你笑得合不拢嘴；身后的门缓缓关上，红色小恶魔高喊“下一个！”的声音传入耳中。
 
 #{italic}#你不禁打了个寒颤。#{normal}#
 ]], "_t")
@@ -437,19 +437,19 @@ That said, given that <?=player:he_she()?> has increased dramatically in power s
 -Do not assume that the onslaught will stop if all of <?=player:his_her()?> thralls are dead.  <?=player:he_she():capitalize()?> has managed to directly imbue <?=player:his_her_self()?> with some of our magic, and may be capable of using our fireballs, acidic bursts, and so forth.  Silencing magic will be helpful here, as will spells that can drain <?=player:his_her()?> energy; furthermore, ripping away <?=player:his_her()?> shield will make <?=player:him_her()?> especially vulnerable to our claws and axes.
 
 Above all else, remember: despite <?=player:his_her()?> enthralled minions, this is a pitiful, inferior Eyalite who lucked <?=player:his_her()?> way into obtaining some of our superior power.  <?=player:he_she():capitalize()?> does not know how to use it properly, and does not have the countless years of experience with it that we do.  We have numbers, familiarity, tactics, and the blessing of Urh'Rok himself.  Treat this like a drill; if we stay calm and focused, it is unlikely we will see any casualties.
-]], [[有关<?=player.name?>的战术简报：
+]], [[关于<?=player.name?>的交战简报：
 
-这个该死的小 <?=_t(player.descriptor.subrace, "birth descriptor name")?> 目前是我们的眼中钉、肉中刺。我们已经加强了我们的防御，避免在发生类似于陨石冲击导致像<?=player:his_her()?>这样的犯人逃跑这样的意外。然而，由于<?=player:he_she()?>在<?=player:his_her()?>逃跑路上砸坏了水晶，我们无法直接跟踪到<?=player:his_her()?>当前的位置。不过这不要紧——尽管如此，我们在<?=player:him_her()?>的身上注入的魔法痕迹仍然让我们可以侦测到<?=player:him_her()?>身上的魔法能量信号。我们的占卜师已经发现<?=player:him_her()?>在使用某种特定的魔法传送自己——似乎是某种夏·图尔人的发明。我们发出了干扰的魔法信号，将传送落点重定向到我们的平台。在那里，<?=player:he_she()?>可以被“安全”地保护起来，惩罚<?=player:him_her()?>违抗命令的举动，并使用我们的启蒙石板来恢复<?=player:his_her()?>忠诚。
+这个滑溜的小 <?=_t(player.descriptor.subrace, "birth descriptor name")?> 至今一直是我们的眼中钉。我们已经加固结界，以更好地防范那种侥幸让<?=player:him_her()?>逃脱的陨石撞击；然而，<?=player:he_she()?>在<?=player:his_her()?>逃跑途中砸碎的水晶使我们无法直接追踪<?=player:his_her()?>当前位置。不要紧——我们烙在<?=player:him_her()?>身上的印记仍让我们能够监测影响<?=player:him_her()?>的魔法能量信号；占卜师还发现，有某种特定的魔法模式正在传送<?=player:him_her()?>，可能源自夏·图尔。我们已经发出自己的信号来拦截这股力量，并把它重定向到我们的平台；在那里，<?=player:he_she()?>会被安全拘禁，惩罚<?=player:him_her()?>违抗命令的行为，随后再次接触启蒙石板，恢复<?=player:his_her()?>服从。
 
-这就是说，由于<?=player:he_she()?>的实力从<?=player:his_her()?>上一次逃跑开始计算已经大幅增长，把明确的战略战术铭记在心对我们来说是极为重要的。我们收到了一些令人不安的消息，据说有人目击到一些我们的同族和<?=player:him_her()?>一起战斗；我们猜测，<?=player:he_she()?>一定是使用了某种和石板的力量类似的方法来奴役了我们的一些部队。显然，<?=player:his_her()?>大部分的战斗能力来自其所操纵的恶魔的力量，而不是<?=player:his_her()?>自己的能力。因此，有三件事情我们必须始终铭记在心。
+话虽如此，<?=player:he_she()?>的力量自<?=player:his_her()?>那次逃脱以来已大幅增长，因此务必牢记正确战术。我们听到了令人不安的报告：有人目击我们的部分同族与<?=player:him_her()?>并肩作战；可以推断，<?=player:he_she()?>正利用启蒙石板力量的扭曲版本奴役我们的部队。<?=player:his_her()?>大部分战斗潜力来自这些奴仆，而非<?=player:his_her()?>自身能力。因此，有三点必须牢记：
 
-—集中火力对付那个埃亚尔人，而不是那些被<?=player:he_she()?>奴役的恶魔。我们目前尚不能准确地了解到底<?=player:he_she()?>是怎么控制那些恶魔的，不过显然，只要击败<?=player:he_she()?>那些精神枷锁就会立刻解除。如果<?=player:he_she()?>设法控制了一名乌鲁洛克的精英卫兵或类似的强力单位，我们必须把火力集中在<?=player:him_her()?>本人身上。从另外一方面来说，将<?=player:him_her()?>彻底消灭比制造恶魔的时间和精力要重要得多。因此，不必担心误伤几只被奴役的小恶魔。无论<?=player:he_she()?>手中有多少恶魔，我们的战争机器永远能够制造更多。
+—优先攻击那个埃亚尔人，而非被<?=player:he_she()?>奴役的恶魔。我们尚不确切了解<?=player:he_she()?>如何控制我们的同伴，但只要击败<?=player:him_her()?>，那些精神枷锁很可能就会解除；如果<?=player:he_she()?>控制了乌鲁洛克精英卫兵或同等强大的战士，我们更应集中火力攻击<?=player:him_her()?>。不过，消灭<?=player:him_her()?>比节省制造这种生物所需的时间与精力更重要；尤其不必担心交叉火力会波及几只被奴役的小恶魔。无论<?=player:he_she()?>用的是什么，我们都能造出更多。
 
-—准备好面对任何困难的处境。我们从来没有做过与我们的同族作战的准备，并且由于我们的族类十分丰富，<?=player:he_she()?>可以施展各种各样的魔法和战争技巧来对付我们。这听上去似乎有点绝望，不过，请记住：无论怎样，<?=player:he_she()?>所施展的技能你之前都曾经亲身经历过，他的能力都是你在锻炼和战斗中所见过的能力。只要想想你的同志们曾经使用过什么技能，你就能想到<?=player:him_her()?>将会使用的技能了。
+—做好应对一切的准备。我们从未需要筹划如何对付自己的力量，而我们种族繁多，<?=player:he_she()?>可能用各种魔法或武技来攻击我们。这听起来或许令人绝望，但请记住：你以前见过这一切——在训练和战斗中，同伴曾与你并肩施展这些能力。无论你见过同伴做什么，都要预料<?=player:him_her()?>也会使出来。
 
-—不要在击败了所有被奴役的恶魔之后就对<?=player:his_her()?>掉以轻心，似乎<?=player:he_she()?>已经掌握了某种把恶魔的力量和<?=player:his_her_self()?>结合的方法，足以释放近战火球，酸性爆发等一系列技能。一定要及时对其释放沉默魔法，或者任何可以吸干<?=player:his_her()?>的生命能量的方法。另外，用缴械技能卸下<?=player:his_her()?>的盾牌，<?=player:him_her()?>在我们的刀枪剑斧面前就会显得无比脆弱。
+—不要在所有被奴役的恶魔死亡后就对<?=player:him_her()?>掉以轻心。<?=player:he_she()?>已经把我们的一部分魔法直接灌注进<?=player:his_her_self()?>体内，并且可能会使用我们的火球、酸液爆发等法术。沉默魔法会很有用，能够吸取<?=player:his_her()?>能量的法术也一样；此外，夺走<?=player:his_her()?>护盾，会让<?=player:him_her()?>在我们的利爪与战斧面前格外脆弱。
 
-最重要的是：请记住，尽管<?=player:his_her()?>不知怎么奴役了我们的一些同类，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
+最重要的是，务必记住：尽管有<?=player:his_her()?>被奴役的爪牙，<?=player:he_she()?>也不过是一个可怜、低劣的埃亚尔人，只因走运才获得了我们的一部分优越力量。<?=player:he_she()?>不知道如何正确运用这种力量，也没有我们无数年的使用经验。我们拥有数量、熟悉度、战术，还有乌鲁洛克本人的祝福。把这当作一次演练；只要保持冷静与专注，就不太可能出现伤亡。
 ]], "_t")
 t("orbital base: battle plan (doomelf)", "轨道基地：战斗计划（魔化精灵）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
@@ -496,13 +496,13 @@ t([[#{italic}#This note is stained with what appear to be motorcycle tire-tracks
 Operation to secure <?=player.name?> failure.  Primary defense force routed by target's overwhelming badassery, secondary team presumed dead (reports inaudible over sound of face-melting guitar solos).  All is lost.  Totally worth it.  Highest priority is now isolating <?=player.name?>, building a stadium around <?=player:him_her()?>, and selling tickets to spectacle of badassery.  Blow all connectors, break platform off the continent, prepare pyrotechnics, and set up spotlights and speaker systems befo--
 
 #{italic}#The last O trails off, a line leading from it to the end of the page like the pen was rapidly jerked away, then leads to a doodle depicting you, wielding a double-bladed katana and fighting a giant construct labelled "Ninja Atamathon."  Your badassery must have interrupted this demon's writing.#{normal}#
-]], [[#{italic}#这张便条被摩托车轮胎的痕迹弄脏了。#{normal}#
+]], [[#{italic}#这张便条上染着看似摩托车轮胎印的污迹。#{normal}#
 
-#{bold}#紧急事项：#{normal}#
+#{bold}#紧急：#{normal}#
 
-对 <?=player.name?> 的保全监禁计划失败。主要防御力量被他的霸气侧漏吓退，应急部队推定已经死亡（报告的声音被吉他独奏的喧哗声盖住了）。虽然计划完全失败，但是这辈子值了。正在对 <?=player.name?> 启动最高优先级措施，为 <?=player:him_her()?> 建造一个体育场，让观众买票入场观看其霸气侧漏的情景。  关闭所有链接传送门，将所属的平台从大陆上分离，准备焰火，启动闪光灯和音响系统并——
+拘捕 <?=player.name?> 的行动失败。主要防御部队被目标无可阻挡的霸气击溃，第二支队伍推定已死（报告声被震撼得令人脸都要融化的吉他独奏盖过）。一切都完了。完全值得。当前最高优先事项是隔离 <?=player.name?>，在 <?=player:him_her()?> 周围建造一座体育场，并售票让人观赏这场霸气盛宴。炸毁所有连接，把平台从大陆上分离，准备烟火，架好聚光灯和音响系统，赶在——
 
-#{italic}#最后一个字歪歪扭扭，一条墨水细线向下划去直到页面的底部，那是笔从手上滑落留下的痕迹。下方是一幅关于你的涂鸦，手里拿着武士刀，正在和“忍者王阿塔玛森”对战。看起来，你的霸气侧漏把这个恶魔吓尿了。#{normal}#
+#{italic}#最后一笔拖出一条线直到页尾，仿佛笔被猛地拽走；那条线随后连到一幅涂鸦，画中的你手持双刃武士刀，与一个标着“忍者阿塔玛森”的巨型构装体交战。你的霸气一定打断了这个恶魔的书写。#{normal}#
 ]], "_t")
 t("first mural painting", "第一幅壁画", "_t")
 t("#{italic}#\"To honor the Masters\" - A thrall#{normal}#", "#{italic}#“吾主万岁”——您的奴仆#{normal}#", "_t")
@@ -518,7 +518,7 @@ t("If the Wretchling speaks to our worship, the Fire Imp speaks to our commitmen
 t("demon statue: water imp", "恶魔雕像：小水怪", "_t")
 t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧使用双手作战，这群变种的火魔婴做出了更加伟大的牺牲：他们放弃了呼吸空气的能力。大部分占据主导地位的埃亚尔种族生活在水上，让海洋和湖泊成为我们的藏身的主要根据地，实施那些对于我们的土壤来说过于危险的实验，同时为制造全面侵略的传送门做准备。作为我们在海里的使者，小水怪们放弃了同胞们使用火焰的能力，转而使用在水里同样有效的冰系法术。和酸液树魔类似，小水怪们并不指望能活到和平到来，因此没有必要在地表呼吸。请记得随时为小水怪们奉上礼物，不能因为他们没有同大家在地表作战，就轻易遗忘他们做出的无私牺牲，以及在收集情报和建立远方基地方面做出的巨大贡献。]], "_t")
 t("demon statue: quasit", "恶魔雕像：夸塞魔", "_t")
-t("Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.", [[聪明而顽强，我们中的工程师与战士，为我们制造护甲，同时奋战在埃亚尔边界前线。红宝石的孩子们学习兵工厂新的魔法，绿翡翠的孩子们学习令身躯更加致命的技巧，而玛瑙色的孩子们专心学习新的构架体，将魔法、血肉和钢铁融为一体，在埃亚尔大陆制造恐惧。那些奋战在前线的，与其说是生出来，不如说是制造出来——在工厂里由半成熟态大量炮制，一“出生”就身着锻造巨人亲制的护甲。尽管仍是血肉之躯，玛瑙战士——或者说夸塞魔——有着钢铁般的纪律和强大的近战能力，同时他们的护甲能抵抗重击，即使那重击能轻易毁灭一只酸液树魔或者火魔婴。奉献让我们向前迈进，但夸塞魔展示出，当我们拥有热情和耐心携手并进时，我们将走得更远。]], "_t")
+t("Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.", [[我们一族的工程师与战士聪明而顽强，既为部队制造护甲，也在前线抵御埃亚尔的大军。红宝石之子为我们的武库研究新法术，绿翡翠之子研究让自身躯体变得更加致命的方法，而缟玛瑙之子则专注于从零打造新的构装体，把血肉、魔法与钢铁捆扎成令埃亚尔恐惧的高耸造物。前线战士并非自然出生，而是由工厂以半成熟状态批量制造，一“出生”就被铆上锻造巨人打造的护甲。尽管主要由血肉构成，被称作夸塞魔的缟玛瑙战士在很大程度上仍是机器：它们强化了肌肉，却没有失去源自原身的聪慧心智。夸塞魔既热切又聪慧，纪律严明且善于战斗；它们的护甲让它们能轻易承受足以重创酸液树魔或火魔婴的攻击。单靠奉献就能让我们走得很远，而夸塞魔则表明，当热忱与耐心携手并进时，我们还能做到更多。]], "_t")
 t("demon statue: onilug", "恶魔雕像：欧尼路格", "_t")
 t([[Necromancy. It has been a long practiced artform on our world, though it fell into disuse during the golden years of Urh'Rok. When the Sher'Tul annihilated our home, however, we resumed our studies on the use of this dark art.
 
@@ -548,7 +548,7 @@ t("Any one of us who's read up on our history will remember the story of the wic
 t("demon statue: champion of Urh'Rok", "恶魔雕像：乌鲁洛克的精英卫兵", "_t")
 t("The Divine Tournament of Combat is the most straightforward of our competitions for the spectator, but those competing have a huge variety of possible divisions to enter.  Most are based on the maximum amount of energy consumed by their entrants since (and including) birth; others include those set in an open field for direct combat, or a difficult-to-navigate forest of pillars to properly evaluate those who use hit-and-run tactics or excel at setting up or detecting ambushes.  In the high-energy divisions, those competing are typically not born in the conventional manner, usually being constructs made by a team performing a collaborative effort.  The constructs we now call Champions of Urh'Rok have utterly devastated most of the high-energy open-field divisions, while performing adequately in the less-direct ones, making them a solid fit for production and deployment in the invasion.  Their development team has earned a place of honor for their ingenious methods of creating such incredible strength with a sustainable amount of energy-input, and once mass-production is in order, these gigantic creatures will become the backbone of our military.  Once they arrive on the surface, Eyal will experience a few fleeting moments of terror before their utter annihilation.", [[神圣战斗锦标赛是我们各项赛事中观众最容易看懂的一项，但参赛者可报名的组别种类繁多。大多数组别按参赛者自出生起（包括出生过程）所消耗的最大能量划分；另一些则包括在开阔场地上进行正面战斗的组别，或在难以穿行的柱林中进行的组别，以妥善评估那些采用游击战术、擅长布置或识破伏击的选手。在高能组别中，参赛者通常并非以常规方式出生，而是由团队协作制造的构造体。我们如今称为乌鲁洛克的精英卫兵的构造体，在大多数高能开阔场地组别中彻底碾压对手，在不那么直接的组别中表现尚可，因此十分适合投入生产并部署到入侵行动中。它们的研发团队以可持续的能量投入创造出如此惊人的力量，凭借这种巧妙方法赢得了荣誉；一旦大规模生产走上正轨，这些庞然大物将成为我军的骨干。等它们抵达地表，埃亚尔将在彻底毁灭前经历短暂的恐惧。]], "_t")
 t("demon statue: forge giant", "恶魔雕像：锻造巨人", "_t")
-t("The power of Urh'Rok cannot be overstated, except by claiming it to be infinite.  Most of his strength and will are occupied at the moment, keeping our shattered home from splintering off into the void; as such, he cannot spend time or effort making equipment for our army.  The children of onyx recognized this, and worked on a way to maximize the amount of benefit they could get from a small portion of his power; Urh'Rok was pleased by their idea, and granted their request in full, giving them a handful of enormous hammers, each one glowing with his magic.  These were then given to modified variants of the Champion of Urh'Rok template, built for raw strength at the expense of speed and energy-efficient creation, and now they work tirelessly, heating raw metal with their magic until it is workable, then pounding it into their shape, automatically imbuing the resulting armor and weaponry with Urh'Rok's blessing.  Thanks to an assortment of detachable heads for these hammers, every single swing produces several pieces of usable equipment.  The constant exposure to the power of Urh'Rok has made these creatures almost absurdly formidable, but as useful as they would be on the front lines, they are even more useful bolstering the rest of our forces with blessed equipment; that said, should our scouting parties encounter a problem that requires drastic and immediate intervention, sending a Forge-Giant down is a reliable emergency option, and would immediately clear up any combat-related difficulties should the situation call for it.", [[要说怎么形容乌鲁洛克大人的强大能力的话，没有什么词语比“无穷无尽”更加合适了。不过不幸的是，由于他大部分的力量和意志都被用于凝聚我们被炸得支离破碎的土地，不让其飞散到无尽虚空之中；他或许没有足够的时间和精力来为我们的部队制造装备。缟玛瑙之子们意识到了这个问题，找到了一种从父亲大人的强大力量中的一小部分最大程度地发挥的方法。乌鲁洛克大人认可了他们的提议，制造了一些灌注了他强大魔法力量的巨锤。这些赠礼被带给一些被改造的乌鲁洛克精英卫兵，以牺牲一定行动速度和能量燃率的代价，他们获得了无与伦比的强大蛮力。他们日夜不停地工作，将金属的原材料用魔法熔炼，然后将其导入模具中，自动锻造成注入了乌鲁洛克的祝福的魔钢武器和护甲。在各种可拆卸的锤头的帮助下，只要一击就能瞬间制造出数个装备零件。长期暴露在乌鲁洛克的强大力量下，这些生物拥有可畏的强大力量。然而，与在前线作战相比，他们更应该留在这里为我们的部队送去支援的装备。因而，只有在我们的先遣部队遇到需要立即强大的武力介入的危急时刻，我们才会向下遣送锻造巨人，他们强大的力量将会立即扫清战斗中所面临的一切困难。]], "_t")
+t("The power of Urh'Rok cannot be overstated, except by claiming it to be infinite.  Most of his strength and will are occupied at the moment, keeping our shattered home from splintering off into the void; as such, he cannot spend time or effort making equipment for our army.  The children of onyx recognized this, and worked on a way to maximize the amount of benefit they could get from a small portion of his power; Urh'Rok was pleased by their idea, and granted their request in full, giving them a handful of enormous hammers, each one glowing with his magic.  These were then given to modified variants of the Champion of Urh'Rok template, built for raw strength at the expense of speed and energy-efficient creation, and now they work tirelessly, heating raw metal with their magic until it is workable, then pounding it into their shape, automatically imbuing the resulting armor and weaponry with Urh'Rok's blessing.  Thanks to an assortment of detachable heads for these hammers, every single swing produces several pieces of usable equipment.  The constant exposure to the power of Urh'Rok has made these creatures almost absurdly formidable, but as useful as they would be on the front lines, they are even more useful bolstering the rest of our forces with blessed equipment; that said, should our scouting parties encounter a problem that requires drastic and immediate intervention, sending a Forge-Giant down is a reliable emergency option, and would immediately clear up any combat-related difficulties should the situation call for it.", [[乌鲁洛克的力量怎么夸大都不为过——除非说它是无限的。眼下，他的大部分力量与意志都用于防止我们破碎的家园裂散进虚空，因此无法花费时间或精力为军队制造装备。缟玛瑙之子意识到了这一点，设法让一小部分乌鲁洛克之力发挥出最大效益。乌鲁洛克很欣赏他们的想法，完全应允了请求，赐予他们几把闪耀着他魔力的巨锤。这些巨锤随后交给了乌鲁洛克精英卫兵模板的改造变体；它们以速度和制造时的能耗效率为代价换取蛮力，如今不知疲倦地工作，用魔法把原料金属加热到可锻打，再将其捶打成形，同时自动为制成的护甲与武器注入乌鲁洛克的祝福。凭借各式可拆卸锤头，每一锤都能产出数件可用装备。长期接触乌鲁洛克之力让这些生物强大得近乎荒谬；它们虽能在前线大显身手，但用受祝福的装备强化其余部队更加有用。尽管如此，若侦察队遇到需要迅速强力干预的问题，派一名锻造巨人下去仍是可靠的应急手段，并能立刻解决局势所需的任何战斗难题。]], "_t")
 t("demon statue: thaurhereg", "恶魔雕像：修尔希瑞格", "_t")
 t("Thanks to numerous contacts we have on Eyal's surface, ranging from easily-duped natives to our own scouting teams, we've managed to gain a few captive Eyalites.  These prisoners are useful for a variety of tasks, including manual labor, magical research, stress relief, and developing new methods of torture (those last two often being one in the same).  We try to preserve these temporarily-valuable subjects for as long as we can, but invariably, an experiment goes wrong or someone uses too much force, and the captive ends up mortally wounded.  Rather than let these world-breakers escape their eternal fate by simply dying, we put their bodies and life-essence to use, combining several fallen Eyalites into a creature held together by their collective rage and suffering.  You'd think this would be a bad idea to have walking around our base of operations, but as it turns out, it just takes a few simple enchantments to redirect their vengeful instincts towards their former brethren, making them fearsome and sadistic in combat.  Their rampages against their \"tormentors\" are simply hilarious!", [[源于我们对埃亚尔大陆的多次接触，从容易受骗的当地傻瓜到我们有组织的探险队，我们有机会活捉了一些埃亚尔人。这些俘虏能够用于许多工作，比如苦力、魔法研究、找乐子，以及发明新的酷刑（后两者通常是同一回事）。我们曾经试图长期保存这些暂时还是比较珍贵的样本。不过每一次，只要实验出了点问题，或者有谁下手的时候稍微没有掌握好力度，这些样本就会当场惨死。对于这些破坏世界的邪徒来说，让他们通过死亡逃离自己永恒折磨的命运实在是太便宜他们了。我们把他们的肢体和生命精华取出，用他们的愤怒和痛苦将几个埃亚尔人的尸体拼接在一起。你或许觉得让他们在我们的指挥部附近晃来晃去是个坏主意，不过事实证明，只需要几个简单的魔法就可以把他们复仇的强烈冲动转移到他们曾经的同族身上，让他们在战斗中变得施虐成性、令人望而生畏。看看他们在狂乱中屠杀自己眼中的“敌人”的样子，还真是让人忍俊不禁！]], "_t")
 t("demon statue: dúathedlen", "恶魔雕像：多瑟顿", "_t")
@@ -568,7 +568,7 @@ t([[#{italic}#This plaque is mostly covered in shifting shadows.  You can only m
 t("demon statue: Ruin Banshee", "恶魔雕像：毁灭女妖", "_t")
 t("The onslaught of the Sher'Tul portals never truly stopped.  Magic still pours from them, threatening to do even more damage to our home; it would be completely destroyed by now, if not for our Father.  Part of his work to keep Mal'Rok structurally intact is to blow great gusts across the devastated land, forcing the ravenous flames back into the portal network from whence they came.  It would seem, though, that the flames took souvenirs with them; our scouting parties have noted that Sher'Tul portals on Eyal, even those which have been completely deactivated, will occasionally emit a shade of one of our fallen citizens, imbued by some of Urh'Rok's power, smelling of Mal'Rok's ashes, and warped to insanity by its transit through the unstable rifts.  While this is a troubling revalation of the true horror of the Sher'Tul weapons, telling us that even now our fallen cannot rest in peace, the fact that they are arriving on Eyal in defiance of the shield is some consolation, as it means that those most wronged by the betrayal can claim their revenge personally.", [[夏·图尔传送门的影响从未停止。直到现在，奥术能量仍然在从中向外散溢而出，威胁着对我们的故乡做出更大的破坏；如果不是我们父亲大人的能力，恐怕我们的故乡早已经被其完全毁坏。他保持玛·洛克结构稳定的一个重要过程是在荒芜的土地上吹起狂暴的怒风，将饥渴的热焰吹回传送门的网络之中。然而，这些烈火似乎还带走了纪念品；我们的侦察队发现，埃亚尔的夏·图尔传送门，即使是那些已经彻底关闭的，也会偶尔放出一名阵亡同胞的亡魂。这些亡魂被乌鲁洛克的力量所浸染，带着玛·洛克灰烬的气味，并在穿过不稳定裂隙时扭曲至疯狂。这昭示着有关夏·图尔人邪恶武器的恐怖力量，告诉我们即使是那些逝者在他们的折磨下也不得安眠。然而，他们绕过环绕埃亚尔的护盾到达星球表面的事实也给我们带来了些许慰藉，这些在夏·图尔人阴毒背叛的惨剧中受害的无辜者终于有机会亲自复仇了。]], "_t")
 t("demon statue: Draebor, the Imp", "恶魔雕像：小恶魔德瑞宝", "_t")
-t("Teleportation is one of the most crucial areas of magical research to our cause of revenge; until we break the Sher'Tul-made shield surrounding Eyal, it will remain our only means of reaching the surface.  One of our leading scholars, a child of onyx known as Draebor, has perfected short-range teleportation and has been studying methods to work his skills into a mass-producible artifact to grant this ability to all of our troops.  He's kept his work under wraps as of late, but rumor has it that he's been reverse-engineering the Sher'Tul portals, letting our invasion get through via their own weapons.  Whatever he's up to, keep an eye out - big things are just around the corner, courtesy of his dedicated research!", [[传送术是完成我们复仇行动的重要研究领域。在我们打破围绕埃亚尔大陆的夏·图尔之盾之前，传送术将是我们达到大陆表面唯一的手段。我们的领军学者之一—缟玛瑙之子德瑞宝——掌握着完美的短距传送术，并且一直在研究方案将他的技术融入工艺品并量产化，使我们的军队都具备这样的能力。他一直将研究的进程保密，但是有谣言说他正在反向驱动夏·图尔的传送门，让我们通过夏·图尔的武器发动侵略。无论他做到哪一步，我们都要拭目以待——多亏了他的专注的研究，即将有重大的事件发生！]], "_t")
+t("Teleportation is one of the most crucial areas of magical research to our cause of revenge; until we break the Sher'Tul-made shield surrounding Eyal, it will remain our only means of reaching the surface.  One of our leading scholars, a child of onyx known as Draebor, has perfected short-range teleportation and has been studying methods to work his skills into a mass-producible artifact to grant this ability to all of our troops.  He's kept his work under wraps as of late, but rumor has it that he's been reverse-engineering the Sher'Tul portals, letting our invasion get through via their own weapons.  Whatever he's up to, keep an eye out - big things are just around the corner, courtesy of his dedicated research!", [[传送术是我们实现复仇大业最关键的魔法研究领域之一。在打破环绕埃亚尔的夏·图尔护盾之前，它仍是我们到达大陆表面的唯一手段。我们的领军学者之一——缟玛瑙之子德瑞宝——已经完善了短距离传送术，并一直在研究如何把自己的技术融入一种可量产的魔法造物，让所有部队都获得这种能力。近来他对研究秘而不宣，但传言称，他正在逆向研究夏·图尔的传送门，好让我们的入侵大军借敌人的武器通过。无论他在做什么，都请拭目以待——多亏他潜心研究，重大进展已近在眼前！]], "_t")
 t("demon statue: Shasshhiy'Kaish", "恶魔雕像：莎西凯希", "_t")
 t([[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause.
 
@@ -637,7 +637,7 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 t("demon statue: Khulmanar, General of Urh'Rok", "恶魔雕像：库马纳，乌鲁洛克将军", "_t")
 t("Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.", [[自乌鲁洛克率领并鼓舞我们摆脱尘埃法师以来，我们便一直举办锦标赛。这些赛事并不像许多人以为的那样，只是直接战斗的考验。战斗项目当然存在，但我们也会在学术研究、专注力、体能、哲学以及无数其他领域展开竞赛。其中最负盛名的或许是神圣战术锦标赛，我们的军事领袖正是由此选出。参赛者要经历一系列试炼，比较评估战局并迅速应对的能力，并按速度、伤亡、部署效率等多种因素评分。库马纳是一名缟玛瑙之子，也是这些赛事的卫冕冠军；在我们等待大陆抵达埃亚尔的大部分时间里，冠军都属于他。我们的选拔认定他是族人中最睿智的战术家，因此他获选觐见乌鲁洛克本人，以取得率领入侵军队的许可。乌鲁洛克对库马纳印象极深，甚至从维系我们世界之外所剩无几的力量中拿出相当一部分，为他打造了一具新的躯体，使他足以毫无畏惧地在前线指挥战斗。库马纳拥有父亲赐予的身躯与武器，其才智又得到父亲直接而热烈的认可，因此被视为乌鲁洛克的化身；他在战斗中的命令，也应当像父亲亲口说出的话一样受到敬重。]], "_t")
 t("demon statue: Lithfengel", "恶魔雕像：里斯丰格", "_t")
-t("Lithfengel, mentor of Draebor and child of emerald, was one of our finest scholars.  When most of us were still too afraid to go near a portal, he recovered an intact one and began to pry apart its secrets, in hopes of reaching Eyal.  His data showed that although this portal was still technically connected to Eyal, the link between the two worlds was still fluctuating far too much to make it safe for travel, the still-raging flames threatening to tear any prospective passengers apart before they reached their destination.  Rather than try to repair the link directly, he went into his lab and didn't emerge for a few days; when he came out, he glowed with a strange new enchantment, proclaiming it would adaptively mutate him to endure whatever damage the portal would otherwise inflict.  Saying that the consequences of failure were too awful to risk inflicting on other test subjects, he entered the portal himself, promising to return immediately after he arrived; he has not been seen since.  May he rest in peace for his selfless devotion.", [[里斯丰格，小恶魔德瑞宝的导师，绿翡翠之子，是最杰出的学者之一。当我们大部分人还畏惧接近传送门的时候，他早已找到了一个未被人使用过的，并且开始窥探其中的秘密，希望能够达到埃亚尔。他的数据显示，尽管这个传送门与埃亚尔连接，但是两个世界之间的波动使得前往另一个世界的旅行太过危险，肆虐的火焰会在你到达目的之前将你撕碎。比起直接修复连接，里斯丰格躲入他的实验室里好几天。当他出来的时候，他浑身笼罩着一层奇异的新符咒散发的光芒，宣称这道符咒将会使他产生适应性突变来抵御传送门将会造成的任何伤害。由于他说实施其他实验的失败后果太过危险，他独自一人进入了传送门，并且承诺在到达之后会立即返回，从那以后再也没有人见到他。看在他无私奉献的份上，愿他能够安息。]], "_t")
+t("Lithfengel, mentor of Draebor and child of emerald, was one of our finest scholars.  When most of us were still too afraid to go near a portal, he recovered an intact one and began to pry apart its secrets, in hopes of reaching Eyal.  His data showed that although this portal was still technically connected to Eyal, the link between the two worlds was still fluctuating far too much to make it safe for travel, the still-raging flames threatening to tear any prospective passengers apart before they reached their destination.  Rather than try to repair the link directly, he went into his lab and didn't emerge for a few days; when he came out, he glowed with a strange new enchantment, proclaiming it would adaptively mutate him to endure whatever damage the portal would otherwise inflict.  Saying that the consequences of failure were too awful to risk inflicting on other test subjects, he entered the portal himself, promising to return immediately after he arrived; he has not been seen since.  May he rest in peace for his selfless devotion.", [[里斯丰格是德瑞宝的导师，也是一名绿翡翠之子，曾是我们最杰出的学者之一。当我们大多数人仍不敢接近传送门时，他找回了一座完好的传送门，并开始探究其中的秘密，希望到达埃亚尔。他的数据表明，尽管这座传送门在技术上仍与埃亚尔相连，两界之间的联系却波动得太过剧烈，无法安全通行；其中依然肆虐的烈焰会在任何打算穿行的旅者抵达目的地前将其撕碎。他没有尝试直接修复连接，而是走进实验室，几天都没有露面；出来时，他身上闪耀着一种奇异的新附魔，并宣称它会令自己产生适应性突变，从而承受传送门本会造成的一切伤害。他说失败后果太过可怕，不愿冒险让其他受试者承受，于是亲自进入传送门，并承诺抵达后立即返回；此后再也没人见过他。愿他因这份无私奉献而安息。]], "_t")
 t("demon statue: Rogroth, Eater of Souls", "恶魔雕像：罗格洛斯·灵魂吞噬者", "_t")
 t("Recently, the cultists of Shasshhiy'Kaish have begun speaking of a \"demon seed,\" a sort of magical cluster of life-essence which can be implanted in a sentient being, allowing it to grow inside of them and eventually become one of our citizens.  Inspired by this idea, the children of emerald have developed a prototype of this form of magic, and the children of onyx have made a chassis to carry it into combat.  Rogroth generates countless essence-less seeds from within its frame, then embeds them in nearby living beings, so when they expire, their life-essence goes directly into the seed and allows it to grow.  We have not yet perfected its production capabilities, so currently the seeds will only become degenerate husks when they grow, but fear not!  As we get data from the tests of this design, we'll improve on it, and soon the slaughter of our foes will cause wretchlings, quasits, and even thaurheregs to spring up from their corpses.  With a little bit of luck and some decisive early skirmishes, we could even bypass the problem of getting an invasion force to the surface entirely, growing it there instead.", [[最近，莎西·凯希的教徒们开始谈论起“恶魔种子”。这是一串具有魔力的生命精华，可以被植入有灵性的生物中，并在其中发育为我们的公民。受此构想启发，绿翡翠之子研究出了这种魔法的原型，缟玛瑙之子则打造了一副机体，载着它投入战斗。罗格洛斯自身的躯体会不断产生无数没有精华的种子，并将这些种子嵌入附近的生物中，当这些生物死去，他们的生命精华将会流入并滋长这些种子。我们还没有完善的生产能力，所以目前这些种子只会成长为退化的空壳。但是别担心！随着我们从这一设计的测试中获得数据，我们会加以改进。不久的将来，当杀死我们的敌人后，酸液树魔、夸塞魔，甚至是修尔希瑞格将会从他们的尸体中诞生。只要运气稍好，再打赢几场关键的早期小规模战斗，我们甚至能彻底绕过把入侵部队送上地表的难题，直接在那里培育部队。]], "_t")
 t("demon statue: Corrupted Daelach", "恶魔雕像：堕落达莱奇", "_t")
@@ -780,7 +780,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua"
 
 t("Flame Bolts", "近战火球", "talent name")
 t([[Randomly (%d%% chance) hurls up to %d flame bolts dealing %0.2f fire damage to foes in sight when you hit in melee.
-		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率释放至多 %d 个火球，造成 %0.2f 点火焰伤害。
+		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率向视野内的敌人发射至多 %d 个火焰飞弹，造成 %0.2f 点火焰伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Fiery Cleansing", "火焰净化", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
@@ -992,20 +992,20 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		If you already have a seed of the same time in your inventory or equipment it will instead increase its level if the host was of higher level than the seed and the demon inside will regenerate %d%% health and resurrect if it was dead.
 
 		Higher talent levels allow for more powerful demon types.
-		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], [[对目标造成 %d%% 枯萎武器伤害。
-		如果攻击命中，你会将恶魔种子植入目标体内，然后用盾牌攻击目标，造成 %d%% 盾牌伤害并眩晕 敌人 %d 回合。
-
+		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], [[用武器打击目标，造成 %d%% 枯萎伤害。
+		如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。
+]] .. "\t\t\n" .. [[
 		种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。
-		种子的存活几率基于宿主的级别：
-		%s普通生物#LAST#:5%%
-		%s精英生物#LAST#:20%%
-		%s稀有#LAST#与%s史诗生物#LAST#:50%%
-		%sBoss#LAST#:100%%
+		种子扎根的几率取决于生物的级别：
+		%s普通生物#LAST#:  5%%
+		%s精英生物#LAST#:  20%%
+		%s稀有#LAST#或%s史诗生物#LAST#:  50%%
+		%sBoss#LAST#:  100%%
 		当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。
-		如果你的背包或装备上已经有了同类的恶魔种子，且宿主等级高于恶魔的等级，它会提升种子的等级。此外，里面的恶魔会恢复 %d%% 生命值，如果已死则会被复活。
+		如果你的背包或装备上已经有了同类的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。
 
-		高技能等级将带来更强大的种子。
-		如果成功将种子植入史诗生物（Unique）的体内，且它有对应的恶魔种子的话，你必定会获得该恶魔种子。]], "tformat")
+		技能等级越高，可获得的恶魔种类越强大。
+		如果成功将种子植入唯一恶魔，系统总会尝试给予该类型的种子（若有）。]], "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")
@@ -1064,7 +1064,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/demonic-strength.lua"
 t("Dismember", "肢解", "talent name")
 t([[Your melee attacks cripple your targets when they critically strike, lowering their movement speed by %d%% and their accuracy by %d for %d turns.
 		Additionally, you gain %d%% chance to critically strike with your melee attacks.]], [[当近战攻击暴击时，致残你的目标，降低 %d%% 移动速度和 %d 命中，持续 %d 回合。
-	同时，增加 %d%% 近战暴击率。]], "tformat")
+		同时，增加 %d%% 近战暴击率。]], "tformat")
 t("Surge of Power", "力量之潮", "talent name")
 t([[Use your stored vim to supercharge your body, recovering %d stamina and %d life.
 		Additionally, you will be able to survive your HP going under 0, down to -%d HP, for the next 8 turns.
@@ -1113,8 +1113,8 @@ t([[You learn to use death around you to an even greater advantage.
 		技能等级 3 或以上时，当你处于黑暗支配状态下，每一层状态使你获得 -%d 生命底限。]], "tformat")
 t("Blood Pact", "鲜血契约", "talent name")
 t([[Pay %d%% of your current life and gain 100%% darkness damage conversion for 1 turns.
-			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值，1 回合内你造成的所有伤害转化为黑暗伤害。
-		如果黑暗支配开启，每有一层，你获得 %d 体力与 %d 活力。]], "tformat")
+			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值，1 回合内你造成的所有伤害转化为暗影伤害。
+			如果黑暗支配开启，每有一层，你获得 %d 体力与 %d 活力。]], "tformat")
 t("Erupting Darkness", "黑暗爆发", "talent name")
 t("raging volcano", "喷发中的火山", "_t")
 t([[When Dread End creates pools of darkness you can focus your raging thoughts on them to make them erupt into volcanos.
@@ -1136,7 +1136,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了恶魔能量，带来一层魔法护盾：在 3 回合内，你受到的所有伤害的最初几点（基于你的盾牌格挡值）将转化为治疗。此效果可以叠加。
+		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：在 3 回合内，你受到的所有伤害的最初几点（基于你的盾牌格挡值）将转化为治疗。此效果可以叠加。
 		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
 		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
@@ -1171,9 +1171,8 @@ t("Cauterize Spirit", "灵魂焚净", "talent name")
 t([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.
 		This ignores all resists, defenses, and affinities.
 		This does not take a turn.]], [[移除所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
-	伤害无视一切抗性、防御效果和伤害亲和。
-
-此技能瞬发。]], "tformat")
+		伤害无视一切抗性、防御效果和伤害亲和。
+		此技能瞬发。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
 t([[Exhale a wave of dark fire with radius %d, lasting 4 turns. Any non-demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.
 		The damage will increase with your Strength Stat, but critically hit as a spell.]], [[在 %d 码的锥形范围内，喷出持续 4 回合的暗黑火焰。范围内所有的非恶魔生物受到 %0.2f 火焰伤害，同时火焰会造成每回合 %0.2f 的灼烧伤害。恶魔受到等量的治疗。
@@ -1304,7 +1303,7 @@ t([[Bringing about the darkest days of the Spellblaze you hasten the death of yo
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
 		The damage increases with spellpower.]], [[通过引发魔法大爆炸最黑暗的时候的场景，你加速了敌人的死亡。
 		每次你对半径 %d 内的生物造成伤害后（实际触发范围固定为 4 格，不随该数值变化），如果它生命值低于 33%%，将会承受魔法大爆炸的力量。
-		受影响的敌人每回合将受到 %0.2f 暗影伤害，直到死亡或者离开你范围 %d 码范围。
+		受影响的敌人每回合会受到 %0.2f 暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续直至其死亡。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")
 t([[When you block an attack the shock ripples through your attacker, spreading the force of the Spellblaze in its mind for 5 turns.
@@ -1340,10 +1339,9 @@ t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hit
 		When Fiery Torment ends the victim will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment.
 		The damage dealt by the effect will increase with spellpower.
 		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合，火焰抗性降低 %d%%。
-	当灼魂之罚结束，敌人会受到 %d 点火焰伤害。
-	在灼魂之罚持续时间内目标受到的所有伤害，有 %d%% 会加成到火焰伤害中。
-	效果的伤害会随法术强度提升。
-	被灼魂之罚影响的恶魔会被恶魔空间中的火焰焚烧。]], "tformat")
+		灼魂之罚结束时，受害者会受到 %d 点火焰伤害；该伤害还会增加相当于受折磨期间所受全部伤害 %d%% 的数值。
+		此效果造成的伤害随法术强度提升。
+		受到灼魂之罚的恶魔会被恶魔空间的火焰灼烧。]], "tformat")
 t("Eternal Suffering", "无尽苦痛", "talent name")
 t([[Your strikes are imbued with a vile power that extends your victim's suffering. When hitting in melee, you have a (%d%%) chance to extend the length of all negative effects and reduce the length of all positive effects on the target by %d turn(s).
 		This can only trigger on any particular target once every 6 turns.]], [[你的攻击充溢着恶毒的力量，能够延长敌人的苦痛。当近战命中时，有 %d%% 几率延长对方所有的负面状态持续时间并降低所有正面状态的持续时间，增减幅度为 %d 回合。
@@ -1551,7 +1549,7 @@ t("#Target# stops burning.", "#Target#身上的火熄灭了。", "_t")
 t("-Burn", "-燃烧", "_t")
 t("dark", "黑暗", "effect subtype")
 t("Corrupted Light", "腐化之光", "_t")
-t("The target is overflowing with power, increasing all damage done by %d%%.", "目标能量溢出，增加 %d%% 全体伤害。", "tformat")
+t("The target is overflowing with power, increasing all damage done by %d%%.", "目标能量溢出，造成的所有伤害提升 %d%%。", "tformat")
 t("#Target# is filled with dark power!", "#Target#充满了黑暗力量！", "_t")
 t("+Corrupted Light", "+腐化之光", "_t")
 t("#Target# is no longer subject to the dark power.", "#Target#的黑暗力量消退了。", "_t")
@@ -1725,7 +1723,7 @@ t("This demon is dedicated to #{italic}#extracting#{normal}# information from #{
 t("Planar Controller", "空间控制者", "entity name")
 t("major", "大恶魔", "entity subtype")
 t("A huge demon towers above you, it is obviously in control of all the portals in the nearby Fearscape area.", "一个巨大的恶魔高耸在你面前，显然控制着附近恶魔空间区域内的所有传送门。", "_t")
-t("and teleported to Mal'Rok for more experiments", "并被带去玛·洛克做为进一步的实验对象。", "_t")
+t("and teleported to Mal'Rok for more experiments", "并被传送到玛·洛克，作为进一步的实验对象", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/zones/searing-halls/objects.lua"
