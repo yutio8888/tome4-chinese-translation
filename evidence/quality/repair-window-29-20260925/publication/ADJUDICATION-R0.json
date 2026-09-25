@@ -1,0 +1,31 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a2",
+  "invalid_attempts": [
+    {
+      "attempt": 1,
+      "reason": "anchor preflight INPUT_ERROR: SCOPE allowed_files listed the evidence directory; SCOPE corrected to the Lua file only (as window 28), envelope refrozen as attempt 2; no reviewer dispatched for attempt 1"
+    }
+  ],
+  "raw_ok_count": 19,
+  "raw_issue_count": 2,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "revision_key": "72a3b333159886cf6513e3aca920f9ca1e8a3f36ca2b7a27ff73244e770678e4",
+      "status": "refuted",
+      "tier": null,
+      "category": "runtime",
+      "reason": "公开 Ashes heart-of-fire.lua:73 火焰守护 action 的 tg 为 {type=\"ball\", range=0, radius = 10}，移除燃烧的实际半径硬编码为 10；:95 info 文本写 radius of 5 与实现不符。现译“半径 10”贴合实现，按第281批裁决保留。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ac85a7a89f1ebd76f9f78a9fb05df008a23bdd9b228b0ac3d118ceaa4b43205",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "公开 Ashes ashes-urhrok-walrog-pop.lua:53 以 _t\"Traitor\"/_t\"Murderer\" 填入 %s；本库对应填充词为 tome-ashes-urhrok.lua:1807“背叛”、:1808“屠戮”（动词）。现译“纳鲁精灵的%s”运行时显示为“纳鲁精灵的背叛/屠戮”，把指控对象的身份写成对方的行为。按填充词词性改回动词结构“%s纳鲁精灵……背叛乌克勒姆斯维奇……”（运行时为“背叛纳鲁精灵/屠戮纳鲁精灵”，与后句平行）；本条其余修复（scowl 后换行、忠诚句、删“巨大的身形”）保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T12:44:03.038511+00:00"
+}

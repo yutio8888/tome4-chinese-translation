@@ -1,0 +1,68 @@
+{
+  "task_id": "repair-w29-20260925",
+  "status": "pass",
+  "scope": {
+    "translation_file": "tome-ashes-urhrok.lua",
+    "expected_changed_targets": 21,
+    "actual_changed_targets": 21,
+    "non_target_field_changes": 0,
+    "non_workset_record_changes": 0
+  },
+  "source_anchors": {
+    "checkout_from_frozen_input": true,
+    "repository_commit_pinned": false,
+    "queries_checked": 21,
+    "unique_files_checked": 14,
+    "all_file_sha256_match": true,
+    "source_literals_match": true
+  },
+  "semantic_diff": {
+    "loader": "i18nlib LocaleLoader using the tome-1.7.6 manifest LuaJIT runtime",
+    "entries_before": 849,
+    "entries_after": 849,
+    "workset_exact": true,
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_unchanged": true,
+    "special_unchanged": true,
+    "section_unchanged": true,
+    "lf_counts_match_source_for_all_changed_targets": true,
+    "per_line_leading_tab_depth_matches_source_for_all_changed_targets": true,
+    "printf_sequences_match_source_for_all_changed_targets": true,
+    "markup_sequences_match_source_for_all_changed_targets": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 OK; expected source-unpinned warnings for public DLC inputs"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260925T124717.056788Z-1832862-lint/lint.json"
+    },
+    {
+      "command": "bounded inline verifier using i18nlib LocaleLoader against the task baseline, WORKSET.json, and BASELINE-records.json",
+      "exit_code": 0,
+      "result": "849 entries before and after; exactly 21 workset targets changed; all structural invariants passed"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "git diff --numstat -- tome-ashes-urhrok.lua",
+      "exit_code": 0,
+      "result": "46 insertions, 46 deletions"
+    }
+  ],
+  "unresolved": [],
+  "publication_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}

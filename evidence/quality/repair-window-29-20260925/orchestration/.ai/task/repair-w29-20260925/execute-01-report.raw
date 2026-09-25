@@ -1,0 +1,42 @@
+已完成 `repair-w29-20260925`，仅修改指定文件的 21 个 target，并生成获准证据。
+
+逐条修复：
+
+1. `6b24dee87b2b`：哈卡祖雕像全文纠正逆向解析、标准部队、设计意图等误译。
+2. `72a3b3331598`：恢复换行，统一“回合”，保留实现正确的半径 10。
+3. `747d29c92481`：恢复“烈焰毁灭使者”“尽情碾碎敌人”及统一称谓。
+4. `78452093a6e8`：恢复四处双 TAB。
+5. `7975a16239bd`：修正火魔婴熔合土壤、投入与忠诚、改造项目等含义。
+6. `80f87941078f`：恢复饕餮之刃换行/TAB。
+7. `84ca86e56a3b`：逐句重译乌鲁洛克创世史条目。
+8. `880a05d14dd0`：补回“近战命中”条件及完整换行/TAB。
+9. `89a4d5c92f7b`：改为“送给应有尽有的恶魔。”
+10. `8d7b28975599`：删除绑架说明的多余换行。
+11. `8ead58568837`：修复魔化精灵解锁条件、瞬发相位之门等。
+12. `90ae8f40d2a0`：补回“斑驳”。
+13. `9ac85a7a89f1`：修复 `%s` 语序、忠诚结局、换行及增译。
+14. `9d7afbedda50`：黑曜石战锤改回黑色战锤。
+15. `9e25a17b1f56`：恢复“混沌与死亡”。
+16. `a6fd631ea297`：恢复双 TAB。
+17. `aaaaf55ee42b`：恢复“多半作恶、少数对抗恶魔”的转折。
+18. `ac2347dac63f`：`无尽恐惧` → `压倒性恐惧`。
+19. `ae8c122720e4`：恢复盾牌附魔的两句结构与持续时间语序。
+20. `af918013e6cf`：恢复随机、最大距离、种子来源及失效条件。
+21. `b281c0e29d35`：恢复“通过附着于装备的恶魔种子使用”。
+
+验证结果：
+
+- LuaJIT loader：849→849 条；恰 21 个 target 变化，其他字段及非工作集记录 0 变化。
+- 21 条 LF、逐行 TAB、printf 和 markup 均与原文一致。
+- `python3 -B tools/i18n doctor`：通过；仅有预期的 DLC source-unpinned 警告。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 未修改 `.ai/task`，未 stage、commit 或 push。
+
+证据：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-29-20260925/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-29-20260925/VALIDATION.json)
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+
+剩余风险仅为 Ashes 源仓库/commit 未固定；本次使用的 14 个源码文件哈希均与冻结锚点匹配。
