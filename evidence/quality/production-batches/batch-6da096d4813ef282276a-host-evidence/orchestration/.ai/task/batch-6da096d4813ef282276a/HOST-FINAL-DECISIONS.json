@@ -1,0 +1,168 @@
+{
+  "batch_id": "batch-6da096d4813ef282276a",
+  "observations": 16,
+  "observation_dispositions": {
+    "confirmed": 14,
+    "refuted": 1,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "27ddebe5f38e9a4665d48f5f2855df1723203ffe97ce1dfaac33d3025df428d9",
+    "283cf77312bd5b7440c2152998ae06d0a21b905e38976224abaaa46bacd2da19",
+    "28b401e79b9295020668175ed9f68bfd0b2b395fd5de31a9ac4b1e94d8de1290",
+    "2b501aeaa3bfeda3f1407c27c6ad0d7194f124354a78243b085d5bd96b1f5abd",
+    "2b62b6a2bca52bd763466e9e957d3d2cadea150a900295f608554c94550368c9",
+    "2ceaa318deef24a29480d827263d5ad47c1b2e0dbe551f2865d322e82cfd1c8e",
+    "2efb21d224596305eebef453d342340f4b9550046eb27bac941299a0b8c9e12b",
+    "2f62b393f4398ee6125658fbe356378740921b6f2452a70503554e7958819cbc"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 72,
+    "repair_required": 8,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "27ddebe5f38e9a4665d48f5f2855df1723203ffe97ce1dfaac33d3025df428d9",
+      "stage": "surface",
+      "observation": "译文出现明显文字错误：“露出几排排排成防御队形的骷髅”和“卫兵们继续尽全力在城墙射击计”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:661–677 埃尔瓦拉守城手记：several rows of skeletons 误作“几排排排成”（叠字错字）；unleash everything they could over the walls 误作“在城墙射击计”（语句残缺）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "283cf77312bd5b7440c2152998ae06d0a21b905e38976224abaaa46bacd2da19",
+      "stage": "surface",
+      "observation": "原文段内换行后没有缩进，译文在各行前增加两个制表符；原文“Many other stats will scale with level”指其他属性随等级变化，译文写成“与技能等级相关”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/controlled-horrors.lua:265–269 info 源串内部换行为裸 \\n（无缩进），现译在三处 \\n 后加 \\t\\t，一级 TAB 不变量；Many other stats will scale with level 与 all talent levels set to %d 并列，指召唤物等级，现译“与技能等级相关”误导机制。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "28b401e79b9295020668175ed9f68bfd0b2b395fd5de31a9ac4b1e94d8de1290",
+      "stage": "surface",
+      "observation": "原文“you will sever their lifeline”明确表示会切断生命线，译文增添“尝试”，改变了效果的确定性。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/chronophage.lua:85–93 衰亡施加时的 Severed Threads 判定：target.life <= max_life*life 且 target:checkHit(combatSpellpower, combatPhysicalResist) 且 canBe(\"instakill\") 才 die，存在豁免与免疫判定；现译“尝试切断”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2967a44c46e0adb9d5aa6e1ea75d01114a1cb9970cbd688b18c2d5d852e6955f",
+      "stage": "surface",
+      "observation": "原文“Recursive Home of Recursion”中的第二个“Recursion”在译文“递归之家”中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults achievements/all.lua:58 成就名 Recursive Home of Recursion 为自指文字游戏，“递归之家”保留主义、略去重复修辞；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2b501aeaa3bfeda3f1407c27c6ad0d7194f124354a78243b085d5bd96b1f5abd",
+      "stage": "surface",
+      "observation": "首个换行后原文有三个制表符，译文只有两个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/madness.lua:224–226 info 源串首个换行后为 \\n\\t\\t\\t（3 个 TAB），现译为 \\n\\t\\t，一级 TAB 不变量，只恢复缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2b62b6a2bca52bd763466e9e957d3d2cadea150a900295f608554c94550368c9",
+      "stage": "surface",
+      "observation": "原文“altering beings”指改变生灵，译文写成“改变着世界”，改变了受影响的对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/kroshkkur.lua:73–75 阿马克泰尔 lore：altering beings in ways that only made sense to Amakthel itself 的对象是生灵，现译“改变着世界”换了对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ceaa318deef24a29480d827263d5ad47c1b2e0dbe551f2865d322e82cfd1c8e",
+      "stage": "surface",
+      "observation": "原文“for the next few moments”译为“接下来的几分钟”，明显改变时间尺度；“studying them is quite frowned upon”译为“研究它们是很麻烦的”，将不受认可误作麻烦。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:730–746 死灵法师手记：I panted heavily for the next few moments 误作“接下来的几分钟”；studying them is quite frowned upon, quite bothersome really 丢“遭人非议”，现译“很麻烦……真的很烦人”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2efb21d224596305eebef453d342340f4b9550046eb27bac941299a0b8c9e12b",
+      "stage": "surface",
+      "observation": "“Honest Mistake”指无心之失，译为“诚实的错误”误解了这一固定表达。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/ft-illusory-castle/zone.lua:60–75 随机舰名表（Frank Exchange Of Views、Killing Time 等习语名）：Honest Mistake 为习语“无心之失”，现译“诚实的错误”按字面误读；本库仅此一处（tome-cults.lua:4289）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2f62b393f4398ee6125658fbe356378740921b6f2452a70503554e7958819cbc",
+      "stage": "surface",
+      "observation": "原文“weapon of pain”中的“pain”（痛苦）在译文“消化的武器”中缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/demented.lua:37 技能树描述 a digesting weapon of pain 漏译 of pain，现译“一个消化的武器”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "27ddebe5f38e9a4665d48f5f2855df1723203ffe97ce1dfaac33d3025df428d9",
+      "stage": "contextual",
+      "observation": "fay-willows.lua L661-677（未固定来源）：①L673 'a torrent of undead now flooding through the gate' 指亡灵从城门涌入城内，译文「正从城门涌出」方向相反；②L665 'unleash everything they could over the walls' 译为「在城墙射击计」，这是乱码或错字，语义不通；③L663 'turning to look myself' 指自己也转头去看，误译为「转过身来看着我自己」；④'watch captain' 同段先后译「守望队长」和「守望的上尉」，同一人物的称谓不统一；⑤L675 'Our mages attempted to ready another set of spells but quickly found this quite difficult as arrows and spells ... rained down on them' 意为法师在箭雨下难以备法，译文「很难对抗不死族的箭雨和法术的弹幕」改变了原意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:661–677 埃尔瓦拉守城手记：several rows of skeletons 误作“几排排排成”（叠字错字）；unleash everything they could over the walls 误作“在城墙射击计”（语句残缺）。 contextual 同指“射击计”，另指 turning to look myself 误作“转过身来看着我自己”、a torrent of undead now flooding through the gate 方向应为涌入城内、watch captain 同段“守望队长/守望的上尉”不一、Our mages attempted to ready another set of spells but quickly found this quite difficult as arrows and spells rained down 误作“很难对抗……箭雨和法术的弹幕”，宿主逐句核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "283cf77312bd5b7440c2152998ae06d0a21b905e38976224abaaa46bacd2da19",
+      "stage": "contextual",
+      "observation": "controlled-horrors.lua L267（未固定来源）：'Many other stats will scale with level.' 与前文的 'all talent levels set to %d' 并列，指召唤物的等级；译文「许多其他属性与技能等级相关」把等级换成了技能等级，属机制误导。另外源文 'All its primary stats' 和 'Your ... will all be inherited' 都是单数的一只恐魔，译文两处用「它们」，与首句「召唤一个」的单数主体不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/controlled-horrors.lua:265–269 info 源串内部换行为裸 \\n（无缩进），现译在三处 \\n 后加 \\t\\t，一级 TAB 不变量；Many other stats will scale with level 与 all talent levels set to %d 并列，指召唤物等级，现译“与技能等级相关”误导机制。 contextual 同指技能等级，另指 All its primary stats / will all be inherited 主语为单只恐魔，现译两处“它们”与首句单数不一，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "28b401e79b9295020668175ed9f68bfd0b2b395fd5de31a9ac4b1e94d8de1290",
+      "stage": "contextual",
+      "observation": "chronophage.lua L149（未固定来源）：源文 'you will sever their lifeline, slaying them instantly' 是必然效果，译文加了「尝试」，写成「你将尝试切断目标的生命线」，把确定效果说成了不确定。另外 'feast on the remnants of their timeline' 的 timeline（时间线）被译成「生命线」，与前句 lifeline 混同，丢掉了时空吞噬者的时间线意象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/chronophage.lua:85–93 衰亡施加时的 Severed Threads 判定：target.life <= max_life*life 且 target:checkHit(combatSpellpower, combatPhysicalResist) 且 canBe(\"instakill\") 才 die，存在豁免与免疫判定；现译“尝试切断”贴合实现，保留。 contextual 另指 feast on the remnants of their timeline 的 timeline（时间线）被译成“生命线”，与前句 lifeline 混同；宿主核对属实，改为“时间线”；“尝试”一项按实现判 refuted，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2b62b6a2bca52bd763466e9e957d3d2cadea150a900295f608554c94550368c9",
+      "stage": "contextual",
+      "observation": "kroshkkur.lua L73（未固定来源）：'altering beings in ways that only made sense to Amakthel itself' 的改变对象是生灵，译文「以只有它自己理解的方式改变着世界」把对象换成了世界；'Its touch seemed to curse as readily as it blessed' 的 touch（触碰／施加影响）被译成「它的到来」；'a glowing, divine being' 被译成「圣人」，把神性存在降格为人类圣者，与上下文所述的神不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/kroshkkur.lua:73–75 阿马克泰尔 lore：altering beings in ways that only made sense to Amakthel itself 的对象是生灵，现译“改变着世界”换了对象。 contextual 同指“改变着世界”，另指 Its touch seemed to curse as readily as it blessed 的 touch 误作“它的到来”、a glowing, divine being 误作“圣人”（降格为人），宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ceaa318deef24a29480d827263d5ad47c1b2e0dbe551f2865d322e82cfd1c8e",
+      "stage": "contextual",
+      "observation": "fay-willows.lua L730-746（未固定来源）：①L740 'of course studying them is quite frowned upon, quite bothersome really' 意为研究骨头为世人所不齿、因此很麻烦，译文「研究它们是很麻烦的，真的很烦人」漏掉了 frowned upon（遭人非议）；②L738 'Perhaps sensing my awareness of the staff' 被译成「感觉到我的表情」，语义偏移；③L730 'understand when escape is not an option' 被译成「当逃无可逃的时候准备作战」，添加了原文没有的内容；④L732「我正准备在干掉另一具骷髅」中多了「在」，是错字；⑤L736 'cloaked figure' 译为「穿着长袍」，L738 'its cloak' 却译为「斗篷」，同一件衣物前后不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:730–746 死灵法师手记：I panted heavily for the next few moments 误作“接下来的几分钟”；studying them is quite frowned upon, quite bothersome really 丢“遭人非议”，现译“很麻烦……真的很烦人”。 contextual 同指 frowned upon，另指 Perhaps sensing my awareness of the staff 误作“感觉到我的表情”、understand when escape is not an option 增译“准备作战”、“正准备在干掉”多一“在”字、cloak 同文“长袍/斗篷”不一，宿主逐句核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2efb21d224596305eebef453d342340f4b9550046eb27bac941299a0b8c9e12b",
+      "stage": "contextual",
+      "observation": "ft-illusory-castle/zone.lua L68（未固定来源）：这里是随机名称列表，同列有 'Frank Exchange Of Views'、'Sleeper Service' 等，都是习语式舰名。'Honest Mistake' 是习语，意为无心之失／无意的过错，逐字译成「诚实的错误」误读了习语义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/ft-illusory-castle/zone.lua:60–75 随机舰名表（Frank Exchange Of Views、Killing Time 等习语名）：Honest Mistake 为习语“无心之失”，现译“诚实的错误”按字面误读；本库仅此一处（tome-cults.lua:4289）。 contextual 同指习语误读，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2f62b393f4398ee6125658fbe356378740921b6f2452a70503554e7958819cbc",
+      "stage": "contextual",
+      "observation": "demented.lua L37（未固定来源）：'a digesting weapon of pain' 中的 'of pain' 被漏译，译文「一个消化的武器」缺少「痛苦」这一核心修饰，而且「消化的武器」语义残缺。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/demented.lua:37 技能树描述 a digesting weapon of pain 漏译 of pain，现译“一个消化的武器”。 contextual 同指漏译 of pain 且“消化的武器”语义残缺，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes of 20, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 9 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20; all four lanes echoed their identities exactly and no observation slid.",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Severed Threads (28b401e79b): surface flagged the added \"attempt\", but the public chronophage.lua atrophy hook gates the kill on checkHit and canBe(\"instakill\"), so the wording is refuted; the contextual timeline/lifeline point is confirmed.",
+    "283cf77312 and 2b501aeaa3 carry leading-indentation TAB invariant faults (inner lines), not trailing whitespace.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Eight confirmed repair revisions raise the window 32 backlog from 6 to 14 (batches 290-291)."
+  ]
+}

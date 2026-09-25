@@ -1,0 +1,80 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 9 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "27ddebe5f38e9a4665d48f5f2855df1723203ffe97ce1dfaac33d3025df428d9",
+      "stage": "surface",
+      "observation": "译文出现明显文字错误：“露出几排排排成防御队形的骷髅”和“卫兵们继续尽全力在城墙射击计”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:661–677 埃尔瓦拉守城手记：several rows of skeletons 误作“几排排排成”（叠字错字）；unleash everything they could over the walls 误作“在城墙射击计”（语句残缺）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "283cf77312bd5b7440c2152998ae06d0a21b905e38976224abaaa46bacd2da19",
+      "stage": "surface",
+      "observation": "原文段内换行后没有缩进，译文在各行前增加两个制表符；原文“Many other stats will scale with level”指其他属性随等级变化，译文写成“与技能等级相关”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/controlled-horrors.lua:265–269 info 源串内部换行为裸 \\n（无缩进），现译在三处 \\n 后加 \\t\\t，一级 TAB 不变量；Many other stats will scale with level 与 all talent levels set to %d 并列，指召唤物等级，现译“与技能等级相关”误导机制。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "28b401e79b9295020668175ed9f68bfd0b2b395fd5de31a9ac4b1e94d8de1290",
+      "stage": "surface",
+      "observation": "原文“you will sever their lifeline”明确表示会切断生命线，译文增添“尝试”，改变了效果的确定性。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/chronophage.lua:85–93 衰亡施加时的 Severed Threads 判定：target.life <= max_life*life 且 target:checkHit(combatSpellpower, combatPhysicalResist) 且 canBe(\"instakill\") 才 die，存在豁免与免疫判定；现译“尝试切断”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2967a44c46e0adb9d5aa6e1ea75d01114a1cb9970cbd688b18c2d5d852e6955f",
+      "stage": "surface",
+      "observation": "原文“Recursive Home of Recursion”中的第二个“Recursion”在译文“递归之家”中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults achievements/all.lua:58 成就名 Recursive Home of Recursion 为自指文字游戏，“递归之家”保留主义、略去重复修辞；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2b501aeaa3bfeda3f1407c27c6ad0d7194f124354a78243b085d5bd96b1f5abd",
+      "stage": "surface",
+      "observation": "首个换行后原文有三个制表符，译文只有两个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/madness.lua:224–226 info 源串首个换行后为 \\n\\t\\t\\t（3 个 TAB），现译为 \\n\\t\\t，一级 TAB 不变量，只恢复缩进。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2b62b6a2bca52bd763466e9e957d3d2cadea150a900295f608554c94550368c9",
+      "stage": "surface",
+      "observation": "原文“altering beings”指改变生灵，译文写成“改变着世界”，改变了受影响的对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/kroshkkur.lua:73–75 阿马克泰尔 lore：altering beings in ways that only made sense to Amakthel itself 的对象是生灵，现译“改变着世界”换了对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ceaa318deef24a29480d827263d5ad47c1b2e0dbe551f2865d322e82cfd1c8e",
+      "stage": "surface",
+      "observation": "原文“for the next few moments”译为“接下来的几分钟”，明显改变时间尺度；“studying them is quite frowned upon”译为“研究它们是很麻烦的”，将不受认可误作麻烦。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:730–746 死灵法师手记：I panted heavily for the next few moments 误作“接下来的几分钟”；studying them is quite frowned upon, quite bothersome really 丢“遭人非议”，现译“很麻烦……真的很烦人”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2efb21d224596305eebef453d342340f4b9550046eb27bac941299a0b8c9e12b",
+      "stage": "surface",
+      "observation": "“Honest Mistake”指无心之失，译为“诚实的错误”误解了这一固定表达。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/ft-illusory-castle/zone.lua:60–75 随机舰名表（Frank Exchange Of Views、Killing Time 等习语名）：Honest Mistake 为习语“无心之失”，现译“诚实的错误”按字面误读；本库仅此一处（tome-cults.lua:4289）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2f62b393f4398ee6125658fbe356378740921b6f2452a70503554e7958819cbc",
+      "stage": "surface",
+      "observation": "原文“weapon of pain”中的“pain”（痛苦）在译文“消化的武器”中缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/demented.lua:37 技能树描述 a digesting weapon of pain 漏译 of pain，现译“一个消化的武器”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
