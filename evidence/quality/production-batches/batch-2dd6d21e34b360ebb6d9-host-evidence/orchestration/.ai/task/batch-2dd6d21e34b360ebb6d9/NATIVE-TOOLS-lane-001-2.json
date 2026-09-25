@@ -1,0 +1,50 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_09c1c176244cebec016ab5f2e121ac87d18d54cde10bce1039",
+    "status": "completed",
+    "call_id": "call_XTD3kQ48GqaZPknOyI5nY9nw",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-2dd6d21e34b360ebb6d9-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-2.json\",\"max_output_tokens\":30000});text(r.output)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d6bc-52a7-7823-b50b-149f23fdedf0",
+      "create_time": 1790309065.056587
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_09c1c176244cebec016ab5f2e3295887d1a7d485a373e8bc36",
+    "status": "completed",
+    "call_id": "call_hTt5pnhWVGBdwkumxmGDJjl3",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"pwd\",\"max_output_tokens\":1000});text(r)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d6bc-52a7-7823-b50b-149f23fdedf0",
+      "create_time": 1790309090.364008
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_09c1c176244cebec016ab5f2e5fbf487d1a8f26a16fca0b246",
+    "status": "completed",
+    "call_id": "call_PzTYqYfiQomkgsbR4rbWEUlx",
+    "name": "exec",
+    "input": "text(ALL_TOOLS.filter(x=>/file|read|shell|command/.test(x.name+\" \"+x.description)).map(x=>x.name+\" \"+x.description.slice(0,70)))\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d6bc-52a7-7823-b50b-149f23fdedf0",
+      "create_time": 1790309092.930088
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_09c1c176244cebec016ab5f2ed40f487d1bd0db67d131a551e",
+    "status": "completed",
+    "call_id": "call_syhNTf1ZJanP7xlHRnBOwJ9j",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-2dd6d21e34b360ebb6d9-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-2.json\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"Read the two user-authorized frozen review inputs after sandbox mount isolation failed.\",\"max_output_tokens\":30000});text(r.output)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0d6bc-52a7-7823-b50b-149f23fdedf0",
+      "create_time": 1790309095.182454
+    }
+  }
+]
