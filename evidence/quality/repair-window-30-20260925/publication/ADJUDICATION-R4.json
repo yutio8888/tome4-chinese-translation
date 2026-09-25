@@ -1,0 +1,25 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a1",
+  "raw_ok_count": 21,
+  "raw_issue_count": 2,
+  "decision": "bounded_fix_then_FINAL_REVIEW(4)",
+  "findings": [
+    {
+      "revision_key": "dac57e56ba34a2eab7c2d776820329f1c6b1c68f55a99aa7a2a3808158734466",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Ashes lore/demon.lua:226–228：正文在 befo-- 处中断，下一段 The last O trails off 指被截断词的最后一个字母 O。cycle 1 修复后正文以“赶在——”结尾，中文里没有 O，下一段“最后一个 O 拖出一条线”失去所指。改为“最后一笔拖出一条线”一类，其余不动。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f13d578c105ef5a5aa4d9da0fc47128ae6b87b21ba0ac7c6f19be7dc8e4d31e6",
+      "status": "advisory",
+      "tier": 2,
+      "category": "terminology",
+      "reason": "world-artifacts.lua:783–789 The Black Maul 描述 \"A fitting weapon for the Champion.\" 中 the Champion 未指明为 Champion of Urh'Rok；Ashes 源码中无将 Black 系列装备与该魔物挂钩的引用，reviewer 的对应关系属推测，“冠军”不构成可客观判定的缺陷。仅记 advisory，不 reopen。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T15:12:20.297443+00:00"
+}

@@ -1,0 +1,15 @@
+已完成一次 FIX，仅修改 [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua) 的三条 confirmed target：
+
+- `bade887035…`：移除 `killer_message` 句末句号。
+- `dac57e56ba…`：改为“准备烟火，架好聚光灯和音响系统，赶在——”。
+- `ea1d8fcb0b…`：明确仅种子升级受宿主等级条件限制；治疗与复活无条件执行。
+
+验证结果：
+
+- LuaJIT 记录级比较：通过；900 条记录中恰有 23 条 frozen target 相对基线变化，非 target 变化为 0，LF/TAB、占位符及 markup 不变量通过。
+- `python3 -B tools/i18n lint --strict`：通过，30308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- tracked diff 仅包含 `tome-ashes-urhrok.lua`。
+- `.ai/task/repair-w30-20260925` 无改动；无暂存、提交、推送或新建 agent。
+
+Paseo EXECUTOR 角色约束用于限定唯一写入文件和验证范围。无计划偏差或未解决问题。

@@ -1,0 +1,43 @@
+已完成 repair-w30-20260925 的 23 条 target 修复。
+
+- 修改文件：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+- 逐条改动与风险：[IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-30-20260925/IMPLEMENTATION.md)
+- 完整验证记录：[VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-30-20260925/VALIDATION.json)
+
+逐条修复覆盖：
+
+1. 德瑞宝传送门逆向研究 lore
+2. 传送至玛·洛克的死亡信息
+3. “玛·洛克的历史（误译）”标题
+4. 恶魔使者交战简报全文及三处代词函数
+5. 唯余灰烬范围表述
+6. 疫火主动寻找燃料
+7. 腐化之光伤害描述
+8. 死亡之刃命名梗与巨剑
+9. 遗失的记忆（1）全文
+10. 灵魂焚净 LF/TAB
+11. 黑之铠引文
+12. 轨道基地战斗便条全文
+13. 近战火球的视野目标范围
+14. 夸塞魔 lore 全文
+15. 鲜血契约 TAB
+16. 锻造巨人 lore 全文
+17. 里斯丰格 lore 全文
+18. 恶魔之种植入几率、唯一恶魔及 LF/TAB
+19. 恐惧之焰未鉴定名称
+20. 肢解 TAB
+21. 渗透护盾的乌鲁洛克能量
+22. 黑之锤引文
+23. 灼魂之罚 LF/TAB 与句子结构
+
+验证结果：
+
+- 12/12 个 Ashes 源文件 SHA 与 SOURCE-ANCHORS 一致。
+- LuaJIT：849→849 条记录，恰 23 个 target 改动，0 个非 target 改动。
+- WORKSET 23/23 匹配；LF/TAB 逐行匹配。
+- 模板表达式数量不变，仅三处 SOURCE-CLAIMS 授权的代词函数名变更。
+- strict lint：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 最终 Lua SHA-256：`bc45e766a74e1a960670404b76553eab761ba4078be47b995e882f7ef08a99b9`
+
+剩余风险：Ashes 源码仓库和 commit 未固定，本轮依赖冻结的逐文件 SHA 锚点。未 stage、commit、push；未修改 `.ai/task`，既有无关未跟踪文件保持不动。

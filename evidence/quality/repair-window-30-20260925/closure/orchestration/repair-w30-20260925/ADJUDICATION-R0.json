@@ -1,0 +1,26 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 21,
+  "raw_issue_count": 2,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "revision_key": "bce9bc97c2ad35db7b4227c632fe25671f0b0bde9a1beee476a1dab2eaceabdf",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Ashes lore/demon.lua:174：you've seen all this in action before, these powers being used alongside yours in training and in combat 指守军见过同伴在训练与战斗中与自己并肩使用这些能力；现译“你以前见过<?=player:he_she()?>使出这一切”把施展者错指为玩家（宿主在 execute-01 后自核亦发现）。改为“你以前见过这一切——在训练和战斗中，同伴与你并肩施展这些能力”一类，不引入 player 代词；本条其余修复保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "de010befadb30a314e41c3d011d9d48ac526781bba885795e92f3116e238270b",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "公开 Ashes demon-seeds.lua:44–47 对选出的每个敌人以 {type=\"bolt\"} 各发射一枚飞弹（非范围爆炸）；info 的“火球”易读作范围爆炸，第285、286批 contextual 与本轮 REVIEW 三次提出。info 内改为“火焰飞弹”；技能名“近战火球”为本库既定名（tome-ashes-urhrok.lua:781），不在本窗口更名。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T14:08:17.602624+00:00"
+}

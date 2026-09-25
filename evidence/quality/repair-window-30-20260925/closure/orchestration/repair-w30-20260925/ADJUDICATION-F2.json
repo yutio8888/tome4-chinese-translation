@@ -1,0 +1,18 @@
+{
+  "cycle": 2,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f2a2",
+  "raw_ok_count": 22,
+  "raw_issue_count": 1,
+  "decision": "FINAL failed: bounded fix then RE_REVIEW(3) then FINAL_REVIEW(3)",
+  "findings": [
+    {
+      "revision_key": "ce3b54895d49edbdf483d73d8901a370ad0c2e32121ab624a1863edd3fc77c8d",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "placeholder",
+      "reason": "公开 Ashes lore/demon.lua:112–116 Lost Memories (1) 为 template=true，源文含 4 处 <?=_t(player.descriptor.subrace, \"birth descriptor name\")?>（对照组受试者与玩家同种族）；固定主游戏 624a6732 PartyLore.lua:87–91 对 template lore 用 slt2.loadstring/render 渲染 l.lore，即渲染译文。现译 4 处全改为泛称“同族”，占位符集合与源文不一致，运行时丢失种族名；本库同文件 Lost Memories 其他条目（“这个狡猾的小 <?=…?>”）保留占位符。按原位恢复 4 处占位符（另一个<?=…?>、扑到<?=…?>脸上、<?=…?>脸上的笑容、<?=…?>停止扭动），其余不动。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T14:28:18.538421+00:00"
+}

@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（第286批已 finalize；修复积压 23 条达到阈值，开修复窗口30）
+更新时间：2026-09-25（修复窗口30已完成；待宿主提交并推送证据，下一步审核第287批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -12,10 +12,9 @@
   2 blocked（pending）。surface 4 lane 的 identity 回显全部逐位一致，无错位；contextual run 只读冻结 envelope 与契约，
   未越界，无需 refreeze，复核 18 条；26 个观察逐条裁决。17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，
   证据提交 `2e53e8ad227ee0f37c697e98e8b0713ca95defad` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **29**：第 281–283 批共 21 条确认问题已修复并发布，译文提交
-  `67a3a394b02b92a60a32b21c5df203ac08a1651e`；migration `33667e0f…` 的 21 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 29 证据 `21078cae` 已提交并推送；
-  窗口 30 积压 23 条（第284–286批），已达阈值。
+- 修复窗口已闭合至 **30**：第 284–286 批共 23 条确认问题已修复并发布，译文提交
+  `941824e9642823b8a3575eee10bea5217be2afc5`；migration `daf1db30…` 的 23 个 successor
+  须重新审核，不继承旧 revision 的 done 状态。新积压 1 条（见第五节），从审核第 287 批重新累计。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -54,6 +53,8 @@
 - 2026-09-25：第278批后的暂停已由用户明确解除（“验收完毕后合入主开发区，然后让主开发区空闲的 opus5.5 agent
   继续推进审核工作”）。主持由 Opus 5.5 接手，从第279批起按既定顺序连续推进；停止条件照常生效。
 - 无需再次询问审核外发或 push 授权；现有授权继续有效。
+- 2026-09-25 用户：后续将审批轮次放宽到5次（修复窗口 max_cycles 默认 5，STATE 须同时写
+  `max_cycles_user_authorized=true`）。
 - 审核模型：surface `codex/gpt-6-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
   修复 EXECUTOR `codex/gpt-5.6-sol`。
 
@@ -116,23 +117,10 @@
 
 ## 五、下一步
 
-1. 开修复窗口 **30**（23 条，第284–286批），以 `/tmp/w29-tr.sh`、`/tmp/w29-close.sh` 与 `.artifacts/i18n/repair-w29-20260925/setup_window29.py` 为模板；
-   开窗时宿主先逐句预检长 lore 条目，FINAL 在 RE_REVIEW 之后冻结用 attempt 2。窗口完成后继续审核第 **287** 批。
-2. 窗口 30 范围 **23** 条（第284–286批）。第284批 7 条：`ba84fb70`（德瑞宝传送研究 reverse-engineering/工艺品）`bade8870`（空间控制者击杀信息 teleported）
-   `bc6203b6`（玛·洛克的历史（误译）标题）`bce9bc97`（战术简报：近战火球、写死“他”、may、增译手段，整段预检）
-   `bfd436bc`（唯余灰烬末句“范围”重复；4 格括注贴合实现须保留）`c254cf06`（疫火权杖 go out of their way）`c6e8c8e4`（腐化之光“全体伤害”）。
-   依据见 `.ai/task/batch-2693c7d9d6bb6b335806/HOST-FINAL-DECISIONS.json`；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续覆盖。
-   第284批计时（实测，投影缓存 on）：start 89.3 s；adjudication chain（含 17 项门禁）160.4 s；finalize 91.1 s。
-   第285批 5 条：`cdac06c9`（死亡之刃描述命名梗、巨剑、无与伦比）`ce3b5489`（遗失的记忆（1）：patch him up、眼睛、subpar、bubbles，整段预检）
-   `d3c0b76c`（灵魂焚净 \n\t\t 两处）`d3db2e0a`（黑之铠描述残骸位置与引号）`dac57e56`（轨道基地战斗情报便条：拽走、双刃、构装体、打断、炸毁、隔离、写死“他”）。
-   依据见 `.ai/task/batch-fa1ef950617bf0290a74/HOST-FINAL-DECISIONS.json`。
-   第285批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）160.8 s；finalize 91.7 s。
-   第286批 11 条：`de010bef`（Flame Bolts info 漏 foes in sight）`de5854b6`（夸塞魔 lore 漏译，统一“缟玛瑙之子”）`df5ab191`（doom-covenant 三制表符）
-   `e6985dcd`（锻造巨人 lore：cannot be overstated 反译、模具、能耗、父亲大人）`e781f930`（里斯丰格 lore：intact、受试者动机）
-   `ea1d8fcb`（恶魔种子植入：tries、unique demons、always try、空行制表符、多余空格）`eb38d586`（恐惧之焰 unided_name）`ebb709fd`（demonic-strength 制表符）
-   `ee892093`（doom-shield 乌鲁洛克的能量）`f13d578c`（黑之锤描述增译与引号）`f3b3b2e5`（灼魂之罚 info 按原文三处 \n\t\t 分行）。
-   依据见 `.ai/task/batch-5ce6060013cbbb517e2c/HOST-FINAL-DECISIONS.json`。
-   第286批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）162.6 s；finalize 92.1 s。
+1. 宿主完成窗口 30 证据提交、关闭后的 queue rebuild 与 push，然后继续审核第 **287** 批（默认 80 条，连续推进）。
+2. 窗口 30 已完成。新积压 1 条：`tome-ashes-urhrok.lua:1240` 恶魔角刺穿条“黑暗伤害”应为“暗影伤害”
+   （窗口 30 `FINAL_REVIEW(3)` 同类发现，不在本窗口范围）；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）
+   仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 27 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25项，Armoured Leviathan 同族第21/27项）。

@@ -1,0 +1,75 @@
+{
+  "task_id": "repair-w30-20260925",
+  "candidate_sha256": "bc45e766a74e1a960670404b76553eab761ba4078be47b995e882f7ef08a99b9",
+  "frozen_inputs": {
+    "WORKSET.json": "77b516ea5120e1ef1b4e8bebf0c64fffd809a3681b17ede9c0bf50b67d2929a3",
+    "SOURCE-ANCHORS.json": "b7435934d010e5b6fa3d65b50b50d11a13d158cb554b38ddc5b8a5a130dc483e",
+    "SOURCE-CLAIMS.json": "777894f1258140abd46fff41a0ed1ccb7ff3f713f74fb27730e35a8ee4d48ecc"
+  },
+  "source_anchor_check": {
+    "status": "pass",
+    "files_checked": 12,
+    "sha256_matches": 12,
+    "repository_commit_pinned": false
+  },
+  "checks": [
+    {
+      "name": "i18n_doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "status": "pass_with_expected_warnings",
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; warnings only for the three intentionally unpinned DLC sources"
+    },
+    {
+      "name": "luajit_exact_record_diff",
+      "status": "pass",
+      "result": {
+        "records_before": 849,
+        "records_after": 849,
+        "target_changes": 23,
+        "non_target_changes": 0,
+        "workset_match": true,
+        "lf_tab_layout_match": true,
+        "template_expression_count_match": true,
+        "template_function_only_changes": 3
+      }
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "status": "pass",
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260925T140056.525633Z-2475979-lint/lint.json"
+    },
+    {
+      "name": "translation_diff_check",
+      "command": "git diff --check -- tome-ashes-urhrok.lua",
+      "status": "pass"
+    },
+    {
+      "name": "tracked_file_scope",
+      "command": "git diff --name-only",
+      "status": "pass",
+      "result": [
+        "tome-ashes-urhrok.lua"
+      ]
+    },
+    {
+      "name": "implementation_evidence_whitespace",
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-30-20260925/IMPLEMENTATION.md",
+      "status": "pass",
+      "result": "exit 1 with no diagnostics; the exit code denotes an untracked file difference"
+    },
+    {
+      "name": "validation_evidence_whitespace",
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-30-20260925/VALIDATION.json",
+      "status": "pass",
+      "result": "exit 1 with no diagnostics; the exit code denotes an untracked file difference"
+    }
+  ],
+  "diagnostic_history": [
+    "The first semantic probe failed in its own TAB-prefix regular expression; it made no repository changes.",
+    "The corrected probe then detected template-token drift in the long briefing; the frozen sequence was restored, retaining only three SOURCE-CLAIMS-authorized function-name substitutions.",
+    "An intermediate diff check detected the required TAB-only blank line as physical trailing whitespace; the target now produces the identical runtime LF/TAB sequence through Lua string concatenation, confirmed by the final LuaJIT comparison."
+  ],
+  "stage_commit_push": false
+}

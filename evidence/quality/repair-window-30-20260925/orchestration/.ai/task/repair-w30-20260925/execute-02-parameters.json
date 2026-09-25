@@ -1,0 +1,18 @@
+{
+  "title": "W30 review finding fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w30-20260925 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R0.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复两条 confirmed target（tome-ashes-urhrok.lua）：(1) bce9bc97c2… 第四段“你以前见过<?=player:he_she()?>使出这一切……”改为忠实于 you’ve seen all this in action before, these powers being used alongside yours in training and in combat 的表述（守军见过同伴在训练与战斗中与自己并肩施展这些能力），不引入 player 代词，本条其余文字与模板表达式保持不变；(2) de010befad… info 中“火球”改为“火焰飞弹”（技能名“近战火球”不改），其余保持。LF/TAB、占位符与 markup 原样保留，文件其他记录不变。运行有界验证（LuaJIT 相对 HEAD 恰23条 target 变动、strict lint、diff check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w30-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

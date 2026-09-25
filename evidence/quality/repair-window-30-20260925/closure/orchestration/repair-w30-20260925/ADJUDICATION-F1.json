@@ -1,0 +1,38 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f1a2",
+  "invalid_attempts": [
+    {
+      "dispatch_id": "f1a1",
+      "reason": "prose prefix before JSON, 4 of 23 verdicts, truncated revision_key; contract validation rejected it (see INVALID-F1A1.json); fresh retry f1a2 on a byte-identical envelope"
+    }
+  ],
+  "raw_ok_count": 20,
+  "raw_issue_count": 3,
+  "decision": "FINAL failed: bounded fix then RE_REVIEW(2) then FINAL_REVIEW(2)",
+  "findings": [
+    {
+      "revision_key": "bade8870357b885b3eb441349fa0f7a00831fc6e831a8d8d31a8b9a0268d6ef4",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "固定主游戏 624a6732 game/modules/tome/class/interface/PartyDeath.lua:93 以 \" \"..src.killer_message 作为 killermsg 代入死亡消息；本库中文格式串 mod-tome.lua:1413“……杀死他（她）的是%s%s%s，死在第%s层，%s。”中 killermsg 后紧接“，死在……”。现译以“。”结尾，运行时在句中留下句号；本库同类 killer_message（tome-ashes-urhrok.lua:1677“并以恶魔尸傀的形式重生”）不带标点。去掉句末“。”，其余保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dac57e56ba34a2eab7c2d776820329f1c6b1c68f55a99aa7a2a3808158734466",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Ashes lore/demon.lua:226：prepare pyrotechnics, and set up spotlights and speaker systems befo-- 中架设灯光音响是独立命令，被截断的 before 引出其后之事；现译“并在搭好聚光灯和音响系统之——”把它放进“在……之前”从句，丢了命令并颠倒先后。改为“准备烟火，架好聚光灯和音响系统，赶在——”一类保留截断效果，其余保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ea1d8fcb0b64e634030eb0c5fe37dbc85d0f8399d01079b3d2601a3b6ac52a17",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "公开 Ashes demonic-pact.lua:438–467 updateSeed：hlevel=math.max(hlevel, demon.level) 仅在宿主等级更高时提升等级，而 demon.dead=nil（复活）与 demon:heal(t:_getHeal(self))（:467 治疗）无条件执行；createSeed 找到同类种子即调用 updateSeed(found)（:536）。现译把治疗与复活并入等级条件。改为“则不会获得新种子，而是在宿主等级更高时提升该种子等级；同时其中的恶魔恢复 %d%% 生命值，若已死亡则复活”一类，占位符顺序与 LF/TAB 不变。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T14:17:59.910722+00:00"
+}
