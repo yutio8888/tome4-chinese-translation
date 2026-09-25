@@ -1,0 +1,75 @@
+{
+  "workset": "evidence/quality/production-batches/batch-fa1ef950617bf0290a74-source-workset.json",
+  "decisions": {
+    "cc71bc2cab|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes achievements/all.lua:21–29 成就 A Fist Full of Demons 条件为击杀 1000 个恶魔（desc Killed 1000 demons.）；现译“恶魔杀戮者”未保留 fist full 的双关，但贴合成就条件，且与上游官方 zh_hans 语言包（data/locales/zh_hans.lua:5）一致，为本库既定成就名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "cdac06c979|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:190–198 死亡之刃（Dethblyd）描述：He wasn't known for his subtlety of naming 是调侃剑名 Dethblyd 起得直白，but there's no denying the power of his massive sword；现译“从不擅长谋略”“他的力量无以伦比”误解命名梗并丢了巨剑，整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "ce3b54895d|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua:105–125 遗失的记忆（1）：四处 <?=_t(player.descriptor.subrace, ...)?> 指与玩家同种族的另一名受试者，现译以“同族”“他”指代，语义保持（the other one 在原文中亦以 he 指代），模板表达式省略不改变显示含义，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d393910508|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon-seeds.lua:23–50 Flame Bolts 为被动：callbackOnMeleeAttack 近战命中时按几率向范围内敌人发射火焰飞弹（type=\"bolt\"）；现译“近战火球”为本库既定技能名（tome-ashes-urhrok.lua:781），“近战”对应触发条件，“球”与 bolt 不完全贴合，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d3c0b76c51|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes fearfire.lua:121–123 源串两处分隔均为 \\n\\t\\t（宿主实测源 2 个 LF），现译为 \\n\\t 与 \\n\\n，一级换行/TAB 不变量，恢复为两处 \\n\\t\\t。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d3db2e0afe|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:737–743 黑之铠（The Black Plate）描述 \"Wreckage all about you. Is there anything left inside?\"：残骸在“你周围”，并追问甲内是否还剩什么；现译“己身若残，何物能存？”把残骸移到自身并丢了引号，修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d3e2c5ca56|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes torture.lua:108 技能 Abduction（命中后把目标拉到身边再次攻击）；现译“锁魂之链”为本库既定技能名（tome-ashes-urhrok.lua:1335，同族变身加成亦用此名），意译未直译“掳走”，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d4e9fc7ae6|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:575–608 BURNING_PLAGUE（瘟疫之焰）callbackOnDeath：以半径 range 的 ball 投射，对附近目标重新施加 BURNING_PLAGUE，power=eff.power*eff.explosion（0.75），无直接爆炸伤害；现译“以更弱的强度传播到附近目标”贴合实现，上游 info 的 explode 较笼统。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "dac57e56ba|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:212–229 轨道基地战斗情报便条：like the pen was rapidly jerked away 是笔被猛地拽走，现译“笔从手上滑落”；double-bladed katana 漏“双刃”，giant construct labelled 漏“巨型构装体”，interrupted this demon's writing 被改成“吓尿了”，target's 写死为“他的”（应随 player 或改中性），isolating 被改成“启动最高优先级措施”，整段对照修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "cdac06c979|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:190–198 死亡之刃（Dethblyd）描述：He wasn't known for his subtlety of naming 是调侃剑名 Dethblyd 起得直白，but there's no denying the power of his massive sword；现译“从不擅长谋略”“他的力量无以伦比”误解命名梗并丢了巨剑，整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 另指错字“无以伦比”应为“无与伦比”，修复时一并处理。"
+    },
+    "ce3b54895d|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:114–125 遗失的记忆（1）（宿主实测源文）：两处 patch him up 是“给他疗伤”，现译“把他带走”“带下去”与后文伤口愈合矛盾；it missed your eyes（酸液没溅到眼睛，所以你还看得见）被译成“他漏看了你的眼睛”；Structural damage subpar 漏译 subpar（低于预期，正是对方失望的原因）；your skin still bubbles 被译成“仍在颤抖”。一级 fidelity，整段对照修复；subrace 模板以“同族”指代保持不变（surface 该点 advisory）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "d393910508|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon-seeds.lua:23–50 Flame Bolts 为被动：callbackOnMeleeAttack 近战命中时按几率向范围内敌人发射火焰飞弹（type=\"bolt\"）；现译“近战火球”为本库既定技能名（tome-ashes-urhrok.lua:781），“近战”对应触发条件，“球”与 bolt 不完全贴合，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 依 range=5 认为是远程技能，但同文件 :32 callbackOnMeleeAttack 表明由近战攻击触发，“近战”有实现依据；bolt≠球的偏差照记 advisory。"
+    },
+    "d4e9fc7ae6|contextual": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:575–608 BURNING_PLAGUE（瘟疫之焰）callbackOnDeath：以半径 range 的 ball 投射，对附近目标重新施加 BURNING_PLAGUE，power=eff.power*eff.explosion（0.75），无直接爆炸伤害；现译“以更弱的强度传播到附近目标”贴合实现，上游 info 的 explode 较笼统。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 因冻结片段未含 on-death 实现而存疑，宿主已核 callbackOnDeath（:597–608）。"
+    },
+    "dac57e56ba|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:212–229 轨道基地战斗情报便条：like the pen was rapidly jerked away 是笔被猛地拽走，现译“笔从手上滑落”；double-bladed katana 漏“双刃”，giant construct labelled 漏“巨型构装体”，interrupted this demon's writing 被改成“吓尿了”，target's 写死为“他的”（应随 player 或改中性），isolating 被改成“启动最高优先级措施”，整段对照修复。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 另指 Blow all connectors 被弱化成“关闭”，应为炸毁，一并修复。"
+    }
+  }
+}

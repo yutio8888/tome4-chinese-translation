@@ -1,0 +1,80 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 9 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "cc71bc2cab39763375b1d71b79fca5743ca19d7ecf1e0048e8751826a1c62049",
+      "stage": "surface",
+      "observation": "英文“A Fist Full of Demons”包含“一把恶魔”的意象，译文“恶魔杀戮者”改成杀戮恶魔的人，含义明显不同。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes achievements/all.lua:21–29 成就 A Fist Full of Demons 条件为击杀 1000 个恶魔（desc Killed 1000 demons.）；现译“恶魔杀戮者”未保留 fist full 的双关，但贴合成就条件，且与上游官方 zh_hans 语言包（data/locales/zh_hans.lua:5）一致，为本库既定成就名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cdac06c97945087b597d5db73e5dd09e220ff8e15e1dd6f2818f056edb37a40a",
+      "stage": "surface",
+      "observation": "原文说他不善于巧妙命名，并强调巨剑的威力；译文写成不擅谋略，且遗漏巨剑。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:190–198 死亡之刃（Dethblyd）描述：He wasn't known for his subtlety of naming 是调侃剑名 Dethblyd 起得直白，but there's no denying the power of his massive sword；现译“从不擅长谋略”“他的力量无以伦比”误解命名梗并丢了巨剑，整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ce3b54895d49edbdf483d73d8901a370ad0c2e32121ab624a1863edd3fc77c8d",
+      "stage": "surface",
+      "observation": "原文四次出现的动态标记 <?=_t(player.descriptor.subrace, \"birth descriptor name\")?> 在译文中全部缺失，改成了固定称呼。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua:105–125 遗失的记忆（1）：四处 <?=_t(player.descriptor.subrace, ...)?> 指与玩家同种族的另一名受试者，现译以“同族”“他”指代，语义保持（the other one 在原文中亦以 he 指代），模板表达式省略不改变显示含义，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d393910508b1902c2781c49e8ee8d768ad97f0175c50abac7ca64088ebb8b1fe",
+      "stage": "surface",
+      "observation": "“Flame Bolts”意为火焰飞弹，译文“近战火球”加入了原文没有的近战含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon-seeds.lua:23–50 Flame Bolts 为被动：callbackOnMeleeAttack 近战命中时按几率向范围内敌人发射火焰飞弹（type=\"bolt\"）；现译“近战火球”为本库既定技能名（tome-ashes-urhrok.lua:781），“近战”对应触发条件，“球”与 bolt 不完全贴合，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d3c0b76c51ea9a2d4e205eea79d505dacdbee9d022539c42f888731f50ad7d31",
+      "stage": "surface",
+      "observation": "原文两个段落分隔均为 \\n\\t\\t；译文分别改为 \\n\\t 和 \\n\\n，缩进及换行格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes fearfire.lua:121–123 源串两处分隔均为 \\n\\t\\t（宿主实测源 2 个 LF），现译为 \\n\\t 与 \\n\\n，一级换行/TAB 不变量，恢复为两处 \\n\\t\\t。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d3db2e0afe622cb0b7334175689de0ee7503a30077262683d6fc67ec219803b3",
+      "stage": "surface",
+      "observation": "原文描述“你周围尽是残骸”，译文改为“己身若残”，改变了残骸所在的位置和对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes world-artifacts.lua:737–743 黑之铠（The Black Plate）描述 \"Wreckage all about you. Is there anything left inside?\"：残骸在“你周围”，并追问甲内是否还剩什么；现译“己身若残，何物能存？”把残骸移到自身并丢了引号，修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d3e2c5ca56a9bbb2baa5058291cbc6cca9eff5ec8aab802098ee4f80f7652c0f",
+      "stage": "surface",
+      "observation": "“Abduction”表示掳走或绑架；“锁魂之链”未表达这一含义。仅有名称，缺少判断该专名是否另有语境的证据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes torture.lua:108 技能 Abduction（命中后把目标拉到身边再次攻击）；现译“锁魂之链”为本库既定技能名（tome-ashes-urhrok.lua:1335，同族变身加成亦用此名），意译未直译“掳走”，单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d4e9fc7ae6bd54da2ef09fe24d32de59c7df8eb999cbbe270e30de807f665abc",
+      "stage": "surface",
+      "observation": "原文说目标死亡时火焰会爆炸；译文改成火焰以更弱的强度传播到附近目标，漏掉爆炸并加入原文没有的效果。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:575–608 BURNING_PLAGUE（瘟疫之焰）callbackOnDeath：以半径 range 的 ball 投射，对附近目标重新施加 BURNING_PLAGUE，power=eff.power*eff.explosion（0.75），无直接爆炸伤害；现译“以更弱的强度传播到附近目标”贴合实现，上游 info 的 explode 较笼统。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dac57e56ba34a2eab7c2d776820329f1c6b1c68f55a99aa7a2a3808158734466",
+      "stage": "surface",
+      "observation": "原文称最后一个字母 O 的笔迹拖出一条线，像笔被迅速拽走；译文改成笔从手中滑落。原文的双刃武士刀也漏译了“双刃”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:212–229 轨道基地战斗情报便条：like the pen was rapidly jerked away 是笔被猛地拽走，现译“笔从手上滑落”；double-bladed katana 漏“双刃”，giant construct labelled 漏“巨型构装体”，interrupted this demon's writing 被改成“吓尿了”，target's 写死为“他的”（应随 player 或改中性），isolating 被改成“启动最高优先级措施”，整段对照修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
