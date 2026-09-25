@@ -1,0 +1,241 @@
+{
+  "batch_id": "batch-76f9078d25a218ccbe79",
+  "observations": 25,
+  "observation_dispositions": {
+    "confirmed": 16,
+    "refuted": 6,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "54a6a1b06c2fb9c05197d9a9a5f9b3db865c80ef3946ed631f47277600d01022",
+    "54ef1fbfc9036ce7a6d07d438fc9a67b604d0c9d014893533d52934d64361d67",
+    "55bb0228d518ccd1fe3e72d745741a1a43c0cd53bb775ed0f5eacd7628b534c7",
+    "55dedd24042aae125f4b5dc8c45eb4688e9f1fc2d3283c3487fd82fc1a85cd5d",
+    "5666e9d8277742b7df95b3241b1eec6ab1fa1365323e2c65b7be28b88ed73126",
+    "5b6924a79dbd71f8e223833298a0ed8058c2c7b7c10d0221ea66fb3effcb8204",
+    "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+    "614e1524636355ced3cb6890e9cee49a0e19efb8720e04b02185f20ab8057589",
+    "620e36d2845505eccbc84482f63ade195ff3c2fcefd94c00b5eb1df1f9569eb7",
+    "641933080c0323cbfee34fceb1ef630eda1691351eb5abf98dfd325728e5c5c9",
+    "69b36890678ee159bcf8d8af57235bfbe20b222a783193ef3d9c422ffb493080"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 69,
+    "repair_required": 11
+  },
+  "rows": [
+    {
+      "revision_key": "54a6a1b06c2fb9c05197d9a9a5f9b3db865c80ef3946ed631f47277600d01022",
+      "stage": "surface",
+      "observation": "原文“you may be stronger then”指对方届时可能更强；译文“与其到时候再打败你”漏掉这一意思，并改成届时打败对方。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes overload/data/chats/ashes-urhrok-walrog-pop.lua:39–42：乌尔罗格的理由是迟早要上到地面、那时你可能更强，所以不必再等；现译“与其到时候再打败你”丢掉 you may be stronger then 这一理由并改写因果，come to the surface 夸大为“君临大地”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "54ef1fbfc9036ce7a6d07d438fc9a67b604d0c9d014893533d52934d64361d67",
+      "stage": "surface",
+      "observation": "原文第二行以两个制表符开头，译文仅保留一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demonic-strength.lua:94–95 恶魔之血说明第二行以 \\n\\t\\t 缩进，现译为 \\n\\t（一级 TAB 不变量，同第279批同类修复），只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "55bb0228d518ccd1fe3e72d745741a1a43c0cd53bb775ed0f5eacd7628b534c7",
+      "stage": "surface",
+      "observation": "原文“Any creature caught in the way”包括路径上的任何生物，译文限定为“敌人”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demon-seeds.lua:1144–1175 烈焰突袭的 target 为 beam、只设 selffire=false；固定主游戏 624a673 engine/Target.lua:649–682 friendlyfire 默认 true，ActorProject.lua:255 仅在其为假时跳过友方，故路径上友方也受火焰伤害并计入活力回复。现译“任何路径上的敌人”把 Any creature 收窄为敌人。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "55dedd24042aae125f4b5dc8c45eb4688e9f1fc2d3283c3487fd82fc1a85cd5d",
+      "stage": "surface",
+      "observation": "占位符被改动：原文末段的<?=player:he_she():capitalize()?>在译文中变为<?=player:he_she()?>；原文与译文的<?=player:his_her()?>、<?=player:he_she()?>出现次数也不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:151–157 全文以性别宏指代玩家；现译两处写死“他”：“阻止他冲破重围”（源为 <?=player:he_she()?>）、“将他打成马蜂窝”（源为 <?=player:him_her()?>），女性角色显示错误（一级占位符不变量；实测源 27 个宏、译 24 个）。he_she():capitalize() 在中文无大小写意义，不单独计。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5666e9d8277742b7df95b3241b1eec6ab1fa1365323e2c65b7be28b88ed73126",
+      "stage": "surface",
+      "observation": "原文用于考察伏击战术的场地是“forest of pillars”（柱林），译文写成“复杂迷宫”，改变了场地描述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:370（乌鲁洛克的精英卫兵雕像）：forest of pillars 被写成“复杂迷宫”；not born in the conventional manner 增译“天才”；performing adequately 被拔高为“相当出色”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "59e30b6e11a96054bdfbe42947c9c14d018801b7a20c4e7e676479433f91a9d6",
+      "stage": "surface",
+      "observation": "原文为“Status resistances”（状态抗性），译文写成“状态免疫”，改变了机制表述。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:299–345 以 confusion_immune/stun_immune/pin_immune/silence_immune 部分值实现“状态抗性”；本库既定惯例把 *_immune 百分比作“免疫”（指南 6.3），现译“状态免疫”与同族一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5b6924a79dbd71f8e223833298a0ed8058c2c7b7c10d0221ea66fb3effcb8204",
+      "stage": "surface",
+      "observation": "第二行源文以两个制表符缩进，译文只有一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes oppression.lua:247–248 绝望碾压说明第二行以 \\n\\t\\t 缩进，现译为 \\n\\t（一级 TAB 不变量），只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5de8bdb19c931bdd1947728ce68ea9d0e79d5c3628a1841fcc3b86bc137e6cfb",
+      "stage": "surface",
+      "observation": "源文「one fights for the third with the cultists she taught」未说复活，译文却写「为复活另一者而战」；「maintain your deception」也被译为「隐藏你的踪影」，改变了含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes birth/doomelf.lua:27–32 魔化精灵锁定提示为谜语诗；解锁实为击杀三名古老恶魔（achievements/all.lua:84–107）。“为复活另一者而战”与 lore/demon.lua 中莎西·凯希设法复原克里尔·费扬的叙述相符；deception→“踪影”、taught 未译属诗体取舍，不影响解锁提示，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+      "stage": "surface",
+      "observation": "源文「peasants」被译成「难民」；「lash out once I was sure my life was in danger」被译成有生命危险时「抽身逃走」，反击变成逃走；「growing them back with more nerve endings」指重新长出眼球，译文却写成「将它放回神经更加密集的地方」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:444–464（克里尔·费扬雕像）：peasants 误作“难民”；lash out once I was sure my life was in danger 是“确认性命受威胁才反击”，现译“抽身逃走”意思相反；growing them back with more nerve endings 误作“放回神经更加密集的地方”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "614e1524636355ced3cb6890e9cee49a0e19efb8720e04b02185f20ab8057589",
+      "stage": "surface",
+      "observation": "原文问“他们的死是否只是犹豫不决所致”，译文改为“他们的尸体又是怎么回事”，改变了问题的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes walrog-pop.lua:59–62 chat c：源文无“无耻的背叛者”（Traitor 只在 chat b 按 naga 条件代入），属增译且对非 naga 角色错误；were their deaths just indecision? 被改成“他们的尸体又是怎么回事”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "61c813b980b7ce4980e213759110affcbaec7b2368c9640838fdf96cda4efe19",
+      "stage": "surface",
+      "observation": "原文 champion 指勇士或斗士；译文增加了原文没有的“卫兵”身份。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon_statues.lua:24 的 champion of Urh'Rok；本库同族 tome-ashes-urhrok.lua:110、445、547、548、550 一致作“乌鲁洛克的精英卫兵”，属既定专名，单条不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "61ee07b50ff6dcf70fbcc17e8a5718d4cc1975a7532768aa098153ccf3a7b227",
+      "stage": "surface",
+      "observation": "原文 Demonic Madness 含“恶魔”与“疯狂”，译文“疯狂旋转”漏掉“恶魔”并增加原文没有的“旋转”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes doom-shield.lua:120–165 Demonic Madness 为以盾旋转、攻击周围并致混乱的技能（info：You spin around madly with your shield）；“疯狂旋转”概括机制且同族 info 一致（指南 6.3 意译专名）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "620e36d2845505eccbc84482f63ade195ff3c2fcefd94c00b5eb1df1f9569eb7",
+      "stage": "surface",
+      "observation": "原文是半径为 %d 的范围，译文改成 %d 码的锥形范围，改变了范围形状。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "观察所称“锥形”不成立：公开 Ashes fearfire.lua:142 地狱吐息 target 为 type=\"cone\"，现译贴合实现。但同条换行结构被拆散（宿主实测：源 1 个 LF、1 处 \\n\\t\\t；译 4 个 LF、含 1 个空行、无 \\n\\t\\t），一级换行不变量，修复只恢复换行与制表符、保留“锥形”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "633ee7605b9c379078bbd321cc06f2b56cad15f34ac77c1ba50ae6c8398d877d",
+      "stage": "surface",
+      "observation": "原文 gnashing 是撕咬或磨牙，译文“腐蚀”改变了动作含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes npcs/major-demon.lua:52 腐化泰坦描述 Swarming, gnashing, burning；现译以“灼烧腐蚀”概括，丢 gnashing、以本库酸液树魔的酸蚀意象代之，属措辞取舍，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "641933080c0323cbfee34fceb1ef630eda1691351eb5abf98dfd325728e5c5c9",
+      "stage": "surface",
+      "observation": "原文说洛格罗斯从自身构架中不断生成种子，译文“在这个构造中留下了”改变了种子的产生方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:485（罗格洛斯雕像）：Rogroth generates countless essence-less seeds from within its frame 是其自身躯体不断产生种子；现译“在这个构造中留下了无数种子”把产生改成留下、把自身躯体改成泛指构造。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "65e5cc822895bb51ab0ec61fe8cd5c1ecbff22e1b87d4da95c82b18bd0827dcf",
+      "stage": "surface",
+      "observation": "原文为生命值低于 -%d 才会死亡，译文漏掉“低于”，变成达到 -%d 时死亡。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:473 力量之潮；固定主游戏 624a673 engine/interface/ActorLife.lua:75 以 life <= die_at 判死，即生命到达 -X 即死；现译“直到 -%d 生命才会死去”与实现一致，上游 less than 与实现不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "676590b08fdf6a886055c04ba8bdc061408c6f69f15887dd1002cbd7f3d8a976",
+      "stage": "surface",
+      "observation": "原文 Armoured Leviathan 指身披装甲的巨兽，译文“重装上阵”变成行动短语，明显错译。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:629–638 DEMON_SEED_ARMOURED_LEVIATHAN 效果名与同名恶魔种子技能一致；本库 tome-ashes-urhrok.lua:864、1566、1569、1571 同族统一作“重装上阵”，单条不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6815f464b006e6e9c9b68853c26bf99c450ca41035d3b0d9ab28e95e96182b1b",
+      "stage": "surface",
+      "observation": "原文末段说最后一个字母 O 的笔迹拖长，像笔被猛地扯开；译文改成“最后一个字”及笔从手上滑落，改变了所描述的情景。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua:212：The last O 指英文 befo-- 的末字母，中文无法保留，改作“最后一个字”属必要适配；pen was rapidly jerked away 与“笔从手上滑落”都导向“书写被打断”，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "69b36890678ee159bcf8d8af57235bfbe20b222a783193ef3d9c422ffb493080",
+      "stage": "surface",
+      "observation": "原文说看见敌人的效果持续接下来 3 回合，译文写成 4 回合。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "观察所称“3 回合”不成立：公开 Ashes fearfire.lua:75–76 setEffect(EFF_SENSE, 4)，现译“4 回合”贴合实现。但同条换行结构被拆散（宿主实测：源 2 个 LF、2 处 \\n\\t\\t；译 5 个 LF、含 2 个空行、无 \\n\\t\\t），一级换行不变量，修复只恢复换行与制表符、保留“4 回合”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "54a6a1b06c2fb9c05197d9a9a5f9b3db865c80ef3946ed631f47277600d01022",
+      "stage": "contextual",
+      "observation": "源文 Walrog 的逻辑是：自己迟早要上到地面，而那时你“可能已经变得更强”，所以“没理由再等”。译文「总有一天我将君临大地…与其到时候再打败你…」丢掉了 you may be stronger then 这一理由，并把 come to the surface 夸大为「君临大地」，与下一句「不如现在就做一个了结」的因果关系被改写（ashes-urhrok-walrog-pop.lua:39-42，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes overload/data/chats/ashes-urhrok-walrog-pop.lua:39–42：乌尔罗格的理由是迟早要上到地面、那时你可能更强，所以不必再等；现译“与其到时候再打败你”丢掉 you may be stronger then 这一理由并改写因果，come to the surface 夸大为“君临大地”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "55dedd24042aae125f4b5dc8c45eb4688e9f1fc2d3283c3487fd82fc1a85cd5d",
+      "stage": "contextual",
+      "observation": "1) 性别写死：源文全程使用 player:him_her()/he_she() 宏，译文却有两处写死成「他」：「阻止他冲破重围」「将他打成马蜂窝」（对应 before <?=player:he_she()?> can break through、reduce <?=player:him_her()?>），女性角色会显示错误代词。2) 连接词：furthermore 被译成「也就是说」，把两条并列战术要点误写成解释关系。3) familiarity（熟悉这股力量，与上文 does not know how to use it 相对）被译成「团结精神」（demon.lua:151-157，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:151–157 全文以性别宏指代玩家；现译两处写死“他”：“阻止他冲破重围”（源为 <?=player:he_she()?>）、“将他打成马蜂窝”（源为 <?=player:him_her()?>），女性角色显示错误（一级占位符不变量；实测源 27 个宏、译 24 个）。he_she():capitalize() 在中文无大小写意义，不单独计。本批文件 SHA 匹配，来源仓库/commit 未固定。另 familiarity 被译“团结精神”、furthermore 被译“也就是说”，同条一并修正。"
+    },
+    {
+      "revision_key": "5666e9d8277742b7df95b3241b1eec6ab1fa1365323e2c65b7be28b88ed73126",
+      "stage": "contextual",
+      "observation": "几处改变了原意：1) performing adequately in the less-direct ones（在非直接对抗的组别只是表现尚可）被译成「在其他复杂的环境下也有相当出色的表现」，程度被拔高；2) with a sustainable amount of energy-input（以可持续的能量投入）被译成「通过很少的能量」；3) once mass-production is in order（量产一旦就绪才会成为军队骨干）这个条件被省略，结尾又改写成「只要他们组成的军队成批到达埃亚尔」；4) most straightforward ... for the spectator（对观众来说最直观）被译成「最为熟悉」（demon.lua:370，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:370（乌鲁洛克的精英卫兵雕像）：forest of pillars 被写成“复杂迷宫”；not born in the conventional manner 增译“天才”；performing adequately 被拔高为“相当出色”。本批文件 SHA 匹配，来源仓库/commit 未固定。另 sustainable amount of energy-input 被写成“很少的能量”、省略 once mass-production is in order 条件、most straightforward for the spectator 作“最为熟悉”，同条一并修正。"
+    },
+    {
+      "revision_key": "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+      "stage": "contextual",
+      "observation": "1) 专名错置：even the armies of Mal'Rok can't undo 被译成「哪怕乌鲁洛克的军队也无法…撤销」，把 Mal'Rok（本条其余处作「玛·洛克」）换成了 Urh'Rok。2) 误译：then growing them back with more nerve endings than before so you can feel the pain more acutely（再让眼睛长回来，神经末梢比原来更多）被译成「再将它放回神经更加密集的地方去」，语义错误（demon.lua:458，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:444–464（克里尔·费扬雕像）：peasants 误作“难民”；lash out once I was sure my life was in danger 是“确认性命受威胁才反击”，现译“抽身逃走”意思相反；growing them back with more nerve endings 误作“放回神经更加密集的地方”。本批文件 SHA 匹配，来源仓库/commit 未固定。另 even the armies of Mal'Rok 被写成“乌鲁洛克的军队”（同条其余处作“玛·洛克”），同条一并修正；本条 Fearscape 作“恐惧空间”，按术语库 fearscape=恶魔空间 与本库主流用法对齐。"
+    },
+    {
+      "revision_key": "614e1524636355ced3cb6890e9cee49a0e19efb8720e04b02185f20ab8057589",
+      "stage": "contextual",
+      "observation": "源文 were their deaths just indecision?... I'll fix that... scalding or drowning... your choice 是在嘲讽玩家：之前杀了那两方，难道只是因为拿不定主意？那就由我替你把问题解决，只剩烫死或淹死可选。译文译成「那他们的尸体又是怎么回事？…还是让我来终结一切吧…」，语义错误；另外「无耻的背叛者」是源文没有的内容（这一句只在 chat b 中出现）（ashes-urhrok-walrog-pop.lua:60-62，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes walrog-pop.lua:59–62 chat c：源文无“无耻的背叛者”（Traitor 只在 chat b 按 naga 条件代入），属增译且对非 naga 角色错误；were their deaths just indecision? 被改成“他们的尸体又是怎么回事”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "69b36890678ee159bcf8d8af57235bfbe20b222a783193ef3d9c422ffb493080",
+      "stage": "contextual",
+      "observation": "跨条术语不一致：本条把 Fearscape 译为「恶魔空间」，同批 5e4738cd 条目中 approach of the Fearscape 却译为「恐惧空间」。同一专名在同一批内出现两种译法；冻结输入中没有 Fearscape 的术语正文，无法判断哪一种是标准译名，需要统一。（机制说明：源文写 3 turns，但 fearfire.lua 实际执行 setEffect(EFF_SENSE,4)，译文写「4 回合」与实现一致，这一点不算问题。）",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "本条 Fearscape 作“恶魔空间”，与术语库 terminology/narrative.tsv:12 及本库主流用法一致；不一致的是 5e4738cdc1 的“恐惧空间”，已并入该条修复。observation 自述 4 回合贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (group attempt 2: 4 lanes, 80 entries)",
+    "contextual": "claude/claude-opus-5-5 (refreeze dlc-location-v1, 19 entries)"
+  },
+  "notes": [
+    "Surface group attempt 1 was invalid: lane-000-0 echoed one wrong entry_revision_identity; it was rejected, lanes 1-2 archived, lane 3 never dispatched, and the whole four-lane group was rebuilt as group-000-retry-02 with byte-identical envelopes.",
+    "The first contextual run enumerated /workspace to find the DLC checkout and wrote /tmp/rv76.txt; its harvested output was rejected (raw preserved) and archived. A refreeze event with an explicit --ashes-checkout produced the accepted run; the rejected output was not used.",
+    "Surface and contextual observations independently adjudicated against their own frozen revisions.",
+    "On 620e36d284 and 69b3689067 the observed claims match the implementation; the revisions are confirmed only for host-measured newline/tab structure.",
+    "Ashes public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Eleven confirmed repair revisions raise the window 28 backlog from 13 to 24; threshold 20 is reached, so repair window 28 opens after this batch closes."
+  ]
+}

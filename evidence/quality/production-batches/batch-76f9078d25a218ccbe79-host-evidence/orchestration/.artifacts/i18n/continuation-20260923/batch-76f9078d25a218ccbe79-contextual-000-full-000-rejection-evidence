@@ -1,0 +1,38 @@
+{
+  "status": "rejected",
+  "reason": "reviewer enumerated /workspace and probed /workspace/tome4-dlcs to discover the DLC checkout (not named in the frozen envelope), and wrote a scratch file /tmp/rv76.txt; outside the read-only named-location boundary (same class as batch 277 rejection)",
+  "session_id": "3e909f02-ccf0-4a09-9d5c-8a0ca2d5fd51",
+  "native_log_sha256": "2e87c65d5f93b2b6e51f4b8df356c8407c272a9ad259da89b8cfbb6ec5058fbe",
+  "tool_call_count": 13,
+  "violating_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nout=open('/tmp/rv76.txt','w')\nfor i,(k,t,c) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context'])):\n  out.write('===== %d %s\\nSRC: %s\\nTGT: %s\\nCTX: %s\\n'%(i,k[:8],t['source'],t['target'],c['context']))\n\"; wc -c /tmp/rv76.txt; grep -n '^=====' /tmp/rv76.txt",
+        "description": "Dump entries to temp file"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -o '\"[a-z_]*checkout[a-z_]*\":\"[^\"]*\"' .ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | sort -u; grep -o 'ashes_checkout[^,]*' .ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | head -3; ls /workspace",
+        "description": "Find source checkout location in envelope"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs 2>/dev/null && ls; for f in tome-ashes-urhrok/data/talents/corruptions/fearfire.lua tome-ashes-urhrok/data/timed_effects.lua tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua tome-ashes-urhrok/data/general/objects/world-artifacts.lua; do sha256sum /workspace/tome4-dlcs/$f 2>&1; done",
+        "description": "Verify DLC files by sha256"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok && ls; for f in data/talents/corruptions/fearfire.lua data/timed_effects.lua data/talents/corruptions/doom-shield.lua data/general/objects/world-artifacts.lua overload/data/chats/ashes-urhrok-walrog-pop.lua; do sha256sum $f 2>&1 || sha256sum tome-ashes-urhrok/$f; done",
+        "description": "Verify DLC files by sha256"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-25T07:18:27.454001+00:00"
+}

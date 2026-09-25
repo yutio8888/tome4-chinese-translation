@@ -1,0 +1,145 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01HzGPJdGPr9ZJEb2kAXBByy",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check envelope size and contract headings"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Bx6axSjA2R82kHu9DYSCk8",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 1,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01Kb637w9V3M7XZVXim67Ybs",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json,sys\nd=json.load(open('$F'));p=d['payload']\nprint(d['candidate_identity']);print(p['fixed_source_identity']);print(p['terminology_snapshot'][:1500] if isinstance(p['terminology_snapshot'],str) else json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1500])\nprint(p['rendered_briefing'])\nprint(len(p['ordered_revision_keys']))\n\"",
+      "description": "Inspect envelope header"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01V8QvxMNT62uvLUrFezNx3t",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json,sys\nd=json.load(open('$F'));p=d['payload']\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k);print(json.dumps(t,ensure_ascii=False,indent=0))\n  print('CTX keys',list(c.keys())); print(len(json.dumps(c,ensure_ascii=False)))\n\" | head -300",
+      "description": "List revisions and translations"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_019LHqMA4a1frTaN8h5QvBCk",
+    "name": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fe19aa8e-2b8c-4c7d-8006-349103b43469/tool-results/bezm66irs.txt"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01YXPfiTqxQZQdQKrPim3xog",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json\nd=json.load(open('$F'));p=d['payload']\nc=p['bounded_context'][0]['context']\nprint(type(c)); print(c[:5000] if isinstance(c,str) else json.dumps(c,ensure_ascii=False,indent=1)[:5000])\n\"",
+      "description": "Inspect first context structure"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_011Q9dAXcpvtXgxhhZkJTQfm",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json\nd=json.load(open('$F'));p=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=b['context']; first=c.split('\\n')[0]\n  j=json.loads(c.split('source_facts_v1:',1)[1])\n  f=j['fact']\n  print('=====',i,b['revision_key'][:8],first)\n  for a in f['anchors']:\n    print(' ',a['public_source_path'],a['matching_lines'])\n    for s in a['snippet']: print('   ',s['line'],s['text'][:220])\n  print('  TERM',json.dumps(f['terminology'],ensure_ascii=False))\n  print('  PH',f['placeholders'],f['placeholder_order_matches'],f.get('missing_evidence'))\n  rest=c.split('source_facts_v1:',1)[0]\n  if len(rest.split('\\n'))>2: print('  PRE',rest[:800])\n\"",
+      "description": "Dump all contexts compactly"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_018wZ9F9K3WB3JvvHERjSLTJ",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/ashes-urhrok; sha256sum data/talents/corruptions/fearfire.lua data/talents/corruptions/doom-shield.lua data/timed_effects.lua; sed -n 40,170p data/talents/corruptions/fearfire.lua; sed -n 118,175p data/talents/corruptions/doom-shield.lua; grep -n \"vision\\|SEE_\\|sight\" data/talents/corruptions/fearfire.lua | head",
+      "description": "Read fearfire and doom-shield source"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01GbptLiiwUu8SSYv4EvmmLd",
+    "name": "Bash",
+    "input": {
+      "command": "D=/workspace/tome4-dlcs/ashes-urhrok; ls $D; F=$(find $D -path '*corruptions/fearfire.lua' | head -1); echo $F; R=$(dirname $(dirname $(dirname $(dirname $F)))); echo $R; sha256sum $R/data/talents/corruptions/fearfire.lua $R/data/talents/corruptions/doom-shield.lua",
+      "description": "Locate DLC source layout"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01EBCeAxHjqbtMFbSNBXPw17",
+    "name": "Bash",
+    "input": {
+      "command": "R=/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 30,168p $R/data/talents/corruptions/fearfire.lua; echo ----; sed -n 118,180p $R/data/talents/corruptions/doom-shield.lua",
+      "description": "Read talent source"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_013yYoEs8JXpARn4Uh7LNEnX",
+    "name": "Bash",
+    "input": {
+      "command": "R=/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sha256sum $R/overload/data/chats/ashes-urhrok-walrog-pop.lua; cat $R/overload/data/chats/ashes-urhrok-walrog-pop.lua | sed -n 18,80p",
+      "description": "Read Walrog chat source"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01VN3TU4HWAAfKgwCfo73K9W",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-76f9078d25a218ccbe79-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 - \"$F\" <<'EOF'\nimport json,sys\nd=json.load(open(sys.argv[1]));keys=d['payload']['ordered_revision_keys']\niss={\n'54a6':\"源文 Walrog 的逻辑是：自己迟早要上到地面，而那时你“可能已经变得更强”，所以“没理由再等”。译文「总有一天我将君临大地…与其到时候再打败你…」丢掉了 you may be stronger then 这一理由，并把 come to the surface 夸大为「君临大地」，与下一句「不如现在就做一个了结」的因果关系被改写（ashes-urhrok-walrog-pop.lua:39-42，来源未固定）。\",\n'55de':\"1) 性别写死：源文全程使用 player:him_her()/he_she() 宏，译文却有两处写死成「他」：「阻止他冲破重围」「将他打成马蜂窝」（对应 before <?=player:he_she()?> can break through、reduce <?=player:him_her()?>），女性角色会显示错误代词。2) 连接词：furthermore 被译成「也就是说」，把两条并列战术要点误写成解释关系。3) familiarity（熟悉这股力量，与上文 does not know how to use it 相对）被译成「团结精神」（demon.lua:151-157，来源未固定）。\",\n'5666':\"几处改变了原意：1) performing adequately in the less-direct ones（在非直接对抗的组别只是表现尚可）被译成「在其他复杂的环境下也有相当出色的表现」，程度被拔高；2) with a sustainable amount of energy-input（以可持续的能量投入）被译成「通过很少的能量」；3) once mass-production is in order（量产一旦就绪才会成为军队骨干）这个条件被省略，结尾又改写成「只要他们组成的军队成批到达埃亚尔」；4) most straightforward ... for the spectator（对观众来说最直观）被译成「最为熟悉」（demon.lua:370，来源未固定）。\",\n'5e47':\"1) 专名错置：even the armies of Mal'Rok can't undo 被译成「哪怕乌鲁洛克的军队也无法…撤销」，把 Mal'Rok（本条其余处作「玛·洛克」）换成了 Urh'Rok。2) 误译：then growing them back with more nerve endings than before so you can feel the pain more acutely（再让眼睛长回来，神经末梢比原来更多）被译成「再将它放回神经更加密集的地方去」，语义错误（demon.lua:458，来源未固定）。\",\n'614e':\"源文 were their deaths just indecision?... I'll fix that... scalding or drowning... your choice 是在嘲讽玩家：之前杀了那两方，难道只是因为拿不定主意？那就由我替你把问题解决，只剩烫死或淹死可选。译文译成「那他们的尸体又是怎么回事？…还是让我来终结一切吧…」，语义错误；另外「无耻的背叛者」是源文没有的内容（这一句只在 chat b 中出现）（ashes-urhrok-walrog-pop.lua:60-62，来源未固定）。\",\n'69b3':\"跨条术语不一致：本条把 Fearscape 译为「恶魔空间」，同批 5e4738cd 条目中 approach of the Fearscape 却译为「恐惧空间」。同一专名在同一批内出现两种译法；冻结输入中没有 Fearscape 的术语正文，无法判断哪一种是标准译名，需要统一。（机制说明：源文写 3 turns，但 fearfire.lua 实际执行 setEffect(EFF_SENSE,4)，译文写「4 回合」与实现一致，这一点不算问题。）\",\n}\nout=[]\nfor k in keys:\n  o=None\n  for p,v in iss.items():\n    if k.startswith(p): o=v\n  out.append({\"revision_key\":k,\"verdict\":\"ISSUE\",\"observation\":o} if o else {\"revision_key\":k,\"verdict\":\"OK\"})\nassert sum('observation' in x for x in out)==6\nprint(json.dumps({\"contract\":\"translation_contextual_v2\",\"candidate_identity\":d['candidate_identity'],\"verdicts\":out},ensure_ascii=False,separators=(',',':')))\nEOF",
+      "description": "Assemble compact verdict JSON"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]

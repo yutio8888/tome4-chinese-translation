@@ -1,0 +1,158 @@
+[
+  {
+    "type": "tool_use",
+    "id": "toolu_01K2PpnMpjH9Cm1DVkiVjKSr",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input and contract sizes"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01P4zHw9r9UGjyNx1HJ7jfDo",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 review contract"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01WWuc6CMfkE7kMAJ91p4nE5",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\ndef sk(o,dep=0):\n  if isinstance(o,dict):\n    for k,v in o.items():\n      print('  '*dep+k, type(v).__name__, (len(v) if hasattr(v,'__len__') else v) if not isinstance(v,(str,int)) or isinstance(v,int) else repr(v[:100]))\n      if dep<2 and isinstance(v,dict): sk(v,dep+1)\nsk(d)\n\"",
+      "description": "Inspect envelope structure"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01DefPCc6gxvr9Bq46YuUuE7",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nprint(p['rendered_briefing'])\nfor i,(k,t,c) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i,k)\n  print(json.dumps(t,ensure_ascii=False))\n  print('CTXKEYS', list(c.keys()))\n\" | head -c 20000",
+      "description": "Print keys and translations"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01WG5xvJZ2TBsx5sxHrxW6xz",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nout=open('/tmp/rv76.txt','w')\nfor i,(k,t,c) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context'])):\n  out.write('===== %d %s\\nSRC: %s\\nTGT: %s\\nCTX: %s\\n'%(i,k[:8],t['source'],t['target'],c['context']))\n\"; wc -c /tmp/rv76.txt; grep -n '^=====' /tmp/rv76.txt",
+      "description": "Dump entries to temp file"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01S9wzxrJXp7zSfhsJfgZXNx",
+    "name": "Read",
+    "input": {
+      "file_path": "/tmp/rv76.txt",
+      "limit": 80
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01GmFQ7dgorotfwzzayZEkfD",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  if i<8: continue\n  ctx=c['context']; j=ctx.index('source_facts_v1:'); f=json.loads(ctx[j+16:])['fact']\n  print('=====',i); print('SRC:',t['source']); print('TGT:',t['target']); print('PATH:',ctx[:j].strip())\n  for a in f['anchors']:\n    print('LINES',a['matching_lines'][:3], [s['text'][:200] for s in a['snippet'] if not s['is_match']])\n  print('TERM',json.dumps(f['terminology'],ensure_ascii=False))\n\"",
+      "description": "Print remaining entries compactly"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01XN9byUoHxa6iY2BFrro4tQ",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -o '\"[a-z_]*checkout[a-z_]*\":\"[^\"]*\"' .ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | sort -u; grep -o 'ashes_checkout[^,]*' .ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | head -3; ls /workspace",
+      "description": "Find source checkout location in envelope"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01LFQHeL4TZd2kbXFxFebpdD",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs 2>/dev/null && ls; for f in tome-ashes-urhrok/data/talents/corruptions/fearfire.lua tome-ashes-urhrok/data/timed_effects.lua tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua tome-ashes-urhrok/data/general/objects/world-artifacts.lua; do sha256sum /workspace/tome4-dlcs/$f 2>&1; done",
+      "description": "Verify DLC files by sha256"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01733Uyex3CX1z46tyi55poB",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/ashes-urhrok && ls; for f in data/talents/corruptions/fearfire.lua data/timed_effects.lua data/talents/corruptions/doom-shield.lua data/general/objects/world-artifacts.lua overload/data/chats/ashes-urhrok-walrog-pop.lua; do sha256sum $f 2>&1 || sha256sum tome-ashes-urhrok/$f; done",
+      "description": "Verify DLC files by sha256"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01VX3YBTLG9MLPA5fDEQw5Sg",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-76f9078d25a218ccbe79-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nfor c in d['payload']['bounded_context']:\n  ctx=c['context']; j=ctx.index('source_facts_v1:'); f=json.loads(ctx[j+16:])['fact']\n  m=f['main_source']; print(m['source_file_sha256'], m['public_source_path'])\n\" | sort -u",
+      "description": "List frozen source file hashes"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_01GQQcZ9TFHG1EkUBnaxgZNx",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 20,90p data/talents/corruptions/fearfire.lua; echo ----; sed -n 120,170p data/talents/corruptions/fearfire.lua; echo ----; sed -n 118,175p data/talents/corruptions/doom-shield.lua",
+      "description": "Read fearfire and doom-shield talents"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  },
+  {
+    "type": "tool_use",
+    "id": "toolu_013ZrLnENotcBaRXgVMxyhoh",
+    "name": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok; sed -n 465,500p data/timed_effects.lua; echo ----; sed -n 628,660p data/timed_effects.lua; echo ----; sed -n 290,360p data/general/objects/world-artifacts.lua; echo ---; sed -n 1,80p overload/data/chats/ashes-urhrok-walrog-pop.lua",
+      "description": "Read effects, artifact, walrog chat"
+    },
+    "caller": {
+      "type": "direct"
+    }
+  }
+]
