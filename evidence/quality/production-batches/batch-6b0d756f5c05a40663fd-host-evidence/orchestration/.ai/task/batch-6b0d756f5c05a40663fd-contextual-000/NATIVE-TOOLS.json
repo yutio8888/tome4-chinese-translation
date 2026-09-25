@@ -1,0 +1,122 @@
+[
+ {
+  "type": "tool_use",
+  "id": "toolu_015TwrfZvfSP5xumqKa5Qg3K",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json docs/paseo-translation-context-review-v2-contract.md; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+   "description": "Check input sizes and contract headings"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01BmNUuXz7qVJGEQEB7i8arW",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+   "description": "Read the v2 contract"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01W4yTjvRnnCJSEcLH8NvSFb",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nprint(d['candidate_identity'])\np=d['payload']\nfor k in p: print(k, type(p[k]).__name__, len(p[k]) if hasattr(p[k],'__len__') else '')\nprint(p['contract'], p['fixed_source_identity'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1500])\nprint(p['rendered_briefing'])\n\"",
+   "description": "Inspect envelope structure"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01M4C8LyTiS8fFvQxFiE2JcS",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n  print('=====',i+1,k)\n  print(json.dumps(p['translation_snapshot'][i],ensure_ascii=False))\n  print(json.dumps(p['bounded_context'][i],ensure_ascii=False))\n\"",
+   "description": "Dump entries with context"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01NvEeK4Dej5hgMPw4HYjBYM",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n  t=p['translation_snapshot'][i]\n  print('=====',i+1,k[:8])\n  print('S:',t['source']); print('T:',t['target'])\n\"",
+   "description": "Print source/target pairs"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01S1tCgUXTXFrB1Sc9NUGJU9",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  ctx=c['context']\n  first,rest=ctx.split('\\n',1)\n  print('=====',i+1,first)\n  j=json.loads(rest.split('source_facts_v1:',1)[1])\n  f=j.get('fact',j)\n  print(json.dumps({k:v for k,v in j.items() if k!='binding'},ensure_ascii=False)[:6000])\n\"",
+   "description": "Print source facts per entry"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_0115yRBnKs1ntbjGQ4DdLC7r",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  ctx=c['context']\n  first,rest=ctx.split('\\n',1)\n  pre,js=rest.split('source_facts_v1:',1)\n  j=json.loads(js)\n  f=j['fact']\n  print('=====',i+1,first, repr(pre)[:300])\n  print('keys',list(f.keys()))\n  for a in f['anchors']:\n    print(' anchor',a['public_source_path'],a['matching_lines'])\n    for s in a['snippet']: print('  ',s['line'],s['text'][:220])\n  print(' TERM',json.dumps(f.get('terminology'),ensure_ascii=False)[:1500])\n  for k in f:\n    if k not in('anchors','terminology','main_source'): print(' ',k,json.dumps(f[k],ensure_ascii=False)[:400])\n\"",
+   "description": "Print snippets and terminology per entry"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_014taRw3qH7WkRM3hNwqdWNX",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nc=d['payload']['bounded_context'][0]['context']\nj=json.loads(c.split('source_facts_v1:',1)[1])\nprint(json.dumps(j['fact']['main_source'],ensure_ascii=False)); print(json.dumps(j['binding'],ensure_ascii=False)[-800:])\n\"; grep -o '\"[a-z_]*checkout[a-z_]*\"[^,]*' .ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json | head",
+   "description": "Look for source location in envelope"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01PKHAnT6r5gFXUgtv2YQtjb",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; f=evidence/quality/production-batches/batch-6b0d756f5c05a40663fd-source-workset.json; sha256sum $f; python3 -c \"\nimport json;d=json.load(open('$f'));print(type(d).__name__, list(d)[:20] if isinstance(d,dict) else len(d))\nprint(json.dumps(d,ensure_ascii=False)[:1500])\"",
+   "description": "Verify source workset hash and structure"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_019wWYDortBF6ZRPP8QwUwic",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/batch-6b0d756f5c05a40663fd-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'))\nfor i,t in enumerate(d['payload']['translation_snapshot']):\n  s,g=t['source'],t['target']\n  print(i+1, s.count('\\n'), g.count('\\n'), repr([l[:3] for l in s.split('\\n')]), repr([l[:3] for l in g.split('\\n')]))\n\"",
+   "description": "Compare newline/tab structure"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ }
+]

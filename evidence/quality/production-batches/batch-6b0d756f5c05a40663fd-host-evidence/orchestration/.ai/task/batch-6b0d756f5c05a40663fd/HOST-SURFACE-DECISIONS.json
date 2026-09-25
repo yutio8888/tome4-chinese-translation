@@ -1,0 +1,111 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "slide_check": "all 13 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "086556871c084b765630910d915f86bc888bc55c2d09ed67f685c07ef06cd425",
+      "stage": "surface",
+      "observation": "原文称探知敌人持续 3 回合，译文写成 4 回合。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes fearfire.lua:75–78 炼狱之门 setEffect(EFF_SENSE, 4)，觉察实际持续 4 回合；现译“4 回合”贴合实现，上游 info 的 3 回合与实现不符。宿主实测换行结构源/译均为 2 个 LF、2 处 \\n\\t\\t。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3f0c3f1b93850ee13442517e706613179a88045400bb16d348d1fd10d2970e8b",
+      "stage": "surface",
+      "observation": "原文只说诅咒传播给半径 1 内其他正在燃烧的敌人；译文改成传播给此前不一定燃烧的敌人，并增添 50%% 几率、分段伤害等原文没有的机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes heart-of-fire.lua:113–138 吞噬之焰：扩散前 rng.percent(50)；is_burning 在循环中计算但从未被读取，故不论后者是否燃烧都会扩散；扩散伤害走 FIREBURN。固定主游戏 624a673 engine/damage_types.lua:1188–1203 FIREBURN 先造成 50% 火焰伤害、余下作 3 回合燃烧。现译“50% 几率”“无论后者此前是否在燃烧”“一半立即、另一半 3 回合”均贴合实现，上游 info 与实现不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4e2414c680711e2eddbc1f6f469d190e8bc8465250a02ecfacf17e505580a9fb",
+      "stage": "surface",
+      "observation": "原文称这些构造体为“Champions of Urh'Rok”，译文写成“乌鲁洛克的精英卫兵”，将“冠军／斗士”改成了“卫兵”；冻结输入没有术语条目正文可核定该专名。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua 的 Champions of Urh'Rok；本库同族 tome-ashes-urhrok.lua:110（一位乌鲁洛克的精英卫兵）、548（恶魔雕像：乌鲁洛克的精英卫兵）一致作“乌鲁洛克的精英卫兵”，属既定专名，单条不改（同第280批 61c813b980）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6b24dee87b2ba7e9953bbfc40f88d3da056e9a026ae63f1a9e1f71c516d6971b",
+      "stage": "surface",
+      "observation": "原文称哈卡祖未能开始将碎片重组的第二阶段；译文先断言碎片到达埃亚尔后已经重新融合成完整形态，随后又说无法重组，造成明显矛盾。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua（哈卡祖雕像）：we had designed him to survive this, the fragments merging back … once he reached the surface 是设计意图；现译断言碎片“在到达埃亚尔之后重新融合……组成完整形态”，与下句“无法进行第二阶段——将碎片重组”矛盾。另 reverse-engineer these spells 误作“反制这些咒语”、standard troops 的 standard 被删、too sturdy 误作“太过顽固”，同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "72a3b333159886cf6513e3aca920f9ca1e8a3f36ca2b7a27ff73244e770678e4",
+      "stage": "surface",
+      "observation": "原文写明移除半径 5 内敌人的燃烧效果，译文写成半径 10。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "观察所称“半径 5”不成立：公开 Ashes heart-of-fire.lua:73 火焰守护 project 半径硬编码 10，现译“半径 10”贴合实现须保留。但换行结构被改（宿主实测：源 1 个 LF、1 处 \\n\\t\\t，位于护盾结束句前；译 2 个 LF，在首句后多拆一行），一级换行不变量；同条护盾持续时间“轮”与后文“回合”不一致，一并改为“回合”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "747d29c92481028861077e247b67b582467799690f07b4573204f122a88a2dae",
+      "stage": "surface",
+      "observation": "末句原文是祝玩家享受击败敌人的乐趣，译文改为“恶魔之力，毁灭一切！”，含义明显不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes 欢迎提示（tformat）：Have fun crushing your foes! 被替换为另一句口号“恶魔之力，毁灭一切！”；a fiery bringer of doom 被改写为“与恶魔共舞的毁灭旅程”，且同条“你/您”混用。按原文恢复“尽情碾碎你的敌人吧！”等并统一称谓，标记与 %s 保持。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "78452093a6e800fb3ea4fde45a22a341844e1554d0ee06fd39093cb91594f6b4",
+      "stage": "surface",
+      "observation": "原文各续行以两个制表符缩进，译文各续行仅保留一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes torture.lua:90–95 焚尽强击说明续行以 \\n\\t\\t 缩进（宿主实测源 4 处 \\n\\t\\t），现译 4 处均为 \\n\\t（一级 TAB 不变量，同第279/280批同类修复），只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "791ae3630d0e8b1dbd0130c7fa4b213cf191461530220fde11204bc567c587ce",
+      "stage": "surface",
+      "observation": "原文说埃亚尔人早已放弃海上旅行，译文写成“放弃海洋”，改变了放弃的对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes 聊天：gave up sea travel ages ago 作“早就放弃海洋了”，语义接近（放弃出海），属措辞取舍，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7975a16239bd086f35a7b54376dc7f5c79be75d4b07c785dbccbb5f6e4ab4eb7",
+      "stage": "surface",
+      "observation": "原文说火魔婴将土壤熔接到双手，译文写成“拿在手里”，漏掉双手被永久改变这一关键含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua（火魔婴雕像）：fuses some of the Eyal-scarred earth … to her hands 是把土壤熔合到双手上，现译“拿在手里”使后文“没有手的话”失去依据；Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects 被改成整族“没有沿着近身厮杀的道路走下去”，丢 bulk 与 alteration projects 并错误概括。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "80546ccc121b3ca82ac2554956c67489661d055eb58d44c0699b62dc47476c44",
+      "stage": "surface",
+      "observation": "原文“darkness and flight”中的“flight”在译文“黑暗的疫气”中没有对应含义；若原文有笔误，需另行核实。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demon-seeds.lua:1011 恶臭吐息 info 的 darkness and flight 为上游笔误，同句伤害为 darkness/blight；现译“黑暗的疫气”按实际伤害类型表达，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "80f87941078fccc67ed4b8bf057343950618875ccb7347951436375010d9fadf",
+      "stage": "surface",
+      "observation": "原文两处段落换行后均为两个制表符（\\n\\t\\t），译文对应位置均只有一个（\\n\\t），缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes wrath.lua:160–162 饕餮之刃说明：宿主实测源 1 个 LF、1 处 \\n\\t\\t（位于 Additionally 前）；译 2 个 LF、均为 \\n\\t，并在首句后多拆一行。一级换行/TAB 不变量，只恢复换行与制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "84ca86e56a3b7fe724835d43afe7f3a5b5f37534c0b9933d7a57c358d4db7b14",
+      "stage": "surface",
+      "observation": "原文“then because we could”表示后来有能力战斗，译文“后来我们只能战斗”变成别无选择；原文“kept the storms entertained”指让风暴得到娱乐，译文却说战争是风暴间的娱乐活动。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes lore/demon.lua:68–74（乌鲁洛克创世史）：then because we could 被译“只能战斗”意思相反；kept the storms entertained 被改成“风暴间唯一的娱乐活动”并增译“神经已经麻木”；Their cities lay hidden among us 被改写并增译“阴毒地对我们偷偷发动袭击”。同条整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "85af2f1f5d30e4e968c17f9ad298487e1eaf3533156813a285f4b990163dea41",
+      "stage": "surface",
+      "observation": "原文“after some controversy”指经过一番争议，译文“在矛盾的抉择后”改变了所述事件。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes lore/demon.lua（火焰风暴雕像）：after some controversy 作“在矛盾的抉择后”、Once the portals were unleashed on us 作“当传送门解开后”，语义偏松但不改变所述事件，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

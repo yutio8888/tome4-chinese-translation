@@ -1,0 +1,3926 @@
+[
+  {
+    "entry_revision_identity": "06f9d94fa54f52d99dcc8fa99f5fc759f62587a4a67b1d4c0309875ee331edb8",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demonic-strength.lua",
+    "lines": [
+      {
+        "line": 92,
+        "text": "\tend,"
+      },
+      {
+        "line": 93,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 94,
+        "text": "\t\treturn ([[Demonic Blood flows through your veins, increasing your spellpower by %d and your maximum vim by %d."
+      },
+      {
+        "line": 95,
+        "text": "\t\tAdditionally, you will recieve a bonus to all damage equal to %d%% of your current vim (Currently %d%%).]]):"
+      },
+      {
+        "line": 96,
+        "text": "\t\ttformat("
+      },
+      {
+        "line": 97,
+        "text": "\t\t\tt.statBonus(self, t),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "086556871c084b765630910d915f86bc888bc55c2d09ed67f685c07ef06cd425",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+    "lines": [
+      {
+        "line": 82,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 83,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 84,
+        "text": "\t\treturn ([[Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns."
+      },
+      {
+        "line": 85,
+        "text": "\t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns."
+      },
+      {
+        "line": 86,
+        "text": "\t\tThe damage will scale with your Spellpower and the range will increase with the talent level.]]):"
+      },
+      {
+        "line": 87,
+        "text": "\t\ttformat(damDesc(self, DamageType.FIRE, damage), self:getTalentRadius(t), damDesc(self, DamageType.FIRE, damage), t.getVision(self, t))"
+      },
+      {
+        "line": 88,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "272f9ea8301d9f1f4f2a4646d2bd85011d8dbe191e4a6076eab13466fefab7e2",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 1170,
+        "text": "\tend,"
+      },
+      {
+        "line": 1171,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1172,
+        "text": "\t\treturn ([[By seathing yourself in flames you phase to a distant location."
+      },
+      {
+        "line": 1173,
+        "text": "\t\tAny creature caught in the way is burnt for %0.2f fire damage which you use to regain %d vim."
+      },
+      {
+        "line": 1174,
+        "text": "\t\tThe damage will increase with your Spellpower."
+      },
+      {
+        "line": 1175,
+        "text": "\t\t]]):tformat(damDesc(self, DamageType.FIRE, t.getDam(self, t)), t:_getVim(self))"
+      },
+      {
+        "line": 1176,
+        "text": "\tend,"
+      },
+      {
+        "line": 1177,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "290c3be3fc52fac5ca76caf744ecc206aea6ea2970e4beec40adefb668dee171",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 402,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 403,
+        "text": "\tname = _t\"demon statue: Ruin Banshee\","
+      },
+      {
+        "line": 404,
+        "text": "\tlore = _t[=[The onslaught of the Sher'Tul portals never truly stopped.  Magic still pours from them, threatening to do even more damage to our home; it would be completely destroyed by now, if not for our Father.  Part of his work to keep Mal'Rok structurally intact is to blow great gusts across the devastated land, forcing the ravenous flames back into the portal network from whence they came.  It would seem, though, that the flames took souvenirs with them; our scouting parties have noted that Sher'Tul portals on Eyal, even those which have been completely deactivated, will occasionally emit a shade of one of our fallen citizens, imbued by some of Urh'Rok's power, smelling of Mal'Rok's ashes, and warped to insanity by its transit through the unstable rifts.  While this is a troubling revalation of the true horror of the Sher'Tul weapons, telling us that even now our fallen cannot rest in peace, the fact that they are arriving on Eyal in defiance of the shield is some consolation, as it means that those most wronged by the betrayal can claim their revenge personally.]=]"
+      },
+      {
+        "line": 405,
+        "text": "}"
+      },
+      {
+        "line": 406,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "31f87052433cf25443025315733c76e28999860c3c70d1f58b9cd8e04b591486",
+    "public_source_path": "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Corruptor (Demonologist)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents."
+      },
+      {
+        "line": 22,
+        "text": "Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror."
+      },
+      {
+        "line": 23,
+        "text": "Some have managed to escape their programming and chose to follow their own desires instead."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You have defeated countless demons, seen how their essence work, witnessed how to bind demons to your own purpose and can now create new characters with the #LIGHT_GREEN#Demonologist class#WHITE#."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "Corruptors are spellcasters, ranged attackers using magic."
+      },
+      {
+        "line": 28,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 29,
+        "text": "- Infect your foes with demonic seeds."
+      },
+      {
+        "line": 30,
+        "text": "- Bind demonic seeds to your equipment to enhance them."
+      },
+      {
+        "line": 31,
+        "text": "- Summon and control demons to do your binding."
+      },
+      {
+        "line": 32,
+        "text": "- Blend corrupted magic with a martial shield training to protect yourself and ruin your foes.#WHITE#"
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "Corruptors use \"vim\" to power their special abilities."
+      },
+      {
+        "line": 35,
+        "text": "Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes."
+      },
+      {
+        "line": 36,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "36d064578fc0d8548eba5ad0547c92aa1d1396ac203521216e4b5339f65dff73",
+    "public_source_path": "tome-ashes-urhrok/data/achievements/all.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\tname = \"Demonic Party!\", id = \"ASHES_FULL_PARTY\", category = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 58,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 59,
+        "text": "\tdesc = _t[[Have your party composed of at least 5 demons.]],"
+      },
+      {
+        "line": 60,
+        "text": "\tmode = \"player\","
+      },
+      {
+        "line": 61,
+        "text": "\tcan_gain = function(self, who, target)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3f0c3f1b93850ee13442517e706613179a88045400bb16d348d1fd10d2970e8b",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+    "lines": [
+      {
+        "line": 141,
+        "text": "\tend,"
+      },
+      {
+        "line": 142,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 143,
+        "text": "\t\treturn ([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn."
+      },
+      {
+        "line": 144,
+        "text": "\t\tEach turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]]):"
+      },
+      {
+        "line": 145,
+        "text": "\t\ttformat(t.getHeal(self, t), t.getVim(self, t), damDesc(self, DamageType.FIRE, t.getDam(self, t)))"
+      },
+      {
+        "line": 146,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4b2bab7581e10f1bff2649001f41183c5a38f5c2a5e777fac21f94558d2eb951",
+    "public_source_path": "tome-ashes-urhrok/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "newChat{ id=\"a\","
+      },
+      {
+        "line": 39,
+        "text": "\ttext = _t[[The frothing form frowns."
+      },
+      {
+        "line": 40,
+        "text": "#AQUAMARINE#\"Will come to the surface eventually...  you may be stronger then...\"#WHITE#"
+      },
+      {
+        "line": 41,
+        "text": "The bubbles flare up, as a wave of heat emanates from the demon."
+      },
+      {
+        "line": 42,
+        "text": "#AQUAMARINE#\"No reason to wait...\"#WHITE#]],"
+      },
+      {
+        "line": 43,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 44,
+        "text": "\t\t{_t\"#LIGHT_GREEN#[fight]#WHITE#\", action=popup},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4ba6232e7f0a6225a63fc3111bf0260d14bdd2b0311a8c01fe36cc62371c35cf",
+    "public_source_path": "tome-ashes-urhrok/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 176,
+        "text": "\t},"
+      },
+      {
+        "line": 177,
+        "text": "\tmax_power = 15, power_regen = 1,"
+      },
+      {
+        "line": 178,
+        "text": "\tuse_power = { name = _t\"fire a bolt of plaguefire, dealing damage over time based on your magic stat\", power = 15,"
+      },
+      {
+        "line": 179,
+        "text": "\t\tuse = function(self, who)"
+      },
+      {
+        "line": 180,
+        "text": "\t\t\tlocal tg = {type=\"bolt\", range=5, selffire=false}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4e2414c680711e2eddbc1f6f469d190e8bc8465250a02ecfacf17e505580a9fb",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 368,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 369,
+        "text": "\tname = _t\"demon statue: champion of Urh'Rok\","
+      },
+      {
+        "line": 370,
+        "text": "\tlore = _t[=[The Divine Tournament of Combat is the most straightforward of our competitions for the spectator, but those competing have a huge variety of possible divisions to enter.  Most are based on the maximum amount of energy consumed by their entrants since (and including) birth; others include those set in an open field for direct combat, or a difficult-to-navigate forest of pillars to properly evaluate those who use hit-and-run tactics or excel at setting up or detecting ambushes.  In the high-energy divisions, those competing are typically not born in the conventional manner, usually being constructs made by a team performing a collaborative effort.  The constructs we now call Champions of Urh'Rok have utterly devastated most of the high-energy open-field divisions, while performing adequately in the less-direct ones, making them a solid fit for production and deployment in the invasion.  Their development team has earned a place of honor for their ingenious methods of creating such incredible strength with a sustainable amount of energy-input, and once mass-production is in order, these gigantic creatures will become the backbone of our military.  Once they arrive on the surface, Eyal will experience a few fleeting moments of terror before their utter annihilation.]=]"
+      },
+      {
+        "line": 371,
+        "text": "}"
+      },
+      {
+        "line": 372,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4fc85278b25d1cf7a47dbab99186e8935cf8b0210bfd5986fa1fc61471311ff8",
+    "public_source_path": "tome-ashes-urhrok/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 714,
+        "text": "\tname = \"The Black Ring\", color = colors.BLACK, image = \"object/artifact/the_black_ring.png\","
+      },
+      {
+        "line": 715,
+        "text": "\tunided_name = _t\"obsidian ring\","
+      },
+      {
+        "line": 716,
+        "text": "\tdesc = _t[[\"An innocuous bauble. Until you look through the hole.\"]],"
+      },
+      {
+        "line": 717,
+        "text": "\tlevel_range = {17, 27},"
+      },
+      {
+        "line": 718,
+        "text": "\trarity = 225,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5ae7f508b5e957037dfadc8ab5814f56bdc6dbf3f66fd4819bc8f3abbf8f7f2d",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 149,
+        "text": "\tname = _t\"orbital base: battle plan (doombringer)\","
+      },
+      {
+        "line": 150,
+        "text": "\ttemplate = true,"
+      },
+      {
+        "line": 151,
+        "text": "\tlore = _t[=[Engagement Briefing on <?=player.name?>:"
+      },
+      {
+        "line": 152,
+        "text": ""
+      },
+      {
+        "line": 153,
+        "text": "This slippery little <?=_t(player.descriptor.subrace, \"birth descriptor name\")?> has proven to be a thorn in our side so far.  We've reinforced our wards to better protect against the sort of fluke meteor impact that enabled <?=player:his_her()?> escape, but the crystal <?=player:he_she()?> smashed on <?=player:his_her()?> way out prevented us from keeping track of <?=player:his_her()?> location directly.  No matter - the brands and marks we've imbued <?=player:him_her()?> with have nonetheless allowed us to monitor magical energy signals affecting <?=player:him_her()?>, and our scryers have noted that there appears to be a particular pattern that teleports <?=player:him_her()?>, possibly of Sher'Tul origin.  We've sent out a signal of our own to intercept this, and redirect it to our platform, where <?=player:he_she()?> will be safely secured, punished for <?=player:his_her()?> disobedience, then once again exposed to a Tablet of Enlightenment to regain <?=player:his_her()?> servitude."
+      },
+      {
+        "line": 154,
+        "text": ""
+      },
+      {
+        "line": 155,
+        "text": "That said, given that <?=player:he_she()?> has increased dramatically in power since <?=player:his_her()?> escape, it is crucial that we keep proper tactics in mind.  Having been exposed to our alteration magic, <?=player:he_she()?> is very formidable in direct melee combat, and in the event that we cannot procure proper warding against this magic before <?=player:his_her()?> arrival, <?=player:he_she()?> can cause significant damage if not properly handled.  Under no circumstances should we let <?=player:him_her()?> run rampant in our back line; furthermore, if we simply try to lure <?=player:him_her()?> into a narrow corridor, we will not be able to bring enough firepower to bear before <?=player:he_she()?> can break through our obstructions.  Instead, use a small flanking squad backed up by a maulotaur (or whatever high-power direct combatant we can get authorization to deploy) to force <?=player:him_her()?> into an open area, where we'll have caster artillery, protected by a front-line of wretchlings backed by quasits.  We may lose these front-line soldiers, but in the time it takes <?=player:him_her()?> to slash <?=player:his_her()?> way through them, our spells should be able to reduce <?=player:him_her()?> to a flayed, quivering wreck."
+      },
+      {
+        "line": 156,
+        "text": ""
+      },
+      {
+        "line": 157,
+        "text": "Above all else, remember: despite <?=player:his_her()?> brute strength, this is a pitiful, inferior Eyalite who lucked <?=player:his_her()?> way into obtaining some of our superior power.  <?=player:he_she():capitalize()?> does not know how to use it properly, and does not have the countless years of experience with it that we do.  We have numbers, familiarity, tactics, and the blessing of Urh'Rok himself.  Treat this like a drill; if we stay calm and focused, it is unlikely we will see any casualties."
+      },
+      {
+        "line": 158,
+        "text": "]=]"
+      },
+      {
+        "line": 159,
+        "text": "}"
+      },
+      {
+        "line": 160,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5eb04fb52821ad28680651334dacb39d3ef8e37af28fb7ae13566ea25e76cbb7",
+    "public_source_path": "tome-ashes-urhrok/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+    "lines": [
+      {
+        "line": 58,
+        "text": ""
+      },
+      {
+        "line": 59,
+        "text": "newChat{ id=\"c\","
+      },
+      {
+        "line": 60,
+        "text": "\ttext = _t[[He chuckles, bubbles bursting from his mouth with every laugh."
+      },
+      {
+        "line": 61,
+        "text": "#AQUAMARINE#\"So now you feign altruism...  were their deaths just indecision?...  I'll fix that...  scalding or drowning...  your choice...\"#WHITE#"
+      },
+      {
+        "line": 62,
+        "text": "The sound of laughter fades under the roaring of water boiling around him as he charges you!]],"
+      },
+      {
+        "line": 63,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 64,
+        "text": "\t\t{_t\"#LIGHT_GREEN#[fight]#WHITE#\", action=popup},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b24dee87b2ba7e9953bbfc40f88d3da056e9a026ae63f1a9e1f71c516d6971b",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 497,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 498,
+        "text": "\tname = _t\"demon statue: Harkor'Zun\","
+      },
+      {
+        "line": 499,
+        "text": "\tlore = _t[=[Of the anomalies and phenomena we've noticed in our studies of the shield protecting Eyal, none have frustrated us so much as meteors.  Certain powerful Eyalite spellcasters can pull a large meteor into low orbit, passing it through the shield relatively unharmed, aside from being split into predictably-sized chunks, which are then called to the surface one-by-one in a series of devastating meteoric crashes.  While we have not yet found a way to reverse-engineer these spells to protect our standard troops from disintegration, we have had some limited success in making a construct that closely resembles a meteor in composition and appearance.  Harkor'Zun, a being made mostly of stone, was simply dropped from our platform; the shield shattered him as expected, but we had designed him to survive this, the fragments merging back into their completed form once he reached the surface.  It would seem, though, that either we made him to be too sturdy, or the shield envelops incoming objects in a sort of anti-magic coating, as he has been unable to start the second stage of this process, wherein he merges these fragments back into a completed form.  Should an Eyalite stumble upon him and attempt to destroy the fragments, Harkor'Zun will be able to re-combine and \"thank\" whoever granted him his ascension.]=]"
+      },
+      {
+        "line": 500,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b318c19fbf6609fdbe33a3a2ba187b1d121194f215186b7f0915395a80fb223",
+    "public_source_path": "tome-ashes-urhrok/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 89,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 90,
+        "text": "\t\tlocal v = t.getPower(self, t)"
+      },
+      {
+        "line": 91,
+        "text": "\t\treturn ([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away."
+      },
+      {
+        "line": 92,
+        "text": "\t\tYou can activate this talent up to twice within the same turn, but the second activation will not be instant."
+      },
+      {
+        "line": 93,
+        "text": "\t\tAfterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%."
+      },
+      {
+        "line": 94,
+        "text": "\t\tThe bonus will increase with your Willpower.]]):"
+      },
+      {
+        "line": 95,
+        "text": "\t\ttformat(self:getTalentRange(t), v, v, v)"
+      },
+      {
+        "line": 96,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b7119103477702f96783eb1e5b24b9942b2aca79183bf79dd7b1ffcbcebc61c",
+    "public_source_path": "tome-ashes-urhrok/data/zones/anteroom-agony/npcs.lua",
+    "lines": [
+      {
+        "line": 77,
+        "text": ""
+      },
+      {
+        "line": 78,
+        "text": "newEntity{ base = \"BASE_NPC_DEMON\", define_as = \"ROGROTH\","
+      },
+      {
+        "line": 79,
+        "text": "\tname = \"Rogroth, Eater of Souls\", color=colors.VIOLET, unique = true, subtype = \"major\","
+      },
+      {
+        "line": 80,
+        "text": "\tdesc = _t\"Fire and blight arcane surges randomly appear on this spider-like dark metallic skin. There are no definite head but a single huge mouth onto its body.\","
+      },
+      {
+        "line": 81,
+        "text": "\tkiller_message = _t\"and raised as a demonic husk\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c642cf52453c53fd557d9b980e78d554cc3e516881342d5237dcb31f7ef5492",
+    "public_source_path": "tome-ashes-urhrok/data/zones/searing-halls/grids.lua",
+    "lines": [
+      {
+        "line": 82,
+        "text": "\tdefine_as = \"PORTAL_NEXT\", image = \"terrain/red_floating_rocks05_01.png\", add_mos = {{image=\"terrain/demon_portal.png\"}},"
+      },
+      {
+        "line": 83,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 84,
+        "text": "\tname = \"portal to the next level\","
+      },
+      {
+        "line": 85,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 86,
+        "text": "\tnotice = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c863eac5e675ceb946455fde6b41637e17113a0dfb96a8aca8b59c2303b2a84",
+    "public_source_path": "tome-ashes-urhrok/data/zones/anteroom-agony/grids.lua",
+    "lines": [
+      {
+        "line": 139,
+        "text": "\tdefine_as = \"TORTURE_SARC\"..i, "
+      },
+      {
+        "line": 140,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 141,
+        "text": "\tname = \"iron maiden\","
+      },
+      {
+        "line": 142,
+        "text": "\timage = \"terrain/red_floating_rocks05_01.png\", add_displays = {class.new{z=3, image=\"terrain/demon_torture_tools/sarcofagus_0\"..i..\".png\"}},"
+      },
+      {
+        "line": 143,
+        "text": "\tdisplay = '_', color_r=255, color_g=0, color_b=0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c90f9735d5c60c33aaff9b61e7a38ba600fb0f10b2ddc7d5c3329019cb74a03",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 90,
+        "text": "newEffect{"
+      },
+      {
+        "line": 91,
+        "text": "\tname = \"DESTROYER_FORM\", image = \"talents/destroyer.png\","
+      },
+      {
+        "line": 92,
+        "text": "\tdesc = _t\"Destroyer\","
+      },
+      {
+        "line": 93,
+        "text": "\tlong_desc = function(self, eff) return (\"The target assumes the form of a powerful demon.\"):tformat() end,"
+      },
+      {
+        "line": 94,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 96,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 97,
+        "text": "\tparameters = {power = 5, destroyer_level = 1},"
+      },
+      {
+        "line": 98,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# turns into a demon!\", _t\"+Destroyer\" end,"
+      },
+      {
+        "line": 99,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer transformed.\", _t\"-Destroyer\" end,"
+      },
+      {
+        "line": 100,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 101,
+        "text": "\t\tself:effectTemporaryValue(eff, \"stamina_regen\", eff.power)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e03e02682cce2f4eb63b4fa4d3efad55beafbc8abe7b0007411b1fd02d7ec05",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 468,
+        "text": "\tid = \"ashes-urhrok-demon-statue-general_of_urh_rok\","
+      },
+      {
+        "line": 469,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 470,
+        "text": "\tname = _t\"demon statue: Khulmanar, General of Urh'Rok\","
+      },
+      {
+        "line": 471,
+        "text": "\tlore = _t[=[Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.]=]"
+      },
+      {
+        "line": 472,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f75393226151a945dce0c86f8bda2297b05263bf27c822ba5bfb5d5bc76aba1",
+    "public_source_path": "tome-ashes-urhrok/data/zones/anteroom-agony/grids.lua",
+    "lines": [
+      {
+        "line": 25,
+        "text": "\tdefine_as = \"PORTAL_MAIN\", "
+      },
+      {
+        "line": 26,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = \"portal to the main island\","
+      },
+      {
+        "line": 28,
+        "text": "\timage = \"terrain/red_floating_rocks05_01.png\", add_displays = {class.new{z=3, image=\"terrain/planar_demon_portal_ground_down.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2}, class.new{z=16, image=\"terrain/planar_demon_portal_ground_up.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2}},"
+      },
+      {
+        "line": 29,
+        "text": "\ton_added = function(self, level, x, y) local ps = self.add_displays[1]:addParticles(require(\"engine.Particles\").new(\"farportal_vortex\", 1, {rot=3, size=42, vortex=\"shockbolt/terrain/planar_demon_vortex\"})) ps.dy = -0.05 end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6fd14148ddd623a2159b9e2ee9a1bc201af4190e82c9501bdf2bcb14e3904e4a",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua",
+    "lines": [
+      {
+        "line": 424,
+        "text": "\t\t\tobject_tinker = { wielder = {} },"
+      },
+      {
+        "line": 425,
+        "text": "\t\t\tspecial_desc = function(self)"
+      },
+      {
+        "line": 426,
+        "text": "\t\t\t\tlocal desc = (\"Demon status: %s.\"):tformat((not self.demon.dead or self.demon.dead_by_unsummon) and (\"alive (%d%% life)\"):tformat(100*self.demon.life/self.demon.max_life) or _t\"dead (can not be summoned)\")"
+      },
+      {
+        "line": 427,
+        "text": "\t\t\t\tif self.special_desc_demon then desc = self:special_desc_demon()..\"\\n\"..desc end"
+      },
+      {
+        "line": 428,
+        "text": "\t\t\t\treturn desc"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6feb00a2be80a1a4561eeb142c6d2fad8b6950e6c6f4ae7160fafc40e2986b61",
+    "public_source_path": "tome-ashes-urhrok/data/birth/corrupted.lua",
+    "lines": [
+      {
+        "line": 120,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 121,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 122,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\","
+      },
+      {
+        "line": 123,
+        "text": "\t},"
+      },
+      {
+        "line": 124,
+        "text": "\tpower_source = {technique=true, arcane=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6fef77e7b9eed128594c9f83037d4f30da977fbe1ccfae3bdf5ed8f383e76130",
+    "public_source_path": "tome-ashes-urhrok/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+    "lines": [
+      {
+        "line": 32,
+        "text": "\t\t{_t\"You're the new Lord of the Seas?  What would you have me do?\", jump=\"b\"},"
+      },
+      {
+        "line": 33,
+        "text": "\t\t{_t\"The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!\", jump=\"c\"},"
+      },
+      {
+        "line": 34,
+        "text": "\t\t{_t\"Stop bubbling and start dying, you overgrown tea-kettle!  Your treasures are mine!\", action=popup},"
+      },
+      {
+        "line": 35,
+        "text": "\t}"
+      },
+      {
+        "line": 36,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "700fee356613a09a549b22b600732bf6c827de28684dd75d476aa41422b581dd",
+    "public_source_path": "tome-ashes-urhrok/data/general/grids/demon_statues.lua",
+    "lines": [
+      {
+        "line": 56,
+        "text": "\t},"
+      },
+      {
+        "line": 57,
+        "text": "\ttype = \"floor\", subtype = \"lava\","
+      },
+      {
+        "line": 58,
+        "text": "\tname = (\"statue of %s\"):tformat(name),"
+      },
+      {
+        "line": 59,
+        "text": "\tstatue_name = name, statue_kind = kind,"
+      },
+      {
+        "line": 60,
+        "text": "\tdisplay = '&', color_r=255, color_g=0, color_b=0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7183eb65282cb7ba4aa8e540ded83f6a69c5c5e6b8a7392fcc9504a69438f839",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/torture\", name = _t(\"torture\", \"talent type\"), description = _t\"Cripple your enemies with vicious two-handed attacks.\" }"
+      },
+      {
+        "line": 32,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/wrath\", name = _t(\"wrath\", \"talent type\"), min_lev=10 ,description = _t\"Destroy your enemies with intense two-handed physical attacks fueled by demonic power.\" }"
+      },
+      {
+        "line": 33,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/fearfire\", name = _t(\"Fearfire\", \"talent type\"), min_lev=10 ,description = _t\"Call upon the flames of the Fearscape, incinerating all.\" }"
+      },
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/heart-of-fire\", name = _t(\"Heart of Fire\", \"talent type\"),description = _t\"Fire is your lifeblood; it revitalizes you as it burns your foes.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, generic = true,type=\"corruption/demonic-strength\", name = _t(\"demonic strength\", \"talent type\"),  description = _t\"Infuse your body with the power of Demons.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "71e9ae6d65a7ec8690bf0036f0ed01e82d5d0d1da1a3dbb91e864114648eed8e",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 974,
+        "text": "\tname = \"DEMON_SEED_BLOOD_DRINKER_BUFF\", image = \"talents/demon_seed_blood_drinker.png\","
+      },
+      {
+        "line": 975,
+        "text": "\tdesc = _t\"Blood Drinker\","
+      },
+      {
+        "line": 976,
+        "text": "\tlong_desc = function(self, eff) return (\"%d vim regen and %d%% evasion chance.\"):tformat(eff.vim, eff.evade) end,"
+      },
+      {
+        "line": 977,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 978,
+        "text": "\tsubtype = { blight=true, death=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "72a3b333159886cf6513e3aca920f9ca1e8a3f36ca2b7a27ff73244e770678e4",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+    "lines": [
+      {
+        "line": 93,
+        "text": "\tend,"
+      },
+      {
+        "line": 94,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 95,
+        "text": "\t\treturn ([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed."
+      },
+      {
+        "line": 96,
+        "text": "\t\tWhen the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]]):"
+      },
+      {
+        "line": 97,
+        "text": "\t\ttformat(self:getShieldDuration(t.getDur(self, t)), self:getShieldAmount(t.getBaseShield(self, t)), t.getRange(self, t))"
+      },
+      {
+        "line": 98,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "72b07a85dae74c84604fba618d692b0c153083a7c4d09a54ab8d8e773fb7a5fc",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/doom-covenant.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "-- Note:  Number of pools scales with action speed"
+      },
+      {
+        "line": 58,
+        "text": "newTalent{"
+      },
+      {
+        "line": 59,
+        "text": "\tname = \"Dread End\","
+      },
+      {
+        "line": 60,
+        "text": "\ttype = {\"corruption/doom-covenant\", 2},"
+      },
+      {
+        "line": 61,
+        "text": "\trequire = corrs_req_high2,"
+      },
+      {
+        "line": 256,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 257,
+        "text": "\t\tlocal dam = t.getDamage(self, t)"
+      },
+      {
+        "line": 258,
+        "text": "\t\treturn ([[When Dread End creates pools of darkness you can focus your raging thoughts on them to make them erupt into volcanos."
+      },
+      {
+        "line": 259,
+        "text": "\t\tUp to %d pools in radius %d will erupt, producing a volcano for %d turns."
+      },
+      {
+        "line": 260,
+        "text": "\t\tEach turn the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7320f584b00812341501abcc0f95db275ce6fecc69eeec2e572796a59d750e53",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 286,
+        "text": "newEffect{"
+      },
+      {
+        "line": 287,
+        "text": "\tname = \"PURIFIED_BY_FIRE\", image = \"talents/cauterize_spirit.png\","
+      },
+      {
+        "line": 288,
+        "text": "\tdesc = _t\"Cleansing flames\","
+      },
+      {
+        "line": 289,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is purified by fire, losing %0.2f%% of their max health per turn.\"):tformat(eff.power*100) end,"
+      },
+      {
+        "line": 290,
+        "text": "\ttype = \"other\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "73240c89f1d8f36879a6a42338c7f081b9ea24031b1a80d1bd8c1058e6ca39bc",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 849,
+        "text": "\tparameters = { },"
+      },
+      {
+        "line": 850,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes an avatar of darkness!\", _t\"+Blood Pact\" end,"
+      },
+      {
+        "line": 851,
+        "text": "\ton_lose = function(self, err) return _t\"The darkness within #target# subsides.\", _t\"-Blood Pact\" end,"
+      },
+      {
+        "line": 852,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 853,
+        "text": "\t\tself:effectTemporaryValue(eff, \"all_damage_convert\", DamageType.DARKNESS)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "73d1f91c06fc5ab78f6fffd2ca735c681b3708b80acc7d8ba62418322f0c3105",
+    "public_source_path": "tome-ashes-urhrok/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 541,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 542,
+        "text": ""
+      },
+      {
+        "line": 543,
+        "text": "\t\t\tgame.logPlayer(who, \"#GREEN#The skull embossed in the ring twists around momentarily. ...Did it just laugh?\")"
+      },
+      {
+        "line": 544,
+        "text": "\t\t\treturn {id=true, used=true}"
+      },
+      {
+        "line": 545,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "747d29c92481028861077e247b67b582467799690f07b4573204f122a88a2dae",
+    "public_source_path": "tome-ashes-urhrok/superload/mod/dialogs/Birther.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\t\tif profile.mod.allow_build.yeek then races[#races+1] = \"yeek\" end"
+      },
+      {
+        "line": 36,
+        "text": ""
+      },
+      {
+        "line": 37,
+        "text": "\t\tself:simpleLongPopup(_t\"Welcome to #CRIMSON#Ashes of Urh'Rok\", ([[Thank you for purchasing #CRIMSON#Ashes of Urh'Rok#WHITE#, the first expansion pack of Tales of Maj'Eyal."
+      },
+      {
+        "line": 38,
+        "text": ""
+      },
+      {
+        "line": 39,
+        "text": "To begin your adventures as a fiery bringer of doom simply create a character with the class #LIGHT_GREEN#Doombringer#WHITE# (in the Defiler category) and a race of #LIGHT_BLUE#%s#WHITE#."
+      },
+      {
+        "line": 40,
+        "text": ""
+      },
+      {
+        "line": 41,
+        "text": "Have fun crushing your foes!"
+      },
+      {
+        "line": 42,
+        "text": "]]):tformat(table.concatNice(races, _t', ', _t' or ')), 500)"
+      },
+      {
+        "line": 43,
+        "text": "\tend) end"
+      },
+      {
+        "line": 44,
+        "text": "end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "749eaa6c6a65010f0d2eea8602abec66f10ca3808fc2336db68f7d9a1a27a6e5",
+    "public_source_path": "tome-ashes-urhrok/data/achievements/all.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": "\tname = \"Glory to the Fearscape\", id = \"ASHES_ALL_STATUES\", category = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 34,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 35,
+        "text": "\tdesc = _t[[Activated all 23 different kinds of demon statues.]],"
+      },
+      {
+        "line": 36,
+        "text": "\tmode = \"world\","
+      },
+      {
+        "line": 37,
+        "text": "\tcan_gain = function(self, who, target)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "751747121262e08afa738fe6be951430c10dcf03a1b7e28230912ad748569628",
+    "public_source_path": "tome-ashes-urhrok/data/quests/start-ashes.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "\t\tif self:isCompleted(\"planar-walker\") then"
+      },
+      {
+        "line": 33,
+        "text": "\t\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have destroyed the Planar Controller. Flee now!#WHITE#\""
+      },
+      {
+        "line": 34,
+        "text": "\t\telse"
+      },
+      {
+        "line": 35,
+        "text": "\t\t\tdesc[#desc+1] = _t\"#SLATE#* You have to destroy the Planar Controller to escape.#WHITE#\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "752651685dd9dc0555e4dac8f83e6b7dd481a615cc31fd2161ef470aeb497e25",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 980,
+        "text": "\tparameters = { evade=40, vim=7 },"
+      },
+      {
+        "line": 981,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is drunk with blood!\", true end,"
+      },
+      {
+        "line": 982,
+        "text": "\ton_lose = function(self, err) return _t\"The bloodlust of #target# subsides.\", true end,"
+      },
+      {
+        "line": 983,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 984,
+        "text": "\t\tself:effectTemporaryValue(eff, \"evasion\", eff.evade)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "752c2fa37cc39c1049a03cad70a8f5c2df343780c6faa0c4ac103c3586f45dfa",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "-- Demonologist"
+      },
+      {
+        "line": 21,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/demon-seeds\", name = _t(\"demon seeds\", \"talent type\"), description = _t\"Demon seeds powers can not be learnt, they must be used from demon seeds attached to your equipment.\" }"
+      },
+      {
+        "line": 22,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/demonic-pact\", name = _t(\"demonic pact\", \"talent type\"), description = _t\"Bind and use demons to do your bidding.\" }"
+      },
+      {
+        "line": 23,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/infernal-combat\", name = _t(\"infernal combat\", \"talent type\"), description = _t\"Imbue your melee attacks with lethal demonic powers.\" }"
+      },
+      {
+        "line": 24,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/doom-shield\", name = _t(\"doom shield\", \"talent type\"), description = _t\"Imbue yourself with the forces of Mal'Rok, the demon's homeworld, to protect and enhance.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7552dcdfd2f6f84733ebf7e0991f95b5222a1915eab1c63ec45cd577ad4e5c8b",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 711,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 712,
+        "text": "\tparameters = { power=40 },"
+      },
+      {
+        "line": 713,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is linked through pain.\", _t\"+Link of Pain\" end,"
+      },
+      {
+        "line": 714,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# link of pain disappears.\", _t\"-Link of Pain\" end,"
+      },
+      {
+        "line": 715,
+        "text": "\tcallbackOnHit = function(self, eff, cb, src)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "758dd3c2cd3a82784c18d79d979a04590f98d34ef5638d9893004c12dbe8cc96",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 419,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 420,
+        "text": "\tname = _t\"demon statue: Shasshhiy'Kaish\","
+      },
+      {
+        "line": 421,
+        "text": "\tlore = _t[=[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause."
+      },
+      {
+        "line": 422,
+        "text": ""
+      },
+      {
+        "line": 423,
+        "text": "#{italic}#A short message is etched below the main text.#{normal}#"
+      },
+      {
+        "line": 424,
+        "text": ""
+      },
+      {
+        "line": 425,
+        "text": "Cute.  I'll let it stay.  "
+      },
+      {
+        "line": 426,
+        "text": "-S."
+      },
+      {
+        "line": 427,
+        "text": "]=]"
+      },
+      {
+        "line": 428,
+        "text": "}"
+      },
+      {
+        "line": 429,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "75ca256e0292f817744524955741b72d16c2a45d3082aad98f3a74524b259423",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 859,
+        "text": "\tname = \"BLACKICE\", image = \"talents/blackice.png\","
+      },
+      {
+        "line": 860,
+        "text": "\tdesc = _t\"Blackice\","
+      },
+      {
+        "line": 861,
+        "text": "\tlong_desc = function(self, eff) return (\"You have %d charges.\"):tformat(eff.stacks) end,"
+      },
+      {
+        "line": 862,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 863,
+        "text": "\tsubtype = { dark=true, cold=true },"
+      },
+      {
+        "line": 1085,
+        "text": "\tname = \"DEMON_SEED_VOLCANIC_SKIN\", image = \"talents/demon_seed_volcanic_skin.png\","
+      },
+      {
+        "line": 1086,
+        "text": "\tdesc = _t\"Volcanic Skin\","
+      },
+      {
+        "line": 1087,
+        "text": "\tlong_desc = function(self, eff) return (\"%d charges.\"):tformat(eff.stacks) end,"
+      },
+      {
+        "line": 1088,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 1089,
+        "text": "\tsubtype = { demon=true, seismic=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "76bb8e6e11ea3ce98bf0642261b1ef306d46d14c680cad90fda189c51fc169e0",
+    "public_source_path": "tome-ashes-urhrok/data/quests/start-ashes.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t[[You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You are being taken by your handler to the torture-pits to help them figure out how to cause the most pain to those on Eyal, when you hear a roaring above you; you look up and see a burning meteor, flying closer, and the demons' spells failing to divert its course!  It lands near you, knocking you off your feet with its shockwave and killing your handler instantly."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you."
+      },
+      {
+        "line": 28,
+        "text": "]]"
+      },
+      {
+        "line": 29,
+        "text": "\tif self:isCompleted(\"crystal\") then"
+      },
+      {
+        "line": 30,
+        "text": "\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have destroyed the controlling crystal. The demons can no track you down anymore.#WHITE#\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "772e006f966037c86447d3e7dd534f45624ad3540539fde0955520a034fefe5b",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 95,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 96,
+        "text": "\tname = _t\"history of Mal'Rok (3)\","
+      },
+      {
+        "line": 97,
+        "text": "\tlore = _t[=[Waves of terrible magic burst forth from the portals, which it's now clear were never intended to help us. They were a deadly trap, a ticking time bomb that would go off when the Sher'Tul wanted it to - and it went off with incredible force. Most of the worlds we had once visited were obliterated completely. Ours was not, but I can barely say we were \"spared\"; our Father's jungles turned to a cursed pyre instantly, burning with flame that could never be extinguished, and our planet cracked apart, whole continents flying into the void. What little land was left obviously couldn't be used for farming. Most of us died instantly, the survivors being those close enough to a skilled mage who could create enough oxygen to breathe, and convert ambient magic into caloric energy for our bodies. Life for the survivors was - is - endless torment, the burning ground constantly searing our feet, and all the beauty we once knew destroyed."
+      },
+      {
+        "line": 98,
+        "text": ""
+      },
+      {
+        "line": 99,
+        "text": "Fortunately, this woke our Father up. We confessed our treachery, but did not beg forgiveness, as we knew what we had done was unforgivable; he disagreed, and to this day is using nearly every shred of his power to keep the shattered fragments of our planet together. We were not satisfied with this fate, our Father suffering and exhausting himself for the sake of our mistakes. We begged him to give us a command, something we could do to help his situation, or at least make him happier about it."
+      },
+      {
+        "line": 100,
+        "text": ""
+      },
+      {
+        "line": 101,
+        "text": "His command: End the Sher'Tul. End their creations. Never let anything be hurt by Eyal again."
+      },
+      {
+        "line": 102,
+        "text": ""
+      },
+      {
+        "line": 103,
+        "text": "We have taken his words to heart. Our mages have devised new magic from old inspiration, alteration spells to make us warlike and brutal once more - but with our ascended minds and honed bodies, we shall be a force of destruction far greater than the dust-storms ever were. Our green bretheren underwent a process to make their skin drip with acid; not to be outdone, our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. The red ones proclaimed they now existed only to destroy, and fused bits of the burnt earth to their hands, leaving them unable to do anything but sear Eyal with its own fires. The finished results of these alterations have taken up residence on our largest drifting continent, the one drawing ever closer to Eyal."
+      },
+      {
+        "line": 104,
+        "text": ""
+      },
+      {
+        "line": 105,
+        "text": "Once this continent arrives, we shall take revenge on Eyal. Not just for our own sakes, our planet ravaged by their treachery, with a pristine one waiting as our prize. Not just for our Father's sake, condemned to an eternity of suffering for trusting his children too much. But for *everyone's* sake, the untold trillions of souls on planets less fortunate than ours, torn apart in a fiery instant. The Sher'Tul shall never hurt anyone again; we shall make sure of it by cleansing Eyal in blighted fire, and any survivors will be taken back to our planet and chained to the burning earth, kept alive so they can forever feel the flames they created consuming their flesh. Their eternal torture will still not be justice, as they shall feel only a tiny portion of the suffering they inflicted... but it's a start."
+      },
+      {
+        "line": 106,
+        "text": "]=]"
+      },
+      {
+        "line": 107,
+        "text": "}"
+      },
+      {
+        "line": 108,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "77816125a09de0f2c704b14d1d193dce5a1140df9246d3d3f8af5bfb551fca18",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 905,
+        "text": "\tname = \"BLEAK_OUTCOME\", image = \"talents/bleak_outcome.png\","
+      },
+      {
+        "line": 906,
+        "text": "\tdesc = _t\"Bleak Outcome\","
+      },
+      {
+        "line": 907,
+        "text": "\tlong_desc = function(self, eff) return (\"Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.\"):tformat(eff.src and eff.src:getName():capitalize() or _t\"none\", eff.stacks) end,"
+      },
+      {
+        "line": 908,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 909,
+        "text": "\tsubtype = { vim=true, blight=true, curse=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "778b8c4e907d6486755102ec2715963a758123640552426c5ec733d6add1d681",
+    "public_source_path": "tome-ashes-urhrok/data/general/grids/demon_statues.lua",
+    "lines": [
+      {
+        "line": 66,
+        "text": "\tblock_move = function(self, x, y, e, act, couldpass)"
+      },
+      {
+        "line": 67,
+        "text": "\t\tif e and e.player and act and not self.demon_statue_active then"
+      },
+      {
+        "line": 68,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup((\"Demon Statue of %s\"):tformat(self.statue_name), _t\"Do you #{strong}#really#{normal}# want to touch that?\", function(ret) if not ret then"
+      },
+      {
+        "line": 69,
+        "text": "\t\t\t\tself.block_move_activated(self, x, y, e, act, couldpass)"
+      },
+      {
+        "line": 70,
+        "text": "\t\t\tend end, _t\"No\", _t\"Yes\", nil, true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "77cf5d0c11b7438dbf5734abc66c84af04526ab4978a42938c81a989e632c58f",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 761,
+        "text": "\tparameters = { power=1, max_dist=4 },"
+      },
+      {
+        "line": 762,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# burns with dark flames.\", _t\"+Only Ashes Left\" end,"
+      },
+      {
+        "line": 763,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# stops burning.\", _t\"-Only Ashes Left\" end,"
+      },
+      {
+        "line": 764,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 765,
+        "text": "\t\teff.particle = self:addParticles(Particles.new(\"circle\", 1, {shader=true, base_rot=0, oversize=0.8, a=170, appear=8, speed=0, img=\"only_ashes_left\", radius=0, x=-0.2, y=-0.5}))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "78452093a6e800fb3ea4fde45a22a341844e1554d0ee06fd39093cb91594f6b4",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": "\tend,"
+      },
+      {
+        "line": 89,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 90,
+        "text": "\t\treturn ([[The power of the Fearscape infuses your weapon: Your melee attacks will deal %0.2f fire damage, spread over 3 turns."
+      },
+      {
+        "line": 91,
+        "text": "\t\tAdditionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns."
+      },
+      {
+        "line": 92,
+        "text": "\t\tIf this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them."
+      },
+      {
+        "line": 93,
+        "text": "\t\tFor the purposes of applying the stun, you have %d bonus spellpower."
+      },
+      {
+        "line": 94,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 95,
+        "text": "\t\ttformat("
+      },
+      {
+        "line": 96,
+        "text": "\t\t\tdamDesc(self, DamageType.FIRE, t.damBonus(self, t)),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "78b345c35c528ceb4914d6789340470b09bb5caf6ac063d73797d0b84037fb68",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 201,
+        "text": "\tparameters = { power=-3, max_stacks = 8, max_distance = 5, slow_power = 0, stacks = 1  },"
+      },
+      {
+        "line": 202,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# begins to fear you.\" end,"
+      },
+      {
+        "line": 203,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s shakes the fear off.\" end,"
+      },
+      {
+        "line": 204,
+        "text": "\tcharges = function(self, eff) return eff.stacks or 1 end,"
+      },
+      {
+        "line": 205,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "791ae3630d0e8b1dbd0130c7fa4b213cf191461530220fde11204bc567c587ce",
+    "public_source_path": "tome-ashes-urhrok/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "#AQUAMARINE#\"How convenient...  so much Sher'Tul magic for my taking...  magic to turn against its creators...  but now... one new obstacle...  one last great warrior under the waves...\"#WHITE#]]):tformat(kind),"
+      },
+      {
+        "line": 30,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 31,
+        "text": "\t\t{_t\"The oceans are yours.  The people of Eyal gave up sea travel ages ago!\", jump=\"a\"},"
+      },
+      {
+        "line": 32,
+        "text": "\t\t{_t\"You're the new Lord of the Seas?  What would you have me do?\", jump=\"b\"},"
+      },
+      {
+        "line": 33,
+        "text": "\t\t{_t\"The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!\", jump=\"c\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7975a16239bd086f35a7b54376dc7f5c79be75d4b07c785dbccbb5f6e4ab4eb7",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 300,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 301,
+        "text": "\tname = _t\"demon statue: fire imp\","
+      },
+      {
+        "line": 302,
+        "text": "\tlore = _t[=[If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.]=]"
+      },
+      {
+        "line": 303,
+        "text": "}"
+      },
+      {
+        "line": 304,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "79b5313aa41d1000afda9dcbc01f513ad3184a305714fa8e68d0b68a429b942f",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "newLore{"
+      },
+      {
+        "line": 27,
+        "text": "\tid = \"ashes-urhrok-demon-history-mistranslated\","
+      },
+      {
+        "line": 28,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 29,
+        "text": "\tname = _t\"history of Mal'Rok (mistranslated)\","
+      },
+      {
+        "line": 30,
+        "text": "\tlore = _t[=[(You see here a pile of strange tablets, all piled up in a nice, orderly stack.  You remove the top one, and study it; your finger slips across a square in one corner, and strange sentences start playing through your mind. You struggle to make sense of the unfamiliar words and concepts in your thoughts.)"
+      },
+      {
+        "line": 64,
+        "text": "newLore{"
+      },
+      {
+        "line": 65,
+        "text": "\tid = \"ashes-urhrok-demon-history-1\","
+      },
+      {
+        "line": 66,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 67,
+        "text": "\tname = _t\"history of Mal'Rok (1)\","
+      },
+      {
+        "line": 68,
+        "text": "\tlore = _t[=[First, we were created by our Father, Urh'Rok. Then, many years later, we were in the desert, struggling and fighting each other for the few meager scraps of usable farmland. We do not know anything between these times; our cities, our culture, everything was wiped out by the dust storms. The storms hated us, toyed with us, subsided just long enough for us to raise armies and fight, then raged again the moment peace came. They wanted us to fight. They wanted us to struggle, suffer, die, leaving a few survivors to repopulate, and repeat the process. Green, onyx, red, all brothers who should have been allies, we fought at first because we had to, then because we could, then because we knew it was the only thing that kept the storms entertained."
+      },
+      {
+        "line": 78,
+        "text": "newLore{"
+      },
+      {
+        "line": 79,
+        "text": "\tid = \"ashes-urhrok-demon-history-2\","
+      },
+      {
+        "line": 80,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 81,
+        "text": "\tname = _t\"history of Mal'Rok (2)\","
+      },
+      {
+        "line": 82,
+        "text": "\tlore = _t[=["
+      },
+      {
+        "line": 93,
+        "text": "newLore{"
+      },
+      {
+        "line": 94,
+        "text": "\tid = \"ashes-urhrok-demon-history-3\","
+      },
+      {
+        "line": 95,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 96,
+        "text": "\tname = _t\"history of Mal'Rok (3)\","
+      },
+      {
+        "line": 97,
+        "text": "\tlore = _t[=[Waves of terrible magic burst forth from the portals, which it's now clear were never intended to help us. They were a deadly trap, a ticking time bomb that would go off when the Sher'Tul wanted it to - and it went off with incredible force. Most of the worlds we had once visited were obliterated completely. Ours was not, but I can barely say we were \"spared\"; our Father's jungles turned to a cursed pyre instantly, burning with flame that could never be extinguished, and our planet cracked apart, whole continents flying into the void. What little land was left obviously couldn't be used for farming. Most of us died instantly, the survivors being those close enough to a skilled mage who could create enough oxygen to breathe, and convert ambient magic into caloric energy for our bodies. Life for the survivors was - is - endless torment, the burning ground constantly searing our feet, and all the beauty we once knew destroyed."
+      },
+      {
+        "line": 109,
+        "text": "newLore{"
+      },
+      {
+        "line": 110,
+        "text": "\tid = \"ashes-urhrok-training-recall1\","
+      },
+      {
+        "line": 111,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 112,
+        "text": "\tname = _t\"Lost Memories (1)\","
+      },
+      {
+        "line": 113,
+        "text": "\ttemplate = true, always_pop = true,"
+      },
+      {
+        "line": 128,
+        "text": "newLore{"
+      },
+      {
+        "line": 129,
+        "text": "\tid = \"ashes-urhrok-training-recall2\","
+      },
+      {
+        "line": 130,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 131,
+        "text": "\tname = _t\"Lost Memories (2)\","
+      },
+      {
+        "line": 132,
+        "text": "\ttemplate = true, always_pop = true,"
+      },
+      {
+        "line": 146,
+        "text": "newLore{"
+      },
+      {
+        "line": 147,
+        "text": "\tid = \"ashes-urhrok-tactics-doombringer\","
+      },
+      {
+        "line": 148,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 149,
+        "text": "\tname = _t\"orbital base: battle plan (doombringer)\","
+      },
+      {
+        "line": 150,
+        "text": "\ttemplate = true,"
+      },
+      {
+        "line": 161,
+        "text": "newLore{"
+      },
+      {
+        "line": 162,
+        "text": "\tid = \"ashes-urhrok-tactics-demonologist\","
+      },
+      {
+        "line": 163,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 164,
+        "text": "\tname = _t\"orbital base: battle plan (demonologist)\","
+      },
+      {
+        "line": 165,
+        "text": "\ttemplate = true,"
+      },
+      {
+        "line": 182,
+        "text": "newLore{"
+      },
+      {
+        "line": 183,
+        "text": "\tid = \"ashes-urhrok-tactics-doomelf\","
+      },
+      {
+        "line": 184,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 185,
+        "text": "\tname = _t\"orbital base: battle plan (doomelf)\","
+      },
+      {
+        "line": 186,
+        "text": "\ttemplate = true,"
+      },
+      {
+        "line": 200,
+        "text": "newLore{"
+      },
+      {
+        "line": 201,
+        "text": "\tid = \"ashes-urhrok-tactics-failed\","
+      },
+      {
+        "line": 202,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 203,
+        "text": "\tname = _t\"orbital base: battle info\","
+      },
+      {
+        "line": 204,
+        "text": "\ttemplate = true, bloodstains = 5,"
+      },
+      {
+        "line": 216,
+        "text": "newLore{"
+      },
+      {
+        "line": 217,
+        "text": "\tid = \"ashes-urhrok-tactics-failed-badass\","
+      },
+      {
+        "line": 218,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 219,
+        "text": "\tname = _t\"orbital base: battle info with #{bold}#a badass#{normal}#\","
+      },
+      {
+        "line": 220,
+        "text": "\ttemplate = true, bloodstains = 5,"
+      },
+      {
+        "line": 233,
+        "text": "newLore{"
+      },
+      {
+        "line": 234,
+        "text": "\tid = \"ashes-urhrok-mural-painting-1\","
+      },
+      {
+        "line": 235,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 236,
+        "text": "\tname = _t\"first mural painting\", always_pop = true,"
+      },
+      {
+        "line": 237,
+        "text": "\timage = \"malrok_lore_01.png\","
+      },
+      {
+        "line": 241,
+        "text": "newLore{"
+      },
+      {
+        "line": 242,
+        "text": "\tid = \"ashes-urhrok-mural-painting-2\","
+      },
+      {
+        "line": 243,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 244,
+        "text": "\tname = _t\"second mural painting\", always_pop = true,"
+      },
+      {
+        "line": 245,
+        "text": "\timage = \"malrok_lore_02.png\","
+      },
+      {
+        "line": 249,
+        "text": "newLore{"
+      },
+      {
+        "line": 250,
+        "text": "\tid = \"ashes-urhrok-mural-painting-3\","
+      },
+      {
+        "line": 251,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 252,
+        "text": "\tname = _t\"third mural painting\", always_pop = true,"
+      },
+      {
+        "line": 253,
+        "text": "\timage = \"malrok_lore_03.png\","
+      },
+      {
+        "line": 257,
+        "text": "newLore{"
+      },
+      {
+        "line": 258,
+        "text": "\tid = \"ashes-urhrok-mural-painting-4\","
+      },
+      {
+        "line": 259,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 260,
+        "text": "\tname = _t\"fourth mural painting\", always_pop = true,"
+      },
+      {
+        "line": 261,
+        "text": "\timage = \"malrok_lore_04.png\","
+      },
+      {
+        "line": 265,
+        "text": "newLore{"
+      },
+      {
+        "line": 266,
+        "text": "\tid = \"ashes-urhrok-mural-painting-5\","
+      },
+      {
+        "line": 267,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 268,
+        "text": "\tname = _t\"fifth mural painting\", always_pop = true,"
+      },
+      {
+        "line": 269,
+        "text": "\timage = \"malrok_lore_05.png\","
+      },
+      {
+        "line": 273,
+        "text": "newLore{"
+      },
+      {
+        "line": 274,
+        "text": "\tid = \"ashes-urhrok-mural-painting-6\","
+      },
+      {
+        "line": 275,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 276,
+        "text": "\tname = _t\"sixth mural painting\", always_pop = true,"
+      },
+      {
+        "line": 277,
+        "text": "\timage = \"malrok_lore_06.png\","
+      },
+      {
+        "line": 291,
+        "text": "newLore{"
+      },
+      {
+        "line": 292,
+        "text": "\tid = \"ashes-urhrok-demon-statue-wretchling\","
+      },
+      {
+        "line": 293,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 294,
+        "text": "\tname = _t\"demon statue: wretchling\","
+      },
+      {
+        "line": 295,
+        "text": "\tlore = _t[=[Behold, the humble wretchling, a testament to our devotion to our Father!  These children of emerald were among the first to alter themselves for our quest for vengeance, and managed an astounding degree of success.  With their bursts of blinding speed, overwhelming numbers, and skin that can release prodigious amounts of corrosive fluid, wretchlings can storm onto the battlefield and pounce on our foes one-by-one, dissolving the ground they walk on while leaving them helpless against our onslaught.  Wretchlings will readily give their lives in combat, serving as obstructions and shields while their acid and our casters do their work, and still remain the most populous of our species thanks to their incredible birth rates.  It is rare to see a wretchling survive to maturity, but make no mistake - every wretchling that fights does an incredible service to our cause.]=]"
+      },
+      {
+        "line": 298,
+        "text": "newLore{"
+      },
+      {
+        "line": 299,
+        "text": "\tid = \"ashes-urhrok-demon-statue-fire_imp\","
+      },
+      {
+        "line": 300,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 301,
+        "text": "\tname = _t\"demon statue: fire imp\","
+      },
+      {
+        "line": 302,
+        "text": "\tlore = _t[=[If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.]=]"
+      },
+      {
+        "line": 305,
+        "text": "newLore{"
+      },
+      {
+        "line": 306,
+        "text": "\tid = \"ashes-urhrok-demon-statue-water_imp\","
+      },
+      {
+        "line": 307,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 308,
+        "text": "\tname = _t\"demon statue: water imp\","
+      },
+      {
+        "line": 309,
+        "text": "\tlore = _t[=[Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.]=]"
+      },
+      {
+        "line": 312,
+        "text": "newLore{"
+      },
+      {
+        "line": 313,
+        "text": "\tid = \"ashes-urhrok-demon-statue-quasit\","
+      },
+      {
+        "line": 314,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 315,
+        "text": "\tname = _t\"demon statue: quasit\","
+      },
+      {
+        "line": 316,
+        "text": "\tlore = _t[=[Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.]=]"
+      },
+      {
+        "line": 319,
+        "text": "newLore{"
+      },
+      {
+        "line": 320,
+        "text": "\tid = \"ashes-urhrok-demon-statue-onilug\","
+      },
+      {
+        "line": 321,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 322,
+        "text": "\tname = _t\"demon statue: onilug\","
+      },
+      {
+        "line": 323,
+        "text": "\tlore = _t[=[Necromancy. It has been a long practiced artform on our world, though it fell into disuse during the golden years of Urh'Rok. When the Sher'Tul annihilated our home, however, we resumed our studies on the use of this dark art."
+      },
+      {
+        "line": 338,
+        "text": "newLore{"
+      },
+      {
+        "line": 339,
+        "text": "\tid = \"ashes-urhrok-demon-statue-wretch_titan\","
+      },
+      {
+        "line": 340,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 341,
+        "text": "\tname = _t\"demon statue: wretch titan\","
+      },
+      {
+        "line": 342,
+        "text": "\tlore = _t[=[The modified children of emerald, known as the Wretchlings, willingly accept their role as the arrows in Urh'Rok's quiver, and most only live to see a couple of engagements before giving their lives in battle.  Once in a great while, though, one will stand toe-to-toe with the enemy and repeatedly come out on top.  These outstanding fighters, chosen by fate and their own talent, are recalled, then put through a series of tests to ensure that their survival was not due to luck alone.  Roughly 70% of these are then assigned to breeding duties, ensuring that the Wretchling bloodline gets ever stronger as it is forged in the fires of combat; the rest, whether due to sterility, consuming too much resources to sustain their brood, or simply insisting on staying in the fights for which they were created, are nurtured to maturity and once again let loose on the battlefield.  If wretchlings are our arrows, wretch titans are our trebuchet boulders, causing a tremendous amount of damage to the enemy line with their incredible strength and the geysers of acid spurting from their flesh.  Although no less aggressive than their younger counterparts, wretch titans generally have a much higher survival rate, due to not only their formidable power and size, but the sheer terror they cause when charging at the enemy - few Eyalites would stand and fight against such a foe, particularly when it means standing in a rapidly-growing pool of acid.]=]"
+      },
+      {
+        "line": 345,
+        "text": "newLore{"
+      },
+      {
+        "line": 346,
+        "text": "\tid = \"ashes-urhrok-demon-statue-dolleg\","
+      },
+      {
+        "line": 347,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 348,
+        "text": "\tname = _t\"demon statue: dolleg\","
+      },
+      {
+        "line": 349,
+        "text": "\tlore = _t[=[A walking monument to times of prosperity, the dolleg was once a beast of burden, carrying loads of trade goods through the Sher'Tul portals.  Reliable, friendly, and rather intelligent for a beast, dollegs were often taken in as beloved pets as well - their joyous chirps when seeing their master get home could brighten up anyone's day, and despite their large size they were gentle enough to play with our young.  Their kind temperament and dutiful labor were the pride of our breeding practices, and two-thirds of our population either owned, lived in a home with, or worked with a dolleg.  In the wake of Mal'Rok's destruction, the children of emerald developed an effective process to convert these companions into beasts of war, covered in acidic spines and thick plating, and loyally tearing through our enemies with incredible force.  Unfortunately, their friendly demeanor was lost in order to make them merciless in combat; of all the sacrifices we've had to make for our war, it might be the loss of our gentle companions that troubles us the most.]=]"
+      },
+      {
+        "line": 352,
+        "text": "newLore{"
+      },
+      {
+        "line": 353,
+        "text": "\tid = \"ashes-urhrok-demon-statue-uruivellas\","
+      },
+      {
+        "line": 354,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 355,
+        "text": "\tname = _t\"demon statue: uruivellas\","
+      },
+      {
+        "line": 356,
+        "text": "\tlore = _t[=[The minotaur is one of Eyal's more interesting creatures, and a good example of the devious designs the Sher'Tul had in mind while creating or altering Eyal's races.  Its instincts draw it toward narrow corridors, twisted passages, magical artifacts, and surges of magical energy, resulting in horned beast-men frequently blundering their way into our bases and encampments.  They also seem to soak up empowering magic very readily, and alter their forms accordingly - a typical minotaur is no match for our forces, but occasionally blight will mutate one into an extremely dangerous horror.  Said blighted forms are too unstable for use among our ranks, but with some effort by the children of emerald and ruby, we can give one the gifts of massively increased strength and the ability to unleash waves of flame on our enemies.  While we currently need to keep most of them enthralled to ensure their loyalty, we've recently begun breeding minotaurs on our continent so we can train them from birth to know our cause of righteous revenge - and already some wandering minotaurs accept our cause and our blessings willingly!  It seems the natives of Eyal are no kinder to their own brethren than they are to us.]=]"
+      },
+      {
+        "line": 359,
+        "text": "newLore{"
+      },
+      {
+        "line": 360,
+        "text": "\tid = \"ashes-urhrok-demon-statue-daelach\","
+      },
+      {
+        "line": 361,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 362,
+        "text": "\tname = _t\"demon statue: daelach\","
+      },
+      {
+        "line": 363,
+        "text": "\tlore = _t[=[Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.]=]"
+      },
+      {
+        "line": 366,
+        "text": "newLore{"
+      },
+      {
+        "line": 367,
+        "text": "\tid = \"ashes-urhrok-demon-statue-champion_of_urh_rok\","
+      },
+      {
+        "line": 368,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 369,
+        "text": "\tname = _t\"demon statue: champion of Urh'Rok\","
+      },
+      {
+        "line": 370,
+        "text": "\tlore = _t[=[The Divine Tournament of Combat is the most straightforward of our competitions for the spectator, but those competing have a huge variety of possible divisions to enter.  Most are based on the maximum amount of energy consumed by their entrants since (and including) birth; others include those set in an open field for direct combat, or a difficult-to-navigate forest of pillars to properly evaluate those who use hit-and-run tactics or excel at setting up or detecting ambushes.  In the high-energy divisions, those competing are typically not born in the conventional manner, usually being constructs made by a team performing a collaborative effort.  The constructs we now call Champions of Urh'Rok have utterly devastated most of the high-energy open-field divisions, while performing adequately in the less-direct ones, making them a solid fit for production and deployment in the invasion.  Their development team has earned a place of honor for their ingenious methods of creating such incredible strength with a sustainable amount of energy-input, and once mass-production is in order, these gigantic creatures will become the backbone of our military.  Once they arrive on the surface, Eyal will experience a few fleeting moments of terror before their utter annihilation.]=]"
+      },
+      {
+        "line": 373,
+        "text": "newLore{"
+      },
+      {
+        "line": 374,
+        "text": "\tid = \"ashes-urhrok-demon-statue-forge_giant\","
+      },
+      {
+        "line": 375,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 376,
+        "text": "\tname = _t\"demon statue: forge giant\","
+      },
+      {
+        "line": 377,
+        "text": "\tlore = _t[=[The power of Urh'Rok cannot be overstated, except by claiming it to be infinite.  Most of his strength and will are occupied at the moment, keeping our shattered home from splintering off into the void; as such, he cannot spend time or effort making equipment for our army.  The children of onyx recognized this, and worked on a way to maximize the amount of benefit they could get from a small portion of his power; Urh'Rok was pleased by their idea, and granted their request in full, giving them a handful of enormous hammers, each one glowing with his magic.  These were then given to modified variants of the Champion of Urh'Rok template, built for raw strength at the expense of speed and energy-efficient creation, and now they work tirelessly, heating raw metal with their magic until it is workable, then pounding it into their shape, automatically imbuing the resulting armor and weaponry with Urh'Rok's blessing.  Thanks to an assortment of detachable heads for these hammers, every single swing produces several pieces of usable equipment.  The constant exposure to the power of Urh'Rok has made these creatures almost absurdly formidable, but as useful as they would be on the front lines, they are even more useful bolstering the rest of our forces with blessed equipment; that said, should our scouting parties encounter a problem that requires drastic and immediate intervention, sending a Forge-Giant down is a reliable emergency option, and would immediately clear up any combat-related difficulties should the situation call for it.]=]"
+      },
+      {
+        "line": 380,
+        "text": "newLore{"
+      },
+      {
+        "line": 381,
+        "text": "\tid = \"ashes-urhrok-demon-statue-thaurhereg\","
+      },
+      {
+        "line": 382,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 383,
+        "text": "\tname = _t\"demon statue: thaurhereg\","
+      },
+      {
+        "line": 384,
+        "text": "\tlore = _t[=[Thanks to numerous contacts we have on Eyal's surface, ranging from easily-duped natives to our own scouting teams, we've managed to gain a few captive Eyalites.  These prisoners are useful for a variety of tasks, including manual labor, magical research, stress relief, and developing new methods of torture (those last two often being one in the same).  We try to preserve these temporarily-valuable subjects for as long as we can, but invariably, an experiment goes wrong or someone uses too much force, and the captive ends up mortally wounded.  Rather than let these world-breakers escape their eternal fate by simply dying, we put their bodies and life-essence to use, combining several fallen Eyalites into a creature held together by their collective rage and suffering.  You'd think this would be a bad idea to have walking around our base of operations, but as it turns out, it just takes a few simple enchantments to redirect their vengeful instincts towards their former brethren, making them fearsome and sadistic in combat.  Their rampages against their \"tormentors\" are simply hilarious!]=]"
+      },
+      {
+        "line": 387,
+        "text": "newLore{"
+      },
+      {
+        "line": 388,
+        "text": "\tid = \"ashes-urhrok-demon-statue-duathedlen\","
+      },
+      {
+        "line": 389,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 390,
+        "text": "\tname = _t\"demon statue: dúathedlen\","
+      },
+      {
+        "line": 391,
+        "text": "\tlore = _t[=[#{italic}#This plaque is mostly covered in shifting shadows.  You can only make out a little bit of the text.#{normal}#"
+      },
+      {
+        "line": 400,
+        "text": "newLore{"
+      },
+      {
+        "line": 401,
+        "text": "\tid = \"ashes-urhrok-demon-statue-ruin_banshee\","
+      },
+      {
+        "line": 402,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 403,
+        "text": "\tname = _t\"demon statue: Ruin Banshee\","
+      },
+      {
+        "line": 404,
+        "text": "\tlore = _t[=[The onslaught of the Sher'Tul portals never truly stopped.  Magic still pours from them, threatening to do even more damage to our home; it would be completely destroyed by now, if not for our Father.  Part of his work to keep Mal'Rok structurally intact is to blow great gusts across the devastated land, forcing the ravenous flames back into the portal network from whence they came.  It would seem, though, that the flames took souvenirs with them; our scouting parties have noted that Sher'Tul portals on Eyal, even those which have been completely deactivated, will occasionally emit a shade of one of our fallen citizens, imbued by some of Urh'Rok's power, smelling of Mal'Rok's ashes, and warped to insanity by its transit through the unstable rifts.  While this is a troubling revalation of the true horror of the Sher'Tul weapons, telling us that even now our fallen cannot rest in peace, the fact that they are arriving on Eyal in defiance of the shield is some consolation, as it means that those most wronged by the betrayal can claim their revenge personally.]=]"
+      },
+      {
+        "line": 410,
+        "text": "newLore{"
+      },
+      {
+        "line": 411,
+        "text": "\tid = \"ashes-urhrok-demon-statue-draebor_the_imp\","
+      },
+      {
+        "line": 412,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 413,
+        "text": "\tname = _t\"demon statue: Draebor, the Imp\","
+      },
+      {
+        "line": 414,
+        "text": "\tlore = _t[=[Teleportation is one of the most crucial areas of magical research to our cause of revenge; until we break the Sher'Tul-made shield surrounding Eyal, it will remain our only means of reaching the surface.  One of our leading scholars, a child of onyx known as Draebor, has perfected short-range teleportation and has been studying methods to work his skills into a mass-producible artifact to grant this ability to all of our troops.  He's kept his work under wraps as of late, but rumor has it that he's been reverse-engineering the Sher'Tul portals, letting our invasion get through via their own weapons.  Whatever he's up to, keep an eye out - big things are just around the corner, courtesy of his dedicated research!]=]"
+      },
+      {
+        "line": 417,
+        "text": "newLore{"
+      },
+      {
+        "line": 418,
+        "text": "\tid = \"ashes-urhrok-demon-statue-shasshhiy_kaish\","
+      },
+      {
+        "line": 419,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 420,
+        "text": "\tname = _t\"demon statue: Shasshhiy'Kaish\","
+      },
+      {
+        "line": 421,
+        "text": "\tlore = _t[=[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause."
+      },
+      {
+        "line": 430,
+        "text": "newLore{"
+      },
+      {
+        "line": 431,
+        "text": "\tid = \"ashes-urhrok-demon-statue-walrog\","
+      },
+      {
+        "line": 432,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 433,
+        "text": "\tname = _t\"demon statue: Walrog\","
+      },
+      {
+        "line": 434,
+        "text": "\tlore = _t[=[#{italic}#The message at the base of this statue has been scratched out, and a new one has been carved in its place.#{normal}#"
+      },
+      {
+        "line": 440,
+        "text": "newLore{"
+      },
+      {
+        "line": 441,
+        "text": "\tid = \"ashes-urhrok-demon-statue-kryl_feijan\","
+      },
+      {
+        "line": 442,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 443,
+        "text": "\tname = _t\"demon statue: Kryl-Feijan\","
+      },
+      {
+        "line": 444,
+        "text": "\tlore = _t[=[#{italic}#The text at the base of this statue has been scratched out.  A note is attached in its place.#{normal}#"
+      },
+      {
+        "line": 467,
+        "text": "newLore{"
+      },
+      {
+        "line": 468,
+        "text": "\tid = \"ashes-urhrok-demon-statue-general_of_urh_rok\","
+      },
+      {
+        "line": 469,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 470,
+        "text": "\tname = _t\"demon statue: Khulmanar, General of Urh'Rok\","
+      },
+      {
+        "line": 471,
+        "text": "\tlore = _t[=[Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.]=]"
+      },
+      {
+        "line": 474,
+        "text": "newLore{"
+      },
+      {
+        "line": 475,
+        "text": "\tid = \"ashes-urhrok-demon-statue-lithfengel\","
+      },
+      {
+        "line": 476,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 477,
+        "text": "\tname = _t\"demon statue: Lithfengel\","
+      },
+      {
+        "line": 478,
+        "text": "\tlore = _t[=[Lithfengel, mentor of Draebor and child of emerald, was one of our finest scholars.  When most of us were still too afraid to go near a portal, he recovered an intact one and began to pry apart its secrets, in hopes of reaching Eyal.  His data showed that although this portal was still technically connected to Eyal, the link between the two worlds was still fluctuating far too much to make it safe for travel, the still-raging flames threatening to tear any prospective passengers apart before they reached their destination.  Rather than try to repair the link directly, he went into his lab and didn't emerge for a few days; when he came out, he glowed with a strange new enchantment, proclaiming it would adaptively mutate him to endure whatever damage the portal would otherwise inflict.  Saying that the consequences of failure were too awful to risk inflicting on other test subjects, he entered the portal himself, promising to return immediately after he arrived; he has not been seen since.  May he rest in peace for his selfless devotion.]=]"
+      },
+      {
+        "line": 481,
+        "text": "newLore{"
+      },
+      {
+        "line": 482,
+        "text": "\tid = \"ashes-urhrok-demon-statue-rogroth\","
+      },
+      {
+        "line": 483,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 484,
+        "text": "\tname = _t\"demon statue: Rogroth, Eater of Souls\","
+      },
+      {
+        "line": 485,
+        "text": "\tlore = _t[=[Recently, the cultists of Shasshhiy'Kaish have begun speaking of a \"demon seed,\" a sort of magical cluster of life-essence which can be implanted in a sentient being, allowing it to grow inside of them and eventually become one of our citizens.  Inspired by this idea, the children of emerald have developed a prototype of this form of magic, and the children of onyx have made a chassis to carry it into combat.  Rogroth generates countless essence-less seeds from within its frame, then embeds them in nearby living beings, so when they expire, their life-essence goes directly into the seed and allows it to grow.  We have not yet perfected its production capabilities, so currently the seeds will only become degenerate husks when they grow, but fear not!  As we get data from the tests of this design, we'll improve on it, and soon the slaughter of our foes will cause wretchlings, quasits, and even thaurheregs to spring up from their corpses.  With a little bit of luck and some decisive early skirmishes, we could even bypass the problem of getting an invasion force to the surface entirely, growing it there instead.]=]"
+      },
+      {
+        "line": 488,
+        "text": "newLore{"
+      },
+      {
+        "line": 489,
+        "text": "\tid = \"ashes-urhrok-demon-statue-corrupted_daelach\","
+      },
+      {
+        "line": 490,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 491,
+        "text": "\tname = _t\"demon statue: Corrupted Daelach\","
+      },
+      {
+        "line": 492,
+        "text": "\tlore = _t[=[One of the problems with making daelach is the inherent instability that comes from creating something that is almost entirely made of magic.  If ambient levels of blight are even slightly too high, it can set off a chain reaction that at best destroys the daelach, and at worst destroys most of the mages who were building it.  Daelach production is thus theoretically cheap, but in practice involves great expense, and usually a blighted daelach has to be immediately put down lest it cause tremendous damage.  One specimen, though, adapted to the blight in a very interesting way, sprouting wings and bolstering its usual firestorms with blight, but otherwise remaining perfectly balanced and controllable.  We'll try to recreate this happy accident however we can, but in the meantime, it will prove effective on the surface of Eyal.]=]"
+      },
+      {
+        "line": 495,
+        "text": "newLore{"
+      },
+      {
+        "line": 496,
+        "text": "\tid = \"ashes-urhrok-demon-statue-harkor_zun\","
+      },
+      {
+        "line": 497,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 498,
+        "text": "\tname = _t\"demon statue: Harkor'Zun\","
+      },
+      {
+        "line": 499,
+        "text": "\tlore = _t[=[Of the anomalies and phenomena we've noticed in our studies of the shield protecting Eyal, none have frustrated us so much as meteors.  Certain powerful Eyalite spellcasters can pull a large meteor into low orbit, passing it through the shield relatively unharmed, aside from being split into predictably-sized chunks, which are then called to the surface one-by-one in a series of devastating meteoric crashes.  While we have not yet found a way to reverse-engineer these spells to protect our standard troops from disintegration, we have had some limited success in making a construct that closely resembles a meteor in composition and appearance.  Harkor'Zun, a being made mostly of stone, was simply dropped from our platform; the shield shattered him as expected, but we had designed him to survive this, the fragments merging back into their completed form once he reached the surface.  It would seem, though, that either we made him to be too sturdy, or the shield envelops incoming objects in a sort of anti-magic coating, as he has been unable to start the second stage of this process, wherein he merges these fragments back into a completed form.  Should an Eyalite stumble upon him and attempt to destroy the fragments, Harkor'Zun will be able to re-combine and \"thank\" whoever granted him his ascension.]=]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7a33ef46eabe76b1f03ad47547d5280dc678df3c4386e50451028607da48037d",
+    "public_source_path": "tome-ashes-urhrok/data/achievements/all.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": ""
+      },
+      {
+        "line": 70,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 71,
+        "text": "\tname = \"Hell has no fury like a demon scorned!\", id = \"ASHES_ESCAPED\", category = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 72,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 73,
+        "text": "\tdesc = _t[[Escaped the Searing Halls.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7af6a0cdc3d2388445654ac206c9bc6ddb1f7e32f8461783550b05eb54f7d8ec",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 81,
+        "text": "\tname = _t\"history of Mal'Rok (2)\","
+      },
+      {
+        "line": 82,
+        "text": "\tlore = _t[=["
+      },
+      {
+        "line": 83,
+        "text": "They arrived in enormous flying fortresses, bristling with weapons and overflowing with magic. They did not directly threaten us, but they met with our leaders and gave us what was either an offer or an ultimatum: let them kill our Father, or kill him ourselves, and be rewarded with technology and magic as grand as theirs."
+      },
+      {
+        "line": 84,
+        "text": ""
+      },
+      {
+        "line": 85,
+        "text": "They were powerful - very powerful. Although their proposal was phrased as a generous offer, we could not help but notice that their fortresses had positioned themselves over our armories and population centers, and none of their fortresses were unarmed. We did not think we could fight them; we considered waking Father for help, but we weren't sure he could fight them either. In desperation, we met and devised a plan: we would seal Urh'Rok away, prevent him from waking up unless disturbed, and then tell the Sher'Tul what we had done. Father would not be hurt or injured by this - he simply wouldn't know what was going on."
+      },
+      {
+        "line": 86,
+        "text": ""
+      },
+      {
+        "line": 87,
+        "text": "We did this, and came to the Sher'Tul. They begrudgingly accepted our treacherous act as a pledge of loyalty to them, and came through with their end of the bargain, giving us knowledge and artifacts beyond our wildest dreams. They built powerful portals all over our planet, allowing us to travel through them not only within our world, but within every world the Sher'Tul had visited before. We saw wonderful new worlds, met and traded with peaceful species from across the universe, enjoyed all kinds of new, alien food, music, magic, and inventions, and generally could not have been happier with how things turned out - if not for the pangs of guilt we felt for betraying our Father. The Sher'Tul eventually stopped visiting us, but we kept trading with new people we met through the portal, and did not notice their absence."
+      },
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": "Then everything broke."
+      },
+      {
+        "line": 90,
+        "text": "]=]"
+      },
+      {
+        "line": 91,
+        "text": "}"
+      },
+      {
+        "line": 92,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7bceb7baaeca018d8f8a1e8e07bcef5b7b3069d9c349f10359cee46b9f980fcf",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 169,
+        "text": "\tname = \"CURSED_FLAMES\", image = \"talents/devouring_flames.png\","
+      },
+      {
+        "line": 170,
+        "text": "\tdesc = _t\"Devouring flames\","
+      },
+      {
+        "line": 171,
+        "text": "\tlong_desc = function(self, eff) return (\"This character's flames are feeding the source, healing them for %d per turn and giving them %d vim.\"):tformat(eff.heal, eff.vim) end,"
+      },
+      {
+        "line": 172,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 173,
+        "text": "\tsubtype = { corruption=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7be257b509a941424974c1df1f9f027818af6f5c58f2216272deaeaa3451f400",
+    "public_source_path": "tome-ashes-urhrok/data/quests/re-abducted.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\tend"
+      },
+      {
+        "line": 32,
+        "text": "\tif self:isCompleted(\"boss\") then"
+      },
+      {
+        "line": 33,
+        "text": "\t\tdesc[#desc+1] = _t[[#LIGHT_GREEN#* You have destroyed Rogroth the Eater of Souls and made your escape possible. Flee!#WHITE#]]"
+      },
+      {
+        "line": 34,
+        "text": "\telse"
+      },
+      {
+        "line": 35,
+        "text": "\t\tdesc[#desc+1] = _t[[#SLATE#* Find a way back to Eyal.#WHITE#]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7bfbbfe0bde1ecb18f10966ead9d818637c4865049befa6864cbad9d4c2fa023",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 16,
+        "text": "--"
+      },
+      {
+        "line": 17,
+        "text": "-- Nicolas Casalini \"DarkGod\""
+      },
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "local Stats = require \"engine.interface.ActorStats\""
+      },
+      {
+        "line": 80,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 81,
+        "text": "\t\teff.src:project({type=\"hit\", x=self.x, y=self.y}, self.x, self.y, DamageType.FIRE, eff.finaldam, nil)"
+      },
+      {
+        "line": 82,
+        "text": "\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"dark\")"
+      },
+      {
+        "line": 83,
+        "text": "\tend,"
+      },
+      {
+        "line": 84,
+        "text": "\tcallbackOnHit = function(self, eff, cb)"
+      },
+      {
+        "line": 210,
+        "text": "\t\t\teff.particle = self:addParticles(Particles.new(\"wildfire\", 1))"
+      },
+      {
+        "line": 211,
+        "text": "\t\telse"
+      },
+      {
+        "line": 212,
+        "text": "\t\t\teff.particle = self:addParticles(Particles.new(\"darkness_shield\", 1))"
+      },
+      {
+        "line": 213,
+        "text": "\t\tend"
+      },
+      {
+        "line": 214,
+        "text": "\t\t"
+      },
+      {
+        "line": 614,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is overflowing with power, increasing all damage done by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 615,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 616,
+        "text": "\tsubtype = { dark=true },"
+      },
+      {
+        "line": 617,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 618,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 619,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is filled with dark power!\", _t\"+Corrupted Light\" end,"
+      },
+      {
+        "line": 620,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer subject to the dark power.\", _t\"-Corrupted Light\" end,"
+      },
+      {
+        "line": 621,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 622,
+        "text": "\t\tself:effectTemporaryValue(eff, \"lite\", -1000)"
+      },
+      {
+        "line": 674,
+        "text": "\tname = \"DEMONIC_CUT\", image = \"talents/demon_horns.png\","
+      },
+      {
+        "line": 675,
+        "text": "\tdesc = _t\"Demonic Cut\","
+      },
+      {
+        "line": 676,
+        "text": "\tlong_desc = function(self, eff) return (\"Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.\"):tformat(eff.dam, eff.heal) end,"
+      },
+      {
+        "line": 677,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 678,
+        "text": "\tsubtype = { wound=true, cut=true, bleed=true, darkness=true },"
+      },
+      {
+        "line": 679,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 680,
+        "text": "\tparameters = { dam=1, heal=1 },"
+      },
+      {
+        "line": 681,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# starts to bleed darkness.\", _t\"+Demonic Cut\" end,"
+      },
+      {
+        "line": 682,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# stops bleeding darkness.\", _t\"-Demonic Cut\" end,"
+      },
+      {
+        "line": 683,
+        "text": "\tcallbackOnMeleeHit = function(self, eff, src, dam)"
+      },
+      {
+        "line": 684,
+        "text": "\t\tif not dam or dam <= 0 or src ~= eff.src then return end"
+      },
+      {
+        "line": 686,
+        "text": "\t\tsrc:heal(eff.heal)"
+      },
+      {
+        "line": 687,
+        "text": "\t\tif core.shader.active(4) then"
+      },
+      {
+        "line": 688,
+        "text": "\t\t\tsrc:addParticles(Particles.new(\"shader_shield_temp\", 1, {toback=true , size_factor=1.5, y=-0.3, img=\"healdark\", life=25}, {type=\"healing\", time_factor=6000, beamsCount=15, noup=2.0, beamColor1={0xcb/255, 0xcb/255, 0xcb/255, 1}, beamColor2={0x35/255, 0x35/255, 0x35/255, 1}}))"
+      },
+      {
+        "line": 689,
+        "text": "\t\t\tsrc:addParticles(Particles.new(\"shader_shield_temp\", 1, {toback=false, size_factor=1.5, y=-0.3, img=\"healdark\", life=25}, {type=\"healing\", time_factor=6000, beamsCount=15, noup=1.0, beamColor1={0xcb/255, 0xcb/255, 0xcb/255, 1}, beamColor2={0x35/255, 0x35/255, 0x35/255, 1}}))"
+      },
+      {
+        "line": 690,
+        "text": "\t\tend"
+      },
+      {
+        "line": 691,
+        "text": "\t\tgame:playSoundNear(src, \"talents/heal\")"
+      },
+      {
+        "line": 708,
+        "text": "\tlong_desc = function(self, eff) return (\"When this target is damaged %d%% of the damage will also be done to an other victim.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 709,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 710,
+        "text": "\tsubtype = { ritual=true, darkness=true },"
+      },
+      {
+        "line": 711,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 712,
+        "text": "\tparameters = { power=40 },"
+      },
+      {
+        "line": 754,
+        "text": "\tname = \"ONLY_ASHES_LEFT\", image = \"talents/only_ashes_left.png\","
+      },
+      {
+        "line": 755,
+        "text": "\tdesc = _t\"Only Ashes Left\","
+      },
+      {
+        "line": 756,
+        "text": "\tlong_desc = function(self, eff) return (\"The target burns with darkness, taking %0.2f damage each turn until it dies or runs away.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 757,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 758,
+        "text": "\tsubtype = { darkness=true },"
+      },
+      {
+        "line": 759,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 760,
+        "text": "\tdecrease = 0, no_stop_enter_worlmap = true, cancel_on_level_change = true,"
+      },
+      {
+        "line": 761,
+        "text": "\tparameters = { power=1, max_dist=4 },"
+      },
+      {
+        "line": 762,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# burns with dark flames.\", _t\"+Only Ashes Left\" end,"
+      },
+      {
+        "line": 763,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# stops burning.\", _t\"-Only Ashes Left\" end,"
+      },
+      {
+        "line": 764,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 801,
+        "text": ""
+      },
+      {
+        "line": 802,
+        "text": "newEffect{"
+      },
+      {
+        "line": 803,
+        "text": "\tname = \"DARK_REIGN\", image = \"talents/dark_reign.png\","
+      },
+      {
+        "line": 804,
+        "text": "\tdesc = _t\"Dark Reign\","
+      },
+      {
+        "line": 805,
+        "text": "\tlong_desc = function(self, eff) local p = 1 for i = 1, eff.stacks do p = p * 0.92 end p = 100 * (1 - p) return (\"All damage affinity increased by %d%%.\\nWill not die until %d life\"):tformat(p, -((eff.die_at or 0) * eff.stacks)) end,"
+      },
+      {
+        "line": 806,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 807,
+        "text": "\tsubtype = { dark=true },"
+      },
+      {
+        "line": 808,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 809,
+        "text": "\tparameters = { stacks=1, max_stacks=3, die_at = 0 },"
+      },
+      {
+        "line": 810,
+        "text": "\tcharges = function(self, eff) return eff.stacks end,"
+      },
+      {
+        "line": 811,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is filled with dark power!\", _t\"+Dark Reign\" end,"
+      },
+      {
+        "line": 812,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer subject to the dark power.\", _t\"-Dark Reign\" end,"
+      },
+      {
+        "line": 813,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      },
+      {
+        "line": 814,
+        "text": "\t\told_eff.dur = new_eff.dur"
+      },
+      {
+        "line": 822,
+        "text": "\t\tif new_eff.die_at then old_eff.eff_id2 = self:addTemporaryValue(\"die_at\", -(old_eff.stacks * new_eff.die_at) ) end"
+      },
+      {
+        "line": 823,
+        "text": ""
+      },
+      {
+        "line": 824,
+        "text": "\t\tself:removeShaderAura(\"dark_reign\")"
+      },
+      {
+        "line": 825,
+        "text": "\t\tlocal visual = 0.3 + 0.1 * old_eff.stacks"
+      },
+      {
+        "line": 826,
+        "text": "\t\tself:addShaderAura(\"dark_reign\", \"awesomeaura\", {time_factor=7500, alpha=visual, flame_scale=visual}, \"particles_images/darkwings.png\")"
+      },
+      {
+        "line": 827,
+        "text": "\t\treturn old_eff"
+      },
+      {
+        "line": 828,
+        "text": "\tend,"
+      },
+      {
+        "line": 831,
+        "text": "\t\teff.eff_id2 = self:addTemporaryValue(\"die_at\", -eff.die_at)"
+      },
+      {
+        "line": 832,
+        "text": ""
+      },
+      {
+        "line": 833,
+        "text": "\t\tself:addShaderAura(\"dark_reign\", \"awesomeaura\", {time_factor=7500, alpha=0.4, flame_scale=0.4}, \"particles_images/darkwings.png\")"
+      },
+      {
+        "line": 834,
+        "text": "\tend,"
+      },
+      {
+        "line": 835,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 836,
+        "text": "\t\tself:removeShaderAura(\"dark_reign\")"
+      },
+      {
+        "line": 837,
+        "text": "\t\tself:removeTemporaryValue(\"damage_affinity\", eff.eff_id)"
+      },
+      {
+        "line": 838,
+        "text": "\t\tif eff.eff_id2 then self:removeTemporaryValue(\"die_at\", eff.eff_id2) end"
+      },
+      {
+        "line": 843,
+        "text": "\tname = \"BLOOD_PACT\", image = \"talents/blood_pact.png\","
+      },
+      {
+        "line": 844,
+        "text": "\tdesc = _t\"Blood Pact\","
+      },
+      {
+        "line": 845,
+        "text": "\tlong_desc = function(self, eff) return (\"All damage you deal is converted to darkness.\"):tformat() end,"
+      },
+      {
+        "line": 846,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 847,
+        "text": "\tsubtype = { dark=true },"
+      },
+      {
+        "line": 848,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 849,
+        "text": "\tparameters = { },"
+      },
+      {
+        "line": 850,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# becomes an avatar of darkness!\", _t\"+Blood Pact\" end,"
+      },
+      {
+        "line": 851,
+        "text": "\ton_lose = function(self, err) return _t\"The darkness within #target# subsides.\", _t\"-Blood Pact\" end,"
+      },
+      {
+        "line": 852,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 853,
+        "text": "\t\tself:effectTemporaryValue(eff, \"all_damage_convert\", DamageType.DARKNESS)"
+      },
+      {
+        "line": 861,
+        "text": "\tlong_desc = function(self, eff) return (\"You have %d charges.\"):tformat(eff.stacks) end,"
+      },
+      {
+        "line": 862,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 863,
+        "text": "\tsubtype = { dark=true, cold=true },"
+      },
+      {
+        "line": 864,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 865,
+        "text": "\tparameters = { stacks=1, max_stacks=3 },"
+      },
+      {
+        "line": 881,
+        "text": "\tlong_desc = function(self, eff) return (\"Fire and physical resistance reduced by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 882,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 883,
+        "text": "\tsubtype = { dark=true, cold=true },"
+      },
+      {
+        "line": 884,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 885,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 950,
+        "text": "\tlong_desc = function(self, eff) return (\"Spellpower increased by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 951,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 952,
+        "text": "\tsubtype = { dark=true },"
+      },
+      {
+        "line": 953,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 954,
+        "text": "\tparameters = { power=5 },"
+      },
+      {
+        "line": 1004,
+        "text": "\tname = \"OMINOUS_SHADOW\", image = \"talents/ominous_shadow.png\","
+      },
+      {
+        "line": 1005,
+        "text": "\tdesc = _t\"Ominous Shadow\","
+      },
+      {
+        "line": 1006,
+        "text": "\tlong_desc = function(self, eff) return (\"Improves/gives invisibility (power %d), converts all damage to darkness and uses your highest damage penetration and increase for darkness.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 1007,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 1008,
+        "text": "\tsubtype = { dark=true },"
+      },
+      {
+        "line": 1009,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 1010,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 1063,
+        "text": "\t\t-- self:effectTemporaryValue(eff, \"all_damage_convert_percent\", 100)"
+      },
+      {
+        "line": 1064,
+        "text": "\t\tself:effectTemporaryValue(eff, \"stealth\", eff.stealth)"
+      },
+      {
+        "line": 1065,
+        "text": "\t\tself:effectTemporaryValue(eff, \"inc_damage\", {[DamageType.DARKNESS] = eff.darkness})"
+      },
+      {
+        "line": 1066,
+        "text": ""
+      },
+      {
+        "line": 1067,
+        "text": "\t\tself.replace_display = mod.class.Actor.new{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7c3ac761ee0c12e5b6b023d81ec6987d8fe44aff6e55ae48d9c062c9f27ebd3f",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 559,
+        "text": "\tname = \"ACIDIC_BATH\", image = \"talents/demon_seed_acidic_bath.png\","
+      },
+      {
+        "line": 560,
+        "text": "\tdesc = _t\"Acidic Bath\","
+      },
+      {
+        "line": 561,
+        "text": "\tlong_desc = function(self, eff) return (\"Gain %d%% resistance and %d%% affinity to acid.\"):tformat(eff.res, eff.aff) end,"
+      },
+      {
+        "line": 562,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 563,
+        "text": "\tsubtype = { resistance=true, heal=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7c5db97a98e7e17072ebccb0c0be9dc8c7fac2e27a0a21a2e1c7d4d21f234621",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 175,
+        "text": "\tdecrease = 0, no_stop_enter_worlmap = true, cancel_on_level_change = true,"
+      },
+      {
+        "line": 176,
+        "text": "\tparameters = { heal = 10, vim = 2},"
+      },
+      {
+        "line": 177,
+        "text": "\ton_gain = function(self, err) return _t\"#Target#'s is surrounded with an all-consuming flame!\", _t\"+Devoured\" end,"
+      },
+      {
+        "line": 178,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s is no longer blazing.\", _t\"-Devoured\" end,"
+      },
+      {
+        "line": 179,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7caf9a404359703f7786ad37a8bc4284a8245cbfb9eca0e02a30f1b3214521dd",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 894,
+        "text": "floorEffect{"
+      },
+      {
+        "line": 895,
+        "text": "\tname = \"FIRE_HAVEN\","
+      },
+      {
+        "line": 896,
+        "text": "\tdesc = _t\"Fire Haven\", image = \"talents/inferno.png\","
+      },
+      {
+        "line": 897,
+        "text": "\tlong_desc = _t\"The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.\","
+      },
+      {
+        "line": 898,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7d5eb7d0d4bb96660c77ec6d89df62692a49e897b43e2bb9a003a6ad5cf850c9",
+    "public_source_path": "tome-ashes-urhrok/data/zones/searing-halls/grids.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "load(\"/data/general/grids/malrok_walls.lua\")"
+      },
+      {
+        "line": 21,
+        "text": "load(\"/data/general/grids/void.lua\", function(e) if e.image then e.image = e.image:gsub(\"^terrain/floating_rocks\", \"terrain/red_floating_rocks\") end end)"
+      },
+      {
+        "line": 22,
+        "text": "load(\"/data/general/grids/burntland.lua\", function(e) if e.image == \"terrain/grass_burnt1.png\" then e.image = \"terrain/red_floating_rocks05_01.png\" end end)"
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "newEntity{"
+      },
+      {
+        "line": 25,
+        "text": "\tdefine_as = \"CRATER_SPLATTER\","
+      },
+      {
+        "line": 26,
+        "text": "\ttype = \"floor\", subtype = \"rocks\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = \"demon killed by a meteor\", image = \"terrain/red_floating_rocks05_01.png\","
+      },
+      {
+        "line": 28,
+        "text": "\tadd_displays = {"
+      },
+      {
+        "line": 29,
+        "text": "\t\tclass.new{z=4, image=\"terrain/impact_crater_lava.png\", display_w=4, display_h=4, display_x=-1.5, display_y=-1.5},"
+      },
+      {
+        "line": 36,
+        "text": "newEntity{"
+      },
+      {
+        "line": 37,
+        "text": "\tdefine_as = \"CRATER\","
+      },
+      {
+        "line": 38,
+        "text": "\ttype = \"floor\", subtype = \"rocks\","
+      },
+      {
+        "line": 39,
+        "text": "\tname = \"impact crater\", image = \"terrain/red_floating_rocks05_01.png\","
+      },
+      {
+        "line": 40,
+        "text": "\tadd_displays = {"
+      },
+      {
+        "line": 41,
+        "text": "\t\tclass.new{z=4, image=\"terrain/impact_crater_lava.png\", display_w=4, display_h=4, display_x=-1.5, display_y=-1.5},"
+      },
+      {
+        "line": 47,
+        "text": "newEntity{"
+      },
+      {
+        "line": 48,
+        "text": "\tdefine_as = \"CONTROLLING_CRYSTAL\","
+      },
+      {
+        "line": 49,
+        "text": "\ttype = \"floor\", subtype = \"rocks\", image = \"terrain/red_floating_rocks05_01.png\", add_mos = {{image=\"terrain/malrok_wall/control_gem.png\"}},"
+      },
+      {
+        "line": 50,
+        "text": "\tname = \"tracking control crystal\","
+      },
+      {
+        "line": 51,
+        "text": "\tdisplay = '*', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 80,
+        "text": ""
+      },
+      {
+        "line": 81,
+        "text": "newEntity{"
+      },
+      {
+        "line": 82,
+        "text": "\tdefine_as = \"PORTAL_NEXT\", image = \"terrain/red_floating_rocks05_01.png\", add_mos = {{image=\"terrain/demon_portal.png\"}},"
+      },
+      {
+        "line": 83,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 84,
+        "text": "\tname = \"portal to the next level\","
+      },
+      {
+        "line": 90,
+        "text": ""
+      },
+      {
+        "line": 91,
+        "text": "newEntity{"
+      },
+      {
+        "line": 92,
+        "text": "\tdefine_as = \"PORTAL_PREV\", image = \"terrain/red_floating_rocks05_01.png\", add_mos = {{image=\"terrain/demon_portal.png\"}},"
+      },
+      {
+        "line": 93,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 94,
+        "text": "\tname = \"portal to the previous level\","
+      },
+      {
+        "line": 103,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 104,
+        "text": "\tname = \"portal to somewhere on Eyal\","
+      },
+      {
+        "line": 105,
+        "text": "\timage = \"terrain/red_floating_rocks05_01.png\", add_displays = {"
+      },
+      {
+        "line": 106,
+        "text": "\t\tclass.new{z=3, image=\"terrain/planar_demon_portal_ground_down.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2},"
+      },
+      {
+        "line": 107,
+        "text": "\t\tclass.new{z=16, image=\"terrain/planar_demon_portal_ground_up.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7e82bdd8df9561bdf6ddbaf9c2ac6ae0c536181e99f4036b0af03dafc1420c79",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 735,
+        "text": "\tend,"
+      },
+      {
+        "line": 736,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 737,
+        "text": "\t\treturn ([[In a fiery display of speed you raise your shield to block instantly.]]):"
+      },
+      {
+        "line": 738,
+        "text": "\t\ttformat()"
+      },
+      {
+        "line": 739,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7e9f59ab30978a9230cebef2b7033e7cd20c73eee26a7dfb68c32c7fb6f67499",
+    "public_source_path": "tome-ashes-urhrok/superload/mod/class/Actor.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": "\t\tif npc and x and y then"
+      },
+      {
+        "line": 48,
+        "text": "\t\t\tgame.zone:addEntity(game.level, npc, \"actor\", x, y)"
+      },
+      {
+        "line": 49,
+        "text": "\t\t\tlocal chat = Chat.new(\"ashes-urhrok-walrog-pop\", npc, game:getPlayer(true), {kind=self.name == \"Slasul\" and _t\"naga\" or _t\"dragon\"})"
+      },
+      {
+        "line": 50,
+        "text": "\t\t\tchat:invoke()"
+      },
+      {
+        "line": 51,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7ef6fb98c3d369e2c0fa5f20e9b2f711f75cfd4dceae84f848a35931fe87ed6c",
+    "public_source_path": "tome-ashes-urhrok/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 109,
+        "text": "\tmoddable_tile = \"special/fearfire_mantle_%s\", moddable_tile_big = true,"
+      },
+      {
+        "line": 110,
+        "text": "\tunided_name = _t\"cloak shaped flames\","
+      },
+      {
+        "line": 111,
+        "text": "\tdesc = _t[[Black fires born of a blackened heart.]],"
+      },
+      {
+        "line": 112,
+        "text": "\tlevel_range = {15, 30},"
+      },
+      {
+        "line": 113,
+        "text": "\tcolor = colors.RED,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7f2c464776d47196780d26e14652a8d0b32f04c7159aef5399872f19a41cf1ed",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 270,
+        "text": "\t\tlocal d = Dialog:listPopup(_t\"Blighted Path\", (\"Select a use for the %s charge(s):\"):tformat(p.charges), {"
+      },
+      {
+        "line": 271,
+        "text": "\t\t\t{kind=\"shield\", name=(\"Shield for %d damage (50%% reflect).\"):tformat(t.getShield(self, t) * p.charges)},"
+      },
+      {
+        "line": 272,
+        "text": "\t\t\t{kind=\"attack\", name=(\"Attack for #DARK_GREEN#%0.2f blight damage\"):tformat(damDesc(self, DamageType.BLIGHT, t.getDamage(self, t) * p.charges))},"
+      },
+      {
+        "line": 273,
+        "text": "\t\t\t{kind=\"vim\", name=(\"Restore #904010#%0.2f vim\"):tformat(t.getVim(self, t) * p.charges)},"
+      },
+      {
+        "line": 274,
+        "text": "\t\t}, 300, 150, function(sel)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7f5af21cb3da7de5963c2ef2aa4897f04ef5775700c8eafdf4ad04adde196002",
+    "public_source_path": "tome-ashes-urhrok/data/birth/races_cosmetic.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": "\t\t\ttable.insert(item.cosmetic_options.tatoos, {name=_t\"Demonic Tatoos 3\", file=\"tattoo_demonic_03\", unlock=\"cosmetic_doomhorns\"})"
+      },
+      {
+        "line": 47,
+        "text": "\t\t\ttable.insert(item.cosmetic_options.tatoos, {name=_t\"Demonic Tatoos 4\", file=\"tattoo_demonic_04\", unlock=\"cosmetic_doomhorns\"})"
+      },
+      {
+        "line": 48,
+        "text": "\t\t\ttable.insert(item.cosmetic_options.tatoos, {name=_t\"Demonic Tatoos 5\", file=\"tattoo_demonic_05\", unlock=\"cosmetic_doomhorns\"})"
+      },
+      {
+        "line": 49,
+        "text": "\t\t\ttable.insert(item.cosmetic_options.tatoos, {name=_t\"Demonic Tatoos 6\", file=\"tattoo_demonic_06\", unlock=\"cosmetic_doomhorns\"})"
+      },
+      {
+        "line": 50,
+        "text": "\t\t\ttable.insert(item.cosmetic_options.tatoos, {name=_t\"Demonic Tatoos 7\", file=\"tattoo_demonic_07\", unlock=\"cosmetic_doomhorns\"})"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7fe3c4b7a6f9ec05478615e2bc706ec15a5b47296b6ea40f7068862a96418b50",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 162,
+        "text": "\tid = \"ashes-urhrok-tactics-demonologist\","
+      },
+      {
+        "line": 163,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 164,
+        "text": "\tname = _t\"orbital base: battle plan (demonologist)\","
+      },
+      {
+        "line": 165,
+        "text": "\ttemplate = true,"
+      },
+      {
+        "line": 166,
+        "text": "\tlore = _t[=[Engagement Briefing on <?=player.name?>:"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "80546ccc121b3ca82ac2554956c67489661d055eb58d44c0699b62dc47476c44",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 1009,
+        "text": "\tend,"
+      },
+      {
+        "line": 1010,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1011,
+        "text": "\t\treturn ([[You breathe a mix of darkness and flight in a frontal cone of radius %d. Any target caught in the area will take %0.2f darkness/blight damage."
+      },
+      {
+        "line": 1012,
+        "text": "\t\tIn addition each time you do a melee attack there is a 10%% chance to trigger the breath at no cost."
+      },
+      {
+        "line": 1013,
+        "text": "\t\tThe damage will increase with your Spellpower."
+      },
+      {
+        "line": 1014,
+        "text": "\t\t]]):tformat(self:getTalentRadius(t), damDesc(self, DamageType.FETID, t.getDamage(self, t)))"
+      },
+      {
+        "line": 1015,
+        "text": "\tend,"
+      },
+      {
+        "line": 1016,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "806707020e5eb41e984c976825990e3532661d31132b208e5acccff80ee82c27",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 990,
+        "text": "newEffect{"
+      },
+      {
+        "line": 991,
+        "text": "\tname = \"DEMON_SEED_PAIN_AFFINITY\", image = \"talents/demon_seed_pain_affinity.png\","
+      },
+      {
+        "line": 992,
+        "text": "\tdesc = _t\"Pain Affinity\","
+      },
+      {
+        "line": 993,
+        "text": "\tlong_desc = function(self, eff) return (\"All damage affinity increased by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 994,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8081bc904438c9857584a653c524d5dc5fa861d5351f1a478a2d2de50d91479c",
+    "public_source_path": "tome-ashes-urhrok/data/general/grids/demon_statues.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\twretch_titan = _t\"a wretch titan\","
+      },
+      {
+        "line": 44,
+        "text": "\truin_banshee = _t\"a ruin banshee\","
+      },
+      {
+        "line": 45,
+        "text": "\tharkor_zun = _t\"Harkor'Zun\","
+      },
+      {
+        "line": 46,
+        "text": "}"
+      },
+      {
+        "line": 47,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8093dc2f90b0ae326e4e3d5072defa0c76db7dfdba9c36c3ad3a5492a8f8956f",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+    "lines": [
+      {
+        "line": 149,
+        "text": ""
+      },
+      {
+        "line": 150,
+        "text": "newTalent{"
+      },
+      {
+        "line": 151,
+        "text": "\tname = \"Fiery Torment\","
+      },
+      {
+        "line": 152,
+        "text": "\ttype = {\"corruption/torture\", 3},"
+      },
+      {
+        "line": 153,
+        "text": "\trequire = str_corrs_req3,"
+      },
+      {
+        "line": 180,
+        "text": "\tend,"
+      },
+      {
+        "line": 181,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 182,
+        "text": "\t\treturn ([[Hits the target with your weapon doing %d%% weapon damage. If the attack hits, the target is afflicted with Fiery Torment for %d turns, reducing their fire resistance by %d%%."
+      },
+      {
+        "line": 183,
+        "text": "\t\tWhen Fiery Torment ends the victim will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment."
+      },
+      {
+        "line": 184,
+        "text": "\t\tThe damage dealt by the effect will increase with spellpower."
+      },
+      {
+        "line": 185,
+        "text": "\t\tDemons under fiery torment will be burned by the flames of the Fearscape.]])"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "80f87941078fccc67ed4b8bf057343950618875ccb7347951436375010d9fadf",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+    "lines": [
+      {
+        "line": 158,
+        "text": "\tend,"
+      },
+      {
+        "line": 159,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 160,
+        "text": "\t\treturn ([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration."
+      },
+      {
+        "line": 161,
+        "text": "\t\tAdditionally, you gain an extra %d vim per kill.]]):tformat(t.getHits(self, t), t.getMult(self, t), t.vimBonus(self, t))"
+      },
+      {
+        "line": 162,
+        "text": "\tend,"
+      },
+      {
+        "line": 163,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8119132f4bbc772a2844c4b7bea992412a19b0fd4ba17c50391c946f7cb66bc2",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 630,
+        "text": "\tname = \"DEMON_SEED_ARMOURED_LEVIATHAN\", image = \"talents/demon_seed_armoured_leviathan.png\","
+      },
+      {
+        "line": 631,
+        "text": "\tdesc = _t\"Armoured Leviathan\","
+      },
+      {
+        "line": 632,
+        "text": "\tlong_desc = function(self, eff) return (\"Increases your Strength and Magic stats by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 633,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 634,
+        "text": "\tsubtype = { armour=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "81fc633f96ce5017ab42e3a9d9334d2b1f8157a4816e65ddc175837c139c6f47",
+    "public_source_path": "tome-ashes-urhrok/overload/data/chats/ashes-urhrok-walrog-pop.lua",
+    "lines": [
+      {
+        "line": 30,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 31,
+        "text": "\t\t{_t\"The oceans are yours.  The people of Eyal gave up sea travel ages ago!\", jump=\"a\"},"
+      },
+      {
+        "line": 32,
+        "text": "\t\t{_t\"You're the new Lord of the Seas?  What would you have me do?\", jump=\"b\"},"
+      },
+      {
+        "line": 33,
+        "text": "\t\t{_t\"The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!\", jump=\"c\"},"
+      },
+      {
+        "line": 34,
+        "text": "\t\t{_t\"Stop bubbling and start dying, you overgrown tea-kettle!  Your treasures are mine!\", action=popup},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8237031d0a4349c8e3d14043bc29f9d2fb9aa563760556ead97ae72480f55f06",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": ""
+      },
+      {
+        "line": 29,
+        "text": "--Doombringer"
+      },
+      {
+        "line": 30,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/brutality\", name = _t(\"brutality\", \"talent type\"), description = _t\"Devastating two-handed physical attacks fueled by demonic power.\" }"
+      },
+      {
+        "line": 31,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/torture\", name = _t(\"torture\", \"talent type\"), description = _t\"Cripple your enemies with vicious two-handed attacks.\" }"
+      },
+      {
+        "line": 32,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"corruption/wrath\", name = _t(\"wrath\", \"talent type\"), min_lev=10 ,description = _t\"Destroy your enemies with intense two-handed physical attacks fueled by demonic power.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "840f6a31805a7dd39260413f7ac6722fa2ff6bf64c56dac07c341c7f67c9818a",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 422,
+        "text": "\tend,"
+      },
+      {
+        "line": 423,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 424,
+        "text": "\t\treturn ([[By channeling doom forces in your shield you constantly apply 15%% of its block value as a flat damage reduction against all damage."
+      },
+      {
+        "line": 425,
+        "text": "\t\tWhenever you are hit in melee your shield retaliates automatically for %d%% of its block value as fire and darkness damage.]]):"
+      },
+      {
+        "line": 426,
+        "text": "\t\ttformat(0.35 * t.getPercent(self, t))"
+      },
+      {
+        "line": 427,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8421ce6c4d24c309fa4c5cd17ba28a8f11e992b167319cd7f449c36cbeba6551",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 680,
+        "text": "\tparameters = { dam=1, heal=1 },"
+      },
+      {
+        "line": 681,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# starts to bleed darkness.\", _t\"+Demonic Cut\" end,"
+      },
+      {
+        "line": 682,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# stops bleeding darkness.\", _t\"-Demonic Cut\" end,"
+      },
+      {
+        "line": 683,
+        "text": "\tcallbackOnMeleeHit = function(self, eff, src, dam)"
+      },
+      {
+        "line": 684,
+        "text": "\t\tif not dam or dam <= 0 or src ~= eff.src then return end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "84443951d3fa9711bb529b6dad58dd60baea76315ca6f574dcb6d8c40c90ab97",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment\"):tformat(eff.power, eff.finaldam, eff.rate*100) end,"
+      },
+      {
+        "line": 70,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 71,
+        "text": "\tsubtype = { curse=true },"
+      },
+      {
+        "line": 72,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 73,
+        "text": "\tparameters = { power=20, rate=10, finaldam=50, },"
+      },
+      {
+        "line": 652,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is affected by blight, all natural and psionic talent it tries to use has %d%% chance to fail and instead explode into %0.2f fire damage in radius 1.\"):tformat(eff.chance, eff.dam) end,"
+      },
+      {
+        "line": 653,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 654,
+        "text": "\tsubtype = { blight=true, curse=true },"
+      },
+      {
+        "line": 655,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 656,
+        "text": "\tparameters = { chance=10, dam=100 },"
+      },
+      {
+        "line": 907,
+        "text": "\tlong_desc = function(self, eff) return (\"Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.\"):tformat(eff.src and eff.src:getName():capitalize() or _t\"none\", eff.stacks) end,"
+      },
+      {
+        "line": 908,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 909,
+        "text": "\tsubtype = { vim=true, blight=true, curse=true },"
+      },
+      {
+        "line": 910,
+        "text": "\tstatus = \"detrimental\", decrease = 0, no_stop_enter_worlmap = true, cancel_on_level_change = true,"
+      },
+      {
+        "line": 911,
+        "text": "\tparameters = { stacks=1, max_stacks=3 },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "84b76b34316c9b9c15f44b2b7d6f43f3243d4137960fe572aaa9daa8f81faaa7",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 313,
+        "text": "\tid = \"ashes-urhrok-demon-statue-quasit\","
+      },
+      {
+        "line": 314,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 315,
+        "text": "\tname = _t\"demon statue: quasit\","
+      },
+      {
+        "line": 316,
+        "text": "\tlore = _t[=[Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.]=]"
+      },
+      {
+        "line": 317,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "84ca86e56a3b7fe724835d43afe7f3a5b5f37534c0b9933d7a57c358d4db7b14",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 66,
+        "text": "\tcategory = \"Ashes of Urh'Rok\","
+      },
+      {
+        "line": 67,
+        "text": "\tname = _t\"history of Mal'Rok (1)\","
+      },
+      {
+        "line": 68,
+        "text": "\tlore = _t[=[First, we were created by our Father, Urh'Rok. Then, many years later, we were in the desert, struggling and fighting each other for the few meager scraps of usable farmland. We do not know anything between these times; our cities, our culture, everything was wiped out by the dust storms. The storms hated us, toyed with us, subsided just long enough for us to raise armies and fight, then raged again the moment peace came. They wanted us to fight. They wanted us to struggle, suffer, die, leaving a few survivors to repopulate, and repeat the process. Green, onyx, red, all brothers who should have been allies, we fought at first because we had to, then because we could, then because we knew it was the only thing that kept the storms entertained."
+      },
+      {
+        "line": 69,
+        "text": ""
+      },
+      {
+        "line": 70,
+        "text": "Eventually, Urh'Rok appeared and told us he had been sealed away, prevented from helping us by people who had been creating the dust storms. Their cities lay hidden among us, shrouded in powerful magic to remain invisible. With a touch, he wiped the storms clean and turned the desert into lush jungle, filled with food. The storms appeared again, weaker this time; Urh'Rok grew furious and shattered the glass cities, reaching into one and pulling out a fistful of sadistic mages. He fed them to us - it was the best, largest feast any of us had eaten in millennia, and it was truly delicious. He did this to all the dust-mages' cities, then declared that we would never have to fear the storms again. We celebrated and worshiped our returned god - thanks to him, we knew where our next meal was coming from, and we had no reason to fight. All of us brethren dropped our weapons and hugged, forgiving each other for the assaults we knew we'd only done from fear. We loved each other, and we loved our god."
+      },
+      {
+        "line": 71,
+        "text": ""
+      },
+      {
+        "line": 72,
+        "text": "Our father began to fret, however. We were supposed to have grown more as species; our squabbling in the desert had stunted our growth, left us behind the curve. He set up a series of competitions and tournaments in all fields of life - magic, combat, negotiation - on a planetary scale. We were used to fighting by now, and now that we knew it was actually accomplishing something, now that we were pleasing an altruistic god, we did not mind it one bit. Those who died did so with smiles on their faces, knowing they'd contributed another data-point to our Father's plan. The weaker members of our many species willingly died off, and we all grew stronger, smarter, and happier as a result. Soon, we were grown enough to organize our own tournaments, and apply the findings to our societies and species; Father said he was pleased with us, and wanted us to determine our own destiny while he slept, recovering from all the work he'd just done. We continued our process of self-improvement - we wanted Father to be proud of us when he woke up."
+      },
+      {
+        "line": 73,
+        "text": ""
+      },
+      {
+        "line": 74,
+        "text": "Then, the Sher'Tul came."
+      },
+      {
+        "line": 75,
+        "text": "]=]"
+      },
+      {
+        "line": 76,
+        "text": "}"
+      },
+      {
+        "line": 77,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "850c629f5db03d064725f8b900a55dc9a564bbdeb3b160e0695722c7bf8707e2",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1087,
+        "text": "\tlong_desc = function(self, eff) return (\"%d charges.\"):tformat(eff.stacks) end,"
+      },
+      {
+        "line": 1088,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 1089,
+        "text": "\tsubtype = { demon=true, seismic=true },"
+      },
+      {
+        "line": 1090,
+        "text": "\tstatus = \"beneficial\", decrease = 0,"
+      },
+      {
+        "line": 1091,
+        "text": "\tparameters = { stacks=1, max_stacks=14 },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "85af2f1f5d30e4e968c17f9ad298487e1eaf3533156813a285f4b990163dea41",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 361,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 362,
+        "text": "\tname = _t\"demon statue: daelach\","
+      },
+      {
+        "line": 363,
+        "text": "\tlore = _t[=[Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.]=]"
+      },
+      {
+        "line": 364,
+        "text": "}"
+      },
+      {
+        "line": 365,
+        "text": ""
+      }
+    ]
+  }
+]
