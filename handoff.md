@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（第281批已 finalize；修复积压 7 条，继续审核第282批）
+更新时间：2026-09-25（第282批已 finalize；修复积压 15 条，继续审核第283批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,13 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **281** 批（`batch-6b0d756f5c05a40663fd`）：80 条全为 Ashes DLC，73 done / 7 repair_required /
-  0 blocked。surface 4 lane 的 identity 回显全部逐位一致；contextual run 未越界（只读仓库内 envelope、契约与 source workset），
-  复核 13 条；19 个观察逐条裁决。17 项门禁全过，两个审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `2b0b3ec2f1abc41a6e5dd92a64e27537b34ac2e4` 已 finalize。
-  当前无 active batch。
+- 审核已闭合至第 **282** 批（`batch-523380060ecba03a1855`）：80 条全为 Ashes DLC，72 done / 8 repair_required /
+  0 blocked。surface 4 lane 的 identity 回显全部逐位一致；contextual 首轮 run 越界枚举 /workspace 被拒收，
+  refreeze（dlc-location-v1）run 复核 16 条并被接受；21 个观察逐条裁决。17 项门禁全过，审核任务快照均重放为
+  `DONE_VERIFIED`，证据提交 `d00b63aa0fd1632536dd19cc36e3767b0aafec5e` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **28**：第 278–280 批共 24 条确认问题已修复并发布，译文提交
   `483ca8ace3cf3b69d26fb61e08a640b0133435a1`，证据提交 `0883a3f8cfbf77397e2df96e587eceb0cc7a7b94`，关闭后 queue rebuild
-  与 push 已完成；migration `a5e902a3…` 的 24 个 successor 须重新审核。窗口 29 积压当前 7 条（第281批）。
+  与 push 已完成；migration `a5e902a3…` 的 24 个 successor 须重新审核。窗口 29 积压当前 15 条（第281–282批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -36,6 +36,7 @@
 | 279 | `batch-99f8a711d02012a6de19` | 73 done / 7 repair | 70 OK / 10 ISSUE | 4 OK / 6 ISSUE | 11 confirmed / 3 refuted / 2 advisory |
 | 280 | `batch-76f9078d25a218ccbe79` | 69 done / 11 repair | 61 OK / 19 ISSUE | 13 OK / 6 ISSUE | 16 confirmed / 6 refuted / 3 advisory |
 | 281 | `batch-6b0d756f5c05a40663fd` | 73 done / 7 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 11 confirmed / 6 refuted / 2 advisory |
+| 282 | `batch-523380060ecba03a1855` | 72 done / 8 repair | 64 OK / 16 ISSUE | 11 OK / 5 ISSUE | 13 confirmed / 3 refuted / 5 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -110,11 +111,14 @@
 
 ## 五、下一步
 
-1. 继续审核第 **282** 批；默认 80 条，按既有连续批次授权推进。先核对 HEAD、queue evidence HEAD、无 active batch。
-2. 窗口 29 积压 **7** 条（第281批）：`6b24dee8`（哈卡祖雕像：设计意图写成事实等）`72a3b333`（火焰守护换行与“轮/回合”，半径 10 贴合实现须保留）
+1. 继续审核第 **283** 批；默认 80 条，按既有连续批次授权推进。先核对 HEAD、queue evidence HEAD、无 active batch。
+2. 窗口 29 积压 **15** 条。第281批 7 条：`6b24dee8`（哈卡祖雕像：设计意图写成事实等）`72a3b333`（火焰守护换行与“轮/回合”，半径 10 贴合实现须保留）
    `747d29c9`（欢迎提示末句与称谓）`78452093`（焚尽强击制表符）`7975a162`（火魔婴雕像：熔手、bulk）
    `80f87941`（饕餮之刃换行/制表符）`84ca86e5`（乌鲁洛克创世史：because we could 等）。依据见 `.ai/task/batch-6b0d756f5c05a40663fd/HOST-FINAL-DECISIONS.json`。
-   第281批计时（实测，投影缓存 on）：start 87.7 s；surface-export/import、contextual-export 各约 1.6 s；adjudication chain（含 17 项门禁）161.5 s；finalize 90.7 s。
+   第282批 8 条：`880a05d1`（骇人打击：近战命中限定、换行/制表符）`89a4d5c9`（黑之冠 desc 与引号）`8d7b2897`（多余换行）
+   `8ead5856`（魔化精灵解锁文本：真相/资格/瞬发相位门/烈火）`90ae8f40`（小鬼之爪 mottled）`9ac85a7a`（沃尔罗格对话：叛徒的、忠诚句、换行）
+   `9d7afbed`（黑色巨锤：删“黑曜石”）`9e25a17b`（混沌与死亡）。依据见 `.ai/task/batch-523380060ecba03a1855/HOST-FINAL-DECISIONS.json`。
+   第282批计时（实测，投影缓存 on）：start 1.7 s；surface-export/import、contextual-export 各约 1.6 s；contextual refreeze stage 88.4 s；adjudication chain（含 17 项门禁）247.1 s；finalize 90.5 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项；第278批 Osmosis Regen 仍 pending）。
