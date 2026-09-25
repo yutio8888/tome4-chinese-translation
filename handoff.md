@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（第282批已 finalize；修复积压 15 条，继续审核第283批）
+更新时间：2026-09-25（第283批已 finalize；修复积压 21 条达到阈值，开修复窗口29）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,13 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **282** 批（`batch-523380060ecba03a1855`）：80 条全为 Ashes DLC，72 done / 8 repair_required /
-  0 blocked。surface 4 lane 的 identity 回显全部逐位一致；contextual 首轮 run 越界枚举 /workspace 被拒收，
-  refreeze（dlc-location-v1）run 复核 16 条并被接受；21 个观察逐条裁决。17 项门禁全过，审核任务快照均重放为
-  `DONE_VERIFIED`，证据提交 `d00b63aa0fd1632536dd19cc36e3767b0aafec5e` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **283** 批（`batch-ecdac9654ed6a7ed78eb`）：80 条全为 Ashes DLC，73 done / 6 repair_required /
+  1 blocked（pending）。surface 4 lane 的 identity 回显全部逐位一致（lane-000-0 两条 observation 错位一格，已逐条比对）；
+  contextual 首轮 run 为找 DLC checkout 执行 ls /workspace 被拒收，refreeze（dlc-location-v1）run 复核 13 条并被接受；
+  19 个观察逐条裁决。17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `48cadfbaa65a601d2ed9994b53ff353969a34f50` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **28**：第 278–280 批共 24 条确认问题已修复并发布，译文提交
   `483ca8ace3cf3b69d26fb61e08a640b0133435a1`，证据提交 `0883a3f8cfbf77397e2df96e587eceb0cc7a7b94`，关闭后 queue rebuild
-  与 push 已完成；migration `a5e902a3…` 的 24 个 successor 须重新审核。窗口 29 积压当前 15 条（第281–282批）。
+  与 push 已完成；migration `a5e902a3…` 的 24 个 successor 须重新审核。窗口 29 积压 21 条（第281–283批），已达阈值。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -37,6 +37,7 @@
 | 280 | `batch-76f9078d25a218ccbe79` | 69 done / 11 repair | 61 OK / 19 ISSUE | 13 OK / 6 ISSUE | 16 confirmed / 6 refuted / 3 advisory |
 | 281 | `batch-6b0d756f5c05a40663fd` | 73 done / 7 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 11 confirmed / 6 refuted / 2 advisory |
 | 282 | `batch-523380060ecba03a1855` | 72 done / 8 repair | 64 OK / 16 ISSUE | 11 OK / 5 ISSUE | 13 confirmed / 3 refuted / 5 advisory |
+| 283 | `batch-ecdac9654ed6a7ed78eb` | 73 done / 6 repair / 1 blocked | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 10 confirmed / 5 refuted / 2 advisory / 2 pending |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -111,17 +112,22 @@
 
 ## 五、下一步
 
-1. 继续审核第 **283** 批；默认 80 条，按既有连续批次授权推进。先核对 HEAD、queue evidence HEAD、无 active batch。
-2. 窗口 29 积压 **15** 条。第281批 7 条：`6b24dee8`（哈卡祖雕像：设计意图写成事实等）`72a3b333`（火焰守护换行与“轮/回合”，半径 10 贴合实现须保留）
+1. 开修复窗口 **29**（21 条，第281–283批），以 `/tmp/w28-tr.sh`、`/tmp/w28-close.sh` 与 `.ai/task/repair-w28-20260925` 为模板；
+   开窗时宿主先逐句预检长 lore 条目，FINAL 在 RE_REVIEW 之后冻结用 attempt 2。窗口完成后继续审核第 **284** 批。
+2. 窗口 29 范围 **21** 条。第281批 7 条：`6b24dee8`（哈卡祖雕像：设计意图写成事实等）`72a3b333`（火焰守护换行与“轮/回合”，半径 10 贴合实现须保留）
    `747d29c9`（欢迎提示末句与称谓）`78452093`（焚尽强击制表符）`7975a162`（火魔婴雕像：熔手、bulk）
    `80f87941`（饕餮之刃换行/制表符）`84ca86e5`（乌鲁洛克创世史：because we could 等）。依据见 `.ai/task/batch-6b0d756f5c05a40663fd/HOST-FINAL-DECISIONS.json`。
    第282批 8 条：`880a05d1`（骇人打击：近战命中限定、换行/制表符）`89a4d5c9`（黑之冠 desc 与引号）`8d7b2897`（多余换行）
    `8ead5856`（魔化精灵解锁文本：真相/资格/瞬发相位门/烈火）`90ae8f40`（小鬼之爪 mottled）`9ac85a7a`（沃尔罗格对话：叛徒的、忠诚句、换行）
    `9d7afbed`（黑色巨锤：删“黑曜石”）`9e25a17b`（混沌与死亡）。依据见 `.ai/task/batch-523380060ecba03a1855/HOST-FINAL-DECISIONS.json`。
    第282批计时（实测，投影缓存 on）：start 1.7 s；surface-export/import、contextual-export 各约 1.6 s；contextual refreeze stage 88.4 s；adjudication chain（含 17 项门禁）247.1 s；finalize 90.5 s。
+   第283批 6 条：`a6fd631e`（苦痛延伸制表符）`aaaaf55e`（恶魔学者背景 often evil）`ac2347da`（Overwhelming Fear：无尽→压倒性，先做双向冲突检查）
+   `ae8c1227`（盾牌附魔换行）`af918013`（恶魔传送 up to/随机/失控随机传送）`b281c0e2`（恶魔种子技能使用条件）。依据见 `.ai/task/batch-ecdac9654ed6a7ed78eb/HOST-FINAL-DECISIONS.json`；
+   宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）本批按 done，待后续覆盖。
+   第283批计时（实测，投影缓存 on）：start 1.7 s；contextual refreeze stage 88.7 s；adjudication chain（含 17 项门禁）246.9 s；finalize 91.1 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项；第278批 Osmosis Regen 仍 pending）。
+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 24 项；第278批 Osmosis Regen 与第283批 Osmosis Regeneration 同族 pending）。
 5. 全 DLC 批次的操作要点：adjudication chain 一开始就传 SHA 核验的 `reviewN-source-root`；首次 contextual envelope 不含 checkout
    位置（`--ashes-checkout` 只在 refreeze 路径生效），Opus 可能自行搜寻而越界（第277、280批各一次），届时拒收并按 refreeze 重派；
    surface 某 lane 判废须整组用 `tools/surface_screen_manifest.py build --attempt 2 --group-id group-000-retry-02` 重建（envelope 字节不变）。
