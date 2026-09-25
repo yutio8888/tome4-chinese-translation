@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（修复窗口31已完成；待宿主证据提交与推送，随后继续审核第290批）
+更新时间：2026-09-25（窗口31已推送；第290批已 finalize，窗口32积压 6 条，继续审核第291批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,14 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **289** 批（`batch-69f00dcf5db5ae40631c`）：80 条全为 Cults DLC，71 done / 9 repair_required。
-  surface 4 lane identity 回显全部逐位一致，lane-000-2 一条 observation 错位一格，以本条自身制表符缺陷确认；
-  contextual 首轮 run 执行 `ls ../t-engine4` 找源码 checkout，按边界拒收并归档；refreeze（dlc-location-v1）run 只读 envelope 与契约，接受；
-  19 个观察逐条裁决。Cults 批 refreeze 不会写入 checkout 位置（工具只给 Ashes facts 写），envelope 与首轮逐字节相同，列为工具待办。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `fa4a42e96e8825dcddcf7a5a0998370dae0e8cbe` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **290** 批（`batch-41762084bcf428db6c44`）：80 条（Cults 74、Ashes 6 混合批），74 done / 6 repair_required。
+  surface 分两组 8 lane，identity 回显全部逐位一致，无错位；contextual 两个 Opus run（Ashes 2、Cults 10）只读 envelope 与契约，未越界；
+  16 个观察逐条裁决（KROG_WRATH 与 TOTAL_COLLAPSE 的括注经宿主查回调贴合实现）。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `803f95f2d5ef251a151eec40c3dd59d189651733` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **31**：第 287–289 批共 23 条确认问题已修复，译文提交
   `4259b5ff762152c3da3c4df44bdd8f669b1ba13e`；migration `bb2265e2…` 的 23 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。积压已清零，从审核第 290 批重新累计。
+  须重新审核，不继承旧 revision 的 done 状态。窗口 32 积压 6 条（第290批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -45,6 +44,7 @@
 | 287 | `batch-de7c2c3d32f752f42784` | 70 done / 8 repair / 2 blocked | 65 OK / 15 ISSUE | 9 OK / 6 ISSUE | 14 confirmed / 4 refuted / 1 advisory / 2 pending |
 | 288 | `batch-fbefc4aef1a281aee013` | 74 done / 6 repair | 70 OK / 10 ISSUE | 4 OK / 6 ISSUE | 10 confirmed / 4 refuted / 2 advisory |
 | 289 | `batch-69f00dcf5db5ae40631c` | 71 done / 9 repair | 69 OK / 11 ISSUE | 3 OK / 8 ISSUE（refreeze） | 15 confirmed / 4 refuted |
+| 290 | `batch-41762084bcf428db6c44` | 74 done / 6 repair | 68 OK / 12 ISSUE | 8 OK / 4 ISSUE | 8 confirmed / 6 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -121,8 +121,14 @@
 
 ## 五、下一步
 
-1. 宿主完成本窗证据提交、关闭后 queue rebuild、push，然后继续审核第 **290** 批（默认 80 条，连续推进；`prepare_review` 模板按组件写 SPEC，`prepare_contextual` 自动声明章节标题锚点）。
-2. 窗口 31 已完成（3 个 cycle）。积压清零；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 已写明行尾空白 TAB 不计入 TAB 不变量（门禁 11 禁止行尾空白），新窗口派生时保留。
+1. 继续审核第 **291** 批（默认 80 条，连续推进）；脚本从 `*290.py` 派生（混合批用 290/287 的 stage/snapshot/close，单组件批用 289 的；
+   `prepare_contextual290` 已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 32。
+2. 窗口 32 积压 **6** 条（第290批，Cults）：`1cd6be41`（被诅咒城堡手记：书的容量、牺牲宝物、变化背后的逻辑）
+   `1fa32c1a`（德瑞姆探险笔记：玻璃管容量、黑色增生物、感染范围、野生德瑞姆、残句）`207cee7b`（瓦解 info 换行）
+   `226a7774`（克诺什库尔 lore“别无归处”）`25d776f5`（蛆虫吐息 info 多余换行）`272a8bbc`（城堡手记“整理内部”）；
+   依据见 `.ai/task/batch-41762084bcf428db6c44/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；
+   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留。
+   第290批计时（实测，投影缓存 on）：start 92.1 s；adjudication chain（含 17 项门禁）161.3 s；finalize 95.0 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
