@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（修复窗口28已完成；待宿主证据提交与推送，下一步审核第281批）
+更新时间：2026-09-25（第281批已 finalize；修复积压 7 条，继续审核第282批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,14 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **280** 批（`batch-76f9078d25a218ccbe79`）：80 条全为 Ashes DLC，69 done / 11 repair_required /
-  0 blocked。surface 首组因 lane-000-0 回显 identity 错字判废，整组以 `group-000-retry-02` 重派后 4 lane 有效；
-  首个 contextual run 越界（枚举 `/workspace`、写 `/tmp`）被拒收，经 refreeze（显式 `--ashes-checkout`）重派后有效，
-  复核 19 条；25 个观察逐条裁决。17 项门禁全过，两个审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `4c8992bcc09be4e02a3cb8232f0b29dc69887944` 已 finalize。
+- 审核已闭合至第 **281** 批（`batch-6b0d756f5c05a40663fd`）：80 条全为 Ashes DLC，73 done / 7 repair_required /
+  0 blocked。surface 4 lane 的 identity 回显全部逐位一致；contextual run 未越界（只读仓库内 envelope、契约与 source workset），
+  复核 13 条；19 个观察逐条裁决。17 项门禁全过，两个审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `2b0b3ec2f1abc41a6e5dd92a64e27537b34ac2e4` 已 finalize。
   当前无 active batch。
-- 修复窗口已闭合至 **28**：第 278–280 批共 24 条确认问题已完成修复、复审与发布准备，译文提交
-  `483ca8ace3cf3b69d26fb61e08a640b0133435a1`；当前修复积压为 0。窗口证据仍待宿主提交，关闭后的
-  queue rebuild 与 push 尚未执行。
+- 修复窗口已闭合至 **28**：第 278–280 批共 24 条确认问题已修复并发布，译文提交
+  `483ca8ace3cf3b69d26fb61e08a640b0133435a1`，证据提交 `0883a3f8cfbf77397e2df96e587eceb0cc7a7b94`，关闭后 queue rebuild
+  与 push 已完成；migration `a5e902a3…` 的 24 个 successor 须重新审核。窗口 29 积压当前 7 条（第281批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -36,6 +35,7 @@
 | 278 | `batch-2dd6d21e34b360ebb6d9` | 73 done / 6 repair / 1 blocked | 69 OK / 11 ISSUE | 7 OK / 4 ISSUE | 10 confirmed / 4 refuted / 1 pending observation |
 | 279 | `batch-99f8a711d02012a6de19` | 73 done / 7 repair | 70 OK / 10 ISSUE | 4 OK / 6 ISSUE | 11 confirmed / 3 refuted / 2 advisory |
 | 280 | `batch-76f9078d25a218ccbe79` | 69 done / 11 repair | 61 OK / 19 ISSUE | 13 OK / 6 ISSUE | 16 confirmed / 6 refuted / 3 advisory |
+| 281 | `batch-6b0d756f5c05a40663fd` | 73 done / 7 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 11 confirmed / 6 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -110,8 +110,11 @@
 
 ## 五、下一步
 
-1. 宿主提交修复窗口 28 的证据，确认 publication child 归档，执行关闭后的 queue rebuild，然后 push。
-2. 完成上述宿主收尾后继续审核第 **281** 批；默认 80 条，并按既有连续批次授权继续推进。
+1. 继续审核第 **282** 批；默认 80 条，按既有连续批次授权推进。先核对 HEAD、queue evidence HEAD、无 active batch。
+2. 窗口 29 积压 **7** 条（第281批）：`6b24dee8`（哈卡祖雕像：设计意图写成事实等）`72a3b333`（火焰守护换行与“轮/回合”，半径 10 贴合实现须保留）
+   `747d29c9`（欢迎提示末句与称谓）`78452093`（焚尽强击制表符）`7975a162`（火魔婴雕像：熔手、bulk）
+   `80f87941`（饕餮之刃换行/制表符）`84ca86e5`（乌鲁洛克创世史：because we could 等）。依据见 `.ai/task/batch-6b0d756f5c05a40663fd/HOST-FINAL-DECISIONS.json`。
+   第281批计时（实测，投影缓存 on）：start 87.7 s；surface-export/import、contextual-export 各约 1.6 s；adjudication chain（含 17 项门禁）161.5 s；finalize 90.7 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 23 项；第278批 Osmosis Regen 仍 pending）。
