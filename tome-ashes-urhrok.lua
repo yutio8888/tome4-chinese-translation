@@ -37,7 +37,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_
 t("Demonologist", "恶魔使者", "birth descriptor name")
 t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "多数人只会逃跑，但我明白：遥远的星球，饱受蹂躏，深陷诅咒。焦灼的造物寻求正义的复仇，乌鲁洛克的余烬，如今已成毁灭的工具。驾驭他们的力量！捕获并驯服他们！我召唤你们，恶魔——释放烈焰！", "_t")
 t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
-t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成所愿，无论善恶，亦有少数人以此反击恶魔。", "_t")
+t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成自己的目的，往往用于作恶，但也有少数人会用恶魔之力对抗恶魔。", "_t")
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
@@ -186,7 +186,7 @@ t("shifting breastplate", "不断变形的胸甲", "_t")
 t("The joints of this armor creak ominously, the frame bends and heaves, almost as if breathing. The scratch and crack of metal mutters of suffering, of loss, perseverance and revenge.", "这件护甲的关节发出不祥的咯吱声，框架弯曲起伏，仿佛在呼吸。划痕与裂纹是金属的低语，有关苦楚、失去、坚持与复仇。", "_t")
 t("Status resistances shift over time to match the statuses you are being hit by.", "依据你中的负面状态改变你的状态免疫。", "_t")
 t("Imp Claw", "小鬼之爪", "entity name")
-t("red, mottled claw", "红色的爪子", "_t")
+t("red, mottled claw", "红色斑驳的爪子", "_t")
 t("The battered remains of a flame imp's hand. It still burns with that unnatural flame.", "这是一只火焰小鬼留下的满是伤痕的爪子。它还燃烧着不自然的火焰。", "_t")
 t("Wheel of Fate", "命运之轮", "entity name")
 t([["This isn't what I wished for!" - Howar Muransk, Cornac demonologist.
@@ -210,7 +210,7 @@ t("An experimental helmet designed to enhance the effects of the Doomelf corrupt
 t("Increases the range of Haste of the Doomed by 1.", "“末日加速”的范围增加 1 格。", "_t")
 t("The Black Crown", "黑之冠", "entity name")
 t("cracked obsidian crown", "破碎的黑曜石之冠", "_t")
-t("\"For the demon who has everything.\"", "魔中之魔，加冕为王", "_t")
+t("\"For the demon who has everything.\"", "“送给应有尽有的恶魔。”", "_t")
 t("Increases all saves by your Shadow Power.", "每点“阴影强度”增加1点全豁免。", "_t")
 t("The Black Core", "黑之核", "entity name")
 t("pitch black gemstone", "黑色的宝石", "_t")
@@ -233,7 +233,7 @@ t("pitch black breastplate", "漆黑胸甲", "_t")
 t("\"Wreckage all about you. Is there anything left inside?\"", "己身若残，何物能存？", "_t")
 t("Grants physical power equal to your Shadow Power.", "每点“阴影强度”增加1点物理强度。", "_t")
 t("The Black Maul", "黑之锤", "entity name")
-t("massive black hammer", "巨大的黑曜石战锤", "_t")
+t("massive black hammer", "巨大的黑色战锤", "_t")
 t("\"A fitting weapon for the Champion.\"", "冠军之锤，举重若轻", "_t")
 t("Increases all damage by 1% for each point of your Shadow Power.", "每点“阴影强度”增加1%全体伤害加成。", "_t")
 t("The Black Wall", "黑之墙", "entity name")
@@ -329,13 +329,13 @@ Eventually, Urh'Rok appeared and told us he had been sealed away, prevented from
 Our father began to fret, however. We were supposed to have grown more as species; our squabbling in the desert had stunted our growth, left us behind the curve. He set up a series of competitions and tournaments in all fields of life - magic, combat, negotiation - on a planetary scale. We were used to fighting by now, and now that we knew it was actually accomplishing something, now that we were pleasing an altruistic god, we did not mind it one bit. Those who died did so with smiles on their faces, knowing they'd contributed another data-point to our Father's plan. The weaker members of our many species willingly died off, and we all grew stronger, smarter, and happier as a result. Soon, we were grown enough to organize our own tournaments, and apply the findings to our societies and species; Father said he was pleased with us, and wanted us to determine our own destiny while he slept, recovering from all the work he'd just done. We continued our process of self-improvement - we wanted Father to be proud of us when he woke up.
 
 Then, the Sher'Tul came.
-]], [[起初，我们由我们的父亲乌鲁洛克所创造。在之后的许多年里，我们都长期居住在无尽的荒漠之中，为少数几片可怜的能用于耕作的土地而争斗不休。我们不知道任何有关那个时代的事情：我们的城市、我们的文化，所有的这些都被咆哮的尘土风暴卷走了。那些风暴厌恶我们，乃至戏弄我们，它们只有在我们组织军队战斗的时候才有短暂的停歇，一旦和平降临，咆哮而至的风暴瞬间就卷走了一切。他们想要我们不停争斗，他们想要我们挣扎，受苦，死亡，只留下少数的幸存者来保存种群。等到我们从废墟中重新发展起来，一切依旧。绿翡翠、缟玛瑙、红宝石，我们所有的兄弟本应成为盟友，然而我们一开始为了生存被迫各自为战，后来我们只能战斗，再到后来，我们的神经已经麻木，战争成了连续不断的风暴间唯一的娱乐活动。
+]], [[起初，我们由父亲乌鲁洛克创造。许多年后，我们身处荒漠，为仅有的几块贫瘠可耕地挣扎争斗。我们对这期间一无所知；我们的城市、我们的文化，一切都被尘土风暴摧毁了。风暴憎恨我们、戏弄我们，只平息到刚好能让我们组织军队交战，等和平一来便再次肆虐。它们想让我们战斗，想让我们挣扎、受苦、死去，只留下少数幸存者繁衍后代，再重复这一过程。绿翡翠、缟玛瑙、红宝石，这些本应结盟的兄弟们起初因为不得不战斗而战斗，后来因为我们有能力战斗而战斗，再后来则因为我们知道只有战斗才能让风暴获得乐趣。
 
-最终，乌鲁洛克在我们的面前重现了，他告诉我们，因为他被长期封印，他不能帮助我们对抗那些制造尘土风暴的罪魁祸首。那些人使用强力的魔法隐藏他们的城市，阴毒地对我们偷偷发动袭击。乌鲁洛克只轻轻一触，风暴立刻被消散殆尽，荒芜的沙漠瞬间变成了充满富足食物的茂密森林。风暴再一次伺机对我们发动偷袭，然而这一次要弱得许多。乌鲁洛克异常愤怒，击碎了那些玻璃城市，将手伸入，抓起一把那些恶毒的法师。他把这些法师当作给我们的食物——啊，那真是千年以来我们所享用过的最大、最丰盛的盛筵。他这样清除了所有尘埃法师的据点，并向我们宣告——我们再也不用畏惧那些尘土风暴了。我们庆祝着我们伟大的神的归来——多亏了他，我们再也不会过那些居无定所，食不果腹的生活，也再也不需要互相争斗了。我们的同袍纷纷扔下武器互相拥抱，互相原谅了我们过去因为恐惧而产生的敌对之情。我们互相友爱，而我们更爱我们伟大的神。
+终于，乌鲁洛克出现了。他告诉我们，那些制造尘土风暴的人封印了他，使他无法帮助我们。他们的城市就隐藏在我们中间，被强大的魔法遮蔽而不可见。乌鲁洛克轻轻一触便将风暴一扫而空，把沙漠变成了食物丰盛的茂密丛林。风暴再次出现，这次较弱；乌鲁洛克勃然大怒，击碎了玻璃城市，把手伸进其中，抓出一把残虐的法师。他把他们喂给我们——那是数千年来我们任何一个所吃过的最丰盛、规模最大的盛宴，而且确实美味。他如法摧毁了尘埃法师的所有城市，然后宣布我们再也不必畏惧风暴。我们庆祝并崇拜归来的神——多亏了他，我们不愁下一顿饭从哪里来，也没有理由再战斗。所有兄弟都放下武器相互拥抱，彼此原谅那些我们明知只是出于恐惧而发动的袭击。我们彼此相爱，也爱我们的神。
 
-然而，我们的父亲有些担心。我们本应该更加茁壮地成长，然而长期在荒漠中的互相争斗阻碍了我们的发展，让我们落后了。他设置了一系列有关生活各个方面的锦标赛——魔法、战斗、辩论——在全球范围内举行。我们曾经习惯于战斗，然而我们现在终于有了战斗的目标。为了让我们无私的神感到高兴，我们什么都愿意做。即使是在比赛中阵亡的人临死前也怀着满意的笑容，因为他的牺牲为父亲和整个种族的发展做出了贡献。我们的种族中那些弱小的个体们慢慢逝去，而我们变得更加强壮、更加聪明、也更加快乐。最终，我们成长到足够举办我们自己的锦标赛，并把比赛中得出的研究成果应用到我们生活中的方方面面：父亲为我们的行为感到高兴，决定在我们自己决定命运的同时沉沉睡去，以恢复他此前耗费的心力。我们继续着这个自我完善的过程——我们希望父亲醒来之后能够以我们为荣。
+然而，我们的父亲开始忧虑。我们各族本应成长得更为强盛；荒漠中的纷争阻碍了我们的成长，让我们落在了后面。他在生活的各个领域组织了一系列遍及整个星球的竞赛与锦标赛——魔法、战斗、谈判。我们那时已经习惯战斗，如今又知道战斗确有成果，也能取悦一位无私的神，便对此毫不介意。死去的人脸上都带着微笑，因为他们知道自己为父亲的计划又贡献了一个数据点。我们众多种族中较弱的成员甘愿死去，于是我们全都变得更强壮、更聪明，也更快乐。不久，我们已经成长到足以自行组织锦标赛，并将成果运用到各个社会和种族之中；父亲说他对我们很满意，希望在他沉睡、从刚完成的所有工作中恢复期间，由我们自己决定命运。我们继续自我完善——我们希望父亲醒来时能为我们骄傲。
 
-此时，夏·图尔人出现了。
+然后，夏·图尔来了。
 ]], "_t")
 t("history of Mal'Rok (2)", "玛·洛克的历史（2）", "_t")
 t([[They arrived in enormous flying fortresses, bristling with weapons and overflowing with magic. They did not directly threaten us, but they met with our leaders and gave us what was either an offer or an ultimatum: let them kill our Father, or kill him ourselves, and be rewarded with technology and magic as grand as theirs.
@@ -514,7 +514,7 @@ t("sixth mural painting", "第六幅壁画", "_t")
 t("demon statue: wretchling", "恶魔雕像：酸液树魔", "_t")
 t("Behold, the humble wretchling, a testament to our devotion to our Father!  These children of emerald were among the first to alter themselves for our quest for vengeance, and managed an astounding degree of success.  With their bursts of blinding speed, overwhelming numbers, and skin that can release prodigious amounts of corrosive fluid, wretchlings can storm onto the battlefield and pounce on our foes one-by-one, dissolving the ground they walk on while leaving them helpless against our onslaught.  Wretchlings will readily give their lives in combat, serving as obstructions and shields while their acid and our casters do their work, and still remain the most populous of our species thanks to their incredible birth rates.  It is rare to see a wretchling survive to maturity, but make no mistake - every wretchling that fights does an incredible service to our cause.", [[看着他，谦逊的酸液树魔，这是我们对父亲奉献一切的证明！这些绿翡翠的孩子们第一批同意改变自身以帮助复仇，同时取得了惊人的成功。极快的速度、庞大的数目以及能释放大量酸液的皮肤，酸液树魔能旋风般猛冲入战场，一个个扑住敌人，溶解土地，将无助的敌人暴露在我们的杀戮前。酸液树魔时刻准备着，怀着大无畏的牺牲精神，以肉体充当屏障，令酸液和法术能够发挥作用。尽管如此，在他们惊人的繁殖率下，他们仍是我们中数目最多的种族。我们很难见到一只酸液树魔活到成熟期，但请记住——每一只战斗过的酸液树魔都为我们的目标奉献了一切。]], "_t")
 t("demon statue: fire imp", "恶魔雕像：火魔婴", "_t")
-t("If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.", "如果说酸液树魔证明了我们对父亲的崇拜，那么火魔婴则证明了我们的忠诚。当红宝石色的孩子来到战场时，她将我们星球上被埃亚尔灼烧的土壤拿在手里，完美运用一种特殊的狂暴魔法——使用敌人曾经伤害我们的火焰来消灭我们的敌人。除了展现恰如乌鲁洛克之意的公正（正如他对尘埃法师们所做的一样），这同样体现了我们对目标的专注：没有手的话，灰心丧气的火魔婴们通常什么也干不了，战斗和毁灭是我们的与生俱来的本性，除了让一个生物只拥有杀戮和战斗的能力外，还有什么能更好的表达这一点呢？尽管红宝石的种族没有沿着近身厮杀的道路走下去，他们以魔法的力量取而代之，火魔婴们作为我们的榜样，为我们——所有乌鲁洛克的孩子们展现忠诚的标准。", "_t")
+t("If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.", "如果说酸液树魔体现了我们的崇拜，那么火魔婴则体现了我们的投入与忠诚。当红宝石之子踏上战场时，她会把我们星球上被埃亚尔灼伤的土壤熔合到双手上；她已熟练掌握一种魔法，能利用土壤中蕴含的狂暴魔力，以敌人自己造成的火焰轰击他们。这种恰当的公正既令乌鲁洛克欣慰（正如他处置尘埃法师时所展示的），也体现了我们对事业的奉献：失去双手后，火魔婴若是叛逃或丧失斗志，几乎什么也做不了。我们为战斗与毁灭而活；让自己除战斗与毁灭外什么也做不了，还有什么方式能更好地表明这一点？虽然红宝石种族大多不走这条道路，而是专注于魔法研究并推进我们的改造项目，但火魔婴树立的榜样仍是所有乌鲁洛克之子投入奉献的光辉典范。", "_t")
 t("demon statue: water imp", "恶魔雕像：小水怪", "_t")
 t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧使用双手作战，这群变种的火魔婴做出了更加伟大的牺牲：他们放弃了呼吸空气的能力。大部分占据主导地位的埃亚尔种族生活在水上，让海洋和湖泊成为我们的藏身的主要根据地，实施那些对于我们的土壤来说过于危险的实验，同时为制造全面侵略的传送门做准备。作为我们在海里的使者，小水怪们放弃了同胞们使用火焰的能力，转而使用在水里同样有效的冰系法术。和酸液树魔类似，小水怪们并不指望能活到和平到来，因此没有必要在地表呼吸。请记得随时为小水怪们奉上礼物，不能因为他们没有同大家在地表作战，就轻易遗忘他们做出的无私牺牲，以及在收集情报和建立远方基地方面做出的巨大贡献。]], "_t")
 t("demon statue: quasit", "恶魔雕像：夸塞魔", "_t")
@@ -643,7 +643,7 @@ t("Recently, the cultists of Shasshhiy'Kaish have begun speaking of a \"demon se
 t("demon statue: Corrupted Daelach", "恶魔雕像：堕落达莱奇", "_t")
 t("One of the problems with making daelach is the inherent instability that comes from creating something that is almost entirely made of magic.  If ambient levels of blight are even slightly too high, it can set off a chain reaction that at best destroys the daelach, and at worst destroys most of the mages who were building it.  Daelach production is thus theoretically cheap, but in practice involves great expense, and usually a blighted daelach has to be immediately put down lest it cause tremendous damage.  One specimen, though, adapted to the blight in a very interesting way, sprouting wings and bolstering its usual firestorms with blight, but otherwise remaining perfectly balanced and controllable.  We'll try to recreate this happy accident however we can, but in the meantime, it will prove effective on the surface of Eyal.", [[制造达莱奇的问题之一就是创造纯粹魔法生物所固有的不稳定性。如果周边的枯萎水平哪怕高那么一点点，也会导致连锁反应，轻则摧毁达莱奇，重则会杀死大部分负责制造达莱奇的法师。因此制造达莱奇的理论成本很低廉，但是实际上会带来巨大的费用。而且，一个枯萎化的达莱奇必须立刻被压制，以免它造成巨大的损害。不过，有一个样本用一种有趣的方式进行了枯萎化，它长出了翅膀，并用枯萎能量强化了他的火焰风暴，另一方面它维持了平衡与可控性。我们将会用尽所有办法尝试重现这个令人惊喜的意外，与此同时，它会前往埃亚尔大陆证明他的实际效果。]], "_t")
 t("demon statue: Harkor'Zun", "恶魔雕像：哈卡祖", "_t")
-t("Of the anomalies and phenomena we've noticed in our studies of the shield protecting Eyal, none have frustrated us so much as meteors.  Certain powerful Eyalite spellcasters can pull a large meteor into low orbit, passing it through the shield relatively unharmed, aside from being split into predictably-sized chunks, which are then called to the surface one-by-one in a series of devastating meteoric crashes.  While we have not yet found a way to reverse-engineer these spells to protect our standard troops from disintegration, we have had some limited success in making a construct that closely resembles a meteor in composition and appearance.  Harkor'Zun, a being made mostly of stone, was simply dropped from our platform; the shield shattered him as expected, but we had designed him to survive this, the fragments merging back into their completed form once he reached the surface.  It would seem, though, that either we made him to be too sturdy, or the shield envelops incoming objects in a sort of anti-magic coating, as he has been unable to start the second stage of this process, wherein he merges these fragments back into a completed form.  Should an Eyalite stumble upon him and attempt to destroy the fragments, Harkor'Zun will be able to re-combine and \"thank\" whoever granted him his ascension.", [[在我们对守护埃亚尔之盾的研究所发现的规律与异常现象之中，没有一个像流星这样让我们沮丧。一些强大的埃亚尔法师可以将大型的流星拖入低空轨道，在几乎没有损伤的情况下使它通过护盾，唯一的损伤是陨石被分割成若干大块，然后被依次召唤到地表造成毁灭性的陨石撞击。我们还没有找到反制这些咒语的方法来保护我们的军队免于溃散。我们在制造一种成分和外观都酷似陨石的造物方面取得了一些有限的成功。哈卡祖，大部分由石头构成的生物，被我们从我们的平台上丢下。如同想象的那样，护盾将它撕得粉碎，不过我们的设计让它能够得以生存。碎片在到达埃亚尔之后重新融合到一起，组成完整形态。然而，或许是因为我们将它制造的太过顽固，又或许是护盾将侵入的物体包裹上反魔法的外衣，哈卡祖无法进行第二阶段——将碎片重组的阶段。如果有埃亚尔人偶然发现它并试图摧毁这些碎片，哈卡祖将能够重新组合，并“答谢”那个助它升华之人。]], "_t")
+t("Of the anomalies and phenomena we've noticed in our studies of the shield protecting Eyal, none have frustrated us so much as meteors.  Certain powerful Eyalite spellcasters can pull a large meteor into low orbit, passing it through the shield relatively unharmed, aside from being split into predictably-sized chunks, which are then called to the surface one-by-one in a series of devastating meteoric crashes.  While we have not yet found a way to reverse-engineer these spells to protect our standard troops from disintegration, we have had some limited success in making a construct that closely resembles a meteor in composition and appearance.  Harkor'Zun, a being made mostly of stone, was simply dropped from our platform; the shield shattered him as expected, but we had designed him to survive this, the fragments merging back into their completed form once he reached the surface.  It would seem, though, that either we made him to be too sturdy, or the shield envelops incoming objects in a sort of anti-magic coating, as he has been unable to start the second stage of this process, wherein he merges these fragments back into a completed form.  Should an Eyalite stumble upon him and attempt to destroy the fragments, Harkor'Zun will be able to re-combine and \"thank\" whoever granted him his ascension.", [[在我们研究守护埃亚尔的护盾时发现的种种异常与现象中，没有什么比流星更令我们沮丧。某些强大的埃亚尔施法者能将一颗大型流星拉入低空轨道，使它几乎毫发无损地穿过护盾，只会被分割成大小可预测的若干块；随后这些碎块会被逐一召向地表，造成一连串毁灭性的陨石撞击。我们尚未找到逆向解析这些法术、从而保护标准部队免遭分解的方法，但在制造一种成分与外观都酷似流星的构造体方面取得了有限的成功。哈卡祖是一个主要由石头构成的生物，我们直接将他从平台上投下；护盾如预期般将他击碎，但我们的设计本应让他从中存活，并在抵达地表后让碎片重新融合成完整形态。然而，似乎要么我们把他造得过于坚固，要么护盾会给进入的物体覆上一层反魔法涂层；他始终无法启动这一过程的第二阶段，也就是把这些碎片重新融合成完整形态。若有埃亚尔人偶然发现他并试图摧毁碎片，哈卡祖便能重新组合，并“感谢”助他升华之人。]], "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/quests/re-abducted.lua"
@@ -746,7 +746,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua"
 
 t("corruption", "堕落", "talent category")
 t("demon seeds", "恶魔之种", "talent type")
-t("Demon seeds powers can not be learnt, they must be used from demon seeds attached to your equipment.", "恶魔种子的力量不是人能学会的，必须通过装备来展现。", "_t")
+t("Demon seeds powers can not be learnt, they must be used from demon seeds attached to your equipment.", "恶魔种子的力量无法学习，必须通过附着在装备上的恶魔种子使用。", "_t")
 t("demonic pact", "恶魔契约", "talent type")
 t("Bind and use demons to do your bidding.", "束缚并驱使恶魔服从你的命令。", "_t")
 t("infernal combat", "地狱格斗", "talent type")
@@ -864,7 +864,8 @@ t([[When you deal a critical strike in melee, you send out a cone of acid, deali
 		伤害受法术强度加成。]], "tformat")
 t("Armoured Leviathan", "重装上阵", "talent name")
 t([[You enchant your shield to grant you power for %d turns.
-		While the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]], "你利用盾牌来强化自身，力量和魔法增加 10%% 格挡值，持续 %d 回合。", "tformat")
+		While the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]], [[你为盾牌附魔，使其赋予你力量，持续 %d 回合。
+		效果持续期间，你的力量和魔法属性会提高，数值相当于盾牌格挡值的 10%%。]], "tformat")
 t("Flash Block", "瞬间格挡", "talent name")
 t("In a fiery display of speed you raise your shield to block instantly.", "你带着一阵火光迅速举起盾牌，瞬间完成格挡。", "tformat")
 t("Blackice", "黑冰", "talent name")
@@ -1039,11 +1040,11 @@ t([[Teleports you randomly within a small range of up to %d grids with %d precis
 		In the spot you left you will summon a random demon from your seeds for %d turns.
 		If the target area is not in line of sight, there is a chance the spell will fizzle.
 		This spell requires an unsummoned, alive, demon seed equiped in a worn equipment to work.
-		The range will increase with your Spellpower.]], [[传到 %d 码外的一个位置，误差 %d。
-		在离开的位置，你将随机召唤一个恶魔，持续 %d 回合。
-		如果目标地点不在视线内，有一定几率失败。
-		该技能需要你的装备上附着有至少一个未召唤的存活的恶魔种子。
-		传送距离受法术强度加成。]], "tformat")
+		The range will increase with your Spellpower.]], [[在最多 %d 格的小范围内随机传送，精度为 %d。
+		你会在原先的位置从种子中随机召唤一个恶魔，持续 %d 回合。
+		如果目标区域不在视线内，法术可能失效。
+		此法术需要一颗附着在已穿戴装备上、尚未召唤且存活的恶魔种子才能生效。
+		范围随法术强度提高。]], "tformat")
 t("Doom Concordat", "末日契约", "talent name")
 t("#CRIMSON#Your %s is healed!", "#CRIMSON#你的%s被治疗了！", "logPlayer")
 t("#CRIMSON#Your %s is brought back to life!", "#CRIMSON#你的%s复活了！", "logPlayer")
@@ -1193,8 +1194,7 @@ t([[Whenever you kill a burning enemy, you will instantly deal a melee attack ag
 	此效果每 5 回合才能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
-		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。
-		除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。
+		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 回合、强度为 %d 的护盾，每移除一层燃烧效果，护盾强度增加 15%%。
 		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
 t("Devouring Flames", "吞噬之焰", "talent name")
 t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.
@@ -1270,11 +1270,12 @@ t([[Your successful melee hits apply a stacking effect that decreases damage don
 		At level 3 it also slows by %0.2f%% per stack.
 		At level 5 you can horrify enemies in a radius of %d.
 		This talent ignores saves and immunities.
-		]], [[你的攻击能够惊吓目标，降低目标 %d%% 的伤害。
-	此效果可以叠加 %d 次，每次攻击会刷新持续时间。但是当目标与你距离超过 %d 码，恐惧效果会迅速消退。
-	技能 3 级时，每次叠加会同时减少目标 %0.2f%% 的速度。
-	技能 5 级时，可以影响到 %d 码内的所有敌对生物。
-	此技能无视豁免和免疫。]], "tformat")
+		]], [[你的近战攻击命中时会施加可叠加的效果，使目标造成的伤害降低 %d%%。
+		每个目标最多可叠加 %d 层，后续攻击会刷新持续时间；但只要有一回合你与受害者相距超过 %d 格，恐惧就会迅速消退。
+		技能 3 级时，每层还会使目标减速 %0.2f%%。
+		技能 5 级时，你可以使半径 %d 内的敌人陷入恐惧。
+		此技能无视豁免和免疫。
+		]], "tformat")
 t("Mass Hysteria", "恐惧之潮", "talent name")
 t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%，持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
@@ -1327,14 +1328,13 @@ t([[The power of the Fearscape infuses your weapon: Your melee attacks will deal
 		If this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.
 		For the purposes of applying the stun, you have %d bonus spellpower.
 		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
-	另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
-	若该技能不在冷却中，火焰爆发将改为半径 %d，并使范围内所有敌对目标同时燃烧和震慑。
-	进行震慑判定时，你获得 %d 点额外法术强度。
-	伤害受法术强度加成。]], "tformat")
+		另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
+		若该技能不在冷却中，火焰爆发将改为半径 %d，并使范围内所有敌对目标同时燃烧和震慑。
+		进行震慑判定时，你获得 %d 点额外法术强度。
+		伤害受法术强度加成。]], "tformat")
 t("Abduction", "锁魂之链", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
-t("Hits the target doing %d%% weapon damage. If the attack hits, you pull the target in and strike them again, dealing another %d%% weapon damage.", [[对目标攻击，造成 %d%% 武器伤害。
-	如果命中，将目标抓到身边并再次攻击，造成 %d%% 武器伤害。]], "tformat")
+t("Hits the target doing %d%% weapon damage. If the attack hits, you pull the target in and strike them again, dealing another %d%% weapon damage.", "对目标攻击，造成 %d%% 武器伤害。如果命中，将目标抓到身边并再次攻击，造成 %d%% 武器伤害。", "tformat")
 t("Fiery Torment", "灼魂之罚", "talent name")
 t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hits, the target is afflicted with Fiery Torment for %d turns, reducing their fire resistance by %d%%.
 		When Fiery Torment ends the victim will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment.
@@ -1347,7 +1347,7 @@ t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hit
 t("Eternal Suffering", "无尽苦痛", "talent name")
 t([[Your strikes are imbued with a vile power that extends your victim's suffering. When hitting in melee, you have a (%d%%) chance to extend the length of all negative effects and reduce the length of all positive effects on the target by %d turn(s).
 		This can only trigger on any particular target once every 6 turns.]], [[你的攻击充溢着恶毒的力量，能够延长敌人的苦痛。当近战命中时，有 %d%% 几率延长对方所有的负面状态持续时间并降低所有正面状态的持续时间，增减幅度为 %d 回合。
-	该效果对同一目标每 6 回合才能生效一次。]], "tformat")
+		该效果对同一目标每 6 回合才能生效一次。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/corruptions/wrath.lua"
@@ -1370,9 +1370,8 @@ t([[Launch yourself toward a target. If the target is reached you get a free att
 		至少要从 2 码外开始冲锋。]], "tformat")
 t("Voracious Blade", "饕餮之刃", "talent name")
 t([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.
-		Additionally, you gain an extra %d vim per kill.]], [[你的利刃充满着对杀戮的渴望。
-	在技能冷却完毕后，当杀死敌人时，接下来 6 回合内的 %d 次近战攻击必定暴击，在持续时间内，暴击系数增加 %d%%。
-	另外，每次击杀时额外获得 %d 点活力。]], "tformat")
+		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。
+		此外，每次击杀会额外获得 %d 点活力。]], "tformat")
 t("Destroyer", "毁灭者", "talent name")
 t([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.
 		The physical power, stamina regen, and status resistances increase with your spellpower.
@@ -1476,7 +1475,7 @@ t("This character's flames are feeding the source, healing them for %d per turn 
 t("#Target#'s is surrounded with an all-consuming flame!", "#Target#被吞噬性的火焰环绕！", "_t")
 t("+Devoured", "+吞噬", "_t")
 t("-Devoured", "-吞噬", "_t")
-t("Overwhelming Fear", "无尽恐惧", "_t")
+t("Overwhelming Fear", "压倒性恐惧", "_t")
 t("The target is losing faith that it can defeat you, reducing its damage by %d%% and slowing it by %d%%", "目标对打败你失去信心，伤害减少 %d%%，速度减慢 %d%%", "tformat")
 t("#Target# begins to fear you.", "#Target#开始畏惧你。", "_t")
 t("#Target#'s shakes the fear off.", "#Target#摆脱了恐惧。", "_t")
@@ -1786,7 +1785,7 @@ A few meters away, you see the bubbles combining and congregating around a trans
 #AQUAMARINE#"真是方便……如此多的夏·图尔魔法任我取用……反过来对付其创造者的魔法……但是现在……出现了一个新的障碍……波涛之下最后一位伟大的战士……"#WHITE#]], "tformat")
 t("The oceans are yours.  The people of Eyal gave up sea travel ages ago!", "海洋是你的了！埃亚尔人早就放弃海洋了！", "_t")
 t("You're the new Lord of the Seas?  What would you have me do?", "你就是海洋新的霸主？你想要我干什么？", "_t")
-t("The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!", "污秽的恶魔，埃亚尔的海洋绝不臣服于你！让我终结这邪恶与混沌！", "_t")
+t("The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!", "污秽的恶魔，埃亚尔的海洋绝不臣服于任何领主！混沌与死亡就此终结！", "_t")
 t("Stop bubbling and start dying, you overgrown tea-kettle!  Your treasures are mine!", "别吐泡泡了，去死吧，你这水壶怪！你的财宝是我的了！", "_t")
 t([[The frothing form frowns.
 #AQUAMARINE#"Will come to the surface eventually...  you may be stronger then..."#WHITE#
@@ -1800,10 +1799,11 @@ t([[You did not think it possible for an amorphous mass of bubbles to scowl.
 #AQUAMARINE#"%s to the Naloren...  traitor to Ukllmswwik...  I am no fool... "#WHITE#
 A jet of boiling water barely misses you, dissipating into bubbles above your head.
 #AQUAMARINE#"Your 'loyalty...' would give me their fate..."#WHITE#
-The frothing and bubbling around him grows to new heights as he charges you!]], [[你没想到，这团不定形的气泡仿佛皱了皱眉#AQUAMARINE#"%s纳鲁精灵…背叛乌克勒姆斯维奇…你当我是傻瓜吗…"#WHITE#
-一束滚烫的水流从你的身边擦过，消散成一团气泡。
-#AQUAMARINE#"你的“忠诚”…还能骗得了谁？"#WHITE#
-这团沸腾的气泡膨胀开去，巨大的身形向你冲来！]], "tformat")
+The frothing and bubbling around him grows to new heights as he charges you!]], [[你原以为一团无定形的气泡不可能露出怒容。
+#AQUAMARINE#"%s纳鲁精灵……背叛乌克勒姆斯维奇……我可不是傻瓜…… "#WHITE#
+一束沸水擦身而过，在你头顶化为气泡消散。
+#AQUAMARINE#"信任你的‘忠诚’……只会让我落得他们的下场……"#WHITE#
+他周围翻腾的泡沫越涌越高，他随即向你冲来！]], "tformat")
 t("Traitor", "背叛", "_t")
 t("Murderer", "屠戮", "_t")
 t([[He chuckles, bubbles bursting from his mouth with every laugh.
@@ -1909,12 +1909,12 @@ Race features:#YELLOW#
 - Can increase detrimental effects and reduce beneficial ones on their foes
 #WHITE#
 ]], [[魔化精灵并不是一个真正的种族，他们曾是永恒精灵，而被恶魔抓去，变为末日的使者。
-恶魔空间的烈火和严格训练磨砺了他们抵御痛苦、施展痛苦的强大能力。
+他们在恶魔空间接受严格训练，磨砺了施加痛苦与抵御痛苦的本领。
 
-你已经终结了从恶魔家乡玛·洛克来的仅有的那三位探险者。现在，恶魔们将无法了解到有关埃亚尔大陆的真相，#LIGHT_GREEN#魔化精灵#WHITE# 应运而生。
+你已经杀死了来自玛·洛克、仅有的三名本可将真相告知恶魔的探险者，因此获得了创建#LIGHT_GREEN#魔化精灵#WHITE#角色的资格。
 
-种族特点 :#YELLOW#
-- 使用加速技能，瞬间穿梭空间
+种族特点：#YELLOW#
+- 瞬发相位之门
 - 转化成多瑟顿形态
 - 可以延长敌人的负面效果，缩短敌人的正面效果
 #WHITE#
@@ -1959,9 +1959,9 @@ To begin your adventures as a fiery bringer of doom simply create a character wi
 Have fun crushing your foes!
 ]], [[感谢你购买#CRIMSON#乌鲁洛克之烬#WHITE#，《马基埃亚尔的传说》的第一个扩展包。
 
-若要开始一段与恶魔共舞的毁灭旅程，请您选择#LIGHT_GREEN#毁灭使者#WHITE#（堕落系）作为您的职业，选择#LIGHT_BLUE#%s#WHITE#作为你的种族。
+要以带来毁灭的烈焰使者身份开始冒险，只需创建一个角色：职业选择#LIGHT_GREEN#毁灭使者#WHITE#（堕落系），种族选择#LIGHT_BLUE#%s#WHITE#。
 
-恶魔之力，毁灭一切！
+尽情碾碎你的敌人吧！
 ]], "tformat")
 t(", ", "，", "_t")
 t(" or ", "或", "_t")
