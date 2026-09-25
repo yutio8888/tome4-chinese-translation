@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-25（修复窗口30已完成；待宿主提交并推送证据，下一步审核第287批）
+更新时间：2026-09-25（第287批已 finalize；窗口31积压 8 条，继续审核第288批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,13 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **286** 批（`batch-5ce6060013cbbb517e2c`）：80 条全为 Ashes DLC，67 done / 11 repair_required /
-  2 blocked（pending）。surface 4 lane 的 identity 回显全部逐位一致，无错位；contextual run 只读冻结 envelope 与契约，
-  未越界，无需 refreeze，复核 18 条；26 个观察逐条裁决。17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，
-  证据提交 `2e53e8ad227ee0f37c697e98e8b0713ca95defad` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **287** 批（`batch-de7c2c3d32f752f42784`）：80 条（Ashes 61、Cults 19），70 done / 8 repair_required /
+  2 blocked（pending）。首个 Ashes+Cults 混合批：surface 分两组共 8 lane，identity 回显全部逐位一致，无错位；
+  contextual 两个 run（Ashes 12、Cults 3）只读冻结 envelope 与契约，未越界，无需 refreeze；21 个观察逐条裁决。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `dfc632574cf73a1c12f06753e829aa8c9e1e6e50` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **30**：第 284–286 批共 23 条确认问题已修复并发布，译文提交
   `941824e9642823b8a3575eee10bea5217be2afc5`；migration `daf1db30…` 的 23 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。新积压 1 条（见第五节），从审核第 287 批重新累计。
+  须重新审核，不继承旧 revision 的 done 状态。窗口 31 积压 8 条（第287批；窗口30 记下的 1240 行即其中 `f6eee01b`）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -41,6 +41,7 @@
 | 284 | `batch-2693c7d9d6bb6b335806` | 72 done / 7 repair / 1 blocked | 68 OK / 12 ISSUE | 7 OK / 5 ISSUE | 10 confirmed / 4 refuted / 2 advisory / 1 pending |
 | 285 | `batch-fa1ef950617bf0290a74` | 75 done / 5 repair | 71 OK / 9 ISSUE | 4 OK / 5 ISSUE | 7 confirmed / 2 refuted / 5 advisory |
 | 286 | `batch-5ce6060013cbbb517e2c` | 67 done / 11 repair / 2 blocked | 62 OK / 18 ISSUE | 10 OK / 8 ISSUE | 18 confirmed / 3 refuted / 3 advisory / 2 pending |
+| 287 | `batch-de7c2c3d32f752f42784` | 70 done / 8 repair / 2 blocked | 65 OK / 15 ISSUE | 9 OK / 6 ISSUE | 14 confirmed / 4 refuted / 1 advisory / 2 pending |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -117,13 +118,18 @@
 
 ## 五、下一步
 
-1. 宿主完成窗口 30 证据提交、关闭后的 queue rebuild 与 push，然后继续审核第 **287** 批（默认 80 条，连续推进）。
-2. 窗口 30 已完成。新积压 1 条：`tome-ashes-urhrok.lua:1240` 恶魔角刺穿条“黑暗伤害”应为“暗影伤害”
-   （窗口 30 `FINAL_REVIEW(3)` 同类发现，不在本窗口范围）；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）
-   仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。
+1. 继续审核第 **288** 批；默认 80 条，按既有连续批次授权推进。先核对 HEAD、queue evidence HEAD、无 active batch。
+   混合 DLC 批（多组件）surface 会分多组、contextual 分多 run，脚本按 emit 下标与 component 取 checkout（见第287批）。
+2. 窗口 31 积压 **8** 条（第287批）：`f6eee01b`（恶魔之角：近战/流血期间条件、所造成伤害的 50%、暗影伤害；即窗口30 记下的 1240 行）
+   `f746ce38`（战术简报：末尾空行、写死“他”、改造/韧性来源误译、unlikely 删限定）`f985ec15`（无情未来 up to）
+   `f9e45b5a`（燃烧献祭制表符）`fc65680a`（小水怪 lore：秘密行动、己方土地、斥候、致敬）`fc8cdfb2`（炙炎之牢制表符）
+   `00b0f993`（Cults 插件描述首处换行与 partly）`01bdde51`（Cults 恐魔鼓舞日志观看者颠倒）。
+   依据见 `.ai/task/batch-de7c2c3d32f752f42784/HOST-FINAL-DECISIONS.json`；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；
+   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`。
+   第287批计时（实测，投影缓存 on）：start 90.8 s；adjudication chain（含 17 项门禁）161.3 s；finalize 92.5 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 27 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25项，Armoured Leviathan 同族第21/27项）。
+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 29 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项）。
 5. 全 DLC 批次的操作要点：adjudication chain 一开始就传 SHA 核验的 `reviewN-source-root`；首次 contextual envelope 不含 checkout
    位置（`--ashes-checkout` 只在 refreeze 路径生效），Opus 可能自行搜寻而越界（第277、280批各一次），届时拒收并按 refreeze 重派；
    surface 某 lane 判废须整组用 `tools/surface_screen_manifest.py build --attempt 2 --group-id group-000-retry-02` 重建（envelope 字节不变）。
