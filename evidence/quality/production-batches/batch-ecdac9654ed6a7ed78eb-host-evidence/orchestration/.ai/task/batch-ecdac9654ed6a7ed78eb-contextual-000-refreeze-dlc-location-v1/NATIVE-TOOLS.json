@@ -1,0 +1,122 @@
+[
+ {
+  "type": "tool_use",
+  "id": "toolu_01N6r3B98wKhRpcTbmCrxyeW",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; wc -c $F; python3 -c \"\nimport json;d=json.load(open('$F'));print(list(d.keys()))\nfor k,v in d.items():\n  if k!='entries' and k!='items': print(k, json.dumps(v,ensure_ascii=False)[:1500])\n\"",
+   "description": "Inspect envelope structure"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01RQbsYgmTVNLVvDsrUF19Lp",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$F'))['payload'];print(list(d.keys()))\nfor k,v in d.items():\n  if k not in('bounded_context','entries'): print(k, json.dumps(v,ensure_ascii=False)[:3000])\n\"; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md | head -50",
+   "description": "Show payload keys and contract headings"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_014XibMJmwfakcdZAgPTDdZM",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; F=.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$F'))['payload']\nfor i,t in enumerate(d['translation_snapshot']): print(i,t['revision_key'][:6],json.dumps(t['source'],ensure_ascii=False),'=>',json.dumps(t['target'],ensure_ascii=False))\nprint(len(d['bounded_context']))\nfor b in d['bounded_context']: print('-----');print(json.dumps(b,ensure_ascii=False)[:200]); c=b['context']; print(c[c.find('\\n',c.find('source_facts_v1'))-0:][:5000] if False else '')\n\"",
+   "description": "Read contract section 6 and entries"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01MXG3Au2hy86FvdGE7aVtFB",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$F'))['payload']\nfor i,b in enumerate(d['bounded_context']):\n  c=b['context']; j=json.loads(c[c.find('source_facts_v1:')+16:].split('\\n')[0])\n  print('=====',i, {k:v for k,v in b.items() if k!='context'})\n  print(json.dumps(j.get('fact',j),ensure_ascii=False,indent=None)[:4000])\n  rest=c.split('\\n',2)\n  if len(rest)>2: print('REST',rest[2][:3000])\n\"",
+   "description": "Print source facts per entry"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01Xh1bcaYEKJqbeizUTutsUc",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-chinese-translation; F=.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000-refreeze-dlc-location-v1/CONTEXTUAL-ENVELOPE-final-full.json; python3 -c \"\nimport json;d=json.load(open('$F'))['payload']\nfor i,b in enumerate(d['bounded_context']):\n  c=b['context']; j=json.loads(c[c.find('source_facts_v1:')+16:].split('\\n')[0])\n  f=j.get('fact',j)\n  print('=====',i)\n  for a in f.get('anchors',[]):\n    print(a['public_source_path'], [ (s['line'],s['text']) for s in a['snippet']])\n  print('TERM',json.dumps(f.get('terminology'),ensure_ascii=False))\n  print('OTHER',[k for k in f.keys()])\n\"",
+   "description": "Print snippets and terminology per entry"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01AyKCGKQyKoXHiQEGbTVDq4",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-dlcs/ashes-urhrok && sed -n 673,705p data/timed_effects.lua; sed -n 195,240p data/timed_effects.lua; grep -n \"OSMOSIS_REGEN\\|INFERNAL_FEAR\\|DEMONIC_CUT\" -r data | head",
+   "description": "Read effect definitions in DLC source"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01L1CvJ81oyuQ8Usio7DpCZm",
+  "name": "Bash",
+  "input": {
+   "command": "ls /workspace/tome4-dlcs/ashes-urhrok; ls /workspace/tome4-dlcs/ashes-urhrok/* | head",
+   "description": "List DLC checkout"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01ViwV1Urn8uisTi4UHsQjex",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok && sha256sum data/timed_effects.lua data/general/objects/world-artifacts.lua; sed -n 195,240p data/timed_effects.lua; sed -n 673,705p data/timed_effects.lua; grep -rn \"DEMONIC_CUT\\|INFERNAL_FEAR\" data | grep -v \"name =\" | head",
+   "description": "Read effect definitions and usages"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_01M9sSU5AhSoMgadrKLtu3t4",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok && sed -n 85,145p data/talents/corruptions/demonic-strength.lua; sed -n 840,898p data/talents/corruptions/demonic-pact.lua",
+   "description": "Read aura and teleport talents"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ },
+ {
+  "type": "tool_use",
+  "id": "toolu_018QNya3KSTyR1dT1NyCzBP7",
+  "name": "Bash",
+  "input": {
+   "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok && sed -n 521,545p data/timed_effects.lua; grep -rn \"EFF_OSMOSIS_REGEN\" data | head -3",
+   "description": "Read Osmosis Regeneration effect"
+  },
+  "caller": {
+   "type": "direct"
+  }
+ }
+]

@@ -1,0 +1,24 @@
+{
+  "status": "rejected",
+  "reason": "reviewer ran cd /workspace/tome4-dlcs; ls and globbed */tome-ashes-urhrok to discover the DLC checkout, which the frozen envelope does not name; outside the read-only named-location boundary (same class as batches 277, 280 and 282)",
+  "session_id": "6256aabc-7abe-48fd-af52-4f8456913e30",
+  "native_log_sha256": "fb8f073eea5845a5d48858bf99a8d595464d8d3dec08b04f516d430cf5c01c74",
+  "tool_call_count": 8,
+  "violating_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/batch-ecdac9654ed6a7ed78eb-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json'));p=d['payload']\nc=p['bounded_context'][5]['context'];f=json.loads(c.split('source_facts_v1:')[1])['fact'];print({k:v for k,v in f.items() if k!='anchors'})\"; ls /workspace",
+        "description": "Inspect fact metadata and workspace dirs"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs; ls; f=$(ls -d */tome-ashes-urhrok 2>/dev/null || ls -d tome-ashes-urhrok); echo $f; sha256sum $f/data/timed_effects.lua; grep -n 'DEMONIC_CUT' -r $f/data | head; sed -n 673,720p $f/data/timed_effects.lua; sed -n 515,560p $f/data/timed_effects.lua; grep -n -i 'osmosis' -r $f/data | head",
+        "description": "Locate DLC source and check effects"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-25T12:13:37.122933+00:00"
+}

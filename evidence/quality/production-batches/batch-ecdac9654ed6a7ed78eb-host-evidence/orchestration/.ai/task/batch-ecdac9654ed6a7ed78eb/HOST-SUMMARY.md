@@ -1,0 +1,3 @@
+第283批：冻结80条，全部为 Ashes DLC，逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 4个 lane 审80条，identity 回显全部逐位一致，13个ISSUE（lane-000-0 两条 observation 错位一格，逐条比对）；contextual 首轮 Opus run 为找 DLC checkout 执行 ls /workspace 并探查 /workspace/tome4-dlcs，被拒收并归档，refreeze（dlc-location-v1）run 复核这13条，6个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决19个观察：{'advisory': 2, 'refuted': 5, 'confirmed': 10, 'pending': 2}；预计73条完成、6条待修复、1条 pending。修复 revision：苦痛延伸制表符、恶魔学者背景 often evil、压倒性恐惧效果名（无尽→压倒性）、盾牌附魔换行、恶魔传送 up to/随机/失控、恶魔种子技能使用条件。炼狱吐息锥形与深渊伤口、深渊气息近战反击均贴合实现 refuted，两条错位观察 refuted（乌尔罗格 fearsome to behold 记宿主补充建议）；恐惧之焰斗篷名记 advisory；渗透吸收同族更名列待用户审阅第24项。修复窗口29积压从15增至21，达到20，本批闭合后开修复窗口29。

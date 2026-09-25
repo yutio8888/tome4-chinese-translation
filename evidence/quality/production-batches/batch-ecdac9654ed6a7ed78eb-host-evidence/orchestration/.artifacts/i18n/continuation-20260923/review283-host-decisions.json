@@ -1,0 +1,100 @@
+{
+  "workset": "evidence/quality/production-batches/batch-ecdac9654ed6a7ed78eb-source-workset.json",
+  "decisions": {
+    "a12d1530d5|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:105–110 Fearfire Mantle 为 BASE_CLOAK（unided_name cloak shaped flames）；现译“恐惧之焰”未体现 Mantle（斗篷），但为本库既定神器名（tome-ashes-urhrok.lua:168），单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "a598376102|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（半径火焰波→锥形）错位：描述的是同 lane 前一条 a562167573（fearfire.lua:164 炼狱吐息），且该条 target 为 type=\"cone\"（fearfire.lua:141），现译“锥形范围”贴合实现。本条 timed_effects.lua:198 INFERNAL_FEAR long_desc 译文“伤害减少 %d%%，速度减慢 %d%%”准确，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "a6090c7e0f|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（fearsome to behold）错位：描述的是同 lane 前一条 a5ef7ca96f（aquatic-demon.lua:28），已记入 additional_host_observations。本条 achievements/all.lua:87 三恶魔成就说明译文准确，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "a6fd631ea2|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes torture.lua:242–243 源串续行以 \\n\\t\\t 缩进（宿主实测源 1 个 LF、1 处 \\n\\t\\t），现译为 \\n\\t，一级 TAB 不变量，只恢复制表符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "aaaaf55ee4|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes birth/corrupted.lua:117：often evil but a few have been known to use demonic powers to fight demons 是“多半用于作恶，少数用来对抗恶魔”；现译“无论善恶”抹去 often evil 倾向并使后半句转折失效，改回倾向与转折。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "aad36f17ae|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:673–690 DEMONIC_CUT：callbackOnMeleeHit 中仅当 src == eff.src（造成伤口者）近战命中时 src:heal(eff.heal)；现译“造成该伤口的来源以近战攻击命中目标时恢复”贴合实现，上游 info 的 Anytime you hit it 较宽泛。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "ac2347dac6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes timed_effects.lua:195–201 INFERNAL_FEAR 效果名 Overwhelming Fear：有持续时间、最多叠 8 层（max_stacks=8），“无尽”误作无限；本库仅 tome-ashes-urhrok.lua:1479 一处使用，改为“压倒性恐惧”类译名（修复窗口先做双向冲突检查）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "ae8c122720|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demon-seeds.lua:708–709 源串两句间 \\n\\t\\t（宿主实测源 1 个 LF），现译合为一行（0 个 LF），一级换行不变量；同条“持续 %d 回合”语序随之按原文两句恢复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "af350d83cb|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes demonic-strength.lua:122 该光环以 on_melee_hit 施加火焰/枯萎伤害，只在被近战命中时反击；现译“近战反击伤害”贴合实现，上游 info 的 all attacking foes 较宽泛。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "af918013e6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demonic-pact.lua:855–875：range 为可选目标点的最大距离，随后 teleportRandom 以 radius 随机落点；现译“传到 %d 码外的一个位置”丢 up to/randomly，写成固定距离（删限定词类）。另源串 random demon from your seeds 与 fizzle（实现为以原地为中心在整个 range 内随机传送，:865–869）同条整句核对修复，换行保持。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "b281c0e29d|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes corruptions.lua:21：can not be learnt, they must be used from demon seeds attached to your equipment；现译“必须通过装备来展现”丢了“附着在装备上的恶魔种子”这一使用条件，“不是人能学会的”亦增译，整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "b2c260c330|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:620/812 为 Corrupted Light 与 Dark Reign 两个增益效果的 on_lose（on_gain 为 #Target# is filled with dark power!），黑暗力量是目标自身获得的增益；“#Target#的黑暗力量消退了”贴合效果结束，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "b349784043|surface": {
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:521–530 OSMOSIS_REGEN 为持续回复生命效果（subtype heal，on_timeout 调用 self:heal），现译“渗透吸收”未表达 Regeneration，且与渗透护盾吸收易混；但同族 +/-Osmosis Regen 日志（tome-ashes-urhrok.lua:1538–1541）统一用“渗透吸收”，与第278批 3747432e7d 同属一次跨条更名决定，列入待用户集中审阅第24项。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "a12d1530d5|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Ashes world-artifacts.lua:105–110 Fearfire Mantle 为 BASE_CLOAK（unided_name cloak shaped flames）；现译“恐惧之焰”未体现 Mantle（斗篷），但为本库既定神器名（tome-ashes-urhrok.lua:168），单条不改名，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 建议“恐惧之焰斗篷”，作为改名选项记录。"
+    },
+    "aaaaf55ee4|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes birth/corrupted.lua:117：often evil but a few have been known to use demonic powers to fight demons 是“多半用于作恶，少数用来对抗恶魔”；现译“无论善恶”抹去 often evil 倾向并使后半句转折失效，改回倾向与转折。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "ac2347dac6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes timed_effects.lua:195–201 INFERNAL_FEAR 效果名 Overwhelming Fear：有持续时间、最多叠 8 层（max_stacks=8），“无尽”误作无限；本库仅 tome-ashes-urhrok.lua:1479 一处使用，改为“压倒性恐惧”类译名（修复窗口先做双向冲突检查）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "af918013e6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes demonic-pact.lua:855–875：range 为可选目标点的最大距离，随后 teleportRandom 以 radius 随机落点；现译“传到 %d 码外的一个位置”丢 up to/randomly，写成固定距离（删限定词类）。另源串 random demon from your seeds 与 fizzle（实现为以原地为中心在整个 range 内随机传送，:865–869）同条整句核对修复，换行保持。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "b281c0e29d|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes corruptions.lua:21：can not be learnt, they must be used from demon seeds attached to your equipment；现译“必须通过装备来展现”丢了“附着在装备上的恶魔种子”这一使用条件，“不是人能学会的”亦增译，整句修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "b349784043|contextual": {
+      "disposition": "pending",
+      "repair_required": false,
+      "conclusion": "公开 Ashes timed_effects.lua:521–530 OSMOSIS_REGEN 为持续回复生命效果（subtype heal，on_timeout 调用 self:heal），现译“渗透吸收”未表达 Regeneration，且与渗透护盾吸收易混；但同族 +/-Osmosis Regen 日志（tome-ashes-urhrok.lua:1538–1541）统一用“渗透吸收”，与第278批 3747432e7d 同属一次跨条更名决定，列入待用户集中审阅第24项。本批文件 SHA 匹配，来源仓库/commit 未固定。 contextual 建议“渗透回复/渗透再生”，作为改名选项记录。"
+    }
+  }
+}
