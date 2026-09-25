@@ -1,0 +1,18 @@
+{
+  "title": "W28 host finding fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w28-20260925 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F2.json、WORKSET.json。仅修复一条 confirmed target：5e4738cdc1…（tome-ashes-urhrok.lua 中 Kryl-Feijan 雕像笔记，唯一含“在你们诞生千年之前”的条目）四处，其余字句、#{italic}#/#{normal}#、专名与 LF 一律不动：①“在你们诞生千年之前，数不清的其他人已经接受了这个提议”改为“早在你们出生之前的数千年间，已有数不清的人接受了这个提议”一类（表达跨越数千年，而非一千年前的时间点）；②“你们的罪孽让人欣喜”改为“你们的罪孽惹人喜爱”一类（endearing）；③“在一瞬的绝望之后，我低声念出了咒语”改为“绝望之际，我低声念出了咒语”一类；④“生成各种各样的幻想”改为“制造各种各样的幻象”（illusions）。可更新本窗口 IMPLEMENTATION.md/VALIDATION.json 记录。保持其余全部记录和格式不变，运行 LuaJIT exact 差异（相对 task baseline 仍恰 24 条）与 strict lint、git diff --check。不得改 .ai/task、其他译文、术语、旧证据；不 stage/commit/push，不创建 agent。直接返回成果。",
+  "labels": {
+    "task_id": "repair-w28-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-05",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

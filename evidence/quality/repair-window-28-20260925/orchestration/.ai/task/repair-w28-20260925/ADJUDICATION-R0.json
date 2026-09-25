@@ -1,0 +1,52 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a2",
+  "invalid_attempts": [
+    {
+      "attempt": 1,
+      "reason": "anchor preflight INPUT_ERROR: SCOPE allowed_files listed the evidence directory; SCOPE corrected to the Lua file only (as window 27), envelope refrozen as attempt 2; no reviewer dispatched for attempt 1"
+    }
+  ],
+  "raw_ok_count": 19,
+  "raw_issue_count": 5,
+  "decision": "bounded_fix_then_FINAL_REVIEW(1)",
+  "findings": [
+    {
+      "revision_key": "4dd916e4cbcf28e4aec901cfe7240fb6ff481645fcf9643533396ba87a771432",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "源文 a wretchling presses it to your forehead；Ashes lore 同族（tome-ashes-urhrok.lua:155、515、541 及本候选 318a0c4d）一律作“酸液树魔”，现译“猥琐小怪”改变施加者身份并与同族不一致。只把该处改为“一只酸液树魔”。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "55dedd24042aae125f4b5dc8c45eb4688e9f1fc2d3283c3487fd82fc1a85cd5d",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "源文 use a small flanking squad backed up by a maulotaur ... to force him into an open area：侧翼小队、由玛诺陶支援、逼入空旷地带；现译“由玛诺陶带领的佯攻小队将其引诱到”改变战术作用与主从关系。同段整句对照：narrow corridor 为狭窄走廊，We may lose these front-line soldiers, but in the time it takes him to slash his way through them 不应增“大量”并改写为“有效阻拦”。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5666e9d8277742b7df95b3241b1eec6ab1fa1365323e2c65b7be28b88ed73126",
+      "status": "refuted",
+      "tier": null,
+      "category": "terminology",
+      "reason": "“乌鲁洛克的精英卫兵”是 Ashes 本族对 champion of Urh'Rok 的既有译名（同 lore 标题 tome-ashes-urhrok.lua:548“恶魔雕像：乌鲁洛克的精英卫兵”、:110），单条不改既有同族专名。"
+    },
+    {
+      "revision_key": "5b6924a79dbd71f8e223833298a0ed8058c2c7b7c10d0221ea66fb3effcb8204",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "公开 Ashes oppression.lua:233–240 仅在 EFF_INFERNAL_FEAR stacks ≥ getStackReq 时施加 EFF_HOPELESS 并 removeEffect(EFF_INFERNAL_FEAR)，即消耗该目标全部恐惧层数；现译“清除所有恐惧效果”扩大为清除所有恐惧类效果，误述机制。改为“消耗其全部恐惧层数”一类，%d 与 \\n\\t\\t 保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+      "status": "refuted",
+      "tier": null,
+      "category": "terminology",
+      "reason": "Walrog=乌尔罗格 是两文件既有统一译名（tome-ashes-urhrok.lua:23、126、144、587；mod-tome.lua:7999、18518），与 Urh'Rok=乌鲁洛克 是不同译名；读音相近属既有命名，不在单条修复中更名。"
+    }
+  ],
+  "recorded_at": "2026-09-25T07:56:00.183735+00:00"
+}

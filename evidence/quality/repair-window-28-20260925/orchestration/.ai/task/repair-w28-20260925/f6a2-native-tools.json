@@ -1,0 +1,213 @@
+{
+  "dispatch_id": "f6a2",
+  "native_session": "ba929c41-2e24-431d-b6c5-c1e1d67b6287",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ba929c41-2e24-431d-b6c5-c1e1d67b6287.jsonl",
+  "native_sha256": "3343b2867fea908e303ddc0db1ac3f1bfb31946809dc88b4ce20464bde76958d",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01Fs4DXMGCD9nwkAGpVTeJCS",
+      "name": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json && head -c 6000 .ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json",
+        "description": "Read the review envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KYkWAdqqCcT8iARAbRA2Ba",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nEOF",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WCmvvJHnffrz5QUv8kwYkg",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json'))\np=d['payload']\nctx={c['revision_key']:json.loads(c['context']) for c in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot'][3:],3):\n    c=ctx[t['revision_key']]\n    print('=====',i,t['revision_key'][:8],c['file'],c['line'],c['section'],c['source_tag'])\n    print('SRC:',repr(t['source']))\n    print('TGT:',repr(t['target']))\n    print('ADJ:',json.dumps(c['adjacent_translations'],ensure_ascii=False))\n    se=c['source_evidence']\n    print('EV:',se.get('public_source_path'),se.get('matching_lines'))\n    for e in se.get('excerpts',[]): print(e['excerpt'][:3000])\nEOF",
+        "description": "Dump entries with context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KLZUKGg3idMNAwWZnjJ5GB",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ba929c41-2e24-431d-b6c5-c1e1d67b6287/tool-results/bvd3ums61.txt",
+        "limit": 120
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01SRUzMzXMA9GrhFwBKRaFu8",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json'))\np=d['payload']\nctx={c['revision_key']:json.loads(c['context']) for c in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot'][12:],12):\n    c=ctx[t['revision_key']]\n    print('=====',i,t['revision_key'][:8],c['section'],c['source_tag'])\n    print('SRC:',repr(t['source']))\n    print('TGT:',repr(t['target']))\n    print('ADJ:',json.dumps(c['adjacent_translations'],ensure_ascii=False))\n    se=c['source_evidence']\n    print('EV:',se.get('public_source_path'),se.get('matching_lines'))\n    seen=set()\n    for e in se.get('excerpts',[]):\n        for l in e['excerpt'].split('\\n'):\n            if l not in seen: seen.add(l); print(l[:600])\nEOF",
+        "description": "Dump remaining entries deduped"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01976y2ZwsL94WVGkHyeq78L",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ba929c41-2e24-431d-b6c5-c1e1d67b6287/tool-results/b42yx4ab1.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0168cCMceFda6GxjDBmwjzsL",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ba929c41-2e24-431d-b6c5-c1e1d67b6287/tool-results/b42yx4ab1.txt",
+        "offset": 63,
+        "limit": 81
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01HrERDGVdP4fKn8qYTz32P4",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok && ls; D=$(find . -maxdepth 3 -name data -type d | head -3); echo $D; sha256sum */data/talents/corruptions/wrath.lua data/talents/corruptions/wrath.lua 2>/dev/null",
+        "description": "Locate DLC source tree"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_016ejpbq9q9txq2zzidu9YKX",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions && sed -n 60,136p wrath.lua; echo ----HOF; sed -n 60,146p heart-of-fire.lua",
+        "description": "Read wrath and heart-of-fire talent code"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KyzR9opYMrPyT5XKwrvVgG",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data && grep -n \"CURSED_FLAMES\" -A30 timed_effects.lua | head -50; grep -rn \"FIREBURN\\b\\|name = \\\"FIREBURN\\\"\" damage_types.lua | head; cd /workspace/t-engine4 && git rev-parse HEAD && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n 'name = \"FIREBURN\"' -A25",
+        "description": "Check cursed flames effect and FIREBURN"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QryxbTmD2ad5F3GP73W8sd",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n '\"FIREBURN\"' -A22 | head -30",
+        "description": "Check FIREBURN in pinned main game"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01FK6ftEvhLuYYJiDQdb4VPM",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions && sha256sum fearfire.lua demon-seeds.lua demonic-strength.lua oppression.lua; sed -n 1,90p fearfire.lua | sed -n 20,90p; echo ----; sed -n 120,170p fearfire.lua",
+        "description": "Read fearfire talents"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GSwycHbcJwedA1NoaBgvbu",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions && sed -n 1120,1172p demon-seeds.lua; echo ----; sed -n 60,105p demonic-strength.lua; echo ----; sed -n 205,246p oppression.lua",
+        "description": "Read Blazing Phase, Demonic Blood, Hope Wanes"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012ZBGCd12YDHKFr72fLuac6",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json,re\nd=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json'))\nfor i,t in enumerate(d['payload']['translation_snapshot']):\n    s,g=t['source'],t['target']\n    def toks(x):\n        return sorted(re.findall(r'#\\{[a-z]+\\}#|#[A-Z_]+#|<\\?.*?\\?>|%[-0-9.]*[sdf%]',x))\n    a,b=toks(s),toks(g)\n    bad=[]\n    if a!=b: bad.append(('tok',[x for x in set(a+b) if a.count(x)!=b.count(x)]))\n    for c in '\\n\\t':\n        if s.count(c)!=g.count(c): bad.append((repr(c),s.count(c),g.count(c)))\n    if s.endswith('\\n')!=g.endswith('\\n'): bad.append('trail')\n    print(i,t['revision_key'][:8],bad)\ns=d['payload']['translation_snapshot'][12]\nprint(s['source'].count('[louder]'), s['target'].count('[更响]'))\nprint(len(re.findall(r'\\[[^\\]]*\\]',s['source'])), len(re.findall(r'\\[[^\\]]*\\]',s['target'])))\nEOF",
+        "description": "Check markup, placeholder, newline parity"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011XPj5wHJigzx6z3ZDAUjL4",
+      "name": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+        "description": "List contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01TPnEmpzKBNF1MhJb4GtwbU",
+      "name": "Read",
+      "input": {
+        "file_path": "/workspace/tome4-chinese-translation/docs/paseo-translation-context-review-v2-contract.md",
+        "offset": 109,
+        "limit": 50
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GngNiFceHvKHoKQ1xoPjM6",
+      "name": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json,hashlib,os\nd=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f6a2.json'))\nroot='/workspace/tome4-dlcs/ashes-urhrok/'\nfor c in d['payload']['bounded_context']:\n    se=json.loads(c['context'])['source_evidence']\n    p=se['public_source_path']\n    cands=[root+p, root+p.replace('tome-ashes-urhrok/overload','tome-ashes-urhrok/overload')]\n    f=root+p\n    h=hashlib.sha256(open(f,'rb').read()).hexdigest() if os.path.exists(f) else 'MISSING'\n    print(c['revision_key'][:8], p, h==se['file_sha256'])\nEOF",
+        "description": "Verify source file SHA-256 against evidence"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

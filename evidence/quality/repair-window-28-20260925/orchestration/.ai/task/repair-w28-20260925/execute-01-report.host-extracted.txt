@@ -1,0 +1,20 @@
+已完成 `repair-w28-20260925` 的 24 条限定修复。
+
+- 修改文件：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+- 实现记录：[IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-28-20260925/IMPLEMENTATION.md)
+- 验证记录：[VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-28-20260925/VALIDATION.json)
+
+验证结果：
+
+- LuaJIT 语义对比：恰好 24 个 target 变动
+- 非 workset target 变动：0
+- 记录总数：849 → 849
+- 原始 target 与 baseline 不符：0
+- LF/TAB 不符：0
+- placeholder/markup 回归：0
+- 24 个源码锚点哈希全部匹配
+- `tools/i18n doctor`：通过
+- `tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+
+逐条改动及源码依据已写入 `IMPLEMENTATION.md`。Ashes 来源本身仍未固定 commit，这是既有来源风险；本轮给定的 14 个源码文件哈希均已核验。未修改 `.ai/task`，未 stage、commit 或 push，既有无关工作树内容保持不变。

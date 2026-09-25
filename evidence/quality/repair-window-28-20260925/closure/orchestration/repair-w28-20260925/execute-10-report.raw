@@ -1,0 +1,13 @@
+已完成 cycle 7 FIX，仅修改 [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua) 中指定两条 target，共落实 5 项修正。
+
+验证结果：
+
+- LuaJIT exact 差异：通过；相对 task baseline 恰 24 条 target 变化，非 target 变化 0
+- F6 五项文本：全部唯一命中
+- 模板/结构：55dedd24 的 27 个 `<?=...?>` 宏不变；两条段落数、LF、TAB、markup 均匹配原文
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- 暂存区为空；未 commit/push，未创建 agent
+- `.ai/task/`、证据、术语及其他既有未跟踪文件均未修改
+
+首次 exact 探针因旧正则将英文 `70% of` 误识别为格式占位符而假失败；改用仓库正式格式令牌适用条件后完整通过。无未解决问题或计划偏差。

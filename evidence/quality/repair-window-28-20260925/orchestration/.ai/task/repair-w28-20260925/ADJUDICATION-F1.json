@@ -1,0 +1,25 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f1a1",
+  "raw_ok_count": 22,
+  "raw_issue_count": 2,
+  "decision": "FINAL failed: bounded fix then RE_REVIEW(2) then FINAL_REVIEW(2)",
+  "findings": [
+    {
+      "revision_key": "3bd78dce707cebe738f5e1e8c42a0bc5eda58b49ecf739320dbb1b4d8bc4969f",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime",
+      "reason": "公开 Ashes wrath.lua:114–125 Detonating Charge：命中后 blast 为 type=\"ball\"、radius=3 固定，FIREKNOCKBACK 的 dist=t.fireRadius，即第二个 %d 是击退距离而非范围；主目标仅临时 knockback_immune，仍受火焰伤害。现译“击退 %d 码之内目标之外的所有敌对生物”把 %d 写成范围且读作目标不受伤害。按实现为准（上游英文同样有误），参数顺序不变：半径 3 的火焰冲击、除目标外击退 %d 码、对范围内敌人（含目标）造成 %d 火焰伤害；\\n\\t\\t 保持。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "源文 Even if I wanted to, neither I nor anything else in the universe could stop their invasion 为假设语气，现译“尽管我很想这么做”变成真实意愿，与全文立场相反；Their reasons are somewhat inaccurate, but make no mistake: you deserve the fate they have lined up for you 是说话人承认恶魔理由不尽准确、并亲自断言你们罪有应得，现译把后者并入恶魔理由的引语。同句 nearly-equal pleasure 译“等量”删去 nearly（删限定词缺陷类），well, that'd be deserving 的 well 误作“很好”。整句修复这四处，其余不动。Ashes 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-25T08:04:18.070046+00:00"
+}

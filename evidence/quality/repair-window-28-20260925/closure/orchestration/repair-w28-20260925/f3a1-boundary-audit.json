@@ -1,0 +1,81 @@
+{
+  "dispatch_id": "f3a1",
+  "status": "accepted after user authorization",
+  "output_valid_contract": true,
+  "read_boundary_valid": true,
+  "reason": "reviewer redirected a dump of the frozen envelope into /tmp/rv_f3a1.txt and read it back; read-only boundary violated (same class as f2a2 and batch 280). Output passes contract validation but is not accepted; no review record published and its verdicts are not used.",
+  "violating_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01SVJJTb2XKW2tZbo5RzQt7m",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f3a1.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  cx=json.loads(c['context']) if c['context'] else {}\n  print('=====',i+1,t['revision_key'][:8])\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  print('CTX file/line/section:',cx.get('file'),cx.get('line'),cx.get('section'),cx.get('source_tag'))\n  print('ADJ:',json.dumps(cx.get('adjacent_translations'),ensure_ascii=False))\n  se=cx.get('source_evidence') or {}\n  for e in se.get('excerpts',[]): print('EXC',se.get('public_source_path'),'\\n',e['excerpt'][:2500])\n  other={k:v for k,v in cx.items() if k not in ('file','line','section','source_tag','adjacent_translations','source_evidence')}\n  if other: print('OTHER:',json.dumps(other,ensure_ascii=False)[:3000])\n\" > /tmp/rv_f3a1.txt; wc -c /tmp/rv_f3a1.txt",
+        "description": "Dump entries readably"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01EU4QxV4EyycsAJfWpmjuwN",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/rv_f3a1.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012zHxZWxgjGkMtG6bfVANNe",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/rv_f3a1.txt",
+        "offset": 251,
+        "limit": 360
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0175iypm9KwtUyebPxK9oWny",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/rv_f3a1.txt",
+        "offset": 251,
+        "limit": 150
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01T64FRUMgw9qsmfJYSND6hx",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/rv_f3a1.txt",
+        "offset": 401,
+        "limit": 211
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/f6935f10-f9f6-4a48-8bda-c0d2adb9fe20.jsonl",
+  "native_sha256": "496fdc1ffd62fbdd67c9f662bf67783af3e39efb45effc7fcbfae55557e0bcd7",
+  "harvested_raw": ".ai/reviews/repair-w28-20260925/raw-f3a1.txt",
+  "scratch_file": {
+    "path": "/tmp/rv_f3a1.txt",
+    "sha256": "cb77a2ee676619091667d05980f0c496fdf0bb2fa1119296a9461de53d2f4546",
+    "bytes": 120654
+  },
+  "reclassified_at": "2026-09-25T09:21:58.272143+00:00",
+  "reclassification_basis": ".ai/task/repair-w28-20260925/USER-AUTH-TMP-WRITES.json"
+}

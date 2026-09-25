@@ -1,0 +1,18 @@
+{
+  "title": "W28 cycle5 bidding fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w28-20260925 的一次 FIX（cycle 5）。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R5.json、WORKSET.json。仅修改一条 target 中的一行：3703023121…（tome-ashes-urhrok.lua 中恶魔使者解锁文案，唯一含“召唤并控制恶魔，替你完成束缚。”处）把该行改为“- 召唤并控制恶魔为你效力。”，其余任何字符、#YELLOW#/#WHITE#/#LIGHT_GREEN# 标记、列表前缀、空行与 LF 均不动。refuted 的 5e4738cd（乌尔罗格）不得改。可更新本窗口 IMPLEMENTATION.md/VALIDATION.json 记录。运行 LuaJIT exact 差异（相对 task baseline 仍恰 24 条）与 strict lint、git diff --check。不得改 .ai/task、其他译文、术语、旧证据；不 stage/commit/push，不创建 agent。直接返回成果。",
+  "labels": {
+    "task_id": "repair-w28-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-08",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,18 @@
+{
+  "title": "W28 cycle7 re-review fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w28-20260925 的一次 FIX（cycle 7 RE_REVIEW 后，用户已授权持续修复）。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R7.json（含 host_whole_entry_precheck 6 项）、WORKSET.json。只改 tome-ashes-urhrok.lua 中两条 target：614e1524…（乌尔罗格对白）和 64193308…（罗格洛斯种子笔记）；3bd78dce 为 advisory，不得改。按 host_whole_entry_precheck 6 项逐一修正，每处对照原文整句：614e1524 首句“他大笑起来，气泡从他的嘴边浮现。”→“他咯咯低笑，每笑一声，嘴里便有气泡迸出。”；末句“笑声渐渐消隐，一团滚烫的沸水围绕着巨大的身形，向你冲来！”→“他周身沸水咆哮，笑声渐渐被淹没，他向你猛冲而来！”；#AQUAMARINE#/#WHITE# 与中间对白行不动。64193308：“在这个传说的启发下”→“受此构想启发”；“缟玛瑙之子制造了能够将其应用于战斗的基座”→“缟玛瑙之子则打造了一副机体，载着它投入战斗”；“随着我们获取相关的数据，我们将会改进它”→“随着我们从这一设计的测试中获得数据，我们会加以改进”；末句“只需要早期的小规模战斗，加上一点好运，我们可以在埃亚尔生产我们的入侵部队，直接传送部队的难题就这么被绕过了”→“只要运气稍好，再打赢几场关键的早期小规模战斗，我们甚至能彻底绕过把入侵部队送上地表的难题，直接在那里培育部队”。专名（莎西·凯希、绿翡翠之子、缟玛瑙之子、罗格洛斯、酸液树魔、夸塞魔、修尔希瑞格）、段落与 LF 结构一律不变，其余句子不重写。可更新本窗口 IMPLEMENTATION.md/VALIDATION.json 记录。运行 LuaJIT exact 差异（相对 task baseline 仍恰 24 条）与 strict lint、git diff --check。不得改 .ai/task、其他译文、术语、旧证据；不 stage/commit/push，不创建 agent。直接返回成果。",
+  "labels": {
+    "task_id": "repair-w28-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-11",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

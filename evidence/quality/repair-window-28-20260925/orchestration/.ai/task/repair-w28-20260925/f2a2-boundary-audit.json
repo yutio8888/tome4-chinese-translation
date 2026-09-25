@@ -1,0 +1,65 @@
+{
+  "dispatch_id": "f2a2",
+  "status": "accepted after user authorization",
+  "output_valid_contract": true,
+  "read_boundary_valid": true,
+  "reason": "reviewer wrote a scratch dump of the frozen envelope to /tmp/ctx_f2a2.txt (python3 redirect) and read it back; the dispatch is read-only, and batch 280 rejected the same class (scratch write to /tmp). Output passes contract validation but is not accepted; no review record published and its verdicts are not used.",
+  "violating_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01LYMbWm2Cnh2e5H4br1uhLn",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w28-20260925/CONTEXTUAL-ENVELOPE-f2a2.json'))['payload']\nfor i,(t,c) in enumerate(zip(d['translation_snapshot'],d['bounded_context'])):\n  print('=====',i, t['revision_key'][:8])\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  ctx=json.loads(c['context'])\n  print('CTXKEYS',list(ctx.keys()), ctx.get('file'),ctx.get('line'),ctx.get('section'))\n  print('ADJ',json.dumps(ctx.get('adjacent_translations'),ensure_ascii=False))\n  se=ctx.get('source_evidence',{})\n  print('SE', se.get('component'), [ (e.get('path'),e.get('start_line'),e.get('end_line')) for e in se.get('excerpts',[])])\n  for e in se.get('excerpts',[]): print(e.get('excerpt'))\n  for k in ctx:\n    if k not in ('adjacent_translations','file','line','section','source_evidence'): print(k, json.dumps(ctx[k],ensure_ascii=False)[:1500])\n  other={k:v for k,v in se.items() if k not in ('component','excerpts')}; print('SEOTHER',json.dumps(other,ensure_ascii=False)[:800])\n\" > /tmp/ctx_f2a2.txt; wc -l /tmp/ctx_f2a2.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01EejwwGMsV8P4qcQqqfCPCa",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/ctx_f2a2.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NuxEgJzuWu8BArVBKfVLpJ",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/ctx_f2a2.txt",
+        "offset": 234,
+        "limit": 400
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01DJfE376xSTkDnQtPWLctbL",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 234,262p /tmp/ctx_f2a2.txt | cut -c1-6000"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ],
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/7703505d-a8c8-474b-a859-57aa68fb8c52.jsonl",
+  "native_sha256": "f29ec0235df2c4e965e72e5bdf649adb431197884333a3ee9f274a8045a08e93",
+  "harvested_raw": ".ai/reviews/repair-w28-20260925/raw-f2a2.txt",
+  "scratch_file": {
+    "path": "/tmp/ctx_f2a2.txt",
+    "sha256": "c0d7e0dd062ab52557abfca21ca1974ca53058f34b67e1bf7ed812b6287d8e4e",
+    "bytes": 131077
+  },
+  "reclassified_at": "2026-09-25T09:21:58.272143+00:00",
+  "reclassification_basis": ".ai/task/repair-w28-20260925/USER-AUTH-TMP-WRITES.json"
+}

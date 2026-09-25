@@ -1,0 +1,45 @@
+{
+  "cycle": 7,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r7a1",
+  "raw_ok_count": 21,
+  "raw_issue_count": 3,
+  "decision": "2 confirmed → FIX → FINAL_REVIEW(7)",
+  "findings": [
+    {
+      "revision_key": "614e1524636355ced3cb6890e9cee49a0e19efb8720e04b02185f20ab8057589",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r7a1 (host-verified)",
+      "reason": "公开 Ashes overload/data/chats/ashes-urhrok-walrog-pop.lua:62 “The sound of laughter fades under the roaring of water boiling around him as he charges you!”：冲来的是乌尔罗格，现译以“一团滚烫的沸水”为主语且增出“巨大的身形”、漏掉 roaring。"
+    },
+    {
+      "revision_key": "641933080c0323cbfee34fceb1ef630eda1691351eb5abf98dfd325728e5c5c9",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r7a1 (host-verified)",
+      "reason": "公开 Ashes data/lore/demon.lua:485 “made a chassis to carry it into combat”，下句称 its frame 生成种子；“基座”误为底座，应为载其上阵的机体。"
+    },
+    {
+      "revision_key": "3bd78dce707cebe738f5e1e8c42a0bc5eda58b49ecf739320dbb1b4d8bc4969f",
+      "status": "advisory",
+      "tier": null,
+      "category": "runtime",
+      "reason": "公开 Ashes data/talents/corruptions/wrath.lua:113 以冲锋后与目标距离 1 为攻击条件；“如果到达目标位置”直译 If the target is reached，玩家不会理解为踏入目标所在格，无机制误述；不 reopen。"
+    }
+  ],
+  "host_whole_entry_precheck": {
+    "items": [
+      "614e1524 L1 He chuckles, bubbles bursting from his mouth with every laugh → 他咯咯低笑，每笑一声，嘴里便有气泡迸出",
+      "614e1524 L3 The sound of laughter fades under the roaring of water boiling around him as he charges you! → 他周身沸水咆哮，笑声渐渐被淹没，他向你猛冲而来！（主语为他；删“巨大的身形”）",
+      "64193308 Inspired by this idea → 受此构想启发（非“传说”）",
+      "64193308 the children of onyx have made a chassis to carry it into combat → 缟玛瑙之子则打造了一副机体，载着它投入战斗（R7）",
+      "64193308 As we get data from the tests of this design, we'll improve on it → 随着我们从这一设计的测试中获得数据，我们会加以改进",
+      "64193308 With a little bit of luck and some decisive early skirmishes, we could even bypass the problem of getting an invasion force to the surface entirely, growing it there instead → 只要运气稍好，再打赢几场关键的早期小规模战斗，我们甚至能彻底绕过把入侵部队送上地表的难题，直接在那里培育部队"
+    ],
+    "note": "host sentence-by-sentence pass of 614e1524 and 64193308 against frozen source"
+  },
+  "recorded_at": "2026-09-25T10:56:35.513396+00:00"
+}

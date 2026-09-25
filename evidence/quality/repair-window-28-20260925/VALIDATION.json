@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w28-20260925",
+  "role": "executor",
+  "validated_at": "2026-09-25T11:01:35Z",
+  "baseline_commit": "43c048659721cdbf79f3f2c83e344ea24e3b86e2",
+  "content_file": "tome-ashes-urhrok.lua",
+  "content_file_sha256": "2e693ae28d740ae440831d759174b1b22a4f26b8ddf190cf687e4a8382c41c51",
+  "checks": {
+    "doctor": {
+      "command": "python3 -B tools/i18n doctor",
+      "status": "pass",
+      "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3",
+      "lpeg": "0.10.2-1 (0.10)",
+      "expected_warnings": [
+        "ashes-urhrok source repository/commit unpinned",
+        "cults source repository/commit unpinned",
+        "orcs source repository/commit unpinned"
+      ]
+    },
+    "source_anchors": {
+      "status": "pass",
+      "queries": 24,
+      "unique_files": 14,
+      "sha256_mismatches": 0,
+      "ashes_repository_commit_pinned": false
+    },
+    "luajit_semantic_diff": {
+      "status": "pass",
+      "loader": "LuaJIT via repository LocaleLoader",
+      "baseline_records": 900,
+      "current_records": 900,
+      "changed_targets": 24,
+      "non_target_changes": 0,
+      "before_fix_snapshot": ".ai/task/repair-w28-20260925/BEFORE-FIX-4-tome-ashes-urhrok.lua",
+      "changes_vs_before_fix": 1,
+      "bounded_target": "5e4738cdc174e4c0df0456136df5a8567da5f2a9c567510bfbd4563f7376d408",
+      "exact_text_replacements": 4,
+      "workset_missing_from_diff": 0,
+      "diff_outside_workset": 0,
+      "preimage_mismatches": 0,
+      "claim_keys": 24,
+      "claim_keys_match_workset": true,
+      "lf_mismatches": 0,
+      "leading_tab_mismatches": 0,
+      "target_placeholder_regressions": 0,
+      "target_markup_regressions": 0
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "status": "pass",
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20260925T110119.931006Z-1092719-lint/lint.json"
+    },
+    "diff_check": {
+      "command": "git diff --check",
+      "status": "pass"
+    },
+    "cycle7_rereview_fix": {
+      "status": "pass",
+      "changed_revision_keys": [
+        "614e1524636355ced3cb6890e9cee49a0e19efb8720e04b02185f20ab8057589",
+        "641933080c0323cbfee34fceb1ef630eda1691351eb5abf98dfd325728e5c5c9"
+      ],
+      "advisory_unchanged": "3bd78dce707cebe738f5e1e8c42a0bc5eda58b49ecf739320dbb1b4d8bc4969f",
+      "host_whole_entry_precheck_items_applied": 6,
+      "luajit_exact_diff_changed_targets": 24,
+      "luajit_exact_diff_non_target_changes": 0
+    }
+  },
+  "prohibited_actions": {
+    "agent_created": false,
+    "task_records_modified": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}

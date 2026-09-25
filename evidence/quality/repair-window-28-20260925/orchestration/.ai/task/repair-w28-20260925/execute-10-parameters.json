@@ -1,0 +1,18 @@
+{
+  "title": "W28 cycle7 lore fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w28-20260925 的一次 FIX（cycle 7，用户已授权持续修复）。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F6.json（含 host_whole_entry_precheck 5 项）、WORKSET.json。只改 tome-ashes-urhrok.lua 中两条 target：4dd916e4cb…（玛·洛克历史石板）和 55dedd2404…（战术简报）。按 ADJUDICATION-F6.json 的 host_whole_entry_precheck 5 项逐一修正，每处对照原文整句：4dd916e4 的“让他无力反抗却不受伤害”→“让他无法为害，却也毫发无伤”；“却只给他们自己的星球造成一道[发丝裂纹]，伤及他们的[花园]”→“却只给他们自己的[花园]造成一道[发丝裂纹]”；补回“再次[令他起舞]”；“夺回一座新的[花园]，补偿……那一座”→“换来一座新的[花园]，取代……那一座”。55dedd24 末段“我们有人数优势、熟悉敌情、战术，还有乌鲁洛克大人的祝福”→“我们有人数优势，熟悉这股力量，懂得战术，还有乌鲁洛克大人的祝福”。方括号实际为 #{italic}##FIREBRICK#[...]#{normal}##LAST# 标记，一律原样保留；<?=...?> 模板、专名、段落数与 LF 结构一律不变，其余句子不重写。可更新本窗口 IMPLEMENTATION.md/VALIDATION.json 记录。运行 LuaJIT exact 差异（相对 task baseline 仍恰 24 条）与 strict lint、git diff --check。不得改 .ai/task、其他译文、术语、旧证据；不 stage/commit/push，不创建 agent。直接返回成果。",
+  "labels": {
+    "task_id": "repair-w28-20260925",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-10",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}
