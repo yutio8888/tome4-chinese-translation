@@ -56,3 +56,10 @@ executor: `codex/gpt-6-sol`（agent `9da1c89b`，medium）
 
 wave 1–3 与本轮 v2 复审的全部 confirmed（除用户裁定不改的 `restorative`）**均已落盘并收敛**。
 未决事项只剩本轮记录的三个族级问题：`Magic` 属性值、`frenzy` 效果名、`undead` 自由文本。
+
+## 补充门禁（2026-09-25）：严格构建
+
+- `tools/i18n build --profile full` → **exit 0**（engine/boot/tome/example/example-realtime 全 OK）。
+- `tools/i18n build --profile addon --require-complete` → exit 5，**既有** DLC 层 `baseline-pending`
+  （官方 locale／源码未固定），与本批改动无关；core-addon（tome）层 OK。
+- 构建产物只写入 `.artifacts/i18n/`，`git status` 保持干净。
