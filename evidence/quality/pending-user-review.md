@@ -243,3 +243,11 @@
    - 现译：“闪电榴弹”（3 处一致）。
    - 争议理由：第 315 批 GPT-6 Sol 表层筛查指出 Thunder 是雷鸣而非闪电，宿主按源码确认“闪电”暗示闪电属性、与实际物理＋震慑不符；Opus contextual 判 OK。改名须同步 3 处并定新译名，且与“震荡榴弹”（Shock）的命名互相牵连，属跨条译名决定，本批记 advisory。
    - 建议选项：保持“闪电榴弹” / 改“雷鸣榴弹”（或“震爆榴弹”）并同步 1349、5523、6669 三处。
+
+## 第 316 批待审阅
+
+33. `219d179f63`（Orcs 工匠技能名 `Voltaic Bolt`；同名 tome-orcs.lua:5536 talent name、5538 info“释放一个闪电球”，伏特守卫说明 5619–5621“闪电球”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/other.lua:1209` `TINKER_VOLTAIC_BOLT` 目标 `type="bolt"`（单体飞弹，info：Fires a bolt of lightning）；ToME 中 ball 是范围攻击的目标类型。第 316 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“闪电球”（技能名、info 与伏特守卫说明一致）。
+   - 争议理由：第 316 批 GPT-6 Sol 表层筛查指出 Bolt 是飞弹而非球，宿主按源码确认“球”易让人误以为是范围攻击；Opus contextual 判 OK。改名须同步多处并定新译名，属跨条译名决定，本批记 advisory。
+   - 建议选项：保持“闪电球” / 改“闪电箭”（或“伏特飞弹”）并同步 5536、5538、5619–5621。
