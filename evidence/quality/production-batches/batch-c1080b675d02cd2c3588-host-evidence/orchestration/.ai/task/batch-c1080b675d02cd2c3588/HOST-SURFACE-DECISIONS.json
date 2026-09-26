@@ -1,0 +1,80 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 9 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "c3d8e20c33417babb6abb5b0506eef4aa7acc0ef37909e9f089011a0d888504d",
+      "stage": "surface",
+      "observation": "原文分别使用 voidling 和 Void Skitterers，译文两处均写作“虚空造物”，可能混淆召唤物与属性缩放对象；冻结输入缺少术语或机制依据，无法确认两者是否同指。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/rift.lua:464-512：维度之门召唤的实体 name 为 void skitterer，本库 t(\"void skitterer\", \"虚空造物\")（tome-cults.lua:3103），voidling 为同一召唤物的泛称；同一主张在窗口36 R1/R3/R4 已 refuted，区分二者属跨批次命名决定。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f7ed4a8749a647578732e2a07362cc215d56dea63fb038469cc89f184a73992e",
+      "stage": "surface",
+      "observation": "原文说毅力与奉献相伴，译文凭空加入“剑”“锤”，并将 dedication 译为“忠诚”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua:654-744：该句是成对神器 Perseverance（ART_PAIR_PERSEVERANCE，长剑）与 Dedication（ART_PAIR_DEDICATION，锤）的套装提示（set_list 互指），本库名为“毅力”“忠诚”（tome-cults.lua:770/780）；现译“毅力之剑与忠诚之锤配合”点明两件成对武器，保留双关与套装含义。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f8318336e625de154323accd8bf53f76a02e0ee8be29e6abf918a25064a53267",
+      "stage": "surface",
+      "observation": "原文 splinters 未指明材质，译文写成“玻璃碎片”；缺少语境证据确认是否为玻璃。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/misc/misc.lua:264-267：该日志属玻璃傀儡技能 Glass Splinters（golem/glass），splinters 即玻璃碎片，现译有实现依据。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f8616ad7387b6c12d24ba37320288989b43c0464e77d4ebc40cc9c041d18bf22",
+      "stage": "surface",
+      "observation": "satisfying meal 表示令人满足的一餐，译文改成“营养丰富”，含义不同。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua:335-341：吞食后获得 1 通用技能点的日志，satisfying meal 是“令人满足的一餐”，现译“营养丰富”措辞偏离但不改变事实与机制，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f9cadd37e56ee54fd40260952bd040e57d4e2364fd642574597b0b9dfb132f10",
+      "stage": "surface",
+      "observation": "原文的 rotten robe 漏译“腐烂”；pustulant fluid 被译成含义不同的“尸僵毒液”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/friend-of-the-worm.lua 蠕虫合体（Worm that Walks）外观描述：A bulging rotten robe seems to tear at the seams 现译“一件鼓鼓囊囊的长袍”漏“腐烂”与“缝线迸裂”；overlapping mucus-drenched maggots 现译“重叠的蠕虫”漏“浸满黏液的蛆虫”；pustulant fluid 是脓液，现译“尸僵毒液”误译；each droplet writhes and wriggles in the air 现译“沸腾和翻滚”误译。整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fa9f71699716f101e293b00d54876920cf14fc06bd716ee6ff35901c802913a6",
+      "stage": "surface",
+      "observation": "原文说取目标身上最高的衰亡层数计算施法速度；译文改成取“你周围”最高层数，额外加入了范围条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/chronophage.lua:60-105、165 Temporal Feast：衰亡只施加给以你为中心半径 10 内随机敌人，速度取所施加目标的衰亡层数（charges=eff.charges），“你周围”与实现一致，范围主张 refuted；但源第二行以 \\n\\t\\t\\t 起（三个制表符），现译为 \\n\\t\\t，行首 TAB 层级不一致（一级不变量），补回一个制表符，文字不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fbe22d02d6c5da1545ab81b93bf798da92a09ad58891dbefe22131e2f2846fa9",
+      "stage": "surface",
+      "observation": "原文是士兵所穿的焦黑盔甲上有多道很深的裂口；译文说“黑色盔甲上有一道巨大的伤口”，把盔甲裂口误写成伤口，也把多道改成一道。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 纹身作坊一节：I noticed the huge gashes through the blackened armor he wore 是焦黑盔甲上的几道巨大裂口，现译“他穿的黑色盔甲上有一道巨大的伤口”把盔甲裂口写成伤口、复数改单数、blackened 译成“黑色”；同句 Turning to see what the soldier was up to 现译多出“也”。整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fd188846cbba16544b7d31cb03519bed3b69e9b1b25423ef7e7eb0d7d786e52f",
+      "stage": "surface",
+      "observation": "原文是“rift in spacetime”（时空裂隙），译文写成“小型黑洞”，改变了所描述的现象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/entropy.lua:210-232 Black Hole：黑洞仅是技能名，原文 a radius 1 rift in spacetime 是半径 1 的时空裂隙（覆盖目标周围 3x3），现译“一格小型黑洞”把半径 1 写成一格、把 rift 写成黑洞，与后文“每回合半径增加 1”不自洽；the center 应为裂隙中心。与 contextual 同条观察合并确认，改为“半径为 1 的时空裂隙”“拉向裂隙中心”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ff1e300bc96dbcace4d38c88fbbcb9bf30c50119798301249866d0ea39fb776a",
+      "stage": "surface",
+      "observation": "原文同时描述骨杖发出嘎吱声并在手中颤动，译文只保留了颤动，遗漏了声音。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults hooks/bonestaff.lua 骨杖台词：You feel the bones of the staff creeking and vibrating in your hand. 现译“你感受到手中的骨杖在你的手上颤动：”漏 creaking（嘎吱作响）与 bones，重复“手中/手上”，句末句号被改成冒号；整句改为“你感到手中骨杖的骨头嘎吱作响、不住颤动。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
