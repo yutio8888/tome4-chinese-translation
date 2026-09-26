@@ -1,0 +1,34 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a2",
+  "invalid_attempts": [
+    "r4a1 (identity echo error, see INVALID-R4A1.json)"
+  ],
+  "raw_ok_count": 20,
+  "raw_issue_count": 1,
+  "decision": "converged: no tier-1 confirmed finding from the accepted cycle-4 review; proceed to FINAL_REVIEW (cycle 4, attempt 3)",
+  "findings": [
+    {
+      "revision_key": "ce4ea9ba0231e5d74f04658141bdc97e97260201353e8ddd46676b9f964843b0",
+      "status": "refuted",
+      "category": "terminology",
+      "reason": "与 ADJUDICATION-R1/R3 同一主张重复：本库既定 t(\"void skitterer\", \"虚空造物\")（tome-cults.lua:3103），区分属跨批次命名决定，本窗口未授权。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "host_checks": [
+    {
+      "revision_key": "f6030742f5b4ad4b7e9ec333f43e5119dad909b113bac6edeb36f9645b15e95a",
+      "status": "advisory",
+      "category": "terminology",
+      "reason": "宿主核查（由无效 r4a1 的观察引出，独立核实）：Sher'Tul 本库译“夏·图尔”（mod-tome.lua 146 处、tome-cults.lua 39 处，terminology creatures.tsv/talents.tsv），本条“夏图尔”缺间隔号。该写法为基线既有（target_preimage 已是“夏图尔”），且本窗口 SPEC 专名表误写 Sher'Tul=“夏图尔”（见 HOST-NOTE-SPEC-ERRATUM.md）；非本窗口回归，登记为下一修复窗口宿主补充，不扩大本窗口轮次。",
+      "carry_forward": "next repair window host supplement (not an accepted finding of this window; baseline form)"
+    },
+    {
+      "revision_key": "f7b0d66ac9aee3c92958d7c67e6b340ad2938289211a0de3f75412bf472507b4",
+      "status": "advisory",
+      "category": "mechanics",
+      "reason": "宿主核查：PROPHECY_OF_TREASON（data/timed_effects.lua:1015-1049）只在相邻格寻找目标，无相邻单位则攻击自身；现译“攻击邻近单位……如果没有其他单位，则会攻击自身”与英文 or even themself if no creature is present 同构，“邻近”已限定上文，记 advisory。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ]
+}

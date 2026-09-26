@@ -1,0 +1,30 @@
+{
+  "cycle": 1,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r1a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 18,
+  "raw_issue_count": 3,
+  "decision": "bounded fix (execute-03) then RE_REVIEW(2)",
+  "findings": [
+    {
+      "revision_key": "ce4ea9ba0231e5d74f04658141bdc97e97260201353e8ddd46676b9f964843b0",
+      "status": "refuted",
+      "category": "terminology",
+      "reason": "本库既定 t(\"void skitterer\", \"虚空造物\") (tome-cults.lua:3103)，voidling 同为“虚空造物”；现译沿用本库召唤物名，区分两者属跨批次命名决定，本窗口未授权。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d67b9da42c920bee2d1f7bfb97132d42f04158a8f6b4c062a55438d2ccb6eed2",
+      "status": "refuted",
+      "category": "mechanics",
+      "reason": "公开 Cults data/talents/demented/entropy.lua:174（25% 直接治疗转为熵反冲）与 data/talents/misc/misc.lua:365（The power of this spell inflicts entropic backlash on you）等：熵反冲来自治疗与各法术施放本身，并非对一切造成的伤害触发；现译“在治疗时和释放伤害技能时”贴合实现，保留。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e487193fbfa5a2ec578a935ffafb390d6425c1737a9d3457ac51f749151cddbd",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults data/lore/zones.lua:28-30：approached the crag / What little sunlight entered the crag / lead a charge into the crag 指可进入、有阳光射入的岩石谷地，现译“走近岩壁”“阳光射入了岩壁”“冲进岩壁”把场所译成实体岩壁；三处统一改为“岩谷”。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ]
+}

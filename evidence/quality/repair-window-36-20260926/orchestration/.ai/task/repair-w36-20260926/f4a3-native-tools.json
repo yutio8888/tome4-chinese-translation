@@ -1,0 +1,151 @@
+{
+  "dispatch_id": "f4a3",
+  "native_session": "659a3d25-c35c-4b49-9f94-fc88f74b906d",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/659a3d25-c35c-4b49-9f94-fc88f74b906d.jsonl",
+  "native_sha256": "ba6821c46cb6ab96c33931dad445ce4fb0002bb64f9f23fe5ee0474fe89c46ff",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_016vmCXw2XphuEZ45T7eoaQS",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json; cat .ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json | head -c 20000",
+        "description": "Read the envelope input"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_018cVs3vX1xbGacif7DEnatV",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\ndef show(o,p='',depth=0):\n    if isinstance(o,dict):\n        for k,v in o.items():\n            if isinstance(v,(dict,list)): print(p+k, type(v).__name__, len(v)); \n            else: print(p+k, repr(v)[:200])\n    \nshow(d); show(d['payload'],'payload.')\nEOF\ngrep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Inspect envelope structure and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01R9oiZ31J9a4VdhVNJU88KH",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\np=d['payload']\nprint(p['rendered_briefing'])\nprint(p['ordered_revision_keys'])\nprint(json.dumps(p['translation_snapshot'][0],ensure_ascii=False)[:1500])\nEOF",
+        "description": "Read contract section 6 and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QcaPxm7fPs16coPPpYp9yB",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print(f\"=== {i} {t['revision_key'][:8]} {c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n    print(\"ADJ:\",json.dumps(c.get('adjacent_translations'),ensure_ascii=False)[:600])\n    extra={k:v for k,v in c.items() if k not in('adjacent_translations','source_evidence','file','line','section','source_tag')}\n    if extra: print(\"EXTRA:\",json.dumps(extra,ensure_ascii=False)[:1500])\n    print()\nEOF",
+        "description": "Dump all 21 candidates"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01DKt7CJaqwEAWFyxAqQc5c3",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print(f\"=== {i} {t['revision_key'][:8]} {c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n    print(\"ADJ:\",json.dumps(c.get('adjacent_translations'),ensure_ascii=False)[:400])\n    print()\nEOF",
+        "description": "Dump candidates without evidence"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QfEakn3BLJwtprBdzpXVAA",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/659a3d25-c35c-4b49-9f94-fc88f74b906d/tool-results/bqdtxle1a.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GQnL9iaHbtfWruTPhkhw9x",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/659a3d25-c35c-4b49-9f94-fc88f74b906d/tool-results/bqdtxle1a.txt",
+        "offset": 284
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013FWUBGAUcJFFH3qbXHAjB7",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nprint(ts.keys() if isinstance(ts,dict) else type(ts))\nfor r in ts.get('records',[]): print(r['path'],r['line'],r['record'])\nfor k in ts:\n  if k not in('records','header'): print(k, str(ts[k])[:300])\n# LF / placeholder check\nimport re\nfor t in p['translation_snapshot']:\n    s,g=t['source'],t['target']\n    f=lambda x:(x.count('\\n'),re.findall(r'%[-0-9.]*[a-z%]',x),re.findall(r'#[A-Z_]+#|#\\{[a-z]+\\}#|\\[/?[bi]\\]',x),[l[:len(l)-len(l.lstrip('\\t'))] for l in x.split('\\n')])\n    a,b=f(s),f(g)\n    if a!=b: print(t['revision_key'][:8],a,b)\nEOF",
+        "description": "Show terminology and invariant check"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01HTb3XuAt7U1wfbUdn39UFX",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults && ls; for f in data/talents/demented/entropy.lua data/talents/demented/void.lua data/talents/demented/doom.lua data/talents/demented/rift.lua; do p=$(find . -path \"*$f\" -not -path '*/.git/*' | head -1); echo \"$p $(sha256sum $p|cut -c1-16)\"; done",
+        "description": "Locate Cults DLC source files"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KoNA2NkbcdGiPEfomRfe33",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w36-20260926/CONTEXTUAL-ENVELOPE-f4a3.json'))\nfor b in d['payload']['bounded_context']:\n    c=json.loads(b['context']); e=c['source_evidence']; print(b['revision_key'][:8],e['public_source_path'],e['file_sha256'][:16],e['matching_lines'][:3])\nEOF\nC=/workspace/tome4-dlcs/cults/tome-cults\ngrep -n \"Power Overwhelming\" -A40 $C/data/talents/demented/entropy.lua | sed -n 1,45p",
+        "description": "Evidence paths and entropy talent code"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RxbsDVx8bHLGar1oxTs9jy",
+      "name": "Bash",
+      "input": {
+        "command": "C=/workspace/tome4-dlcs/cults/tome-cults; sed -n 95,145p $C/data/talents/demented/void.lua; echo ----; sed -n 250,295p $C/data/talents/demented/doom.lua",
+        "description": "Read void stars and doom talents"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01LoTLaHbvTRpBD6PixcbTRP",
+      "name": "Bash",
+      "input": {
+        "command": "C=/workspace/tome4-dlcs/cults/tome-cults; grep -n -i \"skitter\\|voidling\" $C/data/talents/demented/rift.lua | head -20",
+        "description": "Check rift summon names"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

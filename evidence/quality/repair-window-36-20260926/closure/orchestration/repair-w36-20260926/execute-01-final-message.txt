@@ -1,0 +1,41 @@
+已完成 `repair-w36-20260926`。按 Paseo EXECUTOR 边界，仅修改了 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 的 21 个冻结 target，并新增两份获准证据；未修改 `.ai/task`，未创建 agent，未 stage、commit 或 push。
+
+逐条改动：
+
+- `428381f995…`：恢复“一手拿锤、一手拿剑”及两只手的职责。
+- `ce25dcc579…`：`darkness damage` 改为“暗影伤害”，删除多余换行。
+- `ce4ea9ba02…`：改为“全局速度”，修正“维度之门”标点。
+- `cfaafbdaed…`：改为“踢出一条路逃出去”。
+- `d0e2bafe76…`：恢复法杖平静及“冒牌死灵法师”的辱骂原义。
+- `d5f14597d4…`：修正虚幻城堡守卫、防御与鬼魂安息等语义。
+- `d67b9da42c…`：改为“撕裂时空，创造裂隙”。
+- `dc519faa34…`：修正《家，可怕的家》状态文本及格式。
+- `df6ed2f1bd…`：修正采购、火势、搜寻、纳格尔城和自我怀疑等叙述。
+- `e487193fbf…`：修正魔法畸兽、死灵法师住处及触手间幼龙。
+- `e68028787a…`：补回 `[/i]`，修正名字、弓、方位、文火及治疗语义。
+- `e9e0b787b1…`：恢复祭品转折、蜿蜒长度及亲眼见证分解的描述。
+- `ea6c288db2…`：修正仇恨对象、杀戮冲动、意识崩断、面具及复仇等语义。
+- `ead23fb891…`：实体名改为“神性蠕动肉团”。
+- `efa7badd9b…`：逐行重译诗体，保持原文 17 行及相同空行位置。
+- `f067c87f47…`：补回触发条件、40%% 熵能反冲及最多 4 颗，恢复三行 TAB 结构。
+- `f30b472bd0…`：恢复合上两本束缚之书及进入最后一章的含义。
+- `f4db736957…`：修正灵能奴役、帐篷场景、攻击动作、冒牌者及使者主语。
+- `f5569f0456…`：恢复“他们看不见”“凡人的舌头”和思想口号。
+- `f6030742f5…`：删除“狂热”等增译，保持导师为未知存在并修正知识/武器句法。
+- `f7b0d66ac9…`：补回“浪费该回合”和攻击邻近单位的机制。
+
+验证全部通过：
+
+- LuaJIT：比较 2199 条记录，恰有 21 个 target 变化，非 target 变化为 0。
+- 冻结 workset 与 21 条 baseline preimage 全部匹配。
+- LF、空行下标、逐行 TAB、行尾空白、markup、占位符、`@` token、`<?=...?>`：21/21 通过。
+- `python3 -B tools/i18n lint --strict`：30308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 14 个源码文件 SHA-256 全部匹配 21 条冻结锚点。
+
+证据：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-36-20260926/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-36-20260926/VALIDATION.json)
+
+已知风险仅为 Cults 源码仓库及 commit 未固定；本轮使用冻结文件哈希和限定路径源码锚点约束输入。独立复审、完整生产门禁及 `DONE_VERIFIED` 尚未声明。

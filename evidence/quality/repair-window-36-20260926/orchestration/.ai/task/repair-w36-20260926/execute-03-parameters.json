@@ -1,0 +1,18 @@
+{
+  "title": "W36 fix cycle 1",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w36-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R1.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复一条 confirmed target（tome-cults.lua）：e487193f…（岩壁手记）中“当我们走近岩壁时”改为“当我们走近岩谷时”，“微弱的阳光射入了岩壁”改为“微弱的阳光射入了岩谷”，“直接冲进岩壁”中的“冲进岩壁”改为“冲进岩谷”；该条其余文字、LF/TAB 与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 恰21条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w36-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}
