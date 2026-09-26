@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（修复窗口35已完成、待宿主证据提交与推送，下一步审核第306批）
+更新时间：2026-09-26（第306批已 finalize，窗口36积压 5 条，继续审核第307批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **305** 批（`batch-cb5e672c5ec0a450c4b4`）：80 条（全部 Cults），74 done / 6 repair_required。
-  surface 4 lane 各 20 条（identity 全对；边界扫描 rm 子串误报，宿主核对后手写审计）；contextual 一个 Opus run（13 条）只读 envelope 与契约；18 个观察逐条裁决（“其他”类效果除外 refuted）。首次 chain 在 prepare-evidence 因门禁05并发缓存测试偶发失败，只重跑该步通过。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `e76edd06e5117ca8a35aa962b0149b02aad353a3` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **35**：第 302–305 批共 21 条确认问题已修复，另因门禁 06 同步 `mod-tome.lua` 与 `tome-orcs.lua` 各 1 条同键译文；译文提交 `2282a5e7777cc73118fbe86226cd6363fd054df1`；migration `d6d21bc1…` 的 23 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 36 积压 0 条，从审核306重新累计（另有 3 条窗口外宿主补充项，见第五节第 2 项）。
+- 审核已闭合至第 **306** 批（`batch-da14fcfb8e992e06a51e`）：80 条（Cults 79 条、主游戏 1 条），75 done / 5 repair_required。
+  混合批（Cults 79 + 主游戏 1），surface 两组 5 个 dispatch（lane-001-2 identity 回显多 1 字符，--raw 修正收取；边界扫描 rm 子串误报，宿主手写审计）；contextual 一个 Opus run（8 条）只读 envelope、契约与 Cults 源码；13 个观察逐条裁决。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `81901c74ba1a3c96541f75640f509f93996ef51c` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **35**：第 302–305 批共 21 条确认问题已修复，另因门禁 06 同步 `mod-tome.lua` 与 `tome-orcs.lua` 各 1 条同键译文；译文提交 `2282a5e7777cc73118fbe86226cd6363fd054df1`；migration `d6d21bc1…` 的 23 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 36 积压 5 条（第306批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -57,6 +57,7 @@
 | 303 | `batch-3990108296cb406fa158` | 75 done / 5 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 10 confirmed / 4 refuted / 5 advisory |
 | 304 | `batch-d3c1ad725b3e20176046` | 74 done / 6 repair | 68 OK / 12 ISSUE | 10 OK / 2 ISSUE | 8 confirmed / 1 refuted / 5 advisory |
 | 305 | `batch-cb5e672c5ec0a450c4b4` | 74 done / 6 repair | 67 OK / 13 ISSUE | 8 OK / 5 ISSUE | 11 confirmed / 1 refuted / 6 advisory |
+| 306 | `batch-da14fcfb8e992e06a51e` | 75 done / 5 repair | 72 OK / 8 ISSUE | 3 OK / 5 ISSUE | 9 confirmed / 3 refuted / 1 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -133,10 +134,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **306** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **307** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 36（模板 `setup_window35.py`、`.artifacts/i18n/repair-w35-20260926/wd.sh`、`/tmp/w35-*.sh`）。
-2. 窗口 35 已完成（4 次复审：REVIEW、RE_REVIEW×2、FINAL×1；门禁首轮因跨组件同键失败，同步 2 条后 17/17）。窗口 36 积压 **0** 条（第306批起，Cults）：从审核306起累计；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项 3 处待下个窗口按 revision 核实后纳入：tome-cults.lua 起于第1557行的 fay-willows 条目仍写“马基埃亚尔”；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；SCOPE.allowed_files 只列普通文件；复审每个 stage 收取后即运行 `publish.py`；窗口模板为 `setup_window35.py`、`.artifacts/i18n/repair-w35-20260926/wd.sh` 与 `/tmp/w35-*.sh`。
-   第305批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）152.6 s；finalize 107.5 s。
+2. 窗口 35 已完成（4 次复审：REVIEW、RE_REVIEW×2、FINAL×1；门禁首轮因跨组件同键失败，同步 2 条后 17/17）。窗口 36 积压 **5** 条（第306批，Cults）：从审核306起累计；第306批 `428381f9`（克罗格锤：锤剑顺序）`ce25dcc5`（熵能强化：删多余换行、暗影伤害）`ce4ea9ba`（维度之门：冒号体例、句号）`cfaafbda`（消化囊：踢出一条路逃出去）`d0e2bafe`（骨杖辱骂台词）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项 3 处待下个窗口按 revision 核实后纳入：tome-cults.lua 起于第1557行的 fay-willows 条目仍写“马基埃亚尔”；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；SCOPE.allowed_files 只列普通文件；复审每个 stage 收取后即运行 `publish.py`；窗口模板为 `setup_window35.py`、`.artifacts/i18n/repair-w35-20260926/wd.sh` 与 `/tmp/w35-*.sh`。
+   第306批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）171.2 s；finalize 107.8 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
