@@ -235,3 +235,11 @@
    - 现译：“软蹄族”（本条 3 处）与“软蹄者”（Soft-foot，2 处），全 DLC 一致。
    - 争议理由：窗口 37 r0a1 GPT-6 Sol 指出 foot 被写成“蹄”，颠倒米诺陶（有蹄）对他族（软脚）的称呼关系；改动须同步 5 处且属跨条译名决定，本窗口未授权，宿主记 advisory。
    - 建议选项：保持“软蹄族／软蹄者” / 统一改为“软脚族／软脚者”（或“软足者”）并同步 506、508 与本条。
+
+## 第 315 批待审阅
+
+32. `19137076a9`（Orcs 工匠物品／技能名 `Thunder Grenade`；同名条目 tome-orcs.lua:1349「%s thunder grenade」、5523 talent name、6669 _t）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/other.lua` `TINKER_THUNDER_GRENADE` 以 `DamageType.PHYSICAL` 造成伤害并施加 `EFF_STUNNED`；配方 `data/tinkers/explosive.lua` desc「Small radius, but stuns quite well.」；造成闪电伤害的是 `Shock Grenade`（本库“震荡榴弹”，`data/talents/steam/demolition.lua`）。第 315 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“闪电榴弹”（3 处一致）。
+   - 争议理由：第 315 批 GPT-6 Sol 表层筛查指出 Thunder 是雷鸣而非闪电，宿主按源码确认“闪电”暗示闪电属性、与实际物理＋震慑不符；Opus contextual 判 OK。改名须同步 3 处并定新译名，且与“震荡榴弹”（Shock）的命名互相牵连，属跨条译名决定，本批记 advisory。
+   - 建议选项：保持“闪电榴弹” / 改“雷鸣榴弹”（或“震爆榴弹”）并同步 1349、5523、6669 三处。
