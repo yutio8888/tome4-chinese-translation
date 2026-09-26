@@ -1,0 +1,34 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 22,
+  "raw_issue_count": 2,
+  "decision": "reviewer ISSUEs refuted (tinker terminology, advisory); host whole-entry recheck of 2d9e3f67 confirmed → bounded fix (execute-06) then RE_REVIEW(5), then FINAL_REVIEW(5) attempt 2",
+  "findings": [
+    {
+      "revision_key": "2485f3aada5a3e3b89c66fc9be4d0329e42ca2d1fb9369d9283adae96eff2c70",
+      "status": "refuted",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "tinker→“蒸汽工具”在 terminology/items.tsv:24 仅为 existing（非 preferred，无背书力）；本库全部六条“Allows you to create … tinkers”（化学/机械/治疗学/爆炸学/电子/铁匠）一致用“…道具”，单改两条会破坏同族一致，属跨条策略决定，本窗口未授权。保持现译，advisory。"
+    },
+    {
+      "revision_key": "354df698366b63488964e3cba7b4ef339786be372a04db3ae21fa7c5435cc669",
+      "status": "refuted",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "同 2485f3aa：tinker 术语 existing 非 preferred，六条同族一致用“…道具”，保持现译，advisory。"
+    },
+    {
+      "revision_key": "2d9e3f67a53859c1daaa4edd7327dcff0f28da7d40d59971643915e45bc50869",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "source": "host whole-entry recheck after cycle 3 (read-only helper, 26 quoted items machine-verified against the frozen POST-FIX4 target; host accepted them as 22 exact replacement groups, adjusting the lair/tower wording to 巅峰之塔的巢穴 and aligning the tower name within the entry)",
+      "reason": "公开 Orcs tome-orcs/data/lore/pocket-time.lua 心灵传讯《马基埃亚尔的传说》全文逐句复核：多处漏译（yet another、corrupted、for himself、even more terrible sadism、safely away from undead hands、Unfortunately/next、in force、the opportunity to、Without a thought to where it led、valiantly、for the first time since Maj'Eyal、ultimate、would ever know）、增译（占据、夺回、已久、撕裂一切、击败了一切敌人、最终堡垒）、时态/情态错误（将会…展开→已展开；将要召回→企图召回）与因果/指代错误（沃尔一节风暴发生在途中；拉克·肖堡垒因居民安息而崩塌；grips of peril 被译成不知道危机；ever in danger 被译成不知道何种危机）。按下列精确替换一次性修正，其余文字、模板标记与 LF 不动：L1 yet another reincarnation：“卡·普尔的另一个化身”→“卡·普尔的又一个化身”；L1 purged the corrupted horrors / claimed … for himself：“<?=Lore.pocket_time_winner.HeShe?>清除了占据伊克格的恐魔，并占领了这个被遗忘已久的飞行堡垒，”→“<?=Lore.pocket_time_winner.HeShe?>清除了伊克格中堕落的恐魔，并将这座被遗忘已久的飞行堡垒据为己有，”；L1 terrible power and even more terrible sadism：“一个有着强大的力量和虐待欲望的恐怖死灵法师”→“一个拥有可怕力量、施虐欲更为可怕的死灵法师”；L1 took the Staff … safely away from undead hands：“光荣地站在那具吸血鬼的尸体之上，手中拿着从死灵大军手中夺回的吸能法杖，”→“光荣地站在那具吸血鬼的尸体之上，并带走了吸能法杖，使其安全远离不死族之手。”；L3 Unfortunately … next：“然而，等待着<?=Lore.pocket_time_winner.himher?>的则是更加危险的挑战。”→“不幸的是，接下来等待着<?=Lore.pocket_time_winner.himher?>的是一项利害更加重大的任务。”；L3 once-thought-vanquished … in force：“兽人，一个认为已经被战胜已久的威胁，重新出现在了马基·埃亚尔的土地上！”→“兽人，这个曾被认为已被消灭的威胁，在马基·埃亚尔大举重现！”；L5 storms on the way to Vor / pulverize：“与大魔导师沃尔的战斗充满了火焰和冰霜的风暴，那是可以召唤来自天空的力量来试图毁灭对手的强大敌人，但是沃尔的陨石也无法阻挡<?=Lore.pocket_time_winner.himher?>的胜利。”→“在<?=Lore.pocket_time_winner.hisher?>前去挑战大魔导师沃尔的路上，火焰与冰霜的风暴不断袭击<?=Lore.pocket_time_winner.himher?>；沃尔是一个能召唤天穹之力将<?=Lore.pocket_time_winner.himher?>碾碎的敌人，但他的陨石也未能阻止<?=Lore.pocket_time_winner.himher?>。”；L5 merely gave the opportunity：“也只是让<?=Lore.pocket_time_winner.name?>成为了世界上最伟大的屠龙者。”→“也只是给了<?=Lore.pocket_time_winner.name?>成为世上最有成就的屠龙者的机会。”；L5 Rak'Shor fortress crumbled as he put its inhabitants to rest：“随着拉克·肖部落高大的白骨堡垒轰然倒下，<?=Lore.pocket_time_winner.heshe?>让死者们终于得到了安息。”→“当<?=Lore.pocket_time_winner.heshe?>让拉克·肖部落白骨堡垒中的居民得到安息时，堡垒随之崩塌。”；L7 Without a thought to where it led：“没有任何犹豫，<?=Lore.pocket_time_winner.name?>奉艾琳之命冲进了传送门中；”→“<?=Lore.pocket_time_winner.name?>奉艾琳之命冲进了传送门，全然没有考虑它会通向何方；”；L7 valiantly：“太阳骑士们正严守防线”→“太阳骑士们正英勇地坚守防线”；L7 At the end … first time since Maj'Eyal：“最终，<?=Lore.pocket_time_winner.heshe?>的眼前终于又出现了吸能法杖的身影——”→“在石桥尽头，<?=Lore.pocket_time_winner.heshe?>自离开马基·埃亚尔后第一次看到了吸能法杖——”；L7 sorcerers' lair of the High Peak：“准备突袭这两位法师位于巅峰高塔的最终堡垒。”→“准备突袭这两位法师位于巅峰之塔的巢穴。”；L9 would not be hindered … final ascent (non-sacrifice)：“在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>毫不畏惧，奋勇向前，击败了一切敌人，最终到达了顶层。在顶层，”→“在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。在顶层，”；L11 four clashed (past) / flying through the air：“这四个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，”→“四人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中飞舞，”；L13 they were in the grips of peril, and were now free of it：“不知道世界曾经那样危在旦夕，但现在已经重现了和平。”→“但他们确曾身陷危难，而如今已摆脱了危难。”；L15 would not be hindered … final ascent (sacrifice)：“在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>毫不畏惧，奋勇向前，击败了一切敌人，最终到达了顶层。唉，”→“在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，”；L19 three clashed (past) / flying through the air：“这三个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，”→“三人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中飞舞，”；L19 ultimate sacrifice：“无私地做出了牺牲”→“无私地做出了终极的牺牲”；L21 would ever know / that they were ever in danger：“在埃亚尔，没有人知道是<?=Lore.pocket_time_winner.hisher?>牺牲拯救了他们，甚至对他们曾经处于怎样的危机浑然不知……”→“埃亚尔上永远不会有人知道是<?=Lore.pocket_time_winner.hisher?>的牺牲拯救了他们，甚至不知道他们曾经身处危险之中……”；L9 与 L17 they sought to bring back（两处同文）：“他们将要召回只有消失已久的夏·图尔人才能应对的远古威胁”→“他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁”。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-26T16:02:17.926156+00:00"
+}

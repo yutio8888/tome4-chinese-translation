@@ -1,0 +1,14 @@
+已完成单条 FIX。
+
+- 修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3035)：
+  - “没有人知道，我们的英雄在之后去了哪里”
+  - →“没有人知道我们的英雄此后做了些什么”
+- 该 target 其余文字、模板标记、LF 及其他记录未改。
+
+验证全部通过：
+
+- LuaJIT 对比基线：加载 2 个文件、6401 条记录；恰好 24 个 workset target 变化（Cults 2、Orcs 22），其他记录内容不变，格式不变量通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过，无诊断。
+
+未 stage、commit、push；未创建 agent；未修改 `.ai/task`。

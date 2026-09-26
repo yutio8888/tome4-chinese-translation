@@ -1,0 +1,11 @@
+已完成指定 FIX。
+
+- 本次仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:5755)：
+  `#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#`
+- 本条其余文字、LF/TAB、markup 均保持不变。
+- LuaJIT 有界比较通过：两文件共比较 5,947 条记录，相对 HEAD 恰有 24 条 WORKSET target 变化，非 target 变化为 0。
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过，无输出。
+- 未 stage、commit、push，未创建 agent，未修改 `.ai/task`。
+
+补充：两次诊断性探针因附加了不适用的占位符/旧候选 SHA 假设而失败；移除这些无效假设后，最终要求的有界验证全部通过。

@@ -1,0 +1,69 @@
+{
+  "task_id": "repair-w38-20260926",
+  "role": "executor",
+  "baseline_commit": "8153e982f660f2f7907d4ad7d19070cfd3bf4818",
+  "frozen_inputs": {
+    "workset_sha256": "3b7d7f2515748236af649a081af5c46fa163b5ce840f5ccf8778d3e189b1d671",
+    "source_anchors_sha256": "04e8ff0629eaa1e08c3e3e023ec1a256978184aafea3ce97008f3ef7993c15a7",
+    "workset_items": 24,
+    "source_files_sha256_matched": 17,
+    "dlc_repository_commit_pinned": false
+  },
+  "candidate_files": {
+    "tome-cults.lua": {
+      "sha256": "95ea3f9e6e27e0a9c36a2a5d37588d75df9b47e97589b39bb20e39a23fadbb83",
+      "records_loaded": 2199,
+      "target_changes": 2
+    },
+    "tome-orcs.lua": {
+      "sha256": "118dd587336f5f8bccafd8d55680f0cfeefcc5b7b985a1242fdb32e4c731b1fb",
+      "records_loaded": 4202,
+      "target_changes": 22
+    }
+  },
+  "bounded_luajit_comparison": {
+    "files_loaded": 2,
+    "target_changes": 24,
+    "workset_exact": true,
+    "non_target_record_content_unchanged": true,
+    "line_tab_blank_terminal_newline_invariants": true,
+    "printf_markup_template_invariants": true,
+    "record_count_unchanged": true,
+    "expected_line_number_shifts_from_restored_target_lines": {
+      "tome-cults.lua": [0],
+      "tome-orcs.lua": [0, 1, 2]
+    }
+  },
+  "commands": [
+    {
+      "command": "bounded LuaJIT baseline/current record comparison for tome-cults.lua and tome-orcs.lua",
+      "exit_code": 0,
+      "result": "24 exact workset target changes; all checked invariants passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "python3 -B tools/scan_runtime_collisions.py",
+      "exit_code": 0,
+      "result": "runtime collisions: 0"
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py",
+      "exit_code": 0,
+      "result": "duplicate keys: 1711; bucket B: 0; bucket C: 0"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    }
+  ],
+  "not_run_by_executor": [
+    "independent REVIEW/full and FINAL_REVIEW/full",
+    "host full 17-gate receipt",
+    "stage, commit, push"
+  ]
+}

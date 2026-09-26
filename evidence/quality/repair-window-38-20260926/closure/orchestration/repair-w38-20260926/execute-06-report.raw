@@ -1,0 +1,13 @@
+已完成 FIX。
+
+- 本次仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3023) 中 `2d9e3f67…`。
+- 严格执行裁决的 21 组、22 次精确替换；“将要召回”两处均已修改。
+- `2485f3aa…`、`354df698…` 与 cycle-4 冻结快照一致，未改。
+- LF、分支控制结构及其他记录保持不变。
+
+验证结果：
+
+- LuaJIT：通过；两个文件共比较 5,947 条记录，相对 HEAD 恰有 24 条 target 变化，全部属于 WORKSET，非 target 字段变化为 0。
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条翻译，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 暂存区为空；未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

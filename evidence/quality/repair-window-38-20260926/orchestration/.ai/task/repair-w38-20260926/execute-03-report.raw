@@ -1,0 +1,13 @@
+已完成本次 FIX，仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:1564) 两条 target：
+
+- `21c042dd…` → `「恼人的不死族在骚扰你的村庄？死灵法师搜刮你的墓地？维序者可以解决一切！」`
+- `2d9e3f67…` → “曾经**处于**怎样的危机”
+
+验证全部通过：
+
+- LuaJIT：两个文件共加载 6401 条记录；相对 HEAD 恰好 24 条 workset target 变化，其他记录不变；本轮两条模板标记未变。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 未 stage、commit、push、创建 agent或修改 `.ai/task`。
+
+补充：首次模板诊断使用了不适用于中文省略主语的“英文源码/中文译文模板等量”断言；改为核验本轮 FIX 前后模板不变后通过。

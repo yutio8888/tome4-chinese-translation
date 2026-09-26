@@ -1,0 +1,18 @@
+已完成 `repair-w38-20260926` 的 24 条 target 修复：
+
+- Cults 2 条：Temporal Feast 范围误增、Black Hole 熵总量。
+- Orcs 22 条：心灵感应、钢铁手套、蒸汽枪弹幕、涌血、反魔汁液、震荡榴弹、维序者、惊吓射击、化学/机械分行、两篇 lore、毒罐、迷失之眼、势不可挡药剂、思维施法者、背水一战、蒸汽捕捉器、深红骑士、晨曦之门、飘逸法袍、强力爆裂等。
+
+完整逐条记录见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-38-20260926/IMPLEMENTATION.md)，验证结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-38-20260926/VALIDATION.json)。
+
+验证全部通过：
+
+- LuaJIT 加载 2 个文件，共 6401 条记录。
+- 精确识别 24 个 workset target 变化；其他记录内容不变。
+- LF/TAB、空行、末尾换行、占位符、markup、模板表达式不变量通过。
+- `tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- 运行键冲突：0；分类无同 section 或混合 section 冲突。
+- `git diff --check`：通过。
+- 两个新增 evidence 文件空白检查无诊断。
+
+风险仅为冻结输入已声明的 DLC 源码仓库/commit 未固定。宿主仍需执行独立复审和完整 17 项门禁。未 stage、commit、push，未修改 `.ai/task`，既有未跟踪文件保持不动。
