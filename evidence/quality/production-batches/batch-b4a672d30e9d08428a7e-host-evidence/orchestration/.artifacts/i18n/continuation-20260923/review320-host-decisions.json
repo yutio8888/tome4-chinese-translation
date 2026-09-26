@@ -1,0 +1,90 @@
+{
+ "workset": "evidence/quality/production-batches/batch-b4a672d30e9d08428a7e-source-workset.json",
+ "decisions": {
+  "36bc37cda5|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/celestial/energies.lua:156–164 Plasma Bolt：target 为 type=\"ball\"、radius=1 的球形范围攻击，现译“等离子球”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "36ece3ede8|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/bullets-mastery.lua:52–72 Supercharge Bullets：效果为子弹穿透多个目标并提高护甲穿透，“超速子弹”不贴合（与速度无关）；但同族效果名 Bullet Mastery: Supercharged 本库作“子弹掌握：超速”（tome-orcs.lua:6320），改名须两处同步定名，登记待用户审阅第34项，本批记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "373626da30|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/quests/kruk-invasion.lua:61–77 Cave Detonator：放置后 220 回合爆炸摧毁洞穴（图像 trap_bomb），是可放置的炸药装置，“洞穴炸弹”在语境中可辨，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "37fb857dd2|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:594–640 AWESOME_TOSS：callbackOnActBase 对主手与副手两把蒸汽枪各自 run() 在范围内 rng.table 随机选一名敌人（可能相同），期间以 self.disarmed 使持有者处于缴械（effectTemporaryValue 抛起枪），现译“两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械”贴合实现，上游 long_desc 过简，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "37fb857dd2|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:594–640 AWESOME_TOSS：callbackOnActBase 对主手与副手两把蒸汽枪各自 run() 在范围内 rng.table 随机选一名敌人（可能相同），期间以 self.disarmed 使持有者处于缴械（effectTemporaryValue 抛起枪），现译“两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械”贴合实现，上游 long_desc 过简，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "38e3195b27|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "所附 observation（导弹“其引爆所波及的任何自主实体”）错位：描述的是同 lane 前一条 38df4d785d，已记入 additional_host_observations。本条自身缺陷由下一条 38e97def3d 的错位 observation 指出，经宿主独立核查成立：公开 Orcs tome-orcs/data/quests/kill-dominion.lua the Dominion port of the south 现译“巨魔帝国的港口”漏“南方”；Dominion=“巨魔帝国”为本库既有区域译名（tome-orcs.lua 6920–6923），保留。改为“南方的巨魔帝国港口必须被摧毁。”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "38e97def3d|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "所附 observation（南方的 Dominion 港口）错位，描述的是同 lane 前一条 38e3195b27（已在该条确认）；本条 Resilient Body 技能名“坚韧身躯”准确，不改；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3948792c64|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "所附 observation（适时夺回魔法洞穴、帮助克鲁克部落反抗）错位，描述的是同 lane 前一条 393ceabce5，已记入 additional_host_observations；本条 An unarmed steam giant“一个手无寸铁的蒸汽巨人”准确，不改；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "399941d40b|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/schematics.lua:36：该标签显示于配方物品上，条件为 game.party:knowTinker(self.tinker_id)，即已学会该配方；本库 schematic 一贯作“配方”，“[已经学习的配方]”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "39eddc375b|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/krimbul.lua:23 lore 分类名 the journey of the Krimbul Clan：journey 现译“历史”偏离，但作为分类标题可辨；contextual 判 OK，记 advisory（可作“克里布尔部族的旅程”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3a1c0f5cae|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/quests/start-orc.lua 任务日志 destroy the patriarch：现译“击败”较弱，但任务完成条件为击杀族长，语境可辨；contextual 判 OK，记 advisory（可作“消灭”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3a43293d14|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:32–35 Smithing（本库“铁匠”配方大类）info：源文首行后三行各以 \\n\\t\\t 起，现译首个续行为 \\n\\t\\t\\t（多一个 TAB），且把“1 级学会配方”与“每级 20% 几率”两句并成一行，并漏 (unless all are known)。按窗口38化学 2485f3aa、机械 354df698 已修同族句式恢复三行各以 \\n\\t\\t 起并补回“（除非已学会全部配方）”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3a43293d14|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:32–35 Smithing（本库“铁匠”配方大类）info：源文首行后三行各以 \\n\\t\\t 起，现译首个续行为 \\n\\t\\t\\t（多一个 TAB），且把“1 级学会配方”与“每级 20% 几率”两句并成一行，并漏 (unless all are known)。按窗口38化学 2485f3aa、机械 354df698 已修同族句式恢复三行各以 \\n\\t\\t 起并补回“（除非已学会全部配方）”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3bb826649c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/slumbering-caves.lua:24 阿马克泰尔祷文：“改进这我们的身躯”有错字；同句 The others（承上指其他诸神）被译为“其他的造物”，You found this form wanting 漏译，proved Your place as the supreme deity 被弱化为“证明自己的才华”，improve on it 指改进那种形体。整句对照修正，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3bb826649c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/slumbering-caves.lua:24 阿马克泰尔祷文：“改进这我们的身躯”有错字；同句 The others（承上指其他诸神）被译为“其他的造物”，You found this form wanting 漏译，proved Your place as the supreme deity 被弱化为“证明自己的才华”，improve on it 指改进那种形体。整句对照修正，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3bc6e05d6e|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1565–1566 Viletooth：unided_name 为 rusted steamsaw（蒸汽链锯），现译“链锯”贴合实体，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3c68b52ee2|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/tinkers/mechanical.lua:22–23 Rocket Boots desc：leaving a trail of fire to burn those foolish enough to follow you，现译漏“留下一道火焰轨迹”这一作用方式；改为“……给你更快的移动速度，并留下一道火焰轨迹，灼烧那些胆敢跟在你背后的傻瓜。”；contextual 判 OK，宿主按完整性确认。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}

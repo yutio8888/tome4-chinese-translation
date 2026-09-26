@@ -1,0 +1,3 @@
+第320批：冻结80条（Cults 2 条、Orcs 78 条），逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 5 lane（Cults full-000 2 条；Orcs 4 lane 20/20/19/19），14个ISSUE；identity 回显全部一致；lane-001-1 三条 observation 错位一条，宿主逐条核对：南方港口在真实 revision 38e3195b27 确认，毁灭号导弹与克林布尔信件两条记入 additional_host_observations；边界检查仅见读取自身 envelope 与契约；contextual 一个 Opus run（14 条 Orcs；Cults 两条表层均 OK）只读 envelope 与契约，harvest 前已核原生日志，未越界，3个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决17个观察：{'refuted': 8, 'advisory': 3, 'confirmed': 6}；预计76条完成、4条待修复。修复 revision：巨魔帝国港口任务（补“南方”）、铁匠配方大类（分行制表符、除非已学会全部）、阿马克泰尔祷文（错字、其他诸神、至高神）、火箭靴（火焰轨迹）。等离子球为球形范围、双枪抛射各自随机目标且缴械、已学习配方标签、腐齿为蒸汽链锯、洞穴炸弹，refuted；超速子弹改名须同步效果名，登记待用户审阅第34项，记 advisory；克里布尔部族旅程、击败族长记 advisory。修复窗口39积压为4，未达20。

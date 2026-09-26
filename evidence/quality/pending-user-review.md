@@ -251,3 +251,11 @@
    - 现译：“闪电球”（技能名、info 与伏特守卫说明一致）。
    - 争议理由：第 316 批 GPT-6 Sol 表层筛查指出 Bolt 是飞弹而非球，宿主按源码确认“球”易让人误以为是范围攻击；Opus contextual 判 OK。改名须同步多处并定新译名，属跨条译名决定，本批记 advisory。
    - 建议选项：保持“闪电球” / 改“闪电箭”（或“伏特飞弹”）并同步 5536、5538、5619–5621。
+
+## 第 320 批待审阅
+
+34. `36ece3ede8`（Orcs 蒸汽枪技能名 `Supercharge Bullets`；同族效果名 tome-orcs.lua:6320 `Bullet Mastery: Supercharged`“子弹掌握：超速”，技能名 4759“超速子弹”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/bullets-mastery.lua:52–72` 设置 `EFF_ENHANCED_BULLETS_SUPERCHARGE`（kind="supercharge"），info：子弹可穿透多个目标，并提高护甲穿透；与飞行速度无关。第 320 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“超速子弹”（技能名）与“子弹掌握：超速”（效果名）一致。
+   - 争议理由：第 320 批 GPT-6 Sol 表层筛查指出 Supercharge 是增压/超充而非超速，宿主按源码确认效果为穿透；Opus contextual 判 OK。改名须同步技能名与效果名并定新译名，属跨条译名决定，本批记 advisory。
+   - 建议选项：保持“超速子弹” / 改“超充子弹”（或“增压子弹”）并同步 4759 与 6320 的“超速”。
