@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w33-20260926",
+  "role": "executor",
+  "validated_at": "2026-09-26T02:46:40Z",
+  "baseline_commit": "eb11f000d3172757cb2152de4eee4142ca5e9879",
+  "content_file": "tome-cults.lua",
+  "content_file_sha256": "747741c19568042cfdadc47d0f0909fd45ef39cdc33ae588508c086cfc644c01",
+  "checks": {
+    "doctor": {
+      "command": "python3 -B tools/i18n doctor",
+      "status": "pass",
+      "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3",
+      "lpeg": "0.10.2-1 (0.10)",
+      "expected_warnings": [
+        "ashes-urhrok source repository/commit unpinned",
+        "cults source repository/commit unpinned",
+        "orcs source repository/commit unpinned"
+      ]
+    },
+    "frozen_input_keys": {
+      "status": "pass",
+      "workset_entries": 21,
+      "source_claim_keys": 21,
+      "source_anchor_queries": 21,
+      "claim_keys_match_workset": true,
+      "anchor_keys_match_workset": true
+    },
+    "source_anchors": {
+      "status": "pass",
+      "queries": 21,
+      "unique_files": 15,
+      "sha256_mismatches": 0,
+      "cults_repository_commit_pinned": false
+    },
+    "luajit_semantic_diff": {
+      "status": "pass",
+      "loader": "LuaJIT via repository LocaleLoader",
+      "baseline_records": 2199,
+      "current_records": 2199,
+      "changed_targets": 21,
+      "non_target_changes": 0,
+      "unmapped_changes": 0,
+      "workset_missing": 0,
+      "lf_tab_mismatches": 0,
+      "source_changes": 0,
+      "source_tag_changes": 0,
+      "args_order_changes": 0,
+      "special_changes": 0,
+      "section_changes": 0
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "status": "pass",
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20260926T024603.705490Z-1441836-lint/lint.json"
+    },
+    "diff_check": {
+      "command": "git diff --check",
+      "status": "pass"
+    }
+  },
+  "implementation_notes": {
+    "tab_only_blank_lines": "47767e70 target uses escaped LF/TAB sequences so runtime layout matches source without file-level trailing whitespace",
+    "bounded_correction": "An intermediate validation detected and corrected an accidental source-indent edit in 5fc41911 before final validation"
+  },
+  "prohibited_actions": {
+    "agent_created": false,
+    "task_records_modified": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}

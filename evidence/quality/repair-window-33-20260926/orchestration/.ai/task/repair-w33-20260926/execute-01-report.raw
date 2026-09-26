@@ -1,0 +1,36 @@
+已完成 `repair-w33-20260926`，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 的 21 个冻结 target，并生成 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-33-20260926/IMPLEMENTATION.md) 与 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-33-20260926/VALIDATION.json)。
+
+逐条修改：
+
+- `4691c13e…`：修复永恒精灵指代、岩石取代平原、伤亡逻辑、嶙峋地貌、大海、推测森林、小缺口、单数发言者、`take aback` 和“一支小队”。
+- `4746dc3b…`：符文饱和 → 纹身饱和。
+- `47767e70…`：恢复两处仅含 TAB 的空行，以 Lua 转义保留运行时结构并避免行尾空白。
+- `486e3945…`：能力“耗尽”改为已经“失效”。
+- `4a5f6eb5…`：穷途末路 → 精疲力竭的旅途。
+- `4ad18d30…`：修复后续事件主使、信使、难以置信、停顿、random people、扭曲自然、话音渐弱及 `stomach for it`。
+- `4f2c7910…`：触手粉碎 → 触手抽打。
+- `519f027d…`：修复力量回荡、命中、连续拳击、情绪语序、冲出包围、向前看、践踏、挫败、many/most、旧伤倒地及感觉限定。
+- `51b2a4ec…`：恢复“我们的人民”、作恶者宾语及永久击杀反讽。
+- `52b30180…`：恢复“对其他目标”的减伤限定。
+- `52d427a2…`：修复人形轮廓、彼此照顾、视作家人、混沌能量、思绪作伴、袭击者主语、连续攻击、相撞、重字、穿过帷幕进城及城垛方向。
+- `557d673c…`：修复 `minding its own business`，移除错误男性代词。
+- `58fe550a…`：恢复鞋子主语和旋转产生龙卷风。
+- `5c740785…`：恢复人数劣势、身先士卒、推测语气、投石索弹丸、袭击动作、惨叫方向、趁其不备、单数食人魔、看似轻松及地形险处。
+- `5f40e319…`：单块大陆 → 多块破碎大陆。
+- `5fc41911…`：恢复第一续行三个 TAB，source 保持不变。
+- `61b8c541…`：删除增译，恢复梦见坑、属下身份、连续呓语、强制镇静、附在信上及异质思维。
+- `64c979ec…`：战争 → 授权译名“骚乱”。
+- `655a344b…`：恢复锤、剑顺序及两手对应含义。
+- `69cb5f2c…`：删除无据动机，修复地表禁忌重复，并恢复“趁现在还安全时离开”；保留“混沌纪”。
+- `6e5a43d1…`：恢复两行 LF/TAB 结构；保留贴合实现的“指定的方向”。
+
+验证结果：
+
+- 15 个指定 Cults 源码文件 SHA-256 全部匹配。
+- WORKSET、SOURCE-CLAIMS、SOURCE-ANCHORS 的 21 个键完全一致。
+- LuaJIT LocaleLoader：前后均为 2199 条记录；恰 21 个 target 变化；非 target、遗漏、未映射及 LF/TAB 不匹配均为 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 未创建 agent，未修改 `.ai/task`，未 stage、commit 或 push。
+
+风险：Cults 源码仓库及 commit 仍未固定；本次仅能确认指定文件与冻结 SHA-256 一致。独立复审和宿主 17 项完整门禁仍待后续执行。

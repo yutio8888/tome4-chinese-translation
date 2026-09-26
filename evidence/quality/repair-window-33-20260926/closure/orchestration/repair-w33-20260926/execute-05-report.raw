@@ -1,0 +1,13 @@
+已完成 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1409) 的唯一目标修复：
+
+- “我只知道我脸色发青。”→“我只知道我已怒不可遏。”
+- “当然，你看起来比其他人都要更加顽固。”→“当然，你看起来比大多数人都更坚韧。”
+- 该记录其余文字及 LF/TAB 未变。
+
+验证结果：
+
+- LuaJIT/LocaleLoader：2199 条记录；相对 HEAD 恰 21 条 WORKSET target 变化；非 target 字段变化 0；本条 LF/TAB 不变。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+
+首次验证的全局 LF 断言因窗口内另一条既定换行修复而失败；收窄为检查本次目标后，完整验证通过。未 stage、commit、push，未创建 agent，未修改 `.ai/task`；既有无关文件未动。

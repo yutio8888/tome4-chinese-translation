@@ -1,0 +1,38 @@
+{
+  "cycle": 5,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r5a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 18,
+  "raw_issue_count": 3,
+  "decision": "user downgraded the single confirmed finding to advisory at the max_cycles stop; proceed to FINAL_REVIEW(5)",
+  "findings": [
+    {
+      "revision_key": "5c740785a17f1a4657a410109a858603d6e420d4fa6e78cf81d6ab401571c550",
+      "status": "advisory",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults data/lore/fay-willows.lua 原文 the halfling somehow knocked the ogre over, sending the ogre into the hot pool of burning death：打翻这一动作本身使食人魔跌入熔岩池；现译“不知用什么手段将其打翻，然后将食人魔扔进了灼热的死亡池”增添了源文没有的第二个“扔”的动作。建议改为“……不知用什么手段将其打翻，使它跌进了灼热的死亡池。”Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。",
+      "host_status_before_user": "confirmed",
+      "user_decision": {
+        "decided_at": "2026-09-26T03:42:29.643399+00:00",
+        "choice": "判 advisory 收口",
+        "note": "用户在 max_cycles=5 停止点裁决：视为轻微措辞差异不修，直接进 FINAL(5)"
+      }
+    },
+    {
+      "revision_key": "519f027d0c75303c0c8f8eb7dc10bd783817d9fbb171422c7a5f481040d694a4",
+      "status": "advisory",
+      "tier": 2,
+      "reason": "原文 I don't know what happened next but I immediately remember striking the halflings back；现译“我不知道接下来发生了什么，但我立刻击中了半身人的后背”省去 remember，记忆断片由前半句承载，事件与顺序未变；cycle>=3 二级语感只记 advisory（可选润色：“但我记得紧接着就击中了……”）。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "61b8c5416598197e21aa4e7be8319cbc06db4a60b92d7c76b0ef095e2552f23c",
+      "status": "advisory",
+      "tier": 2,
+      "reason": "公开 Cults data/lore/zones.lua 原文 I woke up to find that I had been writing notes in my sleep；现译“发现梦中的我留下了某种笔记”可读作睡着时的我写下了笔记，醒来确有符号（下句 these symbols），事件未变；措辞可更直白（“发现自己在睡梦中写下了笔记”），cycle>=3 只记 advisory。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-26T03:32:49.880125+00:00",
+  "user_decision_recorded_at": "2026-09-26T03:42:29.643399+00:00"
+}

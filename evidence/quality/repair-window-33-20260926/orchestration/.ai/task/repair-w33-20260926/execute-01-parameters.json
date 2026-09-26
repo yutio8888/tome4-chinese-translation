@@ -1,0 +1,18 @@
+{
+  "title": "W33 21-item repair",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w33-20260926。先读 .ai/roles/executor.md 与 .ai/task/repair-w33-20260926/SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json、SOURCE-CLAIMS.json、ADJUDICATION-HOST-PRECHECK-C0.json、BASELINE-records.json、TERM-SNAPSHOT.json，以及 TERMINOLOGY.md 使用规则。只按 SPEC 的 21 条修复 tome-cults.lua 的 target；可写 evidence/quality/repair-window-33-20260926/ 下的实现证据（IMPLEMENTATION.md、VALIDATION.json）。仅你是任务内容写入者。DLC 源码只在 SOURCE-ANCHORS 给定的 /workspace/tome4-dlcs/cults 下按条目路径取证，禁止从 /、/workspace 或无关目录搜索。每条整句对照原文，LF/TAB 逐行与原文一致（行首制表符层级、空行下标、末尾换行都与原文一致；[[ ]] 长串续行无缩进时不得加制表符；行尾空白不计入 TAB 且不得新增行尾制表符）；<?=...?> 模板表达式原样保留；保持文件其他记录不变。运行有界验证（LuaJIT 恰21条 target 变动、strict lint、git diff --check）并回报逐条改动、命令结果、风险；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w33-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,127 @@
+{
+  "dispatch_id": "f3a1",
+  "native_session": "8d2290d0-a329-4dd0-88af-cd585c42e487",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8d2290d0-a329-4dd0-88af-cd585c42e487.jsonl",
+  "native_sha256": "e2b3c7a11a2f8218124fc5b4582e20f22646ccc760960652370b8d1650d480f4",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01G8uZwd3hSQAWEoFBQXbJJU",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w33-20260926/CONTEXTUAL-ENVELOPE-f3a1.json docs/paseo-translation-context-review-v2-contract.md; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Size input envelope and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0118ZXeEZBVci4zfXsc7SnMQ",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 1,200p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read v2 contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01XQRB3ViCLJ31zrYYAFgZSh",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w33-20260926/CONTEXTUAL-ENVELOPE-f3a1.json'))\nprint(d['candidate_identity'])\np=d['payload']\nprint(p.keys())\nprint(p['fixed_source_identity'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1500])\nprint(p['rendered_briefing'])\nprint(len(p['ordered_revision_keys']))\n\"",
+        "description": "Inspect envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01M6x8GcTSxsj2PsKPHc7gpm",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w33-20260926/CONTEXTUAL-ENVELOPE-f3a1.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nfor r in ts['records']: print(r['record'])\nprint('---')\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k)\n  print(json.dumps(t,ensure_ascii=False,indent=0))\n  print('CTX',len(c['context']))\n\"",
+        "description": "Dump terminology and translations"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01PQ7HgcevahJ3LxrieAYgNK",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8d2290d0-a329-4dd0-88af-cd585c42e487/tool-results/bllpdr5tj.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01YYJUAcMrc43Ta1z844omXt",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8d2290d0-a329-4dd0-88af-cd585c42e487/tool-results/bllpdr5tj.txt",
+        "offset": 124,
+        "limit": 60
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012AYAy83KBhypwrYnY77Jx4",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w33-20260926/CONTEXTUAL-ENVELOPE-f3a1.json'))\np=d['payload']\nfor k,c in zip(p['ordered_revision_keys'],p['bounded_context']):\n  if len(c['context'])<6000:\n    print('=====',k[:8]); print(c['context'])\n\"",
+        "description": "Print shorter contexts"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Ms2N7Suz5cxcsLfwrGpf6z",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8d2290d0-a329-4dd0-88af-cd585c42e487/tool-results/bg3sqwhz0.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01JpiRHzJmoMRKf9czMLVuY5",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w33-20260926/CONTEXTUAL-ENVELOPE-f3a1.json'))\np=d['payload']\nc=json.loads(p['bounded_context'][4]['context'])\nprint(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:6000])\nprint(c['source_evidence'].keys())\n\"; sed -n 60,97p /workspace/tome4-dlcs/cults/data/talents/demented/beyond-sanity.lua 2>/dev/null || ls /workspace/tome4-dlcs/cults",
+        "description": "Inspect title context and teleport talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011cTqKeVLPKwvKGMvwWkxMV",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults/tome-cults; grep -n 'Escapades of Fay Willows' data/lore/*.lua | head -30; sed -n 60,97p data/talents/demented/beyond-sanity.lua",
+        "description": "Check lore titles and teleport talent"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

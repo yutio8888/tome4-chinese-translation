@@ -1,0 +1,34 @@
+{
+  "cycle": 2,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r2a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 19,
+  "raw_issue_count": 2,
+  "decision": "bounded fix (execute-04) then RE_REVIEW(3)",
+  "findings": [
+    {
+      "revision_key": "4746dc3b6fbf7f087969c1c382cfdaa7a59998f9dc072e2a71d51ca64e29343a",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "公开 Cults talents/misc/races.lua:311–325 Fuel Pain 从全部 is_inscription 技能中随机选一个冷却，info 写 one of your inscriptions。宿主前两轮以克罗格 forbid_arcane（Actor.lua:5059 禁用奥术物品，实际只能用纹身）判 advisory；复核后改判：本库 inscriptions 统一译“刻印”（mod-tome.lua:26147/41483），“你的一个刻印”既忠实于源文又不与实现冲突。改“你的一个纹身”为“你的一个刻印”，“纹身饱和”不动。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "51b2a4ec5ed5d396996d836a6376ece33f9931635aaa1a8b8404ccf1a474d8f8",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Cults quests/krogs-rescue.lua:24–28 show the evildoers the wrongness of their way. Permanently. 是杀死死灵法师的反讽（完成条件均为 You have killed the necromancers）；现译“让那些作恶者明白自己错在哪里——永远地”读作让其永远明白，仍丢失击杀义（R0 前的原确认问题未完全解决）。改为“让那些作恶者为自己的错误付出代价——永久的代价”一类，“去拯救我们的人民”保留。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "host_reversals": [
+    {
+      "revision_key": "4746dc3b6fbf7f087969c1c382cfdaa7a59998f9dc072e2a71d51ca64e29343a",
+      "from_": "advisory (R0/R1)",
+      "to": "confirmed",
+      "why": "three independent reviews flagged the same narrowing; the library term 刻印 resolves it without contradicting the Krog implementation"
+    }
+  ],
+  "recorded_at": "2026-09-26T03:06:33.579043+00:00"
+}

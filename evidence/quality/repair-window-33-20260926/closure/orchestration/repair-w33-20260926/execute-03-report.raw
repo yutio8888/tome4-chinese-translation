@@ -1,0 +1,12 @@
+已完成单条 confirmed target 修复：
+
+- [tome-cults.lua:1635](/workspace/tome4-chinese-translation/tome-cults.lua:1635)
+- “很快就治好了她的伤口” → “很快为她处理伤口”
+- 其余文字、记录及 LF/TAB 未动。
+
+验证全部通过：
+
+- LuaJIT 相对 HEAD：2043 条记录，恰 21 条 target 变动，所有非 target 字段不变。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 无暂存、提交、推送；未创建 agent，未修改 `.ai/task`。现有无关未跟踪文件保持不动。
