@@ -1,0 +1,172 @@
+{
+  "batch_id": "batch-b6a6a747b3fa260bc4d4",
+  "observations": 17,
+  "observation_dispositions": {
+    "refuted": 6,
+    "confirmed": 7,
+    "advisory": 4
+  },
+  "repair_revision_keys": [
+    "016c0578637966d4868fb172e1a0985b6c01c35a69d27bc90f669d1a2da7c846",
+    "03eccaa921abe22ad2b29db5bf1b28e75574f0e60a631d6fd37f945add506590",
+    "046aa43c2510d30c8667878eda0d92aa0b451aae54a6f2456b402be4c046b499",
+    "ffc35a3044351694f6dbce2f177c215e1c4b45244ef7889c6f902262004ba23f"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "ff9a0cc74081655514a49e22ca226ee8754f936451cfde0d6799325809e7b0e0",
+      "stage": "surface",
+      "observation": "Lash Out 未明确表示旋风；译名中的“旋风”是否符合技能效果，冻结输入缺少机制证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults tome-cults/data/talents/demented/tentacles.lua:84-100 Lash Out：技能 target 为 type=\"ball\"、radius=3，主手武器与触手对周围全部敌人挥击（tactical ATTACKAREA），“旋风鞭挞”点明范围挥击，与实现一致；技能名为本库既有译名，改名属跨批次命名决定。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ffb9336705ca7f776cd4efa322a2e13d216f9b039414c8475e5f40a8a7202c0c",
+      "stage": "surface",
+      "observation": "原文数值属性为 defense，译文写作“闪避”；冻结输入缺少该属性的术语依据，需核对是否对应。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults tome-cults/data/general/objects/world-artifacts.lua:498：该选项 effect 为 attr(\"combat_def\", 10)，combat_def 即 Defense，本库术语 Defense→闪避（terminology Defense: 闪避：，core existing），译文与实现和术语一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ffc35a3044351694f6dbce2f177c215e1c4b45244ef7889c6f902262004ba23f",
+      "stage": "surface",
+      "observation": "原文说伤害和冷却时间“有几率”增减，译文“将会……上下浮动”将可能发生的效果表述为必然发生。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults tome-cults/overload/mod/class/CultsDLC.lua:47 与 superload/mod/class/Actor.lua:30-39、125-145：伤害与冷却的疯狂效果取 rng.range(insanityEffectForce(-50), insanityEffectForce(50))，结果为 0 时不改变（if ief ~= 0 / ncd ~= data.cd），故 have a chance to increase or decrease 是有几率而非必然；现译“将会在 混沌度% 的范围内上下浮动”删掉限定词，改为“有几率上下浮动，幅度最多为 混沌度%”。与 contextual 同条观察合并确认。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "003b29cfb05ea8bbfa2958f1dca74d4860c8993c8147bfd81139d70f6e8aa8fe",
+      "stage": "surface",
+      "observation": "原文的 tinker 指特定制作对象，译文泛化为“物品”；冻结输入缺少术语正文，需确认此处是否必须保留该类别。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/schematics.lua：配方使用说明中 this tinker 指配方对应的蒸汽工具（本库实体类型 tinker→蒸汽工具，existing），现译“该物品”泛化但指代无误、不改变机制，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "009cdc6ea5e410baa396583bd160251da03fce58771db0109dcc1e7419211537",
+      "stage": "surface",
+      "observation": "原文为 frost aura（冰霜光环），译文写成“静水光环”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:205-220：该描述属 WATER_SALVE（Water Salve，本库“静水药剂”），实现给予枯萎/精神/酸性伤害亲和；源文 frost aura 是上游从 FROST_SALVE 复制未改的笔误（FIERY_SALVE 同样写 frost aura），现译“静水光环”与药剂名“静水药剂”一致、贴合实际效果，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0119d5acbce13a020531d1cc695e0e489279d92bab2e7b3bcad46254eb80d389",
+      "stage": "surface",
+      "observation": "原文只说反射光线并给予潜行强度，译文增加“让你直接潜形”，可能误示另有潜形效果。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/avoidance.lua Cloaking Device（隐形装置）：action 施加 EFF_CLOAK（physical.lua:132-144），效果提供 stealth 值且 on_gain 为“#Target# disappears from sight.”，即立即进入潜行；“让你直接潜形”与实现一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "016c0578637966d4868fb172e1a0985b6c01c35a69d27bc90f669d1a2da7c846",
+      "stage": "surface",
+      "observation": "原文说纸条在被时空异常拉入前就已经着火；译文说拉入时才突然着火，颠倒了时间关系。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:150-154 格雷诺特人种调查第 83 章残页：This note had already caught fire when the paradox anomaly pulled it in 是纸条在被时空异常拉过来之前就已着火，现译“拉入……的时候，这张纸条突然着火了”颠倒时间关系；改为“这张纸条在时空异常把它从另一条时间线拉过来时就已经着火了”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "03eccaa921abe22ad2b29db5bf1b28e75574f0e60a631d6fd37f945add506590",
+      "stage": "surface",
+      "observation": "原文“fully absorb any damaging actions”指完全吸收任何造成伤害的行动；译文“吸收伤害”遗漏“完全”和“任何行动”的范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:694-706 SMOKE_COVER（烟雾覆盖）：效果设置 cancel_damage_chance，引擎 class/Actor.lua:2422 按几率整次取消伤害，即 fully absorb any damaging actions；现译“几率吸收伤害”漏“完全”“任何”，可被理解为部分吸收，且与同源 SMOGSCREEN 的本库译文“几率完全吸收任何伤害”（tome-orcs.lua:6570）不一致；改为“%d%% 几率完全吸收任何伤害，%d 潜行强度。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "046aa43c2510d30c8667878eda0d92aa0b451aae54a6f2456b402be4c046b499",
+      "stage": "surface",
+      "observation": "原文“fired a shot”是发射一发，译文“一粒粒弹药”变成多发。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:702-705 Overburst（本库“强力爆裂”，wide barreled steamgun）描述：原文整句带双引号，是广告式引语，fired a shot 是开一枪，与“更好的方法”（扩散枪膛）对照；现译删去外层引号，把 a shot 写成“一粒粒弹药”；改为“「你是否曾朝一群怪物开了一枪，心想‘一定有更好的办法’？现在，办法来了！」”一类写法，保留引号层级。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "05405bd7ea6eef445a2c55d5cbfade9965b647d6c0e81c9191ec3aaeea464b24",
+      "stage": "surface",
+      "observation": "原文明确提到“the Mental Stimulator”，译文只保留强化思考和大脑的描述，遗漏了该物品名称。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/electricity.lua:172-173：这是 Mental Stimulator（本库“精神刺激装置”）自身的 desc，句末品名省略不影响指代与机制，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "05fd1dd2fa05a01bb83b60de8f08b2805b73318ce7283fafcdaaee0b861df1bf",
+      "stage": "surface",
+      "observation": "原文只说储存伤害，译文写成“已格挡伤害”，增加了伤害必须经过格挡的条件；冻结文本不足以确认该条件。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/magnetism.lua:139-160 Capacitor Discharge（电力放出）：callbackOnBlock 以 blocked 值设置 EFF_CAPACITOR_DISCHARGE，“已格挡伤害”与该技能主路径一致；另有 physical.lua:974 以护盾吸收量写入同一效果，故“格挡”略窄于源文 Storing damage，不改变主要机制，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ffc35a3044351694f6dbce2f177c215e1c4b45244ef7889c6f902262004ba23f",
+      "stage": "contextual",
+      "observation": "源文第二段“Damage and cooldowns have a chance to increase or decrease by up to chaotic%”（tome-cults/overload/mod/class/CultsDLC.lua:47，来源未固定）表示伤害和冷却时间只是有几率发生变化，而且变化幅度最多为 chaotic%。译文“伤害和冷却时间将会在 混沌度% 的范围内上下浮动”删掉了“have a chance”，把按几率触发写成了每次必然浮动。第三段“浮动的几率”虽然提到了几率，但无法补救第二段已写成必然的问题。建议改为“伤害和冷却时间有几率上下浮动，幅度最多为 混沌度%”之类的写法。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：CultsDLC.lua:47 与 superload Actor.lua:30-39、125-145，疯狂效果取随机值且为 0 时不改变伤害/冷却，have a chance 为几率；现译删去限定写成必然浮动，改为“有几率上下浮动，幅度最多为 混沌度%”。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "009cdc6ea5e410baa396583bd160251da03fce58771db0109dcc1e7419211537",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/timed_effects/physical.lua:208（WATER_SALVE long_desc，来源未固定）原文为 \"Provides a frost aura\"。译文写成「静水光环」，把 frost（冰霜）换成了「静水」，与原文字面意思不符。应译为「冰霜光环」。其余部分（+%d%% 枯萎、精神和酸性亲和）与原文一致。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "同 surface 裁决：physical.lua:205-220 该条是 WATER_SALVE（本库“静水药剂”），实现给予枯萎/精神/酸性亲和，frost aura 是上游从 FROST_SALVE 复制的笔误（FIERY_SALVE 同样如此）；现译“静水光环”与药剂名“静水药剂”一致、贴合实际效果，改回“冰霜光环”会把上游笔误写进译文，保留。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0119d5acbce13a020531d1cc695e0e489279d92bab2e7b3bcad46254eb80d389",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/talents/steam/avoidance.lua:222-224（来源未固定）原文只说镜子反射光线，\"granting %d stealth power for 10 turns\"。译文多出「让你直接潜形」，等于断言技能会直接让你进入潜行状态，但原文没有这层意思。envelope 只给出 info 片段（:219 仅见 return true），没有冻结 action 代码，无法核实是否会自动潜行。在补充 action 源码证据之前，应删去这句添加，并把「获得 %d 潜行强度，持续 10 回合」接回反射光线那一句。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "宿主补查 envelope 外的 action：avoidance.lua Cloaking Device 的 action 为 setEffect(EFF_CLOAK, 10, {power=getStealth})，physical.lua:132-144 EFF_CLOAK 提供 stealth 且 on_gain 日志为“#Target# disappears from sight.”，即施放即进入潜行；“让你直接潜形”与实现一致。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "016c0578637966d4868fb172e1a0985b6c01c35a69d27bc90f669d1a2da7c846",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/lore/misc.lua:154（来源未固定）原文 \"This note had already caught fire when the paradox anomaly pulled it in\" 的意思是：异常把纸条拉过来时，它已经在燃烧了。译文「拉入……的时候，这张纸条突然着火了」把「已经在烧」改成了「那一刻才突然起火」，时间关系和因果都变了。应译为「时空异常把这张纸条从另一条时间线拉过来时，它就已经着火了」之类。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：misc.lua:154 had already caught fire when … pulled it in 是被拉过来之前就已着火，现译“拉入的时候突然着火”颠倒时间关系。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "03eccaa921abe22ad2b29db5bf1b28e75574f0e60a631d6fd37f945add506590",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/timed_effects/physical.lua:696（SMOKE_COVER，来源未固定）原文 \"%d%% chance to fully absorb any damaging actions\"。译文「%d%% 几率吸收伤害」删掉了 fully（完全）和 any（任何），读起来像是部分减伤，而不是整次伤害完全吸收。应补回「完全吸收任何伤害行为」一类的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：physical.lua:694-706 SMOKE_COVER 的 cancel_damage_chance 按几率整次取消伤害（引擎 class/Actor.lua:2422），现译漏“完全”“任何”，并与 SMOGSCREEN 本库译文“几率完全吸收任何伤害”不一致。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "05fd1dd2fa05a01bb83b60de8f08b2805b73318ce7283fafcdaaee0b861df1bf",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/timed_effects/other.lua:210（CAPACITOR_DISCHARGE，来源未固定）原文只有 \"Storing damage to unleash as a powerful lightning bolt (%d/%d)\"。译文加了「已格挡伤害」和「可累积至上限」，断言储存的是被格挡的伤害，原文并没有这样说。envelope 没有冻结储能来源的代码（给 eff.power 赋值的 talent/callback），这一机制无法核实。缺少该证据时，应按原文译为「正在储存伤害，以强力闪电释放（%d/%d）」。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "宿主补查储能来源：magnetism.lua:139-160 Capacitor Discharge 的 callbackOnBlock 以 blocked 值设置 EFF_CAPACITOR_DISCHARGE，on_merge 取 min(power, max_power) 累积至上限，“已格挡伤害可累积至上限”与该技能主路径一致；physical.lua:974 另有护盾吸收量写入同一效果，“格挡”略窄于 Storing damage，记 advisory。 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (8 lanes: surface-000 four Cults lanes 2/2/2/1; surface-001 four Orcs lanes 19/18/18/18)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 3 entries, contextual-001 Orcs 8 entries; 11 total)"
+  },
+  "notes": [
+    "Mixed Cults+Orcs batch: surface ran as two groups of four lanes (Cults 2/2/2/1, Orcs 19/18/18/18). Every lane echoed its identities exactly; the boundary scan had one false-positive pattern hit ('rm ' inside 'perform'), recorded in the manual audit.",
+    "Two contextual runs (contextual-000 Cults 3 entries, contextual-001 Orcs 8 entries) read only their own envelopes, the contract and the DLC source; no refreeze was needed.",
+    "Implementation-backed confirmations: the insanity damage/cooldown roll can be zero, so the effect is a chance; Smoke Cover uses cancel_damage_chance, which cancels the whole hit.",
+    "Refuted with source beyond the envelope: Cloaking Device applies EFF_CLOAK, which stealths you at once; the Water Salve 'frost aura' is an upstream copy-paste slip and the translation follows the real effect.",
+    "Mixed batch: 7 Cults and 73 Orcs entries each matched the public DLC source file SHA in the workset; source repositories and commits remain unpinned.",
+    "4 confirmed repair revisions raise the window 37 backlog from 5 to 9; below the 20 threshold, so no window opens."
+  ]
+}
