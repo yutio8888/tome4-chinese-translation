@@ -625,7 +625,11 @@ def _evict(directory: Path, keep: str) -> None:
     now = time.time()
     with os.scandir(directory) as entries:
         for entry in entries:
-            status = entry.stat(follow_symlinks=False)
+            try:
+                status = entry.stat(follow_symlinks=False)
+            except FileNotFoundError:
+                # Another publisher renamed its temporary file after scandir listed it.
+                continue
             if not stat.S_ISREG(status.st_mode):
                 continue
             if entry.name.startswith(_TEMP_PREFIX):

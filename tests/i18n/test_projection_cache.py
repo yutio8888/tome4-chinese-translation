@@ -1019,6 +1019,33 @@ class RetentionAndConcurrencyTests(_Fixture):
         self.assertFalse(stale.exists())
         self.assertTrue(fresh.exists())
 
+    def test_eviction_skips_an_entry_renamed_after_listing(self):
+        # A concurrent publisher can os.replace its temporary file between
+        # scandir listing it and the stat of that entry.
+        directory = cache.cache_directory(self.root)
+        self.store()
+        vanished = directory / (cache._TEMP_PREFIX + "vanished")
+        vanished.write_text("x")
+        real_scandir = os.scandir
+
+        class _Listing:
+            def __init__(self, path):
+                self._inner = real_scandir(path)
+
+            def __enter__(self):
+                entries = list(self._inner.__enter__())
+                vanished.unlink()
+                return iter(entries)
+
+            def __exit__(self, *exc):
+                return self._inner.__exit__(*exc)
+
+        keep = self.cached_file().name
+        with mock.patch.object(cache.os, "scandir", _Listing):
+            cache._evict(directory, keep)
+        self.assertFalse(vanished.exists())
+        self.assertIsNotNone(self.load())
+
 
 class HarnessTests(_Fixture):
     def _run(self, mode: str, output: Path, *, check: bool = True) -> subprocess.CompletedProcess:
