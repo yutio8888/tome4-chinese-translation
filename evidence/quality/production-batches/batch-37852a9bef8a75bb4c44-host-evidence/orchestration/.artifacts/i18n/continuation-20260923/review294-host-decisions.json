@@ -1,0 +1,105 @@
+{
+ "workset": "evidence/quality/production-batches/batch-37852a9bef8a75bb4c44-source-workset.json",
+ "decisions": {
+  "460e541e65|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults hooks/bonestaff.lua:87–88 骨杖对话：该选项 cond 为 player.unused_talents < 1，即没有未分配的职业技能点时显示；现译“你没有职业技能点”贴合显示条件，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4691c13e8f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:340–346 南部海岸一节：Now the plains had been replaced by this deadly gauntlet of rock that would certainly kill anyone inside it, and likely anyone who had been living on the plains before the Spellblaze 被误译为“平原已经被这些致命的尖石所碾碎了，这个过程恐怕杀死了里面的所有人，很可能是在魔法大爆炸之前生活在平原上的任何物种”，把“被岩石取代”误作碾碎，并把“很可能也杀死了大爆炸前住在平原上的人”误作同位语。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4746dc3b6f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/misc/races.lua:301–325 Fuel Pain 移除 EFF_INFUSION_COOLDOWN，本库效果名 Infusion Saturation 为“纹身饱和”（mod-tome.lua “Infusion Saturation”），“符文饱和”是 Runic Saturation；改为纹身饱和。“一个纹身”对应 is_inscription，克罗格 forbid_arcane（birth/krog.lua:57）实际只能用纹身，记 advisory 不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "47767e7095|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/disfigured-face.lua:79–84 舔舐 info：源串在疯狂值段前后各有仅含缩进的空行（\\n\\t\\t\\n\\t\\t），现译删去两处，一级换行不变量。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4776d745e5|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:1682–1684 UNRAVEL_EXISTENCE callbackOnTemporaryEffect 只在 e.type == \"magical\" and e.status == \"detrimental\" 时计数；现译“负面魔法效果”贴合实现（源文未写 detrimental），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "486e394548|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults chats/godfeaster-malyu.lua:21–26 消化袋对白：void all your abilities 指能力失效，随后选项只有踢、砍、喊着出去；现译“似乎要耗尽你所有的能力”变成消耗义且改为将来时，改为“似乎让你所有的能力都失效了”一类。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "48e7864693|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults lore/kroshkkur.lua 同条 as far from the surface dwellers as they are from worms：现译“害虫”对 worms 可更贴近为“蠕虫”，比喻结构保留，未改变事实，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "48fdfdd841|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults zones/ft-horrors/grids.lua:80–81 该消息之后执行 m.movement_speed = m.movement_speed + 0.5，守护者实际获得移动速度；现译“移动速度增加”贴合实现（源文写 grow in power），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4a5f6eb59c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua 第4卷第1章标题 Exhaustive Travel：正文讲精疲力竭的长途跋涉（collapsed from exhaustion），现译“穷途末路”意为走投无路，改为“精疲力竭的旅途”一类。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4ab666637c|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:535–549 DISOLVED_FACE 在 on_timeout 每回合造成暗影与按疾病数计的枯萎伤害；现译“每回合”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4ad18d30bc|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:312–330 纳格尔王国帐篷一节：The messengers may have been killed 误作“信使的同伙们可能已经被杀了”（被处决的正是传播者本人）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4d7b7b693c|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:900–912 该日志在 eff.src:alterTalentCoolingdown(tid, - eff.cd) 之后输出，技能实际缩短冷却；现译“冷却时间缩短了”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4f2c79103b|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults superload/mod/dialogs/Birther.lua 购买感谢文本 lashing your tentacle at your foes：lash 为抽打，现译“用触手粉碎你的敌人”改变动作，改为“用触手抽打你的敌人吧！”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4691c13e8f|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:340–346 南部海岸一节：Now the plains had been replaced by this deadly gauntlet of rock that would certainly kill anyone inside it, and likely anyone who had been living on the plains before the Spellblaze 被误译为“平原已经被这些致命的尖石所碾碎了，这个过程恐怕杀死了里面的所有人，很可能是在魔法大爆炸之前生活在平原上的任何物种”，把“被岩石取代”误作碾碎，并把“很可能也杀死了大爆炸前住在平原上的人”误作同位语。 contextual 同指该句，另指 [i] 段 serve as a reminder to the Shaloren 译为“提醒人们”丢失永恒精灵，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4746dc3b6f|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/misc/races.lua:301–325 Fuel Pain 移除 EFF_INFUSION_COOLDOWN，本库效果名 Infusion Saturation 为“纹身饱和”（mod-tome.lua “Infusion Saturation”），“符文饱和”是 Runic Saturation；改为纹身饱和。“一个纹身”对应 is_inscription，克罗格 forbid_arcane（birth/krog.lua:57）实际只能用纹身，记 advisory 不改。 contextual 同指纹身饱和；另指“一个纹身”收窄 inscriptions，宿主按克罗格 forbid_arcane 判 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "47767e7095|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/disfigured-face.lua:79–84 舔舐 info：源串在疯狂值段前后各有仅含缩进的空行（\\n\\t\\t\\n\\t\\t），现译删去两处，一级换行不变量。 contextual 同指两处空行，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4776d745e5|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua:1682–1684 UNRAVEL_EXISTENCE callbackOnTemporaryEffect 只在 e.type == \"magical\" and e.status == \"detrimental\" 时计数；现译“负面魔法效果”贴合实现（源文未写 detrimental），保留。 contextual 称缺少“仅负面效果”证据；宿主已查 callbackOnTemporaryEffect 过滤条件，按实现判 refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "486e394548|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults chats/godfeaster-malyu.lua:21–26 消化袋对白：void all your abilities 指能力失效，随后选项只有踢、砍、喊着出去；现译“似乎要耗尽你所有的能力”变成消耗义且改为将来时，改为“似乎让你所有的能力都失效了”一类。 contextual 同指 void 失真并指出“要”字改为将来，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4a5f6eb59c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua 第4卷第1章标题 Exhaustive Travel：正文讲精疲力竭的长途跋涉（collapsed from exhaustion），现译“穷途末路”意为走投无路，改为“精疲力竭的旅途”一类。 contextual 同指标题，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4ad18d30bc|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults lore/fay-willows.lua:312–330 纳格尔王国帐篷一节：The messengers may have been killed 误作“信使的同伙们可能已经被杀了”（被处决的正是传播者本人）。 contextual 同指信使，另指 not have the stomach for it（受不了）直译“没有胃口”、trailed off（话音渐弱）误作“拖着脚步”、random people 误作“无辜的人”、twist nature to their whims 误作“突发奇想”，宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}
