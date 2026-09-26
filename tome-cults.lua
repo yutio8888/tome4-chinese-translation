@@ -14,7 +14,7 @@ t("Win without having saved Kroshkkur, Derth, the lost merchant, Melinda and lad
 t("Sequence Master", "序列大师", "achievement name")
 t("Use 5 different glyph sequences.", "使用5种不同的符文序列。", "_t")
 t("Is that how it feels to be an escort quest?!", "这就是被护送的感受么？！", "achievement name")
-t("Got saved from death in the Godfeaster by Malyu and managed to escape.", "被马虑护送离开巨大蠕虫噬神者。", "_t")
+t("Got saved from death in the Godfeaster by Malyu and managed to escape.", "在噬神者中被马虑从死亡边缘救下，并成功逃脱。", "_t")
 t("Not Really Yourself", "并非自我", "achievement name")
 t("Let a parasitic horror take over your body and watch it grow in power.", "让寄生恐魔占据身体，日渐强大。", "_t")
 t("Myths of an age past", "神代奥秘", "achievement name")
@@ -915,27 +915,27 @@ It is a vague hope, but I hope in my heart of hearts that this place will finall
 
 尽管这只是一个模糊的愿望，但我内心深处希望，这个地方会给我最终的答案，有关我一直在寻找的，矮人和德瑞姆的起源的答案。]], "_t")
 t("our origins (3)", "我们的起源 (3)", "_t")
-t("The exploration of the cavity has been interesting, to say the least. At its very centre, we discovered a strange, egg-shaped structure. It's made out of some sort of metal which I have not seen before. Despite being covered in layers of ancient dust, the metal was untarnished and showed no noticeable signs of decay. It was highly resistant to damage, as our attempts to cut through it were met with failure, even when we employed magical means. There was a notable dent in its side, something which could have only been caused by a tremendous amount of force.\n\nThere was a passage way leading into the egg, which I volunteered to step through first. The inside of the egg was stranger still. There were dozens of metal tubes which covered the ceiling. Even as I stood there, I could hear the sound of some liquid pouring through them. The walls were covered in blinking lights and yet more metallic objects which I could not make sense of. It is obvious that the egg was some sort of massive machine. I cannot understand how it works or how it was made, though. There is no magic that I can sense, so this machine must rely entirely on mechanical means to function. No race that I know of has the knowledge to build such a thing. I could only imagine what sort of genius could design such a thing, let alone build it. \n\nMost interesting of all is that the egg has a thin layer of void energy over its entire surface. Us Drem are familiar with such energies, as we have dedicated much of our study to the otherworldly. The even spread of these energies suggests that this egg was completely bathed in them at some point. I do not know what circumstances could have lead to this, for such a concentration of these energies simply couldn't exist on Eyal. Not without causing a violent explosion, at least. We have done such experiments before.\n\nGoing deeper inside it, I began to notice that there were a number of glass pipes, wide enough for one of our party to fit in with room to spare. The metallic tubes above me fed into these pipes and pumped some sort of greenish liquid. I had planned to take a closer look, but it was then that we were set upon.\n\nA number of things came crawling out from the dark. Us Drem are rather accustomed to sudden violence, so we tore into them before we could get a clear view of them. We sustained a few minor injuries, but the real shock came after we got a closer look at our attackers. They appeared to be some strange cross between dwarf, drem and something else, yet possessing a strangely child-like body. I imagine the jagged, razor sharp teeth aren't entirely natural either. We were not to be deterred, however. Surface folk may be shocked by such a creature, but we have seen far more sinister things down here.\n\nWe had to cut through dozens of them, maybe hundreds of them, in our journey through the egg. There was obviously a source of these things, and their vague resemblance to us spurned me to keep fighting. We eventually came to a chamber which I guessed was the centre of the egg. We found the source of our tormentors. Some great machine, which connected with dozens of glass tubes, appeared to have a malignant growth attached to it. The creatures were being spat out of broken tubes, rapidly growing to their full size and rushing toward us. Each creature varied from looking like a half formed dwarf, drem or some sort of bizarre, tentacled horror.\n\nIn the end, we eventually broke the pipes leading into the glass tubes and the creatures stopped coming out. That liquid must have been some sort of substance to nourish those creatures. Without that liquid, only feeble and half formed fetuses crawled out.\n\nBut that was only one machine that was making them. We ended up sealing off the chamber as best as we could, but we can hear more of them coming. One of the creatures latched onto my arm during the fight as well. It has infected me with some virulent disease, making my flesh wither away and turned into dried leather.\n\nThere is no misunderstanding our fate. We lost many Drem in the fight, and I am not the only one who has been infected with this disease. We are going to die in this room. But, I am content with this fate. I have worked out the truth of our origins.\n\nWe wandered into the back of the room where there were yet more tubes. To my surprise, these tubes contained fully formed bodies. A dwarf, complete with a long beard, floated inside the tube. He seemed to twitch like he was in the middle of a dream. As we went further and further down, we found yet more dwarves sleeping inside tubes. But, what we noticed was how with each dwarf, they continued to become more and more malformed. Eventually, we reached the final tube and we found a faceless dwarf inside. In other words, a Drem.\n\nThis egg has to be where we came from. This machine was built to create dwarves. I do not understand the process, but I have seen the outcome for myself. It is us Drem that are the anomaly, the dysfunctional byproduct of this machine's disrepair. Feral Drem must have emerged from this egg and ventured into the underground, where they then multiplied independently of the egg. These mutant fetuses must be the result of further disrepair and corruption, judging by the black growth which engulfs the machine in this room.\n\nSo, I know now. Even if this discovery never leaves this room, I can die content. Even if I am the product of a broken piece of machinery, I am happy that I had a chance to witness this moment. If you find these notes, please bring them back to my fellow Drem. I am sure they would be happy to know the truth too.", [[可以说，对洞窟的探索很有意思。在它的中心，我们发现了一个奇怪的蛋形结构。它是由某种我以前没有见过的金属制成的。尽管蛋上覆盖着一层尘土，显示它的历史十分古老，金属却未被破坏，也没有明显的腐蚀迹象。它对各种伤害有很高的抵抗力，即使我们使用魔法手段也没法刺穿它。它的侧面有明显的凹痕，考虑到它卓越的防御力，这个凹痕只有可能是由巨大的力量造成的。
+t("The exploration of the cavity has been interesting, to say the least. At its very centre, we discovered a strange, egg-shaped structure. It's made out of some sort of metal which I have not seen before. Despite being covered in layers of ancient dust, the metal was untarnished and showed no noticeable signs of decay. It was highly resistant to damage, as our attempts to cut through it were met with failure, even when we employed magical means. There was a notable dent in its side, something which could have only been caused by a tremendous amount of force.\n\nThere was a passage way leading into the egg, which I volunteered to step through first. The inside of the egg was stranger still. There were dozens of metal tubes which covered the ceiling. Even as I stood there, I could hear the sound of some liquid pouring through them. The walls were covered in blinking lights and yet more metallic objects which I could not make sense of. It is obvious that the egg was some sort of massive machine. I cannot understand how it works or how it was made, though. There is no magic that I can sense, so this machine must rely entirely on mechanical means to function. No race that I know of has the knowledge to build such a thing. I could only imagine what sort of genius could design such a thing, let alone build it. \n\nMost interesting of all is that the egg has a thin layer of void energy over its entire surface. Us Drem are familiar with such energies, as we have dedicated much of our study to the otherworldly. The even spread of these energies suggests that this egg was completely bathed in them at some point. I do not know what circumstances could have lead to this, for such a concentration of these energies simply couldn't exist on Eyal. Not without causing a violent explosion, at least. We have done such experiments before.\n\nGoing deeper inside it, I began to notice that there were a number of glass pipes, wide enough for one of our party to fit in with room to spare. The metallic tubes above me fed into these pipes and pumped some sort of greenish liquid. I had planned to take a closer look, but it was then that we were set upon.\n\nA number of things came crawling out from the dark. Us Drem are rather accustomed to sudden violence, so we tore into them before we could get a clear view of them. We sustained a few minor injuries, but the real shock came after we got a closer look at our attackers. They appeared to be some strange cross between dwarf, drem and something else, yet possessing a strangely child-like body. I imagine the jagged, razor sharp teeth aren't entirely natural either. We were not to be deterred, however. Surface folk may be shocked by such a creature, but we have seen far more sinister things down here.\n\nWe had to cut through dozens of them, maybe hundreds of them, in our journey through the egg. There was obviously a source of these things, and their vague resemblance to us spurned me to keep fighting. We eventually came to a chamber which I guessed was the centre of the egg. We found the source of our tormentors. Some great machine, which connected with dozens of glass tubes, appeared to have a malignant growth attached to it. The creatures were being spat out of broken tubes, rapidly growing to their full size and rushing toward us. Each creature varied from looking like a half formed dwarf, drem or some sort of bizarre, tentacled horror.\n\nIn the end, we eventually broke the pipes leading into the glass tubes and the creatures stopped coming out. That liquid must have been some sort of substance to nourish those creatures. Without that liquid, only feeble and half formed fetuses crawled out.\n\nBut that was only one machine that was making them. We ended up sealing off the chamber as best as we could, but we can hear more of them coming. One of the creatures latched onto my arm during the fight as well. It has infected me with some virulent disease, making my flesh wither away and turned into dried leather.\n\nThere is no misunderstanding our fate. We lost many Drem in the fight, and I am not the only one who has been infected with this disease. We are going to die in this room. But, I am content with this fate. I have worked out the truth of our origins.\n\nWe wandered into the back of the room where there were yet more tubes. To my surprise, these tubes contained fully formed bodies. A dwarf, complete with a long beard, floated inside the tube. He seemed to twitch like he was in the middle of a dream. As we went further and further down, we found yet more dwarves sleeping inside tubes. But, what we noticed was how with each dwarf, they continued to become more and more malformed. Eventually, we reached the final tube and we found a faceless dwarf inside. In other words, a Drem.\n\nThis egg has to be where we came from. This machine was built to create dwarves. I do not understand the process, but I have seen the outcome for myself. It is us Drem that are the anomaly, the dysfunctional byproduct of this machine's disrepair. Feral Drem must have emerged from this egg and ventured into the underground, where they then multiplied independently of the egg. These mutant fetuses must be the result of further disrepair and corruption, judging by the black growth which engulfs the machine in this room.\n\nSo, I know now. Even if this discovery never leaves this room, I can die content. Even if I am the product of a broken piece of machinery, I am happy that I had a chance to witness this moment. If you find these notes, please bring them back to my fellow Drem. I am sure they would be happy to know the truth too.", [[可以说，对洞窟的探索很有意思。在它的中心，我们发现了一个奇怪的蛋形结构。它是由某种我以前没有见过的金属制成的。尽管蛋上覆盖着一层尘土，显示它的历史十分古老，金属却未被破坏，也没有明显的腐蚀迹象。它对各种伤害有很高的抵抗力，即使我们使用魔法手段也没法刺穿它。它的侧面有明显的凹痕，这个凹痕只有可能是由巨大的力量造成的。
 
 在蛋的外部，有一条通往蛋形结构的通道，我自愿第一个踏入那里。蛋形结构的内部更加陌生。天花板上覆盖着几十根的金属管道，站在管道下，我能听到液体从管道中流过的声音。墙上覆盖着闪烁的灯光，还有更多我无法理解的金属物体。很明显，这个巨蛋是一种巨大的机器。不过，我既不知道它是如何工作的，也不知道它是怎么被制造出来的。我没有感觉到任何魔法的气息，所以这台机器一定是完全依靠机械手段来运作的。我所知道的任何种族都没有建立这样的东西的知识。我不知道到底是什么样的天才可以设计出这样的东西，更不知道谁有能力建造这样的庞然大物。
 
-最有趣的是，巨蛋的整个表面都有覆盖着一层薄薄的虚空能量。我们德瑞姆熟悉这种能量，因为我们研究的主要方向就是异世界。这些能量在巨蛋的外侧均匀散布，表明在某个时刻，这个蛋被这种能量完全沐浴了。我不知道在什么情况下可能会导致这种情况，因为这些能量根本不可能存在于埃亚尔集中出现，否则一定会引起剧烈的爆炸。我们之前做过这样的实验。
+最有趣的是，巨蛋的整个表面都有覆盖着一层薄薄的虚空能量。我们德瑞姆熟悉这种能量，因为我们研究的主要方向就是异世界。这些能量在巨蛋的外侧均匀散布，表明在某个时刻，这个蛋被这种能量完全沐浴了。我不知道在什么情况下可能会导致这种情况，因为如此高度集中的能量根本不可能存在于埃亚尔，至少不可能不引起剧烈爆炸。我们之前做过这样的实验。
 
-进一步深入它，我开始注意到有很多玻璃管，管径很宽，足够让我们的一个小队在里面行走。上方的金属管连入了这些管道，泵进了某种绿色液体。我们本来打算靠近仔细观察一下，但是那时我们突然被袭击了。
+进一步深入它，我开始注意到有很多玻璃管，管径很宽，足以让我们队伍中的一个人进入后仍有余裕。上方的金属管连入了这些管道，泵进了某种绿色液体。我们本来打算靠近仔细观察一下，但是那时我们突然被袭击了。
 
-一些东西从黑暗中爬了出来。我们德瑞姆习惯于应对突如其来的暴力行为。因此，我们还没来得及看清楚袭击者的面容之前，就本能地把他们撕成了碎片。我们只遭受了轻微损伤，但在我们仔细观察了袭击者之后，我们深深被震惊了。它们似乎是矮人，德瑞姆或是其他生物之间的一种奇异的杂交，但却拥有一个奇怪的孩子般的身体。它们有着锯齿状的锋利的牙齿，显得十分不自然。地面上的人可能会被这样的生物震惊，然而，我们不会被吓倒，因为我们曾经见到过无数更加险恶的东西。
+一些东西从黑暗中爬了出来。我们德瑞姆习惯于应对突如其来的暴力行为。因此，我们还没来得及看清楚袭击者的面容之前，就本能地把他们撕成了碎片。我们只遭受了轻微损伤，但在我们仔细观察了袭击者之后，我们深深被震惊了。它们似乎是矮人，德瑞姆或是其他生物之间的一种奇异的杂交，但却拥有一个奇怪的孩子般的身体。我想，它们锯齿状的锋利牙齿恐怕也不完全是天生的。地面上的人可能会被这样的生物震惊，然而，我们不会被吓倒，因为我们曾经见到过无数更加险恶的东西。
 
-在我们在巨蛋中探索时，我们不得不打倒了几十个，乃至上百个这种怪物。显然，这里就是这些怪物的来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个小房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一些巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。破碎的管子不断吐出这些怪物，迅速成长成完整的大小，然后向我们冲来。这些怪物看起来像是半成型的矮人，德瑞姆，以及某种奇异的，长着触手的恐魔。
+在我们在巨蛋中探索时，我们不得不打倒了几十个，乃至上百个这种怪物。显然，这些怪物有一个来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个小房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一台巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。破碎的管子不断吐出这些怪物，迅速成长成完整的大小，然后向我们冲来。这些怪物看起来像是半成型的矮人，德瑞姆，以及某种奇异的，长着触手的恐魔。
 
-我们打破了通往玻璃管的管道，不再有怪物从里面出来了。那些液体肯定是滋养这些怪物的物质，失去了那种液体，里面跑出来的只有一些虚弱的、不成型的生命体。
+我们打破了通往玻璃管的管道，不再有怪物从里面出来了。那些液体肯定是滋养这些怪物的物质，失去了那种液体，里面跑出来的只有一些虚弱的、发育不全的胎儿。
 
-但我们只是关闭了一台机器而已。我们尽可能地封闭了房间，但我们可以听到更多怪物袭来的声音。在激烈的战斗中，其中一个生物在我的手臂上咬了一口。它传染给了我一种致命的疾病，使我的肌肉萎缩，看起来如同晒干的皮革一般。
+但我们只是关闭了一台机器而已。我们尽可能地封闭了房间，但我们可以听到更多怪物袭来的声音。在激烈的战斗中，其中一个生物死死缠住了我的手臂。它传染给了我一种致命的疾病，使我的肌肉萎缩，看起来如同晒干的皮革一般。
 
-我们清楚地了解了自己的命运。我们在战斗中失去了很多同胞，其他人也都感染了这种可怕的疾病。我们即将在这个房间里死去。但是，我们面对着即将到来的死亡命运，却只感到充实和满足，因为我已经弄清了有关我们起源的真相。
+我们清楚地了解了自己的命运。我们在战斗中失去了很多同胞，感染这种疾病的人并非只有我一个。我们即将在这个房间里死去。但是，我接受了这样的命运，因为我已经弄清了有关我们起源的真相。
 
 我们徘徊到那些还有更多管子的房间里面。令我惊讶的是，管子里是完全成形的生命体。一个留着长胡须的矮人漂浮在管内。他的身体轻轻抽动，仿佛正在梦中。我们越走越远，发现更多矮人睡在管子中，也同时注意到，随着我们继续前进，那些矮人也变得越来越畸形。最终，我们到达了最后一个管子，我们发现里面有一个无脸的矮人——换句话说，一个德瑞姆。
 
-这个巨蛋就是我们的起源。这台机器是为了创造矮人而建造的。我并不了解这个制造的详细过程，但我已经明白了结果。我们德瑞姆一族，是一种异常，是这台年久失修的机器功能失调的副产品。原生的德瑞姆一定是从这个巨蛋中出生的。他们离开创造自己的巨蛋独自生活，冒险进入地下，开始繁衍生息。这些突变的胎儿，一定是这台机器因为年久失修而进一步退化的结果，正如我们在这些机器上看到的，吞噬着这些机器的黑色怪物一样。
+这个巨蛋就是我们的起源。这台机器是为了创造矮人而建造的。我并不了解这个制造的详细过程，但我已经明白了结果。我们德瑞姆一族，是一种异常，是这台年久失修的机器功能失调的副产品。野生德瑞姆一定是从这个巨蛋中出生的。他们离开创造自己的巨蛋独自生活，冒险进入地下，开始繁衍生息。从房间里包覆着机器的黑色生长物来看，这些突变的胎儿一定是机器进一步失修和腐化的结果。
 
 所以，我现在知道了一切。即使我们的发现也许会永远留在这个房间里，我也可以死得其所。虽然我们是这台机器的故障的产物，但是我还是很高兴，有机会亲眼见证这一刻。如果你找到这些笔记，请把它们带回给我的德瑞姆同胞。我相信他们会很乐意知道真相。]], "_t")
 t("strange picture", "奇怪的图片", "_t")
@@ -1650,23 +1650,23 @@ The commander and strategist then approached from behind one of the buildings. T
 
 After a little while of searching through the nearby buildings I noticed a trapdoor with a rusty lock. Breaking it and descending a ladder I found a cellar, untouched since the time the original shaloren inhabitants had lived here. I found several bottles of wine as well as some old vegetables and dried fruit. I brushed away some cobwebs from a nearby chair and table to eat my fill, before carrying a bundle of vegetables and fruit back to the ogres campsite. The commander was already assembling the other ogres, and I could see that a couple of recently killed carcasses slung on their shoulders. Seeing me carrying food, the commander and strategist came over to help take the load and ask where I had found it.
 
-I relayed to them the location of the cellar which I had found and its contents. The commander, while interested in acquiring food, was quite disinterested in the fact that it was located in a shaloren cellar. Concerned with the time it would take to bring it up, he noted that an ogre wouldn't be able to easily fit through any of the doors in the settlement here, let alone a trap door to one of the cellars. The strategist though noted that I had fit through and insisted that we take the food to ensure that there was enough to eat for the remainder of our journey. The commander was hesitant at staying any longer but consented. After spending another hour I was able to bring up all the food before we continued on towards Elvala.   ]], [[[i]食人魔的忍耐力是相当惊人的。当我筋疲力尽的时候，那些食人魔们仍然坚持着，设法保持清醒，直到我们到达一个废弃的定居点。尤其是当许多食人魔和我一起设法获得了一些睡眠时，指挥官和战略家在前往埃尔瓦拉的路程中一直保持清醒，直到到达目的地才最终因精疲力竭而崩溃。我真的不相信其他种族能保持清醒那么长时间，更不用说保持活跃的思维了。[/i]
+I relayed to them the location of the cellar which I had found and its contents. The commander, while interested in acquiring food, was quite disinterested in the fact that it was located in a shaloren cellar. Concerned with the time it would take to bring it up, he noted that an ogre wouldn't be able to easily fit through any of the doors in the settlement here, let alone a trap door to one of the cellars. The strategist though noted that I had fit through and insisted that we take the food to ensure that there was enough to eat for the remainder of our journey. The commander was hesitant at staying any longer but consented. After spending another hour I was able to bring up all the food before we continued on towards Elvala.   ]], [[[i]食人魔的忍耐力是相当惊人的。当我因精疲力竭而倒下时，那些食人魔们仍然坚持着，设法保持清醒，直到我们到达一个废弃的定居点。尤其是当许多食人魔和我一起设法获得了一些睡眠时，指挥官和战略家在前往埃尔瓦拉的路程中一直保持清醒，直到到达目的地才最终因精疲力竭而崩溃。我真的不相信其他种族能保持清醒那么长时间，更不用说还能一直行动了。[/i]
 
-我不知道我在那可怕的海岸线上呆了多久，也许几天，甚至一个星期。当我们继续前往纳格尔土地以南的地区时，我很高兴再次看到一些绿色植物和活生生的自然景观。我在天空的自然阳光下晒了一会儿，才感觉到肚子里的隆隆声，以及跑了那么久的疲惫感。食人魔表面看起来一点也不累也不饿，但经过了这么长时间的旅行，我觉得这恐怕不是真的。我伸手去拿背包，拿出食物放在地上，几乎立刻就注意到食人魔们饥饿的目光。
+我不知道我在那可怕的海岸线上呆了多久，也许几天，甚至一个星期。当我们继续前往纳格尔土地以南的地区时，我很高兴再次看到一些绿色植物和活生生的自然景观。我在天空的自然阳光下晒了一会儿，才感觉到肚子里的隆隆声，以及跑了那么久的疲惫感。食人魔表面看起来一点也不累也不饿，但经过了这么长时间的旅行，我怀疑事实是否真的如此。我伸手去拿背包，拿出食物放在地上，几乎立刻就注意到食人魔们饥饿的目光。
 
-你见过饥饿的食人魔吗？他们会在一瞬间吃掉面前的任何食物。我几乎没来得及让开，他们就聚拢在一起吃那些他们看来如此美味的食物。当我下一次回头看的时候，我注意到我已经准备好的东西都不见了，食人魔们正在我的背包里翻来翻去，看能不能找到更多。在找不到任何东西之后，他们又一次露出一副彬彬有礼的样子。司令官起身来感谢我的食物，请我原谅他自己和其他人的过分急切。这对我自己的饥饿没有任何帮助，但我很高兴他们满足地填饱肚子的样子。
+你见过饥饿的食人魔吗？他们会在一瞬间吃掉面前的任何食物。我几乎没来得及让开，他们就聚拢在一起吃那些他们看来如此美味的食物。当我下一次回头看的时候，我注意到我已经准备好的东西都不见了，食人魔们正在我的背包里翻来翻去，看能不能找到更多。在找不到任何东西之后，他们又一次露出一副彬彬有礼的样子。指挥官起身来感谢我的食物，请我原谅他自己和其他人的过分急切。这对我自己的饥饿没有任何帮助，但我很高兴他们满足地填饱肚子的样子。
 
-战略家从后面走过来，手里拿着我包里的一份口粮，想要拿给我吃。我立刻就把它抢走，狼吞虎咽地吃了下去。这份食物已经被咬了一半，但考虑到我有多饿，我真的不在乎。司令官和战略家似乎都在笑。当他们恢复平静的时候，尽管我可以看到，对真实情况的严峻的担忧，又悄悄地出现在他们的脸上。我又一次看到，当指挥官朝南部海岸线方向看去时，脸上出现了深蓝色的光芒。“有他们的迹象吗？”战略家问道。“不，但这并不意味着我们是安全的，”指挥官回答。
+战略家从后面走过来，手里拿着我包里的一份口粮，想要拿给我吃。我立刻就把它抢走，狼吞虎咽地吃了下去。这份食物已经被咬了一半，但考虑到我有多饿，我真的不在乎。指挥官和战略家似乎都在笑。当他们恢复平静的时候，尽管我可以看到，对真实情况的严峻的担忧，又悄悄地出现在他们的脸上。我又一次看到，当指挥官朝南部海岸线方向看去时，眼睛上出现了深蓝色的光芒。“有他们的迹象吗？”战略家问道。“不，但这并不意味着我们是安全的，”指挥官回答。
 
-之后的事情我就不记得了。我记得司令官和战略家曾交谈过一段时间，但很明显，在他们的谈话中，我睡着了。当我醒来的时候，我就在篝火旁的一堆床垫上和几个食人魔睡在一起。在火的上方正用杆子插着烤着一只狼，看到我醒了，负责转动烤肉叉的食人魔喊道我醒了。环顾四周，我注意到几只食人魔正酣睡在各种临时床上和椅子上，从地上成堆的草到靠墙支撑的桌子，应有尽有。我发现，我们现在在一个废弃的永恒精灵定居点，我不知道在我睡着的过程中，他们在外面呆了多久，后来发生了什么。
+之后的事情我就不记得了。我记得指挥官和战略家曾交谈过一段时间，但很明显，在他们的谈话中，我睡着了。当我醒来的时候，我就在篝火旁的一堆床垫上和几个食人魔睡在一起。在火的上方正用杆子插着烤着一只狼，看到我醒了，负责转动烤肉叉的食人魔喊道我醒了。环顾四周，我注意到几只食人魔正酣睡在各种临时床上和椅子上，从地上成堆的草到靠墙支撑的桌子，应有尽有。我发现，我们现在在一个废弃的永恒精灵定居点，这让我想知道自己昏迷了多久，以及期间发生了什么。
 
 指挥官和战略家随后从其中一座建筑后面靠近。战略家喊道：“你怎么样，自然精灵？你休息得好吗？”我醒来时有点昏昏欲睡，但我回答说：“等我们到了埃尔瓦拉，我会好好休息的。发生了什么事？”对此，我收到了一个简短的消息，说我们到达了永恒精灵领地的郊区，在我倒下后，食人魔把我带到了这里。我不时地从后面看到指挥官拿着他的视野符文朝各个方向望去，仍然在寻找任何追兵。这位战略家注意到，似乎有狂热者的侦察兵一直在跟踪我们，但一直在远处徘徊。
 
-“我们不能在这里逗留下去了。”战略家评论道。看着战略家，我问道：“我们下一步什么时候出发？”战略家还没来得及回答，司令官就从他身后发出沉闷的声音：“等你吃了点东西之后。”我从司令官的面部表情可以看出，他是在暗示在篝火上挂着的烧肉。我对这个想法有点反感，所以告诉他们我会自己去找食物。说完这句话后，司令官看了我一眼，停顿了一会儿，但他叹了口气，告诉我“快点”，然后转身离开，继续把熟睡的食人魔从睡梦中唤醒。
+“我们不能在这里逗留下去了。”战略家评论道。看着战略家，我问道：“我们下一步什么时候出发？”战略家还没来得及回答，指挥官就在他身后用洪亮的声音说道：“等你吃了点东西之后。”我从指挥官的面部表情可以看出，他是在暗示在篝火上挂着的烧肉。我对这个想法有点反感，所以告诉他们我会自己去找食物。说完这句话后，指挥官看了我一眼，停顿了一会儿，但他叹了口气，告诉我“快点”，然后转身离开，继续把熟睡的食人魔从睡梦中唤醒。
 
-在附近的建筑物里搜寻了一会儿后，我注意到一个锁生锈了的活板门。我打破了它，从梯子上下来，发现了一个地窖，自原先的永恒精灵居民居住于此以来一直未被触动。我发现了几瓶酒，还有一些老蔬菜和干果。我从旁边的椅子和桌子上擦去一些蜘蛛网，吃掉了它们，然后把一捆蔬菜和水果带回食人魔营地。指挥官已经在集合其他的食人魔了，我可以看到一些最近被杀死的动物尸体挂在他们的肩膀上。司令官和战略家看见我提着食物，就过来帮忙拿东西，问我在哪里找到的。
+在附近的建筑物里搜寻了一会儿后，我注意到一个锁生锈了的活板门。我打破了它，从梯子上下来，发现了一个地窖，自原先的永恒精灵居民居住于此以来一直未被触动。我发现了几瓶酒，还有一些老蔬菜和干果。我拂去附近椅子和桌子上的蜘蛛网，坐下来饱餐一顿，然后把一捆蔬菜和水果带回食人魔营地。指挥官已经在集合其他的食人魔了，我可以看到一些最近被杀死的动物尸体挂在他们的肩膀上。指挥官和战略家看见我提着食物，就过来帮忙拿东西，问我在哪里找到的。
 
-我把找到的地窖的位置和里面的东西转告他们。指挥官虽然对获得食物感兴趣，但对它位于永恒精灵地窖一事却相当不感兴趣。考虑到要花多长时间才能把它提出来，他注意到，一个食人魔没法轻易地穿过这里的任何一扇门，更不用说一个地窖的活板门了。不过，这位战略家注意到我能够通过那扇门，坚持要我们带上食物，以确保剩下的旅程有足够的食物吃。司令官迟疑不肯再留下来，但最终还是同意了。又过了一个小时，我把所有的食物都端上来，然后我们继续朝埃尔瓦拉走去。]], "_t")
+我把找到的地窖的位置和里面的东西转告他们。指挥官虽然对获得食物感兴趣，但对它位于永恒精灵地窖一事却相当不感兴趣。考虑到要花多长时间才能把它提出来，他注意到，一个食人魔没法轻易地穿过这里的任何一扇门，更不用说一个地窖的活板门了。不过，这位战略家注意到我能够通过那扇门，坚持要我们带上食物，以确保剩下的旅程有足够的食物吃。指挥官迟疑不肯再留下来，但最终还是同意了。又过了一个小时，我把所有的食物都端上来，然后我们继续朝埃尔瓦拉走去。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 2] - Seeking Sanctuary", "菲·维莉欧斯的冒险 [第4卷，第2章] - 寻求庇护", "_t")
 t([[[i]I want to emphasize that I come from a society where there is little if any practiced magic, let alone any products of it such as runes. While there were thalore who could use magic, their knowledge was self-taught and done in secret; not to mention that thaloren users of magic were generally ostracized from the rest of the community, if not exiled from Thaloren lands. Even now I still don't know much about the inner workings of the Rune of Return that is grafted to me, though I am working to learn the basics of runes and the greater subject of the arcane forces behind them.[/i]
 
@@ -1686,7 +1686,7 @@ Then from behind me came a voice, "What is this about ogres?" I turned around to
 
 Approaching the guards to communicate something, their bewildered faces quickly became somewhat distressed both by the actions and words of the shalore woman. I don't know what the mage had said, but it seemed as if the guards were almost pleading with the young shaloren woman about something. Eventually she called for me to follow her and began to move in the direction I had come when I entered the city with the Rune of Return. I could tell that this shalore seemed to have some plan in mind, perhaps one that would allow the ogres passage into the city. Before turning to follow her, I noticed the two guards murmer something to each other before one of them rushed inside the building. The other seemed to look at worriedly in the direction of me and the mage as we walked away.]], [[[i]我想强调的是，我来自一个几乎没有任何魔法实践的社会，更不用说像符文这样的魔法产品了。虽然有自然精灵可以使用魔法，但他们的知识是自学的，秘密地做；更不用说，使用魔法的自然精灵通常会被社区的其他成员排斥，乃至被赶出自然精灵的领土。即使是现在，我仍然不太了解移植到我身上的返回符文的内部运作，尽管我正在努力学习符文的基本知识和背后的奥术力量的更大主题。[/i]
 
-我们继续深入到永恒精灵的领土，狂热分子的侦察兵继续跟踪我们，但总是小心翼翼地保持距离，决不走得太近。再过几天我们才能到达埃尔瓦拉帷幕的边缘，在移动到我第一次穿过迷雾之墙进入城市的地方之后，我把手伸进背包，找回了很久以前收到的返回符文。我伸出一只手把它交给了食人魔指挥官。我本以为他会接受的，但他只是点了点头，并指出：“一个返回符文。”片刻之后，我仍然站着伸出手保持着刚才的动作，指挥官似乎和我一样困惑我们的互动。直到这位战略家最后插嘴说：“你根本不知道你持有的那个符文是怎么运作的，是吗？”
+我们继续深入到永恒精灵的领土，狂热分子的侦察兵继续跟踪我们，但总是小心翼翼地保持距离，决不走得太近。再过几天我们才能到达埃尔瓦拉帷幕的边缘，在移动到我第一次穿过迷雾之墙进入城市的地方之后，我把手伸进背包，找回了很久以前收到的返回符文。我伸出手，把它递向食人魔指挥官。我本以为他会接受的，但他只是点了点头，并指出：“一个返回符文。”片刻之后，我仍然站着伸出手保持着刚才的动作，指挥官似乎和我一样困惑我们的互动。直到这位战略家最后插嘴说：“你根本不知道你持有的那个符文是怎么运作的，是吗？”
 
 这时，指挥官在意识到情况后眨了眨眼，然后说：“对，你完全是一个新手。”我可以感觉到我脸上的茫然表情，而食人魔似乎意识到了这一点。“到这里来，自然精灵，”一个声音喊道。我转过头去看是谁在叫我，然后注意到是一个我之前帮助过的女食人魔，“让我们看看你得到的符文。”我有点困惑，但还是走了过去，拿出了符文。她一只手拿着，继续检查了一下符文，然后把它还给我。“对，”食人魔开始说，“这个符文是和你结合在一起的，所以只有你才能把它刻在身上。完成后，你可以用符文进入埃尔瓦拉并为我们请求进入的权限。”
 
@@ -1694,13 +1694,13 @@ Approaching the guards to communicate something, their bewildered faces quickly 
 
 “就这样，结束了。”食人魔对她的工作很满意，绕着我转了一圈，把她的手放在我的肩膀上：“你要做的就是通过这个关卡，向他们提出让我们进入的要求。自然精灵，在我告诉你如何激活符文之前，你要知道，我们感谢你帮助我们走到这一步。如果不是你，我——我们食人魔……我们很可能都死了。”我看到那食人魔脸上的泪水开始往下流，她继续说，“看来我们的生命又一次掌握在你手中了……我希望你能说服永恒精灵人让我们进去，但即使你不能，我也要感谢你，我们都要感谢你。”在我周围，其他食人魔也纷纷低下头来。
 
-我微笑着回答道：“我相信你们会被接纳的，告诉我，我需要做什么。”她抬起头，擦去脸上的泪水，我开始了激活符文的过程。我庄严地点头，然后亲自完成了这些步骤。不一会儿，我的周围环境完全改变了，因为我能听到周围永恒精灵的喧闹声。我能感觉到我脖子上刻着符文的地方有一种沉重的感觉，但除此之外，我没有感觉到什么不同。有几个永恒精灵转向我的方向，似乎对我的进入感到惊讶，尽管没有我想象的那么多。其中一个永恒精灵很快喊道：“你就是那个从前帮助我们的自然精灵？欢迎回来！”
+我微笑着回答道：“我相信你们会被接纳的，告诉我，我需要做什么。”她抬起头，擦去脸上的泪水，她一步步指导我如何激活符文。我庄严地点头，然后亲自完成了这些步骤。不一会儿，我的周围环境完全改变了，因为我能听到周围永恒精灵的喧闹声。我能感觉到我脖子上刻着符文的地方有一种沉重的感觉，但除此之外，我没有感觉到什么不同。有几个永恒精灵转向我的方向，似乎对我的进入感到惊讶，尽管没有我想象的那么多。其中一个永恒精灵很快喊道：“你就是那个从前帮助我们的自然精灵？欢迎回来！”
 
-“哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。我告了声罪，继续跑到城市中央，在那里我以前见过将军。尽管我走近时他们认出了我，但楼房外仍像从前一样站着卫兵。我停下来喘了口气，平复呼吸，然后上气不接下气地匆忙说道：“食人魔……寻求庇护……在这里……埃尔瓦拉”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
+“哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。我告了声罪，继续跑到城市中央，在那里我以前见过将军。楼房外仍像从前一样站着卫兵，不过我走近时他们认出了我。我停下来喘了口气，平复呼吸，然后上气不接下气地匆忙说道：“食人魔……寻求庇护……在这里……埃尔瓦拉”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
 
-从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我屏住呼吸，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
+从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我缓过气来，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
 
-那个女永恒精灵，走近卫兵并和他们交流，他们困惑的脸似乎因为她的言行变得有点痛苦。我不知道法师说了些什么，但似乎卫兵们几乎是在向年轻的永恒精灵女人求情。最后，她叫我跟着她，并开始向我使用返回符文进入城市的方向移动。我猜想，这个永恒精灵似乎有一些计划，一个允许食人魔进入城市的计划。在转身跟在她后面之前，我注意到两个卫兵互相默默无语，在我们走开之后，其中一个冲进楼内，另一个似乎在担忧地看着我和法师的方向。]], "_t")
+那个女永恒精灵，走近卫兵并和他们交流，他们困惑的脸似乎因为她的言行变得有点痛苦。我不知道法师说了些什么，但似乎卫兵们几乎是在向年轻的永恒精灵女人求情。最后，她叫我跟着她，并开始向我使用返回符文进入城市的方向移动。我猜想，这个永恒精灵似乎有一些计划，一个或许能让食人魔进入城市的计划。在转身跟上她之前，我注意到两名卫兵互相低语，随后其中一人冲进了楼内。我们走开时，另一人似乎忧心忡忡地望着我和法师。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 3] - The Enchantress", "菲·维莉欧斯的冒险 [第4卷，第3章] - 女巫", "_t")
 t([[[i]Alreiwen Taeil the foolhardy enchantress. Easily the worst conversationalist I have ever met, and among all the shaloren I know of none that has a greater ego than hers. Still, I respect her sense of justice as well as her gifted abilities in the arcane. Who knows what fate may have happened to the ogres had she not been present when I made the request for their entry.[/i]
 
@@ -1900,23 +1900,23 @@ As we ran down one of Elvala's narrow streets, the watch captain saw an opportun
 
 The guttural sounds of ghouls began to fill the air and along with these ghouls walked another couple legions of skeletons. However, it was behind them that a truly frightening undead began to move, hulking figures of towering bone that stood as high as many of Elvala's buildings. A final line of skeletons also appeared too, but unlike the others they appeared to be armed with staves and bows. Quickly the undead began to organize themselves before moving lockstep with each other in our direction. Our mages attempted to ready another set of spells but quickly found this quite difficult as arrows and spells from the undead rained down on them. Realizing we would have to engage the undead fully we raised our shields and proceeded to step forward.
 
-As the front lines drew closer, we would be caught off guard when the ghouls made giant leaps over our entire formation. We soon found ourselves boxed in as ghouls clawed us in the back while the remaining undead forces collided into us from the front. With little room to maneuver, shaloren archers and mages behind us were cut down, while soldiers in front could do little more than keep their shields in front of them to block attacks. Panicking, those who could teleport broke from the line, leaving the rest of us to fend off the encroaching undead horde. The situation was looking quite bleak as we found ourselves trapped by the undead and everything was thrown into complete disarray.]], [[[i]回顾一下亡灵的可怕本性，我能多少体会到他们所采用的战术和策略的精妙。一切似乎都是事先精心策划好的，作为不死族，他们能够以预定的方式完美地行动。这使得控制他们的死灵法师在战斗期间安全地远离伤害。[/i]
+As the front lines drew closer, we would be caught off guard when the ghouls made giant leaps over our entire formation. We soon found ourselves boxed in as ghouls clawed us in the back while the remaining undead forces collided into us from the front. With little room to maneuver, shaloren archers and mages behind us were cut down, while soldiers in front could do little more than keep their shields in front of them to block attacks. Panicking, those who could teleport broke from the line, leaving the rest of us to fend off the encroaching undead horde. The situation was looking quite bleak as we found ourselves trapped by the undead and everything was thrown into complete disarray.]], [[[i]撇开亡灵的可怖本性不谈，我多少能体会到他们所采用的战术和策略有多精妙。一切似乎都是事先精心策划好的，作为不死族，他们能够以预定的方式完美地行动。这使得控制他们的死灵法师在战斗期间安全地远离伤害。[/i]
 
-突然，我注意到队长的眼睛眯得很窄，紧紧地盯着烟雾中的东西，转过身来看着我自己，我注意到了那些颤动的扭曲。突然，随着守望队长大喊一声“开火”，许多弓箭手和法师开始发射弓箭并施法，随着弓箭和魔法的猛烈撞击，眼前的骚乱变成了旋转的漩涡。尽管遭到了猛烈的攻击，一排闪闪发光的骨头和破烂的盔甲还是穿过迷雾出现在了我们面前，露出几排排排成防御队形的骷髅。他们高举盾牌，一步一步地向墙走去。
+突然，我注意到队长的眼睛眯得很窄，紧紧地盯着烟雾中的东西，我也转头看去，注意到了那些颤动的扭曲。突然，随着守望队长大喊一声“开火”，许多弓箭手和法师开始发射弓箭并施法，随着弓箭和魔法的猛烈撞击，眼前的骚乱变成了旋转的漩涡。尽管遭到了猛烈的攻击，一排闪闪发光的骨头和破烂的盔甲还是穿过迷雾出现在了我们面前，显露出排成防御阵形的几排骷髅。他们高举盾牌，一步一步地向墙走去。
 
-卫兵们继续尽全力在城墙射击计，但每把一个骷髅打得粉碎或击碎成散落在战场上的骨头，后面就会出现两具骷髅。作为一个没有自由意志的敌人，无论他们中有多少人倒下，他们都继续向我们挺进。当它们走近城墙时，士兵们从下面开始把岩石和石头堆成一大堆，随着骷髅越来越近，士兵们开始把碎片从城墙上扔下来。与箭和咒语不同的是，骷髅无法克服掉在它们身上的沉重重量，许多骷髅接二连三被压个粉碎。
+守军继续越过城墙倾泻他们所能使出的一切攻击，但每把一个骷髅打得粉碎或击碎成散落在战场上的骨头，后面仿佛就会出现两具骷髅。作为一个没有自由意志的敌人，无论他们中有多少人倒下，他们都继续向我们挺进。当它们走近城墙时，士兵们从下面开始把岩石和石头堆成一大堆，随着骷髅越来越近，士兵们开始把碎片从城墙上扔下来。与箭和咒语不同的是，骷髅无法克服掉在它们身上的沉重重量，许多骷髅接二连三被压个粉碎。
 
 队长低头看着他们，似乎在沉思着形势，然后喃喃地说：“我看不到他们带着的攻城梯，但从他们如何走向城墙的角度来看，他们肯定有计划了。”我继续监视他们，注意到空气中沙哑的声音，附近突然传来惊慌失措的声音，墙上的人开始喊他们受到了袭击。环顾四周，我看不到任何袭击者，但我知道附近有敌人。然后我立刻感觉到有东西在我和守望队长身后移动。我迅速地拔出武器，在他们其中一人所在的地方向身后砍去，虽然我看不见敌人，但当我的武器从空中划过时，我听到一声低沉的喘息。
 
-当意识到发生了什么事时，守望的上尉对城垛上的守军喊道：“我们正受到幽影的攻击，立即自卫！”一瞬间，城垛上的每个人都转向应对新的威胁，而忽略了下面的骷髅。那些能够确定隐藏敌人在哪里的人，很快将攻击集中在敌人身上；而那些无法确定目标的人，则向四周发动难以躲避的大范围攻击。不久之后，一股死亡的呐喊声弥漫在空气中，但很快，我们就知道，这些敌人只是在分散我们的注意力。因为下面的骷髅开始移动，建造梯子，并形成由骨头组成的金字塔。
+当意识到发生了什么事时，守望队长对城垛上的守军喊道：“我们正受到幽影的攻击，立即自卫！”一瞬间，城垛上的每个人都转向应对新的威胁，而忽略了下面的骷髅。那些能够确定隐藏敌人在哪里的人，很快将攻击集中在敌人身上；而那些无法确定目标的人，则向四周发动难以躲避的大范围攻击。不久之后，一股死亡的呐喊声弥漫在空气中，但很快，我们就知道，这些敌人只是在分散我们的注意力。因为下面的骷髅开始移动，建造梯子，并形成由骨头组成的金字塔。
 
-现在他们有了攻击我们的方法，骷髅爬起来，来到城垛上，用他们的优势人数击退了我们。看到我们被压得喘不过气来，守望队长下令放弃围墙，导致大家争先恐后，试图以任何可能的方式从城墙上下来。不幸的是，在混乱中，许多仍然在战斗或受伤的人无法逃脱，随后被砍成了碎片。在城垛失去控制后，一小队骷髅冲了进来，接管城门，让外面的其他不死生物进入，而其余的骷髅则开始跳下追赶我们，想把我们撞倒。
+现在他们有了攻击我们的方法，骷髅爬起来，来到城垛上，用他们的优势人数击退了我们。看到我们被压得喘不过气来，守望队长下令放弃围墙，导致大家争先恐后，试图以任何可能的方式从城墙上下来。不幸的是，在混乱中，许多仍然在战斗或受伤的人无法逃脱，随后被砍成了碎片。在城垛失去控制后，一小队骷髅冲了进来，接管城门，让外面的其他不死生物进入，而其余的骷髅则开始跳下追赶我们，想要追上我们。
 
-当我们沿着埃尔瓦拉的一条狭窄的街道奔跑时，守望队长看到了一个机会，命令法师们组成一条火线。穿过街道追击着我们的骷髅排成了一个紧密的队形，给我们提供了一个绝佳的机会，可以用一连串的咒语来对付他们。闪电、火焰和寒潮席卷战场，把它们的骨头散落在街上。看到大部分骷髅被击败，防守队员们爆发出一片欢呼，直到他们意识到还有更多的东西要来。透过倒下的骷髅，我们可以看到一股不死族的洪流正从城门涌出。
+当我们沿着埃尔瓦拉的一条狭窄的街道奔跑时，守望队长看到了一个机会，命令法师们组成一条火线。穿过街道追击着我们的骷髅排成了一个紧密的队形，给我们提供了一个绝佳的机会，可以用一连串的咒语来对付他们。闪电、火焰和寒潮席卷战场，把它们的骨头散落在街上。看到大部分骷髅被击败，防守队员们爆发出一片欢呼，直到他们意识到还有更多的东西要来。透过倒下的骷髅，我们可以看到一股亡灵洪流正穿过城门涌入城内。
 
-食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一同行进的还有另外几支骷髅军团。然而，正是在他们身后，一个真正可怕的不死族开始移动，那是和耸立在埃尔瓦拉的许多建筑物一样高的高耸的骨巨人。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后朝着我们的方向移动。我们的法师试图准备另一套法术，但很快发现我们很难对抗不死族的箭雨和法术的弹幕。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
+食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一同行进的还有另外几支骷髅军团。然而，正是在他们身后，一个真正可怕的不死族开始移动，那是和耸立在埃尔瓦拉的许多建筑物一样高的高耸的骨巨人。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后朝着我们的方向移动。我们的法师试图准备另一轮法术，但亡灵的箭矢和法术如雨般落下，很快便让他们发现这相当困难。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
 
-随着前线越来越近，食尸鬼从我们的队伍上方跳过，让我们会措手不及。我们很快发现自己被包围了起来，食尸鬼在后面抓我们，而剩下的不死力量从前面撞向我们。我们后面的永恒精灵弓箭手和法师几乎没有任何回旋的余地，他们被砍倒了，而前面的士兵只能把盾牌放在前面阻挡攻击。惊慌失措之时，那些可以传送的人脱离了防线，留下我们其他人来抵御入侵的不死部落。我们发现自己被不死生物困住了，一切都乱成一团，情况看起来相当惨淡。]], "_t")
+随着前线越来越近，食尸鬼从我们的队伍上方跳过，让我们措手不及。我们很快发现自己被包围了起来，食尸鬼在后面抓我们，而剩下的不死力量从前面撞向我们。我们后面的永恒精灵弓箭手和法师几乎没有任何回旋的余地，他们被砍倒了，而前面的士兵只能把盾牌放在前面阻挡攻击。惊慌失措之时，那些可以传送的人脱离了防线，留下我们其他人来抵御入侵的不死部落。我们发现自己被不死生物困住了，一切都乱成一团，情况看起来相当惨淡。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 3] - Leadership From The Front", "菲·维莉欧斯的冒险 [第5卷，第3章] - 前线的领袖", "_t")
 t([[[i]As an experienced commander would tell me long after the battle with the undead "the winner of a battle is not necessarily dictated by the amount of enemies slain but rather by which side breaks first." While the quality of an armies ability to fight is important it means nothing should its soldiers lose the will to fight. We had been lucky in the defense of Elvala with the aid from the ogres and eventually rallying leadership of Aranion.  Without them all hope of victory would have surely been lost.[/i]
 
@@ -1974,17 +1974,17 @@ When they raised their weapons in my general direction I knew I needed to act qu
 
 当永恒精灵摘下头盔时，我马上就认出了艾伦尼恩·加威尔的脸。他很快地对我说：“我们将通过帷幕离开，看看是否能抓住这次袭击的幕后黑手。观察不死生物的行为，很可能发动这些攻击的人一定就在附近。”我记下他的话，默默地向他点头，然后他继续戴上头盔，朝帷幕的方向望去。当治疗者的治疗咒语结束后，艾伦尼恩指示治疗者把伤员送到治疗场，然后向我的方向伸出手。我准备好了，深吸了一口气，握住他的手。
 
-一瞬间，艾伦尼恩施了一个咒语，把我们传送帷幕的另一边。我们花了一点时间来辨认方位，没过多久就注意到了正在撤退的不死族，以及在他们中间移动的孤零零的长袍人影。我还没来得及花太多时间看一眼周围的环境，艾伦尼恩就示意我跟着他们走。我们与不死生物之间保持了一定的距离，跟着他们向西北方向走去。几天来，我们在纳格尔边界以西旅行，经过许多被摧毁的定居点，这些定居点显示出最近受到袭击的迹象。我猜纳格尔人曾试图夺回这些定居点，结果遭到攻击，他们的居民变成了不死军团的奴隶，这些不死奴隶可能就是袭击了埃尔瓦拉的那一批。
+一瞬间，艾伦尼恩施了一个咒语，把我们传送到帷幕的另一边。我们花了一点时间来辨认方位，没过多久就注意到了正在撤退的不死族，以及在他们中间移动的一个穿着长袍的人。我还没来得及花太多时间看一眼周围的环境，艾伦尼恩就示意我跟着他们走。我们与不死生物之间保持了一定的距离，跟着他们向西北方向走去。几天来，我们在纳格尔边界以西旅行，经过许多被摧毁的定居点，这些定居点显示出最近受到袭击的迹象。我猜纳格尔人曾试图夺回这些定居点，结果遭到攻击，他们的居民变成了不死军团的奴隶，这些不死奴隶可能就是袭击了埃尔瓦拉的那一批。
 
-过了一段时间，我们慢慢跟在不死军团后面进入另一个营地，却发现他们停在那里。当我们靠近一座建筑物的边缘，设法观察他们在做些什么的时候，我们在一口井附近发现了这个穿着长袍的人。从其中一栋楼里出来了几具骷髅，盘子里放着一些食物。艾伦尼恩用一种安静的声音低声说：“看来，不像跟在他后面的不死生物，我们的这位朋友还活着。”仿佛是听了艾伦尼恩的话，一种低沉的刺耳的声音从这个披着斗篷的人嘴里说出：“是的，非常的活着。”之后很长一段时间，除了食物被吃掉的声音，空气中弥漫着死寂。
+过了一段时间，我们慢慢跟在不死军团后面进入另一个定居点，却发现他们停在那里。当我们靠近一座建筑物的边缘，设法观察他们在做些什么的时候，我们在一口井附近发现了这个穿着长袍的人。从其中一栋楼里出来了几具骷髅，盘子里放着一些食物。艾伦尼恩用一种安静的声音低声说：“看来，不像跟在他后面的不死生物，我们的这位朋友还活着。”仿佛是听了艾伦尼恩的话，一种低沉的刺耳的声音从这个穿着长袍的人嘴里说出：“是的，非常的活着。”之后很长一段时间，除了食物被吃掉的声音，空气中弥漫着死寂。
 
-在这整个过程中，不死生物一动不动地站着。艾伦尼恩觉得那个人想说话，就全神贯注地走了出来，手里拿着武器，但还没拔出来。看到艾伦尼恩出现在自己的视线中，他说：“啊，你是那个能够一下子粉碎我的创造物的人，我必须说，我没想到有人能做到这一点，干得好。虽然你的潜行能力也许没有那么显著。”艾伦尼恩拔出剑，站在那里说，“我也很想粉碎它们的创造者。”穿着长袍的人发出一声刺耳的嗤笑，伸出一只手，示意艾伦尼恩去尝试。
+在这整个过程中，不死生物一动不动地站着。艾伦尼恩察觉那个人想要交谈，便走到对方能清楚看见的地方，手里拿着武器，但还没拔出来。看到艾伦尼恩出现在自己的视线中，他说：“啊，你是那个能够一下子粉碎我的创造物的人，我必须说，我没想到有人能做到这一点，干得好。虽然你的潜行能力也许没有那么显著。”艾伦尼恩拔出剑，站在那里说，“我也很想粉碎它们的创造者。”穿着长袍的人发出一声刺耳的嗤笑，伸出一只手，示意艾伦尼恩去尝试。
 
-艾伦尼恩毫不犹豫地立即开始向前冲锋。不死族迅速移动，对这突如其来的移动做出反应，形成了一道防线，阻挡了艾伦尼恩的接近。他们主要由法师和弓箭手组成，在艾伦尼恩的方向上发射了大量的箭矢和魔法。在短短的一瞬间，艾伦尼恩将自己传送到了长袍人旁边，完全避开了这一切。对此，长袍人产生了一个保护性的魔法能量球来对付艾伦尼恩的攻击。艾伦尼恩双手紧握剑，将剑举过头顶，有力地挥舞着。当两个强大的战士碰撞时，一道明亮的闪光向前射出，在那之后，我不知道发生了什么。
+艾伦尼恩毫不犹豫地立即开始向前冲锋。不死族迅速移动，对这突如其来的移动做出反应，形成了一道防线，阻挡了艾伦尼恩的接近。他们主要由法师和弓箭手组成，在艾伦尼恩的方向上发射了大量的箭矢和魔法。在短短的一瞬间，艾伦尼恩将自己传送到了穿着长袍的人旁边，完全避开了这一切。对此，穿着长袍的人产生了一个保护性的魔法能量球来对付艾伦尼恩的攻击。艾伦尼恩双手紧握剑，将剑举过头顶，有力地挥舞着。当两个强大的战士碰撞时，一道明亮的闪光向前射出，在那之后，我不知道发生了什么。
 
 我不完全确定发生了什么，但我知道的是，在艾伦尼恩和死灵法师之间爆发了能量爆炸，产生了冲击波，撕裂了定居点的残余。我发现自己摔倒在一栋楼里，跌跌撞撞地站了起来，试图重新调整自己的方向。当我重新站起来的时候，我走出了那个被我砸穿的墙洞，想要调查外面发生了什么。环顾四周，我看到的是一片废墟，残破的土地，残破的建筑物，空气中仍然弥漫着烧焦的气息。从大楼里走出，我的脚碾碎了一块散落在战场上的碎骨头。不幸的是，在爆炸中幸存下来的几具骷髅注意到了这一点。
 
-当他们向我的方向举起武器时，我知道，必须迅速采取行动。我走近两个离我比较近的骷髅，灵巧地击中了他们的要害，将他们击碎。我正要冲向其他地方，但我注意到有几具骷髅朝我的方向举起了法杖。我迅速地躲在附近一座建筑的瓦砾后面，躲开了命中我刚才所处地方的魔法。我站起身来，紧紧握住武器，听到他们朝我的位置走去。我做好了准备，等待骷髅走近，并观察它们何时会出现在拐角处。]], "_t")
+当他们向我的方向举起武器时，我知道，必须迅速采取行动。我走近两个离我比较近的骷髅，灵巧地击中了他们的要害，将他们击碎。我正要冲向其余骷髅，但我注意到有几具骷髅朝我的方向举起了法杖。我迅速地躲在附近一座建筑的瓦砾后面，躲开了命中我刚才所处地方的魔法。我站起身来，紧紧握住武器，听到他们朝我的位置走去。我做好了准备，等待骷髅走近，并观察它们何时会出现在拐角处。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 5] - Staff of Bones", "菲·维莉欧斯的冒险 [第5卷，第5章] - 白骨法杖", "_t")
 t([[[i]First rule of combat, always have a plan of escape ready in case you get into trouble. Second rule of combat, understand when escape is not an option. Third rule of combat, don't put yourself in a position where you will get flanked on multiple sides. Fourth rule of combat, don't exhaust yourselves before the conclusion of a fight. Fifth rule of combat, don't die.[/i]
 
@@ -2002,21 +2002,21 @@ I watched the necromancer make quick motion of the staff towards the bone pile c
 
 Much like before in Elvala however, this bone giant too would shift its bones around to reinforce the damage I inflicted on it, managing to negate the efforts of my attack. In the next moment I could do nothing as it suddenly shot forth one of its limbs and caught me in the arm. The spikes and razor sharp joints tore through the armor covering my shoulder causing great pain. In an attempt to return a blow I pushed forward again, but due to the pain from my received injury I was prevented from mustering all the physical force that I could. Hatred began to boil within me as I was knocked around by heavy blows before finally I unleashed my chaotic energies into the bone giant in an attempt to stunt its movements.
 
-The bone giant quickly began to falter and become clumsy, my chaotic energies interfering with its ability to move. Trying to attack me while under the pressure of my hatred its attacks became slow and readable and I was able to dodge them. Now on the offensive I slashed heavily against the creature all over its body in an attempt to overwhelm it. Once again a barrier of bones formed to defend it, but not the least bit discouraged I relentlessly continued my attack, eventually breaking through. Unable to withstand my continual ferocity its bones flew in all directions as I tore through it from front to back. Now standing facing the necromancer, I could hear the bone giant behind me collapse back into a pile of bones once more.]], [[[i]战斗准则第一条，随时准备好逃跑计划，以防遇到麻烦。战斗准则第二条，当逃无可逃的时候准备作战。战斗准则第三条，不要让自己处在一个会被多个方向夹击的位置。战斗准则第四条，不要在战斗结束前精疲力尽。战斗准则第五条，不要死。[/i]
+The bone giant quickly began to falter and become clumsy, my chaotic energies interfering with its ability to move. Trying to attack me while under the pressure of my hatred its attacks became slow and readable and I was able to dodge them. Now on the offensive I slashed heavily against the creature all over its body in an attempt to overwhelm it. Once again a barrier of bones formed to defend it, but not the least bit discouraged I relentlessly continued my attack, eventually breaking through. Unable to withstand my continual ferocity its bones flew in all directions as I tore through it from front to back. Now standing facing the necromancer, I could hear the bone giant behind me collapse back into a pile of bones once more.]], [[[i]战斗准则第一条，随时准备好逃跑计划，以防遇到麻烦。战斗准则第二条，要明白什么时候已经无路可逃。战斗准则第三条，不要让自己处在一个会被多个方向夹击的位置。战斗准则第四条，不要在战斗结束前精疲力尽。战斗准则第五条，不要死。[/i]
 
-不幸的是，这些骷髅不像我想象的那样愚蠢，它们聪明到可以在转弯时保持距离。我咒骂着，开始以最快的速度奔跑，试图以最快的速度缩小差距，因为骷髅正对我发出一连串的咒语。这一刻，我的愤怒爆发了，一股混乱的能量涌向我的全身，在接下来的一刻，我的武器侧面劈开了一个法师的身体。另一具骷髅没有错过机会，迅速地转向新的方向，释放出一道灼热的奥术能量射线，穿过我的肩膀。我正准备在干掉另一具骷髅，但一支箭刺穿我的脚，把我钉在地上。
+不幸的是，这些骷髅不像我想象的那样愚蠢，它们聪明到可以在转弯时保持距离。我咒骂着，开始以最快的速度奔跑，试图以最快的速度缩小差距，因为骷髅正对我发出一连串的咒语。这一刻，我的愤怒爆发了，一股混乱的能量涌向我的全身，在接下来的一刻，我从侧面用武器劈开了一个法师的身体。另一具骷髅没有错过机会，迅速地转向新的方向，释放出一道灼热的奥术能量射线，擦过我的肩膀。我正准备干掉另一具骷髅，但一支箭刺穿我的脚，把我钉在地上。
 
 意识到我需要尽快结束这一切，我举起我的手臂，立即将我的热能射线符文释放到另一个法师身上，然后冲向已经射出箭的弓箭手。看到我的前进，它又朝我的方向射出一支箭，我轻松地避开了。下一刻，我站在弓箭手的面前，用力地猛击弓箭手，用无情的猛击击倒了它。当弓箭手被干掉后，我再次转向骷髅法师的方向。我轻松走到它跟前，伸出胳膊，在它有机会施展另一个咒语之前，把它的头骨从骨架上敲了下来。
 
-在接下来的几分钟里，我喘着粗气，因为我内心的仇恨又开始慢慢平息。我慢慢喘了口气，然后听到明显的掌声，寻找来源，我发现了附近穿着长袍的死灵法师。拍手声结束后，死灵法师开始说：“干得好，干得好。”我观察着周围的环境，发现在附近看不到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿。”对此，我得到的回答是“哦？你说艾伦尼恩·加威尔？嗯，将军现在公务繁忙，至少目前是这样。他很可能很快就会回来，不过现在我想先和你好好玩玩。”
+接下来的片刻里，我喘着粗气，因为我内心的仇恨又开始慢慢平息。我慢慢喘了口气，然后听到明显的掌声，寻找来源，我发现了附近穿着长袍的死灵法师。拍手声结束后，死灵法师开始说：“干得好，干得好。”我观察着周围的环境，发现在附近看不到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿。”对此，我得到的回答是“哦？你说艾伦尼恩·加威尔？嗯，将军现在正忙着，至少目前是这样。他很可能很快就会回来，不过现在我想先和你好好玩玩。”
 
-死灵法师说完这句话，突然开始喘息和咯咯笑，一种冰冷的感觉立刻抓住了我。我拿着武器走近，准备挥舞我的武器，死灵法师突然从斗篷中伸出手，传送到一堆粉碎的骨头上。当我看见死灵法师拿出一样东西的时候，我感受到了一种黑暗的力量而愣住了。我知道那样东西拥有巨大的力量，巨大而可怕。我试着辨认出那东西，看到那是一根又短又细的法杖，但却不像是用我以前见过的法杖做的材料做的。也许是感觉到我的表情，死灵法师又对我说：“哦？你好像不是法师，但你能感觉到这种黑暗力量，不是吗？”
+死灵法师说完这句话，突然开始喘息和咯咯笑，一种冰冷的感觉立刻抓住了我。我拿着武器走近，准备挥舞我的武器，死灵法师突然从长袍中伸出手，传送到一堆粉碎的骨头上。当我看见死灵法师拿出一样东西的时候，我感受到了一种黑暗的力量而愣住了。我知道那样东西拥有巨大的力量，巨大而可怕。我试着辨认出那东西，看到那是一根又短又细的法杖，但却不像是用我以前见过的法杖做的材料做的。也许是察觉到我意识到了这根法杖，死灵法师又对我说：“哦？你好像不是法师，但你能感觉到这种黑暗力量，不是吗？”
 
-“骨头很有趣，你知道，它们能告诉你很多关于一个人的事情。你可以了解他们的主人的身份，他们住的地方和时间，他们去世时的年龄，他们在生活中遭受的伤害和苦难，等等。真的很迷人，当然，研究它们是很麻烦的，真的很烦人。”死灵法师开始咳嗽和喘息了几次，然后继续。“我碰到的一些最奇特的骨头，都被我装在了我的法杖里。而当我找到更多奇特的骨头时，我想，我会给我的法杖加上……”这句话渐渐地消失了，死灵法师开始咯咯地笑起来。然后我感到一阵寒意，我能感觉到死灵法师盯着我的黑暗意图。
+“骨头很有趣，你知道，它们能告诉你很多关于一个人的事情。你可以了解他们的主人的身份，他们住的地方和时间，他们去世时的年龄，他们在生活中遭受的伤害和苦难，等等。真的很迷人，当然，研究它们很遭人非议，确实相当麻烦。”死灵法师开始咳嗽和喘息了几次，然后继续。“我碰到的一些最奇特的骨头，都被我装在了我的法杖里。而当我找到更多奇特的骨头时，我想，我会给我的法杖加上……”这句话渐渐地消失了，死灵法师开始咯咯地笑起来。然后我感到一阵寒意，我能感觉到死灵法师盯着我的黑暗意图。
 
 死灵法师快速地将法杖指向骨头堆，使骨头堆中的所有骨头开始组织成一个高耸的怪物。随着各种恐怖和死亡的四肢开始形成，一个新的骨巨人诞生了。死灵法师发出一阵刺耳的欢笑，然后用法杖的指向向骨巨人表明我是一个应当被击倒的敌人。响应命令，骨巨人开始朝我的方向移动。我想先下手为强，对那可憎之物发起强有力的攻击，于是我向前冲去，攻击了它的一条腿，希望能使它失去平衡，并迅速战胜它。
 
-不过，就像以前在埃尔瓦拉一样，在我攻击它的时候，这个骨巨人也会移动它的骨骼来强化自己，设法抵消我攻击的伤害。在接下来的一瞬间，它突然伸出一只手，刺穿了我的胳膊。而我什么也做不了，因为尖刺和锋利的关节撕裂了我肩膀上的盔甲，造成了巨大的疼痛。为了还击，我又向前推了一把，但由于受伤的疼痛，我无法集中全力。当我被沉重的打击击倒的时候，仇恨开始在我心中沸腾，最后我把我混乱的能量释放到这个骨巨人身上，试图阻止它的动作。
+不过，就像以前在埃尔瓦拉一样，在我攻击它的时候，这个骨巨人也会移动它的骨骼来强化自己，设法抵消我攻击的伤害。在接下来的一瞬间，它突然伸出一条肢体，击中了我的手臂，我根本来不及应对。尖刺和锋利的关节撕裂了我肩膀上的盔甲，造成了巨大的疼痛。为了还击，我又向前推了一把，但由于受伤的疼痛，我无法集中全力。当我被沉重的打击打得连连踉跄时，仇恨开始在我心中沸腾，最后我把我混乱的能量释放到这个骨巨人身上，试图阻止它的动作。
 
 骨巨人很快开始动摇，变得笨拙，我混乱的能量干扰了它的移动能力。骨巨人在我仇恨的压力下试图攻击我，但它的攻击变得缓慢，我成功的躲开了它们。看到自己处于攻势，我猛砍这个生物，试图压倒它。它再一次形成了一道骨头屏障来保护它，但我丝毫没有气馁，坚持不懈地继续进攻，最终击碎了它。它无法忍受我连续不断的凶猛打击，直到我从前到后撕开它，它的骨头向四面八方飞去。现在，我站在死灵法师面前，听到身后的骨巨人又一次倒下成一堆骨头。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 6] - Evil Malice", "菲·维莉欧斯的冒险 [第5卷，第6章] - 恶毒", "_t")
@@ -2143,7 +2143,7 @@ We will bide our time down here in the dark and turn this place into a beacon of
 t("the history of Kroshkkur (2)", "克诺什库尔的历史(2)", "_t")
 t([[We were few once. Just outcasts from some crevices and dark places that everyone else forgot about long ago. When we claimed this fortress, more began to come. Not horrors, not surface dwellers, but those of us caught in between the two. Some of us were born this way while others were altered by forces beyond our understanding. The only thing that is common among all of us is that we simply don't belong anywhere. With conscious minds, we can plainly understand the horrors of Eyal's depths. With twisted and corrupted bodies, no 'civilised' people would tolerate our presence among them. When we reside in Kroshkurr, however, we are craftsmen, scholars, hermits, poets and warriors.
 
-To that end, we all gather here. Are we spiteful for how this world openly rejects us? It would be a lie if we said no. To that end, we shall plunge head first into the places no one else dares look. We shall use the dark secrets of this world to carve out our own place in it. We shall create wonders while the world above us rests in fitful dreams.]], [[我们曾经只有少数人，只是来自早已被遗忘的阴暗缝隙之人。在我们占据了这座城堡后，有更多人前来加入了我们。他们不是恐魔，也不是地表居民，而是介于两者之间的存在。我们有些人是生来如此，而另一些则是被一些我们无法理解的力量变成了这样。我们唯一的共同点，就是我们除了这里之外别无归处。我们有着清醒的头脑，可以理解埃亚尔深处潜藏的恐怖；我们有着扭曲、堕落的身躯，没有“文明人”愿意忍受与我们同处。但当我们居住在克诺什库尔中时，我们就是工匠、学者、隐士、诗人和战士。
+To that end, we all gather here. Are we spiteful for how this world openly rejects us? It would be a lie if we said no. To that end, we shall plunge head first into the places no one else dares look. We shall use the dark secrets of this world to carve out our own place in it. We shall create wonders while the world above us rests in fitful dreams.]], [[我们曾经只有少数人，只是来自早已被遗忘的阴暗缝隙之人。在我们占据了这座城堡后，有更多人前来加入了我们。他们不是恐魔，也不是地表居民，而是介于两者之间的存在。我们有些人是生来如此，而另一些则是被一些我们无法理解的力量变成了这样。我们唯一的共同点，就是我们在哪里都格格不入。我们有着清醒的头脑，可以理解埃亚尔深处潜藏的恐怖；我们有着扭曲、堕落的身躯，没有“文明人”愿意忍受与我们同处。但当我们居住在克诺什库尔中时，我们就是工匠、学者、隐士、诗人和战士。
 
 因此，我们聚集在这里。要问我们是否憎恨这个如此排斥我们的世界，说“不”那只能是在说谎。因此，我们投身其他人看都不敢看的深渊，用这个世界阴暗的秘密来创造自己的容身之处。当上方的世界还在睡梦中时，我们正在创造着奇迹。]], "_t")
 t("the history of Kroshkkur (3)", "克诺什库尔的历史(3)", "_t")
@@ -2165,7 +2165,7 @@ t("Gods are beings which have been frequently mentioned throughout Eyal's histor
 t("Researcher Dremnot's Demystification of the Gods: Chapter 1 - Amakthel", "研究员德瑞姆诺特的揭露诸神：第一章 阿马克泰尔", "_t")
 t([[Even among the gods, there was one that towered above them all. Its name was Amakthel, mightiest of Eyal's gods. It was said that it was the creator of the Sher'Tul, that ancient and mysterious race whose true nature is still unknown to this day. More than any other god, Amakthel appears as a creation figure in ancient myths, more readily interfering with mortal beings than any other god. Nearly every race has some myth of Amakthel coming into contact with them, some describing it as a glowing, divine being while others declared it as a bringer of ill omens. Its touch seemed to curse as readily as it blessed according to these different sources, altering beings in ways that only made sense to Amakthel itself. As such, it is difficult to get a clear picture of Amakthel's true personality and disposition towards mortals.
 
-How exactly Amakthel's downfall came is not certain. Some myths say that the Sher'Thul were commanded by their creator to kill the gods, while others suggest that the Sher'Tul openly rebelled against them. ]], [[即使在诸神之中也存在着一个凌驾于它们所有之上的存在，其名为阿马克泰尔，埃亚尔诸神中的最强者。据说正是它创造了夏·图尔人，那个我们至今仍然知之甚少的古老而神秘的种族。在古老的传说中，相比其他神，阿马克泰尔宛如真正的造物主，时刻准备着干预凡间的事物。几乎所有种族都有阿马克泰尔与他们接触的传说，有些将其描述为浑身散发着光芒的圣人，另一些则声称它是不祥预兆的使者。在不同的记述中，它的到来既被看作祝福也被看作诅咒，以只有它自己理解的方式改变着世界。因此，很难清楚地描述阿马克泰尔的真实个性和对凡人的倾向。
+How exactly Amakthel's downfall came is not certain. Some myths say that the Sher'Thul were commanded by their creator to kill the gods, while others suggest that the Sher'Tul openly rebelled against them. ]], [[即使在诸神之中也存在着一个凌驾于它们所有之上的存在，其名为阿马克泰尔，埃亚尔诸神中的最强者。据说正是它创造了夏·图尔人，那个我们至今仍然知之甚少的古老而神秘的种族。在古老的传说中，相比其他神，阿马克泰尔宛如真正的造物主，时刻准备着干预凡间的事物。几乎所有种族都有阿马克泰尔与他们接触的传说，有些将其描述为浑身散发着光芒的神圣存在，另一些则声称它是不祥预兆的使者。在不同的记述中，它的触碰似乎既能降下诅咒，也能赐予祝福，以只有阿马克泰尔自己理解的方式改变着生灵。因此，很难清楚地描述阿马克泰尔的真实个性和对凡人的倾向。
 
 阿马克泰尔究竟是如何覆殁的并不清楚。有些传说是夏·图尔人受其创造者的命令杀死了诸神，另一些则说是夏·图尔人公开起义反对它们。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Chapter 2 - Ralkur", "研究员德瑞姆诺特的揭露诸神：第二章 瑞尔克", "_t")
@@ -2522,19 +2522,19 @@ Thoughts are treasure. Treasure thoughts. Thoughtlessness is useless. Thoughtles
 t("an escape from reality (1)", "逃避现实 (1)", "_t")
 t("So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.\n\nThat's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress. \n\nHowever, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.\n\nSo, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.", [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
 
-所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过习惯了冒险生活的我看来，这样的事情无疑是一种挑战。事实证明，这个被诅咒的城堡，正如人们所说的那样，正在不断地改变着它的内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清楚，尽管它的结构不断的改变，这种改变的内部仍然蕴含了某种逻辑，我就拥有了一个无懈可击的堡垒。
+所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过习惯了冒险生活的我看来，这样的事情无疑是一种挑战。事实证明，这个被诅咒的城堡，正如人们所说的那样，正在不断地改变着它的内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清它改变自身布局背后的逻辑，我就拥有了一个无懈可击的堡垒。
 
-然而我也发现，这并没有阻止我的那些仇人前来送死。他们还在蜂拥而入，虽然他们中的大部分人都在走廊中迷路了，但也有一些人真的到达了我的面前。在那时候，我已经相当喜欢这个地方了，但我也不能一直呆在这里。从我在冒险生活中找到的一本怪书里，我寻找到了一个有趣的解决方案。只要我打开书的封面，朝向正确的方向，它就可以把东西吸入书中。
+然而我也发现，这仍然没能阻止那些想取我性命的人前来。他们还在蜂拥而入，虽然他们中的大部分人都在走廊中迷路了，但也有一些人真的到达了我的面前。在那时候，我已经相当喜欢这个地方了，但我也不能一直呆在这里。从我在冒险生活中找到的一本怪书里，我寻找到了一个有趣的解决方案。只要我打开书的封面，朝向正确的方向，它就可以把东西吸入书中。
 
-所以，像我这样聪明的冒险家，很快想到了最好的做法。我打开了这本书，把整个城堡吸入其中。这本书似乎只能吸收书页上能画得下的那么多的东西，之后就再也没法放进任何东西了。虽然我不得不牺牲了我的财富中很大的一部分，不过我现在有了一个远离现实世界的庇护所，每当我需要的时候都可以逃脱到书中。]], "_t")
+所以，作为一个精明的冒险家，我打开这本书，把整座城堡吸了进去。这本书的封皮之内似乎只能吸入这么多东西，之后就再也装不下别的东西了。虽然我不得不牺牲这件珍贵的宝物，不过我现在有了一个远离现实世界的庇护所，每当需要藏身时都可以逃进书中。]], "_t")
 t("an escape from reality (2)", "逃避现实 (2)", "_t")
 t([[As much as I love this castle, it really does give you a headache after a while. Whenever I tried to decorate rooms or organise anything in its interior, I would inevitably find the room in a completely different area. While I can navigate through the place without too much trouble now, it's still pretty annoying when I have to find a specific room.
 
 I sometimes wonder if I'll ever run into the people who entered this place and never left. The shifting rooms themselves aren't that difficult to understand, once you find out the patterns behind their changes. If I could work out, then surely someone else had to as well, right? I do sometimes feel as if I'm not really alone in the castle, despite being the only person who can even reach this place, not to mention the only living thing walking these halls. I haven't seen so much as a mouse since I trapped the castle within my book.
 
-I fear that I'm also starting to develop an unhealthy attachment to this place. I have not been able to have a single day of peace since I began my adventuring career, so the security these glass walls offer is becoming far too alluring to me.]], [[尽管我很喜欢这座城堡，不过这座城堡确实有不少让人头疼的特性。每当我想要装饰一个房间或者安装什么家具的时候，我都得不可避免地到处寻找这个房间，每次都还不一样。虽然现在我已经可以比较便捷地在这个城堡里导航了，不过在我想要找到某个特定房间的时候，这一点还是非常烦人。
+I fear that I'm also starting to develop an unhealthy attachment to this place. I have not been able to have a single day of peace since I began my adventuring career, so the security these glass walls offer is becoming far too alluring to me.]], [[尽管我很喜欢这座城堡，不过这座城堡确实有不少让人头疼的特性。每当我想要装饰房间或整理内部的任何东西时，我都必然会发现那个房间已经到了完全不同的区域。虽然现在我已经可以比较便捷地在这个城堡里导航了，不过在我想要找到某个特定房间的时候，这一点还是非常烦人。
 
-有时我会想，也许我会遇到那些进入这个地方，再也没有出去的人呢？通过钻研那些房间变化的模式，理解这些移动的房间并不是那么困难。既然我能够猜透，那么肯定也有其他人能够解决，对吧？有时候我会甚至觉得，自己并不是城堡里唯一的住民。尽管一切证据都表明，我显然是唯一一个能够到达这个地方的人，乃至是在这宽敞的大厅里行走的唯一生物。自从我把城堡困在我的书中以后，我连只老鼠都没见到。
+有时我会想，也许我会遇到那些进入这个地方，再也没有出去的人呢？通过钻研那些房间变化的模式，理解这些移动的房间并不是那么困难。既然我能够猜透，那么肯定也有其他人能够解决，对吧？有时候我甚至会觉得，自己并非独自在城堡里，尽管我是唯一能到达这里的人，更不用说还是唯一在这些大厅里行走的生物。自从我把城堡困在我的书中以后，我连只老鼠都没见到。
 
 我担心，我对这个地方开始产生了一种不健康的依赖感。自从我开始冒险事业以来，我一直无法度过一天的安宁，所以这些安全的玻璃墙对我来说显得非常诱人。]], "_t")
 t("an escape from reality (3)", "逃避现实 (3)", "_t")
@@ -2625,7 +2625,7 @@ section "tome-cults/data/talents/demented/calamity.lua"
 t("Jinxed Touch", "厄运之触", "talent name")
 t([[Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.
 			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避，%0.2f%% 暴击率。
-		每个目标每回合只能受到一层诅咒。如果在过去 2 回合里目标消失在你的视线中，所有诅咒都会消退。]], "tformat")
+			每个目标每回合只能受到一层诅咒。若你与目标脱离视线超过 2 回合，所有诅咒都会消退。]], "tformat")
 t("Preordain", "命中注定", "talent name")
 t("You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.", "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。", "tformat")
 t("Luckdrinker", "幸运汲取", "talent name")
@@ -2648,7 +2648,7 @@ t([[You are surrounded by a vortex of entropic energy that feeds on the timeline
 			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d，持续 8 回合，效果可叠加 %d 层。
 			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
-t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的生命线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
+t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
 t("Temporal Feast", "时间盛宴", "talent name")
 t([[You drink deeper from the timeline of others. Each time you apply atrophy you gain %0.1f%% spell speed per atrophy stack on the target and cause them to lose %d%% of a turn.
 			The highest atrophy stack found will be used for the spell speed calculation.]], [[你进一步榨取他人的时间线。每次使用衰亡时，目标身上的每层衰亡效果将使你获得 %0.1f%% 施法速度，同时目标将失去 %d%% 回合。
@@ -2682,9 +2682,9 @@ The decaying horror cannot move and will attack all hostile creatures in range o
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
-		腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-		它们的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
-		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
+腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
+它的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性随等级成长。
+它将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
 t("%s resists the horrific assault!", "%s抵抗了恐怖袭击！", "logSeen")
@@ -2721,7 +2721,7 @@ t("Continue your journey on the side of horror.", "继续你成为恐魔的旅�
 t("controlled horrors", "恐魔操控", "talent type")
 t("Summon decaying horrors to do your bidding!", "召唤堕落的恐魔来执行你的命令！", "_t")
 t("slow death", "慢性死亡", "talent type")
-t("Turn the insides of your body into a digesting weapon of pain!", "把你身体的内部变成一个消化的武器！", "_t")
+t("Turn the insides of your body into a digesting weapon of pain!", "将你的体内变成一件带来痛苦的消化武器！", "_t")
 t("disfigured face", "毁容", "talent type")
 t("Your face is the stuff of nightmares!", "你的脸简直是噩梦！", "_t")
 t("friend of the worm", "蠕虫之友", "talent type")
@@ -2906,8 +2906,8 @@ t("Foul Convergence", "污秽夹击", "talent name")
 t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
-			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 内的目标处，造成 %d%% 近战伤害。
-		你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
+			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。
+			你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
@@ -2968,7 +2968,7 @@ t("Sanity Warp", "失智冲击", "talent name")
 t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当“惊骇幻象”产生的幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
 t("Cacophony", "心灵尖啸", "talent name")
 t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
-		被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
+			被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -3019,8 +3019,7 @@ t("Grab a target and drag it to your side, dealing %d%% weapon damage and taunti
 section "tome-cults/data/talents/demented/oblivion.lua"
 
 t("Nihil", "空无", "talent name")
-t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", [[将你身体上的熵能向周围辐射。每当你受到熵能反冲时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。
-		增加（减少）它们受到的新的负面（正面）效果 %d%% 的持续时间。]], "tformat")
+t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。", "tformat")
 t("Unravel Existence", "解构存在", "talent name")
 t("herald of oblivion", "破灭之兆", "_t")
 t("Space warps and blurs around this titanic being, as if reality itself was struggling against it.", "时空在这个巨大的生物的周围扭曲模糊，仿佛现实本身正在和它斗争。", "_t")
@@ -3151,8 +3150,7 @@ t("Maggot Breath", "蛆虫吐息", "talent name")
 t("@Source@ breathes a wave of maggots!", "@Source@吐出一波蛆虫！", "_t")
 t([[You breathe a wave of dead maggots in a cone of radius %d. Any target caught in the area will take %0.2f blight damage and be infected with a crippling disease for 10 turns.
 		Crippling disease slows creatures by %d%% and deals %0.2f blight damage per turn.
-		The damage will increase with your Magic, and the critical chance is based on your Spell crit rate.]], [[你向半径为 %d 的锥形区域内吐出一道由蛆虫尸体组成的波浪。
-		任何在范围内的目标受到 %0.2f 枯萎伤害，并被残废恶疾感染，持续 10 回合。
+		The damage will increase with your Magic, and the critical chance is based on your Spell crit rate.]], [[你向半径为 %d 的锥形区域内吐出一道由蛆虫尸体组成的波浪。任何在范围内的目标受到 %0.2f 枯萎伤害，并被残废恶疾感染，持续 10 回合。
 		残废恶疾减慢目标 %d%% 速度，并且每回合造成 %0.2f 枯萎伤害。
 		伤害受魔力值加成，暴击率基于法术暴击。]], "tformat")
 
@@ -3303,7 +3301,7 @@ t("void monolith", "虚无巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合（基于本体法术强度）。
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
@@ -3391,7 +3389,8 @@ t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
 t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内所有的目标朝你拉近2格。", "_t")
 t("Crumble", "瓦解", "talent name")
 t([[Fire a blast of darkness at an enemy dealing %0.2f damage and destroying any walls in radius 3 around them.
-		The damage will increase with your Spellpower.]], "发射黑暗能量，对目标造成 %0.2f 伤害并破坏 3 格范围内的墙壁。伤害受法术强度加成。", "tformat")
+		The damage will increase with your Spellpower.]], [[发射暗影能量，对目标造成 %0.2f 伤害并破坏 3 格范围内的墙壁。
+		伤害受法术强度加成。]], "tformat")
 t("Blightlash", "枯萎鞭挞", "talent name")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
@@ -3858,7 +3857,7 @@ t("#Target# stops bleeding.", "#Target#停止流血。", "_t")
 t("will", "意志", "effect subtype")
 t("domination", "支配", "effect subtype")
 t("Persistant Will", "坚定意志", "_t")
-t("Convinced that arcane users are filth to be destroyed.", "相信奥术使用者应该被消灭。", "tformat")
+t("Convinced that arcane users are filth to be destroyed.", "坚信奥术使用者都是必须消灭的污秽。", "tformat")
 t("#PURPLE##Target# is convinced arcane users must be destroyed.", "#PURPLE##Target#相信奥术使用者应该被消灭。", "_t")
 t("#Target# looks more kindly toward arcane users.", "#Target#不再痛恨奥术使用者。", "_t")
 t("Twisted Evolution: Speed", "扭曲进化：速度", "_t")
@@ -4286,7 +4285,7 @@ t("Killing Time", "消磨时间", "_t")
 t("Frank Exchange Of Views", "坦率地交换意见", "_t")
 t("Death and Gravity", "死亡与引力", "_t")
 t("Ethics Gradient", "伦理梯度", "_t")
-t("Honest Mistake", "诚实的错误", "_t")
+t("Honest Mistake", "无心之失", "_t")
 t("Quietly Confident", "淡定自信", "_t")
 t("Sleeper Service", "卧铺服务", "_t")
 t("Uninvited Guest", "不速之客", "_t")
@@ -4521,7 +4520,7 @@ t("drem cultist", "德瑞姆邪教徒", "entity name")
 t("A drem cultist.", "一位德瑞姆邪教徒。", "_t")
 t("drem seeker of knowledge", "德瑞姆知识探求者", "entity name")
 t("A drem in long red robes, minding its own business.", "一位身穿红袍的德瑞姆，他正在思考自己的事情。", "_t")
-t("disfigured creature", "不成型的生物", "entity name")
+t("disfigured creature", "畸形生物", "entity name")
 t("A vaguely humanoid shape, wandering around to some unknown goals.", "一个模糊的人形生物，怀着某些未知的目的四处游荡。", "_t")
 t("That Which Teaches History", "教历史的东西", "entity name")
 t("This creature manages the sanctuary's library.", "这个生物掌管着避难所的图书馆。", "_t")
@@ -4641,9 +4640,11 @@ section "tome-cults/overload/data/texts/intro-krog.lua"
 t("Welcome to Tales of Maj'Eyal - #CRIMSON#Forbidden Cults", "欢迎来到马基·埃亚尔的传说 - #CRIMSON#禁忌邪教", "_t")
 t("Welcome #LIGHT_GREEN#@name@#WHITE#.\n\nYou are a Krog, a former ogre stripped of its runes by the Ziguranth. Ogres cannot live without runes, yet you a Krog have been kept alive by the powers of nature coursing through your body. \n\nAll Krogs are infused with anti-magic forces as a result of the changes made to their bodies by the Ziguranth. While much of Maj'Eyal shuns the arcane, there is still those who practice it, and you would like nothing more then to eradicate them from the world.\n\nYou have come to an old ruin named Kor'Pul on a mission to eliminate the foulest of arcane creations: undeads.\n", [[欢迎 #LIGHT_GREEN#@name@#WHITE#。
 
-你是一个克罗格。你曾经是一个食人魔，然而你的符文被伊格兰斯取下了。食人魔失去了符文会无法存活，而你这样克罗格却可以通过你身体内的自然力量存活。
-作为上面条件的附加作用，克罗格的身体被伊格兰斯的反魔法力量所灌注。虽然大部分马基埃亚尔人都远离奥术魔法，但仍然有一些人在实践奥术魔法，而你的目标就是从世界上消灭他们。
-你来到了一个古老的废墟：卡普尔。你的任务是消灭掉奥术魔法最为邪恶的创造：亡灵。
+你是一个克罗格。你曾经是一个食人魔，然而你的符文被伊格兰斯取下了。食人魔失去了符文会无法存活，而身为克罗格的你却可以凭借体内流淌的自然力量活下来。
+
+由于伊格兰斯对他们身体所做的改造，所有克罗格体内都灌注着反魔力量。虽然马基·埃亚尔的大多数人都排斥奥术，但仍然有人修习它，而你一心只想将他们从世上铲除。
+
+你来到了一个名为卡·普尔的古老废墟。你的任务是消灭掉奥术魔法最为邪恶的创造：亡灵。
 ]], "_t")
 
 ------------------------------------------------
@@ -4762,15 +4763,16 @@ Race features:#YELLOW#
 section "tome-cults/overload/data/texts/unlock-wyrmic_scourge.lua"
 
 t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树：#LIGHT_GREEN#天谴之龙", "_t")
-t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也能够被绝望所腐化。
+t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也可能腐化到无可救药。
 你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。
-你现在可以掌握天谴龙的魔法，你创建的新龙战士角色可以使用新的#LIGHT_GREEN#天谴之龙#WHITE#系技能
+
+你现在可以掌握天谴之龙魔法，并创建能够学习#LIGHT_GREEN#天谴之龙技能#WHITE#的新龙战士角色。
 
 技能列表：
-- #YELLOW#触手之翼：#WHITE# 伸出黏滑的触手，将敌人拉向你
-- #YELLOW#腐朽之地：#WHITE# 在地面中灌注枯萎能量，增加技能冷却时间
-- #YELLOW#扩大绝望：#WHITE# 击打对手受伤的地方，对方负面效果越多伤害越高。
-- #YELLOW#蛆虫吐息：#WHITE# 喷吐蛆虫，让你的敌人减速
+- #YELLOW#触手之翼：#WHITE#伸出黏滑的触手，将敌人拉向你
+- #YELLOW#腐朽之地：#WHITE#在地面中灌注枯萎能量，增加技能冷却时间
+- #YELLOW#扩大绝望：#WHITE#击打对手受伤的地方，对方负面效果越多伤害越高。
+- #YELLOW#蛆虫吐息：#WHITE#喷吐蛆虫，让你的敌人减速
 ]], "_t")
 
 ------------------------------------------------
