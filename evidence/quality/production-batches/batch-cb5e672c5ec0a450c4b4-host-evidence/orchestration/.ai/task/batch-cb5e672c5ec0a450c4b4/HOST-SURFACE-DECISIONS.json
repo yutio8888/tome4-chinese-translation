@@ -1,0 +1,112 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 13 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "c2810937ca8d10eb703858ba2b02e044bc0a708d67a6066dc64d94e673eaf53e",
+      "stage": "surface",
+      "observation": "原文说叙述者先听见老师在面前笑，随后她重新出现；译文改为看见她出现并对自己大笑。原文还明确将食人魔的 infusion 技艺与家乡自然精灵比较，译文漏掉了 infusion。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 该段（tome-cults.lua 起于第1815行）叙述者先听见老师在面前笑、随后她才现身，现译改成“看见她出现并对我大笑”；their knowledge and skills with infusions 漏译“纹身”。按原文顺序改写并补“纹身”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c2c879622fc24690cbeb69b7e0d2de53eec4c2acad4f8c611173fef610e06ab0",
+      "stage": "surface",
+      "observation": "原文说寄生者不给选择，只能击落飞船；译文新增“帮你按下了击落飞船的按钮”，改变了动作主体和方式。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua 寄生兽代替玩家选择的旁白 gives no choice but to shoot down the airship；“直接帮你按下了击落飞船的按钮”是意译，结果一致，可改“让你别无选择，只能击落飞船”，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c39b3efbdc1a763f368536735bc1ee5019f8a5a54efe1fe7de7e456dd9f5609f",
+      "stage": "surface",
+      "observation": "原文说民众继续将“大自然的敌人”活活烧死；译文只说“继续与大自然的敌人战斗”，漏掉了关键的处刑行为。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 木桩神器描述 the citizenry continued to burn alive the enemies of nature；现译“继续与大自然的敌人战斗”丢了活活烧死。改为“民众仍继续把大自然的敌人活活烧死”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c6b4dbc6939598428d9d6fd07cc36309217689404bd1cd09ff42cce6253d1364",
+      "stage": "surface",
+      "observation": "原文“Reroll properties set”指重新随机生成一组属性，译文“重置该属性”将重新随机生成译成重置，并将一组属性缩为单个属性。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/dialogs/FontSacrifice.lua 按钮 Reroll properties set；同对话框的 reroll 本库一律译“重置”（tome-cults.lua:4868、4870），“重置该属性”与同族一致，“该属性”对应 set 略窄，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c89c44ab1371d6396f5304873aa166ba04693d1f308c36d3611c8f024386c98e",
+      "stage": "surface",
+      "observation": "原文说九把武器将由九名弑神者持有；译文“即将被选出的九名弑神者”增添了原文没有的选拔情节。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/lore/kroshkkur.lua 弑神者传说 nine in total for each of the nine Godslayers who would wield them；“用来分给即将被选出的九名弑神者”增译“选出”但不改变事实关系，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8b81337b98892cbbaf62254f2b3a1b235dac28335e52f30f1983cc936643f4f",
+      "stage": "surface",
+      "observation": "原文“All debuffs removed”表示移除所有负面效果；译文增添“‘其他’类效果除外”，直接改变了效果范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua 该效果 activate 用 removeEffectsFilter(eff.status == \"detrimental\" and eff.type ~= \"other\")，实现确实排除“其他”类效果，现译“（“其他”类效果除外）”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c90642d84d18b3b7a99369e2806275cc5464969be600cbd4c4a2bbb32fd38a96",
+      "stage": "surface",
+      "observation": "原文只说掀开被子并站在丈夫面前；译文写成“赤身站在我丈夫面前”，增加了原文没有明确给出的赤身状态。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 原文 pulling off the covers and made to stand... I stood in front of my husband，上文掀开被子查看身上伤疤，“赤身”是语境推断的增译，不改变情节，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c9492d4669a203f05c3709ae7befad550c9a46221cdb4bbb5c08934d5156bd2c",
+      "stage": "surface",
+      "observation": "原文“too heavy to carry”指太重而无法携带，译文却说“体质无法装备它”，将携带误译为装备。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 该神器 callbackOnStatChange：体质低于需求时 takeoffObject 后 addObject(INVEN_INVEN) 放回背包；现译“你放下了它”读作丢在地上，与实现不符。改为“你的体质已不足以穿戴沉重的%s，你将它卸下了。”（“无法装备”贴合需求判定可保留），contextual 判 OK，宿主按实现确认。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cac325d08e8f58ba8ad97ecfcf6093aabf463f4c2b3cb8ca9075cea891f534ff",
+      "stage": "surface",
+      "observation": "原文“after having met with the rangers quartermaster”表示已见过军需官，译文“准备好与游侠军需官会面后”误为尚待会面；原文“Wouldn't any aid be better sent by an official Shaloren emissary?”指由官方使者送出援助，译文“为我们提供援助”颠倒了援助方向。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua book1-chapter6 after having met with the rangers quartermaster 是已会面，现译“准备好与游侠军需官会面后”；Wouldn't any aid be better sent by an official Shaloren emissary? 是由官方使者送出援助，现译“为我们提供援助”颠倒方向。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cb78eaefda0c3fbbdeb3dddf06dcb05fb7f8d48c076cf6493f644d1b7fc9af02",
+      "stage": "surface",
+      "observation": "原文“cut your way out”包含砍出一条路逃出去的意思，译文“拿剑乱砍”遗漏了逃脱目的，并增加了原文没有的剑。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/chats/godfeaster-malyu.lua 被困消化囊中的三个同组选项 kick/shout/cut your way out 都是设法脱身，现译“[试着拿剑乱砍]”增译“剑”并丢了脱身目的。改为“[试着砍出一条路逃出去]”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cbaa60d9653a79a6671fc5c3a0df5963bbb2d6244a79492898a9570aa668c790",
+      "stage": "surface",
+      "observation": "末段原文“one of the infusions”指购买的一剂灌注，译文写成“一只市场上买的纹身”，物品类型明显改变。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua one of the infusions I had bought at the market；术语 infusion=纹身（talents.tsv），“纹身”用词正确，只是量词“一只”不当，可改“一剂”，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cbf76140fbbbbcbaf864bf6ea0de640527e8bbb87932421fa41a821082bbbac7",
+      "stage": "surface",
+      "observation": "原文“everything is hostile to it”是万物对它怀有敌意；译文“令其他人和它敌对”缩小了范围，并改成双方敌对。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua 恐魔化效果 long_desc everything is hostile to it；恐魔化法术本身 info 为 making all other creatures hostile to it，“令其他人和它敌对”范围略窄，可改“所有生物都与它敌对”，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cd5fc3af79e3644dee37cd589fca06fc17b7330efbacd60f5397f03a61b51a3d",
+      "stage": "surface",
+      "observation": "原文“Even as I'm running away”表示正在逃跑，译文“我想要逃跑”改成尚未逃跑；原文“not after what happened”指已发生的事，译文“不管发生了什么都不会”也改变了时间与含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua cults-scourge-pits-3 Even as I'm running away 是正在逃，现译“我想要逃跑”；not after what happened 是因果（经历那些事之后），现译“不管发生了什么都不会”误作让步。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

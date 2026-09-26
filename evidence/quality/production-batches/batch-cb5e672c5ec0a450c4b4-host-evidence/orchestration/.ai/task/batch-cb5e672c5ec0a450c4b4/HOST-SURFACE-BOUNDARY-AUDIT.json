@@ -1,0 +1,62 @@
+{
+  "batch_id": "batch-cb5e672c5ec0a450c4b4",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T07:29:06.400454+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only; no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "boundary_pattern_hits": [
+    {
+      "dispatch_id": "lane-000-1",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside the word \"perform\" in the justification text of lane-000-1 call 2 (\"...to perform the requested read-only screening?\" / \"...frozen envelope to perform the requested read-only...\"); its four calls are exec_command cat/sed reads of docs/paseo-translation-surface-screen-v1-contract.md and a python3 read-only print of its own SURFACE-SCREEN-ENVELOPE-lane-000-1.json; no write or external effect"
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside the word \"perform\" in the justification of lane-000-2 call 3 (\"...the two explicitly authorized files to perform the requested read-only screen?\"); that call is a cat of the surface contract and its own SURFACE-SCREEN-ENVELOPE-lane-000-2.json with sandbox_permissions=require_escalated and prefix_rule [\"cat\"] (same pattern as batch 301 lane-000-0); the other calls are the same cat without escalation, a listing of its own available tool names, and a python3 read-only print of its own envelope; no write or external effect"
+    }
+  ],
+  "sequencing_note": "bd_mid automated audit stopped on the pattern hit before close/import; host inspected the native tool calls and wrote this audit manually, then ran bd_mid_rest",
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "a2361bac-8739-4066-956d-b169a7174f1e",
+      "native_tools_sha256": "e15e77aaf32697bed5863a8fcb4b2a2e9d867246cc8307137904abd85fe9579a",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "2dd6fff0-9069-403f-b44a-507e02080a91",
+      "native_tools_sha256": "d284d6a6343750ff624c9a44f8724d82ca149b7164fd5f3cc1b8abf07df8f56d",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "5f251313-8930-41ad-9de7-7c385ce4ad0c",
+      "native_tools_sha256": "9d77d1f8494a4951b17a469e85c144883cc927ca11069c28af55aeeac52f9a8c",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "44bc3472-79d8-42bc-b533-894d6d2a77fd",
+      "native_tools_sha256": "71927c5fccb94d2519ae95f592fc50b568d5587dcb18fdfd2019434289560556",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

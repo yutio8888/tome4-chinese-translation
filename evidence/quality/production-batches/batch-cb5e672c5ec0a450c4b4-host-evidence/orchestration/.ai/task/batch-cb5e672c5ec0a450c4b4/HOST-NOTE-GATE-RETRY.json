@@ -1,0 +1,28 @@
+{
+  "batch_id": "batch-cb5e672c5ec0a450c4b4",
+  "kind": "host_gate_retry_note_v1",
+  "first_attempt": {
+    "command": "run_batch_steps.py contextual-adjudication-chain",
+    "log": ".artifacts/i18n/continuation-20260923/review305-adjudication-chain.log",
+    "log_sha256": "e4402a95d9b589543671c273a0c1863ca44df0cd64ff6374a865eb57c455a2ff",
+    "completed_steps": [
+      "contextual-import",
+      "generate-adjudication",
+      "adjudicate"
+    ],
+    "failed_step": "prepare-evidence",
+    "failed_gate": "05-production-shadow-surface-ledger-tests",
+    "failed_test": "tests.i18n.test_projection_cache.RetentionAndConcurrencyTests.test_concurrent_same_key_publication_is_atomic",
+    "failure": "AssertionError: [False, True, True, True] != [True, True, True, True]"
+  },
+  "diagnosis": "test-harness race: each publish thread enters and exits its own mock.patch.dict(os.environ, ON); an earlier-exiting thread restores os.environ while another thread is still storing, so that store sees the cache disabled and returns False. Isolated reruns: 5 of 6 passed with no code or data change. Not a product or translation defect.",
+  "retry": {
+    "command": "python3 -B tools/i18n production batch prepare-evidence",
+    "log": ".artifacts/i18n/continuation-20260923/review305-prepare-evidence-retry.out",
+    "log_sha256": "c63ef098f6dd611b09294f5d6054fde9fd86545f153943397f05d129e03b66be",
+    "exit_code": 0,
+    "gates_failed": 0,
+    "results": 80
+  },
+  "note": "only the failed last step was rerun; contextual-import/generate-adjudication/adjudicate had already taken effect and were not repeated. The test fix is deferred until no batch is active."
+}
