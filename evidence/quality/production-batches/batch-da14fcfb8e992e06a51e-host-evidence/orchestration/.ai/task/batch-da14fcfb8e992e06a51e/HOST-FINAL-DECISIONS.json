@@ -1,0 +1,141 @@
+{
+  "batch_id": "batch-da14fcfb8e992e06a51e",
+  "observations": 13,
+  "observation_dispositions": {
+    "advisory": 1,
+    "confirmed": 9,
+    "refuted": 3
+  },
+  "repair_revision_keys": [
+    "428381f995ba2022594d16795b31dd586eabafb1029ea411d7a9316e41896281",
+    "ce25dcc5791a3b8fc64403092b8a403e299cedb559a42baa2d6d0fb7f6860892",
+    "ce4ea9ba0231e5d74f04658141bdc97e97260201353e8ddd46676b9f964843b0",
+    "cfaafbdaed0e10785ced769f5596d2bec2abe79713e0a6804192d2cadda8c320",
+    "d0e2bafe766193bf933dab52494b7ae3e7c5acdd305606e279a01d33711da299"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 5,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "251eca60082691d34b2baa39b9c895f679d31f97ca8a1f46fa13273865f4e0b3",
+      "stage": "surface",
+      "observation": "原文是反魔法活动，译文写成“反对法师的活动”，将针对魔法及拥有魔力者的行动缩窄为针对法师。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua 纳格尔木桩：a rash of anti-magic activities，现译“反对法师的活动”略窄，但下一句即明言针对“拥有魔力的人”，未改变事实关系；contextual 判 OK，记 advisory（可改“反魔法活动”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "428381f995ba2022594d16795b31dd586eabafb1029ea411d7a9316e41896281",
+      "stage": "surface",
+      "observation": "原文先说一手持锤、另一手持剑，再以先后两只手说明其用途；译文改为一手持剑、另一手持锤，使两种武器与后文手的用途对应颠倒。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua 克罗格锤：a mace in one hand and a sword in the other. One hand to spread the message..., the other to see that message through 按锤、剑顺序对应；现译“一手拿剑一手拿锤”颠倒，使两手职责对调。同文件同族剑条目（tome-cults.lua 第772行）已在窗口33改为“一手拿锤、一手拿剑”（批296 655a344b 先例），本条对齐。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ce25dcc5791a3b8fc64403092b8a403e299cedb559a42baa2d6d0fb7f6860892",
+      "stage": "surface",
+      "observation": "原文为连续单行，译文在句中加入换行和三个制表符，改变了显示格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/entropy.lua:281 该 info 为一整句无换行，现译在“作为代价”前加 \\n 与三个 TAB，违反换行不变量；另 DamageType.DARKNESS 现译“黑暗…伤害”，本库与术语表 darkness(damage type)=暗影，改“暗影和时空伤害”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ce4ea9ba0231e5d74f04658141bdc97e97260201353e8ddd46676b9f964843b0",
+      "stage": "surface",
+      "observation": "原文将“voidling”和“Void Skitterers”区分为不同名称，译文均作“虚空造物”，后者的专指信息丢失；冻结输入没有术语条目可进一步核定名称。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/rift.lua:479-514 Dimensional Gate 调用 t.voidling 召唤的实体即 name=_t\"void skitterer\"，本库 tome-cults.lua:3104 void skitterer 译“虚空造物”；voidling 与 Void Skitterers 指同一召唤物，统一作“虚空造物”不丢失专指。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cfaafbdaed0e10785ced769f5596d2bec2abe79713e0a6804192d2cadda8c320",
+      "stage": "surface",
+      "observation": "原文是试图踢开障碍以脱身，译文“试着拳打脚踢”遗漏了脱身这一动作目的。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/chats/godfeaster-malyu.lua:21-23 玩家被困消化囊，三个并列选项 kick / cut / shout your way out 都是脱困方式；现译“[试着拳打脚踢]”漏“脱出去”且增出“拳打”，参照同族已修的“[试着砍出一条路逃出去]”改“[试着踢出一条路逃出去]”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d0e2bafe766193bf933dab52494b7ae3e7c5acdd305606e279a01d33711da299",
+      "stage": "surface",
+      "observation": "原文辱骂对方是“没用的死灵法师”，译文却说对方“会用这样蹩脚的借口”，把针对人的辱骂错译成了针对借口的指责。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults hooks/bonestaff.lua:115：Stupid useless pathetic excuse of a \"necromancer\"! 是辱骂对方为可悲的冒牌“死灵法师”，现译“竟然会用这样蹩脚的借口”误解 excuse 并漏 Stupid useless；The staff stays calm 为保持平静而非“平静了下来”。整句改写，保留 #{italic}# 标记。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d301e2b94a36a524cd621a02f0e1b7a6a5af6b05e18102b88c04f4d374a20379",
+      "stage": "surface",
+      "observation": "原文表示对奥术使用者态度更友善；译文“不再痛恨”将其改为原先怀有仇恨且现已消除，含义不符。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:2192-2199：该句是效果 on_lose 文本，效果 on_gain 为 “is convinced arcane users must be destroyed”，activate 设 hates_arcane=1；失去效果即不再憎恨，现译“不再痛恨奥术使用者”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d31164b0b5d4a8e0716e186d561955e0705dc49a356549059c8e13c817734a2b",
+      "stage": "surface",
+      "observation": "原文仅为“the rod”，译文指定“回归之杖”；冻结输入缺少可确认该法杖名称的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/encounters/maj-eyal.lua:54-60 同一弹窗正文明言 “escape using the Rod of Recall”，按钮 “Use the rod” 指回归之杖；本库 mod-tome.lua:11626 Rod of Recall=回归之杖，现译正确。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "428381f995ba2022594d16795b31dd586eabafb1029ea411d7a9316e41896281",
+      "stage": "contextual",
+      "observation": "world-artifacts.lua:712 源文先说 mace in one hand and a sword in the other，下一句 One hand…the other… 按这个顺序对应：锤负责传播讯息，剑负责贯彻到底。译文改成「一手拿剑一手拿锤」，后面「一只手…另一只手…」就变成剑传播、锤贯彻，两件武器的职责对调了。下一句又单独讲锤的象征，职责对调后两句之间的关系也对不上了。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua 克罗格锤：a mace in one hand and a sword in the other. One hand to spread the message..., the other to see that message through 按锤、剑顺序对应；现译“一手拿剑一手拿锤”颠倒，使两手职责对调。同文件同族剑条目（tome-cults.lua 第772行）已在窗口33改为“一手拿锤、一手拿剑”（批296 655a344b 先例），本条对齐。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ce25dcc5791a3b8fc64403092b8a403e299cedb559a42baa2d6d0fb7f6860892",
+      "stage": "contextual",
+      "observation": "entropy.lua:281 的源串是一整句，中间没有换行。译文在「作为代价」前加了一个 \\n 和三个 TAB，游戏里显示时会多出断行和缩进，不符合换行不变量。另外，同一批 ce4ea9ba（rift.lua:564）把 DamageType.DARKNESS 的伤害译作「暗影伤害」，这里译作「黑暗…伤害」，同一伤害类型前后译名不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/entropy.lua:281 该 info 为一整句无换行，现译在“作为代价”前加 \\n 与三个 TAB，违反换行不变量；另 DamageType.DARKNESS 现译“黑暗…伤害”，本库与术语表 darkness(damage type)=暗影，改“暗影和时空伤害”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ce4ea9ba0231e5d74f04658141bdc97e97260201353e8ddd46676b9f964843b0",
+      "stage": "contextual",
+      "observation": "rift.lua:564 的 darkness damage（damDesc DamageType.DARKNESS）这里译作「暗影伤害」，同批 ce25dcc5 的同一伤害类型译作「黑暗伤害」，跨条不一致，需要统一。另有两处格式问题：第 566 行对应的「维度之门 :」冒号前多了空格，和同段其他两行「彼世裂隙：」「时空漩涡：」不一样；该行句末也漏了句号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/rift.lua:564-567：darkness damage 译“暗影伤害”正确（同批 ce25dcc5 的“黑暗”才需统一，contextual 的不一致指控归到 ce25dcc5）；但第566行对应“#PURPLE#维度之门 :#LAST#”冒号前多空格，与同段“彼世裂隙：”“时空漩涡：”体例不一，且该行句末漏句号，改“维度之门：”并补句号。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "cfaafbdaed0e10785ced769f5596d2bec2abe79713e0a6804192d2cadda8c320",
+      "stage": "contextual",
+      "observation": "godfeaster-malyu.lua:23 的场景是玩家被困在消化囊里（第 21 行）。三个并列选项都是用某种方式脱困：kick／cut／shout your way out。译文「试着拳打脚踢」丢了「脱出去」这层目的，还多出了源文没有的「拳打」。应译成「试着踢开一条出路」这类表达，和另外两个选项保持并列。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/chats/godfeaster-malyu.lua:21-23 玩家被困消化囊，三个并列选项 kick / cut / shout your way out 都是脱困方式；现译“[试着拳打脚踢]”漏“脱出去”且增出“拳打”，参照同族已修的“[试着砍出一条路逃出去]”改“[试着踢出一条路逃出去]”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d0e2bafe766193bf933dab52494b7ae3e7c5acdd305606e279a01d33711da299",
+      "stage": "contextual",
+      "observation": "bonestaff.lua:115 的 pathetic excuse of a \"necromancer\" 是在骂对方「可悲的冒牌『死灵法师』」，并不是说对方找了借口。译文「竟然会用这样蹩脚的借口」理解错了语义，而且漏掉了 Stupid useless 两个辱骂词。另外 The staff stays calm 说的是法杖保持平静、没有发作，「平静了下来」暗含之前躁动过，也有偏差。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults hooks/bonestaff.lua:115：Stupid useless pathetic excuse of a \"necromancer\"! 是辱骂对方为可悲的冒牌“死灵法师”，现译“竟然会用这样蹩脚的借口”误解 excuse 并漏 Stupid useless；The staff stays calm 为保持平静而非“平静了下来”。整句改写，保留 #{italic}# 标记。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (5 dispatches: surface-000 full-000 tome 1 entry; surface-001 four Cults lanes 20/20/20/19)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 8 entries)"
+  },
+  "notes": [
+    "Mixed batch (79 Cults + 1 main-game entry): stage_surface made two groups, surface-000 (the mod-tome.lua runtime-sync successor from repair window 35, one full-000 dispatch) and surface-001 (Cults, four lanes of 20/20/20/19). bd.sh stops at its Cults-only guard, so the host ran the remaining pre steps with the 305 templates and the emit-indexed lane helpers. lane-001-2 echoed one identity with an inserted character; the host precheck stopped the harvest, the full set was compared position by position, and only that string was corrected (--raw harvest). The host archived lane-001-2 before recording its archive-intent; the raw output came from the native log and the lifecycle then completed in order. The boundary scan hit \"rm \" inside \"form after\" in a lane-001-0 justification; the host inspected all native calls (reads of each lane's own envelope and the contract, python3 read-only prints) and wrote HOST-SURFACE-BOUNDARY-AUDIT.json by hand.",
+    "One contextual run (contextual-000, 8 Cults entries, claude/claude-opus-5-5) read only its frozen envelope, the contract and the Cults source; no refreeze was needed. The main-game entry passed surface and did not enter contextual.",
+    "Refuted by the implementation: the hates_arcane effect message is on_lose, so 不再痛恨 fits; \"Use the rod\" is the Rod of Recall named in the same popup (回归之杖); the Dimensional Gate voidling is the void skitterer entity, already 虚空造物 in the library.",
+    "The mace/sword order follows the sword sibling entry fixed in repair window 33 (batch 296 precedent 655a344b).",
+    "Mixed batch: 79 Cults entries matched the public Cults source file SHA in the workset (source repository and commit unpinned); 1 main-game entry (mod-tome.lua, the runtime-sync successor from repair window 35) was verified against t-engine4 at the fixed commit 624a67329fe2ad440c5b344785a9c73fcf22ae63.",
+    "5 confirmed repair revisions raise the window 36 backlog from 0 to 5; below the 20 threshold, so no window opens."
+  ]
+}

@@ -1,0 +1,3 @@
+第306批：冻结80条（Cults 79 条、主游戏 1 条），逐条按本批源码文件SHA核验80/80：Cults 来源仓库和commit未固定，主游戏按固定 commit 624a6732 核验。surface 两组共 5 个 dispatch：主游戏 1 条（window35 同步条目）full-000 判 OK；Cults 4 lane（20/20/20/19）8 个 ISSUE。lane-001-2 identity 多回显 1 字符，预检拦下后逐位比对并 --raw 修正收取（宿主先归档后记 archive-intent，顺序偏差已记入审计）；lane-001-0 说明文字 form after 含子串 rm 误报，宿主核对后手写审计；contextual 一个 Opus run（8 条）只读 envelope、契约与 Cults 源码，未越界，5 个 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决13个观察：{'advisory': 1, 'confirmed': 9, 'refuted': 3}；预计75条完成、5条待修复。修复 revision：克罗格锤武器顺序（对齐剑条目“一手拿锤、一手拿剑”）、熵能强化 info 删多余换行与暗影伤害、维度之门冒号体例与句号、消化囊“踢出一条路逃出去”、骨杖辱骂台词。hates_arcane 失去效果“不再痛恨”、回归之杖、voidling=虚空造物为实现与本库所证，refuted；纳格尔木桩“反对法师的活动”记 advisory。修复窗口36积压为5，未达20。

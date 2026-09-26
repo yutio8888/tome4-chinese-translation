@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch-da14fcfb8e992e06a51e",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T08:54:48.405318+00:00",
+  "launched": 5,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "surface_groups": {
+    "surface-000": "tome (mod-tome.lua) 1 entry, full-000",
+    "surface-001": "cults 79 entries, lane-001-0..3 (20/20/20/19)"
+  },
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only; no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [
+    {
+      "dispatch_id": "lane-001-2",
+      "result_index": 6,
+      "verdict": "OK",
+      "echoed": "d0e5be1bafc0b3dca822a4399bc6eef0ca65ddb01fc09de6dd227aca0fb0b4bd1",
+      "frozen": "d0e5be1bafc0b3ca822a4399bc6eef0ca65ddb01fc09de6dd227aca0fb0b4bd1",
+      "attribution": "the agent itself mis-echoed: the final assistant message in its native Codex log (archived_sessions/rollout-2026-09-26T08-52-22-01a0dcea-5f5f-7a40-ab13-8af6ada1a0df.jsonl) inserts an extra 'd' after ...0b3 (65 hex chars); the host precheck stopped the harvest before any harvest lock",
+      "original_raw": ".artifacts/i18n/continuation-20260923/captures306/lane3-original.raw",
+      "original_sha256": "63e2869f4401da380b85c55850dbbf29d931ac6a68d52c6e10552e86cca826bc",
+      "corrected_raw": ".artifacts/i18n/continuation-20260923/captures306/lane3-corrected.raw",
+      "corrected_sha256": "5307fe038ee6e19140e69bf197fd4957a31c43ee3f4ad60b34689b3781af307b",
+      "change": "only that one identity string replaced with the frozen value; all verdicts and observations unchanged; full 20-entry set compared position by position before harvest; harvested with --raw"
+    }
+  ],
+  "boundary_pattern_hits": [
+    {
+      "dispatch_id": "lane-001-0",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside \"form after\" in the justification of a python3 read-only print of its own SURFACE-SCREEN-ENVELOPE-lane-001-0.json (\"Read the authorized frozen envelope in compact form after sandbox mount failure.\", prefix_rule [\"python3\"], require_escalated after the sandbox runner failed); its other calls are cat of the surface contract and its own envelope and python3 read-only prints of that envelope; no write or external effect"
+    }
+  ],
+  "sequencing_note": "mixed tome+cults batch: bd.sh stops at the component guard, so the host ran the remaining pre steps with the 305 templates, audit_native_tools.py once per surface group (misplaced copies removed), and wrote this audit manually. lane-001-2 was archived (08:53:19.706Z) before its --raw harvest and archive-intent were recorded, because the host archived right after the failed precheck; the raw output was unaffected (read from the native log), harvest --raw then archive-intent then archive-confirm succeeded, and the child produced no further activity after finishing.",
+  "items": [
+    {
+      "task_id": "batch-da14fcfb8e992e06a51e-surface-000",
+      "dispatch_id": "full-000",
+      "agent_id": "5ae00ba3-a594-4830-b7d0-e51cc60bd7f1",
+      "native_tools_sha256": "d6ed3529682ec65c425d5599aec55dd96ea26afd0e178220eb5f47efd1962dea",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-da14fcfb8e992e06a51e-surface-001",
+      "dispatch_id": "lane-001-0",
+      "agent_id": "1c81025c-11a9-4e6f-ac10-dc057536f6e0",
+      "native_tools_sha256": "0e8cca707495be7c0b9124b72425a59994892518a3f2f6bfa0bf63e8e4d1385a",
+      "tool_calls": 7,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-da14fcfb8e992e06a51e-surface-001",
+      "dispatch_id": "lane-001-1",
+      "agent_id": "4046218c-6f0e-4856-b4bb-4a615eaf37b7",
+      "native_tools_sha256": "6cb80177308b2efa567a796f8a37c61c6a1fb84fdba5236af464a7b808584b22",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-da14fcfb8e992e06a51e-surface-001",
+      "dispatch_id": "lane-001-2",
+      "agent_id": "ca8cb014-274b-470f-8414-3edfe9091f1a",
+      "native_tools_sha256": "f1f6f475cfc5e1a50ff78339bd03a0c3f35aba5c5a731c5a93e6464941263a18",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-da14fcfb8e992e06a51e-surface-001",
+      "dispatch_id": "lane-001-3",
+      "agent_id": "2803cc9a-582f-4f1a-9503-23cb1fe4c366",
+      "native_tools_sha256": "0f6551061e92fa0c8a9829159951d134b6e62304c5eb6c2b97caf82b71c4267a",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
