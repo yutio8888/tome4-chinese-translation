@@ -1,0 +1,174 @@
+{
+  "batch_id": "batch-0a22d3e718c78608ca2e",
+  "observations": 17,
+  "observation_dispositions": {
+    "refuted": 5,
+    "confirmed": 12
+  },
+  "repair_revision_keys": [
+    "14ab7a9863293e3dafc8f974faa50d9f1c830aba2227fd21696695bbfc41ef08",
+    "14f18b1ef27527a2df9198aad3e241d683105c1f0729e719f19f38c62d044057",
+    "15bfd5dc1e243ed4a947d55ac058395a7fe1369dfc000469b2ddaddaa3ba7179",
+    "16499122345844d253f2c4f6d3b78ec5f9b41ea8acb188b70ce3052853d80777",
+    "16531ad8753a023e5ee10725067088a06a2f9bb6d65a61d5b1b8f57eca172410",
+    "179e471e6b33f4813c7e08e826cc33a63f23c10b1e1dd19220f37e90259ca8a1",
+    "17d6df13596ff2624137687f452ffdc731d3452e4bc1d0be72cc6f7568df82fd"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "133b296dc30acd8ffef43229d7909366c7949dabd7c39d994aa1385ac7bd947e",
+      "stage": "surface",
+      "observation": "译文额外写入“每回合使非固定冷却技能额外减少 1 回合冷却”，冻结英文原文只描述伤害和抗性提升，未包含冷却效果。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua MECHARACHNID_PILOTING_BUFF（Direct Control，本库“直接控制”）：on_timeout 每回合对 talents_cd 中非 fixed_cooldown 技能减 1，译文补述的冷却效果是实现真实行为，源文漏写；现译贴合实现，保留。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14ab7a9863293e3dafc8f974faa50d9f1c830aba2227fd21696695bbfc41ef08",
+      "stage": "surface",
+      "observation": "“every third hit”表示每逢第三次命中都会暴击；“第三下攻击”只指一次，遗漏了周期性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua Golden Gun（本库“金枪”）special_on_hit：every third hit always crits 是每第三次命中必定暴击（周期性），现译“第三下攻击必定暴击”读作只有第三下一次；改为“每第三次命中必定暴击。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14ba6b83a8d4ddfc5bc32643f2a97d4d1140fe97403710f006b733002dd30194",
+      "stage": "surface",
+      "observation": "“Subcutaneous Metallisation”指皮下金属化，“金属内皮”改变了原词含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua：+Subcutaneous Metallisation 是该技能效果的获得提示，本库技能名与效果名一致作“金属内皮”（tome-orcs.lua:5940、6408、6411、6413），与既有译名一致，改名属跨批次命名决定。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14f18b1ef27527a2df9198aad3e241d683105c1f0729e719f19f38c62d044057",
+      "stage": "surface",
+      "observation": "原文的“tentalizing notion”指诱人的念头，译文“具象化”改变了含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/generic-world-artifacts.lua 腐化之血瓶 desc：Is it the tentalizing (tantalizing) notion of eternal life? 是“永生这一诱人的念头”，现译“永恒生命的具象化”误译；改为“是永生这个诱人的念头吗？” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14fa8415da8ba300b28e0066903ecd8c413ce34d504f76f8814d789be7ac9ebb",
+      "stage": "surface",
+      "observation": "“a steamtech power”中的“power”在“蒸汽科技”中缺失。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents.lua:30 Talents.is_a_type.is_steam = _t\"a steamtech power\"，与主游戏 is_a_type 同类标签并列（本库 a spell→“法术”，mod-tome.lua:31943），作技能类别名用，“蒸汽科技”与既有体例一致。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "15bfd5dc1e243ed4a947d55ac058395a7fe1369dfc000469b2ddaddaa3ba7179",
+      "stage": "surface",
+      "observation": "原文两个换行后均有两个制表符，译文均缺少，段落缩进不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua Iron Grip（本库“铁腕”）info：源文两处 \\n 后均为 \\t\\t，现译两处均无制表符，行首缩进不一致（一级不变量），补回 \\t\\t，文字不动。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "16499122345844d253f2c4f6d3b78ec5f9b41ea8acb188b70ce3052853d80777",
+      "stage": "surface",
+      "observation": "原文三个换行后各有两个制表符，译文各只有一个，段落缩进不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/avoidance.lua Embedded Restoration Systems（本库“嵌入式回复系统”）info：源文四行、三处 \\n\\t\\t，现译把前两行并成一行且只剩两处 \\n\\t（单制表符），行结构与缩进不一致；按源文分行（触发条件／回复 %d 生命值／技能等级 3／每 %d 回合）并统一 \\n\\t\\t；另 The system can only trigger once every %d turns 是冷却上限（p.resto_cd = t.getCD），现译“每 %d 回合自动触发一次”写成定期必然触发，改为“该系统每 %d 回合最多触发一次”。与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "16531ad8753a023e5ee10725067088a06a2f9bb6d65a61d5b1b8f57eca172410",
+      "stage": "surface",
+      "observation": "原文三个换行后各有两个制表符，译文均缺少；末句“This talent does not use ammo as it is the ammo”中的“as it is the ammo”也未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua Toxic Shell（本库“毒气弹”）info：源文三处 \\n 后为 \\t\\t，现译均无；This talent does not use ammo as it is the ammo 漏“因为它本身就是弹药”；另 special toxic shot 现译“特殊弹药”漏“毒性”。补制表符并改为“这个技能不消耗弹药，因为它本身就是弹药。”；Toxin strength scales with Steampower 覆盖伤害与减速（other.lua:1829-1832 两者均取 getPower），现译“枯萎伤害受蒸汽强度加成”偏窄，改为“毒素强度受蒸汽强度加成”。与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "172138c5f65a0edd35c900dc476e7bb34e9eaa8e333c1ed5c3369a258048df7d",
+      "stage": "surface",
+      "observation": "原文“gunslinger's ”末尾有空格，译文“快枪手的”末尾没有；缺少拼接语境，无法判断显示是否受影响。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（gunslinger's 末尾空格）描述的是同 lane 前三条的 16eaeb7ede（steamgun.lua:40 ego 前缀 gunslinger's），与本条成就文本（Tricked Nektosh into killing one of his own people→令独角者纳克托什误杀己方）无关，本条译文无误；错位目标 16eaeb7e 经宿主核查亦无缺陷：本库 ego 前缀一律不带尾随空格（战士的/哨兵的/审判者的/扫射的），中文拼接无需空格，不需救回。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "179e471e6b33f4813c7e08e826cc33a63f23c10b1e1dd19220f37e90259ca8a1",
+      "stage": "surface",
+      "observation": "原文第二行紧接换行，译文第二行前多了两个制表符，段落缩进不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/misc/objects.lua Surekill（本库“一击必杀”）info：源文第二行紧接 \\n 无制表符，现译多出 \\t\\t，行首缩进不一致（一级不变量），删去多余制表符，文字不动。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "17d6df13596ff2624137687f452ffdc731d3452e4bc1d0be72cc6f7568df82fd",
+      "stage": "surface",
+      "observation": "前句明确在描述一件锯子；后句的“this example”指这件物品，译为“这个例子”错指抽象事例；“邪恶的暗示”也未对应原文对物品本身的描述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1980-1990 Grinder（本库“绞肉机”，bloody steamsaw）desc：Originally a kitchen implement 是原本为厨具，现译漏“厨具”；this example 指这一件（这把锯），现译“这个例子”误译，sinister 是“邪恶的气息”而非“暗示”；改为“这原本是巨人用来锯开坚硬冰冻兽尸的厨具，但这一把却透着格外邪恶的气息。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "133b296dc30acd8ffef43229d7909366c7949dabd7c39d994aa1385ac7bd947e",
+      "stage": "contextual",
+      "observation": "The target adds a clause that is not in the source: 「每回合使非固定冷却技能额外减少 1 回合冷却」. The source at tome-orcs/data/timed_effects/other.lua:437 (source unpinned) only says long_desc raises damage by eff.damage and resistances by eff.resist; the frozen snippet shows no cooldown effect. It also adds 「全部」 to damage and resistance. Unless the effect code shows this cooldown mechanic, remove the clause and match the source.",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "宿主补查 envelope 外的 on_timeout：other.lua MECHARACHNID_PILOTING_BUFF 每回合对非 fixed_cooldown 技能冷却减 1，译文补述贴合实现；“全部”对应 resists all / inc_damage all，亦与实现一致。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14ab7a9863293e3dafc8f974faa50d9f1c830aba2227fd21696695bbfc41ef08",
+      "stage": "contextual",
+      "observation": "The source says 'every third hit always crits.' and line 1084 has o.charge = o.charge + 1, so it counts hits and repeats. 「第三下攻击必定暴击」 drops 'every', which reads as a one-time third attack. It should say something like 「每第三次命中必定暴击」. The source also says 'hit' (on-hit), not 'attack'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：Golden Gun（金枪）按命中计数循环，every third hit 为每第三次命中。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "14f18b1ef27527a2df9198aad3e241d683105c1f0729e719f19f38c62d044057",
+      "stage": "contextual",
+      "observation": "The source asks 'Is it the tentalizing notion of eternal life?', meaning the pull may come from the tempting idea of eternal life. The target 「这，就是永恒生命的具象化吗？」 changes this to 'is this the embodiment of eternal life' and loses both 'tantalizing' and 'notion'. Suggested fix: 「是永生那诱人的念想吗？」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：tantalizing notion of eternal life 是诱人的念头，非“具象化”。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "16499122345844d253f2c4f6d3b78ec5f9b41ea8acb188b70ce3052853d80777",
+      "stage": "contextual",
+      "observation": "The source says 'The system can only trigger once every %d turns.', which is a cooldown limit (t.getCD, line 202). The target 「该系统每 %d 回合自动触发一次」 drops 'can only' and makes it sound like a guaranteed periodic trigger, even though the heal only fires when no enemies are visible. It should say at most once every %d turns, e.g. 「该系统每 %d 回合最多触发一次」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "宿主核对 avoidance.lua：resto_cd = t.getCD 为冷却上限，can only trigger once every %d turns 应为“最多一次”；与 surface 同条（行结构、制表符）合并修订。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "16531ad8753a023e5ee10725067088a06a2f9bb6d65a61d5b1b8f57eca172410",
+      "stage": "contextual",
+      "observation": "The source says 'Toxin strength scales with Steampower.' At tome-orcs/data/talents/steam/other.lua:1850, both the blight damage (t.getPower) and the global speed reduction (t.getPower-10) come from the same getPower. The target 「枯萎伤害受蒸汽强度加成」 limits the scaling to damage only and leaves out the speed reduction. Suggested fix: 「毒素强度受蒸汽强度加成」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "宿主核对 other.lua:1829-1850：伤害与减速均取 getPower，Toxin strength 覆盖两者；与 surface 同条（制表符、as it is the ammo）合并修订。 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "17d6df13596ff2624137687f452ffdc731d3452e4bc1d0be72cc6f7568df82fd",
+      "stage": "contextual",
+      "observation": "'this example' here means this particular item (the steamsaw artifact at world-artifacts.lua:1988-1991). Translating it literally as 「这个例子」 is wrong. The target also drops 'kitchen implement', and 'carcasses' means animal carcasses, not 「尸体」. Suggested fix: 「原本是巨人用来锯开坚硬冻肉的厨具。不过这一把透着格外邪恶的气息。」",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface 裁决：Grinder（绞肉机）desc，kitchen implement、this example（这一把）、carcasses（兽尸）三处。 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 11 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four lanes of 20. Every lane echoed its identities exactly and the boundary scan passed without a manual audit. One lane-000-2 observation (gunslinger's trailing space) slid onto a later achievement entry; it was refuted there and the intended entry was checked and found correct.",
+    "The contextual run read only its own envelope, the contract and the Orcs source; no refreeze was needed.",
+    "Implementation-backed: the piloting buff really reduces cooldowns each turn, so the translation's added clause follows the code; the restoration system trigger is a cooldown cap, and Toxic Shell's steampower scaling covers both damage and slow.",
+    "Refuted: Subcutaneous Metallisation keeps its library name and 'a steamtech power' follows the talent-type label convention.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 37 backlog from 18 to 25, reaching the 20 threshold: repair window 37 opens next."
+  ]
+}

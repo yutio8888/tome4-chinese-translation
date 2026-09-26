@@ -1,0 +1,90 @@
+{
+ "workset": "evidence/quality/production-batches/batch-0a22d3e718c78608ca2e-source-workset.json",
+ "decisions": {
+  "133b296dc3|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua MECHARACHNID_PILOTING_BUFF（Direct Control，本库“直接控制”）：on_timeout 每回合对 talents_cd 中非 fixed_cooldown 技能减 1，译文补述的冷却效果是实现真实行为，源文漏写；现译贴合实现，保留。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "14ab7a9863|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua Golden Gun（本库“金枪”）special_on_hit：every third hit always crits 是每第三次命中必定暴击（周期性），现译“第三下攻击必定暴击”读作只有第三下一次；改为“每第三次命中必定暴击。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "14ba6b83a8|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua：+Subcutaneous Metallisation 是该技能效果的获得提示，本库技能名与效果名一致作“金属内皮”（tome-orcs.lua:5940、6408、6411、6413），与既有译名一致，改名属跨批次命名决定。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "14f18b1ef2|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/generic-world-artifacts.lua 腐化之血瓶 desc：Is it the tentalizing (tantalizing) notion of eternal life? 是“永生这一诱人的念头”，现译“永恒生命的具象化”误译；改为“是永生这个诱人的念头吗？” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "14fa8415da|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents.lua:30 Talents.is_a_type.is_steam = _t\"a steamtech power\"，与主游戏 is_a_type 同类标签并列（本库 a spell→“法术”，mod-tome.lua:31943），作技能类别名用，“蒸汽科技”与既有体例一致。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "15bfd5dc1e|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua Iron Grip（本库“铁腕”）info：源文两处 \\n 后均为 \\t\\t，现译两处均无制表符，行首缩进不一致（一级不变量），补回 \\t\\t，文字不动。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1649912234|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/avoidance.lua Embedded Restoration Systems（本库“嵌入式回复系统”）info：源文四行、三处 \\n\\t\\t，现译把前两行并成一行且只剩两处 \\n\\t（单制表符），行结构与缩进不一致；按源文分行（触发条件／回复 %d 生命值／技能等级 3／每 %d 回合）并统一 \\n\\t\\t；另 The system can only trigger once every %d turns 是冷却上限（p.resto_cd = t.getCD），现译“每 %d 回合自动触发一次”写成定期必然触发，改为“该系统每 %d 回合最多触发一次”。与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "16531ad875|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua Toxic Shell（本库“毒气弹”）info：源文三处 \\n 后为 \\t\\t，现译均无；This talent does not use ammo as it is the ammo 漏“因为它本身就是弹药”；另 special toxic shot 现译“特殊弹药”漏“毒性”。补制表符并改为“这个技能不消耗弹药，因为它本身就是弹药。”；Toxin strength scales with Steampower 覆盖伤害与减速（other.lua:1829-1832 两者均取 getPower），现译“枯萎伤害受蒸汽强度加成”偏窄，改为“毒素强度受蒸汽强度加成”。与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "172138c5f6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "所附 observation（gunslinger's 末尾空格）描述的是同 lane 前三条的 16eaeb7ede（steamgun.lua:40 ego 前缀 gunslinger's），与本条成就文本（Tricked Nektosh into killing one of his own people→令独角者纳克托什误杀己方）无关，本条译文无误；错位目标 16eaeb7e 经宿主核查亦无缺陷：本库 ego 前缀一律不带尾随空格（战士的/哨兵的/审判者的/扫射的），中文拼接无需空格，不需救回。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "179e471e6b|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/misc/objects.lua Surekill（本库“一击必杀”）info：源文第二行紧接 \\n 无制表符，现译多出 \\t\\t，行首缩进不一致（一级不变量），删去多余制表符，文字不动。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "17d6df1359|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1980-1990 Grinder（本库“绞肉机”，bloody steamsaw）desc：Originally a kitchen implement 是原本为厨具，现译漏“厨具”；this example 指这一件（这把锯），现译“这个例子”误译，sinister 是“邪恶的气息”而非“暗示”；改为“这原本是巨人用来锯开坚硬冰冻兽尸的厨具，但这一把却透着格外邪恶的气息。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "133b296dc3|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "宿主补查 envelope 外的 on_timeout：other.lua MECHARACHNID_PILOTING_BUFF 每回合对非 fixed_cooldown 技能冷却减 1，译文补述贴合实现；“全部”对应 resists all / inc_damage all，亦与实现一致。 来源仓库/commit 未固定。"
+  },
+  "14ab7a9863|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：Golden Gun（金枪）按命中计数循环，every third hit 为每第三次命中。 来源仓库/commit 未固定。"
+  },
+  "14f18b1ef2|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：tantalizing notion of eternal life 是诱人的念头，非“具象化”。 来源仓库/commit 未固定。"
+  },
+  "1649912234|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "宿主核对 avoidance.lua：resto_cd = t.getCD 为冷却上限，can only trigger once every %d turns 应为“最多一次”；与 surface 同条（行结构、制表符）合并修订。 来源仓库/commit 未固定。"
+  },
+  "16531ad875|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "宿主核对 other.lua:1829-1850：伤害与减速均取 getPower，Toxin strength 覆盖两者；与 surface 同条（制表符、as it is the ammo）合并修订。 来源仓库/commit 未固定。"
+  },
+  "17d6df1359|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：Grinder（绞肉机）desc，kitchen implement、this example（这一把）、carcasses（兽尸）三处。 来源仓库/commit 未固定。"
+  }
+ }
+}
