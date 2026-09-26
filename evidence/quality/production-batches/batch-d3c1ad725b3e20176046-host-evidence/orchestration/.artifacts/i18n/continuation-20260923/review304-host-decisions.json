@@ -1,0 +1,75 @@
+{
+ "workset": "evidence/quality/production-batches/batch-d3c1ad725b3e20176046-source-workset.json",
+ "decisions": {
+  "b604eb5dfb|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/talents/demented/oblivion.lua 该技能对范围内目标调用 self:attackTarget(target, DamageType.VOID, t.getDamage(self,t), true)，即以虚空伤害类型进行武器攻击，“虚空武器伤害（暗影时空各 50%%）”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "b8714935ab|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults data/talents/demented/slow-death.lua Consume Whole（完整消化）的 on_pre_use 要求 EFF_DIGEST，消化的是正在消化中的受害者，“当前目标”措辞含糊（contextual 判 OK，此点单独只算 advisory）；但宿主逐行比对发现第二行原文 3 个制表符（\\n\\t\\t\\tActivating），译文只有 2 个，属 TAB 不变量。修复：第二行改为 3 个制表符，顺带把“当前目标”改为“受害者的残躯”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "b95bbbc8a4|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/lore/misc.lua 书信末句 acquisitions of properties 是对“找到”赃物的反讽，“追寻财富”丢了具体取得财产的含义但不影响任何机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "b9eb8a819a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults data/talents/demented/nether.lua 原文第一行 ...to the targeted location. Enemies will take %0.2f darkness and %0.2f temporal damage. 在同一行，现译在“指定位置。”后多出 \\n\\t\\t 换行（原文 3 行、译文 4 行，换行不变量），且“%0.2f 暗影 %0.2f 时空伤害”缺连接词。改为同一行“……传送至指定位置。敌人将受到 %0.2f 暗影伤害和 %0.2f 时空伤害。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "ba8b49f057|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/talents/demented/demented.lua 技能树描述 Feast upon the ruined timelines of your enemies；“享受你敌人毁灭的时间线”可读作“敌人被毁的时间线”，改“以敌人被毁的时间线为食”更贴切，但不影响机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "baeacde95a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults data/lore/kroshkkur.lua 瑞尔克传说末段 Since no one can enter this dungeon without leaving；现译“因为没有人到达过这座地下城的底层”凭空改写前提。改为按原文直译“由于任何进入这座地下城的人都终将离开，人们只能猜测它如今有多深”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "baeacde95a|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface；另原文通篇以 it 指瑞尔克，现译第一段用“他”、第二段用“它”，同一神祇前后代词不一致，统一为“它”。与 surface 合并为一次修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "bb57dc02d8|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults data/talents/demented/timethief.lua 该技能 info 第二行原文 4 个制表符（\\n\\t\\t\\t\\tNegative effects），现译只有 2 个，属 TAB 不变量；只改制表符为 4 个，文字不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "bf27868c92|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/talents/demented/demented.lua 技能树描述 Take on the defining aspects of a Scourge Drake；该技能树即天谴龙系技能，“使你能使用天谴龙技能”是对树内容的补充说明，不改变机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "bf6f268df4|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua 寄生兽台词 eat the yeek wayist... I 'saved' you to get a nice meal...；Wayist 术语库 preferred 为“维网信徒”，本库实体名 mod-tome.lua:38652 Yeek Wayist=“夺心魔维网信徒”，现译“夺心魔灵能力者”偏离术语，且句末省略号丢失。改为“直接吃掉了夺心魔维网信徒”并补“……”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "c09141f295|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/talents/demented/controlled-horrors.lua 恐魔化 Enemies near the target will have their target cleared on application；清除目标后敌人会重新选目标，“重新考虑其攻击目标”结果一致，可改“其当前攻击目标会被清除”，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "c1ebee2aae|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults data/lore/fay-willows.lua 原文 a truly frightening undead began to move, hulking figures of towering bone 本身单复数混用；现译“一个真正可怕的不死族……那是……骨巨人”跟随前半句单数，中文不强制复数，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "c26a569f0c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults data/talents/demented/friend-of-the-worm.lua 蠕虫合体失去主人视线时 setEffect(EFF_WTW_OFS, 4)，timed_effects.lua 该效果 long_desc 为 direct control will be lost，on_gain 提示是即将失控的警告；现译“直接控制中断了！”写成已中断。改为“直接控制即将中断！”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "c26a569f0c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface，宿主已补 friend-of-the-worm.lua 施加 4 回合效果的实现证据。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}

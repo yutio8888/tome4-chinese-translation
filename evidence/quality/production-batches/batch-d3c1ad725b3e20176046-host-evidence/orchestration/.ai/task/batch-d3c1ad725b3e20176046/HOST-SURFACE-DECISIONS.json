@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "b604eb5dfbae84adab614890c32df489b2d95703614015339b00d73961c7147d",
+      "stage": "surface",
+      "observation": "原文伤害由暗影和时空两类分担，译文却称为“虚空武器伤害”；“武器伤害”也无原文依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/oblivion.lua 该技能对范围内目标调用 self:attackTarget(target, DamageType.VOID, t.getDamage(self,t), true)，即以虚空伤害类型进行武器攻击，“虚空武器伤害（暗影时空各 50%%）”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b8714935ab7d4a29eaf4af3ed62dceec402d2a5769c1a4b767ce37c7749e84b5",
+      "stage": "surface",
+      "observation": "原文消化的是受害者的残余（what remains of your victim），译文写成“当前目标”，改变了作用对象的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/slow-death.lua Consume Whole（完整消化）的 on_pre_use 要求 EFF_DIGEST，消化的是正在消化中的受害者，“当前目标”措辞含糊（contextual 判 OK，此点单独只算 advisory）；但宿主逐行比对发现第二行原文 3 个制表符（\\n\\t\\t\\tActivating），译文只有 2 个，属 TAB 不变量。修复：第二行改为 3 个制表符，顺带把“当前目标”改为“受害者的残躯”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b95bbbc8a48f6847804a1c2642456a8e4d851a98bd6c3419ec9b186716e66ed3",
+      "stage": "surface",
+      "observation": "原文“acquisitions of properties”指取得财产或产业，译文“追寻财富”遗漏了取得具体财产的含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/lore/misc.lua 书信末句 acquisitions of properties 是对“找到”赃物的反讽，“追寻财富”丢了具体取得财产的含义但不影响任何机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b9eb8a819af63ac8a5d5dfef4d53fa5a8bde6e1ebf1a8d659bf27a38f8681c81",
+      "stage": "surface",
+      "observation": "原文分别列出 %0.2f darkness 和 %0.2f temporal damage；译文“%0.2f 暗影 %0.2f 时空伤害”缺少两种伤害之间的分隔，数值与伤害类型的对应关系不清。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/nether.lua 原文第一行 ...to the targeted location. Enemies will take %0.2f darkness and %0.2f temporal damage. 在同一行，现译在“指定位置。”后多出 \\n\\t\\t 换行（原文 3 行、译文 4 行，换行不变量），且“%0.2f 暗影 %0.2f 时空伤害”缺连接词。改为同一行“……传送至指定位置。敌人将受到 %0.2f 暗影伤害和 %0.2f 时空伤害。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ba8b49f05737947ea944f2dbfdd532170ecf0522489e0a65a4a12c91771160b1",
+      "stage": "surface",
+      "observation": "“Feast upon the ruined timelines of your enemies”以敌人遭毁坏的时间线为对象；译文“享受你敌人毁灭的时间线”将其写成敌人毁灭的时间线，改变了所毁坏的对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/demented.lua 技能树描述 Feast upon the ruined timelines of your enemies；“享受你敌人毁灭的时间线”可读作“敌人被毁的时间线”，改“以敌人被毁的时间线为食”更贴切，但不影响机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "baeacde95a44c91db9690ca9e2f86d2d2617435a67e3bdccc0d938e875251b95",
+      "stage": "surface",
+      "observation": "原文末段写“no one can enter this dungeon without leaving”，译文却写“没有人到达过这座地下城的底层”；原文没有无人到达底层这一信息。原句含义本身有歧义，需核对语境。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/kroshkkur.lua 瑞尔克传说末段 Since no one can enter this dungeon without leaving；现译“因为没有人到达过这座地下城的底层”凭空改写前提。改为按原文直译“由于任何进入这座地下城的人都终将离开，人们只能猜测它如今有多深”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "bb57dc02d85e7e06b9afd3c6af1eea5ffae3f92501e228a85c4df7af98038904",
+      "stage": "surface",
+      "observation": "原文第二行以四个制表符缩进，译文第二行只有两个制表符，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/timethief.lua 该技能 info 第二行原文 4 个制表符（\\n\\t\\t\\t\\tNegative effects），现译只有 2 个，属 TAB 不变量；只改制表符为 4 个，文字不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "bf27868c920e8fcf602071d3f631a34696b1d3a5ab716fdcdce3726735ddaf6a",
+      "stage": "surface",
+      "observation": "原文仅说呈现天谴龙的典型特征，译文额外声称“使你能使用天谴龙技能”，改变了能力描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/demented.lua 技能树描述 Take on the defining aspects of a Scourge Drake；该技能树即天谴龙系技能，“使你能使用天谴龙技能”是对树内容的补充说明，不改变机制，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "bf6f268df4c79931d7704139ac53a1d2ec54462e9a044d62a725ad3a9fd7dfe8",
+      "stage": "surface",
+      "observation": "原文末尾以省略号结束，译文末尾“一顿”后遗漏省略号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua 寄生兽台词 eat the yeek wayist... I 'saved' you to get a nice meal...；Wayist 术语库 preferred 为“维网信徒”，本库实体名 mod-tome.lua:38652 Yeek Wayist=“夺心魔维网信徒”，现译“夺心魔灵能力者”偏离术语，且句末省略号丢失。改为“直接吃掉了夺心魔维网信徒”并补“……”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c09141f295e58bc19c1c5be435e14268290d8dbd138db5ecab06ebc104fdb81c",
+      "stage": "surface",
+      "observation": "原文明确说施加效果时会清除目标附近敌人的当前攻击目标；译文“重新考虑其攻击目标”未表达清除目标这一效果。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/controlled-horrors.lua 恐魔化 Enemies near the target will have their target cleared on application；清除目标后敌人会重新选目标，“重新考虑其攻击目标”结果一致，可改“其当前攻击目标会被清除”，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c1ebee2aae2872bb6bd524028c759112851c8f3f6b4e3cf293ed1cfca3251ce7",
+      "stage": "surface",
+      "observation": "原文“hulking figures of towering bone”是复数，译文写成“一个……骨巨人”，数量不符。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 原文 a truly frightening undead began to move, hulking figures of towering bone 本身单复数混用；现译“一个真正可怕的不死族……那是……骨巨人”跟随前半句单数，中文不强制复数，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c26a569f0cc91945633cef750cdc009030a1115f09361ad0555aa6355553c271",
+      "stage": "surface",
+      "observation": "原文“direct control will break”表示直接控制将会中断；译文“直接控制中断了”写成已经中断。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/friend-of-the-worm.lua 蠕虫合体失去主人视线时 setEffect(EFF_WTW_OFS, 4)，timed_effects.lua 该效果 long_desc 为 direct control will be lost，on_gain 提示是即将失控的警告；现译“直接控制中断了！”写成已中断。改为“直接控制即将中断！”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
