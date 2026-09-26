@@ -1,0 +1,78 @@
+{
+  "batch_id": "batch-9af99942882ed4c5cb18",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T01:32:48.841470+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only (lane-000-0 partly through a Paseo terminal, see side_effects); no write-pattern hits",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    {
+      "dispatch_id": "lane-000-0",
+      "kind": "paseo_terminal",
+      "terminal_id": "7ab023e4-4de5-4b7f-8657-a641d6381a82",
+      "terminal_name": "surface-screen-readonly",
+      "native_call_indexes": [
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "keys": [
+        "cat docs/paseo-translation-surface-screen-v1-contract.md",
+        "cat .ai/task/batch-9af99942882ed4c5cb18/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+        "python3 -c json read of own envelope listing identities/source/target",
+        "python3 -c json read of own envelope entry 11",
+        "python3 -c json read of own envelope entry 17"
+      ],
+      "judgement": "after its in-sandbox cat calls, the reviewer used the injected Paseo MCP create_terminal/send_terminal_keys/capture_terminal tools; every key sequence only reads its own frozen envelope or the surface contract, no writes, no other paths; boundary holds (same pattern as repair window 19 r2a1)",
+      "cleanup": "host captured the last 40 lines as evidence and killed the terminal after harvest; list_terminals then returned none",
+      "audit_order_note": "the host audit script first asserted on the create_terminal pattern after close/import had already run in the same command; the audit was then completed by manual inspection before any contextual child was created"
+    }
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "66413616-488c-4540-8bf3-c7218826bcbf",
+      "native_tools_sha256": "0d276eb1dd8a5f4d37ec56dcfef56a6c02569f27e0d225f4fa42673040cb2e40",
+      "tool_calls": 16,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "950af619-d538-476a-a944-f5d2f635f614",
+      "native_tools_sha256": "e0e8e41853fb60c75a4c94c44e2f6fd0dd4bbc0955a721de2a400b8c912c5ac3",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "93cf5a2e-83bb-4e91-81ab-65286a390c7d",
+      "native_tools_sha256": "7c94d266d965112f922d6c4b458d6747cf07c32061fd47734742d2067a95cd71",
+      "tool_calls": 6,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "a8294c91-3bed-4b55-b1d5-cbbd983d09f7",
+      "native_tools_sha256": "d6e4b5eb8c6932e5365d4f43df0c685c2cb95e5d592900f268fcac5d6695b8c5",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

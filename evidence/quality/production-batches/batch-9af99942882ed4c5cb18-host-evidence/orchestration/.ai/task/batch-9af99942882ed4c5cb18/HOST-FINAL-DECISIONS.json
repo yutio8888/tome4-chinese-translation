@@ -1,0 +1,166 @@
+{
+  "batch_id": "batch-9af99942882ed4c5cb18",
+  "observations": 16,
+  "observation_dispositions": {
+    "confirmed": 11,
+    "advisory": 3,
+    "refuted": 2
+  },
+  "repair_revision_keys": [
+    "519f027d0c75303c0c8f8eb7dc10bd783817d9fbb171422c7a5f481040d694a4",
+    "51b2a4ec5ed5d396996d836a6376ece33f9931635aaa1a8b8404ccf1a474d8f8",
+    "52b301808442d228d7eeb39536d6ec209a8c578ced9e911794d1b786fde5fabe",
+    "52d427a26ac0da6eb9a5566c9ac82ce07332b992a8e0a93cc8856bfdcff2dea9",
+    "557d673c0a4bfeb499d01961f330a120d77054d798030da8f78e3ac3d13df8b4",
+    "58fe550acbee4ddb3e7ede68752c4291729f8f4353ff3abfaf47b96ceb1cb294"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "519f027d0c75303c0c8f8eb7dc10bd783817d9fbb171422c7a5f481040d694a4",
+      "stage": "surface",
+      "observation": "原文“many killed by that halfling's hands”只说许多食人魔被杀，译文“其中大部分死在那个半身人的手中”扩大为多数；原文“snubbing the zealots”也被译为“碾碎那些狂热者”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:477–479 食人魔突围一节：many killed by that halfling's hands 误作“其中大部分”（many≠most），from snubbing the zealots（挫败、给狂热者难堪）误作“碾碎那些狂热者”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "51b2a4ec5ed5d396996d836a6376ece33f9931635aaa1a8b8404ccf1a474d8f8",
+      "stage": "surface",
+      "observation": "原文“show the evildoers the wrongness of their way. Permanently.”指向对作恶者采取永久性的处置；译文“永久修正邪恶的错误”改成了修正错误，明显改变所指。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults quests/krogs-rescue.lua:24–28 任务描述：show the evildoers the wrongness of their way. Permanently. 是杀死死灵法师的反讽说法（后续完成条件均为 You have killed the necromancers），现译“永久修正邪恶的错误”丢失作恶者宾语和击杀义。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "52a70d37b538c99403277589b30b57b30e7e6193c081e6fe4a635c8868ff37d6",
+      "stage": "surface",
+      "observation": "原文以感叹号结尾，译文“#Target#被虚空之火点燃”缺少句末标点。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua 虚空之火 on_gain 日志缺感叹号，仅标点，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "52b301808442d228d7eeb39536d6ec209a8c578ced9e911794d1b786fde5fabe",
+      "stage": "surface",
+      "observation": "原文限定受害者对“all other targets”造成的伤害降低，译文省略“其他目标”，变成所造成的伤害一概降低。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults timed_effects.lua:767–771 HIDEOUS_VISIONS callbackOnDealDamage 在 target == eff.src（幻象本身）时提前返回，减伤只作用于幻象以外的目标；现译“造成的伤害降低”删去“对其他目标”，一级机制缺陷。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "52d427a26ac0da6eb9a5566c9ac82ce07332b992a8e0a93cc8856bfdcff2dea9",
+      "stage": "surface",
+      "observation": "原文“I did not know who this attacker was”的主语是叙述者“我”，译文却写成“它不知道袭击者是谁”，颠倒了不知情者。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:646 I did not know who this attacker was 误作“它不知道袭击者是谁”，主语颠倒。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "543d53338ab8a222bc167b3bd768734db13fb37382b41722201955390b4a9b7f",
+      "stage": "surface",
+      "observation": "原文“-Accelerate”表示加速，译文“-窃速”引入了原文未表达的窃取含义；缺少语境证据确认是否为特定名称。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:1368–1375 该效果名 Accelerate，本库技能/效果名为“窃速”（tome-cults.lua:3256/3751/3754），“-窃速”一致，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "557d673c0a4bfeb499d01961f330a120d77054d798030da8f78e3ac3d13df8b4",
+      "stage": "surface",
+      "observation": "原文“minding its own business”指独自做自己的事，译文“正在思考自己的事情”误作思考。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/town-kroshkkur/npcs.lua:88–92 drem seeker of knowledge：minding its own business 是“自顾自、不招惹旁人”的习语，现译“正在思考自己的事情”误读。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "55a4ebf91524d392a533fa52b322cfc29a3d4055d812d21f47ca3be1d81c44c3",
+      "stage": "surface",
+      "observation": "原文“One of the centers”明确是多个神经中枢之一，译文“神经中枢”遗漏“之一”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults zones/maggot/npcs.lua:32–33 The Spinal Cord 是唯一的该类单位且 on_die 杀死巨型蛆虫；one of 与 wither 被省略只影响叙述，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5621f25c255043da38bbd5f836bfc8b5b4f486d649d6a47366599df93655063a",
+      "stage": "surface",
+      "observation": "原文“for one turn”指持续一回合，译文“下回合”改成下一回合；“cone of gore”也被译成“脓液喷射”，将血肉误作脓液。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/path-of-horror.lua:70 setEffect(EFF_CARRION_FEET, 1)，“下回合”在实际效果上成立；gore 译“脓液”仅意象差异，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5839d4c867eca45230c9e507e6869ef66d53c0955342fd1038d9a15a896ddca3",
+      "stage": "surface",
+      "observation": "原文为“elemental drake aspect”，译文“龙血类型”加入了原文没有的“血”；冻结输入缺少该名称的术语依据，无法确认是否为既定译名。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/misc/races.lua 该提示对应 Drake Aspect，本库译名“龙血类型”（tome-cults.lua:3492–3493），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "58fe550acbee4ddb3e7ede68752c4291729f8f4353ff3abfaf47b96ceb1cb294",
+      "stage": "surface",
+      "observation": "原文说让一只鞋保持原位、另一只鞋快速旋转；译文将两只“鞋”写成了两只“脚”，且遗漏了旋转动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua 鞋子描述：set a shoe to stay in place 误作“让一只脚”，并删去 spinning around（旋转产生龙卷风的动作），改为“一只鞋……另一只鞋……旋转起来形成龙卷风”一类。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "519f027d0c75303c0c8f8eb7dc10bd783817d9fbb171422c7a5f481040d694a4",
+      "stage": "contextual",
+      "observation": "fay-willows.lua L465-481 (cults, unpinned): several meaning errors. (1) L477 'Some who couldn't scramble out of our way were trampled as we ran over them' → '当我们从他们身上碾过时，许多人都无法没能逃脱'. This is garbled (double negative 无法没能), drops 'trampled', and turns 'some' into '许多人'. (2) L479 'many killed by that halfling's hands' → '其中大部分死在那个半身人的手中'. 'many' is not 'most'. (3) L477 'from snubbing the zealots' → '碾碎那些狂热者'. snub means to rebuff or humiliate, not to crush, and the zealots were not crushed. (4) L475 'we need to push through and get out of here' → '我们需要迅速离开这里'. This drops 'push through', which is the order the next paragraph carries out. 'looking ahead' → '环视四周' is also wrong.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:477–479 食人魔突围一节：many killed by that halfling's hands 误作“其中大部分”（many≠most），from snubbing the zealots（挫败、给狂热者难堪）误作“碾碎那些狂热者”。 contextual 同指上述两处，另指 L477 Some who couldn't scramble out of our way were trampled 误作“许多人都无法没能逃脱”（丢失践踏、some 变“许多人”、“无法没能”病句），L475 push through and get out of here 误作“迅速离开这里”（丢失冲过去）、looking ahead 误作“环视四周”；宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "51b2a4ec5ed5d396996d836a6376ece33f9931635aaa1a8b8404ccf1a474d8f8",
+      "stage": "contextual",
+      "observation": "krogs-rescue.lua L24 (cults, unpinned): 'show the evildoers the wrongness of their way. Permanently.' is an ironic order to kill the necromancers. L25-27 make killing them the quest condition ('You have killed the necromancers'). The target '并永久修正邪恶的错误' drops 'the evildoers' as the object and the 'kill them' meaning, and reads as 'correct the mistakes of evil'. 'Save our people' → '去拯救人民' also drops 'our'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults quests/krogs-rescue.lua:24–28 任务描述：show the evildoers the wrongness of their way. Permanently. 是杀死死灵法师的反讽说法（后续完成条件均为 You have killed the necromancers），现译“永久修正邪恶的错误”丢失作恶者宾语和击杀义。 contextual 同指作恶者与击杀义丢失，另指 Save our people 丢失“我们的”；宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "52b301808442d228d7eeb39536d6ec209a8c578ced9e911794d1b786fde5fabe",
+      "stage": "contextual",
+      "observation": "madness.lua L157 (cults, unpinned): 'the victim will deal %d%% reduced damage to all other targets until the vision is slain' → '被影响的敌人在幻象被击杀前造成的伤害降低 %d%%'. This drops the 'to all other targets' qualifier. In the source the reduction applies to targets other than the vision, but the translation makes it an unconditional reduction to all damage, which states the mechanic too broadly.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults timed_effects.lua:767–771 HIDEOUS_VISIONS callbackOnDealDamage 在 target == eff.src（幻象本身）时提前返回，减伤只作用于幻象以外的目标；现译“造成的伤害降低”删去“对其他目标”，一级机制缺陷。 contextual 同指“对其他目标”限定被删，宿主核对属实。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "52d427a26ac0da6eb9a5566c9ac82ce07332b992a8e0a93cc8856bfdcff2dea9",
+      "stage": "contextual",
+      "observation": "fay-willows.lua (cults, unpinned), several meaning errors. (1) 'I did not know who this attacker was' → '它不知道袭击者是谁'. The subject is wrong; it should be 我. (2) 'including the chaotic energies within me' → '包括我内心的黑暗能量'. chaotic is mistranslated as 黑暗. (3) 'with only my thoughts to keep my company' → '只想着我的任务'. This is a mistranslation. (4) 'We've had a few more wander in through the Shroud while you were scouting' → '我们又在帷幕里碰到了几只'. The source means undead got into the city through the Shroud, not that they were met inside the Shroud. (5) 'a shaloren soldier walked into me and knocked me to the ground' → '走近我'. This loses the collision, so being knocked down no longer makes sense. (6) 'a fury of blows that quickly overwhelmed the creature' → '狂怒的一击，很快就把它击倒了'. This conflicts with the following text, where the creature is not dead and attacks again. (7) 'had come to know him as family' → '后来和他一起组成了家庭'. This changes the relationship. (8) '我我很抱歉' has a duplicated character.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua:646 I did not know who this attacker was 误作“它不知道袭击者是谁”，主语颠倒。 contextual 同指主语颠倒，另指 L642 chaotic energies 误作“黑暗能量”、L644 with only my thoughts to keep my company 误作“只想着我的任务”、L652 We've had a few more wander in through the Shroud 误作“我们又在帷幕里碰到了几只”（应为穿过帷幕游荡进城）、walked into me 误作“走近我”（丢失相撞，击倒失去因由）、L648 a fury of blows 误作“狂怒的一击，很快就把它击倒了”（与下文生物再次攻击矛盾）、L640 had come to know him as family 误作“一起组成了家庭”、以及“我我很抱歉”重字；宿主逐条核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "557d673c0a4bfeb499d01961f330a120d77054d798030da8f78e3ac3d13df8b4",
+      "stage": "contextual",
+      "observation": "town-kroshkkur/npcs.lua (cults, unpinned), drem seeker of knowledge: 'minding its own business' is an idiom meaning it is doing its own thing and not bothering anyone. The target '他正在思考自己的事情' reads as 'thinking about its own affairs', which misreads the idiom. The same entry also has a female variant (L91-92 female=1), so fixing the drem as 他 is inaccurate; the source uses 'its'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/town-kroshkkur/npcs.lua:88–92 drem seeker of knowledge：minding its own business 是“自顾自、不招惹旁人”的习语，现译“正在思考自己的事情”误读。 contextual 同指习语误读，另指该 NPC female=1（L91），“他”应改为中性或“她”；宿主核对属实，一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes of 20, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 11 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20; all identities echoed correctly and no observation slid.",
+    "lane-000-0 used the injected Paseo MCP terminal tools (create_terminal/send_terminal_keys/capture_terminal) to read its own envelope and the surface contract; every key sequence was read-only, the host captured and killed terminal 7ab023e4 after harvest (recorded as side_effects in HOST-SURFACE-BOUNDARY-AUDIT). The audit script asserted after close/import had already run in the same command; the audit was completed by manual inspection before the contextual child was created.",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Two surface observations are refuted because the targets use the library names: Accelerate = 窃速 and Drake Aspect = 龙血类型. Three are advisory: a missing exclamation mark, the Spinal Cord wording, and CARRION_FEET gore imagery.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "Six confirmed repair revisions raise the window 33 backlog from 7 to 13 (batches 294-295); below the 20 threshold, so no window opens."
+  ]
+}
