@@ -1,0 +1,90 @@
+{
+  "workset": "evidence/quality/production-batches/batch-0dad341e579abd2a2943-source-workset.json",
+  "decisions": {
+    "7f59e596fd|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults superload/mod/dialogs/ProphecyTwofoldCurse.lua 对话框说明 All prophecies that can be used with Twofold Curse；现译“所有可以使用双重诅咒的预言”主客关系略含糊，但仍可读作可与双重诅咒搭配的预言，不影响操作；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "80602bf122|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:1444–1499 SUSPEND_BEN：long_desc 说 Each turn，但实现只在 deactivate（暂停结束时）一次性按 eff.power 缩短 status=detrimental、type~=\"other\" 且非 tick_on_timeless 的效果以及技能冷却。现译“暂停结束时，非‘其他’类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "81b9f14fe8|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/timethief.lua:23–46 Accelerate 属 timethief（窃时）系，info 写 You use the siphoned speed：先减速周围敌人再把“虹吸来的速度”加给自己；本库该技能与效果统一译“窃速”（tome-cults.lua 3254/3749/3752/3754），按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "81cf60103e|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:268 many beginning to say such things as 'magic is to blame'：现译“法师就是一切的罪魁祸首”把 magic 换成法师；:274 bringing back many of those I had assumed to be named：现译“带回了许多名单上的难民”凭空加难民身份并丢了“我以为”。确认。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "81cf60103e|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 fay-willows.lua:278 I could hear the voice who had stirred the people ... let loose a wretched cry that echoed through my head：发出凄厉叫喊的是那个煽动者的声音本身，现译改成人群受煽动放声呐喊，施事错位，且与下句 The rest of the crowd followed suit 脱节。宿主逐句核对同条另见 :280 more sickened by what the voice would come to say next 译“更让我感到恐惧”（应为更令我反感/作呕）与 the simmering fire 译“熊熊燃烧的大火”（余火未熄，强度相反），一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8272671398|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/tentacles.lua 技能名 Tendrils Eruption，本库技能名与物品特效统一译“触手地狱”（tome-cults.lua 3221、834），属本库既定技能名，按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "829f4ab17e|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/nether.lua:155 裂缝切割（Rift Cutter）Targets cannot be struck by more than a single rift explosion at once；实现 data/damage_types.lua RIFT_EXPLOSION 用 target.turn_procs.rift_explosion，同一目标每回合只受一次裂缝爆炸伤害（多道裂缝不叠加）。现译“一次湮灭不能多次伤害同一目标”把跨爆炸的限制写成单次爆炸自身的限制，与实现不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "829f4ab17e|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：nether.lua:155 与 damage_types.lua turn_procs.rift_explosion 实现一致，限制对象是多道裂缝爆炸；修复为“同一目标同时只会受到一次裂缝爆炸的伤害”，并把 :154 the rift detonates 的“湮灭”改为“爆炸”使前后对应。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "837d40e691|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/slow-death.lua 消化（Digest）info attempt to snatch a foe that has %d%% life or less left and swallow it whole；实现要求近战命中、生命比例不超过阈值且 target:canBe(\"instakill\") 才吞噬并 die。现译“生命在 %d%% 以下的敌人将会被你整个吞下并消化”删去 attempt，把有条件的尝试写成必然。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "837d40e691|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：slow-death.lua attempt 限定被删，实现另有命中与即死免疫条件；修复为“并尝试抓住生命值不高于 %d%% 的敌人，将其整个吞下”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "84a82d1ccb|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:148 The rather straightforward response seemingly got me a quick smirk：是将军对我的回答报以一笑，现译“让我很快笑了起来”施事错位；:152 Devastation of all kinds swept across the continent, some perhaps not even of our world：有些灾害或许并非来自本世界，现译“甚至包括我们的世界之外的地方”误作波及范围；:154 they had acted to stop what he believed：为阻止而行动，现译“他们的行动阻止了”说成已阻止。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "84a82d1ccb|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条另见 :140 While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion...：主动报名的人没什么值得称道，而名字是从旁人口中得知的艾伦尼恩或许值得尊重；现译“虽然对于习惯于说出自己名字的人群来说这没什么奇怪的”丢了这层对比。与 surface 三处一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "875405bb8f|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-haze-cave/zone.lua:169 随机叙述 Meat has been a rare treat as of late：as of late 为“近来”；现译“在这种时候，肉是一种罕见的食物”误作特定时刻。修复为“近来，肉可是难得的美味。”（contextual 判 OK，宿主按原文确认）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "89eaa9d522|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults hooks/bonestaff.lua:69 You feel the staff writhing in your hand with dark intents：writhing 为扭动/蠕动，现译“旋转”误译；:70 Anytime you use your Create Minions spell I will make sure one of them is a Bone Horror, if none are present：由法杖确保随从之一为骨灵恐魔，现译“你将可以召唤一个”改变了施动者，一并修复为“我会确保其中一个是骨灵恐魔”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "89eaa9d522|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：bonestaff.lua:69 writhing 译“旋转”为误译，与 contextual 观察一致，合并为同一修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8a4b1870ba|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/kroshkkur.lua:28 seekers of forbidden knowledge：追寻禁忌知识的人，现译“寻求着禁忌知识的先知”凭空加“先知”身份。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8a4b1870ba|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 kroshkkur.lua:30 discovered magic which will change the course of Eyal's history 现译“禁忌魔法”添加“禁忌”；:32 scattered, mindless beings for them to sweep aside 现译“被他们当做害虫一样轻轻扫开的，毫无心智的乌合之众”添加害虫比喻并漏 scattered。与 seekers 一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  }
+}

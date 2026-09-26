@@ -1,0 +1,174 @@
+{
+  "batch_id": "batch-0dad341e579abd2a2943",
+  "observations": 17,
+  "observation_dispositions": {
+    "advisory": 1,
+    "refuted": 3,
+    "confirmed": 13
+  },
+  "repair_revision_keys": [
+    "81cf60103e43abd42593763972335be52c6d31760d8a1d1539e337602f209e86",
+    "829f4ab17efde2b79f3c0dbdb0467975a2fbda9458edf8de06932696eb5c21c1",
+    "837d40e6910d13b0f7b4aa7d5304b568440e07a82483d06767300efb83b02bac",
+    "84a82d1ccbf18acbfc7da71d5da85b7f2111b7b3055828e02d137e23d30f456c",
+    "875405bb8f859fad77dbc2754e1c67ed9255b6cca885061a8517d24866d51e07",
+    "89eaa9d522560726d456e947fe941e9b55ab3b3ef6228e919ae8dd7e7eaa82d2",
+    "8a4b1870ba7d172b5df38a374dfe7ff40af5b282cb9277350c21a31ab55ae3ad"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "7f59e596fded9793a4a11f0139b684590f8b1490db047b4503e0dac36edd0460",
+      "stage": "surface",
+      "observation": "原文表示预言可与 Twofold Curse 配合使用，译文“可以使用双重诅咒的预言”颠倒了使用关系。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults superload/mod/dialogs/ProphecyTwofoldCurse.lua 对话框说明 All prophecies that can be used with Twofold Curse；现译“所有可以使用双重诅咒的预言”主客关系略含糊，但仍可读作可与双重诅咒搭配的预言，不影响操作；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "80602bf122e81447eefe34fcbe417fe7e43a1e2d84cf18697723f9030afdbb2b",
+      "stage": "surface",
+      "observation": "原文说负面效果和冷却时间每回合缩短；译文改为“暂停结束时”缩短，时间点不符。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:1444–1499 SUSPEND_BEN：long_desc 说 Each turn，但实现只在 deactivate（暂停结束时）一次性按 eff.power 缩短 status=detrimental、type~=\"other\" 且非 tick_on_timeless 的效果以及技能冷却。现译“暂停结束时，非‘其他’类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "81b9f14fe832437920c0ddbf3eb3ae675b390e0c5473da67d6788612e7f7493a",
+      "stage": "surface",
+      "observation": "“Accelerate”字面为加速，译文“窃速”加入了偷取速度的含义；冻结输入没有术语正文或技能语境可判断该专名是否另有依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/timethief.lua:23–46 Accelerate 属 timethief（窃时）系，info 写 You use the siphoned speed：先减速周围敌人再把“虹吸来的速度”加给自己；本库该技能与效果统一译“窃速”（tome-cults.lua 3254/3749/3752/3754），按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "81cf60103e43abd42593763972335be52c6d31760d8a1d1539e337602f209e86",
+      "stage": "surface",
+      "observation": "原文称人群带回许多叙述者推测已被点名的人，译文写成“许多名单上的难民”，无据增加难民身份；原文口号“magic is to blame”也被译为“法师就是一切的罪魁祸首”，将魔法换成法师。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:268 many beginning to say such things as 'magic is to blame'：现译“法师就是一切的罪魁祸首”把 magic 换成法师；:274 bringing back many of those I had assumed to be named：现译“带回了许多名单上的难民”凭空加难民身份并丢了“我以为”。确认。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "82726713980974bfa3f550ee5404885caa51e50cc7c34b58a89b0b569a7f36cc",
+      "stage": "surface",
+      "observation": "“Tendrils Eruption”指触须爆发，译文“触手地狱”改变了名称含义；冻结输入没有专名术语依据可核对。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/tentacles.lua 技能名 Tendrils Eruption，本库技能名与物品特效统一译“触手地狱”（tome-cults.lua 3221、834），属本库既定技能名，按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "829f4ab17efde2b79f3c0dbdb0467975a2fbda9458edf8de06932696eb5c21c1",
+      "stage": "surface",
+      "observation": "原文限制目标同时至多受到一次裂缝爆炸伤害，译文写成“一次湮灭不能多次伤害同一目标”，把多个裂缝爆炸间的限制改成单次爆炸自身的限制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/nether.lua:155 裂缝切割（Rift Cutter）Targets cannot be struck by more than a single rift explosion at once；实现 data/damage_types.lua RIFT_EXPLOSION 用 target.turn_procs.rift_explosion，同一目标每回合只受一次裂缝爆炸伤害（多道裂缝不叠加）。现译“一次湮灭不能多次伤害同一目标”把跨爆炸的限制写成单次爆炸自身的限制，与实现不符。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "837d40e6910d13b0f7b4aa7d5304b568440e07a82483d06767300efb83b02bac",
+      "stage": "surface",
+      "observation": "原文是尝试抓取并吞下生命值符合条件的敌人，译文写成该敌人“将会被你整个吞下并消化”，遗漏了尝试而非必定成功的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/slow-death.lua 消化（Digest）info attempt to snatch a foe that has %d%% life or less left and swallow it whole；实现要求近战命中、生命比例不超过阈值且 target:canBe(\"instakill\") 才吞噬并 die。现译“生命在 %d%% 以下的敌人将会被你整个吞下并消化”删去 attempt，把有条件的尝试写成必然。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "84a82d1ccbf18acbfc7da71d5da85b7f2111b7b3055828e02d137e23d30f456c",
+      "stage": "surface",
+      "observation": "“got me a quick smirk”译成叙述者自己笑了；“acted to stop”译成已经阻止威胁；“some perhaps not even of our world”译成灾害波及世界之外的地方，均改变了原文含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:148 The rather straightforward response seemingly got me a quick smirk：是将军对我的回答报以一笑，现译“让我很快笑了起来”施事错位；:152 Devastation of all kinds swept across the continent, some perhaps not even of our world：有些灾害或许并非来自本世界，现译“甚至包括我们的世界之外的地方”误作波及范围；:154 they had acted to stop what he believed：为阻止而行动，现译“他们的行动阻止了”说成已阻止。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "875405bb8f859fad77dbc2754e1c67ed9255b6cca885061a8517d24866d51e07",
+      "stage": "surface",
+      "observation": "“as of late”意为“最近”，译文“在这种时候”误指某种特定时刻。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-haze-cave/zone.lua:169 随机叙述 Meat has been a rare treat as of late：as of late 为“近来”；现译“在这种时候，肉是一种罕见的食物”误作特定时刻。修复为“近来，肉可是难得的美味。”（contextual 判 OK，宿主按原文确认）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "89eaa9d522560726d456e947fe941e9b55ab3b3ef6228e919ae8dd7e7eaa82d2",
+      "stage": "surface",
+      "observation": "“staff writhing”被译为“法杖……旋转”，动作含义不符；“I will make sure one of them is a Bone Horror”被译为“你将可以召唤一个”，把说话者确保召唤结果误作使用者获得召唤能力。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults hooks/bonestaff.lua:69 You feel the staff writhing in your hand with dark intents：writhing 为扭动/蠕动，现译“旋转”误译；:70 Anytime you use your Create Minions spell I will make sure one of them is a Bone Horror, if none are present：由法杖确保随从之一为骨灵恐魔，现译“你将可以召唤一个”改变了施动者，一并修复为“我会确保其中一个是骨灵恐魔”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8a4b1870ba7d172b5df38a374dfe7ff40af5b282cb9277350c21a31ab55ae3ad",
+      "stage": "surface",
+      "observation": "“seekers of forbidden knowledge”被译为“寻求着禁忌知识的先知”；“seekers”并无“先知”之意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/kroshkkur.lua:28 seekers of forbidden knowledge：追寻禁忌知识的人，现译“寻求着禁忌知识的先知”凭空加“先知”身份。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "81cf60103e43abd42593763972335be52c6d31760d8a1d1539e337602f209e86",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/fay-willows.lua:278（来源未固定）原文是 'I could hear the voice who had stirred the people around me to these brutal acts let loose a wretched cry that echoed through my head'。这里是那个声音本身发出凄厉的叫喊，并在我脑中回荡；「who had stirred…」只是修饰语。译文「我能听到一个声音，这个声音激起了我周围的人对这些残忍的行为放声呐喊，在我的脑海中回荡」改成了人群受煽动而呐喊，丢掉了这个声音自己的叫喊，与下句 'The rest of the crowd followed suit' 的先后关系也对不上。同文第268行 'magic is to blame' 被译成「法师就是一切的罪魁祸首」，把 magic 换成了法师。第274行 'bringing back many of those I had assumed to be named' 被译成「带回了许多名单上的难民」，原文并未说被带回的都是难民。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 fay-willows.lua:278 I could hear the voice who had stirred the people ... let loose a wretched cry that echoed through my head：发出凄厉叫喊的是那个煽动者的声音本身，现译改成人群受煽动放声呐喊，施事错位，且与下句 The rest of the crowd followed suit 脱节。宿主逐句核对同条另见 :280 more sickened by what the voice would come to say next 译“更让我感到恐惧”（应为更令我反感/作呕）与 the simmering fire 译“熊熊燃烧的大火”（余火未熄，强度相反），一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "829f4ab17efde2b79f3c0dbdb0467975a2fbda9458edf8de06932696eb5c21c1",
+      "stage": "contextual",
+      "observation": "tome-cults/data/talents/demented/nether.lua:155（来源未固定）原文是 'Targets cannot be struck by more than a single rift explosion at once.'，意思是同一目标同时最多只受一次裂缝爆炸的伤害，即多个裂缝重叠时不叠加。译文「一次湮灭不能多次伤害同一目标」变成了单次爆炸不会重复命中同一目标，限制对象弄错了。按原文应写成类似「同一目标同时只会受到一次裂缝爆炸的伤害」。本次输入没有给出 DLC 源码位置，无法补查实现，只能依据源码中的字面原文判断。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：nether.lua:155 与 damage_types.lua turn_procs.rift_explosion 实现一致，限制对象是多道裂缝爆炸；修复为“同一目标同时只会受到一次裂缝爆炸的伤害”，并把 :154 the rift detonates 的“湮灭”改为“爆炸”使前后对应。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "837d40e6910d13b0f7b4aa7d5304b568440e07a82483d06767300efb83b02bac",
+      "stage": "contextual",
+      "observation": "tome-cults/data/talents/demented/slow-death.lua:74（来源未固定）原文是 'attempt to snatch a foe that has %d%% life or less left and swallow it whole'，用了 attempt，表示只是尝试吞噬。译文「生命在 %d%% 以下的敌人将会被你整个吞下并消化」删掉了这个限定，把尝试写成了必定成功。本次输入没有 DLC 源码位置，无法核实实现里是否有豁免或失败分支；在查明之前，译文应保留「尝试」语义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：slow-death.lua attempt 限定被删，实现另有命中与即死免疫条件；修复为“并尝试抓住生命值不高于 %d%% 的敌人，将其整个吞下”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "84a82d1ccbf18acbfc7da71d5da85b7f2111b7b3055828e02d137e23d30f456c",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/fay-willows.lua:148（来源未固定）原文是 'The rather straightforward response seemingly got me a quick smirk.'，是这句直白的回答换来了将军的一个冷笑。译文「这个相当直截了当的回答，让我很快笑了起来」把笑的人弄成了叙述者「我」，人物关系译反了。第140行 'While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion…' 的意思是：主动报上名字的人没什么值得称道，但名字是从旁人口中得知的 Aranion 或许值得尊重。译文「虽然对于习惯于说出自己名字的人群来说这没什么奇怪的」没有译出这层对比。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条另见 :140 While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion...：主动报名的人没什么值得称道，而名字是从旁人口中得知的艾伦尼恩或许值得尊重；现译“虽然对于习惯于说出自己名字的人群来说这没什么奇怪的”丢了这层对比。与 surface 三处一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "89eaa9d522560726d456e947fe941e9b55ab3b3ef6228e919ae8dd7e7eaa82d2",
+      "stage": "contextual",
+      "observation": "tome-cults/hooks/bonestaff.lua:69（来源未固定）原文 'You feel the staff writhing in your hand with dark intents.' 中 writhing 是扭动、蠕动的意思，译文「随着黑暗的意图旋转」把它译成了旋转，是误译，应改为扭动或蠕动。这一处不涉及机制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：bonestaff.lua:69 writhing 译“旋转”为误译，与 contextual 观察一致，合并为同一修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8a4b1870ba7d172b5df38a374dfe7ff40af5b282cb9277350c21a31ab55ae3ad",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/kroshkkur.lua:28（来源未固定）原文 'seekers of forbidden knowledge' 指追寻禁忌知识的人，译文「寻求着禁忌知识的先知」凭空加上了「先知」这个身份。第30行 'discovered magic which will change the course of Eyal's history' 被译成「禁忌魔法」，原文没有「禁忌」。第32行 'scattered, mindless beings for them to sweep aside' 被译成「被他们当做害虫一样轻轻扫开的」，原文没有害虫的比喻，scattered 也没有译出来。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 kroshkkur.lua:30 discovered magic which will change the course of Eyal's history 现译“禁忌魔法”添加“禁忌”；:32 scattered, mindless beings for them to sweep aside 现译“被他们当做害虫一样轻轻扫开的，毫无心智的乌合之众”添加害虫比喻并漏 scattered。与 seekers 一并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 11 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20; all identities echoed correctly, no observation slid, and the boundary scan found no write or terminal patterns.",
+    "The first contextual attempt (full-000) prefixed one English sentence before its JSON and was rejected as invalid output; it was archived and confirmed, and a fresh retry child (full-001, attempt 2, retry_of full-000) on the same frozen envelope produced the accepted result. Both read only their own envelope and the contract.",
+    "Three observations are refuted by the implementation or library names: Suspend only shortens effects and cooldowns in deactivate (the translation follows the code, not the long_desc 'each turn'), Accelerate siphons speed (窃速) and Tendrils Eruption keeps 触手地狱. Host line-by-line checks of the two Fay Willows entries added the voice's own cry, 'more sickened', 'simmering fire' and the 'readily gives their name' contrast to the confirmed repairs.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 34 backlog from 4 to 11; below the 20 threshold, so no window opens."
+  ]
+}
