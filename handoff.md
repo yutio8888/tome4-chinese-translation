@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（窗口33已完成，待宿主证据提交与推送；下一步审核第298批）
+更新时间：2026-09-26（第298批已 finalize，窗口34积压 4 条，继续审核第299批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,13 +8,12 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **297** 批（`batch-8553828be64ba67f2632`）：80 条（全部 Cults），78 done / 2 repair_required。
-  surface 4 lane 各 20 条，identity 回显无误；contextual 一个 Opus run（8 条）只读 envelope 与契约；10 个观察逐条裁决（6 条按实现或本库译名 refuted，含 contextual 缺实现代码的断线击杀）。
-  积压达 21，**下一步开修复窗口 33**（第294–297批，模板 `setup_window32.py`、`/tmp/w32-*.sh`），窗口推送后再审核第298批。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `8da98cc7ae05b6baa417da5ccff57aaeb5d5702c` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **298** 批（`batch-fddb88b07b599a5e41c8`）：80 条（全部 Cults），76 done / 4 repair_required。
+  surface 4 lane 各 20 条，identity 回显无误；contextual 一个 Opus run（8 条）只读 envelope 与契约；11 个观察逐条裁决（混沌之球方向、背叛预言半径、龙血类型按实现或本库译名 refuted；狂热按 used_talents 实现宿主改判确认）。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `95a7c7c99a509943014ea8dead71385051c04906` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **33**：第 294–297 批共 21 条确认问题已修复，译文提交
   `bf6862841e08fb2791d61cbc2d1bea90bae41cff`；migration `36102218…` 的 21 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 34 积压 0 条，从审核298重新累计。
+  须重新审核，不继承旧 revision 的 done 状态。窗口 34 积压 4 条（第298批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -52,6 +51,7 @@
 | 295 | `batch-9af99942882ed4c5cb18` | 74 done / 6 repair | 69 OK / 11 ISSUE | 6 OK / 5 ISSUE | 11 confirmed / 2 refuted / 3 advisory |
 | 296 | `batch-65e59046c4f9480d483f` | 74 done / 6 repair | 70 OK / 10 ISSUE | 7 OK / 3 ISSUE | 9 confirmed / 1 refuted / 3 advisory |
 | 297 | `batch-8553828be64ba67f2632` | 78 done / 2 repair | 72 OK / 8 ISSUE | 6 OK / 2 ISSUE | 2 confirmed / 6 refuted / 2 advisory |
+| 298 | `batch-fddb88b07b599a5e41c8` | 76 done / 4 repair | 72 OK / 8 ISSUE | 5 OK / 3 ISSUE | 7 confirmed / 2 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -128,10 +128,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **298** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第298批用 `N=298; S=297; PT=297`，因第296批脚本无批号）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **299** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 34（模板 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh`、`/tmp/w33-*.sh`）。
-2. 窗口 33 已完成（8 次复审：REVIEW、RE_REVIEW×5、FINAL×2；`max_cycles`=5 用满，第5轮唯一确认项 `5c740785` 经用户裁决记 advisory）。窗口 34 积压 **0** 条（尚无来源批次）：从审核298起累计；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh` 与 `/tmp/w33-*.sh`。
-   第297批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）162.9 s；finalize 97.2 s。
+2. 窗口 33 已完成（8 次复审：REVIEW、RE_REVIEW×5、FINAL×2；`max_cycles`=5 用满，第5轮唯一确认项 `5c740785` 经用户裁决记 advisory）。窗口 34 积压 **4** 条（第298批，Cults）：第298批 `72234560`（反熵血肉：让你充满活力）`72dcd3ed`（天启疯狂预言：正在冷却中的技能、回合、空行位置）`74d32fd0`（巨石铠甲：多块符文石块）`77b8417a`（狂热：每个职业技能首次使用免冷却、多余空格）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh` 与 `/tmp/w33-*.sh`。
+   第298批计时（实测，投影缓存 on）：start 101.4 s；adjudication chain（含 17 项门禁）172.7 s；finalize 104.5 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
