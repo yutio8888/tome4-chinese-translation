@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（第310批已 finalize，窗口37积压 5 条，继续审核第311批）
+更新时间：2026-09-26（第311批已 finalize，窗口37积压 9 条，继续审核第312批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **310** 批（`batch-c1080b675d02cd2c3588`）：80 条（全部 Cults），75 done / 5 repair_required。
-  surface 4 lane 各 20 条（identity 与边界扫描均通过）；contextual 一个 Opus run 只读 envelope、契约与 Cults 源码；逐条裁决（黑洞半径按实现确认）。积压 5，窗口37 未达开窗阈值。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `145893934260c4b1a8ca9b267e2b7730971d0ed2` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **36**：第 306–309 批共 21 条确认问题已修复；译文提交 `a2c6c9797cfaec6ddd116935bae921a85448599d`；migration `990fc0dd…` 的 21 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 37 积压 5 条（第310批）。
+- 审核已闭合至第 **311** 批（`batch-b6a6a747b3fa260bc4d4`）：80 条（Cults 7 条、Orcs 73 条），76 done / 4 repair_required。
+  首个 Cults+Orcs 混合批：surface 两组 8 lane（identity 与边界扫描通过，1 处误报已审计）；contextual 两个 Opus run 只读 envelope、契约与 DLC 源码；17 个观察逐条裁决（疯狂几率、烟雾覆盖按实现确认）。积压 9，窗口37 未达开窗阈值。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `3abf6099f17c9ae29877e9a6f30f084154db47ec` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **36**：第 306–309 批共 21 条确认问题已修复；译文提交 `a2c6c9797cfaec6ddd116935bae921a85448599d`；migration `990fc0dd…` 的 21 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 37 积压 9 条（第310–311批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -62,6 +62,7 @@
 | 308 | `batch-919843e97b237942c8e1` | 75 done / 5 repair | 70 OK / 10 ISSUE | 5 OK / 5 ISSUE | 10 confirmed / 5 refuted |
 | 309 | `batch-a04cd9783cf93c0e6527` | 73 done / 7 repair | 70 OK / 10 ISSUE | 3 OK / 7 ISSUE | 12 confirmed / 4 refuted / 1 advisory |
 | 310 | `batch-c1080b675d02cd2c3588` | 75 done / 5 repair | 71 OK / 9 ISSUE | 7 OK / 2 ISSUE | 7 confirmed / 3 refuted / 1 advisory |
+| 311 | `batch-b6a6a747b3fa260bc4d4` | 76 done / 4 repair | 69 OK / 11 ISSUE | 5 OK / 6 ISSUE | 7 confirmed / 6 refuted / 4 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -138,10 +139,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **311** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **312** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 37（模板 `setup_window36.py`、`.artifacts/i18n/repair-w36-20260926/wd.sh`、`/tmp/w36-*.sh`）。
-2. 窗口 36 已完成（REVIEW、RE_REVIEW×4〔cycle 4 首次尝试因 identity 回显错误拒收后重派〕、FINAL×1；17/17）。窗口 37 积压 **5** 条（第310批，Cults）：从审核310起累计；第310批 `f9cadd37`（蠕虫合体外观：腐烂、蛆虫、脓液、扭动）`fa9f7169`（时间盛宴：行首制表符）`fbe22d02`（纹身作坊：盔甲裂口）`fd188846`（黑洞：半径 1 的时空裂隙）`ff1e300b`（骨杖台词：嘎吱作响、句号）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；Codex executor 会话压缩时按窗口27先例宿主 diff 核验；窗口模板为 `setup_window36.py`、`.artifacts/i18n/repair-w36-20260926/wd.sh` 与 `/tmp/w36-*.sh`。
-   第310批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）172.4 s；finalize 110.9 s。
+2. 窗口 36 已完成（REVIEW、RE_REVIEW×4〔cycle 4 首次尝试因 identity 回显错误拒收后重派〕、FINAL×1；17/17）。窗口 37 积压 **9** 条（第310–311批，Cults+Orcs）：从审核310起累计；第310批 `f9cadd37`（蠕虫合体外观：腐烂、蛆虫、脓液、扭动）`fa9f7169`（时间盛宴：行首制表符）`fbe22d02`（纹身作坊：盔甲裂口）`fd188846`（黑洞：半径 1 的时空裂隙）`ff1e300b`（骨杖台词：嘎吱作响、句号）；第311批 `ffc35a30`（疯狂值说明：有几率浮动）`016c0578`（格雷诺特残页：已经着火）`03eccaa9`（烟雾覆盖：完全吸收任何伤害）`046aa43c`（强力爆裂：开一枪、引号）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；Codex executor 会话压缩时按窗口27先例宿主 diff 核验；窗口模板为 `setup_window36.py`、`.artifacts/i18n/repair-w36-20260926/wd.sh` 与 `/tmp/w36-*.sh`。
+   第311批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）173.6 s；finalize 111.0 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
