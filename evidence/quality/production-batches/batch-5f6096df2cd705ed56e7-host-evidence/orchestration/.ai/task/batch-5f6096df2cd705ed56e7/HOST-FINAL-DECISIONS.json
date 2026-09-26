@@ -1,0 +1,221 @@
+{
+  "batch_id": "batch-5f6096df2cd705ed56e7",
+  "observations": 23,
+  "observation_dispositions": {
+    "refuted": 10,
+    "confirmed": 8,
+    "advisory": 5
+  },
+  "repair_revision_keys": [
+    "2befd5a8e7ee6f878c6a97834a4cb0a2fd0ea321d23813c883bc5a83da5a02d7",
+    "2c006c11134dce0bb1b9bf67f85c5add84b3f3c24355f861234db61f9a2a0da0",
+    "2d090355c12908e81b9407c2c75b4e93e862df84b0c4a639a40e8cf7b06b49fc",
+    "2d9e3f67a53859c1daaa4edd7327dcff0f28da7d40d59971643915e45bc50869",
+    "2ef608ba74e2c83b9c23e6b95468115b4d1493ded44d230ed1561524eea8c7ce"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 5,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "2ba89874cd944b6526c029d66fbb9094e698cb72f12d885907abe656337a67bb",
+      "stage": "surface",
+      "observation": "原文为使用重型武器时不能射击；译文把 heavy weapon 译为“重装武器”，并无依据地将 shoot 限定为“普通射击”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:308–310：仅在 data.t.id==T_SHOOT 且使用重装武器时拦截，现译“无法使用普通射击”贴合实现；heavy weapon 本库技能与语料一贯作“重装武器”（tome-orcs.lua:5126 等 24 处），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2befd5a8e7ee6f878c6a97834a4cb0a2fd0ea321d23813c883bc5a83da5a02d7",
+      "stage": "surface",
+      "observation": "原文的 aura 是环绕灵晶的光晕或气息，译文“领域”改变了所描述的事物。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:2317 Eye of the Lost（本库“迷失之眼”）desc：A strange aura surrounds this mindstar 的 aura 是环绕灵晶的光环/气息，现译“一层奇怪的领域”误译。改为“灵晶周围环绕着一股奇怪的气息。”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2c006c11134dce0bb1b9bf67f85c5add84b3f3c24355f861234db61f9a2a0da0",
+      "stage": "surface",
+      "observation": "译文在 %d%% 与句号之间有两个空格，存在明显格式问题。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:227 UNSTOPPABLE_FORCE_SALVE（本库“势不可挡药剂”）long_desc：现译“%d%%  。”在句号前多出两个空格，格式缺陷。删去两个空格，文字与占位符不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2c1607209770d18c0a93289025b051d6b8c8f9aedfb903c82915c4fa1b5b1648",
+      "stage": "surface",
+      "observation": "原文仅说明蒸汽链锯伤害倍率增加 %d%%；译文额外写入逐回合命中目标、提高加成及效果结束的机制，冻结原文没有这些内容。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:416–440 CONTINUOUS_BUTCHERY：callbackOnMeleeAttack 每回合首次命中同一目标时 power 增加 power_inc，命中其他目标即移除效果；现译补述的机制为实现真实行为，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2c2c7098bf18b022ab682aeff4251edba161d6714aa33511384a63c3a36ab7e5",
+      "stage": "surface",
+      "observation": "原文是击中后爆炸的一次特殊射击，译文改称“特殊弹头”，改变了所描述的对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/explosive.lua 弹药配方 desc：special shot 在配方语境指一发特殊弹药，同族配方本库作“特殊弹头”，不改变所指；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2cb25ea715c8f231d6ab9e6ccb853559734d6309e48cf7639dbd5e2cce5c9e05",
+      "stage": "surface",
+      "observation": "原文 tessellates 指在披风上形成镶嵌或拼块图案；译文“布满金属”把图案误写成金属材质。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/avoidance.lua:22–31 Automated Cloak Tessellation（本库“披风护甲”）使用提示：技能提供护甲与弹道闪避，“在披风上布满金属”为意译，与技能名同构；contextual 判 OK，记 advisory（可作“把披风拼接成甲片”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2cbc22a2c7b13d7e501fe4a2dfa565b61c2039705c61ff7a7cf231dc7f482a08",
+      "stage": "surface",
+      "observation": "原文 Astral-Infused 含“灌注”之意，译文“星辰雪人”遗漏该限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "实体名 Astral-Infused Yeti 现译“星辰雪人”省去 Infused，为既有生物名；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ce021e362ff5f78d28b2ab60aa63b96311e7bb976636137ccaaaf905782b20e",
+      "stage": "surface",
+      "observation": "原文要求 heavy ammunition（重型弹药），译文“重装武器弹药”将弹药类型误写为武器弹药。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:186：heavy ammunition 本库同族提示一贯作“重装武器弹药”（tome-orcs.lua:5145、5160、5177 等 8 处），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2d090355c12908e81b9407c2c75b4e93e862df84b0c4a639a40e8cf7b06b49fc",
+      "stage": "surface",
+      "observation": "crystalline 指晶体质地，译文“透明的”将材质误译为透明度。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:516–517 Thoughtcaster（本库“思维施法者”）unided_name crystalline handgun：crystalline 为水晶质的（本库 mod-tome 同类作“水晶武器”“水晶护甲”），现译“透明的手枪”误作透明度。改为“水晶手枪”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2d9e3f67a53859c1daaa4edd7327dcff0f28da7d40d59971643915e45bc50869",
+      "stage": "surface",
+      "observation": "译文中的动态占位符少于原文：<?=Lore.pocket_time_winner.himher?> 少 6 处、<?=Lore.pocket_time_winner.heshe?> 少 4 处、<?=Lore.pocket_time_winner.hisher?> 少 4 处、<?=Lore.pocket_time_winner.name?> 少 1 处；仅凭冻结文本不能判断省略是否影响实际呈现。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua:70–90 心灵传讯《马基埃亚尔的传说》：surface 指出的代词占位符减少源于中文省略冗余代词，23 行结构一致、模板占位符均为可选展开，不构成运行时缺陷，本键 refuted（该条实际缺陷由 contextual 键确认）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2db3ffd9181128e1c7ebf2cd6d0e30a8019a74abfad1ed708a4ee1da76baa319",
+      "stage": "surface",
+      "observation": "译文增加了“同一攻击者每回合最多触发一次”，原文没有这一限制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:918–940 静电护盾：callbackOnHit 以攻击者 turn_procs.static_shock 限制每回合一次，现译“同一攻击者每回合最多触发一次”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2db6063d6709ad0d45ce31b12046b7bf50c1b2047b89c65fbd43a5cc712ce81c",
+      "stage": "surface",
+      "observation": "Furnace Vent 中的 Furnace 在“通风孔”中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "技能名 Furnace Vent 现译“通风孔”省去 Furnace，为既有技能名，改名须同步；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2e769b3139056c5260343e5f3d22df4dbf2122bb70be1d59199cc2c0cb2dbebc",
+      "stage": "surface",
+      "observation": "原文称物品会被熔化，译文写成“分解”，处理方式明显不同。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（熔化≠分解）错位描述的是同 lane 前一条 2e74737a（APE 提示）；该条经公开 Orcs superload/mod/class/Actor.lua:280–331 核对，APE 把物品化为矿石/草药原料与金币，“分解”贴合实现，无缺陷；本条 Hook Shell“钩链弹”无缺陷，refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ef608ba74e2c83b9c23e6b95468115b4d1493ded44d230ed1561524eea8c7ce",
+      "stage": "surface",
+      "observation": "原文两个 %s 之间有空格，译文将其连成 %s%s，可能使两个参数的显示文本粘连。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/engineering.lua:128 Last Engineer Standing（本库“背水一战”）info：surface 所附 observation（%s %s 粘连）错位描述的是同 lane 前一条 2ee4ddb6（中文“使用%s%s”无需空格，无缺陷）；本条实际缺陷由下一条错位 observation 与 contextual 指出：being a master tinker requires taking risks; yours are more calculated than others 是“你冒的险比别人更有算计”，现译“经历了更多危险，你的计算力也超越凡人”误解，且 master tinker 泛化为“大师”。改为“身为大师级工匠，有时必须冒险；而你冒的险比别人更有分寸。”，第二行不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ef66912ea2a4453b7c22b9fa0a583557340ef18fcc16de36757a5581c54d635",
+      "stage": "surface",
+      "observation": "原文说冒险经过更审慎的权衡；译文改成“经历了更多危险”“计算力也超越凡人”，明显改变了句意。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（冒险算计）错位描述的是前一条 2ef608ba（已按本条 surface/contextual 键确认）；本条 Molten Iron Blood 结束提示“血液不再是融化的铁水”无缺陷，refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2f15bfde172863ae9edb58cc08d6c74415f2cfb3bfa604b70a1c9b68ed6a918d",
+      "stage": "surface",
+      "observation": "原文只说壮观地吞没 %s，译文无依据地加入“火焰”，可能误述吞没者。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "所附 observation（吞没加“火焰”）错位描述的是前一条 2f058893；该条经公开 Orcs world-artifacts.lua:226 核对，外层句为 creating a blast of fire that %s，“壮观的火焰吞没了%s”贴合语境，无缺陷；本条属性提示无缺陷，refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2f5a9bfbd06818d9fcf70096b8cc118d509e574ba275d29323353dc63f22dff4",
+      "stage": "surface",
+      "observation": "原文称习惯火焰后免疫 fireburn 效果；译文将原因写成“对火焰抗性极高”，改变了原意。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 锻造抗性技能 info：at level 5 you are so accustomed to the flames that you become immune to the fireburn effect，现译“对火焰抗性极高，从而免疫燃烧状态”改写了原因表述，机制（5 级免疫燃烧）不变；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2fdf567443c957278d86d5287b3334c6d8106435f68a032be446856837a9650d",
+      "stage": "surface",
+      "observation": "原文说停止蒸汽回复，译文却说蒸汽回复减半。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:403–413 TECH_OVERLOAD（本库“系统过载”）：activate 设 steam_regen = -self.steam_regen/2，实际为回复减半；源文 stops 与实现不符，现译“将蒸汽回复减半”贴合实现，保留（contextual 因冻结输入无 activate 判 ISSUE）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2befd5a8e7ee6f878c6a97834a4cb0a2fd0ea321d23813c883bc5a83da5a02d7",
+      "stage": "contextual",
+      "observation": "源文 'A strange aura surrounds this mindstar'（world-artifacts.lua:2317）中 aura 指环绕灵晶的气息/光环，译文「一层奇怪的领域」把 aura 译成「领域」，语义偏离。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:2317 Eye of the Lost（本库“迷失之眼”）desc：A strange aura surrounds this mindstar 的 aura 是环绕灵晶的光环/气息，现译“一层奇怪的领域”误译。改为“灵晶周围环绕着一股奇怪的气息。”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2d090355c12908e81b9407c2c75b4e93e862df84b0c4a639a40e8cf7b06b49fc",
+      "stage": "contextual",
+      "observation": "unided_name 'crystalline handgun'（world-artifacts.lua:517，Thoughtcaster）中 crystalline 为「水晶（质）的」，译「透明的手枪」丢失水晶材质含义，属误译。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:516–517 Thoughtcaster（本库“思维施法者”）unided_name crystalline handgun：crystalline 为水晶质的（本库 mod-tome 同类作“水晶武器”“水晶护甲”），现译“透明的手枪”误作透明度。改为“水晶手枪”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2d9e3f67a53859c1daaa4edd7327dcff0f28da7d40d59971643915e45bc50869",
+      "stage": "contextual",
+      "observation": "pocket-time.lua:74 'became the first person to go from Maj'Eyal to Var'Eyal, the distant continent of the Far East, in centuries' 的 in centuries 修饰「几个世纪以来第一人」，译文改成「和马基·埃亚尔分割了几个世纪的远东大陆」，语义关系错误；同条内 Maj'Eyal 前后混用「马基埃亚尔」与「马基·埃亚尔」，专名不一致；另 :78 'rushed in at her orders'（奉艾琳之命）与 :86 'despite the calls to help <heshe> heard'（曾听到求援却未能阻止）均被漏译。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua:74–86 心灵传讯《马基埃亚尔的传说》：first person to go from Maj'Eyal to Var'Eyal … in centuries 是“几个世纪以来第一个”，现译改成大陆“分割了几个世纪”；:78 rushed in at her orders（奉艾琳之命冲入）与 :86 despite the calls to help <heshe> heard 漏译；同条 Maj'Eyal 混用“马基埃亚尔”与“马基·埃亚尔”（术语库 places.tsv:46 preferred“马基·埃亚尔”）。逐句对照修这几处，统一“马基·埃亚尔”，模板标记与分支结构不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ef608ba74e2c83b9c23e6b95468115b4d1493ded44d230ed1561524eea8c7ce",
+      "stage": "contextual",
+      "observation": "engineering.lua:128 'requires taking risks; yours are more calculated than others' 意为你冒的险比别人更经过算计（calculated risk），译文「你的计算力也超越凡人」误解为计算能力；'being a master tinker' 也被泛化为「成为大师」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/engineering.lua:128 Last Engineer Standing（本库“背水一战”）info：surface 所附 observation（%s %s 粘连）错位描述的是同 lane 前一条 2ee4ddb6（中文“使用%s%s”无需空格，无缺陷）；本条实际缺陷由下一条错位 observation 与 contextual 指出：being a master tinker requires taking risks; yours are more calculated than others 是“你冒的险比别人更有算计”，现译“经历了更多危险，你的计算力也超越凡人”误解，且 master tinker 泛化为“大师”。改为“身为大师级工匠，有时必须冒险；而你冒的险比别人更有分寸。”，第二行不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2fdf567443c957278d86d5287b3334c6d8106435f68a032be446856837a9650d",
+      "stage": "contextual",
+      "observation": "physical.lua:405 TECH_OVERLOAD long_desc 'Doubles your maximum steam and stops steam regeneration.' 明确为停止蒸汽回复，译文「将蒸汽回复减半」与源文机制矛盾（冻结输入未含 activate 实现，未能另证减半）。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:403–413 TECH_OVERLOAD（本库“系统过载”）：activate 设 steam_regen = -self.steam_regen/2，实际为回复减半；源文 stops 与实现不符，现译“将蒸汽回复减半”贴合实现，保留（contextual 因冻结输入无 activate 判 ISSUE）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 18 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20, and every lane echoed its identities exactly. The tightened word-boundary rm/mv check passed without a manual audit. In lane-000-2, all four observations slid one entry forward. The host checked each described entry: only the calculated-risk defect was real, and it was confirmed on its own revision. The other described entries (APE 分解, 使用%s%s, the fire-blast 火焰) were verified defect-free.",
+    "The contextual run (18 entries) read only its own envelope and the contract, plus its own spilled tool-output file. The host scanned its native log before harvest.",
+    "Implementation-backed: Tech Overload halves steam regen, Static Shield triggers once per attacker per turn, Continuous Butchery grows per first hit, and the Shoot block applies only to T_SHOOT; the contextual ISSUE on Tech Overload lacked the activate snippet and is refuted.",
+    "Pocket-time lore: the surface placeholder-count concern is refuted (Chinese drops redundant pronouns), while the contextual key confirms real omissions and the Maj'Eyal spelling mix.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "5 confirmed repair revisions raise the window 38 backlog from 13 to 18; below the 20 threshold, so no window opens."
+  ]
+}
