@@ -1,0 +1,88 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 10 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "5c740785a17f1a4657a410109a858603d6e420d4fa6e78cf81d6ab401571c550",
+      "stage": "surface",
+      "observation": "原文第二段明确说己方人数处于明显劣势（“Considerably out numbered”），译文该段遗漏了这一信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/fay-willows.lua 食人魔与狂热者交战一节：Considerably out numbered it looked as if they had the upper hand 的前提（敌方人数远超我方）被删，现译只剩“他们似乎占了我们的上风”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e0abb52f710cfe1617a861445db14e2fadc3c6d27acf9b5805774081578ea03",
+      "stage": "surface",
+      "observation": "首段末句英文以句号结束，译文停在“恐怖”且缺少句末标点。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults lore/misc.lua 导师一节：首段末“恐怖”后缺句号，另“后来并被称为”多一“并”字，仅标点措辞，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5f40e319217a0458553914b3ba6440bfcc37e9d27b5a3ecf12d566430cf701e5",
+      "stage": "surface",
+      "observation": "“a collection of fragmented continents”指多块破碎的大陆，译文“一片破碎的大陆”误为单块。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/kroshkkur.lua 乌鲁洛克一节：a collection of fragmented continents 指多块破碎大陆，现译“一片破碎的大陆”误为单块。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5fc41911cc52128616d01af9dac1f6bc5fbf88ef06eac051b3d3c242fc754e5c",
+      "stage": "surface",
+      "observation": "首个换行后的缩进由英文的三个制表符变为译文的两个制表符，与原文格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/entropy.lua 该 info 第一处换行后为三个制表符（\\n\\t\\t\\t），现译改为两个，一级制表符不变量。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "61b8c5416598197e21aa4e7be8319cbc06db4a60b92d7c76b0ef095e2552f23c",
+      "stage": "surface",
+      "observation": "原文称他把笔记附在这封信上，译文写成“在笔记里附上了他提到的笔记”，误译了附着对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua 书信条目：He appears to have attached those notes he mentioned to this letter 误作“他似乎在笔记里附上了他提到的笔记”，附着对象应为这封信。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "62ee0032cefcb5c8237d9a5d7a61906e5e2eee5bbd300f707c104b24c68671e0",
+      "stage": "surface",
+      "observation": "原文为“void shards”，译文却作“虚空之星”；本输入另一条将“void star”译为“虚空之星”，两种不同资源被混淆。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/void.lua:313–317 该日志恢复的是 T_VOID_STARS 的 p.nb，本库 Void Stars 为“虚空之星”（tome-cults.lua:3282），现译贴合实现（源文写 shards），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "62ffabb2c05cf095de4352b4f818f5bc570d559ab54fd60847dbbdcfe3111b0a",
+      "stage": "surface",
+      "observation": "source 为 confusion resistance（混乱抗性），target 写成“混乱免疫”；“抗性 ,”另有多余空格。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua:2140 ILLUSORY_CASTLE_MADNESS 降低的是 confusion_immune，本库该属性标签为“混乱免疫”（mod-tome.lua:860），用词贴合实现；仅“抗性 ,”逗号前多余空格，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "63e1771d9bfee90abb17b927afe91a12a2392c5c580ab3f0df98e0dc658ce728",
+      "stage": "surface",
+      "observation": "source 说明暴击后可在 3 回合内从自己对他人造成的痛苦中汲取能量；target 只写“为你提供更多能量，持续 3 回合”，遗漏了这一能力及其作用对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/slow-death.lua:117–120 callbackOnCrit 施加 EFF_INNER_TENTACLES 3 回合（20% 吸血），现译“持续 3 回合”与吸血句贴合实现；feed on the pain you cause to others 的措辞省略只影响描述，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "64c979ecff18dab4cfda73aa046bc635230f6c2f60fd06cb4ada6a5e17a7225c",
+      "stage": "surface",
+      "observation": "名称中的 Commotion 译为“战争”，与英文表面含义不符；若此处是专名，冻结输入缺少定名依据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults zones/fortress-arena/zone.lua:21 区域名 Safe Multiverse Arena for Commotion and Killing（首字母 SMACK）：Commotion 意为骚乱/喧闹，现译“战争”误译；本库仅 tome-cults.lua:3965 一处使用该名，改名无跨处统一负担。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "655a344b0b47c502c9ee5f6710cfdb515cd4fbf45f548887ff271963ce4df621",
+      "stage": "surface",
+      "observation": "source 的武器顺序是“一手拿锤，另一手拿剑”，target 写成“一手拿剑一手拿锤”，顺序颠倒。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua 克罗格武器描述：a mace in one hand and a sword in the other. One hand to spread the message..., the other to see that message through 按锤、剑顺序对应，现译“一手拿剑一手拿锤”颠倒顺序，使“传播讯息”的手变成持剑之手。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
