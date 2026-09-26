@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "2485f3aada5a3e3b89c66fc9be4d0329e42ca2d1fb9369d9283adae96eff2c70",
+      "stage": "surface",
+      "observation": "首个换行后，源文有两个制表符，译文只有一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/chemistry.lua:52 Chemistry（本库“化学”）info：源文首行后三行各以 \\n\\t\\t 起（学会配方、每级 20% 几率、%s），现译把前两行并成一行且只留一个 TAB，换行/缩进不变量不符。恢复为三行各以 \\n\\t\\t 起，文字随行拆分，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "25cb7c7547d465dc0db21f90d09298ca068534443d59a347eed193ceb5a05040",
+      "stage": "surface",
+      "observation": "源文只说目标变弱，译文却称目标的强化消失，增添了强化被移除这一含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:47–55 FORCED_GESTALT（本库“强制格式塔”）on_lose：效果为所有强度提升，结束提示 is less powerful 即增益消失，现译“强化消失了”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "281445cd08d6024690ff7a5f97d53d9df97dbc48cf4fbeabba0b509bde3aabb4",
+      "stage": "surface",
+      "observation": "原文只说来自西方的英雄在巅峰之塔与叙述者并肩对抗威胁，译文增添了“并亲自击败了他们”，把交战写成了获胜。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:164–167 至高太阳骑士艾琳的日记：源文 stormed the tower of High Peak to fight by my side 未说击败，现译增“并亲自击败了他们”；Scourge from the West 术语库 society.tsv:34 preferred“西方天灾”，现译“来自西方大陆的英雄”；nearly-unified 丢 nearly；“指定了一个计划”应为“制定”；第二段 giving us a chance of prevailing against the menace the Sunwall has stood against 被译成太阳堡垒是胜利的希望。整段对照重写这几处，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2898f7eb9e2208a44a70d9baf54eac118b53b4f959082bbafc78b9ef8d113d0c",
+      "stage": "surface",
+      "observation": "“smelly”表示有臭味，译文“放出气味”遗漏了臭味含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:591 toxic cannister desc：smelly 现译“放出气味的”偏弱，不影响机制；contextual 判 OK，记 advisory（可作“散发恶臭的罐子”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "29e41505488eedbe2a1f90930efa76801bd4d83453848aad83b2339493ad77fd",
+      "stage": "surface",
+      "observation": "原文各段以“\\n\\t\\t”分隔，译文改为“\\n”，丢失段首两个制表符；译文还将第四段的“cannister”译成“发生器”，与原文所指罐子不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:649–654 Toxic Cannister Launcher（本库“毒罐发射装置”）info：源文各行以 \\n\\t\\t 起，现译全部只留 \\n；同一 cannister（other.lua:591 toxic cannister）首句作“罐子”、第四句作“发生器”，指称不一致；at a location 未译。恢复每行 \\n\\t\\t，统一作“毒罐/罐子”，补“向指定位置”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2a7884fc91924cd8e75f1cd96e1832f9d73e2e00d4973631050e931aa5a16261",
+      "stage": "surface",
+      "observation": "Dominion 原文未指明“巨魔”；冻结输入缺少地名依据，无法确认“巨魔帝国”是否对应。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/zone.lua:21 区域名 Dominion Port：本库 6920–6923 与入口名一致作“巨魔帝国港口”，为既有区域译名，改名须多处同步；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2a959ddc5fedb7e4596a02620748c04d014a5f21d0f68f51c8219de625aa0d29",
+      "stage": "surface",
+      "observation": "item 泛指物品，译为“装备”可能缩窄范围；冻结输入缺少界面语境。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "对话选项 Which kind of item would you like：其后选项为武器/护甲类装备，现译“装备”在语境中可辨；contextual 判 OK，记 advisory（可作“物品”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ac6341ecf834b6aab8396362229f67d3682a513b6134c7341ab3e3a6cc76b8a",
+      "stage": "surface",
+      "observation": "原文是所有属性增加 %d，译文无依据地排除了力量。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:490–509 PAIN_ENHANCEMENT_SYSTEM（本库“痛苦强化系统”）：activate 的 inc_stats 只列 DEX/MAG/WIL/CUN/CON，不含 STR；源文 All stats 与实现不符，现译“除力量外的所有属性”贴合实现，保留（contextual 因冻结输入无 activate 片段而判 ISSUE）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

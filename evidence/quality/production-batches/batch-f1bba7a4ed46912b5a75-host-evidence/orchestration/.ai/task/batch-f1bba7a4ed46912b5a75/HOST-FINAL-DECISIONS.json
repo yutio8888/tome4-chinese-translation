@@ -1,0 +1,122 @@
+{
+  "batch_id": "batch-f1bba7a4ed46912b5a75",
+  "observations": 11,
+  "observation_dispositions": {
+    "confirmed": 5,
+    "refuted": 3,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "2485f3aada5a3e3b89c66fc9be4d0329e42ca2d1fb9369d9283adae96eff2c70",
+    "281445cd08d6024690ff7a5f97d53d9df97dbc48cf4fbeabba0b509bde3aabb4",
+    "29e41505488eedbe2a1f90930efa76801bd4d83453848aad83b2339493ad77fd"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "2485f3aada5a3e3b89c66fc9be4d0329e42ca2d1fb9369d9283adae96eff2c70",
+      "stage": "surface",
+      "observation": "首个换行后，源文有两个制表符，译文只有一个，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/chemistry.lua:52 Chemistry（本库“化学”）info：源文首行后三行各以 \\n\\t\\t 起（学会配方、每级 20% 几率、%s），现译把前两行并成一行且只留一个 TAB，换行/缩进不变量不符。恢复为三行各以 \\n\\t\\t 起，文字随行拆分，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "25cb7c7547d465dc0db21f90d09298ca068534443d59a347eed193ceb5a05040",
+      "stage": "surface",
+      "observation": "源文只说目标变弱，译文却称目标的强化消失，增添了强化被移除这一含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:47–55 FORCED_GESTALT（本库“强制格式塔”）on_lose：效果为所有强度提升，结束提示 is less powerful 即增益消失，现译“强化消失了”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "281445cd08d6024690ff7a5f97d53d9df97dbc48cf4fbeabba0b509bde3aabb4",
+      "stage": "surface",
+      "observation": "原文只说来自西方的英雄在巅峰之塔与叙述者并肩对抗威胁，译文增添了“并亲自击败了他们”，把交战写成了获胜。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:164–167 至高太阳骑士艾琳的日记：源文 stormed the tower of High Peak to fight by my side 未说击败，现译增“并亲自击败了他们”；Scourge from the West 术语库 society.tsv:34 preferred“西方天灾”，现译“来自西方大陆的英雄”；nearly-unified 丢 nearly；“指定了一个计划”应为“制定”；第二段 giving us a chance of prevailing against the menace the Sunwall has stood against 被译成太阳堡垒是胜利的希望。整段对照重写这几处，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2898f7eb9e2208a44a70d9baf54eac118b53b4f959082bbafc78b9ef8d113d0c",
+      "stage": "surface",
+      "observation": "“smelly”表示有臭味，译文“放出气味”遗漏了臭味含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:591 toxic cannister desc：smelly 现译“放出气味的”偏弱，不影响机制；contextual 判 OK，记 advisory（可作“散发恶臭的罐子”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "29e41505488eedbe2a1f90930efa76801bd4d83453848aad83b2339493ad77fd",
+      "stage": "surface",
+      "observation": "原文各段以“\\n\\t\\t”分隔，译文改为“\\n”，丢失段首两个制表符；译文还将第四段的“cannister”译成“发生器”，与原文所指罐子不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:649–654 Toxic Cannister Launcher（本库“毒罐发射装置”）info：源文各行以 \\n\\t\\t 起，现译全部只留 \\n；同一 cannister（other.lua:591 toxic cannister）首句作“罐子”、第四句作“发生器”，指称不一致；at a location 未译。恢复每行 \\n\\t\\t，统一作“毒罐/罐子”，补“向指定位置”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2a7884fc91924cd8e75f1cd96e1832f9d73e2e00d4973631050e931aa5a16261",
+      "stage": "surface",
+      "observation": "Dominion 原文未指明“巨魔”；冻结输入缺少地名依据，无法确认“巨魔帝国”是否对应。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/zone.lua:21 区域名 Dominion Port：本库 6920–6923 与入口名一致作“巨魔帝国港口”，为既有区域译名，改名须多处同步；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2a959ddc5fedb7e4596a02620748c04d014a5f21d0f68f51c8219de625aa0d29",
+      "stage": "surface",
+      "observation": "item 泛指物品，译为“装备”可能缩窄范围；冻结输入缺少界面语境。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "对话选项 Which kind of item would you like：其后选项为武器/护甲类装备，现译“装备”在语境中可辨；contextual 判 OK，记 advisory（可作“物品”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ac6341ecf834b6aab8396362229f67d3682a513b6134c7341ab3e3a6cc76b8a",
+      "stage": "surface",
+      "observation": "原文是所有属性增加 %d，译文无依据地排除了力量。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:490–509 PAIN_ENHANCEMENT_SYSTEM（本库“痛苦强化系统”）：activate 的 inc_stats 只列 DEX/MAG/WIL/CUN/CON，不含 STR；源文 All stats 与实现不符，现译“除力量外的所有属性”贴合实现，保留（contextual 因冻结输入无 activate 片段而判 ISSUE）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "281445cd08d6024690ff7a5f97d53d9df97dbc48cf4fbeabba0b509bde3aabb4",
+      "stage": "contextual",
+      "observation": "术语：冻结术语 society.tsv:34（preferred）规定 Scourge from the West=西方天灾，译文作「来自西方大陆的英雄」。语义：第二段原文是鼓舞士气并给我们战胜太阳堡垒世代抵御的那股不可阻挡威胁的机会，译文改成「太阳堡垒……是我们胜利的最后希望和机会」，把太阳堡垒错当成希望本身；另把 nearly-unified 译成「统一」，丢了 nearly；还凭空添了「并亲自击败了他们」；「指定了一个计划」应为「制定」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:164–167 至高太阳骑士艾琳的日记：源文 stormed the tower of High Peak to fight by my side 未说击败，现译增“并亲自击败了他们”；Scourge from the West 术语库 society.tsv:34 preferred“西方天灾”，现译“来自西方大陆的英雄”；nearly-unified 丢 nearly；“指定了一个计划”应为“制定”；第二段 giving us a chance of prevailing against the menace the Sunwall has stood against 被译成太阳堡垒是胜利的希望。整段对照重写这几处，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "29e41505488eedbe2a1f90930efa76801bd4d83453848aad83b2339493ad77fd",
+      "stage": "contextual",
+      "observation": "跨条及同条指称不一致：other.lua:649-652 通篇都是同一个 cannister（在 other.lua:591 定义为 toxic cannister，本批 2898f7eb 译作「罐子」）。本条第一句译成「罐子」，第 652 行 The cannister has %d life 却译成「发生器」，读起来像是另一个物体。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:649–654 Toxic Cannister Launcher（本库“毒罐发射装置”）info：源文各行以 \\n\\t\\t 起，现译全部只留 \\n；同一 cannister（other.lua:591 toxic cannister）首句作“罐子”、第四句作“发生器”，指称不一致；at a location 未译。恢复每行 \\n\\t\\t，统一作“毒罐/罐子”，补“向指定位置”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2ac6341ecf834b6aab8396362229f67d3682a513b6134c7341ab3e3a6cc76b8a",
+      "stage": "contextual",
+      "observation": "physical.lua:493 PAIN_ENHANCEMENT_SYSTEM 的 long_desc 原文是 All stats increased by %d，没有任何排除项；译文加了「除力量外」。冻结输入没给出该效果 activate 或对应技能的实现，无法佐证排除力量；缺这段证据时，这个限定是原文没有的机制内容。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:490–509 PAIN_ENHANCEMENT_SYSTEM（本库“痛苦强化系统”）：activate 的 inc_stats 只列 DEX/MAG/WIL/CUN/CON，不含 STR；源文 All stats 与实现不符，现译“除力量外的所有属性”贴合实现，保留（contextual 因冻结输入无 activate 片段而判 ISSUE）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 8 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. The automated boundary scan again stopped on the \"rm\" inside \"perform\" in a read justification (lane-000-2); the host audited every native call by hand and found reads of the own envelope and contract only, plus one python3 -c json.load of lane-000-1's own envelope.",
+    "The contextual run (8 entries) read only its own envelope and the contract. The host scanned its native log before harvest.",
+    "Pain Enhancement System: the code grants every stat except Strength, so the translation's \"except Strength\" follows the implementation even though the English says all stats; the contextual ISSUE, raised without the activate snippet, is refuted.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "3 confirmed repair revisions raise the window 38 backlog from 10 to 13; below the 20 threshold, so no window opens."
+  ]
+}
