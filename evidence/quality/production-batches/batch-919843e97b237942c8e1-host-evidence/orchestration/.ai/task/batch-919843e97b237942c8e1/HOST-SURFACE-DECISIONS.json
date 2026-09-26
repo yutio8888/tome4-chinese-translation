@@ -1,0 +1,88 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 10 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "e3c95a6a0acd11b801993d9217068b0c8d37fa4136f07f030c17effcdd4adff4",
+      "stage": "surface",
+      "observation": "Carrion 意为腐肉，译文“蠕动”改变了词义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:153-156 CARRION_FEET 效果 desc 与 talents/demented/path-of-horror.lua:23 技能名同为 Carrion Feet，本库技能名已定“蠕动之足”（tome-cults.lua:3054），效果名随技能名一致；效果描述为“被恶心的蠕虫缠住”，蠕动与机制相符，改名属跨批次命名决定，不在本批范围。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e411a0b0ed2288ad9ede28e3cc064219c66738718ffaf27d851919d8ed420ee0",
+      "stage": "surface",
+      "observation": "warp 译为“传送”；冻结文本不足以判断此处 warp 是否指传送。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/nether.lua:214-228：失败分支前调用 target:teleportRandom 并以 canBe(\"teleport\") 判定，warp 即传送，现译正确。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e487193fbfa5a2ec578a935ffafb390d6425c1737a9d3457ac51f749151cddbd",
+      "stage": "surface",
+      "observation": "原文说龙站在触须团之中，译文改为“站在一团腐肉上”，改变了位置和所处物体。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua 岩壁手记：The proud form of a drake stood among the mass 是幼龙的躯体立于那团触须之中，现译“如同巨龙骄傲的身躯一般的身体，站在一团腐肉上”改变了位置与所处之物（上文 mass 指触须团，并非腐肉），drake 也被写成巨龙；整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e5c0141f796dabb7591e4bf84d21cfddcab062c639aadf7f6c61e92bcec5683e",
+      "stage": "surface",
+      "observation": "shrinks back 表示畏缩退后，译文“缩小了”误作体型变小。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:169-200 CULTS_OVERGROWTH：on_gain 为“突然长大”，activate 以 size_category +2 增大体型，on_lose 的 shrinks back 即恢复原体型，“缩小了”与实现一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e5e55f6c9d34ab9afd37d1b2b3ab64bb6b6a3e51968020665d18363ca72e3040",
+      "stage": "surface",
+      "observation": "原文为每回合引发地震，译文改成“在移动时”，改变了触发条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:178-185 CULTS_OVERGROWTH 的 callbackOnMove：仅在实际移动时调用 game.zone:doQuake，不存在每回合触发；英文 quake every turn 与实现不符，现译“在移动时引发地震”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e68028787ae1537a8a3606c5c77e4403f8aa3c05d9d52516a35a70127c6e3691",
+      "stage": "surface",
+      "observation": "原文首段以 [i] 开始、以 [/i] 结束；译文保留了 [i]，但缺少 [/i]。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua：首段斜体独白以 [i] 起、[/i] 止，现译缺 [/i]，斜体会延续到后文叙述；标记不变量缺陷，补回 [/i] 于首段末。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e8033440a14af7d094a1e53a4f1111c9cf1cbdeeaf89483543afe49a92bcb8f4",
+      "stage": "surface",
+      "observation": "原文仅为“Choose an aspect to bring forth”，译文将 aspect 明确写成“龙血类型”；冻结文本没有龙血依据，需语境证据确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/misc/races.lua:243-271：该对话框标题 Drake Aspect，选项写入 self.drake_infused_blood_type（伤害类型），aspect 即所注入龙血的元素类型，“龙血类型”有实现依据。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e9e0b787b1b36103c72d0eca828530229b2297d824f81ef3bc3fd5114c501233",
+      "stage": "surface",
+      "observation": "原文说女孩通常得被献祭给怪物才会这样被吃掉，而这只怪物自行选中了叙述者；译文将前者写成“这就像把少女送上祭坛……一样”，丢失了“通常需要献祭、此次却没有”的区别。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua:111 吞神者手记：Normally a girl has to get offered on an altar … but it looks like this one just took a fancy to me 是“通常少女得先被献上祭坛才会这样被吃，这只怪物却自己看上了我”；现译“这就像把少女送上祭坛……一样”把 normally／has to 的对比改成类比，与 but 转折接不上（与 contextual 独立复现）；同段 how long it is 被译成“不知道它有多长”、I've watched 被译成“我可以看到”，整句对照改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ea6c288db2cabdccb9d845a4825adfc28701f74a98731697df0d354b349a53a8",
+      "stage": "surface",
+      "observation": "原文“I think I was smiling”是“我想我当时在微笑”，译文写成“正在大笑”；原文“swordarm fell away from his body”是持剑的手臂断落，译文写成“持剑的手”断落。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua（Dark Resolve 一节，tome-cults.lua:1557 起）：I think I was smiling … grinning madly 是“我想我那时在微笑……疯狂地咧嘴笑”，现译“正在大笑着”夸大；The human's swordarm fell away 是持剑的手臂断落，现译“持剑的手”与后文“断臂”不一致，且 dropping to the ground to hold where his arm use to be 被译成病句“倒在地上他胳膊的地方”；宿主补充：the ogre's magical taint on Eyal ends! 是“食人魔给埃亚尔带来的魔法污染终将终结”，现译“食人魔这一马基埃亚尔的污点”改了语义并把 Eyal 写成马基埃亚尔。整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ead23fb89149c11e674e28c56bf6498ff4524734359ef7588362e21ff25bbc98",
+      "stage": "surface",
+      "observation": "“The Divine Writhing Mass”中的“writhing”表示蠕动、扭动，译文“扭曲”改变了动作含义；“Divine”本身也没有“古”的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/godfeaster/npcs.lua:25-29：独特首领 The Divine Writhing Mass 为吃下已死神明残骸后异变的蛆虫神经系统，名字是“神性的蠕动肉团”；现译“古神扭曲的物质”把 writhing 读成扭曲、mass 读成抽象物质，并加出所属关系“古神的”。全库仅此一处（tome-cults.lua:4341），改名不牵涉其他条目；改为体现“神性＋蠕动＋肉团”的名称（与 contextual 独立复现）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
