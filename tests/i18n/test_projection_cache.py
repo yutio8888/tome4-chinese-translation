@@ -954,10 +954,11 @@ class RetentionAndConcurrencyTests(_Fixture):
         results: list[bool] = []
 
         def publish():
-            with mock.patch.dict(os.environ, ON):
-                results.append(cache.store(self.root, projection, progress, set(objects),
-                                           settings=cache.replay_settings(self.root),
-                                           environment_ok=queue._publication_git_environment))
+            # No per-thread patch.dict: an early-exiting thread would restore
+            # os.environ while another thread is still storing.
+            results.append(cache.store(self.root, projection, progress, set(objects),
+                                       settings=cache.replay_settings(self.root),
+                                       environment_ok=queue._publication_git_environment))
 
         # Environment is process-wide: set once, then publish concurrently.
         with mock.patch.dict(os.environ, ON):
