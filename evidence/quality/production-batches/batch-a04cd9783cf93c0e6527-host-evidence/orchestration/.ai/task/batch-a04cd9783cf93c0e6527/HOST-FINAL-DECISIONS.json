@@ -1,0 +1,175 @@
+{
+  "batch_id": "batch-a04cd9783cf93c0e6527",
+  "observations": 17,
+  "observation_dispositions": {
+    "refuted": 4,
+    "confirmed": 12,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "efa7badd9b94fffaff47d1a69874ad92f4bad12778cd4f5a41805ea6a0c56381",
+    "f067c87f47730fdbb358885b928862e0dcf1daf1ba7ac8da84dbee4d060bc8f0",
+    "f30b472bd0b2a0fe4240bbc1f311a284e09062fad2dee32accc8ba20cc54452c",
+    "f4db7369570910632ada6574b3e91ce9d4a8fdfb8d5c420c004ba18241d127e7",
+    "f5569f04560cf443d54cac8c211c1bdff4b282a4198ca3fad22e5c10bd06a72f",
+    "f6030742f5b4ad4b7e9ec333f43e5119dad909b113bac6edeb36f9645b15e95a",
+    "f7b0d66ac9aee3c92958d7c67e6b340ad2938289211a0de3f75412bf472507b4"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "ef98c92575ff9bdef1ae8042aea0f329c5c90c940b2c33cf888f49b05a255ace",
+      "stage": "surface",
+      "observation": "Convergence 意为汇聚或聚合，译文“夹击”表达两面攻击；冻结输入未提供该技能的机制语境，无法确认是否有特殊含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/friend-of-the-worm.lua:443-517 Foul Convergence（WORM_THAT_STABS）：你与蠕虫合体（Worm that Walks）同时传送到同一敌人身边各做一次近战攻击，两者汇聚一处夹攻目标，“污秽夹击”贴合实现。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "efa7badd9b94fffaff47d1a69874ad92f4bad12778cd4f5a41805ea6a0c56381",
+      "stage": "surface",
+      "observation": "“No one to harm”译为“没有人会伤害你”，将可被伤害的对象改成了伤害说话者的人，施事方向相反。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/ft-horrors/objects.lua 冥想之书：No one to harm. / No one to distract. 两行并列，均是省略宾语的“无人来伤害／打扰（你）”，现译“没有人会伤害你”是可成立的读法，施事方向未颠倒。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f067c87f47730fdbb358885b928862e0dcf1daf1ba7ac8da84dbee4d060bc8f0",
+      "stage": "surface",
+      "observation": "原文“stacking up to 4 times”限定虚空之星最多积累四颗，译文遗漏这一上限。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/void.lua:44-52 与 :138-139：回复逻辑 if p.nb < 4 then p.nb = p.nb + 1，虚空之星上限 4 颗；现译“每经过 %d 回合自动恢复一颗”删了 stacking up to 4 times，漏掉上限（一级完整性）。补“最多叠加 4 颗”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f0892f6bb6877e39a841f744cdda7d86a62a1c8cf17369d25a04c25fdb43dc2c",
+      "stage": "surface",
+      "observation": "原文询问是否给说话的法杖投入一个职业技能点，使它成为真正的死灵法师；译文写成花费技能点使“你”成为死灵法师，受益对象颠倒。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults hooks/bonestaff.lua:79-91：选项 I do. (spend 1 class point) 的 action 扣的是玩家的 unused_talents，前文把玩家称作带引号的“死灵法师”加以嘲讽，to finally become a real necromancer 的主语是玩家；现译“你想花费一个职业技能点，成为一个真正的死灵法师吗？”受益对象正确，未颠倒。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f30b472bd0b2a0fe4240bbc1f311a284e09062fad2dee32accc8ba20cc54452c",
+      "stage": "surface",
+      "observation": "原文说关闭两本封印之书后，应该能够进入最后一章；译文省略了“封印”，并把“可能能够进入”译成“应该前往”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/quests/illusory-castle.lua:25-28：两条同族任务描述，前一条本库译“你合上了一本束缚之书……”（tome-cults.lua:2565）；本条 closed two books of binding 现译“你关闭了两本书”丢了“束缚之书”，should probably be able to access 是“应该能够进入”，现译“你应该前往最后一章”把可能性改成指令。对齐同族译法改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f39c0ab0db6c999d7468135cf49b22bf310c3919f6b1d802909d0e7d8c097ca7",
+      "stage": "surface",
+      "observation": "“Carrion”意为腐肉或腐尸，与“蠕动”不符；冻结输入没有术语条目正文，无法核定该技能名的既定译法。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/path-of-horror.lua:23 Carrion Feet：本库技能名既定“蠕动之足”（与效果名同，见第308批 e3c95a6a 裁决），效果为被恶心的蠕虫缠住，改名属跨批次命名决定。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f4db7369570910632ada6574b3e91ce9d4a8fdfb8d5c420c004ba18241d127e7",
+      "stage": "surface",
+      "observation": "原文“I had thought better of you since you killed that Eldoral halfling”表示杀死该半身人后对你评价更高；译文写成“我就更想念你了”，含义明显不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua（tome-cults.lua:1363 附近）：I had thought better of you since you killed that Eldoral halfling 是“自从你杀了那个艾德瑞尔半身人，我就高看你一眼”，下文 I figured you might be a fellow ally of nature 顺承此意；现译“我就更想念你了”误译。整句对照改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f5569f04560cf443d54cac8c211c1bdff4b282a4198ca3fad22e5c10bd06a72f",
+      "stage": "surface",
+      "observation": "原文“They do not see”指看不见，译文写成“他们无法理解”，改变了意思。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua 恐魔独白：They do not see. 是“他们看不见”，紧接 Fleshling eyes see not beyond the veil；现译“他们无法理解”与下句 They do not understand words 的“他们无法理解语言”重复，并丢了“看”的意象；同段 Fleshling tongues 现译“肉体的舌头”与上句“凡人的眼睛”不一致。整句对照改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f6030742f5b4ad4b7e9ec333f43e5119dad909b113bac6edeb36f9645b15e95a",
+      "stage": "surface",
+      "observation": "原文指幸存者乞求任何可作为武器使用的知识；译文“任何能用来……的武器都可以”将所求之物写成了武器。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 导师文物：begged it for knowledge, anything they could use as a weapon 是乞求“任何可用作武器的知识”；现译“他们向它乞求知识，任何能用来对抗……的武器都可以”前半已点明知识，后半略偏向武器本身，不改叙事事实，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f7b0d66ac9aee3c92958d7c67e6b340ad2938289211a0de3f75412bf472507b4",
+      "stage": "surface",
+      "observation": "原文说目标会浪费该回合尝试攻击，译文只说“攻击临近单位”，遗漏了浪费回合及尝试攻击的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/doom.lua:291 与 data/timed_effects.lua:1015-1049 PROPHECY_OF_TREASON：callbackOnAct 中以 attackTarget(target, nil, 0.1, false) 攻击相邻单位或自身，noenergy=false 会消耗该回合行动；现译“每回合有 %d%% 几率攻击临近单位”删了 waste their turn，漏掉浪费回合这一核心代价（一级完整性）。补回。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "efa7badd9b94fffaff47d1a69874ad92f4bad12778cd4f5a41805ea6a0c56381",
+      "stage": "contextual",
+      "observation": "tome-cults/data/zones/ft-horrors/objects.lua:51-67 book_text 为逐行诗体：①源第 59-60 行“Pain is a lens.\\nFocus through it.”在译文中被并成一行“痛苦是一面透镜，透过它凝聚心神。”，行数与版式同源文不一致；②末行“Thoughts treasured when they are alone.”中的 they 指 thoughts（思想独处时才被珍视），译文“当他们独自一人的时候”凭空引入了人称主体，语义有误；③“不要被任何东西打扰”缺句号，而且与上一句一样应为陈述（No one to distract），不是祈使句。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-horrors/objects.lua:51-67 逐行诗体 book_text：源 Pain is a lens.\\nFocus through it. 两行被并成一行“痛苦是一面透镜，透过它凝聚心神。”，LF 数与源不一致（一级换行不变量）；末行 Thoughts treasured when they are alone 的 they 指 thoughts，现译“当他们独自一人的时候”凭空引入人称；“不要被任何东西打扰”缺句号且把陈述改成祈使。逐行对照改写，恢复行结构。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f067c87f47730fdbb358885b928862e0dcf1daf1ba7ac8da84dbee4d060bc8f0",
+      "stage": "contextual",
+      "observation": "tome-cults/data/talents/demented/void.lua:138-140 info：①漏译“stacking up to 4 times”，即虚空之星最多叠加 4 颗的上限，属机制信息缺失；②源第一段是一整行，译文在第一句后另加了“\\n\\t\\t”，换行数从 2 变成 3，与源版式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/void.lua:44-52、138-140：同 surface，漏上限 4 颗；另源首段为一整行，现译在首句后多出 \\n\\t\\t（LF 2→3），删除多余换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f30b472bd0b2a0fe4240bbc1f311a284e09062fad2dee32accc8ba20cc54452c",
+      "stage": "contextual",
+      "observation": "tome-cults/data/quests/illusory-castle.lua:28：①“two books of binding”只译成“两本书”，丢了 binding；同文件第 25 行的同族条目说的是 a book of binding，两个进度要点所指的物品因此失去对应；②“you should probably be able to access the last chapter”是推测“应该可以进入最后一章”，译文“你应该前往最后一章”改成了指令，并删掉了 probably。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/quests/illusory-castle.lua:25-28：同 surface 结论，对齐第 25 行同族“束缚之书”，恢复 probably 推测语气。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f4db7369570910632ada6574b3e91ce9d4a8fdfb8d5c420c004ba18241d127e7",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/fay-willows.lua:289-305：①第 301 行“the same human who had briefly visited the messenger when I was talking to him in the inn”指这个人类曾短暂拜访信使，译文“我在客栈和信使谈话时短暂拜访过的那个人”把拜访者弄成了“我”，人物关系错了；②第 295 行“I had thought better of you since you killed that Eldoral halfling”意为对你评价更高，译成“我就更想念你了”，属误译；③第 289 行“made to do their bidding unquestioningly”意为不加质疑地服从，“毫无疑问地服从”意思变成了“无疑”；“enthralled to the slavers will”译成“被…意志所吸引”，语义偏弱且有误；④第 299 行“leaving a faceless humanoid”意为无面人形，“面目全非”的意思是变得认不出来，并非无面；⑤第 303 行“the same one that had been standing with the human in the crowd”，译文添了源文没有的“蛊惑群众”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:289-305，宿主逐条核对 tome-cults.lua 该条：(1) the same human who had briefly visited the messenger when I was talking to him 是该人类曾短暂来找信使，现译“我……短暂拜访过的那个人”主语错置；(2) I had thought better of you 误译为“更想念你”（同 surface）；(3) enthralled to the slavers will / made to do their bidding unquestioningly 现译“被……意志所吸引”“毫无疑问地服从”偏误；(4) leaving a faceless humanoid 是无面人形，现译“面目全非”；(5) the same one that had been standing with the human in the crowd 现译增出“蛊惑群众”。整条对照改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f5569f04560cf443d54cac8c211c1bdff4b282a4198ca3fad22e5c10bd06a72f",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/zones.lua:168-170：①“They do not see.”译成“他们无法理解”，误译为“理解”，与后文“They do not understand words”重复；本句该译作“看不见”，与下句 eyes see not 相承；②同段“Fleshling eyes”译“凡人的眼睛”，“Fleshling tongues”译“肉体的舌头”，同一个词前后两种译法；③跨条：格言“Thoughts are treasure(s). Treasure thoughts.”在同批 ft-horrors 书本条目（efa7badd…）中译作“思想是财富。珍惜思想。”，此处译“思想是一种财富。珍惜思想的财富。”，同一组复现的邪典箴言两处不一致，而且“珍惜思想的财富”偏离了源文的回环句式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua:168-170：同 surface 结论（They do not see、Fleshling 两处不一致）；另格言 Thoughts are treasure. Treasure thoughts. 在同批 efa7badd 书本条目为“思想是财富。珍惜思想。”，此处“思想是一种财富。珍惜思想的财富。”偏离回环句式，对齐。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f6030742f5b4ad4b7e9ec333f43e5119dad909b113bac6edeb36f9645b15e95a",
+      "stage": "contextual",
+      "observation": "tome-cults/data/general/objects/world-artifacts.lua:372：“An entity they simply came to knew as The Teacher”中的 entity 指来历不明的存在，译文“那位被称为‘导师’的大师”把它换成“大师”，凭空加了身份和尊称，丢掉了“实体／存在”的异质性；源文后面也一直用 It（它）称呼。另外“paranoia was rampant”只说偏执，译文多加了“狂热”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua:372：An entity they simply came to knew as The Teacher 的 entity 是来历不明的存在，后文一直以 It 相称，现译“那位被称为‘导师’的大师”凭空加出身份与尊称；paranoia was rampant 只说偏执，现译增出“狂热”。连同 surface advisory 的知识／武器措辞一并整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "f7b0d66ac9aee3c92958d7c67e6b340ad2938289211a0de3f75412bf472507b4",
+      "stage": "contextual",
+      "observation": "tome-cults/data/talents/demented/doom.lua:291：“to waste their turn attempting to attack an adjacent creature”说明目标会浪费自己的回合去攻击，译文只写“有 %d%% 几率攻击临近单位”，漏掉了耗费／浪费回合这一机制后果；“临近”应作“邻近”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/doom.lua:291 与 data/timed_effects.lua:1015-1049：同 surface 结论，补回浪费回合；“临近”改“邻近”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 10 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20. Every lane echoed its identities exactly and the boundary scan passed without a manual audit.",
+    "The contextual run (10 entries) read only its own envelope, the contract and the Cults source; no refreeze was needed.",
+    "Implementation-backed confirmations: the void star regen stops at p.nb < 4, and Prophecy of Treason attacks through attackTarget with energy use, so the dropped cap and the dropped wasted turn are mechanism losses.",
+    "Refuted: Foul Convergence teleports you and your Worm that Walks onto one target, the bone staff spends the player's class point, and Carrion Feet keeps the library name.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 36 backlog from 14 to 21, reaching the 20 threshold: repair window 36 opens next."
+  ]
+}
