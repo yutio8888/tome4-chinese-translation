@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "3081f3206c3067ba1ce6c2e3b29d83fcbe3640f974a60aadf650516f7b0dadbb",
+      "stage": "surface",
+      "observation": "原文质问“Weren't they the ones behind this, this Spellblaze?”时明确提到 Spellblaze；译文只说“他们不是这一切的罪魁祸首吗”，遗漏了这一事件名称。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 食人魔质问 Weren't they the ones behind this, this Spellblaze?；现译“他们不是这一切的罪魁祸首吗？”删去 Spellblaze（魔法大爆炸）。同条开头 this race 被译成“这些种族”，应为“这个种族”。改为“他们不就是这一切——这场魔法大爆炸的罪魁祸首吗？”并改“这个种族”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6dad9c79f84bedb7fa4ffbc9722d81e4686f43f9e0a33ba8a207a5b4f655a7a1",
+      "stage": "surface",
+      "observation": "原文将伤害转移给“a random target affected by Prophecy of Treason”，未限定距离；译文增加“周围”，使目标范围变窄。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/doom.lua Revelation 的 callbackOnTakeDamage 用 core.fov.circle_grids(self.x, self.y, 10, true) 只在半径 10 内选受背叛预言影响的敌人，“周围”贴合实现（窗口34 72dcd3ed 同一先例）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a133e480df406f077db0b2e23c27e90dcffdff253fefec8927c1902b958ab1a0",
+      "stage": "surface",
+      "observation": "原文 caught in decaying ground 表示陷入腐朽之地，译文写成被其覆盖，改变了状态含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/timed_effects.lua 腐朽之地效果 on_gain #Target# is caught in decaying ground.；现译“被腐朽之地覆盖”把陷入其中改成被覆盖。改为“#Target#陷入腐朽之地。”，与 on_lose“脱离腐朽之地”对应。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a1820d869fd8c20dca7fb951118c4954c097c538f8dd8bd8f0f8f5846478b778",
+      "stage": "surface",
+      "observation": "原文说明预言的力量会向外扩散，译文遗漏了这一描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults doom.lua 毁灭预言 action 以 rad=0 施加 PROPHECY_OF_RUIN，timed_effects.lua 在生命跌破阈值时以 radius=eff.rad 向目标所在格投射暗影伤害；默认只命中目标本身，现译“造成 %0.2f 暗影伤害”机制正确，漏掉的“预言之力向外回荡”只是修辞，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a2afceeb436c47bce75573e82d16d936c2d80ddaddc9e289c40a34f9c9f01dc7",
+      "stage": "surface",
+      "observation": "原文说被俘克罗格不再受到时间牢笼的保护，译文却说时间牢笼已解除；原文没有说明牢笼被解除。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/necromancers-ruins/zone.lua on_turn：turn_counter 倒计时耗尽即弹出该提示，时间牢笼的保护随之结束；“时间牢笼被解除了，它们现在非常脆弱”与实现同义。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a4fcb9367934a0185a20ae90da4b6df1d431dd4fe7cbf3a3598a07b2e691e2f5",
+      "stage": "surface",
+      "observation": "原文是携带一锤和一包巨石，译文变成双手分别拿锤和石块，遗漏“一包”并增添持握方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-illusory-castle/npcs.lua minotaur mindscrew 描述 armed with a hammer and a pack of huge rocks；现译“一手拿着锤子，一手拿着巨大的石块”增译持握方式并丢掉 a pack of（一整包）；frightening amount 也弱化为“强大”。改为“这个好战的米诺陶拥有骇人的精神力量，手持一把锤子，还带着一大包巨石。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a79acd2b23757065e0ffc1feafd75c789efdd75db91000ddf22978b5576afc92",
+      "stage": "surface",
+      "observation": "原文意为“窥见真正的恐怖”，译文“恐怖无边”遗漏“窥见”并改变标题含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/disfigured-face.lua 技能名 Glimpse of True Horror；技能名为意译“恐怖无边”，contextual 判 OK，不影响机制。另注意同源 _t 条目现译“一瞥真惧”，两处不一致，留待技能名统一时处理，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a94173532c8bcb41953417d4b62dcf68c3f162bcbca0f6fbd7785291a5373007",
+      "stage": "surface",
+      "observation": "原文“spend all the loot money you made”指花掉战利品所得的钱；译文只写卖掉装备换钱，遗漏了花钱这一步。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua 冒险者日志 spend all the loot money you made and repeat；现译“把装备卖掉换成钱”漏掉花钱。改为“捡捡战利品，把赚来的钱花个精光，然后再重复一遍”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

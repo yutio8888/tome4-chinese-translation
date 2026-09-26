@@ -1,0 +1,108 @@
+{
+  "batch_id": "batch-4f83e2380a274e472806",
+  "observations": 9,
+  "observation_dispositions": {
+    "confirmed": 5,
+    "refuted": 2,
+    "advisory": 2
+  },
+  "repair_revision_keys": [
+    "3081f3206c3067ba1ce6c2e3b29d83fcbe3640f974a60aadf650516f7b0dadbb",
+    "a133e480df406f077db0b2e23c27e90dcffdff253fefec8927c1902b958ab1a0",
+    "a4fcb9367934a0185a20ae90da4b6df1d431dd4fe7cbf3a3598a07b2e691e2f5",
+    "a94173532c8bcb41953417d4b62dcf68c3f162bcbca0f6fbd7785291a5373007"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "3081f3206c3067ba1ce6c2e3b29d83fcbe3640f974a60aadf650516f7b0dadbb",
+      "stage": "surface",
+      "observation": "原文质问“Weren't they the ones behind this, this Spellblaze?”时明确提到 Spellblaze；译文只说“他们不是这一切的罪魁祸首吗”，遗漏了这一事件名称。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 食人魔质问 Weren't they the ones behind this, this Spellblaze?；现译“他们不是这一切的罪魁祸首吗？”删去 Spellblaze（魔法大爆炸）。同条开头 this race 被译成“这些种族”，应为“这个种族”。改为“他们不就是这一切——这场魔法大爆炸的罪魁祸首吗？”并改“这个种族”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6dad9c79f84bedb7fa4ffbc9722d81e4686f43f9e0a33ba8a207a5b4f655a7a1",
+      "stage": "surface",
+      "observation": "原文将伤害转移给“a random target affected by Prophecy of Treason”，未限定距离；译文增加“周围”，使目标范围变窄。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/doom.lua Revelation 的 callbackOnTakeDamage 用 core.fov.circle_grids(self.x, self.y, 10, true) 只在半径 10 内选受背叛预言影响的敌人，“周围”贴合实现（窗口34 72dcd3ed 同一先例）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a133e480df406f077db0b2e23c27e90dcffdff253fefec8927c1902b958ab1a0",
+      "stage": "surface",
+      "observation": "原文 caught in decaying ground 表示陷入腐朽之地，译文写成被其覆盖，改变了状态含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/timed_effects.lua 腐朽之地效果 on_gain #Target# is caught in decaying ground.；现译“被腐朽之地覆盖”把陷入其中改成被覆盖。改为“#Target#陷入腐朽之地。”，与 on_lose“脱离腐朽之地”对应。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a1820d869fd8c20dca7fb951118c4954c097c538f8dd8bd8f0f8f5846478b778",
+      "stage": "surface",
+      "observation": "原文说明预言的力量会向外扩散，译文遗漏了这一描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults doom.lua 毁灭预言 action 以 rad=0 施加 PROPHECY_OF_RUIN，timed_effects.lua 在生命跌破阈值时以 radius=eff.rad 向目标所在格投射暗影伤害；默认只命中目标本身，现译“造成 %0.2f 暗影伤害”机制正确，漏掉的“预言之力向外回荡”只是修辞，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a2afceeb436c47bce75573e82d16d936c2d80ddaddc9e289c40a34f9c9f01dc7",
+      "stage": "surface",
+      "observation": "原文说被俘克罗格不再受到时间牢笼的保护，译文却说时间牢笼已解除；原文没有说明牢笼被解除。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/necromancers-ruins/zone.lua on_turn：turn_counter 倒计时耗尽即弹出该提示，时间牢笼的保护随之结束；“时间牢笼被解除了，它们现在非常脆弱”与实现同义。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a4fcb9367934a0185a20ae90da4b6df1d431dd4fe7cbf3a3598a07b2e691e2f5",
+      "stage": "surface",
+      "observation": "原文是携带一锤和一包巨石，译文变成双手分别拿锤和石块，遗漏“一包”并增添持握方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-illusory-castle/npcs.lua minotaur mindscrew 描述 armed with a hammer and a pack of huge rocks；现译“一手拿着锤子，一手拿着巨大的石块”增译持握方式并丢掉 a pack of（一整包）；frightening amount 也弱化为“强大”。改为“这个好战的米诺陶拥有骇人的精神力量，手持一把锤子，还带着一大包巨石。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a79acd2b23757065e0ffc1feafd75c789efdd75db91000ddf22978b5576afc92",
+      "stage": "surface",
+      "observation": "原文意为“窥见真正的恐怖”，译文“恐怖无边”遗漏“窥见”并改变标题含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/disfigured-face.lua 技能名 Glimpse of True Horror；技能名为意译“恐怖无边”，contextual 判 OK，不影响机制。另注意同源 _t 条目现译“一瞥真惧”，两处不一致，留待技能名统一时处理，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a94173532c8bcb41953417d4b62dcf68c3f162bcbca0f6fbd7785291a5373007",
+      "stage": "surface",
+      "observation": "原文“spend all the loot money you made”指花掉战利品所得的钱；译文只写卖掉装备换钱，遗漏了花钱这一步。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua 冒险者日志 spend all the loot money you made and repeat；现译“把装备卖掉换成钱”漏掉花钱。改为“捡捡战利品，把赚来的钱花个精光，然后再重复一遍”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3081f3206c3067ba1ce6c2e3b29d83fcbe3640f974a60aadf650516f7b0dadbb",
+      "stage": "contextual",
+      "observation": "遗漏专名：tome-cults/data/lore/fay-willows.lua（来源未固定，冻结快照第363-381行）中食人魔质问“Weren't they the ones behind this, this Spellblaze?”，明确指控永恒精灵（Shaloren）造成了法术大爆炸（Spellblaze）；译文“他们不是这一切的罪魁祸首吗？”删去了 Spellblaze，泛化成“这一切”，丢失了该事件的历史指涉。另有一处误读：“the other ogres faces turned to a look of total dismay”指神情变为沮丧，被译成“脸都转过头来”，变成了实际转头的动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：补回 Spellblaze（魔法大爆炸）。另 the other ogres faces turned to a look of total dismay 指神情转为沮丧，现译“脸都转过头来，露出了完全沮丧的表情”误成转头动作，改为“其他食人魔的脸上都露出了彻底绝望的神情”。与 surface 合并为一次修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 8 entries)"
+  },
+  "notes": [
+    "Cults-only batch, attempt 2. Attempt 1 was abandoned because lane-000-2 echoed an extra logical_entry_identity field in results[15] (invalid exact shape); all four attempt-1 lanes were archived and confirmed, and their artifacts moved to review302-attempt-1/ with HOST-NOTE-abandon.json. In attempt 2 surface ran as four lanes of 20 with every identity echoed exactly and no boundary-scan hit.",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Two observations are refuted by the implementation: the Revelation treason redirect only picks targets within radius 10 (so 周围 fits, same as window 34), and the necromancer-ruins popup fires when the time-prison countdown expires. The prophecy echo wording and the Glimpse of True Horror talent name are advisory.",
+    "Attempt-1-only observations were checked by the host: defense->闪避 follows the project term for Defense; the Writhing One talent name (蜿蜒, class term 蜿蜒怪人) and the Tome of Despair misery->困难 wording are recorded as host supplements for the next repair window.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "4 confirmed repair revisions raise the window 35 backlog from 0 to 4; below the 20 threshold, so no window opens."
+  ]
+}
