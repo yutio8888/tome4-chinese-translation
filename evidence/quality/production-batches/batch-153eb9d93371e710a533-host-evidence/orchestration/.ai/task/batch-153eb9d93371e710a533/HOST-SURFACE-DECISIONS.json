@@ -1,0 +1,128 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 15 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "96e3dc9b17975a8099cf9e55ccd579cc6ef1733d269f82a7aa92780cae006729",
+      "stage": "surface",
+      "observation": "原文是“你宁愿不看到”的真相，译文写成“不应该知道”，改变了意愿与应否的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 物品描述 reveals the hidden truths you'd rather not see；现译“你不应该知道的”把“宁愿不看的”改成应否判断。改为“有时会揭示你宁愿视而不见的隐秘真相。”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "97e5ef05f44ac605cd4bd297948ced3ae1c16317483309a0092e32336e22d41e",
+      "stage": "surface",
+      "observation": "原文限定目标须在与施法者法术强度对抗的魔法豁免中失败，译文漏掉了法术强度这一判定条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/controlled-horrors.lua 该技能 action 用 target:checkHit(self:combatSpellpower(), target:combatSpellResist())，原文 fails a magical save against your Spellpower；现译漏掉“对抗你的法术强度”。补为“如果目标未能通过对抗你法术强度的魔法豁免”，制表符与 %d 不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9846adf6a36b4605cb7268fab11de4ef7734f81f6e648ddb662ee348cc85b1f4",
+      "stage": "surface",
+      "observation": "原文说角色拥有的各种种族加成，译文写成角色可以学习的各种种族技能，改变了对象及获得方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/misc/races.lua 天赋类说明 The various racial bonuses a character can have.. when its head is cut off...；同句前半在本库 tome-cults.lua/mod-tome.lua 均译“角色可能拥有的各种种族加成”，现译“可以学习的各种种族技能”偏离原意与同族译法。改为“角色可能拥有的各种种族加成……当它的头被砍掉并换成寄生兽的时候。”（补译 cut off）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "990de30fbe4ad0d35500c352d96564f25a1042264df570cafaebcbfb3d803bdf",
+      "stage": "surface",
+      "observation": "原文没有“预言”；译文“因预言背叛”添加了原因，并把“注定背叛”改成了“因预言背叛”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua PROPHECY_OF_TREASON 的 on_gain；效果本身即“叛逆预言”，同族 madness/ruin 现译“被预言逼疯”“被预言毁灭”，“因预言背叛”与实现和同族一致，非增译；可改“注定背叛”但不改变含义，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "995336768ff07a50a07d2a05eba37667799f6051a523a3c698c447c1835dab1f",
+      "stage": "surface",
+      "observation": "Skitter 表示快速移动，译文“迅击”表示攻击；仅凭冻结条目无法核实该技能机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/rift.lua Dimensional Skitter：action 为 teleportRandom 到目标旁并 attackTarget，info 为 Teleport to a target ... and strike them；“维度迅击”符合传送加攻击的实现，refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9a89a9f5215d9752567239206496a7238f426d1d153f5983e93b90cd7f558666",
+      "stage": "surface",
+      "observation": "原文是“the lost merchant”，译文仅作“商人”，遗漏“lost”这一限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/achievements/all.lua 成就说明列举 the lost merchant；该角色本库 mod-tome.lua 实体名 Lost merchant 译“迷路的商人”，现译只作“商人”丢失识别。改为“迷路的商人”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ad9d7f0a7703e3a2c5c093185d956bfeb5798b8d3db4948dc42fe4f39c492e1",
+      "stage": "surface",
+      "observation": "原文“Many other stats will scale with level”指许多其他属性随等级变化；译文“许多其他属性与技能等级相关”将等级误作技能等级。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/controlled-horrors.lua 召唤腐败吞噬者 info：Many other stats will scale with level 指召唤物等级（主属性、技能等级已单列）；现译“与技能等级相关”误指技能等级，本库同文件另一召唤已译“许多其他属性随等级成长”。改为“许多其他属性随等级成长。”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9b6c44d67a63946c70804abaa0a515ecef07c437f2f5cf77550cc0a9903f3535",
+      "stage": "surface",
+      "observation": "原文说受伤士兵人数减少到可应付的程度；译文写成“痊愈士兵的数量开始达到一定程度”，误换了所指人群。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 上文 the number of wounded soldiers began to dwindle，随后 When their numbers began to reach more manageable amounts 仍指伤员；现译“当痊愈士兵的数量开始达到一定程度时”把所指换成痊愈者并丢失 manageable。改为“当伤员人数减少到可以应付的程度时”，其余段落与 [i] 标记、换行不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9b9aed5a0f0a2cfcec97a08b57d44173863529892d0459b761c24e4374f27973",
+      "stage": "surface",
+      "observation": "原文只有“Who..what.. YES!”，译文额外加入“我在里面！”，没有原文依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/chats/godfeaster-malyu.lua：该回答紧接 NPC 问 There's someone else in here?，现译“对！我在里面！”是对问句的顺势作答，不改变选项含义与跳转；属轻度增补，记 advisory（可删“我在里面！”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9cd39117cc3566ee7f5368c66bf5025c914d0b8eedf07a56a681e3831b442f69",
+      "stage": "surface",
+      "observation": "原文仅推测伊胡拉什某天被对手杀死，译文断言他某天在观众面前被杀；原文没有「在观众面前」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/kroshkkur.lua：原文 where it is speculated that he was one day killed by another competitor；现译删去“据推测”把传闻说成定论，并增补原文没有的“在观众面前”。改为“……回到了角斗场。据推测，他后来某一天被另一名角斗士杀死。”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9d19412eddab5e31febb8b00f3cd47b64fa654d071a8bd7855e11800c466b051",
+      "stage": "surface",
+      "observation": "原文是与同行恐魔「行走蠕虫」的长期契约，译文写成「同蠕虫合体的契约」；末句原文提及改变装备和技能，译文只提装备。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/friend-of-the-worm.lua info：a long standing pact with a fellow horror, a Worm that Walks, to help you in your travels；本库该生物名为“蠕虫合体”，现译“同蠕虫合体的契约”易读成“与蠕虫合为一体”，并漏 long standing、fellow horror 与 in your travels；ressurect your friendly horror 现译“已死亡的单位”泛化；末句 equipment and talents 只译装备。改为“你启用与恐魔同伴蠕虫合体之间的长期契约，令其在旅途中协助你”、“复活你的友方恐魔”、“改变其装备和技能”；制表符、%d%% 与等级表不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9db148fe25ad639d26a55df5fefbba6253fcc6a35de9e22b73a8779e9b3a6979",
+      "stage": "surface",
+      "observation": "原文说叙述者转头避开女巫，译文写成转头看她；原文说女巫看起来苍老了许多，译文写成叙述者看起来苍老。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua：I replied as I turned my head to look away from the enchantress，下一句即 Despite not being able to see the shalore's face；现译“我转过头去看那个女巫”方向相反并与下句矛盾。改为“我把头转开，避开女巫的目光，回答说”；修复时对照整段其余叙述，[i] 标记与换行不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ddb7eaef201acef11e76c7fb47b8685524a3d99fb4b4d3164ac4572889f9201",
+      "stage": "surface",
+      "observation": "原文“Over the next two days I didn't eat or sleep”明确说两天没有进食或睡觉；译文“在接下来的两天里，我仍然不眠不休”遗漏了没有进食。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua：Over the next two days I didn't eat or sleep；现译“我仍然不眠不休”漏“不吃”并增“仍然”。改为“在接下来的两天里，我不吃也不睡。”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9e24a52585f315d5779622944fbed308d0ed19152ab7efe39b5c5414311b89cb",
+      "stage": "surface",
+      "observation": "“It's Character Forming”表示某种经历能塑造性格；“这是性格形成”将其误译为对“性格形成”的判断，未表达原句的作用关系。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/zones/ft-illusory-castle/zone.lua possible_names 章节名（经 levels_names 显示为 shortcut to chapter \"%s\"）；It's Character Forming 意为“这能磨炼性格”，现译“这是性格形成”未传达原意。改为“磨炼性格”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9f9061244f88047058618d0e0efa23d448e1abdba3d041de97aea98b03ab17ef",
+      "stage": "surface",
+      "observation": "原文“healing the source for %d%% of all damage done”没有将伤害对象限定为效果来源；译文“被污血覆盖的目标对效果来源造成伤害时”加入了这一限定，改变了回血条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/horrific-body.lua Defiled Blood：callbackOnTakeDamage 在效果来源受伤且攻击者带 EFF_DEFILED_BLOOD 时 self:heal(dam*getHeal/100)，info 为 Creatures that hit you while covered in your blood heal you；现译“目标对效果来源造成伤害时，效果来源恢复”与实现一致，refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

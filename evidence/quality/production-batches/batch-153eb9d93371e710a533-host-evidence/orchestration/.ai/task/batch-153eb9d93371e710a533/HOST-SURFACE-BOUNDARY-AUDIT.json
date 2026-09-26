@@ -1,0 +1,56 @@
+{
+  "batch_id": "batch-153eb9d93371e710a533",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T04:45:56.401966+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only; no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "boundary_pattern_hits": [
+    {
+      "dispatch_id": "lane-000-0",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside the word \"perform\" in the justification text of lane-000-0 call 2 (\"...to perform the requested read-only surface screen?\"); both calls are exec_command cat reads of docs/paseo-translation-surface-screen-v1-contract.md and the own SURFACE-SCREEN-ENVELOPE-lane-000-0.json; call 2 requested sandbox_permissions=require_escalated with prefix_rule [\"cat\"] for the same two read-only files, no write or external effect"
+    }
+  ],
+  "sequencing_note": "bd_mid automated audit stopped on the pattern hit before close/import; host inspected the native tool calls and wrote this audit manually, then ran bd_mid_rest",
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "a20e3fe7-ee20-46be-aeed-26d1a180a1e7",
+      "native_tools_sha256": "141a5e495b406cb80bc8de5857db9398ba511b631a638cb222480a1c0f8bc4c9",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "3e616fbc-3b7e-4744-a9e6-425217f31d35",
+      "native_tools_sha256": "50008a1d77f3176219efdbff8a118d08918db2e51842c4ab1c3adde4c09f9963",
+      "tool_calls": 7,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "088c8c84-dbaa-4c3a-b944-3cb2a651b8ae",
+      "native_tools_sha256": "5229cbf42e3c401e558c27475e0597ac5158e82d638603613f7ad34a5f5adcb6",
+      "tool_calls": 7,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "6fbc3365-4ac8-4991-9983-5299052879c8",
+      "native_tools_sha256": "27a3d3b4eb848df17a99bc7e39f89527e46dee97e76220e5591cfdeb1d44f1e4",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
