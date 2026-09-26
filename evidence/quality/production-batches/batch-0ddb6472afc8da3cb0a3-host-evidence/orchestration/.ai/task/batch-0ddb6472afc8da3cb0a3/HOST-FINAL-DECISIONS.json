@@ -1,0 +1,132 @@
+{
+  "batch_id": "batch-0ddb6472afc8da3cb0a3",
+  "observations": 12,
+  "observation_dispositions": {
+    "confirmed": 7,
+    "refuted": 3,
+    "advisory": 2
+  },
+  "repair_revision_keys": [
+    "d5f14597d4362ee0f878c26fd0781aa853bd2a7e2bfb3ca0601a15c45ceadb0c",
+    "d67b9da42c920bee2d1f7bfb97132d42f04158a8f6b4c062a55438d2ccb6eed2",
+    "dc519faa341d74a568145f9deda5112e12d5e136cee15801218c69691ee02f09",
+    "df6ed2f1bd1ec2612a5cd4da7b9008817bd7473d2613940a38e547791f44b253"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "d5f14597d4362ee0f878c26fd0781aa853bd2a7e2bfb3ca0601a15c45ceadb0c",
+      "stage": "surface",
+      "observation": "末句把「鬼魂会更安宁」译成「鬼魂的工作会更轻松」，明显改变原意；“within these walls”也被添译为「玻璃幕墙」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua:201-203 城堡手记：the spirits that haunt this place will rest easier 是鬼魂更得安息，现译“鬼魂的工作……更轻松”意思颠倒，I'm sure 也被弱化为猜测；within these walls 只是墙壁，现译增出“玻璃幕墙”（只有傀儡是玻璃做的）。整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d67b9da42c920bee2d1f7bfb97132d42f04158a8f6b4c062a55438d2ccb6eed2",
+      "stage": "surface",
+      "observation": "“Rip apart spacetime”被译为「撕裂时间线」；spacetime 指时空，并非时间线。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/unlock-demented_cultist_entropy.lua:30 Rip apart spacetime to create rifts：spacetime 为时空而非时间线，rifts 按本职业技能树术语 rift=裂隙（terminology/talents.tsv）；现译“撕裂时间线，创造时间裂缝”，改“撕裂时空，创造裂隙”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d6979cff62b3658efe6e930c9c4fcec62e86a481ec89fe4968b74f05be20cbd6",
+      "stage": "surface",
+      "observation": "“Age of Haze”译为「混沌纪」；冻结输入没有术语正文，无法确认此时代名是否采用该译法。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Age of Haze 在本库 mod-tome.lua 与 tome-cults.lua 一贯译“混沌纪”（窗口33 69cb5f2c 亦保留），现译一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d6e8c0ee2ae3cb8805ad65aee5bf8339d8a87ae1577dd939b1ea818f50709a17",
+      "stage": "surface",
+      "observation": "“seems more focused”表示似乎更专注，译文「恢复了理智」改变了状态含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:777-785 该句为 CACOPHONY 效果 on_lose，on_gain 为 mind is shattered by the void；“恢复了理智”与“神智被虚空粉碎”对应，语义方向正确但比 seems more focused 更绝对；contextual 判 OK，记 advisory（可改“似乎更专注了”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d9e505f47e951db5f1e1bd9e36b4be50eea271eb18418c8b89651d91bec93e87",
+      "stage": "surface",
+      "observation": "Cacophony 指嘈杂刺耳的声音，译为“心灵尖啸”改变了词义；若这是固定技能名称，冻结输入缺少核对依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:777-785 -Cacophony 为效果名浮动字，本库技能名 Cacophony=“心灵尖啸”（tome-cults.lua:2968，+Cacophony 亦同），现译与专名一致。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dc1feff2e72956600867770d697545414813f4a750d7d34bf3a612c2be71fcbf",
+      "stage": "surface",
+      "observation": "“on the side of horror”表示站在恐怖一方，译文“成为恐魔”改成了自身变为恐魔；冻结输入不足以确认此处是否有特殊剧情含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/demented.lua:35 为 path of horror（恐魔之路）技能树描述，该树内容即向恐魔形态转化，“继续你成为恐魔的旅程”贴合树意；on the side of horror 字面为站在恐魔一方，contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dc519faa341d74a568145f9deda5112e12d5e136cee15801218c69691ee02f09",
+      "stage": "surface",
+      "observation": "书名末尾多出空格：此项为“家，可怕的家 ”，同一冻结输入中的书名为“家，可怕的家”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/timed_effects.lua:1901 long_desc（源码中引号写作转义 \\\"，freeze 字面匹配因此 MISS，并非死键）：现译书名“家，可怕的家 ”末尾多一空格，且用英文引号；同批成就条目用《家，可怕的家》。改“进入禁忌之书《家，可怕的家》%d 回合。”，占位符不变。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "df375b069bdd0ecb67a26620c8d80573f1988284d1979cbac3f1a1e384ddae6b",
+      "stage": "surface",
+      "observation": "源文只述按 Fortune 和 Jinx 的层数恢复生命；译文增加层数消耗及按是否有不幸择一计数的规则，冻结输入没有支持这些规则的证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/timed_effects.lua:1716-1734 callbackOnHit：先按自身 FORTUNE 层数算治疗并移除，若所选目标有 JINX 则改按其层数算并移除——现译“幸运/不幸层数被消耗；若目标有不幸按其层数，否则按自身幸运层数”贴合实现，源文描述较简略，按实现判 refuted。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "df6ed2f1bd1ec2612a5cd4da7b9008817bd7473d2613940a38e547791f44b253",
+      "stage": "surface",
+      "observation": "源文说仍在纳格尔城内，译文写成仍在纳格尔王国；源文说火势开始减弱，译文写成大火完全熄灭。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:243-255：fires began to die down 现译“完全熄灭了”过度，且与下文 As the fires began to simmer 矛盾；remained within the Nargol city 现译“纳格尔王国”，与同条“纳格尔市场”不一；When the guards finally moved in to clear them out 现译“搬进来清理”误解 moved in。三处改：逐渐平息 / 纳格尔城 / 进场清理。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d5f14597d4362ee0f878c26fd0781aa853bd2a7e2bfb3ca0601a15c45ceadb0c",
+      "stage": "contextual",
+      "observation": "tome-cults/data/lore/zones.lua:203 has 'I'm sure the spirits that haunt this place will rest easier knowing that there won't be any more victims'. Here 'rest easier' means the haunting spirits will be more at peace. The translation '鬼魂的工作，应该也会变得更轻松的吧' turns it into the ghosts' work getting easier, which inverts the meaning. It also softens 'I'm sure' into a guess. Separately, line 201 'no safety to be found within these walls' adds '玻璃幕墙', but the source only says walls; only the golems are made of glass.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/zones.lua:201-203 城堡手记：the spirits that haunt this place will rest easier 是鬼魂更得安息，现译“鬼魂的工作……更轻松”意思颠倒，I'm sure 也被弱化为猜测；within these walls 只是墙壁，现译增出“玻璃幕墙”（只有傀儡是玻璃做的）。整句改写。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d67b9da42c920bee2d1f7bfb97132d42f04158a8f6b4c062a55438d2ccb6eed2",
+      "stage": "contextual",
+      "observation": "unlock-demented_cultist_entropy.lua:30 'Rip apart spacetime to create rifts' is translated as '撕裂时间线'. Spacetime means 时空, not a timeline, so the class feature describes the wrong object.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/unlock-demented_cultist_entropy.lua:30 Rip apart spacetime to create rifts：spacetime 为时空而非时间线，rifts 按本职业技能树术语 rift=裂隙（terminology/talents.tsv）；现译“撕裂时间线，创造时间裂缝”，改“撕裂时空，创造裂隙”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "df6ed2f1bd1ec2612a5cd4da7b9008817bd7473d2613940a38e547791f44b253",
+      "stage": "contextual",
+      "observation": "fay-willows.lua:255 'if I remained within the Nargol city' is translated as '纳格尔王国'. That contradicts the source and the '纳格尔市场' earlier in the same entry: Nargol is a city here, not a kingdom. At line 253, 'When the guards finally moved in to clear them out' is translated as '搬进来清理', which misreads 'moved in' as relocating. The meaning is advancing to clear the area. At line 243, 'soon after the fires began to die down' is overstated as '完全熄灭了', and line 245 still says 'As the fires began to simmer', so the passage is now inconsistent.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua:243-255：fires began to die down 现译“完全熄灭了”过度，且与下文 As the fires began to simmer 矛盾；remained within the Nargol city 现译“纳格尔王国”，与同条“纳格尔市场”不一；When the guards finally moved in to clear them out 现译“搬进来清理”误解 moved in。三处改：逐渐平息 / 纳格尔城 / 进场清理。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 9 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20. lane-000-2 echoed one identity with its final character dropped; the host precheck stopped the harvest, the full set was compared position by position, and only that string was corrected before a --raw harvest (archived only after harvest and archive-intent). The boundary scan stopped on \"rm \" inside \"perform\" in lane-000-0 and lane-000-3 justifications; the host inspected every native call (reads of each lane's own envelope and the contract) and wrote HOST-SURFACE-BOUNDARY-AUDIT.json by hand.",
+    "The contextual run (9 entries) read only its own envelope, the contract and the Cults source; no refreeze was needed.",
+    "Freeze reported one MISS (dc519faa, timed_effects.lua:1901): the Lua literal writes the book title with escaped quotes (\\\"), and freeze_workset unescape_variants does not try quote escapes, so literal matching failed; the key is live and the host verified the line directly.",
+    "Refuted by the implementation: the fate-link heal consumes Fortune and then prefers the target's Jinx stacks, exactly as translated; Cacophony and the Age of Haze follow the library names.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "4 confirmed repair revisions raise the window 36 backlog from 5 to 9; below the 20 threshold, so no window opens."
+  ]
+}

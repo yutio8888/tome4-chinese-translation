@@ -1,0 +1,77 @@
+{
+  "batch_id": "batch-0ddb6472afc8da3cb0a3",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T09:07:31.624717+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only; no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [
+    {
+      "dispatch_id": "lane-000-2",
+      "result_index": 2,
+      "verdict": "OK",
+      "echoed": "dc6891bb3c7124e14e0df5964ae539410f6d658171dd897f50378f6bc7ed726",
+      "frozen": "dc6891bb3c7124e14e0df5964ae539410f6d658171dd897f50378f6bc7ed7267",
+      "attribution": "the agent itself mis-echoed: the final assistant message in its native Codex log (sessions/2026/09/26/rollout-2026-09-26T09-05-49-01a0dcf6-b06b-7a22-953b-107b2f4d240e.jsonl) drops the final '7' (63 hex chars); the host precheck stopped the harvest before any harvest lock, and the host corrected and harvested before archiving",
+      "original_raw": ".artifacts/i18n/continuation-20260923/captures307/lane2-original.raw",
+      "original_sha256": "c64bf6500c1a79e3f62be68ae0770d1e751af0c715d8153a6b6c2e7022ccf3db",
+      "corrected_raw": ".artifacts/i18n/continuation-20260923/captures307/lane2-corrected.raw",
+      "corrected_sha256": "8f5cfb2669d41c6d51ae476c4fa8381cdee434e8ce545ac52b3b091955ffc15d",
+      "change": "only that one identity string replaced with the frozen value; all verdicts and observations unchanged; full 20-entry set compared position by position before harvest; harvested with --raw"
+    }
+  ],
+  "boundary_pattern_hits": [
+    {
+      "dispatch_id": "lane-000-0",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside \"perform\" in the justification of call 1 (\"...explicitly authorized files to perform the requested read-only...\"), a cat of the surface contract and its own envelope with sandbox_permissions=require_escalated after the sandbox runner failed; its other calls are the same cat without escalation and a python3 read-only print of its own envelope; no write or external effect"
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside \"perform\" in the justification of call 1 (\"...explicitly authorized files to perform the requested read-only...\"), a cat of the surface contract and its own envelope with sandbox_permissions=require_escalated after the sandbox runner failed; its other calls are the same cat without escalation and a python3 -c read-only print of its own envelope; no write or external effect"
+    }
+  ],
+  "other_calls_note": "lane-000-2 also listed its own available tool names and made one cat with prefix_rule [\"cat\"] (same pattern as batches 301 and 305)",
+  "sequencing_note": "bd_mid automated audit stopped on the pattern hit before close/import; host inspected the native tool calls and wrote this audit manually, then ran bd_mid_rest",
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "7705e59d-2af8-4c2a-8d72-120026bbb82a",
+      "native_tools_sha256": "0dbbe88c47a83e7ecde2944aff408c20008b1f1ac9c1c7fa5af462447bfb3d9a",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "33380b1c-f62d-446d-aeb2-ed7d6a324cea",
+      "native_tools_sha256": "c6ddd2408b7fced79dd6e2b5a2c191b8e9e14940783ffb42d9e2a9d55ee1b96b",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "8932c7f9-43e2-4af3-9dab-181aa5c60d43",
+      "native_tools_sha256": "adace3ec4355ddc3ac1803a8c4653387d33d4b662c8ef2584d0c022c9c3a68d1",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "8222e8ef-e279-4ca8-a7bc-05f49b0e8c27",
+      "native_tools_sha256": "3c825a026c19f4ddee0d5d87fc96f5234a5548e0931d6d8763cac45a8fdf22c8",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
