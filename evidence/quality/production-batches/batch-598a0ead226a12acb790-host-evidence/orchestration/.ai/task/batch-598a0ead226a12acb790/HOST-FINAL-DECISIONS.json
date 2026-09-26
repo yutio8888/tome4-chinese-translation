@@ -1,0 +1,164 @@
+{
+  "batch_id": "batch-598a0ead226a12acb790",
+  "observations": 16,
+  "observation_dispositions": {
+    "confirmed": 7,
+    "advisory": 5,
+    "refuted": 4
+  },
+  "repair_revision_keys": [
+    "1f02aeb7085305d135ad4b7c2e8ad28d8e67aaad300e0209392037bfd1a53d0a",
+    "21b2b6e364efbe40e3f88ed6f6afd8d8f4b3844ee191ae547ea60f8ef06033f6",
+    "21c042dd145e42a25c030239cd60b9f3941dbb04e70eb1f9e56e0bfc3446d8ba",
+    "24345e48710231ce6e01d3e95608a74d899797aab2116051575573c7f42b8619"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 4,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "1f02aeb7085305d135ad4b7c2e8ad28d8e67aaad300e0209392037bfd1a53d0a",
+      "stage": "surface",
+      "observation": "原文的 antimagic sap 指反魔树液，译文写成“反魔能量”，将物质误译为能量。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/explosive.lua:268 ANTIMAGIC_SHELL（本库“反魔弹”）配方 desc：antimagic sap 是弹头内装填的反魔汁液（同技能 info“release antimagic sap on the target”），现译“反魔能量”把实体物质改成能量。改为“灌注了反魔汁液的特殊弹头。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1f804a36dd74ebf755ea612595dbee59092dcbe9f8f7af72ded39d54ace15273",
+      "stage": "surface",
+      "observation": "原文的 across the map 表示相对于原位置在地图上的镜像位置；译文“镜像到地图上”遗漏了这一位置关系。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua 镜面剃刀 use_power 名：现译“镜像到地图上（以激活时所站的位置为中心）”已含镜像与对称中心，across 可更明确；contextual 判 OK，记 advisory（可改“镜像到地图另一侧”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1fbfcaba74000483057b0a3387700085ccdf07c7d20ef57e096500caee2893f1",
+      "stage": "surface",
+      "observation": "原文是按蒸汽枪伤害计算、以火焰属性造成伤害；“火焰蒸汽枪伤害”把火焰误作蒸汽枪伤害的修饰语，改变了伤害类型关系。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/artillery.lua 火箭弹幕：steamgun damage as fire 本库一贯作“火焰蒸汽枪伤害”（tome-orcs.lua 6 处同构），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2003202a3cdf6d560d88681bdc2d7339d06b0e40d2f1f9908b2806ffc62fa200",
+      "stage": "surface",
+      "observation": "source「developing 」末尾有空格，target「正在生长的」缺少该空格，可能影响与后续文本拼接。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:371：developing 与 ritch 幼虫名直接拼接，中文拼接无需空格，现译“正在生长的”无运行时缺陷，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "20a371fd4b0f502e819c190e954fe3752268a446a9bfe803eebc67957ea91067",
+      "stage": "surface",
+      "observation": "source「Capacitor Discharge」中的「Capacitor」（电容器）在 target「电力放出」中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/magnetism.lua:136 Capacitor Discharge：本库技能与效果名一致作“电力放出”（tome-orcs.lua:5254、5266、6235），省去“电容器”属既有命名，改名须多处同步；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "219d179f63f161cb06021377b45a4dda66a9028ec1a881dd7441bc48392d0a13",
+      "stage": "surface",
+      "observation": "“Bolt”指飞弹，译为“球”改变了技能名称所指的形态。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1209 TINKER_VOLTAIC_BOLT 目标类型为 bolt（单体飞弹），ToME 中“球”对应 ball 范围攻击，现译“闪电球”有误导；但名称出现在技能名、info（tome-orcs.lua:5536、5538）及伏特守卫说明（5619–5621），改名属跨条目命名决定，登记 pending-user-review 待用户定名，本批记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "21b2b6e364efbe40e3f88ed6f6afd8d8f4b3844ee191ae547ea60f8ef06033f6",
+      "stage": "surface",
+      "observation": "原文的“electrical charge”是电荷，译文“电力弹药”引入了原文没有的弹药。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/demolition.lua:279–304 Shock Grenade（本库“震荡榴弹”）info：Enhance your grenade with an electrical charge 是给榴弹充上电荷，现译“用电力弹药强化榴弹”增出原文没有的弹药。改为“为你的榴弹充上电荷，使其造成闪电伤害……”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "21c042dd145e42a25c030239cd60b9f3941dbb04e70eb1f9e56e0bfc3446d8ba",
+      "stage": "surface",
+      "observation": "“plaguing your village”在此指不死族困扰村庄，译文“传播瘟疫”误作实际散播疫病。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:677 Vindicator（本库“维序者”）desc：Pesky undead plaguing your village 是不死族骚扰村庄的习语，现译“传播瘟疫”按字面误译。改为“恼人的不死族在骚扰你的村庄？”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2230f6dce621f0a929126c0e3cf5b4660d4afb2e8d167159449875436f900e96",
+      "stage": "surface",
+      "observation": "“Arcane spells”的“Arcane”含义在译文“法术”中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/weissi-machine.lua:243 选项 Arcane spells（cond forbid_arcane），同组作“战斗技术”“自然/灵能”，现译“法术”在该选项语境可辨；contextual 判 OK，记 advisory（可作“奥术法术”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "22d4394dce90532d327606a0d4e8e95a3652c2d001e0a4454171d4304613137b",
+      "stage": "surface",
+      "observation": "原文将引擎移位效果限定在下一回合；译文的“每当攻击即将命中时”未保留该时限，容易读作此后持续生效。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/shertul-cave/objects.lua 压力强化型防斩击作战服：callbackOnHit 施加 1 回合 PRESSURE_SUIT（physical.lua:549，phase_shift=1），该回合内每次受击均被移位；现译“下一回合启动；每当攻击即将命中时……移位”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "2302dcba312059654f416f7d673f77c30f8229f0869b3be969e81dd53b8bcd19",
+      "stage": "surface",
+      "observation": "“Plates”指板甲或甲片，译文“铠甲店”误成商店。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/gates-of-morning/traps.lua:22–26：Impenetrable Plates 是 BASE_STORE（HEAVY_ARMOR_STORE）商店实体名，现译“坚硬铠甲店”正确，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "235300d51e37de492d043da018043af18df652800241c765ee32a6d613193903",
+      "stage": "surface",
+      "observation": "“Mow Down”表示扫倒或成片击倒；“肢解”表示拆解肢体。冻结输入缺少技能效果语境，无法确认是否有特殊命名依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/automated-butchery.lua:98 Mow Down：击杀或暴击时切下敌人残骸投入蒸汽引擎，现译“肢解”与效果相容，为既有技能名；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "24345e48710231ce6e01d3e95608a74d899797aab2116051575573c7f42b8619",
+      "stage": "surface",
+      "observation": "“Startling”意为令人惊吓或吃惊；“惊艳”表示令人赞叹，含义明显不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunslinging.lua:94 Startling Shot：故意打偏一枪惊吓目标（同族效果描述本库作“受到惊吓”，tome-orcs.lua:6306）；现译“惊艳射击”的“惊艳”意为令人赞叹，词义错。技能名全库仅此一处。改为“惊吓射击”（全库无冲突）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1f02aeb7085305d135ad4b7c2e8ad28d8e67aaad300e0209392037bfd1a53d0a",
+      "stage": "contextual",
+      "observation": "源文 antimagic sap 指一种实体物质（反魔汁液/树液），译文「反魔能量」改成了能量，丢失了弹头内装填的是汁液这一含义（tome-orcs/data/tinkers/explosive.lua:268 ANTIMAGIC_SHELL desc，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/explosive.lua:268 ANTIMAGIC_SHELL（本库“反魔弹”）配方 desc：antimagic sap 是弹头内装填的反魔汁液（同技能 info“release antimagic sap on the target”），现译“反魔能量”把实体物质改成能量。改为“灌注了反魔汁液的特殊弹头。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "21c042dd145e42a25c030239cd60b9f3941dbb04e70eb1f9e56e0bfc3446d8ba",
+      "stage": "contextual",
+      "observation": "plaguing your village 是「骚扰、困扰你的村庄」的习语，译文「在你的村庄传播瘟疫」按字面理解成了散播疾病，意思译错了（tome-orcs/data/general/objects/world-artifacts.lua:677 Vindicator desc，来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:677 Vindicator（本库“维序者”）desc：Pesky undead plaguing your village 是不死族骚扰村庄的习语，现译“传播瘟疫”按字面误译。改为“恼人的不死族在骚扰你的村庄？”，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "24345e48710231ce6e01d3e95608a74d899797aab2116051575573c7f42b8619",
+      "stage": "contextual",
+      "observation": "Startling 意为「令人受惊、吓一跳」，译文「惊艳」意为美得令人惊叹，词义用错了；这个技能名在 tome-orcs/data/talents/steam/gunslinging.lua:94 是吓唬目标的射击（来源未固定）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunslinging.lua:94 Startling Shot：故意打偏一枪惊吓目标（同族效果描述本库作“受到惊吓”，tome-orcs.lua:6306）；现译“惊艳射击”的“惊艳”意为令人赞叹，词义错。技能名全库仅此一处。改为“惊吓射击”（全库无冲突）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 13 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. The automated boundary scan stopped on an \"rm \" match in lane-000-3; the match was inside \"perform\" in a require_escalated justification. The host audited every native call by hand and found only reads of each lane's own envelope and the contract, plus a pwd and a tool listing in lane-000-0.",
+    "The contextual run (13 entries) read only its own envelope and the contract. The host scanned its native log before harvest, so no refreeze was needed.",
+    "Implementation-backed: the combat suit grants one turn of phase_shift, so every blow in that turn is displaced; the library consistently writes 火焰蒸汽枪伤害 for steamgun damage dealt as fire.",
+    "Voltaic Bolt: the talent fires a single-target bolt, while 闪电球 (lightning ball) suggests ToME's ball area attack. The name appears in several entries, so the rename is recorded for the user as pending and treated as advisory here.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "4 confirmed repair revisions raise the window 38 backlog from 6 to 10; below the 20 threshold, so no window opens."
+  ]
+}
