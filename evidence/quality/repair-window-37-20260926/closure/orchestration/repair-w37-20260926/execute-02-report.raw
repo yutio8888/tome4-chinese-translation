@@ -1,0 +1,16 @@
+已完成本次 FIX，仅修改 3 条 confirmed target：
+
+- [tome-orcs.lua:2448](/workspace/tome4-chinese-translation/tome-orcs.lua:2448)：改为“纳克托什把卡巴萨带进……”
+- [tome-orcs.lua:5245](/workspace/tome4-chinese-translation/tome-orcs.lua:5245)：改为“如果有敌人对你或召唤物造成伤害”
+- [tome-cults.lua:2655](/workspace/tome4-chinese-translation/tome-cults.lua:2655)：改为“每次对目标施加衰亡效果时”
+
+“软蹄族”、其余文字、LF/TAB 和其他记录均未改动。
+
+验证结果：
+
+- `python3 -B /tmp/validate_repair_w37.py`：PASS；相对基线恰 25 条 target 变动（Cults 6、Orcs 19），无范围外记录或字段变动
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check -- tome-cults.lua tome-orcs.lua`：PASS，无诊断
+- 三条旧文本均已消失，三条新文本均已确认存在
+- 未 stage、commit、push；未创建 agent，未修改 `.ai/task`
+- 工作树中原有的其他修改及未跟踪文件保持不动

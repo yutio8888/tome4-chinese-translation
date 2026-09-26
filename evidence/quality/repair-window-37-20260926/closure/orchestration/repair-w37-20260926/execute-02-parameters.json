@@ -1,0 +1,18 @@
+{
+  "title": "W37 fix 1",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w37-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R0.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复三条 confirmed target，逐条整句对照原文：0b55d129…（tome-orcs.lua 克林布尔手记）“纳克托什抱着卡巴萨的身躯，走进了一座匆忙搭起的帐篷”改为“纳克托什把卡巴萨带进了一座匆忙搭起的帐篷”，“软蹄族”等其余文字不动；12378ea3…（tome-orcs.lua 静电震击）“如果有敌人此时攻击你或召唤物”改为“如果有敌人对你或召唤物造成伤害”；fa9f7169…（tome-cults.lua 时间盛宴）“每次使用衰亡时”改为“每次对目标施加衰亡效果时”。三条其余文字、LF/TAB 与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 两个文件合计恰25条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w37-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

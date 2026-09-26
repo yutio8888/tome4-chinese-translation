@@ -1,0 +1,22 @@
+已完成限定 FIX。
+
+改动：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3092)
+  - 删除标题的 `[b]…[/b]`
+  - 将“另外，[b]不要[/b]试图……”改为“另外，千万不要试图……”
+  - 保留 `[i]有点根据[/i]`
+  - 未改该 target 的其他文字、LF/TAB 或其他记录
+
+验证全部通过：
+
+- LuaJIT 相对当前 HEAD `3f18f6e…`：共 25 条 target 变动
+  - `tome-cults.lua`：6 条
+  - `tome-orcs.lua`：19 条
+  - 其他记录及非 target 字段未变
+- `python3 -B tools/i18n lint --strict`
+  - 30308 条翻译，0 errors，0 warnings
+- `git diff --check -- tome-cults.lua tome-orcs.lua`
+  - 无诊断
+
+未修改 `.ai/task`，未 stage、commit、push，未创建 agent。

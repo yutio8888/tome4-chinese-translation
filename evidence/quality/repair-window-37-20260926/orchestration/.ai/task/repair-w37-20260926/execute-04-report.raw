@@ -1,0 +1,20 @@
+已完成限定 FIX。
+
+改动：
+
+- [tome-orcs.lua:2454](/workspace/tome4-chinese-translation/tome-orcs.lua:2454)
+  - “克鲁克部族”改为“克鲁克部落”
+  - 该 target 其余文字、LF/TAB 及其他记录未动
+
+验证全部通过：
+
+- LuaJIT 相对 HEAD：恰 25 条 target 变动
+  - `tome-cults.lua`：6 条
+  - `tome-orcs.lua`：19 条
+  - 非 target 字段及其他记录未变
+- `python3 -B tools/i18n lint --strict`
+  - 30308 条翻译，0 errors，0 warnings
+- `git diff --check -- tome-cults.lua tome-orcs.lua`
+  - 无诊断
+
+未修改 `.ai/task`，未 stage、commit、push，未创建 agent。

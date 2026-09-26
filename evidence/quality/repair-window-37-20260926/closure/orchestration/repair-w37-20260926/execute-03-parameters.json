@@ -1,0 +1,18 @@
+{
+  "title": "W37 fix 2",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w37-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F1.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复一条 confirmed target：1094f94c…（tome-orcs.lua 原始森林修复者警告），原文不含 [b] 标记，删除译文新增的两对 [b]/[/b]：“[b]警告——务必阅读！[/b]”改为“警告——务必阅读！”，“另外，[b]不要[/b]试图取一份树芯样本！”改为“另外，千万不要试图取一份树芯样本！”；保留 [i]有点根据[/i]，该条其余文字、LF/TAB 与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 两个文件合计恰25条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w37-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

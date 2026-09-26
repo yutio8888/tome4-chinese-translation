@@ -1,0 +1,21 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f1a3",
+  "invalid_attempts": [
+    "f1a2 (INVALID-F1A2.json)"
+  ],
+  "raw_ok_count": 24,
+  "raw_issue_count": 1,
+  "decision": "FINAL failed: bounded fix (execute-03) then RE_REVIEW(2), then FINAL_REVIEW(2) attempt 2",
+  "findings": [
+    {
+      "revision_key": "1094f94cdc5055209020a4665e5a216bc6a3d28e383ad6b662bc30419671c035",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "markup",
+      "reason": "公开 Orcs tome-orcs/data/lore/primal-forest.lua 原文只含 [i]some[/i]，全大写 WARNING - READ THIS! 与 do NOT 无 [b]；现译新增两对 [b]…[/b]（“[b]警告——务必阅读！[/b]”“[b]不要[/b]”），PartyLore 虽会转为粗体不致破损，但 markup 与源不一致。宿主推翻 C0 预检时“保留 [b]”的判断：删除两对 [b]/[/b]，改为“警告——务必阅读！”与“千万不要”，以措辞表达大写强调，其余文字不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定；PartyLore 依据主游戏固定 commit 624a6732。"
+    }
+  ],
+  "recorded_at": "2026-09-26T13:02:25.492682+00:00"
+}

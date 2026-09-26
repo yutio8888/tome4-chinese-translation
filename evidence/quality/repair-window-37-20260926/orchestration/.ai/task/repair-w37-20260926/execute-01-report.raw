@@ -1,0 +1,17 @@
+已完成 `repair-w37-20260926`：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)：6 条 target 修复。
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)：19 条 target 修复。
+- 25 条逐项说明：[IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-37-20260926/IMPLEMENTATION.md)
+- 验证记录：[VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-37-20260926/VALIDATION.json)
+
+验证结果：
+
+- LuaJIT 加载对比：恰好 25 条 target 改动，Cults 6 条、Orcs 19 条；其他记录及非 target 字段未变。
+- 25/25 SOURCE-ANCHORS 文件 SHA-256 匹配。
+- LF、空行下标、行首 TAB、末尾换行、占位符、markup、模板表达式全部通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未修改 `.ai/task`，未 stage、commit 或 push。
+
+剩余风险仅为任务已记录的 DLC 源码仓库和 commit 未固定；本次验证绑定冻结的逐文件 SHA。后续独立 REVIEW/full 与 FINAL_REVIEW/full 由宿主执行。

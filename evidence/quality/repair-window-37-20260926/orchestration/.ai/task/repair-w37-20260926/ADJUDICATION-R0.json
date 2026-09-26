@@ -1,0 +1,41 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 22,
+  "raw_issue_count": 3,
+  "decision": "bounded fix (execute-02) then RE_REVIEW(1)",
+  "findings": [
+    {
+      "revision_key": "0b55d129c885b57adec7610c564230372c160bf29a1d976476663e1ec98b7b54",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs tome-orcs/data/lore/krimbul.lua 克林布尔手记：Nektosh took Karbatha away to a hastily-assembled tent, and she...  well, she was gone. 卡巴萨是进帐篷之后才死去；现译“纳克托什抱着卡巴萨的身躯，走进了一座匆忙搭起的帐篷”中“身躯”暗示她此前已死，打乱事件顺序；改为“纳克托什把卡巴萨带进了一座匆忙搭起的帐篷”，其后“然而，她…已经走了。”保留。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0b55d129c885b57adec7610c564230372c160bf29a1d976476663e1ec98b7b54",
+      "status": "advisory",
+      "tier": 2,
+      "category": "terminology",
+      "carry_forward": "pending-user-review #31",
+      "reason": "soft-footed／soft-feet 现译“软蹄族”，与同 DLC 已有“软蹄者”（tome-orcs.lua:506、508 Soft-foot）一致；把 foot 写成“蹄”是否改为“软脚族／软脚者”属跨条译名决定，本窗口未授权改名，保持并登记待用户审阅第31项。"
+    },
+    {
+      "revision_key": "12378ea39c4159baffb1fe231eb195a44f7d0bb0875604a497a10edda583a528",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "mechanics",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/magnetism.lua:60 Static Shock info：If an enemy deals damage to you or your minions；效果 STATIC_SHIELD（timed_effects/physical.lua:927）以 callbackOnHit 触发，即受到伤害时；现译“如果有敌人此时攻击你或召唤物”改为“如果有敌人对你或召唤物造成伤害”，其余不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fa9f71699716f101e293b00d54876920cf14fc06bd716ee6ff35901c802913a6",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "mechanics",
+      "reason": "公开 Cults tome-cults/data/talents/demented/chronophage.lua:63-84 Atrophy 在施放符合条件的法术后由 callbackOnTalentPost 对敌人 setEffect(EFF_ATROPHY)，并非主动技能；Temporal Feast（:154-167，passive）info 的 Each time you apply atrophy 是“每次施加衰亡效果时”，现译“每次使用衰亡时”误作主动使用；改为“每次对目标施加衰亡效果时”，第二行制表符保持现状。Cults 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-26T12:50:39.551229+00:00"
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w37-20260926",
+  "base_commit": "3f18f6efb7492d08697dd5a72a9b7bf4dfdd472c",
+  "status": "PASS",
+  "scope": {
+    "translation_files": [
+      "tome-cults.lua",
+      "tome-orcs.lua"
+    ],
+    "expected_changed_targets": 25,
+    "actual_changed_targets": 25,
+    "changed_targets_by_file": {
+      "tome-cults.lua": 6,
+      "tome-orcs.lua": 19
+    }
+  },
+  "checks": [
+    {
+      "name": "environment_doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "PASS_WITH_EXPECTED_WARNINGS",
+      "details": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 verified; the three public DLC inputs reported the expected source-unpinned warnings."
+    },
+    {
+      "name": "source_anchor_sha256",
+      "command": "bounded SHA-256 checks for the 25 paths declared by SOURCE-ANCHORS.json",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "25 of 25 declared source-file SHA-256 values matched; no directory search was performed."
+    },
+    {
+      "name": "luajit_target_only_comparison",
+      "command": "python3 -B /tmp/validate_repair_w37.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "Loaded 2043 Cults and 3904 Orcs translation records; exactly 6 + 19 targets changed. All non-target fields and all other records matched the base commit."
+    },
+    {
+      "name": "target_invariants",
+      "command": "python3 -B /tmp/validate_repair_w37.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "Workset coverage was exact; source/claim/anchor revision sets agreed; placeholder, markup, template-expression, LF, blank-line, leading-TAB, trailing-whitespace, and final-newline invariants passed."
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "Checked 30308 translations: 0 errors, 0 warnings."
+    },
+    {
+      "name": "worktree_whitespace",
+      "command": "git diff --check -- tome-cults.lua tome-orcs.lua",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "No diagnostics."
+    }
+  ],
+  "invariants": {
+    "all_non_target_fields_unchanged": true,
+    "all_other_translation_records_unchanged": true,
+    "workset_exactly_covered": true,
+    "placeholder_markup_template_preserved": true,
+    "line_blank_tab_shape_matches_source": true,
+    "no_new_trailing_whitespace": true,
+    "file_final_newline_preserved": true,
+    "source_claim_and_anchor_sets_match_workset": true,
+    "all_source_anchor_file_sha256_match": true
+  },
+  "residual_risks": [
+    "The Cults and Orcs source repositories and commits are unpinned; validation is bound to the frozen per-file SHA-256 anchors.",
+    "Independent REVIEW/full and FINAL_REVIEW/full are host responsibilities after this executor handoff."
+  ],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}
