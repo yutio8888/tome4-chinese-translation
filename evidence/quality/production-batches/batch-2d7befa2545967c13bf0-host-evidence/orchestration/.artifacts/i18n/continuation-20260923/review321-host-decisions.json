@@ -1,0 +1,95 @@
+{
+ "workset": "evidence/quality/production-batches/batch-2d7befa2545967c13bf0-source-workset.json",
+ "decisions": {
+  "3d9af53400|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1196–1240 BURNING_PHOSPHOROUS（燃烧磷）：callbackOnAct 在 eff.src.dead 时 removeEffect，且 enoughEnergy() 不足时不判定恐惧；on_merge 立即对目标投射 initdam 火焰伤害。译文增补的“施加者死亡后在目标下次行动时结束”“能够行动”“立即”均贴合实现，保留（源文与实现不一致时从实现）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3e83fc6e2d|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/spells/spells.lua:22 spell/terrene-technomancy，description 为“土与水”。terminology/talents.tsv:75 与 combat.tsv:37 均登记“寒岩”（existing），notes 说明为土与寒冷复合伤害类型的统一名、不按普通形容词直译；改名属术语库策略变更，本批不动，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3ea7432fdc|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/steamsaw.lua:37 蒸汽链锯基础描述：首句为“用蒸汽压力驱动锯齿金属刀片高速旋转”，现译“使用蒸汽能量驱动刀片，造成严重伤害”漏译锯齿/高速旋转并增添“造成严重伤害”（与下句割伤重复）。改为“蒸汽链锯利用蒸汽压力驱动锯齿状金属刀片高速旋转。”其余行保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f212f5560|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:284 TURRET_DUAL_STEAMGUN 位于 turrets.lua、类型 steamtech/other，是炮台自身的被动技能（获得第二把蒸汽枪）。“炮台双枪”标明归属，贴合语境，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f25323adc|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/traps.lua:29–33 LIGHT_ARMOR_STORE：name=\"Tanner\"，base=BASE_STORE、出售轻甲、招牌 shop_sign_tanner。实体是商店，“皮革店”正确。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f360a4015|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/uber/mag.lua:80 召唤物 construct/mechanical、never_move=1；terminology/talents.tsv:176 Arcane Amplification Drone=奥术增幅装置（preferred），明确统一小写运行时条目。保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f615510ad|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/quarry.lua:44：automatons 指下文“机械蜘蛛”这类自动机械，现译“我不喜欢自动化”改变所指；“why, they don't require…”的 why 是愤慨感叹词，现译“为什么，”读作疑问；源文末尾有 \\n，译文缺失（换行不变量）。改首句为“我不喜欢自动机械。”，改“为什么，这根本不需要”为“哼，这根本不需要”，并补回末尾换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f7dc08a62|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/achievements/story.lua:44：the Prides 指全体兽人部落；同文件相关条目均译“部落”“各兽人部落”（如 tome-orcs.lua:270）。“你的部落”把对象缩成玩家单个部落，范围改变。改为“气之部族不再威胁各兽人部落。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3fbaffc6c4|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:300–361 TINKER_HAND_CANNON（手炮）：action 以 attackTargetWith（近战攻击）命中并把弹药 ranged_project 转为 melee_project；现译“射击是远程攻击将会触发弹药特效”把“远程近战攻击”说成远程攻击，且删除源文 \\n\\t\\t\\t。改第二句为“\\n\\t\\t\\t这次射击是一次远程发动的近战攻击，但也会触发弹药的远程特效。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3fdf760cf8|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1386 GRENADE_BARRAGE on_gain 战斗消息；magazine 为弹匣，“一大包榴弹”取意“装满一批榴弹”，不影响机制，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "402794d8b7|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/npcs/sunwall-warrior.lua:132–143 sunwall vindicator：resolvers.equip 固定 subtype=\"greatsword\"，“双手剑”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "4213d09416|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/zones/gates-of-morning/traps.lua:40–44 SWORD_WEAPON_STORE：name=\"Swordmaster\"，base=BASE_STORE、出售剑。实体是商店，“制剑大师店”正确。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3d9af53400|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1196–1240 BURNING_PHOSPHOROUS（燃烧磷）：callbackOnAct 在 eff.src.dead 时 removeEffect，且 enoughEnergy() 不足时不判定恐惧；on_merge 立即对目标投射 initdam 火焰伤害。译文增补的“施加者死亡后在目标下次行动时结束”“能够行动”“立即”均贴合实现，保留（源文与实现不一致时从实现）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3ea7432fdc|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/steamsaw.lua:37 蒸汽链锯基础描述：首句为“用蒸汽压力驱动锯齿金属刀片高速旋转”，现译“使用蒸汽能量驱动刀片，造成严重伤害”漏译锯齿/高速旋转并增添“造成严重伤害”（与下句割伤重复）。改为“蒸汽链锯利用蒸汽压力驱动锯齿状金属刀片高速旋转。”其余行保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3fbaffc6c4|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:300–361 TINKER_HAND_CANNON（手炮）：action 以 attackTargetWith（近战攻击）命中并把弹药 ranged_project 转为 melee_project；现译“射击是远程攻击将会触发弹药特效”把“远程近战攻击”说成远程攻击，且删除源文 \\n\\t\\t\\t。改第二句为“\\n\\t\\t\\t这次射击是一次远程发动的近战攻击，但也会触发弹药的远程特效。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f615510ad|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/quarry.lua:44：automatons 指下文“机械蜘蛛”这类自动机械，现译“我不喜欢自动化”改变所指；“why, they don't require…”的 why 是愤慨感叹词，现译“为什么，”读作疑问；源文末尾有 \\n，译文缺失（换行不变量）。改首句为“我不喜欢自动机械。”，改“为什么，这根本不需要”为“哼，这根本不需要”，并补回末尾换行。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "3f7dc08a62|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/achievements/story.lua:44：the Prides 指全体兽人部落；同文件相关条目均译“部落”“各兽人部落”（如 tome-orcs.lua:270）。“你的部落”把对象缩成玩家单个部落，范围改变。改为“气之部族不再威胁各兽人部落。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "402794d8b7|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/npcs/sunwall-warrior.lua:132–143 sunwall vindicator：resolvers.equip 固定 subtype=\"greatsword\"，该 NPC 必持双手剑，“双手剑”贴合实现（contextual 冻结输入只含 desc 行，未见装备表）；big 未译属措辞取舍，不影响语义。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}
