@@ -1109,7 +1109,7 @@ t("potion", "药水", "entity type")
 t("potion", "药水", "entity subtype")
 t("Blood of Undeath", "不死之血", "entity name")
 t("crimson phial", "猩红的药瓶", "_t")
-t("This vial of corrupted blood reeks of death and decay. Yet somehow you feel drawn to it... Is it the tentalizing notion of eternal life? Or power? You can not tell, but the urge to drink it is great.", "这瓶腐败的血散发着死亡和腐烂的气味。但不知怎的，你觉得被它吸引了……这，就是永恒生命的具象化吗？还是强大的力量？你说不出来，但你充满了想喝它的冲动。", "_t")
+t("This vial of corrupted blood reeks of death and decay. Yet somehow you feel drawn to it... Is it the tentalizing notion of eternal life? Or power? You can not tell, but the urge to drink it is great.", "这瓶腐败的血散发着死亡和腐烂的气味。但不知怎的，你觉得被它吸引了……是永生这个诱人的念头吗？还是强大的力量？你说不出来，但你充满了想喝它的冲动。", "_t")
 t("quaff the Blood of Undeath to prepare your body for undeath", "喝下不死之血，让自己的身体为不死做好准备", "_t")
 t("%s quaffs the %s!", "%s 大口喝下 %s！", "logSeen")
 t("#CRIMSON#You feel the Blood of Undeath rushing through your veins. Your can feel your life wither away a little (-50 maximum life, -120 minimum life).", "#CRIMSON#你感受到不死之血在你的血管里流淌。你的生命渐渐流逝了（-50最大生命值，-120生命值下限）。", "logPlayer")
@@ -1565,7 +1565,7 @@ t("\"Pesky undead plaguing your village? Necromancers ransacking your burial gro
 t("release a burst of light dealing damage equal to your cunning plus your magic in a ball of radius 2. If the target is undead, the damage and radius are doubled.", "在半径2范围内造成等于灵巧加魔法的光明伤害。若目标为不死族，伤害和半径加倍。", "_t")
 t("Overburst", "强力爆裂", "entity name")
 t("wide barreled steamgun", "粗管蒸汽枪", "_t")
-t("\"Have you ever fired a shot into a group of monsters and thought 'there must be a better way?' Well now, there is!\"", "你曾经试过向一群怪兽中发射一粒粒弹药，然后觉得一定有更好的方法？好了，这就是了。", "_t")
+t("\"Have you ever fired a shot into a group of monsters and thought 'there must be a better way?' Well now, there is!\"", "「你是否曾朝一群怪物开了一枪，心想‘一定有更好的办法’？现在，办法来了！」", "_t")
 t("Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4.", "释放榴弹，在半径4锥形范围内造成等于蒸汽强度的物理伤害。", "_t")
 t("Murderfang's Surekill", "屠牙的必杀", "entity name")
 t([["Murderfang came over yesterday, raving about this idea for a steamgun he had. He described it in great detail, everything, except for how it would actually work.
@@ -1610,7 +1610,7 @@ t("Titan", "泰坦", "entity name")
 t("A gun sure to turn all to ash. As long as its nearby.", "一把只要出现在附近，就会把一切化为灰烬的枪。", "_t")
 t("Golden Gun", "金枪", "entity name")
 t("golden gun", "金色的枪", "_t")
-t("every third hit always crits.", "第三下攻击必定暴击。", "_t")
+t("every third hit always crits.", "每第三次命中必定暴击。", "_t")
 t("Cautery Sword", "灼烧之剑", "entity name")
 t("searing sword", "炽热的剑", "_t")
 t("This sword is equipped with a heated core to add a bit of extra pain to the wounds.", "这把剑的炽热核心可以让敌人的伤口感到更加疼痛。", "_t")
@@ -1724,7 +1724,7 @@ t("A very strong near-sentient tree, which has become hostile to other living th
 t("Summon", "召唤", "_t")
 t("Grinder", "绞肉机", "entity name")
 t("bloody steamsaw", "染血的蒸汽锯", "_t")
-t("Originally a kitchen implement used by the giants to saw through tough, frozen carcasses. Something is especially sinister about this example though.", "起初这个锯子只是被巨人们用来切割坚硬、冰冻的尸体。不过这个例子似乎有一些非常邪恶的暗示。", "_t")
+t("Originally a kitchen implement used by the giants to saw through tough, frozen carcasses. Something is especially sinister about this example though.", "这原本是巨人用来锯开坚硬冰冻兽尸的厨具，但这一把却透着格外邪恶的气息。", "_t")
 t("On Taking Damage: Blindside the attacker (range 6).", "受伤触发：闪电突袭（范围 6）。", "_t")
 t("Overclocked Radius", "超频半径", "entity name")
 t("distorted steamsaw", "扭曲的蒸汽锯", "_t")
@@ -2300,10 +2300,11 @@ With growing impatience,
 Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 来自：管理员夸洛普#{normal}#
 
-我很失望。我今天第一次去营地周围巡逻，走廊脏死了！你们难道来到这里之后就没有拖过地吗？不仅如此，还有一个西北角的警卫在上班时间睡着了！我以为整件事的意义就在于让你们留下好印象——如果事情在这么糟糕下去的话，我都有点想让你们收拾铺盖滚蛋，让矮人来接班了！虽然他们的价格不便宜，至少他们是可靠的！
+我很失望。我今天在营地里转了一圈，做了第一次视察，走廊脏死了！你们难道来到这里之后就没有拖过地吗？不仅如此，还有一个西北角的警卫在上班时间睡着了！我以为整件事的意义就在于让你们留下好印象——如果事情再这么糟糕下去的话，我都有点想让你们收拾铺盖滚蛋，让矮人来接班了！虽然他们的价格不便宜，至少他们是可靠的！
 
 都给我动起来，
 管理员夸洛普
+
 #{bold}#---#{normal}#
 
 #{italic}#致：管理员夸洛普
@@ -2312,14 +2313,15 @@ Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 我们希望在休息室里增加四把椅子。如果你还希望有人拖地的话，就增加五把椅子。
 
 ——加尔萨迈
+
 #{bold}#---#{normal}#
 
-#{italic}#至：卫队队长加尔萨迈
+#{italic}#致：卫队队长加尔萨迈
 来自：管理员夸洛普#{normal}#
 
 你#{italic}#到底#{normal}#知不知道，要把一个食人魔大小的椅子#{italic}#一路运到这里#{normal}#，要花多少钱？我看你根本不知道。
 
-我的耐心是有限的，
+我越来越没耐心了，
 管理员夸洛普]], "_t")
 t("internment camp correspondence (3)", "拘留营信件 (3)", "_t")
 t([[#{italic}#To: Condescending Little Cretin
@@ -2431,25 +2433,25 @@ He was not our only necromancer, but the idea was still nearly unthinkable...  u
 
 We reluctantly agreed, and he prepared the spells and potions needed to keep us mostly as we were, but bereft of life.  Preserved, strong, even feeling and smelling when most liches could not..  but still cut off from Nature's gifts entirely, and still incapable of bearing young.  This generation would not age to death, but it would nonetheless be our last.  He volunteered to be the last one, only instructing another of us on how to convert him once all of us had been treated...  Whether it was because the infection had more time to fester within him, or because of what he suffered through in his sister's tent, Nektosh has never really been the same since then.
 
-In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们不知道这些他们对我们的敌意究竟是从哪里来的…如果要我猜的话，恐怕在那些软蹄族的眼里，我们只是他们的宝库中安家的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在多年的迫害中，我们逐渐将自己的家园搬到了地下这样安全的地方（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至不会变老。大部分米诺陶部族都寻找到了一个安全的栖息地——那里充盈了魔法，充满了狭窄黑暗的漫长的通道，是软蹄族不会到来的场所——他们发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有我们的意志才让我们与怪物不同，然而这份意志也在渐渐淡去。某种意义上，也许这样的命运对我们来说才是一种祝福。
+In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们不知道这些他们对我们的敌意究竟是从哪里来的…如果要我猜的话，恐怕在那些软蹄族的眼里，我们只是住进他们储藏室和军械库的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在多年的迫害中，我们也形成了一种同样强烈的本能，驱使我们前往地下的安全之处（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至可能不会变老。大多数找到安全栖息地的米诺陶部族——那里充盈了魔法，充满了狭窄黑暗的漫长通道，让软蹄族不会大举深入——发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有意志让我们与众不同，然而这份意志也在渐渐淡去。某种意义上，也许后来发生在我们身上的事，真的算是一种祝福。
 
-我不知道那是多久以前，当时的我们还不会撰写我们的历史，而之后的我们则面临了生存的紧迫危机。总之，在某一天，当我们穿行在无尽的洞穴和隧道组成的迷宫之中，我们感受到了一个新的家园，那是比我们过去所感受到的一切更加美好的乐土。那里的魔法…真是太美妙了！它…好吧，我知道你们的语言里没有可以这样形容的词汇，也许“尝起来”会是一个比较合适的比喻…和我们过去所吸收的一切能量都不同。那份魔力丰盛而充盈，深深浸入我们的疲惫的身躯之中。我们完全不需要停下休息，这种力量让我们的身体充满活力，返老还童…所以，我们在这份力量的吸引之下，顺着长长的通道继续走向大地的深处，不知道走过了多长的距离。恐怕，我们甚至在地下走过了整片大陆，甚至更长的距离。我们欣喜雀跃，对尽头等待着我们的到底是什么充满了期待。
+我不知道那是多久以前，当时我们并没有记录自己的历史，而之后的我们则面临了生存的紧迫危机。总之，在某一天，当我们穿行在无尽的洞穴和隧道组成的迷宫之中，我们感受到了一个新的家园，那是比我们过去所感受到的一切更加美好的乐土。那里的魔法…真是太美妙了！它…好吧，我知道你们的语言里没有可以这样形容的词汇，也许“尝起来”会是一个比较合适的比喻…和我们过去所吸收的一切能量都不同。那份魔力丰盛而充盈，深深浸入我们的疲惫的身躯之中。我们完全不需要停下休息，这种力量让我们的身体充满活力，返老还童…所以，我们在这份力量的吸引之下，顺着长长的通道继续走向大地的深处，不知道走过了多长的距离。恐怕，我们甚至在地下走过了整片大陆，甚至更长的距离。我们欣喜雀跃，对尽头等待着我们的到底是什么充满了期待。
 
-然而直到那时，我们才发现，我们所感受到的能量并不是恢复的力量。
+要是我们当时就注意到，自己感受到的并不是恢复的力量，该多好。
 
-我们的领袖，风暴之拳加诺克，是在这种能量影响下的第一个牺牲者。如果不是在他身上发生的戏剧性的场面，我们恐怕永远不会清醒过来。他的双眼变得疯狂，无神地向前徘徊潜行。他的口中发出奇怪的痛苦哀嚎，然后蹒跚着摔倒在地。我们听到了一声脆响，以为他折断了一根手臂；急忙冲上前去，但却停了下来。我们看到，他的背脊和肩膀肿胀移位，几条触手从他的身体上爆裂伸出，上面绽满了从他的身上强行撕下的鲜血和破碎的毛皮。他缠着触手的身躯，站起身来，好像完全没有注意到自己身上发生的异变。
+我们的领袖，风暴之拳加诺克，是在这种能量影响下的第一个牺牲者。如果不是在他身上发生的戏剧性的场面，我们恐怕永远不会清醒过来。我们前行时，他的眼神变得狂乱游移。他的口中发出奇怪的痛苦哀嚎，然后蹒跚着摔倒在地。我们听到了一声脆响，以为他折断了一根手臂；急忙冲上前去，但却停了下来。我们看到，他的背脊和肩膀肿胀移位，几条触手从他的身体上爆裂伸出，裹着它们从体内带出的鲜血、毛发和皮肤。他用这些新长出的肢体撑起身子，好像完全没有注意到自己身上发生的异变。
 
-我们后退了几步，看着他变得疯狂，猛地抓住独角者卡巴萨，身体里澎湃着在这些山洞中充满的陌生魔法力量。就在这时，一个奇怪的生物冒了出来，将两人分了开来，纳克托什连忙把自己的妹妹拉回了自己的身边。那个奇怪的生物向我们传达了虚假的许诺，他竟然说加诺克遭遇的恐怖命运是一种“礼物”，让我们也加入他的行列。
+我们后退了几步，看着他变得疯狂，猛地抓住独角者卡巴萨，身体里澎湃着在这些山洞中充满的陌生魔法力量。就在这时，一个奇怪的生物冒了出来，将两人分开，随后悬浮在我们上方。纳克托什奔到妹妹身边时，那个奇怪的生物向我们传达了虚假的许诺，他竟然说加诺克遭遇的恐怖命运是一种“礼物”，让我们也加入他的行列。
 
-我们很单纯，但我们不是蠢货。我们逃离了这一切，感受着魔法的能量在我们身后喷涌炸裂，发出如同腐肉一般的恶心气味，卡巴萨在她哥哥的怀中抽泣。我们在扭曲弯折的隧道中奔跑，在盘旋向上的隧道中奔跑，一直奔跑着，直到我们以为，那个奇怪的生物再也找不到我们的踪迹……然而，一个声音从我们的脑海中响起：“太迟了。你们的身体中已经充满了这种‘祝福’的力量。你们来不及从这长长的隧道中逃离，这种力量很快就会在你们的身体中扎根。回来吧，我们可以指引你，把你转化成让你喜悦的新的形态。”伴随着这个声音的，是从隧道深处传来的，由曾经是加诺克的存在所发出的不祥的哀嚎。
+我们很单纯，但我们不是蠢货。我们逃离了这一切，感受着魔法的能量在我们身后喷涌炸裂，发出如同腐肉一般的恶心气味，卡巴萨在她哥哥的怀中惨叫。我们在扭曲弯折的隧道中奔跑，在盘旋向上的隧道中奔跑，一直奔跑着，直到我们确信那个奇怪的生物再也找不到我们的踪迹……然而，一个声音从我们的脑海中响起：“太迟了。你们的身体中已经充满了这种‘祝福’的力量。你们来不及从这长长的隧道中逃离，这种力量很快就会在你们的身体中扎根。回来吧，我们可以指引你，把你转化成让你喜悦的新的形态。”伴随着这个声音的，是从隧道深处传来的，由曾经是加诺克的存在所发出的不祥的哀嚎。
 
-我们匆忙地检查自己的身体，却发现自己的身体中到处充满了那种枯萎魔法的微小痕迹。纳克托什抱着卡巴萨的身躯，走进了一座匆忙搭起的帐篷，然而，她…已经走了。在外面绝望的骚动中，纳克托什冲了出来，用令人吃惊的冷静分析，告诉了我们这样一个事实：这种枯萎魔法的力量只能对生者产生作用。卡巴萨身上的枯萎疾病，和她的心脏一同停止了……尽管这毫无疑问是一个疯狂的想法，但我们没有任何其他的办法清除身上的这种诅咒。所以，我们只有一个选择——清除这种诅咒所扎根吸食的生命。
+我们匆忙地检查自己的身体，感觉到我们每个人体内都有一丝那种枯萎魔法的痕迹。纳克托什把卡巴萨带进了一座匆忙搭起的帐篷，然而，她…已经走了。骚动平息后，纳克托什大步走了出来，并作出了异常清醒的判断：这种魔法似乎只对生者起作用。卡巴萨身上的枯萎疾病，和她的心脏一同停止了……尽管这毫无疑问是一个疯狂的想法，但如果我们无法通过其他方法清除这种诅咒，就不得不考虑清除它赖以生存的生命。
 
-他不是我们当中唯一的死灵法师，但对我们来说，这样的仍然是那么不可思议……然而，我们很快发现，这种力量正在加速生长，侵蚀我们的身体。这没有任何明显的征兆，我们的身体和心灵正奋力抵抗着这种侵蚀……然而，这件事只是时间问题，对于纳克托什来说，时间恐怕越来越少了。
+他不是我们当中唯一的死灵法师，但这个念头仍几乎无法想象……直到我们意识到它正在生长。这没有任何明显的征兆，我们的身体和心灵正奋力抵抗着这种侵蚀……然而，这件事只是时间问题，而纳克托什剩下的时间恐怕更少。
 
-我们不情愿地接受了这一切，他开始准备仪式所需要的药剂和魔法。这些东西可以让我们和还活着的时候几乎一模一样，但是不再有生命在我们的身躯中流动。我们的身体仍然坚韧，强壮，甚至可以感受到知觉和味觉，这是大部分的巫妖都做不到的……然而，我们将永远与自然恩赐的力量绝缘，也不再能够培育新的后代。我们的这一世代将不会因衰老而死亡，但也将成为我们的末裔。他自愿最后一个接受转化，只把如何为他举行转化仪式的方法教给了我们中的另一个人，等所有人都完成转化后，才开始自己的仪式……或许是因为那种枯萎感染的力量，侵蚀他的身体了最长的时间，或许是与妹妹卡巴萨在帐篷中经历的痛苦的经历，给他带来了永生不变的创伤。重生的纳克托什，身上已经再也看不到他过去的影子了。
+我们不情愿地接受了这一切，他开始准备仪式所需要的药剂和魔法。这些东西可以让我们和还活着的时候几乎一模一样，但是不再有生命在我们的身躯中流动。我们的身体仍然坚韧，强壮，甚至保有触觉和嗅觉，这是大部分的巫妖都做不到的……然而，我们将永远与自然恩赐的力量绝缘，也不再能够培育新的后代。我们的这一世代将不会因衰老而死亡，但也将成为我们的末裔。他自愿最后一个接受转化，只把如何为他举行转化仪式的方法教给了我们中的另一个人，等所有人都完成转化后，才开始自己的仪式……或许是因为那种枯萎感染的力量在他体内潜伏滋长得更久，或许是因为他在妹妹卡巴萨的帐篷里所经历的痛苦，从那以后，纳克托什就再没真正恢复原样。
 
-命运的转折是残酷的。在我们的逃离之后不久，我们就找到了一片充满魔法力量的场所，魔法洞穴——那本应该是我们所日夜希求的乐土，但我们和过去还活着的时候相比，只需要原来十分之一的魔法力量就可以存活。尽管如此，这里还是成为了我们的家园，一直持续下去……大部分软蹄族都会冲进这些山洞，把我们像害虫一样扫除，但只有克鲁克部族用尊重和尊严对待我们。无论对于米诺陶还是不死族，更不用说这两种东西的组合，这是我们从来没有接受过的崇高礼遇。我们仍然是深居简出的种族，而我们现在的状态，让我们更加不需要和其他人交易……然而，他们是我们现在最为接近朋友的存在。而且我相信，对于他们来说，我们也是有着相同意义的，同病相怜的存在。]], "_t")
+命运的转折是残酷的。在我们的逃离之后不久，我们就找到了一片充满魔法力量的场所，魔法洞穴——那本应该是我们所日夜希求的乐土，但我们和过去还活着的时候相比，只需要原来十分之一的魔法力量就可以存活。尽管如此，这里还是成为了我们的家园，一直持续下去……大部分软蹄族都会冲进这些山洞，把我们像害虫一样扫除，但克鲁克部落以尊重和尊严对待我们，这恐怕是任何米诺陶或不死生物都未曾得到过的待遇（更不用说两者的结合了）。我们仍然是深居简出的种族，而我们现在的状态，让我们更没有理由需要与他们交易……然而，他们是我们有史以来最接近朋友的存在，而我猜此刻对他们来说，我们也是如此。]], "_t")
 t("a transcribed speech", "记载的一份演说", "_t")
 t([[Men and women of the Krimbul Clan!  I come before you today because with my awakening shall come a greater destiny, one we shall all share.  The dawn of a new age is at hand, and it would do you no good to sleep through it.  Allow me to open your eyes, before I lead you to our ultimate destiny!
 
@@ -2644,7 +2646,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
-t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "（当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。）", "_t")
+t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "（这张纸条在时空异常把它从另一条时间线拉过来时就已经着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。）", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/orcs.lua"
@@ -3087,23 +3089,23 @@ I wish you luck, and thank you for doing what I cannot.  There are reasons why t
 With unending gratitude,
 (This is where I would sign my name, were I an utter moron.)
 
-PS: If you wouldn't mind doing me a personal favor, please destroy any written articles you find.  They spilled out of my bag as I fled; I'm already a coward, and I'd rather not be a litterer as well.]], [[[b]警告——请注意！[/b]
+PS: If you wouldn't mind doing me a personal favor, please destroy any written articles you find.  They spilled out of my bag as I fled; I'm already a coward, and I'd rather not be a litterer as well.]], [[警告——务必阅读！
 
 ---
 
-这座森林正经受着一场巨大的生态灾难。对此，我能说的就是，埃亚尔的力量正在这里对抗某种外界的感染，而这种外界的感染也正在全力反击回去（我是一名修复者，请相信我能说这些还是[i]有点根据[/i]的）。看看旁边这些不分青红皂白地胡乱攻击的狂暴的树人，你就能看出，这种感染的力量目前占着上风，尽管这一优势十分微小。这种感染的力量，大部分集中在面前这棵巨树的树冠中的几个水晶化身里面。在最好的情况下，埃亚尔正在把它们像插进身体的碎片一样推出来，只要摧毁这些化身，就可以完全解决这个问题；而最坏的情况下，这棵树已经被一直感染到根部了，而这些化身只是这种感染的孢子，它们正在慢慢生长，准备离开这棵巨树，将感染传播到世界的每个角落。我本来是想来摧毁这些水晶的，但我没想到，这些树人也对我发起了攻击。既然你已经看到了这里，恭喜你！现在解决这件事就是你的责任了。
+这座森林正经受着一场巨大的生态灾难。对此，我能说的就是，埃亚尔的力量正在这里对抗某种外界的感染，而这种外界的感染也正在全力反击回去（我是一名修复者，请相信我能说这些还是[i]有点根据[/i]的）。看看旁边这些不分青红皂白地胡乱攻击的狂暴的树人，我们可以推测这种感染的力量目前占着上风，尽管这一优势十分微小。这种感染的力量，大部分集中在面前这棵巨树的树冠中的几个水晶化身里面。在最好的情况下，埃亚尔正在把它们像插进身体的碎片一样推出来，只要摧毁这些化身，就可以完全解决这个问题；而最坏的情况下，这棵树已经被一直感染到根部了，而这些化身只是这种感染的孢子，它们正在慢慢生长，准备离开这棵巨树，扩散到别处。我本来是想来摧毁这些水晶的，但我没想到，这些树人也对我发起了攻击。既然你已经看到了这里，恭喜你！现在解决这件事就是你的责任了。
 
-你问我的建议是什么？赶紧从传送门跑回夏特尔，找人来帮忙吧。我可不能这么干，因为这样等于让我不打自招地承认，我在没有通行证的情况下混进了瓦·埃亚尔（如果你知道那群巨魔愿意为鼓舞之花掏多少钱，你肯定不会指责我的）。我可以向你保证，他们绝对比我更加尽责，更加专业，而且他们还是团队行动。这样的话，他们一定有办法控制这里的感染，愈合它所留下的创口。如果你就这么一个人冲进去，估计你在走到那棵巨树的树干之前，就已经被狂暴的树人们群殴致死了——而且，你每在这里继续待下去，就会不断有更多树人醒来。除非你是马基·埃亚尔的英雄，或者是加库尔的复活尸体，否则你简直就是自寻死路。还是让专业人士来干这事吧。
+你问我的建议是什么？赶紧从传送门跑回夏特尔，找人来帮忙吧。我可不能这么干，因为这样等于让我不打自招地承认，我在没有通行证的情况下混进了瓦·埃亚尔（如果你知道那群巨魔愿意为鼓舞之花掏多少钱，你肯定不会指责我的）。我可以向你保证，他们绝对比我更加尽责，更加专业，哪怕只是就整体而言。这样的话，他们一定有办法控制这里的感染，愈合它所留下的创口。如果你就这么一个人冲进去，估计你在走到那棵巨树的树干之前，就已经被狂暴的树人们群殴致死了——而且，你每在这里继续待下去，就会不断有更多树人醒来。除非你是马基·埃亚尔的英雄，或者是加库尔的复活尸体，否则你简直就是自寻死路。还是让专业人士来干这事吧。
 
 如果你不听我的话坚持要进去的话，那么，我来告诉你我知道的事情：
 
-——不幸的是，那些树人现在已经完全失去了分辨敌我的能力。他们把一切不来源于自然的东西都视作潜在的感染源，只有把你们完全消灭干净，他们才会安心入睡。我知道，在这里说一堆“请”字是绝对没法让你放弃自卫的念头的……不过，请你还是尽量把你所造成的破坏降低到最低限度，这样的话他们还有机会治愈这片饱受摧残的土地。如果你想要避免和它们交战，请你尽快离开地面，爬到大树的树冠上去。因为它们只会在看到周围地上有东西的时候才会活动起来。另外，[b]不要[/b]试图取一份树芯样本！请相信我——虽然我也很想知道这种感染到底扩散到了多么深的地方；到底是已经侵入了树干，还是正在被推到树冠的地方。只要你一取出样本，周围的树人就会跟永恒精灵看到干蠢事的机会一样，争先恐后地围过来。
+——不幸的是，那些树人已经不再理会敌我之分。他们把一切不来源于自然的东西都视作潜在的感染源，只有把你们完全消灭干净，他们才会安心入睡。我知道，在这里说一堆“请”字是绝对没法让你放弃自卫的念头的……不过，请你还是尽量把你所造成的破坏降低到最低限度，这样的话他们还有机会治愈这片饱受摧残的土地。如果你想要避免和它们交战，请你尽快离开地面，爬到大树的树冠上去。因为它们只会在看到周围地上有东西的时候才会活动起来。另外，千万不要试图取一份树芯样本！请相信我——虽然我也很想知道这种感染到底扩散到了多么深的地方；到底是已经侵入了树干，还是正在被推到树冠的地方。我一取样，树人就跟永恒精灵看到干蠢事的机会一样，争先恐后地朝我围了过来。
 
-——目前看来，造成了这种破坏的罪魁祸首，是一群会动的奥术水晶，有记载说它们曾经在闪光洞穴中出现过。它们到底是在什么样的状况下如何形成的，目前我们尚不知晓。但是我们有理由推断，它们与魔法大爆炸中所涌出的大量的枯萎能量息息相关。这向我们证明，即使到了现在，魔法大爆炸的破坏仍然比我们想象中的要更加严重。如果你没有高超的躲避技巧，请做好被各种强大魔法轮番轰炸的准备；不过，幸运的是，尽管他们可以经常进行传送，但是他们在传送的间隔中无法移动。因此，如果有一个奥术水晶传送到了你的身边，建议你要么找个掩体躲起来，要么就在它再次传送之前赶紧干掉它。
+——目前看来，造成了这种破坏的罪魁祸首，是一群会动的奥术水晶，有记载说它们曾经在闪光洞穴中出现过。它们到底是在什么样的状况下如何形成的，目前我们尚不知晓。但是我们有理由推断，它们与魔法大爆炸中所涌出的大量的枯萎能量息息相关。这向我们证明，即使到了现在，其破坏很可能比我们所能确知的更严重。如果你没有高超的躲避技巧，请做好被各种强大魔法轮番轰炸的准备；不过，幸运的是，尽管他们可以经常进行传送，但是他们在传送的间隔中无法移动。因此，如果有一个奥术水晶传送到了你的身边，建议你要么找个掩体躲起来，要么就在它再次传送之前赶紧干掉它。
 
-——如果我们再不采取行动的话，后果将会是不堪设想的。尽管这棵巨树的形成本身就是这颗星球试着对抗这种感染，将感染推出自己的身体的举措。但这些水晶化身仍然可以轻松地从树冠上爬下，埋入土中，再一次让埃亚尔陷入疾病。如果埃亚尔输了的话……尽管我不想这么说，但恐怕只能说，那些老不死的永恒精灵纵火狂，大概还能做一些他们生命中为数不多的对社会有益的事情，把这块地方一直烧灼到根部。当然，这还要建立在他们能够想到一个不需要炸掉太阳的解决方案的前提之上。
+——如果我们再不采取行动的话，后果将会是不堪设想的。即使这棵巨树的生长真的是这颗星球成功把感染推出体外的迹象，这些水晶化身仍然可以轻松地从树冠上爬下，埋入土中，再一次让埃亚尔陷入疾病。如果埃亚尔输了的话……尽管我不想这么说，但恐怕只能说，那些老不死的永恒精灵纵火狂，大概还能做一些他们生命中为数不多的对社会有益的事情，把这块地方一直烧灼到根部。当然，这还要建立在他们能够想到一个不需要炸掉太阳的解决方案的前提之上。
 
-祝你好运，感谢你能帮我做到这些我做不到的事情。我不能亲自冒这样的险，也是有自己的苦衷的，但你干脆直接把我当成一个懦夫好了，这对我们两个人都比较好。反正，这和真实的情况区别也不大。
+祝你好运，感谢你能帮我做到这些我做不到的事情。我不能亲自冒这样的险，也是有自己的苦衷的，但你干脆直接把我当成一个懦夫好了，这样或许对我们两个人都最好。反正，这和真实的情况区别也不大。
 
 无上感激，
 （如果我是一个十足的白痴，我就会在这里写下我的名字）
@@ -3672,7 +3674,7 @@ t("To ensure a future, any future, for our race they must be freed.", "为了我
 t("The internment camp is located somewhere to the north. The orcs are subdued into obedience by a powerful #{halfling}# psionic, Mindwall, and guarded by elite Sunwall troops.", "拘留营位于北方某处。兽人受到一名强大的 #{halfling}#半身人灵能者“意念之墙”的精神压制，被迫服从，并由太阳堡垒的精锐部队看守。", "_t")
 t("Mindwall must be taken care of and the prides set free.", "必须除掉意念之墙，让被囚禁的各部落重获自由。", "_t")
 t("But #{bold}#BEFORE#{normal}# that you should go and destroy the Sunwall Observatory to the east, as our spies have found a way to resist Mindwall's psionic powers which requries #{italic}#ingredients#{normal}# from there.", "但在那#{bold}#之前#{normal}#，你应该前往东边摧毁太阳堡垒观星台。我们的间谍已经找到了抵抗意念之墙灵能力量的方法，但需要从那里取得#{italic}#材料#{normal}#。", "_t")
-t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意念之墙的身躯，但他找到了一种办法把自己的灵魂分成许多块，分别控制那些被关押的兽人。摧毁其他四个关卡的水晶柱。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意念之墙的身躯，但他设法把自己的心智分裂成许多块，直接控制了那些被他压服的兽人。摧毁其他四个关卡的水晶柱。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Vor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了沃尔部落的兽人。#WHITE#", "_t")
 t("#GREY#* You need to have free the Vor Pride orcs.#WHITE#", "#GREY#* 你必须解放沃尔部落的兽人。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Rak'Shor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了拉克·肖部落的兽人。#WHITE#", "_t")
@@ -4119,7 +4121,7 @@ t([[You fire an incredibly potent shot at an enemy, doing %d%% damage and dazing
 t("Surekill", "一击必杀", "talent name")
 t([[You fire an exceptionally lethal shot at an enemy, doing %d%% damage.
 Damage dealt by this talent is increased by half your critical multiplier, if doing so would kill the target.]], [[你向一个敌人射出一发无比致命的子弹，造成 %d%% 伤害。
-		如果能杀死敌人，那么伤害会提升你暴击伤害系数的一半。]], "tformat")
+如果能杀死敌人，那么伤害会提升你暴击伤害系数的一半。]], "tformat")
 t("Rocket Smash", "火箭重击", "talent name")
 t("@Source@ rockets forward!", "@Source@使用火箭突进向前！", "_t")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
@@ -4627,9 +4629,10 @@ t("%s deactivates %s cloak's restoration systems.", "%s关闭了%s披风的恢�
 t([[Your cloak is lined with an automated health system that activate when no enemies are visible.
 		When it triggers, you will be healed for %d life.
 		At talent level 3, it will also remove one detrimental physical effect.
-		The system can only trigger once every %d turns.]], [[为披风加装嵌入式回复系统，周围没有可见敌人时自动触发，回复 %d 生命值。
-	技能等级 3 时，同时会消除一个物理负面效果。
-	该系统每 %d 回合自动触发一次。]], "tformat")
+		The system can only trigger once every %d turns.]], [[你的披风内衬装有一套嵌入式回复系统，在没有可见敌人时启动。
+		触发时，回复 %d 生命值。
+		技能等级 3 时，同时会消除一个物理负面效果。
+		该系统每 %d 回合最多触发一次。]], "tformat")
 t("Cloaking Device", "隐形装置", "talent name")
 t([[Trigger an array of small mirrors to appear all over your cloak.
 		The mirrors are positioned to reflect all light shining on you, granting %d stealth power for 10 turns.
@@ -4987,7 +4990,7 @@ t([[While Furnace is on your armour is so hot from the furnace it dissipates par
 		Each turn this happens you gain a molten point (up to 10), decreasing the efficiency of the reduction by 25%%.
 		Molten points are removed upon running or resting.
 		#{italic}#Hot liquid metal, the fun!#{normal}#
-		]], [[你的护甲温度极高，能驱散部分能量攻击。
+		]], [[熔炉开启时，你的护甲温度极高，能驱散部分能量攻击。
 		所有非物理、非精神伤害降低 %d 点（当前 %d）。
 		每回合该效果触发时，你获得 1 点融化点数（最多 10 点），使减伤效率降低 25%%。
 		奔跑或休息时会清除融化点数。
@@ -5239,8 +5242,8 @@ section "tome-orcs/data/talents/steam/magnetism.lua"
 t("Static Shock", "静电震击", "talent name")
 t([[Using your Block talent surrounds you and your minions in a static barrier for 4 turns, increasing all resistances by %d%%. If an enemy deals damage to you or your minions, the barrier will shock them for %d%% of your shield damage.
 		This effect cannot damage the same target more than once per turn, and will not interact with Counterstrike.
-You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和召唤物身边产生一个静电屏障，增加所有抗性 %d%%，持续 4 回合。如果有敌人此时攻击你或召唤物，屏障会电击它们，造成 %d%% 你的盾牌伤害。
-		这一效果每回合最多只能对一个目标伤害一次，并且不会消耗反击效果。
+You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和召唤物身边产生一个静电屏障，增加所有抗性 %d%%，持续 4 回合。如果有敌人对你或召唤物造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。
+		这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。
 你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求。]], "tformat")
 t("Magnetic Field", "磁性力场", "talent name")
 t("You require a shield for this talent.", "你需要一面盾牌才能使用这一技能。", "logPlayer")
@@ -5437,8 +5440,8 @@ t("%s resists the iron grip!", "%s抵抗了铁腕抓取！", "logSeen")
 t([[Activate the pistons to crush your target for %d turns and dealing %d%% unarmed melee damage.
 		While the target is held it can not move and its armour and defense are reduced by %d.
 		#{italic}#Crush their bones!#{normal}#]], [[激活活塞碾压你的目标 %d 回合，并造成 %d%% 的徒手伤害。
-被碾压的目标会被定身，且其护甲和闪避减少 %d。
-#{italic}#压碎他们的骨头 !#{normal}#]], "tformat")
+		被碾压的目标会被定身，且其护甲和闪避减少 %d。
+		#{italic}#压碎他们的骨头 !#{normal}#]], "tformat")
 t("Spring Grapple", "弹簧飞爪", "talent name")
 t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t("Grab the target and pull them towards you, striking for %d%% unarmed melee damage, and if you hit, pinning them for %d turns.", [[抓住目标把目标向你拉拢，造成 %d%% 的徒手伤害，如果命中，目标定身 %d 回合。]], "tformat")
@@ -5649,10 +5652,10 @@ t("%s resists the toxin!", "%s 抵抗了剧毒！", "logSeen")
 t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
 		This talent does not use ammo as it is the ammo.
-		Toxin strength scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 枯萎武器伤害。
-向目标释放重金属，造成每回合 %0.2f 枯萎伤害，并且降低整体速度 %d%% %d 回合。
-这个技能不使用弹药。
-枯萎伤害受蒸汽强度加成。]], "tformat")
+		Toxin strength scales with Steampower.]], [[你使用蒸汽枪发射特殊毒性弹药，以枯萎属性对目标造成 100%% 武器伤害。
+		弹药会向目标体内释放重金属，使其每回合受到 %0.2f 枯萎伤害，并使其全局速度降低 %d%%，持续 %d 回合。
+		这个技能不消耗弹药，因为它本身就是弹药。
+		毒素强度受蒸汽强度加成。]], "tformat")
 t("Moss Tread", "苔藓之踏", "talent name")
 t([[For %d turns, you lay down Grasping Moss where you walk or stand.
 		The moss is placed automatically every step and lasts %d turns.
@@ -6399,7 +6402,7 @@ t("Explosive Saw", "爆炸飞锯", "_t")
 t("Target is being assailed by an automated saw blade that cuts its flesh for %0.2f physical damage each turn%s. When the effect expires, the saw will explode for %0.2f fire damage and fly back to its source, pulling the target with it (up to %d tiles).", "你被飞锯击伤，每回合受到 %0.2f 物理伤害 %s。仅当持续时间自然结束且施加者仍在场时，飞锯才会爆炸，造成 %0.2f 火焰伤害并飞回其来源；仅当你可被击退时，才会被拉向施加者（最多 %d 格）。", "tformat")
 t(" and silences it", "并被沉默", "_t")
 t("sil", "沉默", "_t")
-t("#Target# is assailed by an automated saw blade.", "#Target#被链锯切割。", "_t")
+t("#Target# is assailed by an automated saw blade.", "#Target#遭到自动飞锯切割。", "_t")
 t("+Explosive Wounds", "+爆炸伤口", "_t")
 t("The saw embedded in #Target# flies back its source.", "#Target#身上的链锯飞回主人的方向。", "_t")
 t("-Explosive Wounds", "-爆炸伤口", "_t")
@@ -6455,7 +6458,7 @@ t("+Itching Powder", "+痒痒粉", "_t")
 t("#Target# regains their concentration.", "#Target#恢复了注意力。", "_t")
 t("-Itching Powder", "-痒痒粉", "_t")
 t("Smoke Cover", "烟雾覆盖", "_t")
-t("%d%% chance to fully absorb any damaging actions, %d stealth value.", "%d%% 几率吸收伤害，%d 潜行强度。", "tformat")
+t("%d%% chance to fully absorb any damaging actions, %d stealth value.", "%d%% 几率完全吸收任何伤害，%d 潜行强度。", "tformat")
 t("#Target# is hiding in smoke.", "#Target# 在烟雾中隐藏。", "_t")
 t("+Smoke Cover", "+烟雾覆盖", "_t")
 t("#Target# is no longer hiding in smoke.", "#Target# 不再隐藏于烟雾中。", "_t")
@@ -6677,7 +6680,7 @@ t("A special shot that explodes on impact.", "击中时可以造成猛烈爆炸�
 t("Flare Shell", "闪光弹", "_t")
 t("A special shot that releases intense light on impact.", "击中时可以发出强光的特殊弹头。", "_t")
 t("Solid Shell", "固实弹", "_t")
-t("A special shot that packs a punch.", "很重的特殊弹头。", "_t")
+t("A special shot that packs a punch.", "威力强劲的特殊弹药。", "_t")
 t("Saw Shell", "链锯弹", "_t")
 t("A special shot that slices 'n' dices.", "附带链锯的特殊弹头。", "_t")
 t("Magnetic Shell", "磁性弹", "_t")
@@ -6817,7 +6820,7 @@ section "tome-orcs/data/tinkers.lua"
 
 t("smith", "铁匠", "_t")
 t("mechanical", "机械", "_t")
-t("electricity", "电子学", "_t")
+t("electricity", "电学", "_t")
 t("therapeutics", "治疗学", "_t")
 t("chemistry", "化学", "_t")
 t("explosives", "爆炸学", "_t")

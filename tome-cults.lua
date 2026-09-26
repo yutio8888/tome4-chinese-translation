@@ -1104,17 +1104,17 @@ The soldier led me to the center of the city where a grand building lay. After m
 
 大约一个星期后，在大多数难民受到治疗后，传来了永恒精灵士兵的一支分遣队从与兽人的战斗中归来的消息。据说，魔法大爆炸发生时，他们一直在大陆的东部和东部的人类王国并肩作战。事后少数仍然活着的人已经动身返回埃尔瓦拉，但由于无法直接穿越大陆中部而耽搁了。在那些幸存下来的人中，只有几百人设法活着回来。
 
-在这个时刻，在我治疗了数百人之后，我至少对我治疗过的那些人有了一些同情。但更吸引我注意的是他们所说的自己无法直接前往埃尔瓦拉这一点。在大陆中部的米德瓦尔平原是一个广阔的平原，可以看作一片真正的平地。根据我的地理学基础知识，这片平原是完全开放的，很容易穿越。除非有一支庞大的兽人军队幸存下来并封锁了他们的道路，否则根本没有必要在这个地区向北移动。
+在这个时刻，在我治疗了数百人之后，我至少对我治疗过的那些人有了一些同情。但更吸引我注意的是他们所说的自己无法直接前往埃尔瓦拉这一点。在大陆中部的米德瓦尔平原是一片广阔的平地，放眼望去真的只能看到一片开阔的原野。根据我的地理学基础知识，这片平原是完全开放的，很容易穿越。除非有一支庞大的兽人军队幸存下来并封锁了他们的道路，否则根本没有必要向北绕过这一地区。
 
-我没有想太久，一个助理治疗师就走过来，递给我一堆装在皮包里的奇怪平板。我把其中一个拿出来，注意到上面刻着一个发光的徽章，看起来像是某种奥术的力量。当我转过身去问这些是干什么用的时候，我发现对方已经走开了，因为治疗师已经开始照料进入大楼的士兵了。对于该如何处理这些奇怪的平板，我感到困惑不解。正在这时，一个士兵拍了拍我的肩膀，吸引了我的注意。他的手很快伸过来，从袋子里拿出一片奇怪的平板。
+我没有想太久，一个助理治疗师就走过来，递给我一堆装在皮包里的奇怪平板。我把其中一个拿出来，注意到上面刻着一个发光的徽章，似乎涌动着奥术的力量。当我转过身去问这些是干什么用的时候，我发现对方已经走开了，因为治疗师已经开始照料进入大楼的士兵了。对于该如何处理这些奇怪的平板，我感到困惑不解。正在这时，一个士兵拍了拍我的肩膀，吸引了我的注意。他的手很快伸过来，从袋子里拿出一片奇怪的平板。
 
-我转过身去看那个士兵也在干什么，注意到他穿的黑色盔甲上有一道巨大的伤口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但后来，我注意到一件奇怪的东西。令人惊讶的是，平板上的徽章似乎在闪烁和移动，然后与士兵的手融合。一种淡蓝色的光芒从士兵的眼睛中闪过，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
+我转过身去看那个士兵在干什么，注意到他穿的焦黑盔甲上有几道巨大的裂口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但后来，我注意到一件奇怪的东西。令人惊讶的是，平板上的徽章似乎在闪烁和移动，然后不知怎么地与士兵的手融为一体。一种淡蓝色的光芒似乎笼罩了士兵的双眼，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
 
-我对于士兵身上发生的一切完全不知所措，他在我面前自愈了。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次看到使用符文和治疗法术。我以前听说过法术的使用，但在那时，我甚至从来没有听说过符文的，甚至不知道符文的存在。我很快就知道，我得到的平板被称为法力涌动符文，它们可以恢复人体内的法力通路。
+我对于士兵身上发生的一切完全不知所措，这名士兵似乎正在我面前自我治愈。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次看到使用符文和治疗法术。我以前听说过法术的使用，但在那时，我甚至根本不知道符文的存在。我很快就知道，我得到的平板被称为法力涌动符文，它们可以恢复人体内的法力通路。
 
-直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但据说魔法大爆炸中的某种变化从那时起永久改变了这个世界上魔法的运作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力涌动符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，或者治愈其他士兵。
+直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但据说魔法大爆炸中的某种变化从那时起永久改变了这个世界上魔法的运作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力涌动符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，有时也治愈其他士兵。
 
-过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当伤员人数减少到可以应付的程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，提醒对方我已履行了我这一方的约定。主治医师对此点了点头，并望向我身后；这时一名士兵正走近。主治医师回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我认为这位将军对所发生的事件有了答案。
+过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当伤员人数减少到可以应付的程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，提醒对方我已履行了我这一方的约定。主治医师对此点了点头，并望向我身后；这时一名士兵正走近。主治医师回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我猜想这位将军掌握着这些事件的答案。
 
 士兵把我带到市中心，那里有一座宏伟的建筑物。在会见了几个身穿闪亮装甲从头武装到脚的警卫后，我们被允许进入。我们在大楼的大厅里走了几分钟，似乎走到了大楼的尽头。最后，我来到了一个豪华的房间，墙壁上有着斯莱特和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷，第5章] - 艾伦尼恩·加威尔将军", "_t")
@@ -2652,8 +2652,8 @@ t("Severed Threads", "断绝", "talent name")
 t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
 t("Temporal Feast", "时间盛宴", "talent name")
 t([[You drink deeper from the timeline of others. Each time you apply atrophy you gain %0.1f%% spell speed per atrophy stack on the target and cause them to lose %d%% of a turn.
-			The highest atrophy stack found will be used for the spell speed calculation.]], [[你进一步榨取他人的时间线。每次使用衰亡时，目标身上的每层衰亡效果将使你获得 %0.1f%% 施法速度，同时目标将失去 %d%% 回合。
-		计算施法速度增加时，会使用你周围最高层数的衰亡效果。]], "tformat")
+			The highest atrophy stack found will be used for the spell speed calculation.]], [[你进一步榨取他人的时间线。每次对目标施加衰亡效果时，目标身上的每层衰亡效果将使你获得 %0.1f%% 施法速度，同时目标将失去 %d%% 回合。
+			计算施法速度增加时，会使用你周围最高层数的衰亡效果。]], "tformat")
 t("Terminus", "终点", "talent name")
 t("#GREEN#You gain %.1f turns!", "#GREEN#你获得了%.1f个回合！", "say")
 t([[Shatter the spacetime continuum around yourself, inflicting %0.2f temporal damage to all targets within radius %d. Any atrophy stacks will be consumed to steal time from your victims, inflicting an additional %0.2f temporal damage and granting you %d%% of a turn per stack (but no more than 3 turns).
@@ -2856,8 +2856,8 @@ t([[Your knowledge of entropy allows you to defy the laws of physics, allowing y
 		你可以主动开启该技能，瞬间移除当前的熵。]], "tformat")
 t("Black Hole", "黑洞", "talent name")
 t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d.
-		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合的一格小型黑洞，每回合半径增加 1 直到 %d。
-		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d）。]], "tformat")
+		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合、半径为 1 的时空裂隙，每回合半径增加 1 直到 %d。
+		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
 t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
 
@@ -2867,8 +2867,8 @@ section "tome-cults/data/talents/demented/friend-of-the-worm.lua"
 t("Worm that Walks Link", "蠕虫合体链接", "talent name")
 t("Link to the summoner.", "链接到召唤者。", "_t")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucus-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
-Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], [[一件鼓鼓囊囊的长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只手都由重叠的蠕虫组成，各握着一柄覆有胆汁的斧子。
-每次挥舞武器的时，它都会溅出尸僵毒液，每滴毒液在落到地面前都在沸腾和翻滚着。]], "_t")
+Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], [[一件鼓鼓囊囊的腐烂长袍仿佛要从缝线处迸裂，大团浮肿的蠕虫从这个移动的形体周围不断涌出。它有两条手臂般的附肢，每条都由层层叠叠、浸满黏液的蛆虫组成，紧握着覆有胆汁的战斧柄。
+每次挥动战斧，都会有脓液滴落在前方；每一滴都在空中扭动蠕动，随后溅落地面。]], "_t")
 t("Your worm that walks is out of sight; you cannot establish direct control.", "你的蠕虫合体在视野外。你无法建立直接控制。", "logPlayer")
 t("Worm that Walks", "蠕虫合体", "talent name")
 t("wtw", "蠕虫合体", "_t")
@@ -4556,7 +4556,7 @@ t("The Maggot", "巨大蛆虫", "_t")
 ------------------------------------------------
 section "tome-cults/hooks/bonestaff.lua"
 
-t("#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.", "#GREY##{italic}#你感受到手中的骨杖在你的手上颤动：#{normal}##LAST# 是的……#{italic}#“主人”#{normal}#。", "_t")
+t("#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.", "#GREY##{italic}#你感到手中骨杖的骨头嘎吱作响、不住颤动。#{normal}##LAST# 是的……#{italic}#“主人”#{normal}#。", "_t")
 t("#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?", "#GREY##{italic}#骨杖发出了像是耸肩的颤动#{normal}##LAST# #{bold}#当然是#{normal}#被死灵魔法变成这样的。什么样的死灵法师会问出这样#{bold}#愚蠢#{normal}#的问题？", "_t")
 t("#GREY##{italic}#The vibrations intensify.#{normal}##LAST# As long as this means more deaths and bones, I will agree to change aspect. Which do you choose?", "#GREY##{italic}#颤动加强了。#{normal}##LAST#只要这意味着更多的死亡和骨头，我会同意改变类型。你选哪一个？", "_t")
 t("Is there anything else you can do?", "你还能做什么吗？", "_t")
@@ -4781,7 +4781,7 @@ Damage and cooldowns have a chance to increase or decrease by up to chaotic%.
 
 Both the chance and size of effects will increase with insanity.]], [[你的精神的疯狂程度。这一数值越高，你的技能的冷却时间和所造成的伤害随机性就越大。
 
-伤害和冷却时间将会在 混沌度% 的范围内上下浮动。
+伤害和冷却时间有几率上下浮动，幅度最多为 混沌度%。
 
 浮动的几率和浮动的效果都会随疯狂值提升而上升。]], "_t")
 t("%d%%%% (%d%%%% chaotic)", "%d%%%% (%d%%%% 混沌度)", "tformat")
