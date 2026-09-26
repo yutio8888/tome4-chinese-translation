@@ -1,0 +1,70 @@
+{
+ "workset": "evidence/quality/production-batches/batch-956938150e4478686ed4-source-workset.json",
+ "decisions": {
+  "0daa43193b|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/furnace.lua Molten Metal（本库“融化金属”）：callbackOnTakeDamage 首行 if not self:isTalentActive(self.T_FURNACE) then return end，减伤只在熔炉（Furnace，本库“熔炉”）开启时生效；现译删去 While Furnace is on，把条件效果写成常驻（删限定词缺陷），句首补“熔炉开启时，”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "0ecb437238|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/ingredients.lua：stack of herbs (…) 五种原料本库一致作“一束植物（…）”（tome-orcs.lua:1835-1839、1856-1859），描述 A stack of herbs 作“一束草药”；改为“草药”需五条同步，属跨批次统一，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "0f27d7a145|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1034-1099 OVERCLOCK（本库“炮台超载”）：callbackOnActBase 以 core.fov.circle_grids(self.x, self.y, 6, true) 取目标、tg range=6，实际射程为 6；源文 range 7 与实现不符，现译“6 码范围”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "0f5b818e54|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/overload/data/texts/unlock-orcs_campaign_rogue.lua：同第312批 074da418（法师版），The Prides 即被关押的兽人各部落，本库同事件成就作“释放拘留营中的部落成员”（tome-orcs.lua:51）；现译“拘留营的兽人”指代不误，未用“部落”，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "10291d1dbc|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/quests/free-prides.lua:26、32：任务说明写明兽人“are subdued into obedience by a powerful psionic, Mindwall”，subdued orcs 是被灵能压服的兽人；split his mind 是分裂心智（意念之墙为灵能者），现译“灵魂”偏离，另增“找到了一种办法”、把 subdued 写成“被关押”；整句改为“你摧毁了意念之墙的身躯，但他设法把自己的心智分裂成许多块，直接控制了那些被他压服的兽人。”与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "1094f94cdc|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua 修复者警告：Even if this great tree's growth IS a sign of the planet successfully fighting the infection off 是让步假设（即便巨树生长确是星球击退感染的迹象，化身仍可爬下再感染），且与上文“最好/最坏情况”两种推测呼应；现译“尽管这棵巨树的形成本身就是……举措”把假设写成定论，growth 也译成“形成”；改为“即使这棵巨树的生长真的是这颗星球成功把感染推出体外的迹象”。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "10a2bd7c59|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/tinkers.lua:26：electricity 是配方大类 base_category（与 smith/mechanical/therapeutics/chemistry/explosives 并列，本库作铁匠/机械/治疗学/化学/爆炸学），electricity 是电学/电力而非 electronics；现译“电子学”误译，改为“电学”。全库仅此一处。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "12378ea39c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/magnetism.lua:21-61 Static Shock（本库“静电震击”）说明：cannot damage the same target more than once per turn 是对同一目标每回合最多一次，可电击多个目标；现译“每回合最多只能对一个目标伤害一次”改成只打一个目标；will not interact with Counterstrike 是不与反击交互，现译“不会消耗反击效果”偏窄；整句改为“这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "0daa43193b|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：furnace.lua callbackOnTakeDamage 仅在 T_FURNACE 激活时生效，现译删去 While Furnace is on。 来源仓库/commit 未固定。"
+  },
+  "0f27d7a145|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "宿主补查 envelope 外实现：physical.lua:1080-1090 OVERCLOCK callbackOnActBase 用 core.fov.circle_grids(…, 6, …) 且 tg range=6，实际射程为 6；源文 range 7 与实现不符，现译“6”贴合实现，保留。 来源仓库/commit 未固定。"
+  },
+  "10291d1dbc|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：free-prides.lua:26 subdued into obedience by a powerful psionic，mind 应为心智，删“找到了一种办法”，subdued 为“被压服”。 来源仓库/commit 未固定。"
+  },
+  "1094f94cdc|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：primal-forest.lua Even if … IS a sign 为让步假设，现译写成定论且漏 successfully。 来源仓库/commit 未固定。"
+  },
+  "12378ea39c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "同 surface 裁决：magnetism.lua 同一目标每回合最多一次，非只打一个目标；Counterstrike 为不交互而非不消耗。 来源仓库/commit 未固定。"
+  }
+ }
+}

@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "0daa43193b292bfc8bf4bf704b8282eb1a795d707b21a140352ca3c916fa9b28",
+      "stage": "surface",
+      "observation": "原文以“While Furnace is on”限定护甲高温及减伤效果，译文遗漏了熔炉开启时这一条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/furnace.lua Molten Metal（本库“融化金属”）：callbackOnTakeDamage 首行 if not self:isTalentActive(self.T_FURNACE) then return end，减伤只在熔炉（Furnace，本库“熔炉”）开启时生效；现译删去 While Furnace is on，把条件效果写成常驻（删限定词缺陷），句首补“熔炉开启时，”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0ecb437238bb31f7e7e89b2604c16ce7bcec4b57e145087b5bfcac43b88d59eb",
+      "stage": "surface",
+      "observation": "原文 herbs 为草药，译文“一束植物”丢失了草药这一具体含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/ingredients.lua：stack of herbs (…) 五种原料本库一致作“一束植物（…）”（tome-orcs.lua:1835-1839、1856-1859），描述 A stack of herbs 作“一束草药”；改为“草药”需五条同步，属跨批次统一，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0f27d7a1457cef6a5acbd189c5cd7407e086baa098d886dc6752b6ff98221252",
+      "stage": "surface",
+      "observation": "原文攻击范围为 7，译文写成 6 码。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1034-1099 OVERCLOCK（本库“炮台超载”）：callbackOnActBase 以 core.fov.circle_grids(self.x, self.y, 6, true) 取目标、tg range=6，实际射程为 6；源文 range 7 与实现不符，现译“6 码范围”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "0f5b818e546b88e2b0628bf89832a7474a7129f6c2711c44cbbeb5c3215f521a",
+      "stage": "surface",
+      "observation": "原文称解放了 Prides，译文改为解放了“兽人”；冻结输入没有提供两者等同的依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/data/texts/unlock-orcs_campaign_rogue.lua：同第312批 074da418（法师版），The Prides 即被关押的兽人各部落，本库同事件成就作“释放拘留营中的部落成员”（tome-orcs.lua:51）；现译“拘留营的兽人”指代不误，未用“部落”，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "10291d1dbc243b4560c16ce17e8a686fb1d483780fff9cdc83e05bfc7145dc44",
+      "stage": "surface",
+      "observation": "source 的 subdued orcs 指被制服或压服的兽人，target 写成被关押的兽人，改变了处境。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/free-prides.lua:26、32：任务说明写明兽人“are subdued into obedience by a powerful psionic, Mindwall”，subdued orcs 是被灵能压服的兽人；split his mind 是分裂心智（意念之墙为灵能者），现译“灵魂”偏离，另增“找到了一种办法”、把 subdued 写成“被关押”；整句改为“你摧毁了意念之墙的身躯，但他设法把自己的心智分裂成许多块，直接控制了那些被他压服的兽人。”与 contextual 同条观察合并确认。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "1094f94cdc5055209020a4665e5a216bc6a3d28e383ad6b662bc30419671c035",
+      "stage": "surface",
+      "observation": "source 的 Even if this great tree’s growth IS a sign 保留假设，target 写成这棵巨树的形成本身就是，将假设说成既定事实。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua 修复者警告：Even if this great tree's growth IS a sign of the planet successfully fighting the infection off 是让步假设（即便巨树生长确是星球击退感染的迹象，化身仍可爬下再感染），且与上文“最好/最坏情况”两种推测呼应；现译“尽管这棵巨树的形成本身就是……举措”把假设写成定论，growth 也译成“形成”；改为“即使这棵巨树的生长真的是这颗星球成功把感染推出体外的迹象”。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "10a2bd7c597497a90c6bf3de001f7cafd82e61e26bb4afb954ba133bd3c2786e",
+      "stage": "surface",
+      "observation": "source electricity 是电或电能，target 电子学对应 electronics，词义明显不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers.lua:26：electricity 是配方大类 base_category（与 smith/mechanical/therapeutics/chemistry/explosives 并列，本库作铁匠/机械/治疗学/化学/爆炸学），electricity 是电学/电力而非 electronics；现译“电子学”误译，改为“电学”。全库仅此一处。 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "12378ea39c4159baffb1fe231eb195a44f7d0bb0875604a497a10edda583a528",
+      "stage": "surface",
+      "observation": "原文规定同一目标每回合最多受到一次该效果伤害；译文写成每回合最多只能伤害一个目标，改变了可伤害的目标数量。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/magnetism.lua:21-61 Static Shock（本库“静电震击”）说明：cannot damage the same target more than once per turn 是对同一目标每回合最多一次，可电击多个目标；现译“每回合最多只能对一个目标伤害一次”改成只打一个目标；will not interact with Counterstrike 是不与反击交互，现译“不会消耗反击效果”偏窄；整句改为“这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。” 本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
