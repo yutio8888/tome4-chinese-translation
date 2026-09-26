@@ -1,0 +1,3150 @@
+[
+  {
+    "entry_revision_identity": "65dd79a512ef936e3840be56c3466ae72f138977d6393c0b8ec5adca79cfa203",
+    "public_source_path": "tome-cults/data/zones/ft-horrors/grids.lua",
+    "lines": [
+      {
+        "line": 32,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Forbidden Tome\", _t\"Do you really want to exit the tome? You will not be able to come back.\", function(ret) if not ret then"
+      },
+      {
+        "line": 33,
+        "text": "\t\t\tgame:changeLevelReal(1, \"useless\", {temporary_zone_shift_back=true})"
+      },
+      {
+        "line": 34,
+        "text": "\t\tend end, _t\"Stay\", _t\"Exit\", nil, true)"
+      },
+      {
+        "line": 35,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 36,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "65e6279fb7150497525b34381a41064a7167ac9b1cf81b221461adfe569babbb",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 76,
+        "text": "\t\t_t\"Writhing Ones know that what we call #{italic}#horrors#{normal}# hold the key to some ancient knowledge and power from the Age of Haze and they are ready to do anything to access it.\","
+      },
+      {
+        "line": 77,
+        "text": "\t\t_t\"In their lust for power they somehow lost a part of themselves, turning more and more into the horrors they study.\","
+      },
+      {
+        "line": 78,
+        "text": "\t\t_t\"Most of them forgo an entire arm to turn it into a deadly tentacle.\","
+      },
+      {
+        "line": 79,
+        "text": "\t\t_t\"Some are even known to never leave their sanctuary without their own worm that walks friend.\","
+      },
+      {
+        "line": 80,
+        "text": "\t\t_t\"Their most important stats are: Strength and Magic\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6614590a62ba69faaa6b7794fb86658abf815813f20ecd7d8cd8af18f0d83614",
+    "public_source_path": "tome-cults/data/chats/godfeaster-malyu-escaped.lua",
+    "lines": [
+      {
+        "line": 71,
+        "text": ""
+      },
+      {
+        "line": 72,
+        "text": "newChat{ id=\"stats\","
+      },
+      {
+        "line": 73,
+        "text": "\ttext = _t[[Oh, I suddenly feel like I have potential to grow.]],"
+      },
+      {
+        "line": 74,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 75,
+        "text": "\t\t{_t\"Take care!\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6697f90ca219eed88d5937444e43ab3ba0fddbfb4dd785851aeb80a9b3a28532",
+    "public_source_path": "tome-cults/overload/mod/class/CultsDLC.lua",
+    "lines": [
+      {
+        "line": 374,
+        "text": "\t\t\t}"
+      },
+      {
+        "line": 375,
+        "text": "\t\t\tself:addChat{ id=\"parasite-hungry\","
+      },
+      {
+        "line": 376,
+        "text": "\t\t\t\ttext = _t\"Ah I see, you are a ...thing... of special tastes. Very well, I'd rather have you as a friend so have your meal and someday we may have some more business to do together.\","
+      },
+      {
+        "line": 377,
+        "text": "\t\t\t\tanswers = {"
+      },
+      {
+        "line": 378,
+        "text": "\t\t\t\t\t{_t\"[eat the merchant]\", action=good_meal(self.chats.offer.answers[1].action)},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "66a3b635b97503b644140c065e2d826c8898efca7b346528210c43487e43cd50",
+    "public_source_path": "tome-cults/overload/mod/dialogs/FontSacrifice.lua",
+    "lines": [
+      {
+        "line": 215,
+        "text": "\t\tif ego.power_source.technique then power_str:merge((_t\"Crafted by #LIGHT_UMBER#a master#LAST#\\n\"):toTString()) end"
+      },
+      {
+        "line": 216,
+        "text": "\t\tif ego.power_source.psionic then power_str:merge((_t\"Infused by #YELLOW#psionic forces#LAST#\\n\"):toTString()) end"
+      },
+      {
+        "line": 217,
+        "text": "\t\tif ego.power_source.unknown then power_str:merge((_t\"Powered by #CRIMSON#unknown forces#LAST#\\n\"):toTString()) end"
+      },
+      {
+        "line": 218,
+        "text": "\t\tego:triggerHook{\"Object:descPowerSource\", desc=power_str, object=ego}"
+      },
+      {
+        "line": 219,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "66ac75ce9ead18bcb0c499bef5c47419c3bea265a45e80e7c0ea5ba719f849f7",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 358,
+        "text": "newEffect{"
+      },
+      {
+        "line": 359,
+        "text": "\tname = \"PUTRESCENT_PUSTULE\", image = \"talents/pustulent_growth.png\","
+      },
+      {
+        "line": 360,
+        "text": "\tdesc = _t\"Putrescent Pustule\","
+      },
+      {
+        "line": 361,
+        "text": "\tlong_desc = function(self, eff) return (\"%d pustules increasing resistance by %d%%.\"):tformat(eff.stacks, eff.stacks * eff.power) end,"
+      },
+      {
+        "line": 362,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67190921dde2508f16c1aca7b581efab76e443d0b65f09964696a41398ed0c8e",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 424,
+        "text": "\t\t\t\t{name=_t\"The importance of wisdom (+5 willpower)\", effect=function() newparty.player:incIncStat(\"wil\", 5) end},"
+      },
+      {
+        "line": 425,
+        "text": "\t\t\t}"
+      },
+      {
+        "line": 426,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):listPopup(_t\"The Day It Came\", _t\"This chapter has taught your some important lesson. What did you learn?\", list, 400, 250, function(sel)"
+      },
+      {
+        "line": 427,
+        "text": "\t\t\t\tif not sel then return end"
+      },
+      {
+        "line": 428,
+        "text": "\t\t\t\tsel.effect()"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6739635ca74032f050e6a89dc116b0f3840723a67fd2f8b40a2532da876f419e",
+    "public_source_path": "tome-cults/data/zones/ft-cultist/npcs.lua",
+    "lines": [
+      {
+        "line": 276,
+        "text": "newEntity{ base = \"BASE_NPC_STUDENT\", define_as = \"HUMAN_STUDENT\","
+      },
+      {
+        "line": 277,
+        "text": "\tname = \"human student\", color=colors.LIGHT_BLUE,"
+      },
+      {
+        "line": 278,
+        "text": "\tdesc = _t[[A human student.]],"
+      },
+      {
+        "line": 279,
+        "text": "\tlevel_range = {1, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 280,
+        "text": "\trarity = 3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67441f0269dd9bdc2c1adaf7cc51d28a6c6ad539528cb516299dd0b26e8ea8b3",
+    "public_source_path": "tome-cults/data/zones/ft-haze-cave/zone.lua",
+    "lines": [
+      {
+        "line": 147,
+        "text": "\t\t\twatch_fight = { chance = 3, cooldown = 10,"
+      },
+      {
+        "line": 148,
+        "text": "\t\t\t\t_t\"What are these things?!\","
+      },
+      {
+        "line": 149,
+        "text": "\t\t\t\t_t\"Your primitive mind recoils in horror from the thing in front of you.\","
+      },
+      {
+        "line": 150,
+        "text": "\t\t\t\t_t\"Why are they killing each other? For what reason does this horror have to happen?\","
+      },
+      {
+        "line": 151,
+        "text": "\t\t\t\t_t\"You have fought against other tribes before, but the bloodshed you saw then is nothing compared to this.\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6788bae5499649f78eff6d6f60fc9339fb65133425de910978f9f6a09ce5b1ca",
+    "public_source_path": "tome-cults/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 75,
+        "text": "\tid = \"cults-cultist-unlock-lesson-4\","
+      },
+      {
+        "line": 76,
+        "text": "\tcategory = \"Forbidden Cults\", always_pop = true,"
+      },
+      {
+        "line": 77,
+        "text": "\tname = _t\"Lessons of Inevitability - Unravel Existence\","
+      },
+      {
+        "line": 78,
+        "text": "\tlore = _t[[The building blocks of all things are held together by innumerable laws. These very laws govern all of reality and are set in stone, in most cases. With proper use of your magic, it's entirely possible to sever these bonds and defy these laws, unraveling your foe's very existence. Not only is your opponent affected by this, but the area around them is too. It creates cracks in reality which allow things to slip through. You must use this moment to call out into the void and bring forth creatures to assist you in battle."
+      },
+      {
+        "line": 79,
+        "text": ""
+      },
+      {
+        "line": 88,
+        "text": "\tid = \"cults-cultist-unlock-lesson-4-fail\","
+      },
+      {
+        "line": 89,
+        "text": "\tcategory = \"Forbidden Cults\", always_pop = true,"
+      },
+      {
+        "line": 90,
+        "text": "\tname = _t\"Lessons of Inevitability - Unravel Existence Failure\","
+      },
+      {
+        "line": 91,
+        "text": "\tlore = _t[[No, no! Your minds aren't focused enough! I told you that you must have a clear image in your head! Do not let your foolish ambition get the better of you! You can't control what's out there!"
+      },
+      {
+        "line": 92,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6790b6add713d6a1c79e5f8ac042abb52e8a82790910cd63d4ef656d61f69aed",
+    "public_source_path": "tome-cults/data/achievements/all.lua",
+    "lines": [
+      {
+        "line": 146,
+        "text": ""
+      },
+      {
+        "line": 147,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 148,
+        "text": "\tname = \"Sequence Master\", id = \"CULTS_EGRESS_MASTER\", category = \"Forbidden Cults\","
+      },
+      {
+        "line": 149,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 150,
+        "text": "\tdesc = _t[[Use 5 different glyph sequences.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6793955249f0a7dc9a7873fd2e30937f95c70e10df2b3e9ec3db7187252c067d",
+    "public_source_path": "tome-cults/data/general/grids/godfeaster.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "local godfeaster_wall_editer = {method=\"sandWalls_def\", def=\"godfeaster\"}"
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "-----------------------------------------"
+      },
+      {
+        "line": 26,
+        "text": "\tdefine_as = \"GODFEASTER_UP_WILDERNESS\","
+      },
+      {
+        "line": 27,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 28,
+        "text": "\tname = \"exit to the worldmap\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_mos = {{image=\"terrain/godfeaster/godfeaster_stairs_exit.png\"}},"
+      },
+      {
+        "line": 29,
+        "text": "\tdisplay = '<', color_r=255, color_g=0, color_b=255,"
+      },
+      {
+        "line": 30,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 31,
+        "text": "\tnotice = true,"
+      },
+      {
+        "line": 32,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 33,
+        "text": "\tchange_level = 1,"
+      },
+      {
+        "line": 34,
+        "text": "\tchange_zone = \"wilderness\","
+      },
+      {
+        "line": 36,
+        "text": ""
+      },
+      {
+        "line": 37,
+        "text": "newEntity{"
+      },
+      {
+        "line": 38,
+        "text": "\tdefine_as = \"GODFEASTER_UP\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_mos = {{image=\"terrain/godfeaster/godfeaster_stairs_up_1_01.png\"}},"
+      },
+      {
+        "line": 39,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 40,
+        "text": "\tname = \"previous level\","
+      },
+      {
+        "line": 42,
+        "text": "\tnotice = true,"
+      },
+      {
+        "line": 43,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 44,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 45,
+        "text": "\tchange_level = -1,"
+      },
+      {
+        "line": 46,
+        "text": "}"
+      },
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newEntity{"
+      },
+      {
+        "line": 49,
+        "text": "\tdefine_as = \"GODFEASTER_DOWN\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_mos = {{image=\"terrain/godfeaster/godfeaster_stairs_down_1_01.png\"}},"
+      },
+      {
+        "line": 50,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 51,
+        "text": "\tname = \"next level\","
+      },
+      {
+        "line": 53,
+        "text": "\tnotice = true,"
+      },
+      {
+        "line": 54,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 55,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 56,
+        "text": "\tchange_level = 1,"
+      },
+      {
+        "line": 57,
+        "text": "}"
+      },
+      {
+        "line": 62,
+        "text": "newEntity{"
+      },
+      {
+        "line": 63,
+        "text": "\tdefine_as = \"GODFEASTER_FLOOR\","
+      },
+      {
+        "line": 64,
+        "text": "\ttype = \"floor\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 65,
+        "text": "\tname = \"floor\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\","
+      },
+      {
+        "line": 66,
+        "text": "\tdisplay = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,"
+      },
+      {
+        "line": 67,
+        "text": "\tgrow = \"GODFEASTER_WALL\","
+      },
+      {
+        "line": 68,
+        "text": "\tnice_tiler = { method=\"replace\", base={\"GODFEASTER_FLOOR\", 100, 1, 11} },"
+      },
+      {
+        "line": 69,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 70,
+        "text": "}"
+      },
+      {
+        "line": 71,
+        "text": "for i = 1, 11 do newEntity{ base=\"GODFEASTER_FLOOR\", define_as = \"GODFEASTER_FLOOR\"..i, image = \"terrain/godfeaster/godfeaster_floor_\"..i..\"_01.png\"} end"
+      },
+      {
+        "line": 72,
+        "text": ""
+      },
+      {
+        "line": 73,
+        "text": "newEntity{"
+      },
+      {
+        "line": 74,
+        "text": "\tdefine_as = \"GODFEASTER_WALL\","
+      },
+      {
+        "line": 75,
+        "text": "\ttype = \"wall\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 76,
+        "text": "\tname = \"godfeaster wall\", image = \"terrain/godfeaster/godfeasterwall_5_1.png\","
+      },
+      {
+        "line": 77,
+        "text": "\tdisplay = '#', color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 78,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 81,
+        "text": "\tblock_sight = true,"
+      },
+      {
+        "line": 82,
+        "text": "\tair_level = -20,"
+      },
+      {
+        "line": 83,
+        "text": "\tnice_editer = godfeaster_wall_editer,"
+      },
+      {
+        "line": 84,
+        "text": "\tnice_tiler = { method=\"replace\", base={\"GODFEASTER_WALL\", 100, 1, 9} },"
+      },
+      {
+        "line": 85,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 86,
+        "text": "}"
+      },
+      {
+        "line": 87,
+        "text": "for i = 1, 9 do newEntity{ base=\"GODFEASTER_WALL\", define_as = \"GODFEASTER_WALL\"..i, image = \"terrain/godfeaster/godfeasterwall_5_\"..i..\".png\"} end"
+      },
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": ""
+      },
+      {
+        "line": 93,
+        "text": "newEntity{"
+      },
+      {
+        "line": 94,
+        "text": "\tdefine_as = \"GODFEASTER_DOOR\","
+      },
+      {
+        "line": 95,
+        "text": "\ttype = \"wall\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 96,
+        "text": "\tname = \"godfeaster door\","
+      },
+      {
+        "line": 97,
+        "text": "\tdisplay = '+', color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 98,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"GODFEASTER_DOOR_VERT\", west_east=\"GODFEASTER_DOOR_HORIZ\", default=\"west_east\" },"
+      },
+      {
+        "line": 103,
+        "text": "\tdoor_opened = \"GODFEASTER_DOOR_OPEN\","
+      },
+      {
+        "line": 104,
+        "text": "\tdig = \"FLOOR\","
+      },
+      {
+        "line": 105,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 106,
+        "text": "}"
+      },
+      {
+        "line": 107,
+        "text": "newEntity{"
+      },
+      {
+        "line": 108,
+        "text": "\tdefine_as = \"GODFEASTER_DOOR_OPEN\","
+      },
+      {
+        "line": 109,
+        "text": "\ttype = \"wall\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 110,
+        "text": "\tname = \"open godfeaster door\","
+      },
+      {
+        "line": 111,
+        "text": "\tdisplay = \"'\", color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 112,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 113,
+        "text": "\tis_door = true,"
+      },
+      {
+        "line": 114,
+        "text": "\tdoor_closed = \"GODFEASTER_DOOR\","
+      },
+      {
+        "line": 115,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 116,
+        "text": "}"
+      },
+      {
+        "line": 117,
+        "text": "newEntity{ base = \"GODFEASTER_DOOR\", define_as = \"GODFEASTER_DOOR_HORIZ\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1.png\", add_mos={{shader = \"godfeaster\", image=\"terrain/godfeaster/godfeasterwall_8_1.png\", display_y=-1}}}}, door_opened = \"GODFEASTER_DOOR_HORIZ_OPEN\"}"
+      },
+      {
+        "line": 118,
+        "text": "newEntity{ base = \"GODFEASTER_DOOR_OPEN\", define_as = \"GODFEASTER_DOOR_HORIZ_OPEN\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1_open.png\", add_mos={{shader = \"godfeaster\", image=\"terrain/godfeaster/godfeasterwall_8_1.png\", display_y=-1}}}}, door_closed = \"GODFEASTER_DOOR_HORIZ\"}"
+      },
+      {
+        "line": 119,
+        "text": ""
+      },
+      {
+        "line": 120,
+        "text": "newEntity{ base = \"GODFEASTER_DOOR\", define_as = \"GODFEASTER_DOOR_VERT\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1_vert.png\", add_mos={{shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1_vert_north.png\", display_y=-1}}}}, door_opened = \"GODFEASTER_DOOR_OPEN_VERT\", dig = \"GODFEASTER_DOOR_OPEN_VERT\"}"
+      },
+      {
+        "line": 121,
+        "text": "newEntity{ base = \"GODFEASTER_DOOR_OPEN\", define_as = \"GODFEASTER_DOOR_OPEN_VERT\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1_open_vert.png\", add_mos={{shader = \"godfeaster\", image=\"terrain/godfeaster/godfeaster_door1_open_vert_north.png\", display_y=-1}}}}, door_closed = \"GODFEASTER_DOOR_VERT\"}"
+      },
+      {
+        "line": 122,
+        "text": ""
+      },
+      {
+        "line": 123,
+        "text": "newEntity{"
+      },
+      {
+        "line": 124,
+        "text": "\tdefine_as = \"GODFEASTER_VAULT_DOOR\","
+      },
+      {
+        "line": 125,
+        "text": "\ttype = \"wall\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 126,
+        "text": "\tname = \"godfeaster door\","
+      },
+      {
+        "line": 127,
+        "text": "\tdisplay = '+', color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 128,
+        "text": "\tnice_tiler = { method=\"door3d\", north_south=\"GODFEASTER_VAULT_DOOR_VERT\", west_east=\"GODFEASTER_VAULT_DOOR_HORIZ\", default=\"west_east\" },"
+      },
+      {
+        "line": 136,
+        "text": "\tdoor_opened = \"GODFEASTER_VAULT_DOOR_OPEN\","
+      },
+      {
+        "line": 137,
+        "text": "\tdig = \"FLOOR\","
+      },
+      {
+        "line": 138,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 139,
+        "text": "}"
+      },
+      {
+        "line": 140,
+        "text": "newEntity{"
+      },
+      {
+        "line": 141,
+        "text": "\tdefine_as = \"GODFEASTER_VAULT_DOOR_OPEN\","
+      },
+      {
+        "line": 142,
+        "text": "\ttype = \"wall\", subtype = \"godfeaster\","
+      },
+      {
+        "line": 143,
+        "text": "\tname = \"open godfeaster door\","
+      },
+      {
+        "line": 144,
+        "text": "\tdisplay = \"'\", color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 145,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 146,
+        "text": "\tis_door = true,"
+      },
+      {
+        "line": 147,
+        "text": "\tdoor_closed = \"GODFEASTER_VAULT_DOOR\","
+      },
+      {
+        "line": 148,
+        "text": "\tshader = \"godfeaster\","
+      },
+      {
+        "line": 149,
+        "text": "}"
+      },
+      {
+        "line": 150,
+        "text": "newEntity{ base = \"GODFEASTER_VAULT_DOOR\", define_as = \"GODFEASTER_VAULT_DOOR_HORIZ\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/lamp_godfeaster_door1.png\", add_mos={{image=\"terrain/godfeaster/godfeasterwall_8_1.png\", display_y=-1}}}}, door_opened = \"GODFEASTER_VAULT_DOOR_HORIZ_OPEN\"}"
+      },
+      {
+        "line": 151,
+        "text": "newEntity{ base = \"GODFEASTER_VAULT_DOOR_OPEN\", define_as = \"GODFEASTER_VAULT_DOOR_HORIZ_OPEN\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/lamp_godfeaster_door1_open.png\", add_mos={{image=\"terrain/godfeaster/godfeasterwall_8_1.png\", display_y=-1}}}}, door_closed = \"GODFEASTER_VAULT_DOOR_HORIZ\"}"
+      },
+      {
+        "line": 152,
+        "text": ""
+      },
+      {
+        "line": 153,
+        "text": "newEntity{ base = \"GODFEASTER_VAULT_DOOR\", define_as = \"GODFEASTER_VAULT_DOOR_VERT\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/lamp_godfeaster_door1_vert.png\", add_mos={{image=\"terrain/godfeaster/lamp_godfeaster_door1_vert_north.png\", display_y=-1}}}}, door_opened = \"GODFEASTER_VAULT_DOOR_OPEN_VERT\", dig = \"GODFEASTER_VAULT_DOOR_OPEN_VERT\"}"
+      },
+      {
+        "line": 154,
+        "text": "newEntity{ base = \"GODFEASTER_VAULT_DOOR_OPEN\", define_as = \"GODFEASTER_VAULT_DOOR_OPEN_VERT\", image = \"terrain/godfeaster/godfeaster_floor_1_01.png\", add_displays={class.new{z=17, shader = \"godfeaster\", image=\"terrain/godfeaster/lamp_godfeaster_door1_open_vert.png\", add_mos={{image=\"terrain/godfeaster/lamp_godfeaster_door1_open_vert_north.png\", display_y=-1}}}}, door_closed = \"GODFEASTER_VAULT_DOOR_VERT\"}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67a16b6024125bf7de85afe6413a482c3bd85d5f7b2109757c61b7d51eb11852",
+    "public_source_path": "tome-cults/data/zones/ft-illusory-castle/zone.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\t_t\"Problem Child\","
+      },
+      {
+        "line": 56,
+        "text": "\t_t\"Reasonable Excuse\","
+      },
+      {
+        "line": 57,
+        "text": "\t_t\"Recent Convert\","
+      },
+      {
+        "line": 58,
+        "text": "\t_t\"Tactical Grace\","
+      },
+      {
+        "line": 59,
+        "text": "\t_t\"Unacceptable Behaviour\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67fb5b734134b9cfd2a8208a4301996e26221a72eb4ca21a25184939e8274bf6",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 774,
+        "text": "\tuse_power = {"
+      },
+      {
+        "line": 775,
+        "text": "\t\tpower = 25,"
+      },
+      {
+        "line": 776,
+        "text": "\t\tname = function(self, who) return (\"convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)\"):tformat() end,"
+      },
+      {
+        "line": 777,
+        "text": "\t\trange = 0,"
+      },
+      {
+        "line": 778,
+        "text": "\t\tradius = 10,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "684da471697bf951984cf9c15b516a1cd1385e4d8a62dc722a6673a47045c434",
+    "public_source_path": "tome-cults/data/lore/kroshkkur.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "\tid = \"cults-gods-1\","
+      },
+      {
+        "line": 71,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 72,
+        "text": "\tname = _t\"Researcher Dremnot's Demystification of the Gods: Chapter 1 - Amakthel\","
+      },
+      {
+        "line": 73,
+        "text": "\tlore = _t[[Even among the gods, there was one that towered above them all. Its name was Amakthel, mightiest of Eyal's gods. It was said that it was the creator of the Sher'Tul, that ancient and mysterious race whose true nature is still unknown to this day. More than any other god, Amakthel appears as a creation figure in ancient myths, more readily interfering with mortal beings than any other god. Nearly every race has some myth of Amakthel coming into contact with them, some describing it as a glowing, divine being while others declared it as a bringer of ill omens. Its touch seemed to curse as readily as it blessed according to these different sources, altering beings in ways that only made sense to Amakthel itself. As such, it is difficult to get a clear picture of Amakthel's true personality and disposition towards mortals."
+      },
+      {
+        "line": 74,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6859c9c098aaf644b4a0e0c9fa3f62c7c4c579b6768e008c5b44137a1b9a8819",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1778,
+        "text": "\tname = \"DECAYING_GROUND\", image = \"talents/decaying_grounds.png\","
+      },
+      {
+        "line": 1779,
+        "text": "\tdesc = _t\"Decaying Ground\","
+      },
+      {
+        "line": 1780,
+        "text": "\tlong_desc = function(self, eff) return (\"All cooldowns increased by %d%%.\"):tformat(eff.power * 100) end,"
+      },
+      {
+        "line": 1781,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 1782,
+        "text": "\tsubtype = { blight=true, corrupted=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "686f4f9f8e57fdc69e700cf076770a345cf2c1e47c2637f3c532a0a2ff62ab01",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 2162,
+        "text": "\tname = \"GLASS_SPLINTERS\", image = \"talents/glass_splinters.png\","
+      },
+      {
+        "line": 2163,
+        "text": "\tdesc = _t\"Glass Splinters\","
+      },
+      {
+        "line": 2164,
+        "text": "\tlong_desc = function(self, eff) return (\"Nasty glass splinters that make you bleed, doing %0.2f arcane damage per turn. Deals %0.2f arcane damage on move. Talents have %d%% chances to fail.\"):tformat(eff.bleed, eff.move, eff.fail) end,"
+      },
+      {
+        "line": 2165,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 2166,
+        "text": "\tsubtype = { wound=true, cut=true, bleed=true, fail=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6873be6a1a200531a54f15f4888836f04272f162a65a261a62bda3dd04e38d31",
+    "public_source_path": "tome-cults/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 221,
+        "text": "\tgetResist = function(self, t) return self:combatStatScale(\"wil\", 20, 60) end,"
+      },
+      {
+        "line": 222,
+        "text": "\tgetRetaliation = function(self, t) return self:combatStatScale(\"wil\", 1, 80) end,"
+      },
+      {
+        "line": 223,
+        "text": "\ton_pre_use = function(self, t, silent) if not (self.krog_kills and self.krog_kills >= 100) then if not silent then game.logPlayer(self, \"You must kill more enemies before you can use this talent!\") end return false end return true end,"
+      },
+      {
+        "line": 224,
+        "text": "\tpassives = function(self, t, p)"
+      },
+      {
+        "line": 225,
+        "text": "\t\tlocal damtype = self.drake_infused_blood_type or DamageType.FIRE"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "689ac1d13e2f0fb5dd553fbce2d6ceb969feaca29ffe000fd6e46bbeeabbfe8b",
+    "public_source_path": "tome-cults/data/talents/demented/void.lua",
+    "lines": [
+      {
+        "line": 71,
+        "text": ""
+      },
+      {
+        "line": 72,
+        "text": "\t\t\t\tlocal reduce = t.getReduction(self, t)*dam"
+      },
+      {
+        "line": 73,
+        "text": "\t\t\t\tif src.logCombat then src:logCombat(self, \"#FIREBRICK##Target#'s void star absorbs the damage from #Source#, converting it into entropy!#LAST#\") end"
+      },
+      {
+        "line": 74,
+        "text": "\t\t\t\tdam = dam - reduce"
+      },
+      {
+        "line": 75,
+        "text": "--\t\t\t\tprint(\"[PROJECTOR] dam after callbackOnTakeDamage\", t.id, dam)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "689cccf420486af4daed9ccbfc848ac8a211330311effe5fab89996f67565d37",
+    "public_source_path": "tome-cults/data/birth/krog.lua",
+    "lines": [
+      {
+        "line": 100,
+        "text": "\t\t},"
+      },
+      {
+        "line": 101,
+        "text": "\t\tfacial_features = {"
+      },
+      {
+        "line": 102,
+        "text": "\t\t\t{name=_t\"Facial Warpaint\", file=\"face_warpaint\"},"
+      },
+      {
+        "line": 103,
+        "text": "\t\t\t{name=_t\"Dark Beard 1\", file=\"beard_krog_01\", only_for={sex=\"Male\"}},"
+      },
+      {
+        "line": 104,
+        "text": "\t\t\t{name=_t\"Dark Beard 2\", file=\"beard_krog_02\", only_for={sex=\"Male\"}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68c48447f48960bacf74d4b0638f3b0d577ad873606bfaba9d425ad98acd3bb3",
+    "public_source_path": "tome-cults/data/talents/demented/timethief.lua",
+    "lines": [
+      {
+        "line": 203,
+        "text": ""
+      },
+      {
+        "line": 204,
+        "text": "\t\tif target:attr(\"summon_time\") then"
+      },
+      {
+        "line": 205,
+        "text": "\t\t\tgame.logPlayer(self, \"You can't clone summons!\")"
+      },
+      {
+        "line": 206,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 207,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68e6b2d2e3992dd92410677be105b10c51624eefa0a9b9595736e5a4cc3d35e0",
+    "public_source_path": "tome-cults/data/factions.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "-- For a view from the gallery"
+      },
+      {
+        "line": 25,
+        "text": "engine.Faction:add{ name=\"The Tribe\", short_name=\"grung-faction\", reaction={}, }"
+      },
+      {
+        "line": 26,
+        "text": "engine.Faction:add{ name=\"Food\", short_name=\"grung-food\", reaction={}, }"
+      },
+      {
+        "line": 27,
+        "text": "engine.Faction:add{ name=\"Things from above\", short_name=\"grung-neutral-1\", reaction={}, }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68e89d4292999bf0f09f34e5faf2f0a99cf631ba1ed70c52ea6e6f0b3a4e67d5",
+    "public_source_path": "tome-cults/hooks/bonestaff.lua",
+    "lines": [
+      {
+        "line": 99,
+        "text": ""
+      },
+      {
+        "line": 100,
+        "text": "\tself:addChat{ id=\"bone_horror_enabled\","
+      },
+      {
+        "line": 101,
+        "text": "\t\ttext = _t[[#GREY##{italic}#The staff vibrates with great intensity.#{normal}##LAST# POWER! YES!"
+      },
+      {
+        "line": 102,
+        "text": "ALL SHALL BOW BEFORE MY MIGH... your might.]],"
+      },
+      {
+        "line": 103,
+        "text": "\t\tanswers = {"
+      },
+      {
+        "line": 104,
+        "text": "\t\t\t{_t\"Great!\", action=function(npc, player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "695550ff381870c16067ba080ebfc37262f0f4e8879b7b2a46ead1fde1c95198",
+    "public_source_path": "tome-cults/data/zones/ft-illusory-castle/objects.lua",
+    "lines": [
+      {
+        "line": 106,
+        "text": ""
+      },
+      {
+        "line": 107,
+        "text": "\t\t\tif nb_floor == 0 then game.log(\"#GREY#You sense no unique items on the floor.\")"
+      },
+      {
+        "line": 108,
+        "text": "\t\t\telse game.log(\"#GOLD#You sense %d unique item(s) on the floor.\", nb_floor) end"
+      },
+      {
+        "line": 109,
+        "text": "\t\t\tif nb_npc == 0 then game.log(\"#GREY#You sense no unique items on creatures.\")"
+      },
+      {
+        "line": 110,
+        "text": "\t\t\telse game.log(\"#GOLD#You sense %d unique item(s) on creatures.\", nb_npc) end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "696faab7744cbabadfb0873b2abd831789978e15e1ba999f6935c5cdf0886fe6",
+    "public_source_path": "tome-cults/data/talents/demented/rift.lua",
+    "lines": [
+      {
+        "line": 260,
+        "text": ""
+      },
+      {
+        "line": 261,
+        "text": "newTalent{"
+      },
+      {
+        "line": 262,
+        "text": "\tname = \"Pierce the Veil\","
+      },
+      {
+        "line": 263,
+        "text": "\ttype = {\"demented/rift\", 3},"
+      },
+      {
+        "line": 264,
+        "text": "\trequire = dementedreq_high3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "698143f6753042b0486c16625860ce0b43e6d7ec3d4d251253eed65a4c43db07",
+    "public_source_path": "tome-cults/data/talents/demented/controlled-horrors.lua",
+    "lines": [
+      {
+        "line": 274,
+        "text": "-- Check for permanently changing target and possible general overpoweredness"
+      },
+      {
+        "line": 275,
+        "text": "newTalent{"
+      },
+      {
+        "line": 276,
+        "text": "\tname = \"Horrific Display\","
+      },
+      {
+        "line": 277,
+        "text": "\ttype = {\"demented/controlled-horrors\", 3},"
+      },
+      {
+        "line": 278,
+        "text": "\trequire = dementedreq3,"
+      },
+      {
+        "line": 319,
+        "text": "\t\treturn ([[You attune your horrors to the dead god Amakthel, increasing your summoned horrors damage by %d%%."
+      },
+      {
+        "line": 320,
+        "text": "At talent level 3, your Decaying Devourers spell will summon 4 additional Devourers adjacent to random enemies nearby and your Bloated Horror will learn the Agony talent."
+      },
+      {
+        "line": 321,
+        "text": "At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn."
+      },
+      {
+        "line": 322,
+        "text": "The damage increase is based on your Spellpower.]]):"
+      },
+      {
+        "line": 323,
+        "text": "\t\ttformat(t.getDam(self, t))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6983c94e93cd3a70d52474026eb44879dff8947f071800e92bb8fc3b92e5f9f9",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1187,
+        "text": "\tparameters = { power=4, max_charges = 5, charges = 1  },"
+      },
+      {
+        "line": 1188,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is wasting away.\" end,"
+      },
+      {
+        "line": 1189,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# regains their strength.\" end,"
+      },
+      {
+        "line": 1190,
+        "text": "\tcharges = function(self, eff) return eff.charges or 0 end,"
+      },
+      {
+        "line": 1191,
+        "text": "\tno_stop_enter_worlmap = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69b58c84c13f7173bbdb23065944b4d4313261076eab2df76c676bd3f12a4851",
+    "public_source_path": "tome-cults/data/factions.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "-- For a view from the gallery"
+      },
+      {
+        "line": 25,
+        "text": "engine.Faction:add{ name=\"The Tribe\", short_name=\"grung-faction\", reaction={}, }"
+      },
+      {
+        "line": 26,
+        "text": "engine.Faction:add{ name=\"Food\", short_name=\"grung-food\", reaction={}, }"
+      },
+      {
+        "line": 27,
+        "text": "engine.Faction:add{ name=\"Things from above\", short_name=\"grung-neutral-1\", reaction={}, }"
+      },
+      {
+        "line": 28,
+        "text": "engine.Faction:add{ name=\"Things from above\", short_name=\"grung-neutral-2\", reaction={}, }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69b7fd283579b3f7d6b22e391a64bd580c7eee2ea9f3ab6963507987f4e10d82",
+    "public_source_path": "tome-cults/data/talents/demented/void.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "\tgetReduction = function(self, t) return self:combatTalentLimit(t, 0.75, 0.15, 0.45) end,"
+      },
+      {
+        "line": 30,
+        "text": "\tgetRegen = function(self, t) return math.max(self:combatTalentScale(t, 14, 9), 5) end,"
+      },
+      {
+        "line": 31,
+        "text": "\ton_pre_use = function(self, t, silent) if not self:hasLightArmor() then if not silent then game.logPlayer(self, \"You must be wearing light armor for this talent.\") end return false end return true end,"
+      },
+      {
+        "line": 32,
+        "text": "\ticonOverlay = function(self, t, p)"
+      },
+      {
+        "line": 33,
+        "text": "\t\tlocal p = self.sustain_talents[t.id]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69c4b745868f56dd1266f6ab9193d573f627acc0482b5bc591ea794a613c088e",
+    "public_source_path": "tome-cults/data/talents/demented/oblivion.lua",
+    "lines": [
+      {
+        "line": 239,
+        "text": "\t\t\t\t\t\tgame.level:removeEntity(proj, true)"
+      },
+      {
+        "line": 240,
+        "text": "\t\t\t\t\t\tproj.dead = true"
+      },
+      {
+        "line": 241,
+        "text": "\t\t\t\t\t\tself.summoner:logCombat(proj, (\"#ORCHID#The entropic storm destroys %s!#LAST#\"):tformat(proj:getName() or _t\"a projectile\"))"
+      },
+      {
+        "line": 242,
+        "text": "\t\t\t\t\tend"
+      },
+      {
+        "line": 243,
+        "text": "\t\t\t\t\tif target and not (self.summoner:reactionToward(target) >= 0) then "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69cb5f2ccd1921e5ad52a972e276b53f954eaeeb62cfb4b260972f61580b88d3",
+    "public_source_path": "tome-cults/overload/data/texts/intro-cults.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "title = _t\"Welcome to Tales of Maj'Eyal - #CRIMSON#Forbidden Cults\""
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "return _t[[Welcome #LIGHT_GREEN#@name@#WHITE#."
+      },
+      {
+        "line": 23,
+        "text": "You are one of several like-minded individuals that delves into knowledge long lost and forgotten, seeking sanctuary from an outside hostile world to such activities. Delving into research within the forgotten and inactive fortress of Kroshkkur, the reasons of pursuit differ among a myriad of topics. Some look to uncover knowledge hailing back to the Age of Haze when beings immensely powerful walked Eyal, while others explore the origins of themselves and other races."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "Regardless of the subject or method of research, no rules exist to constrain anyone in their approach. This has led to experimentation into what many would deem mad and certainly forbidden among the surface dwellers. If Kroshkkur were to be found it would most certainly be destroyed. Therefore the only rules that truly exist in the sanctuary are that of secrecy and safeguarding the accrued knowledge that has been obtained therein."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "But today the sanctuary is threatened by a giant worm that is tunneling directly towards Kroshkkur. If nothing is done it will collide with and destroy what remains of the ancient fortress. One idea to dealing with the worm is for someone to teleport inside it and make there way towards the worms brain cluster and destroy it. Alternatively, you consider leaving before the worm arrives and finding your own purpose in the outside world."
+      },
+      {
+        "line": 28,
+        "text": ""
+      },
+      {
+        "line": 29,
+        "text": "As with all things here, nothing restrains you in what path you #{bold}#ultimately choose#{normal}#. The question is whether you step into the #{bold}#portal to teleport into the worm#{normal}# or leave now while it is safe to do so and let #{bold}#Kroshkkur be destroyed#{normal}#."
+      },
+      {
+        "line": 30,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a8f25f7d9eb33cc097a524fdc64c68a3aca34c98e9a0307b6937081bcef4e72",
+    "public_source_path": "tome-cults/data/birth/drem.lua",
+    "lines": [
+      {
+        "line": 89,
+        "text": "\t\t\t{name=_t\"Demonic Horns 5\", file=\"horns_05\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 90,
+        "text": "\t\t\t{name=_t\"Demonic Horns 6\", file=\"horns_06\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 91,
+        "text": "\t\t\t{name=_t\"Demonic Horns 7\", file=\"horns_07\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 92,
+        "text": "\t\t\t{name=_t\"Demonic Horns 8\", file=\"horns_08\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 93,
+        "text": "\t\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a9098136419dc7729d9c551f9e1bc6887fd305e6ed8755d666ad4a9371bcddf",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 374,
+        "text": "\tbook_texture = \"book-texture-impossible\","
+      },
+      {
+        "line": 375,
+        "text": "\tbook_on_party_death = \"remake\","
+      },
+      {
+        "line": 376,
+        "text": "\tbook_party_dead_msg = function(self) if self.book_ended then return else return _t\"Hithre died. Somehow this is not what should have happened.\" end end,"
+      },
+      {
+        "line": 377,
+        "text": "\tbook_make_party = function(self, who, party)"
+      },
+      {
+        "line": 378,
+        "text": "\t\tlocal player = require(\"mod.class.Player\").new{"
+      },
+      {
+        "line": 379,
+        "text": "\t\t\tname = _t\"Hithre\", image = \"player/shalore_female.png\","
+      },
+      {
+        "line": 380,
+        "text": "\t\t\ttype = \"humanoid\", subtype = \"shalore\", display = '@', color = colors.BLUE,"
+      },
+      {
+        "line": 381,
+        "text": "\t\t\tdescriptor = { sex=\"Female\", race=\"Elf\", subrace=\"Shalore\", class=\"Demented\", subclass=\"Cultist of Entropy\", world=\"Maj'Eyal\", difficulty=who.descriptor.difficulty, permadeath=who.descriptor.permadeath},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6aa2381e8007f6cdb3579215912f5d53cb64ce779f6dae305b64ee03d06cc966",
+    "public_source_path": "tome-cults/data/general/npcs/horror.lua",
+    "lines": [
+      {
+        "line": 175,
+        "text": ""
+      },
+      {
+        "line": 176,
+        "text": "newEntity{ base = \"BASE_NPC_HORROR\","
+      },
+      {
+        "line": 177,
+        "text": "\tname = \"nethergate\", color=colors.PURPLE,"
+      },
+      {
+        "line": 178,
+        "text": "\tdesc = _t\"A strange portal of nether energies, it somehow feels alive itself.\","
+      },
+      {
+        "line": 179,
+        "text": "\timage = \"npc/horror_eldritch_nethergate_middle.png\","
+      },
+      {
+        "line": 180,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 181,
+        "text": "\tembed_particles = {"
+      },
+      {
+        "line": 182,
+        "text": "\t\t{name=\"nethergate_shader\", rad=1, args={}},"
+      },
+      {
+        "line": 183,
+        "text": "\t},"
+      },
+      {
+        "line": 184,
+        "text": "\tlevel_range = {30, nil},"
+      },
+      {
+        "line": 215,
+        "text": "\tresolvers.sustains_at_birth(),"
+      },
+      {
+        "line": 216,
+        "text": ""
+      },
+      {
+        "line": 217,
+        "text": "\tnethergate_inactive = true,"
+      },
+      {
+        "line": 218,
+        "text": "\tcustom_tooltip = function(self)"
+      },
+      {
+        "line": 219,
+        "text": "\t\tif self.nethergate_inactive then"
+      },
+      {
+        "line": 220,
+        "text": "\t\t\treturn tstring{{\"color\", \"LIGHT_BLUE\"}, _t\"It looks inactive and dormant for now. Maybe try to not wake it up.\"}"
+      },
+      {
+        "line": 221,
+        "text": "\t\telse"
+      },
+      {
+        "line": 224,
+        "text": "\tend,"
+      },
+      {
+        "line": 225,
+        "text": "\tbecome_nasty_gate = function(self)"
+      },
+      {
+        "line": 226,
+        "text": "\t\tif not self.nethergate_inactive then return end"
+      },
+      {
+        "line": 227,
+        "text": "\t\tself.nethergate_inactive = nil"
+      },
+      {
+        "line": 228,
+        "text": "\t\tfor _, ps in ipairs(self:getParticlesList(\"all\")) do"
+      },
+      {
+        "line": 229,
+        "text": "\t\t\tif ps.def == \"nethergate_shader\" then self:removeParticles(ps) break end"
+      },
+      {
+        "line": 230,
+        "text": "\t\tend"
+      },
+      {
+        "line": 231,
+        "text": "\t\tself:removeParticles(self.sleep_particle)"
+      },
+      {
+        "line": 232,
+        "text": "\t\tlocal Particles = require \"engine.Particles\""
+      },
+      {
+        "line": 233,
+        "text": "\t\tself:addParticles(Particles.new(\"nethergate_shader\", 1, {awaken=1}))"
+      },
+      {
+        "line": 234,
+        "text": "\tend,"
+      },
+      {
+        "line": 235,
+        "text": "\ton_act = function(self)"
+      },
+      {
+        "line": 236,
+        "text": "\t\tif self.nethergate_inactive then"
+      },
+      {
+        "line": 237,
+        "text": "\t\t\tlocal tgts = self:projectCollect({type=\"ball\", radius=10}, self.x, self.y, engine.Map.ACTOR, \"hostile\")"
+      },
+      {
+        "line": 238,
+        "text": "\t\t\tlocal power = 0"
+      },
+      {
+        "line": 242,
+        "text": "\t\t\tif power > 0 and rng.percent(power) then"
+      },
+      {
+        "line": 243,
+        "text": "\t\t\t\tself:become_nasty_gate()"
+      },
+      {
+        "line": 244,
+        "text": "\t\t\t\tgame.logSeen(self, \"#PURPLE#The nethergate feels a presence nearby and wakes up!\")"
+      },
+      {
+        "line": 245,
+        "text": "\t\t\telse"
+      },
+      {
+        "line": 246,
+        "text": "\t\t\t\tself:useEnergy() -- Always use energy when in the sleep state"
+      },
+      {
+        "line": 249,
+        "text": "\tend,"
+      },
+      {
+        "line": 250,
+        "text": "\ton_takehit = function(self, value, src)"
+      },
+      {
+        "line": 251,
+        "text": "\t\tif value > 0 and self.nethergate_inactive then"
+      },
+      {
+        "line": 252,
+        "text": "\t\t\tself:become_nasty_gate()"
+      },
+      {
+        "line": 253,
+        "text": "\t\t\tgame.logSeen(self, \"#PURPLE#The nethergate absorbs the attack and stirs, reactivating...\")"
+      },
+      {
+        "line": 254,
+        "text": "\t\t\treturn 0 -- 'cause I'm evil"
+      },
+      {
+        "line": 255,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6abd45959a96da2fc55a16de80b4633bde139b7a4fc9f32e1cafe24bbb41f0de",
+    "public_source_path": "tome-cults/data/lore/fay-willows.lua",
+    "lines": [
+      {
+        "line": 385,
+        "text": "\tid = \"fay-willows-book3-chapter3\","
+      },
+      {
+        "line": 386,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 387,
+        "text": "\tname = _t\"Escapades of Fay Willows [Book 3, Chapter 3] - Battle Preparations\","
+      },
+      {
+        "line": 388,
+        "text": "\tlore = _t[[[i]I had never seen a battle before in my life, let alone been a part of one. However I do not believe this is necessarily the case for the ogres. They say that they lived as nomadic peddlers but I wonder if perhaps that was just a cover story for themselves. Maybe they hired themselves out as mercenaries or other such adventures of combat? It is hard to know what lies within their past.[/i]"
+      },
+      {
+        "line": 389,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6afb130bb9a8e83d164b7830f232840d6e50fd52cfdfd1e230b79eab1f9cd0cf",
+    "public_source_path": "tome-cults/data/talents/demented/void.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": "\t\t\t\t\tp.particles[#p.particles+1] = self:addParticles(Particles.new(\"bone_shield\", 1))"
+      },
+      {
+        "line": 60,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 61,
+        "text": "\t\t\t\tgame.logSeen(self, \"A void star appears around %s.\", self:getName())"
+      },
+      {
+        "line": 62,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 63,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b169af71f7b0b1fc97d8eba104d0c3666ec7bda4a86d7d9d01d2b1cc00e234f",
+    "public_source_path": "tome-cults/data/talents/demented/demented.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "newTalentType{ allow_random=true, is_spell=true, no_silence=true, type=\"demented/tentacles\", name = _t(\"tentacles\", \"talent type\"), description = _t\"Grow horrific tentacles to assail your foes.\" }"
+      },
+      {
+        "line": 33,
+        "text": "newTalentType{ allow_random=true, is_spell=true, no_silence=true, type=\"demented/horrific-body\", name = _t(\"horrific body\", \"talent type\"), description = _t\"Let your body mutate in terrible and efficient ways.\" }"
+      },
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, is_spell=true, no_silence=true, type=\"demented/writhing-body\", name = _t(\"writhing body\", \"talent type\"), description = _t\"Enhance your body and tentacle with new attacks and horrific growths.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, is_spell=true, no_silence=true, type=\"demented/path-of-horror\", name = _t(\"path of horror\", \"talent type\"), description = _t\"Continue your journey on the side of horror.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b4f1c0c18ee564b33a988a9423161749ab9ff3319d9411ce6ec6046e1a3211b",
+    "public_source_path": "tome-cults/data/lore/kroshkkur.lua",
+    "lines": [
+      {
+        "line": 112,
+        "text": "\tid = \"cults-gods-9\","
+      },
+      {
+        "line": 113,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 114,
+        "text": "\tname = _t\"Researcher Dremnot's Demystification of the Gods: Chapter 9 - Xadoch\","
+      },
+      {
+        "line": 115,
+        "text": "\tlore = _t[[Xadoch held the title of Blight-Weaver. It loved the creatures which crawled close to the earth and toiled in Eyal's filth, but had no love for its sapient races. As such, it was attributed in many mythologies to the creation of numerous diseases and plagues. Some myths stated that there was necessity to Xadoch's presence, as its plagues prevented any one race dominating the world and kept a balance of sorts. On the other hand, many other myths attest that the god had a cruel curiosity. It spread blight across the world and created diseases just to see what sort of effect they would have on sapient life. If it weren't for the other gods on Eyal, it is believed that Xadoch would have scoured the entire world of sapient life."
+      },
+      {
+        "line": 116,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b65f8282efc86d391bb99bb54eecb09286128a1331f2e5f3960a5eb29d87039",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "\t},"
+      },
+      {
+        "line": 71,
+        "text": "\tmax_power = 150, power_regen = 1,"
+      },
+      {
+        "line": 72,
+        "text": "\tuse_power = { name = _t\"assault the mind of a foe to utterly dominate it\", power = 100,"
+      },
+      {
+        "line": 73,
+        "text": "\t\tuse = function(self, who)"
+      },
+      {
+        "line": 74,
+        "text": "\t\t\tlocal tg = {type=\"hit\", range=3}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ba3ca662078e92b1c31369ac17b74e56ee8ba4a59cdf7303e49f1aef4612d01",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 32,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 33,
+        "text": "\t\t_t\"The thirst for knowledge is seen by most arcane users as as good thing.\","
+      },
+      {
+        "line": 34,
+        "text": "\t\t_t\"But some take it too far, some delve into lost knowledge. They may gain huge power from it, but at what cost?\""
+      },
+      {
+        "line": 35,
+        "text": "\t},"
+      },
+      {
+        "line": 36,
+        "text": "\tdescriptor_choices ="
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bd87cbe246387d4fb265e61361ddfca46da502b8c2d696c1263666fd856d602",
+    "public_source_path": "tome-cults/data/talents/demented/chronophage.lua",
+    "lines": [
+      {
+        "line": 147,
+        "text": "\t\tlocal dur = t.getDuration(self,t)"
+      },
+      {
+        "line": 148,
+        "text": "\t\tlocal power = t.getPower(self,t)"
+      },
+      {
+        "line": 149,
+        "text": "\t\treturn ([[On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.]])"
+      },
+      {
+        "line": 150,
+        "text": "\t\t:tformat(life, dur, power)"
+      },
+      {
+        "line": 151,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bf3da1c94d22ea7fffa621c4e0a6b148b806fcf41cc3a3d074ac5bf62c79d6e",
+    "public_source_path": "tome-cults/data/talents/demented/horrific-body.lua",
+    "lines": [
+      {
+        "line": 131,
+        "text": ""
+      },
+      {
+        "line": 132,
+        "text": "newTalent{"
+      },
+      {
+        "line": 133,
+        "text": "\tname = \"Defiled Blood\","
+      },
+      {
+        "line": 134,
+        "text": "\ttype = {\"demented/horrific-body\", 4},"
+      },
+      {
+        "line": 135,
+        "text": "\trequire = dementedreq4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bfaa8c4018bec4797f7969c6c243bf31cc3aa18d6da626cadf5ce7c402f50cd",
+    "public_source_path": "tome-cults/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 259,
+        "text": "\t\t\t{name=DamageType:get(DamageType.PHYSICAL).text_color.._t\"Sand Drake / Physical Resistance (1/3rd values)\", damtype=DamageType.PHYSICAL},"
+      },
+      {
+        "line": 260,
+        "text": "\t\t\t{name=DamageType:get(DamageType.NATURE).text_color.._t\"Wild Drake / Nature Resistance\", damtype=DamageType.NATURE},"
+      },
+      {
+        "line": 261,
+        "text": "\t\t\t{name=DamageType:get(DamageType.ACID).text_color.._t\"Acid Drake / Acid Resistance\", damtype=DamageType.ACID},"
+      },
+      {
+        "line": 262,
+        "text": "\t\t\t{name=_t\"Never mind\"},"
+      },
+      {
+        "line": 263,
+        "text": "\t\t}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c4b2c2d60ce4c9649316a5e724dc26b1d005c93f56a02058049b2eab9eb1870",
+    "public_source_path": "tome-cults/data/general/events/digestive-sack.lua",
+    "lines": [
+      {
+        "line": 102,
+        "text": "\tif self.chest_opened then return false end"
+      },
+      {
+        "line": 103,
+        "text": ""
+      },
+      {
+        "line": 104,
+        "text": "\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Giant Digestive Sack\", _t\"Open the sack?\", function(ret) if ret then"
+      },
+      {
+        "line": 105,
+        "text": "\t\tself.chest_opened = true"
+      },
+      {
+        "line": 106,
+        "text": "\t\tif self.chest_item then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c4e8e9d569a91123edb36ba7764eac99b71464fb28e91c81a4b53457f7366ed",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 755,
+        "text": "\tpower_source = {antimagic=true, psionic=true},"
+      },
+      {
+        "line": 756,
+        "text": "\tunique=true, rarity=340,"
+      },
+      {
+        "line": 757,
+        "text": "\ttype = \"charm\", subtype=\"totem\","
+      },
+      {
+        "line": 758,
+        "text": "\tname = \"Persistent Will\", image = \"object/artifact/persistant_will.png\","
+      },
+      {
+        "line": 759,
+        "text": "\tunided_name = _t\"ever burning stake\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c4f98dfb0a5ed79d6a2ac67dd8b1c21d48c518172f6350588b7fc5e666df16a",
+    "public_source_path": "tome-cults/data/zones/ft-haze-cave/zone.lua",
+    "lines": [
+      {
+        "line": 161,
+        "text": "\t\t\t\t_t\"Great blasts of light come from the sky.\","
+      },
+      {
+        "line": 162,
+        "text": "\t\t\t\t_t\"Indescribable things are emerging from the darkness.\","
+      },
+      {
+        "line": 163,
+        "text": "\t\t\t\t_t\"Looking up, you see something writhing between the stars. You look away before curiosity gets the better of you.\","
+      },
+      {
+        "line": 164,
+        "text": "\t\t\t\t_t\"The lights nearly blind you as cascades of swirling colours explode in the darkness above your head.\","
+      },
+      {
+        "line": 165,
+        "text": "\t\t\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c770c7de8a2a35e77968437ebcff26a7c9b7d588dbe5bd73146bd8cb468e311",
+    "public_source_path": "tome-cults/data/chats/godfeaster-malyu-escaped.lua",
+    "lines": [
+      {
+        "line": 80,
+        "text": "\ttext = _t[[...Fine, be that way. Good luck out there, though.]],"
+      },
+      {
+        "line": 81,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 82,
+        "text": "\t\t{_t\"You too!\"},"
+      },
+      {
+        "line": 83,
+        "text": "\t}"
+      },
+      {
+        "line": 84,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c89adcd0ef454bff864a0cbdddfdbb7b4b4516ba24b798188738c9ef379423d",
+    "public_source_path": "tome-cults/data/birth/drem.lua",
+    "lines": [
+      {
+        "line": 25,
+        "text": "\tname = \"Drem\","
+      },
+      {
+        "line": 26,
+        "text": "\tlocked = function() return profile.mod.allow_build.race_drem end,"
+      },
+      {
+        "line": 27,
+        "text": "\tlocked_desc = _t[[Faceless, but not mindless.]],"
+      },
+      {
+        "line": 28,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 29,
+        "text": "\t\t_t\"Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6cd341d9076e7566e28ac4e30d68e80fbcfb37d0c7edfd526be53906c4aa21be",
+    "public_source_path": "tome-cults/superload/mod/class/Game.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\tif profile.mod.allow_build.race_ogre and self.zone.short_name == \"town-last-hope\" and p.level > 16 and p:isQuestStatus(\"antimagic\", engine.Quest.DONE) and not self.state.cults_krog_quest_starter then"
+      },
+      {
+        "line": 58,
+        "text": "\t\tself.state.cults_krog_quest_starter = true"
+      },
+      {
+        "line": 59,
+        "text": "\t\tDialog:simpleLongPopup(_t\"Urgent affair in Zigur\", (_t[[As you enter Last Hope a courier finds you to deliver a letter from Protector Myssil of Zigur:"
+      },
+      {
+        "line": 60,
+        "text": ""
+      },
+      {
+        "line": 61,
+        "text": "%s, while you were away destroying arcane filth I have received grave news."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e0de855a53756fd4dd95c6cfde132edabc2acd4c5dc01ba70fbc4a034247794",
+    "public_source_path": "tome-cults/hooks/bonestaff.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\t\tdata.list.bonestaff = _t[[#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.]]"
+      },
+      {
+        "line": 25,
+        "text": "\telseif data.mode == \"how_speak\" then"
+      },
+      {
+        "line": 26,
+        "text": "\t\tdata.list.bonestaff = _t\"#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?\""
+      },
+      {
+        "line": 27,
+        "text": "\telseif data.mode == \"which_aspect\" then"
+      },
+      {
+        "line": 28,
+        "text": "\t\tdata.list.bonestaff = _t\"#GREY##{italic}#The vibrations intensify.#{normal}##LAST# As long as this means more deaths and bones, I will agree to change aspect. Which do you choose?\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e5a43d17315c8a93e955acd9c47d2763dcea380f02650a2515f9fb8090bb3a5",
+    "public_source_path": "tome-cults/data/talents/demented/beyond-sanity.lua",
+    "lines": [
+      {
+        "line": 92,
+        "text": "\tend,"
+      },
+      {
+        "line": 93,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 94,
+        "text": "\t\treturn ([[You consume the chaotic forces of 2 chaos orbs, randomly teleporting you in a general direction up to %d tiles away."
+      },
+      {
+        "line": 95,
+        "text": "\t\tYou will always travel at least %d tiles away if possible.]]):tformat(t.getMax(self, t), self:getTalentRange(t))"
+      },
+      {
+        "line": 96,
+        "text": "\tend,"
+      },
+      {
+        "line": 97,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e67cb734539bdc4f6bc88bbda50e2b140acf03d563ccf128752bba9bd12f0ef",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 939,
+        "text": "\tpower_source = {unknown=true},"
+      },
+      {
+        "line": 940,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 941,
+        "text": "\tname = \"Shoes of Moving Slowly\", image = \"object/artifact/shoes_of_moving_slowly.png\","
+      },
+      {
+        "line": 942,
+        "text": "\tmoddable_tile = \"cults/shoes_of_moving_slowly\","
+      },
+      {
+        "line": 943,
+        "text": "\tunided_name = _t\"restful shoes\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e709d418ae7dd64d6ea85a674331f7caf74f90dde5dec083f0358b6accc4498",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1777,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1778,
+        "text": "\tname = \"DECAYING_GROUND\", image = \"talents/decaying_grounds.png\","
+      },
+      {
+        "line": 1779,
+        "text": "\tdesc = _t\"Decaying Ground\","
+      },
+      {
+        "line": 1780,
+        "text": "\tlong_desc = function(self, eff) return (\"All cooldowns increased by %d%%.\"):tformat(eff.power * 100) end,"
+      },
+      {
+        "line": 1781,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6e8dcd68bb69498f058e0bbebfbb4054b6301f51f2cb000d7009312875a6e2ea",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 685,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 686,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 687,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is ignited by voidfire!\", _t\"+Voidburn\" end,"
+      },
+      {
+        "line": 688,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer ignited.\", _t\"-Voidburn\" end,"
+      },
+      {
+        "line": 689,
+        "text": "\tcharges = function(self, eff) return math.floor(eff.power) end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ebdde6bf8feda71f7a01d17f876914dc02864be135f211ec57c369391cd8ee1",
+    "public_source_path": "tome-cults/data/zones/test/zone.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return {"
+      },
+      {
+        "line": 21,
+        "text": "\tname = _t\"test\","
+      },
+      {
+        "line": 22,
+        "text": "\tlevel_range = {1, 15},"
+      },
+      {
+        "line": 23,
+        "text": "\tlevel_scheme = \"player\","
+      },
+      {
+        "line": 38,
+        "text": "\t\tmap = {"
+      },
+      {
+        "line": 39,
+        "text": "\t\t\tclass = \"engine.generator.map.Static\","
+      },
+      {
+        "line": 40,
+        "text": "\t\t\tmap = \"!test\","
+      },
+      {
+        "line": 41,
+        "text": "\t\t},"
+      },
+      {
+        "line": 42,
+        "text": "\t\tactor = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ec3e7b266c41a9c835d1c7248e5c873a9c4a62695873193920ecb8d7c219f56",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 808,
+        "text": "\t\tif core.shader.active() then"
+      },
+      {
+        "line": 809,
+        "text": "\t\t\tlocal hx, hy = self:attachementSpot(\"head\", true) hx, hy = hx or 0, hy or 0"
+      },
+      {
+        "line": 810,
+        "text": "\t\t\tself:effectParticles(eff, {type=\"shader_shield\", args={toback=true, x=hx, y=hy, size_factor=1, img=\"entropy_player\"}, shader={type=\"tentacles\", appearTime=0.6, time_factor=300, noup=0.0}})"
+      },
+      {
+        "line": 811,
+        "text": "\t\tend"
+      },
+      {
+        "line": 812,
+        "text": "\tend,"
+      },
+      {
+        "line": 835,
+        "text": "\t\tif (self.life - dam) > (self.die_at or 0) then"
+      },
+      {
+        "line": 836,
+        "text": "\t\t\tself.life = self.life - dam"
+      },
+      {
+        "line": 837,
+        "text": "\t\t\tgame.logSeen(self, \"#{bold}##LIGHT_STEEL_BLUE#%s loses %d health to the entropy.#{normal}##LAST##\", self:getName():capitalize(), math.ceil(dam))"
+      },
+      {
+        "line": 838,
+        "text": "\t\telse"
+      },
+      {
+        "line": 839,
+        "text": "\t\t\tself.life = (self.die_at or 0) + 1"
+      },
+      {
+        "line": 840,
+        "text": "\t\t\tgame.logSeen(self, \"#{bold}##RED#%s loses %d health and is almost overcome by the entropy!#{normal}##LAST##\", self:getName():capitalize(), math.ceil(dam))"
+      },
+      {
+        "line": 841,
+        "text": "\t\tend"
+      },
+      {
+        "line": 842,
+        "text": "\tend,"
+      },
+      {
+        "line": 846,
+        "text": "\tname = \"ENTROPIC_GIFT\", image = \"talents/entropic_gift.png\","
+      },
+      {
+        "line": 847,
+        "text": "\tdesc = _t\"Entropic Gift\","
+      },
+      {
+        "line": 848,
+        "text": "\tlong_desc = function(self, eff) return (\"The full force of entropy has been brought to bear on the target, inflicting %0.2f darkness and %0.2f temporal damage each turn.\"):tformat(eff.power/2, eff.power/2) end,"
+      },
+      {
+        "line": 849,
+        "text": "\tcharges = function(self, eff) return math.floor(eff.power) end,"
+      },
+      {
+        "line": 850,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 852,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 853,
+        "text": "\tparameters = { power=10, resist=10 },"
+      },
+      {
+        "line": 854,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is consumed by entropy!\", _t\"+Entropic Gift\" end,"
+      },
+      {
+        "line": 855,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# has survived the entropic gift.\", _t\"-Entropic Gift\" end,"
+      },
+      {
+        "line": 856,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 1096,
+        "text": "\tname = \"NIHIL\", image = \"talents/nihil.png\","
+      },
+      {
+        "line": 1097,
+        "text": "\tdesc = _t\"Nihil\","
+      },
+      {
+        "line": 1098,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.\\nThis effect will fade in 2 turns if the source is not in line of sight.\"):tformat(eff.power*100) end,"
+      },
+      {
+        "line": 1099,
+        "text": "\tcharges = function(self, eff) return eff.nb or 0 end,\t"
+      },
+      {
+        "line": 1100,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 1102,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 1103,
+        "text": "\tparameters = { power=0.1, dam=0.1, numb=0, damage=0, nb=0 },"
+      },
+      {
+        "line": 1104,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is wreathed in entropy.\" end,"
+      },
+      {
+        "line": 1105,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free of the entropy.\" end,"
+      },
+      {
+        "line": 1106,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1107,
+        "text": "\t\tif eff.src:knowTalent(eff.src.T_ERASE) then eff.damage = eff.src:spellCrit(eff.src:callTalent(eff.src.T_ERASE, \"getDamage\")) end -- Only calculate crit once per application"
+      },
+      {
+        "line": 1986,
+        "text": "\tparameters = { },"
+      },
+      {
+        "line": 1987,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 1988,
+        "text": "\t\tfor e, _ in pairs(self.__particles) do if e.def == \"hypostasis_entropy\" then self:removeParticles(e) break end end"
+      },
+      {
+        "line": 1989,
+        "text": "\t\tself:addParticles(Particles.new(\"hypostasis_entropy\", 1, {awoke=true}))"
+      },
+      {
+        "line": 1990,
+        "text": ""
+      },
+      {
+        "line": 1991,
+        "text": "\t\tself:removeEffectsFilter(self, function(eff)"
+      },
+      {
+        "line": 2012,
+        "text": "\tend,"
+      },
+      {
+        "line": 2013,
+        "text": "\tdeactivate = function(self, eff)"
+      },
+      {
+        "line": 2014,
+        "text": "\t\tfor e, _ in pairs(self.__particles) do if e.def == \"hypostasis_entropy\" then self:removeParticles(e) break end end"
+      },
+      {
+        "line": 2015,
+        "text": "\t\tself:addParticles(Particles.new(\"hypostasis_entropy\", 1, {}))"
+      },
+      {
+        "line": 2016,
+        "text": "\tend,"
+      },
+      {
+        "line": 2017,
+        "text": "}"
+      },
+      {
+        "line": 2022,
+        "text": "\tlong_desc = function(self, eff) return (\"Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.\"):tformat(eff.dam, eff.debuffdur) end,"
+      },
+      {
+        "line": 2023,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 2024,
+        "text": "\tsubtype = { entropy=true },"
+      },
+      {
+        "line": 2025,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 2026,
+        "text": "\tno_stop_enter_worlmap = true,"
+      },
+      {
+        "line": 2299,
+        "text": "\tname = \"ENTROPIC_ROD\", image = \"talents/entropic_gift.png\","
+      },
+      {
+        "line": 2300,
+        "text": "\tdesc = _t\"Entropic Feedback\","
+      },
+      {
+        "line": 2301,
+        "text": "\tlong_desc = function(self, eff) return (\"The target healing is distorted by entropy for %d%% of the healing done over 8 turns.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2302,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 2303,
+        "text": "\tsubtype = {},"
+      },
+      {
+        "line": 2308,
+        "text": "\tcallbackPriorities={callbackOnHeal = 1}, -- trigger after (most) other healing callbacks"
+      },
+      {
+        "line": 2309,
+        "text": "\tcallbackOnHeal = function(self, eff, value, src, raw_value)"
+      },
+      {
+        "line": 2310,
+        "text": "\t\tif raw_value > 0 and not eff.projecting and not self.resting and not self.reverse_entropy then -- avoid feedback; it's bad to lose out on dmg but it's worse to break the game"
+      },
+      {
+        "line": 2311,
+        "text": "\t\t\teff.projecting = true"
+      },
+      {
+        "line": 2312,
+        "text": "\t\t\tlocal dam = math.floor(value / 8 * (eff.power / 100))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6efef01944b9c04fbd352908b0eb763b3c875d845239ca3659debbeabd78abc5",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 300,
+        "text": ""
+      },
+      {
+        "line": 301,
+        "text": "newEntity{ base = \"BASE_FORBIDDEN_TOME\","
+      },
+      {
+        "line": 302,
+        "text": "\tname = 'Forbidden Tome: \"Of Knowledge And Horrors\"', unique=true,"
+      },
+      {
+        "line": 303,
+        "text": "\timage = \"object/artifact/forbidden_tome_horror.png\","
+      },
+      {
+        "line": 304,
+        "text": "\tdesc = _t[[A gross tome of lost knowledge. Even touching it makes you feel sick.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f4e106f7b626b28c6892f53e8772146e15f2ff5f9ab5a68fbe9167d9063a734",
+    "public_source_path": "tome-cults/superload/mod/class/Game.lua",
+    "lines": [
+      {
+        "line": 32,
+        "text": "function _M:saveGame()"
+      },
+      {
+        "line": 33,
+        "text": "\tif game._chronoworlds and game._chronoworlds.multiverse_fight then"
+      },
+      {
+        "line": 34,
+        "text": "\t\tDialog:yesnoPopup(_t\"S.M.A.C.K\", _t\"Saving is not possible in the S.M.A.C.K. Do you want to cancel the fight?\", function(ret) if ret then"
+      },
+      {
+        "line": 35,
+        "text": "\t\t\trequire(\"mod.class.CultsDLC\").backFromSMACK(\"S.M.A.C.K\", [[With but a thought you enact Yiilkgur's safety protocols and pull yourself out of the arena."
+      },
+      {
+        "line": 36,
+        "text": "You have fled your fight.]])"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f5339605a445c8f1a3e7d826503a3b86ac60f87c0a92509f45dd3c013bf7866",
+    "public_source_path": "tome-cults/data/chats/godfeaster-malyu-escaped.lua",
+    "lines": [
+      {
+        "line": 49,
+        "text": "Nice job! You handled yourself a lot better than I thought you would. Now, usually I get a reward... What? Why are you looking at me like that? I'm obviously the one who saved you here. It's customary for adventurers to get rewarded when they do a good deed.]],"
+      },
+      {
+        "line": 50,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 51,
+        "text": "\t\t{(\"[Offer to teach her '%s'.]\"):tformat(talent_name), jump=\"talent\", action=finish(\"talent\")},"
+      },
+      {
+        "line": 52,
+        "text": "\t\t{(\"[Offer to teach her '%s'.]\"):tformat(cat_name), jump=\"category\", action=finish(\"category\")},"
+      },
+      {
+        "line": 53,
+        "text": "\t\t{_t\"[Offer her stat increases.]\", jump=\"stats\", action=finish(\"stats\")},"
+      },
+      {
+        "line": 54,
+        "text": "\t\t{_t\"[Offer her nothing.]\", jump=\"nothing\", action=finish(\"nothing\")},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f71323ea941461b85c071e51fc6b00df45665a7a148a85075b8b2948e886f57",
+    "public_source_path": "tome-cults/data/zones/ft-illusory-castle/npcs.lua",
+    "lines": [
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "newEntity{ base = \"BASE_NPC_MINOTAUR\","
+      },
+      {
+        "line": 29,
+        "text": "\tname = \"minotaur mindscrew\", color=colors.YELLOW,"
+      },
+      {
+        "line": 30,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 31,
+        "text": "\tdesc = _t[[A belligerent minotaur with a frightening amount of mind powers, and armed with a hammer and a pack of huge rocks.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f77f500a929b929c815f347f134d65996b9f56f628eb2335c776cb210ceff1e",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1180,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1181,
+        "text": "\tname = \"ATROPHY\", image = \"talents/atrophy.png\","
+      },
+      {
+        "line": 1182,
+        "text": "\tdesc = _t\"Atrophy\","
+      },
+      {
+        "line": 1183,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's mind and body is wasting away, reducing all stats by %d.\\nThis effect will fade in 2 turns if the source is not in line of sight.\"):tformat(eff.power*eff.charges) end,"
+      },
+      {
+        "line": 1184,
+        "text": "\ttype = \"other\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f8263cb654129fedbde84250660842b339a7b6df47bab08a03db10cda569d7e",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1508,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1509,
+        "text": "\tname = \"JINX\", image = \"talents/jinxed_touch.png\","
+      },
+      {
+        "line": 1510,
+        "text": "\tdesc = _t\"Jinxed\","
+      },
+      {
+        "line": 1511,
+        "text": "\tlong_desc = function(self, eff)"
+      },
+      {
+        "line": 1512,
+        "text": "\t\tlocal desc = _t\"The target has %d reduced saves and defense, and %d%% reduced critical chance.\\nThis effect will fade in 2 turns if the source is not in line of sight.\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f959ed5877a610c8927ae4add0823e40701008b01c52b69b39b6f34ad55498b",
+    "public_source_path": "tome-cults/data/general/grids/tentacle-tree.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\tblock_move = function(self, x, y, e, act, couldpass)"
+      },
+      {
+        "line": 36,
+        "text": "\t\tif e and e.player and act and not self.tentacle_tree_active then"
+      },
+      {
+        "line": 37,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Tentacle Tree\", _t\"Do you #{strong}#really#{normal}# want to touch that?\", function(ret) if not ret then"
+      },
+      {
+        "line": 38,
+        "text": "\t\t\t\tself.block_move_activated(self, x, y, e, act, couldpass)"
+      },
+      {
+        "line": 39,
+        "text": "\t\t\tend end, _t\"No\", _t\"Yes\", nil, true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6fd2039c9225eb7219e6001149116403ba17f1d8a00f157cf5a4ab215372f78a",
+    "public_source_path": "tome-cults/overload/mod/dialogs/FontSacrifice.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "\t\tlocal cost = self:getRerollCost(o, ego)"
+      },
+      {
+        "line": 54,
+        "text": "\t\tif self.actor.money < self:getRerollCost(o, ego) then"
+      },
+      {
+        "line": 55,
+        "text": "\t\t\tDialog:simplePopup(_t\"Not enough money\", (\"You need at least #GOLD#%s gold#LAST# to reroll this item.\"):tformat(self:getRerollCost(o, ego)))"
+      },
+      {
+        "line": 56,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 57,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6feba9240491f66c27de0ad66d47ff7debef3783607ca634ed6ce39cf99be565",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 846,
+        "text": "\tname = \"ENTROPIC_GIFT\", image = \"talents/entropic_gift.png\","
+      },
+      {
+        "line": 847,
+        "text": "\tdesc = _t\"Entropic Gift\","
+      },
+      {
+        "line": 848,
+        "text": "\tlong_desc = function(self, eff) return (\"The full force of entropy has been brought to bear on the target, inflicting %0.2f darkness and %0.2f temporal damage each turn.\"):tformat(eff.power/2, eff.power/2) end,"
+      },
+      {
+        "line": 849,
+        "text": "\tcharges = function(self, eff) return math.floor(eff.power) end,"
+      },
+      {
+        "line": 850,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6fece5773878aa2e0edd8a3f0d636615da4fc6170341c6cc51d1011c7e7eb3e8",
+    "public_source_path": "tome-cults/data/lore/fay-willows.lua",
+    "lines": [
+      {
+        "line": 259,
+        "text": "\tid = \"fay-willows-book2-chapter4\","
+      },
+      {
+        "line": 260,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 261,
+        "text": "\tname = _t\"Escapades of Fay Willows [Book 2, Chapter 4] - Despicable Atrocities\","
+      },
+      {
+        "line": 262,
+        "text": "\tlore = _t[[[i]Was it anger against magic that drove people to the acts of violence against mages in the aftermath of the Spellblaze or was it perhaps something else? While I can't say I am an expert on the humans, halflings, or dwarves; the depravity I would witness on the street leading out of the Nargol Kingdom would go beyond what I would expect to have been possible for any sentient being to do.[/i]"
+      },
+      {
+        "line": 263,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ff32c26b0f50895f0847f03f308bb3276e41bf4f8f21a467b326895935a9b7e",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 708,
+        "text": "\tpower_source = {antimagic=true},"
+      },
+      {
+        "line": 709,
+        "text": "\tname = \"Dedication\", define_as = \"ART_PAIR_DEDICATION\", image=\"object/artifact/dedication.png\","
+      },
+      {
+        "line": 710,
+        "text": "\tunided_name = _t\"always blunt mace\", unique = true,"
+      },
+      {
+        "line": 711,
+        "text": "\tmoddable_tile = \"cults/%s_dedication\","
+      },
+      {
+        "line": 712,
+        "text": "\tdesc = _t[[It is said that the preferred weapons of the krog is a mace in one hand and a sword in the other. One hand to spread the message of the Zigurath, the other to see that message through to the end."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "70008557fed3d2faaaf73d56df1bebf28897cfccb6ab87fa2c08d6ef0be30fe3",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 116,
+        "text": "\tlong_desc = function(self, eff) return (\"Caught in a slimy tendril, reducing all damage by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 117,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 118,
+        "text": "\tsubtype = { slime=true, corrupted=true },"
+      },
+      {
+        "line": 119,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 120,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is caught by a slimy tendril.\", true end,"
+      },
+      {
+        "line": 156,
+        "text": "\tlong_desc = function(self, eff) return (\"Caught disgusting worms, reducing all damage by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 157,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 158,
+        "text": "\tsubtype = { slime=true, corrupted=true },"
+      },
+      {
+        "line": 159,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 160,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is caught in gore.\", true end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "704ac05df4e76acf29447d35a656b796adf742fce7ac78a7d71d6405ca0b3f7a",
+    "public_source_path": "tome-cults/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": "\tpower_source = {nature=true, arcane=true},"
+      },
+      {
+        "line": 29,
+        "text": "\tdefine_as = \"SPINAL_CAGE\", image = \"object/artifact/spinal_cage.png\","
+      },
+      {
+        "line": 30,
+        "text": "\tname = \"Spinal Cage\", unique=true,"
+      },
+      {
+        "line": 31,
+        "text": "\tmoddable_tile = \"cults/upper_body_spinal_cage\", moddable_tile2 = \"cults/lower_body_spinal_cage\","
+      },
+      {
+        "line": 32,
+        "text": "\tunided_name = _t\"gross mass of spinal matter\", color=colors.VIOLET,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "705b2da5ab3a2608cfd64b11bc3b9d2512b4cfcd87ccd6314b2dab60c2456cc0",
+    "public_source_path": "tome-cults/data/zones/maggot/grids.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\tdefine_as = \"MAGGOT_PORTAL\","
+      },
+      {
+        "line": 25,
+        "text": "\ttype = \"floor\", subtype = \"maggot\","
+      },
+      {
+        "line": 26,
+        "text": "\tname = \"portal to Kroshkkur\", image = \"terrain/maggot/maggot_floor_1_01.png\", add_mos={{image = \"terrain/demon_portal.png\"}},"
+      },
+      {
+        "line": 27,
+        "text": "\tdisplay = '<', color_r=255, color_g=0, color_b=255,"
+      },
+      {
+        "line": 28,
+        "text": "\talways_remember = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "705bc3778644ef9af349d75c3f4a507ac3b199dcde1b8305e192aca22cb9a3f8",
+    "public_source_path": "tome-cults/data/lore/zones.lua",
+    "lines": [
+      {
+        "line": 148,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 149,
+        "text": "\tname = _t\"the truth beyond the veil (1)\","
+      },
+      {
+        "line": 150,
+        "text": "\tlore = _t[[Thought is treasure. Treasure thoughts. Spin fates, tell tales, words of gods, smith into fables. All that is can be rewritten and all writing is defined by what is. Cascades upon cascades which blend into reality, ever altering, ever changing, ever being, ever ceasing."
+      },
+      {
+        "line": 151,
+        "text": ""
+      },
+      {
+        "line": 152,
+        "text": "Words are power. My power is words. I am infinity and its end. Everything is possible.]],"
+      },
+      {
+        "line": 153,
+        "text": "}"
+      },
+      {
+        "line": 154,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "706eddab1398395266da7c216d86e48274e894c2e10a8b37f40a029aac48ff62",
+    "public_source_path": "tome-cults/data/talents/demented/beyond-sanity.lua",
+    "lines": [
+      {
+        "line": 129,
+        "text": "\tend,"
+      },
+      {
+        "line": 130,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 131,
+        "text": "\t\treturn ([[You trigger an explosion of your chaos orbs on a target."
+      },
+      {
+        "line": 132,
+        "text": "\t\tThe orbs do no damage but confuse it for %d turns with a confusion power of 10%% per orb."
+      },
+      {
+        "line": 133,
+        "text": "\t\tYour effective spellpower used to overcome the target's mental save is also increased by 10%% per orb."
+      },
+      {
+        "line": 134,
+        "text": "\t\tAll your orbs are always spent.]]):"
+      },
+      {
+        "line": 135,
+        "text": "\t\ttformat(t.getDur(self, t))"
+      },
+      {
+        "line": 136,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7072fbc6659ab9e9ed77870815f9bc45cf7d855469976ef8a434a9f60ea7caa9",
+    "public_source_path": "tome-cults/data/zones/ft-haze-cave/zone.lua",
+    "lines": [
+      {
+        "line": 143,
+        "text": "\t\t\t\t_t\"Why is there a dead tentacled one here?\","
+      },
+      {
+        "line": 144,
+        "text": "\t\t\t\t_t\"Corpses are raining from the sky...\","
+      },
+      {
+        "line": 145,
+        "text": "\t\t\t\t_t\"The many tentacled ones are piling on the ground, forming mass graves.\","
+      },
+      {
+        "line": 146,
+        "text": "\t\t\t},"
+      },
+      {
+        "line": 147,
+        "text": "\t\t\twatch_fight = { chance = 3, cooldown = 10,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "707902886eb708cf718ea0325244d3edc3e93bb45c27e9440e1b568d341f18af",
+    "public_source_path": "tome-cults/overload/mod/dialogs/EntropicWormhole.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "\tself.c_list = ListColumns.new{width=math.floor(self.iw - 10), height=self.ih - 10 - self.c_handicap.h, scrollbar=true, sortable=true, columns={"
+      },
+      {
+        "line": 39,
+        "text": "\t\t{name=_t\"Player\", width=15, display_prop=\"player\", sort=\"player\"},"
+      },
+      {
+        "line": 40,
+        "text": "\t\t{name=_t\"Character\", width=45, display_prop=\"character\", sort=\"character\"},"
+      },
+      {
+        "line": 41,
+        "text": "\t\t{name=_t\"Status\", width=40, display_prop=\"addons_status\", sort=\"addons_status\"},"
+      },
+      {
+        "line": 122,
+        "text": "\t\tsavefile_pipe:ignoreSaveToken(false)"
+      },
+      {
+        "line": 123,
+        "text": "\t\tfor a, _ in pairs(ep and ep.members and ep.members or {}) do"
+      },
+      {
+        "line": 124,
+        "text": "\t\t\tif a.__CLASSNAME == \"mod.class.Player\" then"
+      },
+      {
+        "line": 125,
+        "text": "\t\t\t\tgame:unregisterDialog(self)"
+      },
+      {
+        "line": 126,
+        "text": "\t\t\t\tif not config.settings.cheat then game:saveGame() end -- Annoying for testing, safer for players"
+      },
+      {
+        "line": 169,
+        "text": ""
+      },
+      {
+        "line": 170,
+        "text": "function _M:createFoe(a, handicap)"
+      },
+      {
+        "line": 171,
+        "text": "\tlocal p = game:getPlayer(true)"
+      },
+      {
+        "line": 172,
+        "text": ""
+      },
+      {
+        "line": 173,
+        "text": "\tmod.class.NPC.castAs(a)"
+      },
+      {
+        "line": 187,
+        "text": "\ta.on_die = function(self) game:onTickEnd(function()"
+      },
+      {
+        "line": 188,
+        "text": "\t\tgame:chronoRestore(\"multiverse_fight\", true)"
+      },
+      {
+        "line": 189,
+        "text": "\t\tlocal p = game:getPlayer(true)"
+      },
+      {
+        "line": 190,
+        "text": "\t\tif self.__entropic_handicap >= 800 and self.level >= p.level and self.level >= 50 and self.__diff_ok then"
+      },
+      {
+        "line": 191,
+        "text": "\t\t\tworld:gainAchievement(\"CULTS_ENTROPIC_HANDICAP_800\", p)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "708e943589c5b6152140492def3a047427ea62b4ea89c20128947d7a8c09e2e7",
+    "public_source_path": "tome-cults/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\tid = \"cults-cultist-unlock-lesson-2\","
+      },
+      {
+        "line": 58,
+        "text": "\tcategory = \"Forbidden Cults\", always_pop = true,"
+      },
+      {
+        "line": 59,
+        "text": "\tname = _t\"Lessons of Inevitability - Netherblast\","
+      },
+      {
+        "line": 60,
+        "text": "\tlore = _t[[For this exercise, you will learn how to manipulate and direct entropic energies. This spell will be your main defence against your foes and will teach you to manage the backlash from using it. Few beings in existence are capable of defending themselves against the Netherblast, so practice with it frequently until you have perfected it."
+      },
+      {
+        "line": 61,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7096ca7cdffa171baec965e7484975084915127ab87d1cd845581ccd4de93dd3",
+    "public_source_path": "tome-cults/data/talents/demented/madness.lua",
+    "lines": [
+      {
+        "line": 162,
+        "text": ""
+      },
+      {
+        "line": 163,
+        "text": "newTalent{"
+      },
+      {
+        "line": 164,
+        "text": "\tname = \"Sanity Warp\","
+      },
+      {
+        "line": 165,
+        "text": "\ttype = {\"demented/madness\", 3},"
+      },
+      {
+        "line": 166,
+        "text": "\trequire = dementedreq3,"
+      },
+      {
+        "line": 223,
+        "text": "\t\tlocal dam = t.getDamage(self,t)*100"
+      },
+      {
+        "line": 224,
+        "text": "\t\treturn ([[Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. "
+      },
+      {
+        "line": 225,
+        "text": "\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage."
+      },
+      {
+        "line": 226,
+        "text": "\t\tThe damage will improve with your Spellpower.]]):tformat(rad, dur, dam)"
+      },
+      {
+        "line": 227,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "70b17f56eae31ba70ad8663b110ef797e928383e1e183a93afe4eb1ef625b5c6",
+    "public_source_path": "tome-cults/data/zones/ft-illusory-castle/zone.lua",
+    "lines": [
+      {
+        "line": 30,
+        "text": "\t_t\"Flexible Demeanour\","
+      },
+      {
+        "line": 31,
+        "text": "\t_t\"Just Read The Instructions\","
+      },
+      {
+        "line": 32,
+        "text": "\t_t\"Of Course I Still Love You\","
+      },
+      {
+        "line": 33,
+        "text": "\t_t\"Limiting Factor\","
+      },
+      {
+        "line": 34,
+        "text": "\t_t\"Cargo Cult\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "70d5a6e4756bb7adbbac292218b134d0378d105868e3896a5eb8ee163347c4c7",
+    "public_source_path": "tome-cults/data/general/events/space-dwarf-ship.lua",
+    "lines": [
+      {
+        "line": 138,
+        "text": ""
+      },
+      {
+        "line": 139,
+        "text": "local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()"
+      },
+      {
+        "line": 140,
+        "text": "g.name = _t\"eerie cave\""
+      },
+      {
+        "line": 141,
+        "text": "g.display='>' g.color_r=0 g.color_g=218 g.color_b=255 g.notice = true"
+      },
+      {
+        "line": 142,
+        "text": "g.always_remember = true"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "70ec640f90de3d49c4a135da199853174a698ba3fb5ad0b698b1bbfb2e1cac1a",
+    "public_source_path": "tome-cults/data/birth/krog.lua",
+    "lines": [
+      {
+        "line": 103,
+        "text": "\t\t\t{name=_t\"Dark Beard 1\", file=\"beard_krog_01\", only_for={sex=\"Male\"}},"
+      },
+      {
+        "line": 104,
+        "text": "\t\t\t{name=_t\"Dark Beard 2\", file=\"beard_krog_02\", only_for={sex=\"Male\"}},"
+      },
+      {
+        "line": 105,
+        "text": "\t\t\t{name=_t\"Dark Beard 3\", file=\"beard_krog_03\", only_for={sex=\"Male\"}},"
+      },
+      {
+        "line": 106,
+        "text": "\t\t\t{name=_t\"Dark Beard 4\", file=\"beard_krog_04\", only_for={sex=\"Male\"}},"
+      },
+      {
+        "line": 107,
+        "text": "\t\t\t{name=_t\"Dark Beard 5\", file=\"beard_krog_05\", only_for={sex=\"Male\"}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "717d72dbe3916a82e3eb14bfec5ea797e1960e5f997f069e63f5c783d1b0be82",
+    "public_source_path": "tome-cults/data/birth/krog.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "getBirthDescriptor(\"race\", \"Giant\").descriptor_choices.subrace[\"Krog\"] = \"allow\""
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "newBirthDescriptor"
+      },
+      {
+        "line": 23,
+        "text": "{"
+      },
+      {
+        "line": 24,
+        "text": "\ttype = \"subrace\","
+      },
+      {
+        "line": 25,
+        "text": "\tname = \"Krog\","
+      },
+      {
+        "line": 26,
+        "text": "\tlocked = function() return profile.mod.allow_build.race_krog end,"
+      },
+      {
+        "line": 27,
+        "text": "\tlocked_desc = _t[[Once an abomination, now a weapon.]],"
+      },
+      {
+        "line": 28,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 29,
+        "text": "\t\t_t\"Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.\","
+      },
+      {
+        "line": 30,
+        "text": "\t\t_t\"They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.\","
+      },
+      {
+        "line": 31,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      }
+    ]
+  }
+]

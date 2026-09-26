@@ -1,0 +1,55 @@
+{
+ "workset": "evidence/quality/production-batches/batch-8553828be64ba67f2632-source-workset.json",
+ "decisions": {
+  "67fb5b7341|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults general/objects/world-artifacts.lua:776–786 对半径10内非奥术敌人施加 EFF_PERSISTANT_WILL（timed_effects.lua:2186–2199，hates_arcane，仇视一切奥术使用者），现译“攻击奥术魔法使用者”贴合实现（源文写 spellcasting friends），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "686f4f9f8e|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults timed_effects.lua GLASS_SPLINTERS activate 以 effectTemporaryValue 叠加 talent_fail_chance，现译“技能失败率增加”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "696faab774|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults talents/demented/rift.lua Pierce the Veil 本库唯一译名“刺破境界”（tome-cults.lua:3102），veil 指现实间的帷幕，“境界”为既有意译；改名属术语决定，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "698143f675|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults talents/demented/controlled-horrors.lua Horrific Display 本库译名“恐魔具现化”（tome-cults.lua:2689/3635 两处一致），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "69cb5f2ccd|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults overload/data/texts/intro-cults.lua Age of Haze 本库统一译“混沌纪”（mod-tome.lua:12528/18118、tome-cults.lua:36/2555），保留该纪元名。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "6bd87cbe24|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Cults talents/demented/chronophage.lua:89 Severed Threads 击杀需 target:checkHit(法术强度 vs 物理豁免) 且 canBe(\"instakill\")，现译“尝试切断”贴合实现（源文写得确定），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "6e5a43d173|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults talents/demented/beyond-sanity.lua:94 源串两句之间为 \\n\\t\\t，现译并成一行，一级换行/制表符不变量；方向部分（cone 目标 simple_dir_request，玩家指定方向后锥形内随机落点）“指定的方向”贴合实现，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "6f5339605a|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Cults chats/godfeaster-malyu-escaped.lua:51–54 为索要报酬后的奖励选项 [Offer to teach her]，“同意教她”语境可通，“提出教她”更贴切，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "69cb5f2ccd|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Cults overload/data/texts/intro-cults.lua 开场文本：末段 leave now while it is safe to do so and let Kroshkkur be destroyed 丢失“趁现在还安全”并把“现在”挪到踏入传送门一侧；第二段 what many would deem mad and certainly forbidden among the surface dwellers 被拆成两句并重复“被普通人的社会所禁止”；第一段添加原文没有的“追寻禁忌的知识”“希望解开过去的阴影”。宿主核对属实，修复；混沌纪保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  },
+  "6bd87cbe24|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "contextual 称 envelope 无实现代码、按原文应删“尝试”；宿主已查 chronophage.lua:89 的 checkHit 与 canBe(\"instakill\") 判定，按实现判 refuted，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+  }
+ }
+}

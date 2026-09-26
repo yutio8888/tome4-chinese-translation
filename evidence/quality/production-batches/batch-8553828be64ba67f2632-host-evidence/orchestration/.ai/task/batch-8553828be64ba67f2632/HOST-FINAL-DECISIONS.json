@@ -1,0 +1,113 @@
+{
+  "batch_id": "batch-8553828be64ba67f2632",
+  "observations": 10,
+  "observation_dispositions": {
+    "refuted": 6,
+    "advisory": 2,
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "69cb5f2ccd1921e5ad52a972e276b53f954eaeeb62cfb4b260972f61580b88d3",
+    "6e5a43d17315c8a93e955acd9c47d2763dcea380f02650a2515f9fb8090bb3a5"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "67fb5b734134b9cfd2a8208a4301996e26221a72eb4ca21a25184939e8274bf6",
+      "stage": "surface",
+      "observation": "原文要求攻击“他们的施法者朋友”，译文改为攻击泛指的“奥术魔法使用者”，遗漏朋友关系。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua:776–786 对半径10内非奥术敌人施加 EFF_PERSISTANT_WILL（timed_effects.lua:2186–2199，hates_arcane，仇视一切奥术使用者），现译“攻击奥术魔法使用者”贴合实现（源文写 spellcasting friends），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "686f4f9f8e57fdc69e700cf076770a345cf2c1e47c2637f3c532a0a2ff62ab01",
+      "stage": "surface",
+      "observation": "原文称技能有 %d%% 的失败几率，译文称“失败率增加 %d%%”，额外引入了相对原有失败率的增量含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults timed_effects.lua GLASS_SPLINTERS activate 以 effectTemporaryValue 叠加 talent_fail_chance，现译“技能失败率增加”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "696faab7744cbabadfb0873b2abd831789978e15e1ba999f6935c5cdf0886fe6",
+      "stage": "surface",
+      "observation": "“Veil”意为帷幕，译作“境界”疑似改变词义；冻结输入没有技能语境或术语正文可供确认。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/rift.lua Pierce the Veil 本库唯一译名“刺破境界”（tome-cults.lua:3102），veil 指现实间的帷幕，“境界”为既有意译；改名属术语决定，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "698143f6753042b0486c16625860ce0b43e6d7ec3d4d251253eed65a4c43db07",
+      "stage": "surface",
+      "observation": "“Horrific Display”未直接表达“恐魔”或“具现化”；冻结输入缺少技能语境，无法确认这两个译义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/controlled-horrors.lua Horrific Display 本库译名“恐魔具现化”（tome-cults.lua:2689/3635 两处一致），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "69cb5f2ccd1921e5ad52a972e276b53f954eaeeb62cfb4b260972f61580b88d3",
+      "stage": "surface",
+      "observation": "原文“Age of Haze”译为“混沌纪”，Haze 与“混沌”含义不符；冻结输入没有该纪元名称的术语正文，需核对专名依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/data/texts/intro-cults.lua Age of Haze 本库统一译“混沌纪”（mod-tome.lua:12528/18118、tome-cults.lua:36/2555），保留该纪元名。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6bd87cbe246387d4fb265e61361ddfca46da502b8c2d696c1263666fd856d602",
+      "stage": "surface",
+      "observation": "原文说将切断目标生命线并立即杀死目标，译文加入“尝试”，改变了效果的确定性。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/chronophage.lua:89 Severed Threads 击杀需 target:checkHit(法术强度 vs 物理豁免) 且 canBe(\"instakill\")，现译“尝试切断”贴合实现（源文写得确定），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6e5a43d17315c8a93e955acd9c47d2763dcea380f02650a2515f9fb8090bb3a5",
+      "stage": "surface",
+      "observation": "原文为“朝大致方向随机传送”，译文写成“朝指定的方向随机传送”，将方向描述成可指定；原文的换行和两个制表符也未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/beyond-sanity.lua:94 源串两句之间为 \\n\\t\\t，现译并成一行，一级换行/制表符不变量；方向部分（cone 目标 simple_dir_request，玩家指定方向后锥形内随机落点）“指定的方向”贴合实现，不改。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6f5339605a445c8f1a3e7d826503a3b86ac60f87c0a92509f45dd3c013bf7866",
+      "stage": "surface",
+      "observation": "“Offer to teach her”是主动提出教她，译文“同意教她”变成接受或答应教她。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults chats/godfeaster-malyu-escaped.lua:51–54 为索要报酬后的奖励选项 [Offer to teach her]，“同意教她”语境可通，“提出教她”更贴切，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "69cb5f2ccd1921e5ad52a972e276b53f954eaeeb62cfb4b260972f61580b88d3",
+      "stage": "contextual",
+      "observation": "在 tome-cults/overload/data/texts/intro-cults.lua 第29行（来源未固定），原文是 \"or leave now while it is safe to do so and let Kroshkkur be destroyed\"。译文把「现在」挪到了「踏入传送门」前面，还漏掉了 while it is safe to do so（趁现在还安全）这层条件，改变了两个选项的表述。此外第23行和第25行加进了原文没有的内容：「追寻禁忌的知识」「希望解开过去的阴影」，以及重复的「而你们的研究内容也被普通人的社会所禁止」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults overload/data/texts/intro-cults.lua 开场文本：末段 leave now while it is safe to do so and let Kroshkkur be destroyed 丢失“趁现在还安全”并把“现在”挪到踏入传送门一侧；第二段 what many would deem mad and certainly forbidden among the surface dwellers 被拆成两句并重复“被普通人的社会所禁止”；第一段添加原文没有的“追寻禁忌的知识”“希望解开过去的阴影”。宿主核对属实，修复；混沌纪保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6bd87cbe246387d4fb265e61361ddfca46da502b8c2d696c1263666fd856d602",
+      "stage": "contextual",
+      "observation": "在 tome-cults/data/talents/demented/chronophage.lua 第149行（来源未固定），原文是 \"you will sever their lifeline, slaying them instantly\"，语气是确定的。译文写成「你将尝试切断目标的生命线」，加进了原文没有的不确定语气「尝试」。envelope 没有给出这个效果触发条件的实现代码，无法从源码证明存在豁免判定，所以按原文应该删掉「尝试」。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "contextual 称 envelope 无实现代码、按原文应删“尝试”；宿主已查 chronophage.lua:89 的 checkHit 与 canBe(\"instakill\") 判定，按实现判 refuted，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 8 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20; all identities echoed correctly, no observation slid, and no lane used Paseo terminal tools or write patterns.",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Six observations are refuted because the targets match the implementation or library names: PERSISTANT_WILL hates all arcane users, GLASS_SPLINTERS adds talent_fail_chance, Severed Threads gates the kill on checkHit and canBe('instakill') (the contextual reviewer lacked that code), and Horrific Display / Age of Haze use their established library names.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "2 confirmed repair revisions raise the window 33 backlog from 19 to 21, reaching the 20 threshold: repair window 33 opens next."
+  ]
+}
