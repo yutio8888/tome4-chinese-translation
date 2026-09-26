@@ -1,0 +1,96 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 11 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "8c1e0cd31c5f575cf0ac46319a9b7b5261056d1e23fb6d6de446bdb3e6394ab9",
+      "stage": "surface",
+      "observation": "原文指设备看起来已启动，译文“活动起来了”误指设备在移动。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/occult-egress/grids.lua 设备提示 The strange device looks active；现译“奇怪的设备活动起来了”中“活动”可读作启动运转，不改变交互含义；contextual 判 OK，记 advisory（可改“看起来已经启动了”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8dd08c025e838b376874424d429b20cd3dd2ead5a7243bd97fb3d23573bf4262",
+      "stage": "surface",
+      "observation": "译文增加了原文没有的“以阻止其行动”，改变了任务提示的陈述范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/quests/start-cults.lua 任务提示 You have to destroy the Worm's neural spine；现译增加原文没有的目的状语“以阻止其行动”。改为“你必须摧毁蠕虫的神经脊髓。”（名词沿用现译用词），标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e1298ac569c02317f76da46e7b12719962c365d3b10f21fcb07030932aaff17",
+      "stage": "surface",
+      "observation": "原文仅以 it 指代离开的对象，译文明确写成“这本书”；冻结条目无法确认该对象是否为书。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua:420–431 该日志在阅读禁忌之书（tome.book_read_times，game.zone.book_source=tome）后移除书本对象时输出，it 即玩家进入的这本书，现译“如果你离开这本书”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e282a6db0a1fa723a79b235de54dd9d798e02dbd99695055fa570f44b2e420f",
+      "stage": "surface",
+      "observation": "原文为“walk through walls”（穿墙），译文变成“随意撞碎墙壁”，改变了行动机制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/path-of-horror.lua:141 过度生长（Overgrowth）making you able to walk through walls，实现 data/timed_effects.lua CULTS_OVERGROWTH effectTemporaryValue can_pass={pass_wall=20,pass_tree=1}，是穿墙行走；地形破坏另由第三句的地震（callbackOnMove）负责。现译“在行走时随意撞碎墙壁”把穿墙写成撞碎墙壁，机制不符。改为“能够穿墙行走”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "90024a3d3bbec25f828cbd3b1443cd565dc61f15ab5b4caa87eeb050d7987ebf",
+      "stage": "surface",
+      "observation": "原文“treatment of the ogres”指食人魔受到的对待，译为“对食人魔进行治疗”；“regenerative infusions”译为“再生纹身”；将军站在年轻法师上方并抱臂的动作也被译成法师的动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 the ones involving the treatment of the ogres：指邪教徒如何对待食人魔，现译“对食人魔进行治疗”误译；Standing above the young shalore as she slowly caught her breathe, I could see him fold his arms：是将军站在喘息未定的年轻永恒精灵旁抱臂，现译“我看到女巫站在年轻的永恒精灵前方，她慢慢地屏住呼吸，双臂合拢”主体与动作错位。regenerative infusions 译“再生纹身”一点不成立：本库 infusion 物品类统一译“纹身”（mod-tome.lua 12053/12054/36416），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "913150947d74f1e0cbf2392aafb8d5b75a18f49c48fed19c3c03d72b79e3ed34",
+      "stage": "surface",
+      "observation": "原文的“ashen skin”含灰白肤色，译文遗漏了这一描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 描述 wriggling underneath its ashen skin；现译“在它的皮肤下蠕动”省去 ashen（灰白），仅外观修饰，不影响理解；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9180e0ec03dfdaa07fc72e0ae7f269e4ee35414f144892c903e311267ce19977",
+      "stage": "surface",
+      "observation": "原文括号后有句号，译文在“）这个效果”之间缺少句末标点，将两个句子连在一起。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua:601 (free cast of a Reality Fracture talent, level 4). This effect has a 30 turns cooldown.：现译在“）”后缺句号，两句粘连。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "927086578c4815d38da41785df48999a2e24bf79af94993d96ef784dda0e58f5",
+      "stage": "surface",
+      "observation": "原文明确限定为“disfigured face power”，译文仅写“该系技能”；冻结输入未提供该系所指的上下文，无法确认限定含义是否保留。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/disfigured-face.lua 该技能属毁容之面（disfigured face）系，info 中 disfigured face power 即本系技能，现译“每次你使用该系技能时”指代明确，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9396584e30fd808ca33f2ed4fe2db781f8bf32f6d7a9b845449052ec697a08de",
+      "stage": "surface",
+      "observation": "原文仅在伤害说明前换行一次，译文在首句后另增一次换行，段落格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/scourge-drake.lua 扩大绝望（Augment Despair）info 原文只有一处 \\n\\t\\t（伤害说明之前），现译在首句“扩大它的绝望。”后另增一处 \\n\\t\\t，换行结构与原文不一致（一级 newline 不变量；contextual 判 OK，宿主按原文确认）。修复为首句与“增加负面效果的持续时间…”合为一行，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9500ed016ce5120d162af068bdf964ba06db268ce29bb948a603eb44509f2929",
+      "stage": "surface",
+      "observation": "开头原文明确区分 Shaloren 与 Thaloren，译文却将两者都写成“永恒精灵”；后文同一条目把 thalore 译为“自然精灵”。另“Pointing out the western direction ... with my other arm”的动作主体是叙述者，译文改成“他们用另一只胳膊指出”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 I don't believe even among the Thaloren we know much of them：叙述者为自然精灵，现译“即使是在永恒精灵之中”把 Thaloren 译成永恒精灵（同条后文 thalore 译“自然精灵”）；Pointing out the western direction that we needed to go with my other arm：主语是“我”，现译“他们用另一只胳膊指出”施事错位。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "964a6de81a5ac7902f62d312f328a74d08cd6ac3496cb8e03ed750d93883fed5",
+      "stage": "surface",
+      "observation": "原文“in a rather surprisingly loud voice for a shalore he yelled”描述永恒精灵喊话的音量，译文“对永恒精灵喊道”误将永恒精灵写成喊话对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 in a rather surprisingly loud voice for a shalore he yelled：就永恒精灵而言嗓门出奇地大，喊话对象是 DEFENDERS；现译“对永恒精灵喊道”把永恒精灵误作喊话对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

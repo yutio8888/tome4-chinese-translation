@@ -1,0 +1,174 @@
+{
+  "batch_id": "batch-ecb36bb9015065be5656",
+  "observations": 17,
+  "observation_dispositions": {
+    "advisory": 2,
+    "confirmed": 13,
+    "refuted": 2
+  },
+  "repair_revision_keys": [
+    "8dd08c025e838b376874424d429b20cd3dd2ead5a7243bd97fb3d23573bf4262",
+    "8e282a6db0a1fa723a79b235de54dd9d798e02dbd99695055fa570f44b2e420f",
+    "90024a3d3bbec25f828cbd3b1443cd565dc61f15ab5b4caa87eeb050d7987ebf",
+    "9180e0ec03dfdaa07fc72e0ae7f269e4ee35414f144892c903e311267ce19977",
+    "9396584e30fd808ca33f2ed4fe2db781f8bf32f6d7a9b845449052ec697a08de",
+    "9500ed016ce5120d162af068bdf964ba06db268ce29bb948a603eb44509f2929",
+    "964a6de81a5ac7902f62d312f328a74d08cd6ac3496cb8e03ed750d93883fed5"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "8c1e0cd31c5f575cf0ac46319a9b7b5261056d1e23fb6d6de446bdb3e6394ab9",
+      "stage": "surface",
+      "observation": "原文指设备看起来已启动，译文“活动起来了”误指设备在移动。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/occult-egress/grids.lua 设备提示 The strange device looks active；现译“奇怪的设备活动起来了”中“活动”可读作启动运转，不改变交互含义；contextual 判 OK，记 advisory（可改“看起来已经启动了”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8dd08c025e838b376874424d429b20cd3dd2ead5a7243bd97fb3d23573bf4262",
+      "stage": "surface",
+      "observation": "译文增加了原文没有的“以阻止其行动”，改变了任务提示的陈述范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/quests/start-cults.lua 任务提示 You have to destroy the Worm's neural spine；现译增加原文没有的目的状语“以阻止其行动”。改为“你必须摧毁蠕虫的神经脊髓。”（名词沿用现译用词），标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e1298ac569c02317f76da46e7b12719962c365d3b10f21fcb07030932aaff17",
+      "stage": "surface",
+      "observation": "原文仅以 it 指代离开的对象，译文明确写成“这本书”；冻结条目无法确认该对象是否为书。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua:420–431 该日志在阅读禁忌之书（tome.book_read_times，game.zone.book_source=tome）后移除书本对象时输出，it 即玩家进入的这本书，现译“如果你离开这本书”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e282a6db0a1fa723a79b235de54dd9d798e02dbd99695055fa570f44b2e420f",
+      "stage": "surface",
+      "observation": "原文为“walk through walls”（穿墙），译文变成“随意撞碎墙壁”，改变了行动机制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/path-of-horror.lua:141 过度生长（Overgrowth）making you able to walk through walls，实现 data/timed_effects.lua CULTS_OVERGROWTH effectTemporaryValue can_pass={pass_wall=20,pass_tree=1}，是穿墙行走；地形破坏另由第三句的地震（callbackOnMove）负责。现译“在行走时随意撞碎墙壁”把穿墙写成撞碎墙壁，机制不符。改为“能够穿墙行走”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "90024a3d3bbec25f828cbd3b1443cd565dc61f15ab5b4caa87eeb050d7987ebf",
+      "stage": "surface",
+      "observation": "原文“treatment of the ogres”指食人魔受到的对待，译为“对食人魔进行治疗”；“regenerative infusions”译为“再生纹身”；将军站在年轻法师上方并抱臂的动作也被译成法师的动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 the ones involving the treatment of the ogres：指邪教徒如何对待食人魔，现译“对食人魔进行治疗”误译；Standing above the young shalore as she slowly caught her breathe, I could see him fold his arms：是将军站在喘息未定的年轻永恒精灵旁抱臂，现译“我看到女巫站在年轻的永恒精灵前方，她慢慢地屏住呼吸，双臂合拢”主体与动作错位。regenerative infusions 译“再生纹身”一点不成立：本库 infusion 物品类统一译“纹身”（mod-tome.lua 12053/12054/36416），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "913150947d74f1e0cbf2392aafb8d5b75a18f49c48fed19c3c03d72b79e3ed34",
+      "stage": "surface",
+      "observation": "原文的“ashen skin”含灰白肤色，译文遗漏了这一描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 描述 wriggling underneath its ashen skin；现译“在它的皮肤下蠕动”省去 ashen（灰白），仅外观修饰，不影响理解；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9180e0ec03dfdaa07fc72e0ae7f269e4ee35414f144892c903e311267ce19977",
+      "stage": "surface",
+      "observation": "原文括号后有句号，译文在“）这个效果”之间缺少句末标点，将两个句子连在一起。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua:601 (free cast of a Reality Fracture talent, level 4). This effect has a 30 turns cooldown.：现译在“）”后缺句号，两句粘连。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "927086578c4815d38da41785df48999a2e24bf79af94993d96ef784dda0e58f5",
+      "stage": "surface",
+      "observation": "原文明确限定为“disfigured face power”，译文仅写“该系技能”；冻结输入未提供该系所指的上下文，无法确认限定含义是否保留。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/disfigured-face.lua 该技能属毁容之面（disfigured face）系，info 中 disfigured face power 即本系技能，现译“每次你使用该系技能时”指代明确，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9396584e30fd808ca33f2ed4fe2db781f8bf32f6d7a9b845449052ec697a08de",
+      "stage": "surface",
+      "observation": "原文仅在伤害说明前换行一次，译文在首句后另增一次换行，段落格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/scourge-drake.lua 扩大绝望（Augment Despair）info 原文只有一处 \\n\\t\\t（伤害说明之前），现译在首句“扩大它的绝望。”后另增一处 \\n\\t\\t，换行结构与原文不一致（一级 newline 不变量；contextual 判 OK，宿主按原文确认）。修复为首句与“增加负面效果的持续时间…”合为一行，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9500ed016ce5120d162af068bdf964ba06db268ce29bb948a603eb44509f2929",
+      "stage": "surface",
+      "observation": "开头原文明确区分 Shaloren 与 Thaloren，译文却将两者都写成“永恒精灵”；后文同一条目把 thalore 译为“自然精灵”。另“Pointing out the western direction ... with my other arm”的动作主体是叙述者，译文改成“他们用另一只胳膊指出”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 I don't believe even among the Thaloren we know much of them：叙述者为自然精灵，现译“即使是在永恒精灵之中”把 Thaloren 译成永恒精灵（同条后文 thalore 译“自然精灵”）；Pointing out the western direction that we needed to go with my other arm：主语是“我”，现译“他们用另一只胳膊指出”施事错位。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "964a6de81a5ac7902f62d312f328a74d08cd6ac3496cb8e03ed750d93883fed5",
+      "stage": "surface",
+      "observation": "原文“in a rather surprisingly loud voice for a shalore he yelled”描述永恒精灵喊话的音量，译文“对永恒精灵喊道”误将永恒精灵写成喊话对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 in a rather surprisingly loud voice for a shalore he yelled：就永恒精灵而言嗓门出奇地大，喊话对象是 DEFENDERS；现译“对永恒精灵喊道”把永恒精灵误作喊话对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8dd08c025e838b376874424d429b20cd3dd2ead5a7243bd97fb3d23573bf4262",
+      "stage": "contextual",
+      "observation": "原文仅为“你必须摧毁虫子的神经脊柱/脊髓”，译文额外添加目的状语“以阻止其行动”，start-cults.lua:30 语境无此信息，属增译。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：start-cults.lua 原文无“以阻止其行动”，与 contextual 观察一致，合并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e282a6db0a1fa723a79b235de54dd9d798e02dbd99695055fa570f44b2e420f",
+      "stage": "contextual",
+      "observation": "path-of-horror.lua:140-142 原文“making you able to walk through walls”是可穿墙行走，译文“在行走时随意撞碎墙壁”改成了破坏墙壁；地形破坏是第三句地震效果的内容，此处把两种效果混为一谈。冻结片段未含实现代码，至少与原文不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：path-of-horror.lua:140–142 与 can_pass pass_wall 实现一致，合并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "90024a3d3bbec25f828cbd3b1443cd565dc61f15ab5b4caa87eeb050d7987ebf",
+      "stage": "contextual",
+      "observation": "fay-willows.lua:537-555 多处语义/关系错误：①“the treatment of the ogres”指邪教徒如何对待食人魔（上下文问为何不杀他们），误译为“对食人魔进行治疗”；②漏译“I see little reason for you or any shalore to care.”整句；③“Standing above the young shalore as she slowly caught her breathe, I could see him fold his arms.”是将军站在喘息未定的年轻永恒精灵（女巫）旁边并抱臂，译文“我看到女巫站在年轻的永恒精灵前方，她慢慢地屏住呼吸，双臂合拢”主体和动作全错（caught her breath≠屏住呼吸）；④“what transpired after you had left for the Nargol Kingdom to the point when you came back”指从动身前往纳格尔王国到返回为止，译为“离开纳格尔王国回到埃尔瓦拉的路途中”范围错误；⑤“走进向巫”为错字（应为走近女巫）；⑥“kill them then and there”=当场杀死，译为“在各处屠杀”；⑦“Finished”指施法完毕，误译“说完”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：漏译 I see little reason for you or any shalore to care；what transpired after you had left for the Nargol Kingdom to the point when you came back 为动身前往至返回期间，现译范围错；kill them then and there 为当场杀死，现译“在各处屠杀”；Finished 指施法完毕，现译“说完”；“走进向巫”错字。宿主已核对 then and there 原文。与 surface 两处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9180e0ec03dfdaa07fc72e0ae7f269e4ee35414f144892c903e311267ce19977",
+      "stage": "contextual",
+      "observation": "world-artifacts.lua:601 原文“creating rifts”为复数且未给数量，译文“创造一个时空裂隙”凭空限定为一个，属机制数量增译；另“等级4的实境撕裂）”后缺句号与下一句粘连。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 creating rifts 为复数，实现 data/talents/demented/rift.lua Reality Fracture getNb=3（一次生成多道裂隙）；现译“创造一个时空裂隙”凭空限定为一个，机制数量不符。修复为“在身边创造时空裂隙来帮助你（免费释放一次等级4的实境撕裂）。”并补全末句“要小心。”，标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9500ed016ce5120d162af068bdf964ba06db268ce29bb948a603eb44509f2929",
+      "stage": "contextual",
+      "observation": "fay-willows.lua:363-381 多处错误：①叙述者是自然精灵，“I don't believe even among the Thaloren we know much of them”应为“即使在我们自然精灵之中”，误作“永恒精灵之中”（与同句前文 Shaloren 档案混淆，且与本条及 90024a3d 中 Thaloren=自然精灵 不一致）；②“uninviting landscape”=荒凉/令人却步的地貌，误译“不引人注意的风景”；③“a look of shock and irritation more than anything else”指食人魔的神情主要是震惊和恼怒，误译为“眼神看起来比任何其他东西都更令人震惊和恼怒”；④“Pointing out the western direction … with my other arm”主语是“我”（另一只胳膊被食人魔抓着），误作“他们用另一只胳膊指出”；⑤“I shouldn't have expected any less from those … fanatics”意为这正是那帮狂热者会干的事，误译为“不该对他们抱有任何期望”；⑥“一打群人”错字（a group of people）；⑦“What is it?”应为“怎么了”，误作“这是什么？”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：uninviting landscape 为荒凉的地貌，现译“不引人注意的风景”；a look of shock and irritation more than anything else 的主体是食人魔的神情；I shouldn't have expected any less from those fanatics 意为这正是狂热者会干的事；What is it? 为“怎么了”；“一打群人”错字。与 surface 两处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "964a6de81a5ac7902f62d312f328a74d08cd6ac3496cb8e03ed750d93883fed5",
+      "stage": "contextual",
+      "observation": "fay-willows.lua:684-700 多处错误：①“would tell me long after the battle with the undead”意为战后很久才告诉我，误译为“与不死生物战斗很久的指挥官”；②“it means nothing should its soldiers lose the will to fight”意为士兵失去斗志则战力毫无意义，误译为“这意味着士兵们不应失去战斗的意志”；③“in a rather surprisingly loud voice for a shalore he yelled”意为就永恒精灵而言嗓门出奇地大，误译为“对永恒精灵喊道”（喊话对象实为 DEFENDERS）；④“Before its attack could connect … sending its skull sailing away”误译为“在它的攻击还没来得及集中我面前…把它的头骨划开了”，语句残缺且头骨是被打飞；⑤“skeleton archers and mages of the undead force”误作“有着不死之力的法师们”；⑥“Put on my back foot”（陷入被动）误作“在我的后面”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：would tell me long after the battle with the undead 为战后很久才告诉我；it means nothing should its soldiers lose the will to fight 为士兵失去斗志则战力无意义；sending its skull sailing away 为头骨被打飞；skeleton archers and mages of the undead force；put on my back foot 为陷入被动。与 surface 一处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Cults)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Cults 11 entries)"
+  },
+  "notes": [
+    "Cults-only batch: surface ran as four lanes of 20 with no observation slid and no write or terminal patterns. lane-000-0 mis-echoed one identity (result[17], verdict OK: the first 16 hex of the frozen key followed by another entry's tail); the host precheck caught it before harvest, confirmed from the agent's native Codex log that the agent itself wrote it, and harvested a corrected raw that replaces only that string (original and corrected bytes with SHA-256 are recorded in HOST-SURFACE-BOUNDARY-AUDIT.json).",
+    "The contextual run read only its own envelope and the contract (no checkout probing), so no refreeze was needed.",
+    "Two observations are refuted by the implementation or library names: the crumbling-object log fires while reading a Forbidden Tome, so 这本书 is right, and 'disfigured face power' is this talent tree (该系技能). Regenerative infusions keep the library's 纹身. Overgrowth is confirmed from can_pass pass_wall and Reality Fracture from getNb=3.",
+    "Cults public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 34 backlog from 11 to 18; below the 20 threshold, so no window opens."
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "workset": "evidence/quality/production-batches/batch-ecb36bb9015065be5656-source-workset.json",
+  "decisions": {
+    "8c1e0cd31c|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/zones/occult-egress/grids.lua 设备提示 The strange device looks active；现译“奇怪的设备活动起来了”中“活动”可读作启动运转，不改变交互含义；contextual 判 OK，记 advisory（可改“看起来已经启动了”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8dd08c025e|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/quests/start-cults.lua 任务提示 You have to destroy the Worm's neural spine；现译增加原文没有的目的状语“以阻止其行动”。改为“你必须摧毁蠕虫的神经脊髓。”（名词沿用现译用词），标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8dd08c025e|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：start-cults.lua 原文无“以阻止其行动”，与 contextual 观察一致，合并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8e1298ac56|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults overload/mod/class/CultsDLC.lua:420–431 该日志在阅读禁忌之书（tome.book_read_times，game.zone.book_source=tome）后移除书本对象时输出，it 即玩家进入的这本书，现译“如果你离开这本书”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8e282a6db0|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/path-of-horror.lua:141 过度生长（Overgrowth）making you able to walk through walls，实现 data/timed_effects.lua CULTS_OVERGROWTH effectTemporaryValue can_pass={pass_wall=20,pass_tree=1}，是穿墙行走；地形破坏另由第三句的地震（callbackOnMove）负责。现译“在行走时随意撞碎墙壁”把穿墙写成撞碎墙壁，机制不符。改为“能够穿墙行走”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "8e282a6db0|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：path-of-horror.lua:140–142 与 can_pass pass_wall 实现一致，合并修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "90024a3d3b|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 the ones involving the treatment of the ogres：指邪教徒如何对待食人魔，现译“对食人魔进行治疗”误译；Standing above the young shalore as she slowly caught her breathe, I could see him fold his arms：是将军站在喘息未定的年轻永恒精灵旁抱臂，现译“我看到女巫站在年轻的永恒精灵前方，她慢慢地屏住呼吸，双臂合拢”主体与动作错位。regenerative infusions 译“再生纹身”一点不成立：本库 infusion 物品类统一译“纹身”（mod-tome.lua 12053/12054/36416），保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "90024a3d3b|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：漏译 I see little reason for you or any shalore to care；what transpired after you had left for the Nargol Kingdom to the point when you came back 为动身前往至返回期间，现译范围错；kill them then and there 为当场杀死，现译“在各处屠杀”；Finished 指施法完毕，现译“说完”；“走进向巫”错字。宿主已核对 then and there 原文。与 surface 两处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "913150947d|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua 描述 wriggling underneath its ashen skin；现译“在它的皮肤下蠕动”省去 ashen（灰白），仅外观修饰，不影响理解；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "9180e0ec03|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/general/objects/world-artifacts.lua:601 (free cast of a Reality Fracture talent, level 4). This effect has a 30 turns cooldown.：现译在“）”后缺句号，两句粘连。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "9180e0ec03|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 creating rifts 为复数，实现 data/talents/demented/rift.lua Reality Fracture getNb=3（一次生成多道裂隙）；现译“创造一个时空裂隙”凭空限定为一个，机制数量不符。修复为“在身边创造时空裂隙来帮助你（免费释放一次等级4的实境撕裂）。”并补全末句“要小心。”，标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "927086578c|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults data/talents/demented/disfigured-face.lua 该技能属毁容之面（disfigured face）系，info 中 disfigured face power 即本系技能，现译“每次你使用该系技能时”指代明确，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "9396584e30|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/talents/demented/scourge-drake.lua 扩大绝望（Augment Despair）info 原文只有一处 \\n\\t\\t（伤害说明之前），现译在首句“扩大它的绝望。”后另增一处 \\n\\t\\t，换行结构与原文不一致（一级 newline 不变量；contextual 判 OK，宿主按原文确认）。修复为首句与“增加负面效果的持续时间…”合为一行，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "9500ed016c|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 I don't believe even among the Thaloren we know much of them：叙述者为自然精灵，现译“即使是在永恒精灵之中”把 Thaloren 译成永恒精灵（同条后文 thalore 译“自然精灵”）；Pointing out the western direction that we needed to go with my other arm：主语是“我”，现译“他们用另一只胳膊指出”施事错位。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "9500ed016c|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：uninviting landscape 为荒凉的地貌，现译“不引人注意的风景”；a look of shock and irritation more than anything else 的主体是食人魔的神情；I shouldn't have expected any less from those fanatics 意为这正是狂热者会干的事；What is it? 为“怎么了”；“一打群人”错字。与 surface 两处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "964a6de81a|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条 in a rather surprisingly loud voice for a shalore he yelled：就永恒精灵而言嗓门出奇地大，喊话对象是 DEFENDERS；现译“对永恒精灵喊道”把永恒精灵误作喊话对象。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "964a6de81a|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults data/lore/fay-willows.lua 同条另见：would tell me long after the battle with the undead 为战后很久才告诉我；it means nothing should its soldiers lose the will to fight 为士兵失去斗志则战力无意义；sending its skull sailing away 为头骨被打飞；skeleton archers and mages of the undead force；put on my back foot 为陷入被动。与 surface 一处一并整条修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  }
+}
