@@ -1,0 +1,163 @@
+{
+  "dispatch_id": "f2a2",
+  "native_session": "4fb431b9-2dc5-4e99-a50f-00e2e00f95f8",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/4fb431b9-2dc5-4e99-a50f-00e2e00f95f8.jsonl",
+  "native_sha256": "fd1add36600384d8471f0a4385d0ec83b9a7673f9441540a05675d9d29763c35",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01UXcjLYxQWcXiLPuQdvFdCS",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -50",
+        "description": "Check envelope size and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Gz3uEGFdeUwcjPEE7iNj2r",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read the v2 contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01A3mmRxqFHcuSobi4zpgkV8",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\np=e['payload']\nprint(e['candidate_identity'])\nprint(p['fixed_source_identity'])\nprint(len(p['ordered_revision_keys']))\nprint(p['rendered_briefing'])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:2000])\n\"",
+        "description": "Inspect envelope header fields"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01LkMwSBTtwa7Cmcji7WmA2v",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\np=e['payload']\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k)\n  print(json.dumps(t,ensure_ascii=False))\n  print('CTX keys', list(c.keys()) if isinstance(c,dict) else type(c))\n\" | head -300",
+        "description": "Print translation snapshot entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011G6S54YrRRLkmUDy1BBZT4",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\np=e['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,t['revision_key'][:8])\n  print('S:',t['source'])\n  print('T:',t['target'])\n\"",
+        "description": "Print all source/target pairs"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01EQNMah1TUum8jmUSnB656y",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/4fb431b9-2dc5-4e99-a50f-00e2e00f95f8/tool-results/byc7wq574.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_011CZ9FZWsfCXwEAb7hHAeKQ",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/4fb431b9-2dc5-4e99-a50f-00e2e00f95f8/tool-results/byc7wq574.txt",
+        "offset": 247,
+        "limit": 240
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WHCUkrZmmzX18SB5QqQu5M",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\np=e['payload']\nfor i,c in enumerate(p['bounded_context']):\n  ctx=c['context']\n  print('=====',i,len(ctx))\n  print(ctx[:1500])\n\" > /tmp/ctx.txt; wc -c /tmp/ctx.txt",
+        "description": "Dump bounded context previews"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01FQoMx6W7VuSSTi6HcDN5dh",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/ctx.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RPYZDrecomAGJWhUjKx89X",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\np=e['payload']\nt=json.loads(p['terminology_snapshot']) if isinstance(p['terminology_snapshot'],str) else p['terminology_snapshot']\nfor r in t['records']: print(r['record'])\nprint([k for k in t if k!='records'])\nfor i,c in enumerate(p['bounded_context']):\n  d=json.loads(c['context'])\n  print(i, [k for k in d.keys()])\n\"",
+        "description": "List terminology records and context keys"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01ThxVjTuzAHurwgd9wHipp7",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults && sha256sum data/talents/misc/races.lua data/talents/demented/doom.lua 2>/dev/null; ls; sed -n 1,60p data/talents/misc/races.lua; grep -n \"Treason\\|treason\" data/talents/demented/doom.lua | head -30",
+        "description": "Check Frenzy and Prophecy of Treason source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VHR7gQ77jNfxrXKiesY1uD",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults/tome-cults && sha256sum data/talents/misc/races.lua data/talents/demented/doom.lua; sed -n 1,60p data/talents/misc/races.lua; grep -n \"Treason\\|treason\" data/talents/demented/doom.lua | head -30",
+        "description": "Check Frenzy and Prophecy of Treason source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01D9uFcpQaYYaEdhLemQiAUK",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\ne=json.load(open('.ai/task/repair-w34-20260926/CONTEXTUAL-ENVELOPE-f2a2.json'))\nprint(json.loads(e['payload']['bounded_context'][1]['context'])['source_evidence']['file_sha256'])\"; sed -n 238,262p /workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/doom.lua; grep -n \"DREM_FRENZY\" -A25 /workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua | head -40",
+        "description": "Verify doom.lua sha and treason redirect code"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

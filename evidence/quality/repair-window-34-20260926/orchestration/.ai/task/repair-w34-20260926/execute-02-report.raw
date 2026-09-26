@@ -1,0 +1,17 @@
+已完成 `repair-w34-20260926` 的有界 FIX。
+
+改动文件：[tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)
+
+- `964a6de81a…`
+  - “然后启动了护盾”→“然后启动了一枚护盾符文”
+  - “意识到自己受了重创，我开始离开去恢复”→“我遍体鳞伤，开始退开恢复体力”
+- `9cd39117cc…`
+  - “掌握了许多超自然的科技”→“掌握了多种科技与超自然技艺”
+
+验证全部通过：
+
+- LuaJIT 相对 `HEAD`：前后均 2199 条记录，恰 29 条 target 变化，工作集外变化 0，结构检查 29/29 通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 未修改 `.ai/task`，未 stage、commit、push，未创建 agent。
+- 无计划偏差或未解决问题。

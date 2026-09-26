@@ -1,0 +1,41 @@
+{
+  "cycle": 2,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f2a3",
+  "invalid_attempts": [
+    {
+      "dispatch_id": "f2a2",
+      "reason": "contract check rejected: 4 of 29 verdicts, 4th identity truncated to 8 hex; raw kept at .ai/reviews/repair-w34-20260926/raw-f2a2.txt; agent archived and confirmed"
+    }
+  ],
+  "raw_ok_count": 26,
+  "raw_issue_count": 3,
+  "decision": "FINAL failed (3 confirmed terminology findings): bounded fix (execute-04), RE_REVIEW(3), then FINAL_REVIEW(3) with attempt 2",
+  "findings": [
+    {
+      "revision_key": "84a82d1ccbf18acbfc7da71d5da85b7f2111b7b3055828e02d137e23d30f456c",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "terminology/places.tsv:46 Maj'Eyal→马基·埃亚尔 为 preferred（维护者 2026-08-25 裁定，“马基埃亚尔”已被取代）；该条“整个马基埃亚尔”改为“整个马基·埃亚尔”。"
+    },
+    {
+      "revision_key": "9500ed016ce5120d162af068bdf964ba06db268ce29bb948a603eb44509f2929",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "Rune of Return 在 tome-cults.lua 中 11 处作“返回符文”、2 处作“回归符文”；本条已是“返回符文”，不一致的是同窗口 90024a3d。按多数与本条对齐，修改 90024a3d 的“回归符文”为“返回符文”；本条无需改动（finding 定位到跨条关系）。"
+    },
+    {
+      "revision_key": "9a89a9f5215d9752567239206496a7238f426d1d153f5983e93b90cd7f558666",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "terminology/society.tsv:27 Melinda→梅琳达（entity name，existing），mod-tome.lua 30 处一致用“梅琳达”，tome-cults.lua 仅此条作“米琳达”；改为“梅琳达”。"
+    }
+  ],
+  "host_out_of_scope_notes": [
+    "tome-cults.lua 窗口外条目（起于第1557行，fay-willows）仍有“马基埃亚尔”，起于第1815行的条目仍有“回归符文”；不在本窗口 29 条内，登记为下一窗口宿主补充项。"
+  ],
+  "recorded_at": "2026-09-26T05:50:35.317373+00:00"
+}

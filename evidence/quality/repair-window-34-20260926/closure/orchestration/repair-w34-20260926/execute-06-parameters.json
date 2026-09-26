@@ -1,0 +1,18 @@
+{
+  "title": "W34 F4 fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w34-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F4.json、WORKSET.json。仅修复一条 target（tome-cults.lua）：84a82d1c…（菲·维莉欧斯手记）中“护送我的士兵朝中尉的方向点头，悄悄地离开了房间，关上了门，让我们两个人呆着。”整句改为“他朝中尉的方向点了点头，护送我前来的中尉便悄悄地离开了房间，关上了门，让我们两个人呆着。”。该条其余文字、其他 target 与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 恰29条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w34-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-06",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

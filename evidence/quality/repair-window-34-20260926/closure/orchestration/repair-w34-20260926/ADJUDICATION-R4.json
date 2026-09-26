@@ -1,0 +1,30 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 26,
+  "raw_issue_count": 3,
+  "decision": "converged (no tier-1 confirmed finding in cycle 4); proceed to FINAL_REVIEW in cycle 4 with attempt 2",
+  "findings": [],
+  "advisories": [
+    {
+      "revision_key": "97e5ef05f44ac605cd4bd297948ced3ae1c16317483309a0092e32336e22d41e",
+      "status": "advisory",
+      "reason": "同 ADJUDICATION-R2：HORRIFIC_DISPLAY activate 对 10 格内生物 setTarget(nil)，现译“重新考虑其攻击目标”表达了清除后由 AI 重新择敌的效果，不构成机制错误；cycle>=3 措辞类只记 advisory。Cults 公开源码按 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "refuted": [
+    {
+      "revision_key": "72dcd3ede8b8b82ba20cbe601756dd9b3cc6d4832e3c731b40239c460c496a8a",
+      "status": "refuted",
+      "reason": "第四次重报同一 claim：doom.lua Revelation 伤害转移只收集施法者 10 格内（core.fov.circle_grids(...,10,true)）带 EFF_PROPHECY_OF_TREASON 的敌人，“周围”贴合实现。Cults 公开源码按 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9b6c44d67a63946c70804abaa0a515ecef07c437f2f5cf77550cc0a9903f3535",
+      "status": "refuted",
+      "reason": "reviewer 称原文为 slate and gold；冻结源串实为 decorations made of stralite and gold。stralite 为游戏金属材质，terminology/items.tsv:44 stralite→斯莱特（preferred，global，统一装备名与叙事引用）；现译“斯莱特和黄金”正确。"
+    }
+  ],
+  "recorded_at": "2026-09-26T06:09:51.229505+00:00"
+}

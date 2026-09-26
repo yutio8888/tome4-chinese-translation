@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（第301批已 finalize，窗口34积压 29 条，继续审核第302批）
+更新时间：2026-09-26（修复窗口34已完成、待宿主证据提交与推送，下一步审核第302批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -11,9 +11,9 @@
 - 审核已闭合至第 **301** 批（`batch-153eb9d93371e710a533`）：80 条（全部 Cults），69 done / 11 repair_required。
   surface 4 lane 各 20 条（identity 全对；边界扫描 rm 子串误报，宿主核对后手写审计）；contextual 一个 Opus run（15 条）只读 envelope 与契约；24 个观察逐条裁决（维度迅击、污血回复 refuted）。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `7cf668820f12a6af9e424e05547a756f14360136` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **33**：第 294–297 批共 21 条确认问题已修复，译文提交
-  `bf6862841e08fb2791d61cbc2d1bea90bae41cff`；migration `36102218…` 的 21 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 34 积压 29 条（第298–301批）。
+- 修复窗口已闭合至 **34**：第 298–301 批共 29 条确认问题已修复，译文提交
+  `97f3d9ede57952764e6d9f34b8e2d5cf73844be3`；migration `82564249…` 的 29 个 successor
+  须重新审核，不继承旧 revision 的 done 状态。窗口 35 积压 0 条，从审核302重新累计（另有 2 条窗口外宿主补充项，见第五节第 2 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -132,8 +132,8 @@
 ## 五、下一步
 
 1. 继续审核第 **302** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
-   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 34（模板 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh`、`/tmp/w33-*.sh`）。
-2. 窗口 33 已完成（8 次复审：REVIEW、RE_REVIEW×5、FINAL×2；`max_cycles`=5 用满，第5轮唯一确认项 `5c740785` 经用户裁决记 advisory）。窗口 34 积压 **29** 条（第298–301批，Cults）：第298批 `72234560`（反熵血肉：让你充满活力）`72dcd3ed`（天启疯狂预言：正在冷却中的技能、回合、空行位置）`74d32fd0`（巨石铠甲：多块符文石块）`77b8417a`（狂热：每个职业技能首次使用免冷却、多余空格）；第299批 `81cf6010`（纳格尔街头煽动：magic、难民、声音自身叫喊、余火、反感）`829f4ab1`（裂缝切割：爆炸不叠加、湮灭→爆炸）`837d40e6`（消化：尝试吞噬）`84a82d1c`（艾伦尼恩会面：将军一笑、非本世界的灾害、为阻止而行动、报名对比）`875405bb`（近来肉少）`89eaa9d5`（骨杖：扭动、确保骨灵恐魔）`8a4b1870`（克诺什库尔：追寻者、魔法、害虫、scattered）；第300批 `8dd08c02`（蠕虫神经脊髓：删增译）`8e282a6d`（过度生长：穿墙行走）`90024a3d`（阿尔雷温一节：对待食人魔、将军抱臂、漏译、当场杀死、施法完毕）`9180e0ec`（裂隙手臂：复数裂隙、句号）`9396584e`（扩大绝望：多余换行）`9500ed01`（食人魔逃亡：自然精灵、我指路、荒凉地貌等）`964a6de8`（骨巨人之战：战后很久、喊话对象、头骨飞出等）；第301批 `96e3dc9b`（神器描述：宁愿不看）`97e5ef05`（恐魔化：法术强度对抗、所有生物敌对）`9846adf6`（寄生兽种族加成）`9a89a9f5`（迷路的商人）`9ad9d7f0`（腐败吞噬者：随等级成长）`9b6c44d6`（伤员一节：可应付、基本饮食、望向身后）`9cd39117`（伊胡拉什：据推测、删在观众面前）`9d19412e`（蠕虫合体契约：恐魔同伴、友方恐魔、技能）`9db148fe`（女巫一节：转头避开、派我来问的事）`9ddb7eae`（逃离一节：不吃不睡、走出旅馆、屹立几代、话是这么说）`9e24a525`（章节名：磨炼性格）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh` 与 `/tmp/w33-*.sh`。
+   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 35（模板 `setup_window34.py`、`.artifacts/i18n/repair-w34-20260926/wd.sh`、`/tmp/w34-*.sh`）。
+2. 窗口 34 已完成（10 次复审：REVIEW、RE_REVIEW×5、FINAL×4 有效 + 1 次无效；`max_cycles`=5 用满）。窗口 35 积压 **0** 条（第302批起，Cults）：从审核302起累计；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项 2 处待下个窗口按 revision 核实后纳入：tome-cults.lua 起于第1557行的 fay-willows 条目仍写“马基埃亚尔”，起于第1815行的条目仍写“回归符文”。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；复审每个 stage 收取后即运行 `publish.py`；窗口模板为 `setup_window34.py`、`.artifacts/i18n/repair-w34-20260926/wd.sh` 与 `/tmp/w34-*.sh`。
    第301批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）170.7 s；finalize 105.6 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。

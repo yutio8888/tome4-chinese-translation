@@ -1,0 +1,18 @@
+{
+  "title": "W34 F2 fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w34-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F2.json、WORKSET.json、TERM-SNAPSHOT.json。仅修复三条 target（tome-cults.lua）中的专名：84a82d1c…（菲·维莉欧斯手记）“马基埃亚尔”改为“马基·埃亚尔”；90024a3d…（菲·维莉欧斯手记）“回归符文”改为“返回符文”；9a89a9f5…（成就说明）“米琳达”改为“梅琳达”。这三条其余文字、其他 target 与文件的其他记录均不动（窗口外条目中的同类写法不改）。运行有界验证（LuaJIT 相对 HEAD 恰29条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w34-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-04",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

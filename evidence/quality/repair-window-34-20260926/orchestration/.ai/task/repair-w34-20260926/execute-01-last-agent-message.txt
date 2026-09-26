@@ -1,0 +1,17 @@
+已完成 `repair-w34-20260926`：
+
+- 按 SPEC 修复 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 恰好 29 条 target。
+- 工作集外记录变化：0。
+- source、source_tag、模板表达式、占位符、LF、空行下标、TAB 层级及末尾换行均保持约束。
+- 29 条逐项改动记录见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-34-20260926/IMPLEMENTATION.md)。
+- 机器可读验收结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-34-20260926/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 记录校验：2199 条记录，恰 29 条 target 变化，越界变化 0。
+- 来源锚点：29/29 查询、17/17 文件哈希匹配。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 候选 SHA-256：`26af8e92844cbec5c21f2bf8ef4c53551cf6067bb5b9b878a6a2d2e9aa1b4e41`。
+
+风险：DLC 仓库与 commit 仍未固定，只能确认文件级冻结哈希匹配；长篇剧情译文仍需独立 REVIEWER 复审。未修改 `.ai/task`，未 stage、commit、push，也未创建 agent。

@@ -1,0 +1,18 @@
+{
+  "title": "W34 R1 fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w34-20260926 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R1.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复一条 confirmed target（tome-cults.lua）：72234560…（lore/zones.lua 蛆虫血肉）末句“你怀疑，是在那个蛆虫吞下了这个东西之后，才变成了吞噬你的怪物。”改为“你怀疑它是那条蛆虫变成吞噬你的怪物之前，最后一餐的一部分。”。该条其余文字与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 恰29条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w34-20260926",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}
