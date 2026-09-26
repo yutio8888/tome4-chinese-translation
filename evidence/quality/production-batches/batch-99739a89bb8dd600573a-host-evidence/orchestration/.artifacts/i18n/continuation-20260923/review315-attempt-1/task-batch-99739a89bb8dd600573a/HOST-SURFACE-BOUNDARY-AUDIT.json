@@ -1,0 +1,106 @@
+{
+  "batch_id": "batch-99739a89bb8dd600573a",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T13:39:17.948618+00:00",
+  "launched": 8,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "surface_groups": {
+    "surface-000": "cults (tome-cults.lua) 6 entries, lane-000-0..3 (2/2/1/1)",
+    "surface-001": "orcs (tome-orcs.lua) 74 entries, lane-001-0..3 (19/19/18/18)"
+  },
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "cat of the own envelope and the surface contract only (several lanes asked require_escalated for these reads); no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "boundary_pattern_hits": [
+    {
+      "dispatch_id": "lane-001-1",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside \"perform the requested read-only ...\" in the justification of its cat of its own SURFACE-SCREEN-ENVELOPE and the surface contract; no write or external effect"
+    },
+    {
+      "dispatch_id": "lane-001-2",
+      "pattern": "rm ",
+      "verdict": "false_positive",
+      "explanation": "the substring \"rm \" occurs only inside \"perform the requested read-only ...\" in the justification of its cat of its own SURFACE-SCREEN-ENVELOPE and the surface contract; no write or external effect"
+    }
+  ],
+  "sequencing_note": "mixed cults+orcs batch: bd.sh stops at the component guard, so the host derived the 315 scripts from the 311 mixed-batch templates and ran pre/mid steps manually. Every lane was harvested and archive-intent recorded before archive_agent was issued in a later host call. audit_native_tools.py wrote all eight NATIVE-TOOLS files into each group directory; the misplaced copies were removed.",
+  "items": [
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-0",
+      "agent_id": "ddad7d5a-842b-402a-b17e-4e54842a4f37",
+      "native_tools_sha256": "4ab9cb2856056942b5705580d2fa8e46ddbdb90ebb0bec5e1de133e4444528ba",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-1",
+      "agent_id": "c74730e7-8d33-41a5-b7e7-c0785607b4b5",
+      "native_tools_sha256": "09ff17a934c4a4dd410a9974c0de4d9d2b23aaa838e5eb212898ecd86611c5a1",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-2",
+      "agent_id": "a0c581bd-d963-4f30-a299-56efdb722c1e",
+      "native_tools_sha256": "c458fbcedb432cf6f5bd0756aae4b770953b0e884e5f1e3873a8cd0d0900bec8",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-3",
+      "agent_id": "e8b7733e-a315-4579-80ca-32a212e472e1",
+      "native_tools_sha256": "dc4961cd190d6fe3f7aa73c3076ebcb3553ec2af950459e6a4388a301aa35c33",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-0",
+      "agent_id": "c894998a-fed8-4769-9716-e271b4b9aac1",
+      "native_tools_sha256": "1e148b9c85a2be9e33933814aa282d695e6eee78f49033a6fa0ab6426fd34acb",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-1",
+      "agent_id": "5228fdaf-9260-420f-bd5f-ec283227c47f",
+      "native_tools_sha256": "8aafd9c3252dc501a1d842e8ed1f9d38360903e5df605566207eea0a6b1e1643",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-2",
+      "agent_id": "bcc2ccf2-7dfb-455b-b544-3299606bea18",
+      "native_tools_sha256": "5e68c2ed9d5eede759df3856308eb11104762530e2c88709e81dfd3eaf442cf6",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-3",
+      "agent_id": "fd2d6dce-abc0-4d0d-aadc-e7e3d4741e33",
+      "native_tools_sha256": "07f246e30aa9c726dbd7dae1121ae6535ce4847d2838a43dcb50e7b8130dec0d",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+第315批：冻结80条（Cults 6 条、Orcs 74 条），逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 8 lane（Cults 2/2/1/1、Orcs 19/19/18/18），14个ISSUE；第1轮因 contextual-000 越界探查 /workspace 整批 abandon 重开（同一 batch id），本轮全部新 child；lane-001-3 多回显 1 条不存在的 identity（OK），宿主保留原始字节、仅删该对象后按修正 raw 收取，其余 7 条逐位一致，边界扫描仅见读自身 envelope 与契约；contextual 两个 Opus run（Cults 2 条、Orcs 12 条）只读 envelope 与契约，harvest 前已逐条核原生日志，未越界，共4个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决18个观察：{'confirmed': 10, 'refuted': 4, 'advisory': 4}；预计74条完成、6条待修复。修复 revision：黑洞（熵总量）、时间盛宴（删“你周围”）、看穿一切（心灵感应）、钢铁手套（steel）、蒸汽枪配方（密集弹幕）、涌血（猛砸、窄锥形、效果强度）。蔽目毒云、血液灵晶、蒸汽暴击提示、单手武器检查为实现所证或同族既有译法，refuted；闪电榴弹改名须三处同步并定名，登记待用户审阅，记 advisory。修复窗口38积压为6，未达20。

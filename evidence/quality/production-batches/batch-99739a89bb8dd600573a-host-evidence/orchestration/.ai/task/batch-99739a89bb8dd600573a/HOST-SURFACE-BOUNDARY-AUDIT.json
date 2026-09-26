@@ -1,0 +1,105 @@
+{
+  "batch_id": "batch-99739a89bb8dd600573a",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T13:54:53.110753+00:00",
+  "launched": 8,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "attempt": 2,
+  "attempt_note": "Attempt 1 of this batch was abandoned with --discard-uncommitted-results after its contextual-000 run probed /workspace for the DLC checkout (see .artifacts HOST-NOTE-abandon.json in review315-attempt-1); the restart reused the same batch id and was run without --limit but again selected 80 entries. No attempt-1 finding is adopted; all surface lanes here are fresh children.",
+  "surface_groups": {
+    "surface-000": "cults (tome-cults.lua) 6 entries, lane-000-0..3 (2/2/1/1)",
+    "surface-001": "orcs (tome-orcs.lua) 74 entries, lane-001-0..3 (19/19/18/18)"
+  },
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "cat of the own envelope and the surface contract only (several lanes asked require_escalated for these reads); lanes 000-0, 000-2, 001-2 and 001-3 additionally ran an ALL_TOOLS name/description listing inside the exec tool (no file, shell or external effect); no write calls",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [
+    {
+      "dispatch_id": "lane-001-3",
+      "kind": "extra_fabricated_result",
+      "index": 18,
+      "extra_identity": "1e8deabab3d4a586debac918eb43e1e60b65513e642d6caa919b14c5e14e948",
+      "detail": "The lane returned 19 results for its 18 frozen entries: results 0-17 matched the envelope identities in order, and result 18 was a 63-character identity (verdict OK) that is not in the envelope and appears to be spliced from fragments of other identities. The host verified from the native Codex log that the agent itself emitted it, saved the original bytes, removed only that one result object and harvested the corrected raw with --raw; full-set positional comparison of the corrected results equals the envelope. No verdict or observation of a real entry was changed.",
+      "original_sha256": "2d2dba5c47d210eb87ea2129a9adcb02bcb63a7c55080c310c7569c9e6daa5b7",
+      "corrected_sha256": "ec65c561b1338b759acfa4b2909c9387a9ea9fb98754c33a00955cf2c4625497"
+    }
+  ],
+  "boundary_pattern_hits": [],
+  "sequencing_note": "mixed cults+orcs batch: bd.sh stops at the component guard, so the host derived the 315 scripts from the 311 mixed-batch templates and ran pre/mid steps manually. Every lane was harvested and archive-intent recorded before archive_agent was issued in a later host call. audit_native_tools.py wrote all eight NATIVE-TOOLS files into each group directory; the misplaced copies were removed.",
+  "items": [
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-0",
+      "agent_id": "1ca838bf-6bd4-4255-8ede-0b5228b3b9dd",
+      "native_tools_sha256": "ae86294e5e9afb438014f39082673b090342f4e31c7bff2c9dca9c85a936ba3e",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-1",
+      "agent_id": "4461dcd4-a2b3-4a29-94bf-f2fea1495481",
+      "native_tools_sha256": "c841b6f0398d8ea1e4fa3313e2a2bb50c931a01405e975dca4cb17f03585b19d",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-2",
+      "agent_id": "2ab6bf82-97de-4a6a-8b02-a84b67304d02",
+      "native_tools_sha256": "a11a65207e7e870ee2022533bf9da78cf4033c624f13e2281dc46b0ffb50e71f",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-000",
+      "dispatch_id": "lane-000-3",
+      "agent_id": "16cd2932-e47d-48d8-8977-bc6f08e80f43",
+      "native_tools_sha256": "34088159a6279ba919b5b2d67c448a04c49b4a3e725e0f2eda66bdc602fee0bb",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-0",
+      "agent_id": "bff9285a-2415-4b87-84be-beb5dc7aa3c5",
+      "native_tools_sha256": "5b89cf6ed4361de6ddec210784477856b120540b24dbb2a7035dfaa7388b12e8",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-1",
+      "agent_id": "3716bf0d-a717-4209-97ec-c23fffe8a4e4",
+      "native_tools_sha256": "0c8b8c4e22e0a26b55a9a086c12a2e2fceb599b6d0b72a0766003b0432f880ef",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-2",
+      "agent_id": "b262737b-9e3a-4479-9cee-d9f7545968c8",
+      "native_tools_sha256": "37fc2f3e6ffdc40ab493f4f7b44d2c339c509644bd2be34946c6e8c4c25af77b",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "task_id": "batch-99739a89bb8dd600573a-surface-001",
+      "dispatch_id": "lane-001-3",
+      "agent_id": "e95d3945-a14a-4a16-957d-730905e3e9ae",
+      "native_tools_sha256": "a32477cef885a5c36b9dc9f9b5299acac9aecab8ca1d8fc02936dce50f22d0c5",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

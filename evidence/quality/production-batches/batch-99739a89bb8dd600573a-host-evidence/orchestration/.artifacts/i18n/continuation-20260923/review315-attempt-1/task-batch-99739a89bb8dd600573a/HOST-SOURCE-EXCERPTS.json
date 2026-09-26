@@ -1,0 +1,2566 @@
+[
+  {
+    "entry_revision_identity": "2b9ccc035126c3203eca311db27455d82b81b5db7a1148cdfbd79b9c4a8a1c43",
+    "public_source_path": "tome-cults/hooks/bonestaff.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": "class:bindHook(\"CommandStaff:SentientOptions\", function(self, data)"
+      },
+      {
+        "line": 23,
+        "text": "\tif data.mode == \"intro\" then"
+      },
+      {
+        "line": 24,
+        "text": "\t\tdata.list.bonestaff = _t[[#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.]]"
+      },
+      {
+        "line": 25,
+        "text": "\telseif data.mode == \"how_speak\" then"
+      },
+      {
+        "line": 26,
+        "text": "\t\tdata.list.bonestaff = _t\"#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4f45d12edcc0af91d0dcb49f4c4a842fd915d74f8d2a8cd66491b55e702f11ee",
+    "public_source_path": "tome-cults/data/talents/demented/friend-of-the-worm.lua",
+    "lines": [
+      {
+        "line": 51,
+        "text": "\t\ttype = \"horror\", subtype = \"eldritch\","
+      },
+      {
+        "line": 52,
+        "text": "\t\tname = \"worm that walks\", color=colors.SANDY_BROWN,"
+      },
+      {
+        "line": 53,
+        "text": "\t\tdesc = _t[[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucus-drenched maggots, grasp tightly around the handles of bile-coated waraxes."
+      },
+      {
+        "line": 54,
+        "text": "Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]],"
+      },
+      {
+        "line": 55,
+        "text": "\t\tdisplay = 'h', color=colors.SANDY_BROWN, image = \"npc/horror_eldritch_worm_that_walks.png\","
+      },
+      {
+        "line": 56,
+        "text": "\t\tlevel_range = {1, self.max_level}, exp_worth=0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5fdaa1aef1474e60e3f20e6344d2b8747cae2b71ea6034d1a222e4e4ca21b228",
+    "public_source_path": "tome-cults/data/talents/demented/entropy.lua",
+    "lines": [
+      {
+        "line": 229,
+        "text": "\t\t\tentropy = edam"
+      },
+      {
+        "line": 230,
+        "text": "\t\tend"
+      },
+      {
+        "line": 231,
+        "text": "\t\treturn ([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d."
+      },
+      {
+        "line": 232,
+        "text": "\t\tAll caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]]):"
+      },
+      {
+        "line": 233,
+        "text": "\t\ttformat(dur, rad, damDesc(self, DamageType.DARKNESS, dam), damDesc(self, DamageType.TEMPORAL, dam), bonus, entropy)"
+      },
+      {
+        "line": 234,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "65c29db180ffe95ece0ed08b968784a61f1e7291d4a7dba377704e36e4ca1753",
+    "public_source_path": "tome-cults/overload/mod/class/CultsDLC.lua",
+    "lines": [
+      {
+        "line": 45,
+        "text": "\tdefineColor('INSANE_GREEN', 0x00, 0x65, 0x61)"
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "\tActorResource:defineResource(_t\"Insanity\", \"insanity\", \"T_INSANITY_POOL\", \"insanity_regen\", _t\"Your mental insanity.  The higher it is the more random your damage and cooldowns become.\\n\\nDamage and cooldowns have a chance to increase or decrease by up to chaotic%.\\n\\nBoth the chance and size of effects will increase with insanity.\", 0, nil, {"
+      },
+      {
+        "line": 48,
+        "text": "\t\tcolor = \"#INSANE_GREEN#\","
+      },
+      {
+        "line": 49,
+        "text": "\t\trestore_factor = 0.15,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b90506fe7a0df0401eb660fe9c218d3a7444be6cfaa25c501d5010ac3099b64f",
+    "public_source_path": "tome-cults/data/lore/fay-willows.lua",
+    "lines": [
+      {
+        "line": 111,
+        "text": "\tcategory = \"Forbidden Cults\","
+      },
+      {
+        "line": 112,
+        "text": "\tname = _t\"Escapades of Fay Willows [Book 1, Chapter 4] - Medical Treatment\","
+      },
+      {
+        "line": 113,
+        "text": "\tlore = _t[[[i]It still strikes me how adverse the shaloren are to infusions. Seemingly they would rather tempt fate and avoid using them. One of the purposes of infusions is to restore one to good health after suffering an injury, but for a shalore it was more a means of last resort to avoid dying. What's more, they seem to fail to understand that holding off on infusion use simply results in them using infusions more in the long run, as beyond just mending their flesh they will have to stave off infection from their open wounds as well.[/i]"
+      },
+      {
+        "line": 114,
+        "text": ""
+      },
+      {
+        "line": 115,
+        "text": "Over the next few days I mixed and created several infusions for use by the shaloren. The workshop contained all the amenities for sleeping, and the healer would often bring basic food staples and drink to me. Well, I should say to the shalore it may have been basic food and drink, but by thalore standards I was treated pretty lavishly. I mean, I know the dwarves treat alcohol as a staple good for consumption but apparently so did the shaloren with the amount of wine I was given. Anyhow, how I was treated was quite better then I would have expected to be sure."
+      },
+      {
+        "line": 116,
+        "text": ""
+      },
+      {
+        "line": 117,
+        "text": "Around the fourth day, after having created a great number of infusions, I was asked to come up to help apply them. Many of those I treated were near death, riddled by festering infections brought about from simply bandaging their wounds and nothing else. Similar to how I had treated the wounded shaloren in that lean-to, I only used the infusions as much as possible to get them off of death's door. This wasn't really due to having a lack of infusions but more so as a result of the stubborn mindset shaloren seemed to have in regards to infusions for some reason."
+      },
+      {
+        "line": 118,
+        "text": ""
+      },
+      {
+        "line": 119,
+        "text": "It was about a week later when most of the refugees had been treated that word had arrived of a detachment of shaloren soldiers that had returned from their battles with the orcs. Apparently they had been fighting on the eastern side of the continent along with the Human Kingdoms of the East when the Spellblaze occurred. The scarce few that were still alive after had traveled back to Elvala, but had been stalled as a result of being unable to travel directly through the middle of the continent. Of those that had survived, only a couple hundred had managed to make it back alive."
+      },
+      {
+        "line": 120,
+        "text": ""
+      },
+      {
+        "line": 121,
+        "text": "By this point I had at least some sympathy for those I treated, what after having tended to hundreds of them. But what caught my attention more was what they had said about having been unable to travel directly to Elvala. In the middle of the continent the Midvale Plains were located, a large flat land from which one could literally see just an open field. From my basic knowledge of the continent, the plains were completely open and easily traversable. Unless there was some huge orcish army that had survived and blocked their path, there would have been no need to move northwards around this area."
+      },
+      {
+        "line": 122,
+        "text": ""
+      },
+      {
+        "line": 123,
+        "text": "I didn't have long to ponder my thoughts before one of the assistant healers approached, and handed a bunch of strange tablets in a leather pouch to me. Pulling one of them out I noticed a glowing insignia inscribed on it, which seemed to course with the powers of the arcane. As I turned to ask what these were for, I found only an empty space as the healer had moved on to tend to the soldiers that were entering the building. Perplexed and befuddled as to what I should do with the strange tablets, a nearby tap on my shoulder brought my attention to one of the soldiers. A hand soon reached over and took one of the strange tablets from the pouch."
+      },
+      {
+        "line": 124,
+        "text": ""
+      },
+      {
+        "line": 125,
+        "text": "Turning to see what the soldier was up to, I noticed the huge gashes through the blackened armor he wore. For a moment I stuttered a bit as my hands were full holding the runes and unable to grab any infusions, but then I noticed something peculiar. Amazingly the insignia on the tablet seemed to shimmer and shift, before somehow merging with the soldier's hand. A light blue glow seemed to take a hold of the soldiers eyes as a strange energy seemingly coursed through his body. What occurred next truly caught me off guard as the soldier eventually began to murmur some words, and his deep gaping wounds began to close on their own."
+      },
+      {
+        "line": 126,
+        "text": ""
+      },
+      {
+        "line": 127,
+        "text": "Completely at a loss for what was occurring, the soldier seemed to be healing himself in front of me. As the moment passed the light blue glow left his eyes and they returned to their normal color, his wounds not just healed but showing absolutely no sign of an injury even having existed. It was my first time ever witnessing the use of runes or the use of healing spells. I'd heard of spell use before but I’d never known that runes had even existed at that point in my life. I soon learned the tablets I had been given were called manasurge runes, and that they enabled the restoration of mana lines within a person."
+      },
+      {
+        "line": 128,
+        "text": ""
+      },
+      {
+        "line": 129,
+        "text": "I don't know much about the arcane even now or how it works, but apparently something about the Spellblaze had permanently altered the workings of magic from that point in the world, and while with training it was still possible to call on the powers of magic, it was much more difficult than before. Other wounded soldiers would come after the first and much in the same way they would take the manasurge runes, gain the glowing insignias on their hands, or arms, or legs, really any body part that they wish, and then proceed to cast spells, promptly healing themselves or sometimes other soldiers."
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "After a while the number of wounded soldiers began to dwindle as most of them didn't require rest after healing themselves. When their numbers began to reach more manageable amounts, the chief healer approached to thank me on behalf of the Shaloren for my efforts. Suddenly remembering the entire reason I had come here to begin with, I noted that I had been fulfilling my end of the bargain. Nodding to this the chief healer looked behind me as a soldier approached and responded \"The lieutenant will escort you to the general.\" I was taken aback by this somewhat but assumed this general held the answers as to the events that had taken place."
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "The soldier led me to the center of the city where a grand building lay. After meeting with a couple of the guards clad head to toe in shiny plate armor, we were let in. It took several minutes walking through the building’s halls, seemingly walking the building’s entire length to the end of it. Eventually I came to a luxurious looking room, decorations made of stralite and gold lining the walls and displayed pictures of what I assumed to be important figures in Shaloren history. Here I was told to wait, and left by the lieutenant as he entered a nearby room.]],"
+      },
+      {
+        "line": 134,
+        "text": "}"
+      },
+      {
+        "line": 135,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e1cabcc547c9824bc2acce4b89632094d92a5c8e200e6ce7b81b8b64c2176009",
+    "public_source_path": "tome-cults/data/talents/demented/chronophage.lua",
+    "lines": [
+      {
+        "line": 163,
+        "text": "\t\tlocal speed = t.getSpeed(self,t)*100"
+      },
+      {
+        "line": 164,
+        "text": "\t\tlocal slow = t.getSlow(self,t)*100"
+      },
+      {
+        "line": 165,
+        "text": "\t\treturn ([[You drink deeper from the timeline of others. Each time you apply atrophy you gain %0.1f%% spell speed per atrophy stack on the target and cause them to lose %d%% of a turn."
+      },
+      {
+        "line": 166,
+        "text": "\t\t\tThe highest atrophy stack found will be used for the spell speed calculation.]])"
+      },
+      {
+        "line": 167,
+        "text": "\t\t:tformat(speed, slow)"
+      },
+      {
+        "line": 168,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "18c335a2a0f78af479cad457862f14513e0ce3983f131ed4c0caea21d706086c",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1450,
+        "text": "\tname = \"SMOGSCREEN\", image = \"talents/smogscreen.png\","
+      },
+      {
+        "line": 1451,
+        "text": "\tdesc = _t\"Smogscreen\","
+      },
+      {
+        "line": 1452,
+        "text": "\tlong_desc = function(self, eff) return (\"%d%% chance to fully absorb any damaging actions.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 1453,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 1454,
+        "text": "\tsubtype = { steamtech=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "18c94ad8687daf22587fcdc85089871f8296738549eea9bf6b04369827b31f5b",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 727,
+        "text": "\tname = \"BLOODSTAR\", image = \"talents/bloodstar.png\","
+      },
+      {
+        "line": 728,
+        "text": "\tdesc = _t\"Bloodstar\","
+      },
+      {
+        "line": 729,
+        "text": "\tlong_desc = function(self, eff) return (\"Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.\"):tformat(eff.dam) end,"
+      },
+      {
+        "line": 730,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 731,
+        "text": "\tsubtype = { blood=true, drain=true, heal=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "18d9547de72d5de432fd3027d0d1a6c443465ba200a55db1706c5e1d02b47435",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 261,
+        "text": "\tsubtype = { tech=true },"
+      },
+      {
+        "line": 262,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 263,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# supercharges all tinkers.\", _t\"+Supercharge Tinkers\" end,"
+      },
+      {
+        "line": 264,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s supercharge is fading.\", _t\"-Supercharge Tinkers\" end,"
+      },
+      {
+        "line": 265,
+        "text": "\tparameters = { power=10, crit=1 },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "18ee436e19977251336b3f0bc14805e833e9a7ae127f4deaa16173552b7435a5",
+    "public_source_path": "tome-orcs/data/talents/psionic/psionic.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "-- Talent trees"
+      },
+      {
+        "line": 21,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"psionic/gestalt\", name = _t(\"gestalt\", \"talent type\"), description = _t\"Harness steam energies to power your own mind.\" }"
+      },
+      {
+        "line": 22,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"psionic/action-at-a-distance\", name = _t(\"action at a distance\", \"talent type\"), description = _t\"Focus your mental energies to make things happen. Or combust.\" }"
+      },
+      {
+        "line": 23,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"psionic/psionic-fog\", name = _t(\"psionic fog\", \"talent type\"), description = _t\"Psionically manipulate steam to harass your foes and protect yourself.\" }"
+      },
+      {
+        "line": 24,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1912201b73568a2a3943989ac0d86b9748e97964cf5dd84fd5860ad370801cf6",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1234,
+        "text": "\t\tif not self:checkHit(eff.src:combatSteampower(), self:combatMentalResist(), 0, 95, 5) or not self:canBe(\"fear\") then"
+      },
+      {
+        "line": 1235,
+        "text": "\t\t\teff.timer = eff.timer + eff.fear * 0.5"
+      },
+      {
+        "line": 1236,
+        "text": "\t\t\tgame.logSeen(self, \"#F53CBE#%s resists the fear.\", self:getName():capitalize())"
+      },
+      {
+        "line": 1237,
+        "text": "\t\telse"
+      },
+      {
+        "line": 1238,
+        "text": "\t\t\teff.timer = eff.timer + eff.fear"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19137076a9437f89615ae0af29629dbab102c07c71494b55867481783480fb44",
+    "public_source_path": "tome-orcs/data/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 141,
+        "text": ""
+      },
+      {
+        "line": 142,
+        "text": "newRecipe{ id = \"THUNDER_GRENADE\","
+      },
+      {
+        "line": 143,
+        "text": "\tname = _t\"Thunder Grenade\", icon = \"shockbolt/object/tinkers_thunder_grenade_t5.png\","
+      },
+      {
+        "line": 144,
+        "text": "\tdesc = _t\"Small radius, but stuns quite well.\","
+      },
+      {
+        "line": 145,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "191940be3511ee30ef740cd07024c0261721087698c9c0f67f47303f6f24b09d",
+    "public_source_path": "tome-orcs/data/quests/yeti-abduction.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"You found a yeti mind control tinker. If you can tame 8 wild yetis and send them back to Kruk Pride they can be trained and sent back to you at your request using a psychoportation beacon.\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"Wild yetis are mostly found in yeti's caves.\""
+      },
+      {
+        "line": 25,
+        "text": "\tif self:isStatus(self.DONE) then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "192b085494990ab79352a6679acef642afa2cb6d061cae19bea7f27099432fa0",
+    "public_source_path": "tome-orcs/data/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 198,
+        "text": ""
+      },
+      {
+        "line": 199,
+        "text": "newRecipe{ id = \"WHITE_LIGHT_EMITTER\","
+      },
+      {
+        "line": 200,
+        "text": "\tname = _t\"White Light Emitter\", icon = \"shockbolt/object/tinkers_white_light_emitter_t5.png\","
+      },
+      {
+        "line": 201,
+        "text": "\tdesc = _t\"Add more light to your light!\","
+      },
+      {
+        "line": 202,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1938a9344f2e86f94e65ac3ac6065fe55b23c7d1cc5f0cc74a29ff526b02676f",
+    "public_source_path": "tome-orcs/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 545,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 546,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,"
+      },
+      {
+        "line": 547,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,"
+      },
+      {
+        "line": 548,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 549,
+        "text": "\t\teff.heal = self:addTemporaryValue(\"life_regen\", eff.heal)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "193a2404e9f384063efddc7d1c1957af96b65a210790e11048b55a0916201cbe",
+    "public_source_path": "tome-orcs/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": "\t\t\t\ttarget:pull(dam.px, dam.py, dam.dist)"
+      },
+      {
+        "line": 60,
+        "text": "\t\t\t\tif (not dam.silent) then"
+      },
+      {
+        "line": 61,
+        "text": "\t\t\t\t\tgame.logSeen(target, \"%s is pulled!\", target:getName():capitalize())"
+      },
+      {
+        "line": 62,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 63,
+        "text": "\t\t\telse"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "193e6cd474ae1c3c3e5c10cd77bf3adf3abadf0710400fbaed12d56df48f65a3",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/chemistry.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 30,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_POISON_GROOVE\"..i,"
+      },
+      {
+        "line": 31,
+        "text": "\tname = (\"%s poison groove\"):tformat(simple[i]), image = \"object/tinkers_poison_groove_t\"..i..\".png\","
+      },
+      {
+        "line": 32,
+        "text": "\ton_type = \"weapon\","
+      },
+      {
+        "line": 33,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "194ae5d88a89ca699354e96ab8236c7dee0e8cc005c2c2ab235fc4c864c74db0",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 921,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 922,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 923,
+        "text": "\tname = \"Cloak of Daggers\", image = \"object/artifact/cloak_of_daggers.png\","
+      },
+      {
+        "line": 924,
+        "text": "\tunided_name = _t\"bladed cloak\","
+      },
+      {
+        "line": 925,
+        "text": "\tdesc = _t[[This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "195903884bfee2e686504684fd5335b0b80307f8aee7b1ae271927d962be59bd",
+    "public_source_path": "tome-orcs/data/quests/krimbul.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"Metash has asked you to investigate the Krimbul Clan, south of the peninsula.\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"A whitehoof turned mad with power is trying to lead them in a war against Kruk Pride.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "196aa9e1628289272c5a01b431aef1435474efcb62f15ad3b4aab1425619a081",
+    "public_source_path": "tome-orcs/data/zones/ureslak-host/zone.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return {"
+      },
+      {
+        "line": 21,
+        "text": "\tname = _t\"Ureslak's Host\","
+      },
+      {
+        "line": 22,
+        "text": "\tlevel_range = {30, 40},"
+      },
+      {
+        "line": 23,
+        "text": "\tlevel_scheme = \"player\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "197a243e86273acaca3a668d3ba4d7eb8177b4c6123febbde142712846f2f82a",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 814,
+        "text": "newEntity{ base = \"BASE_STEAMGUN\", define_as = \"STEAMGUN_ANNIHILATOR\","
+      },
+      {
+        "line": 815,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 816,
+        "text": "\tname = \"Annihilator\", image = \"object/artifact/annihilator.png\","
+      },
+      {
+        "line": 817,
+        "text": "\tunided_name = _t\"gigantic many barreled gun\", unique = true,"
+      },
+      {
+        "line": 818,
+        "text": "\tlevel_range = {45, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "198a76c30c5d3183f0c54794c6cabb0aeb4c66fb0ca0ce3e4ed529a248a03775",
+    "public_source_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "newTalent{"
+      },
+      {
+        "line": 24,
+        "text": "\tname = \"Heavy Weapons\", image = \"talents/hw_flamethrower.png\","
+      },
+      {
+        "line": 25,
+        "text": "\ttype = {\"steamtech/heavy-weapons\", 1},"
+      },
+      {
+        "line": 26,
+        "text": "\tpoints = 5, "
+      },
+      {
+        "line": 76,
+        "text": "\t\t#AQUAMARINE#Boltgun#LAST#: A multi-barreled steamgun that launches efficient, chemical infused bolts. Fires twice for %d%% steamgun acid damage and generates %d steam per hit."
+      },
+      {
+        "line": 77,
+        "text": "\t\t"
+      },
+      {
+        "line": 78,
+        "text": "\t\tThe damage dealt by your Heavy Weapons is based off your currently equipped ammunition, and are treated as Steamguns for the purposes of weapon mastery talents and other effects."
+      },
+      {
+        "line": 79,
+        "text": "\t\tFiring your Steamgun will immediately unequip your heavy weapon.\t\t"
+      },
+      {
+        "line": 80,
+        "text": "\t\t]]):"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "198d029535afb944e89f63a46856774594ae773d247e9bf785ecacb1f55c8535",
+    "public_source_path": "tome-orcs/data/zones/wilderness-add/grids.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "newEntity{ base=\"SEA_EYAL\", define_as = \"MAINLAND_BRIDGE\","
+      },
+      {
+        "line": 23,
+        "text": "\tname = \"bridge to the mainland\", add_displays = {class.new{z=3, image=\"terrain/worldmap/stone_bridge.png\", display_x=-1, display_w=3}},"
+      },
+      {
+        "line": 24,
+        "text": "\tcolor = colors.LIGHT_UMBER,"
+      },
+      {
+        "line": 25,
+        "text": "\tcan_pass = false, does_block_move = false, can_encounter = false,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19954bad8909b157afa6caa3d30807460eebd470c62c3dda70175e77975cb35d",
+    "public_source_path": "tome-orcs/data/zones/cave-hatred/npcs.lua",
+    "lines": [
+      {
+        "line": 110,
+        "text": "newEntity{ base = \"BASE_SHADOW\", define_as = \"SHADOW_DESPAIR\","
+      },
+      {
+        "line": 111,
+        "text": "\tname = \"shadow of despair\", image=\"npc/shadow-claw.png\","
+      },
+      {
+        "line": 112,
+        "text": "\tdesc = _t[[A shadowy embodiment of despair.]],"
+      },
+      {
+        "line": 113,
+        "text": "\t"
+      },
+      {
+        "line": 114,
+        "text": "\tresolvers.talents{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1998a64c0fe17fd340bfaaf11f20b46ba69c2a75f1d3790ffce0733e09a2195a",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+    "lines": [
+      {
+        "line": 296,
+        "text": "\tname = (\"%s fungal web\"):tformat(medical[i]), image = \"object/tinkers_fungal_web_t5.png\","
+      },
+      {
+        "line": 297,
+        "text": "\ton_slot = \"BELT\","
+      },
+      {
+        "line": 298,
+        "text": "\tspecial_desc = function(self) return (\"Heals you for %d life when you use a salve.\"):tformat(self.object_tinker.wielder.heal_on_salve) end,"
+      },
+      {
+        "line": 299,
+        "text": "\tmaterial_level = i,"
+      },
+      {
+        "line": 300,
+        "text": "\tobject_tinker = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19c4b24a4ee9ea13347f6ecd88802b4741e0be4619a22eed83c3680bf943b575",
+    "public_source_path": "tome-orcs/data/chats/weissi-machine.lua",
+    "lines": [
+      {
+        "line": 243,
+        "text": "\t\t{_t\"Arcane spells\", jump=\"learn_types_arcane\", cond=function(npc, player) return not player:attr(\"forbid_arcane\") end},"
+      },
+      {
+        "line": 244,
+        "text": "\t\t{_t\"Nature/Psionic talents\", jump=\"learn_types_nature\"},"
+      },
+      {
+        "line": 245,
+        "text": "\t\t{_t\"Hum no let me change my mind.\", jump=\"give_re\"},"
+      },
+      {
+        "line": 246,
+        "text": "\t}"
+      },
+      {
+        "line": 247,
+        "text": "}"
+      },
+      {
+        "line": 271,
+        "text": "\t\tend"
+      },
+      {
+        "line": 272,
+        "text": "\tend end"
+      },
+      {
+        "line": 273,
+        "text": "\ttable.insert(answers, {_t\"Hum no let me change my mind.\", jump=\"give_re\"})"
+      },
+      {
+        "line": 274,
+        "text": "\tnewChat{ id=\"learn_types_\"..kind,"
+      },
+      {
+        "line": 275,
+        "text": "\t\ttext = _t[[Very well. We can teach you a talent.  Which do you want?]],"
+      },
+      {
+        "line": 284,
+        "text": "\t\t{_t\"Arcane spells\", jump=\"learn_talents_arcane\", cond=function(npc, player) return not player:attr(\"forbid_arcane\") end},"
+      },
+      {
+        "line": 285,
+        "text": "\t\t{_t\"Nature/Psionic talents\", jump=\"learn_talents_nature\"},"
+      },
+      {
+        "line": 286,
+        "text": "\t\t{_t\"Hum no let me change my mind.\", jump=\"give_re\"},"
+      },
+      {
+        "line": 287,
+        "text": "\t}"
+      },
+      {
+        "line": 288,
+        "text": "}"
+      },
+      {
+        "line": 325,
+        "text": "\t\t})"
+      },
+      {
+        "line": 326,
+        "text": "\tend end"
+      },
+      {
+        "line": 327,
+        "text": "\ttable.insert(answers, {_t\"Hum no let me change my mind.\", jump=\"give_re\"})"
+      },
+      {
+        "line": 328,
+        "text": "\tnewChat{ id=\"learn_talents_\"..kind,"
+      },
+      {
+        "line": 329,
+        "text": "\t\ttext = _t[[Very well. We can teach you a talent (unlocking the talent category is separate). Which do you want?]],"
+      },
+      {
+        "line": 348,
+        "text": "\t\t})"
+      },
+      {
+        "line": 349,
+        "text": "\tend"
+      },
+      {
+        "line": 350,
+        "text": "\ttable.insert(answers, {_t\"Hum no let me change my mind.\", jump=\"give_re\"})"
+      },
+      {
+        "line": 351,
+        "text": "\tnewChat{ id=\"learn_stats\","
+      },
+      {
+        "line": 352,
+        "text": "\t\ttext = _t[[Very well. We can increase one of your core stats by 4, which one?]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19e02c726e68f8cf7138b44fb794b72a3163311a347ed20982afd0100a72c883",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1504,
+        "text": "\tmaterial_level = 4,"
+      },
+      {
+        "line": 1505,
+        "text": "\tmoving = false,"
+      },
+      {
+        "line": 1506,
+        "text": "\tspecial_desc = function(self) return _t\"You move 3 spaces at once.\" end,"
+      },
+      {
+        "line": 1507,
+        "text": "\twielder = {"
+      },
+      {
+        "line": 1508,
+        "text": "\t\tcombat_armor = 12,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19e6133105c0e614c78e62f2d08a8c30b03cc90882c2116f9a8cc484cee4559c",
+    "public_source_path": "tome-orcs/data/talents/steam/steam.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/physics\", generic=true, name = _t(\"physics\", \"talent type\"), description = _t\"Learn the mechanical side of steamtech.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/chemistry\", generic=true, name = _t(\"chemistry\", \"talent type\"), description = _t\"Learn the chemistry side of steamtech.\" }"
+      },
+      {
+        "line": 36,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/blacksmith\", generic=true, name = _t(\"blacksmith\", \"talent type\"), description = _t\"All this metalworking has improved you.\" }"
+      },
+      {
+        "line": 37,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/engineering\", generic=true, name = _t(\"engineering\", \"talent type\"), description = _t\"You don't just know how tinkering works, you know all the interesting details too!\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19f67fad59abbef5cc4e95b85b19e789a8ac81d2f8af2b3082b0fceb1f86416f",
+    "public_source_path": "tome-orcs/data/lore/weissi.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "\tid = \"weissi-1\","
+      },
+      {
+        "line": 39,
+        "text": "\tcategory = \"lost city\","
+      },
+      {
+        "line": 40,
+        "text": "\tname = _t\"telepathic message (2)\","
+      },
+      {
+        "line": 41,
+        "text": "\talways_pop = true,"
+      },
+      {
+        "line": 42,
+        "text": "\tlore = _t[[Did you know the Sher'Tul had brothers?  Long before their creation, when the gods were still young and gleeful, Quekjora convinced them they could work together to bring life to Eyal. Perhaps they could have, were they more mature at the time...  Eager cooperation withered under exposure to personal tastes and creative differences, the friendships of our creators turned to animosity, and yet we were still made."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a085afca05d4e346c165526f21c07acc365ddddb7b83822bf8fafeb04a36eb6",
+    "public_source_path": "tome-orcs/data/lore/internment-camp.lua",
+    "lines": [
+      {
+        "line": 25,
+        "text": "\tid = \"internment-camp-1\","
+      },
+      {
+        "line": 26,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"internment camp correspondence (1)\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 29,
+        "text": "From: Administrator Quellop#{normal}#"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a169eb70f72954eb8032ace733feaaba1895b9767df00c5b059f41efe2b51d0",
+    "public_source_path": "tome-orcs/data/lore/sunwall.lua",
+    "lines": [
+      {
+        "line": 185,
+        "text": "\tcategory = \"sunwall\","
+      },
+      {
+        "line": 186,
+        "text": "\tname = _t\"hope\","
+      },
+      {
+        "line": 187,
+        "text": "\tlore = _t[[You took everything from me.  You took the dawn of a beautiful future, you took the fires of hope and happiness, you took the kind, guiding light of my love Aeryn and put out the glow of the life we deserved to have together.  The light is gone...  but you have given me darkness in return.  And you're about to know that darkness very, very well.  Embracing it fully rather than shutting it out...  It's so easy to use these powers now.  I've felt them before, but I had no hate to use as their inspiration, no true misery to pour into the minds deserving, no empty void inside me to drain your hopes and confidence into.  You've fixed that for me."
+      },
+      {
+        "line": 188,
+        "text": ""
+      },
+      {
+        "line": 189,
+        "text": "My heart still beats, but you have taken my life nonetheless.  You'll understand shortly.]],"
+      },
+      {
+        "line": 190,
+        "text": "}"
+      },
+      {
+        "line": 191,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a19fcbadce125c11965be35756bd2f4a53053dfffc94b7b07a4c5fc1c75a553",
+    "public_source_path": "tome-orcs/data/talents/spells/other-technomancy.lua",
+    "lines": [
+      {
+        "line": 40,
+        "text": "\ton_pre_use = function(self, t, silent)"
+      },
+      {
+        "line": 41,
+        "text": "\t\tif not self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then if not silent then game.logPlayer(self, \"You need an arcane dynamo to cast this spell.\") end return false end"
+      },
+      {
+        "line": 42,
+        "text": "\t\tif not self.can_use_electron_incantation then if not silent then game.logPlayer(self, \"You can only cast this spell after casting an other technomancy spell.\") end return false end"
+      },
+      {
+        "line": 43,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 44,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a31a769846e05e6d18434970da7a72d4036a7cb2ee2252bedcecdd93342804b",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 114,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 115,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 116,
+        "text": "\t\treturn ([[The life support suit allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.]])"
+      },
+      {
+        "line": 117,
+        "text": "\t\t:tformat(data.power + data.inc_stat, data.cooldown_mod)"
+      },
+      {
+        "line": 118,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a3afe0c06ffacd3cba18bc7d13ea41f4ca5bf06810f93de8315681aad9215c1",
+    "public_source_path": "tome-orcs/data/zones/gates-of-morning/objects.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "\tpower_source = {psionic=true, arcane=true},"
+      },
+      {
+        "line": 38,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 39,
+        "text": "\tname = \"Ring of Lost Love\", color = colors.LIGHT_BLUE, image=\"object/artifact/ring_of_the_lost_love.png\","
+      },
+      {
+        "line": 40,
+        "text": "\tunided_name = _t\"pure crimson ring\","
+      },
+      {
+        "line": 41,
+        "text": "\tdesc = _t[[This crimson ring has a palpable bittersweet feel to it."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a4baa38a49b584f2745cd9d0535eb4abc92f42f65a3135ee4d5c51dcd44f3a7",
+    "public_source_path": "tome-orcs/data/general/npcs/steam-spiders.lua",
+    "lines": [
+      {
+        "line": 124,
+        "text": "newEntity{ base = \"BASE_STEAM_SPIDER\","
+      },
+      {
+        "line": 125,
+        "text": "\tname = \"mecharachnid repairbot\", color=colors.LIGHT_GREEN,"
+      },
+      {
+        "line": 126,
+        "text": "\tdesc = _t[[This eight legged mechanical construct looks suspiciously like a spider. It seems to be more concerned by its fellow arachnids than by you.]],"
+      },
+      {
+        "line": 127,
+        "text": "\tlevel_range = {30, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 128,
+        "text": "\trarity = 8, rank = 3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a4ff5c8cb7da086cac0abd4e7a1b8c8aa627cd5262aaf3e644388af7bd76967",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 765,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 766,
+        "text": "\tname = \"The Long-Arm\", image = \"object/artifact/the_long_arm.png\","
+      },
+      {
+        "line": 767,
+        "text": "\tunided_name = _t\"long barreled gun\", unique = true,"
+      },
+      {
+        "line": 768,
+        "text": "\tlevel_range = {42, 50},"
+      },
+      {
+        "line": 769,
+        "text": "\tslot_forbid = \"OFFHAND\", twohanded = true, double_weapon = true, offslot = table.NIL_MERGE,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a5502920821e4b303de4796ad41e8aa185eb5a19660836670dcebe882d0619a",
+    "public_source_path": "tome-orcs/data/general/npcs/sunwall-warrior.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "\tname = \"sunwall archer\", color=colors.LIGHT_UMBER, subtype = \"elf\","
+      },
+      {
+        "line": 71,
+        "text": "\timage = \"npc/humanoid_elf_elven_archer.png\","
+      },
+      {
+        "line": 72,
+        "text": "\tdesc = _t[[You see an archer with his bow drawn back, and a golden sun embossed on his armor.]],"
+      },
+      {
+        "line": 73,
+        "text": "\tlevel_range = {9, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 74,
+        "text": "\trarity = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a725b610ef6982b06efd91c34b7ef7f91fcbdd3c1f554a91331fd945b9fa336",
+    "public_source_path": "tome-orcs/data/talents/celestial/sol.lua",
+    "lines": [
+      {
+        "line": 100,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 101,
+        "text": "\t\tlocal cooldownred = t.getCooldownReduction(self, t)"
+      },
+      {
+        "line": 102,
+        "text": "\t\treturn ([[Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.]]):"
+      },
+      {
+        "line": 103,
+        "text": "\t\ttformat(damDesc(self, DamageType.LIGHT, damage), cooldownred, self:getTalentRange(t) * 4)"
+      },
+      {
+        "line": 104,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a7a8f1c7480ce0e18b4c19adc840bad706b8a0a0304aa9ab198843657fb4155",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1252,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 1253,
+        "text": "\tname = \"Skysmasher\", color = colors.UMBER, image = \"object/artifact/skysmasher.png\","
+      },
+      {
+        "line": 1254,
+        "text": "\tunided_name = _t\"rocket powered maul\","
+      },
+      {
+        "line": 1255,
+        "text": "\tdesc = _t[[The discovery of rockets has proved incredibly dangerous. It is not always clear for whom.]],"
+      },
+      {
+        "line": 1256,
+        "text": "\tlevel_range = {40, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a8455b5252214eb44774bd4ce520cadbd394151e497088b20d86d172739cc5e",
+    "public_source_path": "tome-orcs/data/zones/krimbul/objects.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 38,
+        "text": "\tname = \"Visage of Nektosh\", image = \"object/artifact/visage_of_nektosh.png\","
+      },
+      {
+        "line": 39,
+        "text": "\tunided_name = _t\"horned helm\","
+      },
+      {
+        "line": 40,
+        "text": "\tdesc = _t[[You always thought his horns looked kind of stupid, to be honest.]],"
+      },
+      {
+        "line": 41,
+        "text": "\tmoddable_tile = \"special/visage_of_nektosh\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a9078c39b22e3135e8f54af6da6bd49001e729b5a170b9feff2c593c5775879",
+    "public_source_path": "tome-orcs/data/zones/wilderness-add/grids.lua",
+    "lines": [
+      {
+        "line": 91,
+        "text": ""
+      },
+      {
+        "line": 92,
+        "text": "newEntity{ base=\"SEA_EYAL\", define_as = \"DOMINION_PORT_DESTROYED\","
+      },
+      {
+        "line": 93,
+        "text": "\tname=\"Destroyed Dominion Port\","
+      },
+      {
+        "line": 94,
+        "text": "\tcolor=colors.BLUE,"
+      },
+      {
+        "line": 95,
+        "text": "\tadd_displays={class.new{z=8,image=\"terrain/worldmap/dominion_port_ruined.png\"}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a9e1c8d5e38cdf9f94c2aef418c8e674980e13679b4a4bbf6f003f52f10d1df",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 216,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 217,
+        "text": "\ton_gain = function(self, eff) return _t\"#Target# sees all!\", true end,"
+      },
+      {
+        "line": 218,
+        "text": "\ton_lose = function(self, eff) return _t\"#Target# loses their telepathy.\", true end,"
+      },
+      {
+        "line": 219,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 220,
+        "text": "\t\tself:effectTemporaryValue(eff, \"esp_all\", 1)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ac1e686e1c45f4bae636dd34d3c88be0271b24c471f9e87e6897c7a89d94afd",
+    "public_source_path": "tome-orcs/data/general/npcs/ritch-extended.lua",
+    "lines": [
+      {
+        "line": 102,
+        "text": "\t\t{type=\"insect\", subtype=\"ritch\", name=\"ritch larva\", number=1, hasxp=false},"
+      },
+      {
+        "line": 103,
+        "text": "\t\t{type=\"insect\", subtype=\"ritch\", name=\"ritch hunter\", number=1, hasxp=false},"
+      },
+      {
+        "line": 104,
+        "text": "\t\t{type=\"insect\", subtype=\"ritch\", name=\"ritch centipede\", number=1, hasxp=false},"
+      },
+      {
+        "line": 105,
+        "text": "\t\t{type=\"insect\", subtype=\"ritch\", name=\"larvae bloated ritch mother\", number=1, hasxp=false},"
+      },
+      {
+        "line": 106,
+        "text": "\t},"
+      },
+      {
+        "line": 116,
+        "text": ""
+      },
+      {
+        "line": 117,
+        "text": "newEntity{ base = \"BASE_NPC_RITCH\","
+      },
+      {
+        "line": 118,
+        "text": "\tname = \"ritch centipede\", color=colors.LIGHT_RED,"
+      },
+      {
+        "line": 119,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 120,
+        "text": "\tdesc = _t[[This strange creature looks like a ritch hunter but with more legs. So many legs.]],"
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "\tmake_escort = {"
+      },
+      {
+        "line": 134,
+        "text": "\t\t{type=\"insect\", subtype=\"ritch\", name=\"ritch centipede\", number=1, no_subescort=true},"
+      },
+      {
+        "line": 135,
+        "text": "\t},"
+      },
+      {
+        "line": 136,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ac8d8c9b147e82b344482b4831cd60d473bf814da0c059965940dd68dae01b7",
+    "public_source_path": "tome-orcs/data/zones/palace-fumes/npcs.lua",
+    "lines": [
+      {
+        "line": 215,
+        "text": "\trepairable = 1,"
+      },
+      {
+        "line": 216,
+        "text": "\tlevel_range = {50, nil},"
+      },
+      {
+        "line": 217,
+        "text": "\tdesc = _t[[This appears to be mechanized pedestal."
+      },
+      {
+        "line": 218,
+        "text": "Two steamguns mounted on its top constantly swivel back and forth, seeking enemies of the Atmos.]],"
+      },
+      {
+        "line": 219,
+        "text": "\tcombat = { dam=resolvers.levelup(5, 1, 0.7), atk=7, apr=1 },"
+      },
+      {
+        "line": 220,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b0dec8abee07cc6186f0aa4c9b67b24ac3c5200b3916474764e48370fc537c0",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1251,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 1252,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 1253,
+        "text": "\tname = \"Skysmasher\", color = colors.UMBER, image = \"object/artifact/skysmasher.png\","
+      },
+      {
+        "line": 1254,
+        "text": "\tunided_name = _t\"rocket powered maul\","
+      },
+      {
+        "line": 1255,
+        "text": "\tdesc = _t[[The discovery of rockets has proved incredibly dangerous. It is not always clear for whom.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b23cc90b35dd45625c422376c407271c51c337d68520d3109062a98d0c9a91f",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 248,
+        "text": "newEntity{ base = \"BASE_GAUNTLETS\","
+      },
+      {
+        "line": 249,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 250,
+        "text": "\tname = \"Assassin's Surprise\", unided_name = _t\"glistening steel gauntlets\","
+      },
+      {
+        "line": 251,
+        "text": "\tunique = true, image = \"object/artifact/gauntlet_assassins_surprise.png\","
+      },
+      {
+        "line": 252,
+        "text": "\tdesc = _t[[These steel gauntlets feature a hidden contraption embedded in the left index finger that fires poisonous bolts.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b35ef868f465f66173e68dd1a97c1fe120152f097704cc1e89895b326036be3",
+    "public_source_path": "tome-orcs/data/lore/slumbering-caves.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "\tid = \"slumbering-caves-3\","
+      },
+      {
+        "line": 39,
+        "text": "\tcategory = \"slumbering caves\","
+      },
+      {
+        "line": 40,
+        "text": "\tname = _t\"a journal (3)\","
+      },
+      {
+        "line": 41,
+        "text": "\tlore = _t[[The work continues, and soon all shall know the name of their new god.  Even handling the one Hand that I have makes me weep for the sins of my brothers, and yet eager to see their work undone...  The bowels of Eyal shall be the forge in which You will be remade, the newly-drained magma channels above shall be its fire."
+      },
+      {
+        "line": 42,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b5b73da37b0e2e519876b12e52efb79a189e7cd999f88a02f02a0efd3df1c1e",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 78,
+        "text": "\tname = \"MIND_DRONE\", image = \"talents/mind_drones.png\","
+      },
+      {
+        "line": 79,
+        "text": "\tdesc = _t\"Mind Drone\","
+      },
+      {
+        "line": 80,
+        "text": "\tlong_desc = function(self, eff) return (\"Talents fail chance %d%%, fear and sleep immunity reduced by %d%%.\"):tformat(eff.fail, eff.reduction) end,"
+      },
+      {
+        "line": 81,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 82,
+        "text": "\tsubtype = {psionic=true, steam=true, disrupt=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b5c654b5ada42a1ad6aa0a4e84f1ef4f13e893290bc5140dc8654e6500f54a1",
+    "public_source_path": "tome-orcs/data/general/npcs/domestic-yeti.lua",
+    "lines": [
+      {
+        "line": 48,
+        "text": "newEntity{ base = \"BASE_NPC_YETI_TAME\","
+      },
+      {
+        "line": 49,
+        "text": "\tname = \"pet yeti\", color=colors.LIGHT_GREY,"
+      },
+      {
+        "line": 50,
+        "text": "\tdesc = _t[[This yeti is somewhat smaller than the average yeti, and its fur seems well groomed. Nonetheless, it looks quite unhappy to see its master's home invaded.]],"
+      },
+      {
+        "line": 51,
+        "text": "\tresolvers.nice_tile{tall=true},"
+      },
+      {
+        "line": 52,
+        "text": "\tlevel_range = {1, 12}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b692c66510eba944041abef08df3ea7b98042a3986bd3c49595bd6b816b08c5",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 273,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 274,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_MAGNETIC_SHELL\"..i,"
+      },
+      {
+        "line": 275,
+        "text": "\tname = (\"%s magnetic shell\"):tformat(simple[i]), image = \"object/tinkers_magnetic_shell_t5.png\","
+      },
+      {
+        "line": 276,
+        "text": "\ton_slot = \"QUIVER\","
+      },
+      {
+        "line": 277,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1b79d5a0f383aa7ebafae75f38dc24f137509353e7f001eb6a73cbf9a06c67fc",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1096,
+        "text": ""
+      },
+      {
+        "line": 1097,
+        "text": "newTalent{"
+      },
+      {
+        "line": 1098,
+        "text": "\tname = \"Itching Powder\", short_name = \"TINKER_ITCHING_POWDER\","
+      },
+      {
+        "line": 1099,
+        "text": "\ttype = {\"steamtech/other\", 1},"
+      },
+      {
+        "line": 1100,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1bc14a962a7f74f89750cc0f2913930a378abd3081cffc194ce41ea58e64d357",
+    "public_source_path": "tome-orcs/data/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "newRecipe{ id = \"STEAMGUN\","
+      },
+      {
+        "line": 36,
+        "text": "\tname = _t\"Steamgun\", icon = \"shockbolt/object/steamgun_voratun.png\","
+      },
+      {
+        "line": 37,
+        "text": "\tdesc = _t\"Dismantle any one sling, add some amazing steampower to it and make a powerful steamgun to fire a bullet hell at your foes!\","
+      },
+      {
+        "line": 38,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      },
+      {
+        "line": 39,
+        "text": "\trandom_schematic = {level=1, rarity=30, cost=80},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1bc7d0521a51b0d2d7f476eacda84a39996681cef4529b4969801fe12fcb9134",
+    "public_source_path": "tome-orcs/data/talents/steam/sawmaiming.lua",
+    "lines": [
+      {
+        "line": 91,
+        "text": "\tend,"
+      },
+      {
+        "line": 92,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 93,
+        "text": "\t\treturn ([[You \"gently\" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds."
+      },
+      {
+        "line": 94,
+        "text": "\t\tAll bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect)."
+      },
+      {
+        "line": 95,
+        "text": "\t\tWhen this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures."
+      },
+      {
+        "line": 96,
+        "text": "\t\tThe power and damage improves with your Steampower."
+      },
+      {
+        "line": 97,
+        "text": "\t\t#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]]):"
+      },
+      {
+        "line": 98,
+        "text": "\t\ttformat(self:combatTalentWeaponDamage(t, 0.3, 1.1) * 100, t.getDuration(self, t), t.getDamageInc(self, t), damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))"
+      },
+      {
+        "line": 99,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1beeb588c2458347118a396edee098cc9e6538422fb8d69aaf62625e22e84c27",
+    "public_source_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+    "lines": [
+      {
+        "line": 138,
+        "text": "\t\tdam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)"
+      },
+      {
+        "line": 139,
+        "text": "\t\tcrit = true"
+      },
+      {
+        "line": 140,
+        "text": "\t\tgame.logSeen(self, \"#{bold}#%s's tinker attains critical power!#{normal}#\", self:getName():capitalize())"
+      },
+      {
+        "line": 141,
+        "text": ""
+      },
+      {
+        "line": 142,
+        "text": "\t\tif self:knowTalent(self.T_EYE_OF_THE_TIGER) then self:triggerTalent(self.T_EYE_OF_THE_TIGER, nil, \"steam\") end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1bf24288e0373a17a7a288d0b64aeb2ebc7bc0676575186908cfb02ec949c1d1",
+    "public_source_path": "tome-orcs/data/talents/steam/demolition.lua",
+    "lines": [
+      {
+        "line": 39,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "newTalent{"
+      },
+      {
+        "line": 41,
+        "text": "\tname = \"Grenade Launcher\","
+      },
+      {
+        "line": 42,
+        "text": "\ttype = {\"steamtech/demolition\", 1},"
+      },
+      {
+        "line": 43,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 207,
+        "text": "\t\tlocal nb = t.getNb(self,t)"
+      },
+      {
+        "line": 208,
+        "text": "\t\tlocal speed = t.getSpeed(self,t)*100"
+      },
+      {
+        "line": 209,
+        "text": "\t\treturn ([[You load a magazine of %d grenades into your launcher, causing your next %d shots to fire a random grenade type in place of your usual Grenade Launcher, dealing 50%% of the usual grenade damage."
+      },
+      {
+        "line": 210,
+        "text": "\t\tWhile the magazine is loaded your attack speed is increased by %d%%."
+      },
+      {
+        "line": 211,
+        "text": "\t\tYour Grenade Launcher talent must be on cooldown to use this talent, and the magazine will only last for 6 turns.]]):"
+      },
+      {
+        "line": 212,
+        "text": "\t\ttformat(nb, nb, speed)"
+      },
+      {
+        "line": 213,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c07925de7dc3b6da37d05e79a7467e1e5ba6aceb22b771a7c338bee3e6370c0",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1431,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 1432,
+        "text": "\tname = \"Eastern Wood Hat\", image = \"object/artifact/eastern_wood_hat.png\","
+      },
+      {
+        "line": 1433,
+        "text": "\tunided_name = _t\"worn leather hat\","
+      },
+      {
+        "line": 1434,
+        "text": "\tlevel_range = {36, 48},"
+      },
+      {
+        "line": 1435,
+        "text": "\tcolor=colors.BROWN,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c3aaf948b59b6b021fb55d7d41e060fd6ac53025c5128cf3c8afb975eafa507",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 278,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 279,
+        "text": "\t\t_t\"The Annihilator is a master of destruction, wielding the most devastating steamtech inventions to lay waste to their foes.\","
+      },
+      {
+        "line": 280,
+        "text": "\t\t_t\"While normally wielding a steamgun loaded with experimental ammunition and an electrically charged shield, they can equip heavy weapons such as flamethrowers.\","
+      },
+      {
+        "line": 281,
+        "text": "\t\t_t\"More adept at technology than most other tinkers, they supplement their weapons with automated turrets, mechanical minions and other such devices.\",\t\t"
+      },
+      {
+        "line": 282,
+        "text": "\t\t_t\"Their most important stats are: Cunning and Dexterity\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c4d4b2948a9942b1c2f9cce848e371fb57b730145ca0d4530cb22f5c0874b06",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 80,
+        "text": "\tsubtype = { steamtech=true },"
+      },
+      {
+        "line": 81,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 82,
+        "text": "\ton_gain = function(self, err) return (\"#Target# tweaks some of %s bullets.\"):tformat(string.his_her(self)), _t\"+Bullet Mastery\" end,"
+      },
+      {
+        "line": 83,
+        "text": "\tparameters = {power = 10},"
+      },
+      {
+        "line": 84,
+        "text": "}"
+      },
+      {
+        "line": 90,
+        "text": "\tsubtype = { steamtech=true },"
+      },
+      {
+        "line": 91,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 92,
+        "text": "\ton_gain = function(self, err) return (\"#Target# tweaks some of %s bullets.\"):tformat(string.his_her(self)), _t\"+Bullet Mastery\" end,"
+      },
+      {
+        "line": 93,
+        "text": "\tparameters = {power = 5},"
+      },
+      {
+        "line": 94,
+        "text": "}"
+      },
+      {
+        "line": 100,
+        "text": "\tsubtype = { steamtech=true },"
+      },
+      {
+        "line": 101,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 102,
+        "text": "\ton_gain = function(self, err) return (\"#Target# tweaks some of %s bullets.\"):tformat(string.his_her(self)), _t\"+Bullet Mastery\" end,"
+      },
+      {
+        "line": 103,
+        "text": "\tparameters = {power=10, stunpower=10},"
+      },
+      {
+        "line": 104,
+        "text": "}"
+      },
+      {
+        "line": 110,
+        "text": "\tsubtype = { steamtech=true },"
+      },
+      {
+        "line": 111,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 112,
+        "text": "\ton_gain = function(self, err) return (\"#Target# tweaks some of %s bullets.\"):tformat(string.his_her(self)), _t\"+Bullet Mastery\" end,"
+      },
+      {
+        "line": 113,
+        "text": "\tparameters = {power = 10},"
+      },
+      {
+        "line": 114,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c84fcbba5fad842881638608e0f4553bff7a1db316edb60f43b7ff13330a7b1",
+    "public_source_path": "tome-orcs/data/talents/spells/occult-technomancy.lua",
+    "lines": [
+      {
+        "line": 276,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 277,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 278,
+        "text": "\t\treturn ([[You reach out through the aether to all creatures in sight that were slowed by Reality Breach or Congeal Time."
+      },
+      {
+        "line": 279,
+        "text": "\t\tFor each target you create a link of arcane infused steam to it that lasts %d turns."
+      },
+      {
+        "line": 280,
+        "text": "\t\tAny time the target uses a talent one of your cooling down spells is reduced by 1 (prioritizing Technomancy spells)."
+      },
+      {
+        "line": 281,
+        "text": "\t\tEach turn the link is up the target and any creature inside the link takes %0.2f occult damage."
+      },
+      {
+        "line": 282,
+        "text": "\t\tAs long as at least one link is up, the cooldown of your Metaphasic Spin spell is set to 6 turns instead of 30."
+      },
+      {
+        "line": 283,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):tformat(t.getDur(self, t), damDesc(self, DamageType.OCCULT, damage))"
+      },
+      {
+        "line": 284,
+        "text": "\tend,"
+      },
+      {
+        "line": 285,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ca7e07aaf7f1c8769319b599dfa8c9f930a738da9b298974313e93c14312b29",
+    "public_source_path": "tome-orcs/data/talents/steam/steam.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/physics\", generic=true, name = _t(\"physics\", \"talent type\"), description = _t\"Learn the mechanical side of steamtech.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/chemistry\", generic=true, name = _t(\"chemistry\", \"talent type\"), description = _t\"Learn the chemistry side of steamtech.\" }"
+      },
+      {
+        "line": 36,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/blacksmith\", generic=true, name = _t(\"blacksmith\", \"talent type\"), description = _t\"All this metalworking has improved you.\" }"
+      },
+      {
+        "line": 37,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/engineering\", generic=true, name = _t(\"engineering\", \"talent type\"), description = _t\"You don't just know how tinkering works, you know all the interesting details too!\" }"
+      },
+      {
+        "line": 278,
+        "text": "load(\"/data-orcs/talents/steam/other.lua\")"
+      },
+      {
+        "line": 279,
+        "text": "load(\"/data-orcs/talents/steam/physics.lua\")"
+      },
+      {
+        "line": 280,
+        "text": "load(\"/data-orcs/talents/steam/chemistry.lua\")"
+      },
+      {
+        "line": 281,
+        "text": "load(\"/data-orcs/talents/steam/blacksmith.lua\")"
+      },
+      {
+        "line": 282,
+        "text": "load(\"/data-orcs/talents/steam/engineering.lua\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1cc19e1a0ab1322c58f0a788a168c51e37f05fbd25fb5adf83c8389899f4f959",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 833,
+        "text": "\t\tphysspeed= 1.5,"
+      },
+      {
+        "line": 834,
+        "text": "\t\tuse_resources = {steam = 1},"
+      },
+      {
+        "line": 835,
+        "text": "\t\tspecial_on_hit = {desc=_t\"50% chance to reload 1 ammo\", on_kill=1, fct=function(combat, who, target)"
+      },
+      {
+        "line": 836,
+        "text": "\t\t\tif not rng.percent(50) then return end"
+      },
+      {
+        "line": 837,
+        "text": "\t\t\tlocal ammo = who:hasAmmo()"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1cc5e564b747b83281a361e41f60f244c54cade83ce6f9644383d722cb4f5caa",
+    "public_source_path": "tome-orcs/data/talents/steam/bullets-mastery.lua",
+    "lines": [
+      {
+        "line": 94,
+        "text": "\tend,"
+      },
+      {
+        "line": 95,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 96,
+        "text": "\t\treturn ([[You swap your bullets for more massive ones for %d turns."
+      },
+      {
+        "line": 97,
+        "text": "\t\tWhen striking a creature, these bullets have a %d%% chance of knocking it back 3 tiles and a %d%% chance of stunning it for 3 turns."
+      },
+      {
+        "line": 98,
+        "text": "\t\tThe chances to knockback and stun increase with your Steampower."
+      },
+      {
+        "line": 99,
+        "text": "\t\tOnly one bullet enhancement can be used at once.]]):"
+      },
+      {
+        "line": 100,
+        "text": "\t\ttformat(t.getTurns(self, t), t.getKBChance(self, t), t.getStunChance(self, t))"
+      },
+      {
+        "line": 101,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ce24858fc6b2f4e954d92cee018e51241dbf490986bbb13226fd49f766d01b5",
+    "public_source_path": "tome-orcs/data/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 93,
+        "text": ""
+      },
+      {
+        "line": 94,
+        "text": "newRecipe{ id = \"GALVANIC_RETRIBUTOR\","
+      },
+      {
+        "line": 95,
+        "text": "\tname = _t\"Galvanic Retributor\", icon = \"shockbolt/object/tinkers_galvanic_retribution_t5.png\","
+      },
+      {
+        "line": 96,
+        "text": "\tdesc = _t\"Fortify your shield with electricity and prepare to unleash GALVANIC RETRIBUTION against your attackers!\","
+      },
+      {
+        "line": 97,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1cf969bcdd49ee5d598e7a1386a39c8d74e8e25f3b8aa658ff2871be7f8bd1d9",
+    "public_source_path": "tome-orcs/data/zones/dominion-port/grids.lua",
+    "lines": [
+      {
+        "line": 154,
+        "text": "\t\t\twho:sortInven()"
+      },
+      {
+        "line": 155,
+        "text": ""
+      },
+      {
+        "line": 156,
+        "text": "\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Booty chest\", _t\"You plunder the chest and gain:\\n\"..table.concat(list, \"\\n\"), 500)"
+      },
+      {
+        "line": 157,
+        "text": "\t\tend"
+      },
+      {
+        "line": 158,
+        "text": "\t\tself.chest_items = nil"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d16481f7ddf5d5c1b7345314ecb4cd8d807e95b67d6c5c601d2a31702ad2925",
+    "public_source_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "lines": [
+      {
+        "line": 550,
+        "text": "\t\t\t\ttarget:setEffect(target.EFF_DISARMED, tg.archery.boltgun_disarm_dur, {apply_power=self:combatSteampower()})"
+      },
+      {
+        "line": 551,
+        "text": "\t\t\telse"
+      },
+      {
+        "line": 552,
+        "text": "\t\t\t\tgame.logSeen(target, \"%s resists the disarm!\", target:getName():capitalize())"
+      },
+      {
+        "line": 553,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 554,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d1b7dbf692d1752ff86f33430322052c79da3e1603634e9bb2da5b12b60e105",
+    "public_source_path": "tome-orcs/data/general/objects/boss-artifacts.lua",
+    "lines": [
+      {
+        "line": 100,
+        "text": "\t\tblock = 150,"
+      },
+      {
+        "line": 101,
+        "text": "\t\tlifesteal=10,"
+      },
+      {
+        "line": 102,
+        "text": "\t\tspecial_on_kill = {desc=_t\"Fully heal yourself. (15 turn cooldown)\", fct=function(combat, who, target)"
+      },
+      {
+        "line": 103,
+        "text": "\t\t\tlocal Talents = require \"engine.interface.ActorTalents\""
+      },
+      {
+        "line": 104,
+        "text": "\t\t\tlocal o, item, inven_id = who:findInAllInventoriesBy(\"define_as\", \"TWISTED_BLADE\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d2575c0117b3898b9ed9376d1eec4cfc14b29ca314c73db2e4e491a961b9634",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 167,
+        "text": "\t\tend"
+      },
+      {
+        "line": 168,
+        "text": "\t\tif not found then"
+      },
+      {
+        "line": 169,
+        "text": "\t\t\tgame.logPlayer(self, \"You cannot use %s without a one handed melee weapon in your inventory!\", t.name)"
+      },
+      {
+        "line": 170,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 171,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d33807943b366ae19c8d874b1708364b8ebb4410738a6bdd5c9bd0e2ebab46e",
+    "public_source_path": "tome-orcs/data/talents/celestial/void.lua",
+    "lines": [
+      {
+        "line": 182,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 183,
+        "text": "\t\t"
+      },
+      {
+        "line": 184,
+        "text": "\t\treturn ([[Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.]]):"
+      },
+      {
+        "line": 185,
+        "text": "\t\ttformat(radius, duration)"
+      },
+      {
+        "line": 186,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d45d6cf026896755d5e17822908e3f57d05ec5badfc9d6424e580619617d2ee",
+    "public_source_path": "tome-orcs/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 163,
+        "text": "newEffect{"
+      },
+      {
+        "line": 164,
+        "text": "\tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\","
+      },
+      {
+        "line": 165,
+        "text": "\tdesc = _t\"Echoed Light\","
+      },
+      {
+        "line": 166,
+        "text": "\tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])"
+      },
+      {
+        "line": 167,
+        "text": "\t\t:tformat(eff.power * 100, eff.max * 100) end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d8285127b4b146b16c57e5e4864bc013d0336ae61ac9cd9b3fa4b1b81d05834",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 673,
+        "text": "\tpower_source = {steam=true, arcane = true},"
+      },
+      {
+        "line": 674,
+        "text": "\tname = \"Vindicator\", image = \"object/artifact/vindicator.png\","
+      },
+      {
+        "line": 675,
+        "text": "\tunided_name = _t\"engraved gun\", unique = true,"
+      },
+      {
+        "line": 676,
+        "text": "\tlevel_range = {20, 30},"
+      },
+      {
+        "line": 677,
+        "text": "\tdesc = _t[[\"Pesky undead plaguing your village? Necromancers ransacking your burial grounds? The Vindicator is the solution to all your woes!\"]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1daa54d55c4ee159b97849cde3efd7ad801c1a3be6d859e98d7f3cb039c72f96",
+    "public_source_path": "tome-orcs/data/talents/steam/inscriptions.lua",
+    "lines": [
+      {
+        "line": 102,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 103,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 104,
+        "text": "\t\treturn ([[Steam generator that permanently creates %0.1f steam per turn."
+      },
+      {
+        "line": 105,
+        "text": "\t\tCan be activated for an instant burst of %d steam.]]):tformat(data.power + data.inc_stat, (data.power + data.inc_stat) * 5)"
+      },
+      {
+        "line": 106,
+        "text": "\tend,"
+      },
+      {
+        "line": 107,
+        "text": "\tshort_info = function(self, t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1dc8a427fe27b60022814899271b94de28ac8a03a87c30261bbd2ad0c8a26142",
+    "public_source_path": "tome-orcs/data/talents/steam/gadgets.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "newTalent{"
+      },
+      {
+        "line": 23,
+        "text": "\tname = \"Autoloader\","
+      },
+      {
+        "line": 24,
+        "text": "\ttype = {\"steamtech/gadgets\", 1},"
+      },
+      {
+        "line": 25,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1dcacb8f42884bca039307be6ee7843d5bd22ab7d1a34c7c54c9fa84b23729fe",
+    "public_source_path": "tome-orcs/data/talents/steam/steam.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, speed=\"archery\", type=\"steamtech/gunner-training\", name = _t(\"gunner training\", \"talent type\"), description = _t\"Use steam powered guns to rain bullets of death on your foes!  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      },
+      {
+        "line": 47,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, speed=\"archery\", type=\"steamtech/gunslinging\", name = _t(\"gunslinging\", \"talent type\"), description = _t\"Use advanced marksmanship to confound and overwhelm your foes!  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      },
+      {
+        "line": 48,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, type=\"steamtech/bullets-mastery\", name = _t(\"bullets mastery\", \"talent type\"), description = _t\"Use various kinds of technology to temporarily enhance your bullets.  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      },
+      {
+        "line": 49,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/avoidance\", name = _t(\"avoidance\", \"talent type\"), description = _t\"Using various enhancements of your cloak you are able to manage incoming damage.\" }"
+      },
+      {
+        "line": 50,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/elusiveness\", name = _t(\"elusiveness\", \"talent type\"), description = _t\"Incredible feats of slipperiness!\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1dd9f7b3c30df9c6657d37dcdc067e8cca5b362b3ab11e90b48e86acc7505449",
+    "public_source_path": "tome-orcs/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 469,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 470,
+        "text": "\tparameters = { dam=10 },"
+      },
+      {
+        "line": 471,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# covered in arcane-infused steam!\", true end,"
+      },
+      {
+        "line": 472,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the steam.\", true end,"
+      },
+      {
+        "line": 473,
+        "text": "\tcallbackOnTalentPost = function(self, eff, ab)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e2132cd76914c15a77bf369af5cd6531ad2eab3fdf61fa9a27a5776f5855650",
+    "public_source_path": "tome-orcs/data/factions.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "engine.Faction:add{ name=\"Kruk Pride\", reaction={}, }"
+      },
+      {
+        "line": 21,
+        "text": "engine.Faction:add{ name=\"Free Whitehooves\", reaction={}, }"
+      },
+      {
+        "line": 22,
+        "text": "engine.Faction:add{ name=\"Whitehooves\", reaction={}, }"
+      },
+      {
+        "line": 23,
+        "text": "engine.Faction:add{ name=\"Kar'Haïb Dominion\", short_name=\"kar-haib-dominion\", reaction={}, }"
+      },
+      {
+        "line": 24,
+        "text": "engine.Faction:add{ name=\"Atmos Tribe\", short_name=\"atmos-tribe\", reaction={}, }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e2bb5224ab138dcd2a2998a5eda610c16f2187f37ec4105d283ca729a1b64bd",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+    "lines": [
+      {
+        "line": 180,
+        "text": "\tspecial_desc = function(self) "
+      },
+      {
+        "line": 181,
+        "text": "\t\tlocal maxp = self:min_power_to_trigger()"
+      },
+      {
+        "line": 182,
+        "text": "\t\treturn (\"You cannot bleed.\\nWhen you take damage, if your life is under 20%%, heal for 30%% of your max life. %s\"):tformat(self.power < maxp and (\"(%d turns until ready)\"):tformat(maxp - self.power) or _t\"(15 turn cooldown)\")"
+      },
+      {
+        "line": 183,
+        "text": "\tend,"
+      },
+      {
+        "line": 184,
+        "text": "\twielder = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e303ad7b6f88f04b782674f2f50e3457595e8deebab3d4a586debac918eb43e",
+    "public_source_path": "tome-orcs/data/lore/internment-camp.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "newLore{"
+      },
+      {
+        "line": 25,
+        "text": "\tid = \"internment-camp-1\","
+      },
+      {
+        "line": 26,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"internment camp correspondence (1)\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 29,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 58,
+        "text": "newLore{"
+      },
+      {
+        "line": 59,
+        "text": "\tid = \"internment-camp-2\","
+      },
+      {
+        "line": 60,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 61,
+        "text": "\tname = _t\"internment camp correspondence (2)\","
+      },
+      {
+        "line": 62,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 63,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 90,
+        "text": "newLore{"
+      },
+      {
+        "line": 91,
+        "text": "\tid = \"internment-camp-3\","
+      },
+      {
+        "line": 92,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 93,
+        "text": "\tname = _t\"internment camp correspondence (3)\","
+      },
+      {
+        "line": 94,
+        "text": "\tlore = _t[[#{italic}#To: Condescending Little Cretin"
+      },
+      {
+        "line": 95,
+        "text": "From: Guard Captain Galsamae#{normal}#"
+      },
+      {
+        "line": 114,
+        "text": "newLore{"
+      },
+      {
+        "line": 115,
+        "text": "\tid = \"internment-camp-4\","
+      },
+      {
+        "line": 116,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 117,
+        "text": "\tname = _t\"internment camp correspondence (4)\","
+      },
+      {
+        "line": 118,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 119,
+        "text": "From: Administrator Quellop#{normal}#"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e34353785f3409034ca9a791fe3ece3a482f5c62921d83d7344e3a50d90c767",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+    "lines": [
+      {
+        "line": 152,
+        "text": "\tend,"
+      },
+      {
+        "line": 153,
+        "text": "\tuse_no_energy = true,"
+      },
+      {
+        "line": 154,
+        "text": "\tresolvers.medical_salves(_t\"increases all saves by %d and healing factor by half\", 18, function(self, who)"
+      },
+      {
+        "line": 155,
+        "text": "\t\twho:setEffect(who.EFF_UNSTOPPABLE_FORCE_SALVE, self.material_level, {power=self:getCharmPower(who)})"
+      },
+      {
+        "line": 156,
+        "text": "\t\treturn {id=true, used=true}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e5883aa3f1cc3b604cde4dffc1afb6c1e127cdef6a893b39a4db5dd804b9c45",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "\tid = \"sunwall-observatory-1\","
+      },
+      {
+        "line": 22,
+        "text": "\tcategory = \"sunwall observatory\","
+      },
+      {
+        "line": 23,
+        "text": "\tname = _t\"an astronomer's journal\","
+      },
+      {
+        "line": 24,
+        "text": "\tlore = _t[[The strange movement on the far side of Wintertide continues - a shadow here, a tiny speck or flash of light there.  Still obscured and difficult to identify.  Obfuscating magic is likely at work, but whether it's on our end or Wintertide's, I cannot say."
+      },
+      {
+        "line": 25,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e60b65513e642d6caa919b14c5e14e948c8aad17908b4fba6d2dd7911c3ac61",
+    "public_source_path": "tome-orcs/data/achievements/special.lua",
+    "lines": [
+      {
+        "line": 87,
+        "text": "\tname = \"We weren't kidding!\", id = \"ORCS_DIE_NEKTOSH\", category = \"Embers of Rage\","
+      },
+      {
+        "line": 88,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 89,
+        "text": "\tdesc = _t[[Die to Nektosh's beam without being pinned, stunned, asleep, dazed, or confused.]],"
+      },
+      {
+        "line": 90,
+        "text": "\tmode = \"player\","
+      },
+      {
+        "line": 91,
+        "text": "}"
+      }
+    ]
+  }
+]
