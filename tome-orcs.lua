@@ -1504,7 +1504,7 @@ t("engulfs %s spectacularly", "，壮观的火焰吞没了%s", "tformat")
 t("launches %s in the air", "，将%s送上天空", "tformat")
 t("#Source# lands in a #LIGHT_RED#firey explosion#LAST#!", "#Source#引发了#LIGHT_RED#火焰爆炸#LAST#！", "logCombat")
 t("Assassin's Surprise", "暗杀奇袭", "entity name")
-t("glistening steel gauntlets", "闪耀光辉的铁手套", "_t")
+t("glistening steel gauntlets", "闪耀光辉的钢铁手套", "_t")
 t("These steel gauntlets feature a hidden contraption embedded in the left index finger that fires poisonous bolts.", "这对钢铁手套的左手食指中藏有一个能发射毒箭的精巧机关。", "_t")
 t("fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)", "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并导致目标被致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）", "tformat", {1,2,3,5,4})
 t("#Source# fires a bolt of #GREEN#poison#LAST# at #target# from %s %s!", "#Source#使用%s%s朝#target#发射#GREEN#毒液#LAST#！", "logCombat")
@@ -1541,7 +1541,7 @@ t("throw the gun and cause it to explode, dealing by %d mind damage (based on Cu
 t("%s tosses %s %s!", "%s投掷了%s%s！", "logSeen")
 t("%s resists the sleep!", "%s抵抗了睡眠！", "logSeen")
 t("Thoughtcaster", "思维施法者", "entity name")
-t("crystalline handgun", "透明的手枪", "_t")
+t("crystalline handgun", "水晶手枪", "_t")
 t("From body, mind. From mind, body.", "从物质中诞生意识。从意识中诞生物质。", "_t")
 t("deal %0.2f mind damage (based on Mindpower) in a radius 1 around the target", "对目标周围半径 1 码内的敌人造成 %0.2f 点精神伤害（基于精神强度）", "tformat")
 t("On hitting with a mindstar, deal physical damage equal to your steampower in radius 1 around the target.", "用灵晶命中时，在半径1范围内造成等于蒸汽强度的物理伤害。", "_t")
@@ -1561,12 +1561,12 @@ t("Through a combination of magic and airborne probes, these shots incite powerf
 t("a bolt of lightning strikes your target, dealing lightning damage to them and fire damage to those around them.", "一道闪电击中目标，造成闪电伤害，并对周围生物造成火焰伤害。", "_t")
 t("Vindicator", "维序者", "entity name")
 t("engraved gun", "雕花的枪", "_t")
-t("\"Pesky undead plaguing your village? Necromancers ransacking your burial grounds? The Vindicator is the solution to all your woes!\"", "恼人的不死族在你的村庄传播瘟疫？死灵法师搜刮你的墓地？维序者可以解决一切。", "_t")
+t("\"Pesky undead plaguing your village? Necromancers ransacking your burial grounds? The Vindicator is the solution to all your woes!\"", "「恼人的不死族在骚扰你的村庄？死灵法师搜刮你的墓地？维序者可以解决一切！」", "_t")
 t("release a burst of light dealing damage equal to your cunning plus your magic in a ball of radius 2. If the target is undead, the damage and radius are doubled.", "在半径2范围内造成等于灵巧加魔法的光明伤害。若目标为不死族，伤害和半径加倍。", "_t")
 t("Overburst", "强力爆裂", "entity name")
 t("wide barreled steamgun", "粗管蒸汽枪", "_t")
 t("\"Have you ever fired a shot into a group of monsters and thought 'there must be a better way?' Well now, there is!\"", "「你是否曾朝一群怪物开了一枪，心想‘一定有更好的办法’？现在，办法来了！」", "_t")
-t("Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4.", "释放榴弹，在半径4锥形范围内造成等于蒸汽强度的物理伤害。", "_t")
+t("Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4.", "释放一阵弹片，从目标处向外的半径 4 锥形范围内造成等于蒸汽强度的物理伤害。", "_t")
 t("Murderfang's Surekill", "屠牙的必杀", "entity name")
 t([["Murderfang came over yesterday, raving about this idea for a steamgun he had. He described it in great detail, everything, except for how it would actually work.
 What do you even grip it by? Insisted I make it though, left some design notes.
@@ -1659,7 +1659,7 @@ t("This hat was made from materials from a forest whose name is long since lost,
 t("Steamcatcher", "蒸汽捕捉器", "entity name")
 t("pipe coated leather hat", "管道覆盖的帽子", "_t")
 t("There's an old saying that most of your body heat escapes through your head. It's not true of body heat, but strangely, is actually true of steam.", "传说人体热量大部分从头部散失。对于体热来说并不是这样，但奇怪的是，蒸汽是从头部散失的。", "_t")
-t("On taking fire damage: Gain 5% of the damage as steam.", "受到的火焰伤害5%转化为蒸汽。", "_t")
+t("On taking fire damage: Gain 5% of the damage as steam.", "受到火焰伤害时：获得相当于该伤害 5% 的蒸汽。", "_t")
 t("Shoes of Moving Quickly", "疾行之鞋", "entity name")
 t("rocket powered boots", "火箭动力靴", "_t")
 t("Accurately? Less so.", "精确吗？并不。", "_t")
@@ -1754,7 +1754,7 @@ t([[Grushgore the Destroyer was absolutely enthralled when he discovered steamsa
 His naming skills have not improved.]], [[毁灭者格鲁什戈尔发现蒸汽链锯时十分激动，他立刻抓了几个工程师，强迫他们为他做了这个。
 他的取名技巧从没有得到提高。]], "_t")
 t("deal a melee attack against all other enemies in a circle around you", "对周围一圈敌人进行近战攻击。", "_t")
-t("Galen's Flowing Robe", "盖伦的科技法袍", "entity name")
+t("Galen's Flowing Robe", "盖伦的飘逸法袍", "entity name")
 t("ample robe", "宽大的法袍", "_t")
 t("This robe was worn by the Technomancer Galen, infused with technomancy enchantments it is said to react to techno-spells!", "这身法袍曾由科技法师盖伦穿着，并被注入了科技法术附魔；据说它会对科技法术产生反应！", "_t")
 t([[20% chance when casting a technomancy spell (or 10% chance when casting a normal spell) to power-up the internal defense circuits of the robe.
@@ -1780,7 +1780,7 @@ t("Saws made of metal? That is no good for a discerning Technomancer so Galen ma
 t("Increases the steam your arcane dynamo generate per 10 points of mana by 2.", "增加你的奥术发电机产生的蒸汽量，每消耗10点法力值产生的蒸汽量增加2。", "_t")
 t("Eye of the Lost", "迷失之眼", "entity name")
 t("pale mindstar", "苍白的灵晶", "_t")
-t("A strange aura surrounds this mindstar. You feel a presence, but it is obscured, as if it refuses to be found.", "灵晶周围有一层奇怪的领域。你能感觉到某个存在，但它被遮蔽了，就像它不愿意被察觉到一样。", "_t")
+t("A strange aura surrounds this mindstar. You feel a presence, but it is obscured, as if it refuses to be found.", "灵晶周围环绕着一股奇怪的气息。你能感觉到某个存在，但它被遮蔽了，就像它不愿意被察觉到一样。", "_t")
 t("reduces mental save", "减少精神豁免", "_t")
 t("see all other beings around you for 5 turns", "看到你周围所有的生物5回合", "_t")
 t("Brass Goggles", "铜制护目镜", "entity name")
@@ -3020,27 +3020,27 @@ The three of them clashed in a fight for the fate of Eyal.  Even with Argoniel's
 None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, or that they were ever in danger...  but thanks to our champion, they could live happily ever after.
 <? end ?>
 <? if Lore.pocket_time_winner.is_yeek then ?>[i]...Well, let's just assume that's how it went, anyway.  The alternative would make it quite difficult to tell the next story.[/i]<? end ?>
-]], [[<? Lore.init_pocket_time_data() ?>从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?> <?=Lore.pocket_time_winner.class?>。<?=Lore.pocket_time_winner.HeShe?>出身卑微，开始只进行一些简单的冒险，例如疯狂的自然守护者诺尔格斯或者是卡·普尔的另一个化身。随着<?=Lore.pocket_time_winner.heshe?>继续周游各地的旅行，<?=Lore.pocket_time_winner.heshe?>变得越来越强大，越来越熟练，开始尝试挑战越来越强大的对手。<?=Lore.pocket_time_winner.HeShe?>清除了占据伊克格的恐魔，并占领了这个被遗忘已久的飞行堡垒，作为下一步攻入恐惧王座的据点。“领主”，一个有着强大的力量和虐待欲望的恐怖死灵法师，正带领着一支庞大的不死军队在那里等待着<?=Lore.pocket_time_winner.himher?>，手握一把具有强大力量的远古神器……但是<?=Lore.pocket_time_winner.name?>勇敢地向前前进，穿过成群的骷髅和食尸鬼，在许多人失败的地方获得了成功。最终，<?=Lore.pocket_time_winner.heshe?>光荣地站在那具吸血鬼的尸体之上，手中拿着从死灵大军手中夺回的吸能法杖，马基埃亚尔再次恢复了和平。
+]], [[<? Lore.init_pocket_time_data() ?>从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?> <?=Lore.pocket_time_winner.class?>。<?=Lore.pocket_time_winner.HeShe?>出身卑微，开始只进行一些简单的冒险，例如疯狂的自然守护者诺尔格斯或者是卡·普尔的又一个化身。随着<?=Lore.pocket_time_winner.heshe?>继续周游各地的旅行，<?=Lore.pocket_time_winner.heshe?>变得越来越强大，越来越熟练，开始尝试挑战越来越强大的对手。<?=Lore.pocket_time_winner.HeShe?>清除了伊克格中堕落的恐魔，并将这座被遗忘已久的飞行堡垒据为己有，但这也仅仅是通往恐惧王座之塔途中的一块垫脚石。“领主”，一个拥有可怕力量、施虐欲更为可怕的死灵法师，正带领着一支庞大的不死军队在那里等待着<?=Lore.pocket_time_winner.himher?>，手握一把具有强大力量的远古神器……但是<?=Lore.pocket_time_winner.name?>勇敢地向前前进，穿过成群的骷髅和食尸鬼，在许多人失败的地方获得了成功。最终，<?=Lore.pocket_time_winner.heshe?>光荣地站在那具吸血鬼的尸体之上，并带走了吸能法杖，使其安全远离不死族之手。马基·埃亚尔再次恢复了和平。
 
-然而，等待着<?=Lore.pocket_time_winner.himher?>的则是更加危险的挑战。兽人，一个认为已经被战胜已久的威胁，重新出现在了马基埃亚尔的土地上！尽管 <?=Lore.pocket_time_winner.name?>努力将法杖存在了安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过发达到让人难以置信的远行传送门，试图追回法杖。<?=Lore.pocket_time_winner.name?>手握着多元水晶球，深吸一口气，穿过劈啪作响的传送门漩涡，那一瞬间，<?=Lore.pocket_time_winner.heshe?>成为第一个从马基·埃亚尔到达瓦·埃亚尔的人，那是和马基·埃亚尔分割了几个世纪的远东大陆。
+不幸的是，接下来等待着<?=Lore.pocket_time_winner.himher?>的是一项利害更加重大的任务。兽人，这个曾被认为已被消灭的威胁，在马基·埃亚尔大举重现！尽管 <?=Lore.pocket_time_winner.name?>努力将法杖存在了安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过一座古老而先进得难以置信的远行传送门，试图追回法杖。远行传送门在<?=Lore.pocket_time_winner.name?>高举多元水晶球将其激活时劈啪作响、旋转起来；<?=Lore.pocket_time_winner.heshe?>深吸一口气，闭上<?=Lore.pocket_time_winner.hisher?>的双眼。片刻之后，<?=Lore.pocket_time_winner.heshe?>成为了几个世纪以来第一个从马基·埃亚尔前往瓦·埃亚尔——遥远的远东大陆——的人。
 
-在那里等待着<?=Lore.pocket_time_winner.himher?>的，有着失落已久的盟友，太阳堡垒的人们——也有四支庞大的兽人军队。又一次，世界的命运落在了<?=Lore.pocket_time_winner.hisher?>手中，而<?=Lore.pocket_time_winner.himher?>绝不愿朝困难屈服。在接受了高阶太阳骑士艾琳的祝福之后，<?=Lore.pocket_time_winner.heshe?>出发前去进攻兽人部落，夺回被夺走的吸能法杖。与大魔导师沃尔的战斗充满了火焰和冰霜的风暴，那是可以召唤来自天空的力量来试图毁灭对手的强大敌人，但是沃尔的陨石也无法阻挡<?=Lore.pocket_time_winner.himher?>的胜利。加伯特部落的驯龙师和高阶龙战士对自然力量的掌控无出其右，但这只是让<?=Lore.pocket_time_winner.name?>成为了世界上最伟大的屠龙者。随着拉克·肖部落高大的白骨堡垒轰然倒下，<?=Lore.pocket_time_winner.heshe?>让死者们终于得到了安息。最终，以兽人中最强大的力量著称的格鲁希纳克部落的精英部队也倒在了<?=Lore.pocket_time_winner.hisher?>面前。
+在那里等待着<?=Lore.pocket_time_winner.himher?>的，有着失落已久的盟友，太阳堡垒的人们——也有四支庞大的兽人军队。又一次，世界的命运落在了<?=Lore.pocket_time_winner.hisher?>手中，而<?=Lore.pocket_time_winner.himher?>绝不愿朝困难屈服。在接受了高阶太阳骑士艾琳的祝福之后，<?=Lore.pocket_time_winner.heshe?>出发前去进攻兽人部落，夺回被夺走的吸能法杖。在<?=Lore.pocket_time_winner.hisher?>前去挑战大魔导师沃尔的路上，火焰与冰霜的风暴不断袭击<?=Lore.pocket_time_winner.himher?>；沃尔是一个能召唤天穹之力将<?=Lore.pocket_time_winner.himher?>碾碎的敌人，但他的陨石也未能阻止<?=Lore.pocket_time_winner.himher?>。加伯特部落的驯龙师——对自然之力的掌控无人能及的龙战士大师——也只是给了<?=Lore.pocket_time_winner.name?>成为世上最有成就的屠龙者的机会。当<?=Lore.pocket_time_winner.heshe?>让拉克·肖部落白骨堡垒中的居民得到安息时，堡垒随之崩塌。即便在格鲁希纳克部落，兽人们挡在<?=Lore.pocket_time_winner.hisher?>面前，施展他们最为人所知的本领——以力量与钢铁蛮攻——却也根本不够强大。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
-但是正当<?=Lore.pocket_time_winner.heshe?>攀爬高塔之前，<?=Lore.pocket_time_winner.heshe?>收到了来自高阶太阳骑士艾琳的紧急消息。<?=Lore.pocket_time_winner.HeShe?>急忙穿越了艾露安的废墟，到达了另一座远行传送门的面前。没有任何犹豫，<?=Lore.pocket_time_winner.name?>冲进了传送门中；<?=Lore.pocket_time_winner.heshe?>发现自己身处一片广阔的火焰与岩浆平原，狭长的土地通往远方。在<?=Lore.pocket_time_winner.himher?>身后，<?=Lore.pocket_time_winner.heshe?>听见了兵器的碰撞声：那是追随<?=Lore.pocket_time_winner.himher?>到达这里的兽人军队，太阳骑士们正严守防线，试图阻止敌军靠近。那些太阳骑士只告诉<?=Lore.pocket_time_winner.himher?>一件事：快跑！于是，<?=Lore.pocket_time_winner.heshe?>不顾一切地奋勇向前冲去，穿过和避开无数的红色巨龙，灼热的岩浆在危险的石桥两侧喷涌而出。最终，<?=Lore.pocket_time_winner.heshe?>的眼前终于又出现了吸能法杖的身影——然而，令人惊讶的是，真正的幕后黑手竟然是一个精灵和一个人类！那两位法师，在良好的意图，无尽的疯狂和悲剧性的爱的驱使之下，操纵兽人部落偷取法杖给他们——他们的目的到底是什么，<?=Lore.pocket_time_winner.heshe?>仍然尚不清楚。然而，他们所施展的法术被阻止了，<?=Lore.pocket_time_winner.heshe?>胜利回到了远东大陆，准备突袭这两位法师位于巅峰高塔的最终堡垒。
+但是正当<?=Lore.pocket_time_winner.heshe?>攀爬高塔之前，<?=Lore.pocket_time_winner.heshe?>收到了来自高阶太阳骑士艾琳的紧急消息。<?=Lore.pocket_time_winner.HeShe?>急忙穿越了艾露安的荒原，到达了另一座远行传送门的面前。<?=Lore.pocket_time_winner.name?>奉艾琳之命冲进了传送门，全然没有考虑它会通向何方；<?=Lore.pocket_time_winner.heshe?>发现自己身处一片广阔的火焰与岩浆平原，狭长的土地通往远方。在<?=Lore.pocket_time_winner.himher?>身后，<?=Lore.pocket_time_winner.heshe?>听见了兵器的碰撞声：那是追随<?=Lore.pocket_time_winner.himher?>到达这里的兽人军队，太阳骑士们正英勇地坚守防线，试图阻止敌军靠近。那些太阳骑士只告诉<?=Lore.pocket_time_winner.himher?>一件事：快跑！于是，<?=Lore.pocket_time_winner.heshe?>不顾一切地奋勇向前冲去，穿过和避开无数的红色巨龙，灼热的岩浆在危险的石桥两侧喷涌而出。在石桥尽头，<?=Lore.pocket_time_winner.heshe?>自离开马基·埃亚尔后第一次看到了吸能法杖——然而，令人惊讶的是，真正的幕后黑手竟然是一个精灵和一个人类！那两位法师，在良好的意图，无尽的疯狂和悲剧性的爱的驱使之下，操纵兽人部落偷取法杖给他们——他们的目的到底是什么，<?=Lore.pocket_time_winner.heshe?>仍然尚不清楚。然而，他们所施展的法术被阻止了，<?=Lore.pocket_time_winner.heshe?>胜利回到了远东大陆，准备突袭这两位法师位于巅峰之塔的巢穴。
 
-在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.himher?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.hisher?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>毫不畏惧，奋勇向前，击败了一切敌人，最终到达了顶层。在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们将要召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，在长期的隔绝之中陷入了无尽的疯狂。他们的计划必须被阻止！
+在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.himher?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.hisher?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
 
-幸运的是，<?=Lore.pocket_time_winner.name?>并未独自战斗。高阶太阳骑士艾琳来到了这里，与<?=Lore.pocket_time_winner.hisher?>并肩作战，这四个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了。
+幸运的是，<?=Lore.pocket_time_winner.name?>并未独自战斗。高阶太阳骑士艾琳来到了这里，与<?=Lore.pocket_time_winner.hisher?>并肩作战，四人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中飞舞，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了。
 
-埃亚尔的命运被<?=Lore.pocket_time_winner.name?>拯救了。这个世界上的大部分人，还不曾知道在巅峰上发生了什么，不知道世界曾经那样危在旦夕，但现在已经重现了和平。没有人知道，我们的英雄在之后去了哪里……但是，无论如何，<?=Lore.pocket_time_winner.heshe?>，以及埃亚尔的所有生灵，一直幸福地生活了下去。
+埃亚尔的命运被<?=Lore.pocket_time_winner.name?>拯救了。世上大多数人或许并不知道巅峰之上发生了什么，但他们确曾身陷危难，而如今已摆脱了危难。没有人知道我们的英雄此后做了些什么……但是，无论如何，<?=Lore.pocket_time_winner.heshe?>，以及埃亚尔的所有生灵，一直幸福地生活了下去。
 <? else ?>
-在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.himher?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.hisher?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>毫不畏惧，奋勇向前，击败了一切敌人，最终到达了顶层。在倒数第二层，出现的挑战者是出人意料的：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止法师们在灼烧之痕举行的仪式。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>的身上，他们进行了激烈的战斗……然而最后，艾琳被击败了。
+在巅峰之塔中等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.himher?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.hisher?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，其中最艰难的考验出现在倒数第二层：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止法师们在灼烧之痕举行的仪式，尽管<?=Lore.pocket_time_winner.heshe?>听到了呼唤<?=Lore.pocket_time_winner.heshe?>前去相助的声音。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>的身上，他们进行了激烈的战斗……但当<?=Lore.pocket_time_winner.heshe?>意识到<?=Lore.pocket_time_winner.heshe?>已经落败后，艾琳罢手了。
 
-在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们将要召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，在长期的隔绝之中陷入了无尽的疯狂。他们的计划必须被阻止！
+在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
 
-这三个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了……但是，付出的代价是惨重的。<?=Lore.pocket_time_winner.name?>看到了远行传送门的景象——两位法师为它注入了太多的能量，光使用吸能法杖已经无法阻止它了。<?=Lore.pocket_time_winner.HeShe?>无私地做出了牺牲，使用<?=Lore.pocket_time_winner.hisher?>的生命作为代价，摧毁了传送门。
+三人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中飞舞，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了……但是，付出的代价是惨重的。<?=Lore.pocket_time_winner.name?>看到了远行传送门的景象——两位法师为它注入了太多的能量，光使用吸能法杖已经无法阻止它了。<?=Lore.pocket_time_winner.HeShe?>无私地做出了终极的牺牲，使用<?=Lore.pocket_time_winner.hisher?>的生命作为代价，摧毁了传送门。
 
-在埃亚尔，没有人知道是<?=Lore.pocket_time_winner.hisher?>牺牲拯救了他们，甚至对他们曾经出于怎样的危机浑然不知……然而，正是因为这位英雄的努力，他们才能够和平幸福地生活了下去。
+埃亚尔上永远不会有人知道是<?=Lore.pocket_time_winner.hisher?>的牺牲拯救了他们，甚至不知道他们曾经身处危险之中……然而，正是因为这位英雄的努力，他们才能够和平幸福地生活了下去。
 <? end ?>
 <? if Lore.pocket_time_winner.is_yeek then ?>[i]……好吧，我们假设事情就是这样的。如果不这样的话，要想讲下一个故事就变得太困难了。[/i]<? end ?>
 ]], "_t")
@@ -3451,11 +3451,11 @@ t([[This is it...  the day I've dreaded for most of my life is here, and yet it 
 
 I must be that light for my allies' sake.  I must be strong, resolute, giving them whatever tiny amounts of hope I can.  Not only to keep their morale up and give us a chance of prevailing against the unstoppable menace which the Sunwall has stood against for ages...  but so that their last thoughts in death might be that their sacrifice has saved us all.  Maybe one of them will be right.
 
-All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一切……发生在我面前的一切，是我在一生中都在恐惧的场景，但这一切仍然让我无比震惊。过去的几乎每一日，我都以为这一切很快就要到来……但直到去年，事情出现了变化。来自西方大陆的英雄，击败了四大兽人部落，只身勇探灼烧之痕，攻上巅峰之塔，与我一同与和我过去远远无法想象强大的敌人并肩作战，并亲自击败了他们，这一切都是我做梦也没有想到的场景。我们终于和我们失去已久的盟友团聚，那是由一位慷慨善良的国王领导的，一个和平而统一的马基埃亚尔。他们愿意全力帮助我们，指定了一个让兽人的威胁始终在我们控制之下的计划……回想起来，这一切就好像太阳缓缓从地平线上升起，仿佛要给瓦·埃亚尔带来和平的曙光，但紧接着，永恒的黑暗降临，就连最后闪烁的月光也被黑暗笼罩。我的爱人恐怕已经死了；曾经在我生命的黑暗中照耀多年的点点烛光，就这样熄灭在无尽的黑夜中。什么都没有了——所有过去的计划都被践踏了，所有过去的梦想都化为了泡影，所有过去照耀的希望，现在都变成了绝望——已经没有谁能指引我了。
+All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一切……我大半生都在恐惧的这一天终于来临了，但它依然让我无比震惊。过去的几乎每一日，我都以为这一天很快就要到来……但直到去年，事情出现了变化。西方天灾击败了四大兽人部落，飞速穿越灼烧之痕，攻上巅峰之塔，与我并肩迎战远比我所能想象的更强大的威胁。我们终于与一个愿意合作、近乎统一的马基·埃亚尔重新建立了联系；它由一位愿意且有能力全力帮助我们的国王领导，并制定了一个将兽人完全控制住的计划……回想起来，这一切就好像太阳缓缓从地平线上升起，仿佛要给瓦·埃亚尔带来和平的曙光，但紧接着，永恒的黑暗降临，就连最后闪烁的月光也被黑暗笼罩。我的爱人恐怕已经死了；曾经在我生命的黑暗中照耀多年的点点烛光，就这样熄灭在无尽的黑夜中。什么都没有了——所有过去的计划都被践踏了，所有过去的梦想都化为了泡影，所有过去照耀的希望，现在都变成了绝望——已经没有谁能指引我了。
 
-为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，将我所有的任何一点微小的希望，一同分享给他们。这不仅是为了保持他们的士气。太阳堡垒独自对抗着这种无法抵挡的恐怖威胁，已经坚持屹立了数个世纪，这是我们胜利的最后希望和机会……要让他们相信，他们临死时最后想到的或许是自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
+为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，将我所有的任何一点微小的希望，一同分享给他们。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们相信，他们临死时最后想到的或许是自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
 
-我唯一希望的是，在他自己的国家也走向毁灭之前，托拉克国王能够从兽人的身上吸取一点教训。我并不准备苛责他，他所做的一切都深切的扎根于他的智慧和仁慈……对一切其他种族来说，他做的都没有错。但兽人是一个唯一的例外，他们不配得到我们的任何仁慈。]], "_t")
+我唯一希望的是，在他自己的国家也走向毁灭之前，托拉克国王能够从兽人的身上吸取一点教训。我并不准备苛责他，他所做的一切都深切地扎根于他的智慧和仁慈……若是对兽人以外的任何种族，本都会奏效。但兽人是唯一的例外，他们不配得到我们的任何仁慈。]], "_t")
 t("kindness", "善意", "_t")
 t([[I stuck up for you. I wanted to forgive you, to give you time and safety to see we meant no harm.  I forgave you for the ages we spent in fear, the lives we lost, for I imagined I could have been tempted to do the same in your position.
 
@@ -3810,7 +3810,7 @@ t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect 
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have tunnelled close enough to the Gates of Morning.#WHITE#", "#LIGHT_GREEN#* 你已经向北挖到晨曦之门的地方。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have tunnelled close enough to the Gates of Morning.#WHITE#", "#LIGHT_GREEN#* 你的隧道已经向北挖到足够接近晨曦之门的位置。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have placed the little surprise.#WHITE#", "#LIGHT_GREEN#* 你已经安放好了这个小小的“惊喜”。#WHITE#", "_t")
 t("Stralite Sand Shredder", "斯莱特掘沙者", "_t")
 t("Automatically deploy a huge rotating drill when you hit a sandwall, carving out a big part of it quickly.", "当你碰到沙墙时，会自动部署一个巨大的旋转钻头，很快就钻出一个大洞。", "_t")
@@ -4841,7 +4841,8 @@ t([[Allows you to create chemical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
 		%s]], [[允许你制造 %d 等级的化学道具。
-	1 级时必定获得一个配方。之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
+		你将在 1 级时学会一个新配方。
+		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
 t("Explosives", "爆炸学", "talent name")
 t([[Allows you to create explosive tinkers of level %d.
@@ -4894,7 +4895,7 @@ t("Enhance your grenade with an incendiary agent that burns through armor, deali
 t("Chemical Grenade", "化学榴弹", "talent name")
 t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标整体速度 %d%%，持续 3 回合。", "tformat")
 t("Shock Grenade", "震荡榴弹", "talent name")
-t("Enhance your grenade with an electrical charge, causing it to deal lightning damage and shock targets for %d turns, reducing stun and pin resistance by 50%%.", "用电力弹药强化榴弹，造成闪电伤害，震撼敌人 %d 回合，震慑和定身抗性降低50%%。", "tformat")
+t("Enhance your grenade with an electrical charge, causing it to deal lightning damage and shock targets for %d turns, reducing stun and pin resistance by 50%%.", "为你的榴弹充上电荷，使其造成闪电伤害并震撼目标 %d 回合，令其震慑和定身抗性降低 50%%。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/dread.lua"
@@ -4970,7 +4971,7 @@ t([[Using a huge amount of steam, you temporarily supercharge your tinkers and o
 		超频期间，你获得 %d 蒸汽强度和 %d%% 蒸汽技能暴击率。]], "tformat")
 t("Last Engineer Standing", "背水一战", "talent name")
 t([[Sometimes, being a master tinker requires taking risks; yours are more calculated than others.
-		Gain %d cunning, %d physical save, %d%% resistance to self-inflicted damage, and %d%% chance to avoid being critically hit.]], [[成为大师意味着你经历了更多危险，你的计算力也超越凡人。
+		Gain %d cunning, %d physical save, %d%% resistance to self-inflicted damage, and %d%% chance to avoid being critically hit.]], [[身为大师级工匠，有时必须冒险；而你冒的险比别人更有分寸。
 		增加 %d 灵巧，%d 物理豁免，%d%% 自身伤害抗性，%d%% 几率避免暴击。]], "tformat")
 
 ------------------------------------------------
@@ -5096,7 +5097,7 @@ t([[You have learned to fire while moving.
 		在射击（100%% 武器伤害，射程 -1）的同时你能移动到相邻的一格。
 		该技能在冷却前能激活连续 %d 个回合，消耗时间取决于蒸汽速度和移动速度较慢者。
 		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
-t("Startling Shot", "惊艳射击", "talent name")
+t("Startling Shot", "惊吓射击", "talent name")
 t("Something", "某物", "_t")
 t("%s misses %s shot.", "%s故意射偏了，%s那一枪没有命中目标。", "logSeen")
 t([[You deliberately fire a missing shot at a target, startling it for 3 turns.
@@ -5453,12 +5454,12 @@ t([[Launch a cannister filled with toxic gas at a location.
 		The poison does %0.2f nature damage over 5 turns.
 		The cannister has %d life and lasts 8 turns. When it ends or is destroyed a last cloud is created.
 		Damage, life, resists, and armor scale with your Steampower.
-		Damage and penetration are inherited from the creator.]], [[发射一个充满有毒气体的罐子。
-每 2 回合在此周围发出一个半径为 3 码的毒雾。
-毒雾在 5 回合内造成 %0.2f 的自然伤害。
-发生器有 %d 点生命值持续 8 回合。当它被摧毁或持续时间结束会发出最后一片毒雾。
-伤害，生命值，抗性和护甲值取决于你的蒸汽强度。
-从创造者处继承伤害和穿透。]], "tformat")
+		Damage and penetration are inherited from the creator.]], [[向指定位置发射一个充满有毒气体的毒罐。
+		每 2 回合，毒罐会在其周围释放一片半径 3 的毒云。
+		毒云在 5 回合内造成 %0.2f 自然伤害。
+		毒罐有 %d 点生命值，持续 8 回合。当其持续时间结束或被摧毁时，会生成最后一片毒云。
+		伤害、生命值、抗性和护甲随你的蒸汽强度提升。
+		伤害和穿透继承自创造者。]], "tformat")
 t("Steam Powered Armour", "蒸汽动力装甲", "talent name")
 t([[Activate the armour's active defense system.
 		A flow of electricity covers your armour to attenuate the force of energy attacks while small steam engines move key pieces of the armour to attenuate physical attacks.
@@ -5692,7 +5693,8 @@ t([[Allows you to create mechanical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
 		%s]], [[允许你制造 %d 等级的机械道具。
-			1 级时必定获得一个配方。之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方。
+		你将在 1 级时学会一个新配方。
+		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
 t("Electricity", "电子", "talent name")
 t([[Allows you to create electrical tinkers of level %d.
@@ -5746,11 +5748,11 @@ t([[You "gently" slam your saws into the wounds of a creature, dealing %d%% weap
 		All bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).
 		When this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.
 		The power and damage improves with your Steampower.
-		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你 " 轻柔 " 地将链锯放在目标的伤口上，造成 %d%% 武器伤害并加深伤口。
+		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。
 		所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。
-		效果触发时，血流将喷射而出，对 4 码锥形范围内所有生物造成 %0.2f 物理伤害。
-		伤害受蒸汽强度加成。
-		#{italic}#一切技术，皆为屠杀 !#{normal}#]], "tformat")
+		效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。
+		效果强度和伤害受蒸汽强度加成。
+		#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#]], "tformat")
 t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
@@ -6191,7 +6193,7 @@ t("#Target# is once more confident.", "#Target#恢复了信心。", "_t")
 t("All Seeing", "看穿一切", "_t")
 t("Can see all other beings around them.", "能看见周围的一切存在。", "tformat")
 t("#Target# sees all!", "#Target#看见周围的一切！", "_t")
-t("#Target# loses their telepathy.", "#Target#失去了感知能力。", "_t")
+t("#Target# loses their telepathy.", "#Target#失去了心灵感应能力。", "_t")
 t("curse", "诅咒", "effect subtype")
 t("Curse of Amakthel", "阿马克泰尔的诅咒", "_t")
 t("All new negative effects on you will have their duration doubled.", "所有新负面状态持续时间加倍。", "tformat")
@@ -6360,7 +6362,7 @@ t("+Water Salve", "+静水药剂", "_t")
 t("-Water Salve", "-静水药剂", "_t")
 t("tech", "科技", "effect subtype")
 t("Unstoppable Force Salve", "势不可挡药剂", "_t")
-t("Increases all saves by %d and healing factor by %d%%.", "增加全豁免 %d，增加治疗系数 %d%%  。", "tformat")
+t("Increases all saves by %d and healing factor by %d%%.", "增加全豁免 %d，增加治疗系数 %d%%。", "tformat")
 t("#Target# uses an unstoppable force salve.", "#Target# 使用了势不可挡药剂。", "_t")
 t("+Unstoppable Force", "+势不可挡", "_t")
 t("-Unstoppable Force", "-势不可挡", "_t")
@@ -6656,7 +6658,7 @@ section "tome-orcs/data/tinkers/explosive.lua"
 t("Thunderclap Coating", "霹雳涂层", "_t")
 t("Coat your weapon in a substance that will react destructively on impact, causing your attacks to burst out in an area.", "在你的武器上覆盖一种物质，它会在撞击时造成破坏性的化学反应，让你的攻击在区域内迸射出冲击波。", "_t")
 t("Steamgun", "蒸汽枪", "_t")
-t("Dismantle any one sling, add some amazing steampower to it and make a powerful steamgun to fire a bullet hell at your foes!", "拆解一个投石索，在上面附带上强大的蒸汽力量，把它改造出可以射出子弹的强大蒸汽枪！", "_t")
+t("Dismantle any one sling, add some amazing steampower to it and make a powerful steamgun to fire a bullet hell at your foes!", "拆解一个投石索，在上面附带上强大的蒸汽力量，把它改造成能向敌人倾泻密集弹幕的强大蒸汽枪！", "_t")
 t("a sling (not unique)", "一把投石索（非神器）", "_t")
 t("Convert which sling?", "转换哪一把投石索？", "_t")
 t("Converted %s into %s", "将%s转换成%s", "log")
@@ -6686,7 +6688,7 @@ t("A special shot that slices 'n' dices.", "附带链锯的特殊弹头。", "_t
 t("Magnetic Shell", "磁性弹", "_t")
 t("A special shot that magnetises on impact.", "击中时可以产生磁场的特殊弹头。", "_t")
 t("Antimagic Shell", "反魔弹", "_t")
-t("A special shot filled with antimagic sap.", "灌注了反魔能量的特殊弹头。", "_t")
+t("A special shot filled with antimagic sap.", "灌注了反魔汁液的特殊弹头。", "_t")
 t("Corrosive Shell", "腐蚀弹", "_t")
 t("A special shot that releases acid on impact.", "击中时可以流出酸液的特殊弹头。", "_t")
 t("Hook Shell", "钩链弹", "_t")
@@ -6854,8 +6856,8 @@ t([[Where you once saw a warrior bathed in light, whom in an other life you coul
 This warrior's once glowing armor now emits a sinister crimson light. As he marches towards you can see his eyes, they are empty.]], [[这位曾经沐浴在阳光下的战士，一位你曾经尊敬的勇士，现在已经被仇恨所吞噬。
 这个战士曾经闪耀着光辉的护甲已经被阴沉的血红色掩盖。他径直向你冲来，只见他的眼神空洞无物。]], "_t")
 t([[Where you once saw a warrior bathed in light, whom in an other life you could have even respected, you now see only hatred.
-This warrior's once glowing armor now emits a sinister crimson light. As he marches towards your foes you can see his eyes, they are empty.]], [[这位曾经沐浴在阳光下的战士，一位你曾经尊敬的勇士，现在已经被仇恨所吞噬。
-这个战士曾经闪耀着光辉的护甲已经被阴沉的血红色掩盖。他径直冲向你的敌人，只见他的眼神空洞无物。]], "_t")
+This warrior's once glowing armor now emits a sinister crimson light. As he marches towards your foes you can see his eyes, they are empty.]], [[这位曾经沐浴在光明中的战士——若在另一种人生中，你甚至可能会尊敬他——如今你看到的只剩仇恨。
+这个战士曾经闪耀着光辉的护甲如今散发着不祥的血红光芒。他径直冲向你的敌人，只见他的眼神空洞无物。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/cave-hatred/objects.lua"
