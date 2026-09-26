@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "315ad08c07b117e9f6dd37526a308fc832e92b7a40a87990568ae2e6a095bdcc",
+      "stage": "surface",
+      "observation": "源文仅说明“Currently piloted”，译文指定为“机械蜘蛛”；冻结输入没有载具语境，无法确认该补充。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua:403–405 MECHARACHNID_PILOTING：Currently piloted 是驾驶机械蜘蛛效果的说明，现译“正在驾驶机械蜘蛛”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "31614d8182e7def64bf372bcc2c789cb9610d980eb4adc3ba6ed4161ff5de81c",
+      "stage": "surface",
+      "observation": "“psytech”中的科技含义未在“灵能射击”中体现；冻结输入没有术语条目，无法确认是否采用约定译名。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "技能类型 psytech gunnery 现译“灵能射击”省去 tech，为既有技能类型名；contextual 判 OK，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "31bf1ecab0c4c4bed286212f2c33d86daffddf584f4debc03735aad059ab42bb",
+      "stage": "surface",
+      "observation": "“Strap”指带状物，译文“导线”改变了物品类型。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "物品名 Grounding Strap 现译“接地导线”，strap 为带状物，功能同为接地，为既有物品名；contextual 判 OK，记 advisory（可作“接地带”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "329d3f2f8eb59cc9b29999dfc2a0871430e1fe737339c1a639a22bf09dac146f",
+      "stage": "surface",
+      "observation": "原文是受到火焰伤害时，获得相当于该伤害 5% 的蒸汽；译文“受到的火焰伤害5%转化为蒸汽”表示将伤害转化，改变了效果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1471–1488 Steamcatcher（本库“蒸汽捕捉器”）：callbackOnTakeDamage 在火焰伤害时 incSteam(dam/20)，只获得蒸汽、不扣减伤害；现译“受到的火焰伤害5%转化为蒸汽”读作伤害被转走。改为“受到火焰伤害时：获得相当于该伤害 5% 的蒸汽。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "337e77ed7fab1dec7fb4b364b7e8c31499e792972051c81938f29a8c16758b69",
+      "stage": "surface",
+      "observation": "原文说在另一种人生中“本可以尊敬”这位战士，译文却说“曾经尊敬”，把假设改成了事实。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/cave-hatred/npcs.lua:225–226 Crimson Templar John（本库“深红骑士约翰”）desc：whom in an other life you could have even respected 为反事实，现译“一位你曾经尊敬的勇士”改成事实；armor now emits a sinister crimson light 是发出不祥的血红光芒，现译“被阴沉的血红色掩盖”扭曲。整段对照改这两处，换行不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3381305fea527a65368df7d7b88acecb6c5c51e8cc9d6b47e202d18edc0d3104",
+      "stage": "surface",
+      "observation": "原文为伤害“超过 8%%”，译文改成“至少 8%%”；译文还增加了原文没有的“每回合最多触发一次”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1328–1360 REACTIVE_ARMOR（本库“反应式装甲”）：callbackOnTakeDamage 在 max_life*0.08 > value 时 return（即伤害 ≥8% 触发），并以 turn_procs.reactive_armor 每回合一次；现译“至少 8%%”“每回合最多触发一次”贴合实现，保留（contextual 冻结输入只含 long_desc，未见回调）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "33b7376c607e1df4b424e49960a126027fa8e9552a51dbd88cc75d7d5706f6d3",
+      "stage": "surface",
+      "observation": "原文只说已挖到足够接近晨曦之门的位置；译文增加了“向北”，并把“接近”写成“挖到……的地方”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/ritch-hive.lua:33 里奇巢穴任务进度：tunnelled close enough to the Gates of Morning 是隧道已挖到足够接近晨曦之门，现译“已经向北挖到晨曦之门的地方”说成已挖到门下（方向“向北”有同任务 :27 find a tunnel leading north 为据，可保留）。改为“你的隧道已经向北挖到足够接近晨曦之门的位置。”，颜色标记不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "34e93ba5988d8a203278b99c055b7afdf5edafdc53d7514603aef6822d4afe1e",
+      "stage": "surface",
+      "observation": "Flowing 被译为“科技”，与原文含义不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:2210–2211 实体名 Galen's Flowing Robe（unided_name ample robe）：Flowing 为宽松飘逸，现译“盖伦的科技法袍”误作“科技”；名称全库仅此一处。改为“盖伦的飘逸法袍”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "354df698366b63488964e3cba7b4ef339786be372a04db3ae21fa7c5435cc669",
+      "stage": "surface",
+      "observation": "原文在第一句与“Each other talent level”之间有换行和两个制表符；译文将两句合并，并在首句前多出一个制表符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:54 Mechanical（本库“机械”）info：源文首行后三行各以 \\n\\t\\t 起，现译把前两行合并、第二行多出一个 TAB，且删去 (unless all are known)，把保底说成无条件。恢复三行各以 \\n\\t\\t 起并补回“（除非已学会全部配方）”，与第317批化学 2485f3aa 同族。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3586964a6828643f7e818da4c508a40a7ddeea72addda634de8e076ed001a823",
+      "stage": "surface",
+      "observation": "Attach 表示附加或安装，译文“装备”改变了所询问的操作。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mecharachnid.lua:1139：Attach which item? 为给机械蜘蛛挂载武器的选择框，现译“装备哪一件物品？”在语境中可辨；contextual 判 OK，记 advisory（可作“挂载哪一件物品？”）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "35c8f23e34302448aed6bcdddf99bfc8eedb5624be50c6f5a1ea14fc0f2d1c5b",
+      "stage": "surface",
+      "observation": "shrapnel 被译为“榴弹”，且译文遗漏了锥形范围从目标处展开这一信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:714–717 Overburst（本库“强力爆裂”）special_on_hit：shrapnel 是弹片，现译“榴弹”误；锥形 start_x/start_y=target，源文 in a cone from the target 被删。改为“释放一阵弹片，从目标处向外的半径 4 锥形范围内造成等于蒸汽强度的物理伤害。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "364f4101af98c8e6e47266b995b33fb317c85d70e2cea36de0e905f4cca35f21",
+      "stage": "surface",
+      "observation": "seems more focused 被译为“恢复了理智”，改变了原文描述的状态。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua:86：seems more focused 是 -Confused 的 on_lose 提示，现译“恢复了理智”表达混乱结束，贴合语境，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
