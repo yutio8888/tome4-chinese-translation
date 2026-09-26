@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（第296批已 finalize，窗口33积压 19 条，继续审核第297批）
+更新时间：2026-09-26（第297批已 finalize，窗口33积压 21 条，继续审核第298批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,13 +8,13 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **296** 批（`batch-65e59046c4f9480d483f`）：80 条（全部 Cults），74 done / 6 repair_required。
-  surface 4 lane 各 20 条，identity 回显无误；contextual 一个 Opus run（10 条）只读 envelope 与契约；16 个观察逐条裁决（虚空之星贴合实现，refuted；竞技场名由 advisory 改判 confirmed）。
-  本批首次用 `bd.sh` 驱动；因 `N=296 source` 只对 source 生效，本批宿主文件名无批号（`review-*`、`lane.py` 等），已固定该标签并收窄 snapshot 过滤，驱动已修（`T`/`S` 变量）。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `82a20263c3d04c52d973fe5263a0357a15bd0b70` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **297** 批（`batch-8553828be64ba67f2632`）：80 条（全部 Cults），78 done / 2 repair_required。
+  surface 4 lane 各 20 条，identity 回显无误；contextual 一个 Opus run（8 条）只读 envelope 与契约；10 个观察逐条裁决（6 条按实现或本库译名 refuted，含 contextual 缺实现代码的断线击杀）。
+  积压达 21，**下一步开修复窗口 33**（第294–297批，模板 `setup_window32.py`、`/tmp/w32-*.sh`），窗口推送后再审核第298批。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `8da98cc7ae05b6baa417da5ccff57aaeb5d5702c` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **32**：第 290–293 批共 26 条确认问题已修复，译文提交
   `cfc207c1eb27b6209fe8de608935fcb4909eeffb`；migration `da80ce55…` 的 26 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 33 积压 19 条（第294–296批）。
+  须重新审核，不继承旧 revision 的 done 状态。窗口 33 积压 21 条（第294–297批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -51,6 +51,7 @@
 | 294 | `batch-37852a9bef8a75bb4c44` | 73 done / 7 repair | 67 OK / 13 ISSUE | 6 OK / 7 ISSUE | 13 confirmed / 6 refuted / 1 advisory |
 | 295 | `batch-9af99942882ed4c5cb18` | 74 done / 6 repair | 69 OK / 11 ISSUE | 6 OK / 5 ISSUE | 11 confirmed / 2 refuted / 3 advisory |
 | 296 | `batch-65e59046c4f9480d483f` | 74 done / 6 repair | 70 OK / 10 ISSUE | 7 OK / 3 ISSUE | 9 confirmed / 1 refuted / 3 advisory |
+| 297 | `batch-8553828be64ba67f2632` | 78 done / 2 repair | 72 OK / 8 ISSUE | 6 OK / 2 ISSUE | 2 confirmed / 6 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -127,10 +128,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **297** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第297批加 `S=295`，因第296批脚本无批号）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **298** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第297批加 `S=295`，因第296批脚本无批号）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 33（模板 `setup_window32.py`、`/tmp/w32-*.sh`）。
-2. 窗口 32 已完成（7 次复审：REVIEW、RE_REVIEW×4、FINAL×2；`max_cycles` 用到第 4 轮）。窗口 33 积压 **19** 条（第294–296批，Cults）：`4691c13e`（南部海岸：岩石取代平原的死亡句、提醒永恒精灵）`4746dc3b`（燃烧痛苦：纹身饱和）`47767e70`（舔舐 info 两处空行）`486e3945`（消化袋 void 为失效）`4a5f6eb5`（第4卷第1章标题：精疲力竭的旅途）`4ad18d30`（纳格尔帐篷：信使、受不了、话音渐弱、随便抓人、随心所欲）`4f2c7910`（购买感谢文本：抽打）；第295批 `519f027d`（食人魔突围：践踏、许多、挫败狂热者、冲过去、看向前方）`51b2a4ec`（清理垃圾任务描述：作恶者与击杀义、我们的人民）`52b30180`（惊骇幻象减伤只对幻象以外目标）`52d427a2`（食尸鬼一节：主语、混沌能量、独自思绪、穿过帷幕进城、相撞、连击、视如家人、重字）`557d673c`（德瑞姆知识探求者：自顾自习语、female=1）`58fe550a`（龙卷风鞋：鞋、旋转）；第296批 `5c740785`（交战一节：人数劣势、袭击、地形险处、弹丸）`5f40e319`（乌鲁洛克：多块破碎大陆）`5fc41911`（熵之知识 info 三制表符）`61b8c541`（疯子书信：附在信里、手下、呓语转述）`64c979ec`（竞技场名 Commotion=骚乱，先双向查冲突）`655a344b`（克罗格武器：锤剑顺序）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window32.py` 与 `/tmp/w32-*.sh`。
-   第296批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）161.0 s；finalize 96.1 s。
+2. 窗口 32 已完成（7 次复审：REVIEW、RE_REVIEW×4、FINAL×2；`max_cycles` 用到第 4 轮）。窗口 33 积压 **21** 条（第294–297批，Cults）：`4691c13e`（南部海岸：岩石取代平原的死亡句、提醒永恒精灵）`4746dc3b`（燃烧痛苦：纹身饱和）`47767e70`（舔舐 info 两处空行）`486e3945`（消化袋 void 为失效）`4a5f6eb5`（第4卷第1章标题：精疲力竭的旅途）`4ad18d30`（纳格尔帐篷：信使、受不了、话音渐弱、随便抓人、随心所欲）`4f2c7910`（购买感谢文本：抽打）；第295批 `519f027d`（食人魔突围：践踏、许多、挫败狂热者、冲过去、看向前方）`51b2a4ec`（清理垃圾任务描述：作恶者与击杀义、我们的人民）`52b30180`（惊骇幻象减伤只对幻象以外目标）`52d427a2`（食尸鬼一节：主语、混沌能量、独自思绪、穿过帷幕进城、相撞、连击、视如家人、重字）`557d673c`（德瑞姆知识探求者：自顾自习语、female=1）`58fe550a`（龙卷风鞋：鞋、旋转）；第296批 `5c740785`（交战一节：人数劣势、袭击、地形险处、弹丸）`5f40e319`（乌鲁洛克：多块破碎大陆）`5fc41911`（熵之知识 info 三制表符）`61b8c541`（疯子书信：附在信里、手下、呓语转述）`64c979ec`（竞技场名 Commotion=骚乱，先双向查冲突）`655a344b`（克罗格武器：锤剑顺序）；第297批 `6e5a43d1`（混沌之球传送 info：\n\t\t 换行）`69cb5f2c`（克诺什库尔开场：趁现在还安全、重复禁止句、添加内容；混沌纪保留）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window32.py` 与 `/tmp/w32-*.sh`。
+   第297批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）162.9 s；finalize 97.2 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 30 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族））。
