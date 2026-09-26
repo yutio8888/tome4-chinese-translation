@@ -1,0 +1,22 @@
+已完成 `repair-w32-20260925` 的 EXECUTOR 修复。
+
+变更文件：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-32-20260925/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-32-20260925/VALIDATION.json)
+
+26 条 target 均已修复，涵盖城堡手记、德瑞姆起源、菲·维莉欧斯 lore、阿马克泰尔、技能机制、成就、克罗格开场及天谴之龙解锁文本。逐条改动说明见 `IMPLEMENTATION.md`。
+
+验证结果：
+
+- LuaJIT：2043 条记录成功加载，恰有 26 条 target 变化，非 target 字段变化为 0。
+- LF/TAB：26 条全部与 source 的换行数、续行 TAB 层级和末尾换行一致。
+- 源码锚点：26 个查询、20 个 Cults 文件，SHA-256 全部匹配。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 两份新增证据的独立空白检查无诊断；退出码 1 仅表示与 `/dev/null` 存在预期差异。
+- JSON 语法检查通过。
+- 暂存区为空；未 stage、commit 或 push。
+
+剩余风险：Cults 源码仓库和 commit 未固定，本轮只能确认文件字节与冻结 SHA 锚点一致；独立 reviewer 收敛及宿主最终生产门禁仍待后续流程完成。

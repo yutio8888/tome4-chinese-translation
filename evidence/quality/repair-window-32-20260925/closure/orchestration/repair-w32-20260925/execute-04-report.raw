@@ -1,0 +1,13 @@
+已完成本次 FIX，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1653) 两处：
+
+- `4555f7111c…`：改为“更不用说还能一直行动了”
+- `2ceaa318de…`：改为“将军现在正忙着，至少目前是这样”
+
+验证全部通过：
+
+- LuaJIT：2199 条记录；相对 `HEAD` 恰 26 条 WORKSET target 变化，其他记录不变，LF/TAB 校验通过
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- 两处旧措辞均已不存在
+
+未修改 `.ai/task`，未 stage、commit、push 或创建 agent；既有无关文件未动。

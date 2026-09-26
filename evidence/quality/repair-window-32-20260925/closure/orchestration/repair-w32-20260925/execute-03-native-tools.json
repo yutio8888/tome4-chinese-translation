@@ -1,0 +1,200 @@
+{
+  "dispatch_id": "execute-03",
+  "native_session": "01a0db22-793c-78d0-8a57-aa99f66fb2ae",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/26/rollout-2026-09-26T00-34-24-01a0db22-793c-78d0-8a57-aa99f66fb2ae.jsonl",
+  "native_sha256": "1c29f3f90bdfbb65a19bd0fe7d5f01869563ae5a517409b653da3eafd85709c1",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab713182f0c87d2965c044415249af4",
+      "status": "completed",
+      "call_id": "call_wukw5cY4zUkv5DT1CQkHyIdf",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' /home/paseo/.codex/skills/paseo/SKILL.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382869.050461
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7131bbcb087d2b5de9858f9077d42",
+      "status": "completed",
+      "call_id": "call_7LOA4IA2LwftUsRFzzvY2cuK",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,260p' /home/paseo/.agents/skills/paseo/SKILL.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382874.067065
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7131ec7fc87d29d0e4c7b1c4be217",
+      "status": "completed",
+      "call_id": "call_Q9u3wVzHvu5xU43q54eUx7ow",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,260p' /home/paseo/.codex/skills/paseo/SKILL.md\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我绕过当前 bubblewrap 初始化故障，读取必需的 Paseo skill 与任务文件并完成这次有界修复吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382877.623527
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71329bfe887d2a0ca252d7496b424",
+      "status": "completed",
+      "call_id": "call_x91dfruUQqSGlYllhQxcUwNT",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"pwd; git status --short; rg --files .ai | rg 'repair-w32-20260925|roles/executor\\\\.md$'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我继续绕过 bubblewrap 故障，读取任务文件并检查工作树基线吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382887.049252
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab713347f9487d2911367e2d8c0de8c",
+      "status": "completed",
+      "call_id": "call_XwEV0LMRm20l7qIiI3UaibfG",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"find .ai -type f \\\\( -path '*repair-w32-20260925*' -o -path '*/roles/executor.md' \\\\) -print\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 20000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我继续读取本任务的角色与冻结输入文件吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382898.208908
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7133d791087d299af7f8f7925ba85",
+      "status": "completed",
+      "call_id": "call_bVJuMNvSkqRfiErzJsEx75Rv",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"wc -l .ai/roles/executor.md .ai/task/repair-w32-20260925/SPEC.md .ai/task/repair-w32-20260925/SCOPE.json .ai/task/repair-w32-20260925/ADJUDICATION-R1.json .ai/task/repair-w32-20260925/WORKSET.json .ai/task/repair-w32-20260925/SOURCE-ANCHORS.json; sed -n '1,260p' .ai/roles/executor.md; sed -n '1,260p' .ai/task/repair-w32-20260925/SPEC.md; sed -n '1,260p' .ai/task/repair-w32-20260925/SCOPE.json; sed -n '1,320p' .ai/task/repair-w32-20260925/ADJUDICATION-R1.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 40000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我继续完整读取 EXECUTOR 角色与任务冻结输入吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382908.310806
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab713480c4487d2ad7556197010f01b",
+      "status": "completed",
+      "call_id": "call_W5YlBtQ3g23XsYrtJ6Z505Wv",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"jq 'keys' .ai/task/repair-w32-20260925/WORKSET.json; jq 'keys' .ai/task/repair-w32-20260925/SOURCE-ANCHORS.json; jq '.. | objects | select((.revision_key? // .target_revision_key? // .key? // \\\"\\\") | startswith(\\\"1fa32c1a9c\\\") or startswith(\\\"3c623f8392\\\"))' .ai/task/repair-w32-20260925/WORKSET.json; jq '.. | objects | select((.revision_key? // .target_revision_key? // .key? // \\\"\\\") | startswith(\\\"1fa32c1a9c\\\") or startswith(\\\"3c623f8392\\\"))' .ai/task/repair-w32-20260925/SOURCE-ANCHORS.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 40000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我继续读取 WORKSET 与 SOURCE-ANCHORS 中两条修复目标及其元数据吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382917.160463
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7135112d487d2bd4cb10b85e095d4",
+      "status": "completed",
+      "call_id": "call_lKYmxVQKQzApuPpkXuQ9MTRt",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"jq '.items | length, .[0] | keys' .ai/task/repair-w32-20260925/WORKSET.json; jq '.items[] | select((tostring | contains(\\\"1fa32c1a9c\\\")) or (tostring | contains(\\\"3c623f8392\\\")))' .ai/task/repair-w32-20260925/WORKSET.json; jq '.queries | length' .ai/task/repair-w32-20260925/SOURCE-ANCHORS.json\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我读取 WORKSET 中两条目标的完整冻结记录吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382927.89335
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71358fcf087d28e31cb452cba0928",
+      "status": "completed",
+      "call_id": "call_idRlhZFo0feTrVqyQ1vDOUrQ",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n \\\"LuaJIT|26|WORKSET|target.*变动|strict lint|验证矩阵\\\" docs/agent-workflow.md i18n/README.md .ai/task/repair-w32-20260925 -g '*.md' -g '*.py' -g '*.txt'; rg -n -F '里面跑出来的只有一些虚弱的、不成型的生命体' tome-cults.lua; rg -n -F '你和蠕虫合体同时传送至 %d 内的目标处，造成 %d%% 近战伤害。' tome-cults.lua; git diff -- tome-cults.lua | sed -n '1,260p'\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 40000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我核对有界验证入口、定位两条现有译文，并检查当前 tome-cults.lua 差异吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382934.909486
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71361bf2887d2990237b787a07f00",
+      "status": "completed",
+      "call_id": "call_O7IaXQpgPdjg9Mm9VdHgxRe9",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '185,215p' docs/agent-workflow.md; sed -n '242,288p' docs/agent-workflow.md; sed -n '1,130p' i18n/README.md; sed -n '300,345p' i18n/README.md; sed -n '1,240p' .ai/task/repair-w32-20260925/close_validation.py\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我读取这次修复所需的验证矩阵、i18n 命令说明与任务验证脚本吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382944.541647
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71369b2fc87d2a10cca29c342b1eb",
+      "status": "completed",
+      "call_id": "call_V0BHY3U4Peb8qo8GygM0G5TM",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '1,240p' .ai/task/repair-w32-20260925/execute-02-report.raw; sed -n '1,240p' .ai/task/repair-w32-20260925/execute-01-report.raw; rg -n \\\"target.*26|revision_changed|unchanged|LuaJIT|target changes|恰 26\\\" evidence/quality/repair-window-32-20260925 .ai/task/repair-w32-20260925 -g '*.md' -g '*.json' -g '*.raw' | head -160\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 30000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我读取前两轮 EXECUTOR 的验证命令记录，以复用同一有界检查而不修改任务状态吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382952.283974
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71374f87487d2b34d5bf1a2155daa",
+      "status": "completed",
+      "call_id": "call_bA2hfcftZ3RMbQ9GLsqWco9a",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"sed -n '918,940p' tome-cults.lua; sed -n '2770,2790p' tome-cults.lua\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我在应用最小补丁前查看两条目标的精确当前上下文吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382962.062646
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7137b228887d2a96fb99b1dd9d6ec",
+      "status": "completed",
+      "call_id": "call_xh4IdnDkPTvc3rIAzmONtbXP",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n -F '你和蠕虫合体同时传送至 %d 内的目标处，造成 %d%% 近战伤害。' tome-cults.lua\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 2000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我精确定位第二条目标行吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382970.284819
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab71383eb8487d2953c4cbe30f41d7f",
+      "status": "completed",
+      "call_id": "call_QbKyNNODx0UXW02j796X7AdF",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Update File: /workspace/tome4-chinese-translation/tome-cults.lua\\n@@\\n-\\u6211\\u4eec\\u6253\\u7834\\u4e86\\u901a\\u5f80\\u73bb\\u7483\\u7ba1\\u7684\\u7ba1\\u9053\\uff0c\\u4e0d\\u518d\\u6709\\u602a\\u7269\\u4ece\\u91cc\\u9762\\u51fa\\u6765\\u4e86\\u3002\\u90a3\\u4e9b\\u6db2\\u4f53\\u80af\\u5b9a\\u662f\\u6ecb\\u517b\\u8fd9\\u4e9b\\u602a\\u7269\\u7684\\u7269\\u8d28\\uff0c\\u5931\\u53bb\\u4e86\\u90a3\\u79cd\\u6db2\\u4f53\\uff0c\\u91cc\\u9762\\u8dd1\\u51fa\\u6765\\u7684\\u53ea\\u6709\\u4e00\\u4e9b\\u865a\\u5f31\\u7684\\u3001\\u4e0d\\u6210\\u578b\\u7684\\u751f\\u547d\\u4f53\\u3002\\n+\\u6211\\u4eec\\u6253\\u7834\\u4e86\\u901a\\u5f80\\u73bb\\u7483\\u7ba1\\u7684\\u7ba1\\u9053\\uff0c\\u4e0d\\u518d\\u6709\\u602a\\u7269\\u4ece\\u91cc\\u9762\\u51fa\\u6765\\u4e86\\u3002\\u90a3\\u4e9b\\u6db2\\u4f53\\u80af\\u5b9a\\u662f\\u6ecb\\u517b\\u8fd9\\u4e9b\\u602a\\u7269\\u7684\\u7269\\u8d28\\uff0c\\u5931\\u53bb\\u4e86\\u90a3\\u79cd\\u6db2\\u4f53\\uff0c\\u91cc\\u9762\\u8dd1\\u51fa\\u6765\\u7684\\u53ea\\u6709\\u4e00\\u4e9b\\u865a\\u5f31\\u7684\\u3001\\u53d1\\u80b2\\u4e0d\\u5168\\u7684\\u80ce\\u513f\\u3002\\n@@\\n-\\t\\t\\tYour Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[\\u4f60\\u548c\\u8815\\u866b\\u5408\\u4f53\\u540c\\u65f6\\u4f20\\u9001\\u81f3 %d \\u5185\\u7684\\u76ee\\u6807\\u5904\\uff0c\\u9020\\u6210 %d%% \\u8fd1\\u6218\\u4f24\\u5bb3\\u3002\\n+\\t\\t\\tYour Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[\\u4f60\\u548c\\u8815\\u866b\\u5408\\u4f53\\u540c\\u65f6\\u4f20\\u9001\\u81f3 %d \\u5185\\u7684\\u76ee\\u6807\\u5904\\uff0c\\u5404\\u8fdb\\u884c\\u4e00\\u6b21\\u8fd1\\u6218\\u653b\\u51fb\\uff0c\\u9020\\u6210 %d%% \\u4f24\\u5bb3\\u3002\\n*** End Patch\";\nconst result = await tools.apply_patch(patch);\ntext(result);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382978.241525
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab7139c61ac87d2904197ee78f4f4bb",
+      "status": "completed",
+      "call_id": "call_BA5UtCJsy7SegTG4F7wpyHLU",
+      "name": "exec",
+      "input": "const lua = `\nlocal function readfile(path)\n  local f = assert(io.open(path, \"rb\"))\n  local s = f:read(\"*a\")\n  f:close()\n  return s\nend\nlocal function headfile()\n  local p = assert(io.popen(\"git show HEAD:tome-cults.lua\", \"r\"))\n  local s = p:read(\"*a\")\n  assert(p:close())\n  return s\nend\nlocal function stable(v)\n  if type(v) ~= \"table\" then return tostring(v) end\n  local out = {}\n  for i = 1, #v do out[#out + 1] = stable(v[i]) end\n  return \"{\" .. table.concat(out, \",\") .. \"}\"\nend\nlocal function collect(src, label)\n  local out, sec = {}, nil\n  local env = setmetatable({}, {__index = _G})\n  env.section = function(s) sec = s end\n  env.t = function(source, target, tag, special)\n    out[#out + 1] = {\n      section = sec, source = source, target = target,\n      tag = tag, special = stable(special)\n    }\n  end\n  local fn, err = loadstring(src, \"@\" .. label)\n  assert(fn, err)\n  setfenv(fn, env)\n  fn()\n  return out\nend\nlocal function shape(s)\n  local tabs = {}\n  for suffix in s:gmatch(\"\\\\n(\\\\t*)\") do tabs[#tabs + 1] = #suffix end\n  return table.concat(tabs, \",\") .. \"|trail=\" .. tostring(s:sub(-1) == \"\\\\n\")\nend\nlocal base = collect(headfile(), \"HEAD:tome-cults.lua\")\nlocal cur = collect(readfile(\"tome-cults.lua\"), \"tome-cults.lua\")\nassert(#base == #cur, (\"record count changed: %d -> %d\"):format(#base, #cur))\nlocal changed = 0\nfor i = 1, #base do\n  assert(base[i].section == cur[i].section, \"section changed at record \" .. i)\n  assert(base[i].source == cur[i].source, \"source changed at record \" .. i)\n  assert(base[i].tag == cur[i].tag, \"source_tag changed at record \" .. i)\n  assert(base[i].special == cur[i].special, \"args_order/special changed at record \" .. i)\n  if base[i].target ~= cur[i].target then\n    changed = changed + 1\n    assert(shape(cur[i].source) == shape(cur[i].target),\n      (\"LF/TAB/trailing-newline mismatch at record %d\"):format(i))\n  end\nend\nassert(changed == 26, \"expected 26 target changes relative to HEAD, got \" .. changed)\nprint((\"OK records=%d target_changes_relative_to_HEAD=%d non_target_changes=0 line_shapes_match=%d\"):format(#cur, changed, changed))\n`;\nconst shq = s => \"'\" + s.replace(/'/g, \"'\\\"'\\\"'\") + \"'\";\nconst luaCmd = `env LUA_PATH=\"$TOME_LUAROCKS_ROOT/share/lua/5.1/?.lua;$TOME_LUAROCKS_ROOT/share/lua/5.1/?/init.lua;;\" LUA_CPATH=\"$TOME_LUAROCKS_ROOT/lib/lua/5.1/?.so;;\" \"$TOME_LUAJIT\" -e ${shq(lua)}`;\nconst cmds = [\n  [\"LuaJIT bounded delta\", luaCmd],\n  [\"strict lint\", \"python3 -B tools/i18n lint --strict\"],\n  [\"git diff --check\", \"git diff --check\"]\n];\nconst rs = await Promise.all(cmds.map(([name, cmd]) => tools.exec_command({\n  cmd,\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 30000,\n  max_output_tokens: 20000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我绕过 bubblewrap 故障运行用户要求的三项有界验证吗？\"\n})));\nfor (let i = 0; i < rs.length; i++) {\n  text(`${cmds[i][0]} EXIT ${rs[i].exit_code}\\n${rs[i].output}`);\n}\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790382998.342493
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_022353f201a087cb016ab713b6a02087d29190842a12ae51cc",
+      "status": "completed",
+      "call_id": "call_ueQsouHEERowKOAptZvfN2ys",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\n  cmd: \"rg -n -F '里面跑出来的只有一些虚弱的、发育不全的胎儿' tome-cults.lua; rg -n -F '里面跑出来的只有一些虚弱的、不成型的生命体' tome-cults.lua || true; rg -n -F '你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。' tome-cults.lua; rg -n -F '你和蠕虫合体同时传送至 %d 内的目标处，造成 %d%% 近战伤害。' tome-cults.lua || true; git diff --cached --name-only; git status --short; git diff --numstat -- tome-cults.lua\",\n  workdir: \"/workspace/tome4-chinese-translation\",\n  yield_time_ms: 10000,\n  max_output_tokens: 12000,\n  sandbox_permissions: \"require_escalated\",\n  justification: \"允许我完成只读收尾核对，确认目标文本、暂存区和工作树状态吗？\"\n});\ntext(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0db22-797c-7f70-abfe-48d77a2d5db9",
+        "create_time": 1790383026.684271
+      }
+    }
+  ]
+}

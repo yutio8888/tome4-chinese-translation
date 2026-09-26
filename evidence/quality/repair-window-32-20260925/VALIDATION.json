@@ -1,0 +1,77 @@
+{
+  "task_id": "repair-w32-20260925",
+  "role": "executor",
+  "baseline_commit": "ece7c2cf1615bbee68e92f99ff14db88feb3e1ab",
+  "scope": {
+    "translation_file": "tome-cults.lua",
+    "expected_target_changes": 26,
+    "actual_target_changes": 26,
+    "non_target_record_changes": 0,
+    "evidence_files": [
+      "evidence/quality/repair-window-32-20260925/IMPLEMENTATION.md",
+      "evidence/quality/repair-window-32-20260925/VALIDATION.json"
+    ]
+  },
+  "checks": [
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "pass_with_expected_warnings",
+      "summary": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 verified; expected source-unpinned warnings for public DLC inputs."
+    },
+    {
+      "name": "luajit_record_delta",
+      "command": "manifest-compatible LuaJIT: load baseline commit and working tome-cults.lua; compare records in order",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "2043 records; 26 target changes; section/source/source_tag/args_order/special unchanged for every record."
+    },
+    {
+      "name": "luajit_line_shape",
+      "command": "manifest-compatible LuaJIT: compare source/target LF, post-LF TAB depth, and trailing newline for each changed record",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "All 26 changed targets match source line shape."
+    },
+    {
+      "name": "source_anchor_sha256",
+      "command": "bounded verifier over SOURCE-ANCHORS.json and /workspace/tome4-dlcs/cults/<public_source_path>",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "26 queries across 20 unique files; all SHA-256 values match."
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "30308 translations checked; 0 errors; 0 warnings."
+    },
+    {
+      "name": "diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "No whitespace errors."
+    }
+  ],
+  "diagnostic_retries": [
+    {
+      "check": "source_anchor_sha256",
+      "first_attempt_exit_code": 1,
+      "cause": "The diagnostic command incorrectly stripped the leading tome-cults/ component from public_source_path.",
+      "resolution": "Re-ran within the same authorized Cults checkout using the frozen public_source_path directly; all hashes passed.",
+      "filesystem_changes": false
+    }
+  ],
+  "source_provenance": {
+    "checkout": "/workspace/tome4-dlcs/cults",
+    "repository_commit_pinned": false,
+    "frozen_anchor_hashes_match": true
+  },
+  "residual_risks": [
+    "The Cults source repository and commit are unpinned; verification is against frozen per-file SHA-256 anchors.",
+    "Independent reviewer convergence and host final production gates are outside the EXECUTOR scope and remain pending."
+  ]
+}

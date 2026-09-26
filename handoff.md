@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（第293批已 finalize，窗口32积压 26 条达阈值，开修复窗口32）
+更新时间：2026-09-26（窗口32已完成，待宿主证据提交与推送；下一步审核294）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -13,9 +13,9 @@
   surface 4 lane 各 20 条，identity 回显全部逐位一致，无错位；contextual 一个 Opus run（10 条）只读 envelope 与契约，未越界；
   15 个观察逐条裁决（空无“其他”类括注贴合 Cults superload；natural infusions 沿用本库“纹身”）。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `a6bcc1c8966e42d217bcd1a11e015761b7abd9bf` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **31**：第 287–289 批共 23 条确认问题已修复，译文提交
-  `4259b5ff762152c3da3c4df44bdd8f669b1ba13e`；migration `bb2265e2…` 的 23 个 successor
-  须重新审核，不继承旧 revision 的 done 状态。窗口 32 积压 26 条（第290–293批），已达阈值。
+- 修复窗口已闭合至 **32**：第 290–293 批共 26 条确认问题已修复，译文提交
+  `cfc207c1eb27b6209fe8de608935fcb4909eeffb`；migration `da80ce55…` 的 26 个 successor
+  须重新审核，不继承旧 revision 的 done 状态。修复积压已清零，从审核第 294 批重新累计。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -125,20 +125,9 @@
 
 ## 五、下一步
 
-1. 开 **修复窗口 32**（第290–293批 26 条，max_cycles=5 经用户授权），模板 `setup_window31.py`、`/tmp/w31-*.sh`；窗口推送后再审核第 **294** 批（脚本从 `*293.py` 派生；混合批用 290/287 的 stage/snapshot/close，单组件批用 288/293 的；
-   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 32。
-2. 窗口 32 范围 **26** 条（第290–293批，Cults）。第290批：`1cd6be41`（被诅咒城堡手记：书的容量、牺牲宝物、变化背后的逻辑）
-   `1fa32c1a`（德瑞姆探险笔记：玻璃管容量、黑色增生物、感染范围、野生德瑞姆、残句）`207cee7b`（瓦解 info 换行）
-   `226a7774`（克诺什库尔 lore“别无归处”）`25d776f5`（蛆虫吐息 info 多余换行）`272a8bbc`（城堡手记“整理内部”）；
-   第291批：`27ddebe5`（埃尔瓦拉守城：叠字、残句、转身、涌入方向、队长称谓、备法）`283cf773`（腐败的浮肿恐魔 info 内部缩进、召唤物等级、单数主语）
-   `28b401e7`（断绝 timeline→时间线）`2b501aea`（心灵尖啸 info 缩进）`2b62b6a2`（阿马克泰尔 lore：改变生灵、触碰、神性存在）
-   `2ceaa318`（死灵法师一节：片刻、遭人非议、察觉法杖、增译、错字、斗篷）`2efb21d2`（舰名“无心之失”）`2f62b393`（慢性死亡树描述漏译“痛苦”）；
-   第292批：`361c68c7`（“不成型的生物”→畸形）`37527614`（空无 info 多余换行、或增加）`3793a031`（返回符文一节：低语、缓过气、由她指导）
-   `39b42b7c`（马虑成就：救免于死、逃脱、增译巨大蠕虫）`3a4713aa`（追击死灵法师：现身、其余骷髅、缺“到”）；
-   第293批：`3aec4007`（坚定意志漏译“污秽”）`3b3a38f9`（黑色巨石删“尝试”）`3bdd721e`（厄运之触缩进、脱离视线条件）`3c623f83`（污秽夹击缩进）
-   `3cfa2ffb`（克罗格开场段落空行、伊格兰斯改造）`4003c28c`（天谴之龙解锁：无可救药、空行）`4555f711`（废弃定居点：吃蜘蛛网、昏迷多久、指挥官称谓）；
-   依据见 `.ai/task/batch-41762084bcf428db6c44/HOST-FINAL-DECISIONS.json`、`.ai/task/batch-6da096d4813ef282276a/HOST-FINAL-DECISIONS.json`、`.ai/task/batch-92e9dabe8523a9675217/HOST-FINAL-DECISIONS.json` 与 `.ai/task/batch-a5f999f9d09ac32f56d6/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；
-   门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留。
+1. 宿主完成本窗证据提交、关闭后 queue rebuild、push，然后继续审核第 **294** 批（默认 80 条，连续推进；脚本从 `*293.py` 派生；混合批用 290/287 的 stage/snapshot/close，单组件批用 288/293 的；
+   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。
+2. 窗口 32 已完成（7 次复审：REVIEW、RE_REVIEW×4、FINAL×2；`max_cycles` 用到第 4 轮）。积压清零；宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window32.py` 与 `/tmp/w32-*.sh`。
    第293批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）160.3 s；finalize 95.2 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。

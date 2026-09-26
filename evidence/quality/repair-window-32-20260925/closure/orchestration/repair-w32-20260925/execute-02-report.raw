@@ -1,0 +1,13 @@
+已完成本次 FIX，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:932) 的两处 confirmed target：
+
+- `1fa32c1a9c…`：改为“其中一个生物死死缠住了我的手臂”
+- `3793a03188…`：改为“我伸出手，把它递向食人魔指挥官”
+
+验证全部通过：
+
+- LuaJIT：2043 条记录；相对 `HEAD` 恰有 26 条 target 变化；非 target 变化 0；26 条 LF/TAB/末尾换行形状均匹配
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- `doctor`：通过；仅有预期的 DLC source-unpinned 警告
+
+未 stage、commit、push、创建 agent 或修改 `.ai/task`；既有未跟踪文件未动。无计划偏差或未解决问题。

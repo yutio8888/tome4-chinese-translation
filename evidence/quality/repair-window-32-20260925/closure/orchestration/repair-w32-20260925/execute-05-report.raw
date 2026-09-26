@@ -1,0 +1,13 @@
+本次 FIX 已完成，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1699)：
+
+- `3793a03188…`：改为“楼房外仍像从前一样站着卫兵，不过我走近时他们认出了我。”
+- `4003c28c70…`：四行技能说明删除 `#WHITE#` 后的空格，文字不变。
+
+验证全部通过：
+
+- LuaJIT：2043 条记录；相对 `HEAD` 恰 26 条 target 变化，非 target 变化 0；26 条 LF/TAB/末尾换行形状匹配。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 指定旧文本均已不存在。
+
+未修改 `.ai/task`，未 stage、commit、push 或创建 agent；既有无关文件未动。
