@@ -1,0 +1,128 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 15 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "42e065c45ee6c93e608a033a449a9cdd261eddec92d939aa164c62e12628095c",
+      "stage": "surface",
+      "observation": "原文只说呈现亡灵龙的典型特征，译文增添了“使你能使用亡灵龙技能”，缺少原文依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/spells/spells.lua:20 spell/undead-drake 技能类别 description。现译增补“使你能使用亡灵龙技能”，对技能类别说明属解释性增译、不改机制；记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "431cacf5c731a9abf65ebc985c7ff5df804838312e9fa9ea8f9f5c1e75d923bf",
+      "stage": "surface",
+      "observation": "原文的“over 40%”译为“40%”，遗漏“超过”；“up to four years in prison”译为“四年监禁”，遗漏“最高可达”的上限含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/emporium.lua:77 地热能源理事局公告：源文“by over 40%”“up to four years in prison”，现译“减少40%”“并处四年监禁”删除“超过”“最高”两个限定词（把下限/上限说成定值）；另源文标题行后仅一个 \\n，译文为 \\n\\n（换行不变量）。改为“……就可以减少超过40%来自地热系统的消耗……”“……将遭受最高3000金币罚金，并处最高四年监禁。”，并把标题后的 \\n\\n 改回 \\n。contextual 另指“declogging tonics may help”被补成“有助于提高产量”，属实：一并改为“短期使用清淤药水可能有帮助，但不建议长期使用。”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "433071ee0f8277a59e668b17e36ac0746b841b8b75fb3000ded290f1c369bb23",
+      "stage": "surface",
+      "observation": "原文各说明段以换行后两个制表符（\\n\\t\\t）缩进，译文删除了这些制表符，段落格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1889 缠绕苔藓说明：源文四处段首为 \\n\\t\\t，译文全部只有 \\n，删除了制表符（格式不变量）。四处换行后补回 \\t\\t，文字保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "433d8e43247a8ee1afc2833ad89dd060a1336b3704c231b52b242f303583ada3",
+      "stage": "surface",
+      "observation": "“Flechette Burst”中的 flechette 指小飞镖或箭形弹，译文“毒弹爆射”加入了原文没有的毒属性。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:510–517：Flechette Burst 发射 chemical-infused flechettes 造成酸性伤害；本库同族说明一致译“化学毒弹”（tome-orcs.lua:5186），名称“毒弹爆射”与之统一，改名属跨条策略，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43415f0149310721d6a7c5fc262885936445c6122e034603e3eb089242d0921f",
+      "stage": "surface",
+      "observation": "“take foot on the mainland”指在大陆站稳脚跟；译文“染指这片土地”遗漏了“大陆”和建立据点的含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kill-dominion.lua:23：take foot on the mainland＝在大陆站稳脚跟；“染指这片土地”取意相近但漏“大陆/立足”，不影响任务理解，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4344ce399ede894a7aa3a6af84c93b0c347a43200169811b6c46738327897bca",
+      "stage": "surface",
+      "observation": "“structural weakness”指结构弱点，译为“建筑弱点”改变了“structural”的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/grids.lua:117–125 WEAKNESS 地块（tower_structural_weakness，塔楼结构弱点，任务 kill-dominion.lua:44 放置炸弹处）。所指为建筑物的弱点，“建筑弱点”贴合语境，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43cbe69c78e4370a12af9d4a391f8c488d928c693d209661cb0e18a8bf3c703e",
+      "stage": "surface",
+      "observation": "原文以引号包住整句话并以省略号结尾，译文同时丢失了引号和结尾省略号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1787 Turbocutter desc：源文整句带引号并以省略号收尾（推销口吻的未尽之言），现译两者皆删、结尾无标点。改为““你曾经觉得你的蒸汽锯太慢了吗？那么，我正好有你需要的东西……””。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43d64e16d118a6f700d7a08be2d864a5de274a9402354f4098e3b3a0f2678713",
+      "stage": "surface",
+      "observation": "原文说明从窗户看见导弹飞离，同时在占卜面板上看见导弹逼近飞船及惊恐的乘客；译文把乘客写成窗外所见，并遗漏了占卜面板。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/destructicus.lua:74：源文“you see its missile flying away from you through the window, as you see it racing towards your view, and the terrified passengers, on the scrying panel”——窗外看见导弹远去，同时在占卜面板上看见它朝镜头逼近及惊恐的乘客；现译把乘客写成窗外所见并漏“占卜面板”。改为“你透过窗户看见导弹离你远去，同时在占卜面板上看见它朝画面疾驰而来，还有那些惊恐的乘客。”另译文在“watching:”后与“It can keep whining”前各多一个 \\n，删去以对齐源文段落（源文“\\n \\n”中的空格行不补，避免行尾空白门禁）。contextual 另指增补“拥挤”、all the Orcs of Var'Eyal 漏地名，属实：删“拥挤”，“大陆上所有兽人”改为“瓦·埃亚尔所有兽人”（本库既有译名，tome-orcs.lua:3616）。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43d8bb19bcd17f7f5fc086fc1296fbda5c733d51a1b5ebf29c680e2daf5fc587",
+      "stage": "surface",
+      "observation": "原文明确写飞爪也可能被目标本身挡住（“or the target”）；译文只写“被其他生物阻挡”，排除了目标。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/automation.lua:84–110 飞爪无人机：pull(self.x,self.y) 把敌人拉向无人机所在的目标格，碰撞回调对被拉者与挡路者 a 各造成伤害，挡路者可以是目标本身；现译“被其他生物阻挡”排除了目标。另源文“pull them toward the target. If they are stopped…”同在一行，译文在“拉扯。”与“如果”之间多一个 \\n\\t\\t（共 4 处对源文 3 处）。改为“向目标发射一枚小型蒸汽动力飞爪无人机。无人机会自动追踪，目标移动时会跟随。\\n\\t\\t命中目标后……\\n\\t\\t……拉扯。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。\\n\\t\\t”。contextual 另指 flying grapple 只译“无人机”：修订译法已作“飞爪无人机”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "44947e3a4ca9b6178d09c47d95e63ea330bd35ba8a541d40a459dcfde035e509",
+      "stage": "surface",
+      "observation": "“get your blood out of the gears”指从齿轮中清除对方的血；译文改成“有了这些装备，我就不能打得你们头破血流”，遗漏了齿轮并改变了问句含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/kaltor-entry.lua:20–25：玩家对手持蒸汽枪的蒸汽巨人守卫挑衅（jump=\"fight\"），意为“这些枪挺花哨的。你觉得把你们的血从齿轮里清出来会很费劲吗？”；现译“有了这些装备，我就不能打得你们头破血流了么”改变语义并漏齿轮。改为上述译法。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4511302c8fa2fe4ab0ddf7d1931759e60f23abd028e21a790214fbaaa6e7d219",
+      "stage": "surface",
+      "observation": "原文仅为“Arcane Cloth”，译文加入“法袍店”所需的店铺语境未包含在冻结输入中。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/gates-of-morning/traps.lua:34–38 CLOTH_ARMOR_STORE：name=\"Arcane Cloth\"，base=BASE_STORE、出售布甲。实体是商店，“奥术法袍店”正确。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "461ab2185c452cff1f1d499a7e6dc0a89c780ce972b7c8aebac4d14beea523ef",
+      "stage": "surface",
+      "observation": "原文各榴弹条目前为换行加一个制表符，译文改为换行加两个制表符，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/demolition.lua:179 高级榴弹说明：源文五处为 \\n\\t，译文均为 \\n\\t\\t（格式不变量）。改回 \\n\\t，文字保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "46816fdd4863e116c104b5d18ef4f53d289a1708207eba8715916391c4f87796",
+      "stage": "surface",
+      "observation": "Subcutaneous 意为皮下；译文“金属内皮”将部位译成了内皮。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/uber/const.lua:21 Subcutaneous Metallisation（前置 Thick Skin）：“金属内皮”以“内皮”表“皮下”，取意可通；改名属技能名策略，记 advisory。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "46b5e759b98d2f3cd2605817d62e9eeea5b7be1a677ad85c8d7a015c02b86e53",
+      "stage": "surface",
+      "observation": "原文是释放锥形治疗效果，译文写成释放“修理器”，凭空增加了器物。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:844–912 Mass Repair（群体修复）：源文为锥形治疗效果，现译“释放……修理器”凭空加器物；且源文 \\n\\t\\t 在译文中变成 \\n+两个全角空格 U+3000（格式不变量）。改为“向半径 %d 码的锥形区域释放修复能量，为其他机械生物（蒸汽蜘蛛）恢复 %d 生命值。\\n\\t\\t治疗量受蒸汽强度加成。”contextual 另指漏 other（施法者以外）：修订译法已作“其他机械生物”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4712cc5e45f00f5e855b5b8106cfa6d7f336003187e35c0f740e5c412f021a37",
+      "stage": "surface",
+      "observation": "原文的“for now”限定为暂时安全，译文“安全了”遗漏这一时间限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kruk-invasion.lua:78 saySimple：“safe for now”限定暂时安全（紧接复仇），现译“安全了”删限定词。改为“#LIGHT_GREEN#克鲁克部落暂时安全了。现在是复仇的时刻！”本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}
