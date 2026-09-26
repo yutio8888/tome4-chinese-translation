@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-26（第320批已 finalize，窗口39积压 4 条，继续审核第321批）
+更新时间：2026-09-26（第321批已 finalize，窗口39积压 8 条，继续审核第322批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **320** 批（`batch-b4a672d30e9d08428a7e`）：80 条（Cults 2 条、Orcs 78 条），76 done / 4 repair_required。
-  Cults+Orcs 混合批：surface 5 lane（Cults full-000 2 条，Orcs 4 lane）；lane-001-1 三条 observation 错位已逐条核对并救回/登记；contextual 一个 Opus run 只读 envelope 与契约；逐条裁决。窗口39积压 4，未达阈值，继续审核 321。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `a1964e68ff7cc129419c6ffc7e172c5a77958056` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **38**：第 315–319 批共 24 条确认问题已修复；译文提交 `e34291e7ae890b3f4af1bc0a62b823732d018e2a`；migration `c67c525d…` 的 24 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 39 积压 4 条（第320批）。
+- 审核已闭合至第 **321** 批（`batch-2d7befa2545967c13bf0`）：80 条（全部 Orcs），76 done / 4 repair_required。
+  全 Orcs 批：surface 4 lane 各 20 条；contextual 一个 Opus run 只读 envelope 与契约；逐条裁决。窗口39积压 8，未达阈值，继续审核 322。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `6533c67276069e91facbba0952d72fdaf251e95b` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **38**：第 315–319 批共 24 条确认问题已修复；译文提交 `e34291e7ae890b3f4af1bc0a62b823732d018e2a`；migration `c67c525d…` 的 24 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 39 积压 8 条（第320–321批）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -72,6 +72,7 @@
 | 318 | `batch-5f6096df2cd705ed56e7` | 75 done / 5 repair | 62 OK / 18 ISSUE | 13 OK / 5 ISSUE | 8 confirmed / 10 refuted / 5 advisory |
 | 319 | `batch-23e1c4938bb6155d1b29` | 74 done / 6 repair | 68 OK / 12 ISSUE | 5 OK / 7 ISSUE | 12 confirmed / 4 refuted / 3 advisory |
 | 320 | `batch-b4a672d30e9d08428a7e` | 76 done / 4 repair | 66 OK / 14 ISSUE | 11 OK / 3 ISSUE | 6 confirmed / 8 refuted / 3 advisory |
+| 321 | `batch-2d7befa2545967c13bf0` | 76 done / 4 repair | 68 OK / 12 ISSUE | 6 OK / 6 ISSUE | 8 confirmed / 8 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -148,10 +149,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **321** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **322** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 39（模板 `setup_window38.py`＋`SPEC-TEMPLATE.md`、`.artifacts/i18n/repair-w38-20260926/wd.sh`、`/tmp/w38-*.sh`）。
-2. 窗口 38 已完成（REVIEW、RE_REVIEW×5、FINAL×3〔cycle 2 两次输出截断拒收后重派〕；max_cycles 5 用满后收敛；17/17）。窗口 39 积压 **4** 条（第320批，Cults+Orcs）：从审核320起累计；第320批 `38e3195b27`（巨魔帝国港口任务：补南方）`3a43293d14`（铁匠：分行制表符、除非已学会全部）`3bb826649c`（阿马克泰尔祷文：错字、其他诸神、至高神）`3c68b52ee2`（火箭靴：火焰轨迹）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window38.py`、`.artifacts/i18n/repair-w38-20260926/wd.sh` 与 `/tmp/w38-*.sh`。
-   第320批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）173.9 s；finalize 111.8 s。
+2. 窗口 38 已完成（REVIEW、RE_REVIEW×5、FINAL×3〔cycle 2 两次输出截断拒收后重派〕；max_cycles 5 用满后收敛；17/17）。窗口 39 积压 **8** 条（第320–321批，Orcs）：从审核320起累计；第320批 `38e3195b27`（巨魔帝国港口任务：补南方）`3a43293d14`（铁匠：分行制表符、除非已学会全部）`3bb826649c`（阿马克泰尔祷文：错字、其他诸神、至高神）`3c68b52ee2`（火箭靴：火焰轨迹）；第321批 `38e3195b27`（巨魔帝国港口任务：补南方）`3a43293d14`（铁匠：分行制表符、除非已学会全部）`3bb826649c`（阿马克泰尔祷文：错字、其他诸神、至高神）`3c68b52ee2`（火箭靴：火焰轨迹）`3ea7432fdc`（蒸汽链锯：锯齿刀片高速旋转）`3f615510ad`（采石场笔记：自动机械、感叹、末尾换行）`3f7dc08a62`（烟雾宫殿成就：各兽人部落）`3fbaffc6c4`（手炮：远程近战攻击、分行制表符）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window38.py`、`.artifacts/i18n/repair-w38-20260926/wd.sh` 与 `/tmp/w38-*.sh`。
+   第321批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）173.8 s；finalize 112.4 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 33 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球）。
