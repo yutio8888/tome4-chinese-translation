@@ -1,0 +1,13 @@
+已完成 repair-w35-20260926 的有界 FIX，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua) 中四个 confirmed target：
+
+- `ad112fac…`：修正克罗格锤首段讯息表述。
+- `b13bdfbd…`：补回“未入门的目击者视野内”限制。
+- `c39b3efb…`：落实指定的五处纳格尔木桩修正。
+- `cd5fc3af…`：改为“我作为凡人的一切情感、思绪与梦想”。
+
+验证全部通过：
+
+- LuaJIT 对比 HEAD：2199 条记录，恰 21 个 target 变化，0 个非 target 变化，21/21 行结构与 TAB 不变量通过。
+- `python3 -B tools/i18n lint --strict`：30308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- `.ai/task` 未修改，暂存区为空；未 stage、commit、push，也未创建 agent。

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-w35-20260926 unique EXECUTOR",
+  "scope": "21 frozen tome-cults.lua targets plus IMPLEMENTATION.md and VALIDATION.json",
+  "source_provenance": {
+    "repository_commit_pinned": false,
+    "anchored_queries_checked": 21,
+    "anchored_files_checked": 13,
+    "anchored_files_sha256_matched": 13,
+    "bounded_paths_only": true
+  },
+  "record_comparison": {
+    "runtime": "manifest-compatible LuaJIT / Lua 5.1",
+    "records_compared": 2199,
+    "changed_target_count": 21,
+    "non_target_change_count": 0,
+    "line_invariants_passed": 21,
+    "placeholder_invariants_passed": 21,
+    "markup_invariants_passed": 21,
+    "template_expression_invariants_passed": 21,
+    "verified": true
+  },
+  "changed_revisions": [
+    "3081f3206c3067ba1ce6c2e3b29d83fcbe3640f974a60aadf650516f7b0dadbb",
+    "a133e480df406f077db0b2e23c27e90dcffdff253fefec8927c1902b958ab1a0",
+    "a4fcb9367934a0185a20ae90da4b6df1d431dd4fe7cbf3a3598a07b2e691e2f5",
+    "a94173532c8bcb41953417d4b62dcf68c3f162bcbca0f6fbd7785291a5373007",
+    "ad112fac44e7b1a93a7982695be174e005c9d4dcc850e132a398f543daa26ebe",
+    "af936fa4199e59e9e85da15612ceef980adba0882d0cb0198ab5121097aeeb27",
+    "afbbe9c100bc5d0f95d3375aaf17244bc08586e36284a73a541b00f35fde2977",
+    "b113df39861cf1b7838033294d9e5c3348bcec4e9cf0e87c3da15a46812a32a5",
+    "b13bdfbdbb35e5c64b385e602f45cf84c5c0653fbff489f3e17a0a3d04ce7973",
+    "b8714935ab7d4a29eaf4af3ed62dceec402d2a5769c1a4b767ce37c7749e84b5",
+    "b9eb8a819af63ac8a5d5dfef4d53fa5a8bde6e1ebf1a8d659bf27a38f8681c81",
+    "baeacde95a44c91db9690ca9e2f86d2d2617435a67e3bdccc0d938e875251b95",
+    "bb57dc02d85e7e06b9afd3c6af1eea5ffae3f92501e228a85c4df7af98038904",
+    "bf6f268df4c79931d7704139ac53a1d2ec54462e9a044d62a725ad3a9fd7dfe8",
+    "c26a569f0cc91945633cef750cdc009030a1115f09361ad0555aa6355553c271",
+    "c2810937ca8d10eb703858ba2b02e044bc0a708d67a6066dc64d94e673eaf53e",
+    "c39b3efbdc1a763f368536735bc1ee5019f8a5a54efe1fe7de7e456dd9f5609f",
+    "c9492d4669a203f05c3709ae7befad550c9a46221cdb4bbb5c08934d5156bd2c",
+    "cac325d08e8f58ba8ad97ecfcf6093aabf463f4c2b3cb8ca9075cea891f534ff",
+    "cb78eaefda0c3fbbdeb3dddf06dcb05fb7f8d48c076cf6493f644d1b7fc9af02",
+    "cd5fc3af79e3644dee37cd589fca06fc17b7330efbacd60f5397f03a61b51a3d"
+  ],
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "runtime and dependencies OK; expected source-unpinned warnings for three public DLCs"
+    },
+    {
+      "command": "sha256sum <13 SOURCE-ANCHORS Cults files>",
+      "exit_code": 0,
+      "result": "13/13 unique file hashes matched all 21 frozen queries"
+    },
+    {
+      "command": "manifest-compatible LuaJIT baseline/current full-record comparison",
+      "exit_code": 0,
+      "result": "records_compared=2199 changed_targets=21 non_target_changes=0 line_invariants=21/21 template_invariants=21/21"
+    },
+    {
+      "command": "bounded obsolete-defect phrase scan",
+      "exit_code": 1,
+      "expected_no_match_exit": true,
+      "result": "no frozen defect phrase remained"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260926T080453.320072Z-3579174-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null <each new evidence file>",
+      "exit_code": 1,
+      "expected_difference_exit": true,
+      "result": "no whitespace diagnostics for either new file"
+    }
+  ],
+  "risks": [
+    "The Cults source repository and commit are unpinned; frozen file hashes matched the bounded public source checkout."
+  ],
+  "not_claimed": [
+    "independent REVIEW or FINAL_REVIEW",
+    "full 17-gate receipt",
+    "DONE_VERIFIED",
+    "stage, commit, push, queue, catalog, or migration"
+  ]
+}

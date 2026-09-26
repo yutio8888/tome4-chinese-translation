@@ -1,0 +1,32 @@
+{
+  "reason": "gate 06-runtime-collision-scan: runtime key (source,_t) of reviewed c26a569f also exists in tome and orcs; engine locale is keyed by (source, source_tag) so all copies must carry one value",
+  "reviewed_revision": "c26a569f0cc91945633cef750cdc009030a1115f09361ad0555aa6355553c271",
+  "reviewed_target": "#LIGHT_RED##Target#在主人视野外；直接控制即将中断！",
+  "source_evidence": [
+    "t-engine4 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/timed_effects/other.lua:498,525 on_gain (golem/shadow out of sight); loss happens in on_timeout",
+    "orcs DLC (repo/commit not pinned) tome-orcs/data/timed_effects/other.lua:382 on_gain (Mecharachnid); loss in on_timeout",
+    "cults DLC (repo/commit not pinned) tome-cults/data/timed_effects.lua:230 on_gain; long_desc says direct control will be lost"
+  ],
+  "items": [
+    {
+      "component": "tome",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/timed_effects/other.lua",
+      "source_tag": "_t",
+      "entry_revision_identity": "146ca12264fd8503a498d65f516c559d607b2bc239dcebcc83b98b1620a3d9e9",
+      "old_target": "#LIGHT_RED##Target#在主人视野外；直接控制中断了！",
+      "new_target": "#LIGHT_RED##Target#在主人视野外；直接控制即将中断！"
+    },
+    {
+      "component": "orcs",
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source_tag": "_t",
+      "entry_revision_identity": "37e49a72449f90bd11cf44c3cd76c8c68c0dcd9eafba2c3f75ebd03cae3fe5a0",
+      "old_target": "#LIGHT_RED##Target#在主人视野外；直接控制中断了！",
+      "new_target": "#LIGHT_RED##Target#在主人视野外；直接控制即将中断！"
+    }
+  ],
+  "review_note": "sync-only: the target text is byte-identical to the reviewed c26a569f target accepted by r0a1..f2a2; both successors are queued for re-review by the migration (tome sibling was done in batch-4fec420db52243e27db4, orcs sibling not yet reviewed)",
+  "recorded_at": "2026-09-26T08:33:57.290495+00:00"
+}

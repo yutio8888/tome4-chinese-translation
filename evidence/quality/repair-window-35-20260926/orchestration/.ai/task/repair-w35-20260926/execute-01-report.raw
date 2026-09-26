@@ -1,0 +1,22 @@
+已完成 `repair-w35-20260926`，严格按 Paseo EXECUTOR 单写入边界执行。
+
+修改文件：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-35-20260926/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-35-20260926/VALIDATION.json)
+
+21 条修复均已落实：补回魔法大爆炸、腐朽之地、米诺陶巨石包、战利品消费、克罗格锤、虚空黑暗存在与传送门计划、熵之虚空、克罗格种族长文、克诺什库尔传送条件、完整消化 TAB、空间扭曲换行、瑞尔克长文、暂停技能 TAB、维网信徒、蠕虫失控警告、菲·维莉欧斯重建长文、永燃之桩、重甲卸下提示、离开埃尔瓦拉长文、逃离消化囊选项及日志低语等问题。逐条说明见实施记录。
+
+验证结果：
+
+- 13 个限定 Cults 源文件 SHA：13/13 匹配。
+- LuaJIT baseline/current：2,199 条记录；恰 21 个 target 改变；非 target 变化 0。
+- LF、空行、逐行 TAB、占位符、markup、模板表达式：21/21 通过。
+- `python3 -B tools/i18n doctor`：通过；仅有预期的 DLC source-unpinned 警告。
+- `python3 -B tools/i18n lint --strict`：30,308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 暂存区为空；未 stage、commit、push、创建 agent 或修改 `.ai/task`。
+- 用户原有未跟踪文件保持不动。
+
+已知风险仅为 Cults 源码仓库与 commit 未固定；本轮通过冻结文件 SHA 和限定源码锚点约束输入。独立复审、完整门禁、提交与推送仍由宿主处理。

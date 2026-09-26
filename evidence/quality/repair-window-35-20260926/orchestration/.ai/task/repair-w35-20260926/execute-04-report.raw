@@ -1,0 +1,17 @@
+已完成运行时键同步 FIX。
+
+改动：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:36450)：指定 target 改为“直接控制即将中断！”
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:6253)：同上
+- 未改 `tome-cults.lua` 或 `.ai/task`
+
+验证全部通过：
+
+- LuaJIT 加载比较：两文件相对 `HEAD` 各恰 1 条 target 变化；与 Cults target 字节一致
+- `python3 -B tools/scan_runtime_collisions.py`：`runtime collisions: 0`
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- 暂存区为空；未 commit、push
+
+无计划偏差或未解决问题。
