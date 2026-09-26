@@ -1,0 +1,55 @@
+{
+  "batch_id": "batch-fddb88b07b599a5e41c8",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-26T04:05:49.242491+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract; lane-000-0 also listed its own tool registry (read-only); no write-pattern hits after inspection",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "pattern_hits": [
+    {
+      "dispatch_id": "lane-000-0",
+      "pattern": "rm ",
+      "resolution": "false positive: substring of \"form \" inside the call justification text (\"in a concise form to cover every entry\"); no rm command"
+    }
+  ],
+  "sequencing_note": "the driver continued into close/import before the host inspected this hit (set -e did not stop on the heredoc exit code); host inspected afterwards and found no boundary violation, so the imported results stand",
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "5558df16-7cd7-4f9e-b819-4295ae0e9663",
+      "native_tools_sha256": "9a5194004f6769a8b195b14f0051a5327e2398baee59f36fc33e7c6d48b169a3",
+      "tool_calls": 6,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "52ef99a8-07b9-4d48-bf77-1b303922e6ca",
+      "native_tools_sha256": "f6c344e57da74680dbb91ba69ddf0b963b3e4c1584bb89ee9011838ee125a21b",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "b6928637-78b4-4edf-9c14-03d3b5fe32b4",
+      "native_tools_sha256": "01c5f72882d00677738fc3be81fa3d4a5aa91e7e94f2e8f52ee4dc753f4b46ee",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "de9cf996-75ec-4359-9106-4e739aacbde2",
+      "native_tools_sha256": "b78ba5bd66ef1d6311c02d35dc77cf2800586fad23d39859d6a0ad05c08aaa3e",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

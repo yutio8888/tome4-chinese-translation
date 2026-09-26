@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "72234560541e40c30ed6c4f2743326fd177a92114b75122a93ca762d0aa6cfb5",
+      "stage": "surface",
+      "observation": "原文“filling you with incredible vitality”指反熵能量使“你”充满活力；译文“充满不可思议的活力”将活力归于物质或能量，遗漏了对玩家的作用。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua:124 原文 Small sparks of antropic power surge from it at times, filling you with incredible vitality：活力的受事者是“你”；现译“在上面不时涌动着反熵的能量，充满不可思议的活力”丢了“你”，读作能量或物质本身充满活力。应为“……反熵能量，让你充满不可思议的活力”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "72dcd3ede8b8b82ba20cbe601756dd9b3cc6d4832e3c731b40239c460c496a8a",
+      "stage": "surface",
+      "observation": "疯狂预言的冷却减少量漏译单位“回合”；背叛预言将“随机受影响的目标”译为“周围随机受影响的目标”，增加了原文没有的范围限制。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/doom.lua:416 Prophecy of Madness ... cooldown reduced by %d turns：现译“冷却时间将减少 %d”缺单位“回合”，确认。背叛预言“周围”一点不成立：doom.lua:231–258 callbackOnTakeDamage 只在 core.fov.circle_grids(self.x,self.y,10) 半径10内挑受背叛预言影响的敌人，“周围”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7408bd5dbbdb42a1f781dcc8c418178f74ff087665dfe4bbdb90e1c170e187e8",
+      "stage": "surface",
+      "observation": "原文“KILL! KILL!”重复两次，译文“杀！杀！杀！”重复三次。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua:284 是击杀时随机喊话 _t\"KILL! KILL!\"；现译“杀！杀！杀！”多一声，属语气层面的重复次数差异，不影响语义或机制，记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7437f95610047de8a0b1ee36c84000d58b0d25d3c60b13c21c6206580b8fdb9f",
+      "stage": "surface",
+      "observation": "原文“in a general direction”表示沿大致方向传送，译文“朝指定的方向”增添了方向可指定的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/beyond-sanity.lua:62–94 该技能 target 为 cone 且 simple_dir_request=true：玩家先指定方向，再在该方向锥形内随机选落点传送（rng.table(spots)）。现译“朝指定的方向随机传送”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "74d32fd0c6f5a9efca37a4eed7f20cadc0a6ee32acac2abc3a806f0ae6435f48",
+      "stage": "surface",
+      "observation": "原文护甲由多块刻有符文的石头构成，译文称其由“一整块符文巨石”组成，数量明显相反。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua:581 chunks of a rune etched stone ... The titanic pieces of stone ... carved into the chunks：护甲由多块刻有符文的石块拼成；现译“由一整块符文巨石组成”把复数石块说成单一整块，与后文“巨大的石块”矛盾。应为“由一块块刻有符文的石块组成”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "77b8417a60e5782442be8b16dd33061395ffc0161841cadf48b080e9f4a5a24d",
+      "stage": "surface",
+      "observation": "原文说职业技能首次使用时无冷却，译文“第一个职业技能”将首次使用误写成第一个技能。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/misc/races.lua:41–42 During the frenzy the first time you use a class talent it has no cooldown (but does if used twice)，实现 superload/mod/class/Actor.lua:113–123 用 eff.used_talents[t.id] 逐技能记录：狂热期间每个职业技能各自第一次使用不进入冷却，同一技能第二次才冷却。现译“你使用的第一个职业技能不进入冷却”限定为只有一个技能，与实现不符（contextual 判 OK，宿主按实现改判确认）。修复为“狂热状态下，每个职业技能首次使用时不进入冷却（同一技能再次使用则会冷却）”，并去掉“，”后多余的两个空格。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "79cda6dc7721945bd01f28fa90cfae35b77bb60153d1ee9c7db79cf53e760f09",
+      "stage": "surface",
+      "observation": "“Drake Aspect”指龙的形态或面相，译文“龙血类型”加入原文没有的“血”，并将 Aspect 译成“类型”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/misc/races.lua:271 Drake Aspect 是 Drake-Infused Blood（灌输龙血）主动切换元素类型时的弹窗标题；本库该族统一译“龙血类型”（tome-cults.lua 3481/3491/3501/3504：切换你的龙血类型、选择你使用的龙血类型、改变龙血类型），且与上游 zh_hans locale 一致。按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7afb88713b3bf6f0ae71678cc8ebf5c668f52b0395750ad0866d2c75369455d8",
+      "stage": "surface",
+      "observation": "原文结尾的感叹号在译文中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/void.lua:213 logPlayer \"Not enough space to summon your monolith!\"；现译“没有足够空间，无法召唤巨石”缺句末感叹号，仅标点语气，记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  ]
+}

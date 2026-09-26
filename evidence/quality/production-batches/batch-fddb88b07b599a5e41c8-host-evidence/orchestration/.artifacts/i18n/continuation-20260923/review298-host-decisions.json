@@ -1,0 +1,60 @@
+{
+  "workset": "evidence/quality/production-batches/batch-fddb88b07b599a5e41c8-source-workset.json",
+  "decisions": {
+    "7223456054|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults lore/zones.lua:124 原文 Small sparks of antropic power surge from it at times, filling you with incredible vitality：活力的受事者是“你”；现译“在上面不时涌动着反熵的能量，充满不可思议的活力”丢了“你”，读作能量或物质本身充满活力。应为“……反熵能量，让你充满不可思议的活力”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "7223456054|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：zones.lua:124 filling you with incredible vitality 的受事者“你”被删，与 contextual 观察一致，合并为同一修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "72dcd3ede8|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/demented/doom.lua:416 Prophecy of Madness ... cooldown reduced by %d turns：现译“冷却时间将减少 %d”缺单位“回合”，确认。背叛预言“周围”一点不成立：doom.lua:231–258 callbackOnTakeDamage 只在 core.fov.circle_grids(self.x,self.y,10) 半径10内挑受背叛预言影响的敌人，“周围”贴合实现，保留。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "72dcd3ede8|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "doom.lua:416 one of your talents on cooldown：现译“你的一个技能”删去“正在冷却中的”限定（仅对冷却中的技能生效），并缺“回合”；doom.lua:418–421 原文空行（\\t\\n）位于 A prophecy can only... 行与 Current prophecy 行之间，现译把空行挪到背叛预言与“同一种预言…”之间，换行位置不一致（一级 newline 不变量）。“周围”按 doom.lua:239 半径10实现 refuted。修复：补“正在冷却中的”与“回合”，空行移回“当前预言”之前，其余不动。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "7408bd5dbb|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua:284 是击杀时随机喊话 _t\"KILL! KILL!\"；现译“杀！杀！杀！”多一声，属语气层面的重复次数差异，不影响语义或机制，记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "7437f95610|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/beyond-sanity.lua:62–94 该技能 target 为 cone 且 simple_dir_request=true：玩家先指定方向，再在该方向锥形内随机选落点传送（rng.table(spots)）。现译“朝指定的方向随机传送”贴合实现，保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "74d32fd0c6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults general/objects/world-artifacts.lua:581 chunks of a rune etched stone ... The titanic pieces of stone ... carved into the chunks：护甲由多块刻有符文的石块拼成；现译“由一整块符文巨石组成”把复数石块说成单一整块，与后文“巨大的石块”矛盾。应为“由一块块刻有符文的石块组成”。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "74d32fd0c6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：world-artifacts.lua:581 chunks/pieces 为多块，与 contextual 观察一致，合并为同一修复。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "77b8417a60|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults talents/misc/races.lua:41–42 During the frenzy the first time you use a class talent it has no cooldown (but does if used twice)，实现 superload/mod/class/Actor.lua:113–123 用 eff.used_talents[t.id] 逐技能记录：狂热期间每个职业技能各自第一次使用不进入冷却，同一技能第二次才冷却。现译“你使用的第一个职业技能不进入冷却”限定为只有一个技能，与实现不符（contextual 判 OK，宿主按实现改判确认）。修复为“狂热状态下，每个职业技能首次使用时不进入冷却（同一技能再次使用则会冷却）”，并去掉“，”后多余的两个空格。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "79cda6dc77|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/misc/races.lua:271 Drake Aspect 是 Drake-Infused Blood（灌输龙血）主动切换元素类型时的弹窗标题；本库该族统一译“龙血类型”（tome-cults.lua 3481/3491/3501/3504：切换你的龙血类型、选择你使用的龙血类型、改变龙血类型），且与上游 zh_hans locale 一致。按本库译名保留；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    },
+    "7afb88713b|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults talents/demented/void.lua:213 logPlayer \"Not enough space to summon your monolith!\"；现译“没有足够空间，无法召唤巨石”缺句末感叹号，仅标点语气，记 advisory；contextual 判 OK。本批文件 SHA 匹配，来源仓库/commit 未固定。"
+    }
+  }
+}

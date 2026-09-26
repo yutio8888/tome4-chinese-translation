@@ -130,7 +130,7 @@
 
 1. 继续审核第 **298** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第298批用 `N=298; S=297; PT=297`，因第296批脚本无批号）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 34（模板 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh`、`/tmp/w33-*.sh`）。
-2. 窗口 33 已完成（8 次复审：REVIEW、RE_REVIEW×5、FINAL×2；`max_cycles`=5 用满，第5轮唯一确认项 `5c740785` 经用户裁决记 advisory）。窗口 34 积压 0 条。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh` 与 `/tmp/w33-*.sh`。
+2. 窗口 33 已完成（8 次复审：REVIEW、RE_REVIEW×5、FINAL×2；`max_cycles`=5 用满，第5轮唯一确认项 `5c740785` 经用户裁决记 advisory）。窗口 34 积压 **0** 条（尚无来源批次）：从审核298起累计；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 freeze 脚本的 briefing 写明行尾空白 TAB 不计入 TAB 不变量，新窗口派生时保留；窗口模板为 `setup_window33.py`、`.artifacts/i18n/repair-w33-20260926/wd.sh` 与 `/tmp/w33-*.sh`。
    第297批计时（实测，投影缓存 on）：start 1.7 s；adjudication chain（含 17 项门禁）162.9 s；finalize 97.2 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
