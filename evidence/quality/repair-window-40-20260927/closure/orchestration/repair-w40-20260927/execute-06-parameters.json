@@ -1,0 +1,18 @@
+{
+  "title": "repair-w40 execute-06",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w40-20260927 的一次 RUNTIME-SYNC。先读 .ai/roles/executor.md、本 task 的 SCOPE.json、RUNTIME-SYNC.json 和 HOST-NOTE-RUNTIME-SYNC.md。只把 mod-tome.lua 中 RUNTIME-SYNC.json 列出的 2 条记录（source \"Sook's Runes and other Harmless Contraptions\"，source_tag \"entity name\"，section 分别为 mod-tome/data/zones/town-gates-of-morning/traps.lua 与 mod-tome/data/zones/town-last-hope/traps.lua）的 target 由“苏克符文道具店”改为与已复审 tome-orcs.lua 条目逐字节相同的“苏克的符文与其他无害小玩意”。不改 tome-orcs.lua 及任何其他记录、source、source_tag、section。运行有界验证（LuaJIT 相对 HEAD：tome-orcs.lua 恰23条 workset target 变动且与当前一致，mod-tome.lua 恰2条变动且为上述两条；strict lint；git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w40-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-06",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

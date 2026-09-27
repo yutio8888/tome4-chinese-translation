@@ -1,0 +1,29 @@
+{
+ "cycle": 1,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r1a2",
+ "invalid_attempts": [
+  "r1a1 (INVALID-R1A1.json)"
+ ],
+ "raw_ok_count": 22,
+ "raw_issue_count": 1,
+ "decision": "bounded fix (execute-03) then RE_REVIEW(2)",
+ "findings": [
+  {
+   "revision_key": "5d8d908f72ad9fb1c82b961ca452ffbc035ba60176b3bc41549dfe6a3d96e539",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "reason": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua P3：“when our ancestors saw their true nature, the brutality they were capable of, they recorded these acts in detail”——祖先看到的是已发生、被记录的残暴行径（these acts）；现译“看到了他们的真实本性和他们潜在的残暴之后，祖先们把这些详尽记录下来”把行径写成“潜在”的可能。改为“但是当我们的祖先们看清了他们的真实本性、看到他们能做出何等残暴的事之后，便把这些行径详尽地记录了下来。”其余不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  },
+  {
+   "revision_key": "52bc32cb74201c7f2fff6e37f44f11e32e7e73dfa81d05351bd481322b6cb694",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "host (source-checked; first raised by the rejected r1a1 output, not adopted from it)",
+   "reason": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:861–863：“Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.”；本库技能名 tome-orcs.lua:5058 Steamgun Mastery＝“蒸汽枪掌握”、5930 Hunker Down＝“炮台守卫”。现译“守卫炮台具有 %0.2f 蒸汽枪精通技能，技能等级取决于你炮台守卫技能等级。”技能名错作“蒸汽枪精通”并把 ranks 写成技能数量。改为“守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。”保留 \\n\\t\\t\\t 与 %0.2f。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  }
+ ],
+ "recorded_at": "2026-09-27T01:53:44.189524+00:00"
+}

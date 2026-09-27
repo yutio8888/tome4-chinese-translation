@@ -267,3 +267,11 @@
    - 现译：“致命翻转”（技能名、效果名与 info 引用一致）。
    - 争议理由：第 327 批 GPT-6 Sol 表层筛查指出 Awesome 被译成“致命”、Toss 被译成“翻转”；宿主按源码确认字面与动作均不符，Opus contextual 判 OK。改名须同步技能名、效果名与 info 引用并定新译名，属跨条译名决定，本批记 advisory。
    - 建议选项：保持“致命翻转” / 改“华丽抛枪”（或“炫技抛枪”）并同步 4931、4942、6442。
+
+## 修复窗口 40 待审阅
+
+36. Orcs 神器名 `Gardanion, the Light of God`（tome-orcs.lua:7449 entity name；同物品描述 `595abf50af` 在窗口 40 修复）
+   - 源码：公开 Orcs DLC `tome-orcs/data/zones/slumbering-caves/objects.lua:35`（name = "Gardanion, the Light of God"）；来源仓库与 commit 未固定。
+   - 现译：“Gardanion，神之光辉”（专名保留英文，本库无 Gardanion 译名）。
+   - 争议理由：第 326 批宿主发现物品名半英半中；补译需新造音译专名，本库与术语库均无先例，窗口 40 不自行新造。
+   - 建议选项：保持现状 / 音译为“加达尼恩，神之光辉”（或“加尔达尼恩”）并登记术语库。

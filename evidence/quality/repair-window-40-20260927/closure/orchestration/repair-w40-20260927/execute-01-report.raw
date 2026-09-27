@@ -1,0 +1,18 @@
+已完成 `repair-w40-20260927` 的 23 条 target 修复。
+
+逐条结果已记录于 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-40-20260927/IMPLEMENTATION.md)，涵盖：
+
+- 7 条专名、机制或格式修复：蒸汽采石场、科技灵能、技能树名称、气之部族苦艾酒及 LF/TAB 结构等。
+- 10 条语义纠正：蒸汽链锯广告、Nacrush、夏·图尔祭司、狩猎快感、Awesome Toss、病原体注射等。
+- 6 条长文本整句修复：议会记录、辞职演说、GEM 日志、拘留营信件等，并包含宿主预检追加点。
+
+验证结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-40-20260927/VALIDATION.json)：
+
+- LuaJIT LocaleLoader：3904 条记录，恰 23 条 target 改变，工作集外变化 0，非 target 字段变化 0。
+- LF、空行下标、逐行 TAB、末尾换行、占位符及 markup：全部通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 17 个 Orcs 源文件 SHA 全部匹配冻结锚点。
+- `.ai/task` 未修改；未 stage、commit、push，也未创建 agent。
+
+剩余风险：Orcs 源码仓库及 commit 未固定，本轮依赖全部匹配的文件级 SHA。独立语言复审仍由 ORCHESTRATOR 后续完成。 distinct `logPlayer` 记录及不在 WORKSET 内的 Gardanion 物品名按范围要求保持不变。

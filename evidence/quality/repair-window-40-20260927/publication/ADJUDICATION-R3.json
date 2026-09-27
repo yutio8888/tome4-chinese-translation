@@ -1,0 +1,26 @@
+{
+ "cycle": 3,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r3a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 21,
+ "raw_issue_count": 2,
+ "decision": "one tier-1 mechanism finding confirmed: bounded fix (execute-05), RE_REVIEW(4, attempt 1), then FINAL_REVIEW(4, attempt 2)",
+ "findings": [
+  {
+   "revision_key": "5bb911ddb970b1fd6a67a82a2cf176b3569816d5e219e231b18b5541d5a81411",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "mechanism",
+   "reason": "公开 Orcs tome-orcs/data/talents/spells/terrene-technomancy.lua:139–145：同一目标上的蜘蛛机器人按 cnt 合并为一次伤害（dam*cnt^0.7），且每个目标每回合只做一次 rng.percent(25) 冻结判定；info 198–199 行“more free targets are in range they will dispatch on as many as possible … attack as one … trying to freeze once”。现译“有足够多的可选目标”添加了足量条件，“并且会一起试图冻结目标”漏“只判定一次”。改为“如果这个目标上有多个机器人，并且范围内还有其他空闲目标，它们会尽可能分散到更多目标上。”与“如果一个目标的身上附身了多个蜘蛛机器人，它们会合为一体攻击，伤害会叠加（但收益递减），并且只进行一次冻结判定。”其余与 \\n\\t\\t 结构不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  },
+  {
+   "revision_key": "58c3e2bf119f90aba79d4f8d26b6fa678c081893fffd0df8cb073df74a20916d",
+   "status": "refuted",
+   "tier": 1,
+   "category": "fidelity",
+   "reason": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1799–1810：技能以 infinite=true 发射；info“This talent does not use ammo as it is the ammo.”现译“此技能不会消耗弹药，因为弹丸本身就是弹药”，其中“弹丸”回指同条首两句的“特殊腐蚀弹／弹丸”，即技能发射的这枚特殊弹本身就是弹药，语义与源文一致。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  }
+ ],
+ "recorded_at": "2026-09-27T02:11:48.569664+00:00"
+}

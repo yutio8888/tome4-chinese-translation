@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-27（第327批已 finalize，窗口40积压 21 条，继续审核第328批）
+更新时间：2026-09-27（修复窗口40已完成、待宿主证据提交与推送，下一步审核第328批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -11,7 +11,7 @@
 - 审核已闭合至第 **327** 批（`batch-ce57ffd564611fd19267`）：80 条（全部 Orcs），75 done / 5 repair_required。
   全 Orcs 批：surface 4 lane 各 20 条；contextual 一个 Opus run 只读 envelope、契约与引用源码；逐条裁决。窗口40积压 21，达开窗阈值。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `473cb86c0ba223f49dd45abfc8ed255dd4e688f3` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **39**：第 320–323 批共 25 条确认问题及 2 条宿主补充已修复，steamsaw 按用户裁决统一为“蒸汽链锯”（另 15 条同步）；译文提交 `e19736293f1f9854175520be0f6d2dd04c5504d2`；migration `734a72ac…` 的 42 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 40 积压 21 条（第324–327批）。
+- 修复窗口已闭合至 **40**：第 324–327 批共 21 条确认问题及 2 条宿主补充已修复（另 runtime-sync mod-tome.lua 2 条 Sook 店名）；译文提交 `acae1e6d74fec03894d7e50ce531625da3b215c9`；migration `5b6b372f…` 的 25 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 41 积压 0 条，从审核328重新累计（另有窗口外宿主补充项，见第五节第 2 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -156,12 +156,12 @@
 ## 五、下一步
 
 1. 继续审核第 **328** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
-   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 40（模板 `setup_window39.py`＋`SPEC-TEMPLATE.md`、`.artifacts/i18n/repair-w39-20260926/wd.sh`、`/tmp/w39-*.sh`）。
-2. 窗口 39 已完成（REVIEW、RE_REVIEW×9、FINAL×4〔f6a3 输出截断拒收；r6a1 非紧凑 JSON 拒收〕；用户三次追加预算 max_cycles 5→6→8→11，cycle 9 收敛；17/17）。窗口 40 积压 **21** 条（第324–327批，Orcs）：从审核324起累计；第324批 `1bf82bee09`（种子蒸汽链锯：昔日敌人变成树）`4d968f8856`（纳克拉什：火力过猛）`4e24ac36b0`（连锁蒸汽链锯：补换行）`4e9cf35b9f`（夏·图尔大祭司：说不清缘由）`4f11cda37a`（议会记录：两派都无力介入、肮脏）`4fd92b3774`（科技灵能波：制表符）`5083f958aa`（工匠店训练：技能树名称）；第325批 `52663fb95e`（狩猎的快感：主客、换行）`52bc32cb74`（守卫炮台：制表符、炮塔）`5362d5e743`（GEM 录音日志：开着吗、马蜂窝）；第326批 `56a78163e2`（病原体：被注入）`56f374b8ee`（雪人族：科技灵能、心智转移）`5801838b0a`（枪舞：抛向空中）`58c3e2bf11`（腐蚀弹：制表符）`595abf50af`（Gardanion：护符的光芒）`5bb911ddb9`（蜘蛛机器人：换行）；第327批 `5d8d908f72`（烟雾宫殿议员信：幸而短暂、会面简述、每年讯息）`602a17b119`（卡尔托商店：很可能非常危险）`612aaa387f`（世界介绍：半岛）`619199a9ea`（拘留营信件：约两倍、气之部族苦艾酒）`61d7c6c8d1`（蒸汽动力头盔：一顶头盔）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：`4e560f2e5a`（emporium 公告“蒸汽矿场”→“蒸汽采石场”，窗口39同族修复后仅剩此处）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window39.py`、`.artifacts/i18n/repair-w39-20260926/wd.sh` 与 `/tmp/w39-*.sh`；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
+   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 41（模板 `setup_window40.py`＋`SPEC-TEMPLATE.md`、`.artifacts/i18n/repair-w40-20260927/wd.sh`、`/tmp/w40-*.sh`；setup 后先跑 `check_siblings.py`）。
+2. 窗口 40 已完成（REVIEW、RE_REVIEW×4、FINAL×2〔r1a1 revision_key 回显错误拒收；f4a2 输出截断拒收〕；cycle 4 收敛；门禁 06 首跑因 Sook 店名跨组件同键失败，runtime-sync mod-tome.lua 2 条后 17/17）。窗口 41 积压 **0** 条（第328批起）：从审核328起累计；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口外宿主补充项待下个窗口按 revision 核实后纳入：“stack of herbs”同族四条“一束植物”→“草药”（advisory，跨条）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window40.py`、`.artifacts/i18n/repair-w40-20260927/wd.sh` 与 `/tmp/w40-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w40-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
    第327批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）175.7 s；finalize 117.8 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
-4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 35 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转）。
+4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 36 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译）。
 5. 全 DLC 批次的操作要点：adjudication chain 一开始就传 SHA 核验的 `reviewN-source-root`；首次 contextual envelope 不含 checkout
    位置（`--ashes-checkout` 只在 refreeze 路径生效），Opus 可能自行搜寻而越界（第277、280批各一次），届时拒收并按 refreeze 重派；
    surface 某 lane 判废须整组用 `tools/surface_screen_manifest.py build --attempt 2 --group-id group-000-retry-02` 重建（envelope 字节不变）。

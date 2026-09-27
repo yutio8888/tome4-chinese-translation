@@ -1,0 +1,34 @@
+{
+ "kind": "runtime-sync",
+ "reason": "gate 06-runtime-collision-scan: runtime key (source, entity name) of reviewed 50df66a4c3 (Orcs Gates of Morning store) also exists twice in mod-tome.lua; the engine locale is keyed by (source, source_tag), so all copies must carry one value",
+ "reviewed_revision": "50df66a4c3de7bcdb59d4444cacfabd1473af5182a2015623283299e5e212f8d",
+ "reviewed_target": "苏克的符文与其他无害小玩意",
+ "source_evidence": [
+  "t-engine4 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/zones/town-gates-of-morning/traps.lua:83 and town-last-hope/traps.lua:82: store name=\"Sook's Runes and other Harmless Contraptions\"",
+  "orcs DLC (repo/commit not pinned) tome-orcs/data/zones/gates-of-morning/traps.lua:83: same store name"
+ ],
+ "review_note": "sync-only: the target text is byte-identical to the reviewed 50df66a4c3 target accepted by r0a1..f4a3; both mod-tome successors are queued for re-review by the migration and do not inherit any earlier done state",
+ "recorded_at": "2026-09-27T02:26:23.488861+00:00",
+ "items": [
+  {
+   "component": "tome",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/zones/town-gates-of-morning/traps.lua",
+   "source": "Sook's Runes and other Harmless Contraptions",
+   "source_tag": "entity name",
+   "entry_revision_identity": "6a461d4fab4f05a568112178e051e854b93b9158cf351192b86ce59c88e546e8",
+   "old_target": "苏克符文道具店",
+   "new_target": "苏克的符文与其他无害小玩意"
+  },
+  {
+   "component": "tome",
+   "file": "mod-tome.lua",
+   "section": "mod-tome/data/zones/town-last-hope/traps.lua",
+   "source": "Sook's Runes and other Harmless Contraptions",
+   "source_tag": "entity name",
+   "entry_revision_identity": "fabbc961734f08ef6de0b5aab1221c5f3115c89b5f8fbc4957326191ca0e3c33",
+   "old_target": "苏克符文道具店",
+   "new_target": "苏克的符文与其他无害小玩意"
+  }
+ ]
+}

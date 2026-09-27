@@ -1,0 +1,18 @@
+{
+  "title": "repair-w40 execute-05",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w40-20260927 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R3.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复 ADJUDICATION-R3.json 中 status=confirmed 的 1 条 target（5bb911ddb9：把“如果这个目标上有多个机器人，并且在范围内有足够多的可选目标，他们会尽可能分散地跳到每个敌人身上。”改为“如果这个目标上有多个机器人，并且范围内还有其他空闲目标，它们会尽可能分散到更多目标上。”；把“如果一个目标的身上附身了多个蜘蛛机器人，他们会一起攻击，伤害会叠加（但收益递减），并且会一起试图冻结目标。”改为“如果一个目标的身上附身了多个蜘蛛机器人，它们会合为一体攻击，伤害会叠加（但收益递减），并且只进行一次冻结判定。”）；refuted 条目不动。该条其余文字、占位符、\\n\\t\\t 结构与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 的 tome-orcs.lua 恰23条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w40-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-05",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

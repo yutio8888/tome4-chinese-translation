@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w40-20260927",
+  "role": "executor",
+  "baseline_commit": "0ce668c95ab697649b099246acbdeb354adfcc2e",
+  "inputs": {
+    "workset_sha256": "1fae5d926e2517b944b7c14484f8ea8c1044af46ad9c89e96b3a5c1e255a90df",
+    "source_anchors_sha256": "e4eda212f5b8b4db604ecca763f7ca93f4965d9e5712dcd1098adf0954be462e",
+    "baseline_records_sha256": "1b685aad74bdab1efd61437e79a2846098f61e0a0a1322471c2085b7f26568bb",
+    "term_snapshot_sha256": "735677f602bbb4f53844fc7658aaded1d6ec4b235e88dc6defc1cf74361c2b21"
+  },
+  "output": {
+    "path": "tome-orcs.lua",
+    "sha256": "c7757f210e1000b5edc02a80282c41e7e452ae6e677c7256679e5efdd287b0a4"
+  },
+  "source_anchor_check": {
+    "root": "/workspace/tome4-dlcs/orcs",
+    "exact_paths_checked": 17,
+    "hash_matches": 17,
+    "hash_mismatches": 0,
+    "source_repository_commit_pinned": false
+  },
+  "semantic_load_and_diff": {
+    "loader": "tools.i18nlib.locale_model.LocaleLoader",
+    "baseline_translation_count": 3904,
+    "current_translation_count": 3904,
+    "changed_target_count": 23,
+    "expected_target_count": 23,
+    "workset_exact": true,
+    "missing_workset_keys": [],
+    "unscoped_changes": [],
+    "non_target_field_change_count": 0,
+    "newline_checks_pass": true,
+    "terminal_newline_checks_pass": true,
+    "tab_prefix_checks_pass": true,
+    "blank_line_index_checks_pass": true,
+    "no_new_trailing_whitespace": true,
+    "markup_checks_pass": true,
+    "placeholder_checks_pass": true,
+    "at_token_checks_pass": true
+  },
+  "commands": [
+    {
+      "command": "manifest-compatible LuaJIT LocaleLoader bounded baseline/current comparison",
+      "exit_code": 0,
+      "result": "records=3904 changed_targets=23 non_target_changes=0 workset_exact=true; LF/TAB/blank/terminal/placeholder/markup checks passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "notes": [
+    "A preliminary verifier assertion treated a pre-existing terminal space as newly introduced; the final check correctly compares against the frozen target and forbids only new trailing whitespace.",
+    "The distinct Gardanion logPlayer record is outside the frozen workset and remains unchanged."
+  ],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}

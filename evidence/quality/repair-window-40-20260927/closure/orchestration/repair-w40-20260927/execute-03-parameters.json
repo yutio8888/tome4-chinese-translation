@@ -1,0 +1,18 @@
+{
+  "title": "repair-w40 execute-03",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w40-20260927 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R1.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复 ADJUDICATION-R1.json 中 status=confirmed 的 2 条 target（5d8d908f72 第三段改“但是当我们的祖先们看清了他们的真实本性、看到他们能做出何等残暴的事之后，便把这些行径详尽地记录了下来。”；52bc32cb74 末句改“守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。”），按其 reason 给出的译法改写对应句子。各条其余文字、markup、占位符、LF/TAB 结构与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 的 tome-orcs.lua 恰23条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w40-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}
