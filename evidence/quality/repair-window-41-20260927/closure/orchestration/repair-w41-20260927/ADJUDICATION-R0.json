@@ -1,0 +1,26 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 20,
+ "raw_issue_count": 2,
+ "decision": "two tier-1 findings confirmed: bounded fix (execute-02), then RE_REVIEW(1, attempt 1)",
+ "findings": [
+  {
+   "revision_key": "64ff1dc48ef228f47508afbbfe863f188d66ac230f4ea1ffa4ed5baf6083c320",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "mechanism",
+   "reason": "公开 Orcs tome-orcs/data/talents/steam/automated-butchery.lua:155–169/176（Tech Overload 系统过载）：候选技能取自冷却中的、非 fixed_cooldown、层级 ≤ getMaxLevel 且 is_steam 的技能，再随机重置至多 getTalentCount 个；info“reset the cooldown of %d of most of your steamtech talents of tier %d or less”中 most 即排除固定冷却技能。现译“重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间”漏“大部分”这一限定。占位符顺序须不变（第一个 %d 为数量、第二个 %d 为层级），应改为“重置你大部分蒸汽科技技能中 %d 个（%d 层级或以下）的冷却时间”，其余句子与 \\n\\t\\t 结构不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  },
+  {
+   "revision_key": "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "reason": "公开 Orcs tome-orcs/data/talents/uber/mag.lua:208（Technomancer 进阶 info 加粗句）：“As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.”是必要条件（需要制作并装入长袍才能获得科技法师的全部能力）；现译“你应该尽快制造一个奥术发电机，装备在长袍中，以使用科技法术的力量”弱化为建议且把“全部能力”缩成“科技法术的力量”。改为“#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#”，其余行与空行结构不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  }
+ ],
+ "recorded_at": "2026-09-27T04:14:47.794051+00:00"
+}

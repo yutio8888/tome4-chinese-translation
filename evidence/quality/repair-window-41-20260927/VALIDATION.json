@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w41-20260927",
+  "role": "executor",
+  "result": "pass",
+  "source_provenance": {
+    "component": "orcs",
+    "repository_commit_pinned": false,
+    "distinct_anchor_files": 18,
+    "anchor_sha256_matches": 18,
+    "anchor_sha256_mismatches": 0
+  },
+  "checks": [
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected source-unpinned warnings for the three public DLC mappings"
+    },
+    {
+      "name": "bounded_luajit_target_diff",
+      "command": "python3 -B -c <bounded LocaleLoader comparison of HEAD:tome-orcs.lua, current tome-orcs.lua, and WORKSET.json>",
+      "exit_code": 0,
+      "result": "pass",
+      "loader": "tools/i18nlib/locale_model.py (LuaJIT)",
+      "base_translation_records": 3904,
+      "current_translation_records": 3904,
+      "changed_targets": 22,
+      "workset_targets": 22,
+      "immutable_record_changes": 0,
+      "invariant_failures": 0,
+      "invariants": [
+        "source",
+        "source_tag",
+        "args_order",
+        "special",
+        "runtime_record_order",
+        "printf_placeholders_for_formatting_tags",
+        "escaped_percent",
+        "markup_token_order_and_line_position",
+        "newline_count",
+        "blank_line_indices",
+        "leading_tab_depth_on_nonblank_lines",
+        "terminal_newline",
+        "no_new_line_end_whitespace"
+      ]
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "pass",
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20260927T040902.089247Z-2508350-lint/lint.json"
+    },
+    {
+      "name": "worktree_whitespace",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "pass"
+    }
+  ],
+  "changed_revision_keys": [
+    "64ff1dc48ef228f47508afbbfe863f188d66ac230f4ea1ffa4ed5baf6083c320",
+    "65f41182e7ced3e8b5424d0b9cd02cb8a8aa2743bb45f7133e7efcdc20167081",
+    "67521c21a4c0868b49cab32c20ae751dc3ec43b98023cf32865327136d6be6e9",
+    "67f8f7d703154f9a58e1bc2a69b85e19a93b2500fc60e2582a5b28f244353fc9",
+    "6970e251f39978bf8bd8255218c1bdfbf5c12b799115f42cfb443b1ba8b0ec8b",
+    "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+    "6cf4f05c091bdd8804c875a7a9df3225015485a72ca73968968bf637ba4ac4e2",
+    "6dd4ec5d148e756129d098d88019769fe79303a9bcd9ffdfcc1ed6629cc42317",
+    "70349db4017ed12dcbf347e73fc8cd2ceee1f97f4329c0c5cee4dd09a7585477",
+    "71325aa1fba94657448b0d8c6d77bd98e3e82ef72c8c44993d110f47833434c1",
+    "72ac5778415f3ce4d1e292671f15ff32ac4d28ead0f504698e993e2d24949b89",
+    "7305b0ef493fc4328629cf8435e3f46a3da9c4c28a21bace8d485f11cdc8cad0",
+    "741a80cfd4c444a96664ee0368f33bb627e9bcbccc0607b115962f5a99cfff09",
+    "7531d7a107f4a7ece8ca236784b6fff128be3cf0b2a3a2d28ef379621786d199",
+    "75736fcf0dcfe5ac148cacdb6570b9b76257c80c2cb0c0bfcaf428326006cb03",
+    "75aa2a58ee28c76f2913344dc6566c6c6fa6484a0073d92b9659370243497426",
+    "778c749fb25e861d5aa7b68cc96460170fe8ac456be3ace5b58ff6244def9e4c",
+    "7a0daea12b445b535d26e457ccfee9431a8faf32008d499a76b67b972f1e09d8",
+    "7aefb42eba5e09980cac06b966697f31685ae18dd1ace53a6d5843d8f76e6cef",
+    "7b2d6ea1732b07224941b9b3ec5f874cb214c26f2a608d1c9871cad7eb9411cc",
+    "7c3140c3eb274c180c011290fab390f28d98a886f38d18156ae50f345d137681",
+    "7cbc8bea317831396872ff8047db2802ae7d5498e2d81b77c4032fda9dc286fd"
+  ]
+}

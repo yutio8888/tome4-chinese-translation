@@ -1,0 +1,18 @@
+{
+  "title": "repair-w41 execute-02",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w41-20260927 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R0.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅修复 ADJUDICATION-R0.json 中 status=confirmed 的 2 条 target（64ff1dc48e 系统过载首句改“你解除全部插件的安全限制，重置你大部分蒸汽科技技能中 %d 个（%d 层级或以下）的冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。”，占位符顺序不变；6ce8f3f6ef 科技法师加粗句改“#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#”），按其 reason 改写对应句子。各条其余文字、markup、LF/TAB 结构与文件的其他记录均不动。运行有界验证（LuaJIT 相对 HEAD 的 tome-orcs.lua 恰22条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w41-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

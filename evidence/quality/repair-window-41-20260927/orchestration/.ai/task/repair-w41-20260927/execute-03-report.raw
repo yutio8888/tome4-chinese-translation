@@ -1,0 +1,14 @@
+已完成有界 FIX。
+
+- 仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3391) 的目标 `7b2d6ea173…`
+- 两处“克鲁克部族”改为“克鲁克部落”
+- “克鲁克领地”、其余文字、5 对 italic markup、LF/TAB 结构均保持不变
+- 范围外仍有 8 处“克鲁克部族”，未改动
+- 未修改 `.ai/task`，未 stage、commit、push，未创建 agent
+
+验证结果：
+
+- LuaJIT 有界验证：`verified=true`，相对 HEAD 恰有 22 条 target 变动，4202 条记录，其他字段及结构不变量通过
+- `python3 -B tools/i18n lint --strict`：30308 条译文，0 errors，0 warnings
+- `git diff --check`：通过，无输出
+- baseline 与 `HEAD:tome-orcs.lua` SHA-256 一致：`a1807c8b35207315b265b02f6468ad649f096dfe6e0dcc48228f6941672ae272`

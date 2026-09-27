@@ -1,0 +1,14 @@
+已完成 `repair-w41-20260927` 本次 FIX。
+
+改动：
+
+- [tome-orcs.lua:4575](/workspace/tome4-chinese-translation/tome-orcs.lua:4575)：补回“你大部分蒸汽科技技能中”限定，占位符顺序不变。
+- [tome-orcs.lua:6051](/workspace/tome4-chinese-translation/tome-orcs.lua:6051)：按裁决重写科技法师加粗句。
+- 其余文字、markup、LF/TAB 结构和记录未改。
+
+验证全部通过：
+
+- LuaJIT 相对 HEAD：3904 → 3904 条记录；恰好 22 条 WORKSET target 变动；非 target 字段变化 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 暂存区为空；`.ai/task` 未修改；未 stage、commit、push，也未创建 agent。

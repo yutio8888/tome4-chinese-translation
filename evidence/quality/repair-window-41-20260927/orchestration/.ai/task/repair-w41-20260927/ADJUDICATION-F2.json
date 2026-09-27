@@ -1,0 +1,19 @@
+{
+ "cycle": 2,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f2a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 21,
+ "raw_issue_count": 1,
+ "decision": "FINAL_REVIEW failed with one confirmed tier-1 fidelity finding: bounded whole-sentence fix (execute-04), then RE_REVIEW(3, attempt 1) and FINAL_REVIEW(3, attempt 2)",
+ "findings": [
+  {
+   "revision_key": "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "reason": "源文 tome-orcs/data/talents/uber/mag.lua:206（orcs DLC，仓库/commit 未固定）“Once put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.” 现译“当你装备长袍的时候，……根据蒸汽等级提升法术强度”有两处失真：(1) 条件是奥术发电机装入长袍之后（tinkers/electricity.lua:102–111 TINKER_ARCANE_DYNAMO on_type=armor/on_subtype=cloth，技能经 object_tinker.wielder.learn_talent 授予），不是任意装备长袍；(2) steam/other.lua:1912–1915 getSpellpower 用 self:getSteam()/100，即当前蒸汽值，而非“蒸汽等级”。整句改为“奥术发电机装入长袍后，每当你消耗法力值时都会产生蒸汽，并根据当前蒸汽值提升法术强度。”；该条其余文字、#{bold}# 句、列表、markup 与 LF/TAB 结构不动。"
+  }
+ ],
+ "recorded_at": "2026-09-27T04:32:21.095201+00:00"
+}
