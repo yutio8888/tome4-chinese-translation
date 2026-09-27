@@ -1,0 +1,96 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 11 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "5d8d908f72ad9fb1c82b961ca452ffbc035ba60176b3bc41549dfe6a3d96e539",
+      "stage": "surface",
+      "observation": "原文“mercifully brief reign”指统治时期幸而短暂，译为“短暂的仁政”误将其说成仁慈的统治；原文“yearly messages dropped on the Palace's front steps”指每年留在宫殿门前的讯息，译为“年度总结信息”增添了“总结”之意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:69/75：(1)“the mercifully brief reign of King Traglamar”＝幸而短暂的统治，现译“短暂的仁政”把 mercifully 误作仁慈，语义相反；建议“特拉格拉玛王那幸好短命的统治”。(2)“After a brief description of the events of the meeting - a strange creature approaching...”主语是正史，破折号后为所述内容；现译“简短地讨论了几件事后，那个奇怪的生物接近了当时的议会”改变事件顺序与主语，建议“正史简述了那次会面的经过——一个奇怪的生物接近了当时的议会……”。(3)“the yearly messages dropped on the Palace's front steps”＝每年被丢在宫殿前门台阶上的讯息（复数），现译“一条……年度总结信息”数量与“总结”均错，建议“每年都有人丢在宫殿前门台阶上的讯息”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e598b48d4cabcc92172cf6e7bdefb743d12af66d78000af7afc69c6baffff19",
+      "stage": "surface",
+      "observation": "译文增加了“半径 3”“尚未感染且与宿主同阵营”“宿主死亡时必然传播”和“每回合有 25% 几率传播”；这些具体条件和数值均不在冻结英文中，需核对依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:154–190：callbackOnDeath 以 radius=3 球形传播、on_timeout 中 rng.percent(25) 传播，目标条件 reactionToward>0 且未带 EFF_PSY_WORM；译文补充的半径 3、同阵营、死亡必传、每回合 25% 均与实现一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5e7cd06b60fb9c413e504e0da4c3e5394d38e2b787bafcd814d0c5cd1c83ede1",
+      "stage": "surface",
+      "observation": "“Awesome Toss”指令人称奇的投掷；“致命翻转”将 Awesome 译成“致命”、Toss 译成“翻转”，含义明显不符。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:596–603：效果名 Awesome Toss（把蒸汽枪抛向空中，“awesome!”），现译“致命翻转”与本库技能名 tome-orcs.lua:4931 t(\"Awesome Toss\",\"致命翻转\",\"talent name\") 一致；字面偏离需全局改技能名，超出授权，登记 pending-user-review。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "601e438b1b8716b0572f60a8a6a6a2afff0481d9b04248bcc0057af48c55aa74",
+      "stage": "surface",
+      "observation": "原文只说隧道已挖到足够接近晨曦之门的位置，译文无依据地加入了“向北”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/ritch-hive.lua:27：任务说明“find a tunnel leading north ... open a path under the Gates of Morning”，“向北”有同任务语境依据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "602a17b1197d026f250d6f32b9a9311903ff92d39f3559aee1be405996f2d728",
+      "stage": "surface",
+      "observation": "原文提醒对方很可能十分危险，译文遗漏了这一信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kaltor-shop.lua:24：“so be prepared as it is likely very dangerous”，现译漏“很可能非常危险”；建议“不过，听说他装备精良，所以请做好准备，这很可能非常危险。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "60f09730dc7df39b416898afda28e828e6eb12fad3721ed4d3e5abb9a8e53565",
+      "stage": "surface",
+      "observation": "原文说众人不肯下湖调查，所以说话者不得不亲自下去；译文改成“自愿承担责任”，改变了动机。原文还说山洞只是力量的一项附带效果，译文将其改成“轻轻证明了一下我的力量”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/krimbul.lua：“so I had to go down instead”译“我自愿承担责任”、“a mere side effect of what happened when some insolent swine dared to question it”译“有个傲慢的蠢货胆敢质疑我，而我只是轻轻证明了一下我的力量”，动机与“附带效果”语气有偏移但大意（轻描淡写的力量展示）保留；contextual 判 OK，按语感类记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "612aaa387f5dcb02ccd7f6ae846e929cab27d600883504862f5b4f8f16188efe",
+      "stage": "surface",
+      "observation": "原文说半岛的主要居民，译文却写成“岛上的主要居民”，将半岛误写为岛。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/birth/worlds.lua:61–63：上文为 Clork Peninsula，“the peninsula itself, the main inhabitants”指半岛；现译“岛上的主要居民”误作岛。改为“半岛上的主要居民”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "613ef03fb6d336e5c08effe555248b9aafdcd58e08e70a0003bb8e4af9530fd6",
+      "stage": "surface",
+      "observation": "原文 reducing defence by %d 指降低防御，译文写成降低闪避值；%d 本身保留。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "本库术语 terminology/combat.tsv:113 Defense＝闪避（战斗属性惯例），“降低闪避值 %d”符合本库口径，%d 保留。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "619199a9eacd4868e1d5ec55c4155924d15a5e970d22a4355b5e9c192e9efc02",
+      "stage": "surface",
+      "observation": "原文头盔重量约为所需重量的两倍，译文“比原本应有的重量重了两倍以上”表示超过三倍。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/internment-camp.lua（internment-camp-3）：(1)“weighing about twice as much as they needed to”＝约为应有重量的两倍，现译“比原本应有的重量重了两倍以上”数量失真并添“以上”，建议“重量约是应有重量的两倍”。(2)contextual 跨条：“Atmos absinthe”现译“阿特莫斯苦艾酒”，术语 terminology/society.tsv:12 Atmos Tribe＝气之部族（preferred），改为“气之部族苦艾酒”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "61d7c6c8d1fa568dcd7d5465b0bf4d11d1b48bb3b30213cd6814e5c5fd952416",
+      "stage": "surface",
+      "observation": "原文“A Helmet. But with steam power!”中的 Helmet 未译出，译文仅有“蒸汽动力！”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:91（Steam Powered Helm desc）：“A Helmet. But with steam power!”现译仅“蒸汽动力！”漏主体与转折；建议“一顶头盔。不过是蒸汽动力的！”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "631bb02d7e65277e5bd8e364cbf5ceb363ead1e99ad221ae55859932f9b01edc",
+      "stage": "surface",
+      "observation": "原文 frost aura 是冰霜光环，译文写成“烈火光环”；+%d%% 占位符保留。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:182–184：该条为 FIERY_SALVE（Fiery Salve）的 long_desc，“frost aura”为上游复制粘贴错误，实现给火焰/光系/闪电亲和；译文“烈火光环”贴合实现。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}

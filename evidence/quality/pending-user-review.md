@@ -259,3 +259,11 @@
    - 现译：“超速子弹”（技能名）与“子弹掌握：超速”（效果名）一致。
    - 争议理由：第 320 批 GPT-6 Sol 表层筛查指出 Supercharge 是增压/超充而非超速，宿主按源码确认效果为穿透；Opus contextual 判 OK。改名须同步技能名与效果名并定新译名，属跨条译名决定，本批记 advisory。
    - 建议选项：保持“超速子弹” / 改“超充子弹”（或“增压子弹”）并同步 4759 与 6320 的“超速”。
+
+## 第 327 批待审阅
+
+35. `5e7cd06b60`（Orcs 效果名 `Awesome Toss`；同名技能名 tome-orcs.lua:4931 talent name、效果名 6442 _t，同族技能 info 4942“致命翻转”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/timed_effects/physical.lua:596–603`（on_gain：“#Target# tosses steamguns in the air, awesome!”）与 `data/talents/steam/elusiveness.lua`：把两把蒸汽枪抛向空中旋转射击，期间视为缴械；与“致命”“翻转”均无关。第 327 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“致命翻转”（技能名、效果名与 info 引用一致）。
+   - 争议理由：第 327 批 GPT-6 Sol 表层筛查指出 Awesome 被译成“致命”、Toss 被译成“翻转”；宿主按源码确认字面与动作均不符，Opus contextual 判 OK。改名须同步技能名、效果名与 info 引用并定新译名，属跨条译名决定，本批记 advisory。
+   - 建议选项：保持“致命翻转” / 改“华丽抛枪”（或“炫技抛枪”）并同步 4931、4942、6442。
