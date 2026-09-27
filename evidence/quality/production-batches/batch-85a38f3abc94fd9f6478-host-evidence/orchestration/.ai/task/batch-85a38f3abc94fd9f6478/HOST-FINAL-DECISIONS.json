@@ -1,0 +1,63 @@
+{
+  "batch_id": "batch-85a38f3abc94fd9f6478",
+  "observations": 4,
+  "observation_dispositions": {
+    "refuted": 2,
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "d01ecec1c2daaf10f370065e1919ec85b1909ab35be4b6e6d64ca7544a8dd9e4"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 79,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "cd6a7602c215e68898fd59b89e1a393d620809d59a02d2ed7136b9c32fed3273",
+      "stage": "surface",
+      "observation": "原文要求“精神伤害护盾生效”或“强化格式塔可用”二者之一；译文改成还必须“格式塔处于激活状态”，并将条件写成“并且”，改变了使用条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/gestalt.lua:87–88（on_pre_use）：条件为 not isTalentActive(T_GESTALT) or (没有 EFF_PSI_DAMAGE_SHIELD 且 T_IMPROVED_GESTALT 在冷却)，即要求格式塔处于激活状态，且有精神护盾或强化格式塔未冷却二者之一。现译完全贴合实现，比英文更准确，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d01ecec1c2daaf10f370065e1919ec85b1909ab35be4b6e6d64ca7544a8dd9e4",
+      "stage": "surface",
+      "observation": "原文“it is possible that lesser uses of arcane magic do not have”仅提出可能性，译文“并不会”将其写成确定结论；原文末尾换行也未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua:76–80（自然守护者谈魔法）：原文 7 个 LF，最后一个是末尾换行；现译只有 6 个，缺末尾 LF，违反换行不变量。另有多处限定词被删或改强：it is possible that lesser uses…（可能；较低阶的用法）被译成确定结论“少量使用……并不会”；Maybe no Sun Paladin … has yet sunk 删了 Maybe/yet，还增译“远远”；some may enrich 被夸大为“许多人都可以”；a lone megalomaniac destroying much of Eyal 丢了“某个狂人”主体，代词也用错；do not condone 是“不赞同”，现译“不能容忍”过重。整句按原文重译。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d17dbd3fed8e91082f9c3d84876eba9f5cb4367ab55ddee6ba97087201312487",
+      "stage": "surface",
+      "observation": "source 的 greater 表示等级或程度，target 的“大型”改成了体型描述。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/annihilator.lua:26：greater-hethugoroth 状态指击杀 greater/ultimate hethugoroth 两种 NPC；本库实体名 greater hethugoroth 作“大型赫斯格鲁斯”、ultimate 作“终极赫斯格鲁斯”，现译与实体名一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d01ecec1c2daaf10f370065e1919ec85b1909ab35be4b6e6d64ca7544a8dd9e4",
+      "stage": "contextual",
+      "observation": "几处删除或改变了限定词，把原文的推测写成了断言（primal-forest.lua 第76、80行）。1) 'it is possible that lesser uses of arcane magic do not have any inherent corrupting or harmful effect'被译成「少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响」：删掉了 it is possible，变成确定结论；lesser uses 指较低阶的用法，不是「少量使用」。2) 'Maybe no Sun Paladin or Anorithil has yet sunk to the depths…'被译成「可以说……远远没有堕落到……程度过」：删掉了 Maybe 和 yet，还加进了原文没有的程度词「远远」。3) 'some may enrich the lives of those around them'被译成「他们中的许多人，都可以……」：some may 被夸大成「许多人都可以」。4) 'There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal'原意是不会出现连锁反应，也不会有某个狂人独自毁掉埃亚尔大部分地区；译文把「一个狂人」丢了，改成这些能力自己「在妄自尊大的狂妄中」毁灭，而且指代能力的代词用了「他们」。另外 'We do not condone their approach'是「不赞同」，译成「不能容忍」语气过重。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua:76–80（自然守护者谈魔法）：原文 7 个 LF，最后一个是末尾换行；现译只有 6 个，缺末尾 LF，违反换行不变量。另有多处限定词被删或改强：it is possible that lesser uses…（可能；较低阶的用法）被译成确定结论“少量使用……并不会”；Maybe no Sun Paladin … has yet sunk 删了 Maybe/yet，还增译“远远”；some may enrich 被夸大为“许多人都可以”；a lone megalomaniac destroying much of Eyal 丢了“某个狂人”主体，代词也用错；do not condone 是“不赞同”，现译“不能容忍”过重。整句按原文重译。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 3 entries)"
+  },
+  "notes": [
+    "All-Orcs batch. Surface ran as four gpt-6-sol lanes of 20; every lane echoed its identities exactly and no lane opened a Paseo terminal or called any write tool.",
+    "The contextual run full-000 (3 entries) read only its envelope, the contract and the cited Orcs source.",
+    "The Gestalt usage condition and the greater hethugoroth wording are refuted.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "1 confirmed repair revisions raise the window 44 backlog from 12 to 13; below the 20 threshold, so no window opens."
+  ]
+}
