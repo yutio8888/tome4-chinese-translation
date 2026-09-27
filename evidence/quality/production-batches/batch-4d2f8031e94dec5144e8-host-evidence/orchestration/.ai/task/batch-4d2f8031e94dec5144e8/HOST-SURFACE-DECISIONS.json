@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "737a92446b75dfa52a199adf0769231723ef0f2b24cfa65e3360ef880463bf13",
+      "stage": "surface",
+      "observation": "原文仅称 the Tribe，译文增添了原文没有的“气之”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/palace.lua:23/34 与 data/zones/palace-fumes/npcs.lua:200/214：the Tribe 即 Atmos Tribe（faction atmos-tribe），本库作“气之部族”，现译补出全名有据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "73e36f6db0008487cfbbd3c4993a4571589287ce4417acae313d79e184c42a30",
+      "stage": "surface",
+      "observation": "“Negative Biofeedback”的 Biofeedback 含“生物反馈”，译文“负反馈”遗漏“生物”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua：效果名“Negative Biofeedback”与同名技能（tome-orcs.lua:4216）一致译“负反馈”；省略“生物”属既定技能名译法，contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "741a80cfd4c444a96664ee0368f33bb627e9bcbccc0607b115962f5a99cfff09",
+      "stage": "surface",
+      "observation": "“Reclaiming Garkul's Heritage”中的 Reclaiming 未译出，译文仅表示“加库尔之遗产”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/story.lua:27–32：成就“Reclaiming Garkul's Heritage”（desc：Freed the remnants of the Prides from the Internment Camp），现译“加库尔之遗产”删了动作 Reclaiming。建议“夺回加库尔的遗产”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "74dea4819d91d52196993e25ce17545613458519d44a5015488ee9aedab09a84",
+      "stage": "surface",
+      "observation": "原文为“接下来的 %d 次射击触发榴弹”，译文改成“接下来使用射击、火焰喷射、暴风打击或毒弹爆射中的任意技能 %d 次”，增添了原文没有的技能列表，并扩大了触发动作范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/demolition.lua:55–79：GRENADE_BARRAGE 仅在 T_SHOOT、T_FLAME_JET、T_STORMSTRIKE、T_FLECHETTE_BURST 使用时消耗层数触发榴弹，现译列出的四项正是实现中的触发技能，贴合实现。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7531d7a107f4a7ece8ca236784b6fff128be3cf0b2a3a2d28ef379621786d199",
+      "stage": "surface",
+      "observation": "原文末尾为连续三个 ASCII 问号 ???，译文为混用半角与全角的 ??？。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/zone.lua:27：区域名“Dominion Port ???”，现译“巨魔帝国港口 ??？”半角、全角问号混排（源为三个 ASCII 问号），建议“巨魔帝国港口 ???”；contextual 另提 Dominion 非巨魔，但 data/quests/kill-dominion.lua:23 明言“trolls from the Kar'Haïb Dominion”，本库 faction name 定译“卡尔·亥巴巨魔帝国”，该点 refuted（同第 328 批 6387136859 裁决）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "75736fcf0dcfe5ac148cacdb6570b9b76257c80c2cb0c0bfcaf428326006cb03",
+      "stage": "surface",
+      "observation": "原文 large, red barrel 中的 large 在译文“红色的枪管”中遗漏。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:340：“An odd, stubby gun with a large, red barrel.”现译“装有红色的枪管”漏 large。建议“一把奇特、粗短的枪，装有粗大的红色枪管。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "75aa2a58ee28c76f2913344dc6566c6c6fa6484a0073d92b9659370243497426",
+      "stage": "surface",
+      "observation": "首段后的空行原文为换行、两个制表符、换行、两个制表符；译文缺少空行中的两个制表符，缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:312–320（Shockstaff）：“Deals %d%% steamgun damage as lightning to enemies in a frontal arc”现译“在前方造成 %d%% 闪电蒸汽枪伤害”漏对象“敌人”与“弧形范围”，致后文“他们”无先行词；“All shockstaff attacks”译“所有电击棒伤害”应为“攻击”；同条 staff 先译“电棍”后译“电击棒”。本库同技能的摘要（tome-orcs.lua:5134）已作“对正面弧形范围内的敌人造成 %d%% 武器伤害的闪电伤害…所有电击棒攻击还会发动一次盾牌攻击”。建议：“你将蒸汽枪换成一根带电的电击棒，进行近身格斗。\\n\\n\\t\\t对正面弧形范围内的敌人造成 %d%% 蒸汽枪伤害的闪电伤害，并使其造成的伤害降低 %d%%，持续 3 回合。此攻击视为近战攻击，但会触发弹药的命中效果。所有电击棒攻击还会发动一次盾牌攻击，造成等量的闪电伤害。\\n\\n\\t\\t你可以从不超过蒸汽枪射程的距离发起冲锋，然后用电击棒攻击。”。surface 所提空行内的 \\t\\t 属行尾空白，按先例只记 advisory（补回会挂门禁 11）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7719155c0d8ad848dfaa7fb8ce8146de757816af6895c48042e0d8b835012d5b",
+      "stage": "surface",
+      "observation": "原文明确指定 Dominion's port tower，译文仅写“塔楼”，遗漏了地点限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kill-dominion.lua:28：“locate the structural weakness in the Dominion's port tower”，现译“塔楼”省略所属，任务上下文即巨魔帝国港口，不致误解；contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7741b91e38375b78157afd3ac757c9d6d9bd0139c2f62538ca969f2a8254d9c2",
+      "stage": "surface",
+      "observation": "原文只说对目标周围半径 1 内造成伤害，译文添加了“敌人”这一对象限制；是否符合实际作用范围需进一步核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:530–536：project 使用 {type=\"ball\", radius=1, friendlyfire=false}，只伤害敌人，现译“对目标周围半径 1 码内的敌人”贴合实现。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "778c749fb25e861d5aa7b68cc96460170fe8ac456be3ace5b58ff6244def9e4c",
+      "stage": "surface",
+      "observation": "原文说另一位买家要求将奴隶带回西部，译文写成“要是你想把他们带回西部”，错置了提出要求的人；原文“barely made a profit”也被译成“差点把老本都给赔光了”，改变了盈亏含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:74–80（slaver's inquiry）：(1)“when I get a customer who wants them taken right back to the West, we have to do the anti-scrying enchantments ourselves”指别的顾客要求把奴隶运回西部时奴隶贩子只能自己施反侦测附魔，现译“要是你想把他们带回西部去的话，我们可得好好做点反侦测的准备”主语错且漏“只能自己来”；(2)“I barely made a profit”＝几乎没赚到钱，现译“差点把老本都给赔光了”夸大为近乎亏本；(3)“现在，我现在有一个想法”重复。建议：(1)“你们不是唯一从我这里买奴隶的人，要是有顾客想把奴隶直接运回西部，我们就得自己施反侦测附魔。”；(2)“上次那么干，我几乎没赚到钱。”；(3)“不过，我有个提议。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "77c3263acda89b05ee31d8f02dab2cc2a9dd915f1069c177397dfa608c038527",
+      "stage": "surface",
+      "observation": "原文是可能使目标感染随机疾病，译文“可能触发随机疾病”遗漏了感染目标的含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua：命中特效“may infect the target with a random disease”，现译“可能触发随机疾病”省略“使目标感染”，在命中特效语境下对象明确；contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "78fad3b403d1ab905b61bb491d68c2b55afa47352224516a43ee295e67cb3421",
+      "stage": "surface",
+      "observation": "专名 Deathstar 的 star 与译文“灵晶”表面含义不符；冻结输入缺少术语正文或语境，无法确认该译法是否有专名依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mechstar.lua：Deathstar 属 mechstar（机械灵晶）技能树，star 取自 mindstar，本库 mindstar＝“灵晶”，“死亡灵晶”保留双关。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
