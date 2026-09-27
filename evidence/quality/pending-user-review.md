@@ -283,3 +283,11 @@
    - 现译：tome-orcs.lua 同时用“太阳堡垒”（约 46 处）与“晨曦之门”（约 17 处，部分为 Sunwall 的译文，如第 31、53、272、276、279 行）；术语库 `sunwall`→“太阳堡垒”仅为 existing（narrative.tsv:28），无 preferred 条目。
    - 争议理由：第 329 批 GPT-6 Sol 表层筛查指出本条“回到远东”漏“夺回”；宿主核对后认为“并将其从……手中夺回”已覆盖 reclaim/free，但 Sunwall 被译成 Gates of Morning 的城名，与本库多数译法冲突。统一需跨条改名并定 preferred，超出批次授权，本批记 advisory。
    - 建议选项：统一为“太阳堡垒”（Gates of Morning 保留“晨曦之门”）并登记 preferred、在下一修复窗口按 revision 批量同步 / 保持现状。
+
+## 第 345 批待审阅
+
+38. Orcs 神器名 `The Lumberator`（`c8a0b6d86f`，tome-orcs.lua:1711 entity name）
+   - 源码：公开 Orcs DLC `tome-orcs/data/general/objects/world-artifacts.lua:1898–1904`（BASE_STEAMSAW，unided_name “vined coated steamsaw”，desc “this seed injecting steamsaw”，击杀时召唤树人）。第 345 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“播种机”，与上游官方 `data/locales/zh_hans.lua:1711` 一致。
+   - 争议理由：第 345 批 GPT-6 Sol 表层筛查与 Opus contextual 均认为 Lumberator（lumber＋-ator）是伐木之义，“播种机”丢掉了字面义；宿主核对后认为现译贴合“注入种子、把敌人变成树”的设定，也沿用了官方译名。改名是专名决定，本批记 advisory。
+   - 建议选项：保持“播种机” / 改为体现伐木与播种双关的译名（如“伐木播种机”或“伐木者”）并同步物品描述引用。

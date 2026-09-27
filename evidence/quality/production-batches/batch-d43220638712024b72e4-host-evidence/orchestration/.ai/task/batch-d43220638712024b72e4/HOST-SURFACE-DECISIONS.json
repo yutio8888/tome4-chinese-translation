@@ -1,0 +1,64 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 7 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "c5ae4cd6edb0b23551a81d333f20abc6e5550d6227adf5ee20d665bdf664d749",
+      "stage": "surface",
+      "observation": "原文明确说碎片仍留在目标体内（“shrapnel still inside”），译文只写“灵晶碎片”，遗漏了这一关系。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mechstar.lua:75–82（Bloodstar info）：原文共 3 个 LF，第二行括注 each additional victim healing is reduced by half 属同一行；现译把它拆成独立的 \\n\\t\\t 行，共 4 个 LF，违反换行不变量。第三个 %d 传入 getTalentRadius(mt)*2，本身已是两倍半径，现译“超过金属灵晶范围（当前 %d）的两倍”会让读者再乘 2。另漏译 shrapnel still inside（仍嵌在目标体内），metalstar 在同条中两处译法不统一。整句按原文行结构重译。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c66ebad344d5f2305c4b5cd571bc5eb6bfd1686ed514b4151413c5057f74b14d",
+      "stage": "surface",
+      "observation": "原文是 fire splash damage；译文遗漏“溅射”，并加入原文未说明的“近战命中持有者”条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:561–576（MOLTEN_IRON_BLOOD）：activate 设置 on_melee_hit {FIRE=eff.dam}，即近战命中持有者的生物受到火焰伤害；现译贴合实现，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c68041575edd103fa0f1d6cc75f49bfc2bdafe073ad84031488814d50558e7fe",
+      "stage": "surface",
+      "observation": "terrene 有土地、岩土之义，译文“寒岩”增加了“寒”义；冻结输入没有该伤害类型的命名依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/damage_types.lua:542 与 data/talents/spells/terrene-technomancy.lua:196/305：terrene 伤害即“physical and cold”，附带冻结；本库伤害类型与技能系全部统一作“寒岩”，现译贴合实现与同族，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c75f3d3e29577bdd7728386236fa6ef19f0af1c8bff0bfa593d4a6db41f27bbc",
+      "stage": "surface",
+      "observation": "原文 mind drones 与蒸汽科技结合，译文“精神雄蜂”将 drone 解释为雄蜂；冻结输入不足以确认这些造物是否具有昆虫设定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/thoughts-of-iron.lua（Mind Drones）：本库技能名 Mind Drones/Mind Drone 与日志均作“精神雄蜂”，本条与同族一致；另有 mind drone→精神无人机 一处，属同族译名分歧，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8a0b6d86f40b8ce7deffabc2dd5f8c8c6699ae531552384c6270505b99eab7a",
+      "stage": "surface",
+      "observation": "“Lumberator”含伐木之意，译为“播种机”明显改变了名称含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1898–1904：BASE_STEAMSAW 神器，desc 为“seed injecting steamsaw”，击杀时召唤树人。现译“播种机”与上游官方 zh_hans locale（data/locales/zh_hans.lua:1711）完全一致，贴合“注入种子”的机制，但丢掉了 lumber（伐木）的字面义。改名属专名决定，已登记 pending-user-review 第 38 项，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8bb77ca52d439517e64a3d962e9c97734f6698a1dd786a4517dfae60ad333b3",
+      "stage": "surface",
+      "observation": "原文的“white hallway”译成“白色大堂”，将走廊误作大厅；“a series of spikes”译成“一块尖刺”，数量也有误。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:29–31：hallway 是走廊，现译“大堂”，后文“被点亮的大堂”同误；a series of spikes 是一排尖刺，现译“一块尖刺”；slightly teal-tinged 被译成整体青绿色；Now that we've established that… 指刚证明了“我们不想伤害你”，现译“我们的关系确立了”属误译；第 29 行主角心想的 isn't terribly reassuring 被第 31 行的声音原话复述，两处应统一为“不怎么让人安心”以保留读心呼应。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c9d0e0bae7a9be4f91c761790095ab405805572f7201e44c5a551a0f17d274f1",
+      "stage": "surface",
+      "observation": "原文说明分解所得的金属块和草药“are used to craft tinkers”，译文遗漏了这一用途。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/aaf.lua:47–49：漏译 which are used to craft tinkers（产物用于制作插件）；You will have to choose … when you destroy items 漏了“摧毁物品时”的触发条件，并把 have to 弱化为“可以”；with no items to destroy 是“没有可摧毁的物品时使用”；lumps of metal 被窄化为“铁块”，herbs 宜作草药（infusion→纹身与本库一致）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}

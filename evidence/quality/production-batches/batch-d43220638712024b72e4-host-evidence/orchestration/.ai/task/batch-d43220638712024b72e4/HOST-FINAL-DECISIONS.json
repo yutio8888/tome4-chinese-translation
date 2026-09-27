@@ -1,0 +1,122 @@
+{
+  "batch_id": "batch-d43220638712024b72e4",
+  "observations": 11,
+  "observation_dispositions": {
+    "confirmed": 6,
+    "refuted": 2,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "c5ae4cd6edb0b23551a81d333f20abc6e5550d6227adf5ee20d665bdf664d749",
+    "c8bb77ca52d439517e64a3d962e9c97734f6698a1dd786a4517dfae60ad333b3",
+    "c9d0e0bae7a9be4f91c761790095ab405805572f7201e44c5a551a0f17d274f1"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "c5ae4cd6edb0b23551a81d333f20abc6e5550d6227adf5ee20d665bdf664d749",
+      "stage": "surface",
+      "observation": "原文明确说碎片仍留在目标体内（“shrapnel still inside”），译文只写“灵晶碎片”，遗漏了这一关系。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mechstar.lua:75–82（Bloodstar info）：原文共 3 个 LF，第二行括注 each additional victim healing is reduced by half 属同一行；现译把它拆成独立的 \\n\\t\\t 行，共 4 个 LF，违反换行不变量。第三个 %d 传入 getTalentRadius(mt)*2，本身已是两倍半径，现译“超过金属灵晶范围（当前 %d）的两倍”会让读者再乘 2。另漏译 shrapnel still inside（仍嵌在目标体内），metalstar 在同条中两处译法不统一。整句按原文行结构重译。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c66ebad344d5f2305c4b5cd571bc5eb6bfd1686ed514b4151413c5057f74b14d",
+      "stage": "surface",
+      "observation": "原文是 fire splash damage；译文遗漏“溅射”，并加入原文未说明的“近战命中持有者”条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:561–576（MOLTEN_IRON_BLOOD）：activate 设置 on_melee_hit {FIRE=eff.dam}，即近战命中持有者的生物受到火焰伤害；现译贴合实现，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c68041575edd103fa0f1d6cc75f49bfc2bdafe073ad84031488814d50558e7fe",
+      "stage": "surface",
+      "observation": "terrene 有土地、岩土之义，译文“寒岩”增加了“寒”义；冻结输入没有该伤害类型的命名依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/damage_types.lua:542 与 data/talents/spells/terrene-technomancy.lua:196/305：terrene 伤害即“physical and cold”，附带冻结；本库伤害类型与技能系全部统一作“寒岩”，现译贴合实现与同族，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c75f3d3e29577bdd7728386236fa6ef19f0af1c8bff0bfa593d4a6db41f27bbc",
+      "stage": "surface",
+      "observation": "原文 mind drones 与蒸汽科技结合，译文“精神雄蜂”将 drone 解释为雄蜂；冻结输入不足以确认这些造物是否具有昆虫设定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/thoughts-of-iron.lua（Mind Drones）：本库技能名 Mind Drones/Mind Drone 与日志均作“精神雄蜂”，本条与同族一致；另有 mind drone→精神无人机 一处，属同族译名分歧，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8a0b6d86f40b8ce7deffabc2dd5f8c8c6699ae531552384c6270505b99eab7a",
+      "stage": "surface",
+      "observation": "“Lumberator”含伐木之意，译为“播种机”明显改变了名称含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1898–1904：BASE_STEAMSAW 神器，desc 为“seed injecting steamsaw”，击杀时召唤树人。现译“播种机”与上游官方 zh_hans locale（data/locales/zh_hans.lua:1711）完全一致，贴合“注入种子”的机制，但丢掉了 lumber（伐木）的字面义。改名属专名决定，已登记 pending-user-review 第 38 项，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8bb77ca52d439517e64a3d962e9c97734f6698a1dd786a4517dfae60ad333b3",
+      "stage": "surface",
+      "observation": "原文的“white hallway”译成“白色大堂”，将走廊误作大厅；“a series of spikes”译成“一块尖刺”，数量也有误。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:29–31：hallway 是走廊，现译“大堂”，后文“被点亮的大堂”同误；a series of spikes 是一排尖刺，现译“一块尖刺”；slightly teal-tinged 被译成整体青绿色；Now that we've established that… 指刚证明了“我们不想伤害你”，现译“我们的关系确立了”属误译；第 29 行主角心想的 isn't terribly reassuring 被第 31 行的声音原话复述，两处应统一为“不怎么让人安心”以保留读心呼应。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c9d0e0bae7a9be4f91c761790095ab405805572f7201e44c5a551a0f17d274f1",
+      "stage": "surface",
+      "observation": "原文说明分解所得的金属块和草药“are used to craft tinkers”，译文遗漏了这一用途。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/aaf.lua:47–49：漏译 which are used to craft tinkers（产物用于制作插件）；You will have to choose … when you destroy items 漏了“摧毁物品时”的触发条件，并把 have to 弱化为“可以”；with no items to destroy 是“没有可摧毁的物品时使用”；lumps of metal 被窄化为“铁块”，herbs 宜作草药（infusion→纹身与本库一致）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c5ae4cd6edb0b23551a81d333f20abc6e5550d6227adf5ee20d665bdf664d749",
+      "stage": "contextual",
+      "observation": "机制：tome-orcs/data/talents/steam/mechstar.lua:81 第三个 %d 传入 self:getTalentRadius(mt) * 2，即显示值本身已是两倍半径的距离阈值；译文「超过金属灵晶范围（当前 %d）的两倍」把 %d 表述为半径，读者会再乘 2，得出 4 倍半径的错误阈值。宜改为「当目标距离超过金属灵晶半径的两倍（当前 %d）时」之类。另：同条内 metalstar 一处译「灵晶射击」、一处译「金属灵晶」，所指相同却不统一；「shrapnel still inside」中「仍嵌在目标体内」的含义也被漏掉。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mechstar.lua:75–82（Bloodstar info）：原文共 3 个 LF，第二行括注 each additional victim healing is reduced by half 属同一行；现译把它拆成独立的 \\n\\t\\t 行，共 4 个 LF，违反换行不变量。第三个 %d 传入 getTalentRadius(mt)*2，本身已是两倍半径，现译“超过金属灵晶范围（当前 %d）的两倍”会让读者再乘 2。另漏译 shrapnel still inside（仍嵌在目标体内），metalstar 在同条中两处译法不统一。整句按原文行结构重译。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8a0b6d86f40b8ce7deffabc2dd5f8c8c6699ae531552384c6270505b99eab7a",
+      "stage": "contextual",
+      "observation": "语义：tome-orcs/data/general/objects/world-artifacts.lua:1898-1901 表明该物品是 BASE_STEAMSAW 神器（unided_name「vined coated steamsaw」）。名称 The Lumberator 由 lumber（伐木）加 -ator 构成，意为伐木机器；「播种机」与 lumber 或锯木毫无关系。冻结输入中没有术语条目或源码依据支持该译名，宜改为体现伐木/锯的译名（如「伐木者」一类），或补充依据说明。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1898–1904：BASE_STEAMSAW 神器，desc 为“seed injecting steamsaw”，击杀时召唤树人。现译“播种机”与上游官方 zh_hans locale（data/locales/zh_hans.lua:1711）完全一致，贴合“注入种子”的机制，但丢掉了 lumber（伐木）的字面义。改名属专名决定，已登记 pending-user-review 第 38 项，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c8bb77ca52d439517e64a3d962e9c97734f6698a1dd786a4517dfae60ad333b3",
+      "stage": "contextual",
+      "observation": "关系/语义（tome-orcs/data/lore/weissi.lua:29,31）：(1)「Now that we've established that...」指刚刚证明了「我们不想伤害你」这件事，译成「现在我们的关系确立了」属于误译。(2) 第 29 行主角心想「that isn't terribly reassuring」，第 31 行声音原话复述「We know that isn't terribly reassuring」，表示它读到了主角的想法；前一处译「并不怎么可靠」、后一处译「不怎么让人安心」，这层呼应就断了，应统一为「不怎么让人安心」。次要：hallway 译成「大堂」（原意是走廊）；「slightly teal-tinged」中的 slightly 被丢掉，变成整体青绿色。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:29–31：hallway 是走廊，现译“大堂”，后文“被点亮的大堂”同误；a series of spikes 是一排尖刺，现译“一块尖刺”；slightly teal-tinged 被译成整体青绿色；Now that we've established that… 指刚证明了“我们不想伤害你”，现译“我们的关系确立了”属误译；第 29 行主角心想的 isn't terribly reassuring 被第 31 行的声音原话复述，两处应统一为“不怎么让人安心”以保留读心呼应。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c9d0e0bae7a9be4f91c761790095ab405805572f7201e44c5a551a0f17d274f1",
+      "stage": "contextual",
+      "observation": "完整性（tome-orcs/data/chats/aaf.lua:47,49）：第 47 行「which are used to craft tinkers」（产物用于制作插件/机械装置）整句漏译，玩家无从得知这台提取仪的用途。第 49 行「You will have to choose to use it or the Transmogrification Chest when you destroy items」漏掉「摧毁物品时」这一触发条件，「have to choose」也被弱化成「可以选择」。「with no items to destroy」指没有可摧毁的物品时使用，译文「在里面没有物品时」表意偏离。另：「lumps of metal」译「铁块」把金属窄化为铁，herbs 宜作草药。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/aaf.lua:47–49：漏译 which are used to craft tinkers（产物用于制作插件）；You will have to choose … when you destroy items 漏了“摧毁物品时”的触发条件，并把 have to 弱化为“可以”；with no items to destroy 是“没有可摧毁的物品时使用”；lumps of metal 被窄化为“铁块”，herbs 宜作草药（infusion→纹身与本库一致）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 7 entries)"
+  },
+  "notes": [
+    "All-Orcs batch. Surface ran as four gpt-6-sol lanes of 20; every lane echoed its identities exactly and no lane opened a Paseo terminal or called any write tool.",
+    "The contextual run full-000 (7 entries) read only its envelope, the contract and the cited Orcs source.",
+    "The Molten Iron Blood splash and the terrene damage name are refuted. The Mind Drones name is advisory. The Lumberator name is advisory and recorded as pending user review item 38.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "3 confirmed repair revisions raise the window 44 backlog from 9 to 12; below the 20 threshold, so no window opens."
+  ]
+}
