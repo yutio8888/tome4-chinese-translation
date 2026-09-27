@@ -1,0 +1,45 @@
+{
+ "workset": "evidence/quality/production-batches/batch-e03c72d3df594510acce-source-workset.json",
+ "decisions": {
+  "c2cde73fab|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:316–331（ALGID_RAGE）：原文 long_desc 只说“有 %d%% 几率把敌人封入冰块”，但实现 callbackOnDealDamage 在你造成伤害（目标未死）时按 eff.power 几率对目标施加 3 回合 EFF_FROZEN，activate 另给 iceblock_pierce 50（你的伤害穿透冰块一半，即冰块吸收的伤害减半）。现译“你造成伤害时……封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低一半”贴合实现，是窗口 44 刚修复（去掉裸 %）的 successor，保留。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "c2cde73fab|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:316–331（ALGID_RAGE）：原文 long_desc 只说“有 %d%% 几率把敌人封入冰块”，但实现 callbackOnDealDamage 在你造成伤害（目标未死）时按 eff.power 几率对目标施加 3 回合 EFF_FROZEN，activate 另给 iceblock_pierce 50（你的伤害穿透冰块一半，即冰块吸收的伤害减半）。现译“你造成伤害时……封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低一半”贴合实现，是窗口 44 刚修复（去掉裸 %）的 successor，保留。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。 Opus 认为冻结片段缺实现证据，宿主已按上述源码核验。"
+  },
+  "dd4dc78df6|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/avoidance.lua（Embedded Restoration Systems）：“回复”在中文里本有“恢复”义，技能名“嵌入式回复系统”不构成错译；但同技能的触发日志作“内置恢复系统”，名称不统一。统一属跨条专名调整，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "dd5fd1b4d5|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/quarry.lua:24–26：末句“I'm bringing in a yeti handler and excavating the whole area.”是请来雪人操纵师、把整片区域挖开；现译“让他们完成开采任务”漏了 the whole area，主语“他们”也指代不清。“雪人操纵师”与同文件后一篇日志（tome-orcs.lua:3203）一致，保留。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "dd5fd1b4d5|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/quarry.lua:24–26：末句漏 excavating the whole area（把整片区域挖开）并误改主语；另“general feelings of fear and unease”是泛泛的恐惧与不安感，现译“各种各样恐惧和不安造成的感觉”误作由恐惧和不安引起的其他感觉，修复时一并改正。“雪人操纵师”与本库同文件用法一致，不改。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "defdcd2c8e|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:436（Fatal Attractor 致命诱饵 info）：原文第二、三行均以“\\n\\t\\t”开头，现译两行都只有“\\n”，少了行首两个制表符，属 TAB 不变量；补回制表符即可，文字不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "e0273d032a|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/objects.lua（控制雪人）：原文“order it to report to Kruk Pride”是命令雪人去克鲁克部落报到；现译“你控制了雪人的思维，将其送往克鲁克部落”结果等价（经精神控制把它派过去），措辞可改为“命令它前往克鲁克部落报到”，不构成机制或含义错误，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "e0e08f37c2|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/magical.lua:384（VAMPIRIC_SURGE on_lose）：dark aura 字面是“黑暗光环”，但本库“黑暗光环”是核心 Gloom 技能系专名（mod-tome.lua:24274），直接套用会混淆；“黑暗领域”偏离字面但不误导机制。是否改为“黑暗气息”一类属措辞选择，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  }
+ }
+}

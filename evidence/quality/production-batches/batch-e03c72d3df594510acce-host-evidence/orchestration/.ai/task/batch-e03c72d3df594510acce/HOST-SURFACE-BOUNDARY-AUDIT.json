@@ -1,0 +1,50 @@
+{
+  "batch_id": "batch-e03c72d3df594510acce",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-27T14:07:52.612438+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "lanes 0, 1 and 3: reads of the own envelope and contract only. lane-000-2 (agent 55cd7df7, session 01a0e32e-abfb-7c30-bd38-e7cf7672f859) created a Paseo terminal \"surface-screen-read\" (e02a02ae-b653-49d3-ade3-1c4d5e988191) via mcp__paseo__create_terminal and sent keys through send_terminal_keys: cat of the surface contract and its own envelope, a sed of contract section 6, and four python3 -c json.load reads of its own envelope (printing counts, identities, source/target excerpts and one paragraph split). Every command was read-only and touched only its authorized files; host reviewed each keys string in the archived native log.",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    "lane-000-2 left terminal e02a02ae-b653-49d3-ade3-1c4d5e988191 open after archive; host captured its tail (only the envelope read output) and killed it; list_terminals all=true is empty afterwards"
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "410e46fd-8853-44e8-8de9-b4a43d3813ef",
+      "native_tools_sha256": "f97bc436bd1bbbbc6c66b06cd5f34a949f29205912047d72732b2cac22792f12",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "b3878b42-b676-48ac-8e74-1a6b700e53d2",
+      "native_tools_sha256": "885cc21a0cfb9f167b1950bcb3caa3c286f1f20745cce71ad9aa1f902ecc19ad",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "55cd7df7-9a4e-42d5-a842-83d33f8d37ae",
+      "native_tools_sha256": "bc5e4cb38612d4f7d479bbbb2a7a3c287e6598b2d4cac83287d49a7e5c8a11e4",
+      "tool_calls": 11,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "08396b34-d597-44f9-a402-8da9dd04bb45",
+      "native_tools_sha256": "11e78f0706646ab9533988c3afc29551b71d3644230edcfccfa787d2b50c702c",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
