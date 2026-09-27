@@ -1,0 +1,60 @@
+{
+ "workset": "evidence/quality/production-batches/batch-6a31f7c0db522a0aebcc-source-workset.json",
+ "decisions": {
+  "51732284a6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:396：game.logSeen(self, \"A %s BURSTS OUT of %s%s!\", larva_name, 宿主名, x and \"\" or _t\" but is crushed\")；第三个 %s 是后缀“，但被粉碎了”（tome-orcs.lua:6390），接在“爆出”之后语序正确，参数顺序未变。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "52663fb95e|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/elusiveness.lua:96–97：“The thrill of the hunt invigorates you”＝狩猎的快感（你是猎手，加成随半径内敌人数 nb_foes*20 增长），现译“被猎杀的危险令你激动不已”主客颠倒；且源文第一句后无换行，现译多出 \\n\\t\\t（LF 2→应为 1）。建议：“狩猎的快感令你精神焕发。半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。\\n\\t\\t当前加成：%d%%。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "52663fb95e|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/elusiveness.lua:96–97：“The thrill of the hunt invigorates you”＝狩猎的快感（你是猎手，加成随半径内敌人数 nb_foes*20 增长），现译“被猎杀的危险令你激动不已”主客颠倒；且源文第一句后无换行，现译多出 \\n\\t\\t（LF 2→应为 1）。建议：“狩猎的快感令你精神焕发。半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。\\n\\t\\t当前加成：%d%%。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "52bc32cb74|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:861 守卫炮台 info：第二段源文 \\n\\t\\t\\t，现译 \\n\\t\\t 少一个行首制表符；“armed with a powerful turret capable of firing piercing bullets”现译“强力的电磁炮”凭空加武器类型。补回 \\t 并改“装备有能发射贯穿子弹的强力炮塔”，其余不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "52bc32cb74|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:861 守卫炮台 info：第二段源文 \\n\\t\\t\\t，现译 \\n\\t\\t 少一个行首制表符；“armed with a powerful turret capable of firing piercing bullets”现译“强力的电磁炮”凭空加武器类型。补回 \\t 并改“装备有能发射贯穿子弹的强力炮塔”，其余不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "52d4aea597|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs physical.lua:149 PAIN_SUPPRESSOR_SALVE long_desc：die_at＝-%d，现译“获得 -%d 生命下限”表达了生命可降至 -%d 才死亡的机制，括注与抗性完整；缺“Fight to the brink of death”修辞，属措辞取舍。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "53412d51d0|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/zones/krimbul/grids.lua:26 AIRSHIP_MAIN（墓落飞艇主体地块）name=\"airship hull\"；现译“飞艇”作地块名可辨识所指，同组入口“通往飞艇内部的缺口”一致，省“船体”属短标签措辞。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "5362d5e743|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:24（gem-1 录音日志）：开头“...thing on? Okay, good.”是在确认录音设备开着，现译“……什么事？”错；“Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos”＝要等他收拾好自己捅的马蜂窝才喝得上茶，现译“还他妈的想喝茶，要不是他刚刚给我们捅了个大马蜂窝”条件关系错乱；另“这篇混乱”应作“这片混乱”。建议：“……这玩意开着吗？好，好的。”“……是啊，坦塔洛斯议员什么时候把他捅的、害我们落到这般境地的马蜂窝收拾好，什么时候就能喝上茶。”长条目修复时全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "5362d5e743|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:24（gem-1 录音日志）：开头“...thing on? Okay, good.”是在确认录音设备开着，现译“……什么事？”错；“Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos”＝要等他收拾好自己捅的马蜂窝才喝得上茶，现译“还他妈的想喝茶，要不是他刚刚给我们捅了个大马蜂窝”条件关系错乱；另“这篇混乱”应作“这片混乱”。建议：“……这玩意开着吗？好，好的。”“……是啊，坦塔洛斯议员什么时候把他捅的、害我们落到这般境地的马蜂窝收拾好，什么时候就能喝上茶。”长条目修复时全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "541acf86dd|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunslinging.lua:105–115 Startling Shot（惊吓射击）：技能本身即故意射偏以惊吓目标，logSeen(\"%s misses %s shot.\", srcname, his_her(self))；现译“%s故意射偏了，%s那一枪没有命中目标”中“故意”符合技能语境，第二个 %s 为他/她，参数顺序不变。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "566d2c1ed7|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "gem 录音日志末句“What have we done...  why didn't I stop it?”为自责的反问，现译以感叹号收尾语气相近，属标点取舍。contextual 判 OK。"
+  }
+ }
+}
