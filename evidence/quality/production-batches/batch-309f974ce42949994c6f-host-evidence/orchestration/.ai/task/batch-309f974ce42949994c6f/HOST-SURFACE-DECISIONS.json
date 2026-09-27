@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "b3f1b4a2e25bc4b8b08669a947d62c897f39ebc99c40af36e87446c3a711cf7e",
+      "stage": "surface",
+      "observation": "“Leather”指皮革，译文“皮甲店”误作商店。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/gates-of-morning/traps.lua:28–32：“Quality Leather”是 LIGHT_ARMOR_STORE（轻甲商店，resolvers.store(\"LIGHT_ARMOR\")）的店名，不是材料名；现译“高级皮甲店”正确表达店铺与所售皮甲，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b3f4d3c83cf6c026817bc32d3fa3d61698d6e7c6e6333f00dc59561ca2384b4f",
+      "stage": "surface",
+      "observation": "原文为新施加的所有状态效果，译文限定为“负面效果”，范围缩小。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:998–1030（HEALING_MIST）：activate 加的是 reduce_detrimental_status_effects_time，核心 Actor.lua:7704 仅对 status==\"detrimental\" 生效。现译“新施加的负面效果持续时间缩短”贴合实现，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b437b99574b4dd3894e7d8c6da1b66057e68e30c469b1908a1d0142e4ab5ba6a",
+      "stage": "surface",
+      "observation": "“self respecting”被译为“自爱”；原文也没有“佩戴”这一具体动作。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua（Brass Goggles，本库“铜制护目镜”）desc：“No self respecting craftsman would be caught without them!”；“自爱”在汉语中含自尊自重义，“佩戴”对护目镜是合理补足，语义未偏离；“会被人发现没有佩戴它”稍显翻译腔，可在修复同物品 af09f513b9 时顺带润色为“有自尊的工匠谁会不戴它！”，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b4679de67acbaa75761a363e8eaa145d6eed1827be25e348aec4d8d4f83a4f50",
+      "stage": "surface",
+      "observation": "“herbs”译为泛称“植物”，丢失草药含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/ingredients.lua：“stack of herbs (viperweed)”属五种草药同族（viperweed/sessali/bilberry/burdock/goldleaf），本库 ingredient name 与 entity name 共 10 条统一作“一束植物（…）”，而拾取日志与描述作“草药”。单改一条会破坏同族一致；“植物”泛化但不误导，记 advisory，全族改“一束草药”需跨条统一决定。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b4989e1df22170f87b14a2fc0500bb37dd109311bdf48ab29a4b97d501047623",
+      "stage": "surface",
+      "observation": "首段原文的换行与制表符序列为“\\n\\t\\t\\n\\t\\t”，译文为“\\n\\n\\t\\t”；译文还新增“强大的蒸汽动力”和“将敌人化为灰烬”，原文没有这些描述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:152–156（Flamethrower，本库“火焰喷射器”）：原文首段为“\\n\\t\\t\\n\\t\\t”，现译“\\n\\n\\t\\t”，属格式不变量；首句增译“强大的蒸汽动力”“化为灰烬”，漏“attack with”“projects streams of liquid flame at your foes”，第二句漏“to enemies”。建议首句“你收起蒸汽枪，改用燃烧装置攻击，向敌人喷射液态火焰。”并整句对照修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b4d7ff1a4001d0be91d23b12e86ebde6437657b8d2197034fcc6b45956772611",
+      "stage": "surface",
+      "observation": "“%d%% increased maximum life”译为“获得 %d%% 最大生命值”，遗漏最大生命值增加之意；“superheated air”译为“灼热蒸汽”，将空气误作蒸汽。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:730–733（Upgrade，本库“炮台升级”）：“%d%% increased maximum life”现译“获得 %d%% 最大生命值”丢“增加”，易误读；“vortex of superheated air”现译“灼热蒸汽的漩涡”把空气改成蒸汽（同文件 TURRET_FLAME_VORTEX:521 亦为 superheated air）。“所有敌人”一点因 Flame Vortex target friendlyfire=false（:500）与实现相符，不改。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b5c9934b1171e91a7919e1e65b3dc09abf3f0de927ce979935f7427ae2024eb1",
+      "stage": "surface",
+      "observation": "原文“secure a way to the mainland”指确保取得通往大陆的途径；译文将其写成寻找一条“安全的路”，把 secure 误作道路安全。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/to-mainland.lua:24–27：“before we free them you must secure a way to the mainland”，执行者是 you（玩家），before 表先后；完成文本“You have destroyed the sunwall outpost, and secured a way to the mainland”表明 secure＝打通/夺取通路。现译“为了解放他们我们必须找到一条到达大陆的安全的路”主语、逻辑与词义皆偏，建议“……在解放他们之前，你必须先打通前往大陆的道路。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b6ae150553ec66f89be082249cb66554630d1562d3e1177a9d91a43b5e30c16d",
+      "stage": "surface",
+      "observation": "原文首句与「Any foes」之间没有换行，译文在对应位置新增了换行和两个制表符，改变了段落格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/psionic-fog.lua:184–185（Psionic Fog，本库“灵能之雾”）：原文只有一处“\\n\\t\\t”（Mindpower 句前），现译在“灵能之雾。”后多加一处，属换行不变量，confirmed；修复只合并为同一行。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b6e17ee9e443227481036ba60e930b8df7598b67835811049e766fb45a9b4f84",
+      "stage": "surface",
+      "observation": "「Templar」含圣殿骑士之意，译文「深红骑士约翰」遗漏了「圣殿」。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/cave-hatred/npcs.lua：“Crimson Templar John”；本库同一人物另有“深红圣武士”（tome-orcs.lua:400 对话）、主游戏职业树“赤红守卫”（mod-tome talent type），现译“深红骑士约翰”在 tome-orcs.lua:6853/6984 两处一致。Templar 译名统一属跨批次专名决定，记 advisory 待统一。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b79ff5b10bff32d2cc8723309112c2095d344a1685a351e757183b79da8cab2b",
+      "stage": "surface",
+      "observation": "译文末尾「日志结束。”」之后多出一个英文双引号。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "该 observation 描述“日志结束。”后多一英文引号”，与本条（“#Target# is crushed by the iron grip.”→“#Target# 被铁腕碾压。”，无引号）不符，系同 lane 前一条 b79c29d9fb（GEM 日志 lore）的滑移。宿主核对 b79c29d9fb 冻结 target：末尾为“日志结束。”，无多余 ASCII 引号（ASCII 引号 0 个，中文引号 6/6 成对），滑移指控亦不成立；本条 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b7d5bb68d3a17c91f0cfcb3e67b552b04034d48686f5708f74e6d2d6739b5ae6",
+      "stage": "surface",
+      "observation": "原文说明灼烧受害者的部分血肉，并通过 gestalt 以灵能吸收火焰产生的蒸汽；译文遗漏了这两处信息。原文 Steampower 也被译成了“蒸汽强度”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mechstar.lua:95–97（Steamstar，本库“蒸汽灵晶”）：现译漏“burns part of your victim's flesh”（灼烧受害者部分血肉）与“which you psionically absorb through gestalt”（你通过完形以灵能吸收）；Steampower→“蒸汽强度”为本库通行译法（tome-orcs.lua 71 处），该点不改。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "b8a51a2baf55814b910447d4809e55131fd85a83562d44f64d5c30ddf447b2ad",
+      "stage": "surface",
+      "observation": "名称 Spiderbot Shield 中的“蜘蛛”信息在“机器人护盾”中缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/spells/terrene-technomancy.lua:312 技能名“Spiderbot Shield”，其效果 data/timed_effects/magical.lua:550 desc“Spiderbots Shield”本库已译“蜘蛛机器人护盾”，同系“Micro Spiderbot”译“迷你蜘蛛机器人”。现技能名“机器人护盾”漏“蜘蛛”且与效果名不一致，批内专名对齐为“蜘蛛机器人护盾”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
