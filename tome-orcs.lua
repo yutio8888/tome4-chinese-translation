@@ -5,7 +5,7 @@ t("No mercy!", "心狠手辣！", "achievement name")
 t("Killed 1000 steam giants civilians.", "杀死 1000 名蒸汽巨人居民。", "_t")
 t("Mercy, mercy!", "慈悲为怀", "achievement name")
 t("Killed Talosis without any civilians deaths.", "杀死泰勒西斯但不杀死其他居民。", "_t")
-t("This will make a big Omelette!", "搞个大家伙！", "achievement name")
+t("This will make a big Omelette!", "这能做个超大煎蛋卷！", "achievement name")
 t("Collected 40 ritch eggs in the Ritch Hive.", "在里奇巢穴中收集 40 枚里奇蛋。", "_t")
 t("An Other Brick in the Wall", "特立独行", "achievement name")
 t("Defeated Aeryn in the Gates of Morning without destroying the Observatory nor using ritches help.", "在晨曦之门打败艾琳，但不摧毁观星台，也不借助里奇的帮助。", "_t")
@@ -401,7 +401,7 @@ t([[#LIGHT_GREEN#*The Crimson Templar looks exhausted, nearly dead. You feel the
 Go on kill me @playername@! My life is destroyed, my friends are dead, my dear Aeryn is dead. All dead by your murderous hands! Finish me, let me have some #{italic}#rest#{normal}#.]], [[#LIGHT_GREEN#*深红圣武士看上去极其疲惫，濒临死亡。你感觉戒指在和他共鸣，突然你意识到你能吸收他的力量来强化戒指。*#WHITE#
 来杀了我吧@playername@! 我的一切都毁了，我的朋友被你们杀了，我的爱人艾琳也死了。都被你无情而残忍的双手杀死了！干掉我吧，让我就这样 #{italic}#安息#{normal}#吧。]], "_t")
 t("#LIGHT_GREEN#[destroy him to power the ring]#WHITE# So be it!", "#LIGHT_GREEN#[杀死他来强化戒指]#WHITE# 如你所愿！", "_t")
-t("#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!", "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，你活着对我更有用！", "_t")
+t("#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!", "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，你活着、一蹶不振，对我更有用！", "_t")
 t([[#LIGHT_GREEN#*The malevolent energies around you condensate into the ring, absorbing the last remains of John.
 The ring is now much more powerful.*#WHITE#
 Aeryn... my love...]], [[#LIGHT_GREEN#*你周围的邪恶能量凝聚到戒指中，吸收了约翰的剩余力量。
@@ -1187,7 +1187,7 @@ section "tome-orcs/data/general/objects/steamgun.lua"
 t("weapon", "武器", "entity type")
 t("steamgun", "蒸汽枪", "entity subtype")
 t("steamgun", "蒸汽枪", "entity combat talented")
-t("Steamguns use bursts of steam directly injected in the barrel to propel metal shots with great force.", "蒸汽枪使用蒸汽能量强力发射金属子弹。", "_t")
+t("Steamguns use bursts of steam directly injected in the barrel to propel metal shots with great force.", "蒸汽枪将一股股蒸汽直接注入枪管，以巨大的力量推射金属弹丸。", "_t")
 t("iron steamgun", "铁质蒸汽枪", "entity name")
 t("iron", "铁", "entity short_name")
 t("steel steamgun", "钢铁蒸汽枪", "entity name")
@@ -1268,7 +1268,7 @@ t("cloak", "斗篷", "entity subtype")
 t("Rogue's Gallery", "盗贼画廊", "entity name")
 t("action packed cloak", "便于行动的斗篷", "_t")
 t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风包含着让你可以应对任何你有可能或不可能遇到的情况的特殊装备！", "_t")
-t("On falling below 20% of your max life, releases a cloud of smoke, confusing nearby enemies and giving you stealth and a chance to avoid incoming damage for 5 turns.", "生命掉落至20%以下时，释放一阵烟雾，混乱周围生物，令你潜行并有一定几率免疫伤害，持续5回合。", "_t")
+t("On falling below 20% of your max life, releases a cloud of smoke, confusing nearby enemies and giving you stealth and a chance to avoid incoming damage for 5 turns.", "生命掉落至20%以下时，释放一阵烟雾，混乱附近的敌人，令你潜行并有一定几率免疫伤害，持续5回合。", "_t")
 t("cause the next damage you deal to inflict crippling poison (does not recharge until used), dealing minor poison damage and causing your target to have a 10% chance to fail all talents", "令你下一次造成的伤害施加致残毒素（触发前不会再次充能）；该毒素造成少量毒素伤害，并使目标使用任何技能时有 10% 的几率失败。", "_t")
 t("BODY", "躯体", "entity on slot")
 t("%s rustproof coating", "%s 防锈涂层", "tformat")
@@ -1331,7 +1331,7 @@ t("well-made", "精致", "_t")
 t("mastercraft", "大师级", "_t")
 t("perfect", "完美", "_t")
 t("%s thunderclap coating", "%s 霹雳涂层", "tformat")
-t("Strikes can trigger a thunderclap that damages and repel foes.", "攻击能触发雷电，伤害并击退敌人。", "_t")
+t("Strikes can trigger a thunderclap that damages and repel foes.", "攻击有几率触发霹雳震爆，伤害并击退敌人。", "_t")
 t("HEAD", "头部", "entity on slot")
 t("%s head lamp", "%s 头灯", "tformat")
 t("BODY", "躯体", "entity on slot")
@@ -1491,7 +1491,7 @@ If you're very careful.]], [[这套鞋子似乎是被一位具有……创造力
 确实有可能。
 只要你非常非常小心。]], "_t")
 t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "火箭靴有%d%%几率失败（随灵巧降低）。", "tformat")
-t("jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)", "跳向半径%d码范围内的地点，轰炸起跳点附近半径2码范围内的所有敌人 (%d 火焰燃烧伤害，击退2格)以及落地点附近半径3码范围的所有敌人 (%d 火焰燃烧伤害，击退3格)（伤害随灵巧值提升）", "tformat")
+t("jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)", "跳向半径%d码范围内的地点，轰炸起跳点附近半径2码范围内的一切目标 (%d 火焰燃烧伤害，击退2格)以及落地点附近半径3码范围内的一切目标 (%d 火焰燃烧伤害，击退3格)（伤害随灵巧值提升）", "tformat")
 t("#LIGHT_RED#You see no place to land near there.", "#LIGHT_RED#附近没有可以着陆的地点。", "logPlayer")
 t("#Source# ignites %s %s, creating a #LIGHT_RED#blast of fire#LAST# that %s!", "#Source#点燃了%s%s，创造出一股#LIGHT_RED#火焰爆炸#LAST#%s！", "logCombat")
 t("engulfs %s spectacularly", "，壮观的火焰吞没了%s", "tformat")
@@ -1530,7 +1530,7 @@ It seems like your mind will operate even faster with this equipped.]], [[这把
 装备着它，你的大脑似乎更加灵敏了。]], "_t")
 t("Dreamweaver", "梦想编织者", "entity name")
 t("shimmering steamgun", "闪光蒸汽枪", "_t")
-t("This isn't so much a gun, as it is the idea of a gun.  You'll be able to remember it pretty easily if you lose it.", "这并不能算是一把枪，因为它只是一把枪的概念。当你丢掉它时你就记住它了。", "_t")
+t("This isn't so much a gun, as it is the idea of a gun.  You'll be able to remember it pretty easily if you lose it.", "与其说这是一把枪，不如说它是‘枪’这个概念。就算弄丢了，你也能轻松地把它想起来。", "_t")
 t("throw the gun and cause it to explode, dealing by %d mind damage (based on Cunning and Willpower) to all targets in an area, attempting to put them to sleep, and disarming yourself for 3 turns", "将枪扔出去引发爆炸，对范围内的所有敌人造成%d精神伤害（基于灵巧和意志），并试图催眠它们。你自己会被缴械3回合", "tformat")
 t("%s tosses %s %s!", "%s投掷了%s%s！", "logSeen")
 t("%s resists the sleep!", "%s抵抗了睡眠！", "logSeen")
@@ -1541,7 +1541,7 @@ t("deal %0.2f mind damage (based on Mindpower) in a radius 1 around the target",
 t("On hitting with a mindstar, deal physical damage equal to your steampower in radius 1 around the target.", "用灵晶命中时，在半径1范围内造成等于蒸汽强度的物理伤害。", "_t")
 t("Spider's Fangs", "蜘蛛毒牙", "entity name")
 t("pouch of envenomed shots", "一袋有毒的弹丸", "_t")
-t("A dedicated technician seems to have built pockets of spider venom into these rounds. It's not clear how happy the spiders were about this.", "一位热心的技师似乎将成吨的蜘蛛毒液注入了这些子弹里。不知道蜘蛛对此有多么高兴。", "_t")
+t("A dedicated technician seems to have built pockets of spider venom into these rounds. It's not clear how happy the spiders were about this.", "一位专注的技师似乎在这些子弹里内置了装有蜘蛛毒液的小囊。不知道蜘蛛们对此有多乐意。", "_t")
 t("(cooling down: %d turns)", "(冷却时间：%d 回合)", "tformat")
 t("Ready to trigger!", "可以触发！", "_t")
 t("bursts into an cloud of spydric poison, pinning those inside (with a 10 turn cooldown)", "爆发一阵具有定身效果的毒云，10回合冷却", "_t")
@@ -1937,34 +1937,29 @@ t([[DISCIPLINARY REPORT:
 -Swabbie Grapeshot, improper use of a mop.  Fifty lashes, demotion.
 ]], [[纪律报告：
 
-“盛气凌人的”黑角，偷窃个人用量的蒸汽牌苦艾酒。二十鞭刑。
-水手哥罗博，偷窃个人用量的永恒精灵葡萄酒。十二鞭刑。
-大副葡萄弹，不当使用加农炮。二十鞭刑以及降职。
-塔洛格格斯，无视客户的意愿，杀害目标补给船上的船员。三鞭鞭刑。
-[i]注：尽管如此仍然收到了付款，所有货物收发无误。[/i]
-阿短，偷窃个人用量的矮人麦酒。十一鞭刑。
-大拳，偷窃商业用量的兽人白兰地。五十鞭刑，减薪。
-召唤师狗门卫，致另一船员毁容。免除惩罚。
-[i]注：绝对是一场意外[/i]
-潮之托尔格，过失令一友方船只沉没，一千鞭刑，五天之内完成。
-[i]注：需要绑在船底拖行，但是我们需要一切能用的上的水术士！[/i]
-上尉葡萄弹，不当使用加农炮。三十鞭刑以及降职。
-拉果女士，贪污战利品销售利润。三十鞭刑，降职做惩罚性杂务。
-鬼祟，不遵守命令。十鞭刑。
-水手掺水酒之息，擦拭不够。免除饮酒福利。
-炮手葡萄弹，不当使用加农炮。三十鞭刑以及降职。
-办事员皮尔果，把葡萄弹重新放在开炮的职位上。三十五鞭刑。
-[i]注：继续笑吧，你这个不遵守命令的小瘪三[/i]
-烟熏，在可燃的船上过量用火。当帽子着火造成伤的时候不准接受治疗。
-水手掺水酒之息，违反免除饮酒。免除惩罚。
-[i]注：他找到的发酸的烈酒已经足够惩罚了[/i]
-棒子，企图叛变。绑在船底拖行。
-蟹皮，支持未遂的叛变。绑在船底拖行。
-佩格拳波加，未报告未遂叛变。绑在船底拖行。
-枪手舱底打嗝，与叛变企图者亲善。绑在船底拖行。
-大副布拉卡，没有拖行够那些叛变企图者。绑在船底拖行。
-船长血色龙骨，过量的船底拖行。绑在船底拖行两次。
-水手葡萄弹，不当使用一个拖把。五十鞭刑以及降职。
+-“盛气凌人的”黑角，偷窃个人用量的气之部族苦艾酒。二十鞭刑。
+-水手哥罗博，偷窃个人用量的永恒精灵葡萄酒。十二鞭刑。
+-大副葡萄弹，不当使用加农炮。二十鞭刑以及降职。
+-塔洛格格斯，无视客户的意愿，杀害目标补给船上的船员。三鞭刑。[i]注：尽管如此仍然收到了付款，所有货物收发无误。[/i]
+-阿短，偷窃个人用量的矮人麦酒。十一鞭刑。
+-大拳，偷窃商业用量的食人魔白兰地。五十鞭刑，减薪。
+-召唤师扔狗者，致另一船员毁容。免除惩罚。[i]注：经认定属意外[/i]
+-潮之托尔格，过失令一友方船只沉没，一千鞭刑，五天之内完成。[i]注：需要绑在船底拖行，但是我们需要一切能用的上的水术士！[/i]
+-上尉葡萄弹，不当使用加农炮。三十鞭刑以及降职。
+-拉果女士，贪污战利品销售利润。三十鞭刑，降职做惩罚性杂务。
+-鬼祟，不遵守命令。十鞭刑。
+-水手掺水酒之息，擦拭不够。取消饮酒特权。
+-炮手葡萄弹，不当使用加农炮。三十鞭刑以及降职。
+-办事员皮尔果，把葡萄弹重新放在开炮的职位上。三十五鞭刑。[i]注：继续笑吧，你这个不遵守命令的小瘪三[/i]
+-烟熏，在可燃的船上过量用火。帽子着火时受的伤不准治疗。
+-水手掺水酒之息，违反禁酒令。免除惩罚。[i]注：他找到的发酸的烈酒已经足够惩罚了[/i]
+-棒子，企图叛变。绑在船底拖行。
+-蟹皮，支持未遂的叛变。绑在船底拖行。
+-佩格拳波加，未报告未遂叛变。绑在船底拖行。
+-枪手舱底打嗝，与叛变企图者亲善。绑在船底拖行。
+-大副布拉卡，没有拖行够那些叛变企图者。绑在船底拖行。
+-船长血色龙骨，过量的船底拖行。绑在船底拖行两次。
+-水手葡萄弹，不当使用一个拖把。五十鞭刑以及降职。
 ]], "_t")
 t("operations performed", "行动记录", "_t")
 t([[OPERATIONS PERFORMED:
@@ -3125,11 +3120,11 @@ ABILITY, RESPONSIBILITY, AND ACCEPTANCE
 The wilds of Eyal are a dangerous place; we do not expect our scholars to go into them defenseless!  For those who are already accustomed to use of the arcane, our partnership with the Living Fossils allows us to identify safe and responsible methods of using magic, and provide them with an introduction to the ways of Nature, and those who are already adept with Nature can always hone their skills with our veteran members.  If you have no ability with either, you're in luck!  We're eager to show you how to accept Nature's favors to defend yourself.  Anyone can learn to summon loyal beasts or channel wyrmic strength if they're willing to try!  These abilities can be used without giving up your attunement to the arcane, but you may find that you don't need your spells anymore, once you've seen how effective Nature's power is.  We will never force you to give up magic, but if you happen to be looking for a greater commitment, speak to your instructor about following the path of the oozemancer.
 ]], [[[b]埃亚尔需要你！[/b]
 
-在马基·埃亚尔的英雄扫清了闪光洞穴、诺尔格斯巢穴、和世界各处数不清的场所，让人们可以在那些安全的地方探索之后，人们终于开始正视魔法大爆炸对那里所造成的伤害。尽管这些地方现在已经变得和平，埃亚尔正在逐渐恢复——但是，由于我们那些使用魔法的东部同胞的到来，以及联合王国越来越接受奥术魔法使用的影响，自然和魔法之间的平衡被渐渐破坏，世界濒临毁灭的边缘——但是，[b]你的[/b]帮助可以让埃亚尔保持健康！请加入修复者，从今天开始，帮助这颗星球吧！
+在马基·埃亚尔的英雄让闪光洞穴、诺尔格斯巢穴以及无数其他地方重新变得安全、可供探索后，那些地方遗留的破坏直到现在才清晰显现。如今和平已经降临这些土地，埃亚尔开始愈合——但是，随着我们那些使用魔法的东部同胞到来，加上联合王国日益接受魔法，平衡可能再次滑向毁灭——不过，[b]你的[/b]帮助能让埃亚尔保持健康！加入修复者，从今天开始帮助这颗星球吧！
 
 [b]学习与观察[/b]
 
-我们的创始人曾是夏特尔的守护者，他们一直深切了解有关维持一个平衡的生态系统的重要性。你喜欢观鸟，探索大自然，欣赏多姿多彩的植物吗？我们可以向你提供一系列有关各种奇珍异兽、以及奇特的植物和真菌的列表。只要你在四处探索，记录下各种观察到的生物的分布和数量。我们那些富有经验的自然学家可以使用这些信息来追踪这些生物迁徙的模式，观察它们的扩散和消亡。这样，如果有一种生物濒临灭绝或受到入侵，我们就可以立即采取行动。现在，我们正在修复那些因为马基·埃亚尔的英雄对自然生物的杀戮，而遭到破坏的各地脆弱的生态平衡。改变是自然重要的组成部分，因此我们的专家只会在生态系统面临毁灭性严重威胁的时候，才会选择介入。大自然能够自己解决它大部分的问题，但有时，我们也需要亲自向大自然伸出援手，例如应对那些因为不恰当的奥术魔法使用造成的变异物种。如果你想要更多了解大自然的秩序和平衡，我们有一个多元化的，知识渊博的自然学家群体。他们十分乐意回答你的各种问题，乃至向你提供深入的教育。
+我们的创始人曾是夏特尔的守护者，他们一直深知维持生态系统平衡的重要性。你喜欢观鸟、探索荒野、欣赏自然植物吗？我们可以为你提供一份值得关注的动物、植物和真菌清单；你只需外出探索，记下探索地点、时间，以及见到这些物种的数量。我们经验丰富的自然学家能利用这些信息追踪迁徙模式，并监测这些物种的扩散或衰退，让我们能在某种生物濒危或成为入侵物种时采取行动；他们已经在努力恢复因马基·埃亚尔的英雄不断猎杀当地野生生物而遭破坏的平衡。变化是自然秩序固有的一部分；我们的专家明白，只有当某种变化会对生态系统造成剧烈且毁灭性的伤害时才应介入。大自然能自行解决大多数问题，但偶尔也需要我们扶它一把（尤其是应对不加节制地滥用奥术魔法所造成的变异）。如果你想进一步了解自然秩序，我们拥有一个多元且知识渊博的自然学家社群，他们乐于回答问题或提供更深入的教导。
 
 [b]修复与治疗[/b]
 
@@ -3137,7 +3132,8 @@ The wilds of Eyal are a dangerous place; we do not expect our scholars to go int
 
 [b]能力、责任与认可[/b]
 
-埃亚尔的野外是一个危险的场所；我们可不希望我们的学者手无寸铁地走进荒野！对于那些已经习惯于使用奥术魔法的人，我们和那些活化石的合作，让我们可以辨别出正确和理性的使用魔法的做法，并向你们展示自然之道的基础。对于那些已经精通自然力量的人，你们可以和我们的老成员之间相互切磋，磨练技巧。如果你两者都不了解的话，那么你就走运了！我们十分乐意向你展示如何使用自然的力量来保护自己。只要你愿意尝试，每个人都有机会掌握召唤忠诚野兽的能力，或是引导巨龙的力量！这些能力在你不放弃奥术魔法的情况下，也可以尽情使用。但是我想，当你见到大自然的力量是多么有效而强大的时候，你就再也不想使用你过去使用的那些魔法了。我们绝不会强迫你放弃魔法，但是，如果你想要追求更多献身于自然事业的话，也可以和我们的导师交谈，我们向你介绍软泥使的力量。]], "_t")
+埃亚尔的野外是一个危险的场所；我们可不希望我们的学者手无寸铁地走进荒野！对于那些已经习惯于使用奥术魔法的人，我们和那些活化石的合作，让我们可以辨别出正确和理性的使用魔法的做法，并向你们展示自然之道的基础。对于那些已经精通自然力量的人，你们可以和我们的老成员之间相互切磋，磨练技巧。如果你两者都不了解的话，那么你就走运了！我们十分乐意向你展示如何使用自然的力量来保护自己。只要你愿意尝试，每个人都有机会掌握召唤忠诚野兽的能力，或是引导巨龙的力量！这些能力在你不放弃奥术魔法的情况下也可以尽情使用；不过一旦见识到自然之力有多么有效，你也许会发现自己再也用不着那些法术了。我们绝不会强迫你放弃魔法，但如果你恰好想要作出更深入的投入，可以找你的导师谈谈，走上软泥使之路。
+]], "_t")
 t("'On Tolerance'", "《有关容忍》", "_t")
 t([[We recognize that times are changing.  Within a year, the Allied Kingdoms have gone from begrudgingly tolerating magic to openly embracing it, due to the influence of our rediscovered allies in the East.  Furthermore, if the reports are to be believed, the ecosystem of Var'Eyal remains healthy and intact, despite millennia of continuous magic-use.  Therefore, our views and approach must change with the times; we are not ignorant to new knowledge.
 
@@ -3836,7 +3832,7 @@ section "tome-orcs/data/quests/sunwall-observatory.lua"
 t("Stargazers", "观星者", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
 t("Our scouts have noticed the Gates of Morning is being reinforced with sun and moon orbs.", "我们的哨兵注意到晨曦之门使用太阳球和月亮球来进行防护。", "_t")
-t("Go to the Sunwall Observatory and destroy everything there to reduce their supplies.", "前往太阳堡垒观星台，摧毁它来中断他们的供应。", "_t")
+t("Go to the Sunwall Observatory and destroy everything there to reduce their supplies.", "前往太阳堡垒观星台，摧毁那里的一切，以削减他们的补给。", "_t")
 t("#LIGHT_GREEN#* You have destroyed the Observatory, the Gates of Morning defenses will be weakened.#WHITE#", "#LIGHT_GREEN#* 你摧毁了观星台，晨曦之门的防御被削弱了。#WHITE#", "_t")
 -- untranslated text
 --[==[
@@ -3973,7 +3969,7 @@ t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damag
 section "tome-orcs/data/talents/celestial/reflection.lua"
 
 t("Diffraction Pulse", "衍射脉冲", "talent name")
-t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标所在地创造一个地块，击退所有的飞行物如果可能的话还会改变他们的方向。", "_t")
+t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标格制造一道扭曲，击退其中所有飞行物，并在可能时令其调转方向、背离而去。", "_t")
 t("Mirror Wall", "反射镜墙", "talent name")
 t("mirror wall", "镜像之墙", "_t")
 t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵墙长 %d 持续 %d 回合，反射所有击中此墙的飞行物并且阻挡视线。", "tformat")
@@ -4703,9 +4699,9 @@ t("Punishment", "惩戒", "talent name")
 t("#CRIMSON#%s unleashes a punishing strike for %d%% bonus damage!", "#CRIMSON#%s释放一次惩罚打击，造成%d%%额外伤害！", "logSeen")
 t([[Slam your saws into your target, dealing 100%% weapon damage + %d%% per physical, magical, or mental effect on them (up to 7 effects).
 			Sustains are not effects.
-		#{italic}#The Metal Punisher!#{normal}#]], [[用链锯猛力拍击目标，造成 100%% + 每个物理、魔法或者精神状态 %d%% 加成的伤害（最多 7 个）。
-		持续技能不视作状态。
-		#{italic}# 钢铁惩戒！！#{normal}#]], "tformat")
+		#{italic}#The Metal Punisher!#{normal}#]], [[用链锯猛力拍击目标，造成 100%% 武器伤害，目标身上每有一个物理、魔法或精神状态，额外增加 %d%% 伤害（最多 7 个）。
+			持续技能不视作状态。
+		#{italic}#钢铁惩戒！#{normal}#]], "tformat")
 t("Battlefield Veteran", "战场老兵", "talent name")
 t([[You have lived through many battles, and your experience makes you a gritty veteran.
 		Saw Wheels end of effect attack increased by %d%%.
@@ -4832,7 +4828,8 @@ t([[Allows you to create therapeutic tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
 		%s]], [[允许你制造 %d 等级的治疗学道具。
-	1 级时必定获得一个配方。之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
+		1 级时必定获得一个配方。
+		之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
 		%s]], "tformat")
 t("Chemistry", "化学", "talent name")
 t([[Allows you to create chemical tinkers of level %d.
@@ -5066,8 +5063,9 @@ t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使�
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t([[In an overpowering display of marksmanship, you fire your steamgun(s) twice in rapid succession.
 Each shot (targeted separately) deals %d%% damage and stuns its target for %d turns.
-		The stun chance increases with your Steampower.]], [[你快速地射击两次，每次射击造成 %d%% 伤害，并震慑目标 %d 回合。
-		震慑成功率受蒸汽强度加成。]], "tformat")
+		The stun chance increases with your Steampower.]], [[你以压倒性的精湛枪法，用蒸汽枪快速连射两次。
+每一发（分别选择目标）造成 %d%% 伤害，并震慑目标 %d 回合。
+		震慑几率随蒸汽强度提升。]], "tformat")
 t("Uncanny Reload", "神秘装填", "talent name")
 t([[You focus on managing your steamgun ammo for %d turns.
 		While the effect lasts your attacks do not consume shots.]], [[你集中精力于蒸汽枪弹药 %d 回合。
@@ -5113,9 +5111,9 @@ t("Trick Shot", "魔术射击", "talent name")
 t([[Your cunning and dexterity allow you to fire incredible trick shots that can hit multiple targets.
 		You precisely aim your trick shot to ricochet amongst foes you can see so that whenever it hits something solid (creature or solid wall), it will bounce towards the next closest foe.
 		It may ricochet up to %d times (or until it misses) within range 5 of your first target and will not target the same foe twice.
-		Your shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]], [[你的灵敏让你能射出同时击中多个敌人的子弹。
-		你精确地瞄准敌人，子弹命中后将弹射至其他目标上。
-		子弹最多弹射 %d 次，只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。
+		Your shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]], [[你的灵巧和敏捷让你能射出可命中多个目标的精妙魔术射击。
+		你精确瞄准，使这发魔术射击在你看得见的敌人之间弹射：每当它命中坚固物体（生物或坚固墙壁），便会弹向下一个最近的敌人。
+		子弹最多弹射 %d 次（或直到未命中），只能在第一个目标周围 5 码范围内弹射，不会命中同一个目标两次。
 		第一次命中将造成 %d%% 武器伤害，之后每次弹射下降 %d%% 伤害和 %d （%d%%）命中。]], "tformat")
 
 ------------------------------------------------
@@ -5201,9 +5199,9 @@ t([[You augment your shield with your heavy weapon technology, causing an effect
 #AQUAMARINE#Boltgun#LAST#: Fire a blast of flechettes from your shield at all enemies in radius 7, dealing %d%% shield damage as acid. %d flechettes remain embedded in each target for 6 turns, and when struck by a melee or ranged attack a flechette will detonate and cause acid damage equal to 50%% of the shield damage dealt.
 These attacks will not trigger Counterstrike.
 The chance to silence will increase with your Steampower.]], [[你使用重装武器技术强化你的盾牌，在你装备重装武器的时候进行格挡，会触发以下的特殊效果。
-#AQUAMARINE#喷火器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。
+#AQUAMARINE#火焰喷射器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。
 #AQUAMARINE#电击棒#LAST#: 将盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。
-#AQUAMARINE#爆矢枪#LAST#: 从盾牌中发射出一团镖弹，攻击 7 码半径范围内的所有敌人，造成 %d%% 酸性盾牌伤害。目标身上会插满 %d 枚毒镖，持续 6 回合。被插毒镖的敌人受到近战或远程攻击的时候，毒镖会爆炸，造成相当于盾牌造成的伤害 50%% 的酸性伤害。
+#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每受到一次近战或远程攻击，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。
 这些攻击不会触发反击效果。
 沉默几率受蒸汽强度加成。]], "tformat")
 t("Safety Override", "武器过载", "talent name")
@@ -5632,12 +5630,12 @@ t([[You fire a special botanical shot with your steamgun(s) at a target for 100%
 		Each turn the moss deals %0.2f nature damage to each foe within its radius.
 		This moss has vampiric properties and heals the user for %d%% of the damage done.
 		This talent does not use ammo as it is the ammo.
-		Moss damage scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 自然武器伤害。
-将释放孢子生长成半径 %d 的苔藓 %d 回合。
-每回合苔藓造成 %0.2f 自然伤害对半径内的每一个敌人。
-这种苔藓有吸血特性，伤害的 %d%% 治愈使用者。
-这个技能不使用弹药
-苔藓伤害受蒸汽强度加成。]], "tformat")
+		Moss damage scales with Steampower.]], [[你用蒸汽枪向目标发射一枚特殊植物弹，造成 100%% 武器伤害（自然属性）。
+		弹丸会释放孢子，在半径 %d 内长出生命苔藓，持续 %d 回合。
+		苔藓每回合对范围内每个敌人造成 %0.2f 自然伤害。
+		这种苔藓具有吸血特性，按所造成伤害的 %d%% 治疗使用者。
+		此技能不消耗弹药，因为它本身就是弹药。
+		苔藓伤害受蒸汽强度加成。]], "tformat")
 t("Corrosive Shell", "腐蚀弹", "talent name")
 t([[You fire a special corrosive shot with your steamgun(s) at a target for %d%% weapon damage as acid.
 		The acid released by the shot will also corrode the target, reducing its accuracy, defense and armour by %d.
@@ -5861,7 +5859,8 @@ t([[Melding psionics with steamtech you create 5 mind drones at your sides that 
 		受影响的生物有 %d%% 几率使用技能失败，同时恐惧和睡眠免疫减少 %d%%。]], "tformat")
 t("Psionic Mirror", "灵能之镜", "talent name")
 t([[You cleanse your mind of %d mental debuffs.
-		Cleansed effects will be randomly sent to closeby foes (range 5, subject to a mental save).]], "你清除自身 %d 项精神负面效果。每项被清除的效果都会随机转移给附近一名敌人（射程 5；目标可用精神豁免抵抗）。", "tformat")
+		Cleansed effects will be randomly sent to closeby foes (range 5, subject to a mental save).]], [[你清除自身 %d 项精神负面效果。
+		每项被清除的效果都会随机转移给附近一名敌人（射程 5；目标可用精神豁免抵抗）。]], "tformat")
 t("Mind Injection", "精神注射", "talent name")
 t("#LIGHT_BLUE#Mind Injection selected to be used first by salves.", "#LIGHT_BLUE#已将精神注射设置为药剂的首选注射器。", "saySimple")
 t("This medical injector will now be used first if available when using medical salves.", "使用医疗药剂时，如果可用，将优先使用此医疗注射器。", "logPlayer")
@@ -6613,7 +6612,7 @@ t("bloodstone", "血滴石", "_t")
 t("Rustproof Coating", "防锈涂层", "_t")
 t("Protects your armour from nasty corrosives like swamp, sea spray, acids, orc sweat, drake saliva...", "保护你的装甲免受各种讨厌的腐蚀物侵袭，包括沼泽、浪花、酸、兽人的汗液、龙涎…", "_t")
 t("Alchemist's Helper", "炼金助手", "_t")
-t("An ingenius collection of tough no-spill pockets allows you to keep all those dangerous reagents close at hand. (increases acid, fire, nature and blight damage.)", "这些坚韧的口袋可以让你随身携带各种危险的试剂。（增加酸性、火焰、自然和枯萎伤害）", "_t")
+t("An ingenius collection of tough no-spill pockets allows you to keep all those dangerous reagents close at hand. (increases acid, fire, nature and blight damage.)", "一套精巧的防洒漏坚韧口袋，让你能把那些危险试剂随时带在手边。（提高酸性、火焰、自然和枯萎伤害）", "_t")
 t("Black Light Emitter", "黑光发射装置", "_t")
 t("Make the invisible visible.", "使隐形之物现身。", "_t")
 
@@ -6741,9 +6740,9 @@ t("quartz", "石英", "_t")
 t("ruby", "红宝石", "_t")
 t("diamond", "钻石", "_t")
 t("Toxic Cannister Launcher", "毒罐发射装置", "_t")
-t("Amaze your friends with this cannister launcher which lets you project deadly poison clouds with but a wave of your hand. #{italic}#Deadly!#{normal}#", "让你的朋友啧啧称奇吧！手轻轻一挥，一只能喷出喷射致死的有毒云雾的毒气罐就会被发射出去！#{italic}#太强大了#{normal}#", "_t")
+t("Amaze your friends with this cannister launcher which lets you project deadly poison clouds with but a wave of your hand. #{italic}#Deadly!#{normal}#", "用这台毒罐发射装置让朋友们啧啧称奇吧，只需挥一挥手，就能释放致命的毒云。#{italic}#致命！#{normal}#", "_t")
 t("Viral Needlegun", "病毒针枪", "_t")
-t("Blight is not dirty to a Tinker, it is useful! By combining blighted materials with a simple mechanical gun, you can fire a low damaging attack that infects foes with terrible diseases.", "对工匠来说，受人厌恶枯萎元素却可能有很大的作用。通过将饱含枯萎能量的材料整合进这把简单的机械枪中，你可以发射出能够使敌人感染上可怕疾病的针击。", "_t")
+t("Blight is not dirty to a Tinker, it is useful! By combining blighted materials with a simple mechanical gun, you can fire a low damaging attack that infects foes with terrible diseases.", "对工匠来说，枯萎并不肮脏，而是大有用处！将枯萎材料与一把简易机械枪结合，你就能发射一记低伤害的攻击，让敌人感染可怕的疾病。", "_t")
 t("Razor Edge", "锐利刀片", "_t")
 t("Properly working and tempering a metal can make it harder than normal, and hold a sharper edge.", "经过精心地回火锻造可以让金属比以前更加坚韧，拥有更加锐利的刀锋。", "_t")
 t("Armour Reinforcement", "装甲加固", "_t")
@@ -7337,7 +7336,7 @@ t("climb back to the ground", "爬回地面", "entity name")
 section "tome-orcs/data/zones/primal-forest/npcs.lua"
 
 t("crystalbark", "晶化树精", "entity name")
-t("A very strong near-sentient tree, which has become infected with crystalline structures.", "一个强大的有智能的树精，现在已经被晶体结构所侵蚀。", "_t")
+t("A very strong near-sentient tree, which has become infected with crystalline structures.", "一棵极为强壮的半智慧树木，已被晶体结构所侵蚀。", "_t")
 t("giant", "巨人", "entity type")
 t("treant", "树人", "entity subtype")
 t("Crystallized Primal Root", "晶化原始之根", "entity name")
