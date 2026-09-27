@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-27（第349批已 finalize，窗口45积压 2 条，继续审核第350批）
+更新时间：2026-09-27（第350批已 finalize，窗口45积压 11 条，继续审核第351批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **349** 批（`batch-e03c72d3df594510acce`）：80 条（全部 Orcs），78 done / 2 repair_required。
-  全 Orcs 批（第 2 次尝试）：surface 4 lane 各 20 条；contextual full-000 一次通过；逐条裁决。窗口45积压 2。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `a7daec307512a16820b45094aacb368dc869912e` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **44**：第 343–348 批共 24 条确认问题已修复（均为 tome-orcs.lua）；译文提交 `16eadd082289e2cf1aef22fb8a9a32d3612175e0`；migration `50e8f36c…` 的 24 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 45 积压 2 条（第349批；另有窗口外宿主补充项，见第五节第 2 项）。
+- 审核已闭合至第 **350** 批（`batch-d4cf75fd2ee85585d522`）：80 条（全部 Orcs），71 done / 9 repair_required。
+  全 Orcs 批：surface 4 lane 各 20 条（lane-000-3 identity 截短一处，以修正 raw 救回）；contextual full-000 一次通过；逐条裁决；freeze MISS 为 DebugMain 孤儿行。窗口45积压 11。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `e89c8b73dca6f9125b2767c4fc709aa5a66c073d` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **44**：第 343–348 批共 24 条确认问题已修复（均为 tome-orcs.lua）；译文提交 `16eadd082289e2cf1aef22fb8a9a32d3612175e0`；migration `50e8f36c…` 的 24 个 successor 须重新审核，不继承旧 revision 的 done 状态。窗口 45 积压 11 条（第349–350批；另有窗口外宿主补充项，见第五节第 2 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -101,6 +101,7 @@
 | 347 | `batch-6ba3aed2c3dec5c72216` | 74 done / 6 repair | 73 OK / 7 ISSUE | 2 OK / 5 ISSUE | 11 confirmed / 1 refuted |
 | 348 | `batch-cb782c29f8583a6e6046` | 75 done / 5 repair | 69 OK / 11 ISSUE | 4 OK / 7 ISSUE | 10 confirmed / 3 refuted / 5 advisory |
 | 349 | `batch-e03c72d3df594510acce` | 78 done / 2 repair | 74 OK / 6 ISSUE | 4 OK / 2 ISSUE | 3 confirmed / 2 refuted / 3 advisory |
+| 350 | `batch-d4cf75fd2ee85585d522` | 71 done / 9 repair | 65 OK / 15 ISSUE | 5 OK / 10 ISSUE | 16 confirmed / 7 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -177,10 +178,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **350** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **351** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开窗口 45（模板 `setup_window44.py`＋`SPEC-TEMPLATE.md`、`.artifacts/i18n/repair-w44-20260927/wd.sh`、`/tmp/w44-*.sh`；setup 后先跑 `check_siblings.py`）。
-2. 窗口 44 已完成（REVIEW、RE_REVIEW×3、FINAL×3；FINAL 两次各报 3、2 条确认问题，RE_REVIEW 又报 2 条 execute-01 引入的主宾错误，四次修复后 cycle 3 FINAL 24/24 OK；门禁 17/17）。窗口 45 积压 **2** 条（第349批，Orcs）：从审核349起累计；第349批 `dd5fd1b4d5`（采石场日志）`defdcd2c8e`（致命诱饵 info TAB）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口 45 预定并入项（用户 2026-09-27 裁决，开窗时宿主手工并入 workset）：灵能蠕虫 Psy Worm long_desc（tome-orcs.lua:6196“否则每回合有 25% 几率传播”，tformat 裸 % 运行时报错）改为 `25%%`，同窗再修 strict lint 漏检非法 %（`tools/i18nlib/lint.py` extract_format_tokens，新增 format-invalid-percent 并补测试；须先修译文后改 lint，否则门禁变红）；Destructicus 对话 beaded panel 两条（destructicus.lua:37“珍珠板”与 :46“珍珠面板”，实为磁力针阵显示屏）一起改。窗口外宿主补充项待下个窗口按 revision 核实后纳入：“stack of herbs”同族四条“一束植物”→“草药”（advisory，跨条）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）；`95496f3e7a` 等：区域名“太阳堡垒观星台”与 lore 分类名“太阳堡垒瞭望台”（术语 existing，tome-orcs.lua:2494）不一，随待审第 37 项 Sunwall 译名一并统一；第337批 advisory `9a75f2d93d`（精神雄蜂 bores into）、`9af7773a4c`（A.P.E. 缩写）；第342批 advisory `b6e17ee9e4`（Crimson Templar John“深红骑士约翰”，本库另有“深红圣武士”“赤红守卫”，Templar 译名待统一）、`b437b99574`（铜制护目镜附言“自爱的工匠”翻译腔）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window44.py`、`.artifacts/i18n/repair-w44-20260927/wd.sh` 与 `/tmp/w44-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w44-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
-   第349批计时（实测，投影缓存 on）：start 1.9 s；adjudication chain（含 17 项门禁）168.5 s；finalize 129.4 s。
+2. 窗口 44 已完成（REVIEW、RE_REVIEW×3、FINAL×3；FINAL 两次各报 3、2 条确认问题，RE_REVIEW 又报 2 条 execute-01 引入的主宾错误，四次修复后 cycle 3 FINAL 24/24 OK；门禁 17/17）。窗口 45 积压 **11** 条（第349–350批，Orcs）：从审核349起累计；第349批 `dd5fd1b4d5`（采石场日志）`defdcd2c8e`（致命诱饵 info TAB）；第350批 `e24072046e`（远航源头）`e26faeb1da`（身如游鱼）`e3c0d71a89`（约翰无所谓）`e44932e209`（扫射）`e486be0999`（致命诱饵）`e49260a92e`（电子 info）`e58732ee43`（电击之触 TAB）`e60e4e9ea3`（爆炸子弹效果）`e726059c20`（火焰喷射器半径）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。窗口 45 预定并入项（用户 2026-09-27 裁决，开窗时宿主手工并入 workset）：灵能蠕虫 Psy Worm long_desc（tome-orcs.lua:6196“否则每回合有 25% 几率传播”，tformat 裸 % 运行时报错）改为 `25%%`，同窗再修 strict lint 漏检非法 %（`tools/i18nlib/lint.py` extract_format_tokens，新增 format-invalid-percent 并补测试；须先修译文后改 lint，否则门禁变红）；Destructicus 对话 beaded panel 两条（destructicus.lua:37“珍珠板”与 :46“珍珠面板”，实为磁力针阵显示屏）一起改。窗口外宿主补充项待下个窗口按 revision 核实后纳入：“stack of herbs”同族四条“一束植物”→“草药”（advisory，跨条）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）；`95496f3e7a` 等：区域名“太阳堡垒观星台”与 lore 分类名“太阳堡垒瞭望台”（术语 existing，tome-orcs.lua:2494）不一，随待审第 37 项 Sunwall 译名一并统一；第337批 advisory `9a75f2d93d`（精神雄蜂 bores into）、`9af7773a4c`（A.P.E. 缩写）；第342批 advisory `b6e17ee9e4`（Crimson Templar John“深红骑士约翰”，本库另有“深红圣武士”“赤红守卫”，Templar 译名待统一）、`b437b99574`（铜制护目镜附言“自爱的工匠”翻译腔）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window44.py`、`.artifacts/i18n/repair-w44-20260927/wd.sh` 与 `/tmp/w44-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w44-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
+   第350批计时（实测，投影缓存 on）：start 1.9 s；adjudication chain（含 17 项门禁）175.1 s；finalize 136.6 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
