@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "79be2a884d835ef6a37afc0e65ec070c286bbe4ab72eb718e813ee219e953f39",
+      "stage": "surface",
+      "observation": "原文是战役中的 Tinkers 建造选项，译文写成“允许工匠系职业”；冻结输入没有职业限制的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/superload/mod/class/Game.lua:26 与 data/birth/classes/tinker.lua:28/66：unlock orcs_tinker_eyal 解锁 Tinker 职业在马基·埃亚尔战役中可选，“马基·埃亚尔战役允许工匠系职业”贴合实现，并与同组 Mages/Rogues/All classes 解锁条目译法一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "79c0b9085ed222591304552a756d80ed1b76d0fb4aec0526b172d59d1a4f1396",
+      "stage": "surface",
+      "observation": "原文要求机械蜘蛛相邻，并要求玩家脱离战斗；译文额外要求机械蜘蛛也处于非战斗状态。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/mecharachnid.lua:650–652：条件为 self.in_combat 或 mecharachnid.in_combat 或距离>1 即拒绝，机械蜘蛛也须非战斗，现译“你和机械蜘蛛都必须处于非战斗状态”贴合实现。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7a0daea12b445b535d26e457ccfee9431a8faf32008d499a76b67b972f1e09d8",
+      "stage": "surface",
+      "observation": "原文只说在 %d 点伤害时达到减速上限，译文加入“单次受到”，将阈值限定为单次伤害；冻结输入不足以支持这一限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/magical.lua:120–180（Twilit Echoes）：doEcho 每次光系伤害 setEffect(EFF_ECHOED_LIGHT,{power=dam*slow_per,max=slow_max})，ECHOED_LIGHT 的 on_merge 以 old_eff.power+new_eff.power 累加并封顶 max，即减速按累计伤害叠加，上限在累计 %d 点伤害时达到；现译“在单次受到 %d 点伤害时达到上限”与实现不符（contextual 判 OK，宿主按源码 confirmed）。建议“减速上限为 %d%%，累计受到 %d 点伤害时达到上限”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7aefb42eba5e09980cac06b966697f31685ae18dd1ace53a6d5843d8f76e6cef",
+      "stage": "surface",
+      "observation": "原文询问在哪里学习 tinkers crafting，译文写成学习“蒸汽技术”，遗漏了制作这一含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:420–426：steamtech 奖励对话选项“[Ask where to learn tinkers crafting]”（tooltip：Reveal the location of a teacher.），问的是去哪里学插件（tinker）制作；现译“[问她哪里可以学到蒸汽技术]”把 tinker 制作换成泛称“蒸汽技术”，且“她”无依据。建议“[询问哪里可以学习插件制作]”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7b2d6ea1732b07224941b9b3ec5f874cb214c26f2a608d1c9871cad7eb9411cc",
+      "stage": "surface",
+      "observation": "原文「可以等一等再通知他们」译成「现在没有时间去通知他们」；「留守并遏制威胁」译成「坐视威胁不断增长」。第三段「#{normal}#」后还多出一个逗号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:93–99（前哨站信件）：(1)“we can wait to inform them”＝可以暂缓通知，现译“现在没有时间去通知他们了”意思相反；(2)“which would require a far more decisive advantage than this outpost has”被改写成“对…防守十分不利”；(3)“Officially, we are to stay right where we are, containing the potential threat of the Kruk Pride”＝留守原地遏制克鲁克部族的潜在威胁，现译“坐视…不断增长的威胁”；(4)“a couple of … supply ships”译“一艘”；(5)“we are not to leave our post under any circumstances, and if a mysterious band of giants descended…it would be against our orders to do anything about it, aside from eliminate any refugees”是假设性安排，现译写成已发生事实并添“自卫”；(6)“would grant them an uncontested claim to Kruk territory”主语是这起事件，现译“我们还帮助他们捍卫了…主权”；(7)“#{italic}#官方地说，#{normal}#，”多一个逗号，且“the Atmos don't exist, and we have no knowledge of them whatsoever”被改成因果句；开头“这么长时间都没人发现”为添加。须按整段逐句重译修正上述各处。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7c3140c3eb274c180c011290fab390f28d98a886f38d18156ae50f345d137681",
+      "stage": "surface",
+      "observation": "原文后三行均以换行加两个制表符开头，译文保留换行但漏掉了全部三个缩进。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1393–1459（Incendiary Shell 燃烧弹）：源文四行，后三行以 \\n\\t\\t 起首，现译只有 \\n，三处行首 \\t\\t 全部缺失（格式不变量，contextual 判 OK，宿主按格式 confirmed）。建议在第 2–4 行行首补回 \\t\\t，文字不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7cbc8bea317831396872ff8047db2802ae7d5498e2d81b77c4032fda9dc286fd",
+      "stage": "surface",
+      "observation": "原文说空间的量子态受到扭曲，译文改成掌握其本质，含义明显不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/psionic-fog.lua:221–223：“the quantum state of space is warped by your powerful tech-augmented psionic powers”＝空间的量子态被扭曲，现译“掌握空间的量子态本质”意思改变；“When you would get hit you instead find yourself in an adjacent location”的 instead 表示以位移代替被命中，现译漏“代替/免于被击中”。建议：“身处灵能之雾中时，空间的量子态会被你那经科技强化的强大灵能扭曲。\\n\\t\\t当你即将被击中时，你会改为出现在相邻位置。\\n\\t\\t这个效果有冷却时间。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7cc8ff03fc9288b86e9e593624f28f70aab89e56819c6b45941895016807b4d6",
+      "stage": "surface",
+      "observation": "原文只有 armor，译文限定为板甲，增加了原文没有的护甲类型。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1006–1008：“heated armor”是神器 Therapeutic Platemail（板甲）的未鉴定名，“加热的板甲”有据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7d1b6e5cefaffe0fdb12505341eb428ad9f14134ff19d3c4bc595516cd8b272e",
+      "stage": "surface",
+      "observation": "原文的 herbs 是草药，译文作植物，丢失了草药含义；sessali 与延龄草的对应关系缺少冻结术语依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/ingredients.lua:75–76：“stack of herbs (sessali)”属同族五条草药材料名（tome-orcs.lua:1830–1834 均作“一束植物（…）”），统一改“草药”已登记为窗口外宿主补充（advisory，跨条）；contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7d80d53e4334ee7b19938777f26f90521e7041f88630a3a360b9cbe35f4ea017",
+      "stage": "surface",
+      "observation": "原文只有 Larvae，译文加入了原文没有的“里奇”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:334–340：效果 RITCH_LARVA_EGGS 的 desc“Larvae Infestation”，long_desc 为“impregnated with %d developing ritch larvae”，“里奇幼虫寄生”补出所指有据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7d91f2057e0e29e42a0f007cd7d741b7b8b7bd278c505c842d4f4ac928af4bbf",
+      "stage": "surface",
+      "observation": "原文说随机榴弹会取代通常的 Grenade Launcher 攻击，译文却说从榴弹发射器中发射，颠倒了替代关系。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/demolition.lua：“fire a random grenade type in place of your usual Grenade Launcher”，现译“从榴弹发射器中发射一枚随机类型的榴弹”弱化了“取代常规榴弹”的关系，但机制（射击时改射随机榴弹、50% 伤害）读者可理解；contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7f29a355abbcb8a41f0242bb66ab41bc9a672511d43cef87cca6eecbcd64b643",
+      "stage": "surface",
+      "observation": "原文描写狂怒使雪人的眼睛显得疯狂；译文改成雪人本身变得疯狂，遗漏了“眼睛”这一描写对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/npcs.lua：“Blind rage maddens its eyes.”现译“极度的狂怒让它变得疯狂”省略“眼睛”这一描写对象，属描写性润色；contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
