@@ -1,0 +1,48 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 5 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "8024e6e582aff39d68ea8c6d535770be0ae21b7783dc8519d126ff1cca3c5072",
+      "stage": "surface",
+      "observation": "译名“死忘链据”中的“死忘”“链据”均为明显错字。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:2163–2170：Dethzaw 是 BASE_STEAMSAW，名字本身是 Deathsaw 的故意拼错，desc 末句“His naming skills have not improved.”点明取名笑话（本库 tome-orcs.lua:1750 已译“他的取名技巧从没有得到提高。”）。现译“死忘链据”以同音错字（忘＝亡、据＝锯）对应“死亡链锯”，是有意保留的谐音梗，不是错字；surface 与 contextual 均报错字，宿主按源码语境 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8040c51934846df62b3d9d62bd535b29ac99021c341fa7fb8d6add332f2c4502",
+      "stage": "surface",
+      "observation": "原文仅为 eggs，译文“虫卵”增添了昆虫种类；冻结输入没有支持这一限定的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/ritch-hive/objects.lua:25–29：该物件 SAND_RITCH_EGGS，type=egg、subtype=ritch，name“pile of ritch eggs”；里奇是虫类，“虫卵”有源码依据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "80daaa5a310ad7f26f801726f3f573aa29a1f6c941b3f0927dbc9f85fd9fc9f8",
+      "stage": "surface",
+      "observation": "原文只说近战和远程攻击会造成额外酸性伤害；译文增加了“每回合第一次”和“带有武器类型”的触发限制，冻结原文没有这些条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1465–1498（MIASMA）：callbackOnHit 仅在 src.turn_procs.weapon_type 存在且本回合 self.turn_procs.miasma 未置位时触发一次酸性伤害；现译“每回合第一次被带有武器类型的近战或远程攻击命中时”贴合实现，英文描述较实现宽泛。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8243267de71dfde8d611b4c9e1d002272d5caf7d6006b4e0c3628e69013eb884",
+      "stage": "surface",
+      "observation": "原文 near-sentient 仅表示接近有智能，译文写成“有智能的树精”，将程度确定化，并把 tree 译为树精。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/primal-forest/npcs.lua:35–37（crystalbark）：desc“A very strong near-sentient tree, which has become infected with crystalline structures.”；现译“一个强大的有智能的树精”删掉 near（近乎有灵智→已有智能）与 very（本库实体名 crystalbark＝“晶化树精”，“树精”一词本身不作缺陷）。同族 tome-orcs.lua:1718／mod-tome.lua:8645“A very strong near-sentient tree, which has become hostile…”译“一棵极为强壮的半智慧树木”。建议“一棵极为强壮的半智慧树木，已被晶体结构所侵蚀。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "82fba4671994ff572edaecc813af473aec3eae42576b520942e7f5df099fbea3",
+      "stage": "surface",
+      "observation": "原文说事情会在对方感到疼痛前结束，译文改成对方死前不会感到痛苦，额外断言死亡。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/krimbul/npcs.lua:64–69：Nektosh 发射 power=500 魔杖光束前的喊话“this will be over before you can feel pain”；现译“这样你在死前就不会感受到任何痛苦”保留“很快结束、感觉不到痛”的语义，“死”是对致命光束语境的显化，不构成错译。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
