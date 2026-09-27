@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "fdf8fb0bf7e0817d4a23d2ad4d660fbd9f67d1d8b4d2e7a2cdc5c081f82f522b",
+      "stage": "surface",
+      "observation": "译文增添了“即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫”，冻结英文原文没有这项描述。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:336–375（RITCH_LARVA_EGGS）：on_lose 在效果提前解除（eff.dur >= 0）时按剩余发育比例计算孵化几率（<100%）与负的 strength（幼虫较弱，名称带 developing），译文增补的“即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫”与实现一致，属准确的机制说明，不删（同第 325 批幼虫条目的处理）。contextual 另指出 developing/feeding on it 未逐字译出、同句“寄主/宿主”混用，属措辞层面，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fe6aea82cf87957b020a937c1c7fd190f41e59cd90bc0471bf857936d5c3c413",
+      "stage": "surface",
+      "observation": "原文的“for now”（暂时）在“将你视为顾客”中遗漏，改变了这项待遇的时限。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/kaltor-entry.lua:22：守卫说 “Kaltor's orders are to consider you a customer for now”，for now 表明顾客待遇是暂时、有条件的，正是下一句威胁的前提；现译删了“暂时”。补回即可。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "feb159a7c4526cac0a361f1329962ee505a37ac0d01bd670212413392deb61ab",
+      "stage": "surface",
+      "observation": "原文“gun”仅指枪，译文“手枪”增加了原文未限定的枪型。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/boss-artifacts.lua:61–66（Talosis' Counterpoint，BASE_STEAMGUN）的 unided_name “ornate gun”：本库同族未鉴定名一律作“…的枪”（大得离谱的枪、笨重的枪、雕花的枪、金色的枪等），现译“华丽的手枪”独自限定枪型，改为“华丽的枪”以与同族一致。contextual 判 OK，宿主按同族一致性确认。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fee2307e3c1871b2d34c3028ca76bb0a30aff8919f8a128dc6ce8a34fb55a5c5",
+      "stage": "surface",
+      "observation": "原文仅为“Signal”，译文增加了“枪”；冻结输入缺少实体语境，无法确认是否指信号枪。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:335–340：神器 Signal 为 BASE_STEAMGUN，unided_name “red barreled steamgun”，desc “An odd, stubby gun with a large, red barrel”，即信号枪造型，“信号枪”准确。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "fef7f1c8a7bd4fa1979842eec96599e04e50daeae6f2f2d43bf0d5a6fd5370eb",
+      "stage": "surface",
+      "observation": "“a reminder”意为提醒，译成“一个公示”改变了文本用途。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:20–27：lore 标题 “a reminder”，正文为 “A Reminder to Our Constituents”（致选民的选举规则告示）；“一个公示”贴合告示性质，可接受，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ff03daa8a279f3d4eb39d7f0a7aaadb0c2817fab4b7cadd63340f2d1e40a39c4",
+      "stage": "surface",
+      "observation": "“you can not allow anything to take it away again”要求听者阻止自由再次被夺走，译文“任何人都无法再次夺走它”却断言此事不可能发生。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/amakthel.lua:25：“you can not allow anything to take it away again!” 是对玩家的要求（绝不能让任何事物再次夺走部落的自由），现译“任何人都无法再次夺走它”变成断言不可能发生，且 anything 收窄为“任何人”。改为“你绝不能让任何东西再次夺走它”一类。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ff110b738aafe8ded4579f8e1237f63009404226bb06811ec011e16e4bec6014",
+      "stage": "surface",
+      "observation": "“increasing stun immunity by 30%”表示震慑免疫提高30%，译文“获得 30% 震慑免疫”改变了数值含义；“免疫 , 10”还混用了半角逗号和多余空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/floor.lua:66–73（月光效果）：实现为 lite/sight −1、resists DARKNESS +30、stun_immune +0.3、stealth +10，现译数值正确（“获得 30% 震慑免疫”即免疫 +30%）；但“免疫 , 10 潜行能力”混入半角逗号与多余空格，且与同族阳光效果（tome-orcs.lua:6091“照明与视野半径增加 2 格，目盲免疫提高 30%……”）行文不一。修复按阳光条目格式改为“照明与视野半径减少 1 格，震慑免疫提高 30%，潜行提高 10 点，暗影抗性提高 30%”。contextual 判 OK，宿主按标点缺陷与同族一致性确认。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ff22e159c34f0ffceda0f3b6a56cdef664d2bea4d7a258b03f9121a0122508c7",
+      "stage": "surface",
+      "observation": "名称中的 Essentials 指必需品或用品，译为“精华”明显改变了含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1156–1163：Qog's Essentials 为 BASE_TOOL_MISC，subtype injector，unided_name “strange injector”，desc 为装满“某种东西”的注射器；Essentials 指随身必需品，现译“精华”（essence）字义不符。该名只出现于 tome-orcs.lua:1616 一处，改为“寇格的必需品”不涉及跨条更名。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
