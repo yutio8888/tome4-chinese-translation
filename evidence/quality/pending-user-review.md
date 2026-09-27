@@ -330,3 +330,11 @@
    - 现状：术语 `terminology/creatures.tsv` multi-hued＝“多彩”（preferred，global，注明与 multihued 实体子类的“多彩”统一）；物品一族作“多彩”（多彩的龙鳞、多彩鳞片斗篷、多彩的鳞片护甲、多彩戒指）；但主游戏生物名作“七彩龙”（multi-hued drake）、“七彩龙幼仔”（hatchling）、“超强的七彩龙精英”（overpowered greater multi-hued wyrm）。
    - 宿主处理：窗口 46 FINAL（Opus 5.5）指出本条“七彩龙”与 preferred 术语不一，按 preferred 改为“多彩巨龙”；生物名一族未改（跨条更名，未授权）。
    - 建议选项：生物名统一为“多彩龙／多彩龙幼仔／多彩龙精英”以对齐术语 / 保留“七彩龙”并把术语改为按语境区分（生物名用七彩、物品与修饰语用多彩），则本条回退为“七彩龙”。
+
+## 第 356 批待审阅
+
+44. 伤害类型 `manaburn` ／ `arcane resource burn` 的译法（本批 `e59c510d73`：Antimagic Shell info “doing %0.2f arcane resource burn damage”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/other.lua`（Antimagic Shell 命中调用 `DamageType.MANABURN`）；主游戏固定 commit 624a6732 `game/modules/tome/data/damage_types.lua:3559`（MANABURN）→ `class/Actor.lua:7130–7140` `burnArcaneResources` 同时燃烧法力、活力、正能量与负能量，伤害取 max(mana, vim×2, pos×4, neg×4)。Orcs 来源仓库与 commit 未固定。
+   - 现状：术语 `terminology/combat.tsv` manaburn arcane＝“法力燃烧”（existing，global）；伤害类型名作“奥术法力燃烧”（mod-tome.lua:7072）、物品版“物品奥术法力燃烧”（6987）；主游戏 tdesc “%d arcane resource burn” 作“法力燃烧”（6988）；本条作“奥术法力燃烧伤害”。
+   - 争议理由：窗口 46 的 r4a1、r5a1 与第 356 批 surface、Opus contextual 共四次指出“法力”把被燃烧的资源窄化为法力；机制确实燃烧四种奥术资源。宿主因全库术语一致性记 advisory；改动属跨批次术语决定。
+   - 建议选项：保持“法力燃烧”系 / 全库改为“奥术资源燃烧”（术语、伤害类型名、物品 tdesc 与本条同步）/ 仅在英文写作 arcane resource burn 的描述句改“奥术资源燃烧”，伤害类型名保留。

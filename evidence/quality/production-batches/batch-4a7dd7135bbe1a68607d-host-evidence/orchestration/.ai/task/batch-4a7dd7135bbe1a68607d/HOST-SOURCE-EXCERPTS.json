@@ -1,0 +1,854 @@
+[
+  {
+    "entry_revision_identity": "09835b396b8a47a45908cf85cc07b6e42d999a0baac66f5f77c19216da6199be",
+    "public_source_path": "tome-orcs/data/chats/kaltor-entry.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 21,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*As you open the door to the shop, you are greeted by a pair of Steam Giant guards, staring at you and holding their steamguns tightly, at the ready but not aimed at you.*#WHITE#"
+      },
+      {
+        "line": 22,
+        "text": "No sudden moves, @playername@. Kaltor's orders are to consider you a customer for now. Try anything foolish, and you'll be a live demonstration for his newest guns instead.  Understand?]],"
+      },
+      {
+        "line": 23,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 24,
+        "text": "\t\t{_t\"I have gold, you have equipment. This doesn't need to be any more complicated than that.\", jump=\"ok\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1115d8233027f05e0587048ed284c89461bdad13b65a83b918d6abe94a6146de",
+    "public_source_path": "tome-orcs/data/quests/amakthel.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"Deep within Eyal you found a huge cavern containing some of the remains of the great dead god Amakthel...\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"Along with what appears to be a living Sher'tul that seems to be trying to resurrect him.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It must be stopped at all cost, the Prides only just got their freedom back, you can not allow anything to take it away again!\""
+      },
+      {
+        "line": 26,
+        "text": "\tif self:isStatus(self.DONE) then"
+      },
+      {
+        "line": 27,
+        "text": "\t\tdesc[#desc+1] = _t\"\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "19a4975af698b3b895ace0787706e776041af0ae82379d680127a8712263239c",
+    "public_source_path": "tome-orcs/data/talents/steam/avoidance.lua",
+    "lines": [
+      {
+        "line": 112,
+        "text": "\tend,"
+      },
+      {
+        "line": 113,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 114,
+        "text": "\t\treturn ([[With a gesture of your cloak, you drop a small incendiary device in front of you, creating a wall of thick steam of %d length that burns creatures passing it for %0.2f fire damage and blocks sight for 5 turns."
+      },
+      {
+        "line": 115,
+        "text": "\t\tAt level 5 the action is so perfect that your foes even lose track of you entirely."
+      },
+      {
+        "line": 116,
+        "text": "\t\tDamage increases with your steampower.]])"
+      },
+      {
+        "line": 117,
+        "text": "\t\t:tformat(t.getLength(self, t), damDesc(self, DamageType.FIRE, t.getDamage(self, t)))"
+      },
+      {
+        "line": 118,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "29819862db1dcea83e591530b6063d8dea46c34b51d182c60bc71e32b2961bd7",
+    "public_source_path": "tome-orcs/data/talents/steam/physics.lua",
+    "lines": [
+      {
+        "line": 30,
+        "text": "\tautolearn_talent = \"T_CREATE_TINKER\","
+      },
+      {
+        "line": 31,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 32,
+        "text": "\t\treturn ([[Allows you to create smithed tinkers of level %d."
+      },
+      {
+        "line": 33,
+        "text": "\t\tYou will learn a new schematic at level 1."
+      },
+      {
+        "line": 34,
+        "text": "\t\tEach other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known)."
+      },
+      {
+        "line": 35,
+        "text": "\t\t%s]])"
+      },
+      {
+        "line": 36,
+        "text": "\t\t:tformat(math.floor(self:getTalentLevel(t)), tinkers_list_for_craft(self, t))"
+      },
+      {
+        "line": 37,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2ef9d64bddef650991b92c565f0040a236ff7a19da8c1b799c511b60271d5b32",
+    "public_source_path": "tome-orcs/data/lore/slumbering-caves.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "\tcategory = \"slumbering caves\","
+      },
+      {
+        "line": 30,
+        "text": "\tname = _t\"a journal (2)\","
+      },
+      {
+        "line": 31,
+        "text": "\tlore = _t[[Great #CRIMSON#AMAKTHEL#LAST#, forgive me, for I could not prevent the actions of my brethren.  I tried.  We tried.  When they spoke of committing the Great Sin, we argued ferociously, until Caldizar and his apostates did it before we could react in time.  We did our best to avenge this foul deed, and used the Magic of Creativity on as many as we could, blessing them with new forms, and blessing ourselves such that we could do battle with their fortresses; alas, it was nonetheless a war we eventually lost, for what chance did we have against weaponry, power, and mercilessness to which even You fell?  Please, Your Brilliance, understand that we did everything we could.  "
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "Our planet lay in ruins, with even the apostates abandoning Eyal for other worlds.  Every one of Your followers fought to our deaths...  except me, coward that I was in those days.  Now, I am all that remains, along with the apostates we blessed with Your magic.  I will not beg for Your forgiveness; as an inventor You are concerned with results over words, and I will prove to You that my moment of weakness will soon have a wondrous result.  With the sinful apostates gone, You will have the time to secure this world for Yourself, purging the creations of the lesser gods...  and preparing to exact justice on the sinners when they return.  "
+      },
+      {
+        "line": 34,
+        "text": "]],"
+      },
+      {
+        "line": 35,
+        "text": "}"
+      },
+      {
+        "line": 36,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "34027edbf945f2c65a097e1ea6243bc0efefabf56cad4ab6b0cf80659c0729de",
+    "public_source_path": "tome-orcs/data/talents/steam/physics.lua",
+    "lines": [
+      {
+        "line": 50,
+        "text": "\tautolearn_talent = \"T_CREATE_TINKER\","
+      },
+      {
+        "line": 51,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 52,
+        "text": "\t\treturn ([[Allows you to create mechanical tinkers of level %d."
+      },
+      {
+        "line": 53,
+        "text": "\t\tYou will learn a new schematic at level 1."
+      },
+      {
+        "line": 54,
+        "text": "\t\tEach other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known)."
+      },
+      {
+        "line": 55,
+        "text": "\t\t%s]])"
+      },
+      {
+        "line": 56,
+        "text": "\t\t:tformat(math.floor(self:getTalentLevel(t)), tinkers_list_for_craft(self, t))"
+      },
+      {
+        "line": 57,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3724ff92841254b92e99da8479c957438e22772a6da0d4042cbc389aeeaab889",
+    "public_source_path": "tome-orcs/data/lore/pocket-time.lua",
+    "lines": [
+      {
+        "line": 45,
+        "text": "\tcategory = \"pocket of distorted time\","
+      },
+      {
+        "line": 46,
+        "text": "\tname = _t\"a telepathic message <Rough Drafts>\","
+      },
+      {
+        "line": 47,
+        "text": "\ttemplate = true, lore = _t[[<? Lore.init_pocket_time_data() ?>Once upon a time, there was a Halfling alchemist by the name of <?=Lore.pocket_time_winner.name?>.  Alongside her trusty golem, she marched into the Trollmire, disposing of all foes in her path; when she encountered Prox, though, and he bent down to roar mere inches from her face, well inside a bomb's blast radius, she panicked and pulled a vial off her belt--"
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "Once upon a time, there was a Dwarven berserker by the name of <?=Lore.pocket_time_winner.name?>.  Fleeing through the halls of Reknor as his friend was cut down by Orcish warriors, he ran face-first into a couple of them and--"
+      },
+      {
+        "line": 50,
+        "text": ""
+      },
+      {
+        "line": 51,
+        "text": "Once upon a time, there was a Cornac rogue by the name of <?=Lore.pocket_time_winner.name?>.  His traps made short work of Prox, but when Bill the Stone Troll tossed him around his lair, he lost his bearings and stepped on--"
+      },
+      {
+        "line": 52,
+        "text": ""
+      },
+      {
+        "line": 53,
+        "text": "Once upon a time--"
+      },
+      {
+        "line": 54,
+        "text": ""
+      },
+      {
+        "line": 55,
+        "text": "Once upon a time, there was a great hero, a Dwarven Stone-Warden by the name of <?=Lore.pocket_time_winner.name?>, who began her adventure swearing incomprehensibly about unfairness before shrugging and continuing onward.  She escaped from Reknor with her closest companion, used her natural powers to purge the Deep Bellow and The Maze of the corrupting forces therein, rescued a strange new creature called a \"yeek\" from the clutches of the murderous Subject Z, and even shrugged off boulders thrown at her by the giants of Daikara as she inexorably pushed forward, slaying so many threats that had harmed so many people before her.  She uncovered the long-lost Conclave Vault and put the last of the original Ogres to rest, rescued a damsel from the clutches of the Sect of Kryl-Feijan, and finally found herself standing at the gates of the tower of Dreadfell, her skills honed by her trials and laden with exotic equipment found in her travels.  Climbing through the waves of shambling undead, she finally faced The Master head-on, when a skeletal warrior struck her from behind.  A stunning blow from its warhammer struck her right where she'd applied a wild infusion, the only one she had.  Dazed and stumbling, trying to invoke its power, she only became lucid when a terrible cold crept up her limbs, encasing her in ice--"
+      },
+      {
+        "line": 56,
+        "text": ""
+      },
+      {
+        "line": 57,
+        "text": "Once upon a time, there was a Thalore summoner by the name of <?=Lore.pocket_time_winner.name?>, who began her adventure right next to a snake that was unnaturally skilled with temporal magic--"
+      },
+      {
+        "line": 58,
+        "text": ""
+      },
+      {
+        "line": 59,
+        "text": "Once upon a time, there was a terrible villain, an Ogre reaver by the name of <?=Lore.pocket_time_winner.name?>, who found himself fascinated by the corrupted crystalline structures of the Spellblaze Caverns.  He first drowned a Last Hope guard in the dead of night to steal her enchanted ring, then began to leave a trail of destruction throughout the land, feeding on the strength of those hewn with his battleaxe or impaled with his longsword, and growing ever more powerful with every death he caused.  He joined the cause of the Grand Corruptor in an assault on Zigur to ensure that nothing could stop his arcane plagues from spreading, then took the Heart of the Sandworm Queen to Spellblaze-tainted lands to pervert its natural blessing into a blighted font of suffering.  He sat and watched as a cult sacrificed a maiden to summon their demonic master just so he could kill it himself, and salivated at the prospect of traveling to the Far East and seeing four armies' worth of Orcs broken and bleeding, tumors and boils spreading across their skin as the life slowly left their eyes.  The finest soldiers of Vor Pride could do nothing to prevent him from raiding their armory, but one crippled and diseased Orc pulled himself up against its sealed doors and begged him not to open them; he simply laughed before crushing his skull under his boot as he walked toward it, then kicked the door down, only to feel his bone armor disintegrate under a storm of breath attacks from an army of unspeakably powerful multi-hued wyrms.  Even <?=Lore.pocket_time_winner.name?> knew when he had to flee from a fight, and clenched his fist as he charged his Phase Door rune; when the blinding flash of light cleared, he found himself mere inches from--"
+      },
+      {
+        "line": 60,
+        "text": ""
+      },
+      {
+        "line": 61,
+        "text": "Once upon a time, there was a Doomelf by the name of <?=Lore.pocket_time_winner.name?>, freed from demonic mind-control by a lucky meteor strike, who set out to use her new-found powers to escape the orbital hell on which she was trapped.  Investigators and mutilators, designed for torturing captives but far too frail for direct combat, fell under her infernal blade nearly as easily as the unaltered Children of Ruby who had few skills outside clerical work, and soon she began to feel that the demonic magic she had been imbued with may have made her nearly unstoppable.  When a demonic statue called out to her, she thought nothing of trying to absorb more of its power, barely even noticing when the statue called forth a Champion of Urh'Rok--"
+      },
+      {
+        "line": 62,
+        "text": ""
+      },
+      {
+        "line": 63,
+        "text": "Once upon a time, there was a Shalore Adventurer by the name of <?=Lore.pocket_time_winner.name?>, who was quite certain of what he was doing.  He'd learned an extremely uncommon set of abilities - great talent with unarmed martial arts, some psychic potential to swing a staff in the air while leaving his hands free, stone magic that used his punches as a focus to blast foes with a hailstorm of earthen missiles - and once he had enough practice to master a few of these, he started effortlessly destroying any foe he faced... until he encountered the Weirdling Beast.  The battle was intense, and soon, both were on the verge of death, on opposite sides of the fortress's foyer; the Adventurer knew he couldn't afford to rush in close to finish the beast off, so he launched a pair of earthen missiles at it instead.  However, the moment they left his hands, he felt the grip of hard bone around his waist, legs, and back, pulling him at an incomprehensible speed into the Weirdling Beast's grasp.  Perhaps <?=Lore.pocket_time_winner.name?> could have survived an ensuing fistfight, but he had been pulled faster than his own missiles could fly, and now he found himself between the stony projectiles and their original target--"
+      },
+      {
+        "line": 64,
+        "text": ""
+      },
+      {
+        "line": 65,
+        "text": "Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]],"
+      },
+      {
+        "line": 66,
+        "text": "}"
+      },
+      {
+        "line": 67,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "423594b53bd8cfa561b069843b1abbc20cb5eed593aee02fd959e676b66671d3",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 44,
+        "text": "\tname = _t\"dropped demonic orders\","
+      },
+      {
+        "line": 45,
+        "text": "\tlore = _t[[I'm not going to lie to you: things aren't going great.  Between the Doomelf escape incidents, the deaths of Khulmanar and a great deal of our more expensive combatants at the hands of the Anomaly, and the disappearance of the First Duathedlen, we've been set back pretty far this year.  As such, your orders are simple: lay low.  Stay out of sight, and conduct passive observation until we can get a foothold and a new plan."
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "And regarding the First Duathedlen - quit your murmuring right now.  I've seen his track record, and I know most of you know it too, which is why we can safely say that despite his... nature, his loyalty is [b]not[/b] in question - we can assume his abrupt cessation of communication is a necessary part of his investigations, and not him going rogue.  If you see him, tell us of his whereabouts, but do not interfere."
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]],"
+      },
+      {
+        "line": 50,
+        "text": "}"
+      },
+      {
+        "line": 51,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "619e8d0273d853aeb55d0ebbaadca1c993172269fa44b77ad1c7c2a8efb95714",
+    "public_source_path": "tome-orcs/data/talents/steam/chemistry.lua",
+    "lines": [
+      {
+        "line": 30,
+        "text": "\tautolearn_talent = \"T_CREATE_TINKER\","
+      },
+      {
+        "line": 31,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 32,
+        "text": "\t\treturn ([[Allows you to create therapeutic tinkers of level %d."
+      },
+      {
+        "line": 33,
+        "text": "\t\tYou will learn a new schematic at level 1."
+      },
+      {
+        "line": 34,
+        "text": "\t\tEach other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known)."
+      },
+      {
+        "line": 35,
+        "text": "\t\t%s]])"
+      },
+      {
+        "line": 36,
+        "text": "\t\t:tformat(math.floor(self:getTalentLevel(t)), tinkers_list_for_craft(self, t))"
+      },
+      {
+        "line": 37,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "651e3442016991ea9ab81c58a6f220343058d819b88acb053a9c5d0ac43eec25",
+    "public_source_path": "tome-orcs/data/general/objects/boss-artifacts.lua",
+    "lines": [
+      {
+        "line": 62,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 63,
+        "text": "\tname = \"Talosis' Counterpoint\", image = \"object/artifact/gun_ancient_talosis_counterpoint.png\","
+      },
+      {
+        "line": 64,
+        "text": "\tunided_name = _t\"ornate gun\", unique = true,"
+      },
+      {
+        "line": 65,
+        "text": "\tlevel_range = {5, 15},"
+      },
+      {
+        "line": 66,
+        "text": "\tdesc = _t[[It's said that Talosis never lost an argument. Now you know why.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bf8ff13449f593a38a32228390503cadb3eac5b61e8eb4ee2ff250b39df521c",
+    "public_source_path": "tome-orcs/data/talents/celestial/energies.lua",
+    "lines": [
+      {
+        "line": 122,
+        "text": "\t\tlocal positive_rest = (self:attr(\"positive_at_rest\") or 0)/100*self:getMaxPositive()"
+      },
+      {
+        "line": 123,
+        "text": "\t\tlocal negative_rest = (self:attr(\"negative_at_rest\") or 0)/100*self:getMaxNegative()"
+      },
+      {
+        "line": 124,
+        "text": "\t\treturn ([[Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.]]):"
+      },
+      {
+        "line": 125,
+        "text": "\t\ttformat(positive_rest, negative_rest, regeneration)"
+      },
+      {
+        "line": 126,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6f686686f568b70ecde5da9ec17393a734362d79b5c4b4b983fd9bc5d2a3ad23",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1157,
+        "text": "\tpower_source = {steam=true, arcane=true, nature=true, technique=true, psionic=true, unknown=true},"
+      },
+      {
+        "line": 1158,
+        "text": "\tunique=true, rarity=370,"
+      },
+      {
+        "line": 1159,
+        "text": "\tname = \"Qog's Essentials\", image = \"object/artifact/qogs_essentials.png\","
+      },
+      {
+        "line": 1160,
+        "text": "\tunided_name = _t\"strange injector\", subtype = \"injector\","
+      },
+      {
+        "line": 1161,
+        "text": "\tcolor = colors.GOLD,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "75121b0e127af8c66851ad0be32b62bc77b03ba228ce52b3752ed8dc7bf739c6",
+    "public_source_path": "tome-orcs/data/timed_effects/floor.lua",
+    "lines": [
+      {
+        "line": 64,
+        "text": "floorEffect{"
+      },
+      {
+        "line": 65,
+        "text": "\tdesc = _t\"Moon Radiance\", name = \"MOONWELL\", image = \"effects/zone_aura_out_of_time.png\","
+      },
+      {
+        "line": 66,
+        "text": "\tlong_desc = _t\"The target is under the effect of the moons. Decreasing lite and sight radius by 1, increasing stun immunity by 30%, granting 10 stealth and darkness resistance by 30%.\","
+      },
+      {
+        "line": 67,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 68,
+        "text": "\t\tself:effectTemporaryValue(eff, \"lite\", -1)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "800ffd431b630654bdf6b19a8dbaf6aa46e305ac1b52a637abc6e094e433334e",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1302,
+        "text": "\tend,"
+      },
+      {
+        "line": 1303,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1304,
+        "text": "\t\treturn ([[Place an electrically charged sentry device at a location."
+      },
+      {
+        "line": 1305,
+        "text": "\t\tEvery turn it will fire a bolt of electricity at a nearby enemy."
+      },
+      {
+        "line": 1306,
+        "text": "\t\tThe bolts do %0.2f lightning damage."
+      },
+      {
+        "line": 1307,
+        "text": "\t\tThe sentry has %d life and lasts 10 turns."
+      },
+      {
+        "line": 1308,
+        "text": "\t\tDamage, life, resists, and armor scale with your Steampower."
+      },
+      {
+        "line": 1309,
+        "text": "\t\tDamage and penetration are inherited from the creator.]]):"
+      },
+      {
+        "line": 1310,
+        "text": "\t\ttformat(damDesc(self, DamageType.LIGHTNING, t.getDam(self, t)), t.getHP(self, t))"
+      },
+      {
+        "line": 1311,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8eb8968e3ce055bdbf75df571691d22d7a46cdb16705537fcadddc20500824a0",
+    "public_source_path": "tome-orcs/data/lore/internment-camp.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"internment camp correspondence (1)\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 29,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "It's good to see that you and your followers have arrived safely! Hopefully you're settling in all right; thank you for coming, and pass my thanks on to the Elvala diplomats for getting you here on such short notice. I hope this is the first step in your kind - you Ogres, of course, but also the Shaloren who sent you here - joining forces with the Allied Kingdoms."
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "There are no Ziguranth here in the Far East, and the orcs in this camp have been compliant so far, on account of Mindwall's elaborate illusions. It's the most humane way to deal with them that we've found so far - we hope that his influence will have a permanent calming effect on them over time, but until then, they're happy and docile in their little dream-world. All you have to do is protect against any stragglers outside the walls looking to break their kin out of here, and patrol the halls to make sure any orcs who've managed to shake off the illusions are swiftly apprehended and dealt with. This should be a pretty easy job - if you need any particular help or provisions, though, let me know and I'll do what I can!"
+      },
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 35,
+        "text": "Sincerely,"
+      },
+      {
+        "line": 36,
+        "text": "Administrator Quellop"
+      },
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 39,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "#{italic}#To: Administrator Quellop"
+      },
+      {
+        "line": 41,
+        "text": "From: Guard Captain Galsamae#{normal}#"
+      },
+      {
+        "line": 42,
+        "text": ""
+      },
+      {
+        "line": 43,
+        "text": "We need four more chairs in the break room."
+      },
+      {
+        "line": 44,
+        "text": ""
+      },
+      {
+        "line": 45,
+        "text": "-Galsamae"
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 50,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 51,
+        "text": ""
+      },
+      {
+        "line": 52,
+        "text": "I'm sorry, but we can't really afford that, as the budget for amenities and luxuries is stretched pretty thin here as-is. Please try to keep your requests limited to necessities - even with Last Hope's merchants competing on price, the security over by the farportal means it's still not cheap to get things here."
+      },
+      {
+        "line": 53,
+        "text": ""
+      },
+      {
+        "line": 54,
+        "text": "Regretfully,"
+      },
+      {
+        "line": 55,
+        "text": "Administrator Quellop]],"
+      },
+      {
+        "line": 56,
+        "text": "}"
+      },
+      {
+        "line": 57,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "936602918429c4834692bbfa14f9757e81ea2898effea165bc6a9633ba96adb7",
+    "public_source_path": "tome-orcs/data/talents/steam/chemistry.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "\tautolearn_talent = \"T_CREATE_TINKER\","
+      },
+      {
+        "line": 71,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 72,
+        "text": "\t\treturn ([[Allows you to create explosive tinkers of level %d."
+      },
+      {
+        "line": 73,
+        "text": "\t\tYou will learn a new schematic at level 1."
+      },
+      {
+        "line": 74,
+        "text": "\t\tEach other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known)."
+      },
+      {
+        "line": 75,
+        "text": "\t\t%s]])"
+      },
+      {
+        "line": 76,
+        "text": "\t\t:tformat(math.floor(self:getTalentLevel(t)), tinkers_list_for_craft(self, t))"
+      },
+      {
+        "line": 77,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b130014491217df1df0b84505d39fd520affb2b7a99ae834035a3f06c4d786c0",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 63,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 64,
+        "text": "\tname = _t\"wand-smuggler's apology letter\","
+      },
+      {
+        "line": 65,
+        "text": "\tlore = _t[[My sincerest apologies, Admiral.  I received the conjuration wands in bulk, and I had no idea that several of them were merely wands of trap destruction - testing each one would have drained some charge from each, providing an inferior product."
+      },
+      {
+        "line": 66,
+        "text": ""
+      },
+      {
+        "line": 67,
+        "text": "I will be retrieving what portion of the cheerblossom I can get from my deceptive supplier, or her head - whichever you would prefer.  At that point, I will ask that you please consider revoking my banishment from your marketplace.]],"
+      },
+      {
+        "line": 68,
+        "text": "}"
+      },
+      {
+        "line": 69,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d38d26609e9381d3b5cdd66eb5fbfc348e410eece960ffd2e63d22c81e4d6648",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1601,
+        "text": "\tend,"
+      },
+      {
+        "line": 1602,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1603,
+        "text": "\t\treturn ([[You fire a special hook shot with your steamgun(s) at a target creature or location."
+      },
+      {
+        "line": 1604,
+        "text": "\t\tIf you target a creature, they are pulled up to %d tiles towards you."
+      },
+      {
+        "line": 1605,
+        "text": "\t\tIf you target an empty tile, you are pulled up to %d tiles towards it."
+      },
+      {
+        "line": 1606,
+        "text": "\t\tThis talent does not use ammo as it is the ammo.]])"
+      },
+      {
+        "line": 1607,
+        "text": "\t\t:tformat(t.distance(self, t), t.distance(self, t))"
+      },
+      {
+        "line": 1608,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e59c510d73660339e3e8ee00c3c87936436d7fd7fb3a28911c876312603fbd64",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1723,
+        "text": "\tend,"
+      },
+      {
+        "line": 1724,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1725,
+        "text": "\t\treturn ([[You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage."
+      },
+      {
+        "line": 1726,
+        "text": "\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage."
+      },
+      {
+        "line": 1727,
+        "text": "\t\tThis talent does not use ammo as it is the ammo."
+      },
+      {
+        "line": 1728,
+        "text": "\t\tSap damage scales with Steampower.]])"
+      },
+      {
+        "line": 1729,
+        "text": "\t\t:tformat(damDesc(self, DamageType.ARCANE, t.getDamage(self, t)))"
+      },
+      {
+        "line": 1730,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f786fdf861112d1895c6653dc809acd9e1efa0ef19a67703336ab27e019e4f9a",
+    "public_source_path": "tome-orcs/data/talents/steam/chemistry.lua",
+    "lines": [
+      {
+        "line": 50,
+        "text": "\tautolearn_talent = \"T_CREATE_TINKER\","
+      },
+      {
+        "line": 51,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 52,
+        "text": "\t\treturn ([[Allows you to create chemical tinkers of level %d."
+      },
+      {
+        "line": 53,
+        "text": "\t\tYou will learn a new schematic at level 1."
+      },
+      {
+        "line": 54,
+        "text": "\t\tEach other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known)."
+      },
+      {
+        "line": 55,
+        "text": "\t\t%s]])"
+      },
+      {
+        "line": 56,
+        "text": "\t\t:tformat(math.floor(self:getTalentLevel(t)), tinkers_list_for_craft(self, t))"
+      },
+      {
+        "line": 57,
+        "text": "\tend,"
+      }
+    ]
+  }
+]

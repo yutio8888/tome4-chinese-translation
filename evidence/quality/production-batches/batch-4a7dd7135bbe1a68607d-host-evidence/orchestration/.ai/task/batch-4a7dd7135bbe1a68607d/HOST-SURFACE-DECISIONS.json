@@ -1,0 +1,24 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 2 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "3724ff92841254b92e99da8479c957438e22772a6da0d4042cbc389aeeaab889",
+      "stage": "surface",
+      "observation": "原文“tossed him around his lair”指在巢穴里把他扔来扔去，译文“在他的巢穴里把他扔了出去”误为扔出巢穴。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua（口袋时间 lore 科纳克盗贼段）：“when Bill the Stone Troll tossed him around his lair, he lost his bearings and stepped on--”，tossed him around 是把他扔来扔去/摔来摔去（his lair 为比尔的巢穴），正因此才“失去方向”；现译“在他的巢穴里把他扔了出去”变成扔出巢穴，与下文“失去平衡踩在了————”（仍在巢穴内踩中）衔接不上，属一级忠实度错误。另 lost his bearings 是迷失方向，现译“失去平衡”可一并改为“晕头转向”。contextual 判 OK，宿主按原文确认。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e59c510d73660339e3e8ee00c3c87936436d7fd7fb3a28911c876312603fbd64",
+      "stage": "surface",
+      "observation": "原文“arcane resource burn damage”中的“resource”是资源，译文“奥术法力燃烧伤害”将其限定为法力；是否确指法力需机制证据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua（Antimagic Shell）命中调用 DamageType.MANABURN；固定 commit t-engine4 game/modules/tome/data/damage_types.lua:3559 MANABURN projector → class/Actor.lua:7130–7140 burnArcaneResources 同时燃烧法力、活力、正能量、负能量，伤害取 max(mana, vim*2, pos*4, neg*4)，reviewer 的机制描述属实。但本库对该伤害类型一律译“法力燃烧”：术语 terminology/combat.tsv manaburn arcane＝法力燃烧（existing，global），伤害类型名 mod-tome.lua:7072“奥术法力燃烧”，主游戏同款 tdesc “%d arcane resource burn” 亦作“法力燃烧”（mod-tome.lua:6988）。单改本条会与伤害类型名、物品描述分裂，是否把全库 manaburn/arcane resource burn 改为“奥术资源燃烧”属跨批次术语决定，未授权；记 advisory 并登记待审第 44 项（窗口 46 r4a1、r5a1 已两次判 advisory）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}
