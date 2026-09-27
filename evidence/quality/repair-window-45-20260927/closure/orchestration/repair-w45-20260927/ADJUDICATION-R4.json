@@ -1,0 +1,20 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 26,
+  "raw_issue_count": 1,
+  "decision": "host reverses the cycle-2/3 advisory: three independent reviews (r2a1, f3a2, r4a1) flag the same term mismatch, and the term record tinker=蒸汽工具 is already used by the in-window sibling e58732ee43 (Shocking Touch). Confirmed: align this entry to the term (电子道具 -> 电子蒸汽工具); the five out-of-window sibling infos are queued as host supplements for window 46 (pending #41 updated, user may override); talent name 电子 stays pending #39. Bounded fix (execute-06), then RE_REVIEW(5, attempt 1) and FINAL_REVIEW(5, attempt 2)",
+  "findings": [
+    {
+      "revision_key": "e49260a92e51ee71a2eb596d9302d4872ad606000990d4a13bc1262a57173541",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer r4a1 (also r2a1, f3a2)",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:72 electrical tinkers；术语 terminology/items.tsv:24 tinker=“蒸汽工具”，同窗 e58732ee43（Shocking Touch）已用“蒸汽工具”。只把第 4 行“电子道具”改为“电子蒸汽工具”；技能名“电子”待 #39，不改；其余文字、%%、%s 与 LF/TAB 不动。同族另五条（4837/4845/4853/5690/5698）排入窗口 46 宿主补充。"
+    }
+  ],
+  "recorded_at": "2026-09-27T15:53:26.407040+00:00"
+}

@@ -1,0 +1,12 @@
+已完成本次 FIX，仅涉及 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)：
+
+- `e49260a92e`：第 5711 行改为“此后每升一级”，保留 `%%`、4 行结构及双制表符。
+- `ef91f8ccd8`：第 3252 行改为“我不再需要他们作为一个族群的合作”。
+- `e7dd1f391b`：第 15 行已是指定成就译文，无需重复修改。
+
+验证全部通过：
+
+- LuaJIT 有界验证：相对 `HEAD` 恰有 27 条 target 变动，其他记录不变；task baseline 与 `HEAD:tome-orcs.lua` SHA-256 一致。
+- `python3 -B tools/i18n lint --strict --component orcs`：3904 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- `.ai/task` 未修改；未 stage、commit、push，未创建 agent。现有无关未跟踪文件保持不动。

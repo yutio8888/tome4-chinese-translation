@@ -1,0 +1,36 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 25,
+  "raw_issue_count": 2,
+  "decision": "two reviewer tier-1 findings confirmed plus one host-found terminology regression; one bounded fix (execute-02), then RE_REVIEW(1, attempt 1), then FINAL_REVIEW(1, attempt 2) with Opus 5.5",
+  "findings": [
+    {
+      "revision_key": "e49260a92e51ee71a2eb596d9302d4872ad606000990d4a13bc1262a57173541",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r0a1",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/steam.lua:238–244（craft_levelup）：for i=old+1..lvl 逐级判定，i==1 必学、i==5 必学（已自动学满 2 个则提前返回）、其余每级 rng.percent(20)；physics.lua:74 的 Each other talent level 指“其余每一级”，不是“每隔一级”。宿主在第350批 claim 中误判为“每隔一级”，已更正（原译“之后每一级”的频率是对的）。只把第 3 行（下标 2）改为“此后每升一级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会一个（除非已学会全部配方）。”，保留 4 行、每行两个制表符及其余文字。Orcs 仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ef91f8ccd8f99b35efa2a5f0dd54b1ea7bf99c3089dd988637a0080a6942fc72",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r0a1",
+      "reason": "公开 Orcs tome-orcs/data/lore/slumbering-caves.lua:61：I no longer require their cooperation as a people 是第一人称单数，下文 I will not beg / All I beg 亦然；译文首段“我们不再需要他们作为一个族群的合作”改成复数。改为“我不再需要他们作为一个族群的合作”；“给我们带来了一份大礼”对应 brought us，保留。其余不动。Orcs 仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "e7dd1f391bb4a2dbbbd8d1e1eab2c58077c0e1a2d749cd3f3dda4f4324a3f39b",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "host",
+      "reason": "宿主核验：本库 Orcs 实体名 Ureslak the Eternal=“永恒的乌瑞斯拉克”（tome-orcs.lua:7675，另 1073/2506/7688 均用“乌瑞斯拉克”），物品 Ureslak's Femur=“乌尔斯拉克的股骨”（mod-tome.lua:12691）。execute-01 按宿主 claim 把 Boss 名也改成“乌尔斯拉克”，与实体名不一致（宿主 claim 措辞过宽所致）。改为“持用乌尔斯拉克的股骨击杀永恒的乌瑞斯拉克。”"
+    }
+  ],
+  "recorded_at": "2026-09-27T15:20:04.532948+00:00"
+}

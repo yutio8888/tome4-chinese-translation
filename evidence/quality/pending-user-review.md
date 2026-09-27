@@ -299,3 +299,18 @@
    - 现译：“电子”；同技能 info 作“电子道具”（tome-orcs.lua:5700），出生说明作“电子技能”（6042），另有 Electron Incantation“电子咒式”（4413/6147）。
    - 争议理由：第 348 批 GPT-6 Sol 表层筛查与 Opus contextual 都指出 electricity 是电力/电学，“电子”（electron）字义不符。改名须跨条同步技能名、info 和出生说明，并避免与“电子咒式”混淆，属跨条译名决定，本批记 advisory。
    - 建议选项：保持“电子” / 改“电力”（或“电学”，与同系“机械”“铁匠”并列）并同步 5696、5700、6042。
+
+## 修复窗口 45 待审阅
+
+40. 专名 `Ureslak` 音译不一（本窗口 `e7dd1f391b`：tome-orcs.lua:15 成就“Killed Ureslak the Eternal while wielding Ureslak's Femur.”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/achievements/special.lua:68`；Boss 与物品指同一条七色巨龙（主游戏 Ureslak's Femur 描述“A shortened femur of the mighty prismatic dragon Ureslak”）。Orcs 来源仓库与 commit 未固定。
+   - 现状：巨龙本体作“乌瑞斯拉克”（mod-tome.lua:8500“七色闪光，乌瑞斯拉克”，tome-orcs.lua:1073/2506/7675/7688/7743）；主游戏遗物作“乌尔斯拉克”（mod-tome.lua:12691–12712 股骨、蜕鳞、遗物日志等）。本窗口 RE_REVIEW 与 FINAL 都指出成就同句两种音译，成就句内已统一为“持用乌瑞斯拉克的股骨击杀永恒的乌瑞斯拉克。”（与巨龙实体名一致），但与主游戏物品名“乌尔斯拉克的股骨”仍不同。
+   - 争议理由：全库统一须跨 mod-tome/tome-orcs 改一组实体名与描述，属全局更名，未授权，本窗口记 advisory。
+   - 建议选项：保持现状 / 统一为“乌瑞斯拉克”（改 mod-tome 遗物一族约 8 条）/ 统一为“乌尔斯拉克”（改 Orcs 与主游戏巨龙名）。
+
+41. Orcs 工匠制造技能 info 中 `tinker` 的译法（本窗口 `e49260a92e` Electricity；同族 tome-orcs.lua:4837/4845/4853/5690/5698/5706 六条 “Allows you to create X tinkers of level %d”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/physics.lua:72`、`chemistry.lua:32/52/72`、`physics.lua:32/52`。Orcs 来源仓库与 commit 未固定。
+   - 现状：六条 info 一律作“X道具”（治疗学道具、化学道具、爆炸学道具、铁匠道具、机械道具、电子道具）；术语 `terminology/items.tsv:24` tinker=“蒸汽工具”（existing，实体类型），Shocking Touch 等处用“蒸汽工具”。
+   - 争议理由：窗口 45 RE_REVIEW（GPT-6 Sol）与 FINAL（Opus 5.5）都指出本条与术语不一致；只改本条会破坏六条同族一致，统一属跨条译名决定，本窗口记 advisory。与 #39（Electricity“电子”）相关。
+   - 宿主处理：三轮独立复审（r2a1、f3a2、r4a1）一致指出，窗口 45 已把本条对齐术语改为“电子蒸汽工具”（技能名“电子”仍待 #39）；其余五条排入窗口 46 宿主补充同样对齐。
+   - 建议选项：认可对齐“蒸汽工具” / 全部保持“道具”（则窗口 46 回退本条）。

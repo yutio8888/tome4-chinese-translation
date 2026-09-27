@@ -1,0 +1,43 @@
+{
+  "cycle": 0,
+  "purpose": "host line-structure and invariant precheck before the first EXECUTOR dispatch (window 38/43 lessons: LF count alone misses blank-line position; window 44 lesson: bare % in tformat)",
+  "method": "the host split every frozen source and target_preimage on LF and compared line count, blank-line indices and leading-tab depth per line, and counted unescaped % in tformat/args_order entries; entries whose structure already matches are omitted; wording defects are in SOURCE-CLAIMS and are not repeated; indices are 0-based line numbers of the source split on LF",
+  "entries": [
+    {
+      "revision_key": "5e598b48d4cabcc92172cf6e7bdefb743d12af66d78000af7afc69c6baffff19",
+      "items": [
+        "运行时不变量：tformat 串原文无字面 %，现译“否则每回合有 25% 几率传播”含裸 %（string.format 报 invalid option）。修复后写作“25%%”，%0.2f 保持唯一占位符。"
+      ]
+    },
+    {
+      "revision_key": "defdcd2c8ecb897a906d7e082a0ef0e79806baaff07038617fc5766a43faf788",
+      "items": [
+        "逐行结构：原文 3 行，第 1、2 行（下标）行首两个制表符；现译三行均无制表符。修复后下标 1、2 行首补回两个制表符。"
+      ]
+    },
+    {
+      "revision_key": "e26faeb1da7f6770481900f5ce5328ecf8bf08d2297d30956b1ac63ab362d6c6",
+      "items": [
+        "逐行结构：原文 2 行，下标 1 行首两个制表符；现译只有一个。修复后改为两个制表符。"
+      ]
+    },
+    {
+      "revision_key": "e49260a92e51ee71a2eb596d9302d4872ad606000990d4a13bc1262a57173541",
+      "items": [
+        "逐行结构：原文 4 行，下标 1–3 行首各两个制表符；现译只有 3 行，下标 1 行首三个制表符（一处 \\n\\t\\t 被并掉）。修复后恢复 4 行，每行行首两个制表符，分行位置按原文。"
+      ]
+    },
+    {
+      "revision_key": "e58732ee43bd2f2372e413638c55ece10ab0cbc1445eb1f56b0ee3c91bc58f96",
+      "items": [
+        "逐行结构：原文 4 行，下标 1–3 行首各两个制表符；现译均无制表符。修复后补回。"
+      ]
+    },
+    {
+      "revision_key": "efa42dbfce350d6b2d837e7799a330e8c18e72e0af5659fd7277e5e4934f73db",
+      "items": [
+        "逐行结构：原文 3 行（末段 Or, if you came… 至 …shiny new toys. 在同一行）；现译 5 行，在“……”后和“警卫。*#WHITE#”后多出两个换行。修复后恢复 3 行，行内 #LIGHT_GREEN#/#WHITE#/#{italic}# markup 数量与位置不变。"
+      ]
+    }
+  ]
+}

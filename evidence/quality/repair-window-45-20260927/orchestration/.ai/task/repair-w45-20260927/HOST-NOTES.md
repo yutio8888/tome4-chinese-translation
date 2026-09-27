@@ -1,0 +1,9 @@
+- 2026-09-27 开窗：24 条来源于第349–352批；另按用户 2026-09-27 裁决与窗口44 r1a1 advisory 并入宿主补充 3 条（HOST-SUPPLEMENT-CLAIMS：灵能蠕虫 `5e598b48d4`，来源批 ce57ff；毁灭号面板 `867d6d97d9`（批 252ef3）与 `a32c279ec7`（批 349））。setup 脚本由 w44 派生，PLAN 文本首次替换时 `\n` 被还原成真换行导致语法错误，宿主修正后重跑；check_siblings 0。
+- 2026-09-27 宿主 verify_translation_diff 的占位符比对原先要求 `%%` 数量不变，灵能蠕虫补 `%%` 属预期变化；宿主改为忽略 `%%` 记号比较其余占位符，并对 tformat/args_order 条目追加“去掉合法记号后不得残留 %”的裸 % 断言。
+- 2026-09-27 宿主 claim 更正：第350批裁决把 Electricity info 的 “Each other talent level” 判为“每隔一级”，r0a1 依 steam.lua:238–244 craft_levelup（逐级 rng.percent(20)）指出应为“每一级”，已在 ADJUDICATION-R0 更正并修复；第351批 claim“音译与本库不一致”措辞过宽，使 execute-01 把成就里的 Boss 名也改成“乌尔斯拉克”，宿主在 R0 自查补为确认项。
+- 2026-09-27 execute-02 回报“e7dd1f391b 已是目标文本无需修改”与实际不符（Boss 名仍为“乌尔斯拉克”）；宿主核对后派 execute-03 只补这一处，未改其他条目。
+- 2026-09-27 Ureslak：两轮复审指出同句两种音译；本库巨龙本体为“乌瑞斯拉克”、主游戏遗物一族为“乌尔斯拉克”。窗口内只在本条句内统一为“乌瑞斯拉克”，全库统一登记待审第 40 项。
+- 2026-09-27 tinker：Electricity info 的“电子道具”被 r2a1、f3a2、r4a1 三次指出与术语 tinker=“蒸汽工具”不符；宿主先判 advisory（六条同族一律“…道具”），第三次后改判确认、只改本条为“电子蒸汽工具”，同族另五条排入窗口 46 宿主补充，登记待审第 41 项（用户可否决）。技能名“电子”仍待第 39 项。
+- 2026-09-27 f3a2 FINAL 仅 1 条宿主判 advisory 的 ISSUE；按 v2 规则失败的 FINAL 后须 RE_REVIEW 再 FINAL，cycle 4 在同一候选上复审（r4a1）后才改判确认。窗口在 cycle 5（max_cycles 5）收敛。
+- 2026-09-27 各 reviewer 的 native 扫描“rm ”命中均为 justification/描述里的英文单词（form、worm、confirm 等）；多次读源码时请求 sandbox 提权（require_escalated）仅用于只读命令；无写入、终端或 git 调用。
+- 2026-09-27 按用户指示，lint 修复（format-invalid-percent）须在本窗口译文修复之后进行；宿主在窗口证据推送后另行提交，不在 EXECUTOR 范围内。

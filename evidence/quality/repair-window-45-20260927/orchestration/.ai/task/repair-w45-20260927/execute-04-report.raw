@@ -1,0 +1,16 @@
+已完成 repair-w45-20260927 的 3 条 confirmed FIX：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+  - `5e598b48d4`：修正传播目标、抵抗与“尝试”机制，保留 `%0.2f`、`25%%`。
+  - `867d6d97d9`：改为“嗡嗡作响地启动了，基座在你身下微微转动。”
+  - `e7dd1f391b`：两处均统一为“乌瑞斯拉克”。
+
+逐字核对及验证全部通过：
+
+- LuaJIT/LocaleLoader 相对 `HEAD`：3904 条记录，恰 27 条 target 变化，与 WORKSET 完全一致；非 target 字段零变化。
+- LF/TAB、markup、占位符及裸 `%` 检查通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- 三条最终 target 与裁决文本逐字一致。
+
+已同步更新 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-45-20260927/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-45-20260927/VALIDATION.json)。未修改 `.ai/task`，未 stage、commit、push，也未创建 agent；其他既有工作树改动未触碰。

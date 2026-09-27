@@ -1,0 +1,12 @@
+已完成补做 FIX。
+
+- [tome-orcs.lua:15](/workspace/tome4-chinese-translation/tome-orcs.lua:15)：仅将句末 Boss 名的“尔”改为“瑞”：
+  `持用乌尔斯拉克的股骨击杀永恒的乌瑞斯拉克。`
+- 精确整行匹配且旧 target 已不存在；其他条目和记录未改动。
+
+验证结果：
+
+- LuaJIT 有界验证：通过；任务基线与 `HEAD:tome-orcs.lua` SHA-256 一致，恰 27 条 target 变动，非 target 字段未变。
+- `python3 -B tools/i18n lint --strict --component orcs`：3904 条，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- `.ai/task` 无改动；未 stage、commit、push，未创建 agent。

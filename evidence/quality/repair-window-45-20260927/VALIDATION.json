@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w45-20260927",
+  "role": "executor",
+  "base_revision": "3d26905a3556b97c692a67b3c1b4eb39e065b8d2",
+  "validated_at_utc": "2026-09-27T15:57:07Z",
+  "translation_file": "tome-orcs.lua",
+  "translation_file_sha256": "72adb6922333d50ebfa33f05274da6b61366290ea1f34ad38c58a69b0a18e6e8",
+  "workset_entries": 27,
+  "source_anchors": {
+    "unique_files": 19,
+    "all_file_sha256_match": true,
+    "repository_commit_pinned": false,
+    "provenance": "frozen public-source file SHA-256 and entry path/line anchors"
+  },
+  "checks": [
+    {
+      "name": "i18n_doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "lua": "5.1",
+        "luajit": "2.1.0-beta3",
+        "lpeg": "0.10.2-1 (0.10)",
+        "expected_warnings": [
+          "source-unpinned: ashes-urhrok",
+          "source-unpinned: cults",
+          "source-unpinned: orcs"
+        ]
+      }
+    },
+    {
+      "name": "luajit_exact_target_diff",
+      "command": "manifest LocaleLoader (LuaJIT bridge): compare HEAD:tome-orcs.lua with worktree and WORKSET.json",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "records_total": 3904,
+        "changed_targets": 27,
+        "changed_set_exact": true,
+        "non_target_fields_unchanged": true,
+        "line_tab_blank_terminal_invariants": true,
+        "markup_by_line": true,
+        "format_placeholders": true,
+        "bare_percent_safe": true,
+        "three_adjudication_f1_targets_exact": true,
+        "adjudication_r2_confirmed_target_exact": true,
+        "adjudication_r4_confirmed_target_exact": true,
+        "r4_single_edit_since_prior_validation": true
+      }
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "translations_checked": 30308,
+        "errors": 0,
+        "warnings": 0,
+        "report": ".artifacts/i18n/runs/20260927T155658.807301Z-1362319-lint/lint.json"
+      }
+    },
+    {
+      "name": "git_diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "details": "no output"
+    },
+    {
+      "name": "untracked_evidence_whitespace",
+      "command": "git diff --no-index --check -- /dev/null <evidence-file> (for IMPLEMENTATION.md and VALIDATION.json)",
+      "exit_code": 1,
+      "result": "passed",
+      "details": "no whitespace diagnostics; exit 1 is the expected no-index difference status"
+    },
+    {
+      "name": "validation_json_parse",
+      "command": "jq -e . evidence/quality/repair-window-45-20260927/VALIDATION.json",
+      "exit_code": 0,
+      "result": "passed"
+    }
+  ],
+  "diff_numstat": {
+    "tome-orcs.lua": {
+      "insertions": 48,
+      "deletions": 49
+    }
+  },
+  "out_of_scope_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "agent_created": false,
+    "task_records_modified": false
+  },
+  "remaining_risks": [
+    "The public Orcs source repository and commit are unpinned even though every frozen source file hash matched.",
+    "Independent review, final 17-item gates, task closure, commit, and push remain host responsibilities."
+  ]
+}

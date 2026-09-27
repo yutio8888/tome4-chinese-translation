@@ -1,0 +1,36 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f1a2",
+  "invalid_attempts": [],
+  "raw_ok_count": 24,
+  "raw_issue_count": 3,
+  "decision": "FINAL failed (any ISSUE fails v2 FINAL): three tier-1 findings confirmed; bounded fix (execute-04), then RE_REVIEW(2, attempt 1), then FINAL_REVIEW(2, attempt 2)",
+  "findings": [
+    {
+      "revision_key": "5e598b48d4cabcc92172cf6e7bdefb743d12af66d78000af7afc69c6baffff19",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "runtime-mechanism",
+      "origin": "reviewer f1a2",
+      "reason": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:167–190：callbackOnDeath 与 on_timeout（rng.percent(25)）都对半径 3 内 self:reactionToward(target) > 0（对宿主友好）且未感染的单位调用 setEffect(..., {apply_power=eff.src:combatMindpower()})，即带豁免的尝试施加，而非“同阵营”“必然传播”。把分号起的补写改为“可对半径 3 内对宿主友好且尚未感染的单位尝试传播（目标可抵抗）；宿主死亡时必定尝试，否则每回合有 25%% 几率尝试。”保留前半句、%0.2f 与 %%。Orcs 仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "867d6d97d96ca3e34b6b93e9717772afa9c392af63d84347c69eff745bf25010",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "completeness",
+      "origin": "reviewer f1a2",
+      "reason": "公开 Orcs tome-orcs/data/chats/destructicus.lua:37：whirrs to life, its base slightly rotating underneath you 是“嗡嗡作响地启动，基座在你身下微微转动”；现译“启动了它的生命，它的基座开始运转”误译 whirrs to life 且漏 slightly/underneath you。只把该分句改为“#{bold}#裂天者 毁灭号#{normal}# 嗡嗡作响地启动了，基座在你身下微微转动。”（markup 不变），其余（针阵面板等）不动。"
+    },
+    {
+      "revision_key": "e7dd1f391bb4a2dbbbd8d1e1eab2c58077c0e1a2d749cd3f3dda4f4324a3f39b",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f1a2 (also r1a1)",
+      "reason": "两轮复审都指出同句同一专名两种音译。巨龙本体在 Orcs 与主游戏实体名均为“乌瑞斯拉克”（tome-orcs.lua:7675、mod-tome.lua:8500），本条只在句内统一为“持用乌瑞斯拉克的股骨击杀永恒的乌瑞斯拉克。”；主游戏遗物一族“乌尔斯拉克”的全局统一仍待 pending-user-review #40，本窗口不改他条。"
+    }
+  ],
+  "recorded_at": "2026-09-27T15:31:41.427999+00:00"
+}
