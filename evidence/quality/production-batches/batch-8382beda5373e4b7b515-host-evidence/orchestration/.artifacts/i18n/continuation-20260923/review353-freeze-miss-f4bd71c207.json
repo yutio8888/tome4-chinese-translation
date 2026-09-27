@@ -1,0 +1,9 @@
+{
+  "batch": 353,
+  "batch_id": "batch-8382beda5373e4b7b515",
+  "entry_revision_identity": "f4bd71c207d7ad8f6f0f0031f0511730e85ba534217ce50e0df5edaa1d90af6c",
+  "catalog_row": "tome-orcs.lua:8356 (section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua, present since the initial commit b0890a48)",
+  "finding": "orphan row. The Steam Council minutes 'The Steam Council has been called to order...' exist in public Orcs code only in tome-orcs/data/lore/palace-fumes.lua (line 88 ends 'presiding.' followed by two spaces); DebugMain.lua does not contain it. This row's source drops those trailing spaces and sits under an unrelated section, so its key never matches at runtime. The live row is tome-orcs.lua:2761 (section palace-fumes.lua), whose source keeps the trailing spaces and whose translation does not carry the two defects flagged here.",
+  "host_block": "not used: host-block requires a commit-pinned fixed source (DLC rows carry snapshot: identities), and the literal is present in code with different trailing whitespace, so whole-code absence cannot be asserted.",
+  "handling": "reviewed normally in this batch; the orphan row is a catalog cleanup candidate for the maintainer, not a translation repair."
+}

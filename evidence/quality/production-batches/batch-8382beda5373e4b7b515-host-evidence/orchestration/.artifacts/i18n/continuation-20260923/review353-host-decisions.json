@@ -1,0 +1,85 @@
+{
+  "workset": "evidence/quality/production-batches/batch-8382beda5373e4b7b515-source-workset.json",
+  "decisions": {
+    "c557b208a5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:167–190（PSIONIC_WORM）：半径 3、对宿主友好且未感染、可抵抗、宿主死亡必定尝试、否则每回合 25% 几率，均为实现事实，窗口 45 已逐项核验并按实现补写；源文与实现并不矛盾，增补是准确的机制说明。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f466031dbb|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua:47 起：换行不变量——源文各段以两个 LF 分隔，现译魔化精灵段末“————”后有三个 LF，多一个空行。contextual 另指出并经源文核实：Stone-Warden 段 “A stunning blow from its warhammer struck her right where she'd applied a wild infusion, the only one she had” 是战锤恰好砸中她唯一纹身所在处，现译改成“想用纹身时被震慑”，且“这是”应为“这时”；食人魔段 “salivated at the prospect of traveling to the Far East and seeing…” 是对前景垂涎，现译写成已经发生；矮人狂战士段 “ran face-first into a couple of them” 是逃跑中迎面撞上两个兽人，现译“直接向几个兽人正面冲去”变成主动冲锋；魔化精灵段 “When a demonic statue called out to her” 丢了“呼唤”。一并修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f466031dbb|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua:47 起：换行不变量——源文各段以两个 LF 分隔，现译魔化精灵段末“————”后有三个 LF，多一个空行。contextual 另指出并经源文核实：Stone-Warden 段 “A stunning blow from its warhammer struck her right where she'd applied a wild infusion, the only one she had” 是战锤恰好砸中她唯一纹身所在处，现译改成“想用纹身时被震慑”，且“这是”应为“这时”；食人魔段 “salivated at the prospect of traveling to the Far East and seeing…” 是对前景垂涎，现译写成已经发生；矮人狂战士段 “ran face-first into a couple of them” 是逃跑中迎面撞上两个兽人，现译“直接向几个兽人正面冲去”变成主动冲锋；魔化精灵段 “When a demonic statue called out to her” 丢了“呼唤”。一并修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f4bd71c207|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "该目录行（tome-orcs.lua:8356，section superload/mod/dialogs/debug/DebugMain.lua）是孤儿行：蒸汽议会记录在公开 Orcs 代码中只存在于 tome-orcs/data/lore/palace-fumes.lua:88 起，DebugMain.lua 不含此文本，且本行源文首行行尾两个空格被去掉，运行时永不命中（freeze MISS，见 review353-freeze-miss-f4bd71c207.json）。两位审核指出的问题属实（“This IS relevant” 译成“真的无关紧要”意思相反；“Neither can afford direct intervention” 指小个子战士中的两派，现译主语换成“我们”），但生效行 tome-orcs.lua:2761（section palace-fumes.lua）不含这两处旧译。本行不会显示，不作译文修复；孤儿行清理留维护者。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f4bd71c207|contextual": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "该目录行（tome-orcs.lua:8356，section superload/mod/dialogs/debug/DebugMain.lua）是孤儿行：蒸汽议会记录在公开 Orcs 代码中只存在于 tome-orcs/data/lore/palace-fumes.lua:88 起，DebugMain.lua 不含此文本，且本行源文首行行尾两个空格被去掉，运行时永不命中（freeze MISS，见 review353-freeze-miss-f4bd71c207.json）。两位审核指出的问题属实（“This IS relevant” 译成“真的无关紧要”意思相反；“Neither can afford direct intervention” 指小个子战士中的两派，现译主语换成“我们”），但生效行 tome-orcs.lua:2761（section palace-fumes.lua）不含这两处旧译。本行不会显示，不作译文修复；孤儿行清理留维护者。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f4d9f76b59|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/celestial/energies.lua:84–124（update_regen 与 info）：只有正、负能量中当前百分比较高的一种向最大值恢复，取代通常的静止值。现译“无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值”把择高条件改成两者都生效，并把“较高百分比的那一种”误作“更高百分比的恢复”，丢了“向最大值”。机制错误。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f4d9f76b59|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/celestial/energies.lua:84–124（update_regen 与 info）：只有正、负能量中当前百分比较高的一种向最大值恢复，取代通常的静止值。现译“无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值”把择高条件改成两者都生效，并把“较高百分比的那一种”误作“更高百分比的恢复”，丢了“向最大值”。机制错误。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f5df0b88f8|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:65–67：“I received the conjuration wands in bulk” 无时间信息，现译增“上周”；“retrieving what portion of the cheerblossom I can get” 是能追回多少算多少，现译“拿到你想要的鼓舞之花”变成如数交付；“At that point, I will ask…” 是交付之后才请求撤销驱逐，现译“看在我的诚意的份上”丢了这个前提。忠实度问题，修复时对照整句。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f5df0b88f8|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:65–67：“I received the conjuration wands in bulk” 无时间信息，现译增“上周”；“retrieving what portion of the cheerblossom I can get” 是能追回多少算多少，现译“拿到你想要的鼓舞之花”变成如数交付；“At that point, I will ask…” 是交付之后才请求撤销驱逐，现译“看在我的诚意的份上”丢了这个前提。忠实度问题，修复时对照整句。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f64bd7b5ed|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/avoidance.lua（烟幕 info）原文两处续行为“\\n\\t\\t”，现译两处都只有一个 TAB，与第 339 批 a3cecc7f1f 同型。“仇恨丢失”贴合实现：5 级时对半径 10 内敌人调用 a:setTarget(nil)（avoidance.lua:101–108），文字保留。修复只补回制表符。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f64e302c53|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/artillery.lua:23–66、108–140：Rocket Pod 是持续技能，callbackOnActBase 在无 LOCK_ON_BEN 时每回合向随机敌人自动发射火箭，有锁定时改为对锁定目标发射加成弹幕。因此“自动火箭发射将会被暂停”正是 regular rocket pod attacks 的实际含义，与随后的弹幕描述不冲突。Defense 在本库作“闪避”（terminology/combat.tsv「Defense:→闪避：」、mod-tome.lua 通行），evasion 另作“躲闪”，两者区分清楚。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f68acc60e6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/internment-camp.lua:29–31：换行不变量——第一封信抬头“#{normal}#”后源文为两个 LF，现译三个，多一个空行；另两封信与源文一致。只删多余空行。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f68acc60e6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/internment-camp.lua:29–31：换行不变量——第一封信抬头“#{normal}#”后源文为两个 LF，现译三个，多一个空行；另两封信与源文一致。只删多余空行。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f6d180323e|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/other.lua:1304–1309（哨兵装置 info）原文 6 行、各续行以“\\n\\t\\t”开头；现译删除全部制表符，并把 “Every turn it will fire…” 与 “The bolts do %0.2f lightning damage.” 两行并为一行（只剩 4 个 LF）。修复恢复原文 6 行与 \\n\\t\\t 结构，文字不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f6d180323e|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/other.lua:1304–1309（哨兵装置 info）原文 6 行、各续行以“\\n\\t\\t”开头；现译删除全部制表符，并把 “Every turn it will fire…” 与 “The bolts do %0.2f lightning damage.” 两行并为一行（只剩 4 个 LF）。修复恢复原文 6 行与 \\n\\t\\t 结构，文字不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f74798953c|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/slumbering-caves/objects.lua:35–58：该护符本名 Gardanion, the Light of God（本库“Gardanion，神之光辉”，tome-orcs.lua:7464），“神的光辉”指的正是这件护符，不改变发光物。同文 saySimple 行（tome-orcs.lua:7471）作“护符的光芒笼罩了你”，两处表述不一但不构成误译，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  }
+}
