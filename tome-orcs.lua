@@ -12,7 +12,7 @@ t("Defeated Aeryn in the Gates of Morning without destroying the Observatory nor
 t("No Steam, No Palace. No Palace, No Palace!", "若无蒸汽，则无宫殿。若无宫殿，亦无宫殿！", "achievement name")
 t("Destroyed the Palace of Fumes without first destroying the geothermal valves in the Steam Quarry.", "在不先摧毁蒸汽采石场中的地热阀的情况下摧毁烟雾宫殿。", "_t")
 t("Here, I Think You Dropped This", "这是你掉的么？", "achievement name")
-t("Killed Ureslak the Eternal while wielding Ureslak's Femur.", "拿着乌瑞斯拉克的大腿打败永恒的乌瑞斯拉克。", "_t")
+t("Killed Ureslak the Eternal while wielding Ureslak's Femur.", "持用乌瑞斯拉克的股骨击杀永恒的乌瑞斯拉克。", "_t")
 t("Do not go gentle into that good night", "不要温和地走进那个良夜", "achievement name")
 t("Trapped John.", "捕获约翰。", "_t")
 t("I did not want that!", "非我本意", "achievement name")
@@ -329,7 +329,7 @@ t("Fire Imp", "火焰小鬼", "_t")
 t("Steam Giant Airship", "蒸汽巨人飞船", "_t")
 t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的茶饮机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
 t("[continue]", "[继续]", "_t")
-t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#裂天者 毁灭号#{normal}# 启动了它的生命，它的基座开始运转。一块奇怪的珍珠板从你前方滑过，针伸了出来，被电磁力量控制，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
+t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#裂天者 毁灭号#{normal}# 嗡嗡作响地启动了，基座在你身下微微转动。一块奇怪的针阵面板滑到你面前，针脚在磁力作用下伸出又缩回，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
 t([[#LIGHT_GREEN#*#{italic}#"OBTAINING SCRYING LOCK...  OBTAINED."#{normal}#
  
 The beaded panel is suddenly awash with colors, showing the colossal interior of the airship.  Steam Giant families huddle and weep, sorting through the few belongings they could take with them when fleeing; a guard sits on a pile of luggage and storage crates, head in her hands.  The view pans around the cabin, and you see a few crew members hurrying between the captain's quarters and the engine room, pausing to take worried glances out the window - at you.
@@ -338,7 +338,7 @@ This airship appears to be evacuating what's left of the Atmos Tribe.  With the 
  
 You press a button labelled #{italic}#"SELECT NEXT TARGET"#{normal}#, and the panel shifts to show a very lost and very confused Fire Imp, flying in the air near nothing of importance.  Firing on it would have little effect whatsoever, aside from showing off DESTRUCTICUS's power in the most harmless way possible.*#WHITE#]], [[#LIGHT_GREEN#*#{italic}#"获取侦测锁定中……已获取。"#{normal}#
 
-珍珠面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，整理着逃离时仅能带走的少量财物；一名守卫双手抱头，坐在一堆行李和储物箱上。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
+针阵面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，整理着逃离时仅能带走的少量财物；一名守卫双手抱头，坐在一堆行李和储物箱上。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
 
 飞船似乎正在疏散气之部族的残余成员。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
 
@@ -426,7 +426,7 @@ You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it 
 t("Oh you liked that paladin lady? I loved killing her!", "你喜欢那个女圣骑士？我爱死杀她的感觉了", "_t")
 t("She left me no choice; I had to protect #{bold}#my#{normal}# people.", "她令我别无选择；我必须保护 #{bold}#我的#{normal}# 族民。", "_t")
 t("Whatever.", "无所谓。", "_t")
-t("Whatever.", "还行吧。", "chat_john-worldmap")
+t("Whatever.", "无所谓。", "chat_john-worldmap")
 t("What?", "什么？", "_t")
 
 ------------------------------------------------
@@ -456,9 +456,7 @@ t([[#LIGHT_GREEN#*A well-dressed giant stands in front of you, covered in expens
 Ah, welcome, @playername@! #LIGHT_GREEN#*he yells in a voice loud enough to catch the attention of all in the shop, as he lifts his head to look around.*#WHITE# Yes, you heard me right, @playername@! The very same one who's been running rampant through the Vaporous Emporium is coming to ME for armaments! I don't think I could've asked for a stronger endorsement! #LIGHT_GREEN#*He looks back down to you, leaning over the counter to point out a glass display case loaded with exotic weaponry and armor.*#WHITE#
 Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.* #WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
 哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大的让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么，@playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了！我认为不会有比这更好的宣传了！#LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
-好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。#LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，你也可以试试你在蒸汽商店里干的事情……
-#LIGHT_GREEN#*他指向周围和房间里那些装备良好的警卫。*#WHITE#
-我相信我的#{italic}#紧急安全保卫#{normal}#一定#{italic}#爱死了#{normal}#每一个尝试新玩具的机会。]], "_t")
+好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。#LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，如果你来这里是想重演你在蒸汽商场干的事情……#LIGHT_GREEN#*他把凌厉的目光转向房间两侧那些装备精良、正盯着你且纹丝不动的警卫。*#WHITE#我相信我的#{italic}#紧急安全措施#{normal}#一定#{italic}#非常乐意#{normal}#找机会试试他们闪亮的新玩具。]], "_t")
 t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!
 #LIGHT_GREEN#*He points to a new poster on the wall next to him, showing your face and the caption #{bold}#"KALTOR: THE CHOICE OF DESTROYERS!"#{normal}#*#WHITE#
 
@@ -1481,7 +1479,7 @@ t("The more steam the better!", "蒸汽越多越好！", "_t")
 t("Steam Powered Helm", "蒸汽动力头盔", "entity name")
 t("A Helmet. But with steam power!", "一顶头盔。不过是蒸汽动力的！", "_t")
 t("Steam Powered Gauntlets", "蒸汽动力手套", "entity name")
-t("Gauntlets. But with steam power!", "蒸汽动力！", "_t")
+t("Gauntlets. But with steam power!", "一双手套。不过是蒸汽动力的！", "_t")
 t("Anti-Gravity Boots", "反重力鞋", "entity name")
 t("overheating steel greaves", "过热的钢制护胫", "_t")
 t([[These boots seem to have been made by a... creative individual who seems to have decided that launching yourself through the air via rocketry qualifies as "anti-gravity".
@@ -1527,7 +1525,7 @@ t("\"Have you ever looked at some guys and thought 'you know, I really wish they
 t("S.H. Spear", "S.H.长矛", "entity name")
 t("engraved steamgun", "被雕刻的蒸汽枪", "_t")
 t([[This gun is engraved with a strange material which focuses mental powers.
-It seems like your mind will operate even faster with this equipped.]], [[这把枪被一种能强化精神力量的神秘物质雕刻。
+It seems like your mind will operate even faster with this equipped.]], [[这把枪上刻有一种能聚焦精神力量的神秘材料。
 装备着它，你的大脑似乎更加灵敏了。]], "_t")
 t("Dreamweaver", "梦想编织者", "entity name")
 t("shimmering steamgun", "闪光蒸汽枪", "_t")
@@ -1539,7 +1537,7 @@ t("Thoughtcaster", "思维施法者", "entity name")
 t("crystalline handgun", "水晶手枪", "_t")
 t("From body, mind. From mind, body.", "从物质中诞生意识。从意识中诞生物质。", "_t")
 t("deal %0.2f mind damage (based on Mindpower) in a radius 1 around the target", "对目标周围半径 1 码内的敌人造成 %0.2f 点精神伤害（基于精神强度）", "tformat")
-t("On hitting with a mindstar, deal physical damage equal to your steampower in radius 1 around the target.", "用灵晶命中时，在半径1范围内造成等于蒸汽强度的物理伤害。", "_t")
+t("On hitting with a mindstar, deal physical damage equal to your steampower in radius 1 around the target.", "用灵晶命中时，以目标为中心在半径 1 范围内造成等于蒸汽强度的物理伤害。", "_t")
 t("Spider's Fangs", "蜘蛛毒牙", "entity name")
 t("pouch of envenomed shots", "一袋有毒的弹丸", "_t")
 t("A dedicated technician seems to have built pockets of spider venom into these rounds. It's not clear how happy the spiders were about this.", "一位专注的技师似乎在这些子弹里内置了装有蜘蛛毒液的小囊。不知道蜘蛛们对此有多乐意。", "_t")
@@ -1588,7 +1586,7 @@ t("huge gun", "巨型枪", "_t")
 t([[This huge steamgun can be loaded with more than one bullet so that multiple shots can be fired in a nasty cone of death.
 It also seems to have been carefully balanced to work like a dual gun set.]], [[这把巨大的蒸汽枪一次能装填多发子弹，并以锥形弹幕射出。
 它似乎经过了精心配重，使用起来如同一对双枪。]], "_t")
-t("When fired, shoots up to 4 extra shots at random foes with a radius 4 cone centered on the target.", "发射时，在半径4的锥形范围内随机射出至多额外4发子弹。", "_t")
+t("When fired, shoots up to 4 extra shots at random foes with a radius 4 cone centered on the target.", "发射时，在以目标为中心的半径 4 锥形范围内，向随机敌人额外射出至多 4 发子弹。", "_t")
 t("Cloak of Daggers", "匕首披风", "entity name")
 t("bladed cloak", "布满刀刃的披风", "_t")
 t("This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.", "这件披风上布满了刀刃和机关。显然制作者认为“最好的防御就是进攻”。", "_t")
@@ -1652,7 +1650,7 @@ t("Eastern Wood Hat", "东方森林之帽", "entity name")
 t("worn leather hat", "破损的皮帽", "_t")
 t("This hat was made from materials from a forest whose name is long since lost, far in the east. It is said to have belonged to one of the first gunslingers.", "这顶皮帽的材料来自于遥远的树林，人们早已遗忘了树林的名字。据说它的主人曾是最早的枪手之一。", "_t")
 t("Steamcatcher", "蒸汽捕捉器", "entity name")
-t("pipe coated leather hat", "管道覆盖的帽子", "_t")
+t("pipe coated leather hat", "覆有管道的皮帽", "_t")
 t("There's an old saying that most of your body heat escapes through your head. It's not true of body heat, but strangely, is actually true of steam.", "传说人体热量大部分从头部散失。对于体热来说并不是这样，但奇怪的是，蒸汽是从头部散失的。", "_t")
 t("On taking fire damage: Gain 5% of the damage as steam.", "受到火焰伤害时：获得相当于该伤害 5% 的蒸汽。", "_t")
 t("Shoes of Moving Quickly", "疾行之鞋", "entity name")
@@ -2481,15 +2479,15 @@ I...  yes.  I've got a way out.  The Orcs must be weakened, wounded, easily deal
 
 i'm sorry karbatha]], [[不，不不，不不不不，不不不不，不！
 
-我能感受到，它的力量正在流失……有一个声音在我的耳边低鸣，它说“警告，能量不足，剩余脉冲发射次数：十次以下”。曾经在这个神器周围流动的，如此美丽的能量，现在却变得暗淡冰冷。不管我多少次在湖中祈祷，恳求，独角兽都没有出现到我的身边，也没有告诉我，为什么我激怒了他们，为什么我失去了我的力量……难道，这份力量，本来就是我不应该拥有的…吗……？
+我能感受到，它的力量正在流失……那个声音又对我说话了，它说“警告，能量不足，剩余脉冲次数少于十次”。曾经如此美妙地流经这件神器的能量开始变得冰冷。不管我在湖里如何苦苦哀求，独角兽都不肯直接来见我，不肯告诉我为何激怒了他们，也不肯告诉我该为他们做些什么才能保住我的力量……这份力量一开始真的属于我吗……？
 
-……好吧。也就是说，最多还能使用五到十次……我必须搞清楚，这东西到底是怎么工作的。既然走到了这一步，我已经没法回头了，我既不能再拖延征服大业，也无法坦白，难道我能停下来，假装什么也没有发生？——哈哈，怎么可能……我该怎么办，我该怎么办，我不能继续拖延征服大业，我没法脱身了，我们赢不了蒸汽巨人的，我做不到，我做不到！
+……好吧。也就是说，还能再使用五到十次……我得想想接下来该怎么办。我已经走得太远，不能简单退出，假装一切都该恢复正常——嘿嘿，你能想象吗……我该怎么办，我该怎么办，我不能再拖延征服大业，我无法坦白，我赢不了蒸汽巨人，我不能，我不能
 
-有人告诉我蒸汽巨人进攻了兽人…兽人，胜利了？
+刚有人告诉我，巨人袭击了兽人，兽人赢了
 
-我…好。我知道了！必须削弱那些兽人，重创他们，至少要威吓他们。让我们的族人进攻克鲁克部族，我会安排和蒸汽巨人的会面，告诉他们，我们帮了他大忙，然后交还给他们这件神器，如果我还能够把这个东西从角上拆下来而不把我的手炸掉的话……他们肯定会给我提供庇护的！然后还会给我的族人一片生存的土地。他们还会…他们至少会给我一个，让我不被那些因被欺骗而愤怒的暴民撕碎的机会的…
+我……对。我有脱身之计了。兽人一定已经遭到削弱、负伤，应该很好对付，至少很容易吓住。我的族人向克鲁克部落进军，我安排与巨人会面，告诉他们我帮了他们什么忙；如果能把神器从角上取下来又不炸掉自己的手，我就把它还给他们……他们会庇护我。他们会给我的族人一块土地。他们会……他们总会做点什么，让我有机会不被愤怒的暴民踩死……
 
-对不起，卡巴萨…]], "_t")
+对不起，卡巴萨]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/misc.lua"
@@ -3196,9 +3194,9 @@ t("steam quarry", "蒸汽采石场", "newLore category")
 t("a very old journal (1)", "非常古老的日志 (1)", "_t")
 t([[This is a matter most vexing.  Our digging was going well (if not particularly productively), and those fellows over in Geothermal Surveying told us they'd found a possible heat source, quite near an existing tunnel - but the miners started refusing to go there.  Copious complaints about assorted lesser maladies - nosebleeds, tremors, and general feelings of fear and unease.  On the other hand, a couple claim the vapors down there have done wonders for their clogged pores.
 
-Firing one as an example didn't work, and I have neither the time nor the inclination to get a bunch of layabouts to do their jobs.  I'm bringing in a yeti handler and excavating the whole area.]], [[这是最令人烦恼的事情。我们的挖掘工作进展顺利，尽管谈不上特别有成效。那些进行地热勘测的同事告诉我们，他们找到了一个潜在的热源，就在一个现有的隧道附近——但是矿工们都拒绝去那里，他们都抱怨自己得了各种小病——流鼻血、哆嗦、还有各种各样恐惧和不安造成的感觉。不过，有两个人声称那里的蒸汽对疏通他们堵塞的毛孔大有奇效。
+Firing one as an example didn't work, and I have neither the time nor the inclination to get a bunch of layabouts to do their jobs.  I'm bringing in a yeti handler and excavating the whole area.]], [[这是最令人烦恼的事情。我们的挖掘工作进展顺利，尽管谈不上特别有成效。那些进行地热勘测的同事告诉我们，他们找到了一个潜在的热源，就在一个现有的隧道附近——但是矿工们都拒绝去那里，他们纷纷抱怨自己得了各种小病——流鼻血、哆嗦，还有普遍的恐惧和不安。不过，有两个人声称那里的蒸汽对疏通他们堵塞的毛孔大有奇效。
 
-光靠解雇他们来杀鸡儆猴是没有用的，我既没有时间也没有意愿让这群懒鬼好好干完他们的工作。我准备叫来一个雪人操纵师，让他们完成开采任务。]], "_t")
+光靠解雇一个人来杀鸡儆猴是没有用的，我既没有时间也没有意愿让这群懒鬼好好干完他们的工作。我准备叫来一个雪人操纵师，把整片区域挖开。]], "_t")
 t("a very old journal (2)", "非常古老的日志 (2)", "_t")
 t([[Now I've had to fire a yeti handler as well.  The other workers tell me that the yetis would clutch their heads and hurl themselves into the chasm after no more than a few minutes of work in the promising area; we tried replacing the yetis, but then the handler developed a nosebleed as well, and then refused to do more work.
 
@@ -3251,9 +3249,9 @@ The Giants are beginning to falter, as the creations of the pettier gods inevita
 t("a journal (5)", "一份日志 (5)", "_t")
 t([[This is a time of celebration...  The Atmos have brought us a gift.  I no longer require their cooperation as a people; a handful of Blessed guards (including, in poetic irony, some of the former heretics) will suffice to keep the degenerates from disturbing Your return.  It will only be mere days until You are whole again...  You are an artist, and this world shall be Your canvas.  The degenerates will weep first at Your beauty when they behold You, then for the fate of their world, and then when they realize their sins and the fate they deserve.
 
-I will not beg You for redemption or forgiveness.  My species has already proven itself to be a treacherous, prideful mistake.  All I beg for is to live long enough to see Your masterpiece.]], [[这是一个值得庆祝的时刻……气之部族的人给我们带来了一份大礼。我们不再需要他们作为一个族群的合作；一群被祝福的守卫（讽刺的是，包括了一些过去的背教者）将会足以阻止那些腐朽者干扰你的回归。只需要几天的时间，你就可以恢复完整……你是一个艺术家，而这个世界就是你的画板。当那些腐朽者真正亲眼看到你的时候，他们首先会为你的无上美丽哭泣，接下来会为他们世界的命运哭泣，最后，他们将会为意识到自己深刻的罪行和所应配的审判命运而哭泣。
+I will not beg You for redemption or forgiveness.  My species has already proven itself to be a treacherous, prideful mistake.  All I beg for is to live long enough to see Your masterpiece.]], [[这是一个值得庆祝的时刻……气之部族的人给我们带来了一份大礼。我不再需要他们作为一个族群的合作；几名被祝福的守卫（讽刺的是，包括了一些过去的背教者）将会足以阻止那些腐朽者干扰你的回归。只需要几天的时间，你就可以恢复完整……你是一个艺术家，而这个世界就是你的画板。当那些腐朽者真正亲眼看到你的时候，他们首先会为你的无上美丽哭泣，接下来会为他们世界的命运哭泣，最后，他们将会为意识到自己深刻的罪行和所应配的审判命运而哭泣。
 
-我不会乞求你的救赎和宽恕。我们的族人已经向你证明，我们只是一个危险的，骄傲的错误。我所恳求的唯一一件事，就是活到亲眼见证你的杰作。]], "_t")
+我不会乞求你的救赎和宽恕。我的种族已经证明，自己不过是一个背信、傲慢的错误。我所恳求的唯一一件事，就是活到亲眼见证你的杰作。]], "_t")
 t("a journal (6)", "一份日志 (6)", "_t")
 t([[the fragments reform
 the visage of genius and beauty is once more
@@ -3339,8 +3337,8 @@ If you were to... [i]see[/i] an approaching assault force, I would verify your r
 
 -Cmdr. Trelle]], [[阁下，
 
-兽人的举动一天比一天更加放肆起来了。我想你一定也已经看到了——他们的探子越来越近，他们锻炉的浓烟飘过山脉，伴随着铁匠锻打武器发出的叮叮之声，还有他们演习时发出的愤怒战吼……你真的还要遵循这种自杀性的条约，继续按兵不动，直到他们的剑穿透你的喉咙吗？
-如果你真的[i]看到[/i]一支正在逼近的袭击部队，我会核实你的报告。按照法条，我们进行自卫是绝对合法的。既然我们都知道这场冲突是不可避免的，请你至少让我们获得突袭的战术优势，而不是他们。
+兽人的举动一天比一天更加放肆起来了。我想你一定也已经看到了——他们的探子越来越近，他们锻炉的浓烟飘过山脉，伴随着铁匠锻打武器发出的叮叮之声，还有他们演习时发出的愤怒战吼……你真的还要遵循这种自杀性的条约，继续按兵不动，直到他们的剑已经刺穿我们的喉咙吗？
+如果你要是……[i]看见[/i]一支正在逼近的袭击部队，我会核实你的报告。按照法条，我们进行自卫是绝对合法的。既然我们都知道这场冲突是不可避免的，请你至少让我们获得突袭的战术优势，而不是他们。
 
 指挥官特瑞尔]], "_t")
 t("a letter addressed to Commander Trelle", "一封写给指挥官特瑞尔的信", "_t")
@@ -3874,7 +3872,7 @@ section "tome-orcs/data/quests/voyage.lua"
 t("Voyage to the Center of Eyal", "直探地心！", "_t")
 t("In the Palace of Fumes you found a geothermal vent that digs deep into the planet's core.", "在烟雾宫殿中，你找到了一个冒出地热的排风口，直探这颗星球的地心。", "_t")
 t("Strange mutated giants came out. You must find the source of those titans!", "奇怪的变异巨人从里面走了出来。你必须找出泰坦的来源！", "_t")
-t("#LIGHT_GREEN#* Travelling deep within Eyal you found the source of all corruptions: the dead god #{bold}##CRIMSON#Amakthel#LAST##{normal}#.#WHITE#", "#LIGHT_GREEN#* 在埃亚尔的深核中寻找，你终于找到了一切污染的尽头：已死之神#{bold}##CRIMSON#阿马克泰尔#LAST##{normal}#。#WHITE#", "_t")
+t("#LIGHT_GREEN#* Travelling deep within Eyal you found the source of all corruptions: the dead god #{bold}##CRIMSON#Amakthel#LAST##{normal}#.#WHITE#", "#LIGHT_GREEN#* 在埃亚尔的深核中寻找，你终于找到了一切腐化的源头：已死之神#{bold}##CRIMSON#阿马克泰尔#LAST##{normal}#。#WHITE#", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/quests/weissi.lua"
@@ -4095,9 +4093,9 @@ t([[Dash forward using rockets.
 		If the spot is reached and occupied, you will perform a free melee attack against the target there.
 		This attack does 130% weapon damage.
 		You must dash from at least 2 tiles away.]], [[使用火箭向前突进。
-		如果目标地点已被占据，那么你对那里的目标进行一次近战攻击。
+		如果成功抵达目标地点且该处被占据，你将对那里的目标进行一次不耗回合的近战攻击。
 		攻击会造成 130% 武器伤害。
-		你必须至少突进 2 码。]], "_t")
+		你必须从至少 2 格外开始突进。]], "_t")
 t("Mind Controlled Yeti", "精神控制的雪人", "talent name")
 
 ------------------------------------------------
@@ -4935,8 +4933,8 @@ section "tome-orcs/data/talents/steam/elusiveness.lua"
 
 t("Slip Away", "身如游鱼", "talent name")
 t([[Using small steam motors to enhance your movements, you are able to slip past up to %d foes in a line.
-		After passing the targets, you will quickly run %d tiles away.]], [[用小型喷射引擎强化你的机动性，可以穿过直线上连续的 %d 个敌人。
-	穿越后，会急速前进 %d 码。]], "tformat")
+		After passing the targets, you will quickly run %d tiles away.]], [[用小型蒸汽马达强化你的机动性，可以穿过直线上最多 %d 个敌人。
+		穿过这些目标后，会急速前进 %d 格。]], "tformat")
 t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
 		Current bonus: %d%%.]], [[狩猎的快感令你精神焕发。半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
@@ -5101,9 +5099,9 @@ t([[You have learned to fire while moving.
 		In one motion, you fire your double steamguns (100%% weapon damage, 1 tile range penalty) and may then move to an adjacent tile (unless pinned to the ground or immobilized).
 		This talent can be activated for up to %d consecutive turns before it goes on cooldown, and takes time according to your steamtech speed or movement speed (if you move), whichever is slower.
 		When Strafe ends you may instantly reload between %d and %d ammo (based on the number of strafes you performed and your ammo capacity).]], [[你学会如何在移动中射击。
-		在射击（100%% 武器伤害，射程 -1）的同时你能移动到相邻的一格。
-		该技能在冷却前能激活连续 %d 个回合，消耗时间取决于蒸汽速度和移动速度较慢者。
-		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
+		你用双持蒸汽枪开火（100%% 武器伤害，射程 -1），随后可以移动到相邻的一格（除非被定身或无法移动）。
+		该技能在冷却前最多能连续激活 %d 回合，耗时取决于蒸汽科技速度，或在移动时取决于移动速度，取较慢者。
+		扫射结束时，你可以立刻装填 %d 到 %d 发弹药（取决于你进行扫射的次数和弹药容量）。]], "tformat")
 t("Startling Shot", "惊吓射击", "talent name")
 t("Something", "某物", "_t")
 t("%s misses %s shot.", "%s故意射偏了，%s那一枪没有命中目标。", "logSeen")
@@ -5429,12 +5427,12 @@ t([[Fires your ammo at an enemy in range %d for %d%% weapon damage.  If this tin
 t("Fatal Attractor", "致命诱饵", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("fatal attractor", "致命诱敌装置", "_t")
-t("A psionic contraption that reflects damage and forces things to attack it.", "一个反射伤害并迫使物体攻击的灵能装置。", "_t")
+t("A psionic contraption that reflects damage and forces things to attack it.", "一个反射伤害并迫使周围单位攻击它自身的灵能装置。", "_t")
 t([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.
 		The contraption will have %d life and last 5 turns.
 		Damage, life, resists, and armor scale with your Steampower.]], [[快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。
-该装置拥有 %d 点生命值，持续 5 回合。
-其伤害、生命值、抗性和护甲随你的蒸汽强度提升。]], "tformat")
+		该装置拥有 %d 点生命值，持续 5 回合。
+		其伤害、生命值、抗性和护甲随你的蒸汽强度提升。]], "tformat")
 t("Rocket Boots", "火箭靴", "talent name")
 t([[Activate the rocket boots, firing huge flames from your boots increasing your movement speed by %d%%.
 		Each movement will leave a trail of flames doing %0.2f fire damage for 4 turns.
@@ -5488,7 +5486,7 @@ t("%s shreds through sandwalls!", "%s 挖开沙墙！", "logSeen")
 t("You shred pieces of sandwalls. Brrrmmm!.", "你碎裂了沙墙。布鲁——！", "_t")
 t("Flamethrower", "火焰喷射器", "talent name")
 t([[Throw a cone of flame with radius %d
-		The damage will increase with your Steampower.]], [[在 %d 码范围内放出锥形火焰
+		The damage will increase with your Steampower.]], [[喷出半径 %d 的锥形火焰
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
@@ -5511,9 +5509,9 @@ t([[Touch a creature to release a nasty electrical charge into them, doing %0.2f
 		If this tinker is above tier 1, the electricity can arc to another target up to 2 tiles away.
 		The number of enemies hit is at most the tinker tier.
 		The damage increases with your Steampower.]], [[触碰一个生物，将猛烈的电流注入其体内，造成 %0.2f 点闪电伤害。
-如果这件蒸汽工具高于 1 级，电流可以跳向最远 2 格内的另一个目标。
-命中的敌人数量最多等于蒸汽工具的等级。
-伤害随蒸汽强度提高。]], "tformat")
+		如果这件蒸汽工具高于 1 级，电流可以跳向最远 2 格内的另一个目标。
+		命中的敌人数量最多等于蒸汽工具的等级。
+		伤害随蒸汽强度提高。]], "tformat")
 t("Flash Powder", "闪光粉", "talent name")
 t("%s resists the blinding light!", "%s抵抗了致盲！", "logSeen")
 t([[Throw a handful of dust that rapidly oxidises, releasing a blinding light.
@@ -5708,8 +5706,9 @@ t("Electricity", "电子", "talent name")
 t([[Allows you to create electrical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的电子道具。
-			1 级时必定获得一个配方。之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方。
+		%s]], [[允许你制造 %d 等级的电子蒸汽工具。
+		你将在 1 级时学会一个新配方。
+		此后每升一级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会一个（除非已学会全部配方）。
 		%s]], "tformat")
 t("Compact Steam Tank", "蒸汽容量强化", "talent name")
 t("Increases the capacity of your steam tank by %d.", "增加你的蒸汽容量 %d。", "tformat")
@@ -5795,7 +5794,7 @@ t("chemistry", "化学", "talent type")
 t("Learn the chemistry side of steamtech.", "学习化学方面的蒸汽技术。", "_t")
 t("blacksmith", "铁匠", "talent type")
 t("All this metalworking has improved you.", "这些金属加工经验使你得到了提升。", "_t")
-t("engineering", "工程师", "talent type")
+t("engineering", "工程", "talent type")
 t("You don't just know how tinkering works, you know all the interesting details too!", "你不仅懂得蒸汽工艺的运作原理，还掌握了其中所有有趣的细节！", "_t")
 t("butchery", "屠杀", "talent type")
 t("Strap saws to your arms and rush into battle!", "把链锯绑在双臂上，冲进战场！", "_t")
@@ -6193,7 +6192,7 @@ t("Can not discern foes from friends.", "不能区分敌人和盟友。", "tform
 t("#Target# wakes up from the nightmare very confused!", "#Target#从噩梦中醒来，非常混乱！", "_t")
 t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
 t("Psy Worm", "灵能蠕虫", "_t")
-t("Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.", "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可传播给半径 3 内尚未感染且与宿主同阵营的单位；宿主死亡时必然传播，否则每回合有 25% 几率传播。", "tformat")
+t("Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.", "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可对半径 3 内对宿主友好且尚未感染的单位尝试传播（目标可抵抗）；宿主死亡时必定尝试，否则每回合有 25%% 几率尝试。", "tformat")
 t("#Target# is infected by a psy worm!", "#Target#被灵能蠕虫感染！", "_t")
 t("#Target# is free from the psy worm.", "#Target#脱离灵能蠕虫影响。", "_t")
 t("fear", "恐惧", "effect subtype")
@@ -6333,7 +6332,7 @@ t("Bullets shot are supercharged:  They can pass through multiple targets and ha
 t("Bullet Mastery: Percussive", "子弹掌握：冲击", "_t")
 t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：%d%% 概率击退，%d%% 概率震慑。", "tformat")
 t("Bullet Mastery: Combustive", "子弹掌握：爆炸", "_t")
-t("Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage.", "子弹处于爆炸状态：对 2 码范围内的敌人造成 %d 火焰伤害。", "tformat")
+t("Bullets shot are combustive:  When striking their target, they explode (radius 2) for %d fire damage.", "发射的子弹具有爆炸性：命中目标时会爆炸（半径 2），造成 %d 点火焰伤害。", "tformat")
 t("Uncanny Reload", "神秘装填", "_t")
 t("Firing steamguns does not consume shots.", "蒸汽枪不消耗子弹。", "tformat")
 t("#Target# is focuses on firing.", "#Target# 集中精力开火。", "_t")
@@ -8040,15 +8039,15 @@ Race features:#YELLOW#
 - Algid Rage, call upon the harsh climate of their birthplace to freeze their foes
 - Mindwave, the controlling orc retains a small part of his psionic powers, giving them a powerful mind-tool
 - Strong body#WHITE#
-]], [[雪人是克拉克半岛寒冷山脉中的原始物种，尽管他们是双足行走、高度进化的动物，他们仍然缺乏真正的意识。
-他们极其强壮的身躯覆盖白色毛皮，但是他们的心灵十分脆弱。
-克鲁克部落的灵能科技找到了一种方法侵入雪人的身体，将他们自己的意识转移进去来强化部落的战斗力。
+]], [[雪人是克拉克半岛寒冷山脉的本土生物；它们是高度进化的双足动物，但仍缺乏真正的意识。
+白色毛皮覆盖着它们极其强壮的身躯，但它们的心灵十分脆弱。
+克鲁克部落的灵能科技人员设法设计出一套系统来劫持雪人的身体，把自己的意识转移进去，从而增强部落的战斗力。
 
-你已经帮忙抓住了足够多的雪人，你现在可以创造新的种族：#LIGHT_GREEN#雪人#WHITE#。
+你已经为此帮助捕获了多个雪人，现在可以使用#LIGHT_GREEN#雪人种族#WHITE#创建新角色。
 
 种族特色：#YELLOW#
-- 寒冰之怒，使用它们故乡恶劣的气候来冻结他们的敌人。
-- 脑波冲击，控制雪人的兽人仍然保留着一小部分灵能，让他们拥有强大的心灵武器。
+- 寒冰之怒，利用它们故乡的严酷气候冻结敌人。
+- 脑波冲击，控制雪人的兽人仍保留着一小部分灵能力量，赋予雪人强大的心灵武器。
 - 强大的身躯#WHITE#
 ]], "_t")
 
