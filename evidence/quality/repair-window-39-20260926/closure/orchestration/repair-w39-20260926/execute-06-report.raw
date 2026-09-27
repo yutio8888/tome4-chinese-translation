@@ -1,0 +1,12 @@
+已完成 R4 两条 confirmed 修复：
+
+- [tome-orcs.lua:2091](/workspace/tome4-chinese-translation/tome-orcs.lua:2091)：蒸汽阀 → 蒸汽管道。
+- [tome-orcs.lua:3206](/workspace/tome4-chinese-translation/tome-orcs.lua:3206)：采石场笔记末段按指定译文修改，末尾换行保留。
+
+验证全部通过：
+
+- LuaJIT：3904 条正常加载；相对 HEAD 恰 27 条 WORKSET target 变化；非 target 字段变化 0；R4 两条精确匹配。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+
+Advisory 未改；未修改 `.ai/task`，未 stage、commit、push 或创建 agent。

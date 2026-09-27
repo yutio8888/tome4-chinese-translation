@@ -1,0 +1,26 @@
+{
+  "cycle": 2,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r2a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 25,
+  "raw_issue_count": 2,
+  "decision": "bounded fix (execute-04) then RE_REVIEW(3)",
+  "findings": [
+    {
+      "revision_key": "3fbaffc6c45564dfb2682edb2af83f8b6277ac4ce200b1fa54643da7ad6d735f",
+      "status": "refuted",
+      "tier": 1,
+      "category": "mechanism",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/other.lua:307–320 TINKER_HAND_CANNON getAttacks 在技能等级 ≥5 时为 2；tome-orcs/data/general/objects/tinkers/mechanical.lua:43–55 手炮道具 for i=1,5：material_level=i 且 learn_talent 等级=i，第5级材质即沃瑞钽钢，故“沃瑞钽钢制作时多射一发”与实现等价，译文正确，保留。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "43d64e16d118a6f700d7a08be2d864a5de274a9402354f4098e3b3a0f2678713",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "completeness",
+      "reason": "公开 Orcs tome-orcs/data/chats/destructicus.lua:76：“It reaches its mark, and the panel goes dark as a tremendous, multicolored blast fills your vision through the window.”现译“导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，面板随之变暗。”漏 multicolored，且“堵塞视线”与 fills your vision 不符；同窗 4a4f53d70c 已作“五彩爆炸充满了你的视野”。改为“导弹命中目标，面板随之变暗，一场巨大的五彩爆炸透过窗户充满了你的视野。”Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-26T17:56:06.532696+00:00"
+}

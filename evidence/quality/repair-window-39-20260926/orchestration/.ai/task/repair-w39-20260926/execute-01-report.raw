@@ -1,0 +1,47 @@
+已完成 `repair-w39-20260926`，仅修改：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-39-20260926/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-39-20260926/VALIDATION.json)
+
+逐条修复：
+
+- `38df4d785d`：限定毁灭号为直接命中引爆的目标。
+- `38e3195b27`：补回“南方的”巨魔帝国港口。
+- `393ceabce5`：补回短暂疯狂、个人请求、最后想法、迟早夺回洞穴及协助反抗。
+- `3a43293d14`：恢复铁匠配方三行结构及“除非已学会全部配方”。
+- `3bb826649c`：修正阿马克泰尔祷文的诸神、形体与至高神语义。
+- `3c68b52ee2`：补回火箭靴留下火焰轨迹。
+- `3ea7432fdc`：补回蒸汽压力、锯齿刀片与高速旋转。
+- `3f615510ad`：修正“自动机械”“哼”，恢复末尾换行。
+- `3f7dc08a62`：将“你的部落”修为“各兽人部落”。
+- `3fbaffc6c4`：恢复手炮换行及远程发动的近战攻击机制。
+- `431cacf5c7`：修正公告空行、“超过40%”“最高四年”和清淤药水表述。
+- `433071ee0f`：恢复缠绕苔藓四处双 TAB。
+- `43cbe69c78`：恢复涡轮切割者描述的引号、省略号。
+- `43d64e16d`：修正窗外/占卜面板视角、瓦·埃亚尔及段落结构。
+- `43d8bb19bc`：补回飞爪无人机、追踪和目标自身阻挡机制。
+- `44947e3a4c`：恢复“从齿轮里清理血迹”的挑衅。
+- `461ab2185c`：五处续行由双 TAB 恢复为单 TAB。
+- `46b5e759b`：修正锥形修复能量、其他机械生物及双 TAB。
+- `4712cc5e45`：补回“暂时安全”。
+- `482a7a631d`：恢复毛囊受损笑话。
+- `4831df6575`：修正到达时间、宇宙遗忘、托举/拖入深渊及碎片排列。
+- `49c7875073`：删除源文没有的 `[b]…[/b]`。
+- `49cf2e17cf`：仅本条改名为“碾压战车”。
+- `4a4f53d70c`：修正五彩爆炸、荒芜山顶、瞄准画面、仁慈反应、庆祝对象及段落。
+- `4bc761fa2d`：将被毁“记录”修为被毁的众多“图像”。
+- `4cad070d1e`：统一“城市卫兵队长”，修正一时气恼、灵魂意识、人偶及“不大可能”。
+- `4d3cfeb531`：补回永久束缚及随时召唤几个回合。
+
+验证结果：
+
+- 22 个指定 DLC 源文件哈希：全部匹配 SOURCE-ANCHORS。
+- LuaJIT 加载：3904 → 3904 条；恰有 27 个 target 改动。
+- Workset：27/27，无缺失、无越界、无非 target 字段变化。
+- LF、TAB、空行下标、末尾换行、markup 与占位符位置：全部通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未 stage、commit、push；未创建 agent；既有未跟踪文件未触碰。
+
+剩余风险仅为 Orcs 源码仓库/commit 未固定；本次依赖的逐文件冻结 SHA 均已匹配。

@@ -1,0 +1,13 @@
+已完成本次有界 FIX。
+
+- [tome-orcs.lua:5414](/workspace/tome4-chinese-translation/tome-orcs.lua:5414)：`沃瑞钽钢` → `沃瑞钽`
+- [tome-orcs.lua:2085](/workspace/tome4-chinese-translation/tome-orcs.lua:2085)：`蒸汽矿场` → `蒸汽采石场`
+- advisory 条目未动；窗口外 [tome-orcs.lua:2025](/workspace/tome4-chinese-translation/tome-orcs.lua:2025) 的“蒸汽矿场”保持不变。
+- Paseo EXECUTOR 约束用于限定唯一写入文件和禁止操作。
+
+验证全部通过：
+
+- LuaJIT：前后均加载 3904 条；相对 `HEAD` 恰有 27 条 target 变化，WORKSET 完全匹配，非 target 字段变化为 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 无 staged 内容；未修改 `.ai/task`，未 commit、push 或创建 agent。

@@ -1,0 +1,103 @@
+{
+  "dispatch_id": "f6a3",
+  "native_session": "16084a2f-e4af-48c0-90c7-d10043719f54",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/16084a2f-e4af-48c0-90c7-d10043719f54.jsonl",
+  "native_sha256": "e86f61430d72aa99296c8d9f18dfb947002a88647a5e01321f910664a56d2507",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_014nm7nYSvjTyaqoH1KnWUoA",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w39-20260926/CONTEXTUAL-ENVELOPE-f6a3.json; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Check envelope size and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01UhAfy4uu83UtqSiCA8HCMA",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 1,200p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read the v2 contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01CsJzSPGu5HGCsDaJf5b7rT",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w39-20260926/CONTEXTUAL-ENVELOPE-f6a3.json'))\np=d['payload']\nprint(d['candidate_identity'])\nprint(p['fixed_source_identity'], p['terminology_snapshot'] if len(str(p['terminology_snapshot']))<2000 else str(p['terminology_snapshot'])[:2000])\nprint(p['rendered_briefing'])\nprint(len(p['ordered_revision_keys']))\n\"",
+        "description": "Inspect envelope metadata and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013prBzxzR1VW1C6cRnFZUKc",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w39-20260926/CONTEXTUAL-ENVELOPE-f6a3.json'))\np=d['payload']\nfor r in p['terminology_snapshot']['records']: print(r['record'])\nprint('====')\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('#####',k)\n  print(json.dumps(t,ensure_ascii=False))\n  print('CTX:',c['context'][:6000] if isinstance(c.get('context'),str) else json.dumps(c,ensure_ascii=False)[:6000])\n\"",
+        "description": "Dump translations and contexts"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_014JSkHmPnny8wyNU7VKo8Zg",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w39-20260926/CONTEXTUAL-ENVELOPE-f6a3.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nfor r in ts['records']: print(r['record'])\nprint('====')\nprint(json.dumps(p['translation_snapshot'][0],ensure_ascii=False)[:500]); print(json.dumps(p['bounded_context'][0],ensure_ascii=False)[:3000])\n\"",
+        "description": "Dump terminology and first entry structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RDFYahY6DZwvzm64PLxxsD",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w39-20260926/CONTEXTUAL-ENVELOPE-f6a3.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  cx=json.loads(c['context'])\n  se=cx.get('source_evidence',{})\n  print('#####',i+1,t['revision_key'][:8],cx.get('file'),cx.get('line'),cx.get('section'),cx.get('source_tag'),se.get('component'),se.get('public_source_path'),se.get('matching_lines'))\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  if cx.get('adjacent_translations'): print('ADJ:',json.dumps(cx['adjacent_translations'],ensure_ascii=False)[:800])\n  extra={k:v for k,v in cx.items() if k not in ('adjacent_translations','file','line','section','source_evidence','source_tag')}\n  if extra: print('EXTRA:',json.dumps(extra,ensure_ascii=False)[:1500])\n\"",
+        "description": "Dump all source/target pairs"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Q1gkA5BxakYhVF1DtEFVRj",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/16084a2f-e4af-48c0-90c7-d10043719f54/tool-results/bxg3nzoop.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Gxo7kPj7YmaRcqWm8eYnRr",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && ls; f=$(find /workspace/tome4-dlcs/orcs -path '*data/general/objects/steamsaw.lua' | head -1); echo $f; sha256sum $f; sed -n 25,60p $f; g=$(find /workspace/tome4-dlcs/orcs -path '*data/talents/steam/demolition.lua'|head -1); sed -n 150,200p $g",
+        "description": "Check steamsaw and grenade source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

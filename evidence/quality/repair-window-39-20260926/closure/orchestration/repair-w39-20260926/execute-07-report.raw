@@ -1,0 +1,15 @@
+已完成 F5 两条 confirmed 修复：
+
+- [tome-orcs.lua:519](/workspace/tome4-chinese-translation/tome-orcs.lua:519)：改为“我同情他，但我不能原谅他”。
+- [tome-orcs.lua:3214](/workspace/tome4-chinese-translation/tome-orcs.lua:3214)：
+  - “崇高主宰”→“正统主宰”
+  - 改为“你的创造之魔法仍在摆弄其他神祇的造物，看看会产生什么结果”
+
+验证全部通过：
+
+- LuaJIT 语义加载：4202/4202 条；baseline 与 HEAD blob 一致；相对 HEAD 恰 27 个 WORKSET target 变化，非 target 变化 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 三个新片段各出现 1 次，旧片段均为 0 次。
+
+未修改 `.ai/task`，未创建 agent，未 stage、commit 或 push；既有无关未跟踪文件保持不动。

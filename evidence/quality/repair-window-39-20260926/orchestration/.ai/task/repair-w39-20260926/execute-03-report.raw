@@ -1,0 +1,11 @@
+已完成本次 FIX，仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua) 两处：
+
+- `431cacf5c7`：改为“能源消耗公告，由地热能源理事局出资发布”。
+- `4cad070d1e`：改为“我们正式推荐桌面游戏”。
+
+验证全部通过：
+
+- LuaJIT 相对 `HEAD`：3904 条加载成功，恰好 27 条 target 变动；WORKSET 完全匹配，非 target 字段变动 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 无 staged 内容，未修改 `.ai/task`，未 commit、push 或创建 agent。

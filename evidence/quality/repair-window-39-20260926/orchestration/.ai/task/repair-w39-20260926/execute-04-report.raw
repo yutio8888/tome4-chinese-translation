@@ -1,0 +1,14 @@
+已完成本次 FIX。
+
+- 修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:360)：
+  - 原文：“导弹到达了目的地……”
+  - 改为：“导弹命中目标，面板随之变暗，一场巨大的五彩爆炸透过窗户充满了你的视野。”
+- `refuted` 手炮条目未改动。
+- 其余文字、markup、LF/TAB 结构及其他记录未动。
+
+验证全部通过：
+
+- LuaJIT：3904 条成功加载；相对 `HEAD` 恰有 27 条 target 变动，WORKSET 完全匹配，非 target 字段变动 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 无 staged 内容；未修改 `.ai/task`，未 commit、push 或创建 agent。

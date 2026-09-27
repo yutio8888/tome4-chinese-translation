@@ -1,0 +1,15 @@
+已完成 FIX，未 stage、commit、push，未创建 agent，未修改 `.ai/task`。
+
+改动：
+
+- [terminology/items.tsv](/workspace/tome4-chinese-translation/terminology/items.tsv:26)：`steamsaw` 状态改为 `preferred`，notes 按指定文本更新。
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)：workset 条目 `43cbe69c` 与 15 条 runtime-sync target 统一为「蒸汽链锯」。
+
+验证结果：
+
+- `verify_translation_diff.py`：通过，`verified=true`，27 条 workset + 15 条 runtime-sync。
+- `tools/i18n lint --strict`：通过，30308 条翻译，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 原样全库 `grep`：仅命中 `.ai/task/repair-w37/w38/w39.../baseline/tome-orcs.lua` 冻结基线；任务禁止修改这些文件。
+- 排除 `.ai` 后及所有受跟踪 `*.lua`：无「蒸汽锯」残留。
+- 最终 diff 仅涉及 `terminology/items.tsv` 和 `tome-orcs.lua`。

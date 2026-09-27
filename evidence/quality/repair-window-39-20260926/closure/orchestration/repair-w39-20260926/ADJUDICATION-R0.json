@@ -1,0 +1,47 @@
+{
+  "cycle": 0,
+  "stage": "REVIEW",
+  "accepted_dispatch_id": "r0a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 22,
+  "raw_issue_count": 5,
+  "decision": "bounded fix (execute-02) then RE_REVIEW(1)",
+  "findings": [
+    {
+      "revision_key": "38df4d785da09e1029ca99fb6a198587c618c9729884660c9d4fc844247d86c8",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "terminology/creatures.tsv:50 DESTRUCTICUS=毁灭号（preferred），notes 明确武器全称为“裂天者 毁灭号”；tome-orcs.lua 中该全称 5 处作“裂天者 毁灭号”，仅本条广告作“毁灭号——狂妄的天空穿透者”。按 preferred 术语统一（此为宿主依术语库裁决，SPEC“不统一毁灭号称呼”一句对本条以本裁决为准）：标题改为“#{bold}#裂天者 毁灭号#{normal}#”，markup 不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3a43293d1413eb1b537c32bff084a01a3a6a8b76b4dbd0ec05dc9bdfe1eb7c57",
+      "status": "refuted",
+      "tier": 1,
+      "category": "terminology",
+      "reason": "terminology/items.tsv:24 tinker=蒸汽工具 仅为 existing（实体类型），无背书力；窗口38同型质疑已驳回，同族条目统一作“…道具”（如“机械道具”“化学道具”）。“铁匠道具”保留。"
+    },
+    {
+      "revision_key": "3f615510ad2c3bc4317b27ac5244b73cedaa39b6e35fc49adbb6a9dcbe50be44",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs tome-orcs/data/lore/quarry.lua:44：“they excavated enough of the offending cavern (and presumably purged enough of whatever pollutant was down there) that living workers are once again willing to work in the nearby areas”——挖开了足够多的部分、使活着的工人愿意回到附近区域；现译“开凿完成了那个有问题的洞穴……现在工人们又重新愿意在这里干活了”把部分写成全部并漏 nearby/living。改为“……它们就把那个惹麻烦的洞穴挖开了足够大的一片（大概也把底下不知什么污染物清掉了不少），活着的工人们又愿意到附近一带干活了。”Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4a4f53d70c2d78a3118cb73ce7f0990ee60c5968e7f155753471851182a912c4",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs tome-orcs/data/chats/destructicus.lua:104：“Var'Eyal, and the Orcs who now own it, will know peace for the first time in millennia”＝千年来首次迎来和平；现译“第一次明白了和平的意义”改成理解意义。改为“瓦·埃亚尔，以及如今拥有它的兽人们，将迎来千年以来的第一次和平。”Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4cad070d1e3b2b53fe44d58d880466e45c537b0927bd87c8707ca1a5771549c7",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:40：“the figurines are designed to release their spirits after no more than one month”无起算点；现括注“这个模型被设计成在使用后一个月内解放里面的灵魂”加了“使用后”，且仍作“模型”而同段已改“人偶”。改为“（和往常一样，这些人偶的设计确保其中的灵魂最多一个月后便会获释，以尽可能人道地对待亡者。）”Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "recorded_at": "2026-09-26T17:42:50.385530+00:00"
+}

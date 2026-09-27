@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w39-20260926",
+  "role": "executor",
+  "baseline_commit": "5454fc6f6b1bb67b3ef35baba2a3c618d61a9308",
+  "inputs": {
+    "workset_sha256": "5489bb45554f5884a170ead07828f1cc5ba4a4b81766ffa808297c307194d3b1",
+    "source_anchors_sha256": "85b70b637d0fa514b81a37e53fed43ed214abe52d61ba6294334c6c58020a27d",
+    "baseline_records_sha256": "673100dee9e26337a042cb0b94b040a18de651219667ae87a6abd52e85afb6d5",
+    "term_snapshot_sha256": "46be80e6c30d0c771d63963ee8e42c79a6d89b121caf6ea7a51856e2555db8e9"
+  },
+  "output": {
+    "path": "tome-orcs.lua",
+    "sha256": "55449262c7ecce6dbe68f7b91f9ec6c2cb9ce4da39997d97ddb9d030b9cc832a"
+  },
+  "source_anchor_check": {
+    "root": "/workspace/tome4-dlcs/orcs",
+    "exact_paths_checked": 22,
+    "hash_matches": 22,
+    "hash_mismatches": 0,
+    "source_repository_commit_pinned": false
+  },
+  "semantic_load_and_diff": {
+    "loader": "tools.i18nlib.locale_model.LocaleLoader",
+    "lua_version": "Lua 5.1",
+    "luajit_version": "LuaJIT 2.1.0-beta3",
+    "baseline_translation_count": 3904,
+    "current_translation_count": 3904,
+    "changed_target_count": 27,
+    "expected_target_count": 27,
+    "workset_exact": true,
+    "missing_workset_keys": [],
+    "unscoped_changes": [],
+    "non_target_field_change_count": 0,
+    "newline_checks_pass": true,
+    "terminal_newline_checks_pass": true,
+    "tab_prefix_checks_pass": true,
+    "blank_line_index_checks_pass": true,
+    "markup_checks_pass": true,
+    "markup_line_position_checks_pass": true,
+    "placeholder_checks_pass": true,
+    "placeholder_line_position_checks_pass": true,
+    "changed_revision_keys": [
+      "3f7dc08a6231aa1ce3694b034558c2da48adc26d7d56fe1fa4556051127e297e",
+      "43d64e16d118a6f700d7a08be2d864a5de274a9402354f4098e3b3a0f2678713",
+      "4a4f53d70c2d78a3118cb73ce7f0990ee60c5968e7f155753471851182a912c4",
+      "4d3cfeb53158780027eb7c9f2411da8aa362efc00a8154110b594eb384b88e5c",
+      "44947e3a4ca9b6178d09c47d95e63ea330bd35ba8a541d40a459dcfde035e509",
+      "393ceabce51dd234f1cb9e2e64edd04c1fbd6479a31b728ba16b1ca2088b3d50",
+      "3ea7432fdc497a4ea6c5aa3355ab3ad5d8753c17135ed98281a508166137eb1e",
+      "482a7a631df7263eca85862e2f12a0b19260af3ea324616fa85dc09d2e54c6e9",
+      "49cf2e17cf998b5280aeac0a6d1b5f15df7704c2d66e49253699f97f02f5cd40",
+      "43cbe69c78e4370a12af9d4a391f8c488d928c693d209661cb0e18a8bf3c703e",
+      "38df4d785da09e1029ca99fb6a198587c618c9729884660c9d4fc844247d86c8",
+      "431cacf5c731a9abf65ebc985c7ff5df804838312e9fa9ea8f9f5c1e75d923bf",
+      "4bc761fa2d032dc7e134544bb3d83534ce337c6ae9957cf7cc77185648e29f61",
+      "4cad070d1e3b2b53fe44d58d880466e45c537b0927bd87c8707ca1a5771549c7",
+      "49c78750731d65bfd64201da83f41e52677d6c8d110708547ee669f8eeda1d78",
+      "3f615510ad2c3bc4317b27ac5244b73cedaa39b6e35fc49adbb6a9dcbe50be44",
+      "3bb826649c2149cbdc024ee1096b58c24ea232a31a9a0abed3aa3e7c9c3b333a",
+      "4831df657569782033dbbdca0987163dc7c933897cec5134c53ce54e9801b7dc",
+      "38e3195b27e80f519f74adcdabef1c0321f399ec4950248967c931f7399e7eb7",
+      "4712cc5e45f00f5e855b5b8106cfa6d7f336003187e35c0f740e5c412f021a37",
+      "43d8bb19bcd17f7f5fc086fc1296fbda5c733d51a1b5ebf29c680e2daf5fc587",
+      "461ab2185c452cff1f1d499a7e6dc0a89c780ce972b7c8aebac4d14beea523ef",
+      "3fbaffc6c45564dfb2682edb2af83f8b6277ac4ce200b1fa54643da7ad6d735f",
+      "46b5e759b98d2f3cd2605817d62e9eeea5b7be1a677ad85c8d7a015c02b86e53",
+      "433071ee0f8277a59e668b17e36ac0746b841b8b75fb3000ded290f1c369bb23",
+      "3a43293d1413eb1b537c32bff084a01a3a6a8b76b4dbd0ec05dc9bdfe1eb7c57",
+      "3c68b52ee20dfeea8a4c12a2339ad90d5d81f49852d74d61d529de5a6c3960f5"
+    ]
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; unpinned-source warnings only"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}
