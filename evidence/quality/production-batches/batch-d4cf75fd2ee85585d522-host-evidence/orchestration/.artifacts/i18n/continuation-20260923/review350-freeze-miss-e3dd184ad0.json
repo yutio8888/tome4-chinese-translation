@@ -1,0 +1,9 @@
+{
+  "batch": 350,
+  "batch_id": "batch-d4cf75fd2ee85585d522",
+  "entry_revision_identity": "e3dd184ad08da8c7a0f7b0f0b309c09fcba594bfc647123de3d345ecb2af2f30",
+  "catalog_row": "tome-orcs.lua:8343 (section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua, present since the initial commit b0890a48)",
+  "finding": "orphan row. The Menders lore text 'We recognize that times are changing...' exists in public Orcs code only in tome-orcs/data/lore/primal-forest.lua (line 76 ends 'potential for abuse.' followed by two spaces); DebugMain.lua does not contain it. This row's source drops those trailing spaces and sits under an unrelated section, so its key never matches at runtime. The live row is tome-orcs.lua:3150 (section primal-forest.lua), whose source keeps the trailing spaces; the upstream zh_hans locale likewise has the text only under the primal-forest section.",
+  "host_block": "not used: host-block requires a commit-pinned fixed source (DLC rows carry snapshot: identities), and the literal is present in code with different trailing whitespace, so whole-code absence cannot be asserted.",
+  "handling": "reviewed normally in this batch; the orphan row is a catalog cleanup candidate for the maintainer, not a translation repair."
+}
