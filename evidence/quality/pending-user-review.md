@@ -314,3 +314,11 @@
    - 争议理由：窗口 45 RE_REVIEW（GPT-6 Sol）与 FINAL（Opus 5.5）都指出本条与术语不一致；只改本条会破坏六条同族一致，统一属跨条译名决定，本窗口记 advisory。与 #39（Electricity“电子”）相关。
    - 宿主处理：三轮独立复审（r2a1、f3a2、r4a1）一致指出，窗口 45 已把本条对齐术语改为“电子蒸汽工具”（技能名“电子”仍待 #39）；其余五条排入窗口 46 宿主补充同样对齐。
    - 建议选项：认可对齐“蒸汽工具” / 全部保持“道具”（则窗口 46 回退本条）。
+
+## 第 354 批待审阅
+
+42. Orcs 巨炮专名 `DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY`（`f79246dcbe`，tome-orcs.lua:332 chats/destructicus.lua）
+   - 源码：公开 Orcs DLC `tome-orcs/data/chats/destructicus.lua:30/37/98/102`、`data/lore/destructicus.lua:29`、`data/lore/palace-fumes.lua:170`、`data/zones/palace-fumes/objects.lua:34`（同一门防空巨炮的全称，均为粗体大写）。第 354 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现状：对话与 lore 六处作“裂天者 毁灭号”（tome-orcs.lua:330/332/379/383/1891 一带）；实体名作“毁天灭地，无礼的天空穿透者”（7289）；蒸汽议会记录作“毁天灭地、无礼的贯穿者————”（2923，原文在 OF- 处被打断）。
+   - 争议理由：第 354 批 GPT-6 Sol 表层筛查指出“裂天者 毁灭号”没有译出 IMPOLITE（无礼）这一笑点；Opus contextual 判 OK。三处译名不一，统一须跨对话、lore 与实体名改多条，属全局更名，本批记 advisory。
+   - 建议选项：保持现状 / 统一为实体名“毁天灭地，无礼的天空穿透者”（改对话与 lore 六处，议会记录截断版相应改为“毁天灭地，无礼的天空——”）/ 统一为“裂天者 毁灭号”（改实体名与议会记录）/ 另拟兼顾 Destructicus 与 impolite penetrator 的译名。

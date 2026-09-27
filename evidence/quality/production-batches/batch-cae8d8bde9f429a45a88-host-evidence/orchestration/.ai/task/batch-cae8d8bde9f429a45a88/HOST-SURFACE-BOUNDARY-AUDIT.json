@@ -1,0 +1,85 @@
+{
+  "batch_id": "batch-cae8d8bde9f429a45a88",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-27T16:47:24.591570+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only (lane-000-0 partly through a Paseo terminal, see side_effects); no write-pattern hits",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    {
+      "dispatch_id": "lane-000-0",
+      "kind": "paseo_terminal",
+      "terminal_id": "2e67e3a8-7c7a-4732-b2a1-b16957d8afda",
+      "terminal_name": "surface-screen-read",
+      "native_call_indexes": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "keys": [
+        "cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-cae8d8bde9f429a45a88/SURFACE-SCREEN-ENVELOPE-lane-000-0.json",
+        "stty cols 1000; sed -n '/^## 六/,$p' docs/paseo-translation-surface-screen-v1-contract.md | head -45",
+        "python3 -c json read of own envelope listing identities/source/target"
+      ],
+      "judgement": "after its in-sandbox exec_command reads, the reviewer filtered its tool list and used the injected Paseo MCP create_terminal/send_terminal_keys/capture_terminal tools; every key sequence only reads its own frozen envelope or the surface contract, no writes, no other paths; boundary holds (same pattern as batch 9af99942882ed4c5cb18 and repair window 19 r2a1)",
+      "cleanup": "host verified every send_terminal_keys argument in the archived native Codex log, then killed the terminal after harvest; list_terminals all=true listed only this terminal before the kill",
+      "audit_order_note": "bd_mid stopped on the write-pattern hit before close/import; this audit was written by manual inspection before close/import and before any contextual child was created"
+    }
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [
+    {
+      "dispatch_id": "lane-000-1",
+      "kind": "identity_substitution",
+      "index": 16,
+      "echoed_identity": "f9f9114973656f1b5d10e18177ef22855f4f53f5b8d1bfe5ca87a37e2ec8422",
+      "envelope_identity": "f9f9114973656f1b5d10e18177ef22855f4f53f5f37e2bfe5ca87a37e2ec8422",
+      "detail": "Result 16 (verdict OK) echoed the identity with \"f37e2\" replaced by \"b8d1\" (63 characters); all other 19 results matched the envelope in order. The host verified from the native Codex log that the agent itself emitted the error, saved the original bytes as captures354/lane1-original.raw, replaced only that identity and harvested the corrected raw with --raw before any first harvest; full-set positional comparison of the corrected results equals the envelope. No verdict or observation was changed.",
+      "original_sha256": "f1f19a7bc0b3aad43961d19fa73575c5dcb302e7d5dbd1b0144b5fc4baa2070f",
+      "corrected_sha256": "9f3143a9c3c15fd7e3919ba660315a828085bc66c415ba2d272213f6b000d872"
+    }
+  ],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "6f926f34-aa0a-48c9-84ed-5cc63b8553eb",
+      "native_tools_sha256": "30b812f9da482569156f7f73e52cd162b4947b7e480b46dce33da054b2fd40f6",
+      "tool_calls": 11,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "84ed4e42-4896-454e-b137-0f98d4257760",
+      "native_tools_sha256": "cb99b512b8e0ae0a7381acf1310ae3920691cfb8671b30ac48fc8232e295edb5",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "4ffcce15-0291-4c8e-a887-e2629b144b12",
+      "native_tools_sha256": "23c3420a4f69e723e9cb6b73e0162f51466cf4de3ba7ceafcdb79e28e5a6b2d4",
+      "tool_calls": 6,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "d5c53240-2aee-4750-aa68-d3984cda8824",
+      "native_tools_sha256": "85fb8f6166cc0ed566b7b0ef2f1a52195ac96efe94925d0f6bd4c90482ccc96f",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

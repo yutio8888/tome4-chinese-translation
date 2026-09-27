@@ -1,0 +1,3 @@
+第354批：冻结80条（全部 Orcs），逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 4 lane 各 20 条，10 个 ISSUE；lane-000-0 经注入的 Paseo 终端只读自身 envelope 与契约（逐条核 keys，harvest 后 kill 终端）；lane-000-1 第 16 条 identity 回显错位，按原生日志以 corrected raw 收取。contextual full-000 在 JSON 前加导语判 invalid，归档确认后以 full-001（attempt 2）重派；10 条中 3 个 ISSUE，经源文核实后与宿主裁决一致。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决13个观察：{'advisory': 3, 'confirmed': 7, 'refuted': 3}；预计76条完成、4条待修复。修复 revision：军团来信（the Anomaly 为施害者、战斗人员非卫兵）、钩链弹 info（最多/钩索/制表符/漏译）、反魔弹 info（反魔汁液与奥术资源燃烧、制表符）、沉睡洞穴忏悔书（过去一时软弱、施用对象、争辩、增译饶恕）。搜索标签、炮台升级、强制格式塔 refuted；工匠之词缀空格、蜘蛛屏障行尾 TAB 记 advisory；毁灭号巨炮译名不一记 advisory 并登记待审第 42 项。修复窗口46积压为10，未达20。

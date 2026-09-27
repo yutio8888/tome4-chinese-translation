@@ -1,0 +1,70 @@
+{
+  "workset": "evidence/quality/production-batches/batch-cae8d8bde9f429a45a88-source-workset.json",
+  "decisions": {
+    "f79246dcbe|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/destructicus.lua:37：DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY 是巨炮全称；本条“裂天者 毁灭号”与同对话/lore 其余五处一致，未译出 IMPOLITE，但与实体名“毁天灭地，无礼的天空穿透者”（tome-orcs.lua:7289）、议会记录“毁天灭地、无礼的贯穿者”不一。统一属跨条更名，登记 pending-user-review 第 42 项，本批记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f7fa4d6ac6|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:45：“the deaths of Khulmanar and a great deal of our more expensive combatants at the hands of the Anomaly”——the Anomaly 是大写专名、施害者，库马纳与众多战斗人员都死于其手；现译“我们众多精英卫兵在那场异常中的牺牲”把施害者改成事件，并把库马纳拆出去，more expensive combatants 也不是“卫兵”。修复须保留施害关系（如“库马纳和我们大批代价高昂的战斗人员都死在‘异常’手里”），不必另定术语。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f7fa4d6ac6|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:45：“the deaths of Khulmanar and a great deal of our more expensive combatants at the hands of the Anomaly”——the Anomaly 是大写专名、施害者，库马纳与众多战斗人员都死于其手；现译“我们众多精英卫兵在那场异常中的牺牲”把施害者改成事件，并把库马纳拆出去，more expensive combatants 也不是“卫兵”。修复须保留施害关系（如“库马纳和我们大批代价高昂的战斗人员都死在‘异常’手里”），不必另定术语。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f991285e56|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1572–1607（Hook Shell，本库“钩链弹”）：拉动距离 t.distance＝combatTalentScale(4,8)，经 target:pull/self:pull 执行，原文两处 “pulled up to %d tiles” 是上限，现译“被拉向你 %d 码”删了“最多”（删限定词缺陷）；hook shot 被泛化为“特殊弹药”，“creature or location”作“目标或某处”；“This talent does not use ammo as it is the ammo” 漏译后半；另原文三处续行为 “\\n\\t\\t”，现译删除全部制表符（TAB 不变量）。一并修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "f991285e56|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1572–1607（Hook Shell，本库“钩链弹”）：拉动距离 t.distance＝combatTalentScale(4,8)，经 target:pull/self:pull 执行，原文两处 “pulled up to %d tiles” 是上限，现译“被拉向你 %d 码”删了“最多”（删限定词缺陷）；hook shot 被泛化为“特殊弹药”，“creature or location”作“目标或某处”；“This talent does not use ammo as it is the ammo” 漏译后半；另原文三处续行为 “\\n\\t\\t”，现译删除全部制表符（TAB 不变量）。一并修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fa34f890d5|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/dialogs/CreateTinker.lua:44：Textbox.new{title=_t\"Search: \"} 的标题；全角冒号“搜索：”自带间隔，与主游戏同文五处（mod-tome.lua:42238 等）一致，不影响显示。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fa76ca18ae|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua:238–242：UPGRADE 效果 long_desc 为 “This turret has been greatly enhanced.”，对象就是炮台，“炮台升级”准确。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fa9e9b5cd3|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1700–1728（Antimagic Shell，本库“反魔弹”）：原文 “The shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage”，实现为 DamageType.MANABURN；现译“造成 %0.2f 奥术燃烧”删去了反魔汁液这一效果（special antimagic shot 也泛化为“特殊弹药”），另原文三处续行为 “\\n\\t\\t”，现译删除全部制表符（TAB 不变量）。修复补回反魔汁液与奥术资源燃烧（本库 manaburn 作“奥术法力燃烧”，tome-orcs.lua:7072），并恢复制表符。contextual 判 OK，按格式不变量与漏译确认。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fb68502f3e|surface": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/slumbering-caves.lua:31–33：“my moment of weakness will soon have a wondrous result” 指上文 “coward that I was in those days” 的过去一时软弱，现译“我现在的懦弱”改成当下，与“因为懦弱而存留至今”矛盾；“used the Magic of Creativity on as many as we could” 是对尽可能多的人施用，现译“使用到了最大的限度”；“we argued ferociously” 是激烈争辩，现译“激烈反抗”；“Please, Your Brilliance, understand” 现译加了“请饶恕我们”，与后文 “I will not beg for Your forgiveness” 冲突。修复对照整段。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fb68502f3e|contextual": {
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/slumbering-caves.lua:31–33：“my moment of weakness will soon have a wondrous result” 指上文 “coward that I was in those days” 的过去一时软弱，现译“我现在的懦弱”改成当下，与“因为懦弱而存留至今”矛盾；“used the Magic of Creativity on as many as we could” 是对尽可能多的人施用，现译“使用到了最大的限度”；“we argued ferociously” 是激烈争辩，现译“激烈反抗”；“Please, Your Brilliance, understand” 现译加了“请饶恕我们”，与后文 “I will not beg for Your forgiveness” 冲突。修复对照整段。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fc5bc20622|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/egos/steamgun.lua（后缀词缀 of tinkering）：中文词缀一律改作前缀，不需要前导空格（主游戏“灵巧之 (#STATBONUS#)”等同样无前导空格）；本条“工匠之(#STATBONUS#)”只是括号前少一个空格，与同族写法略有差异，不影响拼接，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fc6f8b3548|surface": {
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:47–70（FORCED_GESTALT_FOE）：效果为 “All powers reduced by %d”，powers 指物理/法术/精神强度，本库作“强度”正确；“被吸收全部强度”对应 on_gain 提示，语义可接受。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    "fc86592011|surface": {
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/spells/terrene-technomancy.lua（蜘蛛屏障 info）：原文末尾 “\\n\\t\\t” 为行尾空白，现译无；补回会触发门禁 11 git diff --check，按行尾 TAB 惯例记 advisory。其余三行 \\n\\t\\t 与原文一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  }
+}
