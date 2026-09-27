@@ -1,0 +1,98 @@
+{
+  "batch_id": "batch-81fb42df237b10690b28",
+  "observations": 8,
+  "observation_dispositions": {
+    "refuted": 2,
+    "confirmed": 5,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "8cbed680dc614d1baa658aa0ce37e95e6564a0026c690b1353f142175cf90148",
+    "8e1b58ae6448d8ed195027ae07bf028c37da481b9e87547e6ab2c2d050e310f2",
+    "8ee7e562b44c08bf64bdea27ee3d7f06404376142302c41c1695cdf8da89097e"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "89b3d95b32d55b58c85e2a115add8eca04193bc00e634a0bbaceb4a8392ec4af",
+      "stage": "surface",
+      "observation": "“Detonator”指起爆装置，译文“爆弹”指爆炸物，两者所指不同。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kill-dominion.lua:36–51 与 kruk-invasion.lua:61–77：Tower/Sewer/Cave Detonator 为 type=tinker、subtype=bomb 的任务物品，desc 自称“This bomb…”；talents/steam/automation.lua:23–31 Pulse Detonator info“Sends a pulse detonator to the target. Upon arrival it explodes…”，即会爆炸的装置本身。“炸弹／爆弹”与实现一致，与本库同族“塔楼炸弹”“洞穴炸弹”一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8cbed680dc614d1baa658aa0ce37e95e6564a0026c690b1353f142175cf90148",
+      "stage": "surface",
+      "observation": "原文“This talent does not use ammo as it is the ammo”中的原因“as it is the ammo”未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1734–1775（Botanical Shell，本库“植物弹”）：源文 6 行，后 5 行行首均为 \\t\\t；现译 5 个换行后全无 \\t\\t（格式不变量）。另漏 botanical、专名 Nourishing Moss（主游戏本库“生命苔藓”）与“as it is the ammo”，“造成…伤害对半径内的每一个敌人”语序欧化。建议逐行补 \\t\\t，并译为“你用蒸汽枪向目标发射一枚特殊植物弹，造成 100%% 武器伤害（自然属性）。\\n\\t\\t弹丸会释放孢子，在半径 %d 内长出生命苔藓，持续 %d 回合。\\n\\t\\t苔藓每回合对范围内每个敌人造成 %0.2f 自然伤害。\\n\\t\\t这种苔藓具有吸血特性，按所造成伤害的 %d%% 治疗使用者。\\n\\t\\t此技能不消耗弹药，因为它本身就是弹药。\\n\\t\\t苔藓伤害受蒸汽强度加成。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8d39da3b3eff7074f37bf2a7549d0516940ea91255716129729ef9bb4800a14e",
+      "stage": "surface",
+      "observation": "“Detonator”意为起爆装置，译文“炸弹”改变了物品名称所指的对象。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kill-dominion.lua:36–51 与 kruk-invasion.lua:61–77：Tower/Sewer/Cave Detonator 为 type=tinker、subtype=bomb 的任务物品，desc 自称“This bomb…”；talents/steam/automation.lua:23–31 Pulse Detonator info“Sends a pulse detonator to the target. Upon arrival it explodes…”，即会爆炸的装置本身。“炸弹／爆弹”与实现一致，与本库同族“塔楼炸弹”“洞穴炸弹”一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e1b58ae6448d8ed195027ae07bf028c37da481b9e87547e6ab2c2d050e310f2",
+      "stage": "surface",
+      "observation": "原文“alive and broken”中的“broken”未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/john-surrender.lua:95–102（深红骑士约翰投降对话）：选项“[bind him to the ring] No, you are more useful alive and broken to me!”；现译“不，你活着对我更有用！”漏 broken（意志被摧毁），失去与上文“My life is destroyed”的呼应与残忍意味。建议“不，你活着、一蹶不振，对我更有用！”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8ed80c5f64676969e5a204dadd3216bdd90a0e16f02b769c4166eebc2d4f349f",
+      "stage": "surface",
+      "observation": "原文句末句号位于 #WHITE# 前，译文缺少句末标点。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/ritch-hive.lua:30：任务描述行“#LIGHT_GREEN#* You have collected enough eggs.#WHITE#”；现译缺句末“。”，颜色码与星号前缀完整，属标点细节，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8ee7e562b44c08bf64bdea27ee3d7f06404376142302c41c1695cdf8da89097e",
+      "stage": "surface",
+      "observation": "原文两句之间有换行和制表符（\\n\\t\\t），译文将两句合并，丢失该格式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/thoughts-of-iron.lua:112–165（Psionic Mirror，本库“灵能之镜”）：源文“You cleanse your mind of %d mental debuffs.\\n\\t\\tCleansed effects will be randomly sent to closeby foes (range 5, subject to a mental save).”含一处 \\n\\t\\t，现译把两句并成一行（LF/TAB 格式不变量，contextual 判 OK，宿主按格式 confirmed）。建议在“精神负面效果。”后补 \\n\\t\\t，其余文字不动。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8cbed680dc614d1baa658aa0ce37e95e6564a0026c690b1353f142175cf90148",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/talents/steam/other.lua:1771-1775（来源未固定）：译文漏掉了几处内容。其一，原文把长出的苔藓称作专名「Nourishing Moss」，译文只写成泛称「苔藓」。其二，「special botanical shot」里的 botanical（植物性）没有译出，只剩「特殊弹药」。其三，「as it is the ammo」这句解释（技能本身就是弹药）被删掉了。此外，「造成 %0.2f 自然伤害对半径内的每一个敌人」语序是欧化句式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1734–1775（Botanical Shell，本库“植物弹”）：源文 6 行，后 5 行行首均为 \\t\\t；现译 5 个换行后全无 \\t\\t（格式不变量）。另漏 botanical、专名 Nourishing Moss（主游戏本库“生命苔藓”）与“as it is the ammo”，“造成…伤害对半径内的每一个敌人”语序欧化。建议逐行补 \\t\\t，并译为“你用蒸汽枪向目标发射一枚特殊植物弹，造成 100%% 武器伤害（自然属性）。\\n\\t\\t弹丸会释放孢子，在半径 %d 内长出生命苔藓，持续 %d 回合。\\n\\t\\t苔藓每回合对范围内每个敌人造成 %0.2f 自然伤害。\\n\\t\\t这种苔藓具有吸血特性，按所造成伤害的 %d%% 治疗使用者。\\n\\t\\t此技能不消耗弹药，因为它本身就是弹药。\\n\\t\\t苔藓伤害受蒸汽强度加成。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8e1b58ae6448d8ed195027ae07bf028c37da481b9e87547e6ab2c2d050e310f2",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/chats/john-surrender.lua:102（来源未固定）：原文「more useful alive and broken to me」里的「and broken」（一蹶不振／意志已被摧毁）被漏译，译文只剩「你活着对我更有用」。这个选项的残忍意味因此丢失，与上文 l.99 John 所说的「My life is destroyed」也不再呼应。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/john-surrender.lua:95–102（深红骑士约翰投降对话）：选项“[bind him to the ring] No, you are more useful alive and broken to me!”；现译“不，你活着对我更有用！”漏 broken（意志被摧毁），失去与上文“My life is destroyed”的呼应与残忍意味。建议“不，你活着、一蹶不振，对我更有用！”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 6 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (6 entries) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "The host overrides one contextual OK verdict: the Psionic Mirror text merged its line break and tab pair. Source refutes the Detonator naming claims; the ritch egg quest line's missing full stop is advisory.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "3 confirmed repair revisions raise the window 42 backlog from 8 to 11; below the 20 threshold, so no window opens."
+  ]
+}
