@@ -1,0 +1,129 @@
+{
+  "batch_id": "batch-4febd4ec8c5db6217763",
+  "observations": 12,
+  "observation_dispositions": {
+    "refuted": 3,
+    "advisory": 5,
+    "confirmed": 4
+  },
+  "repair_revision_keys": [
+    "94a9d31de601b154574a2b4c81b76c72c514be28b507de9a2871762b16abb03e",
+    "95496f3e7acfa96c922eb269807734b2d87e6d75e03aaab42525b60793bf78d4"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "8fb74c97bfe2291197bf3a431c8b5afba159f9b1d923311b949b4da6eab2cfcf",
+      "stage": "surface",
+      "observation": "原文是精神注射被选为药剂优先使用的注射项；译文将其称为“首选注射器”，把注射项译成了器具。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/thoughts-of-iron.lua:193 与 inscriptions.lua:131：两条同构提示分别选定 Mind Injection（本库“精神注射”）与 Medical injector 作为药剂优先使用的注射项；同族本库 tome-orcs.lua:5232 译“已将医疗注射器设为药剂的首选注射器”，本条“已将精神注射设置为药剂的首选注射器”与同族一致，“首选注射器”指药剂使用时优先调用的注射槽位，不构成错译。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "900d5bc26cdbe2aa303c443eb3d796cdfcaf56db34bfba60f99bb107e6832a8d",
+      "stage": "surface",
+      "observation": "原文的“remnants of the Prides”限定获释者为部落残余成员；译文仅称“部落成员”，遗漏“残余”这一限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/story.lua:30：成就 desc“Freed the remnants of the Prides from the Internment Camp.”；现译“释放拘留营中的部落成员”省去 remnants（残余），语义主干不变，记 advisory（可作“解救拘留营中各部落的残余成员”）。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "900f9f845b85e0f9d7dfa095d3f58984ab0a58643274cb683032050d01577094",
+      "stage": "surface",
+      "observation": "原文称瘙痒会使“actions”失败；译文限定为“技能施放”失败。是否只涉及技能需机制证据，冻结输入未提供。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:675–690（ITCHING_POWDER）：activate 只加 talent_fail_chance=eff.chance，即技能有几率失败；现译“技能有几率施放失败”贴合实现，英文“actions to fail”较实现宽泛。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "90e7efca096ed9852e3bc7c108496510cb7cf6b57e2c4dcb308485af2b70e3e8",
+      "stage": "surface",
+      "observation": "原文空行保留了两个制表符，译文对应空行缺少这两个制表符，换行格式不一致。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "源文“\\n\\t\\t\\n\\t\\t”中间空行带两个行尾 \\t，现译该空行无 \\t；按行尾 TAB 惯例只记 advisory（补回会触发门禁 11 git diff --check）。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "916cd8cf265fc40fe10d6eec1c844042facec38722949c447e574e7633074a67",
+      "stage": "surface",
+      "observation": "原文特指复数专名“the Prides”，译文写成泛称“兽人”，丢失了所解放对象的特指信息。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "解锁提示“You have freed the Prides from the Internment Camp for the third time.”现译“第三次解放了拘留营的兽人”把 the Prides 泛化为“兽人”；拘留营所关押的即兽人各部落，语义不误，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "93bab455a880e142968d41be5ec5da59ec0796a7984e21a25d3b660a2067bfe9",
+      "stage": "surface",
+      "observation": "原文是控制雪人并命令它前往克鲁克部落报到；译文“将其送往”改成了直接送走。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/objects.lua:69–70：“You overtake the yeti's mind and order it to report to Kruk Pride.”现译“你控制了雪人的思维，将其送往克鲁克部落”，“命令其前往报到”被简化为“送往”，结果一致，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "93f2cb320e1dad092fe4e68bbb301e6aa170c4eb0f4accee49718c3e1dddd37c",
+      "stage": "surface",
+      "observation": "译文加入原文没有的“至多10格的链接射线”等机制，并将“每次使用技能时施法者缩短一个随机冷却”改为目标使用非固有技能时才触发。仅凭冻结文本无法核定这些新增机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/magical.lua:462–509（ETHEREAL_STEAM）：on_timeout 以 range=10 的 beam 对目标造成 occult 伤害，施加者不存在或距离>10 时效果结束；callbackOnTalentPost 在目标使用非 innate 技能时，先对施加者冷却中的 technomancy 技能减 1 回合，没有则对 spell 技能减 1。现译逐项贴合实现，英文 long_desc 较实现简略。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "94628429cce37494abc529cfb3be1172ccb5cfbb610f81b5fe3786739285d2f4",
+      "stage": "surface",
+      "observation": "原文“on fire right now”是“现在着火”，译文“烧死这些人”增添了死亡结果。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:405–415（unided“overheated gun”）物品描述的广告体玩笑：“I really wish they were on fire right now”现译“我真的想要烧死这些人”语气夸张但符合喷火枪广告的戏谑，外层引号省略，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "94a9d31de601b154574a2b4c81b76c72c514be28b507de9a2871762b16abb03e",
+      "stage": "surface",
+      "observation": "原文“pockets of spider venom”是少量或分装的蜘蛛毒液，译文“成吨的蜘蛛毒液”明显夸大数量。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:568–572（Spider's Fangs，本库“蜘蛛毒牙”，unided“pouch of envenomed shots”）：desc“A dedicated technician seems to have built pockets of spider venom into these rounds.”指在子弹内做出装毒液的小囊；现译“将成吨的蜘蛛毒液注入了这些子弹里”凭空夸大为“成吨”，并丢掉 pockets。建议“一位专注的技师似乎在这些子弹里内置了装有蜘蛛毒液的小囊。不知道蜘蛛们对此有多乐意。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "95496f3e7acfa96c922eb269807734b2d87e6d75e03aaab42525b60793bf78d4",
+      "stage": "surface",
+      "observation": "原文要求“destroy everything there”（摧毁那里的所有东西），译文“摧毁它”将目标缩为单个对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/sunwall-observatory.lua:26–28：任务描述“Go to the Sunwall Observatory and destroy everything there to reduce their supplies.”，完成文本仅说 Gates of Morning defenses will be weakened；现译“摧毁它来中断他们的供应”把 everything there 缩成“它”，并把 reduce（削减）说重为“中断”。建议“前往太阳堡垒观星台，摧毁那里的一切，以削减他们的补给。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "94a9d31de601b154574a2b4c81b76c72c514be28b507de9a2871762b16abb03e",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/general/objects/world-artifacts.lua:572（Spider's Fangs 描述）原文 built pockets of spider venom into these rounds 指在子弹内做出盛蜘蛛毒液的小囊/小腔，译文「将成吨的蜘蛛毒液注入」凭空加了「成吨的」这个数量夸张，原文并无此意，而且丢掉了 pockets（小囊）的结构含义。建议改为「在这些子弹里内置了装有蜘蛛毒液的小囊」一类表述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:568–572（Spider's Fangs，本库“蜘蛛毒牙”，unided“pouch of envenomed shots”）：desc“A dedicated technician seems to have built pockets of spider venom into these rounds.”指在子弹内做出装毒液的小囊；现译“将成吨的蜘蛛毒液注入了这些子弹里”凭空夸大为“成吨”，并丢掉 pockets。建议“一位专注的技师似乎在这些子弹里内置了装有蜘蛛毒液的小囊。不知道蜘蛛们对此有多乐意。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "95496f3e7acfa96c922eb269807734b2d87e6d75e03aaab42525b60793bf78d4",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/quests/sunwall-observatory.lua:26 原文 destroy everything there to reduce their supplies 的意思是摧毁那里的一切以「削减」补给，译文「中断他们的供应」把效果说重成了完全切断。同文件 :28 的完成文本也只说 Gates of Morning defenses will be weakened（防御被削弱），可以印证是削减而非切断。另外 everything there 被简化成了「它」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/sunwall-observatory.lua:26–28：任务描述“Go to the Sunwall Observatory and destroy everything there to reduce their supplies.”，完成文本仅说 Gates of Morning defenses will be weakened；现译“摧毁它来中断他们的供应”把 everything there 缩成“它”，并把 reduce（削减）说重为“中断”。建议“前往太阳堡垒观星台，摧毁那里的一切，以削减他们的补给。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 10 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (10 entries) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "Source refutes the injector, Itching Powder and Ethereal Steam claims; the translations follow the implementation, which is more specific than the English. Five wording and trailing-tab points are advisory.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "2 confirmed repair revisions raise the window 42 backlog from 11 to 13; below the 20 threshold, so no window opens."
+  ]
+}
