@@ -1,0 +1,166 @@
+{
+  "batch_id": "batch-a56cdce9f90a044bdd63",
+  "observations": 16,
+  "observation_dispositions": {
+    "confirmed": 14,
+    "advisory": 1,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+    "6cf4f05c091bdd8804c875a7a9df3225015485a72ca73968968bf637ba4ac4e2",
+    "6dd4ec5d148e756129d098d88019769fe79303a9bcd9ffdfcc1ed6629cc42317",
+    "70349db4017ed12dcbf347e73fc8cd2ceee1f97f4329c0c5cee4dd09a7585477",
+    "71325aa1fba94657448b0d8c6d77bd98e3e82ef72c8c44993d110f47833434c1",
+    "72ac5778415f3ce4d1e292671f15ff32ac4d28ead0f504698e993e2d24949b89",
+    "7305b0ef493fc4328629cf8435e3f46a3da9c4c28a21bace8d485f11cdc8cad0"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+      "stage": "surface",
+      "observation": "源文称 Technomancers 是 Archmages，译文写成“元素法师”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/uber/mag.lua:190–210（Technomancer 进阶）：“Archmages”译“元素法师”与本库职业名一致（mod-tome.lua:3021 t(\"Archmage\",\"元素法师\",\"birth descriptor name\")），该点 refuted；但源文“…based on current steam level.\\n\\n\\t\\t#{bold}#…”段间有空行，现译“…提升法术强度。\\n\\t\\t#{bold}#”少一个 \\n（换行不变量，源 15 行/译 14 行）；另“dabble in”（涉猎）译“精通于”且“他精通于…他们已经”人称不一。建议首句“科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。”，并在“提升法术强度。”后补一个空行。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6cf4f05c091bdd8804c875a7a9df3225015485a72ca73968968bf637ba4ac4e2",
+      "stage": "surface",
+      "observation": "“Even if I disagreed with Aeryn”是假设，译文写成实际存在分歧；“I'm certain knows exactly what they're doing wrong”的知情者是收信人，译文写成“我完全知道”；“I thought you were better than this”也被译成“我相信你会当个聪明人”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:55–63（前哨站队长约翰致特瑞尔信）：(1)“Even if I disagreed with Aeryn that the Orcs deserve a chance of redemption”为让步假设，现译“尽管我和艾琳女士…有所分歧”说成实有分歧；(2)“someone who I'm certain knows exactly what they're doing wrong”知情者是收信人，现译“我完全知道做错了什么的家伙”主语错；(3)“I thought you were better than this.”＝你让我失望，现译“我相信你会当个聪明人”语义改变；(4)“technically”宜作“严格来说”。建议：(1)“就算我不同意艾琳女士认为兽人应当获得救赎机会的看法，这份条约也……”；(2)“……而不是给一个我[i]确信[/i]完全清楚自己错在哪里的人写一篇长篇大论的斥责”；(3)“我原以为你不至于如此。”；(4)“严格来说你‘只是’……”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6dd4ec5d148e756129d098d88019769fe79303a9bcd9ffdfcc1ed6629cc42317",
+      "stage": "surface",
+      "observation": "源文在“Attacking or using any talent will break this effect.”后有空行，译文将其与下一段合并，段落格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/battlefield-management.lua:86–90：源文四行“Attacking or using any talent will break this effect.\\n\\t\\tWhen this effect is broken or cancelled …”，现译把第 3、4 行并成一行（少一处 \\n\\t\\t，换行不变量），且漏“or cancelled”（主动取消也会造成伤害）；“作为履带”为添加内容；风味句“The wheels of death! Amazing!”现译“冲锋！死亡之轮！！”。建议：“把蒸汽链锯牢牢插入地面，借助它们推动自己快速移动（移动速度增加 %d%%）。\\n\\t\\t在你移动路线两侧的敌人会被链锯撕碎，并被击退 3 码。\\n\\t\\t攻击或使用任何技能都会中断该效果。\\n\\t\\t当该效果被中断或取消时，运动的骤变会对周围所有敌人造成 %d%% 武器伤害。至少移动 5 次才能造成全额伤害，否则伤害降低（未移动则无伤害）。\\n\\t\\t#{italic}#死亡之轮！太棒了！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "70349db4017ed12dcbf347e73fc8cd2ceee1f97f4329c0c5cee4dd09a7585477",
+      "stage": "surface",
+      "observation": "原文是向射程内一处发射爆炸弹，并在每发弹丸命中时爆炸；译文写成直接制造爆炸，且将“each shot”误作“每一个弹片”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1315–1343（Explosive Shell）：archeryAcquireTargets/archeryShoot 以蒸汽枪射击，archery_onhit 在每发命中处爆炸；现译“在射程内制造一场特殊的爆炸”漏射击动作，“each shot”译“弹片”错，漏“as it is the ammo”，且行首缩进用全角空格“　　”替代源文 \\t\\t（格式不变量），第二行以逗号收尾。建议：“你用蒸汽枪向射程内某处射出特殊的爆炸弹。\\n\\t\\t每发子弹命中目标时，造成正常蒸汽枪伤害，并在半径 %d 码内爆炸，造成 %0.2f 物理伤害。\\n\\t\\t这个技能不消耗弹药，因为它本身就是弹药。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "71325aa1fba94657448b0d8c6d77bd98e3e82ef72c8c44993d110f47833434c1",
+      "stage": "surface",
+      "observation": "原文“up to %d physical effects”表示至多移除 %d 项，译文写成固定移除 %d 项；“at least 3”表示技能等级至少为 3，译文“技能等级 3 时”遗漏更高等级。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/sawmaiming.lua:145–172：移除按 for i=1,getRemoveCount 逐项进行（无可移除时即止），等级分支为 getTalentLevel(t) >= 3；现译“失去 %d 项物理效果”删了“up to”，“技能等级 3 时”删了“at least”。建议：“这一击的力量还会移除至多 %d 项物理效果。\\n\\t\\t若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "72353aa6076982b0d034b546d02cbf8c6a0e16c02037fe68afedb60eca0db2b8",
+      "stage": "surface",
+      "observation": "Molten Metal 是名词短语，译文“融化金属”变成了动宾短语。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/furnace.lua:57：技能名“Molten Metal”（被动，熔融金属抗性），现译“融化金属”可读作动宾，但作为技能名已在本库沿用（tome-orcs.lua:4983），改名须同步引用；contextual 判 OK，按语感记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "725a3f8173d00b968d9654944821b90f7e4425cd89a2905aaf226b616d3dbbe6",
+      "stage": "surface",
+      "observation": "Herbalist 通常指草药师，译文“草药馆”指场所；冻结输入未提供实体语境，无法确认此处是否为店名。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/traps.lua:47–51：Herbalist 是 BASE_STORE 商店实体（shop_sign_herbalist），店名“草药馆”与主游戏同名商店一致（mod-tome.lua:40260）。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "72ac5778415f3ce4d1e292671f15ff32ac4d28ead0f504698e993e2d24949b89",
+      "stage": "surface",
+      "observation": "原文“we were only allowed to live”指获准存活，译文“我们才被创造了出来”改成了被创造。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:40–50（telepathic message (2)）：“Amakthel personally ensuring his pet project would have no equals”中 pet project＝得意之作（指夏·图尔人），现译“宠物工程”错译；“I doubt any of them deliberately cursed us”为单数“我”，现译“我们不认为”；“we were only allowed to live when they were out of ammunition to use”＝直到众神再也挑不出毛病才获准存在，现译“才被创造了出来”可接受但宜贴合。建议：“……或者是阿马克泰尔本人要确保他的得意之作无可匹敌。”；“我不认为众神中有谁故意诅咒了我们”；“直到他们再也找不到可以攻击的把柄，我们才获准存在。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7305b0ef493fc4328629cf8435e3f46a3da9c4c28a21bace8d485f11cdc8cad0",
+      "stage": "surface",
+      "observation": "heavy lined cloak 中的 lined 表示有衬里，译文“沉重的披风”遗漏了这一信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1409–1412：神器 Pressurizer 的未鉴定名“heavy lined cloak”，desc“This cloak hides and protects a series of powerful steam compressors”；现译“沉重的披风”漏 lined（有衬里/夹层），而夹层正是藏压缩器之处。建议“厚重的夹层披风”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6ce8f3f6efa71a2fe56059956f232ce75e36841192e26242312309a973eee9ca",
+      "stage": "contextual",
+      "observation": "换行不变量：tome-orcs/data/talents/uber/mag.lua:206-208（来源未固定）在“Once put in a robe…”段与#{bold}#段之间有空行(207)，源共15行；译文“…提升法术强度。\\n\\t\\t#{bold}#”少一个空行，仅14行。另“dabble in”（涉猎）译为“精通于”，且“他精通于…他们已经”人称不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/uber/mag.lua:190–210（Technomancer 进阶）：“Archmages”译“元素法师”与本库职业名一致（mod-tome.lua:3021 t(\"Archmage\",\"元素法师\",\"birth descriptor name\")），该点 refuted；但源文“…based on current steam level.\\n\\n\\t\\t#{bold}#…”段间有空行，现译“…提升法术强度。\\n\\t\\t#{bold}#”少一个 \\n（换行不变量，源 15 行/译 14 行）；另“dabble in”（涉猎）译“精通于”且“他精通于…他们已经”人称不一。建议首句“科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。”，并在“提升法术强度。”后补一个空行。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6cf4f05c091bdd8804c875a7a9df3225015485a72ca73968968bf637ba4ac4e2",
+      "stage": "contextual",
+      "observation": "sunwall.lua:60-62（来源未固定）：①“Even if I disagreed with Aeryn that the Orcs deserve a chance of redemption”是让步假设，译文“尽管我和艾琳女士…有所分歧”把它说成写信人确实与艾琳意见不合，属保真错误；②结尾“I thought you were better than this.”是“你让我失望”的意思，译成“我相信你会当个聪明人”后语义被改；③“someone who I'm certain knows exactly what they're doing wrong”说的是对方清楚自己错在哪，译文“我完全知道做错了什么的家伙”把“知道”的主语弄错；④“technically”译为“原理上”不当，宜作“严格来说”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/sunwall.lua:55–63（前哨站队长约翰致特瑞尔信）：(1)“Even if I disagreed with Aeryn that the Orcs deserve a chance of redemption”为让步假设，现译“尽管我和艾琳女士…有所分歧”说成实有分歧；(2)“someone who I'm certain knows exactly what they're doing wrong”知情者是收信人，现译“我完全知道做错了什么的家伙”主语错；(3)“I thought you were better than this.”＝你让我失望，现译“我相信你会当个聪明人”语义改变；(4)“technically”宜作“严格来说”。建议：(1)“就算我不同意艾琳女士认为兽人应当获得救赎机会的看法，这份条约也……”；(2)“……而不是给一个我[i]确信[/i]完全清楚自己错在哪里的人写一篇长篇大论的斥责”；(3)“我原以为你不至于如此。”；(4)“严格来说你‘只是’……”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6dd4ec5d148e756129d098d88019769fe79303a9bcd9ffdfcc1ed6629cc42317",
+      "stage": "contextual",
+      "observation": "battlefield-management.lua:89-90（来源未固定）：源文写“When this effect is broken or cancelled”，主动取消效果也会造成伤害；译文把它并进“攻击或者使用其他技能的动作都会中断效果，同时…造成伤害”，漏了“取消”这一触发条件，读起来像只有攻击或用技能打断时才造成伤害。另外“作为履带”是原文没有的内容，风味句漏了“Amazing!”却加了“冲锋！”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/battlefield-management.lua:86–90：源文四行“Attacking or using any talent will break this effect.\\n\\t\\tWhen this effect is broken or cancelled …”，现译把第 3、4 行并成一行（少一处 \\n\\t\\t，换行不变量），且漏“or cancelled”（主动取消也会造成伤害）；“作为履带”为添加内容；风味句“The wheels of death! Amazing!”现译“冲锋！死亡之轮！！”。建议：“把蒸汽链锯牢牢插入地面，借助它们推动自己快速移动（移动速度增加 %d%%）。\\n\\t\\t在你移动路线两侧的敌人会被链锯撕碎，并被击退 3 码。\\n\\t\\t攻击或使用任何技能都会中断该效果。\\n\\t\\t当该效果被中断或取消时，运动的骤变会对周围所有敌人造成 %d%% 武器伤害。至少移动 5 次才能造成全额伤害，否则伤害降低（未移动则无伤害）。\\n\\t\\t#{italic}#死亡之轮！太棒了！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "70349db4017ed12dcbf347e73fc8cd2ceee1f97f4329c0c5cee4dd09a7585477",
+      "stage": "contextual",
+      "observation": "other.lua:1341-1343（来源未固定）：①“fire a special explosive shot…at a spot”是向目标点射出一发特殊爆炸弹，译文“在射程内制造一场特殊的爆炸”漏了“射击”这一动作；②“When each shot reaches its target”中的shot指射出的子弹，译成“弹片”是错译；③“as it is the ammo”（它本身就是弹药）这一原因被删；④源文缩进用\\t\\t，译文换成全角空格“　　”，而且第二行以逗号结尾。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1315–1343（Explosive Shell）：archeryAcquireTargets/archeryShoot 以蒸汽枪射击，archery_onhit 在每发命中处爆炸；现译“在射程内制造一场特殊的爆炸”漏射击动作，“each shot”译“弹片”错，漏“as it is the ammo”，且行首缩进用全角空格“　　”替代源文 \\t\\t（格式不变量），第二行以逗号收尾。建议：“你用蒸汽枪向射程内某处射出特殊的爆炸弹。\\n\\t\\t每发子弹命中目标时，造成正常蒸汽枪伤害，并在半径 %d 码内爆炸，造成 %0.2f 物理伤害。\\n\\t\\t这个技能不消耗弹药，因为它本身就是弹药。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "71325aa1fba94657448b0d8c6d77bd98e3e82ef72c8c44993d110f47833434c1",
+      "stage": "contextual",
+      "observation": "sawmaiming.lua:171-172（来源未固定）：①“removes up to %d physical effects”里的“up to”（最多）被删掉，“失去 %d 项物理效果”读起来像必定移除这么多项；②“If your talent level is at least 3”译成“技能等级 3 时”，漏了“至少”，容易理解为只在3级时生效（tformat第4个参数t.getRemoveCount说明条件是等级≥3）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/sawmaiming.lua:145–172：移除按 for i=1,getRemoveCount 逐项进行（无可移除时即止），等级分支为 getTalentLevel(t) >= 3；现译“失去 %d 项物理效果”删了“up to”，“技能等级 3 时”删了“at least”。建议：“这一击的力量还会移除至多 %d 项物理效果。\\n\\t\\t若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "72ac5778415f3ce4d1e292671f15ff32ac4d28ead0f504698e993e2d24949b89",
+      "stage": "contextual",
+      "observation": "weissi.lua:48（来源未固定）：“Amakthel personally ensuring his pet project would have no equals”中的pet project是习语，指得意之作／心头所好，也就是夏·图尔人；译文照字面写成“宠物工程”，属错译，读者也看不出“无可比拟”是在说夏·图尔人不容对手、因而诅咒了本族。另外“I doubt”写成了“我们不认为”，主语从单数变成了复数。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:40–50（telepathic message (2)）：“Amakthel personally ensuring his pet project would have no equals”中 pet project＝得意之作（指夏·图尔人），现译“宠物工程”错译；“I doubt any of them deliberately cursed us”为单数“我”，现译“我们不认为”；“we were only allowed to live when they were out of ammunition to use”＝直到众神再也挑不出毛病才获准存在，现译“才被创造了出来”可接受但宜贴合。建议：“……或者是阿马克泰尔本人要确保他的得意之作无可匹敌。”；“我不认为众神中有谁故意诅咒了我们”；“直到他们再也找不到可以攻击的把柄，我们才获准存在。”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "7305b0ef493fc4328629cf8435e3f46a3da9c4c28a21bace8d485f11cdc8cad0",
+      "stage": "contextual",
+      "observation": "world-artifacts.lua:1411（来源未固定）：未鉴定名“heavy lined cloak”中的“lined”（有衬里／夹层的）被删掉，只剩“沉重的披风”。desc写的是斗篷里藏着蒸汽压缩器，衬里正是这件物品的特征。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1409–1412：神器 Pressurizer 的未鉴定名“heavy lined cloak”，desc“This cloak hides and protects a series of powerful steam compressors”；现译“沉重的披风”漏 lined（有衬里/夹层），而夹层正是藏压缩器之处。建议“厚重的夹层披风”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 9 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (9 entries) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "Source and library convention refute two claims: Archmage is the library class name 元素法师, and Herbalist is a store entity named 草药馆 like its main-game twin. Molten Metal stays advisory as an established talent name. Format invariants confirmed: a dropped blank line (Technomancer), a merged line (steamsaw wheels) and full-width spaces replacing tab indentation (Explosive Shell).",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 41 backlog from 5 to 12; below the 20 threshold, so no window opens."
+  ]
+}
