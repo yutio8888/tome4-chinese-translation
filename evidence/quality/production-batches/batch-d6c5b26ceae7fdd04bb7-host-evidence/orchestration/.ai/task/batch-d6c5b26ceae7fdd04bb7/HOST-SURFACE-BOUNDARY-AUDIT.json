@@ -1,0 +1,50 @@
+{
+  "batch_id": "batch-d6c5b26ceae7fdd04bb7",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-27T14:48:20.808917+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "lanes 0, 2 and 3: reads of the own envelope and contract only. lane-000-1 (agent 66e4bf36, session 01a0e354-1553-7f41-b57c-21c79151e4b3) made 5 exec calls: cat of the contract and its own envelope, pwd, two in-sandbox listings of its available tool names (the second filtered for mcp__paseo__create_terminal/send_terminal_keys/capture_terminal, which is what the write-pattern scan matched), and a repeat of the same cat with sandbox_permissions=require_escalated. It never called create_terminal or send_terminal_keys; every command was read-only and touched only its authorized files. Host reviewed each call in the archived native log.",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    "none: list_terminals all=true is empty after all lanes were archived"
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "d8db879f-c57b-4845-bc4d-c68ef750ce21",
+      "native_tools_sha256": "92ec2fe66667894f96985f2a23fadbb79a7c9284a6b0537af5bc82f89d836f26",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "66e4bf36-e0c2-4e37-95c9-5e23e2e7533e",
+      "native_tools_sha256": "ba7717f66a1d8664bcbf890e3e8584472eeb93dd778f16ba6c29b5cdd3e8f954",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "6b8f6ad7-35d0-4ecb-bea0-6d4c804663eb",
+      "native_tools_sha256": "e7a6ef5cab5ce277c1d37665b7068e55a7d58ba8176e749f965d2c03f5cd7ed5",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "97151251-8db0-4f65-a65d-90e0d0434094",
+      "native_tools_sha256": "1dc16108c2afcc4e1c494cc6406457d6843336ddbc5f8f07ed750684eb255ab6",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
