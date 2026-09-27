@@ -434,7 +434,7 @@ section "tome-orcs/data/chats/kaltor-entry.lua"
 
 t([[#LIGHT_GREEN#*As you open the door to the shop, you are greeted by a pair of Steam Giant guards, staring at you and holding their steamguns tightly, at the ready but not aimed at you.*#WHITE#
 No sudden moves, @playername@. Kaltor's orders are to consider you a customer for now. Try anything foolish, and you'll be a live demonstration for his newest guns instead.  Understand?]], [[#LIGHT_GREEN#*当你打开商店大门，你被两名蒸汽巨人守卫迎接，他们盯着你看，手中紧握蒸汽枪，准备就绪，但并没有瞄准你。*#WHITE#
-别乱动，@playername@。卡托尔的指令让我们将你视为顾客。做蠢事的话，你就会成为他新枪的活体演示。明白了么？]], "_t")
+别乱动，@playername@。卡托尔的指令让我们暂时将你视为顾客。做蠢事的话，你就会成为他新枪的活体演示。明白了么？]], "_t")
 t("I have gold, you have equipment. This doesn't need to be any more complicated than that.", "我有钱，你们有装备。没什么更复杂的东西。", "_t")
 t("Those are some pretty fancy guns. Think it'll be hard to get your blood out of the gears?", "这些枪挺花哨的。你觉得把你们的血从齿轮里清出来会很费劲吗？", "_t")
 t([[#LIGHT_GREEN#*She smiles, relieved but also slightly disappointed.*#WHITE#
@@ -1055,7 +1055,7 @@ t("Korbek's Spyglass", "库贝克的小型望远镜", "entity name")
 t("golden telescope", "金色望远镜", "_t")
 t("This antique spyglass is weathered from use, but seems well maintained.", "这个年代久远的小型望远镜由于使用过多有些褪色，但是仍然保养得很好。", "_t")
 t("Talosis' Counterpoint", "泰勒西斯的反驳", "entity name")
-t("ornate gun", "华丽的手枪", "_t")
+t("ornate gun", "华丽的枪", "_t")
 t("It's said that Talosis never lost an argument. Now you know why.", "据说泰勒西斯从没有输过一场争吵。现在你知道原因了。", "_t")
 t("The Twisted Blade", "扭曲之刃", "entity name")
 t("vile, twisted steamsaw", "邪恶、扭曲的蒸汽链锯", "_t")
@@ -1613,7 +1613,7 @@ t("injector", "注射器", "entity subtype")
 t("autosyringe", "自动注射器", "_t")
 t("This injecting unit is complemented by a belt of tiny vials, containing some sickly yellow liquid. The papers describe the contents as 'invigorating' and 'increasing the combat potency.'", "这个注射单元附带一排小药瓶，里面装着某种令人不适的黄色液体。文件将其中液体描述为“提振精神”和“提高作战能力”。", "_t")
 t("inject yourself with painkillers, reducing all incoming damage by 5. Stacks up to 5 times. When the effect ends, lose 5% of your max life per stack", "为自己注射镇痛剂，使受到的所有伤害降低 5 点。最多叠加 5 次。效果结束时，每层使你损失 5% 最大生命值。", "_t")
-t("Qog's Essentials", "寇格的精华", "entity name")
+t("Qog's Essentials", "寇格的必需品", "entity name")
 t("strange injector", "奇怪的注射器", "_t")
 t("A hypospray full of ...something. There is no telling what you're injecting yourself with.", "一个无针注射器，里面装满了*某种*液体。你完全不知道你给自己注射了什么。", "_t")
 t("Gain a random beneficial effect", "获得一个随机增益效果", "_t")
@@ -2235,8 +2235,7 @@ Regretfully,
 Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 来自：管理员夸洛普#{normal}#
 
-
-很高兴看到你和你的随从已经安全抵达！感谢你的光临，也感谢埃尔瓦拉的外交官能在这么短的时间内联系到你过来，希望你能在这里安顿下来。我希望这将会成为你们一族——当然，不仅是你们食人魔，也包括派遣你们过来的永恒精灵——与联合王国的合作部队的良好的第一步。
+很高兴看到你和你的随从已经安全抵达！感谢你的光临，也感谢埃尔瓦拉的外交官能在这么短的时间内联系到你过来，希望你能在这里安顿下来。我希望这是你们一族——当然，既指你们食人魔，也包括派遣你们过来的永恒精灵——与联合王国联手的第一步。
 
 在远东这里没有伊格兰斯。得益于意念之墙精巧的幻象技术，关押在这里的兽人都十分顺从。到目前为止，这是我们找到的和他们打交道的最人道的方法——我们希望，随着时间流逝，他的能力最终可以对这些兽人起到永久的镇定效果。不过，在那之前，他们都会这样傻乎乎地，温顺而快乐生活在梦中的小小世界里。你所需要的就是守住这里的围墙，不能让外部的游荡的兽人进来救走他们的同族。同时，还要巡逻这里的大厅，确保那些成功脱离幻象的兽人被我们迅速逮捕和解决。这应该会是一件非常容易的工作——但是，如果你需要任何特别帮助或补给的话，请立刻告诉我，我将尽我所能帮助你！
 
@@ -2516,7 +2515,7 @@ t([[I'm not going to lie to you: things aren't going great.  Between the Doomelf
 
 And regarding the First Duathedlen - quit your murmuring right now.  I've seen his track record, and I know most of you know it too, which is why we can safely say that despite his... nature, his loyalty is [b]not[/b] in question - we can assume his abrupt cessation of communication is a necessary part of his investigations, and not him going rogue.  If you see him, tell us of his whereabouts, but do not interfere.
 
-[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]], [[我准备实话实说：事情的进展并不顺利。除了魔化精灵的逃亡事件之外，还有库马纳的死，我们众多精英卫兵在那场异常中的牺牲，以及第一位多瑟顿的失踪…我们今年的损失已经够严重了。所以，给你们的命令很简单：保持低调。远离敌人的视线，进行被动的观察，直到我们可以获得一个新的立足点，开展新的计划。
+[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]], [[我准备实话实说：事情的进展并不顺利。除了魔化精灵的逃亡事件之外，库马纳和我们大批代价高昂的战斗人员都死在“异常”手里，再加上第一位多瑟顿的失踪…我们今年的损失已经够严重了。所以，给你们的命令很简单：保持低调。远离敌人的视线，进行被动的观察，直到我们可以获得一个新的立足点，开展新的计划。
 
 还有，有关第一位多瑟顿的事情——你现在就别抱怨这些了。我看到过他的记录，我知道你们大部分人也都看过，这就是为什么我可以放心的说，尽管他的…本性如此，但他的忠诚是[b]无可挑剔[/b]的——我们可以假定，他的突然失联是他进行的调查的一个重要组成部分，而并不是他叛逃了。如果你看到了他，请告诉我们他的位置，但千万不要干涉他的行动。
 
@@ -2530,9 +2529,9 @@ I'm telling you, ditch the slaves and you'll be bringing in ten times as many pa
 t("wand-smuggler's apology letter", "魔杖走私犯的道歉信", "_t")
 t([[My sincerest apologies, Admiral.  I received the conjuration wands in bulk, and I had no idea that several of them were merely wands of trap destruction - testing each one would have drained some charge from each, providing an inferior product.
 
-I will be retrieving what portion of the cheerblossom I can get from my deceptive supplier, or her head - whichever you would prefer.  At that point, I will ask that you please consider revoking my banishment from your marketplace.]], [[我很抱歉，海军上将。我上周进货了大量的魔咒魔杖，但我也不知道，这里面居然有几个是陷阱拆除魔杖——你看，如果我每个都亲自测试一下的话，就会消耗它的充能，降低产品的品质，对吧。
+I will be retrieving what portion of the cheerblossom I can get from my deceptive supplier, or her head - whichever you would prefer.  At that point, I will ask that you please consider revoking my banishment from your marketplace.]], [[我很抱歉，海军上将。我进了一大批魔咒魔杖，但我也不知道，这里面居然有几个只是陷阱拆除魔杖——你看，如果我每个都亲自测试一下的话，就会消耗各自的充能，降低产品的品质，对吧。
 
-那个骗了我的该死的供货商，我会亲自从她那里，拿到你想要的鼓舞之花，或者干脆把她的项上人头拿来——你想要哪个都行。看在我的诚意的份上，请可怜可怜我，撤回把我赶出市场的决定吧。]], "_t")
+那个骗了我的该死的供货商，我会亲自从她那里尽量追回鼓舞之花，或者干脆把她的项上人头拿来——你想要哪个都行。到那时，我会恳请你考虑撤回把我赶出市场的决定。]], "_t")
 t("slaver's inquiry", "奴隶贩子的提议", "_t")
 t([[The anti-scrying nexus you folk set up here is damn impressive, as is the time-release pseudo-rune powered by it - hard to find a spare spot on my skin for it, but I can feel it working for a few days after I'm back in Maj'Eyal.  Great for making sure we can get away from the West portal and disperse without the A.K. catching on or tracking us to a common point of convergence.
 
@@ -2979,22 +2978,21 @@ Once upon a time, there was a Shalore Adventurer by the name of <?=Lore.pocket_t
 
 Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]], [[<? Lore.init_pocket_time_data() ?>从前，有个半身人炼金术师叫做<?=Lore.pocket_time_winner.name?>。和她可靠的傀儡一起，她向巨魔沼泽前进，把挡住她的敌人消灭殆尽；不过当她遇到了普洛克斯时，他弯下腰来在离她脸几英寸的地方大吼，正好在炸弹的爆炸范围之内，她慌张起来把一个炼金瓶从腰带上拽开————
 
-从前，有个矮人狂战士名叫<?=Lore.pocket_time_winner.name?>。在瑞库纳的大厅逃离时，在他的朋友被兽人战士砍倒后，他直接向几个兽人正面冲去，然后————
+从前，有个矮人狂战士名叫<?=Lore.pocket_time_winner.name?>。当他的朋友被兽人战士砍倒时，他正逃过瑞库纳的大厅，却迎面撞上了两个兽人，然后————
 
 从前，有个科纳克人盗贼名叫<?=Lore.pocket_time_winner.name?>。他的陷阱很快解决了普洛克斯，但当岩石巨魔比尔在他的巢穴里把他扔了出去，他失去平衡踩在了————
 
 从前————
 
-从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时发表了一番关于不公平的费解的话，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，使用了她的自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的实验体Z的魔掌中拯救了一个奇怪的叫做“夺心魔”的新生物，甚至在势不可挡地推进时，甩开了岱卡拉的巨人向她扔去的巨石，消灭了伤害了以往许多人的威胁。她发现了失落的孔克雷夫地下实验室，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺百经锤炼，满载旅程中找到的各种珍奇装备。她一边往上爬，一边与一波波蹒跚的不死生物而战，她终于见到了吸血鬼领主迎面而来。这是，一个骷髅战士从后袭来。当她想用她仅有的那一个狂暴纹身时，它的战锤挥击震慑了她。当她因震慑而失去平衡，想要激活纹身的力量，一阵可怕的寒流涌遍了她的四肢，把她包裹在冰块之中时，她才清醒过来————
+从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时发表了一番关于不公平的费解的话，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，使用了她的自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的实验体Z的魔掌中拯救了一个奇怪的叫做“夺心魔”的新生物，甚至在势不可挡地推进时，甩开了岱卡拉的巨人向她扔去的巨石，消灭了伤害了以往许多人的威胁。她发现了失落的孔克雷夫宝库，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺百经锤炼，满载旅程中找到的各种珍奇装备。她一边往上爬，一边与一波波蹒跚的不死生物而战，她终于见到了吸血鬼领主迎面而来。这时，一个骷髅战士从后袭来。它的战锤使出一记震慑打击，恰好砸中了她唯一的野性纹身所在之处。当她因震慑而失去平衡，想要激活纹身的力量，一阵可怕的寒流涌遍了她的四肢，把她包裹在冰块之中时，她才清醒过来————
 
-从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>, 在一条蛇旁开始了旅程，这条蛇不自然地精通时间魔法————
+从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>，在一条蛇旁开始了旅程，这条蛇不自然地精通时间魔法————
 
-从前，有个可怕的恶棍，一个食人魔收割者叫做<?=Lore.pocket_time_winner.name?>，他发现自己为魔法大爆炸影响的山洞中被污染的晶体结构着迷。他首先在夜深人静之时淹死了一个最后的希望的守卫，偷走了她的附魔戒指，然后在大陆上一路留下他毁灭的轨迹，吸取着被他双手斧砍死或被他的长剑穿透的对手的力量，在造成一场场死亡的同时变得更强大。他参与了大腐化者的事业来袭击伊格，来确保没人能阻止他的奥术瘟疫散播，之后把沙虫女王的心脏带到魔法大爆炸污染的土地上，来把它的自然祝福腐化成一种枯萎的苦难力量。他对一个邪教献祭少女来召唤他们的恶魔主人袖手旁观，这样他能亲自杀死它。他旅行到远东，看到四支兽人大军溃散而流血，肿块和疮遍布他们的皮肤，同时生命缓慢地从眼中流失而垂涎不已。沃尔部落最好的战士对于他劫掠兵器库而无可奈何，但一个瘸腿而病弱的兽人堵在封印的门前求他别打开；他只是大笑，走向门，踩过兽人的头，在靴子下碾碎，之后把门踢倒，突然感觉到他的骨盾在一群无可言喻地强大的七彩龙的吐息风暴中解体。即使是<?=Lore.pocket_time_winner.name?>也知道什么时候该从战斗中逃跑，在激活相位门符文的同时握紧了拳头；当刺眼的闪光消失时，他发现自己几英寸外就是————
+从前，有个可怕的恶棍，一个食人魔收割者叫做<?=Lore.pocket_time_winner.name?>，他发现自己为魔法大爆炸影响的山洞中被污染的晶体结构着迷。他首先在夜深人静之时淹死了一个最后的希望的守卫，偷走了她的附魔戒指，然后在大陆上一路留下他毁灭的轨迹，吸取着被他双手斧砍死或被他的长剑穿透的对手的力量，在造成一场场死亡的同时变得更强大。他参与了大腐化者的事业来袭击伊格，来确保没人能阻止他的奥术瘟疫散播，之后把沙虫女皇之心带到魔法大爆炸污染的土地上，来把它的自然祝福腐化成一种枯萎的苦难力量。他对一个邪教献祭少女来召唤他们的恶魔主人袖手旁观，这样他能亲自杀死它。他一想到前往远东，亲眼看着四支兽人大军溃散流血、肿块和疮遍布他们的皮肤、生命缓慢地从眼中流失，就垂涎不已。沃尔部落最好的战士对于他劫掠兵器库而无可奈何，但一个瘸腿而病弱的兽人堵在封印的门前求他别打开；他只是大笑，走向门，踩过兽人的头，在靴子下碾碎，之后把门踢倒，突然感觉到他的骨甲在一群无可言喻地强大的多彩巨龙的吐息风暴中解体。即使是<?=Lore.pocket_time_winner.name?>也知道什么时候该从战斗中逃跑，在激活“相位之门”符文的同时握紧了拳头；当刺眼的闪光消失时，他发现自己几英寸外就是————
 
-从前，有个魔化精灵叫<?=Lore.pocket_time_winner.name?>，由于一个好运天降的落星从恶魔的心灵控制中解脱，出发去用她新得到的力量来从她被困住的轨道地狱中逃脱。那些调查员和切割者是被设计来折磨囚徒，他们对于近身战斗来说过于脆弱，在她的烈火之刃面前，几乎就像是那些未被转变的，除了文书工作外没什么技能的红宝石之子那样轻松倒下，很快，她开始感觉她体内被灌注的恶魔魔法说不定已让她接近无敌。当她看到一个恶魔雕像时，她除了想吸收更多力量外没想别的，根本没注意到雕像召唤了一个乌鲁洛克的精英卫兵————
+从前，有个魔化精灵叫<?=Lore.pocket_time_winner.name?>，由于一个好运天降的落星从恶魔的心灵控制中解脱，出发去用她新得到的力量来从她被困住的轨道地狱中逃脱。那些调查员和切割者是被设计来折磨囚徒，他们对于近身战斗来说过于脆弱，在她的烈火之刃面前，几乎就像是那些未被转变的，除了文书工作外没什么技能的红宝石之子那样轻松倒下，很快，她开始感觉她体内被灌注的恶魔魔法说不定已让她接近无敌。当一个恶魔雕像呼唤她时，她除了想吸收更多力量外没想别的，根本没注意到雕像召唤了一个乌鲁洛克的精英卫兵————
 
-
-从前，有个永恒精灵冒险者叫<?=Lore.pocket_time_winner.name?>，他对于自己在做什么非常确信。他学会了一套相当不寻常的能力————了不起的空手武术天赋，一种在空中挥动法杖的心灵潜能，用拳击触发的石系魔法来用暴风般的石弹来击退敌人们————一旦他在这些方面都有了一些实战经验，他开始秒杀所有遇到的敌人……直到他遇到了异形触手。战斗非常激烈，不一会儿，双方都在死亡的边缘上，位于要塞前厅的两端；冒险者知道他没法冲上前近距离解决那野兽，因此他取而代之地向它发射了一双石弹。然而，当石弹从手中离开时，他感到坚硬的骨爪紧紧环绕腰、腿和后背，以一种无可理喻的速度把他拖入异形触手的手掌心。或许<?=Lore.pocket_time_winner.name?>可能会在接下来的近身拳击中活下来，但他被拖动的速度快于石弹的飞行，现在他发现自己处在这些石制投射物和他们原来的目标之间————
+从前，有个永恒精灵冒险者叫<?=Lore.pocket_time_winner.name?>，他对于自己在做什么非常确信。他学会了一套相当不寻常的能力————了不起的空手武术天赋，一种能在双手仍空着时于空中挥动法杖的心灵潜能，用拳击触发的石系魔法来用暴风般的石弹来击退敌人们————一旦他在这些方面都有了一些实战经验，他开始秒杀所有遇到的敌人……直到他遇到了异形触手。战斗非常激烈，不一会儿，双方都在死亡的边缘上，位于要塞前厅的两端；冒险者知道他没法冲上前近距离解决那野兽，因此他取而代之地向它发射了一双石弹。然而，当石弹从手中离开时，他感到坚硬的骨爪紧紧环绕腰、腿和后背，以一种无可理喻的速度把他拖入异形触手的手掌心。或许<?=Lore.pocket_time_winner.name?>可能会在接下来的近身拳击中活下来，但他被拖动的速度快于石弹的飞行，现在他发现自己处在这些石制投射物和他们原来的目标之间————
 
 从前，一个伟大的灵魂放下了它的笔，合上了它的笔记本，沮丧地叹气。]], "_t")
 t("a telepathic message <The Tale of Maj'Eyal>", "心灵传讯《马基埃亚尔的传说》", "_t")
@@ -3226,9 +3224,9 @@ t("a journal (2)", "一份日志 (2)", "_t")
 t([[Great #CRIMSON#AMAKTHEL#LAST#, forgive me, for I could not prevent the actions of my brethren.  I tried.  We tried.  When they spoke of committing the Great Sin, we argued ferociously, until Caldizar and his apostates did it before we could react in time.  We did our best to avenge this foul deed, and used the Magic of Creativity on as many as we could, blessing them with new forms, and blessing ourselves such that we could do battle with their fortresses; alas, it was nonetheless a war we eventually lost, for what chance did we have against weaponry, power, and mercilessness to which even You fell?  Please, Your Brilliance, understand that we did everything we could.  
 
 Our planet lay in ruins, with even the apostates abandoning Eyal for other worlds.  Every one of Your followers fought to our deaths...  except me, coward that I was in those days.  Now, I am all that remains, along with the apostates we blessed with Your magic.  I will not beg for Your forgiveness; as an inventor You are concerned with results over words, and I will prove to You that my moment of weakness will soon have a wondrous result.  With the sinful apostates gone, You will have the time to secure this world for Yourself, purging the creations of the lesser gods...  and preparing to exact justice on the sinners when they return.  
-]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请原谅我，我没能阻止我的同胞犯下的恶行。我尽力了。我们尽力了。当它们提出那项沉重的罪行的时候，我们激烈反抗，然而凯尔帝勒的那些背教者党羽在我们还没来得及反应之前抢先犯下了滔天大罪。我们尽最大的努力为他们的恶行复仇，将我们掌握的创造魔法使用到了最大的限度，将他们赋予新的形态，也转化了我们自己，这样我们才能和他们的堡垒抗衡。尽管如此，我们仍然在这场没有希望的战争中失败了，我们怎样才能抗衡他们那连你都无法战胜的强大武器、火力以及残忍？请饶恕我们，伟大的神，明白我们已经尽力了。
+]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请原谅我，我没能阻止我的同胞犯下的恶行。我尽力了。我们尽力了。当它们提出那项沉重的罪行的时候，我们激烈争辩，然而凯尔帝勒和他的背教者们在我们还没来得及反应之前抢先犯下了滔天大罪。我们尽最大的努力为他们的恶行复仇，对尽可能多的人施以创造魔法，赋予他们新的形态，也转化了我们自己，这样我们才能和他们的堡垒抗衡。尽管如此，我们仍然在这场没有希望的战争中失败了，我们怎样才能抗衡他们那连你都无法战胜的强大武器、火力以及残忍？伟大的神，请明白我们已经尽力了。
 
-我们的星球化为了废墟，连背教者也离开了埃亚尔，前往了其他世界。你的每一位追随者都战斗到死……只有我，因为懦弱而存留至今。现在，我们一族只剩下我，还有那些被我们使用你的魔法祝福的背教者们。我没有脸面请求你的怜悯，你是一位发明者，你关心的是结果而非言辞，我会亲自向你证明，我现在的懦弱将会带来一个美好的结果。那些犯下罪行的背教者已经离开了，你将终于有机会亲自夺回这个世界，清除那些劣等神祇的低劣造物……并且准备好对那些罪人实施正义的制裁。
+我们的星球化为了废墟，连背教者也离开了埃亚尔，前往了其他世界。你的每一位追随者都战斗到死……只有我，那些日子里我是个懦夫。现在，我们一族只剩下我，还有那些被我们使用你的魔法祝福的背教者们。我不会乞求你的原谅；你是一位发明者，你关心的是结果而非言辞，我会亲自向你证明，我那一时的软弱很快就会带来一个美好的结果。那些犯下罪行的背教者已经离开了，你将终于有机会亲自夺回这个世界，清除那些劣等神祇的低劣造物……并且准备好对那些罪人实施正义的制裁。
 ]], "_t")
 t("a journal (3)", "一份日志 (3)", "_t")
 t([[The work continues, and soon all shall know the name of their new god.  Even handling the one Hand that I have makes me weep for the sins of my brothers, and yet eager to see their work undone...  The bowels of Eyal shall be the forge in which You will be remade, the newly-drained magma channels above shall be its fire.
@@ -3629,7 +3627,7 @@ section "tome-orcs/data/quests/amakthel.lua"
 t("The Dead God Awaits", "已死之神在等待", "_t")
 t("Deep within Eyal you found a huge cavern containing some of the remains of the great dead god Amakthel...", "在埃亚尔的深处，你找到了一个巨大的山洞，那里面深埋着已死的巨神阿马克泰尔的遗骸。", "_t")
 t("Along with what appears to be a living Sher'tul that seems to be trying to resurrect him.", "在那里，还有一个活生生的夏·图尔人，它试图复活这尊古神。", "_t")
-t("It must be stopped at all cost, the Prides only just got their freedom back, you can not allow anything to take it away again!", "必须不惜一切代价阻止他的可怕行径，部落的自由来之不易，任何人都无法再次夺走它！", "_t")
+t("It must be stopped at all cost, the Prides only just got their freedom back, you can not allow anything to take it away again!", "必须不惜一切代价阻止他的可怕行径，部落才刚重获自由，你绝不能让任何东西再次夺走它！", "_t")
 t("The Sher'tul Priest has been taken care of, Amakthel will keep on sleeping forever now. The Prides and the world are safe.", "夏·图尔祭司已经被妥善处置，阿马克泰尔将永久继续沉睡。部落和世界的和平得到了确保。", "_t")
 t("#LIGHT_GREEN#You have won the game!.#WHITE#", "#LIGHT_GREEN#你通关了！#WHITE#", "_t")
 t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "#CRIMSON#你感觉到你的召回之杖可以继续在这个区域运作了。", "log")
@@ -3970,7 +3968,7 @@ section "tome-orcs/data/talents/celestial/energies.lua"
 t("Celestial Acceleration", "天体加速", "talent name")
 t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%. 持续能量仍然算向最大值。", "tformat")
 t("Polarization", "偏振", "talent name")
-t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值 (%d 正能量，%d 负能量)。你的正能量和负能量恢复/ 消退速度增加至 %0.2f。", "tformat")
+t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "你的正负能量中，当前百分比较高的一种将向其最大值恢复，而非向通常的静止值恢复（%d 正能量，%d 负能量）。你的负能量和正能量回复/消退速度增加至 %0.2f。", "tformat")
 t("Magnetic Inversion", "磁反转", "talent name")
 t("Swap your current positive and negative energy levels. This spell takes no time to cast.", "交换当前正和负能量水平，这个法术是瞬发法术。", "_t")
 t("Plasma Bolt", "等离子球", "talent name")
@@ -4623,8 +4621,8 @@ t("@Source@ weaves @hisher@ cloak!", "@Source@挥舞@hisher@披风！", "_t")
 t([[With a gesture of your cloak, you drop a small incendiary device in front of you, creating a wall of thick steam of %d length that burns creatures passing it for %0.2f fire damage and blocks sight for 5 turns.
 		At level 5 the action is so perfect that your foes even lose track of you entirely.
 		Damage increases with your steampower.]], [[在抖动披风的同时，在面前扔下一个小型的爆燃设备，产生一堵长度为 %d 的浓密蒸汽墙。对穿越的生物造成 %0.2f 的火焰伤害，并且阻挡生物视线。效果持续 5 回合。
-	技能等级 5 时，敌人会完全丧失你的行踪，仇恨丢失。
-	伤害受蒸汽强度加成。]], "tformat")
+		技能等级 5 时，敌人会完全丧失你的行踪，仇恨丢失。
+		伤害受蒸汽强度加成。]], "tformat")
 t("Embedded Restoration Systems", "嵌入式回复系统", "talent name")
 t("#LIGHT_BLUE#%s's embedded restoration system activate.", "#LIGHT_BLUE#%s的内置恢复系统启动了。", "logSeen")
 t("%s activates %s cloak's restoration systems!", "%s激活了%s披风的恢复系统！", "logSeen")
@@ -4837,15 +4835,15 @@ t("Therapeutics", "治疗学", "talent name")
 t([[Allows you to create therapeutic tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的治疗学道具。
-		1 级时必定获得一个配方。
-		之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
+		%s]], [[允许你制造 %d 等级的治疗学蒸汽工具。
+		你将在 1 级时学会一个新配方。
+		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
 t("Chemistry", "化学", "talent name")
 t([[Allows you to create chemical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的化学道具。
+		%s]], [[允许你制造 %d 等级的化学蒸汽工具。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -4853,9 +4851,9 @@ t("Explosives", "爆炸学", "talent name")
 t([[Allows you to create explosive tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的爆炸学道具。
-		1 级时必定获得一个配方。
-		之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
+		%s]], [[允许你制造 %d 等级的爆炸学蒸汽工具。
+		你将在 1 级时学会一个新配方。
+		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
 t("Steam Power", "蒸汽动力", "talent name")
 t("Increases the efficiency of all steamtech you operate, granting %d steampower.", "提高所有蒸汽设备的效果，获得 %d 点蒸汽强度。", "tformat")
@@ -5552,10 +5550,11 @@ t([[Place an electrically charged sentry device at a location.
 		The sentry has %d life and lasts 10 turns.
 		Damage, life, resists, and armor scale with your Steampower.
 		Damage and penetration are inherited from the creator.]], [[在指定位置放置一个带电的哨兵装置。
-它每回合会向附近的敌人发射一道电流，造成 %0.2f 点闪电伤害。
-哨兵拥有 %d 点生命，持续 10 回合。
-伤害、生命、抗性和护甲随你的蒸汽强度提高。
-伤害和抗性穿透继承自创造者。]], "tformat")
+		它每回合会向附近的敌人发射一道电流。
+		电流造成 %0.2f 点闪电伤害。
+		哨兵拥有 %d 点生命，持续 10 回合。
+		伤害、生命、抗性和护甲随你的蒸汽强度提高。
+		伤害和抗性穿透继承自创造者。]], "tformat")
 t("Explosive Shell", "爆炸弹", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
@@ -5603,10 +5602,10 @@ t("%s resists the pull!", "%s抵抗了拖动！", "logSeen")
 t([[You fire a special hook shot with your steamgun(s) at a target creature or location.
 		If you target a creature, they are pulled up to %d tiles towards you.
 		If you target an empty tile, you are pulled up to %d tiles towards it.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊弹药打击目标或某处
-如果你的目标是一个生物，他们被拉向你 %d 码
-如果你的目标是一个空地，你会被拉向空地 %d 码
-这个技能不使用弹药。]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪向目标生物或位置发射一枚特殊钩链弹。
+		如果你的目标是一个生物，其会被拉向你最多 %d 码。
+		如果你的目标是一个空地，你会被拉向空地最多 %d 码。
+		这个技能不使用弹药，因为它本身就是弹药。]], "tformat")
 t("Magnetic Shell", "磁性弹", "talent name")
 t([[You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage.
 		The shot will magnetise the target for %d turns. This lowers their defense and increases fatigue by %d.
@@ -5629,10 +5628,10 @@ t("Antimagic Shell", "反魔弹", "talent name")
 t([[You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.
 		The shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.
 		This talent does not use ammo as it is the ammo.
-		Sap damage scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 武器伤害。
-造成 %0.2f 奥术燃烧。
-这个技能不使用弹药。
-奥术燃烧伤害取决于蒸汽强度。]], "tformat")
+		Sap damage scales with Steampower.]], [[你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。
+		反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。
+		这个技能不使用弹药，因为它本身就是弹药。
+		汁液伤害取决于蒸汽强度。]], "tformat")
 t("Botanical Shell", "植物弹", "talent name")
 t([[You fire a special botanical shot with your steamgun(s) at a target for 100%% weapon damage as nature.
 		The shot will release spores which grow into Nourishing Moss in a radius of %d for %d turns.
@@ -5690,7 +5689,7 @@ t("Smith", "铁匠", "talent name")
 t([[Allows you to create smithed tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的铁匠道具。
+		%s]], [[允许你制造 %d 等级的铁匠蒸汽工具。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -5698,7 +5697,7 @@ t("Mechanical", "机械", "talent name")
 t([[Allows you to create mechanical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的机械道具。
+		%s]], [[允许你制造 %d 等级的机械蒸汽工具。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -6090,7 +6089,7 @@ t("The target is warm from the campfire. Increasing steam regeneration by 6/turn
 t("Sun Radiance", "日光", "_t")
 t("The target is under the effect of the sun. Increasing lite and sight radius by 2, blindness immunity by 30%, stealth seeing by 20 and light resistance by 30%.", "目标处于阳光照耀下，照明与视野半径增加 2 格，目盲免疫提高 30%，看穿潜行能力提高 20 点，光系抗性提高 30%。", "_t")
 t("Moon Radiance", "月光", "_t")
-t("The target is under the effect of the moons. Decreasing lite and sight radius by 1, increasing stun immunity by 30%, granting 10 stealth and darkness resistance by 30%.", "目标处于月光的效果下。减少 1 点照明和视野，获得 30% 震慑免疫 , 10 潜行能力和 30% 暗影抗性。", "_t")
+t("The target is under the effect of the moons. Decreasing lite and sight radius by 1, increasing stun immunity by 30%, granting 10 stealth and darkness resistance by 30%.", "目标处于月光的效果下。照明与视野半径减少 1 格，震慑免疫提高 30%，潜行提高 10 点，暗影抗性提高 30%。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/timed_effects/magical.lua"
