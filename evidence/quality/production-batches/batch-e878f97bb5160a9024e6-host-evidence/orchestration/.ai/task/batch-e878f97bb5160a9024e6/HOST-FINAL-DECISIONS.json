@@ -1,0 +1,190 @@
+{
+  "batch_id": "batch-e878f97bb5160a9024e6",
+  "observations": 19,
+  "observation_dispositions": {
+    "advisory": 5,
+    "confirmed": 12,
+    "refuted": 2
+  },
+  "repair_revision_keys": [
+    "c000e44be5060e5d35b9f1e988549600adc0cc54b43484f8d5757bd073fcb01d",
+    "c13869e9eb1974fdb67fad268fbab49033213a95c850b91225786699484e0d84",
+    "c1d81b80fa5c193078f1bdf229534bb0cda219b38a439c8fd4cafcfa58d2fdb8",
+    "c299fd5842d19d4479567da48a61fdfa7956039712191deb938d9425a438a0c9",
+    "c307e5b149002887d58eb35d992c990f5050e887f481d66b1cf034ff7d4f97ed",
+    "c37dbbf403c249c7fd4e2b9e5692a20acb6cad65105d5b5b268bac1b06173dca",
+    "c43a6a0caadef8a668c31cdc01b2890ee4c63798dff613401e3fb6a0ae3c7c3e"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "bffaff9f6c850337ca4e8bcd63c29ffef7b826718c5157f7b08e0c4b6590e308",
+      "stage": "surface",
+      "observation": "原文只说行走时铺设苔藓；译文额外加入敌人受到自然伤害、减速和可能被定身等效果，冻结输入中没有依据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:831–845（MOSS_TREAD）：callbackOnMove 在自行移动到新格且未被强制移动时调用 T_TINKER_MOSS_TREAD；该技能在 data/talents/steam/other.lua:1864–1894 对经过苔藓的敌人造成自然伤害（GRASPING_MOSS），降低移动速度，并有几率定身。现译补入的说明与实现一致，属意译扩写，不改变机制，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c000e44be5060e5d35b9f1e988549600adc0cc54b43484f8d5757bd073fcb01d",
+      "stage": "surface",
+      "observation": "原文“if properly disarmed”指物品解除武装后可作儿童玩具，译文写成“如果做好了保险措施”；开头“CLOSING SALE”中的清仓促销含义也未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/emporium.lua（KALTOR 告示）：原文首行“CLOSING SALE\\nfor\\n…”，段落分隔为“\\n \\n”，共 5 个 LF；现译把标题三行并成一行，只有 4 个 LF，属换行不变量。另外漏译了 CLOSING SALE（清仓）；over twenty years 译成“二十年”，漏了“多”；trust the Guard with their well-being 是“把安危托付给守卫”；if properly disarmed 是“拆除危险部件后”；If nothing else 也误译成“伸出援手”。整句重译，保持原文行结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c088cae8c5e5ace64226e24b610c9868ec4dce425a96d416c7b277713b95557d",
+      "stage": "surface",
+      "observation": "原文“birth option”明确指角色创建选项，译文“战役选项”遗漏了这一限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/data/texts/unlock-orcs_tinker_eyal.lua：解锁标题“New Age of Ascendancy birth option”。本库同族条目 tome-orcs.lua:7942/7954/7966 统一把 birth option 译作“游戏选项”，“原版战役选项”已经表明适用于 Age of Ascendancy 战役，属同族措辞，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c0e390f731e3a6021218bb66b6125843738be0a1578b1a7c987daf570448f12c",
+      "stage": "surface",
+      "observation": "原文首尾的引号在译文中丢失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua：原文是带引号的物品风味语，现译去掉了引号。引号不是 markup 或占位符，不影响运行和语义，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c13869e9eb1974fdb67fad268fbab49033213a95c850b91225786699484e0d84",
+      "stage": "surface",
+      "observation": "原文的“the latest automation discoveries”没有说这些发现属于玩家；译文写成“你最新发现的自动化技术”，改变了发现者。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/mechanical.lua（蒸汽动力装甲）：原文 the latest automation discoveries 没说是谁的发现，现译“你最新发现的”把发现者改成了玩家；intrinsic protection mechanisms 是“内置防护机构”，现译“强大的防护能力”改了意思。整句按原文修正。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c1d81b80fa5c193078f1bdf229534bb0cda219b38a439c8fd4cafcfa58d2fdb8",
+      "stage": "surface",
+      "observation": "原文八处段落空行（连续两个换行）在译文中均变成单个换行；原文“let alone fight”指更无法与之对抗，译文写成“更不用说掌控”，改变了含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/orcs.lua：原文有 16 个 LF、8 处段落空行，现译只有 8 个 LF、没有空行，属换行不变量，需逐段恢复空行。同时修正整句：“毫不掩饰……勉强掩饰”自相矛盾，按原文只保留“勉强掩饰对‘懦夫’‘弱者’的鄙夷”；删去原文没有的“每当这种矛盾爆发……”；“被成为了”是病句；let alone fight 是“更别说与之对抗”；living alone on a mountaintop would do that to anyone 以及 Atmos 与 pipe/hose 的关系按原意改正。Clork Peninsula 按本库多数译法（13 处）作“克拉克半岛”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c299fd5842d19d4479567da48a61fdfa7956039712191deb938d9425a438a0c9",
+      "stage": "surface",
+      "observation": "原文“unseen and unharmed”中的“unseen”未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/birth/worlds.lua:59–61：上文第 59 行“The Scourge from the West … her legacy”说明 Scourge 指人，本库作“西方天灾”，现译“这场灾难”误读成事件，并漏译 unseen。专名“克洛尔克半岛”与本库多数译法“克拉克半岛”（13 处）不一致，一并统一。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c2e4a8d74f666e577885bb45b294b1cff0aa1407415c031b3360236657554318",
+      "stage": "surface",
+      "observation": "原文“Melt”意为熔化，译文“转化”改变了动作含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/quest-artifacts.lua:62–68：确认后逐件调用 who:transmoInven，是 APE 的转化（transmo）处理。本库同族条目 tome-orcs.lua:1148–1151 与核心转化之盒都作“转化”，现译与实现一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c307e5b149002887d58eb35d992c990f5050e887f481d66b1cf034ff7d4f97ed",
+      "stage": "surface",
+      "observation": "原文“a long trained anger”的长期积蓄之意未译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/npcs/domestic-yeti.lua:83：long trained anger 是长期训练养成的怒意，符合驯养攻击雪人的设定，surface 与 contextual 都指出现译漏译；“狂怒的瞪着”还应作“地”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c37dbbf403c249c7fd4e2b9e5692a20acb6cad65105d5b5b268bac1b06173dca",
+      "stage": "surface",
+      "observation": "原文第二段以换行加两个制表符（\\n\\t\\t）起始，译文仅保留换行；段落缩进格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua（枯萎针锥 info）：原文第二段以“\\n\\t\\t”开头，现译只有“\\n”，少了行首两个制表符，属 TAB 不变量。补回制表符，与原文逐行一致。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c43a6a0caadef8a668c31cdc01b2890ee4c63798dff613401e3fb6a0ae3c7c3e",
+      "stage": "surface",
+      "observation": "原文“the first farportal off this continent”指乘第一座可离开大陆的远行传送门，译文“这个大陆上的第一个远行传送门”误作大陆上的首座传送门。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua（帕默广播）：the first farportal off this continent 指第一座能离开这片大陆的远行传送门，现译“这个大陆上的第一个远行传送门”改变了意思。whether those tinies like it or not 里的 tinies 是巨人对太阳堡垒小个子种族的蔑称，现译“你们这些家伙”把指代对象错放到了议会。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c43ffa11d074add3bedb14ad029e43148d9b4b008d614796092b77b1d4a67a29",
+      "stage": "surface",
+      "observation": "原文明确蒸汽回复为每回合 6、体力回复为每回合 4；译文两处均省略了“每回合”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/floor.lua（营火）：steam/stamina regeneration 本身就是每回合回复量，“蒸汽回复 +6 / 体力回复 +4”与本库回复属性的写法一致，语义没有变化；“+ 4”多了一个空格，属措辞，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c485763bb03771bf70dfb6dd46851cc0b66c37ae0f6da4a92859c00a2f8260c5",
+      "stage": "surface",
+      "observation": "原文为“remove %d magical effects”，译文加上“负面”，将清除范围限定为魔法负面效果；冻结输入未提供该限定的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/tinkers/therapeutics.lua:118–120：使用时调用 removeEffectsFilter，参数为 {status=\"detrimental\", type=\"magical\"}，只清除负面魔法效果。现译“魔法负面效果”与实现一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "bffaff9f6c850337ca4e8bcd63c29ffef7b826718c5157f7b08e0c4b6590e308",
+      "stage": "contextual",
+      "observation": "源串 tome-orcs/data/timed_effects/physical.lua:834 的 MOSS_TREAD long_desc 只有 \"You lay moss where you walk.\"。译文却另外加入了多项机制：成功自行移动到新位置、缠绕苔藓、自然伤害、移动减速、可能被定身。这些内容都不在源串里。冻结证据只给出 831-837 行，也没有指定 DLC 源码位置，所以无法核验这些机制是否属实。按忠实度应译为「你走过的地方会铺上苔藓。」之类；如果要保留机制说明，需要补充施加该效果的技能和苔藓地形的源码证据。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:831–845（MOSS_TREAD）：callbackOnMove 在自行移动到新格且未被强制移动时调用 T_TINKER_MOSS_TREAD；该技能在 data/talents/steam/other.lua:1864–1894 对经过苔藓的敌人造成自然伤害（GRASPING_MOSS），降低移动速度，并有几率定身。现译补入的说明与实现一致，属意译扩写，不改变机制，advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c000e44be5060e5d35b9f1e988549600adc0cc54b43484f8d5757bd073fcb01d",
+      "stage": "contextual",
+      "observation": "emporium.lua:48-54 中 \"the people of the Atmos Tribe apparently wish to trust the Guard with their well-being\" 的意思是「把自身安危托付给守卫」，译文「想要用他们的全身心信任守卫们」把意思改成了全心信任。\"After over twenty years of service\" 译成「二十年的经营后」，漏掉了 over（二十多年）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/emporium.lua（KALTOR 告示）：原文首行“CLOSING SALE\\nfor\\n…”，段落分隔为“\\n \\n”，共 5 个 LF；现译把标题三行并成一行，只有 4 个 LF，属换行不变量。另外漏译了 CLOSING SALE（清仓）；over twenty years 译成“二十年”，漏了“多”；trust the Guard with their well-being 是“把安危托付给守卫”；if properly disarmed 是“拆除危险部件后”；If nothing else 也误译成“伸出援手”。整句重译，保持原文行结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c1d81b80fa5c193078f1bdf229534bb0cda219b38a439c8fd4cafcfa58d2fdb8",
+      "stage": "contextual",
+      "observation": "orcs.lua:24-40 有四处问题。(1) 源文 \"barely concealing their distaste for us 'cowards' and 'weaklings.'\" 只是一句，译文写成「他们毫不掩饰对我们的厌恶，勉强掩饰着……鄙夷」，前后自相矛盾；后面的「每当这种矛盾爆发，我们便成了千夫所指。」在源文中不存在。(2)「我们被成为了千夫所指的对象」语法错误，应为「我们成了……」。(3) 跨条不一致：本条把 Clork Peninsula 译作「克拉克半岛」，同批 c299fd58（birth/worlds.lua:61）译作「克洛尔克半岛」。(4) \"living for countless ages alone on a mountaintop would do that to anyone\" 说的是独居山顶会让任何人变得轻浮古怪，译文「都会这么对待其他人」误解了原意。此外，\"like the Atmos could without being tethered to a pipe or hose\" 被译成暗示气之部族自己需要连接气管，与原意相悖。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/orcs.lua：原文有 16 个 LF、8 处段落空行，现译只有 8 个 LF、没有空行，属换行不变量，需逐段恢复空行。同时修正整句：“毫不掩饰……勉强掩饰”自相矛盾，按原文只保留“勉强掩饰对‘懦夫’‘弱者’的鄙夷”；删去原文没有的“每当这种矛盾爆发……”；“被成为了”是病句；let alone fight 是“更别说与之对抗”；living alone on a mountaintop would do that to anyone 以及 Atmos 与 pipe/hose 的关系按原意改正。Clork Peninsula 按本库多数译法（13 处）作“克拉克半岛”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c299fd5842d19d4479567da48a61fdfa7956039712191deb938d9425a438a0c9",
+      "stage": "contextual",
+      "observation": "birth/worlds.lua:59-61 中，第 59 行 \"The Scourge from the West is back in the west, but her legacy stays strong\" 说明 the Scourge 指一个人（西方之灾），不是一场灾难。译文「没有被这场灾难伤害」把她误读成了事件，还漏掉了 unseen（未被她发现）。另外 Clork Peninsula 在这里译作「克洛尔克半岛」，同批 c1d81b80（lore/orcs.lua）译作「克拉克半岛」，专名不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/birth/worlds.lua:59–61：上文第 59 行“The Scourge from the West … her legacy”说明 Scourge 指人，本库作“西方天灾”，现译“这场灾难”误读成事件，并漏译 unseen。专名“克洛尔克半岛”与本库多数译法“克拉克半岛”（13 处）不一致，一并统一。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c307e5b149002887d58eb35d992c990f5050e887f481d66b1cf034ff7d4f97ed",
+      "stage": "contextual",
+      "observation": "domestic-yeti.lua:83 中 \"It glares at you with a long trained anger\" 说的是长期训练出来的怒意，这是驯养攻击雪人的关键设定。译文「狂怒的瞪着你」漏掉了 long trained。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/npcs/domestic-yeti.lua:83：long trained anger 是长期训练养成的怒意，符合驯养攻击雪人的设定，surface 与 contextual 都指出现译漏译；“狂怒的瞪着”还应作“地”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "c43a6a0caadef8a668c31cdc01b2890ee4c63798dff613401e3fb6a0ae3c7c3e",
+      "stage": "contextual",
+      "observation": "gem.lua:63-65 中 \"whether those tinies like it or not\" 的 tinies 指目的地太阳堡垒一方的小个子种族，是巨人对他们的蔑称。译文「不管你们这些家伙喜不喜欢」把对象改成了在听广播的议会，指代错位。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua（帕默广播）：the first farportal off this continent 指第一座能离开这片大陆的远行传送门，现译“这个大陆上的第一个远行传送门”改变了意思。whether those tinies like it or not 里的 tinies 是巨人对太阳堡垒小个子种族的蔑称，现译“你们这些家伙”把指代对象错放到了议会。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 13 entries)"
+  },
+  "notes": [
+    "All-Orcs batch. Surface ran as four gpt-6-sol lanes of 20; every lane echoed its identities exactly and no lane opened a Paseo terminal or called any write tool.",
+    "The contextual run full-000 (13 entries) read only its envelope, the contract and the cited Orcs source.",
+    "The APE melt prompt and the fiery salve cleanse are refuted. The Moss Tread expansion, the birth option label, the dropped quotes and the campfire regeneration wording are advisory.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 44 backlog from 2 to 9; below the 20 threshold, so no window opens."
+  ]
+}
