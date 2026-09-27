@@ -1,0 +1,3 @@
+第326批：冻结80条（全部 Orcs），逐条按本批公开源码文件SHA核验80/80，来源仓库和commit未固定。surface 4 lane 各20条，12个ISSUE；identity 回显全部逐位一致；lane 1 沙箱失败后开 Paseo 终端，宿主逐条核 keys（cat/python3 打印/sed 仅读自身 envelope 与契约）后 kill 终端，lane 3 仅在工具过滤里出现 create_terminal；contextual 一个 Opus run（12 条）只读 envelope 与契约，harvest 前已核原生日志，未越界，3个ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决15个观察：{'confirmed': 9, 'refuted': 3, 'advisory': 3}；预计74条完成、6条待修复。修复 revision：病原体注射日志（被注入）、雪人族出身（科技灵能、心智转移、一只雪人）、枪舞表演（两把蒸汽枪抛向空中、范围内、全部抗性）、腐蚀弹（补三处制表符）、Gardanion 护符（护符的光芒）、蜘蛛机器人（补换行）。灵巧属性名、暴击率标签冒号、当前配方按本库惯例 refuted；白蹄族开场、AED 停用、一束植物（同族四条）记 advisory；Gardanion 名未译登记窗口40 补充。修复窗口40积压为16，未达20。
