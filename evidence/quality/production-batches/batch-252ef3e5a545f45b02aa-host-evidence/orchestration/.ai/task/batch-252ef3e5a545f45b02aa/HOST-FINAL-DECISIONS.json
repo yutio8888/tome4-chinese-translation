@@ -1,0 +1,182 @@
+{
+  "batch_id": "batch-252ef3e5a545f45b02aa",
+  "observations": 18,
+  "observation_dispositions": {
+    "confirmed": 14,
+    "advisory": 3,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "839ab65e8351e73a68cb45b62fe34c10d7578d6acc6c5996d03d020d42b00c04",
+    "83c2965c4e2958d60b97acbeb94367da6eb1e2455dc1cb176d2af385310c0ba3",
+    "83ed9a60a62a471e4466efb5b821e21ed95687ecb914d88c9209f0da42ea1151",
+    "86736c90411abeefcc827f2856111ab3564c1950abe25451761a579ef3e4952b",
+    "8716ed035c921115ccc8242badc3622e924b8ee163d2ac71c2e3a392742aaeb6",
+    "881ce85d6a964c9e2421b7749d02331f74fbf089b371087ab8cab922c02a8447",
+    "893114ab54f08033249942dbff7c727aababbb9ee97f37ae07440ff93b07d060"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 73,
+    "repair_required": 7,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "839ab65e8351e73a68cb45b62fe34c10d7578d6acc6c5996d03d020d42b00c04",
+      "stage": "surface",
+      "observation": "原文的“weapon damage”在译文中缺失；原文两处换行后各有三个制表符，译文各只有两个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/battlefield-management.lua:140–180（Punishment，本库“惩戒”）：源文“dealing 100%% weapon damage + %d%% per physical, magical, or mental effect on them (up to 7 effects).\\n\\t\\t\\tSustains are not effects.\\n\\t\\t#{italic}#The Metal Punisher!#{normal}#”。现译删去 weapon（“100%% + …加成的伤害”读不出基于武器伤害）；第二行行首只有 2 个 \\t（源为 3 个）；斜体内多一个前导空格且“！！”多一个感叹号。建议“造成 100%% 武器伤害，目标身上每有一个物理、魔法或精神状态，额外增加 %d%% 伤害（最多 7 个）。”，第二行补足 3 个 \\t，斜体改“#{italic}#钢铁惩戒！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "83c2965c4e2958d60b97acbeb94367da6eb1e2455dc1cb176d2af385310c0ba3",
+      "stage": "surface",
+      "observation": "原文明确说攻击造成低伤害，译文未表达这一点。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/smith.lua:105–115（Viral Needlegun，本库“病毒针枪”）：“Blight is not dirty to a Tinker, it is useful! … you can fire a low damaging attack that infects foes with terrible diseases.”现译删去 low damaging（低伤害攻击），并把肯定的“it is useful!”弱化为“可能有很大的作用”，“受人厌恶枯萎元素”缺“的”。建议“对工匠来说，枯萎并不肮脏，而是大有用处！将枯萎材料与一把简易机械枪结合，你就能发射一记低伤害的攻击，让敌人感染可怕的疾病。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "83ed9a60a62a471e4466efb5b821e21ed95687ecb914d88c9209f0da42ea1151",
+      "stage": "surface",
+      "observation": "原文是在目标地块制造扭曲，译文写成“创造一个地块”，改变了动作对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/celestial/reflection.lua:21–135（Diffraction Pulse，本库“衍射脉冲”）：“Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.”现译“在目标所在地创造一个地块”把 distortion（扭曲）错成“地块”，漏译 away，且缺标点、以“他们”指代飞行物。建议“在目标格制造一道扭曲，击退其中所有飞行物，并在可能时令其调转方向、背离而去。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "857fac37468331b3722806e487c5ae4a4ad231b1fa213e03ea7aacdc38ea0504",
+      "stage": "surface",
+      "observation": "source 中的 herbs 是草药，target 的“植物”遗漏了草药含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "“stack of herbs”同族（tome-orcs.lua:1830–1834 五条“一束植物（…）”）统一改“草药”已在 handoff 窗口外补充项中登记为跨条 advisory，单条改会造成同族不一致；contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8625bbbfd5a92bb1a58d5c0479e7f44b2cfb9b8e4116646192d062a0ee13546c",
+      "stage": "surface",
+      "observation": "Twinblaster 指双管发射装置，target 的“双重爆破”变成了爆炸事件，丢失物品类别。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:387–394：Tinkerer's Twinblaster 为 BASE_STEAMGUN，unided_name“two barreled steamgun”（本库“双管蒸汽枪”）；神器名“工程师的双重爆破”是意译的专名，物品类别由未鉴定名与装备栏表达，不构成错译；可考虑“双管爆破枪”，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8659ce4c310c8c08d8bbc2485ca45f061aa873e7fe9509b6d919d6d6c683f407",
+      "stage": "surface",
+      "observation": "蚂蚁的 not yet fully developed 指尚未完全发育，target 的“还没有完全发展”误述了生物发育状态。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/yeti-caves/npcs.lua:23：immature ice ant（本库“未成熟的冰蚁”）desc“It seems not yet fully developed.”；“还没有完全发展”用词宜作“发育”，但语义可懂、与名称“未成熟”一致，属措辞问题，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "86736c90411abeefcc827f2856111ab3564c1950abe25451761a579ef3e4952b",
+      "stage": "surface",
+      "observation": "原文要求记录探索地点、时间及观察数量，译文漏掉时间；原文的“濒危或入侵物种”被译为“濒临灭绝或受到入侵”的物种。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua:54–66（修复者招募海报）：(1)“The damage left in … has only now become clear”无“魔法大爆炸”，现译增译；(2)“the balance may once more tip towards ruin”是可能性，现译“平衡被渐渐破坏，世界濒临毁灭的边缘”删去 may 并增“自然和魔法之间”；(3)“write down where you explored, when, and how many”漏“何时”；(4)“if one becomes endangered or invasive”＝变成濒危或入侵物种，现译“濒临灭绝或受到入侵”误解 invasive；(5)源文末尾有换行（15 个 LF），译文缺末尾换行（14 个）。[b] 标题标记为本库对全大写标题的既有处理（Orcs lore 源文自身也用 [b]），不作缺陷。修复时对照整段逐句核对。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "868573d8e4e203d048ed8f192de96bebc209ab8bdcab03bb9b95b7ea19b7b445",
+      "stage": "surface",
+      "observation": "技能名“Voltaic Shell”中的“Shell”被译为“弹”，与原文的外壳含义不符；仅凭冻结条目无法确定游戏内具体机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1646（TINKER_VOLTAIC_SHELL）：与 Explosive Shell（爆炸弹）、Flare Shell、Incendiary Shell（燃烧弹）同为蒸汽枪特种弹药技能（requires steamgun、archery_onhit），shell＝弹，“伏特弹”与同族译法一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8716ed035c921115ccc8242badc3622e924b8ee163d2ac71c2e3a392742aaeb6",
+      "stage": "surface",
+      "observation": "原文说明两次射击“分别选择目标”，译文遗漏；原文首句后的换行在译文中也被删除。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunner-training.lua:45–82（Double Shots，本库“双重射击”）：“In an overpowering display of marksmanship, you fire your steamgun(s) twice in rapid succession.\\nEach shot (targeted separately) deals %d%% damage and stuns its target for %d turns.\\n\\t\\tThe stun chance increases with your Steampower.”现译删去首句修饰与 steamgun(s)、漏译 (targeted separately)（两发各自选目标），且把首句后的换行并掉（源 2 个 LF，译文 1 个）。建议“你以压倒性的精湛枪法，用蒸汽枪快速连射两次。\\n每一发（分别选择目标）造成 %d%% 伤害，并震慑目标 %d 回合。\\n\\t\\t震慑几率随蒸汽强度提升。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "881ce85d6a964c9e2421b7749d02331f74fbf089b371087ab8cab922c02a8447",
+      "stage": "surface",
+      "observation": "原文的 cannister launcher 是发射器，译文却写成毒气罐被发射出去，误译了被描述的物品。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/smith.lua:99–101（Toxic Cannister Launcher，本库名“毒罐发射装置”）：“Amaze your friends with this cannister launcher which lets you project deadly poison clouds with but a wave of your hand. #{italic}#Deadly!#{normal}#”现译“喷出喷射”重复，主语由发射装置变成毒气罐，“Deadly!”译“太强大了”失去“致命”。建议“用这台毒罐发射装置让朋友们啧啧称奇吧，只需挥一挥手，就能释放致命的毒云。#{italic}#致命！#{normal}#”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "893114ab54f08033249942dbff7c727aababbb9ee97f37ae07440ff93b07d060",
+      "stage": "surface",
+      "observation": "原文明确提到 Omelette（煎蛋卷），译文“搞个大家伙！”遗漏了这一核心内容。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:39–48：成就 ORCS_RITCH_EGGS_40“This will make a big Omelette!”，desc“Collected 40 ritch eggs in the Ritch Hive.”；现译“搞个大家伙！”丢掉煎蛋卷／蛋的玩笑，与收集 40 枚里奇虫卵无关联。建议“这能做个超大煎蛋卷！”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "839ab65e8351e73a68cb45b62fe34c10d7578d6acc6c5996d03d020d42b00c04",
+      "stage": "contextual",
+      "observation": "源文 'dealing 100%% weapon damage + %d%% per ... effect'（tome-orcs/data/talents/steam/battlefield-management.lua:179，来源未固定）中基础伤害是『武器伤害』；译文『造成 100%% + ……%d%% 加成的伤害』删去了 weapon，所以读不出伤害基于武器。另外斜体标语『钢铁惩戒！！』比源文 'The Metal Punisher!' 多了一个感叹号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/battlefield-management.lua:140–180（Punishment，本库“惩戒”）：源文“dealing 100%% weapon damage + %d%% per physical, magical, or mental effect on them (up to 7 effects).\\n\\t\\t\\tSustains are not effects.\\n\\t\\t#{italic}#The Metal Punisher!#{normal}#”。现译删去 weapon（“100%% + …加成的伤害”读不出基于武器伤害）；第二行行首只有 2 个 \\t（源为 3 个）；斜体内多一个前导空格且“！！”多一个感叹号。建议“造成 100%% 武器伤害，目标身上每有一个物理、魔法或精神状态，额外增加 %d%% 伤害（最多 7 个）。”，第二行补足 3 个 \\t，斜体改“#{italic}#钢铁惩戒！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "83c2965c4e2958d60b97acbeb94367da6eb1e2455dc1cb176d2af385310c0ba3",
+      "stage": "contextual",
+      "observation": "源文 'fire a low damaging attack that infects foes with terrible diseases'（tome-orcs/data/tinkers/smith.lua:115，来源未固定）明确说这是低伤害攻击；译文『发射出能够使敌人感染上可怕疾病的针击』删去了 low damaging，丢掉了伤害很低这一特性。前半句『受人厌恶枯萎元素却可能有很大的作用』缺『的』，而且把源文的肯定语气 'it is useful!' 改成了推测『可能』。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/smith.lua:105–115（Viral Needlegun，本库“病毒针枪”）：“Blight is not dirty to a Tinker, it is useful! … you can fire a low damaging attack that infects foes with terrible diseases.”现译删去 low damaging（低伤害攻击），并把肯定的“it is useful!”弱化为“可能有很大的作用”，“受人厌恶枯萎元素”缺“的”。建议“对工匠来说，枯萎并不肮脏，而是大有用处！将枯萎材料与一把简易机械枪结合，你就能发射一记低伤害的攻击，让敌人感染可怕的疾病。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "83ed9a60a62a471e4466efb5b821e21ed95687ecb914d88c9209f0da42ea1151",
+      "stage": "contextual",
+      "observation": "源文 'Create a distortion at the target tile'（tome-orcs/data/talents/celestial/reflection.lua:135，来源未固定）的意思是在目标格制造一个扭曲；译文『在目标所在地创造一个地块』把 distortion 错译成『地块』，意思错了。'changing their direction to face away' 里的 away（转向背离的方向）也没有译出，只写成『改变他们的方向』；句中还缺标点，飞行物也不该用『他们』指代。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/celestial/reflection.lua:21–135（Diffraction Pulse，本库“衍射脉冲”）：“Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.”现译“在目标所在地创造一个地块”把 distortion（扭曲）错成“地块”，漏译 away，且缺标点、以“他们”指代飞行物。建议“在目标格制造一道扭曲，击退其中所有飞行物，并在可能时令其调转方向、背离而去。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "86736c90411abeefcc827f2856111ab3564c1950abe25451761a579ef3e4952b",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/lore/primal-forest.lua:54-66（来源未固定）有三处问题：(1) 源文只说 'The damage left in the Scintillating Caverns...'，没有提到魔法大爆炸，译文却加了『魔法大爆炸对那里所造成的伤害』，属于凭空添加的内容；(2) 'the balance may once more tip towards ruin' 是可能性，译文『平衡被渐渐破坏，世界濒临毁灭的边缘』删去 may，说成了已经发生的事实，还额外加了『自然和魔法之间』；(3) 'if one becomes endangered or invasive' 指某物种变成濒危物种或入侵物种，译文『濒临灭绝或受到入侵』把 invasive 误解成被入侵。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/primal-forest.lua:54–66（修复者招募海报）：(1)“The damage left in … has only now become clear”无“魔法大爆炸”，现译增译；(2)“the balance may once more tip towards ruin”是可能性，现译“平衡被渐渐破坏，世界濒临毁灭的边缘”删去 may 并增“自然和魔法之间”；(3)“write down where you explored, when, and how many”漏“何时”；(4)“if one becomes endangered or invasive”＝变成濒危或入侵物种，现译“濒临灭绝或受到入侵”误解 invasive；(5)源文末尾有换行（15 个 LF），译文缺末尾换行（14 个）。[b] 标题标记为本库对全大写标题的既有处理（Orcs lore 源文自身也用 [b]），不作缺陷。修复时对照整段逐句核对。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "8716ed035c921115ccc8242badc3622e924b8ee163d2ac71c2e3a392742aaeb6",
+      "stage": "contextual",
+      "observation": "源文（tome-orcs/data/talents/steam/gunner-training.lua:80-82，来源未固定）写 'you fire your steamgun(s) twice in rapid succession. Each shot (targeted separately) deals...'；译文『你快速地射击两次，每次射击造成……』删去了 '(targeted separately)'，即两发各自选取目标这一机制，另外 steamgun(s) 也没有译出。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunner-training.lua:45–82（Double Shots，本库“双重射击”）：“In an overpowering display of marksmanship, you fire your steamgun(s) twice in rapid succession.\\nEach shot (targeted separately) deals %d%% damage and stuns its target for %d turns.\\n\\t\\tThe stun chance increases with your Steampower.”现译删去首句修饰与 steamgun(s)、漏译 (targeted separately)（两发各自选目标），且把首句后的换行并掉（源 2 个 LF，译文 1 个）。建议“你以压倒性的精湛枪法，用蒸汽枪快速连射两次。\\n每一发（分别选择目标）造成 %d%% 伤害，并震慑目标 %d 回合。\\n\\t\\t震慑几率随蒸汽强度提升。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "881ce85d6a964c9e2421b7749d02331f74fbf089b371087ab8cab922c02a8447",
+      "stage": "contextual",
+      "observation": "源文 'cannister launcher which lets you project deadly poison clouds ... #{italic}#Deadly!#{normal}#'（tome-orcs/data/tinkers/smith.lua:101，来源未固定）说的是发射器可以投射致命毒云；译文『一只能喷出喷射致死的有毒云雾的毒气罐就会被发射出去』里『喷出喷射』重复，主语也从发射器变成了毒气罐。斜体 'Deadly!' 译成『太强大了』，把『致命』改成了『强大』，意思不对。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/smith.lua:99–101（Toxic Cannister Launcher，本库名“毒罐发射装置”）：“Amaze your friends with this cannister launcher which lets you project deadly poison clouds with but a wave of your hand. #{italic}#Deadly!#{normal}#”现译“喷出喷射”重复，主语由发射装置变成毒气罐，“Deadly!”译“太强大了”失去“致命”。建议“用这台毒罐发射装置让朋友们啧啧称奇吧，只需挥一挥手，就能释放致命的毒云。#{italic}#致命！#{normal}#”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "893114ab54f08033249942dbff7c727aababbb9ee97f37ae07440ff93b07d060",
+      "stage": "contextual",
+      "observation": "成就名 'This will make a big Omelette!'（tome-orcs/data/achievements/special.lua:40，来源未固定）对应同条 desc 'Collected 40 ritch eggs in the Ritch Hive'，是拿『煎蛋卷』开的鸡蛋玩笑；译文『搞个大家伙！』丢掉了蛋和煎蛋卷的意思，和收集 40 枚里奇虫卵的内容没有了关联。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:39–48：成就 ORCS_RITCH_EGGS_40“This will make a big Omelette!”，desc“Collected 40 ritch eggs in the Ritch Hive.”；现译“搞个大家伙！”丢掉煎蛋卷／蛋的玩笑，与收集 40 枚里奇虫卵无关联。建议“这能做个超大煎蛋卷！”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 11 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (11 entries) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "The host adds two format defects the reviews missed: the Menders poster lost its trailing line break, and the Double Shots text merged its first line break. Source refutes the Voltaic Shell claim; the herbs family, Twinblaster name and ice ant wording are advisory.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "7 confirmed repair revisions raise the window 42 backlog from 1 to 8; below the 20 threshold, so no window opens."
+  ]
+}
