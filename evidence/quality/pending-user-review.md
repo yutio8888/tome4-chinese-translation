@@ -322,3 +322,11 @@
    - 现状：对话与 lore 六处作“裂天者 毁灭号”（tome-orcs.lua:330/332/379/383/1891 一带）；实体名作“毁天灭地，无礼的天空穿透者”（7289）；蒸汽议会记录作“毁天灭地、无礼的贯穿者————”（2923，原文在 OF- 处被打断）。
    - 争议理由：第 354 批 GPT-6 Sol 表层筛查指出“裂天者 毁灭号”没有译出 IMPOLITE（无礼）这一笑点；Opus contextual 判 OK。三处译名不一，统一须跨对话、lore 与实体名改多条，属全局更名，本批记 advisory。
    - 建议选项：保持现状 / 统一为实体名“毁天灭地，无礼的天空穿透者”（改对话与 lore 六处，议会记录截断版相应改为“毁天灭地，无礼的天空——”）/ 统一为“裂天者 毁灭号”（改实体名与议会记录）/ 另拟兼顾 Destructicus 与 impolite penetrator 的译名。
+
+## 修复窗口 46 待审阅
+
+43. 修饰语 `multi-hued` 的译法分裂（本窗口 `f466031dbb` 口袋时间 lore：“an army of unspeakably powerful multi-hued wyrms”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/lore/pocket-time.lua:59`；主游戏生物见固定 commit 624a6732 `game/modules/tome/data/general/npcs/multihued-drake.lua`。Orcs 来源仓库与 commit 未固定。
+   - 现状：术语 `terminology/creatures.tsv` multi-hued＝“多彩”（preferred，global，注明与 multihued 实体子类的“多彩”统一）；物品一族作“多彩”（多彩的龙鳞、多彩鳞片斗篷、多彩的鳞片护甲、多彩戒指）；但主游戏生物名作“七彩龙”（multi-hued drake）、“七彩龙幼仔”（hatchling）、“超强的七彩龙精英”（overpowered greater multi-hued wyrm）。
+   - 宿主处理：窗口 46 FINAL（Opus 5.5）指出本条“七彩龙”与 preferred 术语不一，按 preferred 改为“多彩巨龙”；生物名一族未改（跨条更名，未授权）。
+   - 建议选项：生物名统一为“多彩龙／多彩龙幼仔／多彩龙精英”以对齐术语 / 保留“七彩龙”并把术语改为按语境区分（生物名用七彩、物品与修饰语用多彩），则本条回退为“七彩龙”。

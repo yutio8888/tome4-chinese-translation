@@ -1,0 +1,42 @@
+已完成 `repair-w46-20260927`，严格限定为 20 个 target。
+
+逐条改动：
+
+1. 化学道具 → 化学蒸汽工具
+2. 铁匠道具 → 铁匠蒸汽工具
+3. 爆炸学道具 → 爆炸学蒸汽工具
+4. 机械道具 → 机械蒸汽工具
+5. 治疗学道具 → 治疗学蒸汽工具
+6. 口袋时间 lore：修正矮人撞敌、孔克雷夫宝库、野性纹身受击关系、自然精灵标点、沙虫女皇之心、远东前景、相位之门、雕像呼唤、双手空闲及多余空行
+7. 偏振：恢复“百分比较高的一种向最大值恢复”机制
+8. 魔杖走私信：删除虚构时间，恢复部分追回与后续请求关系
+9. 烟幕：恢复两处双 TAB
+10. 拘留营信件：删除一处多余空行
+11. 哨兵装置：恢复六行结构及五处双 TAB
+12. 恶魔指令：恢复“异常”作为库马纳及战斗人员死亡的施害者
+13. 钩链弹：恢复弹种、目标类型、最多距离、弹药原因及 TAB
+14. 反魔弹：恢复反魔汁液、奥术法力燃烧、弹药原因及 TAB
+15. 沉睡洞穴日志：修正争辩、施法对象、宽恕表述、过去软弱及未来结果
+16. 卡托尔守卫：补回“暂时”顾客待遇
+17. 华丽的手枪 → 华丽的枪
+18. 阿马克泰尔任务：恢复玩家“绝不能让任何东西再次夺走自由”的要求
+19. 月光效果：统一属性措辞和标点
+20. 寇格的精华 → 寇格的必需品
+
+验证全部通过：
+
+- LuaJIT 加载：`3904 → 3904` 条，恰好 20 个 target 改动
+- 非 target 字段及非工作集记录改动：0
+- LF、逐行 TAB 层级、printf、markup：全部与原文一致
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- 14 个 Orcs 源文件 SHA 均匹配冻结锚点
+- 未修改 `.ai/task`，未 stage、commit 或 push
+
+证据：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/VALIDATION.json)
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+
+剩余风险仅为 Orcs 公开源码仓库/commit 未固定；本次实际 checkout 内容与冻结 SHA 完全一致。

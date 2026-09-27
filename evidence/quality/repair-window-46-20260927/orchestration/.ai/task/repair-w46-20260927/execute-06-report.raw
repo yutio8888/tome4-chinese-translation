@@ -1,0 +1,13 @@
+已完成 `repair-w46-20260927` 的本次 FIX。
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2991)：仅将“一群无可言喻地强大的七彩龙”改为“一群无可言喻地强大的多彩巨龙”。
+- 其余文字、段落、空行、末尾及其他记录未动。
+- 已更新允许范围内的 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 有界验证：3904 → 3904 条；相对 HEAD 恰 20 个冻结 target 变化；非 target 变化 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 旧短语已不存在，新短语仅出现一次。
+- 未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

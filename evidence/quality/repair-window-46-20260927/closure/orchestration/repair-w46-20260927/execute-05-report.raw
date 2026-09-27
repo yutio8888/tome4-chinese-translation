@@ -1,0 +1,17 @@
+已完成 FIX。
+
+- `tome-orcs.lua:2991`：仅将“骨盾”改为“骨甲”。
+- “异形触手”保持不变。
+- 其余文字、段落、空行及末尾未动。
+- 已更新实现证据：
+  - `evidence/quality/repair-window-46-20260927/IMPLEMENTATION.md`
+  - `evidence/quality/repair-window-46-20260927/VALIDATION.json`
+
+验证全部通过：
+
+- LuaJIT 相对 HEAD：3904→3904 条记录，恰 20 个冻结 target 变化，0 个非 target 变化。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- 证据 JSON：`jq empty` 通过。
+
+未 stage、commit、push；未创建 agent；未修改 `.ai/task`。

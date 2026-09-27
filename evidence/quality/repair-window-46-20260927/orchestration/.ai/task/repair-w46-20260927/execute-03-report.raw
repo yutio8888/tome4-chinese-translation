@@ -1,0 +1,14 @@
+已完成单点 FIX。
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2238)：按指定文本修正 `f68acc60e6…`。
+- 其余文字、markup 及抬头后单个空行保持不变。
+- 已更新 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-46-20260927/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 有界验证：`3904 → 3904`，相对 HEAD 恰好 20 个冻结 target 变化，非 target 改动 0；结构与 markup 检查通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- evidence JSON：有效。
+
+未修改 `.ai/task`，未 stage、commit、push，未创建 agent；无未解决问题。

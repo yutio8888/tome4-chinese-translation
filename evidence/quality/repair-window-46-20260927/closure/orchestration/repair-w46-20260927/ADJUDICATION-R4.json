@@ -1,0 +1,19 @@
+{
+  "cycle": 4,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r4a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 19,
+  "raw_issue_count": 1,
+  "decision": "no confirmed finding; cycle 4 converged; FINAL_REVIEW(4, attempt 2) with Opus 5.5",
+  "findings": [
+    {
+      "revision_key": "fa9e9b5cd31f17312878fd3b86ecce6bef6b947bc6fdf87f352a13b55cbf6c29",
+      "status": "advisory",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer r4a1",
+      "reason": "公开 Orcs other.lua:1711–1713 以 DamageType.MANABURN 结算；主游戏固定 commit 624a6732 damage_types.lua:3559 该伤害类型的显示名为 _t(\"manaburn arcane\", \"damage type\")，本库作“奥术法力燃烧”（mod-tome.lua:7072），战斗中玩家看到的就是这个名称。reviewer 指出 burnArcaneResources 同时消耗法力、活力、正负能量属实，但 info 与游戏内伤害类型名保持一致是既定做法；改动须全库同步伤害类型名，属术语层面，非本窗口范围，记 advisory。"
+    }
+  ]
+}

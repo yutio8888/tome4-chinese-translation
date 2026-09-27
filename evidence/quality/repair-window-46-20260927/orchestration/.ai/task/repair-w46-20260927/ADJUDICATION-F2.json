@@ -1,0 +1,27 @@
+{
+  "cycle": 2,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f2a2",
+  "invalid_attempts": [],
+  "raw_ok_count": 18,
+  "raw_issue_count": 2,
+  "decision": "FINAL failed with two cross-entry consistency findings, both confirmed; one bounded fix (execute-04), then RE_REVIEW(3, attempt 1), then FINAL_REVIEW(3, attempt 2) with Opus 5.5",
+  "findings": [
+    {
+      "revision_key": "97a01b5c6a25625308ea8941da5c74f8e813a45b147fc84ce204605866b3056a",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f2a2",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/chemistry.lua/physics.lua：五条工匠制造 info 的第 2–3 行英文逐字相同（You will learn a new schematic at level 1. / Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).），实现为 steam.lua craft_levelup（1 级必学、其余等级各 20%、5 级保底，自动学会上限 2）。化学/铁匠/机械三条译作“你将在 1 级时学会一个新配方。/之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。”，本条为另一套译法且漏“随机”，同族不一。只把第 2、3 行替换为上述三条的逐字文本（保留行首两个制表符与 %%），第 1 行“X蒸汽工具”与第 4 行 %s 不动。"
+    },
+    {
+      "revision_key": "eaca65fddbf830220849f39644fc845700b167005d6ec823c1bef0cd5b681326",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f2a2",
+      "reason": "公开 Orcs tome-orcs/data/talents/steam/chemistry.lua/physics.lua：五条工匠制造 info 的第 2–3 行英文逐字相同（You will learn a new schematic at level 1. / Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).），实现为 steam.lua craft_levelup（1 级必学、其余等级各 20%、5 级保底，自动学会上限 2）。化学/铁匠/机械三条译作“你将在 1 级时学会一个新配方。/之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。”，本条为另一套译法且漏“随机”，同族不一。只把第 2、3 行替换为上述三条的逐字文本（保留行首两个制表符与 %%），第 1 行“X蒸汽工具”与第 4 行 %s 不动。"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+已完成本次 FIX。
+
+- 在 [tome-orcs.lua:4838](/workspace/tome4-chinese-translation/tome-orcs.lua:4838) 和 [tome-orcs.lua:4854](/workspace/tome4-chinese-translation/tome-orcs.lua:4854) 修复治疗学、爆炸学两条 target 的第 2、3 行。
+- 保留第 1 行“X蒸汽工具”、第 4 行 `%s`、双 TAB 与 `20%%`。
+- 其他记录未改。
+
+验证全部通过：
+
+- 有界 LuaJIT 验证：`verified: true`，相对 HEAD 恰好 20 条 WORKSET target 变化，加载 4202 条记录。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 已确认任务 baseline 与 `HEAD:tome-orcs.lua` 对象一致。
+
+未更新 evidence；未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

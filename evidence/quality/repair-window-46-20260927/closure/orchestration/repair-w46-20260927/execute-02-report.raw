@@ -1,0 +1,15 @@
+已完成指定 FIX。
+
+- 修改：[tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3227)
+- 仅将“凯尔帝勒的那些背教者党羽”改为“凯尔帝勒和他的背教者们”。
+- 其余文字、`#CRIMSON#/#LAST#`、段落和末尾换行未动。
+
+验证结果：
+
+- LuaJIT loader：3904 → 3904 条；相对 HEAD 恰 20 个 WORKSET target 变化；非 target 字段变化 0；结构不变量全部通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 精确文本计数：旧文本 0，新文本 1。
+- Doctor：LuaJIT 2.1.0-beta3、LPeg 0.10.2-1 正常；仅有预期的 DLC source-unpinned 警告。
+
+未修改 `.ai/task` 或实现证据；未 stage、commit、push，未创建 agent。无未解决问题或计划偏差。

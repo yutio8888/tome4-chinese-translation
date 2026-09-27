@@ -1,0 +1,122 @@
+{
+  "task_id": "repair-w46-20260927",
+  "status": "pass",
+  "scope": {
+    "translation_file": "tome-orcs.lua",
+    "expected_changed_targets": 20,
+    "actual_changed_targets": 20,
+    "non_target_field_changes": 0,
+    "non_workset_record_changes": 0
+  },
+  "source_anchors": {
+    "checkout_from_frozen_input": true,
+    "repository_commit_pinned": false,
+    "queries_checked": 20,
+    "unique_files_checked": 14,
+    "all_file_sha256_match": true,
+    "source_literals_match": true
+  },
+  "semantic_diff": {
+    "loader": "i18nlib LocaleLoader using the tome-1.7.6 manifest LuaJIT runtime",
+    "entries_before": 3904,
+    "entries_after": 3904,
+    "workset_exact": true,
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_unchanged": true,
+    "special_unchanged": true,
+    "section_unchanged": true,
+    "lf_counts_match_source_for_all_changed_targets": true,
+    "per_line_leading_tab_depth_matches_source_for_all_changed_targets": true,
+    "printf_sequences_match_source_for_all_changed_targets": true,
+    "markup_sequences_match_source_for_all_changed_targets": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 OK; expected source-unpinned warnings for public DLC inputs"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T173248.737668Z-2262982-lint/lint.json"
+    },
+    {
+      "command": "bounded inline verifier using i18nlib LocaleLoader against HEAD, WORKSET.json, and BASELINE-records.json",
+      "exit_code": 0,
+      "result": "3904 entries before and after; exactly 20 workset targets changed; all structural invariants passed"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "git diff --numstat -- tome-orcs.lua",
+      "exit_code": 0,
+      "result": "37 insertions, 38 deletions"
+    }
+  ],
+  "cycle_1_bounded_fix": {
+    "revision_key": "f68acc60e695e26461c2e6bbc205aa124bc510c717d49dbc9b82344c41c02a6a",
+    "confirmed_target_fixed": true,
+    "heading_single_blank_line": true,
+    "lua_validation": {
+      "exit_code": 0,
+      "result": "HEAD 3904 records -> working tree 3904 records; exactly 20 frozen workset targets changed; 0 non-target changes; LF/TAB/blank-line/terminal-LF/placeholder/markup checks passed"
+    },
+    "strict_lint": {
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T175236.000921Z-2298905-lint/lint.json"
+    },
+    "git_diff_check": {
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    }
+  },
+  "cycle_3_bounded_fix": {
+    "revision_key": "f466031dbbc97ee717819880f943d9dfa1b01f36d74f525991f4bd293800b189",
+    "confirmed_bone_armor_fixed": true,
+    "refuted_weirdling_beast_unchanged": true,
+    "lua_validation": {
+      "exit_code": 0,
+      "result": "HEAD 3904 records -> working tree 3904 records; exactly 20 frozen workset targets changed; 0 non-target changes; LF/TAB/blank-line/terminal-LF/placeholder/markup checks passed"
+    },
+    "strict_lint": {
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T181030.315029Z-2332992-lint/lint.json"
+    },
+    "git_diff_check": {
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    }
+  },
+  "cycle_4_final_review_bounded_fix": {
+    "revision_key": "f466031dbbc97ee717819880f943d9dfa1b01f36d74f525991f4bd293800b189",
+    "confirmed_multi_hued_wyrms_fixed": true,
+    "all_other_target_text_unchanged": true,
+    "lua_validation": {
+      "exit_code": 0,
+      "result": "HEAD 3904 records -> working tree 3904 records; exactly 20 frozen workset targets changed; 0 non-target changes; LF/TAB/blank-line/terminal-LF/placeholder/markup checks passed"
+    },
+    "strict_lint": {
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T182239.358984Z-2355380-lint/lint.json"
+    },
+    "git_diff_check": {
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    }
+  },
+  "unresolved": [],
+  "publication_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}
