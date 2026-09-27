@@ -1,0 +1,13 @@
+{
+  "batch_id": "batch-f53abe84eebb72eb0f37",
+  "attempt": 1,
+  "abandoned_at": "2026-09-27T08:54:20Z",
+  "cause": "lane-000-3 (codex/gpt-6-sol, agent a941c154, session 01a0e20d-12a7-78b2-b6e1-aa2ce9b80f97) returned 19 results for its 20-entry envelope: it silently omitted envelope index 13 (be7f15002b82…) and shifted the remaining results up, so harvest recorded output_valid=False ('completed surface result count must equal the frozen entry count'). A missing verdict cannot be rescued by correcting bytes, and a single-lane surface retry requires a fresh lane group, so the whole batch was abandoned and restarted with the same batch id per abandon-restart-reuses-the-same-batch-id.",
+  "lanes": {
+    "lane-000-0": "harvested valid (2 ISSUE), archived and confirmed",
+    "lane-000-1": "index 4 echoed a 43-character truncated identity; host rescued via corrected raw (captures343/lane1-*.raw), harvested valid (2 ISSUE), archived and confirmed",
+    "lane-000-2": "harvested valid (2 ISSUE), archived and confirmed",
+    "lane-000-3": "harvested invalid (19/20 results), archived and confirmed"
+  },
+  "adopted_findings": "none; attempt 1 observations are not recorded as reviewer results"
+}
