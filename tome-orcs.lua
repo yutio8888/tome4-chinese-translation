@@ -254,7 +254,7 @@ t("Demonic Horns 8", "恶魔角8", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Kruk Yeti", "克鲁克雪人", "birth descriptor name")
 t("Yetis are a towering mass of muscle. While normal yetis are non-sentient beasts this kind is special.", "雪人族具有强大的肉体。通常，他们只是无知觉的野兽，但这种有所不同。", "_t")
-t("A few orcs of the Kruk pride have mastered techno-psionics, allowing them to literally hijack a yeti's mind and transfer their own mind inside.", "少数克鲁克部落的兽人掌握了灵能，让他们能操控雪人族的思维，并用自己的意志取代。", "_t")
+t("A few orcs of the Kruk pride have mastered techno-psionics, allowing them to literally hijack a yeti's mind and transfer their own mind inside.", "少数克鲁克部落的兽人掌握了科技灵能，能够真正劫持一只雪人的心智，并把自己的心智转移进去。", "_t")
 t("Doing so drains their old knowledge and they need to start afresh, gaining considerable strength in the process; for the good of the Prides.", "这样做会耗尽他们旧有的知识，必须重新开始，但在此过程中能获得强大的力量；这一切都是为了部落的利益。", "_t")
 t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有 #GOLD#寒冰之怒#WHITE#技能，让他们能将敌人封在冰块中。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -274,7 +274,7 @@ t("The Scourge from the West is back in the west, but her legacy stays strong: t
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
 t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克洛尔克半岛上栖息着兽人第五部落：克鲁克部落；他们并没有被这场灾难伤害。", "_t")
 t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，晨曦之门建立了前哨站阻断了通向大陆的道路。", "_t")
-t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。岛上的主要居民并非兽人，而是气之部族。", "_t")
+t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。半岛上的主要居民并非兽人，而是气之部族。", "_t")
 t("A civilization of steam giants whose mastery of steamtech makes them incredible foes.", "蒸汽巨人的文明掌控蒸汽科技，他们是无比强大的敌人。", "_t")
 t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，回到远东，并将其从晨曦之门手中夺回！", "_t")
 t("Craft your own steamsaws, rocket boots, steam powered armours, and all kind of steamy technology!", "制造自己的蒸汽链锯，火箭靴，蒸汽护甲，以及其他各式各样的蒸汽科技！", "_t")
@@ -481,7 +481,7 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for special training.", "我是来寻求特殊训练的。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_kruk-tinker-shop")
-t("I can indeed offer some training (talent category Steamtech/Physics and Steamtech/Chemistry) for a fee of 100 gold pieces each.", "我能教你物理学或者化学知识，学费100金一次。", "_t")
+t("I can indeed offer some training (talent category Steamtech/Physics and Steamtech/Chemistry) for a fee of 100 gold pieces each.", "我确实可以提供一些训练（技能树：蒸汽科技/物理、蒸汽科技/化学），每项收费 100 金币。", "_t")
 t("Please train me in physics.", "教我物理学知识吧。", "_t")
 t("The tinker spends some time with you, teaching you the basics of smithing.", "工匠花费时间传授你铁匠的基础知识。", "logPlayer")
 t("Please train me in chemistry.", "教我化学知识吧。", "_t")
@@ -1478,7 +1478,7 @@ t("Boots. But with steam power!", "蒸汽动力！", "_t")
 t("Generate %d steam each time you walk.", "每当你移动时，获得%d蒸汽。", "tformat")
 t("The more steam the better!", "蒸汽越多越好！", "_t")
 t("Steam Powered Helm", "蒸汽动力头盔", "entity name")
-t("A Helmet. But with steam power!", "蒸汽动力！", "_t")
+t("A Helmet. But with steam power!", "一顶头盔。不过是蒸汽动力的！", "_t")
 t("Steam Powered Gauntlets", "蒸汽动力手套", "entity name")
 t("Gauntlets. But with steam power!", "蒸汽动力！", "_t")
 t("Anti-Gravity Boots", "反重力鞋", "entity name")
@@ -1505,7 +1505,7 @@ t("#Source# fires a bolt of #GREEN#poison#LAST# at #target# from %s %s!", "#Sour
 t("something", "某物", "_t")
 t("Nacrush's Decimator", "纳克拉什的屠杀者", "entity name")
 t("unwieldy gun", "笨重的枪", "_t")
-t("Nacrush was known for a tendency towards overkill.", "纳克拉什因其滥杀而闻名。", "_t")
+t("Nacrush was known for a tendency towards overkill.", "纳克拉什素以火力过猛著称。", "_t")
 t("Knocks you back when fired.", "开火时击退自己。", "_t")
 t("#Source# recoils from the shot.", "#Source#被反冲力击退。", "logCombat")
 t("Signal", "信号枪", "entity name")
@@ -1685,7 +1685,8 @@ t("5 turns after use, mirror yourself across the map (centered around the locati
 t("Razorlock", "连锁刀片", "entity name")
 t("interlocked steamsaws", "连锁在一起的蒸汽链锯", "_t")
 t([[This intricate set of steamsaws lock together in a nearly indecipherable system.
-They sure seem sharp though.]], "这套蒸汽链锯以奇特的方式锁在一起，看上去非常锋利。", "_t")
+They sure seem sharp though.]], [[这套错综复杂的蒸汽链锯以一种几乎无法看懂的方式锁合在一起。
+不过看起来确实很锋利。]], "_t")
 t("Ramroller", "碾压战车", "entity name")
 t("a... chariot?", "一个……战车？", "_t")
 t("\"So we were thinking. You know what's better than saws? Really BIG saws. Unfortunately, no one could lift them. So we came up with an innovative new solution: Mount them on a motorized platform, allowing easy transportation and unparalleled cutting power!\"", "我们曾经这么想：你知道比锯子更好的是什么吗？巨大的锯子。可惜没人能够拿得动它们。所以我们想了一个新颖的主意：将他们安装在一个移动的平台上，以便让我们方便的运输，并获得无与伦比的切割能力。", "_t")
@@ -1709,7 +1710,7 @@ t("icy steamsaw", "冰冷的蒸汽链锯", "_t")
 t("Fashioned from magical ice, and perfect for carving ice - especially ice with someone else inside it.", "由魔法冰制成，非常适合雕刻冰块——尤其是里面冻着人的冰块。", "_t")
 t("The Lumberator", "播种机", "entity name")
 t("vined coated steamsaw", "爬满藤蔓的蒸汽链锯", "_t")
-t("\"Spread the wonders of nature even quicker than ever with this seed injecting steamsaw! Your former enemies will be freshly grown trees before you even know it!\"", "这台能够注射种子的蒸汽链锯可以更快的传播自然的奇迹。在你意识到之前，你的敌人体内将会长出一棵树！", "_t")
+t("\"Spread the wonders of nature even quicker than ever with this seed injecting steamsaw! Your former enemies will be freshly grown trees before you even know it!\"", "“这台能注射种子的蒸汽链锯，能以前所未有的速度传播自然的奇迹！转眼之间，你昔日的敌人就会变成一棵棵新长出的树！”", "_t")
 t("summon a treant (5 turn cooldown)", "召唤一个树人（5回合冷却）", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
@@ -2017,12 +2018,11 @@ ALSO EFFECTIVE FOR: Headaches, nausea, ennui, fatigue, aches and pains, and gene
 #{italic}#[A disclaimer occupies the bottom margin of the poster, in print so small you doubt the giants would be able to read it.]#{normal}#
  
 WARNING: This product has been determined by the Council of Health Authority to be correlated with the following conditions: Inverse vertigo, increased hair flammability, non-vaporous sweating, night terrors, liver dysphoria, headaches, miner's lung, brainlock, day terrors, mitosis, visions of a great butchered being, miner's elbow, skeletal emancipation, gastrointestinal infamy, brittle kidney, pinaciphobia, decreased global speed, teleportitis, miner's tongue, merged nostrils, an ancient and foul curse, lowered steam pressure, fat burning (literal), ocular feathering, Orcish body odor, arcane disruption, gravity loss, bloodlock, malfeasance, rectal carpeting, nihilism, mid-evening terrors, knee rust, and minor clogging of the pores.]], [[#{bold}#不再堵塞！#{normal}#
-
 如果蒸汽孔阻塞困扰你，请用这个来帮你：
 
 #{italic}#【一幅插图描绘着一个长方形的玻璃瓶，标签上写着“拉格卢克博士的清淤药水”。】#{normal}#
 
-用爱、关怀和蒸汽矿场最纯净的矿物质制成！
+用爱、关怀和蒸汽采石场最纯净的矿物质制成！
 
 只要一瓶盖的量就能清洁你的气孔，和蒸汽一道排出毒素！
 
@@ -2030,7 +2030,7 @@ WARNING: This product has been determined by the Council of Health Authority to 
 
 #{italic}#【一个备注占据了海报的底部边缘，印刷字体太小以致于你怀疑巨人们能不能看到。】#{normal}#
 
-警告：经卫生理事局评议，此产品与以下症状有相关性：反转性眩晕、毛发可燃性增加、非蒸汽性出汗、夜间惊恐发作、肝火、头痛、尘肺病、脑锁、日间惊恐发作、有丝分裂、关于巨大被宰割物的幻觉、矿工肘、关节松脱、肠胃糜烂、肾脆症、尖端恐惧症、整体速度下降、随机传送症、矿工舌、鼻孔合并、某个古老又邪恶的诅咒、低蒸汽压、脂肪燃烧（字面意义）、眼部羽化、兽人体味、奥术干扰、重力丧失、血锁、渎职、直肠沉积、虚无主义、傍晚惊恐发作、膝盖生锈，以及气孔的轻微堵塞。]], "_t")
+警告：经卫生理事局评议，此产品与以下症状有相关性：反转性眩晕、毛发可燃性增加、非蒸汽性出汗、夜间惊恐发作、肝火、头痛、尘肺病、脑锁、日间惊恐发作、有丝分裂、关于巨大被宰割物的幻觉、矿工肘、关节松脱、肠胃糜烂、肾脆症、清单恐惧症、全局速度下降、随机传送症、矿工舌、鼻孔合并、某个古老又邪恶的诅咒、低蒸汽压、脂肪燃烧（字面意义）、眼部羽化、兽人体味、奥术干扰、重力丧失、血锁、渎职、直肠沉积、虚无主义、傍晚惊恐发作、膝盖生锈，以及气孔的轻微堵塞。]], "_t")
 t("tattered poster", "破烂的海报", "_t")
 t([[CLOSING SALE
 for
@@ -2139,7 +2139,7 @@ t([["...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Ex
 
 #{italic}#(The door closes.)#{normal}#
 
-"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……什么事？好，好的。这里是地热探测鼹鼠GEM，阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气“上面写着，‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提供我们之前在协议中许诺的东西。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这篇混乱中解救出来的家伙那里，别忘了把“眼睛”带走。’从个人角度，我可不想把我们的命运，交到某个生活在地底下的狂人手里，而且…”含糊不清的抱怨“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
+"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……这玩意开着吗？好，好的。这里是地热探测鼹鼠GEM，阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气“上面写着，‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提出按他先前开出的条件达成协议。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这片混乱中解救出来的家伙那里，别忘了把“眼”带走。’从个人角度，我可不想把我们的命运，交到某个生活在地底下的狂人手里，而且…”含糊不清的抱怨“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
 
 #{italic}#（你听到了开门的声音，有另一个人的声音响起）#{normal}#
 
@@ -2147,7 +2147,7 @@ t([["...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Ex
 
 #{italic}#（关门声）#{normal}#
 
-“……是的，坦塔洛斯议员还他妈的想喝茶，要不是他刚刚给我们捅了个大马蜂窝，把我们搞的一团糟。继续……我们的出发时间很准时，正在准备前往忠诚者的上一个位置，我们将会从宫殿下方挖一条隧道过去。所有系统工作正常，除了沏茶机，去你妈的沏茶机。日志结束。”]], "_t")
+“……是啊，坦塔洛斯议员什么时候把他捅的、害我们落到这般境地的马蜂窝收拾好，什么时候就能喝上茶。继续……我们准时出发，前往忠诚者最后已知位置的预定航程正在进行，我们将会从宫殿下方挖一条隧道过去。所有系统工作正常，除了沏茶机，去你妈的沏茶机。日志结束。”]], "_t")
 t("strange black disk (2)", "奇怪的黑色碟片 (2)", "_t")
 t([["...for posterity!  Let's make sure future generations can hear the moments of history being made!" You hear the voice of Councillor Tantalos again... and then you hear a very strange voice, one that's all too clear. Even with the device playing it, it sounds like it's coming from inside your own head.#{normal}#
 
@@ -2339,19 +2339,19 @@ PS: If any mention of this is made to your superiors, I'll make sure they also k
 
 给我听着，你这个小蠢货。
 
-当初我们同意来的时候说好的，是要60套合适大小的、具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入意念之墙制造的幻象之中——另外，我们所拿到的头盔都是粗糙改装过的，比原本应有的重量重了两倍以上。我们拿到的是板甲而不是锁甲，进一步增加了我们每个人需要承受的负担。因为人手缩减，我们每天必须轮值12小时。（在这样的安排下，显然绝无时间拖地。）再加上这一切，我们连每人一张床都没有——根据不同日期，我们总有5到10人轮不到地方睡觉。
+当初我们同意来的时候说好的，是要60套合适大小的、具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入意念之墙制造的幻象之中——另外，我们所拿到的头盔都是粗糙改装过的，重量约是应有重量的两倍。我们拿到的是板甲而不是锁甲，进一步增加了我们每个人需要承受的负担。因为人手缩减，我们每天必须轮值12小时。（在这样的安排下，显然绝无时间拖地。）再加上这一切，我们连每人一张床都没有——根据不同日期，我们总有5到10人轮不到地方睡觉。
 
 换作任何其他人，这种排班早就让人彻底累垮了。全靠我们身上的符文，我们才能撑这么久，但符文饱和度日积月累，我们终究需要休息。我们不能直接睡在地板上，我们体型庞大，体重压在硬地上会压出褥疮。所以每次换班，我们总有几人无法入睡或休息。你在西北角看到的那个人，是因力竭而倒下的；他的巡逻路线最长，而且（因为我的疏忽，我很抱歉）正好是前一晚没床可睡的几人之一。
 
 我们知道，增订精神牢笼头盔很贵，添床也很贵，所以我们想出了最便宜的解决方案：多要几把椅子。只要垫上我们用多余谷物袋做成的几个枕头，我们在椅子上也能睡得跟床上差不多舒服。但如果我们得不到这些，我估计不出三个月，就会有另一名守卫在主要巡逻路线上力竭倒下，而不是像上次那样倒在偏僻角落。也就是说，距离囚犯近到他的头盔可能会直接滚落进兽人手中。一旦有兽人戴上那顶头盔，一切就全完了。
 
-我们受得了这种恶劣条件。总的来说，比起在埃尔瓦拉之外遭遇的对待，这依然算得上不错的待遇。如果这种糟糕排班的唯一后果只是累死我们几个人，我们甚至也能接受——但这会导致越狱。而我们绝不会为又一场并非由我们造成的灾难背黑锅！
+我们受得了这种恶劣条件。总的来说，这仍算得上我们在埃尔瓦拉之外遇到过的最好的人际相处之一。如果这种糟糕排班的唯一后果只是累死我们几个人，我们甚至也能接受——但这会导致越狱。而我们绝不会为又一场并非由我们造成的灾难背黑锅！
 
 我已经说过很多遍了，现在是最后一次警告：#{bold}#我们需要在休息室里增加椅子。#{normal}#如果你嫌太贵，我会#{italic}#亲自#{normal}#下到你的住处按住你，让我的人没收你那精致的小床、书桌和梳妆台，把它们拆成木料和软垫给我们自己做新椅子。我和你一样不喜欢抗命行为，但这确实是性命攸关的大事，而且关乎的绝不仅仅是我的人。
 
 ——加尔萨迈
 
-另：如果你向上级提起此事的哪怕一个字，我就确保他们也知道你上周走私到这里的阿特莫斯苦艾酒。]], "_t")
+另：如果你向上级提起此事的哪怕一个字，我就确保他们也知道你上周走私到这里的气之部族苦艾酒。]], "_t")
 t("internment camp correspondence (4)", "拘留营信件 (4)", "_t")
 t([[#{italic}#To: Guard Captain Galsamae
 From: Administrator Quellop#{normal}#
@@ -2728,23 +2728,25 @@ Our forefathers say this creature gave them a means of contacting it again, but 
 
 Perhaps political discourse has gotten a bit...  muddier in recent years.  With the bickering and sniping of modern-day debates, it can be hard to believe that past Councilors had ideas other than their careers in mind, that a vehement display of emotion would be something other than political posturing.  But even if those Councilors were just as petty and selfish as we are, they did not let it affect the Official Histories, not once.
 
-I intend to trust the only advice our ancestors gave us in the Official Histories.  I beg of you all to do so as well.]], [[议员同志们，在这一出气口枯竭加剧的时期，一个简易的解决方法是极具诱惑性的。我明白，目前我已经无力阻止我们的新议长去夺取克鲁克兽人地盘底下的那些有前景的出气口，但是一旦我们失败了，你们也许会试图去接近那个……自称“忠诚者”的个体来补救这一切。我个人认为这会是个愚蠢的决定。
+I intend to trust the only advice our ancestors gave us in the Official Histories.  I beg of you all to do so as well.]], [[议员同志们：
 
-你们还记得，在正史中我们第一次与那些下等种族接触时的记载吗？上面写着，它们是一群有趣又快活的人，是我们的朋友和同伴。我们那时可真是天真啊……但是当我们的祖先们看到了他们的真实本性和他们潜在的残暴之后，祖先们把这些详尽记录下来。然而他们没有明确地告诉我们不要信任兽人。他们没有直接告诉我们这个种族是要远离的害虫，或是一个要消灭的祸害，也没有留下一个可悲的警示，告诉我们让那些下等种族使用我们的发明创造只会导致悲剧。祖先们只是把他们学到的记录下来，让后人对照自己的观察结果，得出自己的结论————这是我们的祖父母辈以不幸的个人经验而体会到的。即使他们悲伤着，感觉到被背叛，即使思绪万千，对下等种族的野蛮感到震怒又哀怜，当时那些负责记录事件的议员们，没有一个抒发个人观点。或许，假如他们愿意表达这种观点，我们可能会处于一个更好的处境，不会再重复他们轻信的错误，不过无论如何，他们仍然保持了公正的记述。
+在这一出气口枯竭加剧的时期，一个简易的解决方法是极具诱惑性的。我明白，目前我已经无力阻止我们的新议长去夺取克鲁克兽人地盘底下的那些有前景的出气口，但是一旦我们失败了，你们也许会试图去接近那个……自称“忠诚者”的个体来补救这一切。我个人认为这会是个愚蠢的决定。
 
-再往前追溯，祖先们谈论过与我们今日的远亲风暴部族。尽管这些纪录中描述了我们与他们紧张的关系，对他们本性中的粗野举动的记述确实完全实事求是的。而且，记录中还提到了关于他们先进冶金技术的论述，以及其他和他们合作获得的好处。尽管一场巨大的火风暴后，他们至今流亡于马基埃亚尔的群山中，让与他们打交道的想法不太可能实现，但如果我们一旦有机会与他们交易，正史还是提供了一个可靠的指示，至少，也能告诉我们他们[i]曾经[/i]如何。
+你们还记得，在正史中我们第一次与那些下等种族接触时的记载吗？上面写着，它们是一群有趣又快活的人，是我们的朋友和同伴。我们那时可真是天真啊……但是当我们的祖先们看清了他们的真实本性、看到他们能做出何等残暴的事之后，便把这些行径详尽地记录了下来。然而他们没有明确地告诉我们不要信任兽人。他们没有直接告诉我们这个种族是要远离的害虫，或是一个要消灭的祸害，或是一个可悲的、堕落的活例证，提醒我们让那些下等种族使用我们的发明创造只会导致悲剧。祖先们只是把他们学到的记录下来，让后人对照自己的观察结果，得出自己的结论————这是我们的祖父母辈以不幸的个人经验而体会到的。即使他们悲伤着，感觉到被背叛，即使思绪万千，对下等种族的野蛮感到震怒又哀怜，当时那些负责记录事件的议员们，没有一个抒发个人观点。或许，假如他们愿意表达这种观点，我们可能会处于一个更好的处境，不会再重复他们轻信的错误，不过无论如何，他们仍然保持了公正的记述。
+
+再往前追溯，祖先们谈论过与我们今日的远亲风暴部族。尽管这些纪录中描述了我们与他们紧张的关系，对他们粗野举动的记述却是完全实事求是的。而且，记录中还提到了关于他们先进冶金技术的论述，以及其他和他们合作获得的好处。尽管一场巨大的火风暴后，他们至今流亡于马基·埃亚尔的群山中，让与他们打交道的想法不太可能实现，但如果我们一旦有机会与他们交易，正史还是提供了一个可靠的指示，至少，也能告诉我们他们[i]曾经[/i]如何。
 
 这样的例子还有许多；正史一直以来都是冷静而不偏不倚的，是做决定的一个可靠标尺。前人们从来不让个人的偏见影响他们的纪录。这一纪录的诚实也从来未在狂热的政治运动中妥协。在这些文字中，没有一个章节可以被论定为某个优势政党的主观臆断，或是受某个陈腐的哲学思潮影响的胡言乱语。
 
-（显然，特拉格拉玛王短暂的仁政除外，但是要明白这是特例，不值得进一步讨论。）
+（显然，特拉格拉玛王那幸好短命的统治除外，但是要明白这是特例，不值得进一步讨论。）
 
 我认为正史对以往的事情有非常可靠的纪录。除了一次以外，他们都对证据进行了可靠的分析；除了一次以外，他们都克制住自己，没有直接给出行动方案。只有这一次，他们在报告中透露出了本能感受这样主观的东西。
 
-你们知道他们怎样描述与“忠诚者”的会面吗？简短地讨论了几件事后，那个奇怪的生物接近了当时的议会，用一根小小的魔杖，炸出一个半途通往埃亚尔核心的洞，来展示他的力量（它接下来把这个魔杖随意地交给了议会成员，就像把它当是儿童的劣质玩具），声称它可以为我们提供一个近乎无穷的能源，而他只需要一个令人感到不便的魔法古物为交换。在他们拒绝后，那个生物发表了看法，原文如下：“这不怎么要紧。我有世界上所有的时间等待你们的人民因为自己的骄傲摔得粉身碎骨。如果你不让我来拯救你们的话，我只需要从你们文明的废墟中找到它。”
+你们知道他们怎样描述与“忠诚者”的会面吗？正史简述了那次会面的经过——一个奇怪的生物接近了当时的议会，用一根小小的魔杖，炸出一个半途通往埃亚尔核心的洞，来展示他的力量（它接下来把这个魔杖随意地交给了议会成员，就像把它当是儿童的劣质玩具），声称它可以为我们提供一个近乎无穷的能源，而他只需要一个令人感到不便的魔法古物为交换。在他们拒绝后，那个生物发表了看法，原文如下：“这不怎么要紧。我有世界上所有的时间等待你们的人民因为自己的骄傲摔得粉身碎骨。如果你不让我来拯救你们的话，我只需要从你们文明的废墟中找到它。”
 
-我们的祖先写下，这个生物给了他们再次与它联络的方式，但祖先们拒绝了写下这一联络方式是什么；我们仍然知道怎样与它联系的原因，在于在一条在烟雾宫殿前门留下的年度总结信息。在提到这以后，他们写道：
+我们的祖先写下，这个生物给了他们再次与它联络的方式，但祖先们拒绝了写下这一联络方式是什么；我们仍然知道怎样与它联系，是因为每年都有人丢在烟雾宫殿前门台阶上的讯息。在提到这以后，他们写道：
 
-“别相信这个‘忠诚者’。当我们抬头看他时，我们感觉到在自己内心深处，有一种比自己要古老的存在，告诉我们他是……[i]错误的[/i]。他对于‘眼’，一个有我们至今没有成功掌控的强大力量的古物，抱着意图，这不可能对任何人有好处。永远别给他‘眼’，而且要继续找到一种销毁‘眼’的方法。永远别接受他给出的其他交易。如果你们有一天也不幸地要见他，你们会立即明白为什么我们这么说。”
+“别相信这个‘忠诚者’。当我们抬头看他时，我们感觉到在自己内心深处，有一种比自己要古老的存在，告诉我们他是……[i]错误的[/i]。他对于‘眼’，一个有我们至今没有成功掌控的强大力量的古物，抱着意图，这不可能对任何人有好处，尤其是对我们自己。永远别给他‘眼’，而且要继续找到一种销毁‘眼’的方法。永远别接受他给出的其他交易。如果你们有一天也不幸地要见他，你们会立即明白为什么我们这么说。”
 
 或许这几年，政治争端变得有些……令人头脑混乱了。今日的辩论中到处都是口角和中伤，让人很难相信，过去的议员们脑海里会考虑超越他们职业生涯以外的东西，那种激昂的感情表达也不仅仅是政治上的装腔作势。不过即使那些议员们像我们一样器量狭小而自私，他们也未曾影响过正史的记录，一次也没有。
 
@@ -2786,7 +2788,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我向你保证，这确实相关。”
 
-帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。不论是那种，我们都没法直接介入，不过确实可以提供某种支持。”
+帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。两派都无力直接介入，但肯定能提供某种形式的支援。”
 
 坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”
 
@@ -2794,11 +2796,11 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
 
-卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]
+卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中删除。]
 
-坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些狡猾的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
+坦塔洛斯：“真是不成体统的发言啊！只是你不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿皮在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能取得实施这一计划的手段，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
 
-[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ]], "_t")
+[此时，卡西罗斯议员在正式辞去议会职务前发表了一篇长篇演讲。演讲被另一个文件记载。] ]], "_t")
 t("excerpts from a Council meeting transcript (2)", "一个议会文字记录片段 (2)", "_t")
 t([[(Ink has been spilled on this transcript - you can only read certain passages.)
 
@@ -3702,7 +3704,7 @@ section "tome-orcs/data/quests/kaltor-shop.lua"
 
 t("The Grumpy Shopowner", "脾气暴躁的店主", "_t")
 t("Kaltor's shop seems to be nearby in the mountain. Maybe it could be interesting to pay him a visit?", "卡托尔的店铺似乎就在附近的山中。或许你有兴趣到此一游？", "_t")
-t("He does sound well armed, though, so be prepared as it is likely very dangerous.", "不过，听说他全副武装，所以请做好准备。", "_t")
+t("He does sound well armed, though, so be prepared as it is likely very dangerous.", "不过，听说他装备精良，所以请做好准备，这很可能非常危险。", "_t")
 t("So maybe take some time to plan the raid.", "所以也许你该花点时间计划一下这次袭击。", "_t")
 t("#LIGHT_GREEN#* You have disposed of Kaltor, the loot is yours!#WHITE#", "#LIGHT_GREEN#* 你做掉了卡托尔，他的宝藏归你了！#WHITE#", "_t")
 t("#PURPLE#You heard a loud noise!", "#PURPLE#你听到了巨大的噪音！", "saySimple")
@@ -4454,8 +4456,9 @@ t([[You build %d micro spiderbot(s) from the earthly elements around you. Spider
 
 		You have currently %d spiderbot(s) up.]], [[你使用周围的土元素制造 %d 个迷你蜘蛛机器人。蜘蛛机器人是由和你的力量相连的奥术致冷单元驱动的。
 		蜘蛛机器人每个回合会对它们的目标造成 %0.2f 寒岩（物理和寒冷）伤害。极寒的攻击有 25%% 的几率冻结目标的双脚，将他们定身 5 回合。
-		如果目标被击杀了，蜘蛛机器人将会跳跃到你半径 %d 码范围内的另一个敌人身上。如果这个目标上有多个机器人，并且在范围内有足够多的可选目标，他们会尽可能分散地跳到每个敌人身上。
-		如果一个目标的身上附身了多个蜘蛛机器人，他们会一起攻击，伤害会叠加（但收益递减），并且会一起试图冻结目标。
+		如果目标被击杀了，蜘蛛机器人将会跳跃到你半径 %d 码范围内的另一个敌人身上。
+		如果这个目标上有多个机器人，并且范围内还有其他空闲目标，它们会尽可能分散到更多目标上。
+		如果一个目标的身上附身了多个蜘蛛机器人，它们会合为一体攻击，伤害会叠加（但收益递减），并且只进行一次冻结判定。
 		你可以维持最多 %d 个蜘蛛机器人，他们最多存活 %d 回合。但是，只有在你视野范围内的蜘蛛机器人才会行动。
 		这一技能的冷却时间受岩石身躯的影响。
 		技能伤害受法术强度加成。
@@ -4925,18 +4928,17 @@ t([[Using small steam motors to enhance your movements, you are able to slip pas
 	穿越后，会急速前进 %d 码。]], "tformat")
 t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
-		Current bonus: %d%%.]], [[被猎杀的危险令你激动不已。
-		半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
+		Current bonus: %d%%.]], [[狩猎的快感令你精神焕发。半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
 		当前加成：%d%%。]], "tformat")
 t("Awesome Toss", "致命翻转", "talent name")
 t("You require two steamguns for this talent.", "你需要两把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[In an awesome feat of agility and technological prowess, you toss both of your steamguns in the air, causing them to spin madly for 3 turns.
 		Each turn, they will fire twice at random targets in range, dealing %d%% weapon damage.
 		While the guns are airborne, you are disarmed and cannot attack.
-		The spectacle is so distracting that your foes have a hard time concentrating on you, increasing all of your resistances by %d%%.]], [[在惊人的灵巧和科技力量下，你将你的蒸汽枪翻转指向天空，持续旋转 3 回合。
-		每回合，蒸汽枪将随机射击 2 次，造成 %d%% 武器伤害。
-		效果持续期间，你视为被缴械，不能攻击。
-		这场表演如此引人注目，你的敌人都被吸引，使你的伤害抗性增加 %d%%。]], "tformat")
+		The spectacle is so distracting that your foes have a hard time concentrating on you, increasing all of your resistances by %d%%.]], [[凭借惊人的敏捷与科技造诣，你把两把蒸汽枪抛向空中，令它们疯狂旋转 3 回合。
+		每回合，它们会向范围内的随机目标射击 2 次，造成 %d%% 武器伤害。
+		蒸汽枪在空中期间，你视为被缴械，不能攻击。
+		这场表演令人眼花缭乱，让敌人难以集中精力对付你，使你的全部抗性提高 %d%%。]], "tformat")
 t("Dazzling Jump", "炫目大跳", "talent name")
 t("%s seems immune to the powerful kick.", "%s对强力的踢腿免疫。", "logSeen")
 t([[While your foes are distracted by your Awesome Toss, you use powerful steam motors to jump into the air and kick a target %d tiles away.
@@ -5484,7 +5486,7 @@ t([[Throw a cone of healing with radius %d, healing other mechanical creatures (
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
 		The silence chance will increase with your Steampower.]], [[制造一道科技灵能波，使所有受影响者（包括使用者）沉默 %d 回合，作用半径为 %d 格。
-沉默几率随蒸汽强度提高。]], "tformat")
+		沉默几率随蒸汽强度提高。]], "tformat")
 t("Mind Crush", "精神碾压", "talent name")
 t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t([[Shatters the mind of your victim, giving you full control over its actions for 6 turns.
@@ -5639,9 +5641,9 @@ t([[You fire a special corrosive shot with your steamgun(s) at a target for %d%%
 		The acid released by the shot will also corrode the target, reducing its accuracy, defense and armour by %d.
 		This talent does not use ammo as it is the ammo.
 		Corrosion strength scales with Steampower.]], [[你用蒸汽枪向目标发射一枚特殊腐蚀弹，造成 %d%% 酸性武器伤害。
-弹丸释放的酸液还会腐蚀目标，使其命中、闪避和护甲降低 %d 点。
-此技能不会消耗弹药，因为弹丸本身就是弹药。
-腐蚀强度随蒸汽强度提升。]], "tformat")
+		弹丸释放的酸液还会腐蚀目标，使其命中、闪避和护甲降低 %d 点。
+		此技能不会消耗弹药，因为弹丸本身就是弹药。
+		腐蚀强度随蒸汽强度提升。]], "tformat")
 t("Toxic Shell", "毒气弹", "talent name")
 t("%s resists the toxin!", "%s 抵抗了剧毒！", "logSeen")
 t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.
@@ -5929,8 +5931,8 @@ t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
 t("An advanced turret equipped with dual steamguns.", "一个装备双蒸汽枪的高级炮台。", "_t")
 t([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
-			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受到所有伤害的 %d%% 转移到自己身上，并且它们装备有强力的电磁炮，可以发射贯穿敌人的子弹。
-		守卫炮台具有 %0.2f 蒸汽枪精通技能，技能等级取决于你炮台守卫技能等级。]], "tformat")
+			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受到所有伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
+			守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
 t("Fire your twin-linked gauss cannons, dealing 100%% steamgun damage as lightning in a piercing beam that bypasses all armor. This does not harm friendly targets.", "发射你的双联电磁炮，在一条贯穿直线上造成 100%% 闪电蒸汽枪伤害，无视护甲。这一效果不会伤害友好目标。", "tformat")
 
@@ -6084,7 +6086,7 @@ t("disease", "疾病", "effect subtype")
 t("blight", "枯萎", "effect subtype")
 t("Viral Injection", "病毒注射", "_t")
 t("The target is infected by a disease, reducing its highest %d stats by %d and doing %0.2f blight damage per turn.", "目标被疾病感染，使其最高的 %d 项属性降低 %d，并且每回合受到 %0.2f 枯萎伤害。", "tformat")
-t("#Target# is injected with a pathogen!", "#Target#被病原体注射！", "_t")
+t("#Target# is injected with a pathogen!", "#Target#被注入了病原体！", "_t")
 t("#Target# is free from the pathogen.", "#Target#脱离病原体。", "_t")
 t("arcane", "奥术", "effect subtype")
 t("shield", "护盾", "effect subtype")
@@ -6992,7 +6994,7 @@ t("Mauling for Brutes", "锤店：专供粗暴者使用", "entity name")
 t("Bows and Slings", "弓与投石索", "entity name")
 t("Sook's Arcane Goodness", "苏克的奥术物资店", "entity name")
 t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
-t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
+t("Sook's Runes and other Harmless Contraptions", "苏克的符文与其他无害小玩意", "entity name")
 t("Zemekkys Home", "泽梅基斯的家", "entity name")
 
 ------------------------------------------------
@@ -7438,7 +7440,7 @@ t("eyed tentacle", "带眼触手", "entity name")
 t("A single malevolent eye is set atop this tentacle. And it watches you.", "触手上长着一只恶毒的眼睛。它正紧盯着你。", "_t")
 t("Sher'Tul High Priest", "夏·图尔高阶祭司", "entity name")
 t("shertul", "夏·图尔", "entity subtype")
-t("So they do exist! Sher'Tul! The stuff of myth and legends. The stuff of terror. The stuff of nightmares. The stuff of unlimited power. The race that turned on the gods of old and actually won. This one seems intent on resurrecting Amakthel, the most powerful of all the gods. You do not know why but this cannot happen or all Orcs, and the world, will be doomed.", "夏·图尔人！他们是存在的！神话和传奇的来源，远古的恐怖和噩梦，拥有无尽力量的强大生物，他们的种族曾经战胜了古神。这只夏·图尔人似乎想要复活阿马克泰尔，最强的神。你不知道他为什么要这么做，但你知道，如果他的阴谋得逞，兽人乃至整个世界都会遭受灭顶之灾。", "_t")
+t("So they do exist! Sher'Tul! The stuff of myth and legends. The stuff of terror. The stuff of nightmares. The stuff of unlimited power. The race that turned on the gods of old and actually won. This one seems intent on resurrecting Amakthel, the most powerful of all the gods. You do not know why but this cannot happen or all Orcs, and the world, will be doomed.", "原来他们真的存在！夏·图尔！神话与传说中的存在，恐怖与噩梦的化身，拥有无尽力量——这个种族曾反叛远古诸神，而且真的赢了。这个夏·图尔似乎执意要复活众神中最强大的阿马克泰尔。你说不清为什么，但这件事绝不能发生，否则所有兽人乃至整个世界都将万劫不复。", "_t")
 t("#CRIMSON#%s awakens and empowers %s!", "#CRIMSON#%s醒来了，强化了%s！", "saySimple")
 
 ------------------------------------------------
@@ -7453,7 +7455,7 @@ You carry a piece of His Sun with you now. Do not forget who gave it to you, les
 现在，你带着他的一片太阳。不要忘了是谁将它给予你，以免让你变成和那些抛弃他的可怜虫一样。#{normal}#"]], "_t")
 t("When worn, gives you an additional prodigy point.", "装备时，获得一点觉醒技能点。", "_t")
 t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#护符的光芒笼罩了你，随后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/slumbering-caves/zone.lua"
