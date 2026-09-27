@@ -1,0 +1,21 @@
+已完成 `repair-w43-20260927`：`tome-orcs.lua` 恰有 25 个 WORKSET target 变动，其他记录字段不变。
+
+逐条修改包括：力量来源拼接空格、屠杀技能描述、爆炸学行结构、蒸汽巨人战斧描述、披风 TAB、插件制作、GEM 全文、闪电敌我对象、阿马克泰尔颂诗全文、约翰日记残页、微不足道的知识、物理伤害类型、永不疲倦、考究护目镜、Heartrend 附言、100 回合撤离警告、伏特弹完整说明、蒸汽动力装甲 TAB、`Whatever.`、火焰喷射器全文、炮台升级、前往大陆任务、灵能之雾换行、蒸汽灵晶遗漏语义、蜘蛛机器人护盾。
+
+验证结果：
+
+- 25/25 Orcs 源码文件 SHA 与 SOURCE-ANCHORS 匹配。
+- LuaJIT 加载成功：前后均 4202 条记录，恰 25 个 target 变化。
+- WORKSET 身份及全部 target preimage 精确匹配。
+- LF、有效行 TAB、空行下标、末尾换行、markup 和占位符检查通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未 stage、commit、push、创建 agent 或修改 `.ai/task/`。
+
+证据：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-43-20260927/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-43-20260927/VALIDATION.json)
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+
+已记录的风险：Orcs 源码仓库/commit 未固定；独立复审和宿主 17 项门禁仍由后续流程完成。`SPEC.md` 验证段的“23个”与标题、25 条清单、WORKSET 和用户指令冲突，本轮按冻结的 25 条执行。

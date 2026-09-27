@@ -1,0 +1,90 @@
+{
+  "task_id": "repair-w43-20260927",
+  "role": "executor",
+  "recorded_at": "2026-09-27T08:20:32Z",
+  "scope": {
+    "translation_file": "tome-orcs.lua",
+    "expected_changed_targets": 25,
+    "evidence_files": [
+      "evidence/quality/repair-window-43-20260927/IMPLEMENTATION.md",
+      "evidence/quality/repair-window-43-20260927/VALIDATION.json"
+    ]
+  },
+  "source_anchors": {
+    "checkout": "/workspace/tome4-dlcs/orcs",
+    "queries": 25,
+    "sha256_matches": 25,
+    "repository_commit_pinned": false,
+    "result": "PASS_WITH_UNPINNED_SOURCE_WARNING"
+  },
+  "checks": [
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1 (0.10); expected source-unpinned warnings for official DLC inputs"
+    },
+    {
+      "name": "luajit_exact_target_diff",
+      "command": "LocaleLoader/LuaRuntime comparison of git HEAD:tome-orcs.lua and working-tree tome-orcs.lua against WORKSET.json",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": {
+        "records_before": 4202,
+        "records_after": 4202,
+        "changed_targets": 25,
+        "workset_exact": true,
+        "target_preimages_exact": true,
+        "other_record_fields_unchanged": true
+      }
+    },
+    {
+      "name": "format_invariants",
+      "command": "bounded comparison of every changed source/target",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": {
+        "lf_count_and_blank_line_indices": "match",
+        "leading_tabs_on_nonblank_lines": "match",
+        "terminal_newline": "match",
+        "markup_line_and_order": "match",
+        "placeholder_order": "match",
+        "whitespace_only_source_lines": "not copied as trailing whitespace"
+      }
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T082032.416872Z-552737-lint/lint.json"
+    },
+    {
+      "name": "diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "translation_diff_stat",
+      "command": "git diff --numstat -- tome-orcs.lua",
+      "exit_code": 0,
+      "result": "PASS",
+      "details": "72 insertions, 72 deletions"
+    }
+  ],
+  "plan_deviation": "SPEC validation prose says 23 targets, while the title, item list, frozen batch counts, WORKSET and user instruction all specify 25; validation used 25.",
+  "risks": [
+    "Orcs source repository and commit are unpinned even though all frozen file SHA-256 values match.",
+    "Independent REVIEW/FINAL_REVIEW and the host 17-gate run remain outside EXECUTOR scope."
+  ],
+  "prohibited_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "agents_created": false,
+    "task_records_modified": false
+  }
+}
