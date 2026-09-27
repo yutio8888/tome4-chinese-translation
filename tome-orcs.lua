@@ -272,7 +272,7 @@ t("The Sorcerers have been defeated!", "法师惨遭失败！", "_t")
 t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "瓦尔·埃亚尔各地的兽人们惊慌失措，被晨曦之门和他们新结盟的西方盟友追猎。", "_t")
 t("The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!", "西方天灾回到了西方，但她的影响依旧深远：整个兽人种族再次濒临毁灭！", "_t")
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
-t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克洛尔克半岛上栖息着兽人第五部落：克鲁克部落；他们并没有被这场灾难伤害。", "_t")
+t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克拉克半岛上坐落着第五部落：克鲁克部落；他们未被西方天灾发现，也未遭其伤害。", "_t")
 t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，晨曦之门建立了前哨站阻断了通向大陆的道路。", "_t")
 t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。半岛上的主要居民并非兽人，而是气之部族。", "_t")
 t("A civilization of steam giants whose mastery of steamtech makes them incredible foes.", "蒸汽巨人的文明掌控蒸汽科技，他们是无比强大的敌人。", "_t")
@@ -305,9 +305,9 @@ It seems to be used to break down metallic items into lumps of metal and infusio
 
 #{bold}#You will have to choose to use it or the Transmogrification Chest when you destroy items. You can choose the default one by using it with no items to destroy.#{normal}#
 ]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动提取仪"#{normal}#。
-它似乎能将金属物品转化为铁块，将纹身转化为植物。
+它似乎能将金属物品拆解成金属块，将纹身拆解成用于制作插件的草药。
 
-#{bold}#你可以选择使用它或者转化之盒。在里面没有物品时使用它则设置为默认使用。#{normal}#
+#{bold}#摧毁物品时，你必须选择使用它或转化之盒。没有可摧毁的物品时使用它，可以将其设为默认选项。#{normal}#
 ]], "_t")
 t("[take it]", "[拿走]", "_t")
 
@@ -339,9 +339,10 @@ This airship appears to be evacuating what's left of the Atmos Tribe.  With the 
 You press a button labelled #{italic}#"SELECT NEXT TARGET"#{normal}#, and the panel shifts to show a very lost and very confused Fire Imp, flying in the air near nothing of importance.  Firing on it would have little effect whatsoever, aside from showing off DESTRUCTICUS's power in the most harmless way possible.*#WHITE#]], [[#LIGHT_GREEN#*#{italic}#"获取侦测锁定中……已获取。"#{normal}#
 
 珍珠面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，整理着逃离时仅能带走的少量财物；一名守卫双手抱头，坐在一堆行李和储物箱上。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
+
 飞船似乎正在疏散气之部族的残余成员。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
 
-你按下按钮 #{italic}#"选择下个目标"#{normal}#，面板显示出一个迷茫而混乱的火焰小鬼，在空中无害地飞舞。向他开火没什么意义，只是以最无害的方式炫耀毁灭号的力量。*#WHITE#]], "_t")
+你按下按钮 #{italic}#"选择下个目标"#{normal}#，面板显示出一个迷茫而困惑的火焰小鬼，正在附近没有任何重要目标的空中飞行。向它开火几乎不会造成任何影响，只能以最无害的方式炫耀毁灭号的力量。*#WHITE#]], "_t")
 t("[shoot down the airship]", "[击落飞船]", "_t")
 t("[shoot down the imp]", "[击落小鬼]", "_t")
 t("#LIGHT_GREEN#*Are you SURE you want to ERADICATE THE STEAM GIANTS?*#WHITE#", "#LIGHT_GREEN#*你确认要消灭蒸汽巨人么？*#WHITE#", "_t")
@@ -826,7 +827,7 @@ t("This yeti is somewhat smaller than the average yeti, and its fur seems well g
 t("guard yeti", "雪人守卫", "entity name")
 t("This yeti is large and angry, with claws far more sharply honed than those found in nature.", "这个雪人巨大且愤怒，他的爪子被打磨的远比那些野生雪人的锋利。", "_t")
 t("attack yeti", "雪人攻击者", "entity name")
-t("This yeti's claws are coated in sharply carved iron. It glares at you with a long trained anger.", "这个雪人的爪子上套着锋利的铁刺，狂怒的瞪着你。", "_t")
+t("This yeti's claws are coated in sharply carved iron. It glares at you with a long trained anger.", "这个雪人的爪子上套着锋利的铁刺，用长期训练养成的怒意恶狠狠地瞪着你。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/hethugoroth.lua"
@@ -1474,7 +1475,7 @@ t("Medical Urgency Vest", "医疗急救背心", "entity name")
 t("medical armour", "医疗装甲", "_t")
 t("This light leather armour features a special medical injector.", "这件轻型皮甲配有一个特殊的医疗注射器。", "_t")
 t("Steam Powered Boots", "蒸汽动力鞋", "entity name")
-t("Boots. But with steam power!", "蒸汽动力！", "_t")
+t("Boots. But with steam power!", "靴子。但是带蒸汽动力！", "_t")
 t("Generate %d steam each time you walk.", "每当你移动时，获得%d蒸汽。", "tformat")
 t("The more steam the better!", "蒸汽越多越好！", "_t")
 t("Steam Powered Helm", "蒸汽动力头盔", "entity name")
@@ -2033,11 +2034,13 @@ KALTOR's FIREARMS, ARMOR, AND OTHER MARTIAL SUNDRIES
  
 It is with a heavy heart that I must announce our closing.  After over twenty years of service, I am shutting my doors - the people of the Atmos Tribe apparently wish to trust the Guard with their well-being, and the Guard chooses to maintain the weapons it already has rather than purchase things like the #{italic}#BRILLIANT AUTO-LOADING ORC EXPELLER#{normal}# (only 30 gold!), or the #{italic}#PRESSURE-ENHANCED SLASHPROOF COMBAT SUIT#{normal}# (only 450 gold!).  I even offered discount options such as the #{italic}#LIL SURPRISE#{normal}# (now only 15 gold!), and yet the city would have none of it.  It would seem my services, and my talents, are simply not wanted.
  
-Even if you have no fear of the orcish tribes, ritch swarms, and other assorted threats that lurk just outside our city walls, please consider purchasing some of my wares.  They are truly beautiful displays of craftsmanship, and would do well as a desk sculpture or (if properly disarmed) a child's toy.  If nothing else, you will be ensuring that a once-proud artisan with great love and respect for his craft need not resort to begging on the streets.]], [[卡托尔的军火、护甲和军用杂货店即将停业
+Even if you have no fear of the orcish tribes, ritch swarms, and other assorted threats that lurk just outside our city walls, please consider purchasing some of my wares.  They are truly beautiful displays of craftsmanship, and would do well as a desk sculpture or (if properly disarmed) a child's toy.  If nothing else, you will be ensuring that a once-proud artisan with great love and respect for his craft need not resort to begging on the streets.]], [[清仓甩卖
+卡托尔的
+枪械、护甲及其他军用杂货
 
-我心情沉重地宣布我们店的停业。二十年的经营后，我要关门了————气之部族的居民显然想要用他们的全身心信任守卫们，而守卫们却想维持原来的配备，而不是去购置像是“#{italic}#光辉灿烂的自动装填的兽人驱除器#{normal}#”（仅售30金币！）或者是“#{italic}#增压的防挥砍的战斗服#{normal}#”（仅售450金币！）。我甚至推出了像是“#{italic}#小小大惊喜#{normal}#”（现在仅售15金币！）这样的优惠，但是这个城市不愿意买任何一件。看上去我的竭诚服务和才华横溢真的没人需要。
+我怀着沉重的心情宣布本店即将停业。经营二十多年后，我只得关门——气之部族的居民显然宁愿把自己的安危托付给守卫，而守卫也选择维护现有武器，不愿购买诸如“#{italic}#精良的自动装填式兽人驱逐装置#{normal}#”（仅售 30 金币！）或“#{italic}#压力强化型防斩击作战服#{normal}#”（仅售 450 金币！）之类的商品。我甚至推出了“#{italic}#小小大惊喜#{normal}#”（现仅售 15 金币！）等折扣商品，可城里仍然无人问津。看来，无论是我的服务还是才华，都根本没人需要。
 
-即使你们一点也不怕那些兽人部落、里奇虫群和在我们城市外游荡的各种威胁，请还是考虑一下要不要买我的一些东西。它们确实美丽得体现了匠人精神，而且可以做好的书桌摆设品或者是孩子的玩具（如果做好了保险措施的话）。如果你愿意伸出援手的话，你可以让一个热爱又尊重他的作品，曾经自豪的工艺大师不再被迫流落街头乞讨。]], "_t")
+即使你不害怕潜伏在城墙外的兽人部落、里奇虫群及其他种种威胁，也请考虑购买一些商品。它们确实是精美的工艺杰作，很适合作为书桌摆件，或在妥善拆除危险部件后作为孩子的玩具。至少这样一来，你可以让一位曾经自豪、深爱并尊重自己手艺的工匠不至于沦落街头乞讨。]], "_t")
 t("ornately-painted poster", "绘制精美的海报", "_t")
 t([[Stylish.  Elegant.  Exclusive.
 
@@ -2185,7 +2188,7 @@ t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sou
 
 "Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#（你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。）#{normal}#
 
-“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远行传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
+“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”闷哼声，挤压声，劈砍声。“给我朝太阳堡垒前进，我们要乘上第一座能离开这片大陆的远行传送门，不管那些小不点喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
 t("why is it down there why is it ANYWHERE", "它为什么会在下面？它为什么会出现在任何地方？", "_t")
 t("If anyone finds this, tell the Jarsovi brothers their father lov", "如果有人能找到这张纸，请告诉贾索维兄弟，他们的父亲爱…", "_t")
@@ -2658,15 +2661,23 @@ We held strong when the other Prides came for us, and we were fighting with weap
 
 The Atmos, however, did not see the dire circumstances we were in.  They did not see the threat we faced, and I doubt that even if the Grand Architect of the Pride had told them what she knew, they would have listened.  All they saw was their tools of creation being used to destroy, their beautiful inventions being used for something so monstrous, their darling clever "children" causing bloody carnage on a scale hundreds of times greater than they'd ever seen.  They denounced us, and those who had begun to mingle with us promptly retreated back to the mountains.  We were no longer welcome using their technology, and perhaps not even living near their mountains.
 
-We will miss their company, their ancient wisdom, and their cautious kindness.  We will not miss their squeamish ignorance and pompous self-righteousness.]], [[我们的部落从来没有受到其他人的尊重，我们是加库尔军队的支柱，是补给的运送者，道路的建设者，照料伤者的治疗师——这些角色都是支持我们的同胞在激烈的战斗中光荣作战必需的……唉，但我们所做的一切，仅仅勉强得到其他人的接受。他们毫不掩饰对我们的厌恶，勉强掩饰着对我们这群“弱者”和“懦夫”的鄙夷。每当这种矛盾爆发，我们便成了千夫所指。加库尔总会挺身而出。所以在他战败之前，他们的偏见都算不得什么。然而不幸的是，当联合王国开始反击，全力进攻那些我们所建造的堡垒的时候，我们被成为了千夫所指的对象，因为我们的堡垒没法坚固到抵挡一切敌人的程度。“他们到底有什么用？”拉克·肖这样说道，“即使他们整天躲在我们身后，他们也什么事都干不好！”后来，在他们知道我们当时的领袖在联合王国的一个要塞抵挡，用投石机把古代纳格尔王国的傀儡投放到人类军队里，来为自己部落的妇女和儿童撤回瓦·埃亚尔争取足够时间之后，那些对于我们懦弱的指控，却又转变成了“自私”和“背叛”。我们一言不发，希望在重建瓦·埃亚尔的兽人城镇的时候能改变他们的看法，觉得当他们住在我们建造的屋檐下，从我们的水井中饮水的时候，能理智地感受我们部落的好意；当时，我们以为这种方法确实奏效了。我们与其他人保持距离，在大陆的远处一隅建立我们的家园，只送出小队的人员，做一些轻度的修复和建设工作。我们建造的城墙能将太阳堡垒的部队挡在外面，这看上去就足够了。
-唉，可是这样的认可再也没法增长也不会持续下去了。在一个命运的夜晚，大工匠克鲁克在和其他部落首领开完会后跑回来，告诉我们得立即离开，并且女人先走。直到今天我们也没完全确定，到底是什么让她如此慌张……她只是告诉我们，如果我们知道了那是什么，就再也不想和别的部落和平了，而我们或许有一天需要那份和平。我们在接下来的几天内，迅速地建了一座通往克拉克半岛的桥，一边建着一边注意着身后那些部落的动静。在最后一个兽人通过的当天晚上，克鲁克用燃烧箭点着了那座桥。在远处的海岸线上，我们只能看到自己惊险逃过的追兵手中举着的火把。
-我们刚刚得以放松喘息，一个东西在我们头上发出雷鸣般的呼啸。一束强光从天上打下，照亮了我们，周围的地面却仍然是暗的。一种奇特的傀儡从那东西上降落，它以弹簧和齿轮而不是符文和石头制成。它用一种沙哑又像是活物发出的声音说话，问我们发生了什么，为何在沉寂的夜晚发出光和噪声；我们告诉它，我们刚刚为了自身的安危从大陆逃来，我们只是想找个地方生存。盘旋的飞艇从上面伸下了钩子，把那个机械拉了回去，然后一言不发地离开了。
-我们在山脉的远端找到了一个合适的家园，以周围的群山做防御，却又有足够肥沃的土地来养活我们。我们一入住，那些飞艇和机械就开始越来越频繁地造访。他们一开始仅仅是袖手旁观，后来与我们打起交道，甚至帮我们建造房屋。不久以后，那些机械的一个主人终于亲自来和我们会面；他自称为气之部族的一员，也就是蒸汽巨人，我们很长时间都认为只是古代神话才有的部族。他们是一群奇怪的人，我们很快与他们交好并敬爱着他们。他们珍视理性而又重视力量，性格不卑不亢……尽管有时有些轻浮和古怪，不过我们想，独自在山顶待上长久时光的人都会这么对待其他人。相应地，他们也认为我们是他们那难以控制却又充满天赋的子女。当他们开始教我们使用那些蒸汽机械科技时，他们对于我们很快适应并改造它的表现充满了惊喜。他们给予我们指导和智慧，我们给他们动机和灵感；如果有足够长的时间，我们双方本可以变成真正的盟友。
-然而，好景不长。一天，一个惊慌的斥候跑进大营，告诉我们，一支兽人军队走水路到达克拉克半岛的海岸上，带着敌意向我们袭来。不管当初他们把大工匠克鲁克赶走的原因是什么，他们已不再满足于得不到那件东西。
-我们告诉气之部族，他们却跟我们说只要和兽人军队谈谈就行；这些巨人们从来没有受过攻击！在我们这样生死存亡的关头，我们从那些巨人那里得不到任何援助。相反，大工匠克鲁克给我们展示了一系列她的设计图，这是一些她之前不敢公开，生怕气之部族看到的东西————这些设计能把我们那些有益又奇特的蒸汽装置，变成可怕又有效的武器。其中有一种背带，能把那些旋转的巨大链锯当做武器装备；便携的蒸汽发生器，让我们可以和气之部族的巨人一样轻松地驱动机械，而不用像他们那样连接气管或喷管；一个把射钉枪的保险装置取消，同时替换掉枪管的方案，这样能让它们以难以置信的高速发射投石索弹药；一个巨人们给我们的珠宝电镀设备的巨型版本，可以同时电击大量的入侵者……
-当其他兽人部落袭来时，我们组成了强力的防御部队，挥舞着他们从未见过的武器战斗，造成了他们从未知道如何忍受和治愈的伤势，使用着他们没法理解更不用说掌控的力量。链锯发出尖啸，撕碎护甲切断肢体；巨大的钩子抓住了加伯特的龙战士的身躯，只听到他们从空中坠落的哀嚎；兽人们被电击或是被蒸汽流烫伤，四周散发出血肉被灼烧的气味；蒸汽枪发出砰砰声，将敌阵化为一堆尸体————这些景象对于气之部族和其他兽人部落来说是可怖的噩梦，但对于我们，这些甜美的声音、景象和味道代表了胜利和安全。我们获得压倒性的胜利，只有极少的阵亡，而它们则落荒而逃。克鲁克部落不会被征服。
-然而气之部族看不到我们所处的危急局面。他们看不到我们面临的威胁。而且我怀疑，即使大工匠告诉他们这一切，他们也不会听我们的话。他们看到的，却是自己创造性的工具用来毁灭，他们美丽的发明变成了如此可怕的东西，他们亲爱的聪慧“子女”们，造成了远超自己所见过场面数百倍的血腥屠杀。他们谴责我们，那些已经开始与我们交往的巨人们也迅速地撤回了山里。他们不再欢迎我们使用他们的技术，甚至不欢迎我们住在他们的群山附近。
-我们会想念他们的陪伴，他们古老的智慧，和他们那谨慎的善意。我们不会想念他们那令人心烦的无知和浮夸的自以为是。]], "_t")
+We will miss their company, their ancient wisdom, and their cautious kindness.  We will not miss their squeamish ignorance and pompous self-righteousness.]], [[我们的部落从来没有受到其他人的尊重。我们是加库尔军队的支柱，是补给的运送者、道路的建设者、照料伤者的治疗师——这些角色都是支持同胞在激烈战斗中光荣作战所必需的……唉，但这一切只让其他部落勉强承认我们不可或缺，勉强掩饰他们对我们这些“懦夫”和“弱者”的鄙夷。只要有机会，加库尔便会替我们出头，因此在他战败前，他们的偏见都无关紧要。然而不幸的是，联合王国开始击退我们、进攻我们在马基·埃亚尔建造的要塞城镇后，众人却怪罪我们没把城镇造得足以抵挡所有进攻者。“他们到底有什么用？”拉克·肖曾问道，“就算躲在我们身后，他们也还是造不出任何有用的东西！”后来真相揭晓：我们当时的领袖曾在联合王国的一座要塞拖住敌军，用投石机把古代纳格尔傀儡抛进人类军阵，为部落大多数妇女和儿童撤回瓦·埃亚尔争取时间。对我们的指控便从怯懦变成了自私和背叛。我们对此保持沉默，希望在重建瓦·埃亚尔的兽人城镇时改变他们的看法，希望他们住进本部落搭建的屋顶下、喝着本部落挖出的井水时能明白道理；一时间，这似乎奏效了。我们与其他部落保持距离，在大陆偏远的一角建立自己的家园，只派小队外出从事小规模修缮与建设。我们建造的城墙足以阻止太阳堡垒军队轻易越过，看来这就够了。
+
+唉，这份接纳既没有加深，也没能长久。一个命运攸关的夜晚，大工匠克鲁克与其他部落首领会面后飞奔回来，说我们必须立刻离开，妇女先走。直到今天，我们仍不完全清楚是什么令她如此恐慌……她只告诉我们，如果知道自己究竟在逃避什么，我们就再也不会想与其他部落和平相处，而将来某一天也许会需要这份和平。接下来的几天里，我们迅速搭起一座通往克拉克半岛的桥，一边施工，一边不断回头戒备其他部落。最后一名兽人过桥的当晚，克鲁克用燃烧箭点燃了桥。隔着遥远的海岸，我们只能看见那些被我们险险甩开的追兵手中的火把。
+
+我们还没来得及松一口气，头顶便传来雷鸣般的轰响。一束强光从天空照下，照亮了我们，周围的土地却依旧黑暗。一种奇特的傀儡从空中落下，它由弹簧和齿轮而非符文和石块制成。它用沙哑却仿佛来自活物的声音询问发生了什么，又是什么在死寂的夜里制造光亮与声响；我们告诉它，我们为自身安全逃离大陆，只想找个地方生存。上方嗡鸣的飞艇垂下钩索，把那具构装体拖了回去，随后一言不发地离开了。
+
+我们在山脉远端找到一处合适的家园，四周群山可供防守，土地也足够肥沃，能够养活我们。我们刚安顿下来，飞艇和构装体便越来越频繁地造访；起初只是观察，后来开始与我们交谈，甚至帮忙盖房。不久后，一位构装体的主人终于亲自前来与我们会面；他自称气之部族的一员，也就是我们长期以为只存在于古老神话中的蒸汽巨人。他们是个奇特的民族，我们很快与之成为好友，也逐渐敬佩他们。他们睿智理性，却又重视力量，既不过分傲慢，也不过分怯懦……虽然有些轻佻古怪，但我们想，任谁独自在山顶生活无数岁月都会变成这样。同样，他们似乎把我们视为难以管束却天赋出众的孩子；当他们开始传授以蒸汽压力驱动的机械技术时，我们适应并改进这些技术的速度令他们惊叹。他们给予我们指引和智慧，我们给予他们动力和创新；若是时间足够，我们本可成为真正的盟友。
+
+看来，好事终有结束的一天。一名惊慌失措的斥候冲进营地，宣告一支兽人军队已乘船抵达克拉克半岛海岸，正带着敌意向我们冲来。不论他们当初究竟想得到什么，才迫使大工匠克鲁克离开，如今他们已不甘心空手而归。
+
+我们把此事告诉气之部族，他们却叫我们只管与兽人大军讲道理；这些巨人显然从未遭受过攻击！即使我们的生死显然系于此事，我们也无法从他们那里得到援助。于是，大工匠克鲁克向我们展示了她绘制的一系列设计图；她以前唯恐被气之部族看见，从不敢将其公开——图纸展示了如何把我们有用的蒸汽装置改造成骇人而高效的武器：一副能将旋转的巨型伐木锯作为武器佩戴的背带；便携式蒸汽发生器，让我们能像气之部族一样驱动机械，却无需被管道或软管拴住；拆除射钉枪的保险机构并更换枪管，使其能以惊人速度发射投石索弹丸的办法；以及气之部族赠予我们的珠宝电镀设备的巨型版本，能同时电击数十名入侵者……
+
+其他兽人部落来袭时，我们坚守阵地，用他们从未见过的武器战斗，造成他们从未学会忍受或治疗的创伤，运用他们根本无法理解、更别说与之对抗的力量。链锯尖啸着撕碎护甲、斩断肢体；巨型抓钩把加伯特的龙骑兵拖下天空，传来他们的惨叫；闪电将兽人的血肉从里到外烤熟，蒸汽喷流将其灼伤，空气中满是焦肉气味；蒸汽枪哒哒作响，把进攻阵形变成尸堆——这些感受也许会萦绕在气之部族和其他部落的噩梦里，对我们而言，却是胜利与安宁的甜美声响、景象和气味。我们取得胜利，仅有寥寥数人阵亡，敌军便溃逃了。克鲁克部落不会被征服。
+
+然而，气之部族没有看到我们身处的绝境，也没有看到我们面对的威胁；我甚至怀疑，即便本部落的大工匠将自己知道的一切告诉他们，他们也不会倾听。他们看到的只是自己的创造工具被用于毁灭，美丽的发明被用于如此骇人的事，自己亲爱而聪慧的“孩子”制造了规模比他们见过的大上数百倍的血腥杀戮。他们谴责了我们，那些已经开始与我们来往的巨人也迅速退回山中。我们不再被允许使用他们的技术，甚至也许连居住在他们的群山附近都不受欢迎。
+
+我们会想念他们的陪伴，他们古老的智慧，和他们那谨慎的善意。我们不会怀念他们那娇气怯懦的无知和浮夸的自以为是。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/palace-fumes.lua"
@@ -2676,7 +2687,8 @@ t("a reminder", "一个公示", "_t")
 t([[A Reminder to Our Constituents:
 
 Any votes for an individual candidate for office cease to be valid once the primaries are over, and the field has been narrowed down to two (or rarely three, in a close race) candidates.  At this point, you cannot vote for your candidate; instead, a competition will be held, after which its victor will be awarded with the position.  The vote you are submitting now determines how they will be competing.  While we cannot enforce how or why you vote, we request that you respect the spirit of our system, and select a competition which reflects the candidates' capability to handle the responsibilities of the Chief Councilor position.]], [[敬告广大选民：
-初选结束后，任何向个人的投票将会不再有效，名额会被削减到两名（如果票数接近，有时会是三名）候选人。在那个时候，您将不能为您的候选人投票；相对应的，将会举行一个比赛，胜利者会获得职位。您现在的投票将会决定他们竞争的方式。我们不能强制要求您投票的方式或动机，但我们仍然请求您尊重我们体制的精神，选择一个能够反映出候选人作为议长履行职责的能力的合适的比赛项目。]], "_t")
+
+初选结束后，任何向个人的投票将会不再有效，名额会被削减到两名（如果票数接近，极少数情况下会是三名）候选人。在那个时候，您将不能为您的候选人投票；相对应的，将会举行一个比赛，胜利者会获得职位。您现在的投票将会决定他们竞争的方式。我们不能强制要求您投票的方式或动机，但我们仍然请求您尊重我们体制的精神，选择一个能够反映出候选人作为议长履行职责的能力的合适的比赛项目。]], "_t")
 t("a wrinkled pamphlet", "一本起皱的小册子", "_t")
 t([[A Plea from the Volunteer's Bureau of Gaming:
 
@@ -3142,13 +3154,14 @@ At this point, it should go without saying that reckless use of magic is a dire 
 Fortunately, there is an alternative available!  With the proper respect, care, and concentration given to Nature, one can be rewarded with powers rivaling or besting the popular uses of magic.  On the civilian level, summoned fireflies can replace magical lighting, regeneration salves can replace healing spells, and accelerated crop growth makes for a far more nutritious diet than conjured foodstuffs.  For martial purposes, there's very little that can stand up to the powers of Nature.  An experienced disciple of Eyal can summon loyal beasts faster than any mage can blast them, crush spellswords of all types with draconic might, or dissolve a necromancer's army in a tide of corrosive ooze.  And if the disciple in question is familiar with the practices of the Ziguranth...  We do not condone their approach to defending nature, but their techniques speak for themselves when facing a hostile mage.  The best part about these abilities, though, is that they are self-limiting!  There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal.  The planet willingly gives us its power, and is conscious enough to take it away if we start abusing its gifts.  Even the most powerful of Wilders cannot abuse their power to the perverse degree that a necromancer can.
 
 Thus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.
-]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管在那里的人们长期使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
+]], [[我们承认时代正在改变。由于重新发现的东方盟友带来影响，不到一年间，联合王国已从勉强容忍魔法转为公开接纳魔法。此外，如果报告可信，瓦·埃亚尔的生态系统尽管经历了数千年不间断的魔法使用，依然健康完好。因此，我们的观点和方法必须与时俱进；我们绝不会无视新知识。
 
-事到如今，鲁莽使用魔法会对……几乎世间一切构成严重威胁，应当已经不言而喻。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们绝不能盲目地否认，这对我们是一种难以置信的安慰。尽管如此，这并不否认，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶的程度过，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能表明，他们的魔法没有遭到滥用的可能性。
+事到如今，鲁莽使用魔法会对……几乎一切构成严重威胁，应当已经不言而喻。即便只是黄昏纪猖獗的死灵魔法，埃亚尔至今也未完全恢复，更别说魔法大爆炸本身。彻底消除魔法似乎是避免惨剧重演的唯一安全办法……但从太阳骑士和星月术士来看，较低阶的奥术运用可能并无内在的腐化或危害效果。与我们长期以来的信念相反，他们成功以安全而负责的方式使用魔法。我们还不至于盲目到否认这给人莫大的宽慰。话虽如此，这丝毫不能证明魔法最可怕的潜力不存在。也许尚未有太阳骑士或星月术士堕落到黄昏纪术士那般邪恶的深渊，或像引发魔法大爆炸的法师那般可悲而鲁莽；但这并不表示他们的魔法没有遭到滥用的可能。
 
-幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法战士，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识的从我们的身边拿走。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
+幸运的是，我们还有另一种选择！只要给予自然应有的尊重、关怀与专注，人们便可获得足以媲美乃至胜过常见魔法用途的力量。在民用方面，召唤萤火虫可以替代魔法照明，回复药剂可以替代治疗法术，加速作物生长也能提供比魔法造出的食物更有营养的饮食。在战斗中，很少有什么能抵挡自然之力。经验丰富的埃亚尔信徒召唤忠诚野兽的速度可以快过法师施放攻击法术，还能以巨龙之力击溃各种魔法战士，或用腐蚀性软泥的浪潮溶解死灵法师的军队。如果这名信徒还熟悉伊格兰斯的手段……我们不赞同他们保卫自然的方式，但面对敌对法师时，他们的技术足以证明自身价值。最妙的是，这些能力会自我限制！它们不会引发失控的连锁反应，也不会让某个妄自尊大的狂人毁掉埃亚尔的大部分地区。星球自愿赐予我们力量，也具有足够的意识，能在我们开始滥用恩赐时将其收回。即使最强大的野性系能力者，也无法像死灵法师那样把力量滥用到反常的程度。
 
-因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做的更好。我们继续伊格兰斯把食人魔的符文替换成纯天然产品的努力（现在，使用我们的新技术，预计只会减少40%的寿命），发展新的肥料技术，让它们远远超出使用奥术力量生产食物的方法，还有在沙漠地区创造水井，让那些地方不再只能依靠水魔法。我们创造了各种各样其他使用自然力量的技术与应用，让过去那些使用魔法的方法看上去既落后又危险。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，他们中的许多人，都可以给他们身边人的生活带来好处！符文魔法就是某种意义上有自我限制能力的魔法，我们也在和那个活化石组织合作，希望能够开发出一种新的魔法，一种和自然联结，受自然约束的魔法。那些岩石守卫就是这样的例子，他们经常使用奥术力量，却仍然和自然之间保持着完美的平和。如果这就是我们前进的道路，我们将张开双臂欢迎它。]], "_t")
+因此，我们正把精力投入两个领域。第一是倡导用自然力量代替魔法：与施法者交谈，了解他们使用魔法的目的，再设法用自然能力同样出色、甚至更好地完成任务。我们延续伊格兰斯的工作，为食人魔符文制作全天然替代品（据我们估计，最新配方现在只会使预期寿命缩短 40%），研制胜过奥术食物生产方法的肥料配方，在原本依赖水系魔法的沙漠聚居地附近开凿水井，并开发了无数其他技术与应用，使魔法显得既危险又过时。第二是把奥术造成的危害降至最低，教导施法者安全、负责并顾及自然地使用魔法。并非每个施法者都是邪恶的；事实上，有些人或许能改善身边人的生活！符文魔法至少在一定程度上会自我限制；我们也正与活化石公会合作，希望开发一种与自然内在相连、受自然约束的新魔法。他们的岩石守卫尽管不断使用奥术，仍与自然保持着完美和谐；如果这确实是未来之路，我们将张开双臂欢迎它。
+]], "_t")
 t("a leaf-bound journal", "一本被树叶包裹的笔记", "_t")
 t([[[i](You see here a leaf-bound journal; the moment you open it, it begins to wither and crumble.  You manage to rip out one page; it is still disintegrating, but slowly enough that you can read it before it turns to dust.)[/i]
 
@@ -3162,19 +3175,19 @@ So maybe the old guard's been overrun with Thaloren, youths, and others who care
 
 Perhaps most meaningfully of all, there are [i]far[/i] more Menders now than there were Ziguranth in the last century.  These allies will help us support Nature to an incredible degree, and we've started offering volunteer courses in classical anti-magic training, allowing them to further refine our techniques for dealing with rogue mages.  If and when arcane magic causes another catastrophe, these allies will rally behind us as we defend Nature from those who threaten it...  And, who knows, maybe we actually CAN teach mages to show a sane level of restraint without wiping them all out.  I'm keeping my eyes open for ways to make that happen, no matter how unlikely they may be.
 
-In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i]（你看到了一本被书页包裹的笔记；当你打开它的时候，它就开始慢慢枯萎、碎裂。你努力撕下了一页，它仍然在慢慢分解，但是分解的速度慢到你能够读完，才最终化成了尘土。）[/i]
+In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i]（你看到一本以树叶装订的日志；打开的瞬间，它便开始枯萎碎裂。你设法撕下一页；它仍在分解，但速度很慢，足以让你在它化为尘土前读完。）[/i]
 
-又有一张海报被他们毁坏了。他们称我们为叛徒、通敌者，宣称自己才是真正的伊格兰斯。他们这群傻瓜。
+又一张遭到破坏的海报。说我们是叛徒、通敌者，宣称他们自己才是真正的伊格兰斯。全都是蠢货。
 
-我建立修复者的理由，并不是因为那些碰巧上是好人的魔法使用者的到来，就能颠覆我过去在夏特尔和伊格的时候所受到的一切教育。这也不是因为我已经遗忘了，任何从奥术魔法之中产生的力量，不管是否被他们包裹在有关天空的一系列繁文缛节里，仍然有着被人扭曲，产生比魔法大爆炸更加可怕的灾难的危险性。这一切都是因为，那群疯子一直以来都无视着政治潮流中发生的巨大转变，不知道自己已经变成了无关紧要的局外人。然后，他们那场莽撞的暗杀行动，彻底让他们的地位从局外人成为了贱民。他们尽管可以把他们所遭受的不幸都归咎于远东的人，但这只是他们棺材板上的最后一颗钉子而已，而没有意识到早在更早之前，符文已经在这片大地上广泛使用，炼金术师在各处公开营业了。
+我建立修复者，并不是因为少数恰好品行端正的魔法使用者出现，就推翻了我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重跃升为人人唾弃。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术师也早已在整片大陆公开活动。
 
-我很欣赏他们的奉献精神。我也很能理解他们的挫败感，他们看到，这个世界越来越将魔法的使用看做稀松平常的事，而变得越来越暴力——但是，实际上，伊格被摧毁对我们来说可以说是一种安乐死，这避免了那些狂热分子进一步在公众面前破坏我们的形象。我们早就应该知道，光靠暴力威慑是不能解决一切问题的——因此，我们必须尝试一种新的办法。既然黄昏纪和魔法大爆炸这样的过去，早就已经在公众的视野之中淡忘。过去警告世人魔法的恐怖的方法，已经不再能够起到作用。那么，我们应该改为向他们展示大自然中那些他们今天就能亲眼目睹的奇迹。既然公众已经不相信魔法是邪恶的了，我们应该向他们展现，自然是更好的。如果我们不能让魔法成为禁忌，我们可以让魔法成为一种过时的技术……而这一切可以吸引无数我们过去所忽视的支持者，我们将可以在他们充满好奇心的心灵中展现自然的美好，并警告奥术魔法带来的恐怖。
+我欣赏他们的奉献，也理解他们的挫败：眼看世人将魔法视为常态，只会让他们更想诉诸暴力。但事实是，对伊格的袭击是一场安乐死，阻止狂热分子继续败坏我们在公众眼中的形象。威吓早已不可能让我们有所作为，所以必须尝试新办法。既然魔法大爆炸和黄昏纪已从公众记忆中淡去，以魔法的恐怖警醒世人不再有效，我们就该提醒他们自然的奇迹——那些今天便能亲眼见到的奇迹。公众若不相信魔法邪恶，至少可以相信自然更好。我们若不能把魔法变成禁忌，就能让它变得过时……而这一切会为我们争取原本缺少的支持，吸引渴望了解自然之美、听取奥术危害警示的好奇心灵。
 
-所以，那些过去的守护者，现在已经被自然精灵，年轻人，还有更多比起对魔法的痛恨，更关心对自然的热爱的人所代替。我不认为这里有什么问题——让自然的势力更加强大，才能抵挡魔法所造成的伤害。我们高举着“自然胜过魔法”的旗号，从联合王国与晨曦之门的条约、对伊格的袭击，以及对伊格兰斯巡逻队的搜捕中幸存下来。我们建立了一个无私的慈善组织，为所有人的利益而工作。这一声誉，比起过去一群狂热的极端分子的公众形象，在大众面前更加可信地多。
+所以，老班底也许已经被涌入的自然精灵、年轻人，以及更多重视热爱自然胜过憎恨魔法的人淹没了。我不明白这有什么问题——让自然更加强大，也会让它更有能力抵御魔法可能造成的伤害。我们让支持自然胜过魔法的理念挺过了联合王国与晨曦之门的条约、对伊格的袭击，以及对伊格兰斯巡逻队的攻击。我们把自己塑造成一个无私、慈善、为众人福祉而工作的组织；这份声誉带来的公信力，远胜过去那群疯狂狂热分子的公众形象。
 
-另外，最重要的是，我们招募的修复者的数量，已经[i]远远超过[/i]伊格兰斯一个世纪里招募的成员的数量。这些盟友对我们在保护自然事业上的支持达到了一个难以相信的程度。我们已经开始了向他们提供传统的反魔法训练的志愿课程，让他们进一步锤炼自己对抗游荡法师的能力。如果奥术魔法造成了另一次灾难，这些盟友将会追随我们成为我们保护自然免受威胁的坚强后盾……另外，谁知道呢，也许我们[b]真的可以[/b]教会那些法师，学会一点理性的克制，而不需要把他们全部杀光。我会一直寻求实现这种目标的方法，不管它的可能性有多么渺茫。
+也许最重要的是，如今修复者的人数比上个世纪的伊格兰斯成员[i]多得多[/i]。这些盟友将帮助我们以前所未有的程度支持自然；我们也开始自愿开设传统反魔训练课程，让他们进一步完善我们对付叛离法师的技巧。如果奥术魔法再次造成灾难，这些盟友会团结在我们身后，与我们一道保卫自然、抵御威胁……而且，谁知道呢，也许我们确实能够教会法师保持合理的克制，而不必把他们全部消灭。无论可能性多低，我都会继续留意实现这一点的办法。
 
-与此同时，支付岩石守卫训练师的工资，以及给我们的新成员购买足够的灵晶和草本纹身的价格可不便宜。我知道我支付账目的方法不太光彩，我也知道如果被人看到这事，我的组织会受到多么坏的影响，但是这是我能找到的赚钱最快最容易的方法了。只要十分钟的专注，再花上几个小时来恢复我的失衡值，我种出的鼓舞之花就足够支付我们一个礼拜的开销了。]], "_t")
+与此同时，付钱给岩石守卫训练师，再为新成员购买足够的灵晶和草本纹身，代价并不便宜。我并不为自己支付账单的手段感到自豪，也完全清楚一旦被人看见会给组织造成什么后果，但这是我经历过最快、最容易赚到的钱。专注十分钟，再花几小时重新恢复失衡值，我便能种出足够的鼓舞之花，支付整整一周的开销。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/quarry.lua"
@@ -3452,9 +3465,9 @@ All I can hope is that King Tolak has learned something about the Orcs, before h
 t("kindness", "善意", "_t")
 t([[I stuck up for you. I wanted to forgive you, to give you time and safety to see we meant no harm.  I forgave you for the ages we spent in fear, the lives we lost, for I imagined I could have been tempted to do the same in your position.
 
-Now I see where kindness and mercy get me.]], [[我曾为你挺身而出。我曾经那么多次原谅你，想给你更多时间，想给你想要的安全感，让你证明你不是那样充满恶意。我曾经原谅你让我们生活在恐惧中几个世纪的痛苦，原谅在你们屠刀下逝去的无数生命，因为我曾经以为，如果把我放在你的位置上，我也有可能会做出同样的选择。
+Now I see where kindness and mercy get me.]], [[我曾为你挺身而出。我本想原谅你，给你时间与安全，让你看清我们并无恶意。我原谅了你，原谅你让我们在恐惧中度过的漫长岁月、让我们失去的那些生命，因为我想，若身处你的位置，我也可能受到诱惑而做出同样的事。
 
-现在看吧，看看我的善意和仁慈给我换来了什么。]], "_t")
+现在我终于看清，善意与仁慈给我换来了什么。]], "_t")
 t("hope", "希望", "_t")
 t([[You took everything from me.  You took the dawn of a beautiful future, you took the fires of hope and happiness, you took the kind, guiding light of my love Aeryn and put out the glow of the life we deserved to have together.  The light is gone...  but you have given me darkness in return.  And you're about to know that darkness very, very well.  Embracing it fully rather than shutting it out...  It's so easy to use these powers now.  I've felt them before, but I had no hate to use as their inspiration, no true misery to pour into the minds deserving, no empty void inside me to drain your hopes and confidence into.  You've fixed that for me.
 
@@ -3486,13 +3499,13 @@ Well...  that isn't terribly reassuring.  You hesitantly step forward, expecting
 The floor disappears from under you, and yet after falling only an inch, you suddenly feel weightless.  You turn; the freshly-formed mindstar, already beginning to crack, is glowing intensely.  "We know that isn't terribly reassuring.  We don't care if you WERE expecting a trap, and if we truly wanted to kill you, bolting at a moment's notice wouldn't be fast enough.  In fact, it'd be very easy indeed."  You are abruptly thrown near the bottom of the pit towards a series of spikes by telekinetic force, then stop, held motionless inches above them.  "Clearly, we don't want you dead or even slightly harmed," the voice from inside your head says, as the spikes retract into the pit floor and you slowly levitate back into the illuminated halls.  "Now that we've established that...  let us help you."  You float to the top, and find yourself standing on solid ground as the floor rematerializes under you and the telekinetic force vanishes, moments before the mindstar shatters.
 
 Nonetheless, you feel you shouldn't be here.  The fact that this place exists at all feels...  wrong.
-]], [[你拾阶而下，发现自己面前是一堵坚实的石墙，看上去是洞穴到了尽头。你开始转头往上走，突然听到身后逐渐增强的破裂声和隆隆声；你转身，发现石头脱落了，眼前出现一个光滑的白色门，迅速地滑入地板。门通向一个建筑风格难以识别的白色大堂；这里没有照明的灯具，每一寸墙、地板和天花板都缓慢由暗到亮地发光，直到光照变成了令人舒适的青绿色为止。这里的景象的确是美丽、洁净、平和而静谧的……然而你的本能在向你尖叫，让你从这离开，越快越好，然后忘掉你在这看过的东西。墙上有几个露出的操作板显示出这里有不少令人难以理解的机器，装有好几种难以分辨的魔法和灵能古物，不过有一个看上去是蒸汽科技做成的粉碎设备，比其他远古遗迹绝对要新的多……当你对着它深思时，粉碎设备突然启动了，把矿物压成一块新的灵晶般的水晶。在水晶开始闪烁时，有个声音进入了你的心灵，有着舒缓的语调，但令你在思维的深处感到不安，却也无法有意识地说出到底是什么原因：
+]], [[你拾阶而下，发现自己面前是一堵坚实的石墙，看上去是洞穴到了尽头。你开始转头往上走，突然听到身后逐渐增强的破裂声和隆隆声；你转身，发现石头脱落了，眼前出现一个光滑的白色门，迅速地滑入地板。门通向一条建筑方式难以辨明的白色走廊；这里没有固定照明，每一寸墙壁、地板和天花板都缓缓亮起，发出舒适的、微带青色的光芒。这里的景象本应美丽、洁净、平和而静谧……然而你的本能在向你尖叫，让你尽快离开并忘掉在这里看到的一切。墙上几块敞开的面板露出各式令人费解的机器，其中装有多种无法辨认的魔法与灵能造物；不过，有一台似乎是用蒸汽科技制造的粉碎设备，显然比这些遗迹更新……你刚想到这里，粉碎设备便突然启动，将矿物压成一块新形成的灵晶状晶体。晶体开始闪烁时，一个本应令人安心、却在意识难以言明的深处令你不安的声音进入了你的心灵：
 
 “欢迎你，%s。我们一直在等你。不幸的是，我们不能与你同行，但我们可以保证你前方的事物只会帮助你完成你的任务。后面的门会封上以保证你的安全，在你想离开时打开。来吧。学习，探索，发觉并意识到，我们的计划对双方都有利。”
 
-嗯……这看上去并不怎么可靠。你犹豫地往前走了一步，准备好应对一个陷阱，并准备好立即转头溜走————
+嗯……这不怎么让人安心。你犹豫地往前走了一步，提防着陷阱，随时准备转身逃跑——
 
-你脚下的地板消失了，虽然仅仅落下了一英寸，你突然感到失重了。你回头；那个刚形成的灵晶，已经开始碎裂了，发出着强烈的光。“我们知道那确实不怎么让人安心。我们不在乎你之前觉得会有陷阱，而且我们如果真想杀你，即使顷刻间溜走也不够快。事实上，杀你很简单。”你突然被念动力扔往坑底，到了一块尖刺上方，停了下来，悬在尖刺上方几英寸。“显然，我们不想让你死，甚至不想让你伤到一点皮毛，”头脑里的声音说道，同时尖刺收缩起来，你被缓缓抬升到被点亮的大堂里。“现在我们的关系确立了……让我们来帮你吧。”你浮到顶，地板重新物质化，念动力消失，你发现自己又站在坚实的地面上，片刻，灵晶破碎了。
+你脚下的地板消失了，但仅仅下落一英寸后，你便突然感到失重。你转过身；那块刚形成、已经开始碎裂的灵晶正发出强光。“我们知道这不怎么让人安心。我们不在乎你是不是料到有陷阱；如果真想杀你，就算你立即逃跑也不够快。事实上，那简直易如反掌。”你突然被念动力掷向坑底的一排尖刺，却又停在离尖刺只有几英寸的地方，动弹不得。“显然，我们不想让你死，甚至不想让你受到丝毫伤害。”你脑中的声音说道。尖刺随即缩回坑底，你缓缓飘回亮起的走廊。“既然已经证明了这一点……就让我们帮助你吧。”你浮到顶部，脚下的地板重新出现，念动力也随之消失；片刻之后，灵晶碎裂了。
 
 尽管如此，你觉得自己不该在这里。这个地方存在的事实总觉得是……错误的。
 ]], "tformat")
@@ -3747,7 +3760,7 @@ section "tome-orcs/data/quests/kruk-invasion.lua"
 
 t("Homeland", "家园", "_t")
 t("The giants have breached the mountain-side of Kruk pride!", "巨人们已经进犯了克鲁克部族的靠山侧！", "_t")
-t("They are invading the town just when most of our forces are outside.", "他们进攻了城镇，而我们的部队却还在外面。", "_t")
+t("They are invading the town just when most of our forces are outside.", "他们偏在我军大部分兵力都在外面时进攻城镇。", "_t")
 t([[Only you and few others are left to close the breach by collapsing the tunnel from the inside.
 ]], [[只有你和少量同伴还留在这里，必须炸毁他们的隧道，封锁突破口。
 ]], "_t")
@@ -4251,7 +4264,7 @@ t([[Temporarily expand your mind to force your Gestalt upon your foes in a radiu
 		The effects improve with your Mindpower.]], [[暂时延伸你的心灵以使你的格式塔笼罩你周围半径 5 码内的敌人，最多可影响 %d 个敌人。
 		格式塔会吸收每个被影响敌人的力量（物理强度，精神强度，法术强度，蒸汽强度）%d 点，持续 5 回合。
 		你自身的力量会增加所吸取的数额（每多吸收一个额外的敌人，效果都会衰减）。
-		除此之外，在 5 回合内你可以超脱视线的感知半径 %d 码内的生物。
+		除此之外，在 5 回合内，你可以感知半径 %d 码内视野之外的生物，即使隔着墙壁也不例外。
 		效果受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -4647,7 +4660,7 @@ t([[Throw a small, unstable steam engine on the battlefield that will go critica
 		流血状态的敌人会受到 40%% 的额外火焰伤害。
 		伤害受蒸汽强度加成。
 		#{italic}#嘀嗒嘀嗒嘀嗒轰！！#{normal}#]], "tformat")
-t("Lingering Cloud", "厚重云雾", "talent name")
+t("Lingering Cloud", "滞留云雾", "talent name")
 t([[Explosive Steam Engine vapour now lingers for 5 turns.
 		Each turn, bleeding foes inside the cloud will take %0.2f fire damage.
 		Any steamtech-using creature will also regenerate %d additional steam per turn while inside the cloud.
@@ -4915,8 +4928,7 @@ t([[Fire a psionic-enhanced shot at a foe doing %d%% mind weapon damage and infe
 		此外，蠕虫每回合有 25%% 几率传播给半径 3 码内的一名敌人。
 		感染灵能蠕虫的生物死亡时，蠕虫会传播给半径 3 码内的所有敌人。]], "tformat")
 t("No Hope", "无助深渊", "talent name")
-t("Entering the mind of your foe you manipulate it to make it lose hope of defeating you, reducing all its damage by 40%% for %d turns.", [[操纵敌人的思维，让敌人失去战胜你的希望。
-		降低敌人 40%% 的全部伤害，持续 %d 回合。]], "tformat")
+t("Entering the mind of your foe you manipulate it to make it lose hope of defeating you, reducing all its damage by 40%% for %d turns.", "你侵入并操纵敌人的心灵，使其失去战胜你的希望，全部伤害降低 40%%，持续 %d 回合。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/elusiveness.lua"
@@ -5373,10 +5385,9 @@ t("Bloodstar", "血液灵晶", "talent name")
 t([[When you fire your metalstar, your also establish a psionic bloodlink with the shrapnel still inside for %d turns.
 		Each turn the victims are drained for %0.2f physical damage, half of which heals you (each additional victim healing is reduced by half).
 		If the victim move more than twice away from the radius of Metalstar (currently %d) the effect stops.
-		This damage does not break daze and increases with your Steampower.]], [[每次你使用灵晶射击时，你将与灵晶碎片建立血液灵能联系，持续 %d 回合。
-		每回合目标将受到 %0.2f 物理伤害，一半伤害值将转化为治疗。
-		每增加一名额外目标，其带来的治疗量进一步减半。
-		当目标距离超过金属灵晶范围（当前 %d）的两倍时，效果中止。
+		This damage does not break daze and increases with your Steampower.]], [[每次你发射金属灵晶时，还会与仍嵌在目标体内的弹片建立灵能血链，持续 %d 回合。
+		每回合对受害者造成 %0.2f 点物理伤害，其中一半用于治疗你（每多一名受害者，治疗量减半）。
+		如果受害者与你的距离超过金属灵晶半径的两倍（当前为 %d），效果便会终止。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Steamstar", "蒸汽灵晶", "talent name")
 t([[Your bloodstar effect also burns part of your victim's flesh, dealing %0.2f fire damage.
@@ -5470,7 +5481,7 @@ t("Viral Needlegun", "病毒针枪", "talent name")
 t([[You fire a cone of blighted needles, hitting everything in a frontal cone of radius %d for %0.2f physical damage.
 		Each creature hit has a %d%% chance of being infected by a random disease, doing %0.2f blight damage and reducing either Constitution, Strength or Dexterity by %d for 20 turns.
 		The damage and disease effects increase with your Steampower.]], [[你射出一片枯萎的针，打击 %d 码锥形范围内的目标，造成 %0.2f 的物理伤害。
-每个命中目标都有 %d%% 几率感染一种随机疾病，造成 %0.2f 枯萎伤害同时降低体质，力量或敏捷 %d 点持续 20 回合。
+		每个命中目标都有 %d%% 几率感染一种随机疾病，造成 %0.2f 枯萎伤害同时降低体质，力量或敏捷 %d 点持续 20 回合。
 		伤害和疾病效果受蒸汽强度加成。]], "tformat")
 t("Sand Shredder", "砂土粉碎", "talent name")
 t("%s shreds through sandwalls!", "%s 挖开沙墙！", "logSeen")
@@ -5533,7 +5544,7 @@ t([[You activate hidden springs to project a saw towards your foes.
 t("Voltaic Bolt", "闪电球", "talent name")
 t([[Fires a bolt of lightning, doing %0.2f lightning damage.
 		The damage will increase with your Steampower.]], [[释放一个闪电球，造成 %0.2f 闪电伤害。
-伤害受蒸汽强度加成。]], "tformat")
+		伤害受蒸汽强度加成。]], "tformat")
 t("Voltaic Sentry", "伏特守卫", "talent name")
 t("volatic sentry", "伏特守卫", "_t")
 t("A strange device. Your hair stands on end when you approach.", "一个奇怪的装置。当你走近时，你的头发竖起来了。", "_t")
@@ -5711,10 +5722,11 @@ t([[Increases weapon damage by %d%% and Physical Power by 30 when using steamgun
 		When your bullets hit a target you instinctively reach out to the impact and use the kinetic force to project a mindstar attack doing %d%% damage (guaranteed hit), if you wield one in the offhand.
 		This projection requires a pure mindstar; it will not work if extended into a psiblade.
 
-		Also activable for a shot that deals %d%% weapon damage as mind damage.]], [[当使用蒸汽枪时，增加 30 物理强度和 %d%% 武器伤害。
-		当你的子弹击中目标时，你利用动能将副手的灵晶射出，造成 %d%% 武器伤害（必定命中），
-		当开启心灵利刃时，灵晶无法被射出。
-		能主动使用，造成 %d%% 精神武器伤害。]], "tformat")
+		Also activable for a shot that deals %d%% weapon damage as mind damage.]], [[当使用蒸汽枪时，增加 %d%% 武器伤害和 30 点物理强度。
+		当你的子弹命中目标时，你会本能地将心灵伸向命中处，利用动能投射一次灵晶攻击，造成 %d%% 伤害（必定命中），前提是副手装备了灵晶。
+		投射需要纯粹的灵晶；若灵晶已延展为心灵利刃，则无法生效。
+
+		你也可以主动使用此技能射击，造成 %d%% 武器伤害的精神伤害。]], "tformat")
 t("Boiling Shot", "沸腾射击", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[Using psionic energies you overheat your shot, making it deal %d%% damage.
@@ -6382,7 +6394,7 @@ t("#Target#'s saw motors are back to normal.", "#Target#的链锯引擎恢复常
 t("-Overcharge Saws", "-链锯过载", "_t")
 t("ice", "寒冰", "effect subtype")
 t("Algid Rage", "寒冰之怒", "_t")
-t("You have %d%% chances to encase your foes in iceblocks.", "你造成伤害时有 %d%% 几率将敌人封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低 50%。", "tformat")
+t("You have %d%% chances to encase your foes in iceblocks.", "你造成伤害时有 %d%% 几率将敌人封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低一半。", "tformat")
 t("disease", "疾病", "effect subtype")
 t("Larvae Infestation", "里奇幼虫寄生", "_t")
 t("The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.", "目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫。", "tformat")
@@ -6446,7 +6458,7 @@ t("awesome", "惊人", "effect subtype")
 t("Awesome Toss", "致命翻转", "_t")
 t("All resistances increased by %d%%, randomly attacks two foes each turn at random.", "全部抗性提高 %d%%，两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械。", "tformat")
 t("#Target# tosses steamguns in the air, awesome!", "#Target#将蒸汽枪抛向空中，太帅了！", "_t")
-t("#Target# somehow catches the falling steamguns.", "#Target# 接住了蒸汽枪。", "_t")
+t("#Target# somehow catches the falling steamguns.", "#Target#不知怎么竟接住了落下的蒸汽枪。", "_t")
 t("Marked for Death", "死亡标记", "_t")
 t("Ranged defense reduced by %d, takes %d%% extra damage from all sources.", "远程闪避减少 %d，受到额外 %d%% 伤害。", "tformat")
 t("#Target# is marked!", "#Target# 被标记了！", "_t")
@@ -6713,7 +6725,7 @@ t("Attach powerful steam-powered pistons to your gloves, giving you a tight grip
 t("Spring Grapple", "弹簧飞爪", "_t")
 t("Attach a spring loaded mechanism to your gloves, allowing you to drag enemies into melee range and deliver a quick blow, pinning them in front of you.", "在你的手套上安装一个弹簧，让你可以将敌人拉到身边并快速打出一击，让他在你的面前被定身。", "_t")
 t("Steam Powered Armour", "蒸汽动力装甲", "_t")
-t("Using small steam engines and the miracles of the latest automation discoveries you are able to create a Steam Powered Armour. A full plate armour that helps your movement and has intrinsic protection mechanisms.", "使用小型蒸汽机和你最新发现的自动化技术，你可以制造蒸汽动力装甲。这个板甲增强你的行动能力并提供强大的防护能力。", "_t")
+t("Using small steam engines and the miracles of the latest automation discoveries you are able to create a Steam Powered Armour. A full plate armour that helps your movement and has intrinsic protection mechanisms.", "借助小型蒸汽机与最新自动化技术的奇迹，你可以制造出蒸汽动力装甲。这是一套能辅助你行动并配有内置防护机构的全身板甲。", "_t")
 t("lightning coil", "闪电线圈", "_t")
 t("fire opal", "火蛋白石", "_t")
 t("pearl", "珍珠", "_t")
