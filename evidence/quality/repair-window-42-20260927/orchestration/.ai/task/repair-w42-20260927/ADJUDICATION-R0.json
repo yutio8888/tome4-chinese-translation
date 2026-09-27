@@ -1,0 +1,33 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 20,
+ "raw_issue_count": 3,
+ "decision": "one tier-1 finding confirmed: bounded fix (execute-02), then RE_REVIEW(1, attempt 1)",
+ "findings": [
+  {
+   "revision_key": "a12d4bf5193b006fbfff01fa63de0bbda59202ce66427206f1b671faadfd9b6c",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "reason": "本库 tome-orcs.lua:5110 技能名 t(\"Trick Shot\", \"魔术射击\", \"talent name\")；本条即该技能 info，正文两处“技巧射击”与技能名不一致。改为“你的灵巧和敏捷让你能射出可命中多个目标的精妙魔术射击。”与“你精确瞄准，使这发魔术射击在你看得见的敌人之间弹射……”，其余句子、四项机制条件与 \\n\\t\\t 结构不动。"
+  },
+  {
+   "revision_key": "95496f3e7acfa96c922eb269807734b2d87e6d75e03aaab42525b60793bf78d4",
+   "status": "advisory",
+   "tier": 2,
+   "category": "terminology",
+   "reason": "terminology/narrative.tsv:29 的 sunwall observatory=太阳堡垒瞭望台 为 status existing（非 preferred），仅用于 newLore category（tome-orcs.lua:2494）；该地点的区域名 t(\"Sunwall Observatory\", \"太阳堡垒观星台\")（tome-orcs.lua:7540）及任务、路径、成就文本（3669、3836、7542、7727、第 11 行）均用“观星台”。本条沿用区域正式名，不改；lore 分类名与区域名不一属跨条统一问题，且 Sunwall 译名本身在待审第 37 项，记 advisory 留待后续。"
+  },
+  {
+   "revision_key": "9ebc22deedcddb95884f81043edac79a862fbdaf63dadcd874e670f915de2c25",
+   "status": "advisory",
+   "tier": 2,
+   "category": "terminology",
+   "reason": "flechette 在本库同族已定为“毒镖/毒弹”：Flechette Burst“毒弹爆射”、本条嵌入效果 CORROSIVE_FLECHETTE“腐蚀性毒镖”（tome-orcs.lua:6584），本条伤害类型仍明写酸性；第338批裁决已记 advisory，改名需跨条统一，不在本窗口范围。"
+  }
+ ],
+ "recorded_at": "2026-09-27T06:47:03.077331+00:00"
+}

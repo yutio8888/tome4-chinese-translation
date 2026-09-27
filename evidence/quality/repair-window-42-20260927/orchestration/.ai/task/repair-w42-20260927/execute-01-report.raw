@@ -1,0 +1,18 @@
+已完成 `repair-w42-20260927`。
+
+- 修复 `tome-orcs.lua` 中冻结 WORKSET 的全部 23 个 target。
+- 两条长文本已纳入宿主追加修复点，恢复列表、行内注释、末尾换行及 LF/TAB 结构。
+- 逐条改动与风险记录见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-42-20260927/IMPLEMENTATION.md)。
+- 完整验证结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-42-20260927/VALIDATION.json)。
+
+验证结果：
+
+- 23 个源码锚点 SHA 全部匹配。
+- LuaJIT 语义加载成功：4202 条记录，恰有 23 个 target 变化，非 target 字段变化为 0。
+- 23/23 通过 LF、TAB、空行下标、末尾换行及行尾空白检查。
+- `python3 -B tools/i18n lint --strict`：30308 条译文，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 两份新增证据的独立空白检查及 JSON 解析：通过。
+- 无暂存文件；未 commit、push、修改 `.ai/task` 或创建 agent。
+
+剩余风险仅为任务已声明的 provenance 限制：Orcs 源码内容与冻结 SHA 匹配，但源码仓库及 commit 未固定。既有无关未跟踪文件未触碰。

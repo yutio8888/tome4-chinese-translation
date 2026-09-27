@@ -1,0 +1,14 @@
+已完成 FIX。
+
+- 修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:5204) 中 `9ebc22deed…` 的爆矢枪说明，仅替换指定整行。
+- 已核对源码机制：每次近战或远程命中只引爆一枚毒镖，并造成盾牌伤害 50% 的酸性伤害。
+- 其余行、标记、占位符顺序及 LF 结构未变。
+
+验证全部通过：
+
+- LuaJIT 对比 `HEAD`：4202 条记录，恰好 23 个 target 变化，全部属于 WORKSET；非 target 字段变化 0。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- `.ai/task` 未修改，暂存区为空；未 commit、push 或创建 agent。
+
+无计划偏差或范围内未解决问题。Orcs 源码文件 SHA 与冻结锚点匹配；仓库及 commit 仍按任务记录为未固定。

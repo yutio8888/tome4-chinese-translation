@@ -1,0 +1,14 @@
+已完成 FIX。
+
+- 修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:5114) 的 `a12d4bf519`：
+  - “精妙技巧射击”→“精妙魔术射击”
+  - “使这发技巧射击”→“使这发魔术射击”
+- 其余文字、四项机制条件、markup、LF/TAB 结构均未改。
+- 两条 advisory 未修改，其他记录未触碰。
+
+验证结果：
+
+- LuaJIT 相对 `HEAD`：4202 条记录，恰 23 条 target 变化，非 target 字段无变化。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 暂存区为空；未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

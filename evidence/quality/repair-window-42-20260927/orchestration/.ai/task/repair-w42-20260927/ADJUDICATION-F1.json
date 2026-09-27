@@ -1,0 +1,20 @@
+{
+ "cycle": 1,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f1a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 22,
+ "raw_issue_count": 1,
+ "decision": "FINAL failed (any ISSUE fails v2 FINAL): one tier-1 mechanism finding confirmed; bounded fix (execute-03), then RE_REVIEW(2, attempt 1), then FINAL_REVIEW(2, attempt 2)",
+ "findings": [
+  {
+   "revision_key": "9ebc22deedcddb95884f81043edac79a862fbdaf63dadcd874e670f915de2c25",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "mechanism",
+   "reason": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1556–1586（CORROSIVE_FLECHETTE，subtype acid）：callbackOnMeleeHit/callbackOnArcheryHit 每次被敌方近战或远程命中只造成一次酸性伤害并 eff.nb=eff.nb-1，即每次攻击只引爆一枚；heavy-weapons.lua:874 施加时 nb=getBoltNb、power=damage/2。现译“毒镖会爆炸”读作全部同时爆炸，与原文 a flechette 及实现不符；同条内先称“镖弹”后称“毒镖”，前后不一。保留本库同族名“毒镖”（效果名 Corrosive Flechette=腐蚀性毒镖，tome-orcs.lua:6584），加“腐蚀性”明示酸性。只把 #AQUAMARINE#爆矢枪#LAST# 这一行改为：#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每受到一次近战或远程攻击，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。；其余各行、#AQUAMARINE#/#LAST# 标记、占位符顺序（%d%%、%d、50%%）与 LF 结构不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+  }
+ ],
+ "advisories": [],
+ "recorded_at": "2026-09-27T06:55:04.937205+00:00"
+}

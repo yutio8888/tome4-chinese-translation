@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w42-20260927",
+  "role": "executor",
+  "validated_at_utc": "2026-09-27T06:41:18Z",
+  "baseline_commit": "06fd783cf9b193cd7609bf415b2da5cdfb25755e",
+  "inputs": {
+    "workset_sha256": "b4e1926e19d04283ca3b4c11b6dbdca53e6d142e407a93e2bd02f7b784db9479",
+    "source_anchors_sha256": "2fc18fcbd0287bd990e869325abbd04447de2337fa4bc24ff11ad5688ce680a9",
+    "baseline_records_sha256": "9f81602ee923fa059376431e847a656e829afb8c06ccd8f54e47f57c90319329"
+  },
+  "candidate": {
+    "path": "tome-orcs.lua",
+    "sha256": "489287aaed44c1696ae33b2041b069f4889373cfe429a4e432ebcb20de93a4d6",
+    "diff_sha256": "b504752250143bcd4a2680d69deeba724fa4e63eefe26ca62cfbc4b76dffd530",
+    "semantic_record_count": 4202,
+    "target_changes": 23,
+    "non_target_field_changes": 0
+  },
+  "source_anchor_check": {
+    "checkout_component": "orcs",
+    "queries": 23,
+    "file_hash_mismatches": 0,
+    "repository_commit_pinned": false,
+    "status": "pass"
+  },
+  "checks": [
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected unpinned-DLC warnings only"
+    },
+    {
+      "name": "luajit_semantic_baseline_comparison",
+      "command": "LocaleLoader(LuaRuntime(load_manifest())) against git baseline and BASELINE-records.json",
+      "exit_code": 0,
+      "result": "4202 records; exactly 23 changed targets; all non-target semantic fields unchanged"
+    },
+    {
+      "name": "line_structure",
+      "command": "LuaJIT-loaded 23-record source/target line comparison",
+      "exit_code": 0,
+      "result": "23/23 passed terminal LF, blank-line index, leading-TAB depth, and trailing-whitespace checks"
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "name": "worktree_whitespace",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "pass"
+    }
+  ],
+  "final_evidence_checks": {
+    "tracked_diff_check": "pass",
+    "implementation_untracked_whitespace": "pass",
+    "validation_json_untracked_whitespace": "pass",
+    "json_parse": "pass"
+  }
+}
