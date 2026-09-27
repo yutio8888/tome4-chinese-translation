@@ -1,0 +1,121 @@
+{
+  "batch_id": "batch-ce732f19626519bd62bc",
+  "observations": 11,
+  "observation_dispositions": {
+    "refuted": 5,
+    "advisory": 2,
+    "confirmed": 4
+  },
+  "repair_revision_keys": [
+    "64ff1dc48ef228f47508afbbfe863f188d66ac230f4ea1ffa4ed5baf6083c320",
+    "65f41182e7ced3e8b5424d0b9cd02cb8a8aa2743bb45f7133e7efcdc20167081"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "636b0aa1ef8439b5cee73e13ee2a15961a5ca9aa20fd49a331c3016d2600588a",
+      "stage": "surface",
+      "observation": "译文增加“生命值回满时立即结束该模式”，冻结英文没有这一结束条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua:541–556：AUTOMATED_REPAIR_SYSTEM 的 on_timeout 在 self.life == self.max_life 时 removeEffect，译文补出的“生命值回满时立即结束该模式”与实现一致，并非添加；按“译文贴合实现”判 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6387136859436015b8b9c1958f7a8ebb93c6171cfb80cd8fb172abdd65d37018",
+      "stage": "surface",
+      "observation": "“Dominion Port”译为“巨魔帝国港口”，冻结英文没有“巨魔”的依据；需核验 Dominion 所指。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/zone.lua:21 与 data/quests/kill-dominion.lua:23–24：Dominion 即 Kar'Haïb Dominion，任务明言“A group of trolls from the Kar'Haïb Dominion”，“the Dominion port of the south must be destroyed”；本库 faction name 定译“卡尔·亥巴巨魔帝国”（tome-orcs.lua:639），同族港口/下水道/塔楼/入口条目统一为“巨魔帝国港口”，有设定与本库依据。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "63c2110551a2611074c5fa2ef7cc036f6528d02bf154c2f7c664682035d2bd66",
+      "stage": "surface",
+      "observation": "“Mercy, mercy!”是求饶的呼喊，译文“慈悲为怀”变成劝人行善的说法。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:33–35：成就“Mercy, mercy!”条件为击杀 Talosis 且无平民死亡，“慈悲为怀”切合成就主题，只是从求饶式感叹变为格言，属成就名本地化语感；contextual 判 OK，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "64ff1dc48ef228f47508afbbfe863f188d66ac230f4ea1ffa4ed5baf6083c320",
+      "stage": "surface",
+      "observation": "原文“override all security measures of your tinkers”意为绕过或解除插件的安全措施，译文“开启全部插件的超频模式”改变了该动作的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/automated-butchery.lua:151/169/176（Tech Overload）与 data/timed_effects/physical.lua:410：TECH_OVERLOAD 激活时 self:incSteam(self:getMaxSteam() * eff.regen)，regen=getIncrease/100，即按最大蒸汽值的 %d%% 立即增加；现译“直接恢复 %d%% 蒸汽值”丢了计算基准；“override all security measures of your tinkers”现译“开启全部插件的超频模式”也偏离原动作；结尾“！！”多一个感叹号。整句建议：“你解除全部插件的安全限制，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。\\n\\t\\t此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。\\n\\t\\t#{italic}#科技至尊、死亡之主！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "65209c0464865f73d8d8a1ceb89317d3cbd1ca72ee1732883d29a7aa49478576",
+      "stage": "surface",
+      "observation": "原文是“我们没开玩笑”，译文改为命令对方“认真点”，改变了说话内容。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:87–89：成就“We weren't kidding!”条件为死于 Nektosh 光束，现译“认真点，这不是个玩笑！”保留“不是玩笑”的核心意思，说话方式有偏移；contextual 判 OK，按语感类记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "65f41182e7ced3e8b5424d0b9cd02cb8a8aa2743bb45f7133e7efcdc20167081",
+      "stage": "surface",
+      "observation": "原文“in an other life you could have even respected”是假设另一种人生中可能尊敬他，译文“你曾经尊敬”改成了过去已发生的事实。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/cave-hatred/npcs.lua:169：“whom in an other life you could have even respected”是虚拟语气（换一种人生你甚至可能会尊敬他），现译“一位你曾经尊敬的勇士”改成既成事实；同句“you now see only hatred”被译成“已经被仇恨所吞噬”，“now emits a sinister crimson light”译作“被阴沉的血红色掩盖”，“marches towards you”译作“冲来”，一并按整句修。建议：“你曾在他身上看到一位沐浴在光芒中的战士——换一种人生，你甚至可能会敬重他——而如今你只看到仇恨。\\n这名战士曾经闪耀的护甲，如今散发着不祥的猩红光芒。他朝你步步逼近，你能看见他的双眼，空洞无物。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "66be489d16e7bcf1ea54dc75818b836d472febdb5ac01b2a2456385c128b91cf",
+      "stage": "surface",
+      "observation": "原文仅称 #Target# 变得更强，译文「强度恢复了」增添了此前变弱、现已恢复的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:62–73：该句是 FORCED_GESTALT_FOE（全部强度降低 %d）的 on_lose 消息，效果结束即恢复原强度，“强度恢复了”与实现一致；contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "636b0aa1ef8439b5cee73e13ee2a15961a5ca9aa20fd49a331c3016d2600588a",
+      "stage": "contextual",
+      "observation": "译文插入了「生命值回满时立即结束该模式」，但冻结源串 tome-orcs/data/timed_effects/other.lua:541（long_desc）中没有这层意思。源串只说明三点：无法行动；生命回复提高 %d、全部抗性提高 %d%%；生命降到 -%d 以下之前不会死亡。envelope 未提供结束条件的实现证据，DLC 来源也未固定。如果实现里并没有回满即结束的逻辑，这句就是添加的内容，需要宿主核验该效果或相关技能的实现。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/other.lua:541–556：AUTOMATED_REPAIR_SYSTEM 的 on_timeout 在 self.life == self.max_life 时 removeEffect，译文补出的“生命值回满时立即结束该模式”与实现一致，并非添加；按“译文贴合实现”判 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6387136859436015b8b9c1958f7a8ebb93c6171cfb80cd8fb172abdd65d37018",
+      "stage": "contextual",
+      "observation": "「Dominion Port」译为「巨魔帝国港口」，把 Dominion 具体化成了「巨魔」的帝国。冻结源码 tome-orcs/data/zones/dominion-port/zone.lua:21-27 只写 Dominion Port，没有任何 troll 含义；按 Embers of Rage 设定，Dominion 应指 Kar'Haïb Dominion，而非巨魔。envelope 未冻结对应的术语条目（terminology 为空），无法确认这是既定译名。该名还与同文件的 Sewers/Tower 子层名称共用，影响跨条一致性，需要宿主核对术语依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/dominion-port/zone.lua:21 与 data/quests/kill-dominion.lua:23–24：Dominion 即 Kar'Haïb Dominion，任务明言“A group of trolls from the Kar'Haïb Dominion”，“the Dominion port of the south must be destroyed”；本库 faction name 定译“卡尔·亥巴巨魔帝国”（tome-orcs.lua:639），同族港口/下水道/塔楼/入口条目统一为“巨魔帝国港口”，有设定与本库依据。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "64ff1dc48ef228f47508afbbfe863f188d66ac230f4ea1ffa4ed5baf6083c320",
+      "stage": "contextual",
+      "observation": "源串 tome-orcs/data/talents/steam/automated-butchery.lua:176 写的是「increases your steam level by %d%% of the maximum」，即按蒸汽最大值的 %d%% 立即增加蒸汽；译文「直接恢复 %d%% 蒸汽值」丢了「of the maximum」这个计算基准，读者可能理解为按当前值或其他基数计算。建议写明「最大蒸汽值的 %d%%」。另外，结尾「！！」多了一个感叹号，源文只有一个「!」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/automated-butchery.lua:151/169/176（Tech Overload）与 data/timed_effects/physical.lua:410：TECH_OVERLOAD 激活时 self:incSteam(self:getMaxSteam() * eff.regen)，regen=getIncrease/100，即按最大蒸汽值的 %d%% 立即增加；现译“直接恢复 %d%% 蒸汽值”丢了计算基准；“override all security measures of your tinkers”现译“开启全部插件的超频模式”也偏离原动作；结尾“！！”多一个感叹号。整句建议：“你解除全部插件的安全限制，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。\\n\\t\\t此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。\\n\\t\\t#{italic}#科技至尊、死亡之主！#{normal}#”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "65f41182e7ced3e8b5424d0b9cd02cb8a8aa2743bb45f7133e7efcdc20167081",
+      "stage": "contextual",
+      "observation": "源串 tome-orcs/data/zones/cave-hatred/npcs.lua:169 为「whom in an other life you could have even respected」，是虚拟语气：在另一种人生里，你甚至可能会尊敬他。译文「一位你曾经尊敬的勇士」把它改成了你过去确实尊敬过他，改变了人物关系的事实。建议改为「若在另一种人生中，你甚至可能会敬重他」一类表述。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/cave-hatred/npcs.lua:169：“whom in an other life you could have even respected”是虚拟语气（换一种人生你甚至可能会尊敬他），现译“一位你曾经尊敬的勇士”改成既成事实；同句“you now see only hatred”被译成“已经被仇恨所吞噬”，“now emits a sinister crimson light”译作“被阴沉的血红色掩盖”，“marches towards you”译作“冲来”，一并按整句修。建议：“你曾在他身上看到一位沐浴在光芒中的战士——换一种人生，你甚至可能会敬重他——而如今你只看到仇恨。\\n这名战士曾经闪耀的护甲，如今散发着不祥的猩红光芒。他朝你步步逼近，你能看见他的双眼，空洞无物。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (5 lanes: surface-000 one main-game full-000 of 2; surface-001 four Orcs lanes 20/20/19/19)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs, 7 entries)"
+  },
+  "notes": [
+    "Mixed main-game + Orcs batch: surface ran as one gpt-6-sol full-000 lane over the 2 main-game entries and four fresh Orcs lanes of 20/20/19/19. Every lane echoed its identities exactly. No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (7 Orcs entries; both main-game entries passed surface) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "Source refutes three claims: the automated repair mode does end at full life (on_timeout), the Dominion is the troll Kar'Haïb Dominion that the library renders 卡尔·亥巴巨魔帝国, and the Forced Gestalt end message really restores strength. Two achievement-title tone notes stay advisory.",
+    "Mixed batch: 2 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 78 Orcs entries each matched the public DLC source file SHA in the workset, with the Orcs repository and commit unpinned.",
+    "2 confirmed repair revisions raise the window 41 backlog from 0 to 2; below the 20 threshold, so no window opens."
+  ]
+}
