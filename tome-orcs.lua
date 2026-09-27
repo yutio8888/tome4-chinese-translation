@@ -295,7 +295,7 @@ section "tome-orcs/data/chats/aaf.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a strange triangular device, some kind of automated facility.*#WHITE#
 It seems to be able to teach you the tinker crafting techniques, but requires input to do so (500 gold and a talent category point).]], [[#LIGHT_GREEN#*你面前有一个奇怪的三角形设备，似乎是某种自动设施。*#WHITE#
-	似乎它能教授你制造配件的技巧，但需要你一些投入（500金币+一点大系点）。]], "_t")
+似乎它能教授你插件制作技巧，但需要你一些投入（500金币+一点大系点）。]], "_t")
 t("[pay 500 gold and a talent category points]", "[支付500金币和一点大系点]", "_t")
 t("#PURPLE#The %s teaches you: #GOLD#Steamtech/Physics#LAST#, #GOLD#Steamtech/Chemistry#LAST# and two starter crafting talents.", "#PURPLE#%s教会你：#GOLD#蒸汽科技/物理#LAST#, #GOLD#蒸汽科技/化学#LAST#和两项入门制造技能。", "log")
 t("[access store]", "[进入商店]", "_t")
@@ -424,7 +424,7 @@ You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it 
 你 #{italic}#竟敢#{normal}# 带着她的戒指作为战利品！我能感觉到它在你身上。拿出来，受死吧！！]], "_t")
 t("Oh you liked that paladin lady? I loved killing her!", "你喜欢那个女圣骑士？我爱死杀她的感觉了", "_t")
 t("She left me no choice; I had to protect #{bold}#my#{normal}# people.", "她令我别无选择；我必须保护 #{bold}#我的#{normal}# 族民。", "_t")
-t("Whatever.", "还行吧。", "_t")
+t("Whatever.", "无所谓。", "_t")
 t("Whatever.", "还行吧。", "chat_john-worldmap")
 t("What?", "什么？", "_t")
 
@@ -557,7 +557,7 @@ t("I see...", "我明白了……", "_t")
 t("Yes. We predict you will be useful to us. If you are not, another will be.", "是的。我们预测你将对我们有所助益。当然，如果你不是，也会有其他人。", "_t")
 t([[We require recent yeti muscle tissue from powerful specimens. You will help us, or you will not. Either way they will come to us.
 If you do so we shall reward you with petty knowledge so that you may postpone your death.]], [[我们需要从强大的雪人个体身上取得新鲜的肌肉组织。你可以帮我们，也可以选择不帮；无论如何，它们都会到我们手上。
-如果你帮了我们，我们将传授你知识，可以延缓你的死亡。]], "_t")
+如果你帮了我们，我们会赏你一点微不足道的知识，好让你推迟死亡。]], "_t")
 t("That is... generous of you.", "这真是……慷慨。", "_t")
 t("Talent categories", "技能树", "_t")
 t("Talents", "技能", "_t")
@@ -1571,7 +1571,7 @@ They all just say 'make it really flashy'.
 那些笔记上全都只写着“弄得炫一点”。
 
 ——工匠大师皮兹鲁克]], "_t")
-t("Burst apart, dealing physical damage equal to 25% of the original damage in a ball of radius 1.", "产生爆炸，在半径1范围内造成25%原伤害值的伤害。", "_t")
+t("Burst apart, dealing physical damage equal to 25% of the original damage in a ball of radius 1.", "向四周爆裂，在半径 1 范围内造成相当于原伤害 25% 的物理伤害。", "_t")
 t("The Long-Arm", "长手", "entity name")
 t("long barreled gun", "长管蒸汽枪", "_t")
 t("This gun has an absurdly long barrel. You wonder for whom it may have been designed.", "这把枪的枪管长的出奇。你好奇这杆枪到底是为谁设计。", "_t")
@@ -1735,10 +1735,10 @@ t("Heartrend", "心脏切割", "entity name")
 t([[There is an attached note.
  
 'I've spilt the heartsblood of my work, feeling it pound, like a heart, in my palms.
-Some people just can't let go until they've bled dry.']], [[上面粘着一页笔记。
+Some people just can't let go until they've bled dry.']], [[上面附有一张便笺。
 
-'我将我的心血之作分离，感受它的跳动，像心脏一样跳动，在我的手心里。
-总有些人不到血流尽，不撒手。']], "_t")
+'我把这件作品的心血洒了出来，感受它在掌中如心脏般搏动。
+有些人就是不肯放手，非要流干鲜血。']], "_t")
 t([[All damage dealt by or to you (that is over 1% of max life) bleeds for an additional 20% of the damage as physical damage (ignores most status resistances).
 While you are bleeding, Heartrend's damage increases and it gains lifesteal.]], [[你受到与造成的所有超过1%总生命的伤害将触发流血效果，无视大部分状态免疫，造成额外20%物理伤害。
 当你处于流血状态时，心脏切割伤害增加并具有吸血效果。]], "_t")
@@ -1779,7 +1779,7 @@ t("A strange aura surrounds this mindstar. You feel a presence, but it is obscur
 t("reduces mental save", "减少精神豁免", "_t")
 t("see all other beings around you for 5 turns", "看到你周围所有的生物5回合", "_t")
 t("Brass Goggles", "铜制护目镜", "entity name")
-t("classy goggles", "经典的护目镜", "_t")
+t("classy goggles", "考究的护目镜", "_t")
 t("No self respecting craftsman would be caught without them!", "没有任何一个自爱的工匠会被人发现没有佩戴它！", "_t")
 t("X-Ray Goggles", "X射线护目镜", "entity name")
 t("pitch black goggles", "漆黑的护目镜", "_t")
@@ -2162,23 +2162,23 @@ t([["...for posterity!  Let's make sure future generations can hear the moments 
 "AMAKTHEL WILL REWARD YOU FOR YOUR SERVICE AS YOU DESERVE." More crashing.  "YOU SHALL BE BLESSED WITH A BETTER NEW FORM.  A BETTER NEW MIND.  ALL YOUR PEOPLE ARE WELCOME TO..."
 
 #{italic}#(You hear Parmor's voice again.)#{normal}#  "Slag it, RUN!  Grab everything and--"  (The recording ends.)
-]], [[“……为了繁荣！让我们用声音记录下，这个值得被子孙后代铭记的，改变历史的时刻！”你又听到了坦塔洛斯议员的声音……但你还听到了另一个奇怪的声音，一个清晰的声音。尽管是机器在播放着声音，但这段声音就像是从你的脑海里传来的一样。#{normal}#
+]], [[“……为了后世！让我们确保后人能听见历史铸就的时刻！”你又听到了坦塔洛斯议员的声音……接着又听见一个非常奇怪、清晰得过分的声音。即使由设备播放，它听起来仍像从你自己的脑海中传来。#{normal}#
 
-“是的，是的，这是一个好主意。这将会是一个重要的日子，对我们——不，对整个埃亚尔都值得铭记……那么，你今天把我一直以来都要的东西带来了？”
+“是的，是的，好主意。这是重要的一天，对我们双方——不，对整个埃亚尔……那么，我很久以前要的东西，你带来了？”
 
-“当然了！它就在——来啊，把车推上来！”（叮叮当当的声音）“如果您乐意的话，请你亲自打开看一下。”
+“当然！只不过——把推车拉过来！”（铿锵声和摩擦声。）“如果您愿意，就打开它吧。”
 
-“不用了。我能感受到它的力量，多么熟悉而又新鲜的力量……这只能是阿马克泰尔本人的眼睛！它是多么的令人沉醉啊，很快，所有人都会感受到它的美丽…”
+“不用。我能感受到它的力量，如此熟悉却又如此新奇……这只能是阿马克泰尔本人的眼睛！它真美，所有人都将见识它的美……”
 
-“呃……太棒了，我保证！这将会是气之部族和……你的人民之间漫长而友好的友谊的开始！我这就回去告诉他们，我们已经准备好了，并且你也准备好处理兽人问题了，对吧？他们，啊，一定会很愿意亲自来这里——”
+“呃……我想这很棒！这将是气之部族和……你的族人之间漫长而美好的合作的开端！要我回上面去告诉他们，我们已经准备好迎接他们，而你也准备好处理兽人的问题了吗？他们，呃，都挺急着想下来的——”
 
-“去吧。我的传令官。告诉他们，我十分欢迎你们。”
+“去吧，我的传令官。告诉他们，欢迎所有人。”
 
-“你，你在——” #{italic}#传来一声声尖叫。血液流淌之声。猛烈的撞击声。然后是一阵遥远的，野兽般的咆哮。#{normal}#
+“你、你在——” #{italic}#背景中传来尖叫声。咕噜声。撞击声。一声遥远、野兽般的咆哮。#{normal}#
 
-“这是阿马克泰尔在亲自奖励你对他的服侍，是你所应得的荣耀。”更多的撞击声。“这是神给你的祝福。一具更美好的全新的身躯。一个更美好的全新心智。你的人民都可以得到这份…”
+“阿马克泰尔将按你应得的，回报你的服侍。”更多撞击声。“你将蒙受赐福，获得更好的全新形体。更好的全新心智。欢迎你的所有族人前来……”
 
-#{italic}#（你听到了帕默的声音。）#{normal}#  “操，大家快跑！带上所有东西，快——”（纪录终止了）
+#{italic}#（你再次听到了帕默的声音。）#{normal}#  “该死，快跑！带上所有东西，然后——”（录音结束。）
 ]], "_t")
 t("strange black disk (3)", "奇怪的黑色碟片 (3)", "_t")
 t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sounds of struggling and bludgeoning, swords slicing through flesh, steamguns being fired, and shouts of pain from giant and horror alike.  Parmor sounds panicked.)#{normal}#
@@ -3267,31 +3267,31 @@ we will find the heretics together
 
 this is the first day of a new existence
 #{italic}##CRIMSON#and you are not worthy of seeing its dawn#LAST##{normal}#
-]], [[你的碎片已经集结
-你智慧和美丽的容貌再次显现
-#CRIMSON#阿马克泰尔#LAST#的荣光已经降临
-罪人的丧钟已经敲响
-那些背教者、叛徒和腐朽者
-#CRIMSON#阿马克泰尔#LAST#的愤怒将无可抵挡
-摧毁一切踏入他美丽世界的渣滓
-摧毁一切拒绝他美好愿景的蠢材
-摧毁一切胆敢#CRIMSON#干涉#LAST#他复活的#CRIMSON#徒劳的傻瓜#LAST#
+]], [[碎片重新聚合
+天才与美的容颜再度归来
+#CRIMSON#阿马克泰尔#LAST#的荣光将至
+罪人的清算将至
+异端、背教者、腐朽者
+#CRIMSON#阿马克泰尔#LAST#的愤怒将甘美可口
+对抗入侵他的世界的渣滓
+对抗拒绝他的愿景之人
+对抗那些#CRIMSON#徒劳的蠢材#LAST#，他们妄图#CRIMSON#干涉#LAST#
 
-改变这个世界吧，#CRIMSON#阿马克泰尔#LAST#
-按你心中的景象设计这个世界
-玩弄这个世界，改变那些腐朽者，见证那些结果，然后从中学习
-这个世界是一块石材，而你是雕刻者
-你的愿景将会重新改变整个埃亚尔
-#CRIMSON#没有人将会再次说出%s的名字#LAST#
-它甚至不配作为唾弃的对象而被铭记
+改变它吧，#CRIMSON#阿马克泰尔#LAST#
+改变你所见的一切，使之合乎你的构想
+玩弄它，改变腐朽者，看看会发生什么，从中学习
+这个世界不过是一块大理石，而你是雕刻者
+你的愿景将再次显现于埃亚尔
+且#CRIMSON#再无人会说出%s这个名字#LAST#
+它甚至不配被拿来当作儆戒的例子
 
-当这整个世界成为你的杰作的时候
-我们将亲自对背教者发动复仇
+当这个世界成为你的杰作
+我们将一起找出异端
 
-#{italic}#接下来的书页写满了“他们将在烈火中燃烧”。你把它们扔了出去。你把#CRIMSON#自己扔了出去。你将在烈火中燃烧。你将在烈火中燃烧 你将在烈火中燃烧 你将在烈火中燃烧 你将在烈火中#LAST##{normal}#
+#{italic}#有好几页反复写满了“他们将被焚烧”。你把它们扔掉。你把#CRIMSON#自己也扔掉。你将被焚烧。你将被焚烧你将被焚烧你将被焚烧你将被#LAST##{normal}#
 
-这将会是新纪元的第一日
-#{italic}##CRIMSON#而你，不配见到新世界的黎明#LAST##{normal}#
+这是崭新存在的第一日
+#{italic}##CRIMSON#而你不配见到它的黎明#LAST##{normal}#
 ]], "tformat")
 
 ------------------------------------------------
@@ -3389,7 +3389,7 @@ Unofficially?  I'm going to #{italic}#enjoy#{normal}# this.]], [[好吧。原来
 #{italic}#官方说法是，#{normal}#气之部族并不存在，我们对他们一无所知。按照官方说法，如果两艘驶往拘留营的联合王国补给船#{italic}#碰巧#{normal}#被一伙受雇的海盗截下——他们#{italic}#走了运#{normal}#，正好在海军巡逻航线的间隙下手——那可真是#{italic}#太遗憾了，#{normal}#即便那些盔甲和武器落到了气之部族手里，也怪不到他们头上。按照官方命令，我们无论如何都不得离开岗位；假如一群来历不明的巨人从山中下来，在克鲁克部落的家园将其击溃并迫使他们逃亡，我们也不得违令插手，只能消灭逃到桥上的难民。按照官方说法，这起事件不会妨碍气之部族事后与联合王国及太阳堡垒谈判，因为他们不可能知道我们会追求“等待活捉兽人”这样天真的目标；而且这起事件还会让他们毫无争议地取得克鲁克领地。
 
 非官方说法？我会#{italic}#好好享受#{normal}#这一切。]], "_t")
-t("a torn page from John's journal", "约翰日记上的一页", "_t")
+t("a torn page from John's journal", "约翰日记中撕下的一页", "_t")
 t("Aeryn, my love...  I fear Trelle may be right, but I will hold this bridge without resorting to betraying you.  Still, though, I will remain vigilant of approaching attacks, and prepare to strike first if a battle really does seem inevitable.  As long as I stand, no Orc will ever harm you again.  We will have a bright and shining future ahead of us, walking hand in hand into the dawn of a new, peaceful age...  and while I hope the Kruk Pride has a place there, I will not let them put this new age in jeopardy.", "艾琳，我的爱人…我开始担心，特瑞尔说的可能是对的，但我会坚守这座桥，绝不会背叛你的信赖。尽管如此，我还是会对即将到来的袭击充满警惕，如果这场战争真的不可避免，我也会准备先发制人。只要我还在这里，我绝对不会让任何兽人伤害你。我们会共同开启一个光明璀璨的未来，携起手，走向一个和平的新时代的黎明……尽管我也希望克鲁克部族也能成为这样的新时代的一份子，但是，我绝不会容许他们把这样的新世界置于危险之中。", "_t")
 t("King Tolak's Condemnation", "托拉克国王的谴责书", "_t")
 t([[(As you approach the farportal, a herald emerges, holding an envelope; he doesn't quite hand it to you as much as throw it at you from a safe distance, then salutes and retreats back into the swirling rift.  The letter bears the royal seal of the Allied Kingdoms.)
@@ -3721,7 +3721,7 @@ t("place the bomb on the structural weakness.", "将炸弹放在建筑的弱点�
 t("Sewer Detonator", "下水道炸弹", "_t")
 t("You must first locate the structural weakness in the Dominion's port tower.", "你需要先找到塔楼的结构弱点。", "_t")
 t([[You place the detonator, you have 100 turns to get out or be destroyed by the explosion.
-Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你安置了炸弹，将在100回合后爆炸。
+Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你安置了引爆器；你有 100 回合撤离，否则会被爆炸摧毁。
 使用#{bold}##GOLD#回归之杖#LAST##{normal}#！]], "_t")
 -- untranslated text
 --[==[
@@ -3845,7 +3845,7 @@ section "tome-orcs/data/quests/to-mainland.lua"
 
 t("You Shall Pass!", "你必须通过！", "_t")
 t("The Atmos tribe is not our sole problem. The Sunwall as grown in strength since the Scourge from the West came and murdered the other Prides leaders.", "气之部族不是我们唯一的问题。自从西方来的灾星来到这里并屠杀了其他兽人部落的领袖，太阳堡垒便日益壮大。", "_t")
-t("Our brothers on the mainland lay enslaved, but before we free them you must secure a way to the mainland.", "我们在大陆上的兄弟惨遭奴役，为了解放他们我们必须找到一条到达大陆的安全的路。", "_t")
+t("Our brothers on the mainland lay enslaved, but before we free them you must secure a way to the mainland.", "我们在大陆上的兄弟惨遭奴役；在解放他们之前，你必须先打通前往大陆的道路。", "_t")
 t([[Go to the sunwall outpost. Show them the wrath of Garkul, show no mercy for they have none for us.
 ]], [[前去太阳堡垒前哨站。让他们领教加库尔的怒火，绝不仁慈，因为他们对我们也不曾仁慈。
 ]], "_t")
@@ -4207,8 +4207,8 @@ t([[Call a streak of lightning on your target, dealing %0.2f to %0.2f lightning 
 		If it is wet the lightning propagates to all foes in radius %d, doing the same damage to each.
 		All affected foes are seared for 4 turns, reducing their fire resistance by %d%% and and mind save by %d.
 		The damage will increase with your Mindpower.]], [[召唤一道闪电劈向你的目标，造成 %0.2f 到 %0.2f 闪电伤害。
-		如果目标被浸湿了，那么闪电扩散，对半径 %d 码内的所有单位造成同样的伤害。
-		所有被劈中的单位都会被烧焦 4 回合，降低他们的火焰抗性 %d%% 和精神豁免 %d。
+		如果目标被浸湿了，那么闪电扩散，对半径 %d 码内的所有敌人造成同样的伤害。
+		所有受影响的敌人都会被烧焦 4 回合，降低他们的火焰抗性 %d%% 和精神豁免 %d。
 		伤害受精神强度加成。]], "tformat")
 t("Negative Biofeedback", "负反馈", "talent name")
 t([[Any time you deal damage with a psionic ability you incur a negative biofeedback in your foes, stacking up to %d times for 5 turns.
@@ -4276,8 +4276,7 @@ t([[When you deactivate Vaporous Step, if the psychoport succeeds you inhale som
 		治疗量随精神强度提高。]], "tformat")
 t("Psionic Fog", "灵能之雾", "talent name")
 t([[Using the steam of your generators you shape it into a psionic fog that lasts %d turns. Any foes caught inside will take %0.2f damage per turn and be seared, reducing their fire resistance by %d%% and and mind save by %d.
-		The damage will increase with your Mindpower.]], [[你将发动机里的蒸汽塑形成持续 %d 回合的灵能之雾。
-		任何陷入其中的敌人每回合都会受到 %0.2f 的伤害，并被烧焦，降低他们 %d%% 火焰抗性和 %d 精神豁免。
+		The damage will increase with your Mindpower.]], [[你利用发动机产生的蒸汽，将其塑成持续 %d 回合的灵能之雾。任何陷入其中的敌人每回合都会受到 %0.2f 的伤害，并被烧焦，降低他们 %d%% 火焰抗性和 %d 精神豁免。
 		伤害受精神强度加成。]], "tformat")
 t("Uncertainty Principle", "测不准原理", "talent name")
 t("#STEEL_BLUE#(%d quantum shifted)#LAST#", "#STEEL_BLUE#(%d 量子转移)#LAST#", "tformat")
@@ -4476,7 +4475,7 @@ t([[Command a random spiderbot to jump onto your target at ramming speed. The im
 		这会产生半径为 %d 的爆炸，对所有生物造成 %0.2f 寒岩伤害，同时将它们冻结 %d 回合并使其浸湿 %d 回合。
 		此法术的冷却时间受岩石身躯影响。
 		伤害随法术强度提高。]], "tformat")
-t("Spiderbot Shield", "机器人护盾", "talent name")
+t("Spiderbot Shield", "蜘蛛机器人护盾", "talent name")
 t([[You call back up to %d spiderbots to you to create protective barrier for %d turns.
 		Spiderbots have %d life and they take damage in order, always fully absorbing the blow that destroyed them.
 		If Cryogenic Digs is active when a spiderbot is destroyed it jumps to the attacker and triggers the dig there.
@@ -4607,7 +4606,7 @@ t("@Source@ tessellates @hisher@ cloak!", "@Source@在@hisher@披风上布满金
 t("You require a cloak to use this talent.", "你需要有披风才能使用这一技能。", "logPlayer")
 t([[You tessellate your cloak with small pieces of metal, providing %d damage reduction against all attacks.
 		The myriad metal scraps also help against incoming projectiles, providing a %d%% chance of deflecting them to a nearby spot.]], [[在披风上布满小块金属，对所有攻击提供 %d 的伤害减免。
-	大量的金属碎片同时对远程打击提供偏移抵抗，有 %d%% 的概率将投射物反射至附近的其他位置。]], "tformat")
+		大量的金属碎片同时对远程打击提供偏移抵抗，有 %d%% 的概率将投射物反射至附近的其他位置。]], "tformat")
 t("Cloak Gesture", "披风花招", "talent name")
 t("@Source@ weaves @hisher@ cloak!", "@Source@挥舞@hisher@披风！", "_t")
 t([[With a gesture of your cloak, you drop a small incendiary device in front of you, creating a wall of thick steam of %d length that burns creatures passing it for %0.2f fire damage and blocks sight for 5 turns.
@@ -4725,7 +4724,7 @@ t([[Working long hours at a forge has made you incredibly slow to tire and given
 		Your healing factor is increased by %d%% and your life regeneration by %0.2f.
 		Stopping you is nearly impossible; your pinning resistance is increased by %d%%.]], [[长时间的锻造工作让你拥有不可思议的持久力和无尽的活力。
 		你的治疗系数增加 %d%%，生命恢复增加 %0.2f。
-		你力大无穷，很难被阻止，定身抗性增加 %d%%。]], "tformat")
+		几乎没有什么能拦住你，定身抗性增加 %d%%。]], "tformat")
 t("Life in the Flames", "浴火而生", "talent name")
 t([[Slaving for many years at the forge has made you more resilient to physical pain and fire burns.
 		Your fire resistance is increased by %d%% and your physical resistance by %d%%.
@@ -4844,7 +4843,8 @@ t([[Allows you to create explosive tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
 		%s]], [[允许你制造 %d 等级的爆炸学道具。
-	1 级时必定获得一个配方。之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
+		1 级时必定获得一个配方。
+		之后每一级有 20%% 的概率获得一个新配方。如果到 5 级还没有获得第二个新配方，就必定再获得一个新配方（除非所有配方均已学会）。
 		%s]], "tformat")
 t("Steam Power", "蒸汽动力", "talent name")
 t("Increases the efficiency of all steamtech you operate, granting %d steampower.", "提高所有蒸汽设备的效果，获得 %d 点蒸汽强度。", "tformat")
@@ -5143,11 +5143,11 @@ t([[You replace your steamgun and attack with an incendiary device that projects
 		
 		Deals %d%% steamgun damage as fire over 3 turns to enemies in radius 5.
 
-		These attacks cannot miss and ignore armor.]], [[你将你的蒸汽枪替换成一把强大的蒸汽动力的喷火器，将你的敌人化为灰烬。
+		These attacks cannot miss and ignore armor.]], [[你收起蒸汽枪，改用燃烧装置攻击，向敌人喷射液态火焰。
 
-		在 5 码范围内，在 3 回合内造成 %d%% 火焰蒸汽枪伤害。
+		对半径 5 内的敌人造成相当于蒸汽枪伤害 %d%% 的火焰伤害，持续 3 回合。
 
-		这一攻击必定命中目标，无视护甲。]], "tformat")
+		这些攻击不会落空并无视护甲。]], "tformat")
 t("Flame Jet", "火焰喷射", "talent name")
 t("You are disarmed.", "你被缴械了。", "logPlayer")
 t("You require heavy ammunition to fire your flamethrower.", "你需要重装武器弹药才能使用火焰喷射器。", "logPlayer")
@@ -5381,8 +5381,8 @@ t([[When you fire your metalstar, your also establish a psionic bloodlink with t
 t("Steamstar", "蒸汽灵晶", "talent name")
 t([[Your bloodstar effect also burns part of your victim's flesh, dealing %0.2f fire damage.
 		The intensity of the fire generates steam which you psionically absorb through gestalt, providing %d steam each turn (each additional victim steam generation is reduced by 66%%).
-		This damage does not break daze and increases with your Steampower.]], [[你的血液灵晶效果同时造成 %0.2f 火焰伤害。
-		火焰同时产生蒸汽，每回合提供 %d 蒸汽，从每个额外目标处获得的蒸汽数量减少 66%%。
+		This damage does not break daze and increases with your Steampower.]], [[你的血液灵晶效果还会灼烧受害者的部分血肉，造成 %0.2f 火焰伤害。
+		火焰的强度会产生蒸汽，你通过格式塔以灵能吸收这些蒸汽，每回合获得 %d 蒸汽（每多一名受害者，蒸汽生成量减少 66%%）。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Deathstar", "死亡灵晶", "talent name")
 t("When you use a shoot class talent to hit a creature affected by bloodstar an other shoot talent will have its current cooldown reduced by %d turns.", "每次你使用射击类技能命中一个被血液灵晶影响的目标时，随机另一项冷却中的射击类技能冷却时间减少 %d 回合。", "tformat")
@@ -5462,10 +5462,10 @@ t([[Activate the armour's active defense system.
 		All damage except mind damage is reduced by a flat %d.
 		In addition the electric power of the armour sometimes leaks, each turn there is a 50%% chance to produce a electrical arc toward a foe, dealing %0.2f to %0.2f lightning damage to all foes in radius 1.
 		The effects increase with your Steampower.]], [[激活护甲的主动防御系统。
-电流覆盖护甲，削弱能量攻击的威力；与此同时，小型蒸汽引擎会移动护甲的关键部件，以削弱物理攻击。
-除精神伤害外，所有伤害都会固定减少 %d 点。
-此外，护甲的电力有时会泄漏：每回合有 50%% 几率向一名敌人放出电弧，对其半径 1 内的所有敌人造成 %0.2f 至 %0.2f 点闪电伤害。
-效果随蒸汽强度提升。]], "tformat")
+		电流覆盖护甲，削弱能量攻击的威力；与此同时，小型蒸汽引擎会移动护甲的关键部件，以削弱物理攻击。
+		除精神伤害外，所有伤害都会固定减少 %d 点。
+		此外，护甲的电力有时会泄漏：每回合有 50%% 几率向一名敌人放出电弧，对其半径 1 内的所有敌人造成 %0.2f 至 %0.2f 点闪电伤害。
+		效果随蒸汽强度提升。]], "tformat")
 t("Viral Needlegun", "病毒针枪", "talent name")
 t([[You fire a cone of blighted needles, hitting everything in a frontal cone of radius %d for %0.2f physical damage.
 		Each creature hit has a %d%% chance of being infected by a random disease, doing %0.2f blight damage and reducing either Constitution, Strength or Dexterity by %d for 20 turns.
@@ -5611,11 +5611,11 @@ t([[You fire a special voltaic shot with your steamgun(s) at a target for 100%% 
 		The shot will release powerful electrical currents at up to %d nearby enemies. 
 		Each bolt does %0.2f lightning damage.
 		This talent does not use ammo as it is the ammo.
-		Bolt damage scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 闪电武器伤害。
-这将释放强大的电流，打击周围 %d 的敌人。
-每个闪电球造成 %0.2f 的闪电伤害
-这个技能不使用弹药
-闪电球伤害受蒸汽强度加成。]], "tformat")
+		Bolt damage scales with Steampower.]], [[你用蒸汽枪向目标发射一枚特殊的伏特弹，造成 100%% 武器伤害的闪电伤害。
+		这发弹丸会向附近至多 %d 名敌人释放强大电流。
+		每道闪电造成 %0.2f 点闪电伤害。
+		该技能不消耗弹药，因为它本身就是弹药。
+		闪电伤害随蒸汽强度提升。]], "tformat")
 t("Antimagic Shell", "反魔弹", "talent name")
 t([[You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.
 		The shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.
@@ -5786,7 +5786,7 @@ t("All this metalworking has improved you.", "这些金属加工经验使你得�
 t("engineering", "工程师", "talent type")
 t("You don't just know how tinkering works, you know all the interesting details too!", "你不仅懂得蒸汽工艺的运作原理，还掌握了其中所有有趣的细节！", "_t")
 t("butchery", "屠杀", "talent type")
-t("Strap saws to your arms and rush into battle!", "挥舞链锯，冲进战场！", "_t")
+t("Strap saws to your arms and rush into battle!", "把链锯绑在双臂上，冲进战场！", "_t")
 t("sawmaiming", "链锯", "talent type")
 t("Use steam powered saws to their maximum efficiency! Maim! Cut! Shred!", "最大限度使用蒸汽动力链锯！致残！切裂！肢解！", "_t")
 t("battlefield management", "战地控制", "talent type")
@@ -5924,9 +5924,9 @@ t("Upgrade", "炮台升级", "talent name")
 t([[Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:
 		Steamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.
 		Flame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.
-		Medic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]], [[升级目标炮台，使其获得 %d%% 最大生命值，并根据其类型，获得以下的特殊能力：
+		Medic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]], [[升级目标炮台，使其最大生命值增加 %d%%，并根据其类型，获得以下的特殊能力：
 		蒸汽枪炮台：获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。
-		火焰炮台：增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出灼热蒸汽的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。
+		火焰炮台：增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出过热空气的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。
 		医疗炮台：增加对目标的治疗量 %d%%，且每回合有 %d%% 几率清除目标身上一个负面效果。]], "tformat")
 t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
@@ -7623,7 +7623,7 @@ t("A stern-looking guard, he will not let you disturb the town.", "一名严肃�
 t("orc gunslinger", "兽人快枪手", "entity name")
 t("A nasty looking orc armed with double steamguns.", "一个面目凶恶的兽人，手持两把蒸汽枪。", "_t")
 t("Commander Fralor", "指挥官法罗尔", "entity name")
-t("This heavily armored steam giant carries a huge battleaxe, swinging it menacingly towards you.", "这个身穿重甲的蒸汽巨人手持巨大的双手斧，恶狠狠挥舞着向你冲来。", "_t")
+t("This heavily armored steam giant carries a huge battleaxe, swinging it menacingly towards you.", "这个身披重甲的蒸汽巨人手持一柄巨大的战斧，正恶狠狠地朝你挥舞。", "_t")
 t("Metash the Maulotaur", "玛诺陶梅塔什", "entity name")
 t("This big undead minotaur is carrying a nasty looking hammer, imbued with lightning.", "这个巨大的亡灵牛头人拿着一把灌注了闪电的可怕巨锤。", "_t")
 
@@ -8133,7 +8133,7 @@ t("SteamTech", "蒸汽科技", "_t")
 t("Steampower: #00ff00#%s", "蒸汽强度：#00ff00#%s", "tformat")
 t("Crit. chance: #00ff00#%s", "暴击率：#00ff00#%s", "tformat")
 t("Steam speed : #00ff00#%s", "蒸汽速度：#00ff00#%s", "tformat")
-t("Powered by ", "力量来源", "_t")
+t("Powered by ", "装备力量来源 ", "_t")
 t("steamtech", "蒸汽科技", "_t")
 t("%+d #LAST#(%+d eff.)", "%+d#LAST#(%+d有效值)", "_t")
 t("Steampower: ", "蒸汽强度：", "_t")
