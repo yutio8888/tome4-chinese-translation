@@ -1,0 +1,180 @@
+{
+  "batch_id": "batch-cb782c29f8583a6e6046",
+  "observations": 18,
+  "observation_dispositions": {
+    "confirmed": 10,
+    "refuted": 3,
+    "advisory": 5
+  },
+  "repair_revision_keys": [
+    "d789f21728bae625d7f881c649f5ffa3cf47ca9d82fc84960184501613d7dbcf",
+    "d7cb7c69a53f1f4761d4a5a67c3697c8354c3c3ff7f4de873c753727bd6d9185",
+    "d8abd0fc756075090961cbc3b9fb2239f888c6bbc317d8fb4f6705007c33bb15",
+    "dc6704a553d52b315ff2c1bb45e16d805e53b68eeba070da404500ae02e44b45",
+    "dcb810596c1a05d42e63d20b2e7e8df554d235f205973bf76df69a530bee6d3a"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 5,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "d789f21728bae625d7f881c649f5ffa3cf47ca9d82fc84960184501613d7dbcf",
+      "stage": "surface",
+      "observation": "原文的“most of our forces”是我方大部分兵力，译文遗漏了“大部分”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kruk-invasion.lua：“most of our forces are outside”，下一行又说“Only you and few others are left”。现译“我们的部队却还在外面”删了 most，变成全军在外，与下文矛盾。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d7cb7c69a53f1f4761d4a5a67c3697c8354c3c3ff7f4de873c753727bd6d9185",
+      "stage": "surface",
+      "observation": "原文只说明有 %d%% 几率将敌人封入冰块；译文额外写入“造成伤害时”“3 回合”和“伤害降低 50%”，这些机制在该冻结原文中均无依据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:316–331（ALGID_RAGE）：long_desc 经 tformat(eff.power) 格式化，现译末尾“降低 50%。”中有一个未转义的单个 %，宿主用 LuaJIT 实测 string.format 报 invalid option '%�'，效果说明运行时出错（一级 runtime/占位符不变量）。机制本身与实现一致（callbackOnDealDamage 施加 3 回合 EFF_FROZEN，iceblock_pierce 50），修复时把该处改为 %% 或删去增译，二者择一，且 %d%% 保持不变。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d8abd0fc756075090961cbc3b9fb2239f888c6bbc317d8fb4f6705007c33bb15",
+      "stage": "surface",
+      "observation": "原文换行后有两个制表符，译文换行后没有缩进，格式不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1209–1232（Voltaic Bolt info）：原文第二行以“\\n\\t\\t”开头，现译只有“\\n”，缺两个制表符（TAB 不变量），只修这一处。contextual 指出的 bolt 被译成“闪电球”：本库技能名 Voltaic Bolt 本来就作“闪电球”（tome-orcs.lua:5533），info 与技能名一致；是否改译属于技能名层面的跨条问题，记 advisory，不在本条修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d932404edbbb7289fb6acba2688ad09e9bf49788c707c9b0b04358c501d54783",
+      "stage": "surface",
+      "observation": "“Make Him Squirm”意为让他痛苦或坐立不安，译文“榨干他”改变了动作含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:94–96（ORCS_WIN_NEKTOSH）：成就条件是“Made Nektosh use up the last of his power”，现译“榨干他”贴合条件，contextual 也判 OK，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "da3a33562bb8492556985580fc3dab586161191923cfa7f6fbfe051f52739845",
+      "stage": "surface",
+      "observation": "Electricity 指电或电力，译为“电子”改变了含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:61（steamtech/physics 技能 Electricity，info“Allows you to create electrical tinkers”）：electricity 是电力/电学，“电子”（electron）字义不符，surface 与 contextual 都指出了。但“电子”在本库已连带用于该技能 info 的“电子道具”和出生说明的“电子技能”，并与 Electron Incantation“电子咒式”相邻，改名须跨条同步并选定新译名。已登记 pending-user-review 第 39 项，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dab4c763379c74a2e742cc3b11126c611199c8b520b842de4d0cd73fd88a4488",
+      "stage": "surface",
+      "observation": "原文描述特殊射击会切割目标，译文改成“附带链锯的特殊弹头”，遗漏切割效果并添入原文没有的链锯。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/explosive.lua:236–238（SAW_SHELL）：配方名 Saw Shell 在本库作“链锯弹”（tome-orcs.lua:1357/5586/6685），现译描述“附带链锯的特殊弹头”与同族一致，但丢了 slices 'n' dices 的俏皮语气。contextual 指出“链锯”已是 steamsaw 专用译法，这一点涉及同族改名，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dbb3e0495b68f86f95a092d1dea607294d2ec1d0fe45d71d2ecc925fdb61de69",
+      "stage": "surface",
+      "observation": "两处将 bone-armor（骨甲）译作“骨盾”，装备类型错译。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/pocket-time.lua:82/90：Argoniel's fearsome bone-armor whirling around her 描写的是环绕在她身边的骨盾（核心 Argoniel 的 Bone Shield 技能），现译“骨盾”贴合设定；第 59 行装备义的 bone armor 不在被指处。contextual 判 OK，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dc1d6c8f4f65941280a8bc312dc320f7ec32119ce9e5d505c92d3964208adfe7",
+      "stage": "surface",
+      "observation": "Antimagic Shell 的 Shell 是护壳／护罩，译作“反魔弹”误成弹丸。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1724–1727（Antimagic Shell）：info 为“You fire a special antimagic shot … This talent does not use ammo as it is the ammo”，shell 即炮弹/弹药，现译“反魔弹”正确，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dc6704a553d52b315ff2c1bb45e16d805e53b68eeba070da404500ae02e44b45",
+      "stage": "surface",
+      "observation": "原文在舱内景象、飞船疏散与按键三个叙述段之间有空行，译文将舱内景象与飞船疏散合为一段，段落格式缺失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/destructicus.lua:46–48：原文段落间以“\\n \\n”分隔，共 6 个 LF；现译“看向你。\\n飞船似乎”只有单个换行，共 5 个，违反换行不变量。另外 flying in the air near nothing of importance 是说附近没有重要目标，现译“无害地飞舞”改了意思。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dcb810596c1a05d42e63d20b2e7e8df554d235f205973bf76df69a530bee6d3a",
+      "stage": "surface",
+      "observation": "标题后原文有空行，译文只保留单次换行，标题与正文的段落间隔丢失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:25–27：标题“A Reminder to Our Constituents:”后原文是 \\n\\n，共 2 个 LF；现译只有 1 个，丢了空行，违反换行不变量。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dcfa1aa5bd93a3e6a3aeb2b9c2c7409898a1baa6040453f2615c4fec64f01a45",
+      "stage": "surface",
+      "observation": "Safety Override 意为安全限制解除／覆盖，译作“武器过载”改变了含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:893 起（Safety Override）：解除重武器安全限制，打出强化的火焰喷射/震荡/弩箭攻击。“武器过载”属意译，不改变机制；改技能名需跨条同步，contextual 判 OK，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d789f21728bae625d7f881c649f5ffa3cf47ca9d82fc84960184501613d7dbcf",
+      "stage": "contextual",
+      "observation": "The source says \"most of our forces are outside\", but the target 「我们的部队却还在外面」 drops \"most\" and reads as if the whole army is outside. The next line in kruk-invasion.lua:25 says \"Only you and few others are left\", so some forces clearly stayed behind. Suggest 「正当我们大部分部队都在外面的时候」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/kruk-invasion.lua：“most of our forces are outside”，下一行又说“Only you and few others are left”。现译“我们的部队却还在外面”删了 most，变成全军在外，与下文矛盾。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d7cb7c69a53f1f4761d4a5a67c3697c8354c3c3ff7f4de873c753727bd6d9185",
+      "stage": "contextual",
+      "observation": "Runtime risk: physical.lua:320 formats this string with tformat(eff.power). The target's 「降低 50%。」 has a lone % followed by a full-width character, which is not a valid conversion, so Lua 5.1 string.format raises invalid option and the effect description breaks. Separately, the source string only says \"%d%% chances to encase your foes in iceblocks\". The added 「造成伤害时」, 「3 回合」 and 「冰块吸收的伤害降低 50%」 have no support in this long_desc. Remove the unsupported additions, or escape it as %% and cite source evidence for them.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:316–331（ALGID_RAGE）：long_desc 经 tformat(eff.power) 格式化，现译末尾“降低 50%。”中有一个未转义的单个 %，宿主用 LuaJIT 实测 string.format 报 invalid option '%�'，效果说明运行时出错（一级 runtime/占位符不变量）。机制本身与实现一致（callbackOnDealDamage 施加 3 回合 EFF_FROZEN，iceblock_pierce 50），修复时把该处改为 %% 或删去增译，二者择一，且 %d%% 保持不变。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d8abd0fc756075090961cbc3b9fb2239f888c6bbc317d8fb4f6705007c33bb15",
+      "stage": "contextual",
+      "observation": "The source \"Fires a bolt of lightning\" (other.lua:1230) describes a single-target bolt, but the target translates it as 「闪电球」. In ToME, bolt and ball are distinct mechanics: a ball is an area attack. 「球」 would mislead players into expecting an area effect. Suggest 「闪电箭」 or 「一道闪电」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1209–1232（Voltaic Bolt info）：原文第二行以“\\n\\t\\t”开头，现译只有“\\n”，缺两个制表符（TAB 不变量），只修这一处。contextual 指出的 bolt 被译成“闪电球”：本库技能名 Voltaic Bolt 本来就作“闪电球”（tome-orcs.lua:5533），info 与技能名一致；是否改译属于技能名层面的跨条问题，记 advisory，不在本条修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "da3a33562bb8492556985580fc3dab586161191923cfa7f6fbfe051f52739845",
+      "stage": "contextual",
+      "observation": "The talent name \"Electricity\" (physics.lua:61, steamtech/physics) means electricity or electrical power. The target 「电子」 means \"electron\", which is a wrong meaning. The envelope freezes no terminology entry supporting this rendering. Suggest 「电力」 or 「电能」.",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/physics.lua:61（steamtech/physics 技能 Electricity，info“Allows you to create electrical tinkers”）：electricity 是电力/电学，“电子”（electron）字义不符，surface 与 contextual 都指出了。但“电子”在本库已连带用于该技能 info 的“电子道具”和出生说明的“电子技能”，并与 Electron Incantation“电子咒式”相邻，改名须跨条同步并选定新译名。已登记 pending-user-review 第 39 项，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dab4c763379c74a2e742cc3b11126c611199c8b520b842de4d0cd73fd88a4488",
+      "stage": "contextual",
+      "observation": "The source (explosive.lua:238, SAW_SHELL \"Saw Shell\") is \"A special shot that slices 'n' dices.\", which describes cutting and chopping. The target 「附带链锯的特殊弹头」 invents a chainsaw that the source never mentions and loses the slicing meaning. A saw blade is not a chainsaw, and 链锯 is reserved in this project for steamsaw. Suggest something like 「一种能切能剁的特殊弹药」.",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/tinkers/explosive.lua:236–238（SAW_SHELL）：配方名 Saw Shell 在本库作“链锯弹”（tome-orcs.lua:1357/5586/6685），现译描述“附带链锯的特殊弹头”与同族一致，但丢了 slices 'n' dices 的俏皮语气。contextual 指出“链锯”已是 steamsaw 专用译法，这一点涉及同族改名，本批记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dc6704a553d52b315ff2c1bb45e16d805e53b68eeba070da404500ae02e44b45",
+      "stage": "contextual",
+      "observation": "Newline and paragraph change: in destructicus.lua:46-48 the second and third paragraphs are separated by a blank line (\\n \\n). The target 「看向你。\\n飞船似乎」 keeps only one newline, so the two paragraphs run together. The other paragraph breaks are kept as blank lines, which makes this inconsistent. Also, \"flying in the air near nothing of importance\" means there is nothing important near the imp, so firing on it hits nothing. The target 「在空中无害地飞舞」 changes that meaning.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/destructicus.lua:46–48：原文段落间以“\\n \\n”分隔，共 6 个 LF；现译“看向你。\\n飞船似乎”只有单个换行，共 5 个，违反换行不变量。另外 flying in the air near nothing of importance 是说附近没有重要目标，现译“无害地飞舞”改了意思。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dcb810596c1a05d42e63d20b2e7e8df554d235f205973bf76df69a530bee6d3a",
+      "stage": "contextual",
+      "observation": "Newline change: palace-fumes.lua:25-27 has a blank line between the heading \"A Reminder to Our Constituents:\" and the body (\\n\\n). The target 「敬告广大选民：\\n初选」 keeps only one newline, so the blank line is lost.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:25–27：标题“A Reminder to Our Constituents:”后原文是 \\n\\n，共 2 个 LF；现译只有 1 个，丢了空行，违反换行不变量。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 11 entries)"
+  },
+  "notes": [
+    "All-Orcs batch. Surface ran as four gpt-6-sol lanes of 20; every lane echoed its identities exactly and no lane opened a Paseo terminal or called any write tool.",
+    "The contextual run full-000 (11 entries) read only its envelope, the contract and the cited Orcs source.",
+    "The Nektosh achievement name, Argoniel's bone shield and the Antimagic Shell name are refuted. The Saw Shell description and the Safety Override name are advisory. The Electricity talent name is advisory and recorded as pending user review item 39.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "5 confirmed repair revisions raise the window 44 backlog from 19 to 24, reaching the 20 threshold: repair window 44 opens next."
+  ]
+}

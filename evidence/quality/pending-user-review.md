@@ -291,3 +291,11 @@
    - 现译：“播种机”，与上游官方 `data/locales/zh_hans.lua:1711` 一致。
    - 争议理由：第 345 批 GPT-6 Sol 表层筛查与 Opus contextual 均认为 Lumberator（lumber＋-ator）是伐木之义，“播种机”丢掉了字面义；宿主核对后认为现译贴合“注入种子、把敌人变成树”的设定，也沿用了官方译名。改名是专名决定，本批记 advisory。
    - 建议选项：保持“播种机” / 改为体现伐木与播种双关的译名（如“伐木播种机”或“伐木者”）并同步物品描述引用。
+
+## 第 348 批待审阅
+
+39. Orcs 技能名 `Electricity`（`da3a33562b`，tome-orcs.lua:5696 talent name）
+   - 源码：公开 Orcs DLC `tome-orcs/data/talents/steam/physics.lua:61`（steamtech/physics 第三个技能，info“Allows you to create electrical tinkers of level %d”）。第 348 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：“电子”；同技能 info 作“电子道具”（tome-orcs.lua:5700），出生说明作“电子技能”（6042），另有 Electron Incantation“电子咒式”（4413/6147）。
+   - 争议理由：第 348 批 GPT-6 Sol 表层筛查与 Opus contextual 都指出 electricity 是电力/电学，“电子”（electron）字义不符。改名须跨条同步技能名、info 和出生说明，并避免与“电子咒式”混淆，属跨条译名决定，本批记 advisory。
+   - 建议选项：保持“电子” / 改“电力”（或“电学”，与同系“机械”“铁匠”并列）并同步 5696、5700、6042。
