@@ -1,0 +1,45 @@
+已完成 `repair-w44-20260927`，严格限定为 24 个 target 修复。
+
+逐条改动：
+
+1. Lingering Cloud → “滞留云雾”。
+2. Psyshot 恢复空行/TAB，修正副手纯灵晶、动能投射及心灵利刃条件。
+3. 卡托尔停业告示恢复三行标题和段落结构，补全清仓、二十多年、安危托付等语义。
+4. 蒸汽动力装甲修正自动化发现归属和内置防护机构。
+5. 克鲁克手札恢复八处段落空行，修正多处叙事误译及“克拉克半岛”。
+6. 世界介绍修正“西方天灾”、未被发现及半岛译名。
+7. 攻击雪人补回长期训练养成的怒意。
+8. Viral Needlegun 补回第二行两个 TAB。
+9. 帕默广播修正离开大陆的远行传送门和“小不点”指代。
+10. Bloodstar 恢复四行结构，补回体内弹片、治疗括注及正确范围含义。
+11. 魏西手札修正走廊、微青光芒、一排尖刺及读心呼应。
+12. 自动提取仪补全插件制作、摧毁物品时选择及默认设置规则。
+13. 《有关容忍》恢复限定词、独行狂人和“不赞同”，并补末尾 LF。
+14. 修复者日志修正树叶装订、支持者、老班底、叛离法师等内容，移除额外 `[b]`。
+15. 善意手札修正无恶意的主客关系、想要原谅及逝去生命。
+16. 蒸汽动力靴补全原文笑点。
+17. 抛枪效果补回“不知怎么”和“落下的蒸汽枪”。
+18. No Hope 合并回单行。
+19. Forced Gestalt 补回隔墙感知机制。
+20. 克鲁克入侵任务补回“大部分兵力”。
+21. Algid Rage 消除未转义 `%`，保留实现支持的机制说明。
+22. Voltaic Bolt 仅补回第二行两个 TAB，保留“闪电球”。
+23. 毁灭号对话恢复段落空行，修正附近没有重要目标。
+24. 选民提醒恢复标题后的空行。
+
+验证结果：
+
+- LuaJIT：成功加载 3904 条记录；恰好 24 个 target 改变，24/24 匹配 WORKSET，非 target 字段变化为 0。
+- LF/TAB/空行下标/末尾换行/行尾空白/placeholder/markup：24/24 通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 21 个 Orcs 源码锚点文件 SHA-256：全部匹配。
+- `.ai/task` 未修改；未 stage、commit、push，未创建 agent。
+
+文件：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-44-20260927/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-44-20260927/VALIDATION.json)
+
+剩余风险仅为任务已声明的 Orcs 源码仓库/commit 未固定；本次只证明冻结文件哈希匹配。独立复审、17 项最终门禁、提交和推送仍由宿主执行。

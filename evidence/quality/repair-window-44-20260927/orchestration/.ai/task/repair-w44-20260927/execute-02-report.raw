@@ -1,0 +1,24 @@
+已完成 `repair-w44-20260927` 的 FIX。
+
+改动：
+
+- `c000e44be5`：两处商品名改为“精良的自动装填式兽人驱逐装置”“压力强化型防斩击作战服”；保留“小小大惊喜”。
+- `c1d81b80fa`：末句改为“我们不会怀念他们那娇气怯懦的无知和浮夸的自以为是。”
+- `c43a6a0caa`：改为“闷哼声，挤压声，劈砍声”，后续标点未变。
+- 其余文字、markup、LF/TAB 结构及其他记录未改。
+
+验证全部通过：
+
+- LuaJIT HEAD/worktree：3904 条译文，恰好 24 个 WORKSET target 变化，24/24 匹配，非 target 字段变化 0。
+- 本次四处词句替换反向还原后，SHA-256 精确匹配前轮已验证文件。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- evidence JSON 与尾随空白检查：通过。
+
+已更新：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-44-20260927/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-44-20260927/VALIDATION.json)
+
+未修改 `.ai/task`，未 stage、commit、push，未创建 agent。无计划偏差或未解决问题。

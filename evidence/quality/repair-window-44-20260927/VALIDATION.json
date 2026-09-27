@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w44-20260927",
+  "role": "executor",
+  "validated_at": "2026-09-27T10:50:24Z",
+  "baseline_commit": "4231a5c38dbd9cfc009c997cb097f008692e05ab",
+  "frozen_inputs": {
+    "WORKSET.json": "8691f18c35a514952774d081adf3d4d36fd0c8b449f3be856b16c1b2ba7b19f5",
+    "SOURCE-ANCHORS.json": "4ad43bb099153cf06d84feac876a06aca871ad46aaa919bb20409d888cde8102",
+    "SOURCE-CLAIMS.json": "013e98a3613af39ef2a56478869c8b7b56e5a644ec7dcdcd59934cd9c8c2eb59",
+    "ADJUDICATION-HOST-PRECHECK-C0.json": "91a1c1d74377c5f14ea0611c128bc2e9a361ec7332c67cdd911bf0b797650faf",
+    "BASELINE-records.json": "85c258b8bc816733bcb51259853afb1c1a0e78b81457657d405c1704070e7f09",
+    "TERM-SNAPSHOT.json": "0f75bf2ce00a476c0c104bb65ee02eb982a55348e99b6769f8d488ef5af1c567"
+  },
+  "result": {
+    "tome-orcs.lua_sha256": "8e685c10519f0fd08ea0a5c29a0fe72863d4efaef5524036ff4de504642fb00e",
+    "loaded_translation_records": 3904,
+    "changed_targets": 24,
+    "workset_matches": 24,
+    "non_target_field_changes": 0,
+    "source_anchor_files_checked": 21,
+    "source_anchor_sha256_matches": 21
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 OK; expected source-unpinned warnings for the three public DLC inputs"
+    },
+    {
+      "command": "sha256sum <21 SOURCE-ANCHORS Orcs paths>",
+      "exit_code": 0,
+      "result": "21/21 file hashes matched SOURCE-ANCHORS.json"
+    },
+    {
+      "command": "env LUA_PATH=... LUA_CPATH=... $TOME_LUAJIT tools/lua/load_locale.lua tome-orcs.lua <temporary-jsonl>",
+      "exit_code": 0,
+      "result": "tome-orcs.lua loaded successfully under the manifest-compatible LuaJIT"
+    },
+    {
+      "command": "python3 -B -c <LuaJIT LocaleLoader HEAD/worktree semantic diff checker>",
+      "exit_code": 0,
+      "result": "translations=3904; changed_targets=24; workset_match=24/24; non_target_field_changes=0; every preimage matched WORKSET.json"
+    },
+    {
+      "command": "python3 -B -c <bounded LF/TAB/markup invariant checker>",
+      "exit_code": 0,
+      "result": "24/24 passed line count, blank-line indices, leading-TAB depth, terminal LF, target trailing-whitespace, and placeholder/markup token line-position checks"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T105000.381800Z-1925101-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    },
+    {
+      "command": "jq empty evidence/quality/repair-window-44-20260927/VALIDATION.json",
+      "exit_code": 0,
+      "result": "valid JSON"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-44-20260927/IMPLEMENTATION.md",
+      "exit_code": 1,
+      "result": "no diagnostics; exit 1 indicates the expected no-index content difference"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-44-20260927/VALIDATION.json",
+      "exit_code": 1,
+      "result": "no diagnostics; exit 1 indicates the expected no-index content difference"
+    }
+  ],
+  "known_limits": [
+    "The public Orcs DLC source repository and commit are unpinned; frozen file SHA-256 values matched.",
+    "Independent REVIEW/full, FINAL_REVIEW/full, the 17-item host gate, commit, and push are outside this EXECUTOR dispatch."
+  ]
+}

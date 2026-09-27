@@ -1,0 +1,4 @@
+- 2026-09-27 开窗时 SPEC 标题残留 w43 模板的“窗口 43”（带空格，未被替换），freeze_review 简报残留“审22条”；宿主在 execute-01 派发前分别更正为窗口 44 与“审24条”，其余模板内容不变。
+- 2026-09-27 宿主在每次 EXECUTOR 收取后对改动行扫描裸 %（tformat 串未转义 % 会被 string.format 拒绝，strict lint 目前漏检，见窗口 45 lint 修复）；唯一命中为 `_t` 条目中的字面 40%，非格式串，不是缺陷。
+- 2026-09-27 窗口在 ADJUDICATE cycle 1 因本机重启暂停；暂停前全部 child 已归档确认，恢复后从 ADJUDICATION-F1 续跑，无 child 跨越重启。
+- 2026-09-27 首轮 FINAL-GATES 中 04-quality-facts-unit-tests 因环境变化失败：重启后 PATH 首位新增 /opt/agents/bin（11:04 创建的 claude/codex/pi shell 包装器），测试经 shutil.which("pi") 取到包装脚本，facts_study.pi_executable_identity 找不到 package.json 报 ConfigurationError（7 errors）；与本窗口译文无关（第348批 10:08 门禁通过时该目录尚不存在）。宿主以去掉 /opt/agents/bin 的 PATH 重跑完整 17 项门禁，失败首轮日志保留为 FINAL-GATES-ENV-FAIL.log。

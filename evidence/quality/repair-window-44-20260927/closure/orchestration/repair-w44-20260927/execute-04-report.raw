@@ -1,0 +1,12 @@
+已完成本次 FIX，仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3182) 两个确认项：
+
+- `d270e6e378`：按裁决修正伊格教诲／夏特尔童年所学的宾语关系。
+- `d2f78524c5`：按裁决修正原谅对象；后续“因为我想……”及标点、换行保持不变。
+
+验证结果：
+
+- LuaJIT HEAD/工作树语义比较：`3904` 条记录，恰 `24` 个 target 变化，WORKSET `24/24` 匹配，非 target 字段变化 `0`。
+- `python3 -B tools/i18n lint --strict`：`30308` 条译文，`0 errors, 0 warnings`。
+- `git diff --check`：通过，无输出。
+- 两段旧文均已消失，新文各唯一出现。
+- 未修改实现证据或 `.ai/task`；未 stage、commit、push，未创建 agent。现有无关未跟踪文件未动。

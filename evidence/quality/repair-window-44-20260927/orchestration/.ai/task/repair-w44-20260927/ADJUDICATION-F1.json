@@ -1,0 +1,34 @@
+{
+  "cycle": 1,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f1a2",
+  "invalid_attempts": [],
+  "raw_ok_count": 22,
+  "raw_issue_count": 2,
+  "decision": "FINAL failed (any ISSUE fails v2 FINAL): one tier-1 finding and one fidelity finding confirmed, one advisory; bounded fix (execute-03), then RE_REVIEW(2, attempt 1), then FINAL_REVIEW(2, attempt 2)",
+  "findings": [
+    {
+      "revision_key": "c5ae4cd6edb0b23551a81d333f20abc6e5550d6227adf5ee20d665bdf664d749",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs 源码 Bloodstar 描述：“If the victim move more than twice away from the radius of Metalstar (currently %d) the effect stops.”，阈值是金属灵晶半径的两倍；execute-01 改成“离开金属灵晶的作用范围”丢了“两倍”，把机制阈值说小了一半。只把该行改为“如果受害者与你的距离超过金属灵晶半径的两倍（当前为 %d），效果便会终止。”其余三行、%d/%0.2f 占位符顺序、行首 TAB 与 4 行结构不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "dcb810596c1a05d42e63d20b2e7e8df554d235f205973bf76df69a530bee6d3a",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "reason": "公开 Orcs 选举告示原文 rarely three：“极少数情况下”才会保留三名候选人，现译“有时会是三名”把罕见情形说成常见。只把“有时会是三名”改为“极少数情况下会是三名”，其余文字不动。Orcs 公开源码按本窗口 SOURCE-ANCHORS 文件 SHA 核验，仓库/commit 未固定。"
+    }
+  ],
+  "advisories": [
+    {
+      "revision_key": "dcb810596c1a05d42e63d20b2e7e8df554d235f205973bf76df69a530bee6d3a",
+      "status": "advisory",
+      "category": "terminology",
+      "reason": "Chief Councilor 建议译“首席议员”：本库 13 处统一作“议长”，“首席议员”仅见 Tantalos 术语 notes，保持“议长”，不改。"
+    }
+  ],
+  "recorded_at": "2026-09-27T13:18:30.708608+00:00"
+}
