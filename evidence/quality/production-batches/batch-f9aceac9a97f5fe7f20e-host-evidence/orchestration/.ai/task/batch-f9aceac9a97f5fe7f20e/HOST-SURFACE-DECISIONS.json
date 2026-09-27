@@ -1,0 +1,88 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 10 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "965c42ecb6122f82ae23c2f0cf2cc4665530d4c4ab4646df870737660e41c4d9",
+      "stage": "surface",
+      "observation": "原文是轰击范围内的“一切”，译文两处都限定为“所有敌人”，缩小了作用对象。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:173–240（Anti-Gravity Boots，本库“反重力鞋”）：use_power 描述“blasting everything within radius 2 … and within radius 3 …”；实现为起跳点 who:project({type=\"ball\",radius=2,selffire=fail},…FIREKNOCKBACK_MIND) 与落点 {type=\"ball\",radius=3,selffire=false}，均未设 friendlyfire=false，范围内友方同样受伤害与击退。现译两处“所有敌人”把对象缩成敌人，与实现不符。建议两处改“范围内的一切目标”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "97554132ac0b0b32f66be538f6f4e2c47fb0ae74d2eda5a6eb39fac8c62218cb",
+      "stage": "surface",
+      "observation": "原文只说“teacher”，译文具体写成“工匠大师”；冻结输入没有支持这一身份的信息。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:420–426：该 tooltip 属于“[Ask where to learn tinkers crafting]”奖励选项，选定后弹窗标题为“Tinker's Master”（本库“工匠大师”）；teacher 即工匠大师，现译有源码依据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9788c55db1dcae413ea0f1f5c2b97174403900008e46bce1d83b90b65b4a3441",
+      "stage": "surface",
+      "observation": "成就名称中的“(Finale)”在译文中缺失。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/story.lua:34–38：成就“The High Lady's Destiny (Finale)”，desc“Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.”；现译“艾琳的陨落”以人名替代头衔、以结局替代 Destiny，并略去“(Finale)”，属意译标题，与 desc 所述结局一致，不构成错译；可考虑保留“（终章）”标记，记 advisory。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "98036ea0d24e549788b16d4b823f83bbf744ea0e6a338e6d9ecdd46ce74053b8",
+      "stage": "surface",
+      "observation": "原文两个 %s 之间有空格，译文写成 %s%s；若参数本身不带分隔符，显示时会连在一起。冻结输入未提供参数内容。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/boss-artifacts.lua:206：logCombat 参数依次为 who:his_her() 与物品名，英文两词间需空格；中文“#Source#使用%s%s精神控制#target#”中所有格与名称直接相连（“他的X”）符合中文书写，占位符数量与顺序未变。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "99da0eecbaf1d80f516491fcd32491aad277c30a8001a24e6111d0355daed82f",
+      "stage": "surface",
+      "observation": "原文明确说蒸汽直接注入枪管推动金属弹丸；译文省略直接注入枪管这一工作方式。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/steamgun.lua:37：蒸汽枪类型描述“Steamguns use bursts of steam directly injected in the barrel to propel metal shots with great force.”；现译“蒸汽枪使用蒸汽能量强力发射金属子弹”删去 bursts（脉冲）与 directly injected in the barrel（直接注入枪管）。建议“蒸汽枪将一股股蒸汽直接注入枪管，以巨大的力量推射金属弹丸。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9ab44789ca3b0193a1569b3501f78c323c063cde2c48ca8a4c67ae1c6d410444",
+      "stage": "surface",
+      "observation": "bores into 表示钻入，译文的“飞入”改变了动作。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "本条“Steamtech directly embedded on the skin.”→“直接嵌入皮肤的蒸汽技术。”无误；所附“bores into→飞入”observation 实指前一条 9a75f2d93d。surface lane-000-2 的 observation 错位：所述内容属于同 lane 前一条（见 additional host observations），本条译文与原文一致，observation 不适用于本条，refuted。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9af85549cbb145eb1155150d5fb1fbfa41f1b20b112f514d5ff5909a06e8d2ac",
+      "stage": "surface",
+      "observation": "原文的 Automated Portable Extractor 缩写 A.P.E. 在译文中遗漏；Electricity（电学／电力）被译成“电子”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "本条“Second Skin”→“第二皮肤”无误；所附 A.P.E.／Electricity observation 实指前一条 9af7773a4c（科技法师进阶说明）。surface lane-000-2 的 observation 错位：所述内容属于同 lane 前一条（见 additional host observations），本条译文与原文一致，observation 不适用于本条，refuted。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9b3aabf85a962e888f3a2b984f32c46816e33ce6ed5adbd1bb2e0e1f633c539f",
+      "stage": "surface",
+      "observation": "“captain”译为“船长”需要航海语境；冻结条目仅有“troll captain”，无法确认该角色是否为船长。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/npcs/troll-pirates.lua：troll captain 定义于巨魔海盗 NPC 文件，海盗头领译“船长”有语境依据。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9b478777372577c154fa7030b1c32c228f374b9979aca0c7f390805d18e8c7c9",
+      "stage": "surface",
+      "observation": "“thunderclap”指雷鸣或霹雳声，译文“雷电”改变了触发效果的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/tinkers/explosive.lua:31–39（“%s thunderclap coating”，本库“%s 霹雳涂层”）与 data/damage_types.lua:215–226（THUNDERCLAP_COATING：物理伤害并按蒸汽强度判定击退）：thunderclap 是物理震爆，现译“攻击能触发雷电”让人误以为闪电／电系伤害，且与本物品名“霹雳涂层”不一。建议“攻击有几率触发霹雳震爆，伤害并击退敌人。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "9c020c21838c8900f40e88f2bee3f3c12fcf9f4eec2700cd28435c87d2a46537",
+      "stage": "surface",
+      "observation": "职业特色中的“Inspire dread to weaken your foes”明确包含削弱敌人，译文只写激发恐惧及“无处遁形”，未表达削弱效果。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua：职业特色“Inspire dread to weaken your foes to your gunslinging”；现译“激发敌人的恐惧，让敌人在你的枪法前无处遁形”以意译表达“使敌人更易被枪法所伤”，weaken 未直译，记 advisory。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ]
+}

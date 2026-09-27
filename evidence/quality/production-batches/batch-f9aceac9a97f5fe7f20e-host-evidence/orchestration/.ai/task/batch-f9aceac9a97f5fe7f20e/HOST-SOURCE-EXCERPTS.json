@@ -1,0 +1,4034 @@
+[
+  {
+    "entry_revision_identity": "96531d332cd5779a5d001c5ae2c4a13d97ed90c56809f9c7c4de1d5bcef864c0",
+    "public_source_path": "tome-orcs/data/talents/steam/turrets.lua",
+    "lines": [
+      {
+        "line": 121,
+        "text": "\t\t\ttype = \"construct\", subtype = \"sentry\","
+      },
+      {
+        "line": 122,
+        "text": "\t\t\tdisplay = \"*\", color=colors.GREEN,"
+      },
+      {
+        "line": 123,
+        "text": "\t\t\tname = _t\"steamgun turret\", faction = self.faction, image = \"npc/steamgun_turret1.png\","
+      },
+      {
+        "line": 124,
+        "text": "\t\t\tdesc = _t[[An automated turret equipped with a steamgun.]],"
+      },
+      {
+        "line": 125,
+        "text": "\t\t\tautolevel = \"rogue\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "965914bd3974673b9502d151e642462b7509e016e35371f1c74de7ce22e2ebb7",
+    "public_source_path": "tome-orcs/data/zones/gem/objects.lua",
+    "lines": [
+      {
+        "line": 25,
+        "text": "newEntity{"
+      },
+      {
+        "line": 26,
+        "text": "\tdefine_as = \"BASE_LORE_DISK\","
+      },
+      {
+        "line": 27,
+        "text": "\ttype = \"lore\", subtype=\"disk\", not_in_stores=true, no_unique_lore=true,"
+      },
+      {
+        "line": 28,
+        "text": "\tunided_name = _t\"disk\", identified=true,"
+      },
+      {
+        "line": 29,
+        "text": "\tdisplay = \"?\", color=colors.ANTIQUE_WHITE, image=\"object/artifact/vinyl_disc.png\","
+      },
+      {
+        "line": 30,
+        "text": "\tencumber = 0,"
+      },
+      {
+        "line": 31,
+        "text": "\tcheckFilter = function(self) if self.lore and game.party.lore_known and game.party.lore_known[self.lore] then print('[LORE] refusing', self.lore) return false else return true end end,"
+      },
+      {
+        "line": 32,
+        "text": "\tdesc = _t[[A strange black disk found in the G.E.M."
+      },
+      {
+        "line": 33,
+        "text": "You have no idea how to use it.]],"
+      },
+      {
+        "line": 34,
+        "text": "}"
+      },
+      {
+        "line": 47,
+        "text": "newEntity{ base = \"BASE_LORE_DISK\","
+      },
+      {
+        "line": 48,
+        "text": "\tdefine_as = \"GEM_VINYL\"..i, unique = true,"
+      },
+      {
+        "line": 49,
+        "text": "\tname = \"strange black disk (\"..i..\")\", vinyl_lore=\"gem-\"..i,"
+      },
+      {
+        "line": 50,
+        "text": "\trarity = false,"
+      },
+      {
+        "line": 51,
+        "text": "\tplot = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "965c42ecb6122f82ae23c2f0cf2cc4665530d4c4ab4646df870737660e41c4d9",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 177,
+        "text": "\t\t\tlocal dam1 = who:damDesc(engine.DamageType.FIRE, self.use_power.damage1(self, who))"
+      },
+      {
+        "line": 178,
+        "text": "\t\t\tlocal dam2 = who:damDesc(engine.DamageType.FIRE, self.use_power.damage2(self, who))"
+      },
+      {
+        "line": 179,
+        "text": "\t\t\treturn (\"jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)\"):tformat(self.use_power.range, dam1, dam2)"
+      },
+      {
+        "line": 180,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 181,
+        "text": "\t\tfail_chance = function(self, who) return math.ceil(who:combatStatLimit(\"cun\", 0, 15, 5)) end, --This is to keep these from being better than similar higher-tier artifacts."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "967cf70c03dafa6844a5e52bc3ce0d89fa7928f07b62fdb15b1e7e4b8e04af79",
+    "public_source_path": "tome-orcs/data/talents/uber/cun.lua",
+    "lines": [
+      {
+        "line": 135,
+        "text": ""
+      },
+      {
+        "line": 136,
+        "text": "\t\tlist[#list+1] = {name=_t\"Rak'Shor's Cunning (Skeleton)\", action=function() make_undead(\"skeleton\") end, force_choice=true}"
+      },
+      {
+        "line": 137,
+        "text": "\t\tlist[#list+1] = {name=_t\"Rak'Shor's Cunning (Ghoul)\", action=function() make_undead(\"ghoul\") end, force_choice=true}"
+      },
+      {
+        "line": 138,
+        "text": "\tend,"
+      },
+      {
+        "line": 139,
+        "text": "\tinfo = function(self, t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "967d52c9fc5434416c212e2fcee791e492648402cbe008af8514775c65413559",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 981,
+        "text": "newEffect{"
+      },
+      {
+        "line": 982,
+        "text": "\tname = \"INCENDIARY_GRENADE\", image = \"talents/incendiary_grenade.png\","
+      },
+      {
+        "line": 983,
+        "text": "\tdesc = _t\"Incendiary Grenade\","
+      },
+      {
+        "line": 984,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is burning for %d fire damage each turn and taking %d%% increased damage from all sources.\"):tformat(eff.dam, eff.power) end,"
+      },
+      {
+        "line": 985,
+        "text": "\ttype = \"physical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "968240b7957fb8f457af7cfa8a7140a3c56996b674386413f3230cc56672cb51",
+    "public_source_path": "tome-orcs/data/talents/steam/elusiveness.lua",
+    "lines": [
+      {
+        "line": 111,
+        "text": "\tno_npc_use = true,"
+      },
+      {
+        "line": 112,
+        "text": "\ttactical = { BUFF=2, ATTACKAREA={weapon=2} },"
+      },
+      {
+        "line": 113,
+        "text": "\ton_pre_use = function(self, t, silent) if not self:hasDualArcheryWeapon(\"steamgun\") then if not silent then game.logPlayer(self, \"You require two steamguns for this talent.\") end return false end return true end,"
+      },
+      {
+        "line": 114,
+        "text": "\tgetResist = function(self, t) return self:combatTalentLimit(t, 35, 5, 20) end,"
+      },
+      {
+        "line": 115,
+        "text": "\tgetMultiple = function(self, t) return self:combatTalentWeaponDamage(t, 1, 2) end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "96862db837eb20db3d0055bcd71a72dd8cb81a6fb263363ad6b37ac3e8ebc5f2",
+    "public_source_path": "tome-orcs/data/lore/yeti.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "\tid = \"yeti-cave-1\","
+      },
+      {
+        "line": 22,
+        "text": "\tcategory = \"yeti's cave\","
+      },
+      {
+        "line": 23,
+        "text": "\tname = _t\"crude cave painting (1)\","
+      },
+      {
+        "line": 24,
+        "text": "\timage = \"orcs/yeti_carving_01.png\","
+      },
+      {
+        "line": 25,
+        "text": "\tlore = _t[[You see here a crude cave painting, depicting a drake attacking a group of yetis, as an indistinct figure watches over them.  To the right, you see a drawing of the figure attacking the drake, and the yetis cheering.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9699df9cd49ed296a62debf57fb3da340cecc771815dceea1e911b8b91428b3e",
+    "public_source_path": "tome-orcs/data/zones/palace-fumes/grids.lua",
+    "lines": [
+      {
+        "line": 86,
+        "text": "newEntity{"
+      },
+      {
+        "line": 87,
+        "text": "\tdefine_as = \"THRONE_BASE\","
+      },
+      {
+        "line": 88,
+        "text": "\ttype = \"throne\", subtype = \"mech\","
+      },
+      {
+        "line": 89,
+        "text": "\tname = \"throne\", image = \"terrain/mechstone/mech_stone_floor_1_01.png\","
+      },
+      {
+        "line": 90,
+        "text": "\tdisplay = '#', color=colors.LIGHT_UMBER, back_color=colors.UMBER,"
+      },
+      {
+        "line": 91,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 96,
+        "text": "}"
+      },
+      {
+        "line": 97,
+        "text": ""
+      },
+      {
+        "line": 98,
+        "text": "for _, n in ipairs{\"throne_w\", \"throne_e\", \"throne_n\", \"throne_nw\", \"throne_ne\"} do"
+      },
+      {
+        "line": 99,
+        "text": "\tnewEntity{ base = \"THRONE_BASE\", define_as = n:upper(),"
+      },
+      {
+        "line": 100,
+        "text": "\t\tadd_mos = {{image=\"terrain/mechstone/mech_stone_\"..n..\"_1.png\"}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "96a1744b22aa6e8538a9eb8e64d224378117fb0f65a3425ec32658338a36a89b",
+    "public_source_path": "tome-orcs/data/talents/steam/magnetism.lua",
+    "lines": [
+      {
+        "line": 134,
+        "text": ""
+      },
+      {
+        "line": 135,
+        "text": "newTalent{"
+      },
+      {
+        "line": 136,
+        "text": "\tname = \"Capacitor Discharge\","
+      },
+      {
+        "line": 137,
+        "text": "\ttype = {\"steamtech/magnetism\", 3},"
+      },
+      {
+        "line": 138,
+        "text": "\trequire = steamreq3,"
+      },
+      {
+        "line": 304,
+        "text": "\t\tif base then block2 = base * t.getBlock(self,t)/100 end"
+      },
+      {
+        "line": 305,
+        "text": "\t\treturn ([[Project a radius 3 electric field from your shield lasting %d turns. Enemies within this field will take an automatic shield strike for %d%% lightning damage each turn, while allies will gain flat damage reduction equal to %d%% (%d) of block value."
+      },
+      {
+        "line": 306,
+        "text": "\t\tAll damage reduced by this effect will be stored for Capacitor Discharge.]]):"
+      },
+      {
+        "line": 307,
+        "text": "\t\ttformat(duration, damage, block, block2)"
+      },
+      {
+        "line": 308,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "96e2227251b0a61520cff44a014ce220cf97809ae73cee504245bba569a5df81",
+    "public_source_path": "tome-orcs/data/chats/destructicus.lua",
+    "lines": [
+      {
+        "line": 72,
+        "text": ""
+      },
+      {
+        "line": 73,
+        "text": "newChat{ id=\"shoot_airship\","
+      },
+      {
+        "line": 74,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*The Steam Giants are too great a threat to allow their escape - you will not have them simply return someday to finish what they attempted, and wipe out your Pride.  You press the #{italic}#\"PREVIOUS TARGET\"#{normal}# button, and fire on the airship.  There is a great roar and a flash of flame; you see its missile flying away from you through the window, as you see it racing towards your view, and the terrified passengers, on the scrying panel."
+      },
+      {
+        "line": 75,
+        "text": ""
+      },
+      {
+        "line": 76,
+        "text": "It reaches its mark, and the panel goes dark as a tremendous, multicolored blast fills your vision through the window."
+      },
+      {
+        "line": 77,
+        "text": " "
+      },
+      {
+        "line": 78,
+        "text": "The Steam Giants are no more."
+      },
+      {
+        "line": 79,
+        "text": " "
+      },
+      {
+        "line": 80,
+        "text": "The secondary charges from the warhead detonate, as burning debris falls into the sea, and the ongoing display serves as a signal to all the Orcs of Var'Eyal, and anyone else who may be watching: This is the fate of all who would try to eradicate the Orcs.  The previous millennia of oppression, genocide, and bullying are over: your people will never be pushed around like this again."
+      },
+      {
+        "line": 81,
+        "text": " "
+      },
+      {
+        "line": 82,
+        "text": "A nagging thought in the back of your head insists that you now know how the Sun Paladins felt, how King Toknor felt, how the halflings felt, how everyone that has always committed such atrocities against the Orcs felt.  It can keep whining all it wants - your people are finally safe.*#WHITE#]],"
+      },
+      {
+        "line": 83,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 84,
+        "text": "\t\t{_t\"[leave]\", action=function(npc, player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "972b8cc31e8765388b1b16014cc4840ce2c280cb9c7bc41f77b80ae7316786df",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/chemistry.lua",
+    "lines": [
+      {
+        "line": 65,
+        "text": "\tmaterial_level = i,"
+      },
+      {
+        "line": 66,
+        "text": "\tmetallic = true,"
+      },
+      {
+        "line": 67,
+        "text": "\tspecial_desc = function(self) return _t\"Infects targets with a stat reducing disease.\" end,"
+      },
+      {
+        "line": 68,
+        "text": "\ton_tinker = function(self, o, who)"
+      },
+      {
+        "line": 69,
+        "text": "\t\tlocal DamageType = require \"engine.DamageType\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9742a3415b7fcd2b744f13d4cb340b0e777ba945a18c8a0378a102a46ec6e418",
+    "public_source_path": "tome-orcs/data/general/events/sewer-alligator-nest.lua",
+    "lines": [
+      {
+        "line": 60,
+        "text": ""
+      },
+      {
+        "line": 61,
+        "text": "local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()"
+      },
+      {
+        "line": 62,
+        "text": "g.name = _t\"strange conduit on the wall\""
+      },
+      {
+        "line": 63,
+        "text": "g.display='#' g.color_r=0 g.color_g=215 g.color_b=0 g.notice = true"
+      },
+      {
+        "line": 64,
+        "text": "g.always_remember = true g.special_minimap = {b=0, g=215, r=0}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "974fee374a58879e014caee5fb3de4980d5a72b20dc4052be6133bcbaa3cf931",
+    "public_source_path": "tome-orcs/data/lore/sunwall.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "By the Sun...  why would our High Paladin agree to this treaty?  After what we've all been through..."
+      },
+      {
+        "line": 38,
+        "text": ""
+      },
+      {
+        "line": 39,
+        "text": "The Orcish scouts are getting bolder.  They've been approaching closer before fleeing, and coming more frequently.  They haven't engaged us yet, but it's only a matter of time...  and all I'm allowed to do is sit and wait on this ugly little bridge, as the West watches from a continent away.  Staring at an open wound, waiting for it to become infected, because they'd rather make a pretty little bow out of the bandages.]]):tformat(male and _t\"hero\" or _t\"heroine\") end,"
+      },
+      {
+        "line": 40,
+        "text": "}"
+      },
+      {
+        "line": 41,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9750a84b4038bb1baccc9d3c132588c02260ecab2f46ced061119724f1dd90ce",
+    "public_source_path": "tome-orcs/data/lore/sunwall.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\tid = \"sunwall-outpost-2\","
+      },
+      {
+        "line": 44,
+        "text": "\tcategory = \"sunwall\","
+      },
+      {
+        "line": 45,
+        "text": "\tname = _t\"a letter addressed to Outpost Leader John\","
+      },
+      {
+        "line": 46,
+        "text": "\tlore = _t[[Sir,"
+      },
+      {
+        "line": 47,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "97554132ac0b0b32f66be538f6f4e2c47fb0ae74d2eda5a6eb39fac8c62218cb",
+    "public_source_path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+    "lines": [
+      {
+        "line": 422,
+        "text": "\t\t\t{"
+      },
+      {
+        "line": 423,
+        "text": "\t\t\t\tdesc = _t\"[Ask where to learn tinkers crafting]\","
+      },
+      {
+        "line": 424,
+        "text": "\t\t\t\ttooltip = _t\"Reveal the location of a teacher.\","
+      },
+      {
+        "line": 425,
+        "text": "\t\t\t\taction=function(npc, player, on_chose)"
+      },
+      {
+        "line": 426,
+        "text": "\t\t\t\t\tif game:isCampaign(\"Maj'Eyal\") then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "975bbe4a0a71d098593195753cfb4d38769c79f56a9d625a9fe282bbeffa5826",
+    "public_source_path": "tome-orcs/data/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 35,
+        "text": "newRecipe{ id = \"STEAMGUN\","
+      },
+      {
+        "line": 36,
+        "text": "\tname = _t\"Steamgun\", icon = \"shockbolt/object/steamgun_voratun.png\","
+      },
+      {
+        "line": 37,
+        "text": "\tdesc = _t\"Dismantle any one sling, add some amazing steampower to it and make a powerful steamgun to fire a bullet hell at your foes!\","
+      },
+      {
+        "line": 38,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      },
+      {
+        "line": 155,
+        "text": ""
+      },
+      {
+        "line": 156,
+        "text": "newRecipe{ id = \"GUN_PAYLOAD\","
+      },
+      {
+        "line": 157,
+        "text": "\tname = _t\"Steamgun: Payload\", icon = \"shockbolt/object/artifact/payload.png\","
+      },
+      {
+        "line": 158,
+        "text": "\tdesc = _t\"The pinnacle of steamguns technology. Critical strikes with this gun will feel like a massive explosion of flames! And it actually will be one!\","
+      },
+      {
+        "line": 159,
+        "text": "\tbase_ml = 5, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9772b7a6a6b3428345e6c7d01741d53e2fd1b5988185d4bc1627a64be9571e7f",
+    "public_source_path": "tome-orcs/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 279,
+        "text": "-- Damages a range of resources"
+      },
+      {
+        "line": 280,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 281,
+        "text": "\tname = _t(\"resource shock\", \"damage type\"), type = \"RESOURCE_SHOCK\","
+      },
+      {
+        "line": 282,
+        "text": "\tprojector = function(src, x, y, type, dam, state)"
+      },
+      {
+        "line": 283,
+        "text": "\t\tstate = initState(state)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "97778f0da37132bdf79ef7e17192b8840ebf480e47720c36a8d5e4c1aa6f9dcd",
+    "public_source_path": "tome-orcs/data/chats/kaltor-shop.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newChat{ id=\"gem\","
+      },
+      {
+        "line": 49,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#"
+      },
+      {
+        "line": 50,
+        "text": "\tMake it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]],"
+      },
+      {
+        "line": 51,
+        "text": "\tanswers = shop_answers,"
+      },
+      {
+        "line": 52,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9788c55db1dcae413ea0f1f5c2b97174403900008e46bce1d83b90b65b4a3441",
+    "public_source_path": "tome-orcs/data/achievements/story.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 35,
+        "text": "\tname = \"The High Lady's Destiny (Finale)\", id = \"ORCS_DONE_SUNWALL\", category = \"Embers of Rage\","
+      },
+      {
+        "line": 36,
+        "text": "\tshow = \"full\", huge=true,"
+      },
+      {
+        "line": 37,
+        "text": "\tdesc = _t[[Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "97c58eee580c6cc3c87296514e09be804aae83b31fba4d3746066e8d8a7c6d5f",
+    "public_source_path": "tome-orcs/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 544,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 545,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 546,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,"
+      },
+      {
+        "line": 547,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,"
+      },
+      {
+        "line": 548,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "97d0c0e4ac241c926e085b6c11885e614abf88fa6c40ff6929328d3a79d3330d",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 733,
+        "text": "\tparameters = { dam=10 },"
+      },
+      {
+        "line": 734,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is caught in the bloodstar.\", true end,"
+      },
+      {
+        "line": 735,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the bloodstar.\", true end,"
+      },
+      {
+        "line": 736,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 737,
+        "text": "\t\teff.particle = self:addParticles(Particles.new(\"bloodstar_tendrils\", 1, {tx=eff.src.x-self.x, ty=eff.src.y-self.y}))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "97eb41ff94af71b5c78120e25cc60eeed6a3aaf0f6d11ffaf47eb74a73e3d55a",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 701,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 702,
+        "text": "\tname = \"Overburst\", image = \"object/artifact/overburst.png\","
+      },
+      {
+        "line": 703,
+        "text": "\tunided_name = _t\"wide barreled steamgun\", unique = true,"
+      },
+      {
+        "line": 704,
+        "text": "\tlevel_range = {30, 40},"
+      },
+      {
+        "line": 705,
+        "text": "\tdesc = _t[[\"Have you ever fired a shot into a group of monsters and thought 'there must be a better way?' Well now, there is!\"]],"
+      },
+      {
+        "line": 727,
+        "text": "\tpower_source = {steam=true},"
+      },
+      {
+        "line": 728,
+        "text": "\tname = \"Murderfang's Surekill\", image = \"object/artifact/murderfangs_surekill.png\","
+      },
+      {
+        "line": 729,
+        "text": "\tunided_name = _t\"wide barreled steamgun\", unique = true,"
+      },
+      {
+        "line": 730,
+        "text": "\tlevel_range = {30, 40},"
+      },
+      {
+        "line": 731,
+        "text": "\tdesc = _t[[\"Murderfang came over yesterday, raving about this idea for a steamgun he had. He described it in great detail, everything, except for how it would actually work."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "98036ea0d24e549788b16d4b823f83bbf744ea0e6a338e6d9ecdd46ce74053b8",
+    "public_source_path": "tome-orcs/data/general/objects/boss-artifacts.lua",
+    "lines": [
+      {
+        "line": 204,
+        "text": "\t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)"
+      },
+      {
+        "line": 205,
+        "text": "\t\t\t\tif not target or target.dead or who.faction == target.faction or (not who.player and who:reactionToward(target) > 0) then return end"
+      },
+      {
+        "line": 206,
+        "text": "\t\t\t\twho:logCombat(target, \"#Source# psychically dominates #target# through %s %s!\", who:his_her(), self:getName({do_color=true, no_add_name=true}))"
+      },
+      {
+        "line": 207,
+        "text": "\t\t\t\tlocal eff_id, params = target.EFF_DOMINATE_ENTHRALL, {src=who, apply_power=who:combatMindpower()*1.2}"
+      },
+      {
+        "line": 208,
+        "text": "\t\t\t\tif not target:canBe(\"instakill\") or game.party:hasMember(target) then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "98406bf743ff98cdbea7b17bad610aba8f867f29ca334ce01fbc9e36d911bb44",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 152,
+        "text": "\tcategory = \"races...?\","
+      },
+      {
+        "line": 153,
+        "text": "\tname = _t\"Scholar Graynot's Assessment of the Species, Chapter 83: Wei...\","
+      },
+      {
+        "line": 154,
+        "text": "\tlore = _t[[(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)]],"
+      },
+      {
+        "line": 155,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9845ad73119c74f1cb54c13a67cbcd2f2392960675b92dba5ca03a480e09322e",
+    "public_source_path": "tome-orcs/data/zones/internment-camp/npcs.lua",
+    "lines": [
+      {
+        "line": 111,
+        "text": "\temote_random = resolvers.emote_random{ chance=5,"
+      },
+      {
+        "line": 112,
+        "text": "\t\t_t\"You should be parked with the others!\","
+      },
+      {
+        "line": 113,
+        "text": "\t\t_t\"You have no place in this new world!\","
+      },
+      {
+        "line": 114,
+        "text": "\t\t_t\"Your mind looks delicious...\","
+      },
+      {
+        "line": 115,
+        "text": "\t\t_t\"I hunger for more brains...\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "984e12498473e6aebf01f29cdb59f7f20aacc28521afc0ce32db7da3da5b556d",
+    "public_source_path": "tome-orcs/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 67,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 68,
+        "text": "\tparameters = { power=100, retaliate=15, },"
+      },
+      {
+        "line": 69,
+        "text": "\ton_gain = function(self, err) return _t\"A shield forms around #target#.\", _t\"+Shield\" end,"
+      },
+      {
+        "line": 70,
+        "text": "\ton_lose = function(self, err) return _t\"The shield around #target# crumbles.\", _t\"-Shield\" end,"
+      },
+      {
+        "line": 71,
+        "text": "\ton_aegis = function(self, eff, aegis)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "98600b4d86bcd595f5d640dfba8c050c2c3be9295120114235a5942c1b50d1bc",
+    "public_source_path": "tome-orcs/data/talents/uber/mag.lua",
+    "lines": [
+      {
+        "line": 123,
+        "text": "\trequire = {"
+      },
+      {
+        "line": 124,
+        "text": "\t\tbirth_descriptors={{\"subclass\", \"Archmage\"}},"
+      },
+      {
+        "line": 125,
+        "text": "\t\tspecial={desc=_t\"Unlocked the Technomancer evolution\", fct=function(self) return profile.mod.allow_build.mage_technomancer end},"
+      },
+      {
+        "line": 126,
+        "text": "\t\tstat = {cun=25},"
+      },
+      {
+        "line": 127,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "98641e147c05b2e50780e37dfd420d6355c75a9200e3b015cde019a1c662fcb7",
+    "public_source_path": "tome-orcs/data/general/npcs/steam-giant-gunner.lua",
+    "lines": [
+      {
+        "line": 75,
+        "text": "\tname = \"steam giant gunslinger\", color=colors.BLUE,"
+      },
+      {
+        "line": 76,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 77,
+        "text": "\tdesc = _t[[This steam giant carries a steamgun in each hand.]],"
+      },
+      {
+        "line": 78,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 79,
+        "text": "\trarity = 2,"
+      },
+      {
+        "line": 96,
+        "text": "newEntity{ base = \"BASE_STEAM_GIANT_GUNNER\","
+      },
+      {
+        "line": 97,
+        "text": "\tname = \"steam giant flameshot\", color=colors.RED,"
+      },
+      {
+        "line": 98,
+        "text": "\tdesc = _t[[This steam giant carries a steamgun in each hand. The barrels appear to be flaming.]],"
+      },
+      {
+        "line": 99,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 100,
+        "text": "\tlevel_range = {14, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 121,
+        "text": "newEntity{ base = \"BASE_STEAM_GIANT_GUNNER\","
+      },
+      {
+        "line": 122,
+        "text": "\tname = \"retaliator of Atmos\", color=colors.LIGHT_RED,"
+      },
+      {
+        "line": 123,
+        "text": "\tdesc = _t[[This steam giant carries a steamgun in each hand. She is here to eliminate any and all aggression towards the Atmos tribe.]],"
+      },
+      {
+        "line": 124,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 125,
+        "text": "\tlevel_range = {25, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "988a23c641d9873e053d95f4c3ec1b1bba8bcd35236d0961ba429db2f50d9e95",
+    "public_source_path": "tome-orcs/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": "newTalent{"
+      },
+      {
+        "line": 90,
+        "text": "\tname = \"Mindwave\","
+      },
+      {
+        "line": 91,
+        "text": "\ttype = {\"race/yeti\", 4},"
+      },
+      {
+        "line": 92,
+        "text": "\trequire = racial_req4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "98d2f21a34de78b0db426366f5cf52522a9d74f60f6b14012efabfa23873466e",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 248,
+        "text": "\tname = \"Stormcutter\","
+      },
+      {
+        "line": 249,
+        "text": "\tunided_name = _t\"electrified steamsaw\", unique = true,"
+      },
+      {
+        "line": 250,
+        "text": "\tdesc = _t[[\"Great for combat, cooking, and shaving! We accept no responsibility for ruined follicles.\"]],"
+      },
+      {
+        "line": 251,
+        "text": "\trequire = { stat = { str=48 }, },"
+      },
+      {
+        "line": 252,
+        "text": "\tcost = 900,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99073a485823ee976e144c972cfe8398448c40f4ecd91c545cdc9df40bcbb1f0",
+    "public_source_path": "tome-orcs/data/zones/dominion-port/zone.lua",
+    "lines": [
+      {
+        "line": 146,
+        "text": "\t\tlocal Dialog = require(\"engine.ui.Dialog\")"
+      },
+      {
+        "line": 147,
+        "text": "\t\tif lev == 4 and not game.level.shown_warning then"
+      },
+      {
+        "line": 148,
+        "text": "\t\t\tDialog:simplePopup(_t\"Dominion's Port Tower\", _t\"As you enter you see the door lock behind you. It's a trap!\")"
+      },
+      {
+        "line": 149,
+        "text": "\t\t\tgame.level.shown_warning = true"
+      },
+      {
+        "line": 150,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99153ed8d28956ce55b7c34fbfea4de6ae9dfaa88299de3d88541ae7d7a9ab3d",
+    "public_source_path": "tome-orcs/data/general/grids/primal_trunk.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": "newEntity{"
+      },
+      {
+        "line": 23,
+        "text": "\tdefine_as = \"PRIMAL_TRUNK\","
+      },
+      {
+        "line": 24,
+        "text": "\ttype = \"floor\", subtype = \"primal trunk\","
+      },
+      {
+        "line": 25,
+        "text": "\tname = \"primal trunk\", image = \"terrain/primal_trunk/primal_forest_main_01.png\","
+      },
+      {
+        "line": 26,
+        "text": "\tdisplay = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},"
+      },
+      {
+        "line": 27,
+        "text": "\tnice_tiler = { method=\"replace\", base={\"PRIMAL_TRUNK_PATCH\", 100, 1, 14}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9920d9ae7ab4dca7816968da1f29f59ace7bc2947a4dfae3af2e64e6895453b3",
+    "public_source_path": "tome-orcs/data/chats/metash.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": ""
+      },
+      {
+        "line": 75,
+        "text": "newChat{ id=\"w-explain2\","
+      },
+      {
+        "line": 76,
+        "text": "\ttext = _t[[Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!]],"
+      },
+      {
+        "line": 77,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 78,
+        "text": "\t\t{_t(\"I will!\", \"chat_metash\"), action=function(npc, player) player:grantQuest(\"orcs+krimbul\") end},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "992556e2dda72f1c786834e2d998a5c6ba74f685496b6e61c7a09a92e6489ac9",
+    "public_source_path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+    "lines": [
+      {
+        "line": 219,
+        "text": "\tdata.compare_scaled(data.w, data.compare_with, data.field, \"combat_steampower\", {\"combatSteampower\"}, _t\"%+d #LAST#(%+d eff.)\", _t\"Steampower: \")"
+      },
+      {
+        "line": 220,
+        "text": "\tdata.compare_fields(data.w, data.compare_with, data.field, \"combat_steamcrit\", \"%+d%%\", _t\"Steam crit. chance: \")"
+      },
+      {
+        "line": 221,
+        "text": "\tdata.compare_fields(data.w, data.compare_with, data.field, \"combat_steamspeed\", \"%+d%%\", _t\"Steamtech Speed: \", 100)"
+      },
+      {
+        "line": 222,
+        "text": "\tdata.compare_fields(data.w, data.compare_with, data.field, \"steam_regen\", \"%+.2f\", _t\"Steam each turn: \")"
+      },
+      {
+        "line": 223,
+        "text": "\tdata.compare_fields(data.w, data.compare_with, data.field, \"max_steam\", \"%+.2f\", _t\"Maximum steam: \")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "992594c255b2664a033e84ad63f98128d3a91a14643ef588b51391c9fe091da8",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1383,
+        "text": "\tend,"
+      },
+      {
+        "line": 1384,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1385,
+        "text": "\t\treturn ([[You fire a special explosive shot with your steamgun(s) at a spot within range."
+      },
+      {
+        "line": 1386,
+        "text": "\t\tWhen each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which lights up the area and blinds for %d turns."
+      },
+      {
+        "line": 1387,
+        "text": "\t\tThis talent does not use ammo as it is the ammo.]])"
+      },
+      {
+        "line": 1388,
+        "text": "\t\t:tformat(self:getTalentRadius(t), t.duration(self, t))"
+      },
+      {
+        "line": 1389,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "992741fcccee61d9843d1aa26581f1c5d5fb4e299b5f61a4cf1f7692e6c6134e",
+    "public_source_path": "tome-orcs/data/birth/races/orc.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": "\t\t\t{name=_t\"Monocle Left 1\", file=\"face_monocle_left_01\"},"
+      },
+      {
+        "line": 75,
+        "text": "\t\t\t{name=_t\"Monocle Left 2\", file=\"face_monocle_left_02\"},"
+      },
+      {
+        "line": 76,
+        "text": "\t\t\t{name=_t\"Monocle Right 1\", file=\"face_monocle_right_01\"},"
+      },
+      {
+        "line": 77,
+        "text": "\t\t\t{name=_t\"Monocle Right 2\", file=\"face_monocle_right_02\"},"
+      },
+      {
+        "line": 78,
+        "text": "\t\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9929b9d2bdd3a7656e7f7bf6905a14a7d615419e2c7e6ed8c3f771d5a2ce643e",
+    "public_source_path": "tome-orcs/data/ingredients.lua",
+    "lines": [
+      {
+        "line": 108,
+        "text": "\ticon = \"object/brain_in_jar.png\","
+      },
+      {
+        "line": 109,
+        "text": "\tname = \"brain in a jar\","
+      },
+      {
+        "line": 110,
+        "text": "\tdesc = _t[[A still living brain of a powerful psionic creature.]],"
+      },
+      {
+        "line": 111,
+        "text": "\tmin = 0, max = INFINITY,"
+      },
+      {
+        "line": 112,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "994c4daedd579e9ac4a6f7a5e0abe6633b4f92072060df360ffb5aa27d159d82",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 62,
+        "text": "\tname = \"FORCED_GESTALT_FOE\", image = \"talents/forced_gestalt.png\","
+      },
+      {
+        "line": 63,
+        "text": "\tdesc = _t\"Forced Gestalt\","
+      },
+      {
+        "line": 64,
+        "text": "\tlong_desc = function(self, eff) return (\"All powers reduced by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 65,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 66,
+        "text": "\tsubtype = {psionic=true, gestalt=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "995679fdaa70a394f23f1a51b87371e8c029bd6cb798180a430159c5f4749c4e",
+    "public_source_path": "tome-orcs/data/zones/slumbering-caves/objects.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 35,
+        "text": "\tname = \"Gardanion, the Light of God\", image = \"object/artifact/gardanion_the_light_of_god.png\","
+      },
+      {
+        "line": 36,
+        "text": "\tunided_name = _t\"pure white amulet\","
+      },
+      {
+        "line": 37,
+        "text": "\tplot=true,"
+      },
+      {
+        "line": 38,
+        "text": "\tdesc = _t[[\"#{italic}#When Amakthel arrived, he created the Sun and brought life to this world."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9958ff29e4cb4ca8f9260727bd8b16cbe26f4c06aed34dc3aee7451fa68ab662",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "newLore{"
+      },
+      {
+        "line": 32,
+        "text": "\tid = \"ureslak-undead-1\","
+      },
+      {
+        "line": 33,
+        "text": "\tcategory = \"ureslak's lair\","
+      },
+      {
+        "line": 34,
+        "text": "\tname = _t\"a note lying in a puddle\","
+      },
+      {
+        "line": 35,
+        "text": "\tlore = _t[["
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "999fe8f9713b1255f59d4b58a964d358403b2084063da5ada275e509e3b1966c",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 772,
+        "text": "newEffect{"
+      },
+      {
+        "line": 773,
+        "text": "\tname = \"HEART_CUT\", image = \"effects/cut.png\","
+      },
+      {
+        "line": 774,
+        "text": "\tdesc = _t\"Heartrended\","
+      },
+      {
+        "line": 775,
+        "text": "\tlong_desc = function(self, eff) return (\"Vicious cut that bleeds, doing %0.2f physical damage per turn.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 776,
+        "text": "\ttype = \"physical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99c002c78e6e2e1b02161842d3f4f85b3a6ecae79bbd976b8acbcf579bae16d5",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/smith.lua",
+    "lines": [
+      {
+        "line": 178,
+        "text": "\tmaterial_level=5,"
+      },
+      {
+        "line": 179,
+        "text": "\tmetallic = true,"
+      },
+      {
+        "line": 180,
+        "text": "\tspecial_desc = function(self) return _t\"On landing any melee attack, release a fiery shockwave, dealing fire and physical damage each equal to your steampower in a cone from the target of radius 3.\" end,"
+      },
+      {
+        "line": 181,
+        "text": "\twielder={"
+      },
+      {
+        "line": 182,
+        "text": "\t\tmax_encumber = 20,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99c409687a97edcd504fa0be5cbf652b88c07783dbe092a7650770de03558522",
+    "public_source_path": "tome-orcs/overload/mod/class/interface/PartyTinker.lua",
+    "lines": [
+      {
+        "line": 141,
+        "text": "\t\twho:sortInven()"
+      },
+      {
+        "line": 142,
+        "text": "\t\tgame.zone:addEntity(game.level, o, \"object\")"
+      },
+      {
+        "line": 143,
+        "text": "\t\tgame.log(\"Created tinker: %s\", o:getName{do_color=true})"
+      },
+      {
+        "line": 144,
+        "text": "\t\tgame.bignews:saySimple(110, \"Created tinker: %s\", o:getName{do_color=true})"
+      },
+      {
+        "line": 145,
+        "text": "\t\tremove(true)"
+      },
+      {
+        "line": 146,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99c6b3e5275e6a87f7fb704c9e64e3c05b8ead64c6a009138427dd4a5ab78f8b",
+    "public_source_path": "tome-orcs/data/tinkers/chemistry.lua",
+    "lines": [
+      {
+        "line": 96,
+        "text": "newRecipe{ id = \"FIREPROOF_COATING\","
+      },
+      {
+        "line": 97,
+        "text": "\tname = _t\"Fireproof Coating\", icon = \"shockbolt/object/tinkers_fireproof_coating_t5.png\","
+      },
+      {
+        "line": 98,
+        "text": "\tdesc = _t\"New cloak doesn't have all the resistances you wanted? A fireproof coating it just what you need!\","
+      },
+      {
+        "line": 99,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      },
+      {
+        "line": 100,
+        "text": "\trandom_schematic = {level=1, rarity=75, cost=120},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99da0eecbaf1d80f516491fcd32491aad277c30a8001a24e6111d0355daed82f",
+    "public_source_path": "tome-orcs/data/general/objects/steamgun.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\trequire = { talent = { Talents.T_SHOOT, Talents.T_STEAM_POOL}, },"
+      },
+      {
+        "line": 36,
+        "text": "\tproj_image = resolvers.image_material(\"shot_s\", \"metal\"),"
+      },
+      {
+        "line": 37,
+        "text": "\tdesc = _t[[Steamguns use bursts of steam directly injected in the barrel to propel metal shots with great force.]],"
+      },
+      {
+        "line": 38,
+        "text": "\trandart_able = \"/data/general/objects/random-artifacts/ranged.lua\","
+      },
+      {
+        "line": 39,
+        "text": "\tegos = \"/data-orcs/general/objects/egos/steamgun.lua\", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "99e1e8a6b4985f2cffd65e7a890ff2556d79b89db9cbee4278276d31bacf3a3e",
+    "public_source_path": "tome-orcs/data/general/npcs/sunwall-warrior.lua",
+    "lines": [
+      {
+        "line": 52,
+        "text": ""
+      },
+      {
+        "line": 53,
+        "text": "newEntity{ base = \"BASE_SUNWALL_WARRIOR\","
+      },
+      {
+        "line": 54,
+        "text": "\tname = \"sunwall guard\", color=colors.LIGHT_UMBER,"
+      },
+      {
+        "line": 55,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_human_sunwall_guard.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 56,
+        "text": "\tdesc = _t[[This guard stands tall and proud, wearing the symbol of the Sunwall.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9a11e025a9540acd715fa2b2349b60dee6b54616dcd5aaee863be839227f03a5",
+    "public_source_path": "tome-orcs/data/general/npcs/steam-giant-arcane.lua",
+    "lines": [
+      {
+        "line": 67,
+        "text": ""
+      },
+      {
+        "line": 68,
+        "text": "newEntity{ base = \"BASE_STEAM_GIANT_ARCANE\","
+      },
+      {
+        "line": 69,
+        "text": "\tname = \"steam giant necropsych\", color=colors.GREY,"
+      },
+      {
+        "line": 70,
+        "text": "\tdesc = _t[[Covered in arcane runes of death, this steam giant means business.]],"
+      },
+      {
+        "line": 71,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9a3d9cfa6319a519527b64cd8f50f8184ad7cc151290441f7ee9f854d3d32c7d",
+    "public_source_path": "tome-orcs/data/ingredients.lua",
+    "lines": [
+      {
+        "line": 116,
+        "text": "\ticon = \"object/mechanical_core.png\","
+      },
+      {
+        "line": 117,
+        "text": "\tname = \"mechanical core\","
+      },
+      {
+        "line": 118,
+        "text": "\tdesc = _t[[The core unit of the Automated Defense System.]],"
+      },
+      {
+        "line": 119,
+        "text": "\tmin = 0, max = INFINITY,"
+      },
+      {
+        "line": 120,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9a4346451dcf8642de572e354e4df66cf6ad573dff100f0449858637f10edd82",
+    "public_source_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+    "lines": [
+      {
+        "line": 491,
+        "text": ""
+      },
+      {
+        "line": 492,
+        "text": "newTalent{"
+      },
+      {
+        "line": 493,
+        "text": "\tname = \"Stormcoil Generator\","
+      },
+      {
+        "line": 494,
+        "text": "\ttype = {\"steamtech/mecharachnid\", 2},"
+      },
+      {
+        "line": 495,
+        "text": "\trequire = steamreq_high2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9a6aa9f22caaf715aa7910c1f7a95668072b57ba9a63116cd4d133b0893df48f",
+    "public_source_path": "tome-orcs/data/zones/wilderness-add/grids.lua",
+    "lines": [
+      {
+        "line": 123,
+        "text": "newEntity{ base=\"TOWN\", define_as = \"GATES_OF_MORNING_ORCS\","
+      },
+      {
+        "line": 124,
+        "text": "\tname = \"Gates of Morning (Town)\","
+      },
+      {
+        "line": 125,
+        "text": "\tdesc = _t\"A massive hole in the Sunwall.\","
+      },
+      {
+        "line": 126,
+        "text": "\tadd_displays = {class.new{image=\"terrain/golden_cave_entrance02.png\", z=8}},"
+      },
+      {
+        "line": 127,
+        "text": "\tchange_zone=\"orcs+gates-of-morning\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9a75f2d93dafb66bd2c00befaa674742ff7ef5a58164d570c9c8b12a4bfe3e52",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 83,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 84,
+        "text": "\tparameters = {fail = 10, reduction = 10},"
+      },
+      {
+        "line": 85,
+        "text": "\ton_gain = function(self, eff) return _t\"A mind drone bores into #Target#!\", true end,"
+      },
+      {
+        "line": 86,
+        "text": "\ton_lose = function(self, eff) return _t\"#Target# is free from the mind drone.\", true end,"
+      },
+      {
+        "line": 87,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9ab44789ca3b0193a1569b3501f78c323c063cde2c48ca8a4c67ae1c6d410444",
+    "public_source_path": "tome-orcs/data/talents/steam/steam.lua",
+    "lines": [
+      {
+        "line": 27,
+        "text": "}"
+      },
+      {
+        "line": 28,
+        "text": ""
+      },
+      {
+        "line": 29,
+        "text": "newTalentType{ is_steam=true, type=\"inscriptions/implants\", name = _t(\"implants\", \"talent type\"), hide = true, description = _t\"Steamtech directly embedded on the skin.\" }"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "newTalentType{ is_steam=true, type=\"steamtech/objects\", name = _t(\"other\", \"talent type\"), description = _t\"Tinkers with stuff.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9acabddcae10caecb89677feb6682d327aafa937ec9fa970687e20fd70775a8b",
+    "public_source_path": "tome-orcs/data/quests/free-prides.lua",
+    "lines": [
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"\""
+      },
+      {
+        "line": 26,
+        "text": "\tdesc[#desc+1] = _t\"The internment camp is located somewhere to the north. The orcs are subdued into obedience by a powerful #{halfling}# psionic, Mindwall, and guarded by elite Sunwall troops.\""
+      },
+      {
+        "line": 27,
+        "text": "\tdesc[#desc+1] = _t\"Mindwall must be taken care of and the prides set free.\""
+      },
+      {
+        "line": 28,
+        "text": "\tdesc[#desc+1] = _t\"\""
+      },
+      {
+        "line": 29,
+        "text": "\tdesc[#desc+1] = _t\"But #{bold}#BEFORE#{normal}# that you should go and destroy the Sunwall Observatory to the east, as our spies have found a way to resist Mindwall's psionic powers which requries #{italic}#ingredients#{normal}# from there.\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9ae425cd35406bec73880e5b44a6b3229b20579b153e41d7e5869516e725be26",
+    "public_source_path": "tome-orcs/data/general/stores/orcs.lua",
+    "lines": [
+      {
+        "line": 186,
+        "text": "newEntity{"
+      },
+      {
+        "line": 187,
+        "text": "\tdefine_as = \"ORC_AAA_LITEDIGSTORE\","
+      },
+      {
+        "line": 188,
+        "text": "\tname = \"tool store\","
+      },
+      {
+        "line": 189,
+        "text": "\tdisplay = '8', color=colors.UMBER,"
+      },
+      {
+        "line": 190,
+        "text": "\tstore = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9af7773a4c3dc5a66575e3b2db025588214ce9b2c387cf0d6a37fbff850558f0",
+    "public_source_path": "tome-orcs/data/talents/uber/mag.lua",
+    "lines": [
+      {
+        "line": 192,
+        "text": "\tend,"
+      },
+      {
+        "line": 193,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 194,
+        "text": "\t\treturn ([[Technomancers are Archmages that dabble in steam technology to enhance their already formidable arsenal of spells."
+      },
+      {
+        "line": 195,
+        "text": "\t\tOnce this class evolution is taken, you gain the following:"
+      },
+      {
+        "line": 196,
+        "text": "\t\t- Arcane Dynamo tinker schematic"
+      },
+      {
+        "line": 197,
+        "text": "\t\t- Steamtech/Physics category (unlocked)"
+      },
+      {
+        "line": 198,
+        "text": "\t\t- Steamtech/Chemistry category (locked)"
+      },
+      {
+        "line": 199,
+        "text": "\t\t- An Automated Portable Extractor (A.P.E.)"
+      },
+      {
+        "line": 200,
+        "text": "\t\t- One point in the Physics talent Smith and two in Mechanical and Electricity"
+      },
+      {
+        "line": 201,
+        "text": "\t\t- Spell/Galvanic Technomancy category (locked) - deals with fire and lightning"
+      },
+      {
+        "line": 202,
+        "text": "\t\t- Spell/Terrene Technomancy category (locked) - deals with earth and water"
+      },
+      {
+        "line": 203,
+        "text": "\t\t- Spell/Occult Technomancy category (locked) - deals with time and arcane"
+      },
+      {
+        "line": 204,
+        "text": "\t\t- The ability to unlock one of the three Technomancy categories for free"
+      },
+      {
+        "line": 205,
+        "text": ""
+      },
+      {
+        "line": 206,
+        "text": "\t\tOnce put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level."
+      },
+      {
+        "line": 207,
+        "text": ""
+      },
+      {
+        "line": 208,
+        "text": "\t\t#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]])"
+      },
+      {
+        "line": 209,
+        "text": "\t\t:tformat()"
+      },
+      {
+        "line": 210,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9af85549cbb145eb1155150d5fb1fbfa41f1b20b112f514d5ff5909a06e8d2ac",
+    "public_source_path": "tome-orcs/data/tinkers/therapeutics.lua",
+    "lines": [
+      {
+        "line": 172,
+        "text": ""
+      },
+      {
+        "line": 173,
+        "text": "newRecipe{ id = \"SECOND_SKIN\","
+      },
+      {
+        "line": 174,
+        "text": "\tname = _t\"Second Skin\", icon = \"shockbolt/object/tinkers_second_skin_t5.png\","
+      },
+      {
+        "line": 175,
+        "text": "\tdesc = _t\"Not only does it help seal wounds, protecting you from bleeding and enhancing your healing, it also protects from armour chafe!\","
+      },
+      {
+        "line": 176,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b031567514f67f16832e1bfa3193575218b229a1bd0518f02e1f408e31f48a2",
+    "public_source_path": "tome-orcs/data/talents/steam/demolition.lua",
+    "lines": [
+      {
+        "line": 240,
+        "text": "\tend,"
+      },
+      {
+        "line": 241,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 242,
+        "text": "\treturn ([[Enhance your grenade with an incendiary agent that burns through armor, dealing fire damage over 3 turns and increasing damage taken while burning by %d%%.]]):"
+      },
+      {
+        "line": 243,
+        "text": "\ttformat(t.getEffect(self, t))"
+      },
+      {
+        "line": 244,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b1b2e80eec65f31e521d960abf1e5e0613ad18c400c20cf01909bcafdbc1ebf",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 197,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 198,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_SHOCKING_EDGE\"..i,"
+      },
+      {
+        "line": 199,
+        "text": "\tname = (\"%s shocking edge\"):tformat(metals[i]), image = \"object/tinkers_shocking_edge_t5.png\","
+      },
+      {
+        "line": 200,
+        "text": "\ton_type = \"weapon\","
+      },
+      {
+        "line": 201,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b1e1714f78df333bc5396d6c78fda4f642028c9428d09caf5d05e21d2cca411",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 136,
+        "text": "\tname = \"LUCID_SHOT\", image = \"talents/lucid_shot.png\","
+      },
+      {
+        "line": 137,
+        "text": "\tdesc = _t\"Unclear Thoughts\","
+      },
+      {
+        "line": 138,
+        "text": "\tlong_desc = function(self, eff) return (\"Can not discern foes from friends.\"):tformat() end,"
+      },
+      {
+        "line": 139,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 140,
+        "text": "\tsubtype = {confusion=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b243b97b763575977650a358436b2708b0091ea13890fa3c20131b9165e1674",
+    "public_source_path": "tome-orcs/data/zones/gates-of-morning/traps.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": ""
+      },
+      {
+        "line": 58,
+        "text": "newEntity{ base = \"BASE_STORE\", define_as = \"MAUL_WEAPON_STORE\","
+      },
+      {
+        "line": 59,
+        "text": "\tname=\"Mauling for Brutes\","
+      },
+      {
+        "line": 60,
+        "text": "\tdisplay='3', color=colors.UMBER,"
+      },
+      {
+        "line": 61,
+        "text": "\tresolvers.store(\"MAUL_WEAPON\", \"sunwall\", \"store/shop_door.png\", \"store/shop_sign_mauling_brutes.png\"),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b26a25fea5812a8676df4aa32c80302b519f404043d1481fe24d42dd737ba22",
+    "public_source_path": "tome-orcs/data/chats/shertul-priest.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "\t\t{(\"I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=is_yeti, action=on_end},"
+      },
+      {
+        "line": 38,
+        "text": "\t\t{(\"I... am %s and I am not mortal! Garkul taught the orcs to fight legends, and to flinch not from even the most desperate deed. We learned that from them! Here and now I face you without fear or hesitation, for cold touch of undeath is within me. And I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=is_whitehoof, action=on_end},"
+      },
+      {
+        "line": 39,
+        "text": "\t\t{(\"I... am %s. Here and now I face you without fear or hesitation, for the utter determination burns within me. And I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=function(npc, player) return not is_orc(npc, player) and not is_yeti(npc, player) and not is_whitehoof(npc, player) end, action=on_end},"
+      },
+      {
+        "line": 40,
+        "text": "\t}"
+      },
+      {
+        "line": 41,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b2c49b348d34fea838a5b7e0fb9da8d51a6652d9e9c73b1ce433c7bc7bcb5b9",
+    "public_source_path": "tome-orcs/data/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 111,
+        "text": ""
+      },
+      {
+        "line": 112,
+        "text": "newRecipe{ id = \"ABLATIVE_ARMOUR\","
+      },
+      {
+        "line": 113,
+        "text": "\tname = _t\"Ablative Armour\", icon = \"shockbolt/object/tinkers_ablative_armour_t5.png\","
+      },
+      {
+        "line": 114,
+        "text": "\tdesc = _t\"Reinforcing your armour with explosions isn't as crazy as it sounds!  Adds armor and resists very large hits.\","
+      },
+      {
+        "line": 115,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b32b238adc139ba5b25e757d321e58bbbf31a12b2495a5bbaafa92eef8a2503",
+    "public_source_path": "tome-orcs/data/talents/steam/steam.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "newTalentType{ allow_random=true, is_steam=true, type=\"steamtech/furnace\", name = _t(\"furnace\", \"talent type\"), description = _t\"Harness the power of fire.\" }"
+      },
+      {
+        "line": 45,
+        "text": ""
+      },
+      {
+        "line": 46,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, speed=\"archery\", type=\"steamtech/gunner-training\", name = _t(\"gunner training\", \"talent type\"), description = _t\"Use steam powered guns to rain bullets of death on your foes!  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      },
+      {
+        "line": 47,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, speed=\"archery\", type=\"steamtech/gunslinging\", name = _t(\"gunslinging\", \"talent type\"), description = _t\"Use advanced marksmanship to confound and overwhelm your foes!  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      },
+      {
+        "line": 48,
+        "text": "newTalentType{ allow_random=true, is_steam=true, can_offshoot= true, type=\"steamtech/bullets-mastery\", name = _t(\"bullets mastery\", \"talent type\"), description = _t\"Use various kinds of technology to temporarily enhance your bullets.  (Learning these talents allow you to fire two steamguns at once.)\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b3aabf85a962e888f3a2b984f32c46816e33ce6ed5adbd1bb2e0e1f633c539f",
+    "public_source_path": "tome-orcs/data/general/npcs/troll-pirates.lua",
+    "lines": [
+      {
+        "line": 98,
+        "text": ""
+      },
+      {
+        "line": 99,
+        "text": "newEntity{ base = \"BASE_NPC_TROLL_PIRATE\","
+      },
+      {
+        "line": 100,
+        "text": "\tname = \"troll captain\", color=colors.BLUE,"
+      },
+      {
+        "line": 101,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/giant_troll_troll_captain.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 102,
+        "text": "\tdesc = _t[[This troll is barking orders to the other trolls around him. He effortlessly holds a longsword in each hand.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b3fee0cbbd72b4bc37c643d989d7e839a059fff750f41f9b152727129f0c3ae",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 130,
+        "text": "\t\t_t\"Their most important stats are: Cunning and Dexterity\","
+      },
+      {
+        "line": 131,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 132,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 133,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning\","
+      },
+      {
+        "line": 134,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -1\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b478777372577c154fa7030b1c32c228f374b9979aca0c7f390805d18e8c7c9",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/explosive.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": "\tmaterial_level = i,"
+      },
+      {
+        "line": 34,
+        "text": "\tmetallic = true,"
+      },
+      {
+        "line": 35,
+        "text": "\tspecial_desc = function(self) return _t\"Strikes can trigger a thunderclap that damages and repel foes.\" end,"
+      },
+      {
+        "line": 36,
+        "text": "\tobject_tinker = {"
+      },
+      {
+        "line": 37,
+        "text": "\t\tcombat = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b65c2f6025aaa35ce98e06785bd344225978fb420f9fe596fb644f3f7995774",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 699,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 700,
+        "text": "\tparameters = { power=10, stealth=10 },"
+      },
+      {
+        "line": 701,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is hiding in smoke.\", _t\"+Smoke Cover\" end,"
+      },
+      {
+        "line": 702,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer hiding in smoke.\", _t\"-Smoke Cover\" end,"
+      },
+      {
+        "line": 703,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b6dcd1b9c7d9896afc3e80f14569d58505373579def02704fd984c607132021",
+    "public_source_path": "tome-orcs/data/talents/spells/occult-technomancy.lua",
+    "lines": [
+      {
+        "line": 350,
+        "text": "\tend,"
+      },
+      {
+        "line": 351,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 352,
+        "text": "\t\treturn ([[Using your sheer arcane power you keep breaches in spacetime open for %d turns."
+      },
+      {
+        "line": 353,
+        "text": "\t\tEach turn they are open you project an occult clone of your saw along each breach, damaging any creature caught for %d%% occult weapon damage."
+      },
+      {
+        "line": 354,
+        "text": "\t\tThe saw cuts both in a physical and arcane way, reducing the duration of a random beneficial effect on each target by %d each time."
+      },
+      {
+        "line": 355,
+        "text": "\t\tEach target can only be affected once per turn."
+      },
+      {
+        "line": 356,
+        "text": "\t\tThis spell is only usable for one turn after casting Reality Breach but any Reality Breach cast during its duration is also recorded inside.]])"
+      },
+      {
+        "line": 357,
+        "text": "\t\t:tformat(t.getDur(self, t), t.getDamage(self, t) * 100, t.getReduce(self, t))"
+      },
+      {
+        "line": 358,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b8003dd1ec26f95d00fe6a4310159cb653b4aac66b5e0557c06dfeaa5612630",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 199,
+        "text": "\tlocked_desc = _t\"Bend the mind, bend the tech. All around inspire dread.\","
+      },
+      {
+        "line": 200,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 201,
+        "text": "\t\t_t\"Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.\","
+      },
+      {
+        "line": 202,
+        "text": "\t\t_t\"The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.\","
+      },
+      {
+        "line": 203,
+        "text": "\t\t_t\"Their most important stats are: Cunning, Willpower and Dexterity\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9b9a88a1a7930336b88e9f0ed3d88b33c7da1ccf7b0f9f5f2adf14b868276f2e",
+    "public_source_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "function getMecharachnid(self)"
+      },
+      {
+        "line": 21,
+        "text": "\tif self.tinker_mecharachnid and game.level and game.level:hasEntity(self.tinker_mecharachnid) then"
+      },
+      {
+        "line": 22,
+        "text": "\t\treturn self.tinker_mecharachnid"
+      },
+      {
+        "line": 23,
+        "text": "\tend"
+      },
+      {
+        "line": 24,
+        "text": "end"
+      },
+      {
+        "line": 104,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 105,
+        "text": "\t\tlocal rad = self:getTalentRadius(t)"
+      },
+      {
+        "line": 106,
+        "text": "\t\treturn ([[The mecharachnid self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage."
+      },
+      {
+        "line": 107,
+        "text": "\t\tThis spell is only usable when the mecharachnid's master is dead.]]):tformat(rad, damDesc(self, DamageType.FIRE, 50 + 10 * self.level))"
+      },
+      {
+        "line": 108,
+        "text": "\tend,"
+      },
+      {
+        "line": 109,
+        "text": "}"
+      },
+      {
+        "line": 113,
+        "text": "\tlocal g = require(\"mod.class.NPC\").new{"
+      },
+      {
+        "line": 114,
+        "text": "\t\ttype = \"mechanical\", subtype = \"arachnid\","
+      },
+      {
+        "line": 115,
+        "text": "\t\tname = \"mecharachnid\", color=colors.GREY,"
+      },
+      {
+        "line": 116,
+        "text": "\t\tdesc = _t[[A heavily armored mechachnical spider, armed to the teeth with advanced weaponry.]],"
+      },
+      {
+        "line": 117,
+        "text": "\t\tdisplay = 'S', color=colors.GREY,"
+      },
+      {
+        "line": 127,
+        "text": ""
+      },
+      {
+        "line": 128,
+        "text": "\t\tbody = { INVEN = 1000, MAINHAND = 1, OFFHAND = 1, QUIVER = 1, BODY = 1, },"
+      },
+      {
+        "line": 129,
+        "text": "\t\tequipdoll = \"mecharachnid\","
+      },
+      {
+        "line": 130,
+        "text": "\t\tinfravision = 10,"
+      },
+      {
+        "line": 131,
+        "text": "\t\trank = 3,"
+      },
+      {
+        "line": 135,
+        "text": "\t\tstormcoil = nil,"
+      },
+      {
+        "line": 136,
+        "text": "\t\tarchery_pass_friendly = 1,"
+      },
+      {
+        "line": 137,
+        "text": "\t\tmecharachnid = 1, "
+      },
+      {
+        "line": 138,
+        "text": "\t\tminion_be_nice = 1, --not entirely appropriate but works"
+      },
+      {
+        "line": 139,
+        "text": "\t\tcan_tinker = { steamtech = 1 },"
+      },
+      {
+        "line": 163,
+        "text": "\t\tai = \"tactical\","
+      },
+      {
+        "line": 164,
+        "text": "\t\tai_state = { talent_in=1, ai_move=\"move_astar\", ally_compassion=0 },"
+      },
+      {
+        "line": 165,
+        "text": "\t\tai_tactic = {type=\"mecharachnid_pet\", attack=2, attackarea=2, disable=2, escape=1, safe_range=3, defend=2,},"
+      },
+      {
+        "line": 166,
+        "text": "\t\tstats = { str=15, dex=12, cun=15, con=12 },"
+      },
+      {
+        "line": 167,
+        "text": "\t\tcombat_atk = resolvers.levelup(1, 1, 2),  -- We don't have many gear slots or talents, make sure binary outcome stats scale naturally"
+      },
+      {
+        "line": 189,
+        "text": "\t\ton_can_control = function(self, vocal)"
+      },
+      {
+        "line": 190,
+        "text": "\t\t\tif not self:hasLOS(self.summoner.x, self.summoner.y) then"
+      },
+      {
+        "line": 191,
+        "text": "\t\t\t\tif vocal then game.logPlayer(game.player, \"Your mecharachnid is out of sight; you cannot establish direct control.\") end"
+      },
+      {
+        "line": 192,
+        "text": "\t\t\t\treturn false"
+      },
+      {
+        "line": 193,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 211,
+        "text": "\t\tcanWearObject = function(self, o, try_slot)"
+      },
+      {
+        "line": 212,
+        "text": "\t\t\tif o.type == \"weapon\" and o.subtype ~= \"steamgun\" then"
+      },
+      {
+        "line": 213,
+        "text": "\t\t\t\treturn nil, \"mecharachnid can only use steamguns\""
+      },
+      {
+        "line": 214,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 215,
+        "text": "\t\t\treturn mod.class.Actor.canWearObject(self, o, try_slot)"
+      },
+      {
+        "line": 217,
+        "text": "\t\t"
+      },
+      {
+        "line": 218,
+        "text": "\t\t--- Update tile for races that can handle it"
+      },
+      {
+        "line": 219,
+        "text": "\t\tmoddable_tile = \"mecharachnid\","
+      },
+      {
+        "line": 220,
+        "text": "\t\tchassis_tile_id = 1,"
+      },
+      {
+        "line": 221,
+        "text": "\t\tchassis_base_id = 1,"
+      },
+      {
+        "line": 222,
+        "text": "\t\tupdateModdableTile = function(self)"
+      },
+      {
+        "line": 223,
+        "text": "\t\t\tif not self:updateModdableTilePrepare() then return end"
+      },
+      {
+        "line": 224,
+        "text": "\t\t\tlocal mecharachnid_dy = 0"
+      },
+      {
+        "line": 225,
+        "text": ""
+      },
+      {
+        "line": 226,
+        "text": "\t\t\tlocal is_piloted = nil"
+      },
+      {
+        "line": 229,
+        "text": "\t\t\t\tlocal summoner = self:hasEffect(self.EFF_MECHARACHNID_PILOTING).src"
+      },
+      {
+        "line": 230,
+        "text": "\t\t\t\tif summoner and summoner.moddable_tile then base_name = summoner.moddable_tile:gsub(\"#sex#\", summoner.female and \"female\" or \"male\") end"
+      },
+      {
+        "line": 231,
+        "text": "\t\t\t\tmecharachnid_dy = (self:getTalentFromId(self.T_MECHARACHNID).mecharachnid_offsets[base_name] or 40) / 128"
+      },
+      {
+        "line": 232,
+        "text": "\t\t\t\tis_piloted = summoner"
+      },
+      {
+        "line": 233,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 234,
+        "text": ""
+      },
+      {
+        "line": 235,
+        "text": "\t\t\tlocal base = \"player/mecharachnid/\""
+      },
+      {
+        "line": 236,
+        "text": "\t\t\tself.image = \"invis.png\""
+      },
+      {
+        "line": 237,
+        "text": "\t\t\tself.add_mos = {}"
+      },
+      {
+        "line": 240,
+        "text": "\t\t\tlocal weapontiers = { [1] = \"iron\", [2] = \"steel\", [3] = \"dsteel\", [4] = \"stralite\", [5] = \"voratun\"}"
+      },
+      {
+        "line": 241,
+        "text": ""
+      },
+      {
+        "line": 242,
+        "text": "\t\t\tadd[#add+1] = {image=base..\"base_shadow.png\", display_y=mecharachnid_dy}"
+      },
+      {
+        "line": 243,
+        "text": "\t\t\tadd[#add+1] = {image=base..(\"base_tail_%02d.png\"):format(self.chassis_tile_id), display_y=mecharachnid_dy-1, display_h=2}"
+      },
+      {
+        "line": 244,
+        "text": "\t\t\tif not self:attr(\"disarmed\") then"
+      },
+      {
+        "line": 245,
+        "text": "\t\t\t\ti = self:getObjectModdableTile(self.INVEN_MECHARACHNID_TAIL); if i then"
+      },
+      {
+        "line": 246,
+        "text": "\t\t\t\t\tif i.moddable_tile then"
+      },
+      {
+        "line": 247,
+        "text": "\t\t\t\t\t\tlocal custom = i.moddable_tile:format(\"tail\")"
+      },
+      {
+        "line": 248,
+        "text": "\t\t\t\t\t\tadd[#add+1] = {image = base..custom..\".png\", display_y=mecharachnid_dy-1, auto_tall=1}"
+      },
+      {
+        "line": 249,
+        "text": "\t\t\t\t\telseif i.subtype == \"steamsaw\" then"
+      },
+      {
+        "line": 250,
+        "text": "\t\t\t\t\t\tadd[#add+1] = {image = base..(\"tail_steamsaw_front_%s.png\"):format(weapontiers[i.material_level or 1]), display_y=mecharachnid_dy-1, display_h=2}"
+      },
+      {
+        "line": 251,
+        "text": "\t\t\t\t\telse"
+      },
+      {
+        "line": 252,
+        "text": "\t\t\t\t\t\tadd[#add+1] = {image = base..(\"tail_steamgun_front_%s.png\"):format(weapontiers[i.material_level or 1]), display_y=mecharachnid_dy-1, display_h=2}"
+      },
+      {
+        "line": 253,
+        "text": "\t\t\t\t\tend"
+      },
+      {
+        "line": 254,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 262,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 263,
+        "text": ""
+      },
+      {
+        "line": 264,
+        "text": "\t\t\tadd[#add+1] = {image=base..(\"base%d_%02d.png\"):format(self.chassis_base_id, self.chassis_tile_id), display_y=mecharachnid_dy-1, display_h=2}"
+      },
+      {
+        "line": 265,
+        "text": "\t\t\tif not self:attr(\"disarmed\") then"
+      },
+      {
+        "line": 266,
+        "text": "\t\t\t\ti = self:getObjectModdableTile(self.INVEN_MAINHAND); if i then"
+      },
+      {
+        "line": 312,
+        "text": "newTalent{"
+      },
+      {
+        "line": 313,
+        "text": "\tname = \"Mecharachnid\","
+      },
+      {
+        "line": 314,
+        "text": "\ttype = {\"steamtech/mecharachnid\", 1},"
+      },
+      {
+        "line": 315,
+        "text": "\trequire = steamreq_high1,"
+      },
+      {
+        "line": 316,
+        "text": "\tno_unlearn_last = true,"
+      },
+      {
+        "line": 319,
+        "text": "\tcooldown = 15,"
+      },
+      {
+        "line": 320,
+        "text": "\tcant_steal = true,"
+      },
+      {
+        "line": 321,
+        "text": "\tmecharachnid_offsets = {"
+      },
+      {
+        "line": 322,
+        "text": "\t\tdwarf_female \t= 66,"
+      },
+      {
+        "line": 323,
+        "text": "\t\tdwarf_male \t= 66,"
+      },
+      {
+        "line": 341,
+        "text": "\t},"
+      },
+      {
+        "line": 342,
+        "text": "\ton_levelup_close = function(self, t)"
+      },
+      {
+        "line": 343,
+        "text": "\t\tt.update_mecharachnid(self, t)"
+      },
+      {
+        "line": 344,
+        "text": "\tend,"
+      },
+      {
+        "line": 345,
+        "text": "\ton_unlearn = function(self, t)  -- This should almost never happen as the talent can't be unlearned"
+      },
+      {
+        "line": 346,
+        "text": "\t\tif self:getTalentLevelRaw(t) == 0 and self.tinker_mecharachnid then"
+      },
+      {
+        "line": 347,
+        "text": "\t\t\tif game.party:hasMember(self) and game.party:hasMember(self.tinker_mecharachnid) then game.party:removeMember(self.tinker_mecharachnid) end"
+      },
+      {
+        "line": 348,
+        "text": "\t\t\tself.tinker_mecharachnid:disappear()"
+      },
+      {
+        "line": 349,
+        "text": "\t\t\tself.tinker_mecharachnid = nil"
+      },
+      {
+        "line": 350,
+        "text": "\t\tend"
+      },
+      {
+        "line": 351,
+        "text": "\tend,"
+      },
+      {
+        "line": 352,
+        "text": "\tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)"
+      },
+      {
+        "line": 353,
+        "text": "\t\tlocal mecha = self.tinker_mecharachnid"
+      },
+      {
+        "line": 354,
+        "text": "\t\tif not mecha or mecha.dead or not mecha.x then return end"
+      },
+      {
+        "line": 355,
+        "text": "\t\tif (mecha.ai_target and mecha.ai_target.actor) then return end"
+      },
+      {
+        "line": 357,
+        "text": "\t\tmecha:setTarget(src)"
+      },
+      {
+        "line": 358,
+        "text": "\tend,"
+      },
+      {
+        "line": 359,
+        "text": "\tinvoke_mecharachnid = function(self, t)"
+      },
+      {
+        "line": 360,
+        "text": "\t\tself.tinker_mecharachnid = game.zone:finishEntity(game.level, \"actor\", makeMecharachnid(self))"
+      },
+      {
+        "line": 361,
+        "text": "\t\tif game.party:hasMember(self) then"
+      },
+      {
+        "line": 362,
+        "text": "\t\t\tgame.party:addMember(self.tinker_mecharachnid, {"
+      },
+      {
+        "line": 363,
+        "text": "\t\t\t\tcontrol=\"full\", type=\"mecharachnid\", title=_t\"mecharachnid\", important=true,"
+      },
+      {
+        "line": 364,
+        "text": "\t\t\t\torders = {target=true, leash=true, anchor=true, talents=true, behavior=true, rename=function(self, name) return (\"%s (servant of %s)\"):tformat(name, self.summoner and self.summoner.name or \"???\") end},"
+      },
+      {
+        "line": 365,
+        "text": "\t\t\t})"
+      },
+      {
+        "line": 366,
+        "text": "\t\tend"
+      },
+      {
+        "line": 367,
+        "text": "\t\tif not self.tinker_mecharachnid then return end"
+      },
+      {
+        "line": 368,
+        "text": "\t\tself.tinker_mecharachnid.faction = self.faction"
+      },
+      {
+        "line": 369,
+        "text": "\t\tself.tinker_mecharachnid.name = (\"mecharachnid (servant of %s)\"):tformat(self:getName())"
+      },
+      {
+        "line": 370,
+        "text": "\t\tself.tinker_mecharachnid.summoner = self"
+      },
+      {
+        "line": 371,
+        "text": "\t\tself.tinker_mecharachnid.summoner_gain_exp = true"
+      },
+      {
+        "line": 372,
+        "text": ""
+      },
+      {
+        "line": 373,
+        "text": "\t\t-- Find space"
+      },
+      {
+        "line": 377,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 378,
+        "text": "\t\tend"
+      },
+      {
+        "line": 379,
+        "text": "\t\tgame.zone:addEntity(game.level, self.tinker_mecharachnid, \"actor\", x, y)"
+      },
+      {
+        "line": 380,
+        "text": "\tend,"
+      },
+      {
+        "line": 381,
+        "text": "\tupdate_mecharachnid = function(self, t)"
+      },
+      {
+        "line": 382,
+        "text": "\t\tlocal mecharachnid = self.tinker_mecharachnid"
+      },
+      {
+        "line": 383,
+        "text": "\t\tif not mecharachnid or (mecharachnid and mecharachnid.dead) then return end  -- Don't update if the pet is dead just in case something weird happens"
+      },
+      {
+        "line": 384,
+        "text": "\t\t"
+      },
+      {
+        "line": 385,
+        "text": "\t\tmecharachnid.ai_tactic.never_move_escape = 1"
+      },
+      {
+        "line": 386,
+        "text": "\t\tmecharachnid.ai_talents = mecharachnid.ai_talents or {}"
+      },
+      {
+        "line": 387,
+        "text": "\t\tmecharachnid.ai_talents.T_ATTACK = mecharachnid.ai_talents.T_ATTACK or -5"
+      },
+      {
+        "line": 388,
+        "text": ""
+      },
+      {
+        "line": 389,
+        "text": "\t\tif mecharachnid.level < self.level then"
+      },
+      {
+        "line": 390,
+        "text": "\t\t\tmecharachnid.max_level = self.max_level"
+      },
+      {
+        "line": 391,
+        "text": "\t\t\tmecharachnid:forceLevelup(self.level)"
+      },
+      {
+        "line": 392,
+        "text": "\t\tend"
+      },
+      {
+        "line": 393,
+        "text": ""
+      },
+      {
+        "line": 394,
+        "text": "\t\t-- avoid unequipping heavy armor"
+      },
+      {
+        "line": 395,
+        "text": "\t\tlocal old_tl = mecharachnid:getTalentLevelRaw(mecharachnid.T_ARMOUR_TRAINING)"
+      },
+      {
+        "line": 396,
+        "text": "\t\tlocal new_tl = self:getTalentLevelRaw(t)"
+      },
+      {
+        "line": 397,
+        "text": "\t\tif old_tl > new_tl then"
+      },
+      {
+        "line": 398,
+        "text": "\t\t\tmecharachnid:unlearnTalent(mecharachnid.T_ARMOUR_TRAINING, old_tl - new_tl, {no_unlearn=true})"
+      },
+      {
+        "line": 399,
+        "text": "\t\telse if old_tl < new_tl then"
+      },
+      {
+        "line": 400,
+        "text": "\t\t\tmecharachnid:learnTalent(mecharachnid.T_ARMOUR_TRAINING, true, new_tl - old_tl)"
+      },
+      {
+        "line": 401,
+        "text": "\t\tend end"
+      },
+      {
+        "line": 402,
+        "text": ""
+      },
+      {
+        "line": 403,
+        "text": "\t\tmecharachnid:unlearnTalent(mecharachnid.T_WEAPON_COMBAT, mecharachnid:getTalentLevelRaw(mecharachnid.T_WEAPON_COMBAT), {no_unlearn=true})"
+      },
+      {
+        "line": 404,
+        "text": "\t\tmecharachnid:unlearnTalent(mecharachnid.T_STEAMGUN_MASTERY, mecharachnid:getTalentLevelRaw(mecharachnid.T_STEAMGUN_MASTERY), {no_unlearn=true})"
+      },
+      {
+        "line": 405,
+        "text": ""
+      },
+      {
+        "line": 406,
+        "text": "\t\tmecharachnid:learnTalent(mecharachnid.T_WEAPON_COMBAT, true, self:getTalentLevelRaw(t))"
+      },
+      {
+        "line": 407,
+        "text": "\t\tmecharachnid:learnTalent(mecharachnid.T_STEAMGUN_MASTERY, true, self:getTalentLevelRaw(t))"
+      },
+      {
+        "line": 408,
+        "text": ""
+      },
+      {
+        "line": 409,
+        "text": "\t\tif self:knowTalent(self.T_STORMCOIL_GENERATOR) then"
+      },
+      {
+        "line": 410,
+        "text": "\t\t\tmecharachnid.stormcoil = true"
+      },
+      {
+        "line": 411,
+        "text": "\t\tend"
+      },
+      {
+        "line": 412,
+        "text": "\t\tif self:knowTalent(self.T_MECHARACHNID_CHASSIS) then"
+      },
+      {
+        "line": 413,
+        "text": "\t\t\tself:callTalent(self.T_MECHARACHNID_CHASSIS, \"setup_mecharachnid_chassis\")"
+      },
+      {
+        "line": 414,
+        "text": "\t\tend"
+      },
+      {
+        "line": 415,
+        "text": "\tend,"
+      },
+      {
+        "line": 416,
+        "text": "\ton_pre_use = function(self, t, silent) if self.tinker_mecharachnid and not self.tinker_mecharachnid:attr(\"dead\") then if not silent then game.logPlayer(self, \"Your mecharachnid is not dead.\") end return false end return true end,"
+      },
+      {
+        "line": 417,
+        "text": "\tgetPower = function(self, t) return (60 + self:combatTalentSteamDamage(t, 15, 450)) / 7, 7, self:combatTalentLimit(t, 100, 27, 55) end, --Limit life gain < 100%"
+      },
+      {
+        "line": 418,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 419,
+        "text": "\t\tif not self.tinker_mecharachnid then"
+      },
+      {
+        "line": 420,
+        "text": "\t\t\tt.invoke_mecharachnid(self, t)"
+      },
+      {
+        "line": 421,
+        "text": "\t\t\tt.update_mecharachnid(self, t)"
+      },
+      {
+        "line": 422,
+        "text": "\t\t\treturn true"
+      },
+      {
+        "line": 423,
+        "text": "\t\tend"
+      },
+      {
+        "line": 424,
+        "text": ""
+      },
+      {
+        "line": 425,
+        "text": "\t\tif not game.level:hasEntity(self.tinker_mecharachnid) or self.tinker_mecharachnid.dead then"
+      },
+      {
+        "line": 426,
+        "text": "\t\t\tself.tinker_mecharachnid.dead = nil"
+      },
+      {
+        "line": 427,
+        "text": "\t\t\tself.tinker_mecharachnid.life = self.tinker_mecharachnid.max_life / 100 * t.getPower(self, t)"
+      },
+      {
+        "line": 428,
+        "text": ""
+      },
+      {
+        "line": 429,
+        "text": "\t\t\t-- Find space"
+      },
+      {
+        "line": 433,
+        "text": "\t\t\t\treturn"
+      },
+      {
+        "line": 434,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 435,
+        "text": "\t\t\tgame.zone:addEntity(game.level, self.tinker_mecharachnid, \"actor\", x, y)"
+      },
+      {
+        "line": 436,
+        "text": "\t\t\tself.tinker_mecharachnid:setTarget(nil)"
+      },
+      {
+        "line": 437,
+        "text": "\t\t\tself.tinker_mecharachnid.ai_state.tactic_leash_anchor = self"
+      },
+      {
+        "line": 438,
+        "text": "\t\t\tself.tinker_mecharachnid:removeAllEffects()"
+      },
+      {
+        "line": 439,
+        "text": "\t\t\tself.tinker_mecharachnid.talents_cd = {}  -- Make sure defensive inscriptions can be used right away"
+      },
+      {
+        "line": 440,
+        "text": "\t\tend"
+      },
+      {
+        "line": 441,
+        "text": "\t\tt.update_mecharachnid(self, t)"
+      },
+      {
+        "line": 442,
+        "text": ""
+      },
+      {
+        "line": 443,
+        "text": "\t\tgame:playSoundNear(self, \"talents/arcane\")"
+      },
+      {
+        "line": 444,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 445,
+        "text": "\tend,"
+      },
+      {
+        "line": 446,
+        "text": "\t-- This is an all-catch talent, and it is auto-learned on anything involving mecharachnids, so this is a good place to stick that onto"
+      },
+      {
+        "line": 447,
+        "text": "\tcallbackOnLevelup = function(self, t, new_level)"
+      },
+      {
+        "line": 448,
+        "text": "\t\tlocal mecharachnid = getMecharachnid(self)"
+      },
+      {
+        "line": 449,
+        "text": "\t\tif not mecharachnid then return end"
+      },
+      {
+        "line": 450,
+        "text": "\t\tt.update_mecharachnid(self, t)"
+      },
+      {
+        "line": 451,
+        "text": "\tend,"
+      },
+      {
+        "line": 452,
+        "text": "\tcallbackOnCombat = function(self, t, state)"
+      },
+      {
+        "line": 453,
+        "text": "\t\tif state == false and not game.zone.wilderness then"
+      },
+      {
+        "line": 454,
+        "text": "\t\t\tif self.tinker_mecharachnid and self.tinker_mecharachnid.dead and not game.level:hasEntity(self.tinker_mecharachnid) then"
+      },
+      {
+        "line": 455,
+        "text": "\t\t\t\tself.tinker_mecharachnid.dead = nil"
+      },
+      {
+        "line": 456,
+        "text": "\t\t\t\tself.tinker_mecharachnid.life = self.tinker_mecharachnid.max_life  -- Full life since were out of combat"
+      },
+      {
+        "line": 457,
+        "text": ""
+      },
+      {
+        "line": 458,
+        "text": "\t\t\t\t-- Find space"
+      },
+      {
+        "line": 462,
+        "text": "\t\t\t\t\treturn"
+      },
+      {
+        "line": 463,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 464,
+        "text": "\t\t\t\tgame.zone:addEntity(game.level, self.tinker_mecharachnid, \"actor\", x, y)"
+      },
+      {
+        "line": 465,
+        "text": "\t\t\t\tself.tinker_mecharachnid:setTarget(nil)"
+      },
+      {
+        "line": 466,
+        "text": "\t\t\t\tself.tinker_mecharachnid.ai_state.tactic_leash_anchor = self"
+      },
+      {
+        "line": 467,
+        "text": "\t\t\t\tself.tinker_mecharachnid:removeAllEffects()"
+      },
+      {
+        "line": 468,
+        "text": "\t\t\t\tself.tinker_mecharachnid.talents_cd = {}  -- Make sure defensive inscriptions can be used right away"
+      },
+      {
+        "line": 469,
+        "text": "\t\t\t"
+      },
+      {
+        "line": 470,
+        "text": "\t\t\t\tt.update_mecharachnid(self, t)"
+      },
+      {
+        "line": 471,
+        "text": "\t\t\t"
+      },
+      {
+        "line": 472,
+        "text": "\t\t\t\tgame:playSoundNear(self, \"talents/arcane\")"
+      },
+      {
+        "line": 473,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 474,
+        "text": "\t\t\t-- Recall pet and make sure it isn't chasing anything"
+      },
+      {
+        "line": 475,
+        "text": "\t\t\tif self.tinker_mecharachnid then"
+      },
+      {
+        "line": 476,
+        "text": "\t\t\t\tlocal x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})"
+      },
+      {
+        "line": 477,
+        "text": "\t\t\t\tif not x then return end"
+      },
+      {
+        "line": 478,
+        "text": "\t\t\t\tself.tinker_mecharachnid:move(x, y, true)"
+      },
+      {
+        "line": 479,
+        "text": "\t\t\t\tself.tinker_mecharachnid:setTarget(nil)"
+      },
+      {
+        "line": 480,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 481,
+        "text": "\t\tend\t"
+      },
+      {
+        "line": 482,
+        "text": "\tend,"
+      },
+      {
+        "line": 483,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 484,
+        "text": "\t\treturn ([[You build a mighty mechanical arachnid to assist you in combat. You can equip the mecharachnid with 2 steamguns, ammunition, and armor of your choice."
+      },
+      {
+        "line": 485,
+        "text": "If your mecharachnid is dead, this will resurrect it with %d%% of its maximum life. Your mecharachnid is automatically rebuilt at full life when combat ends."
+      },
+      {
+        "line": 486,
+        "text": "Your mecharachnid has level %d Steamgun Mastery, Combat Accuracy and Armor Training. The mecharachnid uses Dexterity instead of Strength to equip armor."
+      },
+      {
+        "line": 487,
+        "text": "The mecharachnid has an inbuilt teleportation device that will recall it to you when combat ends if it is not nearby.]]):"
+      },
+      {
+        "line": 488,
+        "text": "\t\ttformat(t.getPower(self,t), self:getTalentLevelRaw(t))"
+      },
+      {
+        "line": 489,
+        "text": "\tend,"
+      },
+      {
+        "line": 492,
+        "text": "newTalent{"
+      },
+      {
+        "line": 493,
+        "text": "\tname = \"Stormcoil Generator\","
+      },
+      {
+        "line": 494,
+        "text": "\ttype = {\"steamtech/mecharachnid\", 2},"
+      },
+      {
+        "line": 495,
+        "text": "\trequire = steamreq_high2,"
+      },
+      {
+        "line": 496,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 497,
+        "text": "\tmode = \"passive\","
+      },
+      {
+        "line": 498,
+        "text": "\ton_learn = function(self, t)"
+      },
+      {
+        "line": 499,
+        "text": "\t\tself:callTalent(self.T_MECHARACHNID, \"update_mecharachnid\")"
+      },
+      {
+        "line": 500,
+        "text": "\tend,"
+      },
+      {
+        "line": 501,
+        "text": "\ton_unlearn = function(self, t)"
+      },
+      {
+        "line": 502,
+        "text": "\t\tself:callTalent(self.T_MECHARACHNID, \"update_mecharachnid\")"
+      },
+      {
+        "line": 503,
+        "text": "\tend,\t"
+      },
+      {
+        "line": 504,
+        "text": "\tgetDamageReduction = function(self, t) return self:combatTalentLimit(t, 90, 15, 65)/100 end,"
+      },
+      {
+        "line": 505,
+        "text": "\tgetSpeed = function(self, t) return self:combatTalentLimit(t, 50, 10, 30)/100 end,"
+      },
+      {
+        "line": 506,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 507,
+        "text": "\t\treturn ([[You equip your mecharachnid with a stormcoil generator, a mechanical device that projects a powerful electrical field. On taking a hit greater than 15%% of its maximum life, the excess damage will be reduced by %d%% and converted into energy, giving your mecharachnid %d%% increased global speed for 2 turns.]])"
+      },
+      {
+        "line": 508,
+        "text": "\t\t:tformat(t.getDamageReduction(self,t)*100, t.getSpeed(self,t)*100)"
+      },
+      {
+        "line": 509,
+        "text": "\tend,"
+      },
+      {
+        "line": 512,
+        "text": "newTalent{"
+      },
+      {
+        "line": 513,
+        "text": "\tname = \"Mecharachnid Chassis\","
+      },
+      {
+        "line": 514,
+        "text": "\ttype = {\"steamtech/mecharachnid\", 3},"
+      },
+      {
+        "line": 515,
+        "text": "\trequire = steamreq_high3,"
+      },
+      {
+        "line": 516,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 519,
+        "text": "\tno_unlearn_last = true,"
+      },
+      {
+        "line": 520,
+        "text": "\ton_levelup_close = function(self, t)"
+      },
+      {
+        "line": 521,
+        "text": "\t\tt.setup_mecharachnid_chassis(self,t)"
+      },
+      {
+        "line": 522,
+        "text": "\tend,"
+      },
+      {
+        "line": 523,
+        "text": "\tsetup_mecharachnid_chassis = function(self, t)"
+      },
+      {
+        "line": 524,
+        "text": "\t\tlocal mecharachnid = self.tinker_mecharachnid"
+      },
+      {
+        "line": 525,
+        "text": "\t\tif not mecharachnid or (mecharachnid and mecharachnid.dead) then return end  -- Don't update if the pet is dead just in case something weird happens"
+      },
+      {
+        "line": 526,
+        "text": ""
+      },
+      {
+        "line": 527,
+        "text": "\t\tif not mecharachnid.upgraded_chassis then\t"
+      },
+      {
+        "line": 528,
+        "text": "\t\t\tmecharachnid.body = {MECHARACHNID_TAIL = 1}"
+      },
+      {
+        "line": 529,
+        "text": "\t\t\tmecharachnid:initBody()"
+      },
+      {
+        "line": 530,
+        "text": "\t"
+      },
+      {
+        "line": 531,
+        "text": "\t\t\tmecharachnid:learnTalentType(\"steamtech/assault\", true)"
+      },
+      {
+        "line": 532,
+        "text": "\t\t"
+      },
+      {
+        "line": 533,
+        "text": "\t\t\tmecharachnid:learnTalent(mecharachnid.T_TAIL_ATTACHMENT, true, 1)"
+      },
+      {
+        "line": 534,
+        "text": ""
+      },
+      {
+        "line": 535,
+        "text": "\t\t\tmecharachnid.upgraded_chassis = \"assault\""
+      },
+      {
+        "line": 536,
+        "text": "\t\t\tt.change_mecharachnid_chassis(self, t, \"assault\", true)\t\t\t"
+      },
+      {
+        "line": 537,
+        "text": "\t\telse"
+      },
+      {
+        "line": 538,
+        "text": "\t\t\tt.update_mecharachnid_chassis(self, t)"
+      },
+      {
+        "line": 539,
+        "text": "\t\tend"
+      },
+      {
+        "line": 540,
+        "text": "\tend,"
+      },
+      {
+        "line": 557,
+        "text": "\t\t},"
+      },
+      {
+        "line": 558,
+        "text": "\t},"
+      },
+      {
+        "line": 559,
+        "text": "\tupdate_mecharachnid_chassis = function(self, t)"
+      },
+      {
+        "line": 560,
+        "text": "\t\tlocal mecharachnid = self.tinker_mecharachnid"
+      },
+      {
+        "line": 561,
+        "text": "\t\tif not mecharachnid then return end"
+      },
+      {
+        "line": 562,
+        "text": "\t\tlocal def = t.chassis_defs[mecharachnid.upgraded_chassis]"
+      },
+      {
+        "line": 563,
+        "text": "\t\tmecharachnid.unused_talents = t.getNb(self, t)"
+      },
+      {
+        "line": 564,
+        "text": "\t\tfor tid, lvl in pairs(mecharachnid.talents) do if lvl > 0 then"
+      },
+      {
+        "line": 565,
+        "text": "\t\t\tlocal tt = self:getTalentFromId(tid)"
+      },
+      {
+        "line": 566,
+        "text": "\t\t\tif not tt.generic and tt.type[1] == def.talent_type then"
+      },
+      {
+        "line": 567,
+        "text": "\t\t\t\tmecharachnid.unused_talents = mecharachnid.unused_talents - lvl"
+      },
+      {
+        "line": 568,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 569,
+        "text": "\t\tend end"
+      },
+      {
+        "line": 570,
+        "text": "\tend,"
+      },
+      {
+        "line": 571,
+        "text": "\tchange_mecharachnid_chassis = function(self, t, new_chassis, birth)"
+      },
+      {
+        "line": 572,
+        "text": "\t\tlocal mecharachnid = self.tinker_mecharachnid"
+      },
+      {
+        "line": 573,
+        "text": "\t\tif not mecharachnid or (mecharachnid and mecharachnid.dead) then return end  -- Don't update if the pet is dead just in case something weird happens"
+      },
+      {
+        "line": 574,
+        "text": "\t\tif self.in_combat then game.logPlayer(self, \"#LIGHT_RED#You must not be in combat to change the chassis.\") return end"
+      },
+      {
+        "line": 575,
+        "text": "\t\tif mecharachnid.in_combat then game.logPlayer(self, \"#LIGHT_RED#Your mecharachnid must not be in combat to change its chassis.\") return end"
+      },
+      {
+        "line": 576,
+        "text": "\t\tif mecharachnid.upgraded_chassis == new_chassis and not birth then game.logPlayer(self, \"#LIGHT_RED#Your mecharachnid is already in chassis %s.\", new_chassis) return end"
+      },
+      {
+        "line": 577,
+        "text": "\t\tmecharachnid.chassis_talents = mecharachnid.chassis_talents or {}"
+      },
+      {
+        "line": 578,
+        "text": "\t\tmecharachnid.chassis_tail_items = mecharachnid.chassis_tail_items or {}"
+      },
+      {
+        "line": 579,
+        "text": ""
+      },
+      {
+        "line": 580,
+        "text": "\t\tlocal old_def = t.chassis_defs[mecharachnid.upgraded_chassis]"
+      },
+      {
+        "line": 581,
+        "text": "\t\tlocal new_def = t.chassis_defs[new_chassis]"
+      },
+      {
+        "line": 582,
+        "text": ""
+      },
+      {
+        "line": 583,
+        "text": "\t\t-- Unlearn the old chassis"
+      },
+      {
+        "line": 584,
+        "text": "\t\tif not birth then"
+      },
+      {
+        "line": 585,
+        "text": "\t\t\tmecharachnid:unlearnTalentType(old_def.talent_type)"
+      },
+      {
+        "line": 586,
+        "text": "\t\t\tmecharachnid.talents_types[old_def.talent_type] = nil -- To disappear totally"
+      },
+      {
+        "line": 587,
+        "text": "\t\t\tmecharachnid.chassis_talents[mecharachnid.upgraded_chassis] = {}"
+      },
+      {
+        "line": 588,
+        "text": "\t\t\tfor _, tid in pairs(old_def.talents) do"
+      },
+      {
+        "line": 589,
+        "text": "\t\t\t\tlocal lvl = mecharachnid:getTalentLevelRaw(tid)"
+      },
+      {
+        "line": 590,
+        "text": "\t\t\t\tmecharachnid.chassis_talents[mecharachnid.upgraded_chassis][tid] = lvl"
+      },
+      {
+        "line": 591,
+        "text": "\t\t\t\tmecharachnid:unlearnTalent(tid, lvl)"
+      },
+      {
+        "line": 592,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 593,
+        "text": "\t\tend"
+      },
+      {
+        "line": 594,
+        "text": ""
+      },
+      {
+        "line": 595,
+        "text": "\t\t-- Learn the new one"
+      },
+      {
+        "line": 596,
+        "text": "\t\tmecharachnid.unused_talents = t.getNb(self, t)"
+      },
+      {
+        "line": 597,
+        "text": "\t\tmecharachnid:learnTalentType(new_def.talent_type, true)"
+      },
+      {
+        "line": 598,
+        "text": "\t\tfor tid, lvl in pairs(mecharachnid.chassis_talents[new_chassis] or {}) do if lvl > 0 then"
+      },
+      {
+        "line": 599,
+        "text": "\t\t\tmecharachnid:learnTalent(tid, true, lvl)"
+      },
+      {
+        "line": 600,
+        "text": "\t\t\tmecharachnid.unused_talents = mecharachnid.unused_talents - lvl"
+      },
+      {
+        "line": 601,
+        "text": "\t\tend end"
+      },
+      {
+        "line": 602,
+        "text": ""
+      },
+      {
+        "line": 603,
+        "text": "\t\t-- Look for the previous tail weapon to use"
+      },
+      {
+        "line": 604,
+        "text": "\t\tlocal o_tail, item_tail = nil, nil"
+      },
+      {
+        "line": 605,
+        "text": "\t\tlocal inven = mecharachnid:getInven(\"INVEN\")"
+      },
+      {
+        "line": 606,
+        "text": "\t\tif mecharachnid.chassis_tail_items[new_chassis] then"
+      },
+      {
+        "line": 607,
+        "text": "\t\t\tlocal o, item = mecharachnid:findInInventory(inven, mecharachnid.chassis_tail_items[new_chassis], {no_add_name=true, force_id=true, no_count=true})"
+      },
+      {
+        "line": 608,
+        "text": "\t\t\tif o and item then o_tail, item_tail = o, item end"
+      },
+      {
+        "line": 609,
+        "text": "\t\tend"
+      },
+      {
+        "line": 626,
+        "text": "\t\tend"
+      },
+      {
+        "line": 627,
+        "text": "\t\tif o_tail and item_tail then"
+      },
+      {
+        "line": 628,
+        "text": "\t\t\tlocal old_tail_weapon = mecharachnid:callTalent(mecharachnid.T_TAIL_ATTACHMENT, \"wearOnTail\", o_tail, item_tail)"
+      },
+      {
+        "line": 629,
+        "text": "\t\t\tif old_tail_weapon and old_tail_weapon.subtype == old_def.weapon_subtype then"
+      },
+      {
+        "line": 630,
+        "text": "\t\t\t\tmecharachnid.chassis_tail_items[mecharachnid.upgraded_chassis] = old_tail_weapon:getName{no_add_name=true, force_id=true, no_count=true}"
+      },
+      {
+        "line": 631,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 632,
+        "text": "\t\telse "
+      },
+      {
+        "line": 633,
+        "text": "\t\t\tlocal old_tail_weapon = mecharachnid:callTalent(mecharachnid.T_TAIL_ATTACHMENT, \"unwearOnTail\")"
+      },
+      {
+        "line": 634,
+        "text": "\t\t\tif old_tail_weapon and old_tail_weapon.subtype == old_def.weapon_subtype then"
+      },
+      {
+        "line": 635,
+        "text": "\t\t\t\tmecharachnid.chassis_tail_items[mecharachnid.upgraded_chassis] = old_tail_weapon:getName{no_add_name=true, force_id=true, no_count=true}"
+      },
+      {
+        "line": 636,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 637,
+        "text": "\t\tend"
+      },
+      {
+        "line": 638,
+        "text": ""
+      },
+      {
+        "line": 639,
+        "text": "\t\tmecharachnid.chassis_tile_id = new_def.chassis_tile_id"
+      },
+      {
+        "line": 640,
+        "text": "\t\tmecharachnid.chassis_base_id = new_def.chassis_base_id"
+      },
+      {
+        "line": 641,
+        "text": "\t\tmecharachnid.chassis_weapon_subtype = new_def.weapon_subtype"
+      },
+      {
+        "line": 642,
+        "text": "\t\tmecharachnid:updateModdableTile()"
+      },
+      {
+        "line": 643,
+        "text": "\t\tmecharachnid.upgraded_chassis = new_chassis"
+      },
+      {
+        "line": 644,
+        "text": "\t\tgame.logPlayer(self, \"Mecharachnid chassis changed to: #GOLD#%s\", new_def.name)"
+      },
+      {
+        "line": 645,
+        "text": "\tend,\t"
+      },
+      {
+        "line": 647,
+        "text": "\trequires_target = true,"
+      },
+      {
+        "line": 648,
+        "text": "\ton_pre_use = function(self, t, silent) "
+      },
+      {
+        "line": 649,
+        "text": "\t\tlocal mecharachnid = getMecharachnid(self) "
+      },
+      {
+        "line": 650,
+        "text": "\t\tif self.in_combat or not mecharachnid or not mecharachnid.x or mecharachnid.in_combat or not game.level or core.fov.distance(self.x, self.y, mecharachnid.x, mecharachnid.y) > 1 then "
+      },
+      {
+        "line": 651,
+        "text": "\t\t\tif not silent then "
+      },
+      {
+        "line": 652,
+        "text": "\t\t\t\tgame.logPlayer(self, \"You require your mecharachnid to be adjacent, and must be out of combat.\") "
+      },
+      {
+        "line": 653,
+        "text": "\t\t\tend "
+      },
+      {
+        "line": 654,
+        "text": "\t\t\treturn false "
+      },
+      {
+        "line": 658,
+        "text": "\tgetNb = function(self, t) return self:getTalentLevelRaw(t)*3 end,\t"
+      },
+      {
+        "line": 659,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 660,
+        "text": "\t\tlocal mecharachnid = getMecharachnid(self)"
+      },
+      {
+        "line": 661,
+        "text": "\t\tt.change_mecharachnid_chassis(self, t, mecharachnid.upgraded_chassis == \"assault\" and \"armament\" or \"assault\")"
+      },
+      {
+        "line": 662,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 663,
+        "text": "\tend,"
+      },
+      {
+        "line": 664,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 665,
+        "text": "\t\treturn ([[You craft a new chassis for your mecharachnid, allowing you to tailor it to different situations. Each chassis grants the mecharachnid a new talent category, the ability to attach a weapon to their tail, as well as granting them %d class talent points to spend in a new category based off their chassis."
+      },
+      {
+        "line": 666,
+        "text": ""
+      },
+      {
+        "line": 667,
+        "text": "\t\tYou can choose from the 2 chassis below by activating this talent outside of combat (default chassis: Assault)"
+      },
+      {
+        "line": 676,
+        "text": "newTalent{"
+      },
+      {
+        "line": 677,
+        "text": "\tname = \"Mecharachnid Piloting\","
+      },
+      {
+        "line": 678,
+        "text": "\ttype = {\"steamtech/mecharachnid\", 4},"
+      },
+      {
+        "line": 679,
+        "text": "\trequire = steamreq_high4,"
+      },
+      {
+        "line": 680,
+        "text": "\tpoints = 5,"
+      },
+      {
+        "line": 685,
+        "text": "\tgetDamage = function(self, t) return self:combatTalentLimit(t, 100, 10, 50) end,\t"
+      },
+      {
+        "line": 686,
+        "text": "\tgetResist = function(self, t) return self:combatTalentLimit(t, 70, 10, 40) end,\t\t"
+      },
+      {
+        "line": 687,
+        "text": "\ton_pre_use = function(self, t, silent) local mecharachnid = getMecharachnid(self) if not mecharachnid or not mecharachnid.x or not game.level or core.fov.distance(self.x, self.y, mecharachnid.x, mecharachnid.y) > 1 then if not silent then game.logPlayer(self, \"You require your mecharachnid to be adjacent.\") end return false end return true end,"
+      },
+      {
+        "line": 688,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 689,
+        "text": "\t\tlocal mecharachnid = self.tinker_mecharachnid\t"
+      },
+      {
+        "line": 690,
+        "text": "\t\tmecharachnid:setEffect(mecharachnid.EFF_MECHARACHNID_PILOTING, t.getDuration(self, t), {src=self})"
+      },
+      {
+        "line": 691,
+        "text": "\t\tmecharachnid:setEffect(mecharachnid.EFF_MECHARACHNID_PILOTING_BUFF, 1, {src=self, damage=t.getDamage(self,t), resist=t.getResist(self,t)})\t\t"
+      },
+      {
+        "line": 692,
+        "text": "\t\tgame:playSoundNear(self, \"talents/heal\")"
+      },
+      {
+        "line": 693,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 697,
+        "text": "\t\tlocal dam = t.getDamage(self,t)"
+      },
+      {
+        "line": 698,
+        "text": "\t\tlocal resist = t.getResist(self,t)"
+      },
+      {
+        "line": 699,
+        "text": "\t\treturn ([[Leap into your mecharachnid, assuming direct control of it for %d turns. While piloting it, all damage dealt is increased by %d%%, resistances are increased by %d%%, and all of its talents cooldown twice as fast.]]):"
+      },
+      {
+        "line": 700,
+        "text": "\t\ttformat(duration, dam, resist)"
+      },
+      {
+        "line": 701,
+        "text": "\tend,"
+      },
+      {
+        "line": 703,
+        "text": ""
+      },
+      {
+        "line": 704,
+        "text": ""
+      },
+      {
+        "line": 705,
+        "text": "newTalentType{ allow_random=true, is_steam=true, speed=\"archery\", type=\"steamtech/armament\", name = _t(\"armament\", \"talent type\"), description = _t\"Ranged combat mecharachnid abilities.\" }"
+      },
+      {
+        "line": 706,
+        "text": "newTalentType{ allow_random=true, is_steam=true, speed=\"weapon\", type=\"steamtech/assault\", name = _t(\"assault\", \"talent type\"), description = _t\"Close combat mecharachnid abilities.\" }"
+      },
+      {
+        "line": 707,
+        "text": ""
+      },
+      {
+        "line": 708,
+        "text": "newTalent{"
+      },
+      {
+        "line": 726,
+        "text": "\tend,"
+      },
+      {
+        "line": 727,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 728,
+        "text": "\t\tif self:attr(\"never_move\") then game.logPlayer(self, \"Your mecharachnid cannot do that currently.\") return end"
+      },
+      {
+        "line": 729,
+        "text": "\t\tlocal tail = hasTailWeapon(self, \"steamsaw\")"
+      },
+      {
+        "line": 730,
+        "text": "\t\tlocal tg = self:getTalentTarget(t)"
+      },
+      {
+        "line": 814,
+        "text": "\t\tlocal ev, spread = t.getEvasion(self, t)"
+      },
+      {
+        "line": 815,
+        "text": "\t\tlocal dam = t.getDamage(self,t)*100"
+      },
+      {
+        "line": 816,
+        "text": "\t\treturn ([[Enhancements to your mecharachnid combat skill increases your melee and ranged evasion by %d%%, and causes you to automatically strike adjacent enemies with your tailsaw for %d%% damage each turn.]])"
+      },
+      {
+        "line": 817,
+        "text": "\t\t:tformat(ev, dam)"
+      },
+      {
+        "line": 818,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9ba2e7a40d249a2ec6c69ca00391e32f77637ccaa71dee0aa1c32ef688f7e8ef",
+    "public_source_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+    "lines": [
+      {
+        "line": 859,
+        "text": "\t\tlocal dur = t.getDuration(self,t)"
+      },
+      {
+        "line": 860,
+        "text": "\t\tlocal slow = t.getSlow(self,t)"
+      },
+      {
+        "line": 861,
+        "text": "\t\treturn ([[You strike the target with your tailsaw for %d%% damage. If this hits, you attempt to clamp them with your pincers for %d turns. This pins, reduces their attack, spell and mind speed by %d%%, and lets you make a free, unavoidable strike with your tailsaw against them each turn for %d%% damage. This ends if you move more than 1 tile from the target.]])"
+      },
+      {
+        "line": 862,
+        "text": "\t\t:tformat(dam*2, dur, slow, dam)"
+      },
+      {
+        "line": 863,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c020c21838c8900f40e88f2bee3f3c12fcf9f4eec2700cd28435c87d2a46537",
+    "public_source_path": "tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Psyshot (Tinker)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[You have found extremely old machines powered by advanced psionics and technology. Psionics without a living mind was never thought possible."
+      },
+      {
+        "line": 22,
+        "text": "You can now create new characters with the #LIGHT_GREEN#Psyshot class#WHITE#."
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "Psyshots are Tinkers that merge psionics and steamtech in a lethal blend, wielding a steamgun in one hand and a mindstar in the other."
+      },
+      {
+        "line": 25,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 26,
+        "text": "- Project mindstar attacks with each bullet you fire"
+      },
+      {
+        "line": 27,
+        "text": "- Inspire dread to weaken your foes to your gunslinging"
+      },
+      {
+        "line": 28,
+        "text": "- Manipulate the very air around your victims"
+      },
+      {
+        "line": 29,
+        "text": "- Enter a psionic gestalt with your steam generators, boosting them#WHITE#"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "All Tinker classes use Steam for their powers."
+      },
+      {
+        "line": 32,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c1aa7fdf80d53521ff3c1983ab38c203f81d5cb9b3828d30dc82b6f9dcd983a",
+    "public_source_path": "tome-orcs/overload/mod/dialogs/CreateTinker.lua",
+    "lines": [
+      {
+        "line": 168,
+        "text": "\tend"
+      },
+      {
+        "line": 169,
+        "text": "\tif tdef.ingredients then"
+      },
+      {
+        "line": 170,
+        "text": "\t\tstr:add(_t\"Requires ingredients:\", true)"
+      },
+      {
+        "line": 171,
+        "text": "\t\tfor ing, qty in pairs(tdef.ingredients) do"
+      },
+      {
+        "line": 172,
+        "text": "\t\t\tlocal color = {\"color\", \"LIGHT_RED\"}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c49f795eecc63434352f7cac85307651a9c126828c6160b0831bc8dccc98206",
+    "public_source_path": "tome-orcs/data/lore/weissi.lua",
+    "lines": [
+      {
+        "line": 103,
+        "text": "\tid = \"weissi-5\","
+      },
+      {
+        "line": 104,
+        "text": "\tcategory = \"lost city\","
+      },
+      {
+        "line": 105,
+        "text": "\tname = _t\"telepathic message (6)\","
+      },
+      {
+        "line": 106,
+        "text": "\talways_pop = true,"
+      },
+      {
+        "line": 107,
+        "text": "\tlore = function(is_lore_popup) return _t[[If you would indulge us...  Next to you is a tablet that was just carved by our machines, moments before you arrived.  If our curse holds, it will be completely illegible, but if it has been lifted, it will bear our name.  A blatant, distinct word that is an undeniable mark of our existence, a sign that no matter how it may have wanted to, the universe could not forget us.  Look to your right, and learn the name of those who have far more right to exist than you do, who have fought far harder for it, and will sink their hooks so deep into reality that it must either lift them up or be dragged into the depths with them.  Learn the name feared by existence itself!"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c4accdaee08475557131579de937ee228f6c360343c1e5031e11b4c806edd6c",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 135,
+        "text": "newEffect{"
+      },
+      {
+        "line": 136,
+        "text": "\tname = \"LUCID_SHOT\", image = \"talents/lucid_shot.png\","
+      },
+      {
+        "line": 137,
+        "text": "\tdesc = _t\"Unclear Thoughts\","
+      },
+      {
+        "line": 138,
+        "text": "\tlong_desc = function(self, eff) return (\"Can not discern foes from friends.\"):tformat() end,"
+      },
+      {
+        "line": 139,
+        "text": "\ttype = \"mental\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c4b491f22ef95637823be9cb41e95a51e5062745561641e7f24de087677d8d6",
+    "public_source_path": "tome-orcs/data/quests/to-mainland.lua",
+    "lines": [
+      {
+        "line": 36,
+        "text": "\t\twho:grantQuest(\"orcs+ritch-hive\")"
+      },
+      {
+        "line": 37,
+        "text": "\t\tworld:gainAchievement(\"ORCS_DONE_OUTPOST\", who)"
+      },
+      {
+        "line": 38,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"To the mainland!\", _t[[The way to the mainland is now clear."
+      },
+      {
+        "line": 39,
+        "text": "Travel there using the bridge on the worldmap.]], 500)"
+      },
+      {
+        "line": 40,
+        "text": ""
+      },
+      {
+        "line": 41,
+        "text": "\t\tgame:onLevelLoad(\"wilderness-1\", function(zone, level)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c575de564d1d71a99b82db963682f6c5550980a57ae59bf884ed83fd5ddd76d",
+    "public_source_path": "tome-orcs/data/general/objects/boss-artifacts.lua",
+    "lines": [
+      {
+        "line": 303,
+        "text": "\tname = \"Liquid Metal Cloak\", color = colors.WHITE, image = \"object/artifact/liquid_metal_cloak.png\","
+      },
+      {
+        "line": 304,
+        "text": "\tunided_name = _t\"shiny metallic cloak\","
+      },
+      {
+        "line": 305,
+        "text": "\tdesc = _t[[This strange sheet of metal flows with the wind just like a normal cloak. Whoever crafted it was a true master.]],"
+      },
+      {
+        "line": 306,
+        "text": "\tlevel_range = {35, 45},"
+      },
+      {
+        "line": 307,
+        "text": "\trarity = 350,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c63d71b91a4a47b8e0ee4a81d21aa6371aba508f13ed62f97be8b53ce92f0dc",
+    "public_source_path": "tome-orcs/data/talents/psionic/psionic-fog.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "newTalent{"
+      },
+      {
+        "line": 23,
+        "text": "\tname = \"Vaporous Step\","
+      },
+      {
+        "line": 24,
+        "text": "\ttype = {\"psionic/psionic-fog\", 1},"
+      },
+      {
+        "line": 25,
+        "text": "\tpoints = 5, "
+      },
+      {
+        "line": 120,
+        "text": "\trequire = psi_wil_req2,"
+      },
+      {
+        "line": 121,
+        "text": "\tmode = \"passive\","
+      },
+      {
+        "line": 122,
+        "text": "\tno_npc_use = true, -- not possible for NPCs to benefit from because Vaporous Step is banned"
+      },
+      {
+        "line": 123,
+        "text": "\tis_heal = true,"
+      },
+      {
+        "line": 124,
+        "text": "\tgetSteam = function(self, t) return (self:combatTalentScale(t, 10, 70)) / 2 end,"
+      },
+      {
+        "line": 136,
+        "text": "\tend,"
+      },
+      {
+        "line": 137,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 138,
+        "text": "\t\treturn ([[When you deactivate Vaporous Step, if the psychoport succeeds you inhale some of the vapours, regenerating %d steam and %d life."
+      },
+      {
+        "line": 139,
+        "text": "\t\tThe effects will be multiplied by 33%% (diminutive) for each charge of Vaporous Step."
+      },
+      {
+        "line": 140,
+        "text": "\t\tThe healing done will increase with your Mindpower.]]):"
+      },
+      {
+        "line": 141,
+        "text": "\t\ttformat(t.getSteam(self, t), t.getHeal(self, t))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c86fb3bec2c2623d71f6f670e1d7151d8056d5441a4be5411a84f2dca0e0e59",
+    "public_source_path": "tome-orcs/data/general/events/merchant-stall.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "\tdisplay = \"7\", color=colors.UMBER, image=\"terrain/rocky_ground.png\", add_displays={mod.class.Grid.new{image = \"terrain/market_stall_0\"..stallid..\"_1.png\", z=6}, mod.class.Grid.new{image = \"terrain/market_stall_0\"..stallid..\"_0.png\", display_y=-1, z=18}},"
+      },
+      {
+        "line": 71,
+        "text": "\tname = _t\"market stall\","
+      },
+      {
+        "line": 72,
+        "text": "\tdesc = _t[[A market stall, it looks abandoned..]],"
+      },
+      {
+        "line": 73,
+        "text": "\tdoes_block_move = true,"
+      },
+      {
+        "line": 74,
+        "text": "\tblock_sight = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9c93e0fc3fb8dd50f9a4ded5d4fcd9986648c9ca1f986041f3b93916f67c3d56",
+    "public_source_path": "tome-orcs/data/achievements/story.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 49,
+        "text": "\tname = \"The Dead God Rests\", id = \"ORCS_DONE_AMAKTHEL\", category = \"Embers of Rage\","
+      },
+      {
+        "line": 50,
+        "text": "\tshow = \"name\", huge=true,"
+      },
+      {
+        "line": 51,
+        "text": "\tdesc = _t[[You have defeated the Sher'tul Priest trying to resurrect Amakthel, saving both the Prides and the world.]],"
+      }
+    ]
+  }
+]
