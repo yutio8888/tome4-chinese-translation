@@ -134,6 +134,38 @@ def extract_format_tokens(text: str) -> tuple[FormatToken, ...]:
     return tuple(tokens)
 
 
+def invalid_percent_offsets(text: str) -> tuple[int, ...]:
+    """Offsets of '%' that string.format rejects: not '%%' and not a valid conversion.
+
+    extract_format_tokens skips these silently, so a translated format string with a
+    bare percent sign would otherwise pass the token comparison and fail at runtime.
+    """
+    offsets: list[int] = []
+    index = 0
+    while index < len(text):
+        if text[index] != "%":
+            index += 1
+            continue
+        if index + 1 < len(text) and text[index + 1] == "%":
+            index += 2
+            continue
+        cursor = index + 1
+        while cursor < len(text) and text[cursor] in FORMAT_FLAGS:
+            cursor += 1
+        while cursor < len(text) and text[cursor].isdigit():
+            cursor += 1
+        if cursor < len(text) and text[cursor] == ".":
+            cursor += 1
+            while cursor < len(text) and text[cursor].isdigit():
+                cursor += 1
+        if cursor < len(text) and text[cursor] in FORMAT_CONVERSIONS:
+            index = cursor + 1
+        else:
+            offsets.append(index)
+            index += 1
+    return tuple(offsets)
+
+
 def stable_entry_id(
     component: str, section: str, source: str, source_tag: str | None
 ) -> str:
@@ -235,6 +267,34 @@ def _format_issue(
             f"args_order={args_order!r}"
         ),
         logical_path=entry["logical_path"],
+        line=entry.get("line"),
+        entry_id=entry_id,
+    )
+
+
+def _invalid_percent_issue(
+    *,
+    entry: dict[str, Any],
+    entry_id: str,
+    logical_path: str,
+    policy: Policy,
+) -> Issue | None:
+    source_tag = entry.get("source_tag")
+    if source_tag not in FORMAT_TAGS and entry.get("args_order") is None:
+        return None
+    target_offsets = invalid_percent_offsets(entry["target"])
+    if len(target_offsets) <= len(invalid_percent_offsets(entry["source"])):
+        return None
+    if entry_id in policy.allowed_format_mismatches:
+        return None
+    return Issue(
+        severity="error",
+        code="format-invalid-percent",
+        message=(
+            "target has a '%' that string.format rejects (write a literal percent as '%%'): "
+            f"offsets={list(target_offsets)!r}"
+        ),
+        logical_path=logical_path,
         line=entry.get("line"),
         entry_id=entry_id,
     )
@@ -359,6 +419,14 @@ def lint_documents(
                 entry_id=entry_id,
                 policy=policy,
             )
+            percent_issue = _invalid_percent_issue(
+                entry=entry,
+                entry_id=entry_id,
+                logical_path=document.logical_path,
+                policy=policy,
+            )
+            if percent_issue:
+                issues.append(percent_issue)
             if format_issue:
                 issues.append(format_issue)
             else:

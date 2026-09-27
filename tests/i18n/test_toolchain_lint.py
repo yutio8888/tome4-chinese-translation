@@ -15,7 +15,13 @@ from unittest.mock import Mock, call, patch
 from i18nlib.config import load_manifest
 from i18nlib.cli import main as cli_main
 from i18nlib.errors import ConfigurationError, ValidationError
-from i18nlib.lint import TERMINOLOGY_FIELDS, extract_format_tokens, lint_documents, load_policy
+from i18nlib.lint import (
+    TERMINOLOGY_FIELDS,
+    extract_format_tokens,
+    invalid_percent_offsets,
+    lint_documents,
+    load_policy,
+)
 from i18nlib.locale_model import LocaleDocument, LocaleLoader
 from i18nlib.runtime import LuaRuntime
 
@@ -24,6 +30,12 @@ class FormatTests(unittest.TestCase):
     def test_printf_tokenizer_skips_literal_percent(self) -> None:
         tokens = extract_format_tokens("%0.2f damage, %d turns, %d%% chance")
         self.assertEqual([token.raw for token in tokens], ["%0.2f", "%d", "%d"])
+
+    def test_invalid_percent_offsets_find_bare_percent(self) -> None:
+        self.assertEqual(invalid_percent_offsets("否则每回合有 25% 几率传播"), (9,))
+        self.assertEqual(invalid_percent_offsets("降低 50%。"), (5,))
+        self.assertEqual(invalid_percent_offsets("100%"), (3,))
+        self.assertEqual(invalid_percent_offsets("25%% 几率，%0.2f 伤害，%d%% 概率"), ())
 
 
 class LintCommandTests(unittest.TestCase):
@@ -204,6 +216,50 @@ class LintCommandTests(unittest.TestCase):
         self.assertEqual(issues, [])
         self.assertEqual(metrics["translations"], 0)
         self.assertEqual(metrics["errors"], 0)
+
+    def test_bare_percent_in_format_target_is_an_error(self) -> None:
+        def record(target: str, source_tag: str | None) -> dict[str, object]:
+            return {
+                "kind": "translation",
+                "source": "Doing %0.2f damage per turn.",
+                "target": target,
+                "source_tag": source_tag,
+                "section": "fixture.lua",
+                "args_order": None,
+                "special": None,
+            }
+
+        bare = self._document(
+            "canonical.lua", (record("每回合 %0.2f 伤害，25% 几率传播。", "tformat"),)
+        )
+        issues, metrics = lint_documents([("fixture", bare)], EMPTY_POLICY)
+        self.assertEqual([issue.code for issue in issues], ["format-invalid-percent"])
+        self.assertEqual(issues[0].severity, "error")
+        self.assertEqual(metrics["errors"], 1)
+
+        escaped = self._document(
+            "canonical.lua", (record("每回合 %0.2f 伤害，25%% 几率传播。", "tformat"),)
+        )
+        issues, _ = lint_documents([("fixture", escaped)], EMPTY_POLICY)
+        self.assertEqual(issues, [])
+
+    def test_bare_percent_outside_format_strings_is_allowed(self) -> None:
+        document = self._document(
+            "canonical.lua",
+            (
+                {
+                    "kind": "translation",
+                    "source": "Reduces damage by 50%.",
+                    "target": "伤害降低 50%。",
+                    "source_tag": "_t",
+                    "section": "fixture.lua",
+                    "args_order": None,
+                    "special": None,
+                },
+            ),
+        )
+        issues, _ = lint_documents([("fixture", document)], EMPTY_POLICY)
+        self.assertEqual(issues, [])
 
     def test_editorial_and_runtime_collisions_use_complete_semantics(self) -> None:
         document = self._document(
