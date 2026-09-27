@@ -1,0 +1,110 @@
+{
+ "workset": "evidence/quality/production-batches/batch-e4fe7a44fc32bf6f4d91-source-workset.json",
+ "decisions": {
+  "9cb3e25a5f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：原文 3 个 LF、每个后接两个 TAB（\\n\\t\\t），现译只有 2 个 LF、3 个 TAB，首个换行后少一个 TAB 且末两行被并为一行。机制表述本身与实现相符：公开 Orcs tome-orcs/data/talents/steam/steam.lua:237–243 为 1 级学会一张、5 级保证一张、其余等级各 20% 几率、自动学会上限 2 张，“之后每一级 20%”不误。修复只需恢复原文换行与 \\n\\t\\t 结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9d032cc60d|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "Supercharged 的“超速”属于 Supercharge Bullets 同族译名，已列入待用户审阅第 34 项（pending-user-review.md），本批不单独改名，记 advisory 待该项裁决后统一处理。"
+  },
+  "9d75160386|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/events/AAA.lua:20–60：Ancient Automated Archive 是随机刷出的商店型机械 NPC（m.store=ORC_AAA_*，收存并出售物品），desc 自称 an ancient archive of knowledge。“宝库”偏意译但契合其存放出售物品的功能，本库该名仅此一处使用，不构成错误；如需改“档案库”属命名风格调整，记 advisory。"
+  },
+  "9e0b1df719|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1502–1555（DEATH_FROM_ABOVE）：activate 临时学会 T_ROCKET_BARRAGE 并把 Seeker Warhead 热键替换为火箭弹幕；callbackOnTalentPost 在使用任何非 rocket_barrage 技能时移除效果；效果本身不会每回合自动发射。现译“可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果”与实现一致，英文 each turn 与实现不符，按实现 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9e927259f8|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：原文 25 个 LF，现译 30 个 LF——四条 [i]note[/i] 被拆到单独行，并删去全部条目开头的“-”列表标记。另有专名与语义问题：Dogchucker 译“狗门卫”无据（应为“扔狗者”一类）、determined to be accident 译“绝对是一场意外”（原意为经认定属意外）、violation of loss of liquor privileges 译“违反免除饮酒”语义残缺；Ogric brandy 指食人魔（本库 mod-tome.lua:3488 Ogre=食人魔）而非兽人，现译“兽人白兰地”错。修复须按原文逐行对齐（保留“-”与行内 note，LF 数回到 25）并整句校正上述四处。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9ebc22deed|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "术语：terminology/talents.tsv:210（preferred）Flamethrower=火焰喷射器，notes 明确重装武器说明中的同名武器引用须与技能名一致；现译 #AQUAMARINE# 标签写“喷火器”，同行正文又写“火焰喷射器”，标签须改“火焰喷射器”。公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:880–890 对应此说明。flechette 译“毒镖”与本库同族（Flechette Burst“毒弹爆射”、Corrosive Flechette“腐蚀性毒镖”）一致，伤害类型仍写明酸性，此点不列入修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9f4b3270aa|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:465：“You'll be able to remember it pretty easily if you lose it.”意为即使弄丢了也能轻易想起它（呼应“枪的概念”）；现译“当你丢掉它时你就记住它了”把条件与结果弄反成“丢了才记住”，且“因为它只是”因果连接不当。建议“与其说这是一把枪，不如说它是‘枪’这个概念。就算弄丢了，你也能轻松地把它想起来。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9f6a71336f|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/turrets.lua:490–525：target 为 {type=\"ball\", friendlyfire=false, radius=…}，拉拽的第二次 project 复用同一 tg，友方不受影响，只作用于非友方目标。现译“把所有敌人拉近你”与实现一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9f9bec2ed2|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/superload/mod/class/Actor.lua:124–126：仅当击杀者 src 是玩家队伍成员且死者为 civilian 的蒸汽巨人时才置 game.zone.dead_civilian；data/zones/vaporous-emporium/npcs.lua:152 据此判定成就。条件实为“你方未杀死平民”，现译“杀死泰勒西斯但不杀死其他居民”与实现一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a0c350cae6|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/tinkers/chemistry.lua:178：“An ingenius collection of tough no-spill pockets …”；现译“这些坚韧的口袋”删去 ingenius（精巧）与 no-spill（防洒漏）——后者正是能随身携带危险试剂的理由。建议“一套精巧的防洒漏坚韧口袋，让你能把那些危险试剂随时带在手边。（提高酸性、火焰、自然和枯萎伤害）”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a12d4bf519|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunslinging.lua:190–245：弹射目标表只收 reactionToward<0 且 canSee 的敌人，按与首目标距离排序（最近优先）；on_stop_check 中未命中实体且落点非阻挡地形即终止（or until it misses），撞墙亦可弹射（creature or solid wall）。现译删去“看得见的敌人”“命中生物或墙壁”“弹向下一个最近的敌人”“或直到未命中”四项机制限定，另首句 cunning and dexterity 只译“灵敏”，丢了 cunning（灵巧）。修复须补回这些条件。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a16dc02b0e|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/quests/yeti-abduction.lua:45–54：同物品 use_power 名已译“召唤受训练的雪人来帮助你”；本条 desc 删去 trained 属轻微省略，不影响机制，记 advisory。"
+  },
+  "a178ec04a0|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "该文本引用核心成就 SIZE_MATTERS（t-engine4 game/modules/tome/class/Actor.lua:2639，单次攻击造成高额伤害时获得；Orcs data/talents/uber/str.lua:23 以其为前置）。本库 mod-tome.lua:2644 成就名 Size matters 已译“伤害很重要”，现译与成就名一致，改动须跨组件统一，按跨条一致 refuted。"
+  },
+  "a206f2ce0e|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/tinkers/chemistry.lua:284–315 与 data/damage_types.lua:296–313（SMOKE_CLOUD）：烟雾中 reactionToward<0 的目标才被混乱，非敌方获得 SMOKE_COVER。现译“混乱周围生物”把对象扩大到所有生物，与实现不符；“免疫伤害”对应 avoid 可接受。建议改“混乱附近的敌人”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9cb3e25a5f|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：原文 3 个 LF、每个后接两个 TAB（\\n\\t\\t），现译只有 2 个 LF、3 个 TAB，首个换行后少一个 TAB 且末两行被并为一行。机制表述本身与实现相符：公开 Orcs tome-orcs/data/talents/steam/steam.lua:237–243 为 1 级学会一张、5 级保证一张、其余等级各 20% 几率、自动学会上限 2 张，“之后每一级 20%”不误。修复只需恢复原文换行与 \\n\\t\\t 结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9e0b1df719|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/timed_effects/physical.lua:1502–1555（DEATH_FROM_ABOVE）：activate 临时学会 T_ROCKET_BARRAGE 并把 Seeker Warhead 热键替换为火箭弹幕；callbackOnTalentPost 在使用任何非 rocket_barrage 技能时移除效果；效果本身不会每回合自动发射。现译“可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果”与实现一致，英文 each turn 与实现不符，按实现 refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。 contextual 称新增内容无冻结证据：宿主已按上述实现（临时学会火箭弹幕、非该技能即移除效果）核验，译文贴合实现；“目标”作为效果承受者称呼为本库效果描述惯例。"
+  },
+  "9e927259f8|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：原文 25 个 LF，现译 30 个 LF——四条 [i]note[/i] 被拆到单独行，并删去全部条目开头的“-”列表标记。另有专名与语义问题：Dogchucker 译“狗门卫”无据（应为“扔狗者”一类）、determined to be accident 译“绝对是一场意外”（原意为经认定属意外）、violation of loss of liquor privileges 译“违反免除饮酒”语义残缺；Ogric brandy 指食人魔（本库 mod-tome.lua:3488 Ogre=食人魔）而非兽人，现译“兽人白兰地”错。修复须按原文逐行对齐（保留“-”与行内 note，LF 数回到 25）并整句校正上述四处。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9ebc22deed|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "术语：terminology/talents.tsv:210（preferred）Flamethrower=火焰喷射器，notes 明确重装武器说明中的同名武器引用须与技能名一致；现译 #AQUAMARINE# 标签写“喷火器”，同行正文又写“火焰喷射器”，标签须改“火焰喷射器”。公开 Orcs tome-orcs/data/talents/steam/heavy-weapons.lua:880–890 对应此说明。flechette 译“毒镖”与本库同族（Flechette Burst“毒弹爆射”、Corrosive Flechette“腐蚀性毒镖”）一致，伤害类型仍写明酸性，此点不列入修复。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9f4b3270aa|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:465：“You'll be able to remember it pretty easily if you lose it.”意为即使弄丢了也能轻易想起它（呼应“枪的概念”）；现译“当你丢掉它时你就记住它了”把条件与结果弄反成“丢了才记住”，且“因为它只是”因果连接不当。建议“与其说这是一把枪，不如说它是‘枪’这个概念。就算弄丢了，你也能轻松地把它想起来。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "9f9bec2ed2|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/superload/mod/class/Actor.lua:124–126：仅当击杀者 src 是玩家队伍成员且死者为 civilian 的蒸汽巨人时才置 game.zone.dead_civilian；data/zones/vaporous-emporium/npcs.lua:152 据此判定成就。条件实为“你方未杀死平民”，现译“杀死泰勒西斯但不杀死其他居民”与实现一致，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。 contextual 认为须“任何原因都无平民死亡”：实现只记录玩家队伍成员造成的平民死亡，其他来源致死不影响成就，故 refuted。"
+  },
+  "a12d4bf519|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/gunslinging.lua:190–245：弹射目标表只收 reactionToward<0 且 canSee 的敌人，按与首目标距离排序（最近优先）；on_stop_check 中未命中实体且落点非阻挡地形即终止（or until it misses），撞墙亦可弹射（creature or solid wall）。现译删去“看得见的敌人”“命中生物或墙壁”“弹向下一个最近的敌人”“或直到未命中”四项机制限定，另首句 cunning and dexterity 只译“灵敏”，丢了 cunning（灵巧）。修复须补回这些条件。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  }
+ }
+}
