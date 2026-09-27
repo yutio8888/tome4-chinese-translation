@@ -1,0 +1,2990 @@
+[
+  {
+    "entry_revision_identity": "67316abb4ce2404700daca55ada3b62d92ff1b266863e583bb3b8cc2ff608fa5",
+    "public_source_path": "tome-orcs/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 180,
+        "text": "\t\tgame.level.map:particleEmitter(self.x, self.y, math.max(math.abs(eff.x-self.x), math.abs(eff.y-self.y)), \"mana_beam\", {tx=eff.x-self.x, ty=eff.y-self.y})"
+      },
+      {
+        "line": 181,
+        "text": ""
+      },
+      {
+        "line": 182,
+        "text": "\t\tgame.logSeen(self, \"%s blinks away and summons some help!\", self:getName():capitalize())"
+      },
+      {
+        "line": 183,
+        "text": ""
+      },
+      {
+        "line": 184,
+        "text": "\t\tself:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_ressources=true})"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "674f24f8fdb6d2b0adf2be8dab711d01490044e2a1ce9c106759395cee8673e4",
+    "public_source_path": "tome-orcs/data/talents/celestial/void.lua",
+    "lines": [
+      {
+        "line": 108,
+        "text": ""
+      },
+      {
+        "line": 109,
+        "text": "newTalent{"
+      },
+      {
+        "line": 110,
+        "text": "\tname = \"Crescent Wave\","
+      },
+      {
+        "line": 111,
+        "text": "\ttype = {\"celestial/void\", 2},"
+      },
+      {
+        "line": 112,
+        "text": "\trequire = divi_req_high2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67521c21a4c0868b49cab32c20ae751dc3ec43b98023cf32865327136d6be6e9",
+    "public_source_path": "tome-orcs/data/lore/emporium.lua",
+    "lines": [
+      {
+        "line": 97,
+        "text": "\tcategory = \"vaporous emporium\","
+      },
+      {
+        "line": 98,
+        "text": "\tname = _t\"hastily-written poster\","
+      },
+      {
+        "line": 99,
+        "text": "\tlore = _t[[KALTOR's FIREARMS, ARMOR, AND OTHER MARTIAL SUNDRIES"
+      },
+      {
+        "line": 100,
+        "text": "is"
+      },
+      {
+        "line": 101,
+        "text": "OPEN FOR BUSINESS AGAIN!"
+      },
+      {
+        "line": 102,
+        "text": " "
+      },
+      {
+        "line": 103,
+        "text": "The orcish hordes are upon us!  Although I am not normally one for gloating, I feel I must take this opportunity to say:"
+      },
+      {
+        "line": 104,
+        "text": " "
+      },
+      {
+        "line": 105,
+        "text": "#{bold}#I TOLD YOU SO, YOU INGRATES#{normal}#"
+      },
+      {
+        "line": 106,
+        "text": " "
+      },
+      {
+        "line": 107,
+        "text": "Do you see the need for my wonderful devices of self-defense NOW?  Do you see why I toiled so thoughtfully and tirelessly to make such exquisite contraptions that could've saved so many lives, if you'd only been willing to pay what I was asking for them, only a tiny fraction of what they were worth?  Does the USELESS City Guard see why they should have been purchasing my newest, improved models, such as the #{italic}#BRILLIANT AUTO-LOADING ORC EXPELLER#{normal}# (only 600 gold!  Get yours now!  Protect your family!) instead of abusing my built-to-last craftsmanship to keep my original production run around for over a decade?"
+      },
+      {
+        "line": 108,
+        "text": " "
+      },
+      {
+        "line": 109,
+        "text": "Don't make the same mistake twice!  Purchase the #{italic}#LIL SURPRISE#{normal}# for merely 150 gold!  What's that?  You can't afford that entry-level price?  I guess you should've bought it while I was still making them!  Don't want to get your guts torn out by a little green-skinned savage?  My old price for the #{italic}#PRESSURE-ENHANCED SLASHPROOF COMBAT SUIT#{normal}# was a steal at 700 gold - if you want one now, I'm sure your life is worth at least 3800 gold to you.  It utilizes your own vents to power tiny motors hidden in its joints, granting an unparalleled combination of fortitude and mobility; guaranteed to protect you from ANY sort of harm those savages can dish out, without slowing you down!  Notice all those dead guardsmen around?  Notice how they AREN'T wearing a #{italic}#PRESSURE-ENHANCED SLASHPROOF COMBAT SUIT#{normal}#, despite my desperate recommendations?  Don't let that be you or your loved ones!"
+      },
+      {
+        "line": 110,
+        "text": " "
+      },
+      {
+        "line": 111,
+        "text": "I'm sure you have your doubts as to the efficacy of my lovingly-made armaments; for a free demonstration of the quality and effectiveness of my goods, you are invited to try to take them by force.  I dare you - and that includes the City Guard, should they have any delusions about confiscating them for the public good.  The public has dug their own grave, and I will not pull them up simply out of charity; after all, they have offered me no such charity in the past."
+      },
+      {
+        "line": 112,
+        "text": " "
+      },
+      {
+        "line": 113,
+        "text": "#{italic}#[An address is listed at the bottom of this poster.  You could attempt to raid this store, if you wanted, but the owner's armed to the teeth - it's unlikely it'll be worth the risk.]#{normal}#"
+      },
+      {
+        "line": 114,
+        "text": "]],"
+      },
+      {
+        "line": 115,
+        "text": "\ton_learn = function(who)"
+      },
+      {
+        "line": 116,
+        "text": "\t\tif not game:isCampaign(\"Orcs\") then return end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6783b0a4ebfd4374bebca9e44c7283963e0f5677684933a46b7f32c3061defef",
+    "public_source_path": "tome-orcs/data/quests/weissi.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"\""
+      },
+      {
+        "line": 25,
+        "text": "\tif self:isCompleted(\"for\") then"
+      },
+      {
+        "line": 26,
+        "text": "\t\tdesc[#desc+1] = _t\"For each yeti muscle you return to the psy-machines in the ruins of a lost city you will gain a great reward.\""
+      },
+      {
+        "line": 27,
+        "text": "\t\tdesc[#desc+1] = _t\"\""
+      },
+      {
+        "line": 28,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67949317cee3f16145ca4ec1874d1c5dfa8142cf1fccd65c78fe84e76a625885",
+    "public_source_path": "tome-orcs/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 231,
+        "text": "\tparameters = { power=100 },"
+      },
+      {
+        "line": 232,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is cursed!\", true end,"
+      },
+      {
+        "line": 233,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer cursed.\", true end,"
+      },
+      {
+        "line": 234,
+        "text": "\tcallbackOnTemporaryEffect = function(self, eff, eff_id, e, p)"
+      },
+      {
+        "line": 235,
+        "text": "\t\tif e.status ~= \"detrimental\" then return end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67d4ae37b56f32492a5cae59446ea2feab1a5d25b313cd9bb01412bbd1823a2c",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 476,
+        "text": "\tname = \"SUBCUTANEOUS_METALLISATION\", image = \"talents/subcutaneous_metallisation.png\","
+      },
+      {
+        "line": 477,
+        "text": "\tdesc = _t\"Subcutaneous Metallisation\","
+      },
+      {
+        "line": 478,
+        "text": "\tlong_desc = function(self, eff) return (\"All damage reduced by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 479,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 480,
+        "text": "\tsubtype = { steamtech=true, resistance=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67df7bc28e443afb4056f8377b6091143070060b36dde9c7a2d7bafb293ec061",
+    "public_source_path": "tome-orcs/data/zones/tinker-master/npcs.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\ttype = \"construct\", subtype = \"mechanical\","
+      },
+      {
+        "line": 25,
+        "text": "\tdisplay = \"A\", color=colors.UMBER, image = \"npc/construct_mechanical_ancient_automated_archive.png\","
+      },
+      {
+        "line": 26,
+        "text": "\tname = \"Ancient Automated Teacher\","
+      },
+      {
+        "line": 27,
+        "text": "\tdesc = _t[[An ancient archive of knowledge! It seems to have some kind of vocal interface.]],"
+      },
+      {
+        "line": 28,
+        "text": "\tlevel_range = {50, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67e544cbd5e2b72cb48b99442affcab64c527ff9e20dca032ec71c6b30cb936f",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 974,
+        "text": "\t\t\teff.src:setEffect(eff.src.EFF_CAPACITOR_DISCHARGE, 10, {power=absorb, max_power=eff.src:callTalent(eff.src.T_CAPACITOR_DISCHARGE, \"getDamage\")}) "
+      },
+      {
+        "line": 975,
+        "text": "\t\tend\t"
+      },
+      {
+        "line": 976,
+        "text": "\t\tgame:delayedLogDamage(src, self, 0, (\"#LIGHT_BLUE#(%d lightning web)#LAST#\"):tformat(absorb), false)\t\t"
+      },
+      {
+        "line": 977,
+        "text": "\t\tcb.value = cb.value - absorb"
+      },
+      {
+        "line": 978,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67e69264c76d3e92925415c1fde2e52379f6197dfb77dd19ba65f1524ae41c77",
+    "public_source_path": "tome-orcs/data/general/objects/tinker.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "\tnot_in_stores = true,"
+      },
+      {
+        "line": 45,
+        "text": "\tuses_medical_injector = true,"
+      },
+      {
+        "line": 46,
+        "text": "\tdesc = _t[[Medical salve.]],"
+      },
+      {
+        "line": 47,
+        "text": "\tcost = 1,"
+      },
+      {
+        "line": 48,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67e8b142a89cdf6fd6f99626b7353011eae43467068800c2c7bb36ec3fe9f23e",
+    "public_source_path": "tome-orcs/data/lore/krimbul.lua",
+    "lines": [
+      {
+        "line": 64,
+        "text": "\tid = \"krimbul-3\","
+      },
+      {
+        "line": 65,
+        "text": "\tcategory = \"krimbul clan\","
+      },
+      {
+        "line": 66,
+        "text": "\tname = _t\"personal journal of Nektosh the One-Horned\","
+      },
+      {
+        "line": 67,
+        "text": "\tlore = _t[[no no no no no no no no no no no no no"
+      },
+      {
+        "line": 68,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67ec5844c406d6859b816acf4b6f180dabfaec6778c7af7f01e9cb60d2e91d46",
+    "public_source_path": "tome-orcs/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 217,
+        "text": "\tname = \"STARSCAPE\", image = \"talents/starscape.png\","
+      },
+      {
+        "line": 218,
+        "text": "\tdesc = _t\"Starscape\","
+      },
+      {
+        "line": 219,
+        "text": "\tlong_desc = function(self, eff) return (_t\"Has summoned the starscape, slowing all creatures 67%.\") end,"
+      },
+      {
+        "line": 220,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 221,
+        "text": "\tsubtype = {celestial=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67f58584e55c1a9fb94dfe41c1be7dd58b92cfb380a2e8ba98d1a454ce443a93",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 339,
+        "text": "\t\tlocal source = eff.src or self"
+      },
+      {
+        "line": 340,
+        "text": "\t\treturn (\"The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.\"):tformat(eff.nb,"
+      },
+      {
+        "line": 341,
+        "text": "\t\teff.turns < eff.gestation and (\" for %0.2f physical damage (increasing) each turn\"):tformat("
+      },
+      {
+        "line": 342,
+        "text": "\t\tsource:damDesc(\"PHYSICAL\", TemporaryEffects.tempeffect_def.EFF_RITCH_LARVA_EGGS.gestation_damage(self, eff, eff.turns + 1))) or \"\","
+      },
+      {
+        "line": 343,
+        "text": "\t\teff.gestation, source:damDesc(\"PHYSICAL\", eff.dam/2), source:damDesc(\"FIRE\", eff.dam/2))"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "67f8f7d703154f9a58e1bc2a69b85e19a93b2500fc60e2582a5b28f244353fc9",
+    "public_source_path": "tome-orcs/data/achievements/special.lua",
+    "lines": [
+      {
+        "line": 120,
+        "text": ""
+      },
+      {
+        "line": 121,
+        "text": "newAchievement{"
+      },
+      {
+        "line": 122,
+        "text": "\tname = \"Radiant Horrorc\", id = \"ORCS_FIERY_MOCKERY\", category = \"Embers of Rage\","
+      },
+      {
+        "line": 123,
+        "text": "\tshow = \"full\","
+      },
+      {
+        "line": 124,
+        "text": "\tdesc = _t[[While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "682517fc0b9ec175e0a0ac0caeeb706bafd445cccc811e00efd3c7b26d0ba2dc",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 131,
+        "text": "newEffect{"
+      },
+      {
+        "line": 132,
+        "text": "\tname = \"CLOAK\", image = \"talents/cloak.png\","
+      },
+      {
+        "line": 133,
+        "text": "\tdesc = _t\"Cloak\","
+      },
+      {
+        "line": 134,
+        "text": "\tlong_desc = function(self, eff) return (_t\"The target is wrapped in a cloak of shadow, granting sealth.\") end,"
+      },
+      {
+        "line": 135,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 136,
+        "text": "\tsubtype = { steamtech=true },"
+      },
+      {
+        "line": 137,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 138,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# disappears from sight.\", _t\"+Cloak\" end,"
+      },
+      {
+        "line": 139,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# re-appears.\", _t\"-Cloak\" end,"
+      },
+      {
+        "line": 140,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 141,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6830281ad92b3e5ca8d83da327cfe1dfebfacecb280d9293f245c344da8a7b20",
+    "public_source_path": "tome-orcs/data/talents/steam/avoidance.lua",
+    "lines": [
+      {
+        "line": 205,
+        "text": ""
+      },
+      {
+        "line": 206,
+        "text": "newTalent{"
+      },
+      {
+        "line": 207,
+        "text": "\tname = \"Cloaking Device\", short_name=\"CLOAK\","
+      },
+      {
+        "line": 208,
+        "text": "\ttype = {\"steamtech/avoidance\", 4},"
+      },
+      {
+        "line": 209,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "683a7987ab82cfed0b6ac25b0c970a6c5d37c485f61592aae9e6a74ae51edbf4",
+    "public_source_path": "tome-orcs/data/general/objects/generic-world-artifacts.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 27,
+        "text": "\ttype = \"potion\", subtype=\"potion\","
+      },
+      {
+        "line": 28,
+        "text": "\tname = \"Blood of Undeath\","
+      },
+      {
+        "line": 29,
+        "text": "\tunided_name = _t\"crimson phial\","
+      },
+      {
+        "line": 30,
+        "text": "\tlevel_range = {1, 50},"
+      },
+      {
+        "line": 36,
+        "text": "\tspecial = true,"
+      },
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "\tuse_simple = { name = _t\"quaff the Blood of Undeath to prepare your body for undeath\", use = function(self, who)"
+      },
+      {
+        "line": 39,
+        "text": "\t\tgame.logSeen(who, \"%s quaffs the %s!\", who:getName():capitalize(), self:getName({no_add_name = true, do_color = true}))"
+      },
+      {
+        "line": 40,
+        "text": "\t\tif self:triggerHook{\"Artifact:BloodOfUndeath:used\", who=who} then"
+      },
+      {
+        "line": 42,
+        "text": "\t\telseif not who:attr(\"true_undead\") then"
+      },
+      {
+        "line": 43,
+        "text": "\t\t\twho:attr(\"blood_undeath\", 1)"
+      },
+      {
+        "line": 44,
+        "text": "\t\t\tgame.logPlayer(who, \"#CRIMSON#You feel the Blood of Undeath rushing through your veins. Your can feel your life wither away a little (-50 maximum life, -120 minimum life).\")"
+      },
+      {
+        "line": 45,
+        "text": "\t\t\twho.max_life = math.max(1, who.max_life - 50)"
+      },
+      {
+        "line": 46,
+        "text": "\t\t\twho.die_at = who.die_at - 120"
+      },
+      {
+        "line": 47,
+        "text": "\t\telse"
+      },
+      {
+        "line": 48,
+        "text": "\t\t\tgame.logPlayer(who, \"#CRIMSON#The Blood of Undeath strengthens your undead body (-60 maximum life, -140 minimum life).\")"
+      },
+      {
+        "line": 49,
+        "text": "\t\t\twho.max_life = math.max(1, who.max_life - 60)"
+      },
+      {
+        "line": 50,
+        "text": "\t\t\twho.die_at = who.die_at - 140"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "683f150153f6c99f0fcd98b382cc4c62ac3e1450c56cf711cb276baf0ffe7d0b",
+    "public_source_path": "tome-orcs/data/zones/primal-forest/grids.lua",
+    "lines": [
+      {
+        "line": 132,
+        "text": "\tdefine_as = \"DOWN_TO_GROUND\","
+      },
+      {
+        "line": 133,
+        "text": "\ttype = \"floor\", subtype = \"primal trunk\","
+      },
+      {
+        "line": 134,
+        "text": "\tname = \"climb back to the ground\", image=\"terrain/primal_trunk/primal_forest_trunk_down.png\", z = 6,"
+      },
+      {
+        "line": 135,
+        "text": "\tdisplay_h=2, display_y=-0.5, display_w=2, display_x=-0.5,"
+      },
+      {
+        "line": 136,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "686505d888f1be36ddb645fabc717c396f17dbff92cd0b8f811dd3e713a95b80",
+    "public_source_path": "tome-orcs/data/lore/internment-camp.lua",
+    "lines": [
+      {
+        "line": 116,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 117,
+        "text": "\tname = _t\"internment camp correspondence (4)\","
+      },
+      {
+        "line": 118,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 119,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 120,
+        "text": ""
+      },
+      {
+        "line": 121,
+        "text": "I've requested an increase to our budget. Ten beds and eight chairs are on their way. Is there anything else you need?"
+      },
+      {
+        "line": 122,
+        "text": ""
+      },
+      {
+        "line": 123,
+        "text": "With my sincerest apologies,"
+      },
+      {
+        "line": 124,
+        "text": "Administrator Quellop"
+      },
+      {
+        "line": 125,
+        "text": ""
+      },
+      {
+        "line": 126,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 127,
+        "text": ""
+      },
+      {
+        "line": 128,
+        "text": "#{italic}#To: Administrator Quellop"
+      },
+      {
+        "line": 129,
+        "text": "From: Guard Captain Galsamae#{normal}#"
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "A steel hand-rail on the south staircase would be nice."
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "-Galsamae"
+      },
+      {
+        "line": 134,
+        "text": ""
+      },
+      {
+        "line": 135,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 136,
+        "text": ""
+      },
+      {
+        "line": 137,
+        "text": "#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 138,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 139,
+        "text": ""
+      },
+      {
+        "line": 140,
+        "text": "Done."
+      },
+      {
+        "line": 141,
+        "text": ""
+      },
+      {
+        "line": 142,
+        "text": "-Quellop]],"
+      },
+      {
+        "line": 143,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "687c4ce90146421617ab58d8667df2733605d5e18bb3996ced5eb0e392314e17",
+    "public_source_path": "tome-orcs/data/talents/uber/mag.lua",
+    "lines": [
+      {
+        "line": 171,
+        "text": ""
+      },
+      {
+        "line": 172,
+        "text": "\t\tlocal list = {"
+      },
+      {
+        "line": 173,
+        "text": "\t\t\t{name=_t\"Occult Technomancy\", type=\"spell/occult-technomancy\", talent=self.T_METATEMPORAL_SPINNER, desc=_t[[These talents focus on arcane and temporal damage, using a super-spinned steamsaw to rip holes in reality.]]},"
+      },
+      {
+        "line": 174,
+        "text": "\t\t\t{name=_t\"Galvanic Technomancy\", type=\"spell/galvanic-technomancy\", talent=self.T_GALVANIC_ROD, desc=_t[[These talents focus on fire and lightning damage, strategically placing galvanic rods to create fields of death and stuns.]]},"
+      },
+      {
+        "line": 175,
+        "text": "\t\t\t{name=_t\"Terrene Technomancy\", type=\"spell/terrene-technomancy\", talent=self.T_MICRO_SPIDERBOT, desc=_t[[These talents focus on cold and physical damage, summoning micro spiderbots to harass and pin their foes or protect themselves.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68848a2c873315e86bbd87b3620097248517353f964c69b63f133bee8ff863c2",
+    "public_source_path": "tome-orcs/data/quests/free-prides.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\telse desc[#desc+1] = _t\"#GREY#* You need to have free the Vor Pride orcs.#WHITE#\" end"
+      },
+      {
+        "line": 36,
+        "text": "\tif self:isStatus(self.COMPLETED, \"rak-shor-pride\") then desc[#desc+1] = _t\"#LIGHT_GREEN#* You have freed all the Rak'Shor Pride orcs.#WHITE#\""
+      },
+      {
+        "line": 37,
+        "text": "\telse desc[#desc+1] = _t\"#GREY#* You need to have free the Rak'Shor Pride orcs.#WHITE#\" end"
+      },
+      {
+        "line": 38,
+        "text": "\tif self:isStatus(self.COMPLETED, \"gorbat-pride\") then desc[#desc+1] = _t\"#LIGHT_GREEN#* You have freed all the Gorbat Pride orcs.#WHITE#\""
+      },
+      {
+        "line": 39,
+        "text": "\telse desc[#desc+1] = _t\"#GREY#* You need to have free the Gorbat Pride orcs.#WHITE#\" end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68bbc298009666a0448be00b986bf2b707b3d4478be2e3fe01dd2d3ad5ff051a",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 204,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 205,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 206,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +3 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 207,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -1\","
+      },
+      {
+        "line": 208,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68bc77c62b636eb9f2536a8f53a14d45b740bf1ccfac3c6260b651121c4bf58f",
+    "public_source_path": "tome-orcs/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 377,
+        "text": "\tlong_desc = function(self, eff) return _t\"The Mecharachnid is out of sight of the annihilator; direct control will be lost!\" end,"
+      },
+      {
+        "line": 378,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 379,
+        "text": "\tsubtype = { miscellaneous=true },"
+      },
+      {
+        "line": 380,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 381,
+        "text": "\tparameters = { },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68ea672262355e084dd5474940f8526d177a246ea6394250ff4415abe5692e86",
+    "public_source_path": "tome-orcs/data/zones/primal-forest/grids.lua",
+    "lines": [
+      {
+        "line": 122,
+        "text": "\ton_move = function(self, x, y, who)"
+      },
+      {
+        "line": 123,
+        "text": "\t\tif not who or not who.player then return end"
+      },
+      {
+        "line": 124,
+        "text": "\t\tif who.runStop then who:runStop(_t\"climb\") end"
+      },
+      {
+        "line": 125,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Huge Tree\", _t\"You think you can climb this tree if you want.\", function(ret) if ret then"
+      },
+      {
+        "line": 126,
+        "text": "\t\t\tgame:changeLevel(2)"
+      },
+      {
+        "line": 127,
+        "text": "\t\tend end, _t\"Climb\", _t\"Stay\")"
+      },
+      {
+        "line": 132,
+        "text": "\tdefine_as = \"DOWN_TO_GROUND\","
+      },
+      {
+        "line": 133,
+        "text": "\ttype = \"floor\", subtype = \"primal trunk\","
+      },
+      {
+        "line": 134,
+        "text": "\tname = \"climb back to the ground\", image=\"terrain/primal_trunk/primal_forest_trunk_down.png\", z = 6,"
+      },
+      {
+        "line": 135,
+        "text": "\tdisplay_h=2, display_y=-0.5, display_w=2, display_x=-0.5,"
+      },
+      {
+        "line": 136,
+        "text": "\tdisplay = '<', color_r=255, color_g=255, color_b=0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6900eabbcc547d732a7c8d91455c6e226b383c4d5ec054d7a95e70121953afb8",
+    "public_source_path": "tome-orcs/data/general/objects/steamsaw.lua",
+    "lines": [
+      {
+        "line": 124,
+        "text": ""
+      },
+      {
+        "line": 125,
+        "text": "newEntity{ base = \"BASE_STEAMSAW\", define_as = \"STEAMSAW_BASE5\","
+      },
+      {
+        "line": 126,
+        "text": "\tname = \"voratun steamsaw\", short_name = \"voratun\","
+      },
+      {
+        "line": 127,
+        "text": "\tlevel_range = {40, 50},"
+      },
+      {
+        "line": 128,
+        "text": "\trequire = { stat = { str=48 }, },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69230ff4c4da9ec2d7200d726135924ffc6b950c5a068af5e872e181513721e0",
+    "public_source_path": "tome-orcs/data/talents/steam/turrets.lua",
+    "lines": [
+      {
+        "line": 700,
+        "text": "\tend,"
+      },
+      {
+        "line": 701,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 702,
+        "text": "\t\treturn ([[Send a surge of power into all turrets in sight, extending their duration by %d turns and granting them a charged shield absorbing %d damage for 10 turns. While the shield holds, each turn the turret will project a bolt of lightning dealing %0.2f lightning damage to a random enemy in radius 6, with a 25%% chance to daze."
+      },
+      {
+        "line": 703,
+        "text": "\t\tThe effects will increase with your Steampower.]]):"
+      },
+      {
+        "line": 704,
+        "text": "\t\ttformat(t.getDuration(self,t), t.getShield(self,t), damDesc(self, DamageType.FIRE, t.getDamage(self,t)))"
+      },
+      {
+        "line": 705,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "693cd8e3ac4140421b26bd5b3c44708dec32cda5351a74ee3cc9600f1cafabfd",
+    "public_source_path": "tome-orcs/superload/mod/class/Actor.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": "_M:bindHook(\"Actor:tooltip\", function(self, data)"
+      },
+      {
+        "line": 48,
+        "text": "\tif self:knowTalent(self.T_STEAM_POOL) then"
+      },
+      {
+        "line": 49,
+        "text": "\t\tdata.ts:add(_t\"#FFD700#St. power#FFFFFF#: \", self:colorStats(\"combatSteampower\"), true)"
+      },
+      {
+        "line": 50,
+        "text": "\tend"
+      },
+      {
+        "line": 51,
+        "text": "end)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "695007aa11f797d93468f7fc713d555b5c120006850a2913c7dd441e266633f0",
+    "public_source_path": "tome-orcs/data/ingredients.lua",
+    "lines": [
+      {
+        "line": 107,
+        "text": "\ttype = \"misc\","
+      },
+      {
+        "line": 108,
+        "text": "\ticon = \"object/brain_in_jar.png\","
+      },
+      {
+        "line": 109,
+        "text": "\tname = \"brain in a jar\","
+      },
+      {
+        "line": 110,
+        "text": "\tdesc = _t[[A still living brain of a powerful psionic creature.]],"
+      },
+      {
+        "line": 111,
+        "text": "\tmin = 0, max = INFINITY,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6951b53b56bf5d699090bfc9495285ed8479ee65ad5afe10b4a567c73557d556",
+    "public_source_path": "tome-orcs/data/timed_effects/floor.lua",
+    "lines": [
+      {
+        "line": 63,
+        "text": ""
+      },
+      {
+        "line": 64,
+        "text": "floorEffect{"
+      },
+      {
+        "line": 65,
+        "text": "\tdesc = _t\"Moon Radiance\", name = \"MOONWELL\", image = \"effects/zone_aura_out_of_time.png\","
+      },
+      {
+        "line": 66,
+        "text": "\tlong_desc = _t\"The target is under the effect of the moons. Decreasing lite and sight radius by 1, increasing stun immunity by 30%, granting 10 stealth and darkness resistance by 30%.\","
+      },
+      {
+        "line": 67,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "695a4e7f7157b6988b70583565f25552e7c6c8971d3c2d474304b005c70311d2",
+    "public_source_path": "tome-orcs/data/quests/amakthel.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "name = _t\"The Dead God Awaits\""
+      },
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6970e251f39978bf8bd8255218c1bdfbf5c12b799115f42cfb443b1ba8b0ec8b",
+    "public_source_path": "tome-orcs/data/lore/weissi.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\tname = _t\"telepathic message (3)\","
+      },
+      {
+        "line": 56,
+        "text": "\talways_pop = true,"
+      },
+      {
+        "line": 57,
+        "text": "\tlore = _t[[Did you know you killed us? You did, in one potential future, ordering our genocide from atop a steel drake.  In others, it was the Dominion, the Allied Kingdoms, Flamewright Industries, the Zigur-Thaloren Pact, or countless other transient mortal city-states.  We've been torn apart by Gerlyk, and dissected by Angolwen at the direction of Headmistress Argoniel or Chief Genius Tannen (yes, the smug git actually called himself that).  We've been devoured (literally and metaphorically) by the New Conclave under Mother Astelrid, wiped out by a plague engineered by the Grand Corruptor, drowned as the world was flooded by the Naloren, and reduced to ash by the reborn Crimson Dragonbrood.  We've been captured as torture-toys by the Demons and The Master's undead servitors, hunted for magical reagents by the Reknor Confederacy, and kept as adding machines by the Greater Republic of Steam."
+      },
+      {
+        "line": 58,
+        "text": ""
+      },
+      {
+        "line": 59,
+        "text": "You know, you should thank the Scourge from the West.  We certainly do."
+      },
+      {
+        "line": 60,
+        "text": ""
+      },
+      {
+        "line": 61,
+        "text": "In most, it was the Sher'Tul, eliminating their closest competitor, or the Mal'Rokka, taking Eyal for themselves.  In the few where we won every war, a meteor destroyed Eyal instead - a meteor that has now been intercepted by debris, from what you call the Spellblaze.  You're welcome - a contingent of our people kept the Mal'Rokka suppressed for long enough to allow that to happen.  If you want to see an example of how thoroughly existence wants to erase us, just ask them what they know about the \"Dust Mages.\""
+      },
+      {
+        "line": 62,
+        "text": ""
+      },
+      {
+        "line": 63,
+        "text": "We don't advise learning psychic prognostication with such commitment as we did.  To see this many possibilities, to gaze into infinity with such detail without infinity gazing back...  you have to feel it.  Every spear through our hearts, every limb burned off...  and we all did it together, linking our minds to accomplish this, so all of us have suffered through this.  And after all that, we still can't be 100% sure it's accurate, although we've gotten to more 9s after 99.9% than we can actually count.]],"
+      },
+      {
+        "line": 64,
+        "text": "}"
+      },
+      {
+        "line": 65,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6971e70886440e4b2dce2e1241febe893cbeb6c6d1a949cbb13585541e8262bf",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1815,
+        "text": ""
+      },
+      {
+        "line": 1816,
+        "text": "newTalent{"
+      },
+      {
+        "line": 1817,
+        "text": "\tname = \"Toxic Shell\", short_name = \"TINKER_TOXIC_SHELL\","
+      },
+      {
+        "line": 1818,
+        "text": "\ttype = {\"steamtech/other\",1},"
+      },
+      {
+        "line": 1819,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69c4df21cd818c6980a639d3beffdff5bbf9342ace77366f4e8dff43995b4d9f",
+    "public_source_path": "tome-orcs/data/birth/worlds.lua",
+    "lines": [
+      {
+        "line": 63,
+        "text": "\t\t_t\"But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.\","
+      },
+      {
+        "line": 64,
+        "text": "\t\t_t\"A civilization of steam giants whose mastery of steamtech makes them incredible foes.\","
+      },
+      {
+        "line": 65,
+        "text": "\t\t_t\"Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!\","
+      },
+      {
+        "line": 66,
+        "text": "\t\t_t\"Craft your own steamsaws, rocket boots, steam powered armours, and all kind of steamy technology!\","
+      },
+      {
+        "line": 67,
+        "text": "\t\t_t\"This is your destiny! For Garkul's Legacy, for the Glory of the Pride!\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69d1585ea9f84b2fb42ec5d7466691697c266e4a6ba65702b61c55efcc42d8c6",
+    "public_source_path": "tome-orcs/data/chats/kruk-tinker-shop.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 35,
+        "text": "\t\t{_t\"Please train me in physics.\", action=function(npc, player)"
+      },
+      {
+        "line": 36,
+        "text": "\t\t\tgame.logPlayer(player, \"The tinker spends some time with you, teaching you the basics of smithing.\")"
+      },
+      {
+        "line": 37,
+        "text": "\t\t\tplayer:incMoney(-100)"
+      },
+      {
+        "line": 38,
+        "text": "\t\t\tplayer:learnTalentType(\"steamtech/physics\", true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "69f2a156ebe24b2bc00865b2d09bfe0b58efbfef0c082dbe37c84b52bc4b033a",
+    "public_source_path": "tome-orcs/data/zones/gem/grids.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "newEntity{"
+      },
+      {
+        "line": 36,
+        "text": "\tdefine_as = \"GEM_ENTRANCE\","
+      },
+      {
+        "line": 37,
+        "text": "\tname = \"breach into the giant mole hull\", image = \"terrain/grass_burnt1.png\", add_displays = {class.new{z=4, image=\"terrain/G_E_M_entrance.png\", display_w=4, display_h=4, display_x=-1.5, display_y=-2.5}},"
+      },
+      {
+        "line": 38,
+        "text": "\tdisplay = '>', color_r=255, color_g=255, color_b=0,"
+      },
+      {
+        "line": 39,
+        "text": "\tnotice = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a0c8e749284952254a85d5cbd58ad559faf7f1c0fb6f34f14aa7a10b8f4ca83",
+    "public_source_path": "tome-orcs/data/general/npcs/yeti.lua",
+    "lines": [
+      {
+        "line": 92,
+        "text": ""
+      },
+      {
+        "line": 93,
+        "text": "newEntity{ base = \"BASE_NPC_YETI\", define_as = \"YETI_DEMOLISHER\","
+      },
+      {
+        "line": 94,
+        "text": "\tname = \"yeti demolisher\", color=colors.GREY,"
+      },
+      {
+        "line": 95,
+        "text": "\tdesc = _t[[This huge humanoid form is coated with a thick white fur, with large, vicious claws. Will you welcome the embrace of its large muscular arms?]],"
+      },
+      {
+        "line": 96,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a10dc52e0ee2991ae5018cbd66e9a4b9c38c1890870d4ab145c924a31f3fc92",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1599,
+        "text": "newEntity{ base = \"BASE_STEAMSAW\","
+      },
+      {
+        "line": 1600,
+        "text": "\tpower_source = {steam=true, arcane=true},"
+      },
+      {
+        "line": 1601,
+        "text": "\tname = \"Mirrorazor\", image = \"object/artifact/mirrorazor.png\","
+      },
+      {
+        "line": 1602,
+        "text": "\tunided_name = _t\"rippling portal\", unique = true,"
+      },
+      {
+        "line": 1603,
+        "text": "\tmoddable_tile = \"special/%s_mirrorazor\","
+      },
+      {
+        "line": 1649,
+        "text": "\t\t\t\t\tif who.player and self.lore then"
+      },
+      {
+        "line": 1650,
+        "text": "\t\t\t\t\t\tgame.level.map:removeObject(who.x, who.y, idx)"
+      },
+      {
+        "line": 1651,
+        "text": "\t\t\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Screw that!\", _t\"Oh, for the love of...  You're way too busy to deal with this nonsense.  You rev up Mirrorazor again, re-syncing it with the Mirror Universe, and toss the note back in.  A different note flies out the other side, miraculously not torn to shreds by the massive difference in planetary rotations.\", 500, function()"
+      },
+      {
+        "line": 1652,
+        "text": "\t\t\t\t\t\t\tgame.party:learnLore(self.lore2)\t\t\t\t\t\t\t"
+      },
+      {
+        "line": 1653,
+        "text": "\t\t\t\t\t\tend)"
+      },
+      {
+        "line": 1659,
+        "text": "\t\t\tgame.level.map:addObject(target.x, target.y, o)"
+      },
+      {
+        "line": 1660,
+        "text": ""
+      },
+      {
+        "line": 1661,
+        "text": "\t\t\tgame.bignews:saySimple(120, \"#LIGHT_BLUE#Mirrorazor shudders as a note falls out from a different timeline!\")"
+      },
+      {
+        "line": 1662,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1663,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a1267306cda2d27bf1d1fc50b00ddb0282ae2ae0fcd4c22474857d4b05d533a",
+    "public_source_path": "tome-orcs/data/general/npcs/yeti.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": ""
+      },
+      {
+        "line": 75,
+        "text": "newEntity{ base = \"BASE_NPC_YETI\","
+      },
+      {
+        "line": 76,
+        "text": "\tname = \"yeti warrior\", color=colors.GREY,"
+      },
+      {
+        "line": 77,
+        "text": "\tdesc = _t[[This huge humanoid form is coated with a thick white fur, with large, vicious claws. It looks angry.]],"
+      },
+      {
+        "line": 78,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/giant_yeti_yeti_warrior.png\", display_h=2, display_y=-1}}},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a26db615855b4b2c94337a908370a49e2057d116a2df085de419fdf28d957af",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1759,
+        "text": "\tlevel_range = {5, 12},"
+      },
+      {
+        "line": 1760,
+        "text": "\tmoddable_tile = \"special/%s_overcutter\","
+      },
+      {
+        "line": 1761,
+        "text": "\tdesc = _t[[Earlier steamsaws were notably not meant to be used with one hand.]],"
+      },
+      {
+        "line": 1762,
+        "text": "\trequire = { stat = { str=20 }, },"
+      },
+      {
+        "line": 1763,
+        "text": "\trarity = 270,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a2936b7676df97a42e95650f862a243752a289d64c1a54040f4749604d4f0c5",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1558,
+        "text": "\tname = \"CORROSIVE_FLECHETTE\", image = \"talents/flechette_burst.png\","
+      },
+      {
+        "line": 1559,
+        "text": "\tdesc = _t\"Corrosive Flechette\","
+      },
+      {
+        "line": 1560,
+        "text": "\tlong_desc = function(self, eff) return (\"%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage\"):tformat(eff.nb, eff.power) end,"
+      },
+      {
+        "line": 1561,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 1562,
+        "text": "\tcharges = function(self, eff) return eff.nb end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a398cc7fd45fed146066dbbc25f3d8829ea9056c2c35b668f067015a9d3f041",
+    "public_source_path": "tome-orcs/data/lore/sunwall.lua",
+    "lines": [
+      {
+        "line": 164,
+        "text": "\tid = \"orcs-gates-morning-3\","
+      },
+      {
+        "line": 165,
+        "text": "\tcategory = \"sunwall\","
+      },
+      {
+        "line": 166,
+        "text": "\tname = _t\"journal of High Sun Paladin Aeryn\","
+      },
+      {
+        "line": 167,
+        "text": "\tlore = _t[[This is it...  the day I've dreaded for most of my life is here, and yet it still comes as a shock.  I expected it for almost every day of my life...  until last year.  The Scourge from the West defeated the Prides, raced down the Charred Scar, and stormed the tower of High Peak to fight by my side against a threat far greater than I dreamed possible.  We'd been reunited with a cooperative and nearly-unified Maj'Eyal, led by a king willing and able to help us in any way, armed with a plan to keep the orcs completely under control...  it's as if the Sun had begun to creep over the horizon to start the dawn of peace in Var'Eyal, right before going dark forever and taking the moons with it.  The love of my life is presumed dead; the candle in the night of the years before has been snuffed out. Nothing - no plan that hasn't been shattered, no inspiration that hasn't fallen, no hope that hasn't turned to despair - is left to guide me."
+      },
+      {
+        "line": 168,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a494f43a3367b22ffd3ad45f665a005c2f764b463ecdef78c3d908b5f01e870",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1832,
+        "text": "\t\t\ttarget:setEffect(target.EFF_METAL_POISONING, t.duration(self, t), {src=self, power=t.getPower(self, t), speed=t.getPower(self, t)-10, apply_power=self:combatSteampower(), no_ct_effect=true})"
+      },
+      {
+        "line": 1833,
+        "text": "\t\telse"
+      },
+      {
+        "line": 1834,
+        "text": "\t\t\tgame.logSeen(target, \"%s resists the toxin!\", target:getName():capitalize())"
+      },
+      {
+        "line": 1835,
+        "text": "\t\tend"
+      },
+      {
+        "line": 1836,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a63ef2f2914a52d478b1ee25b4a613ec0f217906014fefab9652015f5db35c5",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "local DamageType = require \"engine.DamageType\""
+      },
+      {
+        "line": 25,
+        "text": ""
+      },
+      {
+        "line": 26,
+        "text": "local medical = {_t\"simple\", _t\"potent\", _t\"powerful\", _t\"great\", _t\"amazing\"}"
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "for i = 1, 5 do"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a911a1686a286069e69254d681a00f6a1e44b1554c05ea6f87dadbdddea726a",
+    "public_source_path": "tome-orcs/data/birth/races/whitehooves.lua",
+    "lines": [
+      {
+        "line": 77,
+        "text": "\t\thorns = {"
+      },
+      {
+        "line": 78,
+        "text": "\t\t\t{name=_t\"Horns 1\", file=\"base_horns_01\"},"
+      },
+      {
+        "line": 79,
+        "text": "\t\t\t{name=_t\"Horns 2\", file=\"base_horns_02\"},"
+      },
+      {
+        "line": 80,
+        "text": "\t\t\t{name=_t\"Horns 3\", file=\"base_horns_03\"},"
+      },
+      {
+        "line": 81,
+        "text": "\t\t\t{name=_t\"Horns 4\", file=\"base_horns_04\"},"
+      },
+      {
+        "line": 82,
+        "text": "\t\t\t{name=_t\"Demonic Horns 1\", file=\"horns_01\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 83,
+        "text": "\t\t\t{name=_t\"Demonic Horns 2\", file=\"horns_02\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 84,
+        "text": "\t\t\t{name=_t\"Demonic Horns 3\", file=\"horns_03\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      },
+      {
+        "line": 85,
+        "text": "\t\t\t{name=_t\"Demonic Horns 4\", file=\"horns_04\", addons={\"ashes-urhrok\"}, unlock=\"cosmetic_doomhorns\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a911acc1202413494c68509aa5d05f06f11b0200c3d7cb4e4294c791ff91d21",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1391,
+        "text": ""
+      },
+      {
+        "line": 1392,
+        "text": "newTalent{"
+      },
+      {
+        "line": 1393,
+        "text": "\tname = \"Incendiary Shell\", short_name = \"TINKER_INCENDIARY_SHELL\","
+      },
+      {
+        "line": 1394,
+        "text": "\ttype = {\"steamtech/other\",1},"
+      },
+      {
+        "line": 1395,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b106ccadd4c8a780039507e06761cbb3ea4ac9ee4ffd6f233d40999162f3441",
+    "public_source_path": "tome-orcs/overload/data/texts/unlock-tinker_annihilator.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Annihilator (Tinker)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[After researching the remains of many foes you found new ways to bring the literal heat of battle to your foes!"
+      },
+      {
+        "line": 22,
+        "text": "You can now create new characters with the #LIGHT_GREEN#Annihilator class#WHITE#."
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "Annihilators are Tinkers that can create and use heavy weapons (flamethrowers, shockstaves, boltguns) and apply their tinkering knowledge to create advanced war contraptions."
+      },
+      {
+        "line": 25,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 26,
+        "text": "- Unleash the power of your heavy weapons"
+      },
+      {
+        "line": 27,
+        "text": "- Construct automated turrets for war or even medical purposes"
+      },
+      {
+        "line": 28,
+        "text": "- Build an mecharachnid bot to help you in combat that can act independently or be directly piloted"
+      },
+      {
+        "line": 29,
+        "text": "- Make your foes suffer in many new ways: fire rockets and grenades at them, equip an exoskeleton, ... #WHITE#"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "All Tinker classes use Steam for their powers."
+      },
+      {
+        "line": 32,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b1b423f0594cb770f61c096c2afe0951ac934e9ee5776cb20fad3e18fcde9a4",
+    "public_source_path": "tome-orcs/data/zones/gates-of-morning/traps.lua",
+    "lines": [
+      {
+        "line": 81,
+        "text": ""
+      },
+      {
+        "line": 82,
+        "text": "newEntity{ base = \"BASE_STORE\", define_as = \"RUNES\","
+      },
+      {
+        "line": 83,
+        "text": "\tname=\"Sook's Runes and other Harmless Contraptions\","
+      },
+      {
+        "line": 84,
+        "text": "\tdisplay='5', color=colors.LIGHT_RED,"
+      },
+      {
+        "line": 85,
+        "text": "\tresolvers.store(\"SCROLL\", \"sunwall\", \"store/shop_door.png\", \"store/shop_sign_sooks_runes.png\"),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b21f849b776cb23c1cd0c3ec8d337f43fa8013046cdcd2aa2f0b2a97b9e2e7e",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1557,
+        "text": "newEffect{"
+      },
+      {
+        "line": 1558,
+        "text": "\tname = \"CORROSIVE_FLECHETTE\", image = \"talents/flechette_burst.png\","
+      },
+      {
+        "line": 1559,
+        "text": "\tdesc = _t\"Corrosive Flechette\","
+      },
+      {
+        "line": 1560,
+        "text": "\tlong_desc = function(self, eff) return (\"%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage\"):tformat(eff.nb, eff.power) end,"
+      },
+      {
+        "line": 1561,
+        "text": "\ttype = \"physical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b30151f956e66b7cc54f5be0b5d0531da807e55a101a77930b18fb39987e003",
+    "public_source_path": "tome-orcs/data/talents/psionic/action-at-a-distance.lua",
+    "lines": [
+      {
+        "line": 244,
+        "text": "\tend,"
+      },
+      {
+        "line": 245,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 246,
+        "text": "\t\treturn ([[Any time you deal damage with a psionic ability you incur a negative biofeedback in your foes, stacking up to %d times for 5 turns."
+      },
+      {
+        "line": 247,
+        "text": "\t\tEach stack reduces their physical save by %d, defense and armour by %d."
+      },
+      {
+        "line": 248,
+        "text": "\t\tThis effect may only occur once per turn.]]):"
+      },
+      {
+        "line": 249,
+        "text": "\t\ttformat(t.getNb(self, t), t.getSave(self, t), t.getPower(self, t))"
+      },
+      {
+        "line": 250,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b3d22b8ec508b234b08b8847108d6f2d438ed5723d27829bf2e4f7fff91cf0b",
+    "public_source_path": "tome-orcs/data/lore/pocket-time.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "\tid = \"pocket-time-1\","
+      },
+      {
+        "line": 45,
+        "text": "\tcategory = \"pocket of distorted time\","
+      },
+      {
+        "line": 46,
+        "text": "\tname = _t\"a telepathic message <Rough Drafts>\","
+      },
+      {
+        "line": 47,
+        "text": "\ttemplate = true, lore = _t[[<? Lore.init_pocket_time_data() ?>Once upon a time, there was a Halfling alchemist by the name of <?=Lore.pocket_time_winner.name?>.  Alongside her trusty golem, she marched into the Trollmire, disposing of all foes in her path; when she encountered Prox, though, and he bent down to roar mere inches from her face, well inside a bomb's blast radius, she panicked and pulled a vial off her belt--"
+      },
+      {
+        "line": 48,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b539b16f2612d3a3d474b26348cdf5567f34bc293db31d4787ec968d2dd4d50",
+    "public_source_path": "tome-orcs/data/achievements/story.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\tname = \"The High Lady's Destiny (Finale)\", id = \"ORCS_DONE_SUNWALL\", category = \"Embers of Rage\","
+      },
+      {
+        "line": 36,
+        "text": "\tshow = \"full\", huge=true,"
+      },
+      {
+        "line": 37,
+        "text": "\tdesc = _t[[Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.]],"
+      },
+      {
+        "line": 38,
+        "text": "\tmode = \"player\","
+      },
+      {
+        "line": 39,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b5bfe8e2cb0f2921ea82a0c9d734c657f07f82e8f9b4ef6c0ac7c20bd7c855a",
+    "public_source_path": "tome-orcs/data/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 45,
+        "text": "\t},"
+      },
+      {
+        "line": 46,
+        "text": "\titems = {"
+      },
+      {
+        "line": 47,
+        "text": "\t\tGEM_SAPPHIRE = _t\"sapphire\","
+      },
+      {
+        "line": 48,
+        "text": "\t},"
+      },
+      {
+        "line": 49,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b68997fd9e0a598196fc055b2937b195d79cbcf4d2bc239bc0b30989dc921cb",
+    "public_source_path": "tome-orcs/data/talents/spells/occult-technomancy.lua",
+    "lines": [
+      {
+        "line": 230,
+        "text": "\t\tlocal slow = t.getSlow(self, t)"
+      },
+      {
+        "line": 231,
+        "text": "\t\tlocal proj = t.getProj(self, t)"
+      },
+      {
+        "line": 232,
+        "text": "\t\treturn ([[Spin your saw at incredible speeds for an instant, fully breaking reality in a 3-wide beam in front of you."
+      },
+      {
+        "line": 233,
+        "text": "\t\tAny creatures caught by the beam take %0.2f occult damage and are untethered from reality, reducing their global speed by %d%% and the speed of any projectiles they fire by %d%% for 4 turns."
+      },
+      {
+        "line": 234,
+        "text": "\t\tAt level 3 any projectiles caught in the beam are instantly annihilated."
+      },
+      {
+        "line": 235,
+        "text": "\t\tAt level 5 the beam is so strong that all creatures caught inside are knocked back 3 tiles."
+      },
+      {
+        "line": 236,
+        "text": "\t\tThe breach is so deep that the beam will always have the maximum possible length it can."
+      },
+      {
+        "line": 237,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):tformat(damDesc(self, DamageType.OCCULT, damage), 100 * slow, proj)"
+      },
+      {
+        "line": 238,
+        "text": "\tend,"
+      },
+      {
+        "line": 239,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b6f36181ed352256441405c0398a4c7f2c180191be5dd050c14fad6a59a085c",
+    "public_source_path": "tome-orcs/data/chats/shertul-priest.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "Who are you, young creature, to stand up to a High Priest of Amakthel? Do you not know that you are before a servant of the Almighty Creator, the Sunfather, the God of Gods, Lord of all Eyal? In the millenia I have lived I have killed whole races like yourself. I have even wrenched the spirits of immortal gods from this world. So who are you, little one, who dare defy me?]],"
+      },
+      {
+        "line": 35,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 36,
+        "text": "\t\t{(\"I... am %s, of the seed of Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=is_orc, action=on_end},"
+      },
+      {
+        "line": 37,
+        "text": "\t\t{(\"I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=is_yeti, action=on_end},"
+      },
+      {
+        "line": 38,
+        "text": "\t\t{(\"I... am %s and I am not mortal! Garkul taught the orcs to fight legends, and to flinch not from even the most desperate deed. We learned that from them! Here and now I face you without fear or hesitation, for cold touch of undeath is within me. And I will #{bold}#break#{normal}# you!\"):tformat(player.name), cond=is_whitehoof, action=on_end},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b77b8adb3f7e0b559c5d5637ac2359fa8560e3ad0933fc2fa8a9d8f2f4f1b18",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 161,
+        "text": ""
+      },
+      {
+        "line": 162,
+        "text": "newEffect{"
+      },
+      {
+        "line": 163,
+        "text": "\tname = \"FROST_SALVE\", image = \"talents/frost_salve.png\","
+      },
+      {
+        "line": 164,
+        "text": "\tdesc = _t\"Frost Salve\","
+      },
+      {
+        "line": 165,
+        "text": "\tlong_desc = function(self, eff) return (\"Provides a frost aura, giving you +%d%% cold, nature and darkness affinity.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 166,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 167,
+        "text": "\tsubtype = { frost=true },"
+      },
+      {
+        "line": 168,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 169,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# uses a frost salve.\", _t\"+Frost Salve\" end,"
+      },
+      {
+        "line": 170,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is not affected anymore by the salve.\", _t\"-Frost Salve\" end,"
+      },
+      {
+        "line": 171,
+        "text": "\tparameters = { power=1 },"
+      },
+      {
+        "line": 182,
+        "text": "\tname = \"FIERY_SALVE\", image = \"talents/fiery_salve.png\","
+      },
+      {
+        "line": 183,
+        "text": "\tdesc = _t\"Fiery Salve\","
+      },
+      {
+        "line": 184,
+        "text": "\tlong_desc = function(self, eff) return (\"Provides a frost aura, giving you +%d%% fire, light, and lightning affinity.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 185,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 186,
+        "text": "\tsubtype = { fire=true },"
+      },
+      {
+        "line": 206,
+        "text": "\tname = \"WATER_SALVE\", image = \"talents/water_salve.png\","
+      },
+      {
+        "line": 207,
+        "text": "\tdesc = _t\"Water Salve\","
+      },
+      {
+        "line": 208,
+        "text": "\tlong_desc = function(self, eff) return (\"Provides a frost aura, giving you +%d%% blight, mind and acid affinity.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 209,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 210,
+        "text": "\tsubtype = { water=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b8091680a7207014a1cfd8a3c180f6eeba82c01578a5204910d6b530f7a22b8",
+    "public_source_path": "tome-orcs/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 382,
+        "text": "\tparameters = { power=0.1, hits=1 },"
+      },
+      {
+        "line": 383,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is overflowing with dark power!\", _t\"+Vamp Surge\" end,"
+      },
+      {
+        "line": 384,
+        "text": "\ton_lose = function(self, err) return _t\"#Target#'s dark aura fades.\", _t\"-Vamp Surge\" end,"
+      },
+      {
+        "line": 385,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 386,
+        "text": "\t\tself:effectTemporaryValue(eff, \"lifesteal\", eff.power)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6b834304f072aa4dae48214b4d4398439698329ed6be14d25795083f0c593e02",
+    "public_source_path": "tome-orcs/data/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "newRecipe{ id = \"MANA_COIL\","
+      },
+      {
+        "line": 35,
+        "text": "\tname = _t\"Mana Coil\", icon = \"shockbolt/object/tinkers_mana_coil_t5.png\","
+      },
+      {
+        "line": 36,
+        "text": "\tdesc = _t\"Mana coils can be attached to staves to improve mana regeneration and cast a lightning spell on spell hits.\","
+      },
+      {
+        "line": 37,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ba0b66d64f70ef807a8a9fa76b0eb795d74275adb376756c88caf989bc31ab6",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1142,
+        "text": "\t\ton_pre_use = function(self, who) return not who:attr(\"stimpak_capped\") end,"
+      },
+      {
+        "line": 1143,
+        "text": "\t\tname = function(self, who)"
+      },
+      {
+        "line": 1144,
+        "text": "\t\t\treturn _t\"inject yourself with painkillers, reducing all incoming damage by 5. Stacks up to 5 times. When the effect ends, lose 5% of your max life per stack\""
+      },
+      {
+        "line": 1145,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 1146,
+        "text": "\t\tpower = 4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6ba9a0410a2f908bbdaff02d9d7c1206e8a0182275233f75f3d6cfe925f819d4",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 71,
+        "text": "\tid = \"var-eyal-misc-4\","
+      },
+      {
+        "line": 72,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 73,
+        "text": "\tname = _t\"slaver's inquiry\","
+      },
+      {
+        "line": 74,
+        "text": "\tlore = _t[[The anti-scrying nexus you folk set up here is damn impressive, as is the time-release pseudo-rune powered by it - hard to find a spare spot on my skin for it, but I can feel it working for a few days after I'm back in Maj'Eyal.  Great for making sure we can get away from the West portal and disperse without the A.K. catching on or tracking us to a common point of convergence."
+      },
+      {
+        "line": 75,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bb697767195212c281b0ebe71326bd6a1c6b797a7609d767e3b5c1afe994c22",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1649,
+        "text": "\t\t\t\t\tif who.player and self.lore then"
+      },
+      {
+        "line": 1650,
+        "text": "\t\t\t\t\t\tgame.level.map:removeObject(who.x, who.y, idx)"
+      },
+      {
+        "line": 1651,
+        "text": "\t\t\t\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Screw that!\", _t\"Oh, for the love of...  You're way too busy to deal with this nonsense.  You rev up Mirrorazor again, re-syncing it with the Mirror Universe, and toss the note back in.  A different note flies out the other side, miraculously not torn to shreds by the massive difference in planetary rotations.\", 500, function()"
+      },
+      {
+        "line": 1652,
+        "text": "\t\t\t\t\t\t\tgame.party:learnLore(self.lore2)\t\t\t\t\t\t\t"
+      },
+      {
+        "line": 1653,
+        "text": "\t\t\t\t\t\tend)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bcb703128766ece00e8eeee089946008fa7d08ba673d75ba0d933f359b5644c",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 62,
+        "text": ""
+      },
+      {
+        "line": 63,
+        "text": "newTalent{"
+      },
+      {
+        "line": 64,
+        "text": "\tname = \"Medical Urgency Vest\", image = \"talents/implant__medical_injector.png\","
+      },
+      {
+        "line": 65,
+        "text": "\ttype = {\"steamtech/objects\", 1},"
+      },
+      {
+        "line": 66,
+        "text": "\tpoints = 1,"
+      },
+      {
+        "line": 78,
+        "text": "\tend,"
+      },
+      {
+        "line": 79,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 80,
+        "text": "\t\tgame.bignews:saySimple(120, \"#LIGHT_BLUE#Medical Urgency Vest selected to be used first by salves.\")"
+      },
+      {
+        "line": 81,
+        "text": "\t\tgame.logPlayer(self, \"This medical injector will now be used first if available when using medical salves.\")"
+      },
+      {
+        "line": 82,
+        "text": "\t\tself:setFirstMedicalInjector(t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bef7cd1f86c9e0fe1d3ccd0dec97ddede3200cdbac000633b5ac09354bf2a19",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 579,
+        "text": "\tname = \"SEARED\","
+      },
+      {
+        "line": 580,
+        "text": "\tdesc = _t\"Seared\","
+      },
+      {
+        "line": 581,
+        "text": "\tlong_desc = function(self, eff) return (\"Fire resistance decreased by %d%% and mind save by %d.\"):tformat(eff.power, eff.power) end,"
+      },
+      {
+        "line": 582,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 583,
+        "text": "\tsubtype = { psionic=true, fire=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6bfef84247eaa0061f5c79843a01a983e1a9d2c15ac829a341a16dbd1fbc3a9b",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 130,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 131,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_DEFLECTION_FIELD\"..i,"
+      },
+      {
+        "line": 132,
+        "text": "\tname = (\"%s deflection field\"):tformat(metals[i]), image = \"object/tinkers_deflection_field_t5.png\","
+      },
+      {
+        "line": 133,
+        "text": "\ton_slot = \"BELT\","
+      },
+      {
+        "line": 134,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c0657f334bad3ff449aa13f2f68f92b45828826ca9d17ca2fb895133d69e4cd",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 1010,
+        "text": "\t\t\teff = src:hasEffect(src.EFF_UPGRADE)"
+      },
+      {
+        "line": 1011,
+        "text": "\t\t\tif rng.percent(eff.power/3) and self:removeEffectsFilter(self, {status=\"detrimental\", ignore_crosstier=true}, 1) > 0 then"
+      },
+      {
+        "line": 1012,
+        "text": "\t\t\t\tgame.logSeen(self, \"#ORCHID#%s has recovered!#LAST#\", self:getName():capitalize())"
+      },
+      {
+        "line": 1013,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 1014,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c0de32d858b74f1ea1834b781f49e693275978c556a7c260d5c255a9aba9487",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 982,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 983,
+        "text": "\tname = \"Jetpack\", image = \"object/artifact/jetpack.png\","
+      },
+      {
+        "line": 984,
+        "text": "\tunided_name = _t\"a jetpack\","
+      },
+      {
+        "line": 985,
+        "text": "\tdesc = _t[[Finally.]],"
+      },
+      {
+        "line": 986,
+        "text": "\tlevel_range = {40, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c1d576afa488ee2bb5861e32349224cfa50ba1001fab53e15a15dc18d642288",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 454,
+        "text": "\tcharges = function(self, eff) return eff.silence and _t\"sil\" or \"\" end,"
+      },
+      {
+        "line": 455,
+        "text": "\ton_gain = function(self, eff) return _t\"#Target# is assailed by an automated saw blade.\", _t\"+Explosive Wounds\" end,"
+      },
+      {
+        "line": 456,
+        "text": "\ton_lose = function(self, eff) return _t\"The saw embedded in #Target# flies back its source.\", _t\"-Explosive Wounds\" end,"
+      },
+      {
+        "line": 457,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 458,
+        "text": "\t\tif eff.silence then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c21b3baf3345536b64acf41469bdc5a8f44ca6b89836f8419109688f72e1ae7",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 78,
+        "text": "\tend,"
+      },
+      {
+        "line": 79,
+        "text": "\taction = function(self, t)"
+      },
+      {
+        "line": 80,
+        "text": "\t\tgame.bignews:saySimple(120, \"#LIGHT_BLUE#Medical Urgency Vest selected to be used first by salves.\")"
+      },
+      {
+        "line": 81,
+        "text": "\t\tgame.logPlayer(self, \"This medical injector will now be used first if available when using medical salves.\")"
+      },
+      {
+        "line": 82,
+        "text": "\t\tself:setFirstMedicalInjector(t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c2bb65f861c1eb39463fdb7ca629a5b29f43fb1420d77d651206840c92458bc",
+    "public_source_path": "tome-orcs/data/tinkers/mechanical.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "newRecipe{ id = \"HAND_CANNON\","
+      },
+      {
+        "line": 35,
+        "text": "\tname = _t\"Hand Cannon\", icon = \"shockbolt/object/tinkers_hand_cannon_t5.png\","
+      },
+      {
+        "line": 36,
+        "text": "\tdesc = _t\"Allows you to fire your equipped shot or arrow ammo via your gloves.\","
+      },
+      {
+        "line": 37,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      },
+      {
+        "line": 38,
+        "text": "\trandom_schematic = {level=35, rarity=50, cost=200},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c3cb88d83c6d6bf288a612ac5581f73ab4365fe3102f692e3b2cf0fa86e56dc",
+    "public_source_path": "tome-orcs/data/birth/worlds.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\t{"
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"The Prides lie in ruins!\","
+      },
+      {
+        "line": 57,
+        "text": "\t\t_t\"The Sorcerers have been defeated!\","
+      },
+      {
+        "line": 58,
+        "text": "\t\t_t\"Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.\","
+      },
+      {
+        "line": 59,
+        "text": "\t\t_t\"The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c3d005b095c697083c2c5dcae555d6d63168a9c8f44a1178c6c1b7135210b16",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 511,
+        "text": "newEffect{"
+      },
+      {
+        "line": 512,
+        "text": "\tname = \"NET_PROJECTOR\", image = \"talents/net_projector.png\","
+      },
+      {
+        "line": 513,
+        "text": "\tdesc = _t\"Net Projector\","
+      },
+      {
+        "line": 514,
+        "text": "\tlong_desc = function(self, eff) return (\"The target has been pinned by an electrified net, reducing all resistances by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 515,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 516,
+        "text": "\tsubtype = { steamtech=true, pin=true },"
+      },
+      {
+        "line": 517,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 518,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is trapped by the net.\", _t\"+Net Projector\" end,"
+      },
+      {
+        "line": 519,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the net.\", _t\"-Net Projector\" end,"
+      },
+      {
+        "line": 520,
+        "text": "\tparameters = {power=10},"
+      },
+      {
+        "line": 521,
+        "text": "\tactivate = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c40f15663675b99432765cdd0c9f0887ce94a62a15e31631a96ffae9e60012f",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 923,
+        "text": "\tname = \"Cloak of Daggers\", image = \"object/artifact/cloak_of_daggers.png\","
+      },
+      {
+        "line": 924,
+        "text": "\tunided_name = _t\"bladed cloak\","
+      },
+      {
+        "line": 925,
+        "text": "\tdesc = _t[[This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.]],"
+      },
+      {
+        "line": 926,
+        "text": "\tlevel_range = {30, 40},"
+      },
+      {
+        "line": 927,
+        "text": "\trarity = 240,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c67c777ea8858099068933f593ccd0f447d38411d118da343e489fa9e440e4d",
+    "public_source_path": "tome-orcs/data/birth/races/yeti.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "-- getBirthDescriptor(\"race\", \"Giant\").descriptor_choices.subrace[\"Kruk Yeti\"] = \"allow\""
+      },
+      {
+        "line": 21,
+        "text": "newBirthDescriptor{"
+      },
+      {
+        "line": 22,
+        "text": "\ttype = \"race\","
+      },
+      {
+        "line": 31,
+        "text": "\t\tsubrace ="
+      },
+      {
+        "line": 32,
+        "text": "\t\t{"
+      },
+      {
+        "line": 33,
+        "text": "\t\t\t['Kruk Yeti'] = \"allow\","
+      },
+      {
+        "line": 34,
+        "text": "\t\t\t__ALL__ = \"disallow\","
+      },
+      {
+        "line": 35,
+        "text": "\t\t},"
+      },
+      {
+        "line": 95,
+        "text": "{"
+      },
+      {
+        "line": 96,
+        "text": "\ttype = \"subrace\","
+      },
+      {
+        "line": 97,
+        "text": "\tname = \"Kruk Yeti\","
+      },
+      {
+        "line": 98,
+        "text": "\tlocked = function() return profile.mod.allow_build.race_yeti end,"
+      },
+      {
+        "line": 99,
+        "text": "\tlocked_desc = _t\"Infuse the mind, sacrifice the body but the Pride remains.\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c6dc2cc1a19a7e557c4cac2be65ed7b43f6c0929e494dde4f29a112f4aa2c8b",
+    "public_source_path": "tome-orcs/data/general/objects/steamgun.lua",
+    "lines": [
+      {
+        "line": 65,
+        "text": ""
+      },
+      {
+        "line": 66,
+        "text": "newEntity{ base = \"BASE_STEAMGUN\", define_as = \"STEAMGUN_BASE3\","
+      },
+      {
+        "line": 67,
+        "text": "\tname = \"dwarven-steel steamgun\", short_name = \"d.steel\","
+      },
+      {
+        "line": 68,
+        "text": "\tlevel_range = {20, 30},"
+      },
+      {
+        "line": 69,
+        "text": "\trequire = { stat = { dex=24 }, },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c6f9ad2f091a0a9249cb11b2072e20021c9942a5ff02208026dcf63aae4e7da",
+    "public_source_path": "tome-orcs/data/tinkers/mechanical.lua",
+    "lines": [
+      {
+        "line": 140,
+        "text": ""
+      },
+      {
+        "line": 141,
+        "text": "newRecipe{ id = \"KINETIC_STABILISER\","
+      },
+      {
+        "line": 142,
+        "text": "\tname = _t\"Kinetic Stabiliser\", icon = \"shockbolt/object/tinkers_kinetic_stabiliser_t5.png\","
+      },
+      {
+        "line": 143,
+        "text": "\tdesc = _t\"Helps keep your feet on the ground, but still allows mobility.\","
+      },
+      {
+        "line": 144,
+        "text": "\tbase_ml = 1, max_ml = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c7677fd01ea94255597937aac3367d1c74f83d36d50408fc90660e5ae2efe45",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1501,
+        "text": ""
+      },
+      {
+        "line": 1502,
+        "text": "newTalent{"
+      },
+      {
+        "line": 1503,
+        "text": "\tname = \"Impaler Shell\", short_name = \"TINKER_IMPALER_SHELL\","
+      },
+      {
+        "line": 1504,
+        "text": "\ttype = {\"steamtech/other\",1},"
+      },
+      {
+        "line": 1505,
+        "text": "\tpoints = 5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c7b47918c1fa1d8b35ff67c8e0d65afc098d22bdafc98a71b507b0051f6240f",
+    "public_source_path": "tome-orcs/data/quests/amakthel.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"Deep within Eyal you found a huge cavern containing some of the remains of the great dead god Amakthel...\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"Along with what appears to be a living Sher'tul that seems to be trying to resurrect him.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It must be stopped at all cost, the Prides only just got their freedom back, you can not allow anything to take it away again!\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c848902707d1ce537c311035fbac91141e679f1b14718952f867503b43fc274",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/chemistry.lua",
+    "lines": [
+      {
+        "line": 376,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 377,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_ALCHEMISTS_HELPER\"..i,"
+      },
+      {
+        "line": 378,
+        "text": "\tname = (\"%s alchemist's helper\"):tformat(simple[i]), image = \"object/tinkers_alchemists_helper_t5.png\","
+      },
+      {
+        "line": 379,
+        "text": "\ton_slot = \"BELT\","
+      },
+      {
+        "line": 380,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6cad24c9fecd4cca3c116d25c059bc5a5a3f9c32a0e28a5c2c8aeedca69bece4",
+    "public_source_path": "tome-orcs/superload/mod/class/Game.lua",
+    "lines": [
+      {
+        "line": 27,
+        "text": "_M.unlocks_list.orcs_campaign_mage = _t\"Build Option: Mages in Orcs Campaign\""
+      },
+      {
+        "line": 28,
+        "text": "_M.unlocks_list.orcs_campaign_rogue = _t\"Build Option: Rogues in Orcs Campaign\""
+      },
+      {
+        "line": 29,
+        "text": "_M.unlocks_list.orcs_campaign_all_classes = _t\"Build Option: All classes in Orcs Campaign\""
+      },
+      {
+        "line": 30,
+        "text": "_M.unlocks_list.tinker_psyshot = _t\"Class: Psyshot\""
+      },
+      {
+        "line": 31,
+        "text": "_M.unlocks_list.mage_technomancer = _t\"Class evolution: Technomancer\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6cbc526cb9477aef21b2736bc8d8f07e09e54699f6d0b56352edaaf0cbcb0996",
+    "public_source_path": "tome-orcs/data/general/objects/tinkers/electricity.lua",
+    "lines": [
+      {
+        "line": 325,
+        "text": "for i = 1, 5 do"
+      },
+      {
+        "line": 326,
+        "text": "newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_VOLTAIC_SENTRY\"..i,"
+      },
+      {
+        "line": 327,
+        "text": "\tname = (\"%s voltaic sentry\"):tformat(metals[i]), image = \"object/tinkers_voltaic_sentry_t5.png\","
+      },
+      {
+        "line": 328,
+        "text": "\ton_slot = \"HANDS\","
+      },
+      {
+        "line": 329,
+        "text": "\tmaterial_level = i,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6cc5966eaaf5ff84583a3feec06f14461e1f0489bb18b5c77838ede4eb0b72fa",
+    "public_source_path": "tome-orcs/data/talents/spells/occult-technomancy.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "newTalent{"
+      },
+      {
+        "line": 21,
+        "text": "\tname = \"Metaphasic Spin\", short_name = \"METATEMPORAL_SPINNER\","
+      },
+      {
+        "line": 22,
+        "text": "\ttype = {\"spell/occult-technomancy\",1},"
+      },
+      {
+        "line": 23,
+        "text": "\trequire = technomancy_req_high1, is_technomancy = true, is_steam = true,"
+      },
+      {
+        "line": 280,
+        "text": "\t\tAny time the target uses a talent one of your cooling down spells is reduced by 1 (prioritizing Technomancy spells)."
+      },
+      {
+        "line": 281,
+        "text": "\t\tEach turn the link is up the target and any creature inside the link takes %0.2f occult damage."
+      },
+      {
+        "line": 282,
+        "text": "\t\tAs long as at least one link is up, the cooldown of your Metaphasic Spin spell is set to 6 turns instead of 30."
+      },
+      {
+        "line": 283,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):tformat(t.getDur(self, t), damDesc(self, DamageType.OCCULT, damage))"
+      },
+      {
+        "line": 284,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6cc8384b6fa2397df701f58d2457443d603fecb26885a7646525f2117f03faf8",
+    "public_source_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "\tgetBoltgunSaves = function(self, t) return self:combatTalentSteamDamage(t, 10, 35) end,"
+      },
+      {
+        "line": 38,
+        "text": "\tgetBoltgunSteam = function(self, t) return self:combatTalentSteamDamage(t, 1, 6) end,"
+      },
+      {
+        "line": 39,
+        "text": "\tgetShockstaffBaseDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.2, 1.5) end,\t"
+      },
+      {
+        "line": 40,
+        "text": "\tgetShockstaffNumb = function(self, t) return math.floor(self:combatTalentLimit(t, 50, 10, 25)) end,\t"
+      },
+      {
+        "line": 41,
+        "text": "\tcallbackOnActBase = function(self, t)"
+      },
+      {
+        "line": 42,
+        "text": "\t\tlocal max = t.getNb(self, t)"
+      },
+      {
+        "line": 65,
+        "text": "\t\tlocal nb = t.getNb(self,t)"
+      },
+      {
+        "line": 66,
+        "text": "\t\tlocal fdam = t.getFlamethrowerBaseDamage(self,t)*100"
+      },
+      {
+        "line": 67,
+        "text": "\t\tlocal sdam = t.getShockstaffBaseDamage(self,t)*100"
+      },
+      {
+        "line": 68,
+        "text": "\t\tlocal snumb = t.getShockstaffNumb(self,t)"
+      },
+      {
+        "line": 69,
+        "text": "\t\tlocal bdam = t.getBoltgunBaseDamage(self,t)*100"
+      },
+      {
+        "line": 70,
+        "text": "\t\tlocal bsteam = t.getBoltgunSteam(self,t)"
+      },
+      {
+        "line": 73,
+        "text": "\t\t"
+      },
+      {
+        "line": 74,
+        "text": "\t\t#AQUAMARINE#Flamethrower#LAST#: An incendiary device which projects streams of liquid flame at your foes. Deals %d%% steamgun fire damage over 3 turns to those in radius 5. The flamethrower ignores armor, always hits, and counts as a steamgun shot for the purpose of on-hits."
+      },
+      {
+        "line": 75,
+        "text": "\t\t#AQUAMARINE#Shockstaff#LAST#: An electrically charged baton wielded in close combat. Deals %d%% lightning damage to enemies in a frontal arc, as well as reducing the damage they deal by %d%% for 3 turns. This counts as a melee attack but triggers ammunition on-hit effects. All shockstaff attacks will also make a shield attack for the same damage as lightning. You can charge up to your steamgun's range to make shockstaff attacks."
+      },
+      {
+        "line": 76,
+        "text": "\t\t#AQUAMARINE#Boltgun#LAST#: A multi-barreled steamgun that launches efficient, chemical infused bolts. Fires twice for %d%% steamgun acid damage and generates %d steam per hit."
+      },
+      {
+        "line": 77,
+        "text": "\t\t"
+      },
+      {
+        "line": 248,
+        "text": "-- Anti-melee, general defense, limited mobility, disable via stuns"
+      },
+      {
+        "line": 249,
+        "text": "newTalent{"
+      },
+      {
+        "line": 250,
+        "text": "\tname = \"Shockstaff\", short_name = \"HW_SHOCKSTAFF\","
+      },
+      {
+        "line": 251,
+        "text": "\ttype = {\"steamtech/other\", 1},"
+      },
+      {
+        "line": 252,
+        "text": "\tpoints = 1,"
+      },
+      {
+        "line": 310,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 311,
+        "text": "\t\tlocal hw = self:getTalentFromId(self.T_HEAVY_WEAPONS)"
+      },
+      {
+        "line": 312,
+        "text": "\t\tlocal sdam = hw.getShockstaffBaseDamage(self, hw)*100"
+      },
+      {
+        "line": 313,
+        "text": "\t\tlocal snumb = hw.getShockstaffNumb(self, hw)"
+      },
+      {
+        "line": 314,
+        "text": "\t\treturn ([[You replace your steamgun and attack with a lightning-charged staff to engage in close combat."
+      },
+      {
+        "line": 315,
+        "text": "\t\t"
+      },
+      {
+        "line": 365,
+        "text": "\trequires_target = true,"
+      },
+      {
+        "line": 366,
+        "text": "\theavy_weapon = true,"
+      },
+      {
+        "line": 367,
+        "text": "\tgetDamage = function(self,t) return self:callTalent(self.T_HEAVY_WEAPONS, \"getShockstaffBaseDamage\") end,"
+      },
+      {
+        "line": 368,
+        "text": "\tgetNumb = function(self, t) return self:callTalent(self.T_HEAVY_WEAPONS, \"getShockstaffNumb\") end,"
+      },
+      {
+        "line": 369,
+        "text": "\ton_pre_use = function(self, t, silent) "
+      },
+      {
+        "line": 370,
+        "text": "\t\tif not self:hasArcheryWeapon(\"steamgun\") then "
+      },
+      {
+        "line": 382,
+        "text": "\t\treturn t.on_pre_use(self, t, true)"
+      },
+      {
+        "line": 383,
+        "text": "\tend,"
+      },
+      {
+        "line": 384,
+        "text": "\tgetShockstaffObject = function(self, t)"
+      },
+      {
+        "line": 385,
+        "text": "\t\tlocal weapon = self:getInven(\"QUIVER\")[1]"
+      },
+      {
+        "line": 386,
+        "text": "\t\tif not weapon and weapon.combat then return end"
+      },
+      {
+        "line": 399,
+        "text": "\t\tif not eff then return nil end"
+      },
+      {
+        "line": 400,
+        "text": ""
+      },
+      {
+        "line": 401,
+        "text": "\t\tlocal ammoWeapon = t.getShockstaffObject(self, t)"
+      },
+      {
+        "line": 402,
+        "text": "\t\tif not ammoWeapon then return end"
+      },
+      {
+        "line": 403,
+        "text": ""
+      },
+      {
+        "line": 440,
+        "text": ""
+      },
+      {
+        "line": 441,
+        "text": "-- Steam efficient, multihit (proc synergy), highest DPS though an off damage type"
+      },
+      {
+        "line": 442,
+        "text": "-- The disarm on Heavy Weapon Expertise is probably the strongest of them, this kind of overlaps in role with Shockstaff though"
+      },
+      {
+        "line": 443,
+        "text": "newTalent{"
+      },
+      {
+        "line": 444,
+        "text": "\tname = \"Boltgun\", short_name = \"HW_BOLTGUN\","
+      },
+      {
+        "line": 612,
+        "text": "\tgetFireResist = function(self, t) return self:combatTalentLimit(t, 50, 15, 35) end,"
+      },
+      {
+        "line": 613,
+        "text": "\tgetShockDuration = function(self, t) return math.min(9, math.floor(self:combatTalentScale(t, 3, 5))) end,"
+      },
+      {
+        "line": 614,
+        "text": "\tgetShockstaffDamage = function(self, t) "
+      },
+      {
+        "line": 615,
+        "text": "\t\tlocal shockstaff = self:getTalentFromId(self.T_STORMSTRIKE)"
+      },
+      {
+        "line": 616,
+        "text": "\t\tlocal base = shockstaff.getDamage(self, shockstaff)"
+      },
+      {
+        "line": 681,
+        "text": "\t\telseif self:isTalentActive(self.T_HW_SHOCKSTAFF) then"
+      },
+      {
+        "line": 682,
+        "text": "\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)"
+      },
+      {
+        "line": 683,
+        "text": "\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)"
+      },
+      {
+        "line": 684,
+        "text": "\t\t\tlocal tg = {type=\"bolt\", can_autoaccept=true, nolock=true, range=self:getTalentRange(t)}"
+      },
+      {
+        "line": 685,
+        "text": "\t\t\tlocal x, y, target = self:getTargetLimited(tg)"
+      },
+      {
+        "line": 708,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 709,
+        "text": "\t\t\tend"
+      },
+      {
+        "line": 710,
+        "text": "\t\t\tlocal mult = t.getShockstaffDamage(self, t)"
+      },
+      {
+        "line": 711,
+        "text": "\t\t\tlocal shield, shield_combat = self:hasShield()"
+      },
+      {
+        "line": 712,
+        "text": "\t\t\t"
+      },
+      {
+        "line": 777,
+        "text": "\t\tlocal fresist = t.getFireResist(self, t)"
+      },
+      {
+        "line": 778,
+        "text": "\t\tlocal sdur = t.getShockDuration(self, t)"
+      },
+      {
+        "line": 779,
+        "text": "\t\tlocal sdam = t.getShockstaffDamage(self, t) * 100"
+      },
+      {
+        "line": 780,
+        "text": "\t\tlocal bdam = t.getBoltgunDamage(self, t) * 100"
+      },
+      {
+        "line": 781,
+        "text": "\t\tlocal bcount = t.getBoltgunAttacks(self, t)"
+      },
+      {
+        "line": 783,
+        "text": "\t\treturn ([[Your advanced training unlocks specialised techniques, triggering an effect based on your current heavy weapon at the cost of 1 heavy weapon ammunition."
+      },
+      {
+        "line": 784,
+        "text": "#AQUAMARINE#Flamethrower#LAST#: Sweep your flamethrower across the ground, dealing %d%% steamgun damage as fire and raising a length 7 wall of fire for 5 turns. Those inside the wall take %0.2f fire damage and have their fire resistance reduced by %d%% for 2 turns."
+      },
+      {
+        "line": 785,
+        "text": "#AQUAMARINE#Shockstaff#LAST#: Slam your staff into the target, creating a radius 3 shockwave that deals %d%% shockstaff damage as lightning and stuns those within for %d turns."
+      },
+      {
+        "line": 786,
+        "text": "#AQUAMARINE#Boltgun#LAST#: Fire %d boltgun shots dealing %d%% steamgun damage as acid and disarming the target for 5 turns."
+      },
+      {
+        "line": 787,
+        "text": "The damage dealt by the fire wall and the chance to apply effects will increase with your Steampower.]])"
+      },
+      {
+        "line": 882,
+        "text": "\t\treturn([[You augment your shield with your heavy weapon technology, causing an effect when you Block with a heavy weapon equipped."
+      },
+      {
+        "line": 883,
+        "text": "#AQUAMARINE#Flamethrower#LAST#: Vent choking, burning smoke in an area of the same radius as your flamethrower. Enemies caught within take %d%% shield damage as fire and are silenced for %d turns."
+      },
+      {
+        "line": 884,
+        "text": "#AQUAMARINE#Shockstaff#LAST#: Sheathe your shield in lightning and attack all enemies in radius 3, dealing %d%% shield damage as lightning and gaining a barrier absorbing an amount of damage equal to 100%% of the highest damage dealt for 6 turns."
+      },
+      {
+        "line": 885,
+        "text": "#AQUAMARINE#Boltgun#LAST#: Fire a blast of flechettes from your shield at all enemies in radius 7, dealing %d%% shield damage as acid. %d flechettes remain embedded in each target for 6 turns, and when struck by a melee or ranged attack a flechette will detonate and cause acid damage equal to 50%% of the shield damage dealt."
+      },
+      {
+        "line": 886,
+        "text": "These attacks will not trigger Counterstrike."
+      },
+      {
+        "line": 963,
+        "text": "\t\t\t\tif target then"
+      },
+      {
+        "line": 964,
+        "text": "\t\t\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)"
+      },
+      {
+        "line": 965,
+        "text": "\t\t\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)"
+      },
+      {
+        "line": 966,
+        "text": "\t\t\t\t\tlocal hit = self:attackTargetWith(target, shockstaff, DamageType.LIGHTNING, t.getShockDamage(self,t))"
+      },
+      {
+        "line": 967,
+        "text": "\t\t\t\t\tlocal dam = t.getShockPulseDamage(self,t)"
+      },
+      {
+        "line": 1036,
+        "text": "\t\treturn ([[Push your heavy weapon beyond its normal limits to trigger a powerful effect. This will immediately disable your heavy weapon and expends all remaining ammunition."
+      },
+      {
+        "line": 1037,
+        "text": "#AQUAMARINE#Flamethrower#LAST#: Detonate your fuel tanks, creating a radius 4 explosion that launches you to a chosen tile in range %d. Enemies caught within the explosion take %0.2f fire damage, and further fire damage equal to %d%% of their current burning damage from the volatile fuel."
+      },
+      {
+        "line": 1038,
+        "text": "#AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns."
+      },
+      {
+        "line": 1039,
+        "text": "#AQUAMARINE#Boltgun#LAST#: Overcharge your boltgun, firing a single deadly bolt dealing %d%% steamgun damage as acid in a piercing line. For each negative physical, magical, or mental effect on the target, they take an additional %d%% damage (to a maximum of %d%%) and the duration of each negative effect is increased by %d turns.]]):"
+      },
+      {
+        "line": 1040,
+        "text": "\t\ttformat(frange, damDesc(self, DamageType.FIRE, fdam), fburn*100, sdam*100, srad, sknockback, damDesc(self, DamageType.LIGHTNING, spulse), bdam*100, binc, binc*5, bdur)"
+      }
+    ]
+  }
+]

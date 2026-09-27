@@ -275,3 +275,11 @@
    - 现译：“Gardanion，神之光辉”（专名保留英文，本库无 Gardanion 译名）。
    - 争议理由：第 326 批宿主发现物品名半英半中；补译需新造音译专名，本库与术语库均无先例，窗口 40 不自行新造。
    - 建议选项：保持现状 / 音译为“加达尼恩，神之光辉”（或“加尔达尼恩”）并登记术语库。
+
+## 第 329 批待审阅
+
+37. Orcs 地名／势力名 `Sunwall` 全库译名不一（本批 `69c4df21cd`：tome-orcs.lua:279 世界介绍“free it from Sunwall scum”）
+   - 源码：公开 Orcs DLC `tome-orcs/data/birth/worlds.lua`（“reclaim the far east and free it from Sunwall scum”）；Sunwall 指远东人类据点太阳堡垒（与其所在城市 Gates of Morning 不同）。第 329 批 source workset 文件 SHA 匹配，来源仓库与 commit 未固定。
+   - 现译：tome-orcs.lua 同时用“太阳堡垒”（约 46 处）与“晨曦之门”（约 17 处，部分为 Sunwall 的译文，如第 31、53、272、276、279 行）；术语库 `sunwall`→“太阳堡垒”仅为 existing（narrative.tsv:28），无 preferred 条目。
+   - 争议理由：第 329 批 GPT-6 Sol 表层筛查指出本条“回到远东”漏“夺回”；宿主核对后认为“并将其从……手中夺回”已覆盖 reclaim/free，但 Sunwall 被译成 Gates of Morning 的城名，与本库多数译法冲突。统一需跨条改名并定 preferred，超出批次授权，本批记 advisory。
+   - 建议选项：统一为“太阳堡垒”（Gates of Morning 保留“晨曦之门”）并登记 preferred、在下一修复窗口按 revision 批量同步 / 保持现状。

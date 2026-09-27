@@ -1,0 +1,98 @@
+{
+  "batch_id": "batch-dd7c9f57b4d10b8580df",
+  "observations": 8,
+  "observation_dispositions": {
+    "confirmed": 6,
+    "advisory": 1,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "67521c21a4c0868b49cab32c20ae751dc3ec43b98023cf32865327136d6be6e9",
+    "67f8f7d703154f9a58e1bc2a69b85e19a93b2500fc60e2582a5b28f244353fc9",
+    "6970e251f39978bf8bd8255218c1bdfbf5c12b799115f42cfb443b1ba8b0ec8b"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "67521c21a4c0868b49cab32c20ae751dc3ec43b98023cf32865327136d6be6e9",
+      "stage": "surface",
+      "observation": "原文说战斗服原价700金币很划算（a steal），译文却说“简直就是你们对我的偷窃”，意思相反。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/emporium.lua:100–113（卡尔托军火店海报）：(1)“My old price for the PRESSURE-ENHANCED SLASHPROOF COMBAT SUIT was a steal at 700 gold”＝原价 700 金币简直是白送（极划算），现译“简直就是你们对我的偷窃”语义相反；(2)“could've saved so many lives, if you'd only been willing to pay what I was asking for them, only a tiny fraction of what they were worth”是反事实条件，现译拆成“而你们曾经只需要付出我要求的价钱”失去“要是当初肯付钱本可救人”；(3)“The public has dug their own grave, and I will not pull them up simply out of charity; after all, they have offered me no such charity in the past.”主语是公众，现译“这一切都是因为他们自掘坟墓……”无“公众”且紧接城市守卫句，指代错位并添加因果。建议：(1)“……定的原价 700 金币简直是白送——”；(2)“……做这些奇特精妙的装置？要是你们当初肯付我开的价——那仅仅是它们实际价值的一小部分——它们本可以拯救无数性命。”；(3)“公众是自掘坟墓，我可不会只出于善心就把他们拉出来；毕竟，他们过去也从未对我施舍过这种善心。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "67f8f7d703154f9a58e1bc2a69b85e19a93b2500fc60e2582a5b28f244353fc9",
+      "stage": "surface",
+      "observation": "“Radiant Horrorc”含 Radiant（光辉）与 Horrorc（恐怖兽人与兽人的组合），译文“光明克星”却表示光明的敌人，含义明显偏离。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:121–125：成就“Radiant Horrorc”（id ORCS_FIERY_MOCKERY）要求在 Sunwall 区域用 Fiery Salve 让火焰与光明亲和至少 66%，即兽人自己“光芒四射”来嘲弄对手；名称是本库怪物“radiant horror”（mod-tome.lua:8274“光芒恐魔”）与 orc 的双关。现译“光明克星”把 Radiant 改成对立关系且丢失双关。建议“光芒恐兽人”（取“光芒恐魔”＋“兽人”）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6970e251f39978bf8bd8255218c1bdfbf5c12b799115f42cfb443b1ba8b0ec8b",
+      "stage": "surface",
+      "observation": "“kept as adding machines”译成“作为零件的一部分”，明显改变原意；“You're welcome”译成“不用感谢我们”，与原文表达相反。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:57（韦斯西预言）：(1)“kept as adding machines by the Greater Republic of Steam”＝被大蒸汽共和国当作计算器使用，现译“作为零件的一部分”错误；(2)“You know, you should thank the Scourge from the West”——术语库 terminology/society.tsv:34 Scourge from the West 为 preferred“西方天灾”（注明不写作“灾星”），现译“西方的灾星”违反 preferred；(3)“You're welcome - a contingent of our people kept the Mal'Rokka suppressed for long enough to allow that to happen”＝压制玛·洛克人足够久，使陨石被拦截得以发生，现译“来防止这件事情发生”语义相反；(4)“大腐化 者”多一空格（本库 Grand Corruptor＝“大腐化者”，mod-tome.lua:20094）。建议：(1)“被大蒸汽共和国当作计算器使用”；(2)“你应该感谢西方天灾”；(3)“不用谢——我们的一群族人把玛·洛克人压制了足够长的时间，才让这件事得以发生。”；(4)“大腐化者”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "69c4df21cd818c6980a639d3beffdff5bbf9342ace77366f4e8dff43995b4d9f",
+      "stage": "surface",
+      "observation": "“reclaim the far east”译成“回到远东”，遗漏了夺回远东的意思。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/birth/worlds.lua：“reclaim the far east and free it from Sunwall scum”，现译“回到远东，并将其从……手中夺回”已覆盖 reclaim/free；但 Sunwall 被译成城名“晨曦之门”，本库 Sunwall 同时存在“太阳堡垒”（多数）与“晨曦之门”两种译法，术语库仅 existing，统一属跨条译名决定，登记 pending-user-review 第 37 项。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6ba9a0410a2f908bbdaff02d9d7c1206e8a0182275233f75f3d6cfe925f819d4",
+      "stage": "surface",
+      "observation": "source 的 inquiry 是询问或调查，target 的“提议”改变了含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/misc.lua:71–81：lore 标题“slaver's inquiry”，正文是奴隶贩子来信“Got a proposal, though. With a few little tweaks, I could make one...Say the word”，即向对方提出方案并征询意向；“奴隶贩子的提议”与正文一致。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "67521c21a4c0868b49cab32c20ae751dc3ec43b98023cf32865327136d6be6e9",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/lore/emporium.lua:111（来源未固定）有两处指代或关系错误。(1) 原文先提到城市守卫，然后说“The public has dug their own grave, and I will not pull them up simply out of charity; after all, they have offered me no such charity in the past.”，主语是 the public。译文写成“这一切都是因为他们自掘坟墓……他们过去没有给我这种善心”，没有写出“公众”，而且紧接在城市守卫那句之后，读者会把“他们”理解为城市守卫。“这一切都是因为”这个因果说法原文也没有。(2) 第107行的“could've saved so many lives, if you'd only been willing to pay what I was asking”是反事实条件句（要是你们肯付钱，本可以救下很多人）。译文拆成“而你们曾经只需要付出我要求的价钱”，失去了“要是当初肯付钱”这层条件含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/emporium.lua:100–113（卡尔托军火店海报）：(1)“My old price for the PRESSURE-ENHANCED SLASHPROOF COMBAT SUIT was a steal at 700 gold”＝原价 700 金币简直是白送（极划算），现译“简直就是你们对我的偷窃”语义相反；(2)“could've saved so many lives, if you'd only been willing to pay what I was asking for them, only a tiny fraction of what they were worth”是反事实条件，现译拆成“而你们曾经只需要付出我要求的价钱”失去“要是当初肯付钱本可救人”；(3)“The public has dug their own grave, and I will not pull them up simply out of charity; after all, they have offered me no such charity in the past.”主语是公众，现译“这一切都是因为他们自掘坟墓……”无“公众”且紧接城市守卫句，指代错位并添加因果。建议：(1)“……定的原价 700 金币简直是白送——”；(2)“……做这些奇特精妙的装置？要是你们当初肯付我开的价——那仅仅是它们实际价值的一小部分——它们本可以拯救无数性命。”；(3)“公众是自掘坟墓，我可不会只出于善心就把他们拉出来；毕竟，他们过去也从未对我施舍过这种善心。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "67f8f7d703154f9a58e1bc2a69b85e19a93b2500fc60e2582a5b28f244353fc9",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/achievements/special.lua:122-124（来源未固定）：成就“Radiant Horrorc”（horror+orc 双关）的 desc 是在 Sunwall 区域用 Fiery Salve 把火焰和光明亲和达到至少 66%，也就是兽人自己变得“光芒四射”来嘲弄晨曦之门。译文“光明克星”意思是“克制光明者”，把“Radiant”（发光的、光明的）这个修饰义改成了对立关系，也没有保留恐怖兽人（Horror+orc）这层含义，名称和成就机制不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/achievements/special.lua:121–125：成就“Radiant Horrorc”（id ORCS_FIERY_MOCKERY）要求在 Sunwall 区域用 Fiery Salve 让火焰与光明亲和至少 66%，即兽人自己“光芒四射”来嘲弄对手；名称是本库怪物“radiant horror”（mod-tome.lua:8274“光芒恐魔”）与 orc 的双关。现译“光明克星”把 Radiant 改成对立关系且丢失双关。建议“光芒恐兽人”（取“光芒恐魔”＋“兽人”）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6970e251f39978bf8bd8255218c1bdfbf5c12b799115f42cfb443b1ba8b0ec8b",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/lore/weissi.lua:57-63（来源未固定）有四处问题。(1) 术语：冻结术语 society.tsv:34 中 Scourge from the West 的状态为 preferred，定为“西方天灾”，notes 注明“不写作‘灾星’”；译文第59行写成“西方的灾星”。(2) 第57行“kept as adding machines by the Greater Republic of Steam”说的是把他们当作计算器（加法机）使用，符合他们心灵预测的能力；译文“作为零件的一部分”意思错误。(3) 第61行“kept the Mal'Rokka suppressed for long enough to allow that to happen”的意思是压制住玛·洛克人，使陨石被拦截这件事得以发生；译文“来防止这件事情发生”把意思说反了。(4) 译文“大腐化 者”中间多了一个空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/weissi.lua:57（韦斯西预言）：(1)“kept as adding machines by the Greater Republic of Steam”＝被大蒸汽共和国当作计算器使用，现译“作为零件的一部分”错误；(2)“You know, you should thank the Scourge from the West”——术语库 terminology/society.tsv:34 Scourge from the West 为 preferred“西方天灾”（注明不写作“灾星”），现译“西方的灾星”违反 preferred；(3)“You're welcome - a contingent of our people kept the Mal'Rokka suppressed for long enough to allow that to happen”＝压制玛·洛克人足够久，使陨石被拦截得以发生，现译“来防止这件事情发生”语义相反；(4)“大腐化 者”多一空格（本库 Grand Corruptor＝“大腐化者”，mod-tome.lua:20094）。建议：(1)“被大蒸汽共和国当作计算器使用”；(2)“你应该感谢西方天灾”；(3)“不用谢——我们的一群族人把玛·洛克人压制了足够长的时间，才让这件事得以发生。”；(4)“大腐化者”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 5 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Every lane echoed its identities exactly. Lane 0 opened a Paseo terminal after its sandbox read; the host checked every key it sent (reads of its own envelope and the contract only), then killed the leftover terminal.",
+    "The contextual run (5 entries) read only its own envelope, the contract and the cited Orcs source. The host scanned its native log before harvest.",
+    "Source refutes the slaver's inquiry claim: the letter is a proposal. The Sunwall naming split (太阳堡垒 vs 晨曦之门) is left for the user as pending item 37.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "3 confirmed repair revisions raise the window 41 backlog from 2 to 5; below the 20 threshold, so no window opens."
+  ]
+}
