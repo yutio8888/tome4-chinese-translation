@@ -1,0 +1,88 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 10 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "106a9266395182264f94821da0182c6af7069a7ba39a6dfb5f099c3d8293045e",
+      "stage": "surface",
+      "observation": "Dominion 译为「巨魔帝国」，原文未指明「巨魔」；冻结输入缺少该名称对应依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "terminology/narrative.tsv dominion port=巨魔帝国港口、society.tsv Kar'Haïb Dominion=卡尔·亥巴巨魔帝国（Embers of Rage 阵营），本条“南方的巨魔帝国港口”与本库既有译名一致；表层不掌握该名称来源。contextual 判 OK。“全军戒备”沿窗口39 裁决记 advisory。"
+    },
+    {
+      "revision_key": "1bf82bee092e1a6b0b1953441243ba34037b0a6bae405621b9f6cef52f811d59",
+      "stage": "surface",
+      "observation": "原文说昔日敌人会变成新长成的树，译文改成敌人体内长出一棵树，结果不同。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:1904 种子注射蒸汽链锯广告语：“Your former enemies will be freshly grown trees before you even know it!”＝昔日的敌人转眼变成新长出的树，现译“你的敌人体内将会长出一棵树”改变结果并丢 former；“even quicker than ever”弱化，且“更快的”应作“地”。建议：“这台能注射种子的蒸汽链锯，能以前所未有的速度传播自然的奇迹！转眼之间，你昔日的敌人就会变成一棵棵新长出的树！”（原文带引号，保留“”）。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4d968f8856038f15760767889ec40a02ba025bb59b6e1023232b3b18e336a4a0",
+      "stage": "surface",
+      "observation": "原文“tendency towards overkill”指倾向于使用过度武力，译文“滥杀”改变了含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs world-artifacts.lua:313：“Nacrush was known for a tendency towards overkill.”；同条 special_desc “Knocks you back when fired.”（开火后坐力击退自身），overkill 指火力过猛／下手过狠，现译“滥杀”语义错误。建议：“纳克拉什素以火力过猛著称。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4e24ac36b0ae7ecdc378883d644d22b99608ff2a0426f1aa23317d60b90dc30d",
+      "stage": "surface",
+      "observation": "原文两句之间有换行，译文将其合为一句，并遗漏“nearly indecipherable system”的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs world-artifacts.lua（interlocked steamsaws）：源文两句间有换行 \\n，现译合成一行（LF 不变量 1→0），并把“nearly indecipherable system”弱化成“奇特的方式”。建议：“这套错综复杂的蒸汽链锯以一种几乎无法看懂的方式锁合在一起。\\n不过看起来确实很锋利。”contextual 判 OK，但 LF 数不一致可客观判定。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4e9cf35b9fa279ba32f3da6fc8060309a95e08af9619bf6322b692e094247668",
+      "stage": "surface",
+      "observation": "原文称夏·图尔人是神话传说中的存在，译文“神话和传奇的来源”将其误写成神话传说的起源。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/slumbering-caves/npcs.lua:220 夏·图尔大祭司描述：“You do not know why but this cannot happen”＝你说不清缘由，但这件事绝不能发生；现译“你不知道他为什么要这么做”误作祭司动机。整句复核另见：“The stuff of myth and legends”是神话传说中的存在，非“来源”；“turned on the gods of old and actually won”漏“反叛”。建议：“……神话与传说中的存在，恐怖与噩梦的化身，拥有无尽力量——这个种族曾反叛远古诸神，而且真的赢了。……你说不清为什么，但这件事绝不能发生，否则所有兽人乃至整个世界都将万劫不复。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4f11cda37affbb7f24bc8fdc593b4daf5245d153ead3d66ed1a1009fd3bd89b5",
+      "stage": "surface",
+      "observation": "帕拉奎所说的“Neither can afford direct intervention”承接前句两派对克鲁克兽人的不同主张，译文却写成“我们都没法直接介入”，把无法直接介入的主体改成了说话者一方。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/palace-fumes.lua:100 帕拉奎：“Some want the Kruk exterminated, others imprisoned.  Neither can afford direct intervention, but some form of support will assuredly be available.”——Neither 指想消灭／想监禁克鲁克兽人的两派小个子（半身人），现译“不论是那种，我们都没法直接介入”把主语改成议会自己，且“那种”应作“哪种”；同条 :110 “those filthy little greenskins”现译“狡猾的小绿人们”，filthy＝肮脏。建议：“两派都无力直接介入，但肯定能提供某种形式的支援。”“那些肮脏的小绿皮”。长条目修复窗口开窗前须全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4fd92b37748e32190fbcc257e59ec53537ef92422e74dac53dbb11d75098604b",
+      "stage": "surface",
+      "observation": "原文第二段以换行和两个制表符开头，译文只保留换行，丢失缩进。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua 科技灵能波 info：源文第二段为 \\n\\t\\t 开头，现译只有 \\n，丢两个行首制表符（TAB 不变量，同类窗口38/39 均补回）。补回 \\t\\t，文字不动。contextual 判 OK，但制表符结构可客观判定。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "4fdf57500643a23b17e33a139d931cabe354d99bfda8809494412710a1302cbe",
+      "stage": "surface",
+      "observation": "原文的 store bot 是商店机器人，译文写成“商店设备”，改变了所指对象。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/aaa.lua:20–33：同一对话 welcome 把该物件描述为“strange triangular device, some kind of automated storage facility”（本库译“奇怪的三角形设备……自动设施”），“商店设备”指的就是这台设备，所指未变。contextual 判 OK。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "5083f958aa8cc526aea56dc751f9eef981c163ddb0cacfa5627fcd915a65da80",
+      "stage": "surface",
+      "observation": "原文明确提供 Steamtech/Physics 和 Steamtech/Chemistry 两个天赋类别的训练，且各收费 100 金；译文写成教授一般的物理或化学知识，丢失了天赋类别信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/chats/kruk-tinker-shop.lua:33：“I can indeed offer some training (talent category Steamtech/Physics and Steamtech/Chemistry) for a fee of 100 gold pieces each.”现译“我能教你物理学或者化学知识，学费100金一次。”删掉了技能树名称这一机制信息（本库 talent category steamtech=蒸汽科技、talent type physics=物理、chemistry=化学）。建议：“我确实可以提供一些训练（技能树：蒸汽科技/物理、蒸汽科技/化学），每项收费 100 金币。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "50e25e6b3831639939cd7dfb93d61a8818a538f92e379322aab7a575c7c5cb41",
+      "stage": "surface",
+      "observation": "原文店名中的“and other Harmless Contraptions”在译文“苏克符文道具店”中未体现。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "observation 描述的是同 lane 前一条 50df66a4c3（Sook's Runes and other Harmless Contraptions→“苏克符文道具店”），与本条 sher'tan→“夏尔泰坦”无关；本条译名无问题。挂错的 observation 由宿主登记为窗口40 补充项（50df66a4c3 店名漏“以及其他无害小玩意”），开窗时按 revision 核实。contextual 判 OK。"
+    }
+  ]
+}
