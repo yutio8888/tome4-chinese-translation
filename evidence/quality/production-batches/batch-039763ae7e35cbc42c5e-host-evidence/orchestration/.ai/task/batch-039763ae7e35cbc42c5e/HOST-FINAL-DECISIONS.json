@@ -1,0 +1,151 @@
+{
+  "batch_id": "batch-039763ae7e35cbc42c5e",
+  "observations": 14,
+  "observation_dispositions": {
+    "refuted": 2,
+    "confirmed": 10,
+    "advisory": 2
+  },
+  "repair_revision_keys": [
+    "a27688ff3f72672447396d04b85c27f968d541c301d2e69b937b0a814d74c6e8",
+    "a2aa6c921a9d503e70300e1386e304eb8090b27e85babf7ef11d9493b71c67c4",
+    "a2d8aa0cb9ed8d6b879c95fffb43c4a4a159fee0be1331bb48f9b5eeb15a562f",
+    "a3a35758bd4127b678ed0e34dd7ff8003a0571c8b4753ee5a84a5400764b84ca",
+    "a3cecc7f1f6f555ecfa59f86e08ca69ad7acd00bb70c44e91dfaa759469af241",
+    "a49b334d447d3a4920b3b71565c9b5b7152fc4ea83ad74c2a945a9825c947f85",
+    "a668705856cd7297fb89aed03e5d5d647948c81d2efba4a280d9663d3ef6d0a6",
+    "a79480d625d3593293180ae270d12e20e6ccd11ce1e4b1573b3b9ce5081882b8"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 72,
+    "repair_required": 8,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "a21112e52912b3c4941bf8db078b9f7f39bc3c006a4c938dabe7162f94fcb4c0",
+      "stage": "surface",
+      "observation": "原文冒号后有尾随空格，译文没有；若该文本与数值直接拼接，显示时可能缺少间隔。冻结输入未提供拼接语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:222：compare_fields(..., \"steam_regen\", \"%+.2f\", _t\"Steam each turn: \") 把数值直接接在标签后；现译以全角冒号“：”结尾，全角标点自带间隔，显示为“每回合蒸汽回复：+1.00”，不缺分隔，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a27688ff3f72672447396d04b85c27f968d541c301d2e69b937b0a814d74c6e8",
+      "stage": "surface",
+      "observation": "原文“Powered by ”末尾有空格，译文“力量来源”未保留，可能使后接内容连在一起。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:215：desc:add(_t\"Powered by \", {color}, _t\"steamtech\", ...) 直接拼接；现译“力量来源”无分隔，显示为“力量来源蒸汽科技”。核心同族 mod-tome.lua:1013 “Powered by #VIOLET#arcane forces#LAST#”译“装备力量来源 #VIOLET#奥术力量#LAST#”（带空格）。建议改“装备力量来源 ”（保留末尾空格）与核心对齐。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a2aa6c921a9d503e70300e1386e304eb8090b27e85babf7ef11d9493b71c67c4",
+      "stage": "surface",
+      "observation": "原文是把锯子绑在手臂上冲入战斗；译文“挥舞链锯”改变了动作，并漏掉绑在手臂上的信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/steam.lua:39（butchery 技能系，本库“屠杀”）description“Strap saws to your arms and rush into battle!”；现译“挥舞链锯，冲进战场！”丢了“把锯子绑在手臂上”这一特征（该系依赖双持链锯）。建议“把链锯绑在双臂上，冲进战场！”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a2d8aa0cb9ed8d6b879c95fffb43c4a4a159fee0be1331bb48f9b5eeb15a562f",
+      "stage": "surface",
+      "observation": "原文首个换行后为两个制表符，译文只有一个；“Each other talent level”表示此后每隔一级，译文写成“之后每一级”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/chemistry.lua:72 起原文 3 个 LF、每个后接 \\n\\t\\t；现译首个换行后只有一个 TAB，且第二、三行被并为一行（2 个 LF）。与第338批 9cb3e25a5f 治疗学图纸同型；“之后每一级 20%”贴合 steam.lua 的学习实现（1 级一张、5 级保证、其余等级各 20%），保留。修复只恢复 \\n\\t\\t 结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a2e0e9841a0fe637d6defd5fbc1f6d104c7917c5245b3efeddca5c92a80d01bd",
+      "stage": "surface",
+      "observation": "原文“attack yeti”以 yeti 为中心词，译文“雪人攻击者”将其译成攻击雪人的人。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/npcs/domestic-yeti.lua:82 “attack yeti”（受训的攻击型雪人，desc 称爪子包铁、训练有素的怒意）。本库同族 tome-orcs.lua:824–828：pet yeti“宠物雪人”、guard yeti“雪人守卫”、attack yeti“雪人攻击者”，构词与“雪人守卫”平行，读作“攻击者（雪人）”而非“攻击雪人的人”；如改“攻击型雪人”需同族统一，记 advisory。"
+    },
+    {
+      "revision_key": "a3a35758bd4127b678ed0e34dd7ff8003a0571c8b4753ee5a84a5400764b84ca",
+      "stage": "surface",
+      "observation": "原文描述蒸汽巨人朝你挥舞战斧，译文“向你冲来”增加了冲锋动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/npcs.lua:97 / vaporous-emporium/npcs.lua:120：“carries a huge battleaxe, swinging it menacingly towards you.”仅挥斧；现译“恶狠狠挥舞着向你冲来”增“冲来”动作，且 battleaxe 译“双手斧”。建议“这个身披重甲的蒸汽巨人手持一柄巨大的战斧，正恶狠狠地朝你挥舞。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a3cecc7f1f6f555ecfa59f86e08ca69ad7acd00bb70c44e91dfaa759469af241",
+      "stage": "surface",
+      "observation": "原文换行后为两个制表符，译文只有一个。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/avoidance.lua:46 原文换行后为 \\n\\t\\t，现译第二行只有一个 TAB。修复只把第二行缩进恢复为两个 TAB。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a49b334d447d3a4920b3b71565c9b5b7152fc4ea83ad74c2a945a9825c947f85",
+      "stage": "surface",
+      "observation": "源文换行后没有缩进，译文换行后增加了制表符；是否为预期排版需结合显示语境确认。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "格式不变量：公开 Orcs tome-orcs/data/chats/aaa.lua:21（aaf.lua:21 同文）长串 [[...]] 原文“#WHITE#\\nIt seems...”换行后无缩进；现译换行后多出一个 TAB。另 tinker crafting 本库既定“插件制作”，现译“制造配件的技巧”，一并改“插件制作技巧”；“大系点”为本库既定（mod-tome.lua:239/630）保留。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a4b6ae91d9bb42534ea7ffdedce059ecad06800b9556f0928a9970bbc9821be7",
+      "stage": "surface",
+      "observation": "源文只说特殊射击可快速移动自己或他人；译文增加了“被击中的目标”及“拉向对方”的条件和方向，冻结输入不足以确认这些细节。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1572–1605（Hook Shell，本库“钩链弹”）：命中生物时 target:pull(self.x,self.y) 把目标拉向你；目标为空地时 self:pull(tx,ty) 把你拉过去。现译“可以让你或被击中的目标快速被拉向对方”贴合实现，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a534d81fa41830dd7075167b76e460cf125421528a6a1044f708fff838ed05bb",
+      "stage": "surface",
+      "observation": "译文“群星的陨落”遗漏了源文“The Deconstruction of Falling Stars”中的“Deconstruction”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/quests/destroy-sunwall.lua:20 任务名“The Deconstruction of Falling Stars”；现译“群星的陨落”（tome-orcs.lua:3653）省去 Deconstruction（拆解）。任务名为意译且全库仅此一处，不影响理解；如改“拆解陨星”需一并查任务日志引用，记 advisory。"
+    },
+    {
+      "revision_key": "a668705856cd7297fb89aed03e5d5d647948c81d2efba4a280d9663d3ef6d0a6",
+      "stage": "surface",
+      "observation": "原文“for posterity”指留给后世，译为“为了繁荣”明显错译；原文“Gurgling”指咕噜声，译为“血液流淌之声”缺乏对应依据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:39–55（GEM 录音，帕默/坦塔洛斯）：“...for posterity!”=为了后世/留给后人，现译“为了繁荣！”（误作 prosperity）；“Er... splendid, I assume!”为推测语气，现译“太棒了，我保证！”；“TELL THEM ALL ARE WELCOME.”现译“告诉他们，我十分欢迎你们”人称错；“AMAKTHEL WILL REWARD YOU ... AS YOU DESERVE”为将来时，现译“这是阿马克泰尔在亲自奖励你”；“Gurgling”=咕噜/汩汩声，现译“血液流淌之声”增译。长条目开窗前须全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a79480d625d3593293180ae270d12e20e6ccd11ce1e4b1573b3b9ce5081882b8",
+      "stage": "surface",
+      "observation": "原文“all foes”限定为所有敌人，译文写成“所有单位”，改变了闪电扩散的目标范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/action-at-a-distance.lua:170–212：扩散 project 的 tg 为 {type=\"ball\", friendlyfire=false, ...}，只作用于非友方；原文 all foes / All affected foes。现译“半径内的所有单位”“所有被劈中的单位”把对象扩大到友方，与实现不符，两处改“敌人”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a668705856cd7297fb89aed03e5d5d647948c81d2efba4a280d9663d3ef6d0a6",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/lore/gem.lua:39-55（来源未固定）有多处误译：开头的“for posterity!”意为“为了后世／留给后人”，译成了“为了繁荣！”（把 posterity 当成了 prosperity）；“Er... splendid, I assume!”是“我想是很好吧”的推测语气，译成了“太棒了，我保证！”，意思变成了承诺；“GO FORTH, MY HERALD. TELL THEM ALL ARE WELCOME.”中的“告诉他们，我十分欢迎你们”，人称从“他们”错成了“你们”，应译为“告诉他们，所有人都受欢迎”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:39–55（GEM 录音，帕默/坦塔洛斯）：“...for posterity!”=为了后世/留给后人，现译“为了繁荣！”（误作 prosperity）；“Er... splendid, I assume!”为推测语气，现译“太棒了，我保证！”；“TELL THEM ALL ARE WELCOME.”现译“告诉他们，我十分欢迎你们”人称错；“AMAKTHEL WILL REWARD YOU ... AS YOU DESERVE”为将来时，现译“这是阿马克泰尔在亲自奖励你”；“Gurgling”=咕噜/汩汩声，现译“血液流淌之声”增译。长条目开窗前须全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "a79480d625d3593293180ae270d12e20e6ccd11ce1e4b1573b3b9ce5081882b8",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/talents/psionic/action-at-a-distance.lua:210-211（来源未固定）原文写的是“propagates to all foes in radius %d”和“All affected foes”，只指敌人，译文却写成“半径内的所有单位”“所有被劈中的单位”，范围扩大到可能包含友方，与原文不符，应译为“敌人”。envelope 只提供了 info 片段，action 的实际目标筛选无法核验。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/action-at-a-distance.lua:170–212：扩散 project 的 tg 为 {type=\"ball\", friendlyfire=false, ...}，只作用于非友方；原文 all foes / All affected foes。现译“半径内的所有单位”“所有被劈中的单位”把对象扩大到友方，与实现不符，两处改“敌人”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。 contextual 同判：action 的 friendlyfire=false 宿主已核（contextual 称 envelope 未含 action）。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes, all Orcs)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs 12 entries)"
+  },
+  "notes": [
+    "All-Orcs batch: surface ran as four fresh gpt-6-sol lanes of 20. Lane 3 echoed one identity with a single wrong hex digit; the host verified this from the native log, saved the original bytes and harvested a corrected raw (recorded in HOST-SURFACE-BOUNDARY-AUDIT identity_echo_corrections). No lane opened a Paseo terminal or called any write tool.",
+    "The contextual run (12 entries) read only its own envelope, the contract and the cited Orcs source.",
+    "Hook Shell pulls a hit creature to you or you to an empty tile, and the steam-regen label ends in a full-width colon, so both translations are refuted. The psionic lightning propagation has friendlyfire=false, so 'all units' is confirmed as too broad; the Powered-by label is confirmed to need the core separator.",
+    "Orcs public source file SHA matched this batch workset; source repository and commit remain unpinned.",
+    "8 confirmed repair revisions raise the window 43 backlog from 0 to 8; below the 20 threshold, so no window opens."
+  ]
+}

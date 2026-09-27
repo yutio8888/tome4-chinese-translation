@@ -1,0 +1,75 @@
+{
+ "workset": "evidence/quality/production-batches/batch-039763ae7e35cbc42c5e-source-workset.json",
+ "decisions": {
+  "a21112e529|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:222：compare_fields(..., \"steam_regen\", \"%+.2f\", _t\"Steam each turn: \") 把数值直接接在标签后；现译以全角冒号“：”结尾，全角标点自带间隔，显示为“每回合蒸汽回复：+1.00”，不缺分隔，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a27688ff3f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/overload/mod/class/OrcCampaign.lua:215：desc:add(_t\"Powered by \", {color}, _t\"steamtech\", ...) 直接拼接；现译“力量来源”无分隔，显示为“力量来源蒸汽科技”。核心同族 mod-tome.lua:1013 “Powered by #VIOLET#arcane forces#LAST#”译“装备力量来源 #VIOLET#奥术力量#LAST#”（带空格）。建议改“装备力量来源 ”（保留末尾空格）与核心对齐。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a2aa6c921a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/steam.lua:39（butchery 技能系，本库“屠杀”）description“Strap saws to your arms and rush into battle!”；现译“挥舞链锯，冲进战场！”丢了“把锯子绑在手臂上”这一特征（该系依赖双持链锯）。建议“把链锯绑在双臂上，冲进战场！”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a2d8aa0cb9|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/chemistry.lua:72 起原文 3 个 LF、每个后接 \\n\\t\\t；现译首个换行后只有一个 TAB，且第二、三行被并为一行（2 个 LF）。与第338批 9cb3e25a5f 治疗学图纸同型；“之后每一级 20%”贴合 steam.lua 的学习实现（1 级一张、5 级保证、其余等级各 20%），保留。修复只恢复 \\n\\t\\t 结构。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a2e0e9841a|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/general/npcs/domestic-yeti.lua:82 “attack yeti”（受训的攻击型雪人，desc 称爪子包铁、训练有素的怒意）。本库同族 tome-orcs.lua:824–828：pet yeti“宠物雪人”、guard yeti“雪人守卫”、attack yeti“雪人攻击者”，构词与“雪人守卫”平行，读作“攻击者（雪人）”而非“攻击雪人的人”；如改“攻击型雪人”需同族统一，记 advisory。"
+  },
+  "a3a35758bd|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/zones/town-kruk/npcs.lua:97 / vaporous-emporium/npcs.lua:120：“carries a huge battleaxe, swinging it menacingly towards you.”仅挥斧；现译“恶狠狠挥舞着向你冲来”增“冲来”动作，且 battleaxe 译“双手斧”。建议“这个身披重甲的蒸汽巨人手持一柄巨大的战斧，正恶狠狠地朝你挥舞。”本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a3cecc7f1f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：公开 Orcs tome-orcs/data/talents/steam/avoidance.lua:46 原文换行后为 \\n\\t\\t，现译第二行只有一个 TAB。修复只把第二行缩进恢复为两个 TAB。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a49b334d44|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "格式不变量：公开 Orcs tome-orcs/data/chats/aaa.lua:21（aaf.lua:21 同文）长串 [[...]] 原文“#WHITE#\\nIt seems...”换行后无缩进；现译换行后多出一个 TAB。另 tinker crafting 本库既定“插件制作”，现译“制造配件的技巧”，一并改“插件制作技巧”；“大系点”为本库既定（mod-tome.lua:239/630）保留。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a4b6ae91d9|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/steam/other.lua:1572–1605（Hook Shell，本库“钩链弹”）：命中生物时 target:pull(self.x,self.y) 把目标拉向你；目标为空地时 self:pull(tx,ty) 把你拉过去。现译“可以让你或被击中的目标快速被拉向对方”贴合实现，refuted。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a534d81fa4|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs tome-orcs/data/quests/destroy-sunwall.lua:20 任务名“The Deconstruction of Falling Stars”；现译“群星的陨落”（tome-orcs.lua:3653）省去 Deconstruction（拆解）。任务名为意译且全库仅此一处，不影响理解；如改“拆解陨星”需一并查任务日志引用，记 advisory。"
+  },
+  "a668705856|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:39–55（GEM 录音，帕默/坦塔洛斯）：“...for posterity!”=为了后世/留给后人，现译“为了繁荣！”（误作 prosperity）；“Er... splendid, I assume!”为推测语气，现译“太棒了，我保证！”；“TELL THEM ALL ARE WELCOME.”现译“告诉他们，我十分欢迎你们”人称错；“AMAKTHEL WILL REWARD YOU ... AS YOU DESERVE”为将来时，现译“这是阿马克泰尔在亲自奖励你”；“Gurgling”=咕噜/汩汩声，现译“血液流淌之声”增译。长条目开窗前须全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a79480d625|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/action-at-a-distance.lua:170–212：扩散 project 的 tg 为 {type=\"ball\", friendlyfire=false, ...}，只作用于非友方；原文 all foes / All affected foes。现译“半径内的所有单位”“所有被劈中的单位”把对象扩大到友方，与实现不符，两处改“敌人”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a668705856|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/lore/gem.lua:39–55（GEM 录音，帕默/坦塔洛斯）：“...for posterity!”=为了后世/留给后人，现译“为了繁荣！”（误作 prosperity）；“Er... splendid, I assume!”为推测语气，现译“太棒了，我保证！”；“TELL THEM ALL ARE WELCOME.”现译“告诉他们，我十分欢迎你们”人称错；“AMAKTHEL WILL REWARD YOU ... AS YOU DESERVE”为将来时，现译“这是阿马克泰尔在亲自奖励你”；“Gurgling”=咕噜/汩汩声，现译“血液流淌之声”增译。长条目开窗前须全文逐句预检。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。"
+  },
+  "a79480d625|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs tome-orcs/data/talents/psionic/action-at-a-distance.lua:170–212：扩散 project 的 tg 为 {type=\"ball\", friendlyfire=false, ...}，只作用于非友方；原文 all foes / All affected foes。现译“半径内的所有单位”“所有被劈中的单位”把对象扩大到友方，与实现不符，两处改“敌人”。本批文件 SHA 匹配，Orcs 来源仓库/commit 未固定。 contextual 同判：action 的 friendlyfire=false 宿主已核（contextual 称 envelope 未含 action）。"
+  }
+ }
+}
