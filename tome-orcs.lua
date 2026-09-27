@@ -27,7 +27,7 @@ t("Mender", "修理工", "achievement name")
 t("Destroyed the bosses of the Primal Forest without killing any uncorrupted treants.", "杀死原始森林的boss，同时不杀死任何一名未腐化的树精。", "_t")
 t("Sufficiently Advanced Technology", "高科技", "achievement name")
 t("Put five points into each of the tinker-crafting talents as any mage class.", "作为任何法师职业，将每个蒸汽配件制造技能均投入5点技能点数。", "_t")
-t("Radiant Horrorc", "光明克星", "achievement name")
+t("Radiant Horrorc", "光芒恐兽人", "achievement name")
 t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在晨曦之门的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光明吸收。指指点点和嘲笑，随你便。", "_t")
 t("Blood on the Moon", "月上血痕", "achievement name")
 t("Kill all of the Star Gazers within 7 game turns.", "7个游戏回合内击杀所有观星者。", "_t")
@@ -47,7 +47,7 @@ section "tome-orcs/data/achievements/story.lua"
 
 t("Across the Narrow Sea", "跨越狭海", "achievement name")
 t("Destroyed the Sunwall Outpost to secure a way to the mainland.", "消灭太阳堡垒前哨站，以确保通往大陆的道路。", "_t")
-t("Reclaiming Garkul's Heritage", "加库尔之遗产", "achievement name")
+t("Reclaiming Garkul's Heritage", "夺回加库尔的遗产", "achievement name")
 t("Freed the remnants of the Prides from the Internment Camp.", "释放拘留营中的部落成员。", "_t")
 t("The High Lady's Destiny (Finale)", "艾琳的陨落", "achievement name")
 t("Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.", "杀死高阶太阳骑士艾琳，并摧毁晨曦之门。", "_t")
@@ -1510,7 +1510,7 @@ t("Knocks you back when fired.", "开火时击退自己。", "_t")
 t("#Source# recoils from the shot.", "#Source#被反冲力击退。", "logCombat")
 t("Signal", "信号枪", "entity name")
 t("red barreled steamgun", "红色枪管的蒸汽枪", "_t")
-t("An odd, stubby gun with a large, red barrel.", "一把奇特、粗短的枪，装有红色的枪管。", "_t")
+t("An odd, stubby gun with a large, red barrel.", "一把奇特、粗短的枪，装有粗大的红色枪管。", "_t")
 t("Glacia", "冰川", "entity name")
 t("frozen gun", "冰冻的枪", "_t")
 t("Strange coils encircle this extremely cold gun.", "奇怪的线圈环绕着这把极其冰冷的枪。", "_t")
@@ -1645,7 +1645,7 @@ itshereitshereitshereitshere]], [[它在这里它在这里它在这里它在这�
 它在这里它在这里它在这里它在这里]], "_t")
 t("#F53CBE#%s's shadow awakens!", "#F53CBE#%s的阴影觉醒了！", "logSeen")
 t("Pressurizer", "稳压器", "entity name")
-t("heavy lined cloak", "沉重的披风", "_t")
+t("heavy lined cloak", "厚重的夹层披风", "_t")
 t("This cloak hides and protects a series of powerful steam compressors.", "这件斗篷隐藏并保护着一套蒸汽压缩机。", "_t")
 t("Eastern Wood Hat", "东方森林之帽", "entity name")
 t("worn leather hat", "破损的皮帽", "_t")
@@ -2112,17 +2112,18 @@ I'm sure you have your doubts as to the efficacy of my lovingly-made armaments; 
  
 #{italic}#[An address is listed at the bottom of this poster.  You could attempt to raid this store, if you wanted, but the owner's armed to the teeth - it's unlikely it'll be worth the risk.]#{normal}#
 ]], [[卡托尔的军火、护甲和军用杂货店
-重新开业了！！
+现已
+重新开业！
 
 兽人部队正威胁着我们！虽然我一般情况下也不是个幸灾乐祸的人，但是借这个机会我必须说一下：
 
 #{bold}#我早就告诉过你们了，你们这些忘恩负义的人！#{normal}#
 
-你们如今看到了对于我这些绝妙的自我防御设备的需求了吗？你们能看出，为什么我要殚精竭虑地做这些可以拯救无数性命的奇特精妙的装置。而你们曾经只需要付出我要求的价钱，仅仅是它们实际价值的一小部分？那些没用的城市守卫有没有看出，他们早应该买我的最新的、升级的型号，比如说“#{italic}#光辉灿烂的自动装填的兽人驱除器#{normal}#”（仅售600金币！马上为自己弄一件！守护你的家庭！）而不是滥用我那产品经久耐用的工艺，让我之前生产的产品在市面上流通了超过十年？
+你们如今看出我这些绝妙的自卫装置有多么必要了吗？你们明白我为什么如此殚精竭虑、孜孜不倦地制作这些奇特精妙的装置了吗？要是你们当初肯付我开的价——那仅仅是它们实际价值的一小部分——它们本可以拯救无数性命。那些没用的城市守卫看明白了吗？他们本该购买我最新的改良型号，例如#{italic}#精良的自动装填式兽人驱逐装置#{normal}#（仅售 600 金币！马上购买！保护你的家人！），而不是仗着我的产品经久耐用，把我最初那批产品凑合着用了十多年。
 
-别再犯第二次错误了！只用150金币买下“#{italic}#小小大惊喜#{normal}#”吧！啥？你付不起这个入门级别的费用？我猜你早应该在我正在做它们的时候买下！你不想让你们的肠子被一个绿皮小个子野蛮人拉出来吧？我给“#{italic}#增压的防挥砍的战斗服#{normal}#”定的原价700金币，简直就是你们对我的偷窃——如果你现在想要一件，我确定你的生命对于你自己来说至少值3800金币。它充分利用了你的排气孔来为战斗服中微小的马达供能，提供了无可比拟的防御性和机动性的平衡；保证能保护你免受那些野蛮人能扔出的任何种类的攻击，同时又不会让你的速度慢下来！注意到附近那些死掉的守卫吗？注意到尽管我强烈推荐过，但他们仍然没有穿着“#{italic}#增压的防挥砍的战斗服#{normal}#”？别让那种惨死发生在你或者是你爱的人身上！
+别再犯第二次错误了！只需 150 金币就能买下#{italic}#小小大惊喜#{normal}#！什么？你连这个入门价都付不起？那你就该趁我还在生产时买下它！不想被绿皮小野蛮人扯出肠子吧？我给#{italic}#增压防挥砍战斗服#{normal}#定的原价 700 金币简直是白送——如果你现在想要一件，我相信你至少愿意为自己的命付 3800 金币。它利用你自己的排气孔为藏在关节中的微型马达供能，兼具无与伦比的坚固与灵活；保证抵御那些野蛮人施加的任何伤害，又绝不会拖慢你的脚步！看到周围那些死去的守卫了吗？看到他们不顾我的苦苦劝告，根本没穿#{italic}#增压防挥砍战斗服#{normal}#了吗？别让你或你所爱的人落得同样下场！
 
-我敢肯定，你们对我那些用心制作的工艺品的效用一定有疑问；作为对我的商品的质量和效能的免费展示，欢迎你们来抢走它们。我向你们挑战 —— 城市守卫也包括在内，如果他们妄想着打着公众利益的旗号强征这些产品的话。这一切都是因为他们自掘坟墓，我可不会因此而大发善心；毕竟，他们过去没有给我这种善心。
+我相信你对我精心制作的武器是否有效心存疑虑；若想免费见识我的商品有多么优质、多么有效，欢迎试着用武力来抢。我等着你——城市守卫也一样，假如他们妄想以公共利益为由没收这些商品。公众是自掘坟墓，我可不会只出于善心就把他们拉出来；毕竟，他们过去也从未对我施舍过这种善心。
 
 #{italic}#[在这个海报的底部列出了一个地址。如果你想的话，你可以试着去抢这个商店，但是店主武装到牙齿 —— 可能不太值得冒着风险去抢劫货物。]#{normal}#
 ]], "_t")
@@ -2543,13 +2544,13 @@ Got a proposal, though.  With a few little tweaks, I could make one that doesn't
 
 Say the word, and I'll send over the temporary rune design so you can set the nexus to recognize it.  No charge from me - if you accept it, it'll pay for itself.
 
-[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测水晶真他妈够劲的，还有这个被它驱动的延时释放的伪符文——我的皮肤上没有什么空位了，但我能感受到，这玩意儿在我回马基埃亚尔之后几天都能用。这肯定能保证，我们可以安心从西部的传送门逃走，绝对不会被联合王国抓到，他们也肯定没法追踪我们的痕迹。
+[i](You assume the elaborate, glowing shape below is an Ogric equivalent to a signature.)[/i] ]], [[老兄，你们设置的反侦测枢纽真他妈够劲的，由它供能的延时伪符文也一样厉害——我身上很难找到空地方画它，但回到马基·埃亚尔后，我能感觉到它还能生效好几天。这正好能确保我们从西部传送门脱身后各自散开，联合王国既察觉不到，也没法顺着踪迹找到我们的汇合点。
 
-现在，我现在有一个想法。只要稍微整一下，我就可以让这玩意儿不需要使用者的意愿就能工作。你不是唯一一个从我这里买奴隶的人，要是你想把他们带回西部去的话，我们可得好好做点反侦测的准备。我不知道你有没有注意到，但合格的法师如今还是很难请到——上次，我差点把老本都给赔光了。
+不过，我有个提议。只需稍作调整，我就能做出一种不需要佩戴者同意便可使用的符文。你们不是唯一从我这里买奴隶的人，要是有顾客想把奴隶直接运回西部，我们就得自己施反侦测附魔。我不知道你们有没有注意到，但正经法师现在还是很难找——上次那么干，我几乎没赚到钱。
 
-只要你一句话，我就把这个临时的符文设计发给你，你设置好水晶就能用了。我不收你的钱——只要你愿意用，这笔投入很快就能回本。
+只要你们点头，我就把临时符文的设计送过来，好让你们设置反侦测枢纽识别它。我不收钱——你们要是接受，这东西自己就能回本。
 
-[i]（你猜想，下面画着的这个精心设计的，闪闪发光的图案，在食人魔文化里有着和签名一样的用途。）[/i] ]], "_t")
+[i]（你猜想，下方精巧而发光的图案，在食人魔文化中相当于签名。）[/i] ]], "_t")
 t("STOP BLOWING OUR COVER", "别再暴露我们的身份了！", "_t")
 t([[We get it: it's our fault the farportal mailing system isn't perfect.  Our people are still working on undoing that jury-rigged configuration that keeps your portal from transporting anything that isn't living - and if we get it wrong, that means people start getting teleported into walls again.  It's already a damn miracle you can get through the portal without coming out naked on the other side, let alone still carrying your backpacks and all their contents.
 
@@ -3342,9 +3343,9 @@ I'll spare you the speech about insubordination, lying, and bypassing the chain 
 
 -Outpost Leader John]], [[特瑞尔，
 
-我敬重你的意图和你为保障我们安全所付出的心力，否则，我现在就已经把你的这份信直接交给艾琳女士了。这个条约给我们带来了什么，你对此到底有没有一丁点认识？你难道真的以为，没有托拉克国王的帮助，我们能阻止各部落残余重新结盟，至少在接下来几十年里成为我们巨大的眼中钉吗？尽管我和艾琳女士在有关兽人是否应该有忏悔的机会上有所分歧，这个条约是我们从联合王国那里获得[i]巨量[/i]援助的最重要的保障。而这个国家，就在去年，还在容忍一群四处游荡的反魔法师私刑者。
+我尊重你的本意，也尊重你为保障我们安全所付出的努力；这是我没有立刻把这封信交给艾琳的唯一原因。你对这份条约为我们换来了什么，哪怕有一点概念吗？你真以为没有托拉克国王的帮助，我们还能阻止各部落残余联合起来，并至少在未来几十年里成为我们的巨大麻烦吗？就算我不同意艾琳女士认为兽人应当获得救赎机会的看法，这份条约也确保了我们能从一个国家那里获得[i]巨量[/i]援助——而就在去年，这个国家还在容忍四处游荡的法师私刑团伙。
 
-我不想和你讲有关抗命、撒谎以及不服指挥的废话。因为第一，原理上你“只是”在建议我违反军纪而已；第二，我有更有价值的事情去做，而不是对你这个我[i]完全[/i]知道做错了什么的家伙，写一篇长篇大论的斥责。相反，我会直截了当的告诉你：再也不要给我弄出来这样的东西了，想也不要想。我会保留你的信件，如果你敢介入任何不恰当使用武力的行为，我就会把它作为证据提交。我相信你会当个聪明人。
+关于抗命、撒谎和越过指挥链，我就不训斥你了，因为：第一，严格来说你“只是”在要求我犯下这些过错；第二，我有更要紧的事要做，而不是给一个我[i]确信[/i]完全清楚自己错在哪里的人写一篇长篇大论的斥责。我就直说了：永远别再想干这种事。我会留着你的信；如果你今后牵涉任何可疑的武力使用，我就会把它作为证据提交。我原以为你不至于如此。
 
 -前哨站队长约翰]], "_t")
 t("a large, embossed envelope", "一个大大的，有压花的信封", "_t")
@@ -3385,13 +3386,13 @@ Now, officially, both we and the Allied Kingdoms have a policy of capturing the 
 
 #{italic}#Officially,#{normal}# the Atmos don't exist, and we have no knowledge of them whatsoever.  Officially, if a couple of Allied Kingdoms supply ships headed for the internment camp #{italic}#just happened#{normal}# to be waylaid by a hired band of pirates who #{italic}#got lucky#{normal}# and struck them just between their naval patrol routes, it'd be #{italic}#such a shame,#{normal}# and the Atmos couldn't be blamed if that armor and weaponry found itself in their hands.  Officially, we are not to leave our post under any circumstances, and if a mysterious band of giants descended from the mountains, crushed the Kruk Pride in their homeland, and forced them to flee, it would be against our orders to do anything about it, aside from eliminate any refugees who flee to our bridge; officially, this wouldn't impede the Atmos' negotiations with the Allied Kingdoms and Sunwall after this incident, because they couldn't have known we'd pursue a goal as naive as waiting to take the Orcs alive, and would grant them an uncontested claim to Kruk territory.
 
-Unofficially?  I'm going to #{italic}#enjoy#{normal}# this.]], [[好吧。看来这么长时间都没人发现，这个半岛里还居住着一个在山中隐居的巨人文明。如果不是因为我们实在是兵源不足，真想让这些废物哨兵统统滚蛋。好吧，看来无意间，这个奇怪的机器把我当成了约翰队长、艾琳女士和国王托拉克……虽然原理上我大概有义务把这封信交给他们，不过，在和首席议员坦塔洛斯单独探讨过一次之后，我们都意识到，现在没有时间去通知他们了，摆在我们面前的就是一个不应该被浪费的天赐良机。
+Unofficially?  I'm going to #{italic}#enjoy#{normal}# this.]], [[好吧。原来这个半岛还住着一整个隐居山中的巨人文明。要不是兵力实在紧缺，我手下的斥候早就全被开除了。我似乎无意间骗得这个构装体把我同时当成了艾琳、约翰和托拉克国王。虽然我有义务把这封信转交给他们……但在与首席议员坦塔洛斯进一步商议后，我们都意识到可以暂缓通知他们，因为眼前这个机会我们谁都不能错过。
 
-现在，从官方立场上，我们和联合王国都应该尽可能把抓到的兽人送进拘留营，而不能直接杀掉他们，这对我们这座前哨站的防守十分不利。官方的说法是，我们需要保持现状，继续坐视克鲁克部族不断增长的威胁，而不能够抢在他们集结兵力之前进攻他们的领地。按照官方的做法，我们什么都做不了，直到一切都为时已晚。但是……
+现在，按照官方政策，我们和联合王国都应当抓捕剩余的兽人并把他们送往拘留营，而不是杀死他们（如果条件允许）；要做到这一点，需要远超这座前哨站现有实力的压倒性优势。按照官方命令，我们应当留在原地，遏制克鲁克部落的潜在威胁，而不是趁他们集结兵力之前攻入其领地。按照官方规定，在为时已晚之前，我们不得对此采取任何行动。不过……
 
-#{italic}#官方地说，#{normal}#，既然我们之前根本就没有人发现他们，气之部族是不存在的。官方来说，如果一艘前往拘留营的联合王国的补给船，#{italic}#不幸#{normal}#被一群雇佣兵海盗拦下了，而它们#{italic}#正好#{normal}#避开了海军的巡逻路线，那真的只能说是#{italic}#太遗憾了#{normal}#。如果他们运送的武器和装备正好跑到了气之部族的手里，那也没有什么奇怪的。按照官方说法，我们从来没有离开我们的前哨站一步，只有一群传说中的巨人从山中出现，摧毁了克鲁克部族的家园，让他们被迫逃离。毕竟，我们什么也没有干，最多只是自卫地干掉那些冲向这座桥的难民而已。官方立场上，这场事件不会妨碍气之部族日后和联合王国和太阳堡垒的谈判，他们肯定不知道，我们居然还曾经有过想要活捉那些兽人的天真到可笑的计划，而且我们还帮助他们捍卫了对克鲁克部族领地无可争辩的主权。
+#{italic}#官方说法是，#{normal}#气之部族并不存在，我们对他们一无所知。按照官方说法，如果两艘驶往拘留营的联合王国补给船#{italic}#碰巧#{normal}#被一伙受雇的海盗截下——他们#{italic}#走了运#{normal}#，正好在海军巡逻航线的间隙下手——那可真是#{italic}#太遗憾了，#{normal}#即便那些盔甲和武器落到了气之部族手里，也怪不到他们头上。按照官方命令，我们无论如何都不得离开岗位；假如一群来历不明的巨人从山中下来，在克鲁克部落的家园将其击溃并迫使他们逃亡，我们也不得违令插手，只能消灭逃到桥上的难民。按照官方说法，这起事件不会妨碍气之部族事后与联合王国及太阳堡垒谈判，因为他们不可能知道我们会追求“等待活捉兽人”这样天真的目标；而且这起事件还会让他们毫无争议地取得克鲁克领地。
 
-非官方说法？我想我会#{italic}#好好享受#{normal}#这一切的。]], "_t")
+非官方说法？我会#{italic}#好好享受#{normal}#这一切。]], "_t")
 t("a torn page from John's journal", "约翰日记上的一页", "_t")
 t("Aeryn, my love...  I fear Trelle may be right, but I will hold this bridge without resorting to betraying you.  Still, though, I will remain vigilant of approaching attacks, and prepare to strike first if a battle really does seem inevitable.  As long as I stand, no Orc will ever harm you again.  We will have a bright and shining future ahead of us, walking hand in hand into the dawn of a new, peaceful age...  and while I hope the Kruk Pride has a place there, I will not let them put this new age in jeopardy.", "艾琳，我的爱人…我开始担心，特瑞尔说的可能是对的，但我会坚守这座桥，绝不会背叛你的信赖。尽管如此，我还是会对即将到来的袭击充满警惕，如果这场战争真的不可避免，我也会准备先发制人。只要我还在这里，我绝对不会让任何兽人伤害你。我们会共同开启一个光明璀璨的未来，携起手，走向一个和平的新时代的黎明……尽管我也希望克鲁克部族也能成为这样的新时代的一份子，但是，我绝不会容许他们把这样的新世界置于危险之中。", "_t")
 t("King Tolak's Condemnation", "托拉克国王的谴责书", "_t")
@@ -3507,13 +3508,13 @@ We had no overt flaws.  The gods were mercilessly vigilant, eager to use any imp
 I doubt any of them deliberately cursed us - no one of them could've done something so powerful.  Subconscious touches, psychic leakage, and other such imperceptible forces added up over time to indicate one inescapable truth: we were not wanted.  We had been forged in a bitter compromise, one desired by nobody involved; their hatred, their neglect, their frustration is the foundation of everything we are, and we carry it deep within ourselves.  Perhaps such a creature naturally attracts the ire of the universe, of fate itself. 
 
 Or maybe we just angered someone powerful enough to put a retroactive temporal curse on us, or it was Amakthel personally ensuring his pet project would have no equals. We may never be certain.  All we know is, something - be it probability, or the universe's combined will, or simply our own bad luck - will not tolerate our existence, nor that of anything like us.
-]], [[你知道夏·图尔人有兄弟吗？在他们被创造出来之前，当众神还青春年少又无忧无虑，奎克久拉说服大家来一起合作为埃亚尔带来生命。也许他们真的能够实现这样的合作，如果他们当时更为成熟的话……热忱的合作在个人品味和创意的差异面前衰退了，我们的创造者的友谊变成了敌意，然而我们还是被这样创造出来了。
+]], [[你知道夏·图尔人有兄弟吗？早在他们诞生之前，众神尚且年轻快活时，奎克久拉说服他们携手为埃亚尔创造生命。如果当时更加成熟，也许他们真能做到……但热忱的合作经不起个人品味与创意分歧的考验，我们的创造者从朋友变成仇敌，而我们仍然诞生了。
 
-我们的身上没有明显的缺陷。众神们无情地警惕着对方，热心地用造物身上任何的不完美之处来指责其创造者，以显示自己的优越，直到他们弹尽粮绝，我们才被创造了出来。我们看上去很完美，细细检查也如此，然而……
+我们没有明显的缺陷。众神冷酷地监视着彼此，急于用任何瑕疵作为斥责始作俑者、宣称自己更优越的借口；直到他们再也找不到可以攻击的把柄，我们才获准存在。我们看上去完美无缺，即便细细检查也是如此……
 
-我们不认为众神中有人故意来诅咒我们————没人能做出如此威力无穷的举动。潜意识中的触动，灵能的泄漏，还有其他的无法察觉的力量日积月累，表明了一个无可辩驳的事实：我们是不被需要的存在。我们在一场苦涩的、无人真正想要的妥协中铸就；众神的憎恨，他们的忽略，他们的懊丧是我们存在的基石，我们在自身的存在中也一直传承下来。也许我们这种生物，命中注定天怒人怨，被命运所诅咒。
+我不认为众神中有谁故意诅咒了我们——他们当中没有任何一位能独自做到如此强大的事。潜意识的触碰、灵能泄漏和其他难以察觉的力量日积月累，最终指向一个无法逃避的事实：我们不受欢迎。我们在一场苦涩的妥协中被铸就，而参与者无一真正想要我们；他们的仇恨、忽视与挫败构成了我们的一切，并深深留在我们体内。也许这样的生物天生就会招致宇宙乃至命运本身的愤怒。
 
-或者我们只是激怒了另一位强大的存在，给我们施加了一个有追溯能力的时空诅咒，或者是因为阿马克泰尔本人想让他的宠物工程无可比拟。我们可能永远都不能确定这件事的原因。我们知道的是，有一种东西————不管是概率，或是宇宙的集体意志，或者仅仅只是我们自己的厄运————永远不会容许我们，或与我们相似的任何事物存在。
+又或许，我们只是激怒了某个强大到足以给我们施加追溯性时空诅咒的存在；也可能是阿马克泰尔本人要确保他的得意之作无可匹敌。我们或许永远无法确定。我们只知道，某种事物——无论是概率、宇宙的共同意志，还是单纯属于我们自己的厄运——都不会容忍我们或任何与我们相似的事物存在。
 ]], "_t")
 t("telepathic message (3)", "心灵传讯 (3)", "_t")
 t([[Did you know you killed us? You did, in one potential future, ordering our genocide from atop a steel drake.  In others, it was the Dominion, the Allied Kingdoms, Flamewright Industries, the Zigur-Thaloren Pact, or countless other transient mortal city-states.  We've been torn apart by Gerlyk, and dissected by Angolwen at the direction of Headmistress Argoniel or Chief Genius Tannen (yes, the smug git actually called himself that).  We've been devoured (literally and metaphorically) by the New Conclave under Mother Astelrid, wiped out by a plague engineered by the Grand Corruptor, drowned as the world was flooded by the Naloren, and reduced to ash by the reborn Crimson Dragonbrood.  We've been captured as torture-toys by the Demons and The Master's undead servitors, hunted for magical reagents by the Reknor Confederacy, and kept as adding machines by the Greater Republic of Steam.
@@ -3522,13 +3523,13 @@ You know, you should thank the Scourge from the West.  We certainly do.
 
 In most, it was the Sher'Tul, eliminating their closest competitor, or the Mal'Rokka, taking Eyal for themselves.  In the few where we won every war, a meteor destroyed Eyal instead - a meteor that has now been intercepted by debris, from what you call the Spellblaze.  You're welcome - a contingent of our people kept the Mal'Rokka suppressed for long enough to allow that to happen.  If you want to see an example of how thoroughly existence wants to erase us, just ask them what they know about the "Dust Mages."
 
-We don't advise learning psychic prognostication with such commitment as we did.  To see this many possibilities, to gaze into infinity with such detail without infinity gazing back...  you have to feel it.  Every spear through our hearts, every limb burned off...  and we all did it together, linking our minds to accomplish this, so all of us have suffered through this.  And after all that, we still can't be 100% sure it's accurate, although we've gotten to more 9s after 99.9% than we can actually count.]], [[你知道你曾杀过我们吗？是的，在某个潜在的未来，你骑在一只高耸的钢铁巨龙之上，下达灭亡我们的种族的命令。在其它的未来中，是巨魔帝国，是联合王国，火筑工业，伊格-自然精灵联盟，或者是其他转瞬即逝的凡间城邦。我们被盖里克撕成两半，在阿格尼尔校长或者是大天才泰恩（是的，那个自鸣得意的蠢货是这么叫自己的）的命令下被安格洛文解剖。我们被圣母亚斯特莉的“新孔克雷夫”吞食（既是字面也是比喻意义上的），死于大腐化 者设计的一场瘟疫，当世界被纳鲁精灵淹没时溺毙，被重生的赤红龙族烧成灰烬。我们被恶魔或是大师的死灵仆从们捉来做被折磨的玩具，被瑞库纳联邦狩猎以获得魔法原料，并被大蒸汽共和国作为零件的一部分。
+We don't advise learning psychic prognostication with such commitment as we did.  To see this many possibilities, to gaze into infinity with such detail without infinity gazing back...  you have to feel it.  Every spear through our hearts, every limb burned off...  and we all did it together, linking our minds to accomplish this, so all of us have suffered through this.  And after all that, we still can't be 100% sure it's accurate, although we've gotten to more 9s after 99.9% than we can actually count.]], [[你知道你曾杀死过我们吗？在一个可能的未来里，确实是你：你高踞钢铁巨龙之上，下令灭绝我们。在其他未来里，动手的是巨魔帝国、联合王国、火筑工业、伊格-自然精灵联盟，或无数其他转瞬即逝的凡人城邦。我们曾被盖里克撕碎，也曾在艾格尼尔校长或“大天才”泰恩（没错，那个自鸣得意的蠢货真这么称呼自己）的指示下被安格利文解剖。我们曾被亚斯特莉圣母统治的新孔克雷夫吞噬——无论字面还是比喻意义上；曾被大腐化者制造的瘟疫抹杀；曾在纳鲁精灵淹没世界时溺亡；也曾被重生的赤红龙族烧成灰烬。我们曾被恶魔和领主的亡灵仆从抓去当折磨取乐的玩具，被瑞库纳联邦猎杀以充当魔法材料，又被大蒸汽共和国当作计算器使用。
 
-你明白的，你应该感谢西方的灾星。我们确实感谢。
+你应该感谢西方天灾。我们当然感谢她。
 
-在大多数情况下，是夏·图尔人，消灭了最接近他们的竞争对手，或者是玛·洛克人，他们把埃亚尔据为己有。在少数几个我们赢得每场战争的世界线中，一个陨石毁灭了埃亚尔————这个陨石现在被一个碎片拦截，碎片的来源是你们所说的魔法大爆炸。不用感谢我们————我们的一群族人镇压了玛·洛克人很长时间来防止这件事情发生。如果你想看看现存的一切是如何彻底地想抹除我们，就去问问那些恶魔有关“尘埃法师”的事情吧。
+在大多数未来里，是夏·图尔人为了消灭最接近的竞争对手，或是玛·洛克人为了独占埃亚尔而毁灭我们。在少数我们赢下每场战争的未来里，毁灭埃亚尔的则是一颗陨石——如今，那颗陨石已被你们所谓魔法大爆炸留下的碎片拦截。不用谢——我们的一群族人把玛·洛克人压制了足够长的时间，才让这件事得以发生。若想看看这个世界有多么执意要抹除我们，只管去问他们对“尘埃法师”知道些什么。
 
-我们不建议像我们这种程度地努力学习心灵预测。要看到如此多的可能性，以如此细致的目光注视无限，而无限永远不会回望我们……请你体会一下这一切的感受。每一根刺向我们心脏的长枪，每一条烧掉的肢体……并且，因为是我们的人把心灵连接到一起来实现这一预测的目标，因此，我们的每个人都亲身感受到这极致的痛苦。并且，尽管如此，我们还是没法100%确定这是准确的，即使在99.9%的小数点之后9的数量已经远远超出了我们愿意数的范围。]], "_t")
+我们不建议任何人像我们一样全身心钻研心灵预言。要看到如此多的可能性，要如此细致地凝视无限而不被无限回望……你就必须亲身去感受。每一支贯穿我们心脏的长矛，每一条被烧毁的肢体……而且我们所有人都将心灵相连，共同完成了这一切，因此我们每个人都承受过这一切。即便如此，我们仍无法百分之百确定预言准确，尽管 99.9% 之后的 9 已多到我们根本数不过来。]], "_t")
 t("telepathic message (4)", "心灵传讯 (4)", "_t")
 t([[Do you know what would've happened if you hadn't stepped up to defend Kruk Pride?  The Allied Kingdoms could've gone on to keep the entire world under its thumb.  One unified army, marching under one banner, ready to eliminate us when we're reborn...  and that's assuming that a certain greater threat didn't step in first.  We don't want that, and neither do you.
 
@@ -4286,8 +4287,8 @@ t("Uncertainty Principle", "测不准原理", "talent name")
 t("#STEEL_BLUE#(%d quantum shifted)#LAST#", "#STEEL_BLUE#(%d 量子转移)#LAST#", "tformat")
 t([[While inside a psionic fog the quantum state of space is warped by your powerful tech-augmented psionic powers.
 		When you would get hit you instead find yourself in an adjacent location.
-		This effect has a cooldown.]], [[你能在灵能之雾中使用经技术强化的灵能力量来掌握空间的量子态本质。
-		当你将被击中时，你会闪现到一个临近的位置。
+		This effect has a cooldown.]], [[身处灵能之雾中时，空间的量子态会被你那经科技强化的强大灵能扭曲。
+		当你即将被击中时，你会改为出现在相邻位置。
 		这个效果有冷却时间。]], "tformat")
 
 ------------------------------------------------
@@ -4571,9 +4572,9 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（%d 层级或以下）的冷却时间，直接恢复 %d%% 蒸汽值。
-		在 6 回合内，蒸汽值最大值翻倍，但是恢复值减半。
-		#{italic}#科技至尊、死亡之主！！#{normal}#]], "tformat")
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，重置你大部分蒸汽科技技能中 %d 个（%d 层级或以下）的冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
+		此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。
+		#{italic}#科技至尊、死亡之主！#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/automation.lua"
@@ -4687,10 +4688,11 @@ t([[Firmly plant your steamsaws in the ground, using them to propel yourself ver
 		Any foes on either side of your movement get wrecked by the saws, knocking them 3 tiles away from you.
 		Attacking or using any talent will break this effect.
 		When this effect is broken or cancelled the sudden change in motion deals %d%% weapon damage to all foes around you. To do full damage you need to have moved at least 5 times, otherwise damage is lower (or null for no movement).
-		#{italic}#The wheels of death! Amazing!#{normal}#]], [[把链锯深深插入地面，作为履带，增强自己的行动能力（移动速度增加 %d%%）。
-		在你移动路线两侧的敌人被链锯割断，被击退 3 码。
-		攻击或者使用其他技能的动作都会中断效果，同时冲击力对周围的敌人造成 %d%% 武器伤害。你需要至少移动五次来达到最高伤害，否则伤害会降低。若不移动则没有伤害。
-		#{italic}#冲锋！死亡之轮！！#{normal}#]], "tformat")
+		#{italic}#The wheels of death! Amazing!#{normal}#]], [[把蒸汽链锯牢牢插入地面，借助它们推动自己快速移动（移动速度增加 %d%%）。
+		在你移动路线两侧的敌人会被链锯撕碎，并被击退 3 码。
+		攻击或使用任何技能都会中断该效果。
+		当该效果被中断或取消时，运动的骤变会对周围所有敌人造成 %d%% 武器伤害。至少移动 5 次才能造成全额伤害，否则伤害降低（未移动则无伤害）。
+		#{italic}#死亡之轮！太棒了！#{normal}#]], "tformat")
 t("Grinding Shield", "利齿护盾", "talent name")
 t([[Spin your saws wildly around you to create a wall of steamy sawteeth.
 		All melee damage against you is reduced by %d%%, you have %d%% chance to evade projectiles and you can never take a blow that deals more than %d%% of your max life.
@@ -5158,11 +5160,11 @@ t([[You replace your steamgun and attack with a lightning-charged staff to engag
 		
 		Deals %d%% steamgun damage as lightning to enemies in a frontal arc, as well as reducing the damage they deal by %d%% for 3 turns. This counts as a melee attack but triggers ammunition on-hit effects. All shockstaff attacks will also make a shield slam for the same damage as lightning. 
 
-		You can charge up to your steamgun's range to make shockstaff attacks.]], [[你将你的蒸汽枪替换成一根通了强电的电棍，用于进行近战格斗。
+		You can charge up to your steamgun's range to make shockstaff attacks.]], [[你将蒸汽枪换成一根带电的电击棒，进行近身格斗。
 
-		在前方造成 %d%% 闪电蒸汽枪伤害，并降低他们所造成的伤害 %d%%，持续 3 回合。这一效果视作近战攻击，但可以触发弹药的命中效果。所有电击棒伤害也会附加一次盾牌攻击，造成同样的闪电伤害。
+		对正面弧形范围内的敌人造成 %d%% 蒸汽枪伤害的闪电伤害，并使其造成的伤害降低 %d%%，持续 3 回合。此攻击视为近战攻击，但会触发弹药的命中效果。所有电击棒攻击还会发动一次盾牌攻击，造成等量的闪电伤害。
 
-		你可以冲刺进行电击棒攻击，冲刺范围等于蒸汽枪射程。]], "tformat")
+		你可以从不超过蒸汽枪射程的距离发起冲锋，然后用电击棒攻击。]], "tformat")
 t("Stormstrike", "暴风打击", "talent name")
 t([[Sweep your shockstaff, striking all enemies in a frontal arc for %d%% weapon damage as lightning and reducing their damage dealt by %d%% for 3 turns.
 		If you have a shield, you will also strike them.
@@ -5551,9 +5553,9 @@ t("Explosive Shell", "爆炸弹", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which does %0.2f physical damage.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪在射程内制造一场特殊的爆炸。
-　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害，
-　　这个技能不使用弹药。]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内某处射出特殊的爆炸弹。
+		每发子弹命中目标时，造成正常蒸汽枪伤害，并在半径 %d 码内爆炸，造成 %0.2f 物理伤害。
+		这个技能不消耗弹药，因为它本身就是弹药。]], "tformat")
 t("Flare Shell", "闪光弹", "talent name")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which lights up the area and blinds for %d turns.
@@ -5566,9 +5568,9 @@ t([[You fire a special explosive shot with your steamgun(s) at a spot within ran
 		When each shot reaches its target, it does normal steamgun damage and releases %d explosive charges in a radius of 2.
 		These charges will shortly explode for %0.2f fire damage in a radius of 1.
 		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。
-每发子弹命中目标时都会造成正常蒸汽枪伤害，并在半径 2 格内释放 %d 枚爆炸装药。
-这些装药很快就会爆炸，对半径 1 格内的目标造成 %0.2f 点火焰伤害。
-这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
+		每发子弹命中目标时都会造成正常蒸汽枪伤害，并在半径 2 格内释放 %d 枚爆炸装药。
+		这些装药很快就会爆炸，对半径 1 格内的目标造成 %0.2f 点火焰伤害。
+		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Solid Shell", "固实弹", "talent name")
 t("%s is knocked back!", "%s 被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
@@ -5754,9 +5756,9 @@ t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
 		If your talent level is at least 3 %d physical or magical sustains are also removed.
-		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，减少其 %d%% 整体速度 4 回合，并造成 %d%% 武器伤害。
-		同时敌人将失去 %d 项物理效果。
-		技能等级 3 时，同时除去 %d 项物理或魔法维持技能。
+		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，使其全局速度降低 %d%%，持续 4 回合，并造成 %d%% 武器伤害。
+		这一击的力量还会移除至多 %d 项物理效果。
+		若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。
 		#{italic}#切碎他们，折磨他们，收割他们！#{normal}#]], "tformat")
 t("Goresplosion", "爆尸", "talent name")
 t([[When you kill a foe you place small explosives with shrapnels inside its body, making it explode in radius %d.
@@ -6032,7 +6034,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 
 		Once put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.
 
-		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是一些特殊的元素法师，他精通于蒸汽科技，用科技的力量来强化他们已经足够强大的法术力量。
+		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。
 		当你选择这一项进阶职业的时候，你获得以下能力：
 		- 奥术发电机插件配方
 		- 蒸汽/物理系 （已解锁）
@@ -6044,8 +6046,9 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 		- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术
 		- 你可以免费解锁三个科技法术系的其中之一。
 
-		当你装备长袍的时候，奥术发电机会在你消耗法力值的时候自动产生蒸汽，并根据蒸汽等级提升法术强度。
-		#{bold}#当你完成这职业进阶的时候，你应该尽快制造一个奥术发电机，装备在长袍中，以使用科技法术的力量。#{normal}#]], "tformat")
+		奥术发电机装入长袍后，每当你消耗法力值时都会产生蒸汽，并根据当前蒸汽值提升法术强度。
+
+		#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/uber/str.lua"
@@ -6099,7 +6102,7 @@ t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
 t("Twilit Echoes", "暮光回响", "_t")
-t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，在单次受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。", "tformat")
+t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
 t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害回响了，减速 %d%%。在暮光回响期间受到更多伤害将会刷新持续时间并增加减速效果，最大叠加到 %d%%。", "tformat")
@@ -6850,8 +6853,8 @@ t("A shadowy embodiment of anger.", "一团由愤怒具现成的阴影。", "_t"
 t("human", "人类", "entity subtype")
 t("Crimson Templar John", "深红骑士约翰", "entity name")
 t([[Where you once saw a warrior bathed in light, whom in an other life you could have even respected, you now see only hatred.
-This warrior's once glowing armor now emits a sinister crimson light. As he marches towards you can see his eyes, they are empty.]], [[这位曾经沐浴在阳光下的战士，一位你曾经尊敬的勇士，现在已经被仇恨所吞噬。
-这个战士曾经闪耀着光辉的护甲已经被阴沉的血红色掩盖。他径直向你冲来，只见他的眼神空洞无物。]], "_t")
+This warrior's once glowing armor now emits a sinister crimson light. As he marches towards you can see his eyes, they are empty.]], [[你曾在他身上看到一位沐浴在光芒中的战士——换一种人生，你甚至可能会敬重他——而如今你只看到仇恨。
+这名战士曾经闪耀的护甲，如今散发着不祥的猩红光芒。他朝你步步逼近，你能看见他的双眼，空洞无物。]], "_t")
 t([[Where you once saw a warrior bathed in light, whom in an other life you could have even respected, you now see only hatred.
 This warrior's once glowing armor now emits a sinister crimson light. As he marches towards your foes you can see his eyes, they are empty.]], [[这位曾经沐浴在光明中的战士——若在另一种人生中，你甚至可能会尊敬他——如今你看到的只剩仇恨。
 这个战士曾经闪耀着光辉的护甲如今散发着不祥的血红光芒。他径直冲向你的敌人，只见他的眼神空洞无物。]], "_t")
@@ -6920,7 +6923,7 @@ t("Dominion Port", "巨魔帝国港口", "_t")
 t("Dominion Port: Sewers 1", "巨魔帝国港口：下水道 1", "_t")
 t("Dominion Port: Sewers 2", "巨魔帝国港口：下水道 2", "_t")
 t("Dominion Port: Tower", "巨魔帝国港口：塔楼", "_t")
-t("Dominion Port ???", "巨魔帝国港口 ??？", "_t")
+t("Dominion Port ???", "巨魔帝国港口 ???", "_t")
 t("Dominion's Port Tower", "帝国港口塔楼", "_t")
 t("As you enter you see the door lock behind you. It's a trap!", "当你进入，你注意到背后的门锁上了。这是个陷阱！", "_t")
 
@@ -8144,7 +8147,7 @@ t("lost tinker", "迷路的工匠", "_t")
 t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试某种蒸汽科技，结果在这地方迷路了。我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the experimenting tinker", "%s，实验的工匠", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
-t("[Ask where to learn tinkers crafting]", "[问她哪里可以学到蒸汽技术]", "_t")
+t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习插件制作]", "_t")
 t("Reveal the location of a teacher.", "揭示工匠大师的位置。", "_t")
 t("Tinker's Master", "工匠大师", "_t")
 t("She points a location on your map, in a remote area to the north.", "她指出了地图上的一个位置，在北方的某地。", "_t")
