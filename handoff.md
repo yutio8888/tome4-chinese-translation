@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-28（第357批已 finalize，窗口48积压 6 条，继续审核第358批）
+更新时间：2026-09-28（第358批已 finalize，窗口48积压 9 条，继续审核第359批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,10 +8,10 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **357** 批（`batch-06020dfb9cbf406a4526`）：80 条（主游戏 65 条、Ashes 15 条），74 done / 6 repair_required。
-  主游戏 65＋Ashes 15 混合批（窗口47a/47b successor 首批）：surface 两组 8 lane；contextual 两个 run 一次通过；逐条裁决。窗口48积压 6。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `077d182af2b57ee621efbbacf57932e876b3841b` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **47b**：B 组单条措辞与名称 48 条及窗口 47a 转入 8 条（三个 Lua 文件）已修复；译文提交 `a10222b7e4a6650d289ed90120e8d2acb867ed53`；migration `2e88ba7a…` 的 56 个 successor 须重新审核，不继承旧 revision 的 done 状态；窗口 47a 的 77 个 successor 同样待审。第357批起审核其 successor（133 个，第357批已审 80）。
+- 审核已闭合至第 **358** 批（`batch-831d1b4154a1003f7fd4`）：53 条，50 done / 3 repair_required。
+  全 DLC 混合批（Ashes 16、Cults 1、Orcs 36，窗口47a/47b successor 尾批）：surface 三组 9 个 child；contextual 首轮 Orcs 越界拒收，dlc-location-v1 refreeze 两个 run 通过；逐条裁决。窗口48积压 9。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `fea56d8a70e8ccbe69aa3847a64f78758b720386` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **47b**：B 组单条措辞与名称 48 条及窗口 47a 转入 8 条（三个 Lua 文件）已修复；译文提交 `a10222b7e4a6650d289ed90120e8d2acb867ed53`；migration `2e88ba7a…` 的 56 个 successor 须重新审核，不继承旧 revision 的 done 状态；窗口 47a 的 77 个 successor 同样待审。其 133 个 successor 已由第357、358批审完（80＋53）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -109,6 +109,7 @@
 | 355 | `batch-fbcd32274a9a90faab4a` | 25 done / 5 repair | 22 OK / 8 ISSUE | 4 OK / 4 ISSUE | 8 confirmed / 1 refuted / 3 advisory |
 | 356 | `batch-4a7dd7135bbe1a68607d` | 19 done / 1 repair | 18 OK / 2 ISSUE | 1 OK / 1 ISSUE | 1 confirmed / 2 advisory |
 | 357 | `batch-06020dfb9cbf406a4526` | 74 done / 6 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 12 confirmed / 6 refuted / 1 advisory |
+| 358 | `batch-831d1b4154a1003f7fd4` | 50 done / 3 repair | 47 OK / 6 ISSUE | 4 OK / 2 ISSUE | 4 confirmed / 3 refuted / 1 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -185,11 +186,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **358** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **359** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window47b.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w47b-20260928/wd.sh`、`/tmp/w47b-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 47b 已完成（B 组：用户 2026-09-27 裁决的单条措辞与名称，待审第 3、6、8–14、17、18、20–29、31–35、38、39、41 项共 48 条，加窗口 47a 转入 8 条：“火魔婴”→“火焰小鬼”6、“物品黑暗麻木”→“物品暗影麻木”1、雕像名“莎西·凯希”1；名称类按用户指示采用 Gemini 3.8 Flash 结论；术语库未改）。复审另确认并修复 workset 内旧缺陷：科技法师进阶说明的蒸汽工具配方与“蒸汽科技/物理系”“蒸汽科技/化学系”、梅塔什对话两条（漏译半岛各处/为了我们、增译“算了”、光束打穿岩层露出天空）、米诺陶 lore（漫长岁月、精神焕发）、亡灵猎手指南署名统一、华丽抛枪后续技能多余换行；死亡描述 f6cc31f278 被 GPT-6 Sol 连报五次，均按模板“%s而死”与待审 #18 裁决驳回。四次修复后 cycle 4 FINAL 56/56 OK（max_cycles 5）；门禁 17/17。advisory：9af7773a4c 的 A.P.E. 缩写本库一贯不译；f5f092ac5d 歌词 ogre/over 双关（47a 转入）。下一步审核窗口 47a（77）与 47b（56）的 successor（第357批起）。窗口外宿主补充项待下个窗口按 revision 核实后纳入：“stack of herbs”同族四条“一束植物”→“草药”（advisory，跨条）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）；`95496f3e7a` 等：区域名“太阳堡垒观星台”与 lore 分类名“太阳堡垒瞭望台”（术语 existing，tome-orcs.lua:2494）不一，随待审第 37 项 Sunwall 译名一并统一；第337批 advisory `9a75f2d93d`（精神雄蜂 bores into）、`9af7773a4c`（A.P.E. 缩写）；第342批 advisory `b6e17ee9e4`（Crimson Templar John“深红骑士约翰”，本库另有“深红圣武士”“赤红守卫”，Templar 译名待统一）、`b437b99574`（铜制护目镜附言“自爱的工匠”翻译腔）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window47b.py`（全部宿主补充、无批次 preflight）、`.artifacts/i18n/repair-w47b-20260928/wd.sh` 与 `/tmp/w47b-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
-   窗口 48 积压 **6** 条（第357批，主游戏+Ashes）：`ba5e371016`（艾伦尼恩回忆录第一章四处）、`dc3200b76d`（次元浮岛抛入虚空）、`175effe253`、`196ce36308`（Ashes 开场陨石/世界之间/水晶）、`3626a66415`（莎西·凯希 lore 限定词）、`6a71689b25`（水小鬼雕像 lore；water imp 按用户指示咨询 Gemini 3.8 Flash 定为“水小鬼”，与火焰小鬼对仗，开窗先加术语行再全库 4 行同步：mod-tome.lua:7997、tome-ashes-urhrok.lua:127/519/520）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第357批计时（实测，投影缓存 on）：start 122.3 s；adjudication chain（含 17 项门禁）167.5 s；finalize 126.3 s。
+   窗口 48 积压 **9** 条（第357–358批，主游戏+Ashes+Orcs）：`ba5e371016`（艾伦尼恩回忆录第一章四处）、`dc3200b76d`（次元浮岛抛入虚空）、`175effe253`、`196ce36308`（Ashes 开场陨石/世界之间/水晶）、`3626a66415`（莎西·凯希 lore 限定词）、`6a71689b25`（水小鬼雕像 lore；water imp 按用户指示咨询 Gemini 3.8 Flash 定为“水小鬼”，与火焰小鬼对仗，开窗先加术语行再全库 4 行同步：mod-tome.lua:7997、tome-ashes-urhrok.lua:127/519/520）；第358批 `ae4cc0af7a`（米诺陶雕像 lore 五处）、`d0aff018a9`（夸塞魔雕像 lore；wretchling 按 Gemini 统一为“小劣魔”，Ashes 13 行同步）、`5e73a63007`（毁灭号 unreasonably lethal）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第358批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）166.3 s；finalize 126.6 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
