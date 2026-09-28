@@ -719,8 +719,8 @@ Read now for a fate worse than death inside awaits.
 现在翻开，等待着你的是比死亡更可怕的命运。
 ]], "_t")
 t("Forbidden Tome: \"The Day It Came\"", "禁忌之书：《到来之日》", "entity name")
-t("The cover of this tome is old and withered. As you hold it, you get the impression of many things. Despair, misery, desperation and hopelessness all assail you at once. Something about the book also promises great power, but at what cost?", "这本书的封皮老而枯干。当你拿着它的时候，你感受到绝望、困难，痛苦，无助的感情向你袭来。书中的存在许诺着强大的力量，但是，代价是什么呢？", "_t")
-t("In the Age of Pyre, it seemed that the world was ending to many of Eyal's inhabitants. The destruction caused by the Spellblaze left the land withered and scorched. Food was scarce, paranoia was rampant and everyone was desperate. For a select few, their salvation came from an unlikely visitor. An entity they simply came to knew as The Teacher visited Eyal from somewhere beyond the stars, emerging from an ancient Sher'tul farportal. It discovered a group of survivors in the depths of Eyal which begged it for knowledge, anything they could use as a weapon against the horrors ravaging their world.", "烈火纪时，埃亚尔的许多居民都觉得世界末日已经降临。魔法大爆炸造成的毁灭令大地枯萎焦灼。食物匮乏，偏执横行，人人陷入绝望。少数人的救赎来自一位意想不到的访客。一个他们只知道称其为“导师”的存在从群星之外来到埃亚尔，自一座古老的夏图尔远程传送门中现身。它在埃亚尔深处发现了一群幸存者；他们向它乞求知识，任何能作为武器、用来对抗肆虐他们世界的恐怖之物的知识。", "_t")
+t("The cover of this tome is old and withered. As you hold it, you get the impression of many things. Despair, misery, desperation and hopelessness all assail you at once. Something about the book also promises great power, but at what cost?", "这本书的封皮老而枯干。当你拿着它的时候，许多感受涌上心头。绝望、苦难、走投无路与无望一齐向你袭来。这本书似乎还许诺着强大的力量，但是，代价是什么呢？", "_t")
+t("In the Age of Pyre, it seemed that the world was ending to many of Eyal's inhabitants. The destruction caused by the Spellblaze left the land withered and scorched. Food was scarce, paranoia was rampant and everyone was desperate. For a select few, their salvation came from an unlikely visitor. An entity they simply came to knew as The Teacher visited Eyal from somewhere beyond the stars, emerging from an ancient Sher'tul farportal. It discovered a group of survivors in the depths of Eyal which begged it for knowledge, anything they could use as a weapon against the horrors ravaging their world.", "烈火纪时，埃亚尔的许多居民都觉得世界末日已经降临。魔法大爆炸造成的毁灭令大地枯萎焦灼。食物匮乏，偏执横行，人人陷入绝望。少数人的救赎来自一位意想不到的访客。一个他们只知道称其为“导师”的存在从群星之外来到埃亚尔，自一座古老的夏·图尔远程传送门中现身。它在埃亚尔深处发现了一群幸存者；他们向它乞求知识，任何能作为武器、用来对抗肆虐他们世界的恐怖之物的知识。", "_t")
 t("Hithre died. Somehow this is not what should have happened.", "希瑟尔死了。啊，好像故事本来不应该是这样的。", "_t")
 t("Hithre", "希瑟尔", "_t")
 t("Main protagonist", "主角", "_t")
@@ -826,7 +826,7 @@ t("As you combine the two pair of shoes you make something marvelous: %s", "当�
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
-t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
+t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵能反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
@@ -2337,7 +2337,7 @@ Hithre was one of The Teacher's pupils, a Shalore who became one of the first to
 导师慈善而又仁爱，他愿意教导他的学生们如何掌控熵的力量。然而，导师告诉他们，这种力量并不能够轻易掌握，很有可能导致他们的毁灭。然而，在绝望之中，学生们毫无疑虑地同意了，丝毫不考虑这可能带来的后果。
 
 永恒精灵希瑟尔也是导师的一个学生，他是埃亚尔历史上最早掌握熵魔法的人之一。]], "_t")
-t("Lessons of Inevitability - Entropic Backlash and Healing", "有关必然性的课程——熵反馈和治疗", "_t")
+t("Lessons of Inevitability - Entropic Backlash and Healing", "有关必然性的课程——熵能反冲和治疗", "_t")
 t([[My first lesson to you, my students, is to understand what it means to wield entropy. When using its power, it's impossible to escape its withering touch. Your bodies will suffer from the backlash of your spells and carry a residue of those energies at all times. As such, your ability to recover from wounds and injury will be significantly impaired. However, you can learn to resist this backlash and even manipulate the threads of fate to pass it on to your enemies.
 
 #{italic}#Go check your new spell for detailed information.#{normal}#]], [[孩子们，我要教给你们的第一堂课是有关理解如何利用熵的力量。当你们使用它的力量的时候，也不可避免会受到它带来的凋零的影响。你的身体将会受到你使用的法术的反馈，并一直携带着这份残留的能量。因此，你从创伤中恢复的能力将会严重受到影响。然而，你可以学会抵抗这种反馈，甚至将这种命运的诅咒传递给你的敌人。
@@ -2650,7 +2650,7 @@ t([[You are surrounded by a vortex of entropic energy that feeds on the timeline
 			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
 t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
-t("Temporal Feast", "时间盛宴", "talent name")
+t("Temporal Feast", "时空盛宴", "talent name")
 t([[You drink deeper from the timeline of others. Each time you apply atrophy you gain %0.1f%% spell speed per atrophy stack on the target and cause them to lose %d%% of a turn.
 			The highest atrophy stack found will be used for the spell speed calculation.]], [[你进一步榨取他人的时间线。每次对目标施加衰亡效果时，目标身上的每层衰亡效果将使你获得 %0.1f%% 施法速度，同时目标将失去 %d%% 回合。
 			计算施法速度增加时，会使用找到的最高衰亡层数。]], "tformat")
@@ -3070,7 +3070,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 		Each time you take a step your monstrous form causes a small quake destroying and rearranging nearby terrain.]], [[你激发了一次持续 %d 回合的体细胞急速变异。
 		你的身体急速变大，获得 +2 体型，并使你能够穿墙行走。增加 %d%% 全体伤害和 %d%% 全体伤害抗性。
 		你的巨大体型使你在每次行走时都导致一场小型的地震，破坏并重组周围的地形。]], "tformat")
-t("Writhing One", "蜿蜒", "talent name")
+t("Writhing One", "蠕动者", "talent name")
 t([[At last you unlock the true power of your mutated body!
 		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解开了这具变异身体的最终力量！
 		你获得 %d%% 震慑免疫，%d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
@@ -4973,7 +4973,7 @@ To begin your adventures as a half horror simply create a character with the cla
 Have fun lashing your tentacle at your foes!
 ]], [[感谢你购买#CRIMSON#禁忌邪教#WHITE#，马基·埃亚尔的传说的第三个扩展包。
 
-要想开始你半恐魔的旅程，请选择#LIGHT_GREEN#蜿蜒怪人#WHITE#（位于疯狂系）作为你的职业开始游戏吧！
+要想开始你半恐魔的旅程，请选择#LIGHT_GREEN#蠕动者#WHITE#（位于疯狂系）作为你的职业开始游戏吧！
 
 用触手抽打你的敌人吧！
 ]], "_t")

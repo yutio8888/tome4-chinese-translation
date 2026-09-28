@@ -2774,7 +2774,7 @@ t("\"Won\" ToME by sacrificing yourself for your patron Distant Sun, opening a p
 t("Last Instant of Sanity", "理智，在最后一刻", "achievement name")
 t("Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent your mad patron sun from burning the world in a searing flash.", "关闭虚空传送门并让自己被艾琳杀死，以防止疯狂的太阳烧毁整个世界，通关ToME。", "_t")
 t("They Came Back For Eyal", "他们为埃亚尔而归", "achievement name")
-t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "感谢夏图尔人在最后一刻阻止了你为疯狂的太阳开启传送门，通关ToME。", "_t")
+t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "感谢夏·图尔人在最后一刻阻止了你为疯狂的太阳开启传送门，通关ToME。", "_t")
 t("Tactical master", "战术大师", "achievement name")
 t("Fought the two Sorcerers without closing any invocation portals.", "在不关闭传送门的情况下，杀死2名巫师。", "_t")
 t("Portal destroyer", "传送门毁灭者", "achievement name")
@@ -7997,7 +7997,7 @@ t("demon", "恶魔", "entity subtype")
 t("water imp", "水小鬼", "entity name")
 t("A small water demon, lobbing spells at you.", "水中的小恶魔，向你投出法术。", "_t")
 t("Walrog", "乌尔罗格", "entity name")
-t("Walrog, the lord of Water, is fearsome to behold. The water writhes around him as if trying to escape, making his form indistinct. He does not seem surprised to see you.", "乌尔罗格，水之主，是水中的恐怖恶魔。水在他周围蠕动，仿佛想要逃离，使他的身形模糊不清。他看到你似乎并不惊讶。", "_t")
+t("Walrog, the lord of Water, is fearsome to behold. The water writhes around him as if trying to escape, making his form indistinct. He does not seem surprised to see you.", "乌尔罗格，水之主，望之令人生畏。水在他周围蠕动，仿佛想要逃离，使他的身形模糊不清。他看到你似乎并不惊讶。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/bear.lua"
@@ -20277,7 +20277,7 @@ t("A few minutes later the whole world was set ablaze, nothing survived except F
 t("In the aftermath of the battle the Distant Sun tried to force you to open the portal to bring it forth onto Eyal.", "战斗结束后，遥远的太阳试图强迫你开启传送门，让它降临埃亚尔。", "_t")
 t("Through an incredible display of willpower you resisted long enough to ask Aeryn to kill you.", "你凭借惊人的意志力抵抗了足够久，终于得以请求艾琳杀死你。", "_t")
 t("She sadly agreed and ran her sword through you, enabling you to do the last sacrifice you could for the world.", "她怀着悲痛的心情用长剑刺穿了你的身躯，你终于为这个世界做出了最后的贡献。", "_t")
-t("Through an incredible display of willpower you resisted for a few decisive seconds. During this time a Sher'tul appeared, took the Staff and killed you.", "你以惊人的意志力抵抗了关键的数秒，夏图尔人出现了，取走了法杖并杀死了你。", "_t")
+t("Through an incredible display of willpower you resisted for a few decisive seconds. During this time a Sher'tul appeared, took the Staff and killed you.", "你以惊人的意志力抵抗了关键的数秒，夏·图尔人出现了，取走了法杖并杀死了你。", "_t")
 t("Though you succumbed to the fight, your mind was already gone, burnt to ashes by your mad patron sun. But the world was saved.", "虽然你最终屈服了，思维消散，被疯狂的太阳烧成灰烬。但世界被拯救了。", "_t")
 t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
 t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")

@@ -144,7 +144,7 @@ section "tome-ashes-urhrok/data/general/npcs/aquatic-demon.lua"
 t("Walrog", "乌尔罗格", "entity name")
 t("demon", "恶魔", "entity type")
 t("major", "大恶魔", "entity subtype")
-t("Walrog, the lord of Water, is #AQUAMARINE#fearsome#LAST# to behold. The water boils and writhes around him as if trying to escape, frothing steam making his form indistinct.  He does not seem surprised to see you.", "乌尔罗格，水之主，是水中的#AQUAMARINE#恐怖#LAST#恶魔。水如同想要逃离一般在他的周围沸腾，蔓延的蒸汽使他的影子若隐若现。他面对你的表情似乎并不惊讶。", "_t")
+t("Walrog, the lord of Water, is #AQUAMARINE#fearsome#LAST# to behold. The water boils and writhes around him as if trying to escape, frothing steam making his form indistinct.  He does not seem surprised to see you.", "乌尔罗格，水之主，望之#AQUAMARINE#令人生畏#LAST#。他周围的水仿佛要逃离一般沸腾翻滚，翻涌的蒸汽使他的身形模糊不清。他面对你的表情似乎并不惊讶。", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/general/npcs/major-demon.lua"
