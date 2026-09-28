@@ -1,0 +1,18 @@
+本次 FIX 已完成，仅修改 2 条 confirmed target：
+
+- `5e87535a9d…`：[tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2924)
+  - “隐形咒语不准”→“隐形咒语不够管用”
+  - “那些武器能做什么”→“它能做什么”
+- `f684bba995…`：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:644)
+  - “强化了他的火焰风暴”→“强化了它的火焰风暴”
+  - 末句改为“与此同时，它在埃亚尔地表必将大显身手。”
+
+`8963334cf…` refuted 条目未改，前三次 FIX 改动均保留。
+
+验证结果：
+
+- `verify_translation_diff.py`：通过，`verified=true`，相对 HEAD 恰好 77 条 target 变动
+- `python3 -B tools/i18n lint --strict`：通过，30308 条译文，0 errors、0 warnings
+- `git diff --check`：通过，无输出
+
+未修改 `.ai/task`、术语库或 workset 外记录；未 stage、commit、push。无计划偏差或遗留问题。

@@ -1,0 +1,167 @@
+{
+  "dispatch_id": "f9a2",
+  "native_session": "adc10fae-cf6a-4294-9bdf-84c163508770",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/adc10fae-cf6a-4294-9bdf-84c163508770.jsonl",
+  "native_sha256": "963d7e9ebdff7c8cea0cc61f3046d6117478109701259937199a75c39c99d6e5",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01E9qSNXJZDrZYnYWJUBRMjt",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json",
+        "description": "Read envelope and contract size"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Vi5JPWZCmvpKFutKapLpEu",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\nprint(d.keys()); p=d['payload']; print(p.keys())\nfor k,v in p.items():\n  if not isinstance(v,list): print(k, json.dumps(v,ensure_ascii=False)[:2000])\n  else: print(k,len(v))\n\"",
+        "description": "Read contract and envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QrngNGHJhMS2ZUCwukmXBA",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'][0],ensure_ascii=False))\nc=json.loads(p['bounded_context'][0]['context']); print(c.keys()); print(p['bounded_context'][0].keys())\nfor k in c: print(k, json.dumps(c[k],ensure_ascii=False)[:600])\n\"",
+        "description": "Inspect item structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KrZNUrkHKgnQHxvVqttghA",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\np=d['payload']\nout=[]\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  c=json.loads(b['context'])\n  out.append(f'=== [{i}] {c.get(\\\"section\\\")} tag={c.get(\\\"source_tag\\\")} comp={c[\\\"source_evidence\\\"].get(\\\"component\\\") if c.get(\\\"source_evidence\\\") else None}')\n  out.append('SRC: '+t['source'])\n  out.append('TGT: '+t['target'])\n  for a in c.get('adjacent_translations',[]): out.append('  ADJ: '+a['source'][:150].replace(chr(10),' ')+' => '+a['target'][:150].replace(chr(10),' '))\n  extra=[k for k in c if k not in ('adjacent_translations','file','line','section','source_evidence','source_tag')]\n  if extra: out.append('  EXTRA: '+json.dumps({k:c[k] for k in extra},ensure_ascii=False)[:1500])\n  se=c.get('source_evidence') or {}\n  sk=[k for k in se if k not in ('component','excerpts')]\n  if sk: out.append('  SE: '+json.dumps({k:se[k] for k in sk},ensure_ascii=False)[:1500])\nopen('/tmp/f9a2.txt','w').write(chr(10).join(out))\n\"; wc -l /tmp/f9a2.txt",
+        "description": "Dump entries to scratch file"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01M6FzUVrAaetxaXSjy281Y2",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/f9a2.txt",
+        "limit": 300
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Di5Z73v591FqEXaMpasZRe",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/f9a2.txt",
+        "offset": 300,
+        "limit": 300
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Ufo4tX5LGPivmkSfBakrqj",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/f9a2.txt",
+        "offset": 600,
+        "limit": 300
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01FnG71h9P43yNTNPAFCaThL",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/f9a2.txt",
+        "offset": 900,
+        "limit": 300
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0123TbdkRqLVfk5ECt4uGZb5",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json,re\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nprint(len(ts['records']), [k for k in ts if k!='records'])\npat=re.compile(r'corrupt|shassh|weirdling|master|numbing|stone-warden|dreadfell|zigur|imp\\b|demonolog|kryl|daelach|crypt|scrap|aeryn|salve|maim',re.I)\nfor r in ts['records']:\n  if pat.search(r['record'].split('\\t')[0]): print(r['record'])\n\"",
+        "description": "Search terminology snapshot for names"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01BzGSVDkmhwvU8wYv4geSUh",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json,re\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\np=d['payload']\nts=json.loads(p['terminology_snapshot'])\nprint(ts['scope_note'])\nfor r in ts['records']:\n  s=r['record'].split('\\t'); print(s[0],'|',s[1],'|',s[4],'|',s[5])\n\" | head -200",
+        "description": "List all terminology snapshot records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013BDomazEV7YpGopDujeAyH",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json,re\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\np=d['payload']\npf=re.compile(r'%[-0-9.]*[sdfi%]|#[A-Z_]+#|#\\{[a-z]+\\}#|@[a-z]+@|<\\?.*?\\?>|#[A-Za-z]+#')\nfor i,t in enumerate(p['translation_snapshot']):\n  s,g=t['source'],t['target']\n  a=pf.findall(s); b=pf.findall(g)\n  if sorted(a)!=sorted(b) or a!=b: print(i,'TOK',[x for x in a if a.count(x)!=b.count(x)] or 'order', a if sorted(a)==sorted(b) else '')\n  if s.count(chr(10))!=g.count(chr(10)): print(i,'LF',s.count(chr(10)),g.count(chr(10)))\n  sl=[l[:len(l)-len(l.lstrip(chr(9)))] for l in s.split(chr(10))]; gl=[l[:len(l)-len(l.lstrip(chr(9)))] for l in g.split(chr(10))]\n  if len(sl)==len(gl) and sl!=gl: print(i,'TAB',[(k,sl[k],gl[k]) for k in range(len(sl)) if sl[k]!=gl[k]][:3])\n\"",
+        "description": "Check placeholder/LF/TAB invariants"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01E48rkJ7Ap3m7HW6B1FMFiB",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n 1995,2020p",
+        "description": "Check Ureslak set mechanic in pinned source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NpxvmMS5Kg8ZeReNdwXEHN",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f9a2.json'))\nkeys=d['payload']['ordered_revision_keys']\niss={25:'源文 PENDOR 说枪手们 \\\"Scared scrapless\\\"（吓得魂飞魄散的双关），并无贬损之意；译文「那群废物们吓得不轻」凭空加入「废物」的辱骂，改变了说话人对部下的态度（tome-orcs/data/lore/palace-fumes.lua 快照 b57c1122…，来源未固定）。',\n30:'Shasshhiy\\'Kaish 在正文中译为「莎西·凯希」（带间隔号），而同文件相邻条目 \\\"demon statue: Shasshhiy\\'Kaish\\\" 译为「恶魔雕像：莎西凯希」，同一专名跨条写法不一致；冻结术语快照无此名条目可作依据，需统一。',\n73:'源文 \\\"usually a blighted daelach has to be immediately put down\\\" 含限定词 usually；译文「而且，一个枯萎化的达莱奇必须立刻被处死」删去「通常」，把惯常做法说成必然，且与下文「有一个样本……维持了平衡与可控性」的例外相矛盾（tome-ashes-urhrok/data/lore/demon.lua:492，快照 d3adada5…，来源未固定）。'}\nv=[]\nfor i,k in enumerate(keys):\n  v.append({'revision_key':k,'verdict':'ISSUE','observation':iss[i]} if i in iss else {'revision_key':k,'verdict':'OK'})\nprint(json.dumps({'contract':'translation_contextual_v2','candidate_identity':d['candidate_identity'],'verdicts':v},ensure_ascii=False,separators=(',',':')))\n\" > /tmp/f9a2-out.json; cat /tmp/f9a2-out.json",
+        "description": "Build compact verdict JSON"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

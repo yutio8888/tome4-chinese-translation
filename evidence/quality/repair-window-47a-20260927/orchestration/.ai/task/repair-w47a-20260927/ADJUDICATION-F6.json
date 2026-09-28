@@ -1,0 +1,49 @@
+{
+  "cycle": 6,
+  "stage": "FINAL_REVIEW",
+  "accepted_dispatch_id": "f6a2",
+  "invalid_attempts": [],
+  "raw_ok_count": 74,
+  "raw_issue_count": 3,
+  "decision": "FINAL failed at the user-authorized max_cycles=6. Two tier-1 findings confirmed, one pending a terminology decision (Fire Imp). Window stopped: WAIT_USER for (a) authorization of a further cycle and (b) the Fire Imp name. USER 2026-09-28: cycle 7 authorized; Fire Imp=火焰小鬼. Merged fix execute-08 (056346a0e2, e46519c325, f684bba995 + glossary Fire Imp row), then RE_REVIEW(7,1) and FINAL_REVIEW(7,2).",
+  "findings": [
+    {
+      "revision_key": "056346a0e269608cd0887579f5141e9549242a8c1e364eaa8f833e5b8599225e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f6a2",
+      "reason": "Orcs 成就 \"reach at least 66% affinity for Fire and Light\"；术语 combat.tsv:93 affinity＝伤害吸收，light 伤害类型＝光系；现“66% 火焰和光明吸收”应为“66% 火焰和光系伤害吸收”。"
+    },
+    {
+      "revision_key": "e46519c3250327826deb5f6ef952d65b514c4437ab9d73e5476aa9a354ec35de",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f6a2",
+      "reason": "\"a gigantic demon-cursed minotaur\" 现“巨大的恶魔牛头人”，同批 aa1834b83d 与本库作“米诺陶”；应为“被恶魔诅咒的巨型米诺陶”（或同义）。Fire Imps＝火魔婴 与 Ashes 实体一致，但与 Orcs 实体名“火焰小鬼”跨 DLC 不一致，见下条。 用户 2026-09-28 裁决 Fire Imp＝火焰小鬼：本条“召唤一队火魔婴”同时改“召唤一队火焰小鬼”。"
+    },
+    {
+      "revision_key": "e50ac04aa0d4ad2d2b6dcd784b6e392a216e4f8e1e1818d483388442b54acb97",
+      "status": "refuted",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer f6a2",
+      "reason": "Fire Imp 跨 DLC 不一致：Orcs tome-orcs.lua:328 t(\"Fire Imp\",\"火焰小鬼\")（全文件 3 处）vs 主游戏/Ashes 实体名“火魔婴”（mod-tome.lua:8450、tome-ashes-urhrok.lua:116 等 9 处）；术语库无 Fire Imp 条目。统一属跨批次术语决定，需用户授权。 用户 2026-09-28 裁决 Fire Imp＝火焰小鬼：本条已是“火焰小鬼”，不改；术语库新增 Fire Imp＝火焰小鬼（preferred）；workset 外 8 处“火魔婴”作全局改名 carry_forward 到窗口47b。"
+    },
+    {
+      "revision_key": "f684bba9951a31da00912e89b7128f36b41f3f9de9fb26a05c02a385aa7ec597",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r6a1 (deferred pending, reopened after user authorized cycle 7)",
+      "reason": "\"a blighted daelach has to be immediately put down\"——put down＝处死；“必须立刻被压制”改“必须立刻被处死”，其余不动。"
+    }
+  ],
+  "user_decisions": {
+    "date": "2026-09-28",
+    "max_cycles": 7,
+    "fire_imp": "火焰小鬼",
+    "note": "user authorized a seventh cycle for this window only and chose 火焰小鬼 for Fire Imp"
+  }
+}

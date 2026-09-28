@@ -1,0 +1,12 @@
+已完成本次 FIX，仅修改两条 confirmed 译文：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2920)：改为“他们吓得魂飞魄散，尊敬的议长，但进步得很快”
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:644)：补回“通常”
+
+验证全部通过：
+
+- `verify_translation_diff.py`：`verified=true`，相对 HEAD 恰有 77 条 target 变动，`runtime_sync_count=0`
+- `python3 -B tools/i18n lint --strict`：30308 条译文，0 errors，0 warnings
+- `git diff --check`：通过
+
+refuted 条目、术语库、workset、`.ai/task` 均未修改；未 stage、commit、push，也未创建 agent。此前 FIX 改动均保留。

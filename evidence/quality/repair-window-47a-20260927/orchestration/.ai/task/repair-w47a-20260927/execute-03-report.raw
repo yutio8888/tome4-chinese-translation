@@ -1,0 +1,17 @@
+已完成本次 FIX，仅修改 3 条 confirmed target：
+
+- `cf17c8f639`：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:554)
+  - “这些样本就会当场惨死”改为“这些样本最终就会受到致命伤”。
+- `e46519c325`：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1759)
+  - 修正为“恶魔的生命值会持续保留，因此比死灵法师用完即弃的骷髅或自然召唤师的召唤兽更加珍贵……”。
+- `f5f092ac5d`：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14123)
+  - 两处副歌均改为：
+    - “杀光所有人根本没道理，”
+    - “赞美长老会，但那计划真够蠢。”
+
+验证结果：
+
+- 专用差异验证：`verified: true`，相对 HEAD 恰有 `77` 条 target 变动，`runtime_sync_count: 0`
+- `python3 -B tools/i18n lint --strict`：30308 条译文，`0 errors, 0 warnings`
+- `git diff --check`：通过
+- 未修改术语库、workset、`.ai/task` 或实现证据；未 stage、commit、push。

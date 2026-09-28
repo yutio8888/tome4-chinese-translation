@@ -1,0 +1,26 @@
+已完成本次 FIX，仅修改授权译文文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:35847)：三个目标条目的“黑暗麻木”全部改为“暗影麻木”，其余内容不动。
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1755)：
+  - 补出毁灭使者“吸收火焰与痛苦来维持生存”及“灰烬与血肉”。
+  - 末条改为“战胜乌鲁洛克麾下最凶恶的敌人，把它们（比喻意义上的）头骨挂上你的个人页面！”
+  - 通读冻结原文后，另修正：
+    - 屏障是在恶魔“窥探”下破裂，不是因其“破坏”。
+    - 魔法改造帮助受害者承受“随之而来的压力”，删除原译增添的“恶魔拷问”。
+    - 补出毁灭使者的巨大双手武器、成群敌人及寡不敌众语义。
+    - “一万字背景故事等你发现”，去除原译无依据的“全新手札”。
+    - 明确纪念碑涵盖每种恶魔及著名人物，以及各自在恶魔族群中的地位。
+    - 补出魔化精灵“格外适应恶魔改造”的含义。
+  - 已保留既定译名和原有 LF/条目结构。
+
+验证全部通过：
+
+- `python3 -B .artifacts/i18n/repair-w47a-20260927/verify_translation_diff.py`
+  - `verified: true`
+  - 相对 HEAD 恰有 77 条 target 变动
+- `python3 -B tools/i18n lint --strict`
+  - 30308 条，0 errors，0 warnings
+- `git diff --check`
+  - 通过，无输出
+
+未修改 `.ai/task`，未改术语库或 workset 外记录，未 stage、commit、push，也未创建 agent。无计划偏差或未解决问题。

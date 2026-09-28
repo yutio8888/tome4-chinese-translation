@@ -1,0 +1,27 @@
+已完成 repair-w47a-20260927 的 13 条 confirmed FIX，并保留前次 77 条改名。
+
+改动：
+
+- `042f12de27`：燃烧弹改为作用于含目标的半径 `%d` 球形范围。
+- `21fea59fe6`：改为“反复无常的棍棒……与他多变的天性相互共鸣”。
+- `31f8705243`：两处“堕落者”改“腐化者”，“堕落魔法”改“腐化魔法”。
+- `5e87535a9d`：“卡尔托”改“卡托尔”。
+- `758dd3c2cd`：删除签名前多余空行，LF=6。
+- `7fc7dac84e`：合并 Turthel 入城段，并修正对 Linaniil 的判断句，LF=44。
+- `a1e95a2f4c`：三种毒素补全为“阴险／麻木／致残枯萎毒素”。
+- `aa1834b83d`：“长角的兽形人”；“翡翠之子与红宝石之子”。
+- `b86428fc6d`：在技能组之间补空行，LF=19。
+- `e46519c325`：修正“马基·埃亚尔”“恶魔空间”，并改为“召唤一队火魔婴，把敌人砸个稀烂”。
+- `a0dab4d481`：“施放各种攻击性法术”改“施放任意攻击法术”。
+- `cf17c8f639`：恢复“折磨者”的反讽含义。
+- `f5f092ac5d`：五处副歌统一改为“休眠仓对凡人没用，/但我们在废墟中沉睡不老。”
+
+验证结果：
+
+- `python3 -B .artifacts/i18n/repair-w47a-20260927/verify_translation_diff.py`：通过，`verified=true`；四个冻结 baseline blob 与 HEAD 完全一致，相对 HEAD 恰 77 条 target-only 变动。
+- source/source_tag、占位符、markup、LF/TAB 不变量：通过。
+- `python3 -B tools/i18n lint --strict`：通过，30308 条译文，0 errors、0 warnings。[lint 报告](/workspace/tome4-chinese-translation/.artifacts/i18n/runs/20260928T003419.829193Z-3362776-lint/lint.json)
+- `git diff --check`：通过。
+- staged diff：空。
+
+本轮未修改术语库、refuted 条目、`.ai/task` 或 workset 外记录；未 stage、commit、push，也未创建 agent。现有术语库及 `tome-cults.lua` 改动均为前一轮保留内容。首次直接执行验证脚本因无可执行位退出 126，随后用上述 Python 入口成功完成同一验证。

@@ -1,0 +1,18 @@
+{
+  "title": "W47a execute-10",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w47a-20260927 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-R8.json、WORKSET.json 和 SOURCE-ANCHORS.json。仅按 ADJUDICATION-R8.json 中 status=confirmed 的 2 条修复：(1) 056346a0e2 把“66% 火焰和光系伤害吸收”改为“66% 火焰和光系伤害亲和”；并把 terminology/combat.tsv 中 source=affinity、source_tag=effect subtype 的那一行 target 由“伤害吸收”改为“伤害亲和”，notes 追加“；游戏内 effect subtype 与状态栏均作伤害亲和（受该类伤害时按比例治疗），2026-09-28 窗口47a 纠正”，其余字段不动。(2) cf17c8f639 把“源于我们对埃亚尔的多次接触，从容易受骗的当地傻瓜到我们有组织的探险队，”改为“多亏我们在埃亚尔地表的众多联络人——从容易受骗的当地人到我们自己的侦察队——”（与后文衔接通顺，或同义），其余不动。refuted 条目不动；本窗口此前各次 FIX 的改动不得回退；markup、占位符、LF/TAB 结构保持原样；不改 workset 以外的译文记录。运行有界验证（python3 -B .artifacts/i18n/repair-w47a-20260927/verify_translation_diff.py 相对 HEAD 恰 77 条 target 变动、strict lint、git diff --check、Lua 加载 terminology 检查该行），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w47a-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-10",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

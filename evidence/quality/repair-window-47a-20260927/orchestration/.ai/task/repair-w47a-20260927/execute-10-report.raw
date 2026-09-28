@@ -1,0 +1,16 @@
+修复完成，仅改动 3 个文件：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:31)：改为“66% 火焰和光系伤害亲和”。
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:554)：改为“多亏我们在埃亚尔地表的众多联络人——从容易受骗的当地人到我们自己的侦察队——……”。
+- [terminology/combat.tsv](/workspace/tome4-chinese-translation/terminology/combat.tsv:93)：`affinity` 改为“伤害亲和”，按要求追加 notes，其余字段未动。
+
+验证全部通过：
+
+- 有界 diff：`verified=true`，相对 HEAD 恰有 77 条 target 变动，`runtime_sync=0`
+- Strict lint：30308 条译文，0 errors，0 warnings
+- `git diff --check`：通过
+- LuaJIT 术语加载：8 个字段、唯一 `affinity/effect subtype` 行及目标/notes 均通过
+- refuted 条目保持不变
+- `.ai/task` 未修改
+
+未 stage、commit、push，也未创建 agent。无未解决问题或计划偏差。

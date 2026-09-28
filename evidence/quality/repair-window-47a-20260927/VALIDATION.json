@@ -1,0 +1,107 @@
+{
+  "task_id": "repair-w47a-20260927",
+  "status": "pass_with_scoped_advisory",
+  "scope": {
+    "translation_files": {
+      "mod-tome.lua": 46,
+      "tome-ashes-urhrok.lua": 14,
+      "tome-cults.lua": 1,
+      "tome-orcs.lua": 16
+    },
+    "expected_changed_targets": 77,
+    "actual_changed_targets": 77,
+    "non_target_field_changes": 0,
+    "non_workset_record_changes": 0,
+    "terminology_files_changed": 6,
+    "terminology_spec_items_completed": 8
+  },
+  "source_anchors": {
+    "bounded_checkouts_from_frozen_input": true,
+    "dlc_repository_commit_pinned": false,
+    "pocket_time_path": "tome-orcs/data/lore/pocket-time.lua",
+    "pocket_time_file_sha256": "a5f2acd61ec4a5ac80bdd6ae7481d6ec55d8973e496a273e19a922ed7f2782ab",
+    "pocket_time_literal_match": true
+  },
+  "semantic_diff": {
+    "loader": "i18nlib LocaleLoader using the tome-1.7.6 manifest LuaJIT runtime",
+    "lua_files_loaded": 4,
+    "record_counts_unchanged": true,
+    "workset_exact": true,
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_unchanged": true,
+    "special_unchanged": true,
+    "section_unchanged": true,
+    "target_lf_tab_counts_unchanged": true,
+    "placeholder_markup_order_unchanged": true,
+    "numbing_did_not_change_paralyzed": true,
+    "bare_eyal_did_not_change_maj_or_var_eyal": true
+  },
+  "terminology": {
+    "rows_loaded": 729,
+    "new_or_promoted_normative_rows_exact": 8,
+    "field_count": 8,
+    "tab_separated": true,
+    "field_order_unchanged": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 OK; expected source-unpinned warnings for three public DLC inputs"
+    },
+    {
+      "command": "bounded inline verifier using i18nlib LocaleLoader against HEAD, WORKSET.json, and BASELINE-records.json",
+      "exit_code": 0,
+      "result": "exactly 77 workset targets changed (46/14/1/16); all other records and non-target fields unchanged"
+    },
+    {
+      "command": "bounded invariant and terminology-row loader verifier",
+      "exit_code": 0,
+      "result": "77 targets preserve LF/TAB and placeholder/markup order; 729 terminology rows loaded; eight normative rows exact"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260927T235836.463377Z-3271365-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/audit_static.py",
+      "exit_code": 0,
+      "result": "729 rows; ok=true; blocking_count=0; advisory_count=17"
+    },
+    {
+      "command": "python3 -B tools/audit_dynamic.py",
+      "exit_code": 0,
+      "result": "30308 entries; two unrelated existing preferred mismatches"
+    },
+    {
+      "command": "python3 -B tools/annotate_domains.py",
+      "exit_code": 1,
+      "result": "scoped advisory: inference has no mapping for the two new item proper names and infers Ureslak as society; tool changes are outside EXECUTOR scope"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors in tracked changes"
+    }
+  ],
+  "unresolved": [
+    {
+      "status": "advisory",
+      "area": "terminology domain inference",
+      "detail": "annotate_domains.py does not infer the SPEC-declared items domain for Gardanion/DESTRUCTICUS and advises society for Ureslak; no out-of-scope tool or category change made"
+    },
+    {
+      "status": "advisory",
+      "area": "existing terminology dynamic mismatches",
+      "detail": "Air and draining physical remain unrelated preferred-term mismatches"
+    }
+  ],
+  "publication_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}

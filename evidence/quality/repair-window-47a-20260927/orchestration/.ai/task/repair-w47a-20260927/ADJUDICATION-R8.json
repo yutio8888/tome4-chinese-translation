@@ -1,0 +1,35 @@
+{
+  "cycle": 8,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r8a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 74,
+  "raw_issue_count": 3,
+  "decision": "two confirmed (one reverses the host F6 misjudgement on affinity, with glossary data correction), one refuted; merged fix execute-10, then RE_REVIEW(9,1), FINAL_REVIEW(9,2).",
+  "findings": [
+    {
+      "revision_key": "056346a0e269608cd0887579f5141e9549242a8c1e364eaa8f833e5b8599225e",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer r8a1",
+      "reason": "affinity＝受该类伤害时按比例治疗；本库游戏内字串 tome-ashes-urhrok.lua:1631 t(\"affinity\",\"伤害亲和\",\"effect subtype\")、mod-tome.lua:830 “伤害亲和（治疗）”，全库“亲和”52 处 vs “伤害吸收”8 处。F6 宿主依 terminology/combat.tsv:93（status=existing，非 preferred）改成“伤害吸收”属误判，撤回：本条改“66% 火焰和光系伤害亲和”，术语行 combat.tsv:93 target 同步更正为“伤害亲和”（与游戏内 effect subtype 一致，属数据纠错）。"
+    },
+    {
+      "revision_key": "6b539b16f2612d3a3d474b26348cdf5567f34bc293db31d4787ec968d2dd4d50",
+      "status": "refuted",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r8a1",
+      "reason": "Orcs 剧情明言艾琳已死：同批条目中 Aeryn 的伴侣台词 \"my dear Aeryn is dead. All dead by your murderous hands!\"；“杀死高阶太阳骑士艾琳”与剧情一致，不改。"
+    },
+    {
+      "revision_key": "cf17c8f6392ce44330beadfa885f7c5d6421ebd9873daee466faf628e5aae6ba",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r8a1",
+      "reason": "Ashes demon.lua:384 \"Thanks to numerous contacts we have on Eyal's surface, ranging from easily-duped natives to our own scouting teams\"——contacts＝在埃亚尔地表的联络人/渠道；现“源于我们对埃亚尔的多次接触”误作多次到访。改“多亏我们在埃亚尔地表的众多联络人——从容易受骗的当地人到我们自己的侦察队——”（或同义），其余不动。"
+    }
+  ]
+}

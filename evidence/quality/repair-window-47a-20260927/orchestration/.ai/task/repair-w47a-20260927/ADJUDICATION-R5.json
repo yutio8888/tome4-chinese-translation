@@ -1,0 +1,41 @@
+{
+  "cycle": 5,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r5a2",
+  "invalid_attempts": [
+    {
+      "dispatch_id": "r5a1",
+      "attempt": 1,
+      "reason": "contextual_result_check: verdicts[58] does not match frozen revision order"
+    }
+  ],
+  "raw_ok_count": 75,
+  "raw_issue_count": 2,
+  "decision": "user authorized max_cycles 6 for this window (2026-09-28). Two tier-1 findings confirmed (one host-registered from the invalid r5a1 observation), one tier-2 advisory; merged fix execute-07, then RE_REVIEW(6,1) and FINAL_REVIEW(6,2).",
+  "findings": [
+    {
+      "revision_key": "4712cd9769ca2c88cae872cadb5ec4e5d6f99b5cf51f0e95832eac71f3be6de7",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "host (registered from invalid r5a1 observation, verified independently)",
+      "reason": "\"Enhances your Deadly Poison with a numbing agent\"；本库技能名 mod-tome.lua:37557 t(\"Deadly Poison\",\"致命毒素\")，同窗口 28eb346c54 亦作“致命毒素”；现“为你的致命剧毒加入麻木成分”改“为你的致命毒素加入麻木成分”，其余不动。"
+    },
+    {
+      "revision_key": "e50ac04aa0d4ad2d2b6dcd784b6e392a216e4f8e1e1818d483388442b54acb97",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r5a2",
+      "reason": "Orcs destructicus.lua:96 \"These refugees are not a threat, and could not possibly become one for quite some time\"——现“这些难民不再是威胁”添了“此前曾是威胁”的时间关系；改“这些难民构不成威胁”，其余不动。"
+    },
+    {
+      "revision_key": "f5f092ac5dda5f937b3aa73058a9a1a411e7a763ddddeae3a23beea5a299e4ea",
+      "status": "advisory",
+      "tier": 2,
+      "category": "translationese",
+      "origin": "reviewer r5a2",
+      "reason": "歌词 \"It's a safe place, even as it gets older / 'cause this war's not over until we say it's ogre\" 为 over/ogre 双关，现译“我们食人魔不死，那么他们就绝不会胜利。这里是安全之地，久经时间考验”属歌词意译、保留“由食人魔说了算”的意旨；二级且 cycle>=3，只记 advisory，不 reopen。"
+    }
+  ]
+}

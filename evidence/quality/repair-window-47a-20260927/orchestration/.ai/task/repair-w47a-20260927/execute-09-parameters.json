@@ -1,0 +1,18 @@
+{
+  "title": "W47a execute-09",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w47a-20260927 的一次 FIX。先读 .ai/roles/executor.md、本 task 的 SPEC.md、SCOPE.json、ADJUDICATION-F7.json、ADJUDICATION-R7.json、WORKSET.json 和 SOURCE-ANCHORS.json。修复：(1) 6df61a3ff9、e540acef66、f4807dcf9f 三条中的“黑暗麻木”全部改为“暗影麻木”，其余不动。(2) e46519c325（Ashes init.lua 的 DLC 功能简介长条）：先修两处已确认缺陷——Doombringer 段 \"feeding on the flames and suffering of their surroundings to stay alive while quickly reducing any group to a pile of ash and gore\" 补出“以维持生存”；末条 \"Conquer the worst Urh'Rok's forces can throw at you, and hang their metaphorical skulls from your profile page!\" 改为“战胜乌鲁洛克麾下最凶恶的敌人，把它们（比喻意义上的）头骨挂上你的个人页面！”（或同义）。然后把该条译文逐句对照 tome-ashes-urhrok/init.lua 的冻结原文通读一遍，凡明显漏译、增译、主客或所属关系颠倒的地方一并按原文修正，并在回报中逐条列出；本窗口已定的译名（埃亚尔、马基·埃亚尔、恶魔空间、火焰小鬼、米诺陶、腐化者等）与已修正处不得改回，markup、占位符、LF/TAB 结构保持原样。不改术语库、不改 workset 以外的记录。运行有界验证（python3 -B .artifacts/i18n/repair-w47a-20260927/verify_translation_diff.py 相对 HEAD 恰 77 条 target 变动、strict lint、git diff --check），回报改动与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w47a-20260927",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-09",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

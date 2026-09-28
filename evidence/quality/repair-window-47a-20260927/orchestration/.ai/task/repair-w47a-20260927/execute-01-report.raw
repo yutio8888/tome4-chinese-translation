@@ -1,0 +1,23 @@
+已完成 `repair-w47a-20260927` 定向修复。
+
+- 77 个 target 精确变更：`mod-tome.lua` 46、`tome-ashes-urhrok.lua` 14、`tome-cults.lua` 1、`tome-orcs.lua` 16。
+- Numbing→麻木 25 条；裸 Eyal→埃亚尔 24 条；Sunwall→太阳堡垒 5 条；Ureslak→乌瑞斯拉克 9 条；Crimson Templar→血色圣殿骑士 6 条；Destructicus 6 条；Gardanion 1 条；口袋时间例外 1 条。
+- Paralyzed 的“麻痹”、Maj’Eyal／Var’Eyal 均未误改；`c4abe2a925e1` 按 claim 单独统一了“瓦·埃亚尔”。
+- `3724ff928412` 已改为“在他的巢穴里把他扔来扔去，他晕头转向，踩在了————”，并恢复“七彩巨龙”。
+- SPEC 第 1–8 项术语修改全部完成，涉及 6 个 TSV 文件。
+
+逐类别的全部条目 key、术语行清单和详细说明见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47a-20260927/IMPLEMENTATION.md)，结构化结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47a-20260927/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 加载通过；恰好 77 个 workset target 变化，非 target 字段和非 workset 记录变化均为 0。
+- placeholder、markup、LF/TAB 顺序与数量保持不变。
+- `tools/i18n doctor`：通过。
+- `tools/i18n lint --strict`：30,308 条，0 errors、0 warnings。
+- 术语加载：729 行；8 项规范术语记录字段完全匹配。
+- `audit_static.py`：通过，0 blocking。
+- `audit_dynamic.py`：通过；两项 mismatch 为无关既有条目 `Air` 和 `draining physical`。
+- `git diff --check` 及两个新 evidence 文件的空白检查：通过。
+- `annotate_domains.py`：退出 1；推导器无法映射两个新增物品专名，并建议将 Ureslak 划入 society。SPEC 明确要求相应 TSV 分类，且工具不在授权范围，因此记录为未改 advisory。
+- tracked 改动恰为授权的 10 个内容文件；`.ai/task` 未改。
+- 未 stage、commit、push，未创建 agent。

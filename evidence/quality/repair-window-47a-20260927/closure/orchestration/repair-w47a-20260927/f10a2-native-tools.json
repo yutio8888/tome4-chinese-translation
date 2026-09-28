@@ -1,0 +1,188 @@
+{
+  "dispatch_id": "f10a2",
+  "native_session": "fb0b4226-4ade-48b4-99b3-ef20eac09408",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fb0b4226-4ade-48b4-99b3-ef20eac09408.jsonl",
+  "native_sha256": "bc9d5a95b7b043563c69da2df124c55eb744c6cb8d568c83c1807f02fe8e33ca",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01Wx8jKjuCAQCMYstTdicZhx",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Check envelope size and contract sections"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013LwhQzx7YH1cuUmTEvcJ1M",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 100,170p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'));print(list(d.keys()))\nfor k,v in d.items():\n  if not isinstance(v,(list,dict)): print(k,repr(v)[:300])\n  else: print(k,type(v).__name__,len(v))\n\"",
+        "description": "Read contract section six and envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WuhBaT8cgHLEc6Lgec71oR",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))['payload']\nfor k,v in d.items():\n  if not isinstance(v,(list,dict)): print(k,repr(v)[:500])\n  else: print(k,type(v).__name__,len(v), (list(v.keys())[:20] if isinstance(v,dict) else (list(v[0].keys()) if v and isinstance(v[0],dict) else v[:5])))\n\"",
+        "description": "Inspect payload structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01XhYqzwkX28893mHaWqjUWq",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))['payload']\nprint(d['rendered_briefing']);print()\nfor i,t in enumerate(d['translation_snapshot']):\n  print('#',i,t['revision_key'][:8]);print('S:',t['source']);print('T:',t['target']);print()\n\"",
+        "description": "Print briefing and all source/target pairs"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Ve2wzpVRKvcfjDwBYkxSct",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fb0b4226-4ade-48b4-99b3-ef20eac09408/tool-results/bzv3m3ttq.txt"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01RW8FGwqwRs5oaRmYbU4AHy",
+      "name": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fb0b4226-4ade-48b4-99b3-ef20eac09408/tool-results/bzv3m3ttq.txt",
+        "offset": 487,
+        "limit": 560
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01QNjvELynEL7Z8ZyK773uN6",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))['payload']\nb=d['bounded_context']\nprint(json.dumps(b[0],ensure_ascii=False)[:5000])\nprint(json.dumps(b[50],ensure_ascii=False)[:4000])\n\"",
+        "description": "Inspect bounded context examples"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Pfpx9jqxZQ8usSyDzyG3Dm",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))['payload']\nt=json.loads(d['terminology_snapshot'])\nprint(t.keys())\nfor r in t['records']: print(r['path'],r['record'])\n\" | head -150",
+        "description": "List frozen terminology records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Tstagdb7nj1qjwyG1jBFJN",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))['payload']\nt=json.loads(d['terminology_snapshot'])\nfor r in t['records'][149:]: print(r['path'],r['record'])\nprint(t['scope_note'])\n\"",
+        "description": "Rest of terminology records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01MqGYS8Q3K9HNQTpQdfSQhM",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && grep -rn \"dear Aeryn\\|Crushed High Sun\" --include=*.lua . | head; grep -rln \"Crimson Templar John\" --include=*.lua . | head -3",
+        "description": "Check Orcs source for John/Aeryn context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Gp6uUmLFBbRKVe3d4Ze81H",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs; grep -rn \"Aeryn\" tome-orcs/data/chats/john-surrender.lua tome-orcs/data/zones/cave-hatred/*.lua tome-orcs/data/lore/*.lua 2>/dev/null | grep -iv locale | cut -c1-300 | head -20",
+        "description": "Search John/Aeryn relationship hints"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01UntzXuAbLdunBTa9XyTcPS",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; git grep -n \"Gravitic\\|gravitic\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head; ",
+        "description": "Locate Gravitic Effulgence implementation"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01GDmNy5EfqgzsDoRGWaUfZE",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"GRAVITIC_EFFULGENCE\\|gravitic_effulgence\\|Gravitic Effulgence\" $C -- game/modules/tome ':!game/modules/tome/data/locales' | head",
+        "description": "Find non-locale Gravitic usage"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_0119TQDYAzGe5KzkvrSY8Rph",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/celestial/combat.lua | sed -n 95,120p; git show $C:game/modules/tome/data/talents/uber/str.lua | sed -n 280,312p",
+        "description": "Read Weapon of Light pull mechanic and Distant Sun code"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01FHf94PUazxX2Dvhv9Vtz9K",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;e=json.load(open('.ai/task/repair-w47a-20260927/CONTEXTUAL-ENVELOPE-f10a2.json'))\nks=e['payload']['ordered_revision_keys']\nassert [t['revision_key'] for t in e['payload']['translation_snapshot']]==ks\nprint(json.dumps({'contract':'translation_contextual_v2','candidate_identity':e['candidate_identity'],'verdicts':[{'revision_key':k,'verdict':'OK'} for k in ks]},separators=(',',':')))\n\"",
+        "description": "Emit compact OK verdict JSON in frozen key order"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

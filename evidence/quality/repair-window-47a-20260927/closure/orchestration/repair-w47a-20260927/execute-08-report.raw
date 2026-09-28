@@ -1,0 +1,17 @@
+本次 FIX 已完成：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:31)：改为“66% 火焰和光系伤害吸收”。
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1759)：改为“被恶魔诅咒的巨型米诺陶”和“召唤一队火焰小鬼”。
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:644)：改为“必须立刻被处死”。
+- [creatures.tsv](/workspace/tome4-chinese-translation/terminology/creatures.tsv:52)：新增 `Fire Imp → 火焰小鬼` 的完整八字段术语行。
+
+验证全部通过：
+
+- `verify_translation_diff.py`：`verified=true`，相对 HEAD 恰 77 条 target 变动。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- LuaJIT 术语加载：`Fire Imp` 行唯一，8 个字段全部匹配。
+- 新旧短语计数断言全部通过。
+- refuted 条目未改，`.ai/task` 未改，无暂存内容。
+
+未 stage、commit、push，也未创建 agent。无计划偏差或遗留问题。
