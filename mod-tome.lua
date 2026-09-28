@@ -2774,7 +2774,7 @@ t("\"Won\" ToME by sacrificing yourself for your patron Distant Sun, opening a p
 t("Last Instant of Sanity", "理智，在最后一刻", "achievement name")
 t("Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent your mad patron sun from burning the world in a searing flash.", "关闭虚空传送门并让自己被艾琳杀死，以防止疯狂的太阳烧毁整个世界，通关ToME。", "_t")
 t("They Came Back For Eyal", "他们为埃亚尔而归", "achievement name")
-t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "感谢夏·图尔人在最后一刻阻止了你为疯狂的太阳开启传送门，通关ToME。", "_t")
+t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "感谢夏·图尔人在最后一刻阻止了你开启通往你那疯狂的太阳主上的传送门，通关ToME。", "_t")
 t("Tactical master", "战术大师", "achievement name")
 t("Fought the two Sorcerers without closing any invocation portals.", "在不关闭传送门的情况下，杀死2名巫师。", "_t")
 t("Portal destroyer", "传送门毁灭者", "achievement name")

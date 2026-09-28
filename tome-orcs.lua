@@ -6047,7 +6047,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 		- 奥术发电机蒸汽工具配方
 		- 蒸汽科技/物理系 （已解锁）
 		- 蒸汽科技/化学系 （未解锁）
-		- 一个便携式自动材料提取仪。
+		- 一个便携式自动材料提取仪（A.P.E.）
 		- 1级铁匠技能，2级机械和电力技能。
 		- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电
 		- 法术/科技法术：寒岩系 （未解锁）- 使用土和水
