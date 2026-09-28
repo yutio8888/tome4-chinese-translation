@@ -11,7 +11,7 @@
 - 审核已闭合至第 **361** 批（`batch-8adbdb931551b19c58dc`）：27 条，26 done / 1 repair_required。
   混合批（主游戏 3、Ashes 1、Cults 7、Orcs 16，窗口50 successor）：surface 四组 10 个 child（沙箱失败改 escalation 只读）；contextual 两个 run（000 导语被拒后重派通过）；逐条裁决。窗口51积压 1。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `706dc2312417bdd23c05613b91da7db5c2b479a7` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **50**：窗口外宿主补充 27 条（Writhing One＝蠕动者、Mind Drone＝精神无人机两项名称裁决及一致性、忠实度修复；四个 Lua 文件＋术语库 3 行）已修复；译文提交 `a674a4b5d2666da9eb8bc63cc391af56b33d4c7e`；migration `d98cee56…` 的 27 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第361批（见第五节第 1 项）。
+- 修复窗口已闭合至 **50**：窗口外宿主补充 27 条（Writhing One＝蠕动者、Mind Drone＝精神无人机两项名称裁决及一致性、忠实度修复；四个 Lua 文件＋术语库 3 行）已修复；译文提交 `a674a4b5d2666da9eb8bc63cc391af56b33d4c7e`；migration `d98cee56…` 的 27 个 successor 须重新审核，不继承旧 revision 的 done 状态；第361批已审核这 27 个 successor（26 done、1 待修复）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
