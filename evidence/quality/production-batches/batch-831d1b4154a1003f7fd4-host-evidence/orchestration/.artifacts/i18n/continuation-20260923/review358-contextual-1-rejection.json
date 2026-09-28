@@ -1,0 +1,17 @@
+{
+  "status": "rejected",
+  "reason": "reviewer ran ls /workspace/ and ls /workspace/t-engine4 to discover source checkouts, which the frozen envelope does not name; outside the read-only named-location boundary (same class as batches 277, 280, 282, 283, 289 and 315)",
+  "session_id": "094dbaf8-7650-48bc-ae56-a213de9dfb1c",
+  "native_log_sha256": "2037b007142852ae7e5af82d1c0653d1838c6ee69af15e5aa015ccf1297141e2",
+  "tool_call_count": 3,
+  "violating_calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "ls /workspace/ 2>/dev/null; ls /workspace/t-engine4 2>/dev/null | head",
+        "description": "List workspace directories for source location"
+      }
+    }
+  ],
+  "recorded_at": "2026-09-28T09:20:01.680626+00:00"
+}

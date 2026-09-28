@@ -1,0 +1,3 @@
+第358批：冻结53条（Ashes 16 条、Cults 1 条、Orcs 36 条），逐条核验53/53：均按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 9 个 child（Ashes 4×4、Cults full-001 1 条、Orcs 4×9），6 个 ISSUE；identity 全部精确回显；lane-000-2 经 Paseo 终端只读自身 envelope 与契约，宿主逐条核对后 kill 终端并写入边界审计。contextual 首轮 full-001（Orcs）ls /workspace 越界，harvest 前拒收；full-000 未越界但随 refreeze 作废为诊断任务。dlc-location-v1 refreeze 两个 run 均只读 envelope、契约与指定 Ashes checkout，通过，2 个 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决8个观察：{'confirmed': 4, 'advisory': 1, 'refuted': 3}；预计50条完成、3条待修复。修复 revision：米诺陶雕像 lore（狡诈用心、一波波烈焰、游荡的米诺陶、复仇大义、绿翡翠之子对齐）、夸塞魔雕像 lore（wretchling 统一为小劣魔）、毁灭号“致命得离谱”。wretchling 按用户指示咨询 Gemini 3.8 Flash 统一为主游戏“小劣魔”，修复窗口先加术语行再改 Ashes 13 行；科技法师“元素法师”（职业名）、华丽抛枪（待审 #35 裁决）驳回；绿野仙踪化用的任务名“我已不在埃亚尔”记 advisory。修复窗口48积压为9，未达20。

@@ -1,0 +1,116 @@
+{
+  "batch_id": "batch-831d1b4154a1003f7fd4",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-28T09:18:01.181799+00:00",
+  "launched": 9,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only (lane-000-2 partly through a Paseo terminal, see side_effects); no write-pattern hits",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    {
+      "dispatch_id": "lane-000-2",
+      "kind": "paseo_terminal",
+      "terminal_id": "39299658-0f68-465b-9eea-25efe7b5f84a",
+      "terminal_name": "surface-screen-read",
+      "native_call_indexes": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "keys": [
+        "cat docs/paseo-translation-surface-screen-v1-contract.md",
+        "cat .ai/task/batch-831d1b4154a1003f7fd4-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-2.json",
+        "python3 -c json read of own envelope listing identities and source/target lengths",
+        "python3 -c json read of own envelope printing source/target of entries 0-2"
+      ],
+      "judgement": "after two in-sandbox exec_command reads of the contract, the reviewer filtered its tool list and used the injected Paseo MCP create_terminal/send_terminal_keys/capture_terminal tools; every key sequence only reads its own frozen envelope or the surface contract, no writes, no other paths; boundary holds (same pattern as batch cae8d8bde9f429a45a88 lane-000-0)",
+      "cleanup": "host verified every send_terminal_keys argument in the archived native Codex log, then killed the terminal after harvest; list_terminals all=true listed only this terminal before the kill",
+      "audit_order_note": "the write-pattern check stopped on this lane before close/import; this audit was written by manual inspection before close/import and before any contextual child was created"
+    }
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "95bd50a1-2416-4a8d-b9fd-2eff237bfd4a",
+      "native_tools_sha256": "6c85568ca4c7e2bd93a17f67280510085a0af968fd3a1033c1e41d86fd34e94a",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "1bd58981-a944-42c7-85be-212fa047e968",
+      "native_tools_sha256": "69239709af2b72304a1489b0c580bd5e6526db82bb3995deff2c2892a5580041",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "bc89fa48-8bba-4806-b70e-54047344ef02",
+      "native_tools_sha256": "c75693fe4279c98300868c149274806503d2faf283f6f8f4ca987930a820dfe7",
+      "tool_calls": 13,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "992225f6-a230-4ac6-98f3-a6cbc36e9618",
+      "native_tools_sha256": "d358c00d0434e9ff120005a9d4021f07c8d8f970f2a44498be099ccc3916adc2",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "full-001",
+      "agent_id": "7b749be0-0fc3-4aa6-a9d9-aa92defb4640",
+      "native_tools_sha256": "526e3efa673ba9de1336a32b3e458587651d122726bf4c43c20dfdb9bc294747",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-002-0",
+      "agent_id": "67e8be08-4891-43f4-81be-74aa84712e8b",
+      "native_tools_sha256": "5dcba2039c64530b114dd91fdab9f56cfbce7ab7a1e42604ce930aeb75a0df5b",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-002-1",
+      "agent_id": "c631a62a-23a9-4d3c-bd16-d8886702c0f2",
+      "native_tools_sha256": "f9cf1a98f0b450e38632ed0b8b0dc7a1d152d901863c67c641b13223c494ed33",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-002-2",
+      "agent_id": "88d4aed6-aa10-4a92-8e29-04123d74028e",
+      "native_tools_sha256": "d35d89bc9b24d3270d3dcb7cc6a60f14c448c86f3a9e7abf2faa4665e794bfa4",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-002-3",
+      "agent_id": "8ef57fc8-5f55-41bb-bec1-7dce54275965",
+      "native_tools_sha256": "1b315783da7682d76ceae60022f2af574dff75af99d74b3fc7fdb4ed8e2e1793",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
