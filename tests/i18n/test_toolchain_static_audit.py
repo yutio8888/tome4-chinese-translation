@@ -519,10 +519,10 @@ class DomainAnnotationTests(unittest.TestCase):
         )
         report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertEqual(len(report["domains"]), 11)
-        self.assertEqual(len(report["rows"]), 722)
-        self.assertEqual(sum(report["counts"].values()), 722)
+        self.assertEqual(len(report["rows"]), 730)
+        self.assertEqual(sum(report["counts"].values()), 730)
         self.assertEqual(report["unmapped_count"], 0)
-        self.assertEqual(report["declared_domain_mismatch_count"], 6)
+        self.assertEqual(report["declared_domain_mismatch_count"], 7)
         self.assertIs(report["ok"], True)
 
 

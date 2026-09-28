@@ -87,6 +87,8 @@ ITEM_SOURCES = {
     "cleansing ", "cleansing", "cleanse",  # 核心装备 ego 名称与 short_key
     "grounding ", "insulating ",  # 核心装备 ego 前缀名称
     "Rogue Plight",  # 世界神器（world-artifacts.lua ROGUE_PLIGHT），2026-09-16 定名「盗贼之厄」
+    "Gardanion, the Light of God",  # Embers of Rage 剧情护符，窗口47a 定名
+    "DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY",  # 防空巨炮全称，窗口47a 定名
 }
 # 生物类 source
 CREATURE_SOURCES = {
@@ -99,6 +101,7 @@ CREATURE_SOURCES = {
     "Lone Wolf", "shivgoroth", "The Withering Thing", "The Dreaming One",
     "bloated ooze", "DESTRUCTICUS",
     "corrupted", "steamtech", "multi-hued",
+    "Fire Imp",  # 用户 2026-09-28 裁决「火焰小鬼」
 }
 
 _REQUIRED_FIELDS = ("source", "target", "category", "domain", "source_tag")

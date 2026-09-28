@@ -543,15 +543,15 @@ t("The modified children of emerald, known as the Wretchlings, willingly accept 
 t("demon statue: dolleg", "恶魔雕像：多雷格", "_t")
 t("A walking monument to times of prosperity, the dolleg was once a beast of burden, carrying loads of trade goods through the Sher'Tul portals.  Reliable, friendly, and rather intelligent for a beast, dollegs were often taken in as beloved pets as well - their joyous chirps when seeing their master get home could brighten up anyone's day, and despite their large size they were gentle enough to play with our young.  Their kind temperament and dutiful labor were the pride of our breeding practices, and two-thirds of our population either owned, lived in a home with, or worked with a dolleg.  In the wake of Mal'Rok's destruction, the children of emerald developed an effective process to convert these companions into beasts of war, covered in acidic spines and thick plating, and loyally tearing through our enemies with incredible force.  Unfortunately, their friendly demeanor was lost in order to make them merciless in combat; of all the sacrifices we've had to make for our war, it might be the loss of our gentle companions that troubles us the most.", [[活着的繁荣纪念碑——多雷格曾是负重的野兽，身载货物经过夏·图尔传送门。可信，友善，同时比野兽更有智力，多雷格也一度充当爱宠——当看见主人回家时他们发出的欢鸣能让人快活一整天，同时，尽管体型庞大，他们动作却十分温柔，和孩子们玩耍时也不必担心。他们温和的脾性与本分的劳作是我们繁衍中的荣耀，三分之二的人在生活中都有一只多雷格陪伴，一起工作或者生活。在玛·洛克毁灭后，绿翡翠的孩子们发明了一种有效的方法将多雷格转化为战争巨兽，身躯被酸刺与厚甲覆盖，忠诚驱使他们以巨力猛冲向敌人。不幸的是，他们温和的举止在培育其无情战斗的能力时丧失殆尽；尽数我们为战争作出的牺牲，失去温柔伙伴可能是最大、也是最困扰我们的一项。]], "_t")
 t("demon statue: uruivellas", "恶魔雕像：乌尔维拉斯", "_t")
-t("The minotaur is one of Eyal's more interesting creatures, and a good example of the devious designs the Sher'Tul had in mind while creating or altering Eyal's races.  Its instincts draw it toward narrow corridors, twisted passages, magical artifacts, and surges of magical energy, resulting in horned beast-men frequently blundering their way into our bases and encampments.  They also seem to soak up empowering magic very readily, and alter their forms accordingly - a typical minotaur is no match for our forces, but occasionally blight will mutate one into an extremely dangerous horror.  Said blighted forms are too unstable for use among our ranks, but with some effort by the children of emerald and ruby, we can give one the gifts of massively increased strength and the ability to unleash waves of flame on our enemies.  While we currently need to keep most of them enthralled to ensure their loyalty, we've recently begun breeding minotaurs on our continent so we can train them from birth to know our cause of righteous revenge - and already some wandering minotaurs accept our cause and our blessings willingly!  It seems the natives of Eyal are no kinder to their own brethren than they are to us.", [[米诺陶是埃亚尔大陆上颇为神奇的生物，同时也是夏·图尔人制造或者改变埃亚尔种族的一个绝妙的例子。它的本能驱使它走向狭窄的走廊、曲折的通道、魔法神器和魔法能量的涌动之处，结果这些长角的兽人经常误打误撞闯入我们的基地和营地。它们也很容易吸收强化魔法并随之改变形态——普通的米诺陶根本不是我军对手，但偶尔枯萎之力会将其中一只变异成极其危险的恐魔。这些枯萎形态不够稳定，不能为我们所用，但经过红宝石和绿翡翠的孩子们的努力后，我们能将无比的力量与释放火焰的能力赋予之。我们现在不得不奴役它们中的大部分以确保忠诚，同时最近我们也开始在我们的大陆上饲养米诺陶，这样我们就能从小灌输我们正义的复仇——已经有部分米诺陶自愿接受了我们的理由和祝福！似乎埃亚尔的原住民对其同胞也并不比对我们友善。]], "_t")
+t("The minotaur is one of Eyal's more interesting creatures, and a good example of the devious designs the Sher'Tul had in mind while creating or altering Eyal's races.  Its instincts draw it toward narrow corridors, twisted passages, magical artifacts, and surges of magical energy, resulting in horned beast-men frequently blundering their way into our bases and encampments.  They also seem to soak up empowering magic very readily, and alter their forms accordingly - a typical minotaur is no match for our forces, but occasionally blight will mutate one into an extremely dangerous horror.  Said blighted forms are too unstable for use among our ranks, but with some effort by the children of emerald and ruby, we can give one the gifts of massively increased strength and the ability to unleash waves of flame on our enemies.  While we currently need to keep most of them enthralled to ensure their loyalty, we've recently begun breeding minotaurs on our continent so we can train them from birth to know our cause of righteous revenge - and already some wandering minotaurs accept our cause and our blessings willingly!  It seems the natives of Eyal are no kinder to their own brethren than they are to us.", [[米诺陶是埃亚尔上颇为神奇的生物，同时也是夏·图尔人制造或者改变埃亚尔种族的一个绝妙的例子。它的本能驱使它走向狭窄的走廊、曲折的通道、魔法神器和魔法能量的涌动之处，结果这些长角的兽形人经常误打误撞闯入我们的基地和营地。它们也很容易吸收强化魔法并随之改变形态——普通的米诺陶根本不是我军对手，但偶尔枯萎之力会将其中一只变异成极其危险的恐魔。这些枯萎形态不够稳定，不能为我们所用，但经过翡翠之子与红宝石之子的努力后，我们能将无比的力量与释放火焰的能力赋予之。我们现在不得不奴役它们中的大部分以确保忠诚，同时最近我们也开始在我们的大陆上饲养米诺陶，这样我们就能从小灌输我们正义的复仇——已经有部分米诺陶自愿接受了我们的理由和祝福！似乎埃亚尔的原住民对其同胞也并不比对我们友善。]], "_t")
 t("demon statue: daelach", "恶魔雕像：达莱奇", "_t")
-t("Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.", "任何读过我们历史的人都将铭记尘埃法师的故事，他们躲在隐藏的城市里，用有感知能力的风暴折磨我们。尽管我们当时也曾受诱惑，想像他们对我们那样抹去他们知识和文化的一切痕迹，但我们明白他们的魔法日后或有用处。于是，当他们的城市沦为废墟时，我们劫掠了他们的图书馆，取走典籍，认真抄录其中有实际价值的内容，而将其余部分尽数剔除。当传送门解开后，红宝石的孩子们（在矛盾的抉择后）成功地使用古旧的咒语释放出全新的风暴——火焰和煤炭代替了尘土和沙子。这些活体法术服从命令、成本低廉（尽管危险），将以炽烈的攻势折磨并摧毁埃亚尔大陆，正如它们的前身曾对玛·洛克所做的那样。", "_t")
+t("Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.", "任何读过我们历史的人都将铭记尘埃法师的故事，他们躲在隐藏的城市里，用有感知能力的风暴折磨我们。尽管我们当时也曾受诱惑，想像他们对我们那样抹去他们知识和文化的一切痕迹，但我们明白他们的魔法日后或有用处。于是，当他们的城市沦为废墟时，我们劫掠了他们的图书馆，取走典籍，认真抄录其中有实际价值的内容，而将其余部分尽数剔除。当传送门之力向我们倾泻而下后，红宝石之子（经过一番争议）成功地使用古旧的咒语释放出全新的风暴——火焰和煤炭代替了尘土和沙子。这些活体法术服从命令、成本低廉（尽管危险），将以炽烈的攻势折磨并摧毁埃亚尔，正如它们的前身曾对玛·洛克所做的那样。", "_t")
 t("demon statue: champion of Urh'Rok", "恶魔雕像：乌鲁洛克的精英卫兵", "_t")
 t("The Divine Tournament of Combat is the most straightforward of our competitions for the spectator, but those competing have a huge variety of possible divisions to enter.  Most are based on the maximum amount of energy consumed by their entrants since (and including) birth; others include those set in an open field for direct combat, or a difficult-to-navigate forest of pillars to properly evaluate those who use hit-and-run tactics or excel at setting up or detecting ambushes.  In the high-energy divisions, those competing are typically not born in the conventional manner, usually being constructs made by a team performing a collaborative effort.  The constructs we now call Champions of Urh'Rok have utterly devastated most of the high-energy open-field divisions, while performing adequately in the less-direct ones, making them a solid fit for production and deployment in the invasion.  Their development team has earned a place of honor for their ingenious methods of creating such incredible strength with a sustainable amount of energy-input, and once mass-production is in order, these gigantic creatures will become the backbone of our military.  Once they arrive on the surface, Eyal will experience a few fleeting moments of terror before their utter annihilation.", [[神圣战斗锦标赛是我们各项赛事中观众最容易看懂的一项，但参赛者可报名的组别种类繁多。大多数组别按参赛者自出生起（包括出生过程）所消耗的最大能量划分；另一些则包括在开阔场地上进行正面战斗的组别，或在难以穿行的柱林中进行的组别，以妥善评估那些采用游击战术、擅长布置或识破伏击的选手。在高能组别中，参赛者通常并非以常规方式出生，而是由团队协作制造的构造体。我们如今称为乌鲁洛克的精英卫兵的构造体，在大多数高能开阔场地组别中彻底碾压对手，在不那么直接的组别中表现尚可，因此十分适合投入生产并部署到入侵行动中。它们的研发团队以可持续的能量投入创造出如此惊人的力量，凭借这种巧妙方法赢得了荣誉；一旦大规模生产走上正轨，这些庞然大物将成为我军的骨干。等它们抵达地表，埃亚尔将在彻底毁灭前经历短暂的恐惧。]], "_t")
 t("demon statue: forge giant", "恶魔雕像：锻造巨人", "_t")
 t("The power of Urh'Rok cannot be overstated, except by claiming it to be infinite.  Most of his strength and will are occupied at the moment, keeping our shattered home from splintering off into the void; as such, he cannot spend time or effort making equipment for our army.  The children of onyx recognized this, and worked on a way to maximize the amount of benefit they could get from a small portion of his power; Urh'Rok was pleased by their idea, and granted their request in full, giving them a handful of enormous hammers, each one glowing with his magic.  These were then given to modified variants of the Champion of Urh'Rok template, built for raw strength at the expense of speed and energy-efficient creation, and now they work tirelessly, heating raw metal with their magic until it is workable, then pounding it into their shape, automatically imbuing the resulting armor and weaponry with Urh'Rok's blessing.  Thanks to an assortment of detachable heads for these hammers, every single swing produces several pieces of usable equipment.  The constant exposure to the power of Urh'Rok has made these creatures almost absurdly formidable, but as useful as they would be on the front lines, they are even more useful bolstering the rest of our forces with blessed equipment; that said, should our scouting parties encounter a problem that requires drastic and immediate intervention, sending a Forge-Giant down is a reliable emergency option, and would immediately clear up any combat-related difficulties should the situation call for it.", [[乌鲁洛克的力量怎么夸大都不为过——除非说它是无限的。眼下，他的大部分力量与意志都用于防止我们破碎的家园裂散进虚空，因此无法花费时间或精力为军队制造装备。缟玛瑙之子意识到了这一点，设法让一小部分乌鲁洛克之力发挥出最大效益。乌鲁洛克很欣赏他们的想法，完全应允了请求，赐予他们几把闪耀着他魔力的巨锤。这些巨锤随后交给了乌鲁洛克精英卫兵模板的改造变体；它们以速度和制造时的能耗效率为代价换取蛮力，如今不知疲倦地工作，用魔法把原料金属加热到可锻打，再将其捶打成形，同时自动为制成的护甲与武器注入乌鲁洛克的祝福。凭借各式可拆卸锤头，每一锤都能产出数件可用装备。长期接触乌鲁洛克之力让这些生物强大得近乎荒谬；它们虽能在前线大显身手，但用受祝福的装备强化其余部队更加有用。尽管如此，若侦察队遇到需要迅速强力干预的问题，派一名锻造巨人下去仍是可靠的应急手段，并能立刻解决局势所需的任何战斗难题。]], "_t")
 t("demon statue: thaurhereg", "恶魔雕像：修尔希瑞格", "_t")
-t("Thanks to numerous contacts we have on Eyal's surface, ranging from easily-duped natives to our own scouting teams, we've managed to gain a few captive Eyalites.  These prisoners are useful for a variety of tasks, including manual labor, magical research, stress relief, and developing new methods of torture (those last two often being one in the same).  We try to preserve these temporarily-valuable subjects for as long as we can, but invariably, an experiment goes wrong or someone uses too much force, and the captive ends up mortally wounded.  Rather than let these world-breakers escape their eternal fate by simply dying, we put their bodies and life-essence to use, combining several fallen Eyalites into a creature held together by their collective rage and suffering.  You'd think this would be a bad idea to have walking around our base of operations, but as it turns out, it just takes a few simple enchantments to redirect their vengeful instincts towards their former brethren, making them fearsome and sadistic in combat.  Their rampages against their \"tormentors\" are simply hilarious!", [[源于我们对埃亚尔大陆的多次接触，从容易受骗的当地傻瓜到我们有组织的探险队，我们有机会活捉了一些埃亚尔人。这些俘虏能够用于许多工作，比如苦力、魔法研究、找乐子，以及发明新的酷刑（后两者通常是同一回事）。我们曾经试图长期保存这些暂时还是比较珍贵的样本。不过每一次，只要实验出了点问题，或者有谁下手的时候稍微没有掌握好力度，这些样本就会当场惨死。对于这些破坏世界的邪徒来说，让他们通过死亡逃离自己永恒折磨的命运实在是太便宜他们了。我们把他们的肢体和生命精华取出，用他们的愤怒和痛苦将几个埃亚尔人的尸体拼接在一起。你或许觉得让他们在我们的指挥部附近晃来晃去是个坏主意，不过事实证明，只需要几个简单的魔法就可以把他们复仇的强烈冲动转移到他们曾经的同族身上，让他们在战斗中变得施虐成性、令人望而生畏。看看他们在狂乱中屠杀自己眼中的“敌人”的样子，还真是让人忍俊不禁！]], "_t")
+t("Thanks to numerous contacts we have on Eyal's surface, ranging from easily-duped natives to our own scouting teams, we've managed to gain a few captive Eyalites.  These prisoners are useful for a variety of tasks, including manual labor, magical research, stress relief, and developing new methods of torture (those last two often being one in the same).  We try to preserve these temporarily-valuable subjects for as long as we can, but invariably, an experiment goes wrong or someone uses too much force, and the captive ends up mortally wounded.  Rather than let these world-breakers escape their eternal fate by simply dying, we put their bodies and life-essence to use, combining several fallen Eyalites into a creature held together by their collective rage and suffering.  You'd think this would be a bad idea to have walking around our base of operations, but as it turns out, it just takes a few simple enchantments to redirect their vengeful instincts towards their former brethren, making them fearsome and sadistic in combat.  Their rampages against their \"tormentors\" are simply hilarious!", [[多亏我们在埃亚尔地表的众多联络人——从容易受骗的当地人到我们自己的侦察队——我们有机会活捉了一些埃亚尔人。这些俘虏能够用于许多工作，比如苦力、魔法研究、找乐子，以及发明新的酷刑（后两者通常是同一回事）。我们曾经试图长期保存这些暂时还是比较珍贵的样本。不过每一次，只要实验出了点问题，或者有谁下手的时候稍微没有掌握好力度，这些样本最终就会受到致命伤。对于这些破坏世界的邪徒来说，让他们通过死亡逃离自己永恒折磨的命运实在是太便宜他们了。我们把他们的肢体和生命精华取出，用他们的愤怒和痛苦将几个埃亚尔人的尸体拼接在一起。你或许觉得让他们在我们的指挥部附近晃来晃去是个坏主意，不过事实证明，只需要几个简单的魔法就可以把他们复仇的强烈冲动转移到他们曾经的同族身上，让他们在战斗中变得施虐成性、令人望而生畏。看他们狂暴地屠戮自己的“折磨者”，真是让人忍俊不禁！]], "_t")
 t("demon statue: dúathedlen", "恶魔雕像：多瑟顿", "_t")
 t([[#{italic}#This plaque is mostly covered in shifting shadows.  You can only make out a little bit of the text.#{normal}#
 
@@ -577,12 +577,11 @@ t([[Once a naturalist and explorer, this scholar frequently made trips to Eyal i
 
 Cute.  I'll let it stay.  
 -S.
-]], [[作为一名博物学者和探险家，这位学者经常在玛·洛克毁灭前的日子里到埃亚尔大陆旅行。她在旅行日志中记载了栖息于夏·图尔人阴影中种类繁多的神奇生物，我们的市民们都乐于阅读这些作品。她对这些可怜、未开化的生物有一种由衷的热爱。当传送门网络被摧毁的时候，她和另外两名同伴被困于埃亚尔大陆。很长一段时间里，大家都担心她死了，或者更糟——成为一名叛徒并与埃亚尔的居民们一同反抗她的家乡。不管哪种情况，当我们进入这颗星球的轨道时，她应当已经死于衰老。当我们到达那里时，意想不到的事发生了：通过一种我们至今仍无法逆向解析的魔法，一些穿着奇怪长袍的埃亚尔人在我们的大陆上出现，这些人声称忠于莎西·凯希，并愿为我们的实验献身。从那以后，一批又一批类似的志愿俘虏被传送了过来。可惜的是，这些人对实验并没有带来想象中的帮助——他们的每一丝生命精华已被汲取殆尽，陷于死亡边缘。这还没有算上常见的体内出血的情况，又或者是神经网络重接导致他们将痛苦视为快乐的情况，这让我们开发更好惩罚手段的努力无功而返。不过，总的来说他们既合作又数量充足，并且很有帮助。我们不确定莎西·凯希是否还存活。如果她还活着，我们相信她的忠诚与我们同在。
+]], [[作为一名博物学者和探险家，这位学者经常在玛·洛克毁灭前的日子里到埃亚尔旅行。她在旅行日志中记载了栖息于夏·图尔人阴影中种类繁多的神奇生物，我们的市民们都乐于阅读这些作品。她对这些可怜、未开化的生物有一种由衷的热爱。当传送门网络被摧毁的时候，她和另外两名同伴被困于埃亚尔。很长一段时间里，大家都担心她死了，或者更糟——成为一名叛徒并与埃亚尔的居民们一同反抗她的家乡。不管哪种情况，当我们进入这颗星球的轨道时，她应当已经死于衰老。当我们到达那里时，意想不到的事发生了：通过一种我们至今仍无法逆向解析的魔法，一些穿着奇怪长袍的埃亚尔人在我们的大陆上出现，这些人声称忠于莎西·凯希，并愿为我们的实验献身。从那以后，一批又一批类似的志愿俘虏被传送了过来。可惜的是，这些人对实验并没有带来想象中的帮助——他们的每一丝生命精华已被汲取殆尽，陷于死亡边缘。这还没有算上常见的体内出血的情况，又或者是神经网络重接导致他们将痛苦视为快乐的情况，这让我们开发更好惩罚手段的努力无功而返。不过，总的来说他们既合作又数量充足，并且很有帮助。我们不确定莎西·凯希是否还存活。如果她还活着，我们相信她的忠诚与我们同在。
 
 #{italic}#在主要文字的下面蚀刻着一条简短的信息。#{normal}#
 
 真可爱。我准备留下这些文字。
-
 —S。
 ]], "_t")
 t("demon statue: Walrog", "恶魔雕像：乌尔罗格", "_t")
@@ -618,9 +617,9 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 
 你好，埃亚尔人。这里原本的文字对你们来说并不重要：只不过是一个博物学者喋喋不休地讲述他的成就和谜一般的失踪。我来讲一些你们应当知道的东西。
 
-克里尔·费扬是我的爱人。出于好奇和对知识的渴望，我们与一位朋友——乌尔罗格——来到了埃亚尔大陆。这个爱好带给我们很多启发，我们撰写的关于埃亚尔大陆原始物种的报告，在我们的世界被广泛传阅。别以为你们值得这样的注意；除了劣等，你们别无其他特质。孕育了强大，聪慧的夏·图尔人的这颗行星是怎么创造你们这样才勉强摆脱封建社会的野蛮人的？你们的罪孽惹人喜爱，你们的失败令人发笑。正是因为这，再加上夏·图尔人的神秘失踪，才促使我们出去调查：一名受伤的缟玛瑙之子穿过并关闭了我们的传送门，告诉我们埃亚尔大陆给玛·洛克带来了可怕的毁灭。我们知道你们没能力做到这种事，所以必须亲自查明答案；克里尔·费扬和我像往常一样变装为人类法师，乌尔罗格则在海上搜寻异常，并在几天后与我们会面。
+克里尔·费扬是我的爱人。出于好奇和对知识的渴望，我们与一位朋友——乌尔罗格——来到了埃亚尔。这个爱好带给我们很多启发，我们撰写的关于埃亚尔原始物种的报告，在我们的世界被广泛传阅。别以为你们值得这样的注意；除了劣等，你们别无其他特质。孕育了强大，聪慧的夏·图尔人的这颗行星是怎么创造你们这样才勉强摆脱封建社会的野蛮人的？你们的罪孽惹人喜爱，你们的失败令人发笑。正是因为这，再加上夏·图尔人的神秘失踪，才促使我们出去调查：一名受伤的缟玛瑙之子穿过并关闭了我们的传送门，告诉我们埃亚尔给玛·洛克带来了可怕的毁灭。我们知道你们没能力做到这种事，所以必须亲自查明答案；克里尔·费扬和我像往常一样变装为人类法师，乌尔罗格则在海上搜寻异常，并在几天后与我们会面。
 
-当我们从地下居所出来时，我们惊讶地发现火焰风暴（尽管没那么猛烈）也在埃亚尔大陆肆虐。更令我们吃惊的是一大群愤怒的农民；我们不幸选用的伪装激怒了他们——出于无知，你们选择把灾难归罪于施法者。我们试图逃走，但暴民从四面八方涌来，很快便扑到了我们身边。
+当我们从地下居所出来时，我们惊讶地发现火焰风暴（尽管没那么猛烈）也在埃亚尔肆虐。更令我们吃惊的是一大群愤怒的农民；我们不幸选用的伪装激怒了他们——出于无知，你们选择把灾难归罪于施法者。我们试图逃走，但暴民从四面八方涌来，很快便扑到了我们身边。
 
 很快，我就被绑起来，他们得意洋洋，发出种种威胁，但人群嘈杂，我听不清。我本可以反击，然而我一直忍耐，告诫自己只有在确定性命受到威胁时才出手反击，不停地劝慰自己，那些曾经对我来说多么吸引人的埃亚尔住民们根本不知道他们在做什么。然而，一连串在我头上爆炸的火焰显示出我的爱人显然没有那么耐心。当爆炸平息，人群散开的时候，我终于知道他为什么如此凶猛地反击了。他受了很严重的伤，明显是为了让他受苦而不是限制他的行动，他就快死了。绝望之际，我低声念出了咒语，读取了他们的思想，了解他们为什么如此对待我的爱人。于是我知道了他们对我的爱人做了什么，以及他们将要对我做些什么，更可怕的是支配他们行动的那不假思索的憎恨……能形容它的词太多，却又都不够。可憎的、野蛮的、虐待狂的，都很准确，但是却无法描述那其中的邪恶。正是在那时，我了解了埃亚尔的野蛮，以及所有埃亚尔人应得的命运。同时，我的忍耐已经突破了极限。
 
@@ -628,9 +627,9 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 
 我带着他仅存的精华逃跑到安全的地方，然后开始一个接一个地夺走埃亚尔人的精华，延长我的寿命，离让他恢复健康越来越近。我猜想乌尔罗格也在这么做，捕食水手，然后是娜迦。我们失去了联系，但是一些海上的恐怖传说让我相信他还活着。维持克里尔·费扬的生存消耗了许多能量，再过不久，独行的旅人已经不足以使他的状况稳定。我需要其他人为我工作，收集牺牲品，并在物尽其用之后奉献生命。也正是在那时，我得知了恶魔空间正在逼近，并且想出了一个给埃亚尔人的提议。
 
-总有一天，乌鲁洛克的军团将对埃亚尔展开侵略。你们都会遭受难以想象的痛苦。你们许多人都会死去。当然不是所有人都这么幸运，剩下那些会成为他们无尽狂怒的靶子，他们会一直折磨你直到时间的尽头。他们的理由不尽准确，但别搞错了：他们为你们安排的命运是你们罪有应得。即便我想阻止，我和宇宙中的任何事物也都没法阻止他们的侵略。恐怕只有乌鲁洛克本人的话语才能阻止这一切——而这看起来也不太现实。如果你们能帮助我，并且服从我的命令，让我感到满意，我可以保证你们两件事：第一，你无法避免的可悲命运将会以死亡终结，最多只要几周的时间，哪怕玛·洛克的军队也无法在我汲取你们的生命精华之后撤销这个行动。第二，在你们感到痛苦之前，你们会感到几乎同等的快乐。通过魔法，我可以让自己变成各种形态，制造各种各样的幻象，按你们的喜好操纵你们的感官。你们最疯狂最不现实的梦想将会成真。等待痛苦到来的时间将会变得令人愉悦，让你的之前的人生黯然失色。如果你们觉得不屑于这种享乐主义，那么我最近招纳的有心灵能力方面天赋的仆从值得考虑，他们可以改变你们的记忆。当“恶魔们”将酸液滴入你的眼球，再让它们长回来，并长出更多神经末梢，于是你会感到更加剧烈的痛苦。如果这时，你产生了你在为拯救埃亚尔大陆而无私的奉献生命，并且你的爱人孩子不会承受如此痛苦的幻觉，你会不会感觉这一切更加容易忍耐了呢。
+总有一天，乌鲁洛克的军团将对埃亚尔展开侵略。你们都会遭受难以想象的痛苦。你们许多人都会死去。当然不是所有人都这么幸运，剩下那些会成为他们无尽狂怒的靶子，他们会一直折磨你直到时间的尽头。他们的理由不尽准确，但别搞错了：他们为你们安排的命运是你们罪有应得。即便我想阻止，我和宇宙中的任何事物也都没法阻止他们的侵略。恐怕只有乌鲁洛克本人的话语才能阻止这一切——而这看起来也不太现实。如果你们能帮助我，并且服从我的命令，让我感到满意，我可以保证你们两件事：第一，你无法避免的可悲命运将会以死亡终结，最多只要几周的时间，哪怕玛·洛克的军队也无法在我汲取你们的生命精华之后撤销这个行动。第二，在你们感到痛苦之前，你们会感到几乎同等的快乐。通过魔法，我可以让自己变成各种形态，制造各种各样的幻象，按你们的喜好操纵你们的感官。你们最疯狂最不现实的梦想将会成真。等待痛苦到来的时间将会变得令人愉悦，让你的之前的人生黯然失色。如果你们觉得不屑于这种享乐主义，那么我最近招纳的有心灵能力方面天赋的仆从值得考虑，他们可以改变你们的记忆。当“恶魔们”将酸液滴入你的眼球，再让它们长回来，并长出更多神经末梢，于是你会感到更加剧烈的痛苦。如果这时，你产生了你在为拯救埃亚尔而无私的奉献生命，并且你的爱人孩子不会承受如此痛苦的幻觉，你会不会感觉这一切更加容易忍耐了呢。
 
-早在你们出生之前的数千年间，已有数不清的人接受了这个提议，我积累了足够的精华将克里尔·费扬保存在一个稳定的“种子”之中。一旦将它种在合适的牺牲品之中放任生长，他将以更加强大的姿态重返埃亚尔大陆。我们两人将会用尽所有手段来加速你们可悲世界的应得的末日。理论上，任何有灵性的血肉之躯都可以作为种子的容器。但是我想要一个会被怀念的人，杀死他可以让我爱人重生的第一步给这个世界带来巨大的不幸。如果你接受我的提议，就卸下武装只身前往克里尔·费扬地宫，与你的埃亚尔同胞一起为我效劳。如果你能给我的爱人带来一个合适的容器……嗯，那将会得到某种特殊的、一对一的照顾，怎么样？
+早在你们出生之前的数千年间，已有数不清的人接受了这个提议，我积累了足够的精华将克里尔·费扬保存在一个稳定的“种子”之中。一旦将它种在合适的牺牲品之中放任生长，他将以更加强大的姿态重返埃亚尔。我们两人将会用尽所有手段来加速你们可悲世界的应得的末日。理论上，任何有灵性的血肉之躯都可以作为种子的容器。但是我想要一个会被怀念的人，杀死他可以让我爱人重生的第一步给这个世界带来巨大的不幸。如果你接受我的提议，就卸下武装只身前往克里尔·费扬地宫，与你的埃亚尔同胞一起为我效劳。如果你能给我的爱人带来一个合适的容器……嗯，那将会得到某种特殊的、一对一的照顾，怎么样？
 
 埃亚尔注定在痛苦的尖叫中灭亡。你们不想先来个告别之吻吗？
 
@@ -642,14 +641,14 @@ t("Lithfengel, mentor of Draebor and child of emerald, was one of our finest sch
 t("demon statue: Rogroth, Eater of Souls", "恶魔雕像：罗格洛斯·灵魂吞噬者", "_t")
 t("Recently, the cultists of Shasshhiy'Kaish have begun speaking of a \"demon seed,\" a sort of magical cluster of life-essence which can be implanted in a sentient being, allowing it to grow inside of them and eventually become one of our citizens.  Inspired by this idea, the children of emerald have developed a prototype of this form of magic, and the children of onyx have made a chassis to carry it into combat.  Rogroth generates countless essence-less seeds from within its frame, then embeds them in nearby living beings, so when they expire, their life-essence goes directly into the seed and allows it to grow.  We have not yet perfected its production capabilities, so currently the seeds will only become degenerate husks when they grow, but fear not!  As we get data from the tests of this design, we'll improve on it, and soon the slaughter of our foes will cause wretchlings, quasits, and even thaurheregs to spring up from their corpses.  With a little bit of luck and some decisive early skirmishes, we could even bypass the problem of getting an invasion force to the surface entirely, growing it there instead.", [[最近，莎西·凯希的教徒们开始谈论起“恶魔种子”。这是一串具有魔力的生命精华，可以被植入有灵性的生物中，并在其中发育为我们的公民。受此构想启发，绿翡翠之子研究出了这种魔法的原型，缟玛瑙之子则打造了一副机体，载着它投入战斗。罗格洛斯自身的躯体会不断产生无数没有精华的种子，并将这些种子嵌入附近的生物中，当这些生物死去，他们的生命精华将会流入并滋长这些种子。我们还没有完善的生产能力，所以目前这些种子只会成长为退化的空壳。但是别担心！随着我们从这一设计的测试中获得数据，我们会加以改进。不久的将来，当杀死我们的敌人后，酸液树魔、夸塞魔，甚至是修尔希瑞格将会从他们的尸体中诞生。只要运气稍好，再打赢几场关键的早期小规模战斗，我们甚至能彻底绕过把入侵部队送上地表的难题，直接在那里培育部队。]], "_t")
 t("demon statue: Corrupted Daelach", "恶魔雕像：堕落达莱奇", "_t")
-t("One of the problems with making daelach is the inherent instability that comes from creating something that is almost entirely made of magic.  If ambient levels of blight are even slightly too high, it can set off a chain reaction that at best destroys the daelach, and at worst destroys most of the mages who were building it.  Daelach production is thus theoretically cheap, but in practice involves great expense, and usually a blighted daelach has to be immediately put down lest it cause tremendous damage.  One specimen, though, adapted to the blight in a very interesting way, sprouting wings and bolstering its usual firestorms with blight, but otherwise remaining perfectly balanced and controllable.  We'll try to recreate this happy accident however we can, but in the meantime, it will prove effective on the surface of Eyal.", [[制造达莱奇的问题之一就是创造纯粹魔法生物所固有的不稳定性。如果周边的枯萎水平哪怕高那么一点点，也会导致连锁反应，轻则摧毁达莱奇，重则会杀死大部分负责制造达莱奇的法师。因此制造达莱奇的理论成本很低廉，但是实际上会带来巨大的费用。而且，一个枯萎化的达莱奇必须立刻被压制，以免它造成巨大的损害。不过，有一个样本用一种有趣的方式进行了枯萎化，它长出了翅膀，并用枯萎能量强化了他的火焰风暴，另一方面它维持了平衡与可控性。我们将会用尽所有办法尝试重现这个令人惊喜的意外，与此同时，它会前往埃亚尔大陆证明他的实际效果。]], "_t")
+t("One of the problems with making daelach is the inherent instability that comes from creating something that is almost entirely made of magic.  If ambient levels of blight are even slightly too high, it can set off a chain reaction that at best destroys the daelach, and at worst destroys most of the mages who were building it.  Daelach production is thus theoretically cheap, but in practice involves great expense, and usually a blighted daelach has to be immediately put down lest it cause tremendous damage.  One specimen, though, adapted to the blight in a very interesting way, sprouting wings and bolstering its usual firestorms with blight, but otherwise remaining perfectly balanced and controllable.  We'll try to recreate this happy accident however we can, but in the meantime, it will prove effective on the surface of Eyal.", [[制造达莱奇的问题之一就是创造纯粹魔法生物所固有的不稳定性。如果周边的枯萎水平哪怕高那么一点点，也会导致连锁反应，轻则摧毁达莱奇，重则会杀死大部分负责制造达莱奇的法师。因此制造达莱奇的理论成本很低廉，但是实际上会带来巨大的费用。而且，一个枯萎化的达莱奇通常必须立刻被处死，以免它造成巨大的损害。不过，有一个样本用一种有趣的方式进行了枯萎化，它长出了翅膀，并用枯萎能量强化了它的火焰风暴，另一方面它维持了平衡与可控性。我们将会用尽所有办法尝试重现这个令人惊喜的意外，与此同时，它在埃亚尔地表必将大显身手。]], "_t")
 t("demon statue: Harkor'Zun", "恶魔雕像：哈卡祖", "_t")
 t("Of the anomalies and phenomena we've noticed in our studies of the shield protecting Eyal, none have frustrated us so much as meteors.  Certain powerful Eyalite spellcasters can pull a large meteor into low orbit, passing it through the shield relatively unharmed, aside from being split into predictably-sized chunks, which are then called to the surface one-by-one in a series of devastating meteoric crashes.  While we have not yet found a way to reverse-engineer these spells to protect our standard troops from disintegration, we have had some limited success in making a construct that closely resembles a meteor in composition and appearance.  Harkor'Zun, a being made mostly of stone, was simply dropped from our platform; the shield shattered him as expected, but we had designed him to survive this, the fragments merging back into their completed form once he reached the surface.  It would seem, though, that either we made him to be too sturdy, or the shield envelops incoming objects in a sort of anti-magic coating, as he has been unable to start the second stage of this process, wherein he merges these fragments back into a completed form.  Should an Eyalite stumble upon him and attempt to destroy the fragments, Harkor'Zun will be able to re-combine and \"thank\" whoever granted him his ascension.", [[在我们研究守护埃亚尔的护盾时发现的种种异常与现象中，没有什么比流星更令我们沮丧。某些强大的埃亚尔施法者能将一颗大型流星拉入低空轨道，使它几乎毫发无损地穿过护盾，只会被分割成大小可预测的若干块；随后这些碎块会被逐一召向地表，造成一连串毁灭性的陨石撞击。我们尚未找到逆向解析这些法术、从而保护标准部队免遭分解的方法，但在制造一种成分与外观都酷似流星的构造体方面取得了有限的成功。哈卡祖是一个主要由石头构成的生物，我们直接将他从平台上投下；护盾如预期般将他击碎，但我们的设计本应让他从中存活，并在抵达地表后让碎片重新融合成完整形态。然而，似乎要么我们把他造得过于坚固，要么护盾会给进入的物体覆上一层反魔法涂层；他始终无法启动这一过程的第二阶段，也就是把这些碎片重新融合成完整形态。若有埃亚尔人偶然发现他并试图摧毁碎片，哈卡祖便能重新组合，并“感谢”助他升华之人。]], "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/quests/re-abducted.lua"
 
-t("I've a feeling we're not on Eyal anymore", "我感觉我已不在埃亚尔大陆", "_t")
+t("I've a feeling we're not on Eyal anymore", "我感觉我已不在埃亚尔", "_t")
 t([[Somehow you did not recall out as usual but instead ended up on a sadly familiar area.
 You are back in the Fearscape. Back and with a welcome committee.
 
@@ -663,7 +662,7 @@ You must find a way to escape, again.
 ]], "_t")
 t("#LIGHT_GREEN#* You have found your way out of the primary ambush.#WHITE#", "#LIGHT_GREEN#* 你已从第一场伏击中脱身。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have destroyed Rogroth the Eater of Souls and made your escape possible. Flee!#WHITE#", "#LIGHT_GREEN#* 你已经消灭了罗格洛斯灵魂吞噬者，趁现在赶快逃！#WHITE#", "_t")
-t("#SLATE#* Find a way back to Eyal.#WHITE#", "#SLATE#* 寻找回到埃亚尔大陆的路。#WHITE#", "_t")
+t("#SLATE#* Find a way back to Eyal.#WHITE#", "#SLATE#* 寻找回到埃亚尔的路。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have escaped the Anteroom of Agony.#WHITE#", "#LIGHT_GREEN#* 你已逃离痛苦前厅。#WHITE#", "_t")
 -- untranslated text
 --[==[
@@ -682,7 +681,7 @@ You are being taken by your handler to the torture-pits to help them figure out 
 As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you.
 ]], [[你已经不太记得来到这片漂浮在世界之间虚空中的燃烧大陆之前的生活了。你一直在帮助恶魔，愉快地参与他们的实验，试图打破某种阻止他们向埃亚尔展开正义复仇的屏障。
 
-你被你的“主人”带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
+你被你的“主人”带到折磨场以帮助研究如何对埃亚尔的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
 
 当你逐渐恢复意识、脚下这块灼热土地构成的平台正从主大陆分裂时，旧日的记忆涌入脑海。你终于清醒过来——恶魔们要毁灭你的故乡！你必须逃离……但在此之前，别忘了摧毁他们用来追踪你的水晶体。
 ]], "_t")
@@ -1658,7 +1657,7 @@ t("portal to the main island", "通向主岛的传送门", "entity name")
 t("portal to the arrival platform", "通向到达平台的传送门", "entity name")
 t("portal to previous level", "通向上一层的传送门", "entity name")
 t("portal to next level", "通向下一层的传送门", "entity name")
-t("portal to Eyal", "通向埃亚尔大陆的传送门", "entity name")
+t("portal to Eyal", "通向埃亚尔的传送门", "entity name")
 t("#CRIMSON#The portal is kept shut for you by a malovelant creature nearby.", "#CRIMSON#这附近有一个不怀好意的生物阻止你使用这个传送门。", "log")
 t("torture rack", "刑讯架", "entity name")
 t("iron maiden", "铁处女", "entity name")
@@ -1705,7 +1704,7 @@ t("#YELLOW#The disturbance has attracted the Planar Controller!", "#YELLOW#你�
 t("floor", "地板", "entity subtype")
 t("portal to the next level", "通向下一层的传送门", "entity name")
 t("portal to the previous level", "通向上一层的传送门", "entity name")
-t("portal to somewhere on Eyal", "通向埃亚尔大陆某处的传送门", "entity name")
+t("portal to somewhere on Eyal", "通向埃亚尔某处的传送门", "entity name")
 t("Safe!", "安全！", "_t")
 t("You made it to Eyal! You are not quite sure where, but it can not be worse than the Fearscape.", "你成功回到了埃亚尔！你不太清楚你到了哪里，但这不可能比恶魔空间更糟。", "_t")
 
@@ -1753,19 +1752,19 @@ Features:
 * Two new events, appearing anywhere in Eyal!
 * 20 new artifacts, with unique and interesting effects.  Collect the Obsidian Treasures to amass more and more power!  Slip your hands into the Will of Ul'Gruth and watch your sweeping blows smash down walls!  Wear a giant hideous hell-mouth as a fashionable belt!
 * 7 new achievements!  Conquer the worst Urh'Rok's forces can throw at you, and hang their metaphorical skulls from your profile page!
-]], [[在马基埃亚尔，很多人都曾听闻“恶魔”的大名，作为仿佛凭空出现的暴虐生物，他们无论走到哪里都会留下痛苦和毁灭。他们的恐惧空间高浮于天幕之上，并非闲置，而是一直在观察等待；他们的探员搜寻这片土地，他们的军团不断积蓄力量，他们的学者开发出全新的策略和法术。隔绝两端世界的屏障，在他们的破坏下开始破碎；无助的埃亚尔居民悄然消失，被掠走成为他们的奴隶和玩物。恶魔用魔法力量改造了受害者，使其能够在恶魔的拷问中存活 —— 你，能使用自己刚刚觉醒的新力量，逃脱玛·洛克的恶魔军团吗？
+]], [[在马基·埃亚尔，很多人都曾听闻“恶魔”的大名，作为仿佛凭空出现的暴虐生物，他们无论走到哪里都会留下痛苦和毁灭。他们的恶魔空间高浮于天幕之上，并非闲置，而是一直在观察等待；他们的探员搜寻这片土地，他们的军团不断积蓄力量，他们的学者开发出全新的策略和法术。隔绝两端世界的屏障，在他们的窥探下开始破裂；无助的埃亚尔居民悄然消失，被掠走成为他们的奴隶和玩物。恶魔用魔法力量改造了受害者，使其更能承受随之而来的压力 —— 你，能使用自己刚刚觉醒的新力量，逃脱玛·洛克的恶魔军团吗？
 
 游戏特性：
-* 使用全新职业开局，毁灭使者！他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。他们释放火海削弱敌群，随后吸收周围的火焰和痛苦，将任何敌人迅速化为灰烬。
-* 解锁全新职业，恶魔使者，拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着巨大的恶魔牛头人，希望它能为你作战？现在，你确实可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤火焰恶魔将敌人烧成灰烬，同时看着敌人在你铁壁般的防御面前无可奈何！恶魔具有更持久的生命值，比死灵法师易碎的骷髅或者自然召唤师的召唤兽更加珍贵，但仍然可以从死亡中复活。
+* 使用全新职业开局，毁灭使者！他们是恶魔毁灭力量的化身，挥舞着巨大的双手武器冲入战场，在成群的敌人中劈出一条条烈焰毁灭之路。他们的手中掌握着火焰的魔法和恶魔的力量，在寡不敌众的战斗中寻求欢愉。他们释放火海削弱敌群，随后吸收周围的火焰与痛苦来维持生存，同时将任何敌群迅速化为灰烬与血肉。
+* 解锁全新职业，恶魔使者，拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着被恶魔诅咒的巨型米诺陶，希望它能为你作战？现在，你确实可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤一队火焰小鬼，把敌人砸个稀烂，同时看着敌人在你铁壁般的防御面前无可奈何！恶魔的生命值会持续保留，因此比死灵法师用完即弃的骷髅或自然召唤师的召唤兽更加珍贵，但仍然可以从死亡中复活。
 * 两个新地区，具有全新的艺术，敌人和Boss！你以前曾经看过恶魔空间的平原，现在则可以看到恶魔自己的巢穴和总部！
-* 超过一万字的全新手札！恶魔曾经是开明的和平种族，来自遥远的行星玛·洛克。了解是什么驱使他们策划给予埃亚尔永恒的折磨！探索恶魔物种和著名人物的纪念碑，展示每个人在其中的荣誉地位！瞥见这些嗜虐侵略者及其洗脑奴隶的文化和日常生活！
-* 解锁一个新种族，魔化精灵：那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。闪烁至安全处；变身为多瑟顿形态，在阴影中隐藏或给予敌人黑暗打击；坚韧缓和了负面状态和暴击伤害；在战斗中攻击敌人的精神，使他们难以为继！
+* 超过一万字的背景故事等你发现！恶魔曾经是开明的和平种族，来自遥远的行星玛·洛克。了解是什么驱使他们策划给予埃亚尔永恒的折磨！探索为每种恶魔及其著名人物修建的纪念碑，了解他们各自在恶魔族群中享有的尊崇地位！瞥见这些嗜虐侵略者及其洗脑奴隶的文化和日常生活！
+* 解锁一个新种族，魔化精灵：格外适应恶魔改造的永恒精灵，他们的种族能力被腐化成了黑暗的形态。闪烁至安全处；变身为多瑟顿形态，在阴影中隐藏或给予敌人黑暗打击；坚韧缓和了负面状态和暴击伤害；在战斗中攻击敌人的精神，使他们难以为继！
 * 上述职业和种族，提供了多达75个新技能！
 * 解锁两个新的幻化选项！你知道你会想要恶魔之角的。
-* 两个新随机事件，可能在埃亚尔大陆任何地方发生！
+* 两个新随机事件，可能在埃亚尔任何地方发生！
 * 20个新神器，具有独特而有趣的效果。收集黑曜石宝藏以积累越来越多的力量！双手戴上乌尔格鲁斯的意志，挥舞拳头砸破墙壁！穿着巨大的可怕地狱嘴作为时尚腰带！
-* 7个新成就！战胜乌鲁洛克最强大的敌人，将他们的头骨悬挂在个人页面上！
+* 7个新成就！战胜乌鲁洛克麾下最凶恶的敌人，把它们（比喻意义上的）头骨挂上你的个人页面！
 ]], "init.lua description")
 
 ------------------------------------------------
@@ -1825,7 +1824,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ]], [[你好，#LIGHT_GREEN#@name@#WHITE#。
 你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔正义复仇的无形屏障。
 
-你被你的“主人”带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
+你被你的“主人”带到折磨场以帮助研究如何对埃亚尔的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一处和主大陆分离的焦土，而你旧时的记忆渐渐涌来。你立时惊醒——恶魔们要毁灭你的故乡！
 
@@ -1851,20 +1850,20 @@ Class features:#YELLOW#
 
 Corruptors use "vim" to power their special abilities.
 Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.
-]], [[在入侵埃亚尔大陆的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。
+]], [[在入侵埃亚尔的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。
 他们接受使用恶魔之力的训练，并建立了许多黑暗教团来传播恐惧与惊惶。
 也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。
 
 你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。
 
-堕落者是使用魔法的远程施法者。
+腐化者是使用魔法的远程施法者。
 职业特点：#YELLOW#
 - 向敌人植入恶魔种子。
 - 将恶魔种子附着在装备上，以强化装备。
 - 召唤并控制恶魔为你效力。
-- 将堕落魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#
+- 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#
 
-堕落者使用“活力值”为特殊能力提供能量。
+腐化者使用“活力值”为特殊能力提供能量。
 活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。
 ]], "_t")
 

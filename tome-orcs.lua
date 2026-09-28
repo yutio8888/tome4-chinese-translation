@@ -28,7 +28,7 @@ t("Destroyed the bosses of the Primal Forest without killing any uncorrupted tre
 t("Sufficiently Advanced Technology", "高科技", "achievement name")
 t("Put five points into each of the tinker-crafting talents as any mage class.", "作为任何法师职业，将每个蒸汽配件制造技能均投入5点技能点数。", "_t")
 t("Radiant Horrorc", "光芒恐兽人", "achievement name")
-t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在晨曦之门的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光明吸收。指指点点和嘲笑，随你便。", "_t")
+t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在太阳堡垒的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光系伤害亲和。指指点点和嘲笑，随你便。", "_t")
 t("Blood on the Moon", "月上血痕", "achievement name")
 t("Kill all of the Star Gazers within 7 game turns.", "7个游戏回合内击杀所有观星者。", "_t")
 t("Once Upon A Time, In the West...", "很久很久以前，在西方……", "achievement name")
@@ -50,7 +50,7 @@ t("Destroyed the Sunwall Outpost to secure a way to the mainland.", "消灭太�
 t("Reclaiming Garkul's Heritage", "夺回加库尔的遗产", "achievement name")
 t("Freed the remnants of the Prides from the Internment Camp.", "释放拘留营中的部落成员。", "_t")
 t("The High Lady's Destiny (Finale)", "艾琳的陨落", "achievement name")
-t("Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.", "杀死高阶太阳骑士艾琳，并摧毁晨曦之门。", "_t")
+t("Crushed High Sun Paladin Aeryn and with her destroyed the bastion of the Sunwall.", "杀死高阶太阳骑士艾琳，并摧毁太阳堡垒的要塞。", "_t")
 t("One Ill Turn Deserves Another", "以眼还眼", "achievement name")
 t("The Palace of Fumes stands in ruins, its Council shattered. The Atmos Tribe will not bother the Prides anymore.", "烟雾宫殿被摧毁，议会分崩离析。气之部族不再威胁各兽人部落。", "_t")
 t("The Dead God Rests", "亡神沉眠", "achievement name")
@@ -269,14 +269,14 @@ section "tome-orcs/data/birth/worlds.lua"
 t("Orcs: Embers of Rage", "兽人战役：余烬怒火", "_t")
 t("The Prides lie in ruins!", "各兽人部落已沦为废墟！", "_t")
 t("The Sorcerers have been defeated!", "法师惨遭失败！", "_t")
-t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "瓦尔·埃亚尔各地的兽人们惊慌失措，被晨曦之门和他们新结盟的西方盟友追猎。", "_t")
+t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "瓦·埃亚尔各地的兽人们惊慌失措，被太阳堡垒和他们新结盟的西方盟友追猎。", "_t")
 t("The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!", "西方天灾回到了西方，但她的影响依旧深远：整个兽人种族再次濒临毁灭！", "_t")
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
 t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克拉克半岛上坐落着第五部落：克鲁克部落；他们未被西方天灾发现，也未遭其伤害。", "_t")
-t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，晨曦之门建立了前哨站阻断了通向大陆的道路。", "_t")
+t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，太阳堡垒建立了前哨站阻断了通向大陆的道路。", "_t")
 t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。半岛上的主要居民并非兽人，而是气之部族。", "_t")
 t("A civilization of steam giants whose mastery of steamtech makes them incredible foes.", "蒸汽巨人的文明掌控蒸汽科技，他们是无比强大的敌人。", "_t")
-t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，回到远东，并将其从晨曦之门手中夺回！", "_t")
+t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，回到远东，并将其从太阳堡垒手中夺回！", "_t")
 t("Craft your own steamsaws, rocket boots, steam powered armours, and all kind of steamy technology!", "制造自己的蒸汽链锯，火箭靴，蒸汽护甲，以及其他各式各样的蒸汽科技！", "_t")
 t("This is your destiny! For Garkul's Legacy, for the Glory of the Pride!", "这是你的天命！为了加库尔的遗产，为了部落的荣耀！", "_t")
 
@@ -327,9 +327,9 @@ section "tome-orcs/data/chats/destructicus.lua"
 t("DESTRUCTICUS!", "“毁灭号！”", "_t")
 t("Fire Imp", "火焰小鬼", "_t")
 t("Steam Giant Airship", "蒸汽巨人飞船", "_t")
-t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的茶饮机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#毁灭号，无礼的天空穿透者#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的茶饮机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
 t("[continue]", "[继续]", "_t")
-t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#裂天者 毁灭号#{normal}# 嗡嗡作响地启动了，基座在你身下微微转动。一块奇怪的针阵面板滑到你面前，针脚在磁力作用下伸出又缩回，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
+t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#毁灭号，无礼的天空穿透者#{normal}# 嗡嗡作响地启动了，基座在你身下微微转动。一块奇怪的针阵面板滑到你面前，针脚在磁力作用下伸出又缩回，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
 t([[#LIGHT_GREEN#*#{italic}#"OBTAINING SCRYING LOCK...  OBTAINED."#{normal}#
  
 The beaded panel is suddenly awash with colors, showing the colossal interior of the airship.  Steam Giant families huddle and weep, sorting through the few belongings they could take with them when fleeing; a guard sits on a pile of luggage and storage crates, head in her hands.  The view pans around the cabin, and you see a few crew members hurrying between the captain's quarters and the engine room, pausing to take worried glances out the window - at you.
@@ -374,13 +374,13 @@ It impacts, and your vision is filled with an enormous, multicolored explosion. 
  
 Taking a swig from a freshly-dispensed mug of ale, you switch the now-empty #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}#'s targeting controls over to the airship, and you see the giants cheering and hugging, crying in joy and relief.  A few wonder aloud if you meant to do that, but most recognize it as the display of mercy that it is.
  
-As the secondary charges go off, the ongoing pyrotechnic display acts as a celebratory signal to the Steam Giants, the Orcs, and anyone else who may be watching: The war is over.  Var'Eyal, and the Orcs who now own it, will know peace for the first time in millennia.*#WHITE#]], [[#LIGHT_GREEN#*不……你不会让自己踏入那无尽的深渊，踏入那图库纳国王、太阳骑士和所有其他人都曾陷入的深渊中。这些难民不再是威胁，很长时间内都不可能成为威胁……但最好能让他们充分意识到你的力量，你本能轻易带来的毁灭命运，向他们展示这一切，让他们永远铭记：他们的生死取决于你的仁慈。
+As the secondary charges go off, the ongoing pyrotechnic display acts as a celebratory signal to the Steam Giants, the Orcs, and anyone else who may be watching: The war is over.  Var'Eyal, and the Orcs who now own it, will know peace for the first time in millennia.*#WHITE#]], [[#LIGHT_GREEN#*不……你不会让自己踏入那无尽的深渊，踏入那图库纳国王、太阳骑士和所有其他人都曾陷入的深渊中。这些难民构不成威胁，很长时间内都不可能成为威胁……但最好能让他们充分意识到你的力量，你本能轻易带来的毁灭命运，向他们展示这一切，让他们永远铭记：他们的生死取决于你的仁慈。
 
-你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你听不见占卜面板的声音，不过你能肯定那只小鬼的嘴型在说“这简直荒谬透顶”。
+你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#毁灭号，无礼的天空穿透者#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#毁灭号，无礼的天空穿透者#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你听不见占卜面板的声音，不过你能肯定那只小鬼的嘴型在说“这简直荒谬透顶”。
 
 导弹命中，一场巨大的五彩爆炸充满了你的视野。碎片无害地坠落在荒芜的山顶，整个大陆都听见了巨大的爆鸣声。
 
-痛饮一口刚打好的麦芽酒，你把已经打空的#{bold}#裂天者 毁灭号#{normal}#的瞄准画面切换到飞船上，看见巨人们欢呼拥抱，喜极而泣。少数人大声猜测你是不是故意的，但大多数人都明白这是仁慈的表示。
+痛饮一口刚打好的麦芽酒，你把已经打空的#{bold}#毁灭号，无礼的天空穿透者#{normal}#的瞄准画面切换到飞船上，看见巨人们欢呼拥抱，喜极而泣。少数人大声猜测你是不是故意的，但大多数人都明白这是仁慈的表示。
 
 当次级装药引爆时，这场持续的烟火盛宴成为向蒸汽巨人、兽人以及所有可能在看的人发出的庆祝信号：战争结束了。瓦·埃亚尔，以及如今拥有它的兽人们，将迎来数千年来的第一次和平。*#WHITE#]], "_t")
 
@@ -399,7 +399,7 @@ t("Someday you will pay!", "总有一天你会付出代价的！", "_t")
 t("DEATH!", "去死吧！", "_t")
 t("*Sobs*", "*哭泣*", "_t")
 t([[#LIGHT_GREEN#*The Crimson Templar looks exhausted, nearly dead. You feel the ring attuning to him and suddenly you understand you could absorb his essence to power the ring.*#WHITE#
-Go on kill me @playername@! My life is destroyed, my friends are dead, my dear Aeryn is dead. All dead by your murderous hands! Finish me, let me have some #{italic}#rest#{normal}#.]], [[#LIGHT_GREEN#*深红圣武士看上去极其疲惫，濒临死亡。你感觉戒指在和他共鸣，突然你意识到你能吸收他的力量来强化戒指。*#WHITE#
+Go on kill me @playername@! My life is destroyed, my friends are dead, my dear Aeryn is dead. All dead by your murderous hands! Finish me, let me have some #{italic}#rest#{normal}#.]], [[#LIGHT_GREEN#*血色圣殿骑士看上去极其疲惫，濒临死亡。你感觉戒指在和他共鸣，突然你意识到你能吸收他的力量来强化戒指。*#WHITE#
 来杀了我吧@playername@! 我的一切都毁了，我的朋友被你们杀了，我的爱人艾琳也死了。都被你无情而残忍的双手杀死了！干掉我吧，让我就这样 #{italic}#安息#{normal}#吧。]], "_t")
 t("#LIGHT_GREEN#[destroy him to power the ring]#WHITE# So be it!", "#LIGHT_GREEN#[杀死他来强化戒指]#WHITE# 如你所愿！", "_t")
 t("#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!", "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，你活着、一蹶不振，对我更有用！", "_t")
@@ -1888,7 +1888,7 @@ For pricing, please discuss the matter with Kaltor, and then forget about it ent
 
 巨人、人类、大自然以及我们之前的一切存在所能构想出的最具威力、最令人胆寒、最震撼的终极武器：
 
-#{bold}#裂天者 毁灭号#{normal}#
+#{bold}#毁灭号，无礼的天空穿透者#{normal}#
 
 弹头满载爆炸符文、炼金试剂、恶毒诅咒、钢龙鳞片、里奇毒液，以及写着对目标母亲最不客气问候的小纸条。
 
@@ -2917,11 +2917,11 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 坦塔洛斯：“真不走运，不过一切结束后我们一定能定他叛国罪。潘多尔，你最近在训练我们的枪手吧————他们怎样了？”
 
-潘多尔：“那群废物们吓得不轻，尊敬的议长，但是他们进步得很快。我从卡尔托剩下的货物中收集了一些新式的喷火步枪，而我们的复仇者部队处在巅峰状态。”
+潘多尔：“他们吓得魂飞魄散，尊敬的议长，但进步得很快。我从卡托尔剩下的货物中收集了一些新式的喷火步枪，而我们的复仇者部队处在巅峰状态。”
 
-坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁天灭地、无礼的贯穿者————#{normal}#”
+坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁灭号，无礼的天空————#{normal}#”
 
-托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形咒语不准。兽人们找到了他们……若这算是一点安慰，他们似乎还没意识到钥匙是做什么用的，也不知道那些武器能做什么。我……我很抱歉。”
+托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形咒语不够管用。兽人们找到了他们……若这算是一点安慰，他们似乎还没意识到钥匙是做什么用的，也不知道它能做什么。我……我很抱歉。”
 
 漫长的沉默。
 
@@ -2980,7 +2980,7 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前，有个矮人狂战士名叫<?=Lore.pocket_time_winner.name?>。当他的朋友被兽人战士砍倒时，他正逃过瑞库纳的大厅，却迎面撞上了两个兽人，然后————
 
-从前，有个科纳克人盗贼名叫<?=Lore.pocket_time_winner.name?>。他的陷阱很快解决了普洛克斯，但当岩石巨魔比尔在他的巢穴里把他扔了出去，他失去平衡踩在了————
+从前，有个科纳克人盗贼名叫<?=Lore.pocket_time_winner.name?>。他的陷阱很快解决了普洛克斯，但当岩石巨魔比尔在他的巢穴里把他扔来扔去，他晕头转向，踩在了————
 
 从前————
 
@@ -2988,7 +2988,7 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>，在一条蛇旁开始了旅程，这条蛇不自然地精通时间魔法————
 
-从前，有个可怕的恶棍，一个食人魔收割者叫做<?=Lore.pocket_time_winner.name?>，他发现自己为魔法大爆炸影响的山洞中被污染的晶体结构着迷。他首先在夜深人静之时淹死了一个最后的希望的守卫，偷走了她的附魔戒指，然后在大陆上一路留下他毁灭的轨迹，吸取着被他双手斧砍死或被他的长剑穿透的对手的力量，在造成一场场死亡的同时变得更强大。他参与了大腐化者的事业来袭击伊格，来确保没人能阻止他的奥术瘟疫散播，之后把沙虫女皇之心带到魔法大爆炸污染的土地上，来把它的自然祝福腐化成一种枯萎的苦难力量。他对一个邪教献祭少女来召唤他们的恶魔主人袖手旁观，这样他能亲自杀死它。他一想到前往远东，亲眼看着四支兽人大军溃散流血、肿块和疮遍布他们的皮肤、生命缓慢地从眼中流失，就垂涎不已。沃尔部落最好的战士对于他劫掠兵器库而无可奈何，但一个瘸腿而病弱的兽人堵在封印的门前求他别打开；他只是大笑，走向门，踩过兽人的头，在靴子下碾碎，之后把门踢倒，突然感觉到他的骨甲在一群无可言喻地强大的多彩巨龙的吐息风暴中解体。即使是<?=Lore.pocket_time_winner.name?>也知道什么时候该从战斗中逃跑，在激活“相位之门”符文的同时握紧了拳头；当刺眼的闪光消失时，他发现自己几英寸外就是————
+从前，有个可怕的恶棍，一个食人魔收割者叫做<?=Lore.pocket_time_winner.name?>，他发现自己为魔法大爆炸影响的山洞中被污染的晶体结构着迷。他首先在夜深人静之时淹死了一个最后的希望的守卫，偷走了她的附魔戒指，然后在大陆上一路留下他毁灭的轨迹，吸取着被他双手斧砍死或被他的长剑穿透的对手的力量，在造成一场场死亡的同时变得更强大。他参与了大腐化者的事业来袭击伊格，来确保没人能阻止他的奥术瘟疫散播，之后把沙虫女皇之心带到魔法大爆炸污染的土地上，来把它的自然祝福腐化成一种枯萎的苦难力量。他对一个邪教献祭少女来召唤他们的恶魔主人袖手旁观，这样他能亲自杀死它。他一想到前往远东，亲眼看着四支兽人大军溃散流血、肿块和疮遍布他们的皮肤、生命缓慢地从眼中流失，就垂涎不已。沃尔部落最好的战士对于他劫掠兵器库而无可奈何，但一个瘸腿而病弱的兽人堵在封印的门前求他别打开；他只是大笑，走向门，踩过兽人的头，在靴子下碾碎，之后把门踢倒，突然感觉到他的骨甲在一群无可言喻地强大的七彩巨龙的吐息风暴中解体。即使是<?=Lore.pocket_time_winner.name?>也知道什么时候该从战斗中逃跑，在激活“相位之门”符文的同时握紧了拳头；当刺眼的闪光消失时，他发现自己几英寸外就是————
 
 从前，有个魔化精灵叫<?=Lore.pocket_time_winner.name?>，由于一个好运天降的落星从恶魔的心灵控制中解脱，出发去用她新得到的力量来从她被困住的轨道地狱中逃脱。那些调查员和切割者是被设计来折磨囚徒，他们对于近身战斗来说过于脆弱，在她的烈火之刃面前，几乎就像是那些未被转变的，除了文书工作外没什么技能的红宝石之子那样轻松倒下，很快，她开始感觉她体内被灌注的恶魔魔法说不定已让她接近无敌。当一个恶魔雕像呼唤她时，她除了想吸收更多力量外没想别的，根本没注意到雕像召唤了一个乌鲁洛克的精英卫兵————
 
@@ -6860,7 +6860,7 @@ t("A shadowy embodiment of guilt.", "一团由愧疚具现成的阴影。", "_t"
 t("shadow of anger", "怒之影", "entity name")
 t("A shadowy embodiment of anger.", "一团由愤怒具现成的阴影。", "_t")
 t("human", "人类", "entity subtype")
-t("Crimson Templar John", "深红骑士约翰", "entity name")
+t("Crimson Templar John", "血色圣殿骑士约翰", "entity name")
 t([[Where you once saw a warrior bathed in light, whom in an other life you could have even respected, you now see only hatred.
 This warrior's once glowing armor now emits a sinister crimson light. As he marches towards you can see his eyes, they are empty.]], [[你曾在他身上看到一位沐浴在光芒中的战士——换一种人生，你甚至可能会敬重他——而如今你只看到仇恨。
 这名战士曾经闪耀的护甲，如今散发着不祥的猩红光芒。他朝你步步逼近，你能看见他的双眼，空洞无物。]], "_t")
@@ -6991,7 +6991,7 @@ t([[This crimson ring has a palpable bittersweet feel to it.
 Inside it is engraved the phrase #{italic}#"To Aeryn, my love, my life. Yours forever. John"#{normal}#]], [[这个深红色指环明显充满了甜蜜与苦涩。
 它内侧刻有如下短语#{italic}#“献给我的挚爱，我的生命，艾琳。永远爱你的，约翰。”#{normal}#]], "_t")
 t("You feel something is #{bold}#very wrong#{normal}# with this ring.", "你感觉这个戒指#{bold}#非常不对劲#{normal}#。", "_t")
-t("Crimson Templar John", "深红骑士约翰", "_t")
+t("Crimson Templar John", "血色圣殿骑士约翰", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gates-of-morning/traps.lua"
@@ -7285,7 +7285,7 @@ section "tome-orcs/data/zones/palace-fumes/objects.lua"
 
 t("paper scrap", "碎纸片", "entity name")
 t("A paper scrap.", "一张碎纸片。", "_t")
-t("DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY", "毁天灭地，无礼的天空穿透者", "entity name")
+t("DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY", "毁灭号，无礼的天空穿透者", "entity name")
 t("A flyer.", "一份传单。", "_t")
 
 ------------------------------------------------
@@ -7460,7 +7460,7 @@ section "tome-orcs/data/zones/slumbering-caves/objects.lua"
 
 t("a journal", "一份记录", "entity name")
 t("A journal.", "一份记录。", "_t")
-t("Gardanion, the Light of God", "Gardanion，神之光辉", "entity name")
+t("Gardanion, the Light of God", "加尔达尼恩，神之光辉", "entity name")
 t("pure white amulet", "纯白项链", "_t")
 t([["#{italic}#When Amakthel arrived, he created the Sun and brought life to this world.
 You carry a piece of His Sun with you now. Do not forget who gave it to you, lest you become like those wretched fools who would forsake Him.#{normal}#"]], [["#{italic}#阿马克泰尔降临，他创造了太阳，为世界带来生命。

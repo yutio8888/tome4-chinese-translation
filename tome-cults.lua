@@ -3226,7 +3226,7 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 
 		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 码范围的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
-		被触手击中的生物需要进行法术检定，检定失败将被麻痹，5 回合内伤害降低 %d%%。
+		被触手击中的生物需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
 
 		如果有敌人被触手击中，你获得 %d 疯狂值。
 

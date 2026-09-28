@@ -6329,8 +6329,8 @@ Because it was once part of a land we know well we can teleport you there. You w
 The instability is also to your advantage there, your simple phase door spell will be fully controllable.
 
 So, you think you can help us ?]], [[魔法大爆炸从字面意义上撕裂了这个世界。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
-我们设法让它稳定了下来，如今它正环绕埃亚尔运行。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔大陆造成极大的灾难。
-由于我们以前对那块大陆比较熟悉，我们可以将你传送至那里，你需要向三个不稳定的虫洞施放各种攻击性法术使它们稳定下来。
+我们设法让它稳定了下来，如今它正环绕埃亚尔运行。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔造成极大的灾难。
+由于我们以前对那块大陆比较熟悉，我们可以将你传送至那里，你需要向三个不稳定的虫洞施放任意攻击法术使它们稳定下来。
 虽然那里的时空很不稳定，它同时也能给你带来好处，你的相位之门法术在那里可以变得完全受你控制。
 
 那么，你认为你可以帮助我们么？]], "_t")
@@ -11794,7 +11794,7 @@ t("generic mind expose melee", "通用 近战精神暴露伤害", "entity name")
 t("generic manaburn melee", "通用 近战法力燃烧伤害", "entity name")
 t("generic temporal energize melee", "通用 近战时空激发伤害", "entity name")
 t("generic slime melee", "通用 近战史莱姆伤害", "entity name")
-t("generic dark numbing melee", "通用 近战暗影麻痹伤害", "entity name")
+t("generic dark numbing melee", "通用 近战暗影麻木伤害", "entity name")
 t("generic die at", "通用生命下限", "entity name")
 t("generic ignore crit", "通用暴击摆脱", "entity name")
 t("generic void", "通用虚空", "entity name")
@@ -11826,7 +11826,7 @@ t("light blind melee", "近战光系致盲伤害", "entity name")
 t("lightning daze melee", "近战闪电眩晕伤害", "entity name")
 t("manaburn melee", "近战法力燃烧伤害", "entity name")
 t("slime melee", "近战史莱姆伤害", "entity name")
-t("dark numbing melee", "近战暗影麻痹伤害", "entity name")
+t("dark numbing melee", "近战暗影麻木伤害", "entity name")
 t("physical burst", "物理溅射伤害", "entity name")
 t("mind burst", "精神溅射伤害", "entity name")
 t("acid burst", "酸性溅射伤害", "entity name")
@@ -11877,7 +11877,7 @@ t("expose mind melee", "近战精神暴露伤害", "entity name")
 t("acid corrode melee", "近战酸性腐蚀伤害", "entity name")
 t("manaburn melee", "近战法力燃烧伤害", "entity name")
 t("slime melee", "近战史莱姆伤害", "entity name")
-t("dark numbing melee", "近战暗影麻痹伤害", "entity name")
+t("dark numbing melee", "近战暗影麻木伤害", "entity name")
 t("physical burst", "物理溅射伤害", "entity name")
 t("mind burst", "精神溅射伤害", "entity name")
 t("acid burst", "酸性溅射伤害", "entity name")
@@ -12688,28 +12688,28 @@ t("Golden Three-Edged Sword 'The Truth'", "金色三棱剑·真理", "entity nam
 t("three-edged sword", "三棱剑", "_t")
 t("The wise ones say that truth is a three-edged sword. And sometimes, the truth hurts.", "有些聪明人说真理是把三刃剑。因为有些时候，“真理”是会伤到人的。", "_t")
 t("9% chance to stun or confuse the target", "9% 几率震慑或混乱目标", "_t")
-t("Ureslak's Femur", "乌尔斯拉克的股骨", "entity name")
+t("Ureslak's Femur", "乌瑞斯拉克的股骨", "entity name")
 t("a strangely colored bone", "一根颜色奇异的骨头", "_t")
-t("A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.", "强大的棱晶龙乌尔斯拉克被截断的腿骨，这根奇怪的棍子仍然流动着乌尔斯拉克的天性。", "_t")
+t("A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.", "强大的棱晶龙乌瑞斯拉克被截断的腿骨，这根反复无常的棍棒仍与他多变的天性相互共鸣。", "_t")
 t("10% chance to shimmer to a different hue and gain powers", "10% 几率闪烁变换成不同色调并获得相应能力", "_t")
-t("Ureslak's %s Femur", "乌尔斯拉克的%s股骨", "tformat")
-t("#GOLD#Ureslak's Femur glows and shimmers!", "#GOLD#乌尔斯拉克的股骨发出闪光！", "logSeen")
+t("Ureslak's %s Femur", "乌瑞斯拉克的%s股骨", "tformat")
+t("#GOLD#Ureslak's Femur glows and shimmers!", "#GOLD#乌瑞斯拉克的股骨发出闪光！", "logSeen")
 t("Flaming", "火焰", "_t")
 t("Frozen", "冰冻", "_t")
 t("Crackling", "噼啪", "_t")
 t("Venomous", "剧毒", "_t")
 t("Starry", "群星", "_t")
 t("Eldritch", "埃尔德里奇", "_t")
-t("What would happen if more of Ureslak's remains were reunited?", "当乌尔斯拉克更多遗物聚集在一起时，会发生什么呢？", "_t")
-t("Ureslak's Molted Scales", "乌尔斯拉克的蜕鳞", "entity name")
+t("What would happen if more of Ureslak's remains were reunited?", "当乌瑞斯拉克更多遗物聚集在一起时，会发生什么呢？", "_t")
+t("Ureslak's Molted Scales", "乌瑞斯拉克的蜕鳞", "entity name")
 t("scaly multi-hued cloak", "多彩鳞片斗篷", "_t")
 t("This cloak is fashioned from the scales of some large reptilian creature.  It appears to reflect every color of the rainbow.", "这件斗篷用某些大型爬行动物的鳞片制成。它看上去可以反射出彩虹的每种颜色。", "_t")
 t("energize the scales for 16 turns, increasing resistance to %s damage by 15%% just before you are damaged. (This effect lasts 5 turns and only works on one type of damage.)", "为鳞片充能16回合，让你在受 %s 伤害前增加相应抗性15%%，持续5回合，只对一种伤害生效。", "tformat")
 t(", or ", "或 ", "_t")
 t("%s empowers %s %s!", "%s充能了%s%s！", "logSeen")
-t("It would go well with another part of Ureslak.", "另一件乌尔斯拉克的遗物会增强它的能力。", "_t")
-t("#YELLOW_GREEN#An ironic harmony surrounds Ureslak's remains as they reunite.", "#YELLOW_GREEN#乌尔斯拉克的遗物重聚时，一种讽刺的和谐笼罩四周。", "logSeen")
-t("#YELLOW_GREEN#Ureslak's remains seem more unsettled.", "#YELLOW_GREEN#乌尔斯拉克的遗物似乎更加不安定了。", "logSeen")
+t("It would go well with another part of Ureslak.", "另一件乌瑞斯拉克的遗物会增强它的能力。", "_t")
+t("#YELLOW_GREEN#An ironic harmony surrounds Ureslak's remains as they reunite.", "#YELLOW_GREEN#乌瑞斯拉克的遗物重聚时，一种讽刺的和谐笼罩四周。", "logSeen")
+t("#YELLOW_GREEN#Ureslak's remains seem more unsettled.", "#YELLOW_GREEN#乌瑞斯拉克的遗物似乎更加不安定了。", "logSeen")
 t("Razorblade, the Cursed Waraxe", "剃刀·诅咒战斧", "entity name")
 t("razor sharp war axe", "剃刀战斧", "_t")
 t([[This mighty axe can cleave through armour like the sharpest swords, yet hit with all the impact of a heavy club.
@@ -13252,7 +13252,7 @@ t("This massive hammer strikes with deadly force. Bones crunch, splinter and gri
 t("Sends a tremor through the ground which causes jagged rocks to erupt in a beam of length 5, dealing %d Physical damage (equal to your Strength, up to 150) and causing targets hit to bleed for an additional 50 damage over 5 turns. Bleeding can stack.", "使大地震颤裂开，露出尖石，在5码直线上造成%d物理伤害（与你的力量值相等，最高150），并使击中的目标流血，在5回合内额外造成50伤害。流血伤害可以叠加。", "tformat")
 t("Yaldan Baoth", "雅尔丹宝石", "entity name")
 t("obscuring helm", "昏暗的头盔", "_t")
-t("The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, \"Fear no evil\", the crown was passed onto his successor.", "这顶金色的颅盔王冠与雅尔丹的维卢卡息息相关。他是传说之城雅尔丹的国王，那座城因子民的傲慢而被从埃亚尔大陆上抹去。作为亲族中唯一的幸存者，他在生命最后的岁月里游历早期的世界，教导人类反抗黑暗。临终之际，王冠连同他的遗言——勿惧邪恶——一同传给了他的继任者。", "_t")
+t("The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, \"Fear no evil\", the crown was passed onto his successor.", "这顶金色的颅盔王冠与雅尔丹的维卢卡息息相关。他是传说之城雅尔丹的国王，那座城因子民的傲慢而被从埃亚尔上抹去。作为亲族中唯一的幸存者，他在生命最后的岁月里游历早期的世界，教导人类反抗黑暗。临终之际，王冠连同他的遗言——勿惧邪恶——一同传给了他的继任者。", "_t")
 t("lower the helmet's visor, blinding yourself (and protecting from other blinds) for 6 turns. If the helmet is taken off, the effect will end early.", "放下头盔的面甲，使你致盲6回合（同时免疫其他致盲效果）。如果脱下这件装备，效果会提前结束。", "tformat")
 t("%s forgoes their vision!", "%s 放弃了自己的视觉！", "logSeen")
 t("Champion's Will", "冠军意志", "entity name")
@@ -14120,8 +14120,8 @@ But we won't age sleeping in these ruins#{normal}#
 
 看吧，帝国的人要来扫平我们。
 比起束手就擒，不如关上大门。
-我们可不想当自我了断的懦夫，
-赞美长老会，请恕我们抗命。
+杀光所有人根本没道理，
+赞美长老会，但那计划真够蠢。
 
 还有那么多没有完成，还有那么多没有体验。
 何不给自己多留一点时间？
@@ -14130,8 +14130,8 @@ But we won't age sleeping in these ruins#{normal}#
 
 嘿，你，曾是医师，化为食人魔，开始等待。
 嘿，我，现为守卫，进入休眠仓，保持警戒。
-凡人无法抵挡岁月的侵蚀。
-但我们是沉睡的战士。
+休眠仓对普通人类没用，
+但我们在废墟中沉睡不老。
 
 我们食人魔不死，那么他们就绝不会胜利。
 这里是安全之地，久经时间考验。
@@ -14145,24 +14145,24 @@ But we won't age sleeping in these ruins#{normal}#
 
 嘿，你，曾是医师，化为食人魔，开始等待。
 嘿，我，现为守卫，进入休眠仓，保持警戒。
-凡人无法抵挡时间的侵蚀。
-但我们是沉睡的战士。
+休眠仓对普通人类没用，
+但我们在废墟中沉睡不老。
 
 嘿，你，曾是医师，化为食人魔，开始等待。
 嘿，我，现为守卫，进入休眠仓，保持警戒。
-凡人无法抵挡时间的侵蚀。
-但我们是沉睡的战士。
+休眠仓对普通人类没用，
+但我们在废墟中沉睡不老。
 
 有人问我们是否已经完成了一切，遗憾的是
 虽然我们做的一切感到骄傲，
 我们还没有准备完全。
 但别气馁，等到我们迎来复兴的那一天，
-食人魔一族必将震撼整个埃亚尔大陆！
+食人魔一族必将震撼整个埃亚尔！
 
 看吧，这一天最终总会来到。
 既然不能逃跑，那就拿起武器准备好。
-我们可不想当自我了断的懦夫，
-赞美长老会，请恕我们抗命。
+杀光所有人根本没道理，
+赞美长老会，但那计划真够蠢。
 
 还有那么多没有完成，还有那么多没有体验。
 何不给自己多留一点时间？
@@ -14171,11 +14171,11 @@ But we won't age sleeping in these ruins#{normal}#
 
 嘿，你，曾是医师，化为食人魔，开始等待。
 嘿，我，现为守卫，进入休眠仓，保持警戒。
-凡人无法抵挡岁月的侵蚀。
-但我们是沉睡的战士。
+休眠仓对普通人类没用，
+但我们在废墟中沉睡不老。
 
-凡人无法抵挡岁月的侵蚀。
-但我们是沉睡的战士。#{normal}#
+休眠仓对普通人类没用，
+但我们在废墟中沉睡不老。#{normal}#
 
 ……大概，不同的人对悲伤的反应是不同的吧。#{bold}#——楚拉克#{normal}#]], "_t")
 
@@ -14678,9 +14678,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 这个故事始于厄流纪，那时我还年轻，青春与衰老的观念仍然困扰着我们的族人。这只是无数故事中的一个；那个时代，各族都经历了数不清的悲剧与壮举。我只能讲述自己的故事、自己的悲剧，以及那些披着英雄外衣的愚行；这一切都围绕着那股撼动世界、改写历史的伟力交织展开：魔法大爆炸。
 
-第一次遇见莱娜尼尔时，我们正准备举行一场特殊的会议，我们的领袖伊菲尼亚斯与卡库罗尔的首领谈话。我还记得那个体型庞大的人类男子是怎样昂首迈入我们的城门，众人纷纷注视着他宽阔的腰身、蓬乱的头发、一身皮毛衣裳和骄傲的步伐。他身处我们这些身材纤细的精灵之中，显得多么格格不入……
-
-有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手带着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基·埃亚尔大陆最伟大的人类法师联盟。
+第一次遇见莱娜尼尔时，我们正准备举行一场特殊的会议，我们的领袖伊菲尼亚斯与卡库罗尔的首领谈话。我还记得那个体型庞大的人类男子是怎样昂首迈入我们的城门，众人纷纷注视着他宽阔的腰身、蓬乱的头发、一身皮毛衣裳和骄傲的步伐。他身处我们这些身材纤细的精灵之中，显得多么格格不入……有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手带着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基·埃亚尔大陆最伟大的人类法师联盟。
 
 走在他身前的，是和他一起来的一对双胞胎，他的女儿们，莱娜尼尔与尼耶拉。她们的相貌别无二致，但我立刻发现她们的性格迥然不同。她们的发色同样深红，蓄着同样的长发，在阳光下露出同样苍白的皮肤。尽管同样身着丝绸长袍，尼耶拉的长袍是橙色与金黄，莱娜尼尔却是深蓝与银白。尼耶拉性格开朗，声音愉快，讨论着一路上走过埃尔瓦拉庭院时见到的美好事物。而莱娜尼尔安静文雅，面色严肃，冷静地分析计算她见到的一切。不过，在她那冷若寒霜的外表下，我能看到一团火焰——不，不仅仅是火，那是一团正在燃烧的火光，一团散发光和热的激情，正被压抑着，等待着释放。当人群到达我们的大本营时，有那么一会儿，我们彼此眼神相触，短短的一瞬间，我看到了她野性的灵魂和激烈的思绪，那是不可征服的坚定意志与精神力量。那一刻，我停止了呼吸。
 
@@ -14692,7 +14690,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 “什么？”她惊叫道，盯着我的铠甲与佩剑。她转身不再理会我们，仿佛全然不把这些尊贵的主人放在眼里。“父亲，这是怎么回事？”她对那个魁梧的男人说道，“你说永恒精灵拥有最强大的战斗法师，可他们的将军竟身披钢甲、腰悬长剑。难道只会近身搏斗的战士，竟能指挥精通魔法技艺的大师？”
 
-伊菲尼亚斯看起来很生气，不过我突然大笑起来，既是因为她极度冒犯的话语，也因为她那大胆的推测与隐藏的傲慢。“一个贴身战士？”我在喘气的同时勉强说道，“女士，你不应该用外表评价他人。因为，如果由我来说，我还从没见过如此失礼的姑娘，同时还是操纵火焰的大师，并拥有比她冷血的父亲更加坚定的意志。但不要以为你在这门技艺上就能胜过我！因为我是艾伦尼恩·加威尔，奥术之刃的大师，能操纵各种强大的元素之力。充盈在我的金属利器里的法术收割的兽人生命比你在短短的生命中见过的兽人还要多，甚至比你一生见过的兽人更多。”
+伊菲尼亚斯看起来很生气，不过我突然大笑起来，既是因为她极度冒犯的话语，也因为她那大胆的推测与隐藏的傲慢。“一个贴身战士？”我在喘气的同时勉强说道，“女士，你不应该用外表评价他人。因为若我判断不错，站在我面前的绝非只是个无礼的丫头，而是一位操纵火焰与烈焰的大师，一位意志比她冷血的父亲更加坚定的织法者。但不要以为你在这门技艺上就能胜过我！因为我是艾伦尼恩·加威尔，奥术之刃的大师，能操纵各种强大的元素之力。充盈在我的金属利器里的法术收割的兽人生命比你在短短的生命中见过的兽人还要多，甚至比你一生见过的兽人更多。”
 
 她望着我，突然来了兴趣。“听上去是一种很奇怪的技巧。在我们能轻易从远处烧伤敌人的情况下，这样做似乎很滑稽。尽管如此。当我们一起狩猎兽人的时候，我会亲自见识一下。但你可得证明给我看，证明你在战场上比我强。”
 
@@ -14702,7 +14700,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 伊菲尼亚斯清了清喉咙，靠回椅背。“我们面前有一项宏伟的计划，”他开口说道，“多年以来，我们一直饱受兽人侵袭。起初，厄流战争削弱了我们；如今力量渐渐恢复，是时候彻底解决我们共同的敌人了。他们太多次险些将我们尽数吞没、令文明永远毁灭。我们都已失去太多。特塞尔，我深切理解你个人的丧失。”兽皮披身的男人神色未变，但我看见他的两个女儿都在沉痛中低下了头。
 
-“我一直在领导着我们的法师团体，探索夏·图尔传送门的秘密。我们相信，我们有能力激发其内部封印着的强大力量，来制造一股毁灭性的冲击波，直指向兽人大军。如果各个种族能联合起来，将兽人大军引诱出来，我们将会以一次快速的打击终结这场旷日已久的战争。兽人将会被彻底打垮，再无重来之日，而我们赖以生息的埃亚尔大陆也将得到净化。”
+“我一直在领导着我们的法师团体，探索夏·图尔传送门的秘密。我们相信，我们有能力激发其内部封印着的强大力量，来制造一股毁灭性的冲击波，直指向兽人大军。如果各个种族能联合起来，将兽人大军引诱出来，我们将会以一次快速的打击终结这场旷日已久的战争。兽人将会被彻底打垮，再无重来之日，而我们赖以生息的埃亚尔也将得到净化。”
 
 “我已经同其他种族的首领接触过了，半身人非常支持这项计划，纳格尔的摄政王甚至同意将他们历史上对夏·图尔遗迹的部分研究成果同我们分享。”
 
@@ -17763,7 +17761,7 @@ But Gerlyk's brothers grew jealous of each others creatures, and they fought, an
 And Gerlyk was sad, and looked at Human and said, "I am sorry, but this is not a time for creators any more. I must go."
 And Gerlyk walked into the Darkness.
 But Human did not cry, for the coal in his heart burned hot, and he knew he was not truly alone.]], [[在日月初生之时，埃亚尔亦从黑暗中诞生。
-那时盖里克与他的三个兄弟一起漫步在埃亚尔大陆之上。
+那时盖里克与他的三个兄弟一起漫步在埃亚尔之上。
 但有天当盖里克独行时，他感到了寂寞，他的内心渴望着同伴。
 于是盖里克使用了一块燃烧的煤炭，在它周围放上石头，包裹上泥土，再将它沐浴在清水之后，把自身的气息灌注其中，这块煤炭居然有了生命——盖里克将他命名为人类。
 随后盖里克将人类带去给他的兄弟们看。
@@ -20661,10 +20659,10 @@ section "mod-tome/data/quests/start-archmage.lua"
 
 t("Spellblaze Fallouts", "魔法大爆炸的余波", "_t")
 t([[The Abashed Expanse is a part of Eyal torn apart by the Spellblaze and thrown into the void between the stars.
-]], [[次元浮岛曾是埃亚尔大陆的一部分，在魔法大爆炸中被撕裂并轰击到星辰之间的虚无之中。
+]], [[次元浮岛曾是埃亚尔的一部分，在魔法大爆炸中被撕裂并轰击到星辰之间的虚无之中。
 ]], "_t")
 t([[It has recently begun to destabilize, threatening to crash onto Eyal, destroying everything in its path.
-]], [[它现在变的越来越不稳定，有与埃亚尔大陆发生碰撞的危险，这将会摧毁一切它所碰到的东西。
+]], [[它现在变的越来越不稳定，有与埃亚尔发生碰撞的危险，这将会摧毁一切它所碰到的东西。
 ]], "_t")
 t([[You have entered it and must now stabilize three wormholes by firing any spell at them.
 ]], [[你已经进入了那里，现在必须对三个虫洞施法以稳定它们。
@@ -22670,10 +22668,10 @@ t([[A furious storm of blighted poison rages around the caster in a radius of %d
 		Each possible effect is equally likely.
 		The poison damage dealt is capable of a critical strike.
 		The damage will increase with your Spellpower.]], [[一股强烈的剧毒风暴围绕着施法者，半径 %d 持续 %d 回合。风暴内的生物将进入中毒状态，受到 %0.2f 枯萎伤害并中毒 4 回合受到额外 %0.2f 枯萎伤害。
-		技能等级 2 时有几率触发阴险毒素效果，降低 %d%% 治疗系数。
-		技能等级 4 时有几率触发麻痹毒素效果，使目标造成的全部伤害降低 %d%%。
-		技能等级 6 时有几率触发致残毒素效果，%d%% 几率使用技能失败。
-		中毒几率在可能的毒素效果中平分。
+		技能等级 2 时有几率触发阴险枯萎毒素效果，降低 %d%% 治疗系数。
+		技能等级 4 时有几率触发麻木枯萎毒素效果，使目标造成的全部伤害降低 %d%%。
+		技能等级 6 时有几率触发致残枯萎毒素效果，%d%% 几率使用技能失败。
+		各种可能的效果出现几率相同。
 		毒素伤害可以暴击。
 		伤害受法术强度加成。]], "tformat")
 
@@ -23396,7 +23394,7 @@ t([[Learn how to enhance your Deadly Poison, adding additional effects. Each lev
 	Also increases the effectiveness of your poisons by %d%%. (The effect varies for each poison.)
 	Adjusting your weapon coating takes no time and does not break stealth.
 	You may only have two poison enhancements active at once; applying a third will randomly cause one of the existing ones to be cancelled.]], [[学会强化致命毒素，为其附加额外效果。每投入一级，你都会学会一种新的毒素强化：
-	等级 1：麻痹毒素
+	等级 1：麻木毒素
 	等级 2：阴险毒素
 	等级 3：致残毒素
 	等级 4：吸血毒素
@@ -23412,7 +23410,7 @@ t([[Numbing Poison - Reduces global speed by %d%% for 5 turns.
 		Crippling Poison - Places %d talents on cooldown for %d turns.
 		Leeching Poison - Heals you for %d.
 		Volatile Poison - Deals a further %0.2f nature damage to foes in a radius %d ball.
-		]], [[麻痹毒素——全局速度降低 %d%%，持续 5 回合。
+		]], [[麻木毒素——全局速度降低 %d%%，持续 5 回合。
 		阴险毒素——使目标中毒，在 5 回合内受到 %0.2f 点自然伤害。
 		致残毒素——令 %d 个技能进入 %d 回合冷却。
 		吸血毒素——为你恢复 %d 点生命。
@@ -23427,8 +23425,8 @@ t([[You strike your target with your melee or ranged weapon, doing %d%% weapon d
 		%s
 		同时学会本技能和飞刀投掷技能后，你可以学会剧毒飞刀技能，用淬毒匕首攻击敌人；使用本技能时，剧毒飞刀也会进入冷却。
 		]], "tformat")
-t("Numbing Poison", "麻痹毒素", "talent name")
-t("Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.", "为你的致命剧毒加入麻痹成分，使该毒素令目标造成的所有伤害降低 %d%%。", "tformat")
+t("Numbing Poison", "麻木毒素", "talent name")
+t("Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.", "为你的致命毒素加入麻木成分，使该毒素令目标造成的所有伤害降低 %d%%。", "tformat")
 t("Insidious Poison", "阴险毒素", "talent name")
 t("Enhances your Deadly Poison with an insidious agent, causing it to reduce the healing taken by enemies by %d%%.", "以阴险成分强化你的致命毒素，中毒目标受到的治疗效果减少 %d%%。", "tformat")
 t("Crippling Poison", "致残毒素", "talent name")
@@ -23744,7 +23742,7 @@ t("Releases a radius 3 poison gas cloud, poisoning for %0.2f nature damage over 
 t([[Lay a trap that releases a radius 3 cloud of thick poisonous gas lasting 4 turns.
 		Each turn, the cloud poisons all within (%0.2f nature damage over 5 turns).   There is a 25%% chance the poison is enhanced with crippling, numbing or insidious effects.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，释放半径 3 格的浓密毒云，持续 4 回合。
-		每回合，毒云会使范围内的所有目标中毒，在 5 回合内造成 %0.2f 点自然伤害。毒素有 25%% 几率强化为致残、麻痹或阴险毒素。
+		每回合，毒云会使范围内的所有目标中毒，在 5 回合内造成 %0.2f 点自然伤害。毒素有 25%% 几率强化为致残、麻木或阴险毒素。
 		该陷阱可使用即爆启动机关，高等级诱饵也能将其触发。%s]], "tformat")
 t("Freezing Trap", "冰冻陷阱", "talent name")
 t("freezing trap", "冰冻陷阱", "_t")
@@ -24060,7 +24058,7 @@ t("fears", "恐惧", "talent type")
 t("Use the fear that lies at the heart of your curse to attack the minds of your enemies.", "利用诅咒核心的恐惧，直接攻击敌人的心智。", "_t")
 t("Bloodstained", "血染", "talent type")
 t("You, like your weapons, are tainted forever.", "你和你的武器一样，已被永久玷污。", "_t")
-t("Crimson Templar", "赤红守卫", "talent type")
+t("Crimson Templar", "血色圣殿骑士", "talent type")
 t("Blood is power. Let the rivers run red.", "鲜血即力量。让河水变红吧。", "_t")
 t("Hatred", "憎恨", "talent type")
 t("All the things in this dark world are contemptible.  Let yourself hate them and find the power therein.", "这个黑暗世界里的一切都是可鄙的。尽情憎恨这一切，从中汲取力量。", "_t")
@@ -30645,8 +30643,8 @@ Venomous - Shots deal %0.2f nature damage and inflict numbing poison, dealing a 
 Piercing - Shots reduce armor and saves by %d for 3 turns, and your physical penetration is increased by %d%%.
 You can only have 1 type of ammunition loaded at a time.
 The poison damage dealt, armor penetration and save reduction will increase with your Physical Power.]], [[你学会了制造和装备专门的弹药：
-燃烧弹- 命中后，对目标附近的敌人造成 %d%% 火焰武器伤害，范围最大为 %d，每回合最多一次。
-剧毒弹- 命中后，对目标造成 %0.2f 自然伤害并感染麻痹毒素，在 5 回合内造成 %0.2f 自然伤害并削弱其 %d%% 的伤害。
+燃烧弹- 命中后，额外造成 %d%% 火焰武器伤害，作用于半径 %d 的球形范围，每回合最多一次。
+剧毒弹- 命中后，对目标造成 %0.2f 自然伤害并感染麻木毒素，在 5 回合内造成 %0.2f 自然伤害并削弱其 %d%% 的伤害。
 穿甲弹- 命中后，使目标的护甲和豁免减少 %d，持续 3 回合，你的物理穿透增加 %d%%。
 同时只能装备一种弹药。
 毒素伤害、护甲和豁免削减受物理强度加成。]], "tformat")
@@ -30658,7 +30656,7 @@ t([[Load incendiary ammunition, causing attacks to deal an additional %d%% weapo
 		伤害受物理强度加成。]], "tformat")
 t("Venomous Ammunition", "剧毒弹", "talent name")
 t([[Load venomous ammunition, causing ranged attacks to deal %0.2f nature damage and inflict numbing poison, dealing %0.2f nature damage over 5 turns and reducing all damage dealt by %d%%. 
-		The damage will scale with your Physical Power.]], [[装填剧毒弹，使远程攻击对目标造成 %0.2f 自然伤害并感染麻痹毒素，在 5 回合内造成 %0.2f 自然伤害并使其造成的所有伤害降低 %d%%。
+		The damage will scale with your Physical Power.]], [[装填剧毒弹，使远程攻击对目标造成 %0.2f 自然伤害并感染麻木毒素，在 5 回合内造成 %0.2f 自然伤害并使其造成的所有伤害降低 %d%%。
 		伤害受物理强度加成。]], "tformat")
 t("Piercing Ammunition", "穿甲弹", "talent name")
 t([[Load piercing ammunition, causing attacks to reduce the target's armor and saves by %d for 3 turns, and increasing your physical penetration by %d%%.
@@ -30694,7 +30692,7 @@ Venomous - Shots deal an additional %d%% weapon damage as nature in a radius %d 
 Piercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.
 The physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]], [[混合你的弹药，造成更强力的效果：
 燃烧弹- 受到爆炸袭击的目标护甲和豁免减少 %d 持续 3 回合，你的物理和火焰穿透增加 %d%%.
-剧毒弹- 额外造成 %d%% 自然武器伤害，作用于半径 %d 的球形范围，并如同异种弹药一样施加麻痹毒素。每回合最多生效一次。
+剧毒弹- 额外造成 %d%% 自然武器伤害，作用于半径 %d 的球形范围，并如同异种弹药一样施加麻木毒素。每回合最多生效一次。
 穿甲弹- 造成 %0.2f 物理伤害并使目标伤残（Maim），在 5 回合内额外流血造成 %0.2f 物理伤害，并使其造成的所有伤害减少 %d%%.
 物理伤害、护甲和豁免削减受物理强度加成。]], "tformat")
 
@@ -31277,7 +31275,7 @@ t("Have dealt over 10000 acid, blight, darkness, mind or temporal damage", "曾�
 t("You unleash a blast of #LIGHT_STEEL_BLUE#temporal#LAST# energy!", "你释放出#LIGHT_STEEL_BLUE#时空#LAST#能量的爆炸！", "logSeen")
 t("You unleash a blast of #DARK_GREEN#virulent blight!#LAST#!", "你释放出 #DARK_GREEN#枯萎疾病#LAST#爆炸！", "logSeen")
 t("You unleash a blast of #GREEN#acid#LAST#!", "你释放出#GREEN#酸液#LAST#爆炸！", "logSeen")
-t("You unleash a blast of numbing #GREY#darkness#LAST#!", "你释放出麻痹#GREY#暗影#LAST#爆炸！", "logSeen")
+t("You unleash a blast of numbing #GREY#darkness#LAST#!", "你释放出麻木#GREY#暗影#LAST#爆炸！", "logSeen")
 t("You unleash a confusing blast of #YELLOW#mental#LAST# energy!", "你释放出#YELLOW#精神#LAST#混乱爆炸！", "logSeen")
 t("You unleash a crippling blast of earthen energy!", "你释放出大地致残爆炸！", "logSeen")
 t("(Cooldowns)", "（冷却时间）", "_t")
@@ -31696,7 +31694,7 @@ t([[During your studies of celestial forces you came in contact with an entity f
 		- If you also know #GOLD#Irresistible Sun#LAST#, it will set the fire and light resistances of those affected to 0%%
 
 		#{italic}##GOLD#Will you bind yourself to the Distant Sun?#{normal}#
-		]], [[在研习天体之力时，你接触到了距离埃亚尔大陆极其遥远的存在：一颗恒星的化身！
+		]], [[在研习天体之力时，你接触到了距离埃亚尔极其遥远的存在：一颗恒星的化身！
 		与它结盟，你将获得它的力量！
 
 		增益：
@@ -31814,7 +31812,7 @@ t([[The code of the Sun Paladins can be a heavy burden.	 Wouldn't you like to le
 
 		以下技能树将被替换：
 		- #GOLD#光辉#LAST#变为#CRIMSON#黑暗光环#LAST#：将你的憎恨投射到他人身上以阻碍它们
-		- #GOLD#守护#LAST#变为#CRIMSON#血红守卫#LAST#：使用鲜血的力量控制并打倒那些敢于反抗你的愚民
+		- #GOLD#守护#LAST#变为#CRIMSON#血色圣殿骑士#LAST#：使用鲜血的力量控制并打倒那些敢于反抗你的愚民
 		- #GOLD#十字军#LAST#变为#CRIMSON#无光之阳#LAST#：呼唤死星的力量来粉碎你的敌人
 
 		你将学会以下的技能树：
@@ -34407,10 +34405,11 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 - 背光面：有光的地方就有阴影，你的阴影格外强大。
 - 憎恨：通过流血显现你的憎恨。
 - 挽歌：悲伤和死亡之歌，强化你的意志。#WHITE#
+
 替换你的太阳骑士技能：#YELLOW#
 - 光辉转变为黑暗光环：将憎恨投射到他人身上，阻碍他们。
 - 十字军转变为无光之阳：呼唤死星的力量来粉碎你的敌人。
-- 守护转变为赤红守卫：使用鲜血的力量控制并打败那些反对你的愚民。
+- 守护转变为血色圣殿骑士：使用鲜血的力量控制并打败那些反对你的愚民。
 #WHITE#
 
 职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。
@@ -35623,12 +35622,12 @@ t("#Target# is poisoned with crippling blight!", "#Target#中了致残枯萎毒�
 t("+Crippling Blight", "+致残枯萎毒素", "_t")
 t("#Target# is free from the crippling blight.", "#Target#的致残枯萎毒素解除了。", "_t")
 t("-Crippling Blight", "-致残枯萎毒素", "_t")
-t("Numbing Blight", "麻痹枯萎毒素", "_t")
+t("Numbing Blight", "麻木枯萎毒素", "_t")
 t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒且患病，每回合受到 %0.2f 枯萎伤害并减少其造成的伤害 %d%%。", "tformat")
-t("#Target# is poisoned numbing blight!", "#Target#中了麻痹枯萎毒素！", "_t")
-t("+Numbing Blight", "+麻痹枯萎毒素", "_t")
-t("#Target# is free from the numbing blight.", "#Target#的麻痹枯萎毒素解除了。", "_t")
-t("-Numbing Blight", "-麻痹枯萎毒素", "_t")
+t("#Target# is poisoned numbing blight!", "#Target#中了麻木枯萎毒素！", "_t")
+t("+Numbing Blight", "+麻木枯萎毒素", "_t")
+t("#Target# is free from the numbing blight.", "#Target#的麻木枯萎毒素解除了。", "_t")
+t("-Numbing Blight", "-麻木枯萎毒素", "_t")
 t("Eldritch Stone Shield", "奥术岩盾", "_t")
 t("The target is surrounded by a stone shield absorbing %d/%d damage.  When the shield is removed, it will explode for up to %d (currently %d) Arcane damage in a radius %d.", "目标被一层岩石护盾围绕，吸收 %d/%d 点伤害。护盾消失时会爆炸，对半径 %d 内的目标造成至多 %d（当前 %d）点奥术伤害。", "tformat", {1, 2, 5, 3, 4})
 t("#Target# is encased in a stone shield.", "#Target#进入了岩石护盾中。", "_t")
@@ -35845,12 +35844,12 @@ t("Mind and body exposed to effects and attacks, reducing all saves and defense 
 t("#Target#'s is vulnerable to attacks and effects!", "#Target#易受攻击和效果的影响！", "_t")
 t("#Target# is less vulnerable.", "#Target#不再易受攻击。", "_t")
 t("darkness", "暗影", "effect subtype")
-t("Numbing Darkness", "黑暗麻痹", "_t")
+t("Numbing Darkness", "暗影麻木", "_t")
 t("The target is losing hope, all damage it does is reduced by %d%%.", "目标失去希望，造成的伤害减少 %d%%。", "tformat")
 t("#Target# is weakened by the darkness!", "#Target#被黑暗削弱！", "_t")
-t("+Numbing Darkness", "+黑暗麻痹", "_t")
+t("+Numbing Darkness", "+暗影麻木", "_t")
 t("#Target# regains their energy.", "#Target#恢复了斗志。", "_t")
-t("-Numbing Darkness", "-黑暗麻痹", "_t")
+t("-Numbing Darkness", "-暗影麻木", "_t")
 t("silence", "沉默", "effect subtype")
 t("Silenced", "沉默", "_t")
 t("The target is silenced, preventing it from casting spells and using some vocal talents.", "目标被沉默，无法施放法术或使用部分发声类技能。", "_t")
@@ -36980,10 +36979,10 @@ t("Crippling Poison", "致残毒素", "_t")
 t("The target is poisoned and sick, doing %0.2f nature damage per turn. Each time it tries to use a talent there is %d%% chance of failure.", "目标中毒，每回合受到 %0.2f 自然伤害，每次使用技能时有 %d%% 概率失败。", "tformat")
 t("+Crippling Poison", "+致残毒素", "_t")
 t("-Crippling Poison", "-致残毒素", "_t")
-t("Numbing Poison", "麻痹毒素", "_t")
+t("Numbing Poison", "麻木毒素", "_t")
 t("The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%.", "目标中毒且不适，每回合受到 %0.2f 自然伤害，并使其造成的伤害减少 %d%%。", "tformat")
-t("+Numbing Poison", "+麻痹毒素", "_t")
-t("-Numbing Poison", "-麻痹毒素", "_t")
+t("+Numbing Poison", "+麻木毒素", "_t")
+t("-Numbing Poison", "-麻木毒素", "_t")
 t("earth", "土", "effect subtype")
 t("Stoning Poison", "石化毒素", "_t")
 t("The target is taking %0.2f nature damage per turn from a potent earth-based poison.  In %d more turn(s), or when the poison has run its course (%d%% chance), the target will be turned to stone for %d turns.", "目标每回合受到来自强效土系毒素的 %0.2f 自然伤害。在 %d 回合后，或者毒素效果结束时（%d%% 几率），目标将被石化 %d 回合。", "tformat")
@@ -43099,7 +43098,7 @@ t("In deep places dark things dwell beyond description or understanding. None kn
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
 t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。但永恒精灵们都否认这个传说的真实性。", "init.lua load_tips")
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，将兽人一族彻底消灭，自此开启了卓越纪元。", "init.lua load_tips")
-t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔大陆，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
+t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些人被诅咒，获得了超出自身完全掌控的精神力量，从此堕入由仇恨驱动的黑暗生涯。", "init.lua load_tips")
 t("Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.", "恐惧王座一直以来都因其闹鬼的地宫而为人所避讳，但最近有流言传出，此地盘踞着一股更加黑暗可怖的力量。", "init.lua load_tips")
 t("Some Sher'Tul artifacts can still be found in hidden places, but it is said they are not to be trifled with.", "虽然有人说还能在某些隐秘之地找到夏·图尔的神器，但据说不可轻慢它们。", "init.lua load_tips")
@@ -43126,7 +43125,7 @@ t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition
 t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石镶嵌到盔甲上，赋予其魔法效果，以保护穿戴者或增强其能力。一些提供商业服务的炼金术士还能把宝石镶嵌到首饰中。", "init.lua load_tips")
 t("The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.", "魔法大爆炸之后到来的是黄昏纪，那是一个疫病肆虐文明溃败的时代。死灵法师和一些堕落法师利用当时的混乱来散播他们的恶行。", "init.lua load_tips")
 t("After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.", "魔法大爆炸之后，猎魔行动随之而来。普通民众奋起反抗法师的傲慢，像猎狼一样追杀他们。一些法师幸存下来并躲藏起来，但也有许多无辜者遇害。", "init.lua load_tips")
-t("Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.", "人们认为恶魔是被魔法力量从其他世界带到埃亚尔大陆的。有些恶魔具有高度的智慧并有他们自己的野心，没人知道他们的真正目的。", "init.lua load_tips")
+t("Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.", "人们认为恶魔是被魔法力量从其他世界带到埃亚尔的。有些恶魔具有高度的智慧并有他们自己的野心，没人知道他们的真正目的。", "init.lua load_tips")
 t("The art of potion making fell into decline after the Spellhunt, and only a rare few now master the gift.", "猎魔行动之后炼金技术严重衰退，现在只有极少数人掌握这种技能了。", "init.lua load_tips")
 t("It's said that some rare powers can save your soul from the edge of death.", "传说有些罕见的力量可以在死亡边缘拯救你的灵魂。", "init.lua load_tips")
 t("Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.", "传说有一个邪教组织，他们绑架妇女举行奇怪的仪式，没人知道他们真正的目的，至今他们还没有被抓捕。", "init.lua load_tips")
