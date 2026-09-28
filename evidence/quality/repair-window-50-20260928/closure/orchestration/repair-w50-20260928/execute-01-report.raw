@@ -1,0 +1,17 @@
+已完成 `repair-w50-20260928`，严格限定在授权范围内：
+
+- 先修改术语库：`classes.tsv` 1 行、`talents.tsv` 末尾新增 2 行，内容与 SPEC 逐字一致。
+- 修改译文恰 27 个 target：`mod-tome.lua` 3、Ashes 1、Cults 7、Orcs 16。
+- LuaJIT 对比确认：仅 27 个 target 字段变化，其他记录及非 target 字段均未变化。
+- 源码锚点全部匹配；主游戏使用固定 commit，10 个 DLC 文件哈希均匹配冻结值。
+- `doctor`：通过，仅预期的 DLC unpinned 警告。
+- strict lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未 stage、commit、push，未创建 agent，未修改 `.ai/task`。
+
+27 个条目 key、每处修改前后文本、完整术语 diff 和命令结果见：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-50-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-50-20260928/VALIDATION.json)
+
+发现但未改：Ashes Walrog 条目的末句“他面对你的表情似乎并不惊讶。”相对原文增添“表情”；SOURCE-CLAIMS 明确要求末句不动，已作为 advisory 记录。
