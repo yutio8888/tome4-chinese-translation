@@ -1,0 +1,3 @@
+第361批：冻结27条（主游戏 3 条、Ashes 1 条、Cults 7 条、Orcs 16 条），逐条核验27/27：主游戏按 manifest 固定 engine commit 624a673 核验，Ashes/Cults/Orcs 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 10 个 child（主游戏 full-000 3 条、Ashes full-001 1 条、Cults 2/2/2/1、Orcs 4/4/4/4），4 个 ISSUE；reviewer 沙箱初始化失败，各 lane 以 escalation 经 auto-review 审批只读自身 envelope 与契约，未创建 Paseo 终端。contextual 两个 run：contextual-000（主游戏 1 条）首轮 JSON 前带一句导语被拒，重派 full-001（attempt 2）通过，判 ISSUE；contextual-001（Orcs 3 条）首轮通过，均判 OK。两个任务的接受 dispatch 同名 full-001，contextual-001 另目录收口后改名并入索引。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决5个观察：{'confirmed': 2, 'refuted': 3}；预计26条完成、1条待修复。修复 revision：成就“They Came Back For Eyal”漏译 your…patron（疯狂的太阳是玩家侍奉的主神，本库作“太阳主上”），并把 portal to 误作“为太阳开门”。Orcs 三条 surface 观察（sessali 名称、精神无人机减免负号、护目镜代词）按源码驳回。修复窗口51积压为1，未达20。

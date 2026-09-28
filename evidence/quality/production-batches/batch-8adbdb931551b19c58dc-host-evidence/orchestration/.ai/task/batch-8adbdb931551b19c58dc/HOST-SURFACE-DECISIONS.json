@@ -1,0 +1,40 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 4 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "20fa052d6c3f569c56a139a845e16a768b7b1562be6c5e92e0deed27395f1d63",
+      "stage": "surface",
+      "observation": "原文“your mad patron sun”中的“your”和“patron”关系未译出；译文仅作“疯狂的太阳”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/achievements/quests.lua:132（成就 They Came Back For Eyal）\"opening a portal to your mad patron sun\"：chats/sorcerer-end.lua:42/44/102 表明遥远太阳（Distant Sun）是玩家侍奉的主神（your patron），夏·图尔人因玩家\"colluding with a god\"而介入（:99）。现译“阻止了你为疯狂的太阳开启传送门”漏掉 your…patron 这层身份关系，且把 portal to（通往太阳的传送门）译成“为太阳开门”。一级忠实度缺陷，确认待修复；本库同族对话已把 patron sun 译作“太阳主上”（mod-tome.lua:6167），修复时改为“阻止你开启通往你那疯狂的太阳主上的传送门”一类。"
+    },
+    {
+      "revision_key": "092cf19b76774e20c97c8b5d0b6fae432ff4af4031c576d50f17f1872a6beb6c",
+      "stage": "surface",
+      "observation": "“sessali”译为“延龄草”疑似植物名称错配；冻结输入缺少术语正文，无法确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/ingredients.lua：sessali 是游戏虚构草药名，本库 ingredient name 与 entity name 两条及同族条目一贯作“延龄草”（本批只把“一束植物”改为“一束草药”，括号内名称未动）。reviewer 自称无依据确认，属沿用既有译名，无错译证据；contextual 复核判 OK。驳回。"
+    },
+    {
+      "revision_key": "33855fe6e9152be31da9e4c2b17f77a271e9bfb2553a58716ab0d9640ae8006d",
+      "stage": "surface",
+      "observation": "原文为“-%d%% reduction”，译文对应数值为“减少 %d%%”，缺少占位符前的负号；无法仅凭冻结文本确定负号是否已由“减少”表达。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/timed_effects/mental.lua:89-90 效果以 fear_immune/sleep_immune 减去 reduction/100 实现；原文 \"-%d%% reduction\" 的负号与“reduction”重复表意，译文“恐惧和睡眠免疫减少 %d%%”方向正确、占位符完整，补负号反成“减少 -N%”。contextual 复核判 OK。驳回。"
+    },
+    {
+      "revision_key": "fb3ab94b084b556070ad907de041f667c3ab73ab83df5e1fe8ba30a0cf8240d6",
+      "stage": "surface",
+      "observation": "原文的 them 为复数，且 without 未限定为“戴”；译文写成“戴它”。缺少所指物语境，无法确认是否造成错译。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/general/objects/world-artifacts.lua:2361-2367 物品为 Brass Goggles（护目镜），英文 goggles 为复数形式名词（them），中文“护目镜”单数指代“它”自然；物品本身即佩戴物，“不戴它”准确表达 would be caught without them。contextual 复核判 OK。驳回。"
+    }
+  ]
+}
