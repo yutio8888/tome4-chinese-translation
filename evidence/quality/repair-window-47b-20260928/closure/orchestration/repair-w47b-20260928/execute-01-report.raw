@@ -1,0 +1,19 @@
+已完成 `repair-w47b-20260928` 定向修改。
+
+- 恰好修改 56 个 WORKSET target：`mod-tome.lua` 19 条、`tome-ashes-urhrok.lua` 17 条、`tome-orcs.lua` 20 条。
+- 完成 Fire Imp、Armoured Leviathan、Corruption of the Doomed、Osmosis Regeneration、Soft-foot、Thunder Grenade、Voltaic Bolt、Electricity 等全部裁决项。
+- “电子咒式”“渗透护盾”及技能名 Dust to Dust 均保持不变。
+- 未修改术语库、`.ai/task` 或任务外文件；未 stage、commit、push，也未创建 agent。
+- 各裁决项及全部条目 key 见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/IMPLEMENTATION.md)。
+- 完整机器验证记录见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 精确比较：通过；三个文件记录数不变，恰好 56 条 target-only 变动，非 WORKSET 及其他字段变动为 0。
+- LF/TAB、占位符、markup：全部保持。
+- 16 个 DLC 源文件 SHA-256：全部匹配 SOURCE-ANCHORS。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- `VALIDATION.json` 语法及证据文件行尾空白检查：通过。
+
+未发现额外译文疑点。唯一 advisory 是既有来源属性：Ashes/Orcs 源码仓库与 commit 未固定；本轮指定 checkout 中的逐文件哈希均已匹配。

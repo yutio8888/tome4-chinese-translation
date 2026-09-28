@@ -1,0 +1,43 @@
+{
+  "cycle": 1,
+  "stage": "RE_REVIEW",
+  "accepted_dispatch_id": "r1a1",
+  "invalid_attempts": [],
+  "raw_ok_count": 52,
+  "raw_issue_count": 4,
+  "decision": "two tier-1 fidelity findings confirmed (less than ashes; eons/rejuvenated), two refuted (Archmage class name; death-message template); merged fix execute-03, then RE_REVIEW(2,1).",
+  "findings": [
+    {
+      "revision_key": "9af7773a4c3dc5a66575e3b2db025588214ce9b2c387cf0d6a37fbff850558f0",
+      "status": "refuted",
+      "tier": 1,
+      "category": "terminology",
+      "origin": "reviewer r1a1",
+      "reason": "本库职业名 Archmage＝元素法师（mod-tome.lua:3021 birth descriptor name），科技法师进阶说明“涉猎蒸汽科技的元素法师”与职业名一致；亡灵猎手指南里的 archmages 是泛称，不是职业名。不改。"
+    },
+    {
+      "revision_key": "acf4d1b0e9027a469bfa2dc61ee0afd2f538ba5b7894ee8e21f8c973875afc65",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r1a1",
+      "reason": "梅塔什对话（tome-orcs/data/chats/metash.lua）“reduced to less than ashes by a beam from his horn”：“都在他的独角射线下化为灰烬”弱化了程度，改“都在他的独角射线下连灰烬都没剩下”（或同义）。其余不动。"
+    },
+    {
+      "revision_key": "deea5de8301a4c522e16750702f81da81090b114c7516f7b8437c102204dd219",
+      "status": "confirmed",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r1a1",
+      "reason": "米诺陶 lore：“over the eons of persecution”译“在多年的迫害中”缩短了时间尺度，改“在漫长岁月的迫害中”；“it kept us so rejuvenated”译“这种力量让我们的身体充满活力，返老还童”增添年龄逆转，改“这种力量让我们始终精神焕发”（后文“并不是恢复的力量”不动）。其余不动。"
+    },
+    {
+      "revision_key": "f6cc31f278f852ce562184f9b8411d668cbda4d65ae2c3c4059abaa243f5d29f",
+      "status": "refuted",
+      "tier": 1,
+      "category": "fidelity",
+      "origin": "reviewer r1a1",
+      "reason": "同 ADJUDICATION-R0：death_message 由模板“%s而死”（mod-tome.lua:1413、1416）代入，结果为“被剧毒枯萎折磨得虚弱不堪而死”，死亡结局由模板表达；待审 #18 用户裁决。不改。"
+    }
+  ]
+}

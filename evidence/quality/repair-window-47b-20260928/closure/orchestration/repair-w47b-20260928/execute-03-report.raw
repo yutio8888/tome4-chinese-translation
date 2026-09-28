@@ -1,0 +1,22 @@
+第 2 轮修复完成。
+
+- `acf4d1b0e9`
+  - 前：`都在他的独角射线下化为灰烬`
+  - 后：`都在他的独角射线下连灰烬都没剩下`
+
+- `deea5de830`
+  - 前：`在多年的迫害中` → 后：`在漫长岁月的迫害中`
+  - 前：`这种力量让我们的身体充满活力，返老还童` → 后：`这种力量让我们始终精神焕发`
+
+修改位于 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:499) 和 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2425)。其余 54 条未变，术语库未改。
+
+验证结果：
+
+- LuaJIT 加载三个译文文件：通过，记录数 `22989 / 900 / 4202`
+- 相对 SCOPE 基线：恰 56 条 target 变动
+- 相对本轮 preimage：恰上述 2 条变动，其余 54 条不变
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- 两份 Orcs 源码哈希与 SOURCE-ANCHORS 一致；仓库/commit 仍按契约标为未固定
+
+本轮记录已追加至 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/IMPLEMENTATION.md:81) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/VALIDATION.json:133)。未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

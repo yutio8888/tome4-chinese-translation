@@ -1,0 +1,303 @@
+{
+  "task_id": "repair-w47b-20260928",
+  "status": "pass_with_source_pinning_advisory",
+  "scope": {
+    "translation_files": {
+      "mod-tome.lua": 19,
+      "tome-ashes-urhrok.lua": 17,
+      "tome-orcs.lua": 20
+    },
+    "expected_changed_targets": 56,
+    "actual_changed_targets": 56,
+    "non_target_field_changes": 0,
+    "non_workset_record_changes": 0,
+    "terminology_files_changed": 0
+  },
+  "source_anchors": {
+    "queries_checked": 56,
+    "unique_source_files": 26,
+    "core_queries_at_fixed_commit": 19,
+    "tome_fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "dlc_queries": 37,
+    "dlc_unique_files_checked": 16,
+    "dlc_checkout_paths_from_frozen_input_only": true,
+    "dlc_file_sha256_all_match": true,
+    "dlc_repository_commit_pinned": false
+  },
+  "semantic_diff": {
+    "loader": "i18nlib LocaleLoader using the tome-1.7.6 manifest LuaJIT runtime",
+    "record_counts": {
+      "mod-tome.lua": 22989,
+      "tome-ashes-urhrok.lua": 900,
+      "tome-orcs.lua": 4202
+    },
+    "record_counts_unchanged": true,
+    "workset_exact": true,
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_unchanged": true,
+    "special_unchanged": true,
+    "section_unchanged": true,
+    "target_lf_tab_counts_unchanged": true,
+    "placeholder_markup_order_unchanged": true,
+    "excluded_electron_incantation_unchanged": true,
+    "excluded_osmosis_shield_unchanged": true,
+    "excluded_dust_to_dust_talent_unchanged": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 OK; expected source-unpinned warnings for public DLC inputs"
+    },
+    {
+      "command": "bounded SOURCE-ANCHORS DLC SHA-256 verifier",
+      "exit_code": 0,
+      "result": "all 16 unique Ashes/Orcs files matched the frozen hashes; only exact checkout/path pairs from SOURCE-ANCHORS.json were read"
+    },
+    {
+      "command": "python3 -B .artifacts/i18n/repair-w47b-20260928/verify_translation_diff.py",
+      "exit_code": 0,
+      "result": "exactly 56 workset targets changed (19/17/20); all other records and non-target fields unchanged; LF/TAB/placeholder/markup invariants passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20260928T064212.768440Z-337356-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    }
+  ],
+  "unresolved": [
+    {
+      "status": "advisory",
+      "area": "DLC source provenance",
+      "detail": "Ashes of Urh'Rok and Orcs source repositories/commits are unpinned by contract; all frozen per-file SHA-256 anchors matched the specified checkouts."
+    }
+  ],
+  "repair_cycles": [
+    {
+      "cycle": 1,
+      "input": ".ai/task/repair-w47b-20260928/ADJUDICATION-F0.json",
+      "confirmed_revision_keys": [
+        "9af7773a4c3dc5a66575e3b2db025588214ce9b2c387cf0d6a37fbff850558f0",
+        "b7abfa6898a5951e4bceb38af1bcfcef67d060a2cb2e015b91f0fe2a32fbb150"
+      ],
+      "source_anchor_sha256": {
+        "tome-orcs/data/talents/uber/mag.lua": "f66debe2fe113ec88810ebaabc9a1c5674085445bc25a84a4f6175623ebd527b",
+        "tome-orcs/data/chats/metash.lua": "3fc7895e851e1a3dd1ca6941387ddf9dbfa7cd9a5a532346e9f2431100ff9300"
+      },
+      "translation_diff": {
+        "changed_targets_from_scope_baseline": 56,
+        "changed_targets_from_cycle_preimage": 2,
+        "unchanged_other_workset_targets": 54,
+        "non_target_field_changes": 0,
+        "record_counts": {
+          "mod-tome.lua": 22989,
+          "tome-ashes-urhrok.lua": 900,
+          "tome-orcs.lua": 4202
+        },
+        "lf_tab_invariants": true,
+        "placeholder_markup_invariants": true,
+        "runtime_key_invariants": true
+      },
+      "commands": [
+        {
+          "command": "python3 -B .artifacts/i18n/repair-w47b-20260928/verify_translation_diff.py",
+          "exit_code": 0,
+          "result": "LuaJIT loaded all three translation files; exactly 56 target-only changes against the SCOPE baseline"
+        },
+        {
+          "command": "compare current verifier result with .artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF.json",
+          "exit_code": 0,
+          "result": "exactly the two confirmed revision keys changed; the other 54 targets are unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260928T065639.307980Z-364956-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "cycle": 2,
+      "input": ".ai/task/repair-w47b-20260928/ADJUDICATION-R1.json",
+      "confirmed_revision_keys": [
+        "acf4d1b0e9027a469bfa2dc61ee0afd2f538ba5b7894ee8e21f8c973875afc65",
+        "deea5de8301a4c522e16750702f81da81090b114c7516f7b8437c102204dd219"
+      ],
+      "source_anchor_sha256": {
+        "tome-orcs/data/chats/metash.lua": "3fc7895e851e1a3dd1ca6941387ddf9dbfa7cd9a5a532346e9f2431100ff9300",
+        "tome-orcs/data/lore/krimbul.lua": "e0123bf37358aaa4a5dcbded131aca403bf8383501c606e2d3259670fcd2a8db"
+      },
+      "translation_diff": {
+        "changed_targets_from_scope_baseline": 56,
+        "changed_targets_from_cycle_preimage": 2,
+        "cycle_preimage": ".artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX1.json",
+        "unchanged_other_workset_targets": 54,
+        "non_target_field_changes": 0,
+        "record_counts": {
+          "mod-tome.lua": 22989,
+          "tome-ashes-urhrok.lua": 900,
+          "tome-orcs.lua": 4202
+        },
+        "lf_tab_invariants": true,
+        "placeholder_markup_invariants": true,
+        "runtime_key_invariants": true
+      },
+      "commands": [
+        {
+          "command": "python3 -B .artifacts/i18n/repair-w47b-20260928/verify_translation_diff.py",
+          "exit_code": 0,
+          "result": "LuaJIT loaded all three translation files; exactly 56 target-only changes against the SCOPE baseline"
+        },
+        {
+          "command": "compare current verifier result with .artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX1.json",
+          "exit_code": 0,
+          "result": "exactly the two ADJUDICATION-R1 confirmed revision keys changed; the other 54 targets are unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260928T070631.804764Z-383727-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "cycle": 3,
+      "input": ".ai/task/repair-w47b-20260928/ADJUDICATION-F2.json",
+      "confirmed_revision_keys": [
+        "51f734f82ebaea8abef3ce6ebcefab123a790a246e5b4b6aec86d275e1f0dbf6",
+        "d06dfea85a587e85907f1b3ed025b3914f9727f79db66711ee6385ae264b6c43"
+      ],
+      "source_anchor_sha256": {
+        "game/modules/tome/data/lore/fun.lua": "d766ff990174ad9ac3a5a7ac1d4633159a868e48cdbbda8d1fe609d98a14b1a3",
+        "tome-orcs/data/talents/steam/elusiveness.lua": "a32a2aa6489e4aae99d2daa9f055435cc049a7a7b21bd84e39927c7c2cafa424"
+      },
+      "translation_diff": {
+        "changed_targets_from_scope_baseline": 56,
+        "changed_targets_from_cycle_preimage": 2,
+        "cycle_preimage": ".artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX2.json",
+        "unchanged_other_workset_targets": 54,
+        "non_target_field_changes": 0,
+        "record_counts": {
+          "mod-tome.lua": 22989,
+          "tome-ashes-urhrok.lua": 900,
+          "tome-orcs.lua": 4202
+        },
+        "targeted_newline_restoration_only": true,
+        "placeholder_markup_invariants": true,
+        "runtime_key_invariants": true,
+        "line_locator_shifts_ignored_for_semantic_comparison": true
+      },
+      "commands": [
+        {
+          "command": "bounded SOURCE-ANCHORS SHA-256 verifier",
+          "exit_code": 0,
+          "result": "both exact source files matched their frozen hashes; only SOURCE-ANCHORS checkout/path pairs were read"
+        },
+        {
+          "command": "python3 -B .artifacts/i18n/repair-w47b-20260928/verify_translation_diff.py",
+          "exit_code": 0,
+          "result": "LuaJIT loaded all three translation files; exactly 56 target-only changes against the SCOPE baseline"
+        },
+        {
+          "command": "semantic comparison with .artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX2.json",
+          "exit_code": 0,
+          "result": "exactly the two ADJUDICATION-F2 confirmed revision keys changed; the other 54 targets are unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260928T071957.016878Z-409160-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "cycle": 4,
+      "input": ".ai/task/repair-w47b-20260928/ADJUDICATION-R3.json",
+      "confirmed_revision_keys": [
+        "acf4d1b0e9027a469bfa2dc61ee0afd2f538ba5b7894ee8e21f8c973875afc65"
+      ],
+      "refuted_revision_keys_unchanged": [
+        "f6cc31f278f852ce562184f9b8411d668cbda4d65ae2c3c4059abaa243f5d29f"
+      ],
+      "source_anchor_sha256": {
+        "tome-orcs/data/chats/metash.lua": "3fc7895e851e1a3dd1ca6941387ddf9dbfa7cd9a5a532346e9f2431100ff9300"
+      },
+      "translation_diff": {
+        "changed_targets_from_scope_baseline": 56,
+        "changed_targets_from_cycle_preimage": 1,
+        "cycle_preimage": ".artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX3.json",
+        "unchanged_other_workset_targets": 55,
+        "non_target_field_changes": 0,
+        "record_counts": {
+          "mod-tome.lua": 22989,
+          "tome-ashes-urhrok.lua": 900,
+          "tome-orcs.lua": 4202
+        },
+        "lf_tab_invariants": true,
+        "placeholder_markup_invariants": true,
+        "runtime_key_invariants": true
+      },
+      "before": "克鲁克部落的软脚者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下连灰烬都没剩下。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。",
+      "after": "克鲁克部落的软脚者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下连灰烬都没剩下；那道射线向上贯穿了他头顶的岩层，一直打通到我们能看见天空。他让我们中的一些人相信，他能用这股可怕的力量征服埃亚尔，又恐吓其余族人随他同行。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。",
+      "commands": [
+        {
+          "command": "sha256sum /workspace/tome4-dlcs/orcs/tome-orcs/data/chats/metash.lua",
+          "exit_code": 0,
+          "result": "exact source file matched the frozen SHA-256; only the SOURCE-ANCHORS checkout/path was read"
+        },
+        {
+          "command": "python3 -B .artifacts/i18n/repair-w47b-20260928/verify_translation_diff.py",
+          "exit_code": 0,
+          "result": "LuaJIT loaded all three translation files; exactly 56 target-only changes against the SCOPE baseline"
+        },
+        {
+          "command": "structured semantic comparison with .artifacts/i18n/repair-w47b-20260928/HOST-EXACT-DIFF-POST-FIX3.json",
+          "exit_code": 0,
+          "result": "exactly acf4d1b0e902 changed; the other 55 workset targets are unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "report": ".artifacts/i18n/runs/20260928T072936.126136Z-427470-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no whitespace errors"
+        }
+      ]
+    }
+  ],
+  "discovered_but_not_changed": [],
+  "publication_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false
+  }
+}

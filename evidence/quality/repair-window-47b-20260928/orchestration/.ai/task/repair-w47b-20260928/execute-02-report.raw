@@ -1,0 +1,22 @@
+已完成第 1 轮定向修复，仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:501) 中两条 confirmed target。
+
+- `9af7773a4c`
+  - 前：`奥术发电机插件配方`、`蒸汽/物理系`、`蒸汽/化学系`
+  - 后：`奥术发电机蒸汽工具配方`、`蒸汽科技/物理系`、`蒸汽科技/化学系`
+  - 其余文本不变。
+
+- `b7abfa6898`
+  - 前：`我们其他人都跑了，藏身在洞穴中……凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及……软脚者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。`
+  - 后：`我们其他人都已逃走，藏身在半岛各处的洞穴里……凭良心说，我不能为了我们，要求你在他的魔法面前直面必死的命运；但抢先出手或许是拯救你族人的唯一办法。他似乎在拖延入侵，为你争取了一些时间，但如果你不能在他最终发起进攻之前打他个措手不及……软脚者，我曾亲眼看见他的力量像穿过一片树叶一样洞穿山脉。面对那种魔法，不可能取胜。快跑，躲起来，祈祷他遭遇意外，或者失去仍让他能够施法的最后一丝理智吧。`
+
+验证结果：
+
+- 三个译文文件 LuaJIT 加载通过：`22989 / 900 / 4202` 条记录。
+- 相对 SCOPE 基线：恰好 `56` 条 target-only 变动。
+- 相对本轮前像：仅上述 `2` 条变化，其余 `54` 条不变。
+- source、source_tag、args_order、markup、占位符、LF/TAB 等不变量通过。
+- `python3 -B tools/i18n lint --strict`：`30308` 条，`0 errors, 0 warnings`。
+- `git diff --check`：通过。
+- 两个冻结源码文件 SHA-256 与 SOURCE-ANCHORS 一致。
+
+本轮记录已追加到 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/IMPLEMENTATION.md:53) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/VALIDATION.json:82)。按 Paseo EXECUTOR 约束，未改术语库或 `.ai/task`，未 stage、commit、push，也未创建 agent。

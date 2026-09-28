@@ -1,0 +1,25 @@
+第 4 轮修复已完成，仅修改 `acf4d1b0e902…` 的 target 中间部分。
+
+修改前：
+
+> 克鲁克部落的软脚者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下连灰烬都没剩下。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。
+
+修改后：
+
+> 克鲁克部落的软脚者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下连灰烬都没剩下；那道射线向上贯穿了他头顶的岩层，一直打通到我们能看见天空。他让我们中的一些人相信，他能用这股可怕的力量征服埃亚尔，又恐吓其余族人随他同行。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。
+
+写入文件：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:499)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/IMPLEMENTATION.md:108)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-47b-20260928/VALIDATION.json:237)
+
+验证结果：
+
+- 指定源码文件 SHA-256 与冻结锚点一致。
+- LuaJIT 加载三份译文成功：22,989 / 900 / 4,202 条。
+- 相对 SCOPE 基线仍恰有 56 条 target 变动。
+- 相对 `HOST-EXACT-DIFF-POST-FIX3.json` 仅该 revision 变化，其余 55 条不变，非 target 字段零变化。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未改术语库或 `.ai/task`，未 stage、commit、push，也未创建 agent。

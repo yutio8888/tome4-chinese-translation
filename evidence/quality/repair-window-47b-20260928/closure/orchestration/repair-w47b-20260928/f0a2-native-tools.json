@@ -1,0 +1,190 @@
+{
+  "dispatch_id": "f0a2",
+  "native_session": "9ed2b0a5-058c-4d6c-80b1-f1c04368b78d",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/9ed2b0a5-058c-4d6c-80b1-f1c04368b78d.jsonl",
+  "native_sha256": "fedafb3d708b3ab6ff1bf4853dd10aca327ef0be97ec51e7e83a2bc8eabc9f15",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_0193Rou7Xes77hDDWm6n4gnB",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Check input file sizes"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_015xjcxqGDFTgb2bG54A5qQo",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review contract"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01JXbtxqU81ESkqMoxbFMXHX",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=e['payload']\nprint(e['candidate_identity'])\nprint(p['contract'],p['fixed_source_identity'],len(p['ordered_revision_keys']))\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1500])\nprint(p['rendered_briefing'])\nEOF",
+        "description": "Inspect envelope header and briefing"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_013PbHVRKpCAXUgFW1eTQ5dw",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=e['payload']\nts=json.loads(p['terminology_snapshot'])\nfor r in ts['records']: print(r['path'],r['record'])\nEOF",
+        "description": "List frozen terminology records"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KnxCHXyK4o4AkdzjWWTTp4",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/w47b_f0a2.txt\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=e['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    t=p['translation_snapshot'][i]; c=p['bounded_context'][i]\n    print('=====',i+1,k)\n    print(json.dumps(t,ensure_ascii=False,indent=0))\n    print('CTX:',c['context'][:3000] if isinstance(c.get('context'),str) else c)\nEOF\nwc -c /tmp/w47b_f0a2.txt; python3 -c \"\nimport json;e=json.load(open('/workspace/tome4-chinese-translation/.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'));print(e['payload']['translation_snapshot'][0].keys(),e['payload']['bounded_context'][0].keys())\"",
+        "description": "Dump entries to scratch file"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017k3Y1MZd8Q78MjKiBYEbum",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=e['payload']\nc=p['bounded_context'][0]['context']\nprint(len(c)); print(c[:6000])\nEOF",
+        "description": "Inspect first context fully"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_016LGZBb1s1SuYu7UEkmBBnt",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/w47b_f0a2.txt\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=e['payload']\nfor i,k in enumerate(p['ordered_revision_keys']):\n    t=p['translation_snapshot'][i]; c=json.loads(p['bounded_context'][i]['context'])\n    print('=====',i+1,k[:8], c.get('file'), c.get('section'), c.get('source_tag'))\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    se=c.get('source_evidence',{})\n    for ex in se.get('excerpts',[]): print('EX:',ex['excerpt'][:1500])\n    for a in c.get('adjacent_translations',[])[:4]: print('ADJ:',a['source'][:200],'=>',a['target'][:200])\n    other=set(c)-{'adjacent_translations','file','line','section','source_evidence','source_tag'}\n    for o in other: print('OTHER',o,json.dumps(c[o],ensure_ascii=False)[:1500])\nEOF\nwc -c /tmp/w47b_f0a2.txt",
+        "description": "Dump entries with parsed context"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Ropwt5u2SYsQ7HxvDLozyP",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/w47b_f0a2.txt",
+        "limit": 400
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01HHDxVwttmy5QiD4NinNTLg",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^=====' /tmp/w47b_f0a2.txt | sed -n '16,60p'",
+        "description": "List entry line offsets"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01N3Cefv3Bo6n5bfUH2AJqfe",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/w47b_f0a2.txt",
+        "offset": 417,
+        "limit": 370
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Mog7P6usSt5NeKdfurMWrP",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs && sed -n 150,200p data/talents/steam/elusiveness.lua; sha256sum data/talents/steam/elusiveness.lua",
+        "description": "Check kick talent mechanics in Orcs source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012F4gPogD6epeDZSxG5spgE",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs && ls; f=$(ls -d */data/talents/steam/elusiveness.lua data 2>/dev/null | head -1); echo $f",
+        "description": "Locate Orcs source layout"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_014ynHa1FS4amGtaCCpksHBc",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs/tome-orcs && sha256sum data/talents/steam/elusiveness.lua && sed -n 100,176p data/talents/steam/elusiveness.lua",
+        "description": "Read Awesome Toss talent source"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01YRvbVEpauPvpLYfvkQV7S3",
+      "name": "Read",
+      "input": {
+        "file_path": "/tmp/w47b_f0a2.txt",
+        "offset": 787,
+        "limit": 300
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01KZULubsHfXBRw1hCydXqd1",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\ne=json.load(open('.ai/task/repair-w47b-20260928/CONTEXTUAL-ENVELOPE-f0a2.json'))\nkeys=e['payload']['ordered_revision_keys']\niss={25:\"术语跨条不一致：源码 tome-orcs/data/talents/uber/mag.lua:196-197 “Arcane Dynamo tinker schematic”“Steamtech/Physics category”。冻结术语 tinker(entity type)=蒸汽工具、steamtech(talent category)=蒸汽科技，且同 workset 的 Create Tinker=制造蒸汽工具、electrical tinkers=电力蒸汽工具；本条却译“奥术发电机插件配方”“蒸汽/物理系”“蒸汽/化学系”，tinker 与 steamtech 两处均偏离冻结术语。\",\n31:\"完整性缺失：源码 tome-orcs/data/chats/metash.lua:41 “hiding in caverns across the peninsula”漏译“半岛各处”；“ask you to face certain death before his magic for our sakes”漏译“为了我们”；另外“There can be no victory against that kind of magic.”前凭空添加“算了，”，改变了说话者语气（原文是陈述绝望，而非放弃念头）。\"}\nv=[]\nfor i,k in enumerate(keys,1):\n    v.append({\"revision_key\":k,\"verdict\":\"ISSUE\",\"observation\":iss[i]} if i in iss else {\"revision_key\":k,\"verdict\":\"OK\"})\nout={\"contract\":\"translation_contextual_v2\",\"candidate_identity\":e['candidate_identity'],\"verdicts\":v}\nprint(json.dumps(out,ensure_ascii=False,separators=(',',':')))\nEOF",
+        "description": "Build compact verdict JSON"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}
