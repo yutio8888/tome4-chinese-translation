@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-28（修复窗口48已完成、待宿主证据提交与推送，下一步审核窗口48的 successor，第359批起）
+更新时间：2026-09-28（第359批已 finalize，窗口49积压 2 条，继续审核第360批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,9 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **358** 批（`batch-831d1b4154a1003f7fd4`）：53 条，50 done / 3 repair_required。
-  全 DLC 混合批（Ashes 16、Cults 1、Orcs 36，窗口47a/47b successor 尾批）：surface 三组 9 个 child；contextual 首轮 Orcs 越界拒收，dlc-location-v1 refreeze 两个 run 通过；逐条裁决。窗口48积压 9。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `fea56d8a70e8ccbe69aa3847a64f78758b720386` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **359** 批（`batch-033cd11c8b1b44140e48`）：22 条，20 done / 2 repair_required。
+  混合批（主游戏 3、Ashes 18、Orcs 1，窗口48 successor）：surface 三组 6 个 child（沙箱失败改 escalation 只读；lane-001-1 终端只读与一处 identity 回显修正）；contextual 两个 run 首轮通过；逐条裁决。窗口49积压 2。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `046d4f66922142c9c03f189ef5199e6c46c85361` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **48**：第357、358批遗留 9 条及 water imp／wretchling 全局改名 13 条（三个 Lua 文件，术语库新增两行）已修复；译文提交 `6d56a09f6dda8fe203eb44f9e08b23c97813ed72`；migration `70a471df…` 的 22 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第359批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
@@ -110,6 +110,7 @@
 | 356 | `batch-4a7dd7135bbe1a68607d` | 19 done / 1 repair | 18 OK / 2 ISSUE | 1 OK / 1 ISSUE | 1 confirmed / 2 advisory |
 | 357 | `batch-06020dfb9cbf406a4526` | 74 done / 6 repair | 67 OK / 13 ISSUE | 7 OK / 6 ISSUE | 12 confirmed / 6 refuted / 1 advisory |
 | 358 | `batch-831d1b4154a1003f7fd4` | 50 done / 3 repair | 47 OK / 6 ISSUE | 4 OK / 2 ISSUE | 4 confirmed / 3 refuted / 1 advisory |
+| 359 | `batch-033cd11c8b1b44140e48` | 20 done / 2 repair | 20 OK / 2 ISSUE | 1 OK / 1 ISSUE | 3 confirmed |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -186,11 +187,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **359** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **360** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window48.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w48-20260928/wd.sh`、`/tmp/w48-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 48 已完成（第357、358批遗留 9 条：Ashes 开场与起始任务的陨石句、控制水晶、莎西·凯希雕像 lore 三处限定词、毁灭号“致命得离谱”、水小鬼雕像代词、米诺陶雕像 lore、艾伦尼恩回忆录、元素法师开场“抛入星辰之间的虚空”、夸塞魔雕像；另按 Gemini 3.8 Flash 结论全库改名 water imp“小水怪”→“水小鬼”、wretchling“酸液树魔”→主游戏既有“小劣魔”，术语库新增这两行，annotate_domains 与静态审计测试行数 732 随译文提交）。复审另确认并修复 workset 内旧缺陷：开场“当你逐渐恢复意识”一句、主要恶魔台词补 gnashing 与“那些只是幼体”、纳格尔摄政们已提供研究成果、繁育米诺陶、小劣魔雕像结句“作出了巨大贡献”、caloric energy 译“身体所需的能量”。execute-03 因模型容量错误未回报即终止（改动正确），按单次运行规则归档并由 execute-04 fresh retry 核验记录。三次修复后 cycle 3 FINAL 22/22 OK（max_cycles 5）；门禁 17/17。范围外 Archmage `8b977dd836` 仍 pending_repair（职业名“元素法师”，此前已驳回同类指控，待下个窗口按 revision 核实）。下一步审核窗口 48 的 successor（第359批起）。窗口外宿主补充项待下个窗口按 revision 核实后纳入：“stack of herbs”同族四条“一束植物”→“草药”（advisory，跨条）；Temporal Feast 技能名“时间盛宴”与效果名“时空盛宴”不一致（统一前双向查冲突）；`f6030742`（导师文物 Sher'Tul“夏图尔”→“夏·图尔”，窗口36 SPEC 误写）；tome-cults.lua 第2340行 lore 标题“熵反馈”与第829行“熵反冲”按“熵能反冲”对齐；`a9c22a10`（禁忌之书：《到来之日》描述把 misery 译成“困难”）；`a5a712dc`（技能名 Writhing One 现译“蜿蜒”，职业术语为“蜿蜒怪人”）；`95496f3e7a` 等：区域名“太阳堡垒观星台”与 lore 分类名“太阳堡垒瞭望台”（术语 existing，tome-orcs.lua:2494）不一，随待审第 37 项 Sunwall 译名一并统一；第337批 advisory `9a75f2d93d`（精神雄蜂 bores into）、`9af7773a4c`（A.P.E. 缩写）；第342批 advisory `b6e17ee9e4`（Crimson Templar John“深红骑士约翰”，本库另有“深红圣武士”“赤红守卫”，Templar 译名待统一）、`b437b99574`（铜制护目镜附言“自爱的工匠”翻译腔）。宿主补充建议 `a5ef7ca9`（乌尔罗格 fearsome to behold）仍待后续批次覆盖；修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window48.py`（批次确认项＋全局改名宿主补充、先加术语行）、`.artifacts/i18n/repair-w48-20260928/wd.sh` 与 `/tmp/w48-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
-   窗口 49 积压 **0** 条（窗口48后重新计数，范围外项不计入）：范围外 `8b977dd836`（Archmage 职业名“元素法师”，此前同类指控已驳回，仍 pending_repair，待下个窗口按 revision 核实）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第358批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）166.3 s；finalize 126.6 s。
+   窗口 49 积压 **2** 条（第359批，主游戏+Ashes）：范围外 `8b977dd836`（Archmage 职业名“元素法师”，此前同类指控已驳回，仍 pending_repair，待下个窗口按 revision 核实）；第359批 `d38555ee6a`（艾伦尼恩回忆录第一章多处：城堡、传说吓退的对象、incredulous、增译两处、Very well 等）、`7c7be93333`（小劣魔雕像 lore 增译“同意”）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第359批计时（实测，投影缓存 on）：start 2.0 s；adjudication chain（含 17 项门禁）186.0 s；finalize 141.3 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
