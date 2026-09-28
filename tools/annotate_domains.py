@@ -102,6 +102,7 @@ CREATURE_SOURCES = {
     "bloated ooze", "DESTRUCTICUS",
     "corrupted", "steamtech", "multi-hued",
     "Fire Imp",  # 用户 2026-09-28 裁决「火焰小鬼」
+    "water imp", "wretchling",  # 窗口48：水小鬼、小劣魔（Gemini 咨询结论）
 }
 
 _REQUIRED_FIELDS = ("source", "target", "category", "domain", "source_tag")
