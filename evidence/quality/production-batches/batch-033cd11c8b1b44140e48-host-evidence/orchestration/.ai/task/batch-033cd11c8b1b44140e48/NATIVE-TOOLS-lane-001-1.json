@@ -1,0 +1,86 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba532b74a487d18986320d4a221b47",
+    "status": "completed",
+    "call_id": "call_unhyxOHujHG0v4qTrLaEyhhl",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-033cd11c8b1b44140e48-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-1.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"max_output_tokens\":30000});text(r.output)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595876.600706
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba53319d7887d194d6bb4bf22895ec",
+    "status": "completed",
+    "call_id": "call_vgH7hmBPH8d5KXuKIqdfcYc6",
+    "name": "exec",
+    "input": "const r=await tools.exec_command({cmd:\"pwd\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"max_output_tokens\":100});text(r)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595886.788539
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba5334b28487d19f2d6453a023b3b1",
+    "status": "completed",
+    "call_id": "call_PaqJjVOXnbRZNGf9ExcnXdEL",
+    "name": "exec",
+    "input": "text(ALL_TOOLS.filter(x=>/file|read|python|shell|exec/.test(x.name+\" \"+x.description)).map(x=>x.name+\" \"+x.description.slice(0,80)))\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595890.746003
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba533e861c87d1b8656fe8d72d8d6f",
+    "status": "completed",
+    "call_id": "call_OaHBQDXzXLrVPtm67wDSHFB6",
+    "name": "exec",
+    "input": "text(ALL_TOOLS.filter(x=>/mcp__paseo__(create_terminal|capture_terminal|send_terminal_keys)/.test(x.name)))\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595894.131699
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba5341f46487d19b36ca0f2dd4c24f",
+    "status": "completed",
+    "call_id": "call_eTOSBDcPDBjl1YEQIrgARy4u",
+    "name": "exec",
+    "input": "const r=await tools.mcp__paseo__create_terminal({cwd:\"/workspace/tome4-chinese-translation\",name:\"surface-screen-read\"});text(r)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595904.785632
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba53494cf487d1be0ea4411192867d",
+    "status": "completed",
+    "call_id": "call_xvNuwKXCK2xroqLSn6uJEnvD",
+    "name": "exec",
+    "input": "const r=await tools.mcp__paseo__send_terminal_keys({terminalId:\"abc63938-fdd5-4650-9f03-7c012af51da3\",keys:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-033cd11c8b1b44140e48-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-1.json\\n\"});text(r)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595912.082807
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_07df8be74e668dd2016aba5350860887d19eda07ce1f0e42b5",
+    "status": "completed",
+    "call_id": "call_NcquyBGP1iC6DOK9NQgxsFXn",
+    "name": "exec",
+    "input": "const r=await tools.mcp__paseo__capture_terminal({terminalId:\"abc63938-fdd5-4650-9f03-7c012af51da3\",scrollback:true,stripAnsi:true});for(const c of r.content||[])if(c.type===\"text\")text(c.text)\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e7d4-b7cf-7c42-9c8a-f6f5d6d9e68d",
+      "create_time": 1790595918.235751
+    }
+  }
+]

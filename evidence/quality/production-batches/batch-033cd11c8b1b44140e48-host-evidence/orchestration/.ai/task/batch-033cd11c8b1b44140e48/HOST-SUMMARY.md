@@ -1,0 +1,3 @@
+第359批：冻结22条（主游戏 3 条、Ashes 18 条、Orcs 1 条），逐条核验22/22：主游戏按 manifest 固定 engine commit 624a673 核验，Ashes/Orcs 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 6 个 child（主游戏 full-000 3 条、Ashes 5/5/4/4、Orcs full-002 1 条），2 个 ISSUE；reviewer 沙箱初始化失败，各 lane 以 escalation 经 auto-review 审批只读自身 envelope 与契约；lane-001-1 经 Paseo 终端只读（harvest 后 kill），并有一处 identity 回显多一字符，宿主按原生日志核实后只替换该串、以修正字节 harvest（记入边界审计）。contextual 两个 run（主游戏 full-000、Ashes full-001）首轮均只读 envelope 与契约，通过；full-000 1 个 ISSUE，full-001 判 OK。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决3个观察：{'confirmed': 3}；预计20条完成、2条待修复。修复 revision：艾伦尼恩回忆录第一章（citadel、传说吓退的对象与“有信心”、incredulous 与增译“隐藏的傲慢”、增译“阐述要求”、Very well、mock bow、burn foes）、小劣魔雕像 lore（among the first to alter themselves 增译“同意”）。小劣魔雕像条 contextual 判 OK，宿主按源码认定 surface 观察成立。修复窗口49积压为2，未达20。

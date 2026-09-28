@@ -1,0 +1,55 @@
+{
+  "batch_id": "batch-033cd11c8b1b44140e48",
+  "observations": 3,
+  "observation_dispositions": {
+    "confirmed": 3
+  },
+  "repair_revision_keys": [
+    "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+    "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 20,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+      "stage": "surface",
+      "observation": "原文写众人接近 citadel（城堡或要塞），译文却写“到达我们的大本营”，地点明显错译。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/lore/elvala.lua（艾伦尼恩回忆录第一章“命运之会”）逐句核对，同条多处一级忠实度缺陷：(1) 第36行“as the party approached the citadel”是一行人走近城堡，现译“当人群到达我们的大本营时”动作（到达）与地点（大本营）皆错；(2) 第64行“legends and myths still abound to scare people away from anything to do with the Sher’Tul. But we are confident that we know what we are doing here”——被传说吓退的是“人们”，伊菲尼亚斯自己“有信心”，现译“阻止我们探索夏·图尔”“我们现在清醒地认识到”把受阻方改成“我们”并丢了“有信心”，与其劝说立场相反；(3) 第46行“I laughed … both at her extreme rudeness and her wild presumptions”“‘A mere fighter?’ I said between incredulous gasps”——现译增出原文没有的“隐藏的傲慢”，“在喘气的同时勉强说道”丢了 incredulous（难以置信、笑得喘不过气），且“贴身战士”与第44行同一 mere fighter 的译法不一；(4) 第52行只说“in the blunt and brief manner I had heard reported of him”，现译“生硬而简要地阐述自己的要求”增出“阐述要求”；(5) 第72行“Very well”是审慎应允，现译“非常好”变成赞赏；第50行“with a mock bow of my head”现译“点头答道”丢了故作姿态的欠身；第48行“burn foes from afar”现译“烧伤敌人”语义弱化。surface（citadel）与 contextual（其余各点）互证，整条逐句修。主游戏源码按 manifest 固定 commit 核验。"
+    },
+    {
+      "revision_key": "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+      "stage": "surface",
+      "observation": "源文称这些绿翡翠之子是最早实际改造自身者之一；译文“第一批同意改变自身”将已实施的改造误写为仅表示同意。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes tome-ashes-urhrok/data/lore/demon.lua:295（小劣魔雕像 lore）“These children of emerald were among the first to alter themselves for our quest for vengeance”：是“最早改造自身的族群之一”，现译“第一批同意改变自身以帮助复仇”增出原文没有的“同意”（把已实施的改造写成仅表示同意），并把 among the first 写死为“第一批”。contextual full-001 判 OK，宿主按源码判定 surface 观察成立：一级忠实度缺陷，只修该句。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+      "stage": "contextual",
+      "observation": "固定源码 engine@624a67329fe2 game/modules/tome/data/lore/elvala.lua 中有多处语义偏移（sha256 c007fa08…，已冻结）。(1) 第 64 行说“legends and myths still abound to scare people away from anything to do with the Sher’Tul. But we are confident that we know what we are doing here”，意思是传说吓退了“别人”，而伊菲尼亚斯对自己有把握。译文写成“仍然是阻止我们探索夏·图尔的原因之一……我们现在清醒地认识到我们在做的事情”，把受阻的一方改成了“我们”，还丢掉了“有信心”这层意思，与说话人极力劝说的立场矛盾。(2) 第 72 行特塞尔的“Very well”是审慎的应允，不是赞赏；译文“非常好”改变了语气和人物关系。(3) 第 46 行 “I laughed suddenly, both at her extreme rudeness and her wild presumptions … ‘A mere fighter?’ I said between incredulous gasps” 讲的是笑到喘不过气、难以置信地反问。译文“在喘气的同时勉强说道”丢了 incredulous，把笑变成了吃力；另外增译了原文没有的“隐藏的傲慢”；“贴身战士”与前一句“只会近身搏斗的战士”对同一 mere fighter 的译法也不一致。(4) 第 52 行只说 “in the blunt and brief manner I had heard reported of him”，译文“生硬而简要地阐述自己的要求”增加了原文没有的“阐述要求”。(5) 次要问题：第 50 行 “with a mock bow of my head” 译成“点头答道”，丢了“故作姿态地欠身”的意思；第 48 行 “burn foes” 译成“烧伤”，语义被弱化。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/data/lore/elvala.lua（艾伦尼恩回忆录第一章“命运之会”）逐句核对，同条多处一级忠实度缺陷：(1) 第36行“as the party approached the citadel”是一行人走近城堡，现译“当人群到达我们的大本营时”动作（到达）与地点（大本营）皆错；(2) 第64行“legends and myths still abound to scare people away from anything to do with the Sher’Tul. But we are confident that we know what we are doing here”——被传说吓退的是“人们”，伊菲尼亚斯自己“有信心”，现译“阻止我们探索夏·图尔”“我们现在清醒地认识到”把受阻方改成“我们”并丢了“有信心”，与其劝说立场相反；(3) 第46行“I laughed … both at her extreme rudeness and her wild presumptions”“‘A mere fighter?’ I said between incredulous gasps”——现译增出原文没有的“隐藏的傲慢”，“在喘气的同时勉强说道”丢了 incredulous（难以置信、笑得喘不过气），且“贴身战士”与第44行同一 mere fighter 的译法不一；(4) 第52行只说“in the blunt and brief manner I had heard reported of him”，现译“生硬而简要地阐述自己的要求”增出“阐述要求”；(5) 第72行“Very well”是审慎应允，现译“非常好”变成赞赏；第50行“with a mock bow of my head”现译“点头答道”丢了故作姿态的欠身；第48行“burn foes from afar”现译“烧伤敌人”语义弱化。surface（citadel）与 contextual（其余各点）互证，整条逐句修。主游戏源码按 manifest 固定 commit 核验。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (6 lanes: surface-000 one main-game full-000 of 3; surface-001 four Ashes lanes 5/5/4/4; surface-002 one Orcs full-002 of 1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 main game + contextual-001 Ashes, 2 entries)"
+  },
+  "notes": [
+    "Mixed batch of 22 entries (3 core game, 18 Ashes, 1 Orcs): the window 48 successors. Surface ran as six gpt-6-sol children in three groups (core full-000 of 3, Ashes 5/5/4/4, Orcs full-002 of 1). The reviewer sandbox failed to initialize, so every lane re-issued its reads with escalation through the auto-review approver; all commands read only the own envelope and the contract. lane-001-1 read through an injected Paseo terminal (killed after harvest) and echoed one identity with an extra character; the host confirmed the typo in the native log, replaced only that string and harvested the corrected bytes (HOST-SURFACE-BOUNDARY-AUDIT identity_echo_corrections, side_effects).",
+    "Two contextual runs of claude/claude-opus-5-5 (core full-000 with the flagged Elvala memoir entry, Ashes full-001 with the flagged wretchling statue lore) read only their envelopes and the contract and were accepted on the first pass.",
+    "The wretchling statue observation was judged OK by the contextual reviewer; the host confirmed it from source because the translation adds an \"agreed to\" the source does not have.",
+    "Mixed batch: 3 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 18 Ashes entries and 1 Orcs entry each matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "2 confirmed repair revisions raise the window 49 backlog from 0 to 2; below the 20 threshold, so no window opens."
+  ]
+}

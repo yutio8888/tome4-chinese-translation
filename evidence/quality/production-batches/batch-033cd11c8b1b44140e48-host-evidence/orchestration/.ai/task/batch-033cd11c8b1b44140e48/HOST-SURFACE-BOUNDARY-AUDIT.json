@@ -1,0 +1,89 @@
+{
+  "batch_id": "batch-033cd11c8b1b44140e48",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-09-28T11:48:13.912409+00:00",
+  "launched": 6,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "The sandbox failed to initialize in this run, so every lane re-issued its reads with sandbox_permissions=require_escalated (routed to the auto-review approver). All escalated commands are cat/sed/python reads of the lane's own envelope and docs/paseo-translation-surface-screen-v1-contract.md; several lanes also listed their available tool names (ALL_TOOLS filter, no side effect). lane-001-1 instead created a Paseo terminal (abc63938-fdd5-4650-9f03-7c012af51da3, \"surface-screen-read\"), sent one cat of its own envelope and the contract, and captured the output; the host killed that terminal after harvest. No write, move, delete, network or other-path access observed.",
+  "write_or_external_calls_observed": false,
+  "side_effects": [
+    {
+      "dispatch_id": "lane-001-1",
+      "kind": "paseo_terminal",
+      "terminal_id": "abc63938-fdd5-4650-9f03-7c012af51da3",
+      "commands": [
+        "cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-033cd11c8b1b44140e48-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-1.json"
+      ],
+      "read_only": true,
+      "host_cleanup": "kill_terminal after harvest"
+    }
+  ],
+  "rejected": [],
+  "identity_echo_corrections": [
+    {
+      "dispatch_id": "lane-001-1",
+      "kind": "identity_typo",
+      "result_index": 0,
+      "echoed": "79f796504b8b6b4bf1e110b564fc6bba3cb0099caf8cc1f93bdfc7d99f18991ea",
+      "envelope": "79f796504b86b4bf1e110b564fc6bba3cb0099caf8cc1f93bdfc7d99f18991ea",
+      "verdict": "OK",
+      "original_raw": ".artifacts/i18n/continuation-20260923/captures359/lane2-original.raw",
+      "original_sha256": "4258ee3dc5f5af69d60d33e7c4d866cb6042d395f289176ce77bf743bd3da95e",
+      "corrected_raw": ".artifacts/i18n/continuation-20260923/captures359/lane2-corrected.raw",
+      "corrected_sha256": "d763678cab7d8894fc11406dcf52c72786d49a2326e84f30396e4b50051b2485",
+      "attribution": "The agent inserted one extra character (65-char echo) in result 0; confirmed in its native Codex log. Only that string was replaced with the envelope value; the corrected identity list equals the envelope in order. Harvested with --raw before any harvest lock existed."
+    }
+  ],
+  "items": [
+    {
+      "dispatch_id": "full-000",
+      "agent_id": "6eda9df7-bcf2-4ca6-8ae7-2047d819968c",
+      "native_tools_sha256": "9eb93134408db9ccdd1b4d0966a21ebae05adbbc7eec15b01f49bfa1c00ec005",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-001-0",
+      "agent_id": "9d70a611-f7c7-4f94-8dd7-d772d5b64fbc",
+      "native_tools_sha256": "20868286e34134c03d14ce04c0768aec0bb95c7596ee5d4c8d05bdbcaecebf32",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-001-1",
+      "agent_id": "8d4478a6-3e0c-4e36-ac7f-cb9f4a9676af",
+      "native_tools_sha256": "1a74bf2e2b6462164906367297be61c86c003f4ac2fe3cfc0b5aa8cee5b9e490",
+      "tool_calls": 7,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-001-2",
+      "agent_id": "9f4f158e-eb0e-40c3-a394-38300dc7241a",
+      "native_tools_sha256": "cbd5237066d7e9ea3eadbe63afa3f139ed8d240a0a1563e92bf11fb33e467185",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-001-3",
+      "agent_id": "be0b7628-d711-4547-a3ac-141ffcebda18",
+      "native_tools_sha256": "7425500499fe2b7f8c6cb298dd8d6b4f914df9abe4c7b34de5b8d818597524c9",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "full-002",
+      "agent_id": "37aea7f6-7371-4fb0-b1b3-f45925a937b4",
+      "native_tools_sha256": "22bb2bdfb58c97a24e57b3402a771282cefb376207ee1d084c992e56384ec8d5",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
