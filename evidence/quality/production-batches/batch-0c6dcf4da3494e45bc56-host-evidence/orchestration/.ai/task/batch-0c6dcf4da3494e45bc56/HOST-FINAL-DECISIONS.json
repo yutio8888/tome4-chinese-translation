@@ -1,0 +1,24 @@
+{
+  "batch_id": "batch-0c6dcf4da3494e45bc56",
+  "observations": 0,
+  "observation_dispositions": {},
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 2,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (2 lanes: surface-000 one main-game full-000 of 1; surface-001 one Ashes full-001 of 1)",
+    "contextual": "none (no deep_required entry)"
+  },
+  "notes": [
+    "Mixed batch of 2 entries (1 core game, 1 Ashes): the window 49 successors. Surface ran as two gpt-6-sol children in two groups (core full-000 of 1, Ashes full-001 of 1) and both returned OK. The reviewer sandbox failed to initialize, so both lanes re-issued their reads with escalation through the auto-review approver; all commands read only the own envelope and the contract, and no Paseo terminal was created.",
+    "No entry was deep_required, so no contextual run was prepared or dispatched; the batch took the surface-only adjudication path (empty decisions array) followed by prepare-evidence. The host read both entries against their source and agreed with the OK verdicts.",
+    "Mixed batch: 1 main-game entry was verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 1 Ashes entry matched the public DLC source file SHA in the workset, with the DLC repository and commit unpinned.",
+    "0 confirmed repair revisions raise the window 50 backlog from 0 to 0; below the 20 threshold, so no window opens."
+  ]
+}
