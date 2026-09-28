@@ -2491,7 +2491,7 @@ i'm sorry karbatha]], [[不，不不，不不不不，不不不不，不！
 ------------------------------------------------
 section "tome-orcs/data/lore/misc.lua"
 
-t("sunwall observatory", "太阳堡垒瞭望台", "newLore category")
+t("sunwall observatory", "太阳堡垒观星台", "newLore category")
 t("an astronomer's journal", "观星者的日志", "_t")
 t([[The strange movement on the far side of Wintertide continues - a shadow here, a tiny speck or flash of light there.  Still obscured and difficult to identify.  Obfuscating magic is likely at work, but whether it's on our end or Wintertide's, I cannot say.
 
