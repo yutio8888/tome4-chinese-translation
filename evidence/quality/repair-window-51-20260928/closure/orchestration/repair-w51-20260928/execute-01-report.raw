@@ -1,0 +1,31 @@
+任务 `repair-w51-20260928` 已完成。
+
+改动：
+
+- `20fa052d...`
+  - 前：`感谢夏·图尔人在最后一刻阻止了你为疯狂的太阳开启传送门，通关ToME。`
+  - 后：`感谢夏·图尔人在最后一刻阻止了你开启通往你那疯狂的太阳主上的传送门，通关ToME。`
+- `59339a8b...`
+  - 前：`- 一个便携式自动材料提取仪。`
+  - 后：`- 一个便携式自动材料提取仪（A.P.E.）`
+
+修改文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:2777)
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:6050)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-51-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-51-20260928/VALIDATION.json)
+
+验证全部通过：
+
+- LuaJIT 加载基线和当前两份译文：恰好 2 条记录变化，且仅 `target` 字段变化。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- `VALIDATION.json` 解析及 evidence 行尾空白检查：通过。
+
+发现但未修改：
+
+- 同一 Orcs 条目的 `Archmages＝元素法师` 属于待定裁决，按范围要求保留。
+- 相邻成就 `Won ToME by closing the Void portal...` 也将 `your mad patron sun` 译为“疯狂的太阳”；该条不在 WORKSET，已记录为 advisory。
+
+未 stage、commit、push，未创建 agent；既有无关未跟踪文件未动。

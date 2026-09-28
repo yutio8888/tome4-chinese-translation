@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w51-20260928",
+  "role": "executor",
+  "baseline_commit": "d11abfc3242aa9fd497e95f5e66d10db7dc137c6",
+  "inputs": {
+    "workset_sha256": "00ee499306b43e3e04bf64a8a6d8cef45d7325d3dfaaaa4a7726f26f5d033235",
+    "source_anchors_sha256": "355aa3d0403b34bdcf521823bafebc88a296fcfab2a9ba0f87edb19f0cab2553",
+    "source_claims_sha256": "d2cd767b77119445cf96b259867086e077cedf8f2e925eec43152ce23f468d2d",
+    "baseline_records_sha256": "44281574f431b2f310260ba74fffe57444f118459e0e81b3cc8a865725fcd619",
+    "term_snapshot_sha256": "625947e861aa995c50052561e2e927187a4dd2a2345407b0881c035156b8e9b3"
+  },
+  "outputs": [
+    {
+      "path": "mod-tome.lua",
+      "sha256": "6755f52765e45abd923f3b1f7e099e9b77614da22b791aeb324398bea00d68d4"
+    },
+    {
+      "path": "tome-orcs.lua",
+      "sha256": "3d15add37856e56d42e23eecb8e31b9e5c39b9a930864a12599e3aa5c654a199"
+    }
+  ],
+  "source_anchor_checks": {
+    "status": "pass",
+    "main_game_repository": "/workspace/t-engine4",
+    "main_game_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "main_game_source_repository_commit_pinned": true,
+    "dlc_source_repository_commit_pinned": false,
+    "checked_dlc_file_count": 1,
+    "literal_sources_match": true
+  },
+  "semantic_load_and_diff": {
+    "loader": "tools.i18nlib.locale_model.LocaleLoader",
+    "files": [
+      {
+        "path": "mod-tome.lua",
+        "baseline_record_count": 22989,
+        "current_record_count": 22989,
+        "changed_target_count": 1
+      },
+      {
+        "path": "tome-orcs.lua",
+        "baseline_record_count": 4202,
+        "current_record_count": 4202,
+        "changed_target_count": 1
+      }
+    ],
+    "changed_target_count": 2,
+    "expected_target_count": 2,
+    "non_target_field_change_count": 0,
+    "other_records_unchanged": true,
+    "newline_checks_pass": true,
+    "tab_structure_unchanged": true,
+    "changed_revision_keys": [
+      "20fa052d6c3f569c56a139a845e16a768b7b1562be6c5e92e0deed27395f1d63",
+      "59339a8b7f5d4c9a282d0997e8f039419658f5295f4ec4ae4a212d1cdc5347ae"
+    ]
+  },
+  "commands": [
+    {
+      "command": "LuaJIT semantic load and baseline comparison for mod-tome.lua and tome-orcs.lua",
+      "exit_code": 0,
+      "result": "exactly 2 target changes; all other records and non-target fields unchanged"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "residual_findings": [
+    {
+      "revision_key": "59339a8b7f5d4c9a282d0997e8f039419658f5295f4ec4ae4a212d1cdc5347ae",
+      "status": "advisory",
+      "text": "The existing Archmages = 元素法师 wording remains unchanged because that naming decision is explicitly outside this window."
+    },
+    {
+      "revision_key": null,
+      "status": "advisory",
+      "text": "An adjacent non-WORKSET achievement target renders your mad patron sun as 疯狂的太阳; it was not modified."
+    }
+  ],
+  "unresolved_in_scope_findings": [],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}
