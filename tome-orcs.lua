@@ -496,9 +496,9 @@ I would like to talk to you.]], [[#LIGHT_GREEN#*在你面前站着一位引人�
 t("Yes?", "嗯？", "_t")
 t("Your clan is free Metash, the tyrant is no more.", "梅塔什，你的氏族被解放了，暴君已经不复存在。", "_t")
 t("Not now.", "暂时不用。", "_t")
-t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea for help.  An incredible magical force has awakened within one of our elders, Nektosh the One-Horned, and he has gone mad with its power.  Those who stood up against him were reduced to less than ashes by a beam from his horn, a beam that tunneled far up through the rock above him until we could see the sky.  He has convinced some of us that he can use this terrible force to conquer Eyal and terrified others into going along with him; he has announced that his first step will be to lead his followers in an attack on Kruk Pride.", "克鲁克部落的软蹄者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下化为灰烬。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。", "_t")
+t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea for help.  An incredible magical force has awakened within one of our elders, Nektosh the One-Horned, and he has gone mad with its power.  Those who stood up against him were reduced to less than ashes by a beam from his horn, a beam that tunneled far up through the rock above him until we could see the sky.  He has convinced some of us that he can use this terrible force to conquer Eyal and terrified others into going along with him; he has announced that his first step will be to lead his followers in an attack on Kruk Pride.", "克鲁克部落的软脚者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下连灰烬都没剩下；那道射线向上贯穿了他头顶的岩层，一直打通到我们能看见天空。他让我们中的一些人相信，他能用这股可怕的力量征服埃亚尔，又恐吓其余族人随他同行。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。", "_t")
 t("[listen]", "[听他说话]", "_t")
-t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都跑了，藏身在洞穴中……凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及……软蹄者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。", "_t")
+t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都已逃走，藏身在半岛各处的洞穴里……凭良心说，我不能为了我们，要求你在他的魔法面前直面必死的命运；但抢先出手或许是拯救你族人的唯一办法。他似乎在拖延入侵，为你争取了一些时间，但如果你不能在他最终发起进攻之前打他个措手不及……软脚者，我曾亲眼看见他的力量像穿过一片树叶一样洞穿山脉。面对那种魔法，不可能取胜。快跑，躲起来，祈祷他遭遇意外，或者失去仍让他能够施法的最后一丝理智吧。", "_t")
 t("I will check it out", "我要去看看", "_t")
 t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次，我们被外人的友善所拯救。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
 t("Thanks.", "多谢。", "_t")
@@ -1339,7 +1339,7 @@ t("%s incendiary groove", "%s 燃烧油槽", "tformat")
 t("Deals fire damage and ignites the ground.", "造成火焰伤害，点燃大地。", "_t")
 t("burn your foe dealing %d damage and igniting the ground for 4 turns", "灼烧敌人，造成%d伤害，并点燃地面4回合。", "tformat")
 t("BELT", "腰带", "entity on slot")
-t("%s thunder grenade", "%s 闪电榴弹", "tformat")
+t("%s thunder grenade", "%s 雷鸣榴弹", "tformat")
 t("weapon", "武器", "entity type")
 t("steamgun", "蒸汽枪", "entity subtype")
 t("Payload", "有效载荷", "entity name")
@@ -1707,7 +1707,7 @@ t("15% chance to pin the target", "15% 几率定身", "_t")
 t("Frostbite", "霜咬", "entity name")
 t("icy steamsaw", "冰冷的蒸汽链锯", "_t")
 t("Fashioned from magical ice, and perfect for carving ice - especially ice with someone else inside it.", "由魔法冰制成，非常适合雕刻冰块——尤其是里面冻着人的冰块。", "_t")
-t("The Lumberator", "播种机", "entity name")
+t("The Lumberator", "伐木机", "entity name")
 t("vined coated steamsaw", "爬满藤蔓的蒸汽链锯", "_t")
 t("\"Spread the wonders of nature even quicker than ever with this seed injecting steamsaw! Your former enemies will be freshly grown trees before you even know it!\"", "“这台能注射种子的蒸汽链锯，能以前所未有的速度传播自然的奇迹！转眼之间，你昔日的敌人就会变成一棵棵新长出的树！”", "_t")
 t("summon a treant (5 turn cooldown)", "召唤一个树人（5回合冷却）", "_t")
@@ -2422,9 +2422,9 @@ He was not our only necromancer, but the idea was still nearly unthinkable...  u
 
 We reluctantly agreed, and he prepared the spells and potions needed to keep us mostly as we were, but bereft of life.  Preserved, strong, even feeling and smelling when most liches could not..  but still cut off from Nature's gifts entirely, and still incapable of bearing young.  This generation would not age to death, but it would nonetheless be our last.  He volunteered to be the last one, only instructing another of us on how to convert him once all of us had been treated...  Whether it was because the infection had more time to fester within him, or because of what he suffered through in his sister's tent, Nektosh has never really been the same since then.
 
-In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们不知道这些他们对我们的敌意究竟是从哪里来的…如果要我猜的话，恐怕在那些软蹄族的眼里，我们只是住进他们储藏室和军械库的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在多年的迫害中，我们也形成了一种同样强烈的本能，驱使我们前往地下的安全之处（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至可能不会变老。大多数找到安全栖息地的米诺陶部族——那里充盈了魔法，充满了狭窄黑暗的漫长通道，让软蹄族不会大举深入——发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有意志让我们与众不同，然而这份意志也在渐渐淡去。某种意义上，也许后来发生在我们身上的事，真的算是一种祝福。
+In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们不知道这些他们对我们的敌意究竟是从哪里来的…如果要我猜的话，恐怕在那些软脚族的眼里，我们只是住进他们储藏室和军械库的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在漫长岁月的迫害中，我们也形成了一种同样强烈的本能，驱使我们前往地下的安全之处（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至可能不会变老。大多数找到安全栖息地的米诺陶部族——那里充盈了魔法，充满了狭窄黑暗的漫长通道，让软脚族不会大举深入——发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有意志让我们与众不同，然而这份意志也在渐渐淡去。某种意义上，也许后来发生在我们身上的事，真的算是一种祝福。
 
-我不知道那是多久以前，当时我们并没有记录自己的历史，而之后的我们则面临了生存的紧迫危机。总之，在某一天，当我们穿行在无尽的洞穴和隧道组成的迷宫之中，我们感受到了一个新的家园，那是比我们过去所感受到的一切更加美好的乐土。那里的魔法…真是太美妙了！它…好吧，我知道你们的语言里没有可以这样形容的词汇，也许“尝起来”会是一个比较合适的比喻…和我们过去所吸收的一切能量都不同。那份魔力丰盛而充盈，深深浸入我们的疲惫的身躯之中。我们完全不需要停下休息，这种力量让我们的身体充满活力，返老还童…所以，我们在这份力量的吸引之下，顺着长长的通道继续走向大地的深处，不知道走过了多长的距离。恐怕，我们甚至在地下走过了整片大陆，甚至更长的距离。我们欣喜雀跃，对尽头等待着我们的到底是什么充满了期待。
+我不知道那是多久以前，当时我们并没有记录自己的历史，而之后的我们则面临了生存的紧迫危机。总之，在某一天，当我们穿行在无尽的洞穴和隧道组成的迷宫之中，我们感受到了一个新的家园，那是比我们过去所感受到的一切更加美好的乐土。那里的魔法…真是太美妙了！它…好吧，我知道你们的语言里没有可以这样形容的词汇，也许“尝起来”会是一个比较合适的比喻…和我们过去所吸收的一切能量都不同。那份魔力丰盛而充盈，深深浸入我们的疲惫的身躯之中。我们完全不需要停下休息，这种力量让我们始终精神焕发…所以，我们在这份力量的吸引之下，顺着长长的通道继续走向大地的深处，不知道走过了多长的距离。恐怕，我们甚至在地下走过了整片大陆，甚至更长的距离。我们欣喜雀跃，对尽头等待着我们的到底是什么充满了期待。
 
 要是我们当时就注意到，自己感受到的并不是恢复的力量，该多好。
 
@@ -2440,7 +2440,7 @@ In a cruel twist of fate, we found what would have been paradise not long after 
 
 我们不情愿地接受了这一切，他开始准备仪式所需要的药剂和魔法。这些东西可以让我们和还活着的时候几乎一模一样，但是不再有生命在我们的身躯中流动。我们的身体仍然坚韧，强壮，甚至保有触觉和嗅觉，这是大部分的巫妖都做不到的……然而，我们将永远与自然恩赐的力量绝缘，也不再能够培育新的后代。我们的这一世代将不会因衰老而死亡，但也将成为我们的末裔。他自愿最后一个接受转化，只把如何为他举行转化仪式的方法教给了我们中的另一个人，等所有人都完成转化后，才开始自己的仪式……或许是因为那种枯萎感染的力量在他体内潜伏滋长得更久，或许是因为他在妹妹卡巴萨的帐篷里所经历的痛苦，从那以后，纳克托什就再没真正恢复原样。
 
-命运的转折是残酷的。在我们的逃离之后不久，我们就找到了一片充满魔法力量的场所，魔法洞穴——那本应该是我们所日夜希求的乐土，但我们和过去还活着的时候相比，只需要原来十分之一的魔法力量就可以存活。尽管如此，这里还是成为了我们的家园，一直持续下去……大部分软蹄族都会冲进这些山洞，把我们像害虫一样扫除，但克鲁克部落以尊重和尊严对待我们，这恐怕是任何米诺陶或不死生物都未曾得到过的待遇（更不用说两者的结合了）。我们仍然是深居简出的种族，而我们现在的状态，让我们更没有理由需要与他们交易……然而，他们是我们有史以来最接近朋友的存在，而我猜此刻对他们来说，我们也是如此。]], "_t")
+命运的转折是残酷的。在我们的逃离之后不久，我们就找到了一片充满魔法力量的场所，魔法洞穴——那本应该是我们所日夜希求的乐土，但我们和过去还活着的时候相比，只需要原来十分之一的魔法力量就可以存活。尽管如此，这里还是成为了我们的家园，一直持续下去……大部分软脚族都会冲进这些山洞，把我们像害虫一样扫除，但克鲁克部落以尊重和尊严对待我们，这恐怕是任何米诺陶或不死生物都未曾得到过的待遇（更不用说两者的结合了）。我们仍然是深居简出的种族，而我们现在的状态，让我们更没有理由需要与他们交易……然而，他们是我们有史以来最接近朋友的存在，而我猜此刻对他们来说，我们也是如此。]], "_t")
 t("a transcribed speech", "记载的一份演说", "_t")
 t([[Men and women of the Krimbul Clan!  I come before you today because with my awakening shall come a greater destiny, one we shall all share.  The dawn of a new age is at hand, and it would do you no good to sleep through it.  Allow me to open your eyes, before I lead you to our ultimate destiny!
 
@@ -4758,7 +4758,7 @@ t([[By sending a stream of hot steam over your bullets you overheat them. For th
 		接下来的 %d 回合内，你的子弹会点燃目标，在 5 回合内造成 %0.2f 火焰伤害（大多数射击技能一次发射两枚弹药）。
 		伤害随蒸汽强度提高。
 		一次只能使用一种弹药强化能力。]], "tformat")
-t("Supercharge Bullets", "超速子弹", "talent name")
+t("Supercharge Bullets", "增压子弹", "talent name")
 t([[You are able to polish your bullets so well they can go through multiple targets for %d turns.
 		This also improves their armour penetration by %d.
 		Only one bullet enhancement can be used at once.]], [[精心打磨子弹，接下来的 %d 回合内，你的子弹能够穿透多个目标。
@@ -4937,7 +4937,7 @@ t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
 		Current bonus: %d%%.]], [[狩猎的快感令你精神焕发。半径 %d 内每有一个敌人，你获得 20%% 移动速度（最多 %d%%）。
 		当前加成：%d%%。]], "tformat")
-t("Awesome Toss", "致命翻转", "talent name")
+t("Awesome Toss", "华丽抛枪", "talent name")
 t("You require two steamguns for this talent.", "你需要两把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[In an awesome feat of agility and technological prowess, you toss both of your steamguns in the air, causing them to spin madly for 3 turns.
 		Each turn, they will fire twice at random targets in range, dealing %d%% weapon damage.
@@ -4949,9 +4949,8 @@ t([[In an awesome feat of agility and technological prowess, you toss both of yo
 t("Dazzling Jump", "炫目大跳", "talent name")
 t("%s seems immune to the powerful kick.", "%s对强力的踢腿免疫。", "logSeen")
 t([[While your foes are distracted by your Awesome Toss, you use powerful steam motors to jump into the air and kick a target %d tiles away.
-		The impact is so great that it ripples outwards, slowing all creatures in radius 3 by %d%% for 4 turns while the reaction force propels you %d tiles backwards.]], [[当你的敌人被致命翻转吸引时，你启动强力的蒸汽引擎，跳向空中，将目标踢走 %d 码。
-		这次攻击冲击力非常大，半径 3 以内所有生物将被减速 %d%%，持续 4 回合。
-		反冲力也让你后退 %d 码。]], "tformat")
+		The impact is so great that it ripples outwards, slowing all creatures in radius 3 by %d%% for 4 turns while the reaction force propels you %d tiles backwards.]], [[当你的敌人被华丽抛枪吸引时，你启动强力的蒸汽引擎，跳向空中，将目标踢走 %d 码。
+		这次攻击冲击力非常大，半径 3 以内所有生物将被减速 %d%%，持续 4 回合，同时反冲力让你后退 %d 码。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/engineering.lua"
@@ -5405,8 +5404,8 @@ t("The medical urgency vest allows using therapeutics with %d%% efficiency and c
 t("Life Support", "生命支持系统", "talent name")
 t("#LIGHT_BLUE#Life Support Suit selected to be used first by salves.", "#LIGHT_BLUE#已将生命支持服设置为药剂的首选注射器。", "saySimple")
 t("The life support suit allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.", "生命支持服能以 %d%% 的效率使用药物，冷却时间修正为 %d%%。", "tformat")
-t("Create Tinker", "制造道具", "talent name")
-t("Allows you to create tinkers.", "使用该技能来制造药剂、附着物等道具。", "_t")
+t("Create Tinker", "制造蒸汽工具", "talent name")
+t("Allows you to create tinkers.", "允许你制造蒸汽工具。", "_t")
 t("Weapon Automaton: One Handed", "武装机器人：单手模式", "talent name")
 t("You cannot use %s without a one handed melee weapon in your inventory!", "你的物品栏里面没有单手武器，无法使用%s！", "logPlayer")
 t("Select a weapon for your Automaton", "选择用于武装机器人的武器", "_t")
@@ -5524,7 +5523,7 @@ t([[Throw a handful of dust that is very itchy to touch.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
 		锥形半径 %d 码内的生物 %d 回合内很痒，导致它们释放技能 %d%% 几率失败。
 		致痒强度受蒸汽强度加成。]], "tformat")
-t("Thunder Grenade", "闪电榴弹", "talent name")
+t("Thunder Grenade", "雷鸣榴弹", "talent name")
 t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
 		Creatures hit will also be stunned for %d turns.
@@ -5537,9 +5536,9 @@ t([[You activate hidden springs to project a saw towards your foes.
 		The damage increases with your Steampower.]], [[你启动隐藏的弹簧，向敌人射出一片锯刃。
 任何被光束命中的生物都会受到 %0.2f 点物理伤害，并在 5 回合内额外受到相当于一半伤害的流血伤害。
 伤害随蒸汽强度提高。]], "tformat")
-t("Voltaic Bolt", "闪电球", "talent name")
+t("Voltaic Bolt", "伏特电箭", "talent name")
 t([[Fires a bolt of lightning, doing %0.2f lightning damage.
-		The damage will increase with your Steampower.]], [[释放一个闪电球，造成 %0.2f 闪电伤害。
+		The damage will increase with your Steampower.]], [[发射一枚闪电箭，造成 %0.2f 闪电伤害。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Voltaic Sentry", "伏特守卫", "talent name")
 t("volatic sentry", "伏特守卫", "_t")
@@ -5701,11 +5700,11 @@ t([[Allows you to create mechanical tinkers of level %d.
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
-t("Electricity", "电子", "talent name")
+t("Electricity", "电力", "talent name")
 t([[Allows you to create electrical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的电子蒸汽工具。
+		%s]], [[允许你制造 %d 等级的电力蒸汽工具。
 		你将在 1 级时学会一个新配方。
 		此后每升一级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会一个（除非已学会全部配方）。
 		%s]], "tformat")
@@ -6045,11 +6044,11 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 
 		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。
 		当你选择这一项进阶职业的时候，你获得以下能力：
-		- 奥术发电机插件配方
-		- 蒸汽/物理系 （已解锁）
-		- 蒸汽/化学系 （未解锁）
+		- 奥术发电机蒸汽工具配方
+		- 蒸汽科技/物理系 （已解锁）
+		- 蒸汽科技/化学系 （未解锁）
 		- 一个便携式自动材料提取仪。
-		- 1级铁匠技能，2级机械和电子技能。
+		- 1级铁匠技能，2级机械和电力技能。
 		- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电
 		- 法术/科技法术：寒岩系 （未解锁）- 使用土和水
 		- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术
@@ -6326,8 +6325,8 @@ t("Bullet Mastery: Overheated", "子弹掌握：过热", "_t")
 t("Bullets shot are overheated:  When striking their target, they set it on fire for %d fire damage over 5 turns", "发射的子弹处于过热状态：命中目标时会将其点燃，在 5 回合内造成 %d 点火焰伤害。", "tformat")
 t("#Target# tweaks some of %s bullets.", "#Target#调整了%s弹药。", "tformat")
 t("+Bullet Mastery", "+子弹掌握", "_t")
-t("Bullet Mastery: Supercharged", "子弹掌握：超速", "_t")
-t("Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.", "子弹处于超速状态：能够穿透多个目标，同时提高护甲穿透 %d 点。", "tformat")
+t("Bullet Mastery: Supercharged", "子弹掌握：增压", "_t")
+t("Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.", "子弹经过增压：能够穿透多个目标，同时提高护甲穿透 %d 点。", "tformat")
 t("Bullet Mastery: Percussive", "子弹掌握：冲击", "_t")
 t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：%d%% 概率击退，%d%% 概率震慑。", "tformat")
 t("Bullet Mastery: Combustive", "子弹掌握：爆炸", "_t")
@@ -6453,7 +6452,7 @@ t("Fire resistance decreased by %d%% and mind save by %d.", "火焰抗性下降 
 t("#Target# is seared.", "#Target# 烧焦了。", "_t")
 t("#Target# is no longer seared.", "#Target# 不再烧焦。", "_t")
 t("awesome", "惊人", "effect subtype")
-t("Awesome Toss", "致命翻转", "_t")
+t("Awesome Toss", "华丽抛枪", "_t")
 t("All resistances increased by %d%%, randomly attacks two foes each turn at random.", "全部抗性提高 %d%%，两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械。", "tformat")
 t("#Target# tosses steamguns in the air, awesome!", "#Target#将蒸汽枪抛向空中，太帅了！", "_t")
 t("#Target# somehow catches the falling steamguns.", "#Target#不知怎么竟接住了落下的蒸汽枪。", "_t")
@@ -6677,7 +6676,7 @@ t("Ablative Armour", "烧蚀装甲", "_t")
 t("Reinforcing your armour with explosions isn't as crazy as it sounds!  Adds armor and resists very large hits.", "使用爆炸物强化你的护甲？完全有可能！这种特殊的涂层能够增加你的护甲值并缓冲特别大的伤害。", "_t")
 t("Incendiary Groove", "燃烧油槽", "_t")
 t("A special reservoir seeps liquid fire onto the weapon, adding fire damage and setting the ground on fire when you hit.", "一个特殊的储藏罐将可燃的液体灌入武器的槽中，让它的攻击附带火焰伤害并在击中时在地上留下火焰。", "_t")
-t("Thunder Grenade", "闪电榴弹", "_t")
+t("Thunder Grenade", "雷鸣榴弹", "_t")
 t("Small radius, but stuns quite well.", "爆炸范围不大，但是震慑效果不错。", "_t")
 t("Steamgun: Payload", "蒸汽枪：有效载荷", "_t")
 t("The pinnacle of steamguns technology. Critical strikes with this gun will feel like a massive explosion of flames! And it actually will be one!", "蒸汽枪技术的巅峰之作。用这把枪暴击就像发射出一团爆炸的大火球！而且真的会有大火球被发射出来！", "_t")

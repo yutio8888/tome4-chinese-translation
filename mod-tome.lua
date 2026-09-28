@@ -6881,7 +6881,7 @@ t("diseased", "感染疾病", "_t")
 t("poxed", "感染瘟疫", "_t")
 t("infected", "被感染", "_t")
 t("plagued", "感染瘟毒", "_t")
-t("debilitated by noxious blight before falling", "死前吸入过多剧毒瘴气", "_t")
+t("debilitated by noxious blight before falling", "被剧毒枯萎折磨得虚弱不堪", "_t")
 t("fouled", "被玷污", "_t")
 t("tainted", "被污染", "_t")
 t("light", "光系", "damage type")
@@ -6906,7 +6906,7 @@ t("temporally distorted", "被时空扭曲", "_t")
 t("spaghettified across the whole of space and time", "被时空之力拉成了面条", "_t")
 t("paradoxed", "遇到时空异常", "_t")
 t("replaced by a time clone (and no one ever knew the difference)", "被一个时间克隆体取代（其他人均不会感到任何差别）", "_t")
-t("grandfathered", "因弹指间度过了无数美好的青葱岁月，转瞬间你已白发苍苍", "_t")
+t("grandfathered", "被祖父悖论抹去", "_t")
 t("time dilated", "因时间膨胀", "_t")
 t("temporal stun", "时空震慑", "damage type")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
@@ -6973,7 +6973,7 @@ t("%s resists the time prison.", "%s抵抗了时间牢笼。", "logSeen")
 t("confusion", "混乱", "damage type")
 t("% chance of confusion", "%几率造成混乱", "damage type")
 t("% chance of gloom effects", "%几率随机黑暗效果", "damage type")
-t("item darkness numbing", "物品黑暗麻木", "damage type")
+t("item darkness numbing", "物品暗影麻木", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to reduce damage dealt by #YELLOW#%d%%#LAST#%s", "* #LIGHT_GREEN#%d%%#LAST#几率降低#YELLOW#%d%%#LAST#伤害%s", "tformat")
 t("item expose", "物品暴露", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to reduce all saves and defense by #YELLOW#%d#LAST#%s", "* #LIGHT_GREEN#%d%%#LAST#几率降低#YELLOW#%d#LAST#闪避和豁免%s", "tformat")
@@ -8447,7 +8447,7 @@ section "mod-tome/data/general/npcs/minor-demon.lua"
 
 t("demon", "恶魔", "entity type")
 t("minor", "小恶魔", "entity subtype")
-t("fire imp", "火魔婴", "entity name")
+t("fire imp", "火焰小鬼", "entity name")
 t("A small demon, lobbing spells at you.", "一只小恶魔，它向你发射法术。", "_t")
 t("wretchling", "小劣魔", "entity name")
 t("Acid oozes all over this small demon's skin.  Beware, they tend to hunt in packs.", "酸液从这只小恶魔的身体上渗出。当心，它们喜欢群体行动。", "_t")
@@ -9252,7 +9252,7 @@ t("Petrified Wood", "硅化木", "entity name")
 t("red", "红色", "entity subtype")
 t("burned piece of wood", "烧毁的木头残片", "_t")
 t("A piece of the scorched wood taken from the remains of Snaproot.", "取自远古树精遗骸的一块烧焦的木头。", "_t")
-t("Crystal Shard", "水晶之杖", "entity name")
+t("Crystal Shard", "碎晶", "entity name")
 t("crystalline tree branch", "水晶般的树枝", "_t")
 t("This crystalline tree branch is remarkably rigid, and refracts light in myriad colors. Gazing at it entrances you, and you worry where its power may have come from.", "这根水晶树枝异常坚硬，折射出万千色彩的光芒。凝视着它会让你入迷，同时你会担心它的力量究竟来自何处。", "_t")
 t("create 2 living shards of crystal to serve you for 10 turns", "制造两片活的水晶体来为你服务10回合。", "_t")
@@ -11437,8 +11437,8 @@ t("rogues do it from behind", "盗贼在你身后", "entity name")
 t("A poem written for a rogue?", "一首写给某个盗贼的诗歌？", "_t")
 t("how to become a necromancer, part %d", "如何成为死灵法师，第%d章", "tformat")
 t("How to become a powerful Necromancer!", "如何成为强大的死灵法师！", "_t")
-t("\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys", "“尘归尘”，不死猎人指南，作者：阿斯拉伯·波利斯", "entity name")
-t("An undead hunter's guide, by Aslabor Borys.", "不死猎人指南，作者：阿斯拉伯·波利斯。", "_t")
+t("\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys", "“尘归尘”，亡灵猎手指南，作者：阿斯拉伯·波利斯", "entity name")
+t("An undead hunter's guide, by Aslabor Borys.", "亡灵猎手指南，作者：阿斯拉伯·波利斯。", "_t")
 t("Rolf", "罗尔夫", "_t")
 t("Weisman", "魏斯曼", "_t")
 t("letter to %s (%d)", "给%s的信 (%d)", "tformat")
@@ -12764,7 +12764,7 @@ t("Amethyst of Sanctuary", "庇护的紫水晶", "entity name")
 t("deep purple gem", "深紫色灵晶", "_t")
 t("This bright violet gem exudes a calming, focusing force. Holding it, you feel protected against outside forces.", "这颗明亮的紫色宝石渗透出宁静、专注的力量，当你紧握它时，你可以感受到它保护你与外界力量隔绝。", "_t")
 t("Reduce damage from attackers more than 3 tiles away by 25%", "来自3格外的敌人造成的伤害降低25%。", "_t")
-t("Sceptre of the Archlich", "死灵权杖", "entity name")
+t("Sceptre of the Archlich", "大巫妖权杖", "entity name")
 t("bone carved sceptre", "白骨雕刻的权杖", "_t")
 t("This sceptre, carved of ancient, blackened bone, holds a single gem of deep obsidian. You feel a dark power from deep within, looking to get out.", "这根权杖以古老的焦黑骨骼雕刻而成，镶嵌着一颗深邃的黑曜石。你感受到内部深处有一股黑暗力量呼之欲出。", "_t")
 t("#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!", "#LIGHT_BLUE#你感到权杖的力量流过你的亡灵之躯！", "logPlayer")
@@ -13186,7 +13186,7 @@ t("This robe was formerly owned by Callister the Psion, a powerful Psionic that 
 t("Increases your solipsism threshold by 20% (if you have one). If you do, also grants 15% global speed when worn.", "增加 20% 唯我临界点（如果你有的话）。若有，穿戴时还将获得 15% 全局速度。", "_t")
 t("#RED#You feel yourself lost in the aura of the robe.", "#RED#你觉得你在长袍的光环中迷失了。", "logPlayer")
 t("#RED#The robe drapes comfortably over your doomed body.", "#RED#长袍舒服地披在你被诅咒的身躯上。", "logPlayer")
-t("Exiler", "放逐", "entity name")
+t("Exiler", "放逐者", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
 In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯闻名于整个埃亚尔。他总是抓住了他的敌人落单之时。\n即使对手不是独自一人，他也能临场发挥。", "_t")
 t("insignia ring", "徽记戒指", "_t")
@@ -15870,7 +15870,7 @@ But by the names they kill]], [[北方来了一射手，
 尽管传闻仍未停息；
 盗贼不以姓名事迹闻名，
 只以被他杀死者之名传世。]], "_t")
-t("Dust to Dust", "土归土", "_t")
+t("Dust to Dust", "尘归尘", "_t")
 t([[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#
 
 So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it.
@@ -15943,7 +15943,7 @@ Once a powerful necromancer finally crosses the border between life and death, t
 
 As to how to actually destroy one? Well, tell you what. If you manage to defeat one of these abominations, be a dear and write a guide for me, for I have absolutely, positively, no idea.
 
-    * * *]], [[#{italic}#一名不死生物猎人的指南 作者：阿斯拉伯·波利斯#{normal}#
+    * * *]], [[#{italic}#亡灵猎手指南，作者：阿斯拉伯·波利斯#{normal}#
 
 这么说，我如今也成传奇人物了。哈，不过是用大槌敲掉一个吸血鬼的脑袋，转眼就有人把我和图库纳、米雯尼雅相提并论。最近越来越多的新手冒险者跑来问我，该怎样对付不死生物。我的第一反应，是叫他们回家当面包师、园丁，随便做点别的。打架还得看小抄，显然就不是这块料。
 
@@ -18147,7 +18147,7 @@ All corners of Maj'Eyal show some trace of different types of dragons. The Daika
 
 Attacks from dragons on humans and halfling settlements are fairly rare, but when they occur they can be truly devastating. Usually they are to feed on livestock, but now and then come attacks from newly matured drakes, seeking out precious metals and gemstones to build up a hoard. Dragon hoards have become a thing of legend, with the greatest wyrms rumoured to protect literal mountains of gold, but in modern times truly sizeable hoards are rare. The dwarves farmed hoarding dragons almost to extinction in the Age of Allure, and most dragons these days retain only modest treasures in their lairs.
 
-Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[一般人也许会嘲笑我把龙作为单独列出的智慧种族，但是经验丰富的龙战士们知道其实不然。龙族是另人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最狡猾和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。
+Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[一般人也许会嘲笑将龙归为智慧种族的想法，但是经验丰富的龙战士们知道其实不然。龙族是令人难以置信的长寿生命，某些已知的龙族已经存活了数千年之久。尽管在他们早期的生命中，他们兽性的一面比较多，但是随着他们生活几个世纪以后，他们会获得前所未有的超强理解力。那些远古巨龙有时被认为是马基·埃亚尔最精明和富有智慧的生物，他们拥有心灵沟通和优秀的精神能力，并且龙战士们始终对龙族有着最崇高的敬意。
 
 龙族有着不同的大小和形状，一般常见于5英尺长的幼仔到20英尺长的成年龙族，某些最强大的龙族体长能超过40英尺。他们通常是带翅膀的、有着蜥蜴般的巨口，前后肢都生有锋利的巨爪。他们通常有着鲜艳色彩的鳞片，通常代表与埃亚尔某种元素的亲和。这种亲和力在任何其他种族都未曾出现过，有些学者认为，龙族先于其他一切种族存在，是在世界之初作为自然元素的原初具现而形成的。然而这个理论可能只是源于某些研究龙族太久的龙战士的狂热妄想。
 
@@ -18317,7 +18317,7 @@ Now to Nature you are dust"]], [[厄流纪崛起一位大法师
 你的信念转向了奥术之器
 如今你已归于尘土”]], "_t")
 t("dreamscape", "梦境空间", "newLore category")
-t("If I Should Die Before I Wake", "从噩梦中惊醒，还是在梦魇中永眠？", "_t")
+t("If I Should Die Before I Wake", "若我死于醒来之前", "_t")
 t([[You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. 
 As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.
 They all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. 
@@ -18442,7 +18442,7 @@ Welcome to Point Zero, agent. Enclosed are timespace coordinates to what is, qui
 
 [i]-Galsamae[/i]
 
-PS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless "he" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition.]], [[女士们先生们，恭喜你。无论是你受到了邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在你失败时不断重试，能够通过预知结果来节约时间，甚至在调查发生前就看到结果。尽管我们的能力被限制在魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将近乎无所不能。
+PS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless "he" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition.]], [[女士们先生们，恭喜你。无论是你受到了邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在失败时重置时间、再来一次，能够在调查进行之前预见其结果、从而节省时间。尽管我们的能力被限制在魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将近乎无所不能。
 
 不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪那套由因果相互依存的暴政搭成的纸牌屋体系，同时还不能让矮人一族因此灭绝；结果就在一切眼看近乎完美的时候，一场瘟疫偏偏爆发了，毁掉你满盘的计划——而且这已经是第六次了——很快你也会丧失耐心的。
 
@@ -22942,8 +22942,8 @@ t([[Feed on the pain you cause your foes.
 ------------------------------------------------
 section "mod-tome/data/talents/corruptions/scourge.lua"
 
-t("Virulent Strike", "撕裂", "talent name")
-t("You cannot use Virulent Strike without two weapons!", "你需要两把武器来使用撕裂技能！", "logPlayer")
+t("Virulent Strike", "恶疫打击", "talent name")
+t("You cannot use Virulent Strike without two weapons!", "你需要两把武器来使用恶疫打击技能！", "logPlayer")
 t("Strike the target with both weapons dealing %d%% damage with each hit.  Each strike that hits will increase the duration of the lowest duration disease effect by %d.", "向目标挥舞两把武器，每次攻击造成 %d%% 伤害，每次命中都会使目标身上持续时间最短的疾病效果的持续时间延长 %d 回合。", "tformat")
 t("Ruin", "毁伤", "talent name")
 t([[Concentrate on the corruption you bring, enhancing each of your melee strikes with %0.2f blight damage (which also heals you for %0.2f each hit).
@@ -27389,7 +27389,7 @@ t([[Manipulate forces on the molecular level to realign, rebalance, and synergiz
 		你装备的每一件武器都会提升 %d 的命中和伤害。灵晶不能被调整，因为他们已经是完美的自然形态。
 		你所穿的躯干护甲与所持的盾牌，每有一件便增加你 %d 护甲，同时减少 %d 疲劳。
 		该技能效果受精神强度影响。]], "tformat")
-t("Matter is Energy", "宝石能量", "talent name")
+t("Matter is Energy", "物能转化", "talent name")
 t("Use which gem?", "使用哪颗宝石？", "_t")
 t([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various bonds and particles involved are just too numerous and complex to make the conversion feasible in most cases. The ordered, crystalline structure of a gem, however, make it possible to transform a small percentage of its matter into usable energy.
 		This talent consumes one gem and grants %d psi per turn for between 5 and 13 turns, depending on the quality of the gem used.
@@ -29620,12 +29620,12 @@ t("Staff Mastery", "法杖掌握", "talent name")
 t("Increases weapon damage by %d%% and physical power by 30 when using staves.", "使用法杖时，增加 %d%% 法杖伤害，同时增加 30 物理强度。", "tformat")
 t("Defensive Posture", "闪避姿态", "talent name")
 t("Adopt a defensive posture, increasing your Defense and Armour by %d.", "采取闪避姿态，增加你 %d 点闪避和护甲值。", "tformat")
-t("Blunt Thrust", "钝器挥击", "talent name")
+t("Blunt Thrust", "法杖突刺", "talent name")
 t("You cannot use Blunt Thrust without a staff weapon!", "你需要一把法杖来施展该技能！", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hit a target for %d%% melee damage and stun it for %d turns.
 		Stun chance will improve with Spellpower.
-		At level 5, this attack cannot miss.]], [[挥动法杖对目标造成 %d%% 近程伤害并震慑目标 %d 回合。
+		At level 5, this attack cannot miss.]], [[以法杖击打目标，造成 %d%% 近程伤害并震慑目标 %d 回合。
 		震慑概率受法术强度加成
 		在等级 5 时，此攻击必中。]], "tformat")
 
