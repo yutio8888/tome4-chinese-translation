@@ -815,6 +815,23 @@ def _native_text(content, kind):
     return content[0]['text']
 
 
+_CODEX_ROLLOVER = re.compile(r'<environment_context>\n  <current_date>(\d{4}-\d{2}-\d{2})</current_date>\n.*</environment_context>',
+                             re.DOTALL)
+
+
+def _codex_date_rollover(records, i, contexts):
+    """A mid-turn date change: Codex injects one <environment_context> user block, then a
+    partial world_state that only updates the date. It is not a new user prompt."""
+    content = records[i]['payload'].get('content')
+    if not (contexts and i > contexts[0] and isinstance(content, list) and len(content) == 1
+            and isinstance(content[0], dict) and content[0].get('type') == 'input_text'
+            and i + 1 < len(records) and records[i + 1].get('type') == 'world_state'):
+        return False
+    m = _CODEX_ROLLOVER.fullmatch(content[0].get('text') or '')
+    world = records[i + 1].get('payload')
+    return bool(m) and world == {'full': False, 'state': {'environments': {'current_date': m.group(1)}}}
+
+
 def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_success=False):
     """Pure bounded parser: no filesystem, journal, agent calls or hidden-text output.
 
@@ -861,7 +878,7 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
                         'unsupported Codex response item')
                 if q['type'] == 'message':
                     require(q.get('role') in ('developer', 'user', 'assistant'), 'unknown Codex message role')
-                    if q['role'] == 'user': users.append(i)
+                    if q['role'] == 'user' and not _codex_date_rollover(records, i, contexts): users.append(i)
                     if q['role'] == 'assistant':
                         require(q.get('phase') in ('commentary', 'final_answer'), 'unknown assistant phase')
                         if q['phase'] == 'final_answer': finals.append(i)
@@ -1021,9 +1038,18 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
             require(uid not in chain, 'cyclic Claude parent chain')
             chain.add(uid)
             uid = nodes[uid][1]['parentUuid']
+        # Parallel tool calls: Claude may log a later tool_use block of the same API
+        # message as a side branch (same message id, parent on the chain).
+        chain_ids = {r['message'].get('id') for uid, (i, r) in nodes.items()
+                     if uid in chain and r['type'] == 'assistant'}
+        parallel = {uid for uid, (i, r) in nodes.items()
+                    if uid not in chain and r['type'] == 'assistant'
+                    and r['parentUuid'] in chain and r['message'].get('id') in chain_ids
+                    and r['message'].get('id') != message['id']
+                    and all(c.get('type') == 'tool_use' for c in r['message']['content'])}
         require(records[prompt_index]['uuid'] in chain
-                and all(uid in chain or (r['type'] == 'user'
-                        and r['parentUuid'] in chain
+                and all(uid in chain or uid in parallel or (r['type'] == 'user'
+                        and (r['parentUuid'] in chain or r['parentUuid'] in parallel)
                         and all(c.get('type') == 'tool_result' for c in r['message']['content']))
                         for uid, (i, r) in nodes.items()), 'ambiguous Claude branch')
         proof = dict(message_id=message['id'], message_uuid=message_record['uuid'],

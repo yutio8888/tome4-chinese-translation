@@ -985,6 +985,25 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
         bad[7]['payload']['internal_chat_message_metadata_passthrough']['turn_id'] = 'other'
         with self.assertRaises(life.LifecycleError): self.parse_native('codex', bad)
 
+    def test_native_codex_skips_mid_turn_date_rollover_only(self):
+        rows = self.native_records('codex', '{}')
+        ctx = dict(type='response_item', payload=dict(type='message', role='user', id='rollover', content=[
+            dict(type='input_text', text='<environment_context>\n  <current_date>2026-09-28</current_date>\n'
+                 '  <timezone>Etc/UTC</timezone>\n</environment_context>')]))
+        world = dict(type='world_state', payload=dict(full=False, state=dict(environments=dict(current_date='2026-09-28'))))
+        rows[6:6] = [ctx, world]
+        for i, r in enumerate(rows): r['ordinal'] = i
+        self.assertEqual(self.parse_native('codex', rows)[0], b'{}')
+        for mutate in (lambda b: b[6]['payload']['content'][0].update(text='<environment_context>\nhi</environment_context>'),
+                       lambda b: b[6]['payload']['content'][0].update(text='please also do X'),
+                       lambda b: b[7]['payload']['state']['environments'].update(current_date='2026-09-29'),
+                       lambda b: b[7]['payload'].update(full=True),
+                       lambda b: b.pop(7)):
+            bad = deepcopy(rows)
+            mutate(bad)
+            for i, r in enumerate(bad): r['ordinal'] = i
+            with self.assertRaises(life.LifecycleError): self.parse_native('codex', bad)
+
     def test_native_codex_rejects_unproven_boundaries_and_identity(self):
         original = self.native_records('codex', '{}')
         variants = []
@@ -1030,6 +1049,22 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
         variants.extend([original[:-1], original + [dict(type='ai-title', sessionId='session')]])
         for n, bad in enumerate(variants):
             with self.subTest(case=n), self.assertRaises(life.LifecycleError): self.parse_native('claude', bad)
+
+    def test_native_claude_accepts_parallel_tool_use_side_branch_only(self):
+        rows = self.native_records('claude', '{}')
+        base = {k: rows[1][k] for k in ('sessionId', 'cwd', 'version', 'isSidechain')}
+        def side(content, mid='earlier-message', parent='prompt'):
+            return [dict(type='assistant', uuid='early2', parentUuid=parent, apiBlockIndex=1, requestId='request',
+                         message=dict(role='assistant', id=mid, content=content, stop_reason='tool_use'), **base),
+                    dict(type='user', uuid='result2', parentUuid='early2',
+                         message=dict(role='user', content=[dict(type='tool_result', content='not final')]), **base)]
+        tool = [dict(type='tool_use', id='t2', name='Read', input={})]
+        ok = rows[:4] + side(tool) + rows[4:]
+        self.assertEqual(self.parse_native('claude', ok)[0], b'{}')
+        for bad in (side(tool, mid='other-message'), side([dict(type='text', text='{}')]),
+                    side(tool, mid='final-message'), side(tool, parent='missing')):
+            with self.subTest(bad=bad[0]['message']['id']), self.assertRaises(life.LifecycleError):
+                self.parse_native('claude', rows[:4] + bad + rows[4:])
 
     def test_native_rejects_partial_json_unknown_provider_and_byte_line_limits(self):
         for provider in ('codex', 'claude'):
