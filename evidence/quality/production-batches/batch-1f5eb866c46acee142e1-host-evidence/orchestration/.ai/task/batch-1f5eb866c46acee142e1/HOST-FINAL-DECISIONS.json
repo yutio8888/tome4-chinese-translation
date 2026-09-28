@@ -1,0 +1,36 @@
+{
+  "batch_id": "batch-1f5eb866c46acee142e1",
+  "observations": 1,
+  "observation_dispositions": {
+    "refuted": 1
+  },
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 2,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "066d9e6364e28e731aaa4f761602c4814a0d57388e64e8940363b1421486ccdc",
+      "stage": "surface",
+      "observation": "原文“Archmages”译为“元素法师”，职业名称明显不符。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs tome-orcs/data/talents/uber/mag.lua:122-128 Technomancer 进阶 birth_descriptors={{\"subclass\",\"Archmage\"}}、is_class_evolution=\"Archmage\"，说明文 :194 的 Archmages 指的正是可进阶的 Archmage 职业；本库职业名 mod-tome.lua:3021 t(\"Archmage\", \"元素法师\", \"birth descriptor name\")，译文“元素法师”与职业名一致，改成“大法师”反而会与人物创建与进阶面板上的职业名冲突（修复批 250 三方讨论同一结论，.ai/consult/repair-250-archmage/verdicts.md）。职业名整体改名属全库术语议题（范围外 8b977dd836），不按单条修复。contextual reviewer 亦判 OK。驳回。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (2 lanes: surface-000 main-game full-000 of 1; surface-001 Orcs full-001 of 1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 Orcs full-000, accepted on the first pass; 1 entries)"
+  },
+  "notes": [
+    "Mixed batch of 2 entries (1 core game, 1 Orcs): the window 51 successors. Surface ran as two gpt-6-sol children (core full-000 of 1, Orcs full-001 of 1). The reviewer sandbox failed to initialize, so lanes re-issued their reads with escalation through the auto-review approver; every command read only the own envelope and the contract (plus one pwd), and no Paseo terminal was created.",
+    "One contextual run of claude/claude-opus-5-5 (contextual-000, Orcs, 1 entry) was accepted on the first pass and judged OK.",
+    "The Orcs surface observation that Archmages should not be 元素法师 was refuted: the Technomancer evolution requires the Archmage subclass, whose class name in this library is 元素法师 (mod-tome.lua:3021); renaming the class is the out-of-scope terminology item 8b977dd836.",
+    "Mixed batch: 1 main-game entry was verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 1 Orcs entry matched the public DLC source file SHA in the workset, with the DLC repository and commit unpinned.",
+    "0 confirmed repair revisions raise the window 52 backlog from 0 to 0; below the 20 threshold, so no window opens."
+  ]
+}
