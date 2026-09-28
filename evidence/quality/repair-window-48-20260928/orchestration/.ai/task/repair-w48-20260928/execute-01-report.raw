@@ -1,0 +1,46 @@
+任务 `repair-w48-20260928` 已完成，遵守 Paseo EXECUTOR 单写入约束；未 stage、commit、push，也未修改 `.ai/task` 或创建 agent。
+
+变更文件：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+- [terminology/creatures.tsv](/workspace/tome4-chinese-translation/terminology/creatures.tsv)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/VALIDATION.json)
+
+逐条修改 key：
+
+- `175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9`：补世界之间、埃亚尔及陨石冲击波因果。
+- `196ce36308d7acda3481aaff411fb7d580918d3d50a49e2ef4f74e10695a7546`：修正陨石因果；水晶体→水晶。
+- `1c39a9e76d99c403df2c8b1a4e92c950225555e22e6ce43a9ccecda43ae89db4`：小劣魔改名。
+- `3626a664159b512cecd555e75c734070f403f267a1344b44ef73c65e07029300`：补“十分规律地”“几乎”“罕见”。
+- `3e4633fa50203e6813c8c62d00b29cb8e478476b1999e901840498f41de5d563`：水小鬼改名。
+- `5ae7f508b5e957037dfadc8ab5814f56bdc6dbf3f66fd4819bc8f3abbf8f7f2d`：小劣魔改名。
+- `5e73a630079200a2ad23ec06d01ddfdce4345ea8012926fdd966ca05722be210`：改为“致命得最离谱”。
+- `633ee7605b9c379078bbd321cc06f2b56cad15f34ac77c1ba50ae6c8398d877d`：三处单复数统一为小劣魔。
+- `6a71689b25a51f37307e6a31ee27c17db6a3cadc96aa5233fd77f2c90fe1eee1`：水小鬼、小劣魔改名；代词统一为“它们”。
+- `8c101775476baaff25a3bda5be6a52d102fba656118f664e9a20a10f8a407051`：小劣魔改名。
+- `92a2fd32a245001c36a5dd177e86c66b40579b3ad945d9af732deb96d36929e3`：一只水小鬼。
+- `a9fdf64994c6f59f7ff7c25bfc0ac446d8efe8cbe8731557a419d5b7ccd8e24a`：小劣魔改名。
+- `ab5e6afeb14b3f6dd9f35d5b6db6c20b279f536956960d170cfff5d843826bcd`：一只小劣魔。
+- `ae4cc0af7a48981a15f1be7cc567b9ee60dd123c5ed5c46829b6539e1a1a8c05`：补狡诈用心、一波波烈焰、游荡在外、复仇大义及绿翡翠之子。
+- `b7b0565f203cf5bc1dcbef5f43be1f8597b6b4a41fdabb9faa1c81faa0d8c659`：一只小劣魔。
+- `b98e293eb11dbf077a3a34eaadfefc9a729c84e1c736926b349290cfe5288f4d`：恶魔雕像：小劣魔。
+- `ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83`：修正过去时敬畏、兽人数量比较、东方传送门实验及莱娜尼尔对白。
+- `cb8edf8808e60c4317e8a966f7b64755591854be189d6bb2050ac6ce8c8da17f`：恶魔雕像：水小鬼。
+- `d0aff018a9b82598d774ff4cf45515056d1f600428bbe9176294276eacc906b3`：小劣魔改名，保留绿翡翠之子。
+- `dc3200b76ddf5f8a6d2db60023aa13a2dc8e2ea3fb28f8898cf9906c0e175281`：改为“抛入星辰之间的虚空”。
+- `e983810c8cf9bb078525284781ccc9705bc260ce9f0c3209485bd91c19f464d0`：全部单数写法统一为小劣魔。
+- `ec6efb83efbfbd981ea6f4abcba0a9d06ee8c08e4aec49ef39a8c4bbfe5a5c2b`：对照组和实验组均改为小劣魔。
+
+验证结果：
+
+- LuaJIT 最终比较：恰好 `22/22` 个 target 改动；无额外记录、字段漂移或基线缺失。
+- newline、markup、placeholder 不变量：`0` 违规。
+- 三个译文文件中“小水怪”“酸液树魔”：`0` 处。
+- `python3 -B tools/i18n lint --strict`：30308 条，`0 errors, 0 warnings`。
+- 术语加载：两条新增记录逐字匹配，11 个译文文件 LuaJIT 运行时绑定 `2/2` 有效。
+- `git diff --check` 及两份未跟踪 evidence 的 `--no-index --check`：无空白诊断。
+- `.ai/task`：无改动。
+- 发现但未改的疑点：无。现有无关脏工作树内容保持不动。

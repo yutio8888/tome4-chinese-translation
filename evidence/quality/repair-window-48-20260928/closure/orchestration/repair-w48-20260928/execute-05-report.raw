@@ -1,0 +1,24 @@
+已完成第 3 轮两处确认修复。
+
+- `e983810c8c`
+  - 前：`每一只战斗过的小劣魔都为我们的目标奉献了一切。`
+  - 后：`每一只参战的小劣魔都为我们的事业作出了巨大贡献。`
+
+- `a9fdf64994`
+  - 前：`把环境中的魔力转化为热量能量`
+  - 后：`把环境中的魔力转化为身体所需的能量`
+
+修改位置：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:314)。
+
+已追加第 3 轮记录：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/VALIDATION.json)
+
+验证结果：
+
+- LuaJIT/LocaleLoader：通过；基线到当前恰为 22/22 个冻结 target，R2 候选到当前仅上述两条变化；无元数据或 LF/TAB/markup/占位符漂移。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- `VALIDATION.json`：JSON 结构及第 3 轮记录检查通过。
+- 暂存区为空；未 stage、commit、push，未修改 `.ai/task` 或术语库。其他既有工作树改动保持不动。

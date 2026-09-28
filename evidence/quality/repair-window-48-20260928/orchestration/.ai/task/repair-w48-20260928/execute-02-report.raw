@@ -1,0 +1,19 @@
+已完成第 1 轮两条 confirmed 修复，未改其余 20 条、术语库或 `.ai/task`，也未 stage、commit、push 或创建 agent。
+
+- `175effe253`  
+  前：`当你醒来后，你发现你身处一处和主大陆分离的焦土……`  
+  后：`当你逐渐恢复意识、脚下这块灼热土地构成的平台正从主大陆分裂时，旧日的记忆涌入脑海。你终于清醒过来——恶魔们要毁灭你的故乡！`
+
+- `633ee7605b`  
+  前：`……成群出现，灼烧腐蚀……小劣魔只是它的未成熟的孩子。`  
+  后：`……成群出现，撕咬，灼烧腐蚀……那些只是幼体。`
+
+修改位置：[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:155)、[tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1829)。本轮记录已追加至 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-48-20260928/VALIDATION.json)。
+
+验证结果：
+
+- LuaJIT 加载三份基线及三份当前译文：相对基线恰好 22/22 条 target 变化；相对冻结 REVIEW 候选恰好只变更上述两条。
+- 元数据、换行、markup、占位符漂移：0。
+- LF 与逐行前导空白保持不变。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 errors，0 warnings。
+- `git diff --check`、`git diff --cached --check`：无诊断。

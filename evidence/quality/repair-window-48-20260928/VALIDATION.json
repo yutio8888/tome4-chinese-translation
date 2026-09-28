@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w48-20260928",
+  "baseline": "ed7f9c750494adf8960a73860def7200e43e467d",
+  "summary": {
+    "translation_files_loaded": 3,
+    "changed_targets": 22,
+    "expected_targets": 22,
+    "metadata_drift": 0,
+    "missing_baseline_targets": 0,
+    "extra_changed_targets": 0,
+    "newline_invariant_violations": 0,
+    "markup_placeholder_violations": 0,
+    "legacy_name_matches": 0,
+    "terminology_rows_added": 2
+  },
+  "checks": [
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "status": "passed_with_expected_warnings",
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 available; three public DLC sources reported source-unpinned as specified"
+    },
+    {
+      "name": "bounded_luajit_target_diff",
+      "command": "LocaleLoader(LuaRuntime(tome-1.7.6)) comparison of HEAD and current mod-tome.lua, tome-ashes-urhrok.lua, tome-orcs.lua against BASELINE-records.json",
+      "status": "passed",
+      "result": "22/22 target changes; zero metadata drift, missing baseline targets, or extra changes"
+    },
+    {
+      "name": "target_invariants",
+      "command": "LuaJIT-loaded HEAD/current target newline and markup/placeholder sequence comparison",
+      "status": "passed",
+      "result": "22 changed targets; zero newline, markup, or placeholder violations"
+    },
+    {
+      "name": "legacy_name_scan",
+      "command": "rg -n '小水怪|酸液树魔' --glob '*.lua' .",
+      "status": "passed",
+      "result": "zero matches"
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "status": "passed",
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "name": "terminology_luajit_binding",
+      "command": "load_terminology_rows plus LuaJIT loading of all 11 translation files",
+      "status": "passed",
+      "result": "water imp -> 水小鬼 [entity name] and wretchling -> 小劣魔 [entity name] both exact and runtime-valid"
+    },
+    {
+      "name": "terminology_tail",
+      "command": "exact final-two-row and eight-TAB-field assertions for terminology/creatures.tsv",
+      "status": "passed",
+      "result": "2 exact rows, 8 fields each"
+    },
+    {
+      "name": "whitespace",
+      "command": "git diff --check plus git diff --no-index --check for new evidence files",
+      "status": "passed",
+      "result": "no diagnostics"
+    }
+  ],
+  "unresolved_observations": [],
+  "repair_rounds": [
+    {
+      "round": 1,
+      "source_adjudication": ".ai/task/repair-w48-20260928/ADJUDICATION-R0.json",
+      "changed_revision_keys": [
+        "175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9",
+        "633ee7605b9c379078bbd321cc06f2b56cad15f34ac77c1ba50ae6c8398d877d"
+      ],
+      "checks": [
+        {
+          "name": "bounded_luajit_repair_diff",
+          "command": "python3 -B - (inline manifest-backed LocaleLoader comparison of task baseline, current three translation files, WORKSET.json, and frozen CONTEXTUAL-ENVELOPE-r0a1.json)",
+          "status": "passed",
+          "result": "LuaJIT loaded 3 baseline and 3 current files; baseline-to-current is exactly 22/22 frozen target changes with zero metadata, newline, markup, or placeholder drift; frozen REVIEW candidate-to-current is exactly the two confirmed revisions; LF-only bytes and per-line leading whitespace preserved"
+        },
+        {
+          "name": "strict_lint",
+          "command": "python3 -B tools/i18n lint --strict",
+          "status": "passed",
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "name": "whitespace",
+          "command": "git diff --check; git diff --cached --check",
+          "status": "passed",
+          "result": "no diagnostics"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "source_adjudication": ".ai/task/repair-w48-20260928/ADJUDICATION-R1.json",
+      "changed_revision_keys": [
+        "ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83",
+        "ae4cc0af7a48981a15f1be7cc567b9ee60dd123c5ed5c46829b6539e1a1a8c05"
+      ],
+      "checks": [
+        {
+          "name": "bounded_luajit_repair_diff",
+          "command": "python3 -B - (inline manifest-backed LocaleLoader comparison of task baseline, current three translation files, WORKSET.json, and frozen CONTEXTUAL-ENVELOPE-r1a1.json)",
+          "status": "passed",
+          "result": "LuaJIT loaded 3 baseline and 3 current files; baseline-to-current is exactly 22/22 frozen target changes with zero metadata, newline, markup, or placeholder drift; frozen RE_REVIEW candidate-to-current is exactly the two confirmed revisions; LF-only bytes and per-line leading whitespace preserved"
+        },
+        {
+          "name": "strict_lint",
+          "command": "python3 -B tools/i18n lint --strict",
+          "status": "passed",
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "name": "whitespace",
+          "command": "git diff --check",
+          "status": "passed",
+          "result": "no diagnostics"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "source_adjudication": ".ai/task/repair-w48-20260928/ADJUDICATION-R2.json",
+      "changed_revision_keys": [
+        "e983810c8cf9bb078525284781ccc9705bc260ce9f0c3209485bd91c19f464d0",
+        "a9fdf64994c6f59f7ff7c25bfc0ac446d8efe8cbe8731557a419d5b7ccd8e24a"
+      ],
+      "checks": [
+        {
+          "name": "bounded_luajit_repair_diff",
+          "command": "python3 -B - (inline manifest-backed LocaleLoader comparison of task baseline, current three translation files, WORKSET.json, and frozen CONTEXTUAL-ENVELOPE-r2a1.json)",
+          "status": "passed",
+          "result": "LuaJIT loaded 3 baseline and 3 current files (26441 records each); baseline-to-current is exactly 22/22 frozen target changes with zero metadata drift; frozen R2 candidate-to-current is exactly the two confirmed revisions with zero target LF, TAB, markup, or placeholder drift; all three files remain LF-only"
+        },
+        {
+          "name": "strict_lint",
+          "command": "python3 -B tools/i18n lint --strict",
+          "status": "passed",
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "name": "whitespace",
+          "command": "git diff --check",
+          "status": "passed",
+          "result": "no diagnostics"
+        }
+      ],
+      "diagnostic": "The first bounded comparison attempt used an over-strong source-to-target placeholder equality assertion and exited 1 on unchanged revision ab5e6afeb14b3f6dd9f35d5b6db6c20b279f536956960d170cfff5d843826bcd. The corrected frozen-R2-target-to-current-target invariant exited 0; no translation change was made between those attempts."
+    }
+  ],
+  "executor_retry_verifications": [
+    {
+      "dispatch_id": "execute-04",
+      "round": 2,
+      "translation_changes_made": false,
+      "result": "Both inherited round-2 target edits already matched ADJUDICATION-R1; the other 20 workset targets and terminology data were not changed.",
+      "checks": [
+        {
+          "name": "bounded_luajit_target_diff",
+          "status": "passed",
+          "result": "LuaJIT loaded the three baseline and three current translation files; baseline-to-current remained exactly 22/22 frozen target changes with zero metadata, newline, markup, placeholder, LF, or leading-TAB drift."
+        },
+        {
+          "name": "strict_lint",
+          "command": "python3 -B tools/i18n lint --strict",
+          "status": "passed",
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "name": "whitespace",
+          "command": "git diff --check",
+          "status": "passed",
+          "result": "no diagnostics"
+        }
+      ]
+    }
+  ]
+}
