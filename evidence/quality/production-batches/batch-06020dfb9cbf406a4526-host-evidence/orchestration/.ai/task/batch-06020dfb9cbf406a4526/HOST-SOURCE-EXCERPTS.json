@@ -1,0 +1,3626 @@
+[
+  {
+    "entry_revision_identity": "67cb5b8c4e1d0636f6fafcf62b3ed2abf369048995dff8378cc82f883beb3db5",
+    "public_source_path": "game/modules/tome/data/general/objects/random-artifacts/melee.lua",
+    "lines": [
+      {
+        "line": 98,
+        "text": "\tcombat = { melee_project = {[DamageType.ITEM_NATURE_SLOW] = resolvers.randartmax(10, 20), }, },"
+      },
+      {
+        "line": 99,
+        "text": "}"
+      },
+      {
+        "line": 100,
+        "text": "newEntity{ theme={dark=true}, name=\"dark numbing melee\", points = 2, rarity = 20, level_range = {1, 50},"
+      },
+      {
+        "line": 101,
+        "text": "\tcombat = { melee_project = {[DamageType.ITEM_DARKNESS_NUMBING] = resolvers.randartmax(10, 20), }, },"
+      },
+      {
+        "line": 102,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "576447ca8d9787e4bb62b088e69faca65439fbe6d880b77a5d6e34ef7470fb1a",
+    "public_source_path": "game/modules/tome/data/general/objects/random-artifacts/gloves.lua",
+    "lines": [
+      {
+        "line": 104,
+        "text": "\twielder = { combat = { melee_project = {[DamageType.ITEM_NATURE_SLOW] = resolvers.randartmax(20, 40), }, },}"
+      },
+      {
+        "line": 105,
+        "text": "}"
+      },
+      {
+        "line": 106,
+        "text": "newEntity{ theme={dark=true}, name=\"dark numbing melee\", points = 2, rarity = 24, level_range = {1, 50},"
+      },
+      {
+        "line": 107,
+        "text": "\twielder = { combat = { melee_project = {[DamageType.ITEM_DARKNESS_NUMBING] = resolvers.randartmax(20, 40), }, },}"
+      },
+      {
+        "line": 108,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "011dc03deeaad4e3ea4634946de5ecc6e81134001a8e69c3451451b9a3c99630",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 273,
+        "text": "\tend,"
+      },
+      {
+        "line": 274,
+        "text": "info = function(self, t)"
+      },
+      {
+        "line": 275,
+        "text": "\treturn ([[Learn how to enhance your Deadly Poison, adding additional effects. Each level, you will learn a new kind of poison enhancement:"
+      },
+      {
+        "line": 276,
+        "text": "\tLevel 1: Numbing Poison"
+      },
+      {
+        "line": 277,
+        "text": "\tLevel 2: Insidious Poison"
+      },
+      {
+        "line": 278,
+        "text": "\tLevel 3: Crippling Poison"
+      },
+      {
+        "line": 279,
+        "text": "\tLevel 4: Leeching Poison"
+      },
+      {
+        "line": 280,
+        "text": "\tLevel 5: Volatile Poison"
+      },
+      {
+        "line": 281,
+        "text": "\tNew poison enhancements can also be learned from special teachers in the world."
+      },
+      {
+        "line": 282,
+        "text": "\tAlso increases the effectiveness of your poisons by %d%%. (The effect varies for each poison.)"
+      },
+      {
+        "line": 283,
+        "text": "\tAdjusting your weapon coating takes no time and does not break stealth."
+      },
+      {
+        "line": 284,
+        "text": "\tYou may only have two poison enhancements active at once; applying a third will randomly cause one of the existing ones to be cancelled.]]):"
+      },
+      {
+        "line": 285,
+        "text": "\ttformat(self:getTalentLevel(t) * 20)"
+      },
+      {
+        "line": 286,
+        "text": "end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0699533520eb037c89a77bcab70d9411de020f7cc6269f03250dcf097f9b9fbd",
+    "public_source_path": "game/modules/tome/data/talents/uber/str.lua",
+    "lines": [
+      {
+        "line": 309,
+        "text": "\tend,"
+      },
+      {
+        "line": 310,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 311,
+        "text": "\t\treturn ([[During your studies of celestial forces you came in contact with an entity far beyond Eyal: the living incarnation of a Star!"
+      },
+      {
+        "line": 312,
+        "text": "\t\tBy allying yourself with it you can gain its power!"
+      },
+      {
+        "line": 313,
+        "text": ""
+      },
+      {
+        "line": 314,
+        "text": "\t\tGrants multiple benefits:"
+      },
+      {
+        "line": 315,
+        "text": "\t\t- The strength of your bond is so strong that you can now #GOLD#wield a two-handed weapon and a shield together#LAST#"
+      },
+      {
+        "line": 316,
+        "text": "\t\t- 50%% of all damage you deal is converted to #GOLD#light damage#LAST#"
+      },
+      {
+        "line": 317,
+        "text": "\t\t- #GOLD#Gravitic Effulgence#LAST#: whenever your Weapon of Light hits the damage is now a radius 2 sphere and all foes in range 5 are drawn to it. (You can toggle this effect)"
+      },
+      {
+        "line": 318,
+        "text": "\t\t- The damage and chance to trigger of #GOLD#Searing Sight#LAST# is doubled"
+      },
+      {
+        "line": 319,
+        "text": "\t\t- Whenever #GOLD#Sun's Vengeance#LAST# triggers the remaining cooldown of Judgement is reduced by 6."
+      },
+      {
+        "line": 320,
+        "text": "\t\t- If you also know #GOLD#Irresistible Sun#LAST#, it will set the fire and light resistances of those affected to 0%%"
+      },
+      {
+        "line": 321,
+        "text": ""
+      },
+      {
+        "line": 322,
+        "text": "\t\t#{italic}##GOLD#Will you bind yourself to the Distant Sun?#{normal}#"
+      },
+      {
+        "line": 323,
+        "text": "\t\t]]):tformat()"
+      },
+      {
+        "line": 324,
+        "text": "\tend,"
+      },
+      {
+        "line": 325,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "072ff941927df9e7e35b60f866a31e40ebf4f7e2223f03b7b315496491a7c64c",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4265,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 4266,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,"
+      },
+      {
+        "line": 4267,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,"
+      },
+      {
+        "line": 4268,
+        "text": "\t-- Damage each turn"
+      },
+      {
+        "line": 4269,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0d9c6f6c89e1010048968100b9c019e6a0fb986c3bf74f1b73b308ede4e14165",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 51,
+        "text": "newEffect{"
+      },
+      {
+        "line": 52,
+        "text": "\tname = \"ITEM_NUMBING_DARKNESS\", image = \"effects/bane_blinded.png\","
+      },
+      {
+        "line": 53,
+        "text": "\tdesc = _t\"Numbing Darkness\","
+      },
+      {
+        "line": 54,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is losing hope, all damage it does is reduced by %d%%.\"):tformat(eff.reduce) end,"
+      },
+      {
+        "line": 55,
+        "text": "\tcharges = function(self, eff) return (tostring(math.floor(eff.reduce))) end,"
+      },
+      {
+        "line": 58,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 59,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 60,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is weakened by the darkness!\", _t\"+Numbing Darkness\" end,"
+      },
+      {
+        "line": 61,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# regains their energy.\", _t\"-Numbing Darkness\" end,"
+      },
+      {
+        "line": 62,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 63,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "20b17998705c0c7a5e7711cbd5250e195892c7df040818381498ec91331bdc05",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 1004,
+        "text": "\t\treturn realdam"
+      },
+      {
+        "line": 1005,
+        "text": "\tend,"
+      },
+      {
+        "line": 1006,
+        "text": "\tdeath_message = {_t\"timewarped\", _t\"temporally distorted\", _t\"spaghettified across the whole of space and time\", _t\"paradoxed\", _t\"replaced by a time clone (and no one ever knew the difference)\", _t\"grandfathered\", _t\"time dilated\"},"
+      },
+      {
+        "line": 1007,
+        "text": "}"
+      },
+      {
+        "line": 1008,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2294f665c84a07aaea8843a4cfd73a49b70800aee14823caa797727d612c056e",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1957,
+        "text": "\tpower_source = {nature=true},"
+      },
+      {
+        "line": 1958,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 1959,
+        "text": "\tname = \"Ureslak's Molted Scales\", define_as = \"URESLAK_CLOAK\", image = \"object/artifact/ureslaks_molted_scales.png\","
+      },
+      {
+        "line": 1960,
+        "text": "\tunided_name = _t\"scaly multi-hued cloak\","
+      },
+      {
+        "line": 1961,
+        "text": "\tdesc = _t[[This cloak is fashioned from the scales of some large reptilian creature.  It appears to reflect every color of the rainbow.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2e3ec9989be9a3986544e2d8e68dc380715e68c6d826fdfcdf96a4916a09205b",
+    "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "lines": [
+      {
+        "line": 1459,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1460,
+        "text": "\t\tlocal instant = self.trap_primed == t.id and _t\"\\n#YELLOW#Triggers immediately when placed.#LAST#\" or \"\""
+      },
+      {
+        "line": 1461,
+        "text": "\t\treturn ([[Lay a trap that releases a radius 3 cloud of thick poisonous gas lasting 4 turns."
+      },
+      {
+        "line": 1462,
+        "text": "\t\tEach turn, the cloud poisons all within (%0.2f nature damage over 5 turns).   There is a 25%% chance the poison is enhanced with crippling, numbing or insidious effects."
+      },
+      {
+        "line": 1463,
+        "text": "\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s]]):"
+      },
+      {
+        "line": 1464,
+        "text": "\t\ttformat(damDesc(self, DamageType.POISON, t.getDamage(self, t)), instant)"
+      },
+      {
+        "line": 1465,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "34bfc53d01def2410afbfbda2ae5489628b238f66a1a3f63b3b5b2d822240902",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4258,
+        "text": "newEffect{"
+      },
+      {
+        "line": 4259,
+        "text": "\tname = \"NUMBING_BLIGHT\", image = \"effects/numbing_poison.png\","
+      },
+      {
+        "line": 4260,
+        "text": "\tdesc = _t\"Numbing Blight\","
+      },
+      {
+        "line": 4261,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.\"):tformat(eff.power, eff.reduce) end,"
+      },
+      {
+        "line": 4262,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 4264,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 4265,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 4266,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,"
+      },
+      {
+        "line": 4267,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,"
+      },
+      {
+        "line": 4268,
+        "text": "\t-- Damage each turn"
+      },
+      {
+        "line": 4269,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3d8735693dca5df6b6586902ee35f651270da576c512fc3046948e8431876b82",
+    "public_source_path": "game/modules/tome/data/talents/uber/wil.lua",
+    "lines": [
+      {
+        "line": 388,
+        "text": "\tend,"
+      },
+      {
+        "line": 389,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 390,
+        "text": "\t\treturn ([[The code of the Sun Paladins can be a heavy burden.\t Wouldn't you like to let go?"
+      },
+      {
+        "line": 391,
+        "text": "\t\t#{italic}##GREY#To give in to the darkness?#LAST##{normal}#"
+      },
+      {
+        "line": 392,
+        "text": "\t\t"
+      },
+      {
+        "line": 393,
+        "text": "\t\t#CRIMSON#This evolution fundamentally alters your class and character in a huge way. Do not take it lightly.#LAST#"
+      },
+      {
+        "line": 394,
+        "text": ""
+      },
+      {
+        "line": 395,
+        "text": "\t\tAny offensive combat techniques or unlockable Celestial talent trees you know will be exchanged for cursed versions, allowing you to cut a bloody trail through enemies, turning your radiance to gloom, and more while also gaining new combat styles and defenses."
+      },
+      {
+        "line": 396,
+        "text": ""
+      },
+      {
+        "line": 397,
+        "text": "\t\tThe following talent trees are swapped:"
+      },
+      {
+        "line": 398,
+        "text": "\t\t- #GOLD#Radiance#LAST# turns into #CRIMSON#Gloom#LAST#: Project onto others your own hate, hindering them"
+      },
+      {
+        "line": 399,
+        "text": "\t\t- #GOLD#Guardian#LAST# turns into #CRIMSON#Crimson Templar#LAST#: Use the power of blood to control and defeat the fools that oppose you"
+      },
+      {
+        "line": 400,
+        "text": "\t\t- #GOLD#Crusader#LAST# turns into #CRIMSON#Dark Sun#LAST#: Call upon the energies of dead suns to crush your foes"
+      },
+      {
+        "line": 401,
+        "text": ""
+      },
+      {
+        "line": 402,
+        "text": "\t\tYou will learn the following talents trees:"
+      },
+      {
+        "line": 403,
+        "text": "\t\t- #CRIMSON#Bloodstained#LAST#: Make your foes bleed!"
+      },
+      {
+        "line": 404,
+        "text": "\t\t- #CRIMSON#Darkside#LAST#: Every light casts a shadow, yours is powerful indeed"
+      },
+      {
+        "line": 405,
+        "text": "\t\t- #CRIMSON#Hatred#LAST#: Manifest your hatred through bleeding"
+      },
+      {
+        "line": 406,
+        "text": "\t\t- #CRIMSON#Dirge#LAST#: Sing of death and sorrow to strengthen your resolve"
+      },
+      {
+        "line": 407,
+        "text": ""
+      },
+      {
+        "line": 408,
+        "text": "\t\tYou will forget the following talent trees, refunding any talent points: Shield Offense, Two-handed Assault."
+      },
+      {
+        "line": 409,
+        "text": "\t\tAlso the cost of any talents of the Combat Techniques tree will be converted to hate instead of stamina."
+      },
+      {
+        "line": 410,
+        "text": "\t\t]]):tformat()"
+      },
+      {
+        "line": 411,
+        "text": "\tend,"
+      },
+      {
+        "line": 412,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "48a3501be523641bba1d6d6b19c7f054b9bf50fdd5163aba1ccd271e9183be2b",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1950,
+        "text": "\tset_list = { {\"define_as\",\"URESLAK_CLOAK\"} },"
+      },
+      {
+        "line": 1951,
+        "text": "\tset_desc = {"
+      },
+      {
+        "line": 1952,
+        "text": "\t\tureslak = _t\"What would happen if more of Ureslak's remains were reunited?\","
+      },
+      {
+        "line": 1953,
+        "text": "\t},"
+      },
+      {
+        "line": 1954,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "523b14984e95782df64ae64b0e10e67ffe467b8773de19b9bedf53552774845b",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 6831,
+        "text": "newEntity{ base = \"BASE_RING\", --Thanks Alex!"
+      },
+      {
+        "line": 6832,
+        "text": "\tpower_source = {arcane=true},"
+      },
+      {
+        "line": 6833,
+        "text": "\tname = \"Exiler\", unique=true, image = \"object/artifact/exiler.png\","
+      },
+      {
+        "line": 6834,
+        "text": "\tdesc = _t[[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone."
+      },
+      {
+        "line": 6835,
+        "text": "In the case of opponents who weren't alone, he had to improvise.]],"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5c1f1a0133d73848d52540e90ec42c1c2caab4ef7ce9640785b800470c92eed1",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 644,
+        "text": "\tpower_source = {arcane=true},"
+      },
+      {
+        "line": 645,
+        "text": "\tunique = true, define_as = \"CRYSTAL_SHARD\","
+      },
+      {
+        "line": 646,
+        "text": "\tname = \"Crystal Shard\","
+      },
+      {
+        "line": 647,
+        "text": "\tunided_name = _t\"crystalline tree branch\","
+      },
+      {
+        "line": 648,
+        "text": "\tflavor_name = \"magestaff\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5ec9f57e601af0880e5ce626ce538b43c37957ad7c066fcbf09dec96ed4976b1",
+    "public_source_path": "game/modules/tome/data/chats/tarelion-start-archmage.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": ""
+      },
+      {
+        "line": 36,
+        "text": "newChat{ id=\"next2\","
+      },
+      {
+        "line": 37,
+        "text": "\ttext = _t[[During the Spellblaze the world was torn apart - literally. A part of it, that we now call the Abashed Expanse, was ripped from the world and thrown into the void between the stars."
+      },
+      {
+        "line": 38,
+        "text": "We managed to stabilize it and it is now orbiting Eyal. Recently we have noticed a disturbance there; if we do nothing it will crash onto Eyal, bringing much destruction in its wake."
+      },
+      {
+        "line": 39,
+        "text": "Because it was once part of a land we know well we can teleport you there. You will need to stabilize three wormholes by firing any attack spells at them."
+      },
+      {
+        "line": 40,
+        "text": "The instability is also to your advantage there, your simple phase door spell will be fully controllable."
+      },
+      {
+        "line": 41,
+        "text": ""
+      },
+      {
+        "line": 42,
+        "text": "So, you think you can help us ?]],"
+      },
+      {
+        "line": 43,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 44,
+        "text": "\t\t{_t\"Yes Archmage, send me there!\", jump=\"teleport\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5eca60757671ca78e2f55a9b8f28d904d06cc220ade542de10b17e260b3c1a1d",
+    "public_source_path": "game/modules/tome/data/talents/spells/staff-combat.lua",
+    "lines": [
+      {
+        "line": 184,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 185,
+        "text": "\t\tlocal dazedur = t.getDazeDuration(self, t)"
+      },
+      {
+        "line": 186,
+        "text": "\t\treturn ([[Hit a target for %d%% melee damage and stun it for %d turns."
+      },
+      {
+        "line": 187,
+        "text": "\t\tStun chance will improve with Spellpower."
+      },
+      {
+        "line": 188,
+        "text": "\t\tAt level 5, this attack cannot miss.]]):"
+      },
+      {
+        "line": 189,
+        "text": "\t\ttformat(100 * damage, dazedur)"
+      },
+      {
+        "line": 190,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "604db37e8a10bd534fb2f1a40c2085ec2acc8ea1b3afd23e59d3d828b395ef0b",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2011,
+        "text": "\ton_set_broken = function(self, who)"
+      },
+      {
+        "line": 2012,
+        "text": "\t\tself.wielder.equilibrium_regen = nil"
+      },
+      {
+        "line": 2013,
+        "text": "\t\tgame.logSeen(who, \"#YELLOW_GREEN#Ureslak's remains seem more unsettled.\")"
+      },
+      {
+        "line": 2014,
+        "text": "\tend,"
+      },
+      {
+        "line": 2015,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "677fcc624aee39406fbfd841d064c0726433e95b689e5f8f67e556b1c1a38896",
+    "public_source_path": "game/modules/tome/data/talents/cursed/cursed.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "-- Fallen Class Evolution"
+      },
+      {
+        "line": 45,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"cursed/bloodstained\", name = _t(\"Bloodstained\", \"talent type\"), description = _t\"You, like your weapons, are tainted forever.\" }"
+      },
+      {
+        "line": 46,
+        "text": "newTalentType{ allow_random=true, is_mind=true, type=\"cursed/crimson-templar\", name = _t(\"Crimson Templar\", \"talent type\"), description = _t\"Blood is power. Let the rivers run red.\" }"
+      },
+      {
+        "line": 47,
+        "text": "newTalentType{ allow_random=true, is_mind=true, generic=true, type=\"cursed/hatred\", name = _t(\"Hatred\", \"talent type\"), description = _t\"All the things in this dark world are contemptible.  Let yourself hate them and find the power therein.\" }"
+      },
+      {
+        "line": 48,
+        "text": "newTalentType{ allow_random=false, type=\"cursed/other\", name = _t(\"Cursed\", \"talent type\"), description = _t\"Hate-powered abilities that don't belong anywhere else.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "68f481f6d44b4b9dde60a38162100fb763e1cd85c89bcf0f0ea78b29e132ad72",
+    "public_source_path": "game/modules/tome/data/lore/fun.lua",
+    "lines": [
+      {
+        "line": 214,
+        "text": "\tid = \"dust-to-dust\","
+      },
+      {
+        "line": 215,
+        "text": "\tcategory = \"misc\","
+      },
+      {
+        "line": 216,
+        "text": "\tname = _t\"Dust to Dust\","
+      },
+      {
+        "line": 217,
+        "text": "\tlore = _t[[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#"
+      },
+      {
+        "line": 218,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "72f518b2cf773a03c9293538b506adbf0e1feb240460f91c21cfdd6a6d3062a6",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 196,
+        "text": "\tcategory = \"myths of creation\","
+      },
+      {
+        "line": 197,
+        "text": "\tname = _t\"human myth of creation\","
+      },
+      {
+        "line": 198,
+        "text": "\tlore = _t[[At the start of time Sun was born, and Moons, and Eyal raised from the Darkness."
+      },
+      {
+        "line": 199,
+        "text": "And Gerlyk walked Eyal with his three brothers."
+      },
+      {
+        "line": 200,
+        "text": "But one day Gerlyk walked alone and realised he was alone, and he desired company."
+      },
+      {
+        "line": 201,
+        "text": "So Gerlyk took a burning coal, and put stones around it, and wrapped it in earth, and bathed it in water and breathed his breath into it, and it became alive. And Gerlyk named it Human."
+      },
+      {
+        "line": 202,
+        "text": "Now Gerlyk brought Human back to his brothers to see."
+      },
+      {
+        "line": 203,
+        "text": "But Gerlyk's brothers were jealous and tore Human apart. One brother grabbed the stone, and one brother grabbed the earth, and one brother grabbed the water."
+      },
+      {
+        "line": 204,
+        "text": "Gerlyk was sad, but took the burning coal that was left and made a new Human."
+      },
+      {
+        "line": 205,
+        "text": "Then the brother with the earth copied him, but made a short creature, and called it Halfling."
+      },
+      {
+        "line": 206,
+        "text": "And the brother with the stone made a thick creature, and called it Dwarf."
+      },
+      {
+        "line": 207,
+        "text": "And the brother with the water made a thin creature, and called it Elf."
+      },
+      {
+        "line": 208,
+        "text": "But Gerlyk's brothers grew jealous of each others creatures, and they fought, and they all were killed. And Elf cried and Dwarf cried and Halfling cried to see their creators fall."
+      },
+      {
+        "line": 209,
+        "text": "And Gerlyk was sad, and looked at Human and said, \"I am sorry, but this is not a time for creators any more. I must go.\""
+      },
+      {
+        "line": 210,
+        "text": "And Gerlyk walked into the Darkness."
+      },
+      {
+        "line": 211,
+        "text": "But Human did not cry, for the coal in his heart burned hot, and he knew he was not truly alone.]],"
+      },
+      {
+        "line": 212,
+        "text": "}"
+      },
+      {
+        "line": 213,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7958af947294bcbede806d36bab1c519fd9c9cb01669d20418ea365d36b7bbc1",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 907,
+        "text": "\t\treturn realdam"
+      },
+      {
+        "line": 908,
+        "text": "\tend,"
+      },
+      {
+        "line": 909,
+        "text": "\tdeath_message = {_t\"diseased\", _t\"poxed\", _t\"infected\", _t\"plagued\", _t\"debilitated by noxious blight before falling\", _t\"fouled\", _t\"tainted\"},"
+      },
+      {
+        "line": 910,
+        "text": "}"
+      },
+      {
+        "line": 911,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7f5038b79295c88ee6f48d54dea0e9c86e525e774386444f965d4a1892263336",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2007,
+        "text": "\t\tself:specialSetAdd({\"wielder\",\"resists\"}, {[engine.DamageType.ARCANE]=15})"
+      },
+      {
+        "line": 2008,
+        "text": "\t\tself:specialSetAdd({\"wielder\",\"resists_cap\"}, {[engine.DamageType.ARCANE]=15})"
+      },
+      {
+        "line": 2009,
+        "text": "\t\tgame.logSeen(who, \"#YELLOW_GREEN#An ironic harmony surrounds Ureslak's remains as they reunite.\")"
+      },
+      {
+        "line": 2010,
+        "text": "\tend,"
+      },
+      {
+        "line": 2011,
+        "text": "\ton_set_broken = function(self, who)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8008660504eb3dc5cd28ced2d43b945289398397aace0ebefbb974d2ddca45c2",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 376,
+        "text": "\t\tlocal heal = t.getSecondaryDamage(self,t)"
+      },
+      {
+        "line": 377,
+        "text": "\t\tlocal vdam = t.getSecondaryDamage(self,t)*0.6"
+      },
+      {
+        "line": 378,
+        "text": "\t\treturn ([[Numbing Poison - Reduces global speed by %d%% for 5 turns."
+      },
+      {
+        "line": 379,
+        "text": "\t\tInsidious Poison - Applies a standard poison that deals %0.2f nature damage over 5 turns."
+      },
+      {
+        "line": 380,
+        "text": "\t\tCrippling Poison - Places %d talents on cooldown for %d turns."
+      },
+      {
+        "line": 381,
+        "text": "\t\tLeeching Poison - Heals you for %d."
+      },
+      {
+        "line": 382,
+        "text": "\t\tVolatile Poison - Deals a further %0.2f nature damage to foes in a radius %d ball."
+      },
+      {
+        "line": 383,
+        "text": "\t\t]]):"
+      },
+      {
+        "line": 384,
+        "text": "\t\ttformat(power*100, damDesc(self, DamageType.NATURE, idam), nb, math.floor(nb*1.5), heal, damDesc(self, DamageType.NATURE, vdam), nb)"
+      },
+      {
+        "line": 385,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "882f5c0f99b1ec8db7a9ad3c6a5a30781fab7f9cbd289b7eb49c3e693f511d1e",
+    "public_source_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+    "lines": [
+      {
+        "line": 217,
+        "text": "\t\tlocal damage = t.getPoisonDamage(self, t)"
+      },
+      {
+        "line": 218,
+        "text": "\t\tlocal numb = t.getNumb(self,t)"
+      },
+      {
+        "line": 219,
+        "text": "\t\treturn ([[Load venomous ammunition, causing ranged attacks to deal %0.2f nature damage and inflict numbing poison, dealing %0.2f nature damage over 5 turns and reducing all damage dealt by %d%%. "
+      },
+      {
+        "line": 220,
+        "text": "\t\tThe damage will scale with your Physical Power.]]):tformat(damDesc(self, DamageType.NATURE, damage/5), damDesc(self, DamageType.NATURE, damage), numb)"
+      },
+      {
+        "line": 221,
+        "text": "\tend,"
+      },
+      {
+        "line": 222,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "89901d966d39b4595d4c37926bc96bcfa8d5eec34ee15e529033e90cee0be160",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/scourge.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "newTalent{"
+      },
+      {
+        "line": 25,
+        "text": "\tname = \"Virulent Strike\","
+      },
+      {
+        "line": 26,
+        "text": "\tshort_name = \"REND\","
+      },
+      {
+        "line": 27,
+        "text": "\ttype = {\"corruption/scourge\", 1},"
+      },
+      {
+        "line": 39,
+        "text": "\ton_pre_use = function(self, t, silent)"
+      },
+      {
+        "line": 40,
+        "text": "\t\tif not self:hasDualWeapon() then"
+      },
+      {
+        "line": 41,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You cannot use Virulent Strike without two weapons!\") end"
+      },
+      {
+        "line": 42,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 43,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8d0097466a5a06e92b1a68bd16719e17da4df0022504df8c20facfd05120e4e7",
+    "public_source_path": "game/modules/tome/data/lore/fun.lua",
+    "lines": [
+      {
+        "line": 215,
+        "text": "\tcategory = \"misc\","
+      },
+      {
+        "line": 216,
+        "text": "\tname = _t\"Dust to Dust\","
+      },
+      {
+        "line": 217,
+        "text": "\tlore = _t[[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#"
+      },
+      {
+        "line": 218,
+        "text": ""
+      },
+      {
+        "line": 219,
+        "text": "So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it."
+      },
+      {
+        "line": 220,
+        "text": ""
+      },
+      {
+        "line": 221,
+        "text": "But then I was thinking, these are good kids. Heck, I'd buy every man and woman in the world who's bumped off a ghoul a free drink if I could. If they want help when it comes to putting down necromancer slime and their chilling creations, I would be more than happy to oblige. Not much of a writer, but let's see. First..."
+      },
+      {
+        "line": 222,
+        "text": ""
+      },
+      {
+        "line": 223,
+        "text": "#{bold}#1. Ghouls#{normal}#"
+      },
+      {
+        "line": 224,
+        "text": ""
+      },
+      {
+        "line": 225,
+        "text": "Every once in a while, people come to me and say \"Are all necromancers truly evil?\" \"Surely necromancy could be used for good!\" \"Isn't it wrong to discriminate against others simply because of the magicks they practice?\" To these people, the first thing I usually say - shortly after giving them a black eye - is to take a look at a ghoul. Take a good, long look. Take in the diseased, putrescent flesh. Take in the oozing, exposed organs. Take in its features, slowly rotting to mulch. It used to be a person. It used to have a family, people who loved it. Now it's a walking corpse, its only desire being death and the mad, all-encompassing consumption of living flesh. Are all necromancers truly evil? A thousand times, yes."
+      },
+      {
+        "line": 226,
+        "text": ""
+      },
+      {
+        "line": 227,
+        "text": "Even this most basic of undead minions can strike terror into the unprepared. The multitude of diseases that a normal ghoul carries are contagious in a manner many adventurers do not truly appreciate until they see the sores and necrosis visibly spreading up their arm from where a ghoul bit them. Such maladies must be dealt with promptly: if bitten by a ghoul, immediately plunge the afflicted area in scalding hot water, then wrap it quickly in clean cloth lined with mugwort and quartz powder. The wound must remain dressed for three weeks, with new dressings applied every four days, and make sure to burn the old ones! Failing the above, a wild infusion also works splendidly."
+      },
+      {
+        "line": 228,
+        "text": ""
+      },
+      {
+        "line": 229,
+        "text": "    * * *"
+      },
+      {
+        "line": 230,
+        "text": ""
+      },
+      {
+        "line": 231,
+        "text": ""
+      },
+      {
+        "line": 232,
+        "text": "#{bold}#2. Skeletons#{normal}#"
+      },
+      {
+        "line": 233,
+        "text": ""
+      },
+      {
+        "line": 234,
+        "text": "What guide to the undead would be complete without mentioning the humble skeleton? Despite these clattering and chittering bones of the deceased often looking so fragile that a stiff breeze could break them apart, in many ways they are more dangerous than their ghoul cousins."
+      },
+      {
+        "line": 235,
+        "text": ""
+      },
+      {
+        "line": 236,
+        "text": "With no masses of rotted and ruined flesh to reanimate, necromancers can commit themselves fully to bestowing some level of fighting skill on a reanimated skeleton, and since a fighter's weapons will often last as long as his bones will, skeletons are usually armed and sometimes even armoured. The potential skill of a skeleton doesn't stop at melee weapons either - fallen archers take up their bows once again, and although difficult by comparison, some necromancers can even grant dead mages their magic powers once again."
+      },
+      {
+        "line": 237,
+        "text": ""
+      },
+      {
+        "line": 238,
+        "text": "Some adventurers find themselves baffled when it comes to fighting skeletons. How do you destroy a foe who, by all rights, should be destroyed already? To these adventurers, I say take heart. The more broken and incomplete a body is, the more effort it takes to keep it reanimated. As most necromancers see skeletons as the lowest of low peons, you can expect a few good blows to easily dissipate the minimal effort their masters put into creating them."
+      },
+      {
+        "line": 239,
+        "text": ""
+      },
+      {
+        "line": 240,
+        "text": "    * * *"
+      },
+      {
+        "line": 241,
+        "text": ""
+      },
+      {
+        "line": 242,
+        "text": ""
+      },
+      {
+        "line": 243,
+        "text": "#{bold}#3. Wights#{normal}#"
+      },
+      {
+        "line": 244,
+        "text": ""
+      },
+      {
+        "line": 245,
+        "text": "Wights are an odd duck amongst the undead, often not created by necromancers specifically, but instead rising of their own volition when the conditions are right. Wights are by no means individual souls, but often part of a gestalt; when a particular land has seen enough bloodshed - battlefields, forest, crypts and graveyards - wights can be seen to rise en masse, a near-physical representation of the battles and turmoil the land has faced. Sadly, it is for this reason that necromancers often facilitate the creation of wights regardless, for no other study or profession causes so much blood or death."
+      },
+      {
+        "line": 246,
+        "text": ""
+      },
+      {
+        "line": 247,
+        "text": "Those who have had encounters with wights often describe them as indistinct skeletal figures, wrapped in flowing cloaks that become faded and incorporeal at their edges, while strange lights dance where their eyes should remain. Survivors tell of a peculiar sense of exhaustion when in close proximity to them, as though merely being close to these figments of death causes one's life force to sputter and fade. Regardless of this and their ghostly appearance however, it has been recorded that steel and strength of arms is yet enough to destroy them, or at least to erase them for the time being. It's just a shame that such battles are likely to simply create more of them in the long run..."
+      },
+      {
+        "line": 248,
+        "text": ""
+      },
+      {
+        "line": 249,
+        "text": "    * * *"
+      },
+      {
+        "line": 250,
+        "text": ""
+      },
+      {
+        "line": 251,
+        "text": ""
+      },
+      {
+        "line": 252,
+        "text": "#{bold}#4. Vampires#{normal}#"
+      },
+      {
+        "line": 253,
+        "text": ""
+      },
+      {
+        "line": 254,
+        "text": "Vampires are so far removed from other varieties of undead it seems almost unreal. What grants them their longevity? How do they retain such great intelligence? Beyond their sallow complexion and drawn features, why do they not decay and decompose as their ghoulish siblings do? The study of vampiric nature is one long list of unanswered questions, each new study adding yet more to the ever-growing pile."
+      },
+      {
+        "line": 255,
+        "text": ""
+      },
+      {
+        "line": 256,
+        "text": "As said before, a vampire's greatest strength is its resemblance to a living man, both in mind and body. Thanks to this, vampires are known for residing comparatively close to normal towns and villages far more than other undead. Some have even been known to keep their lairs within these communities themselves! Despite their resemblance however, there are many telltale signs of vampirism: Unnaturally pale skin, long and distinctive fangs, an aversion to sunlight, and much more besides. In an effort to avoid close inspection, some vampires are known to masquerade as men of wealth, often cloistering themselves in remote locations to discourage prying eyes."
+      },
+      {
+        "line": 257,
+        "text": ""
+      },
+      {
+        "line": 258,
+        "text": "But perhaps the most astonishing thing regarding vampires is their propensity for alliance and familial relationships. No other undead being even approaches matching the incomprehensible tangle of clans, broods, families and bloodkin that vampires create for themselves. It is for this reason that vampires often end up becoming rulers of lesser undead themselves, commanding them as a normal necromancer would. So, in turn, treat them as you would a necromancer - with cold steel."
+      },
+      {
+        "line": 259,
+        "text": ""
+      },
+      {
+        "line": 260,
+        "text": "    * * *"
+      },
+      {
+        "line": 261,
+        "text": ""
+      },
+      {
+        "line": 262,
+        "text": ""
+      },
+      {
+        "line": 263,
+        "text": "#{bold}#5. Spirits#{normal}#"
+      },
+      {
+        "line": 264,
+        "text": ""
+      },
+      {
+        "line": 265,
+        "text": "During my travels, I have noticed that some communities in the wild no longer bury their deceased as is the norm in larger settlements. Some folk burn the corpses of their fallen, committing their ashes to the earth instead. When asked why they perform this peculiar practice, I always receive the same answer: Necromancers. Fearful of their dead rising up to slay them at the whims of delusional, murderous filth, they believe that with the burning of the dead, their spirits are forever beyond the reach of a necromancer's bony fingers."
+      },
+      {
+        "line": 266,
+        "text": ""
+      },
+      {
+        "line": 267,
+        "text": "Alas, this is not true. While fire may burn away a man's physical being, no flame can touch his spirit. Unfortunately, necromancers can. Bereft of both body and freedom, many souls are driven mad in the employ of necromancers, ceaselessly drifting through windswept crypts, harrying any unfortunate wanderers they encounter with a multitude of curses and hexes. Worst of all are those spirits who embrace their newfound purpose, causing them to grow in power at a frightening rate. No other being in Maj'Eyal is so obviously abhorrent to existence itself as these \"dreads\"; it is almost as though creation itself wants these beings gone from her world. It is my hope that you, and many others, oblige her wish."
+      },
+      {
+        "line": 268,
+        "text": ""
+      },
+      {
+        "line": 269,
+        "text": "    * * *"
+      },
+      {
+        "line": 270,
+        "text": ""
+      },
+      {
+        "line": 271,
+        "text": ""
+      },
+      {
+        "line": 272,
+        "text": "#{bold}#6. Bone Giants#{normal}#"
+      },
+      {
+        "line": 273,
+        "text": ""
+      },
+      {
+        "line": 274,
+        "text": "One of the most horrific, vomit-inducing expressions of the necromancer's so-called \"art\" is the bone giant. Not content with merely profaning the bodies of singular souls, some ambitious necromancers work to bind the bodies of countless skeletons together, creating hideous engines of destruction that can stand many times higher than the height of a normal man."
+      },
+      {
+        "line": 275,
+        "text": ""
+      },
+      {
+        "line": 276,
+        "text": "It is a deadly mistake to liken these abominations to the golems alchemists and archmages employ. Wilful and fey as they are, normal mages often only craft golems for utility and their own protection, while necromancers create bone giants for the sole purpose of dealing death, and the only limit to their destructive capability is the necromancer's twisted imagination. Ever fought a snow giant? Imagine one with six arms and fingers like blades, wrought of sharpened ribs. Imagine one with countless skulls lining every inch of its wretched body, all screaming for your blood to be spilt as it thrashes spinal columns like whips from its disfigured hands! After facing one of these grotesque amalgamations, you'll be begging to go back to the Daikara to pick on simple, frost-rimed sub-men."
+      },
+      {
+        "line": 277,
+        "text": ""
+      },
+      {
+        "line": 278,
+        "text": "    * * *"
+      },
+      {
+        "line": 279,
+        "text": ""
+      },
+      {
+        "line": 280,
+        "text": ""
+      },
+      {
+        "line": 281,
+        "text": "#{bold}#7. Liches#{normal}#"
+      },
+      {
+        "line": 282,
+        "text": ""
+      },
+      {
+        "line": 283,
+        "text": "Hate made flesh. Evil made pure. Death incarnate. The culmination of a necromancer's work. Whatever you know liches as, I can tell you that they do not match the countless myths and legends that surround their terrible figures. They surpass them."
+      },
+      {
+        "line": 284,
+        "text": ""
+      },
+      {
+        "line": 285,
+        "text": "Once a powerful necromancer finally crosses the border between life and death, the abyssal power that they could only initially grasp in dribs and drabs becomes theirs to control totally. It is often said that unexpected quakes, crops failing, and the leaves simultaneously falling from the trees heralds the birth of a lich. Lords of the undead, liches can annihilate ghouls and skeletons, banish dreads with a glance, and reduce bone giants to powder within moments."
+      },
+      {
+        "line": 286,
+        "text": ""
+      },
+      {
+        "line": 287,
+        "text": "As to how to actually destroy one? Well, tell you what. If you manage to defeat one of these abominations, be a dear and write a guide for me, for I have absolutely, positively, no idea."
+      },
+      {
+        "line": 288,
+        "text": ""
+      },
+      {
+        "line": 289,
+        "text": "    * * *]]"
+      },
+      {
+        "line": 290,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "905d36c5670a6f71e7f7217a493845fd5885a5e34144cb58ea54aa182a2840c2",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/blight.lua",
+    "lines": [
+      {
+        "line": 208,
+        "text": "\t\tlocal dam = damDesc(self, DamageType.BLIGHT, t.getDamage(self,t))"
+      },
+      {
+        "line": 209,
+        "text": "\t\tlocal power, heal_factor, fail = t.getEffects(self, t)"
+      },
+      {
+        "line": 210,
+        "text": "\t\treturn ([[A furious storm of blighted poison rages around the caster in a radius of %d for %d turns.  Each creature hit by the storm takes %0.2f blight damage and is poisoned for %0.2f blight damage over 4 turns."
+      },
+      {
+        "line": 211,
+        "text": "\t\tAt talent level 2 you have a chance to inflict Insidious Blight, which reduces healing by %d%%."
+      },
+      {
+        "line": 212,
+        "text": "\t\tAt talent level 4 you have a chance to inflict Numbing Blight, which reduces all damage dealt by %d%%."
+      },
+      {
+        "line": 213,
+        "text": "\t\tAt talent level 6 you have a chance to inflict Crippling Blight, which causes talents to have a %d%% chance of failure."
+      },
+      {
+        "line": 214,
+        "text": "\t\tEach possible effect is equally likely."
+      },
+      {
+        "line": 215,
+        "text": "\t\tThe poison damage dealt is capable of a critical strike."
+      },
+      {
+        "line": 216,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 217,
+        "text": "\t\ttformat(self:getTalentRadius(t), t.getDuration(self, t), dam/4, dam, heal_factor, power, fail)"
+      },
+      {
+        "line": 218,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9202a06f238e512e1829544ad41c09b57685ad8e8bb52614e44b8656d3e42b94",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 7399,
+        "text": "\tname = \"Yaldan Baoth\", image = \"object/artifact/yaldan_baoth.png\","
+      },
+      {
+        "line": 7400,
+        "text": "\tunided_name = _t\"obscuring helm\","
+      },
+      {
+        "line": 7401,
+        "text": "\tdesc = _t[[The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, \"Fear no evil\", the crown was passed onto his successor.]],"
+      },
+      {
+        "line": 7402,
+        "text": "\tlevel_range = {28, 39,},"
+      },
+      {
+        "line": 7403,
+        "text": "\trarity = 240,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9219c45ba396fd038cee11a0b2c816c3987cfab8af0343d088703611e4a8f0d8",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 621,
+        "text": "\tid = \"dreamscape-entry\","
+      },
+      {
+        "line": 622,
+        "text": "\tcategory = \"dreamscape\","
+      },
+      {
+        "line": 623,
+        "text": "\tname = _t\"If I Should Die Before I Wake\","
+      },
+      {
+        "line": 624,
+        "text": "\tlore = _t[[You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. "
+      },
+      {
+        "line": 625,
+        "text": "As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "930d3bd1a98c5624f8fbe9d6cf63df9960a4206d4e34da5d652013dd42f7edf6",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 509,
+        "text": "\tcategory = \"races\","
+      },
+      {
+        "line": 510,
+        "text": "\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons\","
+      },
+      {
+        "line": 511,
+        "text": "\tlore = _t[[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence."
+      },
+      {
+        "line": 512,
+        "text": ""
+      },
+      {
+        "line": 513,
+        "text": "Dragons come in many shapes and sizes, normally growing from 5' long hatchlings to 20' long mature drakes, with some of the greatest wyrms growing to over 40' in length. They are generally winged, with large lizard-like maws and sharp talons on both their fore and hind legs. They are often noted for the lustrous colour of their scales, normally representing an attunement to one of the key Elements of Eyal. This attunement is unseen in any other race, and some philosophers believe that dragons predate all other races, being formed as raw representations of the elements of nature at the beginning of the world. However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long."
+      },
+      {
+        "line": 514,
+        "text": ""
+      },
+      {
+        "line": 515,
+        "text": "All corners of Maj'Eyal show some trace of different types of dragons. The Daikara Pass and surrounding mountain chains are home to a great number of ice and storm dragons. Numerous sand and red dragons can be found in the western desert and hills, and many have been the reports of gigantic sea dragons in the deepest oceans, especially to the south."
+      },
+      {
+        "line": 516,
+        "text": ""
+      },
+      {
+        "line": 517,
+        "text": "Attacks from dragons on humans and halfling settlements are fairly rare, but when they occur they can be truly devastating. Usually they are to feed on livestock, but now and then come attacks from newly matured drakes, seeking out precious metals and gemstones to build up a hoard. Dragon hoards have become a thing of legend, with the greatest wyrms rumoured to protect literal mountains of gold, but in modern times truly sizeable hoards are rare. The dwarves farmed hoarding dragons almost to extinction in the Age of Allure, and most dragons these days retain only modest treasures in their lairs."
+      },
+      {
+        "line": 518,
+        "text": ""
+      },
+      {
+        "line": 519,
+        "text": "Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for \"naturally harvested\" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]]}"
+      },
+      {
+        "line": 520,
+        "text": ""
+      },
+      {
+        "line": 521,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "932d7523a1d4669ff9f88498a3be4ed05febc13f43a29c9ad82d678f7c5b9a68",
+    "public_source_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+    "lines": [
+      {
+        "line": 439,
+        "text": "\t\tlocal armor = t.getArmorSaveReduction(self,t)"
+      },
+      {
+        "line": 440,
+        "text": "\t\tlocal resist = t.getResistPenalty(self,t)"
+      },
+      {
+        "line": 441,
+        "text": "\t\treturn ([[You mix together your munitions, leading to powerful new effects:"
+      },
+      {
+        "line": 442,
+        "text": "Incendiary - Targets struck by the explosion have their armor and saves reduced by %d for 3 turns, and your physical and fire penetration is increased by %d%%."
+      },
+      {
+        "line": 443,
+        "text": "Venomous - Shots deal an additional %d%% weapon damage as nature in a radius %d ball, which applies numbing poison as per Exotic Munitions. This cannot occur more than once per turn."
+      },
+      {
+        "line": 444,
+        "text": "Piercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%."
+      },
+      {
+        "line": 445,
+        "text": "The physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]]):"
+      },
+      {
+        "line": 446,
+        "text": "\t\ttformat(armor, resist, poison, radius, bleed/5, bleed, numb)"
+      },
+      {
+        "line": 447,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "936c797eb9a3f5baecb018dd8e92ab7709e3d3c2419d8076b7fd40d8fe7172fa",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1886,
+        "text": "\tmoddable_tile = \"special/%s_club_ureslaks_femur\","
+      },
+      {
+        "line": 1887,
+        "text": "\tmoddable_tile_big = true,"
+      },
+      {
+        "line": 1888,
+        "text": "\tdesc = _t[[A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.]],"
+      },
+      {
+        "line": 1889,
+        "text": "\tlevel_range = {42, 50},"
+      },
+      {
+        "line": 1890,
+        "text": "\trequire = { stat = { str=45, dex=30 }, },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "93acef22e8135ec10ce884380727c88c43a5471463a43a2fb8e3dfb1942938f2",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4264,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 4265,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 4266,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,"
+      },
+      {
+        "line": 4267,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,"
+      },
+      {
+        "line": 4268,
+        "text": "\t-- Damage each turn"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "93ad43caaab14e718e0d4c33b010de404ea72503cb39b505b21baecacabb2dd1",
+    "public_source_path": "game/modules/tome/data/talents/uber/cun.lua",
+    "lines": [
+      {
+        "line": 165,
+        "text": "\t\t\telseif damtype == DamageType.DARKNESS and not self:hasProc(\"endless_woes_darkness\") then"
+      },
+      {
+        "line": 166,
+        "text": "\t\t\t\tself:setProc(\"endless_woes_darkness\", true, 10)"
+      },
+      {
+        "line": 167,
+        "text": "\t\t\t\tgame.logSeen(self, \"You unleash a blast of numbing #GREY#darkness#LAST#!\", self:getName():capitalize())"
+      },
+      {
+        "line": 168,
+        "text": "\t\t\t\tt.doProject(self, t, damtype, {id=\"EFF_WOEFUL_DARKNESS\", dur=5, params={reduce=t.getDarkness(self, t)}}, \"shadow_flash\")"
+      },
+      {
+        "line": 169,
+        "text": "\t\t\telseif damtype == DamageType.MIND and not self:hasProc(\"endless_woes_mind\") then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9618dac058d03e02326cc83f5459ea7116ef342d903b3d6ecfe143bee0fbd634",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 335,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 336,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned!\", _t\"+Numbing Poison\" end,"
+      },
+      {
+        "line": 337,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer poisoned.\", _t\"-Numbing Poison\" end,"
+      },
+      {
+        "line": 338,
+        "text": "\t-- Damage each turn"
+      },
+      {
+        "line": 339,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9ad94dbff72644853ad8f3a615bf29ceba88448ac6cc9d06cfa0195139a63bde",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 274,
+        "text": "info = function(self, t)"
+      },
+      {
+        "line": 275,
+        "text": "\treturn ([[Learn how to enhance your Deadly Poison, adding additional effects. Each level, you will learn a new kind of poison enhancement:"
+      },
+      {
+        "line": 276,
+        "text": "\tLevel 1: Numbing Poison"
+      },
+      {
+        "line": 277,
+        "text": "\tLevel 2: Insidious Poison"
+      },
+      {
+        "line": 278,
+        "text": "\tLevel 3: Crippling Poison"
+      },
+      {
+        "line": 376,
+        "text": "\t\tlocal heal = t.getSecondaryDamage(self,t)"
+      },
+      {
+        "line": 377,
+        "text": "\t\tlocal vdam = t.getSecondaryDamage(self,t)*0.6"
+      },
+      {
+        "line": 378,
+        "text": "\t\treturn ([[Numbing Poison - Reduces global speed by %d%% for 5 turns."
+      },
+      {
+        "line": 379,
+        "text": "\t\tInsidious Poison - Applies a standard poison that deals %0.2f nature damage over 5 turns."
+      },
+      {
+        "line": 380,
+        "text": "\t\tCrippling Poison - Places %d talents on cooldown for %d turns."
+      },
+      {
+        "line": 401,
+        "text": ""
+      },
+      {
+        "line": 402,
+        "text": "newTalent{"
+      },
+      {
+        "line": 403,
+        "text": "\tname = \"Numbing Poison\","
+      },
+      {
+        "line": 404,
+        "text": "\ttype = {\"cunning/poisons-effects\", 1},"
+      },
+      {
+        "line": 405,
+        "text": "\tpoints = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a377c9869c6fcc2cc84a4777bdec6567e11f8706b6ba46277fc50ecbc43ffda1",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1905,
+        "text": "\t\t\twho:onTakeoff(o, inven_id, true)"
+      },
+      {
+        "line": 1906,
+        "text": "\t\t\tlocal b = rng.table(o.ureslak_bonuses)"
+      },
+      {
+        "line": 1907,
+        "text": "\t\t\to.name = (\"Ureslak's %s Femur\"):tformat(b.name)"
+      },
+      {
+        "line": 1908,
+        "text": "\t\t\to.combat.damtype = b.damtype"
+      },
+      {
+        "line": 1909,
+        "text": "\t\t\to.wielder = b.wielder"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a76f87f8e375bc178fe9610a9cf15e812721cdc7c081a0c92699c0e70efbb468",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2001,
+        "text": "\tset_list = { {\"define_as\",\"URESLAK_FEMUR\"} },"
+      },
+      {
+        "line": 2002,
+        "text": "\tset_desc = {"
+      },
+      {
+        "line": 2003,
+        "text": "\t\tureslak = _t\"It would go well with another part of Ureslak.\","
+      },
+      {
+        "line": 2004,
+        "text": "\t},"
+      },
+      {
+        "line": 2005,
+        "text": "\ton_set_complete = function(self, who)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "afba311afc0127249110f2058da59013e6377f01611b703ed1401549ea471a63",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/scourge.lua",
+    "lines": [
+      {
+        "line": 39,
+        "text": "\ton_pre_use = function(self, t, silent)"
+      },
+      {
+        "line": 40,
+        "text": "\t\tif not self:hasDualWeapon() then"
+      },
+      {
+        "line": 41,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You cannot use Virulent Strike without two weapons!\") end"
+      },
+      {
+        "line": 42,
+        "text": "\t\t\treturn false"
+      },
+      {
+        "line": 43,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b6e62638f16d12a14424c035c414d835403a6c7660ec24337a87b6a4ed1996de",
+    "public_source_path": "game/modules/tome/data/general/objects/lore/fun.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "newEntity{ base = \"BASE_LORE_RANDOM\","
+      },
+      {
+        "line": 54,
+        "text": "\tname = [[\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys]], lore=\"dust-to-dust\", unique=true,"
+      },
+      {
+        "line": 55,
+        "text": "\tdesc = _t[[An undead hunter's guide, by Aslabor Borys.]],"
+      },
+      {
+        "line": 56,
+        "text": "\tlevel_range = {15, 50},"
+      },
+      {
+        "line": 57,
+        "text": "\trarity = 60,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83",
+    "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tcategory = \"spellblaze\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"The Spellblaze Chronicles(1): A Fateful Meeting\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#"
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "#{bold}#Chapter One: A Fateful Meeting#{normal}#"
+      },
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "This tale begins in the Age of Allure, when I was yet young, and the idea of youth and age was still a pressure on our people.  It is one tale amongst a host of tales, for many are the stories of tragedy and heroism that befell all the races in this era.  I can only give my story, my tragedies, and my follies dressed as heroism, woven around the great force that shook our world and changed our histories: The Spellblaze."
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "I first met Linaniil at a council summit, when our leader Ephinias was meeting with the head of the Kar’Krul.  I remember the huge man walking through the gates of our city, our people staring at his wide girth and bristling hair, his fur clothes and his proud stride.  How out of place he looked amongst us slender elves...  Some thought him a barbarian, but I could see behind his frosty eyes there was great power.  He was from a hardy race of men that once dwelt in the north of Eyal, who it was said drew power from the green fires that danced in their everwinter skies.  Turthel was his name, and the like of him has not trod through earth or snow in many centuries.  Upon his right hand he wore the Ring of Kar’Krul, a lustrous gold band adorned by a blazing ruby, token to his position as the leader of the greatest union of human mages in Maj’Eyal."
+      },
+      {
+        "line": 35,
+        "text": ""
+      },
+      {
+        "line": 36,
+        "text": "With him were his twin daughters, Linaniil and Neira, who walked before him.  Identical they were in looks, yet I saw straight away that they were opposites in personality.  They were each of crimson hair, worn long in spilling tresses, with pale skin that shone in the sunlight.  They were dressed in silken robes, but whilst Neira was adorned in yellow and orange, Linaniil wore blue and silver.  Neira was bright of glance and cheery of voice, remarking on every item of beauty she passed as they strolled through the courtyards of Elvala.  Linaniil was quiet though, and stern of face, coldly analysing and calculating all she saw.  But beneath that icy exterior I could see a fire – nay, a blaze, a bright burning passion yearning to break out, yet kept restrained.  For a moment we made eye contact as the party approached the citadel, and I could see laid bare her wild spirit and untempered thoughts, a will and strength of mind that was utterly unconquerable.  It took my breath from me."
+      },
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "Few of my people have ever understood how one of our race could be infatuated with a human.  But they have not known Linaniil.  Not as I have known her.  Like raw fire given flesh is she, a burning ball of emotions and desires.  Her fervent mind brooks no opposition, and her wit and words charm or coerce all around her.  Beautiful and radiant is her form, as bright as the summer sun, yet also cold and remote, unreachable unless she wants to be reached.  In all the ages this has never changed about her."
+      },
+      {
+        "line": 39,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "I barely noticed Neira greeting me warmly as she passed through the gate.  Linaniil gave me but a curt nod.  I followed after, as our leader and his guests entered the grand chamber and took their seats.  The summit was to begin on the planning of a new endeavour, a great work by our highest mages to tap into the power of the Sher’Tul farportals.  Long had the relics of that ancient race lain dormant beneath the soil, their powers untouched.  With that mighty strength brought forth we could end the war with the orcs quickly and decisively.  The Spellblaze they called it, and it was a name we spoke in awe and reverence."
+      },
+      {
+        "line": 41,
+        "text": ""
+      },
+      {
+        "line": 42,
+        "text": "King Ephinias began the meeting, introducing our guests and then those around him.  “This is my general,” he said gesturing to me, “Commander Gawaeil of the Shaloren Armies.”  Immediately Linaniil looked at me and gawked."
+      },
+      {
+        "line": 43,
+        "text": ""
+      },
+      {
+        "line": 44,
+        "text": "“What?” she cried, staring at my armour and baldric.  She turned away from us, seeming not to heed her distinguished hosts.  “Father, what be the meaning of this?” she said to the burly man.  “Ye gave tell that the Shaloren had the mightiest battlemages, yet their general be cased in steel and girt with sword.  Does a mere fighter command experts in the Art?”"
+      },
+      {
+        "line": 45,
+        "text": ""
+      },
+      {
+        "line": 46,
+        "text": "Ephinias looked outraged, but I laughed suddenly, both at her extreme rudeness and her wild presumptions.  “A mere fighter?” I said between incredulous gasps.  “Lady, you would do well not to judge so on appearances.  For if I judge right I see no mere impudent lass before me, but a great master of flames and inflagrations, and a weaver of threads more stern-willed even than her chill-blooded father.  But do not presume yourself a greater worker of the Art than I!  For I am Aranion Gawaeil, master of the Arcane Blade, a channeller of mighty elemental forces.  The spells willed through my steel have slain more orcs than you have seen in your short life, or like will ever see.”"
+      },
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "She looked at me then with sudden interest.  “A strange technique it sounds.  Ludicrous it seems when one can simply burn foes from afar.  Though perhaps if we hunt orc together some time I shall see for mine self.  But ye would be hard pressed indeed to better me on the battlefield.”"
+      },
+      {
+        "line": 49,
+        "text": ""
+      },
+      {
+        "line": 50,
+        "text": "“I shall endeavour to impress, my lady,” I said, with a mock bow of my head.  A thin smile played across her lips."
+      },
+      {
+        "line": 51,
+        "text": ""
+      },
+      {
+        "line": 52,
+        "text": "Turthel grunted and turned his shaggy head to the king.  “Business,” he said, in the blunt and brief manner I had heard reported of him."
+      },
+      {
+        "line": 53,
+        "text": ""
+      },
+      {
+        "line": 54,
+        "text": "Ephinias cleared his throat and sat back in his chair.  “We have a grand plan before us,” he began. “For many years we have been plagued by orc attacks.  Initially we were weakened from the Allure Wars, but now that we are beginning to recover our strength it is time to put our joint enemy to rest.  Too often they have threatened to overrun us all, to destroy civilisation forever.  We have all lost much.  Turthel, I can deeply sympathise with your personal loss.”  The fur-clothed man did not change his expression, but I could see his daughters dip their heads in solemn thought."
+      },
+      {
+        "line": 55,
+        "text": ""
+      },
+      {
+        "line": 56,
+        "text": "“I have been leading our archmages in an experiment on the Sher’Tul farportal to the east of here.  We believe we can evoke the great powers sealed within to create a wave of destructive energy that we could direct against the orcish armies.  If all the races cooperate in drawing the orcish forces out then we can end this war in one swift strike.  The orcs would be decimated beyond recovery, and Eyal would be cleansed of their presence."
+      },
+      {
+        "line": 57,
+        "text": ""
+      },
+      {
+        "line": 58,
+        "text": "“I have approached the leaders of the other races.  The halflings are fully supportive.  The Nargol regents have even provided us with some of their historical research on Sher’Tul ruins.”"
+      },
+      {
+        "line": 59,
+        "text": ""
+      },
+      {
+        "line": 60,
+        "text": "Turthel cursed then suddenly.  “Research done on human slaves!” he barked.  He turned quiet then, letting his temper settle.  “What of your sea and forest cousins?”"
+      },
+      {
+        "line": 61,
+        "text": ""
+      },
+      {
+        "line": 62,
+        "text": "Ephinias looked him coolly in the eye.  “The Naloren are prideful and do not wish to cooperate.  They think they can protect their lands on their own.  Yet I believe they will thank us in the end...  The Thaloren are not entirely keen either.  But we have discussed with their king and queen, and given great assurances as to the safety of our operations.  They do not wholly trust us or our command of the arcane, but in this they will not oppose us.  Shatur is as weary of the orc attacks on its borders as any of us.  They will give aid where it is convenient, as long as they ride under their own banners.  We do not particularly need them, of course, but we thought it prudent to involve all we could."
+      },
+      {
+        "line": 63,
+        "text": ""
+      },
+      {
+        "line": 64,
+        "text": "“The other human leaders have mostly assented.  Some have expressed wholly irrational fears of our activities.  Alas, legends and myths still abound to scare people away from anything to do with the Sher’Tul.  But we are confident that we know what we are doing here.  The Kar’Krul elite I’m sure will understand.  And your alliance is worth a dozen lesser kings.”"
+      },
+      {
+        "line": 65,
+        "text": ""
+      },
+      {
+        "line": 66,
+        "text": "The burly man stared hard and long into Ephinias’ eyes, before turning to his daughters.  “What do ye think, girls?”"
+      },
+      {
+        "line": 67,
+        "text": ""
+      },
+      {
+        "line": 68,
+        "text": "Neira was the first to respond, and there was colour in her cheeks and emotion in her voice.  “I deem this Shaloren king remote and proud.  Sympathy he talks of whilst using our mother’s memory as a tool.  Understanding he proclaims, yet how can any truly know the subtlety behind these Sher’Tul relics?  Untouched they be for millennia, and their original power is still unknown.  What pride lets ye think ye can toy with them now?  It be folly to use a weapon that ye know not how to wield.”"
+      },
+      {
+        "line": 69,
+        "text": ""
+      },
+      {
+        "line": 70,
+        "text": "The room went quiet, and I could see Ephinias was silently fuming.  He was not accustomed to such open criticism.  Then Linaniil began to speak, and her voice was low and cool, yet all ears hung on her words.  “Many have been the works of pride over the years that have arisen in splendour.  Whence have come our great artworks, our grand cities, or the arcane weavings that shape our societies?  No meekness be found in their crafting.  There be no shame in acting out of pride, and we gain nothing from misplaced humility.  Too long have the powers of the Sher’Tul been left untapped by fearful and timid hearts.”  I could see then her eyes light up with excitement.  “Think of the glories we could unlock!  This war with the orcs would be but the beginning.  Great benefit could be brought to us all.  To leave these powers buried would be a crime, I say.”"
+      },
+      {
+        "line": 71,
+        "text": ""
+      },
+      {
+        "line": 72,
+        "text": "Turthel paused reflectively before nodding his head slowly, and it was clear that Linaniil’s words aligned better with his own thoughts.  “Very well,” he slowly announced, looking directly at Ephinias.  “We are with you.”  Neira stayed silent with brooding concern, but a flash of satisfaction crossed her sister’s eyes.]],"
+      },
+      {
+        "line": 73,
+        "text": "\ton_learn = function(who) world:gainAchievement(\"SPELLBLAZE_LORE\") end,"
+      },
+      {
+        "line": 74,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c2b01ddaff14a35d112d81b634c085f55be5a95d0a3d8d1bc024a1b0677ce2c2",
+    "public_source_path": "game/modules/tome/data/general/npcs/minor-demon.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "newEntity{ base = \"BASE_NPC_DEMON\","
+      },
+      {
+        "line": 48,
+        "text": "\tname = \"fire imp\", color=colors.CRIMSON,"
+      },
+      {
+        "line": 49,
+        "text": "\tdesc = _t\"A small demon, lobbing spells at you.\","
+      },
+      {
+        "line": 50,
+        "text": "\tlevel_range = {10, nil}, exp_worth = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c80e527744ef6a579013c9157a9c2150131350edd3959994f1f0db4050a529a9",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 427,
+        "text": "\tend,"
+      },
+      {
+        "line": 428,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 429,
+        "text": "\treturn ([[Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%.]]):"
+      },
+      {
+        "line": 430,
+        "text": "\ttformat(t.getEffect(self, t))"
+      },
+      {
+        "line": 431,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c86c544bdccaf81e4e721c9991854e4ec4d6fe8fd478f6372a0d43ca337254b1",
+    "public_source_path": "game/modules/tome/data/talents/spells/staff-combat.lua",
+    "lines": [
+      {
+        "line": 140,
+        "text": ""
+      },
+      {
+        "line": 141,
+        "text": "newTalent{"
+      },
+      {
+        "line": 142,
+        "text": "\tname = \"Blunt Thrust\","
+      },
+      {
+        "line": 143,
+        "text": "\ttype = {\"spell/staff-combat\",4},"
+      },
+      {
+        "line": 144,
+        "text": "\trequire = spells_req4,"
+      },
+      {
+        "line": 159,
+        "text": "\t\tlocal weapon = self:hasStaffWeapon()"
+      },
+      {
+        "line": 160,
+        "text": "\t\tif not weapon then"
+      },
+      {
+        "line": 161,
+        "text": "\t\t\tgame.logPlayer(self, \"You cannot use Blunt Thrust without a staff weapon!\")"
+      },
+      {
+        "line": 162,
+        "text": "\t\t\treturn nil"
+      },
+      {
+        "line": 163,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c8e907bfb451f9850dcda8341f13ba8d571a73aaf452e912bbfeb3a597ea5ffa",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 334,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 335,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 336,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned!\", _t\"+Numbing Poison\" end,"
+      },
+      {
+        "line": 337,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer poisoned.\", _t\"-Numbing Poison\" end,"
+      },
+      {
+        "line": 338,
+        "text": "\t-- Damage each turn"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ca0dd51e3465de025b3ab45039a90e6572b9b99058cc9ee44c4ad353149ff436",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 58,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 59,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 60,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is weakened by the darkness!\", _t\"+Numbing Darkness\" end,"
+      },
+      {
+        "line": 61,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# regains their energy.\", _t\"-Numbing Darkness\" end,"
+      },
+      {
+        "line": 62,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026",
+    "public_source_path": "game/modules/tome/data/lore/age-allure.lua",
+    "lines": [
+      {
+        "line": 259,
+        "text": "\tcategory = \"age of allure\","
+      },
+      {
+        "line": 260,
+        "text": "\tname = _t\"investigator Churrack note\","
+      },
+      {
+        "line": 261,
+        "text": "\tlore = _t[[FROM: Investigator Churrack"
+      },
+      {
+        "line": 262,
+        "text": "TO: Whoever holds the position of High Overseer of Loyalty when we're let out"
+      },
+      {
+        "line": 263,
+        "text": ""
+      },
+      {
+        "line": 264,
+        "text": "Though I'm trapped in here with these healers, I haven't stopped prying to determine if their loyalties lie with us or with themselves. This case has more layers than a damn onion; while Astelrid did disobey a direct order (and several more by revealing the existence of that order), her alternative seems to fit our goals nonetheless. Response from staff has been mixed.  While most are reluctantly going along with her plan for lack of other options, some seem to follow her lead enthusiastically, and have been singing this song as they wait in line for their treatment:"
+      },
+      {
+        "line": 265,
+        "text": ""
+      },
+      {
+        "line": 266,
+        "text": "#{italic}#Some Nargol once told me their Empire's gonna roll me"
+      },
+      {
+        "line": 267,
+        "text": "We ain't as strong as all their undead"
+      },
+      {
+        "line": 268,
+        "text": "They looked kind of silly with giant feet so furry"
+      },
+      {
+        "line": 269,
+        "text": "And an ogre's club smashing their foreheads"
+      },
+      {
+        "line": 270,
+        "text": ""
+      },
+      {
+        "line": 271,
+        "text": "Well, the Empire's coming and they won't stop coming"
+      },
+      {
+        "line": 272,
+        "text": "So you'd better be ready to hit the ground running"
+      },
+      {
+        "line": 273,
+        "text": "Didn't make sense to kill everyone"
+      },
+      {
+        "line": 274,
+        "text": "Praise the Overseers, but that plan was dumb"
+      },
+      {
+        "line": 275,
+        "text": ""
+      },
+      {
+        "line": 276,
+        "text": "So much to do, so much to see"
+      },
+      {
+        "line": 277,
+        "text": "So what's wrong with waiting in stasis?"
+      },
+      {
+        "line": 278,
+        "text": "We'll never know if we don't try"
+      },
+      {
+        "line": 279,
+        "text": "We'll never shine if we just die"
+      },
+      {
+        "line": 280,
+        "text": ""
+      },
+      {
+        "line": 281,
+        "text": "Hey, now, you're a healer, get ogrified, go wait"
+      },
+      {
+        "line": 282,
+        "text": "Hey, now, you're a guard now, stand vigil in the tanks"
+      },
+      {
+        "line": 283,
+        "text": "They won't work on normal humans"
+      },
+      {
+        "line": 284,
+        "text": "But we won't age sleeping in these ruins"
+      },
+      {
+        "line": 285,
+        "text": ""
+      },
+      {
+        "line": 286,
+        "text": "It's a safe place, even as it gets older"
+      },
+      {
+        "line": 287,
+        "text": "'cause this war's not over until we say it's ogre"
+      },
+      {
+        "line": 288,
+        "text": "But the golems outside beg to differ"
+      },
+      {
+        "line": 289,
+        "text": "Judging by the sights in the scrying-orb's picture"
+      },
+      {
+        "line": 290,
+        "text": ""
+      },
+      {
+        "line": 291,
+        "text": "The ground we're under was getting pretty thin"
+      },
+      {
+        "line": 292,
+        "text": "Their scouts are onto us, and they've got us all pinned"
+      },
+      {
+        "line": 293,
+        "text": "We blew the tunnels - no way out,"
+      },
+      {
+        "line": 294,
+        "text": "until the Conclave finds us, give trespassers a rout!"
+      },
+      {
+        "line": 295,
+        "text": ""
+      },
+      {
+        "line": 296,
+        "text": "Hey, now, you're a healer, get ogrified, go wait"
+      },
+      {
+        "line": 297,
+        "text": "Hey, now, you're a guard now, stand vigil in the tanks"
+      },
+      {
+        "line": 298,
+        "text": "They won't work on normal humans"
+      },
+      {
+        "line": 299,
+        "text": "But we won't age sleeping in these ruins"
+      },
+      {
+        "line": 300,
+        "text": ""
+      },
+      {
+        "line": 301,
+        "text": "Hey, now, you're a healer, get ogrified, go wait"
+      },
+      {
+        "line": 302,
+        "text": "Hey, now, you're a guard now, stand vigil in the tanks"
+      },
+      {
+        "line": 303,
+        "text": "They won't work on normal humans"
+      },
+      {
+        "line": 304,
+        "text": "But we won't age sleeping in these ruins"
+      },
+      {
+        "line": 305,
+        "text": ""
+      },
+      {
+        "line": 306,
+        "text": "Somebody once asked if we'd finished, but alas"
+      },
+      {
+        "line": 307,
+        "text": "While I'm proud of what we've done in this place"
+      },
+      {
+        "line": 308,
+        "text": "We weren't done yet with this project,"
+      },
+      {
+        "line": 309,
+        "text": "but we're close enough where this isn't neglect"
+      },
+      {
+        "line": 310,
+        "text": "Eyal will appreciate our new race!"
+      },
+      {
+        "line": 311,
+        "text": ""
+      },
+      {
+        "line": 312,
+        "text": "Well, the years'll start coming and they won't stop coming"
+      },
+      {
+        "line": 313,
+        "text": "So you'd better be ready to hit the ground running"
+      },
+      {
+        "line": 314,
+        "text": "Didn't make sense to kill everyone"
+      },
+      {
+        "line": 315,
+        "text": "Praise the Overseers, but that plan was dumb"
+      },
+      {
+        "line": 316,
+        "text": ""
+      },
+      {
+        "line": 317,
+        "text": "So much to do, so much to see"
+      },
+      {
+        "line": 318,
+        "text": "So what's wrong with waiting in stasis?"
+      },
+      {
+        "line": 319,
+        "text": "We'll never know if we don't try"
+      },
+      {
+        "line": 320,
+        "text": "We'll never shine if we just die"
+      },
+      {
+        "line": 321,
+        "text": ""
+      },
+      {
+        "line": 322,
+        "text": "Hey, now, you're a healer, get ogrified, go wait"
+      },
+      {
+        "line": 323,
+        "text": "Hey, now, you're a guard now, stand vigil in the tanks"
+      },
+      {
+        "line": 324,
+        "text": "They won't work on normal humans"
+      },
+      {
+        "line": 325,
+        "text": "But we won't age sleeping in these ruins"
+      },
+      {
+        "line": 326,
+        "text": ""
+      },
+      {
+        "line": 327,
+        "text": "They won't work on normal humans"
+      },
+      {
+        "line": 328,
+        "text": "But we won't age sleeping in these ruins#{normal}#"
+      },
+      {
+        "line": 329,
+        "text": ""
+      },
+      {
+        "line": 330,
+        "text": "...Everyone reacts to grief differently, I guess. #{bold}#-Churrack#{normal}#]],"
+      },
+      {
+        "line": 331,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d81d17f0f5257e96acfc4f9b2fedb95c82ba7d688c67ea3d7c56a53726dfc043",
+    "public_source_path": "game/modules/tome/data/general/objects/random-artifacts/generic.lua",
+    "lines": [
+      {
+        "line": 450,
+        "text": "\t},"
+      },
+      {
+        "line": 451,
+        "text": "}"
+      },
+      {
+        "line": 452,
+        "text": "newEntity{ theme={dark=true}, name=\"generic dark numbing melee\", points = 2, rarity = 20, level_range = {1, 50},"
+      },
+      {
+        "line": 453,
+        "text": "\twielder = { "
+      },
+      {
+        "line": 454,
+        "text": "\t\tmelee_project = {[DamageType.ITEM_DARKNESS_NUMBING] = resolvers.randartmax(10, 20), }, "
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "da3c827430e404778b4aa48061c6baddd00ea3d4e72c4397bb39ea70ab7177f5",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2635,
+        "text": "\tpower_source = {arcane=true},"
+      },
+      {
+        "line": 2636,
+        "text": "\tunique = true,"
+      },
+      {
+        "line": 2637,
+        "text": "\tname = \"Sceptre of the Archlich\","
+      },
+      {
+        "line": 2638,
+        "text": "\tflavor_name = \"vilestaff\","
+      },
+      {
+        "line": 2639,
+        "text": "\tunided_name = _t\"bone carved sceptre\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "dc3200b76ddf5f8a6d2db60023aa13a2dc8e2ea3fb28f8898cf9906c0e175281",
+    "public_source_path": "game/modules/tome/data/quests/start-archmage.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 23,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"The Abashed Expanse is a part of Eyal torn apart by the Spellblaze and thrown into the void between the stars.\\n\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It has recently begun to destabilize, threatening to crash onto Eyal, destroying everything in its path.\\n\""
+      },
+      {
+        "line": 26,
+        "text": "\tdesc[#desc+1] = _t\"You have entered it and must now stabilize three wormholes by firing any spell at them.\\n\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "dca3e07f82797cf2d2193489cef8a855a37a34e672f22468931a8a71db79fcc1",
+    "public_source_path": "game/modules/tome/data/general/objects/lore/fun.lua",
+    "lines": [
+      {
+        "line": 52,
+        "text": ""
+      },
+      {
+        "line": 53,
+        "text": "newEntity{ base = \"BASE_LORE_RANDOM\","
+      },
+      {
+        "line": 54,
+        "text": "\tname = [[\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys]], lore=\"dust-to-dust\", unique=true,"
+      },
+      {
+        "line": 55,
+        "text": "\tdesc = _t[[An undead hunter's guide, by Aslabor Borys.]],"
+      },
+      {
+        "line": 56,
+        "text": "\tlevel_range = {15, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e0052760be69fb293d653355f8b70e75dbe9659250636b24db4e00eed6a55014",
+    "public_source_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+    "lines": [
+      {
+        "line": 62,
+        "text": "\tend,"
+      },
+      {
+        "line": 63,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 64,
+        "text": "\t\treturn ([[You have learned to create and equip specialist ammunition:"
+      },
+      {
+        "line": 65,
+        "text": "Incendiary - Shots deal an additional %d%% weapon damage as fire in a radius %d ball. This cannot occur more than once per turn."
+      },
+      {
+        "line": 66,
+        "text": "Venomous - Shots deal %0.2f nature damage and inflict numbing poison, dealing a further %0.2f nature damage over 5 turns and reducing all damage dealt by %d%%."
+      },
+      {
+        "line": 67,
+        "text": "Piercing - Shots reduce armor and saves by %d for 3 turns, and your physical penetration is increased by %d%%."
+      },
+      {
+        "line": 68,
+        "text": "You can only have 1 type of ammunition loaded at a time."
+      },
+      {
+        "line": 69,
+        "text": "The poison damage dealt, armor penetration and save reduction will increase with your Physical Power.]]):"
+      },
+      {
+        "line": 70,
+        "text": "\t\ttformat(t.getIncendiaryDamage(self, t)*100, t.getIncendiaryRadius(self,t), damDesc(self, DamageType.NATURE, t.getPoisonDamage(self, t)/5), damDesc(self, DamageType.NATURE, t.getPoisonDamage(self, t)), t.getNumb(self, t), t.getArmorSaveReduction(self, t), t.getResistPenalty(self,t))"
+      },
+      {
+        "line": 71,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e0687a0c14a4d997e5b0213271b0757dc811aecef595ac4bd36c83849e1c676d",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 60,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is weakened by the darkness!\", _t\"+Numbing Darkness\" end,"
+      },
+      {
+        "line": 61,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# regains their energy.\", _t\"-Numbing Darkness\" end,"
+      },
+      {
+        "line": 62,
+        "text": "\ton_timeout = function(self, eff)"
+      },
+      {
+        "line": 63,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e11bfbe8f6bd1a9fd52f5aee7278f143a990e1dc829540dd37148cf7a0625f61",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1882,
+        "text": "newEntity{ base = \"BASE_MACE\","
+      },
+      {
+        "line": 1883,
+        "text": "\tpower_source = {nature=true},"
+      },
+      {
+        "line": 1884,
+        "text": "\tname = \"Ureslak's Femur\", define_as = \"URESLAK_FEMUR\", image=\"object/artifact/club_ureslaks_femur.png\","
+      },
+      {
+        "line": 1885,
+        "text": "\tunided_name = _t\"a strangely colored bone\", unique = true,"
+      },
+      {
+        "line": 1886,
+        "text": "\tmoddable_tile = \"special/%s_club_ureslaks_femur\","
+      },
+      {
+        "line": 1909,
+        "text": "\t\t\to.wielder = b.wielder"
+      },
+      {
+        "line": 1910,
+        "text": "\t\t\twho:onWear(o, inven_id, true)"
+      },
+      {
+        "line": 1911,
+        "text": "\t\t\tgame.logSeen(who, \"#GOLD#Ureslak's Femur glows and shimmers!\")"
+      },
+      {
+        "line": 1912,
+        "text": "\t\tend },"
+      },
+      {
+        "line": 1913,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e6b61100e50ad27cf40a58631c541e1ddca2b4d14c0f52b5010a550c79a2a189",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4265,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 4266,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,"
+      },
+      {
+        "line": 4267,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,"
+      },
+      {
+        "line": 4268,
+        "text": "\t-- Damage each turn"
+      },
+      {
+        "line": 4269,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e6c2511dd81f540201c6cec1e3b9c75eeb3de701a0cb11699dfc7fb95b0cdaf0",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 2104,
+        "text": "-- This entire system should probably be moved outside of DTs/melee_project at some point"
+      },
+      {
+        "line": 2105,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 2106,
+        "text": "\tname = _t(\"item darkness numbing\", \"damage type\"), type = \"ITEM_DARKNESS_NUMBING\","
+      },
+      {
+        "line": 2107,
+        "text": "\ttext_color = \"#GREY#\","
+      },
+      {
+        "line": 2108,
+        "text": "\ttdesc = function(dam, oldDam, src)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e72b028d23a53387f60bedcd7a5393b3dc80c43047ac3b763e380dcf5b2f58b7",
+    "public_source_path": "game/modules/tome/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 328,
+        "text": "newEffect{"
+      },
+      {
+        "line": 329,
+        "text": "\tname = \"NUMBING_POISON\", image = \"effects/numbing_poison.png\","
+      },
+      {
+        "line": 330,
+        "text": "\tdesc = _t\"Numbing Poison\","
+      },
+      {
+        "line": 331,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%.\"):tformat(eff.power, eff.reduce) end,"
+      },
+      {
+        "line": 332,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 334,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 335,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 336,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned!\", _t\"+Numbing Poison\" end,"
+      },
+      {
+        "line": 337,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer poisoned.\", _t\"-Numbing Poison\" end,"
+      },
+      {
+        "line": 338,
+        "text": "\t-- Damage each turn"
+      },
+      {
+        "line": 339,
+        "text": "\ton_timeout = function(self, eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ee2946bf194d3ee8d98f25eecfe6f16bbe4212b617da9fb184a0a9b177376a1d",
+    "public_source_path": "game/modules/tome/data/talents/psionic/finer-energy-manipulations.lua",
+    "lines": [
+      {
+        "line": 124,
+        "text": ""
+      },
+      {
+        "line": 125,
+        "text": "newTalent{"
+      },
+      {
+        "line": 126,
+        "text": "\tname = \"Matter is Energy\","
+      },
+      {
+        "line": 127,
+        "text": "\ttype = {\"psionic/finer-energy-manipulations\", 3},"
+      },
+      {
+        "line": 128,
+        "text": "\trequire = psi_cun_req3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f1bde9ce135eaf611d2e3077bf58e14a5105490f26273d237e7a14c6ddbda901",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4264,
+        "text": "\tstatus = \"detrimental\","
+      },
+      {
+        "line": 4265,
+        "text": "\tparameters = {power=10, reduce=5},"
+      },
+      {
+        "line": 4266,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is poisoned numbing blight!\", _t\"+Numbing Blight\" end,"
+      },
+      {
+        "line": 4267,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is free from the numbing blight.\", _t\"-Numbing Blight\" end,"
+      },
+      {
+        "line": 4268,
+        "text": "\t-- Damage each turn"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f1c67749b7576bb269882262167aa5ab69e0efc940dd5e7839b16b99ce28c3fd",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1909,
+        "text": "\t\t\to.wielder = b.wielder"
+      },
+      {
+        "line": 1910,
+        "text": "\t\t\twho:onWear(o, inven_id, true)"
+      },
+      {
+        "line": 1911,
+        "text": "\t\t\tgame.logSeen(who, \"#GOLD#Ureslak's Femur glows and shimmers!\")"
+      },
+      {
+        "line": 1912,
+        "text": "\t\tend },"
+      },
+      {
+        "line": 1913,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f8c75067ac69913d083ba5c003c1229f10a7a11aa36b7e40688f655b25483a32",
+    "public_source_path": "game/modules/tome/init.lua",
+    "lines": [
+      {
+        "line": 97,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/undead_mummy_greater_mummy_lord.png\", text=[[Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.]]},"
+      },
+      {
+        "line": 98,
+        "text": "\t{image=\"/data/gfx/loadtiles/toknor_mirvenia.png\", img_y_off=-10, text=[[120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.]]},"
+      },
+      {
+        "line": 99,
+        "text": "\t{image=\"/data/gfx/loadtiles/lava.png\", text=[[\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.]]},"
+      },
+      {
+        "line": 100,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_ben_cruthdar__the_cursed.png\", text=[[Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.]]},"
+      },
+      {
+        "line": 101,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/the_master.png\", text=[[Dreadfell has always been shunned for its haunted crypts, but of late rumours tell of a darker and more terrible power in residence.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f93d2b91ef3ac722322131da1ce05586e1c2051939b4f0bd13a48f2dd7f49856",
+    "public_source_path": "game/modules/tome/data/quests/start-archmage.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"The Abashed Expanse is a part of Eyal torn apart by the Spellblaze and thrown into the void between the stars.\\n\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It has recently begun to destabilize, threatening to crash onto Eyal, destroying everything in its path.\\n\""
+      },
+      {
+        "line": 26,
+        "text": "\tdesc[#desc+1] = _t\"You have entered it and must now stabilize three wormholes by firing any spell at them.\\n\""
+      },
+      {
+        "line": 27,
+        "text": "\tdesc[#desc+1] = _t\"Remember, the floating islands are not stable and might teleport randomly. However, the disturbances also help you: your Phase Door spell is fully controllable even if not of high level yet.\\n\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fa76e51c6e2b9baeaa93d1ce1b3a737c6a1fc3bb82237142f38e38dc6f2a0745",
+    "public_source_path": "game/modules/tome/init.lua",
+    "lines": [
+      {
+        "line": 124,
+        "text": "\t{image=\"/data/gfx/shockbolt/terrain/ruin_tower_closed01.png\", text=[[The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.]]},"
+      },
+      {
+        "line": 125,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/humanoid_human_linaniil_supreme_archmage.png\", img_y_off=-50, text=[[After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.]]},"
+      },
+      {
+        "line": 126,
+        "text": "\t{image=\"/data/gfx/shockbolt/npc/demon_major_duathedlen.png\", text=[[Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.]]},"
+      },
+      {
+        "line": 127,
+        "text": "\t{image=\"/data/gfx/shockbolt/object/elixir_of_mysticism.png\", text=[[The art of potion making fell into decline after the Spellhunt, and only a rare few now master the gift.]]},"
+      },
+      {
+        "line": 128,
+        "text": "\t{image=\"/data/gfx/shockbolt/object/artifact/jewelry_ring_of_the_dead.png\", text=[[It's said that some rare powers can save your soul from the edge of death.]]},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "facf1750afa41262e9a246a31ed253a3fb26e226e705a1a50da108e9b41fb692",
+    "public_source_path": "game/modules/tome/data/texts/unlock-paladin_fallen.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class Evolution: #LIGHT_GREEN#Fallen (Sun Paladin)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[#{bold}##GOLD#You aren't so different...#LAST##{normal}#"
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "As a sun paladin, you follow a code.  But with the darkness you've seen in the world, you've started to doubt."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You have unlocked the #LIGHT_GREEN#Fallen class evolution#WHITE# for Sun Paladins."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "Learn new Talents:#YELLOW#"
+      },
+      {
+        "line": 28,
+        "text": "- Bloodstained: Make your foes bleed!"
+      },
+      {
+        "line": 29,
+        "text": "- Darkside: Every light casts a shadow, yours is powerful indeed"
+      },
+      {
+        "line": 30,
+        "text": "- Hatred: Manifest your hatred through bleeding"
+      },
+      {
+        "line": 31,
+        "text": "- Dirges: Sing of death and sorrow to strength your resolve#WHITE#"
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "Swap your paladin Talents:#YELLOW#"
+      },
+      {
+        "line": 34,
+        "text": "- Radiance turns into Gloom: Project onto others your own hate, hindering them"
+      },
+      {
+        "line": 35,
+        "text": "- Crusader turns into Dark Sun: Call upon the energies of dead suns to crush your foes"
+      },
+      {
+        "line": 36,
+        "text": "- Guardian turns into Crimson Templar: Use the power of blood to control and defeat the fools that oppose you"
+      },
+      {
+        "line": 37,
+        "text": "#WHITE#"
+      },
+      {
+        "line": 38,
+        "text": ""
+      },
+      {
+        "line": 39,
+        "text": "Class evolutions are selected as prodigies and grant new ways to build and expand your class. They are only visible to the concerned class."
+      },
+      {
+        "line": 40,
+        "text": "]]"
+      },
+      {
+        "line": 41,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fceb0e38b8ea719143b85a92edc5b017f0548be365a4772c0d97d666e144c144",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 719,
+        "text": "\tcategory = \"point zero\","
+      },
+      {
+        "line": 720,
+        "text": "\tname = _t\"Warden-Master Galsamae's Orientation Notes\","
+      },
+      {
+        "line": 721,
+        "text": "\tlore = _t[[Congratulations, sir and/or madam. Whether by invitation, discovering it on your own, or simply being enough of a thorn in our side to recruit rather than dispose of, you have gained the secrets of chronomancy. The ultimate power of time - the ability to reset and try again if you fail, the ability to save time by seeing the results of investigations before they happen. Though our powers are bound to post-Spellblaze Eyal, they are those of nigh-omnipotence with enough patience."
+      },
+      {
+        "line": 722,
+        "text": ""
+      },
+      {
+        "line": 723,
+        "text": "But trust me - \"enough patience\" is one nasty limiting reagent. You're going to be running out of that fast when you've spent the last week trying to dismantle an Age of Dusk-era house-of-cards system of causally interdependent tyrannies without causing dwarven extinction, and a plague just broke out right when you had things almost perfect, for the sixth time--"
+      },
+      {
+        "line": 724,
+        "text": ""
+      },
+      {
+        "line": 725,
+        "text": "Look. The point is, there's a reason the person who writes the invitations and the mission statements isn't someone out in the field - and you're lucky enough to be working for someone who understands that you need more flexibility than idealism allows. Our squad knows that to stay sane, we have to know when \"time flows forward at a rate of one second per second\" isn't the only rule we have to break. That it's generally okay to skip the trial and just deal with a temporally hazardous jackass as you see fit, if you've foreseen a guilty verdict - as long as your investigations are solid when you actually conduct them (and you do have to do the work once in a while, or you'll only be capable of seeing yourself procrastinating). And if you just need to not be watched, you should know that there are a few decades in the Age of Dusk we and a few other squads recognize as \"fair game\" - whatever experiments you've wondered about or horrors you want to inflict, just keep it to the time period of infinite forgotten evils and it doesn't hurt anything in the grand scheme. Trust me, we've checked - nothing in that time period matters unless you've got another Spellblaze to set off."
+      },
+      {
+        "line": 726,
+        "text": ""
+      },
+      {
+        "line": 727,
+        "text": "But most importantly, you should know: Zemekkys is even lazier than I am, but he has status to maintain. If you continually violate his will, there will come a point at which you will be informed that you have been caught and should stop resisting. Accept whatever fate he doles out for you. If you do not stop, there will come a point where he will be forced to make an example of you so severe that the entire cosmos will notice your non-existence. Obviously we can't be sure how many of us he's done this to (if any) or how it works, but we're pretty sure that the result looks like something starting with a W."
+      },
+      {
+        "line": 728,
+        "text": ""
+      },
+      {
+        "line": 729,
+        "text": "Everyone here wants the same thing - keep spacetime stable, have fun with your powers, cheat at a few lotteries - but we've got cover to maintain and, in theory, an actual job to do if something ever cracks that Sher'Tul shield or the Greigu find a way to bypass a portal-filter. Scratch backs when yours gets scratched, don't make so much noise that the system comes crashing down on your head, and you'll enjoy your stay in eternity."
+      },
+      {
+        "line": 730,
+        "text": ""
+      },
+      {
+        "line": 731,
+        "text": "Welcome to Point Zero, agent. Enclosed are timespace coordinates to what is, quite literally, the best roast-yeti restaurant that could possibly exist - I'll have the squad meet you there and then. Thank me later."
+      },
+      {
+        "line": 732,
+        "text": ""
+      },
+      {
+        "line": 733,
+        "text": "[i]-Galsamae[/i]"
+      },
+      {
+        "line": 734,
+        "text": ""
+      },
+      {
+        "line": 735,
+        "text": "PS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless \"he\" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition.]]"
+      },
+      {
+        "line": 736,
+        "text": "}"
+      },
+      {
+        "line": 737,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "01928d0b054c9a72fd5d9a2b4c5cda72e4b0facd4193b344a8d63e752107e534",
+    "public_source_path": "tome-ashes-urhrok/data/zones/anteroom-agony/grids.lua",
+    "lines": [
+      {
+        "line": 97,
+        "text": "\tdefine_as = \"PORTAL_EYAL\", "
+      },
+      {
+        "line": 98,
+        "text": "\ttype = \"floor\", subtype = \"floor\","
+      },
+      {
+        "line": 99,
+        "text": "\tname = \"portal to Eyal\","
+      },
+      {
+        "line": 100,
+        "text": "\timage = \"terrain/red_floating_rocks05_01.png\", add_displays = {class.new{z=3, image=\"terrain/planar_demon_portal_ground_down.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2}, class.new{z=16, image=\"terrain/planar_demon_portal_ground_up.png\", display_x=-0.5, display_y=-0.5, display_w=2, display_h=2}},"
+      },
+      {
+        "line": 101,
+        "text": "\tresolvers.generic(function(self) local ps = self.add_displays[1]:addParticles(require(\"engine.Particles\").new(\"farportal_vortex\", 1, {rot=3, size=42, vortex=\"shockbolt/terrain/planar_demon_vortex\"})) ps.dy = -0.05 end),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0c3bb1b6afa7cc128f206b4ff1dc59b6275475a994de3892edfd7e5da75cf83d",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 629,
+        "text": "newEffect{"
+      },
+      {
+        "line": 630,
+        "text": "\tname = \"DEMON_SEED_ARMOURED_LEVIATHAN\", image = \"talents/demon_seed_armoured_leviathan.png\","
+      },
+      {
+        "line": 631,
+        "text": "\tdesc = _t\"Armoured Leviathan\","
+      },
+      {
+        "line": 632,
+        "text": "\tlong_desc = function(self, eff) return (\"Increases your Strength and Magic stats by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 633,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 635,
+        "text": "\tstatus = \"beneficial\","
+      },
+      {
+        "line": 636,
+        "text": "\tparameters = { power=10 },"
+      },
+      {
+        "line": 637,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is filled with raw power!\", _t\"+Armoured Leviathan\" end,"
+      },
+      {
+        "line": 638,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer filled with power.\", _t\"-Armoured Leviathan\" end,"
+      },
+      {
+        "line": 639,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 640,
+        "text": "\t\tself:effectTemporaryValue(eff, \"inc_stats\", {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1374e1b5ad9c2c758d8cb33ec9f9994580759ae21c5e94820f0404e93f9154ea",
+    "public_source_path": "tome-ashes-urhrok/data/general/grids/demon_statues.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": "\tdraebor_the_imp = _t\"Draebor, the Imp\","
+      },
+      {
+        "line": 29,
+        "text": "\tduathedlen = _t\"a dúathedlen\","
+      },
+      {
+        "line": 30,
+        "text": "\tfire_imp = _t\"a fire imp\","
+      },
+      {
+        "line": 31,
+        "text": "\tforge_giant = _t\"a forge giant\","
+      },
+      {
+        "line": 32,
+        "text": "\tgeneral_of_urh_rok = _t\"Khulmanar, General of Urh'Rok\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "16ec4c5473673afc813085fdafd0298ce07590c643da43bbf489f771c5d0a996",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 528,
+        "text": "\tparameters = { power=1 },"
+      },
+      {
+        "line": 529,
+        "text": "\ton_gain = function(self, err) return nil, _t\"+Osmosis Regen\" end,"
+      },
+      {
+        "line": 530,
+        "text": "\ton_lose = function(self, err) return nil, _t\"-Osmosis Regen\" end,"
+      },
+      {
+        "line": 531,
+        "text": "\tcharges = function(self, eff) return math.floor(eff.power) end,"
+      },
+      {
+        "line": 532,
+        "text": "\ton_merge = function(self, old_eff, new_eff)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9",
+    "public_source_path": "tome-ashes-urhrok/overload/data/texts/intro-ashes-urhrok.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "title = _t\"Welcome to Tales of Maj'Eyal - #CRIMSON#Ashes of Urh'Rok\""
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "return _t[[Welcome #LIGHT_GREEN#@name@#WHITE#."
+      },
+      {
+        "line": 23,
+        "text": "You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You are being taken by your handler to the torture-pits to help them figure out how to cause the most pain to those on Eyal, when you hear a roaring above you; you look up and see a burning meteor, flying closer, and the demons' spells failing to divert its course!  It lands near you, knocking you off your feet with its shockwave and killing your handler instantly."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!"
+      },
+      {
+        "line": 28,
+        "text": ""
+      },
+      {
+        "line": 29,
+        "text": "#{bold}#You must escape!#{normal}#."
+      },
+      {
+        "line": 30,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "187493803ee04a0ba02e0b2e0da645378a4cb7f69463e03cb046dce1f8dd2e4b",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 418,
+        "text": "\tid = \"ashes-urhrok-demon-statue-shasshhiy_kaish\","
+      },
+      {
+        "line": 419,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 420,
+        "text": "\tname = _t\"demon statue: Shasshhiy'Kaish\","
+      },
+      {
+        "line": 421,
+        "text": "\tlore = _t[=[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause."
+      },
+      {
+        "line": 422,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "196ce36308d7acda3481aaff411fb7d580918d3d50a49e2ef4f74e10695a7546",
+    "public_source_path": "tome-ashes-urhrok/data/quests/start-ashes.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t[[You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You are being taken by your handler to the torture-pits to help them figure out how to cause the most pain to those on Eyal, when you hear a roaring above you; you look up and see a burning meteor, flying closer, and the demons' spells failing to divert its course!  It lands near you, knocking you off your feet with its shockwave and killing your handler instantly."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you."
+      },
+      {
+        "line": 28,
+        "text": "]]"
+      },
+      {
+        "line": 29,
+        "text": "\tif self:isCompleted(\"crystal\") then"
+      },
+      {
+        "line": 30,
+        "text": "\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have destroyed the controlling crystal. The demons can no track you down anymore.#WHITE#\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c39a9e76d99c403df2c8b1a4e92c950225555e22e6ce43a9ccecda43ae89db4",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 300,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 301,
+        "text": "\tname = _t\"demon statue: fire imp\","
+      },
+      {
+        "line": 302,
+        "text": "\tlore = _t[=[If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.]=]"
+      },
+      {
+        "line": 303,
+        "text": "}"
+      },
+      {
+        "line": 304,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ef2df8bef82da02ff201ea908bbfc9ebec98edc9631cbf1a4a75d347f9a15ac",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 490,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 491,
+        "text": "\tname = _t\"demon statue: Corrupted Daelach\","
+      },
+      {
+        "line": 492,
+        "text": "\tlore = _t[=[One of the problems with making daelach is the inherent instability that comes from creating something that is almost entirely made of magic.  If ambient levels of blight are even slightly too high, it can set off a chain reaction that at best destroys the daelach, and at worst destroys most of the mages who were building it.  Daelach production is thus theoretically cheap, but in practice involves great expense, and usually a blighted daelach has to be immediately put down lest it cause tremendous damage.  One specimen, though, adapted to the blight in a very interesting way, sprouting wings and bolstering its usual firestorms with blight, but otherwise remaining perfectly balanced and controllable.  We'll try to recreate this happy accident however we can, but in the meantime, it will prove effective on the surface of Eyal.]=]"
+      },
+      {
+        "line": 493,
+        "text": "}"
+      },
+      {
+        "line": 494,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3626a664159b512cecd555e75c734070f403f267a1344b44ef73c65e07029300",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 419,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 420,
+        "text": "\tname = _t\"demon statue: Shasshhiy'Kaish\","
+      },
+      {
+        "line": 421,
+        "text": "\tlore = _t[=[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause."
+      },
+      {
+        "line": 422,
+        "text": ""
+      },
+      {
+        "line": 423,
+        "text": "#{italic}#A short message is etched below the main text.#{normal}#"
+      },
+      {
+        "line": 424,
+        "text": ""
+      },
+      {
+        "line": 425,
+        "text": "Cute.  I'll let it stay.  "
+      },
+      {
+        "line": 426,
+        "text": "-S."
+      },
+      {
+        "line": 427,
+        "text": "]=]"
+      },
+      {
+        "line": 428,
+        "text": "}"
+      },
+      {
+        "line": 429,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "36f2d3ae9a5ddf1a86db209a64e66ff0cd550a9a86150d53b3d597417d21ee6d",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 361,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 362,
+        "text": "\tname = _t\"demon statue: daelach\","
+      },
+      {
+        "line": 363,
+        "text": "\tlore = _t[=[Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.]=]"
+      },
+      {
+        "line": 364,
+        "text": "}"
+      },
+      {
+        "line": 365,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "62f29804efbd6801d5ae384952da4d264fd7e63f9a3cbc9ddce8928cae20bb8b",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 1047,
+        "text": "\tparameters = {},"
+      },
+      {
+        "line": 1048,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# turns into a dúathedlen!\", _t\"+Corruption of the Doomed\" end,"
+      },
+      {
+        "line": 1049,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is no longer transformed.\", _t\"-Corruption of the Doomed\" end,"
+      },
+      {
+        "line": 1050,
+        "text": "\tcallbackOnDealDamage = function(self, eff, val, target, dead, death_note)"
+      },
+      {
+        "line": 1051,
+        "text": "\t\tif not val or val < eff.threshold or dead or not death_note or not death_note.damtype or target == self then return end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6909a7065afab518f756b7fe6e437b2f0b0e6c1b7421a8803952eedf9151e5e7",
+    "public_source_path": "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Corruptor (Demonologist)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents."
+      },
+      {
+        "line": 22,
+        "text": "Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror."
+      },
+      {
+        "line": 23,
+        "text": "Some have managed to escape their programming and chose to follow their own desires instead."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You have defeated countless demons, seen how their essence work, witnessed how to bind demons to your own purpose and can now create new characters with the #LIGHT_GREEN#Demonologist class#WHITE#."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "Corruptors are spellcasters, ranged attackers using magic."
+      },
+      {
+        "line": 28,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 29,
+        "text": "- Infect your foes with demonic seeds."
+      },
+      {
+        "line": 30,
+        "text": "- Bind demonic seeds to your equipment to enhance them."
+      },
+      {
+        "line": 31,
+        "text": "- Summon and control demons to do your binding."
+      },
+      {
+        "line": 32,
+        "text": "- Blend corrupted magic with a martial shield training to protect yourself and ruin your foes.#WHITE#"
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "Corruptors use \"vim\" to power their special abilities."
+      },
+      {
+        "line": 35,
+        "text": "Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes."
+      },
+      {
+        "line": 36,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a71689b25a51f37307e6a31ee27c17db6a3cadc96aa5233fd77f2c90fe1eee1",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 307,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 308,
+        "text": "\tname = _t\"demon statue: water imp\","
+      },
+      {
+        "line": 309,
+        "text": "\tlore = _t[=[Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.]=]"
+      },
+      {
+        "line": 310,
+        "text": "}"
+      },
+      {
+        "line": 311,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "783a45f0e525574568af6b98b747786d6d737ece98c17e0fcee92381dad1f849",
+    "public_source_path": "tome-ashes-urhrok/data/lore/demon.lua",
+    "lines": [
+      {
+        "line": 299,
+        "text": "\tid = \"ashes-urhrok-demon-statue-fire_imp\","
+      },
+      {
+        "line": 300,
+        "text": "\tcategory = \"Ashes of Urh'Rok\", always_pop = true,"
+      },
+      {
+        "line": 301,
+        "text": "\tname = _t\"demon statue: fire imp\","
+      },
+      {
+        "line": 302,
+        "text": "\tlore = _t[=[If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.]=]"
+      },
+      {
+        "line": 303,
+        "text": "}"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_00f95519f9e20f1e016aba1e6b06b487d2953d7890ae7b9b53",
+    "status": "completed",
+    "call_id": "call_1gwx2wb5Uu9o8WQKgDcMV3iO",
+    "name": "exec",
+    "input": "const r = await Promise.allSettled([\n  tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:20000}),\n  tools.exec_command({cmd:\"cat .ai/task/batch-06020dfb9cbf406a4526-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-0.json\",max_output_tokens:30000})\n]); for (let i=0;i<r.length;i++) text(JSON.stringify({part:i,result:r[i]}));\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e706-b8fc-7842-9ceb-25ecda856dd0",
+      "create_time": 1790582376.413658
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_00f95519f9e20f1e016aba1e6f00c487d2b1d5f1ad2774dd7e",
+    "status": "completed",
+    "call_id": "call_dhiiM30w5T4mbi3EisHHAnrg",
+    "name": "exec",
+    "input": "const r = await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-06020dfb9cbf406a4526-surface-001/SURFACE-SCREEN-ENVELOPE-lane-001-0.json\",sandbox_permissions:\"require_escalated\",justification:\"需要只读访问指定的契约和冻结输入；默认沙箱启动失败。\",max_output_tokens:30000}); text(r);\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0e706-b8fc-7842-9ceb-25ecda856dd0",
+      "create_time": 1790582381.678872
+    }
+  }
+]

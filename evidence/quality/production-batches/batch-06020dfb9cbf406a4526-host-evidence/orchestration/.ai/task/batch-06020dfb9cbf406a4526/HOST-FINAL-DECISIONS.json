@@ -1,0 +1,190 @@
+{
+  "batch_id": "batch-06020dfb9cbf406a4526",
+  "observations": 19,
+  "observation_dispositions": {
+    "refuted": 6,
+    "confirmed": 12,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9",
+    "196ce36308d7acda3481aaff411fb7d580918d3d50a49e2ef4f74e10695a7546",
+    "3626a664159b512cecd555e75c734070f403f267a1344b44ef73c65e07029300",
+    "6a71689b25a51f37307e6a31ee27c17db6a3cadc96aa5233fd77f2c90fe1eee1",
+    "ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83",
+    "dc3200b76ddf5f8a6d2db60023aa13a2dc8e2ea3fb28f8898cf9906c0e175281"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 6,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "20b17998705c0c7a5e7711cbd5250e195892c7df040818381498ec91331bdc05",
+      "stage": "surface",
+      "observation": "英文“grandfathered”与译文“被祖父悖论抹去”的通常含义不符；冻结条目缺少确认其是否为特殊状态名的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 damage_types.lua:1006 时间伤害 death_message “grandfathered”，经 PartyDeath.lua:71 代入死讯模板“……%s而死”（mod-tome.lua:1412）。现译“被祖父悖论抹去”正是用户 2026-09-27 对待审第 13 项（f009c2b19b，本条前身）的裁决译法，保留祖父悖论梗且代入模板句法通顺；reviewer 质疑的“通常含义”不适用于该双关。驳回。"
+    },
+    {
+      "revision_key": "7958af947294bcbede806d36bab1c519fd9c9cb01669d20418ea365d36b7bbc1",
+      "stage": "surface",
+      "observation": "原文“before falling”表示随后倒下，译文只写被枯萎折磨得虚弱不堪，遗漏了倒下这一结果。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 damage_types.lua:909 枯萎伤害 death_message “debilitated by noxious blight before falling”，代入死讯模板“……%s而死”（mod-tome.lua:1412/1416）。“before falling”即倒下死去，由模板末尾“而死”承担；现译“被剧毒枯萎折磨得虚弱不堪”是用户 2026-09-27 对待审第 18 项（f6cc31f278，本条前身）的裁决译法，补“倒下”会与“而死”重复。驳回（窗口47b 同理已五次驳回）。"
+    },
+    {
+      "revision_key": "932d7523a1d4669ff9f88498a3be4ed05febc13f43a29c9ad82d678f7c5b9a68",
+      "stage": "surface",
+      "observation": "末句原文为“armor penetration and save reduction”，译文写作“护甲和豁免削减”，将护甲穿透误写为护甲。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 talents/techniques/munitions.lua:422–446 Alloyed Munitions：燃烧弹效果为 getArmorSaveReduction（护甲与豁免“减少”%d），另一项是物理/火焰“穿透”（getResistPenalty）；技能并无护甲穿透效果。末句原文“armor penetration and save reduction”指的就是前文的护甲与豁免削减，现译“护甲和豁免削减”贴合实现；照字面译“护甲穿透”反会与首行效果对不上。contextual 亦判 OK。驳回。"
+    },
+    {
+      "revision_key": "a76f87f8e375bc178fe9610a9cf15e812721cdc7c081a0c92699c0e70efbb468",
+      "stage": "surface",
+      "observation": "原文只说与乌瑞斯拉克的另一部分相配，译文却称另一件遗物会增强它的能力；冻结文本没有这一效果的依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 general/objects/world-artifacts.lua:2003 set_desc “It would go well with another part of Ureslak.”；同物品 on_set_complete（2005–2009）集齐后获得奥术抗性与上限各 +15 并改变自然回复，use_power 亦在 set_complete 时追加奥术抗性。现译“另一件乌瑞斯拉克的遗物会增强它的能力”贴合实现的套装效果，不构成无据增译；contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83",
+      "stage": "surface",
+      "observation": "原文称所研究的夏·图尔传送门位于“to the east of here”，译文漏掉了这一位置。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/data/lore/elvala.lua:28–72（阿兰尼恩回忆录第一章）逐句核对，四处偏差均属实：(1) “The Spellblaze they called it, and it was a name we spoke in awe and reverence”为过去时，指灾前人们谈起这个名字时怀着敬畏，现译“一个我们至今仍旧敬畏着的名字”改成叙述者至今敬畏，与全篇悔悟基调相反；(2) “more orcs than you have seen in your short life, or like will ever see”后半是“（甚至）可能一辈子都见不到那么多”，现译“甚至比你一生见过的兽人更多”只是重复前半；(3) “an experiment on the Sher’Tul farportal to the east of here”漏译方位“此地以东”，并把 experiment 写成“探索……秘密”；(4) “Though perhaps if we hunt orc together some time I shall see for mine self. But ye would be hard pressed indeed to better me on the battlefield.”是莱娜尼尔断言对方很难在战场上胜过她，现译“但你可得证明给我看，证明你在战场上比我强”变成提要求，且漏 perhaps、多出残句“尽管如此。”。一级忠实度错误，整段修。"
+    },
+    {
+      "revision_key": "c86c544bdccaf81e4e721c9991854e4ec4d6fe8fd478f6372a0d43ca337254b1",
+      "stage": "surface",
+      "observation": "“Blunt Thrust”中的 Blunt 指向钝击，译文“法杖突刺”改为限定武器；冻结条目没有足够语境判断该限定是否成立。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 talents/spells/staff-combat.lua:142 技能 Blunt Thrust 为法杖近战（需装备法杖）。现名“法杖突刺”是用户 2026-09-27 对待审第 8 项的裁决译名（窗口47b 已执行）。驳回。"
+    },
+    {
+      "revision_key": "dc3200b76ddf5f8a6d2db60023aa13a2dc8e2ea3fb28f8898cf9906c0e175281",
+      "stage": "surface",
+      "observation": "原文“thrown into the void”表示被抛入虚空；译文“轰击到星辰之间的虚无之中”误将被抛出的浮岛写成轰击动作。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 data/quests/start-archmage.lua:24 “torn apart by the Spellblaze and thrown into the void between the stars”，thrown into 为“抛入”；现译“轰击到星辰之间的虚无之中”把被抛出的浮岛写成炮击动作，动词错译，一级忠实度错误。contextual 同判。改为“被抛入星辰之间的虚空”一类。"
+    },
+    {
+      "revision_key": "f8c75067ac69913d083ba5c003c1229f10a7a11aa36b7e40688f655b25483a32",
+      "stage": "surface",
+      "observation": "原文以英文双引号开头，译文未保留对应的起始引号；冻结输入未提供该引号是否属于需保留格式的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/init.lua:99 load tip 文本以一个不成对的英文双引号开头，全句无收尾引号，属上游笔误而非需保留的格式标记（非占位符/颜色码，运行时原样显示）；上游 zh_hans 与本库译文均省去该孤引号。contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "fceb0e38b8ea719143b85a92edc5b017f0548be365a4772c0d97d666e144c144",
+      "stage": "surface",
+      "observation": "原文线索是“starting with a W”，译文写成“以‘W-’开头”，额外加入连字符，改变了线索的字面内容。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a6732 data/lore/misc.lua:721–735 “the result looks like something starting with a W”。现译“以‘W-’开头”多一个连字符，属引号内标注风格，未改变“以 W 开头的某物”这一暗示；contextual 判 OK。记 advisory，不排修复。"
+    },
+    {
+      "revision_key": "175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9",
+      "stage": "surface",
+      "observation": "原文只说陨石落在附近、随从当场死亡；译文“砸死了你的‘主人’”断定陨石直接砸中随从，缺少原文依据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes tome-ashes-urhrok/overload/data/texts/intro-ashes-urhrok.lua:22–30：“It lands near you, knocking you off your feet with its shockwave and killing your handler instantly.”陨石落在附近、冲击波掀翻你、随从当场毙命，现译“它落在你身边，砸死了你的‘主人’”断定被陨石直接砸中；contextual 另指出“floating in the void between worlds”漏 between worlds、“their righteous revenge on Eyal”漏复仇对象埃亚尔（同源段落 196ce36308 已完整译出）。一级忠实度错误，一并修。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "196ce36308d7acda3481aaff411fb7d580918d3d50a49e2ef4f74e10695a7546",
+      "stage": "surface",
+      "observation": "原文只说陨石落在附近、随从当场死亡；译文“砸死了你的‘主人’”断定陨石直接砸中随从，缺少原文依据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes tome-ashes-urhrok/data/quests/start-ashes.lua:23–28：同一陨石段“It lands near you … killing your handler instantly”，现译“砸死了你的‘主人’”无据断定直接砸中；contextual 另指出末句“the crystal they've used to keep track of you”现译“水晶体”易被读作眼球晶状体，同文件第 30、33 行任务目标译作“控制水晶”（tome-ashes-urhrok.lua:688/691），应改“水晶”。一并修。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3626a664159b512cecd555e75c734070f403f267a1344b44ef73c65e07029300",
+      "stage": "surface",
+      "observation": "原文称神经系统被重接的情况罕见（the rare occasion），译文未体现这一频率限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes tome-ashes-urhrok/data/lore/demon.lua:421–427：“the rare occasion of them appearing with a rewired nervous system”的 rare 被删，与前文保留的 frequent（常见的体内出血）失去对照，把低频说成与常见并列；contextual 另指出“nearly every shred of their essence drained”漏 nearly（几乎）、“delivered with great regularity”漏“十分规律”。删限定词属一级忠实度缺陷，三处一并修。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6a71689b25a51f37307e6a31ee27c17db6a3cadc96aa5233fd77f2c90fe1eee1",
+      "stage": "surface",
+      "observation": "同段将 Fire Imp 译为“火焰小鬼”，却将其分支 Water Imp 译为“小水怪”；冻结输入没有术语条目正文，无法确认“小水怪”是否为既定译名。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Ashes tome-ashes-urhrok/data/lore/demon.lua:308–309（恶魔雕像：water imp）明写“this altered offshoot of the Fire Imp”。Fire Imp 已按用户 2026-09-28 裁决统一为“火焰小鬼”（terminology/creatures.tsv preferred），water imp 现译“小水怪”（全库 4 行：mod-tome.lua:7997 实体名、tome-ashes-urhrok.lua:127/519/520）看不出同属 imp 一族，lore 中“火焰小鬼的变种分支”读不通。纯名称问题，按用户 2026-09-27 指示咨询 Gemini 3.8 Flash（串行，consult-water-imp-357）：推荐“水小鬼”，与“火焰小鬼”对仗、锚定 imp 族系；双向查重：本库无“水小鬼”既有用法，water imp 亦无其他译法。采纳，修复窗口先加术语行再全库 4 行同步改名。另 contextual 指出同条代词前后不一（先“他们依旧能使用双手”，后“它们不与……并肩作战”“它们所作的无私牺牲”），属实，一并统一。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "ba5e371016a3ec1ccee0c31c6fc51d7c9df32359966be306084fb1cdff3c1d83",
+      "stage": "contextual",
+      "observation": "elvala.lua:28-72（commit 624a6732）中有多处语义偏差。(1) 原文 \"The Spellblaze they called it, and it was a name we spoke in awe and reverence\" 用的是过去时，说的是灾难发生前人们对这个名字的态度；译文「一个我们至今仍旧敬畏着的名字」改成了回忆者现在仍然敬畏，和全篇的悔悟基调相反。(2) \"more orcs than you have seen in your short life, or like will ever see\" 的意思是「甚至比你这辈子可能见到的还多」；译文后半句「甚至比你一生见过的兽人更多」只是重复前半句，丢了将来和可能的含义。(3) \"an experiment on the Sher'Tul farportal to the east of here\" 漏译了传送门的位置 \"to the east of here\"，还把 experiment 译成了「探索……秘密」。(4) \"ye would be hard pressed indeed to better me on the battlefield\" 是莱娜尼尔断言对方很难在战场上胜过自己；译文「但你可得证明给我看」变成了向对方提要求，前一句的 \"perhaps\" 也漏了，还多出一个句号，成了「尽管如此。」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/data/lore/elvala.lua:28–72（阿兰尼恩回忆录第一章）逐句核对，四处偏差均属实：(1) “The Spellblaze they called it, and it was a name we spoke in awe and reverence”为过去时，指灾前人们谈起这个名字时怀着敬畏，现译“一个我们至今仍旧敬畏着的名字”改成叙述者至今敬畏，与全篇悔悟基调相反；(2) “more orcs than you have seen in your short life, or like will ever see”后半是“（甚至）可能一辈子都见不到那么多”，现译“甚至比你一生见过的兽人更多”只是重复前半；(3) “an experiment on the Sher’Tul farportal to the east of here”漏译方位“此地以东”，并把 experiment 写成“探索……秘密”；(4) “Though perhaps if we hunt orc together some time I shall see for mine self. But ye would be hard pressed indeed to better me on the battlefield.”是莱娜尼尔断言对方很难在战场上胜过她，现译“但你可得证明给我看，证明你在战场上比我强”变成提要求，且漏 perhaps、多出残句“尽管如此。”。一级忠实度错误，整段修。"
+    },
+    {
+      "revision_key": "dc3200b76ddf5f8a6d2db60023aa13a2dc8e2ea3fb28f8898cf9906c0e175281",
+      "stage": "contextual",
+      "observation": "start-archmage.lua:24（commit 624a6732）原文 \"torn apart by the Spellblaze and thrown into the void between the stars\" 里的 thrown 是「抛入、甩进」；译文「轰击到星辰之间的虚无之中」用的「轰击」意为炮击、猛烈打击，动词译错，读起来像是这块土地被炮击，而不是被抛入虚空。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同 surface：start-archmage.lua:24（固定 commit 624a6732）thrown into＝抛入，现译“轰击到”错译。"
+    },
+    {
+      "revision_key": "175effe253b96a8e948f7adbbc22e58dedd6fd5484d25e593bd7fbcadd9740c9",
+      "stage": "contextual",
+      "observation": "两处漏译：intro-ashes-urhrok.lua:23 原文是“floating in the void between worlds”和“their righteous revenge on Eyal”。译文“漂浮在虚空中”没有译出 between worlds，“阻止恶魔正义复仇”也没有译出复仇对象“埃亚尔”。同批 start-ashes.lua:23 的同一段原文（196ce363）译作“世界之间虚空”和“向埃亚尔展开正义复仇”，两处完整。这两段是同一源文，本条应补齐，与 196ce363 保持一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "intro-ashes-urhrok.lua:23 漏“世界之间”与复仇对象“埃亚尔”，属实（对照同源 196ce36308 译文）；连同 surface 指出的“砸死”一并修。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "196ce36308d7acda3481aaff411fb7d580918d3d50a49e2ef4f74e10695a7546",
+      "stage": "contextual",
+      "observation": "措辞问题：start-ashes.lua:27 的“the crystal they've used to keep track of you”被译为“水晶体”，而中文“水晶体”常指眼球晶状体，放在这里有歧义。同文件第 30 行称它为“the controlling crystal”，是任务目标物，宜译为“水晶”或“控制水晶”，与后续任务提示保持一致（该行译文不在冻结输入内，无法核对）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "start-ashes.lua:27 “水晶体”歧义属实，本库任务提示作“控制水晶”（tome-ashes-urhrok.lua:688/691）；与 surface 的“砸死”一并修。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "3626a664159b512cecd555e75c734070f403f267a1344b44ef73c65e07029300",
+      "stage": "contextual",
+      "observation": "demon.lua:421 有三处限定词被删，把不确定或低频的内容说成了必然或普遍：(1)“nearly every shred of their essence drained”被译为“每一丝生命精华已被汲取殆尽”，漏了 nearly（几乎）；(2)“the rare occasion of them appearing with a rewired nervous system”被译为“又或者是神经网络重接……的情况”，漏了 rare（罕见），与前文保留的 frequent（常见）失去对照；(3)“delivered with great regularity”漏了“十分规律/定期”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "demon.lua:421 三处限定词（nearly／rare／with great regularity）被删，属实，与 surface 合并修复。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    },
+    {
+      "revision_key": "6a71689b25a51f37307e6a31ee27c17db6a3cadc96aa5233fd77f2c90fe1eee1",
+      "stage": "contextual",
+      "observation": "两个问题。(1) 名称关联丢失：demon.lua:309 说 water imp 是“offshoot of the Fire Imp”。译文把 Fire Imp 译作“火焰小鬼”，却把 Water Imp 译作“小水怪”，读者看不出两者同属 imp 一族，“变种分支”的关系也就说不通了。冻结输入里没有 water imp、Fire Imp、wretchling 的术语条目，无法确认“小水怪”是否为既定专名，需补充术语快照后再判定。(2) 代词前后不一：同一条内先用“他们依旧能使用双手”，后面改用“它们不与……并肩作战”“它们所作的无私牺牲”，应统一。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "demon.lua:309 名称关联丢失（小水怪 vs 火焰小鬼）与代词“他们/它们”混用均属实；名称按 Gemini 3.8 Flash 咨询结论改“水小鬼”（全库同步），代词统一。本批文件 SHA 匹配，Ashes 来源仓库/commit 未固定。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (8 lanes: surface-000 four main-game lanes 17/16/16/16; surface-001 four Ashes lanes 4/4/4/3)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 main game + contextual-001 Ashes, 13 entries)"
+  },
+  "notes": [
+    "Mixed batch of 80 entries (65 main game, 15 Ashes): the first of the window 47a/47b successors. Surface ran as eight gpt-6-sol lanes in two groups (main game 17/16/16/16, Ashes 4/4/4/3); every command read only its own envelope and the contract. lane-000-1 dropped 8 hex characters from one OK identity echo; the host caught it in the pre-harvest envelope comparison, confirmed it in the native log, replaced only that string and harvested the corrected raw (recorded in HOST-SURFACE-BOUNDARY-AUDIT identity_echo_corrections).",
+    "Contextual ran as two claude-opus-5-5 runs: full-000 (main game, 9 entries) read its envelope, the contract and pinned engine source via git show; full-001 (Ashes, 4 entries) read only its envelope and the contract.",
+    "Four surface observations repeat items the user already ruled on (grandfathered and noxious blight death messages, Blunt Thrust) or the implemented Ureslak set bonus, and are refuted.",
+    "The water imp name is a pure-name question: per the user's standing instruction it went to Gemini 3.8 Flash (serial consult), which recommended 水小鬼 to pair with the ruled 火焰小鬼; the two-way conflict check found no clash. The repair window adds the glossary row first and renames all four library lines.",
+    "Mixed batch: 65 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 15 Ashes entries each matched the public DLC source file SHA in the workset, with the Ashes repository and commit unpinned.",
+    "6 confirmed repair revisions raise the window 48 backlog from 0 to 6; below the 20 threshold, so no window opens."
+  ]
+}

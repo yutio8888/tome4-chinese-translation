@@ -1,0 +1,3 @@
+第357批：冻结80条（主游戏 65 条、Ashes 15 条），逐条核验80/80：主游戏按 manifest 固定 engine commit 624a673 核验，Ashes 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 8 lane（主游戏 17/16/16/16、Ashes 4/4/4/3），13 个 ISSUE；lane-000-1 一处 OK 条目 identity 回显丢 8 位 hex，宿主预检拦下、原生日志核实后只替换该串以 corrected raw 收取。contextual 两个 run：full-000（主游戏 9 条）只读 envelope、契约与固定 commit 源码，2 个 ISSUE；full-001（Ashes 4 条）只读 envelope 与契约，4 个 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决19个观察：{'refuted': 6, 'confirmed': 12, 'advisory': 1}；预计74条完成、6条待修复。修复 revision：艾伦尼恩回忆录第一章（敬畏时态、将来可能、此地以东、莱娜尼尔断言）、次元浮岛“轰击”→抛入、Ashes 开场两段（陨石“砸死”、漏世界之间/埃亚尔、水晶体）、莎西·凯希 lore 三处限定词、水小鬼雕像 lore（名称＋代词）。W- 连字符记 advisory；grandfathered、枯萎死亡描述、法杖突刺按用户既有裁决驳回，乌瑞斯拉克套装、合金弹药“护甲削减”、加载提示孤引号按源码驳回。water imp 按用户指示咨询 Gemini 3.8 Flash 定为“水小鬼”（与火焰小鬼对仗），修复窗口先加术语行再全库 4 行同步。修复窗口48积压为6，未达20。
