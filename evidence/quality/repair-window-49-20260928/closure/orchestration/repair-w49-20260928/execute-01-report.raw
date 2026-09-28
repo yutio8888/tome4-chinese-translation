@@ -1,0 +1,39 @@
+已完成 `repair-w49-20260928` 定向修复，恰好修改 2 个 target。
+
+改动明细：
+
+- `7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8`
+  - 前：`这些绿翡翠的孩子们第一批同意改变自身以帮助复仇，同时取得了惊人的成功。`
+  - 后：`这些绿翡翠之子是最早为我们的复仇事业改造自身的族群之一，同时取得了惊人的成功。`
+
+- `d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909`
+  1. `当人群到达我们的大本营时` → `当一行人走近城堡时`
+  2. `当然，各种神话传说仍然是阻止我们探索夏·图尔的原因之一。不过，我们现在清醒地认识到我们在做的事情。` → `唉，各种神话传说仍然盛行，吓得人们对夏·图尔相关的一切避之唯恐不及。不过，我们有信心自己知道在这里做什么。`
+  3. `既是因为她极度冒犯的话语，也因为她那大胆的推测与隐藏的傲慢。` → `既是因为她极度无礼，也因为她那狂妄的臆断。`
+  4. `“一个贴身战士？”` → `“一个只会近身搏斗的战士？”`
+  5. `我在喘气的同时勉强说道` → `我笑得喘不过气，难以置信地反问`
+  6. `在我们能轻易从远处烧伤敌人的情况下` → `在我们能轻易从远处焚烧敌人的情况下`
+  7. `我点头答道。` → `我故作姿态地欠身说道。`
+  8. `他生硬而简要地阐述自己的要求，正如之前我所听闻的一样。` → `他以我素闻的那种生硬简短的方式说道。`
+  9. `“非常好，”` → `“好吧，”`
+
+验证结果：
+
+- 固定主游戏源码和指定 Ashes 文件均匹配冻结 SHA-256。
+- LuaJIT 加载通过：
+  - `mod-tome.lua`：21,688 条，1 个 target 变化。
+  - `tome-ashes-urhrok.lua`：849 条，1 个 target 变化。
+  - 合计恰 2 个 target；其他记录及非 target 参数均未变化。
+- LF、TAB、空行位置、markup、占位符不变量：通过。
+- `python3 -B tools/i18n doctor`：通过，仅有预期的 DLC 来源未固定警告。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 新 evidence 文件空白检查及 JSON 解析：通过。
+- 未 stage、commit、push；未创建 agent；未修改 `.ai/task` 或术语库。
+
+证据：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-49-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-49-20260928/VALIDATION.json)
+
+未发现额外的范围内疑点；SOURCE-CLAIMS 外的措辞均保持不变。Ashes 源仓库及 commit 仍未固定，已在证据中注明。

@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w49-20260928",
+  "role": "executor",
+  "baseline_commit": "58f278c8ddf1f7b24d35aaa8ef4cb94ee0c337a7",
+  "inputs": {
+    "workset_sha256": "ebc6a90ef6d5de47cb439933bec2b28217b92c8221f66306851f0cd838a865d0",
+    "source_anchors_sha256": "a2452f4e027a682286827790f1cab505642c255568f0a7f480640ec5fe97e5ff",
+    "source_claims_sha256": "bb23ac7e8923f96f5657014bd31daaacfedf792479e285d2086d2f28e736c110",
+    "baseline_records_sha256": "9e8faba7674bbfbc982f0121b8617cac049f2feb53c65c5a3ffe85f02ccb3cee",
+    "term_snapshot_sha256": "0b5b7f3525d49801d6e9f5c40c3c1d35775bd7c30e75898af8e3f00e6e086da3"
+  },
+  "outputs": [
+    {
+      "path": "mod-tome.lua",
+      "sha256": "6fba0661cf88c2d068a3f899e93464f45200fe1b3281a77f37ff261c2688dd44"
+    },
+    {
+      "path": "tome-ashes-urhrok.lua",
+      "sha256": "6430f9cfaaab7c7fced2933c813a094faccd746e87132d9567a6fd8b1a1ae98c"
+    }
+  ],
+  "source_anchor_checks": [
+    {
+      "component": "tome",
+      "repository": "/workspace/t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/lore/elvala.lua",
+      "sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "matches_frozen_anchor": true,
+      "source_repository_commit_pinned": true
+    },
+    {
+      "component": "ashes-urhrok",
+      "checkout": "/workspace/tome4-dlcs/ashes-urhrok",
+      "path": "tome-ashes-urhrok/data/lore/demon.lua",
+      "sha256": "d3adada58124ab822393a43a8ec21060a5d465bfca69ff02d4b46df31b92e142",
+      "matches_frozen_anchor": true,
+      "source_repository_commit_pinned": false
+    }
+  ],
+  "semantic_load_and_diff": {
+    "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3",
+    "files": [
+      {
+        "path": "mod-tome.lua",
+        "baseline_translation_count": 21688,
+        "current_translation_count": 21688,
+        "changed_target_count": 1
+      },
+      {
+        "path": "tome-ashes-urhrok.lua",
+        "baseline_translation_count": 849,
+        "current_translation_count": 849,
+        "changed_target_count": 1
+      }
+    ],
+    "changed_target_count": 2,
+    "expected_target_count": 2,
+    "changed_revision_keys": [
+      "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+      "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8"
+    ],
+    "non_target_field_change_count": 0,
+    "other_records_unchanged": true,
+    "newline_checks_pass": true,
+    "terminal_newline_checks_pass": true,
+    "blank_line_index_checks_pass": true,
+    "tab_checks_pass": true,
+    "markup_checks_pass": true,
+    "placeholder_checks_pass": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected unpinned-source warnings only"
+    },
+    {
+      "command": "LuaJIT semantic load and HEAD comparison for mod-tome.lua and tome-ashes-urhrok.lua",
+      "exit_code": 0,
+      "result": "exactly 2 target changes; all other records and non-target arguments unchanged"
+    },
+    {
+      "command": "LuaJIT changed-target structure comparison",
+      "exit_code": 0,
+      "result": "newline, terminal newline, blank-line, TAB, markup, and placeholder invariants pass"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null <new evidence file>",
+      "exit_code": 1,
+      "result": "no whitespace diagnostics; exit 1 is the expected no-index difference status"
+    }
+  ],
+  "diagnostics": [
+    {
+      "command": "initial custom LuaJIT semantic comparison",
+      "exit_code": 1,
+      "result": "false positive at mod-tome.lua record 166 because table-valued arguments were compared by reference; corrected to recursive value comparison before the passing run"
+    },
+    {
+      "command": "initial IMPLEMENTATION.md no-index whitespace check",
+      "exit_code": 3,
+      "result": "Markdown hard-break spaces were reported as trailing whitespace; removed before the passing final check"
+    },
+    {
+      "command": "initial Cycle 2 custom LuaJIT semantic comparison",
+      "exit_code": 1,
+      "result": "temporary validation harness lacked the translation files' section() function and stopped before record comparison; added a no-op section() stub before the passing run"
+    }
+  ],
+  "repair_rounds": [
+    {
+      "cycle": 1,
+      "stage_input": "ADJUDICATION-R0.json",
+      "stage_input_sha256": "83ceeffbe8cf572c120fc4232d750edf958446e82f4894f04f70de41e52de113",
+      "confirmed_finding_count": 2,
+      "changes": [
+        {
+          "revision_key": "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+          "path": "tome-ashes-urhrok.lua",
+          "before": "令酸液和法术能够发挥作用",
+          "after": "好让它们的酸液和我们的施法者施展所长"
+        },
+        {
+          "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+          "path": "mod-tome.lua",
+          "before": "这秘密流传千年无人能解，隐藏的力量毫无头绪",
+          "after": "这些遗物千年来无人触碰，其原本的力量至今无人知晓"
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -B tools/i18n doctor",
+          "exit_code": 0,
+          "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected unpinned-source warnings only"
+        },
+        {
+          "command": "LuaJIT semantic and structure comparison against .ai/task/repair-w49-20260928/baseline for mod-tome.lua and tome-ashes-urhrok.lua",
+          "exit_code": 0,
+          "result": "21688 and 849 baseline/current records loaded; exactly 2 target changes; all other records and non-target arguments unchanged; newline, TAB, markup, and placeholder invariants pass"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no output"
+        }
+      ]
+    },
+    {
+      "cycle": 2,
+      "stage_input": "ADJUDICATION-R1.json",
+      "stage_input_sha256": "bd2f21d017bc02d04287773fe80c6e56a111ceceaee404d7e1753f661126adea",
+      "confirmed_finding_count": 5,
+      "changes": [
+        {
+          "revision_key": "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+          "path": "tome-ashes-urhrok.lua",
+          "before": "看着他，谦逊的小劣魔，这是我们对父亲奉献一切的证明！",
+          "after": "看哪，卑微的小劣魔——我们对父亲之忠诚的见证！"
+        },
+        {
+          "revision_key": "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+          "path": "tome-ashes-urhrok.lua",
+          "before": "以肉体充当屏障",
+          "after": "以身躯充当障碍与盾牌"
+        },
+        {
+          "revision_key": "7c7be93333f2afcd4e3c207742450ce03b715bcecbf9cdc7b71e410d53c754c8",
+          "path": "tome-ashes-urhrok.lua",
+          "before": "在他们惊人的繁殖率下，他们仍是我们中数目最多的种族",
+          "after": "在它们惊人的繁殖率下，它们仍是我们中数目最多的种族"
+        },
+        {
+          "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+          "path": "mod-tome.lua",
+          "before": "盯着我的铠甲与佩剑",
+          "after": "盯着我的铠甲与佩剑带"
+        },
+        {
+          "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+          "path": "mod-tome.lua",
+          "before": "就算他说得再好，我们又怎么能相信真能解开夏·图尔遗迹里的秘密呢？",
+          "after": "他口口声声说理解，可谁又能真正参透这些夏·图尔遗物背后的奥妙？"
+        },
+        {
+          "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+          "path": "mod-tome.lua",
+          "before": "莱娜尼尔只对我点了点头",
+          "after": "莱娜尼尔只是冷淡地朝我点了点头"
+        },
+        {
+          "revision_key": "d38555ee6a6bfa577bc075bd950f590a5a0add177a6198908fe3925fe0baa909",
+          "path": "mod-tome.lua",
+          "before": "那个古老种族的遗迹",
+          "after": "那个古老种族的遗物"
+        }
+      ],
+      "validation": [
+        {
+          "command": "LuaJIT semantic and structure comparison against .ai/task/repair-w49-20260928/baseline for mod-tome.lua and tome-ashes-urhrok.lua",
+          "exit_code": 0,
+          "result": "21688 and 849 baseline/current records loaded; exactly 2 target changes; all other records and non-target arguments unchanged; LF, TAB, markup, and placeholder invariants pass"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no output"
+        },
+        {
+          "command": "git diff --no-index --check -- /dev/null <untracked evidence file>",
+          "exit_code": 1,
+          "result": "no whitespace diagnostics; exit 1 is the expected no-index difference status"
+        },
+        {
+          "command": "python3 -m json.tool evidence/quality/repair-window-49-20260928/VALIDATION.json",
+          "exit_code": 0,
+          "result": "valid JSON"
+        }
+      ]
+    }
+  ],
+  "unresolved_in_scope_findings": [],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}

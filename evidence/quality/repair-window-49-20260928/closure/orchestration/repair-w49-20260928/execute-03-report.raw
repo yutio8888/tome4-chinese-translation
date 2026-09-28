@@ -1,0 +1,29 @@
+已完成第 2 轮五项 confirmed 修复，共涉及两条 target、七处词句。
+
+- `7c7be93333`
+  - `看着他，谦逊的小劣魔，这是我们对父亲奉献一切的证明！` → `看哪，卑微的小劣魔——我们对父亲之忠诚的见证！`
+  - `以肉体充当屏障` → `以身躯充当障碍与盾牌`
+  - `在他们惊人的繁殖率下，他们仍是……` → `在它们惊人的繁殖率下，它们仍是……`
+
+- `d38555ee6a`
+  - `铠甲与佩剑` → `铠甲与佩剑带`
+  - `就算他说得再好……夏·图尔遗迹里的秘密呢？` → `他口口声声说理解，可谁又能真正参透这些夏·图尔遗物背后的奥妙？`
+  - `莱娜尼尔只对我点了点头` → `莱娜尼尔只是冷淡地朝我点了点头`
+  - `那个古老种族的遗迹` → `那个古老种族的遗物`
+
+修改位置：
+
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:516)
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14687)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-49-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-49-20260928/VALIDATION.json)
+
+验证结果：
+
+- LuaJIT 基线比较：`mod-tome.lua` 21,688 条、`tome-ashes-urhrok.lua` 849 条；各恰有一个 target 改变，其他记录及参数不变，LF/TAB/markup/占位符不变量通过。
+- 首次 LuaJIT 验证因临时桩缺少 `section()` 提前停止；补齐后通过，已记入 diagnostics。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 两份未跟踪 evidence 的 `git diff --no-index --check`：无空白诊断。
+- `VALIDATION.json`：解析通过，repair rounds 顺序为 cycle 1、cycle 2。
+- 未修改术语库或 `.ai/task`；未 stage、commit、push，也未创建 agent。
