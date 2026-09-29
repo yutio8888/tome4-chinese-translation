@@ -3023,7 +3023,7 @@ t("Hated, harrowed, hunted, hidden... Our ways are forbidden, but our cause is j
 t("An Archmage devotes his whole life to the study of magic above anything else.", "对一个元素法师来说魔法超越一切，他们倾尽一生学习魔法。", "_t")
 t("Most Archmagi lack basic skills that others take for granted (like general fighting sense), but they make up for it by their raw magical power.", "元素法师缺乏最基本的物理格斗技能，他们用魔法取而代之。", "_t")
 t("Archmagi start with knowledge of many schools of magic. However, they usually refuse to have anything to do with Necromancy.", "元素法师初始便掌握多个魔法学派的知识。然而，他们通常拒绝与死灵法术有任何关联。", "_t")
-t("Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.", "大多数元素法师在一个名叫安格利文的秘密小镇接受训练，并拥有一个直接传送到那里的独特技能。", "_t")
+t("Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.", "大多数元素法师在一个名叫安格利文的秘密小镇接受训练，并拥有一个直接传送到那里的独特法术。", "_t")
 t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +5 魔法，+3 意志，+1 灵巧", "_t")

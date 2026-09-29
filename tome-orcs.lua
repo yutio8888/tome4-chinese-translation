@@ -2555,11 +2555,11 @@ My point is, when you're writing those letters, write them like King Tolak's loo
 
 -Korbek
 
-PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远行传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个让传送门无法传送任何非活物的临时配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远行传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
+PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远行传送门邮递系统并不完美这件事当然是我们的过错。我们的人还在努力撤销那个临时拼凑、让你们的传送门无法传送任何非活物的配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能穿过传送门而不是光着身子出现在另一边，就已经他妈的是个奇迹了，更别说还能背着背包、连同里面的所有东西一起过来。
 
-与此同时：我们的邮递系统仍然会丢失几封信，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十英尺以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
+与此同时：我们的邮递系统仍然会丢失几封信，丢失的信件可能被传送到任何地方。它们可能落在离传送门十英尺远的地方，也可能正好落到某个联合王国好事者的手里，说不定还会直接传送进乌鲁洛克的鼻孔里。同样，信上写的任何内容也都可能恰好出现在你最不希望它出现的地方，不管那是哪里。
 
-我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“强效药物”吗？别再讨论供“奴隶”使用的安全安排了，可以用“私人仆人”这词吗？还有，拜托，看在莱娜尼尔的份上，[i]别再把远行传送门叫做远行传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
+我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“强效药物”吗？别再讨论供“奴隶”使用的安全安排了，可以用“私人仆人”这词吗？还有，拜托，看在莱娜尼尔的份上，[i]别再把远行传送门叫做远行传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫它什么，快递员、驮运傀儡、训练好的乌尔维拉斯，随你怎么说都行，拜托了。
 
 ——库贝克
 
