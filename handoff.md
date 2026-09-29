@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（第363批已 finalize，审核队列耗尽，窗口53积压 0 条；下一项为合并 audit/modified-translations-20260921 分支的复审修改，方案待用户确认）
+更新时间：2026-09-29（audit/modified-translations-20260921 已合并并发布：375 个 successor 入队，下一步从第364批起审核；窗口53积压 0 条）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -191,7 +191,7 @@
 
 ## 五、下一步
 
-1. 审核队列已耗尽（第363批后），下一项为合并 `audit/modified-translations-20260921`（09-21 起的已修改译文复审，约 420 条 target 改动，其中约 70 条与 develop 同条目冲突），方案待用户确认；之后若有新 successor 再审第 **364** 批（默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **364** 批起（合并 `audit/modified-translations-20260921` 产生的 375 个 successor；合并提交 `29cb2159`、catalog `ff7fda04`、migration `037915d9`，裁决与证据见 `evidence/quality/merge-audit-20260929/MERGE.md`；分支删除的 3 个过期键因会改变正式版本向量未采纳，待另行立项；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window52.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w52-20260928/wd.sh`、`/tmp/w52-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 52 已完成（队列耗尽后用户 2026-09-28 批准开窗，4 条：Orcs lore 分类 sunwall observatory `b5e754f6ab`“太阳堡垒瞭望台”改“太阳堡垒观星台”（唯一文献为天文学家日志，与区域名、任务一致；术语库 narrative.tsv 同步改观星台并升 preferred）；艾琳结局成就 Last Instant of Sanity `5d156a408b` 补回 your patron 为“太阳主上”并补 in a searing flash；同缺陷兄弟 AOADS_BURN 成就 `1e5fe478f9`（your patron Distant Sun＝你的主上遥远的太阳）与夏·图尔结局叙述 `d58b645c3b`（succumbed to the fight 改“在这场搏斗中倒下”并补太阳主上）。REVIEW(0) 4/4 → FINAL f0a2 4/4，cycle 0 收敛；门禁 17/17。Archmage 按用户 2026-09-28 裁决保留“元素法师”：同类指控直接驳回；范围外 `8b977dd836` 不再待命名裁决，但队列仍为 pending_repair（无“非缺陷”出口），待后续按不改收口，并把 classes.tsv 的 Archmage 行升 preferred。修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window52.py`（宿主补充＋术语 1 行改动；无术语改动时参照 `setup_window51.py`，新增术语行须同步门禁 03 静态审计行数）、`.artifacts/i18n/repair-w52-20260928/wd.sh` 与 `/tmp/w52-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
    窗口 53 积压 **0** 条（窗口52后重新计数，范围外项不计入，—）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；第363批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
