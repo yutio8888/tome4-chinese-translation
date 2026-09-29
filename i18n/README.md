@@ -8,6 +8,8 @@
 
 最新已推送 addon 版本：**0.3.0**（2026-09-29，发布仓库 tome4-chn-mod `717078b`，由本仓库
 `ce0b3a34` 经 `tools/i18n publish --apply` 构建：12,074 条＝核心 6,613＋DLC 5,461，sha256 `47cae0b1…`）。
+GitHub Release `v0.3.0` 附带 `tome-chn-mod.teaa`（tag 指向 `2e0bc5b`，含安装说明修正）；打包方式与游戏内置 `utils/te4_pack_module.sh`
+一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
 是工具链可复现输入 pin，不等同于发布仓库的最新 HEAD；不能只因发布版本前进就改写该 pin。
