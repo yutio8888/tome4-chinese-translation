@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（修复窗口55已完成、待宿主证据提交与推送；下一步审核窗口55的 7 个 successor，第371批）
+更新时间：2026-09-29（第371批已 finalize，窗口56积压 0 条，继续审核第372批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,9 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **370** 批（`batch-6bd34a6ffb2c19accea1`）：2 条，2 done / 0 repair_required。
-  混合批（主游戏 1、Orcs 1，窗口54 successor）：surface 两组 2 个 child 均判 OK；无 deep 条目，走 surface-only 裁决，未跑 contextual。窗口55积压 0。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `c85c398aafea38702a0081f9e5af4b9c847f7d2b` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **371** 批（`batch-80b3265ec45a9b152247`）：7 条，7 done / 0 repair_required。
+  窗口55 的 7 个 successor（主游戏）：surface 一组 4 lane，1 个 ISSUE 驳回；contextual 一个 run 首轮通过。窗口56积压 0。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `bce50e79f63af0aa0e527af600e65e8f88d7a5f9` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **55**：用户 2026-09-29 集中审阅裁决的 7 条（死亡描述病句／错义 5 条、高等人类之绽放“能量”→“资源”2 条）已修复；译文提交 `7211f717a1a5090eb731b698880be14891c30c8b`；migration `9035e3de…` 的 7 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第371批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
@@ -122,6 +122,7 @@
 | 368 | `batch-3cfa49c3b0ee7cc07337` | 49 done / 6 repair | 40 OK / 15 ISSUE | 11 OK / 4 ISSUE | 7 confirmed / 8 refuted / 4 advisory |
 | 369 | `batch-ee4d1e47a33a7b8cc828` | 18 done / 1 repair | 14 OK / 5 ISSUE | 4 OK / 1 ISSUE | 2 confirmed / 3 refuted / 1 advisory |
 | 370 | `batch-6bd34a6ffb2c19accea1` | 2 done / 0 repair | 2 OK / 0 ISSUE | 0 OK / 0 ISSUE |  |
+| 371 | `batch-80b3265ec45a9b152247` | 7 done / 0 repair | 6 OK / 1 ISSUE | 1 OK / 0 ISSUE | 1 refuted |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -198,11 +199,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **371** 批起（窗口55的 7 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **372** 批起（窗口55的 7 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window55.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w55-20260929/wd.sh`、`/tmp/w55-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 55 已完成（审核队列耗尽后用户 2026-09-29 集中审阅 pending 第45、46项并裁决）：死亡描述词族只修病句 2 条（burnt→被烧焦、cosmeticed→被‘美化’）与错义 3 条（mauled→被撕碎、timewarped→被时间扭曲、psyched→被心灵摧毁），约 14 条诙谐加工按裁决保留（同类指摘今后驳回）；高等人类之绽放效果描述与技能 info 的“能量”改“资源”（races.lua 遍历全部 resources_def），info 另补 inner magic／all active talents 并按源文重排行结构。复审路径：execute-01 → REVIEW r0a1 1 确认（mauled“被撕咬致残”与“而死”冲突，改“被撕碎”）→ execute-02 → RE r1a1 1 确认（info 行结构宿主 setup 误按旧译保留，改按源文）→ execute-03 → RE r2a1 7/7 → FINAL f2a2（Opus 5.5）7/7，cycle 2 收敛；无同键兄弟；门禁 17/17。教训：setup 写“保持现有行结构”前须先比对源文行结构；死亡描述词须代入“……{词}而死”检验。仍 blocked：`922c0f9665` cleaved＝被裂颅（诙谐加工，按裁决保留，但工具无不改收口路径）。窗口模板为 `setup_window55.py`、`.artifacts/i18n/repair-w55-20260929/wd.sh` 与 `/tmp/w55-*.sh`。
-   窗口 56 积压 **0** 条（窗口55后重新计数）：队列中已无 repair_required 条目；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第370批计时（实测，投影缓存 on）：start 143.7 s；adjudication chain（含 17 项门禁）169.0 s；finalize 151.8 s。
+   窗口 56 积压 **0** 条（窗口55后重新计数，范围外项不计入，—）：队列中已无 repair_required 条目；第371批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第371批计时（实测，投影缓存 on）：start 147.7 s；adjudication chain（含 17 项门禁）169.9 s；finalize 148.9 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
