@@ -56,7 +56,8 @@
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 57 尚未开启，等用户决定（积压不足 20，队列已耗尽，按规则须询问）。模板为窗口56：
    `setup_window56.py`（已支持 engine.lua）＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、
-   `.artifacts/i18n/repair-w56-20260929/wd.sh`、`check_siblings.py`；`/tmp/w56-*.sh` 重启后会丢，需按指南重新派生。
+   `.artifacts/i18n/repair-w56-20260929/wd.sh`、`check_siblings.py`；`w56-tr.sh`、`w56-close.sh`、`r372.sh`、`close372*.sh`、`handoff_gen_v2.py` 等宿主辅助脚本已从 `/tmp`
+   转存到 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore），使用前复制回 `/tmp`。
    窗口 57 积压 **3** 条（窗口56后重新计数，范围外项不计入，主游戏 1、Orcs 2）：`aeae08fe72` Toxic Death→剧毒之死（Gemini 裁定）；`23e4d42cdb`、`4220402439` Orcs 开场白“西方灾星”→西方天灾（society.tsv:34 preferred）；第372批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第372批计时（实测，投影缓存 on）：start 145.0 s；adjudication chain（含 17 项门禁）179.1 s；finalize 149.0 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
