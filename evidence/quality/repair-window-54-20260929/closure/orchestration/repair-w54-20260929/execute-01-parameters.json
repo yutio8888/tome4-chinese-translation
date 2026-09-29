@@ -1,0 +1,18 @@
+{
+  "title": "W54 execute-01 implement",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w54-20260929。先读 .ai/roles/executor.md 与 .ai/task/repair-w54-20260929/SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json、SOURCE-CLAIMS.json、BASELINE-records.json、TERM-SNAPSHOT.json，以及 TERMINOLOGY.md 使用规则。本窗口是定向修改：按 SOURCE-CLAIMS 逐条只改点名的词语或段落（衔接字可随之微调），不得改写其余部分；改点名段落时对照整段原文，不留同段其他旧错；专名沿用本库既有译法。8b977dd836 只把“独特技能”改为“独特法术”，职业名“元素法师”按用户裁决保留不动；5d4b280889 只重写 Orcs 信件第二段，其余各段与段间空行不动。仅你是任务内容写入者，只改 mod-tome.lua 与 tome-orcs.lua 中 WORKSET 的 2 个 target，以及写 evidence/quality/repair-window-54-20260929/ 下的 IMPLEMENTATION.md、VALIDATION.json；不改术语库。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证；DLC 源码只在 SOURCE-ANCHORS 给定 checkout 下按条目路径取证，禁止从 /、/workspace 或无关目录搜索。markup、占位符与现译一致；LF/TAB 结构两条都与现译逐行一致；不新增行尾空白。运行有界验证（LuaJIT 加载两个译文文件恰 2 条 target 变动、strict lint、git diff --check），回报逐条改动（列出条目 key 与每处前后文本）、命令结果和发现但未改的疑点；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w54-20260929",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

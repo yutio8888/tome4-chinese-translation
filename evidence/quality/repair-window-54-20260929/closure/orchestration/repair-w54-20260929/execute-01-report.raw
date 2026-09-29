@@ -1,0 +1,25 @@
+已完成 `repair-w54-20260929` 定向修改。
+
+- `8b977dd836…`：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:3026)
+  - 前：`独特技能`
+  - 后：`独特法术`
+  - “元素法师”保持不动。
+
+- `5d4b280889…`：[tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:2550)
+  - 仅重写 Orcs 信件第二段，采用 SOURCE-CLAIMS 建议译文。
+  - 其余段落、段间空行及行结构未变。
+
+验证结果：
+
+- LuaJIT 全记录比较：通过；27,191 条记录中恰 2 个 target 变化，非 target 字段和其他记录全部不变。
+- `python3 -B tools/i18n lint --strict`：通过；30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 新 evidence 文件空白检查及 JSON 语法检查：通过。
+- 未 stage、commit、push，未修改术语库或 `.ai/task`。
+
+证据已写入：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-54-20260929/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-54-20260929/VALIDATION.json)
+
+未发现修改段内的新疑点。“Archmagi/元素法师”按用户既有裁决保留，不视为未决缺陷。工作树中原有无关未跟踪文件均未触碰。

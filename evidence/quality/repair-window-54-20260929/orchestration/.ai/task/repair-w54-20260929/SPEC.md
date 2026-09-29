@@ -1,0 +1,16 @@
+# 合并修复窗口 54：Orcs 信件与元素法师职业说明 2 条
+
+Paseo MCP / schema5 translation_contextual_v2 implement。基线 002717bf5064508c8803b9b73c3f7ea28f887d28。审核队列已耗尽（第369批后 queued=0），剩余 repair_required 2 条：第369批确认的 5d4b280889（Orcs 信件第二段）与 batch-5e2173dbfb90012ff34d 确认的 8b977dd836（元素法师职业说明）；用户 2026-09-29 选择先修工具再开窗口54。8b977dd836 的原指控（Archmagi→大法师）已被用户 2026-09-28 裁决驳回，职业名保留“元素法师”；本窗口只修宿主按源码复核出的“spell→法术”偏差。用户已授权连续审核与合并修复、提交与推送；max_cycles=5（用户 2026-09-25 授权）。
+
+唯一 EXECUTOR 仅可修改：WORKSET.json 列出的 2 个 target（mod-tome.lua 1 条、tome-orcs.lua 1 条）以及 `evidence/quality/repair-window-54-20260929/` 下的修复证据。不改术语库。不得修改 source、source_tag、section、args_order、运行键、其他译文、规则工具或旧证据；不得 stage、commit、push、创建 agent 或修改 .ai/task。无关未跟踪文件保持不动。宿主负责 task 与审核记录、提交发布。
+
+**本窗口是定向修改，不是全文重译。** 每条只改 SOURCE-CLAIMS 点名的词语或段落（以及为此必须调整的衔接字），不得借机改写其余部分；即使发现别处可疑，也只在报告中列出、不改（宿主另行登记）。修改点名段落时须对照整段原文，不留同段其他旧错。专名沿用本库既有译法（元素法师、安格利文、远行传送门、联合王国、乌鲁洛克、托拉克、库贝克等）。
+
+保留 printf 占位符、`%%`、`#TAG#`、`[i]`/`[/i]` 等 markup 的数量、顺序及适用位置；保留 source_tag。LF/TAB 结构：两条都与现译逐行一致（Orcs 信件各段与段间空行不动）。用 LuaJIT 加载 mod-tome.lua 与 tome-orcs.lua，证明恰 2 个 target 变动且其他记录不变；执行 strict lint 及 git diff --check。无需完整门禁，宿主在独立复审后统一运行 17 项。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 取证；DLC 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径取证，不扫 `/`、`/workspace` 或无关目录；DLC 源码仓库与 commit 未固定。
+
+审查：cycle-0 `REVIEW/full` 用 Codex GPT-6 Sol；确认问题合并给一次 EXECUTOR fix；收敛后 `FINAL_REVIEW/full` 用 Claude Opus 5.5。v2 FINAL 如有任何 ISSUE，先修复并完成 RE_REVIEW，再重新 FINAL（同 cycle 用下一个 attempt）。max_cycles=5。reviewer 只读冻结译文、术语和契约允许的有限源码，不读 SOURCE-CLAIMS 或其他 reviewer raw。与本窗口裁决无关的既有问题由宿主记 advisory 并 carry_forward 到后续审核，不扩大本窗口范围。
+
+## 条目与已确认修复依据
+
+- 5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071 | tome-orcs.lua | tome-orcs/data/lore/misc.lua | 第369批 surface 与 contextual 同时确认（忠实度）。公开 Orcs 源码 tome-orcs/data/lore/misc.lua:89（DLC 仓库/commit 未固定）第二段：“In the meantime: we're still losing a few letters going through the mailing system, and the lost ones could end up teleported to pretty much anywhere.  They could end up ten feet from the portal, or they could end up right in some A.K. busybody's hands, or they could just warp themselves right up Urh'Rok's nose for all we know.  Likewise, anything written on those notes could end up exactly where you don't want them, wherever that might be.” 现译 (1) 句首“据我所知”把 for all we know（谁知道呢，强调无法预料）说反；(2) “也就是说”把 Likewise（同样，补充新一层）变成复述；(3) “每一封信”应为“信上写的任何内容”（anything written on those notes）；(4) “不管那是多么遥远的地方”凭空加“遥远”，原文只是“不管那是哪里”；(5) right up Urh'Rok's nose 是直接传进鼻孔的夸张说法，“鼻子底下”变成“当面”。只重写第二段（其余各段、段间空行与行结构不动），建议：“与此同时：我们的邮递系统仍然会丢失几封信，丢失的信件可能被传送到任何地方。它们可能落在离传送门十英尺远的地方，也可能正好落到某个联合王国好事者的手里，说不定还会直接传送进乌鲁洛克的鼻孔里。同样，信上写的任何内容也都可能恰好出现在你最不希望它出现的地方，不管那是哪里。”
+- 8b977dd836b5b2d8da2faf8135f5244fcb524b72970486c31d2cdd20941f3fa1 | mod-tome.lua | mod-tome/data/birth/classes/mage.lua | batch-5e2173dbfb90012ff34d 确认的修复 revision（该批无逐批 source workset，按固定 commit 重建源码核验）。原 observation 称 Archmagi 应译“大法师”，已被用户 2026-09-28 裁决驳回：职业名保留“元素法师”，不得改动。宿主按固定 commit 624a673 复核发现另一处实质偏差：game/modules/tome/data/birth/classes/mage.lua:148 “possess a unique spell to teleport to it directly”，对应天赋 TELEPORT_ANGOLWEN（data/talents/misc/misc.lua:270-276，is_spell=true，info 称 special portal spell），是法术；现译“独特技能”应为“独特法术”。只把“独特技能”改为“独特法术”，其余字词不动。

@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（第369批已 finalize，窗口54积压 1 条，继续审核第370批）
+更新时间：2026-09-29（修复窗口54已完成、待宿主证据提交与推送；下一步审核窗口54的 2 个 successor，第370批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -11,7 +11,7 @@
 - 审核已闭合至第 **369** 批（`batch-ee4d1e47a33a7b8cc828`）：19 条，18 done / 1 repair_required。
   窗口53 的 19 个 successor（主游戏 17 + Orcs 2）：surface 两组 5 lane；contextual 两个 run 首轮通过；逐条裁决。窗口54积压 1。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `bef1065ce2fdd9053ec3b8c8982a035b5ffa7ef7` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **53**：审核364–368 确认的 18 条（mod-tome.lua 16、tome-orcs.lua 2）与 1 条同键 runtime-sync 已修复，classes.tsv 的 Archmage 行升 preferred；译文提交 `359798c301d07abbccfa503ccd9c2b5657c3e725`；migration `7ed5bcec…` 的 19 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第369批（见第五节第 1 项）。
+- 修复窗口已闭合至 **54**：第369批确认的 Orcs 信件 `5d4b280889` 与 `8b977dd836`（Archmage 职业说明，保留“元素法师”，只把“独特技能”改为“独特法术”）已修复；译文提交 `23b32534d3088ae7625697c049c774a2c07a13e0`；migration `f990cf25…` 的 2 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第370批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -197,10 +197,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **370** 批起（窗口53的 19 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
-   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window53.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w53-20260929/wd.sh`、`/tmp/w53-*.sh`；setup 后先跑 `check_siblings.py`）。
-2. 窗口 53 已完成（审核队列耗尽后积压 18 条，用户 2026-09-29 选择立即开窗；第364批 4、第365批 5、第367批 3、第368批 6 条，主游戏 16、Orcs 2；另按用户 2026-09-28 裁决把 classes.tsv 的 Archmage 行升 preferred）。开窗前宿主逐句预检长 lore，扩充 3 条 claim（爆头多一处 LF、野蛮种族 lore 娜迦身高／“几乎”／恶魔理论句、罗尔夫信“也许”）。复审路径：REVIEW r0a1 2 确认 → execute-02 → RE r1a1 1 确认 → execute-03 → RE r2a1 18/18 → FINAL f2a2 1 确认（夏·图尔 lore 首段因果倒置与主语改变，宿主整条逐句重读另补 4 处）→ execute-04 → RE r3a1 18/18 → FINAL f3a2 18/18，cycle 3 收敛（max_cycles 5）；门禁 17/17。两条按源码实现而非英文裁决：速射姿态提示 `07c8b41ef0`（agility.lua 表构造里 on_pre_use 定义两次，后者 archerPreUse(...,"sling") 生效，info 写 Requires a sling；第364批据英文 “bow or sling” 确认属误判，最终“你需要装备投石索才能使用速射姿态！”）与噩梦诅咒“折磨”`fb8138dd84`（other.lua:1523-1550 来源是生物时反击来源者，否则半径 10 内随机敌人）。同键兄弟：`d64daff63a` 探索型远行传送门说明与 caldizar 区域 `55872e196b` 同 source/_t，终审后由 execute-05 逐字节同步（RUNTIME-SYNC.json）。范围外 `8b977dd836`（Archmage）仍 pending_repair：工具没有“不改”收口路径，待另行处理。操作要点：helpers 须 cp 到 `.ai/task/<window>/`；execute 归档后、freeze 前宿主手工设 STATE.candidate_author_agent_id（最后一个修复 executor 的 agent id）；freeze_review.py 的 rendered_briefing 写死条数须按窗口改；wd_freeze 的 `| tail -2 &&` 会吞掉 freeze 失败，宜单独执行；终审前须把 sibling sync 放到 FINAL 通过之后、门禁之前（w40 模板）。窗口模板为 `setup_window53.py`（批次确认条目经 HOST-SUPPLEMENT-CLAIMS＋术语 1 行改动）、`.artifacts/i18n/repair-w53-20260929/wd.sh` 与 `/tmp/w53-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>`；每轮复审 harvest/归档后须立即跑 `publish.py`。
-   窗口 54 积压 **1** 条（窗口53后重新计数，范围外项不计入，tome-orcs.lua）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；第369批 第369批 1 条；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+1. 继续审核第 **370** 批起（窗口54的 2 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window54.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w54-20260929/wd.sh`、`/tmp/w54-*.sh`；setup 后先跑 `check_siblings.py`）。
+2. 窗口 54 已完成（审核队列耗尽后剩余 repair_required 2 条，用户 2026-09-29 选择先修工具再开窗：第369批确认的 Orcs 信件 `5d4b280889` 与 batch-5e2173dbfb90012ff34d 确认的 `8b977dd836`）。`8b977dd836` 原指控（Archmagi→大法师）已被用户 2026-09-28 裁决驳回，职业名保留“元素法师”；宿主按固定 commit 复核出真实偏差 “unique spell” 译作“独特技能”（TELEPORT_ANGOLWEN is_spell=true），改为“独特法术”，以真实修改迁移收口。复审路径：execute-01 → REVIEW r0a1 1 确认（信件第三段 pack golem“邮递傀儡”→“驮运傀儡”、代词“他”→“它”）→ execute-02 → RE r1a1 1 确认（第一段 undoing 应为“撤销”、let alone still carrying your backpacks 被改成“完好无损”）→ execute-03 → RE r2a1 2/2 → FINAL f2a2（Opus 5.5）2/2，cycle 2 收敛（max_cycles 5）；无同键兄弟；门禁 17/17。教训：多段 lore 的整段修复要在开窗前逐段对照原文预检全部段落，本窗三段各被复审点出一次。窗口模板为 `setup_window54.py`（无逐批 source workset 的条目 source_batch_id 置 null 走 synth 重建；DLC 条目须有 source workset）、`.artifacts/i18n/repair-w54-20260929/wd.sh` 与 `/tmp/w54-*.sh`。
+   窗口 55 积压 **0** 条（窗口54后重新计数）：队列中已无 repair_required 条目；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第369批计时（实测，投影缓存 on）：start 141.8 s；adjudication chain（含 17 项门禁）168.1 s；finalize 143.4 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。

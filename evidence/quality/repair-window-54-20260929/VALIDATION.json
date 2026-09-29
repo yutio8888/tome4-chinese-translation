@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w54-20260929",
+  "role": "executor",
+  "baseline_commit": "002717bf5064508c8803b9b73c3f7ea28f887d28",
+  "inputs": {
+    "workset_sha256": "cade49e3ade286ac81a35be929d4a2bb927d6ccddb2cae115d2f105916ed5ef9",
+    "source_anchors_sha256": "f54a866f3a3731525c6391b9709903659f66711f680075c886c31b1912b7f937",
+    "source_claims_sha256": "41299f4a59890abbe13a0b711fde76043d442b806fd446f824685c0d9235f58c",
+    "baseline_records_sha256": "fefb8d6b0ccaee41b3babc0df220b9c1498983cce04b52f50ef03a14f4b73b68",
+    "term_snapshot_sha256": "eb620f2185fc306d8c712cedbb348b4cc1bbb3c45cd34194f45530cd27c87547"
+  },
+  "outputs": [
+    {
+      "path": "mod-tome.lua",
+      "sha256": "2430d1eba02ac844827387902975dd59e0c4fad3ea9d2418106ea726136e0a51"
+    },
+    {
+      "path": "tome-orcs.lua",
+      "sha256": "d501f2d21a46b28782e6f8c6508fd9fe53354ce4acb9f2c5b1628927138f5f6e"
+    }
+  ],
+  "source_anchor_checks": {
+    "status": "pass",
+    "main_game_repository": "/workspace/t-engine4",
+    "main_game_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "main_game_source_repository_commit_pinned": true,
+    "main_game_mage_file_sha256": "9329b7b8e6bef70a694543c226acd13d5059ec715ebef32404c84e6cc9644903",
+    "teleport_angolwen_is_spell": true,
+    "dlc_source_repository_commit_pinned": false,
+    "checked_dlc_file_count": 1,
+    "orcs_source_file_sha256": "0f33aa795edeebd717c42cb2ec844eb8e8aebdefbd906c1f79f697a254de33ef",
+    "literal_sources_match": true
+  },
+  "semantic_load_and_diff": {
+    "loader": "tools.i18nlib.locale_model.LocaleLoader",
+    "files": [
+      {
+        "path": "mod-tome.lua",
+        "baseline_record_count": 22989,
+        "current_record_count": 22989,
+        "changed_target_count": 1
+      },
+      {
+        "path": "tome-orcs.lua",
+        "baseline_record_count": 4202,
+        "current_record_count": 4202,
+        "changed_target_count": 1
+      }
+    ],
+    "changed_target_count": 2,
+    "expected_target_count": 2,
+    "non_target_field_change_count": 0,
+    "other_records_unchanged": true,
+    "newline_checks_pass": true,
+    "tab_structure_unchanged": true,
+    "placeholder_checks_pass": true,
+    "markup_checks_pass": true,
+    "changed_revision_keys": [
+      "8b977dd836b5b2d8da2faf8135f5244fcb524b72970486c31d2cdd20941f3fa1",
+      "5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071"
+    ]
+  },
+  "commands": [
+    {
+      "command": "LuaJIT semantic load and baseline comparison for mod-tome.lua and tome-orcs.lua",
+      "exit_code": 0,
+      "result": "exactly 2 target changes; all other records and non-target fields unchanged"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "repair_rounds": [
+    {
+      "round": 1,
+      "review_cycle": 0,
+      "adjudication": ".ai/task/repair-w54-20260929/ADJUDICATION-R0.json",
+      "revision_key": "5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071",
+      "status": "pass",
+      "source": "Call it a courier, or a pack golem, or a trained uruivellas for all I care.",
+      "before": "随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。",
+      "after": "随便你叫它什么，快递员、驮运傀儡、训练好的乌尔维拉斯，随你怎么说都行，拜托了。",
+      "bounded_source_check": {
+        "path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua",
+        "file_sha256": "0f33aa795edeebd717c42cb2ec844eb8e8aebdefbd906c1f79f697a254de33ef",
+        "matches_source_anchors": true,
+        "repository_commit_pinned": false
+      },
+      "semantic_load_and_diff": {
+        "baseline_commit": "002717bf5064508c8803b9b73c3f7ea28f887d28",
+        "changed_target_count": 2,
+        "expected_target_count": 2,
+        "non_target_field_change_count": 0,
+        "other_records_unchanged": true,
+        "newline_checks_pass": true,
+        "tab_structure_unchanged": true,
+        "placeholder_checks_pass": true,
+        "markup_checks_pass": true
+      },
+      "commands": [
+        {
+          "command": "LuaJIT semantic load and baseline comparison for mod-tome.lua and tome-orcs.lua",
+          "exit_code": 0,
+          "result": "exactly 2 target changes; all other records and non-target fields unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no output"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "review_cycle": 1,
+      "adjudication": ".ai/task/repair-w54-20260929/ADJUDICATION-R1.json",
+      "revision_key": "5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071",
+      "status": "pass",
+      "source": "We get it: it's our fault the farportal mailing system isn't perfect.  Our people are still working on undoing that jury-rigged configuration that keeps your portal from transporting anything that isn't living - and if we get it wrong, that means people start getting teleported into walls again.  It's already a damn miracle you can get through the portal without coming out naked on the other side, let alone still carrying your backpacks and all their contents.",
+      "before": "我们知道：远行传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个让传送门无法传送任何非活物的临时配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远行传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。",
+      "after": "我们知道：远行传送门邮递系统并不完美这件事当然是我们的过错。我们的人还在努力撤销那个临时拼凑、让你们的传送门无法传送任何非活物的配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能穿过传送门而不是光着身子出现在另一边，就已经他妈的是个奇迹了，更别说还能背着背包、连同里面的所有东西一起过来。",
+      "bounded_source_check": {
+        "path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua",
+        "line": 87,
+        "file_sha256": "0f33aa795edeebd717c42cb2ec844eb8e8aebdefbd906c1f79f697a254de33ef",
+        "matches_source_anchors": true,
+        "repository_commit_pinned": false
+      },
+      "semantic_load_and_diff": {
+        "baseline_commit": "002717bf5064508c8803b9b73c3f7ea28f887d28",
+        "changed_target_count": 2,
+        "expected_target_count": 2,
+        "non_target_field_change_count": 0,
+        "other_records_unchanged": true,
+        "newline_checks_pass": true,
+        "tab_structure_unchanged": true,
+        "placeholder_checks_pass": true,
+        "markup_checks_pass": true
+      },
+      "unchanged_in_round": {
+        "second_paragraph": true,
+        "third_paragraph_ending": true,
+        "other_workset_target_8b977dd836": true,
+        "terminology": true
+      },
+      "commands": [
+        {
+          "command": "LuaJIT semantic load and baseline comparison for mod-tome.lua and tome-orcs.lua",
+          "exit_code": 0,
+          "result": "exactly 2 target changes; all other records and non-target fields unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no output"
+        }
+      ],
+      "output_sha256": {
+        "mod-tome.lua": "2430d1eba02ac844827387902975dd59e0c4fad3ea9d2418106ea726136e0a51",
+        "tome-orcs.lua": "d501f2d21a46b28782e6f8c6508fd9fe53354ce4acb9f2c5b1628927138f5f6e"
+      }
+    }
+  ],
+  "residual_findings": [
+    {
+      "revision_key": "8b977dd836b5b2d8da2faf8135f5244fcb524b72970486c31d2cdd20941f3fa1",
+      "status": "adjudicated",
+      "text": "Archmagi remains 元素法师 under the explicit user adjudication; it is not an open defect."
+    }
+  ],
+  "unresolved_in_scope_findings": [],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}
