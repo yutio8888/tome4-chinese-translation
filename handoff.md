@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（修复窗口53已完成、待宿主证据提交与推送；下一步审核窗口53的 19 个 successor，第369批起）
+更新时间：2026-09-29（第369批已 finalize，窗口54积压 1 条，继续审核第370批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,9 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **368** 批（`batch-3cfa49c3b0ee7cc07337`）：55 条，49 done / 6 repair_required。
-  audit 合并 successor 第五批（末批，主游戏 24 + Orcs 31，其中 1 条 Orcs 死键记 advisory）：surface 两组 8 lane；contextual 两个 run 首轮通过；逐条裁决。窗口53积压 18，审核队列已耗尽。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `70c1a06e5e76327a4c0a0a7722611c62a9906449` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **369** 批（`batch-ee4d1e47a33a7b8cc828`）：19 条，18 done / 1 repair_required。
+  窗口53 的 19 个 successor（主游戏 17 + Orcs 2）：surface 两组 5 lane；contextual 两个 run 首轮通过；逐条裁决。窗口54积压 1。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `bef1065ce2fdd9053ec3b8c8982a035b5ffa7ef7` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **53**：审核364–368 确认的 18 条（mod-tome.lua 16、tome-orcs.lua 2）与 1 条同键 runtime-sync 已修复，classes.tsv 的 Archmage 行升 preferred；译文提交 `359798c301d07abbccfa503ccd9c2b5657c3e725`；migration `7ed5bcec…` 的 19 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第369批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
@@ -120,6 +120,7 @@
 | 366 | `batch-75a2ad29372c8d842cb7` | 80 done / 0 repair | 77 OK / 3 ISSUE | 3 OK / 0 ISSUE | 3 refuted |
 | 367 | `batch-ef83bc910ba29998c289` | 76 done / 3 repair | 72 OK / 8 ISSUE | 7 OK / 1 ISSUE | 3 confirmed / 5 refuted / 1 advisory |
 | 368 | `batch-3cfa49c3b0ee7cc07337` | 49 done / 6 repair | 40 OK / 15 ISSUE | 11 OK / 4 ISSUE | 7 confirmed / 8 refuted / 4 advisory |
+| 369 | `batch-ee4d1e47a33a7b8cc828` | 18 done / 1 repair | 14 OK / 5 ISSUE | 4 OK / 1 ISSUE | 2 confirmed / 3 refuted / 1 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -196,11 +197,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **369** 批起（窗口53的 19 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **370** 批起（窗口53的 19 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window53.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w53-20260929/wd.sh`、`/tmp/w53-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 53 已完成（审核队列耗尽后积压 18 条，用户 2026-09-29 选择立即开窗；第364批 4、第365批 5、第367批 3、第368批 6 条，主游戏 16、Orcs 2；另按用户 2026-09-28 裁决把 classes.tsv 的 Archmage 行升 preferred）。开窗前宿主逐句预检长 lore，扩充 3 条 claim（爆头多一处 LF、野蛮种族 lore 娜迦身高／“几乎”／恶魔理论句、罗尔夫信“也许”）。复审路径：REVIEW r0a1 2 确认 → execute-02 → RE r1a1 1 确认 → execute-03 → RE r2a1 18/18 → FINAL f2a2 1 确认（夏·图尔 lore 首段因果倒置与主语改变，宿主整条逐句重读另补 4 处）→ execute-04 → RE r3a1 18/18 → FINAL f3a2 18/18，cycle 3 收敛（max_cycles 5）；门禁 17/17。两条按源码实现而非英文裁决：速射姿态提示 `07c8b41ef0`（agility.lua 表构造里 on_pre_use 定义两次，后者 archerPreUse(...,"sling") 生效，info 写 Requires a sling；第364批据英文 “bow or sling” 确认属误判，最终“你需要装备投石索才能使用速射姿态！”）与噩梦诅咒“折磨”`fb8138dd84`（other.lua:1523-1550 来源是生物时反击来源者，否则半径 10 内随机敌人）。同键兄弟：`d64daff63a` 探索型远行传送门说明与 caldizar 区域 `55872e196b` 同 source/_t，终审后由 execute-05 逐字节同步（RUNTIME-SYNC.json）。范围外 `8b977dd836`（Archmage）仍 pending_repair：工具没有“不改”收口路径，待另行处理。操作要点：helpers 须 cp 到 `.ai/task/<window>/`；execute 归档后、freeze 前宿主手工设 STATE.candidate_author_agent_id（最后一个修复 executor 的 agent id）；freeze_review.py 的 rendered_briefing 写死条数须按窗口改；wd_freeze 的 `| tail -2 &&` 会吞掉 freeze 失败，宜单独执行；终审前须把 sibling sync 放到 FINAL 通过之后、门禁之前（w40 模板）。窗口模板为 `setup_window53.py`（批次确认条目经 HOST-SUPPLEMENT-CLAIMS＋术语 1 行改动）、`.artifacts/i18n/repair-w53-20260929/wd.sh` 与 `/tmp/w53-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>`；每轮复审 harvest/归档后须立即跑 `publish.py`。
-   窗口 54 积压 **0** 条（窗口53后重新计数，范围外项不计入）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第368批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）168.8 s；finalize 141.7 s。
+   窗口 54 积压 **1** 条（窗口53后重新计数，范围外项不计入，tome-orcs.lua）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；第369批 第369批 1 条；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第369批计时（实测，投影缓存 on）：start 141.8 s；adjudication chain（含 17 项门禁）168.1 s；finalize 143.4 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
