@@ -1,0 +1,20 @@
+{
+ "workset": "evidence/quality/production-batches/batch-75a2ad29372c8d842cb7-source-workset.json",
+ "decisions": {
+  "7d1af5b025|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "elvala.lua:338-403 回忆录第六章，崔岚说“bring this ring to you and your sister. Neira...”。同一回忆录第一章 elvala.lua:36 写明“his twin daughters, Linaniil and Neira … Identical they were in looks”，:178 也有“especially not between twins”，莱娜尼尔与尼耶拉确为孪生姐妹。译文“你的孪生姐妹”与固定源码设定一致，并非无据增译。驳回。"
+  },
+  "8647c33219|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit timed_effects/other.lua:2890 属于 Temporal Reprieve 效果：技能把玩家传进一个临时的独立关卡，:2878 注释即“Remove all npcs in the reprieve”，源码里 reprieve 指的就是这个时空口袋地点。本库技能名为“时空避难所”（mod-tome.lua:22631），译文“你从避难所回来了！”与技能名及机制一致，repreive 只是上游拼写错误。驳回。"
+  },
+  "a21e145849|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit timed_effects/other.lua:2206-2209 DREAMSCAPE 结束时：local kills = eff.projections_killed … eff.target:setEffect(eff.target.EFF_BRAINLOCKED, kills, {})，思维封锁持续回合数等于被摧毁的投影数，也就是每个投影 1 回合、累计叠加。译文“持续 1 回合的思维封锁效果（可叠加）”与实现一致，不是无据增译。驳回。"
+  }
+ }
+}

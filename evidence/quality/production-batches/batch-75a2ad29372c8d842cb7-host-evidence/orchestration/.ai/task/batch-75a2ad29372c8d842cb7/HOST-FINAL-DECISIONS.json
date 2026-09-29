@@ -1,0 +1,60 @@
+{
+  "batch_id": "batch-75a2ad29372c8d842cb7",
+  "observations": 3,
+  "observation_dispositions": {
+    "refuted": 3
+  },
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 80,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "7d1af5b025991cb16773001c1417c6cccf2a7dd9b1b7d5dae288efb05c5484df",
+      "stage": "surface",
+      "observation": "原文仅称“your sister”，译文写成“孪生姐妹”，增加了原文未说明的孪生关系。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "elvala.lua:338-403 回忆录第六章，崔岚说“bring this ring to you and your sister. Neira...”。同一回忆录第一章 elvala.lua:36 写明“his twin daughters, Linaniil and Neira … Identical they were in looks”，:178 也有“especially not between twins”，莱娜尼尔与尼耶拉确为孪生姐妹。译文“你的孪生姐妹”与固定源码设定一致，并非无据增译。驳回。"
+    },
+    {
+      "revision_key": "8647c332190d517b1ebf16b85e90b9873c358f185e6eb12c374ce821b01e1c9f",
+      "stage": "surface",
+      "observation": "原文“repreive”（应为 reprieve）表示暂时的宽限或喘息，并未指称地点；译文“避难所”将其译成了地点。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit timed_effects/other.lua:2890 属于 Temporal Reprieve 效果：技能把玩家传进一个临时的独立关卡，:2878 注释即“Remove all npcs in the reprieve”，源码里 reprieve 指的就是这个时空口袋地点。本库技能名为“时空避难所”（mod-tome.lua:22631），译文“你从避难所回来了！”与技能名及机制一致，repreive 只是上游拼写错误。驳回。"
+    },
+    {
+      "revision_key": "a21e1458497594185dbd1adc3f1f5e6a3dd7dd22c76bbecefe1a5126e31e9648",
+      "stage": "surface",
+      "observation": "源文称每摧毁一个投影，目标生命减少 10%% 并被封脑一回合；译文另加“可叠加”。冻结文本不足以确认封脑效果能否叠加。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit timed_effects/other.lua:2206-2209 DREAMSCAPE 结束时：local kills = eff.projections_killed … eff.target:setEffect(eff.target.EFF_BRAINLOCKED, kills, {})，思维封锁持续回合数等于被摧毁的投影数，也就是每个投影 1 回合、累计叠加。译文“持续 1 回合的思维封锁效果（可叠加）”与实现一致，不是无据增译。驳回。"
+    }
+  ],
+  "additional_host_observations": [
+    {
+      "revision_key": "7b2e36ce09b75b992b7a61d9652aaee6a63d2c6b6b04d0d927f096704ccc776a",
+      "source": "Your antimagic disrupts %s.",
+      "target": "你的反魔法干扰了 %s。",
+      "disposition": "advisory",
+      "note": "freeze 报 MISS：目录把该 logPlayer 条目（mod-tome.lua:1116）归到 section mod-tome/class/Player.lua，但固定 commit 624a6732 的 Player.lua 已不含该字面量。上游 5f7e8cb9a3 把它移到 class/Object.lua:199，写作 (\"Your antimagic disrupts %s.\"):tformat(...)，现以 tformat 行（第365批 633abbce6a，:1117）为准；两行译文相同，本行只是陈旧的重复目录行，不影响显示。surface lane-000-0 判 OK。本批记 done、不做 host-block；section 归属与重复行清理留作目录维护事项。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes: one main-game group of 80 in four lanes of 20)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 3 entries)"
+  },
+  "notes": [
+    "Third slice of the audit-merge successors: 80 core-game entries in one surface group of four gpt-6-sol lanes (20 each). Lanes read or parsed only their own envelope and the contract; no Paseo terminal was created. The freeze reported one stale-section MISS (the logPlayer row of Your antimagic disrupts %s., whose literal now lives in class/Object.lua:199), recorded as a host observation.",
+    "One contextual run of claude/claude-opus-5-5 (contextual-000, 3 deep entries) was accepted on the first pass and judged all three OK.",
+    "Refuted: 孪生姐妹 matches the same memoir's twin daughters (elvala.lua:36); 避难所 is the Temporal Reprieve pocket, whose talent name here is 时空避难所; the stacking brainlock matches the Dreamscape implementation, which sets BRAINLOCKED for one turn per projection killed.",
+    "All 80 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 79 matched the literal in the recorded file, and 1 (7b2e36ce09, the logPlayer row) is a stale-section MISS whose literal now lives in class/Object.lua:199 with tag tformat (see additional_host_observations).",
+    "0 confirmed repair revisions raise the window 53 backlog from 9 to 9; below the 20 threshold, so no window opens."
+  ]
+}
