@@ -1,0 +1,29 @@
+第 3 轮修复已完成。
+
+仅修改 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3059) 中 `d9b49ce5bc` 的四处：
+
+- `我此生欠你这个机会，也欠传说中的西方天灾这个机会`
+  → `这个机会，我欠现实中的你，也欠传说中的西方天灾`
+- `但<?=...heshe?>很快发现自己面对的东西……`
+  → `但<?=...heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民……`
+- `艾德隆也可以创造一个强大到足以击败<?=...himher?>的敌人`
+  → `艾德隆也可以安排一个强大到足以最终消灭<?=...himher?>的敌人`
+- `愿意一直牢记住……直到……`
+  → `承诺每当它找到或创造出……威胁时，都会想起……`
+
+`dbb3e0495b` 未改；其他 28 条、本条其他文字、段落、空行和术语库均未改。
+
+已追加：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/VALIDATION.json)
+
+验证结果：
+
+- LuaJIT 三文件加载通过：相对基线仍恰好 29 条 target 变化，分布 `1/25/3`
+- WORKSET 29/29 精确匹配；非 target 字段变化 0
+- 模板序列、8 个 LF、TAB 与空行位置不变
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- evidence JSON 结构与空白检查：通过
+- 未 stage、commit、push，未创建 agent，未修改 `.ai/task`。

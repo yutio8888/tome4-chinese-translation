@@ -401,6 +401,7 @@
    - 裁决途径：用户 2026-09-29 指定名称按 Gemini 定；Gemini 3.8 Flash 三次派发均报 antigravity 认证错误未建出 agent，用户改选三方讨论（gpt-6-astra／opus-5-5／grok-4.7，同一份实测底稿）按多数裁决。
    - **已裁决（2026-09-29，三方多数）**：Armour Configuration→“护甲改装”（3/3）；` of thunder`→“雷霆之”、关键词 thunder→“雷霆”（3/3）；Twist the Knife→“伤口拧刀”（2/3）；Harass Prey→“袭扰猎物”（2/3）；Knowledge of the Way→“维网之识”（2/3）；Cursed Bolt→“诅咒之箭”（3/3）；Eldritch Pearl→“骇异珍珠”（3/3，沿用 creatures.tsv eldritch＝骇异 preferred）；the Sorcerers（远东最终首领二人组）统一为“巫师”（3/3），泛指的 sorcerers（黄昏纪邪恶术者等）不在此列。双向冲突检查：上述译名在全库均未被他词占用；“雷霆”仅在一条 lightning 叙述句中出现，不涉词缀。
    - **仍 pending**：Toxic Death 三方各给一名（剧毒之死／死亡传毒／毒亡扩散），全不一致，保持待修复，待 Gemini 可用后再定。
+   - **Gemini 补充（2026-09-29）**：antigravity 通道仍报认证错误，改经 `pi/cpa/gemini-3.8-flash-high` 以同一份底稿独立咨询。9 条中 8 条与三方多数一致；Toxic Death→“剧毒之死”（与 Opus 首选相同，全库未占用），按常驻规则采用，因窗口 56 已冻结，排入下一修复窗口；Knowledge of the Way Gemini 给“维网之知”，与多数“维网之识”不同，用户选定“维网之识”。
 
 48. `b63b2d6946` 等 shertul lore 的 petty gods＝“伪神”
    - 现状：`terminology/narrative.tsv:43` petty gods＝伪神（preferred，注明是阿马克泰尔叙事中的贬称）；审核认为“伪”是源文所无的价值判断。

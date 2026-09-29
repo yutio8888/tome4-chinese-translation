@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（第371批已 finalize，窗口56积压 0 条，继续审核第372批）
+更新时间：2026-09-29（修复窗口56已完成、待宿主证据提交与推送；下一步审核窗口56的 29 个 successor，第372批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -11,7 +11,7 @@
 - 审核已闭合至第 **371** 批（`batch-80b3265ec45a9b152247`）：7 条，7 done / 0 repair_required。
   窗口55 的 7 个 successor（主游戏）：surface 一组 4 lane，1 个 ISSUE 驳回；contextual 一个 run 首轮通过。窗口56积压 0。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `bce50e79f63af0aa0e527af600e65e8f88d7a5f9` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **55**：用户 2026-09-29 集中审阅裁决的 7 条（死亡描述病句／错义 5 条、高等人类之绽放“能量”→“资源”2 条）已修复；译文提交 `7211f717a1a5090eb731b698880be14891c30c8b`；migration `9035e3de…` 的 7 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第371批（见第五节第 1 项）。
+- 修复窗口已闭合至 **56**：blocked 排查后裁决的 29 条（三方定名 8 条、盾战士重甲训练、火刑堆、the Sorcerers 统一为巫师 19 条；复审另修口袋时间 lore 与高峰任务的旧错译）已修复；译文提交 `ff45cbd8644139938395ac295e3290b3e6bbc774`；migration `f0ff579a…` 的 29 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第372批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
   queue rebuild 通过；新 catalog 与 28 条待重新审核的 successor 均已核对。
@@ -199,10 +199,10 @@
 
 ## 五、下一步
 
-1. 继续审核第 **372** 批起（窗口55的 7 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
-   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window55.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w55-20260929/wd.sh`、`/tmp/w55-*.sh`；setup 后先跑 `check_siblings.py`）。
-2. 窗口 55 已完成（审核队列耗尽后用户 2026-09-29 集中审阅 pending 第45、46项并裁决）：死亡描述词族只修病句 2 条（burnt→被烧焦、cosmeticed→被‘美化’）与错义 3 条（mauled→被撕碎、timewarped→被时间扭曲、psyched→被心灵摧毁），约 14 条诙谐加工按裁决保留（同类指摘今后驳回）；高等人类之绽放效果描述与技能 info 的“能量”改“资源”（races.lua 遍历全部 resources_def），info 另补 inner magic／all active talents 并按源文重排行结构。复审路径：execute-01 → REVIEW r0a1 1 确认（mauled“被撕咬致残”与“而死”冲突，改“被撕碎”）→ execute-02 → RE r1a1 1 确认（info 行结构宿主 setup 误按旧译保留，改按源文）→ execute-03 → RE r2a1 7/7 → FINAL f2a2（Opus 5.5）7/7，cycle 2 收敛；无同键兄弟；门禁 17/17。教训：setup 写“保持现有行结构”前须先比对源文行结构；死亡描述词须代入“……{词}而死”检验。仍 blocked：`922c0f9665` cleaved＝被裂颅（诙谐加工，按裁决保留，但工具无不改收口路径）。窗口模板为 `setup_window55.py`、`.artifacts/i18n/repair-w55-20260929/wd.sh` 与 `/tmp/w55-*.sh`。
-   窗口 56 积压 **0** 条（窗口55后重新计数，范围外项不计入，—）：队列中已无 repair_required 条目；第371批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+1. 继续审核第 **372** 批起（窗口56的 29 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+   `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window56.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w56-20260929/wd.sh`、`/tmp/w56-*.sh`；setup 后先跑 `check_siblings.py`）。
+2. 窗口 56 已完成（审核队列耗尽后只读排查 25 条 blocked，2026-09-29 裁决记于 pending 第47–49项）：三方多数定名 8 条（护甲改装、雷霆之／雷霆、伤口拧刀、袭扰猎物、维网之识、诅咒之箭、骇异珍珠）、盾战士 info 的 Armor Training→重甲训练、伊格兰斯 killer_message→并被送上火刑堆焚烧、远东最终首领二人组 the Sorcerers 统一为“巫师”19 条（engine 1、mod-tome 15、tome-orcs 3；泛指 sorcerers 保持）；petty gods 按用户裁决保持伪神。复审路径：execute-01 → REVIEW r0a1 2 确认（高峰任务 before/bend to their will；口袋时间 lore 候选人筛选与 inevitable doom）→ execute-02 → RE r1a1 2 确认（西方灾星→西方天灾；骨盾→骨甲）→ execute-03 → RE r2a1 1 确认＋1 挂错条目移至 d9b49ce5bc，宿主通读两条口袋时间 lore 再补 2 处（whenever→每当、finally destroy→最终消灭）→ execute-04 → RE r3a1 29/29 → FINAL f3a2 截断无效、f3a3（Opus 5.5）29/29，cycle 3 收敛；无同键兄弟；门禁 17/17。教训：长篇 lore 进窗口后每轮会冒出旧错，第二轮起宿主应整条对照源文一次补齐；Gemini antigravity 认证失败时名称咨询走 `pi/cpa/gemini-3.8-flash-high`。窗口 57 积压见下行。窗口模板为 `setup_window56.py`（已支持 engine.lua）、`.artifacts/i18n/repair-w56-20260929/wd.sh` 与 `/tmp/w56-*.sh`。
+   窗口 57 积压 **3** 条（窗口56后重新计数）：`aeae08fe72` Toxic Death→剧毒之死（Gemini 裁定）；`23e4d42cdb`、`4220402439` Orcs 开场白“西方灾星”→西方天灾（society.tsv:34 preferred）。
    第371批计时（实测，投影缓存 on）：start 147.7 s；adjudication chain（含 17 项门禁）169.9 s；finalize 148.9 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。

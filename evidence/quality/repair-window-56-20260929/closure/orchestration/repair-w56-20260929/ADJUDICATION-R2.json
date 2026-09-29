@@ -1,0 +1,51 @@
+{
+ "cycle": 2,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r2a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 27,
+ "raw_issue_count": 2,
+ "decision": "the in-life/legend finding on d9b49ce5bc is confirmed; the dbb3e0495b observation quotes “would be likely to find”, which only occurs in d9b49ce5bc (slid one entry), so it is refuted on dbb3e0495b and confirmed on d9b49ce5bc. To stop the long lore from yielding one legacy defect per cycle, the host re-read both pocket-time entries against the source: dbb3e0495b has no further tier-1 defect; d9b49ce5bc has two more (whenever→直到, destroy→击败), added as host findings. Fix all four in execute-04, then RE_REVIEW(3,1).",
+ "findings": [
+  {
+   "revision_key": "d9b49ce5bc89333e6dac88af1bef9c71769d12b93e30737eaffdd2e7ad206cbe",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r2a1",
+   "reason": "末段 “I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend”：机会欠现实中的你与传说中的西方天灾，in life 修饰“你”而非叙述者。“我此生欠你这个机会，也欠传说中的西方天灾这个机会”改为“这个机会，我欠现实中的你，也欠传说中的西方天灾”。"
+  },
+  {
+   "revision_key": "d9b49ce5bc89333e6dac88af1bef9c71769d12b93e30737eaffdd2e7ad206cbe",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r2a1 (filed on dbb3e0495b; the quoted sentence exists only in d9b49ce5bc)",
+   "reason": "非牺牲分支 “could've sought out harder foes, but the only ones <?=Lore.pocket_time_winner.heshe?> would be likely to find would either be pointless to face, or outright harmful to the citizens of Eyal”：是假设中可能找到的对手，且受害的是埃亚尔的居民。“但<?=Lore.pocket_time_winner.heshe?>很快发现自己面对的东西要么毫无意义，要么只会对埃亚尔的世界有害，不会给故事增添任何内容。”改为“但<?=Lore.pocket_time_winner.heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民，都不会给故事增添任何内容。”"
+  },
+  {
+   "revision_key": "d9b49ce5bc89333e6dac88af1bef9c71769d12b93e30737eaffdd2e7ad206cbe",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "host re-read",
+   "reason": "同分支 “The Eidolon could have introduced a foe strong enough to finally destroy <?=Lore.pocket_time_winner.himher?>”：finally destroy＝最终消灭，不是击败。“艾德隆也可以创造一个强大到足以击败<?=Lore.pocket_time_winner.himher?>的敌人”改为“艾德隆也可以安排一个强大到足以最终消灭<?=Lore.pocket_time_winner.himher?>的敌人”。"
+  },
+  {
+   "revision_key": "d9b49ce5bc89333e6dac88af1bef9c71769d12b93e30737eaffdd2e7ad206cbe",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "host re-read",
+   "reason": "倒数第二段 “promising to remember <?=Lore.pocket_time_winner.himher?> whenever it found or created a threat worthy of <?=Lore.pocket_time_winner.himher?>”：每当找到或创造出配得上此人的威胁时就会想起他，不是“牢记直到……”。“因此，它将<?=Lore.pocket_time_winner.name?>的名字在脑海中记录下来，愿意一直牢记住<?=Lore.pocket_time_winner.himher?>，直到它找到或者创造了一位真正能够和<?=Lore.pocket_time_winner.himher?>势均力敌的对手。”改为“因此，它将<?=Lore.pocket_time_winner.name?>记在心里，承诺每当它找到或创造出配得上<?=Lore.pocket_time_winner.himher?>的威胁时，都会想起<?=Lore.pocket_time_winner.himher?>。”"
+  }
+ ],
+ "rejected": [
+  {
+   "revision_key": "dbb3e0495b68f86f95a092d1dea607294d2ec1d0fe45d71d2ecc925fdb61de69",
+   "status": "refuted",
+   "reason": "observation quotes “would be likely to find”, absent from this entry's source; re-filed on d9b49ce5bc."
+  }
+ ],
+ "advisories": []
+}

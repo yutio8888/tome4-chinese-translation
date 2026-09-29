@@ -1,0 +1,13 @@
+已完成第 1 轮两条 confirmed 修复：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:20253)：整条改为“找到那些巫师，在他们让世界屈从于自己的意志之前阻止他们。”
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3057)：按裁决修正第二段两句及第三段分句；模板、段落和空行未变。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/IMPLEMENTATION.md:55) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/VALIDATION.json:98)。
+
+验证结果：
+
+- LuaJIT 基线比较：恰 29 条 target 变化，分布 `1/25/3`；WORKSET 精确匹配，其他记录未变。
+- strict lint：30,308 条，0 errors、0 warnings。
+- 模板序列、8 个 LF、空行位置检查通过。
+- `git diff --check` 通过。
+- 未修改其他 27 条、术语库或 `.ai/task`；未 stage、commit、push，也未创建 agent。

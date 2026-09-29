@@ -1,0 +1,58 @@
+已完成 `repair-w56-20260929`，严格遵守 Paseo EXECUTOR 单写入边界。
+
+修改文件：
+
+- [engine.lua](/workspace/tome4-chinese-translation/engine.lua:33)
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-56-20260929/VALIDATION.json)
+
+逐条修改：
+
+1. `036741…0515`：两个魔法师／两名魔法师 → 两名巫师。
+2. `3af81c…34a2`：妄图扭曲世界的法师 → 巫师。
+3. `4a0338…2a27`：闪电之 → 雷霆之。
+4. `5a4314…cf75`：那些法师 → 那些巫师。
+5. `5edb36…2094`：那些法师 → 那些巫师。
+6. `6c3cb8…e56dc`：法师惨遭失败 → 巫师们惨遭失败。
+7. `839c8e…2788`：法师 → 巫师。
+8. `942d0d…87d1`：并被绑在火刑柱上烧死 → 并被送上火刑堆焚烧。
+9. `997d13…e2d4`：那些法师 → 那些巫师。
+10. `9b8fe2…0ba8`：两个魔法师／魔法师的遗骸 → 两名巫师／巫师们的遗骸。
+11. `9d36ab…40e0`：法师已经死去 → 巫师们已经死去。
+12. `a1d655…81d5`：法师们的圣所 → 巫师们的圣所。
+13. `ad393c…ee84`：两个魔法师 → 两名巫师。
+14. `af860b…6878`：扭曲刀刃 → 伤口拧刀。
+15. `b01c3b…8e72`：护甲掌握 → 护甲改装。
+16. `b05f9e…30d4e`：痛苦折磨 → 袭扰猎物。
+17. `b06ed2…b8e4c`：闪电 → 雷霆。
+18. `b2d7fe…4935`：维网的力量 → 维网之识。
+19. `b46f9f…a319`：埃尔德里奇珍珠 → 骇异珍珠。
+20. `bab5f2…7783`：诅咒之球 → 诅咒之箭。
+21. `c18aa5…0c75`：那些法师 → 那些巫师。
+22. `d9b49c…6cbe`：法师的远行传送门 → 巫师们的远行传送门。
+23. `dbb3e0…de69`：最终首领二人组的“两位法师／法师们”等统一为“两名巫师／巫师们”；死灵法师未动。
+24. `dd1c2b…86ab`：法师们已经离去 → 巫师们已经离去。
+25. `de6b64…fafc`：法师被消灭 → 巫师们被消灭。
+26. `e703fc…7927`：两个魔法师 → 两名巫师。
+27. `ed8d6c…f903`：那些法师 → 那些巫师。
+28. `ef9189…0996`：两个魔法师 → 两名巫师。
+29. `f37f2d…ec65`：盾战士技能列表“护甲掌握” → “重甲训练”。
+
+验证全部通过：
+
+- LuaJIT 加载三个文件成功：1,169／22,989／4,202 条记录。
+- 相对固定基线恰有 29 个 target 变化，分布为 1／25／3；其他记录和非 target 字段无变化。
+- 29/29 的 source、source_tag、args_order、special、占位符、markup、LF/TAB 结构保持不变。
+- 29 个源码查询、17 个不同源码文件哈希全部匹配；Orcs 来源保持未固定说明。
+- `python3 -B tools/i18n lint --strict`：30,308 条翻译，0 errors、0 warnings。
+- `git diff --check`、evidence 空白检查及 JSON 解析均通过。
+
+发现但未改：
+
+- `PartyDeath.lua` 的冻结 claim 使用简写路径；固定源码中的完整路径为 `game/modules/tome/class/interface/PartyDeath.lua`，第 94 行行为与 claim 一致。
+- Orcs 长 lore 中仍有“西方灾星”，与冻结术语快照的“西方天灾”不一致，但不属于本窗口授权片段。
+- 长 lore 的其他既有生硬措辞均按要求保留。
+
+未修改术语库或 `.ai/task`，未创建 agent，未 stage、commit、push。

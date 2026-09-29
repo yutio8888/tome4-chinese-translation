@@ -1,0 +1,18 @@
+{
+  "title": "W56 execute-04 fix R2",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w56-20260929 第 3 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w56-20260929/SPEC.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json 与 ADJUDICATION-R2.json。只修 ADJUDICATION-R2 中 status=confirmed 的四处，全部在 d9b49ce5bc（tome-orcs.lua，section tome-orcs/data/lore/pocket-time.lua）：每处 reason 给出了现译原句与替换后的整句，按原样替换（<?=...?> 模板片段照抄现有写法）。dbb3e0495b 的指摘已驳回，不改。该条其余文字、段落与空行一律不动；其他 28 条及文件其他记录不动；不改术语库。仅你是任务内容写入者，可写这一条 target，并在 evidence/quality/repair-window-56-20260929/IMPLEMENTATION.md、VALIDATION.json 追加本轮记录。Orcs 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径读取；禁止从 /、/workspace 或无关目录搜索。LF/TAB 结构与现译逐行一致，不新增行尾空白。运行有界验证（LuaJIT 加载三个文件：相对 SCOPE 基线仍恰 29 条 target 变动；模板片段序列不变；git diff --check；strict lint），回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w56-20260929",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-04",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}
