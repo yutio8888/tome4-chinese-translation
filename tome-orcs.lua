@@ -2563,7 +2563,7 @@ PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't u
 
 ——库贝克
 
-注：是的，我知道我自己这份信打破了规则——你们这些白痴连隐晦的重要性都不知道，我怎么指望能用一份隐晦的信让你们明白？是的，我知道这份信也有可能落到敌人手里。不，别指望你能用这个场景的讽刺性来笑话我。是的，谁敢列出以上我所说的任何一条，来显示自己很聪明，我就打烂你的嘴。]], "_t")
+注：是的，我知道我自己这份信打破了规则——你们这些白痴连隐晦的重要性都不知道，我怎么指望能用一份隐晦的信让你们明白？是的，我知道这份信也有可能落到敌人手里。不，这其中的讽刺意味我不会看不出来。是的，谁敢列出以上我所说的任何一条，来显示自己很聪明，我就打烂你的嘴。]], "_t")
 t("severed hand", "断手", "_t")
 t([[[i](You see here a rotting human hand in a black leather glove, severed at the wrist.  It is still clutching a cracked artifact resembling an Orb of Many Ways, with a note folded up between the orb and its palm.)[/i]
 
@@ -5014,7 +5014,7 @@ t([[When you reach 10 molten points your armour overheats, reaching temperatures
 		When this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point.
 		This effect drains 15 steam when triggered, and will not trigger if steam is too low.
 		#{italic}#It's only a flesh burn!#{normal}#
-		]], [[当你达到 10 点融化点数时，你的护甲过热，温度极高，以至于 最多 %d 个负面物理状态被高温驱散。
+		]], [[当你达到 10 点融化点数时，你的护甲过热，温度极高，以至于最多 %d 个负面物理状态被高温驱散。
 		同时，一个特殊的医疗注射器会为你注射火焰免疫血清，令你免疫烧伤效果。
 		该效果触发时，消耗所有融化点数，并自动对最后一次提供融化点数的生物触发一次通风孔效果。
 		该效果将消耗 15 点蒸汽。蒸汽不足时不能触发。

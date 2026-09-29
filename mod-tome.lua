@@ -9192,7 +9192,7 @@ t("rotten stone limb", "腐烂的石化肢体", "_t")
 t("The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.", "腐烂泰坦巨大的石质肢体，一大块石头与腐肉的混合体。你觉得自己举得动它，但它非常沉重。", "_t")
 t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "在目标周围制造半径 1 的冲击波，轰击范围内的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
 t("%s's %s shakes the ground with its impact!", "%s的%s震动了大地！", "logSeen")
-t("knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each", "击退半径 %d 内的其他生物，对每个生物造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
+t("knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each", "击退半径 %d 内的其他生物，对每个生物造成 %0.2f 到 %0.2f 物理伤害（基于力量）", "tformat")
 t("%s slams %s %s into the ground, sending out a shockwave!", "%s将%s%s砸入地面，释放冲击波！", "logSeen")
 t("Molten Skin", "炽热皮肤", "entity name")
 t("melting bony armour", "炙热的骨甲", "_t")
@@ -17674,11 +17674,7 @@ Rolf]], [[威斯曼，
 
 该死的触须，我仍然记得它们。它们鞭打我的血肉，也像鞭打血肉一样抽打着我的思维。大自然怎能忍受这样的……怪物……存在于自己的领域？这可怕的生物究竟来自何等黑暗的位面？天地万物本身是如何忍受这样恐怖存在的？！
 
-我完全不记得我们是如何幸存下来的。残存的记忆里只有痛苦、惊慌与恐惧。依稀记得当时大脑里唯一的念头就是我必须立刻逃走，远离这个鬼地方……惭愧的是，当时其它所有的想法都离我而去。
-
-对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是不停劈砍挡在我与自由之间的……那些东西。
-
-也许这就是为什么它没有……不！也许我不应该再想它了。既然这野兽一定会在我今晚的噩梦中出现，至少清醒时我不能允许它再充斥我的大脑。
+我完全不记得我们是如何幸存下来的。残存的记忆里只有痛苦、惊慌与恐惧。依稀记得当时大脑里唯一的念头就是我必须立刻逃走，远离这个鬼地方……惭愧的是，当时其它所有的想法都离我而去。对于你的牵挂，对于家的怀念，对于世界的眷恋，都已经被我抛诸脑后，唯一萦绕在脑子里的想法就是不停劈砍挡在我与自由之间的……那些东西。也许这就是为什么它没有……不！我不会再去想它了。既然这野兽一定会在我今晚的噩梦中出现，至少清醒时我不能允许它再充斥我的大脑。
 
 好好休息吧，兄弟，它虽然夺走了你的眼睛，但想想它本来还可能夺走些什么吧。不管怎么说，我马上就要前往酒馆了，希望麦芽酒能让我从恐惧中缓解出来。
 
@@ -18001,7 +17997,8 @@ The most famous of all halflings is Queen Mirvenia, most famed for her saving of
 
 纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人以出色的珠宝匠、炼金术师和符文师著称，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。
 
-在半身人中最著名的则是米雯尼雅女王，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她请来了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。]], "_t")
+在半身人中最著名的则是米雯尼雅女王，她在最后的希望的兽人围城之战中救出了勇者图库纳国王，自此一战成名。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她请来了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。
+]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于种族的调查——第三章——矮人", "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
@@ -18111,15 +18108,15 @@ The farportals were first discovered by the halflings during the Age of Allure, 
 
 Of their physical appearance we know almost nothing, as there is no surviving artwork or records which depict themselves. However they must have been of similar form to other common races, as their ruins contain stairs, doorways and rooms not unfit for humans. Oakton estimates from his studies of their tools and artifacts that they would have stood around 5'4" tall, with uncommonly long limbs and fingers.
 
-What caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration.]], [[啊，传奇的夏·图尔！学者们是多么爱研究他们啊。事实上，相关的文献很多，但有事实根据的很少，所以有关该种族的信息也较少。最权威的研究是基于知名探险家和考古学家达沃德·欧卡顿的发现，但遗憾的是，截至本文写就之时，他已失踪好几个月了。在此，我将总结下他关键性的几个发现。
+What caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration.]], [[啊，传奇的夏·图尔！学者们是多么爱研究他们啊。事实上，相关的文献很多，但确凿的事实很少，因为人们对这个堪称文明熔炉的古老种族所知甚少。这一领域最博学、最求实的学者是知名探险家和考古学家达沃德·欧卡顿，但遗憾的是，截至本文写就之时，他已失踪好几个月了。在此，我将总结下他关键性的几个发现。
 
-夏·图尔生活在距今一万多年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度无可匹敌地统治过整个世界。
+夏·图尔生活在距今一万多年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔各地都发现了夏·图尔奇幻建筑的废墟，有的废墟甚至位于近海沉没的陆地上，暗示着夏·图尔人曾经一度无可匹敌地统治过整个世界。
 
-远行传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的远行传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的远行传送门，至今无人敢碰。
+远行传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出当代最伟大的头脑所能理解的范围。唯一一次真正尝试利用这些力量的行为以灾难告终——永恒精灵将所有已知的远行传送门搬到了靠近他们首都的偏僻之处，他们最强大的法师在释放魔法大爆炸时被力量所吞噬，瞬间死亡，大陆也因此分崩离析。那些在大陆上剩下的远行传送门，至今无人触碰。
 
 关于他们的长相几乎没有人说得清，因为没有任何留存的艺术作品或记录来描述他们的外貌。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
 
-他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。在学界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中。其他理论也有其分量——阿奇曼·加里伯德，恶魔研究教授则相信，夏·图尔人大量使用奥术能量，可能因此引来了异界的扭曲力量，最终导致整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。]], "_t")
+他们绝迹的原因始终是个未解之谜，尽管有着各种猜想。目前在学界最流行的说法是，他们强大的魔法毁了他们自己：在某场大规模内乱中，这些魔法被用来对付本族人。其他理论也有其分量——阿奇曼·加里伯德，恶魔研究教授则相信，夏·图尔人大量使用奥术能量，可能因此引来了异界的扭曲力量，最终导致整个种族的毁灭。有的人则更相信他们不是真的绝迹了，而是隐匿了起来，或者离开了这个世界。我恐怕真相永远无人知晓，但对他们所留遗物的持续研究与考察，仍在不断带来巨大的价值与启发。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races", "博学者格雷诺特关于种族的调查——第十章——怪物种族", "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
 
@@ -18131,13 +18128,13 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。
 
-巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比山地同类有着更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
+巨魔主要分为两大类——科兹拉克和马提普，也就是俗称的岩石巨魔和森林巨魔。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极为发达的肌肉力量，外皮厚实坚硬，看上去就像煤块或花岗岩。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比山地同类有着更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长、摆动着的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者袭击聚居地，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的发达文化和语言，但据观察会表现出有限智慧的互动，并能在群体中良好地交流。
 
-娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
+娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们在陆地上身高约6英尺，而尾巴还要再长出好几英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料打造武器和盔甲，例如用层层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但迄今为止，与他们沟通都被证明是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
-恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们一些研究的支持，该理论似乎表明恶魔来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于种族的调查——第十一章——龙族", "_t")
 t([[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.
 
@@ -18388,7 +18385,7 @@ Take 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure
 
 仪式需要一份祭品，随便哪个人都可以。用耐火的束缚物把他绑住，塞住他的嘴巴。虽然塞住嘴巴这一步不是必须的，但是那个人痛苦的惨叫会让人相当分心，几天下来容易让你在仪式中出错。
 
-取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果还有没有完全溶解的部分，就往瓶子里放几个小火球。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——
+取2瓶火龙涎，每瓶各溶入2袋法罗的灰烬。一定要充分溶解。如果难以溶解，朝瓶子打几发火球就能解决。使用一瓶准备好的溶液，用火龙涎在祭品的皮肤上蚀刻，加热使其烙出——的形状——
 
 #{italic}#卷轴的剩余部分已经被烧焦了，无法辨认。当你抓到这份卷轴的时候，那些残存的纸页就化为了灰烬#{normal}#
 	]], "_t")
@@ -24121,8 +24118,8 @@ t("Dark Torrent", "黑暗迸发", "talent name")
 t([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.
 		If you know the Creeping Darkness talent, a short-lived trail of darkness is left in the beam's wake. Its damage is identical to that of Creeping Darkness's.
 		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[向敌人发射一股灼热的黑暗能量，造成 %d 点暗影伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。
-			如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。
-			伤害受精神强度加成。你对任何进入黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
+		如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。
+		伤害受精神强度加成。你对任何进入黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
 t("Dark Tendrils", "黑暗触手", "talent name")
 t([[Spawn tendrils of darkness to pursue a single target for up to 12 turns, leaving behind a trail of creeping darkness as they move. Targets seized by the tendrils are pinned for %d turns and shrouded in darkness. The darkness deals %0.2f damage per turn to those within.
 		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[召唤黑暗触手追逐单个目标，最多持续12回合，并在移动时留下不断蔓延的黑暗之雾。被触手抓住的目标会被定身 %d 回合并被黑暗笼罩。黑暗每回合对其中的目标造成 %0.2f 点伤害。
@@ -28399,7 +28396,7 @@ t([[Teleports you randomly within a small range of up to %d grids.
 		在等级 4 时，你可以传送指定生物。
 		在等级 5 时，你可以选择传送位置（半径 %d）。
 		如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。
-		影响范围受法术强度加成。]], "tformat")
+		传送距离受法术强度加成。]], "tformat")
 t("Teleport", "传送", "talent name")
 t("The targetted teleport fizzles and works randomly!", "传送定位失败了，变为随机传送！", "logPlayer")
 t([[Teleports you randomly within a large range (%d).
@@ -29532,7 +29529,7 @@ t("Magical enhancement of your body.", "用魔法强化你的身体。", "_t")
 t("thaumaturgy", "奇术", "talent type")
 t("The pinacle of spellcasting.", "施放法术的巅峰。", "_t")
 t("conveyance", "传送", "talent type")
-t("Conveyance is the school of travel. It allows you to travel faster and to track others.", "学习传送，使你能更快地旅行并追踪他人。", "_t")
+t("Conveyance is the school of travel. It allows you to travel faster and to track others.", "传送是旅行的法术学派，能让你更快地旅行并追踪他人。", "_t")
 t("divination", "侦查", "talent type")
 t("Divination allows the caster to sense its surroundings, and find hidden things.", "侦查技能可以使施放者能侦查周围环境，搜寻隐藏的东西。", "_t")
 t("aegis", "防护", "talent type")
@@ -29730,7 +29727,8 @@ t([[This intricate spell instantly erects a time shield around the caster, preve
 		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
 		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).
 		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术在施法者周围立刻制造一个时间盾，阻止你受到的伤害并将其送往未来。
-		一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，储存的伤害会以时间回复力场的形式返还，持续 5 回合，每回合回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。
+		一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，储存的伤害会以时间回复力场的形式返还，持续 5 回合。
+		时间回复力场存在的每回合，你将回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。
 		最大吸收值受法术强度加成。]], "tformat")
 t("Time Prison", "时光牢笼", "talent name")
 t([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
@@ -30022,7 +30020,7 @@ t([[You rush toward your foe, readying your shot. If you reach the enemy, you re
 		每次你移动时，该技能的冷却时间减少 1 回合。
 		该技能需要投石索。]], "tformat")
 t("Rapid Shot", "速射姿态", "talent name")
-t("You cannot use Rapid Fire without a bow or sling!", "你需要装备投石索才能使用这个技能！", "logPlayer")
+t("You cannot use Rapid Fire without a bow or sling!", "你需要装备投石索才能使用速射姿态！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
 Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
@@ -30061,8 +30059,7 @@ t([[Fires a wave of projectiles in a radius %d cone, dealing %d%% weapon damage.
 		击退与震慑几率受命中加成。]], "tformat")
 t("Headshot", "爆头", "talent name")
 t([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.
-Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目标头部发射穿透性弹药，造成 %d%% 武器伤害。
-此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。
+Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目标头部进行一次精准射击，造成 %d%% 武器伤害，此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。
 只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
@@ -36570,8 +36567,8 @@ t([[Horrible visions fill your mind.
 #CRIMSON# 惩罚：#WHITE# 幻象缠身：受检定时，你的精神豁免有 20%%概率减少 %d%%
 #CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志
-#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。
-#CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（召唤恐魔，并有几率减速、造成%d精神伤害和%d暗影伤害）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。]], "tformat")
+#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击施加者（若来源不是生物，则改为攻击半径 10 内的一个随机敌人），造成 %d 精神和 %d 暗影伤害。
+#CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（召唤恐魔，并有几率减速、造成%d精神伤害和%d暗影伤害）持续 8 回合。触发几率在每次你受到打击时提高，同时随时间下降。]], "tformat")
 t("#F53CBE#%s harrows %s!", "#F53CBE#%s折磨%s！", "logSeen")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
 t("Nightmare", "梦魇", "_t")
@@ -38706,12 +38703,12 @@ section "mod-tome/data/zones/high-peak/grids.lua"
 t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Far East.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
- 这道门似乎通向远东。]], "_t")
+这道门似乎通向远东。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the Far East, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了远东大陆，此间毫无传送门的痕迹……", "_t")
 t("Farportal: Iron Throne", "远行传送门：钢铁王座", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Iron Throne in the West.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
- 这道门似乎通向西方的钢铁王座。]], "_t")
+这道门似乎通向西方的钢铁王座。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，转瞬间便踏上钢铁王座的山坡，此间已不见传送门的踪迹……", "_t")
 t("Farportal: the Void", "远行传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
@@ -39701,8 +39698,8 @@ t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们是由强大的夏·图尔种族留下的。
-这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
-它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
+这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。
+它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个莫名熟悉的地方，在另一个远行传送门旁边……", "log")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
 t("Exploratory Farportal", "探索用远行传送门", "_t")
@@ -39774,8 +39771,8 @@ t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们是由强大的夏·图尔种族留下的。
-这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
-它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
+这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。
+它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。]], "_t")
 t("Farportal", "远行传送门", "_t")
 t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
 
