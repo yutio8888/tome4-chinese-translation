@@ -381,3 +381,14 @@
    - 争议理由：窗口 46 的 r4a1、r5a1 与第 356 批 surface、Opus contextual 共四次指出“法力”把被燃烧的资源窄化为法力；机制确实燃烧四种奥术资源。宿主因全库术语一致性记 advisory；改动属跨批次术语决定。
    - 建议选项：保持“法力燃烧”系 / 全库改为“奥术资源燃烧”（术语、伤害类型名、物品 tdesc 与本条同步）/ 仅在英文写作 arcane resource burn 的描述句改“奥术资源燃烧”，伤害类型名保留。
    - **已裁决（2026-09-27，用户）**：保持“法力燃烧”系不改。依据：主游戏 Mana Clash 原文明言 “This effect is called a manaburn”（燃烧法力/活力/正负能量），法力燃烧是官方机制名的忠实译法；arcane resource burn 只是同一机制的说明性写法。术语库 manaburn arcane 条目补 notes（涵盖四种奥术资源，引 Mana Clash 原文），供后续复审直接引用。
+
+## 2026-09-29 集中审阅（审核队列耗尽后）
+
+45. 死亡描述词族（`mod-tome/data/damage_types.lua` 各伤害类型 `death_message` 表；自 2026-09-16 整族 pending）
+   - 源码：固定 commit 624a6732 `game/modules/tome/class/interface/PartyDeath.lua:69-71` 按致死伤害类型从 `death_message` 表随机取一词，代入 `"%s the level %d %s %s was %s to death by %s…"`；译文模板为“……{词}而死”（mod-tome.lua:1413、1416）。全族 95 词。
+   - 现状：病句 2 条（`burnt`＝“烧焦的”→“烧焦的而死”，火焰表 10 取 1；`cosmeticed`＝“外观”→“外观而死”）；错义 3 条（`mauled`＝“被殴打”、`timewarped`＝“被时空隔断”、`psyched`＝“过度兴奋”）；约 14 条诙谐加工（被磨成豆浆、被切成葱花、被压成照片、被劈成渣渣、被重拳击中要害、被刺穿要害、被裂颅、被腰斩、被雷劈、被百万伏特电击、被炭烧、被爆炒、被精神强X、被树藤缠绕）。
+   - **已裁决（2026-09-29，用户）**：只修病句与错义 5 条——`burnt`→“被烧焦”、`cosmeticed`→“被‘美化’”、`mauled`→“被撕咬致残”、`timewarped`→“被时间扭曲”、`psyched`→“被心灵摧毁”；约 14 条诙谐加工保持原样（与原文俏皮风格一致），同类指摘今后按本裁决驳回。排入修复窗口 55。
+
+46. 审核 254 的其他观察（见上文“审核 254 的其他观察”）
+   - `e923d2b8d0` 高等人类之绽放效果描述“不再消耗能量”：固定 commit `data/talents/misc/races.lua:116-` 遍历 `resources_def` 全部资源，“能量”窄化了 resources；同技能 info（`546a6e96d9`）“你的能量值仍需要满足……最低能量需求”同样窄化。
+   - **已裁决（2026-09-29，用户）**：两条的“能量”改为“资源”，排入修复窗口 55；盗贼诗标题 `rogues do it from behind`＝“盗贼在你身后”与 SPELLSHOCKED 长描述省略 temporarily 两项保持不改，关闭。
