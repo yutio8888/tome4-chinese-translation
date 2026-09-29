@@ -1,0 +1,50 @@
+{
+ "workset": "evidence/quality/production-batches/batch-5d233b558369053976f0-source-workset.json",
+ "decisions": {
+  "07c8b41ef0|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a6732 game/modules/tome/data/talents/techniques/agility.lua:279-283：activate 调用 self:hasArcheryWeapon()（不限类型，弓或投石索均可），无远程武器时输出本句。译文“你需要装备投石索才能使用这个技能！”漏掉了弓，把可用武器缩成仅投石索，是忠实度缺陷。技能在本库的名称是 Rapid Shot＝速射姿态（mod-tome.lua:30024），修复建议：“你需要装备弓或投石索才能使用速射姿态！”。确认。"
+  },
+  "2d5fd209cb|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit darkness.lua:433-435 源文后两段各以 \\n\\t\\t 开头，译文为 \\n\\t\\t\\t，每段多一个制表符，显示缩进与原文不一致（此前各批同类缩进不对称均按 confirmed 修复）。修复时两处各改为 \\n\\t\\t，正文不变。确认。"
+  },
+  "2f0162776a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit high-peak/grids.lua:65-66 源文第二行 This one… 行首无空格，译文“\\n 这道门似乎通向……”行首多一个空格，显示为多余缩进。修复时删去该空格。确认。"
+  },
+  "3075873708|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Forgotten Cults 扩展包简介的“New horrors … And Nethergames”，指的是 Cults 的恐魔 nethergate（本库 tome-cults.lua:586 t(\"nethergate\", \"彼世之门\", \"entity name\")，以及 :590-591 的战斗日志）。Nethergames 是上游笔误，译作“彼世之门”与实体名一致，并非误作传送门。驳回。"
+  },
+  "baa3d12b9a|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "与 mod-boot 同文的 engine.lua 简介，理由同 3075873708：Nethergames 指 Cults 恐魔 nethergate，本库实体名为“彼世之门”（tome-cults.lua:586），译文一致。驳回。"
+  },
+  "d64daff63a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a6732 game/modules/tome/data/zones/shertul-fortress/grids.lua:114-116（Exploratory Farportal desc）。原文只说它用于探索、无法知道会送往何处；译文“它只是用来探索异度空间的”凭空加上“只是”和“异度空间”，把未知目的地限定成了异度空间。末句 it might not be near your arrival zone 的意思是返程门可能不在你到达区域的附近，译文“可能该传送门不在你所传送的位置”丢了 near／zone 的含义，也读不通。surface 与 contextual 各自独立报出，确认。修复建议：第二行改为“这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。”，第三行改为“它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。”。"
+  },
+  "48c3f89997|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "Ashes 扩展包简介的“delight in fighting against overwhelming odds”译为“在与势不可挡的敌人战斗中寻求欢愉”，把“悬殊劣势”说成了“势不可挡的敌人”，意思接近（面对压倒性敌势作战），不涉及机制，属二级措辞差异，记 advisory。"
+  },
+  "d64daff63a|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a6732 game/modules/tome/data/zones/shertul-fortress/grids.lua:114-116（Exploratory Farportal desc）。原文只说它用于探索、无法知道会送往何处；译文“它只是用来探索异度空间的”凭空加上“只是”和“异度空间”，把未知目的地限定成了异度空间。末句 it might not be near your arrival zone 的意思是返程门可能不在你到达区域的附近，译文“可能该传送门不在你所传送的位置”丢了 near／zone 的含义，也读不通。surface 与 contextual 各自独立报出，确认。修复建议：第二行改为“这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。”，第三行改为“它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。”。"
+  },
+  "07c8b41ef0|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a6732 game/modules/tome/data/talents/techniques/agility.lua:279-283：activate 调用 self:hasArcheryWeapon()（不限类型，弓或投石索均可），无远程武器时输出本句。译文“你需要装备投石索才能使用这个技能！”漏掉了弓，把可用武器缩成仅投石索，是忠实度缺陷。技能在本库的名称是 Rapid Shot＝速射姿态（mod-tome.lua:30024），修复建议：“你需要装备弓或投石索才能使用速射姿态！”。确认。"
+  }
+ }
+}

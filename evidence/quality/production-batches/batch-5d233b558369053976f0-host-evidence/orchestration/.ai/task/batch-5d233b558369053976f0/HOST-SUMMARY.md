@@ -1,0 +1,3 @@
+第364批：冻结80条（主游戏 60 条、engine 12 条、boot 7 条、Orcs 1 条），逐条核验80/80：主游戏、engine、boot 按 manifest 固定 engine commit 624a673 核验，Orcs 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 5 个 child（Orcs full-000 1 条；其余 79 条分四条 lane，20/20/20/19），共 7 个 ISSUE；部分 lane 沙箱初始化失败，以 escalation 经 auto-review 审批只读或解析自身 envelope 与契约，未创建 Paseo 终端。contextual 一个 run：contextual-000（7 条 deep）首轮通过，5 OK、2 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决9个观察：{'confirmed': 6, 'refuted': 2, 'advisory': 1}；预计76条完成、4条待修复。新增 4 条修复 revision：07c8b41ef0 速射姿态提示漏“弓”、2d5fd209cb 暗影冲击 info 两段多一个制表符、2f0162776a 高峰远行传送门说明行首多余空格、d64daff63a 探索型远行传送门说明（增译“异度空间”、返程门位置失真）。禁忌邪教简介 Nethergames＝Cults 恐魔 nethergate“彼世之门”，两条 surface 观察驳回；乌鲁洛克之烬简介 overwhelming odds 措辞记 advisory。修复窗口53积压为4，未达20。

@@ -1,0 +1,64 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 7 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "07c8b41ef059881216cbea46e8cb9665a7b92e22949afb826cc6574010b03002",
+      "stage": "surface",
+      "observation": "原文说明装备弓或投石索均可使用 Rapid Fire；译文只说需要装备投石索，遗漏了弓这一可用条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/data/talents/techniques/agility.lua:279-283：activate 调用 self:hasArcheryWeapon()（不限类型，弓或投石索均可），无远程武器时输出本句。译文“你需要装备投石索才能使用这个技能！”漏掉了弓，把可用武器缩成仅投石索，是忠实度缺陷。技能在本库的名称是 Rapid Shot＝速射姿态（mod-tome.lua:30024），修复建议：“你需要装备弓或投石索才能使用速射姿态！”。确认。"
+    },
+    {
+      "revision_key": "2d5fd209cb78540ff89b388c36ccfde8a4fb58195ea00512f66046c920c9d62e",
+      "stage": "surface",
+      "observation": "原文后两段各缩进两个制表符，译文各缩进三个，段落缩进不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit darkness.lua:433-435 源文后两段各以 \\n\\t\\t 开头，译文为 \\n\\t\\t\\t，每段多一个制表符，显示缩进与原文不一致（此前各批同类缩进不对称均按 confirmed 修复）。修复时两处各改为 \\n\\t\\t，正文不变。确认。"
+    },
+    {
+      "revision_key": "2f0162776a30bb35cc3d54d06e6fc4010ef07e6792f46a559259b66f86e58cf3",
+      "stage": "surface",
+      "observation": "译文第二行“这道门”前多出一个行首空格，原文对应行没有缩进。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit high-peak/grids.lua:65-66 源文第二行 This one… 行首无空格，译文“\\n 这道门似乎通向……”行首多一个空格，显示为多余缩进。修复时删去该空格。确认。"
+    },
+    {
+      "revision_key": "3075873708d7ad445f7dca6aab3b5feb9bbeda5fd33e2ffe95ae7cafab64312f",
+      "stage": "surface",
+      "observation": "原文专名“Nethergames”对应译文“彼世之门”，字面含义不符；冻结输入没有术语条目正文，无法确认该专名的既定译法。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Forgotten Cults 扩展包简介的“New horrors … And Nethergames”，指的是 Cults 的恐魔 nethergate（本库 tome-cults.lua:586 t(\"nethergate\", \"彼世之门\", \"entity name\")，以及 :590-591 的战斗日志）。Nethergames 是上游笔误，译作“彼世之门”与实体名一致，并非误作传送门。驳回。"
+    },
+    {
+      "revision_key": "48c3f899975f99a0125b01e9c76e98b44053d66e0bd9136534385f73850205f1",
+      "stage": "surface",
+      "observation": "原文“fighting against overwhelming odds”指在悬殊劣势下作战，译文“与势不可挡的敌人战斗”改变了含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Ashes 扩展包简介的“delight in fighting against overwhelming odds”译为“在与势不可挡的敌人战斗中寻求欢愉”，把“悬殊劣势”说成了“势不可挡的敌人”，意思接近（面对压倒性敌势作战），不涉及机制，属二级措辞差异，记 advisory。"
+    },
+    {
+      "revision_key": "baa3d12b9aad8f5c62bb10cdbde55193908cbfbdb5cb7e91475e1c466af1e730",
+      "stage": "surface",
+      "observation": "“Nethergames”列在“New horrors”之下，译为“彼世之门”可能将恐魔名称误作传送门；冻结输入没有该专名的术语正文，无法确认。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "与 mod-boot 同文的 engine.lua 简介，理由同 3075873708：Nethergames 指 Cults 恐魔 nethergate，本库实体名为“彼世之门”（tome-cults.lua:586），译文一致。驳回。"
+    },
+    {
+      "revision_key": "d64daff63a7c293e7e22fbe23398d214e4fbc88d6bc886c5f88c317f024ed0ee",
+      "stage": "surface",
+      "observation": "原文只说传送门用于探索、目的地未知；译文写成“探索异度空间”，加入了原文未说明的目的地性质。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/data/zones/shertul-fortress/grids.lua:114-116（Exploratory Farportal desc）。原文只说它用于探索、无法知道会送往何处；译文“它只是用来探索异度空间的”凭空加上“只是”和“异度空间”，把未知目的地限定成了异度空间。末句 it might not be near your arrival zone 的意思是返程门可能不在你到达区域的附近，译文“可能该传送门不在你所传送的位置”丢了 near／zone 的含义，也读不通。surface 与 contextual 各自独立报出，确认。修复建议：第二行改为“这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。”，第三行改为“它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。”。"
+    }
+  ]
+}
