@@ -4,7 +4,7 @@
 基线 `8eee28ec75ea6f13e705dd1b634ed6c0bc7de199`，冻结候选
 `2560f94a1be246ad05937e167b38435dd02088f906a1168a4690d079230fa0ba`。
 只实现本轮六文件范围，无 stage/commit、agent 操作或规则／生产验证器变更。
-最终状态以 [STATE](../.ai/task/review-speed-p2b-20260912/STATE.json) 为准。
+最终状态以 [STATE](../../.ai/task/review-speed-p2b-20260912/STATE.json) 为准。
 本文不是独立验收、完整门禁、DONE 或提交证明。
 
 ## 实现及证据边界
@@ -38,20 +38,20 @@ writer 占用时先行拒绝。原 baseline 的 preflight 也可能协调孤立 
 
 所有循环只遍历本批有限输入／路径分量／已接受观察；没有新增扫描历史、阻塞解析重试或
 轮询循环。串行测试使用有限 fixture 与外部 timeout；源码文件本身没有新增尺寸限额。
-可复制操作与准备／恢复命令见 [README](../tools/orchestration/README.md#contextual-导入裁决生成与证据准备p2-b)。
+可复制操作与准备／恢复命令见 [README](../../tools/orchestration/README.md#contextual-导入裁决生成与证据准备p2-b)。
 
 ## 冻结与旧测试保留
 
 执行前重算 SPEC bytes + NUL + 空 diff 的候选 SHA；HEAD、所有 SOURCE-IMPLEMENT 输入
 SHA、SCOPE preimages、candidate 文件 SHA 和 declared_absent 全通过。原始记录：
-[freeze-check.json](../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/freeze-check.json)。
+[freeze-check.json](../../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/freeze-check.json)。
 没有读取、写入或 stage `.ai/consult`。
 
 `BASELINE-TEST-METHODS.json` 的 **165 个方法 SHA 全匹配**，算法是
 `SHA256(ast.get_source_segment(text, node).encode())`；另逐个与 baseline Git blob 比较完整
 方法行文本，全相同。旧断言、测试体、helper 无修改。只追加一个直接继承 QueueFixture 的
 AdjudicationChainTests 类，复用明确 helper，不继承旧测试方法。
-[核验明细](../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/old-tests-preserved.json)。
+[核验明细](../../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/old-tests-preserved.json)。
 
 ## 命令与实测结果
 
@@ -78,7 +78,7 @@ git diff --no-index --check -- /dev/null docs/review-speed-p2b-20260912.md
 | tracked / 新文档 whitespace | 检查结果见 whitespace.json | whitespace.json |
 
 进程参数、退出码、外层耗时见
-[validation-results.json](../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/validation-results.json)。
+[validation-results.json](../../.artifacts/i18n/review-speed-p2b-20260912/execute-astra-01/validation-results.json)。
 时间仅是本机小 fixture 单次执行时间，**生产秒数未测量**；不得从 P2-A 的约 106 秒推算
 批次节省秒数，也不重复计算 P1-C 或既有两步链的收益。
 
@@ -155,8 +155,8 @@ TOME_TEST_FIXTURE_ROOT=/tmp/p2b-fixtures PYTHONPATH=tools timeout 180s python3 -
 原因已定位到新测试只设置 I18N_REPOSITORY_ROOT，却用旧 main 的 cwd 语义调用
 `B.preflight(Path('.'))`，误进入主仓库真实 preflight／投影路径；不能宣称从未接触实际 queue。
 该失败调用不作为性能证据。宿主随后已核对当前影响，见
-[HOST-INCIDENT-INITIAL-CHECK](../.ai/task/review-speed-p2b-20260912/HOST-INCIDENT-INITIAL-CHECK.json)
-及 [HOST-EXECUTION-VALIDATION](../.ai/task/review-speed-p2b-20260912/HOST-EXECUTION-VALIDATION.json)：
+[HOST-INCIDENT-INITIAL-CHECK](../../.ai/task/review-speed-p2b-20260912/HOST-INCIDENT-INITIAL-CHECK.json)
+及 [HOST-EXECUTION-VALIDATION](../../.ai/task/review-speed-p2b-20260912/HOST-EXECUTION-VALIDATION.json)：
 queue SHA256 仍为 `c187d216aa0c72d3c0e8116d5165f68c15d3bc9c9490a2c30052db9724b91c15`，
 无 checkpoint 或 wal/shm/journal sidecars，HEAD／index 未变，无需恢复当前持久状态。
 Opus cycle0 独立完整组运行前后也核对同一指纹与状态；这证明已核对的当前影响，
@@ -195,7 +195,7 @@ fixture 边界，再调用原实现。每个场景实际完成 import／generate
 root 防线拦截（`root escaped fixture`），其余三场景通过。随后只向前修正生产表达式，
 未临时改回源码制造错误变体。此失败证明旧表达式与回归有判别力；修复后的空值场景须真实
 成功，不能靠拒绝空值输入通过测试。此前 Astra 的隔离 probe 已另证旧代码导入后生成 root
-分裂，见 [原 probe](../.artifacts/i18n/review-speed-p2b-20260912/cross-astra-0-1/probe.log)。
+分裂，见 [原 probe](../../.artifacts/i18n/review-speed-p2b-20260912/cross-astra-0-1/probe.log)。
 
 本轮日志均位于 `fix-astra-01/`，与作者／host／reviewer 的既有证据分开：
 
@@ -207,7 +207,7 @@ root 防线拦截（`root escaped fixture`），其余三场景通过。随后�
 | 空白、方法保留及补丁重建 | 见交付核验记录 | whitespace.json、delivery-check.json |
 
 小套件在临时 cwd 执行，精确 argv、cwd 和两项显式环境配置见
-[validation-results.json](../.artifacts/i18n/review-speed-p2b-20260912/fix-astra-01/validation-results.json)：
+[validation-results.json](../../.artifacts/i18n/review-speed-p2b-20260912/fix-astra-01/validation-results.json)：
 
 ```bash
 env -u I18N_REPOSITORY_ROOT \
@@ -223,7 +223,7 @@ git diff --no-index --check -- /dev/null docs/review-speed-p2b-20260912.md
 修复后原 ISSUE／OK 两场景仍实测 3→1，状态／bytes／receipt 等价断言不变。HEAD 基线
 165 个和 cycle0 累计 183 个方法正文／断言均按 AST SHA 与完整方法行文本核对保留，
 新总数为 184。独立 **440 tests／52.328s** 是 Opus 的 **cycle0** 实测，见
-[原独立命令](../.artifacts/i18n/review-speed-p2b-20260912/review-opus-0-1/commands.md)，
+[原独立命令](../../.artifacts/i18n/review-speed-p2b-20260912/review-opus-0-1/commands.md)，
 本次未重跑，不混入 cycle1 的 13 项结果，也不据此声称修复后的全量门禁通过。
 
 本轮无范围或计划偏差，无未解决的已接受实质项。一次集中修复交宿主安排完整候选终审；

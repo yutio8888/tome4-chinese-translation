@@ -3,7 +3,7 @@
 2026-09-15，分支 `develop`。最新用户指令为：**“请你完成本轮审核并提交后暂停工作，撰写交接文档”。**
 
 **当前暂停；未启动第 158 批。必须等用户明确恢复，不能从旧交接中的连续授权推导自动开批。**
-本文是当前恢复入口；旧交接保留为历史材料。授权和流程仍以 [AGENTS.md](../AGENTS.md)、当前契约和 [工作流](agent-workflow.md) 为准。
+本文是当前恢复入口；旧交接保留为历史材料。授权和流程仍以 [AGENTS.md](../../AGENTS.md)、当前契约和 [工作流](../../docs/agent-workflow.md) 为准。
 
 ## 完成状态与边界
 
@@ -16,7 +16,7 @@
 - 另有 6 条宿主独立发现的问题未进入冻结上下文候选，留待有界复核；还有 4 条源码归属／版本疑点，见下文。
 - 交接文档另行本地提交。未 push、未开 PR、未发布。`.ai/consult/` 保持未跟踪，严禁读取、暂存或清理。
 
-本批受跟踪证据：[结果](../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/results.jsonl)、[门禁收据](../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/gates.json)、[源码工作集](../evidence/quality/production-batches/batch-f23d651555e38dfcdb72-source-workset.json)、[宿主裁决和生命周期](../evidence/quality/production-batches/batch-f23d651555e38dfcdb72-host-review/review.json)。
+本批受跟踪证据：[结果](../../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/results.jsonl)、[门禁收据](../../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/gates.json)、[源码工作集](../../evidence/quality/production-batches/batch-f23d651555e38dfcdb72-source-workset.json)、[宿主裁决和生命周期](../../evidence/quality/production-batches/batch-f23d651555e38dfcdb72-host-review/review.json)。
 原生日志工具审计、完整审核输入和原始输出已随 host-review 目录提交；不能只依赖忽略目录里的副本。
 
 ## 第 157 批三条待修复项
@@ -37,29 +37,29 @@
 
 | 批次 | 证据提交 | done | 待修复 |
 |---|---|---:|---:|
-| [135](../evidence/production-review-v2-lite/batches/batch-01d899bf245f2d56c465/manifest.json) | `fe11060f` | 72 | 8 |
-| [136](../evidence/production-review-v2-lite/batches/batch-079d67c3a797fb4bad14/manifest.json) | `e3669264` | 73 | 7 |
-| [137](../evidence/production-review-v2-lite/batches/batch-751586af0e61e90c902c/manifest.json) | `6a90c353` | 74 | 6 |
-| [138](../evidence/production-review-v2-lite/batches/batch-97a7e7dc06db4990a51a/manifest.json) | `24cdf568` | 74 | 6 |
-| [139](../evidence/production-review-v2-lite/batches/batch-e9fa145f873dd1bfdf43/manifest.json) | `85738f33` | 74 | 6 |
-| [140](../evidence/production-review-v2-lite/batches/batch-124e8a0f95ff5a02e52b/manifest.json) | `7ebd1ce8` | 76 | 4 |
-| [141](../evidence/production-review-v2-lite/batches/batch-70b2fb0f42f8ef39e0f4/manifest.json) | `911b6a3c` | 75 | 5 |
-| [142](../evidence/production-review-v2-lite/batches/batch-468bfed17bdb007df025/manifest.json) | `c2b26e52` | 72 | 8 |
-| [143](../evidence/production-review-v2-lite/batches/batch-f014e73c983af3372635/manifest.json) | `3319b850` | 76 | 4 |
-| [144](../evidence/production-review-v2-lite/batches/batch-34389a9d574d9b4b24dd/manifest.json) | `3fdc3523` | 74 | 6 |
-| [145](../evidence/production-review-v2-lite/batches/batch-49d8993d3b2ada09d117/manifest.json) | `7cf8924b` | 74 | 6 |
-| [146](../evidence/production-review-v2-lite/batches/batch-122a4271dacf48499782/manifest.json) | `09c2c35e` | 75 | 5 |
-| [147](../evidence/production-review-v2-lite/batches/batch-3168f2ee01cfb213f893/manifest.json) | `97656ad2` | 76 | 4 |
-| [148](../evidence/production-review-v2-lite/batches/batch-e4428dd3921a230aef72/manifest.json) | `069550fa` | 76 | 4 |
-| [149](../evidence/production-review-v2-lite/batches/batch-b3fad0f84e8355249e93/manifest.json) | `bb2f9e3f` | 77 | 3 |
-| [150](../evidence/production-review-v2-lite/batches/batch-4478043864a8f474d0bc/manifest.json) | `91668ba4` | 75 | 5 |
-| [151](../evidence/production-review-v2-lite/batches/batch-5d9ac296933541275c94/manifest.json) | `baddecb1` | 74 | 6 |
-| [152](../evidence/production-review-v2-lite/batches/batch-634cb858766cd363b1c7/manifest.json) | `d1780477` | 75 | 5 |
-| [153](../evidence/production-review-v2-lite/batches/batch-094ff319cee21a092850/manifest.json) | `42092675` | 73 | 7 |
-| [154](../evidence/production-review-v2-lite/batches/batch-8475abd96282707d03e4/manifest.json) | `7d37cb9f` | 76 | 4 |
-| [155](../evidence/production-review-v2-lite/batches/batch-a18a53bdf4dc3a64cbc5/manifest.json) | `df2db8df` | 74 | 6 |
-| [156](../evidence/production-review-v2-lite/batches/batch-2075345ef54fa1f858e8/manifest.json) | `3eebdf3a` | 74 | 6 |
-| [157](../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/manifest.json) | `bc290b59` | 77 | 3 |
+| [135](../../evidence/production-review-v2-lite/batches/batch-01d899bf245f2d56c465/manifest.json) | `fe11060f` | 72 | 8 |
+| [136](../../evidence/production-review-v2-lite/batches/batch-079d67c3a797fb4bad14/manifest.json) | `e3669264` | 73 | 7 |
+| [137](../../evidence/production-review-v2-lite/batches/batch-751586af0e61e90c902c/manifest.json) | `6a90c353` | 74 | 6 |
+| [138](../../evidence/production-review-v2-lite/batches/batch-97a7e7dc06db4990a51a/manifest.json) | `24cdf568` | 74 | 6 |
+| [139](../../evidence/production-review-v2-lite/batches/batch-e9fa145f873dd1bfdf43/manifest.json) | `85738f33` | 74 | 6 |
+| [140](../../evidence/production-review-v2-lite/batches/batch-124e8a0f95ff5a02e52b/manifest.json) | `7ebd1ce8` | 76 | 4 |
+| [141](../../evidence/production-review-v2-lite/batches/batch-70b2fb0f42f8ef39e0f4/manifest.json) | `911b6a3c` | 75 | 5 |
+| [142](../../evidence/production-review-v2-lite/batches/batch-468bfed17bdb007df025/manifest.json) | `c2b26e52` | 72 | 8 |
+| [143](../../evidence/production-review-v2-lite/batches/batch-f014e73c983af3372635/manifest.json) | `3319b850` | 76 | 4 |
+| [144](../../evidence/production-review-v2-lite/batches/batch-34389a9d574d9b4b24dd/manifest.json) | `3fdc3523` | 74 | 6 |
+| [145](../../evidence/production-review-v2-lite/batches/batch-49d8993d3b2ada09d117/manifest.json) | `7cf8924b` | 74 | 6 |
+| [146](../../evidence/production-review-v2-lite/batches/batch-122a4271dacf48499782/manifest.json) | `09c2c35e` | 75 | 5 |
+| [147](../../evidence/production-review-v2-lite/batches/batch-3168f2ee01cfb213f893/manifest.json) | `97656ad2` | 76 | 4 |
+| [148](../../evidence/production-review-v2-lite/batches/batch-e4428dd3921a230aef72/manifest.json) | `069550fa` | 76 | 4 |
+| [149](../../evidence/production-review-v2-lite/batches/batch-b3fad0f84e8355249e93/manifest.json) | `bb2f9e3f` | 77 | 3 |
+| [150](../../evidence/production-review-v2-lite/batches/batch-4478043864a8f474d0bc/manifest.json) | `91668ba4` | 75 | 5 |
+| [151](../../evidence/production-review-v2-lite/batches/batch-5d9ac296933541275c94/manifest.json) | `baddecb1` | 74 | 6 |
+| [152](../../evidence/production-review-v2-lite/batches/batch-634cb858766cd363b1c7/manifest.json) | `d1780477` | 75 | 5 |
+| [153](../../evidence/production-review-v2-lite/batches/batch-094ff319cee21a092850/manifest.json) | `42092675` | 73 | 7 |
+| [154](../../evidence/production-review-v2-lite/batches/batch-8475abd96282707d03e4/manifest.json) | `7d37cb9f` | 76 | 4 |
+| [155](../../evidence/production-review-v2-lite/batches/batch-a18a53bdf4dc3a64cbc5/manifest.json) | `df2db8df` | 74 | 6 |
+| [156](../../evidence/production-review-v2-lite/batches/batch-2075345ef54fa1f858e8/manifest.json) | `3eebdf3a` | 74 | 6 |
+| [157](../../evidence/production-review-v2-lite/batches/batch-f23d651555e38dfcdb72/manifest.json) | `bc290b59` | 77 | 3 |
 
 第 132 批遗留的 6 条修复及 Trap Priming 的同类问题未在本段处理；第 133、134 批的先前修复以各自已提交证据为准，不计入上述 124 条。旧问题清单见 [第 132 批交接](review-handoff-20260914-batch132.md)，实施前应核对当前 revision 和队列状态。
 
@@ -93,7 +93,7 @@
 2. 核对 `git status --short`、HEAD、`python3 -B tools/i18n production batch show` 和队列 meta；活动批次应为空。交接文档提交也会推进 HEAD，若 meta 的 evidence_head 不一致，先 `production queue rebuild`，再 `production queue check`。交接收尾已执行的状态核验见下文。
 3. 共享 contextual 暂存槽已清空；第 157 批两个文件与提交中的 `raw/contextual/004-*_path.json` 逐字节一致后，移至 `.artifacts/i18n/batch157-orchestration/finalized-runtime-scratch/`，附 NOTE.json 和 SHA-256。没有删除恢复 checkpoint。
 4. `.artifacts/i18n/batch158-orchestration/` 仅有预备脚手架：6 个 Python 文件、4 个目录及 HOST-AGENT-ID；没有 BID、batch-start 或 child。**HOST-AGENT-ID 是旧宿主的预填值，接手时必须替换为新宿主真实身份**，不能直接沿用。本批 journal 和既有 lineage 永不追改。
-5. 获授权继续审核时再开启第 158 批 `production batch start --limit 80`。采用 [编排 README](../tools/orchestration/README.md) 的当前 host-event 配方；上批阶段日志可参考，但不得重新执行已完成阶段或复用其输出路径。
+5. 获授权继续审核时再开启第 158 批 `production batch start --limit 80`。采用 [编排 README](../../tools/orchestration/README.md) 的当前 host-event 配方；上批阶段日志可参考，但不得重新执行已完成阶段或复用其输出路径。
 
 第 157 批宿主为 `59a2d44e-abc3-4af2-b92a-6b0df907a22c`，workspace 为 `wks_420314270844170b`；这些是历史事实，不是新宿主的身份授权。
 
@@ -101,7 +101,7 @@
 
 - 传输为 MCP，surface 使用四个独立切片、最多三个同时占用的 child 槽位；一个归档后派发第四个。当前实时 profile 的实际模型为 `gpt-6-astra` / high / auto-review，profile ID 虽含 `gpt-5.6-sol`，不能据名字推断模型。
 - contextual 当前实际模型为 `claude-opus-5` / medium / auto。每次 create 前实时读取完整 profiles/notes，保存原始响应，创建后核验实际 runtime、workspace 和 lineage。旧交接写的 xhigh 不是当前冻结配置，不照抄。
-- Opus 5 在项目流程内读取代码、文本和译文的既有授权见 [授权证据](../evidence/quality/production-batches/batch-468bfed17bdb007df025-host-pause/resume.json)，SHA-256 `c59ee9f3155907accd3303d7f1791bee6b6b7ad768ef8df9ae2f42a638291b04`。该数据读取授权不抵消当前暂停指令。
+- Opus 5 在项目流程内读取代码、文本和译文的既有授权见 [授权证据](../../evidence/quality/production-batches/batch-468bfed17bdb007df025-host-pause/resume.json)，SHA-256 `c59ee9f3155907accd3303d7f1791bee6b6b7ad768ef8df9ae2f42a638291b04`。该数据读取授权不抵消当前暂停指令。
 - stage 和 dispatch prepare 两处都需要正确的 `PASEO_AGENT_ID` 与 `TOME_PASEO_WORKSPACE` 环境；新宿主先实时查询 workspace，保存原始 capture，不能伪造传输或身份数据。
 - 等结束通知后 harvest；不轮询运行中的 child，不向已结束的 child follow-up。原生工具调用须完整审计：固定源码、允许输入、无写入、完整 source/target 与相关 context 可见；正则的 `/dev/null` 误报须人工裁决，不能机械当违规或直接忽略。
 - 表层输出开头出现分隔线时，交由既有 native extractor/validator 处理；不要手改 raw JSON。所有归档状态须实际读回确认，再 close、导入和裁决。

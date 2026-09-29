@@ -30,7 +30,7 @@
 
 preflight 中投影占约 98.5%，因此优先优化投影计算，而非 Python/CLI 启动。两条记录不足以推导完整批次的收益或当前各函数的耗时占比。
 
-[旧性能报告](projection-performance-20260911.md)中的内存优化确实将该固定输入下的峰值从约 13.4 GiB 降至 1.8 GiB，耗时基本不变。该报告的 Git 快路径和命令串联“尚未实现”说明不再代表当前代码；这些能力现在已部分存在。
+[旧性能报告](../deprecated/docs/projection-performance-20260911.md)中的内存优化确实将该固定输入下的峰值从约 13.4 GiB 降至 1.8 GiB，耗时基本不变。该报告的 Git 快路径和命令串联“尚未实现”说明不再代表当前代码；这些能力现在已部分存在。
 
 还需纠正一条审核判断：`_reconcile_checkpoint` 在调用 `_reconcile_phase_tuples` 后直接返回；后方的裸 `_projection` 和 `strict_check` 属于不可达历史参考代码。不能据此宣称正常步骤各重放两到三次，或耗时八至十二分钟。当前有效路径已经传递 `current_projection`。`abandon` 仍有额外重放，但它属于异常处理路径，不应据此估计正常吞吐。
 

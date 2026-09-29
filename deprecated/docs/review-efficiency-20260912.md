@@ -24,8 +24,8 @@
 
 ## EFF-1/2 实现
 
-入口为 [review_lifecycle.py](../tools/orchestration/review_lifecycle.py)，接入
-[两个派发 helper 与操作流程](../tools/orchestration/README.md)。journal 是单 ORCHESTRATOR
+入口为 [review_lifecycle.py](../../tools/orchestration/review_lifecycle.py)，接入
+[两个派发 helper 与操作流程](../../tools/orchestration/README.md)。journal 是单 ORCHESTRATOR
 写入的派生操作记录；每次 save 先写 journal，再镜像已有 task STATE。外部 archive 调用前
 两个持久化步骤都必须成功；中断后从 journal 重建同一 STATE 镜像，不能删旧 child。
 原子写改为二进制写入、文件 fsync、rename、父目录 fsync。
@@ -132,7 +132,7 @@ provider/版本均支持，也未测量或承诺生产节省秒数。
 但按 pinned/unpinned 选择本地根并读取文件，不在读取时重验固定 commit/blob；
 `matching_literal_lines` 空时不生成片段。不能直接把它接到 producer 后就宣称证据完整。
 
-第89批受跟踪 [source-workset](../evidence/quality/production-batches/batch-0ea72199906baf238871-source-workset.json)
+第89批受跟踪 [source-workset](../../evidence/quality/production-batches/batch-0ea72199906baf238871-source-workset.json)
 有80条，79 pinned、1实际来自 Cults 的 unpinned 条目。该条目录归属与实际 DLC 组件不同，
 目录 source 多两处段首 ASCII 空格；记录明示是归属核验，不是 byte-exact runtime-key match。
 后续输入至少要分别表达 catalog/runtime 归属、实际公开组件、源码路径、固定 commit（若有）、
@@ -180,7 +180,7 @@ merge/多child、类型或mode变化、当前相同blob重复发布、shallow/re
 
 ## EFF-6：门禁优先级（advisory）
 
-第89批受跟踪 [gates.json](../evidence/production-review-v2-lite/batches/batch-0ea72199906baf238871/gates.json)
+第89批受跟踪 [gates.json](../../evidence/production-review-v2-lite/batches/batch-0ea72199906baf238871/gates.json)
 给出真实17项时间；88.790秒已包含在 adjudicate/prepare 的240.047秒里，不再相加。
 优先优化编排间隔、失败重试输入和发布历史；不删门禁、不降低strict，不并发重型重放。
 历史tree解码exclusive约0.861秒同属低优先级，暂不新增缓存层。

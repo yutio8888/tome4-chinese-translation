@@ -166,7 +166,7 @@ output_text，以及文件末尾同 turn_id 且字符串相等的 task_complete�
 最小 provenance 记录源路径/文件 SHA、版本/session、关键行与消息/turn ID、prompt SHA、raw SHA、
 child/输入绑定，以及完整首个 live/终态捕获对象的 canonical SHA。不会复制完整会话或 thinking。
 MCP curated 内容与 native 相等只说明某个样本；不能从 curated 内容普遍还原原文。已移除始终
-UNPROVEN 的 SDK 诊断支线及 Node 依赖；其公开 API 的来源限制仍见[效率报告](../../docs/review-efficiency-20260912.md)。
+UNPROVEN 的 SDK 诊断支线及 Node 依赖；其公开 API 的来源限制仍见[效率报告](../../deprecated/docs/review-efficiency-20260912.md)。
 
 来源失败保存 `error-N.json` 与 journal 的 terminal_fetch_errors，不设置 output_valid、不消耗
 归档预算。补齐同 child 的有效来源后可重试；也可用下述带 capture 的 reject 核验终态后显式放弃。
@@ -405,7 +405,7 @@ archive 异常仍回读；若 finally
 
 显式、离线的 request 用量比较使用 `python3 -B tools/orchestration/review_usage.py RECORDS.json`；
 完整输入 schema、cached 口径、unknown 与区间语义见
-[2026-09-19 效率说明](../../docs/token-efficiency-20260919.md)。该工具不扫描 native session，
+[2026-09-19 效率说明](../../deprecated/docs/token-efficiency-20260919.md)。该工具不扫描 native session，
 不把 `lastUsage` 快照称为 session 总量，也不计算成本或 provider/tokenizer 推断值。
 
 `host-event children.json 'task|dispatch' --outdir ...` 的 stdin 为
@@ -425,7 +425,7 @@ proof 保留完整 source SHA、原样 raw SHA、final 位置与尾部形态；�
 `timing` 另输出 createdAt spread、成员终态/通知时间、stage 墙钟与已记录工具调用数；
 null 端点为未测量。`model_window` 是 activeTurn 窗口，**包括工具时间**，不是纯模型时间。
 README fixture 验证顺序与故障，不代表真实 stage 吞吐实测。真实 MCP 返回卸壳的只读复算与
-生产端到端、实际省时是三类不同证据，详见[本任务报告](../../docs/review-speed-p1-20260912.md)。
+生产端到端、实际省时是三类不同证据，详见[本任务报告](../../deprecated/docs/review-speed-p1-20260912.md)。
 
 ## 可选源码事实输入（P1-C）
 
@@ -475,7 +475,7 @@ surface-export/import 流程处理当前边界，再以新 checkpoint 绑定的�
 旧历史 envelope／replay 不新增源码或术语读取依赖。独立脚本独占创建 `.json.tmp`；
 该临时路径预存时直接失败，保留输入和已有 pack，不跟随符号链接或覆盖临时文件。
 
-验证与限制见 [P1-C 实现报告](../../docs/review-speed-p1c-20260912.md)。生产省时尚未测量；
+验证与限制见 [P1-C 实现报告](../../deprecated/docs/review-speed-p1c-20260912.md)。生产省时尚未测量；
 fixture 中的投影次数和运行耗时不代表生产收益。
 
 ## Contextual 导入、裁决生成与证据准备（P2-B）
@@ -573,4 +573,4 @@ start/finalize/abandon/recover、queue 管理/check 与 migration 继续独立�
 
 有界 fixture 实测两种有 contextual 任务的路径均从 3 次投影降至 1 次；生产秒数未测量，
 不由 P2-A 106 秒样本推算批次收益。测试使用既有 gate seam，不能证明真实 17 门禁通过。
-测试命令、错误时序、作者测试隔离事故与验收边界见 [P2-B 报告](../../docs/review-speed-p2b-20260912.md)。
+测试命令、错误时序、作者测试隔离事故与验收边界见 [P2-B 报告](../../deprecated/docs/review-speed-p2b-20260912.md)。

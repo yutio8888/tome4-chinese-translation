@@ -9,7 +9,7 @@ cycle0 dispatch `execute-astra-01`；输入 HEAD
 `793e45aeb0b1d43539baeda05708c393de200995`，candidate ref
 `90499abb8e02b0b05bab24c8ebb74523a6540c834e89f10a9ddf3b183fba42d2`。
 初始五文件 SHA、报告缺失声明、空 tracked diff 均匹配冻结输入。
-任务状态以 [STATE](../.ai/task/review-speed-p2a-20260912/STATE.json) 为准。
+任务状态以 [STATE](../../.ai/task/review-speed-p2a-20260912/STATE.json) 为准。
 
 ## 算法与边界
 
@@ -56,7 +56,7 @@ guard 不记录配置原值；原 slow 自身的异常继续按旧语义传播�
 所有测试均使用真实临时 Git 对象、tree、commit DAG 与 refs；正常语义不 mock 历史答案。
 失败注入只覆盖探测/读错误，慢路径 spy 用于证明实际回退。
 测试日志保存在
-[execute-astra-01](../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/)。
+[execute-astra-01](../../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/)。
 
 | 验证 | 结果与证据 |
 | --- | --- |
@@ -104,8 +104,8 @@ cycle0 生产代码完成有界检查后，仅执行一次当时授权的完整�
 timeout -k 10s 420s python3 -B .artifacts/i18n/review-speed-p2a-20260912/benchmark_host.py --root /workspace/tome4-chinese-translation --treeish 793e45aeb0b1d43539baeda05708c393de200995 --output .artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/candidate-feasibility.json
 ```
 
-[原始样本](../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/candidate-feasibility.json)
-与 [冻结比较器结果](../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/feasibility-comparison.json)
+[原始样本](../../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/candidate-feasibility.json)
+与 [冻结比较器结果](../../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/feasibility-comparison.json)
 保留完整 progress、八身份、Git 各类计数和资源记录。比较器退出 0，25 项检查全为 true。
 
 | 指标 | baseline | candidate feasibility | 冻结上限 | 判定 |
@@ -148,9 +148,9 @@ database SHA 为 `c187d216aa0c72d3c0e8116d5165f68c15d3bc9c9490a2c30052db9724b91c
 - AC7：仅 SCOPE 六文件产生内容 diff；handoff 仅更新 P1-C DONE、P2-A 权威状态及 P2-B 后恢复 92。
   未写 `.ai`、未读 `.ai/consult`、未 stage/commit、未派生或操作 agent，未进入下一轮。
 
-[execution-report.json](../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/execution-report.json)
+[execution-report.json](../../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/execution-report.json)
 记录完整 argv、显式环境、退出码、日志路径、逐 AC 状态及六文件 SHA；
-[完整 HEAD diff](../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/HEAD-six-files.patch)
+[完整 HEAD diff](../../.artifacts/i18n/review-speed-p2a-20260912/execute-astra-01/HEAD-six-files.patch)
 包含新报告。最终状态裁决、两次独立测量、门禁、归档与提交均交回宿主。
 
 ## FIX cycle1：本轮交付
@@ -164,16 +164,16 @@ agent 操作或真实 queue/checkpoint/HEAD 写入。四模块测试日志里的
 ### 三项 accepted 的闭合证据
 
 1. **HOST-P2A-1**：复制宿主探针到本次输出目录，只把输出位置改为参数；没有覆盖宿主结果。
-   [旧候选结果](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/old-mutable-scope/result.json)
+   [旧候选结果](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/old-mutable-scope/result.json)
    的 `equivalent=false`：replace 存在时 wrapper 走 slow 并缓存 replacement tree，移除后
    wrapper 错误成功，同 scope/fresh slow 拒绝。
-   [新候选结果](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/new-mutable-scope/result.json)
+   [新候选结果](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/new-mutable-scope/result.json)
    为 `equivalent=true`：移除 replace 后三者均以原异常拒绝。
    新测试另覆盖正常→unsafe→正常，以及 `HEAD` 别名首次进入 unsafe（路径资格不满足也须禁用）；
    显式检查旧缓存 bytes 对象没有被清除或替换，嵌套异常、safe outer/unsafe inner、不同 root 和
    fresh scope 均隔离。原 slow 的拒绝诊断未改。
 2. **Opus R1，收窄采纳**：仅增加 `GIT_EDITOR`、`core.editor` 及两个 config 文件 selector。
-   [真实 editor 对照](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/editor-comparison.json)
+   [真实 editor 对照](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/editor-comparison.json)
    先证明该默认配置无 editor 时旧 guard 为真，然后在同一 `GIT_EDITOR=true` 环境和真实 Git
    fixture 上比较冻结旧模块与修复模块：两者返回同一发布，旧 slow 调用 1 次，新 slow 0 次。
    selector 文件、include 内容、selector 自身切换、仓库配置均用真实 Git 检查；不安全内容回退，
@@ -196,7 +196,7 @@ Git 依据：官方 [Git 2.39 环境变量文档](https://git-scm.com/docs/git/2
 
 旧 baseline 的 53 个 queue 生产函数（只允许原发布函数改名）及三个测试文件的 201 个旧方法
 逐段源码相同，其中旧 test 方法 141 个；
-[保留证明](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/preservation.json)
+[保留证明](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/preservation.json)
 记录逐文件数量。migration 本轮全文件 SHA 不变，reader 运行时与 HEAD 逐字节相同。
 本轮只更正以下三个 cycle0 新测试固化的错误恢复预期：
 
@@ -214,7 +214,7 @@ Git 依据：官方 [Git 2.39 环境变量文档](https://git-scm.com/docs/git/2
 ### 本轮验证与命令
 
 所有命令 cwd 均为仓库根；完整 argv、显式环境、退出码及日志路径见
-[validation-commands.json](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/validation-commands.json)。
+[validation-commands.json](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/validation-commands.json)。
 
 | 验证 | 结果 |
 | --- | --- |
@@ -239,9 +239,9 @@ GIT_EDITOR=true PYTHONPATH=tools:. TOME_TEST_FIXTURE_ROOT=/workspace/tome4-chine
 
 ### 测量与剩余验收
 
-保留 Opus [sample-1](../.artifacts/i18n/review-speed-p2a-20260912/review-opus-0-1/sample-1.json)：
+保留 Opus [sample-1](../../.artifacts/i18n/review-speed-p2a-20260912/review-opus-0-1/sample-1.json)：
 继承 `GIT_EDITOR=true`，143.084446739s、2753 条 log，比较器退出 **1**；
-[sample-2](../.artifacts/i18n/review-speed-p2a-20260912/review-opus-0-1/sample-2.json)：
+[sample-2](../../.artifacts/i18n/review-speed-p2a-20260912/review-opus-0-1/sample-2.json)：
 去掉 editor，106.247793537s、212 条 log，比较器退出 **0**。
 它们是两个不同环境诊断，不能称为两次成功正式验收；cycle0 executor 的 106.413381911s 也只属于
 旧候选。修复改变运行时后，这三份旧样本均不能预报本轮候选性能。
@@ -250,5 +250,5 @@ GIT_EDITOR=true PYTHONPATH=tools:. TOME_TEST_FIXTURE_ROOT=/workspace/tome4-chine
 串行两次 fresh-process 测量，使用未变的 baseline/harness/comparator 和原阈值。
 正式门禁、归档、提交及最终状态裁决由宿主处理，本 dispatch 不启动下一轮，不预报生产省时。
 
-本轮五文件增量见 [cycle1-incremental.patch](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/cycle1-incremental.patch)，
-最终六文件 SHA、精确命令及检查结果见 [execution-report.json](../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/execution-report.json)。
+本轮五文件增量见 [cycle1-incremental.patch](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/cycle1-incremental.patch)，
+最终六文件 SHA、精确命令及检查结果见 [execution-report.json](../../.artifacts/i18n/review-speed-p2a-20260912/fix-astra-01/execution-report.json)。

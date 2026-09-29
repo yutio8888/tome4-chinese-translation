@@ -5,7 +5,7 @@
 `/workspace/tome4-projection-analysis-20260925`。EXECUTOR 未写主工作树，未 stage／commit／push，
 未建立本树生产 queue、checkpoint 或 active batch。派生数据只在本树
 `.artifacts/i18n/review-tool-speed-20260925/`。既有
-`docs/review278-isolated-analysis-20260925.md` 保留未改。
+`deprecated/docs/review278-isolated-analysis-20260925.md`（已归档）保留未改。
 
 ## A. 父进程 `I18N_PROJECTION_CACHE=on` 时门禁测试失败
 

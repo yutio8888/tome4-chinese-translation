@@ -5,7 +5,7 @@
 
 用户已在本轮显式授权**连续推进**（不逐批确认）。本文是该授权的当前恢复入口；
 旧交接（[第 157 批](review-handoff-20260915-batch157.md)）的“必须等用户恢复”暂停指令**已被本轮指令取代**。
-授权与流程仍以 [AGENTS.md](../AGENTS.md)、当前契约和 [工作流](agent-workflow.md) 为准。
+授权与流程仍以 [AGENTS.md](../../AGENTS.md)、当前契约和 [工作流](../../docs/agent-workflow.md) 为准。
 
 ## 完成状态与边界
 

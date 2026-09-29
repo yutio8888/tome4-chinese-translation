@@ -8,7 +8,7 @@
 实现集中于既有 `review_lifecycle.py`：可选 null session 别名不参与比较；Claude 2.1.259
 在独立成功自然终态核验后支持无末尾 last-prompt 的精确导出；共享 harvest 拒绝错误终态；
 完整 MCP 返回通过 stdin 保存、核验并调用原 Journal/native/strict 方法。
-[README 的宿主配方](../tools/orchestration/README.md#mcp-宿主-stdin-配方p1)负责异步 MCP 顺序，
+[README 的宿主配方](../../tools/orchestration/README.md#mcp-宿主-stdin-配方p1)负责异步 MCP 顺序，
 没有新调度服务、数据库、SDK 或生产 Node 依赖。
 
 ## 初始候选验收证据（execute-astra-01）

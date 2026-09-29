@@ -1,7 +1,7 @@
 # 译文审核操作指南
 
-本指南是译文审核（每批 80 条）与合并修复窗口的**现行操作入口**，整理自第 1–275 批与修复窗口 1–26
-的实际运行经验。约束以 [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
+本指南是译文审核（每批 80 条）与合并修复窗口的**现行操作入口**，整理自第 1–372 批与修复窗口 1–56
+的实际运行经验（2026-09-29 更新）。约束以 [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
 [编排契约](paseo-orchestration-v2-contract.md) 和两份审核契约（
 [surface v1](paseo-translation-surface-screen-v1-contract.md)、
 [contextual v2](paseo-translation-context-review-v2-contract.md)）为准；本文只写操作顺序、判据与已知陷阱，
@@ -23,6 +23,10 @@
 | 修复 EXECUTOR | `codex/gpt-5.6-sol`，`auto-review`，`medium`；REVIEW 用 gpt-6-sol，FINAL 用 opus-5-5 | 同上 |
 | 连续运行 | 审核批次逐批自动推进，不必逐批确认；每批完全收口后 push | 用户 2026-09-19 / 09-23 |
 | 修复节奏 | **攒批**：确认的修复先记入积压，累计 ≥20 条再开一个合并修复窗口（取代旧 1:1 交替） | 用户 2026-09-24 |
+| 修复轮次 | 修复窗口 `max_cycles` 默认 5，STATE 同时写 `max_cycles_user_authorized=true` | 用户 2026-09-25 |
+| reviewer scratch | reviewer 可写 `/tmp`；写仓库或工作区仍拒收 | 用户 2026-09-25 |
+| 名称类 pending | 先双向查冲突，再由 Gemini 3.8 Flash 裁决并报告；antigravity 认证失败时用 `pi/cpa/gemini-3.8-flash-high`；Gemini 不可用时三方讨论按多数 | 用户 2026-09-27 / 09-29 |
+| 队列耗尽 | 积压不足 20 且无可审条目时，询问用户开小窗口还是暂停 | 用户 2026-09-24 |
 | 争议条目 | 记 `pending`，登记到 [`evidence/quality/pending-user-review.md`](../evidence/quality/pending-user-review.md)，不修、不阻塞 | 用户 2026-09-23 |
 | 暂停 | 用户要求暂停时，让正在写批次状态的命令跑完，不再启动新阶段；记录停点后交回 | — |
 
@@ -206,7 +210,8 @@ bash /tmp/closeN.sh                    # evidence commit → finalize → 回执
 1. `run_repair_steps.py preflight`：每个来源批次一个 `--batch-id` + `--output`（一次最多 3 个，
    超过就分次跑到不同输出），保留各自 workset 与 provenance。preflight 之后若有提交，必须重跑。
 2. 建有界 IMPLEMENT 任务（`.ai/task/repair-wNN-<日期>/`）：SPEC 显式列出来源 batch、去重后的 revision
-   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板）。
+   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板；现行模板为窗口56，已支持 `engine.lua`）。
+   setup 后先跑 `check_siblings.py` 查同一 runtime key 的跨组件兄弟。
 3. EXECUTOR 派发（prompt 文件不带尾换行）→ harvest → 原生工具审计 → 归档确认。
 4. `REVIEW`（gpt-6-sol）→ 宿主裁决；有 confirmed 就进入 `FIX`（同一 cycle 的全部 confirmed 合并成一次
    EXECUTOR 派发）→ `FINAL_REVIEW`（opus-5-5）。v2 的 FINAL 里出现任何 ISSUE（即使宿主判 advisory）都算失败，
@@ -283,6 +288,13 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 | Flame（技能名） | 「火焰术」；Shadow Mages 的 Flames 是「暗影之火」 |
 | Sun Flare | 「太阳耀斑」 |
 | Rimebark | 保持「召唤：雾凇」 |
+| Steamsaw | 「蒸汽链锯」 |
+| Archmage | 保持「元素法师」 |
+| petty gods | 保持「伪神」 |
+| the Sorcerers（远东最终首领二人组） | 「巫师」（合称“两名巫师”）；泛指的 sorcerers 保持原译 |
+| Knowledge of the Way | 「维网之识」 |
+| Scourge from the West（Orcs） | 「西方天灾」，不写“灾星” |
+| Toxic Death | 「剧毒之死」（待窗口57执行） |
 | 术语库引证 | 只有 `preferred` 有背书力，`existing` 只是语料现状 |
 
 新增或修改高复用术语时先改 `terminology/`，再改 Lua 译文；候选译名要双向查冲突
@@ -305,6 +317,13 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 | stage TypeError（checkpoint 字段 None） | stage 在 export 之前运行 | 先 export 再 stage，以 result.json 的 started_at 判断顺序 |
 | contextual export 撞不可变检查 | 上一批 contextual scratch 未归档 | 由 `close_reviewN.py` 在 finalize 后移入 finalized-runtime-scratch |
 | `pkill -f` 后命令静默中止（exit 144） | 模式匹配到了自己的 shell | 先 `pgrep` 拿 PID 再 kill |
+| Opus FINAL 只回 2–3 条、末个 key 残缺 | 输出截断 | 写 `INVALID-FxAy.json`、`output_valid=False`，attempt+1 重派，不计 max_cycles |
+| antigravity Gemini `Authentication required` | 该通道认证失效（重登后仍可能失败） | 改用 Paseo 的 `pi/cpa/gemini-3.8-flash-high` |
+| 混合批 `bd_hs` 条数不符 | `bd_hs` 写死每 lane 20 条 | `source /tmp/rN.sh; h <n> <updatedAt> <lastUser> <attnTs> <sid> <实际条数>` |
+| 混合批 finalize_host 找不到 `reviewN-extra.json` | 无额外观察时未生成 | 写入 `[]` 后重跑 |
+| 混合批 snapshot 失败 | `snapshot_reviewN_current.py` 的 tasks 行未列全 `-surface-000`、`-surface-001`、`-contextual-000` | 按第290／372批模板改 tasks 行；删掉未跟踪的半成品 host-evidence 后重跑 |
+| `handoff_gen_v2.py` 报 substring not found | 交接积压行缺 `；依据见…` 结尾，或锚点行被改写 | 保持 handoff 锚点行格式（更新时间、审核已闭合、表格末行、第 1 项、积压行、计时行） |
+| 修复窗口 `wd_exec_done` 对 publication child 在 archive-intent 前报错 | 脚本按 execute child 校验 | 手动跑 archive-intent；`wd_rev_ok` 已含 archive-intent，勿重复 |
 | source facts 超过 MAX_LINES | 高频短字面量（如 `" / "`） | 省略 `--source-workset` 是受支持的降级，记录证据不同构 |
 
 判定 child 挂起前必须重新查询 `status`、`attentionReason`、`activeTurn`，并看 `git status` 与
@@ -318,4 +337,6 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 - 同一进程、同一 HEAD 的相邻步骤共享一次投影：`run_batch_steps.py`（surface-import + contextual-export、
   contextual-adjudication-chain、rollover-chain）与 `run_repair_steps.py`（migration-chain、publish-chain）。
 - finalize 与关闭后的 queue rebuild **不在同一 HEAD**（中间有 closure 提交），不能合并。
+- 开启投影缓存（`I18N_PROJECTION_CACHE=on`）后，第372批实测：start 145.0 s，adjudication chain（含 17 项门禁）179.1 s，
+  finalize 149.0 s。缓存默认关闭，需显式开启。
 - 报数字要标明实测还是估算；相减前确认同一量、同一环境、同一尺子。

@@ -9,7 +9,8 @@
 | 用途 | 现行文档 |
 |---|---|
 | 最高规则与硬约束 | [`AGENTS.md`](../AGENTS.md) |
-| 每批操作入口与生效裁决表 | [`docs/baseline-batch-runbook-2026-09-06.md`](../docs/baseline-batch-runbook-2026-09-06.md) |
+| 每批操作入口与生效裁决表 | [`docs/review-operations-guide.md`](../docs/review-operations-guide.md) |
+| 当前状态与待办 | [`handoff.md`](../handoff.md) |
 | 编排脚本用法与逐批流程 | [`tools/orchestration/README.md`](../tools/orchestration/README.md) |
 | 工作流与验证矩阵 | [`docs/agent-workflow.md`](../docs/agent-workflow.md) |
 | WP2-Lite 管线设计 | [`docs/translation-production-review-v2-lite-plan.md`](../docs/translation-production-review-v2-lite-plan.md) |
@@ -34,6 +35,8 @@
 | `docs/release-plan.md` | 早期发布计划，与当前逐批证据链流程不一致 |
 | `docs/paseo-lane-label-compat-20260905.md` | lane 标签兼容问题已在 `dispatch_surface.py` 落地，无需单独文档 |
 | `docs/paseo-contextual-envelope-freeze-backlog.md` | 冻结信封的待办已全部实现 |
+| `docs/review-handoff-20260914*.md`、`-20260915-*.md`、`-20260916-batch186.md` | 历次审核交接快照 |
+| `docs/review-handoff-20260929-batch372.md` | 第 273–372 批逐批结果表、窗口 27 修复清单与 2026-09-24 工具维护记录；2026-09-29 由精简版 `handoff.md` 取代 |
 
 ### 审核工具优化专项（P1–P6，已全部完成并落地）
 
@@ -44,6 +47,17 @@
 | `docs/review-throughput-optimization-20260905.md` | 吞吐优化已执行完毕 |
 | `docs/review-throughput-analysis-20260905.md` | 其分析结论已被后续实测（队列重放 314.8s→125.4s）取代 |
 | `docs/production-review-batch-limit-upgrade-proposal-v1.md` | 批次上限提案已落定为每批 80 条 |
+
+### 审核提速与性能一次性报告（2026-09-11 至 09-25，已落地或已被后续实测取代）
+
+| 文档 | 弃用原因 |
+|---|---|
+| `docs/projection-performance-20260911.md` | 投影内存优化报告；其“尚未实现”的快路径已部分落地，现行方案见 `docs/projection-optimization-plan-20260924.md` |
+| `docs/review-efficiency-20260912.md` | 审核效率分析；结论已并入编排脚本与操作指南 |
+| `docs/review-speed-p1-20260912.md`、`-p1c-`、`-p2a-`、`-p2b-20260912.md` | 提速专项 P1／P1-C／P2-A／P2-B 的实施报告，均已落地；文中 `.ai/task`、`.artifacts` 路径多为本地产物 |
+| `docs/review-speed-repair-window-20260921.md` | 修复窗口提速分析，已并入 `run_repair_steps.py publish-chain` 与 `wd.sh` |
+| `docs/token-efficiency-20260919.md` | token 效率说明；现行派发参数见操作指南 |
+| `docs/review278-isolated-analysis-20260925.md` | 第278批隔离剖析，结论已被 `docs/review-tool-speed-results-20260925.md` 取代 |
 
 ### 早期质量评测体系（已被两轮审核 + 裁决流程取代）
 
@@ -73,7 +87,7 @@
 | `docs/grok-parallel-translation-review-design.md` | 并行审核设计稿，未采用（现行为 4 lane + 单 contextual） |
 | `docs/dsh-orchestration-compat-v1-contract.md` | 标注「提议，未启用」；DSH 后端从未启用 |
 | `docs/semantic-claim-runtime-composition-v1.md` | 运行时拼接的语义主张处理已并入 `freeze_workset.py` 的归因类 |
-| `docs/translation-punctuation-convention-proposal-v1.md` | 提案；实际生效的标点裁决见 runbook 的生效裁决表 |
+| `docs/translation-punctuation-convention-proposal-v1.md` | 提案；实际生效的标点裁决见审核操作指南的生效裁决表 |
 
 ## 曾列入弃用、经门禁验证后撤回的文件
 

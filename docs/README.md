@@ -9,6 +9,7 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 | 文档 | 用途 |
 |---|---|
 | [`AGENTS.md`](../AGENTS.md) | 最高规则与硬约束，与其他文档冲突时以本文为准 |
+| [`../handoff.md`](../handoff.md) | 当前状态、现行授权与下一步 |
 | [`review-operations-guide.md`](review-operations-guide.md) | **当前操作入口**：审核批次与合并修复窗口的命令顺序、裁决判据、生效裁决表、已知陷阱 |
 | [`../tools/orchestration/README.md`](../tools/orchestration/README.md) | 编排脚本清单与每批流程；哪些脚本已废弃 |
 | [`agent-workflow.md`](agent-workflow.md) | 工作流与验证矩阵；门禁触发条件 |
@@ -31,6 +32,16 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 | [`translation-production-review-v2-lite-plan.md`](translation-production-review-v2-lite-plan.md) | WP2-Lite 管线设计：catalog、队列、批次、证据与修复边界 |
 | [`runtime-key-collisions.md`](runtime-key-collisions.md) | 运行时键冲突的成因与门禁 `06-runtime-collision-scan` 的依据 |
 | [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见审核操作指南 |
+
+### 投影与审核工具性能（现行结论）
+
+| 文档 | 说明 |
+|---|---|
+| [`projection-optimization-plan-20260924.md`](projection-optimization-plan-20260924.md) | 投影重放优化方案（`tools/i18nlib/projection_cache.py` 引用） |
+| [`projection-optimization-stage1-results-20260924.md`](projection-optimization-stage1-results-20260924.md)、[`-stage2-`](projection-optimization-stage2-results-20260924.md) | 两阶段实施结果；同 commit 投影缓存默认关闭，需 `I18N_PROJECTION_CACHE=on` |
+| [`review-tool-speed-results-20260925.md`](review-tool-speed-results-20260925.md) | 门禁环境隔离与投影行校验复用的实测结果 |
+
+更早的一次性提速报告（2026-09-11 至 09-25）已移入 [`deprecated/docs/`](../deprecated/README.md)。
 
 ## 四、已过时但仍被代码引用（**勿作操作依据**）
 

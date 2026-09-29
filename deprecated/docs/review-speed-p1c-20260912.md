@@ -4,7 +4,7 @@
 基线 `d0c4be17ce62b5eefbd3bc8fc0f91b345138be55`；11 项 SCOPE preimage 与接受设计 SHA
 `0c8e90a2d6bc7e743a665c95280f1739c35dc9e90bf9d5fdd35afe71e316a2e5` 已核对。
 本报告是实现交付，当前任务状态以
-[STATE](../.ai/task/review-speed-p1c-20260912/STATE.json) 为准，不表示独立验收或 DONE。
+[STATE](../../.ai/task/review-speed-p1c-20260912/STATE.json) 为准，不表示独立验收或 DONE。
 
 ## 实际改动与逐 AC 证据
 
