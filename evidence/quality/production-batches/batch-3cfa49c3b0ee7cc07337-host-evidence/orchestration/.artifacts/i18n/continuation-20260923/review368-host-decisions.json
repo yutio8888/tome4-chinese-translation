@@ -1,0 +1,100 @@
+{
+ "workset": "evidence/quality/production-batches/batch-3cfa49c3b0ee7cc07337-source-workset.json",
+ "decisions": {
+  "ec10546de7|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "floor.lua:72 魔法大爆炸伤痕地面效果说明：+25% spell critical chance。译文“获得 25%法术暴击率”用“获得”表达增加，语义是增益而不是最终数值；与同句“增加 10%火焰和枯萎伤害”一样都是加成表述，没有把增益读成最终值的歧义。驳回。"
+  },
+  "ed88c8e1b7|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "solipsism.lua:59-63 末行“增加 20 %%”“低于这个临界点 1 %%”“减少 1 %%”中数字与 %% 之间有空格，显示为“20 %”。%% 转义本身正确，不影响格式化与数值，只是与同条其他“%d%%”的排版不一致，属排版问题，记 advisory。"
+  },
+  "eed96b47b1|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit misc.lua:483-491 夏·图尔 lore：some have been observed in sunken lands off the coasts，指近海沉没的陆地。译文“有的废墟甚至位于海洋中沉没的大陆上”把 lands 说成“大陆”（整块大陆），还丢了 off the coasts（近海）的方位，夸大了设定。确认。修复建议：“有的废墟甚至位于近海沉没的陆地上”。"
+  },
+  "f0d7509f16|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "gates-of-morning-main.lua 太阳堡垒对话：Aside from a few early attempts with questionable results。译文“除了他早期的一些尝试获得了一点可疑的结论外”把“结果可疑”说成“结论可疑”，语义接近，不影响对白信息与任务理解，属二级措辞，记 advisory。"
+  },
+  "f216e4dbbe|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "elvala.lua 回忆录第三章：Neira’s eyes shot up（猛地抬眼）。译文“尼耶拉的眼神突然激动起来”把动作意译为情绪，但与下文她大声反驳的语境一致，没有改变情节，属二级措辞，记 advisory。"
+  },
+  "fb8138dd84|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit timed_effects/other.lua:1477-1482 末句 The chance grows each time you are struck but fades over time. 译文“持续 8 回合。  触发几率  在每次你受到打击时提高”在“。”后与“几率”后各有两个多余空格，显示时出现明显断空，属格式缺陷（同类多余空格此前均按 confirmed 修复）。确认。修复：改为“持续 8 回合。触发几率在每次你受到打击时提高，同时随时间下降。”，其余不变。"
+  },
+  "fd03e791df|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit spells/conveyance.lua（Phase Door）：getRange = combatLimit(combatTalentSpellDamage(t,10,15),…)，随法术强度提升的是传送距离 range；getRadius 只随技能等级变化，对应第 5 级的“半径 %d”。源文末句 The range will increase with your Spellpower 译作“影响范围受法术强度加成”，容易被理解为目标区域半径随法强提升，与实现不符。确认。修复：末句改为“传送距离受法术强度加成。”"
+  },
+  "fe2acd05e6|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit spells/temporal.lua:79-82 源文四段，以 \\n\\t\\t 分隔：第三段 Each turn the restoration field is active… 单独成段。译文把第三段并进第二段（“持续 5 回合，每回合回复……”），少了一处 \\n\\t\\t，段落结构与原文不一致（换行不变量）。确认。修复：在“持续 5 回合。”后恢复 \\n\\t\\t，第三段单独成句：“时间回复力场存在的每回合，你将回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。”"
+  },
+  "fff2fd120f|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit world-artifacts.lua:3909-3935 use 实现：对锥形内每个目标执行 for i = 1, 2 do … 随机移除一个魔法效果或持续技能 … end，最多驱散两项。源文 attempt to destroy all magic effects 与实现不符，译文“（至多两项）”如实反映了实现。按源码为准，驳回。"
+  },
+  "01691ae63c|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/timed_effects/other.lua AUTOMATED_REPAIR_SYSTEM（本批文件 SHA 匹配，DLC 仓库与 commit 未固定）：on_timeout 中 if self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end，生命值回满时效果确实会结束。译文“生命值回满后结束该模式”与实现一致，不是无据增译。驳回。"
+  },
+  "48c41f3333|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/general/objects/world-artifacts.lua:1081-1090（本批文件 SHA 匹配，DLC 仓库/commit 未固定）：special_on_hit 在命中后累加 o.charge，达到 3 时把 o.combat.physcrit 设为 100 并清零计数，未满 3 次时设回 0。on_hit 在本次命中结算之后才执行，所以 100% 暴击作用于第三次命中之后的下一次攻击。译文“每累计命中三次，下一次攻击的物理暴击率变为 100%”贴合实现，驳回（源文“every third hit”与实现时序不一致）。"
+  },
+  "53dcd8e2cf|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/steam/furnace.lua:171-176（文件 SHA 匹配，DLC 仓库/commit 未固定）：译文“温度极高，以至于 最多 %d 个负面物理状态被高温驱散”在“以至于”和“最多”之间多了一个半角空格，是可见的排版缺陷（同类多余空格此前均按 confirmed 修复）。确认。修复：删去该空格，其余不变。"
+  },
+  "8fd26e1664|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/steam/gunslinging.lua（Trick Shot action，文件 SHA 匹配，DLC 仓库/commit 未固定）：x, y = main.x, main.y 取第一个目标坐标，逐个计算 dist = core.fov.distance(x, y, actor.x, actor.y)，只收 dist<=5 的敌人，再 table.sort(target_list, \"dist\")。弹射顺序确实按与第一个目标的距离由近及远排列，译文贴合实现，驳回。"
+  },
+  "8eb3c7aee5|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/lore/misc.lua:87-95 邮递系统信件：Likewise, anything written on those notes could end up exactly where you don't want them。译文“你写的每一封信都有可能出现在你最不希望出现的地方”把“信上写的内容”说成“每一封信”，但丢信本身就意味着内容外泄，下文“写信时要想象托拉克国王在看”的告诫也完整保留，信息没有实质偏差，记 advisory。"
+  },
+  "e9a64fcf5e|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/uber/mag.lua（文件 SHA 匹配，DLC 仓库/commit 未固定）：奥术增幅无人机效果的实现在 :34 为 DamageType:get(DamageType.ARCANE).projector(self, a.x, a.y, DamageType.ARCANE, dam * 1.3)，实际波纹伤害是 130%。:82 描述写的 160% 与实现不符，译文“130%”贴合实际机制。按源码实现为准，驳回（不宜改回与实现矛盾的 160%）。"
+  },
+  "01691ae63c|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "与 surface 同一指控。公开 Orcs 源码 tome-orcs/data/timed_effects/other.lua AUTOMATED_REPAIR_SYSTEM（文件 SHA 匹配，DLC 仓库/commit 未固定）的 on_timeout 中有 if self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end。reviewer 未追到的 on_timeout 确实实现了“生命值回满时结束”，译文不是无据增译。驳回。"
+  },
+  "53dcd8e2cf|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "部分确认。关于技能名：本库 tome-orcs.lua:5001 t(\"Furnace Vent\", \"通风孔\", \"talent name\")，译文“触发一次通风孔效果”已使用该技能的正式译名，这部分驳回。关于排版：“以至于 最多”之间多出的半角空格属实，与 surface 确认一致。修复：只删去该空格，技能名不改。"
+  },
+  "8eb3c7aee5|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开 Orcs 源码 tome-orcs/data/lore/misc.lua 邮递信件末尾 PS（DLC 仓库/commit 未固定）：No, the irony of that situation would not be lost on me 意为“这其中的讽刺我心里清楚”，是 Yes/No 连答中写信人承认自己明白处境讽刺。译文“不，别指望你能用这个场景的讽刺性来笑话我”把它改成了警告对方别嘲笑，语义偏移，确认。修复：只改这一句为“不，这其中的讽刺意味我不会看不出来。”，前后各句不动。（surface 就“每一封信”的 advisory 维持不变。）"
+  },
+  "e9a64fcf5e|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "与 surface 同一指控。公开 Orcs 源码 tome-orcs/data/talents/uber/mag.lua:34（文件 SHA 匹配，DLC 仓库/commit 未固定）的实现是 DamageType.ARCANE projector(..., dam * 1.3)，实际波纹伤害为 130%；:82 描述里的 160% 与实现矛盾。译文 130% 贴合实际机制，按源码实现为准驳回，不改回 160%。"
+  }
+ }
+}

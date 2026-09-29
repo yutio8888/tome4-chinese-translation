@@ -1,0 +1,9 @@
+[
+ {
+  "revision_key": "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+  "source": "The Steam Council has been called to order, with Chief Councilor Tantalos presiding.",
+  "target": "在坦塔洛斯议长的主持下，蒸汽议会正式开会。",
+  "disposition": "advisory",
+  "note": "freeze 报 MISS：目录把该条（tome-orcs.lua:8354）归到 section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua，但公开 Orcs 源码（DLC 仓库/commit 未固定）中该字面量只出现在 tome-orcs/data/lore/palace-fumes.lua:88 的 lore = _t[[...]]，且源文首行 \"presiding.\" 后带两个空格；本行首行没有这两个空格，任何代码文件都匹配不上，属于从未生效的死键。运行时实际生效的是 tome-orcs.lua:2760（section palace-fumes.lua）那一行。DLC 条目为 snapshot 身份，不能 host-block，按第353批先例照常审核并记 advisory；surface lane 判 OK。本批记 done，死键清理留作目录维护事项。"
+ }
+]

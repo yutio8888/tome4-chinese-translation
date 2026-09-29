@@ -1,0 +1,136 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [
+    {
+      "revision_key": "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+      "source": "The Steam Council has been called to order, with Chief Councilor Tantalos presiding.",
+      "target": "在坦塔洛斯议长的主持下，蒸汽议会正式开会。",
+      "disposition": "advisory",
+      "note": "freeze 报 MISS：目录把该条（tome-orcs.lua:8354）归到 section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua，但公开 Orcs 源码（DLC 仓库/commit 未固定）中该字面量只出现在 tome-orcs/data/lore/palace-fumes.lua:88 的 lore = _t[[...]]，且源文首行 \"presiding.\" 后带两个空格；本行首行没有这两个空格，任何代码文件都匹配不上，属于从未生效的死键。运行时实际生效的是 tome-orcs.lua:2760（section palace-fumes.lua）那一行。DLC 条目为 snapshot 身份，不能 host-block，按第353批先例照常审核并记 advisory；surface lane 判 OK。本批记 done，死键清理留作目录维护事项。"
+    }
+  ],
+  "slide_check": "all 15 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "ec10546de70c1763c249ca7cd41b0ae07c628ced5b7bd2d5f659b8abf67d94b6",
+      "stage": "surface",
+      "observation": "原文为“+25% spell critical chance”，译文“获得 25%法术暴击率”漏掉加号，可能把增益读成最终数值。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "floor.lua:72 魔法大爆炸伤痕地面效果说明：+25% spell critical chance。译文“获得 25%法术暴击率”用“获得”表达增加，语义是增益而不是最终数值；与同句“增加 10%火焰和枯萎伤害”一样都是加成表述，没有把增益读成最终值的歧义。驳回。"
+    },
+    {
+      "revision_key": "ed88c8e1b7a725bd50ecd4f3624a4ea900e4e8c6a86ae64eb7d7fbfba5e7b955",
+      "stage": "surface",
+      "observation": "原文“20%%”和“1%%”的数字与百分号紧邻；译文写成“20 %%”和“1 %%”，格式化后会多出空格。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "solipsism.lua:59-63 末行“增加 20 %%”“低于这个临界点 1 %%”“减少 1 %%”中数字与 %% 之间有空格，显示为“20 %”。%% 转义本身正确，不影响格式化与数值，只是与同条其他“%d%%”的排版不一致，属排版问题，记 advisory。"
+    },
+    {
+      "revision_key": "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0",
+      "stage": "surface",
+      "observation": "原文“sunken lands off the coasts”指近海沉没的陆地，译文“海洋中沉没的大陆上”将其误写为大陆。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit misc.lua:483-491 夏·图尔 lore：some have been observed in sunken lands off the coasts，指近海沉没的陆地。译文“有的废墟甚至位于海洋中沉没的大陆上”把 lands 说成“大陆”（整块大陆），还丢了 off the coasts（近海）的方位，夸大了设定。确认。修复建议：“有的废墟甚至位于近海沉没的陆地上”。"
+    },
+    {
+      "revision_key": "f0d7509f16f85b30ff6a3a5dcd5acea6d08e3794fbfebed19db8ec32f1d6eb34",
+      "stage": "surface",
+      "observation": "原文“early attempts with questionable results”指早期尝试的结果存疑，译文写成“获得了一点可疑的结论”，将结果误作结论。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "gates-of-morning-main.lua 太阳堡垒对话：Aside from a few early attempts with questionable results。译文“除了他早期的一些尝试获得了一点可疑的结论外”把“结果可疑”说成“结论可疑”，语义接近，不影响对白信息与任务理解，属二级措辞，记 advisory。"
+    },
+    {
+      "revision_key": "f216e4dbbe84ac87652f829bcf037cd1cdb79a699b30cf23eaa90cda957935a8",
+      "stage": "surface",
+      "observation": "原文“Neira’s eyes shot up”表示尼耶拉突然抬眼，译文写成“尼耶拉的眼神突然激动起来”，动作被误译为情绪变化。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "elvala.lua 回忆录第三章：Neira’s eyes shot up（猛地抬眼）。译文“尼耶拉的眼神突然激动起来”把动作意译为情绪，但与下文她大声反驳的语境一致，没有改变情节，属二级措辞，记 advisory。"
+    },
+    {
+      "revision_key": "fb8138dd842e67a5e73c7b48b847eb00a2dfc20e1e2e8259d3949ca3a05ce2de",
+      "stage": "surface",
+      "observation": "末句“触发几率  在”及“几率  在”附近有明显多余空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit timed_effects/other.lua:1477-1482 末句 The chance grows each time you are struck but fades over time. 译文“持续 8 回合。  触发几率  在每次你受到打击时提高”在“。”后与“几率”后各有两个多余空格，显示时出现明显断空，属格式缺陷（同类多余空格此前均按 confirmed 修复）。确认。修复：改为“持续 8 回合。触发几率在每次你受到打击时提高，同时随时间下降。”，其余不变。"
+    },
+    {
+      "revision_key": "fd03e791df3181e1280a1d9753749fe387b7ed5738da08fbf2f2cba653914663",
+      "stage": "surface",
+      "observation": "原文末句说传送距离随法术强度增加，译文写成“影响范围”，可能误指目标区域的半径。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit spells/conveyance.lua（Phase Door）：getRange = combatLimit(combatTalentSpellDamage(t,10,15),…)，随法术强度提升的是传送距离 range；getRadius 只随技能等级变化，对应第 5 级的“半径 %d”。源文末句 The range will increase with your Spellpower 译作“影响范围受法术强度加成”，容易被理解为目标区域半径随法强提升，与实现不符。确认。修复：末句改为“传送距离受法术强度加成。”"
+    },
+    {
+      "revision_key": "fe2acd05e60cc5f480d26d7f812f468b6adfd92862b69228fceb4203f9161613",
+      "stage": "surface",
+      "observation": "原文将回复力场每回合治疗的说明另起一段，译文将其并入上一段，少了一个换行及制表符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit spells/temporal.lua:79-82 源文四段，以 \\n\\t\\t 分隔：第三段 Each turn the restoration field is active… 单独成段。译文把第三段并进第二段（“持续 5 回合，每回合回复……”），少了一处 \\n\\t\\t，段落结构与原文不一致（换行不变量）。确认。修复：在“持续 5 回合。”后恢复 \\n\\t\\t，第三段单独成句：“时间回复力场存在的每回合，你将回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。”"
+    },
+    {
+      "revision_key": "fff2fd120f3a0ee0364640da2c0712a7c32912feef974a944ec009432b2507ec",
+      "stage": "surface",
+      "observation": "原文为尝试消除所有魔法效果和持续技能，译文额外限定“至多两项”，与原文相悖。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit world-artifacts.lua:3909-3935 use 实现：对锥形内每个目标执行 for i = 1, 2 do … 随机移除一个魔法效果或持续技能 … end，最多驱散两项。源文 attempt to destroy all magic effects 与实现不符，译文“（至多两项）”如实反映了实现。按源码为准，驳回。"
+    },
+    {
+      "revision_key": "01691ae63c749ad1d35fa8fb34fe888f4474ee2f6c40f682e44822f85cb85ff3",
+      "stage": "surface",
+      "observation": "译文增加了“生命值回满后结束该模式”，原文没有这一结束条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/timed_effects/other.lua AUTOMATED_REPAIR_SYSTEM（本批文件 SHA 匹配，DLC 仓库与 commit 未固定）：on_timeout 中 if self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end，生命值回满时效果确实会结束。译文“生命值回满后结束该模式”与实现一致，不是无据增译。驳回。"
+    },
+    {
+      "revision_key": "48c41f3333a4513c1594318183efb1b061dc2ad6f0f17835aa9470139671ffb6",
+      "stage": "surface",
+      "observation": "原文“every third hit always crits”指每第三次命中必定暴击；译文“每累计命中三次，下一次攻击”变成第四次攻击暴击。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/general/objects/world-artifacts.lua:1081-1090（本批文件 SHA 匹配，DLC 仓库/commit 未固定）：special_on_hit 在命中后累加 o.charge，达到 3 时把 o.combat.physcrit 设为 100 并清零计数，未满 3 次时设回 0。on_hit 在本次命中结算之后才执行，所以 100% 暴击作用于第三次命中之后的下一次攻击。译文“每累计命中三次，下一次攻击的物理暴击率变为 100%”贴合实现，驳回（源文“every third hit”与实现时序不一致）。"
+    },
+    {
+      "revision_key": "53dcd8e2cf1b784f2a0186f7b76f38a99f8bfc3f7f9e629a19b047a2cc725c2b",
+      "stage": "surface",
+      "observation": "译文“以至于 最多”在两个汉字之间多出一个空格。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/steam/furnace.lua:171-176（文件 SHA 匹配，DLC 仓库/commit 未固定）：译文“温度极高，以至于 最多 %d 个负面物理状态被高温驱散”在“以至于”和“最多”之间多了一个半角空格，是可见的排版缺陷（同类多余空格此前均按 confirmed 修复）。确认。修复：删去该空格，其余不变。"
+    },
+    {
+      "revision_key": "8eb3c7aee54b0b9db469382be3aaff4db854ff8e6abbb9d75e1faaaaf180c320",
+      "stage": "surface",
+      "observation": "原文“anything written on those notes”指信上写的内容可能落到不希望其出现的地方，译文却写成“你写的每一封信”可能出现在那里，改变了所指对象。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/lore/misc.lua:87-95 邮递系统信件：Likewise, anything written on those notes could end up exactly where you don't want them。译文“你写的每一封信都有可能出现在你最不希望出现的地方”把“信上写的内容”说成“每一封信”，但丢信本身就意味着内容外泄，下文“写信时要想象托拉克国王在看”的告诫也完整保留，信息没有实质偏差，记 advisory。"
+    },
+    {
+      "revision_key": "8fd26e16646989d4bba55ecae3cb2e2766bd10f91e77471e4e62ef5c90b183bc",
+      "stage": "surface",
+      "observation": "原文只说弹向“next closest foe”，译文增加“按与第一个目标的距离由近及远”，把选择下一目标的距离基准限定为第一个目标；冻结原文没有这个限定。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/steam/gunslinging.lua（Trick Shot action，文件 SHA 匹配，DLC 仓库/commit 未固定）：x, y = main.x, main.y 取第一个目标坐标，逐个计算 dist = core.fov.distance(x, y, actor.x, actor.y)，只收 dist<=5 的敌人，再 table.sort(target_list, \"dist\")。弹射顺序确实按与第一个目标的距离由近及远排列，译文贴合实现，驳回。"
+    },
+    {
+      "revision_key": "e9a64fcf5e3b941db46b068cceeb8ee64bc9d0e8656345c3321fff8a8bedda4a",
+      "stage": "surface",
+      "observation": "原文为160%奥术伤害，译文误写为130%。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/talents/uber/mag.lua（文件 SHA 匹配，DLC 仓库/commit 未固定）：奥术增幅无人机效果的实现在 :34 为 DamageType:get(DamageType.ARCANE).projector(self, a.x, a.y, DamageType.ARCANE, dam * 1.3)，实际波纹伤害是 130%。:82 描述写的 160% 与实现不符，译文“130%”贴合实际机制。按源码实现为准，驳回（不宜改回与实现矛盾的 160%）。"
+    }
+  ]
+}

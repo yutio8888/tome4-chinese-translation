@@ -1,0 +1,2347 @@
+[
+  {
+    "entry_revision_identity": "eba5bfa235b7d5caf9fd8da9c0aa4f3a9d1c32d4b9da40495ee76b4c3b661935",
+    "public_source_path": "game/modules/tome/data/talents/techniques/techniques.lua",
+    "lines": [
+      {
+        "line": 42,
+        "text": "newTalentType{ allow_random=true, type=\"technique/combat-training\", name = _t(\"combat training\", \"talent type\"), generic = true, description = _t\"Teaches to use various armours, weapons and improves health.\" }"
+      },
+      {
+        "line": 43,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"technique/magical-combat\", name = _t(\"magical combat\", \"talent type\"), description = _t\"The blending together of magic and melee prowess.\" }"
+      },
+      {
+        "line": 44,
+        "text": "newTalentType{ allow_random=true, type=\"technique/mobility\", name = _t(\"mobility\", \"talent type\"), generic = true, description = _t\"Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount.\" }"
+      },
+      {
+        "line": 45,
+        "text": "newTalentType{ allow_random=true, type=\"technique/thuggery\", name = _t(\"thuggery\", \"talent type\"), generic = true, description = _t\"Whatever wins the day, wins the day.\" }"
+      },
+      {
+        "line": 46,
+        "text": "newTalentType{ allow_random=true, type=\"technique/assassination\", name = _t(\"assassination\", \"talent type\"), min_lev=10, description = _t\"Bring death from the shadows.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ebdff7d5e38a1c50ae6bfe93372ba76d56aa313298f0f9d973b56852efac626b",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 469,
+        "text": "\tname = \"Blighted Maul\", color = colors.LIGHT_RED,  image = \"object/artifact/blighted_maul.png\","
+      },
+      {
+        "line": 470,
+        "text": "\tunided_name = _t\"rotten stone limb\","
+      },
+      {
+        "line": 471,
+        "text": "\tdesc = _t[[The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.]],"
+      },
+      {
+        "line": 472,
+        "text": "\tlevel_range = {40, 50},"
+      },
+      {
+        "line": 473,
+        "text": "\trarity = 250,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ec10546de70c1763c249ca7cd41b0ae07c628ced5b7bd2d5f659b8abf67d94b6",
+    "public_source_path": "game/modules/tome/data/timed_effects/floor.lua",
+    "lines": [
+      {
+        "line": 70,
+        "text": "floorEffect{"
+      },
+      {
+        "line": 71,
+        "text": "\tdesc = \"Spellblaze Scar\", image = \"talents/blood_boil.png\","
+      },
+      {
+        "line": 72,
+        "text": "\tlong_desc = _t\"The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.\","
+      },
+      {
+        "line": 73,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 74,
+        "text": "\t\tself:effectTemporaryValue(eff, \"combat_spellcrit\", 25)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ecfd01205885caef5879da2de396b7d510a4acb76805b4b16208a46405990688",
+    "public_source_path": "game/modules/tome/data/texts/unlock-mage_thaumaturgist.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class Evolution: #LIGHT_GREEN#High Thaumaturgist (Archmage)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[You have killed a boss by only using beam spells and nothing else, showing a deeper understanding of this type of spells."
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "You have unlocked the #LIGHT_GREEN#High Thaumaturgist class evolution#WHITE# for Archmages."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "Features:"
+      },
+      {
+        "line": 26,
+        "text": "- #YELLOW#Wide Beams#WHITE#: Flame, Manathrust, Lightning, Pulverizing Auger and Ice Shards permanently become 3-wide beam spells."
+      },
+      {
+        "line": 27,
+        "text": "- Access to the Thaumaturgy spell category containing the spells:"
+      },
+      {
+        "line": 28,
+        "text": "  - #YELLOW#Orb of Thaumaturgy#WHITE#: By placing a thaumaturgy orb on the ground you can duplicate all beam spells you cast."
+      },
+      {
+        "line": 29,
+        "text": "  - #YELLOW#Multicaster#WHITE#: Casting beams becomes so easy for you that you can weave in random non-beam spells when you cast one."
+      },
+      {
+        "line": 30,
+        "text": "  - #YELLOW#Slipstream#WHITE#: Flow through the battlefield with ease, when you cast a beam spell you can move one tile for free."
+      },
+      {
+        "line": 31,
+        "text": "  - #YELLOW#Elemental Array Burst#WHITE#: The ultimate beam spell, the culmination of your deep understanding of magic. A 3-wide beam of pure thaumic energy that can never be resisted."
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "Class evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class."
+      },
+      {
+        "line": 35,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ed88c8e1b7a725bd50ecd4f3624a4ea900e4e8c6a86ae64eb7d7fbfba5e7b955",
+    "public_source_path": "game/modules/tome/data/talents/psionic/solipsism.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\t\tlocal psi_damage_resist, psi_damage_resist_base, psi_damage_resist_talent = t.getPsiDamageResist(self, t)"
+      },
+      {
+        "line": 58,
+        "text": "\t\tlocal threshold = math.min((self.solipsism_threshold or 0),self:callTalent(self.T_CLARITY, \"getClarityThreshold\") or 1)"
+      },
+      {
+        "line": 59,
+        "text": "\t\treturn ([[You believe that your mind is the center of everything.  Permanently increases the amount of psi you gain per level by 5 and reduces your life rating (affects life at level up) by 50%% (one time only adjustment)."
+      },
+      {
+        "line": 60,
+        "text": "\t\tYou also have learned to overcome damage with your mind alone, and convert %d%% of all damage you receive into Psi damage and %d%% of your healing and life regen now recovers Psi instead of life."
+      },
+      {
+        "line": 61,
+        "text": "\t\tConverted Psi damage you take will be further reduced by %0.1f%% (%0.1f%% from character level with the remainder further reduced by %0.1f%% from talent level)."
+      },
+      {
+        "line": 62,
+        "text": "\t\tThe first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25."
+      },
+      {
+        "line": 63,
+        "text": "\t\tThe first talent point also increases your solipsism threshold by 20%% (currently %d%%), reducing your global speed by 1%% for each percentage your current Psi falls below this threshold.]]):tformat(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, psi_damage_resist_base * 100, psi_damage_resist_talent, (self.solipsism_threshold or 0) * 100)"
+      },
+      {
+        "line": 64,
+        "text": "\tend,"
+      },
+      {
+        "line": 65,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 481,
+        "text": "\tcategory = \"races\","
+      },
+      {
+        "line": 482,
+        "text": "\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 9 - Sher'Tul (extinct)\","
+      },
+      {
+        "line": 483,
+        "text": "\tlore = _t[[Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries."
+      },
+      {
+        "line": 484,
+        "text": ""
+      },
+      {
+        "line": 485,
+        "text": "The Sher'Tul lived over ten thousand years ago, during what is referred to as the Age of Haze. The name of the race we know from the elves, who speak of the ancient beings with awe and reverence, yet know little else about them. Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal, and some have been observed in sunken lands off the coasts, implying that in their time the Sher'Tul must have ruled unopposed all across the world."
+      },
+      {
+        "line": 486,
+        "text": ""
+      },
+      {
+        "line": 487,
+        "text": "The farportals were first discovered by the halflings during the Age of Allure, and after much experimentation they were found to be able to transport items and creatures over vast distances. The arcane powers behind these incredible artifacts are still far beyond the understanding of the greatest minds of our time. The one attempt to truly tap into these powers ended in disaster - the Shaloren moved all known farportals to a remote spot near their capital, and their most powerful mages were overwhelmed as they unleashed the Spellblaze, killing them instantly and tearing apart the continent. What remains of farportals are left in the world have since been left untouched."
+      },
+      {
+        "line": 488,
+        "text": ""
+      },
+      {
+        "line": 489,
+        "text": "Of their physical appearance we know almost nothing, as there is no surviving artwork or records which depict themselves. However they must have been of similar form to other common races, as their ruins contain stairs, doorways and rooms not unfit for humans. Oakton estimates from his studies of their tools and artifacts that they would have stood around 5'4\" tall, with uncommonly long limbs and fingers."
+      },
+      {
+        "line": 490,
+        "text": ""
+      },
+      {
+        "line": 491,
+        "text": "What caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration.]]}"
+      },
+      {
+        "line": 492,
+        "text": ""
+      },
+      {
+        "line": 493,
+        "text": "newLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f04c6c63a71b43e8df1c74fc065f61597114c476c08c20f685df2379e5046602",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 8025,
+        "text": "\tname = \"Stormfront\", color = colors.BLUE, image = \"object/artifact/stormfront.png\","
+      },
+      {
+        "line": 8026,
+        "text": "\tmoddable_tile = \"special/%s_stormfront\","
+      },
+      {
+        "line": 8027,
+        "text": "\tdesc = _t[[The blade glows faintly blue, and reflects a sky full of stormy clouds.]],"
+      },
+      {
+        "line": 8028,
+        "text": "\trequire = { stat = { str=16 }, },"
+      },
+      {
+        "line": 8029,
+        "text": "\tlevel_range = {10, 20},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f0b9333dd68ab4ea38182c95f038f5647f3927a845fb3071b084e5e7f9a5f35f",
+    "public_source_path": "game/modules/tome/data/zones/eruan/grids.lua",
+    "lines": [
+      {
+        "line": 28,
+        "text": "newEntity{"
+      },
+      {
+        "line": 29,
+        "text": "\tdefine_as = \"CHARRED_SCAR_PORTAL\","
+      },
+      {
+        "line": 30,
+        "text": "\tname = \"Farportal: Charred Scar\","
+      },
+      {
+        "line": 31,
+        "text": "\tdisplay = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = \"terrain/ocean_water_grass_5_1.png\","
+      },
+      {
+        "line": 32,
+        "text": "\tnotice = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f0d7509f16f85b30ff6a3a5dcd5acea6d08e3794fbfebed19db8ec32f1d6eb34",
+    "public_source_path": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+    "lines": [
+      {
+        "line": 59,
+        "text": ""
+      },
+      {
+        "line": 60,
+        "text": "newChat{ id=\"sunwall_west2\","
+      },
+      {
+        "line": 61,
+        "text": "\ttext = _t[[The people you saw are likely the volunteers of Zemekkys' early experiments regarding the farportals."
+      },
+      {
+        "line": 62,
+        "text": "He is a mage who resides here in the Sunwall, eccentric but skilled, who believes that creation of a new farportal to Maj'Eyal is possible."
+      },
+      {
+        "line": 63,
+        "text": "Aside from a few early attempts with questionable results, he hasn't had much luck. Still, it's gladdening to hear that the volunteers for his experiments live, regardless of their location. We are all still under the same Sun, after all."
+      },
+      {
+        "line": 64,
+        "text": ""
+      },
+      {
+        "line": 65,
+        "text": "Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]],"
+      },
+      {
+        "line": 66,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 67,
+        "text": "\t\t{_t\"Maybe I'll visit him. Thank you.\", jump=\"welcome\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f191482cb76508bc2a460f680edb47a7f0b53bc38559bb9d3e33b54731693e33",
+    "public_source_path": "game/modules/tome/data/zones/tutorial-combat-stats/grids.lua",
+    "lines": [
+      {
+        "line": 185,
+        "text": "\t\t\tactor:learnTalent(game.player.T_TUTORIAL_PHYS_KB, true, 1)"
+      },
+      {
+        "line": 186,
+        "text": "\t\t\tgame.level.map:particleEmitter(x, y, 1, \"teleport\")"
+      },
+      {
+        "line": 187,
+        "text": "\t\t\tgame.logPlayer(actor, \"#VIOLET#You have learned the talent Shove.\")"
+      },
+      {
+        "line": 188,
+        "text": "\t\t\tif actor:knowTalent(actor.T_TUTORIAL_SPELL_KB) then"
+      },
+      {
+        "line": 189,
+        "text": "\t\t\t\tactor:unlearnTalent(actor.T_TUTORIAL_SPELL_KB)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f1cc74beacc901634d729275c810f3ead9332cc33435c9772fa82ccc4b2c2f87",
+    "public_source_path": "game/modules/tome/data/texts/unlock-difficulty_madness.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New game difficulty mode: #LIGHT_GREEN#Madness\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[You won the game on Insane mode.  You are one of the best players!"
+      },
+      {
+        "line": 22,
+        "text": "But fear not because the game is just about to get even more unfair on you!"
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "Welcome to Madness!"
+      },
+      {
+        "line": 25,
+        "text": ""
+      },
+      {
+        "line": 26,
+        "text": "Madness features:#YELLOW#"
+      },
+      {
+        "line": 27,
+        "text": "- All zone levels increased by 150% + 6"
+      },
+      {
+        "line": 28,
+        "text": "- All creature talent levels increased by 170%"
+      },
+      {
+        "line": 29,
+        "text": "- Rare creatures are far more frequent and random bosses start to appear"
+      },
+      {
+        "line": 30,
+        "text": "- Bosses will have randomly selected talents"
+      },
+      {
+        "line": 31,
+        "text": "- Player is being hunted! Randomly all foes in a radius will get a feeling of where she/he is"
+      },
+      {
+        "line": 32,
+        "text": "- Player can earn Madness version of achievements if also playing in Roguelike or Adventure permadeath mode."
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "#WHITE#May you suffer many fun and unfair deaths!"
+      },
+      {
+        "line": 35,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f216e4dbbe84ac87652f829bcf037cd1cdb79a699b30cf23eaa90cda957935a8",
+    "public_source_path": "game/modules/tome/data/lore/elvala.lua",
+    "lines": [
+      {
+        "line": 228,
+        "text": "\tcategory = \"spellblaze\","
+      },
+      {
+        "line": 229,
+        "text": "\tname = _t\"The Spellblaze Chronicles(4): Before the Dawn\","
+      },
+      {
+        "line": 230,
+        "text": "\tlore = _t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#"
+      },
+      {
+        "line": 231,
+        "text": ""
+      },
+      {
+        "line": 232,
+        "text": "#{bold}#Chapter Four: Before the Dawn#{normal}#"
+      },
+      {
+        "line": 233,
+        "text": ""
+      },
+      {
+        "line": 234,
+        "text": "I rode my great grey horse at a low trot, surrounded by my lieutenants and their elite cavalry and spellrangers.  Beside me on a brown mare my squire held high a banner emblazoned with a flame-wreathed sword, symbol of my personal entourage.  The pole seemed to shiver slightly in the young elf’s hands, a sign of nervousness."
+      },
+      {
+        "line": 235,
+        "text": " "
+      },
+      {
+        "line": 236,
+        "text": "“Hold that banner firm, boy,” I said in a commanding tone."
+      },
+      {
+        "line": 237,
+        "text": " "
+      },
+      {
+        "line": 238,
+        "text": "The squire suddenly sat upright in his saddle, and gripped tight on the banner pole.  “Yes, sire!” he said, alarmed.  “Whatever you say, sire!”  He kept his head faced forward but I could see his eyes glance towards me, desperate for approval.  Whatever I say indeed...  I had seen his gaze on me before, with all the adoration of a young soldier towards his commander, and perhaps a little more.  If I had not the joy of Linaniil’s company then the attention of such a pretty lad would not be unwelcome.  But this was not the time for such thoughts."
+      },
+      {
+        "line": 239,
+        "text": " "
+      },
+      {
+        "line": 240,
+        "text": "This would be the day, the day of the Spellblaze, and the boy had every right to be nervous.  It was a few hours after midnight, and already our scouts would be engaged alongside the other races, drawing out the orcs from their hiding places.  We marched through our main offensive lines, where we would hem them in before the great conflagration.  All around were arrayed spears and swords and mail, glistening in the starlight.  Troops upon troops of battlemages in purple robes held aloft glowing staves.  It was a sight to behold.  Yet we knew also the risk of engaging on open ground with the orcs in their full numbers.  If the Spellblaze failed then we would suffer greatly."
+      },
+      {
+        "line": 241,
+        "text": ""
+      },
+      {
+        "line": 242,
+        "text": "I set up camp upon a low hill overlooking the field, and then left my entourage to seek the Kar’Krul army to the north.  As I rode my stallion towards their station I could see smoke rising in the east.  Four thick grey plumes stood out against the pre-dawn light.  They would be villages looted and burned by the orcs as they rampaged against our feigned assaults.  The townsteads would be empty, but after this battle there would be nothing left for their residents to return to.  A small sacrifice in a game of war that spanned the continent."
+      },
+      {
+        "line": 243,
+        "text": ""
+      },
+      {
+        "line": 244,
+        "text": "A fifth column of smoke began to rise, and in the greenish haze of early morn those pillars of smoke suddenly seemed to look like a demonic hand stretching over the world, ready to dig its claws into the earth and rip out the flesh beneath.  This, I knew, was the threat the orcs faced to us all, a menace to all civilisation.  Whatever price we paid to stop them would be a small one.  So I thought.  So we all thought."
+      },
+      {
+        "line": 245,
+        "text": " "
+      },
+      {
+        "line": 246,
+        "text": "When I reached the Kar’Krul camp Linaniil came out to meet me.  Her smile was warm at the sight of me, but I could tell from her eyes that she was more excited for the events of the day.  “Just a few more hours,” she whispered like an impatient child.  “This will be fascinating!”"
+      },
+      {
+        "line": 247,
+        "text": " "
+      },
+      {
+        "line": 248,
+        "text": "As I came in the Kar’Krul pavilion I saw Neira inside, and some of their senior mages and delegates from other human kingdoms.  I knew Turthel would not be with them, as he stayed in his northern city with his people.  It was not cowardice nor age that held him back from the front lines of war.  Indeed, it was said that ever since his wife was killed by the orcs he had to restrain himself from battle, lest his anger overcome him and he destroy friend and foe alike in his rage.  Yet it was known that sometimes he would venture through the lands alone, and he would bring with him a deafening storm of wrath, and the orcs would cower at the rumour of the approach of Turthel, Tempest of the North."
+      },
+      {
+        "line": 249,
+        "text": " "
+      },
+      {
+        "line": 250,
+        "text": "Neira and Linaniil commanded the Kar’Krul forces, and from the firm-set look on their archmages’ faces it was clear that they were ready for whatever the day would bring.  Yet Neira looked troubled, doubt evident in her eyes."
+      },
+      {
+        "line": 251,
+        "text": " "
+      },
+      {
+        "line": 252,
+        "text": "“What irks your sister?” I whispered to Linaniil."
+      },
+      {
+        "line": 253,
+        "text": " "
+      },
+      {
+        "line": 254,
+        "text": "“Some dumb dream,” she responded callously."
+      },
+      {
+        "line": 255,
+        "text": " "
+      },
+      {
+        "line": 256,
+        "text": "Neira’s eyes shot up.  “It were not a dream!” she barked.  “An omen it were, I tell ye!”  She turned to me then with pleading eyes.  “Ye must believe me, Aranion.  Something wilst go terribly wrong today.  I saw last night a terrible sight in mine dreams, as if it were a memory of long ago.  There were a burning city, made of glass and silver and marble.  And as it burned I did hear the cries of thousands, tens of thousands, young and old all dying.  And then the city fell, for it had been held in the sky, and it crashed down to the earth with a shattering torment that spilled across the land.  And other cities there were, and pillars of violet light struck up from them, and they did dance around filling the air with the scent of ozone and seared flesh.  Death was everywhere!  Death like none we have ever seen."
+      },
+      {
+        "line": 257,
+        "text": " "
+      },
+      {
+        "line": 258,
+        "text": "“It were no mere dream I tell ye.  It be a message, a warning - some forgotten tale of the dangers we play with.  We must stop this thing!”"
+      },
+      {
+        "line": 259,
+        "text": " "
+      },
+      {
+        "line": 260,
+        "text": "Linaniil was tapping her foot impatiently as her sister raved, but I could see some of the other leaders looking worried.  I knew I had to quiet Neira down, so I drew myself near and put my hands on her shoulders, looking her calmly in the eyes and bringing my face close."
+      },
+      {
+        "line": 261,
+        "text": " "
+      },
+      {
+        "line": 262,
+        "text": "“It may well be that this is no dream.  For this is no normal day, and even in all the legends of ages past this will stand out as a day of reckoning.  Our civilisation in under peril, our way of life threatened from the orcish scourge.  We rest upon a knife edge, the world balancing on a pivot, and the wrong sway could tip us into darkness and despair forever.  Our actions today will decide this.  So yes, you have had a warning, you have had a message, and that message is to be strong.  For today we all hold the reins of fate in our palms, and only the steady hand can guide us past the threat of doom that is to come.  Neira, can you be that steady hand?”"
+      },
+      {
+        "line": 263,
+        "text": " "
+      },
+      {
+        "line": 264,
+        "text": "She looked at me with open and hopeful gaze, her fingers clenched around my wrist as if she sought to draw strength from me.  She nodded slowly then.  “I’m sorry Aranion.  I just... I’ll be strong.”"
+      },
+      {
+        "line": 265,
+        "text": " "
+      },
+      {
+        "line": 266,
+        "text": "I turned to the others who all seemed rapt by my words.  It was clear that leaving them to their own thoughts could only bring trouble.  I had to pull them into action straight away.  “It begins now!” I shouted.  “Gather your troops and prepare for the march.  Slow and steady we shall advance, carefully shall we hold the battle, and beyond fire and fury we will emerge free and victorious.  This day shall stand in history forever!  This day shall mark a new era for all the races!  The day of the Spellblaze is here!”"
+      },
+      {
+        "line": 267,
+        "text": ""
+      },
+      {
+        "line": 268,
+        "text": "They all cheered and rushed to order their troops, taking courage from the duties of command.  Neira went to her own mages, and I left the pavilion alone.  But outside I was ambushed by Linaniil, who pulled me into an empty tent with a playful laugh."
+      },
+      {
+        "line": 269,
+        "text": " "
+      },
+      {
+        "line": 270,
+        "text": "“Ye said ye were no leader!” she exclaimed with a grin.  “That were a leader’s speech if ever I heard one.”"
+      },
+      {
+        "line": 271,
+        "text": ""
+      },
+      {
+        "line": 272,
+        "text": "I shrugged and smiled modestly.  “I said what I had to.”"
+      },
+      {
+        "line": 273,
+        "text": " "
+      },
+      {
+        "line": 274,
+        "text": "She drew close then, a sudden flush of worry in her face.  “It were just a dream, right?”  I could see then beneath all the bravado and humour she was mortally scared, her fingers trembling as she gazed into my eyes, yearning for reassurance."
+      },
+      {
+        "line": 275,
+        "text": " "
+      },
+      {
+        "line": 276,
+        "text": "“It was just a dream,” I lied, and it is a lie I have paid for with all my heart and soul.  “Everything will be all right.”  I pulled her close and wrapped my arms around her slender frame, and she held tight to me, still trembling slightly."
+      },
+      {
+        "line": 277,
+        "text": " "
+      },
+      {
+        "line": 278,
+        "text": "“Thank you, Aranion,” she whispered.  Turning up her face she kissed me, and it was the softest, most delicate kiss she ever gave me.  It was also the last."
+      },
+      {
+        "line": 279,
+        "text": " "
+      },
+      {
+        "line": 280,
+        "text": "We parted then, and I began the lonely ride back to my own troops.  My heart was now pounding like a deafening war drum, whilst the words of Neira still echoed round my head.  They stirred up a memory in me of a dream I myself had that morning, but that had laid dormant in my mind till then.  I was lying in my bed, and floating above me was a shape of light and air, like the figure of a creature I had never seen before.  It had long tentacles for arms, and billowing robes fluttered about it slowly.  Where it should have a head there was only a small bump, but I could tell it was focused on me.  It stretched out a long tentacle towards me, as if it were warding against a dark and dangerous threat.  A feeling came over me of terrible foreboding, the looming portent of a doom like no other the world had ever seen.  As the tip of the tentacle neared my brow everything went black."
+      },
+      {
+        "line": 281,
+        "text": ""
+      },
+      {
+        "line": 282,
+        "text": "Was it a dream?  Some strange foretelling?  Or could it have been a true apparition, something trying to give me a direct warning?  But I had no time for such thoughts.  The time of the Spellblaze was nearly upon us, and there could be no room for doubt.  I spurred my horse on to my fate.]],"
+      },
+      {
+        "line": 283,
+        "text": "\ton_learn = function(who)"
+      },
+      {
+        "line": 284,
+        "text": "\t\tworld:gainAchievement(\"SPELLBLAZE_LORE\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f41861f62be108737c8fb5b612dbeb608de191b4499f36a5a9b3bdcf7ff0cd97",
+    "public_source_path": "game/modules/tome/class/Game.lua",
+    "lines": [
+      {
+        "line": 924,
+        "text": "\tend"
+      },
+      {
+        "line": 925,
+        "text": "\tif not self.player.can_change_level then"
+      },
+      {
+        "line": 926,
+        "text": "\t\tself.logPlayer(self.player, \"#LIGHT_RED#You may not change level without your own body!\")"
+      },
+      {
+        "line": 927,
+        "text": "\t\treturn false"
+      },
+      {
+        "line": 928,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5c36ec719c69442ed33592d4d1ec934c1a62cb278d75b7d31fd49e84c748c09",
+    "public_source_path": "game/modules/tome/data/texts/unlock-corrupter_corruptor.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Corruptor (Defiler)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[Every power has a dark side, including the arcane forces."
+      },
+      {
+        "line": 22,
+        "text": "Corruptors are mages that deal in dark, blighted, demonic magic to attain their goals."
+      },
+      {
+        "line": 23,
+        "text": "Not all of them are evil, though; some are simply selfish and concerned only with their own power."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "You have been taught their ways by the Grand Corruptor and can now create new characters with the #LIGHT_GREEN#Corruptor class#WHITE#."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "Corruptors are spellcasters, ranged attackers using magic."
+      },
+      {
+        "line": 28,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 29,
+        "text": "- Plague your foes with deadly and contagious diseases"
+      },
+      {
+        "line": 30,
+        "text": "- Hex and curse your foes, hindering and withering them away"
+      },
+      {
+        "line": 31,
+        "text": "- Sap the life of your victims to heal yourself"
+      },
+      {
+        "line": 32,
+        "text": "- Master demonic energies to burn and destroy. You can even summon a part of the demon plane, the Fearscape, to trap your foes.#WHITE#"
+      },
+      {
+        "line": 33,
+        "text": ""
+      },
+      {
+        "line": 34,
+        "text": "Corruptors use \"vim\" to power their special abilities."
+      },
+      {
+        "line": 35,
+        "text": "Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes."
+      },
+      {
+        "line": 36,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f6a1e0d1fc42ca2e88cec9fbadc8a8b629be7ae76d6241f53df33831901401b0",
+    "public_source_path": "game/modules/tome/data/quests/staff-absorption.lua",
+    "lines": [
+      {
+        "line": 30,
+        "text": "\telseif self:isCompleted(\"ambush-died\") and not self:isCompleted(\"survived-ukruk\") then"
+      },
+      {
+        "line": 31,
+        "text": "\t\tdesc[#desc+1] = _t\"On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead.\""
+      },
+      {
+        "line": 32,
+        "text": "\t\tdesc[#desc+1] = _t\"They asked about the staff and stole it from you.\""
+      },
+      {
+        "line": 33,
+        "text": "\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#Go at once to Last Hope to report those events!\""
+      },
+      {
+        "line": 34,
+        "text": "\telseif not self:isCompleted(\"ambush-died\") and self:isCompleted(\"survived-ukruk\") then"
+      },
+      {
+        "line": 35,
+        "text": "\t\tdesc[#desc+1] = _t\"On your way out of the Dreadfell you were ambushed by a band of orcs.\""
+      },
+      {
+        "line": 36,
+        "text": "\t\tdesc[#desc+1] = _t\"They asked about the staff and stole it from you.\""
+      },
+      {
+        "line": 37,
+        "text": "\t\tdesc[#desc+1] = _t\"You told them nothing and vanquished them.\""
+      },
+      {
+        "line": 38,
+        "text": "\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#Go at once to Last Hope to report those events!\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f6f1fa18640dda242e908cc086d8aef7bc7b9e410cdad0ff55a3be4c0d5f0e6b",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 4404,
+        "text": "\tsentient=true,"
+      },
+      {
+        "line": 4405,
+        "text": "\tcharge = 0,"
+      },
+      {
+        "line": 4406,
+        "text": "\tspecial_desc = function(self) return (\"Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).\"):tformat(self.worn_by and self.use_power.litepower(self, self.worn_by) or 100, self.charge) end,"
+      },
+      {
+        "line": 4407,
+        "text": "\ton_wear = function(self, who)"
+      },
+      {
+        "line": 4408,
+        "text": "\t\tself.worn_by = who"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fa5b9d6ee06124b7729cb53e16baf28b25c78e8d467719b47c4e835040b469d9",
+    "public_source_path": "game/modules/tome/data/quests/deep-bellow.lua",
+    "lines": [
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It has been long sealed away but still, from time to time adventurers go there looking for wealth.\""
+      },
+      {
+        "line": 26,
+        "text": "\tdesc[#desc+1] = _t\"None that you know of has come back yet, but you did survive Reknor. You are great.\""
+      },
+      {
+        "line": 27,
+        "text": "\treturn table.concat(desc, \"\\n\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fb7bf07aa353029cf96364f3fabdbfad7cda1315280556d831d8b936b1aed109",
+    "public_source_path": "game/modules/tome/data/talents/gifts/malleable-body.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 35,
+        "text": "\t\tlocal dur = t.getDur(self, t)"
+      },
+      {
+        "line": 36,
+        "text": "\t\treturn ([[Your body is more like that of an ooze, you can split into two for %d turns."
+      },
+      {
+        "line": 37,
+        "text": "\t\tYour original self has the original ooze aspect while your mitosis gains the acid aspect."
+      },
+      {
+        "line": 38,
+        "text": "\t\tIf you know the Oozing Blades tree all the talents inside are exchanged for those of the Corrosive Blades tree."
+      },
+      {
+        "line": 39,
+        "text": "\t\tYour two selves share the same healthpool."
+      },
+      {
+        "line": 40,
+        "text": "\t\tWhile you are split both of you gain %d%% all resistances."
+      },
+      {
+        "line": 41,
+        "text": "\t\tResistances will increase with Mindpower.]]):"
+      },
+      {
+        "line": 42,
+        "text": "\t\ttformat(dur, 10 + self:combatTalentMindDamage(t, 5, 200) / 10)"
+      },
+      {
+        "line": 43,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fb8138dd842e67a5e73c7b48b847eb00a2dfc20e1e2e8259d3949ca3a05ce2de",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 1475,
+        "text": "\t\tlocal def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_NIGHTMARES], eff.level, math.min(eff.unlockLevel, eff.level)"
+      },
+      {
+        "line": 1476,
+        "text": ""
+      },
+      {
+        "line": 1477,
+        "text": "\t\treturn ([[Horrible visions fill your mind."
+      },
+      {
+        "line": 1478,
+        "text": "#CRIMSON#Penalty : #WHITE#Plagued by Visions: Your mental save has a 20%% chance to be reduced by %d%% when tested."
+      },
+      {
+        "line": 1479,
+        "text": "#CRIMSON#Power 1+: %sRemoved from Reality: %+d Physical Resistance, %+d Maximum Physical Resistance"
+      },
+      {
+        "line": 1480,
+        "text": "#CRIMSON#Power 2+: %s%+d Luck, %+d Willpower"
+      },
+      {
+        "line": 1481,
+        "text": "#CRIMSON#Power 3+: %sHarrow: When a foe attempts to inflict a detrimental effect upon you, your harrowing aura retaliates against a random foe in range 10, dealing %d mind and %d darkness damage."
+      },
+      {
+        "line": 1482,
+        "text": "#CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (summon Terrors and chances to slow, deal %d Mind damage, and deal %d Darkness damage) for 8 turns. The chance grows each time you are struck but fades over time.]]):tformat("
+      },
+      {
+        "line": 1483,
+        "text": "\t\tdef.getVisionsReduction(eff, level),"
+      },
+      {
+        "line": 1484,
+        "text": "\t\tbonusLevel >= 1 and \"#WHITE#\" or \"#GREY#\", def.getResistsPhysicalChange(math.max(level, 1)), def.getResistsCapPhysicalChange(math.max(level, 1)),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fcc81e9c149f97763cf40dc46af3eb33667d0bdb81d52bbd934afd5fa443a5e3",
+    "public_source_path": "game/modules/tome/data/talents/gifts/eyals-fury.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 75,
+        "text": "\t\tlocal p = t.getPower(self, t)"
+      },
+      {
+        "line": 76,
+        "text": "\t\treturn ([[Your devotion to nature has made your body more attuned to the natural world and resistant to unnatural energies."
+      },
+      {
+        "line": 77,
+        "text": "\t\tYou gain %d Spell save, %0.1f%% Arcane resistance, and %0.1f%% Nature damage affinity."
+      },
+      {
+        "line": 78,
+        "text": "\t\tYou defy arcane forces, so that any time you take damage from a spell, you restore %0.1f Equilibrium each turn for %d turns."
+      },
+      {
+        "line": 79,
+        "text": "\t\tThe effects increase with your Mindpower.]]):"
+      },
+      {
+        "line": 80,
+        "text": "\t\ttformat(t.getSave(self, t), t.getResist(self, t), t.getAffinity(self, t), t.getPower(self, t), t.getDuration(self, t))"
+      },
+      {
+        "line": 81,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fd03e791df3181e1280a1d9753749fe387b7ed5738da08fbf2f2cba653914663",
+    "public_source_path": "game/modules/tome/data/talents/spells/conveyance.lua",
+    "lines": [
+      {
+        "line": 160,
+        "text": "\t\tlocal radius = t.getRadius(self, t)"
+      },
+      {
+        "line": 161,
+        "text": "\t\tlocal range = t.getRange(self, t)"
+      },
+      {
+        "line": 162,
+        "text": "\t\treturn ([[Teleports you randomly within a small range of up to %d grids."
+      },
+      {
+        "line": 163,
+        "text": "\t\tAt level 4, it allows you to specify which creature to teleport."
+      },
+      {
+        "line": 164,
+        "text": "\t\tAt level 5, it allows you to choose the target area (radius %d)."
+      },
+      {
+        "line": 165,
+        "text": "\t\tIf the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly."
+      },
+      {
+        "line": 166,
+        "text": "\t\tThe range will increase with your Spellpower.]]):tformat(range, radius)"
+      },
+      {
+        "line": 167,
+        "text": "\tend,"
+      },
+      {
+        "line": 168,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fe2acd05e60cc5f480d26d7f812f468b6adfd92862b69228fceb4203f9161613",
+    "public_source_path": "game/modules/tome/data/talents/spells/temporal.lua",
+    "lines": [
+      {
+        "line": 77,
+        "text": "\t\tlocal duration = self:getShieldDuration(t.getDuration(self, t))"
+      },
+      {
+        "line": 78,
+        "text": "\t\tlocal time_reduc = t.getTimeReduction(self,t)"
+      },
+      {
+        "line": 79,
+        "text": "\t\treturn ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time."
+      },
+      {
+        "line": 80,
+        "text": "\t\tOnce either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns)."
+      },
+      {
+        "line": 81,
+        "text": "\t\tEach turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage)."
+      },
+      {
+        "line": 82,
+        "text": "\t\tThe shield's max absorption will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 83,
+        "text": "\t\ttformat(maxabsorb, duration)"
+      },
+      {
+        "line": 84,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ff58bd2eb35823ca2944b9d4072bd2b7eeb8c248da1ab53b205534aa0b06256c",
+    "public_source_path": "game/modules/tome/data/talents/techniques/sniper.lua",
+    "lines": [
+      {
+        "line": 192,
+        "text": "\t\tlocal dam = t.getDamage(self,t)"
+      },
+      {
+        "line": 193,
+        "text": "\t\tlocal mark = t.getMarkChance(self,t)"
+      },
+      {
+        "line": 194,
+        "text": "\t\treturn ([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%."
+      },
+      {
+        "line": 195,
+        "text": "This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8."
+      },
+      {
+        "line": 196,
+        "text": "The physical power and accuracy increase with your Dexterity. This requires a bow to use.]]):"
+      },
+      {
+        "line": 197,
+        "text": "\t\ttformat(power, speed, mark, dam, dam*5)"
+      },
+      {
+        "line": 198,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fff2fd120f3a0ee0364640da2c0712a7c32912feef974a944ec009432b2507ec",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 3874,
+        "text": "\t\t\tname = function(self, who)"
+      },
+      {
+        "line": 3875,
+        "text": "\t\t\t\tdam = who:damDesc(engine.DamageType.ARCANE, self.use_power.unnaturaldam(self, who))"
+      },
+      {
+        "line": 3876,
+        "text": "\t\t\t\treturn (\"attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)\"):tformat(self.use_power.radius, dam)"
+      },
+      {
+        "line": 3877,
+        "text": "\t\t\tend,"
+      },
+      {
+        "line": 3878,
+        "text": "\t\t\tpower = 100,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "014455dc3110247b81b842fbaa78b6bb340f3b998e586de5b28cfcbaade933d7",
+    "public_source_path": "tome-orcs/data/talents/steam/automated-butchery.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": "\tend,"
+      },
+      {
+        "line": 89,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 90,
+        "text": "\t\treturn ([[You send a saw mounted on an automated steam propulsor to assault a foe, dealing %0.2f physical damage each turn for 4 turns and silencing it."
+      },
+      {
+        "line": 91,
+        "text": "\t\tAt the end of the duration, the saw explodes for %0.2f fire damage and flies back, pulling the target up to %d tiles towards you."
+      },
+      {
+        "line": 92,
+        "text": "\t\tThe damage will increase with your Steampower.]]):"
+      },
+      {
+        "line": 93,
+        "text": "\t\ttformat(damDesc(self, DamageType.PHYSICAL, t.getDamP(self, t)), damDesc(self, DamageType.FIRE, t.getDamF(self, t)), t.range(self, t))"
+      },
+      {
+        "line": 94,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "01691ae63c749ad1d35fa8fb34fe888f4474ee2f6c40f682e44822f85cb85ff3",
+    "public_source_path": "tome-orcs/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 539,
+        "text": "\tname = \"AUTOMATED_REPAIR_SYSTEM\", image = \"talents/automated_repair_system.png\","
+      },
+      {
+        "line": 540,
+        "text": "\tdesc = _t\"Automated Repair System\", decrease = 0,"
+      },
+      {
+        "line": 541,
+        "text": "\tlong_desc = function(self, eff) return (\"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.\"):tformat(eff.heal, eff.resist, eff.life) end,"
+      },
+      {
+        "line": 542,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 543,
+        "text": "\tsubtype = { steamtech=true, healing=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0392585109e224d6e7b367ad1ad0ad21f364be8078200a1fb259244aef406d0f",
+    "public_source_path": "tome-orcs/data/quests/yeti-abduction.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\t\t\tidentified=true, no_unique_lore=true,"
+      },
+      {
+        "line": 44,
+        "text": "\t\t\tname = _t\"Yeti's Psychoportation Beacon\", display = '*', color=colors.UMBER, unique=true, image = \"object/artifact/yeti_beacon.png\","
+      },
+      {
+        "line": 45,
+        "text": "\t\t\tdesc = _t[[Call a trained yeti to your side.]],"
+      },
+      {
+        "line": 46,
+        "text": "\t\t\tcost = 0, quest=true,"
+      },
+      {
+        "line": 47,
+        "text": "\t\t\tencumber = 0,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "04dc7ee6a2c813c26b1bc87dbc7e8cdfb83edf2af318c436150277a7b5b9ce91",
+    "public_source_path": "tome-orcs/data/talents/celestial/reflection.lua",
+    "lines": [
+      {
+        "line": 133,
+        "text": "\tend,"
+      },
+      {
+        "line": 134,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 135,
+        "text": "\t\treturn (_t[[Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.]])"
+      },
+      {
+        "line": 136,
+        "text": "\tend,"
+      },
+      {
+        "line": 137,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+    "public_source_path": "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua",
+    "lines": []
+  },
+  {
+    "entry_revision_identity": "2b170fbe0a5cbb49e1136fc0e674ad547052cd2fea3295d9cbc4a32aa5302862",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 44,
+        "text": "\tname = _t\"dropped demonic orders\","
+      },
+      {
+        "line": 45,
+        "text": "\tlore = _t[[I'm not going to lie to you: things aren't going great.  Between the Doomelf escape incidents, the deaths of Khulmanar and a great deal of our more expensive combatants at the hands of the Anomaly, and the disappearance of the First Duathedlen, we've been set back pretty far this year.  As such, your orders are simple: lay low.  Stay out of sight, and conduct passive observation until we can get a foothold and a new plan."
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "And regarding the First Duathedlen - quit your murmuring right now.  I've seen his track record, and I know most of you know it too, which is why we can safely say that despite his... nature, his loyalty is [b]not[/b] in question - we can assume his abrupt cessation of communication is a necessary part of his investigations, and not him going rogue.  If you see him, tell us of his whereabouts, but do not interfere."
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]],"
+      },
+      {
+        "line": 50,
+        "text": "}"
+      },
+      {
+        "line": 51,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3249187ab628dc3399753e40135bb15fc0e70ade5fd9f45efa34f9dd65fbd290",
+    "public_source_path": "tome-orcs/data/chats/john-worldmap.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 26,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*As you approach you recognize Outpost Leader John. But there is a kind of terrible darkness, you can feel his hatred crystallize the air.*#WHITE#"
+      },
+      {
+        "line": 27,
+        "text": "@playername@. You malevolent creature! #{bold}#YOU KILLED HER! YOU MURDEROUS DOG!#{normal}#"
+      },
+      {
+        "line": 28,
+        "text": "You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it on you. Give it back! DIE!]],"
+      },
+      {
+        "line": 29,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 30,
+        "text": "\t\t{_t\"Oh you liked that paladin lady? I loved killing her!\", action=jump},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "45fe58dc6474e05d9a2368837d1a5f32af5e762866d04cb2ded0a3fa28d75e31",
+    "public_source_path": "tome-orcs/data/zones/slumbering-caves/objects.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\t\tself.on_wear = nil"
+      },
+      {
+        "line": 56,
+        "text": "\t\tself.special_desc = nil"
+      },
+      {
+        "line": 57,
+        "text": "\t\tgame.logPlayer(who, \"#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)\")"
+      },
+      {
+        "line": 58,
+        "text": "\t\tgame.bignews:saySimple(160, \"#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)\")"
+      },
+      {
+        "line": 59,
+        "text": "\tend,"
+      },
+      {
+        "line": 60,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "48c41f3333a4513c1594318183efb1b061dc2ad6f0f17835aa9470139671ffb6",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1079,
+        "text": "\t\tdam_mult = 1.2,"
+      },
+      {
+        "line": 1080,
+        "text": "\t\tphyscrit=0,"
+      },
+      {
+        "line": 1081,
+        "text": "\t\tspecial_on_hit = {desc=_t\"every third hit always crits.\", fct=function(combat, who, target)"
+      },
+      {
+        "line": 1082,
+        "text": "\t\t\tlocal o, item, inven_id = who:findInAllInventoriesBy(\"define_as\", \"GOLDEN_GUN\")"
+      },
+      {
+        "line": 1083,
+        "text": "\t\t\tif not o or not who:getInven(inven_id).worn then return end"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "53dcd8e2cf1b784f2a0186f7b76f38a99f8bfc3f7f9e629a19b047a2cc725c2b",
+    "public_source_path": "tome-orcs/data/talents/steam/furnace.lua",
+    "lines": [
+      {
+        "line": 169,
+        "text": "\tend,"
+      },
+      {
+        "line": 170,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 171,
+        "text": "\t\treturn ([[When you reach 10 molten points your armour overheats, reaching temperatures so high that they cauterize up to %d detrimental physical effects on you."
+      },
+      {
+        "line": 172,
+        "text": "\t\tA special medical injector injects you with a fire immunity serum at that precise moment to make you immune to the burning effect."
+      },
+      {
+        "line": 173,
+        "text": "\t\tWhen this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point."
+      },
+      {
+        "line": 174,
+        "text": "\t\tThis effect drains 15 steam when triggered, and will not trigger if steam is too low."
+      },
+      {
+        "line": 175,
+        "text": "\t\t#{italic}#It's only a flesh burn!#{normal}#"
+      },
+      {
+        "line": 176,
+        "text": "\t\t]]):"
+      },
+      {
+        "line": 177,
+        "text": "\t\ttformat(t.getNb(self, t))"
+      },
+      {
+        "line": 178,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5b860e23f322d2494654420165805ad3814ddaa398ab62a8185e4dcf4c7d8d8b",
+    "public_source_path": "tome-orcs/overload/data/texts/unlock-mage_technomancer.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class Evolution: #LIGHT_GREEN#Technomancer (Archmage)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[#{bold}##GOLD#EUREKA!#LAST##{normal}#"
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "As an archmage you are trained into the intricacies of the arcane forces, but as a tinker you know how to build and create. And suddently it hit you!"
+      },
+      {
+        "line": 24,
+        "text": "#{italic}#You now understand how to combine magic and technology!#{normal}#"
+      },
+      {
+        "line": 25,
+        "text": ""
+      },
+      {
+        "line": 26,
+        "text": "You have unlocked the #LIGHT_GREEN#Technomancer class evolution#WHITE# for Archmages."
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "Features:#YELLOW#"
+      },
+      {
+        "line": 29,
+        "text": "- Occult Technomancy: Use a rapidly spinning steamsaw to rip appart reality itself and project arcane and temporal onslaughts"
+      },
+      {
+        "line": 30,
+        "text": "- Galvanic Technomancy: Create galvanic rods that link up to create deadly fields of fire and lightning to burn down your foes"
+      },
+      {
+        "line": 31,
+        "text": "- Terrene Technomancy: Craft and control swarms of micro spiderbots to damage and debilitate your foes with water and earth forces"
+      },
+      {
+        "line": 32,
+        "text": "- Arcane Dynamo: Casting spells generates steam and steam increases spellpower"
+      },
+      {
+        "line": 33,
+        "text": "- Access to physics and chemistry: All Technomancers know the basics of crafting tinkers"
+      },
+      {
+        "line": 34,
+        "text": "#WHITE#"
+      },
+      {
+        "line": 35,
+        "text": ""
+      },
+      {
+        "line": 36,
+        "text": "Class evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class."
+      },
+      {
+        "line": 37,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5b89890558c7e6b579bec5d588a143c710f85ae25236ebac14eeaea6c755794a",
+    "public_source_path": "tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Psyshot (Tinker)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[You have found extremely old machines powered by advanced psionics and technology. Psionics without a living mind was never thought possible."
+      },
+      {
+        "line": 22,
+        "text": "You can now create new characters with the #LIGHT_GREEN#Psyshot class#WHITE#."
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "Psyshots are Tinkers that merge psionics and steamtech in a lethal blend, wielding a steamgun in one hand and a mindstar in the other."
+      },
+      {
+        "line": 25,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 26,
+        "text": "- Project mindstar attacks with each bullet you fire"
+      },
+      {
+        "line": 27,
+        "text": "- Inspire dread to weaken your foes to your gunslinging"
+      },
+      {
+        "line": 28,
+        "text": "- Manipulate the very air around your victims"
+      },
+      {
+        "line": 29,
+        "text": "- Enter a psionic gestalt with your steam generators, boosting them#WHITE#"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "All Tinker classes use Steam for their powers."
+      },
+      {
+        "line": 32,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5dc971c867cb99d444d3892dabddf31ed2b15773d4bf0a6ef36da641cec2c9d8",
+    "public_source_path": "tome-orcs/data/zones/gates-of-morning/grids.lua",
+    "lines": [
+      {
+        "line": 66,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 67,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 68,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way."
+      },
+      {
+        "line": 69,
+        "text": "This one seems to go near the town of Last Hope in Maj'Eyal.]],"
+      },
+      {
+        "line": 70,
+        "text": ""
+      },
+      {
+        "line": 71,
+        "text": "\torb_portal = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "608101c0c0dfafd6dd1a7fcb7b14bd2cd8761af74af7771500552c4ad232cb1e",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2394,
+        "text": "\tencumber = 2,"
+      },
+      {
+        "line": 2395,
+        "text": "\trarity = 800, --Super rare"
+      },
+      {
+        "line": 2396,
+        "text": "\tdesc = _t[[How do these even work?]],"
+      },
+      {
+        "line": 2397,
+        "text": "\tcost = 500,"
+      },
+      {
+        "line": 2398,
+        "text": "\tmaterial_level=5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "65e2ea9092d813e4e736a54286fdcda74b2a36a654d185e4c24ce58ebde469d9",
+    "public_source_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "lines": [
+      {
+        "line": 736,
+        "text": "\t\t\t\t\t\t\ttmp_target:setEffect(tmp_target.EFF_STUNNED, t.getShockDuration(self, t), {apply_power=self:combatSteampower()})"
+      },
+      {
+        "line": 737,
+        "text": "\t\t\t\t\t\telse"
+      },
+      {
+        "line": 738,
+        "text": "\t\t\t\t\t\t\tgame.logSeen(tmp_target, \"%s resists the stunning shock!\", tmp_target:getName():capitalize())"
+      },
+      {
+        "line": 739,
+        "text": "\t\t\t\t\t\tend\t\t\t\t\t\t"
+      },
+      {
+        "line": 740,
+        "text": "\t\t\t\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6c0af4da6ddfa181ca2857ec12bf60ff671d160f71cb7b65c78f646dcc9e0cb8",
+    "public_source_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+    "lines": [
+      {
+        "line": 697,
+        "text": "\t\tlocal dam = t.getDamage(self,t)"
+      },
+      {
+        "line": 698,
+        "text": "\t\tlocal resist = t.getResist(self,t)"
+      },
+      {
+        "line": 699,
+        "text": "\t\treturn ([[Leap into your mecharachnid, assuming direct control of it for %d turns. While piloting it, all damage dealt is increased by %d%%, resistances are increased by %d%%, and all of its talents cooldown twice as fast.]]):"
+      },
+      {
+        "line": 700,
+        "text": "\t\ttformat(duration, dam, resist)"
+      },
+      {
+        "line": 701,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "73aaa9a5a00afaf111f8a4c1e9b87c4881067ab1ab61892f22741f5ccf3a9418",
+    "public_source_path": "tome-orcs/data/timed_effects/physical.lua",
+    "lines": [
+      {
+        "line": 96,
+        "text": "\tname = \"ENHANCED_BULLETS_PERCUSIVE\", image = \"talents/percussive_bullets.png\","
+      },
+      {
+        "line": 97,
+        "text": "\tdesc = _t\"Bullet Mastery: Percussive\","
+      },
+      {
+        "line": 98,
+        "text": "\tlong_desc = function(self, eff) return (\"Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.\"):tformat(eff.power, eff.stunpower) end,"
+      },
+      {
+        "line": 99,
+        "text": "\ttype = \"physical\","
+      },
+      {
+        "line": 100,
+        "text": "\tsubtype = { steamtech=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7444d47117757733798894e7d3eb2f9ff2c25bc8310d630540e7f844c2bedbe9",
+    "public_source_path": "tome-orcs/data/talents/uber/wil.lua",
+    "lines": [
+      {
+        "line": 33,
+        "text": "\tend,"
+      },
+      {
+        "line": 34,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 35,
+        "text": "\t\treturn ([[Activate a special focusing device that extends all your ranged spells and psionic powers range by 3 (only works on those with range 2 or more and up to 10 max)."
+      },
+      {
+        "line": 36,
+        "text": "\t\tThe use of this device is very strenuous, increasing fatigue by 20%% while active.]])"
+      },
+      {
+        "line": 37,
+        "text": "\t\t:tformat()"
+      },
+      {
+        "line": 38,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "758de763dea6c1a96a20bc9594e55c29abab81b42a753b8897bb0cb6ee11ec7a",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 172,
+        "text": "\t},\t"
+      },
+      {
+        "line": 173,
+        "text": "\tmax_power = 18, power_regen = 1,"
+      },
+      {
+        "line": 174,
+        "text": "\tspecial_desc = function(self, who) return (\"These boots have a %d%% chance to fail to operate properly (reduced by Cunning).\"):tformat(self.use_power.fail_chance(self, who)) end,"
+      },
+      {
+        "line": 175,
+        "text": "\tuse_power = {"
+      },
+      {
+        "line": 176,
+        "text": "\t\tname = function(self, who)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "896eac9707f40921e27679325ec99248eb04af28e993da258dc65599b88c4394",
+    "public_source_path": "tome-orcs/data/talents/celestial/energies.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": "\t\tlocal negFactor = t.getNegFactor(self, t)"
+      },
+      {
+        "line": 47,
+        "text": "\t\tlocal cap = t.getCap(self, t)"
+      },
+      {
+        "line": 48,
+        "text": "\t\treturn ([[Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.]]):"
+      },
+      {
+        "line": 49,
+        "text": "\t\ttformat(posFactor * 100, negFactor * 100, cap * 100)"
+      },
+      {
+        "line": 50,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8a1ae3f7376a1ecd35d6a5ff119dac5b868aa8fd4bf9be11266c6213ec94519b",
+    "public_source_path": "tome-orcs/data/lore/palace-fumes.lua",
+    "lines": [
+      {
+        "line": 117,
+        "text": "\tcategory = \"palace of fumes\","
+      },
+      {
+        "line": 118,
+        "text": "\tname = _t\"excerpts from a Council meeting transcript (2)\","
+      },
+      {
+        "line": 119,
+        "text": "\tlore = _t[[(Ink has been spilled on this transcript - you can only read certain passages.)"
+      },
+      {
+        "line": 120,
+        "text": ""
+      },
+      {
+        "line": 121,
+        "text": "???: \"[...]ame me for this!  YOUR mechanics examined that airship, YOUR equipment was used to repair it, and it's YOUR fault it went down!\""
+      },
+      {
+        "line": 122,
+        "text": ""
+      },
+      {
+        "line": 123,
+        "text": "NASHAL: \"Yes, and I told you to call the attack off the moment I heard the news - the Loyalist's wand as a fire-support tool was far too valuable to conduct the invasion without it.  But no, Palaquie had to insist on going right then--\""
+      },
+      {
+        "line": 124,
+        "text": ""
+      },
+      {
+        "line": 125,
+        "text": "PALAQUIE: \"My visions do not lie.  It was the best way forward.  Our odds of success at that point, low as they were, were still better than if we had let Pendor's inflexible, time-dependent plan sit and--\""
+      },
+      {
+        "line": 126,
+        "text": ""
+      },
+      {
+        "line": 127,
+        "text": "PENDOR: \"DON'T YOU EVEN START, YOU YETI-LOVI--[...]\""
+      },
+      {
+        "line": 128,
+        "text": ""
+      },
+      {
+        "line": 129,
+        "text": "[...]"
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "Motion made to record the statement that Councilor Pendor would not know decent equipment if it shot or stabbed him in the face passed, 3-1, with Councilor Tantalos abstaining."
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "Motion made to record the statement that Councilor Tormak's robes smell of absinthe and vagrants passed, 3-1, with Councilor Tantalos abstaining."
+      },
+      {
+        "line": 134,
+        "text": ""
+      },
+      {
+        "line": 135,
+        "text": "Motion made to begin an official inquiry passed 3-1, with Councilor Tantalos abstaining.  The first order of business at the next session will be determining whether or not Councilor Nashal's state-of-the-art mining and extracting equipment is capable of extracting her head from her--"
+      },
+      {
+        "line": 136,
+        "text": ""
+      },
+      {
+        "line": 137,
+        "text": "[...]"
+      },
+      {
+        "line": 138,
+        "text": ""
+      },
+      {
+        "line": 139,
+        "text": "TANTALOS: \"If you are all quite finished with this rubbish...  How bad is the situation, exactly?  I want details and facts, not blame.\""
+      },
+      {
+        "line": 140,
+        "text": ""
+      },
+      {
+        "line": 141,
+        "text": "TORMAK: \"You don't want blame because this whole thing was YOUR idea!  It's YOUR fault we--\""
+      },
+      {
+        "line": 142,
+        "text": ""
+      },
+      {
+        "line": 143,
+        "text": "Motion to censure Councilor Tantalos for defenestrating Councilor Tormak has failed, 1-1 (tie broken by Chief Councilor status), with Palaquie, Nashal, and Pendor abstaining."
+      },
+      {
+        "line": 144,
+        "text": ""
+      },
+      {
+        "line": 145,
+        "text": "[...]"
+      },
+      {
+        "line": 146,
+        "text": ""
+      },
+      {
+        "line": 147,
+        "text": "TANTALOS: \"So, a few wastrels in the marketplace are gone, and the Kruk have moved on to the mainland.  As far as I am concerned, they are not presently our responsibility - these 'Allied Kingdoms' and 'Sunwall' folk can deal with them.  Thanks to Pendor's scouts, we have a weapon we can point at the Kruk Pride homeland as a deterrent, which should buy us even more time.  We should use this time to bolster our defenses...  and consider additional options.  Meeting adjourned.\""
+      },
+      {
+        "line": 148,
+        "text": ""
+      },
+      {
+        "line": 149,
+        "text": "PALAQUIE: \"Additional options?\""
+      },
+      {
+        "line": 150,
+        "text": ""
+      },
+      {
+        "line": 151,
+        "text": "TANTALOS: \"The meeting has been adjourned.  You should be training our necropsychs, Councilor.\"]],"
+      },
+      {
+        "line": 152,
+        "text": "}"
+      },
+      {
+        "line": 153,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8c00f6c81f67540d82f69e0ad7a3012afdc0d6fac29ef250f6a14d12ebcc09e2",
+    "public_source_path": "tome-orcs/data/lore/palace-fumes.lua",
+    "lines": [
+      {
+        "line": 48,
+        "text": "\tname = _t\"a fading poster\","
+      },
+      {
+        "line": 49,
+        "text": "\tlore = _t[["
+      },
+      {
+        "line": 50,
+        "text": "Councilor Tantalos, unlike that cowardly wimp Chief Councilor Kasyros, knows just what to do to solve the steam shortages, and isn't afraid to do it!  Even though he can't reveal his plan yet for security reasons, the Geothermal Authority and our military's highest generals have assured us that his plan would work, without requiring us to ration steam usage or regulate our appliances; let's see Tantalos show that old geezer what-for, and end this drought for good!"
+      },
+      {
+        "line": 51,
+        "text": ""
+      },
+      {
+        "line": 52,
+        "text": "VOTE FISTICUFFS]],"
+      },
+      {
+        "line": 53,
+        "text": "}"
+      },
+      {
+        "line": 54,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8eb3c7aee54b0b9db469382be3aaff4db854ff8e6abbb9d75e1faaaaf180c320",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 85,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 86,
+        "text": "\tname = _t\"STOP BLOWING OUR COVER\","
+      },
+      {
+        "line": 87,
+        "text": "\tlore = _t[[We get it: it's our fault the farportal mailing system isn't perfect.  Our people are still working on undoing that jury-rigged configuration that keeps your portal from transporting anything that isn't living - and if we get it wrong, that means people start getting teleported into walls again.  It's already a damn miracle you can get through the portal without coming out naked on the other side, let alone still carrying your backpacks and all their contents."
+      },
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": "In the meantime: we're still losing a few letters going through the mailing system, and the lost ones could end up teleported to pretty much anywhere.  They could end up ten feet from the portal, or they could end up right in some A.K. busybody's hands, or they could just warp themselves right up Urh'Rok's nose for all we know.  Likewise, anything written on those notes could end up exactly where you don't want them, wherever that might be."
+      },
+      {
+        "line": 90,
+        "text": ""
+      },
+      {
+        "line": 91,
+        "text": "My point is, when you're writing those letters, write them like King Tolak's looking over your left shoulder and your grandmother's looking over your right - or at least show SOME semblance of subtlety.  Don't complain about the prices of \"illegal potions,\" complain about \"extra-strength medicine.\"  Don't ask about safety accommodations for \"slaves,\" ask about \"private servants.\"  And please, for the love of Linaniil, [i]stop calling the farportal a farportal![/i]  The A.K. doesn't even know we [i]have[/i] this thing yet, and we don't want to give them any ideas on where or how to start looking.  Call it a courier, or a pack golem, or a trained uruivellas for all I care."
+      },
+      {
+        "line": 92,
+        "text": ""
+      },
+      {
+        "line": 93,
+        "text": "-Korbek"
+      },
+      {
+        "line": 94,
+        "text": ""
+      },
+      {
+        "line": 95,
+        "text": "PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]],"
+      },
+      {
+        "line": 96,
+        "text": "}"
+      },
+      {
+        "line": 97,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8fd26e16646989d4bba55ecae3cb2e2766bd10f91e77471e4e62ef5c90b183bc",
+    "public_source_path": "tome-orcs/data/talents/steam/gunslinging.lua",
+    "lines": [
+      {
+        "line": 248,
+        "text": "\t\tlocal accy = main and ammo and self:combatAttackRanged(main.combat, ammo.combat) or 0"
+      },
+      {
+        "line": 249,
+        "text": "\t\tlocal ricoaccy = 1-t.ricochetAccuracy(self, t)"
+      },
+      {
+        "line": 250,
+        "text": "\t\treturn ([[Your cunning and dexterity allow you to fire incredible trick shots that can hit multiple targets."
+      },
+      {
+        "line": 251,
+        "text": "\t\tYou precisely aim your trick shot to ricochet amongst foes you can see so that whenever it hits something solid (creature or solid wall), it will bounce towards the next closest foe."
+      },
+      {
+        "line": 252,
+        "text": "\t\tIt may ricochet up to %d times (or until it misses) within range 5 of your first target and will not target the same foe twice."
+      },
+      {
+        "line": 253,
+        "text": "\t\tYour shot deals %d%% weapon damage on its first strike, but loses %d%% damage and %d(%d%%) accuracy with each bounce.]]):"
+      },
+      {
+        "line": 254,
+        "text": "\t\ttformat(t.getNb(self, t), 100 * t.damageMult(self, t), (1-t.ricochetDamage(self, t))*100, accy*ricoaccy, ricoaccy*100)"
+      },
+      {
+        "line": 255,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "92ff602a0613160e1fdf266a5950e3dacaaf84796b47437abf6291fcedc8446c",
+    "public_source_path": "tome-orcs/data/talents/steam/butchery.lua",
+    "lines": [
+      {
+        "line": 126,
+        "text": "\tend,"
+      },
+      {
+        "line": 127,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 128,
+        "text": "\t\treturn ([[You temporarily overcharge the saw motors, increasing the effective talent level of all saw talents by %d%% for %d turns."
+      },
+      {
+        "line": 129,
+        "text": "\t\t#{italic}#The pain shall never stop!#{normal}#]])"
+      },
+      {
+        "line": 130,
+        "text": "\t\t:tformat(t.getPower(self, t), t.getDur(self, t))"
+      },
+      {
+        "line": 131,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a331e08b18158edf45720635ae5b2ee001a9f03d7e03546315d75a78513a8930",
+    "public_source_path": "tome-orcs/data/chats/kaltor-shop.lua",
+    "lines": [
+      {
+        "line": 39,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "newChat{ id=\"back\","
+      },
+      {
+        "line": 41,
+        "text": "\ttext = _t[[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!"
+      },
+      {
+        "line": 42,
+        "text": "#LIGHT_GREEN#*He points to a new poster on the wall next to him, showing your face and the caption #{bold}#\"KALTOR: THE CHOICE OF DESTROYERS!\"#{normal}#*#WHITE#"
+      },
+      {
+        "line": 43,
+        "text": ""
+      },
+      {
+        "line": 44,
+        "text": "So, what'll it be?]],"
+      },
+      {
+        "line": 45,
+        "text": "\tanswers = shop_answers,"
+      },
+      {
+        "line": 46,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ba8b0af7a737de72d7c0e364f0469f772147153495845bc9415af67d1537dbe5",
+    "public_source_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+    "lines": [
+      {
+        "line": 986,
+        "text": "\t\t\t\t\t\t\t\t\tend"
+      },
+      {
+        "line": 987,
+        "text": "\t\t\t\t\t\t\t\tend)"
+      },
+      {
+        "line": 988,
+        "text": "\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s slams into something solid, emitting a pulse of stunning lightning!\", target:getName():capitalize())"
+      },
+      {
+        "line": 989,
+        "text": "\t\t\t\t\t\t\tend"
+      },
+      {
+        "line": 990,
+        "text": "\t\t\t\t\t\tend)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d54d41ce8f9fba3b3ee4e2419508bb98666d22544c1f98670c79f965ac8d2898",
+    "public_source_path": "tome-orcs/data/talents/uber/cun.lua",
+    "lines": [
+      {
+        "line": 35,
+        "text": "\tend,"
+      },
+      {
+        "line": 36,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 37,
+        "text": "\t\treturn ([[You are adept at wreaking havoc onto your foes!"
+      },
+      {
+        "line": 38,
+        "text": "\t\tAny time you deal damage to a creature you apply the Incoming Disasters effect for 20 turns."
+      },
+      {
+        "line": 39,
+        "text": "\t\tEach time you (or any others) would try to apply a cross-tier effect to this creature, you also try to apply the other two."
+      },
+      {
+        "line": 40,
+        "text": "\t\tIn addition your physical, steam, spell and mind powers are increased by %d."
+      },
+      {
+        "line": 41,
+        "text": "\t\tThe powers increase scales of your Cunning.]])"
+      },
+      {
+        "line": 42,
+        "text": "\t\t:tformat(t:_getPower(self))"
+      },
+      {
+        "line": 43,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d9a9850d72a8c027c82346a83a617c063cc10044592d922bc26ecd5b1512824b",
+    "public_source_path": "tome-orcs/data/chats/kaltor-shop.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newChat{ id=\"gem\","
+      },
+      {
+        "line": 49,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#"
+      },
+      {
+        "line": 50,
+        "text": "\tMake it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]],"
+      },
+      {
+        "line": 51,
+        "text": "\tanswers = shop_answers,"
+      },
+      {
+        "line": 52,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e9a64fcf5e3b941db46b068cceeb8ee64bc9d0e8656345c3321fff8a8bedda4a",
+    "public_source_path": "tome-orcs/data/talents/uber/mag.lua",
+    "lines": [
+      {
+        "line": 80,
+        "text": "\t\t\tname = _t\"arcane amplification drone\", faction = self.faction, image = \"npc/construct_mechanical_arcane_amplification_drone.png\","
+      },
+      {
+        "line": 81,
+        "text": "\t\t\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 82,
+        "text": "\t\t\tdesc = _t[[Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.]],"
+      },
+      {
+        "line": 83,
+        "text": "\t\t\tautolevel = \"none\","
+      },
+      {
+        "line": 84,
+        "text": "\t\t\tai = \"summoned\", ai_real = \"dumb_talented\", ai_state = { talent_in=1, },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ee16102a8545c69402e52bc062ed4128fa816c2ac20de2623e20fb4733146d2a",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 135,
+        "text": "\tcategory = \"races...?\","
+      },
+      {
+        "line": 136,
+        "text": "\tname = _t\"Scholar Graynot's Assessment of the Species, Chapter 48: Steam Giants\","
+      },
+      {
+        "line": 137,
+        "text": "\tlore = _t[[To think such an advanced civilization was hiding nearly right under our noses!  Not that the proximity made it any easier for me to conduct my research - it seems that unless you're a Sunwall citizen, a blood relative of King Tolak, or a merchant with enough gold to bribe the guards to look the other way, it's nearly impossible for a civilian to use the portal to the East.  Fortunately, Grand Councilor Kasyros himself was shown my writings to give him a basic overview of all the species his people were unfamiliar with, and he requested my presence to study his people."
+      },
+      {
+        "line": 138,
+        "text": ""
+      },
+      {
+        "line": 139,
+        "text": "Steam Giants are strikingly similar to what humans would look like, were they 8-10 feet tall and slightly on the stocky side (in contrast to the gangly, yet deceptively strong giants of Daikara).  Their most distinguishing physical trait is almost certainly their steam, for which they are named - their skin has numerous pores and vents which are capable of emitting pressurized steam.  They have limited conscious control over this; at rest they are nearly invisible and emit either a gentle mist or nothing at all, but they can will them to seal shut or distend widely, which, in addition to being rather disconcerting to watch, emits a stream or burst of pressurized steam."
+      },
+      {
+        "line": 140,
+        "text": ""
+      },
+      {
+        "line": 141,
+        "text": "Rather ingeniously, they have figured out how to use this steam to power and operate a wide array of metallic contraptions.  Although the giants' oldest texts have been lost to occasional fires and other disasters, they claim that the first bit of \"steam-tech\" was a simple whistle; from there, they discovered a sort of pressurized stone-cleaner, and from there more and more complex contraptions.  A similar effect can theoretically be achieved by using a furnace to boil water, but this method requires attention and adjustment that comes as naturally to the Steam Giants as breathing; perhaps it is this intuitive quality that made it so easy for them to accomplish so much with it."
+      },
+      {
+        "line": 142,
+        "text": ""
+      },
+      {
+        "line": 143,
+        "text": "The Steam Giants of the Atmos Tribe have hidden in the Clork mountains for ages; it is truly fortunate for them that the Spellblaze missed them entirely, for they were so concentrated and so few in number that it surely would have eradicated them.  They have kept their interactions with other races to a minimum; while Grand Councilor Kasyros claims this was due to fear of both what the outside world could do to them, and what their careless intervention could do to outsiders, most of the other Atmos I spoke to claimed to merely find the \"lesser races\" to be boorish and unpleasant.  (This is an entirely understandable view, seeing as their only neighbors until just recently have been Orcs.) "
+      },
+      {
+        "line": 144,
+        "text": ""
+      },
+      {
+        "line": 145,
+        "text": "While this isolation has given them peace to let their society develop, it has also fostered a strain of sophistry and disconnection to reality, according to Kasyros, who has begun open trade with the Sunwall and Allied Kingdoms to grant his citizens some fresh perspective.  I could not hope to fully analyze this society during my brief stay; the only deeper insight worth noting I was able to see is that they value physical fitness almost exactly as much as intellectual pursuits, perhaps owing to the fact that steam-tech can be made more powerful through more efficient construction OR simply being able to force out more steam from one's vents.  Their government, accordingly, is chosen by an apparent compromise between democracy and bloodsport (aside from a brief period under King Traglamar, which Kasyros would only tell me \"was deeply embarassing for all involved\").  Although I cannot say how it reflects on the Atmos people in a greater sense, I feel I must make special note that they have learned how to make the best absinthe I have ever tasted."
+      },
+      {
+        "line": 146,
+        "text": ""
+      },
+      {
+        "line": 147,
+        "text": "Alas, I was not able to study them for long enough to learn more than this.  Kasyros tells me he cannot accompany me any longer, for he has arranged a meeting with the Hero of Maj'Eyal - something about using an exploratory farportal for disposal purposes?  Whatever the case, although most of our contact with the Atmos is still done via constructs dropped from airships, we will soon gain the opportunity to meet more of them in person, and perhaps outsiders other than myself will soon be allowed to see their cities for themselves.  Their help in crushing the Kruk Rebellion and thwarting their leader's attempts to commandeer [b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b] has ensured that they will be enduring allies with us for an age to come.]],"
+      },
+      {
+        "line": 148,
+        "text": "}"
+      },
+      {
+        "line": 149,
+        "text": ""
+      }
+    ]
+  }
+]
