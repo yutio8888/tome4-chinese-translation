@@ -6129,7 +6129,7 @@ You feel you the gentle warmth of your Distant Sun patron. It speaks directly to
 <<<The warmth in your head is getting intense, too intense. You feel your sanity burning away!>>>
 #YELLOW#THROW YOURSELF INTO THE PORTAL! OPEN THE WAY FOR MY POWER TO RADIATE OVER YOUR WORLD! #CRIMSON#DO IT!#LAST#
 <<<Those last words are compelling. You can not resist!>>>
-]], [[<<<两个魔法师死在你面前。
+]], [[<<<两名巫师死在你面前。
 他们的尸体化成了一缕青烟消失了。
 你感受到主上遥远太阳传来的温柔暖意。它直接在你的脑海中说话！>>>
 #YELLOW#你做得很好，%s！你理应得到奖赏！#LAST#
@@ -6173,7 +6173,7 @@ The energies of those farportals are incredible, using them we could make the Wa
 You must go through the farportal and willingly sacrifice yourself inside. Your mind will embed itself into the farportal network, spreading the Way far and wide!
 Even though you will die you will bring the world, and the yeeks, ultimate peace.
 The Way will never forget you. Now go and make history!
-]], [[#LIGHT_GREEN#*两个魔法师死在你面前。*#WHITE#
+]], [[#LIGHT_GREEN#*两名巫师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟，很快消失了。*#WHITE#
 #LIGHT_GREEN#*你感觉到维网和你发生了联系，整个夺心魔族在和你对话。*#WHITE#
 你完成了令人难以置信的使命，%s！你也为夺心魔族创造了千载难逢的机会！
@@ -6204,10 +6204,10 @@ t("sacrificing %s to stop the Way", "牺牲%s以阻止维网", "tformat")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 #LIGHT_GREEN#*Their bodies vanish in a small cloud of mist, quickly fading away.*#WHITE#
 But the portal to the Void is already open. It must be closed before the Creator can come through or all will have been in vain!
-After searching the remains of the Sorcerers you find a note explaining that the portal can only be closed with a sentient being's sacrifice.]], [[#LIGHT_GREEN#*两个魔法师死在你面前。*#WHITE#
+After searching the remains of the Sorcerers you find a note explaining that the portal can only be closed with a sentient being's sacrifice.]], [[#LIGHT_GREEN#*两名巫师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟，很快消失了。*#WHITE#
 但是虚空传送门已经开启。必须在造物主穿过它之前将其关闭，否则一切努力都会白费！
-你搜索魔法师的遗骸时找到一张便条，上面写着：只有牺牲一个有智慧的生命，才能关闭传送门。]], "_t")
+你搜索巫师们的遗骸时找到一张便条，上面写着：只有牺牲一个有智慧的生命，才能关闭传送门。]], "_t")
 t("Aeryn, I am sorry but one of us needs to be sacrificed for the world to go on. #LIGHT_GREEN#[sacrifice Aeryn for the sake of the world]", "艾琳，很抱歉我们之中得有一个人牺牲才能维持这个世界的存在。#LIGHT_GREEN#[为了这个世界牺牲艾琳]", "_t")
 t("I will close it. #LIGHT_GREEN#[sacrifice yourself for the sake of the world]", "我会关闭它。#LIGHT_GREEN#[为了这个世界牺牲你自己。]", "_t")
 t("sacrificing %s for the sake of the world", "为了世界牺牲了%s", "tformat")
@@ -6218,10 +6218,10 @@ t("You will never be forgotten.", "你会永远被人铭记。", "_t")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 #LIGHT_GREEN#*Their bodies vanish in some immaterial mist.*#WHITE#
 You have won the game!
-Both Maj'Eyal and the Far East are safe from the dark schemes of the Sorcerers and their God.]], [[#LIGHT_GREEN#*两个魔法师死在你面前。*#WHITE#
+Both Maj'Eyal and the Far East are safe from the dark schemes of the Sorcerers and their God.]], [[#LIGHT_GREEN#*两名巫师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟消失了。*#WHITE#
 你赢得了这个游戏！
-马基·埃亚尔和远东大陆都摆脱了两名魔法师及其神明的黑暗阴谋。]], "_t")
+马基·埃亚尔和远东大陆都摆脱了两名巫师及其神明的黑暗阴谋。]], "_t")
 t("Aeryn, are you well?", "艾琳，你还好么？", "_t")
 t("[leave]", "[离开]", "_t")
 t([[I cannot believe we succeeded. I was prepared to die and yet I live.
@@ -6234,7 +6234,7 @@ section "mod-tome/data/chats/sorcerer-fight.lua"
 
 t("High Sun Paladin Aeryn appears next to you!", "高阶太阳骑士艾琳在你的身边出现了！", "logPlayer")
 t([[#LIGHT_GREEN#*The two Sorcerers stands before you, shining like the Sun.*#WHITE#
-Ah! Our guest is finally here. I take it you found the peak entertaining?]], [[#LIGHT_GREEN#*两个魔法师站在你面前，像太阳一样闪闪发光。*#WHITE#
+Ah! Our guest is finally here. I take it you found the peak entertaining?]], [[#LIGHT_GREEN#*两名巫师站在你面前，像太阳一样闪闪发光。*#WHITE#
 喔～！我们的客人终于来到了这里。我想你在山巅玩得很尽兴？]], "_t")
 t("Spare me the small talk. I am here to stop you!", "我不是来和你们聊天的，我是来阻止你们的！", "_t")
 t("Why are you doing all that? You were supposed to help people!", "你们为什么要做这一切？你们本该帮助人们！", "_t")
@@ -9044,7 +9044,7 @@ section "mod-tome/data/general/npcs/ziguranth.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("and burned on a pyre", "并被绑在火刑柱上烧死", "_t")
+t("and burned on a pyre", "并被送上火刑堆焚烧", "_t")
 t("ziguranth warrior", "伊格兰斯战士", "entity name")
 t("dwarf", "矮人", "entity subtype")
 t("A Ziguranth warrior, clad in heavy armour.", "一位身穿重甲的伊格兰斯战士。", "_t")
@@ -9759,8 +9759,8 @@ t(" of delving", "挖掘之", "entity name")
 t("delving", "挖掘", "entity keyword")
 t(" of the deep", "深渊之", "entity name")
 t("deep", "深渊", "entity keyword")
-t(" of thunder", "闪电之", "entity name")
-t("thunder", "闪电", "entity keyword")
+t(" of thunder", "雷霆之", "entity name")
+t("thunder", "雷霆", "entity keyword")
 t("rejuvenating ", "回复的", "entity name")
 t("rejuv", "回复", "entity keyword")
 t(" of resilience", "恢复之", "entity name")
@@ -20163,9 +20163,9 @@ t("This place is still full of that power and the orcs intend to absorb this pow
 t("Whatever their plan may be, they must be stopped at all cost.", "不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山正遭到兽人的攻击。几名太阳骑士与你一同赶到了这里，他们将不惜牺牲生命坚守防线，为你争取一些时间。", "_t")
 t("Honor their sacrifice; do not let the orcs finish their work!", "向他们的献身精神致敬！不要让兽人们达成所愿！", "_t")
-t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来得太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
+t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来得太晚了，这里的能量已经被吸干，而那些巫师已经离开了。", "_t")
 t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", "使用传送门返回远东大陆，你*必须*阻止他们，不惜一切代价。", "_t")
-t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你及时赶到并打断了仪式，法师们已经离去。", "_t")
+t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你及时赶到并打断了仪式，巫师们已经离去。", "_t")
 t("#VIOLET#A portal activates in the distance. You hear the orcs shout, 'The Sorcerers have departed! Follow them!'", "#VIOLET#远处一个传送门被激活，你听到兽人们吼道：“巫师们已经离开！跟上他们！”", "logPlayer")
 t("#VIOLET#The Sorcerers flee through a portal. As you prepare to follow them, a huge faeros appears to block the way.", "#VIOLET#巫师们从传送门逃跑了，当你准备跟随他们时，一个巨大的法罗挡住了去路。", "logPlayer")
 -- untranslated text
@@ -20250,16 +20250,16 @@ section "mod-tome/data/quests/high-peak.lua"
 
 t("Falling Toward Apotheosis", "坠向神化", "_t")
 t("You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak.", "你击败了兽人部落的首领们，现在你必须向这个世界最危险的地方挺进：巅峰。", "_t")
-t("Seek the Sorcerers and stop them before they bend the world to their will.", "找到那些妄图扭曲这个世界的法师并阻止他们。", "_t")
+t("Seek the Sorcerers and stop them before they bend the world to their will.", "找到那些巫师，在他们让世界屈从于自己的意志之前阻止他们。", "_t")
 t("To enter, you will need the four orbs of command to remove the shield over the peak.", "想要进去的话，你必须找到那四个指令水晶球来移除峰顶的防护罩。", "_t")
 t("The entrance to the peak passes through a place called 'the slime tunnels', probably located inside or near Grushnak Pride.", "通往巅峰的入口要经过一个名为“史莱姆通道”的地方，它大概位于格鲁希纳克部落内部或附近。", "_t")
-t("You have reached the summit of the High Peak, entered the sanctum of the Sorcerers and destroyed them, freeing the world from the threat of evil.", "你已登上巅峰之巅，进入法师们的圣所并消灭了他们，将世界从邪恶的威胁中解放出来。", "_t")
+t("You have reached the summit of the High Peak, entered the sanctum of the Sorcerers and destroyed them, freeing the world from the threat of evil.", "你已登上巅峰之巅，进入巫师们的圣所并消灭了他们，将世界从邪恶的威胁中解放出来。", "_t")
 t("You have won the game!", "你通关了！", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall. You were forced to kill her.#LAST#", "#LIGHT_GREEN#* 你遇到了太阳骑士艾琳；她将太阳堡垒的陷落归咎于你，你不得不杀了她。#LAST#", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall, but you spared her.#LAST#", "#LIGHT_GREEN#* 你遭遇了太阳骑士艾琳，她把太阳堡垒陷落的责任归咎在你的头上，但是你饶恕了她。#LAST#", "_t")
-t("#LIGHT_GREEN#* You defeated the Sorcerers before the Void portal could open.#LAST#", "#LIGHT_GREEN#* 你在虚空传送门打开之前击败了那些法师。#LAST#", "_t")
-t("#LIGHT_GREEN#* You defeated the Sorcerers and Aeryn sacrificed herself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些法师，艾琳牺牲了她自己关闭了虚空传送门。#LAST#", "_t")
-t("#LIGHT_GREEN#* You defeated the Sorcerers and sacrificed yourself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些法师，并牺牲了自己关闭虚空传送门。#LAST#", "_t")
+t("#LIGHT_GREEN#* You defeated the Sorcerers before the Void portal could open.#LAST#", "#LIGHT_GREEN#* 你在虚空传送门打开之前击败了那些巫师。#LAST#", "_t")
+t("#LIGHT_GREEN#* You defeated the Sorcerers and Aeryn sacrificed herself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些巫师，艾琳牺牲了她自己关闭了虚空传送门。#LAST#", "_t")
+t("#LIGHT_GREEN#* You defeated the Sorcerers and sacrificed yourself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些巫师，并牺牲了自己关闭虚空传送门。#LAST#", "_t")
 t("Endgame", "游戏结束", "_t")
 t("#LIGHT_RED#As you enter the level you hear a familiar voice.", "#LIGHT_RED#当你进入地图你听到了一个熟悉的声音。", "logPlayer")
 t("#LIGHT_RED#Fallen Sun Paladin Aeryn: '%s YOU BROUGHT ONLY DESTRUCTION TO THE SUNWALL! YOU WILL PAY!'", "#LIGHT_RED#堕落太阳骑士艾琳：“%s 你只给太阳堡垒带来了毁灭！你会为此付出代价！”", "logPlayer")
@@ -20267,7 +20267,7 @@ t("Ruins of the Gates of Morning", "晨曦之门的废墟", "_t")
 t("The Sunwall was destroyed while you were trapped in the High Peak.", "当你在巅峰被困的时候，太阳堡垒被摧毁了。", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: The Age of Ascendancy#WHITE#", "#GOLD#干得好！你赢得了《马基·埃亚尔的传说：卓越纪》#WHITE#", "_t")
-t("The Sorcerers are dead, and the Orc Pride lies in ruins, thanks to your efforts.", "法师已经死去，兽人部落也沦为废墟，这都归功于你的努力。", "_t")
+t("The Sorcerers are dead, and the Orc Pride lies in ruins, thanks to your efforts.", "巫师们已经死去，兽人部落也沦为废墟，这都归功于你的努力。", "_t")
 t("Your patron's plan worked. As your body was crushed by the raw forces of the void portal it opened wide. In an instant the connection was made and waves of heat came through.", "你的庇护者的计划成功了。你的身体被虚空传送门的原始力量碾碎，传送门随之完全开启。连接转瞬建立，滚滚热浪从门中涌出。", "_t")
 t("The mad sun brought forth all its power through the portal, turning the High Peak into a giant searing needle!", "疯狂的太阳带着所有力量穿越了传送门，将巅峰化为一根灼烧的巨针！", "_t")
 t("A few minutes later the whole world was set ablaze, nothing survived except Faeros elementals.", "几分钟后，整个世界都被点燃，除了法罗元素，没有任何幸存者。", "_t")
@@ -20284,7 +20284,7 @@ t("You have prevented the portal to the Void from opening and thus stopped the C
 t("In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "高阶太阳骑士艾琳无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("In a selfless act, you sacrificed yourself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "你无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("The Gates of Morning have been destroyed and the Sunwall has fallen. The last remnants of the free people in the Far East will surely diminish, and soon only orcs will inhabit this land.", "晨曦之门已被摧毁，太阳堡垒已经陷落。远东自由人民最后的残余势力必将衰亡，不久后，这片土地上将只剩兽人。", "_t")
-t("The orc presence in the Far East has greatly been diminished by the loss of their leaders and the destruction of the Sorcerers. The free people of the Sunwall will be able to prosper and thrive on this land.", "随着首领丧生、法师被消灭，远东的兽人势力已大幅削弱。太阳堡垒的自由人民将得以在这片土地上繁衍兴盛。", "_t")
+t("The orc presence in the Far East has greatly been diminished by the loss of their leaders and the destruction of the Sorcerers. The free people of the Sunwall will be able to prosper and thrive on this land.", "随着首领丧生、巫师们被消灭，远东的兽人势力已大幅削弱。太阳堡垒的自由人民将得以在这片土地上繁衍兴盛。", "_t")
 t("Maj'Eyal will once more know peace. Most of its inhabitants will never know they even were on the verge of destruction, but then this is what being a true hero means: to do the right thing even though nobody will know about it.", "马基·埃亚尔将重归和平。大多数居民永远不会知道自己曾濒临毁灭，但这正是真正英雄的意义：即使无人知晓，也要做正确的事。", "_t")
 t("You may continue playing and enjoy the rest of the world.", "你可以继续在这个世界上探险。", "_t")
 -- untranslated text
@@ -20850,7 +20850,7 @@ t("Tutorial: Movement", "教程：移动", "_t")
 section "mod-tome/data/quests/void-gerlyk.lua"
 
 t("In the void, no one can hear you scream", "虚空之中无人会听到你的叫喊", "_t")
-t("You have destroyed the sorcerers. Sadly, the portal to the Void remains open; the Creator is coming.", "你已经消灭了那些法师。遗憾的是，通往虚空的传送门仍然敞开；造物主即将降临。", "_t")
+t("You have destroyed the sorcerers. Sadly, the portal to the Void remains open; the Creator is coming.", "你已经消灭了那些巫师。遗憾的是，通往虚空的传送门仍然敞开；造物主即将降临。", "_t")
 t("This cannot be allowed to happen. After thousands of years trapped in the Void between the stars, Gerlyk is mad with rage.", "绝不能让这种事发生。盖里克被困在群星之间的虚空中数千年，如今已因愤怒而疯狂。", "_t")
 t("You must now finish what the Sher'tuls started. Take the Staff of Absorption and become a Godslayer yourself.", "现在，你必须完成夏·图尔开启的未竟之事。拿起吸能法杖，亲自成为弑神者。", "_t")
 
@@ -23341,7 +23341,7 @@ t("Blinding Powder", "致盲粉", "talent name")
 t([[Throw a cloud of blinding dust in a radius %d cone. Enemies within will be blinded, as well as having their accuracy reduced by %d and movement speed decreased by %d%% for %d turns.
 		The chance to inflict these effects increase with your Accuracy.]], [[撒出致盲粉，致盲前方 %d 格锥形范围内的敌人。受影响的敌人命中减少 %d，移动速度减少 %d%%，持续 %d 回合。
 		效果成功率受命中加成。]], "tformat")
-t("Twist the Knife", "扭曲刀刃", "talent name")
+t("Twist the Knife", "伤口拧刀", "talent name")
 t("#CRIMSON#%s's %s was extended!#LAST#", "#CRIMSON#%s的%s被延长了！#LAST#", "logSeen")
 t("#CRIMSON#%s's %s was stripped!#LAST#", "#CRIMSON#%s的%s被解除了！#LAST#", "logSeen")
 t("#CRIMSON#%s's %s was disrupted!#LAST#", "#CRIMSON#%s的%s被干扰了！#LAST#", "logSeen")
@@ -23844,7 +23844,7 @@ t([[Command all Shadows within sight to tele-dash to a target location, damaging
 每个传送的阴影会使后续阴影造成的伤害减少40%%。
 阴影能穿过墙壁来到达目的地。
 伤害受精神强度加成。]], "tformat")
-t("Cursed Bolt", "诅咒之球", "talent name")
+t("Cursed Bolt", "诅咒之箭", "talent name")
 t([[Share your hatred with all shadows within sight range, gaining temporary full control. You then fire a blast of pure hatred from all affected shadows, dealing %0.1f Mind damage per blast.
 		You cannot cancel this talent once the first bolt is cast.
 		Damage increases with your Mindpower.]], [[和视野内的所有阴影共享你的仇恨，获得临时的完全控制。随后你从所有受影响的阴影中发射一道纯粹的仇恨冲击，每道造成 %0.1f 精神伤害。
@@ -24141,7 +24141,7 @@ t([[When you focus your attacks on a single foe and strike them in melee for two
 		3 重增益：+%d 命中，+%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
 		命中受意志加成。
 		近战伤害受力量值加成。]], "tformat")
-t("Harass Prey", "痛苦折磨", "talent name")
+t("Harass Prey", "袭扰猎物", "talent name")
 t("#F53CBE#%s's %s is disrupted!", "#F53CBE#%s的%s中断了！", "logSeen")
 t([[Harass your stalked victim with two quick attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Each attack that scores a hit disrupts one talent, rune or infusion for %d turns. Your opponent will be unnerved by the attacks, reducing the damage they deal by %d%% for %d turns.
 
@@ -26949,7 +26949,7 @@ t([[Reach through the collective psionic gestalt of the yeeks, the Way, to call 
 		在你身边召唤最多 3 名夺心魔心灵杀手，持续 6 回合。
 		他们的所有主要属性将设为 %d（数值随你的意志和技能等级提高）。
 		他们会继承你的伤害加成、伤害穿透及许多其他属性。]], "tformat")
-t("Knowledge of the Way", "维网的力量", "talent name")
+t("Knowledge of the Way", "维网之识", "talent name")
 t([[You merge your mind with the rest of the Way for a brief moment; the sum of all yeek knowledge gathers in your mind
 		and allows you to identify any item you could not recognize yourself.]], [[你将精神与维网链接，能暂时获得你们一族所有的知识
 		让你能鉴定所有物品。]], "tformat")
@@ -28004,7 +28004,7 @@ t("thought-forged defender", "精神体盾战士", "_t")
 t("A thought-forged defender clad in massive armor.  It wields a sword and shield and appears ready for battle.", "一位身穿重甲的精神体盾战士。他手持剑盾，时刻准备着战斗。", "_t")
 t([[Forge a defender wielding a sword and shield from your thoughts.  The solider learns Armor Training, Weapon Mastery, Combat Accuracy, Shield Pummel, and Shield Wall as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持剑盾的精神体盾战士。当精神体盾战士到达对应等级时可习得护甲掌握、武器掌握、强化命中、盾牌连击和盾墙，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
+		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持剑盾的精神体盾战士。当精神体盾战士到达对应等级时可习得重甲训练、武器掌握、强化命中、盾牌连击和盾墙，并且可增加 %d 点力量、%d 点敏捷和 %d 体质。
 		激活此技能会使其他思维形态技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
 t("Thought-Forms", "思维形态", "talent name")
@@ -28972,7 +28972,7 @@ t("Self-destruction", "自爆", "talent name")
 t([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
 		This spell is only usable when the golem's master is dead.]], [[傀儡引爆自己，摧毁傀儡并产生一个火焰爆炸，%d 码有效范围内造成 %0.2f 火焰伤害。
 		这个技能只有傀儡的主人死亡时能够使用。]], "tformat")
-t("Armour Configuration", "护甲掌握", "talent name")
+t("Armour Configuration", "护甲改装", "talent name")
 t("Increases", "增加", "_t")
 t("Decreases", "降低", "_t")
 t([[The golem automatically reconfigures heavy mail and massive armours designed for living creatures to protect its own vital areas.
@@ -40058,7 +40058,7 @@ t("and perverted into a monstrous aberration as a warning to the surface", "并�
 ------------------------------------------------
 section "mod-tome/data/zones/temple-of-creation/objects.lua"
 
-t("Eldritch Pearl", "埃尔德里奇珍珠", "entity name")
+t("Eldritch Pearl", "骇异珍珠", "entity name")
 t("bright pearl", "闪亮的珍珠", "_t")
 t("Thousands of years spent inside the temple of creation have infused this pearl with the fury of rushing water. It pulses light.", "在造物主神庙中度过的数千年，为这颗珍珠注入了奔流之水的怒火。它散发着脉动的光芒。", "_t")
 t("tract", "小短文", "entity name")
