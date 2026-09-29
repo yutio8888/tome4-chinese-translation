@@ -6,8 +6,10 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本、条目数和待发布事项见
-[`docs/release-plan.md`](../deprecated/docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
+最新已推送 addon 版本：**0.3.0**（2026-09-29，发布仓库 tome4-chn-mod `717078b`，由本仓库
+`ce0b3a34` 经 `tools/i18n publish --apply` 构建：12,074 条＝核心 6,613＋DLC 5,461，sha256 `47cae0b1…`）。
+`publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
+早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
 是工具链可复现输入 pin，不等同于发布仓库的最新 HEAD；不能只因发布版本前进就改写该 pin。
 
 ## 常用命令

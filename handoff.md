@@ -72,5 +72,6 @@
   它们报“commit 不存在、证据不足”时由宿主自查。
 - 未跟踪文件 `.ai/consult/`、`recipe` 与旧的 `evidence/quality/production-batches/*-source-workset.json`（15 个）
   是既有遗留，保持不动。
+- 发布插件：0.3.0 已于 2026-09-29 推送到 tome4-chn-mod（`717078b`，对应本仓库 `ce0b3a34`）；此后的译文改动尚未发布。
 - 历史保留边界：`RW1-SIB-01`、`RW1-SIB-02` 永久排除，不计阈值。
 - 不要打开 reviewer 的 agent tab（会清掉 attentionReason，harvest 失败只能整批 abandon）。
