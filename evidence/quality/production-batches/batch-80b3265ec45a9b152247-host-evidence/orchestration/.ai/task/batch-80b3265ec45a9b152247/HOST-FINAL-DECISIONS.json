@@ -1,0 +1,36 @@
+{
+  "batch_id": "batch-80b3265ec45a9b152247",
+  "observations": 1,
+  "observation_dispositions": {
+    "refuted": 1
+  },
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 7,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "12e89c52434ffd354cae6dd85d178440e0cef9c9a4d16b2bdeea25f8168cc90e",
+      "stage": "surface",
+      "observation": "psyched 表示兴奋或做好心理准备，与“被心灵摧毁”含义相反。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/damage_types.lua:964 MIND 伤害的 death_message 表（psyched、mentally tortured、mindraped），由 class/interface/PartyDeath.lua:69-71 按致死伤害类型随机取出，代入“%s … was %s to death by %s…”（译文模板“……{词}而死”）。在这里 psyched 是“被精神攻击整死”的戏谑用法，不是“兴奋、做好心理准备”；“被心灵摧毁”符合语境，且是用户 2026-09-29 裁决（pending-user-review.md 第45项）、窗口55 复审通过的译法。contextual（Opus 5.5）同判 OK。驳回。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6-sol (4 lanes: one main-game group of 7 in four lanes of 2/2/2/1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 1 entries)"
+  },
+  "notes": [
+    "Successors of repair window 55: 7 core-game entries in one surface group of four gpt-6-sol lanes (2/2/2/1). Lanes read or parsed only their own envelope and the contract; no Paseo terminal was created. One lane flagged the psyched death message.",
+    "One contextual run of claude/claude-opus-5-5 (contextual-000, 1 deep entry) was accepted on the first pass: 1 OK.",
+    "Refuted: psyched is the MIND damage death message filled into the '… was %s to death by …' template, so 被心灵摧毁 fits; it is the wording the user ruled on 2026-09-29 (pending item 45) and window 55 reviewed.",
+    "All 7 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and matched the literal in the recorded file.",
+    "0 confirmed repair revisions raise the window 56 backlog from 0 to 0; below the 20 threshold, so no window opens."
+  ]
+}
