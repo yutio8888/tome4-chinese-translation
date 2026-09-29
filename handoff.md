@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（修复窗口56已完成、待宿主证据提交与推送；下一步审核窗口56的 29 个 successor，第372批）
+更新时间：2026-09-29（第372批已 finalize，窗口57积压 3 条，继续审核第373批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,9 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **371** 批（`batch-80b3265ec45a9b152247`）：7 条，7 done / 0 repair_required。
-  窗口55 的 7 个 successor（主游戏）：surface 一组 4 lane，1 个 ISSUE 驳回；contextual 一个 run 首轮通过。窗口56积压 0。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `bce50e79f63af0aa0e527af600e65e8f88d7a5f9` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **372** 批（`batch-c9ca70f29bc203b33050`）：29 条，29 done / 0 repair_required。
+  窗口56 的 29 个 successor（引擎 1、主游戏 25、Orcs 3）：surface 两组 5 lane，2 个 ISSUE 驳回；contextual 一个 run 首轮通过。窗口57积压 3。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `d4ad8a4297d7e881d78880d48fede53a848049b7` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **56**：blocked 排查后裁决的 29 条（三方定名 8 条、盾战士重甲训练、火刑堆、the Sorcerers 统一为巫师 19 条；复审另修口袋时间 lore 与高峰任务的旧错译）已修复；译文提交 `ff45cbd8644139938395ac295e3290b3e6bbc774`；migration `f0ff579a…` 的 29 个 successor 须重新审核，不继承旧 revision 的 done 状态。下一步审核第372批（见第五节第 1 项）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
@@ -123,6 +123,7 @@
 | 369 | `batch-ee4d1e47a33a7b8cc828` | 18 done / 1 repair | 14 OK / 5 ISSUE | 4 OK / 1 ISSUE | 2 confirmed / 3 refuted / 1 advisory |
 | 370 | `batch-6bd34a6ffb2c19accea1` | 2 done / 0 repair | 2 OK / 0 ISSUE | 0 OK / 0 ISSUE |  |
 | 371 | `batch-80b3265ec45a9b152247` | 7 done / 0 repair | 6 OK / 1 ISSUE | 1 OK / 0 ISSUE | 1 refuted |
+| 372 | `batch-c9ca70f29bc203b33050` | 29 done / 0 repair | 27 OK / 2 ISSUE | 2 OK / 0 ISSUE | 2 refuted |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -199,11 +200,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **372** 批起（窗口56的 29 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **373** 批起（窗口56的 29 个 successor；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window56.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w56-20260929/wd.sh`、`/tmp/w56-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 56 已完成（审核队列耗尽后只读排查 25 条 blocked，2026-09-29 裁决记于 pending 第47–49项）：三方多数定名 8 条（护甲改装、雷霆之／雷霆、伤口拧刀、袭扰猎物、维网之识、诅咒之箭、骇异珍珠）、盾战士 info 的 Armor Training→重甲训练、伊格兰斯 killer_message→并被送上火刑堆焚烧、远东最终首领二人组 the Sorcerers 统一为“巫师”19 条（engine 1、mod-tome 15、tome-orcs 3；泛指 sorcerers 保持）；petty gods 按用户裁决保持伪神。复审路径：execute-01 → REVIEW r0a1 2 确认（高峰任务 before/bend to their will；口袋时间 lore 候选人筛选与 inevitable doom）→ execute-02 → RE r1a1 2 确认（西方灾星→西方天灾；骨盾→骨甲）→ execute-03 → RE r2a1 1 确认＋1 挂错条目移至 d9b49ce5bc，宿主通读两条口袋时间 lore 再补 2 处（whenever→每当、finally destroy→最终消灭）→ execute-04 → RE r3a1 29/29 → FINAL f3a2 截断无效、f3a3（Opus 5.5）29/29，cycle 3 收敛；无同键兄弟；门禁 17/17。教训：长篇 lore 进窗口后每轮会冒出旧错，第二轮起宿主应整条对照源文一次补齐；Gemini antigravity 认证失败时名称咨询走 `pi/cpa/gemini-3.8-flash-high`。窗口 57 积压见下行。窗口模板为 `setup_window56.py`（已支持 engine.lua）、`.artifacts/i18n/repair-w56-20260929/wd.sh` 与 `/tmp/w56-*.sh`。
-   窗口 57 积压 **3** 条（窗口56后重新计数）：`aeae08fe72` Toxic Death→剧毒之死（Gemini 裁定）；`23e4d42cdb`、`4220402439` Orcs 开场白“西方灾星”→西方天灾（society.tsv:34 preferred）。
-   第371批计时（实测，投影缓存 on）：start 147.7 s；adjudication chain（含 17 项门禁）169.9 s；finalize 148.9 s。
+   窗口 57 积压 **3** 条（窗口56后重新计数，范围外项不计入，主游戏 1、Orcs 2）：`aeae08fe72` Toxic Death→剧毒之死（Gemini 裁定）；`23e4d42cdb`、`4220402439` Orcs 开场白“西方灾星”→西方天灾（society.tsv:34 preferred）；第372批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第372批计时（实测，投影缓存 on）：start 145.0 s；adjudication chain（含 17 项门禁）179.1 s；finalize 149.0 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
