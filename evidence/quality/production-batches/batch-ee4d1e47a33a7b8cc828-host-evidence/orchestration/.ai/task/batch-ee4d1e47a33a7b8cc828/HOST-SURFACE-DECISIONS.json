@@ -1,0 +1,48 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 5 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071",
+      "stage": "surface",
+      "observation": "原文“anything written on those notes”指信上写的内容可能落到不希望它出现的地方；译文“你写的每一封信都有可能出现在……”将内容误译为信件本身。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs 源码 tome-orcs/data/lore/misc.lua:89（DLC 仓库/commit 未固定）第二段：Likewise, anything written on those notes could end up exactly where you don't want them。第368批按孤立措辞把“每一封信”记为 advisory；本批 contextual 在同一句又确认了多处实质偏差（见 contextual 裁决），整段按原文修复时一并纠正“每一封信”→“信上写的任何内容”。确认，与 contextual 同一修复。修复建议（整段第二段，只改这一段）：“与此同时：我们的邮递系统仍然会丢失几封信，丢失的信件可能被传送到任何地方。它们可能落在离传送门十英尺远的地方，也可能正好落到某个联合王国好事者的手里，说不定还会直接传送进乌鲁洛克的鼻孔里。同样，信上写的任何内容也都可能恰好出现在你最不希望它出现的地方，不管那是哪里。”"
+    },
+    {
+      "revision_key": "2342478178b08ddca2d613bba570fc53afc9912351b4f14c366b54b70cf37026",
+      "stage": "surface",
+      "observation": "原文为反击范围 10 内的随机敌人，译文改为反击施加者，并新增“若来源不是生物”的条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1523-1550（CURSE_OF_NIGHTMARES 强度 3 Harrow）：负面效果有生物来源（p.src.__is_actor）时直接对来源者造成精神与暗影伤害，只有来源不是生物时才在半径 10 内随机选一个敌人。英文 “retaliates against a random foe in range 10” 与实现不符；译文是窗口53 按源码实现有意改写的（ADJUDICATION-R1），贴合实际机制。按源码为准驳回。"
+    },
+    {
+      "revision_key": "4fd2ddbd76675d13ce9ec9f0ac27d551d7d054d64d2d81ce4e4388a662953747",
+      "stage": "surface",
+      "observation": "原文允许使用弓或投石索，译文只说需要装备投石索，漏掉了弓。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/agility.lua:249-305（Rapid Shot）：表构造中 on_pre_use 定义两次，后一个 archerPreUse(self,t,silent,\"sling\") 覆盖前者，info 也写 Requires a sling to use.，实际只能用投石索。英文提示 “without a bow or sling” 与实现不符；译文“你需要装备投石索才能使用速射姿态！”是窗口53 按实现有意保留的（ADJUDICATION-R0）。按源码为准驳回。"
+    },
+    {
+      "revision_key": "58a5516185b4ca1e77f023f720df08e7cf97985eda1a67ebac3829052416d16c",
+      "stage": "surface",
+      "observation": "原文说米雯尼雅率军绕过冬季浮冰（bypass the winter's icy floes），译文却说“穿越凛冬的浮冰”，行军路线含义相反。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/lore/misc.lua:388-397（半身人 lore）：Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time。bypass 意为设法越过/避开浮冰这一障碍，译文“带领军队穿越凛冬的浮冰，及时抵达要塞”同样表达了克服浮冰阻碍按时赶到，情节与因果不变，并非“路线相反”。措辞可更贴近为“越过/避开”，属二级措辞，记 advisory。"
+    },
+    {
+      "revision_key": "dfba992206ecb4d4be8035a13eaf3e43e07fb14b5f6828250454117e70241553",
+      "stage": "surface",
+      "observation": "原文只说进行精准射击，译文增添了“瞄准目标头部”，改变了射击部位。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/archery.lua:463-486：技能名 Headshot＝本库“爆头”，“瞄准目标头部”与技能名一致，第367批与窗口53 均已裁定保留（surface 同类指控已驳回）；本条其余“进行一次精准射击、单体命中越过中间敌人”贴合实现。驳回。"
+    }
+  ]
+}

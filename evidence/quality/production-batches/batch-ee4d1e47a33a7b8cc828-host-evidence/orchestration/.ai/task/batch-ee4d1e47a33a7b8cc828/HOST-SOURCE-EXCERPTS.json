@@ -1,0 +1,832 @@
+[
+  {
+    "entry_revision_identity": "f9d0d37c84be4124f207c91c099c287f8b10a328e1e266e53c3429b4a37e4d35",
+    "public_source_path": "game/modules/tome/data/zones/shertul-fortress-caldizar/grids.lua",
+    "lines": [
+      {
+        "line": 40,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 41,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 42,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race."
+      },
+      {
+        "line": 43,
+        "text": "This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you."
+      },
+      {
+        "line": 44,
+        "text": "It should automatically create a portal back, but it might not be near your arrival zone.]],"
+      },
+      {
+        "line": 45,
+        "text": ""
+      },
+      {
+        "line": 46,
+        "text": "\tblock_move = function(self, x, y, who, act, couldpass)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "7a4c6d23f4ba133b7ebff441142c2eee1ac70856fc09209c26eda83b03c88d4d",
+    "public_source_path": "game/modules/tome/data/zones/shertul-fortress/grids.lua",
+    "lines": [
+      {
+        "line": 112,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 113,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 114,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race."
+      },
+      {
+        "line": 115,
+        "text": "This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you."
+      },
+      {
+        "line": 116,
+        "text": "It should automatically create a portal back, but it might not be near your arrival zone.]],"
+      },
+      {
+        "line": 117,
+        "text": ""
+      },
+      {
+        "line": 118,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0c6869eafd0e664226311896195dc0cae888e224f902c0fa8ed0954b82c7336f",
+    "public_source_path": "game/modules/tome/data/talents/cursed/darkness.lua",
+    "lines": [
+      {
+        "line": 431,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 432,
+        "text": "\t\tlocal damageIncrease = getDamageIncrease(self)"
+      },
+      {
+        "line": 433,
+        "text": "\t\treturn ([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target."
+      },
+      {
+        "line": 434,
+        "text": "\t\tIf you know the Creeping Darkness talent, a short-lived trail of darkness is left in the beam's wake. Its damage is identical to that of Creeping Darkness's."
+      },
+      {
+        "line": 435,
+        "text": "\t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):tformat(damDesc(self, DamageType.DARKNESS, damage), damageIncrease)"
+      },
+      {
+        "line": 436,
+        "text": "\tend,"
+      },
+      {
+        "line": 437,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "113be78843522b9344be4ab8ce3967d22deb1f53ec2b1837a8eed84f87f900ae",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 511,
+        "text": "\t\tname = function(self, who)"
+      },
+      {
+        "line": 512,
+        "text": "\t\t\tlocal dam = who:damDesc(engine.DamageType.PHYSICAL, self.use_power.damage(self, who))"
+      },
+      {
+        "line": 513,
+        "text": "\t\t\treturn (\"knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each\"):tformat(self.use_power.radius, dam, dam*2)"
+      },
+      {
+        "line": 514,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 515,
+        "text": "\t\tpower = 50,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2342478178b08ddca2d613bba570fc53afc9912351b4f14c366b54b70cf37026",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 1475,
+        "text": "\t\tlocal def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_NIGHTMARES], eff.level, math.min(eff.unlockLevel, eff.level)"
+      },
+      {
+        "line": 1476,
+        "text": ""
+      },
+      {
+        "line": 1477,
+        "text": "\t\treturn ([[Horrible visions fill your mind."
+      },
+      {
+        "line": 1478,
+        "text": "#CRIMSON#Penalty : #WHITE#Plagued by Visions: Your mental save has a 20%% chance to be reduced by %d%% when tested."
+      },
+      {
+        "line": 1479,
+        "text": "#CRIMSON#Power 1+: %sRemoved from Reality: %+d Physical Resistance, %+d Maximum Physical Resistance"
+      },
+      {
+        "line": 1480,
+        "text": "#CRIMSON#Power 2+: %s%+d Luck, %+d Willpower"
+      },
+      {
+        "line": 1481,
+        "text": "#CRIMSON#Power 3+: %sHarrow: When a foe attempts to inflict a detrimental effect upon you, your harrowing aura retaliates against a random foe in range 10, dealing %d mind and %d darkness damage."
+      },
+      {
+        "line": 1482,
+        "text": "#CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (summon Terrors and chances to slow, deal %d Mind damage, and deal %d Darkness damage) for 8 turns. The chance grows each time you are struck but fades over time.]]):tformat("
+      },
+      {
+        "line": 1483,
+        "text": "\t\tdef.getVisionsReduction(eff, level),"
+      },
+      {
+        "line": 1484,
+        "text": "\t\tbonusLevel >= 1 and \"#WHITE#\" or \"#GREY#\", def.getResistsPhysicalChange(math.max(level, 1)), def.getResistsCapPhysicalChange(math.max(level, 1)),"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "317b9f811cb72f8751c323bd40cc18891f16df3497d5a63bac9e1c54adb68d9c",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 127,
+        "text": "\tcategory = \"adventures\","
+      },
+      {
+        "line": 128,
+        "text": "\tname = _t\"letter to Weisman (3)\","
+      },
+      {
+        "line": 129,
+        "text": "\tlore = _t[[Weisman,"
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "The tentacles. I still remember them. They have lashed into my mind as they lashed into my flesh. How can nature abide such a... a... being in her realm? What dark plane of existence could it have been born from? How can creation itself tolerate such an aberration?!"
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "How did we survive? I have no clue. All I can remember is pain, and panic, and fear. All I could think of was getting away, fleeing... to my shame, all other thoughts left me. Thoughts of you, home, the world... all I could do was keep hacking away at the... things between myself and freedom. Perhaps that is why it didn't... no. I shall not think on it. The beast is certain to fill my nightmares tonight, I won't allow it to fill my waking thoughts."
+      },
+      {
+        "line": 134,
+        "text": ""
+      },
+      {
+        "line": 135,
+        "text": "Rest easy, brother. It may have taken your eye, but think of what else it could have taken. Anyway, I shall be leaving for the tavern soon. Maybe I can drown the images of that monster in a sea of ale."
+      },
+      {
+        "line": 136,
+        "text": ""
+      },
+      {
+        "line": 137,
+        "text": "Make sure you write the words on your next letter nice and big,"
+      },
+      {
+        "line": 138,
+        "text": "Rolf]]}"
+      },
+      {
+        "line": 139,
+        "text": "newLore{"
+      },
+      {
+        "line": 140,
+        "text": "\tid = \"adventurer-letter-6\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4fd2ddbd76675d13ce9ec9f0ac27d551d7d054d64d2d81ce4e4388a662953747",
+    "public_source_path": "game/modules/tome/data/talents/techniques/agility.lua",
+    "lines": [
+      {
+        "line": 279,
+        "text": "\t\tlocal weapon = self:hasArcheryWeapon()"
+      },
+      {
+        "line": 280,
+        "text": "\t\tif not weapon then"
+      },
+      {
+        "line": 281,
+        "text": "\t\t\tgame.logPlayer(self, \"You cannot use Rapid Fire without a bow or sling!\")"
+      },
+      {
+        "line": 282,
+        "text": "\t\t\treturn nil"
+      },
+      {
+        "line": 283,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "58a5516185b4ca1e77f023f720df08e7cf97985eda1a67ebac3829052416d16c",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 386,
+        "text": "\tcategory = \"races\","
+      },
+      {
+        "line": 387,
+        "text": "\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings\","
+      },
+      {
+        "line": 388,
+        "text": "\tlore = _t[[There are two main kingdoms of halflings, the Eldoral and the Nargol, though both mix often. All halflings are just under 4' tall, and are generally noted for their large feet and curly hair. Eldoral are usually fair-haired and blue-eyed. Nargol tend to be darker in hair and complexion, with hazel eyes, and oft slightly shorter than their cousins. Halflings are known for their intelligence and quick wit, but also their arrogance in dealing with other races - something they do not deny, for they say it is well-deserved."
+      },
+      {
+        "line": 389,
+        "text": ""
+      },
+      {
+        "line": 390,
+        "text": "Halflings used to be the most dominant race in Maj'Eyal, with control of many strategic Sher'Tul ruins and rule over great swathes of land. The recorded wars between humans and halflings are numerous, and the halflings were the most often victors. However the Age of Pyre brought them great ruin, for the orcs seemed to target them more fiercely than any other race, and many of their communities were wiped out. This has forced them to rely more on trade with other races in modern times, especially with the humans."
+      },
+      {
+        "line": 391,
+        "text": ""
+      },
+      {
+        "line": 392,
+        "text": "The Eldorals used to have a kingdom in the north of the continent, but most of it was destroyed during the wars with the orcs, and not much has been rebuilt. However they do still have many agricultural settlements such as Derth, albeit shared with other races. The Eldoral are known for their great healers and farmers, and their slingers are considered the best in all the lands."
+      },
+      {
+        "line": 393,
+        "text": ""
+      },
+      {
+        "line": 394,
+        "text": "The Nargols once had many strong fortifications in the south of Maj'Eyal, but though they suffered less than the Eldoral in the Age of Pyre they still lost great numbers, and much of their centres of population dwindled. The rise of Last Hope has accelerated this process, as many communities are subsumed into the city's suburbs. Nargols are known as great jewellers, alchemists and rune-crafters, and possess some of the best tactical minds of all the races. Many generals and military advisers are employed from their kingdom."
+      },
+      {
+        "line": 395,
+        "text": ""
+      },
+      {
+        "line": 396,
+        "text": "The most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair."
+      },
+      {
+        "line": 397,
+        "text": "]]}"
+      },
+      {
+        "line": 398,
+        "text": ""
+      },
+      {
+        "line": 399,
+        "text": "newLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 495,
+        "text": "\tcategory = \"races\","
+      },
+      {
+        "line": 496,
+        "text": "\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 10 - Monstrous Races\","
+      },
+      {
+        "line": 497,
+        "text": "\tlore = _t[[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect."
+      },
+      {
+        "line": 498,
+        "text": ""
+      },
+      {
+        "line": 499,
+        "text": "Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely."
+      },
+      {
+        "line": 500,
+        "text": ""
+      },
+      {
+        "line": 501,
+        "text": "Giants live mostly around the mountainous peaks surrounding the Daikara Pass. They vary greatly in size, but are normally at least 10' tall. They look somewhat like large, deformed humans, with swollen or distended facial features and much longer, swinging limbs. They live in nomadic tribes, moving from peak to peak with the seasons, feeding on wild deer and goats. They are usually peaceful creatures, only turning violent when their territory is encroached or their young are threatened. There are sometimes reports of giants coming to lowlands and stealing farm animals or attacking communities, but these are rare and normally isolated to particularly harsh winters. Giants seem to have no developed culture or language worth mentioning, but have been noted to show interactions of limited intelligence and to commune well in groups."
+      },
+      {
+        "line": 502,
+        "text": ""
+      },
+      {
+        "line": 503,
+        "text": "Nagas were once believed to be mere myth, but reliable reports and even the capturing of dead physical samples has shown them to be real creatures. The upper half of their body is humanoid in form, with blonde hair and an extremely thin build, but the lower half is like that of a giant snake's tail. They stand around 6' tall on land, though their tails extend several feet further. They have been encountered off the eastern and south-eastern coasts of Maj'Eyal, which seems to indicate some exotic civilisation beneath the waves. Records of them exist only from the last few hundred years, and only more recently have they been interpreted as more than just the wild fantasies of inebriated sailors. They can breathe in air and underwater, possessing both lungs and gills, and have been reported to move with surprising speed on the ground. One might think them simply odd monsters, but they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail formed from layers of thick shark-hide. This would suggest an advanced culture, but communication with them so far has proved impossible. It is not known if they are capable of complex speech, but to date their only response to those who encounter them has been extreme violence, and fishermen in the east are always wary of coming across these vicious creatures."
+      },
+      {
+        "line": 504,
+        "text": ""
+      },
+      {
+        "line": 505,
+        "text": "The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]]}"
+      },
+      {
+        "line": 506,
+        "text": ""
+      },
+      {
+        "line": 507,
+        "text": "newLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9529123a94bd2b7028436ebd323b20ec97af15575f820ef67b8084c2a57dc122",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 481,
+        "text": "\tcategory = \"races\","
+      },
+      {
+        "line": 482,
+        "text": "\tname = _t\"Loremaster Greynot's Analysis of the Races - Chapter 9 - Sher'Tul (extinct)\","
+      },
+      {
+        "line": 483,
+        "text": "\tlore = _t[[Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries."
+      },
+      {
+        "line": 484,
+        "text": ""
+      },
+      {
+        "line": 485,
+        "text": "The Sher'Tul lived over ten thousand years ago, during what is referred to as the Age of Haze. The name of the race we know from the elves, who speak of the ancient beings with awe and reverence, yet know little else about them. Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal, and some have been observed in sunken lands off the coasts, implying that in their time the Sher'Tul must have ruled unopposed all across the world."
+      },
+      {
+        "line": 486,
+        "text": ""
+      },
+      {
+        "line": 487,
+        "text": "The farportals were first discovered by the halflings during the Age of Allure, and after much experimentation they were found to be able to transport items and creatures over vast distances. The arcane powers behind these incredible artifacts are still far beyond the understanding of the greatest minds of our time. The one attempt to truly tap into these powers ended in disaster - the Shaloren moved all known farportals to a remote spot near their capital, and their most powerful mages were overwhelmed as they unleashed the Spellblaze, killing them instantly and tearing apart the continent. What remains of farportals are left in the world have since been left untouched."
+      },
+      {
+        "line": 488,
+        "text": ""
+      },
+      {
+        "line": 489,
+        "text": "Of their physical appearance we know almost nothing, as there is no surviving artwork or records which depict themselves. However they must have been of similar form to other common races, as their ruins contain stairs, doorways and rooms not unfit for humans. Oakton estimates from his studies of their tools and artifacts that they would have stood around 5'4\" tall, with uncommonly long limbs and fingers."
+      },
+      {
+        "line": 490,
+        "text": ""
+      },
+      {
+        "line": 491,
+        "text": "What caused them to become extinct is unknown, though many theories abound. The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife. Other theories hold weight though - Archiman Garybald, Professor of Demonic Studies, believes that the extensive uses of arcane energies by the Sher'Tul may have attracted twisted forces from other worlds which wiped out the ancient race. Some even believe that they are not truly extinct, but are in hiding, or have left this world for elsewhere. I fear the truth may never be fully known, but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration.]]}"
+      },
+      {
+        "line": 492,
+        "text": ""
+      },
+      {
+        "line": 493,
+        "text": "newLore{"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b1c9cb416d72d898d4d498a89c300c0a9568615c6a85266e7aa3e0d9d3d44ef7",
+    "public_source_path": "game/modules/tome/data/talents/spells/temporal.lua",
+    "lines": [
+      {
+        "line": 77,
+        "text": "\t\tlocal duration = self:getShieldDuration(t.getDuration(self, t))"
+      },
+      {
+        "line": 78,
+        "text": "\t\tlocal time_reduc = t.getTimeReduction(self,t)"
+      },
+      {
+        "line": 79,
+        "text": "\t\treturn ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time."
+      },
+      {
+        "line": 80,
+        "text": "\t\tOnce either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns)."
+      },
+      {
+        "line": 81,
+        "text": "\t\tEach turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage)."
+      },
+      {
+        "line": 82,
+        "text": "\t\tThe shield's max absorption will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 83,
+        "text": "\t\ttformat(maxabsorb, duration)"
+      },
+      {
+        "line": 84,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "bf17210273913eaf5e65c6b8844cbe2531af323a5cb7a92aa031e57a7f11604f",
+    "public_source_path": "game/modules/tome/data/zones/high-peak/grids.lua",
+    "lines": [
+      {
+        "line": 63,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 64,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 65,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way."
+      },
+      {
+        "line": 66,
+        "text": "This one seems to go to the Iron Throne in the West.]],"
+      },
+      {
+        "line": 67,
+        "text": ""
+      },
+      {
+        "line": 68,
+        "text": "\torb_portal = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c12f72afa6cd5b8962b0ace822c1430dd18371a7111c45bd15c78449a4ff004a",
+    "public_source_path": "game/modules/tome/data/talents/spells/conveyance.lua",
+    "lines": [
+      {
+        "line": 160,
+        "text": "\t\tlocal radius = t.getRadius(self, t)"
+      },
+      {
+        "line": 161,
+        "text": "\t\tlocal range = t.getRange(self, t)"
+      },
+      {
+        "line": 162,
+        "text": "\t\treturn ([[Teleports you randomly within a small range of up to %d grids."
+      },
+      {
+        "line": 163,
+        "text": "\t\tAt level 4, it allows you to specify which creature to teleport."
+      },
+      {
+        "line": 164,
+        "text": "\t\tAt level 5, it allows you to choose the target area (radius %d)."
+      },
+      {
+        "line": 165,
+        "text": "\t\tIf the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly."
+      },
+      {
+        "line": 166,
+        "text": "\t\tThe range will increase with your Spellpower.]]):tformat(range, radius)"
+      },
+      {
+        "line": 167,
+        "text": "\tend,"
+      },
+      {
+        "line": 168,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c3be7e9a67ca41e2e6d52f49af971c77f99ec092c56b4a799026d844ff14051d",
+    "public_source_path": "game/modules/tome/data/talents/spells/spells.lua",
+    "lines": [
+      {
+        "line": 34,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/enhancement\", name = _t(\"enhancement\", \"talent type\"), description = _t\"Magical enhancement of your body.\" }"
+      },
+      {
+        "line": 35,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type=\"spell/thaumaturgy\", name = _t(\"thaumaturgy\", \"talent type\"), description = _t\"The pinacle of spellcasting.\" }"
+      },
+      {
+        "line": 36,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"spell/conveyance\", name = _t(\"conveyance\", \"talent type\"), generic = true, description = _t\"Conveyance is the school of travel. It allows you to travel faster and to track others.\" }"
+      },
+      {
+        "line": 37,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"spell/divination\", name = _t(\"divination\", \"talent type\"), generic = true, description = _t\"Divination allows the caster to sense its surroundings, and find hidden things.\" }"
+      },
+      {
+        "line": 38,
+        "text": "newTalentType{ allow_random=true, no_silence=true, is_spell=true, type=\"spell/aegis\", name = _t(\"aegis\", \"talent type\"), generic = true, description = _t\"Command the arcane forces into healing and protection.\" }"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "cc1ad0c3e26ef14c278c865164a6b3ffcbb4cdfb230fdbb4189c07e7602e2541",
+    "public_source_path": "game/modules/tome/data/zones/high-peak/grids.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 32,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 33,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way."
+      },
+      {
+        "line": 34,
+        "text": "This one seems to go to the Far East.]],"
+      },
+      {
+        "line": 35,
+        "text": ""
+      },
+      {
+        "line": 36,
+        "text": "\torb_portal = {"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ccb00fcf3b26c81609aaef8784f0921d16d0e2275fa90878199b2361b145e89b",
+    "public_source_path": "game/modules/tome/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 667,
+        "text": "\tcategory = \"vault\","
+      },
+      {
+        "line": 668,
+        "text": "\tname = _t\"How to Summon a Phoenix\","
+      },
+      {
+        "line": 669,
+        "text": "\tlore = _t[[#{bold}#How to Summon a Phoenix#{normal}#"
+      },
+      {
+        "line": 670,
+        "text": "\t  10 pouches faeros ash"
+      },
+      {
+        "line": 671,
+        "text": "\t  5 vials fire wyrm saliva"
+      },
+      {
+        "line": 672,
+        "text": "\t  3 red crystal shards"
+      },
+      {
+        "line": 673,
+        "text": "\t  3 pouches bone giant dust"
+      },
+      {
+        "line": 674,
+        "text": "\t  1 vial greater demon bile"
+      },
+      {
+        "line": 675,
+        "text": "\t  1 skeleton mage skull"
+      },
+      {
+        "line": 676,
+        "text": "\t  pinch of luminous horror dust"
+      },
+      {
+        "line": 677,
+        "text": ""
+      },
+      {
+        "line": 678,
+        "text": "This is a long and complex ceremony, and all steps must be followed precisely if you wish to succeed. Heed well that for the errant fool who takes on what they cannot finish, there will be consequences. To play with fire and assert your dominance over the flames comes with risks if you overestimate your power. "
+      },
+      {
+        "line": 679,
+        "text": "\t"
+      },
+      {
+        "line": 680,
+        "text": "The ritual begins with a vessel; any man will do. Bind them in place with flame secure bindings, and give a sound gag. The gag isn't strictly necessary, but the screams of agony tend to be quite distracting and inspirit mistakes after a few days."
+      },
+      {
+        "line": 681,
+        "text": ""
+      },
+      {
+        "line": 682,
+        "text": "Take 2 vials fire wyrm saliva and dissolve 2 pouches faeros ash in each. Be sure to dissolve completely. A few fireballs at the vial can do the trick if they're stubborn. Using one of the prepared vials, begin to etch the saliva in the skin of the vessel, heating it so that it brands the shape of --- "
+      },
+      {
+        "line": 683,
+        "text": ""
+      },
+      {
+        "line": 684,
+        "text": "#{italic}#The remainder of the scroll has been singed into a pile of char, illegible and scattering into a cloud of ash as you grasp it#{normal}#"
+      },
+      {
+        "line": 685,
+        "text": "\t]]"
+      },
+      {
+        "line": 686,
+        "text": "}"
+      },
+      {
+        "line": 687,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "dfba992206ecb4d4be8035a13eaf3e43e07fb14b5f6828250454117e70241553",
+    "public_source_path": "game/modules/tome/data/talents/techniques/archery.lua",
+    "lines": [
+      {
+        "line": 483,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 484,
+        "text": "\t\tlocal dam = t.getDamage(self,t)*100"
+      },
+      {
+        "line": 485,
+        "text": "\t\treturn ([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target."
+      },
+      {
+        "line": 486,
+        "text": "Only usable against marked targets, and consumes the mark on hit.]]):"
+      },
+      {
+        "line": 487,
+        "text": "\t\ttformat(dam)"
+      },
+      {
+        "line": 488,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5d4b28088910f8adff06ecf10910c80232a3350b1758a33f8cf7f59f69758071",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 85,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 86,
+        "text": "\tname = _t\"STOP BLOWING OUR COVER\","
+      },
+      {
+        "line": 87,
+        "text": "\tlore = _t[[We get it: it's our fault the farportal mailing system isn't perfect.  Our people are still working on undoing that jury-rigged configuration that keeps your portal from transporting anything that isn't living - and if we get it wrong, that means people start getting teleported into walls again.  It's already a damn miracle you can get through the portal without coming out naked on the other side, let alone still carrying your backpacks and all their contents."
+      },
+      {
+        "line": 88,
+        "text": ""
+      },
+      {
+        "line": 89,
+        "text": "In the meantime: we're still losing a few letters going through the mailing system, and the lost ones could end up teleported to pretty much anywhere.  They could end up ten feet from the portal, or they could end up right in some A.K. busybody's hands, or they could just warp themselves right up Urh'Rok's nose for all we know.  Likewise, anything written on those notes could end up exactly where you don't want them, wherever that might be."
+      },
+      {
+        "line": 90,
+        "text": ""
+      },
+      {
+        "line": 91,
+        "text": "My point is, when you're writing those letters, write them like King Tolak's looking over your left shoulder and your grandmother's looking over your right - or at least show SOME semblance of subtlety.  Don't complain about the prices of \"illegal potions,\" complain about \"extra-strength medicine.\"  Don't ask about safety accommodations for \"slaves,\" ask about \"private servants.\"  And please, for the love of Linaniil, [i]stop calling the farportal a farportal![/i]  The A.K. doesn't even know we [i]have[/i] this thing yet, and we don't want to give them any ideas on where or how to start looking.  Call it a courier, or a pack golem, or a trained uruivellas for all I care."
+      },
+      {
+        "line": 92,
+        "text": ""
+      },
+      {
+        "line": 93,
+        "text": "-Korbek"
+      },
+      {
+        "line": 94,
+        "text": ""
+      },
+      {
+        "line": 95,
+        "text": "PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]],"
+      },
+      {
+        "line": 96,
+        "text": "}"
+      },
+      {
+        "line": 97,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8f39bebfa7482c7a907efe6c56f747a64469d84aaad093865b155371aa7e562b",
+    "public_source_path": "tome-orcs/data/talents/steam/furnace.lua",
+    "lines": [
+      {
+        "line": 169,
+        "text": "\tend,"
+      },
+      {
+        "line": 170,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 171,
+        "text": "\t\treturn ([[When you reach 10 molten points your armour overheats, reaching temperatures so high that they cauterize up to %d detrimental physical effects on you."
+      },
+      {
+        "line": 172,
+        "text": "\t\tA special medical injector injects you with a fire immunity serum at that precise moment to make you immune to the burning effect."
+      },
+      {
+        "line": 173,
+        "text": "\t\tWhen this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point."
+      },
+      {
+        "line": 174,
+        "text": "\t\tThis effect drains 15 steam when triggered, and will not trigger if steam is too low."
+      },
+      {
+        "line": 175,
+        "text": "\t\t#{italic}#It's only a flesh burn!#{normal}#"
+      },
+      {
+        "line": 176,
+        "text": "\t\t]]):"
+      },
+      {
+        "line": 177,
+        "text": "\t\ttformat(t.getNb(self, t))"
+      },
+      {
+        "line": 178,
+        "text": "\tend,"
+      }
+    ]
+  }
+]
