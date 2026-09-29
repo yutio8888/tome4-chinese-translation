@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（第367批已 finalize，窗口53积压 12 条，继续审核第368批）
+更新时间：2026-09-29（第368批已 finalize，窗口53积压 18 条，继续审核第369批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。历史交接正文见本文件的 git 历史
@@ -8,9 +8,9 @@
 
 ## 一、当前状态
 
-- 审核已闭合至第 **367** 批（`batch-ef83bc910ba29998c289`）：80 条，76 done / 3 repair_required。
-  audit 合并 successor 第四批（主游戏 80，其中 1 条已登记死键 host-block）：surface 一组 4 lane；contextual 一个 run 首轮通过；逐条裁决。窗口53积压 12。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `832d35eff892ea567b41207878671e74dedc4de6` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **368** 批（`batch-3cfa49c3b0ee7cc07337`）：55 条，49 done / 6 repair_required。
+  audit 合并 successor 第五批（末批，主游戏 24 + Orcs 31，其中 1 条 Orcs 死键记 advisory）：surface 两组 8 lane；contextual 两个 run 首轮通过；逐条裁决。窗口53积压 18，审核队列已耗尽。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `70c1a06e5e76327a4c0a0a7722611c62a9906449` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **52**：Sunwall Observatory lore 分类名改观星台（术语同步升 preferred）与艾琳结局成就及两条同缺陷兄弟补回 your patron＝太阳主上，共 4 条（mod-tome.lua、tome-orcs.lua）已修复；译文提交 `9362911053e2ff022f3ed7d7e80cab07459ed930`；migration `6b75b260…` 的 4 个 successor 已由第363批审核完毕（4 done）。
 - 修复窗口 **27** 已完成 273–277 五批共 28 条确认问题的修复、复审、17 项门禁、译文提交、
   catalog/migration 发布及证据提交。证据提交 `351c6724d60221ffc1656ff1d97db2eecb2d0e02` 后的
@@ -119,6 +119,7 @@
 | 365 | `batch-62469f019179a2df6f74` | 75 done / 5 repair | 73 OK / 7 ISSUE | 6 OK / 1 ISSUE | 6 confirmed / 1 refuted / 1 advisory |
 | 366 | `batch-75a2ad29372c8d842cb7` | 80 done / 0 repair | 77 OK / 3 ISSUE | 3 OK / 0 ISSUE | 3 refuted |
 | 367 | `batch-ef83bc910ba29998c289` | 76 done / 3 repair | 72 OK / 8 ISSUE | 7 OK / 1 ISSUE | 3 confirmed / 5 refuted / 1 advisory |
+| 368 | `batch-3cfa49c3b0ee7cc07337` | 49 done / 6 repair | 40 OK / 15 ISSUE | 11 OK / 4 ISSUE | 7 confirmed / 8 refuted / 4 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -195,11 +196,11 @@
 
 ## 五、下一步
 
-1. 继续审核第 **368** 批起（合并 `audit/modified-translations-20260921` 产生的 375 个 successor；合并提交 `29cb2159`、catalog `ff7fda04`、migration `037915d9`，裁决与证据见 `evidence/quality/merge-audit-20260929/MERGE.md`；分支删除的 3 个过期键因会改变正式版本向量未采纳，待另行立项；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
+1. 继续审核第 **369** 批起（合并 `audit/modified-translations-20260921` 产生的 375 个 successor；合并提交 `29cb2159`、catalog `ff7fda04`、migration `037915d9`，裁决与证据见 `evidence/quality/merge-audit-20260929/MERGE.md`；分支删除的 3 个过期键因会改变正式版本向量未采纳，待另行立项；默认 80 条，连续推进）；用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句；第299批起只需 `N=<批号>`，S、PT 默认取上一批）（派生后核对 snapshot 脚本里的 chain 日期）（混合批用 290/287 的 stage/snapshot/close，单组件批用 288/294 的；
    `prepare_contextual290` 起已按每个 run 的组件写 SPEC）。修复积压达 20 再开下一窗口（模板 `setup_window52.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`.artifacts/i18n/repair-w52-20260928/wd.sh`、`/tmp/w52-*.sh`；setup 后先跑 `check_siblings.py`）。
 2. 窗口 52 已完成（队列耗尽后用户 2026-09-28 批准开窗，4 条：Orcs lore 分类 sunwall observatory `b5e754f6ab`“太阳堡垒瞭望台”改“太阳堡垒观星台”（唯一文献为天文学家日志，与区域名、任务一致；术语库 narrative.tsv 同步改观星台并升 preferred）；艾琳结局成就 Last Instant of Sanity `5d156a408b` 补回 your patron 为“太阳主上”并补 in a searing flash；同缺陷兄弟 AOADS_BURN 成就 `1e5fe478f9`（your patron Distant Sun＝你的主上遥远的太阳）与夏·图尔结局叙述 `d58b645c3b`（succumbed to the fight 改“在这场搏斗中倒下”并补太阳主上）。REVIEW(0) 4/4 → FINAL f0a2 4/4，cycle 0 收敛；门禁 17/17。Archmage 按用户 2026-09-28 裁决保留“元素法师”：同类指控直接驳回；范围外 `8b977dd836` 不再待命名裁决，但队列仍为 pending_repair（无“非缺陷”出口），待后续按不改收口，并把 classes.tsv 的 Archmage 行升 preferred。修复前全仓库 grep 同一 source（门禁 06 跨组件同键）；门禁与收口脚本须 `export TOME_PASEO_WORKSPACE=wks_420314270844170b`，并从 PATH 去掉 `/opt/agents/bin`（2026-09-27 重启后新增的 shell 包装器会遮蔽真实 pi，致门禁 04 失败；`bd.sh` 已处理）；窗口 SPEC 专名表写入前逐条在本库查证；超长 lore 条目（数千字）开窗前须全文逐句预检，否则每轮复审都会新挖出漏译；窗口模板为 `setup_window52.py`（宿主补充＋术语 1 行改动；无术语改动时参照 `setup_window51.py`，新增术语行须同步门禁 03 静态审计行数）、`.artifacts/i18n/repair-w52-20260928/wd.sh` 与 `/tmp/w52-*.sh`；开窗 setup 后先跑 `.artifacts/i18n/repair-w46-20260927/check_siblings.py <WORKSET>` 列跨组件同键兄弟并写 RUNTIME-SYNC（窗口 35、40 都因漏列在门禁 06 失败）；每轮复审 harvest/归档后须立即跑 `publish.py` 发布 stage 记录（窗口 39 漏跑、事后补发，见 HOST-NOTE-LATE-PUBLICATION.md）。
-   窗口 53 积压 **12** 条（窗口52后重新计数，范围外项不计入，mod-tome.lua）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；第363批 无新增；第364批 第364批 4 条；第365批 第364批 4 条、第365批 5 条；第366批 第364批 4 条、第365批 5 条；第366批无新增；第367批 第364批 4 条、第365批 5 条、第367批 3 条；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第367批计时（实测，投影缓存 on）：start 1.9 s；adjudication chain（含 17 项门禁）168.4 s；finalize 140.0 s。
+   窗口 53 积压 **18** 条（窗口52后重新计数，范围外项不计入，mod-tome.lua、tome-orcs.lua）：范围外 `8b977dd836`（Archmage 保留“元素法师”已由用户裁决，仍 pending_repair，待按不改收口）；第363批 无新增；第364批 第364批 4 条；第365批 第364批 4 条、第365批 5 条；第366批 第364批 4 条、第365批 5 条；第366批无新增；第367批 第364批 4 条、第365批 5 条、第367批 3 条；第368批 第368批 6 条；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第368批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）168.8 s；finalize 141.7 s。
 3. 窗口 28 的操作教训：同一 cycle 内 `RE_REVIEW` 之后冻结 `FINAL_REVIEW` 时，逻辑 attempt 使用 2；
    长 lore 条目开窗时由宿主先逐句预检，再合并进入修复与复审。
 4. 专名待用户集中审阅：[待用户集中审阅的争议条目](evidence/quality/pending-user-review.md)（当前 37 项；Osmosis Regen(eration) 同族第23/24/26项，Corruption of the Doomed 同族第22/25/29项，Armoured Leviathan 同族第21/27/28项；第 30 项 numbed→麻痹（Numbing 族）；第 31 项软蹄族／软蹄者（Soft-foot）；第 32 项 Thunder Grenade 闪电榴弹；第 33 项 Voltaic Bolt 闪电球；第 34 项 Supercharge Bullets 超速子弹；第 35 项 Awesome Toss 致命翻转；第 36 项 Gardanion 物品名未译；第 37 项 Sunwall 全库译名不一）。
