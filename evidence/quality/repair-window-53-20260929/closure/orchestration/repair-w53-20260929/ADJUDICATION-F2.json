@@ -1,0 +1,20 @@
+{
+ "cycle": 2,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f2a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 17,
+ "raw_issue_count": 1,
+ "decision": "FINAL(2,2) failed on one tier-1 fidelity finding in eed96b47b1; host re-read the whole entry sentence by sentence and folds four further untouched-sentence omissions into the same fix (execute-04), then RE_REVIEW(3,1) and FINAL(3,2).",
+ "findings": [
+  {
+   "revision_key": "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a2 + host whole-entry precheck",
+   "reason": "固定 commit 624a673 game/modules/tome/data/lore/misc.lua:483-491（夏·图尔 lore）。reviewer 指出两处：(1) “the facts are few, as so little is known about this crucible race” 中 as 表原因，现译“有事实根据的很少，所以有关该种族的信息也较少”因果倒置并漏 crucible race，改为“但确凿的事实很少，因为人们对这个堪称文明熔炉的古老种族所知甚少。”；(2) “The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton” 说的是欧卡顿本人是最博学、最求实的学者，现译“最权威的研究是基于……的发现”改变了主语，改为“这一领域最博学、最求实的学者是知名探险家和考古学家达沃德·欧卡顿”（后接“，但遗憾的是……”不变）。宿主整条逐句预检另补四处：(3) “Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal” 现译“在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索”丢 all across 并添“并探索”，改为“在马基·埃亚尔各地都发现了夏·图尔奇幻建筑的废墟”（后接“，有的废墟甚至位于近海沉没的陆地上……”不变）；(4) “still far beyond the understanding of the greatest minds of our time” 现译“仍远远超出我们能够理解的范围”漏 greatest minds，改为“仍远远超出当代最伟大的头脑所能理解的范围”；(5) “have since been left untouched” 现译“至今无人敢碰”凭空加“敢”，改为“至今无人触碰”；(6) “but the ongoing study and examination of the relics they have left behind continues to provide immense value and inspiration” 现译“但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义”漏 relics they have left behind 与 inspiration，改为“但对他们所留遗物的持续研究与考察，仍在不断带来巨大的价值与启发。”。其余句子（含前两轮已改的近海沉没陆地句与内乱句）不动。"
+  }
+ ],
+ "advisories": []
+}

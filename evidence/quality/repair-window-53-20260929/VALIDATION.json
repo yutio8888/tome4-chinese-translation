@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "generated_by": "repair-w53-20260929 unique EXECUTOR",
+  "scope": "18 frozen targets, one Archmage terminology row, and bounded executor evidence",
+  "overall_status": "implementation_complete_host_sync_required",
+  "source_verification": {
+    "tome": {
+      "repository": "/workspace/t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "method": "git show only",
+      "status": "passed"
+    },
+    "orcs": {
+      "checkout": "/workspace/tome4-dlcs/orcs",
+      "repository_commit_pinned": false,
+      "files": {
+        "tome-orcs/data/talents/steam/furnace.lua": "66df49a75a14a56ea59ee37babb5a41886e714e508cdb65016238841695e6450",
+        "tome-orcs/data/lore/misc.lua": "0f33aa795edeebd717c42cb2ec844eb8e8aebdefbd906c1f79f697a254de33ef"
+      },
+      "anchor_hashes_match": true,
+      "status": "passed_unpinned_source"
+    }
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; manifest and repositories OK; expected source-unpinned warnings for three DLCs"
+    },
+    {
+      "command": "python3 -B -c '<inline LocaleLoader HEAD/worktree and WORKSET exact-diff assertions>'",
+      "exit_code": 0,
+      "result": {
+        "runtime": "manifest LuaJIT via LocaleLoader",
+        "total_changed_targets": 18,
+        "files": {
+          "mod-tome.lua": {
+            "loaded_records": 21688,
+            "changed_targets": 16,
+            "unchanged_records": 21672,
+            "non_target_fields_unchanged": true,
+            "workset_exact": true
+          },
+          "tome-orcs.lua": {
+            "loaded_records": 3904,
+            "changed_targets": 2,
+            "unchanged_records": 3902,
+            "non_target_fields_unchanged": true,
+            "workset_exact": true
+          }
+        }
+      }
+    },
+    {
+      "command": "python3 -B -c '<inline placeholder, markup, LF/TAB, Archmage-column, and out-of-scope assertions>'",
+      "exit_code": 0,
+      "result": {
+        "workset_entries_checked": 18,
+        "placeholder_order_preserved": true,
+        "markup_order_preserved": true,
+        "lf_tab_structure": {
+          "source_aligned_entries": 5,
+          "preimage_aligned_entries": 13,
+          "passed": true
+        },
+        "out_of_scope_caldizar_unchanged": true,
+        "archmage_only_status_and_notes_changed": true
+      }
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 1,
+      "result": {
+        "translations_checked": 30308,
+        "errors": 1,
+        "warnings": 0,
+        "error": "runtime-collision at mod-tome.lua:39771 between mod-tome/data/zones/shertul-fortress/grids.lua and excluded mod-tome/data/zones/shertul-fortress-caldizar/grids.lua",
+        "report": ".artifacts/i18n/runs/20260929T041229.760376Z-1152783-lint/lint.json",
+        "disposition": "not modified by EXECUTOR because SPEC explicitly reserves the caldizar sibling for host synchronization; host must sync and rerun strict lint"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "changed_revision_keys": [
+    "07c8b41ef059881216cbea46e8cb9665a7b92e22949afb826cc6574010b03002",
+    "2d5fd209cb78540ff89b388c36ccfde8a4fb58195ea00512f66046c920c9d62e",
+    "2f0162776a30bb35cc3d54d06e6fc4010ef07e6792f46a559259b66f86e58cf3",
+    "3977a0fcaaccd9b500bf707632a311f53acea58c0c790677acf45bba67660bb6",
+    "3fbeca0974583c843d096fff5ed1ea65bd55949400e471eb30a6a72f5bf70c36",
+    "48484bd69e8dc02dd5a93458860703c6a93ac9571142f5d3c4bf177e2a4f22c2",
+    "4b3491d1633ae0f4195e34de775888e1b5d58b1819e11ed51f9e9347bbc86617",
+    "53dcd8e2cf1b784f2a0186f7b76f38a99f8bfc3f7f9e629a19b047a2cc725c2b",
+    "71970bfdd55272a285b994eea42dfc31e60038b40a51aa298966b194e756c5cf",
+    "8eb3c7aee54b0b9db469382be3aaff4db854ff8e6abbb9d75e1faaaaf180c320",
+    "b1a06260359cbe02c8136660fb883064420942b1c0d7fb4b0e63878d3e4751be",
+    "d1f59f125406599041cb4535ea0dc66825fe7ad1eb99f2f433ce49a1486103e6",
+    "d64daff63a7c293e7e22fbe23398d214e4fbc88d6bc886c5f88c317f024ed0ee",
+    "e5f4a107fe581017380012132fab64fdc5df999f86499e3bedc46a6c8e4a005e",
+    "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0",
+    "fb8138dd842e67a5e73c7b48b847eb00a2dfc20e1e2e8259d3949ca3a05ce2de",
+    "fd03e791df3181e1280a1d9753749fe387b7ed5738da08fbf2f2cba653914663",
+    "fe2acd05e60cc5f480d26d7f812f468b6adfd92862b69228fceb4203f9161613"
+  ],
+  "repair_rounds": [
+    {
+      "cycle": 0,
+      "round": 1,
+      "adjudication": ".ai/task/repair-w53-20260929/ADJUDICATION-R0.json",
+      "confirmed_revision_keys": [
+        "07c8b41ef059881216cbea46e8cb9665a7b92e22949afb826cc6574010b03002",
+        "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0"
+      ],
+      "source_verification": {
+        "repository": "/workspace/t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "method": "git show only",
+        "status": "passed"
+      },
+      "validation": [
+        {
+          "command": "python3 -B -c '<inline LocaleLoader baseline/worktree and WORKSET exact-diff assertions>'",
+          "exit_code": 0,
+          "result": {
+            "runtime": "manifest LuaJIT via LocaleLoader",
+            "baseline": "7264886e652b9254ea26afc20bac4e3ed64f1e05",
+            "total_changed_targets": 18,
+            "files": {
+              "mod-tome.lua": {
+                "loaded_records": 21688,
+                "changed_targets": 16,
+                "unchanged_records": 21672
+              },
+              "tome-orcs.lua": {
+                "loaded_records": 3904,
+                "changed_targets": 2,
+                "unchanged_records": 3902
+              }
+            },
+            "workset_exact": true,
+            "non_target_fields_unchanged": true
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 5,
+          "result": {
+            "translations_checked": 30308,
+            "errors": 1,
+            "warnings": 0,
+            "error": "runtime-collision at mod-tome.lua:39771 between mod-tome/data/zones/shertul-fortress/grids.lua and excluded mod-tome/data/zones/shertul-fortress-caldizar/grids.lua",
+            "report": ".artifacts/i18n/runs/20260929T042524.537808Z-1177310-lint/lint.json",
+            "disposition": "expected host synchronization only; outside this EXECUTOR repair scope"
+          }
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    },
+    {
+      "cycle": 1,
+      "round": 2,
+      "adjudication": ".ai/task/repair-w53-20260929/ADJUDICATION-R1.json",
+      "confirmed_revision_keys": [
+        "fb8138dd842e67a5e73c7b48b847eb00a2dfc20e1e2e8259d3949ca3a05ce2de"
+      ],
+      "source_verification": {
+        "repository": "/workspace/t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "path": "game/modules/tome/data/timed_effects/other.lua",
+        "lines": "1523-1550",
+        "method": "git show only",
+        "status": "passed"
+      },
+      "change": {
+        "before": "#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。",
+        "after": "#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击施加者（若来源不是生物，则改为攻击半径 10 内的一个随机敌人），造成 %d 精神和 %d 暗影伤害。",
+        "placeholder_order_preserved": true,
+        "markup_order_preserved": true,
+        "lf_tab_structure_preserved": true
+      },
+      "validation": [
+        {
+          "command": "python3 -B -c '<inline LocaleLoader baseline/worktree and WORKSET exact-diff assertions>'",
+          "exit_code": 0,
+          "result": {
+            "runtime": "manifest LuaJIT via LocaleLoader",
+            "baseline": "7264886e652b9254ea26afc20bac4e3ed64f1e05",
+            "total_changed_targets": 18,
+            "files": {
+              "mod-tome.lua": {
+                "loaded_records": 21688,
+                "changed_targets": 16,
+                "unchanged_records": 21672
+              },
+              "tome-orcs.lua": {
+                "loaded_records": 3904,
+                "changed_targets": 2,
+                "unchanged_records": 3902
+              }
+            },
+            "workset_exact": true,
+            "non_target_fields_unchanged": true
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 5,
+          "result": {
+            "translations_checked": 30308,
+            "errors": 1,
+            "warnings": 0,
+            "error": "runtime-collision at mod-tome.lua:39771 between mod-tome/data/zones/shertul-fortress/grids.lua and excluded mod-tome/data/zones/shertul-fortress-caldizar/grids.lua",
+            "report": ".artifacts/i18n/runs/20260929T043258.795838Z-1190452-lint/lint.json",
+            "disposition": "expected host synchronization only; outside this EXECUTOR repair scope"
+          }
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    },
+    {
+      "cycle": 2,
+      "round": 3,
+      "stage": "FINAL_REVIEW",
+      "adjudication": ".ai/task/repair-w53-20260929/ADJUDICATION-F2.json",
+      "confirmed_revision_keys": [
+        "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0"
+      ],
+      "source_verification": {
+        "repository": "/workspace/t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "path": "game/modules/tome/data/lore/misc.lua",
+        "lines": "483-491",
+        "method": "git show only",
+        "status": "passed"
+      },
+      "changes": [
+        {
+          "index": 1,
+          "before": "事实上，相关的文献很多，但有事实根据的很少，所以有关该种族的信息也较少。",
+          "after": "事实上，相关的文献很多，但确凿的事实很少，因为人们对这个堪称文明熔炉的古老种族所知甚少。"
+        },
+        {
+          "index": 2,
+          "before": "最权威的研究是基于知名探险家和考古学家达沃德·欧卡顿的发现，但遗憾的是，截至本文写就之时，他已失踪好几个月了。",
+          "after": "这一领域最博学、最求实的学者是知名探险家和考古学家达沃德·欧卡顿，但遗憾的是，截至本文写就之时，他已失踪好几个月了。"
+        },
+        {
+          "index": 3,
+          "before": "在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索",
+          "after": "在马基·埃亚尔各地都发现了夏·图尔奇幻建筑的废墟"
+        },
+        {
+          "index": 4,
+          "before": "仍远远超出我们能够理解的范围",
+          "after": "仍远远超出当代最伟大的头脑所能理解的范围"
+        },
+        {
+          "index": 5,
+          "before": "至今无人敢碰",
+          "after": "至今无人触碰"
+        },
+        {
+          "index": 6,
+          "before": "但是对夏·图尔文明的深入研究仍有着非常重要的价值和意义。",
+          "after": "但对他们所留遗物的持续研究与考察，仍在不断带来巨大的价值与启发。"
+        }
+      ],
+      "invariants": {
+        "prior_round_nearshore_sentence_preserved": true,
+        "prior_round_civil_strife_sentence_preserved": true,
+        "paragraph_count_preserved": true,
+        "lf_count": 8,
+        "tab_layout_preserved": true,
+        "placeholder_order_preserved": true,
+        "markup_order_preserved": true
+      },
+      "validation": [
+        {
+          "command": "python3 -B -c '<inline LocaleLoader baseline/worktree, WORKSET exact-diff, and confirmed-target assertions>'",
+          "exit_code": 0,
+          "result": {
+            "runtime": "manifest LuaJIT via LocaleLoader",
+            "baseline": "7264886e652b9254ea26afc20bac4e3ed64f1e05",
+            "total_changed_targets": 18,
+            "files": {
+              "mod-tome.lua": {
+                "loaded_records": 21688,
+                "changed_targets": 16,
+                "unchanged_records": 21672
+              },
+              "tome-orcs.lua": {
+                "loaded_records": 3904,
+                "changed_targets": 2,
+                "unchanged_records": 3902
+              }
+            },
+            "workset_exact": true,
+            "non_target_fields_unchanged": true,
+            "six_replacements_present": true,
+            "prior_round_sentences_preserved": true,
+            "lf_count": 8,
+            "tab_layout_preserved": true
+          }
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 5,
+          "result": {
+            "translations_checked": 30308,
+            "errors": 1,
+            "warnings": 0,
+            "error": "runtime-collision at mod-tome.lua:39771 between mod-tome/data/zones/shertul-fortress/grids.lua and excluded mod-tome/data/zones/shertul-fortress-caldizar/grids.lua",
+            "report": ".artifacts/i18n/runs/20260929T044437.461115Z-1212125-lint/lint.json",
+            "disposition": "expected host synchronization only; outside this EXECUTOR repair scope"
+          }
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No stage, commit, push, agent creation, or .ai/task modification was performed.",
+    "Independent review, host sibling synchronization, full 17-gate validation, build, DONE_VERIFIED, and publication remain host responsibilities."
+  ]
+}

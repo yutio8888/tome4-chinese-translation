@@ -1,0 +1,20 @@
+{
+ "cycle": 1,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r1a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 17,
+ "raw_issue_count": 1,
+ "decision": "one tier-1 runtime finding confirmed (English text contradicts the implementation; same code-over-English rule as 07c8b41ef0 in R0); fix in execute-03, then RE_REVIEW(2,1).",
+ "findings": [
+  {
+   "revision_key": "fb8138dd842e67a5e73c7b48b847eb00a2dfc20e1e2e8259d3949ca3a05ce2de",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "runtime",
+   "origin": "reviewer r1a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1523-1550（CURSE_OF_NIGHTMARES 强度 3 Harrow）：有负面效果施加时，若 p.src 是生物（p.src.__is_actor），直接对来源者造成精神与暗影伤害；只有来源不是生物时，才在半径 10 内随机挑一个敌人。英文 “retaliates against a random foe in range 10” 与实现不符，现译照英文写“对 10 范围内的一个随机敌人进行报复”，同样与机制不符（源码为准）。只改强度 3+ 这一句的对象部分，改为“折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击施加者（若来源不是生物，则改为攻击半径 10 内的一个随机敌人），造成 %d 精神和 %d 暗影伤害。”，保留 #CRIMSON#、%s 与占位符顺序，其余各行不变。"
+  }
+ ],
+ "advisories": []
+}

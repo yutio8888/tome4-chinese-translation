@@ -1,0 +1,28 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 16,
+ "raw_issue_count": 2,
+ "decision": "two findings confirmed; merge into execute-02, then RE_REVIEW(1,1). 07c8b41ef0 reverses the batch-364 claim (implementation requires a sling); eed96b47b1 is a same-entry sentence left out of the claim.",
+ "findings": [
+  {
+   "revision_key": "07c8b41ef059881216cbea46e8cb9665a7b92e22949afb826cc6574010b03002",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "runtime",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/talents/techniques/agility.lua:249-305（Rapid Shot）：表构造里 on_pre_use 定义了两次，:258 为 archerPreUse(self,t,silent)，:262-265 为 archerPreUse(self,t,silent,\"sling\")，Lua 表构造中后者覆盖前者；info 末句也写 Requires a sling to use.。实际只能用投石索，本句英文 “without a bow or sling” 与实现矛盾（源文可能与实现矛盾，按实现为准）。第364批据英文确认加“弓”属误判，本窗 execute-01 的“弓或投石索”与机制不符。改为“你需要装备投石索才能使用速射姿态！”（保留技能正式名，恢复只需投石索）。"
+  },
+  {
+   "revision_key": "eed96b47b1f76cf0034b56d64e6d69553456debae545d8c45da95f056e662bf0",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/lore/misc.lua:483-491（夏·图尔 lore 末段）“The most popular in academic circles at the moment is that their mighty magics were their undoing, turned upon their own people during some great civil strife.”：现译“在学界最流行的说法是他们强大的魔法毁灭了自己，内战使他们消弭在历史中”漏掉“魔法在某场大规模内乱中被用来对付本族人”这一因果，还把内战说成独立原因。只改该句为“目前在学界最流行的说法是，他们强大的魔法毁了他们自己：在某场大规模内乱中，这些魔法被用来对付本族人。”，其余不变。"
+  }
+ ],
+ "advisories": []
+}

@@ -1,0 +1,20 @@
+第 2 轮修复已完成。
+
+- 修改：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:36570)
+- 实施记录：[IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-53-20260929/IMPLEMENTATION.md:112)
+- 验证记录：[VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-53-20260929/VALIDATION.json:167)
+
+前：
+> 折磨：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复……
+
+后：
+> 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击施加者（若来源不是生物，则改为攻击半径 10 内的一个随机敌人）……
+
+验证结果：
+
+- 固定源码 `624a673…:timed_effects/other.lua:1523-1550` 核验通过。
+- LuaJIT/LocaleLoader：仍恰有 18 个冻结 target 变化；`mod-tome.lua` 16 条、`tome-orcs.lua` 2 条；非 target 字段不变。
+- `git diff --check`：退出码 0。
+- strict lint：退出码 5，30308 条中仅有预期的 caldizar 同源 farportal `runtime-collision`，无其他错误或警告。
+- Evidence JSON 校验及两份未跟踪 evidence 的空白检查通过。
+- 未修改术语库、`.ai/task` 或其余 target；未 stage、commit、push、创建 agent。
