@@ -765,9 +765,10 @@ class Journal:
 NATIVE_MAX_BYTES = 16 * 1024 * 1024
 NATIVE_MAX_LINES = 10000
 # Record dialects verified against real archived sessions; any other version fails closed.
-# 0.156.0 / 2.1.280 verified on batch 254 (four Codex surface lanes, one Claude contextual).
+# 0.156.0 / 2.1.280 verified on batch 254 (four Codex surface lanes, one Claude contextual);
+# 2.1.284 verified on batch 369 (two archived Claude contextual sessions, each ending in cost-state).
 CODEX_NATIVE_VERSIONS = ('0.153.0', '0.156.0')
-CLAUDE_NATIVE_VERSIONS = ('2.1.259', '2.1.280')
+CLAUDE_NATIVE_VERSIONS = ('2.1.259', '2.1.280', '2.1.284')
 
 
 def native_identity(s, *, required=True):

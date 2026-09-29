@@ -951,7 +951,7 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
             rows[0]['payload']['cli_version'] = version
             with self.subTest(codex=version), self.assertRaises(life.LifecycleError):
                 self.parse_native('codex', rows)
-        for version in ('2.1.260', '2.1.281', ['2.1.280']):
+        for version in ('2.1.260', '2.1.281', '2.1.283', '2.1.285', ['2.1.280']):
             rows = self.native_records('claude', '{}')
             for r in rows:
                 if 'version' in r: r['version'] = version
